@@ -70,12 +70,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__cxx11::basic_stringbuf" = type { %"class.std::basic_streambuf", i32, %"class.std::__cxx11::basic_string" }
 %"class.std::basic_streambuf" = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, %"class.std::locale" }
 %"class.PXR_INTERNAL_NS_pegtl::internal::marker.16" = type { %"struct.PXR_INTERNAL_NS_pegtl::internal::iterator", ptr }
-%"class.std::unique_ptr.26" = type { %"struct.std::__uniq_ptr_data.27" }
-%"struct.std::__uniq_ptr_data.27" = type { %"class.std::__uniq_ptr_impl.28" }
-%"class.std::__uniq_ptr_impl.28" = type { %"class.std::tuple.29" }
-%"class.std::tuple.29" = type { %"struct.std::_Tuple_impl.30" }
-%"struct.std::_Tuple_impl.30" = type { %"struct.std::_Head_base.33" }
-%"struct.std::_Head_base.33" = type { ptr }
 %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_VariableExpressionImpl::StringNode::Part" = type <{ %"class.std::__cxx11::basic_string", i8, [7 x i8] }>
 %"class.PXR_INTERNAL_NS_pegtl::internal::action_input" = type { %"struct.PXR_INTERNAL_NS_pegtl::internal::iterator", ptr }
 %struct._Guard = type { ptr }
@@ -879,7 +873,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i.i.i.i.i: ; p
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %80, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i.i.i.i.i
   store ptr %74, ptr %35, align 8
   store ptr %79, ptr %36, align 8
-  %81 = getelementptr inbounds nuw i64, ptr %74, i64 %72
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %72
   store ptr %81, ptr %55, align 8
   br label %_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS3_10ExpressionEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_.exit.i.i.i.i.i
 
@@ -991,7 +985,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i.i.i.i.i.i.i.
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %125, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   store ptr %119, ptr %35, align 8
   store ptr %124, ptr %36, align 8
-  %126 = getelementptr inbounds nuw i64, ptr %119, i64 %117
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %119, i64 %117
   store ptr %126, ptr %55, align 8
   br label %_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS3_15ExpressionStartEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
@@ -1318,7 +1312,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i.i.i.i.i.i.i5
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i.i.i.i.i.i.i.i.i56.i.i.i.i.i.i.i.i: ; preds = %250, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i.i.i.i.i.i.i54.i.i.i.i.i.i.i.i
   store ptr %244, ptr %35, align 8
   store ptr %249, ptr %36, align 8
-  %251 = getelementptr inbounds nuw i64, ptr %244, i64 %242
+  %251 = getelementptr inbounds nuw [8 x i8], ptr %244, i64 %242
   store ptr %251, ptr %55, align 8
   br label %_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS3_14ExpressionBodyEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
@@ -1781,7 +1775,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i.i.i.i.i.i.i1
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i.i.i.i.i.i.i.i.i108.i.i.i.i.i.i.i.i: ; preds = %399, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i.i.i.i.i.i.i106.i.i.i.i.i.i.i.i
   store ptr %393, ptr %35, align 8
   store ptr %398, ptr %36, align 8
-  %400 = getelementptr inbounds nuw i64, ptr %393, i64 %391
+  %400 = getelementptr inbounds nuw [8 x i8], ptr %393, i64 %391
   store ptr %400, ptr %55, align 8
   br label %_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS3_13ExpressionEndEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
@@ -2620,7 +2614,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113ParserContextD2Ev.exit: ; p
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ESt16initializer_listIS5_ERKS6_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, ptr noundef nonnull align 1 dereferenceable(1) %3) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  %5 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %1, i64 %2
+  %5 = getelementptr inbounds [32 x i8], ptr %1, i64 %2
   invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE19_M_range_initializeIPKS5_EEvT_SB_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, ptr noundef %5)
           to label %6 unwind label %7
 
@@ -3707,7 +3701,7 @@ _ZNSt6vectorIN21PXR_INTERNAL_NS_pegtl8positionESaIS1_EE11_S_relocateEPS1_S4_S4_R
 _ZNSt12_Vector_baseIN21PXR_INTERNAL_NS_pegtl8positionESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN21PXR_INTERNAL_NS_pegtl8positionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22, %55
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8
-  %59 = getelementptr inbounds nuw %"struct.PXR_INTERNAL_NS_pegtl::position", ptr %20, i64 %16
+  %59 = getelementptr inbounds nuw [56 x i8], ptr %20, i64 %16
   store ptr %59, ptr %54, align 8
   ret void
 }
@@ -5713,7 +5707,7 @@ _ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111N
 _ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111NodeCreatorESt14default_deleteIS3_EESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i.i.i.i: ; preds = %48, %_ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111NodeCreatorESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit27.i.i.i.i.i.i
   store ptr %42, ptr %2, align 8
   store ptr %47, ptr %12, align 8
-  %52 = getelementptr inbounds nuw %"class.std::unique_ptr.26", ptr %42, i64 %40
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %40
   store ptr %52, ptr %23, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113ParserContext15PushNodeCreatorINS0_19VariableNodeCreatorEJEEEPT_DpRKT0_.exit.i.i
 
@@ -5923,7 +5917,7 @@ _ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111N
 _ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111NodeCreatorESt14default_deleteIS3_EESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i.i: ; preds = %36, %_ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111NodeCreatorESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit27.i.i.i.i
   store ptr %30, ptr %0, align 8
   store ptr %35, ptr %2, align 8
-  %40 = getelementptr inbounds nuw %"class.std::unique_ptr.26", ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %28
   store ptr %40, ptr %12, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113ParserContext15PushNodeCreatorINS0_17StringNodeCreatorEJEEEPT_DpRKT0_.exit
 
@@ -6375,7 +6369,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExpressionImpl10St
 _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExpressionImpl10StringNode4PartESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExpressionImpl10StringNode4PartESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22, %40
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8
-  %44 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_VariableExpressionImpl::StringNode::Part", ptr %20, i64 %16
+  %44 = getelementptr inbounds nuw [40 x i8], ptr %20, i64 %16
   store ptr %44, ptr %39, align 8
   ret void
 }
@@ -6707,7 +6701,7 @@ _ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111N
 _ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111NodeCreatorESt14default_deleteIS3_EESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i.i.i.i: ; preds = %68, %_ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111NodeCreatorESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit27.i.i.i.i.i.i
   store ptr %62, ptr %2, align 8
   store ptr %67, ptr %35, align 8
-  %72 = getelementptr inbounds nuw %"class.std::unique_ptr.26", ptr %62, i64 %60
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %60
   store ptr %72, ptr %44, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113ParserContext15PushNodeCreatorINS0_19ConstantNodeCreatorIlEEJEEEPT_DpRKT0_.exit.i.i
 
@@ -6936,7 +6930,7 @@ _ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111N
 _ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111NodeCreatorESt14default_deleteIS3_EESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i.i: ; preds = %35, %_ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111NodeCreatorESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit27.i.i.i.i
   store ptr %29, ptr %0, align 8
   store ptr %34, ptr %2, align 8
-  %39 = getelementptr inbounds nuw %"class.std::unique_ptr.26", ptr %29, i64 %27
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %27
   store ptr %39, ptr %11, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113ParserContext15PushNodeCreatorINS0_19ConstantNodeCreatorIbEEJEEEPT_DpRKT0_.exit
 
@@ -7089,7 +7083,7 @@ _ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111N
 _ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111NodeCreatorESt14default_deleteIS3_EESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i.i.i.i: ; preds = %35, %_ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111NodeCreatorESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit27.i.i.i.i.i.i
   store ptr %29, ptr %0, align 8
   store ptr %34, ptr %2, align 8
-  %39 = getelementptr inbounds nuw %"class.std::unique_ptr.26", ptr %29, i64 %27
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %27
   store ptr %39, ptr %11, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ActionINS0_4NoneEE5applyIN21PXR_INTERNAL_NS_pegtl8internal12action_inputINS5_12memory_inputILNS5_13tracking_modeE0ENS5_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEEEvRKT_RNS0_13ParserContextE.exit
 
@@ -7262,7 +7256,7 @@ _ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111N
 _ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111NodeCreatorESt14default_deleteIS3_EESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i.i.i: ; preds = %44, %_ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111NodeCreatorESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit27.i.i.i.i.i
   store ptr %38, ptr %2, align 8
   store ptr %43, ptr %17, align 8
-  %48 = getelementptr inbounds nuw %"class.std::unique_ptr.26", ptr %38, i64 %36
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %36
   store ptr %48, ptr %19, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ActionINS0_12FunctionNameEE5applyIN21PXR_INTERNAL_NS_pegtl8internal12action_inputINS5_12memory_inputILNS5_13tracking_modeE0ENS5_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEEEvRKT_RNS0_13ParserContextE.exit
 
@@ -8366,7 +8360,7 @@ _ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExp
 _ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExpressionImpl4NodeESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit.i: ; preds = %61, %_ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExpressionImpl4NodeESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i.i
   store ptr %55, ptr %35, align 8
   store ptr %60, ptr %36, align 8
-  %65 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %55, i64 %53
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %53
   store ptr %65, ptr %38, align 8
   %.pr.i = load ptr, ptr %5, align 8
   %.not.i16.i = icmp eq ptr %.pr.i, null
@@ -8599,7 +8593,7 @@ _ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111N
 _ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111NodeCreatorESt14default_deleteIS3_EESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i.i.i: ; preds = %31, %_ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111NodeCreatorESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit27.i.i.i.i.i
   store ptr %25, ptr %0, align 8
   store ptr %30, ptr %4, align 8
-  %35 = getelementptr inbounds nuw %"class.std::unique_ptr.26", ptr %25, i64 %23
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %23
   store ptr %35, ptr %6, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ActionINS0_9ListStartEE5applyIN21PXR_INTERNAL_NS_pegtl8internal12action_inputINS5_12memory_inputILNS5_13tracking_modeE0ENS5_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEEEvRKT_RNS0_13ParserContextE.exit
 
@@ -9064,7 +9058,7 @@ _ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExp
 _ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExpressionImpl4NodeESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit.i: ; preds = %61, %_ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExpressionImpl4NodeESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i.i
   store ptr %55, ptr %35, align 8
   store ptr %60, ptr %36, align 8
-  %65 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %55, i64 %53
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %53
   store ptr %65, ptr %38, align 8
   %.pr.i = load ptr, ptr %5, align 8
   %.not.i16.i = icmp eq ptr %.pr.i, null
@@ -10414,7 +10408,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i: ; preds = %51
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i.i: ; preds = %53, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i
   store ptr %47, ptr %8, align 8
   store ptr %52, ptr %9, align 8
-  %54 = getelementptr inbounds nuw i64, ptr %47, i64 %45
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %45
   store ptr %54, ptr %28, align 8
   br label %_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS3_16ScalarExpressionEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_.exit
 
@@ -10843,7 +10837,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i: ; preds = %
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i.i.i: ; preds = %57, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i
   store ptr %51, ptr %12, align 8
   store ptr %56, ptr %13, align 8
-  %58 = getelementptr inbounds nuw i64, ptr %51, i64 %49
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %49
   store ptr %58, ptr %32, align 8
   br label %_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS3_8VariableEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_.exit.i
 
@@ -11009,7 +11003,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i.i.i.i.i.i.i.
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %122, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   store ptr %116, ptr %12, align 8
   store ptr %121, ptr %13, align 8
-  %123 = getelementptr inbounds nuw i64, ptr %116, i64 %114
+  %123 = getelementptr inbounds nuw [8 x i8], ptr %116, i64 %114
   store ptr %123, ptr %32, align 8
   br label %_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS3_12VariableNameINS3_8VariableEEEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
@@ -11582,7 +11576,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i: ; preds = %
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i.i.i: ; preds = %71, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i
   store ptr %65, ptr %26, align 8
   store ptr %70, ptr %27, align 8
-  %72 = getelementptr inbounds nuw i64, ptr %65, i64 %63
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %63
   store ptr %72, ptr %46, align 8
   br label %_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS3_12QuotedStringILc34EEEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_.exit.i
 
@@ -11701,7 +11695,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i.i.i.i.i.i: ;
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %117, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i.i.i.i.i.i
   store ptr %111, ptr %26, align 8
   store ptr %116, ptr %27, align 8
-  %118 = getelementptr inbounds nuw i64, ptr %111, i64 %109
+  %118 = getelementptr inbounds nuw [8 x i8], ptr %111, i64 %109
   store ptr %118, ptr %46, align 8
   br label %_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS3_17QuotedStringStartILc34EEEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_.exit.i.i.i.i.i.i
 
@@ -12066,7 +12060,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i.i.i.i.i.i.i.
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %258, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   store ptr %252, ptr %26, align 8
   store ptr %257, ptr %27, align 8
-  %259 = getelementptr inbounds nuw i64, ptr %252, i64 %250
+  %259 = getelementptr inbounds nuw [8 x i8], ptr %252, i64 %250
   store ptr %259, ptr %46, align 8
   br label %_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS3_16QuotedStringBodyILc34EEEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
@@ -12215,7 +12209,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i.i.i.i.i.i.i.
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %322, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   store ptr %316, ptr %26, align 8
   store ptr %321, ptr %27, align 8
-  %323 = getelementptr inbounds nuw i64, ptr %316, i64 %314
+  %323 = getelementptr inbounds nuw [8 x i8], ptr %316, i64 %314
   store ptr %323, ptr %46, align 8
   br label %_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS_3sorIJNS3_20QuotedStringVariableENS3_17QuotedStringCharsILc34EEEEEEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
@@ -12338,7 +12332,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i.i.i.i.i.i.i.
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %368, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   store ptr %362, ptr %26, align 8
   store ptr %367, ptr %27, align 8
-  %369 = getelementptr inbounds nuw i64, ptr %362, i64 %360
+  %369 = getelementptr inbounds nuw [8 x i8], ptr %362, i64 %360
   store ptr %369, ptr %46, align 8
   br label %_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS3_17QuotedStringCharsILc34EEEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
@@ -13301,7 +13295,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i.i.i.i.i.i.i3
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i.i.i.i.i.i.i.i.i39.i.i.i.i.i.i.i.i.i: ; preds = %647, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i.i.i.i.i.i.i37.i.i.i.i.i.i.i.i.i
   store ptr %641, ptr %26, align 8
   store ptr %646, ptr %27, align 8
-  %648 = getelementptr inbounds nuw i64, ptr %641, i64 %639
+  %648 = getelementptr inbounds nuw [8 x i8], ptr %641, i64 %639
   store ptr %648, ptr %46, align 8
   br label %_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS3_15QuotedStringEndILc34EEEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
@@ -13763,7 +13757,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i: ; preds = %
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i.i.i: ; preds = %71, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i
   store ptr %65, ptr %26, align 8
   store ptr %70, ptr %27, align 8
-  %72 = getelementptr inbounds nuw i64, ptr %65, i64 %63
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %63
   store ptr %72, ptr %46, align 8
   br label %_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS3_12QuotedStringILc39EEEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_.exit.i
 
@@ -13882,7 +13876,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i.i.i.i.i.i: ;
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %117, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i.i.i.i.i.i
   store ptr %111, ptr %26, align 8
   store ptr %116, ptr %27, align 8
-  %118 = getelementptr inbounds nuw i64, ptr %111, i64 %109
+  %118 = getelementptr inbounds nuw [8 x i8], ptr %111, i64 %109
   store ptr %118, ptr %46, align 8
   br label %_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS3_17QuotedStringStartILc39EEEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_.exit.i.i.i.i.i.i
 
@@ -14247,7 +14241,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i.i.i.i.i.i.i.
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %258, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   store ptr %252, ptr %26, align 8
   store ptr %257, ptr %27, align 8
-  %259 = getelementptr inbounds nuw i64, ptr %252, i64 %250
+  %259 = getelementptr inbounds nuw [8 x i8], ptr %252, i64 %250
   store ptr %259, ptr %46, align 8
   br label %_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS3_16QuotedStringBodyILc39EEEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
@@ -14396,7 +14390,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i.i.i.i.i.i.i.
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %322, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   store ptr %316, ptr %26, align 8
   store ptr %321, ptr %27, align 8
-  %323 = getelementptr inbounds nuw i64, ptr %316, i64 %314
+  %323 = getelementptr inbounds nuw [8 x i8], ptr %316, i64 %314
   store ptr %323, ptr %46, align 8
   br label %_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS_3sorIJNS3_20QuotedStringVariableENS3_17QuotedStringCharsILc39EEEEEEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
@@ -14519,7 +14513,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i.i.i.i.i.i.i.
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %368, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   store ptr %362, ptr %26, align 8
   store ptr %367, ptr %27, align 8
-  %369 = getelementptr inbounds nuw i64, ptr %362, i64 %360
+  %369 = getelementptr inbounds nuw [8 x i8], ptr %362, i64 %360
   store ptr %369, ptr %46, align 8
   br label %_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS3_17QuotedStringCharsILc39EEEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
@@ -15482,7 +15476,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i.i.i.i.i.i.i3
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i.i.i.i.i.i.i.i.i39.i.i.i.i.i.i.i.i.i: ; preds = %647, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i.i.i.i.i.i.i37.i.i.i.i.i.i.i.i.i
   store ptr %641, ptr %26, align 8
   store ptr %646, ptr %27, align 8
-  %648 = getelementptr inbounds nuw i64, ptr %641, i64 %639
+  %648 = getelementptr inbounds nuw [8 x i8], ptr %641, i64 %639
   store ptr %648, ptr %46, align 8
   br label %_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS3_15QuotedStringEndILc39EEEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
@@ -15964,7 +15958,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i: ; preds = %
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i.i.i: ; preds = %64, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i
   store ptr %58, ptr %19, align 8
   store ptr %63, ptr %20, align 8
-  %65 = getelementptr inbounds nuw i64, ptr %58, i64 %56
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %56
   store ptr %65, ptr %39, align 8
   br label %_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS3_7IntegerEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_.exit.i
 
@@ -16073,7 +16067,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i.i.i.i.i.i: ;
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %108, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i.i.i.i.i.i
   store ptr %102, ptr %19, align 8
   store ptr %107, ptr %20, align 8
-  %109 = getelementptr inbounds nuw i64, ptr %102, i64 %100
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %102, i64 %100
   store ptr %109, ptr %39, align 8
   br label %_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS_3optIJNS_5ascii3oneIJLc45EEEEEEEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENS8_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_.exit.i.i.i.i.i.i
 
@@ -16189,7 +16183,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i.i.i.i.i.i.i.
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %153, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   store ptr %147, ptr %19, align 8
   store ptr %152, ptr %20, align 8
-  %154 = getelementptr inbounds nuw i64, ptr %147, i64 %145
+  %154 = getelementptr inbounds nuw [8 x i8], ptr %147, i64 %145
   store ptr %154, ptr %39, align 8
   br label %_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS_5ascii3oneIJLc45EEEEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENS7_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_.exit.i.i.i.i.i.i.i.i.i.i.i
 
@@ -16627,7 +16621,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i.i37.i.i.i.i:
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i.i.i.i39.i.i.i.i: ; preds = %318, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i.i37.i.i.i.i
   store ptr %312, ptr %19, align 8
   store ptr %317, ptr %20, align 8
-  %319 = getelementptr inbounds nuw i64, ptr %312, i64 %310
+  %319 = getelementptr inbounds nuw [8 x i8], ptr %312, i64 %310
   store ptr %319, ptr %39, align 8
   br label %_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS_4plusINS_5ascii5digitEJEEEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENS8_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_.exit.i.i.i.i.i.i
 
@@ -17385,7 +17379,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i: ; preds = %
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i.i.i: ; preds = %60, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i
   store ptr %54, ptr %15, align 8
   store ptr %59, ptr %16, align 8
-  %61 = getelementptr inbounds nuw i64, ptr %54, i64 %52
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %52
   store ptr %61, ptr %35, align 8
   br label %_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS3_4NoneEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_.exit.i
 
@@ -17494,7 +17488,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i.i.i.i.i.i.i:
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %104, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i.i.i.i.i.i.i
   store ptr %98, ptr %15, align 8
   store ptr %103, ptr %16, align 8
-  %105 = getelementptr inbounds nuw i64, ptr %98, i64 %96
+  %105 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %96
   store ptr %105, ptr %35, align 8
   br label %_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS_5ascii7keywordIJLc78ELc111ELc110ELc101EEEEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENS7_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_.exit.i.i.i.i.i.i.i
 
@@ -17860,7 +17854,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i.i20.i.i.i.i.
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i.i.i.i22.i.i.i.i.i: ; preds = %247, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i.i20.i.i.i.i.i
   store ptr %241, ptr %15, align 8
   store ptr %246, ptr %16, align 8
-  %248 = getelementptr inbounds nuw i64, ptr %241, i64 %239
+  %248 = getelementptr inbounds nuw [8 x i8], ptr %241, i64 %239
   store ptr %248, ptr %35, align 8
   br label %_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS_5ascii7keywordIJLc110ELc111ELc110ELc101EEEEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENS7_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_.exit.i.i.i.i.i.i.i
 
@@ -18680,7 +18674,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i: ; preds = %46, 
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i: ; preds = %48, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i
   store ptr %42, ptr %3, align 8
   store ptr %47, ptr %4, align 8
-  %49 = getelementptr inbounds nuw i64, ptr %42, i64 %40
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %40
   store ptr %49, ptr %23, align 8
   br label %_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS3_13VariableStartEEENS_8internal12rotate_rightILm1EEEE10start_implINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt5tupleIJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEJLm0ELm1EEEEvRKT_RKT0_St16integer_sequenceImJXspT1_EEE.exit
 
@@ -18910,7 +18904,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i.i.i.i.i.i: ;
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %51, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i.i.i.i.i.i
   store ptr %45, ptr %6, align 8
   store ptr %50, ptr %7, align 8
-  %52 = getelementptr inbounds nuw i64, ptr %45, i64 %43
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %43
   store ptr %52, ptr %26, align 8
   br label %_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS3_11VariableEndEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_.exit.i.i.i.i.i.i
 
@@ -19628,7 +19622,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i: ; preds = %
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i.i.i: ; preds = %57, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i
   store ptr %51, ptr %12, align 8
   store ptr %56, ptr %13, align 8
-  %58 = getelementptr inbounds nuw i64, ptr %51, i64 %49
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %49
   store ptr %58, ptr %32, align 8
   br label %_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS3_20QuotedStringVariableEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_.exit.i
 
@@ -19794,7 +19788,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i.i.i.i.i.i.i.
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %122, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   store ptr %116, ptr %12, align 8
   store ptr %121, ptr %13, align 8
-  %123 = getelementptr inbounds nuw i64, ptr %116, i64 %114
+  %123 = getelementptr inbounds nuw [8 x i8], ptr %116, i64 %114
   store ptr %123, ptr %32, align 8
   br label %_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS3_12VariableNameINS3_20QuotedStringVariableEEEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
@@ -20643,7 +20637,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i: ; preds = %46, 
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i: ; preds = %48, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i
   store ptr %42, ptr %3, align 8
   store ptr %47, ptr %4, align 8
-  %49 = getelementptr inbounds nuw i64, ptr %42, i64 %40
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %40
   store ptr %49, ptr %23, align 8
   br label %_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS_3sorIJNS_3seqIJNS_5ascii3oneIJLc92EEEENS3_23QuotedStringEscapedCharILc34EEEEEENS8_IJNS_6not_atIJNS7_IJNS3_13VariableStartENSA_IJLc34EEEEEEEEEENS9_3anyEEEEEEEEENS_8internal12rotate_rightILm1EEEE10start_implINS_12memory_inputILNS_13tracking_modeE0ENS9_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt5tupleIJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEJLm0ELm1EEEEvRKT_RKT0_St16integer_sequenceImJXspT1_EEE.exit
 
@@ -20833,7 +20827,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i: ; preds = %
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i.i.i: ; preds = %55, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i
   store ptr %49, ptr %10, align 8
   store ptr %54, ptr %11, align 8
-  %56 = getelementptr inbounds nuw i64, ptr %49, i64 %47
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %47
   store ptr %56, ptr %30, align 8
   br label %_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS_3seqIJNS_5ascii3oneIJLc92EEEENS3_23QuotedStringEscapedCharILc34EEEEEEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENS8_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_.exit.i
 
@@ -20959,7 +20953,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i.i.i.i.i.i: ;
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %104, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i.i.i.i.i.i
   store ptr %98, ptr %10, align 8
   store ptr %103, ptr %11, align 8
-  %105 = getelementptr inbounds nuw i64, ptr %98, i64 %96
+  %105 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %96
   store ptr %105, ptr %30, align 8
   br label %_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS3_23QuotedStringEscapedCharILc34EEEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_.exit.i.i.i.i.i.i
 
@@ -21548,7 +21542,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i: ; preds = %
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i.i.i: ; preds = %51, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i
   store ptr %45, ptr %6, align 8
   store ptr %50, ptr %7, align 8
-  %52 = getelementptr inbounds nuw i64, ptr %45, i64 %43
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %43
   store ptr %52, ptr %26, align 8
   br label %_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS_5ascii3oneIJLc92EEEEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENS7_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_.exit.i
 
@@ -21789,7 +21783,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i: ; preds = %46, 
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i: ; preds = %48, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i
   store ptr %42, ptr %3, align 8
   store ptr %47, ptr %4, align 8
-  %49 = getelementptr inbounds nuw i64, ptr %42, i64 %40
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %40
   store ptr %49, ptr %23, align 8
   br label %_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS_3seqIJNS_6not_atIJNS_3sorIJNS3_13VariableStartENS_5ascii3oneIJLc34EEEEEEEEEENSB_3anyEEEEEENS_8internal12rotate_rightILm1EEEE10start_implINS_12memory_inputILNS_13tracking_modeE0ENSB_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt5tupleIJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEJLm0ELm1EEEEvRKT_RKT0_St16integer_sequenceImJXspT1_EEE.exit
 
@@ -22052,7 +22046,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i: ; preds = %
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i.i.i: ; preds = %59, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i
   store ptr %53, ptr %14, align 8
   store ptr %58, ptr %15, align 8
-  %60 = getelementptr inbounds nuw i64, ptr %53, i64 %51
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %51
   store ptr %60, ptr %34, align 8
   br label %_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS_6not_atIJNS_3sorIJNS3_13VariableStartENS_5ascii3oneIJLc34EEEEEEEEEEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENSA_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_.exit.i
 
@@ -22171,7 +22165,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i.i.i.i.i.i: ;
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %105, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i.i.i.i.i.i
   store ptr %99, ptr %14, align 8
   store ptr %104, ptr %15, align 8
-  %106 = getelementptr inbounds nuw i64, ptr %99, i64 %97
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %99, i64 %97
   store ptr %106, ptr %34, align 8
   br label %_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS_3sorIJNS3_13VariableStartENS_5ascii3oneIJLc34EEEEEEEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENS9_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_.exit.i.i.i.i.i.i
 
@@ -22330,7 +22324,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i.i.i.i.i.i.i.
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %168, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   store ptr %162, ptr %14, align 8
   store ptr %167, ptr %15, align 8
-  %169 = getelementptr inbounds nuw i64, ptr %162, i64 %160
+  %169 = getelementptr inbounds nuw [8 x i8], ptr %162, i64 %160
   store ptr %169, ptr %34, align 8
   br label %_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS_5ascii3oneIJLc34EEEEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENS7_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
@@ -22999,7 +22993,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i: ; preds = %
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i.i.i: ; preds = %51, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i
   store ptr %45, ptr %6, align 8
   store ptr %50, ptr %7, align 8
-  %52 = getelementptr inbounds nuw i64, ptr %45, i64 %43
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %43
   store ptr %52, ptr %26, align 8
   br label %_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS_5ascii3anyEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENS7_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_.exit.i
 
@@ -24250,7 +24244,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i: ; preds = %46, 
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i: ; preds = %48, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i
   store ptr %42, ptr %3, align 8
   store ptr %47, ptr %4, align 8
-  %49 = getelementptr inbounds nuw i64, ptr %42, i64 %40
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %40
   store ptr %49, ptr %23, align 8
   br label %_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS_3sorIJNS_3seqIJNS_5ascii3oneIJLc92EEEENS3_23QuotedStringEscapedCharILc39EEEEEENS8_IJNS_6not_atIJNS7_IJNS3_13VariableStartENSA_IJLc39EEEEEEEEEENS9_3anyEEEEEEEEENS_8internal12rotate_rightILm1EEEE10start_implINS_12memory_inputILNS_13tracking_modeE0ENS9_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt5tupleIJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEJLm0ELm1EEEEvRKT_RKT0_St16integer_sequenceImJXspT1_EEE.exit
 
@@ -24440,7 +24434,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i: ; preds = %
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i.i.i: ; preds = %55, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i
   store ptr %49, ptr %10, align 8
   store ptr %54, ptr %11, align 8
-  %56 = getelementptr inbounds nuw i64, ptr %49, i64 %47
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %47
   store ptr %56, ptr %30, align 8
   br label %_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS_3seqIJNS_5ascii3oneIJLc92EEEENS3_23QuotedStringEscapedCharILc39EEEEEEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENS8_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_.exit.i
 
@@ -24566,7 +24560,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i.i.i.i.i.i: ;
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %104, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i.i.i.i.i.i
   store ptr %98, ptr %10, align 8
   store ptr %103, ptr %11, align 8
-  %105 = getelementptr inbounds nuw i64, ptr %98, i64 %96
+  %105 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %96
   store ptr %105, ptr %30, align 8
   br label %_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS3_23QuotedStringEscapedCharILc39EEEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_.exit.i.i.i.i.i.i
 
@@ -25153,7 +25147,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i: ; preds = %46, 
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i: ; preds = %48, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i
   store ptr %42, ptr %3, align 8
   store ptr %47, ptr %4, align 8
-  %49 = getelementptr inbounds nuw i64, ptr %42, i64 %40
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %40
   store ptr %49, ptr %23, align 8
   br label %_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS_3seqIJNS_6not_atIJNS_3sorIJNS3_13VariableStartENS_5ascii3oneIJLc39EEEEEEEEEENSB_3anyEEEEEENS_8internal12rotate_rightILm1EEEE10start_implINS_12memory_inputILNS_13tracking_modeE0ENSB_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt5tupleIJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEJLm0ELm1EEEEvRKT_RKT0_St16integer_sequenceImJXspT1_EEE.exit
 
@@ -25416,7 +25410,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i: ; preds = %
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i.i.i: ; preds = %59, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i
   store ptr %53, ptr %14, align 8
   store ptr %58, ptr %15, align 8
-  %60 = getelementptr inbounds nuw i64, ptr %53, i64 %51
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %51
   store ptr %60, ptr %34, align 8
   br label %_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS_6not_atIJNS_3sorIJNS3_13VariableStartENS_5ascii3oneIJLc39EEEEEEEEEEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENSA_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_.exit.i
 
@@ -25535,7 +25529,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i.i.i.i.i.i: ;
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %105, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i.i.i.i.i.i
   store ptr %99, ptr %14, align 8
   store ptr %104, ptr %15, align 8
-  %106 = getelementptr inbounds nuw i64, ptr %99, i64 %97
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %99, i64 %97
   store ptr %106, ptr %34, align 8
   br label %_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS_3sorIJNS3_13VariableStartENS_5ascii3oneIJLc39EEEEEEEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENS9_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_.exit.i.i.i.i.i.i
 
@@ -25694,7 +25688,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i.i.i.i.i.i.i.
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %168, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   store ptr %162, ptr %14, align 8
   store ptr %167, ptr %15, align 8
-  %169 = getelementptr inbounds nuw i64, ptr %162, i64 %160
+  %169 = getelementptr inbounds nuw [8 x i8], ptr %162, i64 %160
   store ptr %169, ptr %34, align 8
   br label %_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS_5ascii3oneIJLc39EEEEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENS7_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
@@ -27233,7 +27227,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i: ; preds = %46, 
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i: ; preds = %48, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i
   store ptr %42, ptr %3, align 8
   store ptr %47, ptr %4, align 8
-  %49 = getelementptr inbounds nuw i64, ptr %42, i64 %40
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %40
   store ptr %49, ptr %23, align 8
   br label %_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS_5ascii5digitEEENS_8internal12rotate_rightILm1EEEE10start_implINS_12memory_inputILNS_13tracking_modeE0ENS7_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt5tupleIJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEJLm0ELm1EEEEvRKT_RKT0_St16integer_sequenceImJXspT1_EEE.exit
 
@@ -27417,7 +27411,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i: ; preds = %69
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i.i: ; preds = %71, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i
   store ptr %65, ptr %26, align 8
   store ptr %70, ptr %27, align 8
-  %72 = getelementptr inbounds nuw i64, ptr %65, i64 %63
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %63
   store ptr %72, ptr %46, align 8
   br label %_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS3_7BooleanEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_.exit
 
@@ -27536,7 +27530,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i.i.i.i.i.i: ;
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %117, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i.i.i.i.i.i
   store ptr %111, ptr %26, align 8
   store ptr %116, ptr %27, align 8
-  %118 = getelementptr inbounds nuw i64, ptr %111, i64 %109
+  %118 = getelementptr inbounds nuw [8 x i8], ptr %111, i64 %109
   store ptr %118, ptr %46, align 8
   br label %_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS3_11BooleanTrueEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_.exit.i.i.i.i.i.i
 
@@ -27645,7 +27639,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i.i.i.i.i.i.i.
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %161, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   store ptr %155, ptr %26, align 8
   store ptr %160, ptr %27, align 8
-  %162 = getelementptr inbounds nuw i64, ptr %155, i64 %153
+  %162 = getelementptr inbounds nuw [8 x i8], ptr %155, i64 %153
   store ptr %162, ptr %46, align 8
   br label %_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS_5ascii7keywordIJLc84ELc114ELc117ELc101EEEEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENS7_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
@@ -28011,7 +28005,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i.i20.i.i.i.i.
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i.i.i.i22.i.i.i.i.i.i.i.i.i.i: ; preds = %304, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i.i20.i.i.i.i.i.i.i.i.i.i
   store ptr %298, ptr %26, align 8
   store ptr %303, ptr %27, align 8
-  %305 = getelementptr inbounds nuw i64, ptr %298, i64 %296
+  %305 = getelementptr inbounds nuw [8 x i8], ptr %298, i64 %296
   store ptr %305, ptr %46, align 8
   br label %_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS_5ascii7keywordIJLc116ELc114ELc117ELc101EEEEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENS7_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
@@ -28623,7 +28617,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i.i166.i.i.i.i
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i.i.i.i168.i.i.i.i: ; preds = %526, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i.i166.i.i.i.i
   store ptr %520, ptr %26, align 8
   store ptr %525, ptr %27, align 8
-  %527 = getelementptr inbounds nuw i64, ptr %520, i64 %518
+  %527 = getelementptr inbounds nuw [8 x i8], ptr %520, i64 %518
   store ptr %527, ptr %46, align 8
   br label %_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS3_12BooleanFalseEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_.exit.i.i.i.i.i.i
 
@@ -28732,7 +28726,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i.i.i.i.i.i.i.
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i161.i.i.i.i: ; preds = %570, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i.i.i.i.i.i.i.i159.i.i.i.i
   store ptr %564, ptr %26, align 8
   store ptr %569, ptr %27, align 8
-  %571 = getelementptr inbounds nuw i64, ptr %564, i64 %562
+  %571 = getelementptr inbounds nuw [8 x i8], ptr %564, i64 %562
   store ptr %571, ptr %46, align 8
   br label %_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS_5ascii7keywordIJLc70ELc97ELc108ELc115ELc101EEEEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENS7_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
@@ -29091,7 +29085,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i.i20.i.i.i.i.
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i.i.i.i22.i.i.i.i.i.i133.i.i.i.i: ; preds = %705, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i.i20.i.i.i.i.i.i131.i.i.i.i
   store ptr %699, ptr %26, align 8
   store ptr %704, ptr %27, align 8
-  %706 = getelementptr inbounds nuw i64, ptr %699, i64 %697
+  %706 = getelementptr inbounds nuw [8 x i8], ptr %699, i64 %697
   store ptr %706, ptr %46, align 8
   br label %_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS_5ascii7keywordIJLc102ELc97ELc108ELc115ELc101EEEEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENS7_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
@@ -30311,7 +30305,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i: ; preds = %46, 
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i: ; preds = %48, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i
   store ptr %42, ptr %3, align 8
   store ptr %47, ptr %4, align 8
-  %49 = getelementptr inbounds nuw i64, ptr %42, i64 %40
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %40
   store ptr %49, ptr %23, align 8
   br label %_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS3_8FunctionEEENS_8internal12rotate_rightILm1EEEE10start_implINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt5tupleIJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEJLm0ELm1EEEEvRKT_RKT0_St16integer_sequenceImJXspT1_EEE.exit
 
@@ -30564,7 +30558,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i: ; preds = %46, 
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i: ; preds = %48, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i
   store ptr %42, ptr %3, align 8
   store ptr %47, ptr %4, align 8
-  %49 = getelementptr inbounds nuw i64, ptr %42, i64 %40
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %40
   store ptr %49, ptr %23, align 8
   br label %_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS_3seqIJNS3_12FunctionNameENS3_21FunctionArgumentStartEEEEEENS_8internal12rotate_rightILm1EEEE10start_implINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt5tupleIJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEJLm0ELm1EEEEvRKT_RKT0_St16integer_sequenceImJXspT1_EEE.exit
 
@@ -30852,7 +30846,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i: ; preds = %
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i.i.i: ; preds = %55, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i
   store ptr %49, ptr %10, align 8
   store ptr %54, ptr %11, align 8
-  %56 = getelementptr inbounds nuw i64, ptr %49, i64 %47
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %47
   store ptr %56, ptr %30, align 8
   br label %_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS3_12FunctionNameEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_.exit.i
 
@@ -31252,7 +31246,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i: ; preds = %
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i.i.i: ; preds = %55, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i
   store ptr %49, ptr %10, align 8
   store ptr %54, ptr %11, align 8
-  %56 = getelementptr inbounds nuw i64, ptr %49, i64 %47
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %47
   store ptr %56, ptr %30, align 8
   br label %_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS3_21FunctionArgumentStartEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_.exit.i
 
@@ -31378,7 +31372,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i.i.i.i.i.i: ;
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %102, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i.i.i.i.i.i
   store ptr %96, ptr %10, align 8
   store ptr %101, ptr %11, align 8
-  %103 = getelementptr inbounds nuw i64, ptr %96, i64 %94
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %96, i64 %94
   store ptr %103, ptr %30, align 8
   br label %_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS_5ascii3oneIJLc40EEEEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENS7_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_.exit.i.i.i.i.i.i
 
@@ -31973,7 +31967,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i: ; preds = %
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i.i.i: ; preds = %51, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i
   store ptr %45, ptr %6, align 8
   store ptr %50, ptr %7, align 8
-  %52 = getelementptr inbounds nuw i64, ptr %45, i64 %43
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %43
   store ptr %52, ptr %26, align 8
   br label %_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS_5ascii3oneIJLc32EEEEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENS7_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_.exit.i
 
@@ -32288,7 +32282,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i.i.i.i.i.i: ;
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %55, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i.i.i.i.i.i
   store ptr %49, ptr %10, align 8
   store ptr %54, ptr %11, align 8
-  %56 = getelementptr inbounds nuw i64, ptr %49, i64 %47
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %47
   store ptr %56, ptr %30, align 8
   br label %_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS3_19FunctionArgumentEndEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_.exit.i.i.i.i.i.i
 
@@ -32414,7 +32408,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i.i.i.i.i.i.i.
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %102, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   store ptr %96, ptr %10, align 8
   store ptr %101, ptr %11, align 8
-  %103 = getelementptr inbounds nuw i64, ptr %96, i64 %94
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %96, i64 %94
   store ptr %103, ptr %30, align 8
   br label %_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS_5ascii3oneIJLc41EEEEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENS7_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_.exit.i.i.i.i.i.i.i.i.i.i.i
 
@@ -32883,7 +32877,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i: ; preds = %53
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i.i: ; preds = %55, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i
   store ptr %49, ptr %10, align 8
   store ptr %54, ptr %11, align 8
-  %56 = getelementptr inbounds nuw i64, ptr %49, i64 %47
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %47
   store ptr %56, ptr %30, align 8
   br label %_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS3_17FunctionArgumentsEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_.exit
 
@@ -32999,7 +32993,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i.i: ; preds =
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i.i.i.i: ; preds = %100, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i.i
   store ptr %94, ptr %10, align 8
   store ptr %99, ptr %11, align 8
-  %101 = getelementptr inbounds nuw i64, ptr %94, i64 %92
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %92
   store ptr %101, ptr %30, align 8
   br label %_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS_4listINS3_23FunctionArgumentWrapperINS3_14ExpressionBodyEEENS_5ascii3oneIJLc44EEEENSC_IJLc32EEEEEEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENSB_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_.exit.i.i
 
@@ -33561,7 +33555,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i: ; preds = %
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i.i.i: ; preds = %52, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i
   store ptr %46, ptr %7, align 8
   store ptr %51, ptr %8, align 8
-  %53 = getelementptr inbounds nuw i64, ptr %46, i64 %44
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %44
   store ptr %53, ptr %27, align 8
   br label %_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS_4starINS_5ascii3oneIJLc32EEEEJEEEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENS8_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_.exit.i
 
@@ -33908,7 +33902,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i: ; preds = %55
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i.i: ; preds = %57, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i
   store ptr %51, ptr %12, align 8
   store ptr %56, ptr %13, align 8
-  %58 = getelementptr inbounds nuw i64, ptr %51, i64 %49
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %49
   store ptr %58, ptr %32, align 8
   br label %_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS3_23FunctionArgumentWrapperINS3_14ExpressionBodyEEEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_.exit
 
@@ -34535,7 +34529,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i: ; preds = %46, 
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i: ; preds = %48, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i
   store ptr %42, ptr %3, align 8
   store ptr %47, ptr %4, align 8
-  %49 = getelementptr inbounds nuw i64, ptr %42, i64 %40
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %40
   store ptr %49, ptr %23, align 8
   br label %_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS3_14ListExpressionEEENS_8internal12rotate_rightILm1EEEE10start_implINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt5tupleIJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEJLm0ELm1EEEEvRKT_RKT0_St16integer_sequenceImJXspT1_EEE.exit
 
@@ -34788,7 +34782,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i: ; preds = %46, 
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i: ; preds = %48, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i
   store ptr %42, ptr %3, align 8
   store ptr %47, ptr %4, align 8
-  %49 = getelementptr inbounds nuw i64, ptr %42, i64 %40
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %40
   store ptr %49, ptr %23, align 8
   br label %_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS3_9ListStartEEENS_8internal12rotate_rightILm1EEEE10start_implINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt5tupleIJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEJLm0ELm1EEEEvRKT_RKT0_St16integer_sequenceImJXspT1_EEE.exit
 
@@ -35023,7 +35017,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i: ; preds = %53
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i.i: ; preds = %55, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i
   store ptr %49, ptr %10, align 8
   store ptr %54, ptr %11, align 8
-  %56 = getelementptr inbounds nuw i64, ptr %49, i64 %47
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %47
   store ptr %56, ptr %30, align 8
   br label %_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS3_12ListElementsEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_.exit
 
@@ -35139,7 +35133,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i.i: ; preds =
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i.i.i.i: ; preds = %100, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i.i
   store ptr %94, ptr %10, align 8
   store ptr %99, ptr %11, align 8
-  %101 = getelementptr inbounds nuw i64, ptr %94, i64 %92
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %92
   store ptr %101, ptr %30, align 8
   br label %_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS_4listINS3_11ListElementENS_5ascii3oneIJLc44EEEENSA_IJLc32EEEEEEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENS9_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_.exit.i.i
 
@@ -35863,7 +35857,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i: ; preds = %54
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i.i: ; preds = %56, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i
   store ptr %50, ptr %11, align 8
   store ptr %55, ptr %12, align 8
-  %57 = getelementptr inbounds nuw i64, ptr %50, i64 %48
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %48
   store ptr %57, ptr %31, align 8
   br label %_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS3_11ListElementEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_.exit
 
@@ -36618,7 +36612,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i.i.i.i.i.i: ;
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %53, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i.i.i.i.i.i
   store ptr %47, ptr %8, align 8
   store ptr %52, ptr %9, align 8
-  %54 = getelementptr inbounds nuw i64, ptr %47, i64 %45
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %45
   store ptr %54, ptr %28, align 8
   br label %_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS_5ascii3oneIJLc44EEEEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENS7_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_.exit.i.i.i.i.i.i
 
@@ -36865,7 +36859,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i: ; preds = %
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i.i.i: ; preds = %51, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i
   store ptr %45, ptr %6, align 8
   store ptr %50, ptr %7, align 8
-  %52 = getelementptr inbounds nuw i64, ptr %45, i64 %43
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %43
   store ptr %52, ptr %26, align 8
   br label %_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS3_7ListEndEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_.exit.i
 

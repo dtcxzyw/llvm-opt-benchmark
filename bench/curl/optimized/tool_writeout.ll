@@ -610,7 +610,7 @@ define internal noundef i32 @writeString(ptr noundef %0, ptr noundef readonly ca
   %indvars.iv = phi i64 [ %indvars.iv.next, %.thread99 ], [ 0, %.preheader ]
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = load ptr, ptr %44, align 8, !tbaa !57
-  %46 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv
   %.056112 = load ptr, ptr %46, align 8, !tbaa !58
   %.not82113 = icmp eq ptr %.056112, null
   br i1 %.not82113, label %.thread99, label %.lr.ph
@@ -765,7 +765,7 @@ define internal noundef i32 @writeString(ptr noundef %0, ptr noundef readonly ca
 
 switch.lookup:                                    ; preds = %98, %.thread.i
   %102 = sext i32 %36 to i64
-  %103 = getelementptr i32, ptr @switch.table.writeString, i64 %102
+  %103 = getelementptr [4 x i8], ptr @switch.table.writeString, i64 %102
   %switch.gep = getelementptr i8, ptr %103, i64 -76
   %switch.load = load i32, ptr %switch.gep, align 4
   %104 = load ptr, ptr %7, align 8, !tbaa !46

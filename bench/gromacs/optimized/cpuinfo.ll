@@ -23,8 +23,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<gmx::CpuInfo::LogicalProcessor, std::allocator<gmx::CpuInfo::LogicalProcessor>>::_Vector_impl" = type { %"struct.std::_Vector_base<gmx::CpuInfo::LogicalProcessor, std::allocator<gmx::CpuInfo::LogicalProcessor>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<gmx::CpuInfo::LogicalProcessor, std::allocator<gmx::CpuInfo::LogicalProcessor>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %struct.cpu_set_t = type { [16 x i64] }
-%"struct.gmx::(anonymous namespace)::ApicInfo" = type { i32, i32 }
-%"struct.gmx::CpuInfo::LogicalProcessor" = type { i32, i32, i32, i32 }
 %"struct.std::pair.31" = type { i32, %"class.std::__cxx11::basic_string" }
 %"struct.std::less.33" = type { i8 }
 %"class.std::allocator.35" = type { i8 }
@@ -4415,7 +4413,7 @@ _ZN3gmx12_GLOBAL__N_121detectAmdApicIdLayoutEj.exit.i: ; preds = %1617, %1609
   %1629 = and i64 %indvars.iv47.i.i, 63
   %1630 = shl nuw i64 1, %1629
   %1631 = lshr i64 %indvars.iv47.i.i, 6
-  %1632 = getelementptr inbounds nuw i64, ptr %3, i64 %1631
+  %1632 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %1631
   %1633 = load i64, ptr %1632, align 8, !tbaa !65, !noalias !62
   %1634 = or i64 %1633, %1630
   store i64 %1634, ptr %1632, align 8, !tbaa !65, !noalias !62
@@ -4481,7 +4479,7 @@ _ZNSt6vectorIN3gmx12_GLOBAL__N_18ApicInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.e
   br label %_ZNSt6vectorIN3gmx12_GLOBAL__N_18ApicInfoESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.us.i.i
 
 _ZNSt6vectorIN3gmx12_GLOBAL__N_18ApicInfoESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.us.i.i: ; preds = %1660, %_ZNSt6vectorIN3gmx12_GLOBAL__N_18ApicInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit21.i.i.i.us.i.i
-  %1661 = getelementptr inbounds nuw %"struct.gmx::(anonymous namespace)::ApicInfo", ptr %1655, i64 %1653
+  %1661 = getelementptr inbounds nuw [8 x i8], ptr %1655, i64 %1653
   br label %_ZNSt6vectorIN3gmx12_GLOBAL__N_18ApicInfoESaIS2_EE9push_backEOS2_.exit.us.i.i
 
 _ZNSt6vectorIN3gmx12_GLOBAL__N_18ApicInfoESaIS2_EE9push_backEOS2_.exit.us.i.i: ; preds = %_ZNSt6vectorIN3gmx12_GLOBAL__N_18ApicInfoESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.us.i.i, %1641, %1635
@@ -4514,7 +4512,7 @@ _ZNSt6vectorIN3gmx12_GLOBAL__N_18ApicInfoESaIS2_EE9push_backEOS2_.exit.us.i.i: ;
   %1666 = and i64 %indvars.iv.i.i, 63
   %1667 = shl nuw i64 1, %1666
   %1668 = lshr i64 %indvars.iv.i.i, 6
-  %1669 = getelementptr inbounds nuw i64, ptr %3, i64 %1668
+  %1669 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %1668
   %1670 = load i64, ptr %1669, align 8, !tbaa !65, !noalias !62
   %1671 = or i64 %1670, %1667
   store i64 %1671, ptr %1669, align 8, !tbaa !65, !noalias !62
@@ -4600,7 +4598,7 @@ _ZNSt6vectorIN3gmx12_GLOBAL__N_18ApicInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.e
   br label %_ZNSt6vectorIN3gmx12_GLOBAL__N_18ApicInfoESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i26.i.i
 
 _ZNSt6vectorIN3gmx12_GLOBAL__N_18ApicInfoESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i26.i.i: ; preds = %1699, %_ZNSt6vectorIN3gmx12_GLOBAL__N_18ApicInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit21.i.i.i24.i.i
-  %1700 = getelementptr inbounds nuw %"struct.gmx::(anonymous namespace)::ApicInfo", ptr %1694, i64 %1692
+  %1700 = getelementptr inbounds nuw [8 x i8], ptr %1694, i64 %1692
   br label %_ZNSt6vectorIN3gmx12_GLOBAL__N_18ApicInfoESaIS2_EE9push_backEOS2_.exit.i.i
 
 .loopexit.i.i:                                    ; preds = %_ZNKSt6vectorIN3gmx12_GLOBAL__N_18ApicInfoESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i21.i.i
@@ -4727,7 +4725,7 @@ _ZNSt6vectorIN3gmx7CpuInfo16LogicalProcessorESaIS2_EE11_S_relocateEPS2_S5_S5_RS3
   br label %_ZNSt6vectorIN3gmx7CpuInfo16LogicalProcessorESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i
 
 _ZNSt6vectorIN3gmx7CpuInfo16LogicalProcessorESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i: ; preds = %1736, %_ZNSt6vectorIN3gmx7CpuInfo16LogicalProcessorESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i.i
-  %1737 = getelementptr inbounds nuw %"struct.gmx::CpuInfo::LogicalProcessor", ptr %1732, i64 %1730
+  %1737 = getelementptr inbounds nuw [16 x i8], ptr %1732, i64 %1730
   br label %_ZNSt6vectorIN3gmx7CpuInfo16LogicalProcessorESaIS2_EE9push_backEOS2_.exit.i
 
 _ZNSt6vectorIN3gmx7CpuInfo16LogicalProcessorESaIS2_EE9push_backEOS2_.exit.i: ; preds = %_ZNSt6vectorIN3gmx7CpuInfo16LogicalProcessorESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i, %1719

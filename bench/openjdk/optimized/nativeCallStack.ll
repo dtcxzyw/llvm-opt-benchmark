@@ -51,9 +51,9 @@ define hidden void @_ZN15NativeCallStackC2EPPhi(ptr noundef nonnull writeonly al
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %11 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   store ptr %12, ptr %13, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -69,7 +69,7 @@ define hidden noundef i32 @_ZNK15NativeCallStack6framesEv(ptr noundef nonnull re
 
 2:                                                ; preds = %1, %6
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %6 ]
-  %3 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.split.loop.exit, label %6
@@ -172,7 +172,7 @@ define hidden void @_ZNK15NativeCallStack8print_onEP12outputStream(ptr noundef n
 
 3:                                                ; preds = %2, %6
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %6 ]
-  %4 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %.critedge, label %6

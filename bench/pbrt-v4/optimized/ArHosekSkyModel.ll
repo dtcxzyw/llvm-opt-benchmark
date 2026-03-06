@@ -82,7 +82,7 @@ define dso_local void @ArHosekSkyModel_CookConfiguration(ptr noundef readonly ca
   %11 = mul i32 %6, 54
   %12 = add i32 %11, -54
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds double, ptr %0, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %0, i64 %13
   %15 = fsub double 1.000000e+00, %3
   %16 = fsub double 1.000000e+00, %8
   %17 = fmul double %15, %16
@@ -93,7 +93,7 @@ define dso_local void @ArHosekSkyModel_CookConfiguration(ptr noundef readonly ca
 20:                                               ; preds = %5, %20
   %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %20 ]
   %21 = tail call double @pow(double noundef %18, double noundef 5.000000e+00) #12, !tbaa !4
-  %22 = getelementptr inbounds nuw double, ptr %14, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   %23 = load double, ptr %22, align 8, !tbaa !8
   %24 = tail call double @pow(double noundef %18, double noundef 4.000000e+00) #12, !tbaa !4
   %25 = fmul double %24, 5.000000e+00
@@ -126,7 +126,7 @@ define dso_local void @ArHosekSkyModel_CookConfiguration(ptr noundef readonly ca
   %52 = load double, ptr %51, align 8, !tbaa !8
   %53 = tail call double @llvm.fmuladd.f64(double %50, double %52, double %49)
   %54 = fmul double %17, %53
-  %55 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   store double %54, ptr %55, align 8, !tbaa !8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 9
@@ -135,14 +135,14 @@ define dso_local void @ArHosekSkyModel_CookConfiguration(ptr noundef readonly ca
 56:                                               ; preds = %20
   %57 = add i32 %11, 486
   %58 = sext i32 %57 to i64
-  %59 = getelementptr inbounds double, ptr %0, i64 %58
+  %59 = getelementptr inbounds [8 x i8], ptr %0, i64 %58
   %60 = fmul double %3, %16
   br label %61
 
 61:                                               ; preds = %56, %61
   %indvars.iv130 = phi i64 [ 0, %56 ], [ %indvars.iv.next131, %61 ]
   %62 = tail call double @pow(double noundef %18, double noundef 5.000000e+00) #12, !tbaa !4
-  %63 = getelementptr inbounds nuw double, ptr %59, i64 %indvars.iv130
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %indvars.iv130
   %64 = load double, ptr %63, align 8, !tbaa !8
   %65 = tail call double @pow(double noundef %18, double noundef 4.000000e+00) #12, !tbaa !4
   %66 = fmul double %65, 5.000000e+00
@@ -174,7 +174,7 @@ define dso_local void @ArHosekSkyModel_CookConfiguration(ptr noundef readonly ca
   %92 = getelementptr inbounds nuw i8, ptr %63, i64 360
   %93 = load double, ptr %92, align 8, !tbaa !8
   %94 = tail call double @llvm.fmuladd.f64(double %91, double %93, double %90)
-  %95 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv130
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv130
   %96 = load double, ptr %95, align 8, !tbaa !8
   %97 = tail call double @llvm.fmuladd.f64(double %60, double %94, double %96)
   store double %97, ptr %95, align 8, !tbaa !8
@@ -188,14 +188,14 @@ define dso_local void @ArHosekSkyModel_CookConfiguration(ptr noundef readonly ca
 
 100:                                              ; preds = %98
   %101 = sext i32 %11 to i64
-  %102 = getelementptr double, ptr %0, i64 %101
+  %102 = getelementptr [8 x i8], ptr %0, i64 %101
   %103 = fmul double %15, %8
   br label %104
 
 104:                                              ; preds = %100, %104
   %indvars.iv134 = phi i64 [ 0, %100 ], [ %indvars.iv.next135, %104 ]
   %105 = tail call double @pow(double noundef %18, double noundef 5.000000e+00) #12, !tbaa !4
-  %106 = getelementptr inbounds nuw double, ptr %102, i64 %indvars.iv134
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %102, i64 %indvars.iv134
   %107 = load double, ptr %106, align 8, !tbaa !8
   %108 = tail call double @pow(double noundef %18, double noundef 4.000000e+00) #12, !tbaa !4
   %109 = fmul double %108, 5.000000e+00
@@ -227,7 +227,7 @@ define dso_local void @ArHosekSkyModel_CookConfiguration(ptr noundef readonly ca
   %135 = getelementptr inbounds nuw i8, ptr %106, i64 360
   %136 = load double, ptr %135, align 8, !tbaa !8
   %137 = tail call double @llvm.fmuladd.f64(double %134, double %136, double %133)
-  %138 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv134
+  %138 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv134
   %139 = load double, ptr %138, align 8, !tbaa !8
   %140 = tail call double @llvm.fmuladd.f64(double %103, double %137, double %139)
   store double %140, ptr %138, align 8, !tbaa !8
@@ -243,7 +243,7 @@ define dso_local void @ArHosekSkyModel_CookConfiguration(ptr noundef readonly ca
 144:                                              ; preds = %141, %144
   %indvars.iv138 = phi i64 [ 0, %141 ], [ %indvars.iv.next139, %144 ]
   %145 = tail call double @pow(double noundef %18, double noundef 5.000000e+00) #12, !tbaa !4
-  %146 = getelementptr inbounds nuw double, ptr %142, i64 %indvars.iv138
+  %146 = getelementptr inbounds nuw [8 x i8], ptr %142, i64 %indvars.iv138
   %147 = load double, ptr %146, align 8, !tbaa !8
   %148 = tail call double @pow(double noundef %18, double noundef 4.000000e+00) #12, !tbaa !4
   %149 = fmul double %148, 5.000000e+00
@@ -275,7 +275,7 @@ define dso_local void @ArHosekSkyModel_CookConfiguration(ptr noundef readonly ca
   %175 = getelementptr inbounds nuw i8, ptr %146, i64 360
   %176 = load double, ptr %175, align 8, !tbaa !8
   %177 = tail call double @llvm.fmuladd.f64(double %174, double %176, double %173)
-  %178 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv138
+  %178 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv138
   %179 = load double, ptr %178, align 8, !tbaa !8
   %180 = tail call double @llvm.fmuladd.f64(double %143, double %177, double %179)
   store double %180, ptr %178, align 8, !tbaa !8
@@ -303,7 +303,7 @@ define dso_local double @ArHosekSkyModel_CookRadianceConfiguration(ptr noundef r
   %10 = mul i32 %5, 6
   %11 = add i32 %10, -6
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds double, ptr %0, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %0, i64 %12
   %14 = fsub double 1.000000e+00, %2
   %15 = fsub double 1.000000e+00, %7
   %16 = fmul double %14, %15
@@ -344,7 +344,7 @@ define dso_local double @ArHosekSkyModel_CookRadianceConfiguration(ptr noundef r
   %51 = fmul double %16, %50
   %52 = add i32 %10, 54
   %53 = sext i32 %52 to i64
-  %54 = getelementptr inbounds double, ptr %0, i64 %53
+  %54 = getelementptr inbounds [8 x i8], ptr %0, i64 %53
   %55 = fmul double %2, %15
   %56 = tail call double @pow(double noundef %17, double noundef 5.000000e+00) #12, !tbaa !4
   %57 = load double, ptr %54, align 8, !tbaa !8
@@ -384,7 +384,7 @@ define dso_local double @ArHosekSkyModel_CookRadianceConfiguration(ptr noundef r
 
 90:                                               ; preds = %4
   %91 = sext i32 %10 to i64
-  %92 = getelementptr inbounds double, ptr %0, i64 %91
+  %92 = getelementptr inbounds [8 x i8], ptr %0, i64 %91
   %93 = fmul double %14, %7
   %94 = tail call double @pow(double noundef %17, double noundef 5.000000e+00) #12, !tbaa !4
   %95 = load double, ptr %92, align 8, !tbaa !8
@@ -532,18 +532,18 @@ define dso_local noalias noundef ptr @arhosekskymodelstate_alloc_init(double nou
 
 12:                                               ; preds = %3, %12
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %12 ]
-  %13 = getelementptr inbounds nuw ptr, ptr @datasets, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr @datasets, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8, !tbaa !20
-  %15 = getelementptr inbounds nuw [9 x double], ptr %4, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [72 x i8], ptr %4, i64 %indvars.iv
   tail call void @ArHosekSkyModel_CookConfiguration(ptr noundef %14, ptr noundef %15, double noundef %1, double noundef %2, double noundef %0)
-  %16 = getelementptr inbounds nuw ptr, ptr @datasetsRad, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr @datasetsRad, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8, !tbaa !20
   %18 = tail call double @ArHosekSkyModel_CookRadianceConfiguration(ptr noundef %17, double noundef %1, double noundef %2, double noundef %0)
-  %19 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   store double %18, ptr %19, align 8, !tbaa !8
-  %20 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   store double 1.000000e+00, ptr %20, align 8, !tbaa !8
-  %21 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   store double 1.000000e+00, ptr %21, align 8, !tbaa !8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 11
@@ -584,20 +584,20 @@ define dso_local noalias noundef ptr @arhosekskymodelstate_alienworld_alloc_init
 
 12:                                               ; preds = %5, %12
   %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %12 ]
-  %13 = getelementptr inbounds nuw ptr, ptr @datasets, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr @datasets, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8, !tbaa !20
-  %15 = getelementptr inbounds nuw [9 x double], ptr %6, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [72 x i8], ptr %6, i64 %indvars.iv
   tail call void @ArHosekSkyModel_CookConfiguration(ptr noundef %14, ptr noundef %15, double noundef %3, double noundef %4, double noundef %0)
-  %16 = getelementptr inbounds nuw ptr, ptr @datasetsRad, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr @datasetsRad, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8, !tbaa !20
   %18 = tail call double @ArHosekSkyModel_CookRadianceConfiguration(ptr noundef %17, double noundef %3, double noundef %4, double noundef %0)
-  %19 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   store double %18, ptr %19, align 8, !tbaa !8
   %20 = trunc nuw nsw i64 %indvars.iv to i32
   %21 = uitofp nneg i32 %20 to double
   %22 = tail call nnan double @llvm.fmuladd.f64(double %21, double 4.000000e+01, double 3.200000e+02)
   %23 = fmul nnan double %22, 1.000000e-09
-  %24 = getelementptr inbounds nuw double, ptr @originalSolarRadianceTable, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr @originalSolarRadianceTable, i64 %indvars.iv
   %25 = load double, ptr %24, align 8, !tbaa !8
   %26 = tail call double @pow(double noundef %23, double noundef 5.000000e+00) #12, !tbaa !4
   %27 = fdiv double 3.741770e-16, %26
@@ -609,7 +609,7 @@ define dso_local noalias noundef ptr @arhosekskymodelstate_alienworld_alloc_init
   %33 = fmul double %27, %32
   %34 = fmul double %33, 3.199920e-10
   %35 = fdiv double %34, %25
-  %36 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   store double %35, ptr %36, align 8, !tbaa !8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 11
@@ -618,7 +618,7 @@ define dso_local noalias noundef ptr @arhosekskymodelstate_alienworld_alloc_init
 .preheader:                                       ; preds = %12, %.preheader
   %indvars.iv52 = phi i64 [ %indvars.iv.next53, %.preheader ], [ 2, %12 ]
   %.04648 = phi double [ %39, %.preheader ], [ 0.000000e+00, %12 ]
-  %37 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv52
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv52
   %38 = load double, ptr %37, align 8, !tbaa !8
   %39 = fadd double %.04648, %38
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
@@ -638,11 +638,11 @@ define dso_local noalias noundef ptr @arhosekskymodelstate_alienworld_alloc_init
 
 48:                                               ; preds = %40, %48
   %indvars.iv56 = phi i64 [ 0, %40 ], [ %indvars.iv.next57, %48 ]
-  %49 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv56
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv56
   %50 = load double, ptr %49, align 8, !tbaa !8
   %51 = fmul double %1, %50
   %52 = fdiv double %51, %41
-  %53 = getelementptr inbounds nuw double, ptr %47, i64 %indvars.iv56
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %indvars.iv56
   store double %52, ptr %53, align 8, !tbaa !8
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %exitcond59.not = icmp eq i64 %indvars.iv.next57, 11
@@ -672,7 +672,7 @@ define dso_local double @arhosekskymodel_radiance(ptr noundef readonly captures(
 8:                                                ; preds = %4
   %9 = tail call double @fmod(double noundef %6, double noundef 1.000000e+00) #12, !tbaa !4
   %10 = zext nneg i32 %7 to i64
-  %11 = getelementptr inbounds nuw [9 x double], ptr %0, i64 %10
+  %11 = getelementptr inbounds nuw [72 x i8], ptr %0, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %13 = load double, ptr %12, align 8, !tbaa !8
   %14 = fmul double %2, %13
@@ -713,11 +713,11 @@ define dso_local double @arhosekskymodel_radiance(ptr noundef readonly captures(
   %49 = tail call double @llvm.fmuladd.f64(double %48, double %27, double %46)
   %50 = fmul double %35, %49
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 792
-  %52 = getelementptr inbounds nuw double, ptr %51, i64 %10
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %10
   %53 = load double, ptr %52, align 8, !tbaa !8
   %54 = fmul double %53, %50
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 896
-  %56 = getelementptr inbounds nuw double, ptr %55, i64 %10
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %10
   %57 = load double, ptr %56, align 8, !tbaa !8
   %58 = fmul double %57, %54
   %59 = fcmp olt double %9, 0x3EB0C6F7A0B5ED8D
@@ -732,7 +732,7 @@ define dso_local double @arhosekskymodel_radiance(ptr noundef readonly captures(
 63:                                               ; preds = %60
   %64 = add nuw nsw i32 %7, 1
   %65 = zext nneg i32 %64 to i64
-  %66 = getelementptr inbounds nuw [9 x double], ptr %0, i64 %65
+  %66 = getelementptr inbounds nuw [72 x i8], ptr %0, i64 %65
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 32
   %68 = load double, ptr %67, align 8, !tbaa !8
   %69 = fmul double %2, %68
@@ -773,10 +773,10 @@ define dso_local double @arhosekskymodel_radiance(ptr noundef readonly captures(
   %104 = tail call double @llvm.fmuladd.f64(double %103, double %82, double %101)
   %105 = fmul double %90, %104
   %106 = fmul double %9, %105
-  %107 = getelementptr inbounds nuw double, ptr %51, i64 %65
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %65
   %108 = load double, ptr %107, align 8, !tbaa !8
   %109 = fmul double %108, %106
-  %110 = getelementptr inbounds nuw double, ptr %55, i64 %65
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %65
   %111 = load double, ptr %110, align 8, !tbaa !8
   %112 = tail call double @llvm.fmuladd.f64(double %109, double %111, double %62)
   br label %113
@@ -805,14 +805,14 @@ define dso_local noalias noundef ptr @arhosek_xyz_skymodelstate_alloc_init(doubl
 
 10:                                               ; preds = %3, %10
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %10 ]
-  %11 = getelementptr inbounds nuw ptr, ptr @datasetsXYZ, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr @datasetsXYZ, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !20
-  %13 = getelementptr inbounds nuw [9 x double], ptr %4, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [72 x i8], ptr %4, i64 %indvars.iv
   tail call void @ArHosekSkyModel_CookConfiguration(ptr noundef %12, ptr noundef %13, double noundef %0, double noundef %1, double noundef %2)
-  %14 = getelementptr inbounds nuw ptr, ptr @datasetsXYZRad, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr @datasetsXYZRad, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !20
   %16 = tail call double @ArHosekSkyModel_CookRadianceConfiguration(ptr noundef %15, double noundef %0, double noundef %1, double noundef %2)
-  %17 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   store double %16, ptr %17, align 8, !tbaa !8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -838,14 +838,14 @@ define dso_local noalias noundef ptr @arhosek_rgb_skymodelstate_alloc_init(doubl
 
 10:                                               ; preds = %3, %10
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %10 ]
-  %11 = getelementptr inbounds nuw ptr, ptr @datasetsRGB, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr @datasetsRGB, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !20
-  %13 = getelementptr inbounds nuw [9 x double], ptr %4, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [72 x i8], ptr %4, i64 %indvars.iv
   tail call void @ArHosekSkyModel_CookConfiguration(ptr noundef %12, ptr noundef %13, double noundef %0, double noundef %1, double noundef %2)
-  %14 = getelementptr inbounds nuw ptr, ptr @datasetsRGBRad, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr @datasetsRGBRad, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !20
   %16 = tail call double @ArHosekSkyModel_CookRadianceConfiguration(ptr noundef %15, double noundef %0, double noundef %1, double noundef %2)
-  %17 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   store double %16, ptr %17, align 8, !tbaa !8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -858,7 +858,7 @@ define dso_local noalias noundef ptr @arhosek_rgb_skymodelstate_alloc_init(doubl
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: read, errnomem: write) uwtable
 define dso_local double @arhosek_tristim_skymodel_radiance(ptr noundef readonly captures(none) %0, double noundef %1, double noundef %2, i32 noundef %3) local_unnamed_addr #3 {
   %5 = sext i32 %3 to i64
-  %6 = getelementptr inbounds [9 x double], ptr %0, i64 %5
+  %6 = getelementptr inbounds [72 x i8], ptr %0, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %8 = load double, ptr %7, align 8, !tbaa !8
   %9 = fmul double %2, %8
@@ -899,7 +899,7 @@ define dso_local double @arhosek_tristim_skymodel_radiance(ptr noundef readonly 
   %44 = tail call double @llvm.fmuladd.f64(double %43, double %22, double %41)
   %45 = fmul double %30, %44
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 792
-  %47 = getelementptr inbounds double, ptr %46, i64 %5
+  %47 = getelementptr inbounds [8 x i8], ptr %46, i64 %5
   %48 = load double, ptr %47, align 8, !tbaa !8
   %49 = fmul double %48, %45
   ret double %49
@@ -918,14 +918,14 @@ define dso_local double @arhosekskymodel_sr_internal(ptr noundef readonly captur
   %12 = tail call double @pow(double noundef %11, double noundef 3.000000e+00) #12, !tbaa !4
   %13 = fmul double %12, 0x3FF921FB54442D18
   %14 = sext i32 %2 to i64
-  %15 = getelementptr inbounds ptr, ptr @solarDatasets, i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr @solarDatasets, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !20
   %17 = mul nsw i32 %1, 180
   %18 = shl i32 %spec.store.select, 2
   %19 = add i32 %17, 4
   %20 = add i32 %19, %18
   %21 = sext i32 %20 to i64
-  %22 = getelementptr double, ptr %16, i64 %21
+  %22 = getelementptr [8 x i8], ptr %16, i64 %21
   %23 = fsub double %3, %13
   br label %24
 
@@ -944,7 +944,7 @@ define dso_local double @arhosekskymodel_sr_internal(ptr noundef readonly captur
 
 29:                                               ; preds = %24
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 984
-  %31 = getelementptr inbounds double, ptr %30, i64 %14
+  %31 = getelementptr inbounds [8 x i8], ptr %30, i64 %14
   %32 = load double, ptr %31, align 8, !tbaa !8
   %33 = fmul double %26, %32
   ret double %33
@@ -991,7 +991,7 @@ define dso_local double @arhosekskymodel_solar_radiance_internal2(ptr noundef re
   %36 = tail call double @pow(double noundef %35, double noundef 3.000000e+00) #12, !tbaa !4
   %37 = fmul double %36, 0x3FF921FB54442D18
   %38 = sext i32 %.058 to i64
-  %39 = getelementptr inbounds ptr, ptr @solarDatasets, i64 %38
+  %39 = getelementptr inbounds [8 x i8], ptr @solarDatasets, i64 %38
   %40 = load ptr, ptr %39, align 8, !tbaa !20
   %41 = mul i32 %22, 180
   %42 = select i1 %23, i32 1440, i32 %41
@@ -999,7 +999,7 @@ define dso_local double @arhosekskymodel_solar_radiance_internal2(ptr noundef re
   %44 = add i32 %42, 4
   %45 = add i32 %44, %43
   %46 = sext i32 %45 to i64
-  %47 = getelementptr double, ptr %40, i64 %46
+  %47 = getelementptr [8 x i8], ptr %40, i64 %46
   %48 = fsub double %2, %37
   br label %49
 
@@ -1018,7 +1018,7 @@ define dso_local double @arhosekskymodel_solar_radiance_internal2(ptr noundef re
 
 arhosekskymodel_sr_internal.exit:                 ; preds = %49
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 984
-  %55 = getelementptr inbounds double, ptr %54, i64 %38
+  %55 = getelementptr inbounds [8 x i8], ptr %54, i64 %38
   %56 = load double, ptr %55, align 8, !tbaa !8
   %57 = add nsw i32 %.058, 1
   %58 = tail call double @pow(double noundef %30, double noundef 0x3FD5555555555555) #12, !tbaa !4
@@ -1030,12 +1030,12 @@ arhosekskymodel_sr_internal.exit:                 ; preds = %49
   %63 = tail call double @pow(double noundef %62, double noundef 3.000000e+00) #12, !tbaa !4
   %64 = fmul double %63, 0x3FF921FB54442D18
   %65 = sext i32 %57 to i64
-  %66 = getelementptr inbounds ptr, ptr @solarDatasets, i64 %65
+  %66 = getelementptr inbounds [8 x i8], ptr @solarDatasets, i64 %65
   %67 = load ptr, ptr %66, align 8, !tbaa !20
   %68 = shl i32 %spec.store.select.i66, 2
   %69 = add i32 %68, %44
   %70 = sext i32 %69 to i64
-  %71 = getelementptr double, ptr %67, i64 %70
+  %71 = getelementptr [8 x i8], ptr %67, i64 %70
   %72 = fsub double %2, %64
   br label %73
 
@@ -1053,7 +1053,7 @@ arhosekskymodel_sr_internal.exit:                 ; preds = %49
   br i1 %exitcond.not.i72, label %arhosekskymodel_sr_internal.exit73, label %73, !llvm.loop !29
 
 arhosekskymodel_sr_internal.exit73:               ; preds = %73
-  %78 = getelementptr inbounds double, ptr %54, i64 %65
+  %78 = getelementptr inbounds [8 x i8], ptr %54, i64 %65
   %79 = load double, ptr %78, align 8, !tbaa !8
   %80 = tail call double @pow(double noundef %30, double noundef 0x3FD5555555555555) #12, !tbaa !4
   %81 = fmul double %80, 4.500000e+01
@@ -1067,7 +1067,7 @@ arhosekskymodel_sr_internal.exit73:               ; preds = %73
   %88 = add i32 %42, 184
   %89 = add i32 %87, %88
   %90 = sext i32 %89 to i64
-  %91 = getelementptr double, ptr %40, i64 %90
+  %91 = getelementptr [8 x i8], ptr %40, i64 %90
   %92 = fsub double %2, %86
   br label %93
 
@@ -1096,7 +1096,7 @@ arhosekskymodel_sr_internal.exit81:               ; preds = %93
   %105 = shl i32 %spec.store.select.i82, 2
   %106 = add i32 %105, %88
   %107 = sext i32 %106 to i64
-  %108 = getelementptr double, ptr %67, i64 %107
+  %108 = getelementptr [8 x i8], ptr %67, i64 %107
   %109 = fsub double %2, %104
   br label %110
 
@@ -1118,21 +1118,21 @@ arhosekskymodel_sr_internal.exit89:               ; preds = %110
   %.057 = select i1 %28, double 1.000000e+00, double %115
   %116 = fsub double 1.000000e+00, %.057
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %117 = getelementptr inbounds ptr, ptr @limbDarkeningDatasets, i64 %38
+  %117 = getelementptr inbounds [8 x i8], ptr @limbDarkeningDatasets, i64 %38
   %118 = load ptr, ptr %117, align 8, !tbaa !20
-  %119 = getelementptr inbounds ptr, ptr @limbDarkeningDatasets, i64 %65
+  %119 = getelementptr inbounds [8 x i8], ptr @limbDarkeningDatasets, i64 %65
   %120 = load ptr, ptr %119, align 8, !tbaa !20
   br label %121
 
 121:                                              ; preds = %arhosekskymodel_sr_internal.exit89, %121
   %indvars.iv = phi i64 [ 0, %arhosekskymodel_sr_internal.exit89 ], [ %indvars.iv.next, %121 ]
-  %122 = getelementptr inbounds nuw double, ptr %118, i64 %indvars.iv
+  %122 = getelementptr inbounds nuw [8 x i8], ptr %118, i64 %indvars.iv
   %123 = load double, ptr %122, align 8, !tbaa !8
-  %124 = getelementptr inbounds nuw double, ptr %120, i64 %indvars.iv
+  %124 = getelementptr inbounds nuw [8 x i8], ptr %120, i64 %indvars.iv
   %125 = load double, ptr %124, align 8, !tbaa !8
   %126 = fmul double %.057, %125
   %127 = tail call double @llvm.fmuladd.f64(double %116, double %123, double %126)
-  %128 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv
+  %128 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   store double %127, ptr %128, align 8, !tbaa !8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6

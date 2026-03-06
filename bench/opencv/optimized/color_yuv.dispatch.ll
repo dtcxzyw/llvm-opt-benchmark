@@ -1498,7 +1498,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %43, %
 
 switch.lookup:                                    ; preds = %31
   %48 = zext nneg i32 %36 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN2cv3hal12cpu_baseline21cvtThreePlaneYUVtoBGREPKhmPhmiiibi, i64 %48
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN2cv3hal12cpu_baseline21cvtThreePlaneYUVtoBGREPKhmPhmiiibi, i64 %48
   %switch.load = load ptr, ptr %switch.gep, align 8
   invoke void %switch.load(ptr noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i64 noundef %1, ptr noundef %0, ptr noundef %.035, ptr noundef %.034, i32 noundef %.033, i32 noundef %.0)
           to label %49 unwind label %56, !callees !161
@@ -8669,14 +8669,14 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   %61 = add i32 %60, %55
   %62 = add i32 %61, %59
   %63 = ashr i32 %62, 14
-  %64 = getelementptr inbounds i16, ptr %.034.i.us, i64 %43
+  %64 = getelementptr inbounds [2 x i8], ptr %.034.i.us, i64 %43
   %65 = load i16, ptr %64, align 2, !tbaa !511
   %66 = zext i16 %65 to i32
   %67 = sub nsw i32 %66, %63
   %68 = mul nsw i32 %67, %32
   %69 = add nsw i32 %68, 536879104
   %70 = ashr i32 %69, 14
-  %71 = getelementptr inbounds i16, ptr %.034.i.us, i64 %44
+  %71 = getelementptr inbounds [2 x i8], ptr %.034.i.us, i64 %44
   %72 = load i16, ptr %71, align 2, !tbaa !511
   %73 = zext i16 %72 to i32
   %74 = sub nsw i32 %73, %63
@@ -8690,16 +8690,16 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   %81 = call i32 @llvm.smax.i32(i32 range(i32 -131072, 196607) %70, i32 0)
   %82 = call i32 @llvm.umin.i32(i32 %81, i32 65535)
   %83 = trunc nuw i32 %82 to i16
-  %84 = getelementptr inbounds nuw i16, ptr %.03033.i.us, i64 %45
+  %84 = getelementptr inbounds nuw [2 x i8], ptr %.03033.i.us, i64 %45
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 2
   store i16 %83, ptr %85, align 2, !tbaa !511
   %86 = call i32 @llvm.smax.i32(i32 range(i32 -131072, 196607) %77, i32 0)
   %87 = call i32 @llvm.umin.i32(i32 %86, i32 65535)
   %88 = trunc nuw i32 %87 to i16
-  %89 = getelementptr inbounds nuw i16, ptr %.03033.i.us, i64 %46
+  %89 = getelementptr inbounds nuw [2 x i8], ptr %.03033.i.us, i64 %46
   store i16 %88, ptr %89, align 2, !tbaa !511
   %90 = add nuw nsw i32 %.03132.i.us, 1
-  %91 = getelementptr inbounds i16, ptr %.034.i.us, i64 %47
+  %91 = getelementptr inbounds [2 x i8], ptr %.034.i.us, i64 %47
   %92 = getelementptr inbounds nuw i8, ptr %.03033.i.us, i64 6
   %exitcond.not.i.us = icmp eq i32 %90, %24
   br i1 %exitcond.not.i.us, label %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_111RGB2YCrCb_iItEclEPKtPti.exit.loopexit.us, label %48, !llvm.loop !513
@@ -8816,22 +8816,22 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   %54 = getelementptr inbounds nuw i8, ptr %.034.i.us, i64 8
   %55 = load float, ptr %54, align 4, !tbaa !45
   %56 = call float @llvm.fmuladd.f32(float %55, float %45, float %53)
-  %57 = getelementptr inbounds float, ptr %.034.i.us, i64 %38
+  %57 = getelementptr inbounds [4 x i8], ptr %.034.i.us, i64 %38
   %58 = load float, ptr %57, align 4, !tbaa !45
   %59 = fsub float %58, %56
   %60 = call float @llvm.fmuladd.f32(float %59, float %46, float 5.000000e-01)
-  %61 = getelementptr inbounds float, ptr %.034.i.us, i64 %39
+  %61 = getelementptr inbounds [4 x i8], ptr %.034.i.us, i64 %39
   %62 = load float, ptr %61, align 4, !tbaa !45
   %63 = fsub float %62, %56
   %64 = call float @llvm.fmuladd.f32(float %63, float %47, float 5.000000e-01)
   store float %56, ptr %.03033.i.us, align 4, !tbaa !45
-  %65 = getelementptr inbounds nuw float, ptr %.03033.i.us, i64 %40
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %.03033.i.us, i64 %40
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 4
   store float %60, ptr %66, align 4, !tbaa !45
-  %67 = getelementptr inbounds nuw float, ptr %.03033.i.us, i64 %41
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %.03033.i.us, i64 %41
   store float %64, ptr %67, align 4, !tbaa !45
   %68 = add nuw nsw i32 %.03132.i.us, 1
-  %69 = getelementptr inbounds float, ptr %.034.i.us, i64 %42
+  %69 = getelementptr inbounds [4 x i8], ptr %.034.i.us, i64 %42
   %70 = getelementptr inbounds nuw i8, ptr %.03033.i.us, i64 12
   %exitcond.not.i.us = icmp eq i32 %68, %24
   br i1 %exitcond.not.i.us, label %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_111RGB2YCrCb_fIfEclEPKfPfi.exit.loopexit.us, label %48, !llvm.loop !516
@@ -9152,10 +9152,10 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   %.03740.us.i.us.us = phi ptr [ %87, %.lr.ph.split.us.i.us.us ], [ %.01216.us.us, %.lr.ph.i.us.us ]
   %.03839.us.i.us.us = phi i32 [ %85, %.lr.ph.split.us.i.us.us ], [ 0, %.lr.ph.i.us.us ]
   %47 = load i16, ptr %.041.us.i.us.us, align 2, !tbaa !511
-  %48 = getelementptr inbounds nuw i16, ptr %.041.us.i.us.us, i64 %40
+  %48 = getelementptr inbounds nuw [2 x i8], ptr %.041.us.i.us.us, i64 %40
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 2
   %50 = load i16, ptr %49, align 2, !tbaa !511
-  %51 = getelementptr inbounds nuw i16, ptr %.041.us.i.us.us, i64 %41
+  %51 = getelementptr inbounds nuw [2 x i8], ptr %.041.us.i.us.us, i64 %41
   %52 = load i16, ptr %51, align 2, !tbaa !511
   %53 = zext i16 %47 to i32
   %54 = zext i16 %52 to i32
@@ -9179,7 +9179,7 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   %72 = call i32 @llvm.smax.i32(i32 range(i32 -131072, 196607) %59, i32 0)
   %73 = call i32 @llvm.umin.i32(i32 %72, i32 65535)
   %74 = trunc nuw i32 %73 to i16
-  %75 = getelementptr inbounds i16, ptr %.03740.us.i.us.us, i64 %42
+  %75 = getelementptr inbounds [2 x i8], ptr %.03740.us.i.us.us, i64 %42
   store i16 %74, ptr %75, align 2, !tbaa !511
   %76 = call i32 @llvm.smax.i32(i32 range(i32 -131072, 196607) %67, i32 0)
   %77 = call i32 @llvm.umin.i32(i32 %76, i32 65535)
@@ -9189,13 +9189,13 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   %80 = call i32 @llvm.smax.i32(i32 range(i32 -131072, 196607) %71, i32 0)
   %81 = call i32 @llvm.umin.i32(i32 %80, i32 65535)
   %82 = trunc nuw i32 %81 to i16
-  %83 = getelementptr inbounds i16, ptr %.03740.us.i.us.us, i64 %44
+  %83 = getelementptr inbounds [2 x i8], ptr %.03740.us.i.us.us, i64 %44
   store i16 %82, ptr %83, align 2, !tbaa !511
   %84 = getelementptr inbounds nuw i8, ptr %.03740.us.i.us.us, i64 6
   store i16 -1, ptr %84, align 2, !tbaa !511
   %85 = add nuw nsw i32 %.03839.us.i.us.us, 1
   %86 = getelementptr inbounds nuw i8, ptr %.041.us.i.us.us, i64 6
-  %87 = getelementptr inbounds nuw i16, ptr %.03740.us.i.us.us, i64 %46
+  %87 = getelementptr inbounds nuw [2 x i8], ptr %.03740.us.i.us.us, i64 %46
   %exitcond43.not.i.us.us = icmp eq i32 %85, %24
   br i1 %exitcond43.not.i.us.us, label %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_111YCrCb2RGB_iItEclEPKtPti.exit.loopexit.us.us, label %.lr.ph.split.us.i.us.us, !llvm.loop !522
 
@@ -9217,10 +9217,10 @@ _ZNK2cv3hal12cpu_baseline12_GLOBAL__N_111YCrCb2RGB_iItEclEPKtPti.exit.loopexit.u
   %.03740.i.us = phi ptr [ %130, %.lr.ph.split.i.us ], [ %.01216.us, %.lr.ph.i.us ]
   %.03839.i.us = phi i32 [ %128, %.lr.ph.split.i.us ], [ 0, %.lr.ph.i.us ]
   %91 = load i16, ptr %.041.i.us, align 2, !tbaa !511
-  %92 = getelementptr inbounds nuw i16, ptr %.041.i.us, i64 %40
+  %92 = getelementptr inbounds nuw [2 x i8], ptr %.041.i.us, i64 %40
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 2
   %94 = load i16, ptr %93, align 2, !tbaa !511
-  %95 = getelementptr inbounds nuw i16, ptr %.041.i.us, i64 %41
+  %95 = getelementptr inbounds nuw [2 x i8], ptr %.041.i.us, i64 %41
   %96 = load i16, ptr %95, align 2, !tbaa !511
   %97 = zext i16 %91 to i32
   %98 = zext i16 %96 to i32
@@ -9244,7 +9244,7 @@ _ZNK2cv3hal12cpu_baseline12_GLOBAL__N_111YCrCb2RGB_iItEclEPKtPti.exit.loopexit.u
   %116 = call i32 @llvm.smax.i32(i32 range(i32 -131072, 196607) %103, i32 0)
   %117 = call i32 @llvm.umin.i32(i32 %116, i32 65535)
   %118 = trunc nuw i32 %117 to i16
-  %119 = getelementptr inbounds i16, ptr %.03740.i.us, i64 %42
+  %119 = getelementptr inbounds [2 x i8], ptr %.03740.i.us, i64 %42
   store i16 %118, ptr %119, align 2, !tbaa !511
   %120 = call i32 @llvm.smax.i32(i32 range(i32 -131072, 196607) %111, i32 0)
   %121 = call i32 @llvm.umin.i32(i32 %120, i32 65535)
@@ -9254,11 +9254,11 @@ _ZNK2cv3hal12cpu_baseline12_GLOBAL__N_111YCrCb2RGB_iItEclEPKtPti.exit.loopexit.u
   %124 = call i32 @llvm.smax.i32(i32 range(i32 -131072, 196607) %115, i32 0)
   %125 = call i32 @llvm.umin.i32(i32 %124, i32 65535)
   %126 = trunc nuw i32 %125 to i16
-  %127 = getelementptr inbounds i16, ptr %.03740.i.us, i64 %44
+  %127 = getelementptr inbounds [2 x i8], ptr %.03740.i.us, i64 %44
   store i16 %126, ptr %127, align 2, !tbaa !511
   %128 = add nuw nsw i32 %.03839.i.us, 1
   %129 = getelementptr inbounds nuw i8, ptr %.041.i.us, i64 6
-  %130 = getelementptr inbounds i16, ptr %.03740.i.us, i64 %46
+  %130 = getelementptr inbounds [2 x i8], ptr %.03740.i.us, i64 %46
   %exitcond.not.i.us = icmp eq i32 %128, %24
   br i1 %exitcond.not.i.us, label %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_111YCrCb2RGB_iItEclEPKtPti.exit.loopexit14.us, label %.lr.ph.split.i.us, !llvm.loop !522
 
@@ -9366,10 +9366,10 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   %.03740.us.i.us.us = phi ptr [ %65, %.lr.ph.split.us.i.us.us ], [ %.01216.us.us, %.lr.ph.i.us.us ]
   %.03839.us.i.us.us = phi i32 [ %63, %.lr.ph.split.us.i.us.us ], [ 0, %.lr.ph.i.us.us ]
   %47 = load float, ptr %.041.us.i.us.us, align 4, !tbaa !45
-  %48 = getelementptr inbounds nuw float, ptr %.041.us.i.us.us, i64 %36
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %.041.us.i.us.us, i64 %36
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 4
   %50 = load float, ptr %49, align 4, !tbaa !45
-  %51 = getelementptr inbounds nuw float, ptr %.041.us.i.us.us, i64 %37
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %.041.us.i.us.us, i64 %37
   %52 = load float, ptr %51, align 4, !tbaa !45
   %53 = fadd float %52, -5.000000e-01
   %54 = call float @llvm.fmuladd.f32(float %53, float %46, float %47)
@@ -9377,17 +9377,17 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   %56 = fadd float %50, -5.000000e-01
   %57 = call float @llvm.fmuladd.f32(float %56, float %44, float %55)
   %58 = call float @llvm.fmuladd.f32(float %56, float %43, float %47)
-  %59 = getelementptr inbounds float, ptr %.03740.us.i.us.us, i64 %38
+  %59 = getelementptr inbounds [4 x i8], ptr %.03740.us.i.us.us, i64 %38
   store float %54, ptr %59, align 4, !tbaa !45
   %60 = getelementptr inbounds nuw i8, ptr %.03740.us.i.us.us, i64 4
   store float %57, ptr %60, align 4, !tbaa !45
-  %61 = getelementptr inbounds float, ptr %.03740.us.i.us.us, i64 %40
+  %61 = getelementptr inbounds [4 x i8], ptr %.03740.us.i.us.us, i64 %40
   store float %58, ptr %61, align 4, !tbaa !45
   %62 = getelementptr inbounds nuw i8, ptr %.03740.us.i.us.us, i64 12
   store float 1.000000e+00, ptr %62, align 4, !tbaa !45
   %63 = add nuw nsw i32 %.03839.us.i.us.us, 1
   %64 = getelementptr inbounds nuw i8, ptr %.041.us.i.us.us, i64 12
-  %65 = getelementptr inbounds nuw float, ptr %.03740.us.i.us.us, i64 %42
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %.03740.us.i.us.us, i64 %42
   %exitcond43.not.i.us.us = icmp eq i32 %63, %24
   br i1 %exitcond43.not.i.us.us, label %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_111YCrCb2RGB_fIfEclEPKfPfi.exit.loopexit.us.us, label %.lr.ph.split.us.i.us.us, !llvm.loop !525
 
@@ -9413,10 +9413,10 @@ _ZNK2cv3hal12cpu_baseline12_GLOBAL__N_111YCrCb2RGB_fIfEclEPKfPfi.exit.loopexit.u
   %.03740.i.us = phi ptr [ %90, %.lr.ph.split.i.us ], [ %.01216.us, %.lr.ph.i.us ]
   %.03839.i.us = phi i32 [ %88, %.lr.ph.split.i.us ], [ 0, %.lr.ph.i.us ]
   %73 = load float, ptr %.041.i.us, align 4, !tbaa !45
-  %74 = getelementptr inbounds nuw float, ptr %.041.i.us, i64 %36
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %.041.i.us, i64 %36
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 4
   %76 = load float, ptr %75, align 4, !tbaa !45
-  %77 = getelementptr inbounds nuw float, ptr %.041.i.us, i64 %37
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %.041.i.us, i64 %37
   %78 = load float, ptr %77, align 4, !tbaa !45
   %79 = fadd float %78, -5.000000e-01
   %80 = call float @llvm.fmuladd.f32(float %79, float %72, float %73)
@@ -9424,15 +9424,15 @@ _ZNK2cv3hal12cpu_baseline12_GLOBAL__N_111YCrCb2RGB_fIfEclEPKfPfi.exit.loopexit.u
   %82 = fadd float %76, -5.000000e-01
   %83 = call float @llvm.fmuladd.f32(float %82, float %70, float %81)
   %84 = call float @llvm.fmuladd.f32(float %82, float %69, float %73)
-  %85 = getelementptr inbounds float, ptr %.03740.i.us, i64 %38
+  %85 = getelementptr inbounds [4 x i8], ptr %.03740.i.us, i64 %38
   store float %80, ptr %85, align 4, !tbaa !45
   %86 = getelementptr inbounds nuw i8, ptr %.03740.i.us, i64 4
   store float %83, ptr %86, align 4, !tbaa !45
-  %87 = getelementptr inbounds float, ptr %.03740.i.us, i64 %40
+  %87 = getelementptr inbounds [4 x i8], ptr %.03740.i.us, i64 %40
   store float %84, ptr %87, align 4, !tbaa !45
   %88 = add nuw nsw i32 %.03839.i.us, 1
   %89 = getelementptr inbounds nuw i8, ptr %.041.i.us, i64 12
-  %90 = getelementptr inbounds float, ptr %.03740.i.us, i64 %42
+  %90 = getelementptr inbounds [4 x i8], ptr %.03740.i.us, i64 %42
   %exitcond.not.i.us = icmp eq i32 %88, %24
   br i1 %exitcond.not.i.us, label %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_111YCrCb2RGB_fIfEclEPKfPfi.exit.loopexit14.us, label %.lr.ph.split.i.us, !llvm.loop !525
 
@@ -11295,14 +11295,14 @@ define internal void @_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_119YUV420p2RGB8Invok
   %38 = add nsw i32 %18, 1
   %39 = and i32 %18, 1
   %40 = zext nneg i32 %39 to i64
-  %41 = getelementptr inbounds nuw i32, ptr %3, i64 %40
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %40
   %42 = load i32, ptr %41, align 4, !tbaa !11
   %43 = sext i32 %42 to i64
   %44 = getelementptr inbounds i8, ptr %31, i64 %43
   %45 = add nsw i32 %20, 1
   %46 = and i32 %20, 1
   %47 = zext nneg i32 %46 to i64
-  %48 = getelementptr inbounds nuw i32, ptr %3, i64 %47
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %47
   %49 = load i32, ptr %48, align 4, !tbaa !11
   %50 = sext i32 %49 to i64
   %51 = getelementptr inbounds i8, ptr %34, i64 %50
@@ -11499,14 +11499,14 @@ define internal void @_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_119YUV420p2RGB8Invok
   %191 = add nsw i32 %.165, 1
   %192 = and i32 %.165, 1
   %193 = zext nneg i32 %192 to i64
-  %194 = getelementptr inbounds nuw i32, ptr %3, i64 %193
+  %194 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %193
   %195 = load i32, ptr %194, align 4, !tbaa !11
   %196 = sext i32 %195 to i64
   %197 = getelementptr inbounds i8, ptr %.15062, i64 %196
   %198 = add nsw i32 %.14764, 1
   %199 = and i32 %.14764, 1
   %200 = zext nneg i32 %199 to i64
-  %201 = getelementptr inbounds nuw i32, ptr %3, i64 %200
+  %201 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %200
   %202 = load i32, ptr %201, align 4, !tbaa !11
   %203 = sext i32 %202 to i64
   %204 = getelementptr inbounds i8, ptr %.15261, i64 %203
@@ -11567,14 +11567,14 @@ define internal void @_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_119YUV420p2RGB8Invok
   %38 = add nsw i32 %18, 1
   %39 = and i32 %18, 1
   %40 = zext nneg i32 %39 to i64
-  %41 = getelementptr inbounds nuw i32, ptr %3, i64 %40
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %40
   %42 = load i32, ptr %41, align 4, !tbaa !11
   %43 = sext i32 %42 to i64
   %44 = getelementptr inbounds i8, ptr %31, i64 %43
   %45 = add nsw i32 %20, 1
   %46 = and i32 %20, 1
   %47 = zext nneg i32 %46 to i64
-  %48 = getelementptr inbounds nuw i32, ptr %3, i64 %47
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %47
   %49 = load i32, ptr %48, align 4, !tbaa !11
   %50 = sext i32 %49 to i64
   %51 = getelementptr inbounds i8, ptr %34, i64 %50
@@ -11771,14 +11771,14 @@ define internal void @_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_119YUV420p2RGB8Invok
   %191 = add nsw i32 %.165, 1
   %192 = and i32 %.165, 1
   %193 = zext nneg i32 %192 to i64
-  %194 = getelementptr inbounds nuw i32, ptr %3, i64 %193
+  %194 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %193
   %195 = load i32, ptr %194, align 4, !tbaa !11
   %196 = sext i32 %195 to i64
   %197 = getelementptr inbounds i8, ptr %.15062, i64 %196
   %198 = add nsw i32 %.14764, 1
   %199 = and i32 %.14764, 1
   %200 = zext nneg i32 %199 to i64
-  %201 = getelementptr inbounds nuw i32, ptr %3, i64 %200
+  %201 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %200
   %202 = load i32, ptr %201, align 4, !tbaa !11
   %203 = sext i32 %202 to i64
   %204 = getelementptr inbounds i8, ptr %.15261, i64 %203
@@ -11839,14 +11839,14 @@ define internal void @_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_119YUV420p2RGB8Invok
   %38 = add nsw i32 %18, 1
   %39 = and i32 %18, 1
   %40 = zext nneg i32 %39 to i64
-  %41 = getelementptr inbounds nuw i32, ptr %3, i64 %40
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %40
   %42 = load i32, ptr %41, align 4, !tbaa !11
   %43 = sext i32 %42 to i64
   %44 = getelementptr inbounds i8, ptr %31, i64 %43
   %45 = add nsw i32 %20, 1
   %46 = and i32 %20, 1
   %47 = zext nneg i32 %46 to i64
-  %48 = getelementptr inbounds nuw i32, ptr %3, i64 %47
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %47
   %49 = load i32, ptr %48, align 4, !tbaa !11
   %50 = sext i32 %49 to i64
   %51 = getelementptr inbounds i8, ptr %34, i64 %50
@@ -12051,14 +12051,14 @@ define internal void @_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_119YUV420p2RGB8Invok
   %195 = add nsw i32 %.165, 1
   %196 = and i32 %.165, 1
   %197 = zext nneg i32 %196 to i64
-  %198 = getelementptr inbounds nuw i32, ptr %3, i64 %197
+  %198 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %197
   %199 = load i32, ptr %198, align 4, !tbaa !11
   %200 = sext i32 %199 to i64
   %201 = getelementptr inbounds i8, ptr %.15062, i64 %200
   %202 = add nsw i32 %.14764, 1
   %203 = and i32 %.14764, 1
   %204 = zext nneg i32 %203 to i64
-  %205 = getelementptr inbounds nuw i32, ptr %3, i64 %204
+  %205 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %204
   %206 = load i32, ptr %205, align 4, !tbaa !11
   %207 = sext i32 %206 to i64
   %208 = getelementptr inbounds i8, ptr %.15261, i64 %207
@@ -12119,14 +12119,14 @@ define internal void @_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_119YUV420p2RGB8Invok
   %38 = add nsw i32 %18, 1
   %39 = and i32 %18, 1
   %40 = zext nneg i32 %39 to i64
-  %41 = getelementptr inbounds nuw i32, ptr %3, i64 %40
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %40
   %42 = load i32, ptr %41, align 4, !tbaa !11
   %43 = sext i32 %42 to i64
   %44 = getelementptr inbounds i8, ptr %31, i64 %43
   %45 = add nsw i32 %20, 1
   %46 = and i32 %20, 1
   %47 = zext nneg i32 %46 to i64
-  %48 = getelementptr inbounds nuw i32, ptr %3, i64 %47
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %47
   %49 = load i32, ptr %48, align 4, !tbaa !11
   %50 = sext i32 %49 to i64
   %51 = getelementptr inbounds i8, ptr %34, i64 %50
@@ -12331,14 +12331,14 @@ define internal void @_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_119YUV420p2RGB8Invok
   %195 = add nsw i32 %.165, 1
   %196 = and i32 %.165, 1
   %197 = zext nneg i32 %196 to i64
-  %198 = getelementptr inbounds nuw i32, ptr %3, i64 %197
+  %198 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %197
   %199 = load i32, ptr %198, align 4, !tbaa !11
   %200 = sext i32 %199 to i64
   %201 = getelementptr inbounds i8, ptr %.15062, i64 %200
   %202 = add nsw i32 %.14764, 1
   %203 = and i32 %.14764, 1
   %204 = zext nneg i32 %203 to i64
-  %205 = getelementptr inbounds nuw i32, ptr %3, i64 %204
+  %205 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %204
   %206 = load i32, ptr %205, align 4, !tbaa !11
   %207 = sext i32 %206 to i64
   %208 = getelementptr inbounds i8, ptr %.15261, i64 %207

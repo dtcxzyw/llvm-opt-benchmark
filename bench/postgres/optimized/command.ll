@@ -12,7 +12,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.__jmp_buf_tag = type { [8 x i64], i32, %struct.__sigset_t }
 %struct.__sigset_t = type { [16 x i64] }
 %struct.PromptInterruptContext = type { ptr, ptr, i8 }
-%struct.fmt = type { ptr, i32 }
 %struct.PQExpBufferData = type { ptr, i64, i64 }
 %struct.itimerval = type { %struct.timeval, %struct.timeval }
 %struct.timeval = type { i64, i64 }
@@ -540,7 +539,7 @@ is_branching_command.exit.thread.tail.thread:     ; preds = %.tail.i, %sub_0, %i
   %61 = phi ptr [ %59, %54 ], [ %.pre.i, %.lr.ph.i ]
   %.1.i = phi i32 [ %56, %54 ], [ %.017.i, %.lr.ph.i ]
   %62 = sext i32 %.01216.i to i64
-  %63 = getelementptr inbounds ptr, ptr %61, i64 %62
+  %63 = getelementptr inbounds [8 x i8], ptr %61, i64 %62
   store ptr %51, ptr %63, align 8
   %64 = tail call ptr @psql_scan_slash_option(ptr noundef %1, i32 noundef 0, ptr noundef null, i1 noundef zeroext false) #17
   %.not.i240 = icmp eq ptr %64, null
@@ -612,7 +611,7 @@ is_branching_command.exit.thread.tail.thread:     ; preds = %.tail.i, %sub_0, %i
   %88 = phi ptr [ %86, %81 ], [ %.pre.i246, %.lr.ph.i245 ]
   %.1.i247 = phi i32 [ %83, %81 ], [ %.025.i, %.lr.ph.i245 ]
   %89 = sext i32 %.01624.i to i64
-  %90 = getelementptr inbounds ptr, ptr %88, i64 %89
+  %90 = getelementptr inbounds [8 x i8], ptr %88, i64 %89
   store ptr %78, ptr %90, align 8
   %91 = tail call ptr @psql_scan_slash_option(ptr noundef %1, i32 noundef 0, ptr noundef null, i1 noundef zeroext false) #17
   %.not21.i = icmp eq ptr %91, null
@@ -1388,7 +1387,7 @@ prompt_for_password.exit.i.i:                     ; preds = %347, %345
   %.0177365.i.i = phi ptr [ %.0182.i.i, %.lr.ph367.i.i ], [ %409, %408 ]
   %.0178364.i.i = phi i32 [ 0, %.lr.ph367.i.i ], [ %.1179.i.i, %408 ]
   %370 = sext i32 %.0178364.i.i to i64
-  %371 = getelementptr inbounds ptr, ptr %364, i64 %370
+  %371 = getelementptr inbounds [8 x i8], ptr %364, i64 %370
   store ptr %369, ptr %371, align 8
   %.pre389.pre.pre.pre.pre.i.i = load ptr, ptr %.0177365.i.i, align 8
   br i1 %.not267.i.i, label %375, label %372
@@ -1464,7 +1463,7 @@ prompt_for_password.exit.i.i:                     ; preds = %347, %345
 .sink.split.i.i:                                  ; preds = %403, %400, %397, %391, %387, %384, %380, %376, %372
   %.1305.sink.i.i = phi ptr [ %.1305.i.i, %372 ], [ %.0.i35.i, %376 ], [ null, %384 ], [ %398, %397 ], [ %.0209.i.i, %400 ], [ %.1197371.i.i, %391 ], [ %.0.i45.i, %387 ], [ %.0.i40.i, %380 ], [ %405, %403 ]
   %406 = add i32 %.0178364.i.i, 1
-  %407 = getelementptr inbounds ptr, ptr %365, i64 %370
+  %407 = getelementptr inbounds [8 x i8], ptr %365, i64 %370
   store ptr %.1305.sink.i.i, ptr %407, align 8
   br label %408
 
@@ -1481,9 +1480,9 @@ prompt_for_password.exit.i.i:                     ; preds = %347, %345
 
 ._crit_edge368.i.i:                               ; preds = %._crit_edge368.loopexit.i.i, %363
   %.0178.lcssa.i.i = phi i64 [ 0, %363 ], [ %411, %._crit_edge368.loopexit.i.i ]
-  %412 = getelementptr inbounds ptr, ptr %364, i64 %.0178.lcssa.i.i
+  %412 = getelementptr inbounds [8 x i8], ptr %364, i64 %.0178.lcssa.i.i
   store ptr null, ptr %412, align 8
-  %413 = getelementptr inbounds ptr, ptr %365, i64 %.0178.lcssa.i.i
+  %413 = getelementptr inbounds [8 x i8], ptr %365, i64 %.0178.lcssa.i.i
   store ptr null, ptr %413, align 8
   %414 = call ptr @PQconnectStartParams(ptr noundef %364, ptr noundef %365, i32 noundef 0) #17
   call void @pg_free(ptr noundef %364) #17
@@ -3197,7 +3196,7 @@ define dso_local zeroext i1 @do_pset(ptr noundef %0, ptr noundef %1, ptr noundef
 .preheader:                                       ; preds = %.thread259, %24
   %indvars.iv = phi i64 [ %indvars.iv.next, %24 ], [ 0, %.thread259 ]
   %.0186244 = phi i32 [ %.1187, %24 ], [ -1, %.thread259 ]
-  %13 = getelementptr inbounds nuw %struct.fmt, ptr @do_pset.formats, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [16 x i8], ptr @do_pset.formats, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 16
   %15 = tail call i32 @pg_strncasecmp(ptr noundef %14, ptr noundef %1, i64 noundef %10) #17
   %16 = icmp eq i32 %15, 0
@@ -3210,7 +3209,7 @@ define dso_local zeroext i1 @do_pset(ptr noundef %0, ptr noundef %1, ptr noundef
 
 20:                                               ; preds = %17
   %21 = zext nneg i32 %.0186244 to i64
-  %22 = getelementptr inbounds nuw %struct.fmt, ptr @do_pset.formats, i64 %21
+  %22 = getelementptr inbounds nuw [16 x i8], ptr @do_pset.formats, i64 %21
   %23 = load ptr, ptr %22, align 16
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.30, ptr noundef %1, ptr noundef %23, ptr noundef %14) #17
   br label %printPsetInfo.exit
@@ -3227,7 +3226,7 @@ define dso_local zeroext i1 @do_pset(ptr noundef %0, ptr noundef %1, ptr noundef
 
 26:                                               ; preds = %.critedge
   %27 = zext nneg i32 %.1187 to i64
-  %28 = getelementptr inbounds nuw %struct.fmt, ptr @do_pset.formats, i64 %27
+  %28 = getelementptr inbounds nuw [16 x i8], ptr @do_pset.formats, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load i32, ptr %29, align 8
   br label %.critedge197
@@ -4025,7 +4024,7 @@ sub_0.i:                                          ; preds = %305
 
 switch.lookup:                                    ; preds = %379
   %382 = zext nneg i32 %380 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.exec_command_pset, i64 %382
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.exec_command_pset, i64 %382
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_align2string.exit.i
 
@@ -4568,7 +4567,7 @@ define internal fastcc range(i32 1, 3) i32 @exec_command_crosstabview(ptr nounde
 .preheader:                                       ; preds = %2, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %2 ]
   %3 = tail call ptr @psql_scan_slash_option(ptr noundef %0, i32 noundef 0, ptr noundef null, i1 noundef zeroext true) #17
-  %4 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 280), i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @pset, i64 280), i64 %indvars.iv
   store ptr %3, ptr %4, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -5278,7 +5277,7 @@ define internal fastcc range(i32 2, 6) i32 @exec_command_ef_ev(ptr noundef %0, i
   %23 = tail call ptr @__ctype_b_loc() #19
   %24 = load ptr, ptr %23, align 8
   %25 = zext nneg i8 %20 to i64
-  %26 = getelementptr inbounds nuw i16, ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %25
   %27 = load i16, ptr %26, align 2
   %28 = and i16 %27, 8192
   %.not34.i = icmp eq i16 %28, 0
@@ -5297,7 +5296,7 @@ define internal fastcc range(i32 2, 6) i32 @exec_command_ef_ev(ptr noundef %0, i
   %34 = tail call ptr @__ctype_b_loc() #19
   %35 = load ptr, ptr %34, align 8
   %36 = zext nneg i8 %31 to i64
-  %37 = getelementptr inbounds nuw i16, ptr %35, i64 %36
+  %37 = getelementptr inbounds nuw [2 x i8], ptr %35, i64 %36
   %38 = load i16, ptr %37, align 2
   %39 = and i16 %38, 2048
   %.not35.i = icmp eq i16 %39, 0
@@ -5314,7 +5313,7 @@ define internal fastcc range(i32 2, 6) i32 @exec_command_ef_ev(ptr noundef %0, i
 
 42:                                               ; preds = %.lr.ph.i
   %43 = zext nneg i8 %40 to i64
-  %44 = getelementptr inbounds nuw i16, ptr %35, i64 %43
+  %44 = getelementptr inbounds nuw [2 x i8], ptr %35, i64 %43
   %45 = load i16, ptr %44, align 2
   %46 = and i16 %45, 2048
   %.not36.i = icmp eq i16 %46, 0
@@ -5335,7 +5334,7 @@ define internal fastcc range(i32 2, 6) i32 @exec_command_ef_ev(ptr noundef %0, i
 
 53:                                               ; preds = %.critedge2.i
   %54 = zext nneg i8 %50 to i64
-  %55 = getelementptr inbounds nuw i16, ptr %35, i64 %54
+  %55 = getelementptr inbounds nuw [2 x i8], ptr %35, i64 %54
   %56 = load i16, ptr %55, align 2
   %57 = and i16 %56, 8192
   %.not37.i = icmp ne i16 %57, 0
@@ -6900,7 +6899,7 @@ define internal fastcc range(i32 2, 6) i32 @exec_command_pset(ptr noundef %0, i1
 
 .preheader:                                       ; preds = %5, %pset_value_string.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %pset_value_string.exit ], [ 0, %5 ]
-  %7 = getelementptr inbounds nuw ptr, ptr @exec_command_pset.my_list, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr @exec_command_pset.my_list, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   %9 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %8, ptr noundef nonnull dereferenceable(7) @.str.44) #18
   %10 = icmp eq i32 %9, 0
@@ -7077,7 +7076,7 @@ pset_quoted_string.exit69.i:                      ; preds = %59
 
 switch.lookup:                                    ; preds = %88
   %91 = zext nneg i32 %89 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.exec_command_pset, i64 %91
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.exec_command_pset, i64 %91
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_align2string.exit.i
 
@@ -8989,7 +8988,7 @@ define internal fastcc zeroext i1 @exec_command_dfo(ptr noundef %0, ptr noundef 
 
 8:                                                ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %9 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   store ptr %7, ptr %9, align 8
   %exitcond = icmp eq i64 %indvars.iv.next, 100
   br i1 %exitcond, label %.loopexit, label %.preheader, !llvm.loop !28
@@ -9026,7 +9025,7 @@ define internal fastcc zeroext i1 @exec_command_dfo(ptr noundef %0, ptr noundef 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv24 = phi i64 [ %22, %.lr.ph.preheader ], [ %indvars.iv.next25, %.lr.ph ]
-  %23 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv24
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv24
   %24 = load ptr, ptr %23, align 8
   call void @free(ptr noundef %24) #17
   %indvars.iv.next25 = add nsw i64 %indvars.iv24, -1

@@ -146,7 +146,7 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$
   br i1 %44, label %45, label %48, !prof !54
 
 45:                                               ; preds = %43
-  %46 = getelementptr inbounds { { ptr, i8 }, { { { i64 } } }, { { { { i32 } }, { { i8 } }, i8, [2 x i8] }, { { { i32 } } } }, { { { { i32 } }, { { i8 } }, i8, [2 x i8] }, { { { i32 } } } } }, ptr %.sroa.4.0.copyload, i64 %37
+  %46 = getelementptr inbounds [48 x i8], ptr %.sroa.4.0.copyload, i64 %37
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !55
   call void @"_ZN15crossbeam_deque5deque16Stealer$LT$T$GT$5steal17h201b268e9298e0a7E"(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %46), !noalias !55
   %47 = load i64, ptr %3, align 8, !range !60, !noalias !55, !noundef !5
@@ -1066,7 +1066,7 @@ define hidden noundef nonnull align 128 ptr @"_ZN75_$LT$usize$u20$as$u20$core..s
   br i1 %5, label %6, label %8, !prof !54
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds { { { { { i32 } }, { { i8 } }, i8, [2 x i8] }, { { { i32 } } } }, [29 x i32] }, ptr %1, i64 %0
+  %7 = getelementptr inbounds [128 x i8], ptr %1, i64 %0
   ret ptr %7
 
 8:                                                ; preds = %4
@@ -1125,7 +1125,7 @@ define hidden noundef nonnull align 128 ptr @"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A
 "_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h61d1fc09bc3e3cbfE.llvm.4364434838112105284.exit": ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !5, !noundef !5
-  %10 = getelementptr inbounds { { { { { i32 } }, { { i8 } }, i8, [2 x i8] }, { { { i32 } } } }, [29 x i32] }, ptr %9, i64 %1
+  %10 = getelementptr inbounds [128 x i8], ptr %9, i64 %1
   ret ptr %10
 }
 
@@ -1228,7 +1228,7 @@ define hidden noundef zeroext i1 @_ZN10rayon_core5sleep5Sleep20wake_specific_thr
 "_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17ha78111fc5ebf76fcE.llvm.4364434838112105284.exit": ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !alias.scope !101, !noalias !104, !nonnull !5, !noundef !5
-  %11 = getelementptr inbounds { { { { { i32 } }, { { i8 } }, i8, [2 x i8] }, { { { i32 } } } }, [29 x i32] }, ptr %10, i64 %1
+  %11 = getelementptr inbounds [128 x i8], ptr %10, i64 %1
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %12 = cmpxchg ptr %11, i32 0, i32 1 acquire monotonic, align 4
   %.sroa.18.0.in.i.i = extractvalue { i32, i1 } %12, 1

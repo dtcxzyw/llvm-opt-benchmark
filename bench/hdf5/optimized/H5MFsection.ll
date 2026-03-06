@@ -180,7 +180,7 @@ define internal range(i32 -1, 2) i32 @H5MF__sect_simple_can_shrink(ptr noundef %
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 1840
   %36 = load i32, ptr %11, align 8, !tbaa !28
   %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds i32, ptr %35, i64 %37
+  %38 = getelementptr inbounds [4 x i8], ptr %35, i64 %37
   %39 = load i32, ptr %38, align 4, !tbaa !37
   %40 = and i32 %39, 1
   %.not42 = icmp eq i32 %40, 0
@@ -210,7 +210,7 @@ define internal range(i32 -1, 2) i32 @H5MF__sect_simple_can_shrink(ptr noundef %
   %.pre56 = load i32, ptr %11, align 8, !tbaa !28
   %.phi.trans.insert57 = getelementptr inbounds nuw i8, ptr %.pre55, i64 1840
   %.phi.trans.insert58 = sext i32 %.pre56 to i64
-  %.phi.trans.insert59 = getelementptr inbounds i32, ptr %.phi.trans.insert57, i64 %.phi.trans.insert58
+  %.phi.trans.insert59 = getelementptr inbounds [4 x i8], ptr %.phi.trans.insert57, i64 %.phi.trans.insert58
   %.pre60 = load i32, ptr %.phi.trans.insert59, align 4, !tbaa !37
   br label %54
 

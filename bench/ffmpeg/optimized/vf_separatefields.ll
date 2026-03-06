@@ -93,7 +93,7 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
 
 .lr.ph.split.us.i.i:                              ; preds = %.lr.ph.i.i, %.lr.ph.split.us.i.i
   %indvars.iv14.i.i = phi i64 [ %indvars.iv.next15.i.i, %.lr.ph.split.us.i.i ], [ 0, %.lr.ph.i.i ]
-  %36 = getelementptr inbounds nuw i32, ptr %35, i64 %indvars.iv14.i.i
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %indvars.iv14.i.i
   %37 = load i32, ptr %36, align 4, !tbaa !46
   %38 = shl nsw i32 %37, 1
   store i32 %38, ptr %36, align 4, !tbaa !46
@@ -103,9 +103,9 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
 
 .lr.ph.split.i.i:                                 ; preds = %.lr.ph.i.i, %.lr.ph.split.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.split.i.i ], [ 0, %.lr.ph.i.i ]
-  %39 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv.i.i
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !49
-  %41 = getelementptr inbounds nuw i32, ptr %35, i64 %indvars.iv.i.i
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %indvars.iv.i.i
   %42 = load i32, ptr %41, align 4, !tbaa !46
   %43 = sext i32 %42 to i64
   %44 = getelementptr inbounds i8, ptr %40, i64 %43
@@ -158,7 +158,7 @@ extract_field.exit.i:                             ; preds = %.lr.ph.split.i.i, %
 
 .lr.ph.split.us.i48.i:                            ; preds = %.lr.ph.i41.i, %.lr.ph.split.us.i48.i
   %indvars.iv14.i49.i = phi i64 [ %indvars.iv.next15.i50.i, %.lr.ph.split.us.i48.i ], [ 0, %.lr.ph.i41.i ]
-  %63 = getelementptr inbounds nuw i32, ptr %62, i64 %indvars.iv14.i49.i
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %indvars.iv14.i49.i
   %64 = load i32, ptr %63, align 4, !tbaa !46
   %65 = shl nsw i32 %64, 1
   store i32 %65, ptr %63, align 4, !tbaa !46
@@ -168,9 +168,9 @@ extract_field.exit.i:                             ; preds = %.lr.ph.split.i.i, %
 
 .lr.ph.split.i44.i:                               ; preds = %.lr.ph.i41.i, %.lr.ph.split.i44.i
   %indvars.iv.i45.i = phi i64 [ %indvars.iv.next.i46.i, %.lr.ph.split.i44.i ], [ 0, %.lr.ph.i41.i ]
-  %66 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv.i45.i
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv.i45.i
   %67 = load ptr, ptr %66, align 8, !tbaa !49
-  %68 = getelementptr inbounds nuw i32, ptr %62, i64 %indvars.iv.i45.i
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %indvars.iv.i45.i
   %69 = load i32, ptr %68, align 4, !tbaa !46
   %70 = sext i32 %69 to i64
   %71 = getelementptr inbounds i8, ptr %67, i64 %70
@@ -234,7 +234,7 @@ extract_field.exit52.i:                           ; preds = %.lr.ph.split.us.i48
 
 .lr.ph.split.us.i.i36:                            ; preds = %.lr.ph.i.i29, %.lr.ph.split.us.i.i36
   %indvars.iv14.i.i37 = phi i64 [ %indvars.iv.next15.i.i38, %.lr.ph.split.us.i.i36 ], [ 0, %.lr.ph.i.i29 ]
-  %101 = getelementptr inbounds nuw i32, ptr %100, i64 %indvars.iv14.i.i37
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %100, i64 %indvars.iv14.i.i37
   %102 = load i32, ptr %101, align 4, !tbaa !46
   %103 = shl nsw i32 %102, 1
   store i32 %103, ptr %101, align 4, !tbaa !46
@@ -244,9 +244,9 @@ extract_field.exit52.i:                           ; preds = %.lr.ph.split.us.i48
 
 .lr.ph.split.i.i32:                               ; preds = %.lr.ph.i.i29, %.lr.ph.split.i.i32
   %indvars.iv.i.i33 = phi i64 [ %indvars.iv.next.i.i34, %.lr.ph.split.i.i32 ], [ 0, %.lr.ph.i.i29 ]
-  %104 = getelementptr inbounds nuw ptr, ptr %90, i64 %indvars.iv.i.i33
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %indvars.iv.i.i33
   %105 = load ptr, ptr %104, align 8, !tbaa !49
-  %106 = getelementptr inbounds nuw i32, ptr %100, i64 %indvars.iv.i.i33
+  %106 = getelementptr inbounds nuw [4 x i8], ptr %100, i64 %indvars.iv.i.i33
   %107 = load i32, ptr %106, align 4, !tbaa !46
   %108 = sext i32 %107 to i64
   %109 = getelementptr inbounds i8, ptr %105, i64 %108

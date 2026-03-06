@@ -97,7 +97,7 @@ define { i64, i64 } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_sear
   %.sroa.08.019 = phi i64 [ %.sroa.016.0, %12 ], [ %1, %3 ]
   %5 = lshr i64 %.sroa.01.021, 1
   %6 = add i64 %5, %.sroa.03.020
-  %7 = getelementptr inbounds i32, ptr %0, i64 %6
+  %7 = getelementptr inbounds [4 x i8], ptr %0, i64 %6
   %8 = call i8 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$13binary_search28_$u7b$$u7b$closure$u7d$$u7d$17h0299733e0ee4dca8E"(ptr nonnull align 8 %4, ptr align 4 %7)
   %9 = icmp eq i8 %8, 0
   br i1 %9, label %._crit_edge, label %12
@@ -210,7 +210,7 @@ define void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17
 ; Function Attrs: nonlazybind uwtable
 define zeroext i1 @"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17hf2dd968f9aa9695bE"(ptr align 4 %0, ptr align 4 %1, i64 %2) unnamed_addr #0 {
   %4 = alloca [16 x i8], align 8
-  %5 = getelementptr inbounds i32, ptr %1, i64 %2
+  %5 = getelementptr inbounds [4 x i8], ptr %1, i64 %2
   store ptr %1, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %5, ptr %6, align 8
@@ -516,7 +516,7 @@ tailrecurse:                                      ; preds = %116, %6
 120:                                              ; preds = %51
   %121 = extractvalue { ptr, i64 } %65, 0
   %122 = extractvalue { ptr, i64 } %65, 1
-  %123 = getelementptr inbounds { i64, [4 x i64] }, ptr %121, i64 %122
+  %123 = getelementptr inbounds [40 x i8], ptr %121, i64 %122
   store ptr %121, ptr %27, align 8
   %124 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr %123, ptr %124, align 8
@@ -702,7 +702,7 @@ tailrecurse:                                      ; preds = %116, %6
   %206 = load ptr, ptr %205, align 8
   %207 = getelementptr inbounds nuw i8, ptr %.tr150, i64 24
   %208 = load i64, ptr %207, align 8
-  %209 = getelementptr inbounds { i32, i32 }, ptr %206, i64 %208
+  %209 = getelementptr inbounds [8 x i8], ptr %206, i64 %208
   store i64 -9223372036854775808, ptr %23, align 8
   %.sroa.076.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 24
   store i64 -9223372036854775808, ptr %.sroa.076.sroa.3.0..sroa_idx, align 8
@@ -811,12 +811,12 @@ tailrecurse:                                      ; preds = %116, %6
           to label %.thread124 unwind label %160
 
 248:                                              ; preds = %192
-  %249 = getelementptr inbounds { i32, i32 }, ptr %201, i64 %203
+  %249 = getelementptr inbounds [8 x i8], ptr %201, i64 %203
   invoke void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h97a6181fa074e551E"(ptr nonnull sret([24 x i8]) align 8 %12, ptr %201, ptr %249)
           to label %252 unwind label %.thread147
 
 250:                                              ; preds = %192
-  %251 = getelementptr inbounds { i8, i8 }, ptr %201, i64 %203
+  %251 = getelementptr inbounds [2 x i8], ptr %201, i64 %203
   invoke void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17he81caa02dc316a59E"(ptr nonnull sret([24 x i8]) align 8 %12, ptr %201, ptr %251)
           to label %252 unwind label %.thread147
 
@@ -2205,7 +2205,7 @@ define internal fastcc i32 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$15merge_
   %106 = load ptr, ptr %96, align 8
   %107 = load i64, ptr %97, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %108 = getelementptr inbounds i32, ptr %106, i64 %107
+  %108 = getelementptr inbounds [4 x i8], ptr %106, i64 %107
   store ptr %106, ptr %5, align 8
   store ptr %108, ptr %98, align 8
   %109 = invoke zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h8b507e26bd9dda0fE"(ptr nonnull align 8 %5, ptr nonnull align 4 %11)
@@ -2450,7 +2450,7 @@ define internal fastcc void @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$10merge
 43:                                               ; preds = %41
   %44 = extractvalue { ptr, i64 } %42, 0
   %45 = extractvalue { ptr, i64 } %42, 1
-  %46 = getelementptr inbounds { i8, i8 }, ptr %44, i64 %45
+  %46 = getelementptr inbounds [2 x i8], ptr %44, i64 %45
   store ptr %44, ptr %21, align 8
   %47 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %46, ptr %47, align 8

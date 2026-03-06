@@ -2563,7 +2563,7 @@ define void @"_ZN110_$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$$u5b$u8$u5d$$GT$
   %9 = load i64, ptr %8, align 8, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !517)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !520)
-  %10 = getelementptr inbounds { ptr, i64 }, ptr %3, i64 %4
+  %10 = getelementptr inbounds [16 x i8], ptr %3, i64 %4
   %.promoted.i = load i64, ptr %6, align 8, !alias.scope !517, !noalias !522
   br label %11
 
@@ -2692,7 +2692,7 @@ define void @"_ZN123_$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$
 .preheader.i:                                     ; preds = %5, %.preheader.i
   %.018.i.i = phi i64 [ %12, %.preheader.i ], [ 0, %5 ]
   %.017.i.i = phi i64 [ %13, %.preheader.i ], [ 0, %5 ]
-  %10 = getelementptr inbounds { ptr, i64 }, ptr %3, i64 %.017.i.i
+  %10 = getelementptr inbounds [16 x i8], ptr %3, i64 %.017.i.i
   %11 = getelementptr i8, ptr %10, i64 8
   %.val.i.i = load i64, ptr %11, align 8, !alias.scope !571, !noalias !573, !noundef !4
   %12 = tail call noundef i64 @llvm.uadd.sat.i64(i64 %.018.i.i, i64 %.val.i.i)
@@ -2869,7 +2869,7 @@ define void @"_ZN111_$LT$std..io..cursor..Cursor$LT$alloc..vec..Vec$LT$u8$GT$$GT
 .preheader.i:                                     ; preds = %5, %.preheader.i
   %.018.i.i = phi i64 [ %11, %.preheader.i ], [ 0, %5 ]
   %.017.i.i = phi i64 [ %12, %.preheader.i ], [ 0, %5 ]
-  %9 = getelementptr inbounds { ptr, i64 }, ptr %3, i64 %.017.i.i
+  %9 = getelementptr inbounds [16 x i8], ptr %3, i64 %.017.i.i
   %10 = getelementptr i8, ptr %9, i64 8
   %.val.i.i = load i64, ptr %10, align 8, !alias.scope !614, !noalias !616, !noundef !4
   %11 = tail call noundef i64 @llvm.uadd.sat.i64(i64 %.018.i.i, i64 %.val.i.i)
@@ -3003,7 +3003,7 @@ define void @"_ZN123_$LT$std..io..cursor..Cursor$LT$alloc..boxed..Box$LT$$u5b$u8
   %9 = load i64, ptr %8, align 8, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !649)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !652)
-  %10 = getelementptr inbounds { ptr, i64 }, ptr %3, i64 %4
+  %10 = getelementptr inbounds [16 x i8], ptr %3, i64 %4
   %.promoted.i = load i64, ptr %6, align 8, !alias.scope !649, !noalias !654
   br label %11
 
@@ -6874,7 +6874,7 @@ define noundef align 8 ptr @"_ZN110_$LT$alloc..vec..Vec$LT$tokio..signal..regist
   %5 = icmp ult i64 %1, %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !nonnull !4
-  %8 = getelementptr inbounds { ptr, { i8 }, [7 x i8] }, ptr %7, i64 %1
+  %8 = getelementptr inbounds [16 x i8], ptr %7, i64 %1
   %.0 = select i1 %5, ptr %8, ptr null
   ret ptr %.0
 }
@@ -6899,7 +6899,7 @@ define noundef align 8 ptr @"_ZN5tokio6signal4unix117_$LT$impl$u20$tokio..signal
   %5 = icmp ult i64 %1, %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !nonnull !4
-  %8 = getelementptr inbounds { { ptr, { i8 }, [7 x i8] }, { { { i32 } } }, { i8 }, [3 x i8] }, ptr %7, i64 %1
+  %8 = getelementptr inbounds [24 x i8], ptr %7, i64 %1
   %.06 = select i1 %5, ptr %8, ptr null
   ret ptr %.06
 }
@@ -7341,7 +7341,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ou
   %45 = phi i64 [ %46, %.noexc25 ], [ %43, %.preheader.i ]
   %46 = add nsw i64 %45, -1
   store i64 %46, ptr %34, align 8, !alias.scope !1390
-  %47 = getelementptr inbounds nuw { ptr, ptr }, ptr %2, i64 %46
+  %47 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %46
   %48 = load ptr, ptr %47, align 8, !alias.scope !1390, !nonnull !4, !align !13, !noundef !4
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %50 = load ptr, ptr %49, align 8, !alias.scope !1390, !noundef !4
@@ -7406,7 +7406,7 @@ _ZN5tokio4sync6notify17NotifyWaitersList15pop_back_locked17h31301df7cc52e6d6E.ex
   %67 = phi i64 [ %68, %.noexc38 ], [ %65, %.preheader.i33 ]
   %68 = add nsw i64 %67, -1
   store i64 %68, ptr %34, align 8, !alias.scope !1396
-  %69 = getelementptr inbounds nuw { ptr, ptr }, ptr %2, i64 %68
+  %69 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %68
   %70 = load ptr, ptr %69, align 8, !alias.scope !1396, !nonnull !4, !align !13, !noundef !4
   %71 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %72 = load ptr, ptr %71, align 8, !alias.scope !1396, !noundef !4
@@ -7453,7 +7453,7 @@ _ZN5tokio4sync6notify17NotifyWaitersList15pop_back_locked17h31301df7cc52e6d6E.ex
   ret void
 
 _ZN5tokio4util9wake_list8WakeList4push17hc0e5ac01899e14fdE.exit: ; preds = %_ZN5tokio4sync6notify17NotifyWaitersList15pop_back_locked17h31301df7cc52e6d6E.exit
-  %83 = getelementptr inbounds nuw { ptr, ptr }, ptr %2, i64 %.pr69
+  %83 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %.pr69
   store ptr %62, ptr %83, align 8, !alias.scope !1416, !noalias !1419
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
   store ptr %64, ptr %84, align 8, !alias.scope !1416, !noalias !1419
@@ -9285,7 +9285,7 @@ thread-pre-split:                                 ; preds = %.lr.ph, %99, %"_ZN7
   %77 = phi i64 [ %78, %.noexc38 ], [ %74, %.preheader.i ]
   %78 = add nsw i64 %77, -1
   store i64 %78, ptr %11, align 8, !alias.scope !1654
-  %79 = getelementptr inbounds nuw { ptr, ptr }, ptr %9, i64 %78
+  %79 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %78
   %80 = load ptr, ptr %79, align 8, !alias.scope !1654, !nonnull !4, !align !13, !noundef !4
   %81 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %82 = load ptr, ptr %81, align 8, !alias.scope !1654, !noundef !4
@@ -9332,7 +9332,7 @@ _ZN5tokio4util9wake_list8WakeList8wake_all17hf305bd504b00dfdfE.exit: ; preds = %
   unreachable
 
 _ZN5tokio4util9wake_list8WakeList4push17hc0e5ac01899e14fdE.exit: ; preds = %92
-  %95 = getelementptr inbounds nuw { ptr, ptr }, ptr %9, i64 %.pre
+  %95 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %.pre
   store ptr %89, ptr %95, align 8, !alias.scope !1658, !noalias !1661
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
   store ptr %91, ptr %96, align 8, !alias.scope !1658, !noalias !1661
@@ -10105,7 +10105,7 @@ _ZN5tokio7runtime7context12thread_rng_n17hd2b677d2db23db8cE.exit: ; preds = %2
   br i1 %11, label %12, label %19, !prof !1657
 
 12:                                               ; preds = %_ZN5tokio7runtime7context12thread_rng_n17hd2b677d2db23db8cE.exit
-  %13 = getelementptr inbounds nuw { { { { i64 } } }, { {}, { { { i8 } }, [7 x i8], { ptr, ptr } } } }, ptr %1, i64 %10
+  %13 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %10
   call void @llvm.experimental.noalias.scope.decl(metadata !1715)
   %14 = load atomic i64, ptr %13 seq_cst, align 8, !noalias !1715
   %15 = lshr i64 %14, 2

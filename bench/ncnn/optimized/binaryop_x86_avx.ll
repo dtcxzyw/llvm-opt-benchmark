@@ -2557,7 +2557,7 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %1191
 
 switch.lookup:                                    ; preds = %1224
   %1228 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK4ncnn16BinaryOp_x86_avx7forwardERKSt6vectorINS_3MatESaIS2_EERS4_RKNS_6OptionE, i64 %1228
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK4ncnn16BinaryOp_x86_avx7forwardERKSt6vectorINS_3MatESaIS2_EERS4_RKNS_6OptionE, i64 %1228
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN4ncnnL19get_reverse_op_typeEi.exit
 

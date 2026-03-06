@@ -22,15 +22,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Tuple_impl.14" = type { %"struct.std::_Head_base.17" }
 %"struct.std::_Head_base.17" = type { ptr }
 %"class.rocksdb::Slice" = type { ptr, i64 }
-%"struct.rocksdb::FSReadRequest" = type { i64, i64, ptr, %"class.rocksdb::Slice", %"class.rocksdb::IOStatus", %"class.std::unique_ptr.2" }
-%"class.std::unique_ptr.2" = type { %"struct.std::__uniq_ptr_data.3" }
-%"struct.std::__uniq_ptr_data.3" = type { %"class.std::__uniq_ptr_impl.4" }
-%"class.std::__uniq_ptr_impl.4" = type { %"class.std::tuple.5" }
-%"class.std::tuple.5" = type { %"struct.std::_Tuple_impl.6" }
-%"struct.std::_Tuple_impl.6" = type { %"struct.std::_Tuple_impl.7", %"struct.std::_Head_base.9" }
-%"struct.std::_Tuple_impl.7" = type { %"struct.std::_Head_base.8" }
-%"struct.std::_Head_base.8" = type { %"class.std::function" }
-%"struct.std::_Head_base.9" = type { ptr }
 
 $_ZN7rocksdb13AlignedBuffer17AllocateNewBufferEmbmm = comdat any
 
@@ -740,7 +731,7 @@ define linkonce_odr void @_ZN7rocksdb18FSRandomAccessFile9MultiReadEPNS_13FSRead
 
 16:                                               ; preds = %.lr.ph, %_ZN7rocksdb6StatusD2Ev.exit
   %.012 = phi i64 [ 0, %.lr.ph ], [ %41, %_ZN7rocksdb6StatusD2Ev.exit ]
-  %17 = getelementptr inbounds nuw %"struct.rocksdb::FSReadRequest", ptr %2, i64 %.012
+  %17 = getelementptr inbounds nuw [96 x i8], ptr %2, i64 %.012
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %18 = load i64, ptr %17, align 8, !tbaa !83
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 8

@@ -369,7 +369,7 @@ _ZNSt6vectorIPN4absl7LogSinkESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; 
 _ZNSt6vectorIPN4absl7LogSinkESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %65, %_ZNSt6vectorIPN4absl7LogSinkESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %60, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4absl12log_internal12_GLOBAL__N_111GlobalSinksEvE12global_sinks, i64 8), align 8, !tbaa !31
   store ptr %64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4absl12log_internal12_GLOBAL__N_111GlobalSinksEvE12global_sinks, i64 16), align 8, !tbaa !34
-  %66 = getelementptr inbounds nuw ptr, ptr %60, i64 %58
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %58
   store ptr %66, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4absl12log_internal12_GLOBAL__N_111GlobalSinksEvE12global_sinks, i64 24), align 8, !tbaa !38
   br label %_ZNSt6vectorIPN4absl7LogSinkESaIS2_EE9push_backERKS2_.exit
 

@@ -1587,7 +1587,7 @@ PyList_GET_SIZE.exit:                             ; preds = %27, %20
 
 46:                                               ; preds = %44, %38
   %.pn = phi ptr [ %40, %38 ], [ %45, %44 ]
-  %.in = getelementptr ptr, ptr %.pn, i64 %.04599
+  %.in = getelementptr [8 x i8], ptr %.pn, i64 %.04599
   %47 = load ptr, ptr %.in, align 8, !tbaa !12
   %48 = getelementptr i8, ptr %47, i64 8
   %.val66 = load ptr, ptr %48, align 8, !tbaa !20
@@ -1599,7 +1599,7 @@ PyList_GET_SIZE.exit:                             ; preds = %27, %20
 
 51:                                               ; preds = %46
   %52 = call ptr @PyUnicode_AsUTF8(ptr noundef nonnull %47) #7
-  %53 = getelementptr ptr, ptr %8, i64 %.04599
+  %53 = getelementptr [8 x i8], ptr %8, i64 %.04599
   store ptr %52, ptr %53, align 8, !tbaa !17
   %54 = icmp eq ptr %52, null
   br i1 %54, label %_Py_NewRef.exit87, label %61
@@ -1611,7 +1611,7 @@ PyList_GET_SIZE.exit:                             ; preds = %27, %20
 
 PyBytes_AS_STRING.exit:                           ; preds = %55
   %57 = getelementptr inbounds nuw i8, ptr %47, i64 32
-  %58 = getelementptr ptr, ptr %8, i64 %.04599
+  %58 = getelementptr [8 x i8], ptr %8, i64 %.04599
   store ptr %57, ptr %58, align 8, !tbaa !17
   br label %61
 
@@ -1651,7 +1651,7 @@ PyBytes_AS_STRING.exit:                           ; preds = %55
   %.036102 = phi ptr [ %88, %87 ], [ %75, %74 ]
   %.037101 = phi i32 [ %.138, %87 ], [ 0, %74 ]
   %78 = zext i8 %77 to i64
-  %79 = getelementptr i32, ptr @_Py_ctype_table, i64 %78
+  %79 = getelementptr [4 x i8], ptr @_Py_ctype_table, i64 %78
   %80 = load i32, ptr %79, align 4, !tbaa !6
   %81 = and i32 %80, 7
   %.not60 = icmp eq i32 %81, 0
@@ -1693,7 +1693,7 @@ PyBytes_AS_STRING.exit:                           ; preds = %55
 
 97:                                               ; preds = %.lr.ph106, %PyTuple_SET_ITEM.exit
   %.035105 = phi i64 [ 0, %.lr.ph106 ], [ %116, %PyTuple_SET_ITEM.exit ]
-  %98 = getelementptr [4 x double], ptr %7, i64 %.035105
+  %98 = getelementptr [32 x i8], ptr %7, i64 %.035105
   %99 = load ptr, ptr %98, align 16, !tbaa !12
   %100 = icmp eq ptr %99, null
   %spec.store.select = select i1 %100, ptr @_Py_NoneStruct, ptr %99
@@ -1744,7 +1744,7 @@ Py_SIZE.exit.i:                                   ; preds = %110
   unreachable
 
 PyTuple_SET_ITEM.exit:                            ; preds = %Py_SIZE.exit.i
-  %115 = getelementptr ptr, ptr %96, i64 %.035105
+  %115 = getelementptr [8 x i8], ptr %96, i64 %.035105
   store ptr %spec.store.select, ptr %115, align 8, !tbaa !12
   %116 = add nuw nsw i64 %.035105, 1
   %exitcond108.not = icmp eq i64 %116, %90
@@ -1875,7 +1875,7 @@ Py_DECREF.exit47:                                 ; preds = %15, %17, %20
 
 .preheader85:                                     ; preds = %13, %56
   %.03189 = phi i64 [ %57, %56 ], [ 0, %13 ]
-  %26 = getelementptr ptr, ptr @__const.test_w_code_invalid.formats_3, i64 %.03189
+  %26 = getelementptr [8 x i8], ptr @__const.test_w_code_invalid.formats_3, i64 %.03189
   %27 = load ptr, ptr %26, align 8, !tbaa !17
   %28 = call i32 (ptr, ptr, ptr, ptr, ...) @PyArg_ParseTupleAndKeywords(ptr noundef nonnull %4, ptr noundef nonnull %6, ptr noundef %27, ptr noundef nonnull @test_w_code_invalid.keywords, ptr noundef nonnull %3, ptr noundef nonnull %3, ptr noundef nonnull %3) #7
   %.not44 = icmp eq i32 %28, 0
@@ -2000,7 +2000,7 @@ Py_DECREF.exit57:                                 ; preds = %62, %64, %67
 
 .preheader:                                       ; preds = %60, %103
   %.190 = phi i64 [ %104, %103 ], [ 0, %60 ]
-  %73 = getelementptr ptr, ptr @__const.test_w_code_invalid.formats_4, i64 %.190
+  %73 = getelementptr [8 x i8], ptr @__const.test_w_code_invalid.formats_4, i64 %.190
   %74 = load ptr, ptr %73, align 8, !tbaa !17
   %75 = call i32 (ptr, ptr, ptr, ptr, ...) @PyArg_ParseTupleAndKeywords(ptr noundef nonnull %4, ptr noundef nonnull %6, ptr noundef %74, ptr noundef nonnull @test_w_code_invalid.keywords, ptr noundef nonnull %3, ptr noundef nonnull %3, ptr noundef nonnull %3, ptr noundef nonnull %3) #7
   %.not42 = icmp eq i32 %75, 0

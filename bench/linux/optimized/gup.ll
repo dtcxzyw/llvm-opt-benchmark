@@ -56,18 +56,10 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_pin_user_pag
 %struct.atomic64_t = type { i64 }
 %struct.work_struct = type { %struct.atomic64_t, %struct.list_head, ptr }
 %struct.address_space_operations = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.page = type { i64, %union.anon.3, %union.anon.11, %struct.atomic_t, [8 x i8] }
-%union.anon.3 = type { %struct.anon.4 }
-%struct.anon.4 = type { %union.anon.5, ptr, %union.anon.7, i64 }
-%union.anon.5 = type { %struct.list_head }
-%union.anon.7 = type { i64 }
-%union.anon.11 = type { %struct.atomic_t }
 %struct.follow_page_context = type { ptr, i32 }
-%struct.pgd_t = type { i64 }
-%struct.p4d_t = type { i64 }
-%struct.pud_t = type { i64 }
-%struct.pmd_t = type { i64 }
 %struct.__large_struct = type { [100 x i64] }
+%struct.pmd_t = type { i64 }
+%struct.pgd_t = type { i64 }
 %struct.migration_target_control = type { i32, ptr, i32 }
 
 @.str = private unnamed_addr constant [9 x i8] c"mm/gup.c\00", align 1
@@ -240,7 +232,7 @@ define dso_local ptr @try_grab_folio(ptr noundef %0, i32 noundef %1, i32 noundef
   %76 = sext i32 %1 to i64
   %77 = load i64, ptr %44, align 16
   %78 = lshr i64 %77, 58
-  %79 = getelementptr ptr, ptr @node_data, i64 %78
+  %79 = getelementptr [8 x i8], ptr @node_data, i64 %78
   %80 = load ptr, ptr %79, align 8
   tail call void @mod_node_page_state(ptr noundef %80, i32 noundef 35, i64 noundef %76) #9
   br label %81
@@ -532,7 +524,7 @@ define dso_local noundef range(i32 -12, 1) i32 @try_grab_page(ptr noundef %0, i3
 54:                                               ; preds = %53, %51
   %55 = load i64, ptr %28, align 16
   %56 = lshr i64 %55, 58
-  %57 = getelementptr ptr, ptr @node_data, i64 %56
+  %57 = getelementptr [8 x i8], ptr @node_data, i64 %56
   %58 = load ptr, ptr %57, align 8
   tail call void @mod_node_page_state(ptr noundef %58, i32 noundef 35, i64 noundef 1) #9
   br label %59
@@ -600,7 +592,7 @@ define dso_local void @unpin_user_page(ptr noundef %0) #0 align 16 {
 36:                                               ; preds = %28
   %37 = load i64, ptr %30, align 16
   %38 = lshr i64 %37, 58
-  %39 = getelementptr ptr, ptr @node_data, i64 %38
+  %39 = getelementptr [8 x i8], ptr @node_data, i64 %38
   %40 = load ptr, ptr %39, align 8
   tail call void @mod_node_page_state(ptr noundef %40, i32 noundef 36, i64 noundef 1) #9
   %41 = load volatile i64, ptr %30, align 16
@@ -649,7 +641,7 @@ define internal fastcc void @gup_put_folio(ptr noundef %0, i32 noundef %1, i32 n
   %14 = sext i32 %1 to i64
   %15 = load i64, ptr %0, align 16
   %16 = lshr i64 %15, 58
-  %17 = getelementptr ptr, ptr @node_data, i64 %16
+  %17 = getelementptr [8 x i8], ptr @node_data, i64 %16
   %18 = load ptr, ptr %17, align 8
   tail call void @mod_node_page_state(ptr noundef %18, i32 noundef 36, i64 noundef %14) #9
   %19 = load volatile i64, ptr %0, align 16
@@ -751,7 +743,7 @@ define dso_local void @unpin_user_pages_dirty_lock(ptr noundef readonly captures
 
 .preheader:                                       ; preds = %4, %112
   %7 = phi i64 [ %114, %112 ], [ 0, %4 ]
-  %8 = getelementptr ptr, ptr %0, i64 %7
+  %8 = getelementptr [8 x i8], ptr %0, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load volatile i64, ptr %10, align 8
@@ -805,7 +797,7 @@ define dso_local void @unpin_user_pages_dirty_lock(ptr noundef readonly captures
   br i1 %41, label %42, label %72
 
 42:                                               ; preds = %37
-  %43 = getelementptr ptr, ptr %0, i64 %40
+  %43 = getelementptr [8 x i8], ptr %0, i64 %40
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %46 = load volatile i64, ptr %45, align 8
@@ -888,7 +880,7 @@ define dso_local void @unpin_user_pages_dirty_lock(ptr noundef readonly captures
   %93 = sext i32 %73 to i64
   %94 = load i64, ptr %35, align 16
   %95 = lshr i64 %94, 58
-  %96 = getelementptr ptr, ptr @node_data, i64 %95
+  %96 = getelementptr [8 x i8], ptr @node_data, i64 %95
   %97 = load ptr, ptr %96, align 8
   tail call void @mod_node_page_state(ptr noundef %97, i32 noundef 36, i64 noundef %93) #9
   %98 = load volatile i64, ptr %35, align 16
@@ -945,7 +937,7 @@ define dso_local void @unpin_user_pages(ptr noundef readonly captures(none) %0, 
 
 .preheader:                                       ; preds = %4, %100
   %7 = phi i64 [ %102, %100 ], [ 0, %4 ]
-  %8 = getelementptr ptr, ptr %0, i64 %7
+  %8 = getelementptr [8 x i8], ptr %0, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load volatile i64, ptr %10, align 8
@@ -999,7 +991,7 @@ define dso_local void @unpin_user_pages(ptr noundef readonly captures(none) %0, 
   br i1 %41, label %42, label %72
 
 42:                                               ; preds = %37
-  %43 = getelementptr ptr, ptr %0, i64 %40
+  %43 = getelementptr [8 x i8], ptr %0, i64 %40
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %46 = load volatile i64, ptr %45, align 8
@@ -1059,7 +1051,7 @@ define dso_local void @unpin_user_pages(ptr noundef readonly captures(none) %0, 
   %81 = sext i32 %73 to i64
   %82 = load i64, ptr %35, align 16
   %83 = lshr i64 %82, 58
-  %84 = getelementptr ptr, ptr @node_data, i64 %83
+  %84 = getelementptr [8 x i8], ptr @node_data, i64 %83
   %85 = load ptr, ptr %84, align 8
   tail call void @mod_node_page_state(ptr noundef %85, i32 noundef 36, i64 noundef %81) #9
   %86 = load volatile i64, ptr %35, align 16
@@ -1112,7 +1104,7 @@ define dso_local void @unpin_user_page_range_dirty_lock(ptr noundef %0, i64 noun
 
 .preheader:                                       ; preds = %3, %97
   %5 = phi i64 [ %99, %97 ], [ 0, %3 ]
-  %6 = getelementptr %struct.page, ptr %0, i64 %5
+  %6 = getelementptr [64 x i8], ptr %0, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load volatile i64, ptr %7, align 8
   %9 = and i64 %8, 1
@@ -1227,7 +1219,7 @@ define dso_local void @unpin_user_page_range_dirty_lock(ptr noundef %0, i64 noun
   %78 = sext i32 %58 to i64
   %79 = load i64, ptr %35, align 16
   %80 = lshr i64 %79, 58
-  %81 = getelementptr ptr, ptr @node_data, i64 %80
+  %81 = getelementptr [8 x i8], ptr @node_data, i64 %80
   %82 = load ptr, ptr %81, align 8
   tail call void @mod_node_page_state(ptr noundef %82, i32 noundef 36, i64 noundef %78) #9
   %83 = load volatile i64, ptr %35, align 16
@@ -1363,7 +1355,7 @@ define internal fastcc ptr @follow_page_mask(ptr noundef %0, i64 noundef %1, i32
   %21 = zext nneg i32 %20 to i64
   %22 = lshr i64 %1, %21
   %23 = and i64 %22, 511
-  %24 = getelementptr %struct.pgd_t, ptr %19, i64 %23
+  %24 = getelementptr [8 x i8], ptr %19, i64 %23
   %25 = load i64, ptr %24, align 8
   callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 528, i32 1, ptr nonnull getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 106)) #9
           to label %26 [label %26, label %.critedge], !srcloc !46
@@ -1417,7 +1409,7 @@ define internal fastcc ptr @follow_page_mask(ptr noundef %0, i64 noundef %1, i32
   %50 = add i32 %49, -1
   %51 = zext i32 %50 to i64
   %52 = and i64 %48, %51
-  %53 = getelementptr %struct.p4d_t, ptr %47, i64 %52
+  %53 = getelementptr [8 x i8], ptr %47, i64 %52
   br label %54
 
 54:                                               ; preds = %42, %.critedge15
@@ -1479,7 +1471,7 @@ define internal fastcc ptr @follow_page_mask(ptr noundef %0, i64 noundef %1, i32
   %90 = inttoptr i64 %89 to ptr
   %91 = lshr i64 %1, 30
   %92 = and i64 %91, 511
-  %93 = getelementptr %struct.pud_t, ptr %90, i64 %92
+  %93 = getelementptr [8 x i8], ptr %90, i64 %92
   %94 = load i64, ptr %93, align 8
   %95 = and i64 %94, -97
   %96 = icmp eq i64 %95, 0
@@ -1540,7 +1532,7 @@ define internal fastcc ptr @follow_page_mask(ptr noundef %0, i64 noundef %1, i32
   %131 = inttoptr i64 %130 to ptr
   %132 = lshr i64 %1, 21
   %133 = and i64 %132, 511
-  %134 = getelementptr %struct.pmd_t, ptr %131, i64 %133
+  %134 = getelementptr [8 x i8], ptr %131, i64 %133
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %135 = load volatile i64, ptr %134, align 8
   store volatile i64 %135, ptr %7, align 8
@@ -1765,7 +1757,7 @@ define internal fastcc ptr @follow_page_mask(ptr noundef %0, i64 noundef %1, i32
 268:                                              ; preds = %257
   %269 = load i64, ptr @vmemmap_base, align 8
   %270 = inttoptr i64 %269 to ptr
-  %271 = getelementptr %struct.page, ptr %270, i64 %265
+  %271 = getelementptr [64 x i8], ptr %270, i64 %265
   br label %273
 
 272:                                              ; preds = %257
@@ -2296,7 +2288,7 @@ define internal fastcc i64 @__get_user_pages(ptr noundef %0, i64 noundef %1, i64
   %108 = and i64 %107, 511
   %109 = select i1 %104, ptr getelementptr inbounds nuw (i8, ptr @init_mm, i64 128), ptr %14
   %110 = load ptr, ptr %109, align 64
-  %111 = getelementptr %struct.pgd_t, ptr %110, i64 %108
+  %111 = getelementptr [8 x i8], ptr %110, i64 %108
   %112 = load i64, ptr %111, align 8
   callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 528, i32 1, ptr nonnull getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 106)) #9
           to label %113 [label %113, label %115], !srcloc !46
@@ -2320,7 +2312,7 @@ define internal fastcc i64 @__get_user_pages(ptr noundef %0, i64 noundef %1, i64
   %124 = add i32 %123, -1
   %125 = zext i32 %124 to i64
   %126 = and i64 %122, %125
-  %127 = getelementptr %struct.p4d_t, ptr %121, i64 %126
+  %127 = getelementptr [8 x i8], ptr %121, i64 %126
   br label %128
 
 128:                                              ; preds = %116, %115
@@ -2337,7 +2329,7 @@ define internal fastcc i64 @__get_user_pages(ptr noundef %0, i64 noundef %1, i64
   %137 = inttoptr i64 %136 to ptr
   %138 = lshr i64 %46, 30
   %139 = and i64 %138, 511
-  %140 = getelementptr %struct.pud_t, ptr %137, i64 %139
+  %140 = getelementptr [8 x i8], ptr %137, i64 %139
   %141 = load i64, ptr %140, align 8
   %142 = and i64 %141, -97
   %143 = icmp eq i64 %142, 0
@@ -2352,7 +2344,7 @@ define internal fastcc i64 @__get_user_pages(ptr noundef %0, i64 noundef %1, i64
   %150 = inttoptr i64 %149 to ptr
   %151 = lshr i64 %46, 21
   %152 = and i64 %151, 511
-  %153 = getelementptr %struct.pmd_t, ptr %150, i64 %152
+  %153 = getelementptr [8 x i8], ptr %150, i64 %152
   %154 = load i64, ptr %153, align 8
   %155 = and i64 %154, 385
   %156 = icmp eq i64 %155, 0
@@ -2401,7 +2393,7 @@ define internal fastcc i64 @__get_user_pages(ptr noundef %0, i64 noundef %1, i64
 177:                                              ; preds = %170
   %178 = load i64, ptr @vmemmap_base, align 8
   %179 = inttoptr i64 %178 to ptr
-  %180 = getelementptr %struct.page, ptr %179, i64 %174
+  %180 = getelementptr [64 x i8], ptr %179, i64 %174
   br label %181
 
 .thread25:                                        ; preds = %160, %170, %169
@@ -2605,13 +2597,13 @@ define internal fastcc i64 @__get_user_pages(ptr noundef %0, i64 noundef %1, i64
   br i1 %273, label %.thread34, label %274
 
 274:                                              ; preds = %272
-  %275 = getelementptr ptr, ptr %4, i64 %44
+  %275 = getelementptr [8 x i8], ptr %4, i64 %44
   br label %276
 
 276:                                              ; preds = %276, %274
   %277 = phi i64 [ 0, %274 ], [ %280, %276 ]
-  %278 = getelementptr %struct.page, ptr %255, i64 %277
-  %279 = getelementptr ptr, ptr %275, i64 %277
+  %278 = getelementptr [64 x i8], ptr %255, i64 %277
+  %279 = getelementptr [8 x i8], ptr %275, i64 %277
   store ptr %278, ptr %279, align 8
   %280 = add nuw nsw i64 %277, 1
   %281 = icmp eq i64 %280, %264
@@ -3459,7 +3451,7 @@ define dso_local i64 @get_user_pages_remote(ptr noundef %0, i64 noundef %1, i64 
 
 .split.us.us:                                     ; preds = %70
   %73 = icmp eq ptr %57, null
-  %74 = getelementptr ptr, ptr %57, i64 %52
+  %74 = getelementptr [8 x i8], ptr %57, i64 %52
   %75 = select i1 %73, ptr null, ptr %74, !prof !5
   %76 = shl i64 %52, 12
   %77 = add i64 %76, %53
@@ -3585,7 +3577,7 @@ define dso_local i64 @get_user_pages_remote(ptr noundef %0, i64 noundef %1, i64 
 
 .split:                                           ; preds = %132
   %137 = icmp eq ptr %119, null
-  %138 = getelementptr ptr, ptr %119, i64 %114
+  %138 = getelementptr [8 x i8], ptr %119, i64 %114
   %139 = select i1 %137, ptr null, ptr %138, !prof !5
   %140 = shl i64 %114, 12
   %141 = add i64 %140, %115
@@ -3937,7 +3929,7 @@ define dso_local i64 @get_user_pages(i64 noundef %0, i64 noundef %1, i32 noundef
 
 .split.us.us:                                     ; preds = %57
   %60 = icmp eq ptr %44, null
-  %61 = getelementptr ptr, ptr %44, i64 %39
+  %61 = getelementptr [8 x i8], ptr %44, i64 %39
   %62 = select i1 %60, ptr null, ptr %61, !prof !5
   %63 = shl i64 %39, 12
   %64 = add i64 %63, %40
@@ -4060,7 +4052,7 @@ define dso_local i64 @get_user_pages(i64 noundef %0, i64 noundef %1, i32 noundef
 
 .split:                                           ; preds = %116
   %121 = icmp eq ptr %103, null
-  %122 = getelementptr ptr, ptr %103, i64 %98
+  %122 = getelementptr [8 x i8], ptr %103, i64 %98
   %123 = select i1 %121, ptr null, ptr %122, !prof !5
   %124 = shl i64 %98, 12
   %125 = add i64 %124, %99
@@ -4342,7 +4334,7 @@ define dso_local i64 @get_user_pages_unlocked(i64 noundef %0, i64 noundef %1, pt
 
 .split.us.us:                                     ; preds = %64
   %67 = icmp eq ptr %51, null
-  %68 = getelementptr ptr, ptr %51, i64 %47
+  %68 = getelementptr [8 x i8], ptr %51, i64 %47
   %69 = select i1 %67, ptr null, ptr %68, !prof !5
   %70 = shl i64 %47, 12
   %71 = add i64 %70, %48
@@ -4463,7 +4455,7 @@ define dso_local i64 @get_user_pages_unlocked(i64 noundef %0, i64 noundef %1, pt
 
 .split:                                           ; preds = %122
   %127 = icmp eq ptr %109, null
-  %128 = getelementptr ptr, ptr %109, i64 %105
+  %128 = getelementptr [8 x i8], ptr %109, i64 %105
   %129 = select i1 %127, ptr null, ptr %128, !prof !5
   %130 = shl i64 %105, 12
   %131 = add i64 %130, %106
@@ -4758,7 +4750,7 @@ define internal fastcc i32 @internal_get_user_pages_fast(i64 noundef %0, i64 nou
   %71 = zext nneg i32 %70 to i64
   %72 = lshr i64 %34, %71
   %73 = and i64 %72, 511
-  %74 = getelementptr %struct.pgd_t, ptr %69, i64 %73
+  %74 = getelementptr [8 x i8], ptr %69, i64 %73
   %75 = add nsw i64 %38, -1
   %76 = and i32 %2, 1
   %77 = icmp eq i32 %76, 0
@@ -4813,7 +4805,7 @@ define internal fastcc i32 @internal_get_user_pages_fast(i64 noundef %0, i64 nou
   %106 = add i32 %105, -1
   %107 = zext i32 %106 to i64
   %108 = and i64 %104, %107
-  %109 = getelementptr %struct.p4d_t, ptr %103, i64 %108
+  %109 = getelementptr [8 x i8], ptr %103, i64 %108
   br label %110
 
 110:                                              ; preds = %98, %.critedge
@@ -4844,7 +4836,7 @@ define internal fastcc i32 @internal_get_user_pages_fast(i64 noundef %0, i64 nou
   %128 = inttoptr i64 %127 to ptr
   %129 = lshr i64 %115, 30
   %130 = and i64 %129, 511
-  %131 = getelementptr %struct.pud_t, ptr %128, i64 %130
+  %131 = getelementptr [8 x i8], ptr %128, i64 %130
   %132 = add i64 %121, -1
   br label %133
 
@@ -4880,7 +4872,7 @@ define internal fastcc i32 @internal_get_user_pages_fast(i64 noundef %0, i64 nou
   %154 = inttoptr i64 %153 to ptr
   %155 = lshr i64 %135, 21
   %156 = and i64 %155, 511
-  %157 = getelementptr %struct.pmd_t, ptr %154, i64 %156
+  %157 = getelementptr [8 x i8], ptr %154, i64 %156
   %158 = add i64 %141, -1
   br label %159
 
@@ -4976,7 +4968,7 @@ define internal fastcc i32 @internal_get_user_pages_fast(i64 noundef %0, i64 nou
   %210 = add i32 %209, -1
   store i32 %210, ptr %14, align 4
   %211 = sext i32 %210 to i64
-  %212 = getelementptr ptr, ptr %3, i64 %211
+  %212 = getelementptr [8 x i8], ptr %3, i64 %211
   %213 = load ptr, ptr %212, align 8
   %214 = getelementptr inbounds nuw i8, ptr %213, i64 8
   %215 = load volatile i64, ptr %214, align 8
@@ -5080,7 +5072,7 @@ define internal fastcc i32 @internal_get_user_pages_fast(i64 noundef %0, i64 nou
   %273 = phi i32 [ %274, %302 ], [ %180, %.preheader35 ]
   %274 = add i32 %273, -1
   %275 = sext i32 %274 to i64
-  %276 = getelementptr ptr, ptr %3, i64 %275
+  %276 = getelementptr [8 x i8], ptr %3, i64 %275
   %277 = load ptr, ptr %276, align 8
   %278 = getelementptr inbounds nuw i8, ptr %277, i64 8
   %279 = load volatile i64, ptr %278, align 8
@@ -5145,7 +5137,7 @@ define internal fastcc i32 @internal_get_user_pages_fast(i64 noundef %0, i64 nou
   %317 = xor i64 %183, %316
   %318 = lshr i64 %317, 12
   %319 = and i64 %318, 1099511627775
-  %320 = getelementptr %struct.page, ptr %311, i64 %319
+  %320 = getelementptr [64 x i8], ptr %311, i64 %319
   %321 = call ptr @try_grab_folio(ptr noundef %320, i32 noundef 1, i32 noundef %2)
   %322 = icmp eq ptr %321, null
   br i1 %322, label %.critedge32.loopexit36, label %323
@@ -5194,7 +5186,7 @@ define internal fastcc i32 @internal_get_user_pages_fast(i64 noundef %0, i64 nou
 
 352:                                              ; preds = %345
   %353 = lshr i64 %328, 58
-  %354 = getelementptr ptr, ptr @node_data, i64 %353
+  %354 = getelementptr [8 x i8], ptr @node_data, i64 %353
   %355 = load ptr, ptr %354, align 8
   call void @mod_node_page_state(ptr noundef %355, i32 noundef 36, i64 noundef 1) #9
   %356 = load volatile i64, ptr %321, align 8
@@ -5246,7 +5238,7 @@ define internal fastcc i32 @internal_get_user_pages_fast(i64 noundef %0, i64 nou
 382:                                              ; preds = %375
   %383 = load i64, ptr %321, align 16
   %384 = lshr i64 %383, 58
-  %385 = getelementptr ptr, ptr @node_data, i64 %384
+  %385 = getelementptr [8 x i8], ptr @node_data, i64 %384
   %386 = load ptr, ptr %385, align 8
   call void @mod_node_page_state(ptr noundef %386, i32 noundef 36, i64 noundef 1) #9
   %387 = load volatile i64, ptr %321, align 16
@@ -5335,7 +5327,7 @@ define internal fastcc i32 @internal_get_user_pages_fast(i64 noundef %0, i64 nou
 434:                                              ; preds = %427
   %435 = load i64, ptr %321, align 16
   %436 = lshr i64 %435, 58
-  %437 = getelementptr ptr, ptr @node_data, i64 %436
+  %437 = getelementptr [8 x i8], ptr @node_data, i64 %436
   %438 = load ptr, ptr %437, align 8
   call void @mod_node_page_state(ptr noundef %438, i32 noundef 36, i64 noundef 1) #9
   %439 = load volatile i64, ptr %321, align 16
@@ -5494,7 +5486,7 @@ gup_must_unshare.exit.thread33:                   ; preds = %489, %gup_must_unsh
 528:                                              ; preds = %521
   %529 = load i64, ptr %321, align 16
   %530 = lshr i64 %529, 58
-  %531 = getelementptr ptr, ptr @node_data, i64 %530
+  %531 = getelementptr [8 x i8], ptr @node_data, i64 %530
   %532 = load ptr, ptr %531, align 8
   call void @mod_node_page_state(ptr noundef %532, i32 noundef 36, i64 noundef 1) #9
   %533 = load volatile i64, ptr %321, align 16
@@ -5519,7 +5511,7 @@ gup_must_unshare.exit.thread33:                   ; preds = %489, %gup_must_unsh
 .critedge26:                                      ; preds = %489, %.critedge28, %450, %gup_must_unshare.exit, %454
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %321, i32 4, ptr nonnull elementtype(i8) %321) #9, !srcloc !84
   %544 = sext i32 %180 to i64
-  %545 = getelementptr ptr, ptr %3, i64 %544
+  %545 = getelementptr [8 x i8], ptr %3, i64 %544
   store ptr %320, ptr %545, align 8
   %546 = add i32 %180, 1
   %547 = getelementptr i8, ptr %182, i64 8
@@ -5584,10 +5576,10 @@ gup_must_unshare.exit.thread33:                   ; preds = %489, %gup_must_unsh
   %582 = getelementptr i8, ptr %574, i64 %581
   %583 = lshr i64 %161, 12
   %584 = and i64 %583, 511
-  %585 = getelementptr %struct.page, ptr %582, i64 %584
+  %585 = getelementptr [64 x i8], ptr %582, i64 %584
   %586 = load i32, ptr %14, align 4
   %587 = sext i32 %586 to i64
-  %588 = getelementptr ptr, ptr %3, i64 %587
+  %588 = getelementptr [8 x i8], ptr %3, i64 %587
   %589 = icmp eq i64 %161, %167
   br i1 %589, label %.loopexit39, label %.preheader38
 
@@ -5595,8 +5587,8 @@ gup_must_unshare.exit.thread33:                   ; preds = %489, %gup_must_unsh
   %590 = phi i32 [ %595, %.preheader38 ], [ 0, %572 ]
   %591 = phi i64 [ %596, %.preheader38 ], [ %161, %572 ]
   %592 = sext i32 %590 to i64
-  %593 = getelementptr %struct.page, ptr %585, i64 %592
-  %594 = getelementptr ptr, ptr %588, i64 %592
+  %593 = getelementptr [64 x i8], ptr %585, i64 %592
+  %594 = getelementptr [8 x i8], ptr %588, i64 %592
   store ptr %593, ptr %594, align 8
   %595 = add i32 %590, 1
   %596 = add i64 %591, 4096
@@ -5681,7 +5673,7 @@ gup_must_unshare.exit.thread33:                   ; preds = %489, %gup_must_unsh
   %641 = sext i32 %598 to i64
   %642 = load i64, ptr %599, align 16
   %643 = lshr i64 %642, 58
-  %644 = getelementptr ptr, ptr @node_data, i64 %643
+  %644 = getelementptr [8 x i8], ptr @node_data, i64 %643
   %645 = load ptr, ptr %644, align 8
   call void @mod_node_page_state(ptr noundef %645, i32 noundef 36, i64 noundef %641) #9
   %646 = load volatile i64, ptr %599, align 16
@@ -5745,7 +5737,7 @@ gup_must_unshare.exit.thread33:                   ; preds = %489, %gup_must_unsh
   %678 = sext i32 %598 to i64
   %679 = load i64, ptr %599, align 16
   %680 = lshr i64 %679, 58
-  %681 = getelementptr ptr, ptr @node_data, i64 %680
+  %681 = getelementptr [8 x i8], ptr @node_data, i64 %680
   %682 = load ptr, ptr %681, align 8
   call void @mod_node_page_state(ptr noundef %682, i32 noundef 36, i64 noundef %678) #9
   %683 = load volatile i64, ptr %599, align 16
@@ -5872,7 +5864,7 @@ gup_must_unshare.exit.thread33:                   ; preds = %489, %gup_must_unsh
 
 .preheader:                                       ; preds = %722, %818
   %725 = phi i64 [ %820, %818 ], [ 0, %722 ]
-  %726 = getelementptr ptr, ptr %3, i64 %725
+  %726 = getelementptr [8 x i8], ptr %3, i64 %725
   %727 = load ptr, ptr %726, align 8
   %728 = getelementptr inbounds nuw i8, ptr %727, i64 8
   %729 = load volatile i64, ptr %728, align 8
@@ -5926,7 +5918,7 @@ gup_must_unshare.exit.thread33:                   ; preds = %489, %gup_must_unsh
   br i1 %759, label %760, label %790
 
 760:                                              ; preds = %755
-  %761 = getelementptr ptr, ptr %3, i64 %758
+  %761 = getelementptr [8 x i8], ptr %3, i64 %758
   %762 = load ptr, ptr %761, align 8
   %763 = getelementptr inbounds nuw i8, ptr %762, i64 8
   %764 = load volatile i64, ptr %763, align 8
@@ -5986,7 +5978,7 @@ gup_must_unshare.exit.thread33:                   ; preds = %489, %gup_must_unsh
   %799 = sext i32 %791 to i64
   %800 = load i64, ptr %753, align 16
   %801 = lshr i64 %800, 58
-  %802 = getelementptr ptr, ptr @node_data, i64 %801
+  %802 = getelementptr [8 x i8], ptr @node_data, i64 %801
   %803 = load ptr, ptr %802, align 8
   call void @mod_node_page_state(ptr noundef %803, i32 noundef 36, i64 noundef %799) #9
   %804 = load volatile i64, ptr %753, align 16
@@ -6042,7 +6034,7 @@ gup_must_unshare.exit.thread33:                   ; preds = %489, %gup_must_unsh
 831:                                              ; preds = %.loopexit
   %832 = shl nsw i64 %825, 12
   %833 = add i64 %832, %34
-  %834 = getelementptr ptr, ptr %3, i64 %825
+  %834 = getelementptr [8 x i8], ptr %3, i64 %825
   %835 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #10, !srcloc !52
   %836 = inttoptr i64 %835 to ptr
   %837 = getelementptr inbounds nuw i8, ptr %836, i64 1192
@@ -6245,7 +6237,7 @@ define internal fastcc i64 @__gup_longterm_locked(ptr noundef %0, i64 noundef %1
 
 .split121.us.us:                                  ; preds = %68
   %71 = icmp eq ptr %55, null
-  %72 = getelementptr ptr, ptr %55, i64 %50
+  %72 = getelementptr [8 x i8], ptr %55, i64 %50
   %73 = select i1 %71, ptr null, ptr %72, !prof !5
   %74 = shl i64 %50, 12
   %75 = add i64 %74, %51
@@ -6371,7 +6363,7 @@ define internal fastcc i64 @__gup_longterm_locked(ptr noundef %0, i64 noundef %1
 
 .split121:                                        ; preds = %130
   %135 = icmp eq ptr %117, null
-  %136 = getelementptr ptr, ptr %117, i64 %112
+  %136 = getelementptr [8 x i8], ptr %117, i64 %112
   %137 = select i1 %135, ptr null, ptr %136, !prof !5
   %138 = shl i64 %112, 12
   %139 = add i64 %138, %113
@@ -6677,7 +6669,7 @@ define internal fastcc i64 @__gup_longterm_locked(ptr noundef %0, i64 noundef %1
 
 291:                                              ; preds = %285
   %292 = icmp eq ptr %270, null
-  %293 = getelementptr ptr, ptr %270, i64 %265
+  %293 = getelementptr [8 x i8], ptr %270, i64 %265
   %294 = select i1 %292, ptr null, ptr %293, !prof !5
   %295 = shl i64 %265, 12
   %296 = add i64 %295, %266
@@ -6897,7 +6889,7 @@ define internal fastcc i64 @__gup_longterm_locked(ptr noundef %0, i64 noundef %1
   %392 = phi ptr [ %481, %479 ], [ null, %389 ]
   %393 = phi i64 [ %480, %479 ], [ 0, %389 ]
   %394 = phi i64 [ %483, %479 ], [ 0, %389 ]
-  %395 = getelementptr ptr, ptr %3, i64 %394
+  %395 = getelementptr [8 x i8], ptr %3, i64 %394
   %396 = load ptr, ptr %395, align 8
   %397 = getelementptr inbounds nuw i8, ptr %396, i64 8
   %398 = load volatile i64, ptr %397, align 8
@@ -7023,7 +7015,7 @@ define internal fastcc i64 @__gup_longterm_locked(ptr noundef %0, i64 noundef %1
 474:                                              ; preds = %470, %459
   %475 = phi i64 [ %473, %470 ], [ 1, %459 ]
   %476 = lshr i64 %467, 58
-  %477 = getelementptr ptr, ptr @node_data, i64 %476
+  %477 = getelementptr [8 x i8], ptr @node_data, i64 %476
   %478 = load ptr, ptr %477, align 8
   call void @mod_node_page_state(ptr noundef %478, i32 noundef %466, i64 noundef %475) #9
   br label %479
@@ -7050,7 +7042,7 @@ define internal fastcc i64 @__gup_longterm_locked(ptr noundef %0, i64 noundef %1
 
 .preheader37:                                     ; preds = %485, %unpin_user_page.exit
   %490 = phi i64 [ %562, %unpin_user_page.exit ], [ 0, %485 ]
-  %491 = getelementptr ptr, ptr %3, i64 %490
+  %491 = getelementptr [8 x i8], ptr %3, i64 %490
   %492 = load ptr, ptr %491, align 8
   %493 = getelementptr inbounds nuw i8, ptr %492, i64 8
   %494 = load volatile i64, ptr %493, align 8
@@ -7137,7 +7129,7 @@ define internal fastcc i64 @__gup_longterm_locked(ptr noundef %0, i64 noundef %1
 545:                                              ; preds = %537
   %546 = load i64, ptr %539, align 16
   %547 = lshr i64 %546, 58
-  %548 = getelementptr ptr, ptr @node_data, i64 %547
+  %548 = getelementptr [8 x i8], ptr @node_data, i64 %547
   %549 = load ptr, ptr %548, align 8
   call void @mod_node_page_state(ptr noundef %549, i32 noundef 36, i64 noundef 1) #9
   %550 = load volatile i64, ptr %539, align 16
@@ -7188,7 +7180,7 @@ unpin_user_page.exit:                             ; preds = %537, %555, %561
 
 .preheader:                                       ; preds = %567, %575
   %570 = phi i64 [ %576, %575 ], [ 0, %567 ]
-  %571 = getelementptr ptr, ptr %3, i64 %570
+  %571 = getelementptr [8 x i8], ptr %3, i64 %570
   %572 = load ptr, ptr %571, align 8
   %573 = icmp eq ptr %572, null
   br i1 %573, label %575, label %574
@@ -7604,10 +7596,10 @@ define internal fastcc noundef range(i32 0, 2) i32 @gup_huge_pud(i64 %0, ptr nou
   %44 = getelementptr i8, ptr %32, i64 %43
   %45 = lshr i64 %2, 12
   %46 = and i64 %45, 262143
-  %47 = getelementptr %struct.page, ptr %44, i64 %46
+  %47 = getelementptr [64 x i8], ptr %44, i64 %46
   %48 = load i32, ptr %6, align 4
   %49 = sext i32 %48 to i64
-  %50 = getelementptr ptr, ptr %5, i64 %49
+  %50 = getelementptr [8 x i8], ptr %5, i64 %49
   %51 = icmp eq i64 %2, %3
   br i1 %51, label %.loopexit, label %.preheader
 
@@ -7615,8 +7607,8 @@ define internal fastcc noundef range(i32 0, 2) i32 @gup_huge_pud(i64 %0, ptr nou
   %52 = phi i32 [ %57, %.preheader ], [ 0, %30 ]
   %53 = phi i64 [ %58, %.preheader ], [ %2, %30 ]
   %54 = sext i32 %52 to i64
-  %55 = getelementptr %struct.page, ptr %47, i64 %54
-  %56 = getelementptr ptr, ptr %50, i64 %54
+  %55 = getelementptr [64 x i8], ptr %47, i64 %54
+  %56 = getelementptr [8 x i8], ptr %50, i64 %54
   store ptr %55, ptr %56, align 8
   %57 = add i32 %52, 1
   %58 = add i64 %53, 4096
@@ -7703,7 +7695,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @gup_huge_pud(i64 %0, ptr nou
   %106 = sext i32 %60 to i64
   %107 = load i64, ptr %61, align 16
   %108 = lshr i64 %107, 58
-  %109 = getelementptr ptr, ptr @node_data, i64 %108
+  %109 = getelementptr [8 x i8], ptr @node_data, i64 %108
   %110 = load ptr, ptr %109, align 8
   tail call void @mod_node_page_state(ptr noundef %110, i32 noundef 36, i64 noundef %106) #9
   %111 = load volatile i64, ptr %61, align 16
@@ -7859,7 +7851,7 @@ gup_must_unshare.exit.thread4:                    ; preds = %gup_must_unshare.ex
   %203 = sext i32 %60 to i64
   %204 = load i64, ptr %61, align 16
   %205 = lshr i64 %204, 58
-  %206 = getelementptr ptr, ptr @node_data, i64 %205
+  %206 = getelementptr [8 x i8], ptr @node_data, i64 %205
   %207 = load ptr, ptr %206, align 8
   tail call void @mod_node_page_state(ptr noundef %207, i32 noundef 36, i64 noundef %203) #9
   %208 = load volatile i64, ptr %61, align 16

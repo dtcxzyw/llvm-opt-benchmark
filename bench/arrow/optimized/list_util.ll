@@ -314,10 +314,10 @@ define void @_ZN5arrow9list_util8internal17RangeOfValuesUsedERKNS_9ArraySpanE(pt
   %17 = load ptr, ptr %16, align 8, !tbaa !59
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %19 = load i64, ptr %18, align 8, !tbaa !63
-  %20 = getelementptr inbounds i32, ptr %17, i64 %19
+  %20 = getelementptr inbounds [4 x i8], ptr %17, i64 %19
   %21 = load i32, ptr %20, align 4, !tbaa !64
   %22 = sext i32 %21 to i64
-  %23 = getelementptr i32, ptr %20, i64 %13
+  %23 = getelementptr [4 x i8], ptr %20, i64 %13
   %24 = load i32, ptr %23, align 4, !tbaa !64
   %25 = sext i32 %24 to i64
   %26 = sub nsw i64 %25, %22
@@ -344,10 +344,10 @@ _ZN5arrow9list_util8internal12_GLOBAL__N_123RangeOfValuesUsedByListIiEESt4pairIl
   %34 = load ptr, ptr %33, align 8, !tbaa !59
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %36 = load i64, ptr %35, align 8, !tbaa !63
-  %37 = getelementptr inbounds i32, ptr %34, i64 %36
+  %37 = getelementptr inbounds [4 x i8], ptr %34, i64 %36
   %38 = load i32, ptr %37, align 4, !tbaa !64
   %39 = sext i32 %38 to i64
-  %40 = getelementptr i32, ptr %37, i64 %30
+  %40 = getelementptr [4 x i8], ptr %37, i64 %30
   %41 = load i32, ptr %40, align 4, !tbaa !64
   %42 = sext i32 %41 to i64
   %43 = sub nsw i64 %42, %39
@@ -374,9 +374,9 @@ _ZN5arrow9list_util8internal12_GLOBAL__N_123RangeOfValuesUsedByListIiEESt4pairIl
   %51 = load ptr, ptr %50, align 8, !tbaa !59
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %53 = load i64, ptr %52, align 8, !tbaa !63
-  %54 = getelementptr inbounds i64, ptr %51, i64 %53
+  %54 = getelementptr inbounds [8 x i8], ptr %51, i64 %53
   %55 = load i64, ptr %54, align 8, !tbaa !68
-  %56 = getelementptr i64, ptr %54, i64 %47
+  %56 = getelementptr [8 x i8], ptr %54, i64 %47
   %57 = load i64, ptr %56, align 8, !tbaa !68
   %58 = sub nsw i64 %57, %55
   br label %_ZN5arrow9list_util8internal12_GLOBAL__N_123RangeOfValuesUsedByListIlEESt4pairIllERKNS_9ArraySpanE.exit
@@ -408,10 +408,10 @@ _ZN5arrow9list_util8internal12_GLOBAL__N_123RangeOfValuesUsedByListIlEESt4pairIl
   %71 = load i64, ptr %70, align 8, !tbaa !63
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %73 = load ptr, ptr %72, align 8, !tbaa !59
-  %74 = getelementptr inbounds i32, ptr %73, i64 %71
+  %74 = getelementptr inbounds [4 x i8], ptr %73, i64 %71
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %76 = load ptr, ptr %75, align 8, !tbaa !59
-  %77 = getelementptr inbounds i32, ptr %76, i64 %71
+  %77 = getelementptr inbounds [4 x i8], ptr %76, i64 %71
   %78 = icmp eq ptr %69, null
   br i1 %78, label %.preheader.i.i, label %98
 
@@ -423,7 +423,7 @@ _ZN5arrow9list_util8internal12_GLOBAL__N_123RangeOfValuesUsedByListIlEESt4pairIl
   %.035143.i.i = phi i64 [ %97, %96 ], [ 0, %.preheader.i.i ]
   %.sroa.9.0142.i.i = phi i8 [ %.sroa.9.1.i.i, %96 ], [ 0, %.preheader.i.i ]
   %.sroa.078.0141.i.i = phi i32 [ %.sroa.078.1.i.i, %96 ], [ undef, %.preheader.i.i ]
-  %79 = getelementptr inbounds nuw i32, ptr %74, i64 %.035143.i.i
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %74, i64 %.035143.i.i
   %80 = load i32, ptr %79, align 4, !tbaa !64
   %81 = trunc nuw i8 %.sroa.9.0142.i.i to i1
   br i1 %81, label %82, label %90
@@ -433,7 +433,7 @@ _ZN5arrow9list_util8internal12_GLOBAL__N_123RangeOfValuesUsedByListIlEESt4pairIl
   br i1 %83, label %84, label %96
 
 84:                                               ; preds = %82
-  %85 = getelementptr inbounds nuw i32, ptr %77, i64 %.035143.i.i
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %.035143.i.i
   %86 = load i32, ptr %85, align 4, !tbaa !64
   %87 = icmp sgt i32 %86, 0
   br i1 %87, label %88, label %96
@@ -443,7 +443,7 @@ _ZN5arrow9list_util8internal12_GLOBAL__N_123RangeOfValuesUsedByListIlEESt4pairIl
   br i1 %89, label %.loopexit.i, label %96
 
 90:                                               ; preds = %.lr.ph144.i.i
-  %91 = getelementptr inbounds nuw i32, ptr %77, i64 %.035143.i.i
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %.035143.i.i
   %92 = load i32, ptr %91, align 4, !tbaa !64
   %93 = icmp sgt i32 %92, 0
   br i1 %93, label %94, label %96
@@ -495,7 +495,7 @@ _ZN5arrow9list_util8internal12_GLOBAL__N_123RangeOfValuesUsedByListIlEESt4pairIl
   %.0134.i.i = phi i64 [ %126, %125 ], [ %106, %.preheader124.i.i ]
   %.sroa.9.5133.i.i = phi i8 [ %.sroa.9.6.i.i, %125 ], [ %.sroa.9.3137.i.i, %.preheader124.i.i ]
   %.sroa.078.5132.i.i = phi i32 [ %.sroa.078.6.i.i, %125 ], [ %.sroa.078.3136.i.i, %.preheader124.i.i ]
-  %108 = getelementptr inbounds i32, ptr %74, i64 %.0134.i.i
+  %108 = getelementptr inbounds [4 x i8], ptr %74, i64 %.0134.i.i
   %109 = load i32, ptr %108, align 4, !tbaa !64
   %110 = trunc nuw i8 %.sroa.9.5133.i.i to i1
   br i1 %110, label %111, label %119
@@ -505,7 +505,7 @@ _ZN5arrow9list_util8internal12_GLOBAL__N_123RangeOfValuesUsedByListIlEESt4pairIl
   br i1 %112, label %113, label %125
 
 113:                                              ; preds = %111
-  %114 = getelementptr inbounds i32, ptr %77, i64 %.0134.i.i
+  %114 = getelementptr inbounds [4 x i8], ptr %77, i64 %.0134.i.i
   %115 = load i32, ptr %114, align 4, !tbaa !64
   %116 = icmp sgt i32 %115, 0
   br i1 %116, label %117, label %125
@@ -515,7 +515,7 @@ _ZN5arrow9list_util8internal12_GLOBAL__N_123RangeOfValuesUsedByListIlEESt4pairIl
   br i1 %118, label %127, label %125
 
 119:                                              ; preds = %.lr.ph.i.i
-  %120 = getelementptr inbounds i32, ptr %77, i64 %.0134.i.i
+  %120 = getelementptr inbounds [4 x i8], ptr %77, i64 %.0134.i.i
   %121 = load i32, ptr %120, align 4, !tbaa !64
   %122 = icmp sgt i32 %121, 0
   br i1 %122, label %123, label %125
@@ -554,9 +554,9 @@ _ZN5arrow9list_util8internal12_GLOBAL__N_123RangeOfValuesUsedByListIlEESt4pairIl
   %135 = load ptr, ptr %68, align 8, !tbaa !59
   %136 = load i64, ptr %70, align 8, !tbaa !63
   %137 = load ptr, ptr %72, align 8, !tbaa !59
-  %138 = getelementptr inbounds i32, ptr %137, i64 %136
+  %138 = getelementptr inbounds [4 x i8], ptr %137, i64 %136
   %139 = load ptr, ptr %75, align 8, !tbaa !59
-  %140 = getelementptr inbounds i32, ptr %139, i64 %136
+  %140 = getelementptr inbounds [4 x i8], ptr %139, i64 %136
   %141 = icmp eq ptr %135, null
   br i1 %141, label %142, label %159
 
@@ -569,13 +569,13 @@ _ZN5arrow9list_util8internal12_GLOBAL__N_123RangeOfValuesUsedByListIlEESt4pairIl
   %.069125.in.i.i = phi i64 [ %.069125.i.i, %157 ], [ %143, %142 ]
   %.056124.i.i = phi i64 [ %.561.i.i, %157 ], [ 0, %142 ]
   %.069125.i.i = add nsw i64 %.069125.in.i.i, -1
-  %145 = getelementptr inbounds nuw i32, ptr %140, i64 %.069125.i.i
+  %145 = getelementptr inbounds nuw [4 x i8], ptr %140, i64 %.069125.i.i
   %146 = load i32, ptr %145, align 4, !tbaa !64
   %147 = icmp sgt i32 %146, 0
   br i1 %147, label %148, label %157
 
 148:                                              ; preds = %.lr.ph126.i.i
-  %149 = getelementptr inbounds nuw i32, ptr %138, i64 %.069125.i.i
+  %149 = getelementptr inbounds nuw [4 x i8], ptr %138, i64 %.069125.i.i
   %150 = load i32, ptr %149, align 4, !tbaa !64
   %151 = sext i32 %150 to i64
   %152 = zext nneg i32 %146 to i64
@@ -624,13 +624,13 @@ _ZN5arrow9list_util8internal12_GLOBAL__N_123RangeOfValuesUsedByListIlEESt4pairIl
   %.070119.in.i.i = phi i64 [ %.070119.i.i, %182 ], [ %169, %.lr.ph.preheader.i.i ]
   %.965118.i.i = phi i64 [ %.14.i.i, %182 ], [ %.763120.i.i, %.lr.ph.preheader.i.i ]
   %.070119.i.i = add nsw i64 %.070119.in.i.i, -1
-  %170 = getelementptr inbounds i32, ptr %140, i64 %.070119.i.i
+  %170 = getelementptr inbounds [4 x i8], ptr %140, i64 %.070119.i.i
   %171 = load i32, ptr %170, align 4, !tbaa !64
   %172 = icmp sgt i32 %171, 0
   br i1 %172, label %173, label %182
 
 173:                                              ; preds = %.lr.ph.i8.i
-  %174 = getelementptr inbounds i32, ptr %138, i64 %.070119.i.i
+  %174 = getelementptr inbounds [4 x i8], ptr %138, i64 %.070119.i.i
   %175 = load i32, ptr %174, align 4, !tbaa !64
   %176 = sext i32 %175 to i64
   %177 = zext nneg i32 %171 to i64
@@ -684,10 +684,10 @@ _ZN5arrow9list_util8internal12_GLOBAL__N_127RangeOfValuesUsedByListViewIiEESt4pa
   %196 = load i64, ptr %195, align 8, !tbaa !63
   %197 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %198 = load ptr, ptr %197, align 8, !tbaa !59
-  %199 = getelementptr inbounds i64, ptr %198, i64 %196
+  %199 = getelementptr inbounds [8 x i8], ptr %198, i64 %196
   %200 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %201 = load ptr, ptr %200, align 8, !tbaa !59
-  %202 = getelementptr inbounds i64, ptr %201, i64 %196
+  %202 = getelementptr inbounds [8 x i8], ptr %201, i64 %196
   %203 = icmp eq ptr %194, null
   br i1 %203, label %.preheader.i.i49, label %223
 
@@ -699,7 +699,7 @@ _ZN5arrow9list_util8internal12_GLOBAL__N_127RangeOfValuesUsedByListViewIiEESt4pa
   %.035112.i.i = phi i64 [ %222, %221 ], [ 0, %.preheader.i.i49 ]
   %.sroa.9.0111.i.i = phi i8 [ %.sroa.9.1.i.i50, %221 ], [ 0, %.preheader.i.i49 ]
   %.sroa.066.0110.i.i = phi i64 [ %.sroa.066.1.i.i, %221 ], [ undef, %.preheader.i.i49 ]
-  %204 = getelementptr inbounds nuw i64, ptr %199, i64 %.035112.i.i
+  %204 = getelementptr inbounds nuw [8 x i8], ptr %199, i64 %.035112.i.i
   %205 = load i64, ptr %204, align 8, !tbaa !68
   %206 = trunc nuw i8 %.sroa.9.0111.i.i to i1
   br i1 %206, label %207, label %215
@@ -709,7 +709,7 @@ _ZN5arrow9list_util8internal12_GLOBAL__N_127RangeOfValuesUsedByListViewIiEESt4pa
   br i1 %208, label %209, label %221
 
 209:                                              ; preds = %207
-  %210 = getelementptr inbounds nuw i64, ptr %202, i64 %.035112.i.i
+  %210 = getelementptr inbounds nuw [8 x i8], ptr %202, i64 %.035112.i.i
   %211 = load i64, ptr %210, align 8, !tbaa !68
   %212 = icmp sgt i64 %211, 0
   br i1 %212, label %213, label %221
@@ -719,7 +719,7 @@ _ZN5arrow9list_util8internal12_GLOBAL__N_127RangeOfValuesUsedByListViewIiEESt4pa
   br i1 %214, label %_ZN5arrow9list_util8internal12_GLOBAL__N_113MinViewOffsetIlEESt8optionalIlERKNS_9ArraySpanE.exit.thread.thread.i, label %221
 
 215:                                              ; preds = %.lr.ph113.i.i
-  %216 = getelementptr inbounds nuw i64, ptr %202, i64 %.035112.i.i
+  %216 = getelementptr inbounds nuw [8 x i8], ptr %202, i64 %.035112.i.i
   %217 = load i64, ptr %216, align 8, !tbaa !68
   %218 = icmp sgt i64 %217, 0
   br i1 %218, label %219, label %221
@@ -765,7 +765,7 @@ _ZN5arrow9list_util8internal12_GLOBAL__N_127RangeOfValuesUsedByListViewIiEESt4pa
   %.0103.i.i = phi i64 [ %251, %250 ], [ %231, %.preheader95.i.i ]
   %.sroa.9.5102.i.i = phi i8 [ %.sroa.9.6.i.i47, %250 ], [ %.sroa.9.3106.i.i, %.preheader95.i.i ]
   %.sroa.066.5101.i.i = phi i64 [ %.sroa.066.6.i.i, %250 ], [ %.sroa.066.3105.i.i, %.preheader95.i.i ]
-  %233 = getelementptr inbounds i64, ptr %199, i64 %.0103.i.i
+  %233 = getelementptr inbounds [8 x i8], ptr %199, i64 %.0103.i.i
   %234 = load i64, ptr %233, align 8, !tbaa !68
   %235 = trunc nuw i8 %.sroa.9.5102.i.i to i1
   br i1 %235, label %236, label %244
@@ -775,7 +775,7 @@ _ZN5arrow9list_util8internal12_GLOBAL__N_127RangeOfValuesUsedByListViewIiEESt4pa
   br i1 %237, label %238, label %250
 
 238:                                              ; preds = %236
-  %239 = getelementptr inbounds i64, ptr %202, i64 %.0103.i.i
+  %239 = getelementptr inbounds [8 x i8], ptr %202, i64 %.0103.i.i
   %240 = load i64, ptr %239, align 8, !tbaa !68
   %241 = icmp sgt i64 %240, 0
   br i1 %241, label %242, label %250
@@ -785,7 +785,7 @@ _ZN5arrow9list_util8internal12_GLOBAL__N_127RangeOfValuesUsedByListViewIiEESt4pa
   br i1 %243, label %.critedge.sink.split.i.i, label %250
 
 244:                                              ; preds = %.lr.ph.i.i46
-  %245 = getelementptr inbounds i64, ptr %202, i64 %.0103.i.i
+  %245 = getelementptr inbounds [8 x i8], ptr %202, i64 %.0103.i.i
   %246 = load i64, ptr %245, align 8, !tbaa !68
   %247 = icmp sgt i64 %246, 0
   br i1 %247, label %248, label %250
@@ -829,8 +829,8 @@ _ZN5arrow9list_util8internal12_GLOBAL__N_113MinViewOffsetIlEESt8optionalIlERKNS_
   %258 = load ptr, ptr %257, align 8, !tbaa !72
   %259 = getelementptr inbounds nuw i8, ptr %258, i64 8
   %260 = load i64, ptr %259, align 8, !tbaa !58
-  %261 = getelementptr inbounds i64, ptr %.pre30.i, i64 %.pre29.i
-  %262 = getelementptr inbounds i64, ptr %.pre31.i, i64 %.pre29.i
+  %261 = getelementptr inbounds [8 x i8], ptr %.pre30.i, i64 %.pre29.i
+  %262 = getelementptr inbounds [8 x i8], ptr %.pre31.i, i64 %.pre29.i
   %263 = icmp eq ptr %.pre.i, null
   %.pre = load i64, ptr %186, align 8, !tbaa !58
   br i1 %263, label %264, label %282
@@ -848,13 +848,13 @@ _ZN5arrow9list_util8internal12_GLOBAL__N_113MinViewOffsetIlEESt8optionalIlERKNS_
   %.069125.in.i.i42 = phi i64 [ %.069125.i.i44, %280 ], [ %265, %264 ]
   %.056124.i.i43 = phi i64 [ %.561.i.i45, %280 ], [ 0, %264 ]
   %.069125.i.i44 = add nsw i64 %.069125.in.i.i42, -1
-  %270 = getelementptr inbounds nuw i64, ptr %266, i64 %.069125.i.i44
+  %270 = getelementptr inbounds nuw [8 x i8], ptr %266, i64 %.069125.i.i44
   %271 = load i64, ptr %270, align 8, !tbaa !68
   %272 = icmp sgt i64 %271, 0
   br i1 %272, label %273, label %280
 
 273:                                              ; preds = %.lr.ph126.i.i41
-  %274 = getelementptr inbounds nuw i64, ptr %267, i64 %.069125.i.i44
+  %274 = getelementptr inbounds nuw [8 x i8], ptr %267, i64 %.069125.i.i44
   %275 = load i64, ptr %274, align 8, !tbaa !68
   %276 = add nsw i64 %275, %271
   %277 = icmp sgt i64 %276, %.056124.i.i43
@@ -900,13 +900,13 @@ _ZN5arrow9list_util8internal12_GLOBAL__N_113MinViewOffsetIlEESt8optionalIlERKNS_
   %.070119.in.i.i36 = phi i64 [ %.070119.i.i38, %302 ], [ %291, %.lr.ph.preheader.i.i34 ]
   %.965118.i.i37 = phi i64 [ %.14.i.i39, %302 ], [ %.763120.i.i27, %.lr.ph.preheader.i.i34 ]
   %.070119.i.i38 = add nsw i64 %.070119.in.i.i36, -1
-  %292 = getelementptr inbounds i64, ptr %262, i64 %.070119.i.i38
+  %292 = getelementptr inbounds [8 x i8], ptr %262, i64 %.070119.i.i38
   %293 = load i64, ptr %292, align 8, !tbaa !68
   %294 = icmp sgt i64 %293, 0
   br i1 %294, label %295, label %302
 
 295:                                              ; preds = %.lr.ph.i8.i35
-  %296 = getelementptr inbounds i64, ptr %261, i64 %.070119.i.i38
+  %296 = getelementptr inbounds [8 x i8], ptr %261, i64 %.070119.i.i38
   %297 = load i64, ptr %296, align 8, !tbaa !68
   %298 = add nsw i64 %297, %293
   %299 = icmp sgt i64 %298, %.965118.i.i37
@@ -1083,14 +1083,14 @@ define void @_ZN5arrow9list_util8internal21SumOfLogicalListSizesERKNS_9ArraySpan
   %16 = load i64, ptr %15, align 8, !tbaa !63
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %18 = load ptr, ptr %17, align 8, !tbaa !59
-  %19 = getelementptr inbounds i32, ptr %18, i64 %16
+  %19 = getelementptr inbounds [4 x i8], ptr %18, i64 %16
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %21 = load i64, ptr %20, align 8, !tbaa !58
   %22 = icmp eq ptr %14, null
   br i1 %22, label %23, label %30
 
 23:                                               ; preds = %12
-  %24 = getelementptr i32, ptr %19, i64 %21
+  %24 = getelementptr [4 x i8], ptr %19, i64 %21
   %25 = getelementptr i8, ptr %24, i64 4
   %26 = load i32, ptr %25, align 4, !tbaa !64
   %27 = load i32, ptr %19, align 4, !tbaa !64
@@ -1111,8 +1111,8 @@ define void @_ZN5arrow9list_util8internal21SumOfLogicalListSizesERKNS_9ArraySpan
   %34 = phi i64 [ %46, %.lr.ph.i.i ], [ %32, %30 ]
   %35 = phi { i64, i64 } [ %45, %.lr.ph.i.i ], [ %31, %30 ]
   %36 = extractvalue { i64, i64 } %35, 0
-  %37 = getelementptr i32, ptr %19, i64 %36
-  %38 = getelementptr i32, ptr %37, i64 %34
+  %37 = getelementptr [4 x i8], ptr %19, i64 %36
+  %38 = getelementptr [4 x i8], ptr %37, i64 %34
   %39 = getelementptr i8, ptr %38, i64 4
   %40 = load i32, ptr %39, align 4, !tbaa !64
   %41 = load i32, ptr %37, align 4, !tbaa !64
@@ -1143,14 +1143,14 @@ _ZN5arrow9list_util8internal12_GLOBAL__N_114SumOfListSizesIiEElRKNS_9ArraySpanE.
   %53 = load i64, ptr %52, align 8, !tbaa !63
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %55 = load ptr, ptr %54, align 8, !tbaa !59
-  %56 = getelementptr inbounds i32, ptr %55, i64 %53
+  %56 = getelementptr inbounds [4 x i8], ptr %55, i64 %53
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %58 = load i64, ptr %57, align 8, !tbaa !58
   %59 = icmp eq ptr %51, null
   br i1 %59, label %60, label %67
 
 60:                                               ; preds = %49
-  %61 = getelementptr i32, ptr %56, i64 %58
+  %61 = getelementptr [4 x i8], ptr %56, i64 %58
   %62 = getelementptr i8, ptr %61, i64 4
   %63 = load i32, ptr %62, align 4, !tbaa !64
   %64 = load i32, ptr %56, align 4, !tbaa !64
@@ -1171,8 +1171,8 @@ _ZN5arrow9list_util8internal12_GLOBAL__N_114SumOfListSizesIiEElRKNS_9ArraySpanE.
   %71 = phi i64 [ %83, %.lr.ph.i.i6 ], [ %69, %67 ]
   %72 = phi { i64, i64 } [ %82, %.lr.ph.i.i6 ], [ %68, %67 ]
   %73 = extractvalue { i64, i64 } %72, 0
-  %74 = getelementptr i32, ptr %56, i64 %73
-  %75 = getelementptr i32, ptr %74, i64 %71
+  %74 = getelementptr [4 x i8], ptr %56, i64 %73
+  %75 = getelementptr [4 x i8], ptr %74, i64 %71
   %76 = getelementptr i8, ptr %75, i64 4
   %77 = load i32, ptr %76, align 4, !tbaa !64
   %78 = load i32, ptr %74, align 4, !tbaa !64
@@ -1203,14 +1203,14 @@ _ZN5arrow9list_util8internal12_GLOBAL__N_114SumOfListSizesIiEElRKNS_9ArraySpanE.
   %90 = load i64, ptr %89, align 8, !tbaa !63
   %91 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %92 = load ptr, ptr %91, align 8, !tbaa !59
-  %93 = getelementptr inbounds i64, ptr %92, i64 %90
+  %93 = getelementptr inbounds [8 x i8], ptr %92, i64 %90
   %94 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %95 = load i64, ptr %94, align 8, !tbaa !58
   %96 = icmp eq ptr %88, null
   br i1 %96, label %97, label %103
 
 97:                                               ; preds = %86
-  %98 = getelementptr i64, ptr %93, i64 %95
+  %98 = getelementptr [8 x i8], ptr %93, i64 %95
   %99 = getelementptr i8, ptr %98, i64 8
   %100 = load i64, ptr %99, align 8, !tbaa !68
   %101 = load i64, ptr %93, align 8, !tbaa !68
@@ -1230,8 +1230,8 @@ _ZN5arrow9list_util8internal12_GLOBAL__N_114SumOfListSizesIiEElRKNS_9ArraySpanE.
   %107 = phi i64 [ %118, %.lr.ph.i.i12 ], [ %105, %103 ]
   %108 = phi { i64, i64 } [ %117, %.lr.ph.i.i12 ], [ %104, %103 ]
   %109 = extractvalue { i64, i64 } %108, 0
-  %110 = getelementptr i64, ptr %93, i64 %109
-  %111 = getelementptr i64, ptr %110, i64 %107
+  %110 = getelementptr [8 x i8], ptr %93, i64 %109
+  %111 = getelementptr [8 x i8], ptr %110, i64 %107
   %112 = getelementptr i8, ptr %111, i64 8
   %113 = load i64, ptr %112, align 8, !tbaa !68
   %114 = load i64, ptr %110, align 8, !tbaa !68
@@ -1261,7 +1261,7 @@ _ZN5arrow9list_util8internal12_GLOBAL__N_114SumOfListSizesIlEElRKNS_9ArraySpanE.
   %125 = load i64, ptr %124, align 8, !tbaa !63
   %126 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %127 = load ptr, ptr %126, align 8, !tbaa !59
-  %128 = getelementptr inbounds i32, ptr %127, i64 %125
+  %128 = getelementptr inbounds [4 x i8], ptr %127, i64 %125
   %129 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %130 = load i64, ptr %129, align 8, !tbaa !58
   %131 = icmp eq ptr %123, null
@@ -1274,7 +1274,7 @@ _ZN5arrow9list_util8internal12_GLOBAL__N_114SumOfListSizesIlEElRKNS_9ArraySpanE.
 .lr.ph.i.i.i:                                     ; preds = %132, %.lr.ph.i.i.i
   %134 = phi i64 [ %138, %.lr.ph.i.i.i ], [ 0, %132 ]
   %.01.i.i.i = phi i64 [ %139, %.lr.ph.i.i.i ], [ 0, %132 ]
-  %135 = getelementptr inbounds nuw i32, ptr %128, i64 %.01.i.i.i
+  %135 = getelementptr inbounds nuw [4 x i8], ptr %128, i64 %.01.i.i.i
   %136 = load i32, ptr %135, align 4, !tbaa !64
   %137 = sext i32 %136 to i64
   %138 = add nsw i64 %134, %137
@@ -1302,7 +1302,7 @@ _ZN5arrow9list_util8internal12_GLOBAL__N_114SumOfListSizesIlEElRKNS_9ArraySpanE.
 .lr.ph.i13.i.i:                                   ; preds = %.lr.ph.i.i17, %.lr.ph.i13.i.i
   %149 = phi i64 [ %153, %.lr.ph.i13.i.i ], [ %.0.i18, %.lr.ph.i.i17 ]
   %.01.i15.i.i = phi i64 [ %154, %.lr.ph.i13.i.i ], [ %146, %.lr.ph.i.i17 ]
-  %150 = getelementptr inbounds i32, ptr %128, i64 %.01.i15.i.i
+  %150 = getelementptr inbounds [4 x i8], ptr %128, i64 %.01.i15.i.i
   %151 = load i32, ptr %150, align 4, !tbaa !64
   %152 = sext i32 %151 to i64
   %153 = add nsw i64 %149, %152
@@ -1336,7 +1336,7 @@ _ZN5arrow9list_util8internal12_GLOBAL__N_118SumOfListViewSizesIiEElRKNS_9ArraySp
   %164 = load i64, ptr %163, align 8, !tbaa !63
   %165 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %166 = load ptr, ptr %165, align 8, !tbaa !59
-  %167 = getelementptr inbounds i64, ptr %166, i64 %164
+  %167 = getelementptr inbounds [8 x i8], ptr %166, i64 %164
   %168 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %169 = load i64, ptr %168, align 8, !tbaa !58
   %170 = icmp eq ptr %162, null
@@ -1349,7 +1349,7 @@ _ZN5arrow9list_util8internal12_GLOBAL__N_118SumOfListViewSizesIiEElRKNS_9ArraySp
 .lr.ph.i.i.i30:                                   ; preds = %171, %.lr.ph.i.i.i30
   %173 = phi i64 [ %176, %.lr.ph.i.i.i30 ], [ 0, %171 ]
   %.01.i.i.i31 = phi i64 [ %177, %.lr.ph.i.i.i30 ], [ 0, %171 ]
-  %174 = getelementptr inbounds nuw i64, ptr %167, i64 %.01.i.i.i31
+  %174 = getelementptr inbounds nuw [8 x i8], ptr %167, i64 %.01.i.i.i31
   %175 = load i64, ptr %174, align 8, !tbaa !68
   %176 = add nsw i64 %175, %173
   %177 = add nuw nsw i64 %.01.i.i.i31, 1
@@ -1376,7 +1376,7 @@ _ZN5arrow9list_util8internal12_GLOBAL__N_118SumOfListViewSizesIiEElRKNS_9ArraySp
 .lr.ph.i13.i.i28:                                 ; preds = %.lr.ph.i.i22, %.lr.ph.i13.i.i28
   %187 = phi i64 [ %190, %.lr.ph.i13.i.i28 ], [ %.0.i23, %.lr.ph.i.i22 ]
   %.01.i15.i.i29 = phi i64 [ %191, %.lr.ph.i13.i.i28 ], [ %184, %.lr.ph.i.i22 ]
-  %188 = getelementptr inbounds i64, ptr %167, i64 %.01.i15.i.i29
+  %188 = getelementptr inbounds [8 x i8], ptr %167, i64 %.01.i15.i.i29
   %189 = load i64, ptr %188, align 8, !tbaa !68
   %190 = add nsw i64 %189, %187
   %191 = add nsw i64 %.01.i15.i.i29, 1

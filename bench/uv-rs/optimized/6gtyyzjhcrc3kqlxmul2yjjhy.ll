@@ -45,7 +45,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %3 = icmp eq i64 %.sroa.0.0.copyload, 0
   tail call void @llvm.assume(i1 %.not.i.i.i)
   tail call void @llvm.assume(i1 %3)
-  %4 = getelementptr inbounds { { i64, [2 x i64] } }, ptr %.sroa.7.0.copyload, i64 %.sroa.4.0.copyload
+  %4 = getelementptr inbounds [24 x i8], ptr %.sroa.7.0.copyload, i64 %.sroa.4.0.copyload
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.6.0..sroa_idx, i64 24, i1 false)
   %5 = add i64 %.sroa.4.0.copyload, 1
   br label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hfd2e0bbc490a28a9E.llvm.640009471615766059.exit"
@@ -660,7 +660,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17he7d6f2a65d
   %9 = icmp eq i64 %.promoted, 0
   tail call void @llvm.assume(i1 %.not.i)
   tail call void @llvm.assume(i1 %9)
-  %10 = getelementptr inbounds { { i64, [2 x i64] } }, ptr %7, i64 %.promoted6
+  %10 = getelementptr inbounds [24 x i8], ptr %7, i64 %.promoted6
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull readonly align 8 dereferenceable(24) %2, i64 24, i1 false)
   %11 = add i64 %.promoted6, 1
   store i64 1, ptr %0, align 8, !alias.scope !98
@@ -1696,7 +1696,7 @@ define hidden void @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u
   %9 = icmp eq i64 %.promoted.i, 0
   tail call void @llvm.assume(i1 %.not.i.i)
   tail call void @llvm.assume(i1 %9)
-  %10 = getelementptr inbounds { { i64, [2 x i64] } }, ptr %7, i64 %.promoted6.i
+  %10 = getelementptr inbounds [24 x i8], ptr %7, i64 %.promoted6.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull readonly align 8 dereferenceable(24) %5, i64 24, i1 false), !noalias !406
   %11 = add i64 %.promoted6.i, 1
   store i64 1, ptr %0, align 8, !alias.scope !379, !noalias !382

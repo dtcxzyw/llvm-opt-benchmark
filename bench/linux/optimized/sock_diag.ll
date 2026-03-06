@@ -437,7 +437,7 @@ define internal void @sock_diag_broadcast_destroy_work(ptr noundef %0) #0 align 
   tail call void @mutex_lock(ptr noundef nonnull @sock_diag_table_mutex) #11
   %33 = load i16, ptr %4, align 8
   %34 = zext i16 %33 to i64
-  %35 = getelementptr ptr, ptr @sock_diag_handlers, i64 %34
+  %35 = getelementptr [8 x i8], ptr @sock_diag_handlers, i64 %34
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %36, null
   br i1 %37, label %52, label %38
@@ -510,7 +510,7 @@ define dso_local noundef range(i32 -22, 1) i32 @sock_diag_register(ptr noundef %
   tail call void @mutex_lock(ptr noundef nonnull @sock_diag_table_mutex) #11
   %5 = load i8, ptr %0, align 8
   %6 = zext i8 %5 to i64
-  %7 = getelementptr ptr, ptr @sock_diag_handlers, i64 %6
+  %7 = getelementptr [8 x i8], ptr @sock_diag_handlers, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %11
@@ -538,7 +538,7 @@ define dso_local void @sock_diag_unregister(ptr noundef readonly captures(addres
 4:                                                ; preds = %1
   tail call void @mutex_lock(ptr noundef nonnull @sock_diag_table_mutex) #11
   %5 = zext nneg i8 %2 to i64
-  %6 = getelementptr ptr, ptr @sock_diag_handlers, i64 %5
+  %6 = getelementptr [8 x i8], ptr @sock_diag_handlers, i64 %5
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, %0
   br i1 %8, label %10, label %9, !prof !8
@@ -759,7 +759,7 @@ define internal i32 @sock_diag_rcv_msg(ptr noundef %0, ptr noundef %1, ptr readn
   %26 = and i8 %20, %25
   store i8 %26, ptr %15, align 1
   %27 = zext nneg i8 %26 to i64
-  %28 = getelementptr ptr, ptr @sock_diag_handlers, i64 %27
+  %28 = getelementptr [8 x i8], ptr @sock_diag_handlers, i64 %27
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, null
   br i1 %30, label %31, label %34
@@ -773,7 +773,7 @@ define internal i32 @sock_diag_rcv_msg(ptr noundef %0, ptr noundef %1, ptr readn
   tail call void @mutex_lock(ptr noundef nonnull @sock_diag_table_mutex) #11
   %35 = load i8, ptr %15, align 1
   %36 = zext i8 %35 to i64
-  %37 = getelementptr ptr, ptr @sock_diag_handlers, i64 %36
+  %37 = getelementptr [8 x i8], ptr @sock_diag_handlers, i64 %36
   %38 = load ptr, ptr %37, align 8
   %39 = icmp eq ptr %38, null
   br i1 %39, label %52, label %40

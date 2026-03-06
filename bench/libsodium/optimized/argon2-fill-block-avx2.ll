@@ -107,9 +107,9 @@ define hidden void @_sodium_argon2_fill_segment_avx2(ptr noundef readonly captur
 
 49:                                               ; preds = %47, %43
   %50 = phi i64 [ %48, %47 ], [ %44, %43 ]
-  %51 = getelementptr i64, ptr %5, i64 %45
+  %51 = getelementptr [8 x i8], ptr %5, i64 %45
   %52 = load i64, ptr %51, align 8
-  %53 = getelementptr i64, ptr %24, i64 %indvars.iv.i
+  %53 = getelementptr [8 x i8], ptr %24, i64 %indvars.iv.i
   store i64 %52, ptr %53, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %54 = load i32, ptr %40, align 4
@@ -150,7 +150,7 @@ generate_addresses.exit:                          ; preds = %49, %23
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %77 = load ptr, ptr %76, align 8
   %78 = zext i32 %.059 to i64
-  %79 = getelementptr %struct.block_, ptr %77, i64 %78
+  %79 = getelementptr [1024 x i8], ptr %77, i64 %78
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(1024) %10, ptr noundef nonnull align 1 dereferenceable(1024) %79, i64 noundef 1024, i1 noundef false) #6
   %80 = icmp ult i32 %spec.select64, %59
   br i1 %80, label %.lr.ph, label %.loopexit
@@ -175,7 +175,7 @@ generate_addresses.exit:                          ; preds = %49, %23
   br i1 %.not89, label %93, label %91
 
 91:                                               ; preds = %85
-  %92 = getelementptr i64, ptr %60, i64 %indvars.iv
+  %92 = getelementptr [8 x i8], ptr %60, i64 %indvars.iv
   br label %99
 
 93:                                               ; preds = %85
@@ -183,7 +183,7 @@ generate_addresses.exit:                          ; preds = %49, %23
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %96 = load ptr, ptr %95, align 8
   %97 = zext i32 %spec.select65 to i64
-  %98 = getelementptr %struct.block_, ptr %96, i64 %97
+  %98 = getelementptr [1024 x i8], ptr %96, i64 %97
   br label %99
 
 99:                                               ; preds = %93, %91
@@ -270,10 +270,10 @@ index_alpha.exit:                                 ; preds = %104, %109, %113, %1
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 8
   %148 = load ptr, ptr %147, align 8
   %149 = mul nuw i64 %.060, %138
-  %150 = getelementptr %struct.block_, ptr %148, i64 %149
-  %151 = getelementptr %struct.block_, ptr %150, i64 %145
+  %150 = getelementptr [1024 x i8], ptr %148, i64 %149
+  %151 = getelementptr [1024 x i8], ptr %150, i64 %145
   %152 = zext i32 %.05894 to i64
-  %153 = getelementptr %struct.block_, ptr %148, i64 %152
+  %153 = getelementptr [1024 x i8], ptr %148, i64 %152
   br i1 %61, label %155, label %154
 
 154:                                              ; preds = %index_alpha.exit
@@ -286,14 +286,14 @@ index_alpha.exit:                                 ; preds = %104, %109, %113, %1
 
 156:                                              ; preds = %156, %155
   %indvars.iv.i67 = phi i64 [ 0, %155 ], [ %indvars.iv.next.i68, %156 ]
-  %157 = getelementptr <4 x i64>, ptr %10, i64 %indvars.iv.i67
+  %157 = getelementptr [32 x i8], ptr %10, i64 %indvars.iv.i67
   %158 = load <4 x i64>, ptr %157, align 32
   %159 = shl nuw nsw i64 %indvars.iv.i67, 5
   %160 = getelementptr i8, ptr %151, i64 %159
   %161 = load <4 x i64>, ptr %160, align 1
   %162 = xor <4 x i64> %161, %158
   store <4 x i64> %162, ptr %157, align 32
-  %163 = getelementptr <4 x i64>, ptr %4, i64 %indvars.iv.i67
+  %163 = getelementptr [32 x i8], ptr %4, i64 %indvars.iv.i67
   store <4 x i64> %162, ptr %163, align 32
   %indvars.iv.next.i68 = add nuw nsw i64 %indvars.iv.i67, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i68, 32
@@ -508,7 +508,7 @@ index_alpha.exit:                                 ; preds = %104, %109, %113, %1
 
 .preheader916.i:                                  ; preds = %.preheader917.i, %.preheader916.i
   %indvars.iv927.i = phi i64 [ %indvars.iv.next928.i, %.preheader916.i ], [ 0, %.preheader917.i ]
-  %356 = getelementptr <4 x i64>, ptr %10, i64 %indvars.iv927.i
+  %356 = getelementptr [32 x i8], ptr %10, i64 %indvars.iv927.i
   %357 = load <4 x i64>, ptr %356, align 32
   %358 = getelementptr i8, ptr %356, i64 256
   %359 = load <4 x i64>, ptr %358, align 32
@@ -722,9 +722,9 @@ index_alpha.exit:                                 ; preds = %104, %109, %113, %1
 
 .preheader.i:                                     ; preds = %.preheader916.i, %.preheader.i
   %indvars.iv931.i = phi i64 [ %indvars.iv.next932.i, %.preheader.i ], [ 0, %.preheader916.i ]
-  %556 = getelementptr <4 x i64>, ptr %10, i64 %indvars.iv931.i
+  %556 = getelementptr [32 x i8], ptr %10, i64 %indvars.iv931.i
   %557 = load <4 x i64>, ptr %556, align 32
-  %558 = getelementptr <4 x i64>, ptr %4, i64 %indvars.iv931.i
+  %558 = getelementptr [32 x i8], ptr %4, i64 %indvars.iv931.i
   %559 = load <4 x i64>, ptr %558, align 32
   %560 = xor <4 x i64> %559, %557
   store <4 x i64> %560, ptr %556, align 32
@@ -761,7 +761,7 @@ define internal fastcc void @fill_block_with_xor(ptr noundef nonnull captures(no
 
 5:                                                ; preds = %3, %5
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %5 ]
-  %6 = getelementptr <4 x i64>, ptr %0, i64 %indvars.iv
+  %6 = getelementptr [32 x i8], ptr %0, i64 %indvars.iv
   %7 = load <4 x i64>, ptr %6, align 32
   %8 = shl nuw nsw i64 %indvars.iv, 5
   %9 = getelementptr i8, ptr %1, i64 %8
@@ -771,7 +771,7 @@ define internal fastcc void @fill_block_with_xor(ptr noundef nonnull captures(no
   %12 = getelementptr i8, ptr %2, i64 %8
   %13 = load <4 x i64>, ptr %12, align 1
   %14 = xor <4 x i64> %13, %11
-  %15 = getelementptr <4 x i64>, ptr %4, i64 %indvars.iv
+  %15 = getelementptr [32 x i8], ptr %4, i64 %indvars.iv
   store <4 x i64> %14, ptr %15, align 32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
@@ -986,7 +986,7 @@ define internal fastcc void @fill_block_with_xor(ptr noundef nonnull captures(no
 
 .preheader920:                                    ; preds = %.preheader921, %.preheader920
   %indvars.iv931 = phi i64 [ %indvars.iv.next932, %.preheader920 ], [ 0, %.preheader921 ]
-  %208 = getelementptr <4 x i64>, ptr %0, i64 %indvars.iv931
+  %208 = getelementptr [32 x i8], ptr %0, i64 %indvars.iv931
   %209 = load <4 x i64>, ptr %208, align 32
   %210 = getelementptr i8, ptr %208, i64 256
   %211 = load <4 x i64>, ptr %210, align 32
@@ -1200,9 +1200,9 @@ define internal fastcc void @fill_block_with_xor(ptr noundef nonnull captures(no
 
 .preheader:                                       ; preds = %.preheader920, %.preheader
   %indvars.iv935 = phi i64 [ %indvars.iv.next936, %.preheader ], [ 0, %.preheader920 ]
-  %408 = getelementptr <4 x i64>, ptr %0, i64 %indvars.iv935
+  %408 = getelementptr [32 x i8], ptr %0, i64 %indvars.iv935
   %409 = load <4 x i64>, ptr %408, align 32
-  %410 = getelementptr <4 x i64>, ptr %4, i64 %indvars.iv935
+  %410 = getelementptr [32 x i8], ptr %4, i64 %indvars.iv935
   %411 = load <4 x i64>, ptr %410, align 32
   %412 = xor <4 x i64> %411, %409
   store <4 x i64> %412, ptr %408, align 32

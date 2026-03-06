@@ -4,9 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %class.btVector3 = type { [4 x float] }
-%class.btAlignedObjectArray.16 = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedObjectArray.8 = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedObjectArray.12 = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
 
 $_ZNK16btCollisionShape38getAnisotropicRollingFrictionDirectionEv = comdat any
 
@@ -410,7 +407,7 @@ define linkonce_odr dso_local void @_ZN9btMiniSDFD2Ev(ptr noundef nonnull align 
 6:                                                ; preds = %_ZN20btAlignedObjectArrayIjED2Ev.exit.i.i.i, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %_ZN20btAlignedObjectArrayIjED2Ev.exit.i.i.i ]
   %7 = load ptr, ptr %5, align 8, !tbaa !44
-  %8 = getelementptr inbounds nuw %class.btAlignedObjectArray.16, ptr %7, i64 %indvars.iv.i.i.i
+  %8 = getelementptr inbounds nuw [32 x i8], ptr %7, i64 %indvars.iv.i.i.i
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !54
   %.not.i.i.i.i.i.i = icmp ne ptr %10, null
@@ -482,7 +479,7 @@ _ZN20btAlignedObjectArrayIS_IjEED2Ev.exit:        ; preds = %_ZN20btAlignedObjec
 35:                                               ; preds = %_ZN20btAlignedObjectArrayI8btCell32ED2Ev.exit.i.i.i, %.lr.ph.i.i.i3
   %indvars.iv.i.i.i5 = phi i64 [ 0, %.lr.ph.i.i.i3 ], [ %indvars.iv.next.i.i.i8, %_ZN20btAlignedObjectArrayI8btCell32ED2Ev.exit.i.i.i ]
   %36 = load ptr, ptr %34, align 8, !tbaa !40
-  %37 = getelementptr inbounds nuw %class.btAlignedObjectArray.8, ptr %36, i64 %indvars.iv.i.i.i5
+  %37 = getelementptr inbounds nuw [32 x i8], ptr %36, i64 %indvars.iv.i.i.i5
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %39 = load ptr, ptr %38, align 8, !tbaa !64
   %.not.i.i.i.i.i.i6 = icmp ne ptr %39, null
@@ -554,7 +551,7 @@ _ZN20btAlignedObjectArrayIS_I8btCell32EED2Ev.exit: ; preds = %_ZN20btAlignedObje
 64:                                               ; preds = %_ZN20btAlignedObjectArrayIdED2Ev.exit.i.i.i, %.lr.ph.i.i.i11
   %indvars.iv.i.i.i13 = phi i64 [ 0, %.lr.ph.i.i.i11 ], [ %indvars.iv.next.i.i.i16, %_ZN20btAlignedObjectArrayIdED2Ev.exit.i.i.i ]
   %65 = load ptr, ptr %63, align 8, !tbaa !36
-  %66 = getelementptr inbounds nuw %class.btAlignedObjectArray.12, ptr %65, i64 %indvars.iv.i.i.i13
+  %66 = getelementptr inbounds nuw [32 x i8], ptr %65, i64 %indvars.iv.i.i.i13
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 16
   %68 = load ptr, ptr %67, align 8, !tbaa !72
   %.not.i.i.i.i.i.i14 = icmp ne ptr %68, null

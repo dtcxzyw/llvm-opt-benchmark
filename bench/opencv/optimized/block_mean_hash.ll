@@ -860,7 +860,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %33, %
   br i1 %82, label %83, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 
 83:                                               ; preds = %81
-  %84 = getelementptr inbounds nuw double, ptr %73, i64 %70
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %70
   %.not.i.i = icmp eq ptr %72, %84
   br i1 %.not.i.i, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit, label %85
 
@@ -925,7 +925,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %85, %83, %81, %79
   %105 = load double, ptr %6, align 8, !tbaa !71
   %106 = add i64 %.117.i, 1
   %107 = load ptr, ptr %69, align 8, !tbaa !52
-  %108 = getelementptr inbounds nuw double, ptr %107, i64 %.117.i
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %.117.i
   store double %105, ptr %108, align 8, !tbaa !71
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -1015,7 +1015,7 @@ _ZNSt6bitsetILm8EE9referenceaSEb.exit.i:          ; preds = %156, %_ZNSt6bitsetI
   %.01523.i = phi i64 [ %157, %156 ], [ 0, %_ZNSt6bitsetILm8EE9referenceaSEb.exit.preheader.i ]
   %.sroa.0.022.i = phi i64 [ %.sroa.0.1.i, %156 ], [ 0, %_ZNSt6bitsetILm8EE9referenceaSEb.exit.preheader.i ]
   %137 = and i64 %.01523.i, 7
-  %138 = getelementptr inbounds nuw double, ptr %136, i64 %.01523.i
+  %138 = getelementptr inbounds nuw [8 x i8], ptr %136, i64 %.01523.i
   %139 = load double, ptr %138, align 8, !tbaa !71
   %140 = fcmp uge double %139, %126
   %141 = shl nuw nsw i64 1, %137
@@ -1345,9 +1345,9 @@ _ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit36: ; preds = %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !52
-  %38 = getelementptr inbounds nuw double, ptr %31, i64 %1
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %1
   store ptr %38, ptr %4, align 8, !tbaa !51
-  %39 = getelementptr inbounds nuw double, ptr %30, i64 %28
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %28
   store ptr %39, ptr %11, align 8, !tbaa !53
   br label %40
 

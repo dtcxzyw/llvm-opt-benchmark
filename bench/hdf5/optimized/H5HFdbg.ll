@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.H5C_class_t = type { i32, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.H5HF_indirect_ent_t = type { i64 }
-%struct.H5HF_indirect_filt_ent_t = type { i64, i32 }
 %struct.H5HF_debug_iter_ud1_t = type { ptr, i32, i32, i64, i64, ptr, i64, i64 }
 %struct.H5HF_debug_iter_ud2_t = type { ptr, ptr, i32, i32 }
 
@@ -473,7 +471,7 @@ define void @H5HF_iblock_print(ptr noundef readonly captures(none) %0, i1 nounde
 53:                                               ; preds = %49
   %54 = trunc nuw i64 %.0132 to i32
   %55 = load ptr, ptr %40, align 8, !tbaa !82
-  %56 = getelementptr inbounds nuw i64, ptr %55, i64 %.0132
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %.0132
   %57 = load i64, ptr %56, align 8, !tbaa !11
   %58 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 64, ptr noundef nonnull @.str.68, i32 noundef %54, i64 noundef %57) #9
   %59 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.69, i32 noundef %41, ptr noundef nonnull @.str.6, i32 noundef %43, ptr noundef nonnull %6) #9
@@ -495,13 +493,13 @@ define void @H5HF_iblock_print(ptr noundef readonly captures(none) %0, i1 nounde
   %67 = load i32, ptr %36, align 4, !tbaa !64
   %.not128 = icmp eq i32 %67, 0
   %68 = load ptr, ptr %47, align 8, !tbaa !84
-  %69 = getelementptr inbounds nuw %struct.H5HF_indirect_ent_t, ptr %68, i64 %64
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %64
   %70 = load i64, ptr %69, align 8, !tbaa !85
   br i1 %.not128, label %78, label %71
 
 71:                                               ; preds = %.lr.ph
   %72 = load ptr, ptr %48, align 8, !tbaa !87
-  %73 = getelementptr inbounds nuw %struct.H5HF_indirect_filt_ent_t, ptr %72, i64 %64
+  %73 = getelementptr inbounds nuw [16 x i8], ptr %72, i64 %64
   %74 = load i64, ptr %73, align 8, !tbaa !88
   %75 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %76 = load i32, ptr %75, align 8, !tbaa !90
@@ -539,14 +537,14 @@ define void @H5HF_iblock_print(ptr noundef readonly captures(none) %0, i1 nounde
   %95 = mul i32 %94, 125613361
   %96 = lshr i32 %95, 27
   %97 = zext nneg i32 %96 to i64
-  %98 = getelementptr inbounds nuw i32, ptr @MultiplyDeBruijnBitPosition, i64 %97
+  %98 = getelementptr inbounds nuw [4 x i8], ptr @MultiplyDeBruijnBitPosition, i64 %97
   %99 = load i32, ptr %98, align 4, !tbaa !94
   %100 = getelementptr inbounds nuw i8, ptr %15, i64 272
   %101 = load i64, ptr %100, align 8, !tbaa !95
   %102 = mul i64 %101, 125613361
   %103 = lshr i64 %102, 27
   %104 = and i64 %103, 31
-  %105 = getelementptr inbounds nuw i32, ptr @MultiplyDeBruijnBitPosition, i64 %104
+  %105 = getelementptr inbounds nuw [4 x i8], ptr @MultiplyDeBruijnBitPosition, i64 %104
   %106 = load i32, ptr %105, align 4, !tbaa !94
   %107 = getelementptr inbounds nuw i8, ptr %15, i64 344
   %108 = add i32 %106, %99
@@ -562,7 +560,7 @@ define void @H5HF_iblock_print(ptr noundef readonly captures(none) %0, i1 nounde
 116:                                              ; preds = %.lr.ph141, %._crit_edge138
   %.1139 = phi i64 [ %93, %.lr.ph141 ], [ %191, %._crit_edge138 ]
   %117 = load ptr, ptr %107, align 8, !tbaa !82
-  %118 = getelementptr inbounds nuw i64, ptr %117, i64 %.1139
+  %118 = getelementptr inbounds nuw [8 x i8], ptr %117, i64 %.1139
   %119 = load i64, ptr %118, align 8, !tbaa !11
   %120 = lshr i64 %119, 32
   %.not.i = icmp eq i64 %120, 0
@@ -675,8 +673,8 @@ H5VM_log2_gen.exit:                               ; preds = %125, %130, %137, %1
   %180 = trunc nuw i64 %.1122136 to i32
   %181 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 64, ptr noundef nonnull @.str.70, i32 noundef %180) #9
   %182 = load ptr, ptr %115, align 8, !tbaa !84
-  %183 = getelementptr inbounds nuw %struct.H5HF_indirect_ent_t, ptr %182, i64 %179
-  %184 = getelementptr inbounds nuw %struct.H5HF_indirect_ent_t, ptr %183, i64 %.1122136
+  %183 = getelementptr inbounds nuw [8 x i8], ptr %182, i64 %179
+  %184 = getelementptr inbounds nuw [8 x i8], ptr %183, i64 %.1122136
   %185 = load i64, ptr %184, align 8, !tbaa !85
   %186 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.72, i32 noundef %112, ptr noundef nonnull @.str.6, i32 noundef %114, ptr noundef nonnull %6, i64 noundef %185) #9
   %187 = add nuw nsw i64 %.1122136, 1
@@ -1298,7 +1296,7 @@ define internal range(i32 -1, 1) i32 @H5HF_sects_debug_cb(ptr noundef %0, ptr no
 
 switch.lookup:                                    ; preds = %9
   %19 = zext nneg i32 %17 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.H5HF_sects_debug_cb, i64 %19
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.H5HF_sects_debug_cb, i64 %19
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %20
 

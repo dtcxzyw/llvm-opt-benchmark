@@ -7,8 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.qnodes_t = type { i64, ptr }
 %struct.segment_t = type { %struct.pointf_s, %struct.pointf_s, i8, i32, i32, i32, i32 }
 %struct.pointf_s = type { double, double }
-%struct.qnode_t = type { i32, i32, %struct.pointf_s, i32, i32, i32, i32 }
-%struct.trap_t = type { i32, i32, %struct.pointf_s, %struct.pointf_s, i32, i32, i32, i32, i32, i32, i32, i32 }
 
 @stderr = external local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [58 x i8] c"integer overflow when trying to allocate %zu * %zu bytes\0A\00", align 1
@@ -52,11 +50,11 @@ gv_calloc.exit44:                                 ; preds = %gv_calloc.exit
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %19 = load i32, ptr %18, align 4, !tbaa !12
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds %struct.segment_t, ptr %1, i64 %20
+  %21 = getelementptr inbounds [56 x i8], ptr %1, i64 %20
   %22 = call fastcc i32 @newnode(ptr noundef nonnull %5)
   %23 = load ptr, ptr %6, align 8, !tbaa !11
   %24 = sext i32 %22 to i64
-  %25 = getelementptr inbounds %struct.qnode_t, ptr %23, i64 %24
+  %25 = getelementptr inbounds [40 x i8], ptr %23, i64 %24
   store i32 2, ptr %25, align 8, !tbaa !14
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = getelementptr inbounds nuw i8, ptr %21, i64 16
@@ -87,21 +85,21 @@ _max.exit.i:                                      ; preds = %38, %34, %gv_calloc
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull align 8 dereferenceable(16) %.sink.i.i, i64 16, i1 false)
   %43 = call fastcc i32 @newnode(ptr noundef nonnull %5)
   %44 = load ptr, ptr %6, align 8, !tbaa !11
-  %45 = getelementptr inbounds %struct.qnode_t, ptr %44, i64 %24
+  %45 = getelementptr inbounds [40 x i8], ptr %44, i64 %24
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 36
   store i32 %43, ptr %46, align 4, !tbaa !20
   %47 = sext i32 %43 to i64
-  %48 = getelementptr inbounds %struct.qnode_t, ptr %44, i64 %47
+  %48 = getelementptr inbounds [40 x i8], ptr %44, i64 %47
   store i32 3, ptr %48, align 8, !tbaa !14
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 28
   store i32 %22, ptr %49, align 4, !tbaa !21
   %50 = call fastcc i32 @newnode(ptr noundef nonnull %5)
   %51 = load ptr, ptr %6, align 8, !tbaa !11
-  %52 = getelementptr inbounds %struct.qnode_t, ptr %51, i64 %24
+  %52 = getelementptr inbounds [40 x i8], ptr %51, i64 %24
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 32
   store i32 %50, ptr %53, align 8, !tbaa !22
   %54 = sext i32 %50 to i64
-  %55 = getelementptr inbounds %struct.qnode_t, ptr %51, i64 %54
+  %55 = getelementptr inbounds [40 x i8], ptr %51, i64 %54
   store i32 2, ptr %55, align 8, !tbaa !14
   %56 = load double, ptr %28, align 8, !tbaa !18
   %57 = load double, ptr %30, align 8, !tbaa !18
@@ -130,21 +128,21 @@ init_query_structure.exit:                        ; preds = %_max.exit.i, %60, %
   store i32 %22, ptr %69, align 4, !tbaa !21
   %70 = call fastcc i32 @newnode(ptr noundef nonnull %5)
   %71 = load ptr, ptr %6, align 8, !tbaa !11
-  %72 = getelementptr inbounds %struct.qnode_t, ptr %71, i64 %54
+  %72 = getelementptr inbounds [40 x i8], ptr %71, i64 %54
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 32
   store i32 %70, ptr %73, align 8, !tbaa !22
   %74 = sext i32 %70 to i64
-  %75 = getelementptr inbounds %struct.qnode_t, ptr %71, i64 %74
+  %75 = getelementptr inbounds [40 x i8], ptr %71, i64 %74
   store i32 3, ptr %75, align 8, !tbaa !14
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 28
   store i32 %50, ptr %76, align 4, !tbaa !21
   %77 = call fastcc i32 @newnode(ptr noundef nonnull %5)
   %78 = load ptr, ptr %6, align 8, !tbaa !11
-  %79 = getelementptr inbounds %struct.qnode_t, ptr %78, i64 %54
+  %79 = getelementptr inbounds [40 x i8], ptr %78, i64 %54
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 36
   store i32 %77, ptr %80, align 4, !tbaa !20
   %81 = sext i32 %77 to i64
-  %82 = getelementptr inbounds %struct.qnode_t, ptr %78, i64 %81
+  %82 = getelementptr inbounds [40 x i8], ptr %78, i64 %81
   store i32 1, ptr %82, align 8, !tbaa !14
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 4
   store i32 %19, ptr %83, align 4, !tbaa !23
@@ -152,21 +150,21 @@ init_query_structure.exit:                        ; preds = %_max.exit.i, %60, %
   store i32 %50, ptr %84, align 4, !tbaa !21
   %85 = call fastcc i32 @newnode(ptr noundef nonnull %5)
   %86 = load ptr, ptr %6, align 8, !tbaa !11
-  %87 = getelementptr inbounds %struct.qnode_t, ptr %86, i64 %81
+  %87 = getelementptr inbounds [40 x i8], ptr %86, i64 %81
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 32
   store i32 %85, ptr %88, align 8, !tbaa !22
   %89 = sext i32 %85 to i64
-  %90 = getelementptr inbounds %struct.qnode_t, ptr %86, i64 %89
+  %90 = getelementptr inbounds [40 x i8], ptr %86, i64 %89
   store i32 3, ptr %90, align 8, !tbaa !14
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 28
   store i32 %77, ptr %91, align 4, !tbaa !21
   %92 = call fastcc i32 @newnode(ptr noundef nonnull %5)
   %93 = load ptr, ptr %6, align 8, !tbaa !11
-  %94 = getelementptr inbounds %struct.qnode_t, ptr %93, i64 %81
+  %94 = getelementptr inbounds [40 x i8], ptr %93, i64 %81
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 36
   store i32 %92, ptr %95, align 4, !tbaa !20
   %96 = sext i32 %92 to i64
-  %97 = getelementptr inbounds %struct.qnode_t, ptr %93, i64 %96
+  %97 = getelementptr inbounds [40 x i8], ptr %93, i64 %96
   store i32 3, ptr %97, align 8, !tbaa !14
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 28
   store i32 %77, ptr %98, align 4, !tbaa !21
@@ -176,27 +174,27 @@ init_query_structure.exit:                        ; preds = %_max.exit.i, %60, %
   %102 = call fastcc i32 @newtrap(ptr noundef nonnull %4)
   %103 = load ptr, ptr %12, align 8, !tbaa !11
   %104 = sext i32 %99 to i64
-  %105 = getelementptr inbounds %struct.trap_t, ptr %103, i64 %104
+  %105 = getelementptr inbounds [72 x i8], ptr %103, i64 %104
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 8
-  %107 = getelementptr inbounds %struct.qnode_t, ptr %93, i64 %24
+  %107 = getelementptr inbounds [40 x i8], ptr %93, i64 %24
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %106, ptr noundef nonnull align 8 dereferenceable(16) %108, i64 16, i1 false), !tbaa.struct !24
   %109 = sext i32 %100 to i64
-  %110 = getelementptr inbounds %struct.trap_t, ptr %103, i64 %109
+  %110 = getelementptr inbounds [72 x i8], ptr %103, i64 %109
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %111, ptr noundef nonnull align 8 dereferenceable(16) %108, i64 16, i1 false), !tbaa.struct !24
   %112 = sext i32 %102 to i64
-  %113 = getelementptr inbounds %struct.trap_t, ptr %103, i64 %112
+  %113 = getelementptr inbounds [72 x i8], ptr %103, i64 %112
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %114, ptr noundef nonnull align 8 dereferenceable(16) %108, i64 16, i1 false), !tbaa.struct !24
   %115 = getelementptr inbounds nuw i8, ptr %105, i64 24
-  %116 = getelementptr inbounds %struct.qnode_t, ptr %93, i64 %54
+  %116 = getelementptr inbounds [40 x i8], ptr %93, i64 %54
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %115, ptr noundef nonnull align 8 dereferenceable(16) %117, i64 16, i1 false), !tbaa.struct !24
   %118 = getelementptr inbounds nuw i8, ptr %110, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %118, ptr noundef nonnull align 8 dereferenceable(16) %117, i64 16, i1 false), !tbaa.struct !24
   %119 = sext i32 %101 to i64
-  %120 = getelementptr inbounds %struct.trap_t, ptr %103, i64 %119
+  %120 = getelementptr inbounds [72 x i8], ptr %103, i64 %119
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %121, ptr noundef nonnull align 8 dereferenceable(16) %117, i64 16, i1 false), !tbaa.struct !24
   %122 = getelementptr inbounds nuw i8, ptr %113, i64 16
@@ -242,13 +240,13 @@ init_query_structure.exit:                        ; preds = %_max.exit.i, %60, %
   store i32 1, ptr %141, align 4, !tbaa !38
   %142 = getelementptr inbounds nuw i8, ptr %113, i64 68
   store i32 1, ptr %142, align 4, !tbaa !38
-  %143 = getelementptr inbounds %struct.qnode_t, ptr %93, i64 %47
+  %143 = getelementptr inbounds [40 x i8], ptr %93, i64 %47
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 24
   store i32 %102, ptr %144, align 8, !tbaa !39
-  %145 = getelementptr inbounds %struct.qnode_t, ptr %93, i64 %74
+  %145 = getelementptr inbounds [40 x i8], ptr %93, i64 %74
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 24
   store i32 %101, ptr %146, align 8, !tbaa !39
-  %147 = getelementptr inbounds %struct.qnode_t, ptr %93, i64 %89
+  %147 = getelementptr inbounds [40 x i8], ptr %93, i64 %89
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 24
   store i32 %99, ptr %148, align 8, !tbaa !39
   %149 = getelementptr inbounds nuw i8, ptr %97, i64 24
@@ -271,7 +269,7 @@ init_query_structure.exit:                        ; preds = %_max.exit.i, %60, %
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %154 = getelementptr inbounds nuw %struct.segment_t, ptr %1, i64 %indvars.iv
+  %154 = getelementptr inbounds nuw [56 x i8], ptr %1, i64 %indvars.iv
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 40
   store i32 %22, ptr %155, align 8, !tbaa !43
   %156 = getelementptr inbounds nuw i8, ptr %154, i64 36
@@ -353,14 +351,14 @@ math_N.exit51:                                    ; preds = %.lr.ph.i47
 177:                                              ; preds = %math_N.exit51
   %.137 = add nsw i32 %.137.in, 1
   %indvars.iv.next90 = add nsw i64 %indvars.iv89, 1
-  %178 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv89
+  %178 = getelementptr inbounds [4 x i8], ptr %2, i64 %indvars.iv89
   %179 = load i32, ptr %178, align 4, !tbaa !12
   call fastcc void @add_segment(i32 noundef %179, ptr noundef %1, ptr noundef %4, ptr noundef %5)
   br label %170, !llvm.loop !49
 
 180:                                              ; preds = %.lr.ph77, %find_new_roots.exit
   %indvars.iv92 = phi i64 [ 1, %.lr.ph77 ], [ %indvars.iv.next93, %find_new_roots.exit ]
-  %181 = getelementptr inbounds nuw %struct.segment_t, ptr %1, i64 %indvars.iv92
+  %181 = getelementptr inbounds nuw [56 x i8], ptr %1, i64 %indvars.iv92
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 32
   %183 = load i8, ptr %182, align 8, !tbaa !40, !range !50, !noundef !51
   %184 = trunc nuw i8 %183 to i1
@@ -372,7 +370,7 @@ math_N.exit51:                                    ; preds = %.lr.ph.i47
   %188 = load i32, ptr %187, align 4, !tbaa !44
   %189 = call fastcc i32 @locate_endpoint(ptr noundef nonnull %181, ptr noundef nonnull %186, i32 noundef %188, ptr noundef nonnull %1, ptr noundef nonnull readonly %5)
   %190 = sext i32 %189 to i64
-  %191 = getelementptr inbounds %struct.trap_t, ptr %.val, i64 %190
+  %191 = getelementptr inbounds [72 x i8], ptr %.val, i64 %190
   %192 = getelementptr inbounds nuw i8, ptr %191, i64 56
   %193 = load i32, ptr %192, align 8, !tbaa !37
   store i32 %193, ptr %187, align 4, !tbaa !44
@@ -380,7 +378,7 @@ math_N.exit51:                                    ; preds = %.lr.ph.i47
   %195 = load i32, ptr %194, align 8, !tbaa !43
   %196 = call fastcc i32 @locate_endpoint(ptr noundef nonnull %186, ptr noundef nonnull %181, i32 noundef %195, ptr noundef nonnull %1, ptr noundef nonnull readonly %5)
   %197 = sext i32 %196 to i64
-  %198 = getelementptr inbounds %struct.trap_t, ptr %.val, i64 %197
+  %198 = getelementptr inbounds [72 x i8], ptr %.val, i64 %197
   %199 = getelementptr inbounds nuw i8, ptr %198, i64 56
   %200 = load i32, ptr %199, align 8, !tbaa !37
   store i32 %200, ptr %194, align 8, !tbaa !43
@@ -434,7 +432,7 @@ math_N.exit63:                                    ; preds = %.lr.ph.i59, %math_l
   %.3.in81 = phi i32 [ %210, %.lr.ph83.preheader ], [ %.3, %.lr.ph83 ]
   %.3 = add i32 %.3.in81, 1
   %indvars.iv.next98 = add nsw i64 %indvars.iv97, 1
-  %212 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv97
+  %212 = getelementptr inbounds [4 x i8], ptr %2, i64 %indvars.iv97
   %213 = load i32, ptr %212, align 4, !tbaa !12
   call fastcc void @add_segment(i32 noundef %213, ptr noundef nonnull %1, ptr noundef %4, ptr noundef %5)
   %exitcond100.not = icmp eq i32 %.3, %0
@@ -456,7 +454,7 @@ define internal fastcc void @add_segment(i32 noundef %0, ptr noundef captures(no
   %5 = alloca %struct.segment_t, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = sext i32 %0 to i64
-  %7 = getelementptr inbounds %struct.segment_t, ptr %1, i64 %6
+  %7 = getelementptr inbounds [56 x i8], ptr %1, i64 %6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(56) %7, i64 56, i1 false), !tbaa.struct !54
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -496,7 +494,7 @@ define internal fastcc void @add_segment(i32 noundef %0, ptr noundef captures(no
   %.pn7.in.in.i = getelementptr inbounds nuw i8, ptr %7, i64 %28
   %.pn7.in.i = load i32, ptr %.pn7.in.in.i, align 4, !tbaa !12
   %.pn7.i = sext i32 %.pn7.in.i to i64
-  %.pn.i = getelementptr inbounds %struct.segment_t, ptr %1, i64 %.pn7.i
+  %.pn.i = getelementptr inbounds [56 x i8], ptr %1, i64 %.pn7.i
   %.0.in.in.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 32
   %.0.in.i = load i8, ptr %.0.in.in.i, align 8, !tbaa !40, !range !50, !noundef !51
   %.0.i = trunc nuw i8 %.0.in.i to i1
@@ -510,18 +508,18 @@ define internal fastcc void @add_segment(i32 noundef %0, ptr noundef captures(no
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %35 = load ptr, ptr %34, align 8, !tbaa !11
   %36 = sext i32 %33 to i64
-  %37 = getelementptr inbounds %struct.trap_t, ptr %35, i64 %36
+  %37 = getelementptr inbounds [72 x i8], ptr %35, i64 %36
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 68
   store i32 1, ptr %38, align 4, !tbaa !38
   %39 = sext i32 %31 to i64
-  %40 = getelementptr inbounds %struct.trap_t, ptr %35, i64 %39
+  %40 = getelementptr inbounds [72 x i8], ptr %35, i64 %39
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %37, ptr noundef nonnull align 8 dereferenceable(72) %40, i64 72, i1 false), !tbaa.struct !60
   %41 = load double, ptr %11, align 8, !tbaa !57
   %42 = load ptr, ptr %34, align 8, !tbaa !11
-  %43 = getelementptr inbounds %struct.trap_t, ptr %42, i64 %39
+  %43 = getelementptr inbounds [72 x i8], ptr %42, i64 %39
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 32
   store double %41, ptr %44, align 8, !tbaa !29
-  %45 = getelementptr inbounds %struct.trap_t, ptr %42, i64 %36
+  %45 = getelementptr inbounds [72 x i8], ptr %42, i64 %36
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
   store double %41, ptr %46, align 8, !tbaa !26
   %47 = load double, ptr %5, align 8, !tbaa !59
@@ -544,7 +542,7 @@ define internal fastcc void @add_segment(i32 noundef %0, ptr noundef captures(no
 
 57:                                               ; preds = %32
   %58 = zext nneg i32 %55 to i64
-  %59 = getelementptr inbounds nuw %struct.trap_t, ptr %42, i64 %58
+  %59 = getelementptr inbounds nuw [72 x i8], ptr %42, i64 %58
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 40
   %61 = load i32, ptr %60, align 8, !tbaa !33
   %62 = icmp eq i32 %61, %31
@@ -572,7 +570,7 @@ define internal fastcc void @add_segment(i32 noundef %0, ptr noundef captures(no
 
 73:                                               ; preds = %69
   %74 = zext nneg i32 %71 to i64
-  %75 = getelementptr inbounds nuw %struct.trap_t, ptr %42, i64 %74
+  %75 = getelementptr inbounds nuw [72 x i8], ptr %42, i64 %74
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 40
   %77 = load i32, ptr %76, align 8, !tbaa !33
   %78 = icmp eq i32 %77, %31
@@ -596,18 +594,18 @@ define internal fastcc void @add_segment(i32 noundef %0, ptr noundef captures(no
   %86 = tail call fastcc i32 @newnode(ptr noundef %3)
   %87 = tail call fastcc i32 @newnode(ptr noundef %3)
   %88 = load ptr, ptr %34, align 8, !tbaa !11
-  %89 = getelementptr inbounds %struct.trap_t, ptr %88, i64 %39
+  %89 = getelementptr inbounds [72 x i8], ptr %88, i64 %39
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 56
   %91 = load i32, ptr %90, align 8, !tbaa !37
   %92 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %93 = load ptr, ptr %92, align 8, !tbaa !11
   %94 = sext i32 %91 to i64
-  %95 = getelementptr inbounds %struct.qnode_t, ptr %93, i64 %94
+  %95 = getelementptr inbounds [40 x i8], ptr %93, i64 %94
   store i32 2, ptr %95, align 8, !tbaa !14
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %96, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !24
   %97 = load ptr, ptr %92, align 8, !tbaa !11
-  %98 = getelementptr inbounds %struct.qnode_t, ptr %97, i64 %94
+  %98 = getelementptr inbounds [40 x i8], ptr %97, i64 %94
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 4
   store i32 %0, ptr %99, align 4, !tbaa !23
   %100 = getelementptr inbounds nuw i8, ptr %98, i64 32
@@ -615,24 +613,24 @@ define internal fastcc void @add_segment(i32 noundef %0, ptr noundef captures(no
   %101 = getelementptr inbounds nuw i8, ptr %98, i64 36
   store i32 %86, ptr %101, align 4, !tbaa !20
   %102 = sext i32 %86 to i64
-  %103 = getelementptr inbounds %struct.qnode_t, ptr %97, i64 %102
+  %103 = getelementptr inbounds [40 x i8], ptr %97, i64 %102
   store i32 3, ptr %103, align 8, !tbaa !14
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 24
   store i32 %31, ptr %104, align 8, !tbaa !39
   %105 = getelementptr inbounds nuw i8, ptr %103, i64 28
   store i32 %91, ptr %105, align 4, !tbaa !21
   %106 = sext i32 %87 to i64
-  %107 = getelementptr inbounds %struct.qnode_t, ptr %97, i64 %106
+  %107 = getelementptr inbounds [40 x i8], ptr %97, i64 %106
   store i32 3, ptr %107, align 8, !tbaa !14
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 24
   store i32 %33, ptr %108, align 8, !tbaa !39
   %109 = getelementptr inbounds nuw i8, ptr %107, i64 28
   store i32 %91, ptr %109, align 4, !tbaa !21
   %110 = load ptr, ptr %34, align 8, !tbaa !11
-  %111 = getelementptr inbounds %struct.trap_t, ptr %110, i64 %39
+  %111 = getelementptr inbounds [72 x i8], ptr %110, i64 %39
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 56
   store i32 %86, ptr %112, align 8, !tbaa !37
-  %113 = getelementptr inbounds %struct.trap_t, ptr %110, i64 %36
+  %113 = getelementptr inbounds [72 x i8], ptr %110, i64 %36
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 56
   store i32 %87, ptr %114, align 8, !tbaa !37
   br label %115
@@ -642,7 +640,7 @@ define internal fastcc void @add_segment(i32 noundef %0, ptr noundef captures(no
   %.pn7.in.in.i592 = getelementptr inbounds nuw i8, ptr %7, i64 %.0557608611
   %.pn7.in.i593 = load i32, ptr %.pn7.in.in.i592, align 4, !tbaa !12
   %.pn7.i594 = sext i32 %.pn7.in.i593 to i64
-  %.pn.i595 = getelementptr inbounds %struct.segment_t, ptr %1, i64 %.pn7.i594
+  %.pn.i595 = getelementptr inbounds [56 x i8], ptr %1, i64 %.pn7.i594
   %.0.in.in.i596 = getelementptr inbounds nuw i8, ptr %.pn.i595, i64 32
   %.0.in.i597 = load i8, ptr %.0.in.in.i596, align 8, !tbaa !40, !range !50, !noundef !51
   %.0.i598 = trunc nuw i8 %.0.in.i597 to i1
@@ -656,18 +654,18 @@ define internal fastcc void @add_segment(i32 noundef %0, ptr noundef captures(no
   %121 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %122 = load ptr, ptr %121, align 8, !tbaa !11
   %123 = sext i32 %120 to i64
-  %124 = getelementptr inbounds %struct.trap_t, ptr %122, i64 %123
+  %124 = getelementptr inbounds [72 x i8], ptr %122, i64 %123
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 68
   store i32 1, ptr %125, align 4, !tbaa !38
   %126 = sext i32 %118 to i64
-  %127 = getelementptr inbounds %struct.trap_t, ptr %122, i64 %126
+  %127 = getelementptr inbounds [72 x i8], ptr %122, i64 %126
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %124, ptr noundef nonnull align 8 dereferenceable(72) %127, i64 72, i1 false), !tbaa.struct !60
   %128 = load double, ptr %9, align 8, !tbaa !56
   %129 = load ptr, ptr %121, align 8, !tbaa !11
-  %130 = getelementptr inbounds %struct.trap_t, ptr %129, i64 %123
+  %130 = getelementptr inbounds [72 x i8], ptr %129, i64 %123
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 16
   store double %128, ptr %131, align 8, !tbaa !26
-  %132 = getelementptr inbounds %struct.trap_t, ptr %129, i64 %126
+  %132 = getelementptr inbounds [72 x i8], ptr %129, i64 %126
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 32
   store double %128, ptr %133, align 8, !tbaa !29
   %134 = load double, ptr %8, align 8, !tbaa !58
@@ -690,7 +688,7 @@ define internal fastcc void @add_segment(i32 noundef %0, ptr noundef captures(no
 
 144:                                              ; preds = %119
   %145 = zext nneg i32 %142 to i64
-  %146 = getelementptr inbounds nuw %struct.trap_t, ptr %129, i64 %145
+  %146 = getelementptr inbounds nuw [72 x i8], ptr %129, i64 %145
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 40
   %148 = load i32, ptr %147, align 8, !tbaa !33
   %149 = icmp eq i32 %148, %118
@@ -718,7 +716,7 @@ define internal fastcc void @add_segment(i32 noundef %0, ptr noundef captures(no
 
 160:                                              ; preds = %156
   %161 = zext nneg i32 %158 to i64
-  %162 = getelementptr inbounds nuw %struct.trap_t, ptr %129, i64 %161
+  %162 = getelementptr inbounds nuw [72 x i8], ptr %129, i64 %161
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 40
   %164 = load i32, ptr %163, align 8, !tbaa !33
   %165 = icmp eq i32 %164, %118
@@ -742,18 +740,18 @@ define internal fastcc void @add_segment(i32 noundef %0, ptr noundef captures(no
   %173 = tail call fastcc i32 @newnode(ptr noundef %3)
   %174 = tail call fastcc i32 @newnode(ptr noundef %3)
   %175 = load ptr, ptr %121, align 8, !tbaa !11
-  %176 = getelementptr inbounds %struct.trap_t, ptr %175, i64 %126
+  %176 = getelementptr inbounds [72 x i8], ptr %175, i64 %126
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 56
   %178 = load i32, ptr %177, align 8, !tbaa !37
   %179 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %180 = load ptr, ptr %179, align 8, !tbaa !11
   %181 = sext i32 %178 to i64
-  %182 = getelementptr inbounds %struct.qnode_t, ptr %180, i64 %181
+  %182 = getelementptr inbounds [40 x i8], ptr %180, i64 %181
   store i32 2, ptr %182, align 8, !tbaa !14
   %183 = getelementptr inbounds nuw i8, ptr %182, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %183, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false), !tbaa.struct !24
   %184 = load ptr, ptr %179, align 8, !tbaa !11
-  %185 = getelementptr inbounds %struct.qnode_t, ptr %184, i64 %181
+  %185 = getelementptr inbounds [40 x i8], ptr %184, i64 %181
   %186 = getelementptr inbounds nuw i8, ptr %185, i64 4
   store i32 %0, ptr %186, align 4, !tbaa !23
   %187 = getelementptr inbounds nuw i8, ptr %185, i64 32
@@ -761,24 +759,24 @@ define internal fastcc void @add_segment(i32 noundef %0, ptr noundef captures(no
   %188 = getelementptr inbounds nuw i8, ptr %185, i64 36
   store i32 %173, ptr %188, align 4, !tbaa !20
   %189 = sext i32 %173 to i64
-  %190 = getelementptr inbounds %struct.qnode_t, ptr %184, i64 %189
+  %190 = getelementptr inbounds [40 x i8], ptr %184, i64 %189
   store i32 3, ptr %190, align 8, !tbaa !14
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 24
   store i32 %118, ptr %191, align 8, !tbaa !39
   %192 = getelementptr inbounds nuw i8, ptr %190, i64 28
   store i32 %178, ptr %192, align 4, !tbaa !21
   %193 = sext i32 %174 to i64
-  %194 = getelementptr inbounds %struct.qnode_t, ptr %184, i64 %193
+  %194 = getelementptr inbounds [40 x i8], ptr %184, i64 %193
   store i32 3, ptr %194, align 8, !tbaa !14
   %195 = getelementptr inbounds nuw i8, ptr %194, i64 24
   store i32 %120, ptr %195, align 8, !tbaa !39
   %196 = getelementptr inbounds nuw i8, ptr %194, i64 28
   store i32 %178, ptr %196, align 4, !tbaa !21
   %197 = load ptr, ptr %121, align 8, !tbaa !11
-  %198 = getelementptr inbounds %struct.trap_t, ptr %197, i64 %126
+  %198 = getelementptr inbounds [72 x i8], ptr %197, i64 %126
   %199 = getelementptr inbounds nuw i8, ptr %198, i64 56
   store i32 %173, ptr %199, align 8, !tbaa !37
-  %200 = getelementptr inbounds %struct.trap_t, ptr %197, i64 %123
+  %200 = getelementptr inbounds [72 x i8], ptr %197, i64 %123
   %201 = getelementptr inbounds nuw i8, ptr %200, i64 56
   store i32 %174, ptr %201, align 8, !tbaa !37
   br label %202
@@ -800,9 +798,9 @@ define internal fastcc void @add_segment(i32 noundef %0, ptr noundef captures(no
   %.0561647 = phi i32 [ %.0554, %.lr.ph ], [ %.2563, %630 ]
   %.0564646 = phi i32 [ 0, %.lr.ph ], [ %.2566, %630 ]
   %209 = zext nneg i32 %.0561647 to i64
-  %210 = getelementptr inbounds nuw %struct.trap_t, ptr %208, i64 %209
+  %210 = getelementptr inbounds nuw [72 x i8], ptr %208, i64 %209
   %211 = getelementptr inbounds nuw i8, ptr %210, i64 24
-  %212 = getelementptr inbounds %struct.trap_t, ptr %208, i64 %205
+  %212 = getelementptr inbounds [72 x i8], ptr %208, i64 %205
   %213 = getelementptr inbounds nuw i8, ptr %212, i64 24
   %214 = getelementptr inbounds nuw i8, ptr %210, i64 32
   %215 = load double, ptr %214, align 8, !tbaa !18
@@ -830,7 +828,7 @@ _greater_than_equal_to.exit.thread:               ; preds = %207, %_greater_than
   %229 = tail call fastcc i32 @newnode(ptr noundef %3)
   %230 = load ptr, ptr %206, align 8, !tbaa !11
   %231 = sext i32 %227 to i64
-  %232 = getelementptr inbounds %struct.qnode_t, ptr %230, i64 %231
+  %232 = getelementptr inbounds [40 x i8], ptr %230, i64 %231
   store i32 1, ptr %232, align 8, !tbaa !14
   %233 = getelementptr inbounds nuw i8, ptr %232, i64 4
   store i32 %0, ptr %233, align 4, !tbaa !23
@@ -839,33 +837,33 @@ _greater_than_equal_to.exit.thread:               ; preds = %207, %_greater_than
   %235 = getelementptr inbounds nuw i8, ptr %232, i64 36
   store i32 %229, ptr %235, align 4, !tbaa !20
   %236 = sext i32 %228 to i64
-  %237 = getelementptr inbounds %struct.qnode_t, ptr %230, i64 %236
+  %237 = getelementptr inbounds [40 x i8], ptr %230, i64 %236
   store i32 3, ptr %237, align 8, !tbaa !14
   %238 = getelementptr inbounds nuw i8, ptr %237, i64 24
   store i32 %.0561647, ptr %238, align 8, !tbaa !39
   %239 = getelementptr inbounds nuw i8, ptr %237, i64 28
   store i32 %227, ptr %239, align 4, !tbaa !21
   %240 = sext i32 %229 to i64
-  %241 = getelementptr inbounds %struct.qnode_t, ptr %230, i64 %240
+  %241 = getelementptr inbounds [40 x i8], ptr %230, i64 %240
   store i32 3, ptr %241, align 8, !tbaa !14
   %242 = tail call fastcc i32 @newtrap(ptr noundef %2)
   %243 = load ptr, ptr %206, align 8, !tbaa !11
-  %244 = getelementptr inbounds %struct.qnode_t, ptr %243, i64 %240
+  %244 = getelementptr inbounds [40 x i8], ptr %243, i64 %240
   %245 = getelementptr inbounds nuw i8, ptr %244, i64 24
   store i32 %242, ptr %245, align 8, !tbaa !39
   %246 = load ptr, ptr %204, align 8, !tbaa !11
   %247 = sext i32 %242 to i64
-  %248 = getelementptr inbounds %struct.trap_t, ptr %246, i64 %247
+  %248 = getelementptr inbounds [72 x i8], ptr %246, i64 %247
   %249 = getelementptr inbounds nuw i8, ptr %248, i64 68
   store i32 1, ptr %249, align 4, !tbaa !38
   %250 = getelementptr inbounds nuw i8, ptr %244, i64 28
   store i32 %227, ptr %250, align 4, !tbaa !21
   %251 = icmp eq i32 %.0561647, %.0554
   %spec.select = select i1 %251, i32 %242, i32 %.0559648
-  %252 = getelementptr inbounds nuw %struct.trap_t, ptr %246, i64 %209
+  %252 = getelementptr inbounds nuw [72 x i8], ptr %246, i64 %209
   %253 = getelementptr inbounds nuw i8, ptr %252, i64 32
   %254 = load double, ptr %253, align 8, !tbaa !29
-  %255 = getelementptr inbounds %struct.trap_t, ptr %246, i64 %205
+  %255 = getelementptr inbounds [72 x i8], ptr %246, i64 %205
   %256 = getelementptr inbounds nuw i8, ptr %255, i64 32
   %257 = load double, ptr %256, align 8, !tbaa !29
   %258 = fsub double %254, %257
@@ -890,10 +888,10 @@ _greater_than_equal_to.exit.thread:               ; preds = %207, %_greater_than
   %.2566 = phi i32 [ %242, %269 ], [ %.0564646, %261 ], [ %.0564646, %_greater_than_equal_to.exit.thread ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %248, ptr noundef nonnull align 8 dereferenceable(72) %252, i64 72, i1 false), !tbaa.struct !60
   %271 = load ptr, ptr %204, align 8, !tbaa !11
-  %272 = getelementptr inbounds nuw %struct.trap_t, ptr %271, i64 %209
+  %272 = getelementptr inbounds nuw [72 x i8], ptr %271, i64 %209
   %273 = getelementptr inbounds nuw i8, ptr %272, i64 56
   store i32 %228, ptr %273, align 8, !tbaa !37
-  %274 = getelementptr inbounds %struct.trap_t, ptr %271, i64 %247
+  %274 = getelementptr inbounds [72 x i8], ptr %271, i64 %247
   %275 = getelementptr inbounds nuw i8, ptr %274, i64 56
   store i32 %229, ptr %275, align 8, !tbaa !37
   %276 = getelementptr inbounds nuw i8, ptr %272, i64 48
@@ -920,10 +918,10 @@ _greater_than_equal_to.exit.thread:               ; preds = %207, %_greater_than
   %.val581 = load double, ptr %9, align 8
   tail call fastcc void @update_trapezoid(double %.val, double %.val581, ptr noundef nonnull %1, ptr nonnull %271, i32 noundef %.0561647, i32 noundef %242)
   %287 = load ptr, ptr %204, align 8, !tbaa !11
-  %288 = getelementptr inbounds nuw %struct.trap_t, ptr %287, i64 %209
+  %288 = getelementptr inbounds nuw [72 x i8], ptr %287, i64 %209
   %289 = getelementptr inbounds nuw i8, ptr %288, i64 32
   %290 = load double, ptr %289, align 8, !tbaa !29
-  %291 = getelementptr inbounds %struct.trap_t, ptr %287, i64 %205
+  %291 = getelementptr inbounds [72 x i8], ptr %287, i64 %205
   %292 = getelementptr inbounds nuw i8, ptr %291, i64 32
   %293 = load double, ptr %292, align 8, !tbaa !29
   %294 = fsub double %290, %293
@@ -949,7 +947,7 @@ _greater_than_equal_to.exit.thread:               ; preds = %207, %_greater_than
 
 307:                                              ; preds = %305
   %308 = zext nneg i32 %.0556 to i64
-  %309 = getelementptr inbounds nuw %struct.segment_t, ptr %1, i64 %308
+  %309 = getelementptr inbounds nuw [56 x i8], ptr %1, i64 %308
   %310 = getelementptr inbounds nuw i8, ptr %309, i64 16
   %311 = getelementptr inbounds nuw i8, ptr %309, i64 24
   %312 = load double, ptr %311, align 8, !tbaa !56
@@ -1054,10 +1052,10 @@ is_left_of.exit.thread:                           ; preds = %356, %364, %338, %3
   %380 = getelementptr inbounds nuw i8, ptr %288, i64 48
   %381 = load i32, ptr %380, align 8, !tbaa !34
   %382 = sext i32 %381 to i64
-  %383 = getelementptr inbounds %struct.trap_t, ptr %287, i64 %382
+  %383 = getelementptr inbounds [72 x i8], ptr %287, i64 %382
   %384 = getelementptr inbounds nuw i8, ptr %383, i64 40
   store i32 %.0561647, ptr %384, align 8, !tbaa !33
-  %385 = getelementptr inbounds %struct.trap_t, ptr %287, i64 %247
+  %385 = getelementptr inbounds [72 x i8], ptr %287, i64 %247
   %386 = getelementptr inbounds nuw i8, ptr %385, i64 48
   store i32 -1, ptr %386, align 8, !tbaa !34
   %387 = getelementptr inbounds nuw i8, ptr %385, i64 52
@@ -1065,11 +1063,11 @@ is_left_of.exit.thread:                           ; preds = %356, %364, %338, %3
   br label %413
 
 is_left_of.exit.thread630:                        ; preds = %356, %364, %338, %329, %is_left_of.exit, %305
-  %388 = getelementptr inbounds %struct.trap_t, ptr %287, i64 %247
+  %388 = getelementptr inbounds [72 x i8], ptr %287, i64 %247
   %389 = getelementptr inbounds nuw i8, ptr %388, i64 48
   %390 = load i32, ptr %389, align 8, !tbaa !34
   %391 = sext i32 %390 to i64
-  %392 = getelementptr inbounds %struct.trap_t, ptr %287, i64 %391
+  %392 = getelementptr inbounds [72 x i8], ptr %287, i64 %391
   %393 = getelementptr inbounds nuw i8, ptr %392, i64 44
   store i32 %242, ptr %393, align 4, !tbaa !36
   %394 = getelementptr inbounds nuw i8, ptr %288, i64 48
@@ -1082,7 +1080,7 @@ is_left_of.exit.thread630:                        ; preds = %356, %364, %338, %3
   %397 = getelementptr inbounds nuw i8, ptr %288, i64 48
   %398 = load i32, ptr %397, align 8, !tbaa !34
   %399 = sext i32 %398 to i64
-  %400 = getelementptr inbounds %struct.trap_t, ptr %287, i64 %399
+  %400 = getelementptr inbounds [72 x i8], ptr %287, i64 %399
   %401 = getelementptr inbounds nuw i8, ptr %400, i64 40
   %402 = load i32, ptr %401, align 8, !tbaa !33
   %403 = icmp sgt i32 %402, 0
@@ -1119,10 +1117,10 @@ is_left_of.exit.thread630:                        ; preds = %356, %364, %338, %3
   %.val584 = load double, ptr %9, align 8
   tail call fastcc void @update_trapezoid(double %.val583, double %.val584, ptr noundef nonnull %1, ptr nonnull %271, i32 noundef %.0561647, i32 noundef %242)
   %416 = load ptr, ptr %204, align 8, !tbaa !11
-  %417 = getelementptr inbounds nuw %struct.trap_t, ptr %416, i64 %209
+  %417 = getelementptr inbounds nuw [72 x i8], ptr %416, i64 %209
   %418 = getelementptr inbounds nuw i8, ptr %417, i64 32
   %419 = load double, ptr %418, align 8, !tbaa !29
-  %420 = getelementptr inbounds %struct.trap_t, ptr %416, i64 %205
+  %420 = getelementptr inbounds [72 x i8], ptr %416, i64 %205
   %421 = getelementptr inbounds nuw i8, ptr %420, i64 32
   %422 = load double, ptr %421, align 8, !tbaa !29
   %423 = fsub double %419, %422
@@ -1148,7 +1146,7 @@ is_left_of.exit.thread630:                        ; preds = %356, %364, %338, %3
 
 436:                                              ; preds = %434
   %437 = zext nneg i32 %.1 to i64
-  %438 = getelementptr inbounds nuw %struct.segment_t, ptr %1, i64 %437
+  %438 = getelementptr inbounds nuw [56 x i8], ptr %1, i64 %437
   %439 = getelementptr inbounds nuw i8, ptr %438, i64 16
   %440 = getelementptr inbounds nuw i8, ptr %438, i64 24
   %441 = load double, ptr %440, align 8, !tbaa !56
@@ -1253,10 +1251,10 @@ is_left_of.exit606.thread:                        ; preds = %485, %493, %467, %4
   %509 = getelementptr inbounds nuw i8, ptr %417, i64 52
   %510 = load i32, ptr %509, align 4, !tbaa !35
   %511 = sext i32 %510 to i64
-  %512 = getelementptr inbounds %struct.trap_t, ptr %416, i64 %511
+  %512 = getelementptr inbounds [72 x i8], ptr %416, i64 %511
   %513 = getelementptr inbounds nuw i8, ptr %512, i64 40
   store i32 %.0561647, ptr %513, align 8, !tbaa !33
-  %514 = getelementptr inbounds %struct.trap_t, ptr %416, i64 %247
+  %514 = getelementptr inbounds [72 x i8], ptr %416, i64 %247
   %515 = getelementptr inbounds nuw i8, ptr %514, i64 48
   store i32 -1, ptr %515, align 8, !tbaa !34
   %516 = getelementptr inbounds nuw i8, ptr %514, i64 52
@@ -1264,11 +1262,11 @@ is_left_of.exit606.thread:                        ; preds = %485, %493, %467, %4
   br label %542
 
 is_left_of.exit606.thread639:                     ; preds = %485, %493, %467, %458, %is_left_of.exit606, %434
-  %517 = getelementptr inbounds %struct.trap_t, ptr %416, i64 %247
+  %517 = getelementptr inbounds [72 x i8], ptr %416, i64 %247
   %518 = getelementptr inbounds nuw i8, ptr %517, i64 52
   %519 = load i32, ptr %518, align 4, !tbaa !35
   %520 = sext i32 %519 to i64
-  %521 = getelementptr inbounds %struct.trap_t, ptr %416, i64 %520
+  %521 = getelementptr inbounds [72 x i8], ptr %416, i64 %520
   %522 = getelementptr inbounds nuw i8, ptr %521, i64 44
   store i32 %242, ptr %522, align 4, !tbaa !36
   %523 = getelementptr inbounds nuw i8, ptr %417, i64 48
@@ -1281,7 +1279,7 @@ is_left_of.exit606.thread639:                     ; preds = %485, %493, %467, %4
   %526 = getelementptr inbounds nuw i8, ptr %417, i64 52
   %527 = load i32, ptr %526, align 4, !tbaa !35
   %528 = sext i32 %527 to i64
-  %529 = getelementptr inbounds %struct.trap_t, ptr %416, i64 %528
+  %529 = getelementptr inbounds [72 x i8], ptr %416, i64 %528
   %530 = getelementptr inbounds nuw i8, ptr %529, i64 40
   %531 = load i32, ptr %530, align 8, !tbaa !33
   %532 = icmp sgt i32 %531, 0
@@ -1358,10 +1356,10 @@ _less_than.exit:                                  ; preds = %570, %567, %557, %5
   %.0 = phi i1 [ %556, %552 ], [ %572, %570 ], [ false, %557 ], [ true, %567 ]
   tail call fastcc void @update_trapezoid(double %551, double %.val587, ptr noundef nonnull %1, ptr nonnull %271, i32 noundef %.0561647, i32 noundef %242)
   %573 = load ptr, ptr %204, align 8, !tbaa !11
-  %574 = getelementptr inbounds nuw %struct.trap_t, ptr %573, i64 %209
+  %574 = getelementptr inbounds nuw [72 x i8], ptr %573, i64 %209
   %575 = getelementptr inbounds nuw i8, ptr %574, i64 32
   %576 = load double, ptr %575, align 8, !tbaa !29
-  %577 = getelementptr inbounds %struct.trap_t, ptr %573, i64 %205
+  %577 = getelementptr inbounds [72 x i8], ptr %573, i64 %205
   %578 = getelementptr inbounds nuw i8, ptr %577, i64 32
   %579 = load double, ptr %578, align 8, !tbaa !29
   %580 = fsub double %576, %579
@@ -1384,7 +1382,7 @@ _less_than.exit:                                  ; preds = %570, %567, %557, %5
   %592 = getelementptr inbounds nuw i8, ptr %574, i64 48
   %593 = load i32, ptr %592, align 8, !tbaa !34
   %594 = sext i32 %593 to i64
-  %595 = getelementptr inbounds %struct.trap_t, ptr %573, i64 %594
+  %595 = getelementptr inbounds [72 x i8], ptr %573, i64 %594
   %596 = getelementptr inbounds nuw i8, ptr %595, i64 40
   store i32 %.0561647, ptr %596, align 8, !tbaa !33
   %597 = getelementptr inbounds nuw i8, ptr %595, i64 44
@@ -1392,12 +1390,12 @@ _less_than.exit:                                  ; preds = %570, %567, %557, %5
   %598 = getelementptr inbounds nuw i8, ptr %574, i64 52
   %599 = load i32, ptr %598, align 4, !tbaa !35
   %600 = sext i32 %599 to i64
-  %601 = getelementptr inbounds %struct.trap_t, ptr %573, i64 %600
+  %601 = getelementptr inbounds [72 x i8], ptr %573, i64 %600
   %602 = getelementptr inbounds nuw i8, ptr %601, i64 40
   store i32 %242, ptr %602, align 8, !tbaa !33
   %603 = getelementptr inbounds nuw i8, ptr %601, i64 44
   store i32 -1, ptr %603, align 4, !tbaa !36
-  %604 = getelementptr inbounds %struct.trap_t, ptr %573, i64 %247
+  %604 = getelementptr inbounds [72 x i8], ptr %573, i64 %247
   %605 = getelementptr inbounds nuw i8, ptr %604, i64 48
   store i32 %599, ptr %605, align 8, !tbaa !34
   store i32 -1, ptr %598, align 4, !tbaa !35
@@ -1409,7 +1407,7 @@ _less_than.exit:                                  ; preds = %570, %567, %557, %5
   %608 = getelementptr inbounds nuw i8, ptr %574, i64 48
   %609 = load i32, ptr %608, align 8, !tbaa !34
   %610 = sext i32 %609 to i64
-  %611 = getelementptr inbounds %struct.trap_t, ptr %573, i64 %610
+  %611 = getelementptr inbounds [72 x i8], ptr %573, i64 %610
   %612 = getelementptr inbounds nuw i8, ptr %611, i64 40
   store i32 %.0561647, ptr %612, align 8, !tbaa !33
   %613 = getelementptr inbounds nuw i8, ptr %611, i64 44
@@ -1420,7 +1418,7 @@ _less_than.exit:                                  ; preds = %570, %567, %557, %5
   store i32 %242, ptr %613, align 4, !tbaa !36
   %616 = load i32, ptr %614, align 4, !tbaa !35
   %617 = sext i32 %616 to i64
-  %618 = getelementptr inbounds %struct.trap_t, ptr %573, i64 %617
+  %618 = getelementptr inbounds [72 x i8], ptr %573, i64 %617
   %619 = getelementptr inbounds nuw i8, ptr %618, i64 40
   store i32 %242, ptr %619, align 8, !tbaa !33
   %620 = getelementptr inbounds nuw i8, ptr %618, i64 44
@@ -1432,12 +1430,12 @@ _less_than.exit:                                  ; preds = %570, %567, %557, %5
   store i32 -1, ptr %613, align 4, !tbaa !36
   %622 = load i32, ptr %614, align 4, !tbaa !35
   %623 = sext i32 %622 to i64
-  %624 = getelementptr inbounds %struct.trap_t, ptr %573, i64 %623
+  %624 = getelementptr inbounds [72 x i8], ptr %573, i64 %623
   %625 = getelementptr inbounds nuw i8, ptr %624, i64 40
   store i32 %.0561647, ptr %625, align 8, !tbaa !33
   %626 = getelementptr inbounds nuw i8, ptr %624, i64 44
   store i32 %242, ptr %626, align 4, !tbaa !36
-  %627 = getelementptr inbounds %struct.trap_t, ptr %573, i64 %247
+  %627 = getelementptr inbounds [72 x i8], ptr %573, i64 %247
   %628 = getelementptr inbounds nuw i8, ptr %627, i64 48
   store i32 %622, ptr %628, align 8, !tbaa !34
   %629 = getelementptr inbounds nuw i8, ptr %627, i64 52
@@ -1448,10 +1446,10 @@ _less_than.exit:                                  ; preds = %570, %567, %557, %5
   %631 = phi ptr [ %287, %413 ], [ %416, %542 ], [ %573, %591 ], [ %573, %615 ], [ %573, %621 ]
   %.2563.in = phi ptr [ %414, %413 ], [ %543, %542 ], [ %598, %591 ], [ %608, %615 ], [ %614, %621 ]
   %.2563 = load i32, ptr %.2563.in, align 4, !tbaa !12
-  %632 = getelementptr inbounds nuw %struct.trap_t, ptr %631, i64 %209
+  %632 = getelementptr inbounds nuw [72 x i8], ptr %631, i64 %209
   %633 = getelementptr inbounds nuw i8, ptr %632, i64 4
   store i32 %0, ptr %633, align 4, !tbaa !31
-  %634 = getelementptr inbounds %struct.trap_t, ptr %631, i64 %247
+  %634 = getelementptr inbounds [72 x i8], ptr %631, i64 %247
   store i32 %0, ptr %634, align 8, !tbaa !32
   %635 = icmp sgt i32 %.2563, 0
   br i1 %635, label %207, label %.critedge
@@ -1624,7 +1622,7 @@ define internal fastcc i32 @locate_endpoint(ptr noundef readonly captures(none) 
 tailrecurse:                                      ; preds = %tailrecurse.backedge, %5
   %.tr116 = phi i32 [ %2, %5 ], [ %.tr116.be, %tailrecurse.backedge ]
   %10 = sext i32 %.tr116 to i64
-  %11 = getelementptr inbounds %struct.qnode_t, ptr %7, i64 %10
+  %11 = getelementptr inbounds [40 x i8], ptr %7, i64 %10
   %12 = load i32, ptr %11, align 8, !tbaa !14
   switch i32 %12, label %219 [
     i32 3, label %13
@@ -1699,7 +1697,7 @@ tailrecurse.backedge:                             ; preds = %26, %16, %is_left_o
   %52 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %53 = load i32, ptr %52, align 4, !tbaa !23
   %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds %struct.segment_t, ptr %3, i64 %54
+  %55 = getelementptr inbounds [56 x i8], ptr %3, i64 %54
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %57 = load double, ptr %56, align 8, !tbaa !57
   %58 = fsub double %51, %57
@@ -1955,7 +1953,7 @@ is_left_of.exit99.thread113:                      ; preds = %196, %204, %180, %1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal fastcc void @update_trapezoid(double %.16.val, double %.24.val, ptr noundef readonly captures(none) %0, ptr captures(none) %.8.val, i32 noundef range(i32 1, -2147483648) %1, i32 noundef %2) unnamed_addr #12 {
   %4 = zext nneg i32 %1 to i64
-  %5 = getelementptr inbounds nuw %struct.trap_t, ptr %.8.val, i64 %4
+  %5 = getelementptr inbounds nuw [72 x i8], ptr %.8.val, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %7 = load i32, ptr %6, align 8, !tbaa !33
   %8 = icmp sgt i32 %7, 0
@@ -1978,7 +1976,7 @@ define internal fastcc void @update_trapezoid(double %.16.val, double %.24.val, 
   %19 = load i32, ptr %18, align 8, !tbaa !62
   %20 = icmp eq i32 %19, 1
   %21 = sext i32 %2 to i64
-  %22 = getelementptr inbounds %struct.trap_t, ptr %.8.val, i64 %21
+  %22 = getelementptr inbounds [72 x i8], ptr %.8.val, i64 %21
   br i1 %20, label %23, label %34
 
 23:                                               ; preds = %17
@@ -1989,11 +1987,11 @@ define internal fastcc void @update_trapezoid(double %.16.val, double %.24.val, 
   store i32 %15, ptr %25, align 4, !tbaa !36
   %26 = load i32, ptr %6, align 8, !tbaa !33
   %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds %struct.trap_t, ptr %.8.val, i64 %27
+  %28 = getelementptr inbounds [72 x i8], ptr %.8.val, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 48
   store i32 %1, ptr %29, align 8, !tbaa !34
   %30 = zext nneg i32 %11 to i64
-  %31 = getelementptr inbounds nuw %struct.trap_t, ptr %.8.val, i64 %30
+  %31 = getelementptr inbounds nuw [72 x i8], ptr %.8.val, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 48
   store i32 %2, ptr %32, align 8, !tbaa !34
   %33 = zext nneg i32 %15 to i64
@@ -2009,11 +2007,11 @@ define internal fastcc void @update_trapezoid(double %.16.val, double %.24.val, 
   store i32 %38, ptr %10, align 4, !tbaa !36
   store i32 %15, ptr %6, align 8, !tbaa !33
   %39 = zext nneg i32 %15 to i64
-  %40 = getelementptr inbounds nuw %struct.trap_t, ptr %.8.val, i64 %39
+  %40 = getelementptr inbounds nuw [72 x i8], ptr %.8.val, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 48
   store i32 %1, ptr %41, align 8, !tbaa !34
   %42 = sext i32 %38 to i64
-  %43 = getelementptr inbounds %struct.trap_t, ptr %.8.val, i64 %42
+  %43 = getelementptr inbounds [72 x i8], ptr %.8.val, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 48
   store i32 %1, ptr %44, align 8, !tbaa !34
   %45 = load i32, ptr %37, align 8, !tbaa !33
@@ -2022,32 +2020,32 @@ define internal fastcc void @update_trapezoid(double %.16.val, double %.24.val, 
 
 47:                                               ; preds = %34, %23
   %.sink = phi i64 [ %46, %34 ], [ %33, %23 ]
-  %48 = getelementptr inbounds %struct.trap_t, ptr %.8.val, i64 %.sink
+  %48 = getelementptr inbounds [72 x i8], ptr %.8.val, i64 %.sink
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 48
   store i32 %2, ptr %49, align 8, !tbaa !34
   store i32 0, ptr %14, align 4, !tbaa !61
-  %50 = getelementptr inbounds %struct.trap_t, ptr %.8.val, i64 %21
+  %50 = getelementptr inbounds [72 x i8], ptr %.8.val, i64 %21
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 60
   store i32 0, ptr %51, align 4, !tbaa !61
   br label %160
 
 52:                                               ; preds = %13
   %53 = sext i32 %2 to i64
-  %54 = getelementptr inbounds %struct.trap_t, ptr %.8.val, i64 %53
+  %54 = getelementptr inbounds [72 x i8], ptr %.8.val, i64 %53
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 40
   store i32 %11, ptr %55, align 8, !tbaa !33
   store i32 -1, ptr %10, align 4, !tbaa !36
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 44
   store i32 -1, ptr %56, align 4, !tbaa !36
   %57 = zext nneg i32 %11 to i64
-  %58 = getelementptr inbounds nuw %struct.trap_t, ptr %.8.val, i64 %57
+  %58 = getelementptr inbounds nuw [72 x i8], ptr %.8.val, i64 %57
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 48
   store i32 %2, ptr %59, align 8, !tbaa !34
   br label %160
 
 60:                                               ; preds = %9, %3
   %61 = sext i32 %7 to i64
-  %62 = getelementptr inbounds %struct.trap_t, ptr %.8.val, i64 %61
+  %62 = getelementptr inbounds [72 x i8], ptr %.8.val, i64 %61
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 48
   %64 = load i32, ptr %63, align 8, !tbaa !34
   %65 = icmp sgt i32 %64, 0
@@ -2061,7 +2059,7 @@ define internal fastcc void @update_trapezoid(double %.16.val, double %.24.val, 
 
 70:                                               ; preds = %66
   %71 = zext nneg i32 %64 to i64
-  %72 = getelementptr inbounds nuw %struct.trap_t, ptr %.8.val, i64 %71
+  %72 = getelementptr inbounds nuw [72 x i8], ptr %.8.val, i64 %71
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 4
   %74 = load i32, ptr %73, align 4, !tbaa !31
   %75 = icmp sgt i32 %74, 0
@@ -2069,7 +2067,7 @@ define internal fastcc void @update_trapezoid(double %.16.val, double %.24.val, 
 
 76:                                               ; preds = %70
   %77 = zext nneg i32 %74 to i64
-  %78 = getelementptr inbounds nuw %struct.segment_t, ptr %0, i64 %77
+  %78 = getelementptr inbounds nuw [56 x i8], ptr %0, i64 %77
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 16
   %80 = getelementptr inbounds nuw i8, ptr %78, i64 24
   %81 = load double, ptr %80, align 8, !tbaa !56
@@ -2166,20 +2164,20 @@ is_left_of.exit.thread6:                          ; preds = %120, %128, %105, %9
   %140 = getelementptr inbounds nuw i8, ptr %5, i64 44
   store i32 -1, ptr %140, align 4, !tbaa !36
   %141 = sext i32 %2 to i64
-  %142 = getelementptr inbounds %struct.trap_t, ptr %.8.val, i64 %141
+  %142 = getelementptr inbounds [72 x i8], ptr %.8.val, i64 %141
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 44
   store i32 -1, ptr %143, align 4, !tbaa !36
   %144 = getelementptr inbounds nuw i8, ptr %142, i64 40
   %145 = load i32, ptr %144, align 8, !tbaa !33
   %146 = sext i32 %145 to i64
-  %147 = getelementptr inbounds %struct.trap_t, ptr %.8.val, i64 %146
+  %147 = getelementptr inbounds [72 x i8], ptr %.8.val, i64 %146
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 52
   store i32 %2, ptr %148, align 4, !tbaa !35
   br label %160
 
 is_left_of.exit.thread:                           ; preds = %120, %128, %105, %97, %is_left_of.exit, %70
   %149 = sext i32 %2 to i64
-  %150 = getelementptr inbounds %struct.trap_t, ptr %.8.val, i64 %149
+  %150 = getelementptr inbounds [72 x i8], ptr %.8.val, i64 %149
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 40
   store i32 -1, ptr %151, align 8, !tbaa !33
   %152 = getelementptr inbounds nuw i8, ptr %150, i64 44
@@ -2188,7 +2186,7 @@ is_left_of.exit.thread:                           ; preds = %120, %128, %105, %9
   store i32 -1, ptr %153, align 4, !tbaa !36
   %154 = load i32, ptr %6, align 8, !tbaa !33
   %155 = sext i32 %154 to i64
-  %156 = getelementptr inbounds %struct.trap_t, ptr %.8.val, i64 %155
+  %156 = getelementptr inbounds [72 x i8], ptr %.8.val, i64 %155
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 48
   store i32 %1, ptr %157, align 8, !tbaa !34
   br label %160
@@ -2222,7 +2220,7 @@ define internal fastcc void @merge_trapezoids(i32 noundef %0, i32 noundef %1, i3
 .thread115.outer:                                 ; preds = %126, %.lr.ph
   %.ph = phi ptr [ %128, %126 ], [ %.pre, %.lr.ph ]
   %.098118.ph = phi i32 [ %.098118, %126 ], [ %1, %.lr.ph ]
-  %12 = getelementptr inbounds %struct.trap_t, ptr %.ph, i64 %9
+  %12 = getelementptr inbounds [72 x i8], ptr %.ph, i64 %9
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %15 = load double, ptr %14, align 8, !tbaa !18
@@ -2233,7 +2231,7 @@ define internal fastcc void @merge_trapezoids(i32 noundef %0, i32 noundef %1, i3
 .thread115:                                       ; preds = %.thread115.backedge, %.thread115.outer
   %.098118 = phi i32 [ %.098118.ph, %.thread115.outer ], [ %.098118.be, %.thread115.backedge ]
   %18 = zext nneg i32 %.098118 to i64
-  %19 = getelementptr inbounds nuw %struct.trap_t, ptr %.ph, i64 %18
+  %19 = getelementptr inbounds nuw [72 x i8], ptr %.ph, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %22 = load double, ptr %21, align 8, !tbaa !18
@@ -2261,7 +2259,7 @@ _greater_than_equal_to.exit.thread:               ; preds = %.thread115, %_great
 
 33:                                               ; preds = %32
   %34 = zext nneg i32 %30 to i64
-  %35 = getelementptr inbounds nuw %struct.trap_t, ptr %.ph, i64 %34
+  %35 = getelementptr inbounds nuw [72 x i8], ptr %.ph, i64 %34
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 4
   %37 = load i32, ptr %36, align 4, !tbaa !31
   %38 = icmp eq i32 %37, %0
@@ -2275,7 +2273,7 @@ _greater_than_equal_to.exit.thread:               ; preds = %.thread115, %_great
 
 43:                                               ; preds = %39
   %44 = zext nneg i32 %41 to i64
-  %45 = getelementptr inbounds nuw %struct.trap_t, ptr %.ph, i64 %44
+  %45 = getelementptr inbounds nuw [72 x i8], ptr %.ph, i64 %44
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 4
   %47 = load i32, ptr %46, align 4, !tbaa !31
   %48 = icmp eq i32 %47, %0
@@ -2290,7 +2288,7 @@ _greater_than_equal_to.exit.thread:               ; preds = %.thread115, %_great
 
 50:                                               ; preds = %49
   %51 = zext nneg i32 %30 to i64
-  %52 = getelementptr inbounds nuw %struct.trap_t, ptr %.ph, i64 %51
+  %52 = getelementptr inbounds nuw [72 x i8], ptr %.ph, i64 %51
   %53 = load i32, ptr %52, align 8, !tbaa !32
   %54 = icmp eq i32 %53, %0
   br i1 %54, label %.thread, label %55
@@ -2303,7 +2301,7 @@ _greater_than_equal_to.exit.thread:               ; preds = %.thread115, %_great
 
 59:                                               ; preds = %55
   %60 = zext nneg i32 %57 to i64
-  %61 = getelementptr inbounds nuw %struct.trap_t, ptr %.ph, i64 %60
+  %61 = getelementptr inbounds nuw [72 x i8], ptr %.ph, i64 %60
   %62 = load i32, ptr %61, align 8, !tbaa !32
   %63 = icmp eq i32 %62, %0
   br i1 %63, label %.thread, label %.thread115.backedge
@@ -2312,7 +2310,7 @@ _greater_than_equal_to.exit.thread:               ; preds = %.thread115, %_great
   %.pre-phi = phi i64 [ %51, %50 ], [ %34, %33 ], [ %44, %43 ], [ %60, %59 ]
   %.1100112 = phi i32 [ %30, %50 ], [ %30, %33 ], [ %41, %43 ], [ %57, %59 ]
   %64 = load i32, ptr %19, align 8, !tbaa !32
-  %65 = getelementptr inbounds nuw %struct.trap_t, ptr %.ph, i64 %.pre-phi
+  %65 = getelementptr inbounds nuw [72 x i8], ptr %.ph, i64 %.pre-phi
   %66 = load i32, ptr %65, align 8, !tbaa !32
   %67 = icmp eq i32 %64, %66
   br i1 %67, label %68, label %.thread115.backedge
@@ -2330,11 +2328,11 @@ _greater_than_equal_to.exit.thread:               ; preds = %.thread115, %_great
   %76 = getelementptr inbounds nuw i8, ptr %65, i64 56
   %77 = load i32, ptr %76, align 8, !tbaa !37
   %78 = sext i32 %77 to i64
-  %79 = getelementptr inbounds %struct.qnode_t, ptr %75, i64 %78
+  %79 = getelementptr inbounds [40 x i8], ptr %75, i64 %78
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 28
   %81 = load i32, ptr %80, align 4, !tbaa !21
   %82 = sext i32 %81 to i64
-  %83 = getelementptr inbounds %struct.qnode_t, ptr %75, i64 %82
+  %83 = getelementptr inbounds [40 x i8], ptr %75, i64 %82
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 32
   %85 = load i32, ptr %84, align 8, !tbaa !22
   %86 = icmp eq i32 %85, %77
@@ -2361,7 +2359,7 @@ _greater_than_equal_to.exit.thread:               ; preds = %.thread115, %_great
 
 97:                                               ; preds = %92
   %98 = zext nneg i32 %94 to i64
-  %99 = getelementptr inbounds nuw %struct.trap_t, ptr %.ph, i64 %98
+  %99 = getelementptr inbounds nuw [72 x i8], ptr %.ph, i64 %98
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 40
   %101 = load i32, ptr %100, align 8, !tbaa !33
   %102 = icmp eq i32 %101, %.1100112
@@ -2391,7 +2389,7 @@ _greater_than_equal_to.exit.thread:               ; preds = %.thread115, %_great
 
 114:                                              ; preds = %109
   %115 = zext nneg i32 %111 to i64
-  %116 = getelementptr inbounds nuw %struct.trap_t, ptr %.ph, i64 %115
+  %116 = getelementptr inbounds nuw [72 x i8], ptr %.ph, i64 %115
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 40
   %118 = load i32, ptr %117, align 8, !tbaa !33
   %119 = icmp eq i32 %118, %.1100112
@@ -2415,7 +2413,7 @@ _greater_than_equal_to.exit.thread:               ; preds = %.thread115, %_great
   %127 = getelementptr inbounds nuw i8, ptr %65, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(16) %127, i64 16, i1 false), !tbaa.struct !24
   %128 = load ptr, ptr %8, align 8, !tbaa !11
-  %129 = getelementptr inbounds nuw %struct.trap_t, ptr %128, i64 %.pre-phi
+  %129 = getelementptr inbounds nuw [72 x i8], ptr %128, i64 %.pre-phi
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 68
   store i32 2, ptr %130, align 4, !tbaa !38
   br label %.thread115.outer, !llvm.loop !65

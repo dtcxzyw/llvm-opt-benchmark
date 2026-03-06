@@ -3,9 +3,6 @@ source_filename = "bench/openjdk/original/CUPSfuncs.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.cups_dest_s = type { ptr, ptr, i32, i32, ptr }
-%struct.ppd_choice_s = type { i8, [41 x i8], [81 x i8], ptr, ptr }
-
 @.str = private unnamed_addr constant [13 x i8] c"libcups.so.2\00", align 1
 @.str.1 = private unnamed_addr constant [11 x i8] c"libcups.so\00", align 1
 @.str.2 = private unnamed_addr constant [11 x i8] c"cupsServer\00", align 1
@@ -245,7 +242,7 @@ define ptr @Java_sun_print_CUPSPrinter_getCupsDefaultPrinters(ptr noundef %0, pt
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %50
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %50 ]
   %24 = load ptr, ptr %3, align 8
-  %25 = getelementptr inbounds nuw %struct.cups_dest_s, ptr %24, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [32 x i8], ptr %24, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8
   %27 = call ptr @JNU_NewStringPlatform(ptr noundef nonnull %0, ptr noundef %26) #5
   %28 = icmp eq ptr %27, null
@@ -466,7 +463,7 @@ define ptr @Java_sun_print_CUPSPrinter_getMedia(ptr noundef %0, ptr noundef read
 71:                                               ; preds = %.lr.ph, %103
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %103 ]
   %72 = load ptr, ptr %58, align 8
-  %73 = getelementptr inbounds nuw %struct.ppd_choice_s, ptr %72, i64 %indvars.iv
+  %73 = getelementptr inbounds nuw [144 x i8], ptr %72, i64 %indvars.iv
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 42
   %75 = tail call ptr @JNU_NewStringPlatform(ptr noundef nonnull %0, ptr noundef nonnull %74) #5
   %76 = icmp eq ptr %75, null
@@ -536,7 +533,7 @@ define ptr @Java_sun_print_CUPSPrinter_getMedia(ptr noundef %0, ptr noundef read
 112:                                              ; preds = %.lr.ph144, %145
   %indvars.iv150 = phi i64 [ 0, %.lr.ph144 ], [ %indvars.iv.next151, %145 ]
   %113 = load ptr, ptr %69, align 8
-  %114 = getelementptr inbounds nuw %struct.ppd_choice_s, ptr %113, i64 %indvars.iv150
+  %114 = getelementptr inbounds nuw [144 x i8], ptr %113, i64 %indvars.iv150
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 42
   %116 = tail call ptr @JNU_NewStringPlatform(ptr noundef nonnull %0, ptr noundef nonnull %115) #5
   %117 = icmp eq ptr %116, null
@@ -710,7 +707,7 @@ define ptr @Java_sun_print_CUPSPrinter_getOutputBins(ptr noundef %0, ptr noundef
 55:                                               ; preds = %.lr.ph, %89
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %89 ]
   %56 = load ptr, ptr %46, align 8
-  %57 = getelementptr inbounds nuw %struct.ppd_choice_s, ptr %56, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [144 x i8], ptr %56, i64 %indvars.iv
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 42
   %59 = tail call ptr @JNU_NewStringPlatform(ptr noundef nonnull %0, ptr noundef nonnull %58) #5
   %60 = icmp eq ptr %59, null
@@ -892,7 +889,7 @@ define ptr @Java_sun_print_CUPSPrinter_getPageSizes(ptr noundef %0, ptr noundef 
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %97 ]
   %64 = phi i32 [ %53, %.lr.ph ], [ %98, %97 ]
   %65 = load ptr, ptr %55, align 8
-  %66 = getelementptr inbounds nuw %struct.ppd_choice_s, ptr %65, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw [144 x i8], ptr %65, i64 %indvars.iv
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 1
   %68 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %67, ptr noundef nonnull dereferenceable(1) %56) #6
   %.not85 = icmp eq i32 %68, 0
@@ -903,7 +900,7 @@ define ptr @Java_sun_print_CUPSPrinter_getPageSizes(ptr noundef %0, ptr noundef 
   %71 = uitofp nneg i32 %70 to float
   %72 = mul nsw i32 %64, 6
   %73 = sext i32 %72 to i64
-  %74 = getelementptr inbounds float, ptr %51, i64 %73
+  %74 = getelementptr inbounds [4 x i8], ptr %51, i64 %73
   store float %71, ptr %74, align 4
   br label %75
 
@@ -1136,7 +1133,7 @@ define void @Java_sun_print_CUPSPrinter_getResolutions(ptr noundef %0, ptr nound
 104:                                              ; preds = %.lr.ph, %.thread113
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.thread113 ]
   %105 = load ptr, ptr %103, align 8
-  %106 = getelementptr inbounds nuw %struct.ppd_choice_s, ptr %105, i64 %indvars.iv
+  %106 = getelementptr inbounds nuw [144 x i8], ptr %105, i64 %indvars.iv
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 1
   %108 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %107, ptr noundef nonnull @.str.27, ptr noundef nonnull %7, ptr noundef nonnull %8) #5
   %109 = icmp eq i32 %108, 2

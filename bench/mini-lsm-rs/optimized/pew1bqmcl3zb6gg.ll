@@ -1937,7 +1937,7 @@ default.unreachable8:                             ; preds = %1
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %22 = icmp ult i64 %20, 31
   call void @llvm.assume(i1 %22)
-  %23 = getelementptr inbounds nuw { { i64 }, { { [0 x i8] } } }, ptr %21, i64 %20
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %20
   %24 = atomicrmw or ptr %23, i64 1 release, align 8, !noalias !196
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 256
   call void @_ZN17crossbeam_channel5waker9SyncWaker6notify17hffe30b35fb8f6864E.llvm.15562554790014090263(ptr noundef nonnull align 8 %25), !noalias !196
@@ -2025,7 +2025,7 @@ default.unreachable14:                            ; preds = %2
   %21 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %22 = icmp ult i64 %20, 31
   tail call void @llvm.assume(i1 %22)
-  %23 = getelementptr inbounds nuw { { i64 }, { { [0 x i8] } } }, ptr %21, i64 %20
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %20
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !202
   store i32 0, ptr %3, align 4, !noalias !202
   %24 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17h568f0302a0a458e1E.llvm.15562554790014090263(ptr noundef nonnull align 8 %23, i8 noundef 2), !noalias !202
@@ -2137,7 +2137,7 @@ default.unreachable35:                            ; preds = %2
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %26 = icmp ult i64 %24, 31
   tail call void @llvm.assume(i1 %26)
-  %27 = getelementptr inbounds nuw { { i64, i32 }, { i64 } }, ptr %25, i64 %24
+  %27 = getelementptr inbounds nuw [24 x i8], ptr %25, i64 %24
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !209
   store i32 0, ptr %3, align 4, !noalias !209
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 16

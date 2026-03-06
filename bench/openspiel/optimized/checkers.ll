@@ -38,7 +38,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.27" = type { %"struct.std::_Vector_base<long, std::allocator<long>>::_Vector_impl" }
 %"struct.std::_Vector_base<long, std::allocator<long>>::_Vector_impl" = type { %"struct.std::_Vector_base<long, std::allocator<long>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<long, std::allocator<long>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.open_spiel::checkers::TurnHistoryInfo" = type <{ i64, i32, i32, i32, [4 x i8] }>
 %"class.absl::debian2::AlphaNum" = type { %"class.absl::debian2::string_view", [32 x i8] }
 %"class.absl::debian2::string_view" = type { ptr, i64 }
 %struct._Guard = type { ptr }
@@ -920,7 +919,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN10open_spiel8checkersl
 
 switch.lookup:                                    ; preds = %2
   %15 = zext nneg i32 %5 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN10open_spiel8checkerslsERSoRKNS0_9CellStateE, i64 %15
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN10open_spiel8checkerslsERSoRKNS0_9CellStateE, i64 %15
   %switch.load = load ptr, ptr %switch.gep, align 8
   %16 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %switch.load)
   ret ptr %16
@@ -1184,7 +1183,7 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit: ; preds = %34, %52, %65, %_ZNS
 
 _ZNSt6vectorIN10open_spiel8checkers9CellStateESaIS2_EED2Ev.exit: ; preds = %.lr.ph.preheader.i.i.i.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %112, i8 0, i64 %111, i1 false)
-  %113 = getelementptr inbounds nuw i32, ptr %112, i64 %110
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %112, i64 %110
   %114 = getelementptr inbounds nuw i8, ptr %112, i64 %111
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -1237,7 +1236,7 @@ _ZNSt6vectorIN10open_spiel8checkers15TurnHistoryInfoESaIS2_EEaSESt16initializer_
   %137 = add nsw i32 %136, %.036.us
   %138 = sext i32 %137 to i64
   %139 = load ptr, ptr %75, align 8
-  %140 = getelementptr inbounds i32, ptr %139, i64 %138
+  %140 = getelementptr inbounds [4 x i8], ptr %139, i64 %138
   store i32 2, ptr %140, align 4
   %.pre42 = load i32, ptr %74, align 4
   br label %141
@@ -1274,7 +1273,7 @@ _ZNSt6vectorIN10open_spiel8checkers15TurnHistoryInfoESaIS2_EEaSESt16initializer_
   %158 = add nsw i32 %157, %.036
   %159 = sext i32 %158 to i64
   %160 = load ptr, ptr %75, align 8
-  %161 = getelementptr inbounds i32, ptr %160, i64 %159
+  %161 = getelementptr inbounds [4 x i8], ptr %160, i64 %159
   store i32 1, ptr %161, align 4
   %.pre = load i32, ptr %74, align 4
   br label %162
@@ -1952,7 +1951,7 @@ _ZN10open_spiel8checkers12_GLOBAL__N_113StringToStateEc.exit: ; preds = %.lr.ph,
   %76 = add nsw i32 %75, %.01318
   %77 = sext i32 %76 to i64
   %78 = load ptr, ptr %45, align 8
-  %79 = getelementptr inbounds i32, ptr %78, i64 %77
+  %79 = getelementptr inbounds [4 x i8], ptr %78, i64 %77
   store i32 %.05.i, ptr %79, align 4
   %80 = load i32, ptr %19, align 4
   %81 = icmp slt i32 %57, %80
@@ -2360,10 +2359,10 @@ _ZNK10open_spiel8checkers13CheckersState8InBoundsEii.exit.thread: ; preds = %2, 
 45:                                               ; preds = %40
   %sext65 = shl i64 %27, 32
   %46 = ashr exact i64 %sext65, 32
-  %47 = getelementptr inbounds i32, ptr @_ZN10open_spiel8checkers12_GLOBAL__N_114kDirRowOffsetsE, i64 %46
+  %47 = getelementptr inbounds [4 x i8], ptr @_ZN10open_spiel8checkers12_GLOBAL__N_114kDirRowOffsetsE, i64 %46
   %48 = load i32, ptr %47, align 4
   %49 = add nsw i32 %48, %.sroa.032.0.extract.trunc
-  %50 = getelementptr inbounds i32, ptr @_ZN10open_spiel8checkers12_GLOBAL__N_117kDirColumnOffsetsE, i64 %46
+  %50 = getelementptr inbounds [4 x i8], ptr @_ZN10open_spiel8checkers12_GLOBAL__N_117kDirColumnOffsetsE, i64 %46
   %51 = load i32, ptr %50, align 4
   %52 = add nsw i32 %51, %.sroa.13.0.extract.trunc
   %53 = icmp sgt i32 %49, -1
@@ -2398,7 +2397,7 @@ _ZNK10open_spiel8checkers13CheckersState8InBoundsEii.exit68.thread: ; preds = %4
   %64 = add nsw i32 %63, %52
   %65 = sext i32 %64 to i64
   %66 = load ptr, ptr %62, align 8
-  %67 = getelementptr inbounds i32, ptr %66, i64 %65
+  %67 = getelementptr inbounds [4 x i8], ptr %66, i64 %65
   %68 = load i32, ptr %67, align 4
   store i32 %68, ptr %13, align 4
   store i32 0, ptr %14, align 4
@@ -2427,7 +2426,7 @@ _ZNK10open_spiel8checkers13CheckersState8InBoundsEii.exit68.thread: ; preds = %4
   %78 = mul nsw i32 %35, %.sroa.032.0.extract.trunc
   %79 = add nsw i32 %78, %.sroa.13.0.extract.trunc
   %80 = sext i32 %79 to i64
-  %81 = getelementptr inbounds i32, ptr %66, i64 %80
+  %81 = getelementptr inbounds [4 x i8], ptr %66, i64 %80
   %82 = load i32, ptr %81, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -2469,7 +2468,7 @@ common.resume:                                    ; preds = %38, %59, %72, %160,
 
 switch.lookup:                                    ; preds = %74
   %92 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN10open_spiel8checkers13CheckersState13DoApplyActionEl.2, i64 %92
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN10open_spiel8checkers13CheckersState13DoApplyActionEl.2, i64 %92
   %switch.load = load i32, ptr %switch.gep, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -2549,7 +2548,7 @@ _ZNSt6vectorIN10open_spiel8checkers15TurnHistoryInfoESaIS2_EE11_S_relocateEPS2_S
 _ZNSt6vectorIN10open_spiel8checkers15TurnHistoryInfoESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %118, %_ZNSt6vectorIN10open_spiel8checkers15TurnHistoryInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i
   store ptr %113, ptr %75, align 8
   store ptr %117, ptr %93, align 8
-  %119 = getelementptr inbounds nuw %"struct.open_spiel::checkers::TurnHistoryInfo", ptr %113, i64 %111
+  %119 = getelementptr inbounds nuw [24 x i8], ptr %113, i64 %111
   store ptr %119, ptr %95, align 8
   br label %_ZNSt6vectorIN10open_spiel8checkers15TurnHistoryInfoESaIS2_EE9push_backEOS2_.exit
 
@@ -2559,7 +2558,7 @@ _ZNSt6vectorIN10open_spiel8checkers15TurnHistoryInfoESaIS2_EE9push_backEOS2_.exi
   %122 = add nsw i32 %121, %.sroa.13.0.extract.trunc
   %123 = sext i32 %122 to i64
   %124 = load ptr, ptr %62, align 8
-  %125 = getelementptr inbounds i32, ptr %124, i64 %123
+  %125 = getelementptr inbounds [4 x i8], ptr %124, i64 %123
   %126 = load i32, ptr %125, align 4
   %127 = icmp eq i32 %49, 0
   %128 = icmp eq i32 %126, 1
@@ -2580,25 +2579,25 @@ _ZN10open_spiel8checkers13CheckersState26CrownStateIfLastRowReachedEiNS0_9CellSt
   %134 = mul nsw i32 %120, %49
   %135 = add nsw i32 %134, %52
   %136 = sext i32 %135 to i64
-  %137 = getelementptr inbounds i32, ptr %124, i64 %136
+  %137 = getelementptr inbounds [4 x i8], ptr %124, i64 %136
   store i32 %.0.i, ptr %137, align 4
   %138 = load i32, ptr %34, align 4
   %139 = mul nsw i32 %138, %.sroa.032.0.extract.trunc
   %140 = add nsw i32 %139, %.sroa.13.0.extract.trunc
   %141 = sext i32 %140 to i64
   %142 = load ptr, ptr %62, align 8
-  %143 = getelementptr inbounds i32, ptr %142, i64 %141
+  %143 = getelementptr inbounds [4 x i8], ptr %142, i64 %141
   store i32 0, ptr %143, align 4
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit98
 
 144:                                              ; preds = %40
   %sext = shl i64 %27, 32
   %145 = ashr exact i64 %sext, 32
-  %146 = getelementptr inbounds i32, ptr @_ZN10open_spiel8checkers12_GLOBAL__N_114kDirRowOffsetsE, i64 %145
+  %146 = getelementptr inbounds [4 x i8], ptr @_ZN10open_spiel8checkers12_GLOBAL__N_114kDirRowOffsetsE, i64 %145
   %147 = load i32, ptr %146, align 4
   %148 = shl nsw i32 %147, 1
   %149 = add nsw i32 %148, %.sroa.032.0.extract.trunc
-  %150 = getelementptr inbounds i32, ptr @_ZN10open_spiel8checkers12_GLOBAL__N_117kDirColumnOffsetsE, i64 %145
+  %150 = getelementptr inbounds [4 x i8], ptr @_ZN10open_spiel8checkers12_GLOBAL__N_117kDirColumnOffsetsE, i64 %145
   %151 = load i32, ptr %150, align 4
   %152 = shl nsw i32 %151, 1
   %153 = add nsw i32 %152, %.sroa.13.0.extract.trunc
@@ -2634,7 +2633,7 @@ _ZNK10open_spiel8checkers13CheckersState8InBoundsEii.exit71.thread: ; preds = %1
   %165 = add nsw i32 %164, %153
   %166 = sext i32 %165 to i64
   %167 = load ptr, ptr %163, align 8
-  %168 = getelementptr inbounds i32, ptr %167, i64 %166
+  %168 = getelementptr inbounds [4 x i8], ptr %167, i64 %166
   %169 = load i32, ptr %168, align 4
   store i32 %169, ptr %19, align 4
   store i32 0, ptr %20, align 4
@@ -2664,7 +2663,7 @@ _ZNK10open_spiel8checkers13CheckersState8InBoundsEii.exit71.thread: ; preds = %1
   %180 = mul nsw i32 %35, %177
   %181 = add nsw i32 %180, %179
   %182 = sext i32 %181 to i64
-  %183 = getelementptr inbounds i32, ptr %167, i64 %182
+  %183 = getelementptr inbounds [4 x i8], ptr %167, i64 %182
   %184 = load i32, ptr %183, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -2702,7 +2701,7 @@ _ZNK10open_spiel8checkers13CheckersState8InBoundsEii.exit71.thread: ; preds = %1
 
 switch.lookup165:                                 ; preds = %175
   %194 = zext nneg i32 %switch.tableidx164 to i64
-  %switch.gep166 = getelementptr inbounds nuw i32, ptr @switch.table._ZN10open_spiel8checkers13CheckersState13DoApplyActionEl.2, i64 %194
+  %switch.gep166 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN10open_spiel8checkers13CheckersState13DoApplyActionEl.2, i64 %194
   %switch.load167 = load i32, ptr %switch.gep166, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -2712,7 +2711,7 @@ switch.lookup165:                                 ; preds = %175
   %198 = mul nsw i32 %35, %.sroa.032.0.extract.trunc
   %199 = add nsw i32 %198, %.sroa.13.0.extract.trunc
   %200 = sext i32 %199 to i64
-  %201 = getelementptr inbounds i32, ptr %167, i64 %200
+  %201 = getelementptr inbounds [4 x i8], ptr %167, i64 %200
   %202 = load i32, ptr %201, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -2750,7 +2749,7 @@ switch.lookup165:                                 ; preds = %175
 
 switch.lookup169:                                 ; preds = %switch.lookup165
   %212 = zext nneg i32 %switch.tableidx168 to i64
-  %switch.gep170 = getelementptr inbounds nuw i32, ptr @switch.table._ZN10open_spiel8checkers13CheckersState13DoApplyActionEl.2, i64 %212
+  %switch.gep170 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN10open_spiel8checkers13CheckersState13DoApplyActionEl.2, i64 %212
   %switch.load171 = load i32, ptr %switch.gep170, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -2830,7 +2829,7 @@ _ZNSt6vectorIN10open_spiel8checkers15TurnHistoryInfoESaIS2_EE11_S_relocateEPS2_S
 _ZNSt6vectorIN10open_spiel8checkers15TurnHistoryInfoESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i90: ; preds = %238, %_ZNSt6vectorIN10open_spiel8checkers15TurnHistoryInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i87
   store ptr %233, ptr %195, align 8
   store ptr %237, ptr %213, align 8
-  %239 = getelementptr inbounds nuw %"struct.open_spiel::checkers::TurnHistoryInfo", ptr %233, i64 %231
+  %239 = getelementptr inbounds nuw [24 x i8], ptr %233, i64 %231
   store ptr %239, ptr %215, align 8
   br label %_ZNSt6vectorIN10open_spiel8checkers15TurnHistoryInfoESaIS2_EE9push_backEOS2_.exit91
 
@@ -2840,14 +2839,14 @@ _ZNSt6vectorIN10open_spiel8checkers15TurnHistoryInfoESaIS2_EE9push_backEOS2_.exi
   %242 = add nsw i32 %241, %179
   %243 = sext i32 %242 to i64
   %244 = load ptr, ptr %163, align 8
-  %245 = getelementptr inbounds i32, ptr %244, i64 %243
+  %245 = getelementptr inbounds [4 x i8], ptr %244, i64 %243
   store i32 0, ptr %245, align 4
   %246 = load i32, ptr %34, align 4
   %247 = mul nsw i32 %246, %.sroa.032.0.extract.trunc
   %248 = add nsw i32 %247, %.sroa.13.0.extract.trunc
   %249 = sext i32 %248 to i64
   %250 = load ptr, ptr %163, align 8
-  %251 = getelementptr inbounds i32, ptr %250, i64 %249
+  %251 = getelementptr inbounds [4 x i8], ptr %250, i64 %249
   %252 = load i32, ptr %251, align 4
   %253 = icmp eq i32 %149, 0
   %254 = icmp eq i32 %252, 1
@@ -2868,14 +2867,14 @@ _ZN10open_spiel8checkers13CheckersState26CrownStateIfLastRowReachedEiNS0_9CellSt
   %260 = mul nsw i32 %246, %149
   %261 = add nsw i32 %260, %153
   %262 = sext i32 %261 to i64
-  %263 = getelementptr inbounds i32, ptr %250, i64 %262
+  %263 = getelementptr inbounds [4 x i8], ptr %250, i64 %262
   store i32 %.0.i95, ptr %263, align 4
   %264 = load i32, ptr %34, align 4
   %265 = mul nsw i32 %264, %.sroa.032.0.extract.trunc
   %266 = add nsw i32 %265, %.sroa.13.0.extract.trunc
   %267 = sext i32 %266 to i64
   %268 = load ptr, ptr %163, align 8
-  %269 = getelementptr inbounds i32, ptr %268, i64 %267
+  %269 = getelementptr inbounds [4 x i8], ptr %268, i64 %267
   %270 = load i32, ptr %269, align 4
   %.not = icmp eq i32 %270, %.0.i95
   store i32 0, ptr %269, align 4
@@ -3198,11 +3197,11 @@ define void @_ZNK10open_spiel8checkers13CheckersState14ActionToStringB5cxx11Eil(
   %.sroa.8.8.extract.trunc = trunc nuw i64 %.sroa.8.8.extract.shift to i32
   %sext = shl i64 %15, 32
   %16 = ashr exact i64 %sext, 32
-  %17 = getelementptr inbounds i32, ptr @_ZN10open_spiel8checkers12_GLOBAL__N_114kDirRowOffsetsE, i64 %16
+  %17 = getelementptr inbounds [4 x i8], ptr @_ZN10open_spiel8checkers12_GLOBAL__N_114kDirRowOffsetsE, i64 %16
   %18 = load i32, ptr %17, align 4
   %.neg16 = xor i32 %.sroa.8.8.extract.trunc, -1
   %19 = add nsw i32 %.sroa.8.8.extract.trunc, 1
-  %20 = getelementptr inbounds i32, ptr @_ZN10open_spiel8checkers12_GLOBAL__N_117kDirColumnOffsetsE, i64 %16
+  %20 = getelementptr inbounds [4 x i8], ptr @_ZN10open_spiel8checkers12_GLOBAL__N_117kDirColumnOffsetsE, i64 %16
   %21 = load i32, ptr %20, align 4
   %22 = mul nsw i32 %19, %21
   %23 = add nsw i32 %22, %.sroa.3.0.extract.trunc
@@ -3510,7 +3509,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit119.thread:          ; preds = %.noexc74
   %61 = add nsw i32 %59, %60
   %62 = sext i32 %61 to i64
   %63 = load ptr, ptr %40, align 8
-  %64 = getelementptr inbounds i32, ptr %63, i64 %62
+  %64 = getelementptr inbounds [4 x i8], ptr %63, i64 %62
   %65 = load i32, ptr %64, align 4
   %66 = icmp eq i32 %65, %.0.i465
   %67 = icmp eq i32 %65, %35
@@ -3535,7 +3534,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit119.thread:          ; preds = %.noexc74
   %71 = add nsw i32 %70, %60
   %72 = sext i32 %71 to i64
   %73 = load ptr, ptr %40, align 8
-  %74 = getelementptr inbounds i32, ptr %73, i64 %72
+  %74 = getelementptr inbounds [4 x i8], ptr %73, i64 %72
   %75 = load i32, ptr %74, align 4
   %76 = icmp eq i32 %75, %.0.i465
   br i1 %76, label %77, label %84
@@ -3570,10 +3569,10 @@ _ZNSt6vectorIlSaIlEED2Ev.exit119.thread:          ; preds = %.noexc74
   br label %.body
 
 84:                                               ; preds = %81, %68
-  %85 = getelementptr inbounds nuw i32, ptr @_ZN10open_spiel8checkers12_GLOBAL__N_114kDirRowOffsetsE, i64 %indvars.iv
+  %85 = getelementptr inbounds nuw [4 x i8], ptr @_ZN10open_spiel8checkers12_GLOBAL__N_114kDirRowOffsetsE, i64 %indvars.iv
   %86 = load i32, ptr %85, align 4
   %87 = add nsw i32 %86, %55
-  %88 = getelementptr inbounds nuw i32, ptr @_ZN10open_spiel8checkers12_GLOBAL__N_117kDirColumnOffsetsE, i64 %indvars.iv
+  %88 = getelementptr inbounds nuw [4 x i8], ptr @_ZN10open_spiel8checkers12_GLOBAL__N_117kDirColumnOffsetsE, i64 %indvars.iv
   %89 = load i32, ptr %88, align 4
   %90 = add nsw i32 %89, %60
   %91 = icmp sgt i32 %87, -1
@@ -3592,7 +3591,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit119.thread:          ; preds = %.noexc74
   %98 = mul nsw i32 %87, %69
   %99 = add nuw nsw i32 %98, %90
   %100 = zext nneg i32 %99 to i64
-  %101 = getelementptr inbounds nuw i32, ptr %73, i64 %100
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %73, i64 %100
   %102 = load i32, ptr %101, align 4
   %103 = icmp eq i32 %102, 0
   br i1 %103, label %104, label %162
@@ -3748,7 +3747,7 @@ _ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i.i: ; preds = %158, %.n
   br label %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i: ; preds = %160, %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i.i
-  %161 = getelementptr inbounds nuw i64, ptr %155, i64 %153
+  %161 = getelementptr inbounds nuw [8 x i8], ptr %155, i64 %153
   br label %_ZNSt6vectorIlSaIlEE9push_backEOl.exit
 
 162:                                              ; preds = %97
@@ -3775,7 +3774,7 @@ _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS
   %174 = mul nsw i32 %166, %69
   %175 = add nuw nsw i32 %174, %167
   %176 = zext nneg i32 %175 to i64
-  %177 = getelementptr inbounds nuw i32, ptr %73, i64 %176
+  %177 = getelementptr inbounds nuw [4 x i8], ptr %73, i64 %176
   %178 = load i32, ptr %177, align 4
   %179 = icmp eq i32 %178, 0
   br i1 %179, label %180, label %_ZNSt6vectorIlSaIlEE9push_backEOl.exit
@@ -3932,7 +3931,7 @@ _ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i.i104: ; preds = %234, 
   br label %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i106
 
 _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i106: ; preds = %236, %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i.i104
-  %237 = getelementptr inbounds nuw i64, ptr %231, i64 %229
+  %237 = getelementptr inbounds nuw [8 x i8], ptr %231, i64 %229
   br label %_ZNSt6vectorIlSaIlEE9push_backEOl.exit
 
 _ZNSt6vectorIlSaIlEE9push_backEOl.exit:           ; preds = %165, %169, %84, %92, %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i106, %217, %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i, %141, %162, %173, %77, %81
@@ -4078,7 +4077,7 @@ _ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i: ; preds = %282, %.noe
 _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJRKlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i: ; preds = %284, %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i
   store ptr %279, ptr %0, align 8
   store ptr %283, ptr %252, align 8
-  %285 = getelementptr inbounds nuw i64, ptr %279, i64 %277
+  %285 = getelementptr inbounds nuw [8 x i8], ptr %279, i64 %277
   store ptr %285, ptr %253, align 8
   br label %_ZNSt6vectorIlSaIlEE9push_backERKl.exit
 
@@ -4408,7 +4407,7 @@ _ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsI
   %55 = add nsw i32 %54, %.01468
   %56 = sext i32 %55 to i64
   %57 = load ptr, ptr %37, align 8
-  %58 = getelementptr inbounds i32, ptr %57, i64 %56
+  %58 = getelementptr inbounds [4 x i8], ptr %57, i64 %56
   %59 = load i32, ptr %58, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -4842,7 +4841,7 @@ define noundef range(i32 0, 5) i32 @_ZNK10open_spiel8checkers13CheckersState16Ob
 
 switch.lookup:                                    ; preds = %3
   %5 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK10open_spiel8checkers13CheckersState17ObservationTensorEiN4absl7debian24SpanIfEE, i64 %5
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK10open_spiel8checkers13CheckersState17ObservationTensorEiN4absl7debian24SpanIfEE, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   %6 = icmp eq i32 %2, 0
   %7 = xor i32 %switch.load, 3
@@ -5435,7 +5434,7 @@ _ZN10open_spiel10TensorViewILi3EEC2EN4absl7debian24SpanIfEERKSt5arrayIiLm3EEb.ex
   %60 = add nsw i32 %59, %.01621.us
   %61 = sext i32 %60 to i64
   %62 = load ptr, ptr %50, align 8
-  %63 = getelementptr inbounds i32, ptr %62, i64 %61
+  %63 = getelementptr inbounds [4 x i8], ptr %62, i64 %61
   %64 = load i32, ptr %63, align 4
   %switch.tableidx = add i32 %64, -1
   %65 = icmp ult i32 %switch.tableidx, 4
@@ -5443,7 +5442,7 @@ _ZN10open_spiel10TensorViewILi3EEC2EN4absl7debian24SpanIfEERKSt5arrayIiLm3EEb.ex
 
 switch.lookup:                                    ; preds = %.lr.ph.split.us
   %66 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK10open_spiel8checkers13CheckersState17ObservationTensorEiN4absl7debian24SpanIfEE, i64 %66
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK10open_spiel8checkers13CheckersState17ObservationTensorEiN4absl7debian24SpanIfEE, i64 %66
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZNK10open_spiel8checkers13CheckersState16ObservationPlaneENS0_9CellStateEi.exit.us
 
@@ -5457,10 +5456,10 @@ _ZNK10open_spiel8checkers13CheckersState16ObservationPlaneENS0_9CellStateEi.exit
 67:                                               ; preds = %67, %_ZNK10open_spiel8checkers13CheckersState16ObservationPlaneENS0_9CellStateEi.exit.us
   %indvars.iv.i.i.us = phi i64 [ 0, %_ZNK10open_spiel8checkers13CheckersState16ObservationPlaneENS0_9CellStateEi.exit.us ], [ %indvars.iv.next.i.i.us, %67 ]
   %.078.i.i.us = phi i32 [ 0, %_ZNK10open_spiel8checkers13CheckersState16ObservationPlaneENS0_9CellStateEi.exit.us ], [ %73, %67 ]
-  %68 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv.i.i.us
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %indvars.iv.i.i.us
   %69 = load i32, ptr %68, align 4
   %70 = mul nsw i32 %69, %.078.i.i.us
-  %71 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv.i.i.us
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv.i.i.us
   %72 = load i32, ptr %71, align 4
   %73 = add nsw i32 %70, %72
   %indvars.iv.next.i.i.us = add nuw nsw i64 %indvars.iv.i.i.us, 1
@@ -5473,7 +5472,7 @@ _ZNK10open_spiel10TensorViewILi3EE5indexERKSt5arrayIiLm3EE.exit.i.us: ; preds = 
   br i1 %75, label %_ZN10open_spiel10TensorViewILi3EEixERKSt5arrayIiLm3EE.exit.us, label %.split.us
 
 _ZN10open_spiel10TensorViewILi3EEixERKSt5arrayIiLm3EE.exit.us: ; preds = %_ZNK10open_spiel10TensorViewILi3EE5indexERKSt5arrayIiLm3EE.exit.i.us
-  %76 = getelementptr inbounds float, ptr %2, i64 %74
+  %76 = getelementptr inbounds [4 x i8], ptr %2, i64 %74
   store float 1.000000e+00, ptr %76, align 4
   %77 = add nuw nsw i32 %.01621.us, 1
   %78 = load i32, ptr %35, align 4
@@ -5487,7 +5486,7 @@ _ZN10open_spiel10TensorViewILi3EEixERKSt5arrayIiLm3EE.exit.us: ; preds = %_ZNK10
   %82 = add nsw i32 %81, %.01621
   %83 = sext i32 %82 to i64
   %84 = load ptr, ptr %50, align 8
-  %85 = getelementptr inbounds i32, ptr %84, i64 %83
+  %85 = getelementptr inbounds [4 x i8], ptr %84, i64 %83
   %86 = load i32, ptr %85, align 4
   %switch.tableidx54 = add i32 %86, -1
   %87 = icmp ult i32 %switch.tableidx54, 4
@@ -5495,7 +5494,7 @@ _ZN10open_spiel10TensorViewILi3EEixERKSt5arrayIiLm3EE.exit.us: ; preds = %_ZNK10
 
 switch.lookup55:                                  ; preds = %.lr.ph.split
   %88 = zext nneg i32 %switch.tableidx54 to i64
-  %switch.gep56 = getelementptr inbounds nuw i32, ptr @switch.table._ZNK10open_spiel8checkers13CheckersState17ObservationTensorEiN4absl7debian24SpanIfEE.3, i64 %88
+  %switch.gep56 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK10open_spiel8checkers13CheckersState17ObservationTensorEiN4absl7debian24SpanIfEE.3, i64 %88
   %switch.load57 = load i32, ptr %switch.gep56, align 4
   br label %_ZNK10open_spiel8checkers13CheckersState16ObservationPlaneENS0_9CellStateEi.exit
 
@@ -5509,10 +5508,10 @@ _ZNK10open_spiel8checkers13CheckersState16ObservationPlaneENS0_9CellStateEi.exit
 89:                                               ; preds = %89, %_ZNK10open_spiel8checkers13CheckersState16ObservationPlaneENS0_9CellStateEi.exit
   %indvars.iv.i.i = phi i64 [ 0, %_ZNK10open_spiel8checkers13CheckersState16ObservationPlaneENS0_9CellStateEi.exit ], [ %indvars.iv.next.i.i, %89 ]
   %.078.i.i = phi i32 [ 0, %_ZNK10open_spiel8checkers13CheckersState16ObservationPlaneENS0_9CellStateEi.exit ], [ %95, %89 ]
-  %90 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv.i.i
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %indvars.iv.i.i
   %91 = load i32, ptr %90, align 4
   %92 = mul nsw i32 %91, %.078.i.i
-  %93 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv.i.i
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv.i.i
   %94 = load i32, ptr %93, align 4
   %95 = add nsw i32 %92, %94
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -5529,7 +5528,7 @@ _ZNK10open_spiel10TensorViewILi3EE5indexERKSt5arrayIiLm3EE.exit.i: ; preds = %89
   unreachable
 
 _ZN10open_spiel10TensorViewILi3EEixERKSt5arrayIiLm3EE.exit: ; preds = %_ZNK10open_spiel10TensorViewILi3EE5indexERKSt5arrayIiLm3EE.exit.i
-  %98 = getelementptr inbounds float, ptr %2, i64 %96
+  %98 = getelementptr inbounds [4 x i8], ptr %2, i64 %96
   store float 1.000000e+00, ptr %98, align 4
   %99 = add nuw nsw i32 %.01621, 1
   %100 = load i32, ptr %35, align 4
@@ -5756,10 +5755,10 @@ define void @_ZN10open_spiel8checkers13CheckersState10UndoActionEil(ptr noundef 
 41:                                               ; preds = %32
   %sext35 = shl i64 %14, 32
   %42 = ashr exact i64 %sext35, 32
-  %43 = getelementptr inbounds i32, ptr @_ZN10open_spiel8checkers12_GLOBAL__N_114kDirRowOffsetsE, i64 %42
+  %43 = getelementptr inbounds [4 x i8], ptr @_ZN10open_spiel8checkers12_GLOBAL__N_114kDirRowOffsetsE, i64 %42
   %44 = load i32, ptr %43, align 4
   %45 = add nsw i32 %44, %.sroa.0.0.extract.trunc
-  %46 = getelementptr inbounds i32, ptr @_ZN10open_spiel8checkers12_GLOBAL__N_117kDirColumnOffsetsE, i64 %42
+  %46 = getelementptr inbounds [4 x i8], ptr @_ZN10open_spiel8checkers12_GLOBAL__N_117kDirColumnOffsetsE, i64 %42
   %47 = load i32, ptr %46, align 4
   %48 = add nsw i32 %47, %.sroa.6.0.extract.trunc
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -5769,25 +5768,25 @@ define void @_ZN10open_spiel8checkers13CheckersState10UndoActionEil(ptr noundef 
   %53 = add nsw i32 %52, %.sroa.6.0.extract.trunc
   %54 = sext i32 %53 to i64
   %55 = load ptr, ptr %49, align 8
-  %56 = getelementptr inbounds i32, ptr %55, i64 %54
+  %56 = getelementptr inbounds [4 x i8], ptr %55, i64 %54
   store i32 %40, ptr %56, align 4
   %57 = load i32, ptr %50, align 4
   %58 = mul nsw i32 %57, %45
   %59 = add nsw i32 %48, %58
   %60 = sext i32 %59 to i64
   %61 = load ptr, ptr %49, align 8
-  %62 = getelementptr inbounds i32, ptr %61, i64 %60
+  %62 = getelementptr inbounds [4 x i8], ptr %61, i64 %60
   store i32 0, ptr %62, align 4
   br label %101
 
 63:                                               ; preds = %32
   %sext = shl i64 %14, 32
   %64 = ashr exact i64 %sext, 32
-  %65 = getelementptr inbounds i32, ptr @_ZN10open_spiel8checkers12_GLOBAL__N_114kDirRowOffsetsE, i64 %64
+  %65 = getelementptr inbounds [4 x i8], ptr @_ZN10open_spiel8checkers12_GLOBAL__N_114kDirRowOffsetsE, i64 %64
   %66 = load i32, ptr %65, align 4
   %67 = shl nsw i32 %66, 1
   %68 = add nsw i32 %67, %.sroa.0.0.extract.trunc
-  %69 = getelementptr inbounds i32, ptr @_ZN10open_spiel8checkers12_GLOBAL__N_117kDirColumnOffsetsE, i64 %64
+  %69 = getelementptr inbounds [4 x i8], ptr @_ZN10open_spiel8checkers12_GLOBAL__N_117kDirColumnOffsetsE, i64 %64
   %70 = load i32, ptr %69, align 4
   %71 = shl nsw i32 %70, 1
   %72 = add nsw i32 %71, %.sroa.6.0.extract.trunc
@@ -5798,14 +5797,14 @@ define void @_ZN10open_spiel8checkers13CheckersState10UndoActionEil(ptr noundef 
   %77 = add nsw i32 %76, %.sroa.6.0.extract.trunc
   %78 = sext i32 %77 to i64
   %79 = load ptr, ptr %73, align 8
-  %80 = getelementptr inbounds i32, ptr %79, i64 %78
+  %80 = getelementptr inbounds [4 x i8], ptr %79, i64 %78
   store i32 %40, ptr %80, align 4
   %81 = load i32, ptr %74, align 4
   %82 = mul nsw i32 %81, %68
   %83 = add nsw i32 %82, %72
   %84 = sext i32 %83 to i64
   %85 = load ptr, ptr %73, align 8
-  %86 = getelementptr inbounds i32, ptr %85, i64 %84
+  %86 = getelementptr inbounds [4 x i8], ptr %85, i64 %84
   store i32 0, ptr %86, align 4
   %87 = sub nsw i32 1, %1
   %88 = getelementptr inbounds i8, ptr %16, i64 -12
@@ -5820,7 +5819,7 @@ define void @_ZN10open_spiel8checkers13CheckersState10UndoActionEil(ptr noundef 
   %97 = add nsw i32 %96, %94
   %98 = sext i32 %97 to i64
   %99 = load ptr, ptr %73, align 8
-  %100 = getelementptr inbounds i32, ptr %99, i64 %98
+  %100 = getelementptr inbounds [4 x i8], ptr %99, i64 %98
   store i32 %90, ptr %100, align 4
   br label %101
 
@@ -7266,7 +7265,7 @@ _ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIdSaI
   store ptr %28, ptr %0, align 8
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %28, ptr %29, align 8
-  %30 = getelementptr inbounds nuw double, ptr %28, i64 %24
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %24
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %30, ptr %31, align 8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %28, i8 0, i64 %27, i1 false)
@@ -7331,7 +7330,7 @@ define linkonce_odr noundef double @_ZNK10open_spiel5State12PlayerRewardEi(ptr n
   br label %33
 
 _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %2
-  %27 = getelementptr inbounds double, ptr %13, i64 %18
+  %27 = getelementptr inbounds [8 x i8], ptr %13, i64 %18
   %28 = load double, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %30 = load ptr, ptr %29, align 8
@@ -7435,7 +7434,7 @@ define linkonce_odr noundef double @_ZNK10open_spiel5State12PlayerReturnEi(ptr n
   br label %44
 
 _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %23
-  %38 = getelementptr inbounds nuw double, ptr %26, i64 %31
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %31
   %39 = load double, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %41 = load ptr, ptr %40, align 8
@@ -7643,7 +7642,7 @@ _ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit.i: ; preds = %_ZNSt12_Vector
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %19, ptr %0, align 8
   store ptr %19, ptr %20, align 8
-  %21 = getelementptr inbounds nuw i64, ptr %19, i64 %13
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %13
   store ptr %21, ptr %17, align 8
   br label %_ZNSt6vectorIlSaIlEE7reserveEm.exit
 
@@ -7723,7 +7722,7 @@ _ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i: ; preds = %46, %.noex
 
 _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJRKlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i: ; preds = %48, %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i
   store ptr %47, ptr %22, align 8
-  %49 = getelementptr inbounds nuw i64, ptr %42, i64 %40
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %40
   br label %_ZNSt6vectorIlSaIlEE9push_backERKl.exit
 
 _ZNSt6vectorIlSaIlEE9push_backERKl.exit:          ; preds = %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJRKlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i, %27
@@ -9149,7 +9148,7 @@ _ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit.i: ; preds = %_ZNSt12_Vector
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %16, ptr %0, align 8
   store ptr %16, ptr %17, align 8
-  %18 = getelementptr inbounds nuw i64, ptr %16, i64 %10
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %10
   store ptr %18, ptr %14, align 8
   br label %_ZNSt6vectorIlSaIlEE7reserveEm.exit
 
@@ -9230,7 +9229,7 @@ _ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i: ; preds = %44, %.noex
 
 _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJRKlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i: ; preds = %46, %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i
   store ptr %45, ptr %19, align 8
-  %47 = getelementptr inbounds nuw i64, ptr %40, i64 %38
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %38
   br label %_ZNSt6vectorIlSaIlEE9push_backERKl.exit
 
 _ZNSt6vectorIlSaIlEE9push_backERKl.exit:          ; preds = %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJRKlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i, %25

@@ -2739,7 +2739,7 @@ define hidden void @_ZNK7JVMFlag8print_onEP12outputStreambb(ptr noundef nonnull 
 
 switch.lookup:                                    ; preds = %9
   %16 = zext nneg i32 %12 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK7JVMFlag11type_stringEv, i64 %16
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK7JVMFlag11type_stringEv, i64 %16
   %switch.load = load ptr, ptr %switch.gep, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.8, i32 noundef 9, ptr noundef nonnull %switch.load) #13
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -2999,7 +2999,7 @@ _ZNK7JVMFlag12print_originEP12outputStreamj.exit: ; preds = %_ZL11fill_to_posP12
 
 switch.lookup72:                                  ; preds = %104
   %110 = zext nneg i32 %106 to i64
-  %switch.gep73 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK7JVMFlag11type_stringEv, i64 %110
+  %switch.gep73 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK7JVMFlag11type_stringEv, i64 %110
   %switch.load74 = load ptr, ptr %switch.gep73, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.8, i32 noundef 9, ptr noundef nonnull %switch.load74) #13
   %111 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -3141,7 +3141,7 @@ define linkonce_odr hidden noundef ptr @_ZNK7JVMFlag11type_stringEv(ptr noundef 
 
 switch.lookup:                                    ; preds = %1
   %7 = zext nneg i32 %3 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK7JVMFlag11type_stringEv, i64 %7
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK7JVMFlag11type_stringEv, i64 %7
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -3187,7 +3187,7 @@ define hidden void @_ZNK7JVMFlag10print_kindEP12outputStreamj(ptr noundef nonnul
   %indvars.iv = phi i64 [ 0, %8 ], [ %indvars.iv.next, %27 ]
   %.027 = phi i1 [ true, %8 ], [ %.2, %27 ]
   %.01826 = phi i64 [ 1, %8 ], [ %.220, %27 ]
-  %11 = getelementptr inbounds nuw %struct.Data, ptr @__const._ZNK7JVMFlag10print_kindEP12outputStreamj.data, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [16 x i8], ptr @__const._ZNK7JVMFlag10print_kindEP12outputStreamj.data, i64 %indvars.iv
   %12 = load i32, ptr %11, align 16
   %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
   %.sroa.21.0.copyload = load ptr, ptr %.sroa.21.0..sroa_idx, align 8
@@ -3559,7 +3559,7 @@ declare noundef double @_ZN11StringUtils10similarityEPKcmS1_m(ptr noundef, i64 n
 define hidden noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef %0) local_unnamed_addr #4 align 2 {
   %2 = load ptr, ptr @_ZN7JVMFlag5flagsE, align 8
   %3 = sext i32 %0 to i64
-  %4 = getelementptr inbounds %class.JVMFlag, ptr %2, i64 %3
+  %4 = getelementptr inbounds [24 x i8], ptr %2, i64 %3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load i32, ptr %5, align 8
   %7 = and i32 %6, 15
@@ -3571,7 +3571,7 @@ define hidden noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 nou
 define hidden noundef zeroext i1 @_ZN7JVMFlag7is_ergoE12JVMFlagsEnum(i32 noundef %0) local_unnamed_addr #4 align 2 {
   %2 = load ptr, ptr @_ZN7JVMFlag5flagsE, align 8
   %3 = sext i32 %0 to i64
-  %4 = getelementptr inbounds %class.JVMFlag, ptr %2, i64 %3
+  %4 = getelementptr inbounds [24 x i8], ptr %2, i64 %3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load i32, ptr %5, align 8
   %7 = and i32 %6, 15
@@ -3583,7 +3583,7 @@ define hidden noundef zeroext i1 @_ZN7JVMFlag7is_ergoE12JVMFlagsEnum(i32 noundef
 define hidden noundef zeroext i1 @_ZN7JVMFlag10is_cmdlineE12JVMFlagsEnum(i32 noundef %0) local_unnamed_addr #4 align 2 {
   %2 = load ptr, ptr @_ZN7JVMFlag5flagsE, align 8
   %3 = sext i32 %0 to i64
-  %4 = getelementptr inbounds %class.JVMFlag, ptr %2, i64 %3
+  %4 = getelementptr inbounds [24 x i8], ptr %2, i64 %3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load i32, ptr %5, align 8
   %7 = and i32 %6, 131072
@@ -3595,7 +3595,7 @@ define hidden noundef zeroext i1 @_ZN7JVMFlag10is_cmdlineE12JVMFlagsEnum(i32 nou
 define hidden noundef zeroext i1 @_ZN7JVMFlag18is_jimage_resourceE12JVMFlagsEnum(i32 noundef %0) local_unnamed_addr #4 align 2 {
   %2 = load ptr, ptr @_ZN7JVMFlag5flagsE, align 8
   %3 = sext i32 %0 to i64
-  %4 = getelementptr inbounds %class.JVMFlag, ptr %2, i64 %3
+  %4 = getelementptr inbounds [24 x i8], ptr %2, i64 %3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load i32, ptr %5, align 8
   %7 = and i32 %6, 15
@@ -3607,7 +3607,7 @@ define hidden noundef zeroext i1 @_ZN7JVMFlag18is_jimage_resourceE12JVMFlagsEnum
 define hidden void @_ZN7JVMFlag12setOnCmdLineE12JVMFlagsEnum(i32 noundef %0) local_unnamed_addr #8 align 2 {
   %2 = load ptr, ptr @_ZN7JVMFlag5flagsE, align 8
   %3 = sext i32 %0 to i64
-  %4 = getelementptr inbounds %class.JVMFlag, ptr %2, i64 %3
+  %4 = getelementptr inbounds [24 x i8], ptr %2, i64 %3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load i32, ptr %5, align 8
   %7 = or i32 %6, 131072
@@ -3630,8 +3630,8 @@ define hidden void @_ZN7JVMFlag13printSetFlagsEP12outputStream(ptr noundef %0) l
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.01921 = phi i64 [ %8, %.lr.ph ], [ 0, %1 ]
-  %6 = getelementptr inbounds %class.JVMFlag, ptr @_ZL9flagTable, i64 %.01921
-  %7 = getelementptr inbounds ptr, ptr %5, i64 %.01921
+  %6 = getelementptr inbounds [24 x i8], ptr @_ZL9flagTable, i64 %.01921
+  %7 = getelementptr inbounds [8 x i8], ptr %5, i64 %.01921
   store ptr %6, ptr %7, align 8
   %8 = add nuw i64 %.01921, 1
   %exitcond.not = icmp eq i64 %8, %3
@@ -3643,7 +3643,7 @@ define hidden void @_ZN7JVMFlag13printSetFlagsEP12outputStream(ptr noundef %0) l
 
 .lr.ph24:                                         ; preds = %.lr.ph24.preheader, %15
   %.022 = phi i64 [ %16, %15 ], [ 0, %.lr.ph24.preheader ]
-  %9 = getelementptr inbounds ptr, ptr %5, i64 %.022
+  %9 = getelementptr inbounds [8 x i8], ptr %5, i64 %.022
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load i32, ptr %11, align 8
@@ -3710,8 +3710,8 @@ define hidden void @_ZN7JVMFlag10printFlagsEP12outputStreambbb(ptr noundef nonnu
 
 .lr.ph:                                           ; preds = %.preheader53, %.lr.ph
   %.03754 = phi i64 [ %11, %.lr.ph ], [ 0, %.preheader53 ]
-  %9 = getelementptr inbounds %class.JVMFlag, ptr @_ZL9flagTable, i64 %.03754
-  %10 = getelementptr inbounds ptr, ptr %8, i64 %.03754
+  %9 = getelementptr inbounds [24 x i8], ptr @_ZL9flagTable, i64 %.03754
+  %10 = getelementptr inbounds [8 x i8], ptr %8, i64 %.03754
   store ptr %9, ptr %10, align 8
   %11 = add nuw i64 %.03754, 1
   %exitcond.not = icmp eq i64 %11, %6
@@ -3723,7 +3723,7 @@ define hidden void @_ZN7JVMFlag10printFlagsEP12outputStreambbb(ptr noundef nonnu
 
 .lr.ph57.split.us:                                ; preds = %.lr.ph57, %24
   %.03655.us = phi i64 [ %25, %24 ], [ 0, %.lr.ph57 ]
-  %12 = getelementptr inbounds ptr, ptr %8, i64 %.03655.us
+  %12 = getelementptr inbounds [8 x i8], ptr %8, i64 %.03655.us
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load i32, ptr %14, align 8
@@ -3755,7 +3755,7 @@ _ZNK7JVMFlag11is_unlockedEv.exit.thread.us:       ; preds = %20, %17
 
 .lr.ph57.split:                                   ; preds = %.lr.ph57, %41
   %.03655 = phi i64 [ %42, %41 ], [ 0, %.lr.ph57 ]
-  %26 = getelementptr inbounds ptr, ptr %8, i64 %.03655
+  %26 = getelementptr inbounds [8 x i8], ptr %8, i64 %.03655
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = load i32, ptr %28, align 8
@@ -3796,7 +3796,7 @@ _ZNK7JVMFlag11is_unlockedEv.exit.thread:          ; preds = %34, %31
 
 .lr.ph60:                                         ; preds = %.preheader, %57
   %.059 = phi i64 [ %58, %57 ], [ 0, %.preheader ]
-  %43 = getelementptr inbounds %class.JVMFlag, ptr @_ZL9flagTable, i64 %.059
+  %43 = getelementptr inbounds [24 x i8], ptr @_ZL9flagTable, i64 %.059
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %45 = load i32, ptr %44, align 8
   %46 = and i32 %45, 64

@@ -47,11 +47,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_set_pages_ar
 %struct.cpuinfo_topology = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
 %struct.cpumask = type { [1 x i64] }
 %struct.vm_event_state = type { [74 x i64] }
-%struct.p4d_t = type { i64 }
-%struct.pud_t = type { i64 }
-%struct.pmd_t = type { i64 }
-%struct.pte_t = type { i64 }
-%struct.pgd_t = type { i64 }
 %struct.cpa_data = type { ptr, ptr, %struct.pgprot, %struct.pgprot, i64, i64, i64, i32, i8, ptr }
 %struct.pgprot = type { i64 }
 
@@ -125,7 +120,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_set_pages_ar
 define dso_local void @update_page_count(i32 noundef %0, i64 noundef %1) local_unnamed_addr #0 align 16 {
   tail call void @_raw_spin_lock(ptr noundef nonnull @pgd_lock) #11
   %3 = sext i32 %0 to i64
-  %4 = getelementptr i64, ptr @direct_pages_count, i64 %3
+  %4 = getelementptr [8 x i8], ptr @direct_pages_count, i64 %3
   %5 = load i64, ptr %4, align 8
   %6 = add i64 %5, %1
   store i64 %6, ptr %4, align 8
@@ -272,7 +267,7 @@ define dso_local ptr @lookup_address_in_pgd(ptr noundef readonly captures(ret: a
   %16 = add i32 %15, -1
   %17 = zext i32 %16 to i64
   %18 = and i64 %14, %17
-  %19 = getelementptr %struct.p4d_t, ptr %13, i64 %18
+  %19 = getelementptr [8 x i8], ptr %13, i64 %18
   br label %20
 
 20:                                               ; preds = %8, %7
@@ -296,7 +291,7 @@ define dso_local ptr @lookup_address_in_pgd(ptr noundef readonly captures(ret: a
   %33 = inttoptr i64 %32 to ptr
   %34 = lshr i64 %1, 30
   %35 = and i64 %34, 511
-  %36 = getelementptr %struct.pud_t, ptr %33, i64 %35
+  %36 = getelementptr [8 x i8], ptr %33, i64 %35
   %37 = load i64, ptr %36, align 8
   %38 = and i64 %37, -97
   %39 = icmp eq i64 %38, 0
@@ -322,7 +317,7 @@ define dso_local ptr @lookup_address_in_pgd(ptr noundef readonly captures(ret: a
   %54 = inttoptr i64 %53 to ptr
   %55 = lshr i64 %1, 21
   %56 = and i64 %55, 511
-  %57 = getelementptr %struct.pmd_t, ptr %54, i64 %56
+  %57 = getelementptr [8 x i8], ptr %54, i64 %56
   %58 = load i64, ptr %57, align 8
   %59 = and i64 %58, -97
   %60 = icmp eq i64 %59, 0
@@ -351,7 +346,7 @@ define dso_local ptr @lookup_address_in_pgd(ptr noundef readonly captures(ret: a
   %77 = inttoptr i64 %76 to ptr
   %78 = lshr i64 %1, 12
   %79 = and i64 %78, 511
-  %80 = getelementptr %struct.pte_t, ptr %77, i64 %79
+  %80 = getelementptr [8 x i8], ptr %77, i64 %79
   br label %81
 
 81:                                               ; preds = %69, %61, %47, %40, %29, %25, %20, %5
@@ -366,7 +361,7 @@ define dso_local ptr @lookup_address(i64 noundef %0, ptr noundef writeonly captu
   %5 = zext nneg i32 %4 to i64
   %6 = lshr i64 %0, %5
   %7 = and i64 %6, 511
-  %8 = getelementptr %struct.pgd_t, ptr %3, i64 %7
+  %8 = getelementptr [8 x i8], ptr %3, i64 %7
   %9 = tail call ptr @lookup_address_in_pgd(ptr noundef %8, i64 noundef %0, ptr noundef %1)
   ret ptr %9
 }
@@ -378,7 +373,7 @@ define dso_local ptr @lookup_pmd_address(i64 noundef %0) local_unnamed_addr #0 a
   %4 = zext nneg i32 %3 to i64
   %5 = lshr i64 %0, %4
   %6 = and i64 %5, 511
-  %7 = getelementptr %struct.pgd_t, ptr %2, i64 %6
+  %7 = getelementptr [8 x i8], ptr %2, i64 %6
   %8 = load i64, ptr %7, align 8
   callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 528, i32 1, ptr nonnull getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 106)) #11
           to label %9 [label %9, label %11], !srcloc !11
@@ -402,7 +397,7 @@ define dso_local ptr @lookup_pmd_address(i64 noundef %0) local_unnamed_addr #0 a
   %20 = add i32 %19, -1
   %21 = zext i32 %20 to i64
   %22 = and i64 %18, %21
-  %23 = getelementptr %struct.p4d_t, ptr %17, i64 %22
+  %23 = getelementptr [8 x i8], ptr %17, i64 %22
   br label %24
 
 24:                                               ; preds = %12, %11
@@ -419,7 +414,7 @@ define dso_local ptr @lookup_pmd_address(i64 noundef %0) local_unnamed_addr #0 a
   %33 = inttoptr i64 %32 to ptr
   %34 = lshr i64 %0, 30
   %35 = and i64 %34, 511
-  %36 = getelementptr %struct.pud_t, ptr %33, i64 %35
+  %36 = getelementptr [8 x i8], ptr %33, i64 %35
   %37 = load i64, ptr %36, align 8
   %38 = and i64 %37, -97
   %39 = icmp eq i64 %38, 0
@@ -442,7 +437,7 @@ define dso_local ptr @lookup_pmd_address(i64 noundef %0) local_unnamed_addr #0 a
   %52 = inttoptr i64 %51 to ptr
   %53 = lshr i64 %0, 21
   %54 = and i64 %53, 511
-  %55 = getelementptr %struct.pmd_t, ptr %52, i64 %54
+  %55 = getelementptr [8 x i8], ptr %52, i64 %54
   br label %56
 
 56:                                               ; preds = %46, %40, %29, %24, %9
@@ -460,7 +455,7 @@ define dso_local range(i64 0, 4503599627370496) i64 @slow_virt_to_phys(ptr nound
   %6 = zext nneg i32 %5 to i64
   %7 = lshr i64 %3, %6
   %8 = and i64 %7, 511
-  %9 = getelementptr %struct.pgd_t, ptr %4, i64 %8
+  %9 = getelementptr [8 x i8], ptr %4, i64 %8
   %10 = call ptr @lookup_address_in_pgd(ptr noundef %9, i64 noundef %3, ptr noundef nonnull %2)
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %13, !prof !15
@@ -552,7 +547,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @change_page_attr_set_clr(p
 
 31:                                               ; preds = %39, %29
   %32 = phi i64 [ 0, %29 ], [ %40, %39 ]
-  %33 = getelementptr i64, ptr %0, i64 %32
+  %33 = getelementptr [8 x i8], ptr %0, i64 %32
   %34 = load i64, ptr %33, align 8
   %35 = and i64 %34, 4095
   %36 = icmp eq i64 %35, 0
@@ -731,7 +726,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @change_page_attr_set_clr(p
 
 117:                                              ; preds = %.preheader6
   %118 = load ptr, ptr %51, align 8
-  %119 = getelementptr ptr, ptr %118, i64 %112
+  %119 = getelementptr [8 x i8], ptr %118, i64 %112
   %120 = load ptr, ptr %119, align 8
   %121 = load i64, ptr @vmemmap_base, align 8
   %122 = ptrtoint ptr %120 to i64
@@ -748,7 +743,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @change_page_attr_set_clr(p
   br i1 %129, label %134, label %131
 
 131:                                              ; preds = %127
-  %132 = getelementptr i64, ptr %130, i64 %112
+  %132 = getelementptr [8 x i8], ptr %130, i64 %112
   %133 = load i64, ptr %132, align 8
   br label %138
 
@@ -766,7 +761,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @change_page_attr_set_clr(p
   %142 = zext nneg i32 %141 to i64
   %143 = lshr i64 %139, %142
   %144 = and i64 %143, 511
-  %145 = getelementptr %struct.pgd_t, ptr %140, i64 %144
+  %145 = getelementptr [8 x i8], ptr %140, i64 %144
   %146 = call ptr @lookup_address_in_pgd(ptr noundef %145, i64 noundef %139, ptr noundef nonnull %10)
   %147 = icmp eq ptr %146, null
   br i1 %147, label %.loopexit, label %148
@@ -1165,7 +1160,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @_set_pages_array(ptr nound
 
 7:                                                ; preds = %18, %5
   %8 = phi i64 [ 0, %5 ], [ %19, %18 ]
-  %9 = getelementptr ptr, ptr %0, i64 %8
+  %9 = getelementptr [8 x i8], ptr %0, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = load i64, ptr @vmemmap_base, align 8
   %12 = ptrtoint ptr %10 to i64
@@ -1216,7 +1211,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @_set_pages_array(ptr nound
 
 41:                                               ; preds = %41, %39
   %42 = phi i64 [ 0, %39 ], [ %51, %41 ]
-  %43 = getelementptr ptr, ptr %0, i64 %42
+  %43 = getelementptr [8 x i8], ptr %0, i64 %42
   %44 = load ptr, ptr %43, align 8
   %45 = load i64, ptr @vmemmap_base, align 8
   %46 = ptrtoint ptr %44 to i64
@@ -1287,7 +1282,7 @@ define dso_local range(i32 -2147483648, 1) i32 @set_pages_array_wb(ptr noundef %
 
 8:                                                ; preds = %8, %6
   %9 = phi i64 [ 0, %6 ], [ %18, %8 ]
-  %10 = getelementptr ptr, ptr %0, i64 %9
+  %10 = getelementptr [8 x i8], ptr %0, i64 %9
   %11 = load ptr, ptr %10, align 8
   %12 = load i64, ptr @vmemmap_base, align 8
   %13 = ptrtoint ptr %11 to i64
@@ -1420,7 +1415,7 @@ define dso_local zeroext i1 @kernel_page_present(ptr noundef %0) local_unnamed_a
   %11 = zext nneg i32 %10 to i64
   %12 = lshr i64 %8, %11
   %13 = and i64 %12, 511
-  %14 = getelementptr %struct.pgd_t, ptr %9, i64 %13
+  %14 = getelementptr [8 x i8], ptr %9, i64 %13
   %15 = call ptr @lookup_address_in_pgd(ptr noundef %14, i64 noundef %8, ptr noundef nonnull %2)
   %16 = load i64, ptr %15, align 8
   %17 = trunc i64 %16 to i1
@@ -1563,7 +1558,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__change_page_attr_set_clr
 
 52:                                               ; preds = %42
   %53 = load ptr, ptr %33, align 8
-  %54 = getelementptr ptr, ptr %53, i64 %48
+  %54 = getelementptr [8 x i8], ptr %53, i64 %48
   %55 = load ptr, ptr %54, align 8
   %56 = load i64, ptr @vmemmap_base, align 8
   %57 = ptrtoint ptr %55 to i64
@@ -1580,7 +1575,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__change_page_attr_set_clr
   br i1 %64, label %69, label %66
 
 66:                                               ; preds = %62
-  %67 = getelementptr i64, ptr %65, i64 %48
+  %67 = getelementptr [8 x i8], ptr %65, i64 %48
   %68 = load i64, ptr %67, align 8
   br label %73
 
@@ -1604,7 +1599,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__change_page_attr_set_clr
   %84 = zext nneg i32 %83 to i64
   %85 = lshr i64 %74, %84
   %86 = and i64 %85, 511
-  %87 = getelementptr %struct.pgd_t, ptr %82, i64 %86
+  %87 = getelementptr [8 x i8], ptr %82, i64 %86
   %88 = call ptr @lookup_address_in_pgd(ptr noundef %87, i64 noundef %74, ptr noundef nonnull %14)
   %89 = icmp eq ptr %88, null
   br i1 %89, label %._crit_edge, label %.lr.ph.preheader
@@ -1733,7 +1728,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__change_page_attr_set_clr
   %159 = zext nneg i32 %158 to i64
   %160 = lshr i64 %74, %159
   %161 = and i64 %160, 511
-  %162 = getelementptr %struct.pgd_t, ptr %157, i64 %161
+  %162 = getelementptr [8 x i8], ptr %157, i64 %161
   %163 = call ptr @lookup_address_in_pgd(ptr noundef %162, i64 noundef %74, ptr noundef nonnull %12)
   %164 = icmp eq ptr %163, %95
   br i1 %164, label %165, label %.thread23
@@ -1864,7 +1859,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__change_page_attr_set_clr
   %251 = zext nneg i32 %250 to i64
   %252 = lshr i64 %74, %251
   %253 = and i64 %252, 511
-  %254 = getelementptr %struct.pgd_t, ptr %249, i64 %253
+  %254 = getelementptr [8 x i8], ptr %249, i64 %253
   %255 = call ptr @lookup_address_in_pgd(ptr noundef %254, i64 noundef %74, ptr noundef nonnull %11)
   %256 = icmp ne ptr %255, null
   %257 = load i32, ptr %11, align 4
@@ -2009,7 +2004,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__change_page_attr_set_clr
   %332 = zext nneg i32 %331 to i64
   %333 = lshr i64 %74, %332
   %334 = and i64 %333, 511
-  %335 = getelementptr %struct.pgd_t, ptr %330, i64 %334
+  %335 = getelementptr [8 x i8], ptr %330, i64 %334
   %336 = call ptr @lookup_address_in_pgd(ptr noundef %335, i64 noundef %74, ptr noundef nonnull %9)
   %337 = icmp eq ptr %336, %95
   br i1 %337, label %338, label %522
@@ -2087,7 +2082,7 @@ static_protections.exit.thread.us.us.preheader:   ; preds = %374
 static_protections.exit.thread.us.us:             ; preds = %static_protections.exit.thread.us.us.preheader, %static_protections.exit.thread.us.us
   %393 = phi i64 [ %400, %static_protections.exit.thread.us.us ], [ 0, %static_protections.exit.thread.us.us.preheader ]
   %394 = phi i64 [ %401, %static_protections.exit.thread.us.us ], [ %381, %static_protections.exit.thread.us.us.preheader ]
-  %395 = getelementptr %struct.pte_t, ptr %326, i64 %393
+  %395 = getelementptr [8 x i8], ptr %326, i64 %393
   %396 = shl i64 %394, 12
   %397 = xor i64 %396, %392
   %398 = and i64 %397, 4503599627366400
@@ -2106,7 +2101,7 @@ static_protections.exit.thread.us.us:             ; preds = %static_protections.
   %403 = phi i64 [ %482, %static_protections.exit.thread ], [ 0, %374 ]
   %404 = phi i64 [ %484, %static_protections.exit.thread ], [ %380, %374 ]
   %405 = phi i64 [ %483, %static_protections.exit.thread ], [ %381, %374 ]
-  %406 = getelementptr %struct.pte_t, ptr %326, i64 %403
+  %406 = getelementptr [8 x i8], ptr %326, i64 %403
   %407 = load i8, ptr %35, align 4
   %408 = and i8 %407, 2
   %409 = icmp eq i8 %408, 0
@@ -2141,7 +2136,7 @@ static_protections.exit.thread.us.us:             ; preds = %static_protections.
   %429 = zext nneg i32 %428 to i64
   %430 = lshr i64 %404, %429
   %431 = and i64 %430, 511
-  %432 = getelementptr %struct.pgd_t, ptr %427, i64 %431
+  %432 = getelementptr [8 x i8], ptr %427, i64 %431
   %433 = call ptr @lookup_address_in_pgd(ptr noundef %432, i64 noundef %404, ptr noundef nonnull %3)
   %434 = icmp ne ptr %433, null
   %435 = load i32, ptr %3, align 4
@@ -2245,7 +2240,7 @@ static_protections.exit.thread:                   ; preds = %static_protections.
 
 496:                                              ; preds = %487
   %497 = sext i32 %339 to i64
-  %498 = getelementptr i64, ptr @direct_pages_count, i64 %497
+  %498 = getelementptr [8 x i8], ptr @direct_pages_count, i64 %497
   %499 = load i64, ptr %498, align 8
   %500 = icmp eq i64 %499, 0
   br i1 %500, label %514, label %501
@@ -2274,7 +2269,7 @@ static_protections.exit.thread:                   ; preds = %static_protections.
 508:                                              ; preds = %507, %506, %505, %501
   %509 = add i32 %339, -1
   %510 = sext i32 %509 to i64
-  %511 = getelementptr i64, ptr @direct_pages_count, i64 %510
+  %511 = getelementptr [8 x i8], ptr @direct_pages_count, i64 %510
   %512 = load i64, ptr %511, align 8
   %513 = add i64 %512, 512
   store i64 %513, ptr %511, align 8
@@ -2313,7 +2308,7 @@ static_protections.exit.thread:                   ; preds = %static_protections.
   %529 = zext nneg i32 %528 to i64
   %530 = lshr i64 %74, %529
   %531 = and i64 %530, 511
-  %532 = getelementptr %struct.pgd_t, ptr %527, i64 %531
+  %532 = getelementptr [8 x i8], ptr %527, i64 %531
   %533 = call ptr @lookup_address_in_pgd(ptr noundef %532, i64 noundef %74, ptr noundef nonnull %14)
   %534 = icmp eq ptr %533, null
   br i1 %534, label %._crit_edge, label %.lr.ph
@@ -2355,7 +2350,7 @@ static_protections.exit.thread:                   ; preds = %static_protections.
 
 555:                                              ; preds = %550
   %556 = load ptr, ptr %33, align 8
-  %557 = getelementptr ptr, ptr %556, i64 %551
+  %557 = getelementptr [8 x i8], ptr %556, i64 %551
   %558 = load ptr, ptr %557, align 8
   %559 = load i64, ptr @vmemmap_base, align 8
   %560 = ptrtoint ptr %558 to i64
@@ -2372,7 +2367,7 @@ static_protections.exit.thread:                   ; preds = %static_protections.
   br i1 %567, label %572, label %569
 
 569:                                              ; preds = %565
-  %570 = getelementptr i64, ptr %568, i64 %551
+  %570 = getelementptr [8 x i8], ptr %568, i64 %551
   %571 = load i64, ptr %570, align 8
   br label %576
 
@@ -2621,7 +2616,7 @@ define internal void @__cpa_flush_tlb(ptr noundef readonly captures(none) %0) #0
 
 14:                                               ; preds = %8
   %15 = load ptr, ptr %7, align 8
-  %16 = getelementptr ptr, ptr %15, i64 %9
+  %16 = getelementptr [8 x i8], ptr %15, i64 %9
   %17 = load ptr, ptr %16, align 8
   %18 = load i64, ptr @vmemmap_base, align 8
   %19 = ptrtoint ptr %17 to i64
@@ -2638,7 +2633,7 @@ define internal void @__cpa_flush_tlb(ptr noundef readonly captures(none) %0) #0
   br i1 %26, label %31, label %28
 
 28:                                               ; preds = %24
-  %29 = getelementptr i64, ptr %27, i64 %9
+  %29 = getelementptr [8 x i8], ptr %27, i64 %9
   %30 = load i64, ptr %29, align 8
   br label %35
 
@@ -2688,7 +2683,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__cpa_process_fault(ptr no
   %16 = zext nneg i32 %15 to i64
   %17 = lshr i64 %1, %16
   %18 = and i64 %17, 511
-  %19 = getelementptr %struct.pgd_t, ptr %12, i64 %18
+  %19 = getelementptr [8 x i8], ptr %12, i64 %18
   %20 = load i64, ptr %19, align 8
   callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 528, i32 1, ptr nonnull getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 106)) #11
           to label %21 [label %21, label %.critedge24], !srcloc !11
@@ -2742,7 +2737,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__cpa_process_fault(ptr no
   %46 = add i32 %45, -1
   %47 = zext i32 %46 to i64
   %48 = and i64 %44, %47
-  %49 = getelementptr %struct.p4d_t, ptr %43, i64 %48
+  %49 = getelementptr [8 x i8], ptr %43, i64 %48
   br label %50
 
 50:                                               ; preds = %38, %.critedge24
@@ -2831,7 +2826,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__cpa_process_fault(ptr no
   %101 = inttoptr i64 %100 to ptr
   %102 = lshr i64 %1, 30
   %103 = and i64 %102, 511
-  %104 = getelementptr %struct.pud_t, ptr %101, i64 %103
+  %104 = getelementptr [8 x i8], ptr %101, i64 %103
   %105 = load i64, ptr %104, align 8
   %106 = and i64 %105, -97
   %107 = icmp eq i64 %106, 0
@@ -2895,7 +2890,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__cpa_process_fault(ptr no
   %144 = inttoptr i64 %143 to ptr
   %145 = lshr i64 %126, 30
   %146 = and i64 %145, 511
-  %147 = getelementptr %struct.pud_t, ptr %144, i64 %146
+  %147 = getelementptr [8 x i8], ptr %144, i64 %146
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %149 = and i64 %.fr, 1
   %150 = icmp eq i64 %149, 0
@@ -2990,7 +2985,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__cpa_process_fault(ptr no
   %207 = inttoptr i64 %206 to ptr
   %208 = lshr i64 %200, 30
   %209 = and i64 %208, 511
-  %210 = getelementptr %struct.pud_t, ptr %207, i64 %209
+  %210 = getelementptr [8 x i8], ptr %207, i64 %209
   %211 = load i64, ptr %210, align 8
   %212 = and i64 %211, -97
   %213 = icmp eq i64 %212, 0
@@ -3044,7 +3039,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__cpa_process_fault(ptr no
   %242 = inttoptr i64 %241 to ptr
   %243 = lshr i64 %1, 30
   %244 = and i64 %243, 511
-  %245 = getelementptr %struct.pud_t, ptr %242, i64 %244
+  %245 = getelementptr [8 x i8], ptr %242, i64 %244
   br i1 %87, label %251, label %246
 
 246:                                              ; preds = %.critedge.thread
@@ -3193,7 +3188,7 @@ define internal fastcc i64 @static_protections(i64 %0, i64 noundef %1, i64 nound
 
 20:                                               ; preds = %10
   %21 = zext nneg i32 %5 to i64
-  %22 = getelementptr ptr, ptr @check_conflict.lvltxt, i64 %21
+  %22 = getelementptr [8 x i8], ptr @check_conflict.lvltxt, i64 %21
   %23 = load ptr, ptr %22, align 8
   %24 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.15, ptr noundef %23, ptr noundef nonnull @.str.8, i64 noundef %1, i64 noundef %13, i64 noundef %2, i64 noundef %0, i64 noundef %17) #12
   br label %25
@@ -3223,7 +3218,7 @@ define internal fastcc i64 @static_protections(i64 %0, i64 noundef %1, i64 nound
   %40 = zext nneg i32 %39 to i64
   %41 = lshr i64 %1, %40
   %42 = and i64 %41, 511
-  %43 = getelementptr %struct.pgd_t, ptr %38, i64 %42
+  %43 = getelementptr [8 x i8], ptr %38, i64 %42
   %44 = call ptr @lookup_address_in_pgd(ptr noundef %43, i64 noundef %1, ptr noundef nonnull %7)
   %45 = icmp ne ptr %44, null
   %46 = load i32, ptr %7, align 4
@@ -3241,7 +3236,7 @@ define internal fastcc i64 @static_protections(i64 %0, i64 noundef %1, i64 nound
 
 54:                                               ; preds = %50
   %55 = zext nneg i32 %5 to i64
-  %56 = getelementptr ptr, ptr @check_conflict.lvltxt, i64 %55
+  %56 = getelementptr [8 x i8], ptr @check_conflict.lvltxt, i64 %55
   %57 = load ptr, ptr %56, align 8
   %58 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.15, ptr noundef %57, ptr noundef nonnull @.str.9, i64 noundef %1, i64 noundef %13, i64 noundef %2, i64 noundef %0, i64 noundef %51) #12
   br label %59
@@ -3281,7 +3276,7 @@ define internal fastcc i64 @static_protections(i64 %0, i64 noundef %1, i64 nound
 
 82:                                               ; preds = %78
   %83 = zext nneg i32 %5 to i64
-  %84 = getelementptr ptr, ptr @check_conflict.lvltxt, i64 %83
+  %84 = getelementptr [8 x i8], ptr @check_conflict.lvltxt, i64 %83
   %85 = load ptr, ptr %84, align 8
   %86 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.15, ptr noundef %85, ptr noundef nonnull @.str.11, i64 noundef %1, i64 noundef %13, i64 noundef %2, i64 noundef %0, i64 noundef %79) #12
   br label %87
@@ -3336,7 +3331,7 @@ define internal fastcc range(i64 -1, 4294967296) i64 @populate_pmd(ptr noundef c
   %33 = inttoptr i64 %32 to ptr
   %34 = lshr i64 %1, 21
   %35 = and i64 %34, 511
-  %36 = getelementptr %struct.pmd_t, ptr %33, i64 %35
+  %36 = getelementptr [8 x i8], ptr %33, i64 %35
   %37 = load i64, ptr %36, align 8
   %38 = and i64 %37, -97
   %39 = icmp eq i64 %38, 0
@@ -3385,7 +3380,7 @@ define internal fastcc range(i64 -1, 4294967296) i64 @populate_pmd(ptr noundef c
   %68 = inttoptr i64 %67 to ptr
   %69 = lshr i64 %1, 12
   %70 = and i64 %69, 511
-  %71 = getelementptr %struct.pte_t, ptr %68, i64 %70
+  %71 = getelementptr [8 x i8], ptr %68, i64 %70
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %73 = icmp ne i64 %.fr, 0
   %74 = and i64 %.fr, 1
@@ -3510,7 +3505,7 @@ define internal fastcc range(i64 -1, 4294967296) i64 @populate_pmd(ptr noundef c
   %153 = inttoptr i64 %152 to ptr
   %154 = lshr i64 %128, 21
   %155 = and i64 %154, 511
-  %156 = getelementptr %struct.pmd_t, ptr %153, i64 %155
+  %156 = getelementptr [8 x i8], ptr %153, i64 %155
   %157 = load i64, ptr %124, align 8
   %158 = load i64, ptr @__supported_pte_mask, align 8
   %159 = select i1 %126, i64 -129, i64 %158
@@ -3558,7 +3553,7 @@ define internal fastcc range(i64 -1, 4294967296) i64 @populate_pmd(ptr noundef c
   %190 = inttoptr i64 %189 to ptr
   %191 = lshr i64 %180, 21
   %192 = and i64 %191, 511
-  %193 = getelementptr %struct.pmd_t, ptr %190, i64 %192
+  %193 = getelementptr [8 x i8], ptr %190, i64 %192
   %194 = load i64, ptr %193, align 8
   %195 = and i64 %194, -97
   %196 = icmp eq i64 %195, 0
@@ -3606,7 +3601,7 @@ define internal fastcc range(i64 -1, 4294967296) i64 @populate_pmd(ptr noundef c
   %224 = inttoptr i64 %223 to ptr
   %225 = lshr i64 %180, 12
   %226 = and i64 %225, 511
-  %227 = getelementptr %struct.pte_t, ptr %224, i64 %226
+  %227 = getelementptr [8 x i8], ptr %224, i64 %226
   %228 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %229 = icmp ne i64 %.fr23, 0
   %230 = and i64 %.fr23, 1
@@ -3687,7 +3682,7 @@ define internal fastcc void @unmap_pmd_range(ptr noundef %0, i64 noundef %1, i64
   %13 = inttoptr i64 %12 to ptr
   %14 = lshr i64 %1, 21
   %15 = and i64 %14, 511
-  %16 = getelementptr %struct.pmd_t, ptr %13, i64 %15
+  %16 = getelementptr [8 x i8], ptr %13, i64 %15
   %17 = and i64 %1, 2097151
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %24, label %19
@@ -3772,7 +3767,7 @@ define internal fastcc void @unmap_pmd_range(ptr noundef %0, i64 noundef %1, i64
   br i1 %62, label %.thread, label %63, !llvm.loop !76
 
 63:                                               ; preds = %.preheader
-  %64 = getelementptr %struct.pmd_t, ptr %56, i64 %61
+  %64 = getelementptr [8 x i8], ptr %56, i64 %61
   %65 = load i64, ptr %64, align 8
   %66 = and i64 %65, -97
   %67 = icmp eq i64 %66, 0
@@ -3817,7 +3812,7 @@ define internal fastcc void @__unmap_pmd_range(ptr noundef %0, ptr noundef %1, i
   %17 = inttoptr i64 %16 to ptr
   %18 = lshr i64 %2, 12
   %19 = and i64 %18, 511
-  %20 = getelementptr %struct.pte_t, ptr %17, i64 %19
+  %20 = getelementptr [8 x i8], ptr %17, i64 %19
   br label %21
 
 21:                                               ; preds = %21, %9
@@ -3854,7 +3849,7 @@ define internal fastcc void @__unmap_pmd_range(ptr noundef %0, ptr noundef %1, i
   br i1 %40, label %46, label %41, !llvm.loop !78
 
 41:                                               ; preds = %.preheader6
-  %42 = getelementptr %struct.pte_t, ptr %34, i64 %39
+  %42 = getelementptr [8 x i8], ptr %34, i64 %39
   %43 = load i64, ptr %42, align 8
   %44 = and i64 %43, -97
   %45 = icmp eq i64 %44, 0
@@ -3894,7 +3889,7 @@ define internal fastcc void @__unmap_pmd_range(ptr noundef %0, ptr noundef %1, i
   br i1 %63, label %.thread, label %64, !llvm.loop !76
 
 64:                                               ; preds = %.preheader
-  %65 = getelementptr %struct.pmd_t, ptr %57, i64 %62
+  %65 = getelementptr [8 x i8], ptr %57, i64 %62
   %66 = load i64, ptr %65, align 8
   %67 = and i64 %66, -97
   %68 = icmp eq i64 %67, 0

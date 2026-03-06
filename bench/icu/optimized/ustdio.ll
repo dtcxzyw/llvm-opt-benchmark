@@ -161,7 +161,7 @@ define i32 @u_file_write_flush_77(ptr noundef %0, i32 noundef %1, ptr noundef ca
 28:                                               ; preds = %22
   %29 = load ptr, ptr %18, align 8, !tbaa !20
   %30 = sext i32 %26 to i64
-  %31 = getelementptr inbounds i16, ptr %29, i64 %30
+  %31 = getelementptr inbounds [2 x i8], ptr %29, i64 %30
   %32 = sub nsw i32 %24, %26
   %33 = shl nuw i32 %32, 1
   %34 = zext i32 %33 to i64
@@ -222,7 +222,7 @@ define i32 @u_file_write_flush_77(ptr noundef %0, i32 noundef %1, ptr noundef ca
   %61 = phi i32 [ %.pre65.i, %59 ], [ %41, %35 ]
   %62 = phi ptr [ %.sink.i, %59 ], [ %47, %35 ]
   %63 = sext i32 %61 to i64
-  %64 = getelementptr inbounds i16, ptr %62, i64 %63
+  %64 = getelementptr inbounds [2 x i8], ptr %62, i64 %63
   %65 = call ptr @u_strncpy_77(ptr noundef %64, ptr noundef %0, i32 noundef %.051)
   %66 = load ptr, ptr %2, align 8, !tbaa !7
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 16
@@ -314,13 +314,13 @@ _ZL15u_file_translitP5UFILEPKDsPia.exit:          ; preds = %56, %.sink.split.i
   %112 = call ptr @u_strncpy_77(ptr noundef %103, ptr noundef %96, i32 noundef %111)
   %113 = load ptr, ptr %100, align 8, !tbaa !34
   %114 = sext i32 %111 to i64
-  %115 = getelementptr inbounds i16, ptr %113, i64 %114
+  %115 = getelementptr inbounds [2 x i8], ptr %113, i64 %114
   store ptr %115, ptr %100, align 8, !tbaa !34
   br label %.loopexit
 
 116:                                              ; preds = %95
   %117 = sext i32 %.152 to i64
-  %118 = getelementptr inbounds i16, ptr %96, i64 %117
+  %118 = getelementptr inbounds [2 x i8], ptr %96, i64 %117
   %119 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %120 = getelementptr inbounds nuw i8, ptr %12, i64 1024
   %121 = ptrtoint ptr %118 to i64
@@ -358,7 +358,7 @@ _ZL15u_file_translitP5UFILEPKDsPia.exit:          ; preds = %56, %.sink.split.i
   call void @u_UCharsToChars_77(ptr noundef %124, ptr noundef %135, i32 noundef %.0)
   %136 = load ptr, ptr %11, align 8, !tbaa !21
   %137 = sext i32 %.0 to i64
-  %138 = getelementptr inbounds i16, ptr %136, i64 %137
+  %138 = getelementptr inbounds [2 x i8], ptr %136, i64 %137
   store ptr %138, ptr %11, align 8, !tbaa !21
   %139 = load ptr, ptr %13, align 8, !tbaa !22
   %140 = getelementptr inbounds i8, ptr %139, i64 %137
@@ -622,7 +622,7 @@ define void @_Z26ufile_fill_uchar_buffer_77P5UFILE(ptr noundef %0) local_unnamed
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %sext = shl i64 %16, 31
   %55 = ashr i64 %sext, 32
-  %56 = getelementptr inbounds i16, ptr %54, i64 %55
+  %56 = getelementptr inbounds [2 x i8], ptr %54, i64 %55
   store ptr %56, ptr %4, align 8, !tbaa !21
   %57 = load ptr, ptr %29, align 8, !tbaa !35
   %.not41 = icmp eq ptr %57, null
@@ -641,7 +641,7 @@ define void @_Z26ufile_fill_uchar_buffer_77P5UFILE(ptr noundef %0) local_unnamed
 
 65:                                               ; preds = %52
   call void @u_charsToUChars_77(ptr noundef nonnull %5, ptr noundef nonnull %56, i32 noundef %.0)
-  %66 = getelementptr inbounds i16, ptr %56, i64 %53
+  %66 = getelementptr inbounds [2 x i8], ptr %56, i64 %53
   br label %67
 
 67:                                               ; preds = %65, %58
@@ -727,7 +727,7 @@ define noundef ptr @u_fgets_77(ptr noundef writeonly captures(ret: address, prov
   %26 = sub nsw i32 %14, %.076109
   %27 = icmp slt i32 %.081108, %26
   %28 = sext i32 %26 to i64
-  %29 = getelementptr inbounds i16, ptr %25, i64 %28
+  %29 = getelementptr inbounds [2 x i8], ptr %25, i64 %28
   %.071 = select i1 %27, ptr %24, ptr %29
   %.not90 = icmp eq i16 %.066111, 0
   %30 = icmp ult ptr %25, %.071
@@ -1082,13 +1082,13 @@ define i32 @u_file_read_77(ptr noundef writeonly captures(none) %0, i32 noundef 
   %25 = sub nsw i32 %1, %.023
   %spec.select = tail call i32 @llvm.smin.i32(i32 %.0, i32 %25)
   %26 = sext i32 %.023 to i64
-  %27 = getelementptr inbounds i16, ptr %0, i64 %26
+  %27 = getelementptr inbounds [2 x i8], ptr %0, i64 %26
   %28 = sext i32 %spec.select to i64
   %29 = shl nsw i64 %28, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %27, ptr align 2 %24, i64 %29, i1 false)
   %30 = add nsw i32 %spec.select, %.023
   %31 = load ptr, ptr %4, align 8, !tbaa !41
-  %32 = getelementptr inbounds i16, ptr %31, i64 %28
+  %32 = getelementptr inbounds [2 x i8], ptr %31, i64 %28
   store ptr %32, ptr %4, align 8, !tbaa !41
   %33 = icmp ne i32 %spec.select, 0
   %34 = icmp slt i32 %30, %1

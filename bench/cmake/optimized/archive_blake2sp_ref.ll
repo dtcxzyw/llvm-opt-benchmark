@@ -62,7 +62,7 @@ define dso_local range(i32 -1, 1) i32 @blake2sp_init(ptr noundef %0, i64 noundef
 
 30:                                               ; preds = %.preheader, %28
   %.019 = phi i64 [ 0, %.preheader ], [ %29, %28 ]
-  %31 = getelementptr inbounds nuw [1 x %struct.blake2s_state__], ptr %0, i64 %.019
+  %31 = getelementptr inbounds nuw [136 x i8], ptr %0, i64 %.019
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 %10, ptr %3, align 16, !tbaa !9
   store i8 0, ptr %20, align 1, !tbaa !13
@@ -161,7 +161,7 @@ define dso_local range(i32 -1, 1) i32 @blake2sp_init_key(ptr noundef %0, i64 nou
 
 38:                                               ; preds = %.preheader, %36
   %.037 = phi i64 [ 0, %.preheader ], [ %37, %36 ]
-  %39 = getelementptr inbounds nuw [1 x %struct.blake2s_state__], ptr %0, i64 %.037
+  %39 = getelementptr inbounds nuw [136 x i8], ptr %0, i64 %.037
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 %17, ptr %5, align 16, !tbaa !9
   store i8 %18, ptr %28, align 1, !tbaa !13
@@ -194,7 +194,7 @@ define dso_local range(i32 -1, 1) i32 @blake2sp_init_key(ptr noundef %0, i64 nou
 
 49:                                               ; preds = %46, %49
   %.138 = phi i64 [ 0, %46 ], [ %52, %49 ]
-  %50 = getelementptr inbounds nuw [1 x %struct.blake2s_state__], ptr %0, i64 %.138
+  %50 = getelementptr inbounds nuw [136 x i8], ptr %0, i64 %.138
   %51 = call i32 @blake2s_update(ptr noundef %50, ptr noundef nonnull %7, i64 noundef 64) #7
   %52 = add nuw nsw i64 %.138, 1
   %exitcond39.not = icmp eq i64 %52, 8
@@ -236,7 +236,7 @@ define dso_local noundef i32 @blake2sp_update(ptr noundef %0, ptr noundef %1, i6
 
 11:                                               ; preds = %8, %11
   %.04456 = phi i64 [ 0, %8 ], [ %16, %11 ]
-  %12 = getelementptr inbounds nuw [1 x %struct.blake2s_state__], ptr %0, i64 %.04456
+  %12 = getelementptr inbounds nuw [136 x i8], ptr %0, i64 %.04456
   %13 = shl nuw nsw i64 %.04456, 6
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 %13
   %15 = tail call i32 @blake2s_update(ptr noundef %12, ptr noundef nonnull %14, i64 noundef 64) #7
@@ -260,7 +260,7 @@ define dso_local noundef i32 @blake2sp_update(ptr noundef %0, ptr noundef %1, i6
   %.159.us = phi i64 [ %30, %._crit_edge.us ], [ 0, %20 ]
   %22 = shl nuw nsw i64 %.159.us, 6
   %23 = getelementptr inbounds nuw i8, ptr %.047, i64 %22
-  %24 = getelementptr inbounds nuw [1 x %struct.blake2s_state__], ptr %0, i64 %.159.us
+  %24 = getelementptr inbounds nuw [136 x i8], ptr %0, i64 %.159.us
   br label %25
 
 25:                                               ; preds = %.lr.ph.us, %25
@@ -328,13 +328,13 @@ define dso_local i32 @blake2sp_final(ptr noundef %0, ptr noundef %1, i64 noundef
 17:                                               ; preds = %13
   %18 = sub nuw i64 %14, %15
   %spec.store.select = call i64 @llvm.umin.i64(i64 %18, i64 64)
-  %19 = getelementptr inbounds nuw [1 x %struct.blake2s_state__], ptr %0, i64 %.02530
+  %19 = getelementptr inbounds nuw [136 x i8], ptr %0, i64 %.02530
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 %15
   %21 = call i32 @blake2s_update(ptr noundef %19, ptr noundef nonnull %20, i64 noundef %spec.store.select) #7
   br label %22
 
 22:                                               ; preds = %17, %13
-  %23 = getelementptr inbounds nuw [1 x %struct.blake2s_state__], ptr %0, i64 %.02530
+  %23 = getelementptr inbounds nuw [136 x i8], ptr %0, i64 %.02530
   %24 = getelementptr inbounds nuw [32 x i8], ptr %4, i64 %.02530
   %25 = call i32 @blake2s_final(ptr noundef %23, ptr noundef nonnull %24, i64 noundef 32) #7
   %26 = add nuw nsw i64 %.02530, 1
@@ -411,7 +411,7 @@ define dso_local i32 @blake2sp(ptr noundef %0, i64 noundef %1, ptr noundef %2, i
 
 33:                                               ; preds = %.preheader, %31
   %.05464 = phi i64 [ 0, %.preheader ], [ %32, %31 ]
-  %34 = getelementptr inbounds nuw [1 x %struct.blake2s_state__], ptr %10, i64 %.05464
+  %34 = getelementptr inbounds nuw [136 x i8], ptr %10, i64 %.05464
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i8 %21, ptr %8, align 16, !tbaa !9
   store i8 %22, ptr %23, align 1, !tbaa !13
@@ -449,7 +449,7 @@ define dso_local i32 @blake2sp(ptr noundef %0, i64 noundef %1, ptr noundef %2, i
 
 48:                                               ; preds = %43, %48
   %.165 = phi i64 [ 0, %43 ], [ %51, %48 ]
-  %49 = getelementptr inbounds nuw [1 x %struct.blake2s_state__], ptr %10, i64 %.165
+  %49 = getelementptr inbounds nuw [136 x i8], ptr %10, i64 %.165
   %50 = call i32 @blake2s_update(ptr noundef nonnull %49, ptr noundef nonnull %12, i64 noundef 64) #7
   %51 = add nuw nsw i64 %.165, 1
   %exitcond75.not = icmp eq i64 %51, 8
@@ -469,7 +469,7 @@ define dso_local i32 @blake2sp(ptr noundef %0, i64 noundef %1, ptr noundef %2, i
   %.269.us = phi i64 [ %67, %64 ], [ 0, %55 ]
   %57 = shl nuw nsw i64 %.269.us, 6
   %58 = getelementptr inbounds nuw i8, ptr %2, i64 %57
-  %59 = getelementptr inbounds nuw [1 x %struct.blake2s_state__], ptr %10, i64 %.269.us
+  %59 = getelementptr inbounds nuw [136 x i8], ptr %10, i64 %.269.us
   br label %68
 
 60:                                               ; preds = %._crit_edge.us
@@ -508,12 +508,12 @@ define dso_local i32 @blake2sp(ptr noundef %0, i64 noundef %1, ptr noundef %2, i
   %77 = getelementptr inbounds nuw i8, ptr %2, i64 %74
   %78 = sub nuw nsw i64 %3, %74
   %79 = call i64 @llvm.umin.i64(i64 %78, i64 64)
-  %80 = getelementptr inbounds nuw [1 x %struct.blake2s_state__], ptr %10, i64 %.269
+  %80 = getelementptr inbounds nuw [136 x i8], ptr %10, i64 %.269
   %81 = call i32 @blake2s_update(ptr noundef nonnull %80, ptr noundef %77, i64 noundef %79) #7
   br label %82
 
 82:                                               ; preds = %76, %.split
-  %83 = getelementptr inbounds nuw [1 x %struct.blake2s_state__], ptr %10, i64 %.269
+  %83 = getelementptr inbounds nuw [136 x i8], ptr %10, i64 %.269
   %84 = getelementptr inbounds nuw [32 x i8], ptr %9, i64 %.269
   %85 = call i32 @blake2s_final(ptr noundef nonnull %83, ptr noundef nonnull %84, i64 noundef 32) #7
   %86 = add nuw nsw i64 %.269, 1

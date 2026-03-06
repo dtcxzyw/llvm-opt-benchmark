@@ -3,13 +3,7 @@ source_filename = "bench/postgres/original/execute.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.numeric = type { i32, i32, i32, i32, i32, ptr, ptr }
-%struct.decimal = type { i32, i32, i32, i32, i32, [30 x i8] }
-%struct.interval = type { i64, i64 }
 %struct.variable = type { i32, ptr, ptr, i64, i64, i64, i32, ptr, ptr, i64, i64, i64, ptr }
-%struct.sqlvar_compat = type { i16, i32, ptr, ptr, ptr, ptr, i16, i16, ptr, i32, ptr, i16, i16, i16, ptr, i32, ptr, i32, ptr }
-%struct.sqlvar_struct = type { i16, i16, ptr, ptr, %struct.sqlname }
-%struct.sqlname = type { i16, [64 x i8] }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 
 @.str = private unnamed_addr constant [6 x i8] c"YE001\00", align 1
@@ -1059,7 +1053,7 @@ ecpg_is_type_an_array.exit.thread:                ; preds = %310, %350, %12, %15
 .lr.ph199:                                        ; preds = %518
   %522 = add nuw i32 %5, 1
   %523 = sext i32 %522 to i64
-  %524 = getelementptr inbounds ptr, ptr %520, i64 %523
+  %524 = getelementptr inbounds [8 x i8], ptr %520, i64 %523
   %525 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %526 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %527 = getelementptr inbounds nuw i8, ptr %3, i64 88
@@ -1297,7 +1291,7 @@ define noundef zeroext i1 @ecpg_store_input(i32 noundef %0, i1 noundef zeroext %
   %54 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %48) #15
   %55 = getelementptr inbounds nuw i8, ptr %48, i64 %54
   %56 = load ptr, ptr %52, align 8
-  %57 = getelementptr inbounds nuw i16, ptr %56, i64 %indvars.iv720
+  %57 = getelementptr inbounds nuw [2 x i8], ptr %56, i64 %indvars.iv720
   %58 = load i16, ptr %57, align 2
   %59 = sext i16 %58 to i32
   %60 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %55, ptr noundef nonnull @.str.7, i32 noundef %59) #14
@@ -1346,7 +1340,7 @@ define noundef zeroext i1 @ecpg_store_input(i32 noundef %0, i1 noundef zeroext %
   %81 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %75) #15
   %82 = getelementptr inbounds nuw i8, ptr %75, i64 %81
   %83 = load ptr, ptr %79, align 8
-  %84 = getelementptr inbounds nuw i32, ptr %83, i64 %indvars.iv715
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %83, i64 %indvars.iv715
   %85 = load i32, ptr %84, align 4
   %86 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %82, ptr noundef nonnull @.str.10, i32 noundef %85) #14
   %indvars.iv.next716 = add nuw nsw i64 %indvars.iv715, 1
@@ -1393,7 +1387,7 @@ define noundef zeroext i1 @ecpg_store_input(i32 noundef %0, i1 noundef zeroext %
   %106 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %100) #15
   %107 = getelementptr inbounds nuw i8, ptr %100, i64 %106
   %108 = load ptr, ptr %104, align 8
-  %109 = getelementptr inbounds nuw i16, ptr %108, i64 %indvars.iv710
+  %109 = getelementptr inbounds nuw [2 x i8], ptr %108, i64 %indvars.iv710
   %110 = load i16, ptr %109, align 2
   %111 = zext i16 %110 to i32
   %112 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %107, ptr noundef nonnull @.str.12, i32 noundef %111) #14
@@ -1442,7 +1436,7 @@ define noundef zeroext i1 @ecpg_store_input(i32 noundef %0, i1 noundef zeroext %
   %133 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %127) #15
   %134 = getelementptr inbounds nuw i8, ptr %127, i64 %133
   %135 = load ptr, ptr %131, align 8
-  %136 = getelementptr inbounds nuw i32, ptr %135, i64 %indvars.iv705
+  %136 = getelementptr inbounds nuw [4 x i8], ptr %135, i64 %indvars.iv705
   %137 = load i32, ptr %136, align 4
   %138 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %134, ptr noundef nonnull @.str.14, i32 noundef %137) #14
   %indvars.iv.next706 = add nuw nsw i64 %indvars.iv705, 1
@@ -1489,7 +1483,7 @@ define noundef zeroext i1 @ecpg_store_input(i32 noundef %0, i1 noundef zeroext %
   %158 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %152) #15
   %159 = getelementptr inbounds nuw i8, ptr %152, i64 %158
   %160 = load ptr, ptr %156, align 8
-  %161 = getelementptr inbounds nuw i64, ptr %160, i64 %indvars.iv700
+  %161 = getelementptr inbounds nuw [8 x i8], ptr %160, i64 %indvars.iv700
   %162 = load i64, ptr %161, align 8
   %163 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %159, ptr noundef nonnull @.str.16, i64 noundef %162) #14
   %indvars.iv.next701 = add nuw nsw i64 %indvars.iv700, 1
@@ -1536,7 +1530,7 @@ define noundef zeroext i1 @ecpg_store_input(i32 noundef %0, i1 noundef zeroext %
   %183 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %177) #15
   %184 = getelementptr inbounds nuw i8, ptr %177, i64 %183
   %185 = load ptr, ptr %181, align 8
-  %186 = getelementptr inbounds nuw i64, ptr %185, i64 %indvars.iv695
+  %186 = getelementptr inbounds nuw [8 x i8], ptr %185, i64 %indvars.iv695
   %187 = load i64, ptr %186, align 8
   %188 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %184, ptr noundef nonnull @.str.18, i64 noundef %187) #14
   %indvars.iv.next696 = add nuw nsw i64 %indvars.iv695, 1
@@ -1583,7 +1577,7 @@ define noundef zeroext i1 @ecpg_store_input(i32 noundef %0, i1 noundef zeroext %
   %208 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %202) #15
   %209 = getelementptr inbounds nuw i8, ptr %202, i64 %208
   %210 = load ptr, ptr %206, align 8
-  %211 = getelementptr inbounds nuw i64, ptr %210, i64 %indvars.iv690
+  %211 = getelementptr inbounds nuw [8 x i8], ptr %210, i64 %indvars.iv690
   %212 = load i64, ptr %211, align 8
   %213 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %209, ptr noundef nonnull @.str.20, i64 noundef %212) #14
   %indvars.iv.next691 = add nuw nsw i64 %indvars.iv690, 1
@@ -1630,7 +1624,7 @@ define noundef zeroext i1 @ecpg_store_input(i32 noundef %0, i1 noundef zeroext %
   %233 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %227) #15
   %234 = getelementptr inbounds nuw i8, ptr %227, i64 %233
   %235 = load ptr, ptr %231, align 8
-  %236 = getelementptr inbounds nuw i64, ptr %235, i64 %indvars.iv685
+  %236 = getelementptr inbounds nuw [8 x i8], ptr %235, i64 %indvars.iv685
   %237 = load i64, ptr %236, align 8
   %238 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %234, ptr noundef nonnull @.str.22, i64 noundef %237) #14
   %indvars.iv.next686 = add nuw nsw i64 %indvars.iv685, 1
@@ -1677,7 +1671,7 @@ define noundef zeroext i1 @ecpg_store_input(i32 noundef %0, i1 noundef zeroext %
   %258 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %252) #15
   %259 = getelementptr inbounds nuw i8, ptr %252, i64 %258
   %260 = load ptr, ptr %256, align 8
-  %261 = getelementptr inbounds nuw float, ptr %260, i64 %indvars.iv680
+  %261 = getelementptr inbounds nuw [4 x i8], ptr %260, i64 %indvars.iv680
   %262 = load float, ptr %261, align 4
   %263 = fcmp uno float %262, 0.000000e+00
   br i1 %263, label %264, label %266
@@ -1753,7 +1747,7 @@ sprintf_float_value.exit:                         ; preds = %264, %271, %273, %2
   %296 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %290) #15
   %297 = getelementptr inbounds nuw i8, ptr %290, i64 %296
   %298 = load ptr, ptr %294, align 8
-  %299 = getelementptr inbounds nuw double, ptr %298, i64 %indvars.iv675
+  %299 = getelementptr inbounds nuw [8 x i8], ptr %298, i64 %indvars.iv675
   %300 = load double, ptr %299, align 8
   %301 = fcmp uno double %300, 0.000000e+00
   br i1 %301, label %302, label %304
@@ -2063,12 +2057,12 @@ quote_postgres.exit:                              ; preds = %381
   br i1 %450, label %452, label %455
 
 452:                                              ; preds = %448
-  %453 = getelementptr inbounds nuw %struct.numeric, ptr %451, i64 %indvars.iv665
+  %453 = getelementptr inbounds nuw [40 x i8], ptr %451, i64 %indvars.iv665
   %454 = tail call i32 @PGTYPESnumeric_copy(ptr noundef %453, ptr noundef nonnull %446) #14
   br label %458
 
 455:                                              ; preds = %448
-  %456 = getelementptr inbounds nuw %struct.decimal, ptr %451, i64 %indvars.iv665
+  %456 = getelementptr inbounds nuw [52 x i8], ptr %451, i64 %indvars.iv665
   %457 = tail call i32 @PGTYPESnumeric_from_decimal(ptr noundef %456, ptr noundef nonnull %446) #14
   br label %458
 
@@ -2161,7 +2155,7 @@ quote_postgres.exit:                              ; preds = %381
   %indvars.iv660 = phi i64 [ 0, %.lr.ph610 ], [ %indvars.iv.next661, %532 ]
   %.4430609 = phi ptr [ %489, %.lr.ph610 ], [ %521, %532 ]
   %493 = load ptr, ptr %491, align 8
-  %494 = getelementptr inbounds nuw %struct.interval, ptr %493, i64 %indvars.iv660
+  %494 = getelementptr inbounds nuw [16 x i8], ptr %493, i64 %indvars.iv660
   %495 = tail call ptr @PGTYPESinterval_to_asc(ptr noundef %494) #14
   br i1 %4, label %496, label %quote_postgres.exit554
 
@@ -2289,7 +2283,7 @@ quote_postgres.exit554.thread:                    ; preds = %496, %quote_postgre
   %indvars.iv655 = phi i64 [ 0, %.lr.ph605 ], [ %indvars.iv.next656, %586 ]
   %.6432604 = phi ptr [ %542, %.lr.ph605 ], [ %575, %586 ]
   %546 = load ptr, ptr %544, align 8
-  %547 = getelementptr inbounds nuw i64, ptr %546, i64 %indvars.iv655
+  %547 = getelementptr inbounds nuw [8 x i8], ptr %546, i64 %indvars.iv655
   %548 = load i64, ptr %547, align 8
   %549 = tail call ptr @PGTYPESdate_to_asc(i64 noundef %548) #14
   br i1 %4, label %550, label %quote_postgres.exit557
@@ -2418,7 +2412,7 @@ quote_postgres.exit557.thread:                    ; preds = %550, %quote_postgre
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %640 ]
   %.8434602 = phi ptr [ %596, %.lr.ph ], [ %629, %640 ]
   %600 = load ptr, ptr %598, align 8
-  %601 = getelementptr inbounds nuw i64, ptr %600, i64 %indvars.iv
+  %601 = getelementptr inbounds nuw [8 x i8], ptr %600, i64 %indvars.iv
   %602 = load i64, ptr %601, align 8
   %603 = tail call ptr @PGTYPEStimestamp_to_asc(i64 noundef %602) #14
   br i1 %4, label %604, label %quote_postgres.exit560
@@ -2710,10 +2704,10 @@ define void @ecpg_free_params(ptr noundef captures(none) %0, i1 noundef zeroext 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %print_param_value.exit.us
   %indvars.iv23 = phi i64 [ %indvars.iv.next24, %print_param_value.exit.us ], [ 0, %.lr.ph ]
   %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv23
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv23
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %7, align 8
-  %13 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv23
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv23
   %14 = load i32, ptr %13, align 4
   %15 = load i32, ptr %0, align 8
   %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
@@ -2722,7 +2716,7 @@ define void @ecpg_free_params(ptr noundef captures(none) %0, i1 noundef zeroext 
 
 17:                                               ; preds = %.lr.ph.split.us
   %18 = load ptr, ptr %8, align 8
-  %19 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv23
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv23
   %20 = load i32, ptr %19, align 4
   %.not.i.us = icmp eq i32 %20, 0
   br i1 %.not.i.us, label %.critedge.i.us, label %21
@@ -2754,7 +2748,7 @@ define void @ecpg_free_params(ptr noundef captures(none) %0, i1 noundef zeroext 
 
 print_param_value.exit.us:                        ; preds = %.critedge.i.us, %26
   %33 = load ptr, ptr %6, align 8
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %indvars.iv23
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv23
   %35 = load ptr, ptr %34, align 8
   tail call void @ecpg_free(ptr noundef %35) #14
   %36 = load i32, ptr %3, align 8
@@ -2765,7 +2759,7 @@ print_param_value.exit.us:                        ; preds = %.critedge.i.us, %26
 print_param_value.exit:                           ; preds = %.lr.ph, %print_param_value.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %print_param_value.exit ], [ 0, %.lr.ph ]
   %39 = load ptr, ptr %6, align 8
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %indvars.iv
   %41 = load ptr, ptr %40, align 8
   tail call void @ecpg_free(ptr noundef %41) #14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3026,7 +3020,7 @@ store_input_from_desc.exit:                       ; preds = %93, %94
   %124 = getelementptr inbounds nuw i8, ptr %114, i64 8
   %125 = load ptr, ptr %124, align 8
   %126 = zext nneg i32 %.0191359 to i64
-  %127 = getelementptr inbounds nuw %struct.sqlvar_compat, ptr %125, i64 %126
+  %127 = getelementptr inbounds nuw [120 x i8], ptr %125, i64 %126
   %128 = load i16, ptr %127, align 8
   %129 = sext i16 %128 to i32
   store i32 %129, ptr %4, align 8
@@ -3062,7 +3056,7 @@ store_input_from_desc.exit:                       ; preds = %93, %94
 139:                                              ; preds = %137
   store i16 -1, ptr %136, align 2
   %.pre381 = load ptr, ptr %124, align 8
-  %.phi.trans.insert = getelementptr inbounds nuw %struct.sqlvar_compat, ptr %.pre381, i64 %126
+  %.phi.trans.insert = getelementptr inbounds nuw [120 x i8], ptr %.pre381, i64 %126
   %.phi.trans.insert382 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert, i64 16
   %.pre383 = load ptr, ptr %.phi.trans.insert382, align 8
   br label %140
@@ -3070,7 +3064,7 @@ store_input_from_desc.exit:                       ; preds = %93, %94
 140:                                              ; preds = %139, %137
   %141 = phi ptr [ %.pre383, %139 ], [ %136, %137 ]
   %142 = phi ptr [ %.pre381, %139 ], [ %125, %137 ]
-  %143 = getelementptr inbounds nuw %struct.sqlvar_compat, ptr %142, i64 %126
+  %143 = getelementptr inbounds nuw [120 x i8], ptr %142, i64 %126
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 16
   store ptr %141, ptr %38, align 8
   store ptr %144, ptr %39, align 8
@@ -3125,7 +3119,7 @@ store_input_from_desc.exit:                       ; preds = %93, %94
 160:                                              ; preds = %153
   %161 = getelementptr inbounds nuw i8, ptr %114, i64 32
   %162 = zext nneg i32 %.0191359 to i64
-  %163 = getelementptr inbounds nuw %struct.sqlvar_struct, ptr %161, i64 %162
+  %163 = getelementptr inbounds nuw [96 x i8], ptr %161, i64 %162
   %164 = load i16, ptr %163, align 8
   %165 = sext i16 %164 to i32
   store i32 %165, ptr %5, align 8
@@ -3240,7 +3234,7 @@ store_input_from_desc.exit:                       ; preds = %93, %94
 print_param_value.exit.i:                         ; preds = %204, %print_param_value.exit.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %print_param_value.exit.i ], [ 0, %204 ]
   %208 = load ptr, ptr %57, align 8
-  %209 = getelementptr inbounds nuw ptr, ptr %208, i64 %indvars.iv.i
+  %209 = getelementptr inbounds nuw [8 x i8], ptr %208, i64 %indvars.iv.i
   %210 = load ptr, ptr %209, align 8
   call void @ecpg_free(ptr noundef %210) #14
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -3285,7 +3279,7 @@ ecpg_free_params.exit:                            ; preds = %print_param_value.e
 print_param_value.exit.i263:                      ; preds = %229, %print_param_value.exit.i263
   %indvars.iv.i264 = phi i64 [ %indvars.iv.next.i265, %print_param_value.exit.i263 ], [ 0, %229 ]
   %232 = load ptr, ptr %57, align 8
-  %233 = getelementptr inbounds nuw ptr, ptr %232, i64 %indvars.iv.i264
+  %233 = getelementptr inbounds nuw [8 x i8], ptr %232, i64 %indvars.iv.i264
   %234 = load ptr, ptr %233, align 8
   call void @ecpg_free(ptr noundef %234) #14
   %indvars.iv.next.i265 = add nuw nsw i64 %indvars.iv.i264, 1
@@ -3333,7 +3327,7 @@ print_param_value.exit.i263:                      ; preds = %229, %print_param_v
 print_param_value.exit.i268:                      ; preds = %251, %print_param_value.exit.i268
   %indvars.iv.i269 = phi i64 [ %indvars.iv.next.i270, %print_param_value.exit.i268 ], [ 0, %251 ]
   %254 = load ptr, ptr %57, align 8
-  %255 = getelementptr inbounds nuw ptr, ptr %254, i64 %indvars.iv.i269
+  %255 = getelementptr inbounds nuw [8 x i8], ptr %254, i64 %indvars.iv.i269
   %256 = load ptr, ptr %255, align 8
   call void @ecpg_free(ptr noundef %256) #14
   %indvars.iv.next.i270 = add nuw nsw i64 %indvars.iv.i269, 1
@@ -3372,7 +3366,7 @@ print_param_value.exit.i268:                      ; preds = %251, %print_param_v
 print_param_value.exit.i273:                      ; preds = %268, %print_param_value.exit.i273
   %indvars.iv.i274 = phi i64 [ %indvars.iv.next.i275, %print_param_value.exit.i273 ], [ 0, %268 ]
   %271 = load ptr, ptr %57, align 8
-  %272 = getelementptr inbounds nuw ptr, ptr %271, i64 %indvars.iv.i274
+  %272 = getelementptr inbounds nuw [8 x i8], ptr %271, i64 %indvars.iv.i274
   %273 = load ptr, ptr %272, align 8
   call void @ecpg_free(ptr noundef %273) #14
   %indvars.iv.next.i275 = add nuw nsw i64 %indvars.iv.i274, 1
@@ -3419,7 +3413,7 @@ ecpg_free_params.exit276:                         ; preds = %print_param_value.e
 print_param_value.exit.i279:                      ; preds = %290, %print_param_value.exit.i279
   %indvars.iv.i280 = phi i64 [ %indvars.iv.next.i281, %print_param_value.exit.i279 ], [ 0, %290 ]
   %293 = load ptr, ptr %57, align 8
-  %294 = getelementptr inbounds nuw ptr, ptr %293, i64 %indvars.iv.i280
+  %294 = getelementptr inbounds nuw [8 x i8], ptr %293, i64 %indvars.iv.i280
   %295 = load ptr, ptr %294, align 8
   call void @ecpg_free(ptr noundef %295) #14
   %indvars.iv.next.i281 = add nuw nsw i64 %indvars.iv.i280, 1
@@ -3464,7 +3458,7 @@ print_param_value.exit.i279:                      ; preds = %290, %print_param_v
 print_param_value.exit.i284:                      ; preds = %311, %print_param_value.exit.i284
   %indvars.iv.i285 = phi i64 [ %indvars.iv.next.i286, %print_param_value.exit.i284 ], [ 0, %311 ]
   %314 = load ptr, ptr %57, align 8
-  %315 = getelementptr inbounds nuw ptr, ptr %314, i64 %indvars.iv.i285
+  %315 = getelementptr inbounds nuw [8 x i8], ptr %314, i64 %indvars.iv.i285
   %316 = load ptr, ptr %315, align 8
   call void @ecpg_free(ptr noundef %316) #14
   %indvars.iv.next.i286 = add nuw nsw i64 %indvars.iv.i285, 1
@@ -3538,7 +3532,7 @@ ecpg_free_params.exit287:                         ; preds = %print_param_value.e
 print_param_value.exit.i289:                      ; preds = %.critedge, %print_param_value.exit.i289
   %indvars.iv.i290 = phi i64 [ %indvars.iv.next.i291, %print_param_value.exit.i289 ], [ 0, %.critedge ]
   %352 = load ptr, ptr %57, align 8
-  %353 = getelementptr inbounds nuw ptr, ptr %352, i64 %indvars.iv.i290
+  %353 = getelementptr inbounds nuw [8 x i8], ptr %352, i64 %indvars.iv.i290
   %354 = load ptr, ptr %353, align 8
   call void @ecpg_free(ptr noundef %354) #14
   %indvars.iv.next.i291 = add nuw nsw i64 %indvars.iv.i290, 1
@@ -3565,18 +3559,18 @@ ecpg_free_params.exit292:                         ; preds = %print_param_value.e
   %364 = load ptr, ptr %57, align 8
   %365 = load i32, ptr %58, align 8
   %366 = sext i32 %365 to i64
-  %367 = getelementptr inbounds ptr, ptr %364, i64 %366
+  %367 = getelementptr inbounds [8 x i8], ptr %364, i64 %366
   store ptr %363, ptr %367, align 8
   %368 = load ptr, ptr %59, align 8
   %369 = load i32, ptr %58, align 8
   %370 = sext i32 %369 to i64
-  %371 = getelementptr inbounds i32, ptr %368, i64 %370
+  %371 = getelementptr inbounds [4 x i8], ptr %368, i64 %370
   store i32 %.2209, ptr %371, align 4
   %372 = zext nneg i8 %.2205 to i32
   %373 = load ptr, ptr %60, align 8
   %374 = load i32, ptr %58, align 8
   %375 = sext i32 %374 to i64
-  %376 = getelementptr inbounds i32, ptr %373, i64 %375
+  %376 = getelementptr inbounds [4 x i8], ptr %373, i64 %375
   store i32 %372, ptr %376, align 4
   %377 = load i32, ptr %58, align 8
   %378 = add i32 %377, 1
@@ -3654,7 +3648,7 @@ ecpg_free_params.exit292:                         ; preds = %print_param_value.e
 print_param_value.exit.i294:                      ; preds = %print_param_value.exit.i294, %.lr.ph.i293
   %indvars.iv.i295 = phi i64 [ %indvars.iv.next.i296, %print_param_value.exit.i294 ], [ 0, %.lr.ph.i293 ]
   %411 = load ptr, ptr %410, align 8
-  %412 = getelementptr inbounds nuw ptr, ptr %411, i64 %indvars.iv.i295
+  %412 = getelementptr inbounds nuw [8 x i8], ptr %411, i64 %indvars.iv.i295
   %413 = load ptr, ptr %412, align 8
   call void @ecpg_free(ptr noundef %413) #14
   %indvars.iv.next.i296 = add nuw nsw i64 %indvars.iv.i295, 1
@@ -3726,7 +3720,7 @@ define internal fastcc i32 @next_insert(ptr noundef readonly captures(none) %0, 
   %18 = getelementptr inbounds i8, ptr %0, i64 %17
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i64
-  %21 = getelementptr inbounds nuw i16, ptr %15, i64 %20
+  %21 = getelementptr inbounds nuw [2 x i8], ptr %15, i64 %20
   %22 = load i16, ptr %21, align 2
   %23 = and i16 %22, 2048
   %.not43.us.us = icmp eq i16 %23, 0
@@ -3738,7 +3732,7 @@ define internal fastcc i32 @next_insert(ptr noundef readonly captures(none) %0, 
   %25 = getelementptr inbounds i8, ptr %0, i64 %24
   %26 = load i8, ptr %25, align 1
   %27 = zext i8 %26 to i64
-  %28 = getelementptr inbounds nuw i16, ptr %15, i64 %27
+  %28 = getelementptr inbounds nuw [2 x i8], ptr %15, i64 %27
   %29 = load i16, ptr %28, align 2
   %30 = zext i16 %29 to i32
   %31 = and i32 %30, 2048
@@ -3792,7 +3786,7 @@ define internal fastcc i32 @next_insert(ptr noundef readonly captures(none) %0, 
   %51 = getelementptr inbounds i8, ptr %0, i64 %50
   %52 = load i8, ptr %51, align 1
   %53 = zext i8 %52 to i64
-  %54 = getelementptr inbounds nuw i16, ptr %48, i64 %53
+  %54 = getelementptr inbounds nuw [2 x i8], ptr %48, i64 %53
   %55 = load i16, ptr %54, align 2
   %56 = and i16 %55, 2048
   %.not43.us = icmp eq i16 %56, 0
@@ -3804,7 +3798,7 @@ define internal fastcc i32 @next_insert(ptr noundef readonly captures(none) %0, 
   %58 = getelementptr inbounds i8, ptr %0, i64 %57
   %59 = load i8, ptr %58, align 1
   %60 = zext i8 %59 to i64
-  %61 = getelementptr inbounds nuw i16, ptr %48, i64 %60
+  %61 = getelementptr inbounds nuw [2 x i8], ptr %48, i64 %60
   %62 = load i16, ptr %61, align 2
   %63 = zext i16 %62 to i32
   %64 = and i32 %63, 2048
@@ -3864,7 +3858,7 @@ define internal fastcc i32 @next_insert(ptr noundef readonly captures(none) %0, 
   %87 = getelementptr inbounds i8, ptr %0, i64 %86
   %88 = load i8, ptr %87, align 1
   %89 = zext i8 %88 to i64
-  %90 = getelementptr inbounds nuw i16, ptr %84, i64 %89
+  %90 = getelementptr inbounds nuw [2 x i8], ptr %84, i64 %89
   %91 = load i16, ptr %90, align 2
   %92 = and i16 %91, 2048
   %.not43.us67 = icmp eq i16 %92, 0
@@ -3876,7 +3870,7 @@ define internal fastcc i32 @next_insert(ptr noundef readonly captures(none) %0, 
   %94 = getelementptr inbounds i8, ptr %0, i64 %93
   %95 = load i8, ptr %94, align 1
   %96 = zext i8 %95 to i64
-  %97 = getelementptr inbounds nuw i16, ptr %84, i64 %96
+  %97 = getelementptr inbounds nuw [2 x i8], ptr %84, i64 %96
   %98 = load i16, ptr %97, align 2
   %99 = zext i16 %98 to i32
   %100 = and i32 %99, 2048
@@ -3948,7 +3942,7 @@ define internal fastcc i32 @next_insert(ptr noundef readonly captures(none) %0, 
   %128 = getelementptr inbounds i8, ptr %0, i64 %127
   %129 = load i8, ptr %128, align 1
   %130 = zext i8 %129 to i64
-  %131 = getelementptr inbounds nuw i16, ptr %125, i64 %130
+  %131 = getelementptr inbounds nuw [2 x i8], ptr %125, i64 %130
   %132 = load i16, ptr %131, align 2
   %133 = and i16 %132, 2048
   %.not43 = icmp eq i16 %133, 0
@@ -3960,7 +3954,7 @@ define internal fastcc i32 @next_insert(ptr noundef readonly captures(none) %0, 
   %135 = getelementptr inbounds i8, ptr %0, i64 %134
   %136 = load i8, ptr %135, align 1
   %137 = zext i8 %136 to i64
-  %138 = getelementptr inbounds nuw i16, ptr %125, i64 %137
+  %138 = getelementptr inbounds nuw [2 x i8], ptr %125, i64 %137
   %139 = load i16, ptr %138, align 2
   %140 = zext i16 %139 to i32
   %141 = and i32 %140, 2048
@@ -4075,7 +4069,7 @@ define noundef zeroext i1 @ecpg_autostart_transaction(ptr noundef captures(none)
 print_param_value.exit.i:                         ; preds = %print_param_value.exit.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %print_param_value.exit.i ], [ 0, %.lr.ph.i ]
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv.i
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv.i
   %32 = load ptr, ptr %31, align 8
   tail call void @ecpg_free(ptr noundef %32) #14
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1

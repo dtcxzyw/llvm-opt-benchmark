@@ -7,10 +7,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::vector<unsigned long>, std::allocator<std::vector<unsigned long>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::vector<unsigned long>, std::allocator<std::vector<unsigned long>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::vector<unsigned long>, std::allocator<std::vector<unsigned long>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::vector<unsigned long>, std::allocator<std::vector<unsigned long>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.0" = type { %"struct.std::_Vector_base.1" }
-%"struct.std::_Vector_base.1" = type { %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 
 $_ZNSt6vectorIS_ImSaImEESaIS1_EED2Ev = comdat any
 
@@ -292,7 +288,7 @@ while.body:                                       ; preds = %if.end, %while.body
 
 while.end:                                        ; preds = %while.body, %if.end
   %.lcssa = phi ptr [ %17, %if.end ], [ %20, %while.body ]
-  %add.ptr.i85 = getelementptr inbounds nuw %"class.std::vector.0", ptr %.lcssa, i64 %order
+  %add.ptr.i85 = getelementptr inbounds nuw [24 x i8], ptr %.lcssa, i64 %order
   ret ptr %add.ptr.i85
 }
 
@@ -330,7 +326,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZNSt6vectorImSaImE
   %mul.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %add, 3
   %call5.i.i.i.i2.i.i1.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i.i.i.i) #14
   store ptr %call5.i.i.i.i2.i.i1.i.i.i, ptr %0, align 8, !tbaa !9
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %call5.i.i.i.i2.i.i1.i.i.i, i64 %add
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i1.i.i.i, i64 %add
   %_M_end_of_storage.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %add.ptr.i.i.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i.i.i, align 8, !tbaa !11
   store i64 0, ptr %call5.i.i.i.i2.i.i1.i.i.i, align 8, !tbaa !18
@@ -362,7 +358,7 @@ _ZNSt6vectorIS_ImSaImEESaIS1_EE12emplace_backIJmEEERS1_DpOT_.exit: ; preds = %_Z
   %4 = load ptr, ptr @_ZN8QuantLib14PascalTriangle13coefficients_E, align 8, !tbaa !3
   %add.ptr.i = getelementptr i8, ptr %4, i64 %sub.ptr.sub.i
   %5 = load ptr, ptr %add.ptr.i, align 8, !tbaa !9
-  %add.ptr.i16 = getelementptr inbounds nuw i64, ptr %5, i64 %sub.ptr.div.i
+  %add.ptr.i16 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %sub.ptr.div.i
   store i64 1, ptr %add.ptr.i16, align 8, !tbaa !18
   store i64 1, ptr %5, align 8, !tbaa !18
   %div15 = lshr i64 %sub.ptr.div.i, 1
@@ -379,15 +375,15 @@ for.cond.cleanup:                                 ; preds = %for.body, %_ZNSt6ve
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %i.028 = phi i64 [ 1, %for.body.lr.ph ], [ %inc, %for.body ]
-  %7 = getelementptr i64, ptr %6, i64 %i.028
+  %7 = getelementptr [8 x i8], ptr %6, i64 %i.028
   %add.ptr.i20 = getelementptr i8, ptr %7, i64 -8
   %8 = load i64, ptr %add.ptr.i20, align 8, !tbaa !18
   %9 = load i64, ptr %7, align 8, !tbaa !18
   %add13 = add i64 %9, %8
   %sub15 = sub nuw i64 %sub.ptr.div.i, %i.028
-  %add.ptr.i24 = getelementptr inbounds nuw i64, ptr %5, i64 %sub15
+  %add.ptr.i24 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %sub15
   store i64 %add13, ptr %add.ptr.i24, align 8, !tbaa !18
-  %add.ptr.i26 = getelementptr inbounds nuw i64, ptr %5, i64 %i.028
+  %add.ptr.i26 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %i.028
   store i64 %add13, ptr %add.ptr.i26, align 8, !tbaa !18
   %inc = add nuw i64 %i.028, 1
   %exitcond.not = icmp eq i64 %i.028, %div15
@@ -473,7 +469,7 @@ if.end.i.i.i.i.i.i.i.i.i:                         ; preds = %_ZNSt6vectorImSaImE
 
 call5.i.i.i.i2.i.i1.i.i.noexc:                    ; preds = %if.end.i.i.i.i.i.i.i.i.i
   store ptr %call5.i.i.i.i2.i.i1.i.i18, ptr %add.ptr, align 8, !tbaa !9
-  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %call5.i.i.i.i2.i.i1.i.i18, i64 %conv.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i1.i.i18, i64 %conv.i.i
   %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 16
   store ptr %add.ptr.i.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i.i, align 8, !tbaa !11
   %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i1.i.i18, i64 %mul.i.i.i.i.i.i.i.i
@@ -557,7 +553,7 @@ if.then.i32:                                      ; preds = %_ZNSt6vectorIS_ImSa
 _ZNSt12_Vector_baseISt6vectorImSaImEESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIS_ImSaImEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit31, %if.then.i32
   store ptr %cond.i17, ptr %this, align 8, !tbaa !3
   store ptr %__cur.0.lcssa.i.i.i30, ptr %_M_finish.i.i, align 8, !tbaa !8
-  %add.ptr28 = getelementptr inbounds nuw %"class.std::vector.0", ptr %cond.i17, i64 %cond.i
+  %add.ptr28 = getelementptr inbounds nuw [24 x i8], ptr %cond.i17, i64 %cond.i
   store ptr %add.ptr28, ptr %_M_end_of_storage, align 8, !tbaa !14
   ret void
 
@@ -688,7 +684,7 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %_ZNSt6vectorImSaImE
 
 call5.i.i.i.i2.i.i1.i.i.noexc:                    ; preds = %if.then.i.i.i.i.i.i.i
   store ptr %call5.i.i.i.i2.i.i1.i.i18, ptr %add.ptr, align 8, !tbaa !9
-  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %call5.i.i.i.i2.i.i1.i.i18, i64 %3
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i1.i.i18, i64 %3
   %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 16
   store ptr %add.ptr.i.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i.i, align 8, !tbaa !11
   store i64 0, ptr %call5.i.i.i.i2.i.i1.i.i18, align 8, !tbaa !18
@@ -774,7 +770,7 @@ if.then.i32:                                      ; preds = %_ZNSt6vectorIS_ImSa
 _ZNSt12_Vector_baseISt6vectorImSaImEESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIS_ImSaImEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit31, %if.then.i32
   store ptr %cond.i17, ptr %this, align 8, !tbaa !3
   store ptr %__cur.0.lcssa.i.i.i30, ptr %_M_finish.i.i, align 8, !tbaa !8
-  %add.ptr26 = getelementptr inbounds nuw %"class.std::vector.0", ptr %cond.i17, i64 %cond.i
+  %add.ptr26 = getelementptr inbounds nuw [24 x i8], ptr %cond.i17, i64 %cond.i
   store ptr %add.ptr26, ptr %_M_end_of_storage, align 8, !tbaa !14
   ret void
 

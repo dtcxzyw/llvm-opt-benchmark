@@ -162,9 +162,9 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$5drain17hab82ca6927e79700E"(
   store i64 %7, ptr %3, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8, !nonnull !3, !noundef !3
-  %11 = getelementptr inbounds nuw { { ptr, ptr, i64, { ptr } }, i64 }, ptr %10, i64 %7
+  %11 = getelementptr inbounds nuw [40 x i8], ptr %10, i64 %7
   %12 = sub i64 %4, %8
-  %13 = getelementptr inbounds nuw { { ptr, ptr, i64, { ptr } }, i64 }, ptr %10, i64 %8
+  %13 = getelementptr inbounds nuw [40 x i8], ptr %10, i64 %8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %8, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -907,7 +907,7 @@ define hidden void @"_ZN5tokio4util12sharded_list82ShardedList$LT$L$C$$LT$L$u20$
   %16 = and i64 %15, %10
   %17 = icmp ult i64 %16, %13
   tail call void @llvm.assume(i1 %17)
-  %18 = getelementptr inbounds nuw { { { { i32 } }, { { i8 } }, [3 x i8], { { ptr, ptr, {} } } } }, ptr %11, i64 %16
+  %18 = getelementptr inbounds nuw [24 x i8], ptr %11, i64 %16
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @"_ZN3std4sync6poison5mutex14Mutex$LT$T$GT$4lock17hc97b4fb5c4a2bafaE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, ptr noundef nonnull align 8 %18)
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 8

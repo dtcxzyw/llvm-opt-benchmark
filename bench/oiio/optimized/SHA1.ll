@@ -272,7 +272,7 @@ define hidden void @_ZN11OpenImageIO6v3_1_05CSHA15FinalEv(ptr noundef nonnull al
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %4 ]
   %5 = icmp samesign ult i64 %indvars.iv, 4
   %6 = zext i1 %5 to i64
-  %7 = getelementptr inbounds nuw i32, ptr %3, i64 %6
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %6
   %8 = load i32, ptr %7, align 4, !tbaa !8
   %indvars.iv.tr = trunc i64 %indvars.iv to i32
   %9 = shl i32 %indvars.iv.tr, 3
@@ -380,7 +380,7 @@ _ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit14: ; preds = %.loopexit.i10, %.lo
   %indvars.iv40 = phi i64 [ 0, %.loopexit.i15 ], [ %indvars.iv.next41, %58 ]
   %59 = lshr i64 %indvars.iv40, 2
   %60 = and i64 %59, 1073741823
-  %61 = getelementptr inbounds nuw i32, ptr %0, i64 %60
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %60
   %62 = load i32, ptr %61, align 4, !tbaa !8
   %indvars.iv40.tr = trunc i64 %indvars.iv40 to i32
   %63 = shl i32 %indvars.iv40.tr, 3

@@ -798,7 +798,7 @@ getc_unlocked.exit.i:                             ; preds = %57, %55
   %61 = tail call ptr @__ctype_b_loc() #10
   %62 = load ptr, ptr %61, align 8, !tbaa !37
   %63 = sext i32 %.pr.i to i64
-  %64 = getelementptr inbounds i16, ptr %62, i64 %63
+  %64 = getelementptr inbounds [2 x i8], ptr %62, i64 %63
   %65 = load i16, ptr %64, align 2, !tbaa !39
   %66 = and i16 %65, 8192
   %.not.i = icmp eq i16 %66, 0
@@ -1057,7 +1057,7 @@ test2.exit37.i:                                   ; preds = %getc_unlocked.exit.
   %192 = phi i32 [ %170, %169 ], [ %170, %174 ], [ %191, %getc_unlocked.exit.i.i36.i ]
   %193 = load ptr, ptr %61, align 8, !tbaa !37
   %194 = sext i32 %192 to i64
-  %195 = getelementptr inbounds i16, ptr %193, i64 %194
+  %195 = getelementptr inbounds [2 x i8], ptr %193, i64 %194
   %196 = load i16, ptr %195, align 2, !tbaa !39
   %197 = and i16 %196, 2048
   %.not5.us16.i.i = icmp eq i16 %197, 0
@@ -1102,7 +1102,7 @@ test2.exit37.i:                                   ; preds = %getc_unlocked.exit.
   %220 = phi i32 [ %213, %212 ], [ %217, %214 ]
   store i32 %220, ptr %20, align 8, !tbaa !36
   %221 = sext i32 %220 to i64
-  %222 = getelementptr inbounds i16, ptr %219, i64 %221
+  %222 = getelementptr inbounds [2 x i8], ptr %219, i64 %221
   %223 = load i16, ptr %222, align 2, !tbaa !39
   %224 = and i16 %223, 2048
   %.not5.us.i.i = icmp eq i16 %224, 0
@@ -1360,7 +1360,7 @@ define internal fastcc i32 @readdigits(ptr noundef nonnull captures(none) %0, i3
   %7 = load ptr, ptr %6, align 8, !tbaa !37
   %8 = load i32, ptr %4, align 8, !tbaa !36
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds i16, ptr %7, i64 %9
+  %10 = getelementptr inbounds [2 x i8], ptr %7, i64 %9
   %11 = load i16, ptr %10, align 2, !tbaa !39
   br i1 %.not, label %.split.us, label %.split
 
@@ -1408,7 +1408,7 @@ define internal fastcc i32 @readdigits(ptr noundef nonnull captures(none) %0, i3
   %34 = add nuw nsw i32 %.0.us17, 1
   %35 = load ptr, ptr %6, align 8, !tbaa !37
   %36 = sext i32 %33 to i64
-  %37 = getelementptr inbounds i16, ptr %35, i64 %36
+  %37 = getelementptr inbounds [2 x i8], ptr %35, i64 %36
   %38 = load i16, ptr %37, align 2, !tbaa !39
   %39 = and i16 %38, 2048
   %.not5.us = icmp eq i16 %39, 0
@@ -1463,7 +1463,7 @@ nextc.exit.thread:                                ; preds = %.lr.ph, %.lr.ph18
   %62 = add nuw nsw i32 %.015, 1
   %63 = load ptr, ptr %6, align 8, !tbaa !37
   %64 = sext i32 %61 to i64
-  %65 = getelementptr inbounds i16, ptr %63, i64 %64
+  %65 = getelementptr inbounds [2 x i8], ptr %63, i64 %64
   %66 = load i16, ptr %65, align 2, !tbaa !39
   %67 = and i16 %66, 4096
   %.not6 = icmp eq i16 %67, 0
@@ -1740,7 +1740,7 @@ tofile.exit:                                      ; preds = %1, %6
   %11 = tail call ptr @__errno_location() #10
   store i32 0, ptr %11, align 4, !tbaa !14
   %12 = sext i32 %9 to i64
-  %13 = getelementptr inbounds i32, ptr @f_seek.mode, i64 %12
+  %13 = getelementptr inbounds [4 x i8], ptr @f_seek.mode, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !14
   %15 = tail call i32 @fseeko64(ptr noundef %8, i64 noundef %10, i32 noundef %14)
   %.not = icmp eq i32 %15, 0
@@ -1779,7 +1779,7 @@ tofile.exit:                                      ; preds = %1, %6
   %11 = tail call ptr @__errno_location() #10
   store i32 0, ptr %11, align 4, !tbaa !14
   %12 = sext i32 %9 to i64
-  %13 = getelementptr inbounds i32, ptr @f_setvbuf.mode, i64 %12
+  %13 = getelementptr inbounds [4 x i8], ptr @f_setvbuf.mode, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !14
   %15 = tail call i32 @setvbuf(ptr noundef %8, ptr noundef null, i32 noundef %14, i64 noundef %10) #9
   %16 = icmp eq i32 %15, 0

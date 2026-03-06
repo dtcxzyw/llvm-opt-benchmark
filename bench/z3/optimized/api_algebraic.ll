@@ -7300,7 +7300,7 @@ _ZNK6vectorIN17algebraic_numbers4anumELb0EjE4sizeEv.exit: ; preds = %_ZNK6vector
   br label %191
 
 114:                                              ; preds = %_ZNK6vectorIN17algebraic_numbers4anumELb0EjE4sizeEv.exit
-  %115 = getelementptr inbounds nuw %"class.algebraic_numbers::anum", ptr %96, i64 %indvars.iv
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %96, i64 %indvars.iv
   %116 = load ptr, ptr %46, align 8, !tbaa !179
   %.not.i.i = icmp eq ptr %116, null
   br i1 %.not.i.i, label %117, label %_ZNK10arith_util6pluginEv.exit.i
@@ -7357,7 +7357,7 @@ _ZN15ref_vector_coreI3ast19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.e
   %135 = phi ptr [ %.pre.i.i79, %.noexc80 ], [ %124, %126 ]
   %136 = getelementptr inbounds i8, ptr %135, i64 -4
   %137 = zext i32 %134 to i64
-  %138 = getelementptr inbounds nuw ptr, ptr %135, i64 %137
+  %138 = getelementptr inbounds nuw [8 x i8], ptr %135, i64 %137
   store ptr %119, ptr %138, align 8, !tbaa !288
   %139 = add i32 %134, 1
   store i32 %139, ptr %136, align 4, !tbaa !286
@@ -7409,7 +7409,7 @@ _ZN22_scoped_numeral_vectorIN17algebraic_numbers7managerEE5resetEv.exit.thread3.
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %.noexc.i ]
   %152 = load ptr, ptr %61, align 8, !tbaa !292
   %153 = load ptr, ptr %9, align 8, !tbaa !265
-  %154 = getelementptr inbounds nuw %"class.algebraic_numbers::anum", ptr %153, i64 %indvars.iv.i.i
+  %154 = getelementptr inbounds nuw [8 x i8], ptr %153, i64 %indvars.iv.i.i
   invoke void @_ZN17algebraic_numbers7manager3delERNS_4anumE(ptr noundef nonnull align 8 dereferenceable(17) %152, ptr noundef nonnull align 8 dereferenceable(8) %154)
           to label %.noexc.i unwind label %159
 
@@ -7472,7 +7472,7 @@ _ZN22_scoped_numeral_vectorIN17algebraic_numbers7managerEE5resetEv.exit.thread3.
   %indvars.iv.i.i88 = phi i64 [ 0, %.lr.ph.i.i86 ], [ %indvars.iv.next.i.i90, %.noexc.i89 ]
   %169 = load ptr, ptr %52, align 8, !tbaa !292
   %170 = load ptr, ptr %8, align 8, !tbaa !265
-  %171 = getelementptr inbounds nuw %"class.algebraic_numbers::anum", ptr %170, i64 %indvars.iv.i.i88
+  %171 = getelementptr inbounds nuw [8 x i8], ptr %170, i64 %indvars.iv.i.i88
   invoke void @_ZN17algebraic_numbers7manager3delERNS_4anumE(ptr noundef nonnull align 8 dereferenceable(17) %169, ptr noundef nonnull align 8 dereferenceable(8) %171)
           to label %.noexc.i89 unwind label %176
 
@@ -7669,7 +7669,7 @@ _ZL2amP11_Z3_context.exit:                        ; preds = %4, %10
 
 22:                                               ; preds = %.lr.ph, %_ZN22_scoped_numeral_vectorIN17algebraic_numbers7managerEE9push_backERKNS0_4anumE.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN22_scoped_numeral_vectorIN17algebraic_numbers7managerEE9push_backERKNS0_4anumE.exit ]
-  %23 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8, !tbaa !299
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %26 = load i32, ptr %25, align 4
@@ -7823,7 +7823,7 @@ _ZN6vectorIN17algebraic_numbers4anumELb0EjE4backEv.exit.i35.invoke: ; preds = %_
   %.sink64 = phi ptr [ %56, %58 ], [ %73, %75 ], [ %.pre.i.i36, %_ZN6vectorIN17algebraic_numbers4anumELb0EjE4backEv.exit.i35.invoke.sink.split ]
   %82 = phi ptr [ %14, %58 ], [ %72, %75 ], [ %.ph, %_ZN6vectorIN17algebraic_numbers4anumELb0EjE4backEv.exit.i35.invoke.sink.split ]
   %83 = zext i32 %.sink to i64
-  %84 = getelementptr inbounds nuw %"class.algebraic_numbers::anum", ptr %.sink64, i64 %83
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %.sink64, i64 %83
   store i64 0, ptr %84, align 8, !tbaa !304
   %85 = load ptr, ptr %3, align 8, !tbaa !265
   %86 = getelementptr inbounds i8, ptr %85, i64 -4
@@ -7832,7 +7832,7 @@ _ZN6vectorIN17algebraic_numbers4anumELb0EjE4backEv.exit.i35.invoke: ; preds = %_
   store i32 %88, ptr %86, align 4, !tbaa !286
   %89 = load ptr, ptr %21, align 8, !tbaa !292
   %90 = zext i32 %87 to i64
-  %91 = getelementptr inbounds nuw %"class.algebraic_numbers::anum", ptr %85, i64 %90
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %90
   invoke void @_ZN17algebraic_numbers7manager3setERNS_4anumERKS1_(ptr noundef nonnull align 8 dereferenceable(17) %89, ptr noundef nonnull align 8 dereferenceable(8) %91, ptr noundef nonnull align 8 dereferenceable(8) %82)
           to label %_ZN22_scoped_numeral_vectorIN17algebraic_numbers7managerEE9push_backERKNS0_4anumE.exit unwind label %65
 
@@ -7954,7 +7954,7 @@ _ZN22_scoped_numeral_vectorIN17algebraic_numbers7managerEE5resetEv.exit.thread3:
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %.noexc ]
   %9 = load ptr, ptr %6, align 8, !tbaa !292
   %10 = load ptr, ptr %0, align 8, !tbaa !265
-  %11 = getelementptr inbounds nuw %"class.algebraic_numbers::anum", ptr %10, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i
   invoke void @_ZN17algebraic_numbers7manager3delERNS_4anumE(ptr noundef nonnull align 8 dereferenceable(17) %9, ptr noundef nonnull align 8 dereferenceable(8) %11)
           to label %.noexc unwind label %16
 
@@ -8306,7 +8306,7 @@ _ZN22_scoped_numeral_vectorIN17algebraic_numbers7managerEE5resetEv.exit.thread3.
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %.noexc.i ]
   %99 = load ptr, ptr %50, align 8, !tbaa !292
   %100 = load ptr, ptr %8, align 8, !tbaa !265
-  %101 = getelementptr inbounds nuw %"class.algebraic_numbers::anum", ptr %100, i64 %indvars.iv.i.i
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %100, i64 %indvars.iv.i.i
   invoke void @_ZN17algebraic_numbers7manager3delERNS_4anumE(ptr noundef nonnull align 8 dereferenceable(17) %99, ptr noundef nonnull align 8 dereferenceable(8) %101)
           to label %.noexc.i unwind label %106
 
@@ -8719,7 +8719,7 @@ _ZN15ref_vector_coreI3ast19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.e
   %113 = phi ptr [ %.pre.i.i, %.noexc64 ], [ %102, %104 ]
   %114 = getelementptr inbounds i8, ptr %113, i64 -4
   %115 = zext i32 %112 to i64
-  %116 = getelementptr inbounds nuw ptr, ptr %113, i64 %115
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %113, i64 %115
   store ptr %96, ptr %116, align 8, !tbaa !288
   %117 = add i32 %112, 1
   store i32 %117, ptr %114, align 4, !tbaa !286
@@ -8801,7 +8801,7 @@ _ZN22_scoped_numeral_vectorI11mpz_managerILb0EEE5resetEv.exit.thread3.i: ; preds
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %.noexc.i65 ]
   %138 = load ptr, ptr %42, align 8, !tbaa !309
   %139 = load ptr, ptr %3, align 8, !tbaa !306
-  %140 = getelementptr inbounds nuw %class.mpz, ptr %139, i64 %indvars.iv.i.i
+  %140 = getelementptr inbounds nuw [16 x i8], ptr %139, i64 %indvars.iv.i.i
   invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %138, ptr noundef nonnull align 8 dereferenceable(16) %140)
           to label %.noexc.i65 unwind label %145
 
@@ -8939,7 +8939,7 @@ _ZN22_scoped_numeral_vectorI11mpz_managerILb0EEE5resetEv.exit.thread3: ; preds =
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %.noexc ]
   %9 = load ptr, ptr %6, align 8, !tbaa !309
   %10 = load ptr, ptr %0, align 8, !tbaa !306
-  %11 = getelementptr inbounds nuw %class.mpz, ptr %10, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %indvars.iv.i
   invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %9, ptr noundef nonnull align 8 dereferenceable(16) %11)
           to label %.noexc unwind label %16
 
@@ -9756,7 +9756,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK1
   %4 = load ptr, ptr %3, align 8, !tbaa !317
   %5 = load ptr, ptr %4, align 8, !tbaa !265
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds nuw %"class.algebraic_numbers::anum", ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %6
   ret ptr %7
 }
 

@@ -74,9 +74,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.msgpack::v2::detail::context<msgpack::v2::detail::parse_helper<msgpack::v2::detail::create_object_visitor>>::array_ev" = type { ptr }
 %"struct.msgpack::v2::detail::context<msgpack::v2::detail::parse_helper<msgpack::v2::detail::create_object_visitor>>::map_sv" = type { ptr }
 %"struct.msgpack::v2::detail::context<msgpack::v2::detail::parse_helper<msgpack::v2::detail::create_object_visitor>>::map_ev" = type { ptr }
-%"struct.msgpack::v2::detail::context<msgpack::v2::detail::parse_helper<msgpack::v2::detail::create_object_visitor>>::unpack_stack::stack_elem" = type { i32, i32 }
-%"struct.msgpack::v1::object_parser::elem" = type <{ %union.anon.31, i64, i8, i8, [6 x i8] }>
-%union.anon.31 = type { ptr }
 %"struct.msgpack::v3::adaptor::pack.42" = type { i8 }
 
 $_ZN5boost4noneE = comdat any
@@ -2887,7 +2884,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
 139:                                              ; preds = %137
   %140 = add nuw nsw i64 %34, 4294967100
   %141 = and i64 %140, 4294967295
-  %142 = getelementptr inbounds nuw i32, ptr @__const._ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE7executeEPKcmRm.trail, i64 %141
+  %142 = getelementptr inbounds nuw [4 x i8], ptr @__const._ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE7executeEPKcmRm.trail, i64 %141
   %143 = load i32, ptr %142, align 4, !tbaa !123
   %144 = zext i32 %143 to i64
   store i64 %144, ptr %24, align 8, !tbaa !151
@@ -6093,7 +6090,7 @@ _ZNSt6vectorIN7msgpack2v26detail7contextINS2_12parse_helperINS2_21create_object_
 _ZNSt6vectorIN7msgpack2v26detail7contextINS2_12parse_helperINS2_21create_object_visitorEEEE12unpack_stack10stack_elemESaIS9_EE17_M_realloc_insertIJS9_EEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.exit.i.i.i: ; preds = %113, %_ZNSt6vectorIN7msgpack2v26detail7contextINS2_12parse_helperINS2_21create_object_visitorEEEE12unpack_stack10stack_elemESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit22.i.i.i.i
   store ptr %107, ptr %86, align 8, !tbaa !160
   store ptr %112, ptr %87, align 8, !tbaa !161
-  %114 = getelementptr inbounds nuw %"struct.msgpack::v2::detail::context<msgpack::v2::detail::parse_helper<msgpack::v2::detail::create_object_visitor>>::unpack_stack::stack_elem", ptr %107, i64 %105
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %105
   store ptr %114, ptr %89, align 8, !tbaa !162
   br label %.critedge
 
@@ -6316,7 +6313,7 @@ _ZNSt6vectorIN7msgpack2v26detail7contextINS2_12parse_helperINS2_21create_object_
 _ZNSt6vectorIN7msgpack2v26detail7contextINS2_12parse_helperINS2_21create_object_visitorEEEE12unpack_stack10stack_elemESaIS9_EE17_M_realloc_insertIJS9_EEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.exit.i.i.i: ; preds = %113, %_ZNSt6vectorIN7msgpack2v26detail7contextINS2_12parse_helperINS2_21create_object_visitorEEEE12unpack_stack10stack_elemESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit22.i.i.i.i
   store ptr %107, ptr %86, align 8, !tbaa !160
   store ptr %112, ptr %87, align 8, !tbaa !161
-  %114 = getelementptr inbounds nuw %"struct.msgpack::v2::detail::context<msgpack::v2::detail::parse_helper<msgpack::v2::detail::create_object_visitor>>::unpack_stack::stack_elem", ptr %107, i64 %105
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %105
   store ptr %114, ptr %89, align 8, !tbaa !162
   br label %.critedge
 
@@ -6800,7 +6797,7 @@ _ZNSt6vectorIN7msgpack2v26detail7contextINS2_12parse_helperINS2_21create_object_
 _ZNSt6vectorIN7msgpack2v26detail7contextINS2_12parse_helperINS2_21create_object_visitorEEEE12unpack_stack10stack_elemESaIS9_EE17_M_realloc_insertIJS9_EEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.exit.i.i.i: ; preds = %112, %_ZNSt6vectorIN7msgpack2v26detail7contextINS2_12parse_helperINS2_21create_object_visitorEEEE12unpack_stack10stack_elemESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit22.i.i.i.i
   store ptr %106, ptr %85, align 8, !tbaa !160
   store ptr %111, ptr %86, align 8, !tbaa !161
-  %113 = getelementptr inbounds nuw %"struct.msgpack::v2::detail::context<msgpack::v2::detail::parse_helper<msgpack::v2::detail::create_object_visitor>>::unpack_stack::stack_elem", ptr %106, i64 %104
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %104
   store ptr %113, ptr %88, align 8, !tbaa !162
   br label %.critedge
 
@@ -7017,7 +7014,7 @@ _ZNSt6vectorIN7msgpack2v26detail7contextINS2_12parse_helperINS2_21create_object_
 _ZNSt6vectorIN7msgpack2v26detail7contextINS2_12parse_helperINS2_21create_object_visitorEEEE12unpack_stack10stack_elemESaIS9_EE17_M_realloc_insertIJS9_EEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.exit.i.i.i: ; preds = %109, %_ZNSt6vectorIN7msgpack2v26detail7contextINS2_12parse_helperINS2_21create_object_visitorEEEE12unpack_stack10stack_elemESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit22.i.i.i.i
   store ptr %103, ptr %82, align 8, !tbaa !160
   store ptr %108, ptr %83, align 8, !tbaa !161
-  %110 = getelementptr inbounds nuw %"struct.msgpack::v2::detail::context<msgpack::v2::detail::parse_helper<msgpack::v2::detail::create_object_visitor>>::unpack_stack::stack_elem", ptr %103, i64 %101
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %103, i64 %101
   store ptr %110, ptr %85, align 8, !tbaa !162
   br label %.critedge
 
@@ -7240,7 +7237,7 @@ _ZNSt6vectorIN7msgpack2v26detail7contextINS2_12parse_helperINS2_21create_object_
 _ZNSt6vectorIN7msgpack2v26detail7contextINS2_12parse_helperINS2_21create_object_visitorEEEE12unpack_stack10stack_elemESaIS9_EE17_M_realloc_insertIJS9_EEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.exit.i.i.i: ; preds = %112, %_ZNSt6vectorIN7msgpack2v26detail7contextINS2_12parse_helperINS2_21create_object_visitorEEEE12unpack_stack10stack_elemESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit22.i.i.i.i
   store ptr %106, ptr %85, align 8, !tbaa !160
   store ptr %111, ptr %86, align 8, !tbaa !161
-  %113 = getelementptr inbounds nuw %"struct.msgpack::v2::detail::context<msgpack::v2::detail::parse_helper<msgpack::v2::detail::create_object_visitor>>::unpack_stack::stack_elem", ptr %106, i64 %104
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %104
   store ptr %113, ptr %88, align 8, !tbaa !162
   br label %.critedge
 
@@ -7459,7 +7456,7 @@ _ZNSt6vectorIN7msgpack2v26detail7contextINS2_12parse_helperINS2_21create_object_
 _ZNSt6vectorIN7msgpack2v26detail7contextINS2_12parse_helperINS2_21create_object_visitorEEEE12unpack_stack10stack_elemESaIS9_EE17_M_realloc_insertIJS9_EEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.exit.i.i.i: ; preds = %109, %_ZNSt6vectorIN7msgpack2v26detail7contextINS2_12parse_helperINS2_21create_object_visitorEEEE12unpack_stack10stack_elemESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit22.i.i.i.i
   store ptr %103, ptr %82, align 8, !tbaa !160
   store ptr %108, ptr %83, align 8, !tbaa !161
-  %110 = getelementptr inbounds nuw %"struct.msgpack::v2::detail::context<msgpack::v2::detail::parse_helper<msgpack::v2::detail::create_object_visitor>>::unpack_stack::stack_elem", ptr %103, i64 %101
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %103, i64 %101
   store ptr %110, ptr %85, align 8, !tbaa !162
   br label %.critedge
 
@@ -7677,7 +7674,7 @@ _ZNSt6vectorIPN7msgpack2v26objectESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.
 _ZNSt6vectorIPN7msgpack2v26objectESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %99, %_ZNSt6vectorIPN7msgpack2v26objectESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
   store ptr %94, ptr %13, align 8, !tbaa !141
   store ptr %98, ptr %14, align 8, !tbaa !144
-  %100 = getelementptr inbounds nuw ptr, ptr %94, i64 %92
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %92
   store ptr %100, ptr %77, align 8, !tbaa !142
   br label %_ZNSt6vectorIPN7msgpack2v26objectESaIS3_EE9push_backERKS3_.exit
 
@@ -7909,7 +7906,7 @@ _ZNSt6vectorIPN7msgpack2v26objectESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.
 _ZNSt6vectorIPN7msgpack2v26objectESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %99, %_ZNSt6vectorIPN7msgpack2v26objectESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
   store ptr %94, ptr %13, align 8, !tbaa !141
   store ptr %98, ptr %14, align 8, !tbaa !144
-  %100 = getelementptr inbounds nuw ptr, ptr %94, i64 %92
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %92
   store ptr %100, ptr %77, align 8, !tbaa !142
   br label %_ZNSt6vectorIPN7msgpack2v26objectESaIS3_EE9push_backEOS3_.exit
 
@@ -8187,7 +8184,7 @@ _ZNSt6vectorIN7msgpack2v113object_parser4elemESaIS3_EE11_S_relocateEPS3_S6_S6_RS
 _ZNSt6vectorIN7msgpack2v113object_parser4elemESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %110, %_ZNSt6vectorIN7msgpack2v113object_parser4elemESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i
   store ptr %105, ptr %3, align 8, !tbaa !63
   store ptr %109, ptr %4, align 8, !tbaa !224
-  %111 = getelementptr inbounds nuw %"struct.msgpack::v1::object_parser::elem", ptr %105, i64 %103
+  %111 = getelementptr inbounds nuw [24 x i8], ptr %105, i64 %103
   store ptr %111, ptr %5, align 8, !tbaa !64
   br label %_ZNSt6vectorIN7msgpack2v113object_parser4elemESaIS3_EE9push_backEOS3_.exit
 
@@ -8285,7 +8282,7 @@ _ZNSt6vectorIN7msgpack2v113object_parser4elemESaIS3_EE11_S_relocateEPS3_S6_S6_RS
 _ZNSt6vectorIN7msgpack2v113object_parser4elemESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i35: ; preds = %150, %_ZNSt6vectorIN7msgpack2v113object_parser4elemESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i32
   store ptr %145, ptr %3, align 8, !tbaa !63
   store ptr %149, ptr %4, align 8, !tbaa !224
-  %151 = getelementptr inbounds nuw %"struct.msgpack::v1::object_parser::elem", ptr %145, i64 %143
+  %151 = getelementptr inbounds nuw [24 x i8], ptr %145, i64 %143
   store ptr %151, ptr %5, align 8, !tbaa !64
   br label %_ZNSt6vectorIN7msgpack2v113object_parser4elemESaIS3_EE9push_backEOS3_.exit36
 
@@ -8739,7 +8736,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i: ; preds = %26, %_ZNKS
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i: ; preds = %28, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i
   store ptr %23, ptr %3, align 8, !tbaa !65
   store ptr %27, ptr %4, align 8, !tbaa !239
-  %29 = getelementptr inbounds nuw i32, ptr %23, i64 %21
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %21
   store ptr %29, ptr %6, align 8, !tbaa !67
   br label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit
 
@@ -8809,7 +8806,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i: ; preds = %26, %_ZNKS
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i: ; preds = %28, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i
   store ptr %23, ptr %3, align 8, !tbaa !65
   store ptr %27, ptr %4, align 8, !tbaa !239
-  %29 = getelementptr inbounds nuw i32, ptr %23, i64 %21
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %21
   store ptr %29, ptr %6, align 8, !tbaa !67
   br label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit
 
@@ -9048,7 +9045,7 @@ _ZNSt6vectorIN10myprotocol3GetESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26: ; pr
 _ZNSt12_Vector_baseIN10myprotocol3GetESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN10myprotocol3GetESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26, %76
   store ptr %20, ptr %0, align 8, !tbaa !109
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !103
-  %80 = getelementptr inbounds nuw %"struct.myprotocol::Get", ptr %20, i64 %16
+  %80 = getelementptr inbounds nuw [40 x i8], ptr %20, i64 %16
   store ptr %80, ptr %75, align 8, !tbaa !106
   ret void
 }
@@ -9534,7 +9531,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(24) ptr @_
   br i1 %24, label %25, label %_ZNSt6vectorIN10myprotocol3GetESaIS1_EE6resizeEm.exit
 
 25:                                               ; preds = %23
-  %26 = getelementptr inbounds nuw %"struct.myprotocol::Get", ptr %15, i64 %12
+  %26 = getelementptr inbounds nuw [40 x i8], ptr %15, i64 %12
   %.not.i.i = icmp eq ptr %14, %26
   br i1 %.not.i.i, label %_ZNSt6vectorIN10myprotocol3GetESaIS1_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i
 
@@ -9570,7 +9567,7 @@ _ZNSt6vectorIN10myprotocol3GetESaIS1_EE6resizeEm.exit: ; preds = %21, %23, %25, 
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %37 = load ptr, ptr %36, align 8, !tbaa !13
   %38 = zext i32 %34 to i64
-  %39 = getelementptr inbounds nuw %"struct.msgpack::v2::object", ptr %37, i64 %38
+  %39 = getelementptr inbounds nuw [24 x i8], ptr %37, i64 %38
   %40 = load ptr, ptr %2, align 8, !tbaa !267
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %42
@@ -9745,9 +9742,9 @@ _ZNSt6vectorIN10myprotocol3GetESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; pred
 
 _ZNSt12_Vector_baseIN10myprotocol3GetESaIS1_EE13_M_deallocateEPS1_m.exit41: ; preds = %_ZNSt6vectorIN10myprotocol3GetESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %55
   store ptr %30, ptr %0, align 8, !tbaa !109
-  %59 = getelementptr inbounds nuw %"struct.myprotocol::Get", ptr %31, i64 %1
+  %59 = getelementptr inbounds nuw [40 x i8], ptr %31, i64 %1
   store ptr %59, ptr %4, align 8, !tbaa !103
-  %60 = getelementptr inbounds nuw %"struct.myprotocol::Get", ptr %30, i64 %28
+  %60 = getelementptr inbounds nuw [40 x i8], ptr %30, i64 %28
   store ptr %60, ptr %11, align 8, !tbaa !106
   br label %61
 

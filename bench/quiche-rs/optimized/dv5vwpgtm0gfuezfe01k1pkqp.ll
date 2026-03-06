@@ -609,7 +609,7 @@ define hidden void @"_ZN10tokio_util4time5wheel14Wheel$LT$T$GT$15next_expiration
 
 11:                                               ; preds = %10
   %12 = add nuw nsw i64 %.sroa.01.0, 1
-  %13 = getelementptr inbounds nuw { [64 x { { i64, [1 x i64] }, {} }], i64, i64 }, ptr %5, i64 %.sroa.01.0
+  %13 = getelementptr inbounds nuw [1040 x i8], ptr %5, i64 %.sroa.01.0
   tail call void @"_ZN10tokio_util4time5wheel5level14Level$LT$T$GT$15next_expiration17h06e70cdf10967f43E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(1040) %13, i64 noundef %7)
   %14 = load i64, ptr %0, align 8, !range !46, !noundef !9
   %15 = trunc nuw i64 %14 to i1
@@ -657,7 +657,7 @@ define hidden { i64, i64 } @"_ZN10tokio_util4time5wheel14Wheel$LT$T$GT$4poll17h6
 
 20:                                               ; preds = %19
   %21 = add nuw nsw i64 %.sroa.01.0.i, 1
-  %22 = getelementptr inbounds nuw { [64 x { { i64, [1 x i64] }, {} }], i64, i64 }, ptr %17, i64 %.sroa.01.0.i
+  %22 = getelementptr inbounds nuw [1040 x i8], ptr %17, i64 %.sroa.01.0.i
   call void @"_ZN10tokio_util4time5wheel5level14Level$LT$T$GT$15next_expiration17h06e70cdf10967f43E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(1040) %22, i64 noundef %15), !noalias !47
   %23 = load i64, ptr %11, align 8, !range !46, !alias.scope !50, !noalias !47, !noundef !9
   %24 = trunc nuw i64 %23 to i1
@@ -682,7 +682,7 @@ define hidden { i64, i64 } @"_ZN10tokio_util4time5wheel14Wheel$LT$T$GT$4poll17h6
 
 "_ZN10tokio_util4time5wheel14Wheel$LT$T$GT$9pop_entry17hc23595dd365f5490E.exit.lr.ph.i": ; preds = %27
   %.val = load ptr, ptr %0, align 8, !nonnull !9, !noundef !9
-  %29 = getelementptr { [64 x { { i64, [1 x i64] }, {} }], i64, i64 }, ptr %.val, i64 %.0.val1.fr.i
+  %29 = getelementptr [1040 x i8], ptr %.val, i64 %.0.val1.fr.i
   %30 = icmp eq i64 %.0.val1.fr.i, 0
   %31 = getelementptr i8, ptr %29, i64 -1040
   %32 = call { i64, i64 } @"_ZN10tokio_util4time5wheel5level14Level$LT$T$GT$14pop_entry_slot17hc5b9c5b78fdf53d9E"(ptr noalias noundef align 8 dereferenceable(1040) %29, i64 noundef %.sroa.8.0.copyload, ptr noalias noundef nonnull align 8 dereferenceable(104) %2)
@@ -832,7 +832,7 @@ define hidden { i64, i8 } @"_ZN10tokio_util4time5wheel14Wheel$LT$T$GT$6insert17h
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %0, align 8, !nonnull !9, !align !11, !noundef !9
-  %17 = getelementptr inbounds nuw { [64 x { { i64, [1 x i64] }, {} }], i64, i64 }, ptr %16, i64 %11
+  %17 = getelementptr inbounds nuw [1040 x i8], ptr %16, i64 %11
   tail call void @"_ZN10tokio_util4time5wheel5level14Level$LT$T$GT$9add_entry17h460d58ef50d829b1E"(ptr noalias noundef nonnull align 8 dereferenceable(1040) %17, i64 noundef %1, i64 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(104) %3)
   br label %19
 
@@ -891,7 +891,7 @@ define hidden void @"_ZN10tokio_util4time5wheel14Wheel$LT$T$GT$6remove17h2bd32bd
 
 22:                                               ; preds = %17
   %23 = load ptr, ptr %0, align 8, !nonnull !9, !align !11, !noundef !9
-  %24 = getelementptr inbounds nuw { [64 x { { i64, [1 x i64] }, {} }], i64, i64 }, ptr %23, i64 %18
+  %24 = getelementptr inbounds nuw [1040 x i8], ptr %23, i64 %18
   tail call void @"_ZN10tokio_util4time5wheel5level14Level$LT$T$GT$12remove_entry17h14bbb390dc37a326E"(ptr noalias noundef nonnull align 8 dereferenceable(1040) %24, i64 noundef %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1, ptr noalias noundef nonnull align 8 dereferenceable(104) %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
@@ -1970,7 +1970,7 @@ define void @_ZN12tokio_quiche4quic10connection19QuicConnectionStats9from_conn17
   %42 = load ptr, ptr %41, align 8, !nonnull !9, !noundef !9
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 13456
   %44 = load i64, ptr %43, align 16, !noundef !9
-  %45 = getelementptr inbounds nuw { i64, [327 x i64] }, ptr %42, i64 %44
+  %45 = getelementptr inbounds nuw [2624 x i8], ptr %42, i64 %44
   store ptr %42, ptr %4, align 8
   %.sroa.08.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %45, ptr %.sroa.08.sroa.4.0..sroa_idx, align 8
@@ -2301,7 +2301,7 @@ common.resume:                                    ; preds = %78, %127, %111, %"_
   %71 = load ptr, ptr %70, align 8, !alias.scope !120, !noalias !123, !nonnull !9, !noundef !9
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 13456
   %73 = load i64, ptr %72, align 16, !alias.scope !120, !noalias !123, !noundef !9
-  %74 = getelementptr inbounds nuw { i64, [327 x i64] }, ptr %71, i64 %73
+  %74 = getelementptr inbounds nuw [2624 x i8], ptr %71, i64 %73
   store ptr %71, ptr %5, align 8, !noalias !125
   %.sroa.08.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %74, ptr %.sroa.08.sroa.4.0..sroa_idx.i, align 8, !noalias !125

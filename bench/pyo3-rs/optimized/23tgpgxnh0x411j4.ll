@@ -871,7 +871,7 @@ define void @_ZN19pyo3_macros_backend6module20pymodule_module_impl17h9b9ecefcf25
 249:                                              ; preds = %245
   %250 = load ptr, ptr %157, align 8
   %251 = load i64, ptr %159, align 8
-  %252 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %250, i64 %251
+  %252 = getelementptr inbounds [256 x i8], ptr %250, i64 %251
   store ptr %250, ptr %80, align 8
   %253 = getelementptr inbounds nuw i8, ptr %80, i64 8
   store ptr %252, ptr %253, align 8
@@ -926,7 +926,7 @@ define void @_ZN19pyo3_macros_backend6module20pymodule_module_impl17h9b9ecefcf25
   %267 = load ptr, ptr %266, align 8
   %268 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %269 = load i64, ptr %268, align 8
-  %270 = getelementptr inbounds { i64, [43 x i64] }, ptr %267, i64 %269
+  %270 = getelementptr inbounds [352 x i8], ptr %267, i64 %269
   store ptr %267, ptr %77, align 8
   %271 = getelementptr inbounds nuw i8, ptr %77, i64 8
   store ptr %270, ptr %271, align 8
@@ -1470,13 +1470,13 @@ define void @_ZN19pyo3_macros_backend6module20pymodule_module_impl17h9b9ecefcf25
 402:                                              ; preds = %401
   %403 = load ptr, ptr %196, align 8
   %404 = load i64, ptr %197, align 8
-  %405 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %403, i64 %404
+  %405 = getelementptr inbounds [24 x i8], ptr %403, i64 %404
   store ptr %403, ptr %56, align 8
   %406 = getelementptr inbounds nuw i8, ptr %56, i64 8
   store ptr %405, ptr %406, align 8
   %407 = load ptr, ptr %194, align 8
   %408 = load i64, ptr %195, align 8
-  %409 = getelementptr inbounds { { [16 x i8], i8, [7 x i8] }, { {} } }, ptr %407, i64 %408
+  %409 = getelementptr inbounds [24 x i8], ptr %407, i64 %408
   store ptr %407, ptr %55, align 8
   %410 = getelementptr inbounds nuw i8, ptr %55, i64 8
   store ptr %409, ptr %410, align 8
@@ -1508,7 +1508,7 @@ define void @_ZN19pyo3_macros_backend6module20pymodule_module_impl17h9b9ecefcf25
   %423 = load ptr, ptr %422, align 8
   %424 = getelementptr inbounds nuw i8, ptr %413, i64 16
   %425 = load i64, ptr %424, align 8
-  %426 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %423, i64 %425
+  %426 = getelementptr inbounds [256 x i8], ptr %423, i64 %425
   store ptr %423, ptr %54, align 8
   store ptr %426, ptr %411, align 8
   br label %457
@@ -1697,7 +1697,7 @@ define void @_ZN19pyo3_macros_backend6module20pymodule_module_impl17h9b9ecefcf25
   %479 = getelementptr inbounds nuw i8, ptr %236, i64 24
   %480 = load i64, ptr %479, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
-  %481 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %478, i64 %480
+  %481 = getelementptr inbounds [256 x i8], ptr %478, i64 %480
   store ptr %478, ptr %25, align 8
   store ptr %481, ptr %235, align 8
   %482 = invoke zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17he5a69e7555b1a785E"(ptr nonnull align 8 %25, ptr nonnull align 1 @anon.990e3f7bdc2744eccd06b939eea5f099.38, i64 15)
@@ -1710,7 +1710,7 @@ define void @_ZN19pyo3_macros_backend6module20pymodule_module_impl17h9b9ecefcf25
   %487 = getelementptr inbounds nuw i8, ptr %236, i64 24
   %488 = load i64, ptr %487, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
-  %489 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %486, i64 %488
+  %489 = getelementptr inbounds [256 x i8], ptr %486, i64 %488
   store ptr %486, ptr %24, align 8
   store ptr %489, ptr %232, align 8
   %490 = invoke zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17he5a69e7555b1a785E"(ptr nonnull align 8 %24, ptr nonnull align 1 @anon.990e3f7bdc2744eccd06b939eea5f099.38, i64 15)
@@ -1724,7 +1724,7 @@ define void @_ZN19pyo3_macros_backend6module20pymodule_module_impl17h9b9ecefcf25
   %495 = getelementptr inbounds nuw i8, ptr %236, i64 24
   %496 = load i64, ptr %495, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
-  %497 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %494, i64 %496
+  %497 = getelementptr inbounds [256 x i8], ptr %494, i64 %496
   store ptr %494, ptr %23, align 8
   store ptr %497, ptr %231, align 8
   %498 = invoke zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17he5a69e7555b1a785E"(ptr nonnull align 8 %23, ptr nonnull align 1 @anon.990e3f7bdc2744eccd06b939eea5f099.38, i64 15)
@@ -1737,7 +1737,7 @@ define void @_ZN19pyo3_macros_backend6module20pymodule_module_impl17h9b9ecefcf25
   %502 = getelementptr inbounds nuw i8, ptr %236, i64 304
   %503 = load i64, ptr %502, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
-  %504 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %501, i64 %503
+  %504 = getelementptr inbounds [256 x i8], ptr %501, i64 %503
   store ptr %501, ptr %22, align 8
   store ptr %504, ptr %226, align 8
   %505 = invoke zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17he5a69e7555b1a785E"(ptr nonnull align 8 %22, ptr nonnull align 1 @anon.990e3f7bdc2744eccd06b939eea5f099.38, i64 15)
@@ -1751,7 +1751,7 @@ define void @_ZN19pyo3_macros_backend6module20pymodule_module_impl17h9b9ecefcf25
   %510 = getelementptr inbounds nuw i8, ptr %236, i64 24
   %511 = load i64, ptr %510, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
-  %512 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %509, i64 %511
+  %512 = getelementptr inbounds [256 x i8], ptr %509, i64 %511
   store ptr %509, ptr %21, align 8
   store ptr %512, ptr %225, align 8
   %513 = invoke zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17he5a69e7555b1a785E"(ptr nonnull align 8 %21, ptr nonnull align 1 @anon.990e3f7bdc2744eccd06b939eea5f099.38, i64 15)
@@ -1765,7 +1765,7 @@ define void @_ZN19pyo3_macros_backend6module20pymodule_module_impl17h9b9ecefcf25
   %518 = getelementptr inbounds nuw i8, ptr %236, i64 24
   %519 = load i64, ptr %518, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
-  %520 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %517, i64 %519
+  %520 = getelementptr inbounds [256 x i8], ptr %517, i64 %519
   store ptr %517, ptr %20, align 8
   store ptr %520, ptr %224, align 8
   %521 = invoke zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17he5a69e7555b1a785E"(ptr nonnull align 8 %20, ptr nonnull align 1 @anon.990e3f7bdc2744eccd06b939eea5f099.38, i64 15)
@@ -1779,7 +1779,7 @@ define void @_ZN19pyo3_macros_backend6module20pymodule_module_impl17h9b9ecefcf25
   %526 = getelementptr inbounds nuw i8, ptr %236, i64 24
   %527 = load i64, ptr %526, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
-  %528 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %525, i64 %527
+  %528 = getelementptr inbounds [256 x i8], ptr %525, i64 %527
   store ptr %525, ptr %19, align 8
   store ptr %528, ptr %223, align 8
   %529 = invoke zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17he5a69e7555b1a785E"(ptr nonnull align 8 %19, ptr nonnull align 1 @anon.990e3f7bdc2744eccd06b939eea5f099.38, i64 15)
@@ -1792,7 +1792,7 @@ define void @_ZN19pyo3_macros_backend6module20pymodule_module_impl17h9b9ecefcf25
   %534 = getelementptr inbounds nuw i8, ptr %236, i64 24
   %535 = load i64, ptr %534, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
-  %536 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %533, i64 %535
+  %536 = getelementptr inbounds [256 x i8], ptr %533, i64 %535
   store ptr %533, ptr %18, align 8
   store ptr %536, ptr %220, align 8
   %537 = invoke zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17he5a69e7555b1a785E"(ptr nonnull align 8 %18, ptr nonnull align 1 @anon.990e3f7bdc2744eccd06b939eea5f099.38, i64 15)
@@ -1806,7 +1806,7 @@ define void @_ZN19pyo3_macros_backend6module20pymodule_module_impl17h9b9ecefcf25
   %542 = getelementptr inbounds nuw i8, ptr %236, i64 24
   %543 = load i64, ptr %542, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
-  %544 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %541, i64 %543
+  %544 = getelementptr inbounds [256 x i8], ptr %541, i64 %543
   store ptr %541, ptr %17, align 8
   store ptr %544, ptr %219, align 8
   %545 = invoke zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17he5a69e7555b1a785E"(ptr nonnull align 8 %17, ptr nonnull align 1 @anon.990e3f7bdc2744eccd06b939eea5f099.38, i64 15)
@@ -1819,7 +1819,7 @@ define void @_ZN19pyo3_macros_backend6module20pymodule_module_impl17h9b9ecefcf25
   %550 = getelementptr inbounds nuw i8, ptr %236, i64 80
   %551 = load i64, ptr %550, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
-  %552 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %549, i64 %551
+  %552 = getelementptr inbounds [256 x i8], ptr %549, i64 %551
   store ptr %549, ptr %16, align 8
   store ptr %552, ptr %214, align 8
   %553 = invoke zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17he5a69e7555b1a785E"(ptr nonnull align 8 %16, ptr nonnull align 1 @anon.990e3f7bdc2744eccd06b939eea5f099.38, i64 15)
@@ -1833,7 +1833,7 @@ define void @_ZN19pyo3_macros_backend6module20pymodule_module_impl17h9b9ecefcf25
   %558 = getelementptr inbounds nuw i8, ptr %236, i64 24
   %559 = load i64, ptr %558, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  %560 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %557, i64 %559
+  %560 = getelementptr inbounds [256 x i8], ptr %557, i64 %559
   store ptr %557, ptr %15, align 8
   store ptr %560, ptr %213, align 8
   %561 = invoke zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17he5a69e7555b1a785E"(ptr nonnull align 8 %15, ptr nonnull align 1 @anon.990e3f7bdc2744eccd06b939eea5f099.38, i64 15)
@@ -1847,7 +1847,7 @@ define void @_ZN19pyo3_macros_backend6module20pymodule_module_impl17h9b9ecefcf25
   %566 = getelementptr inbounds nuw i8, ptr %236, i64 24
   %567 = load i64, ptr %566, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %568 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %565, i64 %567
+  %568 = getelementptr inbounds [256 x i8], ptr %565, i64 %567
   store ptr %565, ptr %14, align 8
   store ptr %568, ptr %212, align 8
   %569 = invoke zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17he5a69e7555b1a785E"(ptr nonnull align 8 %14, ptr nonnull align 1 @anon.990e3f7bdc2744eccd06b939eea5f099.38, i64 15)
@@ -1861,7 +1861,7 @@ define void @_ZN19pyo3_macros_backend6module20pymodule_module_impl17h9b9ecefcf25
   %574 = getelementptr inbounds nuw i8, ptr %236, i64 24
   %575 = load i64, ptr %574, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %576 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %573, i64 %575
+  %576 = getelementptr inbounds [256 x i8], ptr %573, i64 %575
   store ptr %573, ptr %13, align 8
   store ptr %576, ptr %211, align 8
   %577 = invoke zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17he5a69e7555b1a785E"(ptr nonnull align 8 %13, ptr nonnull align 1 @anon.990e3f7bdc2744eccd06b939eea5f099.38, i64 15)
@@ -1875,7 +1875,7 @@ define void @_ZN19pyo3_macros_backend6module20pymodule_module_impl17h9b9ecefcf25
   %582 = getelementptr inbounds nuw i8, ptr %236, i64 24
   %583 = load i64, ptr %582, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %584 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %581, i64 %583
+  %584 = getelementptr inbounds [256 x i8], ptr %581, i64 %583
   store ptr %581, ptr %12, align 8
   store ptr %584, ptr %210, align 8
   %585 = invoke zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17he5a69e7555b1a785E"(ptr nonnull align 8 %12, ptr nonnull align 1 @anon.990e3f7bdc2744eccd06b939eea5f099.38, i64 15)
@@ -1929,7 +1929,7 @@ define void @_ZN19pyo3_macros_backend6module20pymodule_module_impl17h9b9ecefcf25
   %598 = load ptr, ptr %485, align 8
   %599 = load i64, ptr %487, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %600 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %598, i64 %599
+  %600 = getelementptr inbounds [256 x i8], ptr %598, i64 %599
   store ptr %598, ptr %9, align 8
   store ptr %600, ptr %233, align 8
   %601 = invoke zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17he5a69e7555b1a785E"(ptr nonnull align 8 %9, ptr nonnull align 1 @anon.990e3f7bdc2744eccd06b939eea5f099.40, i64 7)
@@ -1956,7 +1956,7 @@ define void @_ZN19pyo3_macros_backend6module20pymodule_module_impl17h9b9ecefcf25
 607:                                              ; preds = %606
   %608 = load ptr, ptr %485, align 8
   %609 = load i64, ptr %487, align 8
-  %610 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %608, i64 %609
+  %610 = getelementptr inbounds [256 x i8], ptr %608, i64 %609
   invoke void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hdcb19f34d3979460E"(ptr nonnull sret([24 x i8]) align 8 %108, ptr align 8 %608, ptr %610)
           to label %_ZN19pyo3_macros_backend6module18get_cfg_attributes17hdab0a8ff4dae99f6E.exit unwind label %.loopexit191
 
@@ -2065,7 +2065,7 @@ _ZN19pyo3_macros_backend6module18get_cfg_attributes17hdab0a8ff4dae99f6E.exit: ; 
   %648 = load ptr, ptr %647, align 8
   %649 = getelementptr inbounds nuw i8, ptr %645, i64 304
   %650 = load i64, ptr %649, align 8
-  %651 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %648, i64 %650
+  %651 = getelementptr inbounds [256 x i8], ptr %648, i64 %650
   br i1 %644, label %654, label %652
 
 652:                                              ; preds = %642
@@ -2101,7 +2101,7 @@ _ZN19pyo3_macros_backend6module18get_cfg_attributes17hdab0a8ff4dae99f6E.exit: ; 
   %662 = load ptr, ptr %661, align 8
   %663 = getelementptr inbounds nuw i8, ptr %660, i64 304
   %664 = load i64, ptr %663, align 8
-  %665 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %662, i64 %664
+  %665 = getelementptr inbounds [256 x i8], ptr %662, i64 %664
   invoke void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hdcb19f34d3979460E"(ptr nonnull sret([24 x i8]) align 8 %115, ptr align 8 %662, ptr %665)
           to label %_ZN19pyo3_macros_backend6module18get_cfg_attributes17hdab0a8ff4dae99f6E.exit173 unwind label %.loopexit191
 
@@ -2296,7 +2296,7 @@ _ZN19pyo3_macros_backend6module18get_cfg_attributes17hdab0a8ff4dae99f6E.exit173:
   %725 = load ptr, ptr %532, align 8
   %726 = load i64, ptr %534, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %727 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %725, i64 %726
+  %727 = getelementptr inbounds [256 x i8], ptr %725, i64 %726
   store ptr %725, ptr %4, align 8
   store ptr %727, ptr %221, align 8
   %728 = invoke zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17he5a69e7555b1a785E"(ptr nonnull align 8 %4, ptr nonnull align 1 @anon.990e3f7bdc2744eccd06b939eea5f099.18, i64 8)
@@ -2323,7 +2323,7 @@ _ZN19pyo3_macros_backend6module18get_cfg_attributes17hdab0a8ff4dae99f6E.exit173:
 734:                                              ; preds = %733
   %735 = load ptr, ptr %532, align 8
   %736 = load i64, ptr %534, align 8
-  %737 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %735, i64 %736
+  %737 = getelementptr inbounds [256 x i8], ptr %735, i64 %736
   invoke void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hdcb19f34d3979460E"(ptr nonnull sret([24 x i8]) align 8 %104, ptr align 8 %735, ptr %737)
           to label %_ZN19pyo3_macros_backend6module18get_cfg_attributes17hdab0a8ff4dae99f6E.exit175 unwind label %.loopexit191
 
@@ -2399,7 +2399,7 @@ _ZN19pyo3_macros_backend6module18get_cfg_attributes17hdab0a8ff4dae99f6E.exit175:
   %763 = load ptr, ptr %548, align 8
   %764 = load i64, ptr %550, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %765 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %763, i64 %764
+  %765 = getelementptr inbounds [256 x i8], ptr %763, i64 %764
   store ptr %763, ptr %3, align 8
   store ptr %765, ptr %215, align 8
   %766 = invoke zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17he5a69e7555b1a785E"(ptr nonnull align 8 %3, ptr nonnull align 1 @anon.990e3f7bdc2744eccd06b939eea5f099.40, i64 7)
@@ -2426,7 +2426,7 @@ _ZN19pyo3_macros_backend6module18get_cfg_attributes17hdab0a8ff4dae99f6E.exit175:
 772:                                              ; preds = %771
   %773 = load ptr, ptr %548, align 8
   %774 = load i64, ptr %550, align 8
-  %775 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %773, i64 %774
+  %775 = getelementptr inbounds [256 x i8], ptr %773, i64 %774
   invoke void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hdcb19f34d3979460E"(ptr nonnull sret([24 x i8]) align 8 %112, ptr align 8 %773, ptr %775)
           to label %_ZN19pyo3_macros_backend6module18get_cfg_attributes17hdab0a8ff4dae99f6E.exit177 unwind label %.loopexit191
 
@@ -2569,7 +2569,7 @@ _ZN19pyo3_macros_backend6module18get_cfg_attributes17hdab0a8ff4dae99f6E.exit177:
   %825 = load ptr, ptr %824, align 8
   %826 = getelementptr inbounds nuw i8, ptr %236, i64 24
   %827 = load i64, ptr %826, align 8
-  %828 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %825, i64 %827
+  %828 = getelementptr inbounds [256 x i8], ptr %825, i64 %827
   invoke void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hdcb19f34d3979460E"(ptr nonnull sret([24 x i8]) align 8 %125, ptr align 8 %825, ptr %828)
           to label %_ZN19pyo3_macros_backend6module18get_cfg_attributes17hdab0a8ff4dae99f6E.exit178 unwind label %.loopexit191
 
@@ -4403,7 +4403,7 @@ split:                                            ; preds = %168, %158, %._crit_
 479:                                              ; preds = %478
   %480 = load ptr, ptr %290, align 8
   %481 = load i64, ptr %291, align 8
-  %482 = getelementptr inbounds { { i64, [3 x i64] }, { {} } }, ptr %480, i64 %481
+  %482 = getelementptr inbounds [32 x i8], ptr %480, i64 %481
   store ptr %480, ptr %44, align 8
   %483 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store ptr %482, ptr %483, align 8

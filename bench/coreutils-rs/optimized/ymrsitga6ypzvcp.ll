@@ -345,7 +345,7 @@ define internal fastcc noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..s
   %49 = icmp eq <16 x i8> %.0.copyload.i.i, %33
   %50 = icmp eq <16 x i8> %.0.copyload2.i.i, %34
   %51 = and <16 x i1> %49, %50
-  %52 = getelementptr inbounds nuw i16, ptr %5, i64 %.sroa.022.0132.i
+  %52 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %.sroa.022.0132.i
   store <16 x i1> %51, ptr %52, align 2, !noalias !40
   %exitcond.not.i = icmp eq i64 %45, 4
   br i1 %exitcond.not.i, label %.preheader128.i, label %44
@@ -363,7 +363,7 @@ define internal fastcc noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..s
   %.sroa.028.0134.i = phi i64 [ %58, %62 ], [ 0, %44 ]
   %.2133.i = phi i8 [ %.3.i, %62 ], [ 0, %44 ]
   %58 = add nuw nsw i64 %.sroa.028.0134.i, 1
-  %59 = getelementptr inbounds nuw i16, ptr %5, i64 %.sroa.028.0134.i
+  %59 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %.sroa.028.0134.i
   %60 = load i16, ptr %59, align 2, !noalias !40, !noundef !5
   %61 = icmp eq i16 %60, 0
   br i1 %61, label %62, label %63
@@ -1744,7 +1744,7 @@ define void @_ZN8uu_touch6uu_app17hfdf7fa67492b8c67E(ptr noalias noundef writeon
   %293 = phi i64 [ %.pre.i.i, %.noexc.i162 ], [ %284, %281 ]
   %294 = getelementptr inbounds nuw i8, ptr %77, i64 112
   %295 = load ptr, ptr %294, align 8, !alias.scope !369, !noalias !374, !nonnull !5, !noundef !5
-  %296 = getelementptr inbounds { { { { ptr, i64 } } } }, ptr %295, i64 %293
+  %296 = getelementptr inbounds [16 x i8], ptr %295, i64 %293
   store ptr @anon.394d0bd899e412f0c4da90278e980477.16.llvm.17833407357621508087, ptr %296, align 8, !noalias !374
   %297 = getelementptr inbounds nuw i8, ptr %296, i64 8
   store i64 9, ptr %297, align 8, !noalias !379
@@ -2401,7 +2401,7 @@ define void @_ZN8uu_touch6uu_app17hfdf7fa67492b8c67E(ptr noalias noundef writeon
   %465 = phi i64 [ %.pre.i.i253, %.noexc.i252 ], [ %456, %453 ]
   %466 = getelementptr inbounds nuw i8, ptr %68, i64 112
   %467 = load ptr, ptr %466, align 8, !alias.scope !637, !noalias !642, !nonnull !5, !noundef !5
-  %468 = getelementptr inbounds { { { { ptr, i64 } } } }, ptr %467, i64 %465
+  %468 = getelementptr inbounds [16 x i8], ptr %467, i64 %465
   store ptr @anon.394d0bd899e412f0c4da90278e980477.16.llvm.17833407357621508087, ptr %468, align 8, !noalias !642
   %469 = getelementptr inbounds nuw i8, ptr %468, i64 8
   store i64 9, ptr %469, align 8, !noalias !647
@@ -2637,7 +2637,7 @@ define void @_ZN8uu_touch6uu_app17hfdf7fa67492b8c67E(ptr noalias noundef writeon
 529:                                              ; preds = %521
   %.pre.i.i288 = load i64, ptr %.sroa.440.0..sroa_idx, align 8, !alias.scope !728, !noalias !732
   %530 = load ptr, ptr %.sroa.337.0..sroa_idx, align 8, !alias.scope !728, !noalias !732, !nonnull !5, !noundef !5
-  %531 = getelementptr inbounds { { { ptr, i64 } } }, ptr %530, i64 %.pre.i.i288
+  %531 = getelementptr inbounds [16 x i8], ptr %530, i64 %.pre.i.i288
   store ptr @anon.ea5baef05395b46ce30c759981cc8125.69, ptr %531, align 8, !noalias !732
   %532 = getelementptr inbounds nuw i8, ptr %531, i64 8
   store i64 6, ptr %532, align 8, !noalias !727
@@ -2683,7 +2683,7 @@ define void @_ZN8uu_touch6uu_app17hfdf7fa67492b8c67E(ptr noalias noundef writeon
   %547 = phi i64 [ %.pre.i.i292, %.noexc.i291 ], [ %536, %529 ]
   %548 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %549 = load ptr, ptr %548, align 8, !alias.scope !739, !noalias !743, !nonnull !5, !noundef !5
-  %550 = getelementptr inbounds { { { ptr, i64 } } }, ptr %549, i64 %547
+  %550 = getelementptr inbounds [16 x i8], ptr %549, i64 %547
   store ptr @anon.ea5baef05395b46ce30c759981cc8125.70, ptr %550, align 8, !noalias !743
   %551 = getelementptr inbounds nuw i8, ptr %550, i64 8
   store i64 3, ptr %551, align 8, !noalias !736
@@ -2722,7 +2722,7 @@ define void @_ZN8uu_touch6uu_app17hfdf7fa67492b8c67E(ptr noalias noundef writeon
 560:                                              ; preds = %546
   %.pre.i.i298 = load i64, ptr %.sroa.440.0..sroa_idx41, align 8, !alias.scope !753, !noalias !757
   %561 = load ptr, ptr %.sroa.337.0..sroa_idx38, align 8, !alias.scope !753, !noalias !757, !nonnull !5, !noundef !5
-  %562 = getelementptr inbounds { { { ptr, i64 } } }, ptr %561, i64 %.pre.i.i298
+  %562 = getelementptr inbounds [16 x i8], ptr %561, i64 %.pre.i.i298
   store ptr @anon.ea5baef05395b46ce30c759981cc8125.72, ptr %562, align 8, !noalias !757
   %563 = getelementptr inbounds nuw i8, ptr %562, i64 8
   store i64 6, ptr %563, align 8, !noalias !759
@@ -2965,7 +2965,7 @@ define void @_ZN8uu_touch6uu_app17hfdf7fa67492b8c67E(ptr noalias noundef writeon
   store i64 %613, ptr %.sroa.4.0..sroa_idx.i325, align 8, !alias.scope !852, !noalias !849
   %614 = icmp samesign ult i64 %612, 3
   call void @llvm.assume(i1 %614)
-  %615 = getelementptr inbounds nuw { [2 x i64] }, ptr %5, i64 %612
+  %615 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %612
   %616 = load ptr, ptr %615, align 8, !alias.scope !852, !noalias !849, !nonnull !5, !align !15, !noundef !5
   %617 = getelementptr inbounds nuw i8, ptr %615, i64 8
   %618 = load i64, ptr %617, align 8, !alias.scope !852, !noalias !849, !noundef !5
@@ -3050,7 +3050,7 @@ define void @_ZN8uu_touch6uu_app17hfdf7fa67492b8c67E(ptr noalias noundef writeon
   %640 = phi i64 [ %.pre.i.i330, %._crit_edge.i.i ], [ %629, %626 ]
   %641 = getelementptr inbounds nuw i8, ptr %97, i64 208
   %642 = load ptr, ptr %641, align 8, !alias.scope !872, !noalias !875, !nonnull !5, !noundef !5
-  %643 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { { ptr, i64 } } } }, i8, i8, [6 x i8] }, ptr %642, i64 %640
+  %643 = getelementptr inbounds [96 x i8], ptr %642, i64 %640
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(89) %643, ptr noundef nonnull align 8 dereferenceable(89) %.sroa.0451, i64 89, i1 false), !noalias !857
   %.sroa.3452.0..sroa_idx455 = getelementptr inbounds nuw i8, ptr %643, i64 89
   store i8 1, ptr %.sroa.3452.0..sroa_idx455, align 1, !noalias !857
@@ -5496,7 +5496,7 @@ _ZN8uu_touch20datetime_to_filetime17h8aac4062c10db75eE.exit: ; preds = %25, %29
 
 58:                                               ; preds = %52, %193
   %59 = phi i64 [ 0, %52 ], [ %194, %193 ]
-  %60 = getelementptr inbounds nuw { [2 x i64] }, ptr %20, i64 %59
+  %60 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %59
   %61 = load ptr, ptr %60, align 8, !alias.scope !1353, !nonnull !5, !align !15, !noundef !5
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %63 = load i64, ptr %62, align 8, !alias.scope !1353, !noundef !5

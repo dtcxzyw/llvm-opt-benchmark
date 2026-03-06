@@ -136,7 +136,7 @@ define noundef zeroext i1 @"_ZN127_$LT$html_to_markdown..structure..wikipedia..W
   %28 = load ptr, ptr %27, align 8, !noalias !42, !nonnull !5, !noundef !5
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %30 = load i64, ptr %29, align 8, !noalias !42, !noundef !5
-  %31 = getelementptr inbounds { { i64, i64, i64 }, { i64, { { [2 x i32] } }, {}, {} } }, ptr %28, i64 %30
+  %31 = getelementptr inbounds [40 x i8], ptr %28, i64 %30
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !42
   store ptr %6, ptr %5, align 8, !noalias !45
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -333,7 +333,7 @@ define noundef zeroext i1 @"_ZN128_$LT$html_to_markdown..structure..wikipedia..W
   %19 = load ptr, ptr %18, align 8, !noalias !98, !nonnull !5, !noundef !5
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %21 = load i64, ptr %20, align 8, !noalias !98, !noundef !5
-  %22 = getelementptr inbounds { { i64, i64, i64 }, { i64, { { [2 x i32] } }, {}, {} } }, ptr %19, i64 %21
+  %22 = getelementptr inbounds [40 x i8], ptr %19, i64 %21
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !98
   store ptr %5, ptr %4, align 8, !noalias !101
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -474,10 +474,10 @@ define noundef zeroext i1 @"_ZN125_$LT$html_to_markdown..structure..wikipedia..W
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !153
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %35 = load ptr, ptr %34, align 8, !alias.scope !154, !noalias !155, !nonnull !5, !noundef !5
-  %36 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, { { { i64, ptr, {} }, i64 } } } }, ptr %35, i64 %27
-  %37 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, { { { i64, ptr, {} }, i64 } } } }, ptr %35, i64 %31
-  %38 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, { { { i64, ptr, {} }, i64 } } } }, ptr %35, i64 %29
-  %39 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, { { { i64, ptr, {} }, i64 } } } }, ptr %35, i64 %33
+  %36 = getelementptr inbounds [56 x i8], ptr %35, i64 %27
+  %37 = getelementptr inbounds [56 x i8], ptr %35, i64 %31
+  %38 = getelementptr inbounds [56 x i8], ptr %35, i64 %29
+  %39 = getelementptr inbounds [56 x i8], ptr %35, i64 %33
   store ptr %36, ptr %13, align 8, !alias.scope !148, !noalias !156
   %40 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %38, ptr %40, align 8, !alias.scope !148, !noalias !156
@@ -1324,10 +1324,10 @@ define void @"_ZN125_$LT$html_to_markdown..structure..wikipedia..WikipediaCodeHa
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !324
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !325, !noalias !326, !nonnull !5, !noundef !5
-  %27 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, { { { i64, ptr, {} }, i64 } } } }, ptr %26, i64 %18
-  %28 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, { { { i64, ptr, {} }, i64 } } } }, ptr %26, i64 %22
-  %29 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, { { { i64, ptr, {} }, i64 } } } }, ptr %26, i64 %20
-  %30 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, { { { i64, ptr, {} }, i64 } } } }, ptr %26, i64 %24
+  %27 = getelementptr inbounds [56 x i8], ptr %26, i64 %18
+  %28 = getelementptr inbounds [56 x i8], ptr %26, i64 %22
+  %29 = getelementptr inbounds [56 x i8], ptr %26, i64 %20
+  %30 = getelementptr inbounds [56 x i8], ptr %26, i64 %24
   store ptr %27, ptr %6, align 8, !alias.scope !319, !noalias !327
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %29, ptr %31, align 8, !alias.scope !319, !noalias !327
@@ -1434,10 +1434,10 @@ define noundef zeroext i1 @"_ZN125_$LT$html_to_markdown..structure..wikipedia..W
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !356
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %20 = load ptr, ptr %19, align 8, !alias.scope !357, !noalias !358, !nonnull !5, !noundef !5
-  %21 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, { { { i64, ptr, {} }, i64 } } } }, ptr %20, i64 %12
-  %22 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, { { { i64, ptr, {} }, i64 } } } }, ptr %20, i64 %16
-  %23 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, { { { i64, ptr, {} }, i64 } } } }, ptr %20, i64 %14
-  %24 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, { { { i64, ptr, {} }, i64 } } } }, ptr %20, i64 %18
+  %21 = getelementptr inbounds [56 x i8], ptr %20, i64 %12
+  %22 = getelementptr inbounds [56 x i8], ptr %20, i64 %16
+  %23 = getelementptr inbounds [56 x i8], ptr %20, i64 %14
+  %24 = getelementptr inbounds [56 x i8], ptr %20, i64 %18
   store ptr %21, ptr %7, align 8, !alias.scope !351, !noalias !359
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %23, ptr %25, align 8, !alias.scope !351, !noalias !359

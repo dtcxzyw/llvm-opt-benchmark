@@ -124,14 +124,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::locale" = type { ptr }
 %"class.absl::lts_20240722::Span.450" = type { ptr, i64 }
 %"class.grpc_core::PerCpuOptions" = type { i64, i64 }
-%"struct.grpc_core::GlobalStatsCollector::Data" = type { %"struct.std::atomic.187", %"struct.std::atomic.187", %"struct.std::atomic.187", %"struct.std::atomic.187", %"struct.std::atomic.187", %"struct.std::atomic.187", %"struct.std::atomic.187", %"struct.std::atomic.187", %"struct.std::atomic.187", %"struct.std::atomic.187", %"struct.std::atomic.187", %"struct.std::atomic.187", %"struct.std::atomic.187", %"struct.std::atomic.187", %"struct.std::atomic.187", %"struct.std::atomic.187", %"struct.std::atomic.187", %"struct.std::atomic.187", %"struct.std::atomic.187", %"struct.std::atomic.187", %"struct.std::atomic.187", %"struct.std::atomic.187", %"struct.std::atomic.187", %"struct.std::atomic.187", %"struct.std::atomic.187", %"struct.std::atomic.187", %"struct.std::atomic.187", %"struct.std::atomic.187", %"struct.std::atomic.187", %"struct.std::atomic.187", %"struct.std::atomic.187", %"struct.std::atomic.187", %"struct.std::atomic.187", %"struct.std::atomic.187", %"struct.std::atomic.187", %"struct.std::atomic.187", %"struct.std::atomic.187", %"class.grpc_core::HistogramCollector_65536_26", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_80_10", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_80_10", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_65536_26", %"class.grpc_core::HistogramCollector_1800000_40", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_100000_20", %"class.grpc_core::HistogramCollector_100000_20", %"class.grpc_core::HistogramCollector_10000_20", %"class.grpc_core::HistogramCollector_10000_20", %"class.grpc_core::HistogramCollector_100000_20", %"class.grpc_core::HistogramCollector_100000_20", %"class.grpc_core::HistogramCollector_100000_20", %"class.grpc_core::HistogramCollector_10000_20", %"class.grpc_core::HistogramCollector_100_20", %"class.grpc_core::HistogramCollector_100_20", %"class.grpc_core::HistogramCollector_100_20", %"class.grpc_core::HistogramCollector_100_20", %"class.grpc_core::HistogramCollector_100_20", %"class.grpc_core::HistogramCollector_100_20", %"class.grpc_core::HistogramCollector_100_20", %"class.grpc_core::HistogramCollector_100_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20" }
-%"class.grpc_core::HistogramCollector_80_10" = type { [10 x %"struct.std::atomic.187"] }
-%"class.grpc_core::HistogramCollector_65536_26" = type { [26 x %"struct.std::atomic.187"] }
-%"class.grpc_core::HistogramCollector_1800000_40" = type { [40 x %"struct.std::atomic.187"] }
-%"class.grpc_core::HistogramCollector_100000_20" = type { [20 x %"struct.std::atomic.187"] }
-%"class.grpc_core::HistogramCollector_10000_20" = type { [20 x %"struct.std::atomic.187"] }
-%"class.grpc_core::HistogramCollector_100_20" = type { [20 x %"struct.std::atomic.187"] }
-%"class.grpc_core::HistogramCollector_16777216_20" = type { [20 x %"struct.std::atomic.187"] }
 %"class.grpc_core::ExecCtx" = type { ptr, %struct.grpc_closure_list, %"struct.grpc_core::ExecCtx::CombinerData", i64, %"class.std::optional.343", ptr }
 %struct.grpc_closure_list = type { ptr, ptr }
 %"struct.grpc_core::ExecCtx::CombinerData" = type { ptr, ptr }
@@ -166,10 +158,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.grpc_core::CompressionAlgorithmSet" = type { %"class.grpc_core::BitSet" }
 %"class.grpc_core::BitSet" = type { [1 x i8] }
 %"class.grpc_chttp2_transport::RemovedStreamHandle" = type { %"class.grpc_core::RefCountedPtr.190" }
-%"class.grpc_core::ContextListEntry" = type { ptr, i64, i64, i64, i64, %"class.std::shared_ptr.235" }
-%"class.std::shared_ptr.235" = type { %"class.std::__shared_ptr.236" }
-%"class.std::__shared_ptr.236" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
 
 $_ZN4absl12lts_2024072212log_internal10LogMessagelsIP21grpc_chttp2_transportTnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS7_ = comdat any
 
@@ -706,7 +694,7 @@ _ZN12_GLOBAL__N_112WriteContext13FlushSettingsEv.exit: ; preds = %1, %145, %147,
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 1040
   %161 = getelementptr inbounds nuw i8, ptr %159, i64 2224
   %162 = load ptr, ptr %161, align 8, !tbaa !263
-  %163 = getelementptr inbounds nuw i64, ptr %162, i64 %.04.i
+  %163 = getelementptr inbounds nuw [8 x i8], ptr %162, i64 %.04.i
   %164 = load i64, ptr %163, align 8, !tbaa !3
   call void @_Z23grpc_chttp2_ping_createhm(ptr dead_on_unwind nonnull writable sret(%struct.grpc_slice) align 8 %46, i8 noundef zeroext 1, i64 noundef %164)
   call void @grpc_slice_buffer_add(ptr noundef nonnull %160, ptr noundef nonnull byval(%struct.grpc_slice) align 8 %46)
@@ -1122,7 +1110,7 @@ _ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_I
 360:                                              ; preds = %360, %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_22W3CTraceParentMetadataEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_16GrpcTrailersOnlyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_18IsTransparentRetryEvEENS2_INS_22GrpcStreamNetworkSta87
   %.07.i.i.i.i.i = phi i64 [ 0, %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_22W3CTraceParentMetadataEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_16GrpcTrailersOnlyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_18IsTransparentRetryEvEENS2_INS_22GrpcStreamNetworkSta87 ], [ %366, %360 ]
   %.056.i.i.i.i.i = phi i32 [ 0, %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_22W3CTraceParentMetadataEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_16GrpcTrailersOnlyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_18IsTransparentRetryEvEENS2_INS_22GrpcStreamNetworkSta87 ], [ %365, %360 ]
-  %361 = getelementptr inbounds nuw i16, ptr %293, i64 %.07.i.i.i.i.i
+  %361 = getelementptr inbounds nuw [2 x i8], ptr %293, i64 %.07.i.i.i.i.i
   %362 = load i16, ptr %361, align 2, !tbaa !399
   %363 = call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %362)
   %364 = zext nneg i16 %363 to i32
@@ -1606,7 +1594,7 @@ _ZN9grpc_core31IsCallTracerTransportFixEnabledEv.exit.thread.i: ; preds = %_ZN9g
   %572 = getelementptr inbounds nuw i8, ptr %571, i64 56
   %573 = load i16, ptr @_ZN9grpc_core12arena_detail18ArenaContextTraitsINS_19CallTracerInterfaceEE3id_E, align 2
   %574 = zext i16 %573 to i64
-  %575 = getelementptr inbounds nuw ptr, ptr %572, i64 %574
+  %575 = getelementptr inbounds nuw [8 x i8], ptr %572, i64 %574
   %.0.in.i.i = select i1 %568, ptr %569, ptr %575
   %.0.i.i = load ptr, ptr %.0.in.i.i, align 8, !tbaa !456
   %.not14.i = icmp eq ptr %.0.i.i, null
@@ -1949,7 +1937,7 @@ _ZNK12_GLOBAL__N_115DataSendContext12max_outgoingEv.exit.i.i: ; preds = %.lr.ph.
 
 .preheader.i.i:                                   ; preds = %740, %.preheader.i.i
   %.057.i.i.i.i.i = phi i64 [ %744, %.preheader.i.i ], [ 0, %740 ]
-  %742 = getelementptr inbounds nuw i16, ptr %741, i64 %.057.i.i.i.i.i
+  %742 = getelementptr inbounds nuw [2 x i8], ptr %741, i64 %.057.i.i.i.i.i
   %743 = load i16, ptr %742, align 2, !tbaa !399
   %.not.i.i.i4.i.i = icmp eq i16 %743, 0
   %744 = add nuw nsw i64 %.057.i.i.i.i.i, 1
@@ -2092,7 +2080,7 @@ _ZN12_GLOBAL__N_118StreamWriteContext9FlushDataEv.exit: ; preds = %_ZN12_GLOBAL_
 
 805:                                              ; preds = %805, %.critedge10.i
   %.057.i.i.i.i = phi i64 [ 0, %.critedge10.i ], [ %808, %805 ]
-  %806 = getelementptr inbounds nuw i16, ptr %803, i64 %.057.i.i.i.i
+  %806 = getelementptr inbounds nuw [2 x i8], ptr %803, i64 %.057.i.i.i.i
   %807 = load i16, ptr %806, align 2, !tbaa !399
   %.not.i.i.i.i46 = icmp eq i16 %807, 0
   %808 = add nuw nsw i64 %.057.i.i.i.i, 1
@@ -3839,7 +3827,7 @@ _ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds = %2
 _ZNSt6vectorIPFvPvESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %30, %_ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %25, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, align 8, !tbaa !566
   store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 8), align 8, !tbaa !564
-  %31 = getelementptr inbounds nuw ptr, ptr %25, i64 %23
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %23
   store ptr %31, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 16), align 8, !tbaa !567
   br label %_ZNSt6vectorIPFvPvESaIS2_EE9push_backERKS2_.exit
 
@@ -3976,7 +3964,7 @@ _ZN9grpc_core20PerCpuShardingHelper15GetShardingBitsEv.exit: ; preds = %_ZTWN9gr
   %22 = load i64, ptr %21, align 8, !tbaa !568
   %23 = urem i64 %20, %22
   %24 = load ptr, ptr %18, align 8, !tbaa !578
-  %25 = getelementptr inbounds nuw %"struct.grpc_core::GlobalStatsCollector::Data", ptr %24, i64 %23
+  %25 = getelementptr inbounds nuw [6632 x i8], ptr %24, i64 %23
   ret ptr %25
 }
 
@@ -5479,7 +5467,7 @@ define linkonce_odr void @_ZN9grpc_core20hpack_encoder_detail10CompressorINS_20G
 15:                                               ; preds = %3
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %17 = zext nneg i32 %13 to i64
-  %18 = getelementptr inbounds nuw i32, ptr %0, i64 %17
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !393
   %20 = load i32, ptr %16, align 8, !tbaa !612
   %21 = icmp ugt i32 %19, %20
@@ -6104,7 +6092,7 @@ define linkonce_odr void @_ZN9grpc_core20hpack_encoder_detail10CompressorINS_18G
 15:                                               ; preds = %3
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %17 = zext nneg i32 %13 to i64
-  %18 = getelementptr inbounds nuw i32, ptr %0, i64 %17
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !393
   %20 = load i32, ptr %16, align 8, !tbaa !612
   %21 = icmp ugt i32 %19, %20
@@ -8153,7 +8141,7 @@ _ZN9grpc_core31IsCallTracerTransportFixEnabledEv.exit.thread: ; preds = %_ZN4abs
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 56
   %134 = load i16, ptr @_ZN9grpc_core12arena_detail18ArenaContextTraitsINS_19CallTracerInterfaceEE3id_E, align 2
   %135 = zext i16 %134 to i64
-  %136 = getelementptr inbounds nuw ptr, ptr %133, i64 %135
+  %136 = getelementptr inbounds nuw [8 x i8], ptr %133, i64 %135
   %.0.in.i = select i1 %129, ptr %130, ptr %136
   %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !456
   %.not15 = icmp eq ptr %.0.i, null
@@ -8454,7 +8442,7 @@ _ZN4absl12lts_2024072215random_internal15FastUniformBitsImEclINS1_17NonsecureURB
   %16 = load i64, ptr %5, align 8, !tbaa !852
   %17 = add i64 %16, 1
   store i64 %17, ptr %5, align 8, !tbaa !852
-  %18 = getelementptr inbounds nuw i64, ptr %4, i64 %16
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %16
   %19 = load i64, ptr %18, align 8, !tbaa !3
   ret i64 %19
 }
@@ -8928,7 +8916,7 @@ _ZNSt6vectorIN9grpc_core16ContextListEntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.
 _ZNSt12_Vector_baseIN9grpc_core16ContextListEntryESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN9grpc_core16ContextListEntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit37, %70
   store ptr %27, ptr %0, align 8, !tbaa !855
   store ptr %.0.lcssa.i.i.i36, ptr %9, align 8, !tbaa !485
-  %74 = getelementptr inbounds nuw %"class.grpc_core::ContextListEntry", ptr %27, i64 %21
+  %74 = getelementptr inbounds nuw [56 x i8], ptr %27, i64 %21
   store ptr %74, ptr %69, align 8, !tbaa !488
   ret void
 }

@@ -7,8 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
 %struct.anon = type { ptr, ptr, ptr }
 %struct.anon.0 = type { ptr, ptr, ptr }
-%struct._value_string = type { i32, ptr }
-%struct.expert_level_entry_t = type { ptr, i32 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 
 @.str = private unnamed_addr constant [9 x i8] c"Checksum\00", align 1
@@ -208,7 +206,7 @@ define internal void @uat_expert_entries_severity_set_cb(ptr noundef writeonly c
   %.01622 = phi i32 [ %12, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %12 = add i32 %.01622, 1
   %13 = zext i32 %12 to i64
-  %14 = getelementptr %struct._value_string, ptr %3, i64 %13
+  %14 = getelementptr [16 x i8], ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
@@ -248,7 +246,7 @@ define internal void @uat_expert_entries_severity_tostr_cb(ptr noundef readonly 
   %.01520 = phi i32 [ %12, %17 ], [ 0, %.lr.ph ]
   %12 = add i32 %.01520, 1
   %13 = zext i32 %12 to i64
-  %14 = getelementptr %struct._value_string, ptr %3, i64 %13
+  %14 = getelementptr [16 x i8], ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
@@ -359,7 +357,7 @@ define internal void @uat_expert_post_update_cb() #0 {
   %5 = phi i32 [ %14, %13 ], [ %4, %0 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %13 ], [ 0, %0 ]
   %6 = load ptr, ptr %2, align 8
-  %7 = getelementptr ptr, ptr %6, i64 %indvars.iv
+  %7 = getelementptr [8 x i8], ptr %6, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   store ptr %8, ptr %1, align 8
   %.not9 = icmp eq ptr %8, null
@@ -389,7 +387,7 @@ define internal void @uat_expert_post_update_cb() #0 {
 .lr.ph15:                                         ; preds = %._crit_edge, %32
   %indvars.iv20 = phi i64 [ %indvars.iv.next21, %32 ], [ 0, %._crit_edge ]
   %19 = load ptr, ptr @uat_expert_entries, align 8
-  %20 = getelementptr %struct.expert_level_entry_t, ptr %19, i64 %indvars.iv20
+  %20 = getelementptr [16 x i8], ptr %19, i64 %indvars.iv20
   %21 = load ptr, ptr %20, align 8
   %.not.i = icmp eq ptr %21, null
   br i1 %.not.i, label %expert_registrar_get_byname.exit.thread, label %expert_registrar_get_byname.exit
@@ -407,7 +405,7 @@ expert_registrar_get_byname.exit:                 ; preds = %.lr.ph15
 
 24:                                               ; preds = %expert_registrar_get_byname.exit
   %25 = load ptr, ptr @uat_expert_entries, align 8
-  %26 = getelementptr %struct.expert_level_entry_t, ptr %25, i64 %indvars.iv20
+  %26 = getelementptr [16 x i8], ptr %25, i64 %indvars.iv20
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load i32, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %23, i64 12
@@ -587,7 +585,7 @@ define hidden void @expert_deregister_expertinfo(ptr noundef %0) local_unnamed_a
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %8 = load i32, ptr %7, align 8
   %9 = sext i32 %8 to i64
-  %10 = getelementptr ptr, ptr %6, i64 %9
+  %10 = getelementptr [8 x i8], ptr %6, i64 %9
   %11 = load ptr, ptr %10, align 8
   tail call void @g_ptr_array_add(ptr noundef %5, ptr noundef %11)
   %12 = load ptr, ptr @gpa_name_map, align 8
@@ -637,7 +635,7 @@ define internal void @free_deregistered_expertinfo(ptr noundef readonly captures
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
   %6 = sext i32 %5 to i64
-  %7 = getelementptr ptr, ptr %3, i64 %6
+  %7 = getelementptr [8 x i8], ptr %3, i64 %6
   store ptr null, ptr %7, align 8
   ret void
 }
@@ -738,7 +736,7 @@ expert_register_field_init.exit:                  ; preds = %31, %.sink.split.i
   %44 = phi i32 [ %34, %31 ], [ %.pre, %.sink.split.i ]
   %45 = phi ptr [ %.pre.i, %31 ], [ %.sink.i, %.sink.split.i ]
   %46 = zext i32 %44 to i64
-  %47 = getelementptr ptr, ptr %45, i64 %46
+  %47 = getelementptr [8 x i8], ptr %45, i64 %46
   store ptr %17, ptr %47, align 8
   %48 = add i32 %44, 1
   store i32 %48, ptr @gpa_expertinfo.0, align 8
@@ -803,7 +801,7 @@ define ptr @expert_get_summary(ptr noundef readonly captures(none) %0) local_unn
 11:                                               ; preds = %8
   %12 = load ptr, ptr @gpa_expertinfo.2, align 8
   %13 = sext i32 %2 to i64
-  %14 = getelementptr ptr, ptr %12, i64 %13
+  %14 = getelementptr [8 x i8], ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %16, label %17
@@ -857,7 +855,7 @@ define internal ptr @expert_add_info_internal(ptr noundef %0, ptr noundef %1, pt
 14:                                               ; preds = %11
   %15 = load ptr, ptr @gpa_expertinfo.2, align 8
   %16 = sext i32 %5 to i64
-  %17 = getelementptr ptr, ptr %15, i64 %16
+  %17 = getelementptr [8 x i8], ptr %15, i64 %16
   %18 = load ptr, ptr %17, align 8
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %19, label %20
@@ -910,7 +908,7 @@ define ptr @expert_add_info_format(ptr noundef %0, ptr noundef %1, ptr noundef r
 15:                                               ; preds = %12
   %16 = load ptr, ptr @gpa_expertinfo.2, align 8
   %17 = sext i32 %6 to i64
-  %18 = getelementptr ptr, ptr %16, i64 %17
+  %18 = getelementptr [8 x i8], ptr %16, i64 %17
   %19 = load ptr, ptr %18, align 8
   %.not = icmp eq ptr %19, null
   br i1 %.not, label %20, label %21
@@ -1290,7 +1288,7 @@ define internal noundef ptr @proto_tree_add_expert_internal(ptr noundef %0, ptr 
 17:                                               ; preds = %14
   %18 = load ptr, ptr @gpa_expertinfo.2, align 8
   %19 = sext i32 %8 to i64
-  %20 = getelementptr ptr, ptr %18, i64 %19
+  %20 = getelementptr [8 x i8], ptr %18, i64 %19
   %21 = load ptr, ptr %20, align 8
   %.not = icmp eq ptr %21, null
   br i1 %.not, label %22, label %23
@@ -1357,7 +1355,7 @@ define noundef ptr @proto_tree_add_expert_format(ptr noundef %0, ptr noundef %1,
 18:                                               ; preds = %15
   %19 = load ptr, ptr @gpa_expertinfo.2, align 8
   %20 = sext i32 %9 to i64
-  %21 = getelementptr ptr, ptr %19, i64 %20
+  %21 = getelementptr [8 x i8], ptr %19, i64 %20
   %22 = load ptr, ptr %21, align 8
   %.not = icmp eq ptr %22, null
   br i1 %.not, label %23, label %24

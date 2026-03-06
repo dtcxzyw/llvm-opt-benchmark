@@ -45,17 +45,17 @@ vector_zero.exit:                                 ; preds = %3, %7
   %.01416 = phi i64 [ %37, %poly_add.exit ], [ 0, %.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %17 = load ptr, ptr %1, align 8, !tbaa !10
-  %18 = getelementptr inbounds nuw %struct.poly_st, ptr %17, i64 %.01416
+  %18 = getelementptr inbounds nuw [1024 x i8], ptr %17, i64 %.01416
   call void @ossl_ml_dsa_poly_ntt_mult(ptr noundef %.117, ptr noundef %18, ptr noundef nonnull %4) #4
   %19 = load ptr, ptr %2, align 8, !tbaa !10
-  %20 = getelementptr inbounds nuw %struct.poly_st, ptr %19, i64 %.01518
+  %20 = getelementptr inbounds nuw [1024 x i8], ptr %19, i64 %.01518
   br label %21
 
 21:                                               ; preds = %21, %.lr.ph
   %indvars.iv.i = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next.i, %21 ]
-  %22 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i
   %23 = load i32, ptr %22, align 4, !tbaa !15
-  %24 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv.i
   %25 = load i32, ptr %24, align 4, !tbaa !15
   %26 = add i32 %25, %23
   %27 = add i32 %26, -8380417

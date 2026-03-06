@@ -7127,7 +7127,7 @@ define internal void @_ZL20C_A_T_C_H_T_E_S_T_20v() #3 personality ptr @__gxx_per
 46:                                               ; preds = %46, %0
   %store_forwarded = phi i64 [ 5489, %0 ], [ %51, %46 ]
   %.011.i.i.i = phi i64 [ 1, %0 ], [ %52, %46 ]
-  %47 = getelementptr i64, ptr %7, i64 %.011.i.i.i
+  %47 = getelementptr [8 x i8], ptr %7, i64 %.011.i.i.i
   %48 = lshr i64 %store_forwarded, 62
   %49 = xor i64 %48, %store_forwarded
   %50 = mul i64 %49, 6364136223846793005
@@ -8382,7 +8382,7 @@ define internal void @_ZL20C_A_T_C_H_T_E_S_T_23v() #3 personality ptr @__gxx_per
 30:                                               ; preds = %30, %0
   %store_forwarded = phi i64 [ 5489, %0 ], [ %35, %30 ]
   %.011.i.i.i = phi i64 [ 1, %0 ], [ %36, %30 ]
-  %31 = getelementptr i64, ptr %2, i64 %.011.i.i.i
+  %31 = getelementptr [8 x i8], ptr %2, i64 %.011.i.i.i
   %32 = lshr i64 %store_forwarded, 62
   %33 = xor i64 %32, %store_forwarded
   %34 = mul i64 %33, 6364136223846793005
@@ -9251,7 +9251,7 @@ define internal void @_ZL20C_A_T_C_H_T_E_S_T_26v() #3 personality ptr @__gxx_per
 60:                                               ; preds = %60, %0
   %store_forwarded = phi i64 [ 5489, %0 ], [ %65, %60 ]
   %.011.i.i.i = phi i64 [ 1, %0 ], [ %66, %60 ]
-  %61 = getelementptr i64, ptr %7, i64 %.011.i.i.i
+  %61 = getelementptr [8 x i8], ptr %7, i64 %.011.i.i.i
   %62 = lshr i64 %store_forwarded, 62
   %63 = xor i64 %62, %store_forwarded
   %64 = mul i64 %63, 6364136223846793005
@@ -10947,7 +10947,7 @@ define internal void @_ZL20C_A_T_C_H_T_E_S_T_29v() #3 personality ptr @__gxx_per
 42:                                               ; preds = %42, %0
   %store_forwarded = phi i64 [ 5489, %0 ], [ %47, %42 ]
   %.011.i.i.i.i = phi i64 [ 1, %0 ], [ %48, %42 ]
-  %43 = getelementptr i64, ptr %8, i64 %.011.i.i.i.i
+  %43 = getelementptr [8 x i8], ptr %8, i64 %.011.i.i.i.i
   %44 = lshr i64 %store_forwarded, 62
   %45 = xor i64 %44, %store_forwarded
   %46 = mul i64 %45, 6364136223846793005
@@ -12479,7 +12479,7 @@ define internal void @_ZL20C_A_T_C_H_T_E_S_T_31v() #3 personality ptr @__gxx_per
 39:                                               ; preds = %39, %0
   %store_forwarded = phi i64 [ 5489, %0 ], [ %44, %39 ]
   %.011.i.i.i.i = phi i64 [ 1, %0 ], [ %45, %39 ]
-  %40 = getelementptr i64, ptr %5, i64 %.011.i.i.i.i
+  %40 = getelementptr [8 x i8], ptr %5, i64 %.011.i.i.i.i
   %41 = lshr i64 %store_forwarded, 62
   %42 = xor i64 %41, %store_forwarded
   %43 = mul i64 %42, 6364136223846793005
@@ -13823,7 +13823,7 @@ define internal void @_ZL20C_A_T_C_H_T_E_S_T_33v() #3 personality ptr @__gxx_per
 38:                                               ; preds = %38, %0
   %store_forwarded = phi i64 [ 5489, %0 ], [ %43, %38 ]
   %.011.i.i.i.i = phi i64 [ 1, %0 ], [ %44, %38 ]
-  %39 = getelementptr i64, ptr %4, i64 %.011.i.i.i.i
+  %39 = getelementptr [8 x i8], ptr %4, i64 %.011.i.i.i.i
   %40 = lshr i64 %store_forwarded, 62
   %41 = xor i64 %40, %store_forwarded
   %42 = mul i64 %41, 6364136223846793005
@@ -15133,7 +15133,7 @@ define internal void @_ZL20C_A_T_C_H_T_E_S_T_35v() #3 personality ptr @__gxx_per
 40:                                               ; preds = %40, %0
   %store_forwarded = phi i64 [ 5489, %0 ], [ %45, %40 ]
   %.011.i.i.i.i = phi i64 [ 1, %0 ], [ %46, %40 ]
-  %41 = getelementptr i64, ptr %6, i64 %.011.i.i.i.i
+  %41 = getelementptr [8 x i8], ptr %6, i64 %.011.i.i.i.i
   %42 = lshr i64 %store_forwarded, 62
   %43 = xor i64 %42, %store_forwarded
   %44 = mul i64 %43, 6364136223846793005
@@ -16537,7 +16537,7 @@ define internal void @_ZL20C_A_T_C_H_T_E_S_T_37v() #3 personality ptr @__gxx_per
 38:                                               ; preds = %38, %0
   %store_forwarded = phi i64 [ 5489, %0 ], [ %43, %38 ]
   %.011.i.i.i.i = phi i64 [ 1, %0 ], [ %44, %38 ]
-  %39 = getelementptr i64, ptr %4, i64 %.011.i.i.i.i
+  %39 = getelementptr [8 x i8], ptr %4, i64 %.011.i.i.i.i
   %40 = lshr i64 %store_forwarded, 62
   %41 = xor i64 %40, %store_forwarded
   %42 = mul i64 %41, 6364136223846793005
@@ -17827,7 +17827,7 @@ define internal void @_ZL20C_A_T_C_H_T_E_S_T_39v() #3 personality ptr @__gxx_per
 40:                                               ; preds = %40, %0
   %store_forwarded = phi i64 [ 5489, %0 ], [ %45, %40 ]
   %.011.i.i.i.i = phi i64 [ 1, %0 ], [ %46, %40 ]
-  %41 = getelementptr i64, ptr %6, i64 %.011.i.i.i.i
+  %41 = getelementptr [8 x i8], ptr %6, i64 %.011.i.i.i.i
   %42 = lshr i64 %store_forwarded, 62
   %43 = xor i64 %42, %store_forwarded
   %44 = mul i64 %43, 6364136223846793005
@@ -19231,7 +19231,7 @@ define internal void @_ZL20C_A_T_C_H_T_E_S_T_41v() #3 personality ptr @__gxx_per
 38:                                               ; preds = %38, %0
   %store_forwarded = phi i64 [ 5489, %0 ], [ %43, %38 ]
   %.011.i.i.i.i = phi i64 [ 1, %0 ], [ %44, %38 ]
-  %39 = getelementptr i64, ptr %4, i64 %.011.i.i.i.i
+  %39 = getelementptr [8 x i8], ptr %4, i64 %.011.i.i.i.i
   %40 = lshr i64 %store_forwarded, 62
   %41 = xor i64 %40, %store_forwarded
   %42 = mul i64 %41, 6364136223846793005
@@ -20658,7 +20658,7 @@ define internal void @_ZL20C_A_T_C_H_T_E_S_T_43v() #3 personality ptr @__gxx_per
 180:                                              ; preds = %180, %0
   %store_forwarded = phi i64 [ 5489, %0 ], [ %185, %180 ]
   %.011.i.i.i = phi i64 [ 1, %0 ], [ %186, %180 ]
-  %181 = getelementptr i64, ptr %29, i64 %.011.i.i.i
+  %181 = getelementptr [8 x i8], ptr %29, i64 %.011.i.i.i
   %182 = lshr i64 %store_forwarded, 62
   %183 = xor i64 %182, %store_forwarded
   %184 = mul i64 %183, 6364136223846793005
@@ -25013,7 +25013,7 @@ define internal void @_ZL20C_A_T_C_H_T_E_S_T_46v() #3 personality ptr @__gxx_per
 163:                                              ; preds = %163, %0
   %store_forwarded = phi i64 [ 5489, %0 ], [ %168, %163 ]
   %.011.i.i.i = phi i64 [ 1, %0 ], [ %169, %163 ]
-  %164 = getelementptr i64, ptr %35, i64 %.011.i.i.i
+  %164 = getelementptr [8 x i8], ptr %35, i64 %.011.i.i.i
   %165 = lshr i64 %store_forwarded, 62
   %166 = xor i64 %165, %store_forwarded
   %167 = mul i64 %166, 6364136223846793005
@@ -28800,7 +28800,7 @@ define internal void @_ZL20C_A_T_C_H_T_E_S_T_49v() #3 personality ptr @__gxx_per
 57:                                               ; preds = %57, %0
   %store_forwarded = phi i64 [ 5489, %0 ], [ %62, %57 ]
   %.011.i.i.i = phi i64 [ 1, %0 ], [ %63, %57 ]
-  %58 = getelementptr i64, ptr %5, i64 %.011.i.i.i
+  %58 = getelementptr [8 x i8], ptr %5, i64 %.011.i.i.i
   %59 = lshr i64 %store_forwarded, 62
   %60 = xor i64 %59, %store_forwarded
   %61 = mul i64 %60, 6364136223846793005
@@ -41481,10 +41481,10 @@ define linkonce_odr dso_local noundef i64 @_ZNSt23mersenne_twister_engineImLm64E
 6:                                                ; preds = %6, %5
   %7 = phi i64 [ %.pre.i, %5 ], [ %12, %6 ]
   %.021.i = phi i64 [ 0, %5 ], [ %10, %6 ]
-  %8 = getelementptr inbounds nuw i64, ptr %0, i64 %.021.i
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.021.i
   %9 = and i64 %7, -2147483648
   %10 = add nuw nsw i64 %.021.i, 1
-  %11 = getelementptr inbounds nuw i64, ptr %0, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %10
   %12 = load i64, ptr %11, align 8, !tbaa !45
   %13 = and i64 %12, 2147483646
   %14 = or disjoint i64 %13, %9
@@ -41508,10 +41508,10 @@ define linkonce_odr dso_local noundef i64 @_ZNSt23mersenne_twister_engineImLm64E
 .preheader.i:                                     ; preds = %.preheader.i, %.preheader.preheader.i
   %22 = phi i64 [ %27, %.preheader.i ], [ %.pre24.i, %.preheader.preheader.i ]
   %.01822.i = phi i64 [ %25, %.preheader.i ], [ 156, %.preheader.preheader.i ]
-  %23 = getelementptr inbounds nuw i64, ptr %0, i64 %.01822.i
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.01822.i
   %24 = and i64 %22, -2147483648
   %25 = add nuw nsw i64 %.01822.i, 1
-  %26 = getelementptr inbounds nuw i64, ptr %0, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %25
   %27 = load i64, ptr %26, align 8, !tbaa !45
   %28 = and i64 %27, 2147483646
   %29 = or disjoint i64 %28, %24
@@ -41549,7 +41549,7 @@ _ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm2
   %51 = phi i64 [ 0, %_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EE11_M_gen_randEv.exit ], [ %3, %1 ]
   %52 = add nuw nsw i64 %51, 1
   store i64 %52, ptr %2, align 8, !tbaa !116
-  %53 = getelementptr inbounds nuw i64, ptr %0, i64 %51
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %51
   %54 = load i64, ptr %53, align 8, !tbaa !45
   %55 = lshr i64 %54, 29
   %56 = and i64 %55, 22906492245
@@ -43900,7 +43900,7 @@ _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN5vcpkg4PathESt6vectorIS3_S
 20:                                               ; preds = %12
   %21 = add nsw i64 %.014, -1
   %22 = lshr i64 %13, 1
-  %23 = getelementptr inbounds nuw %"struct.vcpkg::Path", ptr %0, i64 %22
+  %23 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %22
   %24 = getelementptr inbounds i8, ptr %storemerge13, i64 -32
   tail call void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5vcpkg4PathESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_SB_SB_T0_(ptr %0, ptr nonnull %11, ptr %23, ptr nonnull %24)
   %25 = tail call ptr @_ZSt21__unguarded_partitionIN9__gnu_cxx17__normal_iteratorIPN5vcpkg4PathESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEET_SB_SB_SB_T0_(ptr nonnull %11, ptr %storemerge13, ptr %0)
@@ -43938,7 +43938,7 @@ define linkonce_odr dso_local void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iter
 18:                                               ; preds = %_ZN5vcpkg4PathD2Ev.exit13, %11
   %.08 = phi i64 [ %13, %11 ], [ %42, %_ZN5vcpkg4PathD2Ev.exit13 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %19 = getelementptr inbounds %"struct.vcpkg::Path", ptr %0, i64 %.08
+  %19 = getelementptr inbounds [32 x i8], ptr %0, i64 %.08
   store ptr %14, ptr %4, align 8, !tbaa !12
   %20 = load ptr, ptr %19, align 8, !tbaa !27
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 16
@@ -44246,9 +44246,9 @@ define linkonce_odr dso_local void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_it
   %.047 = phi i64 [ %spec.select, %_ZN5vcpkg4PathaSEOS0_.exit ], [ %1, %4 ]
   %10 = shl i64 %.047, 1
   %11 = add i64 %10, 2
-  %12 = getelementptr inbounds %"struct.vcpkg::Path", ptr %0, i64 %11
+  %12 = getelementptr inbounds [32 x i8], ptr %0, i64 %11
   %13 = or disjoint i64 %10, 1
-  %14 = getelementptr inbounds %"struct.vcpkg::Path", ptr %0, i64 %13
+  %14 = getelementptr inbounds [32 x i8], ptr %0, i64 %13
   %15 = tail call { ptr, i64 } @_ZNK5vcpkg4PathcvNS_10StringViewEEv(ptr noundef nonnull align 8 dereferenceable(32) %12) #24
   %16 = extractvalue { ptr, i64 } %15, 0
   %17 = extractvalue { ptr, i64 } %15, 1
@@ -44257,8 +44257,8 @@ define linkonce_odr dso_local void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_it
   %20 = extractvalue { ptr, i64 } %18, 1
   %21 = tail call noundef zeroext i1 @_ZN5vcpkgltENS_10StringViewES0_(ptr %16, i64 %17, ptr %19, i64 %20) #24
   %spec.select = select i1 %21, i64 %13, i64 %11
-  %22 = getelementptr inbounds %"struct.vcpkg::Path", ptr %0, i64 %spec.select
-  %23 = getelementptr inbounds %"struct.vcpkg::Path", ptr %0, i64 %.047
+  %22 = getelementptr inbounds [32 x i8], ptr %0, i64 %spec.select
+  %23 = getelementptr inbounds [32 x i8], ptr %0, i64 %.047
   %24 = load ptr, ptr %23, align 8, !tbaa !27
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %26 = icmp eq ptr %24, %25
@@ -44360,8 +44360,8 @@ _ZN5vcpkg4PathaSEOS0_.exit:                       ; preds = %30, %_ZNSt7__cxx111
 62:                                               ; preds = %58
   %63 = shl nsw i64 %.0.lcssa, 1
   %64 = or disjoint i64 %63, 1
-  %65 = getelementptr inbounds %"struct.vcpkg::Path", ptr %0, i64 %64
-  %66 = getelementptr inbounds %"struct.vcpkg::Path", ptr %0, i64 %.0.lcssa
+  %65 = getelementptr inbounds [32 x i8], ptr %0, i64 %64
+  %66 = getelementptr inbounds [32 x i8], ptr %0, i64 %.0.lcssa
   %67 = load ptr, ptr %66, align 8, !tbaa !27
   %68 = getelementptr inbounds nuw i8, ptr %66, i64 16
   %69 = icmp eq ptr %67, %68
@@ -44527,7 +44527,7 @@ define linkonce_odr dso_local void @_ZSt11__push_heapIN9__gnu_cxx17__normal_iter
   %.027 = phi i64 [ %.0928, %_ZN5vcpkg4PathaSEOS0_.exit ], [ %1, %5 ]
   %.0928.in = add nsw i64 %.027, -1
   %.0928 = sdiv i64 %.0928.in, 2
-  %7 = getelementptr inbounds %"struct.vcpkg::Path", ptr %0, i64 %.0928
+  %7 = getelementptr inbounds [32 x i8], ptr %0, i64 %.0928
   %8 = tail call { ptr, i64 } @_ZNK5vcpkg4PathcvNS_10StringViewEEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #24
   %9 = extractvalue { ptr, i64 } %8, 0
   %10 = extractvalue { ptr, i64 } %8, 1
@@ -44538,7 +44538,7 @@ define linkonce_odr dso_local void @_ZSt11__push_heapIN9__gnu_cxx17__normal_iter
   br i1 %14, label %15, label %.critedge
 
 15:                                               ; preds = %.lr.ph
-  %16 = getelementptr inbounds %"struct.vcpkg::Path", ptr %0, i64 %.027
+  %16 = getelementptr inbounds [32 x i8], ptr %0, i64 %.027
   %17 = load ptr, ptr %16, align 8, !tbaa !27
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %19 = icmp eq ptr %17, %18
@@ -44627,7 +44627,7 @@ _ZN5vcpkg4PathaSEOS0_.exit:                       ; preds = %23, %_ZNSt7__cxx111
 
 .critedge:                                        ; preds = %.lr.ph, %_ZN5vcpkg4PathaSEOS0_.exit, %5
   %.0.lcssa = phi i64 [ %1, %5 ], [ %.0928, %_ZN5vcpkg4PathaSEOS0_.exit ], [ %.027, %.lr.ph ]
-  %49 = getelementptr inbounds %"struct.vcpkg::Path", ptr %0, i64 %.0.lcssa
+  %49 = getelementptr inbounds [32 x i8], ptr %0, i64 %.0.lcssa
   %50 = load ptr, ptr %49, align 8, !tbaa !27
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %52 = icmp eq ptr %50, %51

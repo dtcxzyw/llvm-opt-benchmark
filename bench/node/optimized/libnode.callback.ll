@@ -853,9 +853,9 @@ do.body4.i38:                                     ; preds = %for.body
   unreachable
 
 _ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm16EEixEm.exit41: ; preds = %for.body
-  %arrayidx = getelementptr inbounds nuw %"class.v8::Local.261", ptr %argv, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [8 x i8], ptr %argv, i64 %indvars.iv
   %19 = load ptr, ptr %buf_.i.i, align 8
-  %arrayidx.i40 = getelementptr inbounds nuw %"class.v8::Local.261", ptr %19, i64 %17
+  %arrayidx.i40 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %17
   %20 = load i64, ptr %arrayidx, align 8
   store i64 %20, ptr %arrayidx.i40, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

@@ -79,7 +79,6 @@ module asm ".previous\09\09\09\09\09"
 %struct.attribute = type { ptr, i16 }
 %struct.kernel_param = type { ptr, ptr, ptr, i16, i8, i8, %union.anon }
 %union.anon = type { ptr }
-%struct.param_attribute = type { %struct.module_attribute, ptr }
 
 @.str.1 = private unnamed_addr constant [34 x i8] c"\014%s: option '%s' enabled irq's!\0A\00", align 1
 @.str.2 = private unnamed_addr constant [30 x i8] c"\013%s: Unknown parameter `%s'\0A\00", align 1
@@ -356,7 +355,7 @@ sub_1:                                            ; preds = %sub_0
 
 45:                                               ; preds = %114, %.split
   %46 = phi i64 [ 0, %.split ], [ %115, %114 ]
-  %47 = getelementptr %struct.kernel_param, ptr %2, i64 %46
+  %47 = getelementptr [40 x i8], ptr %2, i64 %46
   %48 = load ptr, ptr %47, align 8
   %49 = load i8, ptr %48, align 1
   %50 = icmp eq i8 %49, 45
@@ -1375,7 +1374,7 @@ define dso_local i32 @module_param_sysfs_setup(ptr noundef %0, ptr noundef %1, i
 8:                                                ; preds = %.outer, %23
   %9 = phi i32 [ %24, %23 ], [ %.ph7, %.outer ]
   %10 = sext i32 %9 to i64
-  %11 = getelementptr %struct.kernel_param, ptr %1, i64 %10
+  %11 = getelementptr [40 x i8], ptr %1, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load i16, ptr %12, align 8
   %14 = icmp eq i16 %13, 0
@@ -1512,7 +1511,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @add_sysfs_param(ptr nounde
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 48
   %49 = load i32, ptr %47, align 8
   %50 = zext i32 %49 to i64
-  %51 = getelementptr %struct.param_attribute, ptr %48, i64 %50
+  %51 = getelementptr [64 x i8], ptr %48, i64 %50
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(64) %51, i8 0, i64 64, i1 false)
   %52 = load ptr, ptr %9, align 8
   %53 = load i32, ptr %52, align 8
@@ -1543,7 +1542,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @add_sysfs_param(ptr nounde
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 48
   %73 = load i32, ptr %71, align 8
   %74 = zext i32 %73 to i64
-  %75 = getelementptr %struct.param_attribute, ptr %72, i64 %74
+  %75 = getelementptr [64 x i8], ptr %72, i64 %74
   store ptr %2, ptr %75, align 8
   %76 = load i16, ptr %4, align 8
   %77 = load ptr, ptr %9, align 8
@@ -1566,10 +1565,10 @@ define internal fastcc noundef range(i32 -12, 1) i32 @add_sysfs_param(ptr nounde
   %88 = phi i64 [ %95, %.preheader ], [ 0, %44 ]
   %89 = phi ptr [ %96, %.preheader ], [ %85, %44 ]
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 48
-  %91 = getelementptr %struct.param_attribute, ptr %90, i64 %88
+  %91 = getelementptr [64 x i8], ptr %90, i64 %88
   %92 = getelementptr inbounds nuw i8, ptr %89, i64 32
   %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr ptr, ptr %93, i64 %88
+  %94 = getelementptr [8 x i8], ptr %93, i64 %88
   store ptr %91, ptr %94, align 8
   %95 = add nuw nsw i64 %88, 1
   %96 = load ptr, ptr %9, align 8
@@ -1587,7 +1586,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @add_sysfs_param(ptr nounde
   %102 = phi i64 [ %100, %.loopexit.loopexit ], [ 0, %44 ]
   %103 = getelementptr inbounds nuw i8, ptr %101, i64 32
   %104 = load ptr, ptr %103, align 8
-  %105 = getelementptr ptr, ptr %104, i64 %102
+  %105 = getelementptr [8 x i8], ptr %104, i64 %102
   store ptr null, ptr %105, align 8
   br label %106
 
@@ -1645,7 +1644,7 @@ define dso_local void @destroy_params(ptr noundef readonly captures(none) %0, i3
 
 6:                                                ; preds = %17, %4
   %7 = phi i64 [ 0, %4 ], [ %18, %17 ]
-  %8 = getelementptr %struct.kernel_param, ptr %0, i64 %7
+  %8 = getelementptr [40 x i8], ptr %0, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 24

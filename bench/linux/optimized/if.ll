@@ -42,7 +42,7 @@ define dso_local ptr @mtrr_attrib_to_str(i32 noundef %0) local_unnamed_addr #0 a
 
 3:                                                ; preds = %1
   %4 = sext i32 %0 to i64
-  %5 = getelementptr ptr, ptr @mtrr_strings, i64 %4
+  %5 = getelementptr [8 x i8], ptr @mtrr_strings, i64 %4
   %6 = load ptr, ptr %5, align 8
   br label %7
 
@@ -250,7 +250,7 @@ define internal i32 @mtrr_close(ptr noundef %0, ptr noundef %1) #3 align 16 {
 
 13:                                               ; preds = %.loopexit, %11
   %14 = phi i64 [ 0, %11 ], [ %25, %.loopexit ]
-  %15 = getelementptr i32, ptr %6, i64 %14
+  %15 = getelementptr [4 x i8], ptr %6, i64 %14
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %.loopexit, label %18
@@ -494,7 +494,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @mtrr_ioctl(ptr noundef r
 
 119:                                              ; preds = %114
   %120 = zext nneg i32 %117 to i64
-  %121 = getelementptr i32, ptr %110, i64 %120
+  %121 = getelementptr [4 x i8], ptr %110, i64 %120
   %122 = load i32, ptr %121, align 4
   %123 = add i32 %122, 1
   store i32 %123, ptr %121, align 4
@@ -535,7 +535,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @mtrr_ioctl(ptr noundef r
 
 151:                                              ; preds = %144
   %152 = zext nneg i32 %147 to i64
-  %153 = getelementptr i32, ptr %140, i64 %152
+  %153 = getelementptr [4 x i8], ptr %140, i64 %152
   %154 = load i32, ptr %153, align 4
   %155 = icmp eq i32 %154, 0
   br i1 %155, label %.thread23, label %156
@@ -635,7 +635,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @mtrr_ioctl(ptr noundef r
 
 218:                                              ; preds = %214
   %219 = zext nneg i32 %216 to i64
-  %220 = getelementptr i32, ptr %215, i64 %219
+  %220 = getelementptr [4 x i8], ptr %215, i64 %219
   %221 = load i32, ptr %220, align 4
   %222 = add i32 %221, 1
   store i32 %222, ptr %220, align 4
@@ -668,7 +668,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @mtrr_ioctl(ptr noundef r
 
 244:                                              ; preds = %231
   %245 = zext nneg i32 %240 to i64
-  %246 = getelementptr i32, ptr %239, i64 %245
+  %246 = getelementptr [4 x i8], ptr %239, i64 %245
   %247 = load i32, ptr %246, align 4
   %248 = icmp eq i32 %247, 0
   br i1 %248, label %.thread23, label %249
@@ -836,7 +836,7 @@ define internal noundef i32 @mtrr_seq_show(ptr noundef %0, ptr readnone captures
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %10
-  %19 = getelementptr i32, ptr @mtrr_usage_table, i64 %11
+  %19 = getelementptr [4 x i8], ptr @mtrr_usage_table, i64 %11
   store i32 0, ptr %19, align 4
   br label %38
 
@@ -849,7 +849,7 @@ define internal noundef i32 @mtrr_seq_show(ptr noundef %0, ptr readnone captures
   store i64 %24, ptr %5, align 8
   %26 = load i64, ptr %4, align 8
   %27 = lshr i64 %26, 8
-  %28 = getelementptr i32, ptr @mtrr_usage_table, i64 %11
+  %28 = getelementptr [4 x i8], ptr @mtrr_usage_table, i64 %11
   %29 = load i32, ptr %28, align 4
   %30 = load i8, ptr %3, align 1
   %31 = icmp ult i8 %30, 7
@@ -857,7 +857,7 @@ define internal noundef i32 @mtrr_seq_show(ptr noundef %0, ptr readnone captures
 
 32:                                               ; preds = %20
   %33 = zext nneg i8 %30 to i64
-  %34 = getelementptr ptr, ptr @mtrr_strings, i64 %33
+  %34 = getelementptr [8 x i8], ptr @mtrr_strings, i64 %33
   %35 = load ptr, ptr %34, align 8
   br label %36
 

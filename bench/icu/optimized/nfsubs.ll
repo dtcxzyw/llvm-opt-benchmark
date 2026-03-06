@@ -735,7 +735,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit46:       ; preds = %10
   %25 = select i1 %.not.i.i.i, ptr %23, ptr %24
   %26 = load i16, ptr %25, align 2, !tbaa !15
   %27 = zext nneg i32 %20 to i64
-  %28 = getelementptr inbounds nuw i16, ptr %25, i64 %27
+  %28 = getelementptr inbounds nuw [2 x i8], ptr %25, i64 %27
   %29 = load i16, ptr %28, align 2, !tbaa !15
   %30 = icmp eq i16 %26, %29
   br i1 %30, label %31, label %.thread

@@ -14,8 +14,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__shared_ptr.26" = type { ptr, %"class.std::__shared_count" }
 %"class.std::shared_ptr.43" = type { %"class.std::__shared_ptr.44" }
 %"class.std::__shared_ptr.44" = type { ptr, %"class.std::__shared_count" }
-%"class.std::shared_ptr.64" = type { %"class.std::__shared_ptr.65" }
-%"class.std::__shared_ptr.65" = type { ptr, %"class.std::__shared_count" }
 %"class.std::shared_ptr.46" = type { %"class.std::__shared_ptr.47" }
 %"class.std::__shared_ptr.47" = type { ptr, %"class.std::__shared_count" }
 %"class.std::shared_ptr.61" = type { %"class.std::__shared_ptr.62" }
@@ -862,7 +860,7 @@ define noundef ptr @_ZNK19OpenColorIO_v2_5dev17ProcessorMetadata7getLookEi(ptr n
 
 15:                                               ; preds = %4
   %16 = zext nneg i32 %1 to i64
-  %17 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %9, i64 %16
+  %17 = getelementptr inbounds nuw [32 x i8], ptr %9, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !64
   br label %19
 
@@ -1259,7 +1257,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZNK19OpenColorIO_v2_5dev
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = sext i32 %1 to i64
   %5 = load ptr, ptr %3, align 8, !tbaa !94
-  %6 = getelementptr inbounds nuw %"class.std::shared_ptr.64", ptr %5, i64 %4
+  %6 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %4
   %7 = load ptr, ptr %6, align 8, !tbaa !95, !noalias !98
   %.not.not.i = icmp eq ptr %7, null
   br i1 %.not.not.i, label %_ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_5dev2OpES1_ESt10shared_ptrIT_ERKS3_IT0_E.exit, label %8
@@ -5847,7 +5845,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %69
   store ptr %22, ptr %0, align 8, !tbaa !60
   store ptr %.0.lcssa.i.i.i.i25, ptr %4, align 8, !tbaa !63
-  %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %73, ptr %68, align 8, !tbaa !70
   ret void
 }

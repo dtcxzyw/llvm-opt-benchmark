@@ -527,7 +527,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %8, %37, %39
           to label %110 unwind label %.loopexit
 
 110:                                              ; preds = %.lr.ph
-  %111 = getelementptr inbounds nuw i32, ptr %102, i64 %indvars.iv
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %102, i64 %indvars.iv
   store i32 %109, ptr %111, align 4, !tbaa !46
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %112 = load ptr, ptr %25, align 8, !tbaa !33

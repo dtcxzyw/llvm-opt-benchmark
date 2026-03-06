@@ -592,7 +592,7 @@ _ZNK2cv11_InputArray6getMatEi.exit89:             ; preds = %61, %64
   %146 = load i64, ptr %145, align 8, !tbaa !57
   %147 = mul i64 %146, %indvars.iv135
   %148 = getelementptr inbounds nuw i8, ptr %144, i64 %147
-  %149 = getelementptr inbounds nuw float, ptr %148, i64 %indvars.iv
+  %149 = getelementptr inbounds nuw [4 x i8], ptr %148, i64 %indvars.iv
   store float %143, ptr %149, align 4, !tbaa !58
   %.pre = add nuw nsw i64 %indvars.iv, 1
   br label %174
@@ -668,7 +668,7 @@ _ZNK2cv11_InputArray6getMatEi.exit89:             ; preds = %61, %64
   %170 = load i64, ptr %169, align 8, !tbaa !57
   %171 = mul i64 %170, %indvars.iv135
   %172 = getelementptr inbounds nuw i8, ptr %168, i64 %171
-  %173 = getelementptr inbounds nuw float, ptr %172, i64 %indvars.iv
+  %173 = getelementptr inbounds nuw [4 x i8], ptr %172, i64 %indvars.iv
   store float %167, ptr %173, align 4, !tbaa !58
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %33) #17
@@ -1403,7 +1403,7 @@ _ZNK2cv11_InputArray6getMatEi.exit112:            ; preds = %70, %73
   %171 = load i64, ptr %170, align 8, !tbaa !57
   %172 = mul i64 %171, %indvars.iv200
   %173 = getelementptr inbounds nuw i8, ptr %169, i64 %172
-  %174 = getelementptr inbounds nuw float, ptr %173, i64 %indvars.iv195
+  %174 = getelementptr inbounds nuw [4 x i8], ptr %173, i64 %indvars.iv195
   store float %168, ptr %174, align 4, !tbaa !58
   %.pre = add nuw nsw i64 %indvars.iv195, 1
   br label %212
@@ -1547,7 +1547,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit132.us:           ; preds = %192
   %208 = load i64, ptr %207, align 8, !tbaa !57
   %209 = mul i64 %208, %indvars.iv200
   %210 = getelementptr inbounds nuw i8, ptr %206, i64 %209
-  %211 = getelementptr inbounds nuw float, ptr %210, i64 %indvars.iv195
+  %211 = getelementptr inbounds nuw [4 x i8], ptr %210, i64 %indvars.iv195
   store float %204, ptr %211, align 4, !tbaa !58
   call void @llvm.lifetime.end.p0(ptr nonnull %46)
   call void @llvm.lifetime.end.p0(ptr nonnull %45)
@@ -2294,7 +2294,7 @@ _ZNK2cv11_InputArray6getMatEi.exit92:             ; preds = %52, %55
   %132 = icmp slt i64 %indvars.iv138, %131
   %133 = load float, ptr %113, align 4
   %.sink = select i1 %132, float 0.000000e+00, float %133
-  %134 = getelementptr inbounds nuw float, ptr %138, i64 %indvars.iv138
+  %134 = getelementptr inbounds nuw [4 x i8], ptr %138, i64 %indvars.iv138
   store float %.sink, ptr %134, align 4, !tbaa !58
   %indvars.iv.next139 = add nuw nsw i64 %indvars.iv138, 1
   %exitcond142.not = icmp eq i64 %indvars.iv.next139, %wide.trip.count156
@@ -2331,7 +2331,7 @@ _ZNK2cv11_InputArray6getMatEi.exit92:             ; preds = %52, %55
 
 145:                                              ; preds = %145, %.lr.ph124.split.us.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %145 ], [ 0, %.lr.ph124.split.us.us ]
-  %146 = getelementptr inbounds nuw float, ptr %144, i64 %indvars.iv
+  %146 = getelementptr inbounds nuw [4 x i8], ptr %144, i64 %indvars.iv
   store float %.pre, ptr %146, align 4, !tbaa !58
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count156
@@ -2350,7 +2350,7 @@ _ZNK2cv11_InputArray6getMatEi.exit92:             ; preds = %52, %55
 
 152:                                              ; preds = %._crit_edge.us.us, %150
   %.sink166 = phi float [ %171, %._crit_edge.us.us ], [ %151, %150 ]
-  %153 = getelementptr inbounds nuw float, ptr %141, i64 %indvars.iv148
+  %153 = getelementptr inbounds nuw [4 x i8], ptr %141, i64 %indvars.iv148
   store float %.sink166, ptr %153, align 4, !tbaa !58
   %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 1
   %exitcond152.not = icmp eq i64 %indvars.iv.next149, %wide.trip.count156
@@ -2359,9 +2359,9 @@ _ZNK2cv11_InputArray6getMatEi.exit92:             ; preds = %52, %55
 154:                                              ; preds = %.preheader.us.us, %154
   %indvars.iv143 = phi i64 [ 0, %.preheader.us.us ], [ %indvars.iv.next144, %154 ]
   %.059120.us.us = phi float [ 0.000000e+00, %.preheader.us.us ], [ %164, %154 ]
-  %155 = getelementptr inbounds nuw float, ptr %167, i64 %indvars.iv143
+  %155 = getelementptr inbounds nuw [4 x i8], ptr %167, i64 %indvars.iv143
   %156 = load float, ptr %155, align 4, !tbaa !58
-  %157 = getelementptr inbounds nuw float, ptr %170, i64 %indvars.iv143
+  %157 = getelementptr inbounds nuw [4 x i8], ptr %170, i64 %indvars.iv143
   %158 = load float, ptr %157, align 4, !tbaa !58
   %159 = fsub float %156, %158
   %160 = fadd float %156, %158
@@ -2987,7 +2987,7 @@ _ZNK2cv11_InputArray6getMatEi.exit102:            ; preds = %70, %73
   %164 = load i64, ptr %163, align 8, !tbaa !57
   %165 = mul i64 %164, %indvars.iv174
   %166 = getelementptr inbounds nuw i8, ptr %162, i64 %165
-  %167 = getelementptr inbounds nuw float, ptr %166, i64 %indvars.iv
+  %167 = getelementptr inbounds nuw [4 x i8], ptr %166, i64 %indvars.iv
   store float %161, ptr %167, align 4, !tbaa !58
   %.pre = add nuw nsw i64 %indvars.iv, 1
   br label %199
@@ -3117,7 +3117,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit.us:              ; preds = %175
   %195 = load i64, ptr %194, align 8, !tbaa !57
   %196 = mul i64 %195, %indvars.iv174
   %197 = getelementptr inbounds nuw i8, ptr %193, i64 %196
-  %198 = getelementptr inbounds nuw float, ptr %197, i64 %indvars.iv
+  %198 = getelementptr inbounds nuw [4 x i8], ptr %197, i64 %indvars.iv
   store float %191, ptr %198, align 4, !tbaa !58
   call void @llvm.lifetime.end.p0(ptr nonnull %46)
   call void @llvm.lifetime.end.p0(ptr nonnull %45)

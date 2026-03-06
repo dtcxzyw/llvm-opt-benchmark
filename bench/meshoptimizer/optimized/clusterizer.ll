@@ -7,8 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.meshopt::TriangleAdjacency2" = type { ptr, ptr, ptr }
 %struct.meshopt_Meshlet = type { i32, i32, i32, i32 }
 %"struct.meshopt::Cone" = type { float, float, float, float, float, float }
-%"struct.meshopt::KDNode" = type { %union.anon, i32 }
-%union.anon = type { float }
 %struct.meshopt_Bounds = type { [3 x float], float, [3 x float], [3 x float], float, [3 x i8], i8 }
 
 $_ZN17meshopt_AllocatorD2Ev = comdat any
@@ -96,10 +94,10 @@ define dso_local i64 @meshopt_buildMeshlets(ptr noundef writeonly captures(none)
 
 39:                                               ; preds = %39, %.noexc176
   %.07484.i = phi i64 [ 0, %.noexc176 ], [ %44, %39 ]
-  %40 = getelementptr inbounds nuw i32, ptr %3, i64 %.07484.i
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.07484.i
   %41 = load i32, ptr %40, align 4, !tbaa !16
   %42 = zext i32 %41 to i64
-  %43 = getelementptr inbounds nuw i32, ptr %28, i64 %42
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %42
   store i32 0, ptr %43, align 4, !tbaa !16
   %44 = add nuw nsw i64 %.07484.i, 1
   %exitcond.not.i = icmp eq i64 %44, %4
@@ -107,10 +105,10 @@ define dso_local i64 @meshopt_buildMeshlets(ptr noundef writeonly captures(none)
 
 .preheader82.i:                                   ; preds = %39, %.preheader82.i
   %.07585.i = phi i64 [ %51, %.preheader82.i ], [ 0, %39 ]
-  %45 = getelementptr inbounds nuw i32, ptr %3, i64 %.07585.i
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.07585.i
   %46 = load i32, ptr %45, align 4, !tbaa !16
   %47 = zext i32 %46 to i64
-  %48 = getelementptr inbounds nuw i32, ptr %28, i64 %47
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %47
   %49 = load i32, ptr %48, align 4, !tbaa !16
   %50 = add i32 %49, 1
   store i32 %50, ptr %48, align 4, !tbaa !16
@@ -128,16 +126,16 @@ define dso_local i64 @meshopt_buildMeshlets(ptr noundef writeonly captures(none)
 .preheader81.i:                                   ; preds = %.preheader82.i, %64
   %.07687.i = phi i32 [ %.1.i, %64 ], [ 0, %.preheader82.i ]
   %.07886.i = phi i64 [ %65, %64 ], [ 0, %.preheader82.i ]
-  %53 = getelementptr inbounds nuw i32, ptr %3, i64 %.07886.i
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.07886.i
   %54 = load i32, ptr %53, align 4, !tbaa !16
   %55 = zext i32 %54 to i64
-  %56 = getelementptr inbounds nuw i32, ptr %28, i64 %55
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %55
   %57 = load i32, ptr %56, align 4, !tbaa !16
   %58 = icmp sgt i32 %57, -1
   br i1 %58, label %59, label %64
 
 59:                                               ; preds = %.preheader81.i
-  %60 = getelementptr inbounds nuw i32, ptr %31, i64 %55
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %55
   store i32 %.07687.i, ptr %60, align 4, !tbaa !16
   %61 = load i32, ptr %56, align 4, !tbaa !16
   %62 = add i32 %61, %.07687.i
@@ -162,28 +160,28 @@ define dso_local i64 @meshopt_buildMeshlets(ptr noundef writeonly captures(none)
   %71 = load i32, ptr %70, align 4, !tbaa !16
   %72 = trunc nuw nsw i64 %.07788.i to i32
   %73 = zext i32 %67 to i64
-  %74 = getelementptr inbounds nuw i32, ptr %31, i64 %73
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %73
   %75 = load i32, ptr %74, align 4, !tbaa !16
   %76 = add i32 %75, 1
   store i32 %76, ptr %74, align 4, !tbaa !16
   %77 = zext i32 %75 to i64
-  %78 = getelementptr inbounds nuw i32, ptr %36, i64 %77
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %77
   store i32 %72, ptr %78, align 4, !tbaa !16
   %79 = zext i32 %69 to i64
-  %80 = getelementptr inbounds nuw i32, ptr %31, i64 %79
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %79
   %81 = load i32, ptr %80, align 4, !tbaa !16
   %82 = add i32 %81, 1
   store i32 %82, ptr %80, align 4, !tbaa !16
   %83 = zext i32 %81 to i64
-  %84 = getelementptr inbounds nuw i32, ptr %36, i64 %83
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %83
   store i32 %72, ptr %84, align 4, !tbaa !16
   %85 = zext i32 %71 to i64
-  %86 = getelementptr inbounds nuw i32, ptr %31, i64 %85
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %85
   %87 = load i32, ptr %86, align 4, !tbaa !16
   %88 = add i32 %87, 1
   store i32 %88, ptr %86, align 4, !tbaa !16
   %89 = zext i32 %87 to i64
-  %90 = getelementptr inbounds nuw i32, ptr %36, i64 %89
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %89
   store i32 %72, ptr %90, align 4, !tbaa !16
   %91 = add nuw nsw i64 %.07788.i, 1
   %exitcond93.not.i = icmp eq i64 %91, %.zext.i
@@ -194,10 +192,10 @@ define dso_local i64 @meshopt_buildMeshlets(ptr noundef writeonly captures(none)
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %102
   %.07389.i = phi i64 [ %103, %102 ], [ 0, %.preheader.i.preheader ]
-  %92 = getelementptr inbounds nuw i32, ptr %3, i64 %.07389.i
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.07389.i
   %93 = load i32, ptr %92, align 4, !tbaa !16
   %94 = zext i32 %93 to i64
-  %95 = getelementptr inbounds nuw i32, ptr %28, i64 %94
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %94
   %96 = load i32, ptr %95, align 4, !tbaa !16
   %.not.i = icmp sgt i32 %96, -1
   br i1 %.not.i, label %102, label %97
@@ -205,7 +203,7 @@ define dso_local i64 @meshopt_buildMeshlets(ptr noundef writeonly captures(none)
 97:                                               ; preds = %.preheader.i
   %98 = and i32 %96, 2147483647
   store i32 %98, ptr %95, align 4, !tbaa !16
-  %99 = getelementptr inbounds nuw i32, ptr %31, i64 %94
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %94
   %100 = load i32, ptr %99, align 4, !tbaa !16
   %101 = sub i32 %100, %98
   store i32 %101, ptr %99, align 4, !tbaa !16
@@ -263,10 +261,10 @@ define dso_local i64 @meshopt_buildMeshlets(ptr noundef writeonly captures(none)
 
 121:                                              ; preds = %121, %.noexc184
   %.05461.i = phi i64 [ 0, %.noexc184 ], [ %128, %121 ]
-  %122 = getelementptr inbounds nuw i32, ptr %3, i64 %.05461.i
+  %122 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.05461.i
   %123 = load i32, ptr %122, align 4, !tbaa !16
   %124 = zext i32 %123 to i64
-  %125 = getelementptr inbounds nuw i32, ptr %107, i64 %124
+  %125 = getelementptr inbounds nuw [4 x i8], ptr %107, i64 %124
   %126 = load i32, ptr %125, align 4, !tbaa !16
   %127 = add i32 %126, 1
   store i32 %127, ptr %125, align 4, !tbaa !16
@@ -281,9 +279,9 @@ define dso_local i64 @meshopt_buildMeshlets(ptr noundef writeonly captures(none)
 .lr.ph.i179:                                      ; preds = %.preheader60.i, %.lr.ph.i179
   %.05563.i = phi i32 [ %132, %.lr.ph.i179 ], [ 0, %.preheader60.i ]
   %.05662.i = phi i64 [ %133, %.lr.ph.i179 ], [ 0, %.preheader60.i ]
-  %129 = getelementptr inbounds nuw i32, ptr %110, i64 %.05662.i
+  %129 = getelementptr inbounds nuw [4 x i8], ptr %110, i64 %.05662.i
   store i32 %.05563.i, ptr %129, align 4, !tbaa !16
-  %130 = getelementptr inbounds nuw i32, ptr %107, i64 %.05662.i
+  %130 = getelementptr inbounds nuw [4 x i8], ptr %107, i64 %.05662.i
   %131 = load i32, ptr %130, align 4, !tbaa !16
   %132 = add i32 %131, %.05563.i
   %133 = add nuw i64 %.05662.i, 1
@@ -304,28 +302,28 @@ define dso_local i64 @meshopt_buildMeshlets(ptr noundef writeonly captures(none)
   %139 = load i32, ptr %138, align 4, !tbaa !16
   %140 = trunc i64 %.05764.i to i32
   %141 = zext i32 %135 to i64
-  %142 = getelementptr inbounds nuw i32, ptr %110, i64 %141
+  %142 = getelementptr inbounds nuw [4 x i8], ptr %110, i64 %141
   %143 = load i32, ptr %142, align 4, !tbaa !16
   %144 = add i32 %143, 1
   store i32 %144, ptr %142, align 4, !tbaa !16
   %145 = zext i32 %143 to i64
-  %146 = getelementptr inbounds nuw i32, ptr %117, i64 %145
+  %146 = getelementptr inbounds nuw [4 x i8], ptr %117, i64 %145
   store i32 %140, ptr %146, align 4, !tbaa !16
   %147 = zext i32 %137 to i64
-  %148 = getelementptr inbounds nuw i32, ptr %110, i64 %147
+  %148 = getelementptr inbounds nuw [4 x i8], ptr %110, i64 %147
   %149 = load i32, ptr %148, align 4, !tbaa !16
   %150 = add i32 %149, 1
   store i32 %150, ptr %148, align 4, !tbaa !16
   %151 = zext i32 %149 to i64
-  %152 = getelementptr inbounds nuw i32, ptr %117, i64 %151
+  %152 = getelementptr inbounds nuw [4 x i8], ptr %117, i64 %151
   store i32 %140, ptr %152, align 4, !tbaa !16
   %153 = zext i32 %139 to i64
-  %154 = getelementptr inbounds nuw i32, ptr %110, i64 %153
+  %154 = getelementptr inbounds nuw [4 x i8], ptr %110, i64 %153
   %155 = load i32, ptr %154, align 4, !tbaa !16
   %156 = add i32 %155, 1
   store i32 %156, ptr %154, align 4, !tbaa !16
   %157 = zext i32 %155 to i64
-  %158 = getelementptr inbounds nuw i32, ptr %117, i64 %157
+  %158 = getelementptr inbounds nuw [4 x i8], ptr %117, i64 %157
   store i32 %140, ptr %158, align 4, !tbaa !16
   %159 = add nuw nsw i64 %.05764.i, 1
   %exitcond71.not.i = icmp eq i64 %159, %120
@@ -333,9 +331,9 @@ define dso_local i64 @meshopt_buildMeshlets(ptr noundef writeonly captures(none)
 
 .lr.ph67.i:                                       ; preds = %.preheader.i181, %.lr.ph67.i
   %.066.i = phi i64 [ %165, %.lr.ph67.i ], [ 0, %.preheader.i181 ]
-  %160 = getelementptr inbounds nuw i32, ptr %107, i64 %.066.i
+  %160 = getelementptr inbounds nuw [4 x i8], ptr %107, i64 %.066.i
   %161 = load i32, ptr %160, align 4, !tbaa !16
-  %162 = getelementptr inbounds nuw i32, ptr %110, i64 %.066.i
+  %162 = getelementptr inbounds nuw [4 x i8], ptr %110, i64 %.066.i
   %163 = load i32, ptr %162, align 4, !tbaa !16
   %164 = sub i32 %163, %161
   store i32 %164, ptr %162, align 4, !tbaa !16
@@ -389,13 +387,13 @@ _ZN7meshoptL28buildTriangleAdjacencySparseERNS_18TriangleAdjacency2EPKjmmR17mesh
   %187 = load i32, ptr %186, align 4, !tbaa !16
   %188 = zext i32 %183 to i64
   %189 = mul i64 %181, %188
-  %190 = getelementptr inbounds nuw float, ptr %5, i64 %189
+  %190 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %189
   %191 = zext i32 %185 to i64
   %192 = mul i64 %181, %191
-  %193 = getelementptr inbounds nuw float, ptr %5, i64 %192
+  %193 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %192
   %194 = zext i32 %187 to i64
   %195 = mul i64 %181, %194
-  %196 = getelementptr inbounds nuw float, ptr %5, i64 %195
+  %196 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %195
   %197 = load float, ptr %193, align 4, !tbaa !28
   %198 = load float, ptr %190, align 4, !tbaa !28
   %199 = fsub float %197, %198
@@ -436,7 +434,7 @@ _ZN7meshoptL28buildTriangleAdjacencySparseERNS_18TriangleAdjacency2EPKjmmR17mesh
   %233 = fadd float %197, %198
   %234 = fadd float %233, %210
   %235 = fdiv float %234, 3.000000e+00
-  %236 = getelementptr inbounds nuw %"struct.meshopt::Cone", ptr %178, i64 %.07879.i
+  %236 = getelementptr inbounds nuw [24 x i8], ptr %178, i64 %.07879.i
   store float %235, ptr %236, align 4, !tbaa !30
   %237 = load float, ptr %202, align 4, !tbaa !28
   %238 = load float, ptr %200, align 4, !tbaa !28
@@ -517,7 +515,7 @@ _ZN17meshopt_Allocator8allocateIjEEPT_m.exit:     ; preds = %_ZN7meshoptL20compu
 .lr.ph:                                           ; preds = %_ZN17meshopt_Allocator8allocateIjEEPT_m.exit, %.lr.ph
   %.0143218 = phi i64 [ %286, %.lr.ph ], [ 0, %_ZN17meshopt_Allocator8allocateIjEEPT_m.exit ]
   %284 = trunc i64 %.0143218 to i32
-  %285 = getelementptr inbounds nuw i32, ptr %271, i64 %.0143218
+  %285 = getelementptr inbounds nuw [4 x i8], ptr %271, i64 %.0143218
   store i32 %284, ptr %285, align 4, !tbaa !16
   %286 = add nuw nsw i64 %.0143218, 1
   %exitcond.not = icmp eq i64 %286, %.pre-phi
@@ -589,7 +587,7 @@ _ZN17meshopt_Allocator8allocateIjEEPT_m.exit:     ; preds = %_ZN7meshoptL20compu
 318:                                              ; preds = %298
   %319 = mul i32 %316, 3
   %320 = zext i32 %319 to i64
-  %321 = getelementptr inbounds nuw i32, ptr %3, i64 %320
+  %321 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %320
   %322 = load i32, ptr %321, align 4, !tbaa !16
   %323 = zext i32 %322 to i64
   %324 = getelementptr inbounds nuw i8, ptr %291, i64 %323
@@ -598,7 +596,7 @@ _ZN17meshopt_Allocator8allocateIjEEPT_m.exit:     ; preds = %_ZN7meshoptL20compu
   %327 = zext i1 %326 to i32
   %328 = add i32 %319, 1
   %329 = zext i32 %328 to i64
-  %330 = getelementptr inbounds nuw i32, ptr %3, i64 %329
+  %330 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %329
   %331 = load i32, ptr %330, align 4, !tbaa !16
   %332 = zext i32 %331 to i64
   %333 = getelementptr inbounds nuw i8, ptr %291, i64 %332
@@ -608,7 +606,7 @@ _ZN17meshopt_Allocator8allocateIjEEPT_m.exit:     ; preds = %_ZN7meshoptL20compu
   %337 = add nuw nsw i32 %336, %327
   %338 = add i32 %319, 2
   %339 = zext i32 %338 to i64
-  %340 = getelementptr inbounds nuw i32, ptr %3, i64 %339
+  %340 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %339
   %341 = load i32, ptr %340, align 4, !tbaa !16
   %342 = zext i32 %341 to i64
   %343 = getelementptr inbounds nuw i8, ptr %291, i64 %342
@@ -661,15 +659,15 @@ _ZN17meshopt_Allocator8allocateIjEEPT_m.exit:     ; preds = %_ZN7meshoptL20compu
   %.1150204 = phi i32 [ %360, %.thread198 ], [ %354, %353 ], [ %316, %318 ]
   %362 = mul i32 %.1150204, 3
   %363 = zext i32 %362 to i64
-  %364 = getelementptr inbounds nuw i32, ptr %3, i64 %363
+  %364 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %363
   %365 = load i32, ptr %364, align 4, !tbaa !16
   %366 = add i32 %362, 1
   %367 = zext i32 %366 to i64
-  %368 = getelementptr inbounds nuw i32, ptr %3, i64 %367
+  %368 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %367
   %369 = load i32, ptr %368, align 4, !tbaa !16
   %370 = add i32 %362, 2
   %371 = zext i32 %370 to i64
-  %372 = getelementptr inbounds nuw i32, ptr %3, i64 %371
+  %372 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %371
   %373 = load i32, ptr %372, align 4, !tbaa !16
   %374 = call fastcc noundef zeroext i1 @_ZN7meshoptL13appendMeshletER15meshopt_MeshletjjjPhPS0_PjS2_mmm(ptr noundef nonnull align 4 dereferenceable(16) %14, i32 noundef %365, i32 noundef %369, i32 noundef %373, ptr noundef %291, ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %.0145, i64 noundef %8, i64 noundef %9)
   br i1 %374, label %375, label %377
@@ -690,14 +688,14 @@ _ZN17meshopt_Allocator8allocateIjEEPT_m.exit:     ; preds = %_ZN7meshoptL20compu
 
 378:                                              ; preds = %377, %.loopexit
   %.0144222 = phi i64 [ 0, %377 ], [ %398, %.loopexit ]
-  %gep = getelementptr inbounds nuw i32, ptr %364, i64 %.0144222
+  %gep = getelementptr inbounds nuw [4 x i8], ptr %364, i64 %.0144222
   %379 = load i32, ptr %gep, align 4, !tbaa !16
   %380 = zext i32 %379 to i64
-  %381 = getelementptr inbounds nuw i32, ptr %166, i64 %380
+  %381 = getelementptr inbounds nuw [4 x i8], ptr %166, i64 %380
   %382 = load i32, ptr %381, align 4, !tbaa !16
   %383 = zext i32 %382 to i64
-  %384 = getelementptr inbounds nuw i32, ptr %167, i64 %383
-  %385 = getelementptr inbounds nuw i32, ptr %168, i64 %380
+  %384 = getelementptr inbounds nuw [4 x i8], ptr %167, i64 %383
+  %385 = getelementptr inbounds nuw [4 x i8], ptr %168, i64 %380
   %386 = load i32, ptr %385, align 4, !tbaa !16
   %387 = zext i32 %386 to i64
   %.not223 = icmp eq i32 %386, 0
@@ -705,14 +703,14 @@ _ZN17meshopt_Allocator8allocateIjEEPT_m.exit:     ; preds = %_ZN7meshoptL20compu
 
 .lr.ph221:                                        ; preds = %378, %.critedge
   %.0133219 = phi i64 [ %397, %.critedge ], [ 0, %378 ]
-  %388 = getelementptr inbounds nuw i32, ptr %384, i64 %.0133219
+  %388 = getelementptr inbounds nuw [4 x i8], ptr %384, i64 %.0133219
   %389 = load i32, ptr %388, align 4, !tbaa !16
   %.not170 = icmp eq i32 %389, %.1150204
   br i1 %.not170, label %390, label %.critedge
 
 390:                                              ; preds = %.lr.ph221
-  %391 = getelementptr inbounds nuw i32, ptr %384, i64 %.0133219
-  %392 = getelementptr i32, ptr %384, i64 %387
+  %391 = getelementptr inbounds nuw [4 x i8], ptr %384, i64 %.0133219
+  %392 = getelementptr [4 x i8], ptr %384, i64 %387
   %393 = getelementptr i8, ptr %392, i64 -4
   %394 = load i32, ptr %393, align 4, !tbaa !16
   store i32 %394, ptr %391, align 4, !tbaa !16
@@ -733,7 +731,7 @@ _ZN17meshopt_Allocator8allocateIjEEPT_m.exit:     ; preds = %_ZN7meshoptL20compu
 
 399:                                              ; preds = %.loopexit
   %400 = zext i32 %.1150204 to i64
-  %401 = getelementptr inbounds nuw %"struct.meshopt::Cone", ptr %178, i64 %400
+  %401 = getelementptr inbounds nuw [24 x i8], ptr %178, i64 %400
   %402 = load float, ptr %401, align 4, !tbaa !30
   %403 = fadd float %.sroa.0.2, %402
   %404 = getelementptr inbounds nuw i8, ptr %401, i64 4
@@ -784,7 +782,7 @@ _ZN17meshopt_Allocator8allocateIjEEPT_m.exit:     ; preds = %_ZN7meshoptL20compu
 
 _ZN7meshoptL13finishMeshletER15meshopt_MeshletPh.exit: ; preds = %421, %.lr.ph.preheader.i
   %433 = add i64 %.0145, 1
-  %434 = getelementptr inbounds nuw %struct.meshopt_Meshlet, ptr %0, i64 %.0145
+  %434 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %.0145
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %434, ptr noundef nonnull align 4 dereferenceable(16) %14, i64 16, i1 false), !tbaa.struct !49
   br label %.lr.ph.i196.preheader
 
@@ -797,7 +795,7 @@ _ZN7meshoptL13finishMeshletER15meshopt_MeshletPh.exit: ; preds = %421, %.lr.ph.p
 .lr.ph.i196:                                      ; preds = %.lr.ph.i196.preheader, %439
   %.04.i = phi i64 [ %440, %439 ], [ 8, %.lr.ph.i196.preheader ]
   %435 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE10deallocateE, align 8, !tbaa !4
-  %436 = getelementptr ptr, ptr %12, i64 %.04.i
+  %436 = getelementptr [8 x i8], ptr %12, i64 %.04.i
   %437 = getelementptr i8, ptr %436, i64 -8
   %438 = load ptr, ptr %437, align 8, !tbaa !4
   invoke void %435(ptr noundef %438)
@@ -847,7 +845,7 @@ define internal fastcc noundef i64 @_ZN7meshoptL11kdtreeBuildEmPNS_6KDNodeEmPKfm
   br i1 %8, label %9, label %23
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds nuw %"struct.meshopt::KDNode", ptr %1, i64 %0
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %0
   %11 = load i32, ptr %3, align 4, !tbaa !16
   store i32 %11, ptr %10, align 4, !tbaa !42
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
@@ -860,8 +858,8 @@ define internal fastcc noundef i64 @_ZN7meshoptL11kdtreeBuildEmPNS_6KDNodeEmPKfm
 
 .lr.ph.i:                                         ; preds = %9, %.lr.ph.i
   %.020.i = phi i64 [ %21, %.lr.ph.i ], [ 1, %9 ]
-  %17 = getelementptr %"struct.meshopt::KDNode", ptr %10, i64 %.020.i
-  %18 = getelementptr inbounds nuw i32, ptr %3, i64 %.020.i
+  %17 = getelementptr [8 x i8], ptr %10, i64 %.020.i
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.020.i
   %19 = load i32, ptr %18, align 4, !tbaa !16
   store i32 %19, ptr %17, align 4, !tbaa !42
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 4
@@ -894,21 +892,21 @@ _ZN7meshoptL15kdtreeBuildLeafEmPNS_6KDNodeEmPjm.exit: ; preds = %.lr.ph.i, %9
   %32 = select i1 %31, i32 1, i32 2
   %33 = select i1 %or.cond, i32 %32, i32 0
   %34 = zext nneg i32 %33 to i64
-  %35 = getelementptr inbounds nuw float, ptr %6, i64 %34
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %34
   %36 = load float, ptr %35, align 4, !tbaa !28
-  %invariant.gep.i = getelementptr inbounds nuw float, ptr %2, i64 %34
+  %invariant.gep.i = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %34
   br label %37
 
 37:                                               ; preds = %37, %.lr.ph.i86
   %.022.i = phi i64 [ 0, %.lr.ph.i86 ], [ %46, %37 ]
   %.02021.i = phi i64 [ 0, %.lr.ph.i86 ], [ %47, %37 ]
-  %38 = getelementptr inbounds nuw i32, ptr %3, i64 %.02021.i
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.02021.i
   %39 = load i32, ptr %38, align 4, !tbaa !16
   %40 = zext i32 %39 to i64
   %.idx.i = mul nuw nsw i64 %40, 24
   %gep.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i, i64 %.idx.i
   %41 = load float, ptr %gep.i, align 4, !tbaa !28
-  %42 = getelementptr inbounds nuw i32, ptr %3, i64 %.022.i
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.022.i
   %43 = load i32, ptr %42, align 4, !tbaa !16
   store i32 %39, ptr %42, align 4, !tbaa !16
   store i32 %43, ptr %38, align 4, !tbaa !16
@@ -924,14 +922,14 @@ _ZN7meshoptL15kdtreePartitionEPjmPKfmjf.exit:     ; preds = %37
   %49 = add i64 %4, -4
   %.not = icmp ult i64 %46, %49
   %or.cond85 = and i1 %48, %.not
-  %50 = getelementptr inbounds nuw %"struct.meshopt::KDNode", ptr %1, i64 %0
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %0
   br i1 %or.cond85, label %83, label %71
 
 51:                                               ; preds = %23, %56
   %.07395 = phi float [ 1.000000e+00, %23 ], [ %58, %56 ]
   %.07494 = phi float [ 1.000000e+00, %23 ], [ %59, %56 ]
   %.07593 = phi i64 [ 0, %23 ], [ %57, %56 ]
-  %52 = getelementptr inbounds nuw i32, ptr %3, i64 %.07593
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.07593
   %53 = load i32, ptr %52, align 4, !tbaa !16
   %54 = zext i32 %53 to i64
   %.idx = mul nuw nsw i64 %54, 24
@@ -947,15 +945,15 @@ _ZN7meshoptL15kdtreePartitionEPjmPKfmjf.exit:     ; preds = %37
 
 60:                                               ; preds = %51, %60
   %indvars.iv = phi i64 [ 0, %51 ], [ %indvars.iv.next, %60 ]
-  %61 = getelementptr inbounds nuw float, ptr %55, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %indvars.iv
   %62 = load float, ptr %61, align 4, !tbaa !28
-  %63 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   %64 = load float, ptr %63, align 4, !tbaa !28
   %65 = fsub float %62, %64
   %66 = tail call float @llvm.fmuladd.f32(float %65, float %.07494, float %64)
   store float %66, ptr %63, align 4, !tbaa !28
   %67 = fsub float %62, %66
-  %68 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv
   %69 = load float, ptr %68, align 4, !tbaa !28
   %70 = tail call float @llvm.fmuladd.f32(float %65, float %67, float %69)
   store float %70, ptr %68, align 4, !tbaa !28
@@ -975,8 +973,8 @@ _ZN7meshoptL15kdtreePartitionEPjmPKfmjf.exit:     ; preds = %37
 
 .lr.ph.i88:                                       ; preds = %71, %.lr.ph.i88
   %.020.i89 = phi i64 [ %81, %.lr.ph.i88 ], [ 1, %71 ]
-  %77 = getelementptr %"struct.meshopt::KDNode", ptr %50, i64 %.020.i89
-  %78 = getelementptr inbounds nuw i32, ptr %3, i64 %.020.i89
+  %77 = getelementptr [8 x i8], ptr %50, i64 %.020.i89
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.020.i89
   %79 = load i32, ptr %78, align 4, !tbaa !16
   store i32 %79, ptr %77, align 4, !tbaa !42
   %80 = getelementptr inbounds nuw i8, ptr %77, i64 4
@@ -1006,7 +1004,7 @@ _ZN7meshoptL15kdtreeBuildLeafEmPNS_6KDNodeEmPjm.exit91: ; preds = %.lr.ph.i88
   %95 = and i32 %93, 3
   %96 = or disjoint i32 %94, %95
   store i32 %96, ptr %84, align 4
-  %97 = getelementptr inbounds nuw i32, ptr %3, i64 %46
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %46
   %98 = sub i64 %4, %46
   %99 = tail call fastcc noundef i64 @_ZN7meshoptL11kdtreeBuildEmPNS_6KDNodeEmPKfmPjmm(i64 noundef %89, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %97, i64 noundef %98)
   br label %100
@@ -1033,7 +1031,7 @@ define internal fastcc noundef i32 @_ZN7meshoptL19getNeighborTriangleERK15meshop
 .lr.ph111:                                        ; preds = %10
   %14 = load i32, ptr %0, align 4, !tbaa !55
   %15 = zext i32 %14 to i64
-  %invariant.gep = getelementptr inbounds nuw i32, ptr %2, i64 %15
+  %invariant.gep = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %15
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %17 = load ptr, ptr %16, align 8, !tbaa !15
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1057,14 +1055,14 @@ define internal fastcc noundef i32 @_ZN7meshoptL19getNeighborTriangleERK15meshop
   %.083108 = phi i32 [ 5, %.lr.ph111 ], [ %.184.lcssa, %._crit_edge ]
   %.087107 = phi float [ 0x47EFFFFFE0000000, %.lr.ph111 ], [ %.188.lcssa, %._crit_edge ]
   %.093106 = phi i64 [ 0, %.lr.ph111 ], [ %37, %._crit_edge ]
-  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %.093106
+  %gep = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep, i64 %.093106
   %28 = load i32, ptr %gep, align 4, !tbaa !16
   %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds nuw i32, ptr %19, i64 %29
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %29
   %31 = load i32, ptr %30, align 4, !tbaa !16
   %32 = zext i32 %31 to i64
-  %33 = getelementptr inbounds nuw i32, ptr %17, i64 %32
-  %34 = getelementptr inbounds nuw i32, ptr %20, i64 %29
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %32
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %29
   %35 = load i32, ptr %34, align 4, !tbaa !16
   %36 = zext i32 %35 to i64
   %.not115 = icmp eq i32 %35, 0
@@ -1083,19 +1081,19 @@ define internal fastcc noundef i32 @_ZN7meshoptL19getNeighborTriangleERK15meshop
   %.184102 = phi i32 [ %.285, %149 ], [ %.083108, %27 ]
   %.188101 = phi float [ %.289, %149 ], [ %.087107, %27 ]
   %.094100 = phi i64 [ %150, %149 ], [ 0, %27 ]
-  %38 = getelementptr inbounds nuw i32, ptr %33, i64 %.094100
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %.094100
   %39 = load i32, ptr %38, align 4, !tbaa !16
   %40 = mul i32 %39, 3
   %41 = zext i32 %40 to i64
-  %42 = getelementptr inbounds nuw i32, ptr %3, i64 %41
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %41
   %43 = load i32, ptr %42, align 4, !tbaa !16
   %44 = add i32 %40, 1
   %45 = zext i32 %44 to i64
-  %46 = getelementptr inbounds nuw i32, ptr %3, i64 %45
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %45
   %47 = load i32, ptr %46, align 4, !tbaa !16
   %48 = add i32 %40, 2
   %49 = zext i32 %48 to i64
-  %50 = getelementptr inbounds nuw i32, ptr %3, i64 %49
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %49
   %51 = load i32, ptr %50, align 4, !tbaa !16
   %52 = zext i32 %43 to i64
   %53 = getelementptr inbounds nuw i8, ptr %7, i64 %52
@@ -1118,19 +1116,19 @@ define internal fastcc noundef i32 @_ZN7meshoptL19getNeighborTriangleERK15meshop
   br i1 %69, label %96, label %70
 
 70:                                               ; preds = %.lr.ph
-  %71 = getelementptr inbounds nuw i32, ptr %6, i64 %52
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %52
   %72 = load i32, ptr %71, align 4, !tbaa !16
   %73 = icmp eq i32 %72, 1
   br i1 %73, label %96, label %74
 
 74:                                               ; preds = %70
-  %75 = getelementptr inbounds nuw i32, ptr %6, i64 %57
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %57
   %76 = load i32, ptr %75, align 4, !tbaa !16
   %77 = icmp eq i32 %76, 1
   br i1 %77, label %96, label %78
 
 78:                                               ; preds = %74
-  %79 = getelementptr inbounds nuw i32, ptr %6, i64 %63
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %63
   %80 = load i32, ptr %79, align 4, !tbaa !16
   %81 = icmp eq i32 %80, 1
   br i1 %81, label %96, label %82
@@ -1165,7 +1163,7 @@ define internal fastcc noundef i32 @_ZN7meshoptL19getNeighborTriangleERK15meshop
 
 99:                                               ; preds = %98
   %100 = zext i32 %39 to i64
-  %101 = getelementptr inbounds nuw %"struct.meshopt::Cone", ptr %5, i64 %100
+  %101 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %100
   %102 = load float, ptr %101, align 4, !tbaa !30
   %103 = load float, ptr %1, align 4, !tbaa !30
   %104 = fsub float %102, %103
@@ -1203,11 +1201,11 @@ define internal fastcc noundef i32 @_ZN7meshoptL19getNeighborTriangleERK15meshop
   br label %146
 
 135:                                              ; preds = %98
-  %136 = getelementptr inbounds nuw i32, ptr %6, i64 %52
+  %136 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %52
   %137 = load i32, ptr %136, align 4, !tbaa !16
-  %138 = getelementptr inbounds nuw i32, ptr %6, i64 %57
+  %138 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %57
   %139 = load i32, ptr %138, align 4, !tbaa !16
-  %140 = getelementptr inbounds nuw i32, ptr %6, i64 %63
+  %140 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %63
   %141 = load i32, ptr %140, align 4, !tbaa !16
   %142 = add i32 %137, -3
   %143 = add i32 %142, %139
@@ -1237,7 +1235,7 @@ define internal fastcc noundef i32 @_ZN7meshoptL19getNeighborTriangleERK15meshop
 ; Function Attrs: mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc void @_ZN7meshoptL13kdtreeNearestEPNS_6KDNodeEjPKfmPKhS3_RjRf(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef nonnull readonly captures(none) %4, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %5, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %6) unnamed_addr #4 {
   %8 = zext i32 %1 to i64
-  %9 = getelementptr inbounds nuw %"struct.meshopt::KDNode", ptr %0, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = and i32 %11, 3
@@ -1248,7 +1246,7 @@ define internal fastcc void @_ZN7meshoptL13kdtreeNearestEPNS_6KDNodeEjPKfmPKhS3_
   %14 = phi i32 [ %11, %7 ], [ %74, %tailrecurse ]
   %15 = phi i64 [ %8, %7 ], [ %71, %tailrecurse ]
   %.tr62.lcssa = phi i32 [ %1, %7 ], [ %70, %tailrecurse ]
-  %16 = getelementptr inbounds nuw %"struct.meshopt::KDNode", ptr %0, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1260,7 +1258,7 @@ define internal fastcc void @_ZN7meshoptL13kdtreeNearestEPNS_6KDNodeEjPKfmPKhS3_
   %22 = trunc nuw nsw i64 %indvars.iv to i32
   %23 = add i32 %.tr62.lcssa, %22
   %24 = zext i32 %23 to i64
-  %25 = getelementptr inbounds nuw %"struct.meshopt::KDNode", ptr %0, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %24
   %26 = load i32, ptr %25, align 4, !tbaa !42
   %27 = zext i32 %26 to i64
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 %27
@@ -1310,7 +1308,7 @@ define internal fastcc void @_ZN7meshoptL13kdtreeNearestEPNS_6KDNodeEjPKfmPKhS3_
   %55 = phi ptr [ %72, %tailrecurse ], [ %9, %7 ]
   %.tr6273 = phi i32 [ %70, %tailrecurse ], [ %1, %7 ]
   %56 = zext nneg i32 %53 to i64
-  %57 = getelementptr inbounds nuw float, ptr %4, i64 %56
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %56
   %58 = load float, ptr %57, align 4, !tbaa !28
   %59 = load float, ptr %55, align 4, !tbaa !42
   %60 = fsub float %58, %59
@@ -1329,7 +1327,7 @@ tailrecurse:                                      ; preds = %.lr.ph
   %69 = xor i32 %63, %62
   %70 = add i32 %69, %64
   %71 = zext i32 %70 to i64
-  %72 = getelementptr inbounds nuw %"struct.meshopt::KDNode", ptr %0, i64 %71
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %71
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 4
   %74 = load i32, ptr %73, align 4
   %75 = and i32 %74, 3
@@ -1372,7 +1370,7 @@ define internal fastcc noundef zeroext i1 @_ZN7meshoptL13appendMeshletER15meshop
   br i1 %or.cond.not, label %37, label %70
 
 37:                                               ; preds = %11
-  %38 = getelementptr inbounds nuw %struct.meshopt_Meshlet, ptr %5, i64 %8
+  %38 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %38, ptr noundef nonnull align 4 dereferenceable(16) %0, i64 16, i1 false), !tbaa.struct !49
   %39 = load i32, ptr %28, align 4, !tbaa !43
   %.not72 = icmp eq i32 %39, 0
@@ -1425,8 +1423,8 @@ _ZN7meshoptL13finishMeshletER15meshopt_MeshletPh.exit: ; preds = %._crit_edge, %
   %.071 = phi i64 [ %66, %.lr.ph ], [ 0, %37 ]
   %59 = load i32, ptr %0, align 4, !tbaa !55
   %60 = zext i32 %59 to i64
-  %61 = getelementptr inbounds nuw i32, ptr %6, i64 %.071
-  %62 = getelementptr inbounds nuw i32, ptr %61, i64 %60
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.071
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %60
   %63 = load i32, ptr %62, align 4, !tbaa !16
   %64 = zext i32 %63 to i64
   %65 = getelementptr inbounds nuw i8, ptr %4, i64 %64
@@ -1452,7 +1450,7 @@ _ZN7meshoptL13finishMeshletER15meshopt_MeshletPh.exit: ; preds = %._crit_edge, %
   store i32 %78, ptr %28, align 4, !tbaa !43
   %79 = add i32 %77, %76
   %80 = zext i32 %79 to i64
-  %81 = getelementptr inbounds nuw i32, ptr %6, i64 %80
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %80
   store i32 %1, ptr %81, align 4, !tbaa !16
   br label %82
 
@@ -1471,7 +1469,7 @@ _ZN7meshoptL13finishMeshletER15meshopt_MeshletPh.exit: ; preds = %._crit_edge, %
   store i32 %90, ptr %28, align 4, !tbaa !43
   %91 = add i32 %89, %88
   %92 = zext i32 %91 to i64
-  %93 = getelementptr inbounds nuw i32, ptr %6, i64 %92
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %92
   store i32 %2, ptr %93, align 4, !tbaa !16
   br label %94
 
@@ -1490,7 +1488,7 @@ _ZN7meshoptL13finishMeshletER15meshopt_MeshletPh.exit: ; preds = %._crit_edge, %
   store i32 %102, ptr %28, align 4, !tbaa !43
   %103 = add i32 %101, %100
   %104 = zext i32 %103 to i64
-  %105 = getelementptr inbounds nuw i32, ptr %6, i64 %104
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %104
   store i32 %3, ptr %105, align 4, !tbaa !16
   br label %106
 
@@ -1544,7 +1542,7 @@ define linkonce_odr dso_local void @_ZN17meshopt_AllocatorD2Ev(ptr noundef nonnu
 .lr.ph:                                           ; preds = %1, %8
   %.04 = phi i64 [ %9, %8 ], [ %3, %1 ]
   %4 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE10deallocateE, align 8, !tbaa !4
-  %5 = getelementptr ptr, ptr %0, i64 %.04
+  %5 = getelementptr [8 x i8], ptr %0, i64 %.04
   %6 = getelementptr i8, ptr %5, i64 -8
   %7 = load ptr, ptr %6, align 8, !tbaa !4
   invoke void %4(ptr noundef %7)
@@ -1597,7 +1595,7 @@ define dso_local noundef i64 @meshopt_buildMeshletsScan(ptr noundef writeonly ca
 .lr.ph:                                           ; preds = %13, %.lr.ph
   %.02934 = phi i64 [ %24, %.lr.ph ], [ 0, %13 ]
   %.03033 = phi i64 [ %25, %.lr.ph ], [ 0, %13 ]
-  %16 = getelementptr inbounds nuw i32, ptr %3, i64 %.03033
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.03033
   %17 = load i32, ptr %16, align 4, !tbaa !16
   %18 = getelementptr i8, ptr %16, i64 4
   %19 = load i32, ptr %18, align 4, !tbaa !16
@@ -1633,7 +1631,7 @@ define dso_local noundef i64 @meshopt_buildMeshletsScan(ptr noundef writeonly ca
 
 _ZN7meshoptL13finishMeshletER15meshopt_MeshletPh.exit: ; preds = %27, %.lr.ph.preheader.i
   %39 = add i64 %24, 1
-  %40 = getelementptr inbounds nuw %struct.meshopt_Meshlet, ptr %0, i64 %24
+  %40 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %40, ptr noundef nonnull align 4 dereferenceable(16) %10, i64 16, i1 false), !tbaa.struct !49
   br label %.lr.ph.i
 
@@ -1681,7 +1679,7 @@ define dso_local void @meshopt_computeClusterBounds(ptr dead_on_unwind noalias w
 .lr.ph:                                           ; preds = %6, %73
   %.0147 = phi i64 [ %.1, %73 ], [ 0, %6 ]
   %.0138146 = phi i64 [ %74, %73 ], [ 0, %6 ]
-  %13 = getelementptr inbounds nuw i32, ptr %1, i64 %.0138146
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %.0138146
   %14 = load i32, ptr %13, align 4, !tbaa !16
   %15 = getelementptr i8, ptr %13, i64 4
   %16 = load i32, ptr %15, align 4, !tbaa !16
@@ -1689,13 +1687,13 @@ define dso_local void @meshopt_computeClusterBounds(ptr dead_on_unwind noalias w
   %18 = load i32, ptr %17, align 4, !tbaa !16
   %19 = zext i32 %14 to i64
   %20 = mul i64 %11, %19
-  %21 = getelementptr inbounds nuw float, ptr %3, i64 %20
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %20
   %22 = zext i32 %16 to i64
   %23 = mul i64 %11, %22
-  %24 = getelementptr inbounds nuw float, ptr %3, i64 %23
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %23
   %25 = zext i32 %18 to i64
   %26 = mul i64 %11, %25
-  %27 = getelementptr inbounds nuw float, ptr %3, i64 %26
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %26
   %28 = load float, ptr %24, align 4, !tbaa !28
   %29 = load float, ptr %21, align 4, !tbaa !28
   %30 = fsub float %28, %29
@@ -1735,7 +1733,7 @@ define dso_local void @meshopt_computeClusterBounds(ptr dead_on_unwind noalias w
 62:                                               ; preds = %.lr.ph
   %sqrt = tail call float @llvm.sqrt.f32(float %60)
   %63 = fdiv float %51, %sqrt
-  %64 = getelementptr inbounds nuw [3 x float], ptr %7, i64 %.0147
+  %64 = getelementptr inbounds nuw [12 x i8], ptr %7, i64 %.0147
   store float %63, ptr %64, align 4, !tbaa !28
   %65 = fdiv float %54, %sqrt
   %66 = getelementptr inbounds nuw i8, ptr %64, i64 4
@@ -1743,7 +1741,7 @@ define dso_local void @meshopt_computeClusterBounds(ptr dead_on_unwind noalias w
   %67 = fdiv float %57, %sqrt
   %68 = getelementptr inbounds nuw i8, ptr %64, i64 8
   store float %67, ptr %68, align 4, !tbaa !28
-  %69 = getelementptr inbounds nuw [3 x [3 x float]], ptr %8, i64 %.0147
+  %69 = getelementptr inbounds nuw [36 x i8], ptr %8, i64 %.0147
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %69, ptr noundef nonnull align 4 dereferenceable(12) %21, i64 12, i1 false)
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %70, ptr noundef nonnull align 4 dereferenceable(12) %24, i64 12, i1 false)
@@ -1804,7 +1802,7 @@ define dso_local void @meshopt_computeClusterBounds(ptr dead_on_unwind noalias w
 104:                                              ; preds = %76, %104
   %.0139149 = phi float [ 1.000000e+00, %76 ], [ %115, %104 ]
   %.0140148 = phi i64 [ 0, %76 ], [ %116, %104 ]
-  %105 = getelementptr inbounds nuw [3 x float], ptr %7, i64 %.0140148
+  %105 = getelementptr inbounds nuw [12 x i8], ptr %7, i64 %.0140148
   %106 = load float, ptr %105, align 4, !tbaa !28
   %107 = getelementptr inbounds nuw i8, ptr %105, i64 4
   %108 = load float, ptr %107, align 4, !tbaa !28
@@ -1907,7 +1905,7 @@ define dso_local void @meshopt_computeClusterBounds(ptr dead_on_unwind noalias w
 .preheader:                                       ; preds = %97, %.preheader
   %.0141151 = phi float [ %209, %.preheader ], [ 0.000000e+00, %97 ]
   %.0142150 = phi i64 [ %210, %.preheader ], [ 0, %97 ]
-  %186 = getelementptr inbounds nuw [3 x [3 x float]], ptr %8, i64 %.0142150
+  %186 = getelementptr inbounds nuw [36 x i8], ptr %8, i64 %.0142150
   %187 = load float, ptr %186, align 4, !tbaa !28
   %188 = fsub float %78, %187
   %189 = getelementptr inbounds nuw i8, ptr %186, i64 4
@@ -1916,7 +1914,7 @@ define dso_local void @meshopt_computeClusterBounds(ptr dead_on_unwind noalias w
   %192 = getelementptr inbounds nuw i8, ptr %186, i64 8
   %193 = load float, ptr %192, align 4, !tbaa !28
   %194 = fsub float %82, %193
-  %195 = getelementptr inbounds nuw [3 x float], ptr %7, i64 %.0142150
+  %195 = getelementptr inbounds nuw [12 x i8], ptr %7, i64 %.0142150
   %196 = load float, ptr %195, align 4, !tbaa !28
   %197 = getelementptr inbounds nuw i8, ptr %195, i64 4
   %198 = load float, ptr %197, align 4, !tbaa !28
@@ -1968,7 +1966,7 @@ define internal fastcc void @_ZN7meshoptL21computeBoundingSphereEPfPA3_Kfm(ptr n
 
 .lr.ph:                                           ; preds = %3, %7
   %.0109 = phi i64 [ %8, %7 ], [ 0, %3 ]
-  %6 = getelementptr inbounds nuw [3 x float], ptr %1, i64 %.0109
+  %6 = getelementptr inbounds nuw [12 x i8], ptr %1, i64 %.0109
   br label %9
 
 7:                                                ; preds = %9
@@ -1978,20 +1976,20 @@ define internal fastcc void @_ZN7meshoptL21computeBoundingSphereEPfPA3_Kfm(ptr n
 
 9:                                                ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
-  %10 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   %11 = load float, ptr %10, align 4, !tbaa !28
-  %12 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %13 = load i64, ptr %12, align 8, !tbaa !69
-  %14 = getelementptr inbounds nuw [3 x float], ptr %1, i64 %13
-  %15 = getelementptr inbounds nuw float, ptr %14, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [12 x i8], ptr %1, i64 %13
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv
   %16 = load float, ptr %15, align 4, !tbaa !28
   %17 = fcmp olt float %11, %16
   %.0. = select i1 %17, i64 %.0109, i64 %13
   store i64 %.0., ptr %12, align 8, !tbaa !69
-  %18 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %19 = load i64, ptr %18, align 8, !tbaa !69
-  %20 = getelementptr inbounds nuw [3 x float], ptr %1, i64 %19
-  %21 = getelementptr inbounds nuw float, ptr %20, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [12 x i8], ptr %1, i64 %19
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv
   %22 = load float, ptr %21, align 4, !tbaa !28
   %23 = fcmp ogt float %11, %22
   %24 = select i1 %23, i64 %.0109, i64 %19
@@ -2002,12 +2000,12 @@ define internal fastcc void @_ZN7meshoptL21computeBoundingSphereEPfPA3_Kfm(ptr n
 
 25:                                               ; preds = %.preheader
   %26 = zext nneg i32 %.1103 to i64
-  %27 = getelementptr inbounds nuw i64, ptr %4, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %26
   %28 = load i64, ptr %27, align 8, !tbaa !69
-  %29 = getelementptr inbounds nuw [3 x float], ptr %1, i64 %28
-  %30 = getelementptr inbounds nuw i64, ptr %5, i64 %26
+  %29 = getelementptr inbounds nuw [12 x i8], ptr %1, i64 %28
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %26
   %31 = load i64, ptr %30, align 8, !tbaa !69
-  %32 = getelementptr inbounds nuw [3 x float], ptr %1, i64 %31
+  %32 = getelementptr inbounds nuw [12 x i8], ptr %1, i64 %31
   %33 = load float, ptr %29, align 4, !tbaa !28
   %34 = load float, ptr %32, align 4, !tbaa !28
   %35 = fadd float %33, %34
@@ -2032,12 +2030,12 @@ define internal fastcc void @_ZN7meshoptL21computeBoundingSphereEPfPA3_Kfm(ptr n
   %indvars.iv125 = phi i64 [ %indvars.iv.next126, %.preheader ], [ 0, %.preheader.preheader ]
   %.098112 = phi float [ %.1, %.preheader ], [ 0.000000e+00, %.preheader.preheader ]
   %.0102111 = phi i32 [ %.1103, %.preheader ], [ 0, %.preheader.preheader ]
-  %51 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv125
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv125
   %52 = load i64, ptr %51, align 8, !tbaa !69
-  %53 = getelementptr inbounds nuw [3 x float], ptr %1, i64 %52
-  %54 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv125
+  %53 = getelementptr inbounds nuw [12 x i8], ptr %1, i64 %52
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv125
   %55 = load i64, ptr %54, align 8, !tbaa !69
-  %56 = getelementptr inbounds nuw [3 x float], ptr %1, i64 %55
+  %56 = getelementptr inbounds nuw [12 x i8], ptr %1, i64 %55
   %57 = load float, ptr %56, align 4, !tbaa !28
   %58 = load float, ptr %53, align 4, !tbaa !28
   %59 = fsub float %57, %58
@@ -2084,7 +2082,7 @@ define internal fastcc void @_ZN7meshoptL21computeBoundingSphereEPfPA3_Kfm(ptr n
   %.sroa.0.0115 = phi float [ %.sroa.0.1, %105 ], [ %36, %25 ]
   %.sroa.8.0114 = phi float [ %.sroa.8.1, %105 ], [ %42, %25 ]
   %.sroa.14.0113 = phi float [ %.sroa.14.1, %105 ], [ %48, %25 ]
-  %78 = getelementptr inbounds nuw [3 x float], ptr %1, i64 %.099117
+  %78 = getelementptr inbounds nuw [12 x i8], ptr %1, i64 %.099117
   %79 = load float, ptr %78, align 4, !tbaa !28
   %80 = fsub float %79, %.sroa.0.0115
   %81 = getelementptr inbounds nuw i8, ptr %78, i64 4
@@ -2147,9 +2145,9 @@ define dso_local void @meshopt_computeMeshletBounds(ptr dead_on_unwind noalias w
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 %.012
   %11 = load i8, ptr %10, align 1, !tbaa !42
   %12 = zext i8 %11 to i64
-  %13 = getelementptr inbounds nuw i32, ptr %1, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !16
-  %15 = getelementptr inbounds nuw i32, ptr %8, i64 %.012
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %.012
   store i32 %14, ptr %15, align 4, !tbaa !16
   %16 = add nuw i64 %.012, 1
   %exitcond.not = icmp eq i64 %16, %9
@@ -2289,9 +2287,9 @@ define dso_local void @meshopt_optimizeMeshlet(ptr noundef captures(none) %0, pt
 75:                                               ; preds = %.lr.ph
   %76 = trunc i64 %.07996 to i8
   store i8 %76, ptr %72, align 1, !tbaa !42
-  %77 = getelementptr inbounds nuw i32, ptr %0, i64 %71
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %71
   %78 = load i32, ptr %77, align 4, !tbaa !16
-  %79 = getelementptr inbounds nuw i32, ptr %6, i64 %.07996
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.07996
   store i32 %78, ptr %79, align 4, !tbaa !16
   %80 = add i64 %.07996, 1
   br label %81

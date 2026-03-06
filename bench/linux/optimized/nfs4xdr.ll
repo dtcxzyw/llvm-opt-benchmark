@@ -19,13 +19,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.nfs4_stateid_struct = type { %union.anon.13, i32 }
 %union.anon.13 = type { %struct.anon.14 }
 %struct.anon.14 = type { i32, [12 x i8] }
-%struct.nfs4_fs_location = type { i32, [10 x %struct.nfs4_string], %struct.nfs4_pathname }
-%struct.nfs4_string = type { i32, ptr }
-%struct.nfs4_pathname = type { i32, [512 x %struct.nfs4_string] }
 %struct.compound_hdr = type { i32, i32, ptr, i32, ptr, i32, i32 }
-%struct.nfs4_secinfo4 = type { i32, %struct.rpcsec_gss_info }
-%struct.rpcsec_gss_info = type { %struct.rpcsec_gss_oid, i32, i32 }
-%struct.rpcsec_gss_oid = type { i32, [32 x i8] }
 
 @.str = private unnamed_addr constant [5 x i8] c"READ\00", align 1
 @.str.1 = private unnamed_addr constant [6 x i8] c"WRITE\00", align 1
@@ -213,7 +207,7 @@ define dso_local noundef range(i32 -523, 1) i32 @nfs4_decode_dirent(ptr noundef 
   br i1 %47, label %.preheader.preheader, label %48
 
 48:                                               ; preds = %46
-  %49 = getelementptr i32, ptr %4, i64 %40
+  %49 = getelementptr [4 x i8], ptr %4, i64 %40
   %50 = xor i64 %41, 12
   call void @llvm.memset.p0.i64(ptr align 4 %49, i8 0, i64 %50, i1 false)
   %51 = icmp eq i32 %.fr11, 0
@@ -358,7 +352,7 @@ define internal fastcc range(i32 -121, 33554433) i32 @decode_getfattr_attrs(ptr 
   store i32 %26, ptr %1, align 4
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %28 = zext nneg i32 %20 to i64
-  %29 = getelementptr i16, ptr @nfs_type2fmt, i64 %28
+  %29 = getelementptr [2 x i8], ptr @nfs_type2fmt, i64 %28
   %30 = load i16, ptr %29, align 2
   store i16 %30, ptr %27, align 4
   %31 = load i32, ptr %2, align 8
@@ -667,7 +661,7 @@ define internal fastcc range(i32 -121, 33554433) i32 @decode_getfattr_attrs(ptr 
 
 210:                                              ; preds = %207
   %211 = sext i32 %208 to i64
-  %212 = getelementptr %struct.nfs4_fs_location, ptr %206, i64 %211
+  %212 = getelementptr [8368 x i8], ptr %206, i64 %211
   %213 = tail call ptr @xdr_inline_decode(ptr noundef %0, i64 noundef 4) #12
   %214 = icmp eq ptr %213, null
   br i1 %214, label %.thread, label %215, !prof !6
@@ -719,7 +713,7 @@ define internal fastcc range(i32 -121, 33554433) i32 @decode_getfattr_attrs(ptr 
 
 241:                                              ; preds = %222
   %242 = zext i32 %223 to i64
-  %243 = getelementptr %struct.nfs4_string, ptr %220, i64 %242
+  %243 = getelementptr [16 x i8], ptr %220, i64 %242
   %244 = getelementptr inbounds nuw i8, ptr %243, i64 8
   store ptr null, ptr %244, align 8
   %245 = tail call ptr @xdr_inline_decode(ptr noundef %0, i64 noundef 4) #12
@@ -776,7 +770,7 @@ define internal fastcc range(i32 -121, 33554433) i32 @decode_getfattr_attrs(ptr 
 271:                                              ; preds = %.critedge.i, %269
   %272 = phi i32 [ 0, %269 ], [ %289, %.critedge.i ]
   %273 = zext nneg i32 %272 to i64
-  %274 = getelementptr %struct.nfs4_string, ptr %270, i64 %273
+  %274 = getelementptr [16 x i8], ptr %270, i64 %273
   %275 = getelementptr inbounds nuw i8, ptr %274, i64 8
   store ptr null, ptr %275, align 8
   %276 = tail call ptr @xdr_inline_decode(ptr noundef %0, i64 noundef 4) #12
@@ -1157,7 +1151,7 @@ define internal i32 @nfs4_xdr_dec_read(ptr readnone captures(none) %0, ptr nound
 
 22:                                               ; preds = %27
   %23 = add nuw nsw i64 %28, 1
-  %24 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %23
+  %24 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %23
   %25 = load i32, ptr %24, align 8
   %26 = icmp eq i64 %23, 31
   br i1 %26, label %34, label %27, !llvm.loop !51
@@ -1169,7 +1163,7 @@ define internal i32 @nfs4_xdr_dec_read(ptr readnone captures(none) %0, ptr nound
   br i1 %30, label %31, label %22
 
 31:                                               ; preds = %27
-  %.split = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %28
+  %.split = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %28
   %32 = getelementptr i8, ptr %.split, i64 4
   %33 = load i32, ptr %32, align 4
   br label %39
@@ -1213,7 +1207,7 @@ define internal i32 @nfs4_xdr_dec_read(ptr readnone captures(none) %0, ptr nound
 
 54:                                               ; preds = %59
   %55 = add nuw nsw i64 %60, 1
-  %56 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %55
+  %56 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %55
   %57 = load i32, ptr %56, align 8
   %58 = icmp eq i64 %55, 31
   br i1 %58, label %66, label %59, !llvm.loop !51
@@ -1225,7 +1219,7 @@ define internal i32 @nfs4_xdr_dec_read(ptr readnone captures(none) %0, ptr nound
   br i1 %62, label %63, label %54
 
 63:                                               ; preds = %59
-  %.split13 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %60
+  %.split13 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %60
   %64 = getelementptr i8, ptr %.split13, i64 4
   %65 = load i32, ptr %64, align 4
   br label %71
@@ -1457,7 +1451,7 @@ define internal i32 @nfs4_xdr_dec_write(ptr readnone captures(none) %0, ptr noun
 
 22:                                               ; preds = %27
   %23 = add nuw nsw i64 %28, 1
-  %24 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %23
+  %24 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %23
   %25 = load i32, ptr %24, align 8
   %26 = icmp eq i64 %23, 31
   br i1 %26, label %34, label %27, !llvm.loop !51
@@ -1469,7 +1463,7 @@ define internal i32 @nfs4_xdr_dec_write(ptr readnone captures(none) %0, ptr noun
   br i1 %30, label %31, label %22
 
 31:                                               ; preds = %27
-  %.split = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %28
+  %.split = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %28
   %32 = getelementptr i8, ptr %.split, i64 4
   %33 = load i32, ptr %32, align 4
   br label %39
@@ -1513,7 +1507,7 @@ define internal i32 @nfs4_xdr_dec_write(ptr readnone captures(none) %0, ptr noun
 
 54:                                               ; preds = %59
   %55 = add nuw nsw i64 %60, 1
-  %56 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %55
+  %56 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %55
   %57 = load i32, ptr %56, align 8
   %58 = icmp eq i64 %55, 31
   br i1 %58, label %66, label %59, !llvm.loop !51
@@ -1525,7 +1519,7 @@ define internal i32 @nfs4_xdr_dec_write(ptr readnone captures(none) %0, ptr noun
   br i1 %62, label %63, label %54
 
 63:                                               ; preds = %59
-  %.split15 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %60
+  %.split15 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %60
   %64 = getelementptr i8, ptr %.split15, i64 4
   %65 = load i32, ptr %64, align 4
   br label %71
@@ -1729,7 +1723,7 @@ define internal i32 @nfs4_xdr_dec_commit(ptr readnone captures(none) %0, ptr nou
 
 22:                                               ; preds = %27
   %23 = add nuw nsw i64 %28, 1
-  %24 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %23
+  %24 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %23
   %25 = load i32, ptr %24, align 8
   %26 = icmp eq i64 %23, 31
   br i1 %26, label %34, label %27, !llvm.loop !51
@@ -1741,7 +1735,7 @@ define internal i32 @nfs4_xdr_dec_commit(ptr readnone captures(none) %0, ptr nou
   br i1 %30, label %31, label %22
 
 31:                                               ; preds = %27
-  %.split = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %28
+  %.split = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %28
   %32 = getelementptr i8, ptr %.split, i64 4
   %33 = load i32, ptr %32, align 4
   br label %39
@@ -1787,7 +1781,7 @@ define internal i32 @nfs4_xdr_dec_commit(ptr readnone captures(none) %0, ptr nou
 
 56:                                               ; preds = %61
   %57 = add nuw nsw i64 %62, 1
-  %58 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %57
+  %58 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %57
   %59 = load i32, ptr %58, align 8
   %60 = icmp eq i64 %57, 31
   br i1 %60, label %68, label %61, !llvm.loop !51
@@ -1799,7 +1793,7 @@ define internal i32 @nfs4_xdr_dec_commit(ptr readnone captures(none) %0, ptr nou
   br i1 %64, label %65, label %56
 
 65:                                               ; preds = %61
-  %.split13 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %62
+  %.split13 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %62
   %66 = getelementptr i8, ptr %.split13, i64 4
   %67 = load i32, ptr %66, align 4
   br label %73
@@ -2026,7 +2020,7 @@ define internal i32 @nfs4_xdr_dec_open(ptr readnone captures(none) %0, ptr nound
 
 20:                                               ; preds = %25
   %21 = add nuw nsw i64 %26, 1
-  %22 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %21
+  %22 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %21
   %23 = load i32, ptr %22, align 8
   %24 = icmp eq i64 %21, 31
   br i1 %24, label %32, label %25, !llvm.loop !51
@@ -2038,7 +2032,7 @@ define internal i32 @nfs4_xdr_dec_open(ptr readnone captures(none) %0, ptr nound
   br i1 %28, label %29, label %20
 
 29:                                               ; preds = %25
-  %.split = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %26
+  %.split = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %26
   %30 = getelementptr i8, ptr %.split, i64 4
   %31 = load i32, ptr %30, align 4
   br label %37
@@ -2266,7 +2260,7 @@ define internal i32 @nfs4_xdr_dec_open_confirm(ptr readnone captures(none) %0, p
 
 20:                                               ; preds = %25
   %21 = add nuw nsw i64 %26, 1
-  %22 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %21
+  %22 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %21
   %23 = load i32, ptr %22, align 8
   %24 = icmp eq i64 %21, 31
   br i1 %24, label %32, label %25, !llvm.loop !51
@@ -2278,7 +2272,7 @@ define internal i32 @nfs4_xdr_dec_open_confirm(ptr readnone captures(none) %0, p
   br i1 %28, label %29, label %20
 
 29:                                               ; preds = %25
-  %.split = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %26
+  %.split = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %26
   %30 = getelementptr i8, ptr %.split, i64 4
   %31 = load i32, ptr %30, align 4
   br label %37
@@ -2328,7 +2322,7 @@ define internal i32 @nfs4_xdr_dec_open_confirm(ptr readnone captures(none) %0, p
 
 54:                                               ; preds = %59
   %55 = add nuw nsw i64 %60, 1
-  %56 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %55
+  %56 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %55
   %57 = load i32, ptr %56, align 8
   %58 = icmp eq i64 %55, 31
   br i1 %58, label %66, label %59, !llvm.loop !51
@@ -2340,7 +2334,7 @@ define internal i32 @nfs4_xdr_dec_open_confirm(ptr readnone captures(none) %0, p
   br i1 %62, label %63, label %54
 
 63:                                               ; preds = %59
-  %.split12 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %60
+  %.split12 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %60
   %64 = getelementptr i8, ptr %.split12, i64 4
   %65 = load i32, ptr %64, align 4
   br label %71
@@ -2561,7 +2555,7 @@ define internal i32 @nfs4_xdr_dec_open_noattr(ptr readnone captures(none) %0, pt
 
 20:                                               ; preds = %25
   %21 = add nuw nsw i64 %26, 1
-  %22 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %21
+  %22 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %21
   %23 = load i32, ptr %22, align 8
   %24 = icmp eq i64 %21, 31
   br i1 %24, label %32, label %25, !llvm.loop !51
@@ -2573,7 +2567,7 @@ define internal i32 @nfs4_xdr_dec_open_noattr(ptr readnone captures(none) %0, pt
   br i1 %28, label %29, label %20
 
 29:                                               ; preds = %25
-  %.split = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %26
+  %.split = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %26
   %30 = getelementptr i8, ptr %.split, i64 4
   %31 = load i32, ptr %30, align 4
   br label %37
@@ -2810,7 +2804,7 @@ define internal i32 @nfs4_xdr_dec_open_downgrade(ptr readnone captures(none) %0,
 
 20:                                               ; preds = %25
   %21 = add nuw nsw i64 %26, 1
-  %22 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %21
+  %22 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %21
   %23 = load i32, ptr %22, align 8
   %24 = icmp eq i64 %21, 31
   br i1 %24, label %32, label %25, !llvm.loop !51
@@ -2822,7 +2816,7 @@ define internal i32 @nfs4_xdr_dec_open_downgrade(ptr readnone captures(none) %0,
   br i1 %28, label %29, label %20
 
 29:                                               ; preds = %25
-  %.split = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %26
+  %.split = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %26
   %30 = getelementptr i8, ptr %.split, i64 4
   %31 = load i32, ptr %30, align 4
   br label %37
@@ -2883,7 +2877,7 @@ define internal i32 @nfs4_xdr_dec_open_downgrade(ptr readnone captures(none) %0,
 
 60:                                               ; preds = %65
   %61 = add nuw nsw i64 %66, 1
-  %62 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %61
+  %62 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %61
   %63 = load i32, ptr %62, align 8
   %64 = icmp eq i64 %61, 31
   br i1 %64, label %72, label %65, !llvm.loop !51
@@ -2895,7 +2889,7 @@ define internal i32 @nfs4_xdr_dec_open_downgrade(ptr readnone captures(none) %0,
   br i1 %68, label %69, label %60
 
 69:                                               ; preds = %65
-  %.split12 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %66
+  %.split12 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %66
   %70 = getelementptr i8, ptr %.split12, i64 4
   %71 = load i32, ptr %70, align 4
   br label %77
@@ -3133,7 +3127,7 @@ define internal i32 @nfs4_xdr_dec_close(ptr readnone captures(none) %0, ptr noun
 
 20:                                               ; preds = %25
   %21 = add nuw nsw i64 %26, 1
-  %22 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %21
+  %22 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %21
   %23 = load i32, ptr %22, align 8
   %24 = icmp eq i64 %21, 31
   br i1 %24, label %32, label %25, !llvm.loop !51
@@ -3145,7 +3139,7 @@ define internal i32 @nfs4_xdr_dec_close(ptr readnone captures(none) %0, ptr noun
   br i1 %28, label %29, label %20
 
 29:                                               ; preds = %25
-  %.split = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %26
+  %.split = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %26
   %30 = getelementptr i8, ptr %.split, i64 4
   %31 = load i32, ptr %30, align 4
   br label %37
@@ -3219,7 +3213,7 @@ define internal i32 @nfs4_xdr_dec_close(ptr readnone captures(none) %0, ptr noun
 
 69:                                               ; preds = %74
   %70 = add nuw nsw i64 %75, 1
-  %71 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %70
+  %71 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %70
   %72 = load i32, ptr %71, align 8
   %73 = icmp eq i64 %70, 31
   br i1 %73, label %81, label %74, !llvm.loop !51
@@ -3231,7 +3225,7 @@ define internal i32 @nfs4_xdr_dec_close(ptr readnone captures(none) %0, ptr noun
   br i1 %77, label %78, label %69
 
 78:                                               ; preds = %74
-  %.split13 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %75
+  %.split13 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %75
   %79 = getelementptr i8, ptr %.split13, i64 4
   %80 = load i32, ptr %79, align 4
   br label %86
@@ -3428,7 +3422,7 @@ define internal i32 @nfs4_xdr_dec_setattr(ptr readnone captures(none) %0, ptr no
 
 20:                                               ; preds = %25
   %21 = add nuw nsw i64 %26, 1
-  %22 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %21
+  %22 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %21
   %23 = load i32, ptr %22, align 8
   %24 = icmp eq i64 %21, 31
   br i1 %24, label %32, label %25, !llvm.loop !51
@@ -3440,7 +3434,7 @@ define internal i32 @nfs4_xdr_dec_setattr(ptr readnone captures(none) %0, ptr no
   br i1 %28, label %29, label %20
 
 29:                                               ; preds = %25
-  %.split = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %26
+  %.split = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %26
   %30 = getelementptr i8, ptr %.split, i64 4
   %31 = load i32, ptr %30, align 4
   br label %37
@@ -3587,7 +3581,7 @@ define internal i32 @nfs4_xdr_dec_fsinfo(ptr readnone captures(none) %0, ptr nou
 
 20:                                               ; preds = %25
   %21 = add nuw nsw i64 %26, 1
-  %22 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %21
+  %22 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %21
   %23 = load i32, ptr %22, align 8
   %24 = icmp eq i64 %21, 31
   br i1 %24, label %32, label %25, !llvm.loop !51
@@ -3599,7 +3593,7 @@ define internal i32 @nfs4_xdr_dec_fsinfo(ptr readnone captures(none) %0, ptr nou
   br i1 %28, label %29, label %20
 
 29:                                               ; preds = %25
-  %.split = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %26
+  %.split = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %26
   %30 = getelementptr i8, ptr %.split, i64 4
   %31 = load i32, ptr %30, align 4
   br label %37
@@ -3724,7 +3718,7 @@ define internal i32 @nfs4_xdr_dec_renew(ptr readnone captures(none) %0, ptr noun
 
 20:                                               ; preds = %25
   %21 = add nuw nsw i64 %26, 1
-  %22 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %21
+  %22 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %21
   %23 = load i32, ptr %22, align 8
   %24 = icmp eq i64 %21, 31
   br i1 %24, label %32, label %25, !llvm.loop !51
@@ -3736,7 +3730,7 @@ define internal i32 @nfs4_xdr_dec_renew(ptr readnone captures(none) %0, ptr noun
   br i1 %28, label %29, label %20
 
 29:                                               ; preds = %25
-  %.split = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %26
+  %.split = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %26
   %30 = getelementptr i8, ptr %.split, i64 4
   %31 = load i32, ptr %30, align 4
   br label %38
@@ -3986,7 +3980,7 @@ define internal i32 @nfs4_xdr_dec_setclientid(ptr readnone captures(none) %0, pt
 
 45:                                               ; preds = %.preheader
   %46 = add nuw nsw i64 %50, 1
-  %47 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %46
+  %47 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %46
   %48 = load i32, ptr %47, align 8
   %49 = icmp eq i64 %46, 31
   br i1 %49, label %56, label %.preheader, !llvm.loop !51
@@ -3998,7 +3992,7 @@ define internal i32 @nfs4_xdr_dec_setclientid(ptr readnone captures(none) %0, pt
   br i1 %52, label %53, label %45
 
 53:                                               ; preds = %.preheader
-  %.split = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %50
+  %.split = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %50
   %54 = getelementptr i8, ptr %.split, i64 4
   %55 = load i32, ptr %54, align 4
   br label %61
@@ -4124,7 +4118,7 @@ define internal i32 @nfs4_xdr_dec_setclientid_confirm(ptr readnone captures(none
 
 20:                                               ; preds = %25
   %21 = add nuw nsw i64 %26, 1
-  %22 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %21
+  %22 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %21
   %23 = load i32, ptr %22, align 8
   %24 = icmp eq i64 %21, 31
   br i1 %24, label %32, label %25, !llvm.loop !51
@@ -4136,7 +4130,7 @@ define internal i32 @nfs4_xdr_dec_setclientid_confirm(ptr readnone captures(none
   br i1 %28, label %29, label %20
 
 29:                                               ; preds = %25
-  %.split = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %26
+  %.split = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %26
   %30 = getelementptr i8, ptr %.split, i64 4
   %31 = load i32, ptr %30, align 4
   br label %38
@@ -4521,7 +4515,7 @@ define internal i32 @nfs4_xdr_dec_lock(ptr readnone captures(none) %0, ptr nound
 
 20:                                               ; preds = %25
   %21 = add nuw nsw i64 %26, 1
-  %22 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %21
+  %22 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %21
   %23 = load i32, ptr %22, align 8
   %24 = icmp eq i64 %21, 31
   br i1 %24, label %32, label %25, !llvm.loop !51
@@ -4533,7 +4527,7 @@ define internal i32 @nfs4_xdr_dec_lock(ptr readnone captures(none) %0, ptr nound
   br i1 %28, label %29, label %20
 
 29:                                               ; preds = %25
-  %.split = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %26
+  %.split = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %26
   %30 = getelementptr i8, ptr %.split, i64 4
   %31 = load i32, ptr %30, align 4
   br label %37
@@ -4577,7 +4571,7 @@ define internal i32 @nfs4_xdr_dec_lock(ptr readnone captures(none) %0, ptr nound
 
 52:                                               ; preds = %57
   %53 = add nuw nsw i64 %58, 1
-  %54 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %53
+  %54 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %53
   %55 = load i32, ptr %54, align 8
   %56 = icmp eq i64 %53, 31
   br i1 %56, label %64, label %57, !llvm.loop !51
@@ -4589,7 +4583,7 @@ define internal i32 @nfs4_xdr_dec_lock(ptr readnone captures(none) %0, ptr nound
   br i1 %60, label %61, label %52
 
 61:                                               ; preds = %57
-  %.split14 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %58
+  %.split14 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %58
   %62 = getelementptr i8, ptr %.split14, i64 4
   %63 = load i32, ptr %62, align 4
   br label %69
@@ -4844,7 +4838,7 @@ define internal i32 @nfs4_xdr_dec_lockt(ptr readnone captures(none) %0, ptr noun
 
 20:                                               ; preds = %25
   %21 = add nuw nsw i64 %26, 1
-  %22 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %21
+  %22 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %21
   %23 = load i32, ptr %22, align 8
   %24 = icmp eq i64 %21, 31
   br i1 %24, label %32, label %25, !llvm.loop !51
@@ -4856,7 +4850,7 @@ define internal i32 @nfs4_xdr_dec_lockt(ptr readnone captures(none) %0, ptr noun
   br i1 %28, label %29, label %20
 
 29:                                               ; preds = %25
-  %.split = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %26
+  %.split = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %26
   %30 = getelementptr i8, ptr %.split, i64 4
   %31 = load i32, ptr %30, align 4
   br label %37
@@ -4900,7 +4894,7 @@ define internal i32 @nfs4_xdr_dec_lockt(ptr readnone captures(none) %0, ptr noun
 
 52:                                               ; preds = %57
   %53 = add nuw nsw i64 %58, 1
-  %54 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %53
+  %54 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %53
   %55 = load i32, ptr %54, align 8
   %56 = icmp eq i64 %53, 31
   br i1 %56, label %64, label %57, !llvm.loop !51
@@ -4912,7 +4906,7 @@ define internal i32 @nfs4_xdr_dec_lockt(ptr readnone captures(none) %0, ptr noun
   br i1 %60, label %61, label %52
 
 61:                                               ; preds = %57
-  %.split13 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %58
+  %.split13 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %58
   %62 = getelementptr i8, ptr %.split13, i64 4
   %63 = load i32, ptr %62, align 4
   br label %69
@@ -5208,7 +5202,7 @@ define internal i32 @nfs4_xdr_dec_locku(ptr readnone captures(none) %0, ptr noun
 
 20:                                               ; preds = %25
   %21 = add nuw nsw i64 %26, 1
-  %22 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %21
+  %22 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %21
   %23 = load i32, ptr %22, align 8
   %24 = icmp eq i64 %21, 31
   br i1 %24, label %32, label %25, !llvm.loop !51
@@ -5220,7 +5214,7 @@ define internal i32 @nfs4_xdr_dec_locku(ptr readnone captures(none) %0, ptr noun
   br i1 %28, label %29, label %20
 
 29:                                               ; preds = %25
-  %.split = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %26
+  %.split = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %26
   %30 = getelementptr i8, ptr %.split, i64 4
   %31 = load i32, ptr %30, align 4
   br label %37
@@ -5270,7 +5264,7 @@ define internal i32 @nfs4_xdr_dec_locku(ptr readnone captures(none) %0, ptr noun
 
 54:                                               ; preds = %59
   %55 = add nuw nsw i64 %60, 1
-  %56 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %55
+  %56 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %55
   %57 = load i32, ptr %56, align 8
   %58 = icmp eq i64 %55, 31
   br i1 %58, label %66, label %59, !llvm.loop !51
@@ -5282,7 +5276,7 @@ define internal i32 @nfs4_xdr_dec_locku(ptr readnone captures(none) %0, ptr noun
   br i1 %62, label %63, label %54
 
 63:                                               ; preds = %59
-  %.split12 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %60
+  %.split12 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %60
   %64 = getelementptr i8, ptr %.split12, i64 4
   %65 = load i32, ptr %64, align 4
   br label %71
@@ -5482,7 +5476,7 @@ define internal i32 @nfs4_xdr_dec_access(ptr readnone captures(none) %0, ptr nou
 
 20:                                               ; preds = %25
   %21 = add nuw nsw i64 %26, 1
-  %22 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %21
+  %22 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %21
   %23 = load i32, ptr %22, align 8
   %24 = icmp eq i64 %21, 31
   br i1 %24, label %32, label %25, !llvm.loop !51
@@ -5494,7 +5488,7 @@ define internal i32 @nfs4_xdr_dec_access(ptr readnone captures(none) %0, ptr nou
   br i1 %28, label %29, label %20
 
 29:                                               ; preds = %25
-  %.split = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %26
+  %.split = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %26
   %30 = getelementptr i8, ptr %.split, i64 4
   %31 = load i32, ptr %30, align 4
   br label %37
@@ -5647,7 +5641,7 @@ define internal i32 @nfs4_xdr_dec_getattr(ptr readnone captures(none) %0, ptr no
 
 20:                                               ; preds = %25
   %21 = add nuw nsw i64 %26, 1
-  %22 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %21
+  %22 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %21
   %23 = load i32, ptr %22, align 8
   %24 = icmp eq i64 %21, 31
   br i1 %24, label %32, label %25, !llvm.loop !51
@@ -5659,7 +5653,7 @@ define internal i32 @nfs4_xdr_dec_getattr(ptr readnone captures(none) %0, ptr no
   br i1 %28, label %29, label %20
 
 29:                                               ; preds = %25
-  %.split = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %26
+  %.split = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %26
   %30 = getelementptr i8, ptr %.split, i64 4
   %31 = load i32, ptr %30, align 4
   br label %37
@@ -5860,7 +5854,7 @@ define internal i32 @nfs4_xdr_dec_lookup(ptr readnone captures(none) %0, ptr nou
 
 20:                                               ; preds = %25
   %21 = add nuw nsw i64 %26, 1
-  %22 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %21
+  %22 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %21
   %23 = load i32, ptr %22, align 8
   %24 = icmp eq i64 %21, 31
   br i1 %24, label %32, label %25, !llvm.loop !51
@@ -5872,7 +5866,7 @@ define internal i32 @nfs4_xdr_dec_lookup(ptr readnone captures(none) %0, ptr nou
   br i1 %28, label %29, label %20
 
 29:                                               ; preds = %25
-  %.split = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %26
+  %.split = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %26
   %30 = getelementptr i8, ptr %.split, i64 4
   %31 = load i32, ptr %30, align 4
   br label %37
@@ -5916,7 +5910,7 @@ define internal i32 @nfs4_xdr_dec_lookup(ptr readnone captures(none) %0, ptr nou
 
 52:                                               ; preds = %57
   %53 = add nuw nsw i64 %58, 1
-  %54 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %53
+  %54 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %53
   %55 = load i32, ptr %54, align 8
   %56 = icmp eq i64 %53, 31
   br i1 %56, label %64, label %57, !llvm.loop !51
@@ -5928,7 +5922,7 @@ define internal i32 @nfs4_xdr_dec_lookup(ptr readnone captures(none) %0, ptr nou
   br i1 %60, label %61, label %52
 
 61:                                               ; preds = %57
-  %.split12 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %58
+  %.split12 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %58
   %62 = getelementptr i8, ptr %.split12, i64 4
   %63 = load i32, ptr %62, align 4
   br label %69
@@ -6068,7 +6062,7 @@ define internal i32 @nfs4_xdr_dec_lookup_root(ptr readnone captures(none) %0, pt
 
 20:                                               ; preds = %25
   %21 = add nuw nsw i64 %26, 1
-  %22 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %21
+  %22 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %21
   %23 = load i32, ptr %22, align 8
   %24 = icmp eq i64 %21, 31
   br i1 %24, label %32, label %25, !llvm.loop !51
@@ -6080,7 +6074,7 @@ define internal i32 @nfs4_xdr_dec_lookup_root(ptr readnone captures(none) %0, pt
   br i1 %28, label %29, label %20
 
 29:                                               ; preds = %25
-  %.split = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %26
+  %.split = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %26
   %30 = getelementptr i8, ptr %.split, i64 4
   %31 = load i32, ptr %30, align 4
   br label %37
@@ -6258,7 +6252,7 @@ define internal i32 @nfs4_xdr_dec_remove(ptr readnone captures(none) %0, ptr nou
 
 20:                                               ; preds = %25
   %21 = add nuw nsw i64 %26, 1
-  %22 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %21
+  %22 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %21
   %23 = load i32, ptr %22, align 8
   %24 = icmp eq i64 %21, 31
   br i1 %24, label %32, label %25, !llvm.loop !51
@@ -6270,7 +6264,7 @@ define internal i32 @nfs4_xdr_dec_remove(ptr readnone captures(none) %0, ptr nou
   br i1 %28, label %29, label %20
 
 29:                                               ; preds = %25
-  %.split = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %26
+  %.split = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %26
   %30 = getelementptr i8, ptr %.split, i64 4
   %31 = load i32, ptr %30, align 4
   br label %37
@@ -6315,7 +6309,7 @@ define internal i32 @nfs4_xdr_dec_remove(ptr readnone captures(none) %0, ptr nou
 
 53:                                               ; preds = %58
   %54 = add nuw nsw i64 %59, 1
-  %55 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %54
+  %55 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %54
   %56 = load i32, ptr %55, align 8
   %57 = icmp eq i64 %54, 31
   br i1 %57, label %65, label %58, !llvm.loop !51
@@ -6327,7 +6321,7 @@ define internal i32 @nfs4_xdr_dec_remove(ptr readnone captures(none) %0, ptr nou
   br i1 %61, label %62, label %53
 
 62:                                               ; preds = %58
-  %.split12 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %59
+  %.split12 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %59
   %63 = getelementptr i8, ptr %.split12, i64 4
   %64 = load i32, ptr %63, align 4
   br label %70
@@ -6592,7 +6586,7 @@ define internal i32 @nfs4_xdr_dec_rename(ptr readnone captures(none) %0, ptr nou
 
 20:                                               ; preds = %25
   %21 = add nuw nsw i64 %26, 1
-  %22 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %21
+  %22 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %21
   %23 = load i32, ptr %22, align 8
   %24 = icmp eq i64 %21, 31
   br i1 %24, label %32, label %25, !llvm.loop !51
@@ -6604,7 +6598,7 @@ define internal i32 @nfs4_xdr_dec_rename(ptr readnone captures(none) %0, ptr nou
   br i1 %28, label %29, label %20
 
 29:                                               ; preds = %25
-  %.split = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %26
+  %.split = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %26
   %30 = getelementptr i8, ptr %.split, i64 4
   %31 = load i32, ptr %30, align 4
   br label %37
@@ -6648,7 +6642,7 @@ define internal i32 @nfs4_xdr_dec_rename(ptr readnone captures(none) %0, ptr nou
 
 52:                                               ; preds = %57
   %53 = add nuw nsw i64 %58, 1
-  %54 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %53
+  %54 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %53
   %55 = load i32, ptr %54, align 8
   %56 = icmp eq i64 %53, 31
   br i1 %56, label %64, label %57, !llvm.loop !51
@@ -6660,7 +6654,7 @@ define internal i32 @nfs4_xdr_dec_rename(ptr readnone captures(none) %0, ptr nou
   br i1 %60, label %61, label %52
 
 61:                                               ; preds = %57
-  %.split16 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %58
+  %.split16 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %58
   %62 = getelementptr i8, ptr %.split16, i64 4
   %63 = load i32, ptr %62, align 4
   br label %69
@@ -6704,7 +6698,7 @@ define internal i32 @nfs4_xdr_dec_rename(ptr readnone captures(none) %0, ptr nou
 
 84:                                               ; preds = %89
   %85 = add nuw nsw i64 %90, 1
-  %86 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %85
+  %86 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %85
   %87 = load i32, ptr %86, align 8
   %88 = icmp eq i64 %85, 31
   br i1 %88, label %96, label %89, !llvm.loop !51
@@ -6716,7 +6710,7 @@ define internal i32 @nfs4_xdr_dec_rename(ptr readnone captures(none) %0, ptr nou
   br i1 %92, label %93, label %84
 
 93:                                               ; preds = %89
-  %.split17 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %90
+  %.split17 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %90
   %94 = getelementptr i8, ptr %.split17, i64 4
   %95 = load i32, ptr %94, align 4
   br label %101
@@ -6973,7 +6967,7 @@ define internal i32 @nfs4_xdr_dec_link(ptr readnone captures(none) %0, ptr nound
 
 20:                                               ; preds = %25
   %21 = add nuw nsw i64 %26, 1
-  %22 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %21
+  %22 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %21
   %23 = load i32, ptr %22, align 8
   %24 = icmp eq i64 %21, 31
   br i1 %24, label %32, label %25, !llvm.loop !51
@@ -6985,7 +6979,7 @@ define internal i32 @nfs4_xdr_dec_link(ptr readnone captures(none) %0, ptr nound
   br i1 %28, label %29, label %20
 
 29:                                               ; preds = %25
-  %.split = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %26
+  %.split = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %26
   %30 = getelementptr i8, ptr %.split, i64 4
   %31 = load i32, ptr %30, align 4
   br label %37
@@ -7029,7 +7023,7 @@ define internal i32 @nfs4_xdr_dec_link(ptr readnone captures(none) %0, ptr nound
 
 52:                                               ; preds = %57
   %53 = add nuw nsw i64 %58, 1
-  %54 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %53
+  %54 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %53
   %55 = load i32, ptr %54, align 8
   %56 = icmp eq i64 %53, 31
   br i1 %56, label %64, label %57, !llvm.loop !51
@@ -7041,7 +7035,7 @@ define internal i32 @nfs4_xdr_dec_link(ptr readnone captures(none) %0, ptr nound
   br i1 %60, label %61, label %52
 
 61:                                               ; preds = %57
-  %.split18 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %58
+  %.split18 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %58
   %62 = getelementptr i8, ptr %.split18, i64 4
   %63 = load i32, ptr %62, align 4
   br label %69
@@ -7085,7 +7079,7 @@ define internal i32 @nfs4_xdr_dec_link(ptr readnone captures(none) %0, ptr nound
 
 84:                                               ; preds = %89
   %85 = add nuw nsw i64 %90, 1
-  %86 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %85
+  %86 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %85
   %87 = load i32, ptr %86, align 8
   %88 = icmp eq i64 %85, 31
   br i1 %88, label %96, label %89, !llvm.loop !51
@@ -7097,7 +7091,7 @@ define internal i32 @nfs4_xdr_dec_link(ptr readnone captures(none) %0, ptr nound
   br i1 %92, label %93, label %84
 
 93:                                               ; preds = %89
-  %.split19 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %90
+  %.split19 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %90
   %94 = getelementptr i8, ptr %.split19, i64 4
   %95 = load i32, ptr %94, align 4
   br label %101
@@ -7405,7 +7399,7 @@ define internal i32 @nfs4_xdr_dec_create(ptr readnone captures(none) %0, ptr nou
 
 20:                                               ; preds = %25
   %21 = add nuw nsw i64 %26, 1
-  %22 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %21
+  %22 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %21
   %23 = load i32, ptr %22, align 8
   %24 = icmp eq i64 %21, 31
   br i1 %24, label %32, label %25, !llvm.loop !51
@@ -7417,7 +7411,7 @@ define internal i32 @nfs4_xdr_dec_create(ptr readnone captures(none) %0, ptr nou
   br i1 %28, label %29, label %20
 
 29:                                               ; preds = %25
-  %.split = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %26
+  %.split = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %26
   %30 = getelementptr i8, ptr %.split, i64 4
   %31 = load i32, ptr %30, align 4
   br label %37
@@ -7462,7 +7456,7 @@ define internal i32 @nfs4_xdr_dec_create(ptr readnone captures(none) %0, ptr nou
 
 53:                                               ; preds = %58
   %54 = add nuw nsw i64 %59, 1
-  %55 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %54
+  %55 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %54
   %56 = load i32, ptr %55, align 8
   %57 = icmp eq i64 %54, 31
   br i1 %57, label %65, label %58, !llvm.loop !51
@@ -7474,7 +7468,7 @@ define internal i32 @nfs4_xdr_dec_create(ptr readnone captures(none) %0, ptr nou
   br i1 %61, label %62, label %53
 
 62:                                               ; preds = %58
-  %.split15 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %59
+  %.split15 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %59
   %63 = getelementptr i8, ptr %.split15, i64 4
   %64 = load i32, ptr %63, align 4
   br label %70
@@ -7656,7 +7650,7 @@ define internal i32 @nfs4_xdr_dec_pathconf(ptr readnone captures(none) %0, ptr n
 
 21:                                               ; preds = %26
   %22 = add nuw nsw i64 %27, 1
-  %23 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %22
+  %23 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %22
   %24 = load i32, ptr %23, align 8
   %25 = icmp eq i64 %22, 31
   br i1 %25, label %33, label %26, !llvm.loop !51
@@ -7668,7 +7662,7 @@ define internal i32 @nfs4_xdr_dec_pathconf(ptr readnone captures(none) %0, ptr n
   br i1 %29, label %30, label %21
 
 30:                                               ; preds = %26
-  %.split = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %27
+  %.split = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %27
   %31 = getelementptr i8, ptr %.split, i64 4
   %32 = load i32, ptr %31, align 4
   br label %38
@@ -7716,7 +7710,7 @@ define internal i32 @nfs4_xdr_dec_pathconf(ptr readnone captures(none) %0, ptr n
 
 55:                                               ; preds = %60
   %56 = add nuw nsw i64 %61, 1
-  %57 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %56
+  %57 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %56
   %58 = load i32, ptr %57, align 8
   %59 = icmp eq i64 %56, 31
   br i1 %59, label %67, label %60, !llvm.loop !51
@@ -7728,7 +7722,7 @@ define internal i32 @nfs4_xdr_dec_pathconf(ptr readnone captures(none) %0, ptr n
   br i1 %63, label %64, label %55
 
 64:                                               ; preds = %60
-  %.split20 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %61
+  %.split20 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %61
   %65 = getelementptr i8, ptr %.split20, i64 4
   %66 = load i32, ptr %65, align 4
   br label %72
@@ -7772,7 +7766,7 @@ define internal i32 @nfs4_xdr_dec_pathconf(ptr readnone captures(none) %0, ptr n
   br i1 %87, label %.preheader.preheader, label %88
 
 88:                                               ; preds = %86
-  %89 = getelementptr i32, ptr %4, i64 %80
+  %89 = getelementptr [4 x i8], ptr %4, i64 %80
   %90 = xor i64 %81, 12
   call void @llvm.memset.p0.i64(ptr align 4 %89, i8 0, i64 %90, i1 false)
   %91 = icmp eq i32 %.fr36, 0
@@ -7992,7 +7986,7 @@ define internal i32 @nfs4_xdr_dec_statfs(ptr readnone captures(none) %0, ptr nou
 
 21:                                               ; preds = %26
   %22 = add nuw nsw i64 %27, 1
-  %23 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %22
+  %23 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %22
   %24 = load i32, ptr %23, align 8
   %25 = icmp eq i64 %22, 31
   br i1 %25, label %33, label %26, !llvm.loop !51
@@ -8004,7 +7998,7 @@ define internal i32 @nfs4_xdr_dec_statfs(ptr readnone captures(none) %0, ptr nou
   br i1 %29, label %30, label %21
 
 30:                                               ; preds = %26
-  %.split = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %27
+  %.split = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %27
   %31 = getelementptr i8, ptr %.split, i64 4
   %32 = load i32, ptr %31, align 4
   br label %38
@@ -8052,7 +8046,7 @@ define internal i32 @nfs4_xdr_dec_statfs(ptr readnone captures(none) %0, ptr nou
 
 55:                                               ; preds = %60
   %56 = add nuw nsw i64 %61, 1
-  %57 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %56
+  %57 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %56
   %58 = load i32, ptr %57, align 8
   %59 = icmp eq i64 %56, 31
   br i1 %59, label %67, label %60, !llvm.loop !51
@@ -8064,7 +8058,7 @@ define internal i32 @nfs4_xdr_dec_statfs(ptr readnone captures(none) %0, ptr nou
   br i1 %63, label %64, label %55
 
 64:                                               ; preds = %60
-  %.split24 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %61
+  %.split24 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %61
   %65 = getelementptr i8, ptr %.split24, i64 4
   %66 = load i32, ptr %65, align 4
   br label %72
@@ -8108,7 +8102,7 @@ define internal i32 @nfs4_xdr_dec_statfs(ptr readnone captures(none) %0, ptr nou
   br i1 %87, label %.preheader.preheader, label %88
 
 88:                                               ; preds = %86
-  %89 = getelementptr i32, ptr %4, i64 %80
+  %89 = getelementptr [4 x i8], ptr %4, i64 %80
   %90 = xor i64 %81, 12
   call void @llvm.memset.p0.i64(ptr align 4 %89, i8 0, i64 %90, i1 false)
   %91 = icmp eq i32 %.fr40, 0
@@ -8376,7 +8370,7 @@ define internal i32 @nfs4_xdr_dec_readlink(ptr noundef %0, ptr noundef %1, ptr r
 
 20:                                               ; preds = %25
   %21 = add nuw nsw i64 %26, 1
-  %22 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %21
+  %22 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %21
   %23 = load i32, ptr %22, align 8
   %24 = icmp eq i64 %21, 31
   br i1 %24, label %32, label %25, !llvm.loop !51
@@ -8388,7 +8382,7 @@ define internal i32 @nfs4_xdr_dec_readlink(ptr noundef %0, ptr noundef %1, ptr r
   br i1 %28, label %29, label %20
 
 29:                                               ; preds = %25
-  %.split = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %26
+  %.split = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %26
   %30 = getelementptr i8, ptr %.split, i64 4
   %31 = load i32, ptr %30, align 4
   br label %37
@@ -8433,7 +8427,7 @@ define internal i32 @nfs4_xdr_dec_readlink(ptr noundef %0, ptr noundef %1, ptr r
 
 53:                                               ; preds = %58
   %54 = add nuw nsw i64 %59, 1
-  %55 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %54
+  %55 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %54
   %56 = load i32, ptr %55, align 8
   %57 = icmp eq i64 %54, 31
   br i1 %57, label %65, label %58, !llvm.loop !51
@@ -8445,7 +8439,7 @@ define internal i32 @nfs4_xdr_dec_readlink(ptr noundef %0, ptr noundef %1, ptr r
   br i1 %61, label %62, label %53
 
 62:                                               ; preds = %58
-  %.split13 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %59
+  %.split13 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %59
   %63 = getelementptr i8, ptr %.split13, i64 4
   %64 = load i32, ptr %63, align 4
   br label %70
@@ -8584,9 +8578,9 @@ encode_putfh.exit:                                ; preds = %24, %28
 46:                                               ; preds = %.preheader, %46
   %47 = phi i64 [ %55, %46 ], [ 0, %.preheader ]
   %48 = phi i32 [ %57, %46 ], [ 0, %.preheader ]
-  %49 = getelementptr i32, ptr %40, i64 %47
+  %49 = getelementptr [4 x i8], ptr %40, i64 %47
   %50 = load i32, ptr %49, align 4
-  %51 = getelementptr i32, ptr %4, i64 %47
+  %51 = getelementptr [4 x i8], ptr %4, i64 %47
   %52 = load i32, ptr %51, align 4
   %53 = and i32 %52, %50
   store i32 %53, ptr %51, align 4
@@ -8679,7 +8673,7 @@ encode_putfh.exit:                                ; preds = %24, %28
 96:                                               ; preds = %96, %93
   %97 = phi i64 [ 0, %93 ], [ %103, %96 ]
   %98 = phi ptr [ %94, %93 ], [ %102, %96 ]
-  %99 = getelementptr i32, ptr %4, i64 %97
+  %99 = getelementptr [4 x i8], ptr %4, i64 %97
   %100 = load i32, ptr %99, align 4
   %101 = tail call i32 @llvm.bswap.i32(i32 %100)
   %102 = getelementptr i8, ptr %98, i64 4
@@ -8748,7 +8742,7 @@ define internal i32 @nfs4_xdr_dec_readdir(ptr readnone captures(none) %0, ptr no
 
 20:                                               ; preds = %25
   %21 = add nuw nsw i64 %26, 1
-  %22 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %21
+  %22 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %21
   %23 = load i32, ptr %22, align 8
   %24 = icmp eq i64 %21, 31
   br i1 %24, label %32, label %25, !llvm.loop !51
@@ -8760,7 +8754,7 @@ define internal i32 @nfs4_xdr_dec_readdir(ptr readnone captures(none) %0, ptr no
   br i1 %28, label %29, label %20
 
 29:                                               ; preds = %25
-  %.split = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %26
+  %.split = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %26
   %30 = getelementptr i8, ptr %.split, i64 4
   %31 = load i32, ptr %30, align 4
   br label %37
@@ -8804,7 +8798,7 @@ define internal i32 @nfs4_xdr_dec_readdir(ptr readnone captures(none) %0, ptr no
 
 52:                                               ; preds = %57
   %53 = add nuw nsw i64 %58, 1
-  %54 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %53
+  %54 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %53
   %55 = load i32, ptr %54, align 8
   %56 = icmp eq i64 %53, 31
   br i1 %56, label %64, label %57, !llvm.loop !51
@@ -8816,7 +8810,7 @@ define internal i32 @nfs4_xdr_dec_readdir(ptr readnone captures(none) %0, ptr no
   br i1 %60, label %61, label %52
 
 61:                                               ; preds = %57
-  %.split13 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %58
+  %.split13 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %58
   %62 = getelementptr i8, ptr %.split13, i64 4
   %63 = load i32, ptr %62, align 4
   br label %69
@@ -8967,7 +8961,7 @@ define internal i32 @nfs4_xdr_dec_server_caps(ptr readnone captures(none) %0, pt
 
 21:                                               ; preds = %26
   %22 = add nuw nsw i64 %27, 1
-  %23 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %22
+  %23 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %22
   %24 = load i32, ptr %23, align 8
   %25 = icmp eq i64 %22, 31
   br i1 %25, label %33, label %26, !llvm.loop !51
@@ -8979,7 +8973,7 @@ define internal i32 @nfs4_xdr_dec_server_caps(ptr readnone captures(none) %0, pt
   br i1 %29, label %30, label %21
 
 30:                                               ; preds = %26
-  %.split = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %27
+  %.split = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %27
   %31 = getelementptr i8, ptr %.split, i64 4
   %32 = load i32, ptr %31, align 4
   br label %38
@@ -9025,7 +9019,7 @@ define internal i32 @nfs4_xdr_dec_server_caps(ptr readnone captures(none) %0, pt
 
 53:                                               ; preds = %58
   %54 = add nuw nsw i64 %59, 1
-  %55 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %54
+  %55 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %54
   %56 = load i32, ptr %55, align 8
   %57 = icmp eq i64 %54, 31
   br i1 %57, label %65, label %58, !llvm.loop !51
@@ -9037,7 +9031,7 @@ define internal i32 @nfs4_xdr_dec_server_caps(ptr readnone captures(none) %0, pt
   br i1 %61, label %62, label %53
 
 62:                                               ; preds = %58
-  %.split34 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %59
+  %.split34 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %59
   %63 = getelementptr i8, ptr %.split34, i64 4
   %64 = load i32, ptr %63, align 4
   br label %70
@@ -9081,7 +9075,7 @@ define internal i32 @nfs4_xdr_dec_server_caps(ptr readnone captures(none) %0, pt
   br i1 %85, label %.preheader62.preheader, label %86
 
 86:                                               ; preds = %84
-  %87 = getelementptr i32, ptr %4, i64 %78
+  %87 = getelementptr [4 x i8], ptr %4, i64 %78
   %88 = xor i64 %79, 12
   call void @llvm.memset.p0.i64(ptr align 4 %87, i8 0, i64 %88, i1 false)
   %89 = icmp eq i32 %.fr58, 0
@@ -9153,7 +9147,7 @@ define internal i32 @nfs4_xdr_dec_server_caps(ptr readnone captures(none) %0, pt
   br i1 %127, label %.preheader.preheader, label %128
 
 128:                                              ; preds = %126
-  %129 = getelementptr i32, ptr %110, i64 %120
+  %129 = getelementptr [4 x i8], ptr %110, i64 %120
   %130 = xor i64 %121, 12
   tail call void @llvm.memset.p0.i64(ptr align 4 %129, i8 0, i64 %130, i1 false)
   %131 = icmp eq i32 %.fr61, 0
@@ -9407,7 +9401,7 @@ define internal i32 @nfs4_xdr_dec_delegreturn(ptr readnone captures(none) %0, pt
 
 20:                                               ; preds = %25
   %21 = add nuw nsw i64 %26, 1
-  %22 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %21
+  %22 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %21
   %23 = load i32, ptr %22, align 8
   %24 = icmp eq i64 %21, 31
   br i1 %24, label %32, label %25, !llvm.loop !51
@@ -9419,7 +9413,7 @@ define internal i32 @nfs4_xdr_dec_delegreturn(ptr readnone captures(none) %0, pt
   br i1 %28, label %29, label %20
 
 29:                                               ; preds = %25
-  %.split = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %26
+  %.split = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %26
   %30 = getelementptr i8, ptr %.split, i64 4
   %31 = load i32, ptr %30, align 4
   br label %37
@@ -9487,7 +9481,7 @@ define internal i32 @nfs4_xdr_dec_delegreturn(ptr readnone captures(none) %0, pt
 
 67:                                               ; preds = %72
   %68 = add nuw nsw i64 %73, 1
-  %69 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %68
+  %69 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %68
   %70 = load i32, ptr %69, align 8
   %71 = icmp eq i64 %68, 31
   br i1 %71, label %79, label %72, !llvm.loop !51
@@ -9499,7 +9493,7 @@ define internal i32 @nfs4_xdr_dec_delegreturn(ptr readnone captures(none) %0, pt
   br i1 %75, label %76, label %67
 
 76:                                               ; preds = %72
-  %.split12 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %73
+  %.split12 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %73
   %77 = getelementptr i8, ptr %.split12, i64 4
   %78 = load i32, ptr %77, align 4
   br label %.thread
@@ -9678,7 +9672,7 @@ define internal i32 @nfs4_xdr_dec_getacl(ptr readnone captures(none) %0, ptr nou
 
 35:                                               ; preds = %40
   %36 = add nuw nsw i64 %41, 1
-  %37 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %36
+  %37 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %36
   %38 = load i32, ptr %37, align 8
   %39 = icmp eq i64 %36, 31
   br i1 %39, label %47, label %40, !llvm.loop !51
@@ -9690,7 +9684,7 @@ define internal i32 @nfs4_xdr_dec_getacl(ptr readnone captures(none) %0, ptr nou
   br i1 %43, label %44, label %35
 
 44:                                               ; preds = %40
-  %.split = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %41
+  %.split = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %41
   %45 = getelementptr i8, ptr %.split, i64 4
   %46 = load i32, ptr %45, align 4
   br label %52
@@ -9740,7 +9734,7 @@ define internal i32 @nfs4_xdr_dec_getacl(ptr readnone captures(none) %0, ptr nou
 
 70:                                               ; preds = %75
   %71 = add nuw nsw i64 %76, 1
-  %72 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %71
+  %72 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %71
   %73 = load i32, ptr %72, align 8
   %74 = icmp eq i64 %71, 31
   br i1 %74, label %82, label %75, !llvm.loop !51
@@ -9752,7 +9746,7 @@ define internal i32 @nfs4_xdr_dec_getacl(ptr readnone captures(none) %0, ptr nou
   br i1 %78, label %79, label %70
 
 79:                                               ; preds = %75
-  %.split20 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %76
+  %.split20 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %76
   %80 = getelementptr i8, ptr %.split20, i64 4
   %81 = load i32, ptr %80, align 4
   br label %87
@@ -9801,7 +9795,7 @@ define internal i32 @nfs4_xdr_dec_getacl(ptr readnone captures(none) %0, ptr nou
   br i1 %106, label %.preheader.preheader, label %107
 
 107:                                              ; preds = %105
-  %108 = getelementptr i32, ptr %4, i64 %99
+  %108 = getelementptr [4 x i8], ptr %4, i64 %99
   %109 = xor i64 %100, 12
   call void @llvm.memset.p0.i64(ptr align 4 %108, i8 0, i64 %109, i1 false)
   %110 = icmp eq i32 %.fr34, 0
@@ -10138,7 +10132,7 @@ define internal i32 @nfs4_xdr_dec_setacl(ptr readnone captures(none) %0, ptr nou
 
 20:                                               ; preds = %25
   %21 = add nuw nsw i64 %26, 1
-  %22 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %21
+  %22 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %21
   %23 = load i32, ptr %22, align 8
   %24 = icmp eq i64 %21, 31
   br i1 %24, label %32, label %25, !llvm.loop !51
@@ -10150,7 +10144,7 @@ define internal i32 @nfs4_xdr_dec_setacl(ptr readnone captures(none) %0, ptr nou
   br i1 %28, label %29, label %20
 
 29:                                               ; preds = %25
-  %.split = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %26
+  %.split = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %26
   %30 = getelementptr i8, ptr %.split, i64 4
   %31 = load i32, ptr %30, align 4
   br label %37
@@ -10434,7 +10428,7 @@ define internal i32 @nfs4_xdr_dec_fs_locations(ptr readnone captures(none) %0, p
 
 20:                                               ; preds = %25
   %21 = add nuw nsw i64 %26, 1
-  %22 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %21
+  %22 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %21
   %23 = load i32, ptr %22, align 8
   %24 = icmp eq i64 %21, 31
   br i1 %24, label %32, label %25, !llvm.loop !51
@@ -10446,7 +10440,7 @@ define internal i32 @nfs4_xdr_dec_fs_locations(ptr readnone captures(none) %0, p
   br i1 %28, label %29, label %20
 
 29:                                               ; preds = %25
-  %.split = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %26
+  %.split = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %26
   %30 = getelementptr i8, ptr %.split, i64 4
   %31 = load i32, ptr %30, align 4
   br label %37
@@ -10518,7 +10512,7 @@ define internal i32 @nfs4_xdr_dec_fs_locations(ptr readnone captures(none) %0, p
 
 71:                                               ; preds = %76
   %72 = add nuw nsw i64 %77, 1
-  %73 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %72
+  %73 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %72
   %74 = load i32, ptr %73, align 8
   %75 = icmp eq i64 %72, 31
   br i1 %75, label %83, label %76, !llvm.loop !51
@@ -10530,7 +10524,7 @@ define internal i32 @nfs4_xdr_dec_fs_locations(ptr readnone captures(none) %0, p
   br i1 %79, label %80, label %71
 
 80:                                               ; preds = %76
-  %.split12 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %77
+  %.split12 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %77
   %81 = getelementptr i8, ptr %.split12, i64 4
   %82 = load i32, ptr %81, align 4
   br label %88
@@ -10668,7 +10662,7 @@ define internal i32 @nfs4_xdr_dec_release_lockowner(ptr readnone captures(none) 
 
 20:                                               ; preds = %25
   %21 = add nuw nsw i64 %26, 1
-  %22 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %21
+  %22 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %21
   %23 = load i32, ptr %22, align 8
   %24 = icmp eq i64 %21, 31
   br i1 %24, label %32, label %25, !llvm.loop !51
@@ -10680,7 +10674,7 @@ define internal i32 @nfs4_xdr_dec_release_lockowner(ptr readnone captures(none) 
   br i1 %28, label %29, label %20
 
 29:                                               ; preds = %25
-  %.split = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %26
+  %.split = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %26
   %30 = getelementptr i8, ptr %.split, i64 4
   %31 = load i32, ptr %30, align 4
   br label %38
@@ -10841,7 +10835,7 @@ define internal i32 @nfs4_xdr_dec_secinfo(ptr readnone captures(none) %0, ptr no
 
 20:                                               ; preds = %25
   %21 = add nuw nsw i64 %26, 1
-  %22 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %21
+  %22 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %21
   %23 = load i32, ptr %22, align 8
   %24 = icmp eq i64 %21, 31
   br i1 %24, label %32, label %25, !llvm.loop !51
@@ -10853,7 +10847,7 @@ define internal i32 @nfs4_xdr_dec_secinfo(ptr readnone captures(none) %0, ptr no
   br i1 %28, label %29, label %20
 
 29:                                               ; preds = %25
-  %.split = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %26
+  %.split = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %26
   %30 = getelementptr i8, ptr %.split, i64 4
   %31 = load i32, ptr %30, align 4
   br label %37
@@ -10897,7 +10891,7 @@ define internal i32 @nfs4_xdr_dec_secinfo(ptr readnone captures(none) %0, ptr no
 
 52:                                               ; preds = %57
   %53 = add nuw nsw i64 %58, 1
-  %54 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %53
+  %54 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %53
   %55 = load i32, ptr %54, align 8
   %56 = icmp eq i64 %53, 31
   br i1 %56, label %64, label %57, !llvm.loop !51
@@ -10909,7 +10903,7 @@ define internal i32 @nfs4_xdr_dec_secinfo(ptr readnone captures(none) %0, ptr no
   br i1 %60, label %61, label %52
 
 61:                                               ; preds = %57
-  %.split20 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %58
+  %.split20 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %58
   %62 = getelementptr i8, ptr %.split20, i64 4
   %63 = load i32, ptr %62, align 4
   br label %69
@@ -10951,7 +10945,7 @@ define internal i32 @nfs4_xdr_dec_secinfo(ptr readnone captures(none) %0, ptr no
   %83 = phi i64 [ %123, %119 ], [ 0, %79 ]
   %84 = load ptr, ptr %75, align 8
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 4
-  %86 = getelementptr %struct.nfs4_secinfo4, ptr %85, i64 %83
+  %86 = getelementptr [48 x i8], ptr %85, i64 %83
   %87 = icmp eq i64 %83, 85
   br i1 %87, label %.thread, label %88
 
@@ -11176,7 +11170,7 @@ define internal i32 @nfs4_xdr_dec_fsid_present(ptr readnone captures(none) %0, p
 
 20:                                               ; preds = %25
   %21 = add nuw nsw i64 %26, 1
-  %22 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %21
+  %22 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %21
   %23 = load i32, ptr %22, align 8
   %24 = icmp eq i64 %21, 31
   br i1 %24, label %32, label %25, !llvm.loop !51
@@ -11188,7 +11182,7 @@ define internal i32 @nfs4_xdr_dec_fsid_present(ptr readnone captures(none) %0, p
   br i1 %28, label %29, label %20
 
 29:                                               ; preds = %25
-  %.split = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %26
+  %.split = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %26
   %30 = getelementptr i8, ptr %.split, i64 4
   %31 = load i32, ptr %30, align 4
   br label %37
@@ -11246,7 +11240,7 @@ define internal i32 @nfs4_xdr_dec_fsid_present(ptr readnone captures(none) %0, p
 
 62:                                               ; preds = %67
   %63 = add nuw nsw i64 %68, 1
-  %64 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %63
+  %64 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %63
   %65 = load i32, ptr %64, align 8
   %66 = icmp eq i64 %63, 31
   br i1 %66, label %74, label %67, !llvm.loop !51
@@ -11258,7 +11252,7 @@ define internal i32 @nfs4_xdr_dec_fsid_present(ptr readnone captures(none) %0, p
   br i1 %70, label %71, label %62
 
 71:                                               ; preds = %67
-  %.split11 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %68
+  %.split11 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %68
   %72 = getelementptr i8, ptr %.split11, i64 4
   %73 = load i32, ptr %72, align 4
   br label %.thread
@@ -11370,7 +11364,7 @@ define internal i32 @nfs4_xdr_dec_get_lease_time(ptr readnone captures(none) %0,
 
 20:                                               ; preds = %25
   %21 = add nuw nsw i64 %26, 1
-  %22 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %21
+  %22 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %21
   %23 = load i32, ptr %22, align 8
   %24 = icmp eq i64 %21, 31
   br i1 %24, label %32, label %25, !llvm.loop !51
@@ -11382,7 +11376,7 @@ define internal i32 @nfs4_xdr_dec_get_lease_time(ptr readnone captures(none) %0,
   br i1 %28, label %29, label %20
 
 29:                                               ; preds = %25
-  %.split = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %26
+  %.split = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %26
   %30 = getelementptr i8, ptr %.split, i64 4
   %31 = load i32, ptr %30, align 4
   br label %37
@@ -11556,7 +11550,7 @@ define internal i32 @nfs4_xdr_dec_lookupp(ptr readnone captures(none) %0, ptr no
 
 20:                                               ; preds = %25
   %21 = add nuw nsw i64 %26, 1
-  %22 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %21
+  %22 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %21
   %23 = load i32, ptr %22, align 8
   %24 = icmp eq i64 %21, 31
   br i1 %24, label %32, label %25, !llvm.loop !51
@@ -11568,7 +11562,7 @@ define internal i32 @nfs4_xdr_dec_lookupp(ptr readnone captures(none) %0, ptr no
   br i1 %28, label %29, label %20
 
 29:                                               ; preds = %25
-  %.split = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %26
+  %.split = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %26
   %30 = getelementptr i8, ptr %.split, i64 4
   %31 = load i32, ptr %30, align 4
   br label %37
@@ -11612,7 +11606,7 @@ define internal i32 @nfs4_xdr_dec_lookupp(ptr readnone captures(none) %0, ptr no
 
 52:                                               ; preds = %57
   %53 = add nuw nsw i64 %58, 1
-  %54 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %53
+  %54 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %53
   %55 = load i32, ptr %54, align 8
   %56 = icmp eq i64 %53, 31
   br i1 %56, label %64, label %57, !llvm.loop !51
@@ -11624,7 +11618,7 @@ define internal i32 @nfs4_xdr_dec_lookupp(ptr readnone captures(none) %0, ptr no
   br i1 %60, label %61, label %52
 
 61:                                               ; preds = %57
-  %.split12 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %58
+  %.split12 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %58
   %62 = getelementptr i8, ptr %.split12, i64 4
   %63 = load i32, ptr %62, align 4
   br label %69
@@ -12174,7 +12168,7 @@ define internal fastcc range(i32 -121, 1) i32 @decode_attr_mdsthreshold(ptr noun
   br i1 %42, label %.preheader.preheader, label %43
 
 43:                                               ; preds = %41
-  %44 = getelementptr i32, ptr %4, i64 %35
+  %44 = getelementptr [4 x i8], ptr %4, i64 %35
   %45 = xor i64 %36, 12
   call void @llvm.memset.p0.i64(ptr align 4 %44, i8 0, i64 %45, i1 false)
   %46 = icmp eq i32 %.fr27, 0
@@ -12430,7 +12424,7 @@ define internal fastcc noundef range(i32 -5, 1) i32 @decode_pathname(ptr noundef
 13:                                               ; preds = %.critedge, %11
   %14 = phi i32 [ 0, %11 ], [ %31, %.critedge ]
   %15 = zext nneg i32 %14 to i64
-  %16 = getelementptr %struct.nfs4_string, ptr %12, i64 %15
+  %16 = getelementptr [16 x i8], ptr %12, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr null, ptr %17, align 8
   %18 = tail call ptr @xdr_inline_decode(ptr noundef %0, i64 noundef 4) #12
@@ -12616,7 +12610,7 @@ define internal fastcc i32 @decode_compound_hdr(ptr noundef %0, ptr noundef capt
 
 31:                                               ; preds = %36
   %32 = add nuw nsw i64 %37, 1
-  %33 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %32
+  %33 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %32
   %34 = load i32, ptr %33, align 8
   %35 = icmp eq i64 %32, 31
   br i1 %35, label %43, label %36, !llvm.loop !51
@@ -12628,7 +12622,7 @@ define internal fastcc i32 @decode_compound_hdr(ptr noundef %0, ptr noundef capt
   br i1 %39, label %40, label %31
 
 40:                                               ; preds = %36
-  %.split = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %37
+  %.split = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %37
   %41 = getelementptr i8, ptr %.split, i64 4
   %42 = load i32, ptr %41, align 4
   br label %.critedge
@@ -12783,13 +12777,13 @@ define internal fastcc void @encode_getattr(ptr noundef %0, ptr noundef readonly
 .preheader24:                                     ; preds = %11, %28
   %19 = phi i64 [ %20, %28 ], [ %3, %11 ]
   %20 = add nsw i64 %19, -1
-  %21 = getelementptr i32, ptr %1, i64 %20
+  %21 = getelementptr [4 x i8], ptr %1, i64 %20
   %22 = load i32, ptr %21, align 4
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %28, label %24
 
 24:                                               ; preds = %.preheader24
-  %25 = getelementptr i32, ptr %2, i64 %20
+  %25 = getelementptr [4 x i8], ptr %2, i64 %20
   %26 = load i32, ptr %25, align 4
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %28, label %.preheader22
@@ -12801,12 +12795,12 @@ define internal fastcc void @encode_getattr(ptr noundef %0, ptr noundef readonly
 .preheader22:                                     ; preds = %24, %.preheader22
   %30 = phi i64 [ %31, %.preheader22 ], [ %19, %24 ]
   %31 = add i64 %30, -1
-  %32 = getelementptr i32, ptr %1, i64 %31
+  %32 = getelementptr [4 x i8], ptr %1, i64 %31
   %33 = load i32, ptr %32, align 4
-  %34 = getelementptr i32, ptr %2, i64 %31
+  %34 = getelementptr [4 x i8], ptr %2, i64 %31
   %35 = load i32, ptr %34, align 4
   %36 = and i32 %35, %33
-  %37 = getelementptr i32, ptr %6, i64 %31
+  %37 = getelementptr [4 x i8], ptr %6, i64 %31
   store i32 %36, ptr %37, align 4
   %38 = icmp eq i64 %31, 0
   br i1 %38, label %.loopexit23, label %.preheader22, !llvm.loop !77
@@ -12815,13 +12809,13 @@ define internal fastcc void @encode_getattr(ptr noundef %0, ptr noundef readonly
   %.ph = phi i64 [ %3, %11 ], [ %19, %.preheader22 ]
   %.ph14.sroa.phi = phi ptr [ %.ph14.sroa.gep, %11 ], [ %.ph14.sroa.gep31, %.preheader22 ]
   %.ph14 = phi ptr [ %1, %11 ], [ %6, %.preheader22 ]
-  %39 = getelementptr i32, ptr %.ph14.sroa.phi, i64 %.ph
+  %39 = getelementptr [4 x i8], ptr %.ph14.sroa.phi, i64 %.ph
   %40 = load i32, ptr %39, align 4
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %.preheader18, label %.loopexit19
 
 42:                                               ; preds = %.preheader18
-  %43 = getelementptr i32, ptr %.ph14.sroa.phi, i64 %47
+  %43 = getelementptr [4 x i8], ptr %.ph14.sroa.phi, i64 %47
   %44 = load i32, ptr %43, align 4
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %.preheader18, label %.loopexit19, !llvm.loop !78
@@ -12900,7 +12894,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @decode_getfattr_generic(pt
 
 18:                                               ; preds = %23
   %19 = add nuw nsw i64 %24, 1
-  %20 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %19
+  %20 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %19
   %21 = load i32, ptr %20, align 8
   %22 = icmp eq i64 %19, 31
   br i1 %22, label %30, label %23, !llvm.loop !51
@@ -12912,7 +12906,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @decode_getfattr_generic(pt
   br i1 %26, label %27, label %18
 
 27:                                               ; preds = %23
-  %.split = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %24
+  %.split = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %24
   %28 = getelementptr i8, ptr %.split, i64 4
   %29 = load i32, ptr %28, align 4
   br label %35
@@ -12956,7 +12950,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @decode_getfattr_generic(pt
   br i1 %50, label %.preheader.preheader, label %51
 
 51:                                               ; preds = %49
-  %52 = getelementptr i32, ptr %5, i64 %43
+  %52 = getelementptr [4 x i8], ptr %5, i64 %43
   %53 = xor i64 %44, 12
   call void @llvm.memset.p0.i64(ptr align 4 %52, i8 0, i64 %53, i1 false)
   %54 = icmp eq i32 %.fr20, 0
@@ -13662,7 +13656,7 @@ define internal fastcc void @encode_attrs(ptr noundef %0, ptr noundef readonly c
   br i1 %42, label %.preheader7, label %.loopexit8
 
 149:                                              ; preds = %.preheader7
-  %150 = getelementptr i32, ptr %147, i64 %154
+  %150 = getelementptr [4 x i8], ptr %147, i64 %154
   %151 = load i32, ptr %150, align 4
   %152 = icmp eq i32 %151, 0
   br i1 %152, label %.preheader7, label %.loopexit8, !llvm.loop !78
@@ -13943,7 +13937,7 @@ define internal fastcc noundef i32 @decode_open(ptr noundef %0, ptr noundef capt
 
 17:                                               ; preds = %22
   %18 = add nuw nsw i64 %23, 1
-  %19 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %18
+  %19 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %18
   %20 = load i32, ptr %19, align 8
   %21 = icmp eq i64 %18, 31
   br i1 %21, label %29, label %22, !llvm.loop !51
@@ -13955,7 +13949,7 @@ define internal fastcc noundef i32 @decode_open(ptr noundef %0, ptr noundef capt
   br i1 %25, label %26, label %17
 
 26:                                               ; preds = %22
-  %.split = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %23
+  %.split = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %23
   %27 = getelementptr i8, ptr %.split, i64 4
   %28 = load i32, ptr %27, align 4
   br label %36
@@ -14069,7 +14063,7 @@ define internal fastcc noundef i32 @decode_open(ptr noundef %0, ptr noundef capt
   %93 = getelementptr i8, ptr %92, i64 4
   %94 = load i32, ptr %92, align 4
   %95 = tail call i32 @llvm.bswap.i32(i32 %94)
-  %96 = getelementptr i32, ptr %80, i64 %91
+  %96 = getelementptr [4 x i8], ptr %80, i64 %91
   store i32 %95, ptr %96, align 4
   %97 = add nuw nsw i64 %91, 1
   %98 = icmp eq i64 %97, %81
@@ -14233,7 +14227,7 @@ define internal fastcc i32 @decode_getfh(ptr noundef %0, ptr noundef writeonly c
 
 15:                                               ; preds = %20
   %16 = add nuw nsw i64 %21, 1
-  %17 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %16
+  %17 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %16
   %18 = load i32, ptr %17, align 8
   %19 = icmp eq i64 %16, 31
   br i1 %19, label %27, label %20, !llvm.loop !51
@@ -14245,7 +14239,7 @@ define internal fastcc i32 @decode_getfh(ptr noundef %0, ptr noundef writeonly c
   br i1 %23, label %24, label %15
 
 24:                                               ; preds = %20
-  %.split = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %21
+  %.split = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %21
   %25 = getelementptr i8, ptr %.split, i64 4
   %26 = load i32, ptr %25, align 4
   br label %32
@@ -14360,7 +14354,7 @@ define internal fastcc i32 @decode_access(ptr noundef %0, ptr noundef writeonly 
 
 16:                                               ; preds = %21
   %17 = add nuw nsw i64 %22, 1
-  %18 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %17
+  %18 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %17
   %19 = load i32, ptr %18, align 8
   %20 = icmp eq i64 %17, 31
   br i1 %20, label %28, label %21, !llvm.loop !51
@@ -14372,7 +14366,7 @@ define internal fastcc i32 @decode_access(ptr noundef %0, ptr noundef writeonly 
   br i1 %24, label %25, label %16
 
 25:                                               ; preds = %21
-  %.split = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %22
+  %.split = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %22
   %26 = getelementptr i8, ptr %.split, i64 4
   %27 = load i32, ptr %26, align 4
   br label %33
@@ -14440,7 +14434,7 @@ define internal fastcc i32 @decode_setattr(ptr noundef %0) unnamed_addr #0 align
 
 14:                                               ; preds = %19
   %15 = add nuw nsw i64 %20, 1
-  %16 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %15
+  %16 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %15
   %17 = load i32, ptr %16, align 8
   %18 = icmp eq i64 %15, 31
   br i1 %18, label %26, label %19, !llvm.loop !51
@@ -14452,7 +14446,7 @@ define internal fastcc i32 @decode_setattr(ptr noundef %0) unnamed_addr #0 align
   br i1 %22, label %23, label %14
 
 23:                                               ; preds = %19
-  %.split = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %20
+  %.split = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %20
   %24 = getelementptr i8, ptr %.split, i64 4
   %25 = load i32, ptr %24, align 4
   br label %31
@@ -14521,7 +14515,7 @@ define internal fastcc i32 @decode_fsinfo(ptr noundef %0, ptr noundef captures(n
 
 16:                                               ; preds = %21
   %17 = add nuw nsw i64 %22, 1
-  %18 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %17
+  %18 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %17
   %19 = load i32, ptr %18, align 8
   %20 = icmp eq i64 %17, 31
   br i1 %20, label %28, label %21, !llvm.loop !51
@@ -14533,7 +14527,7 @@ define internal fastcc i32 @decode_fsinfo(ptr noundef %0, ptr noundef captures(n
   br i1 %24, label %25, label %16
 
 25:                                               ; preds = %21
-  %.split = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %22
+  %.split = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %22
   %26 = getelementptr i8, ptr %.split, i64 4
   %27 = load i32, ptr %26, align 4
   br label %33
@@ -14578,7 +14572,7 @@ define internal fastcc i32 @decode_fsinfo(ptr noundef %0, ptr noundef captures(n
   br i1 %48, label %.preheader.preheader, label %49
 
 49:                                               ; preds = %47
-  %50 = getelementptr i32, ptr %3, i64 %41
+  %50 = getelementptr [4 x i8], ptr %3, i64 %41
   %51 = xor i64 %42, 12
   call void @llvm.memset.p0.i64(ptr align 4 %50, i8 0, i64 %51, i1 false)
   %52 = icmp eq i32 %.fr32, 0
@@ -14919,7 +14913,7 @@ define internal fastcc noundef range(i32 -5, 1) i32 @decode_attr_pnfstype(ptr no
   %38 = getelementptr i8, ptr %37, i64 4
   %39 = load i32, ptr %37, align 4
   %40 = tail call i32 @llvm.bswap.i32(i32 %39)
-  %41 = getelementptr i32, ptr %33, i64 %36
+  %41 = getelementptr [4 x i8], ptr %33, i64 %36
   store i32 %40, ptr %41, align 4
   %42 = add nuw nsw i64 %36, 1
   %43 = icmp eq i64 %42, %34
@@ -15084,7 +15078,7 @@ define internal fastcc i32 @decode_renew(ptr noundef %0) unnamed_addr #0 align 1
 
 14:                                               ; preds = %19
   %15 = add nuw nsw i64 %20, 1
-  %16 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %15
+  %16 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %15
   %17 = load i32, ptr %16, align 8
   %18 = icmp eq i64 %15, 31
   br i1 %18, label %26, label %19, !llvm.loop !51
@@ -15096,7 +15090,7 @@ define internal fastcc i32 @decode_renew(ptr noundef %0) unnamed_addr #0 align 1
   br i1 %22, label %23, label %14
 
 23:                                               ; preds = %19
-  %.split = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %20
+  %.split = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %20
   %24 = getelementptr i8, ptr %.split, i64 4
   %25 = load i32, ptr %24, align 4
   br label %32
@@ -15148,7 +15142,7 @@ define internal fastcc i32 @decode_rename(ptr noundef %0, ptr noundef writeonly 
 
 16:                                               ; preds = %21
   %17 = add nuw nsw i64 %22, 1
-  %18 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %17
+  %18 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %17
   %19 = load i32, ptr %18, align 8
   %20 = icmp eq i64 %17, 31
   br i1 %20, label %28, label %21, !llvm.loop !51
@@ -15160,7 +15154,7 @@ define internal fastcc i32 @decode_rename(ptr noundef %0, ptr noundef writeonly 
   br i1 %24, label %25, label %16
 
 25:                                               ; preds = %21
-  %.split = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %22
+  %.split = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %22
   %26 = getelementptr i8, ptr %.split, i64 4
   %27 = load i32, ptr %26, align 4
   br label %33
@@ -15249,7 +15243,7 @@ define internal fastcc i32 @decode_link(ptr noundef %0, ptr noundef writeonly ca
 
 15:                                               ; preds = %20
   %16 = add nuw nsw i64 %21, 1
-  %17 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %16
+  %17 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %16
   %18 = load i32, ptr %17, align 8
   %19 = icmp eq i64 %16, 31
   br i1 %19, label %27, label %20, !llvm.loop !51
@@ -15261,7 +15255,7 @@ define internal fastcc i32 @decode_link(ptr noundef %0, ptr noundef writeonly ca
   br i1 %23, label %24, label %15
 
 24:                                               ; preds = %20
-  %.split = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %21
+  %.split = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %21
   %25 = getelementptr i8, ptr %.split, i64 4
   %26 = load i32, ptr %25, align 4
   br label %32
@@ -15332,7 +15326,7 @@ define internal fastcc i32 @decode_restorefh(ptr noundef %0) unnamed_addr #0 ali
 
 14:                                               ; preds = %19
   %15 = add nuw nsw i64 %20, 1
-  %16 = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %15
+  %16 = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %15
   %17 = load i32, ptr %16, align 8
   %18 = icmp eq i64 %15, 31
   br i1 %18, label %26, label %19, !llvm.loop !51
@@ -15344,7 +15338,7 @@ define internal fastcc i32 @decode_restorefh(ptr noundef %0) unnamed_addr #0 ali
   br i1 %22, label %23, label %14
 
 23:                                               ; preds = %19
-  %.split = getelementptr %struct.anon.22, ptr @nfs_errtbl, i64 %20
+  %.split = getelementptr [8 x i8], ptr @nfs_errtbl, i64 %20
   %24 = getelementptr i8, ptr %.split, i64 4
   %25 = load i32, ptr %24, align 4
   br label %32
@@ -15737,7 +15731,7 @@ define internal fastcc range(i32 -5, 1) i32 @decode_attr_exclcreat_supported(ptr
   br i1 %23, label %.preheader.preheader, label %24
 
 24:                                               ; preds = %22
-  %25 = getelementptr i32, ptr %2, i64 %14
+  %25 = getelementptr [4 x i8], ptr %2, i64 %14
   %26 = xor i64 %15, 12
   tail call void @llvm.memset.p0.i64(ptr align 4 %25, i8 0, i64 %26, i1 false)
   %27 = icmp eq i32 %.fr14, 0

@@ -18,7 +18,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.PgStat_HashKey = type { i32, i32, i64 }
 %struct.nameData = type { [64 x i8] }
 %struct.dshash_seq_status = type { ptr, i32, i32, ptr, i64, i32, i8 }
-%struct.PgStat_SnapshotEntry = type { %struct.PgStat_HashKey, i8, ptr }
 
 @pgstat_track_counts = dso_local local_unnamed_addr global i8 0, align 1
 @pgstat_fetch_consistency = dso_local local_unnamed_addr global i32 1, align 4
@@ -163,7 +162,7 @@ define dso_local void @pgstat_restore_stats(i64 noundef %0) local_unnamed_addr #
   br i1 %30, label %pgstat_get_kind_info.exit.thread9.i.i, label %32
 
 pgstat_get_kind_info.exit.thread9.i.i:            ; preds = %29
-  %31 = getelementptr inbounds nuw %struct.PgStat_KindInfo, ptr @pgstat_kind_builtin_infos, i64 %indvars.iv.i.i
+  %31 = getelementptr inbounds nuw [128 x i8], ptr @pgstat_kind_builtin_infos, i64 %indvars.iv.i.i
   br label %40
 
 32:                                               ; preds = %29
@@ -177,7 +176,7 @@ pgstat_get_kind_info.exit.thread9.i.i:            ; preds = %29
   br i1 %37, label %pgstat_get_kind_info.exit.thread.i.i, label %pgstat_get_kind_info.exit.i.i
 
 pgstat_get_kind_info.exit.i.i:                    ; preds = %35
-  %38 = getelementptr inbounds nuw ptr, ptr %36, i64 %33
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %33
   %39 = load ptr, ptr %38, align 8
   %.not.i.i = icmp eq ptr %39, null
   br i1 %.not.i.i, label %pgstat_get_kind_info.exit.thread.i.i, label %40
@@ -322,7 +321,7 @@ pgstat_reset_after_failure.exit.i:                ; preds = %pgstat_get_kind_inf
 
 pgstat_get_kind_info.exit.i:                      ; preds = %100
   %103 = zext nneg i32 %91 to i64
-  %104 = getelementptr inbounds nuw ptr, ptr %101, i64 %103
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %101, i64 %103
   %105 = load ptr, ptr %104, align 8
   %.not79.i = icmp eq ptr %105, null
   br i1 %.not79.i, label %pgstat_get_kind_info.exit.thread.i, label %.thread.i
@@ -337,7 +336,7 @@ pgstat_get_kind_info.exit.thread.i:               ; preds = %pgstat_get_kind_inf
 
 109:                                              ; preds = %98
   %110 = zext nneg i32 %88 to i64
-  %111 = getelementptr inbounds nuw %struct.PgStat_KindInfo, ptr @pgstat_kind_builtin_infos, i64 %110
+  %111 = getelementptr inbounds nuw [128 x i8], ptr @pgstat_kind_builtin_infos, i64 %110
   %112 = load i8, ptr %111, align 16
   %113 = trunc i8 %112 to i1
   br i1 %113, label %120, label %116
@@ -363,7 +362,7 @@ pgstat_get_kind_info.exit.thread.i:               ; preds = %pgstat_get_kind_inf
   br label %127
 
 .thread106.i:                                     ; preds = %.thread.i
-  %125 = getelementptr inbounds nuw ptr, ptr %68, i64 %103
+  %125 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %103
   %126 = load ptr, ptr %125, align 8
   br label %127
 
@@ -504,7 +503,7 @@ pgstat_get_kind_info.exit.thread.i:               ; preds = %pgstat_get_kind_inf
 
 pgstat_get_kind_info.exit82.thread115.i:          ; preds = %198
   %199 = zext nneg i32 %188 to i64
-  %200 = getelementptr inbounds nuw %struct.PgStat_KindInfo, ptr @pgstat_kind_builtin_infos, i64 %199
+  %200 = getelementptr inbounds nuw [128 x i8], ptr @pgstat_kind_builtin_infos, i64 %199
   br label %211
 
 201:                                              ; preds = %198
@@ -517,7 +516,7 @@ pgstat_get_kind_info.exit82.thread115.i:          ; preds = %198
 
 pgstat_get_kind_info.exit82.i:                    ; preds = %202
   %205 = zext nneg i32 %191 to i64
-  %206 = getelementptr inbounds nuw ptr, ptr %203, i64 %205
+  %206 = getelementptr inbounds nuw [8 x i8], ptr %203, i64 %205
   %207 = load ptr, ptr %206, align 8
   %.not76.i = icmp eq ptr %207, null
   br i1 %.not76.i, label %pgstat_get_kind_info.exit82.thread.i, label %211
@@ -554,7 +553,7 @@ pgstat_get_kind_info.exit82.thread.i:             ; preds = %pgstat_get_kind_inf
 
 221:                                              ; preds = %220
   %222 = zext nneg i32 %188 to i64
-  %223 = getelementptr inbounds nuw %struct.PgStat_KindInfo, ptr @pgstat_kind_builtin_infos, i64 %222
+  %223 = getelementptr inbounds nuw [128 x i8], ptr @pgstat_kind_builtin_infos, i64 %222
   br label %pgstat_get_entry_len.exit.i
 
 224:                                              ; preds = %220
@@ -562,7 +561,7 @@ pgstat_get_kind_info.exit82.thread.i:             ; preds = %pgstat_get_kind_inf
   call void @llvm.assume(i1 %225)
   %226 = load ptr, ptr @pgstat_kind_custom_infos, align 8, !nonnull !7, !noundef !7
   %227 = zext nneg i32 %188 to i64
-  %228 = getelementptr ptr, ptr %226, i64 %227
+  %228 = getelementptr [8 x i8], ptr %226, i64 %227
   %229 = getelementptr i8, ptr %228, i64 -1024
   %230 = load ptr, ptr %229, align 8
   br label %pgstat_get_entry_len.exit.i
@@ -629,13 +628,13 @@ pgstat_get_entry_len.exit.i:                      ; preds = %224, %221
 
 262:                                              ; preds = %255
   %263 = zext nneg i32 %259 to i64
-  %264 = getelementptr inbounds nuw %struct.PgStat_KindInfo, ptr @pgstat_kind_builtin_infos, i64 %263
+  %264 = getelementptr inbounds nuw [128 x i8], ptr @pgstat_kind_builtin_infos, i64 %263
   br label %pgstat_get_entry_len.exit88.i
 
 265:                                              ; preds = %255
   %266 = load ptr, ptr @pgstat_kind_custom_infos, align 8, !nonnull !7, !noundef !7
   %267 = sext i32 %259 to i64
-  %268 = getelementptr ptr, ptr %266, i64 %267
+  %268 = getelementptr [8 x i8], ptr %266, i64 %267
   %269 = getelementptr i8, ptr %268, i64 -1024
   %270 = load ptr, ptr %269, align 8
   %271 = icmp slt i32 %259, 257
@@ -751,7 +750,7 @@ pgstat_get_entry_len.exit88.i:                    ; preds = %265, %262
   br i1 %310, label %pgstat_get_kind_info.exit.thread9.i96.i, label %312
 
 pgstat_get_kind_info.exit.thread9.i96.i:          ; preds = %309
-  %311 = getelementptr inbounds nuw %struct.PgStat_KindInfo, ptr @pgstat_kind_builtin_infos, i64 %indvars.iv.i89.i
+  %311 = getelementptr inbounds nuw [128 x i8], ptr @pgstat_kind_builtin_infos, i64 %indvars.iv.i89.i
   br label %320
 
 312:                                              ; preds = %309
@@ -765,7 +764,7 @@ pgstat_get_kind_info.exit.thread9.i96.i:          ; preds = %309
   br i1 %317, label %pgstat_get_kind_info.exit.thread.i90.i, label %pgstat_get_kind_info.exit.i93.i
 
 pgstat_get_kind_info.exit.i93.i:                  ; preds = %315
-  %318 = getelementptr inbounds nuw ptr, ptr %316, i64 %313
+  %318 = getelementptr inbounds nuw [8 x i8], ptr %316, i64 %313
   %319 = load ptr, ptr %318, align 8
   %.not.i94.i = icmp eq ptr %319, null
   br i1 %.not.i94.i, label %pgstat_get_kind_info.exit.thread.i90.i, label %320
@@ -851,7 +850,7 @@ define dso_local void @pgstat_discard_stats() local_unnamed_addr #0 {
   br i1 %23, label %pgstat_get_kind_info.exit.thread9.i, label %25
 
 pgstat_get_kind_info.exit.thread9.i:              ; preds = %22
-  %24 = getelementptr inbounds nuw %struct.PgStat_KindInfo, ptr @pgstat_kind_builtin_infos, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw [128 x i8], ptr @pgstat_kind_builtin_infos, i64 %indvars.iv.i
   br label %33
 
 25:                                               ; preds = %22
@@ -865,7 +864,7 @@ pgstat_get_kind_info.exit.thread9.i:              ; preds = %22
   br i1 %30, label %pgstat_get_kind_info.exit.thread.i, label %pgstat_get_kind_info.exit.i
 
 pgstat_get_kind_info.exit.i:                      ; preds = %28
-  %31 = getelementptr inbounds nuw ptr, ptr %29, i64 %26
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %26
   %32 = load ptr, ptr %31, align 8
   %.not.i = icmp eq ptr %32, null
   br i1 %.not.i, label %pgstat_get_kind_info.exit.thread.i, label %33
@@ -990,7 +989,7 @@ define dso_local void @pgstat_before_server_shutdown(i32 noundef %0, i64 noundef
   br i1 %41, label %pgstat_get_kind_info.exit.thread.i, label %pgstat_get_kind_info.exit.i
 
 pgstat_get_kind_info.exit.i:                      ; preds = %39
-  %42 = getelementptr inbounds nuw ptr, ptr %40, i64 %37
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %37
   %43 = load ptr, ptr %42, align 8
   %.not57.i = icmp eq ptr %43, null
   br i1 %.not57.i, label %pgstat_get_kind_info.exit.thread.i, label %.thread.i
@@ -1006,7 +1005,7 @@ pgstat_get_kind_info.exit.i:                      ; preds = %39
   br i1 %or.cond.not86.i, label %pgstat_get_kind_info.exit.i.i, label %pgstat_get_kind_info.exit.thread.i
 
 48:                                               ; preds = %44
-  %49 = getelementptr inbounds nuw %struct.PgStat_KindInfo, ptr @pgstat_kind_builtin_infos, i64 %indvars.iv.i
+  %49 = getelementptr inbounds nuw [128 x i8], ptr @pgstat_kind_builtin_infos, i64 %indvars.iv.i
   br label %pgstat_get_kind_info.exit.i.i
 
 pgstat_get_kind_info.exit.i.i:                    ; preds = %.thread.i, %48
@@ -1047,7 +1046,7 @@ pgstat_build_snapshot_fixed.exit.i:               ; preds = %57, %54
 65:                                               ; preds = %pgstat_build_snapshot_fixed.exit.i
   %66 = add nuw nsw i64 %indvars.iv.i, 4294967168
   %67 = and i64 %66, 4294967295
-  %68 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 50000), i64 %67
+  %68 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 50000), i64 %67
   %69 = load ptr, ptr %68, align 8
   br label %70
 
@@ -1119,7 +1118,7 @@ pgstat_get_kind_info.exit.thread.i:               ; preds = %70, %.thread.i, %44
 
 109:                                              ; preds = %101
   %110 = zext nneg i32 %106 to i64
-  %111 = getelementptr inbounds nuw %struct.PgStat_KindInfo, ptr @pgstat_kind_builtin_infos, i64 %110
+  %111 = getelementptr inbounds nuw [128 x i8], ptr @pgstat_kind_builtin_infos, i64 %110
   br label %pgstat_get_kind_info.exit61.i
 
 112:                                              ; preds = %101
@@ -1127,7 +1126,7 @@ pgstat_get_kind_info.exit.thread.i:               ; preds = %70, %.thread.i, %44
   call void @llvm.assume(i1 %113)
   %114 = load ptr, ptr @pgstat_kind_custom_infos, align 8, !nonnull !7, !noundef !7
   %115 = sext i32 %106 to i64
-  %116 = getelementptr ptr, ptr %114, i64 %115
+  %116 = getelementptr [8 x i8], ptr %114, i64 %115
   %117 = getelementptr i8, ptr %116, i64 -1024
   %118 = load ptr, ptr %117, align 8
   br label %pgstat_get_kind_info.exit61.i
@@ -1167,13 +1166,13 @@ pgstat_get_kind_info.exit61.i:                    ; preds = %112, %109
 
 135:                                              ; preds = %131
   %136 = zext nneg i32 %132 to i64
-  %137 = getelementptr inbounds nuw %struct.PgStat_KindInfo, ptr @pgstat_kind_builtin_infos, i64 %136
+  %137 = getelementptr inbounds nuw [128 x i8], ptr @pgstat_kind_builtin_infos, i64 %136
   br label %pgstat_get_entry_len.exit.i
 
 138:                                              ; preds = %131
   %139 = load ptr, ptr @pgstat_kind_custom_infos, align 8, !nonnull !7, !noundef !7
   %140 = sext i32 %132 to i64
-  %141 = getelementptr ptr, ptr %139, i64 %140
+  %141 = getelementptr [8 x i8], ptr %139, i64 %140
   %142 = getelementptr i8, ptr %141, i64 -1024
   %143 = load ptr, ptr %142, align 8
   %144 = icmp slt i32 %132, 257
@@ -1280,7 +1279,7 @@ define dso_local range(i64 0, 10001) i64 @pgstat_report_stat(i1 noundef zeroext 
   br i1 %7, label %pgstat_get_kind_info.exit.thread51, label %9
 
 pgstat_get_kind_info.exit.thread51:               ; preds = %.preheader
-  %8 = getelementptr inbounds nuw %struct.PgStat_KindInfo, ptr @pgstat_kind_builtin_infos, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [128 x i8], ptr @pgstat_kind_builtin_infos, i64 %indvars.iv
   br label %17
 
 9:                                                ; preds = %.preheader
@@ -1294,7 +1293,7 @@ pgstat_get_kind_info.exit.thread51:               ; preds = %.preheader
   br i1 %14, label %pgstat_get_kind_info.exit.thread, label %pgstat_get_kind_info.exit
 
 pgstat_get_kind_info.exit:                        ; preds = %12
-  %15 = getelementptr inbounds nuw ptr, ptr %13, i64 %10
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %10
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %pgstat_get_kind_info.exit.thread, label %17
@@ -1372,7 +1371,7 @@ pgstat_flush_pending_entries.exit.preheader:      ; preds = %84, %38
 
 46:                                               ; preds = %.lr.ph.i
   %47 = zext nneg i32 %.sroa.0.0.copyload.i to i64
-  %48 = getelementptr inbounds nuw %struct.PgStat_KindInfo, ptr @pgstat_kind_builtin_infos, i64 %47
+  %48 = getelementptr inbounds nuw [128 x i8], ptr @pgstat_kind_builtin_infos, i64 %47
   br label %pgstat_get_kind_info.exit.i
 
 49:                                               ; preds = %.lr.ph.i
@@ -1380,7 +1379,7 @@ pgstat_flush_pending_entries.exit.preheader:      ; preds = %84, %38
   tail call void @llvm.assume(i1 %50)
   %51 = load ptr, ptr @pgstat_kind_custom_infos, align 8, !nonnull !7, !noundef !7
   %52 = sext i32 %.sroa.0.0.copyload.i to i64
-  %53 = getelementptr ptr, ptr %51, i64 %52
+  %53 = getelementptr [8 x i8], ptr %51, i64 %52
   %54 = getelementptr i8, ptr %53, i64 -1024
   %55 = load ptr, ptr %54, align 8
   br label %pgstat_get_kind_info.exit.i
@@ -1404,7 +1403,7 @@ pgstat_get_kind_info.exit.i:                      ; preds = %49, %46
 
 65:                                               ; preds = %60
   %66 = zext nneg i32 %62 to i64
-  %67 = getelementptr inbounds nuw %struct.PgStat_KindInfo, ptr @pgstat_kind_builtin_infos, i64 %66
+  %67 = getelementptr inbounds nuw [128 x i8], ptr @pgstat_kind_builtin_infos, i64 %66
   br label %pgstat_get_kind_info.exit.i.i
 
 68:                                               ; preds = %60
@@ -1412,7 +1411,7 @@ pgstat_get_kind_info.exit.i:                      ; preds = %49, %46
   tail call void @llvm.assume(i1 %69)
   %70 = load ptr, ptr @pgstat_kind_custom_infos, align 8, !nonnull !7, !noundef !7
   %71 = sext i32 %62 to i64
-  %72 = getelementptr ptr, ptr %70, i64 %71
+  %72 = getelementptr [8 x i8], ptr %70, i64 %71
   %73 = getelementptr i8, ptr %72, i64 -1024
   %74 = load ptr, ptr %73, align 8
   br label %pgstat_get_kind_info.exit.i.i
@@ -1458,7 +1457,7 @@ pgstat_flush_pending_entries.exit:                ; preds = %pgstat_flush_pendin
   br i1 %86, label %pgstat_get_kind_info.exit48.thread60, label %88
 
 pgstat_get_kind_info.exit48.thread60:             ; preds = %pgstat_flush_pending_entries.exit
-  %87 = getelementptr inbounds nuw %struct.PgStat_KindInfo, ptr @pgstat_kind_builtin_infos, i64 %indvars.iv70
+  %87 = getelementptr inbounds nuw [128 x i8], ptr @pgstat_kind_builtin_infos, i64 %indvars.iv70
   br label %96
 
 88:                                               ; preds = %pgstat_flush_pending_entries.exit
@@ -1472,7 +1471,7 @@ pgstat_get_kind_info.exit48.thread60:             ; preds = %pgstat_flush_pendin
   br i1 %93, label %pgstat_get_kind_info.exit48.thread, label %pgstat_get_kind_info.exit48
 
 pgstat_get_kind_info.exit48:                      ; preds = %91
-  %94 = getelementptr inbounds nuw ptr, ptr %92, i64 %89
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %92, i64 %89
   %95 = load ptr, ptr %94, align 8
   %.not45 = icmp eq ptr %95, null
   br i1 %.not45, label %pgstat_get_kind_info.exit48.thread, label %96
@@ -1530,7 +1529,7 @@ pgstat_init_snapshot_fixed.exit.preheader.preheader: ; preds = %pgstat_get_kind_
   br i1 %4, label %pgstat_get_kind_info.exit.thread.i, label %pgstat_get_kind_info.exit.i
 
 pgstat_get_kind_info.exit.i:                      ; preds = %.split
-  %5 = getelementptr ptr, ptr %3, i64 %indvars.iv.i
+  %5 = getelementptr [8 x i8], ptr %3, i64 %indvars.iv.i
   %6 = getelementptr i8, ptr %5, i64 -1024
   %7 = load ptr, ptr %6, align 8
   %.not.i = icmp eq ptr %7, null
@@ -1547,7 +1546,7 @@ pgstat_get_kind_info.exit.i:                      ; preds = %.split
   %14 = load i32, ptr %13, align 4
   %15 = zext i32 %14 to i64
   %16 = tail call ptr @MemoryContextAlloc(ptr noundef %12, i64 noundef %15) #17
-  %17 = getelementptr ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 50000), i64 %indvars.iv.i
+  %17 = getelementptr [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 50000), i64 %indvars.iv.i
   %18 = getelementptr i8, ptr %17, i64 -1024
   store ptr %16, ptr %18, align 8
   %.pre = load ptr, ptr @pgstat_kind_custom_infos, align 8
@@ -1569,7 +1568,7 @@ pgstat_init_snapshot_fixed.exit.preheader:        ; preds = %pgstat_init_snapsho
   br i1 %21, label %pgstat_get_kind_info.exit.thread8, label %23
 
 pgstat_get_kind_info.exit.thread8:                ; preds = %pgstat_init_snapshot_fixed.exit.preheader
-  %22 = getelementptr inbounds nuw %struct.PgStat_KindInfo, ptr @pgstat_kind_builtin_infos, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [128 x i8], ptr @pgstat_kind_builtin_infos, i64 %indvars.iv
   br label %32
 
 23:                                               ; preds = %pgstat_init_snapshot_fixed.exit.preheader
@@ -1583,7 +1582,7 @@ pgstat_get_kind_info.exit.thread8:                ; preds = %pgstat_init_snapsho
   br i1 %28, label %pgstat_get_kind_info.exit.thread, label %pgstat_get_kind_info.exit
 
 pgstat_get_kind_info.exit:                        ; preds = %26
-  %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %24
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %24
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
   br i1 %31, label %pgstat_get_kind_info.exit.thread, label %32
@@ -1615,7 +1614,7 @@ define dso_local ptr @pgstat_get_kind_info(i32 noundef %0) local_unnamed_addr #5
 
 4:                                                ; preds = %1
   %5 = zext nneg i32 %0 to i64
-  %6 = getelementptr inbounds nuw %struct.PgStat_KindInfo, ptr @pgstat_kind_builtin_infos, i64 %5
+  %6 = getelementptr inbounds nuw [128 x i8], ptr @pgstat_kind_builtin_infos, i64 %5
   br label %17
 
 7:                                                ; preds = %1
@@ -1630,7 +1629,7 @@ define dso_local ptr @pgstat_get_kind_info(i32 noundef %0) local_unnamed_addr #5
 
 13:                                               ; preds = %10
   %14 = zext nneg i32 %8 to i64
-  %15 = getelementptr inbounds nuw ptr, ptr %11, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %14
   %16 = load ptr, ptr %15, align 8
   br label %17
 
@@ -1711,7 +1710,7 @@ define dso_local void @pgstat_reset(i32 noundef %0, i32 noundef %1, i64 noundef 
 
 6:                                                ; preds = %3
   %7 = zext nneg i32 %0 to i64
-  %8 = getelementptr inbounds nuw %struct.PgStat_KindInfo, ptr @pgstat_kind_builtin_infos, i64 %7
+  %8 = getelementptr inbounds nuw [128 x i8], ptr @pgstat_kind_builtin_infos, i64 %7
   br label %pgstat_get_kind_info.exit
 
 9:                                                ; preds = %3
@@ -1726,7 +1725,7 @@ define dso_local void @pgstat_reset(i32 noundef %0, i32 noundef %1, i64 noundef 
 
 15:                                               ; preds = %12
   %16 = zext nneg i32 %10 to i64
-  %17 = getelementptr inbounds nuw ptr, ptr %13, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %16
   %18 = load ptr, ptr %17, align 8
   br label %pgstat_get_kind_info.exit
 
@@ -1759,7 +1758,7 @@ define dso_local void @pgstat_reset_of_kind(i32 noundef %0) local_unnamed_addr #
 
 4:                                                ; preds = %1
   %5 = zext nneg i32 %0 to i64
-  %6 = getelementptr inbounds nuw %struct.PgStat_KindInfo, ptr @pgstat_kind_builtin_infos, i64 %5
+  %6 = getelementptr inbounds nuw [128 x i8], ptr @pgstat_kind_builtin_infos, i64 %5
   br label %pgstat_get_kind_info.exit
 
 7:                                                ; preds = %1
@@ -1774,7 +1773,7 @@ define dso_local void @pgstat_reset_of_kind(i32 noundef %0) local_unnamed_addr #
 
 13:                                               ; preds = %10
   %14 = zext nneg i32 %8 to i64
-  %15 = getelementptr inbounds nuw ptr, ptr %11, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %14
   %16 = load ptr, ptr %15, align 8
   br label %pgstat_get_kind_info.exit
 
@@ -1841,7 +1840,7 @@ define dso_local ptr @pgstat_fetch_entry(i32 noundef %0, i32 noundef %1, i64 nou
 
 10:                                               ; preds = %3
   %11 = zext nneg i32 %0 to i64
-  %12 = getelementptr inbounds nuw %struct.PgStat_KindInfo, ptr @pgstat_kind_builtin_infos, i64 %11
+  %12 = getelementptr inbounds nuw [128 x i8], ptr @pgstat_kind_builtin_infos, i64 %11
   br label %pgstat_get_kind_info.exit
 
 13:                                               ; preds = %3
@@ -1856,7 +1855,7 @@ define dso_local ptr @pgstat_fetch_entry(i32 noundef %0, i32 noundef %1, i64 nou
 
 19:                                               ; preds = %16
   %20 = zext nneg i32 %14 to i64
-  %21 = getelementptr inbounds nuw ptr, ptr %17, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %20
   %22 = load ptr, ptr %21, align 8
   br label %pgstat_get_kind_info.exit
 
@@ -1925,7 +1924,7 @@ pgstat_hash_hash_key.exit.i:                      ; preds = %32
   %54 = load ptr, ptr %53, align 8
   %.01320.i.i = and i32 %.val.i.i, %50
   %55 = zext i32 %.01320.i.i to i64
-  %56 = getelementptr inbounds nuw %struct.PgStat_SnapshotEntry, ptr %54, i64 %55
+  %56 = getelementptr inbounds nuw [32 x i8], ptr %54, i64 %55
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %58 = load i8, ptr %57, align 8
   %59 = icmp eq i8 %58, 0
@@ -1935,7 +1934,7 @@ pgstat_hash_hash_key.exit.i:                      ; preds = %32
   %61 = add i32 %.01321.i.i, 1
   %.013.i.i = and i32 %61, %.val.i.i
   %62 = zext i32 %.013.i.i to i64
-  %63 = getelementptr inbounds nuw %struct.PgStat_SnapshotEntry, ptr %54, i64 %62
+  %63 = getelementptr inbounds nuw [32 x i8], ptr %54, i64 %62
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
   %65 = load i8, ptr %64, align 8
   %66 = icmp eq i8 %65, 0
@@ -2021,7 +2020,7 @@ pgstat_hash_hash_key.exit.i:                      ; preds = %32
 
 104:                                              ; preds = %100
   %105 = zext nneg i32 %0 to i64
-  %106 = getelementptr inbounds nuw %struct.PgStat_KindInfo, ptr @pgstat_kind_builtin_infos, i64 %105
+  %106 = getelementptr inbounds nuw [128 x i8], ptr @pgstat_kind_builtin_infos, i64 %105
   br label %pgstat_get_entry_data.exit
 
 107:                                              ; preds = %100
@@ -2029,7 +2028,7 @@ pgstat_hash_hash_key.exit.i:                      ; preds = %32
   tail call void @llvm.assume(i1 %108)
   %109 = load ptr, ptr @pgstat_kind_custom_infos, align 8, !nonnull !7, !noundef !7
   %110 = sext i32 %0 to i64
-  %111 = getelementptr ptr, ptr %109, i64 %110
+  %111 = getelementptr [8 x i8], ptr %109, i64 %110
   %112 = getelementptr i8, ptr %111, i64 -1024
   %113 = load ptr, ptr %112, align 8
   br label %pgstat_get_entry_data.exit
@@ -2160,7 +2159,7 @@ define internal fastcc void @pgstat_build_snapshot() unnamed_addr #0 {
 
 13:                                               ; preds = %.lr.ph
   %14 = zext nneg i32 %10 to i64
-  %15 = getelementptr inbounds nuw %struct.PgStat_KindInfo, ptr @pgstat_kind_builtin_infos, i64 %14
+  %15 = getelementptr inbounds nuw [128 x i8], ptr @pgstat_kind_builtin_infos, i64 %14
   br label %pgstat_get_kind_info.exit
 
 16:                                               ; preds = %.lr.ph
@@ -2175,7 +2174,7 @@ define internal fastcc void @pgstat_build_snapshot() unnamed_addr #0 {
 
 22:                                               ; preds = %19
   %23 = zext nneg i32 %17 to i64
-  %24 = getelementptr inbounds nuw ptr, ptr %20, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %23
   %25 = load ptr, ptr %24, align 8
   br label %pgstat_get_kind_info.exit
 
@@ -2226,7 +2225,7 @@ pgstat_get_kind_info.exit:                        ; preds = %13, %16, %19, %22
 
 55:                                               ; preds = %36
   %56 = zext nneg i32 %10 to i64
-  %57 = getelementptr inbounds nuw %struct.PgStat_KindInfo, ptr @pgstat_kind_builtin_infos, i64 %56
+  %57 = getelementptr inbounds nuw [128 x i8], ptr @pgstat_kind_builtin_infos, i64 %56
   br label %pgstat_get_entry_data.exit
 
 58:                                               ; preds = %36
@@ -2234,7 +2233,7 @@ pgstat_get_kind_info.exit:                        ; preds = %13, %16, %19, %22
   call void @llvm.assume(i1 %59)
   %60 = load ptr, ptr @pgstat_kind_custom_infos, align 8, !nonnull !7, !noundef !7
   %61 = sext i32 %10 to i64
-  %62 = getelementptr ptr, ptr %60, i64 %61
+  %62 = getelementptr [8 x i8], ptr %60, i64 %61
   %63 = getelementptr i8, ptr %62, i64 -1024
   %64 = load ptr, ptr %63, align 8
   br label %pgstat_get_entry_data.exit
@@ -2281,13 +2280,13 @@ pgstat_get_entry_data.exit:                       ; preds = %55, %58
   br i1 %81, label %pgstat_build_snapshot_fixed.exit, label %pgstat_get_kind_info.exit29
 
 pgstat_get_kind_info.exit29:                      ; preds = %79
-  %82 = getelementptr inbounds nuw ptr, ptr %80, i64 %77
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %77
   %83 = load ptr, ptr %82, align 8
   %.not24 = icmp eq ptr %83, null
   br i1 %.not24, label %pgstat_build_snapshot_fixed.exit, label %.thread
 
 84:                                               ; preds = %74
-  %85 = getelementptr inbounds nuw %struct.PgStat_KindInfo, ptr @pgstat_kind_builtin_infos, i64 %indvars.iv
+  %85 = getelementptr inbounds nuw [128 x i8], ptr @pgstat_kind_builtin_infos, i64 %indvars.iv
   %86 = load i8, ptr %85, align 16
   %87 = trunc i8 %86 to i1
   br i1 %87, label %pgstat_get_kind_info.exit.i, label %pgstat_build_snapshot_fixed.exit
@@ -2411,7 +2410,7 @@ pgstat_hash_hash_key.exit:                        ; preds = %8
   %.val86.i = load i32, ptr %31, align 4
   %.068.i24 = and i32 %.val86.i, %26
   %43 = zext i32 %.068.i24 to i64
-  %44 = getelementptr inbounds nuw %struct.PgStat_SnapshotEntry, ptr %42, i64 %43
+  %44 = getelementptr inbounds nuw [32 x i8], ptr %42, i64 %43
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load i8, ptr %45, align 8
   %47 = icmp eq i8 %46, 0
@@ -2481,7 +2480,7 @@ pgstat_snapshot_distance.exit.i:                  ; preds = %72, %pgstat_snapsho
 .preheader102.i.preheader:                        ; preds = %pgstat_snapshot_distance.exit.i
   %78 = and i32 %77, %.val86.i
   %79 = zext i32 %78 to i64
-  %80 = getelementptr inbounds nuw %struct.PgStat_SnapshotEntry, ptr %42, i64 %79
+  %80 = getelementptr inbounds nuw [32 x i8], ptr %42, i64 %79
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 16
   %82 = load i8, ptr %81, align 8
   %.not101.i31 = icmp eq i8 %82, 0
@@ -2507,7 +2506,7 @@ pgstat_snapshot_distance.exit.i:                  ; preds = %72, %pgstat_snapsho
   %93 = add i32 %83, 1
   %94 = and i32 %93, %.val86.i
   %95 = zext i32 %94 to i64
-  %96 = getelementptr inbounds nuw %struct.PgStat_SnapshotEntry, ptr %42, i64 %95
+  %96 = getelementptr inbounds nuw [32 x i8], ptr %42, i64 %95
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 16
   %98 = load i8, ptr %97, align 8
   %.not101.i = icmp eq i8 %98, 0
@@ -2527,7 +2526,7 @@ pgstat_snapshot_distance.exit.i:                  ; preds = %72, %pgstat_snapsho
   %99 = add i32 %.072131.i, -1
   %100 = and i32 %.val89.i, %99
   %101 = zext i32 %100 to i64
-  %102 = getelementptr inbounds nuw %struct.PgStat_SnapshotEntry, ptr %42, i64 %101
+  %102 = getelementptr inbounds nuw [32 x i8], ptr %42, i64 %101
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.276130.i, ptr noundef nonnull align 8 dereferenceable(32) %102, i64 32, i1 false)
   %.not85.i = icmp eq i32 %100, %.068.i26
   br i1 %.not85.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !21
@@ -2557,7 +2556,7 @@ pgstat_snapshot_distance.exit.i:                  ; preds = %72, %pgstat_snapsho
 115:                                              ; preds = %108, %105
   %.068.i = and i32 %77, %.val86.i
   %116 = zext i32 %.068.i to i64
-  %117 = getelementptr inbounds nuw %struct.PgStat_SnapshotEntry, ptr %42, i64 %116
+  %117 = getelementptr inbounds nuw [32 x i8], ptr %42, i64 %116
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 16
   %119 = load i8, ptr %118, align 8
   %120 = icmp eq i8 %119, 0
@@ -2633,7 +2632,7 @@ define dso_local zeroext i1 @pgstat_have_entry(i32 noundef %0, i32 noundef %1, i
 
 6:                                                ; preds = %3
   %7 = zext nneg i32 %0 to i64
-  %8 = getelementptr inbounds nuw %struct.PgStat_KindInfo, ptr @pgstat_kind_builtin_infos, i64 %7
+  %8 = getelementptr inbounds nuw [128 x i8], ptr @pgstat_kind_builtin_infos, i64 %7
   br label %pgstat_get_kind_info.exit
 
 9:                                                ; preds = %3
@@ -2641,7 +2640,7 @@ define dso_local zeroext i1 @pgstat_have_entry(i32 noundef %0, i32 noundef %1, i
   tail call void @llvm.assume(i1 %10)
   %11 = load ptr, ptr @pgstat_kind_custom_infos, align 8, !nonnull !7, !noundef !7
   %12 = sext i32 %0 to i64
-  %13 = getelementptr ptr, ptr %11, i64 %12
+  %13 = getelementptr [8 x i8], ptr %11, i64 %12
   %14 = getelementptr i8, ptr %13, i64 -1024
   %15 = load ptr, ptr %14, align 8
   br label %pgstat_get_kind_info.exit
@@ -2702,7 +2701,7 @@ pgstat_clear_snapshot.exit:                       ; preds = %2, %4
 
 12:                                               ; preds = %9
   %13 = zext nneg i32 %0 to i64
-  %14 = getelementptr inbounds nuw %struct.PgStat_KindInfo, ptr @pgstat_kind_builtin_infos, i64 %13
+  %14 = getelementptr inbounds nuw [128 x i8], ptr @pgstat_kind_builtin_infos, i64 %13
   br label %pgstat_get_kind_info.exit.i
 
 15:                                               ; preds = %9
@@ -2717,7 +2716,7 @@ pgstat_clear_snapshot.exit:                       ; preds = %2, %4
 
 21:                                               ; preds = %18
   %22 = zext nneg i32 %16 to i64
-  %23 = getelementptr inbounds nuw ptr, ptr %19, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %22
   %24 = load ptr, ptr %23, align 8
   br label %pgstat_get_kind_info.exit.i
 
@@ -2776,7 +2775,7 @@ define dso_local ptr @pgstat_prep_pending_entry(i32 noundef %0, i32 noundef %1, 
 
 17:                                               ; preds = %14
   %18 = zext nneg i32 %0 to i64
-  %19 = getelementptr inbounds nuw %struct.PgStat_KindInfo, ptr @pgstat_kind_builtin_infos, i64 %18
+  %19 = getelementptr inbounds nuw [128 x i8], ptr @pgstat_kind_builtin_infos, i64 %18
   br label %pgstat_get_kind_info.exit
 
 20:                                               ; preds = %14
@@ -2784,7 +2783,7 @@ define dso_local ptr @pgstat_prep_pending_entry(i32 noundef %0, i32 noundef %1, 
   tail call void @llvm.assume(i1 %21)
   %22 = load ptr, ptr @pgstat_kind_custom_infos, align 8, !nonnull !7, !noundef !7
   %23 = sext i32 %0 to i64
-  %24 = getelementptr ptr, ptr %22, i64 %23
+  %24 = getelementptr [8 x i8], ptr %22, i64 %23
   %25 = getelementptr i8, ptr %24, i64 -1024
   %26 = load ptr, ptr %25, align 8
   br label %pgstat_get_kind_info.exit
@@ -2856,7 +2855,7 @@ define dso_local void @pgstat_delete_pending_entry(ptr noundef %0) local_unnamed
 
 6:                                                ; preds = %1
   %7 = zext nneg i32 %3 to i64
-  %8 = getelementptr inbounds nuw %struct.PgStat_KindInfo, ptr @pgstat_kind_builtin_infos, i64 %7
+  %8 = getelementptr inbounds nuw [128 x i8], ptr @pgstat_kind_builtin_infos, i64 %7
   br label %pgstat_get_kind_info.exit
 
 9:                                                ; preds = %1
@@ -2864,7 +2863,7 @@ define dso_local void @pgstat_delete_pending_entry(ptr noundef %0) local_unnamed
   tail call void @llvm.assume(i1 %10)
   %11 = load ptr, ptr @pgstat_kind_custom_infos, align 8, !nonnull !7, !noundef !7
   %12 = sext i32 %3 to i64
-  %13 = getelementptr ptr, ptr %11, i64 %12
+  %13 = getelementptr [8 x i8], ptr %11, i64 %12
   %14 = getelementptr i8, ptr %13, i64 -1024
   %15 = load ptr, ptr %14, align 8
   br label %pgstat_get_kind_info.exit
@@ -2904,7 +2903,7 @@ define dso_local range(i32 0, 257) i32 @pgstat_get_kind_from_str(ptr noundef %0)
 
 2:                                                ; preds = %1, %8
   %indvars.iv = phi i64 [ 1, %1 ], [ %indvars.iv.next, %8 ]
-  %3 = getelementptr inbounds nuw %struct.PgStat_KindInfo, ptr @pgstat_kind_builtin_infos, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [128 x i8], ptr @pgstat_kind_builtin_infos, i64 %indvars.iv
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 120
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @pg_strcasecmp(ptr noundef %0, ptr noundef %5) #17
@@ -2924,7 +2923,7 @@ define dso_local range(i32 0, 257) i32 @pgstat_get_kind_from_str(ptr noundef %0)
 .preheader:                                       ; preds = %9, %20
   %11 = phi ptr [ %21, %20 ], [ %10, %9 ]
   %indvars.iv40 = phi i64 [ %indvars.iv.next41, %20 ], [ 128, %9 ]
-  %12 = getelementptr ptr, ptr %11, i64 %indvars.iv40
+  %12 = getelementptr [8 x i8], ptr %11, i64 %indvars.iv40
   %13 = getelementptr i8, ptr %12, i64 -1024
   %14 = load ptr, ptr %13, align 8
   %.not21 = icmp eq ptr %14, null
@@ -3037,7 +3036,7 @@ define dso_local void @pgstat_register_kind(i32 noundef %0, ptr noundef %1) loca
 44:                                               ; preds = %41, %38
   %.pre35 = phi ptr [ %43, %41 ], [ %39, %38 ]
   %45 = zext nneg i32 %3 to i64
-  %46 = getelementptr inbounds nuw ptr, ptr %.pre35, i64 %45
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %.pre35, i64 %45
   %47 = load ptr, ptr %46, align 8
   %.not = icmp eq ptr %47, null
   br i1 %.not, label %.preheader, label %48
@@ -3056,7 +3055,7 @@ define dso_local void @pgstat_register_kind(i32 noundef %0, ptr noundef %1) loca
   %53 = load ptr, ptr %4, align 8
   %54 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11, ptr noundef %53, i32 noundef %0) #17
   %55 = load ptr, ptr @pgstat_kind_custom_infos, align 8
-  %56 = getelementptr inbounds nuw ptr, ptr %55, i64 %45
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %45
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 120
   %59 = load ptr, ptr %58, align 8
@@ -3065,7 +3064,7 @@ define dso_local void @pgstat_register_kind(i32 noundef %0, ptr noundef %1) loca
   unreachable
 
 61:                                               ; preds = %81
-  %62 = getelementptr inbounds nuw ptr, ptr %82, i64 %45
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %82, i64 %45
   store ptr %1, ptr %62, align 8
   %63 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #17
   br i1 %63, label %83, label %86
@@ -3073,7 +3072,7 @@ define dso_local void @pgstat_register_kind(i32 noundef %0, ptr noundef %1) loca
 64:                                               ; preds = %.preheader, %81
   %65 = phi ptr [ %82, %81 ], [ %.pre35, %.preheader ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %81 ], [ 128, %.preheader ]
-  %66 = getelementptr ptr, ptr %65, i64 %indvars.iv
+  %66 = getelementptr [8 x i8], ptr %65, i64 %indvars.iv
   %67 = getelementptr i8, ptr %66, i64 -1024
   %68 = load ptr, ptr %67, align 8
   %69 = icmp eq ptr %68, null
@@ -3201,7 +3200,7 @@ pgstat_snapshot_update_parameters.exit:           ; preds = %pgstat_snapshot_com
 .lr.ph:                                           ; preds = %pgstat_snapshot_update_parameters.exit, %61
   %37 = phi i64 [ %63, %61 ], [ 0, %pgstat_snapshot_update_parameters.exit ]
   %.069 = phi i32 [ %62, %61 ], [ 0, %pgstat_snapshot_update_parameters.exit ]
-  %38 = getelementptr inbounds nuw %struct.PgStat_SnapshotEntry, ptr %5, i64 %37
+  %38 = getelementptr inbounds nuw [32 x i8], ptr %5, i64 %37
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %40 = load i8, ptr %39, align 8
   %.not = icmp eq i8 %40, 1
@@ -3251,7 +3250,7 @@ pgstat_snapshot_entry_hash.exit:                  ; preds = %.preheader66
   %.177 = phi i32 [ %104, %101 ], [ 0, %.lr.ph78.preheader ]
   %.05176 = phi i32 [ %spec.store.select, %101 ], [ %.05176.ph, %.lr.ph78.preheader ]
   %65 = zext i32 %.05176 to i64
-  %66 = getelementptr inbounds nuw %struct.PgStat_SnapshotEntry, ptr %5, i64 %65
+  %66 = getelementptr inbounds nuw [32 x i8], ptr %5, i64 %65
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 16
   %68 = load i8, ptr %67, align 8
   %69 = icmp eq i8 %68, 1
@@ -3286,7 +3285,7 @@ pgstat_snapshot_entry_hash.exit63:                ; preds = %.preheader
   %.val56 = load i32, ptr %31, align 4
   %88 = and i32 %.val56, %87
   %89 = zext i32 %88 to i64
-  %90 = getelementptr inbounds nuw %struct.PgStat_SnapshotEntry, ptr %18, i64 %89
+  %90 = getelementptr inbounds nuw [32 x i8], ptr %18, i64 %89
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 16
   %92 = load i8, ptr %91, align 8
   %93 = icmp eq i8 %92, 0
@@ -3297,7 +3296,7 @@ pgstat_snapshot_entry_hash.exit63:                ; preds = %.preheader
   %94 = add i32 %.04873, 1
   %95 = and i32 %94, %.val56
   %96 = zext i32 %95 to i64
-  %97 = getelementptr inbounds nuw %struct.PgStat_SnapshotEntry, ptr %18, i64 %96
+  %97 = getelementptr inbounds nuw [32 x i8], ptr %18, i64 %96
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 16
   %99 = load i8, ptr %98, align 8
   %100 = icmp eq i8 %99, 0

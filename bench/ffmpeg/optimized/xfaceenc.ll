@@ -139,7 +139,7 @@ define internal range(i32 -2147483648, 1) i32 @xface_encode_frame(ptr noundef %0
   %57 = add nsw i32 %56, -1
   store i32 %57, ptr %53, align 4, !tbaa !35
   %58 = zext nneg i32 %57 to i64
-  %59 = getelementptr inbounds nuw %struct.ProbRange, ptr %6, i64 %58
+  %59 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %58
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %60 = load i8, ptr %59, align 2, !tbaa !37
   call void @ff_big_div(ptr noundef nonnull %8, i8 noundef zeroext %60, ptr noundef nonnull %5) #8
@@ -302,12 +302,12 @@ all_white.exit:                                   ; preds = %10, %17
 21:                                               ; preds = %all_white.exit
   %sext76 = shl i64 %indvars.iv, 32
   %22 = ashr exact i64 %sext76, 32
-  %23 = getelementptr inbounds [3 x %struct.ProbRange], ptr @ff_xface_probranges_per_level, i64 %22
+  %23 = getelementptr inbounds [6 x i8], ptr @ff_xface_probranges_per_level, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %25 = add nsw i32 %19, 1
   store i32 %25, ptr %6, align 4, !tbaa !35
   %26 = sext i32 %19 to i64
-  %27 = getelementptr inbounds %struct.ProbRange, ptr %4, i64 %26
+  %27 = getelementptr inbounds [2 x i8], ptr %4, i64 %26
   %28 = load i16, ptr %24, align 2
   store i16 %28, ptr %27, align 2
   br label %pq_push.exit
@@ -325,11 +325,11 @@ all_white.exit:                                   ; preds = %10, %17
 33:                                               ; preds = %32
   %sext = shl i64 %indvars.iv, 32
   %34 = ashr exact i64 %sext, 32
-  %35 = getelementptr inbounds [3 x %struct.ProbRange], ptr @ff_xface_probranges_per_level, i64 %34
+  %35 = getelementptr inbounds [6 x i8], ptr @ff_xface_probranges_per_level, i64 %34
   %36 = add nsw i32 %30, 1
   store i32 %36, ptr %6, align 4, !tbaa !35
   %37 = sext i32 %30 to i64
-  %38 = getelementptr inbounds %struct.ProbRange, ptr %4, i64 %37
+  %38 = getelementptr inbounds [2 x i8], ptr %4, i64 %37
   %39 = load i16, ptr %35, align 2
   store i16 %39, ptr %38, align 2
   br label %pq_push.exit44
@@ -342,12 +342,12 @@ pq_push.exit44:                                   ; preds = %32, %33
   br i1 %31, label %pq_push.exit46, label %41
 
 41:                                               ; preds = %40
-  %42 = getelementptr inbounds [3 x %struct.ProbRange], ptr @ff_xface_probranges_per_level, i64 %indvars.iv
+  %42 = getelementptr inbounds [6 x i8], ptr @ff_xface_probranges_per_level, i64 %indvars.iv
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 2
   %44 = add nsw i32 %30, 1
   store i32 %44, ptr %6, align 4, !tbaa !35
   %45 = sext i32 %30 to i64
-  %46 = getelementptr inbounds %struct.ProbRange, ptr %4, i64 %45
+  %46 = getelementptr inbounds [2 x i8], ptr %4, i64 %45
   %47 = load i16, ptr %43, align 2
   store i16 %47, ptr %46, align 2
   br label %pq_push.exit46
@@ -477,29 +477,29 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %4
 18:                                               ; preds = %tailrecurse._crit_edge
   %19 = load i8, ptr %.tr28.lcssa, align 1, !tbaa !30
   %20 = sext i8 %19 to i64
-  %21 = getelementptr inbounds %struct.ProbRange, ptr @ff_xface_probranges_2x2, i64 %20
+  %21 = getelementptr inbounds [2 x i8], ptr @ff_xface_probranges_2x2, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %.tr28.lcssa, i64 1
   %23 = load i8, ptr %22, align 1, !tbaa !30
   %24 = sext i8 %23 to i32
   %25 = shl nsw i32 %24, 1
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds %struct.ProbRange, ptr %21, i64 %26
+  %27 = getelementptr inbounds [2 x i8], ptr %21, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %.tr28.lcssa, i64 48
   %29 = load i8, ptr %28, align 1, !tbaa !30
   %30 = sext i8 %29 to i32
   %31 = shl nsw i32 %30, 2
   %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds %struct.ProbRange, ptr %27, i64 %32
+  %33 = getelementptr inbounds [2 x i8], ptr %27, i64 %32
   %34 = getelementptr inbounds nuw i8, ptr %.tr28.lcssa, i64 49
   %35 = load i8, ptr %34, align 1, !tbaa !30
   %36 = sext i8 %35 to i32
   %37 = shl nsw i32 %36, 3
   %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds %struct.ProbRange, ptr %33, i64 %38
+  %39 = getelementptr inbounds [2 x i8], ptr %33, i64 %38
   %40 = add nsw i32 %16, 1
   store i32 %40, ptr %15, align 4, !tbaa !35
   %41 = sext i32 %16 to i64
-  %42 = getelementptr inbounds %struct.ProbRange, ptr %0, i64 %41
+  %42 = getelementptr inbounds [2 x i8], ptr %0, i64 %41
   %43 = load i16, ptr %39, align 2
   store i16 %43, ptr %42, align 2
   br label %pq_push.exit

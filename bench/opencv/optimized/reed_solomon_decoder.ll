@@ -289,7 +289,7 @@ _ZN5zxing8ArrayRefIiEC2Ei.exit.thread:            ; preds = %_ZNSt6vectorIiSaIiE
 
 .lr.ph.preheader:                                 ; preds = %.noexc3.i.i
   store ptr %69, ptr %65, align 8, !tbaa !22
-  %72 = getelementptr inbounds nuw i32, ptr %69, i64 %66
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %69, i64 %66
   %73 = getelementptr inbounds nuw i8, ptr %63, i64 32
   store ptr %72, ptr %73, align 8, !tbaa !25
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %69, i8 0, i64 %68, i1 false), !tbaa !26
@@ -334,7 +334,7 @@ _ZN5zxing8ArrayRefIiEC2Ei.exit.thread:            ; preds = %_ZNSt6vectorIiSaIiE
   %93 = xor i32 %.062205, -1
   %94 = add i32 %92, %93
   %95 = sext i32 %94 to i64
-  %96 = getelementptr inbounds nuw i32, ptr %87, i64 %95
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %87, i64 %95
   store i32 %84, ptr %96, align 4, !tbaa !26
   %.not101 = icmp eq i32 %84, 0
   %spec.select = select i1 %.not101, i1 %.063204, i1 false
@@ -889,7 +889,7 @@ _ZN5zxing8ArrayRefIiED2Ev.exit144:                ; preds = %315, %317, %322
   %338 = getelementptr inbounds nuw i8, ptr %336, i64 24
   %339 = load ptr, ptr %338, align 8, !tbaa !27
   %340 = load ptr, ptr %0, align 8, !tbaa !13
-  %341 = getelementptr inbounds nuw i32, ptr %337, i64 %indvars.iv
+  %341 = getelementptr inbounds nuw [4 x i8], ptr %337, i64 %indvars.iv
   %342 = load i32, ptr %341, align 4, !tbaa !26
   %343 = invoke noundef i32 @_ZN5zxing9GenericGF3logEiRNS_12ErrorHandlerE(ptr noundef nonnull align 8 dereferenceable(92) %340, i32 noundef %342, ptr noundef nonnull align 8 dereferenceable(48) %3)
           to label %344 unwind label %366
@@ -975,10 +975,10 @@ _ZN5zxing12ErrorHandlerD2Ev.exit152:              ; preds = %370, %_ZNKSt7__cxx1
   %378 = getelementptr inbounds nuw i8, ptr %377, i64 16
   %379 = zext nneg i32 %351 to i64
   %380 = load ptr, ptr %378, align 8, !tbaa !22
-  %381 = getelementptr inbounds nuw i32, ptr %380, i64 %379
+  %381 = getelementptr inbounds nuw [4 x i8], ptr %380, i64 %379
   %382 = load i32, ptr %381, align 4, !tbaa !26
   %383 = load ptr, ptr %314, align 8, !tbaa !22
-  %384 = getelementptr inbounds nuw i32, ptr %383, i64 %indvars.iv
+  %384 = getelementptr inbounds nuw [4 x i8], ptr %383, i64 %indvars.iv
   %385 = load i32, ptr %384, align 4, !tbaa !26
   %386 = invoke noundef i32 @_ZN5zxing9GenericGF13addOrSubtractEii(i32 noundef %382, i32 noundef %385)
           to label %387 unwind label %366
@@ -987,7 +987,7 @@ _ZN5zxing12ErrorHandlerD2Ev.exit152:              ; preds = %370, %_ZNKSt7__cxx1
   %388 = load ptr, ptr %22, align 8, !tbaa !19
   %389 = getelementptr inbounds nuw i8, ptr %388, i64 16
   %390 = load ptr, ptr %389, align 8, !tbaa !22
-  %391 = getelementptr inbounds nuw i32, ptr %390, i64 %379
+  %391 = getelementptr inbounds nuw [4 x i8], ptr %390, i64 %379
   store i32 %386, ptr %391, align 4, !tbaa !26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %392 = load ptr, ptr %303, align 8, !tbaa !27
@@ -3340,7 +3340,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %35
 
 .noexc33:                                         ; preds = %.noexc3.i
   store ptr %39, ptr %11, align 8, !tbaa !22
-  %40 = getelementptr inbounds nuw i32, ptr %39, i64 %36
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %36
   %41 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store ptr %40, ptr %41, align 8, !tbaa !25
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %39, i8 0, i64 %38, i1 false), !tbaa !26
@@ -3399,7 +3399,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %35
 65:                                               ; preds = %62
   %66 = sext i32 %.018 to i64
   %67 = load ptr, ptr %11, align 8, !tbaa !22
-  %68 = getelementptr inbounds nuw i32, ptr %67, i64 %66
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %67, i64 %66
   store i32 %64, ptr %68, align 4, !tbaa !26
   %69 = add nsw i32 %.018, 1
   br label %70
@@ -3576,7 +3576,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %5
 
 .lr.ph60.split.us.preheader:                      ; preds = %.noexc3.i
   store ptr %23, ptr %19, align 8, !tbaa !22
-  %24 = getelementptr inbounds nuw i32, ptr %23, i64 %20
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %20
   %25 = getelementptr inbounds nuw i8, ptr %17, i64 32
   store ptr %24, ptr %25, align 8, !tbaa !25
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %23, i8 0, i64 %22, i1 false), !tbaa !26
@@ -3593,7 +3593,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %5
   %29 = load ptr, ptr %6, align 8, !tbaa !19
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %31 = load ptr, ptr %30, align 8, !tbaa !22
-  %32 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv74
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv74
   %33 = load i32, ptr %32, align 4, !tbaa !26
   %34 = invoke noundef i32 @_ZN5zxing9GenericGF7inverseEiRNS_12ErrorHandlerE(ptr noundef nonnull align 8 dereferenceable(92) %28, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(48) %4)
           to label %.preheader.us unwind label %.split.us
@@ -3609,7 +3609,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %5
 
 40:                                               ; preds = %38
   %41 = load ptr, ptr %19, align 8, !tbaa !22
-  %42 = getelementptr inbounds nuw i32, ptr %41, i64 %indvars.iv74
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %indvars.iv74
   store i32 %39, ptr %42, align 4, !tbaa !26
   %43 = load ptr, ptr %1, align 8, !tbaa !13
   %44 = invoke noundef i32 @_ZN5zxing9GenericGF16getGeneratorBaseEv(ptr noundef nonnull align 8 dereferenceable(92) %43)
@@ -3622,14 +3622,14 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %5
 46:                                               ; preds = %45
   %47 = load ptr, ptr %1, align 8, !tbaa !13
   %48 = load ptr, ptr %19, align 8, !tbaa !22
-  %49 = getelementptr inbounds nuw i32, ptr %48, i64 %indvars.iv74
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %indvars.iv74
   %50 = load i32, ptr %49, align 4, !tbaa !26
   %51 = invoke noundef i32 @_ZN5zxing9GenericGF8multiplyEii(ptr noundef nonnull align 8 dereferenceable(92) %47, i32 noundef %50, i32 noundef %34)
           to label %52 unwind label %.split63.us
 
 52:                                               ; preds = %46
   %53 = load ptr, ptr %19, align 8, !tbaa !22
-  %54 = getelementptr inbounds nuw i32, ptr %53, i64 %indvars.iv74
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %indvars.iv74
   store i32 %51, ptr %54, align 4, !tbaa !26
   br label %55
 
@@ -3649,7 +3649,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %5
   %58 = load ptr, ptr %6, align 8, !tbaa !19
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
   %60 = load ptr, ptr %59, align 8, !tbaa !22
-  %61 = getelementptr inbounds nuw i32, ptr %60, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %indvars.iv
   %62 = load i32, ptr %61, align 4, !tbaa !26
   %63 = invoke noundef i32 @_ZN5zxing9GenericGF8multiplyEii(ptr noundef nonnull align 8 dereferenceable(92) %57, i32 noundef %62, i32 noundef %34)
           to label %64 unwind label %.split66.us

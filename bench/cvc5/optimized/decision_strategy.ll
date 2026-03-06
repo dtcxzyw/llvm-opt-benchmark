@@ -800,7 +800,7 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backERKS3_.exit: 
 ._crit_edge:                                      ; preds = %.critedge, %3
   %.lcssa = phi ptr [ %12, %3 ], [ %120, %.critedge ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %130 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %.lcssa, i64 %8
+  %130 = getelementptr inbounds nuw [8 x i8], ptr %.lcssa, i64 %8
   %131 = load ptr, ptr %130, align 8, !tbaa !36
   store ptr %131, ptr %6, align 8, !tbaa !36
   %132 = load i64, ptr %131, align 8
@@ -1286,7 +1286,7 @@ define hidden void @_ZN4cvc58internal6theory22DecisionStrategyVector9mkLiteralEj
   br i1 %13, label %14, label %32
 
 14:                                               ; preds = %3
-  %15 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %8, i64 %4
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %4
   %16 = load ptr, ptr %15, align 8, !tbaa !36
   store ptr %16, ptr %0, align 8, !tbaa !36
   %17 = load i64, ptr %16, align 8
@@ -2348,7 +2348,7 @@ _ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit: ; pr
 _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit, %58
   store ptr %22, ptr %0, align 8, !tbaa !32
   store ptr %42, ptr %4, align 8, !tbaa !35
-  %62 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %22, i64 %16
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %16
   store ptr %62, ptr %57, align 8, !tbaa !58
   ret void
 

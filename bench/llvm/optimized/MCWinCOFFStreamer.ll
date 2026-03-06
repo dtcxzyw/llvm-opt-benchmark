@@ -34,11 +34,11 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorTemplateCommon.112" = type { %"class.llvm::SmallVectorBase.113" }
 %"class.llvm::SmallVectorBase.113" = type { ptr, i64, i64 }
 %"struct.llvm::SmallVectorStorage.227" = type { [256 x i8] }
-%"class.llvm::MCFixup" = type { ptr, i32, i32, %"class.llvm::SMLoc" }
-%"class.llvm::SMLoc" = type { ptr }
 %"class.llvm::Twine" = type <{ %"union.llvm::Twine::Child", %"union.llvm::Twine::Child", i8, i8, [6 x i8] }>
 %"union.llvm::Twine::Child" = type { %struct.anon }
 %struct.anon = type { ptr, i64 }
+%"class.llvm::MCFixup" = type { ptr, i32, i32, %"class.llvm::SMLoc" }
+%"class.llvm::SMLoc" = type { ptr }
 %"struct.std::pair.302" = type { %"struct.std::pair.304", %"struct.std::pair.304" }
 %"struct.std::pair.304" = type <{ ptr, i32, [4 x i8] }>
 %"class.llvm::SmallString" = type { %"class.llvm::SmallVector.109" }
@@ -75,7 +75,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"struct.std::pair.294" = type { ptr, i64 }
 
 $_ZN4llvm17MCWinCOFFStreamerD0Ev = comdat any
 
@@ -374,7 +373,7 @@ _ZN4llvm11SmallVectorINS_7MCFixupELj4EED2Ev.exit: ; preds = %_ZN4llvm11SmallVect
   %54 = phi i32 [ %.pre, %.lr.ph ], [ %80, %_ZN4llvm23SmallVectorTemplateBaseINS_7MCFixupELb1EE9push_backERKS1_.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN4llvm23SmallVectorTemplateBaseINS_7MCFixupELb1EE9push_backERKS1_.exit ]
   %55 = load ptr, ptr %4, align 8, !tbaa !254
-  %56 = getelementptr inbounds nuw %"class.llvm::MCFixup", ptr %55, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw [24 x i8], ptr %55, i64 %indvars.iv
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %58 = load i32, ptr %57, align 8, !tbaa !265
   %59 = load i64, ptr %21, align 8, !tbaa !258
@@ -389,7 +388,7 @@ _ZN4llvm11SmallVectorINS_7MCFixupELj4EED2Ev.exit: ; preds = %_ZN4llvm11SmallVect
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_7MCFixupELb1EE9push_backERKS1_.exit, label %65, !prof !270
 
 65:                                               ; preds = %53
-  %66 = getelementptr inbounds nuw %"class.llvm::MCFixup", ptr %.pre3.i, i64 %62
+  %66 = getelementptr inbounds nuw [24 x i8], ptr %.pre3.i, i64 %62
   %67 = icmp uge ptr %56, %.pre3.i
   %68 = icmp ult ptr %56, %66
   %spec.select.i.i.i.i.i = and i1 %67, %68
@@ -414,7 +413,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_7MCFixupELb1EE9push_backERKS1_.exit: ; pred
   %.016.i.i.i = phi ptr [ %56, %53 ], [ %74, %69 ], [ %56, %.critedge.i.i.i ]
   %76 = load i32, ptr %23, align 8, !tbaa !255
   %77 = zext i32 %76 to i64
-  %78 = getelementptr inbounds nuw %"class.llvm::MCFixup", ptr %75, i64 %77
+  %78 = getelementptr inbounds nuw [24 x i8], ptr %75, i64 %77
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %78, ptr noundef nonnull align 8 dereferenceable(24) %.016.i.i.i, i64 24, i1 false)
   %79 = load i32, ptr %23, align 8, !tbaa !255
   %80 = add i32 %79, 1
@@ -985,7 +984,7 @@ define dso_local void @_ZN4llvm17MCWinCOFFStreamer20emitCOFFSectionIndexEPKNS_8M
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_7MCFixupELb1EE9push_backERKS1_.exit, label %25, !prof !270
 
 25:                                               ; preds = %2
-  %26 = getelementptr inbounds nuw %"class.llvm::MCFixup", ptr %.pre3.i, i64 %21
+  %26 = getelementptr inbounds nuw [24 x i8], ptr %.pre3.i, i64 %21
   %27 = icmp uge ptr %3, %.pre3.i
   %28 = icmp ult ptr %3, %26
   %spec.select.i.i.i.i.i = and i1 %27, %28
@@ -1012,7 +1011,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_7MCFixupELb1EE9push_backERKS1_.exit: ; pred
   %.016.i.i.i = phi ptr [ %3, %2 ], [ %35, %29 ], [ %3, %.critedge.i.i.i ]
   %38 = load i32, ptr %19, align 8, !tbaa !255
   %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds nuw %"class.llvm::MCFixup", ptr %37, i64 %39
+  %40 = getelementptr inbounds nuw [24 x i8], ptr %37, i64 %39
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %40, ptr noundef nonnull align 8 dereferenceable(24) %.016.i.i.i, i64 24, i1 false)
   %41 = load i32, ptr %19, align 8, !tbaa !255
   %42 = add i32 %41, 1
@@ -1092,7 +1091,7 @@ define dso_local void @_ZN4llvm17MCWinCOFFStreamer16emitCOFFSecRel32EPKNS_8MCSym
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_7MCFixupELb1EE9push_backERKS1_.exit, label %32, !prof !270
 
 32:                                               ; preds = %17
-  %33 = getelementptr inbounds nuw %"class.llvm::MCFixup", ptr %.pre3.i, i64 %28
+  %33 = getelementptr inbounds nuw [24 x i8], ptr %.pre3.i, i64 %28
   %34 = icmp uge ptr %4, %.pre3.i
   %35 = icmp ult ptr %4, %33
   %spec.select.i.i.i.i.i = and i1 %34, %35
@@ -1119,7 +1118,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_7MCFixupELb1EE9push_backERKS1_.exit: ; pred
   %.016.i.i.i = phi ptr [ %4, %17 ], [ %42, %36 ], [ %4, %.critedge.i.i.i ]
   %45 = load i32, ptr %26, align 8, !tbaa !255
   %46 = zext i32 %45 to i64
-  %47 = getelementptr inbounds nuw %"class.llvm::MCFixup", ptr %44, i64 %46
+  %47 = getelementptr inbounds nuw [24 x i8], ptr %44, i64 %46
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %47, ptr noundef nonnull align 8 dereferenceable(24) %.016.i.i.i, i64 24, i1 false)
   %48 = load i32, ptr %26, align 8, !tbaa !255
   %49 = add i32 %48, 1
@@ -1198,7 +1197,7 @@ define dso_local void @_ZN4llvm17MCWinCOFFStreamer16emitCOFFImgRel32EPKNS_8MCSym
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_7MCFixupELb1EE9push_backERKS1_.exit, label %32, !prof !270
 
 32:                                               ; preds = %17
-  %33 = getelementptr inbounds nuw %"class.llvm::MCFixup", ptr %.pre3.i, i64 %28
+  %33 = getelementptr inbounds nuw [24 x i8], ptr %.pre3.i, i64 %28
   %34 = icmp uge ptr %4, %.pre3.i
   %35 = icmp ult ptr %4, %33
   %spec.select.i.i.i.i.i = and i1 %34, %35
@@ -1225,7 +1224,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_7MCFixupELb1EE9push_backERKS1_.exit: ; pred
   %.016.i.i.i = phi ptr [ %4, %17 ], [ %42, %36 ], [ %4, %.critedge.i.i.i ]
   %45 = load i32, ptr %26, align 8, !tbaa !255
   %46 = zext i32 %45 to i64
-  %47 = getelementptr inbounds nuw %"class.llvm::MCFixup", ptr %44, i64 %46
+  %47 = getelementptr inbounds nuw [24 x i8], ptr %44, i64 %46
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %47, ptr noundef nonnull align 8 dereferenceable(24) %.016.i.i.i, i64 24, i1 false)
   %48 = load i32, ptr %26, align 8, !tbaa !255
   %49 = add i32 %48, 1
@@ -1346,7 +1345,7 @@ _ZN29MCCOFFSectionNumberTargetExpr6createERKN4llvm8MCSymbolERKNS0_19WinCOFFObjec
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_7MCFixupELb1EE9push_backERKS1_.exit, label %57, !prof !270
 
 57:                                               ; preds = %_ZN29MCCOFFSectionNumberTargetExpr6createERKN4llvm8MCSymbolERKNS0_19WinCOFFObjectWriterERNS0_9MCContextE.exit
-  %58 = getelementptr inbounds nuw %"class.llvm::MCFixup", ptr %.pre3.i, i64 %53
+  %58 = getelementptr inbounds nuw [24 x i8], ptr %.pre3.i, i64 %53
   %59 = icmp uge ptr %3, %.pre3.i
   %60 = icmp ult ptr %3, %58
   %spec.select.i.i.i.i.i = and i1 %59, %60
@@ -1373,7 +1372,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_7MCFixupELb1EE9push_backERKS1_.exit: ; pred
   %.016.i.i.i = phi ptr [ %3, %_ZN29MCCOFFSectionNumberTargetExpr6createERKN4llvm8MCSymbolERKNS0_19WinCOFFObjectWriterERNS0_9MCContextE.exit ], [ %67, %61 ], [ %3, %.critedge.i.i.i ]
   %70 = load i32, ptr %51, align 8, !tbaa !255
   %71 = zext i32 %70 to i64
-  %72 = getelementptr inbounds nuw %"class.llvm::MCFixup", ptr %69, i64 %71
+  %72 = getelementptr inbounds nuw [24 x i8], ptr %69, i64 %71
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %72, ptr noundef nonnull align 8 dereferenceable(24) %.016.i.i.i, i64 24, i1 false)
   %73 = load i32, ptr %51, align 8, !tbaa !255
   %74 = add i32 %73, 1
@@ -1486,7 +1485,7 @@ _ZN29MCCOFFSectionOffsetTargetExpr6createERKN4llvm8MCSymbolERNS0_9MCContextE.exi
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_7MCFixupELb1EE9push_backERKS1_.exit, label %52, !prof !270
 
 52:                                               ; preds = %_ZN29MCCOFFSectionOffsetTargetExpr6createERKN4llvm8MCSymbolERNS0_9MCContextE.exit
-  %53 = getelementptr inbounds nuw %"class.llvm::MCFixup", ptr %.pre3.i, i64 %48
+  %53 = getelementptr inbounds nuw [24 x i8], ptr %.pre3.i, i64 %48
   %54 = icmp uge ptr %3, %.pre3.i
   %55 = icmp ult ptr %3, %53
   %spec.select.i.i.i.i.i = and i1 %54, %55
@@ -1513,7 +1512,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_7MCFixupELb1EE9push_backERKS1_.exit: ; pred
   %.016.i.i.i = phi ptr [ %3, %_ZN29MCCOFFSectionOffsetTargetExpr6createERKN4llvm8MCSymbolERNS0_9MCContextE.exit ], [ %62, %56 ], [ %3, %.critedge.i.i.i ]
   %65 = load i32, ptr %46, align 8, !tbaa !255
   %66 = zext i32 %65 to i64
-  %67 = getelementptr inbounds nuw %"class.llvm::MCFixup", ptr %64, i64 %66
+  %67 = getelementptr inbounds nuw [24 x i8], ptr %64, i64 %66
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %67, ptr noundef nonnull align 8 dereferenceable(24) %.016.i.i.i, i64 24, i1 false)
   %68 = load i32, ptr %46, align 8, !tbaa !255
   %69 = add i32 %68, 1
@@ -1732,7 +1731,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit20:               ; preds = %95, %97
 
 110:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit20
   %111 = zext i32 %109 to i64
-  %112 = getelementptr inbounds nuw %"struct.std::pair.302", ptr %.pre3.i.pre.i, i64 %111
+  %112 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i.pre.i, i64 %111
   %113 = getelementptr inbounds i8, ptr %112, i64 -32
   %.sroa.0.0.copyload.i.i = load ptr, ptr %113, align 8
   %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %112, i64 -24
@@ -1763,7 +1762,7 @@ _ZNK4llvm10MCStreamer18getPreviousSectionEv.exit.i: ; preds = %110, %_ZN4llvm11r
   br i1 %.not.i.i.not.i.i, label %_ZN4llvm10MCStreamer11pushSectionEv.exit, label %119, !prof !270
 
 119:                                              ; preds = %_ZNK4llvm10MCStreamer18getPreviousSectionEv.exit.i
-  %120 = getelementptr inbounds nuw %"struct.std::pair.302", ptr %.pre3.i.pre.i, i64 %.pre-phi.i
+  %120 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i.pre.i, i64 %.pre-phi.i
   %121 = icmp uge ptr %5, %.pre3.i.pre.i
   %122 = icmp ult ptr %5, %120
   %spec.select.i.i.i.i.i.i = and i1 %121, %122
@@ -1790,7 +1789,7 @@ _ZN4llvm10MCStreamer11pushSectionEv.exit:         ; preds = %_ZNK4llvm10MCStream
   %.016.i.i.i.i = phi ptr [ %5, %_ZNK4llvm10MCStreamer18getPreviousSectionEv.exit.i ], [ %129, %123 ], [ %5, %.critedge.i.i.i.i ]
   %132 = load i32, ptr %108, align 8, !tbaa !255
   %133 = zext i32 %132 to i64
-  %134 = getelementptr inbounds nuw %"struct.std::pair.302", ptr %131, i64 %133
+  %134 = getelementptr inbounds nuw [32 x i8], ptr %131, i64 %133
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %134, ptr noundef nonnull align 8 dereferenceable(32) %.016.i.i.i.i, i64 32, i1 false)
   %135 = load i32, ptr %108, align 8, !tbaa !255
   %136 = add i32 %135, 1
@@ -1855,7 +1854,7 @@ define dso_local void @_ZN4llvm17MCWinCOFFStreamer21emitLocalCommonSymbolEPNS_8M
 
 15:                                               ; preds = %4
   %16 = zext i32 %14 to i64
-  %17 = getelementptr inbounds nuw %"struct.std::pair.302", ptr %.pre3.i.pre.i, i64 %16
+  %17 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i.pre.i, i64 %16
   %18 = getelementptr inbounds i8, ptr %17, i64 -32
   %.sroa.0.0.copyload.i.i = load ptr, ptr %18, align 8
   %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %17, i64 -24
@@ -1886,7 +1885,7 @@ _ZNK4llvm10MCStreamer18getPreviousSectionEv.exit.i: ; preds = %15, %4
   br i1 %.not.i.i.not.i.i, label %_ZN4llvm10MCStreamer11pushSectionEv.exit, label %24, !prof !270
 
 24:                                               ; preds = %_ZNK4llvm10MCStreamer18getPreviousSectionEv.exit.i
-  %25 = getelementptr inbounds nuw %"struct.std::pair.302", ptr %.pre3.i.pre.i, i64 %.pre-phi.i
+  %25 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i.pre.i, i64 %.pre-phi.i
   %26 = icmp uge ptr %5, %.pre3.i.pre.i
   %27 = icmp ult ptr %5, %25
   %spec.select.i.i.i.i.i.i = and i1 %26, %27
@@ -1913,7 +1912,7 @@ _ZN4llvm10MCStreamer11pushSectionEv.exit:         ; preds = %_ZNK4llvm10MCStream
   %.016.i.i.i.i = phi ptr [ %5, %_ZNK4llvm10MCStreamer18getPreviousSectionEv.exit.i ], [ %34, %28 ], [ %5, %.critedge.i.i.i.i ]
   %37 = load i32, ptr %13, align 8, !tbaa !255
   %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds nuw %"struct.std::pair.302", ptr %36, i64 %38
+  %39 = getelementptr inbounds nuw [32 x i8], ptr %36, i64 %38
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %39, ptr noundef nonnull align 8 dereferenceable(32) %.016.i.i.i.i, i64 32, i1 false)
   %40 = load i32, ptr %13, align 8, !tbaa !255
   %41 = add i32 %40, 1
@@ -2026,7 +2025,7 @@ define dso_local void @_ZN4llvm17MCWinCOFFStreamer18emitCGProfileEntryEPKNS_15MC
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_14MCObjectWriter14CGProfileEntryELb1EE9push_backERKS2_.exit, label %31, !prof !270
 
 31:                                               ; preds = %17
-  %32 = getelementptr inbounds nuw %"struct.llvm::MCObjectWriter::CGProfileEntry", ptr %.pre3.i, i64 %27
+  %32 = getelementptr inbounds nuw [24 x i8], ptr %.pre3.i, i64 %27
   %33 = icmp uge ptr %5, %.pre3.i
   %34 = icmp ult ptr %5, %32
   %spec.select.i.i.i.i.i = and i1 %33, %34
@@ -2053,7 +2052,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_14MCObjectWriter14CGProfileEntryELb1EE9push
   %.016.i.i.i = phi ptr [ %5, %17 ], [ %41, %35 ], [ %5, %.critedge.i.i.i ]
   %44 = load i32, ptr %25, align 8, !tbaa !255
   %45 = zext i32 %44 to i64
-  %46 = getelementptr inbounds nuw %"struct.llvm::MCObjectWriter::CGProfileEntry", ptr %43, i64 %45
+  %46 = getelementptr inbounds nuw [24 x i8], ptr %43, i64 %45
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(24) %.016.i.i.i, i64 24, i1 false)
   %47 = load i32, ptr %25, align 8, !tbaa !255
   %48 = add i32 %47, 1
@@ -2583,7 +2582,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit: ; preds 
   %21 = phi i32 [ %14, %10 ], [ %.pre.i, %17 ]
   %22 = load ptr, ptr %12, align 8, !tbaa !254
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw %"struct.std::pair.294", ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %23
   store ptr %11, ptr %24, align 1
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 %8, ptr %.sroa.2.0..sroa_idx.i, align 1
@@ -2624,7 +2623,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12Start
   %47 = phi i32 [ %40, %32 ], [ %.pre.i.i, %43 ]
   %48 = load ptr, ptr %33, align 8, !tbaa !254
   %49 = zext i32 %47 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %49
   %51 = ptrtoint ptr %39 to i64
   store i64 %51, ptr %50, align 1
   %52 = load i32, ptr %34, align 8, !tbaa !255

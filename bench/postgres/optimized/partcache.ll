@@ -3,11 +3,6 @@ source_filename = "bench/postgres/original/partcache.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.FmgrInfo = type { ptr, i32, i16, i8, i8, i8, ptr, ptr, ptr }
-%struct.FormData_pg_attribute = type { i32, %struct.nameData, i32, i16, i16, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i32 }
-%struct.nameData = type { [64 x i8] }
-%union.ListCell = type { ptr }
-
 @.str = private unnamed_addr constant [53 x i8] c"cache lookup failed for partition key of relation %u\00", align 1
 @.str.1 = private unnamed_addr constant [12 x i8] c"partcache.c\00", align 1
 @__func__.RelationBuildPartitionKey = private unnamed_addr constant [26 x i8] c"RelationBuildPartitionKey\00", align 1
@@ -235,9 +230,9 @@ list_head.exit:                                   ; preds = %51, %115
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %218 ]
   %.0132156 = phi ptr [ %118, %.lr.ph ], [ %.1, %218 ]
   %125 = load ptr, ptr %57, align 8
-  %126 = getelementptr inbounds nuw i16, ptr %125, i64 %indvars.iv
+  %126 = getelementptr inbounds nuw [2 x i8], ptr %125, i64 %indvars.iv
   %127 = load i16, ptr %126, align 2
-  %128 = getelementptr inbounds nuw i32, ptr %121, i64 %indvars.iv
+  %128 = getelementptr inbounds nuw [4 x i8], ptr %121, i64 %indvars.iv
   %129 = load i32, ptr %128, align 4
   %130 = zext i32 %129 to i64
   %131 = call ptr @SearchSysCache1(i32 noundef 14, i64 noundef %130) #5
@@ -245,7 +240,7 @@ list_head.exit:                                   ; preds = %51, %115
   br i1 %.not141, label %132, label %137
 
 132:                                              ; preds = %124
-  %133 = getelementptr inbounds nuw i32, ptr %121, i64 %indvars.iv
+  %133 = getelementptr inbounds nuw [4 x i8], ptr %121, i64 %indvars.iv
   %134 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
   %135 = load i32, ptr %133, align 4
   %136 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %135) #5
@@ -262,12 +257,12 @@ list_head.exit:                                   ; preds = %51, %115
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 80
   %144 = load i32, ptr %143, align 4
   %145 = load ptr, ptr %62, align 8
-  %146 = getelementptr inbounds nuw i32, ptr %145, i64 %indvars.iv
+  %146 = getelementptr inbounds nuw [4 x i8], ptr %145, i64 %indvars.iv
   store i32 %144, ptr %146, align 4
   %147 = getelementptr inbounds nuw i8, ptr %142, i64 84
   %148 = load i32, ptr %147, align 4
   %149 = load ptr, ptr %67, align 8
-  %150 = getelementptr inbounds nuw i32, ptr %149, i64 %indvars.iv
+  %150 = getelementptr inbounds nuw [4 x i8], ptr %149, i64 %indvars.iv
   store i32 %148, ptr %150, align 4
   %151 = load i32, ptr %143, align 4
   %152 = call i32 @get_opfamily_proc(i32 noundef %151, i32 noundef %148, i32 noundef %148, i16 noundef signext %108) #5
@@ -291,12 +286,12 @@ list_head.exit:                                   ; preds = %51, %115
 
 165:                                              ; preds = %137
   %166 = load ptr, ptr %72, align 8
-  %167 = getelementptr inbounds nuw %struct.FmgrInfo, ptr %166, i64 %indvars.iv
+  %167 = getelementptr inbounds nuw [48 x i8], ptr %166, i64 %indvars.iv
   call void @fmgr_info_cxt(i32 noundef %152, ptr noundef %167, ptr noundef %13) #5
-  %168 = getelementptr inbounds nuw i32, ptr %122, i64 %indvars.iv
+  %168 = getelementptr inbounds nuw [4 x i8], ptr %122, i64 %indvars.iv
   %169 = load i32, ptr %168, align 4
   %170 = load ptr, ptr %77, align 8
-  %171 = getelementptr inbounds nuw i32, ptr %170, i64 %indvars.iv
+  %171 = getelementptr inbounds nuw [4 x i8], ptr %170, i64 %indvars.iv
   store i32 %169, ptr %171, align 4
   %.not143 = icmp eq i16 %127, 0
   br i1 %.not143, label %193, label %172
@@ -309,21 +304,21 @@ list_head.exit:                                   ; preds = %51, %115
   %177 = shl nsw i64 %176, 4
   %178 = getelementptr i8, ptr %174, i64 %177
   %179 = getelementptr i8, ptr %178, i64 -76
-  %180 = getelementptr %struct.FormData_pg_attribute, ptr %179, i64 %173
+  %180 = getelementptr [100 x i8], ptr %179, i64 %173
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 68
   %182 = load i32, ptr %181, align 4
   %183 = load ptr, ptr %82, align 8
-  %184 = getelementptr inbounds nuw i32, ptr %183, i64 %indvars.iv
+  %184 = getelementptr inbounds nuw [4 x i8], ptr %183, i64 %indvars.iv
   store i32 %182, ptr %184, align 4
   %185 = getelementptr inbounds nuw i8, ptr %180, i64 76
   %186 = load i32, ptr %185, align 4
   %187 = load ptr, ptr %87, align 8
-  %188 = getelementptr inbounds nuw i32, ptr %187, i64 %indvars.iv
+  %188 = getelementptr inbounds nuw [4 x i8], ptr %187, i64 %indvars.iv
   store i32 %186, ptr %188, align 4
   %189 = getelementptr inbounds nuw i8, ptr %180, i64 96
   %190 = load i32, ptr %189, align 4
   %191 = load ptr, ptr %105, align 8
-  %192 = getelementptr inbounds nuw i32, ptr %191, i64 %indvars.iv
+  %192 = getelementptr inbounds nuw [4 x i8], ptr %191, i64 %indvars.iv
   store i32 %190, ptr %192, align 4
   br label %218
 
@@ -341,17 +336,17 @@ list_head.exit:                                   ; preds = %51, %115
   %199 = load ptr, ptr %.0132156, align 8
   %200 = call i32 @exprType(ptr noundef %199) #5
   %201 = load ptr, ptr %82, align 8
-  %202 = getelementptr inbounds nuw i32, ptr %201, i64 %indvars.iv
+  %202 = getelementptr inbounds nuw [4 x i8], ptr %201, i64 %indvars.iv
   store i32 %200, ptr %202, align 4
   %203 = load ptr, ptr %.0132156, align 8
   %204 = call i32 @exprTypmod(ptr noundef %203) #5
   %205 = load ptr, ptr %87, align 8
-  %206 = getelementptr inbounds nuw i32, ptr %205, i64 %indvars.iv
+  %206 = getelementptr inbounds nuw [4 x i8], ptr %205, i64 %indvars.iv
   store i32 %204, ptr %206, align 4
   %207 = load ptr, ptr %.0132156, align 8
   %208 = call i32 @exprCollation(ptr noundef %207) #5
   %209 = load ptr, ptr %105, align 8
-  %210 = getelementptr inbounds nuw i32, ptr %209, i64 %indvars.iv
+  %210 = getelementptr inbounds nuw [4 x i8], ptr %209, i64 %indvars.iv
   store i32 %208, ptr %210, align 4
   %211 = load ptr, ptr %113, align 8
   %212 = getelementptr i8, ptr %211, i64 4
@@ -360,7 +355,7 @@ list_head.exit:                                   ; preds = %51, %115
   %.val146 = load ptr, ptr %213, align 8
   %214 = getelementptr inbounds nuw i8, ptr %.0132156, i64 8
   %215 = sext i32 %.val145 to i64
-  %216 = getelementptr inbounds %union.ListCell, ptr %.val146, i64 %215
+  %216 = getelementptr inbounds [8 x i8], ptr %.val146, i64 %215
   %217 = icmp ult ptr %214, %216
   %..i = select i1 %217, ptr %214, ptr null
   br label %218
@@ -368,10 +363,10 @@ list_head.exit:                                   ; preds = %51, %115
 218:                                              ; preds = %198, %172
   %.1 = phi ptr [ %.0132156, %172 ], [ %..i, %198 ]
   %219 = load ptr, ptr %82, align 8
-  %220 = getelementptr inbounds nuw i32, ptr %219, i64 %indvars.iv
+  %220 = getelementptr inbounds nuw [4 x i8], ptr %219, i64 %indvars.iv
   %221 = load i32, ptr %220, align 4
   %222 = load ptr, ptr %92, align 8
-  %223 = getelementptr inbounds nuw i16, ptr %222, i64 %indvars.iv
+  %223 = getelementptr inbounds nuw [2 x i8], ptr %222, i64 %indvars.iv
   %224 = load ptr, ptr %96, align 8
   %225 = getelementptr inbounds nuw i8, ptr %224, i64 %indvars.iv
   %226 = load ptr, ptr %100, align 8

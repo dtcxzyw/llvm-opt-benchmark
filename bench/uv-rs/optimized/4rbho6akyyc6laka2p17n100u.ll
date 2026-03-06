@@ -3305,10 +3305,10 @@ _ZN3std4path4Path4join17h83138935cd675e84E.exit:  ; preds = %280
 define hidden { ptr, i64 } @_ZN8uv_cache5wheel14WheelCacheKind6to_str17h148d7c3b68a404aeE.llvm.5694511231772015981(i8 noundef range(i8 0, 6) %0) unnamed_addr #10 {
 switch.lookup:
   %1 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN95_$LT$uv_cache..wheel..WheelCacheKind$u20$as$u20$core..convert..AsRef$LT$std..path..Path$GT$$GT$6as_ref17h14062c9d51e494e8E", i64 %1
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN95_$LT$uv_cache..wheel..WheelCacheKind$u20$as$u20$core..convert..AsRef$LT$std..path..Path$GT$$GT$6as_ref17h14062c9d51e494e8E", i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %2 = zext nneg i8 %0 to i64
-  %switch.gep3 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN95_$LT$uv_cache..wheel..WheelCacheKind$u20$as$u20$core..convert..AsRef$LT$std..path..Path$GT$$GT$6as_ref17h14062c9d51e494e8E.11", i64 %2
+  %switch.gep3 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN95_$LT$uv_cache..wheel..WheelCacheKind$u20$as$u20$core..convert..AsRef$LT$std..path..Path$GT$$GT$6as_ref17h14062c9d51e494e8E.11", i64 %2
   %switch.load4 = load i64, ptr %switch.gep3, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load4, 1
@@ -3320,10 +3320,10 @@ define { ptr, i64 } @"_ZN95_$LT$uv_cache..wheel..WheelCacheKind$u20$as$u20$core.
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !667, !noundef !6
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN95_$LT$uv_cache..wheel..WheelCacheKind$u20$as$u20$core..convert..AsRef$LT$std..path..Path$GT$$GT$6as_ref17h14062c9d51e494e8E", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN95_$LT$uv_cache..wheel..WheelCacheKind$u20$as$u20$core..convert..AsRef$LT$std..path..Path$GT$$GT$6as_ref17h14062c9d51e494e8E", i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep1 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN95_$LT$uv_cache..wheel..WheelCacheKind$u20$as$u20$core..convert..AsRef$LT$std..path..Path$GT$$GT$6as_ref17h14062c9d51e494e8E.11", i64 %3
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN95_$LT$uv_cache..wheel..WheelCacheKind$u20$as$u20$core..convert..AsRef$LT$std..path..Path$GT$$GT$6as_ref17h14062c9d51e494e8E.11", i64 %3
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load2, 1

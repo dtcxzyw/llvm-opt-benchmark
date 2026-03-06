@@ -224,11 +224,11 @@ define internal range(i32 0, 52) i32 @dts_probe(ptr noundef readonly captures(no
   %indvars.iv129 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next130, %.preheader ]
   %.076124 = phi i32 [ 0, %.preheader.preheader ], [ %spec.select93, %.preheader ]
   %.078123 = phi i32 [ 0, %.preheader.preheader ], [ %116, %.preheader ]
-  %114 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv129
+  %114 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv129
   %115 = load i32, ptr %114, align 4, !tbaa !16
   %116 = add nsw i32 %115, %.078123
   %117 = zext nneg i32 %.076124 to i64
-  %118 = getelementptr inbounds nuw i32, ptr %2, i64 %117
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %117
   %119 = load i32, ptr %118, align 4, !tbaa !16
   %120 = icmp slt i32 %119, %115
   %121 = trunc nuw nsw i64 %indvars.iv129 to i32
@@ -239,7 +239,7 @@ define internal range(i32 0, 52) i32 @dts_probe(ptr noundef readonly captures(no
 
 122:                                              ; preds = %.preheader
   %123 = zext nneg i32 %spec.select93 to i64
-  %124 = getelementptr inbounds nuw i32, ptr %2, i64 %123
+  %124 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %123
   %125 = load i32, ptr %124, align 4, !tbaa !16
   %126 = icmp sgt i32 %125, 3
   br i1 %126, label %127, label %137

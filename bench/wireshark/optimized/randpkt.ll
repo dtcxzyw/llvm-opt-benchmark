@@ -167,7 +167,7 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 40:                                               ; preds = %36
   %41 = sext i32 %38 to i64
-  %42 = getelementptr ptr, ptr %1, i64 %41
+  %42 = getelementptr [8 x i8], ptr %1, i64 %41
   %43 = load ptr, ptr %42, align 8
   %44 = icmp eq i32 %.049.ph217, -1
   br i1 %44, label %46, label %48
@@ -331,7 +331,7 @@ define internal fastcc void @list_capture_types() unnamed_addr #0 {
 .lr.ph:                                           ; preds = %0, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %0 ]
   %5 = load ptr, ptr %1, align 8
-  %6 = getelementptr i32, ptr %5, i64 %indvars.iv
+  %6 = getelementptr [4 x i8], ptr %5, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4
   %8 = load ptr, ptr @stderr, align 8
   %9 = tail call ptr @wtap_file_type_subtype_name(i32 noundef %7)
@@ -386,7 +386,7 @@ define internal fastcc void @usage(i1 noundef zeroext %0) unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %.lr.ph32
   %21 = load ptr, ptr %3, align 8
-  %22 = getelementptr ptr, ptr %21, i64 %29
+  %22 = getelementptr [8 x i8], ptr %21, i64 %29
   %23 = load ptr, ptr %22, align 8
   %.not23 = icmp eq ptr %23, null
   br i1 %.not23, label %.critedge, label %.lr.ph32, !llvm.loop !11
@@ -399,7 +399,7 @@ define internal fastcc void @usage(i1 noundef zeroext %0) unnamed_addr #0 {
   %27 = add i32 %.02531, 1
   %28 = load ptr, ptr %2, align 8
   %29 = zext i32 %27 to i64
-  %30 = getelementptr ptr, ptr %28, i64 %29
+  %30 = getelementptr [8 x i8], ptr %28, i64 %29
   %31 = load ptr, ptr %30, align 8
   %.not = icmp eq ptr %31, null
   br i1 %.not, label %..critedge.loopexit_crit_edge, label %.lr.ph, !llvm.loop !11

@@ -14,7 +14,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.object_id = type { [32 x i8], i32 }
 %struct.repository_format = type { i32, i32, ptr, i32, i32, i32, i32, i32, i32, i32, ptr, %struct.string_list, %struct.string_list }
 %struct.string_list = type { ptr, i64, i64, i8, ptr }
-%struct.string_list_item = type { ptr, ptr }
 %struct.safe_directory_data = type { ptr, i32 }
 %struct.set_gitdir_args = type { ptr, ptr, ptr, ptr, ptr, i32 }
 %struct.default_format_config = type { i32, i32 }
@@ -1749,7 +1748,7 @@ Q_.exit:                                          ; preds = %17, %20
 .lr.ph38:                                         ; preds = %Q_.exit, %.lr.ph38
   %indvars.iv43 = phi i64 [ %indvars.iv.next44, %.lr.ph38 ], [ 0, %Q_.exit ]
   %24 = load ptr, ptr %12, align 8, !tbaa !33
-  %25 = getelementptr inbounds nuw %struct.string_list_item, ptr %24, i64 %indvars.iv43
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %24, i64 %indvars.iv43
   %26 = load ptr, ptr %25, align 8, !tbaa !34
   tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %1, ptr noundef nonnull @.str.30, ptr noundef %26) #25
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
@@ -1789,7 +1788,7 @@ Q_.exit34:                                        ; preds = %35, %38
 .lr.ph:                                           ; preds = %Q_.exit34, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %Q_.exit34 ]
   %42 = load ptr, ptr %30, align 8, !tbaa !41
-  %43 = getelementptr inbounds nuw %struct.string_list_item, ptr %42, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [16 x i8], ptr %42, i64 %indvars.iv
   %44 = load ptr, ptr %43, align 8, !tbaa !34
   tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %1, ptr noundef nonnull @.str.30, ptr noundef %44) #25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2033,7 +2032,7 @@ _.exit58.i:                                       ; preds = %77, %75
   %79 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %80 = load i32, ptr %79, align 8, !tbaa !49
   %81 = sext i32 %80 to i64
-  %82 = getelementptr inbounds %struct.git_hash_algo, ptr @hash_algos, i64 %81
+  %82 = getelementptr inbounds [112 x i8], ptr @hash_algos, i64 %81
   %83 = load ptr, ptr %82, align 16, !tbaa !50
   %84 = tail call i32 (ptr, ...) @error(ptr noundef %.0.i57.i, ptr noundef nonnull @.str.108, ptr noundef %83) #25
   br label %read_worktree_config.exit
@@ -4380,7 +4379,7 @@ define dso_local range(i32 -438, 437) i32 @git_config_perm(ptr noundef %0, ptr n
 
 switch.lookup:                                    ; preds = %22
   %31 = and i64 %15, 3
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.git_config_perm, i64 %31
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.git_config_perm, i64 %31
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %32
 
@@ -4815,7 +4814,7 @@ define dso_local void @initialize_repository_version(i32 noundef %0, i32 noundef
 
 9:                                                ; preds = %3
   %10 = sext i32 %0 to i64
-  %11 = getelementptr inbounds %struct.git_hash_algo, ptr @hash_algos, i64 %10
+  %11 = getelementptr inbounds [112 x i8], ptr @hash_algos, i64 %10
   %12 = load ptr, ptr %11, align 16, !tbaa !50
   %13 = load ptr, ptr @the_repository, align 8, !tbaa !9
   tail call void @repo_config_set(ptr noundef %13, ptr noundef nonnull @.str.75, ptr noundef %12) #25

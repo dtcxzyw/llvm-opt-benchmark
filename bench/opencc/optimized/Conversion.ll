@@ -18,7 +18,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::shared_ptr.0" = type { %"class.std::__shared_ptr.1" }
 %"class.std::__shared_ptr.1" = type { ptr, %"class.std::__shared_count" }
 %"class.std::__shared_count" = type { ptr }
-%"struct.std::pair" = type <{ i64, i8, [7 x i8] }>
 
 $_ZN6opencc8UTF8Util14NextCharLengthEPKc = comdat any
 
@@ -543,7 +542,7 @@ define void @_ZNK6opencc10Conversion7ConvertERKSt10shared_ptrINS_8SegmentsEE(ptr
 18:                                               ; preds = %.lr.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %.sroa.6.025 = phi i64 [ 0, %.lr.ph ], [ %39, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   %19 = load ptr, ptr %8, align 8, !tbaa !44
-  %20 = getelementptr inbounds nuw %"struct.std::pair", ptr %19, i64 %.sroa.6.025
+  %20 = getelementptr inbounds nuw [16 x i8], ptr %19, i64 %.sroa.6.025
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load i8, ptr %21, align 8, !tbaa !45, !range !48, !noundef !49
   %23 = trunc nuw i8 %22 to i1
@@ -552,12 +551,12 @@ define void @_ZNK6opencc10Conversion7ConvertERKSt10shared_ptrINS_8SegmentsEE(ptr
 
 25:                                               ; preds = %18
   %26 = load ptr, ptr %16, align 8, !tbaa !51
-  %27 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %26, i64 %24
+  %27 = getelementptr inbounds nuw [32 x i8], ptr %26, i64 %24
   br label %31
 
 28:                                               ; preds = %18
   %29 = load ptr, ptr %7, align 8, !tbaa !54
-  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %24
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %24
   br label %31
 
 31:                                               ; preds = %28, %25
@@ -700,7 +699,7 @@ _ZNSt6vectorISt4pairImbESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i: ; pre
 _ZNSt6vectorISt4pairImbESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %38, %_ZNSt6vectorISt4pairImbESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i
   store ptr %33, ptr %4, align 8, !tbaa !44
   store ptr %37, ptr %13, align 8, !tbaa !41
-  %39 = getelementptr inbounds nuw %"struct.std::pair", ptr %33, i64 %31
+  %39 = getelementptr inbounds nuw [16 x i8], ptr %33, i64 %31
   store ptr %39, ptr %15, align 8, !tbaa !60
   br label %_ZNSt6vectorISt4pairImbESaIS1_EE9push_backEOS1_.exit
 
@@ -1265,7 +1264,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit36, %73
   store ptr %23, ptr %0, align 8, !tbaa !51
   store ptr %.0.lcssa.i.i.i.i35, ptr %5, align 8, !tbaa !59
-  %77 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %77, ptr %72, align 8, !tbaa !66
   ret void
 

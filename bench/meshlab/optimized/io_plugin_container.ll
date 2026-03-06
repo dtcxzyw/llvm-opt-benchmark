@@ -385,7 +385,7 @@ _ZNSt6vectorIP8IOPluginSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; preds 
 _ZNSt6vectorIP8IOPluginSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %46, %_ZNSt6vectorIP8IOPluginSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   store ptr %41, ptr %0, align 8
   store ptr %45, ptr %21, align 8
-  %47 = getelementptr inbounds nuw ptr, ptr %41, i64 %39
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %39
   store ptr %47, ptr %23, align 8
   br label %_ZNSt6vectorIP8IOPluginSaIS1_EE9push_backERKS1_.exit
 
@@ -448,13 +448,13 @@ _ZNSt7__cxx114listI10FileFormatSaIS1_EED2Ev.exit: ; preds = %.lr.ph.i.i.i, %._cr
   %65 = getelementptr inbounds nuw i8, ptr %61, i64 12
   %66 = load i32, ptr %65, align 4, !noalias !10
   %67 = sext i32 %66 to i64
-  %68 = getelementptr inbounds ptr, ptr %62, i64 %67
+  %68 = getelementptr inbounds [8 x i8], ptr %62, i64 %67
   %.not542553 = icmp eq i32 %64, %66
   br i1 %.not542553, label %.loopexit547, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %59
   %69 = sext i32 %64 to i64
-  %70 = getelementptr inbounds ptr, ptr %62, i64 %69
+  %70 = getelementptr inbounds [8 x i8], ptr %62, i64 %69
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN7QStringD2Ev.exit80
@@ -739,13 +739,13 @@ _ZNSt7__cxx114listI10FileFormatSaIS1_EED2Ev.exit85: ; preds = %.lr.ph.i.i.i82, %
   %149 = getelementptr inbounds nuw i8, ptr %145, i64 12
   %150 = load i32, ptr %149, align 4, !noalias !18
   %151 = sext i32 %150 to i64
-  %152 = getelementptr inbounds ptr, ptr %146, i64 %151
+  %152 = getelementptr inbounds [8 x i8], ptr %146, i64 %151
   %.not541559 = icmp eq i32 %148, %150
   br i1 %.not541559, label %.loopexit546, label %.lr.ph562.preheader
 
 .lr.ph562.preheader:                              ; preds = %143
   %153 = sext i32 %148 to i64
-  %154 = getelementptr inbounds ptr, ptr %146, i64 %153
+  %154 = getelementptr inbounds [8 x i8], ptr %146, i64 %153
   br label %.lr.ph562
 
 .lr.ph562:                                        ; preds = %.lr.ph562.preheader, %_ZN7QStringD2Ev.exit138
@@ -1030,13 +1030,13 @@ _ZNSt7__cxx114listI10FileFormatSaIS1_EED2Ev.exit143: ; preds = %.lr.ph.i.i.i140,
   %233 = getelementptr inbounds nuw i8, ptr %229, i64 12
   %234 = load i32, ptr %233, align 4, !noalias !24
   %235 = sext i32 %234 to i64
-  %236 = getelementptr inbounds ptr, ptr %230, i64 %235
+  %236 = getelementptr inbounds [8 x i8], ptr %230, i64 %235
   %.not540568 = icmp eq i32 %232, %234
   br i1 %.not540568, label %.loopexit545, label %.lr.ph571.preheader
 
 .lr.ph571.preheader:                              ; preds = %227
   %237 = sext i32 %232 to i64
-  %238 = getelementptr inbounds ptr, ptr %230, i64 %237
+  %238 = getelementptr inbounds [8 x i8], ptr %230, i64 %237
   br label %.lr.ph571
 
 .lr.ph571:                                        ; preds = %.lr.ph571.preheader, %_ZN7QStringD2Ev.exit196
@@ -1321,13 +1321,13 @@ _ZNSt7__cxx114listI10FileFormatSaIS1_EED2Ev.exit201: ; preds = %.lr.ph.i.i.i198,
   %317 = getelementptr inbounds nuw i8, ptr %313, i64 12
   %318 = load i32, ptr %317, align 4, !noalias !30
   %319 = sext i32 %318 to i64
-  %320 = getelementptr inbounds ptr, ptr %314, i64 %319
+  %320 = getelementptr inbounds [8 x i8], ptr %314, i64 %319
   %.not539577 = icmp eq i32 %316, %318
   br i1 %.not539577, label %.loopexit544, label %.lr.ph580.preheader
 
 .lr.ph580.preheader:                              ; preds = %311
   %321 = sext i32 %316 to i64
-  %322 = getelementptr inbounds ptr, ptr %314, i64 %321
+  %322 = getelementptr inbounds [8 x i8], ptr %314, i64 %321
   br label %.lr.ph580
 
 .lr.ph580:                                        ; preds = %.lr.ph580.preheader, %_ZN7QStringD2Ev.exit254
@@ -1612,13 +1612,13 @@ _ZNSt7__cxx114listI10FileFormatSaIS1_EED2Ev.exit259: ; preds = %.lr.ph.i.i.i256,
   %401 = getelementptr inbounds nuw i8, ptr %397, i64 12
   %402 = load i32, ptr %401, align 4, !noalias !36
   %403 = sext i32 %402 to i64
-  %404 = getelementptr inbounds ptr, ptr %398, i64 %403
+  %404 = getelementptr inbounds [8 x i8], ptr %398, i64 %403
   %.not538586 = icmp eq i32 %400, %402
   br i1 %.not538586, label %.loopexit543, label %.lr.ph589.preheader
 
 .lr.ph589.preheader:                              ; preds = %395
   %405 = sext i32 %400 to i64
-  %406 = getelementptr inbounds ptr, ptr %398, i64 %405
+  %406 = getelementptr inbounds [8 x i8], ptr %398, i64 %405
   br label %.lr.ph589
 
 .lr.ph589:                                        ; preds = %.lr.ph589.preheader, %_ZN7QStringD2Ev.exit312
@@ -1893,13 +1893,13 @@ _ZNSt7__cxx114listI10FileFormatSaIS1_EED2Ev.exit317: ; preds = %.lr.ph.i.i.i314,
   %481 = getelementptr inbounds nuw i8, ptr %477, i64 12
   %482 = load i32, ptr %481, align 4, !noalias !42
   %483 = sext i32 %482 to i64
-  %484 = getelementptr inbounds ptr, ptr %478, i64 %483
+  %484 = getelementptr inbounds [8 x i8], ptr %478, i64 %483
   %.not537595 = icmp eq i32 %480, %482
   br i1 %.not537595, label %.loopexit, label %.lr.ph598.preheader
 
 .lr.ph598.preheader:                              ; preds = %475
   %485 = sext i32 %480 to i64
-  %486 = getelementptr inbounds ptr, ptr %478, i64 %485
+  %486 = getelementptr inbounds [8 x i8], ptr %478, i64 %485
   br label %.lr.ph598
 
 .lr.ph598:                                        ; preds = %.lr.ph598.preheader, %_ZN7QStringD2Ev.exit370
@@ -2286,7 +2286,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i:  ; preds = %_ZN9QtPrivate8RefCo
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = load i32, ptr %8, align 8
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds ptr, ptr %7, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %7, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %13 = load i32, ptr %12, align 4
   %.not4.i.i.i.i = icmp eq i32 %9, %13
@@ -2294,7 +2294,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i:  ; preds = %_ZN9QtPrivate8RefCo
 
 .lr.ph.i.preheader.i.i.i:                         ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds ptr, ptr %7, i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr %7, i64 %14
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7QStringD2Ev.exit.i.i.i.i, %.lr.ph.i.preheader.i.i.i
@@ -2549,13 +2549,13 @@ _ZNSt7__cxx114listI10FileFormatSaIS1_EED2Ev.exit: ; preds = %.lr.ph.i.i.i32, %._
   %77 = getelementptr inbounds nuw i8, ptr %73, i64 12
   %78 = load i32, ptr %77, align 4, !noalias !50
   %79 = sext i32 %78 to i64
-  %80 = getelementptr inbounds ptr, ptr %74, i64 %79
+  %80 = getelementptr inbounds [8 x i8], ptr %74, i64 %79
   %.not194216 = icmp eq i32 %76, %78
   br i1 %.not194216, label %.loopexit207, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %71
   %81 = sext i32 %76 to i64
-  %82 = getelementptr inbounds ptr, ptr %74, i64 %81
+  %82 = getelementptr inbounds [8 x i8], ptr %74, i64 %81
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN7QStringD2Ev.exit
@@ -2802,13 +2802,13 @@ _ZNSt7__cxx114listI10FileFormatSaIS1_EED2Ev.exit41: ; preds = %.lr.ph.i.i.i38, %
   %145 = getelementptr inbounds nuw i8, ptr %141, i64 12
   %146 = load i32, ptr %145, align 4, !noalias !57
   %147 = sext i32 %146 to i64
-  %148 = getelementptr inbounds ptr, ptr %142, i64 %147
+  %148 = getelementptr inbounds [8 x i8], ptr %142, i64 %147
   %.not193222 = icmp eq i32 %144, %146
   br i1 %.not193222, label %.loopexit201, label %.lr.ph225.preheader
 
 .lr.ph225.preheader:                              ; preds = %139
   %149 = sext i32 %144 to i64
-  %150 = getelementptr inbounds ptr, ptr %142, i64 %149
+  %150 = getelementptr inbounds [8 x i8], ptr %142, i64 %149
   br label %.lr.ph225
 
 .lr.ph225:                                        ; preds = %.lr.ph225.preheader, %_ZN7QStringD2Ev.exit76
@@ -3045,13 +3045,13 @@ _ZNSt7__cxx114listI10FileFormatSaIS1_EED2Ev.exit81: ; preds = %.lr.ph.i.i.i78, %
   %209 = getelementptr inbounds nuw i8, ptr %205, i64 12
   %210 = load i32, ptr %209, align 4, !noalias !63
   %211 = sext i32 %210 to i64
-  %212 = getelementptr inbounds ptr, ptr %206, i64 %211
+  %212 = getelementptr inbounds [8 x i8], ptr %206, i64 %211
   %.not192231 = icmp eq i32 %208, %210
   br i1 %.not192231, label %.loopexit195, label %.lr.ph234.preheader
 
 .lr.ph234.preheader:                              ; preds = %203
   %213 = sext i32 %208 to i64
-  %214 = getelementptr inbounds ptr, ptr %206, i64 %213
+  %214 = getelementptr inbounds [8 x i8], ptr %206, i64 %213
   br label %.lr.ph234
 
 .lr.ph234:                                        ; preds = %.lr.ph234.preheader, %_ZN7QStringD2Ev.exit116
@@ -4174,7 +4174,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %11 = load i32, ptr %10, align 8
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds ptr, ptr %9, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %9, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %15 = load i32, ptr %14, align 4
   %.not4.i.i.i = icmp eq i32 %11, %15
@@ -4182,7 +4182,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
 
 .lr.ph.i.preheader.i.i:                           ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds ptr, ptr %9, i64 %16
+  %17 = getelementptr inbounds [8 x i8], ptr %9, i64 %16
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN7QStringD2Ev.exit.i.i.i, %.lr.ph.i.preheader.i.i
@@ -4321,7 +4321,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2:      ; preds = %_ZN9QtPrivate8RefCo
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds ptr, ptr %6, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %6, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %12 = load i32, ptr %11, align 4
   %.not4.i.i = icmp eq i32 %8, %12
@@ -4329,7 +4329,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2:      ; preds = %_ZN9QtPrivate8RefCo
 
 .lr.ph.i.preheader.i:                             ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds ptr, ptr %6, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %6, i64 %13
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN7QStringD2Ev.exit.i.i, %.lr.ph.i.preheader.i
@@ -4462,16 +4462,16 @@ define linkonce_odr void @_ZN5QListI7QStringE13detach_helperEi(ptr noundef nonnu
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %12 = load i32, ptr %11, align 4
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds ptr, ptr %8, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %8, i64 %13
   %.not8.i = icmp eq i32 %10, %12
   br i1 %.not8.i, label %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %2
   %15 = sext i32 %10 to i64
-  %16 = getelementptr inbounds ptr, ptr %8, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %8, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = sext i32 %5 to i64
-  %19 = getelementptr inbounds ptr, ptr %17, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %17, i64 %18
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %_ZN7QStringC2ERKS_.exit.i
@@ -4511,7 +4511,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread5:      ; preds = %_ZN5QListI7QStringE
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %30 = load i32, ptr %29, align 8
   %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds ptr, ptr %28, i64 %31
+  %32 = getelementptr inbounds [8 x i8], ptr %28, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %34 = load i32, ptr %33, align 4
   %.not4.i.i = icmp eq i32 %30, %34
@@ -4519,7 +4519,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread5:      ; preds = %_ZN5QListI7QStringE
 
 .lr.ph.i.preheader.i:                             ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread5
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds ptr, ptr %28, i64 %35
+  %36 = getelementptr inbounds [8 x i8], ptr %28, i64 %35
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN7QStringD2Ev.exit.i.i, %.lr.ph.i.preheader.i
@@ -4575,14 +4575,14 @@ define linkonce_odr noundef ptr @_ZN5QListI7QStringE18detach_helper_growEii(ptr 
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds ptr, ptr %6, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %6, i64 %9
   %11 = call noundef ptr @_ZN9QListData11detach_growEPii(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %4, i32 noundef %2)
   %12 = load ptr, ptr %0, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %15 = load i32, ptr %14, align 8
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds ptr, ptr %13, i64 %16
+  %17 = getelementptr inbounds [8 x i8], ptr %13, i64 %16
   %18 = load i32, ptr %4, align 4
   %19 = sext i32 %18 to i64
   %.idx = shl nsw i64 %19, 3
@@ -4637,7 +4637,7 @@ _ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit: ; preds = %_ZN5QListI7QStr
   br i1 %.not8.i6, label %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit14, label %.lr.ph.i7.preheader
 
 .lr.ph.i7.preheader:                              ; preds = %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit
-  %38 = getelementptr inbounds %"struct.QList<QString>::Node", ptr %10, i64 %28
+  %38 = getelementptr inbounds [8 x i8], ptr %10, i64 %28
   %39 = getelementptr inbounds i8, ptr %30, i64 %33
   br label %.lr.ph.i7
 
@@ -4678,7 +4678,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread16:     ; preds = %_ZN5QListI7QStringE
   %49 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %50 = load i32, ptr %49, align 8
   %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds ptr, ptr %48, i64 %51
+  %52 = getelementptr inbounds [8 x i8], ptr %48, i64 %51
   %53 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %54 = load i32, ptr %53, align 4
   %.not4.i.i = icmp eq i32 %50, %54
@@ -4686,7 +4686,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread16:     ; preds = %_ZN5QListI7QStringE
 
 .lr.ph.i.preheader.i:                             ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread16
   %55 = sext i32 %54 to i64
-  %56 = getelementptr inbounds ptr, ptr %48, i64 %55
+  %56 = getelementptr inbounds [8 x i8], ptr %48, i64 %55
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN7QStringD2Ev.exit.i.i, %.lr.ph.i.preheader.i
@@ -4727,10 +4727,10 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread:       ; preds = %_ZN5QListI7QStringE
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %65 = load i32, ptr %64, align 8
   %66 = sext i32 %65 to i64
-  %67 = getelementptr inbounds ptr, ptr %63, i64 %66
+  %67 = getelementptr inbounds [8 x i8], ptr %63, i64 %66
   %68 = load i32, ptr %4, align 4
   %69 = sext i32 %68 to i64
-  %70 = getelementptr inbounds ptr, ptr %67, i64 %69
+  %70 = getelementptr inbounds [8 x i8], ptr %67, i64 %69
   ret ptr %70
 }
 
@@ -4796,7 +4796,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %11 = load i32, ptr %10, align 8
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds ptr, ptr %9, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %9, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %15 = load i32, ptr %14, align 4
   %.not4.i.i.i = icmp eq i32 %11, %15
@@ -4804,7 +4804,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
 
 .lr.ph.i.preheader.i.i:                           ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds ptr, ptr %9, i64 %16
+  %17 = getelementptr inbounds [8 x i8], ptr %9, i64 %16
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN7QStringD2Ev.exit.i.i.i, %.lr.ph.i.preheader.i.i
@@ -4879,7 +4879,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %11 = load i32, ptr %10, align 8
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds ptr, ptr %9, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %9, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %15 = load i32, ptr %14, align 4
   %.not4.i.i.i = icmp eq i32 %11, %15
@@ -4887,7 +4887,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
 
 .lr.ph.i.preheader.i.i:                           ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds ptr, ptr %9, i64 %16
+  %17 = getelementptr inbounds [8 x i8], ptr %9, i64 %16
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN7QStringD2Ev.exit.i.i.i, %.lr.ph.i.preheader.i.i
@@ -4962,7 +4962,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %11 = load i32, ptr %10, align 8
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds ptr, ptr %9, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %9, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %15 = load i32, ptr %14, align 4
   %.not4.i.i.i = icmp eq i32 %11, %15
@@ -4970,7 +4970,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
 
 .lr.ph.i.preheader.i.i:                           ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds ptr, ptr %9, i64 %16
+  %17 = getelementptr inbounds [8 x i8], ptr %9, i64 %16
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN7QStringD2Ev.exit.i.i.i, %.lr.ph.i.preheader.i.i
@@ -5045,7 +5045,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %11 = load i32, ptr %10, align 8
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds ptr, ptr %9, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %9, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %15 = load i32, ptr %14, align 4
   %.not4.i.i.i = icmp eq i32 %11, %15
@@ -5053,7 +5053,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
 
 .lr.ph.i.preheader.i.i:                           ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds ptr, ptr %9, i64 %16
+  %17 = getelementptr inbounds [8 x i8], ptr %9, i64 %16
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN7QStringD2Ev.exit.i.i.i, %.lr.ph.i.preheader.i.i
@@ -5128,7 +5128,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %11 = load i32, ptr %10, align 8
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds ptr, ptr %9, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %9, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %15 = load i32, ptr %14, align 4
   %.not4.i.i.i = icmp eq i32 %11, %15
@@ -5136,7 +5136,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
 
 .lr.ph.i.preheader.i.i:                           ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds ptr, ptr %9, i64 %16
+  %17 = getelementptr inbounds [8 x i8], ptr %9, i64 %16
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN7QStringD2Ev.exit.i.i.i, %.lr.ph.i.preheader.i.i

@@ -112,7 +112,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %16 = fmul double %15, %14
   %17 = fadd double %13, %16
   %18 = tail call noundef double @llvm.pow.f64(double 1.000000e+01, double %17)
-  %19 = getelementptr inbounds double, ptr %.sroa.7.0.copyload, i64 %11
+  %19 = getelementptr inbounds [8 x i8], ptr %.sroa.7.0.copyload, i64 %11
   store double %18, ptr %19, align 8, !noalias !13
   %20 = add i64 %11, 1
   %exitcond.not.i = icmp eq i64 %12, %6
@@ -150,11 +150,11 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
 14:                                               ; preds = %14, %9
   %15 = phi i64 [ %20, %14 ], [ %.sroa.5.0.copyload, %9 ]
   %.sroa.06.0.i = phi i64 [ %21, %14 ], [ 0, %9 ]
-  %16 = getelementptr inbounds double, ptr %3, i64 %.sroa.06.0.i
+  %16 = getelementptr inbounds [8 x i8], ptr %3, i64 %.sroa.06.0.i
   %.val23.i = load double, ptr %16, align 8, !noalias !29, !noundef !4
   %17 = load double, ptr %7, align 8, !noalias !32, !noundef !4
   %18 = fsub double %17, %.val23.i
-  %19 = getelementptr inbounds double, ptr %.sroa.8.0.copyload, i64 %15
+  %19 = getelementptr inbounds [8 x i8], ptr %.sroa.8.0.copyload, i64 %15
   store double %18, ptr %19, align 8, !noalias !35
   %20 = add i64 %15, 1
   %21 = add nuw i64 %.sroa.06.0.i, 1
@@ -193,14 +193,14 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
 14:                                               ; preds = %14, %9
   %15 = phi i64 [ %23, %14 ], [ %.sroa.5.0.copyload, %9 ]
   %.sroa.06.0.i = phi i64 [ %24, %14 ], [ 0, %9 ]
-  %16 = getelementptr inbounds double, ptr %3, i64 %.sroa.06.0.i
+  %16 = getelementptr inbounds [8 x i8], ptr %3, i64 %.sroa.06.0.i
   %.val23.i = load double, ptr %16, align 8, !noalias !40, !noundef !4
   %17 = load ptr, ptr %7, align 8, !noalias !43, !nonnull !4, !align !5, !noundef !4
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %19 = load i64, ptr %18, align 8, !noalias !43, !noundef !4
   %20 = uitofp i64 %19 to double
   %21 = fmul double %.val23.i, %20
-  %22 = getelementptr inbounds double, ptr %.sroa.8.0.copyload, i64 %15
+  %22 = getelementptr inbounds [8 x i8], ptr %.sroa.8.0.copyload, i64 %15
   store double %21, ptr %22, align 8, !noalias !46
   %23 = add i64 %15, 1
   %24 = add nuw i64 %.sroa.06.0.i, 1
@@ -239,7 +239,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
 14:                                               ; preds = %14, %9
   %15 = phi i64 [ %25, %14 ], [ %.sroa.5.0.copyload, %9 ]
   %.sroa.06.0.i = phi i64 [ %26, %14 ], [ 0, %9 ]
-  %16 = getelementptr inbounds double, ptr %3, i64 %.sroa.06.0.i
+  %16 = getelementptr inbounds [8 x i8], ptr %3, i64 %.sroa.06.0.i
   %.val23.i = load double, ptr %16, align 8, !noalias !51, !noundef !4
   %17 = load ptr, ptr %7, align 8, !noalias !54, !nonnull !4, !align !5, !noundef !4
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
@@ -248,7 +248,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %21 = fmul double %.val23.i, %20
   %22 = fsub double 1.000000e+00, %.val23.i
   %23 = fmul double %22, %21
-  %24 = getelementptr inbounds double, ptr %.sroa.8.0.copyload, i64 %15
+  %24 = getelementptr inbounds [8 x i8], ptr %.sroa.8.0.copyload, i64 %15
   store double %23, ptr %24, align 8, !noalias !57
   %25 = add i64 %15, 1
   %26 = add nuw i64 %.sroa.06.0.i, 1
@@ -625,7 +625,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17h5c7eb1fd42f57f
   %20 = tail call noundef double @llvm.pow.f64(double 1.000000e+01, double %19)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !169)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !170)
-  %21 = getelementptr inbounds double, ptr %10, i64 %13
+  %21 = getelementptr inbounds [8 x i8], ptr %10, i64 %13
   store double %20, ptr %21, align 8, !noalias !162
   %22 = add i64 %13, 1
   %exitcond.not = icmp eq i64 %14, %1
@@ -654,7 +654,7 @@ define hidden void @"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b
   %4 = load ptr, ptr %3, align 8, !alias.scope !176, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !alias.scope !176, !noundef !4
-  %7 = getelementptr inbounds double, ptr %4, i64 %6
+  %7 = getelementptr inbounds [8 x i8], ptr %4, i64 %6
   store double %1, ptr %7, align 8, !noalias !176
   %8 = add i64 %6, 1
   store i64 %8, ptr %5, align 8, !alias.scope !176
@@ -717,7 +717,7 @@ define hidden void @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d
   %14 = load ptr, ptr %13, align 8, !alias.scope !203, !noundef !4
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load i64, ptr %15, align 8, !alias.scope !203, !noundef !4
-  %17 = getelementptr inbounds double, ptr %14, i64 %16
+  %17 = getelementptr inbounds [8 x i8], ptr %14, i64 %16
   store double %12, ptr %17, align 8, !noalias !203
   %18 = add i64 %16, 1
   store i64 %18, ptr %15, align 8, !alias.scope !203
@@ -808,7 +808,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted28_$u7b$$u7b
   %4 = load ptr, ptr %3, align 8, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !noundef !4
-  %7 = getelementptr inbounds double, ptr %4, i64 %6
+  %7 = getelementptr inbounds [8 x i8], ptr %4, i64 %6
   store double %1, ptr %7, align 8
   %8 = add i64 %6, 1
   store i64 %8, ptr %5, align 8
@@ -878,7 +878,7 @@ define hidden noundef zeroext i1 @"_ZN70_$LT$core..option..Option$LT$T$GT$$u20$a
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef align 8 dereferenceable_or_null(8) ptr @"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$3get17hab8e4c729e0e1f0eE.llvm.9554138872291501309"(i64 noundef %0, ptr noalias noundef nonnull readonly align 8 captures(ret: address, provenance) %1, i64 noundef %2) unnamed_addr #4 {
   %4 = icmp ult i64 %0, %2
-  %5 = getelementptr inbounds double, ptr %1, i64 %0
+  %5 = getelementptr inbounds [8 x i8], ptr %1, i64 %0
   %.sroa.0.0 = select i1 %4, ptr %5, ptr null
   ret ptr %.sroa.0.0
 }
@@ -943,7 +943,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
 16:                                               ; preds = %16, %5
   %17 = phi i64 [ %25, %16 ], [ %.promoted, %5 ]
   %.sroa.06.0 = phi i64 [ %26, %16 ], [ 0, %5 ]
-  %18 = getelementptr inbounds double, ptr %0, i64 %.sroa.06.0
+  %18 = getelementptr inbounds [8 x i8], ptr %0, i64 %.sroa.06.0
   %.val23 = load double, ptr %18, align 8, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !251)
   %19 = load ptr, ptr %.val.i, align 8, !noalias !251, !nonnull !4, !align !5, !noundef !4
@@ -953,7 +953,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   %23 = fmul double %.val23, %22
   tail call void @llvm.experimental.noalias.scope.decl(metadata !269)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !270)
-  %24 = getelementptr inbounds double, ptr %12, i64 %17
+  %24 = getelementptr inbounds [8 x i8], ptr %12, i64 %17
   store double %23, ptr %24, align 8, !noalias !254
   %25 = add i64 %17, 1
   %26 = add nuw i64 %.sroa.06.0, 1
@@ -999,14 +999,14 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
 16:                                               ; preds = %16, %5
   %17 = phi i64 [ %22, %16 ], [ %.promoted, %5 ]
   %.sroa.06.0 = phi i64 [ %23, %16 ], [ 0, %5 ]
-  %18 = getelementptr inbounds double, ptr %0, i64 %.sroa.06.0
+  %18 = getelementptr inbounds [8 x i8], ptr %0, i64 %.sroa.06.0
   %.val23 = load double, ptr %18, align 8, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !276)
   %19 = load double, ptr %.val.i, align 8, !noalias !276, !noundef !4
   %20 = fsub double %19, %.val23
   tail call void @llvm.experimental.noalias.scope.decl(metadata !294)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !295)
-  %21 = getelementptr inbounds double, ptr %12, i64 %17
+  %21 = getelementptr inbounds [8 x i8], ptr %12, i64 %17
   store double %20, ptr %21, align 8, !noalias !279
   %22 = add i64 %17, 1
   %23 = add nuw i64 %.sroa.06.0, 1
@@ -1040,7 +1040,7 @@ define hidden { i64, double } @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$a
   %.sroa.07.0 = phi i64 [ %2, %6 ], [ %22, %"_ZN6statrs8function9factorial19checked_multinomial28_$u7b$$u7b$closure$u7d$$u7d$17h23493b7897b58408E.exit" ]
   %.sroa.6.0 = phi double [ %3, %6 ], [ %23, %"_ZN6statrs8function9factorial19checked_multinomial28_$u7b$$u7b$closure$u7d$$u7d$17h23493b7897b58408E.exit" ]
   %.sroa.010.0 = phi i64 [ 0, %6 ], [ %24, %"_ZN6statrs8function9factorial19checked_multinomial28_$u7b$$u7b$closure$u7d$$u7d$17h23493b7897b58408E.exit" ]
-  %12 = getelementptr inbounds i64, ptr %0, i64 %.sroa.010.0
+  %12 = getelementptr inbounds [8 x i8], ptr %0, i64 %.sroa.010.0
   %.val = load i64, ptr %12, align 8, !noundef !4
   %13 = icmp ugt i64 %.val, 170
   tail call void @llvm.experimental.noalias.scope.decl(metadata !301)
@@ -1053,7 +1053,7 @@ define hidden { i64, double } @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$a
   br label %"_ZN6statrs8function9factorial19checked_multinomial28_$u7b$$u7b$closure$u7d$$u7d$17h23493b7897b58408E.exit"
 
 18:                                               ; preds = %11
-  %19 = getelementptr inbounds nuw double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %.val
+  %19 = getelementptr inbounds nuw [8 x i8], ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %.val
   %20 = load double, ptr %19, align 8, !alias.scope !308, !noalias !311, !noundef !4
   %21 = tail call noundef double @llvm.log.f64(double %20)
   br label %"_ZN6statrs8function9factorial19checked_multinomial28_$u7b$$u7b$closure$u7d$$u7d$17h23493b7897b58408E.exit"
@@ -1103,7 +1103,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
 16:                                               ; preds = %16, %5
   %17 = phi i64 [ %27, %16 ], [ %.promoted, %5 ]
   %.sroa.06.0 = phi i64 [ %28, %16 ], [ 0, %5 ]
-  %18 = getelementptr inbounds double, ptr %0, i64 %.sroa.06.0
+  %18 = getelementptr inbounds [8 x i8], ptr %0, i64 %.sroa.06.0
   %.val23 = load double, ptr %18, align 8, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !312)
   %19 = load ptr, ptr %.val.i, align 8, !noalias !312, !nonnull !4, !align !5, !noundef !4
@@ -1115,7 +1115,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   %25 = fmul double %24, %23
   tail call void @llvm.experimental.noalias.scope.decl(metadata !330)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !331)
-  %26 = getelementptr inbounds double, ptr %12, i64 %17
+  %26 = getelementptr inbounds [8 x i8], ptr %12, i64 %17
   store double %25, ptr %26, align 8, !noalias !315
   %27 = add i64 %17, 1
   %28 = add nuw i64 %.sroa.06.0, 1
@@ -2140,7 +2140,7 @@ define noundef double @_ZN6statrs8function9factorial9factorial17h2e1a07f872208d3
   br i1 %2, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hb1c4e5715a25bb3cE.exit", label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds nuw double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %0
+  %4 = getelementptr inbounds nuw [8 x i8], ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %0
   %.val.i = load double, ptr %4, align 8, !alias.scope !468, !noundef !4
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17hb1c4e5715a25bb3cE.exit"
 
@@ -2162,7 +2162,7 @@ define noundef double @_ZN6statrs8function9factorial12ln_factorial17h54b56003957
   br label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309.exit"
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds nuw double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %0
+  %8 = getelementptr inbounds nuw [8 x i8], ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %0
   %9 = load double, ptr %8, align 8, !alias.scope !478, !noalias !481, !noundef !4
   %10 = tail call noundef double @llvm.log.f64(double %9)
   br label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309.exit"
@@ -2205,7 +2205,7 @@ define noundef double @_ZN6statrs8function9factorial8binomial17h272bdd00f4307cf6
   br label %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds nuw double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %0
+  %11 = getelementptr inbounds nuw [8 x i8], ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %0
   %12 = load double, ptr %11, align 8, !alias.scope !489, !noalias !492, !noundef !4
   %13 = tail call noundef double @llvm.log.f64(double %12)
   br label %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit
@@ -2223,7 +2223,7 @@ _ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit: ; preds = 
   br label %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit4
 
 19:                                               ; preds = %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit
-  %20 = getelementptr inbounds nuw double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %1
+  %20 = getelementptr inbounds nuw [8 x i8], ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %1
   %21 = load double, ptr %20, align 8, !alias.scope !500, !noalias !503, !noundef !4
   %22 = tail call noundef double @llvm.log.f64(double %21)
   br label %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit4
@@ -2243,7 +2243,7 @@ _ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit4: ; preds =
   br label %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit6
 
 30:                                               ; preds = %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit4
-  %31 = getelementptr inbounds nuw double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %24
+  %31 = getelementptr inbounds nuw [8 x i8], ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %24
   %32 = load double, ptr %31, align 8, !alias.scope !511, !noalias !514, !noundef !4
   %33 = tail call noundef double @llvm.log.f64(double %32)
   br label %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit6
@@ -2278,7 +2278,7 @@ define noundef double @_ZN6statrs8function9factorial11ln_binomial17hdf622f93e443
   br label %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds nuw double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %0
+  %11 = getelementptr inbounds nuw [8 x i8], ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %0
   %12 = load double, ptr %11, align 8, !alias.scope !522, !noalias !525, !noundef !4
   %13 = tail call noundef double @llvm.log.f64(double %12)
   br label %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit
@@ -2296,7 +2296,7 @@ _ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit: ; preds = 
   br label %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit3
 
 19:                                               ; preds = %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit
-  %20 = getelementptr inbounds nuw double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %1
+  %20 = getelementptr inbounds nuw [8 x i8], ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %1
   %21 = load double, ptr %20, align 8, !alias.scope !533, !noalias !536, !noundef !4
   %22 = tail call noundef double @llvm.log.f64(double %21)
   br label %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit3
@@ -2316,7 +2316,7 @@ _ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit3: ; preds =
   br label %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit5
 
 30:                                               ; preds = %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit3
-  %31 = getelementptr inbounds nuw double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %24
+  %31 = getelementptr inbounds nuw [8 x i8], ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %24
   %32 = load double, ptr %31, align 8, !alias.scope !544, !noalias !547, !noundef !4
   %33 = tail call noundef double @llvm.log.f64(double %32)
   br label %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit5
@@ -2346,7 +2346,7 @@ define noundef double @_ZN6statrs8function9factorial11multinomial17hf31164cf5f4b
   br label %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit.i
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds nuw double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %0
+  %11 = getelementptr inbounds nuw [8 x i8], ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %0
   %12 = load double, ptr %11, align 8, !alias.scope !559, !noalias !562, !noundef !4
   %13 = tail call noundef double @llvm.log.f64(double %12)
   br label %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit.i
@@ -2360,7 +2360,7 @@ _ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit.i: ; preds 
   %.sroa.07.0.i.i = phi i64 [ %25, %"_ZN6statrs8function9factorial19checked_multinomial28_$u7b$$u7b$closure$u7d$$u7d$17h23493b7897b58408E.exit.i.i" ], [ 0, %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit.i ]
   %.sroa.6.0.i.i = phi double [ %26, %"_ZN6statrs8function9factorial19checked_multinomial28_$u7b$$u7b$closure$u7d$$u7d$17h23493b7897b58408E.exit.i.i" ], [ %.sroa.02.0.i.i.i, %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit.i ]
   %.sroa.010.0.i.i = phi i64 [ %27, %"_ZN6statrs8function9factorial19checked_multinomial28_$u7b$$u7b$closure$u7d$$u7d$17h23493b7897b58408E.exit.i.i" ], [ 0, %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit.i ]
-  %15 = getelementptr inbounds i64, ptr %1, i64 %.sroa.010.0.i.i
+  %15 = getelementptr inbounds [8 x i8], ptr %1, i64 %.sroa.010.0.i.i
   %.val.i.i = load i64, ptr %15, align 8, !alias.scope !548, !noalias !563, !noundef !4
   %16 = icmp ugt i64 %.val.i.i, 170
   tail call void @llvm.experimental.noalias.scope.decl(metadata !564)
@@ -2373,7 +2373,7 @@ _ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit.i: ; preds 
   br label %"_ZN6statrs8function9factorial19checked_multinomial28_$u7b$$u7b$closure$u7d$$u7d$17h23493b7897b58408E.exit.i.i"
 
 21:                                               ; preds = %.preheader.i
-  %22 = getelementptr inbounds nuw double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %.val.i.i
+  %22 = getelementptr inbounds nuw [8 x i8], ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %.val.i.i
   %23 = load double, ptr %22, align 8, !alias.scope !571, !noalias !574, !noundef !4
   %24 = tail call noundef double @llvm.log.f64(double %23)
   br label %"_ZN6statrs8function9factorial19checked_multinomial28_$u7b$$u7b$closure$u7d$$u7d$17h23493b7897b58408E.exit.i.i"
@@ -2426,7 +2426,7 @@ define void @_ZN6statrs8function9factorial19checked_multinomial17hca373caff3ade2
   br label %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds nuw double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %1
+  %11 = getelementptr inbounds nuw [8 x i8], ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %1
   %12 = load double, ptr %11, align 8, !alias.scope !588, !noalias !591, !noundef !4
   %13 = tail call noundef double @llvm.log.f64(double %12)
   br label %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit
@@ -2440,7 +2440,7 @@ _ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit: ; preds = 
   %.sroa.07.0.i = phi i64 [ %25, %"_ZN6statrs8function9factorial19checked_multinomial28_$u7b$$u7b$closure$u7d$$u7d$17h23493b7897b58408E.exit.i" ], [ 0, %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit ]
   %.sroa.6.0.i = phi double [ %26, %"_ZN6statrs8function9factorial19checked_multinomial28_$u7b$$u7b$closure$u7d$$u7d$17h23493b7897b58408E.exit.i" ], [ %.sroa.02.0.i.i, %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit ]
   %.sroa.010.0.i = phi i64 [ %27, %"_ZN6statrs8function9factorial19checked_multinomial28_$u7b$$u7b$closure$u7d$$u7d$17h23493b7897b58408E.exit.i" ], [ 0, %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit ]
-  %15 = getelementptr inbounds i64, ptr %2, i64 %.sroa.010.0.i
+  %15 = getelementptr inbounds [8 x i8], ptr %2, i64 %.sroa.010.0.i
   %.val.i = load i64, ptr %15, align 8, !noundef !4
   %16 = icmp ugt i64 %.val.i, 170
   tail call void @llvm.experimental.noalias.scope.decl(metadata !592)
@@ -2453,7 +2453,7 @@ _ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit: ; preds = 
   br label %"_ZN6statrs8function9factorial19checked_multinomial28_$u7b$$u7b$closure$u7d$$u7d$17h23493b7897b58408E.exit.i"
 
 21:                                               ; preds = %.preheader
-  %22 = getelementptr inbounds nuw double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %.val.i
+  %22 = getelementptr inbounds nuw [8 x i8], ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %.val.i
   %23 = load double, ptr %22, align 8, !alias.scope !599, !noalias !602, !noundef !4
   %24 = tail call noundef double @llvm.log.f64(double %23)
   br label %"_ZN6statrs8function9factorial19checked_multinomial28_$u7b$$u7b$closure$u7d$$u7d$17h23493b7897b58408E.exit.i"

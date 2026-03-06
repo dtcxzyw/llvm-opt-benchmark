@@ -5,8 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.dtNavMeshParams = type { [3 x float], float, float, i32, i32 }
 %struct.dtNavMeshCreateParams = type { ptr, i32, ptr, ptr, ptr, i32, i32, ptr, ptr, i32, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i32, [3 x float], [3 x float], float, float, float, float, float, i8 }
-%struct.rcChunkyTriMeshNode = type { [2 x float], [2 x float], i32, i32 }
-%struct.ConvexVolume = type { [36 x float], float, float, i32, i32 }
 
 $__clang_call_terminate = comdat any
 
@@ -2371,16 +2369,16 @@ _ZN9rcContext10startTimerE12rcTimerLabel.exit:    ; preds = %_ZN9rcContext11rese
 197:                                              ; preds = %.lr.ph, %196
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %196 ]
   %198 = load ptr, ptr %49, align 8
-  %199 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
+  %199 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv
   %200 = load i32, ptr %199, align 4
   %201 = sext i32 %200 to i64
-  %202 = getelementptr inbounds %struct.rcChunkyTriMeshNode, ptr %198, i64 %201
+  %202 = getelementptr inbounds [24 x i8], ptr %198, i64 %201
   %203 = load ptr, ptr %195, align 8
   %204 = getelementptr inbounds nuw i8, ptr %202, i64 16
   %205 = load i32, ptr %204, align 4
   %206 = mul nsw i32 %205, 3
   %207 = sext i32 %206 to i64
-  %208 = getelementptr inbounds i32, ptr %203, i64 %207
+  %208 = getelementptr inbounds [4 x i8], ptr %203, i64 %207
   %209 = getelementptr inbounds nuw i8, ptr %202, i64 20
   %210 = load i32, ptr %209, align 4
   %211 = load i32, ptr %193, align 8
@@ -2516,7 +2514,7 @@ _ZN9rcContext10startTimerE12rcTimerLabel.exit:    ; preds = %_ZN9rcContext11rese
 .lr.ph82:                                         ; preds = %279, %.lr.ph82
   %indvars.iv90 = phi i64 [ %indvars.iv.next91, %.lr.ph82 ], [ 0, %279 ]
   %285 = load ptr, ptr %142, align 8
-  %286 = getelementptr inbounds nuw %struct.ConvexVolume, ptr %281, i64 %indvars.iv90
+  %286 = getelementptr inbounds nuw [160 x i8], ptr %281, i64 %indvars.iv90
   %287 = getelementptr inbounds nuw i8, ptr %286, i64 152
   %288 = load i32, ptr %287, align 4
   %289 = getelementptr inbounds nuw i8, ptr %286, i64 144
@@ -2733,11 +2731,11 @@ _ZN9rcContext10startTimerE12rcTimerLabel.exit:    ; preds = %_ZN9rcContext11rese
 
 switch.lookup:                                    ; preds = %395
   %399 = zext nneg i8 %396 to i64
-  %switch.gep = getelementptr inbounds nuw i16, ptr @switch.table._ZN15Sample_TileMesh13buildTileMeshEiiPKfS1_Ri, i64 %399
+  %switch.gep = getelementptr inbounds nuw [2 x i8], ptr @switch.table._ZN15Sample_TileMesh13buildTileMeshEiiPKfS1_Ri, i64 %399
   %switch.load = load i16, ptr %switch.gep, align 2
   %400 = getelementptr inbounds nuw i8, ptr %397, i64 24
   %401 = load ptr, ptr %400, align 8
-  %402 = getelementptr inbounds nuw i16, ptr %401, i64 %indvars.iv93
+  %402 = getelementptr inbounds nuw [2 x i8], ptr %401, i64 %indvars.iv93
   store i16 %switch.load, ptr %402, align 2
   br label %403
 

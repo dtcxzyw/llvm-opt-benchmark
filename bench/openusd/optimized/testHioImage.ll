@@ -6215,10 +6215,10 @@ define internal void @"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZ17G
   %9 = uitofp nneg i32 %8 to float
   %10 = fdiv float %9, 2.550000e+02
   %11 = load ptr, ptr @_ZZ17GetRgbFloatValuesvE15_rgbFloatValues, align 8
-  %12 = getelementptr inbounds nuw float, ptr %11, i64 %7
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %7
   store float %10, ptr %12, align 4
   %13 = load ptr, ptr @_ZZ17GetRgbFloatValuesvE15_rgbFloatValues, align 8
-  %14 = getelementptr inbounds nuw float, ptr %13, i64 %7
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %7
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store float %4, ptr %15, align 4
   %16 = add nuw nsw i64 %indvars.iv.i.i.i.i.i, %indvars.iv4.i.i.i.i.i
@@ -6227,7 +6227,7 @@ define internal void @"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZ17G
   %19 = uitofp nneg i32 %18 to float
   %20 = fdiv float %19, 2.550000e+02
   %21 = load ptr, ptr @_ZZ17GetRgbFloatValuesvE15_rgbFloatValues, align 8
-  %22 = getelementptr inbounds nuw float, ptr %21, i64 %7
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %7
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store float %20, ptr %23, align 4
   %indvars.iv.next.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i, 1

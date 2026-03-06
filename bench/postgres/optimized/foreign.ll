@@ -3,7 +3,6 @@ source_filename = "bench/postgres/original/foreign.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%union.ListCell = type { ptr }
 %struct.ClosestMatchState = type { ptr, i32, i32, ptr }
 
 @.str = private unnamed_addr constant [48 x i8] c"cache lookup failed for foreign-data wrapper %u\00", align 1
@@ -728,7 +727,7 @@ define dso_local noundef zeroext i1 @IsImportableForeignTable(ptr noundef readon
 
 13:                                               ; preds = %13, %.lr.ph74
   %indvars.iv79 = phi i64 [ 0, %.lr.ph74 ], [ %indvars.iv.next80, %13 ]
-  %14 = getelementptr inbounds nuw %union.ListCell, ptr %12, i64 %indvars.iv79
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv79
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %17 = load ptr, ptr %16, align 8
@@ -759,7 +758,7 @@ define dso_local noundef zeroext i1 @IsImportableForeignTable(ptr noundef readon
 
 27:                                               ; preds = %27, %.lr.ph61
   %indvars.iv = phi i64 [ 0, %.lr.ph61 ], [ %indvars.iv.next, %27 ]
-  %28 = getelementptr inbounds nuw %union.ListCell, ptr %26, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %31 = load ptr, ptr %30, align 8
@@ -808,7 +807,7 @@ define dso_local noundef i64 @pg_options_to_table(ptr noundef %0) local_unnamed_
 .lr.ph21:                                         ; preds = %.lr.ph, %31
   %indvars.iv = phi i64 [ %indvars.iv.next, %31 ], [ 0, %.lr.ph ]
   %17 = load ptr, ptr %10, align 8
-  %18 = getelementptr inbounds nuw %union.ListCell, ptr %17, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -882,7 +881,7 @@ define dso_local noundef i64 @postgresql_fdw_validator(ptr noundef readonly capt
 
 14:                                               ; preds = %.lr.ph38, %52
   %indvars.iv = phi i64 [ 0, %.lr.ph38 ], [ %indvars.iv.next, %52 ]
-  %15 = getelementptr inbounds nuw %union.ListCell, ptr %13, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load ptr, ptr %17, align 8
@@ -997,7 +996,7 @@ define dso_local noundef ptr @GetExistingLocalJoinPath(ptr noundef readonly capt
 
 9:                                                ; preds = %.lr.ph70, %46
   %indvars.iv = phi i64 [ 0, %.lr.ph70 ], [ %indvars.iv.next, %46 ]
-  %10 = getelementptr inbounds nuw %union.ListCell, ptr %8, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load ptr, ptr %12, align 8

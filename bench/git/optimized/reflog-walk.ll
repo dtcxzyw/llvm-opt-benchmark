@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.strbuf = type { i64, i64, ptr }
-%struct.reflog_info = type { %struct.object_id, %struct.object_id, ptr, i64, i32, ptr }
-%struct.object_id = type { [32 x i8], i32 }
 
 @.str = private unnamed_addr constant [27 x i8] c"cannot walk reflogs for %s\00", align 1
 @the_repository = external local_unnamed_addr global ptr, align 8
@@ -48,7 +46,7 @@ define dso_local void @reflog_walk_info_release(ptr noundef %0) local_unnamed_ad
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.09 = phi i64 [ %7, %.lr.ph ], [ 0, %.preheader ]
   %4 = load ptr, ptr %0, align 8, !tbaa !17
-  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %.09
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.09
   %6 = load ptr, ptr %5, align 8, !tbaa !18
   tail call void @free(ptr noundef %6) #13
   %7 = add nuw i64 %.09, 1
@@ -255,7 +253,7 @@ define dso_local range(i32 -1, 1) i32 @add_reflog_for_walk(ptr noundef %0, ptr n
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %79 = load ptr, ptr %73, align 8, !tbaa !31
   %80 = and i64 %indvars.iv.next.i, 4294967295
-  %81 = getelementptr inbounds nuw %struct.reflog_info, ptr %79, i64 %80
+  %81 = getelementptr inbounds nuw [104 x i8], ptr %79, i64 %80
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 80
   %83 = load i64, ptr %82, align 8, !tbaa !32
   %.not.i = icmp ult i64 %.165, %83
@@ -321,7 +319,7 @@ st_mult.exit:                                     ; preds = %97
   %106 = phi i64 [ %92, %._crit_edge ], [ %.pre96, %st_mult.exit ]
   %107 = phi ptr [ %.pre95, %._crit_edge ], [ %104, %st_mult.exit ]
   store i64 %.pre-phi, ptr %91, align 8, !tbaa !9
-  %108 = getelementptr inbounds nuw ptr, ptr %107, i64 %106
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %106
   store ptr %68, ptr %108, align 8, !tbaa !18
   br label %109
 
@@ -430,12 +428,12 @@ define internal fastcc void @free_complete_reflog(ptr noundef captures(address_i
 6:                                                ; preds = %.lr.ph, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
   %7 = load ptr, ptr %5, align 8, !tbaa !31
-  %8 = getelementptr inbounds nuw %struct.reflog_info, ptr %7, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [104 x i8], ptr %7, i64 %indvars.iv
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 72
   %10 = load ptr, ptr %9, align 8, !tbaa !43
   tail call void @free(ptr noundef %10) #13
   %11 = load ptr, ptr %5, align 8, !tbaa !31
-  %12 = getelementptr inbounds nuw %struct.reflog_info, ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [104 x i8], ptr %11, i64 %indvars.iv
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 96
   %14 = load ptr, ptr %13, align 8, !tbaa !44
   tail call void @free(ptr noundef %14) #13
@@ -520,7 +518,7 @@ define dso_local void @get_reflog_selector(ptr noundef %0, ptr noundef readonly 
   %35 = load ptr, ptr %34, align 8, !tbaa !31
   %36 = load i32, ptr %8, align 8, !tbaa !36
   %37 = sext i32 %36 to i64
-  %38 = getelementptr %struct.reflog_info, ptr %35, i64 %37
+  %38 = getelementptr [104 x i8], ptr %35, i64 %37
   %39 = getelementptr i8, ptr %38, i64 184
   %40 = load i64, ptr %39, align 8, !tbaa !32
   %41 = getelementptr i8, ptr %38, i64 192
@@ -599,7 +597,7 @@ define dso_local void @get_reflog_message(ptr noundef %0, ptr noundef readonly c
   %9 = load ptr, ptr %8, align 8, !tbaa !31
   %10 = load i32, ptr %4, align 8, !tbaa !36
   %11 = sext i32 %10 to i64
-  %12 = getelementptr %struct.reflog_info, ptr %9, i64 %11
+  %12 = getelementptr [104 x i8], ptr %9, i64 %11
   %13 = getelementptr i8, ptr %12, i64 200
   %14 = load ptr, ptr %13, align 8, !tbaa !44
   %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %14) #14
@@ -627,7 +625,7 @@ define dso_local ptr @get_reflog_ident(ptr noundef readonly captures(none) %0) l
   %8 = load ptr, ptr %7, align 8, !tbaa !31
   %9 = load i32, ptr %3, align 8, !tbaa !36
   %10 = sext i32 %9 to i64
-  %11 = getelementptr %struct.reflog_info, ptr %8, i64 %10
+  %11 = getelementptr [104 x i8], ptr %8, i64 %10
   %12 = getelementptr i8, ptr %11, i64 176
   %13 = load ptr, ptr %12, align 8, !tbaa !43
   br label %14
@@ -651,7 +649,7 @@ define dso_local i64 @get_reflog_timestamp(ptr noundef readonly captures(none) %
   %8 = load ptr, ptr %7, align 8, !tbaa !31
   %9 = load i32, ptr %3, align 8, !tbaa !36
   %10 = sext i32 %9 to i64
-  %11 = getelementptr %struct.reflog_info, ptr %8, i64 %10
+  %11 = getelementptr [104 x i8], ptr %8, i64 %10
   %12 = getelementptr i8, ptr %11, i64 184
   %13 = load i64, ptr %12, align 8, !tbaa !32
   br label %14
@@ -682,7 +680,7 @@ define dso_local void @show_reflog_message(ptr noundef readonly captures(address
   %14 = load ptr, ptr %13, align 8, !tbaa !31
   %15 = load i32, ptr %9, align 8, !tbaa !36
   %16 = sext i32 %15 to i64
-  %17 = getelementptr %struct.reflog_info, ptr %14, i64 %16
+  %17 = getelementptr [104 x i8], ptr %14, i64 %16
   call void @get_reflog_selector(ptr noundef nonnull %6, ptr noundef nonnull %0, i64 %2, ptr %3, i32 noundef %4, i32 noundef 0)
   %.not12 = icmp eq i32 %1, 0
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -749,7 +747,7 @@ define dso_local ptr @next_reflog_entry(ptr noundef captures(none) %0) local_unn
   %.01831 = phi i64 [ %41, %next_reflog_commit.exit.thread ], [ 0, %1 ]
   %.01930 = phi ptr [ %.120, %next_reflog_commit.exit.thread ], [ null, %1 ]
   %4 = load ptr, ptr %0, align 8, !tbaa !17
-  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %.01831
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.01831
   %6 = load ptr, ptr %5, align 8, !tbaa !18
   %.pr.i = load i32, ptr %6, align 8, !tbaa !36
   %7 = icmp sgt i32 %.pr.i, -1
@@ -765,7 +763,7 @@ define dso_local ptr @next_reflog_entry(ptr noundef captures(none) %0) local_unn
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8, !tbaa !31
   %14 = zext nneg i32 %10 to i64
-  %15 = getelementptr inbounds nuw %struct.reflog_info, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [104 x i8], ptr %13, i64 %14
   %16 = load ptr, ptr @the_repository, align 8, !tbaa !26
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 36
   %18 = tail call ptr @parse_object(ptr noundef %16, ptr noundef nonnull %17) #13
@@ -795,7 +793,7 @@ next_reflog_commit.exit:                          ; preds = %19
   %28 = getelementptr i8, ptr %.val25, i64 16
   %.val25.val = load ptr, ptr %28, align 8, !tbaa !31
   %29 = sext i32 %.val to i64
-  %30 = getelementptr inbounds %struct.reflog_info, ptr %.val25.val, i64 %29
+  %30 = getelementptr inbounds [104 x i8], ptr %.val25.val, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 80
   %32 = load i64, ptr %31, align 8, !tbaa !32
   %.017.val = load i32, ptr %.01732, align 8, !tbaa !36
@@ -804,7 +802,7 @@ next_reflog_commit.exit:                          ; preds = %19
   %34 = getelementptr i8, ptr %.017.val26, i64 16
   %.017.val26.val = load ptr, ptr %34, align 8, !tbaa !31
   %35 = sext i32 %.017.val to i64
-  %36 = getelementptr inbounds %struct.reflog_info, ptr %.017.val26.val, i64 %35
+  %36 = getelementptr inbounds [104 x i8], ptr %.017.val26.val, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 80
   %38 = load i64, ptr %37, align 8, !tbaa !32
   %39 = icmp ugt i64 %32, %38
@@ -882,7 +880,7 @@ st_mult.exit:                                     ; preds = %12
   %24 = phi i32 [ %9, %._crit_edge ], [ %.pre29, %st_mult.exit ]
   %25 = phi ptr [ %.pre, %._crit_edge ], [ %22, %st_mult.exit ]
   %26 = sext i32 %24 to i64
-  %27 = getelementptr inbounds %struct.reflog_info, ptr %25, i64 %26
+  %27 = getelementptr inbounds [104 x i8], ptr %25, i64 %26
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %27, ptr noundef nonnull readonly align 4 dereferenceable(32) %0, i64 32, i1 false)
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %29 = load i32, ptr %28, align 4, !tbaa !56

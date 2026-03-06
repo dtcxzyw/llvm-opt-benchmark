@@ -3,18 +3,6 @@ source_filename = "bench/postgres/original/condition_variable.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.PGPROC = type { %struct.dlist_node, ptr, ptr, i32, %struct.Latch, i32, i32, i32, i32, %struct.anon, i32, i32, i32, i8, i8, i8, i8, %struct.proclist_node, %struct.proclist_node, ptr, ptr, i32, i32, %struct.pg_atomic_uint64, i32, i8, i64, i32, %struct.dlist_node, [16 x %struct.dlist_head], %struct.XidCacheStatus, %struct.XidCache, i8, %struct.pg_atomic_uint32, i32, i32, i8, %struct.pg_atomic_uint32, i32, i32, i64, i64, %struct.LWLock, ptr, ptr, i8, i32, ptr, %struct.dlist_head, %struct.dlist_node }
-%struct.Latch = type { i32, i32, i8, i32 }
-%struct.anon = type { i32, i32 }
-%struct.proclist_node = type { i32, i32 }
-%struct.pg_atomic_uint64 = type { i64 }
-%struct.XidCacheStatus = type { i8, i8 }
-%struct.XidCache = type { [64 x i32] }
-%struct.pg_atomic_uint32 = type { i32 }
-%struct.LWLock = type { i16, %struct.pg_atomic_uint32, %struct.proclist_head }
-%struct.proclist_head = type { i32, i32 }
-%struct.dlist_head = type { %struct.dlist_node }
-%struct.dlist_node = type { ptr, ptr }
 %struct.timespec = type { i64, i64 }
 
 @MyProcNumber = external local_unnamed_addr global i32, align 4
@@ -63,7 +51,7 @@ define dso_local void @ConditionVariablePrepareToSleep(ptr noundef %0) local_unn
   %11 = load ptr, ptr @ProcGlobal, align 8
   %12 = load ptr, ptr %11, align 8
   %13 = sext i32 %10 to i64
-  %14 = getelementptr inbounds %struct.PGPROC, ptr %12, i64 %13
+  %14 = getelementptr inbounds [832 x i8], ptr %12, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 104
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %16, 0
@@ -88,7 +76,7 @@ define dso_local void @ConditionVariablePrepareToSleep(ptr noundef %0) local_unn
 .thread.i:                                        ; preds = %22, %19
   %26 = phi i32 [ %24, %22 ], [ %20, %19 ]
   %27 = sext i32 %16 to i64
-  %28 = getelementptr inbounds %struct.PGPROC, ptr %12, i64 %27
+  %28 = getelementptr inbounds [832 x i8], ptr %12, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 100
   store i32 %26, ptr %29, align 4
   br label %30
@@ -108,7 +96,7 @@ define dso_local void @ConditionVariablePrepareToSleep(ptr noundef %0) local_unn
   %37 = load ptr, ptr @ProcGlobal, align 8
   %38 = load ptr, ptr %37, align 8
   %39 = sext i32 %32 to i64
-  %40 = getelementptr inbounds %struct.PGPROC, ptr %38, i64 %39
+  %40 = getelementptr inbounds [832 x i8], ptr %38, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 104
   store i32 %31, ptr %41, align 4
   br label %proclist_delete_offset.exit.i
@@ -137,7 +125,7 @@ ConditionVariableCancelSleep.exit:                ; preds = %19, %proclist_delet
   %47 = load ptr, ptr @ProcGlobal, align 8
   %48 = load ptr, ptr %47, align 8
   %49 = sext i32 %2 to i64
-  %50 = getelementptr inbounds %struct.PGPROC, ptr %48, i64 %49
+  %50 = getelementptr inbounds [832 x i8], ptr %48, i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 100
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %53 = load i32, ptr %52, align 4
@@ -157,7 +145,7 @@ ConditionVariableCancelSleep.exit:                ; preds = %19, %proclist_delet
   %59 = load ptr, ptr @ProcGlobal, align 8
   %60 = load ptr, ptr %59, align 8
   %61 = sext i32 %53 to i64
-  %62 = getelementptr inbounds %struct.PGPROC, ptr %60, i64 %61
+  %62 = getelementptr inbounds [832 x i8], ptr %60, i64 %61
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 100
   store i32 %2, ptr %63, align 4
   store i32 -1, ptr %51, align 4
@@ -191,7 +179,7 @@ define dso_local noundef zeroext i1 @ConditionVariableCancelSleep() local_unname
   %10 = load ptr, ptr @ProcGlobal, align 8
   %11 = load ptr, ptr %10, align 8
   %12 = sext i32 %9 to i64
-  %13 = getelementptr inbounds %struct.PGPROC, ptr %11, i64 %12
+  %13 = getelementptr inbounds [832 x i8], ptr %11, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 104
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, 0
@@ -216,7 +204,7 @@ define dso_local noundef zeroext i1 @ConditionVariableCancelSleep() local_unname
 .thread:                                          ; preds = %18, %21
   %25 = phi i32 [ %23, %21 ], [ %19, %18 ]
   %26 = sext i32 %15 to i64
-  %27 = getelementptr inbounds %struct.PGPROC, ptr %11, i64 %26
+  %27 = getelementptr inbounds [832 x i8], ptr %11, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 100
   store i32 %25, ptr %28, align 4
   br label %29
@@ -236,7 +224,7 @@ define dso_local noundef zeroext i1 @ConditionVariableCancelSleep() local_unname
   %36 = load ptr, ptr @ProcGlobal, align 8
   %37 = load ptr, ptr %36, align 8
   %38 = sext i32 %31 to i64
-  %39 = getelementptr inbounds %struct.PGPROC, ptr %37, i64 %38
+  %39 = getelementptr inbounds [832 x i8], ptr %37, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 104
   store i32 %30, ptr %40, align 4
   br label %proclist_delete_offset.exit
@@ -324,7 +312,7 @@ define dso_local noundef zeroext i1 @ConditionVariableTimedSleep(ptr noundef %0,
   %28 = load ptr, ptr @ProcGlobal, align 8
   %29 = load ptr, ptr %28, align 8
   %30 = sext i32 %27 to i64
-  %31 = getelementptr inbounds %struct.PGPROC, ptr %29, i64 %30
+  %31 = getelementptr inbounds [832 x i8], ptr %29, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 104
   %33 = load i32, ptr %32, align 4
   %34 = icmp eq i32 %33, 0
@@ -352,7 +340,7 @@ proclist_contains_offset.exit:                    ; preds = %35
   %43 = load ptr, ptr @ProcGlobal, align 8
   %44 = load ptr, ptr %43, align 8
   %45 = sext i32 %39 to i64
-  %46 = getelementptr inbounds %struct.PGPROC, ptr %44, i64 %45
+  %46 = getelementptr inbounds [832 x i8], ptr %44, i64 %45
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 100
   store i32 %27, ptr %47, align 4
   store i32 -1, ptr %36, align 4
@@ -436,7 +424,7 @@ define dso_local void @ConditionVariableSignal(ptr noundef %0) local_unnamed_add
   %9 = load ptr, ptr @ProcGlobal, align 8
   %10 = load ptr, ptr %9, align 8
   %11 = sext i32 %.val to i64
-  %12 = getelementptr inbounds %struct.PGPROC, ptr %10, i64 %11
+  %12 = getelementptr inbounds [832 x i8], ptr %10, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 100
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 104
   %15 = load i32, ptr %14, align 4
@@ -451,7 +439,7 @@ define dso_local void @ConditionVariableSignal(ptr noundef %0) local_unnamed_add
 
 19:                                               ; preds = %8
   %20 = sext i32 %15 to i64
-  %21 = getelementptr inbounds %struct.PGPROC, ptr %10, i64 %20
+  %21 = getelementptr inbounds [832 x i8], ptr %10, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 100
   store i32 %17, ptr %22, align 4
   br label %23
@@ -470,7 +458,7 @@ define dso_local void @ConditionVariableSignal(ptr noundef %0) local_unnamed_add
   %29 = load ptr, ptr @ProcGlobal, align 8
   %30 = load ptr, ptr %29, align 8
   %31 = sext i32 %17 to i64
-  %32 = getelementptr inbounds %struct.PGPROC, ptr %30, i64 %31
+  %32 = getelementptr inbounds [832 x i8], ptr %30, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 104
   store i32 %24, ptr %33, align 4
   br label %34
@@ -512,7 +500,7 @@ define dso_local void @ConditionVariableBroadcast(ptr noundef %0) local_unnamed_
   %11 = load ptr, ptr @ProcGlobal, align 8
   %12 = load ptr, ptr %11, align 8
   %13 = sext i32 %10 to i64
-  %14 = getelementptr inbounds %struct.PGPROC, ptr %12, i64 %13
+  %14 = getelementptr inbounds [832 x i8], ptr %12, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 104
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %16, 0
@@ -537,7 +525,7 @@ define dso_local void @ConditionVariableBroadcast(ptr noundef %0) local_unnamed_
 .thread.i:                                        ; preds = %22, %19
   %26 = phi i32 [ %24, %22 ], [ %20, %19 ]
   %27 = sext i32 %16 to i64
-  %28 = getelementptr inbounds %struct.PGPROC, ptr %12, i64 %27
+  %28 = getelementptr inbounds [832 x i8], ptr %12, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 100
   store i32 %26, ptr %29, align 4
   br label %30
@@ -557,7 +545,7 @@ define dso_local void @ConditionVariableBroadcast(ptr noundef %0) local_unnamed_
   %37 = load ptr, ptr @ProcGlobal, align 8
   %38 = load ptr, ptr %37, align 8
   %39 = sext i32 %32 to i64
-  %40 = getelementptr inbounds %struct.PGPROC, ptr %38, i64 %39
+  %40 = getelementptr inbounds [832 x i8], ptr %38, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 104
   store i32 %31, ptr %41, align 4
   br label %proclist_delete_offset.exit.i
@@ -592,7 +580,7 @@ ConditionVariableCancelSleep.exit:                ; preds = %19, %proclist_delet
   %50 = load ptr, ptr @ProcGlobal, align 8
   %51 = load ptr, ptr %50, align 8
   %52 = sext i32 %.val28 to i64
-  %53 = getelementptr inbounds %struct.PGPROC, ptr %51, i64 %52
+  %53 = getelementptr inbounds [832 x i8], ptr %51, i64 %52
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 100
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 104
   %56 = load i32, ptr %55, align 4
@@ -607,7 +595,7 @@ ConditionVariableCancelSleep.exit:                ; preds = %19, %proclist_delet
 
 60:                                               ; preds = %49
   %61 = sext i32 %56 to i64
-  %62 = getelementptr inbounds %struct.PGPROC, ptr %51, i64 %61
+  %62 = getelementptr inbounds [832 x i8], ptr %51, i64 %61
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 100
   store i32 %58, ptr %63, align 4
   br label %64
@@ -626,7 +614,7 @@ ConditionVariableCancelSleep.exit:                ; preds = %19, %proclist_delet
   %70 = load ptr, ptr @ProcGlobal, align 8
   %71 = load ptr, ptr %70, align 8
   %72 = sext i32 %58 to i64
-  %73 = getelementptr inbounds %struct.PGPROC, ptr %71, i64 %72
+  %73 = getelementptr inbounds [832 x i8], ptr %71, i64 %72
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 104
   store i32 %65, ptr %74, align 4
   br label %proclist_pop_head_node_offset.exit
@@ -642,7 +630,7 @@ proclist_pop_head_node_offset.exit:               ; preds = %67, %69
   %76 = load ptr, ptr @ProcGlobal, align 8
   %77 = load ptr, ptr %76, align 8
   %78 = sext i32 %2 to i64
-  %79 = getelementptr inbounds %struct.PGPROC, ptr %77, i64 %78
+  %79 = getelementptr inbounds [832 x i8], ptr %77, i64 %78
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 100
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %82 = load i32, ptr %81, align 4
@@ -661,7 +649,7 @@ proclist_pop_head_node_offset.exit:               ; preds = %67, %69
   %87 = load ptr, ptr @ProcGlobal, align 8
   %88 = load ptr, ptr %87, align 8
   %89 = sext i32 %82 to i64
-  %90 = getelementptr inbounds %struct.PGPROC, ptr %88, i64 %89
+  %90 = getelementptr inbounds [832 x i8], ptr %88, i64 %89
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 100
   store i32 %2, ptr %91, align 4
   store i32 -1, ptr %80, align 4
@@ -698,7 +686,7 @@ proclist_pop_head_node_offset.exit:               ; preds = %67, %69
   %100 = load ptr, ptr @ProcGlobal, align 8
   %101 = load ptr, ptr %100, align 8
   %102 = sext i32 %.val to i64
-  %103 = getelementptr inbounds %struct.PGPROC, ptr %101, i64 %102
+  %103 = getelementptr inbounds [832 x i8], ptr %101, i64 %102
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 100
   %105 = getelementptr inbounds nuw i8, ptr %103, i64 104
   %106 = load i32, ptr %105, align 4
@@ -713,7 +701,7 @@ proclist_pop_head_node_offset.exit:               ; preds = %67, %69
 
 110:                                              ; preds = %99
   %111 = sext i32 %106 to i64
-  %112 = getelementptr inbounds %struct.PGPROC, ptr %101, i64 %111
+  %112 = getelementptr inbounds [832 x i8], ptr %101, i64 %111
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 100
   store i32 %108, ptr %113, align 4
   br label %114
@@ -731,7 +719,7 @@ proclist_pop_head_node_offset.exit:               ; preds = %67, %69
   %119 = load ptr, ptr @ProcGlobal, align 8
   %120 = load ptr, ptr %119, align 8
   %121 = sext i32 %108 to i64
-  %122 = getelementptr inbounds %struct.PGPROC, ptr %120, i64 %121
+  %122 = getelementptr inbounds [832 x i8], ptr %120, i64 %121
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 104
   store i32 %115, ptr %123, align 4
   br label %proclist_pop_head_node_offset.exit33
@@ -745,7 +733,7 @@ proclist_pop_head_node_offset.exit33:             ; preds = %117, %118
   %.121 = phi ptr [ null, %97 ], [ %103, %proclist_pop_head_node_offset.exit33 ]
   %125 = load ptr, ptr @ProcGlobal, align 8
   %126 = load ptr, ptr %125, align 8
-  %127 = getelementptr inbounds %struct.PGPROC, ptr %126, i64 %78
+  %127 = getelementptr inbounds [832 x i8], ptr %126, i64 %78
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 104
   %129 = load i32, ptr %128, align 4
   %130 = icmp eq i32 %129, 0

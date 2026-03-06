@@ -3,8 +3,6 @@ source_filename = "bench/ffmpeg/original/packet.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.AVPacketSideData = type { ptr, i64, i32 }
-
 @.str = private unnamed_addr constant [30 x i8] c"Assertion %s failed at %s:%d\0A\00", align 1
 @.str.1 = private unnamed_addr constant [39 x i8] c"(unsigned)pkt->size <= 2147483647 - 64\00", align 1
 @.str.2 = private unnamed_addr constant [20 x i8] c"libavcodec/packet.c\00", align 1
@@ -124,7 +122,7 @@ define void @av_packet_free(ptr noundef %0) local_unnamed_addr #2 {
 9:                                                ; preds = %9, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %9 ]
   %10 = load ptr, ptr %8, align 8, !tbaa !21
-  %11 = getelementptr inbounds nuw %struct.AVPacketSideData, ptr %10, i64 %indvars.iv.i.i
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %10, i64 %indvars.iv.i.i
   tail call void @av_freep(ptr noundef %11) #16
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %12 = load i32, ptr %5, align 8, !tbaa !22
@@ -169,7 +167,7 @@ define void @av_packet_unref(ptr noundef %0) local_unnamed_addr #2 {
 6:                                                ; preds = %6, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %6 ]
   %7 = load ptr, ptr %5, align 8, !tbaa !21
-  %8 = getelementptr inbounds nuw %struct.AVPacketSideData, ptr %7, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %indvars.iv.i
   tail call void @av_freep(ptr noundef %8) #16
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %9 = load i32, ptr %2, align 8, !tbaa !22
@@ -454,7 +452,7 @@ define void @av_packet_free_side_data(ptr noundef %0) local_unnamed_addr #2 {
 6:                                                ; preds = %.lr.ph, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
   %7 = load ptr, ptr %5, align 8, !tbaa !21
-  %8 = getelementptr inbounds nuw %struct.AVPacketSideData, ptr %7, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %indvars.iv
   tail call void @av_freep(ptr noundef %8) #16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %9 = load i32, ptr %2, align 8, !tbaa !22
@@ -489,7 +487,7 @@ define range(i32 -34, 1) i32 @av_packet_add_side_data(ptr noundef captures(none)
 
 .critedge:                                        ; preds = %.critedge.lr.ph, %10
   %indvars.iv = phi i64 [ 0, %.critedge.lr.ph ], [ %indvars.iv.next, %10 ]
-  %11 = getelementptr inbounds nuw %struct.AVPacketSideData, ptr %9, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %9, i64 %indvars.iv
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load i32, ptr %12, align 8, !tbaa !35
   %.not35 = icmp eq i32 %13, %1
@@ -520,7 +518,7 @@ define range(i32 -34, 1) i32 @av_packet_add_side_data(ptr noundef captures(none)
 24:                                               ; preds = %19
   store ptr %23, ptr %20, align 8, !tbaa !21
   %25 = sext i32 %6 to i64
-  %26 = getelementptr inbounds %struct.AVPacketSideData, ptr %23, i64 %25
+  %26 = getelementptr inbounds [24 x i8], ptr %23, i64 %25
   store ptr %2, ptr %26, align 8, !tbaa !37
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store i64 %3, ptr %27, align 8, !tbaa !38
@@ -573,7 +571,7 @@ define ptr @av_packet_new_side_data(ptr noundef captures(none) %0, i32 noundef %
 
 .critedge.i:                                      ; preds = %15, %.critedge.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.critedge.lr.ph.i ], [ %indvars.iv.next.i, %15 ]
-  %16 = getelementptr inbounds nuw %struct.AVPacketSideData, ptr %14, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw [24 x i8], ptr %14, i64 %indvars.iv.i
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load i32, ptr %17, align 8, !tbaa !35
   %.not35.i = icmp eq i32 %18, %1
@@ -604,7 +602,7 @@ define ptr @av_packet_new_side_data(ptr noundef captures(none) %0, i32 noundef %
 29:                                               ; preds = %24
   store ptr %28, ptr %25, align 8, !tbaa !21
   %30 = sext i32 %11 to i64
-  %31 = getelementptr inbounds %struct.AVPacketSideData, ptr %28, i64 %30
+  %31 = getelementptr inbounds [24 x i8], ptr %28, i64 %30
   store ptr %8, ptr %31, align 8, !tbaa !37
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i64 %2, ptr %32, align 8, !tbaa !38
@@ -647,7 +645,7 @@ define ptr @av_packet_get_side_data(ptr noundef readonly captures(none) %0, i32 
 
 10:                                               ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
-  %11 = getelementptr inbounds nuw %struct.AVPacketSideData, ptr %8, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %8, i64 %indvars.iv
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load i32, ptr %12, align 8, !tbaa !35
   %14 = icmp eq i32 %13, %1
@@ -687,7 +685,7 @@ define noundef ptr @av_packet_side_data_name(i32 noundef %0) local_unnamed_addr 
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.av_packet_side_data_name, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.av_packet_side_data_name, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -852,7 +850,7 @@ define range(i32 -12, 1) i32 @av_packet_shrink_side_data(ptr noundef readonly ca
 
 10:                                               ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
-  %11 = getelementptr inbounds nuw %struct.AVPacketSideData, ptr %8, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %8, i64 %indvars.iv
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load i32, ptr %12, align 8, !tbaa !35
   %14 = icmp eq i32 %13, %1
@@ -932,7 +930,7 @@ define range(i32 -2147483648, 1) i32 @av_packet_copy_props(ptr noundef initializ
 38:                                               ; preds = %.lr.ph, %55
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %55 ]
   %39 = load ptr, ptr %37, align 8, !tbaa !21
-  %40 = getelementptr inbounds nuw %struct.AVPacketSideData, ptr %39, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [24 x i8], ptr %39, i64 %indvars.iv
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = load i32, ptr %41, align 8, !tbaa !35
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 8
@@ -951,7 +949,7 @@ define range(i32 -2147483648, 1) i32 @av_packet_copy_props(ptr noundef initializ
 .lr.ph.i:                                         ; preds = %47, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %47 ]
   %50 = load ptr, ptr %28, align 8, !tbaa !21
-  %51 = getelementptr inbounds nuw %struct.AVPacketSideData, ptr %50, i64 %indvars.iv.i
+  %51 = getelementptr inbounds nuw [24 x i8], ptr %50, i64 %indvars.iv.i
   tail call void @av_freep(ptr noundef %51) #16
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %52 = load i32, ptr %29, align 8, !tbaa !22
@@ -1067,7 +1065,7 @@ packet_alloc.exit.thread:                         ; preds = %10, %7, %32, %2
 45:                                               ; preds = %45, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %45 ]
   %46 = load ptr, ptr %44, align 8, !tbaa !21
-  %47 = getelementptr inbounds nuw %struct.AVPacketSideData, ptr %46, i64 %indvars.iv.i.i
+  %47 = getelementptr inbounds nuw [24 x i8], ptr %46, i64 %indvars.iv.i.i
   tail call void @av_freep(ptr noundef %47) #16
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %48 = load i32, ptr %41, align 8, !tbaa !22
@@ -1136,7 +1134,7 @@ define ptr @av_packet_clone(ptr noundef readonly captures(none) %0) local_unname
 15:                                               ; preds = %15, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %15 ]
   %16 = load ptr, ptr %14, align 8, !tbaa !21
-  %17 = getelementptr inbounds nuw %struct.AVPacketSideData, ptr %16, i64 %indvars.iv.i.i.i
+  %17 = getelementptr inbounds nuw [24 x i8], ptr %16, i64 %indvars.iv.i.i.i
   tail call void @av_freep(ptr noundef %17) #16
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %18 = load i32, ptr %11, align 8, !tbaa !22
@@ -1512,7 +1510,7 @@ define void @avpriv_packet_list_free(ptr noundef captures(none) %0) local_unname
 10:                                               ; preds = %10, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %10 ]
   %11 = load ptr, ptr %9, align 8, !tbaa !21
-  %12 = getelementptr inbounds nuw %struct.AVPacketSideData, ptr %11, i64 %indvars.iv.i.i
+  %12 = getelementptr inbounds nuw [24 x i8], ptr %11, i64 %indvars.iv.i.i
   call void @av_freep(ptr noundef %12) #16
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %13 = load i32, ptr %6, align 8, !tbaa !22
@@ -1566,7 +1564,7 @@ define range(i32 -12, 1) i32 @ff_side_data_set_encoder_stats(ptr noundef capture
 
 12:                                               ; preds = %11, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %11 ]
-  %13 = getelementptr inbounds nuw %struct.AVPacketSideData, ptr %10, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw [24 x i8], ptr %10, i64 %indvars.iv.i
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load i32, ptr %14, align 8, !tbaa !35
   %16 = icmp eq i32 %15, 8
@@ -1613,7 +1611,7 @@ av_packet_get_side_data.exit.thread:              ; preds = %11, %5, %av_packet_
 
 31:                                               ; preds = %.lr.ph, %31
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %31 ]
-  %32 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %33 = load i64, ptr %32, align 8, !tbaa !41
   %34 = shl nsw i64 %indvars.iv, 3
   %35 = getelementptr inbounds nuw i8, ptr %30, i64 %34
@@ -1647,7 +1645,7 @@ define range(i32 -12, 1) i32 @ff_side_data_set_prft(ptr noundef captures(none) %
 
 9:                                                ; preds = %8, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %8 ]
-  %10 = getelementptr inbounds nuw %struct.AVPacketSideData, ptr %7, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %indvars.iv.i
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load i32, ptr %11, align 8, !tbaa !35
   %13 = icmp eq i32 %12, 27
@@ -1699,7 +1697,7 @@ define ptr @av_packet_side_data_get(ptr noundef readonly captures(ret: address, 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %5
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %5 ]
-  %6 = getelementptr inbounds nuw %struct.AVPacketSideData, ptr %0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %indvars.iv
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i32, ptr %7, align 8, !tbaa !35
   %9 = icmp eq i32 %8, %2
@@ -1728,7 +1726,7 @@ define ptr @av_packet_side_data_add(ptr noundef captures(none) %0, ptr noundef c
 
 .lr.ph.i:                                         ; preds = %9, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %9 ]
-  %10 = getelementptr inbounds nuw %struct.AVPacketSideData, ptr %7, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %indvars.iv.i
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load i32, ptr %11, align 8, !tbaa !35
   %.not.i = icmp eq i32 %12, %2
@@ -1756,7 +1754,7 @@ define ptr @av_packet_side_data_add(ptr noundef captures(none) %0, ptr noundef c
 19:                                               ; preds = %._crit_edge.thread.i
   store ptr %18, ptr %0, align 8, !tbaa !53
   %20 = sext i32 %8 to i64
-  %21 = getelementptr inbounds %struct.AVPacketSideData, ptr %18, i64 %20
+  %21 = getelementptr inbounds [24 x i8], ptr %18, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store i32 %2, ptr %22, align 8, !tbaa !35
   store ptr %3, ptr %21, align 8, !tbaa !37
@@ -1803,7 +1801,7 @@ define ptr @av_packet_side_data_new(ptr noundef captures(none) %0, ptr noundef c
 
 .lr.ph.i:                                         ; preds = %15, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %15 ]
-  %16 = getelementptr inbounds nuw %struct.AVPacketSideData, ptr %13, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw [24 x i8], ptr %13, i64 %indvars.iv.i
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load i32, ptr %17, align 8, !tbaa !35
   %.not.i = icmp eq i32 %18, %2
@@ -1831,7 +1829,7 @@ define ptr @av_packet_side_data_new(ptr noundef captures(none) %0, ptr noundef c
 25:                                               ; preds = %._crit_edge.thread.i
   store ptr %24, ptr %0, align 8, !tbaa !53
   %26 = sext i32 %14 to i64
-  %27 = getelementptr inbounds %struct.AVPacketSideData, ptr %24, i64 %26
+  %27 = getelementptr inbounds [24 x i8], ptr %24, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store i32 %2, ptr %28, align 8, !tbaa !35
   store ptr %10, ptr %27, align 8, !tbaa !37
@@ -1864,7 +1862,7 @@ define void @av_packet_side_data_remove(ptr noundef captures(none) %0, ptr nound
 
 9:                                                ; preds = %6
   %10 = add nsw i64 %indvars.iv, -1
-  %11 = getelementptr inbounds nuw %struct.AVPacketSideData, ptr %0, i64 %10
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load i32, ptr %12, align 8, !tbaa !35
   %.not = icmp eq i32 %13, %2
@@ -1875,7 +1873,7 @@ define void @av_packet_side_data_remove(ptr noundef captures(none) %0, ptr nound
   tail call void @av_free(ptr noundef %15) #16
   %16 = add nsw i32 %4, -1
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds %struct.AVPacketSideData, ptr %0, i64 %17
+  %18 = getelementptr inbounds [24 x i8], ptr %0, i64 %17
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %18, i64 24, i1 false), !tbaa.struct !70
   br label %.loopexit
 
@@ -1903,7 +1901,7 @@ define void @av_packet_side_data_free(ptr noundef %0, ptr noundef captures(none)
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds nuw %struct.AVPacketSideData, ptr %3, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [24 x i8], ptr %3, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8, !tbaa !37
   tail call void @av_free(ptr noundef %7) #16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1955,7 +1953,7 @@ define internal void @container_packet_reset(ptr readnone captures(none) %0, ptr
 7:                                                ; preds = %7, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %7 ]
   %8 = load ptr, ptr %6, align 8, !tbaa !21
-  %9 = getelementptr inbounds nuw %struct.AVPacketSideData, ptr %8, i64 %indvars.iv.i.i
+  %9 = getelementptr inbounds nuw [24 x i8], ptr %8, i64 %indvars.iv.i.i
   tail call void @av_freep(ptr noundef %9) #16
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %10 = load i32, ptr %3, align 8, !tbaa !22
@@ -2003,7 +2001,7 @@ define internal void @container_packet_free(ptr readnone captures(none) %0, ptr 
 9:                                                ; preds = %9, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %9 ]
   %10 = load ptr, ptr %8, align 8, !tbaa !21
-  %11 = getelementptr inbounds nuw %struct.AVPacketSideData, ptr %10, i64 %indvars.iv.i.i.i
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %10, i64 %indvars.iv.i.i.i
   tail call void @av_freep(ptr noundef %11) #16
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %12 = load i32, ptr %5, align 8, !tbaa !22

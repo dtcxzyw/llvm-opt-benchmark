@@ -443,7 +443,7 @@ extent_alloc_retained.exit.thread28:              ; preds = %malloc_mutex_lock.e
   %46 = trunc i64 %indvars.iv.i.i to i32
   %47 = add i32 %44, %46
   %.pn.i.i.i = zext i32 %47 to i64
-  %storemerge.in.i.i.i = getelementptr inbounds nuw i64, ptr @duckdb_je_sz_pind2sz_tab, i64 %.pn.i.i.i
+  %storemerge.in.i.i.i = getelementptr inbounds nuw [8 x i8], ptr @duckdb_je_sz_pind2sz_tab, i64 %.pn.i.i.i
   %storemerge.i.i.i = load i64, ptr %storemerge.in.i.i.i, align 8, !tbaa !46
   %48 = icmp ult i64 %storemerge.i.i.i, %40
   br i1 %48, label %49, label %exp_grow_size_prepare.exit.i.i

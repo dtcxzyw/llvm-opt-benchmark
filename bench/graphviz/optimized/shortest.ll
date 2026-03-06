@@ -8,7 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.tedge_t = type { ptr, ptr, i64 }
 %struct.pointnlink_t = type { ptr, ptr }
 %struct.deque_t = type { ptr, i64, i64, i64, i64 }
-%struct.Pxy_t = type { double, double }
 
 @stderr = external local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [24 x i8] c"lib/pathplan/%s:%d: %s\0A\00", align 1
@@ -101,7 +100,7 @@ define range(i32 -2, 1) i32 @Pshortestpath(ptr noundef readonly captures(none) %
   %.0210306 = phi i64 [ %43, %.lr.ph ], [ 0, %34 ]
   %.0217305 = phi i64 [ %.1218.fr, %.lr.ph ], [ -1, %34 ]
   %.0219304 = phi double [ %.1220, %.lr.ph ], [ 0x7FF0000000000000, %34 ]
-  %40 = getelementptr inbounds nuw %struct.Pxy_t, ptr %.pre, i64 %.0210306
+  %40 = getelementptr inbounds nuw [16 x i8], ptr %.pre, i64 %.0210306
   %41 = load double, ptr %40, align 8, !tbaa !19
   %42 = fcmp ogt double %.0219304, %41
   %.1220 = select i1 %42, double %41, double %.0219304
@@ -112,7 +111,7 @@ define range(i32 -2, 1) i32 @Pshortestpath(ptr noundef readonly captures(none) %
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %44 = getelementptr inbounds nuw %struct.Pxy_t, ptr %.pre, i64 %.1218.fr
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %.pre, i64 %.1218.fr
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %44, i64 8
   %45 = icmp eq i64 %.1218.fr, 0
   %spec.select = select i1 %45, i64 %27, i64 %.1218.fr
@@ -125,14 +124,14 @@ define range(i32 -2, 1) i32 @Pshortestpath(ptr noundef readonly captures(none) %
   %47 = phi i64 [ -1, %._crit_edge.thread ], [ %spec.select, %._crit_edge ]
   %.sroa.0129.0.copyload407 = load double, ptr %.sroa.0129.0.copyload407.in, align 8, !tbaa !24
   %.sroa.6.0.copyload408 = load double, ptr %.sroa.6.0.copyload408.in, align 8, !tbaa !24
-  %48 = getelementptr %struct.Pxy_t, ptr %.pre, i64 %47
+  %48 = getelementptr [16 x i8], ptr %.pre, i64 %47
   %49 = getelementptr i8, ptr %48, i64 -16
   %.sroa.0133.0.copyload = load double, ptr %49, align 8, !tbaa !24
   %50 = add i64 %27, -1
   %51 = icmp eq i64 %.0217.lcssa406, %50
   %52 = add i64 %.0217.lcssa406, 1
   %53 = select i1 %51, i64 0, i64 %52
-  %54 = getelementptr inbounds nuw %struct.Pxy_t, ptr %.pre, i64 %53
+  %54 = getelementptr inbounds nuw [16 x i8], ptr %.pre, i64 %53
   %.sroa.0.0.copyload = load double, ptr %54, align 8, !tbaa !24
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %54, i64 8
   %.sroa.5.0.copyload = load double, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !24
@@ -177,9 +176,9 @@ define range(i32 -2, 1) i32 @Pshortestpath(ptr noundef readonly captures(none) %
   br i1 %63, label %64, label %76
 
 64:                                               ; preds = %.lr.ph317.split
-  %65 = getelementptr inbounds nuw %struct.Pxy_t, ptr %.pre371.pre, i64 %.1211315
+  %65 = getelementptr inbounds nuw [16 x i8], ptr %.pre371.pre, i64 %.1211315
   %66 = load double, ptr %65, align 8, !tbaa !19
-  %67 = getelementptr inbounds nuw %struct.Pxy_t, ptr %.pre371.pre, i64 %.1211.in314
+  %67 = getelementptr inbounds nuw [16 x i8], ptr %.pre371.pre, i64 %.1211.in314
   %68 = load double, ptr %67, align 8, !tbaa !19
   %69 = fcmp oeq double %66, %68
   br i1 %69, label %70, label %76
@@ -193,14 +192,14 @@ define range(i32 -2, 1) i32 @Pshortestpath(ptr noundef readonly captures(none) %
   br i1 %75, label %84, label %76
 
 76:                                               ; preds = %70, %64, %.lr.ph317.split
-  %77 = getelementptr inbounds nuw %struct.Pxy_t, ptr %.pre371.pre, i64 %.1211315
-  %78 = getelementptr inbounds nuw %struct.pointnlink_t, ptr %12, i64 %.0213313
+  %77 = getelementptr inbounds nuw [16 x i8], ptr %.pre371.pre, i64 %.1211315
+  %78 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %.0213313
   store ptr %77, ptr %78, align 8, !tbaa !26
   %79 = urem i64 %.0213313, %61
-  %80 = getelementptr inbounds nuw %struct.pointnlink_t, ptr %12, i64 %79
+  %80 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %79
   %81 = getelementptr inbounds nuw i8, ptr %78, i64 8
   store ptr %80, ptr %81, align 8, !tbaa !29
-  %82 = getelementptr inbounds nuw ptr, ptr %19, i64 %.0213313
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.0213313
   store ptr %78, ptr %82, align 8, !tbaa !30
   %83 = add i64 %.0213313, 1
   br label %84
@@ -217,7 +216,7 @@ define range(i32 -2, 1) i32 @Pshortestpath(ptr noundef readonly captures(none) %
   br i1 %.not240, label %97, label %85
 
 85:                                               ; preds = %.lr.ph310
-  %86 = getelementptr inbounds nuw %struct.Pxy_t, ptr %.pre369.pre, i64 %.2212308
+  %86 = getelementptr inbounds nuw [16 x i8], ptr %.pre369.pre, i64 %.2212308
   %87 = load double, ptr %86, align 8, !tbaa !19
   %88 = getelementptr i8, ptr %86, i64 -16
   %89 = load double, ptr %88, align 8, !tbaa !19
@@ -233,14 +232,14 @@ define range(i32 -2, 1) i32 @Pshortestpath(ptr noundef readonly captures(none) %
   br i1 %96, label %105, label %97
 
 97:                                               ; preds = %91, %85, %.lr.ph310
-  %98 = getelementptr inbounds nuw %struct.Pxy_t, ptr %.pre369.pre, i64 %.2212308
-  %99 = getelementptr inbounds nuw %struct.pointnlink_t, ptr %12, i64 %.3216307
+  %98 = getelementptr inbounds nuw [16 x i8], ptr %.pre369.pre, i64 %.2212308
+  %99 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %.3216307
   store ptr %98, ptr %99, align 8, !tbaa !26
   %100 = urem i64 %.3216307, %.pre370
-  %101 = getelementptr inbounds nuw %struct.pointnlink_t, ptr %12, i64 %100
+  %101 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %100
   %102 = getelementptr inbounds nuw i8, ptr %99, i64 8
   store ptr %101, ptr %102, align 8, !tbaa !29
-  %103 = getelementptr inbounds nuw ptr, ptr %19, i64 %.3216307
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.3216307
   store ptr %99, ptr %103, align 8, !tbaa !30
   %104 = add i64 %.3216307, 1
   br label %105
@@ -292,7 +291,7 @@ define range(i32 -2, 1) i32 @Pshortestpath(ptr noundef readonly captures(none) %
 .lr.ph321:                                        ; preds = %115
   %118 = add i64 %110, %.0221322
   %119 = urem i64 %118, %111
-  %120 = getelementptr inbounds nuw %struct.triangle_t, ptr %109, i64 %119
+  %120 = getelementptr inbounds nuw [80 x i8], ptr %109, i64 %119
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 8
   br label %122
 
@@ -300,13 +299,13 @@ define range(i32 -2, 1) i32 @Pshortestpath(ptr noundef readonly captures(none) %
   %.0232319 = phi i64 [ %116, %.lr.ph321 ], [ %155, %connecttris.exit ]
   %123 = add i64 %110, %.0232319
   %124 = urem i64 %123, %111
-  %125 = getelementptr inbounds nuw %struct.triangle_t, ptr %109, i64 %124
+  %125 = getelementptr inbounds nuw [80 x i8], ptr %109, i64 %124
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 8
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %154, %122
   %indvars.iv31.i = phi i64 [ 0, %122 ], [ %indvars.iv.next32.i, %154 ]
-  %127 = getelementptr inbounds nuw %struct.tedge_t, ptr %121, i64 %indvars.iv31.i
+  %127 = getelementptr inbounds nuw [24 x i8], ptr %121, i64 %indvars.iv31.i
   %128 = load ptr, ptr %127, align 8, !tbaa !37
   %129 = load ptr, ptr %128, align 8, !tbaa !26
   %130 = getelementptr inbounds nuw i8, ptr %127, i64 8
@@ -315,7 +314,7 @@ define range(i32 -2, 1) i32 @Pshortestpath(ptr noundef readonly captures(none) %
 
 132:                                              ; preds = %153, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %153 ]
-  %133 = getelementptr inbounds nuw %struct.tedge_t, ptr %126, i64 %indvars.iv.i
+  %133 = getelementptr inbounds nuw [24 x i8], ptr %126, i64 %indvars.iv.i
   %134 = load ptr, ptr %133, align 8, !tbaa !37
   %135 = load ptr, ptr %134, align 8, !tbaa !26
   %136 = icmp eq ptr %129, %135
@@ -382,13 +381,13 @@ connecttris.exit:                                 ; preds = %154
   %160 = add i64 %159, %.1222324
   %161 = load i64, ptr getelementptr inbounds nuw (i8, ptr @tris, i64 24), align 8, !tbaa !49, !noalias !45
   %162 = urem i64 %160, %161
-  %163 = getelementptr inbounds nuw %struct.triangle_t, ptr %158, i64 %162
+  %163 = getelementptr inbounds nuw [80 x i8], ptr %158, i64 %162
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %6, ptr noundef nonnull align 8 dereferenceable(80) %163, i64 80, i1 false), !tbaa.struct !50
-  %164 = getelementptr inbounds nuw %struct.tedge_t, ptr %113, i64 %indvars.iv.i256
+  %164 = getelementptr inbounds nuw [24 x i8], ptr %113, i64 %indvars.iv.i256
   %165 = load ptr, ptr %164, align 8, !tbaa !37
   %166 = load ptr, ptr %165, align 8, !tbaa !26
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %7, ptr noundef nonnull align 8 dereferenceable(80) %163, i64 80, i1 false), !tbaa.struct !50
-  %167 = getelementptr inbounds nuw %struct.tedge_t, ptr %7, i64 %indvars.iv.i256
+  %167 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %indvars.iv.i256
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 16
   %169 = load ptr, ptr %168, align 8, !tbaa !39
   %170 = load ptr, ptr %169, align 8, !tbaa !26
@@ -464,13 +463,13 @@ pointintri.exit._crit_edge.thread:                ; preds = %.preheader298, %poi
   %195 = add i64 %194, %.2223331
   %196 = load i64, ptr getelementptr inbounds nuw (i8, ptr @tris, i64 24), align 8, !tbaa !49, !noalias !56
   %197 = urem i64 %195, %196
-  %198 = getelementptr inbounds nuw %struct.triangle_t, ptr %193, i64 %197
+  %198 = getelementptr inbounds nuw [80 x i8], ptr %193, i64 %197
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %4, ptr noundef nonnull align 8 dereferenceable(80) %198, i64 80, i1 false), !tbaa.struct !50
-  %199 = getelementptr inbounds nuw %struct.tedge_t, ptr %187, i64 %indvars.iv.i259
+  %199 = getelementptr inbounds nuw [24 x i8], ptr %187, i64 %indvars.iv.i259
   %200 = load ptr, ptr %199, align 8, !tbaa !37
   %201 = load ptr, ptr %200, align 8, !tbaa !26
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %5, ptr noundef nonnull align 8 dereferenceable(80) %198, i64 80, i1 false), !tbaa.struct !50
-  %202 = getelementptr inbounds nuw %struct.tedge_t, ptr %5, i64 %indvars.iv.i259
+  %202 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %indvars.iv.i259
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 16
   %204 = load ptr, ptr %203, align 8, !tbaa !39
   %205 = load ptr, ptr %204, align 8, !tbaa !26
@@ -601,7 +600,7 @@ growops.exit:                                     ; preds = %238
 
 add2dq.exit:                                      ; preds = %249, %254
   store i64 %37, ptr %36, align 8, !tbaa !16
-  %256 = getelementptr inbounds nuw ptr, ptr %29, i64 %37
+  %256 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %37
   store ptr %8, ptr %256, align 8, !tbaa !30
   %257 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store i64 %37, ptr %257, align 8, !tbaa !63
@@ -625,13 +624,13 @@ add2dq.exit:                                      ; preds = %249, %254
   %264 = phi i64 [ %37, %.lr.ph344 ], [ %367, %377 ]
   %265 = add i64 %260, %.3224343
   %266 = urem i64 %265, %259
-  %267 = getelementptr inbounds nuw %struct.triangle_t, ptr %261, i64 %266
+  %267 = getelementptr inbounds nuw [80 x i8], ptr %261, i64 %266
   store i32 2, ptr %267, align 8, !tbaa !64
   br label %268
 
 268:                                              ; preds = %.loopexit421, %277
   %indvars.iv = phi i64 [ 0, %.loopexit421 ], [ %indvars.iv.next, %277 ]
-  %269 = getelementptr inbounds nuw %struct.tedge_t, ptr %267, i64 %indvars.iv
+  %269 = getelementptr inbounds nuw [24 x i8], ptr %267, i64 %indvars.iv
   %270 = getelementptr inbounds nuw i8, ptr %269, i64 24
   %271 = load i64, ptr %270, align 8, !tbaa !40
   %.not249 = icmp eq i64 %271, -1
@@ -640,7 +639,7 @@ add2dq.exit:                                      ; preds = %249, %254
 272:                                              ; preds = %268
   %273 = add i64 %271, %260
   %274 = urem i64 %273, %259
-  %275 = getelementptr inbounds nuw %struct.triangle_t, ptr %261, i64 %274
+  %275 = getelementptr inbounds nuw [80 x i8], ptr %261, i64 %274
   %.sroa.0283.0.copyload = load i32, ptr %275, align 8, !tbaa !51
   %276 = icmp eq i32 %.sroa.0283.0.copyload, 1
   br i1 %276, label %.thread, label %277
@@ -651,10 +650,10 @@ add2dq.exit:                                      ; preds = %249, %254
   br i1 %exitcond364.not, label %278, label %268, !llvm.loop !66
 
 278:                                              ; preds = %277
-  %279 = getelementptr inbounds nuw ptr, ptr %29, i64 %262
+  %279 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %262
   %280 = load ptr, ptr %279, align 8, !tbaa !30
   %281 = load ptr, ptr %280, align 8, !tbaa !26
-  %282 = getelementptr inbounds nuw ptr, ptr %29, i64 %263
+  %282 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %263
   %283 = load ptr, ptr %282, align 8, !tbaa !30
   %284 = load ptr, ptr %283, align 8, !tbaa !26
   %285 = load double, ptr %251, align 8
@@ -678,11 +677,11 @@ add2dq.exit:                                      ; preds = %249, %254
   %298 = add nuw nsw i32 %296, 1
   %299 = urem i32 %298, 3
   %300 = zext nneg i32 %299 to i64
-  %301 = getelementptr inbounds nuw %struct.tedge_t, ptr %297, i64 %300
+  %301 = getelementptr inbounds nuw [24 x i8], ptr %297, i64 %300
   %302 = getelementptr inbounds nuw i8, ptr %301, i64 8
   %303 = load ptr, ptr %302, align 8, !tbaa !39
   %304 = and i64 %indvars.iv, 4294967295
-  %305 = getelementptr inbounds nuw %struct.tedge_t, ptr %297, i64 %304
+  %305 = getelementptr inbounds nuw [24 x i8], ptr %297, i64 %304
   %306 = load ptr, ptr %305, align 8, !tbaa !37
   %307 = load ptr, ptr %306, align 8, !tbaa !26
   %308 = load ptr, ptr %303, align 8, !tbaa !26
@@ -723,7 +722,7 @@ add2dq.exit:                                      ; preds = %249, %254
   br i1 %.not19.i267, label %add2dq.exit269, label %332
 
 332:                                              ; preds = %331
-  %333 = getelementptr inbounds nuw ptr, ptr %29, i64 %263
+  %333 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %263
   %334 = load ptr, ptr %333, align 8, !tbaa !30
   %335 = getelementptr inbounds nuw i8, ptr %.0229, i64 8
   store ptr %334, ptr %335, align 8, !tbaa !29
@@ -732,13 +731,13 @@ add2dq.exit:                                      ; preds = %249, %254
 add2dq.exit269:                                   ; preds = %331, %332
   %336 = add i64 %263, 1
   store i64 %336, ptr %38, align 8, !tbaa !17
-  %337 = getelementptr inbounds nuw ptr, ptr %29, i64 %336
+  %337 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %336
   store ptr %.0229, ptr %337, align 8, !tbaa !30
   %.not19.i270 = icmp ult i64 %336, %262
   br i1 %.not19.i270, label %add2dq.exit272, label %338
 
 338:                                              ; preds = %add2dq.exit269
-  %339 = getelementptr inbounds nuw ptr, ptr %29, i64 %262
+  %339 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %262
   %340 = load ptr, ptr %339, align 8, !tbaa !30
   %341 = getelementptr inbounds nuw i8, ptr %.0228, i64 8
   store ptr %340, ptr %341, align 8, !tbaa !29
@@ -747,18 +746,18 @@ add2dq.exit269:                                   ; preds = %331, %332
 add2dq.exit272:                                   ; preds = %add2dq.exit269, %338
   %342 = add i64 %262, -1
   store i64 %342, ptr %36, align 8, !tbaa !16
-  %343 = getelementptr inbounds nuw ptr, ptr %29, i64 %342
+  %343 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %342
   store ptr %.0228, ptr %343, align 8, !tbaa !30
   br label %366
 
 344:                                              ; preds = %329
-  %345 = getelementptr inbounds nuw ptr, ptr %29, i64 %262
+  %345 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %262
   %346 = load ptr, ptr %345, align 8, !tbaa !30
   %.not250 = icmp eq ptr %346, %.0228
   br i1 %.not250, label %358, label %347
 
 347:                                              ; preds = %344
-  %348 = getelementptr inbounds nuw ptr, ptr %29, i64 %263
+  %348 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %263
   %349 = load ptr, ptr %348, align 8, !tbaa !30
   %.not251 = icmp eq ptr %349, %.0228
   br i1 %.not251, label %358, label %350
@@ -769,7 +768,7 @@ add2dq.exit272:                                   ; preds = %add2dq.exit269, %33
   br i1 %.not19.i273, label %add2dq.exit275, label %352
 
 352:                                              ; preds = %350
-  %353 = getelementptr inbounds nuw ptr, ptr %29, i64 %351
+  %353 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %351
   %354 = load ptr, ptr %353, align 8, !tbaa !30
   %355 = getelementptr inbounds nuw i8, ptr %.0228, i64 8
   store ptr %354, ptr %355, align 8, !tbaa !29
@@ -778,7 +777,7 @@ add2dq.exit272:                                   ; preds = %add2dq.exit269, %33
 add2dq.exit275:                                   ; preds = %350, %352
   %356 = add i64 %351, -1
   store i64 %356, ptr %36, align 8, !tbaa !16
-  %357 = getelementptr inbounds nuw ptr, ptr %29, i64 %356
+  %357 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %356
   store ptr %.0228, ptr %357, align 8, !tbaa !30
   %spec.store.select = call i64 @llvm.umax.i64(i64 %351, i64 %264)
   store i64 %spec.store.select, ptr %257, align 8
@@ -790,7 +789,7 @@ add2dq.exit275:                                   ; preds = %350, %352
   br i1 %.not19.i276, label %add2dq.exit278, label %360
 
 360:                                              ; preds = %358
-  %361 = getelementptr inbounds nuw ptr, ptr %29, i64 %359
+  %361 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %359
   %362 = load ptr, ptr %361, align 8, !tbaa !30
   %363 = getelementptr inbounds nuw i8, ptr %.0229, i64 8
   store ptr %362, ptr %363, align 8, !tbaa !29
@@ -799,7 +798,7 @@ add2dq.exit275:                                   ; preds = %350, %352
 add2dq.exit278:                                   ; preds = %358, %360
   %364 = add i64 %359, 1
   store i64 %364, ptr %38, align 8, !tbaa !17
-  %365 = getelementptr inbounds nuw ptr, ptr %29, i64 %364
+  %365 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %364
   store ptr %.0229, ptr %365, align 8, !tbaa !30
   %spec.store.select290 = call i64 @llvm.umin.i64(i64 %359, i64 %264)
   store i64 %spec.store.select290, ptr %257, align 8
@@ -816,7 +815,7 @@ add2dq.exit278:                                   ; preds = %358, %360
 
 373:                                              ; preds = %366, %382
   %indvars.iv365 = phi i64 [ 0, %366 ], [ %indvars.iv.next366, %382 ]
-  %374 = getelementptr inbounds nuw %struct.tedge_t, ptr %267, i64 %indvars.iv365
+  %374 = getelementptr inbounds nuw [24 x i8], ptr %267, i64 %indvars.iv365
   %375 = getelementptr inbounds nuw i8, ptr %374, i64 24
   %376 = load i64, ptr %375, align 8, !tbaa !40
   %.not252 = icmp eq i64 %376, -1
@@ -825,7 +824,7 @@ add2dq.exit278:                                   ; preds = %358, %360
 377:                                              ; preds = %373
   %378 = add i64 %371, %376
   %379 = urem i64 %378, %372
-  %380 = getelementptr inbounds nuw %struct.triangle_t, ptr %370, i64 %379
+  %380 = getelementptr inbounds nuw [80 x i8], ptr %370, i64 %379
   %.sroa.0.0.copyload282 = load i32, ptr %380, align 8, !tbaa !51
   %381 = icmp eq i32 %.sroa.0.0.copyload282, 1
   br i1 %381, label %.loopexit421, label %382, !llvm.loop !67
@@ -882,7 +881,7 @@ add2dq.exit278:                                   ; preds = %358, %360
   %.1.in349 = phi i64 [ %384, %397 ], [ %.1, %400 ]
   %.1227348 = phi ptr [ %252, %397 ], [ %404, %400 ]
   %.1 = add i64 %.1.in349, -1
-  %401 = getelementptr inbounds nuw %struct.Pxy_t, ptr %398, i64 %.1
+  %401 = getelementptr inbounds nuw [16 x i8], ptr %398, i64 %.1
   %402 = load ptr, ptr %.1227348, align 8, !tbaa !26
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %401, ptr noundef nonnull align 8 dereferenceable(16) %402, i64 16, i1 false), !tbaa.struct !61
   %403 = getelementptr inbounds nuw i8, ptr %.1227348, i64 8
@@ -944,11 +943,11 @@ tailrecurse:                                      ; preds = %._crit_edge, %2
 
 9:                                                ; preds = %.preheader51
   %10 = select i1 %8, i64 0, i64 %7
-  %11 = getelementptr inbounds nuw ptr, ptr %0, i64 %.03354
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.03354
   %12 = load ptr, ptr %11, align 8, !tbaa !30
-  %13 = getelementptr inbounds nuw ptr, ptr %0, i64 %10
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %10
   %14 = load ptr, ptr %13, align 8, !tbaa !30
-  %15 = getelementptr inbounds nuw ptr, ptr %0, i64 %5
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %5
   %16 = load ptr, ptr %15, align 8, !tbaa !30
   %17 = tail call fastcc i32 @loadtriangle(ptr noundef %12, ptr noundef %14, ptr noundef %16)
   %.not40 = icmp eq i32 %17, 0
@@ -962,9 +961,9 @@ tailrecurse:                                      ; preds = %._crit_edge, %2
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.23555 = phi i64 [ %20, %.lr.ph ], [ %10, %.preheader ]
   %20 = add nuw i64 %.23555, 1
-  %21 = getelementptr inbounds nuw ptr, ptr %0, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !30
-  %23 = getelementptr inbounds nuw ptr, ptr %0, i64 %.23555
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.23555
   store ptr %22, ptr %23, align 8, !tbaa !30
   %exitcond59.not = icmp eq i64 %20, %18
   br i1 %exitcond59.not, label %._crit_edge, label %.lr.ph, !llvm.loop !71
@@ -1007,7 +1006,7 @@ define internal fastcc noundef zeroext i1 @marktripath(i64 noundef %0, i64 nound
   %7 = add i64 %6, %0
   %8 = load i64, ptr getelementptr inbounds nuw (i8, ptr @tris, i64 24), align 8, !tbaa !49, !noalias !73
   %9 = urem i64 %7, %8
-  %10 = getelementptr inbounds nuw %struct.triangle_t, ptr %5, i64 %9
+  %10 = getelementptr inbounds nuw [80 x i8], ptr %5, i64 %9
   %.sroa.0.0.copyload = load i32, ptr %10, align 8, !tbaa !51
   %.not = icmp eq i32 %.sroa.0.0.copyload, 0
   br i1 %.not, label %11, label %.loopexit
@@ -1030,9 +1029,9 @@ define internal fastcc noundef zeroext i1 @marktripath(i64 noundef %0, i64 nound
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %27 ]
   %16 = add i64 %14, %0
   %17 = urem i64 %16, %13
-  %18 = getelementptr inbounds nuw %struct.triangle_t, ptr %15, i64 %17
+  %18 = getelementptr inbounds nuw [80 x i8], ptr %15, i64 %17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef nonnull align 8 dereferenceable(80) %18, i64 80, i1 false), !tbaa.struct !50
-  %19 = getelementptr inbounds nuw %struct.tedge_t, ptr %3, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [24 x i8], ptr %3, i64 %indvars.iv
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load i64, ptr %20, align 8, !tbaa !40
   %.not15 = icmp eq i64 %21, -1
@@ -1040,7 +1039,7 @@ define internal fastcc noundef zeroext i1 @marktripath(i64 noundef %0, i64 nound
 
 22:                                               ; preds = %.preheader
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %4, ptr noundef nonnull align 8 dereferenceable(80) %18, i64 80, i1 false), !tbaa.struct !50
-  %23 = getelementptr inbounds nuw %struct.tedge_t, ptr %4, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [24 x i8], ptr %4, i64 %indvars.iv
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %25 = load i64, ptr %24, align 8, !tbaa !40
   %26 = tail call fastcc zeroext i1 @marktripath(i64 noundef %25, i64 noundef %1)
@@ -1060,7 +1059,7 @@ define internal fastcc noundef zeroext i1 @marktripath(i64 noundef %0, i64 nound
 31:                                               ; preds = %27
   %32 = add i64 %29, %0
   %33 = urem i64 %32, %28
-  %34 = getelementptr inbounds nuw %struct.triangle_t, ptr %30, i64 %33
+  %34 = getelementptr inbounds nuw [80 x i8], ptr %30, i64 %33
   store i32 0, ptr %34, align 8, !tbaa !64
   br label %.loopexit
 
@@ -1113,10 +1112,10 @@ define internal fastcc i64 @finddqsplit(ptr noundef nonnull readonly captures(no
 9:                                                ; preds = %6
   %10 = load ptr, ptr %0, align 8, !tbaa !15
   %11 = add nuw i64 %.024, 1
-  %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !30
   %14 = load ptr, ptr %13, align 8, !tbaa !26
-  %15 = getelementptr inbounds nuw ptr, ptr %10, i64 %.024
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.024
   %16 = load ptr, ptr %15, align 8, !tbaa !30
   %17 = load ptr, ptr %16, align 8, !tbaa !26
   %18 = load ptr, ptr %1, align 8, !tbaa !26
@@ -1142,7 +1141,7 @@ define internal fastcc i64 @finddqsplit(ptr noundef nonnull readonly captures(no
 .lr.ph:                                           ; preds = %30, %53
   %.036 = phi i64 [ %54, %53 ], [ %32, %30 ]
   %34 = load ptr, ptr %0, align 8, !tbaa !15
-  %35 = getelementptr ptr, ptr %34, i64 %.036
+  %35 = getelementptr [8 x i8], ptr %34, i64 %.036
   %36 = getelementptr i8, ptr %35, i64 -8
   %37 = load ptr, ptr %36, align 8, !tbaa !30
   %38 = load ptr, ptr %37, align 8, !tbaa !26
@@ -1177,7 +1176,7 @@ declare zeroext i1 @isdiagonal(i64 noundef, i64 noundef, ptr noundef, i64 nounde
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal { double, double } @point_indexer(ptr noundef readonly captures(none) %0, i64 noundef %1) #8 {
-  %3 = getelementptr inbounds nuw ptr, ptr %0, i64 %1
+  %3 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %1
   %4 = load ptr, ptr %3, align 8, !tbaa !30
   %5 = load ptr, ptr %4, align 8, !tbaa !26
   %.sroa.0.0.copyload = load double, ptr %5, align 8, !tbaa !24
@@ -1216,7 +1215,7 @@ define internal fastcc range(i32 -1, 1) i32 @loadtriangle(ptr noundef %0, ptr no
 
 15:                                               ; preds = %10
   %16 = load i64, ptr getelementptr inbounds nuw (i8, ptr @tris, i64 24), align 8, !tbaa !49
-  %17 = getelementptr inbounds nuw %struct.triangle_t, ptr %13, i64 %16
+  %17 = getelementptr inbounds nuw [80 x i8], ptr %13, i64 %16
   %18 = sub i64 %spec.select.i, %16
   %19 = mul i64 %18, 80
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %17, i8 0, i64 %19, i1 false)
@@ -1229,8 +1228,8 @@ define internal fastcc range(i32 -1, 1) i32 @loadtriangle(ptr noundef %0, ptr no
 24:                                               ; preds = %15
   %25 = sub i64 %16, %20
   %26 = sub i64 %spec.select.i, %25
-  %27 = getelementptr inbounds nuw %struct.triangle_t, ptr %13, i64 %26
-  %28 = getelementptr inbounds nuw %struct.triangle_t, ptr %13, i64 %20
+  %27 = getelementptr inbounds nuw [80 x i8], ptr %13, i64 %26
+  %28 = getelementptr inbounds nuw [80 x i8], ptr %13, i64 %20
   %29 = mul i64 %25, 80
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %27, ptr nonnull align 8 %28, i64 %29, i1 false)
   store i64 %26, ptr getelementptr inbounds nuw (i8, ptr @tris, i64 8), align 8, !tbaa !48
@@ -1249,7 +1248,7 @@ triangles_try_append.exit:                        ; preds = %._crit_edge.i, %30
   %35 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %31, %30 ]
   %36 = add i64 %35, %34
   %37 = urem i64 %36, %33
-  %38 = getelementptr inbounds nuw %struct.triangle_t, ptr %32, i64 %37
+  %38 = getelementptr inbounds nuw [80 x i8], ptr %32, i64 %37
   store i64 0, ptr %38, align 8
   %.sroa.47.0..sroa_idx = getelementptr inbounds nuw i8, ptr %38, i64 8
   store ptr %0, ptr %.sroa.47.0..sroa_idx, align 8

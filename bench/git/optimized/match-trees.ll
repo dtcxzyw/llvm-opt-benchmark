@@ -501,7 +501,7 @@ define internal fastcc i32 @splice_tree(ptr noundef %0, ptr noundef %1, ptr noun
 
 54:                                               ; preds = %.preheader, %56
   %.0811.i.i = phi i64 [ %57, %56 ], [ 0, %.preheader ]
-  %55 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i
+  %55 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %.0811.i.i
   %.not.i.i = icmp eq ptr %47, %55
   br i1 %.not.i.i, label %.split.loop.exit9.i.i, label %56
 

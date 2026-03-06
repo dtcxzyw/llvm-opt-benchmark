@@ -990,7 +990,7 @@ _ZN6cmList5clearEv.exit.i.i:                      ; preds = %3
   %87 = sub i64 %85, %86
   %88 = ashr exact i64 %87, 5
   %89 = sub nsw i64 %88, %82
-  %90 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %78, i64 %89
+  %90 = getelementptr inbounds [32 x i8], ptr %78, i64 %89
   %91 = getelementptr inbounds nuw i8, ptr %.sroa.033.049.i.i.i.i.i, i64 32
   %.not41.i.i.i.i.i = icmp eq ptr %91, %15
   br i1 %.not41.i.i.i.i.i, label %_ZN6cmListaSERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE.exit, label %.lr.ph50.i.i.i.i.i, !llvm.loop !56

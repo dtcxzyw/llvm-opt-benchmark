@@ -902,7 +902,7 @@ switch.lookup:                                    ; preds = %321
   %344 = lshr i32 %343, 1
   %345 = and i32 %344, 3
   %346 = zext nneg i32 %345 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_pppoed, i64 %346
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_pppoed, i64 %346
   %switch.load = load ptr, ptr %switch.gep, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %342, ptr noundef nonnull %switch.load)
   %347 = load i32, ptr @hf_pppoed_tag_metrics_max_drate, align 4

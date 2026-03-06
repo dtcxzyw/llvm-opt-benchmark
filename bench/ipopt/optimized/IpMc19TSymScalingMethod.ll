@@ -196,17 +196,17 @@ define noundef zeroext i1 @_ZN5Ipopt21Mc19TSymScalingMethod25ComputeSymTScalingF
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %55
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %55 ]
   %storemerge7677 = phi i32 [ 0, %.lr.ph.preheader ], [ %storemerge, %55 ]
-  %36 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %37 = load i32, ptr %36, align 4, !tbaa !33
-  %38 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   %39 = load i32, ptr %38, align 4, !tbaa !33
   %40 = icmp eq i32 %37, %39
   %41 = sext i32 %storemerge7677 to i64
-  %42 = getelementptr inbounds i32, ptr %15, i64 %41
+  %42 = getelementptr inbounds [4 x i8], ptr %15, i64 %41
   store i32 %37, ptr %42, align 4, !tbaa !33
-  %43 = getelementptr inbounds i32, ptr %16, i64 %41
-  %44 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv
-  %45 = getelementptr inbounds double, ptr %19, i64 %41
+  %43 = getelementptr inbounds [4 x i8], ptr %16, i64 %41
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
+  %45 = getelementptr inbounds [8 x i8], ptr %19, i64 %41
   br i1 %40, label %46, label %48
 
 46:                                               ; preds = %.lr.ph
@@ -221,11 +221,11 @@ define noundef zeroext i1 @_ZN5Ipopt21Mc19TSymScalingMethod25ComputeSymTScalingF
   store double %49, ptr %45, align 8, !tbaa !34
   %50 = add nsw i32 %storemerge7677, 1
   %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds i32, ptr %15, i64 %51
+  %52 = getelementptr inbounds [4 x i8], ptr %15, i64 %51
   store i32 %39, ptr %52, align 4, !tbaa !33
-  %53 = getelementptr inbounds i32, ptr %16, i64 %51
+  %53 = getelementptr inbounds [4 x i8], ptr %16, i64 %51
   store i32 %37, ptr %53, align 4, !tbaa !33
-  %54 = getelementptr inbounds double, ptr %19, i64 %51
+  %54 = getelementptr inbounds [8 x i8], ptr %19, i64 %51
   store double %49, ptr %54, align 8, !tbaa !34
   br label %55
 
@@ -251,15 +251,15 @@ define noundef zeroext i1 @_ZN5Ipopt21Mc19TSymScalingMethod25ComputeSymTScalingF
   %indvars.iv91 = phi i64 [ 0, %.lr.ph83.preheader ], [ %indvars.iv.next92, %.lr.ph83 ]
   %.07180 = phi double [ 0.000000e+00, %.lr.ph83.preheader ], [ %.sroa.speculated.i, %.lr.ph83 ]
   %.07279 = phi double [ 0.000000e+00, %.lr.ph83.preheader ], [ %67, %.lr.ph83 ]
-  %58 = getelementptr inbounds nuw float, ptr %25, i64 %indvars.iv91
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %indvars.iv91
   %59 = load float, ptr %58, align 4, !tbaa !38
-  %60 = getelementptr inbounds nuw float, ptr %26, i64 %indvars.iv91
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv91
   %61 = load float, ptr %60, align 4, !tbaa !38
   %62 = fadd float %59, %61
   %63 = fpext float %62 to double
   %64 = fmul double %63, 5.000000e-01
   %65 = call double @exp(double noundef %64) #16, !tbaa !33
-  %66 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv91
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv91
   store double %65, ptr %66, align 8, !tbaa !34
   %67 = fadd double %.07279, %65
   %68 = fcmp olt double %.07180, %65
@@ -285,7 +285,7 @@ define noundef zeroext i1 @_ZN5Ipopt21Mc19TSymScalingMethod25ComputeSymTScalingF
 
 .lr.ph89:                                         ; preds = %.lr.ph89.preheader, %.lr.ph89
   %indvars.iv96 = phi i64 [ 0, %.lr.ph89.preheader ], [ %indvars.iv.next97, %.lr.ph89 ]
-  %77 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv96
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv96
   store double 1.000000e+00, ptr %77, align 8, !tbaa !34
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
   %exitcond100.not = icmp eq i64 %indvars.iv.next97, %wide.trip.count99

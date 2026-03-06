@@ -6,9 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.FLAC__StreamMetadata_SeekPoint = type { i64, i64, i32 }
 %"class.FLAC::Metadata::VorbisComment::Entry" = type <{ ptr, i8, [7 x i8], %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr, i32, [4 x i8], ptr, i32, [4 x i8] }>
 %struct.FLAC__StreamMetadata_VorbisComment_Entry = type { i32, ptr }
-%struct.FLAC__StreamMetadata_CueSheet_Index = type { i64, i8 }
 %"class.FLAC::Metadata::CueSheet::Track" = type { ptr, ptr }
-%struct.FLAC__StreamMetadata_CueSheet_Track = type { i64, i8, [13 x i8], i8, i8, ptr }
 %struct.FLAC__StreamMetadata = type { i32, i32, i32, %union.anon }
 %union.anon = type { %struct.FLAC__StreamMetadata_CueSheet }
 %struct.FLAC__StreamMetadata_CueSheet = type { [129 x i8], i64, i32, i32, ptr }
@@ -127,7 +125,7 @@ define hidden noalias noundef ptr @_ZN4FLAC8Metadata5local15construct_blockEP20F
 
 switch.lookup:                                    ; preds = %3
   %9 = zext nneg i32 %4 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4FLAC8Metadata8Iterator9get_blockEv, i64 %9
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4FLAC8Metadata8Iterator9get_blockEv, i64 %9
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %.sink.split
 
@@ -919,7 +917,7 @@ define void @_ZNK4FLAC8Metadata9SeekTable9get_pointEj(ptr dead_on_unwind noalias
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load ptr, ptr %6, align 8, !tbaa !20
   %8 = zext i32 %2 to i64
-  %9 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_SeekPoint, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false), !tbaa.struct !21
   ret void
 }
@@ -2098,7 +2096,7 @@ define void @_ZNK4FLAC8Metadata13VorbisComment11get_commentEj(ptr dead_on_unwind
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %7 = load ptr, ptr %6, align 8, !tbaa !20
   %8 = zext i32 %2 to i64
-  %9 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !37
   %12 = load i32, ptr %9, align 8, !tbaa !38
@@ -2331,7 +2329,7 @@ define { i64, i8 } @_ZNK4FLAC8Metadata8CueSheet5Track9get_indexEj(ptr noundef no
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !41
   %7 = zext i32 %1 to i64
-  %8 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %7
   %.sroa.0.0.copyload = load i64, ptr %8, align 8, !tbaa !22
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.sroa.2.0.copyload = load i8, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !20
@@ -2373,7 +2371,7 @@ define void @_ZN4FLAC8Metadata8CueSheet5Track9set_indexEjRK35FLAC__StreamMetadat
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load ptr, ptr %6, align 8, !tbaa !41
   %8 = zext i32 %1 to i64
-  %9 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !43
   ret void
 }
@@ -2439,7 +2437,7 @@ define void @_ZNK4FLAC8Metadata8CueSheet9get_trackEj(ptr dead_on_unwind noalias 
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 168
   %7 = load ptr, ptr %6, align 8, !tbaa !20
   %8 = zext i32 %2 to i64
-  %9 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [32 x i8], ptr %7, i64 %8
   tail call void @_ZN4FLAC8Metadata8CueSheet5TrackC1EPK35FLAC__StreamMetadata_CueSheet_Track(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %9)
   ret void
 }
@@ -2482,11 +2480,11 @@ define void @_ZN4FLAC8Metadata8CueSheet9set_indexEjjRK35FLAC__StreamMetadata_Cue
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 168
   %8 = load ptr, ptr %7, align 8, !tbaa !20
   %9 = zext i32 %1 to i64
-  %10 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %8, i64 %9
+  %10 = getelementptr inbounds nuw [32 x i8], ptr %8, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %12 = load ptr, ptr %11, align 8, !tbaa !41
   %13 = zext i32 %2 to i64
-  %14 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %13
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !43
   ret void
 }
@@ -3228,7 +3226,7 @@ define noalias noundef ptr @_ZN4FLAC8Metadata14SimpleIterator9get_blockEv(ptr no
 
 switch.lookup:                                    ; preds = %6
   %12 = zext nneg i32 %7 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4FLAC8Metadata8Iterator9get_blockEv, i64 %12
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4FLAC8Metadata8Iterator9get_blockEv, i64 %12
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %.sink.split.i
 
@@ -3622,7 +3620,7 @@ define noalias noundef ptr @_ZN4FLAC8Metadata8Iterator9get_blockEv(ptr noundef n
 
 switch.lookup:                                    ; preds = %6
   %12 = zext nneg i32 %7 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4FLAC8Metadata8Iterator9get_blockEv, i64 %12
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4FLAC8Metadata8Iterator9get_blockEv, i64 %12
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %13
 

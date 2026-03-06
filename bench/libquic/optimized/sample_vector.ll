@@ -92,7 +92,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %3
 
 .noexc9:                                          ; preds = %18
   store ptr %20, ptr %7, align 8, !tbaa !11
-  %21 = getelementptr inbounds nuw i32, ptr %20, i64 %15
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %15
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %21, ptr %22, align 8, !tbaa !12
   store i32 0, ptr %20, align 4, !tbaa !13
@@ -333,7 +333,7 @@ define void @_ZN4base12SampleVector10AccumulateEii(ptr noundef nonnull align 8 d
   %7 = tail call noundef i64 %6(ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef %1)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %9 = load ptr, ptr %8, align 8, !tbaa !15
-  %10 = getelementptr inbounds nuw i32, ptr %9, i64 %7
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %7
   %11 = atomicrmw volatile add ptr %10, i32 %2 monotonic, align 4
   %12 = sext i32 %2 to i64
   %13 = sext i32 %1 to i64
@@ -355,7 +355,7 @@ define noundef i32 @_ZNK4base12SampleVector8GetCountEi(ptr noundef nonnull align
   %6 = tail call noundef i64 %5(ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef %1)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %8 = load ptr, ptr %7, align 8, !tbaa !15
-  %9 = getelementptr inbounds nuw i32, ptr %8, i64 %6
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %6
   %10 = load atomic volatile i32, ptr %9 monotonic, align 4
   ret i32 %10
 }
@@ -379,7 +379,7 @@ define noundef i32 @_ZNK4base12SampleVector10TotalCountEv(ptr noundef nonnull re
 6:                                                ; preds = %.lr.ph, %6
   %.07 = phi i64 [ 0, %.lr.ph ], [ %10, %6 ]
   %.056 = phi i32 [ 0, %.lr.ph ], [ %9, %6 ]
-  %7 = getelementptr inbounds nuw i32, ptr %5, i64 %.07
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.07
   %8 = load atomic volatile i32, ptr %7 monotonic, align 4
   %9 = add nsw i32 %8, %.056
   %10 = add nuw i64 %.07, 1
@@ -391,7 +391,7 @@ define noundef i32 @_ZNK4base12SampleVector10TotalCountEv(ptr noundef nonnull re
 define noundef i32 @_ZNK4base12SampleVector15GetCountAtIndexEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0, i64 noundef %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8, !tbaa !15
-  %5 = getelementptr inbounds nuw i32, ptr %4, i64 %1
+  %5 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %1
   %6 = load atomic volatile i32, ptr %5 monotonic, align 4
   ret i32 %6
 }
@@ -457,7 +457,7 @@ define noundef zeroext i1 @_ZN4base12SampleVector15AddSubtractImplEPNS_19SampleC
   %20 = load i32, ptr %4, align 4, !tbaa !13
   %21 = load ptr, ptr %9, align 8, !tbaa !26
   %22 = load ptr, ptr %21, align 8, !tbaa !11
-  %23 = getelementptr inbounds nuw i32, ptr %22, i64 %.013.us
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %.013.us
   %24 = load i32, ptr %23, align 4, !tbaa !13
   %25 = icmp eq i32 %20, %24
   br i1 %25, label %26, label %31
@@ -479,7 +479,7 @@ define noundef zeroext i1 @_ZN4base12SampleVector15AddSubtractImplEPNS_19SampleC
 
 35:                                               ; preds = %26
   %36 = load ptr, ptr %10, align 8, !tbaa !15
-  %37 = getelementptr inbounds nuw i32, ptr %36, i64 %.013.us
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %.013.us
   %38 = load i32, ptr %6, align 4
   %39 = atomicrmw volatile add ptr %37, i32 %38 monotonic, align 4
   %40 = load ptr, ptr %1, align 8, !tbaa !3
@@ -510,7 +510,7 @@ define noundef zeroext i1 @_ZN4base12SampleVector15AddSubtractImplEPNS_19SampleC
   %54 = load i32, ptr %4, align 4, !tbaa !13
   %55 = load ptr, ptr %9, align 8, !tbaa !26
   %56 = load ptr, ptr %55, align 8, !tbaa !11
-  %57 = getelementptr inbounds nuw i32, ptr %56, i64 %.013
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %.013
   %58 = load i32, ptr %57, align 4, !tbaa !13
   %59 = icmp eq i32 %54, %58
   br i1 %59, label %60, label %74
@@ -524,7 +524,7 @@ define noundef zeroext i1 @_ZN4base12SampleVector15AddSubtractImplEPNS_19SampleC
 
 65:                                               ; preds = %60
   %66 = load ptr, ptr %10, align 8, !tbaa !15
-  %67 = getelementptr inbounds nuw i32, ptr %66, i64 %.013
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %.013
   %68 = load i32, ptr %6, align 4
   %69 = sub nsw i32 0, %68
   %70 = atomicrmw volatile add ptr %67, i32 %69 monotonic, align 4
@@ -645,7 +645,7 @@ _ZN7logging11CheckGEImplB5cxx11EiiPKc.exit:       ; preds = %27
   %34 = load ptr, ptr %15, align 8, !tbaa !26
   %35 = load i64, ptr %9, align 8, !tbaa !27
   %36 = load ptr, ptr %34, align 8, !tbaa !11
-  %37 = getelementptr inbounds nuw i32, ptr %36, i64 %35
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %35
   %38 = load i32, ptr %37, align 4, !tbaa !13
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -685,7 +685,7 @@ _ZN7logging11CheckLTImplB5cxx11EiiPKc.exit:       ; preds = %33
   %46 = phi i64 [ %51, %.lr.ph ], [ %44, %42 ]
   %.048 = phi i64 [ %.0., %.lr.ph ], [ 0, %42 ]
   %.01447 = phi i64 [ %..014, %.lr.ph ], [ %43, %42 ]
-  %47 = getelementptr inbounds nuw i32, ptr %.pre50, i64 %46
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %.pre50, i64 %46
   %48 = load i32, ptr %47, align 4, !tbaa !13
   %.not = icmp sgt i32 %48, %1
   %..014 = select i1 %.not, i64 %46, i64 %.01447
@@ -698,7 +698,7 @@ _ZN7logging11CheckLTImplB5cxx11EiiPKc.exit:       ; preds = %33
 
 ._crit_edge:                                      ; preds = %.lr.ph, %42
   %.lcssa = phi i64 [ 0, %42 ], [ %51, %.lr.ph ]
-  %53 = getelementptr i32, ptr %.pre50, i64 %.lcssa
+  %53 = getelementptr [4 x i8], ptr %.pre50, i64 %.lcssa
   %54 = getelementptr i8, ptr %53, i64 4
   %55 = load i32, ptr %54, align 4, !tbaa !13
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -822,7 +822,7 @@ _ZN7logging11CheckGEImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
 
 42:                                               ; preds = %46, %.lr.ph.i
   %43 = phi i64 [ %39, %.lr.ph.i ], [ %47, %46 ]
-  %44 = getelementptr inbounds nuw i32, ptr %41, i64 %43
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %43
   %45 = load atomic volatile i32, ptr %44 monotonic, align 4
   %.not.i11 = icmp eq i32 %45, 0
   br i1 %.not.i11, label %46, label %_ZN4base20SampleVectorIterator16SkipEmptyBucketsEv.exit
@@ -870,7 +870,7 @@ define void @_ZN4base20SampleVectorIterator16SkipEmptyBucketsEv(ptr noundef nonn
 
 13:                                               ; preds = %.lr.ph, %17
   %14 = phi i64 [ %9, %.lr.ph ], [ %18, %17 ]
-  %15 = getelementptr inbounds nuw i32, ptr %12, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %14
   %16 = load atomic volatile i32, ptr %15 monotonic, align 4
   %.not = icmp eq i32 %16, 0
   br i1 %.not, label %17, label %.loopexit
@@ -971,7 +971,7 @@ _ZN7logging11CheckGEImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
 
 36:                                               ; preds = %40, %.lr.ph.i
   %37 = phi i64 [ %33, %.lr.ph.i ], [ %41, %40 ]
-  %38 = getelementptr inbounds nuw i32, ptr %35, i64 %37
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %37
   %39 = load atomic volatile i32, ptr %38 monotonic, align 4
   %.not.i11 = icmp eq i32 %39, 0
   br i1 %.not.i11, label %40, label %_ZN4base20SampleVectorIterator16SkipEmptyBucketsEv.exit
@@ -1045,7 +1045,7 @@ define void @_ZN4base20SampleVectorIterator4NextEv(ptr noundef nonnull align 8 d
 
 15:                                               ; preds = %19, %.lr.ph.i
   %16 = phi i64 [ %11, %.lr.ph.i ], [ %20, %19 ]
-  %17 = getelementptr inbounds nuw i32, ptr %14, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %16
   %18 = load atomic volatile i32, ptr %17 monotonic, align 4
   %.not.i = icmp eq i32 %18, 0
   br i1 %.not.i, label %19, label %_ZN4base20SampleVectorIterator16SkipEmptyBucketsEv.exit
@@ -1071,7 +1071,7 @@ define void @_ZNK4base20SampleVectorIterator3GetEPiS1_S1_(ptr noundef nonnull re
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load i64, ptr %8, align 8, !tbaa !39
   %10 = load ptr, ptr %7, align 8, !tbaa !11
-  %11 = getelementptr inbounds nuw i32, ptr %10, i64 %9
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %9
   %12 = load i32, ptr %11, align 4, !tbaa !13
   store i32 %12, ptr %1, align 4, !tbaa !13
   br label %13
@@ -1086,7 +1086,7 @@ define void @_ZNK4base20SampleVectorIterator3GetEPiS1_S1_(ptr noundef nonnull re
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = load i64, ptr %17, align 8, !tbaa !39
   %19 = load ptr, ptr %16, align 8, !tbaa !11
-  %20 = getelementptr i32, ptr %19, i64 %18
+  %20 = getelementptr [4 x i8], ptr %19, i64 %18
   %21 = getelementptr i8, ptr %20, i64 4
   %22 = load i32, ptr %21, align 4, !tbaa !13
   store i32 %22, ptr %2, align 4, !tbaa !13
@@ -1101,7 +1101,7 @@ define void @_ZNK4base20SampleVectorIterator3GetEPiS1_S1_(ptr noundef nonnull re
   %26 = load ptr, ptr %25, align 8, !tbaa !34
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %28 = load i64, ptr %27, align 8, !tbaa !39
-  %29 = getelementptr inbounds nuw i32, ptr %26, i64 %28
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %28
   %30 = load atomic volatile i32, ptr %29 monotonic, align 4
   store i32 %30, ptr %3, align 4, !tbaa !13
   br label %31

@@ -5,8 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct._GRWLock = type { ptr, [2 x i32] }
 %union._GMutex = type { ptr }
-%struct.CPU = type { ptr, ptr }
-%struct.qemu_plugin_reg_descriptor = type { ptr, ptr, ptr }
 
 @qemu_plugin_version = local_unnamed_addr global i32 4, align 4
 @cpus = internal unnamed_addr global ptr null, align 8
@@ -67,7 +65,7 @@ define range(i32 -1, 1) i32 @qemu_plugin_install(i64 noundef %0, ptr noundef rea
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %glib_auto_cleanup_GStrv.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %glib_auto_cleanup_GStrv.exit ]
-  %16 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @g_strsplit(ptr noundef %17, ptr noundef nonnull @.str, i32 noundef 2) #7
   %19 = load ptr, ptr %18, align 8
@@ -221,7 +219,7 @@ define internal void @vcpu_init(i64 %0, i32 noundef %1) #0 {
   %10 = load ptr, ptr @cpus, align 8
   %11 = load ptr, ptr %10, align 8
   %12 = sext i32 %1 to i64
-  %13 = getelementptr inbounds %struct.CPU, ptr %11, i64 %12
+  %13 = getelementptr inbounds [16 x i8], ptr %11, i64 %12
   tail call void @g_rw_lock_reader_unlock(ptr noundef nonnull @expand_array_lock) #7
   %14 = tail call ptr @g_string_new(ptr noundef null) #7
   store ptr %14, ptr %13, align 8
@@ -249,7 +247,7 @@ define internal void @vcpu_init(i64 %0, i32 noundef %1) #0 {
   %.032.i = phi i32 [ %33, %._crit_edge.i ], [ 0, %.lr.ph33.i ]
   %25 = load ptr, ptr %16, align 8
   %26 = sext i32 %.032.i to i64
-  %27 = getelementptr inbounds %struct.qemu_plugin_reg_descriptor, ptr %25, i64 %26
+  %27 = getelementptr inbounds [24 x i8], ptr %25, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %29 = load i32, ptr %28, align 8
   %.not36.i = icmp eq i32 %29, 0
@@ -275,7 +273,7 @@ define internal void @vcpu_init(i64 %0, i32 noundef %1) #0 {
   %.01131.i = phi i32 [ 0, %.lr.ph.i ], [ %74, %glib_autoptr_cleanup_GPatternSpec.exit.i ]
   %37 = load ptr, ptr %36, align 8
   %38 = sext i32 %.01131.i to i64
-  %39 = getelementptr inbounds ptr, ptr %37, i64 %38
+  %39 = getelementptr inbounds [8 x i8], ptr %37, i64 %38
   %40 = load ptr, ptr %39, align 8
   %41 = tail call ptr @g_pattern_spec_new(ptr noundef %40) #7
   %42 = load ptr, ptr %30, align 8
@@ -437,7 +435,7 @@ define internal void @vcpu_tb_trans(i64 %0, ptr noundef %1) #0 {
   %.06068 = phi i32 [ %31, %.lr.ph ], [ 0, %.preheader66 ]
   %23 = load ptr, ptr %22, align 8
   %24 = sext i32 %.06068 to i64
-  %25 = getelementptr inbounds ptr, ptr %23, i64 %24
+  %25 = getelementptr inbounds [8 x i8], ptr %23, i64 %24
   %26 = load ptr, ptr %25, align 8
   %27 = call i32 @g_str_has_prefix(ptr noundef %15, ptr noundef %26) #7
   %.not61 = icmp eq i32 %27, 0
@@ -479,7 +477,7 @@ define internal void @vcpu_tb_trans(i64 %0, ptr noundef %1) #0 {
 43:                                               ; preds = %.lr.ph74, %43
   %.05872 = phi i32 [ 0, %.lr.ph74 ], [ %48, %43 ]
   %44 = sext i32 %.05872 to i64
-  %45 = getelementptr inbounds i64, ptr %42, i64 %44
+  %45 = getelementptr inbounds [8 x i8], ptr %42, i64 %44
   %46 = load i64, ptr %45, align 8
   %47 = icmp ne i64 %46, %16
   %48 = add nuw i32 %.05872, 1
@@ -515,7 +513,7 @@ define internal void @vcpu_tb_trans(i64 %0, ptr noundef %1) #0 {
   %.55676 = phi i8 [ %spec.select62, %.lr.ph79 ], [ 0, %55 ]
   %61 = load ptr, ptr %60, align 8
   %62 = sext i32 %.04877 to i64
-  %63 = getelementptr inbounds ptr, ptr %61, i64 %62
+  %63 = getelementptr inbounds [8 x i8], ptr %61, i64 %62
   %64 = load ptr, ptr %63, align 8
   %65 = call ptr @g_strrstr(ptr noundef %56, ptr noundef %64) #7
   %.not = icmp eq ptr %65, null
@@ -601,7 +599,7 @@ define internal void @plugin_exit(i64 %0, ptr readnone captures(none) %1) #0 {
   %6 = load ptr, ptr @cpus, align 8
   %7 = load ptr, ptr %6, align 8
   %8 = sext i32 %.08 to i64
-  %9 = getelementptr inbounds %struct.CPU, ptr %7, i64 %8
+  %9 = getelementptr inbounds [16 x i8], ptr %7, i64 %8
   tail call void @g_rw_lock_reader_unlock(ptr noundef nonnull @expand_array_lock) #7
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
@@ -710,7 +708,7 @@ define internal void @vcpu_insn_exec_only_regs(i32 noundef %0, ptr readnone capt
   %3 = load ptr, ptr @cpus, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = sext i32 %0 to i64
-  %6 = getelementptr inbounds %struct.CPU, ptr %4, i64 %5
+  %6 = getelementptr inbounds [16 x i8], ptr %4, i64 %5
   tail call void @g_rw_lock_reader_unlock(ptr noundef nonnull @expand_array_lock) #7
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -756,7 +754,7 @@ define internal void @vcpu_mem(i32 noundef %0, i32 noundef %1, i64 noundef %2, p
   %5 = load ptr, ptr @cpus, align 8
   %6 = load ptr, ptr %5, align 8
   %7 = sext i32 %0 to i64
-  %8 = getelementptr inbounds %struct.CPU, ptr %6, i64 %7
+  %8 = getelementptr inbounds [16 x i8], ptr %6, i64 %7
   tail call void @g_rw_lock_reader_unlock(ptr noundef nonnull @expand_array_lock) #7
   %9 = load ptr, ptr %8, align 8
   %10 = tail call zeroext i1 @qemu_plugin_mem_is_store(i32 noundef %1) #7
@@ -786,7 +784,7 @@ define internal void @vcpu_insn_exec_with_regs(i32 noundef %0, ptr noundef %1) #
   %3 = load ptr, ptr @cpus, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = sext i32 %0 to i64
-  %6 = getelementptr inbounds %struct.CPU, ptr %4, i64 %5
+  %6 = getelementptr inbounds [16 x i8], ptr %4, i64 %5
   tail call void @g_rw_lock_reader_unlock(ptr noundef nonnull @expand_array_lock) #7
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -827,7 +825,7 @@ define internal void @vcpu_insn_exec(i32 noundef %0, ptr noundef %1) #0 {
   %3 = load ptr, ptr @cpus, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = sext i32 %0 to i64
-  %6 = getelementptr inbounds %struct.CPU, ptr %4, i64 %5
+  %6 = getelementptr inbounds [16 x i8], ptr %4, i64 %5
   tail call void @g_rw_lock_reader_unlock(ptr noundef nonnull @expand_array_lock) #7
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -867,7 +865,7 @@ define internal fastcc void @insn_check_regs(ptr noundef readonly captures(none)
   %.02732 = phi i32 [ %41, %40 ], [ 0, %1 ]
   %7 = load ptr, ptr %6, align 8
   %8 = sext i32 %.02732 to i64
-  %9 = getelementptr inbounds ptr, ptr %7, i64 %8
+  %9 = getelementptr inbounds [8 x i8], ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load ptr, ptr %11, align 8

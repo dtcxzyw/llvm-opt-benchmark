@@ -1263,7 +1263,7 @@ _ZN9benchmark12_GLOBAL__N_119ThreadAffinityGuard11SetAffinityEv.exit.thread2.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %401 ], [ %indvars.iv.next.i.i.i, %417 ]
   %.01621.i.i.i = phi i8 [ 1, %401 ], [ %.117.i.i.i, %417 ]
   %405 = lshr i64 %indvars.iv.i.i.i, 6
-  %406 = getelementptr inbounds nuw i64, ptr %24, i64 %405
+  %406 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %405
   %407 = load i64, ptr %406, align 8, !tbaa !37
   %408 = and i64 %indvars.iv.i.i.i, 63
   %409 = shl nuw i64 1, %408
@@ -4186,7 +4186,7 @@ _ZNSt6vectorIN9benchmark7CPUInfo9CacheInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.
 _ZNSt12_Vector_baseIN9benchmark7CPUInfo9CacheInfoESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN9benchmark7CPUInfo9CacheInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit36, %79
   store ptr %23, ptr %0, align 8, !tbaa !108
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8, !tbaa !99
-  %83 = getelementptr inbounds nuw %"struct.benchmark::CPUInfo::CacheInfo", ptr %23, i64 %17
+  %83 = getelementptr inbounds nuw [48 x i8], ptr %23, i64 %17
   store ptr %83, ptr %78, align 8, !tbaa !100
   ret void
 
@@ -4314,9 +4314,9 @@ _ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit36: ; preds = %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !104
-  %39 = getelementptr inbounds nuw double, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !107
-  %40 = getelementptr inbounds nuw double, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !105
   br label %41
 

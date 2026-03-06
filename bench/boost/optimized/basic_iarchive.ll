@@ -7,11 +7,11 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.boost::archive::class_id_type" = type { i16 }
 %"class.boost::archive::version_type" = type { i32 }
 %"class.boost::archive::object_id_type" = type { i32 }
-%"struct.boost::archive::detail::basic_iarchive_impl::aobject" = type <{ ptr, i8, i8, %"class.boost::archive::class_id_type", [4 x i8] }>
 %"class.boost::serialization::library_version_type" = type { i16 }
 %"struct.boost::archive::detail::basic_iarchive_impl::cobject_type" = type <{ ptr, %"class.boost::archive::class_id_type", [6 x i8] }>
 %"class.boost::archive::detail::basic_iarchive_impl::cobject_id" = type <{ ptr, ptr, %"class.boost::archive::version_type", %"struct.boost::archive::tracking_type", i8, [2 x i8] }>
 %"struct.boost::archive::tracking_type" = type { i8 }
+%"struct.boost::archive::detail::basic_iarchive_impl::aobject" = type <{ ptr, i8, i8, %"class.boost::archive::class_id_type", [4 x i8] }>
 %"struct.boost::archive::class_name_type" = type { ptr }
 %"class.boost::archive::archive_exception" = type <{ %"class.std::exception", [128 x i8], i32, [4 x i8] }>
 %"class.std::exception" = type { ptr }
@@ -153,7 +153,7 @@ define hidden noundef zeroext i1 @_ZN5boost7archive6detail19basic_iarchive_impl5
 
 19:                                               ; preds = %3
   %20 = zext i32 %17 to i64
-  %21 = getelementptr inbounds nuw %"struct.boost::archive::detail::basic_iarchive_impl::aobject", ptr %11, i64 %20
+  %21 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !49
   store ptr %22, ptr %2, align 8, !tbaa !51
   br label %23
@@ -478,7 +478,7 @@ define void @_ZN5boost7archive6detail14basic_iarchive20reset_object_addressEPKvS
 
 18:                                               ; preds = %22, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %17, %.lr.ph.i ], [ %indvars.iv.next.i, %22 ]
-  %19 = getelementptr inbounds nuw %"struct.boost::archive::detail::basic_iarchive_impl::aobject", ptr %16, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %indvars.iv.i
   %20 = load ptr, ptr %19, align 8, !tbaa !49
   %21 = icmp eq ptr %2, %20
   br i1 %21, label %._crit_edge.loopexit.i, label %22
@@ -509,7 +509,7 @@ define void @_ZN5boost7archive6detail14basic_iarchive20reset_object_addressEPKvS
 
 30:                                               ; preds = %40, %.lr.ph31.i
   %indvars.iv33.i = phi i64 [ %29, %.lr.ph31.i ], [ %indvars.iv.next34.i, %40 ]
-  %31 = getelementptr inbounds nuw %"struct.boost::archive::detail::basic_iarchive_impl::aobject", ptr %26, i64 %indvars.iv33.i
+  %31 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %indvars.iv33.i
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load i8, ptr %32, align 8, !tbaa !73, !range !12, !noundef !13
   %34 = trunc nuw i8 %33 to i1
@@ -627,7 +627,7 @@ _ZNSt6vectorIN5boost7archive6detail19basic_iarchive_impl10cobject_idESaIS4_EE9pu
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %50 = sext i16 %48 to i64
   %51 = load ptr, ptr %49, align 8, !tbaa !67, !noalias !76
-  %52 = getelementptr inbounds nuw %"class.boost::archive::detail::basic_iarchive_impl::cobject_id", ptr %51, i64 %50
+  %52 = getelementptr inbounds nuw [24 x i8], ptr %51, i64 %50
   %53 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %54 = load ptr, ptr %53, align 8, !tbaa !82, !noalias !76
   %55 = getelementptr inbounds nuw i8, ptr %52, i64 8
@@ -1043,7 +1043,7 @@ _ZNSt6vectorIN5boost7archive6detail19basic_iarchive_impl10cobject_idESaIS4_EE9pu
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %90 = sext i16 %88 to i64
   %91 = load ptr, ptr %89, align 8, !tbaa !67, !noalias !90
-  %92 = getelementptr inbounds nuw %"class.boost::archive::detail::basic_iarchive_impl::cobject_id", ptr %91, i64 %90
+  %92 = getelementptr inbounds nuw [24 x i8], ptr %91, i64 %90
   %93 = getelementptr inbounds nuw i8, ptr %69, i64 16
   %94 = load ptr, ptr %93, align 8, !tbaa !82, !noalias !90
   %95 = getelementptr inbounds nuw i8, ptr %92, i64 8
@@ -1051,10 +1051,10 @@ _ZNSt6vectorIN5boost7archive6detail19basic_iarchive_impl10cobject_idESaIS4_EE9pu
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !90
   %96 = load i16, ptr %11, align 2, !tbaa !17
   %97 = sext i16 %96 to i64
-  %98 = getelementptr inbounds nuw %"class.boost::archive::detail::basic_iarchive_impl::cobject_id", ptr %91, i64 %97
+  %98 = getelementptr inbounds nuw [24 x i8], ptr %91, i64 %97
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
   store ptr %.040, ptr %99, align 8, !tbaa !85
-  %100 = getelementptr inbounds nuw %"class.boost::archive::detail::basic_iarchive_impl::cobject_id", ptr %91, i64 %97
+  %100 = getelementptr inbounds nuw [24 x i8], ptr %91, i64 %97
   br label %110
 
 101:                                              ; preds = %85, %70, %65
@@ -1066,10 +1066,10 @@ _ZNSt6vectorIN5boost7archive6detail19basic_iarchive_impl10cobject_idESaIS4_EE9pu
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 96
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !67
   %.phi.trans.insert113 = sext i16 %22 to i64
-  %.phi.trans.insert114 = getelementptr inbounds nuw %"class.boost::archive::detail::basic_iarchive_impl::cobject_id", ptr %.pre, i64 %.phi.trans.insert113
+  %.phi.trans.insert114 = getelementptr inbounds nuw [24 x i8], ptr %.pre, i64 %.phi.trans.insert113
   %.phi.trans.insert115 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert114, i64 8
   %.pre116 = load ptr, ptr %.phi.trans.insert115, align 8, !tbaa !85
-  %104 = getelementptr inbounds nuw %"class.boost::archive::detail::basic_iarchive_impl::cobject_id", ptr %.pre, i64 %.phi.trans.insert113
+  %104 = getelementptr inbounds nuw [24 x i8], ptr %.pre, i64 %.phi.trans.insert113
   %105 = icmp eq ptr %.pre116, null
   br i1 %105, label %106, label %110
 
@@ -1204,7 +1204,7 @@ _ZN5boost7archive6detail19basic_iarchive_impl13load_preambleERNS1_14basic_iarchi
 
 167:                                              ; preds = %.noexc78
   %168 = zext i32 %166 to i64
-  %169 = getelementptr inbounds nuw %"struct.boost::archive::detail::basic_iarchive_impl::aobject", ptr %160, i64 %168
+  %169 = getelementptr inbounds nuw [16 x i8], ptr %160, i64 %168
   %170 = load ptr, ptr %169, align 8, !tbaa !49
   store ptr %170, ptr %2, align 8, !tbaa !51
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1425,7 +1425,7 @@ _ZN5boost7archive6detail19basic_iarchive_impl13register_typeERKNS1_17basic_iseri
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 96
   %28 = sext i16 %26 to i64
   %29 = load ptr, ptr %27, align 8, !tbaa !67, !noalias !94
-  %30 = getelementptr inbounds nuw %"class.boost::archive::detail::basic_iarchive_impl::cobject_id", ptr %29, i64 %28
+  %30 = getelementptr inbounds nuw [24 x i8], ptr %29, i64 %28
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %32 = load ptr, ptr %31, align 8, !tbaa !82, !noalias !94
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 8
@@ -1462,7 +1462,7 @@ define void @_ZN5boost7archive6detail14basic_iarchive23delete_created_pointersEv
   %16 = load i16, ptr %15, align 2, !tbaa !97
   %17 = sext i16 %16 to i64
   %18 = load ptr, ptr %8, align 8, !tbaa !67
-  %19 = getelementptr inbounds nuw %"class.boost::archive::detail::basic_iarchive_impl::cobject_id", ptr %18, i64 %17
+  %19 = getelementptr inbounds nuw [24 x i8], ptr %18, i64 %17
   %20 = load ptr, ptr %19, align 8, !tbaa !14
   %21 = load ptr, ptr %.sroa.02.08.i, align 8, !tbaa !49
   %22 = load ptr, ptr %20, align 8, !tbaa !15
@@ -1621,7 +1621,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN5boost7archive6detail19basic_iarchive
 _ZNSt12_Vector_baseIN5boost7archive6detail19basic_iarchive_impl7aobjectESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN5boost7archive6detail19basic_iarchive_impl7aobjectES5_SaIS4_EET0_T_S8_S7_RT1_.exit34, %37
   store ptr %20, ptr %0, align 8, !tbaa !47
   store ptr %.0.lcssa.i.i.i.i.i33, ptr %4, align 8, !tbaa !46
-  %41 = getelementptr inbounds nuw %"struct.boost::archive::detail::basic_iarchive_impl::aobject", ptr %20, i64 %16
+  %41 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %41, ptr %36, align 8, !tbaa !69
   ret void
 }
@@ -1880,7 +1880,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN5boost7archive6detail19basic_iarchive
 _ZNSt12_Vector_baseIN5boost7archive6detail19basic_iarchive_impl10cobject_idESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN5boost7archive6detail19basic_iarchive_impl10cobject_idES5_SaIS4_EET0_T_S8_S7_RT1_.exit34, %67
   store ptr %20, ptr %0, align 8, !tbaa !67
   store ptr %.0.lcssa.i.i.i.i.i33, ptr %4, align 8, !tbaa !81
-  %71 = getelementptr inbounds nuw %"class.boost::archive::detail::basic_iarchive_impl::cobject_id", ptr %20, i64 %16
+  %71 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %71, ptr %66, align 8, !tbaa !68
   ret void
 }

@@ -3,7 +3,6 @@ source_filename = "bench/hdf5/original/H5Lint.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.H5L_class_t = type { i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.H5O_link_t = type { i32, i8, i64, i32, ptr, %union.anon }
 %union.anon = type { %struct.H5O_link_ud_t }
 %struct.H5O_link_ud_t = type { ptr, i64 }
@@ -297,7 +296,7 @@ define ptr @H5L_find_class(i32 noundef %0) local_unnamed_addr #0 {
 
 19:                                               ; preds = %24, %.lr.ph.i
   %.068.i = phi i64 [ 0, %.lr.ph.i ], [ %25, %24 ]
-  %20 = getelementptr inbounds nuw %struct.H5L_class_t, ptr %18, i64 %.068.i
+  %20 = getelementptr inbounds nuw [64 x i8], ptr %18, i64 %.068.i
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %22 = load i32, ptr %21, align 4, !tbaa !15
   %23 = icmp eq i32 %22, %0
@@ -321,7 +320,7 @@ H5L__find_class_idx.exit.thread:                  ; preds = %24, %.preheader.i, 
 
 30:                                               ; preds = %H5L__find_class_idx.exit
   %31 = and i64 %.068.i, 2147483647
-  %32 = getelementptr inbounds nuw %struct.H5L_class_t, ptr %18, i64 %31
+  %32 = getelementptr inbounds nuw [64 x i8], ptr %18, i64 %31
   br label %33
 
 33:                                               ; preds = %10, %H5L__find_class_idx.exit.thread, %30, %14
@@ -378,7 +377,7 @@ define range(i32 -1, 1) i32 @H5L_register(ptr noundef readonly captures(none) %0
 
 20:                                               ; preds = %.lr.ph, %25
   %.01630 = phi i64 [ 0, %.lr.ph ], [ %26, %25 ]
-  %21 = getelementptr inbounds nuw %struct.H5L_class_t, ptr %.pre35.pre.pre, i64 %.01630
+  %21 = getelementptr inbounds nuw [64 x i8], ptr %.pre35.pre.pre, i64 %.01630
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %23 = load i32, ptr %22, align 4, !tbaa !15
   %24 = icmp eq i32 %23, %19
@@ -424,7 +423,7 @@ define range(i32 -1, 1) i32 @H5L_register(ptr noundef readonly captures(none) %0
 .thread:                                          ; preds = %20, %37
   %40 = phi ptr [ %.pre35, %37 ], [ %.pre35.pre.pre, %20 ]
   %.1 = phi i64 [ %38, %37 ], [ %.01630, %20 ]
-  %41 = getelementptr inbounds nuw %struct.H5L_class_t, ptr %40, i64 %.1
+  %41 = getelementptr inbounds nuw [64 x i8], ptr %40, i64 %.1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %41, ptr noundef nonnull align 8 dereferenceable(64) %0, i64 64, i1 false)
   br label %42
 
@@ -485,7 +484,7 @@ define range(i32 -1, 1) i32 @H5L_unregister(i32 noundef %0) local_unnamed_addr #
 
 19:                                               ; preds = %.lr.ph, %24
   %.01115 = phi i64 [ 0, %.lr.ph ], [ %25, %24 ]
-  %20 = getelementptr %struct.H5L_class_t, ptr %18, i64 %.01115
+  %20 = getelementptr [64 x i8], ptr %18, i64 %.01115
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %22 = load i32, ptr %21, align 4, !tbaa !15
   %23 = icmp eq i32 %22, %0
@@ -547,7 +546,7 @@ define noundef i32 @H5L_is_registered(i32 noundef %0, ptr noundef writeonly capt
 
 14:                                               ; preds = %.lr.ph, %12
   %.05 = phi i64 [ 0, %.lr.ph ], [ %13, %12 ]
-  %15 = getelementptr inbounds nuw %struct.H5L_class_t, ptr %11, i64 %.05
+  %15 = getelementptr inbounds nuw [64 x i8], ptr %11, i64 %.05
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %17 = load i32, ptr %16, align 4, !tbaa !15
   %18 = icmp eq i32 %17, %0
@@ -896,7 +895,7 @@ define range(i32 -1, 1) i32 @H5L__create_ud(ptr noundef %0, ptr noundef %1, ptr 
 
 17:                                               ; preds = %22, %.lr.ph.i
   %.068.i = phi i64 [ 0, %.lr.ph.i ], [ %23, %22 ]
-  %18 = getelementptr inbounds nuw %struct.H5L_class_t, ptr %16, i64 %.068.i
+  %18 = getelementptr inbounds nuw [64 x i8], ptr %16, i64 %.068.i
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %20 = load i32, ptr %19, align 4, !tbaa !15
   %21 = icmp eq i32 %20, %4

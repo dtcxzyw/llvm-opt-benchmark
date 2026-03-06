@@ -169,7 +169,7 @@ define dso_local void @_ZNSt3__111regex_errorC2ENS_15regex_constants10error_type
 
 switch.lookup:                                    ; preds = %2
   %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNSt3__111regex_errorC2ENS_15regex_constants10error_typeE, i64 %4
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNSt3__111regex_errorC2ENS_15regex_constants10error_typeE, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZNSt3__1L22make_error_type_stringENS_15regex_constants10error_typeE.exit
 
@@ -211,7 +211,7 @@ define dso_local void @_ZNSt3__120__get_collation_nameEPKc(ptr dead_on_unwind no
   %.04.i.i.i = phi ptr [ @_ZNSt3__112_GLOBAL__N_112collatenamesE, %2 ], [ %.1.i.i.i, %3 ]
   %.0103.i.i.i = phi i64 [ 111, %2 ], [ %.111.i.i.i, %3 ]
   %4 = lshr i64 %.0103.i.i.i, 1
-  %5 = getelementptr inbounds nuw %"struct.std::__1::(anonymous namespace)::collationnames", ptr %.04.i.i.i, i64 %4
+  %5 = getelementptr inbounds nuw [16 x i8], ptr %.04.i.i.i, i64 %4
   %.val.i.i.i = load ptr, ptr %5, align 8, !tbaa !16
   %6 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.val.i.i.i, ptr noundef nonnull readonly dereferenceable(1) %1) #12
   %7 = icmp slt i32 %6, 0
@@ -259,7 +259,7 @@ define dso_local noundef zeroext i16 @_ZNSt3__115__get_classnameEPKcb(ptr nounde
   %.04.i.i.i = phi ptr [ @_ZNSt3__112_GLOBAL__N_110ClassNamesE, %2 ], [ %.1.i.i.i, %3 ]
   %.0103.i.i.i = phi i64 [ 15, %2 ], [ %.111.i.i.i, %3 ]
   %4 = lshr i64 %.0103.i.i.i, 1
-  %5 = getelementptr inbounds nuw %"struct.std::__1::(anonymous namespace)::classnames", ptr %.04.i.i.i, i64 %4
+  %5 = getelementptr inbounds nuw [16 x i8], ptr %.04.i.i.i, i64 %4
   %.val.i.i.i = load ptr, ptr %5, align 8, !tbaa !22
   %6 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.val.i.i.i, ptr noundef nonnull readonly dereferenceable(1) %0) #12
   %7 = icmp slt i32 %6, 0

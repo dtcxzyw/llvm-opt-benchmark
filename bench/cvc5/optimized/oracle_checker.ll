@@ -2209,7 +2209,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %28, %22, %18
   %44 = load i64, ptr %43, align 8
   %45 = lshr i64 %44, 32
   %46 = and i64 %45, 67108863
-  %47 = getelementptr inbounds nuw ptr, ptr %42, i64 %46
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %46
   %.not53 = icmp eq ptr %spec.select.i.i, %47
   br i1 %.not53, label %.critedge, label %.lr.ph
 

@@ -453,7 +453,7 @@ define hidden noundef zeroext i1 @_ZN10duckdb_re26Regexp13ComputeSimpleEv(ptr no
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %11 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !50
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 1
   %14 = load i8, ptr %13, align 1, !tbaa !51
@@ -767,16 +767,16 @@ define hidden noundef ptr @_ZN10duckdb_re214CoalesceWalker9PostVisitEPNS_6Regexp
 
 18:                                               ; preds = %17, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %17 ]
-  %19 = getelementptr inbounds nuw ptr, ptr %.0.i.i, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i, i64 %indvars.iv.i
   %20 = load ptr, ptr %19, align 8, !tbaa !50
-  %21 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i
   %22 = load ptr, ptr %21, align 8, !tbaa !50
   %.not.i = icmp eq ptr %22, %20
   br i1 %.not.i, label %17, label %_ZN10duckdb_re2L16ChildArgsChangedEPNS_6RegexpEPS1_.exit
 
 .lr.ph28.i:                                       ; preds = %17, %.lr.ph28.i
   %indvars.iv33.i = phi i64 [ %indvars.iv.next34.i, %.lr.ph28.i ], [ 0, %17 ]
-  %23 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv33.i
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv33.i
   %24 = load ptr, ptr %23, align 8, !tbaa !50
   tail call void @_ZN10duckdb_re26Regexp6DecrefEv(ptr noundef nonnull align 8 dereferenceable(40) %24)
   %indvars.iv.next34.i = add nuw nsw i64 %indvars.iv33.i, 1
@@ -839,9 +839,9 @@ _ZN10duckdb_re26Regexp8AllocSubEi.exit:           ; preds = %35
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %48 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %49 = load ptr, ptr %48, align 8, !tbaa !50
-  %50 = getelementptr inbounds nuw ptr, ptr %.0.i192, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %.0.i192, i64 %indvars.iv
   store ptr %49, ptr %50, align 8, !tbaa !50
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -874,9 +874,9 @@ _ZN10duckdb_re26Regexp8AllocSubEi.exit:           ; preds = %35
   br i1 %64, label %65, label %71
 
 65:                                               ; preds = %.lr.ph137
-  %66 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv159
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv159
   %67 = load ptr, ptr %66, align 8, !tbaa !50
-  %68 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.next160
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.next160
   %69 = load ptr, ptr %68, align 8, !tbaa !50
   %70 = tail call noundef zeroext i1 @_ZN10duckdb_re214CoalesceWalker11CanCoalesceEPNS_6RegexpES2_(ptr noundef %67, ptr noundef %69)
   %.pre178 = load i16, ptr %7, align 2, !tbaa !49
@@ -911,16 +911,16 @@ _ZN10duckdb_re26Regexp8AllocSubEi.exit:           ; preds = %35
 
 79:                                               ; preds = %78, %.lr.ph.i115
   %indvars.iv.i118 = phi i64 [ 0, %.lr.ph.i115 ], [ %indvars.iv.next.i120, %78 ]
-  %80 = getelementptr inbounds nuw ptr, ptr %.0.i.i116, i64 %indvars.iv.i118
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i116, i64 %indvars.iv.i118
   %81 = load ptr, ptr %80, align 8, !tbaa !50
-  %82 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.i118
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i118
   %83 = load ptr, ptr %82, align 8, !tbaa !50
   %.not.i119 = icmp eq ptr %83, %81
   br i1 %.not.i119, label %78, label %_ZN10duckdb_re2L16ChildArgsChangedEPNS_6RegexpEPS1_.exit126
 
 .lr.ph28.i123:                                    ; preds = %78, %.lr.ph28.i123
   %indvars.iv33.i124 = phi i64 [ %indvars.iv.next34.i125, %.lr.ph28.i123 ], [ 0, %78 ]
-  %84 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv33.i124
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv33.i124
   %85 = load ptr, ptr %84, align 8, !tbaa !50
   tail call void @_ZN10duckdb_re26Regexp6DecrefEv(ptr noundef nonnull align 8 dereferenceable(40) %85)
   %indvars.iv.next34.i125 = add nuw nsw i64 %indvars.iv33.i124, 1
@@ -977,9 +977,9 @@ _ZN10duckdb_re26Regexp8AllocSubEi.exit127:        ; preds = %96
 
 .lr.ph139:                                        ; preds = %.lr.ph139.preheader, %.lr.ph139
   %indvars.iv173 = phi i64 [ 0, %.lr.ph139.preheader ], [ %indvars.iv.next174, %.lr.ph139 ]
-  %108 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv173
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv173
   %109 = load ptr, ptr %108, align 8, !tbaa !50
-  %110 = getelementptr inbounds nuw ptr, ptr %.0.i128195, i64 %indvars.iv173
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %.0.i128195, i64 %indvars.iv173
   store ptr %109, ptr %110, align 8, !tbaa !50
   %indvars.iv.next174 = add nuw nsw i64 %indvars.iv173, 1
   %exitcond177.not = icmp eq i64 %indvars.iv.next174, %wide.trip.count176
@@ -1002,9 +1002,9 @@ _ZN10duckdb_re26Regexp8AllocSubEi.exit127:        ; preds = %96
   br i1 %112, label %113, label %120
 
 113:                                              ; preds = %.lr.ph141
-  %114 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv162
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv162
   %115 = load ptr, ptr %114, align 8, !tbaa !50
-  %116 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.next163
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.next163
   %117 = load ptr, ptr %116, align 8, !tbaa !50
   %118 = tail call noundef zeroext i1 @_ZN10duckdb_re214CoalesceWalker11CanCoalesceEPNS_6RegexpES2_(ptr noundef %115, ptr noundef %117)
   br i1 %118, label %119, label %120
@@ -1033,7 +1033,7 @@ _ZN10duckdb_re26Regexp8AllocSubEi.exit127:        ; preds = %96
 .lr.ph144:                                        ; preds = %.lr.ph144.preheader, %.lr.ph144
   %indvars.iv165 = phi i64 [ 0, %.lr.ph144.preheader ], [ %indvars.iv.next166, %.lr.ph144 ]
   %.0100142 = phi i32 [ 0, %.lr.ph144.preheader ], [ %spec.select, %.lr.ph144 ]
-  %130 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv165
+  %130 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv165
   %131 = load ptr, ptr %130, align 8, !tbaa !50
   %132 = load i8, ptr %131, align 8, !tbaa !45
   %133 = icmp eq i8 %132, 2
@@ -1083,7 +1083,7 @@ _ZN10duckdb_re26Regexp8AllocSubEi.exit129:        ; preds = %._ZN10duckdb_re26Re
   %152 = phi i16 [ %163, %162 ], [ %136, %_ZN10duckdb_re26Regexp8AllocSubEi.exit129 ]
   %indvars.iv170 = phi i64 [ %indvars.iv.next171, %162 ], [ 0, %_ZN10duckdb_re26Regexp8AllocSubEi.exit129 ]
   %.0148 = phi i32 [ %.1, %162 ], [ 0, %_ZN10duckdb_re26Regexp8AllocSubEi.exit129 ]
-  %153 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv170
+  %153 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv170
   %154 = load ptr, ptr %153, align 8, !tbaa !50
   %155 = load i8, ptr %154, align 8, !tbaa !45
   %156 = icmp eq i8 %155, 2
@@ -1096,7 +1096,7 @@ _ZN10duckdb_re26Regexp8AllocSubEi.exit129:        ; preds = %._ZN10duckdb_re26Re
 
 158:                                              ; preds = %.lr.ph149
   %159 = sext i32 %.0148 to i64
-  %160 = getelementptr inbounds ptr, ptr %.0.i130, i64 %159
+  %160 = getelementptr inbounds [8 x i8], ptr %.0.i130, i64 %159
   store ptr %154, ptr %160, align 8, !tbaa !50
   %161 = add nsw i32 %.0148, 1
   br label %162
@@ -1451,7 +1451,7 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %41, %_ZNKSt7__cxx11
 
 105:                                              ; preds = %.lr.ph, %109
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %109 ]
-  %106 = getelementptr inbounds nuw i32, ptr %104, i64 %indvars.iv
+  %106 = getelementptr inbounds nuw [4 x i8], ptr %104, i64 %indvars.iv
   %107 = load i32, ptr %106, align 4, !tbaa !92
   %108 = icmp eq i32 %107, %99
   br i1 %108, label %109, label %.critedge.loopexit.split.loop.exit85
@@ -1489,7 +1489,7 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %41, %_ZNKSt7__cxx11
   %120 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %121 = load ptr, ptr %120, align 8, !tbaa !21
   %122 = zext nneg i32 %.0.lcssa to i64
-  %123 = getelementptr inbounds nuw i32, ptr %121, i64 %122
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %121, i64 %122
   %124 = load i32, ptr %100, align 8, !tbaa !21
   %125 = sub nsw i32 %124, %.0.lcssa
   %126 = getelementptr inbounds nuw i8, ptr %6, i64 2
@@ -1699,16 +1699,16 @@ define hidden noundef ptr @_ZN10duckdb_re214SimplifyWalker9PostVisitEPNS_6Regexp
 
 20:                                               ; preds = %19, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %19 ]
-  %21 = getelementptr inbounds nuw ptr, ptr %.0.i.i, i64 %indvars.iv.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i, i64 %indvars.iv.i
   %22 = load ptr, ptr %21, align 8, !tbaa !50
-  %23 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.i
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i
   %24 = load ptr, ptr %23, align 8, !tbaa !50
   %.not.i = icmp eq ptr %24, %22
   br i1 %.not.i, label %19, label %_ZN10duckdb_re2L16ChildArgsChangedEPNS_6RegexpEPS1_.exit
 
 .lr.ph28.i:                                       ; preds = %19, %.lr.ph28.i
   %indvars.iv33.i = phi i64 [ %indvars.iv.next34.i, %.lr.ph28.i ], [ 0, %19 ]
-  %25 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv33.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv33.i
   %26 = load ptr, ptr %25, align 8, !tbaa !50
   tail call void @_ZN10duckdb_re26Regexp6DecrefEv(ptr noundef nonnull align 8 dereferenceable(40) %26)
   %indvars.iv.next34.i = add nuw nsw i64 %indvars.iv33.i, 1
@@ -1771,9 +1771,9 @@ _ZN10duckdb_re26Regexp8AllocSubEi.exit:           ; preds = %36
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %49 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %50 = load ptr, ptr %49, align 8, !tbaa !50
-  %51 = getelementptr inbounds nuw ptr, ptr %.0.i95, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %.0.i95, i64 %indvars.iv
   store ptr %50, ptr %51, align 8, !tbaa !50
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2019,7 +2019,7 @@ define hidden noundef ptr @_ZN10duckdb_re214SimplifyWalker14SimplifyRepeatEPNS_6
           to label %23 unwind label %25
 
 23:                                               ; preds = %.lr.ph123
-  %24 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv130
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv130
   store ptr %22, ptr %24, align 8, !tbaa !50
   %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 1
   %exitcond134.not = icmp eq i64 %indvars.iv.next131, %wide.trip.count133
@@ -2036,7 +2036,7 @@ define hidden noundef ptr @_ZN10duckdb_re214SimplifyWalker14SimplifyRepeatEPNS_6
 
 29:                                               ; preds = %27
   %30 = sext i32 %20 to i64
-  %31 = getelementptr inbounds nuw ptr, ptr %19, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %30
   store ptr %28, ptr %31, align 8, !tbaa !50
   %32 = invoke noundef ptr @_ZN10duckdb_re26Regexp6ConcatEPPS0_iNS0_10ParseFlagsE(ptr noundef nonnull %19, i32 noundef %1, i32 noundef %3)
           to label %_ZN10duckdb_re28PODArrayIPNS_6RegexpEED2Ev.exit unwind label %33
@@ -2101,7 +2101,7 @@ _ZN10duckdb_re28PODArrayIPNS_6RegexpEEC2Ei.exit92: ; preds = %46
           to label %55 unwind label %57
 
 55:                                               ; preds = %53
-  %56 = getelementptr inbounds nuw ptr, ptr %50, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %indvars.iv
   store ptr %54, ptr %56, align 8, !tbaa !50
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %48
@@ -2580,7 +2580,7 @@ _ZNSt11_Deque_baseIN10duckdb_re29WalkStateIPNS0_6RegexpEEESaIS4_EE15_M_allocate_
   store ptr %10, ptr %0, align 8, !tbaa !39
   %11 = sub nsw i64 %.sroa.speculated, %8
   %12 = lshr i64 %11, 1
-  %13 = getelementptr inbounds nuw ptr, ptr %10, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %12
   %.idx = shl nuw nsw i64 %8, 3
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx
   br label %.lr.ph.i
@@ -2671,7 +2671,7 @@ _ZNSt11_Deque_baseIN10duckdb_re29WalkStateIPNS0_6RegexpEEESaIS4_EE15_M_create_no
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %49, ptr %50, align 8, !tbaa !103
   store ptr %40, ptr %38, align 8, !tbaa !104
-  %51 = getelementptr inbounds nuw %"struct.duckdb_re2::WalkState", ptr %47, i64 %4
+  %51 = getelementptr inbounds nuw [48 x i8], ptr %47, i64 %4
   store ptr %51, ptr %44, align 8, !tbaa !105
   ret void
 
@@ -3054,17 +3054,17 @@ _ZNSt5stackIN10duckdb_re29WalkStateIPNS0_6RegexpEEESt5dequeIS4_SaIS4_EEE3topEv.e
 
 ._crit_edge:                                      ; preds = %102
   %.phi.trans.insert = sext i32 %.pre87 to i64
-  %.phi.trans.insert86 = getelementptr inbounds ptr, ptr %.0.i, i64 %.phi.trans.insert
+  %.phi.trans.insert86 = getelementptr inbounds [8 x i8], ptr %.0.i, i64 %.phi.trans.insert
   %.pre = load ptr, ptr %.phi.trans.insert86, align 8, !tbaa !50
   br label %._crit_edge92
 
 104:                                              ; preds = %102
   %105 = add nsw i32 %.pre87, -1
   %106 = zext nneg i32 %105 to i64
-  %107 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %106
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %106
   %108 = load ptr, ptr %107, align 8, !tbaa !50
   %109 = zext nneg i32 %.pre87 to i64
-  %110 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %109
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %109
   %111 = load ptr, ptr %110, align 8, !tbaa !50
   %112 = icmp eq ptr %108, %111
   br i1 %112, label %113, label %._crit_edge92
@@ -3072,7 +3072,7 @@ _ZNSt5stackIN10duckdb_re29WalkStateIPNS0_6RegexpEEESt5dequeIS4_SaIS4_EEE3topEv.e
 113:                                              ; preds = %104
   %114 = getelementptr inbounds i8, ptr %57, i64 -8
   %115 = load ptr, ptr %114, align 8, !tbaa !113
-  %116 = getelementptr inbounds nuw ptr, ptr %115, i64 %106
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %115, i64 %106
   %117 = load ptr, ptr %116, align 8, !tbaa !50
   %118 = load ptr, ptr %0, align 8, !tbaa !22
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 32
@@ -3081,7 +3081,7 @@ _ZNSt5stackIN10duckdb_re29WalkStateIPNS0_6RegexpEEESt5dequeIS4_SaIS4_EEE3topEv.e
   %122 = load ptr, ptr %114, align 8, !tbaa !113
   %123 = load i32, ptr %60, align 8, !tbaa !116
   %124 = sext i32 %123 to i64
-  %125 = getelementptr inbounds ptr, ptr %122, i64 %124
+  %125 = getelementptr inbounds [8 x i8], ptr %122, i64 %124
   store ptr %121, ptr %125, align 8, !tbaa !50
   %126 = add nsw i32 %123, 1
   store i32 %126, ptr %60, align 8, !tbaa !116
@@ -3195,7 +3195,7 @@ _ZNSt5stackIN10duckdb_re29WalkStateIPNS0_6RegexpEEESt5dequeIS4_SaIS4_EEE3topEv.e
   %178 = getelementptr inbounds i8, ptr %174, i64 -40
   %179 = load i32, ptr %178, align 8, !tbaa !116
   %180 = sext i32 %179 to i64
-  %181 = getelementptr inbounds ptr, ptr %176, i64 %180
+  %181 = getelementptr inbounds [8 x i8], ptr %176, i64 %180
   store ptr %.265, ptr %181, align 8, !tbaa !50
   br label %184
 
@@ -3317,9 +3317,9 @@ define linkonce_odr hidden void @_ZNSt5dequeIN10duckdb_re29WalkStateIPNS0_6Regex
   %19 = load ptr, ptr %0, align 8, !tbaa !39
   %20 = sub i64 %15, %13
   %21 = lshr i64 %20, 1
-  %22 = getelementptr inbounds nuw ptr, ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %21
   %23 = select i1 %2, i64 %1, i64 0
-  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %23
   %25 = icmp ult ptr %24, %7
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %26, %7
@@ -3338,12 +3338,12 @@ define linkonce_odr hidden void @_ZNSt5dequeIN10duckdb_re29WalkStateIPNS0_6Regex
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIPPN10duckdb_re29WalkStateIPNS0_6RegexpEEES6_ET0_T_S8_S7_.exit, label %32
 
 32:                                               ; preds = %31
-  %33 = getelementptr inbounds nuw ptr, ptr %24, i64 %12
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %12
   %34 = ptrtoint ptr %26 to i64
   %35 = sub i64 %34, %9
   %36 = ashr exact i64 %35, 3
   %37 = sub nsw i64 0, %36
-  %38 = getelementptr inbounds ptr, ptr %33, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %33, i64 %37
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %38, ptr align 8 %7, i64 %35, i1 false)
   br label %_ZSt4copyIPPN10duckdb_re29WalkStateIPNS0_6RegexpEEES6_ET0_T_S8_S7_.exit
 
@@ -3371,9 +3371,9 @@ _ZNSt11_Deque_baseIN10duckdb_re29WalkStateIPNS0_6RegexpEEESaIS4_EE15_M_allocate_
   %46 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %45) #19
   %47 = sub i64 %41, %13
   %48 = lshr i64 %47, 1
-  %49 = getelementptr inbounds nuw ptr, ptr %46, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %48
   %50 = select i1 %2, i64 %1, i64 0
-  %51 = getelementptr inbounds nuw ptr, ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i25 = icmp eq ptr %52, %7
   br i1 %.not.i.i.i.i.i25, label %_ZSt4copyIPPN10duckdb_re29WalkStateIPNS0_6RegexpEEES6_ET0_T_S8_S7_.exit26, label %53
@@ -3400,7 +3400,7 @@ _ZSt4copyIPPN10duckdb_re29WalkStateIPNS0_6RegexpEEES6_ET0_T_S8_S7_.exit: ; preds
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 480
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %59, ptr %60, align 8, !tbaa !103
-  %61 = getelementptr inbounds nuw ptr, ptr %.0, i64 %12
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %.0, i64 %12
   %62 = getelementptr inbounds i8, ptr %61, i64 -8
   store ptr %62, ptr %4, align 8, !tbaa !101
   %63 = load ptr, ptr %62, align 8, !tbaa !42

@@ -3,7 +3,6 @@ source_filename = "bench/openssl/original/bad_dtls_test.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.anon = type { i64, i32 }
 %struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
 
 @.str = private unnamed_addr constant [14 x i8] c"test_bad_dtls\00", align 1
@@ -281,7 +280,7 @@ define internal range(i32 0, 2) i32 @test_bad_dtls() #0 {
 .preheader:                                       ; preds = %106, %136
   %indvars.iv = phi i64 [ %indvars.iv.next, %136 ], [ 0, %106 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %109 = getelementptr inbounds nuw %struct.anon, ptr @tests, i64 %indvars.iv
+  %109 = getelementptr inbounds nuw [16 x i8], ptr @tests, i64 %indvars.iv
   %110 = load i64, ptr %109, align 16, !tbaa !11
   %111 = call fastcc i32 @send_record(ptr noundef %54, i8 noundef zeroext 23, i64 noundef %110, ptr noundef nonnull %109, i64 noundef 8)
   %112 = call i32 @test_true(ptr noundef nonnull @.str.1, i32 noundef 572, ptr noundef nonnull @.str.28, i32 noundef %111) #6

@@ -9,7 +9,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.pathspec = type { i32, i8, i32, i32, ptr }
 %struct.option = type { i32, i32, ptr, ptr, ptr, ptr, i32, ptr, i64, ptr, i64, ptr }
 %struct.object_context = type { i16, %struct.strbuf, ptr }
-%struct.pathspec_item = type { ptr, ptr, i32, i32, i32, i32, i32, i32, ptr, ptr }
 
 @.str = private unnamed_addr constant [16 x i8] c"only show trees\00", align 1
 @.str.1 = private unnamed_addr constant [22 x i8] c"recurse into subtrees\00", align 1
@@ -446,7 +445,7 @@ define dso_local range(i32 0, 2) i32 @cmd_ls_tree(i32 noundef %0, ptr noundef %1
 
 192:                                              ; preds = %.lr.ph, %192
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %192 ]
-  %193 = getelementptr inbounds nuw %struct.pathspec_item, ptr %191, i64 %indvars.iv
+  %193 = getelementptr inbounds nuw [56 x i8], ptr %191, i64 %indvars.iv
   %194 = getelementptr inbounds nuw i8, ptr %193, i64 20
   %195 = load i32, ptr %194, align 4, !tbaa !33
   %196 = getelementptr inbounds nuw i8, ptr %193, i64 28
@@ -620,7 +619,7 @@ define internal range(i32 0, 2) i32 @show_tree_fmt(ptr noundef %0, ptr noundef %
 
 32:                                               ; preds = %.critedge.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %.critedge.i ]
-  %33 = getelementptr inbounds nuw %struct.pathspec_item, ptr %31, i64 %indvars.iv.i
+  %33 = getelementptr inbounds nuw [56 x i8], ptr %31, i64 %indvars.iv.i
   %34 = load ptr, ptr %33, align 8, !tbaa !48
   %35 = tail call i32 @strncmp(ptr noundef readonly %20, ptr noundef %34, i64 noundef %22) #15
   %.not29.i = icmp eq i32 %35, 0
@@ -1282,7 +1281,7 @@ define internal fastcc range(i32 -1, 2) i32 @show_tree_common(ptr noundef readon
 
 25:                                               ; preds = %.critedge.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %.critedge.i ]
-  %26 = getelementptr inbounds nuw %struct.pathspec_item, ptr %24, i64 %indvars.iv.i
+  %26 = getelementptr inbounds nuw [56 x i8], ptr %24, i64 %indvars.iv.i
   %27 = load ptr, ptr %26, align 8, !tbaa !48
   %28 = tail call i32 @strncmp(ptr noundef readonly %13, ptr noundef %27, i64 noundef %15) #15
   %.not29.i = icmp eq i32 %28, 0

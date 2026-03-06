@@ -3,10 +3,6 @@ source_filename = "bench/memcached/original/slab_automove.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.item_stats_automove = type { i64, i64, i32 }
-%struct.window_data = type { i64, i64, float, i64 }
-%struct.slab_stats_automove = type { i32, i32, i64, i64 }
-
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @slab_automove_init(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
@@ -77,9 +73,9 @@ define dso_local void @slab_automove_run(ptr noundef %0, ptr noundef writeonly c
 7:                                                ; preds = %3, %7
   %indvars.iv = phi i64 [ 1, %3 ], [ %indvars.iv.next, %7 ]
   %.0102142 = phi i64 [ 0, %3 ], [ %13, %7 ]
-  %8 = getelementptr inbounds nuw %struct.item_stats_automove, ptr %4, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [24 x i8], ptr %4, i64 %indvars.iv
   %9 = load i64, ptr %8, align 8, !tbaa !22
-  %10 = getelementptr inbounds nuw %struct.item_stats_automove, ptr %6, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %indvars.iv
   %11 = load i64, ptr %10, align 8, !tbaa !22
   %12 = add i64 %9, %.0102142
   %13 = sub i64 %12, %11
@@ -113,11 +109,11 @@ define dso_local void @slab_automove_run(ptr noundef %0, ptr noundef writeonly c
   %26 = urem i32 %25, %22
   %27 = add i32 %26, %24
   %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds nuw %struct.window_data, ptr %21, i64 %28
+  %29 = getelementptr inbounds nuw [32 x i8], ptr %21, i64 %28
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %29, i8 0, i64 32, i1 false)
-  %30 = getelementptr inbounds nuw %struct.item_stats_automove, ptr %4, i64 %indvars.iv159
+  %30 = getelementptr inbounds nuw [24 x i8], ptr %4, i64 %indvars.iv159
   %31 = load i64, ptr %30, align 8, !tbaa !22
-  %32 = getelementptr inbounds nuw %struct.item_stats_automove, ptr %6, i64 %indvars.iv159
+  %32 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %indvars.iv159
   %33 = load i64, ptr %32, align 8, !tbaa !22
   %.not = icmp ne i64 %31, %33
   br i1 %.not, label %34, label %41
@@ -148,10 +144,10 @@ define dso_local void @slab_automove_run(ptr noundef %0, ptr noundef writeonly c
   br label %49
 
 49:                                               ; preds = %47, %41
-  %50 = getelementptr inbounds nuw %struct.slab_stats_automove, ptr %5, i64 %indvars.iv159
+  %50 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %indvars.iv159
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %52 = load i64, ptr %51, align 8, !tbaa !33
-  %53 = getelementptr inbounds nuw %struct.slab_stats_automove, ptr %0, i64 %indvars.iv159
+  %53 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %indvars.iv159
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 3112
   %55 = load i64, ptr %54, align 8, !tbaa !33
   %56 = icmp sgt i64 %52, %55
@@ -169,7 +165,7 @@ define dso_local void @slab_automove_run(ptr noundef %0, ptr noundef writeonly c
   store i64 %62, ptr %29, align 8, !tbaa !36
   %63 = load ptr, ptr %0, align 8, !tbaa !16
   %64 = sext i32 %24 to i64
-  %65 = getelementptr inbounds %struct.window_data, ptr %63, i64 %64
+  %65 = getelementptr inbounds [32 x i8], ptr %63, i64 %64
   %66 = load i32, ptr %18, align 8, !tbaa !19
   %.not.i = icmp eq i32 %66, 0
   br i1 %.not.i, label %window_sum.exit, label %.lr.ph.i
@@ -184,7 +180,7 @@ define dso_local void @slab_automove_run(ptr noundef %0, ptr noundef writeonly c
   %69 = phi float [ 0.000000e+00, %.lr.ph.i ], [ %80, %67 ]
   %70 = phi i64 [ 0, %.lr.ph.i ], [ %77, %67 ]
   %71 = phi i64 [ 0, %.lr.ph.i ], [ %74, %67 ]
-  %72 = getelementptr inbounds nuw %struct.window_data, ptr %65, i64 %indvars.iv.i
+  %72 = getelementptr inbounds nuw [32 x i8], ptr %65, i64 %indvars.iv.i
   %73 = load i64, ptr %72, align 8, !tbaa !36
   %74 = add i64 %73, %71
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 8

@@ -12,8 +12,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"union.llvm::Twine::Child" = type { %struct.anon }
 %struct.anon = type { ptr, i64 }
 %"class.llvm::Error" = type { ptr }
-%"struct.llvm::DWARFAbbreviationDeclaration::AttributeSpec" = type { i16, i16, %union.anon.1 }
-%union.anon.1 = type { i64 }
 %"class.llvm::formatv_object" = type { %"class.llvm::formatv_object_base.base", [7 x i8], %"class.std::tuple", %"struct.std::array" }
 %"class.llvm::formatv_object_base.base" = type <{ %"class.llvm::StringRef", %"class.llvm::ArrayRef", i8 }>
 %"class.llvm::ArrayRef" = type { ptr, i64 }
@@ -507,7 +505,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_28DWARFAbbreviationDeclaration13AttributeSp
   %.sroa.5.1 = phi i8 [ %.not.i, %_ZNSt8optionalIN4llvm28DWARFAbbreviationDeclaration13FixedSizeInfoEE5resetEv.exit ], [ %.sroa.5.079, %118 ], [ %.sroa.5.1.ph, %_ZN4llvm23SmallVectorTemplateBaseINS_28DWARFAbbreviationDeclaration13AttributeSpecELb1EE9push_backES2_.exit.sink.split ]
   %157 = load ptr, ptr %76, align 8, !tbaa !14
   %158 = zext i32 %.sink to i64
-  %159 = getelementptr inbounds nuw %"struct.llvm::DWARFAbbreviationDeclaration::AttributeSpec", ptr %157, i64 %158
+  %159 = getelementptr inbounds nuw [16 x i8], ptr %157, i64 %158
   store i64 %.sroa.044.0.insert.insert.sink, ptr %159, align 1
   %.sroa.2.0..sroa_idx.i39 = getelementptr inbounds nuw i8, ptr %159, i64 8
   store i64 %.sroa.345.8.insert.insert.sink, ptr %.sroa.2.0..sroa_idx.i39, align 1
@@ -833,7 +831,7 @@ define dso_local range(i64 0, 8589934592) i64 @_ZNK4llvm28DWARFAbbreviationDecla
 7:                                                ; preds = %.lr.ph, %12
   %.069 = phi i32 [ 0, %.lr.ph ], [ %13, %12 ]
   %8 = zext i32 %.069 to i64
-  %9 = getelementptr inbounds nuw %"struct.llvm::DWARFAbbreviationDeclaration::AttributeSpec", ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %8
   %10 = load i16, ptr %9, align 8, !tbaa !123
   %11 = icmp eq i16 %10, %1
   br i1 %11, label %._crit_edge.loopexit, label %12
@@ -889,7 +887,7 @@ define dso_local noundef i64 @_ZNK4llvm28DWARFAbbreviationDeclaration27getAttrib
 15:                                               ; preds = %.lr.ph, %42
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %42 ]
   %16 = load ptr, ptr %11, align 8, !tbaa !14
-  %17 = getelementptr inbounds nuw %"struct.llvm::DWARFAbbreviationDeclaration::AttributeSpec", ptr %16, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %indvars.iv
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 2
   %19 = load i16, ptr %18, align 2, !tbaa !119
   %20 = icmp eq i16 %19, 33
@@ -928,7 +926,7 @@ _ZNSt8optionalIlEaSIRhEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remo
 
 36:                                               ; preds = %29
   %37 = load ptr, ptr %11, align 8, !tbaa !14
-  %38 = getelementptr inbounds nuw %"struct.llvm::DWARFAbbreviationDeclaration::AttributeSpec", ptr %37, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [16 x i8], ptr %37, i64 %indvars.iv
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 2
   %40 = load i16, ptr %39, align 2, !tbaa !119
   %.sroa.0.0.copyload = load i48, ptr %12, align 8
@@ -994,7 +992,7 @@ define dso_local void @_ZNK4llvm28DWARFAbbreviationDeclaration27getAttributeValu
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = zext i32 %2 to i64
   %11 = load ptr, ptr %9, align 8, !tbaa !14
-  %12 = getelementptr inbounds nuw %"struct.llvm::DWARFAbbreviationDeclaration::AttributeSpec", ptr %11, i64 %10
+  %12 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 %10
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 2
   %14 = load i16, ptr %13, align 2, !tbaa !119
   %15 = icmp eq i16 %14, 33
@@ -1062,7 +1060,7 @@ define dso_local void @_ZNK4llvm28DWARFAbbreviationDeclaration17getAttributeValu
 
 16:                                               ; preds = %20, %.lr.ph.i
   %indvars.iv = phi i64 [ %indvars.iv.next, %20 ], [ 0, %.lr.ph.i ]
-  %17 = getelementptr inbounds nuw %"struct.llvm::DWARFAbbreviationDeclaration::AttributeSpec", ptr %14, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %indvars.iv
   %18 = load i16, ptr %17, align 8, !tbaa !123
   %19 = icmp eq i16 %18, %3
   br i1 %19, label %22, label %20
@@ -1101,7 +1099,7 @@ _ZNK4llvm28DWARFAbbreviationDeclaration18findAttributeIndexENS_5dwarf9AttributeE
 29:                                               ; preds = %56, %.lr.ph.i5
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i5 ], [ %indvars.iv.next.i, %56 ]
   %30 = load ptr, ptr %13, align 8, !tbaa !14
-  %31 = getelementptr inbounds nuw %"struct.llvm::DWARFAbbreviationDeclaration::AttributeSpec", ptr %30, i64 %indvars.iv.i
+  %31 = getelementptr inbounds nuw [16 x i8], ptr %30, i64 %indvars.iv.i
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 2
   %33 = load i16, ptr %32, align 2, !tbaa !119
   %34 = icmp eq i16 %33, 33
@@ -1140,7 +1138,7 @@ _ZNSt8optionalIlEaSIRhEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remo
 
 50:                                               ; preds = %43
   %51 = load ptr, ptr %13, align 8, !tbaa !14
-  %52 = getelementptr inbounds nuw %"struct.llvm::DWARFAbbreviationDeclaration::AttributeSpec", ptr %51, i64 %indvars.iv.i
+  %52 = getelementptr inbounds nuw [16 x i8], ptr %51, i64 %indvars.iv.i
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 2
   %54 = load i16, ptr %53, align 2, !tbaa !119
   %.sroa.0.0.copyload.i = load i48, ptr %27, align 8
@@ -1161,7 +1159,7 @@ _ZNK4llvm28DWARFAbbreviationDeclaration27getAttributeOffsetFromIndexEjmRKNS_9DWA
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 %57, ptr %6, align 8, !tbaa !16, !noalias !141
   %58 = load ptr, ptr %13, align 8, !tbaa !14, !noalias !141
-  %59 = getelementptr inbounds nuw %"struct.llvm::DWARFAbbreviationDeclaration::AttributeSpec", ptr %58, i64 %.pre-phi
+  %59 = getelementptr inbounds nuw [16 x i8], ptr %58, i64 %.pre-phi
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 2
   %61 = load i16, ptr %60, align 2, !tbaa !119, !noalias !141
   %62 = icmp eq i16 %61, 33

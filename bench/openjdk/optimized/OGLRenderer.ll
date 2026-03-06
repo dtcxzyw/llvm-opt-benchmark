@@ -178,9 +178,9 @@ define hidden void @OGLRenderer_DrawPoly(ptr noundef readnone captures(address_i
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.057 = phi i1 [ true, %.lr.ph.preheader ], [ %narrow, %.lr.ph ]
-  %17 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   %18 = load i32, ptr %17, align 4
-  %19 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   %20 = load i32, ptr %19, align 4
   %21 = icmp eq i32 %18, %14
   %22 = icmp eq i32 %20, %15
@@ -206,13 +206,13 @@ define hidden void @OGLRenderer_DrawPoly(ptr noundef readnone captures(address_i
 32:                                               ; preds = %._crit_edge
   %33 = add nsw i32 %1, -1
   %34 = zext nneg i32 %33 to i64
-  %35 = getelementptr inbounds nuw i32, ptr %5, i64 %34
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %34
   %36 = load i32, ptr %35, align 4
   %.not = icmp eq i32 %36, %14
   br i1 %.not, label %37, label %40
 
 37:                                               ; preds = %32
-  %38 = getelementptr inbounds nuw i32, ptr %6, i64 %34
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %34
   %39 = load i32, ptr %38, align 4
   %.not54 = icmp eq i32 %39, %15
   br i1 %.not54, label %60, label %40
@@ -233,10 +233,10 @@ define hidden void @OGLRenderer_DrawPoly(ptr noundef readnone captures(address_i
   tail call void @OGLRenderQueue_CheckPreviousOp(i32 noundef 1) #4
   %48 = add nsw i32 %1, -1
   %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds i32, ptr %5, i64 %49
+  %50 = getelementptr inbounds [4 x i8], ptr %5, i64 %49
   %51 = load i32, ptr %50, align 4
   %52 = add nsw i32 %51, %3
-  %53 = getelementptr inbounds i32, ptr %6, i64 %49
+  %53 = getelementptr inbounds [4 x i8], ptr %6, i64 %49
   %54 = load i32, ptr %53, align 4
   %55 = add nsw i32 %54, %4
   %56 = load ptr, ptr @j2d_glVertex2i, align 8

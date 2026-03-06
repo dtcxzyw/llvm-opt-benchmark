@@ -2155,8 +2155,8 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE2atEm.e
   unreachable
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE2atEm.exit5: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE2atEm.exit
-  %23 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %14, i64 %.012
-  %24 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %17, i64 %.012
+  %23 = getelementptr inbounds [32 x i8], ptr %14, i64 %.012
+  %24 = getelementptr inbounds [32 x i8], ptr %17, i64 %.012
   tail call void @_ZN7SysInfo14setEnvVariableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %24)
   %25 = add nuw i64 %.012, 1
   %26 = load ptr, ptr %3, align 8
@@ -2588,7 +2588,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit32, %28
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i31, ptr %4, align 8
-  %32 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %20, i64 %16
+  %32 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %16
   store ptr %32, ptr %27, align 8
   ret void
 
@@ -2928,7 +2928,7 @@ define internal fastcc noundef i32 @_ZNK12_GLOBAL__N_113JliLaunchData20initJvmlL
   %21 = phi ptr [ %28, %.lr.ph.split.us.i ], [ %14, %.split ]
   %.024.us.i = phi ptr [ %25, %.lr.ph.split.us.i ], [ %20, %.split ]
   %.01823.us.i = phi i64 [ %26, %.lr.ph.split.us.i ], [ 0, %.split ]
-  %22 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %21, i64 %.01823.us.i
+  %22 = getelementptr inbounds [32 x i8], ptr %21, i64 %.01823.us.i
   %23 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %22) #22
   %24 = getelementptr i8, ptr %.024.us.i, i64 %23
   %25 = getelementptr i8, ptr %24, i64 1
@@ -2980,14 +2980,14 @@ define internal fastcc noundef i32 @_ZNK12_GLOBAL__N_113JliLaunchData20initJvmlL
   %57 = phi ptr [ %68, %.lr.ph.split.i ], [ %49, %.thread.i ]
   %.024.i = phi ptr [ %65, %.lr.ph.split.i ], [ %55, %.thread.i ]
   %.01823.i = phi i64 [ %66, %.lr.ph.split.i ], [ 0, %.thread.i ]
-  %58 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %57, i64 %.01823.i
+  %58 = getelementptr inbounds [32 x i8], ptr %57, i64 %.01823.i
   %59 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %58) #22
   %60 = add i64 %59, 1
   %61 = load ptr, ptr %36, align 8
-  %62 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %61, i64 %.01823.i
+  %62 = getelementptr inbounds [32 x i8], ptr %61, i64 %.01823.i
   %63 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %62) #22
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.024.i, ptr align 1 %63, i64 %60, i1 false)
-  %64 = getelementptr inbounds ptr, ptr %56, i64 %.01823.i
+  %64 = getelementptr inbounds [8 x i8], ptr %56, i64 %.01823.i
   store ptr %.024.i, ptr %64, align 8
   %65 = getelementptr inbounds i8, ptr %.024.i, i64 %60
   %66 = add i64 %.01823.i, 1
@@ -3018,7 +3018,7 @@ define internal fastcc noundef i32 @_ZNK12_GLOBAL__N_113JliLaunchData20initJvmlL
   %82 = phi ptr [ %89, %.lr.ph.split.us.i60 ], [ %76, %.split42 ]
   %.024.us.i61 = phi ptr [ %86, %.lr.ph.split.us.i60 ], [ %81, %.split42 ]
   %.01823.us.i62 = phi i64 [ %87, %.lr.ph.split.us.i60 ], [ 0, %.split42 ]
-  %83 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %82, i64 %.01823.us.i62
+  %83 = getelementptr inbounds [32 x i8], ptr %82, i64 %.01823.us.i62
   %84 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %83) #22
   %85 = getelementptr i8, ptr %.024.us.i61, i64 %84
   %86 = getelementptr i8, ptr %85, i64 1
@@ -3061,14 +3061,14 @@ define internal fastcc noundef i32 @_ZNK12_GLOBAL__N_113JliLaunchData20initJvmlL
   %112 = phi ptr [ %123, %.lr.ph.split.i69 ], [ %106, %.thread.i67 ]
   %.024.i70 = phi ptr [ %120, %.lr.ph.split.i69 ], [ %111, %.thread.i67 ]
   %.01823.i71 = phi i64 [ %121, %.lr.ph.split.i69 ], [ 0, %.thread.i67 ]
-  %113 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %112, i64 %.01823.i71
+  %113 = getelementptr inbounds [32 x i8], ptr %112, i64 %.01823.i71
   %114 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %113) #22
   %115 = add i64 %114, 1
   %116 = load ptr, ptr %95, align 8
-  %117 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %116, i64 %.01823.i71
+  %117 = getelementptr inbounds [32 x i8], ptr %116, i64 %.01823.i71
   %118 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %117) #22
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.024.i70, ptr align 1 %118, i64 %115, i1 false)
-  %119 = getelementptr inbounds ptr, ptr %phi.call, i64 %.01823.i71
+  %119 = getelementptr inbounds [8 x i8], ptr %phi.call, i64 %.01823.i71
   store ptr %.024.i70, ptr %119, align 8
   %120 = getelementptr inbounds i8, ptr %.024.i70, i64 %115
   %121 = add i64 %.01823.i71, 1
@@ -3099,7 +3099,7 @@ define internal fastcc noundef i32 @_ZNK12_GLOBAL__N_113JliLaunchData20initJvmlL
   %137 = phi ptr [ %144, %.lr.ph.split.us.i81 ], [ %131, %.split46 ]
   %.024.us.i82 = phi ptr [ %141, %.lr.ph.split.us.i81 ], [ %136, %.split46 ]
   %.01823.us.i83 = phi i64 [ %142, %.lr.ph.split.us.i81 ], [ 0, %.split46 ]
-  %138 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %137, i64 %.01823.us.i83
+  %138 = getelementptr inbounds [32 x i8], ptr %137, i64 %.01823.us.i83
   %139 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %138) #22
   %140 = getelementptr i8, ptr %.024.us.i82, i64 %139
   %141 = getelementptr i8, ptr %140, i64 1
@@ -3133,14 +3133,14 @@ define internal fastcc noundef i32 @_ZNK12_GLOBAL__N_113JliLaunchData20initJvmlL
   %159 = phi ptr [ %170, %.lr.ph.split.i90 ], [ %153, %.thread.i88 ]
   %.024.i91 = phi ptr [ %167, %.lr.ph.split.i90 ], [ %158, %.thread.i88 ]
   %.01823.i92 = phi i64 [ %168, %.lr.ph.split.i90 ], [ 0, %.thread.i88 ]
-  %160 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %159, i64 %.01823.i92
+  %160 = getelementptr inbounds [32 x i8], ptr %159, i64 %.01823.i92
   %161 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %160) #22
   %162 = add i64 %161, 1
   %163 = load ptr, ptr %150, align 8
-  %164 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %163, i64 %.01823.i92
+  %164 = getelementptr inbounds [32 x i8], ptr %163, i64 %.01823.i92
   %165 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %164) #22
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.024.i91, ptr align 1 %165, i64 %162, i1 false)
-  %166 = getelementptr inbounds ptr, ptr %phi.call45, i64 %.01823.i92
+  %166 = getelementptr inbounds [8 x i8], ptr %phi.call45, i64 %.01823.i92
   store ptr %.024.i91, ptr %166, align 8
   %167 = getelementptr inbounds i8, ptr %.024.i91, i64 %162
   %168 = add i64 %.01823.i92, 1

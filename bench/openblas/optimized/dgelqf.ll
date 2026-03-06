@@ -33,7 +33,7 @@ define void @dgelqf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %16 = load i32, ptr %3, align 4, !tbaa !3
   %narrow = xor i32 %16, -1
   %17 = sext i32 %narrow to i64
-  %18 = getelementptr inbounds double, ptr %2, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %2, i64 %17
   %19 = getelementptr inbounds i8, ptr %4, i64 -8
   store i32 0, ptr %7, align 4, !tbaa !3
   %20 = tail call i32 @ilaenv_(ptr noundef nonnull @c__1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef %0, ptr noundef %1, ptr noundef nonnull @c_n1, ptr noundef nonnull @c_n1, i32 noundef 6, i32 noundef 1) #4
@@ -151,9 +151,9 @@ define void @dgelqf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %73 = mul nsw i32 %.0124151, %16
   %74 = add nsw i32 %73, %.0124151
   %75 = sext i32 %74 to i64
-  %76 = getelementptr inbounds double, ptr %18, i64 %75
+  %76 = getelementptr inbounds [8 x i8], ptr %18, i64 %75
   %77 = zext nneg i32 %.0124151 to i64
-  %78 = getelementptr inbounds nuw double, ptr %19, i64 %77
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %77
   call void @dgelq2_(ptr noundef nonnull %14, ptr noundef nonnull %11, ptr noundef %76, ptr noundef nonnull %3, ptr noundef nonnull %78, ptr noundef nonnull %5, ptr noundef nonnull %13) #4
   %79 = load i32, ptr %14, align 4, !tbaa !3
   %80 = add nsw i32 %79, %.0124151
@@ -177,9 +177,9 @@ define void @dgelqf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %91, ptr %12, align 4, !tbaa !3
   %92 = add nsw i32 %87, %73
   %93 = sext i32 %92 to i64
-  %94 = getelementptr inbounds double, ptr %18, i64 %93
+  %94 = getelementptr inbounds [8 x i8], ptr %18, i64 %93
   %95 = sext i32 %86 to i64
-  %96 = getelementptr double, ptr %5, i64 %95
+  %96 = getelementptr [8 x i8], ptr %5, i64 %95
   call void @dlarfb_(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %14, ptr noundef %76, ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull %15, ptr noundef %94, ptr noundef nonnull %3, ptr noundef %96, ptr noundef nonnull %15) #4
   br label %97
 
@@ -207,9 +207,9 @@ define void @dgelqf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %105 = add i32 %16, 1
   %106 = mul i32 %.1, %105
   %107 = sext i32 %106 to i64
-  %108 = getelementptr inbounds double, ptr %18, i64 %107
+  %108 = getelementptr inbounds [8 x i8], ptr %18, i64 %107
   %109 = zext nneg i32 %.1 to i64
-  %110 = getelementptr inbounds nuw double, ptr %19, i64 %109
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %109
   call void @dgelq2_(ptr noundef nonnull %10, ptr noundef nonnull %9, ptr noundef %108, ptr noundef nonnull %3, ptr noundef nonnull %110, ptr noundef nonnull %5, ptr noundef nonnull %13) #4
   br label %111
 

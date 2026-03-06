@@ -10,7 +10,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.model_evaluator = type { ptr }
 %class.params_ref = type { ptr }
 %class.obj_ref.36 = type { ptr, ptr }
-%class.obj_hash_entry = type { ptr }
 
 $_ZN2qe11bool_pluginD2Ev = comdat any
 
@@ -497,7 +496,7 @@ define linkonce_odr hidden noundef i32 @_ZN2qe11bool_plugin10get_weightER12conta
   %.idx.i.i = shl nuw nsw i64 %18, 3
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx.i.i
   %20 = zext i32 %14 to i64
-  %21 = getelementptr inbounds nuw %class.obj_hash_entry, ptr %17, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %20
   %.not34.i.i = icmp eq i32 %16, %14
   br i1 %.not34.i.i, label %.preheader.i.i, label %.lr.ph.i.i
 
@@ -575,7 +574,7 @@ _ZNK14core_hashtableI14obj_hash_entryI3appE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8cont
   %.idx.i.i5 = shl nuw nsw i64 %54, 3
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 %.idx.i.i5
   %56 = zext i32 %50 to i64
-  %57 = getelementptr inbounds nuw %class.obj_hash_entry, ptr %53, i64 %56
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %56
   %.not34.i.i6 = icmp eq i32 %52, %50
   br i1 %.not34.i.i6, label %.preheader.i.i12, label %.lr.ph.i.i7
 
@@ -1031,7 +1030,7 @@ _ZN11ast_manager7inc_refEP3ast.exit.i.i:          ; preds = %3
 21:                                               ; preds = %.lr.ph, %_ZNK11ast_manager6is_notEPK4exprRPS0_.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNK11ast_manager6is_notEPK4exprRPS0_.exit.thread ]
   %22 = load ptr, ptr %13, align 8, !tbaa !15
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8, !tbaa !132
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %26 = load i32, ptr %25, align 4
@@ -1386,7 +1385,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2qe11bool_plugin15solve_polari
   %.idx.i.i = shl nuw nsw i64 %19, 3
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx.i.i
   %21 = zext i32 %15 to i64
-  %22 = getelementptr inbounds nuw %class.obj_hash_entry, ptr %18, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %21
   %.not34.i.i = icmp eq i32 %17, %15
   br i1 %.not34.i.i, label %.preheader.i.i, label %.lr.ph.i.i
 
@@ -1464,7 +1463,7 @@ _ZNK14core_hashtableI14obj_hash_entryI3appE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8cont
   %.idx.i.i78 = shl nuw nsw i64 %55, 3
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 %.idx.i.i78
   %57 = zext i32 %51 to i64
-  %58 = getelementptr inbounds nuw %class.obj_hash_entry, ptr %54, i64 %57
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %57
   %.not34.i.i79 = icmp eq i32 %53, %51
   br i1 %.not34.i.i79, label %.preheader.i.i85, label %.lr.ph.i.i80
 
@@ -1559,7 +1558,7 @@ _ZNK14core_hashtableI14obj_hash_entryI3appE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8cont
 
 _ZNK14core_hashtableI14obj_hash_entryI3appE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit: ; preds = %.lr.ph.i.i.i, %93, %80
   %.sroa.0.1.i = phi ptr [ %86, %80 ], [ %90, %93 ], [ %.sroa.0.0.i, %.lr.ph.i.i.i ]
-  %95 = getelementptr inbounds nuw %class.obj_hash_entry, ptr %86, i64 %89
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %86, i64 %89
   %.not210 = icmp eq ptr %.sroa.0.1.i, %95
   br i1 %.not210, label %.critedge69, label %.lr.ph212
 
@@ -1626,7 +1625,7 @@ _ZN14core_hashtableI14obj_hash_entryI3appE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8itera
 
 _ZNK14core_hashtableI14obj_hash_entryI3appE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit110: ; preds = %.lr.ph.i.i.i104, %118, %.critedge69
   %.sroa.0.1.i106 = phi ptr [ %111, %.critedge69 ], [ %115, %118 ], [ %.sroa.0.0.i105, %.lr.ph.i.i.i104 ]
-  %120 = getelementptr inbounds nuw %class.obj_hash_entry, ptr %111, i64 %114
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %111, i64 %114
   %.not196213 = icmp eq ptr %.sroa.0.1.i106, %120
   br i1 %.not196213, label %.critedge71, label %.lr.ph215
 
@@ -1729,7 +1728,7 @@ _ZN7obj_refI4expr11ast_managerEaSEPS0_.exit:      ; preds = %138, %140, %147
 
 _ZNK14core_hashtableI14obj_hash_entryI3appE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit126: ; preds = %.lr.ph.i.i.i120, %162, %149
   %.sroa.0.1.i122 = phi ptr [ %155, %149 ], [ %159, %162 ], [ %.sroa.0.0.i121, %.lr.ph.i.i.i120 ]
-  %164 = getelementptr inbounds nuw %class.obj_hash_entry, ptr %155, i64 %158
+  %164 = getelementptr inbounds nuw [8 x i8], ptr %155, i64 %158
   %.not194205 = icmp eq ptr %.sroa.0.1.i122, %164
   br i1 %.not194205, label %.critedge73, label %.lr.ph
 
@@ -1792,7 +1791,7 @@ _ZN14core_hashtableI14obj_hash_entryI3appE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8itera
 
 _ZNK14core_hashtableI14obj_hash_entryI3appE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit141: ; preds = %.lr.ph.i.i.i135, %187, %.critedge73
   %.sroa.0.1.i137 = phi ptr [ %180, %.critedge73 ], [ %184, %187 ], [ %.sroa.0.0.i136, %.lr.ph.i.i.i135 ]
-  %189 = getelementptr inbounds nuw %class.obj_hash_entry, ptr %180, i64 %183
+  %189 = getelementptr inbounds nuw [8 x i8], ptr %180, i64 %183
   %.not195207 = icmp eq ptr %.sroa.0.1.i137, %189
   br i1 %.not195207, label %.critedge77, label %.lr.ph209
 

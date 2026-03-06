@@ -657,7 +657,7 @@ define internal fastcc void @decode_pdu_general(ptr noundef captures(none) %0, i
 
 9:                                                ; preds = %3, %decode_ie.exit
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %decode_ie.exit ]
-  %10 = getelementptr %struct.nsip_ie_t, ptr %0, i64 %indvars.iv
+  %10 = getelementptr [12 x i8], ptr %0, i64 %indvars.iv
   %11 = load i32, ptr %5, align 8
   %12 = load ptr, ptr %2, align 8
   %13 = call i32 @tvb_captured_length_remaining(ptr noundef %12, i32 noundef %11)

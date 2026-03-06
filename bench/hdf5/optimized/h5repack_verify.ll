@@ -7,8 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.filter_info_t = type { i32, i32, [20 x i32], i64 }
 %struct.chunk_info_t = type { [32 x i64], i32 }
 %union.anon = type { ptr }
-%struct.trav_obj_t = type { %struct.H5O_token_t, [2 x i32], i8, ptr, i32, ptr, i64, i64 }
-%struct.H5O_token_t = type { [16 x i8] }
 %union.anon.0 = type { ptr }
 
 @enable_error_stack = external local_unnamed_addr global i32, align 4
@@ -135,7 +133,7 @@ define dso_local i32 @h5repack_verify(ptr noundef %0, ptr noundef %1, ptr nounde
 .lr.ph:                                           ; preds = %44
   %50 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %51 = load ptr, ptr %50, align 8, !tbaa !19
-  %52 = getelementptr inbounds nuw %struct.pack_info_t, ptr %51, i64 %indvars.iv.next
+  %52 = getelementptr inbounds nuw [1112 x i8], ptr %51, i64 %indvars.iv.next
   %53 = call i64 @H5Dopen2(i64 noundef %19, ptr noundef nonnull %52, i64 noundef 0) #6
   %54 = icmp slt i64 %53, 0
   br i1 %54, label %.lr.ph._crit_edge, label %.lr.ph1044, !llvm.loop !24
@@ -338,9 +336,9 @@ define dso_local i32 @h5repack_verify(ptr noundef %0, ptr noundef %1, ptr nounde
 
 .lr.ph.i:                                         ; preds = %155, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %155 ]
-  %156 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv.i
+  %156 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.i
   %157 = load i64, ptr %156, align 8, !tbaa !21
-  %158 = getelementptr inbounds nuw i64, ptr %152, i64 %indvars.iv.i
+  %158 = getelementptr inbounds nuw [8 x i8], ptr %152, i64 %indvars.iv.i
   %159 = load i64, ptr %158, align 8, !tbaa !21
   %.not23.i = icmp eq i64 %157, %159
   br i1 %.not23.i, label %155, label %.sink.split
@@ -557,7 +555,7 @@ define dso_local i32 @h5repack_verify(ptr noundef %0, ptr noundef %1, ptr nounde
   %.3191545 = phi i64 [ %.1189.lcssa, %.lr.ph551 ], [ %.5193, %472 ]
   %279 = getelementptr inbounds nuw i8, ptr %277, i64 24
   %280 = load ptr, ptr %279, align 8, !tbaa !36
-  %281 = getelementptr inbounds nuw %struct.trav_obj_t, ptr %280, i64 %278
+  %281 = getelementptr inbounds nuw [72 x i8], ptr %280, i64 %278
   %282 = getelementptr inbounds nuw i8, ptr %281, i64 40
   %283 = load i32, ptr %282, align 8, !tbaa !37
   %284 = icmp eq i32 %283, 1
@@ -764,9 +762,9 @@ define dso_local i32 @h5repack_verify(ptr noundef %0, ptr noundef %1, ptr nounde
 
 .lr.ph.i353:                                      ; preds = %390, %.lr.ph.preheader.i351
   %indvars.iv.i354 = phi i64 [ 0, %.lr.ph.preheader.i351 ], [ %indvars.iv.next.i356, %390 ]
-  %391 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv.i354
+  %391 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i354
   %392 = load i64, ptr %391, align 8, !tbaa !21
-  %393 = getelementptr inbounds nuw i64, ptr %257, i64 %indvars.iv.i354
+  %393 = getelementptr inbounds nuw [8 x i8], ptr %257, i64 %indvars.iv.i354
   %394 = load i64, ptr %393, align 8, !tbaa !21
   %.not23.i355 = icmp eq i64 %392, %394
   br i1 %.not23.i355, label %390, label %verify_layout.exit358.thread
@@ -1572,7 +1570,7 @@ define internal fastcc range(i32 -1, 2) i32 @verify_filters(i64 noundef range(i6
   br i1 %22, label %.loopexit69, label %23
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds nuw %struct.filter_info_t, ptr %3, i64 %indvars.iv113
+  %24 = getelementptr inbounds nuw [96 x i8], ptr %3, i64 %indvars.iv113
   %25 = load i32, ptr %24, align 8, !tbaa !55
   %.not56 = icmp eq i32 %21, %25
   br i1 %.not56, label %26, label %.loopexit69
@@ -1646,7 +1644,7 @@ define internal fastcc range(i32 -1, 2) i32 @verify_filters(i64 noundef range(i6
   %indvars.iv.sroa.phi = phi ptr [ %6, %.preheader70 ], [ %indvars.iv.sroa.gep140, %51 ]
   %indvars.iv = phi i64 [ 0, %.preheader70 ], [ 1, %51 ]
   %54 = load i32, ptr %indvars.iv.sroa.phi, align 4, !tbaa !20
-  %55 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %indvars.iv
   %56 = load i32, ptr %55, align 4, !tbaa !20
   %.not59 = icmp eq i32 %54, %56
   br i1 %.not59, label %51, label %.loopexit69
@@ -1675,9 +1673,9 @@ define internal fastcc range(i32 -1, 2) i32 @verify_filters(i64 noundef range(i6
 66:                                               ; preds = %.lr.ph, %62
   %67 = phi i64 [ 0, %.lr.ph ], [ %64, %62 ]
   %.178 = phi i32 [ 0, %.lr.ph ], [ %63, %62 ]
-  %68 = getelementptr inbounds nuw i32, ptr %6, i64 %67
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %67
   %69 = load i32, ptr %68, align 4, !tbaa !20
-  %70 = getelementptr inbounds nuw i32, ptr %61, i64 %67
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %67
   %71 = load i32, ptr %70, align 4, !tbaa !20
   %.not58 = icmp eq i32 %69, %71
   br i1 %.not58, label %62, label %.loopexit69
@@ -1706,9 +1704,9 @@ define internal fastcc range(i32 -1, 2) i32 @verify_filters(i64 noundef range(i6
 81:                                               ; preds = %.lr.ph81, %77
   %82 = phi i64 [ 0, %.lr.ph81 ], [ %79, %77 ]
   %.280 = phi i32 [ 0, %.lr.ph81 ], [ %78, %77 ]
-  %83 = getelementptr inbounds nuw i32, ptr %6, i64 %82
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %82
   %84 = load i32, ptr %83, align 4, !tbaa !20
-  %85 = getelementptr inbounds nuw i32, ptr %76, i64 %82
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %82
   %86 = load i32, ptr %85, align 4, !tbaa !20
   %.not68 = icmp eq i32 %84, %86
   br i1 %.not68, label %77, label %.loopexit69
@@ -1925,7 +1923,7 @@ define dso_local range(i32 -1, -2147483648) i32 @h5repack_cmp_pl(ptr noundef %0,
   %.1127461 = phi i64 [ %.2128, %587 ], [ -1, %.preheader ]
   %96 = getelementptr inbounds nuw i8, ptr %94, i64 24
   %97 = load ptr, ptr %96, align 8, !tbaa !36
-  %98 = getelementptr inbounds nuw %struct.trav_obj_t, ptr %97, i64 %95
+  %98 = getelementptr inbounds nuw [72 x i8], ptr %97, i64 %95
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 40
   %100 = load i32, ptr %99, align 8, !tbaa !37
   switch i32 %100, label %587 [
@@ -1959,7 +1957,7 @@ define dso_local range(i32 -1, -2147483648) i32 @h5repack_cmp_pl(ptr noundef %0,
   %117 = load ptr, ptr %6, align 8, !tbaa !4
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 24
   %119 = load ptr, ptr %118, align 8, !tbaa !36
-  %120 = getelementptr inbounds nuw %struct.trav_obj_t, ptr %119, i64 %95
+  %120 = getelementptr inbounds nuw [72 x i8], ptr %119, i64 %95
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 32
   %122 = load ptr, ptr %121, align 8, !tbaa !41
   %123 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %110, ptr noundef nonnull @.str, ptr noundef nonnull @__func__.h5repack_cmp_pl, i32 noundef 405, i64 noundef %112, i64 noundef %115, i64 noundef %116, ptr noundef nonnull @.str.22, ptr noundef %122) #6
@@ -1970,7 +1968,7 @@ define dso_local range(i32 -1, -2147483648) i32 @h5repack_cmp_pl(ptr noundef %0,
   %126 = load ptr, ptr %6, align 8, !tbaa !4
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 24
   %128 = load ptr, ptr %127, align 8, !tbaa !36
-  %129 = getelementptr inbounds nuw %struct.trav_obj_t, ptr %128, i64 %95
+  %129 = getelementptr inbounds nuw [72 x i8], ptr %128, i64 %95
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 32
   %131 = load ptr, ptr %130, align 8, !tbaa !41
   %132 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %125, ptr noundef nonnull @.str.22, ptr noundef %131) #7
@@ -2106,7 +2104,7 @@ define dso_local range(i32 -1, -2147483648) i32 @h5repack_cmp_pl(ptr noundef %0,
   %211 = load ptr, ptr %6, align 8, !tbaa !4
   %212 = getelementptr inbounds nuw i8, ptr %211, i64 24
   %213 = load ptr, ptr %212, align 8, !tbaa !36
-  %214 = getelementptr inbounds nuw %struct.trav_obj_t, ptr %213, i64 %95
+  %214 = getelementptr inbounds nuw [72 x i8], ptr %213, i64 %95
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 32
   %216 = load ptr, ptr %215, align 8, !tbaa !41
   %217 = call i64 @H5Gopen2(i64 noundef %51, ptr noundef %216, i64 noundef 0) #6
@@ -2132,7 +2130,7 @@ define dso_local range(i32 -1, -2147483648) i32 @h5repack_cmp_pl(ptr noundef %0,
   %230 = load ptr, ptr %6, align 8, !tbaa !4
   %231 = getelementptr inbounds nuw i8, ptr %230, i64 24
   %232 = load ptr, ptr %231, align 8, !tbaa !36
-  %233 = getelementptr inbounds nuw %struct.trav_obj_t, ptr %232, i64 %95
+  %233 = getelementptr inbounds nuw [72 x i8], ptr %232, i64 %95
   %234 = getelementptr inbounds nuw i8, ptr %233, i64 32
   %235 = load ptr, ptr %234, align 8, !tbaa !41
   %236 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %223, ptr noundef nonnull @.str, ptr noundef nonnull @__func__.h5repack_cmp_pl, i32 noundef 416, i64 noundef %225, i64 noundef %228, i64 noundef %229, ptr noundef nonnull @.str.26, ptr noundef %235) #6
@@ -2143,7 +2141,7 @@ define dso_local range(i32 -1, -2147483648) i32 @h5repack_cmp_pl(ptr noundef %0,
   %239 = load ptr, ptr %6, align 8, !tbaa !4
   %240 = getelementptr inbounds nuw i8, ptr %239, i64 24
   %241 = load ptr, ptr %240, align 8, !tbaa !36
-  %242 = getelementptr inbounds nuw %struct.trav_obj_t, ptr %241, i64 %95
+  %242 = getelementptr inbounds nuw [72 x i8], ptr %241, i64 %95
   %243 = getelementptr inbounds nuw i8, ptr %242, i64 32
   %244 = load ptr, ptr %243, align 8, !tbaa !41
   %245 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %238, ptr noundef nonnull @.str.26, ptr noundef %244) #7
@@ -2300,7 +2298,7 @@ define dso_local range(i32 -1, -2147483648) i32 @h5repack_cmp_pl(ptr noundef %0,
   %337 = load ptr, ptr %6, align 8, !tbaa !4
   %338 = getelementptr inbounds nuw i8, ptr %337, i64 24
   %339 = load ptr, ptr %338, align 8, !tbaa !36
-  %340 = getelementptr inbounds nuw %struct.trav_obj_t, ptr %339, i64 %95
+  %340 = getelementptr inbounds nuw [72 x i8], ptr %339, i64 %95
   %341 = getelementptr inbounds nuw i8, ptr %340, i64 32
   %342 = load ptr, ptr %341, align 8, !tbaa !41
   %343 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %330, ptr noundef nonnull @.str, ptr noundef nonnull @__func__.h5repack_cmp_pl, i32 noundef 427, i64 noundef %332, i64 noundef %335, i64 noundef %336, ptr noundef nonnull @.str.27, ptr noundef %342) #6
@@ -2311,7 +2309,7 @@ define dso_local range(i32 -1, -2147483648) i32 @h5repack_cmp_pl(ptr noundef %0,
   %346 = load ptr, ptr %6, align 8, !tbaa !4
   %347 = getelementptr inbounds nuw i8, ptr %346, i64 24
   %348 = load ptr, ptr %347, align 8, !tbaa !36
-  %349 = getelementptr inbounds nuw %struct.trav_obj_t, ptr %348, i64 %95
+  %349 = getelementptr inbounds nuw [72 x i8], ptr %348, i64 %95
   %350 = getelementptr inbounds nuw i8, ptr %349, i64 32
   %351 = load ptr, ptr %350, align 8, !tbaa !41
   %352 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %345, ptr noundef nonnull @.str.27, ptr noundef %351) #7
@@ -2345,7 +2343,7 @@ define dso_local range(i32 -1, -2147483648) i32 @h5repack_cmp_pl(ptr noundef %0,
   %370 = load ptr, ptr %6, align 8, !tbaa !4
   %371 = getelementptr inbounds nuw i8, ptr %370, i64 24
   %372 = load ptr, ptr %371, align 8, !tbaa !36
-  %373 = getelementptr inbounds nuw %struct.trav_obj_t, ptr %372, i64 %95
+  %373 = getelementptr inbounds nuw [72 x i8], ptr %372, i64 %95
   %374 = getelementptr inbounds nuw i8, ptr %373, i64 32
   %375 = load ptr, ptr %374, align 8, !tbaa !41
   %376 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %363, ptr noundef nonnull @.str, ptr noundef nonnull @__func__.h5repack_cmp_pl, i32 noundef 431, i64 noundef %365, i64 noundef %368, i64 noundef %369, ptr noundef nonnull @.str.28, ptr noundef %375) #6
@@ -2356,7 +2354,7 @@ define dso_local range(i32 -1, -2147483648) i32 @h5repack_cmp_pl(ptr noundef %0,
   %379 = load ptr, ptr %6, align 8, !tbaa !4
   %380 = getelementptr inbounds nuw i8, ptr %379, i64 24
   %381 = load ptr, ptr %380, align 8, !tbaa !36
-  %382 = getelementptr inbounds nuw %struct.trav_obj_t, ptr %381, i64 %95
+  %382 = getelementptr inbounds nuw [72 x i8], ptr %381, i64 %95
   %383 = getelementptr inbounds nuw i8, ptr %382, i64 32
   %384 = load ptr, ptr %383, align 8, !tbaa !41
   %385 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %378, ptr noundef nonnull @.str.28, ptr noundef %384) #7
@@ -2368,7 +2366,7 @@ define dso_local range(i32 -1, -2147483648) i32 @h5repack_cmp_pl(ptr noundef %0,
   %388 = load ptr, ptr %6, align 8, !tbaa !4
   %389 = getelementptr inbounds nuw i8, ptr %388, i64 24
   %390 = load ptr, ptr %389, align 8, !tbaa !36
-  %391 = getelementptr inbounds nuw %struct.trav_obj_t, ptr %390, i64 %95
+  %391 = getelementptr inbounds nuw [72 x i8], ptr %390, i64 %95
   %392 = getelementptr inbounds nuw i8, ptr %391, i64 32
   %393 = load ptr, ptr %392, align 8, !tbaa !41
   %394 = call i64 @H5Dopen2(i64 noundef %51, ptr noundef %393, i64 noundef 0) #6
@@ -2394,7 +2392,7 @@ define dso_local range(i32 -1, -2147483648) i32 @h5repack_cmp_pl(ptr noundef %0,
   %407 = load ptr, ptr %6, align 8, !tbaa !4
   %408 = getelementptr inbounds nuw i8, ptr %407, i64 24
   %409 = load ptr, ptr %408, align 8, !tbaa !36
-  %410 = getelementptr inbounds nuw %struct.trav_obj_t, ptr %409, i64 %95
+  %410 = getelementptr inbounds nuw [72 x i8], ptr %409, i64 %95
   %411 = getelementptr inbounds nuw i8, ptr %410, i64 32
   %412 = load ptr, ptr %411, align 8, !tbaa !41
   %413 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %400, ptr noundef nonnull @.str, ptr noundef nonnull @__func__.h5repack_cmp_pl, i32 noundef 433, i64 noundef %402, i64 noundef %405, i64 noundef %406, ptr noundef nonnull @.str.29, ptr noundef %412) #6
@@ -2405,7 +2403,7 @@ define dso_local range(i32 -1, -2147483648) i32 @h5repack_cmp_pl(ptr noundef %0,
   %416 = load ptr, ptr %6, align 8, !tbaa !4
   %417 = getelementptr inbounds nuw i8, ptr %416, i64 24
   %418 = load ptr, ptr %417, align 8, !tbaa !36
-  %419 = getelementptr inbounds nuw %struct.trav_obj_t, ptr %418, i64 %95
+  %419 = getelementptr inbounds nuw [72 x i8], ptr %418, i64 %95
   %420 = getelementptr inbounds nuw i8, ptr %419, i64 32
   %421 = load ptr, ptr %420, align 8, !tbaa !41
   %422 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %415, ptr noundef nonnull @.str.29, ptr noundef %421) #7
@@ -2529,7 +2527,7 @@ define dso_local range(i32 -1, -2147483648) i32 @h5repack_cmp_pl(ptr noundef %0,
   %494 = load ptr, ptr %6, align 8, !tbaa !4
   %495 = getelementptr inbounds nuw i8, ptr %494, i64 24
   %496 = load ptr, ptr %495, align 8, !tbaa !36
-  %497 = getelementptr inbounds nuw %struct.trav_obj_t, ptr %496, i64 %95
+  %497 = getelementptr inbounds nuw [72 x i8], ptr %496, i64 %95
   %498 = getelementptr inbounds nuw i8, ptr %497, i64 32
   %499 = load ptr, ptr %498, align 8, !tbaa !41
   %500 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %487, ptr noundef nonnull @.str, ptr noundef nonnull @__func__.h5repack_cmp_pl, i32 noundef 447, i64 noundef %489, i64 noundef %492, i64 noundef %493, ptr noundef nonnull @.str.27, ptr noundef %499) #6
@@ -2540,7 +2538,7 @@ define dso_local range(i32 -1, -2147483648) i32 @h5repack_cmp_pl(ptr noundef %0,
   %503 = load ptr, ptr %6, align 8, !tbaa !4
   %504 = getelementptr inbounds nuw i8, ptr %503, i64 24
   %505 = load ptr, ptr %504, align 8, !tbaa !36
-  %506 = getelementptr inbounds nuw %struct.trav_obj_t, ptr %505, i64 %95
+  %506 = getelementptr inbounds nuw [72 x i8], ptr %505, i64 %95
   %507 = getelementptr inbounds nuw i8, ptr %506, i64 32
   %508 = load ptr, ptr %507, align 8, !tbaa !41
   %509 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %502, ptr noundef nonnull @.str.27, ptr noundef %508) #7

@@ -54,7 +54,7 @@ define internal range(i32 0, 2) i32 @test_bio_addr_copy_dup(i32 noundef %0) #0 {
   %4 = alloca %union.anon, align 4
   %5 = ashr i32 %0, 1
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds i32, ptr @families, i64 %6
+  %7 = getelementptr inbounds [4 x i8], ptr @families, i64 %6
   %8 = load i32, ptr %7, align 4, !tbaa !4
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.sink.i.sroa.gep25 = getelementptr inbounds nuw i8, ptr %4, i64 4

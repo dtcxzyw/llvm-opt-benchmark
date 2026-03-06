@@ -208,7 +208,7 @@ define hidden void @_ZN12clap_builder7builder3arg3Arg14overrides_with17he0f4c205
   %14 = phi i64 [ %.pre.i, %.noexc ], [ %7, %4 ]
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %16 = load ptr, ptr %15, align 8, !alias.scope !25, !noalias !28, !nonnull !4, !noundef !4
-  %17 = getelementptr inbounds { { { { ptr, i64 } } } }, ptr %16, i64 %14
+  %17 = getelementptr inbounds [16 x i8], ptr %16, i64 %14
   store ptr %2, ptr %17, align 8, !noalias !28
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i64 %3, ptr %18, align 8
@@ -259,7 +259,7 @@ define hidden void @_ZN12clap_builder7builder3arg3Arg19visible_short_alias17hd6a
   %14 = phi i64 [ %.pre.i, %.noexc ], [ %10, %7 ]
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %16 = load ptr, ptr %15, align 8, !alias.scope !30, !nonnull !4, !noundef !4
-  %17 = getelementptr inbounds { i32, i8, [3 x i8] }, ptr %16, i64 %14
+  %17 = getelementptr inbounds [8 x i8], ptr %16, i64 %14
   store i32 %2, ptr %17, align 4
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 4
   store i8 1, ptr %18, align 4
@@ -453,7 +453,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h25155d1120ca9c2aE.ll
   %10 = phi i64 [ %.pre, %8 ], [ %5, %3 ]
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8, !nonnull !4, !noundef !4
-  %13 = getelementptr inbounds { i32, i8, [3 x i8] }, ptr %12, i64 %10
+  %13 = getelementptr inbounds [8 x i8], ptr %12, i64 %10
   store i32 %1, ptr %13, align 4
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %15 = zext i1 %2 to i8
@@ -481,7 +481,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf2f4f7b1f9d61c85E.ll
   %10 = phi i64 [ %.pre, %8 ], [ %5, %3 ]
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8, !nonnull !4, !noundef !4
-  %13 = getelementptr inbounds { { { { ptr, i64 } } } }, ptr %12, i64 %10
+  %13 = getelementptr inbounds [16 x i8], ptr %12, i64 %10
   store ptr %1, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i64 %2, ptr %14, align 8

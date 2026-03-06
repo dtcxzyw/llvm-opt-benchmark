@@ -21,24 +21,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.Path_ = type { %union.SourceSpan, ptr, i32 }
 %union.SourceSpan = type { i64 }
 %struct.BEValue = type { i8, i32, ptr, ptr, ptr }
-%struct.Ast_ = type { %union.SourceSpan, i32, i8, %union.anon.61 }
-%union.anon.61 = type { %struct.AstDocDirective_ }
-%struct.AstDocDirective_ = type { i8, %union.anon.64 }
-%union.anon.64 = type { %struct.anon.65 }
-%struct.anon.65 = type { ptr, %union.SourceSpan, i8 }
-%struct.TypeInfo_ = type { i16, ptr, %union.SourceSpan, %union.anon.56 }
-%union.anon.56 = type { %struct.anon.57 }
-%struct.anon.57 = type { ptr, ptr }
-%struct.Decl_ = type { ptr, ptr, %union.SourceSpan, i64, %union.anon, i32, %union.anon.0, i64, ptr, ptr, ptr, %union.anon.1 }
-%union.anon = type { ptr }
-%union.anon.0 = type { i16 }
-%union.anon.1 = type { %struct.FuncDecl }
-%struct.FuncDecl = type { i32, [4 x i8], %struct.Signature_, i32, i32, %union.anon.8 }
-%struct.Signature_ = type <{ %struct.CalleeAttributes, i16, i8, i32, i32, [4 x i8], ptr }>
-%struct.CalleeAttributes = type { i8 }
-%union.anon.8 = type { %struct.anon.9 }
-%struct.anon.9 = type { i16, %union.anon.10 }
-%union.anon.10 = type { ptr }
 
 @type_void = external local_unnamed_addr global ptr, align 8
 @type_anyfault = external local_unnamed_addr global ptr, align 8
@@ -801,7 +783,7 @@ define dso_local void @llvm_emit_function_body(ptr noundef %0, ptr noundef %1) l
   %41 = load i32, ptr %.1.i, align 4
   %42 = add i32 %41, -1
   %43 = zext i32 %42 to i64
-  %44 = getelementptr inbounds nuw ptr, ptr %40, i64 %43
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %43
   store ptr %1, ptr %44, align 8
   %.pre = load i16, ptr %8, align 8
   br label %45
@@ -916,7 +898,7 @@ expand_.exit.i:                                   ; preds = %85, %81
 
 llvm_append_xxlizer.exit:                         ; preds = %expand_.exit.i, %106
   %.028.i = phi i64 [ %110, %106 ], [ 4294967295, %expand_.exit.i ]
-  %111 = getelementptr inbounds nuw ptr, ptr %105, i64 %.028.i
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %105, i64 %.028.i
   store ptr %104, ptr %111, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %112
@@ -934,7 +916,7 @@ llvm_append_xxlizer.exit:                         ; preds = %expand_.exit.i, %10
   %121 = load i32, ptr %120, align 8
   %122 = load ptr, ptr @ast_arena, align 8
   %123 = zext i32 %121 to i64
-  %124 = getelementptr inbounds nuw %struct.Ast_, ptr %122, i64 %123
+  %124 = getelementptr inbounds nuw [48 x i8], ptr %122, i64 %123
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %126 = load ptr, ptr %125, align 8
@@ -1070,10 +1052,10 @@ llvm_append_xxlizer.exit:                         ; preds = %expand_.exit.i, %10
 
 193:                                              ; preds = %llvm_emit_func_parameter.exit.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %llvm_emit_func_parameter.exit.i ]
-  %194 = getelementptr inbounds nuw ptr, ptr %188, i64 %indvars.iv.i
+  %194 = getelementptr inbounds nuw [8 x i8], ptr %188, i64 %indvars.iv.i
   %195 = load ptr, ptr %194, align 8
   %196 = load ptr, ptr %192, align 8
-  %197 = getelementptr inbounds nuw ptr, ptr %196, i64 %indvars.iv.i
+  %197 = getelementptr inbounds nuw [8 x i8], ptr %196, i64 %indvars.iv.i
   %198 = load ptr, ptr %197, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -1385,7 +1367,7 @@ llvm_emit_func_parameter.exit.i:                  ; preds = %382, %llvm_process_
   %.0121150.i = phi i32 [ %391, %.lr.ph151.i ], [ %386, %.loopexit.i ]
   %387 = load ptr, ptr @ast_arena, align 8
   %388 = zext i32 %.0121150.i to i64
-  %389 = getelementptr inbounds nuw %struct.Ast_, ptr %387, i64 %388
+  %389 = getelementptr inbounds nuw [48 x i8], ptr %387, i64 %388
   %390 = getelementptr inbounds nuw i8, ptr %389, i64 8
   %391 = load i32, ptr %390, align 8
   call void @llvm_emit_stmt(ptr noundef nonnull %0, ptr noundef nonnull %389) #7
@@ -1452,7 +1434,7 @@ llvm_emit_func_parameter.exit.i:                  ; preds = %382, %llvm_process_
 .lr.ph155.i:                                      ; preds = %416, %.lr.ph155.preheader.i
   %indvars.iv160.i = phi i64 [ 0, %.lr.ph155.preheader.i ], [ %indvars.iv.next161.i, %416 ]
   %.0119152.i = phi ptr [ %407, %.lr.ph155.preheader.i ], [ %.1.i33, %416 ]
-  %412 = getelementptr inbounds nuw ptr, ptr %408, i64 %indvars.iv160.i
+  %412 = getelementptr inbounds nuw [8 x i8], ptr %408, i64 %indvars.iv160.i
   %413 = load ptr, ptr %412, align 8
   %414 = icmp eq ptr %.0119152.i, %413
   br i1 %414, label %416, label %415
@@ -1560,7 +1542,7 @@ define dso_local void @llvm_emit_dynamic_functions(ptr noundef %0, ptr noundef r
 34:                                               ; preds = %.lr.ph227, %78
   %indvars.iv232 = phi i64 [ 0, %.lr.ph227 ], [ %indvars.iv.next233, %78 ]
   %.0190225 = phi ptr [ %30, %.lr.ph227 ], [ %81, %78 ]
-  %35 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv232
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv232
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 80
   %38 = load i32, ptr %37, align 8
@@ -1570,7 +1552,7 @@ define dso_local void @llvm_emit_dynamic_functions(ptr noundef %0, ptr noundef r
 39:                                               ; preds = %34
   %40 = load ptr, ptr @type_info_arena, align 8
   %41 = zext i32 %38 to i64
-  %42 = getelementptr inbounds nuw %struct.TypeInfo_, ptr %40, i64 %41
+  %42 = getelementptr inbounds nuw [40 x i8], ptr %40, i64 %41
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load ptr, ptr %43, align 8
   br label %45
@@ -1587,7 +1569,7 @@ define dso_local void @llvm_emit_dynamic_functions(ptr noundef %0, ptr noundef r
 
 50:                                               ; preds = %45
   %51 = zext i32 %48 to i64
-  %52 = getelementptr inbounds nuw %struct.Decl_, ptr %49, i64 %51
+  %52 = getelementptr inbounds nuw [136 x i8], ptr %49, i64 %51
   %53 = call ptr @llvm_get_ref(ptr noundef %0, ptr noundef nonnull %52) #7
   br label %57
 
@@ -1637,7 +1619,7 @@ define dso_local void @llvm_emit_dynamic_functions(ptr noundef %0, ptr noundef r
   store i32 %80, ptr %.1.i, align 4
   %81 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   %82 = zext i32 %79 to i64
-  %83 = getelementptr inbounds nuw ptr, ptr %81, i64 %82
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %82
   store ptr %61, ptr %83, align 8
   %indvars.iv.next233 = add nuw nsw i64 %indvars.iv232, 1
   %exitcond236.not = icmp eq i64 %indvars.iv.next233, %wide.trip.count235
@@ -1770,7 +1752,7 @@ expand_.exit216:                                  ; preds = %129, %133
 
 159:                                              ; preds = %expand_.exit216, %154
   %.0188 = phi i64 [ %158, %154 ], [ 4294967295, %expand_.exit216 ]
-  %160 = getelementptr inbounds nuw ptr, ptr %153, i64 %.0188
+  %160 = getelementptr inbounds nuw [8 x i8], ptr %153, i64 %.0188
   store ptr %152, ptr %160, align 8
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %162 = load ptr, ptr %161, align 8
@@ -1796,7 +1778,7 @@ expand_.exit216:                                  ; preds = %129, %133
 174:                                              ; preds = %.lr.ph, %205
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %205 ]
   %.0192223 = phi ptr [ %163, %.lr.ph ], [ %227, %205 ]
-  %175 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %175 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %176 = load ptr, ptr %175, align 8
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 80
   %178 = load i32, ptr %177, align 8
@@ -1806,7 +1788,7 @@ expand_.exit216:                                  ; preds = %129, %133
 179:                                              ; preds = %174
   %180 = load ptr, ptr @type_info_arena, align 8
   %181 = zext i32 %178 to i64
-  %182 = getelementptr inbounds nuw %struct.TypeInfo_, ptr %180, i64 %181
+  %182 = getelementptr inbounds nuw [40 x i8], ptr %180, i64 %181
   %183 = getelementptr inbounds nuw i8, ptr %182, i64 8
   %184 = load ptr, ptr %183, align 8
   br label %185
@@ -1835,7 +1817,7 @@ expand_.exit216:                                  ; preds = %129, %133
 
 198:                                              ; preds = %185
   %199 = zext i32 %196 to i64
-  %200 = getelementptr inbounds nuw %struct.Decl_, ptr %197, i64 %199
+  %200 = getelementptr inbounds nuw [136 x i8], ptr %197, i64 %199
   %201 = call ptr @llvm_get_ref(ptr noundef nonnull %0, ptr noundef nonnull %200) #7
   br label %205
 
@@ -1976,7 +1958,7 @@ define dso_local void @llvm_emit_function_decl(ptr noundef %0, ptr noundef %1) l
   %9 = zext i16 %6 to i64
   %10 = add nuw nsw i64 %9, 4294967295
   %11 = and i64 %10, 4294967295
-  %12 = getelementptr inbounds nuw ptr, ptr %8, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %11
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   tail call void @LLVMSetSection(ptr noundef %3, ptr noundef nonnull %14) #7
@@ -2188,7 +2170,7 @@ tailrecurse:                                      ; preds = %37, %5
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %30 = trunc nuw i64 %indvars.iv to i32
   %31 = call ptr @llvm_emit_struct_gep_raw(ptr noundef %0, ptr noundef %2, ptr noundef %22, i32 noundef %30, i32 noundef %4, ptr noundef nonnull %7) #7
-  %32 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 72
   %35 = load ptr, ptr %34, align 8

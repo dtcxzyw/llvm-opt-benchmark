@@ -215,7 +215,7 @@ define internal fastcc void @_ZN5wasmi6engine8code_map7CodeMap15compile_or_wait1
           to label %48 unwind label %33, !noalias !4
 
 42:                                               ; preds = %35
-  %43 = getelementptr inbounds nuw { i8, [55 x i8] }, ptr %29, i64 %32
+  %43 = getelementptr inbounds nuw [56 x i8], ptr %29, i64 %32
   %44 = load i8, ptr %43, align 8, !range !8, !noalias !4, !noundef !3
   %45 = add nsw i8 %44, -2
   %46 = icmp ugt i8 %45, 4
@@ -352,7 +352,7 @@ common.resume:                                    ; preds = %54, %33
           to label %88 unwind label %75, !noalias !9
 
 84:                                               ; preds = %77
-  %85 = getelementptr inbounds nuw { i8, [55 x i8] }, ptr %72, i64 %74
+  %85 = getelementptr inbounds nuw [56 x i8], ptr %72, i64 %74
   %86 = load ptr, ptr %10, align 8, !noalias !12, !noundef !3
   %87 = icmp ne ptr %86, null
   br i1 %87, label %97, label %89
@@ -581,7 +581,7 @@ define hidden void @"_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasm
   %4 = sext i16 %3 to i64
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8, !noundef !3
-  %7 = getelementptr inbounds { i16, [3 x i16] }, ptr %6, i64 %4
+  %7 = getelementptr inbounds [8 x i8], ptr %6, i64 %4
   store ptr %7, ptr %5, align 8
   ret void
 }
@@ -738,7 +738,7 @@ define internal fastcc void @"_ZN5wasmi6engine8executor6instrs4copy59_$LT$impl$u
   %42 = icmp ugt i64 %41, 8
   %43 = load ptr, ptr %5, align 8, !alias.scope !49, !noalias !52, !nonnull !3
   %.sink11.i.i.i = select i1 %42, ptr %43, ptr %5
-  %44 = getelementptr inbounds nuw { i64, i64 }, ptr %.sink11.i.i.i, i64 %34
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %.sink11.i.i.i, i64 %34
   %45 = load i64, ptr %44, align 8, !noalias !46, !noundef !3
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %47 = load i64, ptr %46, align 8, !noalias !46, !noundef !3
@@ -833,7 +833,7 @@ define internal fastcc noundef ptr @"_ZN5wasmi6engine8executor6instrs4copy59_$LT
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 128
   store i64 0, ptr %13, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %14 = getelementptr inbounds nuw i16, ptr %3, i64 %4
+  %14 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %4
   store ptr %3, ptr %11, align 8
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %14, ptr %15, align 8
@@ -885,7 +885,7 @@ define internal fastcc noundef ptr @"_ZN5wasmi6engine8executor6instrs4copy59_$LT
   %.sroa.4.0 = phi i64 [ 1, %.loopexit.loopexit ], [ 2, %.loopexit.loopexit46 ], [ 3, %20 ]
   %.sroa.04.0 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 2
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %27 = getelementptr inbounds nuw i16, ptr %.sroa.04.0, i64 %.sroa.4.0
+  %27 = getelementptr inbounds nuw [2 x i8], ptr %.sroa.04.0, i64 %.sroa.4.0
   store ptr %.sroa.04.0, ptr %9, align 8
   %28 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %27, ptr %28, align 8
@@ -955,7 +955,7 @@ define internal fastcc noundef ptr @"_ZN5wasmi6engine8executor6instrs4copy59_$LT
   %61 = icmp ugt i64 %60, 8
   %62 = load ptr, ptr %6, align 8, !alias.scope !75, !noalias !78, !nonnull !3
   %.sink11.i.i.i = select i1 %61, ptr %62, ptr %6
-  %63 = getelementptr inbounds nuw { i64, i64 }, ptr %.sink11.i.i.i, i64 %53
+  %63 = getelementptr inbounds nuw [16 x i8], ptr %.sink11.i.i.i, i64 %53
   %64 = load i64, ptr %63, align 8, !noalias !72, !noundef !3
   %65 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %66 = load i64, ptr %65, align 8, !noalias !72, !noundef !3
@@ -1770,7 +1770,7 @@ define hidden noundef zeroext i1 @"_ZN5wasmi6engine8executor6instrs7return_59_$L
   %18 = load ptr, ptr %17, align 8, !alias.scope !122, !noalias !125, !nonnull !3, !noundef !3
   %19 = icmp ult i64 %11, 288230376151711745
   tail call void @llvm.assume(i1 %19)
-  %20 = getelementptr inbounds nuw { ptr, { i64, i64 }, i16, i8, [5 x i8] }, ptr %18, i64 %14
+  %20 = getelementptr inbounds nuw [32 x i8], ptr %18, i64 %14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(26) %.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(26) %20, i64 26, i1 false)
   %.sroa.415.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %20, i64 26
   %.sroa.415.0.copyload.i = load i8, ptr %.sroa.415.0..sroa_idx.i, align 2, !noalias !128
@@ -1798,7 +1798,7 @@ define hidden noundef zeroext i1 @"_ZN5wasmi6engine8executor6instrs7return_59_$L
   %32 = load ptr, ptr %31, align 8, !alias.scope !132, !noalias !134, !nonnull !3, !noundef !3
   %33 = icmp ult i64 %24, 1152921504606846977
   tail call void @llvm.assume(i1 %33), !noalias !125
-  %34 = getelementptr inbounds nuw { { i32, i32 } }, ptr %32, i64 %28
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %28
   %35 = load i32, ptr %34, align 4, !noalias !135, !noundef !3
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 4
   %37 = load i32, ptr %36, align 4, !noalias !135, !noundef !3
@@ -1926,7 +1926,7 @@ _ZN5wasmi6engine8executor5cache14CachedInstance11load_caches17hcb19514e98bbf501E
 
 83:                                               ; preds = %52
   %84 = load ptr, ptr %17, align 8, !nonnull !3, !noundef !3
-  %85 = getelementptr { ptr, { i64, i64 }, i16, i8, [5 x i8] }, ptr %84, i64 %53
+  %85 = getelementptr [32 x i8], ptr %84, i64 %53
   %86 = getelementptr i8, ptr %85, i64 -32
   %87 = getelementptr inbounds nuw i8, ptr %9, i64 72
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -3381,7 +3381,7 @@ _ZN5wasmi6engine8executor5cache14CachedInstance11load_caches17hcb19514e98bbf501E
 _ZN5wasmi6engine8executor6instrs8Executor3new17h0044931beee3e6b5E.exit: ; preds = %_ZN5wasmi6engine8executor5cache14CachedInstance11load_caches17hcb19514e98bbf501E.exit
   %694 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %695 = load ptr, ptr %694, align 8, !alias.scope !192, !noalias !196, !nonnull !3, !noundef !3
-  %696 = getelementptr { ptr, { i64, i64 }, i16, i8, [5 x i8] }, ptr %695, i64 %692
+  %696 = getelementptr [32 x i8], ptr %695, i64 %692
   %697 = getelementptr i8, ptr %696, i64 -32
   %698 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %699 = call noundef i64 @_ZN5wasmi6engine8executor5stack5calls9CallFrame11base_offset17he3b5a37178eb5e85E(ptr noalias noundef readonly align 8 dereferenceable(32) %697), !noalias !197
@@ -4541,7 +4541,7 @@ _ZN5wasmi6engine8executor6instrs8Executor20execute_consume_fuel17ha9ac0992172dbc
   call void @llvm.experimental.noalias.scope.decl(metadata !229)
   %891 = call noundef i32 @_ZN8wasmi_ir9primitive12BranchOffset6to_i3217hcf8f9306f5399635E(i32 noundef %890), !noalias !232
   %892 = sext i32 %891 to i64
-  %893 = getelementptr inbounds { i16, [3 x i16] }, ptr %809, i64 %892
+  %893 = getelementptr inbounds [8 x i8], ptr %809, i64 %892
   store ptr %893, ptr %703, align 8, !alias.scope !232
   br label %.backedge.backedge
 
@@ -4639,7 +4639,7 @@ _ZN5wasmi6engine8executor6instrs8Executor20execute_consume_fuel17ha9ac0992172dbc
   %922 = call noundef i32 @_ZN8wasmi_ir9primitive12BranchOffset6to_i3217hcf8f9306f5399635E(i32 noundef %905), !noalias !240
   %923 = sext i32 %922 to i64
   %924 = load ptr, ptr %703, align 8, !alias.scope !243, !noundef !3
-  %925 = getelementptr inbounds { i16, [3 x i16] }, ptr %924, i64 %923
+  %925 = getelementptr inbounds [8 x i8], ptr %924, i64 %923
   br label %"_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$27execute_branch_cmp_fallback17h21a7a0b2d5c7680aE.exit"
 
 926:                                              ; preds = %894
@@ -4660,7 +4660,7 @@ _ZN5wasmi6engine8executor6instrs8Executor20execute_consume_fuel17ha9ac0992172dbc
   %936 = call noundef i32 @_ZN8wasmi_ir9primitive12BranchOffset6to_i3217hcf8f9306f5399635E(i32 noundef %905), !noalias !247
   %937 = sext i32 %936 to i64
   %938 = load ptr, ptr %703, align 8, !alias.scope !250, !noundef !3
-  %939 = getelementptr inbounds { i16, [3 x i16] }, ptr %938, i64 %937
+  %939 = getelementptr inbounds [8 x i8], ptr %938, i64 %937
   br label %"_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$27execute_branch_cmp_fallback17h21a7a0b2d5c7680aE.exit"
 
 940:                                              ; preds = %894
@@ -4681,7 +4681,7 @@ _ZN5wasmi6engine8executor6instrs8Executor20execute_consume_fuel17ha9ac0992172dbc
   %950 = call noundef i32 @_ZN8wasmi_ir9primitive12BranchOffset6to_i3217hcf8f9306f5399635E(i32 noundef %905), !noalias !254
   %951 = sext i32 %950 to i64
   %952 = load ptr, ptr %703, align 8, !alias.scope !257, !noundef !3
-  %953 = getelementptr inbounds { i16, [3 x i16] }, ptr %952, i64 %951
+  %953 = getelementptr inbounds [8 x i8], ptr %952, i64 %951
   br label %"_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$27execute_branch_cmp_fallback17h21a7a0b2d5c7680aE.exit"
 
 954:                                              ; preds = %894
@@ -4702,7 +4702,7 @@ _ZN5wasmi6engine8executor6instrs8Executor20execute_consume_fuel17ha9ac0992172dbc
   %964 = call noundef i32 @_ZN8wasmi_ir9primitive12BranchOffset6to_i3217hcf8f9306f5399635E(i32 noundef %905), !noalias !262
   %965 = sext i32 %964 to i64
   %966 = load ptr, ptr %703, align 8, !alias.scope !265, !noundef !3
-  %967 = getelementptr inbounds { i16, [3 x i16] }, ptr %966, i64 %965
+  %967 = getelementptr inbounds [8 x i8], ptr %966, i64 %965
   br label %"_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$27execute_branch_cmp_fallback17h21a7a0b2d5c7680aE.exit"
 
 968:                                              ; preds = %894
@@ -4723,7 +4723,7 @@ _ZN5wasmi6engine8executor6instrs8Executor20execute_consume_fuel17ha9ac0992172dbc
   %978 = call noundef i32 @_ZN8wasmi_ir9primitive12BranchOffset6to_i3217hcf8f9306f5399635E(i32 noundef %905), !noalias !269
   %979 = sext i32 %978 to i64
   %980 = load ptr, ptr %703, align 8, !alias.scope !272, !noundef !3
-  %981 = getelementptr inbounds { i16, [3 x i16] }, ptr %980, i64 %979
+  %981 = getelementptr inbounds [8 x i8], ptr %980, i64 %979
   br label %"_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$27execute_branch_cmp_fallback17h21a7a0b2d5c7680aE.exit"
 
 982:                                              ; preds = %894
@@ -4744,7 +4744,7 @@ _ZN5wasmi6engine8executor6instrs8Executor20execute_consume_fuel17ha9ac0992172dbc
   %992 = call noundef i32 @_ZN8wasmi_ir9primitive12BranchOffset6to_i3217hcf8f9306f5399635E(i32 noundef %905), !noalias !276
   %993 = sext i32 %992 to i64
   %994 = load ptr, ptr %703, align 8, !alias.scope !279, !noundef !3
-  %995 = getelementptr inbounds { i16, [3 x i16] }, ptr %994, i64 %993
+  %995 = getelementptr inbounds [8 x i8], ptr %994, i64 %993
   br label %"_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$27execute_branch_cmp_fallback17h21a7a0b2d5c7680aE.exit"
 
 996:                                              ; preds = %894
@@ -4766,7 +4766,7 @@ _ZN5wasmi6engine8executor6instrs8Executor20execute_consume_fuel17ha9ac0992172dbc
   %1006 = call noundef i32 @_ZN8wasmi_ir9primitive12BranchOffset6to_i3217hcf8f9306f5399635E(i32 noundef %905), !noalias !283
   %1007 = sext i32 %1006 to i64
   %1008 = load ptr, ptr %703, align 8, !alias.scope !286, !noundef !3
-  %1009 = getelementptr inbounds { i16, [3 x i16] }, ptr %1008, i64 %1007
+  %1009 = getelementptr inbounds [8 x i8], ptr %1008, i64 %1007
   br label %"_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$27execute_branch_cmp_fallback17h21a7a0b2d5c7680aE.exit"
 
 1010:                                             ; preds = %894
@@ -4788,7 +4788,7 @@ _ZN5wasmi6engine8executor6instrs8Executor20execute_consume_fuel17ha9ac0992172dbc
   %1020 = call noundef i32 @_ZN8wasmi_ir9primitive12BranchOffset6to_i3217hcf8f9306f5399635E(i32 noundef %905), !noalias !290
   %1021 = sext i32 %1020 to i64
   %1022 = load ptr, ptr %703, align 8, !alias.scope !293, !noundef !3
-  %1023 = getelementptr inbounds { i16, [3 x i16] }, ptr %1022, i64 %1021
+  %1023 = getelementptr inbounds [8 x i8], ptr %1022, i64 %1021
   br label %"_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$27execute_branch_cmp_fallback17h21a7a0b2d5c7680aE.exit"
 
 1024:                                             ; preds = %894
@@ -4810,7 +4810,7 @@ _ZN5wasmi6engine8executor6instrs8Executor20execute_consume_fuel17ha9ac0992172dbc
   %1034 = call noundef i32 @_ZN8wasmi_ir9primitive12BranchOffset6to_i3217hcf8f9306f5399635E(i32 noundef %905), !noalias !297
   %1035 = sext i32 %1034 to i64
   %1036 = load ptr, ptr %703, align 8, !alias.scope !300, !noundef !3
-  %1037 = getelementptr inbounds { i16, [3 x i16] }, ptr %1036, i64 %1035
+  %1037 = getelementptr inbounds [8 x i8], ptr %1036, i64 %1035
   br label %"_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$27execute_branch_cmp_fallback17h21a7a0b2d5c7680aE.exit"
 
 1038:                                             ; preds = %894
@@ -4831,7 +4831,7 @@ _ZN5wasmi6engine8executor6instrs8Executor20execute_consume_fuel17ha9ac0992172dbc
   %1048 = call noundef i32 @_ZN8wasmi_ir9primitive12BranchOffset6to_i3217hcf8f9306f5399635E(i32 noundef %905), !noalias !304
   %1049 = sext i32 %1048 to i64
   %1050 = load ptr, ptr %703, align 8, !alias.scope !307, !noundef !3
-  %1051 = getelementptr inbounds { i16, [3 x i16] }, ptr %1050, i64 %1049
+  %1051 = getelementptr inbounds [8 x i8], ptr %1050, i64 %1049
   br label %"_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$27execute_branch_cmp_fallback17h21a7a0b2d5c7680aE.exit"
 
 1052:                                             ; preds = %894
@@ -4852,7 +4852,7 @@ _ZN5wasmi6engine8executor6instrs8Executor20execute_consume_fuel17ha9ac0992172dbc
   %1062 = call noundef i32 @_ZN8wasmi_ir9primitive12BranchOffset6to_i3217hcf8f9306f5399635E(i32 noundef %905), !noalias !311
   %1063 = sext i32 %1062 to i64
   %1064 = load ptr, ptr %703, align 8, !alias.scope !314, !noundef !3
-  %1065 = getelementptr inbounds { i16, [3 x i16] }, ptr %1064, i64 %1063
+  %1065 = getelementptr inbounds [8 x i8], ptr %1064, i64 %1063
   br label %"_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$27execute_branch_cmp_fallback17h21a7a0b2d5c7680aE.exit"
 
 1066:                                             ; preds = %894
@@ -4873,7 +4873,7 @@ _ZN5wasmi6engine8executor6instrs8Executor20execute_consume_fuel17ha9ac0992172dbc
   %1076 = call noundef i32 @_ZN8wasmi_ir9primitive12BranchOffset6to_i3217hcf8f9306f5399635E(i32 noundef %905), !noalias !318
   %1077 = sext i32 %1076 to i64
   %1078 = load ptr, ptr %703, align 8, !alias.scope !321, !noundef !3
-  %1079 = getelementptr inbounds { i16, [3 x i16] }, ptr %1078, i64 %1077
+  %1079 = getelementptr inbounds [8 x i8], ptr %1078, i64 %1077
   br label %"_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$27execute_branch_cmp_fallback17h21a7a0b2d5c7680aE.exit"
 
 1080:                                             ; preds = %894
@@ -4894,7 +4894,7 @@ _ZN5wasmi6engine8executor6instrs8Executor20execute_consume_fuel17ha9ac0992172dbc
   %1090 = call noundef i32 @_ZN8wasmi_ir9primitive12BranchOffset6to_i3217hcf8f9306f5399635E(i32 noundef %905), !noalias !325
   %1091 = sext i32 %1090 to i64
   %1092 = load ptr, ptr %703, align 8, !alias.scope !328, !noundef !3
-  %1093 = getelementptr inbounds { i16, [3 x i16] }, ptr %1092, i64 %1091
+  %1093 = getelementptr inbounds [8 x i8], ptr %1092, i64 %1091
   br label %"_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$27execute_branch_cmp_fallback17h21a7a0b2d5c7680aE.exit"
 
 1094:                                             ; preds = %894
@@ -4915,7 +4915,7 @@ _ZN5wasmi6engine8executor6instrs8Executor20execute_consume_fuel17ha9ac0992172dbc
   %1104 = call noundef i32 @_ZN8wasmi_ir9primitive12BranchOffset6to_i3217hcf8f9306f5399635E(i32 noundef %905), !noalias !332
   %1105 = sext i32 %1104 to i64
   %1106 = load ptr, ptr %703, align 8, !alias.scope !335, !noundef !3
-  %1107 = getelementptr inbounds { i16, [3 x i16] }, ptr %1106, i64 %1105
+  %1107 = getelementptr inbounds [8 x i8], ptr %1106, i64 %1105
   br label %"_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$27execute_branch_cmp_fallback17h21a7a0b2d5c7680aE.exit"
 
 1108:                                             ; preds = %894
@@ -4936,7 +4936,7 @@ _ZN5wasmi6engine8executor6instrs8Executor20execute_consume_fuel17ha9ac0992172dbc
   %1118 = call noundef i32 @_ZN8wasmi_ir9primitive12BranchOffset6to_i3217hcf8f9306f5399635E(i32 noundef %905), !noalias !339
   %1119 = sext i32 %1118 to i64
   %1120 = load ptr, ptr %703, align 8, !alias.scope !342, !noundef !3
-  %1121 = getelementptr inbounds { i16, [3 x i16] }, ptr %1120, i64 %1119
+  %1121 = getelementptr inbounds [8 x i8], ptr %1120, i64 %1119
   br label %"_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$27execute_branch_cmp_fallback17h21a7a0b2d5c7680aE.exit"
 
 1122:                                             ; preds = %894
@@ -4957,7 +4957,7 @@ _ZN5wasmi6engine8executor6instrs8Executor20execute_consume_fuel17ha9ac0992172dbc
   %1132 = call noundef i32 @_ZN8wasmi_ir9primitive12BranchOffset6to_i3217hcf8f9306f5399635E(i32 noundef %905), !noalias !347
   %1133 = sext i32 %1132 to i64
   %1134 = load ptr, ptr %703, align 8, !alias.scope !350, !noundef !3
-  %1135 = getelementptr inbounds { i16, [3 x i16] }, ptr %1134, i64 %1133
+  %1135 = getelementptr inbounds [8 x i8], ptr %1134, i64 %1133
   br label %"_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$27execute_branch_cmp_fallback17h21a7a0b2d5c7680aE.exit"
 
 1136:                                             ; preds = %894
@@ -4978,7 +4978,7 @@ _ZN5wasmi6engine8executor6instrs8Executor20execute_consume_fuel17ha9ac0992172dbc
   %1146 = call noundef i32 @_ZN8wasmi_ir9primitive12BranchOffset6to_i3217hcf8f9306f5399635E(i32 noundef %905), !noalias !354
   %1147 = sext i32 %1146 to i64
   %1148 = load ptr, ptr %703, align 8, !alias.scope !357, !noundef !3
-  %1149 = getelementptr inbounds { i16, [3 x i16] }, ptr %1148, i64 %1147
+  %1149 = getelementptr inbounds [8 x i8], ptr %1148, i64 %1147
   br label %"_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$27execute_branch_cmp_fallback17h21a7a0b2d5c7680aE.exit"
 
 1150:                                             ; preds = %894
@@ -4999,7 +4999,7 @@ _ZN5wasmi6engine8executor6instrs8Executor20execute_consume_fuel17ha9ac0992172dbc
   %1160 = call noundef i32 @_ZN8wasmi_ir9primitive12BranchOffset6to_i3217hcf8f9306f5399635E(i32 noundef %905), !noalias !361
   %1161 = sext i32 %1160 to i64
   %1162 = load ptr, ptr %703, align 8, !alias.scope !364, !noundef !3
-  %1163 = getelementptr inbounds { i16, [3 x i16] }, ptr %1162, i64 %1161
+  %1163 = getelementptr inbounds [8 x i8], ptr %1162, i64 %1161
   br label %"_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$27execute_branch_cmp_fallback17h21a7a0b2d5c7680aE.exit"
 
 1164:                                             ; preds = %894
@@ -5021,7 +5021,7 @@ _ZN5wasmi6engine8executor6instrs8Executor20execute_consume_fuel17ha9ac0992172dbc
   %1174 = call noundef i32 @_ZN8wasmi_ir9primitive12BranchOffset6to_i3217hcf8f9306f5399635E(i32 noundef %905), !noalias !368
   %1175 = sext i32 %1174 to i64
   %1176 = load ptr, ptr %703, align 8, !alias.scope !371, !noundef !3
-  %1177 = getelementptr inbounds { i16, [3 x i16] }, ptr %1176, i64 %1175
+  %1177 = getelementptr inbounds [8 x i8], ptr %1176, i64 %1175
   br label %"_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$27execute_branch_cmp_fallback17h21a7a0b2d5c7680aE.exit"
 
 1178:                                             ; preds = %894
@@ -5043,7 +5043,7 @@ _ZN5wasmi6engine8executor6instrs8Executor20execute_consume_fuel17ha9ac0992172dbc
   %1188 = call noundef i32 @_ZN8wasmi_ir9primitive12BranchOffset6to_i3217hcf8f9306f5399635E(i32 noundef %905), !noalias !375
   %1189 = sext i32 %1188 to i64
   %1190 = load ptr, ptr %703, align 8, !alias.scope !378, !noundef !3
-  %1191 = getelementptr inbounds { i16, [3 x i16] }, ptr %1190, i64 %1189
+  %1191 = getelementptr inbounds [8 x i8], ptr %1190, i64 %1189
   br label %"_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$27execute_branch_cmp_fallback17h21a7a0b2d5c7680aE.exit"
 
 1192:                                             ; preds = %894
@@ -5065,7 +5065,7 @@ _ZN5wasmi6engine8executor6instrs8Executor20execute_consume_fuel17ha9ac0992172dbc
   %1202 = call noundef i32 @_ZN8wasmi_ir9primitive12BranchOffset6to_i3217hcf8f9306f5399635E(i32 noundef %905), !noalias !382
   %1203 = sext i32 %1202 to i64
   %1204 = load ptr, ptr %703, align 8, !alias.scope !385, !noundef !3
-  %1205 = getelementptr inbounds { i16, [3 x i16] }, ptr %1204, i64 %1203
+  %1205 = getelementptr inbounds [8 x i8], ptr %1204, i64 %1203
   br label %"_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$27execute_branch_cmp_fallback17h21a7a0b2d5c7680aE.exit"
 
 1206:                                             ; preds = %894
@@ -5086,7 +5086,7 @@ _ZN5wasmi6engine8executor6instrs8Executor20execute_consume_fuel17ha9ac0992172dbc
   %1216 = call noundef i32 @_ZN8wasmi_ir9primitive12BranchOffset6to_i3217hcf8f9306f5399635E(i32 noundef %905), !noalias !389
   %1217 = sext i32 %1216 to i64
   %1218 = load ptr, ptr %703, align 8, !alias.scope !392, !noundef !3
-  %1219 = getelementptr inbounds { i16, [3 x i16] }, ptr %1218, i64 %1217
+  %1219 = getelementptr inbounds [8 x i8], ptr %1218, i64 %1217
   br label %"_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$27execute_branch_cmp_fallback17h21a7a0b2d5c7680aE.exit"
 
 1220:                                             ; preds = %894
@@ -5107,7 +5107,7 @@ _ZN5wasmi6engine8executor6instrs8Executor20execute_consume_fuel17ha9ac0992172dbc
   %1230 = call noundef i32 @_ZN8wasmi_ir9primitive12BranchOffset6to_i3217hcf8f9306f5399635E(i32 noundef %905), !noalias !396
   %1231 = sext i32 %1230 to i64
   %1232 = load ptr, ptr %703, align 8, !alias.scope !399, !noundef !3
-  %1233 = getelementptr inbounds { i16, [3 x i16] }, ptr %1232, i64 %1231
+  %1233 = getelementptr inbounds [8 x i8], ptr %1232, i64 %1231
   br label %"_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$27execute_branch_cmp_fallback17h21a7a0b2d5c7680aE.exit"
 
 1234:                                             ; preds = %894
@@ -5128,7 +5128,7 @@ _ZN5wasmi6engine8executor6instrs8Executor20execute_consume_fuel17ha9ac0992172dbc
   %1244 = call noundef i32 @_ZN8wasmi_ir9primitive12BranchOffset6to_i3217hcf8f9306f5399635E(i32 noundef %905), !noalias !403
   %1245 = sext i32 %1244 to i64
   %1246 = load ptr, ptr %703, align 8, !alias.scope !406, !noundef !3
-  %1247 = getelementptr inbounds { i16, [3 x i16] }, ptr %1246, i64 %1245
+  %1247 = getelementptr inbounds [8 x i8], ptr %1246, i64 %1245
   br label %"_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$27execute_branch_cmp_fallback17h21a7a0b2d5c7680aE.exit"
 
 1248:                                             ; preds = %894
@@ -5149,7 +5149,7 @@ _ZN5wasmi6engine8executor6instrs8Executor20execute_consume_fuel17ha9ac0992172dbc
   %1258 = call noundef i32 @_ZN8wasmi_ir9primitive12BranchOffset6to_i3217hcf8f9306f5399635E(i32 noundef %905), !noalias !410
   %1259 = sext i32 %1258 to i64
   %1260 = load ptr, ptr %703, align 8, !alias.scope !413, !noundef !3
-  %1261 = getelementptr inbounds { i16, [3 x i16] }, ptr %1260, i64 %1259
+  %1261 = getelementptr inbounds [8 x i8], ptr %1260, i64 %1259
   br label %"_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$27execute_branch_cmp_fallback17h21a7a0b2d5c7680aE.exit"
 
 1262:                                             ; preds = %894
@@ -5170,7 +5170,7 @@ _ZN5wasmi6engine8executor6instrs8Executor20execute_consume_fuel17ha9ac0992172dbc
   %1272 = call noundef i32 @_ZN8wasmi_ir9primitive12BranchOffset6to_i3217hcf8f9306f5399635E(i32 noundef %905), !noalias !417
   %1273 = sext i32 %1272 to i64
   %1274 = load ptr, ptr %703, align 8, !alias.scope !420, !noundef !3
-  %1275 = getelementptr inbounds { i16, [3 x i16] }, ptr %1274, i64 %1273
+  %1275 = getelementptr inbounds [8 x i8], ptr %1274, i64 %1273
   br label %"_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$27execute_branch_cmp_fallback17h21a7a0b2d5c7680aE.exit"
 
 1276:                                             ; preds = %894
@@ -5191,7 +5191,7 @@ _ZN5wasmi6engine8executor6instrs8Executor20execute_consume_fuel17ha9ac0992172dbc
   %1286 = call noundef i32 @_ZN8wasmi_ir9primitive12BranchOffset6to_i3217hcf8f9306f5399635E(i32 noundef %905), !noalias !424
   %1287 = sext i32 %1286 to i64
   %1288 = load ptr, ptr %703, align 8, !alias.scope !427, !noundef !3
-  %1289 = getelementptr inbounds { i16, [3 x i16] }, ptr %1288, i64 %1287
+  %1289 = getelementptr inbounds [8 x i8], ptr %1288, i64 %1287
   br label %"_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$27execute_branch_cmp_fallback17h21a7a0b2d5c7680aE.exit"
 
 1290:                                             ; preds = %894
@@ -5212,7 +5212,7 @@ _ZN5wasmi6engine8executor6instrs8Executor20execute_consume_fuel17ha9ac0992172dbc
   %1300 = call noundef i32 @_ZN8wasmi_ir9primitive12BranchOffset6to_i3217hcf8f9306f5399635E(i32 noundef %905), !noalias !431
   %1301 = sext i32 %1300 to i64
   %1302 = load ptr, ptr %703, align 8, !alias.scope !434, !noundef !3
-  %1303 = getelementptr inbounds { i16, [3 x i16] }, ptr %1302, i64 %1301
+  %1303 = getelementptr inbounds [8 x i8], ptr %1302, i64 %1301
   br label %"_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$27execute_branch_cmp_fallback17h21a7a0b2d5c7680aE.exit"
 
 1304:                                             ; preds = %894
@@ -5233,7 +5233,7 @@ _ZN5wasmi6engine8executor6instrs8Executor20execute_consume_fuel17ha9ac0992172dbc
   %1314 = call noundef i32 @_ZN8wasmi_ir9primitive12BranchOffset6to_i3217hcf8f9306f5399635E(i32 noundef %905), !noalias !438
   %1315 = sext i32 %1314 to i64
   %1316 = load ptr, ptr %703, align 8, !alias.scope !441, !noundef !3
-  %1317 = getelementptr inbounds { i16, [3 x i16] }, ptr %1316, i64 %1315
+  %1317 = getelementptr inbounds [8 x i8], ptr %1316, i64 %1315
   br label %"_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$27execute_branch_cmp_fallback17h21a7a0b2d5c7680aE.exit"
 
 1318:                                             ; preds = %894
@@ -5254,7 +5254,7 @@ _ZN5wasmi6engine8executor6instrs8Executor20execute_consume_fuel17ha9ac0992172dbc
   %1328 = call noundef i32 @_ZN8wasmi_ir9primitive12BranchOffset6to_i3217hcf8f9306f5399635E(i32 noundef %905), !noalias !445
   %1329 = sext i32 %1328 to i64
   %1330 = load ptr, ptr %703, align 8, !alias.scope !448, !noundef !3
-  %1331 = getelementptr inbounds { i16, [3 x i16] }, ptr %1330, i64 %1329
+  %1331 = getelementptr inbounds [8 x i8], ptr %1330, i64 %1329
   br label %"_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$27execute_branch_cmp_fallback17h21a7a0b2d5c7680aE.exit"
 
 1332:                                             ; preds = %894
@@ -5275,7 +5275,7 @@ _ZN5wasmi6engine8executor6instrs8Executor20execute_consume_fuel17ha9ac0992172dbc
   %1342 = call noundef i32 @_ZN8wasmi_ir9primitive12BranchOffset6to_i3217hcf8f9306f5399635E(i32 noundef %905), !noalias !452
   %1343 = sext i32 %1342 to i64
   %1344 = load ptr, ptr %703, align 8, !alias.scope !455, !noundef !3
-  %1345 = getelementptr inbounds { i16, [3 x i16] }, ptr %1344, i64 %1343
+  %1345 = getelementptr inbounds [8 x i8], ptr %1344, i64 %1343
   br label %"_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$27execute_branch_cmp_fallback17h21a7a0b2d5c7680aE.exit"
 
 1346:                                             ; preds = %894
@@ -5296,7 +5296,7 @@ _ZN5wasmi6engine8executor6instrs8Executor20execute_consume_fuel17ha9ac0992172dbc
   %1356 = call noundef i32 @_ZN8wasmi_ir9primitive12BranchOffset6to_i3217hcf8f9306f5399635E(i32 noundef %905), !noalias !459
   %1357 = sext i32 %1356 to i64
   %1358 = load ptr, ptr %703, align 8, !alias.scope !462, !noundef !3
-  %1359 = getelementptr inbounds { i16, [3 x i16] }, ptr %1358, i64 %1357
+  %1359 = getelementptr inbounds [8 x i8], ptr %1358, i64 %1357
   br label %"_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$27execute_branch_cmp_fallback17h21a7a0b2d5c7680aE.exit"
 
 1360:                                             ; preds = %894
@@ -5317,7 +5317,7 @@ _ZN5wasmi6engine8executor6instrs8Executor20execute_consume_fuel17ha9ac0992172dbc
   %1370 = call noundef i32 @_ZN8wasmi_ir9primitive12BranchOffset6to_i3217hcf8f9306f5399635E(i32 noundef %905), !noalias !466
   %1371 = sext i32 %1370 to i64
   %1372 = load ptr, ptr %703, align 8, !alias.scope !469, !noundef !3
-  %1373 = getelementptr inbounds { i16, [3 x i16] }, ptr %1372, i64 %1371
+  %1373 = getelementptr inbounds [8 x i8], ptr %1372, i64 %1371
   br label %"_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$27execute_branch_cmp_fallback17h21a7a0b2d5c7680aE.exit"
 
 1374:                                             ; preds = %894
@@ -5338,7 +5338,7 @@ _ZN5wasmi6engine8executor6instrs8Executor20execute_consume_fuel17ha9ac0992172dbc
   %1384 = call noundef i32 @_ZN8wasmi_ir9primitive12BranchOffset6to_i3217hcf8f9306f5399635E(i32 noundef %905), !noalias !473
   %1385 = sext i32 %1384 to i64
   %1386 = load ptr, ptr %703, align 8, !alias.scope !476, !noundef !3
-  %1387 = getelementptr inbounds { i16, [3 x i16] }, ptr %1386, i64 %1385
+  %1387 = getelementptr inbounds [8 x i8], ptr %1386, i64 %1385
   br label %"_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$27execute_branch_cmp_fallback17h21a7a0b2d5c7680aE.exit"
 
 1388:                                             ; preds = %894
@@ -5359,7 +5359,7 @@ _ZN5wasmi6engine8executor6instrs8Executor20execute_consume_fuel17ha9ac0992172dbc
   %1398 = call noundef i32 @_ZN8wasmi_ir9primitive12BranchOffset6to_i3217hcf8f9306f5399635E(i32 noundef %905), !noalias !480
   %1399 = sext i32 %1398 to i64
   %1400 = load ptr, ptr %703, align 8, !alias.scope !483, !noundef !3
-  %1401 = getelementptr inbounds { i16, [3 x i16] }, ptr %1400, i64 %1399
+  %1401 = getelementptr inbounds [8 x i8], ptr %1400, i64 %1399
   br label %"_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$27execute_branch_cmp_fallback17h21a7a0b2d5c7680aE.exit"
 
 1402:                                             ; preds = %894
@@ -5380,7 +5380,7 @@ _ZN5wasmi6engine8executor6instrs8Executor20execute_consume_fuel17ha9ac0992172dbc
   %1412 = call noundef i32 @_ZN8wasmi_ir9primitive12BranchOffset6to_i3217hcf8f9306f5399635E(i32 noundef %905), !noalias !487
   %1413 = sext i32 %1412 to i64
   %1414 = load ptr, ptr %703, align 8, !alias.scope !490, !noundef !3
-  %1415 = getelementptr inbounds { i16, [3 x i16] }, ptr %1414, i64 %1413
+  %1415 = getelementptr inbounds [8 x i8], ptr %1414, i64 %1413
   br label %"_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$27execute_branch_cmp_fallback17h21a7a0b2d5c7680aE.exit"
 
 "_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$27execute_branch_cmp_fallback17h21a7a0b2d5c7680aE.exit": ; preds = %918, %921, %932, %935, %946, %949, %960, %963, %974, %977, %988, %991, %1002, %1005, %1016, %1019, %1030, %1033, %1044, %1047, %1058, %1061, %1072, %1075, %1086, %1089, %1100, %1103, %1114, %1117, %1128, %1131, %1142, %1145, %1156, %1159, %1170, %1173, %1184, %1187, %1198, %1201, %1212, %1215, %1226, %1229, %1240, %1243, %1254, %1257, %1268, %1271, %1282, %1285, %1296, %1299, %1310, %1313, %1324, %1327, %1338, %1341, %1352, %1355, %1366, %1369, %1380, %1383, %1394, %1397, %1408, %1411
@@ -5415,7 +5415,7 @@ _ZN5wasmi6engine8executor6instrs8Executor20execute_consume_fuel17ha9ac0992172dbc
   %1433 = call noundef i32 @_ZN8wasmi_ir9primitive12BranchOffset6to_i3217hcf8f9306f5399635E(i32 noundef %1432), !noalias !494
   %1434 = sext i32 %1433 to i64
   %1435 = load ptr, ptr %703, align 8, !alias.scope !494, !noundef !3
-  %1436 = getelementptr inbounds { i16, [3 x i16] }, ptr %1435, i64 %1434
+  %1436 = getelementptr inbounds [8 x i8], ptr %1435, i64 %1434
   br label %"_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$20execute_branch_binop17h1f52cb2ee73969deE.exit1895.i"
 
 "_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$20execute_branch_binop17h1f52cb2ee73969deE.exit1895.i": ; preds = %1431, %1428
@@ -5459,7 +5459,7 @@ _ZN5wasmi6engine8executor6instrs8Executor20execute_consume_fuel17ha9ac0992172dbc
   %1461 = call noundef i32 @_ZN8wasmi_ir9primitive12BranchOffset6to_i3217hcf8f9306f5399635E(i32 noundef %1460), !noalias !500
   %1462 = sext i32 %1461 to i64
   %1463 = load ptr, ptr %703, align 8, !alias.scope !500, !noundef !3
-  %1464 = getelementptr inbounds { i16, [3 x i16] }, ptr %1463, i64 %1462
+  %1464 = getelementptr inbounds [8 x i8], ptr %1463, i64 %1462
   br label %"_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$20execute_branch_binop17h1f52cb2ee73969deE.exit1894.i"
 
 "_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$20execute_branch_binop17h1f52cb2ee73969deE.exit1894.i": ; preds = %1459, %1456
@@ -5503,7 +5503,7 @@ _ZN5wasmi6engine8executor6instrs8Executor20execute_consume_fuel17ha9ac0992172dbc
   %1489 = call noundef i32 @_ZN8wasmi_ir9primitive12BranchOffset6to_i3217hcf8f9306f5399635E(i32 noundef %1488), !noalias !506
   %1490 = sext i32 %1489 to i64
   %1491 = load ptr, ptr %703, align 8, !alias.scope !506, !noundef !3
-  %1492 = getelementptr inbounds { i16, [3 x i16] }, ptr %1491, i64 %1490
+  %1492 = getelementptr inbounds [8 x i8], ptr %1491, i64 %1490
   br label %"_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$20execute_branch_binop17h1f52cb2ee73969deE.exit1893.i"
 
 "_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$20execute_branch_binop17h1f52cb2ee73969deE.exit1893.i": ; preds = %1487, %1484
@@ -5546,7 +5546,7 @@ _ZN5wasmi6engine8executor6instrs8Executor20execute_consume_fuel17ha9ac0992172dbc
   %1517 = call noundef i32 @_ZN8wasmi_ir9primitive12BranchOffset6to_i3217hcf8f9306f5399635E(i32 noundef %1516), !noalias !512
   %1518 = sext i32 %1517 to i64
   %1519 = load ptr, ptr %703, align 8, !alias.scope !512, !noundef !3
-  %1520 = getelementptr inbounds { i16, [3 x i16] }, ptr %1519, i64 %1518
+  %1520 = getelementptr inbounds [8 x i8], ptr %1519, i64 %1518
   br label %"_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$20execute_branch_binop17h1f52cb2ee73969deE.exit1892.i"
 
 "_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$20execute_branch_binop17h1f52cb2ee73969deE.exit1892.i": ; preds = %1515, %1512
@@ -5589,7 +5589,7 @@ _ZN5wasmi6engine8executor6instrs8Executor20execute_consume_fuel17ha9ac0992172dbc
   %1545 = call noundef i32 @_ZN8wasmi_ir9primitive12BranchOffset6to_i3217hcf8f9306f5399635E(i32 noundef %1544), !noalias !518
   %1546 = sext i32 %1545 to i64
   %1547 = load ptr, ptr %703, align 8, !alias.scope !518, !noundef !3
-  %1548 = getelementptr inbounds { i16, [3 x i16] }, ptr %1547, i64 %1546
+  %1548 = getelementptr inbounds [8 x i8], ptr %1547, i64 %1546
   br label %"_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$20execute_branch_binop17h1f52cb2ee73969deE.exit1891.i"
 
 "_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$20execute_branch_binop17h1f52cb2ee73969deE.exit1891.i": ; preds = %1543, %1540
@@ -5632,7 +5632,7 @@ _ZN5wasmi6engine8executor6instrs8Executor20execute_consume_fuel17ha9ac0992172dbc
   %1573 = call noundef i32 @_ZN8wasmi_ir9primitive12BranchOffset6to_i3217hcf8f9306f5399635E(i32 noundef %1572), !noalias !524
   %1574 = sext i32 %1573 to i64
   %1575 = load ptr, ptr %703, align 8, !alias.scope !524, !noundef !3
-  %1576 = getelementptr inbounds { i16, [3 x i16] }, ptr %1575, i64 %1574
+  %1576 = getelementptr inbounds [8 x i8], ptr %1575, i64 %1574
   br label %"_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$20execute_branch_binop17h1f52cb2ee73969deE.exit1890.i"
 
 "_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$20execute_branch_binop17h1f52cb2ee73969deE.exit1890.i": ; preds = %1571, %1568
@@ -5675,7 +5675,7 @@ _ZN5wasmi6engine8executor6instrs8Executor20execute_consume_fuel17ha9ac0992172dbc
   %1601 = call noundef i32 @_ZN8wasmi_ir9primitive12BranchOffset6to_i3217hcf8f9306f5399635E(i32 noundef %1600), !noalias !530
   %1602 = sext i32 %1601 to i64
   %1603 = load ptr, ptr %703, align 8, !alias.scope !530, !noundef !3
-  %1604 = getelementptr inbounds { i16, [3 x i16] }, ptr %1603, i64 %1602
+  %1604 = getelementptr inbounds [8 x i8], ptr %1603, i64 %1602
   br label %"_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$20execute_branch_binop17h1f52cb2ee73969deE.exit1889.i"
 
 "_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$20execute_branch_binop17h1f52cb2ee73969deE.exit1889.i": ; preds = %1599, %1596
@@ -5718,7 +5718,7 @@ _ZN5wasmi6engine8executor6instrs8Executor20execute_consume_fuel17ha9ac0992172dbc
   %1629 = call noundef i32 @_ZN8wasmi_ir9primitive12BranchOffset6to_i3217hcf8f9306f5399635E(i32 noundef %1628), !noalias !536
   %1630 = sext i32 %1629 to i64
   %1631 = load ptr, ptr %703, align 8, !alias.scope !536, !noundef !3
-  %1632 = getelementptr inbounds { i16, [3 x i16] }, ptr %1631, i64 %1630
+  %1632 = getelementptr inbounds [8 x i8], ptr %1631, i64 %1630
   br label %"_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$20execute_branch_binop17h1f52cb2ee73969deE.exit1888.i"
 
 "_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$20execute_branch_binop17h1f52cb2ee73969deE.exit1888.i": ; preds = %1627, %1624
@@ -5761,7 +5761,7 @@ _ZN5wasmi6engine8executor6instrs8Executor20execute_consume_fuel17ha9ac0992172dbc
   %1657 = call noundef i32 @_ZN8wasmi_ir9primitive12BranchOffset6to_i3217hcf8f9306f5399635E(i32 noundef %1656), !noalias !542
   %1658 = sext i32 %1657 to i64
   %1659 = load ptr, ptr %703, align 8, !alias.scope !542, !noundef !3
-  %1660 = getelementptr inbounds { i16, [3 x i16] }, ptr %1659, i64 %1658
+  %1660 = getelementptr inbounds [8 x i8], ptr %1659, i64 %1658
   br label %"_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$20execute_branch_binop17h1f52cb2ee73969deE.exit1887.i"
 
 "_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$20execute_branch_binop17h1f52cb2ee73969deE.exit1887.i": ; preds = %1655, %1652
@@ -5814,7 +5814,7 @@ _ZN5wasmi6engine8executor6instrs8Executor20execute_consume_fuel17ha9ac0992172dbc
   %1692 = call noundef i32 @_ZN8wasmi_ir9primitive12BranchOffset6to_i3217hcf8f9306f5399635E(i32 noundef %1691), !noalias !548
   %1693 = sext i32 %1692 to i64
   %1694 = load ptr, ptr %703, align 8, !alias.scope !548, !noundef !3
-  %1695 = getelementptr inbounds { i16, [3 x i16] }, ptr %1694, i64 %1693
+  %1695 = getelementptr inbounds [8 x i8], ptr %1694, i64 %1693
   br label %"_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$20execute_branch_binop17hafef04bc7832517bE.exit1905.i"
 
 "_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$20execute_branch_binop17hafef04bc7832517bE.exit1905.i": ; preds = %1690, %1687
@@ -5867,7 +5867,7 @@ _ZN5wasmi6engine8executor6instrs8Executor20execute_consume_fuel17ha9ac0992172dbc
   %1727 = call noundef i32 @_ZN8wasmi_ir9primitive12BranchOffset6to_i3217hcf8f9306f5399635E(i32 noundef %1726), !noalias !554
   %1728 = sext i32 %1727 to i64
   %1729 = load ptr, ptr %703, align 8, !alias.scope !554, !noundef !3
-  %1730 = getelementptr inbounds { i16, [3 x i16] }, ptr %1729, i64 %1728
+  %1730 = getelementptr inbounds [8 x i8], ptr %1729, i64 %1728
   br label %"_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$20execute_branch_binop17h1f52cb2ee73969deE.exit.i"
 
 "_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$20execute_branch_binop17h1f52cb2ee73969deE.exit.i": ; preds = %1725, %1722
@@ -5920,7 +5920,7 @@ _ZN5wasmi6engine8executor6instrs8Executor20execute_consume_fuel17ha9ac0992172dbc
   %1762 = call noundef i32 @_ZN8wasmi_ir9primitive12BranchOffset6to_i3217hcf8f9306f5399635E(i32 noundef %1761), !noalias !560
   %1763 = sext i32 %1762 to i64
   %1764 = load ptr, ptr %703, align 8, !alias.scope !560, !noundef !3
-  %1765 = getelementptr inbounds { i16, [3 x i16] }, ptr %1764, i64 %1763
+  %1765 = getelementptr inbounds [8 x i8], ptr %1764, i64 %1763
   br label %"_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$20execute_branch_binop17hafef04bc7832517bE.exit.i"
 
 "_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$20execute_branch_binop17hafef04bc7832517bE.exit.i": ; preds = %1760, %1757
@@ -5974,7 +5974,7 @@ _ZN5wasmi6engine8executor6instrs8Executor20execute_consume_fuel17ha9ac0992172dbc
   %1797 = call noundef i32 @_ZN8wasmi_ir9primitive12BranchOffset6to_i3217hcf8f9306f5399635E(i32 noundef %1796), !noalias !566
   %1798 = sext i32 %1797 to i64
   %1799 = load ptr, ptr %703, align 8, !alias.scope !566, !noundef !3
-  %1800 = getelementptr inbounds { i16, [3 x i16] }, ptr %1799, i64 %1798
+  %1800 = getelementptr inbounds [8 x i8], ptr %1799, i64 %1798
   br label %"_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$20execute_branch_binop17h5a311c16f2e56131E.exit1904.i"
 
 "_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$20execute_branch_binop17h5a311c16f2e56131E.exit1904.i": ; preds = %1795, %1792
@@ -6018,7 +6018,7 @@ _ZN5wasmi6engine8executor6instrs8Executor20execute_consume_fuel17ha9ac0992172dbc
   %1825 = call noundef i32 @_ZN8wasmi_ir9primitive12BranchOffset6to_i3217hcf8f9306f5399635E(i32 noundef %1824), !noalias !572
   %1826 = sext i32 %1825 to i64
   %1827 = load ptr, ptr %703, align 8, !alias.scope !572, !noundef !3
-  %1828 = getelementptr inbounds { i16, [3 x i16] }, ptr %1827, i64 %1826
+  %1828 = getelementptr inbounds [8 x i8], ptr %1827, i64 %1826
   br label %"_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$20execute_branch_binop17h5a311c16f2e56131E.exit1903.i"
 
 "_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$20execute_branch_binop17h5a311c16f2e56131E.exit1903.i": ; preds = %1823, %1820
@@ -6062,7 +6062,7 @@ _ZN5wasmi6engine8executor6instrs8Executor20execute_consume_fuel17ha9ac0992172dbc
   %1853 = call noundef i32 @_ZN8wasmi_ir9primitive12BranchOffset6to_i3217hcf8f9306f5399635E(i32 noundef %1852), !noalias !578
   %1854 = sext i32 %1853 to i64
   %1855 = load ptr, ptr %703, align 8, !alias.scope !578, !noundef !3
-  %1856 = getelementptr inbounds { i16, [3 x i16] }, ptr %1855, i64 %1854
+  %1856 = getelementptr inbounds [8 x i8], ptr %1855, i64 %1854
   br label %"_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$20execute_branch_binop17h5a311c16f2e56131E.exit1902.i"
 
 "_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$20execute_branch_binop17h5a311c16f2e56131E.exit1902.i": ; preds = %1851, %1848
@@ -6105,7 +6105,7 @@ _ZN5wasmi6engine8executor6instrs8Executor20execute_consume_fuel17ha9ac0992172dbc
   %1881 = call noundef i32 @_ZN8wasmi_ir9primitive12BranchOffset6to_i3217hcf8f9306f5399635E(i32 noundef %1880), !noalias !584
   %1882 = sext i32 %1881 to i64
   %1883 = load ptr, ptr %703, align 8, !alias.scope !584, !noundef !3
-  %1884 = getelementptr inbounds { i16, [3 x i16] }, ptr %1883, i64 %1882
+  %1884 = getelementptr inbounds [8 x i8], ptr %1883, i64 %1882
   br label %"_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$20execute_branch_binop17h5a311c16f2e56131E.exit1901.i"
 
 "_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$20execute_branch_binop17h5a311c16f2e56131E.exit1901.i": ; preds = %1879, %1876
@@ -6148,7 +6148,7 @@ _ZN5wasmi6engine8executor6instrs8Executor20execute_consume_fuel17ha9ac0992172dbc
   %1909 = call noundef i32 @_ZN8wasmi_ir9primitive12BranchOffset6to_i3217hcf8f9306f5399635E(i32 noundef %1908), !noalias !590
   %1910 = sext i32 %1909 to i64
   %1911 = load ptr, ptr %703, align 8, !alias.scope !590, !noundef !3
-  %1912 = getelementptr inbounds { i16, [3 x i16] }, ptr %1911, i64 %1910
+  %1912 = getelementptr inbounds [8 x i8], ptr %1911, i64 %1910
   br label %"_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$20execute_branch_binop17h5a311c16f2e56131E.exit1900.i"
 
 "_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$20execute_branch_binop17h5a311c16f2e56131E.exit1900.i": ; preds = %1907, %1904
@@ -6191,7 +6191,7 @@ _ZN5wasmi6engine8executor6instrs8Executor20execute_consume_fuel17ha9ac0992172dbc
   %1937 = call noundef i32 @_ZN8wasmi_ir9primitive12BranchOffset6to_i3217hcf8f9306f5399635E(i32 noundef %1936), !noalias !596
   %1938 = sext i32 %1937 to i64
   %1939 = load ptr, ptr %703, align 8, !alias.scope !596, !noundef !3
-  %1940 = getelementptr inbounds { i16, [3 x i16] }, ptr %1939, i64 %1938
+  %1940 = getelementptr inbounds [8 x i8], ptr %1939, i64 %1938
   br label %"_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$20execute_branch_binop17h5a311c16f2e56131E.exit1899.i"
 
 "_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$20execute_branch_binop17h5a311c16f2e56131E.exit1899.i": ; preds = %1935, %1932
@@ -6234,7 +6234,7 @@ _ZN5wasmi6engine8executor6instrs8Executor20execute_consume_fuel17ha9ac0992172dbc
   %1965 = call noundef i32 @_ZN8wasmi_ir9primitive12BranchOffset6to_i3217hcf8f9306f5399635E(i32 noundef %1964), !noalias !602
   %1966 = sext i32 %1965 to i64
   %1967 = load ptr, ptr %703, align 8, !alias.scope !602, !noundef !3
-  %1968 = getelementptr inbounds { i16, [3 x i16] }, ptr %1967, i64 %1966
+  %1968 = getelementptr inbounds [8 x i8], ptr %1967, i64 %1966
   br label %"_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$20execute_branch_binop17h5a311c16f2e56131E.exit1898.i"
 
 "_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$20execute_branch_binop17h5a311c16f2e56131E.exit1898.i": ; preds = %1963, %1960
@@ -6277,7 +6277,7 @@ _ZN5wasmi6engine8executor6instrs8Executor20execute_consume_fuel17ha9ac0992172dbc
   %1993 = call noundef i32 @_ZN8wasmi_ir9primitive12BranchOffset6to_i3217hcf8f9306f5399635E(i32 noundef %1992), !noalias !608
   %1994 = sext i32 %1993 to i64
   %1995 = load ptr, ptr %703, align 8, !alias.scope !608, !noundef !3
-  %1996 = getelementptr inbounds { i16, [3 x i16] }, ptr %1995, i64 %1994
+  %1996 = getelementptr inbounds [8 x i8], ptr %1995, i64 %1994
   br label %"_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$20execute_branch_binop17h5a311c16f2e56131E.exit1897.i"
 
 "_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$20execute_branch_binop17h5a311c16f2e56131E.exit1897.i": ; preds = %1991, %1988
@@ -6320,7 +6320,7 @@ _ZN5wasmi6engine8executor6instrs8Executor20execute_consume_fuel17ha9ac0992172dbc
   %2021 = call noundef i32 @_ZN8wasmi_ir9primitive12BranchOffset6to_i3217hcf8f9306f5399635E(i32 noundef %2020), !noalias !614
   %2022 = sext i32 %2021 to i64
   %2023 = load ptr, ptr %703, align 8, !alias.scope !614, !noundef !3
-  %2024 = getelementptr inbounds { i16, [3 x i16] }, ptr %2023, i64 %2022
+  %2024 = getelementptr inbounds [8 x i8], ptr %2023, i64 %2022
   br label %"_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$20execute_branch_binop17h5a311c16f2e56131E.exit1896.i"
 
 "_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$20execute_branch_binop17h5a311c16f2e56131E.exit1896.i": ; preds = %2019, %2016
@@ -6373,7 +6373,7 @@ _ZN5wasmi6engine8executor6instrs8Executor20execute_consume_fuel17ha9ac0992172dbc
   %2056 = call noundef i32 @_ZN8wasmi_ir9primitive12BranchOffset6to_i3217hcf8f9306f5399635E(i32 noundef %2055), !noalias !620
   %2057 = sext i32 %2056 to i64
   %2058 = load ptr, ptr %703, align 8, !alias.scope !620, !noundef !3
-  %2059 = getelementptr inbounds { i16, [3 x i16] }, ptr %2058, i64 %2057
+  %2059 = getelementptr inbounds [8 x i8], ptr %2058, i64 %2057
   br label %"_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$20execute_branch_binop17hbc2f9650d0fe9c62E.exit1911.i"
 
 "_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$20execute_branch_binop17hbc2f9650d0fe9c62E.exit1911.i": ; preds = %2054, %2051
@@ -6426,7 +6426,7 @@ _ZN5wasmi6engine8executor6instrs8Executor20execute_consume_fuel17ha9ac0992172dbc
   %2091 = call noundef i32 @_ZN8wasmi_ir9primitive12BranchOffset6to_i3217hcf8f9306f5399635E(i32 noundef %2090), !noalias !626
   %2092 = sext i32 %2091 to i64
   %2093 = load ptr, ptr %703, align 8, !alias.scope !626, !noundef !3
-  %2094 = getelementptr inbounds { i16, [3 x i16] }, ptr %2093, i64 %2092
+  %2094 = getelementptr inbounds [8 x i8], ptr %2093, i64 %2092
   br label %"_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$20execute_branch_binop17h5a311c16f2e56131E.exit.i"
 
 "_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$20execute_branch_binop17h5a311c16f2e56131E.exit.i": ; preds = %2089, %2086
@@ -6479,7 +6479,7 @@ _ZN5wasmi6engine8executor6instrs8Executor20execute_consume_fuel17ha9ac0992172dbc
   %2126 = call noundef i32 @_ZN8wasmi_ir9primitive12BranchOffset6to_i3217hcf8f9306f5399635E(i32 noundef %2125), !noalias !632
   %2127 = sext i32 %2126 to i64
   %2128 = load ptr, ptr %703, align 8, !alias.scope !632, !noundef !3
-  %2129 = getelementptr inbounds { i16, [3 x i16] }, ptr %2128, i64 %2127
+  %2129 = getelementptr inbounds [8 x i8], ptr %2128, i64 %2127
   br label %"_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$20execute_branch_binop17hbc2f9650d0fe9c62E.exit.i"
 
 "_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$20execute_branch_binop17hbc2f9650d0fe9c62E.exit.i": ; preds = %2124, %2121
@@ -6532,7 +6532,7 @@ _ZN5wasmi6engine8executor6instrs8Executor20execute_consume_fuel17ha9ac0992172dbc
   %2161 = call noundef i32 @_ZN8wasmi_ir9primitive12BranchOffset6to_i3217hcf8f9306f5399635E(i32 noundef %2160), !noalias !638
   %2162 = sext i32 %2161 to i64
   %2163 = load ptr, ptr %703, align 8, !alias.scope !638, !noundef !3
-  %2164 = getelementptr inbounds { i16, [3 x i16] }, ptr %2163, i64 %2162
+  %2164 = getelementptr inbounds [8 x i8], ptr %2163, i64 %2162
   br label %"_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$20execute_branch_binop17h067b83c436b6ffd1E.exit1886.i"
 
 "_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$20execute_branch_binop17h067b83c436b6ffd1E.exit1886.i": ; preds = %2159, %2156
@@ -6565,7 +6565,7 @@ _ZN5wasmi6engine8executor6instrs8Executor20execute_consume_fuel17ha9ac0992172dbc
   %2182 = call noundef i32 @_ZN8wasmi_ir9primitive12BranchOffset6to_i3217hcf8f9306f5399635E(i32 noundef %2181), !noalias !644
   %2183 = sext i32 %2182 to i64
   %2184 = load ptr, ptr %703, align 8, !alias.scope !644, !noundef !3
-  %2185 = getelementptr inbounds { i16, [3 x i16] }, ptr %2184, i64 %2183
+  %2185 = getelementptr inbounds [8 x i8], ptr %2184, i64 %2183
   br label %"_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$20execute_branch_binop17h067b83c436b6ffd1E.exit1885.i"
 
 "_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$20execute_branch_binop17h067b83c436b6ffd1E.exit1885.i": ; preds = %2180, %2177
@@ -6598,7 +6598,7 @@ _ZN5wasmi6engine8executor6instrs8Executor20execute_consume_fuel17ha9ac0992172dbc
   %2203 = call noundef i32 @_ZN8wasmi_ir9primitive12BranchOffset6to_i3217hcf8f9306f5399635E(i32 noundef %2202), !noalias !650
   %2204 = sext i32 %2203 to i64
   %2205 = load ptr, ptr %703, align 8, !alias.scope !650, !noundef !3
-  %2206 = getelementptr inbounds { i16, [3 x i16] }, ptr %2205, i64 %2204
+  %2206 = getelementptr inbounds [8 x i8], ptr %2205, i64 %2204
   br label %"_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$20execute_branch_binop17h067b83c436b6ffd1E.exit1884.i"
 
 "_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$20execute_branch_binop17h067b83c436b6ffd1E.exit1884.i": ; preds = %2201, %2198
@@ -6631,7 +6631,7 @@ _ZN5wasmi6engine8executor6instrs8Executor20execute_consume_fuel17ha9ac0992172dbc
   %2224 = call noundef i32 @_ZN8wasmi_ir9primitive12BranchOffset6to_i3217hcf8f9306f5399635E(i32 noundef %2223), !noalias !656
   %2225 = sext i32 %2224 to i64
   %2226 = load ptr, ptr %703, align 8, !alias.scope !656, !noundef !3
-  %2227 = getelementptr inbounds { i16, [3 x i16] }, ptr %2226, i64 %2225
+  %2227 = getelementptr inbounds [8 x i8], ptr %2226, i64 %2225
   br label %"_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$20execute_branch_binop17h067b83c436b6ffd1E.exit1883.i"
 
 "_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$20execute_branch_binop17h067b83c436b6ffd1E.exit1883.i": ; preds = %2222, %2219
@@ -6664,7 +6664,7 @@ _ZN5wasmi6engine8executor6instrs8Executor20execute_consume_fuel17ha9ac0992172dbc
   %2245 = call noundef i32 @_ZN8wasmi_ir9primitive12BranchOffset6to_i3217hcf8f9306f5399635E(i32 noundef %2244), !noalias !662
   %2246 = sext i32 %2245 to i64
   %2247 = load ptr, ptr %703, align 8, !alias.scope !662, !noundef !3
-  %2248 = getelementptr inbounds { i16, [3 x i16] }, ptr %2247, i64 %2246
+  %2248 = getelementptr inbounds [8 x i8], ptr %2247, i64 %2246
   br label %"_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$20execute_branch_binop17h067b83c436b6ffd1E.exit1882.i"
 
 "_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$20execute_branch_binop17h067b83c436b6ffd1E.exit1882.i": ; preds = %2243, %2240
@@ -6697,7 +6697,7 @@ _ZN5wasmi6engine8executor6instrs8Executor20execute_consume_fuel17ha9ac0992172dbc
   %2266 = call noundef i32 @_ZN8wasmi_ir9primitive12BranchOffset6to_i3217hcf8f9306f5399635E(i32 noundef %2265), !noalias !668
   %2267 = sext i32 %2266 to i64
   %2268 = load ptr, ptr %703, align 8, !alias.scope !668, !noundef !3
-  %2269 = getelementptr inbounds { i16, [3 x i16] }, ptr %2268, i64 %2267
+  %2269 = getelementptr inbounds [8 x i8], ptr %2268, i64 %2267
   br label %"_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$20execute_branch_binop17h067b83c436b6ffd1E.exit.i"
 
 "_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$20execute_branch_binop17h067b83c436b6ffd1E.exit.i": ; preds = %2264, %2261
@@ -6730,7 +6730,7 @@ _ZN5wasmi6engine8executor6instrs8Executor20execute_consume_fuel17ha9ac0992172dbc
   %2287 = call noundef i32 @_ZN8wasmi_ir9primitive12BranchOffset6to_i3217hcf8f9306f5399635E(i32 noundef %2286), !noalias !674
   %2288 = sext i32 %2287 to i64
   %2289 = load ptr, ptr %703, align 8, !alias.scope !674, !noundef !3
-  %2290 = getelementptr inbounds { i16, [3 x i16] }, ptr %2289, i64 %2288
+  %2290 = getelementptr inbounds [8 x i8], ptr %2289, i64 %2288
   br label %"_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$20execute_branch_binop17hb08c95026e202f3aE.exit1910.i"
 
 "_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$20execute_branch_binop17hb08c95026e202f3aE.exit1910.i": ; preds = %2285, %2282
@@ -6763,7 +6763,7 @@ _ZN5wasmi6engine8executor6instrs8Executor20execute_consume_fuel17ha9ac0992172dbc
   %2308 = call noundef i32 @_ZN8wasmi_ir9primitive12BranchOffset6to_i3217hcf8f9306f5399635E(i32 noundef %2307), !noalias !680
   %2309 = sext i32 %2308 to i64
   %2310 = load ptr, ptr %703, align 8, !alias.scope !680, !noundef !3
-  %2311 = getelementptr inbounds { i16, [3 x i16] }, ptr %2310, i64 %2309
+  %2311 = getelementptr inbounds [8 x i8], ptr %2310, i64 %2309
   br label %"_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$20execute_branch_binop17hb08c95026e202f3aE.exit1909.i"
 
 "_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$20execute_branch_binop17hb08c95026e202f3aE.exit1909.i": ; preds = %2306, %2303
@@ -6796,7 +6796,7 @@ _ZN5wasmi6engine8executor6instrs8Executor20execute_consume_fuel17ha9ac0992172dbc
   %2329 = call noundef i32 @_ZN8wasmi_ir9primitive12BranchOffset6to_i3217hcf8f9306f5399635E(i32 noundef %2328), !noalias !686
   %2330 = sext i32 %2329 to i64
   %2331 = load ptr, ptr %703, align 8, !alias.scope !686, !noundef !3
-  %2332 = getelementptr inbounds { i16, [3 x i16] }, ptr %2331, i64 %2330
+  %2332 = getelementptr inbounds [8 x i8], ptr %2331, i64 %2330
   br label %"_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$20execute_branch_binop17hb08c95026e202f3aE.exit1908.i"
 
 "_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$20execute_branch_binop17hb08c95026e202f3aE.exit1908.i": ; preds = %2327, %2324
@@ -6829,7 +6829,7 @@ _ZN5wasmi6engine8executor6instrs8Executor20execute_consume_fuel17ha9ac0992172dbc
   %2350 = call noundef i32 @_ZN8wasmi_ir9primitive12BranchOffset6to_i3217hcf8f9306f5399635E(i32 noundef %2349), !noalias !692
   %2351 = sext i32 %2350 to i64
   %2352 = load ptr, ptr %703, align 8, !alias.scope !692, !noundef !3
-  %2353 = getelementptr inbounds { i16, [3 x i16] }, ptr %2352, i64 %2351
+  %2353 = getelementptr inbounds [8 x i8], ptr %2352, i64 %2351
   br label %"_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$20execute_branch_binop17hb08c95026e202f3aE.exit1907.i"
 
 "_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$20execute_branch_binop17hb08c95026e202f3aE.exit1907.i": ; preds = %2348, %2345
@@ -6862,7 +6862,7 @@ _ZN5wasmi6engine8executor6instrs8Executor20execute_consume_fuel17ha9ac0992172dbc
   %2371 = call noundef i32 @_ZN8wasmi_ir9primitive12BranchOffset6to_i3217hcf8f9306f5399635E(i32 noundef %2370), !noalias !698
   %2372 = sext i32 %2371 to i64
   %2373 = load ptr, ptr %703, align 8, !alias.scope !698, !noundef !3
-  %2374 = getelementptr inbounds { i16, [3 x i16] }, ptr %2373, i64 %2372
+  %2374 = getelementptr inbounds [8 x i8], ptr %2373, i64 %2372
   br label %"_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$20execute_branch_binop17hb08c95026e202f3aE.exit1906.i"
 
 "_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$20execute_branch_binop17hb08c95026e202f3aE.exit1906.i": ; preds = %2369, %2366
@@ -6895,7 +6895,7 @@ _ZN5wasmi6engine8executor6instrs8Executor20execute_consume_fuel17ha9ac0992172dbc
   %2392 = call noundef i32 @_ZN8wasmi_ir9primitive12BranchOffset6to_i3217hcf8f9306f5399635E(i32 noundef %2391), !noalias !704
   %2393 = sext i32 %2392 to i64
   %2394 = load ptr, ptr %703, align 8, !alias.scope !704, !noundef !3
-  %2395 = getelementptr inbounds { i16, [3 x i16] }, ptr %2394, i64 %2393
+  %2395 = getelementptr inbounds [8 x i8], ptr %2394, i64 %2393
   br label %"_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$20execute_branch_binop17hb08c95026e202f3aE.exit.i"
 
 "_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$20execute_branch_binop17hb08c95026e202f3aE.exit.i": ; preds = %2390, %2387
@@ -6914,7 +6914,7 @@ _ZN5wasmi6engine8executor6instrs8Executor20execute_consume_fuel17ha9ac0992172dbc
   %.sroa.0.0.sroa.speculated.i.i.i = call noundef i32 @llvm.umin.i32(i32 %2403, i32 %2402)
   %2404 = zext i32 %.sroa.0.0.sroa.speculated.i.i.i to i64
   %2405 = load ptr, ptr %703, align 8, !alias.scope !707, !noundef !3
-  %2406 = getelementptr inbounds nuw { i16, [3 x i16] }, ptr %2405, i64 %2404
+  %2406 = getelementptr inbounds nuw [8 x i8], ptr %2405, i64 %2404
   %2407 = getelementptr inbounds nuw i8, ptr %2406, i64 8
   store ptr %2407, ptr %703, align 8, !alias.scope !707
   br label %.backedge.backedge
@@ -6973,7 +6973,7 @@ _ZN5wasmi6engine8executor6instrs8Executor20execute_consume_fuel17ha9ac0992172dbc
 2440:                                             ; preds = %2436, %2431, %2426, %2421
   %.pn.i46 = phi { i64, i64 } [ %2425, %2421 ], [ %2430, %2426 ], [ %2435, %2431 ], [ %2439, %2436 ]
   %2441 = load ptr, ptr %703, align 8, !alias.scope !710, !noundef !3
-  %2442 = getelementptr inbounds nuw { i16, [3 x i16] }, ptr %2441, i64 %2416
+  %2442 = getelementptr inbounds nuw [8 x i8], ptr %2441, i64 %2416
   %2443 = getelementptr inbounds nuw i8, ptr %2442, i64 8
   store ptr %2443, ptr %703, align 8, !alias.scope !710
   %2444 = load i16, ptr %2443, align 4, !range !31, !noundef !3
@@ -6994,7 +6994,7 @@ _ZN5wasmi6engine8executor6instrs8Executor20execute_consume_fuel17ha9ac0992172dbc
   %2452 = call noundef i32 @_ZN8wasmi_ir9primitive12BranchOffset6to_i3217hcf8f9306f5399635E(i32 noundef %2450), !noalias !720
   %2453 = sext i32 %2452 to i64
   %2454 = load ptr, ptr %703, align 8, !alias.scope !721, !noundef !3
-  %2455 = getelementptr inbounds { i16, [3 x i16] }, ptr %2454, i64 %2453
+  %2455 = getelementptr inbounds [8 x i8], ptr %2454, i64 %2453
   store ptr %2455, ptr %703, align 8, !alias.scope !721
   br label %.backedge.backedge
 
@@ -7016,7 +7016,7 @@ _ZN5wasmi6engine8executor6instrs8Executor20execute_consume_fuel17ha9ac0992172dbc
   %2467 = getelementptr inbounds nuw i8, ptr %2465, i64 10
   %.sroa.0.0.copyload.i = load i32, ptr %2467, align 2
   store i32 %.sroa.0.0.copyload.i, ptr %615, align 4, !noalias !722
-  %2468 = getelementptr inbounds nuw { i16, [3 x i16] }, ptr %2466, i64 %2464
+  %2468 = getelementptr inbounds nuw [8 x i8], ptr %2466, i64 %2464
   %2469 = getelementptr inbounds nuw i8, ptr %2468, i64 8
   store ptr %2469, ptr %703, align 8, !alias.scope !722
   %2470 = load i16, ptr %2469, align 4, !range !31, !noundef !3
@@ -7071,7 +7071,7 @@ _ZN5wasmi6engine8executor6instrs8Executor20execute_consume_fuel17ha9ac0992172dbc
   store i64 %2491, ptr %613, align 8, !alias.scope !725, !noalias !732
   %2492 = icmp ult i64 %2487, 2
   call void @llvm.assume(i1 %2492)
-  %2493 = getelementptr inbounds nuw { [2 x i64] }, ptr %.sroa.3.0..sroa_idx.i49, i64 %2487
+  %2493 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.3.0..sroa_idx.i49, i64 %2487
   %2494 = load i64, ptr %2493, align 8, !alias.scope !725, !noalias !732, !noundef !3
   %2495 = getelementptr inbounds nuw i8, ptr %2493, i64 8
   %2496 = load i64, ptr %2495, align 8, !alias.scope !725, !noalias !732, !noundef !3
@@ -7086,7 +7086,7 @@ _ZN5wasmi6engine8executor6instrs8Executor20execute_consume_fuel17ha9ac0992172dbc
   %2498 = call noundef i32 @_ZN8wasmi_ir9primitive12BranchOffset6to_i3217hcf8f9306f5399635E(i32 noundef %2476), !noalias !742
   %2499 = sext i32 %2498 to i64
   %2500 = load ptr, ptr %703, align 8, !alias.scope !743, !noundef !3
-  %2501 = getelementptr inbounds { i16, [3 x i16] }, ptr %2500, i64 %2499
+  %2501 = getelementptr inbounds [8 x i8], ptr %2500, i64 %2499
   store ptr %2501, ptr %703, align 8, !alias.scope !743
   br label %"_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$22execute_branch_table_217hda7c6f483cd91400E.exit"
 
@@ -7121,7 +7121,7 @@ common.resume:                                    ; preds = %11320, %3147, %3050
   call void @llvm.lifetime.start.p0(ptr nonnull %612), !noalias !744
   %2515 = getelementptr inbounds nuw i8, ptr %2513, i64 10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %612, ptr noundef nonnull align 2 dereferenceable(6) %2515, i64 6, i1 false)
-  %2516 = getelementptr inbounds nuw { i16, [3 x i16] }, ptr %2514, i64 %2512
+  %2516 = getelementptr inbounds nuw [8 x i8], ptr %2514, i64 %2512
   %2517 = getelementptr inbounds nuw i8, ptr %2516, i64 8
   store ptr %2517, ptr %703, align 8, !alias.scope !744
   %2518 = load i16, ptr %2517, align 4, !range !31, !noundef !3
@@ -7177,7 +7177,7 @@ common.resume:                                    ; preds = %11320, %3147, %3050
   store i64 %2539, ptr %610, align 8, !alias.scope !747, !noalias !754
   %2540 = icmp ult i64 %2535, 3
   call void @llvm.assume(i1 %2540)
-  %2541 = getelementptr inbounds nuw { [2 x i64] }, ptr %.sroa.3.0..sroa_idx.i54, i64 %2535
+  %2541 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.3.0..sroa_idx.i54, i64 %2535
   %2542 = load i64, ptr %2541, align 8, !alias.scope !747, !noalias !754, !noundef !3
   %2543 = getelementptr inbounds nuw i8, ptr %2541, i64 8
   %2544 = load i64, ptr %2543, align 8, !alias.scope !747, !noalias !754, !noundef !3
@@ -7192,7 +7192,7 @@ common.resume:                                    ; preds = %11320, %3147, %3050
   %2546 = call noundef i32 @_ZN8wasmi_ir9primitive12BranchOffset6to_i3217hcf8f9306f5399635E(i32 noundef %2524), !noalias !764
   %2547 = sext i32 %2546 to i64
   %2548 = load ptr, ptr %703, align 8, !alias.scope !765, !noundef !3
-  %2549 = getelementptr inbounds { i16, [3 x i16] }, ptr %2548, i64 %2547
+  %2549 = getelementptr inbounds [8 x i8], ptr %2548, i64 %2547
   store ptr %2549, ptr %703, align 8, !alias.scope !765
   br label %"_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$22execute_branch_table_317h7535ab7256c2965aE.exit"
 
@@ -7230,7 +7230,7 @@ common.resume:                                    ; preds = %11320, %3147, %3050
   %2567 = call noundef i16 @_ZN8wasmi_ir4span14BoundedRegSpan3len17h5f174b2d9a3f9c7aE(ptr noalias noundef nonnull readonly align 2 dereferenceable(4) %609)
   %2568 = call noundef i16 @_ZN8wasmi_ir4span14BoundedRegSpan4span17ha719ebf1b112de65E(ptr noalias noundef nonnull readonly align 2 dereferenceable(4) %609)
   %2569 = load ptr, ptr %703, align 8, !alias.scope !766, !noundef !3
-  %2570 = getelementptr inbounds nuw { i16, [3 x i16] }, ptr %2569, i64 %2560
+  %2570 = getelementptr inbounds nuw [8 x i8], ptr %2569, i64 %2560
   %2571 = getelementptr inbounds nuw i8, ptr %2570, i64 8
   store ptr %2571, ptr %703, align 8, !alias.scope !766
   %2572 = load i16, ptr %2571, align 4, !range !31, !noundef !3
@@ -7244,7 +7244,7 @@ common.resume:                                    ; preds = %11320, %3147, %3050
   %2573 = call noundef i32 @_ZN8wasmi_ir9primitive12BranchOffset6to_i3217hcf8f9306f5399635E(i32 noundef %.sink3.i), !noalias !3
   %2574 = sext i32 %2573 to i64
   %2575 = load ptr, ptr %703, align 8, !alias.scope !766, !noundef !3
-  %2576 = getelementptr inbounds { i16, [3 x i16] }, ptr %2575, i64 %2574
+  %2576 = getelementptr inbounds [8 x i8], ptr %2575, i64 %2574
   store ptr %2576, ptr %703, align 8, !alias.scope !766
   br label %"_ZN5wasmi6engine8executor6instrs6branch59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$25execute_branch_table_span17haffa2f666b7cbfb1E.exit"
 
@@ -7291,7 +7291,7 @@ common.resume:                                    ; preds = %11320, %3147, %3050
   %2601 = add i32 %2591, -1
   %.sroa.0.0.sroa.speculated.i.i.i63 = call noundef i32 @llvm.umin.i32(i32 %2601, i32 %2593)
   %2602 = zext i32 %.sroa.0.0.sroa.speculated.i.i.i63 to i64
-  %2603 = getelementptr { i16, [3 x i16] }, ptr %.sroa.0.0.i62, i64 %2602
+  %2603 = getelementptr [8 x i8], ptr %.sroa.0.0.i62, i64 %2602
   %2604 = getelementptr i8, ptr %2603, i64 8
   store ptr %2604, ptr %703, align 8, !alias.scope !769
   %2605 = load i16, ptr %2604, align 4, !range !31, !noundef !3
@@ -7319,7 +7319,7 @@ common.resume:                                    ; preds = %11320, %3147, %3050
   %2614 = call noundef i32 @_ZN8wasmi_ir9primitive12BranchOffset6to_i3217hcf8f9306f5399635E(i32 noundef %2612), !noalias !779
   %2615 = sext i32 %2614 to i64
   %2616 = load ptr, ptr %703, align 8, !alias.scope !780, !noundef !3
-  %2617 = getelementptr inbounds { i16, [3 x i16] }, ptr %2616, i64 %2615
+  %2617 = getelementptr inbounds [8 x i8], ptr %2616, i64 %2615
   store ptr %2617, ptr %703, align 8, !alias.scope !780
   br label %.backedge.backedge
 
@@ -7334,7 +7334,7 @@ common.resume:                                    ; preds = %11320, %3147, %3050
   %2624 = call noundef i32 @_ZN8wasmi_ir9primitive12BranchOffset6to_i3217hcf8f9306f5399635E(i32 noundef %2622), !noalias !787
   %2625 = sext i32 %2624 to i64
   %2626 = load ptr, ptr %703, align 8, !alias.scope !788, !noundef !3
-  %2627 = getelementptr inbounds { i16, [3 x i16] }, ptr %2626, i64 %2625
+  %2627 = getelementptr inbounds [8 x i8], ptr %2626, i64 %2625
   store ptr %2627, ptr %703, align 8, !alias.scope !788
   br label %.backedge.backedge
 
@@ -7470,7 +7470,7 @@ common.resume:                                    ; preds = %11320, %3147, %3050
 "_ZN5wasmi6engine8executor6instrs4call59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$14caller_results17h9d011f0454728369E.exit2015.i": ; preds = %2694
   %2702 = getelementptr inbounds nuw i8, ptr %2698, i64 8
   %2703 = load ptr, ptr %2702, align 8, !noalias !807, !nonnull !3, !noundef !3
-  %2704 = getelementptr { ptr, { i64, i64 }, i16, i8, [5 x i8] }, ptr %2703, i64 %2700
+  %2704 = getelementptr [32 x i8], ptr %2703, i64 %2700
   %2705 = getelementptr i8, ptr %2704, i64 -32
   %2706 = call noundef i16 @_ZN5wasmi6engine8executor5stack5calls9CallFrame7results17hf356e327511d10fbE(ptr noalias noundef readonly align 8 dereferenceable(32) %2705), !noalias !807
   call void @llvm.experimental.noalias.scope.decl(metadata !811)
@@ -7519,7 +7519,7 @@ common.resume:                                    ; preds = %11320, %3147, %3050
 2725:                                             ; preds = %"_ZN4spin5mutex4spin22SpinMutex$LT$T$C$R$GT$4lock17h520a01551351292bE.exit.i"
   %2726 = icmp ult i64 %2722, %2721
   call void @llvm.assume(i1 %2726), !noalias !819
-  %2727 = getelementptr inbounds nuw { i8, [55 x i8] }, ptr %2719, i64 %2722
+  %2727 = getelementptr inbounds nuw [56 x i8], ptr %2719, i64 %2722
   %2728 = load i8, ptr %2727, align 8, !range !8, !noalias !820, !noundef !3
   %2729 = add nsw i8 %2728, -2
   %2730 = icmp ne i8 %2729, 1
@@ -7591,7 +7591,7 @@ common.resume:                                    ; preds = %11320, %3147, %3050
 2754:                                             ; preds = %2749
   %2755 = getelementptr inbounds nuw i8, ptr %2750, i64 8
   %2756 = load ptr, ptr %2755, align 8, !noalias !830, !nonnull !3, !noundef !3
-  %2757 = getelementptr { ptr, { i64, i64 }, i16, i8, [5 x i8] }, ptr %2756, i64 %2752
+  %2757 = getelementptr [32 x i8], ptr %2756, i64 %2752
   %2758 = getelementptr i8, ptr %2757, i64 -32
   call void @llvm.lifetime.start.p0(ptr nonnull %639), !noalias !831
   %2759 = getelementptr inbounds nuw i8, ptr %2750, i64 72
@@ -7715,7 +7715,7 @@ common.resume:                                    ; preds = %11320, %3147, %3050
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h2992ac0476da662dE.exit": ; preds = %2796, %2801
   %2802 = getelementptr inbounds nuw i8, ptr %2775, i64 32
   %2803 = load ptr, ptr %2802, align 8, !alias.scope !866, !nonnull !3, !noundef !3
-  %2804 = getelementptr inbounds nuw { { i32, i32 } }, ptr %2803, i64 %2798
+  %2804 = getelementptr inbounds nuw [8 x i8], ptr %2803, i64 %2798
   store i32 %2790, ptr %2804, align 4
   %2805 = getelementptr inbounds nuw i8, ptr %2804, i64 4
   store i32 %2793, ptr %2805, align 4
@@ -7757,7 +7757,7 @@ _ZN5wasmi6engine8executor5stack5calls9CallStack13push_instance17h0482638a5cf2edb
 "_ZN5wasmi6engine8executor6instrs4call59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$26prepare_compiled_func_call17h89aa82d6e401bf83E.exit.i.thread1066": ; preds = %2808, %2812
   %2815 = getelementptr inbounds nuw i8, ptr %2775, i64 8
   %2816 = load ptr, ptr %2815, align 8, !alias.scope !869, !noalias !872, !nonnull !3, !noundef !3
-  %2817 = getelementptr inbounds nuw { ptr, { i64, i64 }, i16, i8, [5 x i8] }, ptr %2816, i64 %2809
+  %2817 = getelementptr inbounds nuw [32 x i8], ptr %2816, i64 %2809
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(26) %2817, ptr noundef nonnull align 8 dereferenceable(26) %.sroa.0466, i64 26, i1 false)
   %.sroa.4467.0..sroa_idx468 = getelementptr inbounds nuw i8, ptr %2817, i64 26
   store i8 %.sroa.4467.0, ptr %.sroa.4467.0..sroa_idx468, align 2
@@ -7797,7 +7797,7 @@ _ZN5wasmi6engine8executor5stack5calls9CallStack13push_instance17h0482638a5cf2edb
 "_ZN5wasmi6engine8executor6instrs4call59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$14caller_results17h9d011f0454728369E.exit.i": ; preds = %2819
   %2827 = getelementptr inbounds nuw i8, ptr %2823, i64 8
   %2828 = load ptr, ptr %2827, align 8, !noalias !875, !nonnull !3, !noundef !3
-  %2829 = getelementptr { ptr, { i64, i64 }, i16, i8, [5 x i8] }, ptr %2828, i64 %2825
+  %2829 = getelementptr [32 x i8], ptr %2828, i64 %2825
   %2830 = getelementptr i8, ptr %2829, i64 -32
   %2831 = call noundef i16 @_ZN5wasmi6engine8executor5stack5calls9CallFrame7results17hf356e327511d10fbE(ptr noalias noundef readonly align 8 dereferenceable(32) %2830), !noalias !875
   call void @llvm.experimental.noalias.scope.decl(metadata !879)
@@ -7846,7 +7846,7 @@ _ZN5wasmi6engine8executor5stack5calls9CallStack13push_instance17h0482638a5cf2edb
 2850:                                             ; preds = %"_ZN4spin5mutex4spin22SpinMutex$LT$T$C$R$GT$4lock17h520a01551351292bE.exit.i72"
   %2851 = icmp ult i64 %2847, %2846
   call void @llvm.assume(i1 %2851), !noalias !887
-  %2852 = getelementptr inbounds nuw { i8, [55 x i8] }, ptr %2844, i64 %2847
+  %2852 = getelementptr inbounds nuw [56 x i8], ptr %2844, i64 %2847
   %2853 = load i8, ptr %2852, align 8, !range !8, !noalias !888, !noundef !3
   %2854 = add nsw i8 %2853, -2
   %2855 = icmp ne i8 %2854, 1
@@ -7918,7 +7918,7 @@ _ZN5wasmi6engine8executor5stack5calls9CallStack13push_instance17h0482638a5cf2edb
 2879:                                             ; preds = %2874
   %2880 = getelementptr inbounds nuw i8, ptr %2875, i64 8
   %2881 = load ptr, ptr %2880, align 8, !noalias !898, !nonnull !3, !noundef !3
-  %2882 = getelementptr { ptr, { i64, i64 }, i16, i8, [5 x i8] }, ptr %2881, i64 %2877
+  %2882 = getelementptr [32 x i8], ptr %2881, i64 %2877
   %2883 = getelementptr i8, ptr %2882, i64 -32
   call void @llvm.lifetime.start.p0(ptr nonnull %632), !noalias !899
   %2884 = getelementptr inbounds nuw i8, ptr %2875, i64 72
@@ -8088,7 +8088,7 @@ _ZN5wasmi6engine8executor5stack5calls9CallStack13push_instance17h0482638a5cf2edb
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h2992ac0476da662dE.exit81": ; preds = %2937, %2942
   %2943 = getelementptr inbounds nuw i8, ptr %2916, i64 32
   %2944 = load ptr, ptr %2943, align 8, !alias.scope !939, !nonnull !3, !noundef !3
-  %2945 = getelementptr inbounds nuw { { i32, i32 } }, ptr %2944, i64 %2939
+  %2945 = getelementptr inbounds nuw [8 x i8], ptr %2944, i64 %2939
   store i32 %2931, ptr %2945, align 4
   %2946 = getelementptr inbounds nuw i8, ptr %2945, i64 4
   store i32 %2934, ptr %2946, align 4
@@ -8130,7 +8130,7 @@ _ZN5wasmi6engine8executor5stack5calls9CallStack13push_instance17h0482638a5cf2edb
 "_ZN5wasmi6engine8executor6instrs4call59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$26prepare_compiled_func_call17hc7f4d28f4a040606E.exit.i.thread1079": ; preds = %2949, %2953
   %2956 = getelementptr inbounds nuw i8, ptr %2916, i64 8
   %2957 = load ptr, ptr %2956, align 8, !alias.scope !942, !noalias !945, !nonnull !3, !noundef !3
-  %2958 = getelementptr inbounds nuw { ptr, { i64, i64 }, i16, i8, [5 x i8] }, ptr %2957, i64 %2950
+  %2958 = getelementptr inbounds nuw [32 x i8], ptr %2957, i64 %2950
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(26) %2958, ptr noundef nonnull align 8 dereferenceable(26) %.sroa.0494, i64 26, i1 false)
   %.sroa.4495.0..sroa_idx496 = getelementptr inbounds nuw i8, ptr %2958, i64 26
   store i8 %.sroa.4495.0, ptr %.sroa.4495.0..sroa_idx496, align 2
@@ -8314,7 +8314,7 @@ _ZN5wasmi6engine8executor5stack5calls9CallStack13push_instance17h0482638a5cf2edb
 3052:                                             ; preds = %"_ZN4spin5mutex4spin22SpinMutex$LT$T$C$R$GT$4lock17h520a01551351292bE.exit.i86"
   %3053 = icmp ult i64 %3049, %3048
   call void @llvm.assume(i1 %3053), !noalias !1001
-  %3054 = getelementptr inbounds nuw { i8, [55 x i8] }, ptr %3046, i64 %3049
+  %3054 = getelementptr inbounds nuw [56 x i8], ptr %3046, i64 %3049
   %3055 = load i8, ptr %3054, align 8, !range !8, !noalias !1002, !noundef !3
   %3056 = add nsw i8 %3055, -2
   %3057 = icmp ne i8 %3056, 1
@@ -8386,7 +8386,7 @@ _ZN5wasmi6engine8executor5stack5calls9CallStack13push_instance17h0482638a5cf2edb
 3081:                                             ; preds = %3076
   %3082 = getelementptr inbounds nuw i8, ptr %3077, i64 8
   %3083 = load ptr, ptr %3082, align 8, !noalias !1012, !nonnull !3, !noundef !3
-  %3084 = getelementptr { ptr, { i64, i64 }, i16, i8, [5 x i8] }, ptr %3083, i64 %3079
+  %3084 = getelementptr [32 x i8], ptr %3083, i64 %3079
   %3085 = getelementptr i8, ptr %3084, i64 -32
   call void @llvm.lifetime.start.p0(ptr nonnull %651), !noalias !1013
   %3086 = getelementptr inbounds nuw i8, ptr %3077, i64 72
@@ -8455,7 +8455,7 @@ _ZN5wasmi6engine8executor5stack5calls9CallStack13push_instance17h0482638a5cf2edb
 "_ZN5wasmi6engine8executor6instrs4call59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$19update_instr_ptr_at17h190a37e29108c42aE.exit.i.i": ; preds = %3092
   %3099 = getelementptr inbounds nuw i8, ptr %3095, i64 8
   %3100 = load ptr, ptr %3099, align 8, !noalias !1021, !nonnull !3, !noundef !3
-  %3101 = getelementptr { ptr, { i64, i64 }, i16, i8, [5 x i8] }, ptr %3100, i64 %3097
+  %3101 = getelementptr [32 x i8], ptr %3100, i64 %3097
   %3102 = getelementptr i8, ptr %3101, i64 -32
   call void @_ZN5wasmi6engine8executor5stack5calls9CallFrame16update_instr_ptr17h83ecd187f88a9944E(ptr noalias noundef align 8 dereferenceable(32) %3102, ptr noundef nonnull %3094), !noalias !1021
   call void @llvm.experimental.noalias.scope.decl(metadata !1022)
@@ -8509,7 +8509,7 @@ _ZN5wasmi6engine8executor5stack5calls9CallStack13push_instance17h0482638a5cf2edb
 "_ZN5wasmi6engine8executor6instrs4call59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$26prepare_compiled_func_call17h2e0d3a5195697109E.exit.i.thread1092": ; preds = %3115, %3118
   %3121 = getelementptr inbounds nuw i8, ptr %3108, i64 8
   %3122 = load ptr, ptr %3121, align 8, !alias.scope !1049, !noalias !1052, !nonnull !3, !noundef !3
-  %3123 = getelementptr inbounds nuw { ptr, { i64, i64 }, i16, i8, [5 x i8] }, ptr %3122, i64 %3110
+  %3123 = getelementptr inbounds nuw [32 x i8], ptr %3122, i64 %3110
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(26) %3123, ptr noundef nonnull align 8 dereferenceable(26) %.sroa.0414, i64 26, i1 false)
   %.sroa.4415.0..sroa_idx416 = getelementptr inbounds nuw i8, ptr %3123, i64 26
   store i8 %.sroa.4415.0.copyload, ptr %.sroa.4415.0..sroa_idx416, align 2
@@ -8583,7 +8583,7 @@ _ZN5wasmi6engine8executor5stack5calls9CallStack13push_instance17h0482638a5cf2edb
 3149:                                             ; preds = %"_ZN4spin5mutex4spin22SpinMutex$LT$T$C$R$GT$4lock17h520a01551351292bE.exit.i97"
   %3150 = icmp ult i64 %3146, %3145
   call void @llvm.assume(i1 %3150), !noalias !1063
-  %3151 = getelementptr inbounds nuw { i8, [55 x i8] }, ptr %3143, i64 %3146
+  %3151 = getelementptr inbounds nuw [56 x i8], ptr %3143, i64 %3146
   %3152 = load i8, ptr %3151, align 8, !range !8, !noalias !1064, !noundef !3
   %3153 = add nsw i8 %3152, -2
   %3154 = icmp ne i8 %3153, 1
@@ -8655,7 +8655,7 @@ _ZN5wasmi6engine8executor5stack5calls9CallStack13push_instance17h0482638a5cf2edb
 3178:                                             ; preds = %3173
   %3179 = getelementptr inbounds nuw i8, ptr %3174, i64 8
   %3180 = load ptr, ptr %3179, align 8, !noalias !1074, !nonnull !3, !noundef !3
-  %3181 = getelementptr { ptr, { i64, i64 }, i16, i8, [5 x i8] }, ptr %3180, i64 %3176
+  %3181 = getelementptr [32 x i8], ptr %3180, i64 %3176
   %3182 = getelementptr i8, ptr %3181, i64 -32
   call void @llvm.lifetime.start.p0(ptr nonnull %645), !noalias !1075
   %3183 = getelementptr inbounds nuw i8, ptr %3174, i64 72
@@ -8770,7 +8770,7 @@ _ZN5wasmi6engine8executor5stack5calls9CallStack13push_instance17h0482638a5cf2edb
 "_ZN5wasmi6engine8executor6instrs4call59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$19update_instr_ptr_at17h190a37e29108c42aE.exit.i1943.i": ; preds = %3205
   %3212 = getelementptr inbounds nuw i8, ptr %3208, i64 8
   %3213 = load ptr, ptr %3212, align 8, !noalias !1089, !nonnull !3, !noundef !3
-  %3214 = getelementptr { ptr, { i64, i64 }, i16, i8, [5 x i8] }, ptr %3213, i64 %3210
+  %3214 = getelementptr [32 x i8], ptr %3213, i64 %3210
   %3215 = getelementptr i8, ptr %3214, i64 -32
   call void @_ZN5wasmi6engine8executor5stack5calls9CallFrame16update_instr_ptr17h83ecd187f88a9944E(ptr noalias noundef align 8 dereferenceable(32) %3215, ptr noundef nonnull %3207), !noalias !1089
   call void @llvm.experimental.noalias.scope.decl(metadata !1090)
@@ -8824,7 +8824,7 @@ _ZN5wasmi6engine8executor5stack5calls9CallStack13push_instance17h0482638a5cf2edb
 "_ZN5wasmi6engine8executor6instrs4call59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$26prepare_compiled_func_call17h3e0d025e8edc3349E.exit.i.thread1101": ; preds = %3228, %3231
   %3234 = getelementptr inbounds nuw i8, ptr %3221, i64 8
   %3235 = load ptr, ptr %3234, align 8, !alias.scope !1117, !noalias !1120, !nonnull !3, !noundef !3
-  %3236 = getelementptr inbounds nuw { ptr, { i64, i64 }, i16, i8, [5 x i8] }, ptr %3235, i64 %3223
+  %3236 = getelementptr inbounds nuw [32 x i8], ptr %3235, i64 %3223
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(26) %3236, ptr noundef nonnull align 8 dereferenceable(26) %.sroa.0439, i64 26, i1 false)
   %.sroa.4440.0..sroa_idx441 = getelementptr inbounds nuw i8, ptr %3236, i64 26
   store i8 %.sroa.4440.0.copyload, ptr %.sroa.4440.0..sroa_idx441, align 2
@@ -22315,7 +22315,7 @@ _ZN5wasmi6engine8executor6instrs8Executor7execute17h1ceed467fcf0d55bE.exit.threa
 11329:                                            ; preds = %11323
   %11330 = getelementptr inbounds nuw i8, ptr %11324, i64 8
   %11331 = load ptr, ptr %11330, align 8, !nonnull !3, !noundef !3
-  %11332 = getelementptr { ptr, { i64, i64 }, i16, i8, [5 x i8] }, ptr %11331, i64 %11326
+  %11332 = getelementptr [32 x i8], ptr %11331, i64 %11326
   %11333 = getelementptr i8, ptr %11332, i64 -32
   %11334 = load ptr, ptr %703, align 8, !noundef !3
   invoke void @_ZN5wasmi6engine8executor5stack5calls9CallFrame16update_instr_ptr17h83ecd187f88a9944E(ptr noalias noundef nonnull align 8 dereferenceable(32) %11333, ptr noundef %11334)
@@ -22461,7 +22461,7 @@ define internal fastcc void @_ZN5wasmi6engine8executor5stack5Stack17merge_call_f
   %14 = load ptr, ptr %13, align 8, !alias.scope !4431, !noalias !4434, !nonnull !3, !noundef !3
   %15 = icmp ult i64 %7, 288230376151711745
   tail call void @llvm.assume(i1 %15)
-  %16 = getelementptr inbounds nuw { ptr, { i64, i64 }, i16, i8, [5 x i8] }, ptr %14, i64 %10
+  %16 = getelementptr inbounds nuw [32 x i8], ptr %14, i64 %10
   %.sroa.415.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %16, i64 26
   %.sroa.415.0.copyload.i = load i8, ptr %.sroa.415.0..sroa_idx.i, align 2, !noalias !4436
   %17 = trunc nuw i8 %.sroa.415.0.copyload.i to i1
@@ -22486,7 +22486,7 @@ define internal fastcc void @_ZN5wasmi6engine8executor5stack5Stack17merge_call_f
   %28 = load ptr, ptr %27, align 8, !alias.scope !4440, !noalias !4442, !nonnull !3, !noundef !3
   %29 = icmp ult i64 %20, 1152921504606846977
   tail call void @llvm.assume(i1 %29), !noalias !4434
-  %30 = getelementptr inbounds nuw { { i32, i32 } }, ptr %28, i64 %24
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %24
   %31 = load i32, ptr %30, align 4, !noalias !4443, !noundef !3
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %33 = load i32, ptr %32, align 4, !noalias !4443, !noundef !3

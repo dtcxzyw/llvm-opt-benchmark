@@ -13,7 +13,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.DrawParallelogramFuncs = type { ptr, ptr }
 %struct._NativePrimitive = type { ptr, ptr, ptr, ptr, %union.anon, %union.anon, i32, i32 }
 %union.anon = type { ptr }
-%struct.ImageRef = type { ptr, ptr, i32, i32, i32, i32, i32, i32 }
 
 @PrimitiveTypes = external global %struct._PrimitiveTypes, align 8
 @SurfaceTypes = external global %struct._SurfaceTypes, align 8
@@ -535,7 +534,7 @@ define hidden void @AnyByteDrawGlyphList(ptr noundef readonly captures(none) %0,
 
 18:                                               ; preds = %.lr.ph, %.loopexit
   %indvars.iv90 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next91, %.loopexit ]
-  %19 = getelementptr inbounds nuw %struct.ImageRef, ptr %1, i64 %indvars.iv90
+  %19 = getelementptr inbounds nuw [40 x i8], ptr %1, i64 %indvars.iv90
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load ptr, ptr %20, align 8
   %.not = icmp eq ptr %21, null
@@ -652,7 +651,7 @@ define hidden void @AnyByteDrawGlyphListXor(ptr noundef readonly captures(none) 
 
 25:                                               ; preds = %.lr.ph, %.loopexit
   %indvars.iv94 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next95, %.loopexit ]
-  %26 = getelementptr inbounds nuw %struct.ImageRef, ptr %1, i64 %indvars.iv94
+  %26 = getelementptr inbounds nuw [40 x i8], ptr %1, i64 %indvars.iv94
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load ptr, ptr %27, align 8
   %.not = icmp eq ptr %28, null

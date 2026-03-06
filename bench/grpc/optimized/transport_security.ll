@@ -50,7 +50,7 @@ define noundef nonnull ptr @_Z20tsi_result_to_string10tsi_result(i32 noundef %0)
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._Z20tsi_result_to_string10tsi_result, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._Z20tsi_result_to_string10tsi_result, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -66,7 +66,7 @@ define noundef nonnull ptr @_Z28tsi_security_level_to_string18tsi_security_level
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._Z28tsi_security_level_to_string18tsi_security_level, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._Z28tsi_security_level_to_string18tsi_security_level, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -720,7 +720,7 @@ define void @_Z17tsi_peer_destructP8tsi_peer(ptr noundef captures(address_is_nul
 
 .lr.ph.i:                                         ; preds = %5, %_Z26tsi_peer_property_destructP17tsi_peer_property.exit.i
   %.05.i = phi i64 [ %15, %_Z26tsi_peer_property_destructP17tsi_peer_property.exit.i ], [ 0, %5 ]
-  %8 = getelementptr inbounds nuw %struct.tsi_peer_property, ptr %4, i64 %.05.i
+  %8 = getelementptr inbounds nuw [24 x i8], ptr %4, i64 %.05.i
   %9 = load ptr, ptr %8, align 8, !tbaa !46
   %.not.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i, label %11, label %10
@@ -886,7 +886,7 @@ define noundef ptr @_Z29tsi_peer_get_property_by_namePK8tsi_peerPKc(ptr noundef 
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %10
   %.01626.us = phi i64 [ %11, %10 ], [ 0, %.lr.ph ]
-  %7 = getelementptr inbounds nuw %struct.tsi_peer_property, ptr %6, i64 %.01626.us
+  %7 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %.01626.us
   %8 = load ptr, ptr %7, align 8, !tbaa !46
   %9 = icmp eq ptr %8, null
   br i1 %9, label %.thread23, label %10
@@ -898,7 +898,7 @@ define noundef ptr @_Z29tsi_peer_get_property_by_namePK8tsi_peerPKc(ptr noundef 
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %15
   %.01626 = phi i64 [ %16, %15 ], [ 0, %.lr.ph ]
-  %12 = getelementptr inbounds nuw %struct.tsi_peer_property, ptr %6, i64 %.01626
+  %12 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %.01626
   %.pr = load ptr, ptr %12, align 8, !tbaa !46
   %.not20 = icmp eq ptr %.pr, null
   br i1 %.not20, label %15, label %.thread

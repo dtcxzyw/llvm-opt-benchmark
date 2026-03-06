@@ -193,7 +193,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef readnone captures
 44:                                               ; preds = %44, %2
   %store_forwarded = phi i64 [ 230398247, %2 ], [ %50, %44 ]
   %.011.i.i = phi i64 [ 1, %2 ], [ %51, %44 ]
-  %45 = getelementptr i64, ptr %37, i64 %.011.i.i
+  %45 = getelementptr [8 x i8], ptr %37, i64 %.011.i.i
   %46 = lshr i64 %store_forwarded, 30
   %47 = xor i64 %46, %store_forwarded
   %48 = mul nuw nsw i64 %47, 1812433253

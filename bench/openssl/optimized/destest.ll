@@ -1098,7 +1098,7 @@ define internal range(i32 0, 2) i32 @test_des_key_wrap(i32 noundef %0) #0 {
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = sext i32 %0 to i64
-  %11 = getelementptr inbounds i32, ptr @test_des_key_wrap_sizes, i64 %10
+  %11 = getelementptr inbounds [4 x i8], ptr @test_des_key_wrap_sizes, i64 %10
   %12 = load i32, ptr %11, align 4, !tbaa !9
   %.fr = freeze i32 %12
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -1280,7 +1280,7 @@ define internal range(i32 0, 2) i32 @test_des_key_wrap(i32 noundef %0) #0 {
 ; Function Attrs: nounwind uwtable
 define internal i32 @test_des_weak_keys(i32 noundef %0) #0 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds %struct.anon, ptr @weak_keys, i64 %2
+  %3 = getelementptr inbounds [12 x i8], ptr @weak_keys, i64 %2
   %4 = tail call i32 @DES_is_weak_key(ptr noundef nonnull %3) #6
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i32, ptr %5, align 4, !tbaa !16
@@ -1291,7 +1291,7 @@ define internal i32 @test_des_weak_keys(i32 noundef %0) #0 {
 ; Function Attrs: nounwind uwtable
 define internal i32 @test_des_check_bad_parity(i32 noundef %0) #0 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds %struct.anon.0, ptr @bad_parity_keys, i64 %2
+  %3 = getelementptr inbounds [12 x i8], ptr @bad_parity_keys, i64 %2
   %4 = tail call i32 @DES_check_key_parity(ptr noundef nonnull %3) #6
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i32, ptr %5, align 4, !tbaa !16

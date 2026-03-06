@@ -194,7 +194,7 @@ _ZN12polars_arrow6bitmap7bitmask7BitMask7get_u3217hf50314037013d373E.exit.i: ; p
   %117 = load i64, ptr %116, align 8, !noundef !6
   %118 = icmp ult i64 %.lcssa.sink.i, %117
   tail call void @llvm.assume(i1 %118)
-  %119 = getelementptr inbounds nuw i32, ptr %115, i64 %.lcssa.sink.i
+  %119 = getelementptr inbounds nuw [4 x i8], ptr %115, i64 %.lcssa.sink.i
   %120 = load i32, ptr %119, align 4, !alias.scope !18, !noundef !6
   br label %"_ZN102_$LT$polars_arrow..bitmap..iterator..TrueIdxIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5f809c81a05ec1e3E.exit"
 
@@ -240,7 +240,7 @@ _ZN12polars_arrow5array5Array10null_count17h22f7217f4f66d7f5E.exit.thread: ; pre
   %15 = load ptr, ptr %14, align 8, !noundef !6
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %17 = load i64, ptr %16, align 8, !noundef !6
-  %18 = getelementptr inbounds nuw i32, ptr %15, i64 %17
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %17
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %15, ptr %3, align 8
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 8

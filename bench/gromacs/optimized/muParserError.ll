@@ -263,7 +263,7 @@ define void @_ZNK2mu14ParserErrorMsgixB5cxx11Ej(ptr dead_on_unwind noalias writa
   br i1 %13, label %14, label %31
 
 14:                                               ; preds = %3
-  %15 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %8, i64 %5
+  %15 = getelementptr inbounds nuw [32 x i8], ptr %8, i64 %5
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %16, ptr %0, align 8, !tbaa !19
   %17 = load ptr, ptr %15, align 8, !tbaa !12
@@ -663,7 +663,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit90: ; preds = %2
 
 205:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit90.preheader, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit90
   %indvars.iv = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit90.preheader ], [ %indvars.iv.next, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit90 ]
-  %206 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %201, i64 %indvars.iv
+  %206 = getelementptr inbounds nuw [32 x i8], ptr %201, i64 %indvars.iv
   %207 = getelementptr inbounds nuw i8, ptr %206, i64 8
   %208 = load i64, ptr %207, align 8, !tbaa !20
   %.not = icmp eq i64 %208, 0
@@ -845,9 +845,9 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit38: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %50
   store ptr %29, ptr %0, align 8, !tbaa !5
-  %51 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %30, i64 %1
+  %51 = getelementptr inbounds nuw [32 x i8], ptr %30, i64 %1
   store ptr %51, ptr %4, align 8, !tbaa !11
-  %52 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %29, i64 %27
+  %52 = getelementptr inbounds nuw [32 x i8], ptr %29, i64 %27
   store ptr %52, ptr %11, align 8, !tbaa !24
   br label %53
 
@@ -1007,7 +1007,7 @@ _ZN2mu14ParserErrorMsg8InstanceEv.exit:           ; preds = %24, %21, %2
   br i1 %37, label %38, label %55
 
 38:                                               ; preds = %_ZN2mu14ParserErrorMsg8InstanceEv.exit
-  %39 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %32, i64 %30
+  %39 = getelementptr inbounds nuw [32 x i8], ptr %32, i64 %30
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %40, ptr %4, align 8, !tbaa !19, !alias.scope !40
   %41 = load ptr, ptr %39, align 8, !tbaa !12
@@ -1810,7 +1810,7 @@ _ZN2mu14ParserErrorMsg8InstanceEv.exit:           ; preds = %57, %54, %45
   br i1 %70, label %71, label %88
 
 71:                                               ; preds = %_ZN2mu14ParserErrorMsg8InstanceEv.exit
-  %72 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %65, i64 %63
+  %72 = getelementptr inbounds nuw [32 x i8], ptr %65, i64 %63
   %73 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %73, ptr %9, align 8, !tbaa !19, !alias.scope !61
   %74 = load ptr, ptr %72, align 8, !tbaa !12
@@ -2324,7 +2324,7 @@ _ZN2mu14ParserErrorMsg8InstanceEv.exit:           ; preds = %41, %38, %29
   br i1 %54, label %55, label %72
 
 55:                                               ; preds = %_ZN2mu14ParserErrorMsg8InstanceEv.exit
-  %56 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %49, i64 %47
+  %56 = getelementptr inbounds nuw [32 x i8], ptr %49, i64 %47
   %57 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %57, ptr %7, align 8, !tbaa !19, !alias.scope !71
   %58 = load ptr, ptr %56, align 8, !tbaa !12

@@ -3,10 +3,6 @@ source_filename = "bench/nghttp2/original/nghttp2_buf.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.nghttp2_buf_chain = type { ptr, %struct.nghttp2_buf }
-%struct.nghttp2_buf = type { ptr, ptr, ptr, ptr, ptr }
-%struct.nghttp2_vec = type { ptr, i64 }
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @nghttp2_buf_init(ptr noundef writeonly captures(none) initializes((0, 40)) %0) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
@@ -627,10 +623,10 @@ define hidden range(i32 -901, 1) i32 @nghttp2_bufs_wrap_init2(ptr noundef writeo
   %.037 = phi ptr [ %17, %nghttp2_buf_wrap_init.exit ], [ %5, %13 ]
   %.03236 = phi i64 [ %29, %nghttp2_buf_wrap_init.exit ], [ 0, %13 ]
   %.0..0..0..0.33 = load ptr, ptr %5, align 8, !tbaa !30
-  %17 = getelementptr inbounds nuw %struct.nghttp2_buf_chain, ptr %.0..0..0..0.33, i64 %.03236
+  %17 = getelementptr inbounds nuw [48 x i8], ptr %.0..0..0..0.33, i64 %.03236
   store ptr null, ptr %17, align 8, !tbaa !27
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %19 = getelementptr inbounds nuw %struct.nghttp2_vec, ptr %1, i64 %.03236
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %.03236
   %20 = load ptr, ptr %19, align 8, !tbaa !31
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %22 = load i64, ptr %21, align 8, !tbaa !33

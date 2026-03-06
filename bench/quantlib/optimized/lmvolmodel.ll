@@ -3,9 +3,6 @@ source_filename = "bench/quantlib/original/lmvolmodel.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.QuantLib::Parameter" = type { %"class.boost::shared_ptr.18", %"class.QuantLib::Array", %"class.QuantLib::Constraint" }
-%"class.boost::shared_ptr.18" = type { ptr, %"class.boost::detail::shared_count" }
-%"class.boost::detail::shared_count" = type { ptr }
 %"class.QuantLib::Array" = type { %"class.std::unique_ptr", i64 }
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
 %"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
@@ -13,8 +10,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.10" }
 %"struct.std::_Head_base.10" = type { ptr }
-%"class.QuantLib::Constraint" = type { %"class.boost::shared_ptr.19" }
-%"class.boost::shared_ptr.19" = type { ptr, %"class.boost::detail::shared_count" }
 %"class.std::__cxx11::basic_ostringstream" = type { %"class.std::basic_ostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_ostream.base" = type { ptr }
 %"class.std::__cxx11::basic_stringbuf" = type { %"class.std::basic_streambuf", i32, %"class.std::__cxx11::basic_string" }
@@ -27,6 +22,9 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
 %"class.QuantLib::NoConstraint" = type { %"class.QuantLib::Constraint" }
+%"class.QuantLib::Constraint" = type { %"class.boost::shared_ptr.19" }
+%"class.boost::shared_ptr.19" = type { ptr, %"class.boost::detail::shared_count" }
+%"class.boost::detail::shared_count" = type { ptr }
 
 $__clang_call_terminate = comdat any
 
@@ -175,7 +173,7 @@ _ZNSt12_Vector_baseIN8QuantLib9ParameterESaIS1_EEC2EmRKS2_.exit.i: ; preds = %_Z
   store ptr %cond.i.i.i.i, ptr %arguments_, align 8, !tbaa !15
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr %cond.i.i.i.i, ptr %_M_finish.i.i.i, align 8, !tbaa !16
-  %add.ptr.i.i.i = getelementptr inbounds nuw %"class.QuantLib::Parameter", ptr %cond.i.i.i.i, i64 %nArguments
+  %add.ptr.i.i.i = getelementptr inbounds nuw [48 x i8], ptr %cond.i.i.i.i, i64 %nArguments
   %_M_end_of_storage.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !17
   %call.i.i.i3.i = invoke noundef ptr @_ZNSt27__uninitialized_default_n_1ILb0EE18__uninit_default_nIPN8QuantLib9ParameterEmEET_S5_T0_(ptr noundef %cond.i.i.i.i, i64 noundef %nArguments)
@@ -222,7 +220,7 @@ _ZN8QuantLib5ArrayD2Ev.exit:
   %0 = load ptr, ptr %vfn, align 8
   call void %0(ptr dead_on_unwind nonnull writable sret(%"class.QuantLib::Array") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(40) %this, double noundef %t, ptr noundef nonnull align 8 dereferenceable(16) %x)
   %1 = load ptr, ptr %ref.tmp, align 8, !tbaa !18
-  %arrayidx.i = getelementptr inbounds nuw double, ptr %1, i64 %i
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %i
   %2 = load double, ptr %arrayidx.i, align 8, !tbaa !19
   call void @_ZdaPv(ptr noundef nonnull %1) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)

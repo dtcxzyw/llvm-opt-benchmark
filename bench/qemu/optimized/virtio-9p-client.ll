@@ -1295,7 +1295,7 @@ define dso_local { i32, ptr } @v9fs_twalk(ptr noundef byval(%struct.TWalkOpt) al
   %47 = tail call noalias ptr @g_strdup(ptr noundef nonnull %.1365.i) #14
   %48 = add i32 %.0336.i, 1
   %49 = sext i32 %.0336.i to i64
-  %50 = getelementptr inbounds ptr, ptr %43, i64 %49
+  %50 = getelementptr inbounds [8 x i8], ptr %43, i64 %49
   store ptr %47, ptr %50, align 8
   br label %51
 
@@ -1329,7 +1329,7 @@ split.exit:                                       ; preds = %51, %._crit_edge.i
 60:                                               ; preds = %.lr.ph, %74
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %74 ]
   %.04068 = phi i32 [ 10, %.lr.ph ], [ %75, %74 ]
-  %61 = getelementptr inbounds nuw ptr, ptr %59, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %indvars.iv
   %62 = load ptr, ptr %61, align 8
   %63 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %62) #15
   %64 = icmp slt i64 %63, 65534
@@ -1401,7 +1401,7 @@ v9fs_string_size.exit:                            ; preds = %60, %65
 
 94:                                               ; preds = %.lr.ph74, %94
   %indvars.iv79 = phi i64 [ 0, %.lr.ph74 ], [ %indvars.iv.next80, %94 ]
-  %95 = getelementptr inbounds nuw ptr, ptr %93, i64 %indvars.iv79
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %indvars.iv79
   %96 = load ptr, ptr %95, align 8
   call void @v9fs_string_write(ptr noundef nonnull %78, ptr noundef %96)
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
@@ -1493,7 +1493,7 @@ v9fs_string_size.exit:                            ; preds = %60, %65
   call void @g_free(ptr noundef nonnull %144) #14
   %145 = add i32 %.010.i, 1
   %146 = sext i32 %145 to i64
-  %147 = getelementptr inbounds ptr, ptr %.066, i64 %146
+  %147 = getelementptr inbounds [8 x i8], ptr %.066, i64 %146
   %148 = load ptr, ptr %147, align 8
   %.not8.i = icmp eq ptr %148, null
   br i1 %.not8.i, label %._crit_edge.i62, label %.lr.ph.i61, !llvm.loop !13

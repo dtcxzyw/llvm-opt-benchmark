@@ -215,7 +215,7 @@ pmix_obj_run_constructors.exit56:                 ; preds = %.lr.ph.i53, %14
   br i1 %61, label %62, label %66
 
 62:                                               ; preds = %60
-  %63 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv
   %64 = load ptr, ptr %63, align 8, !tbaa !26
   %65 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.9, i32 noundef 1, ptr noundef %64) #15
   br label %.thread60
@@ -294,7 +294,7 @@ pmix_obj_new_tma.exit:                            ; preds = %72
 
 99:                                               ; preds = %57, %92
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %100 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv.next
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv.next
   %101 = load ptr, ptr %100, align 8, !tbaa !26
   %.not50 = icmp eq ptr %101, null
   br i1 %.not50, label %._crit_edge, label %46, !llvm.loop !33
@@ -468,7 +468,7 @@ define i32 @pmix_mca_base_framework_components_open(ptr noundef %0, i32 noundef 
 
 12:                                               ; preds = %11
   %13 = zext nneg i32 %9 to i64
-  %14 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %13
+  %14 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %16 = load i32, ptr %15, align 4, !tbaa !40
   %17 = icmp sgt i32 %16, 9
@@ -489,7 +489,7 @@ define i32 @pmix_mca_base_framework_components_open(ptr noundef %0, i32 noundef 
 
 .lr.ph.i:                                         ; preds = %21
   %25 = zext nneg i32 %9 to i64
-  %26 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %25
+  %26 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 4
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 344
   br label %29

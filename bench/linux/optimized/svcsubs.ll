@@ -79,7 +79,7 @@ define dso_local i32 @nlm_lookup_file(ptr noundef %0, ptr noundef writeonly capt
   %20 = zext i1 %19 to i32
   tail call void @mutex_lock(ptr noundef nonnull @nlm_file_mutex) #12
   %21 = zext nneg i32 %16 to i64
-  %22 = getelementptr %struct.hlist_head, ptr @nlm_files, i64 %21
+  %22 = getelementptr [8 x i8], ptr @nlm_files, i64 %21
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %.critedge._crit_edge, label %.lr.ph
@@ -112,7 +112,7 @@ define dso_local i32 @nlm_lookup_file(ptr noundef %0, ptr noundef writeonly capt
   tail call void @mutex_lock(ptr noundef nonnull %38) #12
   %39 = getelementptr inbounds nuw i8, ptr %28, i64 152
   %40 = zext i1 %19 to i64
-  %41 = getelementptr ptr, ptr %39, i64 %40
+  %41 = getelementptr [8 x i8], ptr %39, i64 %40
   %42 = load ptr, ptr %41, align 8
   %43 = icmp eq ptr %42, null
   br i1 %43, label %44, label %49
@@ -147,7 +147,7 @@ define dso_local i32 @nlm_lookup_file(ptr noundef %0, ptr noundef writeonly capt
   store volatile ptr %57, ptr %58, align 8
   %59 = getelementptr inbounds nuw i8, ptr %52, i64 152
   %60 = zext i1 %19 to i64
-  %61 = getelementptr ptr, ptr %59, i64 %60
+  %61 = getelementptr [8 x i8], ptr %59, i64 %60
   %62 = load ptr, ptr %61, align 8
   %63 = icmp eq ptr %62, null
   br i1 %63, label %64, label %.thread
@@ -387,7 +387,7 @@ define internal fastcc range(i32 0, 2) i32 @nlm_traverse_files(ptr noundef %0, p
 13:                                               ; preds = %.loopexit16, %3
   %14 = phi i64 [ 0, %3 ], [ %137, %.loopexit16 ]
   %15 = phi i32 [ 0, %3 ], [ %136, %.loopexit16 ]
-  %16 = getelementptr %struct.hlist_head, ptr @nlm_files, i64 %14
+  %16 = getelementptr [8 x i8], ptr @nlm_files, i64 %14
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %.loopexit16, label %.preheader
@@ -721,7 +721,7 @@ define dso_local range(i32 -5, 1) i32 @nlmsvc_unlock_all_by_sb(ptr noundef %0) #
 10:                                               ; preds = %.loopexit16.i, %1
   %11 = phi i64 [ 0, %1 ], [ %135, %.loopexit16.i ]
   %12 = phi i32 [ 0, %1 ], [ %134, %.loopexit16.i ]
-  %13 = getelementptr %struct.hlist_head, ptr @nlm_files, i64 %11
+  %13 = getelementptr [8 x i8], ptr @nlm_files, i64 %11
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %.loopexit16.i, label %.preheader.i

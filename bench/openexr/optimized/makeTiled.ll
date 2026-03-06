@@ -52,8 +52,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.Imf_3_4::DeepScanLineOutputPart" = type { ptr }
 %"class.Imf_3_4::DeepTiledInputPart" = type { ptr }
 %"class.Imf_3_4::DeepTiledOutputPart" = type { ptr }
-%"class.Imath_3_2::half" = type { i16 }
-%union.imath_half_uif = type { i32 }
 
 $__clang_call_terminate = comdat any
 
@@ -258,14 +256,14 @@ define dso_local void @_Z9makeTiledPKcS0_iN7Imf_3_49LevelModeENS1_17LevelRoundin
   %89 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %90 = icmp ult i32 %9, 4
   %91 = zext nneg i32 %9 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._Z9makeTiledPKcS0_iN7Imf_3_49LevelModeENS1_17LevelRoundingModeENS1_11CompressionEiiRKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISB_ESaISB_EE13ExtrapolationSI_b.17, i64 %91
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._Z9makeTiledPKcS0_iN7Imf_3_49LevelModeENS1_17LevelRoundingModeENS1_11CompressionEiiRKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISB_ESaISB_EE13ExtrapolationSI_b.17, i64 %91
   %92 = zext nneg i32 %9 to i64
-  %switch.gep693 = getelementptr inbounds nuw i64, ptr @switch.table._Z9makeTiledPKcS0_iN7Imf_3_49LevelModeENS1_17LevelRoundingModeENS1_11CompressionEiiRKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISB_ESaISB_EE13ExtrapolationSI_b.18, i64 %92
+  %switch.gep693 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._Z9makeTiledPKcS0_iN7Imf_3_49LevelModeENS1_17LevelRoundingModeENS1_11CompressionEiiRKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISB_ESaISB_EE13ExtrapolationSI_b.18, i64 %92
   %93 = icmp ult i32 %10, 4
   %94 = zext nneg i32 %10 to i64
-  %switch.gep696 = getelementptr inbounds nuw ptr, ptr @switch.table._Z9makeTiledPKcS0_iN7Imf_3_49LevelModeENS1_17LevelRoundingModeENS1_11CompressionEiiRKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISB_ESaISB_EE13ExtrapolationSI_b.17, i64 %94
+  %switch.gep696 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._Z9makeTiledPKcS0_iN7Imf_3_49LevelModeENS1_17LevelRoundingModeENS1_11CompressionEiiRKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISB_ESaISB_EE13ExtrapolationSI_b.17, i64 %94
   %95 = zext nneg i32 %10 to i64
-  %switch.gep698 = getelementptr inbounds nuw i64, ptr @switch.table._Z9makeTiledPKcS0_iN7Imf_3_49LevelModeENS1_17LevelRoundingModeENS1_11CompressionEiiRKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISB_ESaISB_EE13ExtrapolationSI_b.18, i64 %95
+  %switch.gep698 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._Z9makeTiledPKcS0_iN7Imf_3_49LevelModeENS1_17LevelRoundingModeENS1_11CompressionEiiRKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISB_ESaISB_EE13ExtrapolationSI_b.18, i64 %95
   br label %110
 
 ._crit_edge:                                      ; preds = %452, %.preheader438
@@ -2096,7 +2094,7 @@ _ZNSolsEPFRSoS_E.exit311:                         ; preds = %.noexc380
 702:                                              ; preds = %465
   call void @llvm.lifetime.start.p0(ptr nonnull %44)
   %703 = load ptr, ptr %24, align 8, !tbaa !21
-  %704 = getelementptr inbounds nuw %"class.Imf_3_4::Header", ptr %703, i64 %indvars.iv
+  %704 = getelementptr inbounds nuw [56 x i8], ptr %703, i64 %indvars.iv
   invoke void @_ZN7Imf_3_46HeaderC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(49) %44, ptr noundef nonnull align 8 dereferenceable(49) %704)
           to label %705 unwind label %734
 
@@ -3123,7 +3121,7 @@ _ZN5Image12typedChannelIN9Imath_3_24halfEEER17TypedImageChannelIT_ERKNSt7__cxx11
 .preheader.us.i:                                  ; preds = %._crit_edge.us10.i, %.preheader.us.preheader.i
   %indvars.iv25.i = phi i64 [ 0, %.preheader.us.preheader.i ], [ %indvars.iv.next26.i, %._crit_edge.us10.i ]
   %150 = mul nsw i64 %indvars.iv25.i, %149
-  %151 = getelementptr inbounds %"class.Imath_3_2::half", ptr %147, i64 %150
+  %151 = getelementptr inbounds [2 x i8], ptr %147, i64 %150
   %152 = trunc nuw nsw i64 %indvars.iv25.i to i32
   br label %153
 
@@ -3224,7 +3222,7 @@ _ZN5Image12typedChannelIN9Imath_3_24halfEEER17TypedImageChannelIT_ERKNSt7__cxx11
 
 _ZN12_GLOBAL__N_17filterXIN9Imath_3_24halfEEET_RK17TypedImageChannelIS3_Eidi13Extrapolation.exit.us.i: ; preds = %213, %210, %208, %199, %193, %190, %176
   %.0.i.i.i.us.i = phi i16 [ %174, %176 ], [ %220, %213 ], [ %209, %208 ], [ %207, %199 ], [ %211, %210 ], [ %194, %193 ], [ %188, %190 ]
-  %221 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %151, i64 %indvars.iv20.i
+  %221 = getelementptr inbounds nuw [2 x i8], ptr %151, i64 %indvars.iv20.i
   store i16 %.0.i.i.i.us.i, ptr %221, align 2, !tbaa !125
   %indvars.iv.next21.i = add nuw nsw i64 %indvars.iv20.i, 1
   %exitcond24.not.i = icmp eq i64 %indvars.iv.next21.i, %wide.trip.count23.i
@@ -3259,22 +3257,22 @@ _ZN12_GLOBAL__N_17filterXIN9Imath_3_24halfEEET_RK17TypedImageChannelIS3_Eidi13Ex
   %236 = select i1 %3, i64 %235, i64 0
   %wide.trip.count18.i = zext nneg i32 %131 to i64
   %wide.trip.count.i = zext nneg i32 %125 to i64
-  %invariant.gep35.i = getelementptr %"class.Imath_3_2::half", ptr %234, i64 %236
+  %invariant.gep35.i = getelementptr [2 x i8], ptr %234, i64 %236
   br label %.preheader4.us.i
 
 .preheader4.us.i:                                 ; preds = %._crit_edge.us.i, %.preheader4.us.preheader.i
   %indvars.iv15.i = phi i64 [ 0, %.preheader4.us.preheader.i ], [ %indvars.iv.next16.i, %._crit_edge.us.i ]
   %237 = mul nsw i64 %indvars.iv15.i, %228
   %238 = mul nsw i64 %indvars.iv15.i, %232
-  %239 = getelementptr inbounds %"class.Imath_3_2::half", ptr %230, i64 %238
-  %gep36.i = getelementptr %"class.Imath_3_2::half", ptr %invariant.gep35.i, i64 %237
+  %239 = getelementptr inbounds [2 x i8], ptr %230, i64 %238
+  %gep36.i = getelementptr [2 x i8], ptr %invariant.gep35.i, i64 %237
   br label %240
 
 240:                                              ; preds = %240, %.preheader4.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader4.us.i ], [ %indvars.iv.next.i, %240 ]
   %.idx.i = shl i64 %indvars.iv.i, 2
   %gep.i = getelementptr i8, ptr %gep36.i, i64 %.idx.i
-  %241 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %239, i64 %indvars.iv.i
+  %241 = getelementptr inbounds nuw [2 x i8], ptr %239, i64 %indvars.iv.i
   %242 = load i16, ptr %gep.i, align 2, !tbaa !125
   store i16 %242, ptr %241, align 2, !tbaa !125
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -3549,7 +3547,7 @@ _ZN5Image12typedChannelIfEER17TypedImageChannelIT_ERKNSt7__cxx1112basic_stringIc
 .preheader.us.i110:                               ; preds = %._crit_edge.us10.i117, %.preheader.us.preheader.i107
   %indvars.iv25.i111 = phi i64 [ 0, %.preheader.us.preheader.i107 ], [ %indvars.iv.next26.i118, %._crit_edge.us10.i117 ]
   %336 = mul nsw i64 %indvars.iv25.i111, %335
-  %337 = getelementptr inbounds float, ptr %333, i64 %336
+  %337 = getelementptr inbounds [4 x i8], ptr %333, i64 %336
   %338 = trunc nuw nsw i64 %indvars.iv25.i111 to i32
   br label %339
 
@@ -3572,7 +3570,7 @@ _ZN5Image12typedChannelIfEER17TypedImageChannelIT_ERKNSt7__cxx1112basic_stringIc
   %352 = call fastcc noundef double @_ZN12_GLOBAL__N_17sampleXIfEEdRK17TypedImageChannelIT_Eidi13Extrapolation(i64 %.val.us.i113, ptr readonly %.val41.us.i114, i32 noundef %304, double noundef %351, i32 noundef %338, i32 noundef %2)
   %353 = call double @llvm.fmuladd.f64(double %352, double 1.250000e-01, double %350)
   %354 = fptrunc double %353 to float
-  %355 = getelementptr inbounds nuw float, ptr %337, i64 %indvars.iv20.i112
+  %355 = getelementptr inbounds nuw [4 x i8], ptr %337, i64 %indvars.iv20.i112
   store float %354, ptr %355, align 4, !tbaa !131
   %indvars.iv.next21.i115 = add nuw nsw i64 %indvars.iv20.i112, 1
   %exitcond24.not.i116 = icmp eq i64 %indvars.iv.next21.i115, %wide.trip.count23.i109
@@ -3607,15 +3605,15 @@ _ZN5Image12typedChannelIfEER17TypedImageChannelIT_ERKNSt7__cxx1112basic_stringIc
   %370 = select i1 %3, i64 %369, i64 0
   %wide.trip.count18.i94 = zext nneg i32 %317 to i64
   %wide.trip.count.i95 = zext nneg i32 %311 to i64
-  %invariant.gep33.i = getelementptr float, ptr %368, i64 %370
+  %invariant.gep33.i = getelementptr [4 x i8], ptr %368, i64 %370
   br label %.preheader4.us.i96
 
 .preheader4.us.i96:                               ; preds = %._crit_edge.us.i103, %.preheader4.us.preheader.i93
   %indvars.iv15.i97 = phi i64 [ 0, %.preheader4.us.preheader.i93 ], [ %indvars.iv.next16.i104, %._crit_edge.us.i103 ]
   %371 = mul nsw i64 %indvars.iv15.i97, %362
   %372 = mul nsw i64 %indvars.iv15.i97, %366
-  %373 = getelementptr inbounds float, ptr %364, i64 %372
-  %gep34.i = getelementptr float, ptr %invariant.gep33.i, i64 %371
+  %373 = getelementptr inbounds [4 x i8], ptr %364, i64 %372
+  %gep34.i = getelementptr [4 x i8], ptr %invariant.gep33.i, i64 %371
   br label %374
 
 374:                                              ; preds = %374, %.preheader4.us.i96
@@ -3623,7 +3621,7 @@ _ZN5Image12typedChannelIfEER17TypedImageChannelIT_ERKNSt7__cxx1112basic_stringIc
   %.idx.i99 = shl i64 %indvars.iv.i98, 3
   %gep.i100 = getelementptr i8, ptr %gep34.i, i64 %.idx.i99
   %375 = load float, ptr %gep.i100, align 4, !tbaa !131
-  %376 = getelementptr inbounds nuw float, ptr %373, i64 %indvars.iv.i98
+  %376 = getelementptr inbounds nuw [4 x i8], ptr %373, i64 %indvars.iv.i98
   store float %375, ptr %376, align 4, !tbaa !131
   %indvars.iv.next.i101 = add nuw nsw i64 %indvars.iv.i98, 1
   %exitcond.not.i102 = icmp eq i64 %indvars.iv.next.i101, %wide.trip.count.i95
@@ -3897,7 +3895,7 @@ _ZN5Image12typedChannelIjEER17TypedImageChannelIT_ERKNSt7__cxx1112basic_stringIc
 .preheader.us.i165:                               ; preds = %._crit_edge.us10.i172, %.preheader.us.preheader.i162
   %indvars.iv25.i166 = phi i64 [ 0, %.preheader.us.preheader.i162 ], [ %indvars.iv.next26.i173, %._crit_edge.us10.i172 ]
   %470 = mul nsw i64 %indvars.iv25.i166, %469
-  %471 = getelementptr inbounds i32, ptr %467, i64 %470
+  %471 = getelementptr inbounds [4 x i8], ptr %467, i64 %470
   %472 = trunc nuw nsw i64 %indvars.iv25.i166 to i32
   br label %473
 
@@ -3920,7 +3918,7 @@ _ZN5Image12typedChannelIjEER17TypedImageChannelIT_ERKNSt7__cxx1112basic_stringIc
   %486 = call fastcc noundef double @_ZN12_GLOBAL__N_17sampleXIjEEdRK17TypedImageChannelIT_Eidi13Extrapolation(i64 %.val.us.i168, ptr readonly %.val41.us.i169, i32 noundef %438, double noundef %485, i32 noundef %472, i32 noundef %2)
   %487 = call double @llvm.fmuladd.f64(double %486, double 1.250000e-01, double %484)
   %488 = fptoui double %487 to i32
-  %489 = getelementptr inbounds nuw i32, ptr %471, i64 %indvars.iv20.i167
+  %489 = getelementptr inbounds nuw [4 x i8], ptr %471, i64 %indvars.iv20.i167
   store i32 %488, ptr %489, align 4, !tbaa !107
   %indvars.iv.next21.i170 = add nuw nsw i64 %indvars.iv20.i167, 1
   %exitcond24.not.i171 = icmp eq i64 %indvars.iv.next21.i170, %wide.trip.count23.i164
@@ -3955,15 +3953,15 @@ _ZN5Image12typedChannelIjEER17TypedImageChannelIT_ERKNSt7__cxx1112basic_stringIc
   %504 = select i1 %3, i64 %503, i64 0
   %wide.trip.count18.i147 = zext nneg i32 %451 to i64
   %wide.trip.count.i148 = zext nneg i32 %445 to i64
-  %invariant.gep33.i149 = getelementptr i32, ptr %502, i64 %504
+  %invariant.gep33.i149 = getelementptr [4 x i8], ptr %502, i64 %504
   br label %.preheader4.us.i150
 
 .preheader4.us.i150:                              ; preds = %._crit_edge.us.i158, %.preheader4.us.preheader.i146
   %indvars.iv15.i151 = phi i64 [ 0, %.preheader4.us.preheader.i146 ], [ %indvars.iv.next16.i159, %._crit_edge.us.i158 ]
   %505 = mul nsw i64 %indvars.iv15.i151, %496
   %506 = mul nsw i64 %indvars.iv15.i151, %500
-  %507 = getelementptr inbounds i32, ptr %498, i64 %506
-  %gep34.i152 = getelementptr i32, ptr %invariant.gep33.i149, i64 %505
+  %507 = getelementptr inbounds [4 x i8], ptr %498, i64 %506
+  %gep34.i152 = getelementptr [4 x i8], ptr %invariant.gep33.i149, i64 %505
   br label %508
 
 508:                                              ; preds = %508, %.preheader4.us.i150
@@ -3971,7 +3969,7 @@ _ZN5Image12typedChannelIjEER17TypedImageChannelIT_ERKNSt7__cxx1112basic_stringIc
   %.idx.i154 = shl i64 %indvars.iv.i153, 3
   %gep.i155 = getelementptr i8, ptr %gep34.i152, i64 %.idx.i154
   %509 = load i32, ptr %gep.i155, align 4, !tbaa !107
-  %510 = getelementptr inbounds nuw i32, ptr %507, i64 %indvars.iv.i153
+  %510 = getelementptr inbounds nuw [4 x i8], ptr %507, i64 %indvars.iv.i153
   store i32 %509, ptr %510, align 4, !tbaa !107
   %indvars.iv.next.i156 = add nuw nsw i64 %indvars.iv.i153, 1
   %exitcond.not.i157 = icmp eq i64 %indvars.iv.next.i156, %wide.trip.count.i148
@@ -4440,7 +4438,7 @@ _ZN5Image12typedChannelIN9Imath_3_24halfEEER17TypedImageChannelIT_ERKNSt7__cxx11
   %154 = fadd double %152, 1.000000e+00
   %155 = fadd double %152, 2.000000e+00
   %156 = mul nsw i64 %indvars.iv67.i, %149
-  %157 = getelementptr inbounds %"class.Imath_3_2::half", ptr %147, i64 %156
+  %157 = getelementptr inbounds [2 x i8], ptr %147, i64 %156
   br label %158
 
 158:                                              ; preds = %_ZN12_GLOBAL__N_17filterYIN9Imath_3_24halfEEET_RK17TypedImageChannelIS3_Eiid13Extrapolation.exit.us.i, %.preheader.us.i
@@ -4535,7 +4533,7 @@ _ZN5Image12typedChannelIN9Imath_3_24halfEEER17TypedImageChannelIT_ERKNSt7__cxx11
 
 _ZN12_GLOBAL__N_17filterYIN9Imath_3_24halfEEET_RK17TypedImageChannelIS3_Eiid13Extrapolation.exit.us.i: ; preds = %213, %210, %208, %199, %193, %190, %176
   %.0.i.i.i.us.i = phi i16 [ %174, %176 ], [ %220, %213 ], [ %209, %208 ], [ %207, %199 ], [ %211, %210 ], [ %194, %193 ], [ %188, %190 ]
-  %221 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %157, i64 %indvars.iv62.i
+  %221 = getelementptr inbounds nuw [2 x i8], ptr %157, i64 %indvars.iv62.i
   store i16 %.0.i.i.i.us.i, ptr %221, align 2, !tbaa !125
   %indvars.iv.next63.i = add nuw nsw i64 %indvars.iv62.i, 1
   %exitcond66.not.i = icmp eq i64 %indvars.iv.next63.i, %wide.trip.count65.i
@@ -4577,15 +4575,15 @@ _ZN12_GLOBAL__N_17filterYIN9Imath_3_24halfEEET_RK17TypedImageChannelIS3_Eiid13Ex
   %237 = shl nuw nsw i64 %indvars.iv57.i, 1
   %238 = add nsw i64 %237, %236
   %239 = mul nsw i64 %238, %230
-  %240 = getelementptr inbounds %"class.Imath_3_2::half", ptr %228, i64 %239
+  %240 = getelementptr inbounds [2 x i8], ptr %228, i64 %239
   %241 = mul nsw i64 %indvars.iv57.i, %234
-  %242 = getelementptr inbounds %"class.Imath_3_2::half", ptr %232, i64 %241
+  %242 = getelementptr inbounds [2 x i8], ptr %232, i64 %241
   br label %243
 
 243:                                              ; preds = %243, %.preheader45.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader45.us.i ], [ %indvars.iv.next.i, %243 ]
-  %244 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %240, i64 %indvars.iv.i
-  %245 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %242, i64 %indvars.iv.i
+  %244 = getelementptr inbounds nuw [2 x i8], ptr %240, i64 %indvars.iv.i
+  %245 = getelementptr inbounds nuw [2 x i8], ptr %242, i64 %indvars.iv.i
   %246 = load i16, ptr %244, align 2, !tbaa !125
   store i16 %246, ptr %245, align 2, !tbaa !125
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -4867,7 +4865,7 @@ _ZN5Image12typedChannelIfEER17TypedImageChannelIT_ERKNSt7__cxx1112basic_stringIc
   %344 = fadd double %342, 1.000000e+00
   %345 = fadd double %342, 2.000000e+00
   %346 = mul nsw i64 %indvars.iv67.i110, %339
-  %347 = getelementptr inbounds float, ptr %337, i64 %346
+  %347 = getelementptr inbounds [4 x i8], ptr %337, i64 %346
   br label %348
 
 348:                                              ; preds = %348, %.preheader.us.i109
@@ -4884,7 +4882,7 @@ _ZN5Image12typedChannelIfEER17TypedImageChannelIT_ERKNSt7__cxx1112basic_stringIc
   %356 = call fastcc noundef double @_ZN12_GLOBAL__N_17sampleYIfEEdRK17TypedImageChannelIT_Eiid13Extrapolation(i64 %.val.us.i112, ptr readonly %.val41.us.i113, i32 noundef %316, i32 noundef %349, double noundef %345, i32 noundef %2)
   %357 = call double @llvm.fmuladd.f64(double %356, double 1.250000e-01, double %355)
   %358 = fptrunc double %357 to float
-  %359 = getelementptr inbounds nuw float, ptr %347, i64 %indvars.iv62.i111
+  %359 = getelementptr inbounds nuw [4 x i8], ptr %347, i64 %indvars.iv62.i111
   store float %358, ptr %359, align 4, !tbaa !131
   %indvars.iv.next63.i114 = add nuw nsw i64 %indvars.iv62.i111, 1
   %exitcond66.not.i115 = icmp eq i64 %indvars.iv.next63.i114, %wide.trip.count65.i108
@@ -4926,16 +4924,16 @@ _ZN5Image12typedChannelIfEER17TypedImageChannelIT_ERKNSt7__cxx1112basic_stringIc
   %375 = shl nuw nsw i64 %indvars.iv57.i98, 1
   %376 = add nsw i64 %375, %374
   %377 = mul nsw i64 %376, %368
-  %378 = getelementptr inbounds float, ptr %366, i64 %377
+  %378 = getelementptr inbounds [4 x i8], ptr %366, i64 %377
   %379 = mul nsw i64 %indvars.iv57.i98, %372
-  %380 = getelementptr inbounds float, ptr %370, i64 %379
+  %380 = getelementptr inbounds [4 x i8], ptr %370, i64 %379
   br label %381
 
 381:                                              ; preds = %381, %.preheader45.us.i97
   %indvars.iv.i99 = phi i64 [ 0, %.preheader45.us.i97 ], [ %indvars.iv.next.i100, %381 ]
-  %382 = getelementptr inbounds nuw float, ptr %378, i64 %indvars.iv.i99
+  %382 = getelementptr inbounds nuw [4 x i8], ptr %378, i64 %indvars.iv.i99
   %383 = load float, ptr %382, align 4, !tbaa !131
-  %384 = getelementptr inbounds nuw float, ptr %380, i64 %indvars.iv.i99
+  %384 = getelementptr inbounds nuw [4 x i8], ptr %380, i64 %indvars.iv.i99
   store float %383, ptr %384, align 4, !tbaa !131
   %indvars.iv.next.i100 = add nuw nsw i64 %indvars.iv.i99, 1
   %exitcond.not.i101 = icmp eq i64 %indvars.iv.next.i100, %wide.trip.count.i96
@@ -5216,7 +5214,7 @@ _ZN5Image12typedChannelIjEER17TypedImageChannelIT_ERKNSt7__cxx1112basic_stringIc
   %482 = fadd double %480, 1.000000e+00
   %483 = fadd double %480, 2.000000e+00
   %484 = mul nsw i64 %indvars.iv67.i162, %477
-  %485 = getelementptr inbounds i32, ptr %475, i64 %484
+  %485 = getelementptr inbounds [4 x i8], ptr %475, i64 %484
   br label %486
 
 486:                                              ; preds = %486, %.preheader.us.i161
@@ -5233,7 +5231,7 @@ _ZN5Image12typedChannelIjEER17TypedImageChannelIT_ERKNSt7__cxx1112basic_stringIc
   %494 = call fastcc noundef double @_ZN12_GLOBAL__N_17sampleYIjEEdRK17TypedImageChannelIT_Eiid13Extrapolation(i64 %.val.us.i164, ptr readonly %.val41.us.i165, i32 noundef %454, i32 noundef %487, double noundef %483, i32 noundef %2)
   %495 = call double @llvm.fmuladd.f64(double %494, double 1.250000e-01, double %493)
   %496 = fptoui double %495 to i32
-  %497 = getelementptr inbounds nuw i32, ptr %485, i64 %indvars.iv62.i163
+  %497 = getelementptr inbounds nuw [4 x i8], ptr %485, i64 %indvars.iv62.i163
   store i32 %496, ptr %497, align 4, !tbaa !107
   %indvars.iv.next63.i166 = add nuw nsw i64 %indvars.iv62.i163, 1
   %exitcond66.not.i167 = icmp eq i64 %indvars.iv.next63.i166, %wide.trip.count65.i160
@@ -5275,16 +5273,16 @@ _ZN5Image12typedChannelIjEER17TypedImageChannelIT_ERKNSt7__cxx1112basic_stringIc
   %513 = shl nuw nsw i64 %indvars.iv57.i150, 1
   %514 = add nsw i64 %513, %512
   %515 = mul nsw i64 %514, %506
-  %516 = getelementptr inbounds i32, ptr %504, i64 %515
+  %516 = getelementptr inbounds [4 x i8], ptr %504, i64 %515
   %517 = mul nsw i64 %indvars.iv57.i150, %510
-  %518 = getelementptr inbounds i32, ptr %508, i64 %517
+  %518 = getelementptr inbounds [4 x i8], ptr %508, i64 %517
   br label %519
 
 519:                                              ; preds = %519, %.preheader45.us.i149
   %indvars.iv.i151 = phi i64 [ 0, %.preheader45.us.i149 ], [ %indvars.iv.next.i152, %519 ]
-  %520 = getelementptr inbounds nuw i32, ptr %516, i64 %indvars.iv.i151
+  %520 = getelementptr inbounds nuw [4 x i8], ptr %516, i64 %indvars.iv.i151
   %521 = load i32, ptr %520, align 4, !tbaa !107
-  %522 = getelementptr inbounds nuw i32, ptr %518, i64 %indvars.iv.i151
+  %522 = getelementptr inbounds nuw [4 x i8], ptr %518, i64 %indvars.iv.i151
   store i32 %521, ptr %522, align 4, !tbaa !107
   %indvars.iv.next.i152 = add nuw nsw i64 %indvars.iv.i151, 1
   %exitcond.not.i153 = icmp eq i64 %indvars.iv.next.i152, %wide.trip.count.i148
@@ -5879,13 +5877,13 @@ _ZN9Imath_3_25floorIdEEiT_.exit:                  ; preds = %6, %8
 18:                                               ; preds = %15
   %19 = sext i32 %2 to i64
   %20 = mul nsw i64 %.24.val, %19
-  %21 = getelementptr inbounds %"class.Imath_3_2::half", ptr %.32.val, i64 %20
+  %21 = getelementptr inbounds [2 x i8], ptr %.32.val, i64 %20
   %22 = zext nneg i32 %.fr to i64
-  %23 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [2 x i8], ptr %21, i64 %22
   %24 = load i16, ptr %23, align 2, !tbaa !157
   %25 = load ptr, ptr @imath_half_to_float_table, align 8, !tbaa !159
   %26 = zext i16 %24 to i64
-  %27 = getelementptr inbounds nuw %union.imath_half_uif, ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %26
   %28 = load float, ptr %27, align 4, !tbaa !51
   %29 = fpext float %28 to double
   br label %30
@@ -5900,9 +5898,9 @@ _ZN9Imath_3_25floorIdEEiT_.exit:                  ; preds = %6, %8
 34:                                               ; preds = %30
   %35 = sext i32 %2 to i64
   %36 = mul nsw i64 %.24.val, %35
-  %37 = getelementptr inbounds %"class.Imath_3_2::half", ptr %.32.val, i64 %36
+  %37 = getelementptr inbounds [2 x i8], ptr %.32.val, i64 %36
   %38 = zext nneg i32 %14 to i64
-  %39 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %37, i64 %38
+  %39 = getelementptr inbounds nuw [2 x i8], ptr %37, i64 %38
   %40 = load ptr, ptr @imath_half_to_float_table, align 8, !tbaa !159
   br label %.sink.split
 
@@ -5916,17 +5914,17 @@ _ZN9Imath_3_25floorIdEEiT_.exit:                  ; preds = %6, %8
   %48 = select i1 %46, i32 0, i32 %47
   %49 = sext i32 %2 to i64
   %50 = mul nsw i64 %.24.val, %49
-  %51 = getelementptr inbounds %"class.Imath_3_2::half", ptr %.32.val, i64 %50
+  %51 = getelementptr inbounds [2 x i8], ptr %.32.val, i64 %50
   %52 = sext i32 %45 to i64
-  %53 = getelementptr inbounds %"class.Imath_3_2::half", ptr %51, i64 %52
+  %53 = getelementptr inbounds [2 x i8], ptr %51, i64 %52
   %54 = load i16, ptr %53, align 2, !tbaa !157
   %55 = load ptr, ptr @imath_half_to_float_table, align 8, !tbaa !159
   %56 = zext i16 %54 to i64
-  %57 = getelementptr inbounds nuw %union.imath_half_uif, ptr %55, i64 %56
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %56
   %58 = load float, ptr %57, align 4, !tbaa !51
   %59 = fpext float %58 to double
   %60 = sext i32 %48 to i64
-  %61 = getelementptr inbounds %"class.Imath_3_2::half", ptr %51, i64 %60
+  %61 = getelementptr inbounds [2 x i8], ptr %51, i64 %60
   br label %.sink.split
 
 62:                                               ; preds = %_ZN9Imath_3_25floorIdEEiT_.exit
@@ -6002,17 +6000,17 @@ _ZN9Imath_3_24modpEii.exit55:                     ; preds = %.thread9, %.thread2
   %98 = sub nsw i32 %14, %97
   %99 = sext i32 %2 to i64
   %100 = mul nsw i64 %.24.val, %99
-  %101 = getelementptr inbounds %"class.Imath_3_2::half", ptr %.32.val, i64 %100
+  %101 = getelementptr inbounds [2 x i8], ptr %.32.val, i64 %100
   %102 = sext i32 %95 to i64
-  %103 = getelementptr inbounds %"class.Imath_3_2::half", ptr %101, i64 %102
+  %103 = getelementptr inbounds [2 x i8], ptr %101, i64 %102
   %104 = load i16, ptr %103, align 2, !tbaa !157
   %105 = load ptr, ptr @imath_half_to_float_table, align 8, !tbaa !159
   %106 = zext i16 %104 to i64
-  %107 = getelementptr inbounds nuw %union.imath_half_uif, ptr %105, i64 %106
+  %107 = getelementptr inbounds nuw [4 x i8], ptr %105, i64 %106
   %108 = load float, ptr %107, align 4, !tbaa !51
   %109 = fpext float %108 to double
   %110 = sext i32 %98 to i64
-  %111 = getelementptr inbounds %"class.Imath_3_2::half", ptr %101, i64 %110
+  %111 = getelementptr inbounds [2 x i8], ptr %101, i64 %110
   br label %.sink.split
 
 112:                                              ; preds = %_ZN9Imath_3_25floorIdEEiT_.exit
@@ -6103,17 +6101,17 @@ _ZN12_GLOBAL__N_16mirrorEii.exit57:               ; preds = %143, %145, %149, %1
   %164 = select i1 %.not.i56, i32 %160, i32 %163
   %165 = sext i32 %2 to i64
   %166 = mul nsw i64 %.24.val, %165
-  %167 = getelementptr inbounds %"class.Imath_3_2::half", ptr %.32.val, i64 %166
+  %167 = getelementptr inbounds [2 x i8], ptr %.32.val, i64 %166
   %168 = sext i32 %139 to i64
-  %169 = getelementptr inbounds %"class.Imath_3_2::half", ptr %167, i64 %168
+  %169 = getelementptr inbounds [2 x i8], ptr %167, i64 %168
   %170 = load i16, ptr %169, align 2, !tbaa !157
   %171 = load ptr, ptr @imath_half_to_float_table, align 8, !tbaa !159
   %172 = zext i16 %170 to i64
-  %173 = getelementptr inbounds nuw %union.imath_half_uif, ptr %171, i64 %172
+  %173 = getelementptr inbounds nuw [4 x i8], ptr %171, i64 %172
   %174 = load float, ptr %173, align 4, !tbaa !51
   %175 = fpext float %174 to double
   %176 = sext i32 %164 to i64
-  %177 = getelementptr inbounds %"class.Imath_3_2::half", ptr %167, i64 %176
+  %177 = getelementptr inbounds [2 x i8], ptr %167, i64 %176
   br label %.sink.split
 
 .sink.split:                                      ; preds = %41, %_ZN9Imath_3_24modpEii.exit55, %_ZN12_GLOBAL__N_16mirrorEii.exit57, %34
@@ -6122,7 +6120,7 @@ _ZN12_GLOBAL__N_16mirrorEii.exit57:               ; preds = %143, %145, %149, %1
   %.051.ph = phi double [ %31, %34 ], [ %175, %_ZN12_GLOBAL__N_16mirrorEii.exit57 ], [ %109, %_ZN9Imath_3_24modpEii.exit55 ], [ %59, %41 ]
   %.sink14 = load i16, ptr %.sink14.in, align 2, !tbaa !157
   %178 = zext i16 %.sink14 to i64
-  %179 = getelementptr inbounds nuw %union.imath_half_uif, ptr %.sink, i64 %178
+  %179 = getelementptr inbounds nuw [4 x i8], ptr %.sink, i64 %178
   %180 = load float, ptr %179, align 4, !tbaa !51
   %181 = fpext float %180 to double
   br label %182
@@ -6186,9 +6184,9 @@ _ZN9Imath_3_25floorIdEEiT_.exit:                  ; preds = %6, %8
 18:                                               ; preds = %15
   %19 = sext i32 %2 to i64
   %20 = mul nsw i64 %.24.val, %19
-  %21 = getelementptr inbounds float, ptr %.32.val, i64 %20
+  %21 = getelementptr inbounds [4 x i8], ptr %.32.val, i64 %20
   %22 = zext nneg i32 %.fr to i64
-  %23 = getelementptr inbounds nuw float, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %22
   %24 = load float, ptr %23, align 4, !tbaa !131
   %25 = fpext float %24 to double
   br label %26
@@ -6203,9 +6201,9 @@ _ZN9Imath_3_25floorIdEEiT_.exit:                  ; preds = %6, %8
 30:                                               ; preds = %26
   %31 = sext i32 %2 to i64
   %32 = mul nsw i64 %.24.val, %31
-  %33 = getelementptr inbounds float, ptr %.32.val, i64 %32
+  %33 = getelementptr inbounds [4 x i8], ptr %.32.val, i64 %32
   %34 = zext nneg i32 %14 to i64
-  %35 = getelementptr inbounds nuw float, ptr %33, i64 %34
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %34
   %36 = load float, ptr %35, align 4, !tbaa !131
   %37 = fpext float %36 to double
   br label %169
@@ -6220,13 +6218,13 @@ _ZN9Imath_3_25floorIdEEiT_.exit:                  ; preds = %6, %8
   %45 = select i1 %43, i32 0, i32 %44
   %46 = sext i32 %2 to i64
   %47 = mul nsw i64 %.24.val, %46
-  %48 = getelementptr inbounds float, ptr %.32.val, i64 %47
+  %48 = getelementptr inbounds [4 x i8], ptr %.32.val, i64 %47
   %49 = sext i32 %42 to i64
-  %50 = getelementptr inbounds float, ptr %48, i64 %49
+  %50 = getelementptr inbounds [4 x i8], ptr %48, i64 %49
   %51 = load float, ptr %50, align 4, !tbaa !131
   %52 = fpext float %51 to double
   %53 = sext i32 %45 to i64
-  %54 = getelementptr inbounds float, ptr %48, i64 %53
+  %54 = getelementptr inbounds [4 x i8], ptr %48, i64 %53
   %55 = load float, ptr %54, align 4, !tbaa !131
   %56 = fpext float %55 to double
   br label %169
@@ -6304,13 +6302,13 @@ _ZN9Imath_3_24modpEii.exit55:                     ; preds = %.thread9, %.thread2
   %93 = sub nsw i32 %14, %92
   %94 = sext i32 %2 to i64
   %95 = mul nsw i64 %.24.val, %94
-  %96 = getelementptr inbounds float, ptr %.32.val, i64 %95
+  %96 = getelementptr inbounds [4 x i8], ptr %.32.val, i64 %95
   %97 = sext i32 %90 to i64
-  %98 = getelementptr inbounds float, ptr %96, i64 %97
+  %98 = getelementptr inbounds [4 x i8], ptr %96, i64 %97
   %99 = load float, ptr %98, align 4, !tbaa !131
   %100 = fpext float %99 to double
   %101 = sext i32 %93 to i64
-  %102 = getelementptr inbounds float, ptr %96, i64 %101
+  %102 = getelementptr inbounds [4 x i8], ptr %96, i64 %101
   %103 = load float, ptr %102, align 4, !tbaa !131
   %104 = fpext float %103 to double
   br label %169
@@ -6403,13 +6401,13 @@ _ZN12_GLOBAL__N_16mirrorEii.exit57:               ; preds = %136, %138, %142, %1
   %157 = select i1 %.not.i56, i32 %153, i32 %156
   %158 = sext i32 %2 to i64
   %159 = mul nsw i64 %.24.val, %158
-  %160 = getelementptr inbounds float, ptr %.32.val, i64 %159
+  %160 = getelementptr inbounds [4 x i8], ptr %.32.val, i64 %159
   %161 = sext i32 %132 to i64
-  %162 = getelementptr inbounds float, ptr %160, i64 %161
+  %162 = getelementptr inbounds [4 x i8], ptr %160, i64 %161
   %163 = load float, ptr %162, align 4, !tbaa !131
   %164 = fpext float %163 to double
   %165 = sext i32 %157 to i64
-  %166 = getelementptr inbounds float, ptr %160, i64 %165
+  %166 = getelementptr inbounds [4 x i8], ptr %160, i64 %165
   %167 = load float, ptr %166, align 4, !tbaa !131
   %168 = fpext float %167 to double
   br label %169
@@ -6463,9 +6461,9 @@ _ZN9Imath_3_25floorIdEEiT_.exit:                  ; preds = %6, %8
 18:                                               ; preds = %15
   %19 = sext i32 %2 to i64
   %20 = mul nsw i64 %.24.val, %19
-  %21 = getelementptr inbounds i32, ptr %.32.val, i64 %20
+  %21 = getelementptr inbounds [4 x i8], ptr %.32.val, i64 %20
   %22 = zext nneg i32 %.fr to i64
-  %23 = getelementptr inbounds nuw i32, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %22
   %24 = load i32, ptr %23, align 4, !tbaa !107
   %25 = uitofp i32 %24 to double
   br label %26
@@ -6480,9 +6478,9 @@ _ZN9Imath_3_25floorIdEEiT_.exit:                  ; preds = %6, %8
 30:                                               ; preds = %26
   %31 = sext i32 %2 to i64
   %32 = mul nsw i64 %.24.val, %31
-  %33 = getelementptr inbounds i32, ptr %.32.val, i64 %32
+  %33 = getelementptr inbounds [4 x i8], ptr %.32.val, i64 %32
   %34 = zext nneg i32 %14 to i64
-  %35 = getelementptr inbounds nuw i32, ptr %33, i64 %34
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %34
   %36 = load i32, ptr %35, align 4, !tbaa !107
   %37 = uitofp i32 %36 to double
   br label %169
@@ -6497,13 +6495,13 @@ _ZN9Imath_3_25floorIdEEiT_.exit:                  ; preds = %6, %8
   %45 = select i1 %43, i32 0, i32 %44
   %46 = sext i32 %2 to i64
   %47 = mul nsw i64 %.24.val, %46
-  %48 = getelementptr inbounds i32, ptr %.32.val, i64 %47
+  %48 = getelementptr inbounds [4 x i8], ptr %.32.val, i64 %47
   %49 = sext i32 %42 to i64
-  %50 = getelementptr inbounds i32, ptr %48, i64 %49
+  %50 = getelementptr inbounds [4 x i8], ptr %48, i64 %49
   %51 = load i32, ptr %50, align 4, !tbaa !107
   %52 = uitofp i32 %51 to double
   %53 = sext i32 %45 to i64
-  %54 = getelementptr inbounds i32, ptr %48, i64 %53
+  %54 = getelementptr inbounds [4 x i8], ptr %48, i64 %53
   %55 = load i32, ptr %54, align 4, !tbaa !107
   %56 = uitofp i32 %55 to double
   br label %169
@@ -6581,13 +6579,13 @@ _ZN9Imath_3_24modpEii.exit55:                     ; preds = %.thread9, %.thread2
   %93 = sub nsw i32 %14, %92
   %94 = sext i32 %2 to i64
   %95 = mul nsw i64 %.24.val, %94
-  %96 = getelementptr inbounds i32, ptr %.32.val, i64 %95
+  %96 = getelementptr inbounds [4 x i8], ptr %.32.val, i64 %95
   %97 = sext i32 %90 to i64
-  %98 = getelementptr inbounds i32, ptr %96, i64 %97
+  %98 = getelementptr inbounds [4 x i8], ptr %96, i64 %97
   %99 = load i32, ptr %98, align 4, !tbaa !107
   %100 = uitofp i32 %99 to double
   %101 = sext i32 %93 to i64
-  %102 = getelementptr inbounds i32, ptr %96, i64 %101
+  %102 = getelementptr inbounds [4 x i8], ptr %96, i64 %101
   %103 = load i32, ptr %102, align 4, !tbaa !107
   %104 = uitofp i32 %103 to double
   br label %169
@@ -6680,13 +6678,13 @@ _ZN12_GLOBAL__N_16mirrorEii.exit57:               ; preds = %136, %138, %142, %1
   %157 = select i1 %.not.i56, i32 %153, i32 %156
   %158 = sext i32 %2 to i64
   %159 = mul nsw i64 %.24.val, %158
-  %160 = getelementptr inbounds i32, ptr %.32.val, i64 %159
+  %160 = getelementptr inbounds [4 x i8], ptr %.32.val, i64 %159
   %161 = sext i32 %132 to i64
-  %162 = getelementptr inbounds i32, ptr %160, i64 %161
+  %162 = getelementptr inbounds [4 x i8], ptr %160, i64 %161
   %163 = load i32, ptr %162, align 4, !tbaa !107
   %164 = uitofp i32 %163 to double
   %165 = sext i32 %157 to i64
-  %166 = getelementptr inbounds i32, ptr %160, i64 %165
+  %166 = getelementptr inbounds [4 x i8], ptr %160, i64 %165
   %167 = load i32, ptr %166, align 4, !tbaa !107
   %168 = uitofp i32 %167 to double
   br label %169
@@ -6740,13 +6738,13 @@ _ZN9Imath_3_25floorIdEEiT_.exit:                  ; preds = %6, %8
 18:                                               ; preds = %15
   %19 = zext nneg i32 %.fr to i64
   %20 = mul nsw i64 %.24.val, %19
-  %21 = getelementptr inbounds %"class.Imath_3_2::half", ptr %.32.val, i64 %20
+  %21 = getelementptr inbounds [2 x i8], ptr %.32.val, i64 %20
   %22 = sext i32 %1 to i64
-  %23 = getelementptr inbounds %"class.Imath_3_2::half", ptr %21, i64 %22
+  %23 = getelementptr inbounds [2 x i8], ptr %21, i64 %22
   %24 = load i16, ptr %23, align 2, !tbaa !157
   %25 = load ptr, ptr @imath_half_to_float_table, align 8, !tbaa !159
   %26 = zext i16 %24 to i64
-  %27 = getelementptr inbounds nuw %union.imath_half_uif, ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %26
   %28 = load float, ptr %27, align 4, !tbaa !51
   %29 = fpext float %28 to double
   br label %30
@@ -6761,9 +6759,9 @@ _ZN9Imath_3_25floorIdEEiT_.exit:                  ; preds = %6, %8
 34:                                               ; preds = %30
   %35 = zext nneg i32 %14 to i64
   %36 = mul nsw i64 %.24.val, %35
-  %37 = getelementptr inbounds %"class.Imath_3_2::half", ptr %.32.val, i64 %36
+  %37 = getelementptr inbounds [2 x i8], ptr %.32.val, i64 %36
   %38 = sext i32 %1 to i64
-  %39 = getelementptr inbounds %"class.Imath_3_2::half", ptr %37, i64 %38
+  %39 = getelementptr inbounds [2 x i8], ptr %37, i64 %38
   %40 = load ptr, ptr @imath_half_to_float_table, align 8, !tbaa !159
   br label %.sink.split
 
@@ -6777,19 +6775,19 @@ _ZN9Imath_3_25floorIdEEiT_.exit:                  ; preds = %6, %8
   %48 = select i1 %46, i32 0, i32 %47
   %49 = sext i32 %45 to i64
   %50 = mul nsw i64 %.24.val, %49
-  %51 = getelementptr inbounds %"class.Imath_3_2::half", ptr %.32.val, i64 %50
+  %51 = getelementptr inbounds [2 x i8], ptr %.32.val, i64 %50
   %52 = sext i32 %1 to i64
-  %53 = getelementptr inbounds %"class.Imath_3_2::half", ptr %51, i64 %52
+  %53 = getelementptr inbounds [2 x i8], ptr %51, i64 %52
   %54 = load i16, ptr %53, align 2, !tbaa !157
   %55 = load ptr, ptr @imath_half_to_float_table, align 8, !tbaa !159
   %56 = zext i16 %54 to i64
-  %57 = getelementptr inbounds nuw %union.imath_half_uif, ptr %55, i64 %56
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %56
   %58 = load float, ptr %57, align 4, !tbaa !51
   %59 = fpext float %58 to double
   %60 = sext i32 %48 to i64
   %61 = mul nsw i64 %.24.val, %60
-  %62 = getelementptr inbounds %"class.Imath_3_2::half", ptr %.32.val, i64 %61
-  %63 = getelementptr inbounds %"class.Imath_3_2::half", ptr %62, i64 %52
+  %62 = getelementptr inbounds [2 x i8], ptr %.32.val, i64 %61
+  %63 = getelementptr inbounds [2 x i8], ptr %62, i64 %52
   br label %.sink.split
 
 64:                                               ; preds = %_ZN9Imath_3_25floorIdEEiT_.exit
@@ -6865,19 +6863,19 @@ _ZN9Imath_3_24modpEii.exit55:                     ; preds = %.thread9, %.thread2
   %100 = sub nsw i32 %14, %99
   %101 = sext i32 %97 to i64
   %102 = mul nsw i64 %.24.val, %101
-  %103 = getelementptr inbounds %"class.Imath_3_2::half", ptr %.32.val, i64 %102
+  %103 = getelementptr inbounds [2 x i8], ptr %.32.val, i64 %102
   %104 = sext i32 %1 to i64
-  %105 = getelementptr inbounds %"class.Imath_3_2::half", ptr %103, i64 %104
+  %105 = getelementptr inbounds [2 x i8], ptr %103, i64 %104
   %106 = load i16, ptr %105, align 2, !tbaa !157
   %107 = load ptr, ptr @imath_half_to_float_table, align 8, !tbaa !159
   %108 = zext i16 %106 to i64
-  %109 = getelementptr inbounds nuw %union.imath_half_uif, ptr %107, i64 %108
+  %109 = getelementptr inbounds nuw [4 x i8], ptr %107, i64 %108
   %110 = load float, ptr %109, align 4, !tbaa !51
   %111 = fpext float %110 to double
   %112 = sext i32 %100 to i64
   %113 = mul nsw i64 %.24.val, %112
-  %114 = getelementptr inbounds %"class.Imath_3_2::half", ptr %.32.val, i64 %113
-  %115 = getelementptr inbounds %"class.Imath_3_2::half", ptr %114, i64 %104
+  %114 = getelementptr inbounds [2 x i8], ptr %.32.val, i64 %113
+  %115 = getelementptr inbounds [2 x i8], ptr %114, i64 %104
   br label %.sink.split
 
 116:                                              ; preds = %_ZN9Imath_3_25floorIdEEiT_.exit
@@ -6968,19 +6966,19 @@ _ZN12_GLOBAL__N_16mirrorEii.exit57:               ; preds = %147, %149, %153, %1
   %168 = select i1 %.not.i56, i32 %164, i32 %167
   %169 = sext i32 %143 to i64
   %170 = mul nsw i64 %.24.val, %169
-  %171 = getelementptr inbounds %"class.Imath_3_2::half", ptr %.32.val, i64 %170
+  %171 = getelementptr inbounds [2 x i8], ptr %.32.val, i64 %170
   %172 = sext i32 %1 to i64
-  %173 = getelementptr inbounds %"class.Imath_3_2::half", ptr %171, i64 %172
+  %173 = getelementptr inbounds [2 x i8], ptr %171, i64 %172
   %174 = load i16, ptr %173, align 2, !tbaa !157
   %175 = load ptr, ptr @imath_half_to_float_table, align 8, !tbaa !159
   %176 = zext i16 %174 to i64
-  %177 = getelementptr inbounds nuw %union.imath_half_uif, ptr %175, i64 %176
+  %177 = getelementptr inbounds nuw [4 x i8], ptr %175, i64 %176
   %178 = load float, ptr %177, align 4, !tbaa !51
   %179 = fpext float %178 to double
   %180 = sext i32 %168 to i64
   %181 = mul nsw i64 %.24.val, %180
-  %182 = getelementptr inbounds %"class.Imath_3_2::half", ptr %.32.val, i64 %181
-  %183 = getelementptr inbounds %"class.Imath_3_2::half", ptr %182, i64 %172
+  %182 = getelementptr inbounds [2 x i8], ptr %.32.val, i64 %181
+  %183 = getelementptr inbounds [2 x i8], ptr %182, i64 %172
   br label %.sink.split
 
 .sink.split:                                      ; preds = %41, %_ZN9Imath_3_24modpEii.exit55, %_ZN12_GLOBAL__N_16mirrorEii.exit57, %34
@@ -6989,7 +6987,7 @@ _ZN12_GLOBAL__N_16mirrorEii.exit57:               ; preds = %147, %149, %153, %1
   %.051.ph = phi double [ %31, %34 ], [ %179, %_ZN12_GLOBAL__N_16mirrorEii.exit57 ], [ %111, %_ZN9Imath_3_24modpEii.exit55 ], [ %59, %41 ]
   %.sink14 = load i16, ptr %.sink14.in, align 2, !tbaa !157
   %184 = zext i16 %.sink14 to i64
-  %185 = getelementptr inbounds nuw %union.imath_half_uif, ptr %.sink, i64 %184
+  %185 = getelementptr inbounds nuw [4 x i8], ptr %.sink, i64 %184
   %186 = load float, ptr %185, align 4, !tbaa !51
   %187 = fpext float %186 to double
   br label %188
@@ -7043,9 +7041,9 @@ _ZN9Imath_3_25floorIdEEiT_.exit:                  ; preds = %6, %8
 18:                                               ; preds = %15
   %19 = zext nneg i32 %.fr to i64
   %20 = mul nsw i64 %.24.val, %19
-  %21 = getelementptr inbounds float, ptr %.32.val, i64 %20
+  %21 = getelementptr inbounds [4 x i8], ptr %.32.val, i64 %20
   %22 = sext i32 %1 to i64
-  %23 = getelementptr inbounds float, ptr %21, i64 %22
+  %23 = getelementptr inbounds [4 x i8], ptr %21, i64 %22
   %24 = load float, ptr %23, align 4, !tbaa !131
   %25 = fpext float %24 to double
   br label %26
@@ -7060,9 +7058,9 @@ _ZN9Imath_3_25floorIdEEiT_.exit:                  ; preds = %6, %8
 30:                                               ; preds = %26
   %31 = zext nneg i32 %14 to i64
   %32 = mul nsw i64 %.24.val, %31
-  %33 = getelementptr inbounds float, ptr %.32.val, i64 %32
+  %33 = getelementptr inbounds [4 x i8], ptr %.32.val, i64 %32
   %34 = sext i32 %1 to i64
-  %35 = getelementptr inbounds float, ptr %33, i64 %34
+  %35 = getelementptr inbounds [4 x i8], ptr %33, i64 %34
   %36 = load float, ptr %35, align 4, !tbaa !131
   %37 = fpext float %36 to double
   br label %175
@@ -7077,15 +7075,15 @@ _ZN9Imath_3_25floorIdEEiT_.exit:                  ; preds = %6, %8
   %45 = select i1 %43, i32 0, i32 %44
   %46 = sext i32 %42 to i64
   %47 = mul nsw i64 %.24.val, %46
-  %48 = getelementptr inbounds float, ptr %.32.val, i64 %47
+  %48 = getelementptr inbounds [4 x i8], ptr %.32.val, i64 %47
   %49 = sext i32 %1 to i64
-  %50 = getelementptr inbounds float, ptr %48, i64 %49
+  %50 = getelementptr inbounds [4 x i8], ptr %48, i64 %49
   %51 = load float, ptr %50, align 4, !tbaa !131
   %52 = fpext float %51 to double
   %53 = sext i32 %45 to i64
   %54 = mul nsw i64 %.24.val, %53
-  %55 = getelementptr inbounds float, ptr %.32.val, i64 %54
-  %56 = getelementptr inbounds float, ptr %55, i64 %49
+  %55 = getelementptr inbounds [4 x i8], ptr %.32.val, i64 %54
+  %56 = getelementptr inbounds [4 x i8], ptr %55, i64 %49
   %57 = load float, ptr %56, align 4, !tbaa !131
   %58 = fpext float %57 to double
   br label %175
@@ -7163,15 +7161,15 @@ _ZN9Imath_3_24modpEii.exit55:                     ; preds = %.thread9, %.thread2
   %95 = sub nsw i32 %14, %94
   %96 = sext i32 %92 to i64
   %97 = mul nsw i64 %.24.val, %96
-  %98 = getelementptr inbounds float, ptr %.32.val, i64 %97
+  %98 = getelementptr inbounds [4 x i8], ptr %.32.val, i64 %97
   %99 = sext i32 %1 to i64
-  %100 = getelementptr inbounds float, ptr %98, i64 %99
+  %100 = getelementptr inbounds [4 x i8], ptr %98, i64 %99
   %101 = load float, ptr %100, align 4, !tbaa !131
   %102 = fpext float %101 to double
   %103 = sext i32 %95 to i64
   %104 = mul nsw i64 %.24.val, %103
-  %105 = getelementptr inbounds float, ptr %.32.val, i64 %104
-  %106 = getelementptr inbounds float, ptr %105, i64 %99
+  %105 = getelementptr inbounds [4 x i8], ptr %.32.val, i64 %104
+  %106 = getelementptr inbounds [4 x i8], ptr %105, i64 %99
   %107 = load float, ptr %106, align 4, !tbaa !131
   %108 = fpext float %107 to double
   br label %175
@@ -7264,15 +7262,15 @@ _ZN12_GLOBAL__N_16mirrorEii.exit57:               ; preds = %140, %142, %146, %1
   %161 = select i1 %.not.i56, i32 %157, i32 %160
   %162 = sext i32 %136 to i64
   %163 = mul nsw i64 %.24.val, %162
-  %164 = getelementptr inbounds float, ptr %.32.val, i64 %163
+  %164 = getelementptr inbounds [4 x i8], ptr %.32.val, i64 %163
   %165 = sext i32 %1 to i64
-  %166 = getelementptr inbounds float, ptr %164, i64 %165
+  %166 = getelementptr inbounds [4 x i8], ptr %164, i64 %165
   %167 = load float, ptr %166, align 4, !tbaa !131
   %168 = fpext float %167 to double
   %169 = sext i32 %161 to i64
   %170 = mul nsw i64 %.24.val, %169
-  %171 = getelementptr inbounds float, ptr %.32.val, i64 %170
-  %172 = getelementptr inbounds float, ptr %171, i64 %165
+  %171 = getelementptr inbounds [4 x i8], ptr %.32.val, i64 %170
+  %172 = getelementptr inbounds [4 x i8], ptr %171, i64 %165
   %173 = load float, ptr %172, align 4, !tbaa !131
   %174 = fpext float %173 to double
   br label %175
@@ -7326,9 +7324,9 @@ _ZN9Imath_3_25floorIdEEiT_.exit:                  ; preds = %6, %8
 18:                                               ; preds = %15
   %19 = zext nneg i32 %.fr to i64
   %20 = mul nsw i64 %.24.val, %19
-  %21 = getelementptr inbounds i32, ptr %.32.val, i64 %20
+  %21 = getelementptr inbounds [4 x i8], ptr %.32.val, i64 %20
   %22 = sext i32 %1 to i64
-  %23 = getelementptr inbounds i32, ptr %21, i64 %22
+  %23 = getelementptr inbounds [4 x i8], ptr %21, i64 %22
   %24 = load i32, ptr %23, align 4, !tbaa !107
   %25 = uitofp i32 %24 to double
   br label %26
@@ -7343,9 +7341,9 @@ _ZN9Imath_3_25floorIdEEiT_.exit:                  ; preds = %6, %8
 30:                                               ; preds = %26
   %31 = zext nneg i32 %14 to i64
   %32 = mul nsw i64 %.24.val, %31
-  %33 = getelementptr inbounds i32, ptr %.32.val, i64 %32
+  %33 = getelementptr inbounds [4 x i8], ptr %.32.val, i64 %32
   %34 = sext i32 %1 to i64
-  %35 = getelementptr inbounds i32, ptr %33, i64 %34
+  %35 = getelementptr inbounds [4 x i8], ptr %33, i64 %34
   %36 = load i32, ptr %35, align 4, !tbaa !107
   %37 = uitofp i32 %36 to double
   br label %175
@@ -7360,15 +7358,15 @@ _ZN9Imath_3_25floorIdEEiT_.exit:                  ; preds = %6, %8
   %45 = select i1 %43, i32 0, i32 %44
   %46 = sext i32 %42 to i64
   %47 = mul nsw i64 %.24.val, %46
-  %48 = getelementptr inbounds i32, ptr %.32.val, i64 %47
+  %48 = getelementptr inbounds [4 x i8], ptr %.32.val, i64 %47
   %49 = sext i32 %1 to i64
-  %50 = getelementptr inbounds i32, ptr %48, i64 %49
+  %50 = getelementptr inbounds [4 x i8], ptr %48, i64 %49
   %51 = load i32, ptr %50, align 4, !tbaa !107
   %52 = uitofp i32 %51 to double
   %53 = sext i32 %45 to i64
   %54 = mul nsw i64 %.24.val, %53
-  %55 = getelementptr inbounds i32, ptr %.32.val, i64 %54
-  %56 = getelementptr inbounds i32, ptr %55, i64 %49
+  %55 = getelementptr inbounds [4 x i8], ptr %.32.val, i64 %54
+  %56 = getelementptr inbounds [4 x i8], ptr %55, i64 %49
   %57 = load i32, ptr %56, align 4, !tbaa !107
   %58 = uitofp i32 %57 to double
   br label %175
@@ -7446,15 +7444,15 @@ _ZN9Imath_3_24modpEii.exit55:                     ; preds = %.thread9, %.thread2
   %95 = sub nsw i32 %14, %94
   %96 = sext i32 %92 to i64
   %97 = mul nsw i64 %.24.val, %96
-  %98 = getelementptr inbounds i32, ptr %.32.val, i64 %97
+  %98 = getelementptr inbounds [4 x i8], ptr %.32.val, i64 %97
   %99 = sext i32 %1 to i64
-  %100 = getelementptr inbounds i32, ptr %98, i64 %99
+  %100 = getelementptr inbounds [4 x i8], ptr %98, i64 %99
   %101 = load i32, ptr %100, align 4, !tbaa !107
   %102 = uitofp i32 %101 to double
   %103 = sext i32 %95 to i64
   %104 = mul nsw i64 %.24.val, %103
-  %105 = getelementptr inbounds i32, ptr %.32.val, i64 %104
-  %106 = getelementptr inbounds i32, ptr %105, i64 %99
+  %105 = getelementptr inbounds [4 x i8], ptr %.32.val, i64 %104
+  %106 = getelementptr inbounds [4 x i8], ptr %105, i64 %99
   %107 = load i32, ptr %106, align 4, !tbaa !107
   %108 = uitofp i32 %107 to double
   br label %175
@@ -7547,15 +7545,15 @@ _ZN12_GLOBAL__N_16mirrorEii.exit57:               ; preds = %140, %142, %146, %1
   %161 = select i1 %.not.i56, i32 %157, i32 %160
   %162 = sext i32 %136 to i64
   %163 = mul nsw i64 %.24.val, %162
-  %164 = getelementptr inbounds i32, ptr %.32.val, i64 %163
+  %164 = getelementptr inbounds [4 x i8], ptr %.32.val, i64 %163
   %165 = sext i32 %1 to i64
-  %166 = getelementptr inbounds i32, ptr %164, i64 %165
+  %166 = getelementptr inbounds [4 x i8], ptr %164, i64 %165
   %167 = load i32, ptr %166, align 4, !tbaa !107
   %168 = uitofp i32 %167 to double
   %169 = sext i32 %161 to i64
   %170 = mul nsw i64 %.24.val, %169
-  %171 = getelementptr inbounds i32, ptr %.32.val, i64 %170
-  %172 = getelementptr inbounds i32, ptr %171, i64 %165
+  %171 = getelementptr inbounds [4 x i8], ptr %.32.val, i64 %170
+  %172 = getelementptr inbounds [4 x i8], ptr %171, i64 %165
   %173 = load i32, ptr %172, align 4, !tbaa !107
   %174 = uitofp i32 %173 to double
   br label %175
@@ -7821,7 +7819,7 @@ _ZSt8_DestroyIPN7Imf_3_46HeaderES1_EvT_S3_RSaIT0_E.exit: ; preds = %.lr.ph.i.i.i
 _ZNSt12_Vector_baseIN7Imf_3_46HeaderESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZSt8_DestroyIPN7Imf_3_46HeaderES1_EvT_S3_RSaIT0_E.exit, %49
   store ptr %20, ptr %0, align 8, !tbaa !21
   store ptr %.0.lcssa.i.i.i.i.i39, ptr %4, align 8, !tbaa !24
-  %53 = getelementptr inbounds nuw %"class.Imf_3_4::Header", ptr %20, i64 %16
+  %53 = getelementptr inbounds nuw [56 x i8], ptr %20, i64 %16
   store ptr %53, ptr %48, align 8, !tbaa !93
   ret void
 

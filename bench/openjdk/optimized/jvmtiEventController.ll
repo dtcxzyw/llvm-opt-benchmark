@@ -27,7 +27,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.VM_Operation = type { ptr, ptr }
 %class.JvmtiFramePop = type { i32 }
 %class.HandleMark = type { ptr, ptr, ptr, ptr, ptr, i64, ptr }
-%class.ImmutableOopMapPair = type { i32, i32 }
 
 $_ZN7LogImplILN6LogTag4typeE62ELS1_132ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz = comdat any
 
@@ -797,7 +796,7 @@ _ZN16SafeResourceMarkC2Ev.exit:                   ; preds = %9, %15, %17
   %42 = and i64 %31, %1
   %.not8 = icmp eq i64 %42, 0
   %43 = select i1 %.not8, ptr @.str.13, ptr @.str.12
-  %44 = getelementptr ptr, ptr @_ZN10JvmtiTrace12_event_namesE, i64 %indvars.iv
+  %44 = getelementptr [8 x i8], ptr @_ZN10JvmtiTrace12_event_namesE, i64 %indvars.iv
   %.0.i = load ptr, ptr %44, align 8
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.11, ptr noundef %41, ptr noundef nonnull %43, ptr noundef %.0.i)
   br label %45
@@ -891,7 +890,7 @@ _ZN16SafeResourceMarkC2Ev.exit:                   ; preds = %8, %14, %16
   %34 = and i64 %29, %0
   %.not8 = icmp eq i64 %34, 0
   %35 = select i1 %.not8, ptr @.str.13, ptr @.str.12
-  %36 = getelementptr ptr, ptr @_ZN10JvmtiTrace12_event_namesE, i64 %indvars.iv
+  %36 = getelementptr [8 x i8], ptr @_ZN10JvmtiTrace12_event_namesE, i64 %indvars.iv
   %.0.i = load ptr, ptr %36, align 8
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.14, ptr noundef nonnull %35, ptr noundef %.0.i)
   br label %37
@@ -1371,7 +1370,7 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit:    ; preds = %69, %94
   %81 = getelementptr inbounds nuw i8, ptr %78, i64 16
   %82 = load ptr, ptr %81, align 8
   %83 = zext i32 %79 to i64
-  %84 = getelementptr inbounds nuw ptr, ptr %82, i64 %83
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %82, i64 %83
   %85 = load ptr, ptr %84, align 8
   %.not61 = icmp eq ptr %85, null
   br i1 %.not61, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread, label %86
@@ -2062,7 +2061,7 @@ _ZN27JvmtiEventControllerPrivate24flush_object_free_eventsEP12JvmtiEnvBase.exit:
   %.022 = phi i64 [ %40, %_ZN27JvmtiEventControllerPrivate24flush_object_free_eventsEP12JvmtiEnvBase.exit ], [ %.1, %41 ]
   %42 = add nsw i64 %indvars.iv, -47
   %43 = shl nuw i64 1, %42
-  %44 = getelementptr ptr, ptr %0, i64 %indvars.iv
+  %44 = getelementptr [8 x i8], ptr %0, i64 %indvars.iv
   %45 = getelementptr i8, ptr %44, i64 -360
   %46 = load ptr, ptr %45, align 8
   %.not20 = icmp eq ptr %46, null
@@ -2524,7 +2523,7 @@ _ZN16SafeResourceMarkC2Ev.exit:                   ; preds = %11, %17, %19
   %38 = add i32 %3, -50
   %or.cond.i = icmp ult i32 %38, 39
   %39 = zext nneg i32 %3 to i64
-  %40 = getelementptr inbounds nuw ptr, ptr @_ZN10JvmtiTrace12_event_namesE, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr @_ZN10JvmtiTrace12_event_namesE, i64 %39
   %.0.in.i = select i1 %or.cond.i, ptr %40, ptr @_ZZN10JvmtiTrace10event_nameEiE14ext_event_name
   %.0.i = load ptr, ptr %.0.in.i, align 8
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.23, ptr noundef %36, ptr noundef nonnull %37, ptr noundef %.0.i)
@@ -3451,7 +3450,7 @@ define linkonce_odr hidden noundef ptr @_ZNK12VM_Operation4nameEv(ptr noundef no
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef i32 %4(ptr noundef nonnull align 8 dereferenceable(16) %0) #15
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw ptr, ptr @_ZN12VM_Operation6_namesE, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr @_ZN12VM_Operation6_namesE, i64 %6
   %8 = load ptr, ptr %7, align 8
   ret ptr %8
 }
@@ -3825,7 +3824,7 @@ define linkonce_odr hidden void @_ZNK5frame25sender_for_compiled_frameEP11Regist
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 44
   %9 = load i32, ptr %8, align 4
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds i64, ptr %5, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %5, i64 %10
   %12 = getelementptr inbounds i8, ptr %11, i64 -8
   %13 = load i64, ptr %12, align 8
   %14 = inttoptr i64 %13 to ptr
@@ -3880,7 +3879,7 @@ _ZNK5frame7oop_mapEv.exit.thread23:               ; preds = %42
   %45 = lshr i32 %44, 24
   %46 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %47 = zext nneg i32 %45 to i64
-  %48 = getelementptr inbounds nuw %class.ImmutableOopMapPair, ptr %46, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 4
   %50 = load i32, ptr %49, align 4
   %51 = load i32, ptr %36, align 4

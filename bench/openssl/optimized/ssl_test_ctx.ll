@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.ssl_test_ctx_option = type { ptr, ptr }
 %struct.ssl_test_client_option = type { ptr, ptr }
 %struct.ssl_test_server_option = type { ptr, ptr }
-%struct.test_enum = type { ptr, i32 }
 
 @.str = private unnamed_addr constant [39 x i8] c"../openssl/test/helpers/ssl_test_ctx.c\00", align 1
 @.str.1 = private unnamed_addr constant [48 x i8] c"sk_conf = NCONF_get_section(conf, test_section)\00", align 1
@@ -164,7 +163,7 @@ define dso_local ptr @ssl_test_result_name(i32 noundef %0) local_unnamed_addr #0
 
 4:                                                ; preds = %2, %1
   %.09.i = phi i64 [ 0, %1 ], [ %3, %2 ]
-  %5 = getelementptr inbounds nuw %struct.test_enum, ptr @ssl_test_results, i64 %.09.i
+  %5 = getelementptr inbounds nuw [16 x i8], ptr @ssl_test_results, i64 %.09.i
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i32, ptr %6, align 8, !tbaa !6
   %8 = icmp eq i32 %7, %0
@@ -190,7 +189,7 @@ define dso_local ptr @ssl_alert_name(i32 noundef %0) local_unnamed_addr #0 {
 
 4:                                                ; preds = %2, %1
   %.09.i = phi i64 [ 0, %1 ], [ %3, %2 ]
-  %5 = getelementptr inbounds nuw %struct.test_enum, ptr @ssl_alerts, i64 %.09.i
+  %5 = getelementptr inbounds nuw [16 x i8], ptr @ssl_alerts, i64 %.09.i
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i32, ptr %6, align 8, !tbaa !6
   %8 = icmp eq i32 %7, %0
@@ -216,7 +215,7 @@ define dso_local ptr @ssl_protocol_name(i32 noundef %0) local_unnamed_addr #0 {
 
 4:                                                ; preds = %2, %1
   %.09.i = phi i64 [ 0, %1 ], [ %3, %2 ]
-  %5 = getelementptr inbounds nuw %struct.test_enum, ptr @ssl_protocols, i64 %.09.i
+  %5 = getelementptr inbounds nuw [16 x i8], ptr @ssl_protocols, i64 %.09.i
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i32, ptr %6, align 8, !tbaa !6
   %8 = icmp eq i32 %7, %0
@@ -242,7 +241,7 @@ define dso_local ptr @ssl_verify_callback_name(i32 noundef %0) local_unnamed_add
 
 4:                                                ; preds = %2, %1
   %.09.i = phi i64 [ 0, %1 ], [ %3, %2 ]
-  %5 = getelementptr inbounds nuw %struct.test_enum, ptr @ssl_verify_callbacks, i64 %.09.i
+  %5 = getelementptr inbounds nuw [16 x i8], ptr @ssl_verify_callbacks, i64 %.09.i
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i32, ptr %6, align 8, !tbaa !6
   %8 = icmp eq i32 %7, %0
@@ -268,7 +267,7 @@ define dso_local ptr @ssl_servername_name(i32 noundef %0) local_unnamed_addr #0 
 
 4:                                                ; preds = %2, %1
   %.09.i = phi i64 [ 0, %1 ], [ %3, %2 ]
-  %5 = getelementptr inbounds nuw %struct.test_enum, ptr @ssl_servername, i64 %.09.i
+  %5 = getelementptr inbounds nuw [16 x i8], ptr @ssl_servername, i64 %.09.i
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i32, ptr %6, align 8, !tbaa !6
   %8 = icmp eq i32 %7, %0
@@ -294,7 +293,7 @@ define dso_local ptr @ssl_servername_callback_name(i32 noundef %0) local_unnamed
 
 4:                                                ; preds = %2, %1
   %.09.i = phi i64 [ 0, %1 ], [ %3, %2 ]
-  %5 = getelementptr inbounds nuw %struct.test_enum, ptr @ssl_servername_callbacks, i64 %.09.i
+  %5 = getelementptr inbounds nuw [16 x i8], ptr @ssl_servername_callbacks, i64 %.09.i
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i32, ptr %6, align 8, !tbaa !6
   %8 = icmp eq i32 %7, %0
@@ -320,7 +319,7 @@ define dso_local ptr @ssl_session_ticket_name(i32 noundef %0) local_unnamed_addr
 
 4:                                                ; preds = %2, %1
   %.09.i = phi i64 [ 0, %1 ], [ %3, %2 ]
-  %5 = getelementptr inbounds nuw %struct.test_enum, ptr @ssl_session_id, i64 %.09.i
+  %5 = getelementptr inbounds nuw [16 x i8], ptr @ssl_session_id, i64 %.09.i
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i32, ptr %6, align 8, !tbaa !6
   %8 = icmp eq i32 %7, %0
@@ -346,7 +345,7 @@ define dso_local ptr @ssl_session_id_name(i32 noundef %0) local_unnamed_addr #0 
 
 4:                                                ; preds = %2, %1
   %.09.i = phi i64 [ 0, %1 ], [ %3, %2 ]
-  %5 = getelementptr inbounds nuw %struct.test_enum, ptr @ssl_session_id, i64 %.09.i
+  %5 = getelementptr inbounds nuw [16 x i8], ptr @ssl_session_id, i64 %.09.i
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i32, ptr %6, align 8, !tbaa !6
   %8 = icmp eq i32 %7, %0
@@ -372,7 +371,7 @@ define dso_local ptr @ssl_test_method_name(i32 noundef %0) local_unnamed_addr #0
 
 4:                                                ; preds = %2, %1
   %.09.i = phi i64 [ 0, %1 ], [ %3, %2 ]
-  %5 = getelementptr inbounds nuw %struct.test_enum, ptr @ssl_test_methods, i64 %.09.i
+  %5 = getelementptr inbounds nuw [16 x i8], ptr @ssl_test_methods, i64 %.09.i
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i32, ptr %6, align 8, !tbaa !6
   %8 = icmp eq i32 %7, %0
@@ -398,7 +397,7 @@ define dso_local ptr @ssl_handshake_mode_name(i32 noundef %0) local_unnamed_addr
 
 4:                                                ; preds = %2, %1
   %.09.i = phi i64 [ 0, %1 ], [ %3, %2 ]
-  %5 = getelementptr inbounds nuw %struct.test_enum, ptr @ssl_handshake_modes, i64 %.09.i
+  %5 = getelementptr inbounds nuw [16 x i8], ptr @ssl_handshake_modes, i64 %.09.i
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i32, ptr %6, align 8, !tbaa !6
   %8 = icmp eq i32 %7, %0
@@ -424,7 +423,7 @@ define dso_local ptr @ssl_ct_validation_name(i32 noundef %0) local_unnamed_addr 
 
 4:                                                ; preds = %2, %1
   %.09.i = phi i64 [ 0, %1 ], [ %3, %2 ]
-  %5 = getelementptr inbounds nuw %struct.test_enum, ptr @ssl_ct_validation_modes, i64 %.09.i
+  %5 = getelementptr inbounds nuw [16 x i8], ptr @ssl_ct_validation_modes, i64 %.09.i
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i32, ptr %6, align 8, !tbaa !6
   %8 = icmp eq i32 %7, %0
@@ -450,7 +449,7 @@ define dso_local ptr @ssl_certstatus_name(i32 noundef %0) local_unnamed_addr #0 
 
 4:                                                ; preds = %2, %1
   %.09.i = phi i64 [ 0, %1 ], [ %3, %2 ]
-  %5 = getelementptr inbounds nuw %struct.test_enum, ptr @ssl_certstatus, i64 %.09.i
+  %5 = getelementptr inbounds nuw [16 x i8], ptr @ssl_certstatus, i64 %.09.i
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i32, ptr %6, align 8, !tbaa !6
   %8 = icmp eq i32 %7, %0
@@ -476,7 +475,7 @@ define dso_local ptr @ssl_max_fragment_len_name(i32 noundef %0) local_unnamed_ad
 
 4:                                                ; preds = %2, %1
   %.09.i = phi i64 [ 0, %1 ], [ %3, %2 ]
-  %5 = getelementptr inbounds nuw %struct.test_enum, ptr @ssl_max_fragment_len_mode, i64 %.09.i
+  %5 = getelementptr inbounds nuw [16 x i8], ptr @ssl_max_fragment_len_mode, i64 %.09.i
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i32, ptr %6, align 8, !tbaa !6
   %8 = icmp eq i32 %7, %0
@@ -679,7 +678,7 @@ SSL_TEST_CTX_new.exit:                            ; preds = %6, %8
 
 .preheader:                                       ; preds = %59, %66
   %.04867 = phi i64 [ %67, %66 ], [ 0, %59 ]
-  %68 = getelementptr inbounds nuw %struct.ssl_test_ctx_option, ptr @ssl_test_ctx_options, i64 %.04867
+  %68 = getelementptr inbounds nuw [16 x i8], ptr @ssl_test_ctx_options, i64 %.04867
   %69 = load ptr, ptr %68, align 16, !tbaa !34
   %70 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull dereferenceable(1) %69) #9
   %71 = icmp eq i32 %70, 0
@@ -765,7 +764,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_client_options(ptr noundef %0,
 
 17:                                               ; preds = %.lr.ph, %15
   %.02131 = phi i64 [ 0, %.lr.ph ], [ %16, %15 ]
-  %18 = getelementptr inbounds nuw %struct.ssl_test_client_option, ptr @ssl_test_client_options, i64 %.02131
+  %18 = getelementptr inbounds nuw [16 x i8], ptr @ssl_test_client_options, i64 %.02131
   %19 = load ptr, ptr %18, align 16, !tbaa !34
   %20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(1) %19) #9
   %21 = icmp eq i32 %20, 0
@@ -829,7 +828,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_server_options(ptr noundef %0,
 
 17:                                               ; preds = %.lr.ph, %15
   %.02131 = phi i64 [ 0, %.lr.ph ], [ %16, %15 ]
-  %18 = getelementptr inbounds nuw %struct.ssl_test_server_option, ptr @ssl_test_server_options, i64 %.02131
+  %18 = getelementptr inbounds nuw [16 x i8], ptr @ssl_test_server_options, i64 %.02131
   %19 = load ptr, ptr %18, align 16, !tbaa !34
   %20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(1) %19) #9
   %21 = icmp eq i32 %20, 0
@@ -924,7 +923,7 @@ define internal range(i32 0, 2) i32 @parse_client_verify_callback(ptr noundef wr
 
 5:                                                ; preds = %3, %2
   %.010.i = phi i64 [ 0, %2 ], [ %4, %3 ]
-  %6 = getelementptr inbounds nuw %struct.test_enum, ptr @ssl_verify_callbacks, i64 %.010.i
+  %6 = getelementptr inbounds nuw [16 x i8], ptr @ssl_verify_callbacks, i64 %.010.i
   %7 = load ptr, ptr %6, align 16, !tbaa !13
   %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull readonly dereferenceable(1) %1) #9
   %9 = icmp eq i32 %8, 0
@@ -952,7 +951,7 @@ define internal range(i32 0, 2) i32 @parse_servername(ptr noundef writeonly capt
 
 5:                                                ; preds = %3, %2
   %.010.i = phi i64 [ 0, %2 ], [ %4, %3 ]
-  %6 = getelementptr inbounds nuw %struct.test_enum, ptr @ssl_servername, i64 %.010.i
+  %6 = getelementptr inbounds nuw [16 x i8], ptr @ssl_servername, i64 %.010.i
   %7 = load ptr, ptr %6, align 16, !tbaa !13
   %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull readonly dereferenceable(1) %1) #9
   %9 = icmp eq i32 %8, 0
@@ -1003,7 +1002,7 @@ define internal range(i32 0, 2) i32 @parse_ct_validation(ptr noundef writeonly c
 
 5:                                                ; preds = %3, %2
   %.010.i = phi i64 [ 0, %2 ], [ %4, %3 ]
-  %6 = getelementptr inbounds nuw %struct.test_enum, ptr @ssl_ct_validation_modes, i64 %.010.i
+  %6 = getelementptr inbounds nuw [16 x i8], ptr @ssl_ct_validation_modes, i64 %.010.i
   %7 = load ptr, ptr %6, align 16, !tbaa !13
   %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull readonly dereferenceable(1) %1) #9
   %9 = icmp eq i32 %8, 0
@@ -1065,7 +1064,7 @@ define internal range(i32 0, 2) i32 @parse_max_fragment_len_mode(ptr noundef wri
 
 5:                                                ; preds = %3, %2
   %.010.i = phi i64 [ 0, %2 ], [ %4, %3 ]
-  %6 = getelementptr inbounds nuw %struct.test_enum, ptr @ssl_max_fragment_len_mode, i64 %.010.i
+  %6 = getelementptr inbounds nuw [16 x i8], ptr @ssl_max_fragment_len_mode, i64 %.010.i
   %7 = load ptr, ptr %6, align 16, !tbaa !13
   %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull readonly dereferenceable(1) %1) #9
   %9 = icmp eq i32 %8, 0
@@ -1158,7 +1157,7 @@ define internal range(i32 0, 2) i32 @parse_servername_callback(ptr noundef write
 
 5:                                                ; preds = %3, %2
   %.010.i = phi i64 [ 0, %2 ], [ %4, %3 ]
-  %6 = getelementptr inbounds nuw %struct.test_enum, ptr @ssl_servername_callbacks, i64 %.010.i
+  %6 = getelementptr inbounds nuw [16 x i8], ptr @ssl_servername_callbacks, i64 %.010.i
   %7 = load ptr, ptr %6, align 16, !tbaa !13
   %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull readonly dereferenceable(1) %1) #9
   %9 = icmp eq i32 %8, 0
@@ -1237,7 +1236,7 @@ define internal range(i32 0, 2) i32 @parse_certstatus(ptr noundef writeonly capt
 
 5:                                                ; preds = %3, %2
   %.010.i = phi i64 [ 0, %2 ], [ %4, %3 ]
-  %6 = getelementptr inbounds nuw %struct.test_enum, ptr @ssl_certstatus, i64 %.010.i
+  %6 = getelementptr inbounds nuw [16 x i8], ptr @ssl_certstatus, i64 %.010.i
   %7 = load ptr, ptr %6, align 16, !tbaa !13
   %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull readonly dereferenceable(1) %1) #9
   %9 = icmp eq i32 %8, 0
@@ -1328,7 +1327,7 @@ define internal range(i32 0, 2) i32 @parse_expected_result(ptr noundef writeonly
 
 5:                                                ; preds = %3, %2
   %.010.i = phi i64 [ 0, %2 ], [ %4, %3 ]
-  %6 = getelementptr inbounds nuw %struct.test_enum, ptr @ssl_test_results, i64 %.010.i
+  %6 = getelementptr inbounds nuw [16 x i8], ptr @ssl_test_results, i64 %.010.i
   %7 = load ptr, ptr %6, align 16, !tbaa !13
   %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull readonly dereferenceable(1) %1) #9
   %9 = icmp eq i32 %8, 0
@@ -1358,7 +1357,7 @@ define internal range(i32 0, 2) i32 @parse_client_alert(ptr noundef writeonly ca
 
 6:                                                ; preds = %4, %2
   %.010.i.i = phi i64 [ 0, %2 ], [ %5, %4 ]
-  %7 = getelementptr inbounds nuw %struct.test_enum, ptr @ssl_alerts, i64 %.010.i.i
+  %7 = getelementptr inbounds nuw [16 x i8], ptr @ssl_alerts, i64 %.010.i.i
   %8 = load ptr, ptr %7, align 16, !tbaa !13
   %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull readonly dereferenceable(1) %1) #9
   %10 = icmp eq i32 %9, 0
@@ -1387,7 +1386,7 @@ define internal range(i32 0, 2) i32 @parse_server_alert(ptr noundef writeonly ca
 
 6:                                                ; preds = %4, %2
   %.010.i.i = phi i64 [ 0, %2 ], [ %5, %4 ]
-  %7 = getelementptr inbounds nuw %struct.test_enum, ptr @ssl_alerts, i64 %.010.i.i
+  %7 = getelementptr inbounds nuw [16 x i8], ptr @ssl_alerts, i64 %.010.i.i
   %8 = load ptr, ptr %7, align 16, !tbaa !13
   %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull readonly dereferenceable(1) %1) #9
   %10 = icmp eq i32 %9, 0
@@ -1416,7 +1415,7 @@ define internal range(i32 0, 2) i32 @parse_protocol(ptr noundef writeonly captur
 
 6:                                                ; preds = %4, %2
   %.010.i = phi i64 [ 0, %2 ], [ %5, %4 ]
-  %7 = getelementptr inbounds nuw %struct.test_enum, ptr @ssl_protocols, i64 %.010.i
+  %7 = getelementptr inbounds nuw [16 x i8], ptr @ssl_protocols, i64 %.010.i
   %8 = load ptr, ptr %7, align 16, !tbaa !13
   %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull readonly dereferenceable(1) %1) #9
   %10 = icmp eq i32 %9, 0
@@ -1444,7 +1443,7 @@ define internal range(i32 0, 2) i32 @parse_expected_servername(ptr noundef write
 
 5:                                                ; preds = %3, %2
   %.010.i = phi i64 [ 0, %2 ], [ %4, %3 ]
-  %6 = getelementptr inbounds nuw %struct.test_enum, ptr @ssl_servername, i64 %.010.i
+  %6 = getelementptr inbounds nuw [16 x i8], ptr @ssl_servername, i64 %.010.i
   %7 = load ptr, ptr %6, align 16, !tbaa !13
   %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull readonly dereferenceable(1) %1) #9
   %9 = icmp eq i32 %8, 0
@@ -1473,7 +1472,7 @@ define internal range(i32 0, 2) i32 @parse_session_ticket(ptr noundef writeonly 
 
 5:                                                ; preds = %3, %2
   %.010.i = phi i64 [ 0, %2 ], [ %4, %3 ]
-  %6 = getelementptr inbounds nuw %struct.test_enum, ptr @ssl_session_id, i64 %.010.i
+  %6 = getelementptr inbounds nuw [16 x i8], ptr @ssl_session_id, i64 %.010.i
   %7 = load ptr, ptr %6, align 16, !tbaa !13
   %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull readonly dereferenceable(1) %1) #9
   %9 = icmp eq i32 %8, 0
@@ -1531,7 +1530,7 @@ define internal range(i32 0, 2) i32 @parse_session_id(ptr noundef writeonly capt
 
 5:                                                ; preds = %3, %2
   %.010.i = phi i64 [ 0, %2 ], [ %4, %3 ]
-  %6 = getelementptr inbounds nuw %struct.test_enum, ptr @ssl_session_id, i64 %.010.i
+  %6 = getelementptr inbounds nuw [16 x i8], ptr @ssl_session_id, i64 %.010.i
   %7 = load ptr, ptr %6, align 16, !tbaa !13
   %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull readonly dereferenceable(1) %1) #9
   %9 = icmp eq i32 %8, 0
@@ -1560,7 +1559,7 @@ define internal range(i32 0, 2) i32 @parse_test_method(ptr noundef writeonly cap
 
 5:                                                ; preds = %3, %2
   %.010.i = phi i64 [ 0, %2 ], [ %4, %3 ]
-  %6 = getelementptr inbounds nuw %struct.test_enum, ptr @ssl_test_methods, i64 %.010.i
+  %6 = getelementptr inbounds nuw [16 x i8], ptr @ssl_test_methods, i64 %.010.i
   %7 = load ptr, ptr %6, align 16, !tbaa !13
   %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull readonly dereferenceable(1) %1) #9
   %9 = icmp eq i32 %8, 0
@@ -1610,7 +1609,7 @@ define internal range(i32 0, 2) i32 @parse_handshake_mode(ptr noundef writeonly 
 
 5:                                                ; preds = %3, %2
   %.010.i = phi i64 [ 0, %2 ], [ %4, %3 ]
-  %6 = getelementptr inbounds nuw %struct.test_enum, ptr @ssl_handshake_modes, i64 %.010.i
+  %6 = getelementptr inbounds nuw [16 x i8], ptr @ssl_handshake_modes, i64 %.010.i
   %7 = load ptr, ptr %6, align 16, !tbaa !13
   %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull readonly dereferenceable(1) %1) #9
   %9 = icmp eq i32 %8, 0
@@ -1638,7 +1637,7 @@ define internal range(i32 0, 2) i32 @parse_key_update_type(ptr noundef writeonly
 4:                                                ; preds = %3, %2
   %exitcond.not.i = phi i1 [ false, %2 ], [ true, %3 ]
   %.010.i = phi i64 [ 0, %2 ], [ 1, %3 ]
-  %5 = getelementptr inbounds nuw %struct.test_enum, ptr @ssl_key_update_types, i64 %.010.i
+  %5 = getelementptr inbounds nuw [16 x i8], ptr @ssl_key_update_types, i64 %.010.i
   %6 = load ptr, ptr %5, align 16, !tbaa !13
   %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull readonly dereferenceable(1) %1) #9
   %8 = icmp eq i32 %7, 0

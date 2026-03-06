@@ -8,7 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.lstopo_cairo_output = type { ptr, ptr, ptr }
 %struct.XrmValue = type { i32, ptr }
 %union._XEvent = type { [24 x i64] }
-%struct.Screen = type { ptr, ptr, i64, i32, i32, i32, i32, i32, ptr, i32, ptr, ptr, i64, i64, i64, i32, i32, i32, i32, i64 }
 %struct.cairo_text_extents_t = type { double, double, double, double, double, double }
 
 @x11_draw_methods = internal global %struct.draw_methods { ptr null, ptr null, ptr @topo_cairo_box, ptr @topo_cairo_line, ptr @topo_cairo_text, ptr @topo_cairo_textsize }, align 8
@@ -90,7 +89,7 @@ define hidden range(i32 -1, 1) i32 @output_x11(ptr noundef %0, ptr noundef readn
   %25 = getelementptr inbounds nuw i8, ptr %16, i64 232
   %26 = load ptr, ptr %25, align 8, !tbaa !36
   %27 = sext i32 %23 to i64
-  %28 = getelementptr inbounds %struct.Screen, ptr %26, i64 %27
+  %28 = getelementptr inbounds [128 x i8], ptr %26, i64 %27
   %29 = call ptr @XResourceManagerString(ptr noundef nonnull %16) #13
   %.not301 = icmp eq ptr %29, null
   br i1 %.not301, label %.thread, label %30
@@ -134,7 +133,7 @@ define hidden range(i32 -1, 1) i32 @output_x11(ptr noundef %0, ptr noundef readn
 
 .thread:                                          ; preds = %20, %.thread345, %39
   %45 = load ptr, ptr %25, align 8, !tbaa !36
-  %46 = getelementptr inbounds %struct.Screen, ptr %45, i64 %27
+  %46 = getelementptr inbounds [128 x i8], ptr %45, i64 %27
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 24
   %48 = load i32, ptr %47, align 8, !tbaa !39
   %49 = sitofp i32 %48 to double
@@ -171,7 +170,7 @@ define hidden range(i32 -1, 1) i32 @output_x11(ptr noundef %0, ptr noundef readn
   %76 = mul i32 %75, %.2
   %77 = udiv i32 %76, 96
   store i32 %77, ptr %74, align 4, !tbaa !46
-  %78 = getelementptr inbounds %struct.Screen, ptr %68, i64 %27
+  %78 = getelementptr inbounds [128 x i8], ptr %68, i64 %27
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 16
   %80 = load i64, ptr %79, align 8, !tbaa !47
   %81 = getelementptr inbounds nuw i8, ptr %8, i64 40
@@ -183,7 +182,7 @@ define hidden range(i32 -1, 1) i32 @output_x11(ptr noundef %0, ptr noundef readn
   %85 = load ptr, ptr %84, align 8, !tbaa !36
   %86 = load i32, ptr %24, align 8, !tbaa !35
   %87 = sext i32 %86 to i64
-  %88 = getelementptr inbounds %struct.Screen, ptr %85, i64 %87
+  %88 = getelementptr inbounds [128 x i8], ptr %85, i64 %87
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 88
   %90 = load i64, ptr %89, align 8, !tbaa !50
   %91 = call i64 @XCreateSimpleWindow(ptr noundef %83, i64 noundef %80, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 noundef 1, i32 noundef 0, i64 noundef %90, i64 noundef %90) #13
@@ -208,7 +207,7 @@ define hidden range(i32 -1, 1) i32 @output_x11(ptr noundef %0, ptr noundef readn
   %108 = load ptr, ptr %107, align 8, !tbaa !36
   %109 = load i32, ptr %24, align 8, !tbaa !35
   %110 = sext i32 %109 to i64
-  %111 = getelementptr inbounds %struct.Screen, ptr %108, i64 %110
+  %111 = getelementptr inbounds [128 x i8], ptr %108, i64 %110
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 64
   %113 = load ptr, ptr %112, align 8, !tbaa !53
   %114 = call ptr @cairo_xlib_surface_create(ptr noundef %105, i64 noundef %106, ptr noundef %113, i32 noundef 1, i32 noundef 1) #13
@@ -243,7 +242,7 @@ define hidden range(i32 -1, 1) i32 @output_x11(ptr noundef %0, ptr noundef readn
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 1616
   %134 = load i32, ptr %133, align 8, !tbaa !58
   %135 = load ptr, ptr %25, align 8, !tbaa !36
-  %136 = getelementptr inbounds %struct.Screen, ptr %135, i64 %27
+  %136 = getelementptr inbounds [128 x i8], ptr %135, i64 %27
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 88
   %138 = load i64, ptr %137, align 8, !tbaa !50
   %139 = call i64 @XCreateSimpleWindow(ptr noundef nonnull %16, i64 noundef %80, i32 noundef 0, i32 noundef 0, i32 noundef %132, i32 noundef %134, i32 noundef 0, i64 noundef %138, i64 noundef %138) #13
@@ -315,7 +314,7 @@ define hidden range(i32 -1, 1) i32 @output_x11(ptr noundef %0, ptr noundef readn
   %179 = load ptr, ptr %178, align 8, !tbaa !36
   %180 = load i32, ptr %24, align 8, !tbaa !35
   %181 = sext i32 %180 to i64
-  %182 = getelementptr inbounds %struct.Screen, ptr %179, i64 %181
+  %182 = getelementptr inbounds [128 x i8], ptr %179, i64 %181
   %183 = getelementptr inbounds nuw i8, ptr %182, i64 88
   %184 = load i64, ptr %183, align 8, !tbaa !50
   %185 = call i64 @XCreateSimpleWindow(ptr noundef %176, i64 noundef %177, i32 noundef 0, i32 noundef 0, i32 noundef %158, i32 noundef %160, i32 noundef 0, i64 noundef %184, i64 noundef %184) #13
@@ -338,7 +337,7 @@ define hidden range(i32 -1, 1) i32 @output_x11(ptr noundef %0, ptr noundef readn
   %200 = load ptr, ptr %199, align 8, !tbaa !36
   %201 = load i32, ptr %24, align 8, !tbaa !35
   %202 = sext i32 %201 to i64
-  %203 = getelementptr inbounds %struct.Screen, ptr %200, i64 %202
+  %203 = getelementptr inbounds [128 x i8], ptr %200, i64 %202
   %204 = getelementptr inbounds nuw i8, ptr %203, i64 64
   %205 = load ptr, ptr %204, align 8, !tbaa !53
   %206 = call ptr @cairo_xlib_surface_create(ptr noundef %197, i64 noundef %198, ptr noundef %205, i32 noundef %158, i32 noundef %160) #13
@@ -579,7 +578,7 @@ define hidden range(i32 -1, 1) i32 @output_x11(ptr noundef %0, ptr noundef readn
   %.021.i = phi i64 [ %330, %.lr.ph.i ], [ 0, %319 ]
   %.120.i = phi i32 [ %.2.i, %.lr.ph.i ], [ 0, %319 ]
   %.11619.i = phi i32 [ %.217.i, %.lr.ph.i ], [ 0, %319 ]
-  %325 = getelementptr inbounds nuw i64, ptr %.pre.i, i64 %.021.i
+  %325 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i, i64 %.021.i
   %326 = load i64, ptr %325, align 8, !tbaa !85
   %327 = icmp eq i64 %326, %321
   %328 = icmp ne i64 %326, %323
@@ -872,10 +871,10 @@ x11_is_maximized.exit:                            ; preds = %312, %._crit_edge.i
 
 switch.lookup:                                    ; preds = %432
   %436 = zext nneg i32 %433 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.output_x11, i64 %436
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.output_x11, i64 %436
   %switch.load = load i32, ptr %switch.gep, align 4
   %437 = zext nneg i32 %433 to i64
-  %switch.gep422 = getelementptr inbounds nuw ptr, ptr @switch.table.output_x11.11, i64 %437
+  %switch.gep422 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.output_x11.11, i64 %437
   %switch.load423 = load ptr, ptr %switch.gep422, align 8
   store i32 %switch.load, ptr %232, align 4, !tbaa !89
   %puts325 = call i32 @puts(ptr nonnull dereferenceable(1) %switch.load423)
@@ -962,10 +961,10 @@ switch.lookup:                                    ; preds = %432
 
 switch.lookup424:                                 ; preds = %462
   %466 = zext nneg i32 %463 to i64
-  %switch.gep425 = getelementptr inbounds nuw i32, ptr @switch.table.output_x11.12, i64 %466
+  %switch.gep425 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.output_x11.12, i64 %466
   %switch.load426 = load i32, ptr %switch.gep425, align 4
   %467 = zext nneg i32 %463 to i64
-  %switch.gep427 = getelementptr inbounds nuw ptr, ptr @switch.table.output_x11.13, i64 %467
+  %switch.gep427 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.output_x11.13, i64 %467
   %switch.load428 = load ptr, ptr %switch.gep427, align 8
   store i32 %switch.load426, ptr %226, align 8, !tbaa !95
   %puts311 = call i32 @puts(ptr nonnull dereferenceable(1) %switch.load428)
@@ -1160,7 +1159,7 @@ define internal fastcc void @move_x11(ptr noundef nonnull %0) unnamed_addr #0 {
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %67 = load i32, ptr %66, align 8, !tbaa !35
   %68 = sext i32 %67 to i64
-  %69 = getelementptr inbounds %struct.Screen, ptr %65, i64 %68
+  %69 = getelementptr inbounds [128 x i8], ptr %65, i64 %68
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 88
   %71 = load i64, ptr %70, align 8, !tbaa !50
   %72 = tail call i64 @XCreateSimpleWindow(ptr noundef %61, i64 noundef %63, i32 noundef 0, i32 noundef 0, i32 noundef %58, i32 noundef %60, i32 noundef 0, i64 noundef %71, i64 noundef %71) #13
@@ -1184,7 +1183,7 @@ define internal fastcc void @move_x11(ptr noundef nonnull %0) unnamed_addr #0 {
   %88 = load ptr, ptr %87, align 8, !tbaa !36
   %89 = load i32, ptr %66, align 8, !tbaa !35
   %90 = sext i32 %89 to i64
-  %91 = getelementptr inbounds %struct.Screen, ptr %88, i64 %90
+  %91 = getelementptr inbounds [128 x i8], ptr %88, i64 %90
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 64
   %93 = load ptr, ptr %92, align 8, !tbaa !53
   %94 = tail call ptr @cairo_xlib_surface_create(ptr noundef %85, i64 noundef %86, ptr noundef %93, i32 noundef %58, i32 noundef %60) #13
@@ -1241,7 +1240,7 @@ define internal fastcc void @move_x11(ptr noundef nonnull %0) unnamed_addr #0 {
   %127 = load ptr, ptr %126, align 8, !tbaa !36
   %128 = load i32, ptr %66, align 8, !tbaa !35
   %129 = sext i32 %128 to i64
-  %130 = getelementptr inbounds %struct.Screen, ptr %127, i64 %129
+  %130 = getelementptr inbounds [128 x i8], ptr %127, i64 %129
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 88
   %132 = load i64, ptr %131, align 8, !tbaa !50
   %133 = tail call i64 @XCreateSimpleWindow(ptr noundef %124, i64 noundef %125, i32 noundef 0, i32 noundef 0, i32 noundef %121, i32 noundef %123, i32 noundef 0, i64 noundef %132, i64 noundef %132) #13
@@ -1264,7 +1263,7 @@ define internal fastcc void @move_x11(ptr noundef nonnull %0) unnamed_addr #0 {
   %148 = load ptr, ptr %147, align 8, !tbaa !36
   %149 = load i32, ptr %66, align 8, !tbaa !35
   %150 = sext i32 %149 to i64
-  %151 = getelementptr inbounds %struct.Screen, ptr %148, i64 %150
+  %151 = getelementptr inbounds [128 x i8], ptr %148, i64 %150
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 64
   %153 = load ptr, ptr %152, align 8, !tbaa !53
   %154 = tail call ptr @cairo_xlib_surface_create(ptr noundef %145, i64 noundef %146, ptr noundef %153, i32 noundef %121, i32 noundef %123) #13

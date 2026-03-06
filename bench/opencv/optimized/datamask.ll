@@ -231,7 +231,7 @@ _ZN5zxing12ErrorHandlerD2Ev.exit10:               ; preds = %13, %_ZNKSt7__cxx11
 19:                                               ; preds = %2
   %20 = zext nneg i32 %0 to i64
   %21 = load ptr, ptr @_ZN5zxing6qrcode8DataMask10DATA_MASKSE, align 8, !tbaa !18
-  %22 = getelementptr inbounds nuw %"class.zxing::Ref", ptr %21, i64 %20
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %20
   br label %23
 
 23:                                               ; preds = %19, %_ZN5zxing12ErrorHandlerD2Ev.exit

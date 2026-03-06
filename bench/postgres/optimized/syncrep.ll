@@ -3,11 +3,6 @@ source_filename = "bench/postgres/original/syncrep.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.dlist_head = type { %struct.dlist_node }
-%struct.dlist_node = type { ptr, ptr }
-%struct.SyncRepStandbyData = type { i32, i64, i64, i64, i32, i32, i8 }
-%struct.WalSnd = type { i32, i32, i64, i8, i64, i64, i64, i64, i64, i64, i32, i8, i64, i32 }
-
 @SyncRepConfig = dso_local local_unnamed_addr global ptr null, align 8
 @max_wal_senders = external local_unnamed_addr global i32, align 4
 @synchronous_commit = external local_unnamed_addr global i32, align 4
@@ -78,7 +73,7 @@ define dso_local void @SyncRepWaitForLSN(i64 noundef %0, i1 noundef zeroext %1) 
   %.0 = select i1 %1, i32 %14, i32 %23
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %25 = sext i32 %.0 to i64
-  %26 = getelementptr inbounds i64, ptr %24, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %24, i64 %25
   %27 = load i64, ptr %26, align 8
   %.not = icmp ugt i64 %0, %27
   br i1 %.not, label %31, label %28
@@ -95,7 +90,7 @@ define dso_local void @SyncRepWaitForLSN(i64 noundef %0, i1 noundef zeroext %1) 
   store i64 %0, ptr %33, align 8
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 160
   store i32 1, ptr %34, align 8
-  %35 = getelementptr inbounds %struct.dlist_head, ptr %18, i64 %25
+  %35 = getelementptr inbounds [16 x i8], ptr %18, i64 %25
   %36 = load ptr, ptr %35, align 8
   %.not.i = icmp eq ptr %36, null
   %.not121517.i = icmp eq ptr %36, %35
@@ -520,7 +515,7 @@ define dso_local void @SyncRepReleaseWaiters() local_unnamed_addr #0 {
 
 25:                                               ; preds = %24, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %24 ]
-  %26 = getelementptr inbounds nuw %struct.SyncRepStandbyData, ptr %.pre, i64 %indvars.iv.i
+  %26 = getelementptr inbounds nuw [48 x i8], ptr %.pre, i64 %indvars.iv.i
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 40
   %28 = load i8, ptr %27, align 8, !range !4, !noundef !5
   %29 = trunc nuw i8 %28 to i1
@@ -544,7 +539,7 @@ define dso_local void @SyncRepReleaseWaiters() local_unnamed_addr #0 {
   %.166 = phi i64 [ %.267, %.lr.ph.i.i ], [ 0, %34 ]
   %.164 = phi i64 [ %.2, %.lr.ph.i.i ], [ 0, %34 ]
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %34 ]
-  %38 = getelementptr inbounds nuw %struct.SyncRepStandbyData, ptr %.pre, i64 %indvars.iv.i.i
+  %38 = getelementptr inbounds nuw [48 x i8], ptr %.pre, i64 %indvars.iv.i.i
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = load i64, ptr %39, align 8
   %41 = freeze i64 %40
@@ -576,18 +571,18 @@ define dso_local void @SyncRepReleaseWaiters() local_unnamed_addr #0 {
 
 .lr.ph.i24.i:                                     ; preds = %.lr.ph.i24.i, %.lr.ph.preheader.i22.i
   %indvars.iv.i25.i = phi i64 [ 0, %.lr.ph.preheader.i22.i ], [ %indvars.iv.next.i26.i, %.lr.ph.i24.i ]
-  %55 = getelementptr inbounds nuw %struct.SyncRepStandbyData, ptr %.pre, i64 %indvars.iv.i25.i
+  %55 = getelementptr inbounds nuw [48 x i8], ptr %.pre, i64 %indvars.iv.i25.i
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %57 = load i64, ptr %56, align 8
-  %58 = getelementptr inbounds nuw i64, ptr %52, i64 %indvars.iv.i25.i
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %indvars.iv.i25.i
   store i64 %57, ptr %58, align 8
   %59 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %60 = load i64, ptr %59, align 8
-  %61 = getelementptr inbounds nuw i64, ptr %53, i64 %indvars.iv.i25.i
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %indvars.iv.i25.i
   store i64 %60, ptr %61, align 8
   %62 = getelementptr inbounds nuw i8, ptr %55, i64 24
   %63 = load i64, ptr %62, align 8
-  %64 = getelementptr inbounds nuw i64, ptr %54, i64 %indvars.iv.i25.i
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %indvars.iv.i25.i
   store i64 %63, ptr %64, align 8
   %indvars.iv.next.i26.i = add nuw nsw i64 %indvars.iv.i25.i, 1
   %exitcond.not.i27.i = icmp eq i64 %indvars.iv.next.i26.i, %wide.trip.count.i
@@ -600,11 +595,11 @@ SyncRepGetNthLatestSyncRecPtr.exit.i:             ; preds = %.lr.ph.i24.i
   %65 = and i32 %32, 255
   %66 = zext nneg i32 %65 to i64
   %67 = add nsw i64 %66, -1
-  %68 = getelementptr inbounds i64, ptr %52, i64 %67
+  %68 = getelementptr inbounds [8 x i8], ptr %52, i64 %67
   %69 = load i64, ptr %68, align 8
-  %70 = getelementptr inbounds i64, ptr %53, i64 %67
+  %70 = getelementptr inbounds [8 x i8], ptr %53, i64 %67
   %71 = load i64, ptr %70, align 8
-  %72 = getelementptr inbounds i64, ptr %54, i64 %67
+  %72 = getelementptr inbounds [8 x i8], ptr %54, i64 %67
   %73 = load i64, ptr %72, align 8
   tail call void @pfree(ptr noundef nonnull %52) #10
   tail call void @pfree(ptr noundef nonnull %53) #10
@@ -856,10 +851,10 @@ define dso_local i32 @SyncRepGetCandidateStandbys(ptr noundef captures(none) ini
   %.03638 = phi i32 [ %.1, %53 ], [ 0, %.preheader ]
   %10 = load ptr, ptr @WalSndCtl, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 112
-  %12 = getelementptr inbounds nuw %struct.WalSnd, ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [96 x i8], ptr %11, i64 %indvars.iv
   %13 = load ptr, ptr %0, align 8
   %14 = sext i32 %.03638 to i64
-  %15 = getelementptr inbounds %struct.SyncRepStandbyData, ptr %13, i64 %14
+  %15 = getelementptr inbounds [48 x i8], ptr %13, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 76
   %17 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %16, i8 1, ptr nonnull elementtype(i8) %16) #10, !srcloc !10
   %.not = icmp eq i8 %17, 0
@@ -1020,7 +1015,7 @@ define dso_local void @SyncRepUpdateSyncStandbysDefined() local_unnamed_addr #0 
 .preheader:                                       ; preds = %11, %SyncRepWakeQueue.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %SyncRepWakeQueue.exit ], [ 0, %11 ]
   %15 = load ptr, ptr @WalSndCtl, align 8
-  %16 = getelementptr inbounds nuw %struct.dlist_head, ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %indvars.iv
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8
   %.not.i = icmp eq ptr %18, null

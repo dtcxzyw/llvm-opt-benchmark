@@ -207,7 +207,7 @@ define hidden void @_ZN10ockam_core7routing5route5Route6create17h0a6ba080b024e22
   %34 = select i1 %.not.i.i, i64 0, i64 %30
   %.0.i.i = sub nuw i64 %33, %34
   %35 = load ptr, ptr %5, align 8, !alias.scope !30, !noalias !33, !nonnull !4, !noundef !4
-  %36 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %35, i64 %.0.i.i
+  %36 = getelementptr inbounds [32 x i8], ptr %35, i64 %.0.i.i
   store ptr %.sroa.012.0.copyload13, ptr %36, align 8, !noalias !36
   %.sroa.518.0..sroa_idx19 = getelementptr inbounds nuw i8, ptr %36, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.518.0..sroa_idx19, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.518, i64 24, i1 false), !noalias !36
@@ -910,7 +910,7 @@ define hidden void @"_ZN167_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
 42:                                               ; preds = %._crit_edge.i, %33
   %43 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %34, %33 ]
   %44 = load ptr, ptr %8, align 8, !alias.scope !203, !noalias !206, !nonnull !4, !noundef !4
-  %45 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %44, i64 %43
+  %45 = getelementptr inbounds [32 x i8], ptr %44, i64 %43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
   %46 = add i64 %43, 1
   store i64 %46, ptr %13, align 8, !alias.scope !203, !noalias !206
@@ -1027,7 +1027,7 @@ define hidden void @"_ZN167_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
 31:                                               ; preds = %._crit_edge.i, %18
   %32 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %19, %18 ]
   %33 = load ptr, ptr %5, align 8, !alias.scope !216, !noalias !219, !nonnull !4, !noundef !4
-  %34 = getelementptr inbounds { [6 x i64], ptr, [2 x i64] }, ptr %33, i64 %32
+  %34 = getelementptr inbounds [72 x i8], ptr %33, i64 %32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %34, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false)
   %35 = add i64 %32, 1
   store i64 %35, ptr %10, align 8, !alias.scope !216, !noalias !219
@@ -1141,7 +1141,7 @@ define hidden void @"_ZN167_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
 32:                                               ; preds = %._crit_edge.i, %23
   %33 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %24, %23 ]
   %34 = load ptr, ptr %6, align 8, !alias.scope !228, !noalias !231, !nonnull !4, !noundef !4
-  %35 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { { ptr, i64 }, i64 } }, ptr %34, i64 %33
+  %35 = getelementptr inbounds [48 x i8], ptr %34, i64 %33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %35, ptr noundef nonnull align 8 dereferenceable(48) %5, i64 48, i1 false)
   %36 = add i64 %33, 1
   store i64 %36, ptr %11, align 8, !alias.scope !228, !noalias !231
@@ -2427,7 +2427,7 @@ common.resume:                                    ; preds = %34, %.body
   %61 = select i1 %.not.i, i64 0, i64 %57
   %.0.i = sub nuw i64 %60, %61
   %62 = load ptr, ptr %9, align 8, !alias.scope !732, !noalias !735, !nonnull !4, !noundef !4
-  %63 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %62, i64 %.0.i
+  %63 = getelementptr inbounds [32 x i8], ptr %62, i64 %.0.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %63, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false)
   %64 = load i64, ptr %14, align 8, !alias.scope !732, !noalias !735, !noundef !4
   %65 = add i64 %64, 1

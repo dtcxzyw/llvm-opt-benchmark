@@ -419,7 +419,7 @@ switch.lookup:                                    ; preds = %48
 
 switch.lookup260:                                 ; preds = %71
   %124 = zext nneg i16 %switch.tableidx259 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4llvm14identify_magicENS_9StringRefE, i64 %124
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN4llvm14identify_magicENS_9StringRefE, i64 %124
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.thread234
 

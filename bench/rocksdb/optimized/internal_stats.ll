@@ -32,20 +32,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.rocksdb::Slice" = type { ptr, i64 }
 %"struct.rocksdb::Cache::CacheItemHelper" = type { ptr, ptr, ptr, ptr, i32, ptr }
 %"struct.std::_Rb_tree<rocksdb::LevelStatType, std::pair<const rocksdb::LevelStatType, rocksdb::LevelStat>, std::_Select1st<std::pair<const rocksdb::LevelStatType, rocksdb::LevelStat>>, std::less<rocksdb::LevelStatType>>::_Alloc_node" = type { ptr }
-%"class.std::vector.303" = type { %"struct.std::_Vector_base.304" }
-%"struct.std::_Vector_base.304" = type { %"struct.std::_Vector_base<rocksdb::FileMetaData *, std::allocator<rocksdb::FileMetaData *>>::_Vector_impl" }
-%"struct.std::_Vector_base<rocksdb::FileMetaData *, std::allocator<rocksdb::FileMetaData *>>::_Vector_impl" = type { %"struct.std::_Vector_base<rocksdb::FileMetaData *, std::allocator<rocksdb::FileMetaData *>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<rocksdb::FileMetaData *, std::allocator<rocksdb::FileMetaData *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.rocksdb::HistogramImpl" = type { %"class.rocksdb::Histogram", %"struct.rocksdb::HistogramStat", %"class.std::mutex" }
-%"class.rocksdb::Histogram" = type { ptr }
-%"struct.rocksdb::HistogramStat" = type { %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", [109 x %"struct.std::atomic"], i64 }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i64 }
-%"class.std::mutex" = type { %"class.std::__mutex_base" }
-%"class.std::__mutex_base" = type { %union.pthread_mutex_t }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
 %"class.std::shared_ptr.585" = type { %"class.std::__shared_ptr.586" }
 %"class.std::__shared_ptr.586" = type { ptr, %"class.std::__shared_count" }
 %"class.std::__shared_count" = type { ptr }
@@ -83,7 +69,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
-%"struct.rocksdb::InternalStats::CompactionStats" = type <{ i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i32, i32, i32, i32, i32, i32, i64, i64, i64, i32, [20 x i32], [4 x i8] }>
 %"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
 %"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
 %"class.std::function" = type { %"class.std::_Function_base", ptr }
@@ -99,6 +84,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Head_base.943" = type { ptr }
 %"struct.std::pair.309" = type { %"class.rocksdb::Slice", %"class.rocksdb::Slice" }
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::__cxx11::basic_string<char>>>::_Auto_node" = type { ptr, ptr }
+%"struct.rocksdb::InternalStats::CompactionStats" = type <{ i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i32, i32, i32, i32, i32, i32, i64, i64, i64, i32, [20 x i32], [4 x i8] }>
 %"class.std::map.815" = type { %"class.std::_Rb_tree.816" }
 %"class.std::_Rb_tree.816" = type { %"struct.std::_Rb_tree<int, std::pair<const int, std::map<rocksdb::LevelStatType, double>>, std::_Select1st<std::pair<const int, std::map<rocksdb::LevelStatType, double>>>, std::less<int>>::_Rb_tree_impl" }
 %"struct.std::_Rb_tree<int, std::pair<const int, std::map<rocksdb::LevelStatType, double>>, std::_Select1st<std::pair<const int, std::map<rocksdb::LevelStatType, double>>>, std::less<int>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
@@ -1267,7 +1253,7 @@ define noundef zeroext i1 @_ZN7rocksdb13InternalStats21HandleNumFilesAtLevelEPNS
   %23 = load ptr, ptr %22, align 8, !tbaa !256
   %sext = shl i64 %17, 32
   %24 = ashr exact i64 %sext, 32
-  %25 = getelementptr inbounds %"class.std::vector.303", ptr %23, i64 %24
+  %25 = getelementptr inbounds [24 x i8], ptr %23, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !326
   %28 = load ptr, ptr %25, align 8, !tbaa !329
@@ -1466,7 +1452,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit: ; preds =
 22:                                               ; preds = %.lr.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit9 ]
   %23 = load ptr, ptr %21, align 8, !tbaa !256
-  %24 = getelementptr inbounds nuw %"class.std::vector.303", ptr %23, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [24 x i8], ptr %23, i64 %indvars.iv
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8, !tbaa !326
   %27 = load ptr, ptr %24, align 8, !tbaa !329
@@ -1551,7 +1537,7 @@ define noundef zeroext i1 @_ZN7rocksdb13InternalStats21HandleCFStatsPeriodicEPNS
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
   %.01217 = phi i64 [ 0, %.lr.ph ], [ %24, %17 ]
   %18 = load ptr, ptr %11, align 8, !tbaa !336
-  %19 = getelementptr inbounds nuw %"class.rocksdb::HistogramImpl", ptr %18, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [968 x i8], ptr %18, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8, !tbaa !337
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 80
   %22 = load ptr, ptr %21, align 8
@@ -3732,7 +3718,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt
 106:                                              ; preds = %.lr.ph30, %._crit_edge
   %indvars.iv = phi i64 [ 0, %.lr.ph30 ], [ %indvars.iv.next, %._crit_edge ]
   %.01527 = phi i64 [ 0, %.lr.ph30 ], [ %.1.lcssa, %._crit_edge ]
-  %107 = getelementptr inbounds nuw %"class.std::vector.303", ptr %21, i64 %indvars.iv
+  %107 = getelementptr inbounds nuw [24 x i8], ptr %21, i64 %indvars.iv
   %108 = load ptr, ptr %107, align 8, !tbaa !407
   %109 = getelementptr inbounds nuw i8, ptr %107, i64 8
   %110 = load ptr, ptr %109, align 8, !tbaa !407
@@ -4775,7 +4761,7 @@ _ZNSt12_Vector_baseIN7rocksdb13InternalStats15CompactionStatsESaIS2_EEC2EmRKS3_.
 
 .noexc27:                                         ; preds = %_ZNSt12_Vector_baseIN7rocksdb13InternalStats15CompactionStatsESaIS2_EEC2EmRKS3_.exit.i
   store ptr %13, ptr %8, align 8, !tbaa !769
-  %14 = getelementptr inbounds nuw %"struct.rocksdb::InternalStats::CompactionStats", ptr %13, i64 %9
+  %14 = getelementptr inbounds nuw [216 x i8], ptr %13, i64 %9
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 328
   store ptr %14, ptr %15, align 8, !tbaa !770
   br label %.lr.ph.i.i.i.i.i
@@ -4833,7 +4819,7 @@ _ZNSt12_Vector_baseIN7rocksdb13HistogramImplESaIS1_EEC2EmRKS2_.exit.i: ; preds =
   store ptr %30, ptr %27, align 8, !tbaa !336
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 584
   store ptr %30, ptr %31, align 8, !tbaa !773
-  %32 = getelementptr inbounds nuw %"class.rocksdb::HistogramImpl", ptr %30, i64 %9
+  %32 = getelementptr inbounds nuw [968 x i8], ptr %30, i64 %9
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 592
   store ptr %32, ptr %33, align 8, !tbaa !774
   invoke void @_ZNSt6vectorIN7rocksdb13HistogramImplESaIS1_EE21_M_default_initializeEm(ptr noundef nonnull align 8 dereferenceable(24) %27, i64 noundef %9)
@@ -6342,7 +6328,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit50: ; preds = %103
 
 109:                                              ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit43.preheader, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit43
   %.066 = phi i64 [ 0, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit43.preheader ], [ %152, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit43 ]
-  %110 = getelementptr inbounds nuw i64, ptr %82, i64 %.066
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %82, i64 %.066
   %111 = load i64, ptr %110, align 8, !tbaa !40
   %.not = icmp eq i64 %111, 0
   br i1 %.not, label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit43, label %112
@@ -6352,7 +6338,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit50: ; preds = %103
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit51 unwind label %142
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit51: ; preds = %112
-  %114 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 %.066
+  %114 = getelementptr inbounds nuw [32 x i8], ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 %.066
   %115 = load ptr, ptr %114, align 8, !tbaa !11
   %116 = getelementptr inbounds nuw i8, ptr %114, i64 8
   %117 = load i64, ptr %116, align 8, !tbaa !39
@@ -6374,7 +6360,7 @@ _ZNSolsEm.exit54:                                 ; preds = %_ZStlsISt11char_tra
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit55: ; preds = %_ZNSolsEm.exit54
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %123 = getelementptr inbounds nuw i64, ptr %83, i64 %.066
+  %123 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %.066
   %124 = load i64, ptr %123, align 8, !tbaa !40
   invoke void @_ZN7rocksdb18BytesToHumanStringB5cxx11Em(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %7, i64 noundef %124)
           to label %125 unwind label %144
@@ -7166,7 +7152,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79: ; preds = %278
   %.021198 = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit70 ], [ %501, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit150 ]
   %285 = trunc nuw nsw i64 %.021198 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %286 = getelementptr inbounds nuw i64, ptr %253, i64 %.021198
+  %286 = getelementptr inbounds nuw [8 x i8], ptr %253, i64 %.021198
   %287 = load i64, ptr %286, align 8, !tbaa !40
   call void @llvm.experimental.noalias.scope.decl(metadata !848)
   %288 = icmp ult i64 %287, 10
@@ -7375,7 +7361,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i10
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit107: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit104, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i105
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %372 = getelementptr inbounds nuw i64, ptr %257, i64 %.021198
+  %372 = getelementptr inbounds nuw [8 x i8], ptr %257, i64 %.021198
   %373 = load i64, ptr %372, align 8, !tbaa !40
   call void @llvm.experimental.noalias.scope.decl(metadata !851)
   %374 = icmp ult i64 %373, 10
@@ -10866,7 +10852,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit291: ; pred
   %.0108415 = phi i64 [ 0, %.lr.ph416 ], [ %569, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit291 ]
   %.0110413 = phi i64 [ 0, %.lr.ph416 ], [ %577, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit291 ]
   %.0111412 = phi i64 [ 0, %.lr.ph416 ], [ %575, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit291 ]
-  %560 = getelementptr inbounds nuw %"struct.rocksdb::InternalStats::CompactionStats", ptr %531, i64 %indvars.iv
+  %560 = getelementptr inbounds nuw [216 x i8], ptr %531, i64 %indvars.iv
   %561 = getelementptr inbounds nuw i8, ptr %560, i64 24
   %562 = load i64, ptr %561, align 8, !tbaa !925
   %563 = getelementptr inbounds nuw i8, ptr %560, i64 16
@@ -11364,7 +11350,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit21._crit_edge: ; pre
 28:                                               ; preds = %.lr.ph, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit21
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit21 ]
   %29 = load ptr, ptr %21, align 8, !tbaa !336
-  %30 = getelementptr inbounds nuw %"class.rocksdb::HistogramImpl", ptr %29, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [968 x i8], ptr %29, i64 %indvars.iv
   %31 = load ptr, ptr %30, align 8, !tbaa !337
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %33 = load ptr, ptr %32, align 8
@@ -11390,7 +11376,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit22: ; preds = %36
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit23: ; preds = %40
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %42 = load ptr, ptr %21, align 8, !tbaa !336
-  %43 = getelementptr inbounds nuw %"class.rocksdb::HistogramImpl", ptr %42, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [968 x i8], ptr %42, i64 %indvars.iv
   %44 = load ptr, ptr %43, align 8, !tbaa !337
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 48
   %46 = load ptr, ptr %45, align 8
@@ -12174,7 +12160,7 @@ _ZNSt7__cxx119to_stringEm.exit:                   ; preds = %63, %70
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN7rocksdb22WriteStallStatsMapKeys19CauseConditionCountB5cxx11ENS_15WriteStallCauseENS_19WriteStallConditionE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, i32 noundef %.036209, i32 noundef %.037206)
   %81 = zext i32 %78 to i64
-  %82 = getelementptr inbounds nuw i64, ptr %12, i64 %81
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %81
   %83 = load i64, ptr %82, align 8, !tbaa !40
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.experimental.noalias.scope.decl(metadata !978)
@@ -13427,7 +13413,7 @@ define void @_ZN7rocksdb13InternalStats14DumpDBMapStatsEPSt3mapINSt7__cxx1112bas
 23:                                               ; preds = %2, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %24 = getelementptr inbounds nuw %"struct.std::atomic", ptr %0, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %25 = load atomic i64, ptr %24 monotonic, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !991)
   %26 = icmp ult i64 %25, 10
@@ -14760,7 +14746,7 @@ define void @_ZN7rocksdb13InternalStats24DumpDBMapStatsWriteStallEPSt3mapINSt7__
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN7rocksdb22WriteStallStatsMapKeys19CauseConditionCountB5cxx11ENS_15WriteStallCauseENS_19WriteStallConditionE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, i32 noundef 4, i32 noundef %.01842)
   %20 = zext i32 %17 to i64
-  %21 = getelementptr inbounds nuw %"struct.std::atomic", ptr %0, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %20
   %22 = load atomic i64, ptr %21 monotonic, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.experimental.noalias.scope.decl(metadata !1013)
@@ -15654,7 +15640,7 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %22
   %28 = shl nuw nsw i64 %26, 3
   %29 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %28) #39
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %29, i8 0, i64 %28, i1 false), !tbaa !1022
-  %30 = getelementptr inbounds nuw double, ptr %29, i64 %26
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %26
   %31 = ptrtoint ptr %30 to i64
   br label %_ZNSt6vectorIdSaIdEEC2EmRKdRKS0_.exit
 
@@ -15691,12 +15677,12 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %45, %_ZNSt6vec
 
 45:                                               ; preds = %.lr.ph, %45
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %45 ]
-  %46 = getelementptr inbounds nuw double, ptr %34, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv
   %47 = load double, ptr %46, align 8, !tbaa !1022
-  %48 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %indvars.iv
   %49 = load i32, ptr %48, align 4, !tbaa !386
   %50 = sext i32 %49 to i64
-  %51 = getelementptr inbounds nuw double, ptr %.sroa.0110.0, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0110.0, i64 %50
   store double %47, ptr %51, align 8, !tbaa !1022
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -15704,7 +15690,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %45, %_ZNSt6vec
 
 .lr.ph135:                                        ; preds = %42
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %44, i8 0, i64 %43, i1 false), !tbaa !386
-  %52 = getelementptr inbounds nuw i32, ptr %44, i64 %26
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %26
   %53 = ptrtoint ptr %52 to i64
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 2712
   %55 = load ptr, ptr %54, align 8, !tbaa !256
@@ -15737,7 +15723,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %45, %_ZNSt6vec
 
 72:                                               ; preds = %.lr.ph135, %._crit_edge
   %indvars.iv155 = phi i64 [ 0, %.lr.ph135 ], [ %indvars.iv.next156, %._crit_edge ]
-  %73 = getelementptr inbounds nuw %"class.std::vector.303", ptr %55, i64 %indvars.iv155
+  %73 = getelementptr inbounds nuw [24 x i8], ptr %55, i64 %indvars.iv155
   %74 = load ptr, ptr %73, align 8, !tbaa !407
   %75 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %76 = load ptr, ptr %75, align 8, !tbaa !407
@@ -15745,7 +15731,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %45, %_ZNSt6vec
   br i1 %.not120131, label %._crit_edge, label %.lr.ph133
 
 .lr.ph133:                                        ; preds = %72
-  %77 = getelementptr inbounds nuw i32, ptr %44, i64 %indvars.iv155
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %indvars.iv155
   br label %78
 
 ._crit_edge:                                      ; preds = %86, %72
@@ -15791,7 +15777,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %45, %_ZNSt6vec
   %storemerge137 = phi i32 [ 0, %._crit_edge136 ], [ %184, %181 ]
   %92 = load ptr, ptr %61, align 8, !tbaa !256
   %93 = sext i32 %storemerge137 to i64
-  %94 = getelementptr inbounds %"class.std::vector.303", ptr %92, i64 %93
+  %94 = getelementptr inbounds [24 x i8], ptr %92, i64 %93
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %96 = load ptr, ptr %95, align 8, !tbaa !326
   %97 = load ptr, ptr %94, align 8, !tbaa !329
@@ -15801,11 +15787,11 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %45, %_ZNSt6vec
   %101 = lshr exact i64 %100, 3
   %102 = trunc i64 %101 to i32
   %103 = add nsw i32 %.054140, %102
-  %104 = getelementptr inbounds nuw i32, ptr %44, i64 %93
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %93
   %105 = load i32, ptr %104, align 4, !tbaa !386
   %106 = add nsw i32 %105, %.057138
   %107 = load ptr, ptr %62, align 8, !tbaa !769
-  %108 = getelementptr inbounds nuw %"struct.rocksdb::InternalStats::CompactionStats", ptr %107, i64 %93
+  %108 = getelementptr inbounds nuw [216 x i8], ptr %107, i64 %93
   %109 = load i64, ptr %108, align 8, !tbaa !922
   %.not = icmp eq i64 %109, 0
   br i1 %.not, label %110, label %115
@@ -15839,7 +15825,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %45, %_ZNSt6vec
 125:                                              ; preds = %118
   %126 = sext i32 %121 to i64
   %127 = load ptr, ptr %62, align 8, !tbaa !769
-  %128 = getelementptr inbounds nuw %"struct.rocksdb::InternalStats::CompactionStats", ptr %127, i64 %126
+  %128 = getelementptr inbounds nuw [216 x i8], ptr %127, i64 %126
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 16
   %130 = load i64, ptr %129, align 8, !tbaa !924
   %131 = getelementptr inbounds nuw i8, ptr %128, i64 48
@@ -15855,7 +15841,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %45, %_ZNSt6vec
 
 136:                                              ; preds = %134
   %137 = load ptr, ptr %62, align 8, !tbaa !769
-  %138 = getelementptr inbounds nuw %"struct.rocksdb::InternalStats::CompactionStats", ptr %137, i64 %.pre162
+  %138 = getelementptr inbounds nuw [216 x i8], ptr %137, i64 %.pre162
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 56
   %140 = load i64, ptr %139, align 8, !tbaa !929
   %141 = getelementptr inbounds nuw i8, ptr %138, i64 64
@@ -15874,7 +15860,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %45, %_ZNSt6vec
   store ptr %63, ptr %65, align 8, !tbaa !23
   store ptr %63, ptr %66, align 8, !tbaa !24
   store i64 0, ptr %67, align 8, !tbaa !25
-  %148 = getelementptr inbounds nuw i32, ptr %44, i64 %.pre162
+  %148 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %.pre162
   %149 = load i32, ptr %148, align 4, !tbaa !386
   %150 = invoke noundef i64 @_ZNK7rocksdb18VersionStorageInfo13NumLevelBytesEi(ptr noundef nonnull align 16 dereferenceable(4120) %1, i32 noundef %121)
           to label %151 unwind label %179
@@ -15883,10 +15869,10 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %45, %_ZNSt6vec
   %152 = uitofp i64 %150 to double
   %153 = load i32, ptr %9, align 4, !tbaa !386
   %154 = sext i32 %153 to i64
-  %155 = getelementptr inbounds nuw double, ptr %.sroa.0110.0, i64 %154
+  %155 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0110.0, i64 %154
   %156 = load double, ptr %155, align 8, !tbaa !1022
   %157 = load ptr, ptr %62, align 8, !tbaa !769
-  %158 = getelementptr inbounds nuw %"struct.rocksdb::InternalStats::CompactionStats", ptr %157, i64 %154
+  %158 = getelementptr inbounds nuw [216 x i8], ptr %157, i64 %154
   invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_117PrepareLevelStatsEPSt3mapINS_13LevelStatTypeEdSt4lessIS2_ESaISt4pairIKS2_dEEEiidddRKNS_13InternalStats15CompactionStatsE(ptr noundef %10, i32 noundef %102, i32 noundef %149, double noundef %152, double noundef %156, double noundef %147, ptr noundef nonnull align 8 dereferenceable(212) %158)
           to label %159 unwind label %179
 
@@ -16284,9 +16270,9 @@ define linkonce_odr void @_ZN7rocksdb13InternalStats15CompactionStats3AddERKS1_(
 
 104:                                              ; preds = %2, %104
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %104 ]
-  %105 = getelementptr inbounds nuw i32, ptr %101, i64 %indvars.iv
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %101, i64 %indvars.iv
   %106 = load i32, ptr %105, align 4, !tbaa !386
-  %107 = getelementptr inbounds nuw i32, ptr %102, i64 %indvars.iv
+  %107 = getelementptr inbounds nuw [4 x i8], ptr %102, i64 %indvars.iv
   %108 = load i32, ptr %107, align 4, !tbaa !386
   %109 = add nsw i32 %108, %106
   store i32 %109, ptr %107, align 4, !tbaa !386
@@ -16552,7 +16538,7 @@ define void @_ZN7rocksdb13InternalStats24DumpCFMapStatsByPriorityEPSt3mapIiS1_IN
   %19 = phi ptr [ %10, %.lr.ph ], [ %49, %48 ]
   %20 = phi ptr [ %9, %.lr.ph ], [ %50, %48 ]
   %.0912 = phi i64 [ 0, %.lr.ph ], [ %51, %48 ]
-  %21 = getelementptr inbounds nuw %"struct.rocksdb::InternalStats::CompactionStats", ptr %19, i64 %.0912
+  %21 = getelementptr inbounds nuw [216 x i8], ptr %19, i64 %.0912
   %22 = load i64, ptr %21, align 8, !tbaa !922
   %.not = icmp eq i64 %22, 0
   br i1 %.not, label %48, label %23
@@ -18429,9 +18415,9 @@ define linkonce_odr void @_ZN7rocksdb13InternalStats15CompactionStats8SubtractER
 
 104:                                              ; preds = %2, %104
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %104 ]
-  %105 = getelementptr inbounds nuw i32, ptr %101, i64 %indvars.iv
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %101, i64 %indvars.iv
   %106 = load i32, ptr %105, align 4, !tbaa !386
-  %107 = getelementptr inbounds nuw i32, ptr %102, i64 %indvars.iv
+  %107 = getelementptr inbounds nuw [4 x i8], ptr %102, i64 %indvars.iv
   %108 = load i32, ptr %107, align 4, !tbaa !386
   %109 = sub nsw i32 %108, %106
   store i32 %109, ptr %107, align 4, !tbaa !386
@@ -20177,7 +20163,7 @@ _ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
 
 34:                                               ; preds = %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N7rocksdb14DBPropertyInfoEENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE15_M_hash_code_trIS6_EEmRKT_.exit
   %35 = load ptr, ptr %0, align 8, !tbaa !767
-  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %31
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %31
   %37 = load ptr, ptr %36, align 8, !tbaa !1088
   %.not.i.i = icmp eq ptr %37, null
   br i1 %.not.i.i, label %.critedge, label %38
@@ -20334,7 +20320,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 112
   store i64 %2, ptr %32, align 8, !tbaa !1089
   %33 = load ptr, ptr %0, align 8, !tbaa !767
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %.0
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.0
   %35 = load ptr, ptr %34, align 8, !tbaa !1088
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %39, label %36
@@ -20360,7 +20346,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 112
   %46 = load i64, ptr %45, align 8, !tbaa !1089
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %33, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !1088
   br label %49
 
@@ -20537,7 +20523,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 112
   %16 = load i64, ptr %15, align 8, !tbaa !1089
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !1088
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -20552,7 +20538,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8, !tbaa !1088
   br label %28
 
@@ -21083,12 +21069,12 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN7rocksdb5SliceEPvmPKNS0_5Ca
 "_ZSt10__invoke_rIvRZN7rocksdb13InternalStats19CacheEntryRoleStats16GetEntryCallbackEvE3$_0JRKNS0_5SliceEPvmPKNS0_5Cache15CacheItemHelperEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit": ; preds = %5, %6
   %10 = phi i64 [ %9, %6 ], [ 13, %5 ]
   %11 = getelementptr inbounds nuw i8, ptr %.val, i64 176
-  %12 = getelementptr inbounds nuw i64, ptr %11, i64 %10
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %10
   %13 = load i64, ptr %12, align 8, !tbaa !40
   %14 = add i64 %13, 1
   store i64 %14, ptr %12, align 8, !tbaa !40
   %15 = getelementptr inbounds nuw i8, ptr %.val, i64 64
-  %16 = getelementptr inbounds nuw i64, ptr %15, i64 %10
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %10
   %17 = load i64, ptr %16, align 8, !tbaa !40
   %18 = add i64 %17, %.val5
   store i64 %18, ptr %16, align 8, !tbaa !40
@@ -21871,7 +21857,7 @@ _ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   %29 = load i64, ptr %28, align 8, !tbaa !768
   %30 = urem i64 %24, %29
   %31 = load ptr, ptr %0, align 8, !tbaa !767
-  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %30
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %30
   %33 = load ptr, ptr %32, align 8, !tbaa !1088
   %.not.i.i = icmp eq ptr %33, null
   br i1 %.not.i.i, label %_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7rocksdb14DBPropertyInfoEESaISA_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS7_m.exit, label %34
@@ -22546,7 +22532,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIPN7rocksdb5CacheESt4pairIKS2_
   %13 = load i64, ptr %12, align 8, !tbaa !1044
   %14 = urem i64 %11, %13
   %15 = load ptr, ptr %0, align 8, !tbaa !1042
-  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %14
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %14
   %17 = load ptr, ptr %16, align 8, !tbaa !1088
   %.not.i.i = icmp eq ptr %17, null
   br i1 %.not.i.i, label %.critedge28, label %30
@@ -22682,7 +22668,7 @@ _ZNSt10_HashtableIPN7rocksdb5CacheESt4pairIKS2_mESaIS5_ENSt8__detail10_Select1st
 31:                                               ; preds = %_ZNSt10_HashtableIPN7rocksdb5CacheESt4pairIKS2_mESaIS5_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit, %5
   %.0 = phi i64 [ %30, %_ZNSt10_HashtableIPN7rocksdb5CacheESt4pairIKS2_mESaIS5_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit ], [ %1, %5 ]
   %32 = load ptr, ptr %0, align 8, !tbaa !1042
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %.0
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.0
   %34 = load ptr, ptr %33, align 8, !tbaa !1088
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %38, label %35
@@ -22709,7 +22695,7 @@ _ZNSt10_HashtableIPN7rocksdb5CacheESt4pairIKS2_mESaIS5_ENSt8__detail10_Select1st
   %45 = load ptr, ptr %43, align 8, !tbaa !1129
   %46 = ptrtoint ptr %45 to i64
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %32, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !1088
   br label %49
 
@@ -22772,7 +22758,7 @@ _ZNSt10_HashtableIPN7rocksdb5CacheESt4pairIKS2_mESaIS5_ENSt8__detail10_Select1st
   %16 = load ptr, ptr %15, align 8, !tbaa !1129
   %17 = ptrtoint ptr %16 to i64
   %18 = urem i64 %17, %1
-  %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !1088
   %.not27 = icmp eq ptr %20, null
   br i1 %.not27, label %21, label %26
@@ -22787,7 +22773,7 @@ _ZNSt10_HashtableIPN7rocksdb5CacheESt4pairIKS2_mESaIS5_ENSt8__detail10_Select1st
   br i1 %.not28, label %29, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %25, align 8, !tbaa !1088
   br label %29
 

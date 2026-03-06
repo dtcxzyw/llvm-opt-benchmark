@@ -1270,7 +1270,7 @@ while.body.i.i:                                   ; preds = %if.end, %while.body
   %shr.i.i = lshr i64 %__len.04.i.i, 1
   %9 = inttoptr i64 %8 to ptr
   %idx.neg.i.i.i.i.i.i = sub nsw i64 0, %shr.i.i
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds %"struct.sound::SoundDataOpenStream::ContiguousBuffers", ptr %9, i64 %idx.neg.i.i.i.i.i.i
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds [32 x i8], ptr %9, i64 %idx.neg.i.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i, i64 -32
   %call.val.i.i.i = load i32, ptr %incdec.ptr.i.i.i.i.i, align 8, !tbaa !94, !noalias !100
   %cmp.i.i10.i.i = icmp ugt i32 %call.val.i.i.i, %offset
@@ -1306,7 +1306,7 @@ while.body.i.i63:                                 ; preds = %if.then10, %while.b
   %__len.04.i.i64 = phi i64 [ %__len.1.i.i70, %while.body.i.i63 ], [ %sub.ptr.div.i.i.i.i.i, %if.then10 ]
   %__first.sroa.0.03.i.i = phi ptr [ %__first.sroa.0.1.i.i, %while.body.i.i63 ], [ %16, %if.then10 ]
   %shr.i.i65 = lshr i64 %__len.04.i.i64, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw %"struct.sound::SoundDataOpenStream::SoundBufferUntil", ptr %__first.sroa.0.03.i.i, i64 %shr.i.i65
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %__first.sroa.0.03.i.i, i64 %shr.i.i65
   %call.val.i.i.i69 = load i32, ptr %add.ptr.i.i.i.i.i, align 4, !tbaa !107
   %cmp.i.i15.i.i = icmp ugt i32 %call.val.i.i.i69, %offset
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i, i64 8
@@ -2439,7 +2439,7 @@ _ZNSt12_Vector_baseIN5sound19SoundDataOpenStream17ContiguousBuffersESaIS2_EE13_M
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !114
   store ptr %__cur.0.lcssa.i.i.i45, ptr %_M_finish.i.i, align 8, !tbaa !113
-  %add.ptr19 = getelementptr inbounds nuw %"struct.sound::SoundDataOpenStream::ContiguousBuffers", ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr19 = getelementptr inbounds nuw [32 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr19, ptr %_M_end_of_storage, align 8, !tbaa !111
   ret void
 }
@@ -2533,7 +2533,7 @@ _ZNSt12_Vector_baseIN5sound19SoundDataOpenStream16SoundBufferUntilESaIS2_EE13_M_
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !115
   store ptr %__cur.0.lcssa.i.i.i41, ptr %_M_finish.i.i, align 8, !tbaa !116
-  %add.ptr19 = getelementptr inbounds nuw %"struct.sound::SoundDataOpenStream::SoundBufferUntil", ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr19 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr19, ptr %_M_end_of_storage, align 8, !tbaa !118
   ret void
 }
@@ -2568,7 +2568,7 @@ if.then13:                                        ; preds = %if.then
 
 for.body.i.i.i.i.i.preheader:                     ; preds = %if.then13
   %idx.neg = sub nsw i64 0, %sub.ptr.div.i.i.i.i
-  %add.ptr = getelementptr inbounds %"struct.sound::SoundDataOpenStream::SoundBufferUntil", ptr %1, i64 %idx.neg
+  %add.ptr = getelementptr inbounds [8 x i8], ptr %1, i64 %idx.neg
   br label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i, %for.body.i.i.i.i.i.preheader
@@ -2660,7 +2660,7 @@ _ZSt22__uninitialized_move_aIPN5sound19SoundDataOpenStream16SoundBufferUntilES3_
 
 for.body.i.i.i.i.i170.preheader:                  ; preds = %_ZSt22__uninitialized_copy_aISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPN5sound19SoundDataOpenStream16SoundBufferUntilESt6vectorIS5_SaIS5_EEEEES6_S5_ET0_T_SD_SC_RSaIT1_E.exit
   %sub = sub nsw i64 %sub.ptr.div.i.i.i.i, %sub.ptr.div.i
-  %add.ptr58 = getelementptr inbounds %"struct.sound::SoundDataOpenStream::SoundBufferUntil", ptr %1, i64 %sub
+  %add.ptr58 = getelementptr inbounds [8 x i8], ptr %1, i64 %sub
   br label %for.body.i.i.i.i.i170
 
 for.body.i.i.i.i.i170:                            ; preds = %for.body.i.i.i.i.i170, %for.body.i.i.i.i.i170.preheader
@@ -2808,7 +2808,7 @@ if.then.i235:                                     ; preds = %_ZSt8_DestroyIPN5so
 _ZNSt12_Vector_baseIN5sound19SoundDataOpenStream16SoundBufferUntilESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %if.then.i235, %_ZSt8_DestroyIPN5sound19SoundDataOpenStream16SoundBufferUntilES2_EvT_S4_RSaIT0_E.exit
   store ptr %cond.i202, ptr %this, align 8, !tbaa !115
   store ptr %__cur.0.lcssa.i.i.i.i.i233, ptr %_M_finish, align 8, !tbaa !116
-  %add.ptr117 = getelementptr inbounds nuw %"struct.sound::SoundDataOpenStream::SoundBufferUntil", ptr %cond.i202, i64 %cond.i
+  %add.ptr117 = getelementptr inbounds nuw [8 x i8], ptr %cond.i202, i64 %cond.i
   store ptr %add.ptr117, ptr %_M_end_of_storage, align 8, !tbaa !118
   br label %if.end121
 

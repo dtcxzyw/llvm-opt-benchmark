@@ -634,7 +634,7 @@ define void @_ZN12colvarmodule13memory_stream11read_objectINS_8vector1dIdEEEEvRT
   br i1 %34, label %35, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit.i
 
 35:                                               ; preds = %33
-  %36 = getelementptr inbounds nuw double, ptr %25, i64 %.0.copyload.i
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %.0.copyload.i
   %.not.i.i6.i = icmp eq ptr %24, %36
   br i1 %.not.i.i6.i, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit.i, label %37
 
@@ -758,9 +758,9 @@ _ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit36: ; preds = %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !32
-  %39 = getelementptr inbounds nuw double, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !29
-  %40 = getelementptr inbounds nuw double, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !35
   br label %41
 
@@ -822,7 +822,7 @@ define noundef nonnull align 8 dereferenceable(72) ptr @_ZrsIN12colvarmodule8vec
   br i1 %34, label %35, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit.i
 
 35:                                               ; preds = %33
-  %36 = getelementptr inbounds nuw double, ptr %25, i64 %.0.copyload.i
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %.0.copyload.i
   %.not.i.i6.i = icmp eq ptr %24, %36
   br i1 %.not.i.i6.i, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit.i, label %37
 

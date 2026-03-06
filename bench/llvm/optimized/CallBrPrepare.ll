@@ -22,7 +22,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorTemplateCommon" = type { %"class.llvm::SmallVectorBase" }
 %"class.llvm::SmallVectorBase" = type { ptr, i32, i32 }
 %"struct.llvm::SmallVectorStorage" = type { [16 x i8] }
-%"class.llvm::Use" = type { ptr, ptr, ptr, ptr }
 %"class.llvm::SmallPtrSet.124" = type { %"class.llvm::SmallPtrSetImpl.base.126", [4 x ptr] }
 %"class.llvm::SmallPtrSetImpl.base.126" = type { %"class.llvm::SmallPtrSetImplBase.base" }
 %"class.llvm::SmallVector.127" = type { %"class.llvm::SmallVectorImpl.128", %"struct.llvm::SmallVectorStorage.131" }
@@ -57,7 +56,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorTemplateBase.15" = type { %"class.llvm::SmallVectorTemplateCommon.16" }
 %"class.llvm::SmallVectorTemplateCommon.16" = type { %"class.llvm::SmallVectorBase" }
 %"struct.llvm::SmallVectorStorage.100" = type { [128 x i8] }
-%"struct.std::pair.114" = type { i32, ptr }
 %class.anon.137 = type { ptr, ptr }
 %"class.std::reference_wrapper" = type { ptr }
 %"class.std::optional" = type { %"struct.std::_Optional_base" }
@@ -165,7 +163,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_10CallBrInstELb1EE9push_backES2_.exit.i: ;
   %35 = phi i32 [ %13, %30 ], [ %.pre.i.i, %32 ]
   %36 = load ptr, ptr %7, align 8, !tbaa !6, !alias.scope !3
   %37 = zext i32 %35 to i64
-  %38 = getelementptr inbounds nuw ptr, ptr %36, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %37
   %39 = ptrtoint ptr %17 to i64
   store i64 %39, ptr %38, align 1
   %40 = load i32, ptr %9, align 8, !tbaa !12, !alias.scope !3
@@ -257,8 +255,8 @@ _ZNK4llvm10CallBrInst12getSuccessorEj.exit.i:     ; preds = %86, %.lr.ph.i
   %73 = load i32, ptr %69, align 8, !tbaa !52
   %74 = zext i32 %73 to i64
   %75 = sub nsw i64 0, %74
-  %76 = getelementptr %"class.llvm::Use", ptr %68, i64 %75
-  %77 = getelementptr %"class.llvm::Use", ptr %76, i64 %indvars.iv.i
+  %76 = getelementptr [32 x i8], ptr %68, i64 %75
+  %77 = getelementptr [32 x i8], ptr %76, i64 %indvars.iv.i
   %78 = getelementptr i8, ptr %77, i64 -64
   %79 = load ptr, ptr %78, align 8, !tbaa !71
   %80 = getelementptr i8, ptr %76, i64 -64
@@ -488,7 +486,7 @@ _ZN4llvm19SmallPtrSetImplBaseD2Ev.exit:           ; preds = %_ZN4llvm9IRBuilderI
   %68 = load i32, ptr %58, align 8, !tbaa !52
   %69 = zext i32 %68 to i64
   %70 = sub nsw i64 0, %69
-  %71 = getelementptr %"class.llvm::Use", ptr %57, i64 %70
+  %71 = getelementptr [32 x i8], ptr %57, i64 %70
   %72 = getelementptr i8, ptr %71, i64 -64
   %73 = load ptr, ptr %72, align 8, !tbaa !71
   call void @_ZN4llvm10SSAUpdater17AddAvailableValueEPNS_10BasicBlockEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef %73, ptr noundef nonnull %57) #13
@@ -512,8 +510,8 @@ _ZN4llvm19SmallPtrSetImplBaseD2Ev.exit:           ; preds = %_ZN4llvm9IRBuilderI
   %78 = load i32, ptr %58, align 8, !tbaa !52, !noalias !115
   %79 = zext i32 %78 to i64
   %80 = sub nsw i64 0, %79
-  %81 = getelementptr inbounds %"class.llvm::Use", ptr %75, i64 %80
-  %82 = getelementptr inbounds nuw %"class.llvm::Use", ptr %81, i64 %indvars.iv.i
+  %81 = getelementptr inbounds [32 x i8], ptr %75, i64 %80
+  %82 = getelementptr inbounds nuw [32 x i8], ptr %81, i64 %indvars.iv.i
   %83 = load ptr, ptr %82, align 8, !tbaa !71, !noalias !115
   %84 = load i32, ptr %38, align 4, !tbaa !13, !alias.scope !115
   %.not.i.i.not.i.i = icmp ult i32 %77, %84
@@ -530,7 +528,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_10BasicBlockELb1EE9push_backES2_.exit.i: ;
   %88 = phi i32 [ %77, %76 ], [ %.pre.i.i, %85 ]
   %89 = load ptr, ptr %10, align 8, !tbaa !6, !alias.scope !115
   %90 = zext i32 %88 to i64
-  %91 = getelementptr inbounds nuw ptr, ptr %89, i64 %90
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %89, i64 %90
   %92 = ptrtoint ptr %83 to i64
   store i64 %92, ptr %91, align 1
   %93 = load i32, ptr %37, align 8, !tbaa !12, !alias.scope !115
@@ -821,7 +819,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIjPNS_6MDNodeEELb1EE18growAndEmplaceBac
   %.pre.i.i55 = load i32, ptr %23, align 8, !tbaa !12
   %198 = load ptr, ptr %8, align 8, !tbaa !6
   %199 = zext i32 %.pre.i.i55 to i64
-  %200 = getelementptr inbounds nuw %"struct.std::pair.114", ptr %198, i64 %199
+  %200 = getelementptr inbounds nuw [16 x i8], ptr %198, i64 %199
   store i32 0, ptr %200, align 1
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %200, i64 8
   store ptr %.pre.i39, ptr %.sroa.22.0..sroa_idx.i.i, align 1
@@ -868,7 +866,7 @@ _ZN4llvm13IRBuilderBase14SetInsertPointEPNS_11InstructionE.exit: ; preds = %_ZN4
   %210 = load i32, ptr %58, align 8, !tbaa !52
   %211 = zext i32 %210 to i64
   %212 = sub nsw i64 0, %211
-  %213 = getelementptr %"class.llvm::Use", ptr %57, i64 %212
+  %213 = getelementptr [32 x i8], ptr %57, i64 %212
   %214 = getelementptr i8, ptr %213, i64 -64
   %215 = load ptr, ptr %214, align 8, !tbaa !71
   %216 = getelementptr inbounds nuw i8, ptr %209, i64 40
@@ -905,7 +903,7 @@ _ZSt8distanceIN4llvm16pointer_iteratorINS0_5Value17use_iterator_implINS0_3UseEEE
   %224 = phi ptr [ %.pre.i.i45, %223 ], [ %46, %_ZSt8distanceIN4llvm16pointer_iteratorINS0_5Value17use_iterator_implINS0_3UseEEEPS4_EEENSt15iterator_traitsIT_E15difference_typeES9_S9_.exit.i.i.i ]
   %.pre-phi.i.ph.i.i = phi i64 [ %.pre15.i.i.i, %223 ], [ 0, %_ZSt8distanceIN4llvm16pointer_iteratorINS0_5Value17use_iterator_implINS0_3UseEEEPS4_EEENSt15iterator_traitsIT_E15difference_typeES9_S9_.exit.i.i.i ]
   %.ph.i.i = phi i32 [ %.pre.i.i.i, %223 ], [ 0, %_ZSt8distanceIN4llvm16pointer_iteratorINS0_5Value17use_iterator_implINS0_3UseEEEPS4_EEENSt15iterator_traitsIT_E15difference_typeES9_S9_.exit.i.i.i ]
-  %225 = getelementptr inbounds nuw ptr, ptr %224, i64 %.pre-phi.i.ph.i.i
+  %225 = getelementptr inbounds nuw [8 x i8], ptr %224, i64 %.pre-phi.i.ph.i.i
   br label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i:                     ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.preheader.i.i.i
@@ -1322,7 +1320,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_10CallBrInstELb1EE9push_backES2_.exit.i: ;
   %34 = phi i32 [ %12, %29 ], [ %.pre.i.i, %31 ]
   %35 = load ptr, ptr %5, align 8, !tbaa !6, !alias.scope !166
   %36 = zext i32 %34 to i64
-  %37 = getelementptr inbounds nuw ptr, ptr %35, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %36
   %38 = ptrtoint ptr %16 to i64
   store i64 %38, ptr %37, align 1
   %39 = load i32, ptr %8, align 8, !tbaa !12, !alias.scope !166
@@ -1414,8 +1412,8 @@ _ZNK4llvm10CallBrInst12getSuccessorEj.exit.i:     ; preds = %85, %.lr.ph.i
   %72 = load i32, ptr %68, align 8, !tbaa !52
   %73 = zext i32 %72 to i64
   %74 = sub nsw i64 0, %73
-  %75 = getelementptr %"class.llvm::Use", ptr %67, i64 %74
-  %76 = getelementptr %"class.llvm::Use", ptr %75, i64 %indvars.iv.i
+  %75 = getelementptr [32 x i8], ptr %67, i64 %74
+  %76 = getelementptr [32 x i8], ptr %75, i64 %indvars.iv.i
   %77 = getelementptr i8, ptr %76, i64 -64
   %78 = load ptr, ptr %77, align 8, !tbaa !71
   %79 = getelementptr i8, ptr %75, i64 -64
@@ -1669,7 +1667,7 @@ _ZN4llvm12is_containedIRNS_15SmallVectorImplIPKvEES3_EEbOT_RKT0_.exit.thread: ; 
 _ZN4llvm23SmallVectorTemplateBaseIPKvLb1EE9push_backES2_.exit: ; preds = %_ZN4llvm12is_containedIRNS_15SmallVectorImplIPKvEES3_EEbOT_RKT0_.exit.thread, %47
   %.pre-phi = phi i64 [ %7, %_ZN4llvm12is_containedIRNS_15SmallVectorImplIPKvEES3_EEbOT_RKT0_.exit.thread ], [ %.pre17, %47 ]
   %50 = phi ptr [ %4, %_ZN4llvm12is_containedIRNS_15SmallVectorImplIPKvEES3_EEbOT_RKT0_.exit.thread ], [ %.pre, %47 ]
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %.pre-phi
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %.pre-phi
   %52 = ptrtoint ptr %2 to i64
   store i64 %52, ptr %51, align 1
   %53 = load i32, ptr %5, align 8, !tbaa !12
@@ -1862,7 +1860,7 @@ define linkonce_odr hidden void @_ZN4llvm17PreservedAnalyses8preserveEPNS_11Anal
   %18 = add i32 %10, -1
   store i32 %18, ptr %9, align 4, !tbaa !37
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw ptr, ptr %8, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !41
   store ptr %21, ptr %.01217.i.i, align 8, !tbaa !41
   br label %_ZN4llvm15SmallPtrSetImplIPNS_11AnalysisKeyEE5eraseES2_.exit

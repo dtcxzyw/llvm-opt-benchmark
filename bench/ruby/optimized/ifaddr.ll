@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.rb_data_type_struct = type { ptr, %struct.anon.13, ptr, ptr, i64 }
 %struct.anon.13 = type { ptr, ptr, ptr, ptr, [1 x ptr] }
-%struct.rb_ifaddr_tag = type { i32, ptr }
 
 @rb_cSocket = external local_unnamed_addr global i64, align 8
 @.str = private unnamed_addr constant [7 x i8] c"Ifaddr\00", align 1
@@ -687,7 +686,7 @@ define internal i64 @socket_s_getifaddrs(i64 %0) #0 {
   %indvars.iv.i = phi i64 [ 0, %14 ], [ %indvars.iv.next.i, %23 ]
   %.137.in42.i = phi ptr [ %2, %14 ], [ %.137.i, %23 ]
   %.137.i = load ptr, ptr %.137.in42.i, align 8, !tbaa !24
-  %24 = getelementptr inbounds nuw %struct.rb_ifaddr_tag, ptr %22, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %indvars.iv.i
   %25 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %25, ptr %24, align 8, !tbaa !30
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
@@ -709,7 +708,7 @@ define internal i64 @socket_s_getifaddrs(i64 %0) #0 {
 .lr.ph.i:                                         ; preds = %27, %.lr.ph.i
   %indvars.iv49.i = phi i64 [ %indvars.iv.next50.i, %.lr.ph.i ], [ 1, %27 ]
   %32 = load i64, ptr @rb_cSockIfaddr, align 8, !tbaa !6
-  %33 = getelementptr inbounds nuw %struct.rb_ifaddr_tag, ptr %22, i64 %indvars.iv49.i
+  %33 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %indvars.iv49.i
   %34 = call i64 @rb_data_typed_object_wrap(i64 noundef %32, ptr noundef nonnull %33, ptr noundef nonnull @ifaddr_type) #7
   %35 = load i32, ptr %20, align 8, !tbaa !36
   %36 = add nsw i32 %35, 1
@@ -745,7 +744,7 @@ define internal void @ifaddr_free(ptr noundef %0) #0 {
   %2 = load i32, ptr %0, align 8, !tbaa !30
   %3 = sub nsw i32 0, %2
   %4 = sext i32 %3 to i64
-  %5 = getelementptr inbounds %struct.rb_ifaddr_tag, ptr %0, i64 %4
+  %5 = getelementptr inbounds [16 x i8], ptr %0, i64 %4
   %6 = getelementptr inbounds i8, ptr %5, i64 -8
   %7 = load i32, ptr %6, align 8, !tbaa !36
   %8 = add nsw i32 %7, -1

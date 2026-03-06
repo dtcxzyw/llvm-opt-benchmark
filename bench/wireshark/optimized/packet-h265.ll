@@ -1802,7 +1802,7 @@ define internal fastcc void @dissect_h265_seq_parameter_set_rbsp(ptr noundef %0,
   %148 = load i32, ptr @hf_h265_abs_delta_rps_minus1, align 4
   %149 = call fastcc i32 @dissect_h265_exp_golomb_code(ptr noundef %138, i32 noundef %148, ptr noundef %1, ptr noundef readonly %2, ptr noundef nonnull %6, i32 noundef 0)
   %150 = zext i8 %.1286 to i64
-  %151 = getelementptr i32, ptr %8, i64 %150
+  %151 = getelementptr [4 x i8], ptr %8, i64 %150
   %152 = getelementptr i8, ptr %151, i64 -4
   %.promoted.i = load i32, ptr %6, align 4
   %153 = load i32, ptr %152, align 4
@@ -1843,7 +1843,7 @@ define internal fastcc void @dissect_h265_seq_parameter_set_rbsp(ptr noundef %0,
   %169 = call fastcc i32 @dissect_h265_exp_golomb_code(ptr noundef %138, i32 noundef %168, ptr noundef %1, ptr noundef readonly %2, ptr noundef nonnull %6, i32 noundef 0)
   %170 = add i32 %169, %167
   %171 = zext i8 %.1286 to i64
-  %172 = getelementptr i32, ptr %8, i64 %171
+  %172 = getelementptr [4 x i8], ptr %8, i64 %171
   store i32 %170, ptr %172, align 4
   %.not74.i = icmp eq i32 %167, 0
   br i1 %.not74.i, label %.preheader.i, label %.lr.ph71.i
@@ -4489,7 +4489,7 @@ define internal fastcc i32 @dissect_h265_hrd_parameters(ptr noundef %0, ptr noun
 89:                                               ; preds = %76, %85
   %90 = load i32, ptr @hf_h265_cpb_cnt_minus1, align 4
   %91 = call fastcc i32 @dissect_h265_exp_golomb_code(ptr noundef %0, i32 noundef %90, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %7, i32 noundef 0)
-  %92 = getelementptr i32, ptr %10, i64 %indvars.iv
+  %92 = getelementptr [4 x i8], ptr %10, i64 %indvars.iv
   store i32 %91, ptr %92, align 4
   br label %93
 
@@ -4498,7 +4498,7 @@ define internal fastcc i32 @dissect_h265_hrd_parameters(ptr noundef %0, ptr noun
 
 94:                                               ; preds = %93
   %95 = load i32, ptr %7, align 4
-  %96 = getelementptr i32, ptr %10, i64 %indvars.iv
+  %96 = getelementptr [4 x i8], ptr %10, i64 %indvars.iv
   %97 = load i32, ptr %96, align 4
   %98 = add i32 %97, 1
   tail call fastcc void @dissect_h265_sub_layer_hrd_parameters(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %95, i32 noundef %98, i1 noundef zeroext %.0)
@@ -4509,7 +4509,7 @@ define internal fastcc i32 @dissect_h265_hrd_parameters(ptr noundef %0, ptr noun
 
 100:                                              ; preds = %99
   %101 = load i32, ptr %7, align 4
-  %102 = getelementptr i32, ptr %10, i64 %indvars.iv
+  %102 = getelementptr [4 x i8], ptr %10, i64 %indvars.iv
   %103 = load i32, ptr %102, align 4
   %104 = add i32 %103, 1
   tail call fastcc void @dissect_h265_sub_layer_hrd_parameters(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %101, i32 noundef %104, i1 noundef zeroext %.0)

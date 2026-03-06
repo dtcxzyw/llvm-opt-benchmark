@@ -35,7 +35,7 @@ define range(i32 -46, 1) i32 @pmix_mca_base_component_find(ptr noundef %0, ptr n
 
 11:                                               ; preds = %4
   %12 = zext nneg i32 %10 to i64
-  %13 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %12
+  %13 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %15 = load i32, ptr %14, align 4, !tbaa !19
   %16 = icmp sgt i32 %15, 9
@@ -101,7 +101,7 @@ pmix_mca_base_component_parse_requested.exit.thread: ; preds = %23, %27, %33, %2
 43:                                               ; preds = %.lr.ph, %78
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %78 ]
   %44 = phi ptr [ %38, %.lr.ph ], [ %80, %78 ]
-  %45 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 84
   br i1 %39, label %use_component.exit.thread, label %.preheader.i
 
@@ -188,7 +188,7 @@ use_component.exit.thread:                        ; preds = %43, %use_component.
 
 78:                                               ; preds = %use_component.exit.thr_comm, %use_component.exit, %.loopexit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %79 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.next
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.next
   %80 = load ptr, ptr %79, align 8, !tbaa !25
   %.not44 = icmp eq ptr %80, null
   br i1 %.not44, label %pmix_obj_new_tma.exit.thread75, label %43, !llvm.loop !44
@@ -208,7 +208,7 @@ pmix_obj_new_tma.exit.thread75:                   ; preds = %78, %.preheader, %p
 
 85:                                               ; preds = %83
   %86 = zext nneg i32 %84 to i64
-  %87 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %86
+  %87 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %86
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 4
   %89 = load i32, ptr %88, align 4, !tbaa !19
   %90 = icmp sgt i32 %89, 9
@@ -375,7 +375,7 @@ find_dyn_components.exit:                         ; preds = %use_component.exit.
 150:                                              ; preds = %.critedge.i, %.lr.ph37.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph37.i ], [ %indvars.iv.next.i, %.critedge.i ]
   %151 = phi ptr [ %146, %.lr.ph37.i ], [ %169, %.critedge.i ]
-  %152 = getelementptr inbounds nuw ptr, ptr %.068, i64 %indvars.iv.i
+  %152 = getelementptr inbounds nuw [8 x i8], ptr %.068, i64 %indvars.iv.i
   %.02432.i = load ptr, ptr %148, align 8, !tbaa !42
   %.not30.not33.i = icmp eq ptr %.02432.i, %147
   br i1 %.not30.not33.i, label %._crit_edge.i58, label %.lr.ph.i57
@@ -414,7 +414,7 @@ find_dyn_components.exit:                         ; preds = %use_component.exit.
 
 .critedge.i:                                      ; preds = %.lr.ph.i57, %161, %._crit_edge.i58
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %168 = getelementptr inbounds nuw ptr, ptr %.068, i64 %indvars.iv.next.i
+  %168 = getelementptr inbounds nuw [8 x i8], ptr %.068, i64 %indvars.iv.next.i
   %169 = load ptr, ptr %168, align 8, !tbaa !27
   %.not29.i = icmp eq ptr %169, null
   br i1 %.not29.i, label %pmix_obj_new_tma.exit.thread79, label %150, !llvm.loop !55
@@ -639,7 +639,7 @@ use_component.exit.thread:                        ; preds = %use_component.exit.
 66:                                               ; preds = %.critedge.i, %.lr.ph37.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph37.i ], [ %indvars.iv.next.i, %.critedge.i ]
   %67 = phi ptr [ %64, %.lr.ph37.i ], [ %85, %.critedge.i ]
-  %68 = getelementptr inbounds nuw ptr, ptr %.050.ph87, i64 %indvars.iv.i
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %.050.ph87, i64 %indvars.iv.i
   %.02432.i = load ptr, ptr %19, align 8, !tbaa !42
   %.not30.not33.i = icmp eq ptr %.02432.i, %18
   br i1 %.not30.not33.i, label %._crit_edge.i44, label %.lr.ph.i43
@@ -678,7 +678,7 @@ use_component.exit.thread:                        ; preds = %use_component.exit.
 
 .critedge.i:                                      ; preds = %.lr.ph.i43, %77, %._crit_edge.i44
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %84 = getelementptr inbounds nuw ptr, ptr %.050.ph87, i64 %indvars.iv.next.i
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %.050.ph87, i64 %indvars.iv.next.i
   %85 = load ptr, ptr %84, align 8, !tbaa !27
   %.not29.i = icmp eq ptr %85, null
   br i1 %.not29.i, label %component_find_check.exit.thread, label %66, !llvm.loop !55

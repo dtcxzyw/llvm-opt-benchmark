@@ -916,8 +916,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._ts = type { ptr, ptr, ptr, i64, %struct.anon.0, i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, i64, i64, ptr, i64, i32, ptr, ptr, ptr, i64, i64, ptr, ptr, ptr, %struct._err_stackitem, ptr, i64, ptr, ptr }
 %struct.anon.0 = type { i32 }
 %struct._err_stackitem = type { ptr, ptr }
-%union._Py_CODEUNIT = type { i16 }
-%union._PyStackRef = type { i64 }
 
 @PyExc_StopIteration = external local_unnamed_addr global ptr, align 8
 @_Py_NoneStruct = external global %struct._object, align 8
@@ -2116,7 +2114,7 @@ _PyFrame_IsIncomplete.exit.i:                     ; preds = %158
   %163 = getelementptr inbounds nuw i8, ptr %161, i64 192
   %164 = load i32, ptr %163, align 8, !tbaa !129
   %165 = sext i32 %164 to i64
-  %166 = getelementptr %union._Py_CODEUNIT, ptr %162, i64 %165
+  %166 = getelementptr [2 x i8], ptr %162, i64 %165
   %167 = icmp ult ptr %160, %166
   br i1 %167, label %_PyFrame_IsIncomplete.exit.thread.i, label %_PyFrame_GetFirstComplete.exit
 
@@ -2189,7 +2187,7 @@ _PyFrame_IsIncomplete.exit.i:                     ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 192
   %17 = load i32, ptr %16, align 8, !tbaa !129
   %18 = sext i32 %17 to i64
-  %19 = getelementptr %union._Py_CODEUNIT, ptr %15, i64 %18
+  %19 = getelementptr [2 x i8], ptr %15, i64 %18
   %20 = icmp ult ptr %13, %19
   br i1 %20, label %_PyFrame_IsIncomplete.exit.thread.i, label %_PyFrame_GetFirstComplete.exit
 
@@ -2253,7 +2251,7 @@ _PyFrame_GetFirstComplete.exit:                   ; preds = %11, %_PyFrame_IsInc
   br label %Py_DECREF.exit.thread
 
 45:                                               ; preds = %31
-  %46 = getelementptr ptr, ptr %30, i64 %indvars.iv
+  %46 = getelementptr [8 x i8], ptr %30, i64 %indvars.iv
   store ptr %38, ptr %46, align 8, !tbaa !32
   %47 = getelementptr inbounds nuw i8, ptr %.12855, i64 8
   %48 = load ptr, ptr %47, align 8, !tbaa !31
@@ -2280,7 +2278,7 @@ _PyFrame_IsIncomplete.exit.i41:                   ; preds = %52
   %57 = getelementptr inbounds nuw i8, ptr %55, i64 192
   %58 = load i32, ptr %57, align 8, !tbaa !129
   %59 = sext i32 %58 to i64
-  %60 = getelementptr %union._Py_CODEUNIT, ptr %56, i64 %59
+  %60 = getelementptr [2 x i8], ptr %56, i64 %59
   %61 = icmp ult ptr %54, %60
   br i1 %61, label %_PyFrame_IsIncomplete.exit.thread.i44, label %Py_DECREF.exit.thread48
 
@@ -2353,7 +2351,7 @@ define internal fastcc ptr @gen_new_with_qualname(ptr noundef %0, ptr noundef %1
   %33 = getelementptr inbounds nuw i8, ptr %14, i64 152
   %sext.i = shl i64 %30, 29
   %34 = ashr i64 %sext.i, 32
-  %35 = getelementptr %union._PyStackRef, ptr %33, i64 %34
+  %35 = getelementptr [8 x i8], ptr %33, i64 %34
   %36 = getelementptr inbounds nuw i8, ptr %14, i64 136
   store ptr %35, ptr %36, align 8, !tbaa !29
   %37 = icmp sgt i32 %32, 1
@@ -2365,8 +2363,8 @@ define internal fastcc ptr @gen_new_with_qualname(ptr noundef %0, ptr noundef %1
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %38 = getelementptr %union._PyStackRef, ptr %33, i64 %indvars.iv.i
-  %39 = getelementptr %union._PyStackRef, ptr %27, i64 %indvars.iv.i
+  %38 = getelementptr [8 x i8], ptr %33, i64 %indvars.iv.i
+  %39 = getelementptr [8 x i8], ptr %27, i64 %indvars.iv.i
   %40 = load i64, ptr %39, align 8, !tbaa !4
   store i64 %40, ptr %38, align 8, !tbaa !4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1

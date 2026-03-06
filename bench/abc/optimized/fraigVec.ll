@@ -212,7 +212,7 @@ Fraig_NodeVecGrow.exit11:                         ; preds = %.Fraig_NodeVecGrow.
   %31 = add nsw i32 %30, 1
   store i32 %31, ptr %3, align 4, !tbaa !3
   %32 = sext i32 %30 to i64
-  %33 = getelementptr inbounds ptr, ptr %29, i64 %32
+  %33 = getelementptr inbounds [8 x i8], ptr %29, i64 %32
   store ptr %1, ptr %33, align 8, !tbaa !12
   ret void
 }
@@ -237,7 +237,7 @@ define range(i32 0, 2) i32 @Fraig_NodeVecPushUnique(ptr noundef captures(none) %
 
 9:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
-  %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !12
   %12 = icmp eq ptr %11, %1
   br i1 %12, label %.loopexit, label %8
@@ -305,7 +305,7 @@ Fraig_NodeVecPush.exit:                           ; preds = %.Fraig_NodeVecGrow.
   %39 = add nsw i32 %38, 1
   store i32 %39, ptr %3, align 4, !tbaa !3
   %40 = sext i32 %38 to i64
-  %41 = getelementptr inbounds ptr, ptr %37, i64 %40
+  %41 = getelementptr inbounds [8 x i8], ptr %37, i64 %40
   store ptr %1, ptr %41, align 8, !tbaa !12
   br label %.loopexit
 
@@ -380,7 +380,7 @@ Fraig_NodeVecPush.exit:                           ; preds = %.Fraig_NodeVecGrow.
   %31 = add nsw i32 %30, 1
   store i32 %31, ptr %3, align 4, !tbaa !3
   %32 = sext i32 %30 to i64
-  %33 = getelementptr inbounds ptr, ptr %29, i64 %32
+  %33 = getelementptr inbounds [8 x i8], ptr %29, i64 %32
   store ptr %1, ptr %33, align 8, !tbaa !12
   %34 = icmp sgt i32 %30, 0
   br i1 %34, label %.lr.ph, label %._crit_edge
@@ -389,10 +389,10 @@ Fraig_NodeVecPush.exit:                           ; preds = %.Fraig_NodeVecGrow.
   %.019 = phi i32 [ %.0, %42 ], [ %30, %Fraig_NodeVecPush.exit ]
   %.0.in18 = phi i32 [ %.019, %42 ], [ %31, %Fraig_NodeVecPush.exit ]
   %35 = zext nneg i32 %.019 to i64
-  %36 = getelementptr inbounds nuw ptr, ptr %29, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %35
   %37 = load ptr, ptr %36, align 8, !tbaa !12
   %38 = zext nneg i32 %.0.in18 to i64
-  %39 = getelementptr ptr, ptr %29, i64 %38
+  %39 = getelementptr [8 x i8], ptr %29, i64 %38
   %40 = getelementptr i8, ptr %39, i64 -16
   %41 = load ptr, ptr %40, align 8, !tbaa !12
   %.not = icmp ult ptr %37, %41
@@ -429,7 +429,7 @@ define range(i32 0, 2) i32 @Fraig_NodeVecPushUniqueOrder(ptr noundef captures(no
 
 9:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
-  %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !12
   %12 = icmp eq ptr %11, %1
   br i1 %12, label %.loopexit, label %8
@@ -509,7 +509,7 @@ Fraig_NodeVecPush.exit:                           ; preds = %.Fraig_NodeVecGrow.
   %31 = add nsw i32 %30, 1
   store i32 %31, ptr %3, align 4, !tbaa !3
   %32 = sext i32 %30 to i64
-  %33 = getelementptr inbounds ptr, ptr %29, i64 %32
+  %33 = getelementptr inbounds [8 x i8], ptr %29, i64 %32
   store ptr %1, ptr %33, align 8, !tbaa !12
   %34 = icmp sgt i32 %30, 0
   br i1 %34, label %.lr.ph, label %._crit_edge
@@ -518,10 +518,10 @@ Fraig_NodeVecPush.exit:                           ; preds = %.Fraig_NodeVecGrow.
   %.017 = phi i32 [ %.0, %52 ], [ %30, %Fraig_NodeVecPush.exit ]
   %.0.in16 = phi i32 [ %.017, %52 ], [ %31, %Fraig_NodeVecPush.exit ]
   %35 = zext nneg i32 %.017 to i64
-  %36 = getelementptr inbounds nuw ptr, ptr %29, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %35
   %37 = load ptr, ptr %36, align 8, !tbaa !12
   %38 = zext nneg i32 %.0.in16 to i64
-  %39 = getelementptr ptr, ptr %29, i64 %38
+  %39 = getelementptr [8 x i8], ptr %29, i64 %38
   %40 = getelementptr i8, ptr %39, i64 -16
   %41 = load ptr, ptr %40, align 8, !tbaa !12
   %42 = ptrtoint ptr %37 to i64
@@ -568,7 +568,7 @@ define range(i32 0, 2) i32 @Fraig_NodeVecPushUniqueOrderByLevel(ptr noundef capt
 
 9:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
-  %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !12
   %12 = icmp eq ptr %11, %1
   br i1 %12, label %.loopexit, label %8
@@ -591,7 +591,7 @@ define ptr @Fraig_NodeVecPop(ptr noundef captures(none) %0) local_unnamed_addr #
   %6 = add nsw i32 %5, -1
   store i32 %6, ptr %4, align 4, !tbaa !3
   %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds ptr, ptr %3, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr %3, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !12
   ret ptr %9
 }
@@ -611,7 +611,7 @@ define void @Fraig_NodeVecRemove(ptr noundef captures(none) %0, ptr noundef read
 
 8:                                                ; preds = %.lr.ph, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !12
   %11 = icmp eq ptr %10, %1
   br i1 %11, label %._crit_edge.loopexit.split.loop.exit, label %12
@@ -641,10 +641,10 @@ define void @Fraig_NodeVecRemove(ptr noundef captures(none) %0, ptr noundef read
 19:                                               ; preds = %.lr.ph25, %19
   %indvars.iv28 = phi i64 [ %18, %.lr.ph25 ], [ %indvars.iv.next29, %19 ]
   %.1.in22 = phi i32 [ %.0.lcssa, %.lr.ph25 ], [ %26, %19 ]
-  %20 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv28
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv28
   %21 = load ptr, ptr %20, align 8, !tbaa !12
   %22 = zext nneg i32 %.1.in22 to i64
-  %23 = getelementptr inbounds nuw ptr, ptr %16, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %22
   store ptr %21, ptr %23, align 8, !tbaa !12
   %indvars.iv.next29 = add nuw nsw i64 %indvars.iv28, 1
   %24 = trunc nuw i64 %indvars.iv.next29 to i32
@@ -663,7 +663,7 @@ define void @Fraig_NodeVecWriteEntry(ptr noundef readonly captures(none) %0, i32
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !11
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds ptr, ptr %5, i64 %6
+  %7 = getelementptr inbounds [8 x i8], ptr %5, i64 %6
   store ptr %2, ptr %7, align 8, !tbaa !12
   ret void
 }
@@ -673,7 +673,7 @@ define ptr @Fraig_NodeVecReadEntry(ptr noundef readonly captures(none) %0, i32 n
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !11
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds ptr, ptr %4, i64 %5
+  %6 = getelementptr inbounds [8 x i8], ptr %4, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !12
   ret ptr %7
 }

@@ -4,11 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.GinStatsData = type { i32, i32, i32, i32, i64, i32 }
-%struct.ScanKeyData = type { i32, i16, i16, i32, i32, %struct.FmgrInfo, i64 }
-%struct.FmgrInfo = type { ptr, i32, i16, i8, i8, i8, ptr, ptr, ptr }
-%struct.GinScanKeyData = type { i32, i32, ptr, ptr, i32, ptr, i32, ptr, ptr, ptr, ptr, ptr, i32, i64, ptr, ptr, ptr, i16, i32, i16, i8, %struct.ItemPointerData, i8, i8, i8 }
-%struct.ItemPointerData = type { %struct.BlockIdData, i16 }
-%struct.BlockIdData = type { i16, i16 }
 
 @CurrentMemoryContext = external local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [27 x i8] c"Gin scan temporary context\00", align 1
@@ -70,7 +65,7 @@ define dso_local void @ginFreeScanKeys(ptr noundef captures(none) %0) local_unna
 8:                                                ; preds = %.lr.ph, %27
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %27 ]
   %9 = load ptr, ptr %7, align 8
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 36
   %13 = load i32, ptr %12, align 4
@@ -200,7 +195,7 @@ define dso_local void @ginNewScanKey(ptr noundef readonly captures(none) %0) loc
 39:                                               ; preds = %.lr.ph88, %99
   %indvars.iv98 = phi i64 [ 0, %.lr.ph88 ], [ %indvars.iv.next99, %99 ]
   %.06786 = phi i1 [ false, %.lr.ph88 ], [ %.4, %99 ]
-  %40 = getelementptr inbounds nuw %struct.ScanKeyData, ptr %10, i64 %indvars.iv98
+  %40 = getelementptr inbounds nuw [72 x i8], ptr %10, i64 %indvars.iv98
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -221,8 +216,8 @@ define dso_local void @ginNewScanKey(ptr noundef readonly captures(none) %0) loc
   %45 = load i16, ptr %44, align 4
   %46 = sext i16 %45 to i64
   %47 = add nsw i64 %46, -1
-  %48 = getelementptr inbounds %struct.FmgrInfo, ptr %32, i64 %47
-  %49 = getelementptr inbounds i32, ptr %33, i64 %47
+  %48 = getelementptr inbounds [48 x i8], ptr %32, i64 %47
+  %49 = getelementptr inbounds [4 x i8], ptr %33, i64 %47
   %50 = load i32, ptr %49, align 4
   %51 = getelementptr inbounds nuw i8, ptr %40, i64 64
   %52 = load i64, ptr %51, align 8
@@ -345,7 +340,7 @@ define dso_local void @ginNewScanKey(ptr noundef readonly captures(none) %0) loc
   %.190 = phi i32 [ %133, %131 ], [ 0, %.loopexit81 ]
   %105 = load ptr, ptr %23, align 8
   %106 = sext i32 %.190 to i64
-  %107 = getelementptr inbounds %struct.GinScanKeyData, ptr %105, i64 %106
+  %107 = getelementptr inbounds [152 x i8], ptr %105, i64 %106
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 132
   %109 = load i32, ptr %108, align 4
   %.not75 = icmp eq i32 %109, 2
@@ -371,7 +366,7 @@ define dso_local void @ginNewScanKey(ptr noundef readonly captures(none) %0) loc
   %123 = getelementptr inbounds nuw i8, ptr %107, i64 8
   %124 = load ptr, ptr %123, align 8
   %125 = sext i32 %120 to i64
-  %126 = getelementptr inbounds ptr, ptr %124, i64 %125
+  %126 = getelementptr inbounds [8 x i8], ptr %124, i64 %125
   store ptr %122, ptr %126, align 8
   %127 = load i16, ptr %111, align 8
   %128 = zext i16 %127 to i64
@@ -436,7 +431,7 @@ define dso_local void @ginNewScanKey(ptr noundef readonly captures(none) %0) loc
   %158 = call fastcc ptr @ginFillScanEntry(ptr noundef nonnull %12, i16 noundef zeroext %156, i16 noundef zeroext 0, i32 noundef %157, i64 noundef 0, i8 noundef signext -1, i1 noundef zeroext false, ptr noundef null)
   %159 = load ptr, ptr %142, align 8
   %160 = sext i32 %154 to i64
-  %161 = getelementptr inbounds ptr, ptr %159, i64 %160
+  %161 = getelementptr inbounds [8 x i8], ptr %159, i64 %160
   store ptr %158, ptr %161, align 8
   br label %163
 
@@ -525,7 +520,7 @@ define internal fastcc void @ginFillScanKey(ptr noundef %0, i16 noundef zeroext 
   %15 = add i32 %14, 1
   store i32 %15, ptr %13, align 8
   %16 = zext i32 %14 to i64
-  %17 = getelementptr inbounds nuw %struct.GinScanKeyData, ptr %12, i64 %16
+  %17 = getelementptr inbounds nuw [152 x i8], ptr %12, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %5, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 4
@@ -585,13 +580,13 @@ define internal fastcc void @ginFillScanKey(ptr noundef %0, i16 noundef zeroext 
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %.lr.ph.split.us.split.us
   %indvars.iv89 = phi i64 [ %indvars.iv.next90, %.lr.ph.split.us.split.us ], [ 0, %.lr.ph.split.us ]
-  %45 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv89
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv89
   %46 = load i64, ptr %45, align 8
   %47 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv89
   %48 = load i8, ptr %47, align 1
   %49 = tail call fastcc ptr @ginFillScanEntry(ptr noundef nonnull %0, i16 noundef zeroext %1, i16 noundef zeroext %2, i32 noundef %3, i64 noundef %46, i8 noundef signext %48, i1 noundef zeroext false, ptr noundef null)
   %50 = load ptr, ptr %24, align 8
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %indvars.iv89
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %indvars.iv89
   store ptr %49, ptr %51, align 8
   %indvars.iv.next90 = add nuw nsw i64 %indvars.iv89, 1
   %exitcond93.not = icmp eq i64 %indvars.iv.next90, %wide.trip.count92
@@ -599,15 +594,15 @@ define internal fastcc void @ginFillScanKey(ptr noundef %0, i16 noundef zeroext 
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %.lr.ph.split.us.split
   %indvars.iv84 = phi i64 [ %indvars.iv.next85, %.lr.ph.split.us.split ], [ 0, %.lr.ph.split.us ]
-  %52 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv84
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv84
   %53 = load i64, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv84
   %55 = load i8, ptr %54, align 1
-  %56 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv84
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv84
   %57 = load ptr, ptr %56, align 8
   %58 = tail call fastcc ptr @ginFillScanEntry(ptr noundef nonnull %0, i16 noundef zeroext %1, i16 noundef zeroext %2, i32 noundef %3, i64 noundef %53, i8 noundef signext %55, i1 noundef zeroext false, ptr noundef %57)
   %59 = load ptr, ptr %24, align 8
-  %60 = getelementptr inbounds nuw ptr, ptr %59, i64 %indvars.iv84
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %indvars.iv84
   store ptr %58, ptr %60, align 8
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
   %exitcond88.not = icmp eq i64 %indvars.iv.next85, %wide.trip.count92
@@ -618,7 +613,7 @@ define internal fastcc void @ginFillScanKey(ptr noundef %0, i16 noundef zeroext 
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %71
   %indvars.iv79 = phi i64 [ %indvars.iv.next80, %71 ], [ 0, %.lr.ph.split ]
-  %61 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv79
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv79
   %62 = load i64, ptr %61, align 8
   %63 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv79
   %64 = load i8, ptr %63, align 1
@@ -636,7 +631,7 @@ define internal fastcc void @ginFillScanKey(ptr noundef %0, i16 noundef zeroext 
   %72 = phi i1 [ %70, %67 ], [ false, %.lr.ph.split.split.us ]
   %73 = tail call fastcc ptr @ginFillScanEntry(ptr noundef nonnull %0, i16 noundef zeroext %1, i16 noundef zeroext %2, i32 noundef %3, i64 noundef %62, i8 noundef signext %64, i1 noundef zeroext %72, ptr noundef null)
   %74 = load ptr, ptr %24, align 8
-  %75 = getelementptr inbounds nuw ptr, ptr %74, i64 %indvars.iv79
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %indvars.iv79
   store ptr %73, ptr %75, align 8
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
   %exitcond83.not = icmp eq i64 %indvars.iv.next80, %wide.trip.count92
@@ -644,7 +639,7 @@ define internal fastcc void @ginFillScanKey(ptr noundef %0, i16 noundef zeroext 
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %86
   %indvars.iv = phi i64 [ %indvars.iv.next, %86 ], [ 0, %.lr.ph.split ]
-  %76 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %77 = load i64, ptr %76, align 8
   %78 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv
   %79 = load i8, ptr %78, align 1
@@ -660,11 +655,11 @@ define internal fastcc void @ginFillScanKey(ptr noundef %0, i16 noundef zeroext 
 
 86:                                               ; preds = %.lr.ph.split.split, %82
   %87 = phi i1 [ %85, %82 ], [ false, %.lr.ph.split.split ]
-  %88 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %89 = load ptr, ptr %88, align 8
   %90 = tail call fastcc ptr @ginFillScanEntry(ptr noundef nonnull %0, i16 noundef zeroext %1, i16 noundef zeroext %2, i32 noundef %3, i64 noundef %77, i8 noundef signext %79, i1 noundef zeroext %87, ptr noundef %89)
   %91 = load ptr, ptr %24, align 8
-  %92 = getelementptr inbounds nuw ptr, ptr %91, i64 %indvars.iv
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %indvars.iv
   store ptr %90, ptr %92, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count92
@@ -689,7 +684,7 @@ define internal fastcc void @ginFillScanKey(ptr noundef %0, i16 noundef zeroext 
   %98 = tail call fastcc ptr @ginFillScanEntry(ptr noundef nonnull %0, i16 noundef zeroext %96, i16 noundef zeroext 0, i32 noundef %97, i64 noundef 0, i8 noundef signext %.sink105, i1 noundef zeroext false, ptr noundef null)
   %99 = load ptr, ptr %24, align 8
   %100 = sext i32 %94 to i64
-  %101 = getelementptr inbounds ptr, ptr %99, i64 %100
+  %101 = getelementptr inbounds [8 x i8], ptr %99, i64 %100
   store ptr %98, ptr %101, align 8
   br label %102
 
@@ -780,7 +775,7 @@ define internal fastcc ptr @ginFillScanEntry(ptr noundef %0, i16 noundef zeroext
   %16 = phi i32 [ %13, %.lr.ph ], [ %46, %45 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %45 ]
   %17 = load ptr, ptr %14, align 8
-  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load ptr, ptr %20, align 8
@@ -879,7 +874,7 @@ define internal fastcc ptr @ginFillScanEntry(ptr noundef %0, i16 noundef zeroext
   %72 = add i32 %70, 1
   store i32 %72, ptr %58, align 8
   %73 = zext i32 %70 to i64
-  %74 = getelementptr inbounds nuw ptr, ptr %71, i64 %73
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %73
   store ptr %49, ptr %74, align 8
   br label %.loopexit64
 

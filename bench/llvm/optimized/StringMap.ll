@@ -55,7 +55,7 @@ _ZN4llvm13StringMapImpl4initEj.exit:              ; preds = %6
   %26 = trunc nuw nsw i64 %21 to i32
   %27 = add nuw i32 %26, 1
   %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %23, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %28
   store ptr inttoptr (i64 2 to ptr), ptr %29, align 8, !tbaa !11
   store ptr %23, ptr %0, align 8, !tbaa !13
   store i32 %27, ptr %4, align 8, !tbaa !14
@@ -103,7 +103,7 @@ define dso_local void @_ZN4llvm13StringMapImpl4initEj(ptr noundef nonnull writeo
 _ZL11createTablej.exit:                           ; preds = %2, %12
   %.0.i.i = phi ptr [ %8, %2 ], [ %13, %12 ]
   %17 = zext i32 %3 to i64
-  %18 = getelementptr inbounds nuw ptr, ptr %.0.i.i, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i, i64 %17
   store ptr inttoptr (i64 2 to ptr), ptr %18, align 8, !tbaa !11
   store ptr %.0.i.i, ptr %0, align 8, !tbaa !13
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -139,7 +139,7 @@ define internal fastcc noalias noundef nonnull ptr @_ZL11createTablej(i32 nounde
 _ZN4llvm11safe_callocEmm.exit:                    ; preds = %1, %8
   %.0.i = phi ptr [ %4, %1 ], [ %9, %8 ]
   %13 = zext i32 %0 to i64
-  %14 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %13
   store ptr inttoptr (i64 2 to ptr), ptr %14, align 8, !tbaa !11
   ret ptr %.0.i
 }
@@ -182,7 +182,7 @@ _ZN4llvm13StringMapImpl4initEj.exit:              ; preds = %8
   %18 = add i32 %17, -1
   %19 = and i32 %18, %3
   %20 = zext i32 %17 to i64
-  %21 = getelementptr inbounds nuw ptr, ptr %16, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %24 = load i32, ptr %23, align 4
@@ -195,7 +195,7 @@ _ZN4llvm13StringMapImpl4initEj.exit:              ; preds = %8
   %.037.us = phi i32 [ %40, %_ZN4llvmeqENS_9StringRefES0_.exit.thread48.us ], [ 1, %15 ]
   %.033.us = phi i32 [ %39, %_ZN4llvmeqENS_9StringRefES0_.exit.thread48.us ], [ %19, %15 ]
   %27 = zext i32 %.033.us to i64
-  %28 = getelementptr inbounds nuw ptr, ptr %16, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %27
   %29 = load ptr, ptr %28, align 8, !tbaa !11
   %magicptr.us = ptrtoint ptr %29 to i64
   switch i64 %magicptr.us, label %32 [
@@ -209,7 +209,7 @@ _ZN4llvm13StringMapImpl4initEj.exit:              ; preds = %8
   br label %_ZN4llvmeqENS_9StringRefES0_.exit.thread48.us
 
 32:                                               ; preds = %.split.us
-  %33 = getelementptr inbounds nuw i32, ptr %22, i64 %27
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %27
   %34 = load i32, ptr %33, align 4, !tbaa !17
   %35 = icmp eq i32 %34, %3
   br i1 %35, label %36, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread48.us, !prof !18
@@ -231,7 +231,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread48.us:    ; preds = %36, %32, %30
   %.037 = phi i32 [ %58, %_ZN4llvmeqENS_9StringRefES0_.exit.thread48 ], [ 1, %15 ]
   %.033 = phi i32 [ %57, %_ZN4llvmeqENS_9StringRefES0_.exit.thread48 ], [ %19, %15 ]
   %41 = zext i32 %.033 to i64
-  %42 = getelementptr inbounds nuw ptr, ptr %16, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %41
   %43 = load ptr, ptr %42, align 8, !tbaa !11
   %magicptr = ptrtoint ptr %43 to i64
   switch i64 %magicptr, label %48 [
@@ -247,7 +247,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread48.us:    ; preds = %36, %32, %30
   %44 = sext i32 %.us-phi to i64
   %.sink88 = select i1 %.not43, i64 %.us-phi65, i64 %44
   %.1.ph.ph = select i1 %.not43, i32 %.us-phi64, i32 %.us-phi
-  %45 = getelementptr inbounds i32, ptr %22, i64 %.sink88
+  %45 = getelementptr inbounds [4 x i8], ptr %22, i64 %.sink88
   store i32 %3, ptr %45, align 4, !tbaa !17
   br label %.thread
 
@@ -257,7 +257,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread48.us:    ; preds = %36, %32, %30
   br label %_ZN4llvmeqENS_9StringRefES0_.exit.thread48
 
 48:                                               ; preds = %.split
-  %49 = getelementptr inbounds nuw i32, ptr %22, i64 %41
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %41
   %50 = load i32, ptr %49, align 4, !tbaa !17
   %51 = icmp eq i32 %50, %3
   br i1 %51, label %52, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread48, !prof !18
@@ -297,7 +297,7 @@ define dso_local noundef i32 @_ZNK4llvm13StringMapImpl7FindKeyENS_9StringRefEj(p
   %9 = add i32 %6, -1
   %10 = load ptr, ptr %0, align 8, !tbaa !13
   %11 = zext i32 %6 to i64
-  %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %15 = load i32, ptr %14, align 4
@@ -310,7 +310,7 @@ define dso_local noundef i32 @_ZNK4llvm13StringMapImpl7FindKeyENS_9StringRefEj(p
   %.pn.us = phi i32 [ %27, %_ZN4llvmeqENS_9StringRefES0_.exit.thread32.us ], [ %3, %8 ]
   %.022.us = and i32 %.pn.us, %9
   %18 = zext i32 %.022.us to i64
-  %19 = getelementptr inbounds nuw ptr, ptr %10, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !11
   %magicptr.us = ptrtoint ptr %20 to i64
   switch i64 %magicptr.us, label %21 [
@@ -319,7 +319,7 @@ define dso_local noundef i32 @_ZNK4llvm13StringMapImpl7FindKeyENS_9StringRefEj(p
   ], !prof !16
 
 21:                                               ; preds = %.split.us
-  %22 = getelementptr inbounds nuw i32, ptr %13, i64 %18
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %18
   %23 = load i32, ptr %22, align 4, !tbaa !17
   %24 = icmp eq i32 %23, %3
   br i1 %24, label %25, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread32.us, !prof !18
@@ -339,7 +339,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread32.us:    ; preds = %25, %21, %.split.us
   %.pn = phi i32 [ %40, %_ZN4llvmeqENS_9StringRefES0_.exit.thread32 ], [ %3, %8 ]
   %.022 = and i32 %.pn, %9
   %29 = zext i32 %.022 to i64
-  %30 = getelementptr inbounds nuw ptr, ptr %10, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !11
   %magicptr = ptrtoint ptr %31 to i64
   switch i64 %magicptr, label %32 [
@@ -348,7 +348,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread32.us:    ; preds = %25, %21, %.split.us
   ], !prof !16
 
 32:                                               ; preds = %.split
-  %33 = getelementptr inbounds nuw i32, ptr %13, i64 %29
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %29
   %34 = load i32, ptr %33, align 4, !tbaa !17
   %35 = icmp eq i32 %34, %3
   br i1 %35, label %36, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread32, !prof !18
@@ -399,7 +399,7 @@ define dso_local noundef ptr @_ZN4llvm13StringMapImpl9RemoveKeyENS_9StringRefE(p
   %10 = add i32 %7, -1
   %11 = load ptr, ptr %0, align 8, !tbaa !13
   %12 = zext i32 %7 to i64
-  %13 = getelementptr inbounds nuw ptr, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %16 = load i32, ptr %15, align 4
@@ -412,7 +412,7 @@ define dso_local noundef ptr @_ZN4llvm13StringMapImpl9RemoveKeyENS_9StringRefE(p
   %.pn.us.i.i = phi i32 [ %28, %_ZN4llvmeqENS_9StringRefES0_.exit.thread32.us.i.i ], [ %5, %9 ]
   %.022.us.i.i = and i32 %.pn.us.i.i, %10
   %19 = zext i32 %.022.us.i.i to i64
-  %20 = getelementptr inbounds nuw ptr, ptr %11, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !11
   %magicptr.us.i.i = ptrtoint ptr %21 to i64
   switch i64 %magicptr.us.i.i, label %22 [
@@ -421,7 +421,7 @@ define dso_local noundef ptr @_ZN4llvm13StringMapImpl9RemoveKeyENS_9StringRefE(p
   ], !prof !16
 
 22:                                               ; preds = %.split.us.i.i
-  %23 = getelementptr inbounds nuw i32, ptr %14, i64 %19
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %19
   %24 = load i32, ptr %23, align 4, !tbaa !17
   %25 = icmp eq i32 %24, %5
   br i1 %25, label %26, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread32.us.i.i, !prof !18
@@ -441,7 +441,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread32.us.i.i: ; preds = %26, %22, %.split.u
   %.pn.i.i = phi i32 [ %41, %_ZN4llvmeqENS_9StringRefES0_.exit.thread32.i.i ], [ %5, %9 ]
   %.022.i.i = and i32 %.pn.i.i, %10
   %30 = zext i32 %.022.i.i to i64
-  %31 = getelementptr inbounds nuw ptr, ptr %11, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !11
   %magicptr.i.i = ptrtoint ptr %32 to i64
   switch i64 %magicptr.i.i, label %33 [
@@ -450,7 +450,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread32.us.i.i: ; preds = %26, %22, %.split.u
   ], !prof !16
 
 33:                                               ; preds = %.split.i.i
-  %34 = getelementptr inbounds nuw i32, ptr %14, i64 %30
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %30
   %35 = load i32, ptr %34, align 4, !tbaa !17
   %36 = icmp eq i32 %35, %5
   br i1 %36, label %37, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread32.i.i, !prof !18
@@ -474,7 +474,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread32.i.i:   ; preds = %_ZN4llvmeqENS_9Stri
 _ZNK4llvm13StringMapImpl7FindKeyENS_9StringRefE.exit: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i, %26
   %.0.i.i = phi i32 [ %.022.us.i.i, %26 ], [ %.022.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ]
   %43 = sext i32 %.0.i.i to i64
-  %44 = getelementptr inbounds ptr, ptr %11, i64 %43
+  %44 = getelementptr inbounds [8 x i8], ptr %11, i64 %43
   %45 = load ptr, ptr %44, align 8, !tbaa !11
   store ptr inttoptr (i64 -8 to ptr), ptr %44, align 8, !tbaa !11
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -520,12 +520,12 @@ define dso_local noundef i32 @_ZN4llvm13StringMapImpl11RehashTableEj(ptr noundef
   %.037 = phi i32 [ %11, %10 ], [ %7, %12 ]
   %19 = tail call fastcc noundef ptr @_ZL11createTablej(i32 noundef %.037)
   %20 = zext i32 %.037 to i64
-  %21 = getelementptr inbounds nuw ptr, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %0, align 8, !tbaa !13
   %24 = load i32, ptr %6, align 8, !tbaa !14
   %25 = zext i32 %24 to i64
-  %26 = getelementptr inbounds nuw ptr, ptr %23, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %.not4249 = icmp eq i32 %24, 0
   br i1 %.not4249, label %._crit_edge, label %.lr.ph
@@ -547,7 +547,7 @@ define dso_local noundef i32 @_ZN4llvm13StringMapImpl11RehashTableEj(ptr noundef
 31:                                               ; preds = %.lr.ph, %50
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %50 ]
   %.03950 = phi i32 [ %1, %.lr.ph ], [ %.140, %50 ]
-  %32 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv
   %33 = load ptr, ptr %32, align 8, !tbaa !11
   %magicptr = ptrtoint ptr %33 to i64
   switch i64 %magicptr, label %34 [
@@ -556,11 +556,11 @@ define dso_local noundef i32 @_ZN4llvm13StringMapImpl11RehashTableEj(ptr noundef
   ]
 
 34:                                               ; preds = %31
-  %35 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %indvars.iv
   %36 = load i32, ptr %35, align 4, !tbaa !17
   %37 = and i32 %36, %28
   %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds nuw ptr, ptr %19, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %38
   %40 = load ptr, ptr %39, align 8, !tbaa !11
   %.not45 = icmp eq ptr %40, null
   br i1 %.not45, label %.loopexit, label %.preheader
@@ -572,7 +572,7 @@ define dso_local noundef i32 @_ZN4llvm13StringMapImpl11RehashTableEj(ptr noundef
   %42 = add i32 %.0, %.1
   %43 = and i32 %42, %28
   %44 = zext i32 %43 to i64
-  %45 = getelementptr inbounds nuw ptr, ptr %19, i64 %44
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %44
   %46 = load ptr, ptr %45, align 8, !tbaa !11
   %.not46 = icmp eq ptr %46, null
   br i1 %.not46, label %.loopexit, label %.preheader, !llvm.loop !26
@@ -580,9 +580,9 @@ define dso_local noundef i32 @_ZN4llvm13StringMapImpl11RehashTableEj(ptr noundef
 .loopexit:                                        ; preds = %.preheader, %34
   %.pre-phi = phi i64 [ %38, %34 ], [ %44, %.preheader ]
   %.035 = phi i32 [ %37, %34 ], [ %43, %.preheader ]
-  %47 = getelementptr inbounds nuw ptr, ptr %19, i64 %.pre-phi
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.pre-phi
   store ptr %33, ptr %47, align 8, !tbaa !11
-  %48 = getelementptr inbounds nuw i32, ptr %22, i64 %.pre-phi
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %.pre-phi
   store i32 %36, ptr %48, align 4, !tbaa !17
   %49 = icmp eq i64 %indvars.iv, %29
   %spec.select = select i1 %49, i32 %.035, i32 %.03950

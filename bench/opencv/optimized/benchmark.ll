@@ -42,7 +42,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.cv::_OutputArray" = type { %"class.cv::_InputArray" }
 %"class.cv::_InputOutputArray" = type { %"class.cv::_OutputArray" }
 %"class.cv::Point_" = type { i32, i32 }
-%"class.cv::Rect_.21" = type { double, double, double, double }
 %"class.std::basic_ifstream" = type { %"class.std::basic_istream.base", %"class.std::basic_filebuf", %"class.std::basic_ios" }
 %"class.std::basic_istream.base" = type { ptr, i64 }
 %"class.std::basic_filebuf" = type { %"class.std::basic_streambuf", %union.pthread_mutex_t, %"class.std::__basic_file", i32, %struct.__mbstate_t, %struct.__mbstate_t, %struct.__mbstate_t, ptr, i64, i8, i8, i8, i8, ptr, ptr, i8, ptr, ptr, i64, ptr, ptr }
@@ -53,6 +52,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__basic_file" = type <{ ptr, i8, [7 x i8] }>
 %struct.__mbstate_t = type { i32, %union.anon.22 }
 %union.anon.22 = type { i32 }
+%"class.cv::Rect_.21" = type { double, double, double, double }
 %"class.std::__cxx11::basic_istringstream" = type { %"class.std::basic_istream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::__cxx11::basic_stringbuf" = type { %"class.std::basic_streambuf", i32, %"class.std::__cxx11::basic_string" }
 %struct.AlgoWrap = type { %"struct.cv::Ptr.12", i8, %"class.cv::Rect_", i32, %"class.std::__cxx11::basic_string", %"class.cv::Scalar_", i32, i32, i32, i32, i32, i64, %"class.std::vector.16" }
@@ -1539,7 +1539,7 @@ _ZNSolsEPFRSoS_E.exit310:                         ; preds = %.noexc464, %431
 476:                                              ; preds = %.lr.ph570, %479
   %.sroa.0525.0569 = phi ptr [ %473, %.lr.ph570 ], [ %480, %479 ]
   %477 = load ptr, ptr %22, align 8, !tbaa !74
-  %478 = getelementptr inbounds nuw %"class.cv::Rect_.21", ptr %477, i64 %475
+  %478 = getelementptr inbounds nuw [32 x i8], ptr %477, i64 %475
   invoke void @_ZN8AlgoWrap4evalERKN2cv3MatERKNS0_5Rect_IdEEb(ptr noundef nonnull align 8 dereferenceable(160) %.sroa.0525.0569, ptr noundef nonnull align 8 dereferenceable(96) %29, ptr noundef nonnull align 8 dereferenceable(32) %478, i1 noundef zeroext %138)
           to label %479 unwind label %482
 
@@ -1573,7 +1573,7 @@ _ZNSolsEPFRSoS_E.exit310:                         ; preds = %.noexc464, %431
   store ptr %30, ptr %390, align 8, !tbaa !73
   %485 = sext i32 %432 to i64
   %486 = load ptr, ptr %22, align 8, !tbaa !74
-  %487 = getelementptr inbounds nuw %"class.cv::Rect_.21", ptr %486, i64 %485
+  %487 = getelementptr inbounds nuw [32 x i8], ptr %486, i64 %485
   %488 = load <2 x double>, ptr %487, align 8
   %489 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %488)
   %490 = getelementptr inbounds nuw i8, ptr %487, i64 8
@@ -2436,7 +2436,7 @@ _ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i: ; pr
 
 _ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %84, %_ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i
   store ptr %83, ptr %27, align 8, !tbaa !89
-  %85 = getelementptr inbounds nuw %"class.cv::Rect_.21", ptr %79, i64 %77
+  %85 = getelementptr inbounds nuw [32 x i8], ptr %79, i64 %77
   store ptr %85, ptr %28, align 8, !tbaa !95
   br label %_ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE9push_backERKS2_.exit
 
@@ -2621,7 +2621,7 @@ _ZNSirsERj.exit35:                                ; preds = %_ZNSirsERj.exit
 161:                                              ; preds = %156
   %spec.select78 = call i32 @llvm.umax.i32(i32 %152, i32 %154)
   %spec.select = zext i32 %spec.select78 to i64
-  %162 = getelementptr inbounds nuw %"class.cv::Rect_.21", ptr %99, i64 %spec.select
+  %162 = getelementptr inbounds nuw [32 x i8], ptr %99, i64 %spec.select
   %.not50 = icmp eq i32 %154, %152
   br i1 %.not50, label %.loopexit, label %.lr.ph53.preheader
 
@@ -2635,7 +2635,7 @@ _ZNSirsERj.exit35:                                ; preds = %_ZNSirsERj.exit
 .lr.ph53.preheader:                               ; preds = %161
   %spec.select7779 = call i32 @llvm.umin.i32(i32 %152, i32 %154)
   %spec.select77 = zext i32 %spec.select7779 to i64
-  %165 = getelementptr inbounds nuw %"class.cv::Rect_.21", ptr %99, i64 %spec.select77
+  %165 = getelementptr inbounds nuw [32 x i8], ptr %99, i64 %spec.select77
   br label %.lr.ph53
 
 .lr.ph53:                                         ; preds = %.lr.ph53.preheader, %.lr.ph53
@@ -3266,7 +3266,7 @@ _ZN2cvorIdEENS_5Rect_IT_EERKS3_S5_.exit:          ; preds = %34, %4, %64
   %114 = fptoui double %113 to i64
   %.sroa.speculated = call i64 @llvm.umin.i64(i64 %114, i64 100)
   %115 = load ptr, ptr %112, align 8, !tbaa !104
-  %116 = getelementptr inbounds nuw i32, ptr %115, i64 %.sroa.speculated
+  %116 = getelementptr inbounds nuw [4 x i8], ptr %115, i64 %.sroa.speculated
   %117 = load i32, ptr %116, align 4, !tbaa !16
   %118 = add nsw i32 %117, 1
   store i32 %118, ptr %116, align 4, !tbaa !16
@@ -3419,10 +3419,10 @@ define linkonce_odr hidden void @_ZNK8AlgoWrap4drawERN2cv3MatERKNS0_6Point_IiEE(
 
 switch.lookup:                                    ; preds = %17
   %25 = zext nneg i32 %21 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK8AlgoWrap4drawERN2cv3MatERKNS0_6Point_IiEE, i64 %25
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK8AlgoWrap4drawERN2cv3MatERKNS0_6Point_IiEE, i64 %25
   %switch.load = load ptr, ptr %switch.gep, align 8
   %26 = zext nneg i32 %21 to i64
-  %switch.gep29 = getelementptr inbounds nuw i64, ptr @switch.table._ZNK8AlgoWrap4drawERN2cv3MatERKNS0_6Point_IiEE.1, i64 %26
+  %switch.gep29 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK8AlgoWrap4drawERN2cv3MatERKNS0_6Point_IiEE.1, i64 %26
   %switch.load30 = load i64, ptr %switch.gep29, align 8
   %27 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %5, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %switch.load, i64 noundef %switch.load30)
           to label %28 unwind label %23
@@ -3950,7 +3950,7 @@ define linkonce_odr hidden void @_ZN8AlgoWrapC2ERKNSt7__cxx1112basic_stringIcSt1
 
 35:                                               ; preds = %32, %29
   %36 = phi i64 [ %34, %32 ], [ 5, %29 ]
-  %37 = getelementptr inbounds nuw %"class.cv::Scalar_", ptr @_ZZL12getNextColorvE6colors, i64 %36
+  %37 = getelementptr inbounds nuw [32 x i8], ptr @_ZZL12getNextColorvE6colors, i64 %36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 16 dereferenceable(32) %37, i64 32, i1 false), !tbaa !82
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -6647,7 +6647,7 @@ _ZNSt12_Vector_baseI8AlgoWrapSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %_ZNS
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !148
   store ptr %.0.lcssa.i.i.i.i35, ptr %4, align 8, !tbaa !101
-  %117 = getelementptr inbounds nuw %struct.AlgoWrap, ptr %20, i64 %16
+  %117 = getelementptr inbounds nuw [160 x i8], ptr %20, i64 %16
   store ptr %117, ptr %116, align 8, !tbaa !103
   ret void
 
@@ -6764,9 +6764,9 @@ _ZN2cv3PtrINS_7TrackerEEC2ERKS2_.exit:            ; preds = %2, %11, %14
 
 38:                                               ; preds = %38, %31
   %indvars.iv.i.i.i = phi i64 [ 0, %31 ], [ %indvars.iv.next.i.i.i, %38 ]
-  %39 = getelementptr inbounds nuw double, ptr %37, i64 %indvars.iv.i.i.i
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv.i.i.i
   %40 = load double, ptr %39, align 8, !tbaa !82
-  %41 = getelementptr inbounds nuw double, ptr %36, i64 %indvars.iv.i.i.i
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv.i.i.i
   store double %40, ptr %41, align 8, !tbaa !82
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 4

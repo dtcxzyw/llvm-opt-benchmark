@@ -259,7 +259,7 @@ define internal noundef i32 @tap_lte_rlc_packet(ptr noundef captures(none) %0, p
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %compare_rlc_headers.exit.thread.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %compare_rlc_headers.exit.thread.us ], [ 0, %.lr.ph ]
-  %22 = getelementptr ptr, ptr %8, i64 %indvars.iv
+  %22 = getelementptr [8 x i8], ptr %8, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8
   %24 = load i8, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 4
@@ -299,7 +299,7 @@ compare_rlc_headers.exit.thread.us:               ; preds = %35, %37, %.lr.ph.sp
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %compare_rlc_headers.exit.thread
   %indvars.iv64 = phi i64 [ %indvars.iv.next65, %compare_rlc_headers.exit.thread ], [ 0, %.lr.ph ]
-  %43 = getelementptr ptr, ptr %8, i64 %indvars.iv64
+  %43 = getelementptr [8 x i8], ptr %8, i64 %indvars.iv64
   %44 = load ptr, ptr %43, align 8
   %45 = load i8, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 4
@@ -360,16 +360,16 @@ compare_rlc_headers.exit.thread:                  ; preds = %64, %.lr.ph.split, 
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %72 = load i32, ptr %0, align 8
   %73 = sext i32 %72 to i64
-  %74 = getelementptr ptr, ptr %71, i64 %73
+  %74 = getelementptr [8 x i8], ptr %71, i64 %73
   store ptr %70, ptr %74, align 8
   %75 = load i32, ptr %0, align 8
   %76 = sext i32 %75 to i64
-  %77 = getelementptr ptr, ptr %71, i64 %76
+  %77 = getelementptr [8 x i8], ptr %71, i64 %76
   %78 = load ptr, ptr %77, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(2104) %78, ptr noundef align 8 dereferenceable(2104) %3, i64 2104, i1 false)
   %79 = load i32, ptr %0, align 8
   %80 = sext i32 %79 to i64
-  %81 = getelementptr ptr, ptr %71, i64 %80
+  %81 = getelementptr [8 x i8], ptr %71, i64 %80
   %82 = load ptr, ptr %81, align 8
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 41
   %84 = load i8, ptr %83, align 1

@@ -3,8 +3,6 @@ source_filename = "bench/linux/original/isoch.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.isoch_data = type { i32, i32, i32, i32, i32, ptr }
-
 @.str.1 = private unnamed_addr constant [62 x i8] c"woah!  Non-AGP device %s on secondary bus of AGP 3.5 bridge!\0A\00", align 1
 @.str.2 = private unnamed_addr constant [97 x i8] c"woah!  AGP 2.0 device %s on secondary bus of AGP 3.5 bridge operating with AGP 3.0 electricals!\0A\00", align 1
 @.str.3 = private unnamed_addr constant [127 x i8] c"woah!  AGP 3.x device %s not operating in AGP 3.x mode on secondary bus of AGP 3.5 bridge operating with AGP 3.0 electricals!\0A\00", align 1
@@ -331,7 +329,7 @@ define dso_local noundef range(i32 -19, 1) i32 @agp_3_5_enable(ptr noundef reado
   %186 = lshr i32 %185, 16
   %187 = and i32 %186, 255
   %188 = zext i32 %177 to i64
-  %189 = getelementptr %struct.isoch_data, ptr %128, i64 %188
+  %189 = getelementptr [32 x i8], ptr %128, i64 %188
   store i32 %187, ptr %189, align 8
   %190 = lshr i32 %185, 8
   %191 = and i32 %190, 255
@@ -384,7 +382,7 @@ define dso_local noundef range(i32 -19, 1) i32 @agp_3_5_enable(ptr noundef reado
 225:                                              ; preds = %225, %223
   %226 = phi i64 [ 0, %223 ], [ %234, %225 ]
   %227 = phi i32 [ 0, %223 ], [ %233, %225 ]
-  %228 = getelementptr %struct.isoch_data, ptr %128, i64 %226
+  %228 = getelementptr [32 x i8], ptr %128, i64 %226
   %229 = getelementptr inbounds nuw i8, ptr %228, i64 8
   store i32 %204, ptr %229, align 8
   %230 = load i32, ptr %228, align 8
@@ -403,7 +401,7 @@ define dso_local noundef range(i32 -19, 1) i32 @agp_3_5_enable(ptr noundef reado
 .preheader117:                                    ; preds = %236, %250
   %238 = phi i64 [ %253, %250 ], [ 0, %236 ]
   %239 = phi i32 [ %252, %250 ], [ 0, %236 ]
-  %240 = getelementptr %struct.isoch_data, ptr %128, i64 %238
+  %240 = getelementptr [32 x i8], ptr %128, i64 %238
   %241 = getelementptr inbounds nuw i8, ptr %240, i64 4
   %242 = load i32, ptr %241, align 4
   %243 = getelementptr inbounds nuw i8, ptr %240, i64 16
@@ -435,7 +433,7 @@ define dso_local noundef range(i32 -19, 1) i32 @agp_3_5_enable(ptr noundef reado
   %257 = phi i32 [ 0, %.thread26 ], [ %252, %.thread28.loopexit ]
   %258 = add i32 %33, -1
   %259 = zext i32 %258 to i64
-  %.split = getelementptr %struct.isoch_data, ptr %128, i64 %259
+  %.split = getelementptr [32 x i8], ptr %128, i64 %259
   %260 = getelementptr i8, ptr %.split, i64 4
   %261 = load i32, ptr %260, align 4
   %262 = add i32 %261, %256
@@ -456,7 +454,7 @@ define dso_local noundef range(i32 -19, 1) i32 @agp_3_5_enable(ptr noundef reado
 
 273:                                              ; preds = %273, %266
   %274 = phi i64 [ 0, %266 ], [ %320, %273 ]
-  %275 = getelementptr %struct.isoch_data, ptr %128, i64 %274
+  %275 = getelementptr [32 x i8], ptr %128, i64 %274
   %276 = getelementptr inbounds nuw i8, ptr %275, i64 24
   %277 = load ptr, ptr %276, align 8
   %278 = getelementptr inbounds nuw i8, ptr %277, i64 24

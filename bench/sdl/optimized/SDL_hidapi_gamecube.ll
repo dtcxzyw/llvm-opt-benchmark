@@ -110,7 +110,7 @@ define internal noundef zeroext i1 @HIDAPI_DriverGameCube_InitDevice(ptr noundef
   store i8 40, ptr %20, align 1
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 5
   store i8 40, ptr %21, align 1
-  %22 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv77
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv77
   %23 = tail call zeroext i1 @HIDAPI_JoystickConnected(ptr noundef nonnull %0, ptr noundef nonnull %22) #7
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
   %exitcond81.not = icmp eq i64 %indvars.iv.next78, 4
@@ -172,7 +172,7 @@ define internal noundef zeroext i1 @HIDAPI_DriverGameCube_InitDevice(ptr noundef
   store i8 %spec.select, ptr %51, align 1
   %52 = and i8 %46, 48
   %.not65 = icmp eq i8 %52, 0
-  %53 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv
   %54 = load i32, ptr %53, align 4
   %.not66 = icmp eq i32 %54, 0
   br i1 %.not65, label %63, label %55
@@ -228,7 +228,7 @@ define internal range(i32 -1, 4) i32 @HIDAPI_DriverGameCube_GetDevicePlayerIndex
 
 6:                                                ; preds = %2, %10
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %10 ]
-  %7 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i32 %1, %8
   br i1 %9, label %.split.loop.exit9, label %10
@@ -300,7 +300,7 @@ define internal noundef zeroext i1 @HIDAPI_DriverGameCube_UpdateDevice(ptr nound
 
 32:                                               ; preds = %28
   %33 = zext nneg i8 %30 to i64
-  %34 = getelementptr inbounds nuw i32, ptr %12, i64 %33
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %33
   %35 = load i32, ptr %34, align 4
   %36 = call ptr @SDL_GetJoystickFromID_REAL(i32 noundef %35) #7
   %.not168.i = icmp eq ptr %36, null
@@ -566,7 +566,7 @@ define internal noundef zeroext i1 @HIDAPI_DriverGameCube_UpdateDevice(ptr nound
   store i8 %spec.select.i, ptr %201, align 1
   %202 = and i8 %196, 48
   %.not193.i = icmp eq i8 %202, 0
-  %203 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv.i
+  %203 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv.i
   %204 = load i32, ptr %203, align 4
   %.not194.i = icmp eq i32 %204, 0
   br i1 %.not193.i, label %216, label %205
@@ -883,7 +883,7 @@ define internal noundef zeroext i1 @HIDAPI_DriverGameCube_OpenJoystick(ptr nound
 
 8:                                                ; preds = %2, %7
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %7 ]
-  %9 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %5, %10
   br i1 %11, label %.loopexit.sink.split, label %7
@@ -931,7 +931,7 @@ define internal zeroext i1 @HIDAPI_DriverGameCube_RumbleJoystick(ptr noundef rea
 
 14:                                               ; preds = %.preheader, %13
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %13 ]
-  %15 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %9, %16
   br i1 %17, label %18, label %13
@@ -1029,7 +1029,7 @@ define internal range(i32 0, 17) i32 @HIDAPI_DriverGameCube_GetJoystickCapabilit
 
 11:                                               ; preds = %.preheader, %21
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %21 ]
-  %12 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4
   %14 = icmp eq i32 %8, %13
   br i1 %14, label %15, label %21

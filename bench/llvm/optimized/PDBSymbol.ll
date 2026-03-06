@@ -143,7 +143,7 @@ define dso_local void @_ZN4llvm3pdb9PDBSymbol12createSymbolERKNS0_11IPDBSessionE
 
 switch.lookup:                                    ; preds = %3
   %8 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm3pdb9PDBSymbol6createERKNS0_11IPDBSessionERNS0_13IPDBRawSymbolE, i64 %8
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4llvm3pdb9PDBSymbol6createERKNS0_11IPDBSessionERNS0_13IPDBRawSymbolE, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %9
 
@@ -174,7 +174,7 @@ define dso_local void @_ZN4llvm3pdb9PDBSymbol6createERKNS0_11IPDBSessionESt10uni
 
 switch.lookup:                                    ; preds = %3
   %12 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm3pdb9PDBSymbol6createERKNS0_11IPDBSessionERNS0_13IPDBRawSymbolE, i64 %12
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4llvm3pdb9PDBSymbol6createERKNS0_11IPDBSessionERNS0_13IPDBRawSymbolE, i64 %12
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZNSt10unique_ptrIN4llvm3pdb13IPDBRawSymbolESt14default_deleteIS2_EEaSEOS5_.exit
 
@@ -209,7 +209,7 @@ define dso_local void @_ZN4llvm3pdb9PDBSymbol6createERKNS0_11IPDBSessionERNS0_13
 
 switch.lookup:                                    ; preds = %3
   %12 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm3pdb9PDBSymbol6createERKNS0_11IPDBSessionERNS0_13IPDBRawSymbolE, i64 %12
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4llvm3pdb9PDBSymbol6createERKNS0_11IPDBSessionERNS0_13IPDBRawSymbolE, i64 %12
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN4llvm3pdb9PDBSymbol12createSymbolERKNS0_11IPDBSessionENS0_11PDB_SymTypeE.exit
 
@@ -826,7 +826,7 @@ define linkonce_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt8__deta
   %6 = load i64, ptr %5, align 8, !tbaa !46
   %7 = urem i64 %4, %6
   %8 = load ptr, ptr %0, align 8, !tbaa !38
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %7
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %7
   %10 = load ptr, ptr %9, align 8, !tbaa !68
   %.not.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i, label %.loopexit, label %11
@@ -892,7 +892,7 @@ define linkonce_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt8__deta
   %45 = getelementptr inbounds nuw i8, ptr %31, i64 16
   store i64 %4, ptr %45, align 8, !tbaa !69
   %46 = load ptr, ptr %0, align 8, !tbaa !38
-  %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %.0.i19
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %.0.i19
   %48 = load ptr, ptr %47, align 8, !tbaa !68
   %.not.i.i20 = icmp eq ptr %48, null
   br i1 %.not.i.i20, label %51, label %49
@@ -916,7 +916,7 @@ define linkonce_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt8__deta
   %56 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %57 = load i64, ptr %56, align 8, !tbaa !69
   %58 = urem i64 %57, %55
-  %59 = getelementptr inbounds nuw ptr, ptr %46, i64 %58
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %58
   store ptr %31, ptr %59, align 8, !tbaa !68
   br label %60
 
@@ -991,7 +991,7 @@ _ZNSt10_HashtableIN4llvm3pdb11PDB_SymTypeESt4pairIKS2_iESaIS5_ENSt8__detail10_Se
   %17 = getelementptr inbounds nuw i8, ptr %.031, i64 16
   %18 = load i64, ptr %17, align 8, !tbaa !69
   %19 = urem i64 %18, %1
-  %20 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !68
   %.not27 = icmp eq ptr %21, null
   br i1 %.not27, label %22, label %27
@@ -1006,7 +1006,7 @@ _ZNSt10_HashtableIN4llvm3pdb11PDB_SymTypeESt4pairIKS2_iESaIS5_ENSt8__detail10_Se
   br i1 %.not28, label %30, label %25
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %26, align 8, !tbaa !68
   br label %30
 

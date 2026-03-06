@@ -75,7 +75,7 @@ define void @_Z13ufmt_64tou_77PDsPimhai(ptr noundef captures(address) %0, ptr no
   %.v.us = select i1 %11, i16 48, i16 55
   %12 = add nuw nsw i16 %.v.us, %9
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
-  %13 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv52
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv52
   store i16 %12, ptr %13, align 2, !tbaa !3
   %.not43.us = icmp ult i64 %.0.us, %7
   br i1 %.not43.us, label %.split46.us, label %.split.us, !llvm.loop !7
@@ -90,7 +90,7 @@ define void @_Z13ufmt_64tou_77PDsPimhai(ptr noundef captures(address) %0, ptr no
   %.v42 = select i1 %17, i16 48, i16 87
   %18 = add nuw nsw i16 %.v42, %15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %19 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv
   store i16 %18, ptr %19, align 2, !tbaa !3
   %.not43 = icmp ult i64 %.0, %7
   br i1 %.not43, label %.split46.us, label %.split, !llvm.loop !7
@@ -117,7 +117,7 @@ define void @_Z13ufmt_64tou_77PDsPimhai(ptr noundef captures(address) %0, ptr no
 26:                                               ; preds = %23
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
   %indvars = trunc i64 %indvars.iv.next56 to i32
-  %27 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv55
+  %27 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv55
   store i16 48, ptr %27, align 2, !tbaa !3
   %28 = icmp sgt i32 %5, %indvars
   br i1 %28, label %23, label %.critedge, !llvm.loop !11
@@ -170,7 +170,7 @@ define void @_Z12ufmt_ptou_77PDsPiPva(ptr noundef writeonly captures(none) %0, p
   %12 = or disjoint i16 %10, 48
   %13 = add nuw nsw i16 %10, 55
   %14 = select i1 %11, i16 %12, i16 %13
-  %15 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv41
+  %15 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv41
   store i16 %14, ptr %15, align 2, !tbaa !3
   %16 = zext nneg i8 %9 to i16
   %17 = icmp samesign ult i8 %9, 10
@@ -196,7 +196,7 @@ define void @_Z12ufmt_ptou_77PDsPiPva(ptr noundef writeonly captures(none) %0, p
   %28 = or disjoint i16 %26, 48
   %29 = add nuw nsw i16 %26, 87
   %30 = select i1 %27, i16 %28, i16 %29
-  %31 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv34
+  %31 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv34
   store i16 %30, ptr %31, align 2, !tbaa !3
   %32 = zext nneg i8 %25 to i16
   %33 = icmp samesign ult i8 %25, 10
@@ -219,7 +219,7 @@ define void @_Z12ufmt_ptou_77PDsPiPva(ptr noundef writeonly captures(none) %0, p
 define noundef i64 @_Z13ufmt_uto64_77PKDsPia(ptr noundef readonly captures(address) %0, ptr noundef captures(none) %1, i8 noundef signext %2) local_unnamed_addr #1 {
   %4 = load i32, ptr %1, align 4, !tbaa !9
   %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds i16, ptr %0, i64 %5
+  %6 = getelementptr inbounds [2 x i8], ptr %0, i64 %5
   %7 = load i16, ptr %0, align 2, !tbaa !3
   %8 = add i16 %7, -48
   %or.cond.i.i16 = icmp ult i16 %8, 10
@@ -288,7 +288,7 @@ define noundef ptr @_Z12ufmt_utop_77PKDsPi(ptr noundef readonly captures(none) %
 
 4:                                                ; preds = %.critedge, %2
   %indvars.iv = phi i64 [ %indvars.iv.next, %.critedge ], [ 0, %2 ]
-  %5 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv
   %6 = load i16, ptr %5, align 2, !tbaa !3
   %7 = icmp eq i16 %6, 48
   br i1 %7, label %.critedge, label %8
@@ -315,7 +315,7 @@ define noundef ptr @_Z12ufmt_utop_77PKDsPi(ptr noundef readonly captures(none) %
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %25
   %indvars.iv57 = phi i64 [ %indvars.iv, %.lr.ph.preheader ], [ %indvars.iv.next58, %25 ]
-  %13 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv57
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv57
   %14 = load i16, ptr %13, align 2, !tbaa !3
   %15 = add i16 %14, -48
   %or.cond.i.i = icmp ult i16 %15, 10
@@ -364,7 +364,7 @@ _Z15ufmt_isdigit_77Dsi.exit:                      ; preds = %.lr.ph
   %.252 = phi i32 [ %.3, %59 ], [ %.132.lcssa, %.critedge2 ]
   %31 = add nsw i32 %.252, -1
   %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds i16, ptr %0, i64 %32
+  %33 = getelementptr inbounds [2 x i8], ptr %0, i64 %32
   %34 = load i16, ptr %33, align 2, !tbaa !3
   %35 = add i16 %34, -48
   %or.cond.i = icmp ult i16 %35, 10
@@ -392,7 +392,7 @@ _Z18ufmt_digitvalue_77Ds.exit:                    ; preds = %.lr.ph53, %39
 _Z18ufmt_digitvalue_77Ds.exit43:                  ; preds = %_Z18ufmt_digitvalue_77Ds.exit
   %46 = add nsw i32 %.252, -2
   %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds i16, ptr %0, i64 %47
+  %48 = getelementptr inbounds [2 x i8], ptr %0, i64 %47
   %49 = load i16, ptr %48, align 2, !tbaa !3
   %50 = add i16 %49, -48
   %or.cond.i38 = icmp ult i16 %50, 10
@@ -464,7 +464,7 @@ define noundef ptr @_Z26ufmt_defaultCPToUnicode_77PKciPDsi(ptr noundef %0, i32 n
 19:                                               ; preds = %18
   store ptr %2, ptr %6, align 8, !tbaa !25
   %20 = sext i32 %3 to i64
-  %21 = getelementptr inbounds i16, ptr %2, i64 %20
+  %21 = getelementptr inbounds [2 x i8], ptr %2, i64 %20
   %22 = sext i32 %.010 to i64
   %23 = getelementptr inbounds i8, ptr %0, i64 %22
   %24 = getelementptr inbounds i8, ptr %23, i64 -1

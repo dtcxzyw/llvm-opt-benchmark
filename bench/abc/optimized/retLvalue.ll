@@ -100,7 +100,7 @@ Abc_NtkIncrementTravId.exit.i.i:                  ; preds = %Vec_IntFill.exit.i.
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %49 ], [ 0, %Abc_NtkIncrementTravId.exit.i.i ]
   %43 = getelementptr i8, ptr %42, i64 8
   %.val11.val.i.i = load ptr, ptr %43, align 8, !tbaa !11
-  %44 = getelementptr inbounds nuw ptr, ptr %.val11.val.i.i, i64 %indvars.iv.i.i
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %.val11.val.i.i, i64 %indvars.iv.i.i
   %45 = load ptr, ptr %44, align 8, !tbaa !35
   %46 = getelementptr i8, ptr %45, i64 20
   %.val12.i.i = load i32, ptr %46, align 4
@@ -224,7 +224,7 @@ Abc_NtkRetimeSearch_rec.exit.i:                   ; preds = %tailrecurse.i.i, %A
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %101 ], [ 0, %Abc_NtkRetimeSearch_rec.exit.i ]
   %88 = getelementptr i8, ptr %87, i64 8
   %.val62.val.i = load ptr, ptr %88, align 8, !tbaa !11
-  %89 = getelementptr inbounds nuw ptr, ptr %.val62.val.i, i64 %indvars.iv.i
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %.val62.val.i, i64 %indvars.iv.i
   %90 = load ptr, ptr %89, align 8, !tbaa !35
   %91 = icmp eq ptr %90, null
   br i1 %91, label %101, label %92
@@ -309,7 +309,7 @@ Vec_IntStart.exit84.i:                            ; preds = %115, %Vec_IntAlloc.
 121:                                              ; preds = %142, %.lr.ph99.i
   %.val58107.i = phi i32 [ %.val5897.i, %.lr.ph99.i ], [ %.val58.i, %142 ]
   %indvars.iv102.i = phi i64 [ 0, %.lr.ph99.i ], [ %indvars.iv.next103.i, %142 ]
-  %122 = getelementptr inbounds nuw ptr, ptr %.val63.val.i, i64 %indvars.iv102.i
+  %122 = getelementptr inbounds nuw [8 x i8], ptr %.val63.val.i, i64 %indvars.iv102.i
   %123 = load ptr, ptr %122, align 8, !tbaa !35
   %124 = icmp eq ptr %123, null
   br i1 %124, label %142, label %125
@@ -337,7 +337,7 @@ Vec_IntStart.exit84.i:                            ; preds = %115, %Vec_IntAlloc.
   %sext.i = shl i32 %136, 24
   %139 = ashr exact i32 %sext.i, 24
   %140 = sext i32 %138 to i64
-  %141 = getelementptr inbounds i32, ptr %.pre, i64 %140
+  %141 = getelementptr inbounds [4 x i8], ptr %.pre, i64 %140
   store i32 %139, ptr %141, align 4, !tbaa !3
   %.val58.pre.i = load i32, ptr %106, align 4, !tbaa !7
   br label %142
@@ -509,7 +509,7 @@ Abc_NodeIsTravIdCurrent.exit:                     ; preds = %5, %._crit_edge.i.i
   %47 = getelementptr i8, ptr %.val2.i, i64 232
   %.val.i.i.i = load ptr, ptr %47, align 8, !tbaa !31
   %48 = sext i32 %.val3.i to i64
-  %49 = getelementptr inbounds i32, ptr %.val.i.i.i, i64 %48
+  %49 = getelementptr inbounds [4 x i8], ptr %.val.i.i.i, i64 %48
   %50 = load i32, ptr %49, align 4, !tbaa !3
   %51 = getelementptr inbounds nuw i8, ptr %.val11, i64 216
   %52 = load i32, ptr %51, align 8, !tbaa !33
@@ -614,7 +614,7 @@ Abc_NodeSetTravIdCurrent.exit:                    ; preds = %53, %._crit_edge.i.
   %94 = getelementptr i8, ptr %.val11, i64 232
   %.val.i.i.i31 = load ptr, ptr %94, align 8, !tbaa !31
   %95 = sext i32 %.val12 to i64
-  %96 = getelementptr inbounds i32, ptr %.val.i.i.i31, i64 %95
+  %96 = getelementptr inbounds [4 x i8], ptr %.val.i.i.i31, i64 %95
   store i32 %52, ptr %96, align 4, !tbaa !3
   %97 = getelementptr i8, ptr %0, i64 32
   %.val14 = load ptr, ptr %97, align 8, !tbaa !47
@@ -624,7 +624,7 @@ Abc_NodeSetTravIdCurrent.exit:                    ; preds = %53, %._crit_edge.i.
   %99 = getelementptr i8, ptr %.val13.val, i64 8
   %.val13.val.val = load ptr, ptr %99, align 8, !tbaa !11
   %100 = sext i32 %.val14.val to i64
-  %101 = getelementptr inbounds ptr, ptr %.val13.val.val, i64 %100
+  %101 = getelementptr inbounds [8 x i8], ptr %.val13.val.val, i64 %100
   %102 = load ptr, ptr %101, align 8, !tbaa !35
   %.val15 = load ptr, ptr %102, align 8, !tbaa !46
   %103 = getelementptr i8, ptr %102, i64 32
@@ -635,7 +635,7 @@ Abc_NodeSetTravIdCurrent.exit:                    ; preds = %53, %._crit_edge.i.
   %105 = getelementptr i8, ptr %.val15.val, i64 8
   %.val15.val.val = load ptr, ptr %105, align 8, !tbaa !11
   %106 = sext i32 %.val16.val to i64
-  %107 = getelementptr inbounds ptr, ptr %.val15.val.val, i64 %106
+  %107 = getelementptr inbounds [8 x i8], ptr %.val15.val.val, i64 %106
   %108 = load ptr, ptr %107, align 8, !tbaa !35
   %109 = getelementptr i8, ptr %108, i64 20
   %.val19 = load i32, ptr %109, align 4
@@ -653,7 +653,7 @@ Abc_NodeSetTravIdCurrent.exit:                    ; preds = %53, %._crit_edge.i.
   %114 = getelementptr i8, ptr %.val17.val, i64 8
   %.val17.val.val = load ptr, ptr %114, align 8, !tbaa !11
   %115 = sext i32 %.val18.val to i64
-  %116 = getelementptr inbounds ptr, ptr %.val17.val.val, i64 %115
+  %116 = getelementptr inbounds [8 x i8], ptr %.val17.val.val, i64 %115
   %117 = load ptr, ptr %116, align 8, !tbaa !35
   tail call void @Abc_ManCollectLatches_rec(ptr noundef %117, ptr noundef %1)
   br label %118
@@ -723,7 +723,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %147 = add nsw i32 %146, 1
   store i32 %147, ptr %119, align 4, !tbaa !7
   %148 = sext i32 %146 to i64
-  %149 = getelementptr inbounds ptr, ptr %145, i64 %148
+  %149 = getelementptr inbounds [8 x i8], ptr %145, i64 %148
   store ptr %0, ptr %149, align 8, !tbaa !35
   br label %150
 
@@ -765,7 +765,7 @@ define internal fastcc range(i32 0, 2) i32 @Abc_NtkRetimeForPeriod(ptr noundef r
   %17 = phi ptr [ %26, %25 ], [ %8, %6 ]
   %18 = getelementptr i8, ptr %17, i64 8
   %.val33.val = load ptr, ptr %18, align 8, !tbaa !11
-  %19 = getelementptr inbounds nuw ptr, ptr %.val33.val, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %.val33.val, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8, !tbaa !35
   %21 = icmp eq ptr %20, null
   br i1 %21, label %25, label %.sink.split
@@ -809,7 +809,7 @@ define internal fastcc range(i32 0, 2) i32 @Abc_NtkRetimeForPeriod(ptr noundef r
   %indvars.iv12.i = phi i64 [ %indvars.iv.next13.i, %57 ], [ 0, %30 ]
   %.05.i = phi i32 [ %.1.i, %57 ], [ 0, %30 ]
   %.val38.i = load ptr, ptr %12, align 8, !tbaa !11
-  %34 = getelementptr inbounds nuw ptr, ptr %.val38.i, i64 %indvars.iv12.i
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %.val38.i, i64 %indvars.iv12.i
   %35 = load ptr, ptr %34, align 8, !tbaa !35
   %36 = getelementptr i8, ptr %35, i64 28
   %.val43.i = load i32, ptr %36, align 4, !tbaa !48
@@ -830,10 +830,10 @@ define internal fastcc range(i32 0, 2) i32 @Abc_NtkRetimeForPeriod(ptr noundef r
 41:                                               ; preds = %41, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %41 ]
   %.0302.i = phi i32 [ -1000000000, %.lr.ph.i ], [ %spec.select.i, %41 ]
-  %42 = getelementptr inbounds nuw i32, ptr %.val45.i, i64 %indvars.iv.i
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %.val45.i, i64 %indvars.iv.i
   %43 = load i32, ptr %42, align 4, !tbaa !3
   %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds ptr, ptr %.val44.val.val.i, i64 %44
+  %45 = getelementptr inbounds [8 x i8], ptr %.val44.val.val.i, i64 %44
   %46 = load ptr, ptr %45, align 8, !tbaa !35
   %47 = getelementptr i8, ptr %46, i64 64
   %.val49.i = load ptr, ptr %47, align 8, !tbaa !38
@@ -872,7 +872,7 @@ define internal fastcc range(i32 0, 2) i32 @Abc_NtkRetimeForPeriod(ptr noundef r
 .critedge.i:                                      ; preds = %.critedge.preheader.i, %.critedge.i
   %indvars.iv15.i = phi i64 [ %indvars.iv.next16.i, %.critedge.i ], [ 0, %.critedge.preheader.i ]
   %.val37.i = load ptr, ptr %14, align 8, !tbaa !11
-  %60 = getelementptr inbounds nuw ptr, ptr %.val37.i, i64 %indvars.iv15.i
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %.val37.i, i64 %indvars.iv15.i
   %61 = load ptr, ptr %60, align 8, !tbaa !35
   %.val50.i = load ptr, ptr %61, align 8, !tbaa !46
   %62 = getelementptr i8, ptr %61, i64 48
@@ -883,13 +883,13 @@ define internal fastcc range(i32 0, 2) i32 @Abc_NtkRetimeForPeriod(ptr noundef r
   %64 = getelementptr i8, ptr %.val50.val.i, i64 8
   %.val50.val.val.i = load ptr, ptr %64, align 8, !tbaa !11
   %65 = sext i32 %.val51.val.i to i64
-  %66 = getelementptr inbounds ptr, ptr %.val50.val.val.i, i64 %65
+  %66 = getelementptr inbounds [8 x i8], ptr %.val50.val.val.i, i64 %65
   %67 = load ptr, ptr %66, align 8, !tbaa !35
   %68 = getelementptr i8, ptr %61, i64 32
   %.val42.i = load ptr, ptr %68, align 8, !tbaa !47
   %.val42.val.i = load i32, ptr %.val42.i, align 4, !tbaa !3
   %69 = sext i32 %.val42.val.i to i64
-  %70 = getelementptr inbounds ptr, ptr %.val50.val.val.i, i64 %69
+  %70 = getelementptr inbounds [8 x i8], ptr %.val50.val.val.i, i64 %69
   %71 = load ptr, ptr %70, align 8, !tbaa !35
   %.val39.i = load ptr, ptr %71, align 8, !tbaa !46
   %72 = getelementptr i8, ptr %71, i64 32
@@ -900,7 +900,7 @@ define internal fastcc range(i32 0, 2) i32 @Abc_NtkRetimeForPeriod(ptr noundef r
   %74 = getelementptr i8, ptr %.val39.val.i, i64 8
   %.val39.val.val.i = load ptr, ptr %74, align 8, !tbaa !11
   %75 = sext i32 %.val40.val.i to i64
-  %76 = getelementptr inbounds ptr, ptr %.val39.val.val.i, i64 %75
+  %76 = getelementptr inbounds [8 x i8], ptr %.val39.val.val.i, i64 %75
   %77 = load ptr, ptr %76, align 8, !tbaa !35
   %78 = getelementptr i8, ptr %77, i64 64
   %.val46.i = load ptr, ptr %78, align 8, !tbaa !38
@@ -940,7 +940,7 @@ Abc_NtkRetimeUpdateLValue.exit:                   ; preds = %.critedge.i, %.crit
 
 92:                                               ; preds = %91, %.lr.ph.i36
   %indvars.iv.i38 = phi i64 [ 0, %.lr.ph.i36 ], [ %indvars.iv.next.i41, %91 ]
-  %93 = getelementptr inbounds nuw ptr, ptr %.val11.val.i, i64 %indvars.iv.i38
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %.val11.val.i, i64 %indvars.iv.i38
   %94 = load ptr, ptr %93, align 8, !tbaa !35
   %.val.i39 = load ptr, ptr %94, align 8, !tbaa !46
   %95 = getelementptr i8, ptr %94, i64 32
@@ -951,7 +951,7 @@ Abc_NtkRetimeUpdateLValue.exit:                   ; preds = %.critedge.i, %.crit
   %97 = getelementptr i8, ptr %.val.val.i, i64 8
   %.val.val.val.i = load ptr, ptr %97, align 8, !tbaa !11
   %98 = sext i32 %.val8.val.i to i64
-  %99 = getelementptr inbounds ptr, ptr %.val.val.val.i, i64 %98
+  %99 = getelementptr inbounds [8 x i8], ptr %.val.val.val.i, i64 %98
   %100 = load ptr, ptr %99, align 8, !tbaa !35
   %101 = getelementptr i8, ptr %100, i64 64
   %.val9.i = load ptr, ptr %101, align 8, !tbaa !38

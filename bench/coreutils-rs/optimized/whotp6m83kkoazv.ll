@@ -167,7 +167,7 @@ define hidden noundef i32 @"_ZN116_$LT$rand..distributions..uniform..UniformInt$
 
 _ZN4rand3rng3Rng3gen17he959e7819c120ab6E.exit:    ; preds = %11, %"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17hc593e279563901fbE.llvm.6624592575629554789.exit.i.i.i.i.i", %33
   %34 = phi i64 [ %14, %11 ], [ 0, %"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17hc593e279563901fbE.llvm.6624592575629554789.exit.i.i.i.i.i" ], [ 0, %33 ]
-  %35 = getelementptr inbounds nuw i32, ptr %12, i64 %34
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %34
   %36 = load i32, ptr %35, align 4, !alias.scope !31, !noalias !34, !noundef !16
   %37 = add nuw nsw i64 %34, 1
   store i64 %37, ptr %13, align 16, !alias.scope !31, !noalias !34
@@ -232,7 +232,7 @@ _ZN4rand3rng3Rng3gen17he959e7819c120ab6E.exit:    ; preds = %11, %"_ZN84_$LT$ran
 
 _ZN4rand3rng3Rng3gen17he959e7819c120ab6E.exit8:   ; preds = %49, %"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17hc593e279563901fbE.llvm.6624592575629554789.exit.i.i.i.i.i7", %65
   %66 = phi i64 [ %50, %49 ], [ 0, %"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17hc593e279563901fbE.llvm.6624592575629554789.exit.i.i.i.i.i7" ], [ 0, %65 ]
-  %67 = getelementptr inbounds nuw i32, ptr %42, i64 %66
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %66
   %68 = load i32, ptr %67, align 4, !alias.scope !51, !noalias !54, !noundef !16
   %69 = add nuw nsw i64 %66, 1
   store i64 %69, ptr %43, align 16, !alias.scope !51, !noalias !54
@@ -369,7 +369,7 @@ define internal fastcc noundef i64 @_ZN4rand3rng3Rng3gen17hae4b1cf3b659ebc0E(ptr
 8:                                                ; preds = %0
   %9 = add nuw nsw i64 %5, 2
   store i64 %9, ptr %4, align 16, !alias.scope !80, !noalias !83
-  %10 = getelementptr inbounds nuw i32, ptr %3, i64 %5
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %5
   %11 = load i64, ptr %10, align 4, !alias.scope !86, !noalias !83
   br label %"_ZN4rand13distributions7integer120_$LT$impl$u20$rand..distributions..distribution..Distribution$LT$usize$GT$$u20$for$u20$rand..distributions..Standard$GT$6sample17h3da7d7bbe74efd47E.exit"
 

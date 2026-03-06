@@ -17,7 +17,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>, std::_Identity<std::__cxx11::basic_string<char>>, duckdb_re2::Prefilter::LengthThenLex>::_Alloc_node" = type { ptr }
-%"struct.duckdb_re2::RuneRange" = type { i32, i32 }
 %"class.duckdb_re2::Prefilter::Info::Walker" = type <{ %"class.duckdb_re2::Regexp::Walker", i8, [7 x i8] }>
 %"class.duckdb_re2::Regexp::Walker" = type { ptr, %"class.std::stack", i8, i32 }
 %"class.std::stack" = type { %"class.std::deque" }
@@ -151,7 +150,7 @@ define hidden void @_ZN10duckdb_re29PrefilterD2Ev(ptr noundef nonnull align 8 ca
   %7 = phi ptr [ %14, %13 ], [ %6, %.preheader ]
   %8 = phi ptr [ %15, %13 ], [ %3, %.preheader ]
   %.06 = phi i64 [ %16, %13 ], [ 0, %.preheader ]
-  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %.06
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.06
   %10 = load ptr, ptr %9, align 8, !tbaa !23
   %11 = icmp eq ptr %10, null
   br i1 %11, label %13, label %12
@@ -446,7 +445,7 @@ _ZN10duckdb_re29Prefilter8SimplifyEv.exit34:      ; preds = %_ZNSt6vectorIPN10du
   %75 = phi ptr [ %69, %.lr.ph121 ], [ %106, %_ZNSt6vectorIPN10duckdb_re29PrefilterESaIS2_EE9push_backERKS2_.exit ]
   %76 = phi ptr [ %66, %.lr.ph121 ], [ %107, %_ZNSt6vectorIPN10duckdb_re29PrefilterESaIS2_EE9push_backERKS2_.exit ]
   %.020120 = phi i64 [ 0, %.lr.ph121 ], [ %108, %_ZNSt6vectorIPN10duckdb_re29PrefilterESaIS2_EE9push_backERKS2_.exit ]
-  %77 = getelementptr inbounds nuw ptr, ptr %75, i64 %.020120
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %.020120
   %78 = load ptr, ptr %77, align 8, !tbaa !23
   %79 = load ptr, ptr %70, align 8, !tbaa !18
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
@@ -506,7 +505,7 @@ _ZNSt6vectorIPN10duckdb_re29PrefilterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit1
 _ZNSt6vectorIPN10duckdb_re29PrefilterESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %104, %_ZNSt6vectorIPN10duckdb_re29PrefilterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %99, ptr %79, align 8, !tbaa !22
   store ptr %103, ptr %80, align 8, !tbaa !19
-  %105 = getelementptr inbounds nuw ptr, ptr %99, i64 %97
+  %105 = getelementptr inbounds nuw [8 x i8], ptr %99, i64 %97
   store ptr %105, ptr %82, align 8, !tbaa !29
   %.pre136 = load ptr, ptr %65, align 8, !tbaa !18
   %.pre137 = load ptr, ptr %.pre136, align 8, !tbaa !22
@@ -598,7 +597,7 @@ _ZNSt6vectorIPN10duckdb_re29PrefilterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit1
 _ZNSt6vectorIPN10duckdb_re29PrefilterESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i41: ; preds = %147, %_ZNSt6vectorIPN10duckdb_re29PrefilterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i39
   store ptr %142, ptr %122, align 8, !tbaa !22
   store ptr %146, ptr %123, align 8, !tbaa !19
-  %148 = getelementptr inbounds nuw ptr, ptr %142, i64 %140
+  %148 = getelementptr inbounds nuw [8 x i8], ptr %142, i64 %140
   store ptr %148, ptr %125, align 8, !tbaa !29
   br label %_ZNSt6vectorIPN10duckdb_re29PrefilterESaIS2_EE9push_backERKS2_.exit42
 
@@ -687,7 +686,7 @@ _ZNSt6vectorIPN10duckdb_re29PrefilterESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__
   %.pre132 = phi ptr [ %.pre132.pre, %182 ], [ %157, %_ZNSt6vectorIPN10duckdb_re29PrefilterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i49 ]
   store ptr %177, ptr %157, align 8, !tbaa !22
   store ptr %181, ptr %158, align 8, !tbaa !19
-  %183 = getelementptr inbounds nuw ptr, ptr %177, i64 %175
+  %183 = getelementptr inbounds nuw [8 x i8], ptr %177, i64 %175
   store ptr %183, ptr %160, align 8, !tbaa !29
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre132, i64 8
   %.pre133 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !19
@@ -754,7 +753,7 @@ _ZNSt6vectorIPN10duckdb_re29PrefilterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit1
 _ZNSt6vectorIPN10duckdb_re29PrefilterESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i59: ; preds = %209, %_ZNSt6vectorIPN10duckdb_re29PrefilterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i57
   store ptr %204, ptr %186, align 8, !tbaa !22
   store ptr %208, ptr %187, align 8, !tbaa !19
-  %210 = getelementptr inbounds nuw ptr, ptr %204, i64 %202
+  %210 = getelementptr inbounds nuw [8 x i8], ptr %204, i64 %202
   store ptr %210, ptr %188, align 8, !tbaa !29
   br label %_ZNSt6vectorIPN10duckdb_re29PrefilterESaIS2_EE9push_backERKS2_.exit42
 
@@ -1305,7 +1304,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i._ZNSt7__
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i._ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit_crit_edge, %61
   %68 = phi ptr [ %.pre155, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i._ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit_crit_edge ], [ %62, %61 ]
-  %69 = getelementptr inbounds nuw ptr, ptr %68, i64 %.041146
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %.041146
   %70 = load ptr, ptr %69, align 8, !tbaa !23
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not50 = icmp eq ptr %70, null
@@ -1485,7 +1484,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i95._ZNSt7
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit98: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i95._ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit98_crit_edge, %114
   %121 = phi ptr [ %.pre150, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i95._ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit98_crit_edge ], [ %115, %114 ]
-  %122 = getelementptr inbounds nuw ptr, ptr %121, i64 %.028145
+  %122 = getelementptr inbounds nuw [8 x i8], ptr %121, i64 %.028145
   %123 = load ptr, ptr %122, align 8, !tbaa !23
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not44 = icmp eq ptr %123, null
@@ -3119,7 +3118,7 @@ define hidden noundef nonnull ptr @_ZN10duckdb_re29Prefilter4Info6CClassEPNS_9Ch
   %42 = phi ptr [ %.pre142, %._crit_edge.split.us.us.loopexit ], [ %37, %.lr.ph130.split.us ]
   %43 = getelementptr inbounds nuw i8, ptr %.023128.us, i64 8
   %44 = sext i32 %41 to i64
-  %45 = getelementptr inbounds %"struct.duckdb_re2::RuneRange", ptr %42, i64 %44
+  %45 = getelementptr inbounds [8 x i8], ptr %42, i64 %44
   %.not.us = icmp eq ptr %43, %45
   br i1 %.not.us, label %._crit_edge131, label %.lr.ph130.split.us, !llvm.loop !98
 
@@ -3280,7 +3279,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.us.us: ; preds = 
   %94 = phi ptr [ %.pre138, %._crit_edge.split.loopexit ], [ %89, %.lr.ph130.split ]
   %95 = getelementptr inbounds nuw i8, ptr %.023128, i64 8
   %96 = sext i32 %93 to i64
-  %97 = getelementptr inbounds %"struct.duckdb_re2::RuneRange", ptr %94, i64 %96
+  %97 = getelementptr inbounds [8 x i8], ptr %94, i64 %96
   %.not = icmp eq ptr %95, %97
   br i1 %.not, label %._crit_edge131, label %.lr.ph130.split, !llvm.loop !98
 
@@ -3919,7 +3918,7 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %17, %_ZNKSt7__cxx11
   %indvars.iv94 = phi i64 [ %indvars.iv.next95, %.lr.ph79 ], [ 1, %71 ]
   %.177 = phi ptr [ %79, %.lr.ph79 ], [ %72, %71 ]
   %75 = load ptr, ptr %68, align 8, !tbaa !12
-  %76 = getelementptr inbounds nuw i32, ptr %75, i64 %indvars.iv94
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %75, i64 %indvars.iv94
   %77 = load i32, ptr %76, align 4, !tbaa !81
   %78 = tail call noundef ptr @_ZN10duckdb_re29Prefilter4Info13LiteralLatin1Ei(i32 noundef %77)
   %79 = tail call noundef ptr @_ZN10duckdb_re29Prefilter4Info6ConcatEPS1_S2_(ptr noundef %.177, ptr noundef nonnull %78)
@@ -3939,7 +3938,7 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %17, %_ZNKSt7__cxx11
   %indvars.iv91 = phi i64 [ %indvars.iv.next92, %.lr.ph74 ], [ 1, %83 ]
   %.272 = phi ptr [ %91, %.lr.ph74 ], [ %84, %83 ]
   %87 = load ptr, ptr %68, align 8, !tbaa !12
-  %88 = getelementptr inbounds nuw i32, ptr %87, i64 %indvars.iv91
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %87, i64 %indvars.iv91
   %89 = load i32, ptr %88, align 4, !tbaa !81
   %90 = tail call noundef ptr @_ZN10duckdb_re29Prefilter4Info7LiteralEi(i32 noundef %89)
   %91 = tail call noundef ptr @_ZN10duckdb_re29Prefilter4Info6ConcatEPS1_S2_(ptr noundef %.272, ptr noundef nonnull %90)
@@ -3959,7 +3958,7 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %17, %_ZNKSt7__cxx11
   %indvars.iv86 = phi i64 [ 0, %.lr.ph68.preheader ], [ %indvars.iv.next87, %.split58 ]
   %.367 = phi ptr [ null, %.lr.ph68.preheader ], [ %.4, %.split58 ]
   %.05365 = phi ptr [ null, %.lr.ph68.preheader ], [ %.154, %.split58 ]
-  %96 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv86
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv86
   %97 = load ptr, ptr %96, align 8, !tbaa !131
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 48
   %99 = load i8, ptr %98, align 8, !tbaa !43, !range !52, !noundef !53
@@ -4007,7 +4006,7 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %17, %_ZNKSt7__cxx11
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.563 = phi ptr [ %113, %.lr.ph.preheader ], [ %117, %.lr.ph ]
-  %115 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %116 = load ptr, ptr %115, align 8, !tbaa !131
   %117 = tail call noundef ptr @_ZN10duckdb_re29Prefilter4Info3AltEPS1_S2_(ptr noundef %.563, ptr noundef %116)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -4390,7 +4389,7 @@ _ZNSt11_Deque_baseIN10duckdb_re29WalkStateIPNS0_9Prefilter4InfoEEESaIS5_EE15_M_a
   store ptr %10, ptr %0, align 8, !tbaa !123
   %11 = sub nsw i64 %.sroa.speculated, %8
   %12 = lshr i64 %11, 1
-  %13 = getelementptr inbounds nuw ptr, ptr %10, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %12
   %.idx = shl nuw nsw i64 %8, 3
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx
   br label %.lr.ph.i
@@ -4481,7 +4480,7 @@ _ZNSt11_Deque_baseIN10duckdb_re29WalkStateIPNS0_9Prefilter4InfoEEESaIS5_EE15_M_c
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %49, ptr %50, align 8, !tbaa !153
   store ptr %40, ptr %38, align 8, !tbaa !154
-  %51 = getelementptr inbounds nuw %"struct.duckdb_re2::WalkState", ptr %47, i64 %4
+  %51 = getelementptr inbounds nuw [48 x i8], ptr %47, i64 %4
   store ptr %51, ptr %44, align 8, !tbaa !155
   ret void
 
@@ -5317,17 +5316,17 @@ _ZNSt5stackIN10duckdb_re29WalkStateIPNS0_9Prefilter4InfoEEESt5dequeIS5_SaIS5_EEE
 
 ._crit_edge:                                      ; preds = %102
   %.phi.trans.insert = sext i32 %.pre87 to i64
-  %.phi.trans.insert86 = getelementptr inbounds ptr, ptr %.0.i, i64 %.phi.trans.insert
+  %.phi.trans.insert86 = getelementptr inbounds [8 x i8], ptr %.0.i, i64 %.phi.trans.insert
   %.pre = load ptr, ptr %.phi.trans.insert86, align 8, !tbaa !173
   br label %._crit_edge92
 
 104:                                              ; preds = %102
   %105 = add nsw i32 %.pre87, -1
   %106 = zext nneg i32 %105 to i64
-  %107 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %106
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %106
   %108 = load ptr, ptr %107, align 8, !tbaa !173
   %109 = zext nneg i32 %.pre87 to i64
-  %110 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %109
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %109
   %111 = load ptr, ptr %110, align 8, !tbaa !173
   %112 = icmp eq ptr %108, %111
   br i1 %112, label %113, label %._crit_edge92
@@ -5335,7 +5334,7 @@ _ZNSt5stackIN10duckdb_re29WalkStateIPNS0_9Prefilter4InfoEEESt5dequeIS5_SaIS5_EEE
 113:                                              ; preds = %104
   %114 = getelementptr inbounds i8, ptr %57, i64 -8
   %115 = load ptr, ptr %114, align 8, !tbaa !164
-  %116 = getelementptr inbounds nuw ptr, ptr %115, i64 %106
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %115, i64 %106
   %117 = load ptr, ptr %116, align 8, !tbaa !131
   %118 = load ptr, ptr %0, align 8, !tbaa !64
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 32
@@ -5344,7 +5343,7 @@ _ZNSt5stackIN10duckdb_re29WalkStateIPNS0_9Prefilter4InfoEEESt5dequeIS5_SaIS5_EEE
   %122 = load ptr, ptr %114, align 8, !tbaa !164
   %123 = load i32, ptr %60, align 8, !tbaa !169
   %124 = sext i32 %123 to i64
-  %125 = getelementptr inbounds ptr, ptr %122, i64 %124
+  %125 = getelementptr inbounds [8 x i8], ptr %122, i64 %124
   store ptr %121, ptr %125, align 8, !tbaa !131
   %126 = add nsw i32 %123, 1
   store i32 %126, ptr %60, align 8, !tbaa !169
@@ -5458,7 +5457,7 @@ _ZNSt5stackIN10duckdb_re29WalkStateIPNS0_9Prefilter4InfoEEESt5dequeIS5_SaIS5_EEE
   %178 = getelementptr inbounds i8, ptr %174, i64 -40
   %179 = load i32, ptr %178, align 8, !tbaa !169
   %180 = sext i32 %179 to i64
-  %181 = getelementptr inbounds ptr, ptr %176, i64 %180
+  %181 = getelementptr inbounds [8 x i8], ptr %176, i64 %180
   store ptr %.265, ptr %181, align 8, !tbaa !131
   br label %184
 
@@ -5580,9 +5579,9 @@ define linkonce_odr hidden void @_ZNSt5dequeIN10duckdb_re29WalkStateIPNS0_9Prefi
   %19 = load ptr, ptr %0, align 8, !tbaa !123
   %20 = sub i64 %15, %13
   %21 = lshr i64 %20, 1
-  %22 = getelementptr inbounds nuw ptr, ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %21
   %23 = select i1 %2, i64 %1, i64 0
-  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %23
   %25 = icmp ult ptr %24, %7
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %26, %7
@@ -5601,12 +5600,12 @@ define linkonce_odr hidden void @_ZNSt5dequeIN10duckdb_re29WalkStateIPNS0_9Prefi
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIPPN10duckdb_re29WalkStateIPNS0_9Prefilter4InfoEEES7_ET0_T_S9_S8_.exit, label %32
 
 32:                                               ; preds = %31
-  %33 = getelementptr inbounds nuw ptr, ptr %24, i64 %12
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %12
   %34 = ptrtoint ptr %26 to i64
   %35 = sub i64 %34, %9
   %36 = ashr exact i64 %35, 3
   %37 = sub nsw i64 0, %36
-  %38 = getelementptr inbounds ptr, ptr %33, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %33, i64 %37
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %38, ptr align 8 %7, i64 %35, i1 false)
   br label %_ZSt4copyIPPN10duckdb_re29WalkStateIPNS0_9Prefilter4InfoEEES7_ET0_T_S9_S8_.exit
 
@@ -5634,9 +5633,9 @@ _ZNSt11_Deque_baseIN10duckdb_re29WalkStateIPNS0_9Prefilter4InfoEEESaIS5_EE15_M_a
   %46 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %45) #20
   %47 = sub i64 %41, %13
   %48 = lshr i64 %47, 1
-  %49 = getelementptr inbounds nuw ptr, ptr %46, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %48
   %50 = select i1 %2, i64 %1, i64 0
-  %51 = getelementptr inbounds nuw ptr, ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i25 = icmp eq ptr %52, %7
   br i1 %.not.i.i.i.i.i25, label %_ZSt4copyIPPN10duckdb_re29WalkStateIPNS0_9Prefilter4InfoEEES7_ET0_T_S9_S8_.exit26, label %53
@@ -5663,7 +5662,7 @@ _ZSt4copyIPPN10duckdb_re29WalkStateIPNS0_9Prefilter4InfoEEES7_ET0_T_S9_S8_.exit:
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 480
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %59, ptr %60, align 8, !tbaa !153
-  %61 = getelementptr inbounds nuw ptr, ptr %.0, i64 %12
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %.0, i64 %12
   %62 = getelementptr inbounds i8, ptr %61, i64 -8
   store ptr %62, ptr %4, align 8, !tbaa !151
   %63 = load ptr, ptr %62, align 8, !tbaa !126

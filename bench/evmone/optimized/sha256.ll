@@ -424,7 +424,7 @@ define internal void @_ZN6evmone6cryptoL15sha_256_x86_bmiEPjPKSt4bytem(ptr nound
   %62 = load i8, ptr %61, align 1, !tbaa !8
   %63 = zext i8 %62 to i32
   %64 = or disjoint i32 %60, %63
-  %65 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv98
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv98
   store i32 %64, ptr %65, align 4, !tbaa !12
   %66 = getelementptr inbounds nuw i8, ptr %.145.i26.us, i64 4
   %67 = tail call i32 @llvm.fshl.i32(i32 %40, i32 %40, i32 26)
@@ -435,7 +435,7 @@ define internal void @_ZN6evmone6cryptoL15sha_256_x86_bmiEPjPKSt4bytem(ptr nound
   %72 = and i32 %41, %40
   %73 = xor i32 %40, -1
   %74 = and i32 %42, %73
-  %75 = getelementptr inbounds nuw i32, ptr @_ZN6evmone6cryptoL1kE, i64 %indvars.iv98
+  %75 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6evmone6cryptoL1kE, i64 %indvars.iv98
   %76 = load i32, ptr %75, align 4, !tbaa !12
   %77 = add i32 %71, %72
   %78 = add i32 %77, %43
@@ -478,7 +478,7 @@ define internal void @_ZN6evmone6cryptoL15sha_256_x86_bmiEPjPKSt4bytem(ptr nound
   %101 = phi i32 [ %.lcssa314769, %.preheader.split.preheader ], [ %100, %.preheader.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %102 = and i64 %indvars.iv.next, 15
-  %103 = getelementptr inbounds nuw i32, ptr %6, i64 %102
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %102
   %104 = load i32, ptr %103, align 4, !tbaa !12
   %105 = tail call i32 @llvm.fshl.i32(i32 %104, i32 %104, i32 25)
   %106 = tail call i32 @llvm.fshl.i32(i32 %104, i32 %104, i32 14)
@@ -487,19 +487,19 @@ define internal void @_ZN6evmone6cryptoL15sha_256_x86_bmiEPjPKSt4bytem(ptr nound
   %109 = xor i32 %107, %108
   %110 = add nuw i64 %indvars.iv, 14
   %111 = and i64 %110, 15
-  %112 = getelementptr inbounds nuw i32, ptr %6, i64 %111
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %111
   %113 = load i32, ptr %112, align 4, !tbaa !12
   %114 = tail call i32 @llvm.fshl.i32(i32 %113, i32 %113, i32 15)
   %115 = tail call i32 @llvm.fshl.i32(i32 %113, i32 %113, i32 13)
   %116 = xor i32 %114, %115
   %117 = lshr i32 %113, 10
   %118 = xor i32 %116, %117
-  %119 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
+  %119 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   %120 = load i32, ptr %119, align 4, !tbaa !12
   %121 = add i32 %109, %120
   %122 = add nuw i64 %indvars.iv, 9
   %123 = and i64 %122, 15
-  %124 = getelementptr inbounds nuw i32, ptr %6, i64 %123
+  %124 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %123
   %125 = load i32, ptr %124, align 4, !tbaa !12
   %126 = add i32 %121, %125
   %127 = add i32 %126, %118
@@ -512,7 +512,7 @@ define internal void @_ZN6evmone6cryptoL15sha_256_x86_bmiEPjPKSt4bytem(ptr nound
   %133 = and i32 %95, %94
   %134 = xor i32 %94, -1
   %135 = and i32 %96, %134
-  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep, i64 %indvars.iv
   %136 = load i32, ptr %gep, align 4, !tbaa !12
   %137 = add i32 %132, %133
   %138 = add i32 %137, %97
@@ -561,9 +561,9 @@ define internal void @_ZN6evmone6cryptoL15sha_256_x86_bmiEPjPKSt4bytem(ptr nound
 
 .preheader17:                                     ; preds = %.split.us, %.preheader17
   %indvars.iv106 = phi i64 [ %indvars.iv.next107, %.preheader17 ], [ 0, %.split.us ]
-  %154 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv106
+  %154 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv106
   %155 = load i32, ptr %154, align 4, !tbaa !12
-  %156 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv106
+  %156 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv106
   %157 = load i32, ptr %156, align 4, !tbaa !12
   %158 = add i32 %157, %155
   store i32 %158, ptr %156, align 4, !tbaa !12
@@ -600,7 +600,7 @@ define hidden void @_ZN6evmone6crypto6sha256EPSt4bytePKS1_m(ptr noundef writeonl
 7:                                                ; preds = %3, %7
   %indvars.iv18 = phi i64 [ 0, %3 ], [ %indvars.iv.next19, %7 ]
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %7 ]
-  %8 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv18
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv18
   %9 = load i32, ptr %8, align 4, !tbaa !12
   %10 = lshr i32 %9, 24
   %11 = trunc nuw i32 %10 to i8
@@ -789,7 +789,7 @@ define internal void @_ZN6evmone6cryptoL15sha_256_genericEPjPKSt4bytem(ptr nound
   %62 = load i8, ptr %61, align 1, !tbaa !8
   %63 = zext i8 %62 to i32
   %64 = or disjoint i32 %60, %63
-  %65 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv98
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv98
   store i32 %64, ptr %65, align 4, !tbaa !12
   %66 = getelementptr inbounds nuw i8, ptr %.145.i26.us, i64 4
   %67 = tail call i32 @llvm.fshl.i32(i32 %40, i32 %40, i32 26)
@@ -800,7 +800,7 @@ define internal void @_ZN6evmone6cryptoL15sha_256_genericEPjPKSt4bytem(ptr nound
   %72 = and i32 %41, %40
   %73 = xor i32 %40, -1
   %74 = and i32 %42, %73
-  %75 = getelementptr inbounds nuw i32, ptr @_ZN6evmone6cryptoL1kE, i64 %indvars.iv98
+  %75 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6evmone6cryptoL1kE, i64 %indvars.iv98
   %76 = load i32, ptr %75, align 4, !tbaa !12
   %77 = add i32 %71, %72
   %78 = add i32 %77, %43
@@ -843,7 +843,7 @@ define internal void @_ZN6evmone6cryptoL15sha_256_genericEPjPKSt4bytem(ptr nound
   %101 = phi i32 [ %.lcssa314769, %.preheader.split.preheader ], [ %100, %.preheader.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %102 = and i64 %indvars.iv.next, 15
-  %103 = getelementptr inbounds nuw i32, ptr %6, i64 %102
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %102
   %104 = load i32, ptr %103, align 4, !tbaa !12
   %105 = tail call i32 @llvm.fshl.i32(i32 %104, i32 %104, i32 25)
   %106 = tail call i32 @llvm.fshl.i32(i32 %104, i32 %104, i32 14)
@@ -852,19 +852,19 @@ define internal void @_ZN6evmone6cryptoL15sha_256_genericEPjPKSt4bytem(ptr nound
   %109 = xor i32 %107, %108
   %110 = add nuw i64 %indvars.iv, 14
   %111 = and i64 %110, 15
-  %112 = getelementptr inbounds nuw i32, ptr %6, i64 %111
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %111
   %113 = load i32, ptr %112, align 4, !tbaa !12
   %114 = tail call i32 @llvm.fshl.i32(i32 %113, i32 %113, i32 15)
   %115 = tail call i32 @llvm.fshl.i32(i32 %113, i32 %113, i32 13)
   %116 = xor i32 %114, %115
   %117 = lshr i32 %113, 10
   %118 = xor i32 %116, %117
-  %119 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
+  %119 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   %120 = load i32, ptr %119, align 4, !tbaa !12
   %121 = add i32 %109, %120
   %122 = add nuw i64 %indvars.iv, 9
   %123 = and i64 %122, 15
-  %124 = getelementptr inbounds nuw i32, ptr %6, i64 %123
+  %124 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %123
   %125 = load i32, ptr %124, align 4, !tbaa !12
   %126 = add i32 %121, %125
   %127 = add i32 %126, %118
@@ -877,7 +877,7 @@ define internal void @_ZN6evmone6cryptoL15sha_256_genericEPjPKSt4bytem(ptr nound
   %133 = and i32 %95, %94
   %134 = xor i32 %94, -1
   %135 = and i32 %96, %134
-  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep, i64 %indvars.iv
   %136 = load i32, ptr %gep, align 4, !tbaa !12
   %137 = add i32 %132, %133
   %138 = add i32 %137, %97
@@ -926,9 +926,9 @@ define internal void @_ZN6evmone6cryptoL15sha_256_genericEPjPKSt4bytem(ptr nound
 
 .preheader17:                                     ; preds = %.split.us, %.preheader17
   %indvars.iv106 = phi i64 [ %indvars.iv.next107, %.preheader17 ], [ 0, %.split.us ]
-  %154 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv106
+  %154 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv106
   %155 = load i32, ptr %154, align 4, !tbaa !12
-  %156 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv106
+  %156 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv106
   %157 = load i32, ptr %156, align 4, !tbaa !12
   %158 = add i32 %157, %155
   store i32 %158, ptr %156, align 4, !tbaa !12

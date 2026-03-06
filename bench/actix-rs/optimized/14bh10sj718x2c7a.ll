@@ -5731,7 +5731,7 @@ define void @_ZN9actix_web4http6header5range5Range11bytes_multi17h0e29995be68a41
   %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !955, !noalias !958, !nonnull !7, !noundef !7
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !955, !noalias !958
-  %5 = getelementptr inbounds { i64, i64 }, ptr %.sroa.4.0.copyload.i, i64 %.sroa.5.0.copyload.i
+  %5 = getelementptr inbounds [16 x i8], ptr %.sroa.4.0.copyload.i, i64 %.sroa.5.0.copyload.i
   store ptr %.sroa.4.0.copyload.i, ptr %3, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %.sroa.4.0.copyload.i, ptr %.sroa.4.0..sroa_idx, align 8
@@ -5918,7 +5918,7 @@ define noundef zeroext i1 @"_ZN76_$LT$actix_web..http..header..range..Range$u20$
   %28 = load ptr, ptr %27, align 8, !nonnull !7, !noundef !7
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load i64, ptr %29, align 8, !noundef !7
-  %31 = getelementptr inbounds { i64, [2 x i64] }, ptr %28, i64 %30
+  %31 = getelementptr inbounds [24 x i8], ptr %28, i64 %30
   br label %32
 
 32:                                               ; preds = %37, %26
@@ -6869,7 +6869,7 @@ define hidden void @"_ZN97_$LT$actix_web..resource..Resource$LT$T$GT$$u20$as$u20
   %17 = load ptr, ptr %16, align 8, !alias.scope !1103, !noalias !1106, !nonnull !7, !noundef !7
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %19 = load i64, ptr %18, align 8, !alias.scope !1103, !noalias !1106, !noundef !7
-  %20 = getelementptr inbounds { { { { { ptr, ptr } }, {} }, {} }, ptr }, ptr %17, i64 %19
+  %20 = getelementptr inbounds [24 x i8], ptr %17, i64 %19
   br label %21
 
 21:                                               ; preds = %32, %15

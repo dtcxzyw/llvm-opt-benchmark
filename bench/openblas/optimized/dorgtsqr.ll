@@ -26,7 +26,7 @@ define void @dorgtsqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   %17 = load i32, ptr %5, align 4, !tbaa !3
   %narrow = xor i32 %17, -1
   %18 = sext i32 %narrow to i64
-  %19 = getelementptr inbounds double, ptr %4, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %4, i64 %18
   %20 = getelementptr inbounds i8, ptr %8, i64 -8
   %21 = load i32, ptr %9, align 4, !tbaa !3
   %22 = icmp eq i32 %21, -1
@@ -110,7 +110,7 @@ define void @dorgtsqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
 57:                                               ; preds = %52
   call void @dlaset_(ptr noundef nonnull @.str.1, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @c_b4, ptr noundef nonnull @c_b5, ptr noundef %8, ptr noundef nonnull %15) #4
   %58 = zext nneg i32 %43 to i64
-  %59 = getelementptr double, ptr %20, i64 %58
+  %59 = getelementptr [8 x i8], ptr %20, i64 %58
   %60 = getelementptr i8, ptr %59, i64 8
   call void @dlamtsqr_(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %16, ptr noundef %4, ptr noundef nonnull %5, ptr noundef %6, ptr noundef nonnull %7, ptr noundef %8, ptr noundef nonnull %15, ptr noundef %60, ptr noundef nonnull %14, ptr noundef nonnull %13) #4
   %61 = load i32, ptr %1, align 4, !tbaa !3
@@ -128,10 +128,10 @@ define void @dorgtsqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   %65 = load i32, ptr %15, align 4, !tbaa !3
   %66 = sext i32 %65 to i64
   %67 = mul nsw i64 %64, %66
-  %68 = getelementptr double, ptr %20, i64 %67
+  %68 = getelementptr [8 x i8], ptr %20, i64 %67
   %69 = getelementptr i8, ptr %68, i64 8
   %70 = mul nsw i64 %indvars.iv, %62
-  %71 = getelementptr double, ptr %19, i64 %70
+  %71 = getelementptr [8 x i8], ptr %19, i64 %70
   %72 = getelementptr i8, ptr %71, i64 8
   call void @dcopy_(ptr noundef nonnull %0, ptr noundef %69, ptr noundef nonnull @c__1, ptr noundef %72, ptr noundef nonnull @c__1) #4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

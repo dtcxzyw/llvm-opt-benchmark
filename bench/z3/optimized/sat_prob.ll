@@ -4,17 +4,11 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"class.sat::literal" = type { i32 }
-%"struct.sat::prob::clause_info" = type { i32, i32 }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %"class.std::allocator" = type { i8 }
-%class.svector.5 = type { %class.vector.6 }
-%class.vector.6 = type { ptr }
-%class.vector.56 = type { ptr }
-%class.ptr_vector.3 = type { %class.vector.4 }
-%class.vector.4 = type { ptr }
+%"class.sat::literal" = type { i32 }
 
 $__clang_call_terminate = comdat any
 
@@ -767,12 +761,12 @@ define hidden void @_ZN3sat4prob4flipEv(ptr noundef nonnull align 8 dereferencea
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %12 = load ptr, ptr %11, align 8, !tbaa !16
   %13 = zext nneg i32 %10 to i64
-  %14 = getelementptr inbounds nuw i32, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !12
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %17 = load ptr, ptr %16, align 8, !tbaa !6
   %18 = zext i32 %15 to i64
-  %19 = getelementptr inbounds nuw ptr, ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !39
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 20
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 4
@@ -822,13 +816,13 @@ define hidden void @_ZN3sat4prob4flipEv(ptr noundef nonnull align 8 dereferencea
   %42 = load i32, ptr %.02123.i, align 4, !tbaa !12
   %43 = lshr i32 %42, 1
   %44 = zext nneg i32 %43 to i64
-  %45 = getelementptr inbounds nuw i32, ptr %28, i64 %44
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %44
   %46 = load i32, ptr %45, align 4, !tbaa !12
   %47 = zext i32 %46 to i64
-  %48 = getelementptr inbounds nuw double, ptr %29, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %47
   %49 = load double, ptr %48, align 8, !tbaa !85
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %50 = getelementptr inbounds nuw double, ptr %31, i64 %indvars.iv.i
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv.i
   store double %49, ptr %50, align 8, !tbaa !85
   %51 = fadd double %.01925.i, %49
   %52 = getelementptr inbounds nuw i8, ptr %.02123.i, i64 4
@@ -840,7 +834,7 @@ define hidden void @_ZN3sat4prob4flipEv(ptr noundef nonnull align 8 dereferencea
   %.0.i = phi double [ %40, %._crit_edge.i ], [ %58, %53 ]
   %54 = add i32 %.1.i, -1
   %55 = zext i32 %54 to i64
-  %56 = getelementptr inbounds nuw double, ptr %33, i64 %55
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %55
   %57 = load double, ptr %56, align 8, !tbaa !85
   %58 = fsub double %.0.i, %57
   %59 = fcmp oge double %58, 0.000000e+00
@@ -849,7 +843,7 @@ define hidden void @_ZN3sat4prob4flipEv(ptr noundef nonnull align 8 dereferencea
   br i1 %61, label %53, label %_ZN3sat4prob8pick_varEv.exit, !llvm.loop !86
 
 _ZN3sat4prob8pick_varEv.exit:                     ; preds = %53
-  %62 = getelementptr inbounds nuw %"class.sat::literal", ptr %21, i64 %55
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %55
   %63 = load i32, ptr %62, align 4, !tbaa !87
   %64 = lshr i32 %63, 1
   tail call void @_ZN3sat4prob4flipEj(ptr noundef nonnull align 8 dereferenceable(816) %0, i32 noundef %64)
@@ -882,12 +876,12 @@ define hidden noundef range(i32 0, -2147483648) i32 @_ZN3sat4prob8pick_varEv(ptr
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %12 = load ptr, ptr %11, align 8, !tbaa !16
   %13 = zext nneg i32 %10 to i64
-  %14 = getelementptr inbounds nuw i32, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !12
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %17 = load ptr, ptr %16, align 8, !tbaa !6
   %18 = zext i32 %15 to i64
-  %19 = getelementptr inbounds nuw ptr, ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !39
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 20
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 4
@@ -937,13 +931,13 @@ define hidden noundef range(i32 0, -2147483648) i32 @_ZN3sat4prob8pick_varEv(ptr
   %42 = load i32, ptr %.02123, align 4, !tbaa !12
   %43 = lshr i32 %42, 1
   %44 = zext nneg i32 %43 to i64
-  %45 = getelementptr inbounds nuw i32, ptr %28, i64 %44
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %44
   %46 = load i32, ptr %45, align 4, !tbaa !12
   %47 = zext i32 %46 to i64
-  %48 = getelementptr inbounds nuw double, ptr %29, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %47
   %49 = load double, ptr %48, align 8, !tbaa !85
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %50 = getelementptr inbounds nuw double, ptr %31, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv
   store double %49, ptr %50, align 8, !tbaa !85
   %51 = fadd double %.01925, %49
   %52 = getelementptr inbounds nuw i8, ptr %.02123, i64 4
@@ -955,7 +949,7 @@ define hidden noundef range(i32 0, -2147483648) i32 @_ZN3sat4prob8pick_varEv(ptr
   %.0 = phi double [ %40, %._crit_edge ], [ %58, %53 ]
   %54 = add i32 %.1, -1
   %55 = zext i32 %54 to i64
-  %56 = getelementptr inbounds nuw double, ptr %33, i64 %55
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %55
   %57 = load double, ptr %56, align 8, !tbaa !85
   %58 = fsub double %.0, %57
   %59 = fcmp oge double %58, 0.000000e+00
@@ -964,7 +958,7 @@ define hidden noundef range(i32 0, -2147483648) i32 @_ZN3sat4prob8pick_varEv(ptr
   br i1 %61, label %53, label %62, !llvm.loop !86
 
 62:                                               ; preds = %53
-  %63 = getelementptr inbounds nuw %"class.sat::literal", ptr %21, i64 %55
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %55
   %64 = load i32, ptr %63, align 4, !tbaa !87
   %65 = lshr i32 %64, 1
   ret i32 %65
@@ -991,20 +985,20 @@ define hidden void @_ZN3sat4prob4flipEj(ptr noundef nonnull align 8 dereferencea
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 696
   %19 = load ptr, ptr %18, align 8, !tbaa !16
   %20 = zext i32 %14 to i64
-  %21 = getelementptr inbounds nuw i32, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %20
   %22 = load i32, ptr %21, align 4, !tbaa !12
   %23 = add i32 %14, 1
   %24 = zext i32 %23 to i64
-  %25 = getelementptr inbounds nuw i32, ptr %19, i64 %24
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %24
   %26 = load i32, ptr %25, align 4, !tbaa !12
   %27 = zext i32 %26 to i64
-  %28 = getelementptr inbounds nuw i32, ptr %17, i64 %27
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %27
   %.not50 = icmp eq i32 %22, %26
   br i1 %.not50, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %29 = zext i32 %22 to i64
-  %30 = getelementptr inbounds nuw i32, ptr %17, i64 %29
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 752
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 720
@@ -1021,20 +1015,20 @@ define hidden void @_ZN3sat4prob4flipEj(ptr noundef nonnull align 8 dereferencea
   %36 = phi ptr [ %.pre57, %._crit_edge.loopexit ], [ %19, %2 ]
   %37 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %17, %2 ]
   %38 = zext i32 %15 to i64
-  %39 = getelementptr inbounds nuw i32, ptr %36, i64 %38
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %38
   %40 = load i32, ptr %39, align 4, !tbaa !12
   %41 = add i32 %15, 1
   %42 = zext i32 %41 to i64
-  %43 = getelementptr inbounds nuw i32, ptr %36, i64 %42
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %42
   %44 = load i32, ptr %43, align 4, !tbaa !12
   %45 = zext i32 %44 to i64
-  %46 = getelementptr inbounds nuw i32, ptr %37, i64 %45
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %45
   %.not3852 = icmp eq i32 %40, %44
   br i1 %.not3852, label %._crit_edge56, label %.lr.ph55
 
 .lr.ph55:                                         ; preds = %._crit_edge
   %47 = zext i32 %40 to i64
-  %48 = getelementptr inbounds nuw i32, ptr %37, i64 %47
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %50 = load ptr, ptr %49, align 8, !tbaa !30
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 752
@@ -1046,7 +1040,7 @@ define hidden void @_ZN3sat4prob4flipEj(ptr noundef nonnull align 8 dereferencea
   %57 = load ptr, ptr %56, align 8
   %58 = and i32 %1, 2147483647
   %59 = zext nneg i32 %58 to i64
-  %60 = getelementptr inbounds nuw i32, ptr %52, i64 %59
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %59
   br label %89
 
 61:                                               ; preds = %.lr.ph, %83
@@ -1054,7 +1048,7 @@ define hidden void @_ZN3sat4prob4flipEj(ptr noundef nonnull align 8 dereferencea
   %62 = load i32, ptr %.051, align 4, !tbaa !12
   %63 = load ptr, ptr %31, align 8, !tbaa !30
   %64 = zext i32 %62 to i64
-  %65 = getelementptr inbounds nuw %"struct.sat::prob::clause_info", ptr %63, i64 %64
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %64
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 4
   %67 = load i32, ptr %66, align 4, !tbaa !90
   %68 = add i32 %67, -1
@@ -1070,7 +1064,7 @@ define hidden void @_ZN3sat4prob4flipEj(ptr noundef nonnull align 8 dereferencea
 71:                                               ; preds = %61
   tail call void @_ZN16indexed_uint_set12insert_freshEj(ptr noundef nonnull align 8 dereferenceable(24) %33, i32 noundef %62)
   %72 = load ptr, ptr %32, align 8, !tbaa !16
-  %73 = getelementptr inbounds nuw i32, ptr %72, i64 %35
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %35
   %74 = load i32, ptr %73, align 4, !tbaa !12
   %75 = add i32 %74, -1
   store i32 %75, ptr %73, align 4, !tbaa !12
@@ -1080,7 +1074,7 @@ define hidden void @_ZN3sat4prob4flipEj(ptr noundef nonnull align 8 dereferencea
   %77 = lshr i32 %70, 1
   %78 = load ptr, ptr %32, align 8, !tbaa !16
   %79 = zext nneg i32 %77 to i64
-  %80 = getelementptr inbounds nuw i32, ptr %78, i64 %79
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %78, i64 %79
   %81 = load i32, ptr %80, align 4, !tbaa !12
   %82 = add i32 %81, 1
   store i32 %82, ptr %80, align 4, !tbaa !12
@@ -1103,7 +1097,7 @@ define hidden void @_ZN3sat4prob4flipEj(ptr noundef nonnull align 8 dereferencea
   %.03753 = phi ptr [ %48, %.lr.ph55 ], [ %125, %120 ]
   %90 = load i32, ptr %.03753, align 4, !tbaa !12
   %91 = zext i32 %90 to i64
-  %92 = getelementptr inbounds nuw %"struct.sat::prob::clause_info", ptr %50, i64 %91
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %91
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 4
   %94 = load i32, ptr %93, align 4, !tbaa !90
   switch i32 %94, label %120 [
@@ -1116,24 +1110,24 @@ define hidden void @_ZN3sat4prob4flipEj(ptr noundef nonnull align 8 dereferencea
   %97 = add i32 %96, -1
   store i32 %97, ptr %53, align 8, !tbaa !81
   %98 = zext i32 %97 to i64
-  %99 = getelementptr inbounds nuw i32, ptr %55, i64 %98
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %98
   %100 = load i32, ptr %99, align 4, !tbaa !12
   %.not.i = icmp eq i32 %90, %100
   br i1 %.not.i, label %_ZN16indexed_uint_set6removeEj.exit, label %101
 
 101:                                              ; preds = %95
-  %102 = getelementptr inbounds nuw i32, ptr %57, i64 %91
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %91
   %103 = load i32, ptr %102, align 4, !tbaa !12
   %104 = zext i32 %100 to i64
-  %105 = getelementptr inbounds nuw i32, ptr %57, i64 %104
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %104
   store i32 %103, ptr %105, align 4, !tbaa !12
   %106 = zext i32 %103 to i64
-  %107 = getelementptr inbounds nuw i32, ptr %55, i64 %106
+  %107 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %106
   store i32 %100, ptr %107, align 4, !tbaa !12
   %108 = load i32, ptr %53, align 8, !tbaa !81
   store i32 %108, ptr %102, align 4, !tbaa !12
   %109 = zext i32 %108 to i64
-  %110 = getelementptr inbounds nuw i32, ptr %55, i64 %109
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %109
   store i32 %90, ptr %110, align 4, !tbaa !12
   br label %_ZN16indexed_uint_set6removeEj.exit
 
@@ -1147,7 +1141,7 @@ _ZN16indexed_uint_set6removeEj.exit:              ; preds = %95, %101
   %114 = load i32, ptr %92, align 4, !tbaa !92
   %115 = lshr i32 %114, 1
   %116 = zext nneg i32 %115 to i64
-  %117 = getelementptr inbounds nuw i32, ptr %52, i64 %116
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %116
   %118 = load i32, ptr %117, align 4, !tbaa !12
   %119 = add i32 %118, -1
   store i32 %119, ptr %117, align 4, !tbaa !12
@@ -1282,7 +1276,7 @@ _ZNK6vectorI5lboolLb0EjE8capacityEv.exit.thread.i.i: ; preds = %_ZNK6vectorI5lbo
 .lr.ph.preheader.i.i13:                           ; preds = %41
   %43 = zext i32 %30 to i64
   %44 = zext i32 %.0.i16.i.i11.ph to i64
-  %45 = getelementptr i32, ptr %36, i64 %44
+  %45 = getelementptr [4 x i8], ptr %36, i64 %44
   %46 = sub nsw i64 %43, %44
   %47 = shl nsw i64 %46, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %45, i8 0, i64 %47, i1 false), !tbaa !95
@@ -1316,7 +1310,7 @@ _ZNK6vectorIbLb0EjE4sizeEv.exit17:                ; preds = %.lr.ph, %_ZNK6vecto
   store i8 %54, ptr %55, align 1, !tbaa !73
   %56 = trunc nuw i8 %54 to i1
   %57 = select i1 %56, i32 1, i32 -1
-  %58 = getelementptr inbounds nuw i32, ptr %52, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %indvars.iv
   store i32 %57, ptr %58, align 4, !tbaa !95
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1374,7 +1368,7 @@ _ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i:   ; preds = %_ZNK6vectorIjLb0EjE
 .lr.ph.preheader.i.i:                             ; preds = %15
   %17 = zext i32 %4 to i64
   %18 = zext i32 %.0.i17.i.i.ph to i64
-  %19 = getelementptr i32, ptr %10, i64 %18
+  %19 = getelementptr [4 x i8], ptr %10, i64 %18
   %20 = sub nsw i64 %17, %18
   %21 = shl nsw i64 %20, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %19, i8 -1, i64 %21, i1 false), !tbaa !12
@@ -1429,7 +1423,7 @@ _ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i9:  ; preds = %_ZNK6vectorIjLb0EjE
 .lr.ph.preheader.i.i8:                            ; preds = %35
   %37 = zext i32 %24 to i64
   %38 = zext i32 %.0.i16.i.i.ph to i64
-  %39 = getelementptr i32, ptr %30, i64 %38
+  %39 = getelementptr [4 x i8], ptr %30, i64 %38
   %40 = sub nsw i64 %37, %38
   %41 = shl nsw i64 %40, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %39, i8 0, i64 %41, i1 false), !tbaa !12
@@ -1440,10 +1434,10 @@ _ZN6vectorIjLb0EjE7reserveEj.exit:                ; preds = %_ZNK6vectorIjLb0EjE
   %43 = load i32, ptr %0, align 8, !tbaa !81
   %44 = load ptr, ptr %3, align 8, !tbaa !16
   %45 = zext i32 %1 to i64
-  %46 = getelementptr inbounds nuw i32, ptr %44, i64 %45
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %45
   store i32 %43, ptr %46, align 4, !tbaa !12
   %47 = zext i32 %43 to i64
-  %48 = getelementptr inbounds nuw i32, ptr %42, i64 %47
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %47
   store i32 %1, ptr %48, align 4, !tbaa !12
   %49 = load i32, ptr %0, align 8, !tbaa !81
   %50 = add i32 %49, 1
@@ -1486,7 +1480,7 @@ _ZN6vectorIPN3sat6clauseELb0EjE9push_backERKS2_.exit: ; preds = %13, %_ZNK6vecto
   %20 = phi ptr [ %.pre.i, %_ZNK6vectorIPN3sat6clauseELb0EjE4sizeEv.exit.thread ], [ %11, %13 ]
   %21 = getelementptr inbounds i8, ptr %20, i64 -4
   %22 = zext i32 %19 to i64
-  %23 = getelementptr inbounds nuw ptr, ptr %20, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %22
   store ptr %9, ptr %23, align 8, !tbaa !39
   %24 = add i32 %19, 1
   store i32 %24, ptr %21, align 4, !tbaa !12
@@ -1514,7 +1508,7 @@ _ZN6vectorIN3sat4prob11clause_infoELb0EjE9push_backEOS2_.exit: ; preds = %28, %3
   %35 = phi i32 [ %.pre2.i11, %34 ], [ %30, %28 ]
   %36 = phi ptr [ %.pre.i9, %34 ], [ %26, %28 ]
   %37 = zext i32 %35 to i64
-  %38 = getelementptr inbounds nuw %"struct.sat::prob::clause_info", ptr %36, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %37
   store i64 0, ptr %38, align 4
   %39 = load ptr, ptr %25, align 8, !tbaa !30
   %40 = getelementptr inbounds i8, ptr %39, i64 -4
@@ -1583,7 +1577,7 @@ _ZNK6vectorIdLb0EjE8capacityEv.exit.thread.i.i:   ; preds = %_ZNK6vectorIdLb0EjE
 .lr.ph.preheader.i.i:                             ; preds = %63
   %65 = zext i32 %52 to i64
   %66 = zext i32 %.0.i16.i.i.ph to i64
-  %67 = getelementptr double, ptr %58, i64 %66
+  %67 = getelementptr [8 x i8], ptr %58, i64 %66
   %68 = sub nsw i64 %65, %66
   %69 = shl nsw i64 %68, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %67, i8 0, i64 %69, i1 false), !tbaa !85
@@ -1897,7 +1891,7 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.backedge:     ; preds = %175, %136
 .lr.ph.preheader.i.i25:                           ; preds = %180
   %182 = zext i32 %73 to i64
   %183 = zext nneg i32 %.0.i16.i.i23.ph to i64
-  %184 = getelementptr i32, ptr %132, i64 %183
+  %184 = getelementptr [4 x i8], ptr %132, i64 %183
   %185 = sub nsw i64 %182, %183
   %186 = shl nsw i64 %185, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %184, i8 0, i64 %186, i1 false), !tbaa !12
@@ -1950,7 +1944,7 @@ _ZNK6vectorI7svectorIjjELb1EjE8capacityEv.exit.thread.i.i: ; preds = %_ZNK6vecto
 .lr.ph.preheader.i.i33:                           ; preds = %199
   %201 = zext i32 %188 to i64
   %202 = zext i32 %.0.i16.i.i31.ph to i64
-  %203 = getelementptr %class.svector.5, ptr %194, i64 %202
+  %203 = getelementptr [8 x i8], ptr %194, i64 %202
   %204 = sub nsw i64 %201, %202
   %205 = shl nsw i64 %204, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %203, i8 0, i64 %205, i1 false), !tbaa !16
@@ -1959,7 +1953,7 @@ _ZNK6vectorI7svectorIjjELb1EjE8capacityEv.exit.thread.i.i: ; preds = %_ZNK6vecto
 _ZN6vectorI7svectorIjjELb1EjE7reserveEj.exit:     ; preds = %_ZNK6vectorI7svectorIjjELb1EjE4sizeEv.exit.i, %_ZNK6vectorI7svectorIjjELb1EjE4sizeEv.exit.thread.i, %199, %.lr.ph.preheader.i.i33
   %206 = phi ptr [ null, %_ZNK6vectorI7svectorIjjELb1EjE4sizeEv.exit.i ], [ %189, %_ZNK6vectorI7svectorIjjELb1EjE4sizeEv.exit.thread.i ], [ %194, %199 ], [ %194, %.lr.ph.preheader.i.i33 ]
   %207 = zext i32 %71 to i64
-  %208 = getelementptr inbounds nuw %class.svector.5, ptr %206, i64 %207
+  %208 = getelementptr inbounds nuw [8 x i8], ptr %206, i64 %207
   %209 = load ptr, ptr %208, align 8, !tbaa !16
   %210 = icmp eq ptr %209, null
   br i1 %210, label %217, label %211
@@ -1984,7 +1978,7 @@ _ZN6vectorIjLb0EjE9push_backERKj.exit:            ; preds = %211, %217
   %219 = phi ptr [ %.pre.i36, %217 ], [ %209, %211 ]
   %220 = getelementptr inbounds i8, ptr %219, i64 -4
   %221 = zext i32 %218 to i64
-  %222 = getelementptr inbounds nuw i32, ptr %219, i64 %221
+  %222 = getelementptr inbounds nuw [4 x i8], ptr %219, i64 %221
   store i32 %.0.i58, ptr %222, align 4, !tbaa !12
   %223 = add i32 %218, 1
   store i32 %223, ptr %220, align 4, !tbaa !12
@@ -2111,7 +2105,7 @@ _ZNK6vectorIS_IN3sat7watchedELb1EjELb1EjE4sizeEv.exit: ; preds = %._crit_edge
 46:                                               ; preds = %.lr.ph, %46
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %46 ]
   %47 = load ptr, ptr %39, align 8, !tbaa !227
-  %48 = getelementptr inbounds nuw %"class.sat::literal", ptr %47, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %indvars.iv
   tail call void @_ZN3sat4prob3addEjPKNS_7literalE(ptr noundef nonnull align 8 dereferenceable(816) %0, i32 noundef 1, ptr noundef %48)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2137,7 +2131,7 @@ _ZNK6vectorIPN3sat6clauseELb0EjE3endEv.exit:      ; preds = %._crit_edge59
   %58 = trunc nuw i64 %indvars.iv67 to i32
   %59 = xor i32 %58, 1
   %60 = load ptr, ptr %40, align 8, !tbaa !229
-  %61 = getelementptr inbounds nuw %class.vector.56, ptr %60, i64 %indvars.iv67
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %indvars.iv67
   %62 = load ptr, ptr %61, align 8, !tbaa !231
   %63 = icmp eq ptr %62, null
   br i1 %63, label %._crit_edge56, label %_ZNK6vectorIN3sat7watchedELb1EjE3endEv.exit
@@ -2278,7 +2272,7 @@ _ZN6vectorIjLb0EjE9push_backEOj.exit:             ; preds = %27, %33
   %35 = phi ptr [ %.pre.i, %33 ], [ %25, %27 ]
   %36 = getelementptr inbounds i8, ptr %35, i64 -4
   %37 = zext i32 %34 to i64
-  %38 = getelementptr inbounds nuw i32, ptr %35, i64 %37
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %37
   store i32 %.0.i, ptr %38, align 4, !tbaa !12
   %39 = add i32 %34, 1
   store i32 %39, ptr %36, align 4, !tbaa !12
@@ -2321,7 +2315,7 @@ _ZN6vectorIjLb0EjE9push_backEOj.exit15:           ; preds = %47, %53
   %55 = phi ptr [ %.pre.i12, %53 ], [ %45, %47 ]
   %56 = getelementptr inbounds i8, ptr %55, i64 -4
   %57 = zext i32 %54 to i64
-  %58 = getelementptr inbounds nuw i32, ptr %55, i64 %57
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %57
   store i32 %.0.i10, ptr %58, align 4, !tbaa !12
   %59 = add i32 %54, 1
   store i32 %59, ptr %56, align 4, !tbaa !12
@@ -2339,7 +2333,7 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit.i:                ; preds = %_ZN6vectorIjLb0EjE9
   br i1 %66, label %67, label %_ZN6vectorIjLb0EjE6appendERKS0_.exit
 
 67:                                               ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i
-  %68 = getelementptr inbounds nuw i32, ptr %62, i64 %indvars.iv.i
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %indvars.iv.i
   %69 = load ptr, ptr %8, align 8, !tbaa !16
   %70 = icmp eq ptr %69, null
   br i1 %70, label %77, label %71
@@ -2475,7 +2469,7 @@ _ZN6vectorIjLb0EjE9push_backERKj.exit.i:          ; preds = %_ZN6vectorIjLb0EjE1
   %123 = phi ptr [ %.pre.i.i, %_ZN6vectorIjLb0EjE13expand_vectorEv.exit ], [ %69, %71 ]
   %124 = getelementptr inbounds i8, ptr %123, i64 -4
   %125 = zext i32 %122 to i64
-  %126 = getelementptr inbounds nuw i32, ptr %123, i64 %125
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %123, i64 %125
   %127 = load i32, ptr %68, align 4, !tbaa !12
   store i32 %127, ptr %126, align 4, !tbaa !12
   %128 = add i32 %122, 1
@@ -2535,12 +2529,12 @@ _ZNK6vectorIN3sat4prob11clause_infoELb0EjE4sizeEv.exit: ; preds = %_ZNK6vectorIN
   ret void
 
 20:                                               ; preds = %_ZNK6vectorIN3sat4prob11clause_infoELb0EjE4sizeEv.exit
-  %21 = getelementptr inbounds nuw %"struct.sat::prob::clause_info", ptr %15, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
   store i32 0, ptr %22, align 4, !tbaa !90
   store i32 0, ptr %21, align 4, !tbaa !92
   %23 = load ptr, ptr %13, align 8, !tbaa !6
-  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8, !tbaa !39
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 20
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 4
@@ -2599,7 +2593,7 @@ _ZNK6vectorIN3sat4prob11clause_infoELb0EjE4sizeEv.exit: ; preds = %_ZNK6vectorIN
   %50 = lshr i32 %45, 1
   %51 = zext nneg i32 %50 to i64
   %52 = load ptr, ptr %2, align 8, !tbaa !16
-  %53 = getelementptr inbounds nuw i32, ptr %52, i64 %51
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %51
   %54 = load i32, ptr %53, align 4, !tbaa !12
   %55 = add i32 %54, 1
   store i32 %55, ptr %53, align 4, !tbaa !12
@@ -2645,7 +2639,7 @@ _ZN6vectorIPN3sat6clauseELb0EjE3endEv.exit:       ; preds = %1
 
 switch.lookup:                                    ; preds = %._crit_edge
   %15 = zext nneg i32 %.sroa.speculated29 to i64
-  %switch.gep = getelementptr inbounds nuw double, ptr @switch.table._ZN3sat4prob11auto_configEv, i64 %15
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN3sat4prob11auto_configEv, i64 %15
   %switch.load = load double, ptr %switch.gep, align 8
   br label %._crit_edge.thread
 
@@ -2715,7 +2709,7 @@ _ZNK6vectorIdLb0EjE8capacityEv.exit.thread.i.i:   ; preds = %_ZNK6vectorIdLb0EjE
 .lr.ph.preheader.i.i:                             ; preds = %37
   %39 = zext i32 %26 to i64
   %40 = zext i32 %.0.i16.i.i.ph to i64
-  %41 = getelementptr double, ptr %32, i64 %40
+  %41 = getelementptr [8 x i8], ptr %32, i64 %40
   %42 = sub nsw i64 %39, %40
   %43 = shl nsw i64 %42, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %41, i8 0, i64 %43, i1 false), !tbaa !85
@@ -2760,7 +2754,7 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit:                  ; preds = %.lr.ph43, %48
   %56 = sub i32 0, %55
   %57 = sitofp i32 %56 to double
   %58 = tail call double @pow(double noundef %54, double noundef %57) #24, !tbaa !12
-  %59 = getelementptr inbounds nuw double, ptr %44, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %indvars.iv
   store double %58, ptr %59, align 8, !tbaa !85
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -3066,12 +3060,12 @@ _ZNK6vectorIN3sat4prob11clause_infoELb0EjE4sizeEv.exit: ; preds = %2
 9:                                                ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
   %10 = load ptr, ptr %8, align 8, !tbaa !6
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !39
   %13 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN3satlsERSoRKNS_6clauseE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(20) %12)
   %14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull @.str.7, i64 noundef 1)
   %15 = load ptr, ptr %3, align 8, !tbaa !30
-  %16 = getelementptr inbounds nuw %"struct.sat::prob::clause_info", ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %18 = load i32, ptr %17, align 4, !tbaa !90
   %19 = zext i32 %18 to i64
@@ -3190,7 +3184,7 @@ _Z7deallocIN13sat_allocator5chunkEEvPT_.exit.i:   ; preds = %15, %.lr.ph.i
 
 17:                                               ; preds = %_ZN6vectorIPvLb0EjE5resetEv.exit.i, %_ZN6vectorIPN13sat_allocator5chunkELb0EjE5resetEv.exit.i
   %indvars.iv.i = phi i64 [ 0, %_ZN6vectorIPN13sat_allocator5chunkELb0EjE5resetEv.exit.i ], [ %indvars.iv.next.i, %_ZN6vectorIPvLb0EjE5resetEv.exit.i ]
-  %18 = getelementptr inbounds nuw %class.ptr_vector.3, ptr %12, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv.i
   %19 = load ptr, ptr %18, align 8, !tbaa !247
   %.not.i11.i = icmp eq ptr %19, null
   br i1 %.not.i11.i, label %_ZN6vectorIPvLb0EjE5resetEv.exit.i, label %20

@@ -107,7 +107,7 @@ mmbit_set_i.exit268.thread:                       ; preds = %35
 
 70:                                               ; preds = %.thread, %61
   %indvars.iv1432 = phi i64 [ %indvars.iv.next1433, %.thread ], [ 0, %61 ]
-  %71 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv1432
+  %71 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %indvars.iv1432
   %72 = load i32, ptr %71, align 4
   %73 = zext i32 %72 to i64
   %74 = shl nuw nsw i64 %73, 3
@@ -140,7 +140,7 @@ mmbit_set_i.exit268.thread:                       ; preds = %35
   %.130.i1095 = phi i32 [ %93, %.lr.ph1096 ], [ %90, %88 ]
   %93 = add i32 %.130.i1095, 1
   %94 = zext i32 %93 to i64
-  %95 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %94
+  %95 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %94
   %96 = load i32, ptr %95, align 4
   %97 = zext i32 %96 to i64
   %98 = shl nuw nsw i64 %97, 3
@@ -175,7 +175,7 @@ mmbit_set_i.exit268:                              ; preds = %.thread, %.lr.ph109
 
 116:                                              ; preds = %.thread554, %mmbit_set_i.exit268
   %indvars.iv1435 = phi i64 [ %indvars.iv.next1436, %.thread554 ], [ 0, %mmbit_set_i.exit268 ]
-  %117 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv1435
+  %117 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %indvars.iv1435
   %118 = load i32, ptr %117, align 4
   %119 = zext i32 %118 to i64
   %120 = shl nuw nsw i64 %119, 3
@@ -208,7 +208,7 @@ mmbit_set_i.exit268:                              ; preds = %.thread, %.lr.ph109
   %.130.i3551100 = phi i32 [ %139, %.lr.ph1101 ], [ %136, %134 ]
   %139 = add i32 %.130.i3551100, 1
   %140 = zext i32 %139 to i64
-  %141 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %140
+  %141 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %140
   %142 = load i32, ptr %141, align 4
   %143 = zext i32 %142 to i64
   %144 = shl nuw nsw i64 %143, 3
@@ -236,14 +236,14 @@ mmbit_set_i.exit268:                              ; preds = %.thread, %.lr.ph109
 mmbit_set_i.exit235.thread:                       ; preds = %.lr.ph1101, %mmbit_set_i.exit268.thread, %134
   %.pre-phi1441 = phi i64 [ %.pre1440, %mmbit_set_i.exit268.thread ], [ %115, %134 ], [ %115, %.lr.ph1101 ]
   %157 = phi i64 [ %49, %mmbit_set_i.exit268.thread ], [ %113, %134 ], [ %113, %.lr.ph1101 ]
-  %158 = getelementptr inbounds nuw i64, ptr %27, i64 %.pre-phi1441
+  %158 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %.pre-phi1441
   store i64 %157, ptr %158, align 8
   br label %setSomLoc.exit
 
 mmbit_set_i.exit235.thread559:                    ; preds = %.thread554, %mmbit_set_i.exit268.thread
   %.pre-phi1443 = phi i64 [ %.pre1440, %mmbit_set_i.exit268.thread ], [ %115, %.thread554 ]
   %159 = phi i64 [ %49, %mmbit_set_i.exit268.thread ], [ %113, %.thread554 ]
-  %160 = getelementptr inbounds nuw i64, ptr %27, i64 %.pre-phi1443
+  %160 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %.pre-phi1443
   %161 = load i64, ptr %160, align 8
   %..i = tail call i64 @llvm.umin.i64(i64 %161, i64 %159)
   store i64 %..i, ptr %160, align 8
@@ -268,7 +268,7 @@ mmbit_set_i.exit235.thread559:                    ; preds = %.thread554, %mmbit_
 
 175:                                              ; preds = %.thread562, %166
   %indvars.iv1423 = phi i64 [ %indvars.iv.next1424, %.thread562 ], [ 0, %166 ]
-  %176 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv1423
+  %176 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %indvars.iv1423
   %177 = load i32, ptr %176, align 4
   %178 = zext i32 %177 to i64
   %179 = shl nuw nsw i64 %178, 3
@@ -301,7 +301,7 @@ mmbit_set_i.exit235.thread559:                    ; preds = %.thread554, %mmbit_
   %.130.i2991085 = phi i32 [ %198, %.lr.ph1086 ], [ %195, %193 ]
   %198 = add i32 %.130.i2991085, 1
   %199 = zext i32 %198 to i64
-  %200 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %199
+  %200 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %199
   %201 = load i32, ptr %200, align 4
   %202 = zext i32 %201 to i64
   %203 = shl nuw nsw i64 %202, 3
@@ -343,7 +343,7 @@ mmbit_set_i.exit256:                              ; preds = %162
 
 .preheader:                                       ; preds = %.thread562, %244
   %indvars.iv1426 = phi i64 [ %indvars.iv.next1427, %244 ], [ 0, %.thread562 ]
-  %226 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv1426
+  %226 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %indvars.iv1426
   %227 = load i32, ptr %226, align 4
   %228 = zext i32 %227 to i64
   %229 = shl nuw nsw i64 %228, 3
@@ -387,7 +387,7 @@ ok_and_mark_if_unset.exit.thread575:              ; preds = %244, %.lr.ph1086, %
 
 254:                                              ; preds = %.thread579, %ok_and_mark_if_unset.exit.thread575
   %indvars.iv1429 = phi i64 [ %indvars.iv.next1430, %.thread579 ], [ 0, %ok_and_mark_if_unset.exit.thread575 ]
-  %255 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv1429
+  %255 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %indvars.iv1429
   %256 = load i32, ptr %255, align 4
   %257 = zext i32 %256 to i64
   %258 = shl nuw nsw i64 %257, 3
@@ -420,7 +420,7 @@ ok_and_mark_if_unset.exit.thread575:              ; preds = %244, %.lr.ph1086, %
   %.130.i3471090 = phi i32 [ %277, %.lr.ph1091 ], [ %274, %272 ]
   %277 = add i32 %.130.i3471090, 1
   %278 = zext i32 %277 to i64
-  %279 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %278
+  %279 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %278
   %280 = load i32, ptr %279, align 4
   %281 = zext i32 %280 to i64
   %282 = shl nuw nsw i64 %281, 3
@@ -468,14 +468,14 @@ mmbit_set_i.exit238:                              ; preds = %ok_and_mark_if_unse
 mmbit_set_i.exit238.thread:                       ; preds = %.lr.ph1091, %mmbit_set_i.exit238, %272
   %.pre-phi1445 = phi i64 [ %.pre1444, %mmbit_set_i.exit238 ], [ %253, %272 ], [ %253, %.lr.ph1091 ]
   %307 = phi i64 [ %295, %mmbit_set_i.exit238 ], [ %251, %272 ], [ %251, %.lr.ph1091 ]
-  %308 = getelementptr inbounds nuw i64, ptr %27, i64 %.pre-phi1445
+  %308 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %.pre-phi1445
   store i64 %307, ptr %308, align 8
   br label %setSomLoc.exit
 
 mmbit_set_i.exit238.thread584:                    ; preds = %.thread579, %mmbit_set_i.exit238
   %.pre-phi1447 = phi i64 [ %.pre1444, %mmbit_set_i.exit238 ], [ %253, %.thread579 ]
   %309 = phi i64 [ %295, %mmbit_set_i.exit238 ], [ %251, %.thread579 ]
-  %310 = getelementptr inbounds nuw i64, ptr %27, i64 %.pre-phi1447
+  %310 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %.pre-phi1447
   %311 = load i64, ptr %310, align 8
   %..i180 = tail call i64 @llvm.umin.i64(i64 %311, i64 %309)
   store i64 %..i180, ptr %310, align 8
@@ -500,7 +500,7 @@ mmbit_set_i.exit238.thread584:                    ; preds = %.thread579, %mmbit_
 
 325:                                              ; preds = %.thread587, %316
   %indvars.iv1405 = phi i64 [ %indvars.iv.next1406, %.thread587 ], [ 0, %316 ]
-  %326 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv1405
+  %326 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %indvars.iv1405
   %327 = load i32, ptr %326, align 4
   %328 = zext i32 %327 to i64
   %329 = shl nuw nsw i64 %328, 3
@@ -533,7 +533,7 @@ mmbit_set_i.exit238.thread584:                    ; preds = %.thread579, %mmbit_
   %.130.i3151070 = phi i32 [ %348, %.lr.ph1071 ], [ %345, %343 ]
   %348 = add i32 %.130.i3151070, 1
   %349 = zext i32 %348 to i64
-  %350 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %349
+  %350 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %349
   %351 = load i32, ptr %350, align 4
   %352 = zext i32 %351 to i64
   %353 = shl nuw nsw i64 %352, 3
@@ -575,7 +575,7 @@ mmbit_set_i.exit250:                              ; preds = %312
 
 .preheader1779:                                   ; preds = %.thread587, %394
   %indvars.iv1408 = phi i64 [ %indvars.iv.next1409, %394 ], [ 0, %.thread587 ]
-  %376 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv1408
+  %376 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %indvars.iv1408
   %377 = load i32, ptr %376, align 4
   %378 = zext i32 %377 to i64
   %379 = shl nuw nsw i64 %378, 3
@@ -611,7 +611,7 @@ mmbit_isset.exit443:                              ; preds = %mmbit_set_i.exit250
 
 .preheader1777:                                   ; preds = %.preheader1779, %417
   %indvars.iv1411 = phi i64 [ %indvars.iv.next1412, %417 ], [ 0, %.preheader1779 ]
-  %399 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv1411
+  %399 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %indvars.iv1411
   %400 = load i32, ptr %399, align 4
   %401 = zext i32 %400 to i64
   %402 = shl nuw nsw i64 %401, 3
@@ -669,7 +669,7 @@ ok_and_mark_if_write.exit.thread606:              ; preds = %394, %417, %.lr.ph1
 
 435:                                              ; preds = %.thread610, %ok_and_mark_if_write.exit.thread606
   %indvars.iv1417 = phi i64 [ %indvars.iv.next1418, %.thread610 ], [ 0, %ok_and_mark_if_write.exit.thread606 ]
-  %436 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv1417
+  %436 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %indvars.iv1417
   %437 = load i32, ptr %436, align 4
   %438 = zext i32 %437 to i64
   %439 = shl nuw nsw i64 %438, 3
@@ -702,7 +702,7 @@ ok_and_mark_if_write.exit.thread606:              ; preds = %394, %417, %.lr.ph1
   %.130.i3391075 = phi i32 [ %458, %.lr.ph1076 ], [ %455, %453 ]
   %458 = add i32 %.130.i3391075, 1
   %459 = zext i32 %458 to i64
-  %460 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %459
+  %460 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %459
   %461 = load i32, ptr %460, align 4
   %462 = zext i32 %461 to i64
   %463 = shl nuw nsw i64 %462, 3
@@ -750,14 +750,14 @@ mmbit_set_i.exit241:                              ; preds = %mmbit_isset.exit443
 mmbit_set_i.exit241.thread:                       ; preds = %.lr.ph1076, %mmbit_set_i.exit241, %453
   %.pre-phi1449 = phi i64 [ %.pre1448, %mmbit_set_i.exit241 ], [ %434, %453 ], [ %434, %.lr.ph1076 ]
   %488 = phi i64 [ %476, %mmbit_set_i.exit241 ], [ %432, %453 ], [ %432, %.lr.ph1076 ]
-  %489 = getelementptr inbounds nuw i64, ptr %27, i64 %.pre-phi1449
+  %489 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %.pre-phi1449
   store i64 %488, ptr %489, align 8
   br label %setSomLoc.exit184
 
 mmbit_set_i.exit241.thread615:                    ; preds = %.thread610, %mmbit_set_i.exit241
   %.pre-phi1451 = phi i64 [ %.pre1448, %mmbit_set_i.exit241 ], [ %434, %.thread610 ]
   %490 = phi i64 [ %476, %mmbit_set_i.exit241 ], [ %432, %.thread610 ]
-  %491 = getelementptr inbounds nuw i64, ptr %27, i64 %.pre-phi1451
+  %491 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %.pre-phi1451
   %492 = load i64, ptr %491, align 8
   %..i183 = tail call i64 @llvm.umin.i64(i64 %492, i64 %490)
   store i64 %..i183, ptr %491, align 8
@@ -814,7 +814,7 @@ setSomLoc.exit184:                                ; preds = %mmbit_set_i.exit241
 .lr.ph2031:                                       ; preds = %.lr.ph1081.preheader, %.lr.ph1081
   %indvars.iv14202030 = phi i64 [ %indvars.iv.next1421, %.lr.ph1081 ], [ 0, %.lr.ph1081.preheader ]
   %indvars.iv.next1421 = add nuw nsw i64 %indvars.iv14202030, 1
-  %529 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv.next1421
+  %529 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %indvars.iv.next1421
   %530 = load i32, ptr %529, align 4
   %531 = zext i32 %530 to i64
   %532 = shl nuw nsw i64 %531, 3
@@ -860,7 +860,7 @@ setSomLoc.exit184:                                ; preds = %mmbit_set_i.exit241
 
 557:                                              ; preds = %.thread620, %553
   %indvars.iv1414 = phi i64 [ %indvars.iv.next1415, %.thread620 ], [ 0, %553 ]
-  %558 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv1414
+  %558 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %indvars.iv1414
   %559 = load i32, ptr %558, align 4
   %560 = zext i32 %559 to i64
   %561 = shl nuw nsw i64 %560, 3
@@ -893,7 +893,7 @@ setSomLoc.exit184:                                ; preds = %mmbit_set_i.exit241
   %.130.i3631067 = phi i32 [ %580, %.lr.ph1068 ], [ %577, %575 ]
   %580 = add i32 %.130.i3631067, 1
   %581 = zext i32 %580 to i64
-  %582 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %581
+  %582 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %581
   %583 = load i32, ptr %582, align 4
   %584 = zext i32 %583 to i64
   %585 = shl nuw nsw i64 %584, 3
@@ -921,14 +921,14 @@ setSomLoc.exit184:                                ; preds = %mmbit_set_i.exit241
 mmbit_set_i.exit232.thread:                       ; preds = %.lr.ph1068, %.thread619, %575
   %.pre-phi1453 = phi i64 [ %.pre1452, %.thread619 ], [ %323, %575 ], [ %323, %.lr.ph1068 ]
   %598 = phi i64 [ %424, %.thread619 ], [ %556, %575 ], [ %556, %.lr.ph1068 ]
-  %599 = getelementptr inbounds nuw i64, ptr %29, i64 %.pre-phi1453
+  %599 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %.pre-phi1453
   store i64 %598, ptr %599, align 8
   br label %setSomLoc.exit
 
 mmbit_set_i.exit232.thread625:                    ; preds = %.thread620, %.thread619
   %.pre-phi1455 = phi i64 [ %.pre1452, %.thread619 ], [ %323, %.thread620 ]
   %600 = phi i64 [ %424, %.thread619 ], [ %556, %.thread620 ]
-  %601 = getelementptr inbounds nuw i64, ptr %29, i64 %.pre-phi1455
+  %601 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %.pre-phi1455
   %602 = load i64, ptr %601, align 8
   %. = tail call i64 @llvm.umin.i64(i64 %602, i64 %600)
   store i64 %., ptr %601, align 8
@@ -965,7 +965,7 @@ mmbit_set_i.exit232.thread625:                    ; preds = %.thread620, %.threa
 
 625:                                              ; preds = %.thread628, %616
   %indvars.iv1399 = phi i64 [ %indvars.iv.next1400, %.thread628 ], [ 0, %616 ]
-  %626 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv1399
+  %626 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %indvars.iv1399
   %627 = load i32, ptr %626, align 4
   %628 = zext i32 %627 to i64
   %629 = shl nuw nsw i64 %628, 3
@@ -998,7 +998,7 @@ mmbit_set_i.exit232.thread625:                    ; preds = %.thread620, %.threa
   %.130.i2751055 = phi i32 [ %648, %.lr.ph1056 ], [ %645, %643 ]
   %648 = add i32 %.130.i2751055, 1
   %649 = zext i32 %648 to i64
-  %650 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %649
+  %650 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %649
   %651 = load i32, ptr %650, align 4
   %652 = zext i32 %651 to i64
   %653 = shl nuw nsw i64 %652, 3
@@ -1033,7 +1033,7 @@ mmbit_set_i.exit265:                              ; preds = %.thread628, %.lr.ph
   %670 = zext i32 %669 to i64
   %671 = getelementptr inbounds nuw i8, ptr %667, i64 %670
   %672 = and i64 %.val522, 4294967295
-  %673 = getelementptr inbounds nuw i32, ptr %671, i64 %672
+  %673 = getelementptr inbounds nuw [4 x i8], ptr %671, i64 %672
   %674 = load i32, ptr %673, align 4
   %675 = zext i32 %674 to i64
   %676 = getelementptr inbounds nuw i8, ptr %667, i64 %675
@@ -1084,7 +1084,7 @@ runRevNfa.exit:                                   ; preds = %mmbit_set_i.exit265
 
 704:                                              ; preds = %.thread631, %695
   %indvars.iv1402 = phi i64 [ %indvars.iv.next1403, %.thread631 ], [ 0, %695 ]
-  %705 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv1402
+  %705 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %indvars.iv1402
   %706 = load i32, ptr %705, align 4
   %707 = zext i32 %706 to i64
   %708 = shl nuw nsw i64 %707, 3
@@ -1117,7 +1117,7 @@ runRevNfa.exit:                                   ; preds = %mmbit_set_i.exit265
   %.130.i4111060 = phi i32 [ %727, %.lr.ph1061 ], [ %724, %722 ]
   %727 = add i32 %.130.i4111060, 1
   %728 = zext i32 %727 to i64
-  %729 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %728
+  %729 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %728
   %730 = load i32, ptr %729, align 4
   %731 = zext i32 %730 to i64
   %732 = shl nuw nsw i64 %731, 3
@@ -1161,13 +1161,13 @@ mmbit_set_i.exit214:                              ; preds = %runRevNfa.exit
 mmbit_set_i.exit214.thread:                       ; preds = %.lr.ph1061, %mmbit_set_i.exit214, %722
   %.pre-phi1457 = phi i64 [ %.pre1456, %mmbit_set_i.exit214 ], [ %702, %722 ], [ %702, %.lr.ph1061 ]
   %755 = load i64, ptr %6, align 8
-  %756 = getelementptr inbounds nuw i64, ptr %27, i64 %.pre-phi1457
+  %756 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %.pre-phi1457
   store i64 %755, ptr %756, align 8
   br label %setSomLocRevNfa.exit
 
 mmbit_set_i.exit214.thread636:                    ; preds = %.thread631, %mmbit_set_i.exit214
   %.pre-phi1459 = phi i64 [ %.pre1456, %mmbit_set_i.exit214 ], [ %702, %.thread631 ]
-  %757 = getelementptr inbounds nuw i64, ptr %27, i64 %.pre-phi1459
+  %757 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %.pre-phi1459
   %758 = load i64, ptr %757, align 8
   %759 = load i64, ptr %6, align 8
   %..i201 = call i64 @llvm.umin.i64(i64 %758, i64 %759)
@@ -1197,7 +1197,7 @@ setSomLocRevNfa.exit:                             ; preds = %mmbit_set_i.exit214
 
 773:                                              ; preds = %.thread639, %764
   %indvars.iv1390 = phi i64 [ %indvars.iv.next1391, %.thread639 ], [ 0, %764 ]
-  %774 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv1390
+  %774 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %indvars.iv1390
   %775 = load i32, ptr %774, align 4
   %776 = zext i32 %775 to i64
   %777 = shl nuw nsw i64 %776, 3
@@ -1230,7 +1230,7 @@ setSomLocRevNfa.exit:                             ; preds = %mmbit_set_i.exit214
   %.130.i3071045 = phi i32 [ %796, %.lr.ph1046 ], [ %793, %791 ]
   %796 = add i32 %.130.i3071045, 1
   %797 = zext i32 %796 to i64
-  %798 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %797
+  %798 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %797
   %799 = load i32, ptr %798, align 4
   %800 = zext i32 %799 to i64
   %801 = shl nuw nsw i64 %800, 3
@@ -1272,7 +1272,7 @@ mmbit_set_i.exit253:                              ; preds = %760
 
 .preheader1782:                                   ; preds = %.thread639, %842
   %indvars.iv1393 = phi i64 [ %indvars.iv.next1394, %842 ], [ 0, %.thread639 ]
-  %824 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv1393
+  %824 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %indvars.iv1393
   %825 = load i32, ptr %824, align 4
   %826 = zext i32 %825 to i64
   %827 = shl nuw nsw i64 %826, 3
@@ -1316,7 +1316,7 @@ ok_and_mark_if_unset.exit187.thread652:           ; preds = %842, %.lr.ph1046, %
   %851 = zext i32 %850 to i64
   %852 = getelementptr inbounds nuw i8, ptr %848, i64 %851
   %853 = and i64 %.val521, 4294967295
-  %854 = getelementptr inbounds nuw i32, ptr %852, i64 %853
+  %854 = getelementptr inbounds nuw [4 x i8], ptr %852, i64 %853
   %855 = load i32, ptr %854, align 4
   %856 = zext i32 %855 to i64
   %857 = getelementptr inbounds nuw i8, ptr %848, i64 %856
@@ -1367,7 +1367,7 @@ runRevNfa.exit532:                                ; preds = %ok_and_mark_if_unse
 
 885:                                              ; preds = %.thread655, %876
   %indvars.iv1396 = phi i64 [ %indvars.iv.next1397, %.thread655 ], [ 0, %876 ]
-  %886 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv1396
+  %886 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %indvars.iv1396
   %887 = load i32, ptr %886, align 4
   %888 = zext i32 %887 to i64
   %889 = shl nuw nsw i64 %888, 3
@@ -1400,7 +1400,7 @@ runRevNfa.exit532:                                ; preds = %ok_and_mark_if_unse
   %.130.i4191050 = phi i32 [ %908, %.lr.ph1051 ], [ %905, %903 ]
   %908 = add i32 %.130.i4191050, 1
   %909 = zext i32 %908 to i64
-  %910 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %909
+  %910 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %909
   %911 = load i32, ptr %910, align 4
   %912 = zext i32 %911 to i64
   %913 = shl nuw nsw i64 %912, 3
@@ -1444,13 +1444,13 @@ mmbit_set_i.exit211:                              ; preds = %runRevNfa.exit532
 mmbit_set_i.exit211.thread:                       ; preds = %.lr.ph1051, %mmbit_set_i.exit211, %903
   %.pre-phi1461 = phi i64 [ %.pre1460, %mmbit_set_i.exit211 ], [ %883, %903 ], [ %883, %.lr.ph1051 ]
   %936 = load i64, ptr %5, align 8
-  %937 = getelementptr inbounds nuw i64, ptr %27, i64 %.pre-phi1461
+  %937 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %.pre-phi1461
   store i64 %936, ptr %937, align 8
   br label %setSomLocRevNfa.exit204
 
 mmbit_set_i.exit211.thread660:                    ; preds = %.thread655, %mmbit_set_i.exit211
   %.pre-phi1463 = phi i64 [ %.pre1460, %mmbit_set_i.exit211 ], [ %883, %.thread655 ]
-  %938 = getelementptr inbounds nuw i64, ptr %27, i64 %.pre-phi1463
+  %938 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %.pre-phi1463
   %939 = load i64, ptr %938, align 8
   %940 = load i64, ptr %5, align 8
   %..i203 = call i64 @llvm.umin.i64(i64 %939, i64 %940)
@@ -1480,7 +1480,7 @@ setSomLocRevNfa.exit204:                          ; preds = %mmbit_set_i.exit211
 
 954:                                              ; preds = %.thread663, %945
   %indvars.iv1372 = phi i64 [ %indvars.iv.next1373, %.thread663 ], [ 0, %945 ]
-  %955 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv1372
+  %955 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %indvars.iv1372
   %956 = load i32, ptr %955, align 4
   %957 = zext i32 %956 to i64
   %958 = shl nuw nsw i64 %957, 3
@@ -1513,7 +1513,7 @@ setSomLocRevNfa.exit204:                          ; preds = %mmbit_set_i.exit211
   %.130.i3231030 = phi i32 [ %977, %.lr.ph1031 ], [ %974, %972 ]
   %977 = add i32 %.130.i3231030, 1
   %978 = zext i32 %977 to i64
-  %979 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %978
+  %979 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %978
   %980 = load i32, ptr %979, align 4
   %981 = zext i32 %980 to i64
   %982 = shl nuw nsw i64 %981, 3
@@ -1555,7 +1555,7 @@ mmbit_set_i.exit247:                              ; preds = %941
 
 .preheader1788:                                   ; preds = %.thread663, %1023
   %indvars.iv1375 = phi i64 [ %indvars.iv.next1376, %1023 ], [ 0, %.thread663 ]
-  %1005 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv1375
+  %1005 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %indvars.iv1375
   %1006 = load i32, ptr %1005, align 4
   %1007 = zext i32 %1006 to i64
   %1008 = shl nuw nsw i64 %1007, 3
@@ -1591,7 +1591,7 @@ mmbit_isset.exit446:                              ; preds = %mmbit_set_i.exit247
 
 .preheader1786:                                   ; preds = %.preheader1788, %1046
   %indvars.iv1378 = phi i64 [ %indvars.iv.next1379, %1046 ], [ 0, %.preheader1788 ]
-  %1028 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv1378
+  %1028 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %indvars.iv1378
   %1029 = load i32, ptr %1028, align 4
   %1030 = zext i32 %1029 to i64
   %1031 = shl nuw nsw i64 %1030, 3
@@ -1635,7 +1635,7 @@ ok_and_mark_if_write.exit191.thread682:           ; preds = %1023, %1046, %.lr.p
   %1055 = zext i32 %1054 to i64
   %1056 = getelementptr inbounds nuw i8, ptr %1052, i64 %1055
   %1057 = and i64 %.val, 4294967295
-  %1058 = getelementptr inbounds nuw i32, ptr %1056, i64 %1057
+  %1058 = getelementptr inbounds nuw [4 x i8], ptr %1056, i64 %1057
   %1059 = load i32, ptr %1058, align 4
   %1060 = zext i32 %1059 to i64
   %1061 = getelementptr inbounds nuw i8, ptr %1052, i64 %1060
@@ -1686,7 +1686,7 @@ runRevNfa.exit539:                                ; preds = %ok_and_mark_if_writ
 
 1089:                                             ; preds = %.thread685, %1080
   %indvars.iv1384 = phi i64 [ %indvars.iv.next1385, %.thread685 ], [ 0, %1080 ]
-  %1090 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv1384
+  %1090 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %indvars.iv1384
   %1091 = load i32, ptr %1090, align 4
   %1092 = zext i32 %1091 to i64
   %1093 = shl nuw nsw i64 %1092, 3
@@ -1719,7 +1719,7 @@ runRevNfa.exit539:                                ; preds = %ok_and_mark_if_writ
   %.130.i4271035 = phi i32 [ %1112, %.lr.ph1036 ], [ %1109, %1107 ]
   %1112 = add i32 %.130.i4271035, 1
   %1113 = zext i32 %1112 to i64
-  %1114 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %1113
+  %1114 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %1113
   %1115 = load i32, ptr %1114, align 4
   %1116 = zext i32 %1115 to i64
   %1117 = shl nuw nsw i64 %1116, 3
@@ -1763,13 +1763,13 @@ mmbit_set_i.exit:                                 ; preds = %runRevNfa.exit539
 mmbit_set_i.exit.thread:                          ; preds = %.lr.ph1036, %mmbit_set_i.exit, %1107
   %.pre-phi1465 = phi i64 [ %.pre1464, %mmbit_set_i.exit ], [ %1087, %1107 ], [ %1087, %.lr.ph1036 ]
   %1140 = load i64, ptr %4, align 8
-  %1141 = getelementptr inbounds nuw i64, ptr %27, i64 %.pre-phi1465
+  %1141 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %.pre-phi1465
   store i64 %1140, ptr %1141, align 8
   br label %setSomLocRevNfa.exit207
 
 mmbit_set_i.exit.thread690:                       ; preds = %.thread685, %mmbit_set_i.exit
   %.pre-phi1467 = phi i64 [ %.pre1464, %mmbit_set_i.exit ], [ %1087, %.thread685 ]
-  %1142 = getelementptr inbounds nuw i64, ptr %27, i64 %.pre-phi1467
+  %1142 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %.pre-phi1467
   %1143 = load i64, ptr %1142, align 8
   %1144 = load i64, ptr %4, align 8
   %..i206 = call i64 @llvm.umin.i64(i64 %1143, i64 %1144)
@@ -1828,7 +1828,7 @@ setSomLocRevNfa.exit207:                          ; preds = %mmbit_set_i.exit.th
 .lr.ph2025:                                       ; preds = %.lr.ph1041.preheader, %.lr.ph1041
   %indvars.iv13872024 = phi i64 [ %indvars.iv.next1388, %.lr.ph1041 ], [ 0, %.lr.ph1041.preheader ]
   %indvars.iv.next1388 = add nuw nsw i64 %indvars.iv13872024, 1
-  %1181 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv.next1388
+  %1181 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %indvars.iv.next1388
   %1182 = load i32, ptr %1181, align 4
   %1183 = zext i32 %1182 to i64
   %1184 = shl nuw nsw i64 %1183, 3
@@ -1876,7 +1876,7 @@ ok_and_mark_if_write.exit191.thread679:           ; preds = %.preheader1786, %ok
   %1209 = zext i32 %1208 to i64
   %1210 = getelementptr inbounds nuw i8, ptr %1206, i64 %1209
   %1211 = and i64 %.val523, 4294967295
-  %1212 = getelementptr inbounds nuw i32, ptr %1210, i64 %1211
+  %1212 = getelementptr inbounds nuw [4 x i8], ptr %1210, i64 %1211
   %1213 = load i32, ptr %1212, align 4
   %1214 = zext i32 %1213 to i64
   %1215 = getelementptr inbounds nuw i8, ptr %1206, i64 %1214
@@ -1926,7 +1926,7 @@ runRevNfa.exit546:                                ; preds = %ok_and_mark_if_writ
 
 1242:                                             ; preds = %.thread694, %1233
   %indvars.iv1381 = phi i64 [ %indvars.iv.next1382, %.thread694 ], [ 0, %1233 ]
-  %1243 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv1381
+  %1243 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %indvars.iv1381
   %1244 = load i32, ptr %1243, align 4
   %1245 = zext i32 %1244 to i64
   %1246 = shl nuw nsw i64 %1245, 3
@@ -1959,7 +1959,7 @@ runRevNfa.exit546:                                ; preds = %ok_and_mark_if_writ
   %.130.i3711027 = phi i32 [ %1265, %.lr.ph1028 ], [ %1262, %1260 ]
   %1265 = add i32 %.130.i3711027, 1
   %1266 = zext i32 %1265 to i64
-  %1267 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %1266
+  %1267 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %1266
   %1268 = load i32, ptr %1267, align 4
   %1269 = zext i32 %1268 to i64
   %1270 = shl nuw nsw i64 %1269, 3
@@ -2003,13 +2003,13 @@ mmbit_set_i.exit229:                              ; preds = %runRevNfa.exit546
 mmbit_set_i.exit229.thread:                       ; preds = %.lr.ph1028, %mmbit_set_i.exit229, %1260
   %.pre-phi1469 = phi i64 [ %.pre1468, %mmbit_set_i.exit229 ], [ %1240, %1260 ], [ %1240, %.lr.ph1028 ]
   %1293 = load i64, ptr %7, align 8
-  %1294 = getelementptr inbounds nuw i64, ptr %29, i64 %.pre-phi1469
+  %1294 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %.pre-phi1469
   store i64 %1293, ptr %1294, align 8
   br label %1298
 
 mmbit_set_i.exit229.thread699:                    ; preds = %.thread694, %mmbit_set_i.exit229
   %.pre-phi1471 = phi i64 [ %.pre1468, %mmbit_set_i.exit229 ], [ %1240, %.thread694 ]
-  %1295 = getelementptr inbounds nuw i64, ptr %29, i64 %.pre-phi1471
+  %1295 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %.pre-phi1471
   %1296 = load i64, ptr %1295, align 8
   %1297 = load i64, ptr %7, align 8
   %.178 = call i64 @llvm.umin.i64(i64 %1296, i64 %1297)
@@ -2058,7 +2058,7 @@ mmbit_set_i.exit262.thread:                       ; preds = %1299
 
 1325:                                             ; preds = %.thread702, %1316
   %indvars.iv1366 = phi i64 [ %indvars.iv.next1367, %.thread702 ], [ 0, %1316 ]
-  %1326 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv1366
+  %1326 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %indvars.iv1366
   %1327 = load i32, ptr %1326, align 4
   %1328 = zext i32 %1327 to i64
   %1329 = shl nuw nsw i64 %1328, 3
@@ -2091,7 +2091,7 @@ mmbit_set_i.exit262.thread:                       ; preds = %1299
   %.130.i2831015 = phi i32 [ %1348, %.lr.ph1016 ], [ %1345, %1343 ]
   %1348 = add i32 %.130.i2831015, 1
   %1349 = zext i32 %1348 to i64
-  %1350 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %1349
+  %1350 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %1349
   %1351 = load i32, ptr %1350, align 4
   %1352 = zext i32 %1351 to i64
   %1353 = shl nuw nsw i64 %1352, 3
@@ -2121,7 +2121,7 @@ mmbit_set_i.exit262.preheader:                    ; preds = %.thread702, %.lr.ph
 
 mmbit_set_i.exit262:                              ; preds = %mmbit_set_i.exit262.preheader, %.thread705
   %indvars.iv1369 = phi i64 [ %indvars.iv.next1370, %.thread705 ], [ 0, %mmbit_set_i.exit262.preheader ]
-  %1366 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv1369
+  %1366 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %indvars.iv1369
   %1367 = load i32, ptr %1366, align 4
   %1368 = zext i32 %1367 to i64
   %1369 = shl nuw nsw i64 %1368, 3
@@ -2154,7 +2154,7 @@ mmbit_set_i.exit262:                              ; preds = %mmbit_set_i.exit262
   %.130.i3791020 = phi i32 [ %1388, %.lr.ph1021 ], [ %1385, %1383 ]
   %1388 = add i32 %.130.i3791020, 1
   %1389 = zext i32 %1388 to i64
-  %1390 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %1389
+  %1390 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %1389
   %1391 = load i32, ptr %1390, align 4
   %1392 = zext i32 %1391 to i64
   %1393 = shl nuw nsw i64 %1392, 3
@@ -2182,9 +2182,9 @@ mmbit_set_i.exit262:                              ; preds = %mmbit_set_i.exit262
 mmbit_set_i.exit226:                              ; preds = %.thread705, %.lr.ph1021, %1383, %mmbit_set_i.exit262.thread
   %.pre-phi = phi i64 [ %1323, %.lr.ph1021 ], [ %.pre, %mmbit_set_i.exit262.thread ], [ %1323, %1383 ], [ %1323, %.thread705 ]
   %1406 = and i64 %1301, 4294967295
-  %1407 = getelementptr inbounds nuw i64, ptr %27, i64 %1406
+  %1407 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %1406
   %1408 = load i64, ptr %1407, align 8
-  %1409 = getelementptr inbounds nuw i64, ptr %27, i64 %.pre-phi
+  %1409 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %.pre-phi
   store i64 %1408, ptr %1409, align 8
   br label %setSomLoc.exit
 
@@ -2209,7 +2209,7 @@ mmbit_set_i.exit226:                              ; preds = %.thread705, %.lr.ph
 
 1425:                                             ; preds = %.thread708, %1416
   %indvars.iv1348 = phi i64 [ %indvars.iv.next1349, %.thread708 ], [ 0, %1416 ]
-  %1426 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv1348
+  %1426 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %indvars.iv1348
   %1427 = load i32, ptr %1426, align 4
   %1428 = zext i32 %1427 to i64
   %1429 = shl nuw nsw i64 %1428, 3
@@ -2242,7 +2242,7 @@ mmbit_set_i.exit226:                              ; preds = %.thread705, %.lr.ph
   %.130.i3311000 = phi i32 [ %1448, %.lr.ph1001 ], [ %1445, %1443 ]
   %1448 = add i32 %.130.i3311000, 1
   %1449 = zext i32 %1448 to i64
-  %1450 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %1449
+  %1450 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %1449
   %1451 = load i32, ptr %1450, align 4
   %1452 = zext i32 %1451 to i64
   %1453 = shl nuw nsw i64 %1452, 3
@@ -2284,7 +2284,7 @@ mmbit_set_i.exit244:                              ; preds = %1410
 
 .preheader1798:                                   ; preds = %.thread708, %1494
   %indvars.iv1351 = phi i64 [ %indvars.iv.next1352, %1494 ], [ 0, %.thread708 ]
-  %1476 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv1351
+  %1476 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %indvars.iv1351
   %1477 = load i32, ptr %1476, align 4
   %1478 = zext i32 %1477 to i64
   %1479 = shl nuw nsw i64 %1478, 3
@@ -2320,7 +2320,7 @@ mmbit_isset.exit449:                              ; preds = %mmbit_set_i.exit244
 
 .preheader1796:                                   ; preds = %.preheader1798, %1517
   %indvars.iv1354 = phi i64 [ %indvars.iv.next1355, %1517 ], [ 0, %.preheader1798 ]
-  %1499 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv1354
+  %1499 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %indvars.iv1354
   %1500 = load i32, ptr %1499, align 4
   %1501 = zext i32 %1500 to i64
   %1502 = shl nuw nsw i64 %1501, 3
@@ -2356,18 +2356,18 @@ ok_and_mark_if_write.exit194:                     ; preds = %mmbit_isset.exit449
 
 ok_and_mark_if_write.exit194.thread727:           ; preds = %1494, %1517, %.lr.ph1001, %1443
   %1522 = and i64 %1412, 4294967295
-  %1523 = getelementptr inbounds nuw i64, ptr %27, i64 %1522
+  %1523 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %1522
   %1524 = load i64, ptr %1523, align 8
-  %1525 = getelementptr inbounds nuw i64, ptr %27, i64 %1423
+  %1525 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %1423
   store i64 %1524, ptr %1525, align 8
   br label %1538
 
 mmbit_set_i.exit223.thread:                       ; preds = %mmbit_isset.exit449, %mmbit_set_i.exit244, %ok_and_mark_if_write.exit194
   %1526 = and i64 %1412, 4294967295
-  %1527 = getelementptr inbounds nuw i64, ptr %27, i64 %1526
+  %1527 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %1526
   %1528 = load i64, ptr %1527, align 8
   %1529 = zext i32 %1414 to i64
-  %1530 = getelementptr inbounds nuw i64, ptr %27, i64 %1529
+  %1530 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %1529
   store i64 %1528, ptr %1530, align 8
   %1531 = getelementptr inbounds nuw i8, ptr %23, i64 %1467
   %1532 = load i8, ptr %1531, align 1
@@ -2382,7 +2382,7 @@ mmbit_set_i.exit223.thread:                       ; preds = %mmbit_isset.exit449
 
 1538:                                             ; preds = %.thread731, %ok_and_mark_if_write.exit194.thread727
   %indvars.iv1360 = phi i64 [ %indvars.iv.next1361, %.thread731 ], [ 0, %ok_and_mark_if_write.exit194.thread727 ]
-  %1539 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv1360
+  %1539 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %indvars.iv1360
   %1540 = load i32, ptr %1539, align 4
   %1541 = zext i32 %1540 to i64
   %1542 = shl nuw nsw i64 %1541, 3
@@ -2415,7 +2415,7 @@ mmbit_set_i.exit223.thread:                       ; preds = %mmbit_isset.exit449
   %.130.i3871005 = phi i32 [ %1561, %.lr.ph1006 ], [ %1558, %1556 ]
   %1561 = add i32 %.130.i3871005, 1
   %1562 = zext i32 %1561 to i64
-  %1563 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %1562
+  %1563 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %1562
   %1564 = load i32, ptr %1563, align 4
   %1565 = zext i32 %1564 to i64
   %1566 = shl nuw nsw i64 %1565, 3
@@ -2467,7 +2467,7 @@ mmbit_set_i.exit223:                              ; preds = %.thread731, %.lr.ph
 .lr.ph2020:                                       ; preds = %.lr.ph1011.preheader, %.lr.ph1011
   %indvars.iv13632019 = phi i64 [ %indvars.iv.next1364, %.lr.ph1011 ], [ 0, %.lr.ph1011.preheader ]
   %indvars.iv.next1364 = add nuw nsw i64 %indvars.iv13632019, 1
-  %1596 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv.next1364
+  %1596 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %indvars.iv.next1364
   %1597 = load i32, ptr %1596, align 4
   %1598 = zext i32 %1597 to i64
   %1599 = shl nuw nsw i64 %1598, 3
@@ -2515,7 +2515,7 @@ mmbit_set_i.exit223:                              ; preds = %.thread731, %.lr.ph
 
 .preheader1794:                                   ; preds = %.preheader1796, %.thread736
   %indvars.iv1357 = phi i64 [ %indvars.iv.next1358, %.thread736 ], [ 0, %.preheader1796 ]
-  %1623 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv1357
+  %1623 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %indvars.iv1357
   %1624 = load i32, ptr %1623, align 4
   %1625 = zext i32 %1624 to i64
   %1626 = shl nuw nsw i64 %1625, 3
@@ -2548,7 +2548,7 @@ mmbit_set_i.exit223:                              ; preds = %.thread731, %.lr.ph
   %.130.i395997 = phi i32 [ %1645, %.lr.ph998 ], [ %1642, %1640 ]
   %1645 = add i32 %.130.i395997, 1
   %1646 = zext i32 %1645 to i64
-  %1647 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %1646
+  %1647 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %1646
   %1648 = load i32, ptr %1647, align 4
   %1649 = zext i32 %1648 to i64
   %1650 = shl nuw nsw i64 %1649, 3
@@ -2576,9 +2576,9 @@ mmbit_set_i.exit223:                              ; preds = %.thread731, %.lr.ph
 mmbit_set_i.exit220:                              ; preds = %.thread736, %.lr.ph998, %1640, %.thread735
   %.pre-phi1439 = phi i64 [ %1423, %.lr.ph998 ], [ %.pre1438, %.thread735 ], [ %1423, %1640 ], [ %1423, %.thread736 ]
   %1663 = and i64 %1412, 4294967295
-  %1664 = getelementptr inbounds nuw i64, ptr %27, i64 %1663
+  %1664 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %1663
   %1665 = load i64, ptr %1664, align 8
-  %1666 = getelementptr inbounds nuw i64, ptr %29, i64 %.pre-phi1439
+  %1666 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %.pre-phi1439
   store i64 %1665, ptr %1666, align 8
   br label %setSomLoc.exit
 
@@ -2601,7 +2601,7 @@ mmbit_set_i.exit220:                              ; preds = %.thread736, %.lr.ph
 
 1680:                                             ; preds = %1699, %1671
   %indvars.iv = phi i64 [ %indvars.iv.next, %1699 ], [ 0, %1671 ]
-  %1681 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv
+  %1681 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %indvars.iv
   %1682 = load i32, ptr %1681, align 4
   %1683 = zext i32 %1682 to i64
   %1684 = shl nuw nsw i64 %1683, 3
@@ -2641,7 +2641,7 @@ mmbit_isset.exit434:                              ; preds = %1667
 
 .preheader1805:                                   ; preds = %1680, %1726
   %indvars.iv1339 = phi i64 [ %indvars.iv.next1340, %1726 ], [ 0, %1680 ]
-  %1708 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv1339
+  %1708 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %indvars.iv1339
   %1709 = load i32, ptr %1708, align 4
   %1710 = zext i32 %1709 to i64
   %1711 = shl nuw nsw i64 %1710, 3
@@ -2677,9 +2677,9 @@ mmbit_isset.exit:                                 ; preds = %mmbit_isset.exit434
 
 .thread750:                                       ; preds = %mmbit_isset.exit
   %1731 = zext i32 %1669 to i64
-  %1732 = getelementptr inbounds nuw i64, ptr %29, i64 %1731
+  %1732 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %1731
   %1733 = load i64, ptr %1732, align 8
-  %1734 = getelementptr inbounds nuw i64, ptr %27, i64 %1731
+  %1734 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %1731
   store i64 %1733, ptr %1734, align 8
   %1735 = load i8, ptr %1702, align 1
   %1736 = trunc nuw i32 %1706 to i8
@@ -2688,15 +2688,15 @@ mmbit_isset.exit:                                 ; preds = %mmbit_isset.exit434
   br label %setSomLoc.exit
 
 1738:                                             ; preds = %1726
-  %1739 = getelementptr inbounds nuw i64, ptr %29, i64 %1678
+  %1739 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %1678
   %1740 = load i64, ptr %1739, align 8
-  %1741 = getelementptr inbounds nuw i64, ptr %27, i64 %1678
+  %1741 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %1678
   store i64 %1740, ptr %1741, align 8
   br label %1742
 
 1742:                                             ; preds = %.thread751, %1738
   %indvars.iv1342 = phi i64 [ %indvars.iv.next1343, %.thread751 ], [ 0, %1738 ]
-  %1743 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv1342
+  %1743 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %indvars.iv1342
   %1744 = load i32, ptr %1743, align 4
   %1745 = zext i32 %1744 to i64
   %1746 = shl nuw nsw i64 %1745, 3
@@ -2729,7 +2729,7 @@ mmbit_isset.exit:                                 ; preds = %mmbit_isset.exit434
   %.130.i403986 = phi i32 [ %1765, %.lr.ph ], [ %1762, %1760 ]
   %1765 = add i32 %.130.i403986, 1
   %1766 = zext i32 %1765 to i64
-  %1767 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %1766
+  %1767 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %1766
   %1768 = load i32, ptr %1767, align 4
   %1769 = zext i32 %1768 to i64
   %1770 = shl nuw nsw i64 %1769, 3
@@ -2764,7 +2764,7 @@ mmbit_isset.exit:                                 ; preds = %mmbit_isset.exit434
 
 .preheader1801:                                   ; preds = %.preheader1805, %.thread755
   %indvars.iv1345 = phi i64 [ %indvars.iv.next1346, %.thread755 ], [ 0, %.preheader1805 ]
-  %1787 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv1345
+  %1787 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %indvars.iv1345
   %1788 = load i32, ptr %1787, align 4
   %1789 = zext i32 %1788 to i64
   %1790 = shl nuw nsw i64 %1789, 3
@@ -2797,7 +2797,7 @@ mmbit_isset.exit:                                 ; preds = %mmbit_isset.exit434
   %.130.i291990 = phi i32 [ %1809, %.lr.ph991 ], [ %1806, %1804 ]
   %1809 = add i32 %.130.i291990, 1
   %1810 = zext i32 %1809 to i64
-  %1811 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %1810
+  %1811 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %1810
   %1812 = load i32, ptr %1811, align 4
   %1813 = zext i32 %1812 to i64
   %1814 = shl nuw nsw i64 %1813, 3
@@ -2854,7 +2854,7 @@ define hidden i64 @handleSomExternal(ptr noundef readonly captures(none) %0, ptr
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load i64, ptr %16, align 8
   %18 = and i64 %17, 4294967295
-  %19 = getelementptr inbounds nuw i64, ptr %15, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %18
   %20 = load i64, ptr %19, align 8
   br label %52
 
@@ -2869,7 +2869,7 @@ define hidden i64 @handleSomExternal(ptr noundef readonly captures(none) %0, ptr
   %27 = zext i32 %26 to i64
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 %27
   %29 = and i64 %.val, 4294967295
-  %30 = getelementptr inbounds nuw i32, ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %29
   %31 = load i32, ptr %30, align 4
   %32 = zext i32 %31 to i64
   %33 = getelementptr inbounds nuw i8, ptr %24, i64 %32
@@ -3001,7 +3001,7 @@ mmbit_set_i.exit74.thread:                        ; preds = %36
 
 68:                                               ; preds = %.thread, %59
   %indvars.iv328 = phi i64 [ %indvars.iv.next329, %.thread ], [ 0, %59 ]
-  %69 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv328
+  %69 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %indvars.iv328
   %70 = load i32, ptr %69, align 4
   %71 = zext i32 %70 to i64
   %72 = shl nuw nsw i64 %71, 3
@@ -3034,7 +3034,7 @@ mmbit_set_i.exit74.thread:                        ; preds = %36
   %.130.i250 = phi i32 [ %91, %.lr.ph251 ], [ %88, %86 ]
   %91 = add i32 %.130.i250, 1
   %92 = zext i32 %91 to i64
-  %93 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %92
+  %93 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %92
   %94 = load i32, ptr %93, align 4
   %95 = zext i32 %94 to i64
   %96 = shl nuw nsw i64 %95, 3
@@ -3069,7 +3069,7 @@ mmbit_set_i.exit74:                               ; preds = %.thread, %.lr.ph251
 
 114:                                              ; preds = %.thread126, %mmbit_set_i.exit74
   %indvars.iv331 = phi i64 [ %indvars.iv.next332, %.thread126 ], [ 0, %mmbit_set_i.exit74 ]
-  %115 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv331
+  %115 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %indvars.iv331
   %116 = load i32, ptr %115, align 4
   %117 = zext i32 %116 to i64
   %118 = shl nuw nsw i64 %117, 3
@@ -3102,7 +3102,7 @@ mmbit_set_i.exit74:                               ; preds = %.thread, %.lr.ph251
   %.130.i89255 = phi i32 [ %137, %.lr.ph256 ], [ %134, %132 ]
   %137 = add i32 %.130.i89255, 1
   %138 = zext i32 %137 to i64
-  %139 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %138
+  %139 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %138
   %140 = load i32, ptr %139, align 4
   %141 = zext i32 %140 to i64
   %142 = shl nuw nsw i64 %141, 3
@@ -3130,14 +3130,14 @@ mmbit_set_i.exit74:                               ; preds = %.thread, %.lr.ph251
 mmbit_set_i.exit68.thread:                        ; preds = %.lr.ph256, %mmbit_set_i.exit74.thread, %132
   %.pre-phi = phi i64 [ %.pre, %mmbit_set_i.exit74.thread ], [ %113, %132 ], [ %113, %.lr.ph256 ]
   %155 = phi i64 [ %47, %mmbit_set_i.exit74.thread ], [ %111, %132 ], [ %111, %.lr.ph256 ]
-  %156 = getelementptr inbounds nuw i64, ptr %24, i64 %.pre-phi
+  %156 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %.pre-phi
   store i64 %155, ptr %156, align 8
   br label %setSomLoc.exit59
 
 mmbit_set_i.exit68.thread131:                     ; preds = %.thread126, %mmbit_set_i.exit74.thread
   %.pre-phi335 = phi i64 [ %.pre, %mmbit_set_i.exit74.thread ], [ %113, %.thread126 ]
   %157 = phi i64 [ %47, %mmbit_set_i.exit74.thread ], [ %111, %.thread126 ]
-  %158 = getelementptr inbounds nuw i64, ptr %24, i64 %.pre-phi335
+  %158 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %.pre-phi335
   %159 = load i64, ptr %158, align 8
   %..i58 = tail call i64 @llvm.umin.i64(i64 %159, i64 %157)
   store i64 %..i58, ptr %158, align 8
@@ -3159,7 +3159,7 @@ mmbit_set_i.exit68.thread131:                     ; preds = %.thread126, %mmbit_
 
 170:                                              ; preds = %.thread134, %161
   %indvars.iv = phi i64 [ %indvars.iv.next, %.thread134 ], [ 0, %161 ]
-  %171 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv
+  %171 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %indvars.iv
   %172 = load i32, ptr %171, align 4
   %173 = zext i32 %172 to i64
   %174 = shl nuw nsw i64 %173, 3
@@ -3192,7 +3192,7 @@ mmbit_set_i.exit68.thread131:                     ; preds = %.thread126, %mmbit_
   %.130.i81235 = phi i32 [ %193, %.lr.ph236 ], [ %190, %188 ]
   %193 = add i32 %.130.i81235, 1
   %194 = zext i32 %193 to i64
-  %195 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %194
+  %195 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %194
   %196 = load i32, ptr %195, align 4
   %197 = zext i32 %196 to i64
   %198 = shl nuw nsw i64 %197, 3
@@ -3234,7 +3234,7 @@ mmbit_set_i.exit71:                               ; preds = %160
 
 .preheader415:                                    ; preds = %.thread134, %239
   %indvars.iv313 = phi i64 [ %indvars.iv.next314, %239 ], [ 0, %.thread134 ]
-  %221 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv313
+  %221 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %indvars.iv313
   %222 = load i32, ptr %221, align 4
   %223 = zext i32 %222 to i64
   %224 = shl nuw nsw i64 %223, 3
@@ -3270,7 +3270,7 @@ mmbit_isset.exit:                                 ; preds = %mmbit_set_i.exit71
 
 .preheader413:                                    ; preds = %.preheader415, %262
   %indvars.iv316 = phi i64 [ %indvars.iv.next317, %262 ], [ 0, %.preheader415 ]
-  %244 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv316
+  %244 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %indvars.iv316
   %245 = load i32, ptr %244, align 4
   %246 = zext i32 %245 to i64
   %247 = shl nuw nsw i64 %246, 3
@@ -3331,7 +3331,7 @@ ok_and_mark_if_write.exit.thread153:              ; preds = %239, %262, %.lr.ph2
 
 283:                                              ; preds = %.thread157, %ok_and_mark_if_write.exit.thread153
   %indvars.iv322 = phi i64 [ %indvars.iv.next323, %.thread157 ], [ 0, %ok_and_mark_if_write.exit.thread153 ]
-  %284 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv322
+  %284 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %indvars.iv322
   %285 = load i32, ptr %284, align 4
   %286 = zext i32 %285 to i64
   %287 = shl nuw nsw i64 %286, 3
@@ -3364,7 +3364,7 @@ ok_and_mark_if_write.exit.thread153:              ; preds = %239, %262, %.lr.ph2
   %.130.i97240 = phi i32 [ %306, %.lr.ph241 ], [ %303, %301 ]
   %306 = add i32 %.130.i97240, 1
   %307 = zext i32 %306 to i64
-  %308 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %307
+  %308 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %307
   %309 = load i32, ptr %308, align 4
   %310 = zext i32 %309 to i64
   %311 = shl nuw nsw i64 %310, 3
@@ -3412,14 +3412,14 @@ mmbit_set_i.exit65:                               ; preds = %mmbit_isset.exit, %
 mmbit_set_i.exit65.thread:                        ; preds = %.lr.ph241, %mmbit_set_i.exit65, %301
   %.pre-phi337 = phi i64 [ %.pre336, %mmbit_set_i.exit65 ], [ %282, %301 ], [ %282, %.lr.ph241 ]
   %336 = phi i64 [ %324, %mmbit_set_i.exit65 ], [ %280, %301 ], [ %280, %.lr.ph241 ]
-  %337 = getelementptr inbounds nuw i64, ptr %24, i64 %.pre-phi337
+  %337 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %.pre-phi337
   store i64 %336, ptr %337, align 8
   br label %setSomLoc.exit
 
 mmbit_set_i.exit65.thread162:                     ; preds = %.thread157, %mmbit_set_i.exit65
   %.pre-phi339 = phi i64 [ %.pre336, %mmbit_set_i.exit65 ], [ %282, %.thread157 ]
   %338 = phi i64 [ %324, %mmbit_set_i.exit65 ], [ %280, %.thread157 ]
-  %339 = getelementptr inbounds nuw i64, ptr %24, i64 %.pre-phi339
+  %339 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %.pre-phi339
   %340 = load i64, ptr %339, align 8
   %..i = tail call i64 @llvm.umin.i64(i64 %340, i64 %338)
   store i64 %..i, ptr %339, align 8
@@ -3477,7 +3477,7 @@ setSomLoc.exit:                                   ; preds = %mmbit_set_i.exit65.
 .lr.ph470:                                        ; preds = %.lr.ph246.preheader, %.lr.ph246
   %indvars.iv325469 = phi i64 [ %indvars.iv.next326, %.lr.ph246 ], [ 0, %.lr.ph246.preheader ]
   %indvars.iv.next326 = add nuw nsw i64 %indvars.iv325469, 1
-  %378 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv.next326
+  %378 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %indvars.iv.next326
   %379 = load i32, ptr %378, align 4
   %380 = zext i32 %379 to i64
   %381 = shl nuw nsw i64 %380, 3
@@ -3517,7 +3517,7 @@ setSomLoc.exit:                                   ; preds = %mmbit_set_i.exit65.
 
 .preheader:                                       ; preds = %.preheader413, %.thread167
   %indvars.iv319 = phi i64 [ %indvars.iv.next320, %.thread167 ], [ 0, %.preheader413 ]
-  %402 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv319
+  %402 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %indvars.iv319
   %403 = load i32, ptr %402, align 4
   %404 = zext i32 %403 to i64
   %405 = shl nuw nsw i64 %404, 3
@@ -3550,7 +3550,7 @@ setSomLoc.exit:                                   ; preds = %mmbit_set_i.exit65.
   %.130.i105233 = phi i32 [ %424, %.lr.ph ], [ %421, %419 ]
   %424 = add i32 %.130.i105233, 1
   %425 = zext i32 %424 to i64
-  %426 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %425
+  %426 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %425
   %427 = load i32, ptr %426, align 4
   %428 = zext i32 %427 to i64
   %429 = shl nuw nsw i64 %428, 3
@@ -3577,13 +3577,13 @@ setSomLoc.exit:                                   ; preds = %mmbit_set_i.exit65.
 
 mmbit_set_i.exit.thread:                          ; preds = %.lr.ph, %.thread166, %419
   %.pre-phi341 = phi i64 [ %.pre340, %.thread166 ], [ %168, %419 ], [ %168, %.lr.ph ]
-  %442 = getelementptr inbounds nuw i64, ptr %26, i64 %.pre-phi341
+  %442 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %.pre-phi341
   store i64 %2, ptr %442, align 8
   br label %setSomLoc.exit59
 
 mmbit_set_i.exit.thread172:                       ; preds = %.thread167, %.thread166
   %.pre-phi343 = phi i64 [ %.pre340, %.thread166 ], [ %168, %.thread167 ]
-  %443 = getelementptr inbounds nuw i64, ptr %26, i64 %.pre-phi343
+  %443 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %.pre-phi343
   %444 = load i64, ptr %443, align 8
   %. = tail call i64 @llvm.umin.i64(i64 %444, i64 %2)
   store i64 %., ptr %443, align 8
@@ -3619,10 +3619,10 @@ define hidden range(i32 0, 2) i32 @flushStoredSomMatches_i(ptr noundef captures(
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %17 = and i64 %1, 1
-  %18 = getelementptr inbounds nuw ptr, ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %17
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 368
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %17
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %17
   %22 = load ptr, ptr %21, align 8
   %23 = add i64 %4, -1
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 232
@@ -3802,7 +3802,7 @@ mmbit_get_flat_block.exit256:                     ; preds = %86, %89, %92, %100
 
 118:                                              ; preds = %.backedge441
   %119 = zext i32 %.1.i239 to i64
-  %120 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %119
+  %120 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %119
   %121 = load i32, ptr %120, align 4
   %122 = zext i32 %121 to i64
   %123 = shl nuw nsw i64 %122, 3
@@ -3876,9 +3876,9 @@ mmbit_iterate.exit:                               ; preds = %131, %70
 163:                                              ; preds = %.lr.ph495, %mmbit_iterate.exit56
   %.027.i494 = phi i32 [ %.011.i584, %.lr.ph495 ], [ %.011.i55, %mmbit_iterate.exit56 ]
   %164 = zext i32 %.027.i494 to i64
-  %165 = getelementptr inbounds nuw i64, ptr %22, i64 %164
+  %165 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %164
   %166 = load i64, ptr %165, align 8
-  %167 = getelementptr inbounds nuw i32, ptr %32, i64 %164
+  %167 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %164
   %168 = load i32, ptr %167, align 4
   %169 = load ptr, ptr %143, align 8
   %170 = load ptr, ptr %24, align 8
@@ -4127,7 +4127,7 @@ mmbit_get_flat_block.exit264:                     ; preds = %265, %268, %271, %2
 
 296:                                              ; preds = %.backedge
   %297 = zext i32 %.1.i223 to i64
-  %298 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %297
+  %298 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %297
   %299 = load i32, ptr %298, align 4
   %300 = zext i32 %299 to i64
   %301 = shl nuw nsw i64 %300, 3
@@ -4189,15 +4189,15 @@ clearSomLog.exit:                                 ; preds = %172, %.critedge32.i
   %325 = add i64 %4, -1
   %326 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %327 = and i64 %325, 1
-  %328 = getelementptr inbounds nuw ptr, ptr %326, i64 %327
+  %328 = getelementptr inbounds nuw [8 x i8], ptr %326, i64 %327
   %329 = load ptr, ptr %328, align 8
   %330 = getelementptr inbounds nuw i8, ptr %0, i64 368
-  %331 = getelementptr inbounds nuw ptr, ptr %330, i64 %327
+  %331 = getelementptr inbounds nuw [8 x i8], ptr %330, i64 %327
   %332 = load ptr, ptr %331, align 8
   %333 = and i64 %4, 1
-  %334 = getelementptr inbounds nuw ptr, ptr %326, i64 %333
+  %334 = getelementptr inbounds nuw [8 x i8], ptr %326, i64 %333
   %335 = load ptr, ptr %334, align 8
-  %336 = getelementptr inbounds nuw ptr, ptr %330, i64 %333
+  %336 = getelementptr inbounds nuw [8 x i8], ptr %330, i64 %333
   %337 = load ptr, ptr %336, align 8
   %338 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %339 = getelementptr inbounds nuw i8, ptr %0, i64 248
@@ -4376,7 +4376,7 @@ mmbit_get_flat_block.exit276:                     ; preds = %400, %403, %406, %4
 
 432:                                              ; preds = %.backedge447
   %433 = zext i32 %.1.i203 to i64
-  %434 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %433
+  %434 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %433
   %435 = load i32, ptr %434, align 4
   %436 = zext i32 %435 to i64
   %437 = shl nuw nsw i64 %436, 3
@@ -4450,9 +4450,9 @@ mmbit_iterate.exit61:                             ; preds = %445, %384
 477:                                              ; preds = %.lr.ph468, %mmbit_iterate.exit66
   %.027.i38467 = phi i32 [ %.011.i60593, %.lr.ph468 ], [ %.011.i65, %mmbit_iterate.exit66 ]
   %478 = zext i32 %.027.i38467 to i64
-  %479 = getelementptr inbounds nuw i64, ptr %332, i64 %478
+  %479 = getelementptr inbounds nuw [8 x i8], ptr %332, i64 %478
   %480 = load i64, ptr %479, align 8
-  %481 = getelementptr inbounds nuw i32, ptr %346, i64 %478
+  %481 = getelementptr inbounds nuw [4 x i8], ptr %346, i64 %478
   %482 = load i32, ptr %481, align 4
   %483 = load ptr, ptr %457, align 8
   %484 = load ptr, ptr %338, align 8
@@ -4694,7 +4694,7 @@ mmbit_get_flat_block.exit284:                     ; preds = %575, %578, %581, %5
 
 606:                                              ; preds = %.backedge445
   %607 = zext i32 %.1.i187 to i64
-  %608 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %607
+  %608 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %607
   %609 = load i32, ptr %608, align 4
   %610 = zext i32 %609 to i64
   %611 = shl nuw nsw i64 %610, 3
@@ -4924,7 +4924,7 @@ mmbit_get_flat_block.exit296:                     ; preds = %694, %697, %700, %7
 
 726:                                              ; preds = %.backedge444
   %727 = zext i32 %.1.i167 to i64
-  %728 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %727
+  %728 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %727
   %729 = load i32, ptr %728, align 4
   %730 = zext i32 %729 to i64
   %731 = shl nuw nsw i64 %730, 3
@@ -4998,9 +4998,9 @@ mmbit_iterate.exit71:                             ; preds = %739, %678
 771:                                              ; preds = %.lr.ph482, %mmbit_iterate.exit76
   %.027.i45480 = phi i32 [ %.011.i70602, %.lr.ph482 ], [ %.011.i75, %mmbit_iterate.exit76 ]
   %772 = zext i32 %.027.i45480 to i64
-  %773 = getelementptr inbounds nuw i64, ptr %337, i64 %772
+  %773 = getelementptr inbounds nuw [8 x i8], ptr %337, i64 %772
   %774 = load i64, ptr %773, align 8
-  %775 = getelementptr inbounds nuw i32, ptr %640, i64 %772
+  %775 = getelementptr inbounds nuw [4 x i8], ptr %640, i64 %772
   %776 = load i32, ptr %775, align 4
   %777 = load ptr, ptr %751, align 8
   %778 = load ptr, ptr %338, align 8
@@ -5249,7 +5249,7 @@ mmbit_get_flat_block.exit304:                     ; preds = %873, %876, %879, %8
 
 904:                                              ; preds = %.backedge442
   %905 = zext i32 %.1.i160 to i64
-  %906 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %905
+  %906 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %905
   %907 = load i32, ptr %906, align 4
   %908 = zext i32 %907 to i64
   %909 = shl nuw nsw i64 %908, 3

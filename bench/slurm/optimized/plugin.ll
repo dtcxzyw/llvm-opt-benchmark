@@ -67,10 +67,10 @@ define dso_local i32 @plugin_get_syms(ptr noundef %0, i32 noundef %1, ptr nounde
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %17 ]
   %.015 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %17 ]
-  %6 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr @dlsym(ptr noundef %0, ptr noundef %7) #10
-  %9 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   store ptr %8, ptr %9, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %12, label %10
@@ -229,10 +229,10 @@ define dso_local ptr @plugin_load_and_link(ptr noundef %0, i32 noundef %1, ptr n
 .lr.ph.i:                                         ; preds = %68, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %68 ]
   %.015.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.1.i, %68 ]
-  %57 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.i
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.i
   %58 = load ptr, ptr %57, align 8
   %59 = call ptr @dlsym(ptr noundef %55, ptr noundef %58) #10
-  %60 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.i
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.i
   store ptr %59, ptr %60, align 8
   %.not.i = icmp eq ptr %59, null
   br i1 %.not.i, label %63, label %61

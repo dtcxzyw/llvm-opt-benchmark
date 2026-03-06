@@ -167,7 +167,7 @@ _ZN5Eigen10AlignedBoxIdLi3EEC2Ev.exit:            ; preds = %.lr.ph.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %._crit_edge.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i = phi i64 [ %67, %.lr.ph.i.i.i.i.i.i.i ], [ %59, %._crit_edge.i.i.i.i.i.i ]
-  %64 = getelementptr inbounds double, ptr %56, i64 %.05.i.i.i.i.i.i.i
+  %64 = getelementptr inbounds [8 x i8], ptr %56, i64 %.05.i.i.i.i.i.i.i
   %65 = load double, ptr %64, align 8, !tbaa !8
   %66 = fsub double %65, %52
   store double %66, ptr %64, align 8, !tbaa !8
@@ -177,7 +177,7 @@ _ZN5Eigen10AlignedBoxIdLi3EEC2Ev.exit:            ; preds = %.lr.ph.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i.i
   %.011.i.i.i.i.i.i = phi i64 [ %71, %.lr.ph.i.i.i.i.i.i ], [ 0, %.lr.ph.i.preheader.i.i.i.i.i ]
-  %68 = getelementptr inbounds nuw double, ptr %56, i64 %.011.i.i.i.i.i.i
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %.011.i.i.i.i.i.i
   %69 = load <2 x double>, ptr %68, align 16, !tbaa !24
   %70 = fsub <2 x double> %69, %62
   store <2 x double> %70, ptr %68, align 16, !tbaa !24
@@ -302,9 +302,9 @@ define internal void @"_ZNSt17_Function_handlerIFN5Eigen6MatrixIdLi1ELi3ELi1ELi1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !42)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !45)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !48)
-  %9 = getelementptr inbounds double, ptr %.val.val, i64 %.val4
+  %9 = getelementptr inbounds [8 x i8], ptr %.val.val, i64 %.val4
   %10 = load double, ptr %9, align 8, !tbaa !8, !noalias !51
-  %11 = getelementptr inbounds double, ptr %9, i64 %.val.val6
+  %11 = getelementptr inbounds [8 x i8], ptr %9, i64 %.val.val6
   %12 = load double, ptr %11, align 8, !tbaa !8, !noalias !51
   %.idx.i.i.i.i.i.i.i.i.i.i.i.i.i = shl nsw i64 %.val.val6, 4
   %13 = getelementptr inbounds i8, ptr %9, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i.i

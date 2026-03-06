@@ -86,7 +86,7 @@ define dso_local i32 @scontrol_create_node(i32 noundef %0, ptr noundef readonly 
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.not7 = icmp eq i64 %indvars.iv, 0
   %9 = select i1 %.not7, ptr @.str.2, ptr @.str.1
-  %10 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %4, ptr noundef nonnull @.str, ptr noundef nonnull %9, ptr noundef %11) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -157,7 +157,7 @@ define dso_local i32 @scontrol_update_node(i32 noundef %0, ptr noundef readonly 
 21:                                               ; preds = %.lr.ph, %244
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %244 ]
   %.0187231 = phi i32 [ 0, %.lr.ph ], [ %.2, %244 ]
-  %22 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8
   %24 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %23, i32 noundef 61) #10
   %.not = icmp eq ptr %24, null
@@ -178,7 +178,7 @@ define dso_local i32 @scontrol_update_node(i32 noundef %0, ptr noundef readonly 
   br i1 %36, label %41, label %43
 
 37:                                               ; preds = %21
-  %38 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   store i32 1, ptr @exit_code, align 4
   %39 = load ptr, ptr %38, align 8
   %40 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.4, ptr noundef %39) #8
@@ -245,7 +245,7 @@ define dso_local i32 @scontrol_update_node(i32 noundef %0, ptr noundef readonly 
   br i1 %.not204, label %75, label %71
 
 71:                                               ; preds = %69
-  %72 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   store i32 1, ptr @exit_code, align 4
   %73 = load ptr, ptr %72, align 8
   %74 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.11, ptr noundef %73) #8
@@ -323,7 +323,7 @@ define dso_local i32 @scontrol_update_node(i32 noundef %0, ptr noundef readonly 
   br i1 %.not203, label %111, label %107
 
 107:                                              ; preds = %105
-  %108 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   store i32 1, ptr @exit_code, align 4
   %109 = load ptr, ptr %108, align 8
   %110 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.19, ptr noundef %109) #8
@@ -401,7 +401,7 @@ define dso_local i32 @scontrol_update_node(i32 noundef %0, ptr noundef readonly 
   br i1 %.not201, label %151, label %147
 
 147:                                              ; preds = %145
-  %148 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %148 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   store i32 1, ptr @exit_code, align 4
   %149 = load ptr, ptr %148, align 8
   %150 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.24, ptr noundef %149) #8
@@ -550,7 +550,7 @@ define dso_local i32 @scontrol_update_node(i32 noundef %0, ptr noundef readonly 
   br label %244
 
 223:                                              ; preds = %220
-  %224 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %224 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   store i32 1, ptr @exit_code, align 4
   %225 = load ptr, ptr @stderr, align 8
   %226 = load ptr, ptr %224, align 8
@@ -568,7 +568,7 @@ define dso_local i32 @scontrol_update_node(i32 noundef %0, ptr noundef readonly 
   br label %.critedge
 
 237:                                              ; preds = %153
-  %238 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %238 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   store i32 1, ptr @exit_code, align 4
   %239 = load ptr, ptr @stderr, align 8
   %240 = load ptr, ptr %238, align 8
@@ -710,7 +710,7 @@ define dso_local i32 @scontrol_update_front_end(i32 noundef %0, ptr noundef read
 8:                                                ; preds = %.lr.ph, %82
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %82 ]
   %.05972 = phi i32 [ 0, %.lr.ph ], [ %.1, %82 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %10, i32 noundef 61) #10
   %.not = icmp eq ptr %11, null
@@ -731,7 +731,7 @@ define dso_local i32 @scontrol_update_front_end(i32 noundef %0, ptr noundef read
   br i1 %23, label %28, label %29
 
 24:                                               ; preds = %8
-  %25 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   store i32 1, ptr @exit_code, align 4
   %26 = load ptr, ptr %25, align 8
   %27 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.4, ptr noundef %26) #8
@@ -815,7 +815,7 @@ define dso_local i32 @scontrol_update_front_end(i32 noundef %0, ptr noundef read
   br label %82
 
 70:                                               ; preds = %65
-  %71 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   store i32 1, ptr @exit_code, align 4
   %72 = load ptr, ptr @stderr, align 8
   %73 = load ptr, ptr %71, align 8
@@ -823,7 +823,7 @@ define dso_local i32 @scontrol_update_front_end(i32 noundef %0, ptr noundef read
   br label %.critedge
 
 75:                                               ; preds = %50
-  %76 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   store i32 1, ptr @exit_code, align 4
   %77 = load ptr, ptr @stderr, align 8
   %78 = load ptr, ptr %76, align 8

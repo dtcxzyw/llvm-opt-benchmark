@@ -1521,7 +1521,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %173 = phi ptr [ %182, %for.inc ], [ %.pre, %for.body.preheader ]
   %i.0650 = phi i64 [ %inc, %for.inc ], [ 0, %for.body.preheader ]
   %174 = load ptr, ptr %paymentTimes, align 8, !tbaa !8
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %174, i64 %i.0650
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %174, i64 %i.0650
   %cmp.not.i = icmp eq ptr %173, %172
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
@@ -1587,7 +1587,7 @@ _ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIP
   %.pre652 = phi ptr [ %.pre652.pre, %if.then.i18.i.i ], [ %.pre652654, %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit17.i.i ]
   store ptr %call5.i.i.i.i.i465, ptr %allPaymentTimes_, align 8, !tbaa !8
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i.i172, align 8, !tbaa !3
-  %add.ptr19.i.i = getelementptr inbounds nuw double, ptr %call5.i.i.i.i.i465, i64 %cond.i.i.i
+  %add.ptr19.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i465, i64 %cond.i.i.i
   store ptr %add.ptr19.i.i, ptr %_M_end_of_storage.i.i.i174, align 8, !tbaa !9
   br label %for.inc
 
@@ -1974,12 +1974,12 @@ entry:
   %floatingSpreads_ = getelementptr inbounds nuw i8, ptr %this, i64 336
   %3 = load i64, ptr %currentIndex_, align 8, !tbaa !49
   %4 = load ptr, ptr %floatingSpreads_, align 8, !tbaa !8
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %4, i64 %3
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %3
   %5 = load double, ptr %add.ptr.i, align 8, !tbaa !37
   %add = fadd double %call, %5
   %accrualsFloating_ = getelementptr inbounds nuw i8, ptr %this, i64 184
   %6 = load ptr, ptr %accrualsFloating_, align 8, !tbaa !8
-  %add.ptr.i8 = getelementptr inbounds nuw double, ptr %6, i64 %3
+  %add.ptr.i8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %3
   %7 = load double, ptr %add.ptr.i8, align 8, !tbaa !37
   %mul = fmul double %add, %7
   %8 = load ptr, ptr %genCashFlows, align 8, !tbaa !50
@@ -1994,11 +1994,11 @@ entry:
   store i64 %3, ptr %add.ptr.i14, align 8, !tbaa !56
   %strikes_ = getelementptr inbounds nuw i8, ptr %this, i64 288
   %11 = load ptr, ptr %strikes_, align 8, !tbaa !8
-  %add.ptr.i15 = getelementptr inbounds nuw double, ptr %11, i64 %3
+  %add.ptr.i15 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %3
   %12 = load double, ptr %add.ptr.i15, align 8, !tbaa !37
   %multipliers_ = getelementptr inbounds nuw i8, ptr %this, i64 312
   %13 = load ptr, ptr %multipliers_, align 8, !tbaa !8
-  %add.ptr.i16 = getelementptr inbounds nuw double, ptr %13, i64 %3
+  %add.ptr.i16 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %3
   %14 = load double, ptr %add.ptr.i16, align 8, !tbaa !37
   %neg = fneg double %14
   %15 = tail call double @llvm.fmuladd.f64(double %neg, double %call, double %12)
@@ -2006,7 +2006,7 @@ entry:
   %.sroa.speculated = select i1 %cmp.i, double 0.000000e+00, double %15
   %accruals_ = getelementptr inbounds nuw i8, ptr %this, i64 160
   %16 = load ptr, ptr %accruals_, align 8, !tbaa !8
-  %add.ptr.i17 = getelementptr inbounds nuw double, ptr %16, i64 %3
+  %add.ptr.i17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %3
   %17 = load double, ptr %add.ptr.i17, align 8, !tbaa !37
   %mul26 = fmul double %17, %.sroa.speculated
   %couponPaid_ = getelementptr inbounds nuw i8, ptr %this, i64 368

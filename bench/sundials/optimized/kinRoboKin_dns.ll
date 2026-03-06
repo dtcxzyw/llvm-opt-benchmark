@@ -114,7 +114,7 @@ check_retval.exit66:                              ; preds = %31
 
 40:                                               ; preds = %36, %40
   %indvars.iv = phi i64 [ 9, %36 ], [ %indvars.iv.next, %40 ]
-  %41 = getelementptr double, ptr %39, i64 %indvars.iv
+  %41 = getelementptr [8 x i8], ptr %39, i64 %indvars.iv
   %42 = getelementptr i8, ptr %41, i64 -8
   store double 1.000000e+00, ptr %42, align 8, !tbaa !20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -212,7 +212,7 @@ check_retval.exit82:                              ; preds = %80
 
 89:                                               ; preds = %85, %89
   %indvars.iv126 = phi i64 [ 1, %85 ], [ %indvars.iv.next127, %89 ]
-  %90 = getelementptr double, ptr %88, i64 %indvars.iv126
+  %90 = getelementptr [8 x i8], ptr %88, i64 %indvars.iv126
   %91 = getelementptr i8, ptr %90, i64 -8
   store double 0x3FE6A09E667F3BCD, ptr %91, align 8, !tbaa !20
   %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
@@ -551,15 +551,15 @@ define internal noundef i32 @jac(ptr noundef %0, ptr readnone captures(none) %1,
 
 76:                                               ; preds = %6, %76
   %indvars.iv = phi i64 [ 1, %6 ], [ %indvars.iv.next, %76 ]
-  %77 = getelementptr ptr, ptr %26, i64 %indvars.iv
+  %77 = getelementptr [8 x i8], ptr %26, i64 %indvars.iv
   %78 = getelementptr i8, ptr %77, i64 -8
   %79 = load ptr, ptr %78, align 8, !tbaa !28
   %80 = add nuw nsw i64 %indvars.iv, 7
-  %81 = getelementptr inbounds nuw double, ptr %79, i64 %80
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %79, i64 %80
   store double -1.000000e+00, ptr %81, align 8, !tbaa !20
-  %82 = getelementptr inbounds nuw ptr, ptr %26, i64 %80
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %80
   %83 = load ptr, ptr %82, align 8, !tbaa !28
-  %84 = getelementptr inbounds nuw double, ptr %83, i64 %80
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %80
   store double 1.000000e+00, ptr %84, align 8, !tbaa !20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 9
@@ -567,15 +567,15 @@ define internal noundef i32 @jac(ptr noundef %0, ptr readnone captures(none) %1,
 
 .preheader:                                       ; preds = %76, %.preheader
   %indvars.iv69 = phi i64 [ %indvars.iv.next70, %.preheader ], [ 1, %76 ]
-  %85 = getelementptr ptr, ptr %26, i64 %indvars.iv69
+  %85 = getelementptr [8 x i8], ptr %26, i64 %indvars.iv69
   %86 = getelementptr i8, ptr %85, i64 -8
   %87 = load ptr, ptr %86, align 8, !tbaa !28
   %88 = add nuw nsw i64 %indvars.iv69, 15
-  %89 = getelementptr inbounds nuw double, ptr %87, i64 %88
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %87, i64 %88
   store double 1.000000e+00, ptr %89, align 8, !tbaa !20
-  %90 = getelementptr inbounds nuw ptr, ptr %26, i64 %88
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %88
   %91 = load ptr, ptr %90, align 8, !tbaa !28
-  %92 = getelementptr inbounds nuw double, ptr %91, i64 %88
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %88
   store double 1.000000e+00, ptr %92, align 8, !tbaa !20
   %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
   %exitcond72.not = icmp eq i64 %indvars.iv.next70, 9
@@ -598,7 +598,7 @@ define internal fastcc void @PrintOutput(ptr noundef readonly captures(none) %0)
   %3 = load ptr, ptr %0, align 8, !tbaa !12
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !15
-  %6 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %8 = load double, ptr %7, align 8, !tbaa !20
   %9 = getelementptr i8, ptr %6, i64 -8

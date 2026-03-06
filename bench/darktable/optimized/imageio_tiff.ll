@@ -416,7 +416,7 @@ define internal fastcc range(i32 -1, 2) i32 @_read_chunky_8_Lab(ptr noundef nonn
   %20 = load i32, ptr %14, align 8, !tbaa !68
   %21 = zext i32 %20 to i64
   %22 = mul i64 %19, %21
-  %23 = getelementptr inbounds nuw float, ptr %18, i64 %22
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %22
   %24 = load ptr, ptr %0, align 8, !tbaa !31
   %25 = trunc nuw i64 %indvars.iv78 to i32
   %26 = tail call i32 @TIFFReadScanline(ptr noundef %24, ptr noundef %17, i32 noundef %25, i16 noundef zeroext 0) #11
@@ -496,7 +496,7 @@ define internal fastcc range(i32 -1, 2) i32 @_read_chunky_8_Lab(ptr noundef nonn
   %61 = load i32, ptr %14, align 8, !tbaa !68
   %62 = zext i32 %61 to i64
   %63 = mul i64 %60, %62
-  %64 = getelementptr inbounds nuw float, ptr %59, i64 %63
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %63
   %65 = load ptr, ptr %0, align 8, !tbaa !31
   %66 = trunc nuw i64 %indvars.iv to i32
   %67 = tail call i32 @TIFFReadScanline(ptr noundef %65, ptr noundef %58, i32 noundef %66, i16 noundef zeroext 0) #11
@@ -607,7 +607,7 @@ define internal fastcc range(i32 -1, 2) i32 @_read_chunky_16_Lab(ptr noundef non
   %21 = load i32, ptr %15, align 8, !tbaa !68
   %22 = zext i32 %21 to i64
   %23 = mul i64 %20, %22
-  %24 = getelementptr inbounds nuw float, ptr %19, i64 %23
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %23
   %25 = load ptr, ptr %0, align 8, !tbaa !31
   %26 = trunc nuw i64 %indvars.iv80 to i32
   %27 = tail call i32 @TIFFReadScanline(ptr noundef %25, ptr noundef %18, i32 noundef %26, i16 noundef zeroext 0) #11
@@ -648,7 +648,7 @@ define internal fastcc range(i32 -1, 2) i32 @_read_chunky_16_Lab(ptr noundef non
   %40 = getelementptr inbounds nuw i8, ptr %.04456.us.us, i64 12
   store float 0.000000e+00, ptr %40, align 4, !tbaa !85
   %41 = add nuw i32 %.057.us.us, 1
-  %42 = getelementptr inbounds nuw i16, ptr %.04655.us.us, i64 %34
+  %42 = getelementptr inbounds nuw [2 x i8], ptr %.04655.us.us, i64 %34
   %43 = getelementptr inbounds nuw i8, ptr %.04456.us.us, i64 16
   %exitcond79.not = icmp eq i32 %41, %31
   br i1 %exitcond79.not, label %._crit_edge.us, label %.lr.ph.split.us.us
@@ -676,7 +676,7 @@ define internal fastcc range(i32 -1, 2) i32 @_read_chunky_16_Lab(ptr noundef non
   %57 = getelementptr inbounds nuw i8, ptr %.04456.us59.us, i64 12
   store float 0.000000e+00, ptr %57, align 4, !tbaa !85
   %58 = add nuw i32 %.057.us58.us, 1
-  %59 = getelementptr inbounds nuw i16, ptr %.04655.us60.us, i64 %34
+  %59 = getelementptr inbounds nuw [2 x i8], ptr %.04655.us60.us, i64 %34
   %60 = getelementptr inbounds nuw i8, ptr %.04456.us59.us, i64 16
   %exitcond78.not = icmp eq i32 %58, %31
   br i1 %exitcond78.not, label %._crit_edge.us, label %.lr.ph.split.us67
@@ -689,7 +689,7 @@ define internal fastcc range(i32 -1, 2) i32 @_read_chunky_16_Lab(ptr noundef non
   %64 = load i32, ptr %15, align 8, !tbaa !68
   %65 = zext i32 %64 to i64
   %66 = mul i64 %63, %65
-  %67 = getelementptr inbounds nuw float, ptr %62, i64 %66
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %66
   %68 = load ptr, ptr %0, align 8, !tbaa !31
   %69 = trunc nuw i64 %indvars.iv to i32
   %70 = tail call i32 @TIFFReadScanline(ptr noundef %68, ptr noundef %61, i32 noundef %69, i16 noundef zeroext 0) #11
@@ -722,7 +722,7 @@ define internal fastcc range(i32 -1, 2) i32 @_read_chunky_16_Lab(ptr noundef non
   %80 = getelementptr inbounds nuw i8, ptr %.04456.us, i64 12
   store float 0.000000e+00, ptr %80, align 4, !tbaa !85
   %81 = add nuw i32 %.057.us, 1
-  %82 = getelementptr inbounds nuw i16, ptr %.04655.us, i64 %74
+  %82 = getelementptr inbounds nuw [2 x i8], ptr %.04655.us, i64 %74
   %83 = getelementptr inbounds nuw i8, ptr %.04456.us, i64 16
   %exitcond76.not = icmp eq i32 %81, %71
   br i1 %exitcond76.not, label %._crit_edge, label %.lr.ph.split.us
@@ -752,7 +752,7 @@ define internal fastcc range(i32 -1, 2) i32 @_read_chunky_16_Lab(ptr noundef non
   %99 = getelementptr inbounds nuw i8, ptr %.04456, i64 12
   store float 0.000000e+00, ptr %99, align 4, !tbaa !85
   %100 = add nuw i32 %.057, 1
-  %101 = getelementptr inbounds nuw i16, ptr %.04655, i64 %74
+  %101 = getelementptr inbounds nuw [2 x i8], ptr %.04655, i64 %74
   %102 = getelementptr inbounds nuw i8, ptr %.04456, i64 16
   %exitcond.not = icmp eq i32 %100, %71
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split
@@ -806,7 +806,7 @@ define internal fastcc range(i32 -1, 2) i32 @_read_chunky_8(ptr noundef nonnull 
   %17 = shl nuw nsw i64 %indvars.iv, 2
   %18 = zext i32 %9 to i64
   %19 = mul i64 %17, %18
-  %20 = getelementptr inbounds nuw float, ptr %11, i64 %19
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %19
   %21 = load i16, ptr %7, align 2, !tbaa !71
   %22 = icmp ult i16 %21, 3
   %23 = zext i16 %21 to i64
@@ -907,7 +907,7 @@ define internal fastcc range(i32 -1, 2) i32 @_read_chunky_16(ptr noundef nonnull
   %17 = shl nuw nsw i64 %indvars.iv, 2
   %18 = zext i32 %9 to i64
   %19 = mul i64 %17, %18
-  %20 = getelementptr inbounds nuw float, ptr %11, i64 %19
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %19
   %21 = load i16, ptr %7, align 2, !tbaa !71
   %22 = icmp ult i16 %21, 3
   %23 = zext i16 %21 to i64
@@ -928,7 +928,7 @@ define internal fastcc range(i32 -1, 2) i32 @_read_chunky_16(ptr noundef nonnull
   %29 = getelementptr inbounds nuw i8, ptr %.02937.us, i64 12
   store float 0.000000e+00, ptr %29, align 4, !tbaa !85
   %30 = add nuw i32 %.038.us, 1
-  %31 = getelementptr inbounds nuw i16, ptr %.03036.us, i64 %23
+  %31 = getelementptr inbounds nuw [2 x i8], ptr %.03036.us, i64 %23
   %32 = getelementptr inbounds nuw i8, ptr %.02937.us, i64 16
   %exitcond47.not = icmp eq i32 %30, %16
   br i1 %exitcond47.not, label %._crit_edge, label %.lr.ph.split.us
@@ -956,7 +956,7 @@ define internal fastcc range(i32 -1, 2) i32 @_read_chunky_16(ptr noundef nonnull
   %46 = getelementptr inbounds nuw i8, ptr %.02937, i64 12
   store float 0.000000e+00, ptr %46, align 4, !tbaa !85
   %47 = add nuw i32 %.038, 1
-  %48 = getelementptr inbounds nuw i16, ptr %.03036, i64 %23
+  %48 = getelementptr inbounds nuw [2 x i8], ptr %.03036, i64 %23
   %49 = getelementptr inbounds nuw i8, ptr %.02937, i64 16
   %exitcond.not = icmp eq i32 %47, %16
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split
@@ -1008,7 +1008,7 @@ define internal fastcc range(i32 -1, 2) i32 @_read_chunky_h(ptr noundef nonnull 
   %17 = shl nuw nsw i64 %indvars.iv, 2
   %18 = zext i32 %9 to i64
   %19 = mul i64 %17, %18
-  %20 = getelementptr inbounds nuw float, ptr %11, i64 %19
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %19
   %21 = load i16, ptr %7, align 2, !tbaa !71
   %22 = icmp ult i16 %21, 3
   %23 = zext i16 %21 to i64
@@ -1055,7 +1055,7 @@ _half_to_float.exit.us:                           ; preds = %38, %33, %29
   %44 = getelementptr inbounds nuw i8, ptr %.02943.us, i64 12
   store float 0.000000e+00, ptr %44, align 4, !tbaa !85
   %45 = add nuw i32 %.044.us, 1
-  %46 = getelementptr inbounds nuw i16, ptr %.03042.us, i64 %23
+  %46 = getelementptr inbounds nuw [2 x i8], ptr %.03042.us, i64 %23
   %47 = getelementptr inbounds nuw i8, ptr %.02943.us, i64 16
   %exitcond53.not = icmp eq i32 %45, %16
   br i1 %exitcond53.not, label %._crit_edge, label %.lr.ph.split.us
@@ -1161,7 +1161,7 @@ _half_to_float.exit40:                            ; preds = %92, %94, %98
   %106 = getelementptr inbounds nuw i8, ptr %.02943, i64 12
   store float 0.000000e+00, ptr %106, align 4, !tbaa !85
   %107 = add nuw i32 %.044, 1
-  %108 = getelementptr inbounds nuw i16, ptr %.03042, i64 %23
+  %108 = getelementptr inbounds nuw [2 x i8], ptr %.03042, i64 %23
   %109 = getelementptr inbounds nuw i8, ptr %.02943, i64 16
   %exitcond.not = icmp eq i32 %107, %16
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split
@@ -1213,7 +1213,7 @@ define internal fastcc range(i32 -1, 2) i32 @_read_chunky_f(ptr noundef nonnull 
   %17 = shl nuw nsw i64 %indvars.iv, 2
   %18 = zext i32 %9 to i64
   %19 = mul i64 %17, %18
-  %20 = getelementptr inbounds nuw float, ptr %11, i64 %19
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %19
   %21 = load i16, ptr %7, align 2, !tbaa !71
   %22 = icmp ult i16 %21, 3
   %23 = zext i16 %21 to i64
@@ -1232,7 +1232,7 @@ define internal fastcc range(i32 -1, 2) i32 @_read_chunky_f(ptr noundef nonnull 
   %27 = getelementptr inbounds nuw i8, ptr %.02937.us, i64 12
   store float 0.000000e+00, ptr %27, align 4, !tbaa !85
   %28 = add nuw i32 %.038.us, 1
-  %29 = getelementptr inbounds nuw float, ptr %.03036.us, i64 %23
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %.03036.us, i64 %23
   %30 = getelementptr inbounds nuw i8, ptr %.02937.us, i64 16
   %exitcond47.not = icmp eq i32 %28, %16
   br i1 %exitcond47.not, label %._crit_edge, label %.lr.ph.split.us
@@ -1254,7 +1254,7 @@ define internal fastcc range(i32 -1, 2) i32 @_read_chunky_f(ptr noundef nonnull 
   %38 = getelementptr inbounds nuw i8, ptr %.02937, i64 12
   store float 0.000000e+00, ptr %38, align 4, !tbaa !85
   %39 = add nuw i32 %.038, 1
-  %40 = getelementptr inbounds nuw float, ptr %.03036, i64 %23
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %.03036, i64 %23
   %41 = getelementptr inbounds nuw i8, ptr %.02937, i64 16
   %exitcond.not = icmp eq i32 %39, %16
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split

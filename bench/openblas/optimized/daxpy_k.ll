@@ -37,30 +37,30 @@ define noundef i32 @daxpy_k(i64 noundef %0, i64 noundef %1, i64 noundef %2, doub
 
 .lr.ph.i:                                         ; preds = %17, %.lr.ph.i
   %.01.i = phi i64 [ %46, %.lr.ph.i ], [ 0, %17 ]
-  %23 = getelementptr inbounds nuw double, ptr %6, i64 %.01.i
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.01.i
   %24 = load <8 x double>, ptr %23, align 1, !tbaa !3
-  %25 = getelementptr inbounds nuw double, ptr %4, i64 %.01.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.01.i
   %26 = load <8 x double>, ptr %25, align 1, !tbaa !3
   %27 = tail call <8 x double> @llvm.fmuladd.v8f64(<8 x double> %20, <8 x double> %26, <8 x double> %24)
   store <8 x double> %27, ptr %23, align 1, !tbaa !3
   %28 = or disjoint i64 %.01.i, 8
-  %29 = getelementptr inbounds nuw double, ptr %6, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %28
   %30 = load <8 x double>, ptr %29, align 1, !tbaa !3
-  %31 = getelementptr inbounds nuw double, ptr %4, i64 %28
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %28
   %32 = load <8 x double>, ptr %31, align 1, !tbaa !3
   %33 = tail call <8 x double> @llvm.fmuladd.v8f64(<8 x double> %20, <8 x double> %32, <8 x double> %30)
   store <8 x double> %33, ptr %29, align 1, !tbaa !3
   %34 = or disjoint i64 %.01.i, 16
-  %35 = getelementptr inbounds nuw double, ptr %6, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %34
   %36 = load <8 x double>, ptr %35, align 1, !tbaa !3
-  %37 = getelementptr inbounds nuw double, ptr %4, i64 %34
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %34
   %38 = load <8 x double>, ptr %37, align 1, !tbaa !3
   %39 = tail call <8 x double> @llvm.fmuladd.v8f64(<8 x double> %20, <8 x double> %38, <8 x double> %36)
   store <8 x double> %39, ptr %35, align 1, !tbaa !3
   %40 = or disjoint i64 %.01.i, 24
-  %41 = getelementptr inbounds nuw double, ptr %6, i64 %40
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %40
   %42 = load <8 x double>, ptr %41, align 1, !tbaa !3
-  %43 = getelementptr inbounds nuw double, ptr %4, i64 %40
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %40
   %44 = load <8 x double>, ptr %43, align 1, !tbaa !3
   %45 = tail call <8 x double> @llvm.fmuladd.v8f64(<8 x double> %20, <8 x double> %44, <8 x double> %42)
   store <8 x double> %45, ptr %41, align 1, !tbaa !3
@@ -70,30 +70,30 @@ define noundef i32 @daxpy_k(i64 noundef %0, i64 noundef %1, i64 noundef %2, doub
 
 .lr.ph3.i:                                        ; preds = %.lr.ph3.i.preheader, %.lr.ph3.i
   %.12.i = phi i64 [ %71, %.lr.ph3.i ], [ %.12.i.ph, %.lr.ph3.i.preheader ]
-  %48 = getelementptr inbounds nuw double, ptr %6, i64 %.12.i
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.12.i
   %49 = load <4 x double>, ptr %48, align 1, !tbaa !3
-  %50 = getelementptr inbounds nuw double, ptr %4, i64 %.12.i
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.12.i
   %51 = load <4 x double>, ptr %50, align 1, !tbaa !3
   %52 = tail call <4 x double> @llvm.fmuladd.v4f64(<4 x double> %19, <4 x double> %51, <4 x double> %49)
   store <4 x double> %52, ptr %48, align 1, !tbaa !3
   %53 = or disjoint i64 %.12.i, 4
-  %54 = getelementptr inbounds nuw double, ptr %6, i64 %53
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %53
   %55 = load <4 x double>, ptr %54, align 1, !tbaa !3
-  %56 = getelementptr inbounds nuw double, ptr %4, i64 %53
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %53
   %57 = load <4 x double>, ptr %56, align 1, !tbaa !3
   %58 = tail call <4 x double> @llvm.fmuladd.v4f64(<4 x double> %19, <4 x double> %57, <4 x double> %55)
   store <4 x double> %58, ptr %54, align 1, !tbaa !3
   %59 = or disjoint i64 %.12.i, 8
-  %60 = getelementptr inbounds nuw double, ptr %6, i64 %59
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %59
   %61 = load <4 x double>, ptr %60, align 1, !tbaa !3
-  %62 = getelementptr inbounds nuw double, ptr %4, i64 %59
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %59
   %63 = load <4 x double>, ptr %62, align 1, !tbaa !3
   %64 = tail call <4 x double> @llvm.fmuladd.v4f64(<4 x double> %19, <4 x double> %63, <4 x double> %61)
   store <4 x double> %64, ptr %60, align 1, !tbaa !3
   %65 = or disjoint i64 %.12.i, 12
-  %66 = getelementptr inbounds nuw double, ptr %6, i64 %65
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %65
   %67 = load <4 x double>, ptr %66, align 1, !tbaa !3
-  %68 = getelementptr inbounds nuw double, ptr %4, i64 %65
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %65
   %69 = load <4 x double>, ptr %68, align 1, !tbaa !3
   %70 = tail call <4 x double> @llvm.fmuladd.v4f64(<4 x double> %19, <4 x double> %69, <4 x double> %67)
   store <4 x double> %70, ptr %66, align 1, !tbaa !3
@@ -107,9 +107,9 @@ daxpy_kernel_8.exit:                              ; preds = %.lr.ph3.i, %.prehea
 
 .lr.ph84:                                         ; preds = %daxpy_kernel_8.exit, %.lr.ph84
   %.06283 = phi i64 [ %78, %.lr.ph84 ], [ %16, %daxpy_kernel_8.exit ]
-  %73 = getelementptr inbounds nuw double, ptr %4, i64 %.06283
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.06283
   %74 = load double, ptr %73, align 8, !tbaa !9
-  %75 = getelementptr inbounds nuw double, ptr %6, i64 %.06283
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.06283
   %76 = load double, ptr %75, align 8, !tbaa !9
   %77 = tail call double @llvm.fmuladd.f64(double %3, double %74, double %76)
   store double %77, ptr %75, align 8, !tbaa !9
@@ -146,10 +146,10 @@ daxpy_kernel_8.exit:                              ; preds = %.lr.ph3.i, %.prehea
   %.176 = phi i64 [ 0, %.lr.ph ], [ %113, %86 ]
   %.06375 = phi i64 [ 0, %.lr.ph ], [ %111, %86 ]
   %.06574 = phi i64 [ 0, %.lr.ph ], [ %112, %86 ]
-  %87 = getelementptr inbounds double, ptr %4, i64 %.06375
+  %87 = getelementptr inbounds [8 x i8], ptr %4, i64 %.06375
   %88 = load double, ptr %87, align 8, !tbaa !9
   %89 = fmul double %3, %88
-  %90 = getelementptr double, ptr %87, i64 %5
+  %90 = getelementptr [8 x i8], ptr %87, i64 %5
   %91 = load double, ptr %90, align 8, !tbaa !9
   %92 = fmul double %3, %91
   %93 = getelementptr i8, ptr %87, i64 %.idx
@@ -158,11 +158,11 @@ daxpy_kernel_8.exit:                              ; preds = %.lr.ph3.i, %.prehea
   %96 = getelementptr i8, ptr %87, i64 %.idx68
   %97 = load double, ptr %96, align 8, !tbaa !9
   %98 = fmul double %3, %97
-  %99 = getelementptr inbounds double, ptr %6, i64 %.06574
+  %99 = getelementptr inbounds [8 x i8], ptr %6, i64 %.06574
   %100 = load double, ptr %99, align 8, !tbaa !9
   %101 = fadd double %89, %100
   store double %101, ptr %99, align 8, !tbaa !9
-  %102 = getelementptr double, ptr %99, i64 %7
+  %102 = getelementptr [8 x i8], ptr %99, i64 %7
   %103 = load double, ptr %102, align 8, !tbaa !9
   %104 = fadd double %92, %103
   store double %104, ptr %102, align 8, !tbaa !9
@@ -184,9 +184,9 @@ daxpy_kernel_8.exit:                              ; preds = %.lr.ph3.i, %.prehea
   %.281 = phi i64 [ %122, %.lr.ph82 ], [ %.1.lcssa, %.preheader ]
   %.16480 = phi i64 [ %120, %.lr.ph82 ], [ %.063.lcssa, %.preheader ]
   %.16679 = phi i64 [ %121, %.lr.ph82 ], [ %.065.lcssa, %.preheader ]
-  %115 = getelementptr inbounds double, ptr %4, i64 %.16480
+  %115 = getelementptr inbounds [8 x i8], ptr %4, i64 %.16480
   %116 = load double, ptr %115, align 8, !tbaa !9
-  %117 = getelementptr inbounds double, ptr %6, i64 %.16679
+  %117 = getelementptr inbounds [8 x i8], ptr %6, i64 %.16679
   %118 = load double, ptr %117, align 8, !tbaa !9
   %119 = tail call double @llvm.fmuladd.f64(double %3, double %116, double %118)
   store double %119, ptr %117, align 8, !tbaa !9

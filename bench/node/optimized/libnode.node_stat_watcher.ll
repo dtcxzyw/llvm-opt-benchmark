@@ -443,7 +443,7 @@ if.then.i18.i.i.i.i.i:                            ; preds = %_ZNSt6vectorIlSaIlE
 _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i.i.i: ; preds = %if.then.i18.i.i.i.i.i, %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit17.i.i.i.i.i
   store ptr %call5.i.i.i.i.i.i.i.i, ptr %external_references_.i.i, align 8
   store ptr %incdec.ptr.i.i.i.i.i, ptr %_M_finish.i.i.i.i, align 8
-  %add.ptr19.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %call5.i.i.i.i.i.i.i.i, i64 %cond.i.i.i.i.i.i
+  %add.ptr19.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i.i, i64 %cond.i.i.i.i.i.i
   store ptr %add.ptr19.i.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i, align 8
   br label %_ZN4node25ExternalReferenceRegistry8RegisterEPFvRKN2v820FunctionCallbackInfoINS1_5ValueEEEE.exit
 
@@ -504,7 +504,7 @@ if.then.i18.i.i.i.i.i27:                          ; preds = %_ZNSt6vectorIlSaIlE
 _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i.i.i28: ; preds = %if.then.i18.i.i.i.i.i27, %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit17.i.i.i.i.i24
   store ptr %call5.i.i.i.i.i.i.i.i21, ptr %external_references_.i.i, align 8
   store ptr %incdec.ptr.i.i.i.i.i25, ptr %_M_finish.i.i.i.i, align 8
-  %add.ptr19.i.i.i.i.i29 = getelementptr inbounds nuw i64, ptr %call5.i.i.i.i.i.i.i.i21, i64 %cond.i.i.i.i.i.i18
+  %add.ptr19.i.i.i.i.i29 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i.i21, i64 %cond.i.i.i.i.i.i18
   store ptr %add.ptr19.i.i.i.i.i29, ptr %_M_end_of_storage.i.i.i.i, align 8
   br label %_ZN4node25ExternalReferenceRegistry8RegisterEPFvRKN2v820FunctionCallbackInfoINS1_5ValueEEEE.exit32
 
@@ -675,60 +675,60 @@ entry:
 if.then:                                          ; preds = %entry
   %buffer_.i.i = getelementptr inbounds nuw i8, ptr %binding_data, i64 128
   %1 = load ptr, ptr %buffer_.i.i, align 8
-  %arrayidx.i.i = getelementptr inbounds nuw i64, ptr %1, i64 %cond
+  %arrayidx.i.i = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %cond
   store i64 %0, ptr %arrayidx.i.i, align 8
   %st_mode.i = getelementptr inbounds nuw i8, ptr %s, i64 8
   %2 = load i64, ptr %st_mode.i, align 8
   %3 = load ptr, ptr %buffer_.i.i, align 8
-  %4 = getelementptr i64, ptr %3, i64 %cond
+  %4 = getelementptr [8 x i8], ptr %3, i64 %cond
   %arrayidx.i53.i = getelementptr i8, ptr %4, i64 8
   store i64 %2, ptr %arrayidx.i53.i, align 8
   %st_nlink.i = getelementptr inbounds nuw i8, ptr %s, i64 16
   %5 = load i64, ptr %st_nlink.i, align 8
   %6 = load ptr, ptr %buffer_.i.i, align 8
-  %7 = getelementptr i64, ptr %6, i64 %cond
+  %7 = getelementptr [8 x i8], ptr %6, i64 %cond
   %arrayidx.i55.i = getelementptr i8, ptr %7, i64 16
   store i64 %5, ptr %arrayidx.i55.i, align 8
   %st_uid.i = getelementptr inbounds nuw i8, ptr %s, i64 24
   %8 = load i64, ptr %st_uid.i, align 8
   %9 = load ptr, ptr %buffer_.i.i, align 8
-  %10 = getelementptr i64, ptr %9, i64 %cond
+  %10 = getelementptr [8 x i8], ptr %9, i64 %cond
   %arrayidx.i57.i = getelementptr i8, ptr %10, i64 24
   store i64 %8, ptr %arrayidx.i57.i, align 8
   %st_gid.i = getelementptr inbounds nuw i8, ptr %s, i64 32
   %11 = load i64, ptr %st_gid.i, align 8
   %12 = load ptr, ptr %buffer_.i.i, align 8
-  %13 = getelementptr i64, ptr %12, i64 %cond
+  %13 = getelementptr [8 x i8], ptr %12, i64 %cond
   %arrayidx.i59.i = getelementptr i8, ptr %13, i64 32
   store i64 %11, ptr %arrayidx.i59.i, align 8
   %st_rdev.i = getelementptr inbounds nuw i8, ptr %s, i64 40
   %14 = load i64, ptr %st_rdev.i, align 8
   %15 = load ptr, ptr %buffer_.i.i, align 8
-  %16 = getelementptr i64, ptr %15, i64 %cond
+  %16 = getelementptr [8 x i8], ptr %15, i64 %cond
   %arrayidx.i61.i = getelementptr i8, ptr %16, i64 40
   store i64 %14, ptr %arrayidx.i61.i, align 8
   %st_blksize.i = getelementptr inbounds nuw i8, ptr %s, i64 64
   %17 = load i64, ptr %st_blksize.i, align 8
   %18 = load ptr, ptr %buffer_.i.i, align 8
-  %19 = getelementptr i64, ptr %18, i64 %cond
+  %19 = getelementptr [8 x i8], ptr %18, i64 %cond
   %arrayidx.i63.i = getelementptr i8, ptr %19, i64 48
   store i64 %17, ptr %arrayidx.i63.i, align 8
   %st_ino.i = getelementptr inbounds nuw i8, ptr %s, i64 48
   %20 = load i64, ptr %st_ino.i, align 8
   %21 = load ptr, ptr %buffer_.i.i, align 8
-  %22 = getelementptr i64, ptr %21, i64 %cond
+  %22 = getelementptr [8 x i8], ptr %21, i64 %cond
   %arrayidx.i65.i = getelementptr i8, ptr %22, i64 56
   store i64 %20, ptr %arrayidx.i65.i, align 8
   %st_size.i = getelementptr inbounds nuw i8, ptr %s, i64 56
   %23 = load i64, ptr %st_size.i, align 8
   %24 = load ptr, ptr %buffer_.i.i, align 8
-  %25 = getelementptr i64, ptr %24, i64 %cond
+  %25 = getelementptr [8 x i8], ptr %24, i64 %cond
   %arrayidx.i67.i = getelementptr i8, ptr %25, i64 64
   store i64 %23, ptr %arrayidx.i67.i, align 8
   %st_blocks.i = getelementptr inbounds nuw i8, ptr %s, i64 72
   %26 = load i64, ptr %st_blocks.i, align 8
   %27 = load ptr, ptr %buffer_.i.i, align 8
-  %28 = getelementptr i64, ptr %27, i64 %cond
+  %28 = getelementptr [8 x i8], ptr %27, i64 %cond
   %arrayidx.i69.i = getelementptr i8, ptr %28, i64 72
   store i64 %26, ptr %arrayidx.i69.i, align 8
   %st_atim.i = getelementptr inbounds nuw i8, ptr %s, i64 96
@@ -736,7 +736,7 @@ if.then:                                          ; preds = %entry
   %conv.i = sitofp i64 %29 to double
   %conv11.i = fptosi double %conv.i to i64
   %30 = load ptr, ptr %buffer_.i.i, align 8
-  %31 = getelementptr i64, ptr %30, i64 %cond
+  %31 = getelementptr [8 x i8], ptr %30, i64 %cond
   %arrayidx.i71.i = getelementptr i8, ptr %31, i64 80
   store i64 %conv11.i, ptr %arrayidx.i71.i, align 8
   %tv_nsec.i = getelementptr inbounds nuw i8, ptr %s, i64 104
@@ -744,7 +744,7 @@ if.then:                                          ; preds = %entry
   %conv14.i = sitofp i64 %32 to double
   %conv15.i = fptosi double %conv14.i to i64
   %33 = load ptr, ptr %buffer_.i.i, align 8
-  %34 = getelementptr i64, ptr %33, i64 %cond
+  %34 = getelementptr [8 x i8], ptr %33, i64 %cond
   %arrayidx.i73.i = getelementptr i8, ptr %34, i64 88
   store i64 %conv15.i, ptr %arrayidx.i73.i, align 8
   %st_mtim.i = getelementptr inbounds nuw i8, ptr %s, i64 112
@@ -752,7 +752,7 @@ if.then:                                          ; preds = %entry
   %conv18.i = sitofp i64 %35 to double
   %conv19.i = fptosi double %conv18.i to i64
   %36 = load ptr, ptr %buffer_.i.i, align 8
-  %37 = getelementptr i64, ptr %36, i64 %cond
+  %37 = getelementptr [8 x i8], ptr %36, i64 %cond
   %arrayidx.i75.i = getelementptr i8, ptr %37, i64 96
   store i64 %conv19.i, ptr %arrayidx.i75.i, align 8
   %tv_nsec22.i = getelementptr inbounds nuw i8, ptr %s, i64 120
@@ -760,7 +760,7 @@ if.then:                                          ; preds = %entry
   %conv23.i = sitofp i64 %38 to double
   %conv24.i = fptosi double %conv23.i to i64
   %39 = load ptr, ptr %buffer_.i.i, align 8
-  %40 = getelementptr i64, ptr %39, i64 %cond
+  %40 = getelementptr [8 x i8], ptr %39, i64 %cond
   %arrayidx.i77.i = getelementptr i8, ptr %40, i64 104
   store i64 %conv24.i, ptr %arrayidx.i77.i, align 8
   %st_ctim.i = getelementptr inbounds nuw i8, ptr %s, i64 128
@@ -768,7 +768,7 @@ if.then:                                          ; preds = %entry
   %conv27.i = sitofp i64 %41 to double
   %conv28.i = fptosi double %conv27.i to i64
   %42 = load ptr, ptr %buffer_.i.i, align 8
-  %43 = getelementptr i64, ptr %42, i64 %cond
+  %43 = getelementptr [8 x i8], ptr %42, i64 %cond
   %arrayidx.i79.i = getelementptr i8, ptr %43, i64 112
   store i64 %conv28.i, ptr %arrayidx.i79.i, align 8
   %tv_nsec31.i = getelementptr inbounds nuw i8, ptr %s, i64 136
@@ -776,7 +776,7 @@ if.then:                                          ; preds = %entry
   %conv32.i = sitofp i64 %44 to double
   %conv33.i = fptosi double %conv32.i to i64
   %45 = load ptr, ptr %buffer_.i.i, align 8
-  %46 = getelementptr i64, ptr %45, i64 %cond
+  %46 = getelementptr [8 x i8], ptr %45, i64 %cond
   %arrayidx.i81.i = getelementptr i8, ptr %46, i64 120
   store i64 %conv33.i, ptr %arrayidx.i81.i, align 8
   %st_birthtim.i = getelementptr inbounds nuw i8, ptr %s, i64 144
@@ -784,7 +784,7 @@ if.then:                                          ; preds = %entry
   %conv36.i = sitofp i64 %47 to double
   %conv37.i = fptosi double %conv36.i to i64
   %48 = load ptr, ptr %buffer_.i.i, align 8
-  %49 = getelementptr i64, ptr %48, i64 %cond
+  %49 = getelementptr [8 x i8], ptr %48, i64 %cond
   %arrayidx.i83.i = getelementptr i8, ptr %49, i64 128
   store i64 %conv37.i, ptr %arrayidx.i83.i, align 8
   %tv_nsec40.i = getelementptr inbounds nuw i8, ptr %s, i64 152
@@ -792,7 +792,7 @@ if.then:                                          ; preds = %entry
   %conv41.i = sitofp i64 %50 to double
   %conv42.i = fptosi double %conv41.i to i64
   %51 = load ptr, ptr %buffer_.i.i, align 8
-  %52 = getelementptr i64, ptr %51, i64 %cond
+  %52 = getelementptr [8 x i8], ptr %51, i64 %cond
   %arrayidx.i85.i = getelementptr i8, ptr %52, i64 136
   store i64 %conv42.i, ptr %arrayidx.i85.i, align 8
   %js_array_.i = getelementptr inbounds nuw i8, ptr %binding_data, i64 136
@@ -804,125 +804,125 @@ if.else:                                          ; preds = %entry
   %conv.i6 = uitofp i64 %0 to double
   %buffer_.i.i7 = getelementptr inbounds nuw i8, ptr %binding_data, i64 72
   %54 = load ptr, ptr %buffer_.i.i7, align 8
-  %arrayidx.i.i8 = getelementptr inbounds nuw double, ptr %54, i64 %cond
+  %arrayidx.i.i8 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %cond
   store double %conv.i6, ptr %arrayidx.i.i8, align 8
   %st_mode.i9 = getelementptr inbounds nuw i8, ptr %s, i64 8
   %55 = load i64, ptr %st_mode.i9, align 8
   %conv2.i = uitofp i64 %55 to double
   %56 = load ptr, ptr %buffer_.i.i7, align 8
-  %57 = getelementptr double, ptr %56, i64 %cond
+  %57 = getelementptr [8 x i8], ptr %56, i64 %cond
   %arrayidx.i53.i10 = getelementptr i8, ptr %57, i64 8
   store double %conv2.i, ptr %arrayidx.i53.i10, align 8
   %st_nlink.i11 = getelementptr inbounds nuw i8, ptr %s, i64 16
   %58 = load i64, ptr %st_nlink.i11, align 8
   %conv4.i = uitofp i64 %58 to double
   %59 = load ptr, ptr %buffer_.i.i7, align 8
-  %60 = getelementptr double, ptr %59, i64 %cond
+  %60 = getelementptr [8 x i8], ptr %59, i64 %cond
   %arrayidx.i55.i12 = getelementptr i8, ptr %60, i64 16
   store double %conv4.i, ptr %arrayidx.i55.i12, align 8
   %st_uid.i13 = getelementptr inbounds nuw i8, ptr %s, i64 24
   %61 = load i64, ptr %st_uid.i13, align 8
   %conv6.i = uitofp i64 %61 to double
   %62 = load ptr, ptr %buffer_.i.i7, align 8
-  %63 = getelementptr double, ptr %62, i64 %cond
+  %63 = getelementptr [8 x i8], ptr %62, i64 %cond
   %arrayidx.i57.i14 = getelementptr i8, ptr %63, i64 24
   store double %conv6.i, ptr %arrayidx.i57.i14, align 8
   %st_gid.i15 = getelementptr inbounds nuw i8, ptr %s, i64 32
   %64 = load i64, ptr %st_gid.i15, align 8
   %conv8.i = uitofp i64 %64 to double
   %65 = load ptr, ptr %buffer_.i.i7, align 8
-  %66 = getelementptr double, ptr %65, i64 %cond
+  %66 = getelementptr [8 x i8], ptr %65, i64 %cond
   %arrayidx.i59.i16 = getelementptr i8, ptr %66, i64 32
   store double %conv8.i, ptr %arrayidx.i59.i16, align 8
   %st_rdev.i17 = getelementptr inbounds nuw i8, ptr %s, i64 40
   %67 = load i64, ptr %st_rdev.i17, align 8
   %conv10.i = uitofp i64 %67 to double
   %68 = load ptr, ptr %buffer_.i.i7, align 8
-  %69 = getelementptr double, ptr %68, i64 %cond
+  %69 = getelementptr [8 x i8], ptr %68, i64 %cond
   %arrayidx.i61.i18 = getelementptr i8, ptr %69, i64 40
   store double %conv10.i, ptr %arrayidx.i61.i18, align 8
   %st_blksize.i19 = getelementptr inbounds nuw i8, ptr %s, i64 64
   %70 = load i64, ptr %st_blksize.i19, align 8
   %conv12.i = uitofp i64 %70 to double
   %71 = load ptr, ptr %buffer_.i.i7, align 8
-  %72 = getelementptr double, ptr %71, i64 %cond
+  %72 = getelementptr [8 x i8], ptr %71, i64 %cond
   %arrayidx.i63.i20 = getelementptr i8, ptr %72, i64 48
   store double %conv12.i, ptr %arrayidx.i63.i20, align 8
   %st_ino.i21 = getelementptr inbounds nuw i8, ptr %s, i64 48
   %73 = load i64, ptr %st_ino.i21, align 8
   %conv14.i22 = uitofp i64 %73 to double
   %74 = load ptr, ptr %buffer_.i.i7, align 8
-  %75 = getelementptr double, ptr %74, i64 %cond
+  %75 = getelementptr [8 x i8], ptr %74, i64 %cond
   %arrayidx.i65.i23 = getelementptr i8, ptr %75, i64 56
   store double %conv14.i22, ptr %arrayidx.i65.i23, align 8
   %st_size.i24 = getelementptr inbounds nuw i8, ptr %s, i64 56
   %76 = load i64, ptr %st_size.i24, align 8
   %conv16.i = uitofp i64 %76 to double
   %77 = load ptr, ptr %buffer_.i.i7, align 8
-  %78 = getelementptr double, ptr %77, i64 %cond
+  %78 = getelementptr [8 x i8], ptr %77, i64 %cond
   %arrayidx.i67.i25 = getelementptr i8, ptr %78, i64 64
   store double %conv16.i, ptr %arrayidx.i67.i25, align 8
   %st_blocks.i26 = getelementptr inbounds nuw i8, ptr %s, i64 72
   %79 = load i64, ptr %st_blocks.i26, align 8
   %conv18.i27 = uitofp i64 %79 to double
   %80 = load ptr, ptr %buffer_.i.i7, align 8
-  %81 = getelementptr double, ptr %80, i64 %cond
+  %81 = getelementptr [8 x i8], ptr %80, i64 %cond
   %arrayidx.i69.i28 = getelementptr i8, ptr %81, i64 72
   store double %conv18.i27, ptr %arrayidx.i69.i28, align 8
   %st_atim.i29 = getelementptr inbounds nuw i8, ptr %s, i64 96
   %82 = load i64, ptr %st_atim.i29, align 8
   %conv20.i = sitofp i64 %82 to double
   %83 = load ptr, ptr %buffer_.i.i7, align 8
-  %84 = getelementptr double, ptr %83, i64 %cond
+  %84 = getelementptr [8 x i8], ptr %83, i64 %cond
   %arrayidx.i71.i30 = getelementptr i8, ptr %84, i64 80
   store double %conv20.i, ptr %arrayidx.i71.i30, align 8
   %tv_nsec.i31 = getelementptr inbounds nuw i8, ptr %s, i64 104
   %85 = load i64, ptr %tv_nsec.i31, align 8
   %conv23.i32 = sitofp i64 %85 to double
   %86 = load ptr, ptr %buffer_.i.i7, align 8
-  %87 = getelementptr double, ptr %86, i64 %cond
+  %87 = getelementptr [8 x i8], ptr %86, i64 %cond
   %arrayidx.i73.i33 = getelementptr i8, ptr %87, i64 88
   store double %conv23.i32, ptr %arrayidx.i73.i33, align 8
   %st_mtim.i34 = getelementptr inbounds nuw i8, ptr %s, i64 112
   %88 = load i64, ptr %st_mtim.i34, align 8
   %conv26.i = sitofp i64 %88 to double
   %89 = load ptr, ptr %buffer_.i.i7, align 8
-  %90 = getelementptr double, ptr %89, i64 %cond
+  %90 = getelementptr [8 x i8], ptr %89, i64 %cond
   %arrayidx.i75.i35 = getelementptr i8, ptr %90, i64 96
   store double %conv26.i, ptr %arrayidx.i75.i35, align 8
   %tv_nsec29.i = getelementptr inbounds nuw i8, ptr %s, i64 120
   %91 = load i64, ptr %tv_nsec29.i, align 8
   %conv30.i = sitofp i64 %91 to double
   %92 = load ptr, ptr %buffer_.i.i7, align 8
-  %93 = getelementptr double, ptr %92, i64 %cond
+  %93 = getelementptr [8 x i8], ptr %92, i64 %cond
   %arrayidx.i77.i36 = getelementptr i8, ptr %93, i64 104
   store double %conv30.i, ptr %arrayidx.i77.i36, align 8
   %st_ctim.i37 = getelementptr inbounds nuw i8, ptr %s, i64 128
   %94 = load i64, ptr %st_ctim.i37, align 8
   %conv33.i38 = sitofp i64 %94 to double
   %95 = load ptr, ptr %buffer_.i.i7, align 8
-  %96 = getelementptr double, ptr %95, i64 %cond
+  %96 = getelementptr [8 x i8], ptr %95, i64 %cond
   %arrayidx.i79.i39 = getelementptr i8, ptr %96, i64 112
   store double %conv33.i38, ptr %arrayidx.i79.i39, align 8
   %tv_nsec36.i = getelementptr inbounds nuw i8, ptr %s, i64 136
   %97 = load i64, ptr %tv_nsec36.i, align 8
   %conv37.i40 = sitofp i64 %97 to double
   %98 = load ptr, ptr %buffer_.i.i7, align 8
-  %99 = getelementptr double, ptr %98, i64 %cond
+  %99 = getelementptr [8 x i8], ptr %98, i64 %cond
   %arrayidx.i81.i41 = getelementptr i8, ptr %99, i64 120
   store double %conv37.i40, ptr %arrayidx.i81.i41, align 8
   %st_birthtim.i42 = getelementptr inbounds nuw i8, ptr %s, i64 144
   %100 = load i64, ptr %st_birthtim.i42, align 8
   %conv40.i = sitofp i64 %100 to double
   %101 = load ptr, ptr %buffer_.i.i7, align 8
-  %102 = getelementptr double, ptr %101, i64 %cond
+  %102 = getelementptr [8 x i8], ptr %101, i64 %cond
   %arrayidx.i83.i43 = getelementptr i8, ptr %102, i64 128
   store double %conv40.i, ptr %arrayidx.i83.i43, align 8
   %tv_nsec43.i = getelementptr inbounds nuw i8, ptr %s, i64 152
   %103 = load i64, ptr %tv_nsec43.i, align 8
   %conv44.i = sitofp i64 %103 to double
   %104 = load ptr, ptr %buffer_.i.i7, align 8
-  %105 = getelementptr double, ptr %104, i64 %cond
+  %105 = getelementptr [8 x i8], ptr %104, i64 %cond
   %arrayidx.i85.i44 = getelementptr i8, ptr %105, i64 136
   store double %conv44.i, ptr %arrayidx.i85.i44, align 8
   %js_array_.i45 = getelementptr inbounds nuw i8, ptr %binding_data, i64 80
@@ -1234,7 +1234,7 @@ if.end15.i.i:                                     ; preds = %entry
   %2 = load i64, ptr %_M_bucket_count.i.i.i, align 8
   %rem.i.i.i.i.i = urem i64 %conv.i.i.i.i.i, %2
   %3 = load ptr, ptr %this, align 8
-  %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %3, i64 %rem.i.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds [8 x i8], ptr %3, i64 %rem.i.i.i.i.i
   %4 = load ptr, ptr %arrayidx.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i.i, label %return, label %if.end.i.i.i.i

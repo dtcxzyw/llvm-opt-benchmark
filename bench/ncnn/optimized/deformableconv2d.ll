@@ -1224,7 +1224,7 @@ define internal void @_ZNK4ncnn16DeformableConv2D7forwardERKSt6vectorINS_3MatESa
   %75 = mul i32 %54, %74
   %76 = sub i32 %75, %50
   %77 = load ptr, ptr %5, align 8
-  %invariant.gep481.us.us.us = getelementptr float, ptr %invariant.gep.us.us, i64 %indvars.iv518
+  %invariant.gep481.us.us.us = getelementptr [4 x i8], ptr %invariant.gep.us.us, i64 %indvars.iv518
   br label %78
 
 78:                                               ; preds = %.noexc242.us.us.us, %.lr.ph.us490.us.us
@@ -1232,7 +1232,7 @@ define internal void @_ZNK4ncnn16DeformableConv2D7forwardERKSt6vectorINS_3MatESa
   br i1 %.not170.us.us.us, label %82, label %79
 
 79:                                               ; preds = %78
-  %80 = getelementptr inbounds nuw float, ptr %77, i64 %indvars.iv513
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %indvars.iv513
   %81 = load float, ptr %80, align 4, !tbaa !65
   br label %82
 
@@ -1335,7 +1335,7 @@ define internal void @_ZNK4ncnn16DeformableConv2D7forwardERKSt6vectorINS_3MatESa
   %132 = mul nsw i64 %indvars.iv523, %131
   %133 = mul i64 %132, %130
   %invariant.gep455.us.us.us = getelementptr i8, ptr %128, i64 %133
-  %invariant.gep456.us.us.us = getelementptr float, ptr %invariant.gep455.us.us.us, i64 %indvars.iv518
+  %invariant.gep456.us.us.us = getelementptr [4 x i8], ptr %invariant.gep455.us.us.us, i64 %indvars.iv518
   %134 = load i8, ptr %7, align 1, !range !69
   %135 = trunc nuw i8 %134 to i1
   %136 = load ptr, ptr %8, align 8
@@ -1411,7 +1411,7 @@ define internal void @_ZNK4ncnn16DeformableConv2D7forwardERKSt6vectorINS_3MatESa
   %183 = mul nsw i64 %indvars.iv523, %182
   %184 = mul i64 %183, %179
   %185 = getelementptr inbounds nuw i8, ptr %181, i64 %184
-  %186 = getelementptr inbounds nuw float, ptr %185, i64 %indvars.iv518
+  %186 = getelementptr inbounds nuw [4 x i8], ptr %185, i64 %indvars.iv518
   %187 = load float, ptr %186, align 4, !tbaa !65
   br label %.critedge.us.us.us.us
 
@@ -1473,12 +1473,12 @@ define internal void @_ZNK4ncnn16DeformableConv2D7forwardERKSt6vectorINS_3MatESa
   %227 = sext i32 %226 to i64
   %228 = sext i32 %202 to i64
   %invariant.gep.us.us.us.us = getelementptr i8, ptr %150, i64 %225
-  %invariant.gep433.us.us.us.us = getelementptr float, ptr %invariant.gep.us.us.us.us, i64 %228
-  %invariant.gep438.us.us.us.us = getelementptr float, ptr %invariant.gep.us.us.us.us, i64 %227
+  %invariant.gep433.us.us.us.us = getelementptr [4 x i8], ptr %invariant.gep.us.us.us.us, i64 %228
+  %invariant.gep438.us.us.us.us = getelementptr [4 x i8], ptr %invariant.gep.us.us.us.us, i64 %227
   %invariant.gep442.us.us.us.us = getelementptr i8, ptr %150, i64 %223
-  %invariant.gep443.us.us.us.us = getelementptr float, ptr %invariant.gep442.us.us.us.us, i64 %228
-  %invariant.gep448.us.us.us.us = getelementptr float, ptr %invariant.gep442.us.us.us.us, i64 %227
-  %invariant.gep = getelementptr float, ptr %154, i64 %indvars.iv503
+  %invariant.gep443.us.us.us.us = getelementptr [4 x i8], ptr %invariant.gep442.us.us.us.us, i64 %228
+  %invariant.gep448.us.us.us.us = getelementptr [4 x i8], ptr %invariant.gep442.us.us.us.us, i64 %227
+  %invariant.gep = getelementptr [4 x i8], ptr %154, i64 %indvars.iv503
   br label %.lr.ph.split.us.us.us.us.us
 
 .lr.ph.split.us.us.us.us.us:                      ; preds = %.lr.ph.split.us.us.us.us.us.preheader, %.critedge178.us.us.us.us.us
@@ -1536,7 +1536,7 @@ define internal void @_ZNK4ncnn16DeformableConv2D7forwardERKSt6vectorINS_3MatESa
   %246 = mul nsw i64 %245, %63
   %247 = add nsw i64 %246, %indvars.iv508
   %248 = mul nsw i64 %247, %160
-  %gep = getelementptr float, ptr %invariant.gep, i64 %248
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %248
   %249 = load float, ptr %gep, align 4, !tbaa !65
   %250 = fmul fast float %249, %244
   %251 = fadd fast float %250, %.3430.us.us.us.us.us

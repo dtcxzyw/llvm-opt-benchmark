@@ -165,12 +165,12 @@ define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1
   %.07486 = phi i32 [ %97, %.lr.ph ], [ 0, %.preheader ]
   %82 = load ptr, ptr %5, align 8
   %83 = sext i32 %.07486 to i64
-  %84 = getelementptr inbounds i64, ptr %82, i64 %83
+  %84 = getelementptr inbounds [8 x i8], ptr %82, i64 %83
   %85 = load i64, ptr %84, align 8
   %86 = inttoptr i64 %85 to ptr
   %87 = call ptr @text_to_cstring(ptr noundef %86) #8
   %88 = load ptr, ptr %5, align 8
-  %89 = getelementptr i64, ptr %88, i64 %83
+  %89 = getelementptr [8 x i8], ptr %88, i64 %83
   %90 = getelementptr i8, ptr %89, i64 8
   %91 = load i64, ptr %90, align 8
   %92 = inttoptr i64 %91 to ptr

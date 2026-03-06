@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.ParseCallbackState = type { ptr, i32, %struct.ErrorContextCallback }
 %struct.ErrorContextCallback = type { ptr, ptr, ptr }
 %struct.StringInfoData = type { ptr, i32, i32, i32 }
-%union.ListCell = type { ptr }
 
 @.str = private unnamed_addr constant [53 x i8] c"improper %%TYPE reference (too few dotted names): %s\00", align 1
 @.str.1 = private unnamed_addr constant [13 x i8] c"parse_type.c\00", align 1
@@ -347,7 +346,7 @@ list_length.exit.i:                               ; preds = %152
 .lr.ph70.i:                                       ; preds = %.lr.ph.i, %220
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %220 ], [ 0, %.lr.ph.i ]
   %174 = load ptr, ptr %171, align 8
-  %175 = getelementptr inbounds nuw %union.ListCell, ptr %174, i64 %indvars.iv.i
+  %175 = getelementptr inbounds nuw [8 x i8], ptr %174, i64 %indvars.iv.i
   %176 = load ptr, ptr %175, align 8
   %177 = load i32, ptr %176, align 4
   switch i32 %177, label %.thread.i [
@@ -442,7 +441,7 @@ list_length.exit59.i:                             ; preds = %199
 220:                                              ; preds = %213
   %221 = ptrtoint ptr %.1.i to i64
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %222 = getelementptr inbounds nuw i64, ptr %168, i64 %indvars.iv.i
+  %222 = getelementptr inbounds nuw [8 x i8], ptr %168, i64 %indvars.iv.i
   store i64 %221, ptr %222, align 8
   %223 = load i32, ptr %170, align 4
   %224 = sext i32 %223 to i64
@@ -653,7 +652,7 @@ define internal fastcc void @appendTypeNameToBuffer(ptr noundef readonly capture
 8:                                                ; preds = %.lr.ph, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
   %9 = load ptr, ptr %7, align 8
-  %10 = getelementptr inbounds nuw %union.ListCell, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %11, null
   br i1 %.not.i, label %list_head.exit, label %12

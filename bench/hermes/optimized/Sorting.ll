@@ -40,7 +40,7 @@ if.end:                                           ; preds = %entry
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %conv, 2
   %call5.i.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #9
   store ptr %call5.i.i.i.i.i.i, ptr %index, align 8
-  %add.ptr.i.i.i = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i.i.i, i64 %conv
+  %add.ptr.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i.i.i, i64 %conv
   %_M_end_of_storage.i.i.i = getelementptr inbounds nuw i8, ptr %index, i64 16
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
   store i32 0, ptr %call5.i.i.i.i.i.i, align 4
@@ -63,7 +63,7 @@ _ZNSt6vectorIjSaIjEEC2EmRKS0_.exit:               ; preds = %if.end, %if.end.i.i
 
 for.body:                                         ; preds = %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit ]
-  %add.ptr.i = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i.i.i, i64 %indvars.iv
+  %add.ptr.i = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i.i.i, i64 %indvars.iv
   %1 = trunc nuw i64 %indvars.iv to i32
   store i32 %1, ptr %add.ptr.i, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -105,10 +105,10 @@ cond.true.i.i:                                    ; preds = %if.end.i.i
 
 _ZN6hermes2vm12_GLOBAL__N_15_lessEPNS0_9SortModelERKSt6vectorIjSaIjEEjj.exit.i: ; preds = %if.end.i.i
   %conv.i.i = zext i32 %j.027.i to i64
-  %add.ptr.i.i.i14 = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i.i.i, i64 %conv.i.i
+  %add.ptr.i.i.i14 = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i.i.i, i64 %conv.i.i
   %4 = load i32, ptr %add.ptr.i.i.i14, align 4
   %conv6.i.i = zext i32 %sub.i to i64
-  %add.ptr.i5.i.i = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i.i.i, i64 %conv6.i.i
+  %add.ptr.i5.i.i = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i.i.i, i64 %conv6.i.i
   %5 = load i32, ptr %add.ptr.i5.i.i, align 4
   %cmp8.i.i = icmp ult i32 %4, %5
   br i1 %cmp8.i.i, label %if.end10.i, label %for.inc16.i
@@ -122,9 +122,9 @@ if.end10.i:                                       ; preds = %cond.true.i.i, %_ZN
 
 for.inc.i:                                        ; preds = %if.end10.i
   %conv.i19.i = zext i32 %j.027.i to i64
-  %add.ptr.i.i20.i = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i.i.i, i64 %conv.i19.i
+  %add.ptr.i.i20.i = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i.i.i, i64 %conv.i19.i
   %conv2.i.i = zext i32 %sub.i to i64
-  %add.ptr.i4.i.i = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i.i.i, i64 %conv2.i.i
+  %add.ptr.i4.i.i = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i.i.i, i64 %conv2.i.i
   %7 = load i32, ptr %add.ptr.i.i20.i, align 4
   %8 = load i32, ptr %add.ptr.i4.i.i, align 4
   store i32 %8, ptr %add.ptr.i.i20.i, align 4
@@ -216,9 +216,9 @@ while.body.i:                                     ; preds = %while.cond.i
 
 if.end13.i:                                       ; preds = %while.body.i
   %1 = load ptr, ptr %index, align 8
-  %add.ptr.i.i.i = getelementptr inbounds nuw i32, ptr %1, i64 %conv.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %conv.i.i
   %conv2.i.i = zext i32 %dec9.i to i64
-  %add.ptr.i4.i.i = getelementptr inbounds nuw i32, ptr %1, i64 %conv2.i.i
+  %add.ptr.i4.i.i = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %conv2.i.i
   %2 = load i32, ptr %add.ptr.i.i.i, align 4
   %3 = load i32, ptr %add.ptr.i4.i.i, align 4
   store i32 %3, ptr %add.ptr.i.i.i, align 4
@@ -243,9 +243,9 @@ if.end:                                           ; preds = %if.end.lr.ph, %if.t
 if.end6:                                          ; preds = %if.end
   %conv.i = zext i32 %add1 to i64
   %5 = load ptr, ptr %index, align 8
-  %add.ptr.i.i = getelementptr inbounds nuw i32, ptr %5, i64 %conv.i
+  %add.ptr.i.i = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %conv.i
   %conv2.i = zext i32 %add2 to i64
-  %add.ptr.i4.i = getelementptr inbounds nuw i32, ptr %5, i64 %conv2.i
+  %add.ptr.i4.i = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %conv2.i
   %6 = load i32, ptr %add.ptr.i.i, align 4
   %7 = load i32, ptr %add.ptr.i4.i, align 4
   store i32 %7, ptr %add.ptr.i.i, align 4
@@ -268,9 +268,9 @@ cond.true.i:                                      ; preds = %if.end.i79
 
 cond.false.i:                                     ; preds = %if.end.i79
   %10 = load ptr, ptr %index, align 8
-  %add.ptr.i.i81 = getelementptr inbounds nuw i32, ptr %10, i64 %conv.i80
+  %add.ptr.i.i81 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %conv.i80
   %11 = load i32, ptr %add.ptr.i.i81, align 4
-  %add.ptr.i5.i = getelementptr inbounds nuw i32, ptr %10, i64 %conv.i
+  %add.ptr.i5.i = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %conv.i
   %12 = load i32, ptr %add.ptr.i5.i, align 4
   %cmp8.i82 = icmp ult i32 %11, %12
   br label %if.end11
@@ -288,8 +288,8 @@ if.then13:                                        ; preds = %if.end11
 
 _ZN6hermes2vm12_GLOBAL__N_15_swapEPNS0_9SortModelERSt6vectorIjSaIjEEjj.exit95: ; preds = %if.then13
   %14 = load ptr, ptr %index, align 8
-  %add.ptr.i.i91 = getelementptr inbounds nuw i32, ptr %14, i64 %conv.i80
-  %add.ptr.i4.i93 = getelementptr inbounds nuw i32, ptr %14, i64 %conv.i
+  %add.ptr.i.i91 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %conv.i80
+  %add.ptr.i4.i93 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %conv.i
   %15 = load i32, ptr %add.ptr.i.i91, align 4
   %16 = load i32, ptr %add.ptr.i4.i93, align 4
   store i32 %16, ptr %add.ptr.i.i91, align 4
@@ -315,10 +315,10 @@ cond.true.i102:                                   ; preds = %if.end.i100
 
 cond.false.i107:                                  ; preds = %if.end.i100
   %19 = load ptr, ptr %index, align 8
-  %add.ptr.i.i109 = getelementptr inbounds nuw i32, ptr %19, i64 %conv.i
+  %add.ptr.i.i109 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %conv.i
   %20 = load i32, ptr %add.ptr.i.i109, align 4
   %conv6.i110 = zext i32 %l.addr.0388 to i64
-  %add.ptr.i5.i111 = getelementptr inbounds nuw i32, ptr %19, i64 %conv6.i110
+  %add.ptr.i5.i111 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %conv6.i110
   %21 = load i32, ptr %add.ptr.i5.i111, align 4
   %cmp8.i112 = icmp ult i32 %20, %21
   br label %if.end25
@@ -336,9 +336,9 @@ if.then27:                                        ; preds = %if.end25
 
 _ZN6hermes2vm12_GLOBAL__N_15_swapEPNS0_9SortModelERSt6vectorIjSaIjEEjj.exit130: ; preds = %if.then27
   %23 = load ptr, ptr %index, align 8
-  %add.ptr.i.i126 = getelementptr inbounds nuw i32, ptr %23, i64 %conv.i
+  %add.ptr.i.i126 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %conv.i
   %conv2.i127 = zext i32 %l.addr.0388 to i64
-  %add.ptr.i4.i128 = getelementptr inbounds nuw i32, ptr %23, i64 %conv2.i127
+  %add.ptr.i4.i128 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %conv2.i127
   %24 = load i32, ptr %add.ptr.i.i126, align 4
   %25 = load i32, ptr %add.ptr.i4.i128, align 4
   store i32 %25, ptr %add.ptr.i.i126, align 4
@@ -364,9 +364,9 @@ cond.true.i137:                                   ; preds = %if.end.i135
 
 cond.false.i142:                                  ; preds = %if.end.i135
   %28 = load ptr, ptr %index, align 8
-  %add.ptr.i.i144 = getelementptr inbounds nuw i32, ptr %28, i64 %conv.i80
+  %add.ptr.i.i144 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %conv.i80
   %29 = load i32, ptr %add.ptr.i.i144, align 4
-  %add.ptr.i5.i146 = getelementptr inbounds nuw i32, ptr %28, i64 %conv.i
+  %add.ptr.i5.i146 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %conv.i
   %30 = load i32, ptr %add.ptr.i5.i146, align 4
   %cmp8.i147 = icmp ult i32 %29, %30
   br label %if.end39
@@ -384,8 +384,8 @@ if.then41:                                        ; preds = %if.end39
 
 _ZN6hermes2vm12_GLOBAL__N_15_swapEPNS0_9SortModelERSt6vectorIjSaIjEEjj.exit165: ; preds = %if.then41
   %32 = load ptr, ptr %index, align 8
-  %add.ptr.i.i161 = getelementptr inbounds nuw i32, ptr %32, i64 %conv.i80
-  %add.ptr.i4.i163 = getelementptr inbounds nuw i32, ptr %32, i64 %conv.i
+  %add.ptr.i.i161 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %conv.i80
+  %add.ptr.i4.i163 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %conv.i
   %33 = load i32, ptr %add.ptr.i.i161, align 4
   %34 = load i32, ptr %add.ptr.i4.i163, align 4
   store i32 %34, ptr %add.ptr.i.i161, align 4
@@ -423,9 +423,9 @@ cond.true.i.i:                                    ; preds = %if.end.i.i
 _ZN6hermes2vm12_GLOBAL__N_15_lessEPNS0_9SortModelERKSt6vectorIjSaIjEEjj.exit.i: ; preds = %if.end.i.i
   %conv.i.i175 = zext i32 %i.183.i to i64
   %37 = load ptr, ptr %index, align 8
-  %add.ptr.i.i.i176 = getelementptr inbounds nuw i32, ptr %37, i64 %conv.i.i175
+  %add.ptr.i.i.i176 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %conv.i.i175
   %38 = load i32, ptr %add.ptr.i.i.i176, align 4
-  %add.ptr.i5.i.i = getelementptr inbounds nuw i32, ptr %37, i64 %conv.i
+  %add.ptr.i5.i.i = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %conv.i
   %39 = load i32, ptr %add.ptr.i5.i.i, align 4
   %cmp8.i.i = icmp ult i32 %38, %39
   br i1 %cmp8.i.i, label %for.inc.i, label %for.end.i
@@ -460,10 +460,10 @@ cond.true.i34.i:                                  ; preds = %if.end.i32.i
 
 _ZN6hermes2vm12_GLOBAL__N_15_lessEPNS0_9SortModelERKSt6vectorIjSaIjEEjj.exit45.i: ; preds = %if.end.i32.i
   %42 = load ptr, ptr %index, align 8
-  %add.ptr.i.i41.i = getelementptr inbounds nuw i32, ptr %42, i64 %conv.i
+  %add.ptr.i.i41.i = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %conv.i
   %43 = load i32, ptr %add.ptr.i.i41.i, align 4
   %conv6.i42.i = zext i32 %j.186.i to i64
-  %add.ptr.i5.i43.i = getelementptr inbounds nuw i32, ptr %42, i64 %conv6.i42.i
+  %add.ptr.i5.i43.i = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %conv6.i42.i
   %44 = load i32, ptr %add.ptr.i5.i43.i, align 4
   %cmp8.i44.i = icmp ult i32 %43, %44
   br i1 %cmp8.i44.i, label %for.inc18.i, label %for.end19.i
@@ -488,9 +488,9 @@ if.end22.i:                                       ; preds = %for.end19.i
 if.end26.i:                                       ; preds = %if.end22.i
   %conv.i57.i = zext i32 %i.1.lcssa.i to i64
   %46 = load ptr, ptr %index, align 8
-  %add.ptr.i.i58.i = getelementptr inbounds nuw i32, ptr %46, i64 %conv.i57.i
+  %add.ptr.i.i58.i = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %conv.i57.i
   %conv2.i.i171 = zext i32 %j.1.lcssa.i to i64
-  %add.ptr.i4.i.i172 = getelementptr inbounds nuw i32, ptr %46, i64 %conv2.i.i171
+  %add.ptr.i4.i.i172 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %conv2.i.i171
   %47 = load i32, ptr %add.ptr.i.i58.i, align 4
   %48 = load i32, ptr %add.ptr.i4.i.i172, align 4
   store i32 %48, ptr %add.ptr.i.i58.i, align 4
@@ -512,9 +512,9 @@ if.then31.i:                                      ; preds = %for.end29.i
 
 _ZN6hermes2vm12_GLOBAL__N_15_swapEPNS0_9SortModelERSt6vectorIjSaIjEEjj.exit68.i: ; preds = %if.then31.i
   %50 = load ptr, ptr %index, align 8
-  %add.ptr.i.i64.i = getelementptr inbounds nuw i32, ptr %50, i64 %conv.i
+  %add.ptr.i.i64.i = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %conv.i
   %conv2.i65.i = zext i32 %j.1.lcssa.i to i64
-  %add.ptr.i4.i66.i = getelementptr inbounds nuw i32, ptr %50, i64 %conv2.i65.i
+  %add.ptr.i4.i66.i = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %conv2.i65.i
   %51 = load i32, ptr %add.ptr.i.i64.i, align 4
   %52 = load i32, ptr %add.ptr.i4.i66.i, align 4
   store i32 %52, ptr %add.ptr.i.i64.i, align 4
@@ -572,10 +572,10 @@ cond.true.i.i186:                                 ; preds = %if.end.i.i184
 _ZN6hermes2vm12_GLOBAL__N_15_lessEPNS0_9SortModelERKSt6vectorIjSaIjEEjj.exit.i188: ; preds = %if.end.i.i184
   %conv.i.i196 = zext i32 %j.027.i to i64
   %55 = load ptr, ptr %index, align 8
-  %add.ptr.i.i.i197 = getelementptr inbounds nuw i32, ptr %55, i64 %conv.i.i196
+  %add.ptr.i.i.i197 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %conv.i.i196
   %56 = load i32, ptr %add.ptr.i.i.i197, align 4
   %conv6.i.i198 = zext i32 %sub.i179 to i64
-  %add.ptr.i5.i.i199 = getelementptr inbounds nuw i32, ptr %55, i64 %conv6.i.i198
+  %add.ptr.i5.i.i199 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %conv6.i.i198
   %57 = load i32, ptr %add.ptr.i5.i.i199, align 4
   %cmp8.i.i200 = icmp ult i32 %56, %57
   br i1 %cmp8.i.i200, label %if.end10.i, label %for.inc16.i
@@ -590,9 +590,9 @@ if.end10.i:                                       ; preds = %cond.true.i.i186, %
 for.inc.i192:                                     ; preds = %if.end10.i
   %conv.i19.i = zext i32 %j.027.i to i64
   %59 = load ptr, ptr %index, align 8
-  %add.ptr.i.i20.i = getelementptr inbounds nuw i32, ptr %59, i64 %conv.i19.i
+  %add.ptr.i.i20.i = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %conv.i19.i
   %conv2.i.i193 = zext i32 %sub.i179 to i64
-  %add.ptr.i4.i.i194 = getelementptr inbounds nuw i32, ptr %59, i64 %conv2.i.i193
+  %add.ptr.i4.i.i194 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %conv2.i.i193
   %60 = load i32, ptr %add.ptr.i.i20.i, align 4
   %61 = load i32, ptr %add.ptr.i4.i.i194, align 4
   store i32 %61, ptr %add.ptr.i.i20.i, align 4
@@ -652,10 +652,10 @@ cond.true.i.i217:                                 ; preds = %if.end.i.i215
 _ZN6hermes2vm12_GLOBAL__N_15_lessEPNS0_9SortModelERKSt6vectorIjSaIjEEjj.exit.i219: ; preds = %if.end.i.i215
   %conv.i.i236 = zext i32 %j.027.i209 to i64
   %64 = load ptr, ptr %index, align 8
-  %add.ptr.i.i.i237 = getelementptr inbounds nuw i32, ptr %64, i64 %conv.i.i236
+  %add.ptr.i.i.i237 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %conv.i.i236
   %65 = load i32, ptr %add.ptr.i.i.i237, align 4
   %conv6.i.i238 = zext i32 %sub.i210 to i64
-  %add.ptr.i5.i.i239 = getelementptr inbounds nuw i32, ptr %64, i64 %conv6.i.i238
+  %add.ptr.i5.i.i239 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %conv6.i.i238
   %66 = load i32, ptr %add.ptr.i5.i.i239, align 4
   %cmp8.i.i240 = icmp ult i32 %65, %66
   br i1 %cmp8.i.i240, label %if.end10.i225, label %for.inc16.i221
@@ -670,9 +670,9 @@ if.end10.i225:                                    ; preds = %cond.true.i.i217, %
 for.inc.i229:                                     ; preds = %if.end10.i225
   %conv.i19.i230 = zext i32 %j.027.i209 to i64
   %68 = load ptr, ptr %index, align 8
-  %add.ptr.i.i20.i231 = getelementptr inbounds nuw i32, ptr %68, i64 %conv.i19.i230
+  %add.ptr.i.i20.i231 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %conv.i19.i230
   %conv2.i.i232 = zext i32 %sub.i210 to i64
-  %add.ptr.i4.i.i233 = getelementptr inbounds nuw i32, ptr %68, i64 %conv2.i.i232
+  %add.ptr.i4.i.i233 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %conv2.i.i232
   %69 = load i32, ptr %add.ptr.i.i20.i231, align 4
   %70 = load i32, ptr %add.ptr.i4.i.i233, align 4
   store i32 %70, ptr %add.ptr.i.i20.i231, align 4
@@ -734,10 +734,10 @@ cond.true.i.i258:                                 ; preds = %if.end.i.i256
 _ZN6hermes2vm12_GLOBAL__N_15_lessEPNS0_9SortModelERKSt6vectorIjSaIjEEjj.exit.i260: ; preds = %if.end.i.i256
   %conv.i.i277 = zext i32 %j.027.i250 to i64
   %73 = load ptr, ptr %index, align 8
-  %add.ptr.i.i.i278 = getelementptr inbounds nuw i32, ptr %73, i64 %conv.i.i277
+  %add.ptr.i.i.i278 = getelementptr inbounds nuw [4 x i8], ptr %73, i64 %conv.i.i277
   %74 = load i32, ptr %add.ptr.i.i.i278, align 4
   %conv6.i.i279 = zext i32 %sub.i251 to i64
-  %add.ptr.i5.i.i280 = getelementptr inbounds nuw i32, ptr %73, i64 %conv6.i.i279
+  %add.ptr.i5.i.i280 = getelementptr inbounds nuw [4 x i8], ptr %73, i64 %conv6.i.i279
   %75 = load i32, ptr %add.ptr.i5.i.i280, align 4
   %cmp8.i.i281 = icmp ult i32 %74, %75
   br i1 %cmp8.i.i281, label %if.end10.i266, label %for.inc16.i262
@@ -752,9 +752,9 @@ if.end10.i266:                                    ; preds = %cond.true.i.i258, %
 for.inc.i270:                                     ; preds = %if.end10.i266
   %conv.i19.i271 = zext i32 %j.027.i250 to i64
   %77 = load ptr, ptr %index, align 8
-  %add.ptr.i.i20.i272 = getelementptr inbounds nuw i32, ptr %77, i64 %conv.i19.i271
+  %add.ptr.i.i20.i272 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %conv.i19.i271
   %conv2.i.i273 = zext i32 %sub.i251 to i64
-  %add.ptr.i4.i.i274 = getelementptr inbounds nuw i32, ptr %77, i64 %conv2.i.i273
+  %add.ptr.i4.i.i274 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %conv2.i.i273
   %78 = load i32, ptr %add.ptr.i.i20.i272, align 4
   %79 = load i32, ptr %add.ptr.i4.i.i274, align 4
   store i32 %79, ptr %add.ptr.i.i20.i272, align 4
@@ -810,10 +810,10 @@ cond.true.i.i299:                                 ; preds = %if.end.i.i297
 _ZN6hermes2vm12_GLOBAL__N_15_lessEPNS0_9SortModelERKSt6vectorIjSaIjEEjj.exit.i301: ; preds = %if.end.i.i297
   %conv.i.i318 = zext i32 %j.027.i291 to i64
   %82 = load ptr, ptr %index, align 8
-  %add.ptr.i.i.i319 = getelementptr inbounds nuw i32, ptr %82, i64 %conv.i.i318
+  %add.ptr.i.i.i319 = getelementptr inbounds nuw [4 x i8], ptr %82, i64 %conv.i.i318
   %83 = load i32, ptr %add.ptr.i.i.i319, align 4
   %conv6.i.i320 = zext i32 %sub.i292 to i64
-  %add.ptr.i5.i.i321 = getelementptr inbounds nuw i32, ptr %82, i64 %conv6.i.i320
+  %add.ptr.i5.i.i321 = getelementptr inbounds nuw [4 x i8], ptr %82, i64 %conv6.i.i320
   %84 = load i32, ptr %add.ptr.i5.i.i321, align 4
   %cmp8.i.i322 = icmp ult i32 %83, %84
   br i1 %cmp8.i.i322, label %if.end10.i307, label %for.inc16.i303
@@ -828,9 +828,9 @@ if.end10.i307:                                    ; preds = %cond.true.i.i299, %
 for.inc.i311:                                     ; preds = %if.end10.i307
   %conv.i19.i312 = zext i32 %j.027.i291 to i64
   %86 = load ptr, ptr %index, align 8
-  %add.ptr.i.i20.i313 = getelementptr inbounds nuw i32, ptr %86, i64 %conv.i19.i312
+  %add.ptr.i.i20.i313 = getelementptr inbounds nuw [4 x i8], ptr %86, i64 %conv.i19.i312
   %conv2.i.i314 = zext i32 %sub.i292 to i64
-  %add.ptr.i4.i.i315 = getelementptr inbounds nuw i32, ptr %86, i64 %conv2.i.i314
+  %add.ptr.i4.i.i315 = getelementptr inbounds nuw [4 x i8], ptr %86, i64 %conv2.i.i314
   %87 = load i32, ptr %add.ptr.i.i20.i313, align 4
   %88 = load i32, ptr %add.ptr.i4.i.i315, align 4
   store i32 %88, ptr %add.ptr.i.i20.i313, align 4
@@ -896,10 +896,10 @@ cond.true.i:                                      ; preds = %if.end.i
 cond.false.i:                                     ; preds = %if.end.i
   %conv.i = zext i32 %add6 to i64
   %2 = load ptr, ptr %index, align 8
-  %add.ptr.i.i = getelementptr inbounds nuw i32, ptr %2, i64 %conv.i
+  %add.ptr.i.i = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %conv.i
   %3 = load i32, ptr %add.ptr.i.i, align 4
   %conv6.i = zext i32 %add7 to i64
-  %add.ptr.i5.i = getelementptr inbounds nuw i32, ptr %2, i64 %conv6.i
+  %add.ptr.i5.i = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %conv6.i
   %4 = load i32, ptr %add.ptr.i5.i, align 4
   %cmp8.i = icmp ult i32 %3, %4
   br label %if.end13
@@ -930,10 +930,10 @@ cond.true.i29:                                    ; preds = %if.end.i27
 cond.false.i34:                                   ; preds = %if.end.i27
   %conv.i35 = zext i32 %i.061 to i64
   %7 = load ptr, ptr %index, align 8
-  %add.ptr.i.i36 = getelementptr inbounds nuw i32, ptr %7, i64 %conv.i35
+  %add.ptr.i.i36 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %conv.i35
   %8 = load i32, ptr %add.ptr.i.i36, align 4
   %conv6.i37 = zext i32 %j.0 to i64
-  %add.ptr.i5.i38 = getelementptr inbounds nuw i32, ptr %7, i64 %conv6.i37
+  %add.ptr.i5.i38 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %conv6.i37
   %9 = load i32, ptr %add.ptr.i5.i38, align 4
   %cmp8.i39 = icmp ult i32 %8, %9
   br label %if.end22
@@ -952,9 +952,9 @@ if.end25:                                         ; preds = %if.end22
 _ZN6hermes2vm12_GLOBAL__N_15_swapEPNS0_9SortModelERSt6vectorIjSaIjEEjj.exit: ; preds = %if.end25
   %conv.i52 = zext i32 %i.061 to i64
   %11 = load ptr, ptr %index, align 8
-  %add.ptr.i.i53 = getelementptr inbounds nuw i32, ptr %11, i64 %conv.i52
+  %add.ptr.i.i53 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %conv.i52
   %conv2.i = zext i32 %j.0 to i64
-  %add.ptr.i4.i = getelementptr inbounds nuw i32, ptr %11, i64 %conv2.i
+  %add.ptr.i4.i = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %conv2.i
   %12 = load i32, ptr %add.ptr.i.i53, align 4
   %13 = load i32, ptr %add.ptr.i4.i, align 4
   store i32 %13, ptr %add.ptr.i.i53, align 4

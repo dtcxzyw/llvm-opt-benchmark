@@ -64,14 +64,14 @@ define internal void @mpadsp_init_tabs() #2 {
   %29 = fdiv nsz double 0x3FEC24DD2F1A9FBE, %28
   %30 = udiv i32 %.063, 3
   %31 = zext nneg i32 %30 to i64
-  %32 = getelementptr inbounds nuw float, ptr getelementptr inbounds nuw (i8, ptr @ff_mdct_win_float, i64 320), i64 %31
-  %33 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @ff_mdct_win_fixed, i64 320), i64 %31
+  %32 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @ff_mdct_win_float, i64 320), i64 %31
+  %33 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @ff_mdct_win_fixed, i64 320), i64 %31
   %34 = icmp samesign ult i32 %.063, 18
   %35 = add nuw nsw i32 %.063, 2
   %36 = select i1 %34, i32 %.063, i32 %35
   %37 = zext nneg i32 %36 to i64
-  %invariant.gep = getelementptr inbounds nuw float, ptr @ff_mdct_win_float, i64 %37
-  %invariant.gep61 = getelementptr inbounds nuw i32, ptr @ff_mdct_win_fixed, i64 %37
+  %invariant.gep = getelementptr inbounds nuw [4 x i8], ptr @ff_mdct_win_float, i64 %37
+  %invariant.gep61 = getelementptr inbounds nuw [4 x i8], ptr @ff_mdct_win_fixed, i64 %37
   %.mux69 = select i1 %8, double %14, double %6
   %.mux = select i1 %16, double %22, double %6
   %38 = add nsw i32 %.063, -18
@@ -122,11 +122,11 @@ define internal void @mpadsp_init_tabs() #2 {
   br label %58
 
 55:                                               ; preds = %48
-  %gep = getelementptr inbounds nuw [40 x float], ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [160 x i8], ptr %invariant.gep, i64 %indvars.iv
   store float %51, ptr %gep, align 4, !tbaa !14
   %56 = tail call nsz double @llvm.fmuladd.f64(double %50, double 0x41F0000000000000, double 5.000000e-01)
   %57 = fptosi double %56 to i32
-  %gep62 = getelementptr inbounds nuw [40 x i32], ptr %invariant.gep61, i64 %indvars.iv
+  %gep62 = getelementptr inbounds nuw [160 x i8], ptr %invariant.gep61, i64 %indvars.iv
   store i32 %57, ptr %gep62, align 4, !tbaa !16
   br label %58
 
@@ -142,33 +142,33 @@ define internal void @mpadsp_init_tabs() #2 {
 
 .preheader:                                       ; preds = %59, %83
   %indvars.iv75 = phi i64 [ %indvars.iv.next76, %83 ], [ 0, %59 ]
-  %61 = getelementptr inbounds nuw [40 x float], ptr @ff_mdct_win_float, i64 %indvars.iv75
+  %61 = getelementptr inbounds nuw [160 x i8], ptr @ff_mdct_win_float, i64 %indvars.iv75
   %62 = or disjoint i64 %indvars.iv75, 4
-  %63 = getelementptr inbounds nuw [40 x float], ptr @ff_mdct_win_float, i64 %62
-  %64 = getelementptr inbounds nuw [40 x i32], ptr @ff_mdct_win_fixed, i64 %indvars.iv75
-  %65 = getelementptr inbounds nuw [40 x i32], ptr @ff_mdct_win_fixed, i64 %62
+  %63 = getelementptr inbounds nuw [160 x i8], ptr @ff_mdct_win_float, i64 %62
+  %64 = getelementptr inbounds nuw [160 x i8], ptr @ff_mdct_win_fixed, i64 %indvars.iv75
+  %65 = getelementptr inbounds nuw [160 x i8], ptr @ff_mdct_win_fixed, i64 %62
   br label %66
 
 66:                                               ; preds = %.preheader, %66
   %indvars.iv72 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next73, %66 ]
-  %67 = getelementptr inbounds nuw float, ptr %61, i64 %indvars.iv72
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %indvars.iv72
   %68 = load float, ptr %67, align 8, !tbaa !14
-  %69 = getelementptr inbounds nuw float, ptr %63, i64 %indvars.iv72
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %indvars.iv72
   store float %68, ptr %69, align 8, !tbaa !14
   %70 = or disjoint i64 %indvars.iv72, 1
-  %71 = getelementptr inbounds nuw float, ptr %61, i64 %70
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %70
   %72 = load float, ptr %71, align 4, !tbaa !14
   %73 = fneg nsz float %72
-  %74 = getelementptr inbounds nuw float, ptr %63, i64 %70
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %70
   store float %73, ptr %74, align 4, !tbaa !14
-  %75 = getelementptr inbounds nuw i32, ptr %64, i64 %indvars.iv72
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %indvars.iv72
   %76 = load i32, ptr %75, align 8, !tbaa !16
-  %77 = getelementptr inbounds nuw i32, ptr %65, i64 %indvars.iv72
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %indvars.iv72
   store i32 %76, ptr %77, align 8, !tbaa !16
-  %78 = getelementptr inbounds nuw i32, ptr %64, i64 %70
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %70
   %79 = load i32, ptr %78, align 4, !tbaa !16
   %80 = sub nsw i32 0, %79
-  %81 = getelementptr inbounds nuw i32, ptr %65, i64 %70
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %70
   store i32 %80, ptr %81, align 4, !tbaa !16
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 2
   %82 = icmp samesign ult i64 %indvars.iv72, 38

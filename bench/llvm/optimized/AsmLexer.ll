@@ -438,7 +438,7 @@ define dso_local void @_ZN4llvm8AsmLexer18LexHexFloatLiteralEb(ptr dead_on_unwin
   store ptr %storemerge.ptr, ptr %10, align 8, !tbaa !50
   %14 = load i8, ptr %storemerge.ptr, align 1, !tbaa !57
   %15 = zext i8 %14 to i64
-  %16 = getelementptr inbounds nuw i16, ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 %15
+  %16 = getelementptr inbounds nuw [2 x i8], ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 %15
   %17 = load i16, ptr %16, align 2, !tbaa !69
   %.not = icmp eq i16 %17, -1
   %storemerge.add = add nuw nsw i64 %storemerge.idx, 1
@@ -1287,7 +1287,7 @@ define dso_local void @_ZN4llvm8AsmLexer8LexDigitEv(ptr dead_on_unwind noalias w
   %65 = select i1 %or.cond, ptr %59, ptr null
   %66 = load i8, ptr %58, align 1, !tbaa !57
   %67 = zext i8 %66 to i64
-  %68 = getelementptr inbounds nuw i16, ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 %67
+  %68 = getelementptr inbounds nuw [2 x i8], ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 %67
   %69 = load i16, ptr %68, align 2, !tbaa !69
   %.not260 = icmp eq i16 %69, -1
   br i1 %.not260, label %._crit_edge, label %.lr.ph
@@ -1328,7 +1328,7 @@ define dso_local void @_ZN4llvm8AsmLexer8LexDigitEv(ptr dead_on_unwind noalias w
   store ptr %75, ptr %57, align 8, !tbaa !50
   %76 = load i8, ptr %75, align 1, !tbaa !57
   %77 = zext i8 %76 to i64
-  %78 = getelementptr inbounds nuw i16, ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 %77
+  %78 = getelementptr inbounds nuw [2 x i8], ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 %77
   %79 = load i16, ptr %78, align 2, !tbaa !69
   %.not = icmp eq i16 %79, -1
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !97
@@ -1755,7 +1755,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %216, %219, %222
   %.0.i = phi ptr [ %230, %228 ], [ %237, %231 ]
   %232 = load i8, ptr %.0.i, align 1, !tbaa !57
   %233 = zext i8 %232 to i64
-  %234 = getelementptr inbounds nuw i16, ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 %233
+  %234 = getelementptr inbounds nuw [2 x i8], ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 %233
   %235 = load i16, ptr %234, align 2, !tbaa !69
   %236 = icmp ult i16 %235, 16
   %237 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
@@ -2026,7 +2026,7 @@ _ZN4llvm5APIntD2Ev.exit137:                       ; preds = %323, %326, %329
 .preheader:                                       ; preds = %333
   %338 = load i8, ptr %335, align 1, !tbaa !57
   %339 = zext i8 %338 to i64
-  %340 = getelementptr inbounds nuw i16, ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 %339
+  %340 = getelementptr inbounds nuw [2 x i8], ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 %339
   %341 = load i16, ptr %340, align 2, !tbaa !69
   %.not254275 = icmp eq i16 %341, -1
   br i1 %.not254275, label %._crit_edge277, label %.lr.ph276
@@ -2037,7 +2037,7 @@ _ZN4llvm5APIntD2Ev.exit137:                       ; preds = %323, %326, %329
   store ptr %343, ptr %334, align 8, !tbaa !50
   %344 = load i8, ptr %343, align 1, !tbaa !57
   %345 = zext i8 %344 to i64
-  %346 = getelementptr inbounds nuw i16, ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 %345
+  %346 = getelementptr inbounds nuw [2 x i8], ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 %345
   %347 = load i16, ptr %346, align 2, !tbaa !69
   %.not254 = icmp eq i16 %347, -1
   br i1 %.not254, label %._crit_edge277, label %.lr.ph276, !llvm.loop !125
@@ -2401,7 +2401,7 @@ _ZN4llvm5APIntD2Ev.exit171:                       ; preds = %463, %466, %469
   %.not23.us.i = icmp eq ptr %.020.us.i, null
   %spec.select.us.i = select i1 %.not23.us.i, ptr %.019.us.i, ptr %.020.us.i
   %485 = zext i8 %.fr29.us.i to i64
-  %486 = getelementptr inbounds nuw i16, ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 %485
+  %486 = getelementptr inbounds nuw [2 x i8], ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 %485
   %487 = load i16, ptr %486, align 2, !tbaa !69
   %.not.us.i = icmp eq i16 %487, -1
   br i1 %.not.us.i, label %.critedge.i, label %488
@@ -2931,7 +2931,7 @@ _ZN4llvm5APIntD2Ev.exit215:                       ; preds = %668, %671, %674
   store ptr %storemerge.ptr, ptr %.phi.trans.insert, align 8, !tbaa !50
   %677 = load i8, ptr %storemerge.ptr, align 1, !tbaa !57
   %678 = zext i8 %677 to i64
-  %679 = getelementptr inbounds nuw i16, ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 %678
+  %679 = getelementptr inbounds nuw [2 x i8], ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 %678
   %680 = load i16, ptr %679, align 2, !tbaa !69
   %.not252 = icmp eq i16 %680, -1
   %storemerge.add = add nuw nsw i64 %storemerge.idx, 1
@@ -3648,7 +3648,7 @@ define internal fastcc noundef range(i32 8, 17) i32 @_ZL14doHexLookAheadRPKcjb(p
   %.not23.us = icmp eq ptr %.020.us, null
   %spec.select.us = select i1 %.not23.us, ptr %.019.us, ptr %.020.us
   %9 = zext i8 %.fr29.us to i64
-  %10 = getelementptr inbounds nuw i16, ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 %9
+  %10 = getelementptr inbounds nuw [2 x i8], ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 %9
   %11 = load i16, ptr %10, align 2, !tbaa !69
   %.not.us = icmp eq i16 %11, -1
   br i1 %.not.us, label %.critedge, label %12
@@ -4733,7 +4733,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   %42 = load ptr, ptr %0, align 8, !tbaa !3
   %43 = load ptr, ptr %42, align 8
   call void %43(ptr dead_on_unwind nonnull writable sret(%"class.llvm::AsmToken") align 8 %7, ptr noundef nonnull align 8 dereferenceable(180) %0) #22
-  %44 = getelementptr inbounds nuw %"class.llvm::AsmToken", ptr %1, i64 %.022
+  %44 = getelementptr inbounds nuw [40 x i8], ptr %1, i64 %.022
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %44, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 24, i1 false)
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 24
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 32
@@ -5654,7 +5654,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %237, 
   %347 = load ptr, ptr %6, align 8, !tbaa !50
   %348 = load i8, ptr %347, align 1, !tbaa !57
   %349 = zext i8 %348 to i64
-  %350 = getelementptr inbounds nuw i16, ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 %349
+  %350 = getelementptr inbounds nuw [2 x i8], ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 %349
   %351 = load i16, ptr %350, align 2, !tbaa !69
   %.not776 = icmp eq i16 %351, -1
   br i1 %.not776, label %353, label %352
@@ -6415,7 +6415,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm15SmallVectorImplINS_8AsmTokenEE
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8, !tbaa !227
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw %"class.llvm::AsmToken", ptr %4, i64 %7
+  %8 = getelementptr inbounds nuw [40 x i8], ptr %4, i64 %7
   %9 = icmp eq ptr %1, %8
   br i1 %9, label %10, label %42
 
@@ -6451,7 +6451,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8AsmTokenELb0EE28reserveForParamAndGetAddre
   %.016.i.i.i = phi ptr [ %2, %10 ], [ %22, %17 ], [ %2, %.critedge.i.i.i ]
   %24 = load i32, ptr %5, align 8, !tbaa !227
   %25 = zext i32 %24 to i64
-  %26 = getelementptr inbounds nuw %"class.llvm::AsmToken", ptr %23, i64 %25
+  %26 = getelementptr inbounds nuw [40 x i8], ptr %23, i64 %25
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %26, ptr noundef nonnull align 8 dereferenceable(40) %.016.i.i.i, i64 24, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %28 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 24
@@ -6477,7 +6477,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8AsmTokenELb0EE9push_backERKS1_.exit: ; pre
   store i32 %37, ptr %5, align 8, !tbaa !227
   %38 = load ptr, ptr %0, align 8, !tbaa !211
   %39 = zext i32 %37 to i64
-  %40 = getelementptr inbounds nuw %"class.llvm::AsmToken", ptr %38, i64 %39
+  %40 = getelementptr inbounds nuw [40 x i8], ptr %38, i64 %39
   %41 = getelementptr inbounds i8, ptr %40, i64 -40
   br label %_ZN4llvm8AsmTokenaSERKS0_.exit
 
@@ -6516,7 +6516,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8AsmTokenELb0EE28reserveForParamAndGetAddre
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 %45
   %59 = load i32, ptr %5, align 8, !tbaa !227
   %60 = zext i32 %59 to i64
-  %61 = getelementptr inbounds nuw %"class.llvm::AsmToken", ptr %57, i64 %60
+  %61 = getelementptr inbounds nuw [40 x i8], ptr %57, i64 %60
   %62 = getelementptr inbounds i8, ptr %61, i64 -40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %61, ptr noundef nonnull align 8 dereferenceable(40) %62, i64 24, i1 false)
   %63 = getelementptr inbounds nuw i8, ptr %61, i64 24
@@ -6531,7 +6531,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8AsmTokenELb0EE28reserveForParamAndGetAddre
   %69 = load ptr, ptr %0, align 8, !tbaa !211
   %70 = load i32, ptr %5, align 8, !tbaa !227
   %71 = zext i32 %70 to i64
-  %72 = getelementptr inbounds nuw %"class.llvm::AsmToken", ptr %69, i64 %71
+  %72 = getelementptr inbounds nuw [40 x i8], ptr %69, i64 %71
   %73 = getelementptr inbounds i8, ptr %72, i64 -40
   %74 = ptrtoint ptr %73 to i64
   %75 = ptrtoint ptr %58 to i64
@@ -6588,7 +6588,7 @@ _ZSt13move_backwardIPN4llvm8AsmTokenES2_ET0_T_S4_S3_.exit: ; preds = %_ZSt13move
   %97 = add i32 %96, 1
   store i32 %97, ptr %5, align 8, !tbaa !227
   %98 = zext i32 %97 to i64
-  %99 = getelementptr inbounds nuw %"class.llvm::AsmToken", ptr %95, i64 %98
+  %99 = getelementptr inbounds nuw [40 x i8], ptr %95, i64 %98
   %100 = icmp uge ptr %.016.i.i, %58
   %101 = icmp ult ptr %.016.i.i, %99
   %spec.select.i = and i1 %100, %101

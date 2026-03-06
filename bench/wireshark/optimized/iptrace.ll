@@ -363,7 +363,7 @@ define internal fastcc noundef zeroext i1 @iptrace_read_rec_1_0(ptr noundef %0, 
 
 43:                                               ; preds = %37
   %44 = zext nneg i8 %39 to i64
-  %45 = getelementptr i32, ptr @wtap_encap_ift.ift_encap, i64 %44
+  %45 = getelementptr [4 x i8], ptr @wtap_encap_ift.ift_encap, i64 %44
   %46 = load i32, ptr %45, align 4
   br label %wtap_encap_ift.exit
 
@@ -718,7 +718,7 @@ wtap_encap_ift.exit.thread:                       ; preds = %37
 
 wtap_encap_ift.exit:                              ; preds = %37
   %44 = zext nneg i8 %39 to i64
-  %45 = getelementptr i32, ptr @wtap_encap_ift.ift_encap, i64 %44
+  %45 = getelementptr [4 x i8], ptr @wtap_encap_ift.ift_encap, i64 %44
   %46 = load i32, ptr %45, align 4
   %47 = getelementptr inbounds nuw i8, ptr %2, i64 72
   store i32 %46, ptr %47, align 8

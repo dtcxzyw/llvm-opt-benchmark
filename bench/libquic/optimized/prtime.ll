@@ -317,8 +317,8 @@ define void @_Z16PR_NormalizeTimeP14PRExplodedTimePF16PRTimeParametersPKS_E(ptr 
   %132 = phi i16 [ %85, %.loopexit.loopexit ], [ %.promoted124, %100 ], [ %120, %.loopexit.loopexit175 ]
   %133 = phi i32 [ %98, %.loopexit.loopexit ], [ %74, %100 ], [ %114, %.loopexit.loopexit175 ]
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %135 = getelementptr inbounds nuw [13 x i32], ptr @_ZL14lastDayOfMonth, i64 %.pre-phi132
-  %136 = getelementptr inbounds i32, ptr %135, i64 %.pre-phi
+  %135 = getelementptr inbounds nuw [52 x i8], ptr @_ZL14lastDayOfMonth, i64 %.pre-phi132
+  %136 = getelementptr inbounds [4 x i8], ptr %135, i64 %.pre-phi
   %137 = load i32, ptr %136, align 4, !tbaa !4
   %138 = add nsw i32 %137, %133
   %139 = trunc i32 %138 to i16

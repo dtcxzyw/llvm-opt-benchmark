@@ -618,7 +618,7 @@ define range(i32 -9999, 1) i32 @SUNProfiler_Reset(ptr noundef captures(address_i
   %indvars.iv = phi i64 [ %indvars.iv.next, %29 ], [ 0, %2 ]
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !36
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8, !tbaa !37
   %.not18 = icmp eq ptr %20, null
   br i1 %.not18, label %29, label %21
@@ -754,7 +754,7 @@ SUNProfiler_GetTimerResolution.exit:              ; preds = %14
   %37 = phi i32 [ %57, %56 ], [ %35, %SUNProfiler_GetTimerResolution.exit ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %56 ], [ 0, %SUNProfiler_GetTimerResolution.exit ]
   %38 = load ptr, ptr %5, align 8, !tbaa !41
-  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv
   %40 = load ptr, ptr %39, align 8, !tbaa !37
   %.not37 = icmp eq ptr %40, null
   br i1 %.not37, label %56, label %41

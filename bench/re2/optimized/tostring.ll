@@ -25,7 +25,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
 %"class.absl::debian2::str_format_internal::FormatArgImpl" = type { %"union.absl::debian2::str_format_internal::FormatArgImpl::Data", ptr }
 %"union.absl::debian2::str_format_internal::FormatArgImpl::Data" = type { ptr }
-%"struct.re2::RuneRange" = type { i32, i32 }
 %"struct.re2::WalkState" = type { ptr, i32, i32, i32, i32, ptr }
 
 $_ZN3re214ToStringWalkerD2Ev = comdat any
@@ -521,7 +520,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
   %9 = load ptr, ptr %t_15, align 8
   %10 = load ptr, ptr %runes_.i, align 8
-  %arrayidx = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv
   %11 = load i32, ptr %arrayidx, align 4
   %12 = load i16, ptr %parse_flags_.i43, align 2
   %cmp19 = trunc i16 %12 to i1
@@ -928,7 +927,7 @@ _ZN3re2L13AppendCCRangeEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEii.
   %78 = load ptr, ptr %ranges_.i, align 8
   %79 = load i32, ptr %nranges_.i, align 8
   %idx.ext.i = sext i32 %79 to i64
-  %add.ptr.i = getelementptr inbounds %"struct.re2::RuneRange", ptr %78, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds [8 x i8], ptr %78, i64 %idx.ext.i
   %cmp203.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp203.not, label %for.end207, label %for.body204, !llvm.loop !16
 
@@ -1208,7 +1207,7 @@ _ZNSt11_Deque_baseIN3re29WalkStateIiEESaIS2_EE15_M_allocate_mapEm.exit: ; preds 
   store ptr %call5.i.i2.i, ptr %this, align 8
   %sub = sub nsw i64 %.sroa.speculated, %add
   %div137 = lshr i64 %sub, 1
-  %add.ptr = getelementptr inbounds nuw ptr, ptr %call5.i.i2.i, i64 %div137
+  %add.ptr = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i2.i, i64 %div137
   %add.ptr14.idx = shl nuw nsw i64 %add, 3
   %add.ptr14 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 %add.ptr14.idx
   br label %for.body.i
@@ -1297,7 +1296,7 @@ try.cont:                                         ; preds = %invoke.cont.i
   store ptr %add.ptr.i12, ptr %_M_last.i13, align 8
   store ptr %12, ptr %_M_start, align 8
   %rem = and i64 %__num_elements, 15
-  %add.ptr36 = getelementptr inbounds nuw %"struct.re2::WalkState", ptr %13, i64 %rem
+  %add.ptr36 = getelementptr inbounds nuw [32 x i8], ptr %13, i64 %rem
   store ptr %add.ptr36, ptr %_M_finish, align 8
   ret void
 
@@ -1803,17 +1802,17 @@ if.then41:                                        ; preds = %if.then35
 
 if.then41.if.else66_crit_edge:                    ; preds = %if.then41
   %idxprom70.phi.trans.insert = sext i32 %.pre79 to i64
-  %arrayidx71.phi.trans.insert = getelementptr inbounds ptr, ptr %retval.0.i, i64 %idxprom70.phi.trans.insert
+  %arrayidx71.phi.trans.insert = getelementptr inbounds [8 x i8], ptr %retval.0.i, i64 %idxprom70.phi.trans.insert
   %.pre = load ptr, ptr %arrayidx71.phi.trans.insert, align 8
   br label %if.else66
 
 land.lhs.true45:                                  ; preds = %if.then41
   %sub47 = add nsw i32 %.pre79, -1
   %idxprom = zext nneg i32 %sub47 to i64
-  %arrayidx = getelementptr inbounds nuw ptr, ptr %retval.0.i, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [8 x i8], ptr %retval.0.i, i64 %idxprom
   %23 = load ptr, ptr %arrayidx, align 8
   %idxprom49 = zext nneg i32 %.pre79 to i64
-  %arrayidx50 = getelementptr inbounds nuw ptr, ptr %retval.0.i, i64 %idxprom49
+  %arrayidx50 = getelementptr inbounds nuw [8 x i8], ptr %retval.0.i, i64 %idxprom49
   %24 = load ptr, ptr %arrayidx50, align 8
   %cmp51 = icmp eq ptr %23, %24
   br i1 %cmp51, label %if.then52, label %if.else66
@@ -1821,7 +1820,7 @@ land.lhs.true45:                                  ; preds = %if.then41
 if.then52:                                        ; preds = %land.lhs.true45
   %child_args53 = getelementptr inbounds i8, ptr %9, i64 -8
   %25 = load ptr, ptr %child_args53, align 8
-  %arrayidx57 = getelementptr inbounds nuw i32, ptr %25, i64 %idxprom
+  %arrayidx57 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %idxprom
   %26 = load i32, ptr %arrayidx57, align 4
   %vtable58 = load ptr, ptr %this, align 8
   %vfn59 = getelementptr inbounds nuw i8, ptr %vtable58, i64 32
@@ -1830,7 +1829,7 @@ if.then52:                                        ; preds = %land.lhs.true45
   %28 = load ptr, ptr %child_args53, align 8
   %29 = load i32, ptr %n, align 8
   %idxprom63 = sext i32 %29 to i64
-  %arrayidx64 = getelementptr inbounds i32, ptr %28, i64 %idxprom63
+  %arrayidx64 = getelementptr inbounds [4 x i8], ptr %28, i64 %idxprom63
   store i32 %call60, ptr %arrayidx64, align 4
   %30 = load i32, ptr %n, align 8
   %inc = add nsw i32 %30, 1
@@ -1940,7 +1939,7 @@ if.then98:                                        ; preds = %_ZNSt5stackIN3re29W
   %n100 = getelementptr inbounds i8, ptr %51, i64 -24
   %53 = load i32, ptr %n100, align 8
   %idxprom101 = sext i32 %53 to i64
-  %arrayidx102 = getelementptr inbounds i32, ptr %52, i64 %idxprom101
+  %arrayidx102 = getelementptr inbounds [4 x i8], ptr %52, i64 %idxprom101
   store i32 %t.0, ptr %arrayidx102, align 4
   br label %if.end105
 
@@ -2068,9 +2067,9 @@ if.then:                                          ; preds = %entry
   %3 = load ptr, ptr %this, align 8
   %sub = sub i64 %2, %add4
   %div17 = lshr i64 %sub, 1
-  %add.ptr = getelementptr inbounds nuw ptr, ptr %3, i64 %div17
+  %add.ptr = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %div17
   %cond = select i1 %__add_at_front, i64 %__nodes_to_add, i64 0
-  %add.ptr9 = getelementptr inbounds ptr, ptr %add.ptr, i64 %cond
+  %add.ptr9 = getelementptr inbounds [8 x i8], ptr %add.ptr, i64 %cond
   %cmp13 = icmp ult ptr %add.ptr9, %1
   %add.ptr21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %add.ptr21, %1
@@ -2089,12 +2088,12 @@ if.else:                                          ; preds = %if.then
   br i1 %tobool.not.i.i.i.i.i, label %if.end65, label %if.then.i.i.i.i.i19
 
 if.then.i.i.i.i.i19:                              ; preds = %if.else
-  %add.ptr29 = getelementptr inbounds ptr, ptr %add.ptr9, i64 %add
+  %add.ptr29 = getelementptr inbounds [8 x i8], ptr %add.ptr9, i64 %add
   %sub.ptr.lhs.cast.i.i.i.i.i20 = ptrtoint ptr %add.ptr21 to i64
   %sub.ptr.sub.i.i.i.i.i22 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i20, %sub.ptr.rhs.cast
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i22, 3
   %idx.neg.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
-  %add.ptr.i.i.i.i.i23 = getelementptr inbounds ptr, ptr %add.ptr29, i64 %idx.neg.i.i.i.i.i
+  %add.ptr.i.i.i.i.i23 = getelementptr inbounds [8 x i8], ptr %add.ptr29, i64 %idx.neg.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i23, ptr align 8 %1, i64 %sub.ptr.sub.i.i.i.i.i22, i1 false)
   br label %if.end65
 
@@ -2122,9 +2121,9 @@ _ZNSt11_Deque_baseIN3re29WalkStateIiEESaIS2_EE15_M_allocate_mapEm.exit: ; preds 
   %call5.i.i2.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #21
   %sub40 = sub i64 %add38, %add4
   %div4116 = lshr i64 %sub40, 1
-  %add.ptr42 = getelementptr inbounds nuw ptr, ptr %call5.i.i2.i, i64 %div4116
+  %add.ptr42 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i2.i, i64 %div4116
   %cond47 = select i1 %__add_at_front, i64 %__nodes_to_add, i64 0
-  %add.ptr48 = getelementptr inbounds ptr, ptr %add.ptr42, i64 %cond47
+  %add.ptr48 = getelementptr inbounds [8 x i8], ptr %add.ptr42, i64 %cond47
   %add.ptr55 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %tobool.not.i.i.i.i.i27 = icmp eq ptr %add.ptr55, %1
   br i1 %tobool.not.i.i.i.i.i27, label %_ZSt4copyIPPN3re29WalkStateIiEES4_ET0_T_S6_S5_.exit30, label %if.then.i.i.i.i.i28
@@ -2151,7 +2150,7 @@ if.end65:                                         ; preds = %if.then.i.i.i.i.i19
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %5, i64 512
   %_M_last.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr %add.ptr.i, ptr %_M_last.i, align 8
-  %add.ptr70 = getelementptr inbounds ptr, ptr %__new_nstart.0, i64 %add
+  %add.ptr70 = getelementptr inbounds [8 x i8], ptr %__new_nstart.0, i64 %add
   %add.ptr71 = getelementptr inbounds i8, ptr %add.ptr70, i64 -8
   store ptr %add.ptr71, ptr %_M_node, align 8
   %6 = load ptr, ptr %add.ptr71, align 8

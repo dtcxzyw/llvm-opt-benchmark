@@ -21873,7 +21873,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.15947207822535676624.exit
   store i64 %41, ptr %6, align 8, !alias.scope !3386, !noalias !3389
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %43 = load ptr, ptr %42, align 8, !alias.scope !3386, !noalias !3389, !nonnull !9, !noundef !9
-  %44 = getelementptr inbounds { ptr, ptr, i64, { ptr } }, ptr %43, i64 %37
+  %44 = getelementptr inbounds [32 x i8], ptr %43, i64 %37
   %.sroa.0.0.copyload14 = load ptr, ptr %44, align 8, !noalias !3386
   %.not = icmp eq ptr %.sroa.0.0.copyload14, null
   br i1 %.not, label %15, label %45
@@ -22165,7 +22165,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.15947207822535676624.exit
   %.0.i.i = sub nuw i64 %79, %80
   %81 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %82 = load ptr, ptr %81, align 8, !alias.scope !3403, !noalias !3406, !nonnull !9, !noundef !9
-  %83 = getelementptr inbounds { ptr, ptr, i64, { ptr } }, ptr %82, i64 %.0.i.i
+  %83 = getelementptr inbounds [32 x i8], ptr %82, i64 %.0.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %83, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
   %84 = load i64, ptr %45, align 8, !alias.scope !3403, !noalias !3406, !noundef !9
   %85 = add i64 %84, 1

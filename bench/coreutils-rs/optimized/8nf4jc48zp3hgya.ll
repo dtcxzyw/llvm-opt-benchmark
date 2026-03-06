@@ -75,7 +75,7 @@ select.unfold.i.i:                                ; preds = %.sink.split.i.i.i, 
   %.val.i.i = load ptr, ptr %25, align 8, !noalias !10, !nonnull !11, !noundef !11
   %26 = getelementptr i8, ptr %9, i64 16
   %.val5.i.i = load i64, ptr %26, align 8, !noalias !10, !noundef !11
-  %27 = getelementptr inbounds { { { { ptr, ptr } }, {}, {} }, i128 }, ptr %.val.i.i, i64 %.val5.i.i
+  %27 = getelementptr inbounds [32 x i8], ptr %.val.i.i, i64 %.val5.i.i
   store ptr %.val.i.i, ptr %3, align 8, !alias.scope !10
   store ptr %27, ptr %4, align 8, !alias.scope !10
   br label %7
@@ -170,7 +170,7 @@ select.unfold.i.i.i.i:                            ; preds = %.sink.split.i.i.i.i
   %.val.i.i.i.i = load ptr, ptr %27, align 8, !noalias !50, !nonnull !11, !noundef !11
   %28 = getelementptr i8, ptr %11, i64 16
   %.val5.i.i.i.i = load i64, ptr %28, align 8, !noalias !50, !noundef !11
-  %29 = getelementptr inbounds { { { { ptr, ptr } }, {}, {} }, i128 }, ptr %.val.i.i.i.i, i64 %.val5.i.i.i.i
+  %29 = getelementptr inbounds [32 x i8], ptr %.val.i.i.i.i, i64 %.val5.i.i.i.i
   store ptr %.val.i.i.i.i, ptr %5, align 8, !alias.scope !50
   store ptr %29, ptr %6, align 8, !alias.scope !50
   br label %9
@@ -262,7 +262,7 @@ select.unfold.i:                                  ; preds = %.sink.split.i.i, %6
   %.val.i = load ptr, ptr %24, align 8, !noalias !83, !nonnull !11, !noundef !11
   %25 = getelementptr i8, ptr %8, i64 16
   %.val5.i = load i64, ptr %25, align 8, !noalias !83, !noundef !11
-  %26 = getelementptr inbounds { { { { ptr, ptr } }, {}, {} }, i128 }, ptr %.val.i, i64 %.val5.i
+  %26 = getelementptr inbounds [32 x i8], ptr %.val.i, i64 %.val5.i
   store ptr %.val.i, ptr %2, align 8, !alias.scope !83
   store ptr %26, ptr %3, align 8, !alias.scope !83
   br label %6
@@ -337,7 +337,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17hbb89681392b4c26aE.exit: ; pr
   %.val = load ptr, ptr %24, align 8, !nonnull !11, !noundef !11
   %25 = getelementptr i8, ptr %8, i64 16
   %.val5 = load i64, ptr %25, align 8, !noundef !11
-  %26 = getelementptr inbounds { { { { ptr, ptr } }, {}, {} }, i128 }, ptr %.val, i64 %.val5
+  %26 = getelementptr inbounds [32 x i8], ptr %.val, i64 %.val5
   store ptr %.val, ptr %2, align 8
   store ptr %26, ptr %3, align 8
   br label %6
@@ -410,7 +410,7 @@ select.unfold.i.i.i:                              ; preds = %.sink.split.i.i.i.i
   %.val.i.i.i = load ptr, ptr %25, align 8, !noalias !127, !nonnull !11, !noundef !11
   %26 = getelementptr i8, ptr %9, i64 16
   %.val5.i.i.i = load i64, ptr %26, align 8, !noalias !127, !noundef !11
-  %27 = getelementptr inbounds { { { { ptr, ptr } }, {}, {} }, i128 }, ptr %.val.i.i.i, i64 %.val5.i.i.i
+  %27 = getelementptr inbounds [32 x i8], ptr %.val.i.i.i, i64 %.val5.i.i.i
   store ptr %.val.i.i.i, ptr %3, align 8, !alias.scope !127
   store ptr %27, ptr %4, align 8, !alias.scope !127
   br label %7
@@ -478,7 +478,7 @@ define hidden void @_ZN12clap_builder6parser7matches11arg_matches10ArgMatches12t
   %16 = load ptr, ptr %15, align 16, !nonnull !11, !noundef !11
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %18 = load i64, ptr %17, align 8, !noundef !11
-  %19 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %16, i64 %18
+  %19 = getelementptr inbounds [24 x i8], ptr %16, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @"_ZN12clap_builder6parser7matches11arg_matches49unwrap_downcast_ref$u7b$$u7b$reify.shim$u7d$$u7d$17ha0c7c59842588bf5E", ptr %20, align 8
   %.sroa.47.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -723,7 +723,7 @@ define hidden void @_ZN12clap_builder7builder3arg3Arg14overrides_with17h07afb8f6
   %14 = phi i64 [ %.pre.i, %.noexc ], [ %7, %4 ]
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %16 = load ptr, ptr %15, align 8, !alias.scope !211, !noalias !214, !nonnull !11, !noundef !11
-  %17 = getelementptr inbounds { { { { ptr, i64 } } } }, ptr %16, i64 %14
+  %17 = getelementptr inbounds [16 x i8], ptr %16, i64 %14
   store ptr %2, ptr %17, align 8, !noalias !214
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i64 %3, ptr %18, align 8
@@ -774,7 +774,7 @@ define hidden void @_ZN12clap_builder7builder3arg3Arg19visible_short_alias17hd27
   %14 = phi i64 [ %.pre.i, %.noexc ], [ %10, %7 ]
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %16 = load ptr, ptr %15, align 8, !alias.scope !216, !nonnull !11, !noundef !11
-  %17 = getelementptr inbounds { i32, i8, [3 x i8] }, ptr %16, i64 %14
+  %17 = getelementptr inbounds [8 x i8], ptr %16, i64 %14
   store i32 %2, ptr %17, align 4
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 4
   store i8 1, ptr %18, align 4
@@ -1179,7 +1179,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h2e80d8dd003a3da7E.ll
   %10 = phi i64 [ %.pre, %8 ], [ %5, %3 ]
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8, !nonnull !11, !noundef !11
-  %13 = getelementptr inbounds { { { { ptr, i64 } } } }, ptr %12, i64 %10
+  %13 = getelementptr inbounds [16 x i8], ptr %12, i64 %10
   store ptr %1, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i64 %2, ptr %14, align 8
@@ -1206,7 +1206,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h4e47c4223d3614edE.ll
   %10 = phi i64 [ %.pre, %8 ], [ %5, %3 ]
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8, !nonnull !11, !noundef !11
-  %13 = getelementptr inbounds { i32, i8, [3 x i8] }, ptr %12, i64 %10
+  %13 = getelementptr inbounds [8 x i8], ptr %12, i64 %10
   store i32 %1, ptr %13, align 4
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %15 = zext i1 %2 to i8

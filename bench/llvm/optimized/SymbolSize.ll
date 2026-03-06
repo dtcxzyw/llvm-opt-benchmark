@@ -21,9 +21,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::Error" = type { ptr }
 %"class.llvm::object::content_iterator.104" = type { %"class.llvm::object::SectionRef" }
 %"class.llvm::object::SectionRef" = type { %"union.llvm::object::DataRefImpl", ptr }
-%"struct.std::pair" = type { %"class.llvm::object::SymbolRef", i64 }
-%"class.llvm::object::SymbolRef" = type { %"class.llvm::object::BasicSymbolRef" }
-%"struct.llvm::object::SymEntry" = type { %"class.llvm::object::symbol_iterator", i64, i32, i32 }
 
 $_ZNSt6vectorISt4pairIN4llvm6object9SymbolRefEmESaIS4_EE17_M_default_appendEm = comdat any
 
@@ -209,7 +206,7 @@ _ZNSt6vectorISt4pairIN4llvm6object9SymbolRefEmESaIS4_EE11_S_relocateEPS4_S7_S7_R
 _ZNSt6vectorISt4pairIN4llvm6object9SymbolRefEmESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i: ; preds = %63, %_ZNSt6vectorISt4pairIN4llvm6object9SymbolRefEmESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i
   store ptr %58, ptr %0, align 8, !tbaa !29
   store ptr %62, ptr %33, align 8, !tbaa !28
-  %64 = getelementptr inbounds nuw %"struct.std::pair", ptr %58, i64 %56
+  %64 = getelementptr inbounds nuw [24 x i8], ptr %58, i64 %56
   store ptr %64, ptr %34, align 8, !tbaa !25
   br label %_ZNSt6vectorISt4pairIN4llvm6object9SymbolRefEmESaIS4_EE9push_backEOS4_.exit
 
@@ -328,7 +325,7 @@ _ZNSt6vectorISt4pairIN4llvm6object9SymbolRefEmESaIS4_EE11_S_relocateEPS4_S7_S7_R
 _ZNSt6vectorISt4pairIN4llvm6object9SymbolRefEmESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i124: ; preds = %101, %_ZNSt6vectorISt4pairIN4llvm6object9SymbolRefEmESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i121
   store ptr %96, ptr %0, align 8, !tbaa !29
   store ptr %100, ptr %74, align 8, !tbaa !28
-  %102 = getelementptr inbounds nuw %"struct.std::pair", ptr %96, i64 %94
+  %102 = getelementptr inbounds nuw [24 x i8], ptr %96, i64 %94
   store ptr %102, ptr %75, align 8, !tbaa !25
   br label %_ZNSt6vectorISt4pairIN4llvm6object9SymbolRefEmESaIS4_EE9push_backEOS4_.exit125
 
@@ -450,7 +447,7 @@ _ZNSt6vectorISt4pairIN4llvm6object9SymbolRefEmESaIS4_EE11_S_relocateEPS4_S7_S7_R
 _ZNSt6vectorISt4pairIN4llvm6object9SymbolRefEmESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i154: ; preds = %149, %_ZNSt6vectorISt4pairIN4llvm6object9SymbolRefEmESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i151
   store ptr %144, ptr %0, align 8, !tbaa !29
   store ptr %148, ptr %121, align 8, !tbaa !28
-  %150 = getelementptr inbounds nuw %"struct.std::pair", ptr %144, i64 %142
+  %150 = getelementptr inbounds nuw [24 x i8], ptr %144, i64 %142
   store ptr %150, ptr %122, align 8, !tbaa !25
   br label %_ZNSt6vectorISt4pairIN4llvm6object9SymbolRefEmESaIS4_EE9push_backEOS4_.exit155
 
@@ -642,7 +639,7 @@ _ZNSt6vectorIN4llvm6object8SymEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.
   br label %_ZNSt6vectorIN4llvm6object8SymEntryESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN4llvm6object8SymEntryESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %221, %_ZNSt6vectorIN4llvm6object8SymEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i
-  %222 = getelementptr inbounds nuw %"struct.llvm::object::SymEntry", ptr %217, i64 %215
+  %222 = getelementptr inbounds nuw [32 x i8], ptr %217, i64 %215
   br label %_ZNSt6vectorIN4llvm6object8SymEntryESaIS2_EE9push_backEOS2_.exit
 
 _ZNSt6vectorIN4llvm6object8SymEntryESaIS2_EE9push_backEOS2_.exit: ; preds = %204, %_ZNSt6vectorIN4llvm6object8SymEntryESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
@@ -817,7 +814,7 @@ _ZNSt6vectorIN4llvm6object8SymEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.
   br label %_ZNSt6vectorIN4llvm6object8SymEntryESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i209
 
 _ZNSt6vectorIN4llvm6object8SymEntryESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i209: ; preds = %291, %_ZNSt6vectorIN4llvm6object8SymEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i206
-  %292 = getelementptr inbounds nuw %"struct.llvm::object::SymEntry", ptr %287, i64 %285
+  %292 = getelementptr inbounds nuw [32 x i8], ptr %287, i64 %285
   br label %_ZNSt6vectorIN4llvm6object8SymEntryESaIS2_EE9push_backEOS2_.exit210
 
 _ZNSt6vectorIN4llvm6object8SymEntryESaIS2_EE9push_backEOS2_.exit210: ; preds = %274, %_ZNSt6vectorIN4llvm6object8SymEntryESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i209
@@ -885,7 +882,7 @@ _ZN4llvm14array_pod_sortIN9__gnu_cxx17__normal_iteratorIPNS_6object8SymEntryESt6
   br i1 %320, label %321, label %.lr.ph388.preheader
 
 321:                                              ; preds = %319
-  %322 = getelementptr inbounds nuw %"struct.std::pair", ptr %311, i64 %.069.lcssa
+  %322 = getelementptr inbounds nuw [24 x i8], ptr %311, i64 %.069.lcssa
   %.not.i.i211 = icmp eq ptr %310, %322
   br i1 %.not.i.i211, label %.lr.ph388.preheader, label %323
 
@@ -896,7 +893,7 @@ _ZN4llvm14array_pod_sortIN9__gnu_cxx17__normal_iteratorIPNS_6object8SymEntryESt6
 .lr.ph384:                                        ; preds = %.lr.ph384.preheader, %347
   %indvars.iv = phi i64 [ 0, %.lr.ph384.preheader ], [ %indvars.iv.next, %347 ]
   %.071381 = phi i32 [ 0, %.lr.ph384.preheader ], [ %.172, %347 ]
-  %324 = getelementptr inbounds nuw %"struct.llvm::object::SymEntry", ptr %.sroa.0263.1.lcssa, i64 %indvars.iv
+  %324 = getelementptr inbounds nuw [32 x i8], ptr %.sroa.0263.1.lcssa, i64 %indvars.iv
   %325 = load ptr, ptr %1, align 8, !tbaa !20
   %326 = getelementptr inbounds nuw i8, ptr %325, i64 56
   %327 = load ptr, ptr %326, align 8
@@ -922,7 +919,7 @@ _ZN4llvm14array_pod_sortIN9__gnu_cxx17__normal_iteratorIPNS_6object8SymEntryESt6
 
 334:                                              ; preds = %333
   %indvars.iv.next402 = add nuw nsw i64 %indvars.iv401, 1
-  %335 = getelementptr inbounds nuw %"struct.llvm::object::SymEntry", ptr %.sroa.0263.1.lcssa, i64 %indvars.iv.next402
+  %335 = getelementptr inbounds nuw [32 x i8], ptr %.sroa.0263.1.lcssa, i64 %indvars.iv.next402
   %336 = getelementptr inbounds nuw i8, ptr %335, i64 16
   %337 = load i64, ptr %336, align 8, !tbaa !14
   %338 = load i64, ptr %332, align 8, !tbaa !14
@@ -937,7 +934,7 @@ _ZN4llvm14array_pod_sortIN9__gnu_cxx17__normal_iteratorIPNS_6object8SymEntryESt6
 .critedge:                                        ; preds = %333, %..critedge.loopexit_crit_edge, %330
   %.pre-phi = phi i64 [ %331, %330 ], [ %.pre407, %..critedge.loopexit_crit_edge ], [ %wide.trip.count405, %333 ]
   %.273 = phi i32 [ %.071381, %330 ], [ %340, %..critedge.loopexit_crit_edge ], [ %307, %333 ]
-  %341 = getelementptr inbounds nuw %"struct.llvm::object::SymEntry", ptr %.sroa.0263.1.lcssa, i64 %.pre-phi
+  %341 = getelementptr inbounds nuw [32 x i8], ptr %.sroa.0263.1.lcssa, i64 %.pre-phi
   %342 = getelementptr inbounds nuw i8, ptr %341, i64 16
   %343 = load i64, ptr %342, align 8, !tbaa !14
   %344 = getelementptr inbounds nuw i8, ptr %324, i64 16
@@ -970,7 +967,7 @@ _ZN4llvm14array_pod_sortIN9__gnu_cxx17__normal_iteratorIPNS_6object8SymEntryESt6
   %357 = load i32, ptr %356, align 8, !tbaa !76
   %358 = zext i32 %357 to i64
   %359 = load ptr, ptr %0, align 8, !tbaa !29
-  %360 = getelementptr inbounds nuw %"struct.std::pair", ptr %359, i64 %358
+  %360 = getelementptr inbounds nuw [24 x i8], ptr %359, i64 %358
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %360, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0219.0387, i64 16, i1 false)
   %361 = getelementptr inbounds nuw i8, ptr %360, i64 16
   store i64 %355, ptr %361, align 8, !tbaa !77
@@ -1110,9 +1107,9 @@ _ZNSt6vectorISt4pairIN4llvm6object9SymbolRefEmESaIS4_EE11_S_relocateEPS4_S7_S7_R
 
 _ZNSt12_Vector_baseISt4pairIN4llvm6object9SymbolRefEmESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZNSt6vectorISt4pairIN4llvm6object9SymbolRefEmESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit, %31
   store ptr %26, ptr %0, align 8, !tbaa !29
-  %33 = getelementptr inbounds nuw %"struct.std::pair", ptr %27, i64 %1
+  %33 = getelementptr inbounds nuw [24 x i8], ptr %27, i64 %1
   store ptr %33, ptr %4, align 8, !tbaa !28
-  %34 = getelementptr inbounds nuw %"struct.std::pair", ptr %26, i64 %24
+  %34 = getelementptr inbounds nuw [24 x i8], ptr %26, i64 %24
   store ptr %34, ptr %11, align 8, !tbaa !25
   br label %35
 

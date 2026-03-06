@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.acpi_gpe_walk_info = type { ptr, ptr, i16, i16, i8 }
-%struct.acpi_gpe_event_info = type { %union.acpi_gpe_dispatch_info, ptr, i8, i8, i8, i8 }
-%union.acpi_gpe_dispatch_info = type { ptr }
 
 @acpi_gbl_gpe_lock = external dso_local local_unnamed_addr global ptr, align 8
 @acpi_current_gpe_count = external dso_local local_unnamed_addr global i32, align 4
@@ -438,7 +436,7 @@ define dso_local noundef i32 @acpi_ev_initialize_gpe_block(ptr noundef readnone 
   %23 = phi i32 [ %18, %.split.us.us ], [ %45, %44 ]
   %24 = add nuw nsw i64 %22, %20
   %25 = load ptr, ptr %14, align 8
-  %26 = getelementptr %struct.acpi_gpe_event_info, ptr %25, i64 %24
+  %26 = getelementptr [24 x i8], ptr %25, i64 %24
   %27 = load i16, ptr %15, align 2
   %28 = zext i16 %27 to i32
   %29 = trunc i64 %24 to i32
@@ -492,7 +490,7 @@ define dso_local noundef i32 @acpi_ev_initialize_gpe_block(ptr noundef readnone 
   %58 = phi i32 [ %53, %.split ], [ %88, %87 ]
   %59 = add nuw nsw i64 %57, %55
   %60 = load ptr, ptr %14, align 8
-  %61 = getelementptr %struct.acpi_gpe_event_info, ptr %60, i64 %59
+  %61 = getelementptr [24 x i8], ptr %60, i64 %59
   %62 = load i16, ptr %15, align 2
   %63 = zext i16 %62 to i32
   %64 = trunc i64 %59 to i32

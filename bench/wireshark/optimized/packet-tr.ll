@@ -250,7 +250,7 @@ define internal i32 @dissect_tr(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %spec.store.select = select i1 %28, i32 0, i32 %27
   store i32 %spec.store.select, ptr @dissect_tr.trh_current, align 4
   %29 = sext i32 %spec.store.select to i64
-  %30 = getelementptr %struct._tr_hdr, ptr @dissect_tr.trh_arr, i64 %29
+  %30 = getelementptr [56 x i8], ptr @dissect_tr.trh_arr, i64 %29
   store volatile ptr %30, ptr %14, align 8
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %32 = load ptr, ptr %31, align 8
@@ -337,7 +337,7 @@ check_for_old_linux_tvb.exit.thread:              ; preds = %42, %check_for_old_
   %68 = load ptr, ptr %31, align 8
   %.0..0..0..0.104 = load volatile i32, ptr %5, align 4
   %69 = sext i32 %.0..0..0..0.104 to i64
-  %70 = getelementptr ptr, ptr @dissect_tr.fc, i64 %69
+  %70 = getelementptr [8 x i8], ptr @dissect_tr.fc, i64 %69
   %71 = load ptr, ptr %70, align 8
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %68, i32 noundef 25, ptr noundef nonnull @.str.92, ptr noundef %71)
   %.0..0..0..0.45 = load volatile ptr, ptr %13, align 8

@@ -20,8 +20,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.anon.4 = type { %struct.H5_ih_info_t, %struct.H5_ih_info_t }
 %struct.H5_ih_info_t = type { i64, i64 }
 %struct.H5G_loc_t = type { ptr, ptr }
-%struct.H5O_loc_t = type { ptr, i64, i8 }
-%struct.H5G_name_t = type { ptr, ptr, i32 }
 %struct.H5VL_object_get_args_t = type { i32, %union.anon.5 }
 %union.anon.5 = type { %struct.anon.7 }
 %struct.anon.7 = type { i64, ptr, ptr }
@@ -4522,7 +4520,7 @@ H5F__flush_phase1.exit.thread141:                 ; preds = %.thread, %H5F__flus
   %277 = phi ptr [ %274, %263 ], [ %287, %286 ]
   %indvars.iv = phi i64 [ 0, %263 ], [ %indvars.iv.next, %286 ]
   %278 = getelementptr inbounds nuw i8, ptr %277, i64 2056
-  %279 = getelementptr inbounds nuw ptr, ptr %278, i64 %indvars.iv
+  %279 = getelementptr inbounds nuw [8 x i8], ptr %278, i64 %indvars.iv
   %280 = load ptr, ptr %279, align 8, !tbaa !119
   %.not131 = icmp eq ptr %280, null
   br i1 %.not131, label %286, label %281
@@ -4531,7 +4529,7 @@ H5F__flush_phase1.exit.thread141:                 ; preds = %.thread, %H5F__flus
   %282 = tail call ptr @H5MM_xfree(ptr noundef nonnull %280) #22
   %283 = load ptr, ptr %12, align 8, !tbaa !15
   %284 = getelementptr inbounds nuw i8, ptr %283, i64 2056
-  %285 = getelementptr inbounds nuw ptr, ptr %284, i64 %indvars.iv
+  %285 = getelementptr inbounds nuw [8 x i8], ptr %284, i64 %indvars.iv
   store ptr %282, ptr %285, align 8, !tbaa !119
   br label %286
 
@@ -5106,7 +5104,7 @@ H5F_get_obj_ids.exit:                             ; preds = %60, %64, %67, %70
 
 .preheader65:                                     ; preds = %H5F_get_obj_ids.exit, %76
   %.04170 = phi i64 [ %77, %76 ], [ 0, %H5F_get_obj_ids.exit ]
-  %78 = getelementptr inbounds nuw i64, ptr %6, i64 %.04170
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.04170
   %79 = load i64, ptr %78, align 8, !tbaa !10
   %80 = call i32 @H5I_dec_ref(i64 noundef %79) #22
   %81 = icmp slt i32 %80, 0
@@ -5150,7 +5148,7 @@ H5F_get_obj_ids.exit:                             ; preds = %60, %64, %67, %70
 
 98:                                               ; preds = %.preheader, %96
   %.171 = phi i64 [ 0, %.preheader ], [ %97, %96 ]
-  %99 = getelementptr inbounds nuw i64, ptr %6, i64 %.171
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.171
   %100 = load i64, ptr %99, align 8, !tbaa !10
   %101 = call i32 @H5I_dec_ref(i64 noundef %100) #22
   %102 = icmp slt i32 %101, 0
@@ -6069,7 +6067,7 @@ define range(i32 -1, 1) i32 @H5F_track_metadata_read_retries(ptr noundef readonl
   %21 = load ptr, ptr %20, align 8, !tbaa !15
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 2056
   %23 = zext i32 %1 to i64
-  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !119
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %38
@@ -6096,7 +6094,7 @@ define range(i32 -1, 1) i32 @H5F_track_metadata_read_retries(ptr noundef readonl
   %41 = tail call double @log10(double noundef %40) #22, !tbaa !12
   %42 = fptoui double %41 to i32
   %43 = zext i32 %42 to i64
-  %44 = getelementptr inbounds nuw i32, ptr %39, i64 %43
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %43
   %45 = load i32, ptr %44, align 4, !tbaa !12
   %46 = add i32 %45, 1
   store i32 %46, ptr %44, align 4, !tbaa !12
@@ -6435,7 +6433,7 @@ define range(i32 -1, 1) i32 @H5F_get_metadata_read_retry_info(ptr noundef readon
 30:                                               ; preds = %27
   %31 = load ptr, ptr %19, align 8, !tbaa !15
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 2056
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8, !tbaa !119
   %.not25 = icmp eq ptr %34, null
   br i1 %.not25, label %46, label %35
@@ -6443,7 +6441,7 @@ define range(i32 -1, 1) i32 @H5F_get_metadata_read_retry_info(ptr noundef readon
 35:                                               ; preds = %30
   %36 = tail call noalias ptr @malloc(i64 noundef %26) #24
   %37 = zext i32 %.02226 to i64
-  %38 = getelementptr inbounds nuw ptr, ptr %23, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %37
   store ptr %36, ptr %38, align 8, !tbaa !119
   %39 = icmp eq ptr %36, null
   br i1 %39, label %40, label %44
@@ -6687,7 +6685,7 @@ define range(i32 -1, 1) i32 @H5F__start_swmr_write(ptr noundef %0) local_unnamed
   %.0162235 = phi i64 [ %164, %163 ], [ 0, %.preheader230 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %129 = getelementptr inbounds nuw i64, ptr %115, i64 %.0162235
+  %129 = getelementptr inbounds nuw [8 x i8], ptr %115, i64 %.0162235
   %130 = load i64, ptr %129, align 8, !tbaa !10
   %131 = call ptr @H5O_get_loc(i64 noundef %130) #22
   %132 = icmp eq ptr %131, null
@@ -6818,7 +6816,7 @@ define range(i32 -1, 1) i32 @H5F__start_swmr_write(ptr noundef %0) local_unnamed
 .lr.ph238:                                        ; preds = %.lr.ph238.preheader, %247
   %.1163236 = phi i64 [ %248, %247 ], [ 0, %.lr.ph238.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %205 = getelementptr inbounds nuw i64, ptr %115, i64 %.1163236
+  %205 = getelementptr inbounds nuw [8 x i8], ptr %115, i64 %.1163236
   %206 = load i64, ptr %205, align 8, !tbaa !10
   %207 = call i32 @H5I_get_type(i64 noundef %206) #22
   %208 = load i64, ptr %205, align 8, !tbaa !10
@@ -6842,7 +6840,7 @@ define range(i32 -1, 1) i32 @H5F__start_swmr_write(ptr noundef %0) local_unnamed
 
 216:                                              ; preds = %215
   %217 = call i64 @H5D_get_access_plist(ptr noundef nonnull %209) #22
-  %218 = getelementptr inbounds nuw i64, ptr %189, i64 %.1163236
+  %218 = getelementptr inbounds nuw [8 x i8], ptr %189, i64 %.1163236
   store i64 %217, ptr %218, align 8, !tbaa !10
   %219 = icmp slt i64 %217, 0
   br i1 %219, label %220, label %232
@@ -6866,10 +6864,10 @@ define range(i32 -1, 1) i32 @H5F__start_swmr_write(ptr noundef %0) local_unnamed
   br label %.thread210
 
 232:                                              ; preds = %216, %215, %215
-  %233 = getelementptr inbounds nuw %struct.H5O_loc_t, ptr %174, i64 %.1163236
-  %234 = getelementptr inbounds nuw %struct.H5G_loc_t, ptr %166, i64 %.1163236
+  %233 = getelementptr inbounds nuw [24 x i8], ptr %174, i64 %.1163236
+  %234 = getelementptr inbounds nuw [16 x i8], ptr %166, i64 %.1163236
   store ptr %233, ptr %234, align 8, !tbaa !170
-  %235 = getelementptr inbounds nuw %struct.H5G_name_t, ptr %181, i64 %.1163236
+  %235 = getelementptr inbounds nuw [24 x i8], ptr %181, i64 %.1163236
   %236 = getelementptr inbounds nuw i8, ptr %234, i64 8
   store ptr %235, ptr %236, align 8, !tbaa !174
   %237 = call i32 @H5G_loc_reset(ptr noundef nonnull %234) #22
@@ -7022,11 +7020,11 @@ define range(i32 -1, 1) i32 @H5F__start_swmr_write(ptr noundef %0) local_unnamed
 
 .lr.ph240:                                        ; preds = %.preheader228, %322
   %.2164239 = phi i64 [ %323, %322 ], [ 0, %.preheader228 ]
-  %326 = getelementptr inbounds nuw i64, ptr %.1, i64 %.2164239
+  %326 = getelementptr inbounds nuw [8 x i8], ptr %.1, i64 %.2164239
   %327 = load i64, ptr %326, align 8, !tbaa !10
-  %328 = getelementptr inbounds nuw i64, ptr %.1154, i64 %.2164239
+  %328 = getelementptr inbounds nuw [8 x i8], ptr %.1154, i64 %.2164239
   %329 = load i64, ptr %328, align 8, !tbaa !10
-  %330 = getelementptr inbounds nuw %struct.H5G_loc_t, ptr %.1171, i64 %.2164239
+  %330 = getelementptr inbounds nuw [16 x i8], ptr %.1171, i64 %.2164239
   %331 = call i32 @H5O_refresh_metadata_reopen(i64 noundef %327, i64 noundef %329, ptr noundef %330, ptr noundef %.0158, i1 noundef zeroext true) #22
   %332 = icmp slt i32 %331, 0
   br i1 %332, label %333, label %322
@@ -7188,7 +7186,7 @@ H5F_set_retries.exit:                             ; preds = %349, %358, %365
 .lr.ph243:                                        ; preds = %.preheader, %427
   %.14242 = phi i32 [ %.15, %427 ], [ %.13, %.preheader ]
   %.3165241 = phi i64 [ %428, %427 ], [ 0, %.preheader ]
-  %418 = getelementptr inbounds nuw i64, ptr %.0153226, i64 %.3165241
+  %418 = getelementptr inbounds nuw [8 x i8], ptr %.0153226, i64 %.3165241
   %419 = load i64, ptr %418, align 8, !tbaa !10
   %or.cond202 = icmp sgt i64 %419, 0
   br i1 %or.cond202, label %420, label %427
@@ -7754,7 +7752,7 @@ define internal range(i32 -1, 2) i32 @H5F__get_objects_cb(ptr noundef %0, i64 no
 86:                                               ; preds = %.thread105
   %87 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %88 = load i64, ptr %87, align 8, !tbaa !64
-  %89 = getelementptr inbounds nuw i64, ptr %85, i64 %88
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %88
   store i64 %1, ptr %89, align 8, !tbaa !10
   %90 = load i64, ptr %87, align 8, !tbaa !64
   %91 = add i64 %90, 1

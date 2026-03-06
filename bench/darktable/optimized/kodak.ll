@@ -20,13 +20,13 @@ target triple = "x86_64-pc-linux-gnu"
 define void @_ZN6LibRaw16Kodak_KDC_WBtagsEii(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 187092
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds [4 x i32], ptr %4, i64 %5
+  %6 = getelementptr inbounds [16 x i8], ptr %4, i64 %5
   br label %7
 
 7:                                                ; preds = %3, %7
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %7 ]
   %8 = tail call noundef i32 @_ZN6LibRaw4get4Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
-  %9 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   store i32 %8, ptr %9, align 4, !tbaa !6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -46,10 +46,10 @@ define void @_ZN6LibRaw16Kodak_KDC_WBtagsEii(ptr noundef nonnull align 8 derefer
 
 16:                                               ; preds = %.preheader, %16
   %indvars.iv16 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next17, %16 ]
-  %17 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv16
   %18 = load i32, ptr %17, align 4, !tbaa !6
   %19 = sitofp i32 %18 to float
-  %20 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv16
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv16
   store float %19, ptr %20, align 4, !tbaa !12
   %indvars.iv.next17 = add nuw nsw i64 %indvars.iv16, 1
   %exitcond19.not = icmp eq i64 %indvars.iv.next17, 4
@@ -74,7 +74,7 @@ define void @_ZN6LibRaw16Kodak_DCR_WBtagsEiji(ptr noundef nonnull align 8 derefe
   %8 = fptrunc reassoc nsz arcp contract afn double %7 to float
   %9 = fcmp reassoc nsz arcp contract afn ole double %7, 0x3F50624DEFFFFFFF
   %10 = select reassoc nsz arcp contract afn i1 %9, float 1.000000e+00, float %8
-  %11 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   store float %10, ptr %11, align 4, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -86,7 +86,7 @@ define void @_ZN6LibRaw16Kodak_DCR_WBtagsEiji(ptr noundef nonnull align 8 derefe
   %15 = fptosi float %14 to i32
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 187092
   %17 = sext i32 %1 to i64
-  %18 = getelementptr inbounds [4 x i32], ptr %16, i64 %17
+  %18 = getelementptr inbounds [16 x i8], ptr %16, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 12
   store i32 %15, ptr %19, align 8, !tbaa !6
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 4
@@ -111,10 +111,10 @@ define void @_ZN6LibRaw16Kodak_DCR_WBtagsEiji(ptr noundef nonnull align 8 derefe
 
 32:                                               ; preds = %.preheader, %32
   %indvars.iv21 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next22, %32 ]
-  %33 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv21
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv21
   %34 = load i32, ptr %33, align 4, !tbaa !6
   %35 = sitofp i32 %34 to float
-  %36 = getelementptr inbounds nuw float, ptr %31, i64 %indvars.iv21
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv21
   store float %35, ptr %36, align 4, !tbaa !12
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %exitcond24.not = icmp eq i64 %indvars.iv.next22, 4
@@ -145,7 +145,7 @@ define noundef signext range(i16 0, 2) i16 @_ZN6LibRaw16KodakIllumMatrixEjPf(ptr
   %indvars.iv61 = phi i64 [ %indvars.iv.next62, %.preheader ], [ 0, %3 ]
   %6 = tail call reassoc nsz arcp contract afn noundef double @_ZN6LibRaw7getrealEi(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef 10)
   %7 = fptrunc reassoc nsz arcp contract afn double %6 to float
-  %8 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv61
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv61
   store float %7, ptr %8, align 4, !tbaa !12
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
   %exitcond64.not = icmp eq i64 %indvars.iv.next62, 9
@@ -153,7 +153,7 @@ define noundef signext range(i16 0, 2) i16 @_ZN6LibRaw16KodakIllumMatrixEjPf(ptr
 
 .preheader41:                                     ; preds = %3, %14
   %indvars.iv49 = phi i64 [ %indvars.iv.next50, %14 ], [ 0, %3 ]
-  %9 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv49
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv49
   store i32 0, ptr %9, align 4, !tbaa !6
   %.idx = mul nuw nsw i64 %indvars.iv49, 12
   %invariant.gep = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
@@ -163,7 +163,7 @@ define noundef signext range(i16 0, 2) i16 @_ZN6LibRaw16KodakIllumMatrixEjPf(ptr
   %11 = phi i32 [ 0, %.preheader41 ], [ %13, %10 ]
   %indvars.iv = phi i64 [ 0, %.preheader41 ], [ %indvars.iv.next, %10 ]
   %12 = tail call noundef i32 @_ZN6LibRaw4get4Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
-  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep, i64 %indvars.iv
   store i32 %12, ptr %gep, align 4, !tbaa !6
   %13 = add nsw i32 %11, %12
   store i32 %13, ptr %9, align 4, !tbaa !6
@@ -192,7 +192,7 @@ define noundef signext range(i16 0, 2) i16 @_ZN6LibRaw16KodakIllumMatrixEjPf(ptr
 .preheader38:                                     ; preds = %15, %36
   %indvars.iv57 = phi i64 [ %indvars.iv.next58, %36 ], [ 0, %15 ]
   %24 = mul nuw nsw i64 %indvars.iv57, 3
-  %25 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv57
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv57
   %26 = load i32, ptr %25, align 4, !tbaa !6
   %27 = sitofp i32 %26 to float
   %28 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %27
@@ -201,11 +201,11 @@ define noundef signext range(i16 0, 2) i16 @_ZN6LibRaw16KodakIllumMatrixEjPf(ptr
 29:                                               ; preds = %.preheader38, %29
   %indvars.iv53 = phi i64 [ 0, %.preheader38 ], [ %indvars.iv.next54, %29 ]
   %30 = add nuw nsw i64 %indvars.iv53, %24
-  %31 = getelementptr inbounds nuw i32, ptr %4, i64 %30
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %30
   %32 = load i32, ptr %31, align 4, !tbaa !6
   %33 = sitofp i32 %32 to float
   %34 = fmul reassoc nsz arcp contract afn float %33, %28
-  %35 = getelementptr inbounds nuw float, ptr %2, i64 %30
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %30
   store float %34, ptr %35, align 4, !tbaa !12
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %exitcond56.not = icmp eq i64 %indvars.iv.next54, 3
@@ -670,7 +670,7 @@ define void @_ZN6LibRaw15parse_kodak_ifdEi(ptr noundef nonnull align 8 dereferen
 
 230:                                              ; preds = %227
   %231 = zext nneg i32 %229 to i64
-  %232 = getelementptr inbounds nuw i32, ptr @_ZZN6LibRaw15parse_kodak_ifdEiE9wbtag_dcr, i64 %231
+  %232 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN6LibRaw15parse_kodak_ifdEiE9wbtag_dcr, i64 %231
   %233 = load i32, ptr %232, align 4, !tbaa !6
   br label %.loopexit
 
@@ -696,7 +696,7 @@ define void @_ZN6LibRaw15parse_kodak_ifdEi(ptr noundef nonnull align 8 dereferen
   %247 = fcmp reassoc nsz arcp contract afn olt float %246, 1.000000e+00
   %248 = select reassoc nsz arcp contract afn i1 %247, float 1.000000e+00, float %246
   %249 = fdiv reassoc nsz arcp contract afn float 2.048000e+03, %248
-  %250 = getelementptr inbounds nuw float, ptr %62, i64 %indvars.iv211
+  %250 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %indvars.iv211
   store float %249, ptr %250, align 4, !tbaa !12
   %indvars.iv.next212 = add nuw nsw i64 %indvars.iv211, 1
   %exitcond214.not = icmp eq i64 %indvars.iv.next212, 3
@@ -863,7 +863,7 @@ define void @_ZN6LibRaw15parse_kodak_ifdEi(ptr noundef nonnull align 8 dereferen
 
 314:                                              ; preds = %308
   %315 = zext nneg i32 %313 to i64
-  %316 = getelementptr inbounds nuw i32, ptr @_ZZN6LibRaw15parse_kodak_ifdEiE9wbtag_kdc, i64 %315
+  %316 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN6LibRaw15parse_kodak_ifdEiE9wbtag_kdc, i64 %315
   %317 = load i32, ptr %316, align 4, !tbaa !6
   br label %.loopexit
 

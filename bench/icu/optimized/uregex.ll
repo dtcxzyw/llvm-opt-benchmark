@@ -211,7 +211,7 @@ define noundef ptr @uregex_open_77(ptr noundef %0, i32 noundef %1, i32 noundef %
   store i32 %1, ptr %38, align 8, !tbaa !21
   %39 = tail call ptr @u_memcpy_77(ptr noundef nonnull %27, ptr noundef nonnull %0, i32 noundef %.057)
   %40 = sext i32 %.057 to i64
-  %41 = getelementptr inbounds i16, ptr %27, i64 %40
+  %41 = getelementptr inbounds [2 x i8], ptr %27, i64 %40
   store i16 0, ptr %41, align 2, !tbaa !22
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %6, i8 0, i64 144, i1 false)
@@ -1446,7 +1446,7 @@ _ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit: ; preds = %16,
 
 37:                                               ; preds = %34
   %38 = sext i32 %35 to i64
-  %39 = getelementptr inbounds i16, ptr %2, i64 %38
+  %39 = getelementptr inbounds [2 x i8], ptr %2, i64 %38
   store i16 0, ptr %39, align 2, !tbaa !22
   br label %44
 
@@ -1470,7 +1470,7 @@ _ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit: ; preds = %16,
 46:                                               ; preds = %44
   %47 = load ptr, ptr %13, align 8, !tbaa !18
   %48 = sext i32 %29 to i64
-  %49 = getelementptr inbounds i16, ptr %47, i64 %48
+  %49 = getelementptr inbounds [2 x i8], ptr %47, i64 %48
   %50 = tail call ptr @u_memcpy_77(ptr noundef %2, ptr noundef %49, i32 noundef %.049)
   br label %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread
 
@@ -3132,9 +3132,9 @@ _ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit: ; preds = %26,
 
 84:                                               ; preds = %.lr.ph
   %85 = load ptr, ptr %23, align 8, !tbaa !18
-  %86 = getelementptr inbounds i16, ptr %85, i64 %indvars.iv
+  %86 = getelementptr inbounds [2 x i8], ptr %85, i64 %indvars.iv
   %87 = load i16, ptr %86, align 2, !tbaa !22
-  %88 = getelementptr inbounds nuw i16, ptr %34, i64 %indvars.iv331
+  %88 = getelementptr inbounds nuw [2 x i8], ptr %34, i64 %indvars.iv331
   store i16 %87, ptr %88, align 2, !tbaa !22
   br label %_ZL11appendToBufDsPiPDsi.exit
 
@@ -3178,7 +3178,7 @@ _ZL11appendToBufDsPiPDsi.exit:                    ; preds = %.lr.ph, %84
 
 104:                                              ; preds = %100
   %105 = sext i32 %101 to i64
-  %106 = getelementptr inbounds i16, ptr %1, i64 %105
+  %106 = getelementptr inbounds [2 x i8], ptr %1, i64 %105
   %107 = load i16, ptr %106, align 2, !tbaa !22
   %108 = add nsw i32 %101, 1
   store i32 %108, ptr %9, align 4, !tbaa !24
@@ -3193,7 +3193,7 @@ _ZL11appendToBufDsPiPDsi.exit:                    ; preds = %.lr.ph, %84
 
 111:                                              ; preds = %109
   %112 = sext i32 %.2278 to i64
-  %113 = getelementptr inbounds i16, ptr %34, i64 %112
+  %113 = getelementptr inbounds [2 x i8], ptr %34, i64 %112
   store i16 %107, ptr %113, align 2, !tbaa !22
   br label %_ZL11appendToBufDsPiPDsi.exit258
 
@@ -3207,7 +3207,7 @@ _ZL11appendToBufDsPiPDsi.exit258:                 ; preds = %109, %111
 
 116:                                              ; preds = %115
   %117 = sext i32 %108 to i64
-  %118 = getelementptr inbounds i16, ptr %1, i64 %117
+  %118 = getelementptr inbounds [2 x i8], ptr %1, i64 %117
   %119 = load i16, ptr %118, align 2, !tbaa !22
   %120 = and i16 %119, -33
   %or.cond13 = icmp eq i16 %120, 85
@@ -3229,7 +3229,7 @@ _ZL11appendToBufDsPiPDsi.exit258:                 ; preds = %109, %111
 127:                                              ; preds = %126
   %128 = trunc i32 %122 to i16
   %129 = sext i32 %.2278 to i64
-  %130 = getelementptr inbounds i16, ptr %34, i64 %129
+  %130 = getelementptr inbounds [2 x i8], ptr %34, i64 %129
   store i16 %128, ptr %130, align 2, !tbaa !22
   br label %_ZL11appendToBufDsPiPDsi.exit259
 
@@ -3245,7 +3245,7 @@ _ZL11appendToBufDsPiPDsi.exit259:                 ; preds = %126, %127
   %135 = trunc i32 %134 to i16
   %136 = add i16 %135, -10304
   %137 = sext i32 %.2278 to i64
-  %138 = getelementptr inbounds i16, ptr %34, i64 %137
+  %138 = getelementptr inbounds [2 x i8], ptr %34, i64 %137
   store i16 %136, ptr %138, align 2, !tbaa !22
   br label %_ZL11appendToBufDsPiPDsi.exit260
 
@@ -3259,7 +3259,7 @@ _ZL11appendToBufDsPiPDsi.exit260:                 ; preds = %132, %133
   %143 = and i16 %142, 1023
   %144 = or disjoint i16 %143, -9216
   %145 = sext i32 %139 to i64
-  %146 = getelementptr inbounds i16, ptr %34, i64 %145
+  %146 = getelementptr inbounds [2 x i8], ptr %34, i64 %145
   store i16 %144, ptr %146, align 2, !tbaa !22
   br label %_ZL11appendToBufDsPiPDsi.exit261
 
@@ -3273,7 +3273,7 @@ _ZL11appendToBufDsPiPDsi.exit261:                 ; preds = %_ZL11appendToBufDsP
 
 150:                                              ; preds = %148
   %151 = sext i32 %.2278 to i64
-  %152 = getelementptr inbounds i16, ptr %34, i64 %151
+  %152 = getelementptr inbounds [2 x i8], ptr %34, i64 %151
   store i16 %119, ptr %152, align 2, !tbaa !22
   br label %_ZL11appendToBufDsPiPDsi.exit262
 
@@ -3290,7 +3290,7 @@ _ZL11appendToBufDsPiPDsi.exit262:                 ; preds = %148, %150
 
 158:                                              ; preds = %156
   %159 = sext i32 %108 to i64
-  %160 = getelementptr inbounds i16, ptr %1, i64 %159
+  %160 = getelementptr inbounds [2 x i8], ptr %1, i64 %159
   %161 = load i16, ptr %160, align 2, !tbaa !22
   %162 = zext i16 %161 to i32
   %163 = and i32 %162, 64512
@@ -3304,7 +3304,7 @@ _ZL11appendToBufDsPiPDsi.exit262:                 ; preds = %148, %150
 
 166:                                              ; preds = %164
   %167 = sext i32 %165 to i64
-  %168 = getelementptr inbounds i16, ptr %1, i64 %167
+  %168 = getelementptr inbounds [2 x i8], ptr %1, i64 %167
   %169 = load i16, ptr %168, align 2, !tbaa !22
   %170 = zext i16 %169 to i32
   %171 = and i32 %170, 64512
@@ -3343,7 +3343,7 @@ _ZL11appendToBufDsPiPDsi.exit262:                 ; preds = %148, %150
   %.0196319 = phi i32 [ %251, %249 ], [ 0, %180 ]
   %.0202318 = phi i32 [ %230, %249 ], [ 0, %180 ]
   %188 = sext i32 %187 to i64
-  %189 = getelementptr inbounds i16, ptr %1, i64 %188
+  %189 = getelementptr inbounds [2 x i8], ptr %1, i64 %188
   %190 = load i16, ptr %189, align 2, !tbaa !22
   %191 = zext i16 %190 to i32
   %192 = and i32 %191, 63488
@@ -3362,7 +3362,7 @@ _ZL11appendToBufDsPiPDsi.exit262:                 ; preds = %148, %150
 
 199:                                              ; preds = %197
   %200 = sext i32 %198 to i64
-  %201 = getelementptr inbounds i16, ptr %1, i64 %200
+  %201 = getelementptr inbounds [2 x i8], ptr %1, i64 %200
   %202 = load i16, ptr %201, align 2, !tbaa !22
   %203 = zext i16 %202 to i32
   %204 = and i32 %203, 64512
@@ -3381,7 +3381,7 @@ _ZL11appendToBufDsPiPDsi.exit262:                 ; preds = %148, %150
 
 212:                                              ; preds = %210
   %213 = zext nneg i32 %187 to i64
-  %214 = getelementptr i16, ptr %1, i64 %213
+  %214 = getelementptr [2 x i8], ptr %1, i64 %213
   %215 = getelementptr i8, ptr %214, i64 -2
   %216 = load i16, ptr %215, align 2, !tbaa !22
   %217 = zext i16 %216 to i32
@@ -3413,7 +3413,7 @@ _ZL11appendToBufDsPiPDsi.exit262:                 ; preds = %148, %150
   %233 = add nsw i32 %232, 1
   store i32 %233, ptr %9, align 4, !tbaa !24
   %234 = sext i32 %232 to i64
-  %235 = getelementptr inbounds i16, ptr %1, i64 %234
+  %235 = getelementptr inbounds [2 x i8], ptr %1, i64 %234
   %236 = load i16, ptr %235, align 2, !tbaa !22
   %237 = and i16 %236, -1024
   %238 = icmp ne i16 %237, -10240
@@ -3423,7 +3423,7 @@ _ZL11appendToBufDsPiPDsi.exit262:                 ; preds = %148, %150
 
 239:                                              ; preds = %231
   %240 = sext i32 %233 to i64
-  %241 = getelementptr inbounds i16, ptr %1, i64 %240
+  %241 = getelementptr inbounds [2 x i8], ptr %1, i64 %240
   %242 = load i16, ptr %241, align 2, !tbaa !22
   %243 = and i16 %242, -1024
   %244 = icmp eq i16 %243, -9216
@@ -3456,7 +3456,7 @@ _ZL11appendToBufDsPiPDsi.exit262:                 ; preds = %148, %150
   %256 = add nsw i32 %255, 1
   store i32 %256, ptr %9, align 4, !tbaa !24
   %257 = sext i32 %255 to i64
-  %258 = getelementptr inbounds i16, ptr %1, i64 %257
+  %258 = getelementptr inbounds [2 x i8], ptr %1, i64 %257
   %259 = load i16, ptr %258, align 2, !tbaa !22
   %260 = and i16 %259, -1024
   %261 = icmp ne i16 %260, -10240
@@ -3466,7 +3466,7 @@ _ZL11appendToBufDsPiPDsi.exit262:                 ; preds = %148, %150
 
 262:                                              ; preds = %254
   %263 = sext i32 %256 to i64
-  %264 = getelementptr inbounds i16, ptr %1, i64 %263
+  %264 = getelementptr inbounds [2 x i8], ptr %1, i64 %263
   %265 = load i16, ptr %264, align 2, !tbaa !22
   %266 = and i16 %265, -1024
   %267 = icmp eq i16 %266, -9216
@@ -3491,7 +3491,7 @@ _ZL11appendToBufDsPiPDsi.exit262:                 ; preds = %148, %150
   %275 = add nsw i32 %273, 1
   store i32 %275, ptr %9, align 4, !tbaa !24
   %276 = sext i32 %273 to i64
-  %277 = getelementptr inbounds i16, ptr %1, i64 %276
+  %277 = getelementptr inbounds [2 x i8], ptr %1, i64 %276
   %278 = load i16, ptr %277, align 2, !tbaa !22
   %279 = zext i16 %278 to i32
   %280 = and i32 %279, 64512
@@ -3502,7 +3502,7 @@ _ZL11appendToBufDsPiPDsi.exit262:                 ; preds = %148, %150
 
 282:                                              ; preds = %274
   %283 = sext i32 %275 to i64
-  %284 = getelementptr inbounds i16, ptr %1, i64 %283
+  %284 = getelementptr inbounds [2 x i8], ptr %1, i64 %283
   %285 = load i16, ptr %284, align 2, !tbaa !22
   %286 = zext i16 %285 to i32
   %287 = and i32 %286, 64512
@@ -3596,7 +3596,7 @@ _ZL11appendToBufDsPiPDsi.exit262:                 ; preds = %148, %150
 
 318:                                              ; preds = %.thread292
   %319 = sext i32 %.2278 to i64
-  %320 = getelementptr inbounds i16, ptr %34, i64 %319
+  %320 = getelementptr inbounds [2 x i8], ptr %34, i64 %319
   %321 = select i1 %35, ptr null, ptr %320
   %322 = sub nsw i32 %36, %.2278
   %323 = call i32 @llvm.smax.i32(i32 %322, i32 0)
@@ -3633,7 +3633,7 @@ _ZL11appendToBufDsPiPDsi.exit262:                 ; preds = %148, %150
 
 332:                                              ; preds = %.critedge
   %333 = sext i32 %.3 to i64
-  %334 = getelementptr inbounds i16, ptr %34, i64 %333
+  %334 = getelementptr inbounds [2 x i8], ptr %34, i64 %333
   store i16 0, ptr %334, align 2, !tbaa !22
   br label %343
 
@@ -3670,14 +3670,14 @@ _ZL11appendToBufDsPiPDsi.exit262:                 ; preds = %148, %150
 
 350:                                              ; preds = %348
   %351 = zext nneg i32 %.3 to i64
-  %352 = getelementptr inbounds nuw i16, ptr %349, i64 %351
+  %352 = getelementptr inbounds nuw [2 x i8], ptr %349, i64 %351
   store ptr %352, ptr %3, align 8, !tbaa !33
   %353 = sub nsw i32 %346, %.3
   br label %.sink.split
 
 354:                                              ; preds = %348
   %355 = zext nneg i32 %36 to i64
-  %356 = getelementptr inbounds nuw i16, ptr %349, i64 %355
+  %356 = getelementptr inbounds nuw [2 x i8], ptr %349, i64 %355
   store ptr %356, ptr %3, align 8, !tbaa !33
   br label %.sink.split
 
@@ -3840,9 +3840,9 @@ _ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit: ; preds = %21,
   br i1 %exitcond183.not, label %.split.us, label %62
 
 62:                                               ; preds = %.lr.ph.split.us.split.us
-  %63 = getelementptr inbounds i16, ptr %56, i64 %indvars.iv175
+  %63 = getelementptr inbounds [2 x i8], ptr %56, i64 %indvars.iv175
   %64 = load i16, ptr %63, align 2, !tbaa !22
-  %65 = getelementptr inbounds nuw i16, ptr %27, i64 %indvars.iv177
+  %65 = getelementptr inbounds nuw [2 x i8], ptr %27, i64 %indvars.iv177
   store i16 %64, ptr %65, align 2, !tbaa !22
   %indvars.iv.next176 = add nsw i64 %indvars.iv175, 1
   %indvars.iv.next178 = add nuw nsw i64 %indvars.iv177, 1
@@ -3856,9 +3856,9 @@ _ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit: ; preds = %21,
   br i1 %66, label %67, label %71
 
 67:                                               ; preds = %.lr.ph.split.us.split
-  %68 = getelementptr inbounds i16, ptr %56, i64 %indvars.iv
+  %68 = getelementptr inbounds [2 x i8], ptr %56, i64 %indvars.iv
   %69 = load i16, ptr %68, align 2, !tbaa !22
-  %70 = getelementptr inbounds nuw i16, ptr %27, i64 %indvars.iv170
+  %70 = getelementptr inbounds nuw [2 x i8], ptr %27, i64 %indvars.iv170
   store i16 %69, ptr %70, align 2, !tbaa !22
   br label %71
 
@@ -3876,7 +3876,7 @@ _ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit: ; preds = %21,
 .lr.ph.split.split:                               ; preds = %.lr.ph.split.split.preheader, %82
   %indvars.iv188 = phi i64 [ 0, %.lr.ph.split.split.preheader ], [ %indvars.iv.next189, %82 ]
   %indvars.iv186 = phi i64 [ %58, %.lr.ph.split.split.preheader ], [ %indvars.iv.next187, %82 ]
-  %73 = getelementptr inbounds i16, ptr %56, i64 %indvars.iv186
+  %73 = getelementptr inbounds [2 x i8], ptr %56, i64 %indvars.iv186
   %74 = load i16, ptr %73, align 2, !tbaa !22
   %75 = icmp eq i16 %74, 0
   br i1 %75, label %.split130.us, label %76
@@ -3892,7 +3892,7 @@ _ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit: ; preds = %21,
   br i1 %77, label %78, label %82
 
 78:                                               ; preds = %76
-  %79 = getelementptr inbounds nuw i16, ptr %27, i64 %indvars.iv188
+  %79 = getelementptr inbounds nuw [2 x i8], ptr %27, i64 %indvars.iv188
   store i16 %74, ptr %79, align 2, !tbaa !22
   br label %82
 
@@ -3947,10 +3947,10 @@ _ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit: ; preds = %21,
 
 101:                                              ; preds = %.thread107
   %102 = sext i32 %.3 to i64
-  %103 = getelementptr inbounds i16, ptr %27, i64 %102
+  %103 = getelementptr inbounds [2 x i8], ptr %27, i64 %102
   store i16 0, ptr %103, align 2, !tbaa !22
   %104 = load ptr, ptr %1, align 8, !tbaa !33
-  %105 = getelementptr inbounds i16, ptr %104, i64 %102
+  %105 = getelementptr inbounds [2 x i8], ptr %104, i64 %102
   store ptr %105, ptr %1, align 8, !tbaa !33
   %106 = load i32, ptr %2, align 4, !tbaa !24
   %107 = sub nsw i32 %106, %.3
@@ -3958,7 +3958,7 @@ _ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit: ; preds = %21,
 
 108:                                              ; preds = %98
   %109 = zext nneg i32 %29 to i64
-  %110 = getelementptr inbounds nuw i16, ptr %100, i64 %109
+  %110 = getelementptr inbounds nuw [2 x i8], ptr %100, i64 %109
   store ptr %110, ptr %1, align 8, !tbaa !33
   br label %.sink.split
 
@@ -4098,9 +4098,9 @@ define linkonce_odr noundef i32 @_ZN6icu_7710RegexCImpl5splitEPNS_17RegularExpre
 
 26:                                               ; preds = %.lr.ph181.split.us
   %27 = sext i32 %.0120178.us to i64
-  %28 = getelementptr inbounds i16, ptr %1, i64 %27
+  %28 = getelementptr inbounds [2 x i8], ptr %1, i64 %27
   %29 = select i1 %21, ptr null, ptr %28
-  %30 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv287
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv287
   store ptr %29, ptr %30, align 8, !tbaa !33
   %31 = load ptr, ptr %9, align 8, !tbaa !13
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 136
@@ -4147,7 +4147,7 @@ define linkonce_odr noundef i32 @_ZN6icu_7710RegexCImpl5splitEPNS_17RegularExpre
   br i1 %.not135, label %._crit_edge294, label %51
 
 51:                                               ; preds = %50
-  %52 = getelementptr inbounds ptr, ptr %4, i64 %.pre295
+  %52 = getelementptr inbounds [8 x i8], ptr %4, i64 %.pre295
   %53 = load ptr, ptr %52, align 8, !tbaa !33
   %54 = load ptr, ptr %4, align 8, !tbaa !33
   %55 = ptrtoint ptr %53 to i64
@@ -4161,9 +4161,9 @@ define linkonce_odr noundef i32 @_ZN6icu_7710RegexCImpl5splitEPNS_17RegularExpre
   %.1 = phi i32 [ %59, %51 ], [ %.0120.lcssa, %50 ]
   %60 = icmp eq ptr %1, null
   %61 = sext i32 %.1 to i64
-  %62 = getelementptr inbounds i16, ptr %1, i64 %61
+  %62 = getelementptr inbounds [2 x i8], ptr %1, i64 %61
   %63 = select i1 %60, ptr null, ptr %62
-  %64 = getelementptr inbounds ptr, ptr %4, i64 %.pre295
+  %64 = getelementptr inbounds [8 x i8], ptr %4, i64 %.pre295
   store ptr %63, ptr %64, align 8, !tbaa !33
   %65 = sub nsw i32 %2, %.1
   %66 = call i32 @llvm.smax.i32(i32 %65, i32 0)
@@ -4183,10 +4183,10 @@ define linkonce_odr noundef i32 @_ZN6icu_7710RegexCImpl5splitEPNS_17RegularExpre
 
 72:                                               ; preds = %.lr.ph181.split.split
   %73 = sext i32 %.0120178 to i64
-  %74 = getelementptr inbounds i16, ptr %1, i64 %73
+  %74 = getelementptr inbounds [2 x i8], ptr %1, i64 %73
   %75 = select i1 %21, ptr null, ptr %74
   %76 = sext i32 %.0121177 to i64
-  %77 = getelementptr inbounds ptr, ptr %4, i64 %76
+  %77 = getelementptr inbounds [8 x i8], ptr %4, i64 %76
   store ptr %75, ptr %77, align 8, !tbaa !33
   %78 = load ptr, ptr %9, align 8, !tbaa !13
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 136
@@ -4230,8 +4230,8 @@ uregex_group_77.exit.thread.us168:                ; preds = %uregex_group_77.exi
   %indvars.iv = phi i64 [ %indvars.iv.next, %uregex_group_77.exit.thread.us168 ], [ %97, %.lr.ph.split.split.us ]
   %.0118159.us165 = phi i32 [ %100, %uregex_group_77.exit.thread.us168 ], [ 1, %.lr.ph.split.split.us ]
   %indvars.iv.next273 = add nsw i64 %indvars.iv272, 1
-  %98 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv
-  %99 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv.next273
+  %98 = getelementptr inbounds [2 x i8], ptr %1, i64 %indvars.iv
+  %99 = getelementptr inbounds [8 x i8], ptr %4, i64 %indvars.iv.next273
   store ptr %98, ptr %99, align 8, !tbaa !33
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %100 = add nuw nsw i32 %.0118159.us165, 1
@@ -4252,8 +4252,8 @@ uregex_group_77.exit.thread.us168:                ; preds = %uregex_group_77.exi
   %.3158 = phi i32 [ %162, %161 ], [ %85, %.lr.ph ]
   %indvars.iv.next278 = add nsw i64 %indvars.iv277, 1
   %104 = sext i32 %.3158 to i64
-  %105 = getelementptr inbounds i16, ptr %1, i64 %104
-  %106 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv.next278
+  %105 = getelementptr inbounds [2 x i8], ptr %1, i64 %104
+  %106 = getelementptr inbounds [8 x i8], ptr %4, i64 %indvars.iv.next278
   store ptr %105, ptr %106, align 8, !tbaa !33
   store i32 0, ptr %8, align 4, !tbaa !19
   %107 = sub nsw i32 %2, %.3158
@@ -4298,7 +4298,7 @@ _ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.i: ; preds = %1
 
 128:                                              ; preds = %125
   %129 = sext i32 %126 to i64
-  %130 = getelementptr inbounds i16, ptr %105, i64 %129
+  %130 = getelementptr inbounds [2 x i8], ptr %105, i64 %129
   store i16 0, ptr %130, align 2, !tbaa !22
   br label %135
 
@@ -4322,7 +4322,7 @@ _ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.i: ; preds = %1
 137:                                              ; preds = %135
   %138 = load ptr, ptr %22, align 8, !tbaa !18
   %139 = sext i32 %120 to i64
-  %140 = getelementptr inbounds i16, ptr %138, i64 %139
+  %140 = getelementptr inbounds [2 x i8], ptr %138, i64 %139
   %141 = call ptr @u_memcpy_77(ptr noundef %105, ptr noundef %140, i32 noundef %.049.i)
   br label %uregex_group_77.exitthread-pre-split
 
@@ -4402,13 +4402,13 @@ uregex_group_77.exit:                             ; preds = %uregex_group_77.exi
 
 172:                                              ; preds = %.split191.us
   %173 = sext i32 %.us-phi194 to i64
-  %174 = getelementptr inbounds i16, ptr %1, i64 %173
+  %174 = getelementptr inbounds [2 x i8], ptr %1, i64 %173
   store i16 0, ptr %174, align 2, !tbaa !22
   %175 = icmp slt i32 %.us-phi193, %20
   %176 = zext i1 %175 to i32
   %spec.select138 = add nsw i32 %.us-phi193, %176
   %177 = sext i32 %spec.select138 to i64
-  %178 = getelementptr inbounds ptr, ptr %4, i64 %177
+  %178 = getelementptr inbounds [8 x i8], ptr %4, i64 %177
   store ptr %174, ptr %178, align 8, !tbaa !33
   br label %179
 
@@ -4426,10 +4426,10 @@ uregex_group_77.exit:                             ; preds = %uregex_group_77.exi
   %.us-phi188 = phi i32 [ %.0120178.us, %.split.us.loopexit ], [ %.0120178, %.lr.ph181.split.split ]
   %.us-phi189 = phi i64 [ %.0119179.us, %.split.us.loopexit ], [ %.0119179, %.lr.ph181.split.split ]
   %182 = sext i32 %.us-phi188 to i64
-  %183 = getelementptr inbounds i16, ptr %1, i64 %182
+  %183 = getelementptr inbounds [2 x i8], ptr %1, i64 %182
   %184 = select i1 %21, ptr null, ptr %183
   %185 = sext i32 %.us-phi187 to i64
-  %186 = getelementptr inbounds ptr, ptr %4, i64 %185
+  %186 = getelementptr inbounds [8 x i8], ptr %4, i64 %185
   store ptr %184, ptr %186, align 8, !tbaa !33
   %187 = sub nsw i32 %2, %.us-phi188
   %188 = call i32 @llvm.smax.i32(i32 %187, i32 0)

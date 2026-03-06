@@ -43,7 +43,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_kiocb_set_ca
 %struct.aio_poll_table = type { %struct.poll_table_struct, ptr, i8, i32 }
 %struct.poll_table_struct = type { ptr, i32 }
 %struct.iocb = type { i64, i32, i32, i16, i16, i32, i64, i64, i64, i64, i32, i32 }
-%struct.io_event = type { i64, i64, i64, i64 }
 %struct.iovec = type { ptr, i64 }
 %struct.iov_iter = type { i8, i8, i8, i8, i64, %union.anon.55, %union.anon.58 }
 %union.anon.55 = type { %struct.iovec }
@@ -199,7 +198,7 @@ define dso_local void @exit_aio(ptr noundef %0) local_unnamed_addr #1 align 16 {
   %17 = phi i32 [ 0, %13 ], [ %30, %28 ]
   %18 = phi i32 [ 0, %13 ], [ %31, %28 ]
   %19 = sext i32 %18 to i64
-  %20 = getelementptr ptr, ptr %14, i64 %19
+  %20 = getelementptr [8 x i8], ptr %14, i64 %19
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
   br i1 %22, label %23, label %25
@@ -267,7 +266,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @kill_ioctx(ptr noundef %0,
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 520
   %14 = load i32, ptr %13, align 8
   %15 = zext i32 %14 to i64
-  %16 = getelementptr ptr, ptr %12, i64 %15
+  %16 = getelementptr [8 x i8], ptr %12, i64 %15
   %17 = load volatile ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, %1
   br i1 %18, label %20, label %19, !prof !6
@@ -282,7 +281,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @kill_ioctx(ptr noundef %0,
 
 20:                                               ; preds = %19, %9
   %.pre-phi = phi i64 [ %.pre3, %19 ], [ %15, %9 ]
-  %21 = getelementptr ptr, ptr %12, i64 %.pre-phi
+  %21 = getelementptr [8 x i8], ptr %12, i64 %.pre-phi
   store volatile ptr null, ptr %21, align 8
   tail call void @_raw_spin_unlock(ptr noundef nonnull %4) #14
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 352
@@ -670,7 +669,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_io_submi
   %17 = phi i64 [ %34, %32 ], [ 0, %.preheader.preheader ]
   %18 = phi i32 [ %33, %32 ], [ 0, %.preheader.preheader ]
   %19 = call i64 @llvm.read_register.i64(metadata !0)
-  %20 = getelementptr ptr, ptr %5, i64 %17
+  %20 = getelementptr [8 x i8], ptr %5, i64 %17
   %21 = call { ptr, i64, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr %20, i64 8, i64 %19) #14, !srcloc !32
   %22 = extractvalue { ptr, i64, i64 } %21, 0
   %23 = extractvalue { ptr, i64, i64 } %21, 2
@@ -809,7 +808,7 @@ define dso_local range(i64 -2147483648, 4294967296) i64 @__ia32_compat_sys_io_su
 25:                                               ; preds = %41, %23
   %26 = phi i64 [ 0, %23 ], [ %42, %41 ]
   %27 = call i64 @llvm.read_register.i64(metadata !0)
-  %28 = getelementptr i32, ptr %11, i64 %26
+  %28 = getelementptr [4 x i8], ptr %11, i64 %26
   %29 = call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr %28, i64 4, i64 %27) #14, !srcloc !34
   %30 = extractvalue { ptr, i32, i64 } %29, 0
   %31 = extractvalue { ptr, i32, i64 } %29, 2
@@ -2163,7 +2162,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @aio_setup_ring(ptr noundef
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %61, i32 8, ptr nonnull elementtype(i8) %61) #14, !srcloc !47
   tail call void @unlock_page(ptr noundef nonnull %61) #14
   %64 = load ptr, ptr %40, align 8
-  %65 = getelementptr ptr, ptr %64, i64 %59
+  %65 = getelementptr [8 x i8], ptr %64, i64 %59
   store ptr %61, ptr %65, align 8
   %66 = add nuw nsw i64 %59, 1
   %67 = icmp eq i64 %66, %10
@@ -2332,13 +2331,13 @@ define internal fastcc noundef range(i32 -12, 1) i32 @ioctx_add_table(ptr nounde
 
 16:                                               ; preds = %35, %13
   %indvars.iv = phi i64 [ %indvars.iv.next, %35 ], [ 0, %13 ]
-  %17 = getelementptr ptr, ptr %14, i64 %indvars.iv
+  %17 = getelementptr [8 x i8], ptr %14, i64 %indvars.iv
   %18 = load volatile ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %35
 
 20:                                               ; preds = %16
-  %21 = getelementptr ptr, ptr %14, i64 %indvars.iv
+  %21 = getelementptr [8 x i8], ptr %14, i64 %indvars.iv
   %22 = trunc nuw i64 %indvars.iv to i32
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 520
   store i32 %22, ptr %23, align 8
@@ -2461,7 +2460,7 @@ define internal fastcc void @aio_free_ring(ptr noundef captures(address) %0) unn
   %19 = phi i64 [ 0, %16 ], [ %59, %57 ]
   %20 = phi i32 [ 0, %16 ], [ %58, %57 ]
   %21 = load ptr, ptr %17, align 8
-  %22 = getelementptr ptr, ptr %21, i64 %19
+  %22 = getelementptr [8 x i8], ptr %21, i64 %19
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %57, label %25
@@ -2632,7 +2631,7 @@ define internal i32 @aio_migrate_folio(ptr noundef %0, ptr noundef %1, ptr nound
 21:                                               ; preds = %15
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 88
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr ptr, ptr %23, i64 %17
+  %24 = getelementptr [8 x i8], ptr %23, i64 %17
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, %2
   br i1 %26, label %27, label %.thread
@@ -2667,7 +2666,7 @@ define internal i32 @aio_migrate_folio(ptr noundef %0, ptr noundef %1, ptr nound
   %42 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %41) #14
   tail call void @folio_migrate_copy(ptr noundef %1, ptr noundef %2) #14
   %43 = load ptr, ptr %22, align 8
-  %44 = getelementptr ptr, ptr %43, i64 %17
+  %44 = getelementptr [8 x i8], ptr %43, i64 %17
   %45 = load ptr, ptr %44, align 8
   %46 = icmp eq ptr %45, %2
   br i1 %46, label %48, label %47, !prof !6
@@ -2787,7 +2786,7 @@ define internal range(i32 -22, 1) i32 @aio_ring_mremap(ptr noundef readonly capt
 19:                                               ; preds = %16, %14
   %20 = phi i32 [ 0, %14 ], [ %17, %16 ]
   %21 = sext i32 %20 to i64
-  %22 = getelementptr ptr, ptr %15, i64 %21
+  %22 = getelementptr [8 x i8], ptr %15, i64 %21
   %23 = load volatile ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %16, label %25
@@ -2898,7 +2897,7 @@ define internal fastcc ptr @lookup_ioctx(i64 noundef %0) unnamed_addr #1 align 1
   %26 = tail call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %25, i64 %13) #14, !srcloc !67
   %27 = and i64 %26, %13
   %28 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  %29 = getelementptr ptr, ptr %28, i64 %27
+  %29 = getelementptr [8 x i8], ptr %28, i64 %27
   %30 = load volatile ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
   br i1 %31, label %60, label %32
@@ -3652,7 +3651,7 @@ define internal fastcc void @iocb_put(ptr noundef %0) unnamed_addr #10 align 16 
   %22 = load ptr, ptr %21, align 8
   %23 = zext i32 %16 to i64
   %24 = lshr i64 %23, 7
-  %25 = getelementptr ptr, ptr %22, i64 %24
+  %25 = getelementptr [8 x i8], ptr %22, i64 %24
   %26 = load ptr, ptr %25, align 8
   %27 = load i64, ptr @vmemmap_base, align 8
   %28 = ptrtoint ptr %26 to i64
@@ -3662,7 +3661,7 @@ define internal fastcc void @iocb_put(ptr noundef %0) unnamed_addr #10 align 16 
   %32 = add i64 %30, %31
   %33 = inttoptr i64 %32 to ptr
   %34 = and i64 %23, 127
-  %35 = getelementptr %struct.io_event, ptr %33, i64 %34
+  %35 = getelementptr [32 x i8], ptr %33, i64 %34
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 112
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(32) %35, ptr noundef nonnull align 8 dereferenceable(32) %36, i64 32, i1 false)
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !91
@@ -5084,7 +5083,7 @@ define internal fastcc i64 @do_io_getevents(i64 noundef %0, i64 noundef %1, i64 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc zeroext i1 @aio_read_events(ptr noundef nonnull %0, i64 noundef range(i64 0, -9223372036854775808) %1, i64 noundef %2, ptr noundef %3, ptr noundef captures(none) %4) unnamed_addr #1 align 16 {
   %6 = load i64, ptr %4, align 8
-  %7 = getelementptr %struct.io_event, ptr %3, i64 %6
+  %7 = getelementptr [32 x i8], ptr %3, i64 %6
   %8 = sub i64 %2, %6
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 320
   tail call void @mutex_lock(ptr noundef nonnull %9) #14
@@ -5147,7 +5146,7 @@ define internal fastcc zeroext i1 @aio_read_events(ptr noundef nonnull %0, i64 n
   %50 = load ptr, ptr %10, align 8
   %51 = lshr i32 %39, 7
   %52 = zext nneg i32 %51 to i64
-  %53 = getelementptr ptr, ptr %50, i64 %52
+  %53 = getelementptr [8 x i8], ptr %50, i64 %52
   %54 = load ptr, ptr %53, align 8
   %55 = ptrtoint ptr %54 to i64
   %56 = load i64, ptr @vmemmap_base, align 8
@@ -5156,8 +5155,8 @@ define internal fastcc zeroext i1 @aio_read_events(ptr noundef nonnull %0, i64 n
   %59 = load i64, ptr @page_offset_base, align 8
   %60 = add i64 %58, %59
   %61 = inttoptr i64 %60 to ptr
-  %62 = getelementptr %struct.io_event, ptr %61, i64 %43
-  %63 = getelementptr %struct.io_event, ptr %7, i64 %33
+  %62 = getelementptr [32 x i8], ptr %61, i64 %43
+  %63 = getelementptr [32 x i8], ptr %7, i64 %33
   %64 = tail call i64 @_copy_to_user(ptr noundef %63, ptr noundef %62, i64 noundef %46) #14
   br label %65
 

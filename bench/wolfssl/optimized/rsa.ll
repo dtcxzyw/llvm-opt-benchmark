@@ -1289,7 +1289,7 @@ define range(i32 0, 27) i32 @wc_hash2mgf(i32 noundef %0) local_unnamed_addr #3 {
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.wc_RsaSSL_Verify_ex2, i64 %3
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.wc_RsaSSL_Verify_ex2, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %4
 
@@ -2086,7 +2086,7 @@ define i32 @wc_RsaSSL_Verify_ex2(ptr noundef readonly captures(address_is_null) 
 
 switch.lookup:                                    ; preds = %9
   %13 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.wc_RsaSSL_Verify_ex2, i64 %13
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.wc_RsaSSL_Verify_ex2, i64 %13
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %wc_hash2mgf.exit
 

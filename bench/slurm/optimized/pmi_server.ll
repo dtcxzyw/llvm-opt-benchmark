@@ -12,9 +12,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.slurm_conf_t = type { i64, ptr, i16, ptr, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i16, ptr, ptr, i16, i32, ptr, i32, ptr, i32, i32, ptr, ptr, i64, i64, ptr, i16, i16, ptr, i32, i32, ptr, i32, ptr, i32, i16, i16, i16, ptr, i16, i16, ptr, ptr, i32, i16, i16, ptr, i32, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, i16, i16, ptr, i32, i32, i32, i16, i16, ptr, ptr, i16, ptr, ptr, i32, i32, i32, i32, i32, i64, i32, i32, i16, ptr, ptr, i32, ptr, ptr, ptr, i16, i32, ptr, ptr, i16, ptr, ptr, i32, i16, ptr, ptr, ptr, ptr, i32, i32, i16, i16, i32, ptr, i16, ptr, i32, i32, i32, i32, i32, i32, ptr, i16, ptr, ptr, i32, i16, ptr, i32, i16, i16, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i16, i16, ptr, i16, ptr, i16, ptr, i16, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, i32, ptr, i32, ptr, ptr, i16, ptr, ptr, i32, i16, ptr, ptr, i16, i16, ptr, i16, ptr, ptr, ptr, i32, ptr, i16, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, i32, i16, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, i16, ptr, ptr, ptr, i16, ptr, i16, ptr, i16, i16, ptr }
 %struct.timeval = type { i64, i64 }
 %union.pthread_attr_t = type { i64, [48 x i8] }
-%struct.barrier_resp = type { i16, ptr }
-%struct.kvs_hosts = type { i32, i16, ptr }
-%struct.kvs_comm_set = type { i16, ptr, i16, ptr }
 %struct.slurm_msg = type { %struct.sockaddr_storage, ptr, i32, i32, i32, i8, i32, i8, i32, ptr, ptr, i32, ptr, ptr, i16, i8, i16, i16, %struct.forward, ptr, %struct.sockaddr_storage, ptr }
 %struct.forward = type { %struct.slurm_node_alias_addrs_t, i16, i16, ptr, i32, i16, i16 }
 %struct.slurm_node_alias_addrs_t = type { i64, ptr, ptr, i32, ptr }
@@ -85,17 +82,17 @@ define dso_local ptr @_kvs_comm_dup() local_unnamed_addr #0 {
 .lr.ph51:                                         ; preds = %0, %._crit_edge
   %indvars.iv55 = phi i64 [ %indvars.iv.next56, %._crit_edge ], [ 0, %0 ]
   %7 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 40, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 303, ptr noundef nonnull @__func__._kvs_comm_dup) #12
-  %8 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv55
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv55
   store ptr %7, ptr %8, align 8
   %9 = load ptr, ptr @kvs_comm_ptr, align 8
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv55
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv55
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %11, align 8
   %13 = tail call ptr @xstrdup(ptr noundef %12) #12
   %14 = load ptr, ptr %8, align 8
   store ptr %13, ptr %14, align 8
   %15 = load ptr, ptr @kvs_comm_ptr, align 8
-  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv55
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv55
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load i32, ptr %18, align 8
@@ -121,7 +118,7 @@ define dso_local ptr @_kvs_comm_dup() local_unnamed_addr #0 {
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
   store ptr %35, ptr %37, align 8
   %38 = load ptr, ptr @kvs_comm_ptr, align 8
-  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv55
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv55
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 32
   %42 = load ptr, ptr %41, align 8
@@ -135,7 +132,7 @@ define dso_local ptr @_kvs_comm_dup() local_unnamed_addr #0 {
   %48 = shl nuw nsw i64 %47, 1
   %49 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %48, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 313, ptr noundef nonnull @__func__._kvs_comm_dup) #12
   %50 = load ptr, ptr @kvs_comm_ptr, align 8
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %indvars.iv55
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %indvars.iv55
   %52 = load ptr, ptr %51, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 32
   store ptr %49, ptr %53, align 8
@@ -154,11 +151,11 @@ define dso_local ptr @_kvs_comm_dup() local_unnamed_addr #0 {
   %59 = phi ptr [ %98, %96 ], [ %.pre58, %54 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %96 ], [ 0, %54 ]
   %.04347 = phi i32 [ %.1, %96 ], [ 0, %54 ]
-  %60 = getelementptr inbounds nuw ptr, ptr %59, i64 %indvars.iv55
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %indvars.iv55
   %61 = load ptr, ptr %60, align 8
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 32
   %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds nuw i16, ptr %63, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw [2 x i8], ptr %63, i64 %indvars.iv
   %65 = load i16, ptr %64, align 2
   %.not = icmp eq i16 %65, 0
   br i1 %.not, label %66, label %96
@@ -166,35 +163,35 @@ define dso_local ptr @_kvs_comm_dup() local_unnamed_addr #0 {
 66:                                               ; preds = %.lr.ph
   %67 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds nuw ptr, ptr %68, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %indvars.iv
   %70 = load ptr, ptr %69, align 8
   %71 = tail call ptr @xstrdup(ptr noundef %70) #12
   %72 = load ptr, ptr %8, align 8
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %74 = load ptr, ptr %73, align 8
   %75 = sext i32 %.04347 to i64
-  %76 = getelementptr inbounds ptr, ptr %74, i64 %75
+  %76 = getelementptr inbounds [8 x i8], ptr %74, i64 %75
   store ptr %71, ptr %76, align 8
   %77 = load ptr, ptr @kvs_comm_ptr, align 8
-  %78 = getelementptr inbounds nuw ptr, ptr %77, i64 %indvars.iv55
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %indvars.iv55
   %79 = load ptr, ptr %78, align 8
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 24
   %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds nuw ptr, ptr %81, i64 %indvars.iv
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %indvars.iv
   %83 = load ptr, ptr %82, align 8
   %84 = tail call ptr @xstrdup(ptr noundef %83) #12
   %85 = load ptr, ptr %8, align 8
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 24
   %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds ptr, ptr %87, i64 %75
+  %88 = getelementptr inbounds [8 x i8], ptr %87, i64 %75
   store ptr %84, ptr %88, align 8
   %89 = add nsw i32 %.04347, 1
   %90 = load ptr, ptr @kvs_comm_ptr, align 8
-  %91 = getelementptr inbounds nuw ptr, ptr %90, i64 %indvars.iv55
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %indvars.iv55
   %92 = load ptr, ptr %91, align 8
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 32
   %94 = load ptr, ptr %93, align 8
-  %95 = getelementptr inbounds nuw i16, ptr %94, i64 %indvars.iv
+  %95 = getelementptr inbounds nuw [2 x i8], ptr %94, i64 %indvars.iv
   store i16 1, ptr %95, align 2
   %.pre = load ptr, ptr @kvs_comm_ptr, align 8
   %.pre59 = load ptr, ptr %8, align 8
@@ -282,7 +279,7 @@ define dso_local noundef i32 @pmi_kvs_put(ptr noundef readonly captures(none) %0
 18:                                               ; preds = %.lr.ph, %_merge_named_kvs.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_merge_named_kvs.exit ]
   %19 = load ptr, ptr %15, align 8
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr %21, align 8
   %23 = load i32, ptr @kvs_comm_cnt, align 4
@@ -301,7 +298,7 @@ define dso_local noundef i32 @pmi_kvs_put(ptr noundef readonly captures(none) %0
 
 27:                                               ; preds = %26, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %26 ]
-  %28 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv.i
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv.i
   %29 = load ptr, ptr %28, align 8
   %30 = load ptr, ptr %29, align 8
   %31 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull readonly dereferenceable(1) %22) #15
@@ -335,7 +332,7 @@ _find_kvs_by_name.exit:                           ; preds = %27
 
 .lr.ph.i29:                                       ; preds = %.preheader.i
   %41 = load ptr, ptr %35, align 8
-  %42 = getelementptr inbounds nuw ptr, ptr %41, i64 %indvars.iv60.i
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv60.i
   %43 = load ptr, ptr %42, align 8
   %44 = load ptr, ptr %36, align 8
   %wide.trip.count.i30 = zext i32 %.pre63.i to i64
@@ -343,7 +340,7 @@ _find_kvs_by_name.exit:                           ; preds = %27
 
 45:                                               ; preds = %56, %.lr.ph.i29
   %indvars.iv.i31 = phi i64 [ 0, %.lr.ph.i29 ], [ %indvars.iv.next.i32, %56 ]
-  %46 = getelementptr inbounds nuw ptr, ptr %44, i64 %indvars.iv.i31
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %indvars.iv.i31
   %47 = load ptr, ptr %46, align 8
   %48 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %43, ptr noundef nonnull dereferenceable(1) %47) #15
   %.not44.i = icmp eq i32 %48, 0
@@ -352,14 +349,14 @@ _find_kvs_by_name.exit:                           ; preds = %27
 49:                                               ; preds = %45
   %50 = trunc nuw nsw i64 %indvars.iv.i31 to i32
   %51 = load ptr, ptr %37, align 8
-  %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %indvars.iv.i31
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %indvars.iv.i31
   tail call void @slurm_xfree(ptr noundef %52) #12
   %53 = load ptr, ptr %38, align 8
   %.not45.i = icmp eq ptr %53, null
   br i1 %.not45.i, label %.loopexit.i, label %54
 
 54:                                               ; preds = %49
-  %55 = getelementptr inbounds nuw i16, ptr %53, i64 %indvars.iv.i31
+  %55 = getelementptr inbounds nuw [2 x i8], ptr %53, i64 %indvars.iv.i31
   store i16 0, ptr %55, align 2
   br label %.loopexit.i
 
@@ -370,13 +367,13 @@ _find_kvs_by_name.exit:                           ; preds = %27
 
 .loopexit.i:                                      ; preds = %54, %49
   %57 = load ptr, ptr %39, align 8
-  %58 = getelementptr inbounds nuw ptr, ptr %57, i64 %indvars.iv60.i
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %indvars.iv60.i
   %59 = load ptr, ptr %58, align 8
   %60 = load ptr, ptr %37, align 8
-  %61 = getelementptr inbounds nuw ptr, ptr %60, i64 %indvars.iv.i31
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %indvars.iv.i31
   store ptr %59, ptr %61, align 8
   %62 = load ptr, ptr %39, align 8
-  %63 = getelementptr inbounds nuw ptr, ptr %62, i64 %indvars.iv60.i
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %indvars.iv60.i
   store ptr null, ptr %63, align 8
   %.pre.i = load i32, ptr %34, align 8
   %64 = icmp ugt i32 %.pre.i, %50
@@ -394,28 +391,28 @@ _find_kvs_by_name.exit:                           ; preds = %27
   %72 = shl nuw nsw i64 %71, 3
   %73 = tail call ptr @slurm_xrecalloc(ptr noundef nonnull %37, i64 noundef 1, i64 noundef %72, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 370, ptr noundef nonnull @__func__._merge_named_kvs) #12
   %74 = load ptr, ptr %35, align 8
-  %75 = getelementptr inbounds nuw ptr, ptr %74, i64 %indvars.iv60.i
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %indvars.iv60.i
   %76 = load ptr, ptr %75, align 8
   %77 = load ptr, ptr %36, align 8
   %78 = load i32, ptr %34, align 8
   %79 = add i32 %78, -1
   %80 = zext i32 %79 to i64
-  %81 = getelementptr inbounds nuw ptr, ptr %77, i64 %80
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %80
   store ptr %76, ptr %81, align 8
   %82 = load ptr, ptr %39, align 8
-  %83 = getelementptr inbounds nuw ptr, ptr %82, i64 %indvars.iv60.i
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %82, i64 %indvars.iv60.i
   %84 = load ptr, ptr %83, align 8
   %85 = load ptr, ptr %37, align 8
   %86 = load i32, ptr %34, align 8
   %87 = add i32 %86, -1
   %88 = zext i32 %87 to i64
-  %89 = getelementptr inbounds nuw ptr, ptr %85, i64 %88
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %88
   store ptr %84, ptr %89, align 8
   %90 = load ptr, ptr %35, align 8
-  %91 = getelementptr inbounds nuw ptr, ptr %90, i64 %indvars.iv60.i
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %indvars.iv60.i
   store ptr null, ptr %91, align 8
   %92 = load ptr, ptr %39, align 8
-  %93 = getelementptr inbounds nuw ptr, ptr %92, i64 %indvars.iv60.i
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %92, i64 %indvars.iv60.i
   store ptr null, ptr %93, align 8
   br label %94
 
@@ -448,12 +445,12 @@ _find_kvs_by_name.exit:                           ; preds = %27
   store ptr %109, ptr @kvs_comm_ptr, align 8
   %110 = load i32, ptr @kvs_comm_cnt, align 4
   %111 = sext i32 %110 to i64
-  %112 = getelementptr inbounds ptr, ptr %109, i64 %111
+  %112 = getelementptr inbounds [8 x i8], ptr %109, i64 %111
   store ptr %21, ptr %112, align 8
   %113 = add nsw i32 %110, 1
   store i32 %113, ptr @kvs_comm_cnt, align 4
   %114 = load ptr, ptr %15, align 8
-  %115 = getelementptr inbounds nuw ptr, ptr %114, i64 %indvars.iv
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %114, i64 %indvars.iv
   store ptr null, ptr %115, align 8
   br label %_merge_named_kvs.exit
 
@@ -580,7 +577,7 @@ define dso_local range(i32 -1, 1) i32 @pmi_kvs_get(ptr noundef captures(none) %0
 29:                                               ; preds = %24
   %30 = load ptr, ptr @barrier_ptr, align 8
   %31 = zext i32 %26 to i64
-  %32 = getelementptr inbounds nuw %struct.barrier_resp, ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw [16 x i8], ptr %30, i64 %31
   %33 = load i16, ptr %32, align 8
   %34 = icmp eq i16 %33, 0
   br i1 %34, label %35, label %38
@@ -602,14 +599,14 @@ define dso_local range(i32 -1, 1) i32 @pmi_kvs_get(ptr noundef captures(none) %0
   %43 = load i16, ptr %42, align 8
   %44 = load i32, ptr %0, align 8
   %45 = zext i32 %44 to i64
-  %46 = getelementptr inbounds nuw %struct.barrier_resp, ptr %41, i64 %45
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %41, i64 %45
   store i16 %43, ptr %46, align 8
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %48 = load ptr, ptr %47, align 8
   %49 = load ptr, ptr @barrier_ptr, align 8
   %50 = load i32, ptr %0, align 8
   %51 = zext i32 %50 to i64
-  %52 = getelementptr inbounds nuw %struct.barrier_resp, ptr %49, i64 %51
+  %52 = getelementptr inbounds nuw [16 x i8], ptr %49, i64 %51
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   store ptr %48, ptr %53, align 8
   store ptr null, ptr %47, align 8
@@ -799,7 +796,7 @@ define dso_local void @pmi_kvs_free() local_unnamed_addr #0 {
   %7 = phi i32 [ %3, %.lr.ph.preheader ], [ %27, %_free_kvs_comm.exit ]
   %8 = phi ptr [ %.pre12, %.lr.ph.preheader ], [ %28, %_free_kvs_comm.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_free_kvs_comm.exit ]
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store ptr %10, ptr %1, align 8
@@ -820,10 +817,10 @@ define dso_local void @pmi_kvs_free() local_unnamed_addr #0 {
 16:                                               ; preds = %16, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %16 ]
   %17 = load ptr, ptr %14, align 8
-  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv.i
   call void @slurm_xfree(ptr noundef %18) #12
   %19 = load ptr, ptr %15, align 8
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv.i
   call void @slurm_xfree(ptr noundef %20) #12
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %21 = load i32, ptr %12, align 8
@@ -956,7 +953,7 @@ define internal noalias noundef ptr @_agent(ptr noundef %0) #0 {
   %.098180 = phi i32 [ 0, %.lr.ph184 ], [ %.199, %143 ]
   %.0100179 = phi i32 [ 0, %.lr.ph184 ], [ %.1101, %143 ]
   %30 = load ptr, ptr %28, align 8
-  %31 = getelementptr inbounds nuw %struct.barrier_resp, ptr %30, i64 %indvars.iv230
+  %31 = getelementptr inbounds nuw [16 x i8], ptr %30, i64 %indvars.iv230
   %32 = load i16, ptr %31, align 8
   %33 = icmp eq i16 %32, 0
   br i1 %33, label %._crit_edge248, label %34
@@ -979,7 +976,7 @@ define internal noalias noundef ptr @_agent(ptr noundef %0) #0 {
   %indvars.iv227 = phi i64 [ %indvars.iv.next228, %69 ], [ %indvars.iv, %34 ]
   %.094171 = phi i32 [ %.296, %69 ], [ 0, %34 ]
   %42 = load ptr, ptr %28, align 8
-  %43 = getelementptr inbounds nuw %struct.barrier_resp, ptr %42, i64 %indvars.iv227
+  %43 = getelementptr inbounds nuw [16 x i8], ptr %42, i64 %indvars.iv227
   %44 = load i16, ptr %43, align 8
   %45 = icmp eq i16 %44, 0
   br i1 %45, label %69, label %46
@@ -988,7 +985,7 @@ define internal noalias noundef ptr @_agent(ptr noundef %0) #0 {
   br i1 %26, label %47, label %54
 
 47:                                               ; preds = %46
-  %48 = getelementptr inbounds nuw %struct.barrier_resp, ptr %42, i64 %indvars.iv230
+  %48 = getelementptr inbounds nuw [16 x i8], ptr %42, i64 %indvars.iv230
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds nuw i8, ptr %43, i64 8
@@ -999,21 +996,21 @@ define internal noalias noundef ptr @_agent(ptr noundef %0) #0 {
 
 54:                                               ; preds = %47, %46
   %55 = sext i32 %.094171 to i64
-  %56 = getelementptr inbounds %struct.kvs_hosts, ptr %35, i64 %55
+  %56 = getelementptr inbounds [16 x i8], ptr %35, i64 %55
   store i32 0, ptr %56, align 8
   %57 = load ptr, ptr %28, align 8
-  %58 = getelementptr inbounds nuw %struct.barrier_resp, ptr %57, i64 %indvars.iv227
+  %58 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %indvars.iv227
   %59 = load i16, ptr %58, align 8
   %60 = getelementptr inbounds nuw i8, ptr %56, i64 4
   store i16 %59, ptr %60, align 4
   %61 = load ptr, ptr %28, align 8
-  %62 = getelementptr inbounds nuw %struct.barrier_resp, ptr %61, i64 %indvars.iv227
+  %62 = getelementptr inbounds nuw [16 x i8], ptr %61, i64 %indvars.iv227
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %64 = load ptr, ptr %63, align 8
   %65 = getelementptr inbounds nuw i8, ptr %56, i64 8
   store ptr %64, ptr %65, align 8
   %66 = load ptr, ptr %28, align 8
-  %67 = getelementptr inbounds nuw %struct.barrier_resp, ptr %66, i64 %indvars.iv227
+  %67 = getelementptr inbounds nuw [16 x i8], ptr %66, i64 %indvars.iv227
   store i16 0, ptr %67, align 8
   %68 = add nsw i32 %.094171, 1
   %.not122 = icmp slt i32 %68, %.097
@@ -1085,16 +1082,16 @@ define internal noalias noundef ptr @_agent(ptr noundef %0) #0 {
 91:                                               ; preds = %._crit_edge177
   %92 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 241, ptr noundef nonnull @__func__._agent) #12
   %93 = load ptr, ptr %28, align 8
-  %94 = getelementptr inbounds nuw %struct.barrier_resp, ptr %93, i64 %indvars.iv230
+  %94 = getelementptr inbounds nuw [16 x i8], ptr %93, i64 %indvars.iv230
   store ptr %94, ptr %92, align 8
   %95 = sext i32 %.092181 to i64
-  %96 = getelementptr inbounds %struct.kvs_comm_set, ptr %29, i64 %95
+  %96 = getelementptr inbounds [32 x i8], ptr %29, i64 %95
   %97 = getelementptr inbounds nuw i8, ptr %92, i64 8
   store ptr %96, ptr %97, align 8
   %98 = trunc i32 %.195 to i16
   store i16 %98, ptr %96, align 8
   %99 = load ptr, ptr %3, align 8
-  %100 = getelementptr inbounds %struct.kvs_comm_set, ptr %99, i64 %95
+  %100 = getelementptr inbounds [32 x i8], ptr %99, i64 %95
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 8
   store ptr %35, ptr %101, align 8
   %102 = load ptr, ptr %2, align 8
@@ -1274,7 +1271,7 @@ define internal noalias noundef ptr @_agent(ptr noundef %0) #0 {
 
 .lr.ph192:                                        ; preds = %.lr.ph192.preheader, %.lr.ph192
   %indvars.iv234 = phi i64 [ 0, %.lr.ph192.preheader ], [ %indvars.iv.next235, %.lr.ph192 ]
-  %173 = getelementptr inbounds nuw %struct.kvs_comm_set, ptr %152, i64 %indvars.iv234
+  %173 = getelementptr inbounds nuw [32 x i8], ptr %152, i64 %indvars.iv234
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 8
   call void @slurm_xfree(ptr noundef nonnull %174) #12
   %indvars.iv.next235 = add nuw nsw i64 %indvars.iv234, 1
@@ -1296,7 +1293,7 @@ define internal noalias noundef ptr @_agent(ptr noundef %0) #0 {
 .lr.ph196:                                        ; preds = %._crit_edge193, %.lr.ph196
   %indvars.iv237 = phi i64 [ %indvars.iv.next238, %.lr.ph196 ], [ 0, %._crit_edge193 ]
   %179 = load ptr, ptr %175, align 8
-  %180 = getelementptr inbounds nuw %struct.barrier_resp, ptr %179, i64 %indvars.iv237
+  %180 = getelementptr inbounds nuw [16 x i8], ptr %179, i64 %indvars.iv237
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 8
   call void @slurm_xfree(ptr noundef nonnull %181) #12
   %indvars.iv.next238 = add nuw nsw i64 %indvars.iv237, 1
@@ -1318,7 +1315,7 @@ define internal noalias noundef ptr @_agent(ptr noundef %0) #0 {
   %indvars.iv243 = phi i64 [ %indvars.iv.next244, %._crit_edge201 ], [ 0, %._crit_edge197 ]
   %190 = getelementptr inbounds nuw i8, ptr %189, i64 16
   %191 = load ptr, ptr %190, align 8
-  %192 = getelementptr inbounds nuw ptr, ptr %191, i64 %indvars.iv243
+  %192 = getelementptr inbounds nuw [8 x i8], ptr %191, i64 %indvars.iv243
   %193 = load ptr, ptr %192, align 8
   %194 = getelementptr inbounds nuw i8, ptr %193, i64 8
   %195 = load i32, ptr %194, align 8
@@ -1330,18 +1327,18 @@ define internal noalias noundef ptr @_agent(ptr noundef %0) #0 {
   %196 = phi ptr [ %208, %.lr.ph200 ], [ %193, %.preheader ]
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 16
   %198 = load ptr, ptr %197, align 8
-  %199 = getelementptr inbounds nuw ptr, ptr %198, i64 %indvars.iv240
+  %199 = getelementptr inbounds nuw [8 x i8], ptr %198, i64 %indvars.iv240
   call void @slurm_xfree(ptr noundef %199) #12
   %200 = load ptr, ptr %190, align 8
-  %201 = getelementptr inbounds nuw ptr, ptr %200, i64 %indvars.iv243
+  %201 = getelementptr inbounds nuw [8 x i8], ptr %200, i64 %indvars.iv243
   %202 = load ptr, ptr %201, align 8
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 24
   %204 = load ptr, ptr %203, align 8
-  %205 = getelementptr inbounds nuw ptr, ptr %204, i64 %indvars.iv240
+  %205 = getelementptr inbounds nuw [8 x i8], ptr %204, i64 %indvars.iv240
   call void @slurm_xfree(ptr noundef %205) #12
   %indvars.iv.next241 = add nuw nsw i64 %indvars.iv240, 1
   %206 = load ptr, ptr %190, align 8
-  %207 = getelementptr inbounds nuw ptr, ptr %206, i64 %indvars.iv243
+  %207 = getelementptr inbounds nuw [8 x i8], ptr %206, i64 %indvars.iv243
   %208 = load ptr, ptr %207, align 8
   %209 = getelementptr inbounds nuw i8, ptr %208, i64 8
   %210 = load i32, ptr %209, align 8
@@ -1356,16 +1353,16 @@ define internal noalias noundef ptr @_agent(ptr noundef %0) #0 {
   %214 = load ptr, ptr %2, align 8
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 16
   %216 = load ptr, ptr %215, align 8
-  %217 = getelementptr inbounds nuw ptr, ptr %216, i64 %indvars.iv243
+  %217 = getelementptr inbounds nuw [8 x i8], ptr %216, i64 %indvars.iv243
   %218 = load ptr, ptr %217, align 8
   %219 = getelementptr inbounds nuw i8, ptr %218, i64 24
   call void @slurm_xfree(ptr noundef nonnull %219) #12
   %220 = load ptr, ptr %215, align 8
-  %221 = getelementptr inbounds nuw ptr, ptr %220, i64 %indvars.iv243
+  %221 = getelementptr inbounds nuw [8 x i8], ptr %220, i64 %indvars.iv243
   %222 = load ptr, ptr %221, align 8
   call void @slurm_xfree(ptr noundef %222) #12
   %223 = load ptr, ptr %215, align 8
-  %224 = getelementptr inbounds nuw ptr, ptr %223, i64 %indvars.iv243
+  %224 = getelementptr inbounds nuw [8 x i8], ptr %223, i64 %indvars.iv243
   call void @slurm_xfree(ptr noundef %224) #12
   %indvars.iv.next244 = add nuw nsw i64 %indvars.iv243, 1
   %225 = getelementptr inbounds nuw i8, ptr %214, i64 24

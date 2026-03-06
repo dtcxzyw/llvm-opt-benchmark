@@ -6,9 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.SDL_Mouse = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8, float, float, ptr, float, float, float, float, float, float, float, float, double, double, i8, i8, i8, i8, i8, i8, i8, i8, i64, i8, float, i8, float, i8, i32, i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, i32, ptr, ptr, ptr, ptr, i8, ptr }
 %union.SDL_Event = type { %struct.SDL_MouseWheelEvent, [72 x i8] }
 %struct.SDL_MouseWheelEvent = type { i32, i32, i64, i32, i32, float, float, i32, float, float, i32, i32 }
-%struct.SDL_MouseInstance = type { i32, ptr }
-%struct.SDL_MouseInputSource = type { i32, i32, i32, ptr }
-%struct.SDL_MouseClickState = type { i64, double, double, i8 }
 %struct.SDL_Rect = type { i32, i32, i32, i32 }
 
 @.str = private unnamed_addr constant [28 x i8] c"SDL_MOUSE_DOUBLE_CLICK_TIME\00", align 1
@@ -751,7 +748,7 @@ define hidden void @SDL_AddMouse(i32 noundef %0, ptr noundef %1, i1 noundef zero
 
 7:                                                ; preds = %11, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %11 ]
-  %8 = getelementptr inbounds nuw %struct.SDL_MouseInstance, ptr %.pre, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw [16 x i8], ptr %.pre, i64 %indvars.iv.i
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %0, %9
   br i1 %10, label %SDL_GetMouseIndex.exit, label %11
@@ -772,7 +769,7 @@ SDL_GetMouseIndex.exit.thread:                    ; preds = %11, %3
 16:                                               ; preds = %SDL_GetMouseIndex.exit.thread
   %17 = load i32, ptr @SDL_mouse_count, align 4
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds %struct.SDL_MouseInstance, ptr %15, i64 %18
+  %19 = getelementptr inbounds [16 x i8], ptr %15, i64 %18
   store i32 %0, ptr %19, align 8
   %.not11 = icmp eq ptr %1, null
   %20 = select i1 %.not11, ptr @.str.15, ptr %1
@@ -820,7 +817,7 @@ define hidden void @SDL_RemoveMouse(i32 noundef %0, i1 noundef zeroext %1) local
 
 7:                                                ; preds = %11, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %11 ]
-  %8 = getelementptr inbounds nuw %struct.SDL_MouseInstance, ptr %6, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %indvars.iv.i
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %0, %9
   br i1 %10, label %SDL_GetMouseIndex.exit, label %11
@@ -833,7 +830,7 @@ define hidden void @SDL_RemoveMouse(i32 noundef %0, i1 noundef zeroext %1) local
 SDL_GetMouseIndex.exit:                           ; preds = %7
   %12 = trunc nuw nsw i64 %indvars.iv.i to i32
   %13 = and i64 %indvars.iv.i, 4294967295
-  %14 = getelementptr inbounds nuw %struct.SDL_MouseInstance, ptr %6, i64 %13
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   tail call void @SDL_free_REAL(ptr noundef %16) #13
@@ -844,7 +841,7 @@ SDL_GetMouseIndex.exit:                           ; preds = %7
 
 19:                                               ; preds = %SDL_GetMouseIndex.exit
   %20 = load ptr, ptr @SDL_mice, align 8
-  %21 = getelementptr inbounds nuw %struct.SDL_MouseInstance, ptr %20, i64 %13
+  %21 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %13
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = xor i32 %12, -1
   %24 = add i32 %17, %23
@@ -866,7 +863,7 @@ SDL_GetMouseIndex.exit:                           ; preds = %7
 
 31:                                               ; preds = %.lr.ph, %.critedge
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.critedge ]
-  %32 = getelementptr inbounds nuw %struct.SDL_MouseInputSource, ptr %30, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [24 x i8], ptr %30, i64 %indvars.iv
   %33 = load i32, ptr %32, align 8
   %.not29 = icmp eq i32 %33, %0
   br i1 %.not29, label %34, label %.critedge
@@ -883,7 +880,7 @@ SDL_GetMouseIndex.exit:                           ; preds = %7
 
 40:                                               ; preds = %34
   %41 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_mouse, i64 256), align 8
-  %42 = getelementptr inbounds nuw %struct.SDL_MouseInputSource, ptr %41, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [24 x i8], ptr %41, i64 %indvars.iv
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 24
   %44 = xor i32 %35, -1
   %45 = add i32 %38, %44
@@ -939,7 +936,7 @@ define hidden void @SDL_SetMouseName(i32 noundef %0, ptr noundef %1) local_unnam
 
 6:                                                ; preds = %10, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %10 ]
-  %7 = getelementptr inbounds nuw %struct.SDL_MouseInstance, ptr %5, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %indvars.iv.i
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %0, %8
   br i1 %9, label %SDL_GetMouseIndex.exit, label %10
@@ -951,7 +948,7 @@ define hidden void @SDL_SetMouseName(i32 noundef %0, ptr noundef %1) local_unnam
 
 SDL_GetMouseIndex.exit:                           ; preds = %6
   %11 = and i64 %indvars.iv.i, 4294967295
-  %12 = getelementptr inbounds nuw %struct.SDL_MouseInstance, ptr %5, i64 %11
+  %12 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
   tail call void @SDL_free_REAL(ptr noundef %14) #13
@@ -1002,9 +999,9 @@ define hidden noalias ptr @SDL_GetMice_REAL(ptr noundef writeonly captures(addre
 
 12:                                               ; preds = %.lr.ph, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
-  %13 = getelementptr inbounds nuw %struct.SDL_MouseInstance, ptr %11, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 %indvars.iv
   %14 = load i32, ptr %13, align 8
-  %15 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   store i32 %14, ptr %15, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1016,7 +1013,7 @@ define hidden noalias ptr @SDL_GetMice_REAL(ptr noundef writeonly captures(addre
 
 ._crit_edge:                                      ; preds = %9, %._crit_edge.loopexit
   %.0.lcssa = phi i64 [ %16, %._crit_edge.loopexit ], [ 0, %9 ]
-  %17 = getelementptr inbounds nuw i32, ptr %6, i64 %.0.lcssa
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.0.lcssa
   store i32 0, ptr %17, align 4
   br label %20
 
@@ -1046,7 +1043,7 @@ define hidden ptr @SDL_GetMouseNameForID_REAL(i32 noundef %0) local_unnamed_addr
 
 5:                                                ; preds = %9, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %9 ]
-  %6 = getelementptr inbounds nuw %struct.SDL_MouseInstance, ptr %4, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %indvars.iv.i
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %0, %7
   br i1 %8, label %SDL_GetMouseIndex.exit, label %9
@@ -1062,7 +1059,7 @@ SDL_GetMouseIndex.exit.thread:                    ; preds = %9, %1
 
 SDL_GetMouseIndex.exit:                           ; preds = %5
   %11 = and i64 %indvars.iv.i, 4294967295
-  %12 = getelementptr inbounds nuw %struct.SDL_MouseInstance, ptr %4, i64 %11
+  %12 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = tail call ptr @SDL_GetPersistentString(ptr noundef %14) #13
@@ -1343,7 +1340,7 @@ define hidden void @SDL_SendMouseMotion(i64 noundef %0, ptr noundef %1, i32 noun
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.lr.ph.split.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.split.i ], [ 0, %.lr.ph.i ]
-  %13 = getelementptr inbounds nuw %struct.SDL_MouseInputSource, ptr %12, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %indvars.iv.i
   %14 = load i32, ptr %13, align 8
   %15 = icmp eq i32 %2, %14
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1692,7 +1689,7 @@ define internal fastcc void @SDL_PrivateSendMouseMotion(i64 noundef %0, ptr noun
 .lr.ph.split.us.split.us.i:                       ; preds = %.lr.ph.split.us.split.us.i, %.lr.ph.i
   %indvars.iv15.i = phi i64 [ %indvars.iv.next16.i, %.lr.ph.split.us.split.us.i ], [ 0, %.lr.ph.i ]
   %.03.us.us.i = phi i32 [ %112, %.lr.ph.split.us.split.us.i ], [ 0, %.lr.ph.i ]
-  %109 = getelementptr inbounds nuw %struct.SDL_MouseInputSource, ptr %108, i64 %indvars.iv15.i
+  %109 = getelementptr inbounds nuw [24 x i8], ptr %108, i64 %indvars.iv15.i
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 4
   %111 = load i32, ptr %110, align 4
   %112 = or i32 %111, %.03.us.us.i
@@ -1853,7 +1850,7 @@ SDL_GetMouseButtonState.exit.thread:              ; preds = %105, %SDL_GetMouseB
 .lr.ph.split.us.split.us.i164:                    ; preds = %.lr.ph.i162, %.lr.ph.split.us.split.us.i164
   %indvars.iv15.i165 = phi i64 [ %indvars.iv.next16.i167, %.lr.ph.split.us.split.us.i164 ], [ 0, %.lr.ph.i162 ]
   %.03.us.us.i166 = phi i32 [ %177, %.lr.ph.split.us.split.us.i164 ], [ 0, %.lr.ph.i162 ]
-  %174 = getelementptr inbounds nuw %struct.SDL_MouseInputSource, ptr %173, i64 %indvars.iv15.i165
+  %174 = getelementptr inbounds nuw [24 x i8], ptr %173, i64 %indvars.iv15.i165
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 4
   %176 = load i32, ptr %175, align 4
   %177 = or i32 %176, %.03.us.us.i166
@@ -1863,7 +1860,7 @@ SDL_GetMouseButtonState.exit.thread:              ; preds = %105, %SDL_GetMouseB
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i162, %184
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %184 ], [ 0, %.lr.ph.i162 ]
-  %178 = getelementptr inbounds nuw %struct.SDL_MouseInputSource, ptr %173, i64 %indvars.iv.i
+  %178 = getelementptr inbounds nuw [24 x i8], ptr %173, i64 %indvars.iv.i
   %179 = load i32, ptr %178, align 8
   %180 = icmp eq i32 %.0, %179
   br i1 %180, label %181, label %184
@@ -1927,7 +1924,7 @@ define internal fastcc void @SDL_PrivateSendMouseButton(i64 noundef %0, ptr noun
 
 13:                                               ; preds = %12, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %12 ]
-  %14 = getelementptr inbounds nuw %struct.SDL_MouseInputSource, ptr %11, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw [24 x i8], ptr %11, i64 %indvars.iv.i
   %15 = load i32, ptr %14, align 8
   %16 = icmp eq i32 %15, %2
   br i1 %16, label %17, label %12
@@ -1967,7 +1964,7 @@ define internal fastcc void @SDL_PrivateSendMouseButton(i64 noundef %0, ptr noun
 
 30:                                               ; preds = %29, %.lr.ph18.i
   %indvars.iv23.i = phi i64 [ 0, %.lr.ph18.i ], [ %indvars.iv.next24.i, %29 ]
-  %31 = getelementptr inbounds nuw %struct.SDL_MouseInputSource, ptr %25, i64 %indvars.iv23.i
+  %31 = getelementptr inbounds nuw [24 x i8], ptr %25, i64 %indvars.iv23.i
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 4
   %33 = load i32, ptr %32, align 4
   %34 = and i32 %33, %28
@@ -1993,7 +1990,7 @@ define internal fastcc void @SDL_PrivateSendMouseButton(i64 noundef %0, ptr noun
   %42 = add nsw i32 %41, 1
   store i32 %42, ptr getelementptr inbounds nuw (i8, ptr @SDL_mouse, i64 248), align 8
   %43 = sext i32 %41 to i64
-  %44 = getelementptr inbounds %struct.SDL_MouseInputSource, ptr %39, i64 %43
+  %44 = getelementptr inbounds [24 x i8], ptr %39, i64 %43
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %44, i8 0, i64 24, i1 false)
   store i32 %2, ptr %44, align 8
   br label %.loopexit
@@ -2113,7 +2110,7 @@ define internal fastcc void @SDL_PrivateSendMouseButton(i64 noundef %0, ptr noun
 .lr.ph.i116:                                      ; preds = %.lr.ph.i116, %.lr.ph.preheader.i
   %indvars.iv.i117 = phi i64 [ %101, %.lr.ph.preheader.i ], [ %indvars.iv.next.i118, %.lr.ph.i116 ]
   %102 = load ptr, ptr %94, align 8
-  %103 = getelementptr inbounds %struct.SDL_MouseClickState, ptr %102, i64 %indvars.iv.i117
+  %103 = getelementptr inbounds [32 x i8], ptr %102, i64 %indvars.iv.i117
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %103, i8 0, i64 32, i1 false)
   %indvars.iv.next.i118 = add nsw i64 %indvars.iv.i117, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next.i118 to i32
@@ -2128,7 +2125,7 @@ GetMouseClickState.exit:                          ; preds = %88, %._crit_edge.i1
   %104 = getelementptr inbounds nuw i8, ptr %.034.i.ph, i64 16
   %105 = load ptr, ptr %104, align 8
   %106 = zext i8 %3 to i64
-  %107 = getelementptr inbounds nuw %struct.SDL_MouseClickState, ptr %105, i64 %106
+  %107 = getelementptr inbounds nuw [32 x i8], ptr %105, i64 %106
   %.not110 = icmp eq ptr %105, null
   br i1 %.not110, label %GetMouseClickState.exit.thread, label %108
 
@@ -2732,7 +2729,7 @@ SDL_DestroyCursor_REAL.exit:                      ; preds = %SDL_SetCursor_REAL.
 .lr.ph61:                                         ; preds = %.preheader, %.lr.ph61
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph61 ], [ 0, %.preheader ]
   %99 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_mouse, i64 256), align 8
-  %100 = getelementptr inbounds nuw %struct.SDL_MouseInputSource, ptr %99, i64 %indvars.iv
+  %100 = getelementptr inbounds nuw [24 x i8], ptr %99, i64 %indvars.iv
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 16
   %102 = load ptr, ptr %101, align 8
   tail call void @SDL_free_REAL(ptr noundef %102) #13
@@ -2777,7 +2774,7 @@ SDL_DestroyCursor_REAL.exit:                      ; preds = %SDL_SetCursor_REAL.
   %indvars.iv73 = phi i64 [ %108, %.lr.ph66.preheader ], [ %indvars.iv.next74, %.lr.ph66 ]
   %indvars.iv.next74 = add nsw i64 %indvars.iv73, -1
   %110 = load ptr, ptr @SDL_mice, align 8
-  %111 = getelementptr inbounds %struct.SDL_MouseInstance, ptr %110, i64 %indvars.iv.next74
+  %111 = getelementptr inbounds [16 x i8], ptr %110, i64 %indvars.iv.next74
   %112 = load i32, ptr %111, align 8
   tail call void @SDL_RemoveMouse(i32 noundef %112, i1 noundef zeroext false)
   %.not44 = icmp eq i64 %indvars.iv.next74, 0
@@ -2856,7 +2853,7 @@ define hidden noundef zeroext i1 @SDL_UpdateMouseCapture(i1 noundef zeroext %0) 
 .lr.ph.split.us.split.i:                          ; preds = %23, %.lr.ph.i
   %indvars.iv10.i = phi i64 [ %indvars.iv.next11.i, %23 ], [ 0, %.lr.ph.i ]
   %.03.us.i = phi i32 [ %.2.us.i, %23 ], [ 0, %.lr.ph.i ]
-  %17 = getelementptr inbounds nuw %struct.SDL_MouseInputSource, ptr %16, i64 %indvars.iv10.i
+  %17 = getelementptr inbounds nuw [24 x i8], ptr %16, i64 %indvars.iv10.i
   %18 = load i32, ptr %17, align 8
   %.not.us.i = icmp eq i32 %18, -1
   br i1 %.not.us.i, label %23, label %19
@@ -3357,7 +3354,7 @@ define hidden i32 @SDL_GetMouseState_REAL(ptr noundef writeonly captures(address
 .lr.ph.split.us.split.us.i:                       ; preds = %.lr.ph.split.us.split.us.i, %.lr.ph.i
   %indvars.iv15.i = phi i64 [ %indvars.iv.next16.i, %.lr.ph.split.us.split.us.i ], [ 0, %.lr.ph.i ]
   %.03.us.us.i = phi i32 [ %15, %.lr.ph.split.us.split.us.i ], [ 0, %.lr.ph.i ]
-  %12 = getelementptr inbounds nuw %struct.SDL_MouseInputSource, ptr %11, i64 %indvars.iv15.i
+  %12 = getelementptr inbounds nuw [24 x i8], ptr %11, i64 %indvars.iv15.i
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = or i32 %14, %.03.us.us.i
@@ -3404,7 +3401,7 @@ define hidden i32 @SDL_GetRelativeMouseState_REAL(ptr noundef writeonly captures
 .lr.ph.split.us.split.us.i:                       ; preds = %.lr.ph.split.us.split.us.i, %.lr.ph.i
   %indvars.iv15.i = phi i64 [ %indvars.iv.next16.i, %.lr.ph.split.us.split.us.i ], [ 0, %.lr.ph.i ]
   %.03.us.us.i = phi i32 [ %15, %.lr.ph.split.us.split.us.i ], [ 0, %.lr.ph.i ]
-  %12 = getelementptr inbounds nuw %struct.SDL_MouseInputSource, ptr %11, i64 %indvars.iv15.i
+  %12 = getelementptr inbounds nuw [24 x i8], ptr %11, i64 %indvars.iv15.i
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = or i32 %14, %.03.us.us.i
@@ -3471,7 +3468,7 @@ define hidden i32 @SDL_GetGlobalMouseState_REAL(ptr noundef %0, ptr noundef %1) 
 .lr.ph.split.us.split.us.i.i:                     ; preds = %.lr.ph.split.us.split.us.i.i, %.lr.ph.i.i
   %indvars.iv15.i.i = phi i64 [ %indvars.iv.next16.i.i, %.lr.ph.split.us.split.us.i.i ], [ 0, %.lr.ph.i.i ]
   %.03.us.us.i.i = phi i32 [ %22, %.lr.ph.split.us.split.us.i.i ], [ 0, %.lr.ph.i.i ]
-  %19 = getelementptr inbounds nuw %struct.SDL_MouseInputSource, ptr %18, i64 %indvars.iv15.i.i
+  %19 = getelementptr inbounds nuw [24 x i8], ptr %18, i64 %indvars.iv15.i.i
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %21 = load i32, ptr %20, align 4
   %22 = or i32 %21, %.03.us.us.i.i

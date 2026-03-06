@@ -48,7 +48,7 @@ define dso_local i32 @sacctmgr_list_tres(i32 noundef %0, ptr noundef %1) local_u
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_set_cond.exit.us
   %storemerge110.us = phi i32 [ %29, %_set_cond.exit.us ], [ 0, %.lr.ph ]
   %12 = sext i32 %storemerge110.us to i64
-  %13 = getelementptr inbounds ptr, ptr %1, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %1, i64 %12
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %14) #8
   %16 = trunc i64 %15 to i32
@@ -82,7 +82,7 @@ _set_cond.exit.us:                                ; preds = %25, %20
 .lr.ph.split:                                     ; preds = %.lr.ph, %_set_cond.exit
   %storemerge110 = phi i32 [ %137, %_set_cond.exit ], [ 0, %.lr.ph ]
   %31 = sext i32 %storemerge110 to i64
-  %32 = getelementptr inbounds ptr, ptr %1, i64 %31
+  %32 = getelementptr inbounds [8 x i8], ptr %1, i64 %31
   %33 = load ptr, ptr %32, align 8
   %34 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %33) #8
   %35 = trunc i64 %34 to i32
@@ -115,7 +115,7 @@ _set_cond.exit.us:                                ; preds = %25, %20
 
 49:                                               ; preds = %136, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %48, %.lr.ph.i ], [ %indvars.iv.next.i, %136 ]
-  %50 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv.i
+  %50 = getelementptr inbounds [8 x i8], ptr %1, i64 %indvars.iv.i
   %51 = load ptr, ptr %50, align 8
   %52 = tail call i32 @parse_option_end(ptr noundef %51) #7
   %.not85.i = icmp eq i32 %52, 0

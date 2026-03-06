@@ -415,7 +415,7 @@ define dso_local ptr @php_XML_ErrorString(i32 noundef %0) local_unnamed_addr #6 
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr inbounds nuw ptr, ptr @error_mapping, i64 %3
+  %4 = getelementptr inbounds nuw [8 x i8], ptr @error_mapping, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !61
   br label %6
 
@@ -754,7 +754,7 @@ define internal void @start_element_handler(ptr noundef readonly captures(none) 
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %15 = phi ptr [ %25, %.lr.ph ], [ %14, %.preheader ]
   %.131 = phi ptr [ %22, %.lr.ph ], [ %13, %.preheader ]
-  %16 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -766,7 +766,7 @@ define internal void @start_element_handler(ptr noundef readonly captures(none) 
   %23 = load ptr, ptr %4, align 8, !tbaa !61
   call void @_efree(ptr noundef %23) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %24 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.next
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.next
   %25 = load ptr, ptr %24, align 8, !tbaa !61
   %.not28 = icmp eq ptr %25, null
   br i1 %.not28, label %.loopexit, label %.lr.ph
@@ -951,7 +951,7 @@ define internal void @start_element_handler_ns(ptr noundef readonly captures(non
   %.098145 = phi i32 [ 0, %.lr.ph ], [ %24, %17 ]
   %18 = load ptr, ptr %14, align 8, !tbaa !57
   %19 = load ptr, ptr %16, align 8, !tbaa !47
-  %20 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8, !tbaa !61
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %23 = load ptr, ptr %22, align 8, !tbaa !61
@@ -1001,7 +1001,7 @@ define internal void @start_element_handler_ns(ptr noundef readonly captures(non
   %.0107154 = phi i32 [ %54, %50 ], [ 0, %41 ]
   %.1136153 = phi ptr [ %52, %50 ], [ %storemerge, %41 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %42 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv180
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv180
   %43 = load ptr, ptr %42, align 8, !tbaa !61
   %indvars.iv.next181 = add nuw nsw i64 %indvars.iv180, 2
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 8
@@ -1041,7 +1041,7 @@ define internal void @start_element_handler_ns(ptr noundef readonly captures(non
   %.1160 = phi i32 [ %78, %68 ], [ 0, %.loopexit140 ]
   %.3138158 = phi ptr [ %76, %68 ], [ %.0135, %.loopexit140 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %56 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv184
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv184
   %57 = load ptr, ptr %56, align 8, !tbaa !61
   %58 = getelementptr i8, ptr %56, i64 8
   %59 = load ptr, ptr %58, align 8, !tbaa !61
@@ -1129,7 +1129,7 @@ qualify_namespace.exit:                           ; preds = %86, %93
   %indvars.iv170 = phi i64 [ 0, %.lr.ph149 ], [ %indvars.iv.next171, %qualify_namespace.exit127 ]
   %indvars.iv168 = phi i64 [ 0, %.lr.ph149 ], [ %indvars.iv.next169, %qualify_namespace.exit127 ]
   %.2148 = phi i32 [ 0, %.lr.ph149 ], [ %131, %qualify_namespace.exit127 ]
-  %103 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv170
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv170
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 8
   %105 = load ptr, ptr %104, align 8, !tbaa !61
   %.not118 = icmp eq ptr %105, null
@@ -1160,7 +1160,7 @@ qualify_namespace.exit:                           ; preds = %86, %93
 
 qualify_namespace.exit127:                        ; preds = %116, %110, %118
   %.0134 = phi ptr [ %119, %118 ], [ %117, %116 ], [ %115, %110 ]
-  %120 = getelementptr inbounds nuw ptr, ptr %99, i64 %indvars.iv168
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %99, i64 %indvars.iv168
   store ptr %.0134, ptr %120, align 8, !tbaa !61
   %121 = getelementptr inbounds nuw i8, ptr %103, i64 24
   %122 = load ptr, ptr %121, align 8, !tbaa !61
@@ -1186,7 +1186,7 @@ qualify_namespace.exit127:                        ; preds = %116, %110, %118
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %95
   %.1100.lcssa = phi i32 [ 0, %95 ], [ %132, %._crit_edge.loopexit ]
   %133 = zext nneg i32 %.1100.lcssa to i64
-  %134 = getelementptr inbounds nuw ptr, ptr %99, i64 %133
+  %134 = getelementptr inbounds nuw [8 x i8], ptr %99, i64 %133
   store ptr null, ptr %134, align 8, !tbaa !61
   br label %135
 
@@ -1211,7 +1211,7 @@ qualify_namespace.exit127:                        ; preds = %116, %110, %118
 .lr.ph151:                                        ; preds = %.lr.ph151.preheader, %.lr.ph151
   %indvars.iv176 = phi i64 [ 0, %.lr.ph151.preheader ], [ %indvars.iv.next177, %.lr.ph151 ]
   %139 = load ptr, ptr @xmlFree, align 8, !tbaa !72
-  %140 = getelementptr inbounds nuw ptr, ptr %.0, i64 %indvars.iv176
+  %140 = getelementptr inbounds nuw [8 x i8], ptr %.0, i64 %indvars.iv176
   %141 = load ptr, ptr %140, align 8, !tbaa !61
   tail call void %139(ptr noundef %141) #10
   %indvars.iv.next177 = add nuw nsw i64 %indvars.iv176, 1

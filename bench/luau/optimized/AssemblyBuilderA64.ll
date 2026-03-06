@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
-%"struct.Luau::CodeGen::A64::AssemblyBuilderA64::Patch" = type { i32, i32 }
 
 $_ZNSt6vectorIhSaIhEE6resizeEm = comdat any
 
@@ -3737,7 +3736,7 @@ _ZN4Luau7CodeGen3A6418AssemblyBuilderA646commitEv.exit: ; preds = %8, %15
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bENS1_12ConditionA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %0, i32 noundef %1, ptr noundef nonnull align 4 captures(none) dereferenceable(8) %2) local_unnamed_addr #0 align 2 {
   %4 = sext i32 %1 to i64
-  %5 = getelementptr inbounds ptr, ptr @_ZN4Luau7CodeGen3A64L16textForConditionE, i64 %4
+  %5 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7CodeGen3A64L16textForConditionE, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !49
   %7 = getelementptr inbounds i8, ptr @_ZN4Luau7CodeGen3A64L16codeForConditionE, i64 %4
   %8 = load i8, ptr %7, align 1, !tbaa !13
@@ -4143,7 +4142,7 @@ _ZN4Luau7CodeGen3A6418AssemblyBuilderA648placeADREPKcNS1_11RegisterA64Eh.exit: ;
   %61 = and i32 %.neg, 16777184
   %62 = and i64 %31, 4294967295
   %63 = load ptr, ptr %26, align 8, !tbaa !38
-  %64 = getelementptr inbounds nuw i32, ptr %63, i64 %62
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %62
   %65 = load i32, ptr %64, align 4, !tbaa !48
   %66 = or i32 %65, %61
   store i32 %66, ptr %64, align 4, !tbaa !48
@@ -4262,7 +4261,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA6411patchOffsetEjiN
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = zext i32 %1 to i64
   %20 = load ptr, ptr %18, align 8, !tbaa !38
-  %21 = getelementptr inbounds nuw i32, ptr %20, i64 %19
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %19
   %22 = load i32, ptr %21, align 4, !tbaa !48
   %23 = or i32 %22, %17
   store i32 %23, ptr %21, align 4, !tbaa !48
@@ -4366,7 +4365,7 @@ _ZN4Luau7CodeGen3A6418AssemblyBuilderA648placeADREPKcNS1_11RegisterA64Eh.exit: ;
   %61 = and i32 %.neg, 16777184
   %62 = and i64 %30, 4294967295
   %63 = load ptr, ptr %25, align 8, !tbaa !38
-  %64 = getelementptr inbounds nuw i32, ptr %63, i64 %62
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %62
   %65 = load i32, ptr %64, align 4, !tbaa !48
   %66 = or i32 %65, %61
   store i32 %66, ptr %64, align 4, !tbaa !48
@@ -4470,7 +4469,7 @@ _ZN4Luau7CodeGen3A6418AssemblyBuilderA648placeADREPKcNS1_11RegisterA64Eh.exit: ;
   %61 = and i32 %.neg, 16777184
   %62 = and i64 %30, 4294967295
   %63 = load ptr, ptr %25, align 8, !tbaa !38
-  %64 = getelementptr inbounds nuw i32, ptr %63, i64 %62
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %62
   %65 = load i32, ptr %64, align 4, !tbaa !48
   %66 = or i32 %65, %61
   store i32 %66, ptr %64, align 4, !tbaa !48
@@ -6438,7 +6437,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %16, %18, %20
   %40 = lshr i32 %.sroa.0.0.copyload, 2
   %41 = add nsw i32 %40, -1
   %42 = zext i32 %41 to i64
-  %43 = getelementptr inbounds nuw i32, ptr %27, i64 %42
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %42
   %44 = load i32, ptr %43, align 4, !tbaa !48
   %45 = sub nsw i32 %44, %.sroa.5.0.copyload
   %46 = and i32 %.sroa.0.0.copyload, 3
@@ -6459,7 +6458,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %16, %18, %20
   %58 = and i32 %57, %45
   %59 = shl nuw nsw i32 %58, %56
   %60 = zext i32 %.sroa.5.0.copyload to i64
-  %61 = getelementptr inbounds nuw i32, ptr %29, i64 %60
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %60
   %62 = load i32, ptr %61, align 4, !tbaa !48
   %63 = or i32 %62, %59
   store i32 %63, ptr %61, align 4, !tbaa !48
@@ -6564,7 +6563,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i: ; preds = %35, %_ZN
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i: ; preds = %37, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i
   store ptr %32, ptr %12, align 8, !tbaa !38
   store ptr %36, ptr %13, align 8, !tbaa !37
-  %38 = getelementptr inbounds nuw i32, ptr %32, i64 %30
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %30
   store ptr %38, ptr %15, align 8, !tbaa !41
   br label %_ZNSt6vectorIjSaIjEE9push_backEOj.exit
 
@@ -6663,7 +6662,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i: ; preds = %32, %_ZN
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i: ; preds = %34, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i
   store ptr %29, ptr %9, align 8, !tbaa !38
   store ptr %33, ptr %10, align 8, !tbaa !37
-  %35 = getelementptr inbounds nuw i32, ptr %29, i64 %27
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %27
   store ptr %35, ptr %12, align 8, !tbaa !41
   br label %_ZNSt6vectorIjSaIjEE9push_backEOj.exit
 
@@ -6684,7 +6683,7 @@ _ZNSt6vectorIjSaIjEE9push_backEOj.exit:           ; preds = %_ZNSt6vectorIjSaIjE
   %48 = add i32 %47, -1
   %49 = zext i32 %48 to i64
   %50 = load ptr, ptr %46, align 8, !tbaa !38
-  %51 = getelementptr inbounds nuw i32, ptr %50, i64 %49
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %49
   store i32 %44, ptr %51, align 4, !tbaa !48
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %53 = load i8, ptr %52, align 8, !tbaa !14, !range !46, !noundef !47
@@ -7095,7 +7094,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i: ; preds = %47, %_ZN
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i: ; preds = %49, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i
   store ptr %44, ptr %24, align 8, !tbaa !38
   store ptr %48, ptr %25, align 8, !tbaa !37
-  %50 = getelementptr inbounds nuw i32, ptr %44, i64 %42
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %42
   store ptr %50, ptr %27, align 8, !tbaa !41
   br label %_ZNSt6vectorIjSaIjEE9push_backEOj.exit
 
@@ -7171,7 +7170,7 @@ _ZNSt6vectorIN4Luau7CodeGen3A6418AssemblyBuilderA645PatchESaIS4_EE11_S_relocateE
 _ZNSt6vectorIN4Luau7CodeGen3A6418AssemblyBuilderA645PatchESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i: ; preds = %81, %_ZNSt6vectorIN4Luau7CodeGen3A6418AssemblyBuilderA645PatchESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i.i
   store ptr %76, ptr %51, align 8, !tbaa !42
   store ptr %80, ptr %56, align 8, !tbaa !56
-  %82 = getelementptr inbounds nuw %"struct.Luau::CodeGen::A64::AssemblyBuilderA64::Patch", ptr %76, i64 %74
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %74
   store ptr %82, ptr %58, align 8, !tbaa !43
   br label %_ZNSt6vectorIN4Luau7CodeGen3A6418AssemblyBuilderA645PatchESaIS4_EE9push_backEOS4_.exit
 
@@ -7194,7 +7193,7 @@ _ZNSt6vectorIN4Luau7CodeGen3A6418AssemblyBuilderA645PatchESaIS4_EE17_M_realloc_i
   %96 = and i32 %84, %95
   %97 = shl nuw nsw i32 %96, %94
   %98 = zext i32 %13 to i64
-  %99 = getelementptr inbounds nuw i32, ptr %7, i64 %98
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %98
   %100 = load i32, ptr %99, align 4, !tbaa !48
   %101 = or i32 %100, %97
   store i32 %101, ptr %99, align 4, !tbaa !48
@@ -7357,7 +7356,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit9: ; preds 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit10: ; preds = %18
   %24 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull @.str.81, i64 noundef 1)
   %25 = sext i32 %5 to i64
-  %26 = getelementptr inbounds ptr, ptr @_ZN4Luau7CodeGen3A64L16textForConditionE, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7CodeGen3A64L16textForConditionE, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !49
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 2
   %29 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %28) #24
@@ -7444,7 +7443,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv(ptr nou
   br i1 %17, label %18, label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds nuw i32, ptr %5, i64 %12
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %12
   %.not.i.i = icmp eq ptr %8, %19
   br i1 %.not.i.i, label %_ZNSt6vectorIjSaIjEE6resizeEm.exit, label %20
 
@@ -7460,7 +7459,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %14, %16, %18, %20
   %24 = sub i64 %23, %6
   %25 = lshr exact i64 %24, 2
   %26 = and i64 %25, 4294967295
-  %27 = getelementptr inbounds nuw i32, ptr %22, i64 %26
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %26
   store ptr %27, ptr %2, align 8, !tbaa !39
   %28 = ptrtoint ptr %21 to i64
   %29 = sub i64 %28, %.pre-phi
@@ -7841,9 +7840,9 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit36: ; preds = %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !38
-  %39 = getelementptr inbounds nuw i32, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !37
-  %40 = getelementptr inbounds nuw i32, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !41
   br label %41
 

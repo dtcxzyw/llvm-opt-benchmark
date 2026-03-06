@@ -22,15 +22,6 @@ module asm ".previous\09\09\09\09\09"
 %struct.attribute_group = type { ptr, ptr, ptr, ptr, ptr }
 %struct.device_attribute = type { %struct.attribute, ptr, ptr }
 %struct.attribute = type { ptr, i16 }
-%struct.lg_g15_led = type { %struct.led_classdev, i32, i32, i8, i8, i8 }
-%struct.led_classdev = type { ptr, i32, i32, i32, i32, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %struct.list_head, ptr, i64, i64, %struct.timer_list, i32, i32, ptr, %struct.work_struct, i32, i64, i64, %struct.rw_semaphore, ptr, %struct.list_head, ptr, i8, ptr, ptr, ptr, ptr, ptr, ptr, %struct.mutex }
-%struct.timer_list = type { %struct.hlist_node, i64, ptr, i32 }
-%struct.hlist_node = type { ptr, ptr }
-%struct.work_struct = type { %struct.atomic64_t, %struct.list_head, ptr }
-%struct.atomic64_t = type { i64 }
-%struct.rw_semaphore = type { %struct.atomic64_t, %struct.atomic64_t, %struct.optimistic_spin_queue, %struct.raw_spinlock, %struct.list_head }
-%struct.optimistic_spin_queue = type { %struct.atomic_t }
-%struct.mutex = type { %struct.atomic64_t, %struct.raw_spinlock, %struct.optimistic_spin_queue, %struct.list_head }
 
 @__UNIQUE_ID___addressable_lg_g15_driver_init429 = internal global ptr @lg_g15_driver_init, section ".discard.addressable", align 8
 @lg_g15_driver = internal global %struct.hid_driver { ptr @.str.1, ptr @lg_g15_devices, %struct.list_head zeroinitializer, %struct.spinlock zeroinitializer, ptr null, ptr @lg_g15_probe, ptr null, ptr null, ptr @lg_g15_raw_event, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, %struct.device_driver zeroinitializer }, align 8
@@ -424,12 +415,12 @@ lg_g15_get_initial_led_brightness.exit.thread.thread: ; preds = %89, %lg_g15_get
 
 187:                                              ; preds = %.preheader, %184
   %188 = phi i64 [ %185, %184 ], [ 0, %.preheader ]
-  %189 = getelementptr ptr, ptr @lg_g15_probe.led_names, i64 %188
+  %189 = getelementptr [8 x i8], ptr @lg_g15_probe.led_names, i64 %188
   %190 = load ptr, ptr %189, align 8
   %191 = trunc i64 %188 to i32
   %sext = shl i64 %188, 32
   %192 = ashr exact i64 %sext, 32
-  %193 = getelementptr %struct.lg_g15_led, ptr %183, i64 %192
+  %193 = getelementptr [424 x i8], ptr %183, i64 %192
   %194 = getelementptr inbounds nuw i8, ptr %193, i64 412
   store i32 %191, ptr %194, align 4
   store ptr %190, ptr %193, align 8
@@ -1119,7 +1110,7 @@ declare dso_local i32 @input_register_device(ptr noundef) local_unnamed_addr #1
 define internal fastcc i32 @lg_g15_register_led(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2) unnamed_addr #2 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = sext i32 %1 to i64
-  %6 = getelementptr %struct.lg_g15_led, ptr %4, i64 %5
+  %6 = getelementptr [424 x i8], ptr %4, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 412
   store i32 %1, ptr %7, align 4
   store ptr %2, ptr %6, align 8
@@ -1262,7 +1253,7 @@ define internal fastcc range(i32 5, 4) i32 @lg_g510_get_initial_led_brightness(p
   %35 = phi i8 [ %33, %27 ], [ 0, %25 ]
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %37 = zext nneg i32 %1 to i64
-  %38 = getelementptr %struct.lg_g15_led, ptr %36, i64 %37
+  %38 = getelementptr [424 x i8], ptr %36, i64 %37
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 416
   store i8 %35, ptr %39, align 8
   %40 = icmp eq i8 %18, 0
@@ -1308,7 +1299,7 @@ define internal fastcc range(i32 5, 4) i32 @lg_g510_get_initial_led_brightness(p
 63:                                               ; preds = %14
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %65 = zext nneg i32 %1 to i64
-  %66 = getelementptr %struct.lg_g15_led, ptr %64, i64 %65
+  %66 = getelementptr [424 x i8], ptr %64, i64 %65
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 416
   store i8 -1, ptr %67, align 8
   %68 = getelementptr inbounds nuw i8, ptr %66, i64 417

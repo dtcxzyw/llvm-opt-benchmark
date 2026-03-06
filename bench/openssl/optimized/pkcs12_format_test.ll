@@ -302,7 +302,7 @@ define internal i32 @test_single_key_enc_alg(i32 noundef %0) #1 {
   %4 = icmp eq ptr %3, null
   %5 = sext i32 %0 to i64
   %storemerge.in.v = select i1 %4, ptr @enc_nids_no_legacy, ptr @enc_nids_all
-  %storemerge.in = getelementptr inbounds i32, ptr %storemerge.in.v, i64 %5
+  %storemerge.in = getelementptr inbounds [4 x i8], ptr %storemerge.in.v, i64 %5
   %storemerge = load i32, ptr %storemerge.in, align 4, !tbaa !13
   store i32 %storemerge, ptr %2, align 8, !tbaa !15
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -323,7 +323,7 @@ define internal i32 @test_single_secret_enc_alg(i32 noundef %0) #1 {
   %5 = icmp eq ptr %4, null
   %6 = sext i32 %0 to i64
   %storemerge.in.v = select i1 %5, ptr @enc_nids_no_legacy, ptr @enc_nids_all
-  %storemerge.in = getelementptr inbounds i32, ptr %storemerge.in.v, i64 %6
+  %storemerge.in = getelementptr inbounds [4 x i8], ptr %storemerge.in.v, i64 %6
   %storemerge = load i32, ptr %storemerge.in, align 4, !tbaa !13
   store i32 %storemerge, ptr %3, align 8, !tbaa !15
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -532,7 +532,7 @@ define internal i32 @test_single_key_enc_pass(i32 noundef %0) #1 {
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 146, ptr %2, align 8, !tbaa !15
   %3 = sext i32 %0 to i64
-  %4 = getelementptr inbounds ptr, ptr @passwords, i64 %3
+  %4 = getelementptr inbounds [8 x i8], ptr @passwords, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !20
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %5, ptr %6, align 8, !tbaa !18
@@ -551,7 +551,7 @@ define internal i32 @test_single_key_enc_iter(i32 noundef %0) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @.str.47, ptr %3, align 8, !tbaa !18
   %4 = sext i32 %0 to i64
-  %5 = getelementptr inbounds i32, ptr @iters, i64 %4
+  %5 = getelementptr inbounds [4 x i8], ptr @iters, i64 %4
   %6 = load i32, ptr %5, align 4, !tbaa !13
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 %6, ptr %7, align 8, !tbaa !19
@@ -582,7 +582,7 @@ define internal i32 @test_single_cert_mac_alg(i32 noundef %0) #1 {
   %2 = alloca %struct.pkcs12_enc, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = sext i32 %0 to i64
-  %4 = getelementptr inbounds i32, ptr @mac_nids, i64 %3
+  %4 = getelementptr inbounds [4 x i8], ptr @mac_nids, i64 %3
   %5 = load i32, ptr %4, align 4, !tbaa !13
   store i32 %5, ptr %2, align 8, !tbaa !15
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -600,7 +600,7 @@ define internal i32 @test_single_cert_mac_pass(i32 noundef %0) #1 {
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 64, ptr %2, align 8, !tbaa !15
   %3 = sext i32 %0 to i64
-  %4 = getelementptr inbounds ptr, ptr @passwords, i64 %3
+  %4 = getelementptr inbounds [8 x i8], ptr @passwords, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !20
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %5, ptr %6, align 8, !tbaa !18
@@ -619,7 +619,7 @@ define internal i32 @test_single_cert_mac_iter(i32 noundef %0) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @.str.47, ptr %3, align 8, !tbaa !18
   %4 = sext i32 %0 to i64
-  %5 = getelementptr inbounds i32, ptr @iters, i64 %4
+  %5 = getelementptr inbounds [4 x i8], ptr @iters, i64 %4
   %6 = load i32, ptr %5, align 4, !tbaa !13
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 %6, ptr %7, align 8, !tbaa !19

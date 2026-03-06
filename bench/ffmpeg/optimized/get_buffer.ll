@@ -191,9 +191,9 @@ define i32 @avcodec_default_get_buffer2(ptr noundef %0, ptr noundef %1, i32 noun
 105:                                              ; preds = %105, %100
   %indvars.iv.i = phi i64 [ 0, %100 ], [ %indvars.iv.next.i, %105 ]
   %.078.i = phi i32 [ 0, %100 ], [ %111, %105 ]
-  %106 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.i
+  %106 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv.i
   %107 = load i32, ptr %106, align 4, !tbaa !65
-  %108 = getelementptr inbounds nuw i32, ptr %93, i64 %indvars.iv.i
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %93, i64 %indvars.iv.i
   %109 = load i32, ptr %108, align 4, !tbaa !65
   %110 = srem i32 %107, %109
   %111 = or i32 %110, %.078.i
@@ -207,10 +207,10 @@ define i32 @avcodec_default_get_buffer2(ptr noundef %0, ptr noundef %1, i32 noun
 
 .preheader72.i:                                   ; preds = %112, %.preheader72.i
   %indvars.iv85.i = phi i64 [ %indvars.iv.next86.i, %.preheader72.i ], [ 0, %112 ]
-  %113 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv85.i
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv85.i
   %114 = load i32, ptr %113, align 4, !tbaa !65
   %115 = sext i32 %114 to i64
-  %116 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv85.i
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv85.i
   store i64 %115, ptr %116, align 8, !tbaa !70
   %indvars.iv.next86.i = add nuw nsw i64 %indvars.iv85.i, 1
   %exitcond88.not.i = icmp eq i64 %indvars.iv.next86.i, 4
@@ -229,11 +229,11 @@ define i32 @avcodec_default_get_buffer2(ptr noundef %0, ptr noundef %1, i32 noun
 
 .preheader.i:                                     ; preds = %134, %.preheader.preheader.i
   %indvars.iv89.i = phi i64 [ 0, %.preheader.preheader.i ], [ %indvars.iv.next90.i, %134 ]
-  %123 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv89.i
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv89.i
   %124 = load i32, ptr %123, align 4, !tbaa !65
-  %125 = getelementptr inbounds nuw i32, ptr %122, i64 %indvars.iv89.i
+  %125 = getelementptr inbounds nuw [4 x i8], ptr %122, i64 %indvars.iv89.i
   store i32 %124, ptr %125, align 4, !tbaa !65
-  %126 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv89.i
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv89.i
   %127 = load i64, ptr %126, align 8, !tbaa !70
   %.not65.i = icmp eq i64 %127, 0
   br i1 %.not65.i, label %134, label %128
@@ -245,7 +245,7 @@ define i32 @avcodec_default_get_buffer2(ptr noundef %0, ptr noundef %1, i32 noun
 130:                                              ; preds = %128
   %131 = add nuw nsw i64 %127, 23
   %132 = call ptr @av_buffer_pool_init(i64 noundef %131, ptr noundef nonnull @av_buffer_allocz) #6
-  %133 = getelementptr inbounds nuw ptr, ptr %84, i64 %indvars.iv89.i
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %indvars.iv89.i
   store ptr %132, ptr %133, align 8, !tbaa !72
   %.not66.i = icmp eq ptr %132, null
   br i1 %.not66.i, label %.thread69.i, label %134
@@ -394,18 +394,18 @@ update_frame_pool.exit:                           ; preds = %.thread.i, %171
 
 195:                                              ; preds = %204, %190
   %indvars.iv.i31 = phi i64 [ 0, %190 ], [ %indvars.iv.next.i32, %204 ]
-  %196 = getelementptr inbounds nuw ptr, ptr %178, i64 %indvars.iv.i31
+  %196 = getelementptr inbounds nuw [8 x i8], ptr %178, i64 %indvars.iv.i31
   %197 = load ptr, ptr %196, align 8, !tbaa !72
   %.not42.i = icmp eq ptr %197, null
   br i1 %.not42.i, label %.critedge.i, label %198
 
 198:                                              ; preds = %195
-  %199 = getelementptr inbounds nuw i32, ptr %192, i64 %indvars.iv.i31
+  %199 = getelementptr inbounds nuw [4 x i8], ptr %192, i64 %indvars.iv.i31
   %200 = load i32, ptr %199, align 4, !tbaa !65
-  %201 = getelementptr inbounds nuw i32, ptr %193, i64 %indvars.iv.i31
+  %201 = getelementptr inbounds nuw [4 x i8], ptr %193, i64 %indvars.iv.i31
   store i32 %200, ptr %201, align 4, !tbaa !65
   %202 = call ptr @av_buffer_pool_get(ptr noundef nonnull %197) #6
-  %203 = getelementptr inbounds nuw ptr, ptr %194, i64 %indvars.iv.i31
+  %203 = getelementptr inbounds nuw [8 x i8], ptr %194, i64 %indvars.iv.i31
   store ptr %202, ptr %203, align 8, !tbaa !77
   %.not44.i = icmp eq ptr %202, null
   br i1 %.not44.i, label %215, label %204
@@ -413,7 +413,7 @@ update_frame_pool.exit:                           ; preds = %.thread.i, %171
 204:                                              ; preds = %198
   %205 = getelementptr inbounds nuw i8, ptr %202, i64 8
   %206 = load ptr, ptr %205, align 8, !tbaa !27
-  %207 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.i31
+  %207 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.i31
   store ptr %206, ptr %207, align 8, !tbaa !75
   %indvars.iv.next.i32 = add nuw nsw i64 %indvars.iv.i31, 1
   %exitcond.not.i33 = icmp eq i64 %indvars.iv.next.i32, 4
@@ -429,9 +429,9 @@ update_frame_pool.exit:                           ; preds = %.thread.i, %171
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %indvars.iv49.i = phi i64 [ %indvars.iv.next50.i, %.lr.ph.i ], [ %indvars.iv49.i.ph, %.lr.ph.i.preheader ]
-  %209 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv49.i
+  %209 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv49.i
   store ptr null, ptr %209, align 8, !tbaa !75
-  %210 = getelementptr inbounds nuw i32, ptr %193, i64 %indvars.iv49.i
+  %210 = getelementptr inbounds nuw [4 x i8], ptr %193, i64 %indvars.iv49.i
   store i32 0, ptr %210, align 4, !tbaa !65
   %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
   %exitcond52.not.i = icmp eq i64 %indvars.iv.next50.i, 8
@@ -526,7 +526,7 @@ update_frame_pool.exit:                           ; preds = %.thread.i, %171
   %indvars.iv.i37 = phi i64 [ 0, %.lr.ph.i36 ], [ %indvars.iv.next.i38, %254 ]
   %251 = load ptr, ptr %217, align 8, !tbaa !72
   %252 = call ptr @av_buffer_pool_get(ptr noundef %251) #6
-  %253 = getelementptr inbounds nuw ptr, ptr %244, i64 %indvars.iv.i37
+  %253 = getelementptr inbounds nuw [8 x i8], ptr %244, i64 %indvars.iv.i37
   store ptr %252, ptr %253, align 8, !tbaa !77
   %.not56.i = icmp eq ptr %252, null
   br i1 %.not56.i, label %.loopexit.i, label %254
@@ -534,10 +534,10 @@ update_frame_pool.exit:                           ; preds = %.thread.i, %171
 254:                                              ; preds = %250
   %255 = getelementptr inbounds nuw i8, ptr %252, i64 8
   %256 = load ptr, ptr %255, align 8, !tbaa !27
-  %257 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.i37
+  %257 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.i37
   store ptr %256, ptr %257, align 8, !tbaa !75
   %258 = load ptr, ptr %245, align 8, !tbaa !76
-  %259 = getelementptr inbounds nuw ptr, ptr %258, i64 %indvars.iv.i37
+  %259 = getelementptr inbounds nuw [8 x i8], ptr %258, i64 %indvars.iv.i37
   store ptr %256, ptr %259, align 8, !tbaa !75
   %indvars.iv.next.i38 = add nuw nsw i64 %indvars.iv.i37, 1
   %exitcond.not.i39 = icmp eq i64 %indvars.iv.next.i38, %wide.trip.count.i
@@ -548,7 +548,7 @@ update_frame_pool.exit:                           ; preds = %.thread.i, %171
   %261 = load ptr, ptr %217, align 8, !tbaa !72
   %262 = call ptr @av_buffer_pool_get(ptr noundef %261) #6
   %263 = load ptr, ptr %248, align 8, !tbaa !82
-  %264 = getelementptr inbounds nuw ptr, ptr %263, i64 %indvars.iv63.i
+  %264 = getelementptr inbounds nuw [8 x i8], ptr %263, i64 %indvars.iv63.i
   store ptr %262, ptr %264, align 8, !tbaa !77
   %.not55.i = icmp eq ptr %262, null
   br i1 %.not55.i, label %.loopexit.i, label %265
@@ -557,7 +557,7 @@ update_frame_pool.exit:                           ; preds = %.thread.i, %171
   %266 = getelementptr inbounds nuw i8, ptr %262, i64 8
   %267 = load ptr, ptr %266, align 8, !tbaa !27
   %268 = load ptr, ptr %249, align 8, !tbaa !76
-  %269 = getelementptr inbounds nuw ptr, ptr %268, i64 %indvars.iv63.i
+  %269 = getelementptr inbounds nuw [8 x i8], ptr %268, i64 %indvars.iv63.i
   %270 = getelementptr inbounds nuw i8, ptr %269, i64 64
   store ptr %267, ptr %270, align 8, !tbaa !75
   %indvars.iv.next64.i = add nuw nsw i64 %indvars.iv63.i, 1
@@ -598,7 +598,7 @@ define internal void @frame_pool_free(ptr readnone captures(none) %0, ptr nounde
 
 3:                                                ; preds = %2, %3
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %3 ]
-  %4 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   tail call void @av_buffer_pool_uninit(ptr noundef %4) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4

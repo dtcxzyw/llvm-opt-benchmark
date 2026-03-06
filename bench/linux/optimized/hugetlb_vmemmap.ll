@@ -42,13 +42,6 @@ module asm ".previous\09\09\09\09\09"
 %struct.cftype = type { [64 x i8], i64, i64, i32, i32, ptr, %struct.list_head, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.ctl_table = type { ptr, ptr, i32, i16, i32, ptr, ptr, ptr, ptr }
 %struct.vmemmap_remap_walk = type { ptr, i64, ptr, i64, ptr, i64 }
-%struct.page = type { i64, %union.anon.5, %union.anon.13, %struct.atomic_t, [8 x i8] }
-%union.anon.5 = type { %struct.anon.6 }
-%struct.anon.6 = type { %union.anon.7, ptr, %union.anon.9, i64 }
-%union.anon.7 = type { %struct.list_head }
-%union.anon.9 = type { i64 }
-%union.anon.13 = type { %struct.atomic_t }
-%struct.pte_t = type { i64 }
 
 @hugetlb_optimize_vmemmap_key = dso_local global %struct.static_key_false zeroinitializer, align 8
 @__UNIQUE_ID___addressable_hugetlb_optimize_vmemmap_key434 = internal global ptr @hugetlb_optimize_vmemmap_key, section ".discard.addressable", align 8
@@ -555,7 +548,7 @@ define dso_local void @hugetlb_vmemmap_optimize_folios(ptr noundef readonly capt
 define internal noundef i32 @hugetlb_vmemmap_init() #3 section ".init.text" align 16 {
   %1 = load i32, ptr @hugetlb_max_hstate, align 4
   %2 = sext i32 %1 to i64
-  %3 = getelementptr %struct.hstate, ptr @hstates, i64 %2
+  %3 = getelementptr [6088 x i8], ptr @hstates, i64 %2
   %4 = icmp ugt ptr %3, @hstates
   br i1 %4, label %.preheader, label %.loopexit
 
@@ -603,7 +596,7 @@ define internal void @vmemmap_restore_pte(ptr noundef %0, i64 %1, ptr noundef re
   %15 = xor i64 %9, %14
   %16 = lshr i64 %15, 12
   %17 = and i64 %16, 1099511627775
-  %18 = getelementptr %struct.page, ptr %8, i64 %17
+  %18 = getelementptr [64 x i8], ptr %8, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %18, %20
@@ -790,7 +783,7 @@ define internal noundef range(i32 -12, 1) i32 @vmemmap_pmd_entry(ptr noundef %0,
   %23 = xor i64 %sext, %16
   %24 = lshr i64 %23, 12
   %25 = and i64 %24, 1099511627264
-  %26 = getelementptr %struct.page, ptr %21, i64 %25
+  %26 = getelementptr [64 x i8], ptr %21, i64 %25
   tail call void @_raw_spin_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @init_mm, i64 172)) #7
   %27 = icmp eq ptr %26, null
   br i1 %27, label %112, label %28
@@ -844,7 +837,7 @@ define internal noundef range(i32 -12, 1) i32 @vmemmap_pmd_entry(ptr noundef %0,
   br label %57
 
 57:                                               ; preds = %56, %49
-  %58 = getelementptr %struct.page, ptr %26, i64 %50
+  %58 = getelementptr [64 x i8], ptr %26, i64 %50
   %59 = load i64, ptr @vmemmap_base, align 8
   %60 = ptrtoint ptr %58 to i64
   %61 = sub i64 %60, %59
@@ -870,7 +863,7 @@ define internal noundef range(i32 -12, 1) i32 @vmemmap_pmd_entry(ptr noundef %0,
   %80 = inttoptr i64 %79 to ptr
   %81 = lshr exact i64 %51, 12
   %82 = and i64 %81, 511
-  %83 = getelementptr %struct.pte_t, ptr %80, i64 %82
+  %83 = getelementptr [8 x i8], ptr %80, i64 %82
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 %73, ptr %6, align 8
   %.0..0..0..0.2 = load volatile i64, ptr %6, align 8
@@ -965,7 +958,7 @@ define internal noundef i32 @vmemmap_pte_entry(ptr noundef %0, i64 noundef %1, i
   %20 = xor i64 %14, %19
   %21 = lshr i64 %20, 12
   %22 = and i64 %21, 1099511627775
-  %23 = getelementptr %struct.page, ptr %13, i64 %22
+  %23 = getelementptr [64 x i8], ptr %13, i64 %22
   store ptr %23, ptr %8, align 8
   br label %26
 
@@ -1004,7 +997,7 @@ define internal fastcc void @pte_free_kernel(ptr noundef nonnull %0) unnamed_add
   %10 = select i1 %6, i64 %7, i64 %9
   %11 = add i64 %5, %10
   %12 = lshr i64 %11, 12
-  %13 = getelementptr %struct.page, ptr %3, i64 %12
+  %13 = getelementptr [64 x i8], ptr %3, i64 %12
   %14 = load volatile i64, ptr %13, align 8
   %15 = and i64 %14, 64
   %16 = icmp eq i64 %15, 0
@@ -1106,7 +1099,7 @@ define internal void @vmemmap_remap_pte(ptr noundef %0, i64 noundef %1, ptr noun
   %51 = select i1 %45, i64 -9223372036854775453, i64 %50
   %52 = and i64 %51, %23
   %53 = or disjoint i64 %49, %52
-  %.split = getelementptr %struct.page, ptr %36, i64 %35
+  %.split = getelementptr [64 x i8], ptr %36, i64 %35
   %54 = getelementptr i8, ptr %.split, i64 8
   %55 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %56 = load ptr, ptr %55, align 8

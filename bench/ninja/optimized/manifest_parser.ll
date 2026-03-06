@@ -3188,7 +3188,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit476: ; preds = %_Z
   %.0198644 = phi i64 [ 0, %.lr.ph ], [ %696, %695 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %700 = load ptr, ptr %68, align 8, !tbaa !78
-  %701 = getelementptr inbounds nuw %struct.EvalString, ptr %700, i64 %.0198644
+  %701 = getelementptr inbounds nuw [56 x i8], ptr %700, i64 %.0198644
   invoke void @_ZNK10EvalString8EvaluateB5cxx11EP3Env(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %23, ptr noundef nonnull align 8 dereferenceable(56) %701, ptr noundef %546)
           to label %702 unwind label %713
 
@@ -6230,7 +6230,7 @@ _ZNSt12_Vector_baseIP4NodeSaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6v
   store ptr %19, ptr %0, align 8, !tbaa !128
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 %17
   store ptr %23, ptr %14, align 8, !tbaa !130
-  %24 = getelementptr inbounds nuw ptr, ptr %19, i64 %1
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %1
   store ptr %24, ptr %6, align 8, !tbaa !165
   br label %25
 
@@ -7501,7 +7501,7 @@ _ZNSt6vectorI10EvalStringSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit26: ; preds = 
 _ZNSt12_Vector_baseI10EvalStringSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %_ZNSt6vectorI10EvalStringSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit26, %94
   store ptr %20, ptr %0, align 8, !tbaa !78
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !79
-  %98 = getelementptr inbounds nuw %struct.EvalString, ptr %20, i64 %16
+  %98 = getelementptr inbounds nuw [56 x i8], ptr %20, i64 %16
   store ptr %98, ptr %93, align 8, !tbaa !82
   ret void
 }

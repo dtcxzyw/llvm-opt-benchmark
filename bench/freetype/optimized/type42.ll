@@ -524,18 +524,18 @@ t42_parse_dict.exit.i:                            ; preds = %.thread128.i.i, %65
   %indvars.iv128.i = phi i64 [ 0, %.lr.ph111.split.us.preheader.i ], [ %indvars.iv.next129.i, %.thread.us.i ]
   %.064108.us.i = phi i32 [ 0, %.lr.ph111.split.us.preheader.i ], [ %.165.us.i, %.thread.us.i ]
   %.066107.us.i = phi i32 [ 0, %.lr.ph111.split.us.preheader.i ], [ %.167.us.i, %.thread.us.i ]
-  %203 = getelementptr inbounds nuw ptr, ptr %197, i64 %indvars.iv128.i
+  %203 = getelementptr inbounds nuw [8 x i8], ptr %197, i64 %indvars.iv128.i
   %204 = load ptr, ptr %203, align 8, !tbaa !129
-  %205 = getelementptr inbounds nuw i16, ptr %199, i64 %indvars.iv128.i
+  %205 = getelementptr inbounds nuw [2 x i8], ptr %199, i64 %indvars.iv128.i
   store i16 0, ptr %205, align 2, !tbaa !130
-  %206 = getelementptr inbounds nuw ptr, ptr %201, i64 %indvars.iv128.i
+  %206 = getelementptr inbounds nuw [8 x i8], ptr %201, i64 %indvars.iv128.i
   store ptr @.str.10, ptr %206, align 8, !tbaa !129
   %.not79.us.i = icmp eq ptr %204, null
   br i1 %.not79.us.i, label %.thread.us.i, label %.preheader.us.i
 
 .preheader.us.i:                                  ; preds = %.lr.ph111.split.us.i, %211
   %indvars.iv123.i = phi i64 [ %indvars.iv.next124.i, %211 ], [ 0, %.lr.ph111.split.us.i ]
-  %207 = getelementptr inbounds nuw ptr, ptr %188, i64 %indvars.iv123.i
+  %207 = getelementptr inbounds nuw [8 x i8], ptr %188, i64 %indvars.iv123.i
   %208 = load ptr, ptr %207, align 8, !tbaa !129
   %209 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %204, ptr noundef nonnull dereferenceable(1) %208) #15
   %210 = icmp eq i32 %209, 0
@@ -570,9 +570,9 @@ t42_parse_dict.exit.i:                            ; preds = %.thread128.i.i, %65
 
 .lr.ph111.split.i:                                ; preds = %.lr.ph111.i, %.lr.ph111.split.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph111.split.i ], [ 0, %.lr.ph111.i ]
-  %218 = getelementptr inbounds nuw i16, ptr %199, i64 %indvars.iv.i
+  %218 = getelementptr inbounds nuw [2 x i8], ptr %199, i64 %indvars.iv.i
   store i16 0, ptr %218, align 2, !tbaa !130
-  %219 = getelementptr inbounds nuw ptr, ptr %201, i64 %indvars.iv.i
+  %219 = getelementptr inbounds nuw [8 x i8], ptr %201, i64 %indvars.iv.i
   store ptr @.str.10, ptr %219, align 8, !tbaa !129
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count131.i
@@ -1181,7 +1181,7 @@ define internal i32 @T42_GlyphSlot_Load(ptr noundef captures(none) %0, ptr nound
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 656
   %13 = load ptr, ptr %12, align 8, !tbaa !218
   %14 = zext i32 %2 to i64
-  %15 = getelementptr inbounds nuw ptr, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !129
   %17 = tail call i64 @strtol(ptr noundef captures(none) %16, ptr noundef null, i32 noundef 10) #14
   %18 = trunc i64 %17 to i32
@@ -1319,7 +1319,7 @@ define internal noundef i32 @t42_get_glyph_name(ptr noundef readonly captures(no
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %6 = load ptr, ptr %5, align 8, !tbaa !238
   %7 = zext i32 %1 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !129
   %10 = zext i32 %3 to i64
   %11 = tail call i32 @ft_mem_strcpyn(ptr noundef %2, ptr noundef %9, i64 noundef %10) #14
@@ -1342,7 +1342,7 @@ define internal i32 @t42_get_name_index(ptr noundef readonly captures(none) %0, 
 
 9:                                                ; preds = %.lr.ph, %23
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %23 ]
-  %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !129
   %12 = load i8, ptr %11, align 1, !tbaa !89
   %13 = icmp eq i8 %8, %12
@@ -1356,7 +1356,7 @@ define internal i32 @t42_get_name_index(ptr noundef readonly captures(none) %0, 
 16:                                               ; preds = %14
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 656
   %18 = load ptr, ptr %17, align 8, !tbaa !218
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8, !tbaa !129
   %21 = tail call i64 @strtol(ptr noundef captures(none) %20, ptr noundef null, i32 noundef 10) #14
   %22 = trunc i64 %21 to i32
@@ -1795,7 +1795,7 @@ define internal void @t42_parse_encoding(ptr noundef captures(none) %0, ptr noun
 125:                                              ; preds = %117
   %126 = load ptr, ptr %73, align 8, !tbaa !259
   %127 = sext i32 %.0137 to i64
-  %128 = getelementptr inbounds ptr, ptr %126, i64 %127
+  %128 = getelementptr inbounds [8 x i8], ptr %126, i64 %127
   %129 = load ptr, ptr %128, align 8, !tbaa !129
   %130 = and i64 %120, 4294967295
   %131 = getelementptr inbounds nuw i8, ptr %129, i64 %130
@@ -2139,7 +2139,7 @@ t42_is_space.exit.thread.thread:                  ; preds = %.preheader
 127:                                              ; preds = %117
   %128 = load ptr, ptr %87, align 8, !tbaa !259
   %129 = sext i32 %.0193272 to i64
-  %130 = getelementptr inbounds ptr, ptr %128, i64 %129
+  %130 = getelementptr inbounds [8 x i8], ptr %128, i64 %129
   %131 = load ptr, ptr %130, align 8, !tbaa !129
   %132 = zext i32 %spec.select to i64
   %133 = getelementptr inbounds nuw i8, ptr %131, i64 %132
@@ -2150,7 +2150,7 @@ t42_is_space.exit.thread.thread:                  ; preds = %.preheader
 
 136:                                              ; preds = %127
   %137 = load ptr, ptr %87, align 8, !tbaa !259
-  %138 = getelementptr inbounds ptr, ptr %137, i64 %129
+  %138 = getelementptr inbounds [8 x i8], ptr %137, i64 %129
   %139 = load ptr, ptr %138, align 8, !tbaa !129
   %140 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(8) @.str.10, ptr noundef nonnull dereferenceable(1) %139) #15
   %141 = icmp eq i32 %140, 0
@@ -2191,7 +2191,7 @@ t42_is_space.exit.thread.thread:                  ; preds = %.preheader
 
 159:                                              ; preds = %151
   %160 = load ptr, ptr %90, align 8, !tbaa !259
-  %161 = getelementptr inbounds ptr, ptr %160, i64 %129
+  %161 = getelementptr inbounds [8 x i8], ptr %160, i64 %129
   %162 = load ptr, ptr %161, align 8, !tbaa !129
   %163 = and i64 %154, 4294967295
   %164 = getelementptr inbounds nuw i8, ptr %162, i64 %163
@@ -2253,10 +2253,10 @@ t42_is_space.exit.thread:                         ; preds = %.thread260, %159, %
   %192 = load ptr, ptr %176, align 8, !tbaa !257
   %193 = load ptr, ptr %171, align 8, !tbaa !259
   %194 = sext i32 %.1189.ph to i64
-  %195 = getelementptr inbounds ptr, ptr %193, i64 %194
+  %195 = getelementptr inbounds [8 x i8], ptr %193, i64 %194
   %196 = load ptr, ptr %195, align 8, !tbaa !129
   %197 = load ptr, ptr %178, align 8, !tbaa !264
-  %198 = getelementptr inbounds i32, ptr %197, i64 %194
+  %198 = getelementptr inbounds [4 x i8], ptr %197, i64 %194
   %199 = load i32, ptr %198, align 4, !tbaa !74
   %200 = tail call i32 %192(ptr noundef nonnull %5, i32 noundef 2, ptr noundef %196, i32 noundef %199) #14
   %.not244 = icmp eq i32 %200, 0
@@ -2265,10 +2265,10 @@ t42_is_space.exit.thread:                         ; preds = %.thread260, %159, %
 201:                                              ; preds = %191
   %202 = load ptr, ptr %176, align 8, !tbaa !257
   %203 = load ptr, ptr %184, align 8, !tbaa !259
-  %204 = getelementptr inbounds ptr, ptr %203, i64 %194
+  %204 = getelementptr inbounds [8 x i8], ptr %203, i64 %194
   %205 = load ptr, ptr %204, align 8, !tbaa !129
   %206 = load ptr, ptr %187, align 8, !tbaa !264
-  %207 = getelementptr inbounds i32, ptr %206, i64 %194
+  %207 = getelementptr inbounds [4 x i8], ptr %206, i64 %194
   %208 = load i32, ptr %207, align 4, !tbaa !74
   %209 = tail call i32 %202(ptr noundef nonnull %5, i32 noundef 3, ptr noundef %205, i32 noundef %208) #14
   %.not245 = icmp eq i32 %209, 0

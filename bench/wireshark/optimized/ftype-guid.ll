@@ -50,7 +50,7 @@ define internal noundef zeroext i1 @guid_from_literal(ptr noundef writeonly capt
   %13 = getelementptr i8, ptr %1, i64 %.03038.i
   %14 = load i8, ptr %13, align 1
   %15 = zext i8 %14 to i64
-  %16 = getelementptr i16, ptr %8, i64 %15
+  %16 = getelementptr [2 x i8], ptr %8, i64 %15
   %17 = load i16, ptr %16, align 2
   %18 = and i16 %17, 1024
   %.not36.i = icmp eq i16 %18, 0

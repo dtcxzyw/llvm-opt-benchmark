@@ -4,9 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.NarrowConv = type { ptr, ptr, ptr, i32, i32, [256 x i32] }
-%union.IRIns = type { %struct.GCRef }
-%struct.GCRef = type { i64 }
-%struct.BPropEntry = type { i16, i16, i32 }
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @lj_opt_narrow_convert(ptr noundef %0) local_unnamed_addr #0 {
@@ -159,7 +156,7 @@ define hidden i32 @lj_opt_narrow_convert(ptr noundef %0) local_unnamed_addr #0 {
   %80 = load ptr, ptr %39, align 8, !tbaa !36
   %81 = and i32 %77, 32767
   %82 = zext nneg i32 %81 to i64
-  %83 = getelementptr inbounds nuw %union.IRIns, ptr %80, i64 %82
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %82
   %84 = load i32, ptr %83, align 8, !tbaa !32
   %85 = add i32 %84, 1073741824
   %86 = icmp sgt i32 %85, -1
@@ -191,7 +188,7 @@ define hidden i32 @lj_opt_narrow_convert(ptr noundef %0) local_unnamed_addr #0 {
   %99 = trunc i32 %96 to i16
   %100 = load i32, ptr %40, align 4, !tbaa !37
   %101 = zext i32 %100 to i64
-  %102 = getelementptr inbounds nuw %struct.BPropEntry, ptr %41, i64 %101
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %101
   %103 = add i32 %100, 1
   %104 = and i32 %103, 15
   store i32 %104, ptr %40, align 4, !tbaa !37
@@ -229,7 +226,7 @@ define internal fastcc range(i32 0, 11) i32 @narrow_conv_backprop(ptr noundef no
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8, !tbaa !36
   %7 = zext nneg i32 %1 to i64
-  %8 = getelementptr inbounds nuw %union.IRIns, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !30
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -332,7 +329,7 @@ define internal fastcc range(i32 0, 11) i32 @narrow_conv_backprop(ptr noundef no
   %64 = load i8, ptr %63, align 1, !tbaa !32
   %.fr154 = freeze i8 %64
   %65 = zext i8 %.fr154 to i64
-  %66 = getelementptr inbounds nuw i16, ptr %62, i64 %65
+  %66 = getelementptr inbounds nuw [2 x i8], ptr %62, i64 %65
   %.0102.in147 = load i16, ptr %66, align 2, !tbaa !32
   %.0102148 = zext i16 %.0102.in147 to i32
   %67 = icmp samesign ult i32 %1, %.0102148
@@ -346,7 +343,7 @@ define internal fastcc range(i32 0, 11) i32 @narrow_conv_backprop(ptr noundef no
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   %71 = zext i16 %.0102.in147 to i64
-  %72 = getelementptr inbounds nuw %union.IRIns, ptr %6, i64 %71
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %71
   %73 = load i16, ptr %72, align 8, !tbaa !32
   %74 = zext i16 %73 to i32
   %75 = icmp eq i32 %1, %74
@@ -354,7 +351,7 @@ define internal fastcc range(i32 0, 11) i32 @narrow_conv_backprop(ptr noundef no
 
 76:                                               ; preds = %.lr.ph152
   %77 = zext i16 %.0102.in.us to i64
-  %78 = getelementptr inbounds nuw %union.IRIns, ptr %6, i64 %77
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %77
   %79 = load i16, ptr %78, align 8, !tbaa !32
   %80 = zext i16 %79 to i32
   %81 = icmp eq i32 %1, %80
@@ -362,7 +359,7 @@ define internal fastcc range(i32 0, 11) i32 @narrow_conv_backprop(ptr noundef no
 
 .lr.ph152:                                        ; preds = %.lr.ph.split.us, %76
   %82 = phi i64 [ %77, %76 ], [ %71, %.lr.ph.split.us ]
-  %83 = getelementptr inbounds nuw %union.IRIns, ptr %6, i64 %82
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %82
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 6
   %.0102.in.us = load i16, ptr %84, align 2, !tbaa !32
   %.0102.us = zext i16 %.0102.in.us to i32
@@ -373,7 +370,7 @@ define internal fastcc range(i32 0, 11) i32 @narrow_conv_backprop(ptr noundef no
   %.0102150 = phi i32 [ %.0102, %106 ], [ %.0102148, %.lr.ph ]
   %.0102.in149 = phi i16 [ %.0102.in, %106 ], [ %.0102.in147, %.lr.ph ]
   %86 = zext i16 %.0102.in149 to i64
-  %87 = getelementptr inbounds nuw %union.IRIns, ptr %6, i64 %86
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %86
   %88 = load i16, ptr %87, align 8, !tbaa !32
   %89 = zext i16 %88 to i32
   %90 = icmp eq i32 %1, %89
@@ -432,7 +429,7 @@ define internal fastcc range(i32 0, 11) i32 @narrow_conv_backprop(ptr noundef no
 
 118:                                              ; preds = %129, %109
   %.01319.i = phi i64 [ 0, %109 ], [ %130, %129 ]
-  %119 = getelementptr inbounds nuw %struct.BPropEntry, ptr %117, i64 %.01319.i
+  %119 = getelementptr inbounds nuw [8 x i8], ptr %117, i64 %.01319.i
   %120 = load i16, ptr %119, align 4, !tbaa !38
   %121 = icmp eq i16 %120, %116
   br i1 %121, label %122, label %129
@@ -471,7 +468,7 @@ narrow_bpc_get.exit:                              ; preds = %125
 
 .preheader:                                       ; preds = %135, %147
   %.01319.i129 = phi i64 [ %148, %147 ], [ 0, %135 ]
-  %139 = getelementptr inbounds nuw %struct.BPropEntry, ptr %117, i64 %.01319.i129
+  %139 = getelementptr inbounds nuw [8 x i8], ptr %117, i64 %.01319.i129
   %140 = load i16, ptr %139, align 4, !tbaa !38
   %141 = icmp eq i16 %140, %116
   br i1 %141, label %142, label %147
@@ -564,7 +561,7 @@ define hidden i32 @lj_opt_narrow_index(ptr noundef %0, i32 noundef %1) local_unn
   %9 = load ptr, ptr %8, align 8, !tbaa !36
   %10 = and i32 %1, 65535
   %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr inbounds nuw %union.IRIns, ptr %9, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 5
   %14 = load i8, ptr %13, align 1, !tbaa !32
   %.off = add i8 %14, -53
@@ -579,7 +576,7 @@ define hidden i32 @lj_opt_narrow_index(ptr noundef %0, i32 noundef %1) local_unn
 
 19:                                               ; preds = %15
   %20 = zext nneg i16 %17 to i64
-  %21 = getelementptr inbounds nuw %union.IRIns, ptr %9, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %20
   %22 = load i32, ptr %21, align 8, !tbaa !32
   %23 = add i32 %22, 1073741824
   %24 = icmp sgt i32 %23, -1
@@ -676,7 +673,7 @@ define internal fastcc i32 @narrow_stripov(ptr noundef %0, i32 noundef %1, i32 n
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8, !tbaa !36
   %9 = zext nneg i32 %6 to i64
-  %10 = getelementptr inbounds nuw %union.IRIns, ptr %8, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 5
   %12 = load i8, ptr %11, align 1, !tbaa !32
   %13 = zext i8 %12 to i32
@@ -691,7 +688,7 @@ define internal fastcc i32 @narrow_stripov(ptr noundef %0, i32 noundef %1, i32 n
 
 17:                                               ; preds = %25, %15
   %.01319.i = phi i64 [ 0, %15 ], [ %26, %25 ]
-  %18 = getelementptr inbounds nuw %struct.BPropEntry, ptr %16, i64 %.01319.i
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.01319.i
   %19 = load i16, ptr %18, align 4, !tbaa !38
   %20 = icmp eq i16 %19, %5
   br i1 %20, label %21, label %25
@@ -713,7 +710,7 @@ define internal fastcc i32 @narrow_stripov(ptr noundef %0, i32 noundef %1, i32 n
   %29 = load i16, ptr %28, align 2, !tbaa !40
   %30 = zext i16 %29 to i32
   %31 = zext i16 %29 to i64
-  %32 = getelementptr inbounds nuw %union.IRIns, ptr %8, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %34 = load i8, ptr %33, align 4, !tbaa !32
   %35 = zext i8 %34 to i32
@@ -752,7 +749,7 @@ common.ret69:                                     ; preds = %27, %75, %68, %67, 
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 2980
   %60 = load i32, ptr %59, align 4, !tbaa !37
   %61 = zext i32 %60 to i64
-  %62 = getelementptr inbounds nuw %struct.BPropEntry, ptr %16, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %61
   %63 = add i32 %60, 1
   %64 = and i32 %63, 15
   store i32 %64, ptr %59, align 4, !tbaa !37
@@ -1305,7 +1302,7 @@ define internal fastcc void @narrow_stripov_backprop(ptr noundef nonnull %0, i32
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8, !tbaa !36
   %7 = zext nneg i32 %1 to i64
-  %8 = getelementptr inbounds nuw %union.IRIns, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 5
   %10 = load i8, ptr %9, align 1, !tbaa !32
   switch i8 %10, label %62 [
@@ -1328,7 +1325,7 @@ define internal fastcc void @narrow_stripov_backprop(ptr noundef nonnull %0, i32
 
 19:                                               ; preds = %28, %16
   %.01319.i = phi i64 [ 0, %16 ], [ %29, %28 ]
-  %20 = getelementptr inbounds nuw %struct.BPropEntry, ptr %18, i64 %.01319.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %.01319.i
   %21 = load i16, ptr %20, align 4, !tbaa !38
   %22 = icmp eq i16 %21, %17
   br i1 %22, label %23, label %28

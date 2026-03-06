@@ -51,12 +51,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.441" = type { %"struct.std::_Vector_base<std::unique_ptr<cvc5::parser::Cmd>, std::allocator<std::unique_ptr<cvc5::parser::Cmd>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::unique_ptr<cvc5::parser::Cmd>, std::allocator<std::unique_ptr<cvc5::parser::Cmd>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::unique_ptr<cvc5::parser::Cmd>, std::allocator<std::unique_ptr<cvc5::parser::Cmd>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::unique_ptr<cvc5::parser::Cmd>, std::allocator<std::unique_ptr<cvc5::parser::Cmd>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::unique_ptr.445" = type { %"struct.std::__uniq_ptr_data.446" }
-%"struct.std::__uniq_ptr_data.446" = type { %"class.std::__uniq_ptr_impl.447" }
-%"class.std::__uniq_ptr_impl.447" = type { %"class.std::tuple.448" }
-%"class.std::tuple.448" = type { %"struct.std::_Tuple_impl.449" }
-%"struct.std::_Tuple_impl.449" = type { %"struct.std::_Head_base.452" }
-%"struct.std::_Head_base.452" = type { ptr }
 
 $_ZNSt10unique_ptrIN4cvc56parser13SymbolManagerESt14default_deleteIS2_EED2Ev = comdat any
 
@@ -2184,7 +2178,7 @@ _ZNSt6vectorISt10unique_ptrIN4cvc56parser3CmdESt14default_deleteIS3_EESaIS6_EE11
 _ZNSt6vectorISt10unique_ptrIN4cvc56parser3CmdESt14default_deleteIS3_EESaIS6_EE17_M_realloc_insertIJPNS2_15GetProofCommandEEEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i: ; preds = %316, %_ZNSt6vectorISt10unique_ptrIN4cvc56parser3CmdESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i.i218
   store ptr %310, ptr %13, align 8, !tbaa !95
   store ptr %315, ptr %297, align 8, !tbaa !98
-  %317 = getelementptr inbounds nuw %"class.std::unique_ptr.445", ptr %310, i64 %308
+  %317 = getelementptr inbounds nuw [8 x i8], ptr %310, i64 %308
   store ptr %317, ptr %298, align 8, !tbaa !99
   br label %_ZNSt6vectorISt10unique_ptrIN4cvc56parser3CmdESt14default_deleteIS3_EESaIS6_EE12emplace_backIJPNS2_15GetProofCommandEEEERS6_DpOT_.exit
 
@@ -2426,7 +2420,7 @@ _ZNSt6vectorISt10unique_ptrIN4cvc56parser3CmdESt14default_deleteIS3_EESaIS6_EE11
 _ZNSt6vectorISt10unique_ptrIN4cvc56parser3CmdESt14default_deleteIS3_EESaIS6_EE17_M_realloc_insertIJPNS2_24GetInstantiationsCommandEEEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i: ; preds = %399, %_ZNSt6vectorISt10unique_ptrIN4cvc56parser3CmdESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i.i249
   store ptr %393, ptr %13, align 8, !tbaa !95
   store ptr %398, ptr %377, align 8, !tbaa !98
-  %400 = getelementptr inbounds nuw %"class.std::unique_ptr.445", ptr %393, i64 %391
+  %400 = getelementptr inbounds nuw [8 x i8], ptr %393, i64 %391
   store ptr %400, ptr %378, align 8, !tbaa !99
   br label %_ZNSt6vectorISt10unique_ptrIN4cvc56parser3CmdESt14default_deleteIS3_EESaIS6_EE12emplace_backIJPNS2_24GetInstantiationsCommandEEEERS6_DpOT_.exit
 
@@ -2648,7 +2642,7 @@ _ZNSt6vectorISt10unique_ptrIN4cvc56parser3CmdESt14default_deleteIS3_EESaIS6_EE11
 _ZNSt6vectorISt10unique_ptrIN4cvc56parser3CmdESt14default_deleteIS3_EESaIS6_EE17_M_realloc_insertIJPNS2_19GetUnsatCoreCommandEEEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i: ; preds = %475, %_ZNSt6vectorISt10unique_ptrIN4cvc56parser3CmdESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i.i276
   store ptr %469, ptr %13, align 8, !tbaa !95
   store ptr %474, ptr %453, align 8, !tbaa !98
-  %476 = getelementptr inbounds nuw %"class.std::unique_ptr.445", ptr %469, i64 %467
+  %476 = getelementptr inbounds nuw [8 x i8], ptr %469, i64 %467
   store ptr %476, ptr %454, align 8, !tbaa !99
   br label %_ZNSt6vectorISt10unique_ptrIN4cvc56parser3CmdESt14default_deleteIS3_EESaIS6_EE12emplace_backIJPNS2_19GetUnsatCoreCommandEEEERS6_DpOT_.exit
 
@@ -2827,7 +2821,7 @@ _ZNSt6vectorISt10unique_ptrIN4cvc56parser3CmdESt14default_deleteIS3_EESaIS6_EE11
 _ZNSt6vectorISt10unique_ptrIN4cvc56parser3CmdESt14default_deleteIS3_EESaIS6_EE17_M_realloc_insertIJPNS2_25GetUnsatCoreLemmasCommandEEEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i: ; preds = %537, %_ZNSt6vectorISt10unique_ptrIN4cvc56parser3CmdESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i.i300
   store ptr %531, ptr %13, align 8, !tbaa !95
   store ptr %536, ptr %515, align 8, !tbaa !98
-  %538 = getelementptr inbounds nuw %"class.std::unique_ptr.445", ptr %531, i64 %529
+  %538 = getelementptr inbounds nuw [8 x i8], ptr %531, i64 %529
   store ptr %538, ptr %516, align 8, !tbaa !99
   br label %_ZNSt6vectorISt10unique_ptrIN4cvc56parser3CmdESt14default_deleteIS3_EESaIS6_EE12emplace_backIJPNS2_25GetUnsatCoreLemmasCommandEEEERS6_DpOT_.exit
 
@@ -3022,7 +3016,7 @@ _ZNSt6vectorISt10unique_ptrIN4cvc56parser3CmdESt14default_deleteIS3_EESaIS6_EE11
 _ZNSt6vectorISt10unique_ptrIN4cvc56parser3CmdESt14default_deleteIS3_EESaIS6_EE17_M_realloc_insertIJPNS2_20GetDifficultyCommandEEEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i: ; preds = %603, %_ZNSt6vectorISt10unique_ptrIN4cvc56parser3CmdESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i.i327
   store ptr %597, ptr %13, align 8, !tbaa !95
   store ptr %602, ptr %581, align 8, !tbaa !98
-  %604 = getelementptr inbounds nuw %"class.std::unique_ptr.445", ptr %597, i64 %595
+  %604 = getelementptr inbounds nuw [8 x i8], ptr %597, i64 %595
   store ptr %604, ptr %582, align 8, !tbaa !99
   br label %_ZNSt6vectorISt10unique_ptrIN4cvc56parser3CmdESt14default_deleteIS3_EESaIS6_EE12emplace_backIJPNS2_20GetDifficultyCommandEEEERS6_DpOT_.exit
 

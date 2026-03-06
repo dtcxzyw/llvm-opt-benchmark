@@ -198,7 +198,7 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !47)
   %7 = load ptr, ptr %6, align 8, !alias.scope !47, !noalias !49, !nonnull !4, !noundef !4
   %8 = sub nsw i64 0, %1
-  %9 = getelementptr inbounds { { [3 x i64], i64, [2 x i64] }, ptr }, ptr %7, i64 %8
+  %9 = getelementptr inbounds [56 x i8], ptr %7, i64 %8
   %10 = getelementptr inbounds i8, ptr %9, i64 -56
   %.val.i.i = load ptr, ptr %4, align 8, !alias.scope !44, !noalias !52, !nonnull !4, !align !16, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !53)
@@ -755,7 +755,7 @@ define hidden { i64, i64 } @_ZN9hashbrown3raw13RawTableInner10find_inner17h161d7
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef nonnull ptr @"_ZN9hashbrown3raw15Bucket$LT$T$GT$15from_base_index17h2406a1eb381942d7E.llvm.10441419244241851182"(ptr noundef nonnull readnone captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #4 {
   %3 = sub nsw i64 0, %1
-  %4 = getelementptr inbounds { { [3 x i64], i64, [2 x i64] }, ptr }, ptr %0, i64 %3
+  %4 = getelementptr inbounds [56 x i8], ptr %0, i64 %3
   ret ptr %4
 }
 
@@ -813,7 +813,7 @@ define hidden noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h5dcd
   %31 = add i64 %.sroa.01.0.i, %28
   %32 = and i64 %31, %8
   %33 = sub nsw i64 0, %32
-  %34 = getelementptr inbounds { { [3 x i64], i64, [2 x i64] }, ptr }, ptr %9, i64 %33
+  %34 = getelementptr inbounds [56 x i8], ptr %9, i64 %33
   %35 = getelementptr inbounds i8, ptr %34, i64 -56
   call void @llvm.experimental.noalias.scope.decl(metadata !127), !noalias !130
   call void @llvm.experimental.noalias.scope.decl(metadata !131), !noalias !130
@@ -884,7 +884,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   %6 = load ptr, ptr %5, align 8, !nonnull !4, !align !16, !noundef !4
   %7 = load ptr, ptr %6, align 8, !nonnull !4, !noundef !4
   %8 = sub nsw i64 0, %1
-  %9 = getelementptr inbounds { { [3 x i64], i64, [2 x i64] }, ptr }, ptr %7, i64 %8
+  %9 = getelementptr inbounds [56 x i8], ptr %7, i64 %8
   %10 = getelementptr inbounds i8, ptr %9, i64 -56
   %.val = load ptr, ptr %4, align 8, !nonnull !4, !align !16, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !148)

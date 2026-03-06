@@ -4,13 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.DecodedFrames = type { ptr, i64, i64 }
-%struct.PerThreadContext = type { ptr, i64, i32, i32, %union.pthread_cond_t, %union.pthread_cond_t, %union.pthread_cond_t, %union.pthread_mutex_t, %union.pthread_mutex_t, ptr, ptr, %struct.DecodedFrames, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
-%union.pthread_cond_t = type { %struct.__pthread_cond_s }
-%struct.__pthread_cond_s = type { %union.__atomic_wide_counter, %union.__atomic_wide_counter, [2 x i32], [2 x i32], i32, i32, [2 x i32] }
-%union.__atomic_wide_counter = type { i64 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
 
 @.str = private unnamed_addr constant [25 x i8] c"%p finished %d field %d\0A\00", align 1
 @.str.1 = private unnamed_addr constant [37 x i8] c"thread awaiting %d field %d from %p\0A\00", align 1
@@ -103,7 +96,7 @@ async_unlock.exit:                                ; preds = %2
   %45 = load ptr, ptr %7, align 8, !tbaa !42
   %46 = load i32, ptr %21, align 8, !tbaa !43
   %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds %struct.PerThreadContext, ptr %45, i64 %47
+  %48 = getelementptr inbounds [328 x i8], ptr %45, i64 %47
   %49 = load ptr, ptr %20, align 8, !tbaa !41
   %50 = load ptr, ptr %48, align 8, !tbaa !44
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
@@ -345,7 +338,7 @@ submit_packet.exit:                               ; preds = %141
 186:                                              ; preds = %182, %179
   %187 = load ptr, ptr %7, align 8, !tbaa !42
   %188 = sext i32 %181 to i64
-  %189 = getelementptr inbounds %struct.PerThreadContext, ptr %187, i64 %188
+  %189 = getelementptr inbounds [328 x i8], ptr %187, i64 %188
   %190 = add nsw i32 %181, 1
   %191 = load i32, ptr %35, align 8, !tbaa !83
   %192 = srem i32 %190, %191
@@ -417,7 +410,7 @@ submit_packet.exit:                               ; preds = %141
   %224 = load i64, ptr %17, align 8, !tbaa !94
   %225 = add i64 %224, -1
   store i64 %225, ptr %17, align 8, !tbaa !94
-  %226 = getelementptr inbounds nuw ptr, ptr %223, i64 %225
+  %226 = getelementptr inbounds nuw [8 x i8], ptr %223, i64 %225
   store ptr %217, ptr %226, align 8, !tbaa !93
   br label %.thread
 
@@ -834,14 +827,14 @@ define void @ff_thread_report_progress(ptr noundef readonly captures(none) %0, i
 
 6:                                                ; preds = %3
   %7 = sext i32 %2 to i64
-  %8 = getelementptr inbounds i32, ptr %5, i64 %7
+  %8 = getelementptr inbounds [4 x i8], ptr %5, i64 %7
   %9 = load atomic i32, ptr %8 monotonic, align 4
   %.not25 = icmp slt i32 %9, %1
   br i1 %.not25, label %10, label %27
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = getelementptr inbounds ptr, ptr %11, i64 %7
+  %12 = getelementptr inbounds [8 x i8], ptr %11, i64 %7
   %13 = load ptr, ptr %12, align 8, !tbaa !134
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %15 = load ptr, ptr %14, align 8, !tbaa !4
@@ -883,14 +876,14 @@ define void @ff_thread_await_progress(ptr noundef readonly captures(none) %0, i3
 
 6:                                                ; preds = %3
   %7 = sext i32 %2 to i64
-  %8 = getelementptr inbounds i32, ptr %5, i64 %7
+  %8 = getelementptr inbounds [4 x i8], ptr %5, i64 %7
   %9 = load atomic i32, ptr %8 acquire, align 4
   %.not26 = icmp slt i32 %9, %1
   br i1 %.not26, label %10, label %32
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = getelementptr inbounds ptr, ptr %11, i64 %7
+  %12 = getelementptr inbounds [8 x i8], ptr %11, i64 %7
   %13 = load ptr, ptr %12, align 8, !tbaa !134
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %15 = load ptr, ptr %14, align 8, !tbaa !4
@@ -1097,7 +1090,7 @@ define void @ff_frame_thread_free(ptr noundef captures(none) %0, i32 noundef %1)
 12:                                               ; preds = %.lr.ph, %56
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %56 ]
   %13 = load ptr, ptr %6, align 8, !tbaa !42
-  %14 = getelementptr inbounds nuw %struct.PerThreadContext, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [328 x i8], ptr %13, i64 %indvars.iv
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 248
   %16 = load ptr, ptr %15, align 8, !tbaa !49
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 40
@@ -1241,7 +1234,7 @@ define internal fastcc void @park_frame_worker_threads(ptr noundef %0, i32 nound
 .lr.ph18:                                         ; preds = %.lr.ph18.preheader, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph18.preheader ], [ %indvars.iv.next, %17 ]
   %4 = load ptr, ptr %0, align 8, !tbaa !42
-  %5 = getelementptr inbounds nuw %struct.PerThreadContext, ptr %4, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [328 x i8], ptr %4, i64 %indvars.iv
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 292
   %7 = load atomic i32, ptr %6 seq_cst, align 4
   %.not = icmp eq i32 %7, 0
@@ -1334,7 +1327,7 @@ define internal fastcc void @decoded_frames_free(ptr noundef %0) unnamed_addr #0
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.07 = phi i64 [ %7, %.lr.ph ], [ 0, %1 ]
   %5 = load ptr, ptr %0, align 8, !tbaa !92
-  %6 = getelementptr inbounds nuw ptr, ptr %5, i64 %.07
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.07
   tail call void @av_frame_free(ptr noundef %6) #11
   %7 = add nuw i64 %.07, 1
   %8 = load i64, ptr %2, align 8, !tbaa !149
@@ -1433,7 +1426,7 @@ define range(i32 -2147483648, 1) i32 @ff_frame_thread_init(ptr noundef %0) local
 44:                                               ; preds = %.preheader
   %45 = load ptr, ptr %17, align 8, !tbaa !42
   %46 = sext i32 %42 to i64
-  %47 = getelementptr inbounds %struct.PerThreadContext, ptr %45, i64 %46
+  %47 = getelementptr inbounds [328 x i8], ptr %45, i64 %46
   %.not48 = icmp eq i32 %42, 0
   %48 = zext i1 %.not48 to i32
   %49 = call fastcc i32 @init_thread(ptr noundef %47, ptr noundef %2, ptr noundef %17, ptr noundef %0, ptr noundef %6, i32 noundef %48) #13
@@ -1643,7 +1636,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @init_thread(ptr noundef in
 .lr.ph:                                           ; preds = %87, %92
   %indvars.iv = phi i64 [ %indvars.iv.next, %92 ], [ 0, %87 ]
   %95 = load ptr, ptr %24, align 8, !tbaa !162
-  %96 = getelementptr inbounds nuw ptr, ptr %95, i64 %indvars.iv
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %indvars.iv
   %97 = load ptr, ptr %96, align 8, !tbaa !172
   %98 = tail call i32 @av_frame_side_data_clone(ptr noundef nonnull %89, ptr noundef nonnull %90, ptr noundef %97, i32 noundef 0) #11
   %99 = icmp slt i32 %98, 0
@@ -1722,7 +1715,7 @@ define void @ff_thread_flush(ptr noundef readonly captures(none) %0) local_unnam
 .lr.ph:                                           ; preds = %19, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %19 ]
   %26 = load ptr, ptr %5, align 8, !tbaa !42
-  %27 = getelementptr inbounds nuw %struct.PerThreadContext, ptr %26, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [328 x i8], ptr %26, i64 %indvars.iv
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 264
   tail call fastcc void @decoded_frames_flush(ptr noundef nonnull %28)
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 288
@@ -1754,7 +1747,7 @@ define internal fastcc void @decoded_frames_flush(ptr noundef captures(none) %0)
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.05 = phi i64 [ %7, %.lr.ph ], [ 0, %1 ]
   %4 = load ptr, ptr %0, align 8, !tbaa !92
-  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %.05
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.05
   %6 = load ptr, ptr %5, align 8, !tbaa !93
   tail call void @av_frame_unref(ptr noundef %6) #11
   %7 = add nuw i64 %.05, 1
@@ -2133,7 +2126,7 @@ hwaccel_serial.exit.thread:                       ; preds = %hwaccel_serial.exit
   br i1 %58, label %59, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %hwaccel_serial.exit.thread
-  %.phi.trans.insert.i = getelementptr inbounds nuw ptr, ptr %.pre.i, i64 %56
+  %.phi.trans.insert.i = getelementptr inbounds nuw [8 x i8], ptr %.pre.i, i64 %56
   %.pre23.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !93
   br label %70
 
@@ -2148,7 +2141,7 @@ hwaccel_serial.exit.thread:                       ; preds = %hwaccel_serial.exit
   %63 = call ptr @av_frame_alloc() #11
   %64 = load ptr, ptr %25, align 8, !tbaa !92
   %65 = load i64, ptr %26, align 8, !tbaa !94
-  %66 = getelementptr inbounds nuw ptr, ptr %64, i64 %65
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %65
   store ptr %63, ptr %66, align 8, !tbaa !93
   %.not20.i = icmp eq ptr %63, null
   br i1 %.not20.i, label %.thread, label %67

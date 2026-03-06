@@ -4141,7 +4141,7 @@ define void @_ZN12uv_workspace13pyproject_mut16PyProjectTomlMut9add_index17he408
   br i1 %289, label %switch.lookup, label %290
 
 switch.lookup:                                    ; preds = %288
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN12uv_workspace13pyproject_mut24reformat_array_multiline17hd743b7847e58f443E, i64 %switch.tableidx
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN12uv_workspace13pyproject_mut24reformat_array_multiline17hd743b7847e58f443E, i64 %switch.tableidx
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %290
 
@@ -4247,7 +4247,7 @@ switch.lookup:                                    ; preds = %288
   br i1 %325, label %switch.lookup587, label %326
 
 switch.lookup587:                                 ; preds = %323
-  %switch.gep588 = getelementptr inbounds nuw i64, ptr @switch.table._ZN12uv_workspace13pyproject_mut24reformat_array_multiline17hd743b7847e58f443E, i64 %switch.tableidx586
+  %switch.gep588 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN12uv_workspace13pyproject_mut24reformat_array_multiline17hd743b7847e58f443E, i64 %switch.tableidx586
   %switch.load589 = load i64, ptr %switch.gep588, align 8
   br label %326
 
@@ -4683,7 +4683,7 @@ switch.lookup587:                                 ; preds = %323
   br i1 %464, label %switch.lookup591, label %465
 
 switch.lookup591:                                 ; preds = %463
-  %switch.gep592 = getelementptr inbounds nuw i64, ptr @switch.table._ZN12uv_workspace13pyproject_mut24reformat_array_multiline17hd743b7847e58f443E, i64 %switch.tableidx590
+  %switch.gep592 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN12uv_workspace13pyproject_mut24reformat_array_multiline17hd743b7847e58f443E, i64 %switch.tableidx590
   %switch.load593 = load i64, ptr %switch.gep592, align 8
   br label %465
 
@@ -4789,7 +4789,7 @@ switch.lookup591:                                 ; preds = %463
   br i1 %500, label %switch.lookup595, label %501
 
 switch.lookup595:                                 ; preds = %498
-  %switch.gep596 = getelementptr inbounds nuw i64, ptr @switch.table._ZN12uv_workspace13pyproject_mut24reformat_array_multiline17hd743b7847e58f443E, i64 %switch.tableidx594
+  %switch.gep596 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN12uv_workspace13pyproject_mut24reformat_array_multiline17hd743b7847e58f443E, i64 %switch.tableidx594
   %switch.load597 = load i64, ptr %switch.gep596, align 8
   br label %501
 
@@ -4967,7 +4967,7 @@ _ZN4core3ops8function6FnOnce9call_once17hf70192c7a76d5a12E.exit: ; preds = %543
   br i1 %559, label %switch.lookup599, label %560
 
 switch.lookup599:                                 ; preds = %558
-  %switch.gep600 = getelementptr inbounds nuw i64, ptr @switch.table._ZN12uv_workspace13pyproject_mut24reformat_array_multiline17hd743b7847e58f443E, i64 %switch.tableidx598
+  %switch.gep600 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN12uv_workspace13pyproject_mut24reformat_array_multiline17hd743b7847e58f443E, i64 %switch.tableidx598
   %switch.load601 = load i64, ptr %switch.gep600, align 8
   br label %560
 
@@ -5002,7 +5002,7 @@ switch.lookup599:                                 ; preds = %558
   br i1 %569, label %switch.lookup603, label %570
 
 switch.lookup603:                                 ; preds = %567
-  %switch.gep604 = getelementptr inbounds nuw i64, ptr @switch.table._ZN12uv_workspace13pyproject_mut24reformat_array_multiline17hd743b7847e58f443E, i64 %switch.tableidx602
+  %switch.gep604 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN12uv_workspace13pyproject_mut24reformat_array_multiline17hd743b7847e58f443E, i64 %switch.tableidx602
   %switch.load605 = load i64, ptr %switch.gep604, align 8
   br label %570
 
@@ -5826,7 +5826,7 @@ select.unfold:                                    ; preds = %30, %32
   %37 = load ptr, ptr %36, align 8, !nonnull !11, !noundef !11
   %38 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %39 = load i64, ptr %38, align 8, !noundef !11
-  %40 = getelementptr inbounds { { { { i64, ptr, {} }, {} }, i64 }, ptr }, ptr %37, i64 %39
+  %40 = getelementptr inbounds [32 x i8], ptr %37, i64 %39
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %37, ptr %11, align 8
   %41 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -8358,7 +8358,7 @@ define void @_ZN12uv_workspace13pyproject_mut16PyProjectTomlMut17remove_dependen
   %.sroa.5.0.copyload.i.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !1566, !noalias !1569
   %33 = icmp ult i64 %.sroa.5.0.copyload.i.i, 52405522936674863
   call void @llvm.assume(i1 %33)
-  %34 = getelementptr inbounds nuw { i64, { { i64, [11 x i64] }, { i64, [4 x i64] }, ptr, { { { { ptr, i64 } }, {} }, {} }, i64 } }, ptr %.sroa.4.0.copyload.i.i, i64 %.sroa.5.0.copyload.i.i
+  %34 = getelementptr inbounds nuw [176 x i8], ptr %.sroa.4.0.copyload.i.i, i64 %.sroa.5.0.copyload.i.i
   %35 = icmp sgt i64 %.sroa.0.0.copyload.i.i, -1
   call void @llvm.assume(i1 %35)
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1561
@@ -8525,7 +8525,7 @@ define void @_ZN12uv_workspace13pyproject_mut16PyProjectTomlMut21remove_dev_depe
   %.sroa.5.0.copyload.i.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !1577, !noalias !1580
   %34 = icmp ult i64 %.sroa.5.0.copyload.i.i, 52405522936674863
   call void @llvm.assume(i1 %34)
-  %35 = getelementptr inbounds nuw { i64, { { i64, [11 x i64] }, { i64, [4 x i64] }, ptr, { { { { ptr, i64 } }, {} }, {} }, i64 } }, ptr %.sroa.4.0.copyload.i.i, i64 %.sroa.5.0.copyload.i.i
+  %35 = getelementptr inbounds nuw [176 x i8], ptr %.sroa.4.0.copyload.i.i, i64 %.sroa.5.0.copyload.i.i
   %36 = icmp sgt i64 %.sroa.0.0.copyload.i.i, -1
   call void @llvm.assume(i1 %36)
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1572
@@ -8914,7 +8914,7 @@ common.resume:                                    ; preds = %127, %122, %84, %96
   %.sroa.5.0.copyload.i.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !1628, !noalias !1631
   %113 = icmp ult i64 %.sroa.5.0.copyload.i.i, 52405522936674863
   call void @llvm.assume(i1 %113)
-  %114 = getelementptr inbounds nuw { i64, { { i64, [11 x i64] }, { i64, [4 x i64] }, ptr, { { { { ptr, i64 } }, {} }, {} }, i64 } }, ptr %.sroa.4.0.copyload.i.i, i64 %.sroa.5.0.copyload.i.i
+  %114 = getelementptr inbounds nuw [176 x i8], ptr %.sroa.4.0.copyload.i.i, i64 %.sroa.5.0.copyload.i.i
   %115 = icmp sgt i64 %.sroa.0.0.copyload.i.i, -1
   call void @llvm.assume(i1 %115)
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1623
@@ -9246,7 +9246,7 @@ common.resume:                                    ; preds = %113, %107, %69, %81
   %.sroa.5.0.copyload.i.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !1673, !noalias !1676
   %98 = icmp ult i64 %.sroa.5.0.copyload.i.i, 52405522936674863
   call void @llvm.assume(i1 %98)
-  %99 = getelementptr inbounds nuw { i64, { { i64, [11 x i64] }, { i64, [4 x i64] }, ptr, { { { { ptr, i64 } }, {} }, {} }, i64 } }, ptr %.sroa.4.0.copyload.i.i, i64 %.sroa.5.0.copyload.i.i
+  %99 = getelementptr inbounds nuw [176 x i8], ptr %.sroa.4.0.copyload.i.i, i64 %.sroa.5.0.copyload.i.i
   %100 = icmp sgt i64 %.sroa.0.0.copyload.i.i, -1
   call void @llvm.assume(i1 %100)
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1668
@@ -9827,7 +9827,7 @@ _ZN4core3ops8function6FnOnce9call_once17h1fd0792b254ef3a4E.exit: ; preds = %36
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb73bdc5c7287535fE.exit": ; preds = %48, %52
   %55 = load ptr, ptr %20, align 8, !alias.scope !1711, !noalias !1714, !nonnull !11, !noundef !11
-  %56 = getelementptr inbounds { i64, [1 x i64] }, ptr %55, i64 %49
+  %56 = getelementptr inbounds [16 x i8], ptr %55, i64 %49
   store i64 0, ptr %56, align 8
   %57 = add i64 %49, 1
   store i64 %57, ptr %21, align 8, !alias.scope !1711, !noalias !1714
@@ -10032,7 +10032,7 @@ _ZN4core3ops8function6FnOnce9call_once17h1fd0792b254ef3a4E.exit: ; preds = %36
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb73bdc5c7287535fE.exit69": ; preds = %132, %137
   %142 = load ptr, ptr %20, align 8, !alias.scope !1736, !noalias !1741, !nonnull !11, !noundef !11
-  %143 = getelementptr inbounds { i64, [1 x i64] }, ptr %142, i64 %134
+  %143 = getelementptr inbounds [16 x i8], ptr %142, i64 %134
   store i64 2, ptr %143, align 8
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 8
   store ptr %133, ptr %144, align 8
@@ -10265,7 +10265,7 @@ _ZN4core3ops8function6FnOnce9call_once17h1fd0792b254ef3a4E.exit: ; preds = %36
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb73bdc5c7287535fE.exit91": ; preds = %227, %232
   %237 = load ptr, ptr %20, align 8, !alias.scope !1762, !noalias !1767, !nonnull !11, !noundef !11
-  %238 = getelementptr inbounds { i64, [1 x i64] }, ptr %237, i64 %229
+  %238 = getelementptr inbounds [16 x i8], ptr %237, i64 %229
   store i64 3, ptr %238, align 8
   %239 = getelementptr inbounds nuw i8, ptr %238, i64 8
   store ptr %228, ptr %239, align 8
@@ -10373,7 +10373,7 @@ _ZN4core3ops8function6FnOnce9call_once17h1fd0792b254ef3a4E.exit97: ; preds = %26
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb73bdc5c7287535fE.exit101": ; preds = %276, %280
   %283 = load ptr, ptr %20, align 8, !alias.scope !1778, !noalias !1781, !nonnull !11, !noundef !11
-  %284 = getelementptr inbounds { i64, [1 x i64] }, ptr %283, i64 %277
+  %284 = getelementptr inbounds [16 x i8], ptr %283, i64 %277
   store i64 1, ptr %284, align 8
   %285 = add i64 %277, 1
   store i64 %285, ptr %21, align 8, !alias.scope !1778, !noalias !1781
@@ -10826,7 +10826,7 @@ define void @_ZN12uv_workspace13pyproject_mut14add_dependency17hc33776ef6b450466
   %91 = load ptr, ptr %90, align 8, !nonnull !11, !noundef !11
   %92 = getelementptr inbounds nuw i8, ptr %77, i64 16
   %93 = load i64, ptr %92, align 8, !noundef !11
-  %94 = getelementptr inbounds { ptr, i64 }, ptr %91, i64 %93
+  %94 = getelementptr inbounds [16 x i8], ptr %91, i64 %93
   invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h697286bec3df3b9eE.llvm.8376879624527094985"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %76, ptr noundef nonnull %91, ptr noundef nonnull %94, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d2ad415c99fe13c228f7f852bff926ae.106)
           to label %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h42a0c6417e26e161E.exit" unwind label %97
 
@@ -10847,7 +10847,7 @@ define void @_ZN12uv_workspace13pyproject_mut14add_dependency17hc33776ef6b450466
   %100 = load ptr, ptr %99, align 8, !nonnull !11, !noundef !11
   %101 = getelementptr inbounds nuw i8, ptr %76, i64 16
   %102 = load i64, ptr %101, align 8, !noundef !11
-  %103 = getelementptr inbounds { { { { i64, ptr, {} }, {} }, i64 } }, ptr %100, i64 %102
+  %103 = getelementptr inbounds [24 x i8], ptr %100, i64 %102
   call void @llvm.lifetime.start.p0(ptr nonnull %45)
   store ptr %100, ptr %45, align 8, !alias.scope !1817
   %104 = getelementptr inbounds nuw i8, ptr %45, i64 8
@@ -10876,7 +10876,7 @@ define void @_ZN12uv_workspace13pyproject_mut14add_dependency17hc33776ef6b450466
 110:                                              ; preds = %109
   %111 = load ptr, ptr %90, align 8, !nonnull !11, !noundef !11
   %112 = load i64, ptr %92, align 8, !noundef !11
-  %113 = getelementptr inbounds { ptr, i64 }, ptr %111, i64 %112
+  %113 = getelementptr inbounds [16 x i8], ptr %111, i64 %112
   call void @llvm.lifetime.start.p0(ptr nonnull %44)
   store ptr %111, ptr %44, align 8, !alias.scope !1820
   %114 = getelementptr inbounds nuw i8, ptr %44, i64 8
@@ -10893,7 +10893,7 @@ define void @_ZN12uv_workspace13pyproject_mut14add_dependency17hc33776ef6b450466
 118:                                              ; preds = %117
   %119 = load ptr, ptr %99, align 8, !nonnull !11, !noundef !11
   %120 = load i64, ptr %101, align 8, !noundef !11
-  %121 = getelementptr inbounds { { { { i64, ptr, {} }, {} }, i64 } }, ptr %119, i64 %120
+  %121 = getelementptr inbounds [24 x i8], ptr %119, i64 %120
   call void @llvm.lifetime.start.p0(ptr nonnull %43)
   store ptr %119, ptr %43, align 8, !alias.scope !1823
   %122 = getelementptr inbounds nuw i8, ptr %43, i64 8
@@ -10914,7 +10914,7 @@ define void @_ZN12uv_workspace13pyproject_mut14add_dependency17hc33776ef6b450466
   call void @llvm.lifetime.start.p0(ptr nonnull %42), !noalias !1826
   %127 = icmp ult i64 %.sroa.5.0.copyload, 576460752303423488
   call void @llvm.assume(i1 %127)
-  %128 = getelementptr inbounds nuw { ptr, i64 }, ptr %.sroa.4.0.copyload, i64 %.sroa.5.0.copyload
+  %128 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.4.0.copyload, i64 %.sroa.5.0.copyload
   %129 = icmp sgt i64 %.sroa.0.0.copyload, -1
   call void @llvm.assume(i1 %129)
   call void @llvm.experimental.noalias.scope.decl(metadata !1829)
@@ -11841,7 +11841,7 @@ default.unreachable657:                           ; preds = %148
   br i1 %479, label %switch.lookup, label %480
 
 switch.lookup:                                    ; preds = %477
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN12uv_workspace13pyproject_mut24reformat_array_multiline17hd743b7847e58f443E, i64 %switch.tableidx
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN12uv_workspace13pyproject_mut24reformat_array_multiline17hd743b7847e58f443E, i64 %switch.tableidx
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %480
 
@@ -11935,7 +11935,7 @@ switch.lookup:                                    ; preds = %477
   unreachable
 
 switch.lookup697:                                 ; preds = %508
-  %switch.gep698 = getelementptr inbounds nuw i64, ptr @switch.table._ZN12uv_workspace13pyproject_mut24reformat_array_multiline17hd743b7847e58f443E, i64 %switch.tableidx696
+  %switch.gep698 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN12uv_workspace13pyproject_mut24reformat_array_multiline17hd743b7847e58f443E, i64 %switch.tableidx696
   %switch.load699 = load i64, ptr %switch.gep698, align 8
   br label %512
 
@@ -12321,7 +12321,7 @@ _ZN9toml_edit5array5Array12set_trailing17h69374dfb273cd98dE.exit: ; preds = %576
   br i1 %639, label %switch.lookup701, label %640
 
 switch.lookup701:                                 ; preds = %637
-  %switch.gep702 = getelementptr inbounds nuw i64, ptr @switch.table._ZN12uv_workspace13pyproject_mut24reformat_array_multiline17hd743b7847e58f443E, i64 %switch.tableidx700
+  %switch.gep702 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN12uv_workspace13pyproject_mut24reformat_array_multiline17hd743b7847e58f443E, i64 %switch.tableidx700
   %switch.load703 = load i64, ptr %switch.gep702, align 8
   br label %640
 
@@ -12821,7 +12821,7 @@ switch.lookup701:                                 ; preds = %637
   br i1 %851, label %switch.lookup705, label %852
 
 switch.lookup705:                                 ; preds = %849
-  %switch.gep706 = getelementptr inbounds nuw i64, ptr @switch.table._ZN12uv_workspace13pyproject_mut24reformat_array_multiline17hd743b7847e58f443E, i64 %switch.tableidx704
+  %switch.gep706 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN12uv_workspace13pyproject_mut24reformat_array_multiline17hd743b7847e58f443E, i64 %switch.tableidx704
   %switch.load707 = load i64, ptr %switch.gep706, align 8
   br label %852
 
@@ -12884,7 +12884,7 @@ switch.lookup705:                                 ; preds = %849
   br i1 %864, label %switch.lookup709, label %865
 
 switch.lookup709:                                 ; preds = %862
-  %switch.gep710 = getelementptr inbounds nuw i64, ptr @switch.table._ZN12uv_workspace13pyproject_mut24reformat_array_multiline17hd743b7847e58f443E, i64 %switch.tableidx708
+  %switch.gep710 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN12uv_workspace13pyproject_mut24reformat_array_multiline17hd743b7847e58f443E, i64 %switch.tableidx708
   %switch.load711 = load i64, ptr %switch.gep710, align 8
   br label %865
 
@@ -12937,7 +12937,7 @@ switch.lookup709:                                 ; preds = %862
   br i1 %875, label %switch.lookup713, label %876
 
 switch.lookup713:                                 ; preds = %873
-  %switch.gep714 = getelementptr inbounds nuw i64, ptr @switch.table._ZN12uv_workspace13pyproject_mut24reformat_array_multiline17hd743b7847e58f443E, i64 %switch.tableidx712
+  %switch.gep714 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN12uv_workspace13pyproject_mut24reformat_array_multiline17hd743b7847e58f443E, i64 %switch.tableidx712
   %switch.load715 = load i64, ptr %switch.gep714, align 8
   br label %876
 
@@ -13029,7 +13029,7 @@ _ZN9toml_edit4repr5Decor10set_prefix17h79b493f3fd619005E.exit317: ; preds = %"_Z
   br i1 %903, label %switch.lookup717, label %904
 
 switch.lookup717:                                 ; preds = %901
-  %switch.gep718 = getelementptr inbounds nuw i64, ptr @switch.table._ZN12uv_workspace13pyproject_mut24reformat_array_multiline17hd743b7847e58f443E, i64 %switch.tableidx716
+  %switch.gep718 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN12uv_workspace13pyproject_mut24reformat_array_multiline17hd743b7847e58f443E, i64 %switch.tableidx716
   %switch.load719 = load i64, ptr %switch.gep718, align 8
   br label %904
 
@@ -13258,7 +13258,7 @@ switch.lookup717:                                 ; preds = %901
   %987 = icmp ule i64 %966, %982
   tail call void @llvm.assume(i1 %987)
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !2386
-  %988 = getelementptr inbounds ptr, ptr %964, i64 %966
+  %988 = getelementptr inbounds [8 x i8], ptr %964, i64 %966
   %989 = icmp eq i64 %982, 0
   br i1 %989, label %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h75637d07eb044357E.exit.i", label %.lr.ph.i.i
 
@@ -13297,7 +13297,7 @@ switch.lookup717:                                 ; preds = %901
   br label %"_ZN74_$LT$uv_normalize..extra_name..ExtraName$u20$as$u20$core..clone..Clone$GT$5clone17he02e126732a67ddcE.exit.i.i"
 
 "_ZN74_$LT$uv_normalize..extra_name..ExtraName$u20$as$u20$core..clone..Clone$GT$5clone17he02e126732a67ddcE.exit.i.i": ; preds = %1005, %1002, %998, %992
-  %1007 = getelementptr inbounds nuw ptr, ptr %986, i64 %.sroa.7.019.i.i
+  %1007 = getelementptr inbounds nuw [8 x i8], ptr %986, i64 %.sroa.7.019.i.i
   store ptr %.val12.i.i, ptr %1007, align 8, !noalias !2391
   %1008 = icmp eq i64 %990, 0
   br i1 %1008, label %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h75637d07eb044357E.exit.i", label %.lr.ph.i.i
@@ -13312,7 +13312,7 @@ switch.lookup717:                                 ; preds = %901
   %1010 = load ptr, ptr %1009, align 8, !alias.scope !2380, !noalias !2377, !nonnull !11, !align !985, !noundef !11
   %1011 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %1012 = load i64, ptr %1011, align 8, !alias.scope !2380, !noalias !2377, !noundef !11
-  %1013 = getelementptr inbounds ptr, ptr %1010, i64 %1012
+  %1013 = getelementptr inbounds [8 x i8], ptr %1010, i64 %1012
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17hb705b669d8affd23E.llvm.8376879624527094985"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull %1010, ptr noundef nonnull %1013, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d2ad415c99fe13c228f7f852bff926ae.122)
           to label %"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17hb8adb8bd2e33c2a8E.exit.i" unwind label %.loopexit.split-lp.i, !noalias !2382
 
@@ -13331,7 +13331,7 @@ switch.lookup717:                                 ; preds = %901
           to label %_ZN4core5slice4sort6shared9smallsort25insertion_sort_shift_left17h91692a28e62eed13E.exit.i unwind label %.loopexit.split-lp.i, !noalias !2382
 
 .lr.ph.preheader.i.i:                             ; preds = %1017
-  %1020 = getelementptr inbounds nuw ptr, ptr %1014, i64 %1015
+  %1020 = getelementptr inbounds nuw [8 x i8], ptr %1014, i64 %1015
   %1021 = getelementptr inbounds nuw i8, ptr %1014, i64 8
   br label %.lr.ph.i25.i
 
@@ -13408,7 +13408,7 @@ _ZN4core5slice4sort6shared9smallsort25insertion_sort_shift_left17h91692a28e62eed
   br i1 %1039, label %"_ZN4core3ptr66drop_in_place$LT$$u5b$uv_normalize..extra_name..ExtraName$u5d$$GT$17hd1cf5a93cb9045a7E.exit.i.i", label %1040
 
 1040:                                             ; preds = %"_ZN4core3ptr56drop_in_place$LT$uv_normalize..extra_name..ExtraName$GT$17h1bf6a590c366023cE.exit.i.i.i"
-  %1041 = getelementptr inbounds ptr, ptr %.val.i333, i64 %.sroa.0.0.i.i.i
+  %1041 = getelementptr inbounds [8 x i8], ptr %.val.i333, i64 %.sroa.0.0.i.i.i
   %1042 = add i64 %.sroa.0.0.i.i.i, 1
   invoke void @"_ZN65_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8e919af4bb65cafcE.llvm.8717112297715684712"(ptr noalias noundef nonnull align 8 dereferenceable(8) %1041)
           to label %"_ZN4core3ptr56drop_in_place$LT$uv_normalize..extra_name..ExtraName$GT$17h1bf6a590c366023cE.exit.i.i.i" unwind label %1044, !noalias !2382
@@ -13424,7 +13424,7 @@ _ZN4core5slice4sort6shared9smallsort25insertion_sort_shift_left17h91692a28e62eed
   br label %"_ZN4core3ptr56drop_in_place$LT$uv_normalize..extra_name..ExtraName$GT$17h1bf6a590c366023cE.exit7.i.i.i"
 
 1046:                                             ; preds = %"_ZN4core3ptr56drop_in_place$LT$uv_normalize..extra_name..ExtraName$GT$17h1bf6a590c366023cE.exit7.i.i.i"
-  %1047 = getelementptr inbounds ptr, ptr %.val.i333, i64 %.sroa.0.1.i.i.i
+  %1047 = getelementptr inbounds [8 x i8], ptr %.val.i333, i64 %.sroa.0.1.i.i.i
   %1048 = add i64 %.sroa.0.1.i.i.i, 1
   invoke void @"_ZN65_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8e919af4bb65cafcE.llvm.8717112297715684712"(ptr noalias noundef nonnull align 8 dereferenceable(8) %1047)
           to label %"_ZN4core3ptr56drop_in_place$LT$uv_normalize..extra_name..ExtraName$GT$17h1bf6a590c366023cE.exit7.i.i.i" unwind label %1049, !noalias !2382
@@ -13767,7 +13767,7 @@ _ZN4core5slice4sort6shared9smallsort25insertion_sort_shift_left17h91692a28e62eed
   %.sroa.4397.0.copyload = load ptr, ptr %.sroa.4397.0..sroa_idx, align 8, !nonnull !11, !noundef !11
   %1153 = icmp ult i64 %.sroa.5398.0.copyload, 52405522936674863
   tail call void @llvm.assume(i1 %1153)
-  %1154 = getelementptr inbounds nuw { i64, { { i64, [11 x i64] }, { i64, [4 x i64] }, ptr, { { { { ptr, i64 } }, {} }, {} }, i64 } }, ptr %.sroa.4397.0.copyload, i64 %.sroa.5398.0.copyload
+  %1154 = getelementptr inbounds nuw [176 x i8], ptr %.sroa.4397.0.copyload, i64 %.sroa.5398.0.copyload
   %1155 = icmp sgt i64 %.sroa.0396.0.copyload, -1
   tail call void @llvm.assume(i1 %1155)
   store ptr %.sroa.4397.0.copyload, ptr %49, align 8
@@ -13995,7 +13995,7 @@ define internal fastcc void @_ZN12uv_workspace13pyproject_mut17find_dependencies
 
 75:                                               ; preds = %69, %"_ZN64_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h669109e18a59e9a8E.exit.thread"
   %76 = load ptr, ptr %9, align 8, !alias.scope !2444, !noalias !2447, !nonnull !11, !noundef !11
-  %77 = getelementptr inbounds { i64, { { i64, [11 x i64] }, { i64, [4 x i64] }, ptr, { { { { ptr, i64 } }, {} }, {} }, i64 } }, ptr %76, i64 %66
+  %77 = getelementptr inbounds [176 x i8], ptr %76, i64 %66
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %77, ptr noundef nonnull align 8 dereferenceable(176) %4, i64 176, i1 false)
   %78 = add i64 %66, 1
   store i64 %78, ptr %10, align 8, !alias.scope !2444, !noalias !2447
@@ -14970,7 +14970,7 @@ _ZN5alloc6string6String4push17h65f6c624e4e39ab4E.exit107: ; preds = %227, %224
           to label %.body unwind label %202
 
 switch.lookup:                                    ; preds = %98
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN12uv_workspace13pyproject_mut24reformat_array_multiline17hd743b7847e58f443E, i64 %switch.tableidx
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN12uv_workspace13pyproject_mut24reformat_array_multiline17hd743b7847e58f443E, i64 %switch.tableidx
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %278
 
@@ -16555,7 +16555,7 @@ _ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit: ; preds = %2
   %35 = load ptr, ptr %34, align 8, !nonnull !11, !noundef !11
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %37 = load i64, ptr %36, align 8, !noundef !11
-  %38 = getelementptr inbounds { { i64, [11 x i64] }, { i64, [4 x i64] }, ptr, { { { { ptr, i64 } }, {} }, {} }, i64 }, ptr %35, i64 %37
+  %38 = getelementptr inbounds [168 x i8], ptr %35, i64 %37
   store ptr %35, ptr %6, align 8
   %39 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %38, ptr %39, align 8

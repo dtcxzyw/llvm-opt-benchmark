@@ -3,8 +3,6 @@ source_filename = "bench/cpython/original/lexer.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct._tokenizer_mode = type { i32, i32, i32, i8, i32, i32, ptr, ptr, i32, i64, i64, i64, i64, ptr, i32, i32 }
-
 @.str = private unnamed_addr constant [7 x i8] c"ignore\00", align 1
 @_Py_ctype_table = external local_unnamed_addr constant [256 x i32], align 16
 @.str.1 = private unnamed_addr constant [28 x i8] c"invalid hexadecimal literal\00", align 1
@@ -59,7 +57,7 @@ define hidden range(i32 0, 2) i32 @_PyLexer_update_fstring_expr(ptr noundef capt
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 17256
   %8 = load i32, ptr %7, align 8, !tbaa !13
   %9 = sext i32 %8 to i64
-  %10 = getelementptr %struct._tokenizer_mode, ptr %6, i64 %9
+  %10 = getelementptr [96 x i8], ptr %6, i64 %9
   switch i8 %1, label %50 [
     i8 0, label %11
     i8 123, label %33
@@ -168,7 +166,7 @@ define hidden i32 @_PyTokenizer_Get(ptr noundef %0, ptr noundef %1) local_unname
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 17256
   %5 = load i32, ptr %4, align 8, !tbaa !13
   %6 = sext i32 %5 to i64
-  %7 = getelementptr %struct._tokenizer_mode, ptr %3, i64 %6
+  %7 = getelementptr [96 x i8], ptr %3, i64 %6
   %8 = load i32, ptr %7, align 8, !tbaa !21
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %12
@@ -374,7 +372,7 @@ tok_backup.exit286.i.i:                           ; preds = %92
 105:                                              ; preds = %97
   %106 = load i32, ptr %4, align 8, !tbaa !13
   %107 = sext i32 %106 to i64
-  %108 = getelementptr %struct._tokenizer_mode, ptr %3, i64 %107
+  %108 = getelementptr [96 x i8], ptr %3, i64 %107
   store i32 0, ptr %108, align 8, !tbaa !21
   %109 = tail call fastcc i32 @tok_get_normal_mode(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef %1)
   br label %tok_get.exit
@@ -733,7 +731,7 @@ tok_backup.exit310.i.i:                           ; preds = %248
   store i32 %252, ptr %19, align 4, !tbaa !24
   %253 = load i32, ptr %4, align 8, !tbaa !13
   %254 = sext i32 %253 to i64
-  %255 = getelementptr %struct._tokenizer_mode, ptr %3, i64 %254
+  %255 = getelementptr [96 x i8], ptr %3, i64 %254
   store i32 0, ptr %255, align 8, !tbaa !21
   store i32 0, ptr %187, align 4, !tbaa !37
   %256 = load ptr, ptr %15, align 8, !tbaa !19
@@ -751,7 +749,7 @@ tok_backup.exit310.i.i:                           ; preds = %248
   %264 = load i32, ptr %16, align 8, !tbaa !22
   %265 = load i32, ptr %4, align 8, !tbaa !13
   %266 = sext i32 %265 to i64
-  %267 = getelementptr %struct._tokenizer_mode, ptr %0, i64 %266
+  %267 = getelementptr [96 x i8], ptr %0, i64 %266
   %268 = getelementptr i8, ptr %267, i64 2896
   %269 = load i32, ptr %268, align 8, !tbaa !41
   store i32 %269, ptr %16, align 8, !tbaa !22
@@ -797,7 +795,7 @@ tok_backup.exit310.i.i:                           ; preds = %248
   %288 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %226) #8
   %289 = load i32, ptr %4, align 8, !tbaa !13
   %290 = sext i32 %289 to i64
-  %291 = getelementptr %struct._tokenizer_mode, ptr %3, i64 %290
+  %291 = getelementptr [96 x i8], ptr %3, i64 %290
   %292 = getelementptr inbounds nuw i8, ptr %291, i64 80
   %293 = load ptr, ptr %292, align 8, !tbaa !14
   %.not.i311.i.i = icmp eq ptr %293, null
@@ -947,7 +945,7 @@ tok_backup.exit325.i.i:                           ; preds = %346
 357:                                              ; preds = %tok_backup.exit325.i.i
   %358 = load i32, ptr %4, align 8, !tbaa !13
   %359 = sext i32 %358 to i64
-  %360 = getelementptr %struct._tokenizer_mode, ptr %3, i64 %359
+  %360 = getelementptr [96 x i8], ptr %3, i64 %359
   store i32 0, ptr %360, align 8, !tbaa !21
   store i32 0, ptr %187, align 4, !tbaa !37
   br label %361
@@ -1036,7 +1034,7 @@ tok_nextc.exit333.thread.i.i:                     ; preds = %373, %tok_nextc.exi
   tail call fastcc void @tok_backup(ptr noundef nonnull %0, i32 noundef 125)
   %398 = load i32, ptr %4, align 8, !tbaa !13
   %399 = sext i32 %398 to i64
-  %400 = getelementptr %struct._tokenizer_mode, ptr %3, i64 %399
+  %400 = getelementptr [96 x i8], ptr %3, i64 %399
   store i32 0, ptr %400, align 8, !tbaa !21
   store i32 0, ptr %187, align 4, !tbaa !37
   %401 = load ptr, ptr %13, align 8, !tbaa !4
@@ -1511,13 +1509,13 @@ tok_backup.exit.thread:                           ; preds = %36, %50, %41, %35, 
   %92 = select i1 %.not1150, i32 %.21060.ph, i32 %.01061.ph
   %93 = load i32, ptr %18, align 4, !tbaa !50
   %94 = sext i32 %93 to i64
-  %95 = getelementptr i32, ptr %17, i64 %94
+  %95 = getelementptr [4 x i8], ptr %17, i64 %94
   %96 = load i32, ptr %95, align 4, !tbaa !51
   %97 = icmp eq i32 %91, %96
   br i1 %97, label %98, label %104
 
 98:                                               ; preds = %90
-  %99 = getelementptr i32, ptr %20, i64 %94
+  %99 = getelementptr [4 x i8], ptr %20, i64 %94
   %100 = load i32, ptr %99, align 4, !tbaa !51
   %.not1154 = icmp eq i32 %92, %100
   br i1 %.not1154, label %.thread1463, label %101
@@ -1543,7 +1541,7 @@ tok_backup.exit.thread:                           ; preds = %36, %50, %41, %35, 
   br label %.thread1472
 
 111:                                              ; preds = %106
-  %112 = getelementptr i32, ptr %20, i64 %94
+  %112 = getelementptr [4 x i8], ptr %20, i64 %94
   %113 = load i32, ptr %112, align 4, !tbaa !51
   %.not1153 = icmp sgt i32 %92, %113
   br i1 %.not1153, label %117, label %114
@@ -1559,11 +1557,11 @@ tok_backup.exit.thread:                           ; preds = %36, %50, %41, %35, 
   store i32 %119, ptr %19, align 4, !tbaa !52
   store i32 %107, ptr %18, align 4, !tbaa !50
   %120 = sext i32 %107 to i64
-  %121 = getelementptr i32, ptr %17, i64 %120
+  %121 = getelementptr [4 x i8], ptr %17, i64 %120
   store i32 %91, ptr %121, align 4, !tbaa !51
   %122 = load i32, ptr %18, align 4, !tbaa !50
   %123 = sext i32 %122 to i64
-  %124 = getelementptr i32, ptr %20, i64 %123
+  %124 = getelementptr [4 x i8], ptr %20, i64 %123
   store i32 %92, ptr %124, align 4, !tbaa !51
   br label %.thread1463
 
@@ -1574,7 +1572,7 @@ thread-pre-split:                                 ; preds = %104
 .lr.ph:                                           ; preds = %thread-pre-split, %131
   %126 = phi i32 [ %134, %131 ], [ %93, %thread-pre-split ]
   %127 = zext nneg i32 %126 to i64
-  %128 = getelementptr i32, ptr %17, i64 %127
+  %128 = getelementptr [4 x i8], ptr %17, i64 %127
   %129 = load i32, ptr %128, align 4, !tbaa !51
   %130 = icmp slt i32 %91, %129
   br i1 %130, label %131, label %.critedge
@@ -1591,7 +1589,7 @@ thread-pre-split:                                 ; preds = %104
 .critedge:                                        ; preds = %.lr.ph, %131
   %.lcssa1733.ph = phi i32 [ %126, %.lr.ph ], [ 0, %131 ]
   %.pre2242 = zext nneg i32 %.lcssa1733.ph to i64
-  %.phi.trans.insert = getelementptr i32, ptr %17, i64 %.pre2242
+  %.phi.trans.insert = getelementptr [4 x i8], ptr %17, i64 %.pre2242
   %.pre2243 = load i32, ptr %.phi.trans.insert, align 4, !tbaa !51
   %136 = icmp eq i32 %91, %.pre2243
   br i1 %136, label %138, label %.critedge.thread
@@ -1603,7 +1601,7 @@ thread-pre-split:                                 ; preds = %104
   br label %.thread1472
 
 138:                                              ; preds = %.critedge
-  %139 = getelementptr i32, ptr %20, i64 %.pre2242
+  %139 = getelementptr [4 x i8], ptr %20, i64 %.pre2242
   %140 = load i32, ptr %139, align 4, !tbaa !51
   %.not1152 = icmp eq i32 %92, %140
   br i1 %.not1152, label %.thread1463, label %141
@@ -2019,7 +2017,7 @@ tok_backup.exit1261:                              ; preds = %.critedge21, %287
 
 298:                                              ; preds = %295
   %299 = zext nneg i8 %296 to i64
-  %300 = getelementptr i32, ptr @_Py_ctype_table, i64 %299
+  %300 = getelementptr [4 x i8], ptr @_Py_ctype_table, i64 %299
   %301 = load i32, ptr %300, align 4, !tbaa !51
   %302 = and i32 %301, 7
   %303 = icmp eq i32 %302, 0
@@ -2517,7 +2515,7 @@ _PyUnicode_DATA.exit.i.i:                         ; preds = %488, %486
 
 _PyUnicode_DATA.exit17.i.i:                       ; preds = %496, %494
   %.0.i15.i.i = phi ptr [ %.0.i.i14.i.i, %494 ], [ %.val4.i16.i.i, %496 ]
-  %498 = getelementptr i16, ptr %.0.i15.i.i, i64 %477
+  %498 = getelementptr [2 x i8], ptr %.0.i15.i.i, i64 %477
   %499 = load i16, ptr %498, align 2, !tbaa !68
   %500 = zext i16 %499 to i32
   br label %PyUnicode_READ_CHAR.exit.i
@@ -2539,7 +2537,7 @@ _PyUnicode_DATA.exit17.i.i:                       ; preds = %496, %494
 
 _PyUnicode_DATA.exit25.i.i:                       ; preds = %504, %502
   %.0.i23.i.i = phi ptr [ %.0.i.i22.i.i, %502 ], [ %.val4.i24.i.i, %504 ]
-  %506 = getelementptr i32, ptr %.0.i23.i.i, i64 %477
+  %506 = getelementptr [4 x i8], ptr %.0.i23.i.i, i64 %477
   %507 = load i32, ptr %506, align 4, !tbaa !51
   br label %PyUnicode_READ_CHAR.exit.i
 
@@ -2843,7 +2841,7 @@ tok_nextc.exit1309:                               ; preds = %617, %611, %612, %6
   %.0.i1305 = phi i32 [ -1, %611 ], [ %616, %612 ], [ -1, %622 ], [ -1, %631 ], [ -1, %617 ]
   %634 = and i32 %.0.i1305, 255
   %635 = zext nneg i32 %634 to i64
-  %636 = getelementptr i32, ptr @_Py_ctype_table, i64 %635
+  %636 = getelementptr [4 x i8], ptr @_Py_ctype_table, i64 %635
   %637 = load i32, ptr %636, align 4, !tbaa !51
   %638 = and i32 %637, 4
   %.not1180 = icmp eq i32 %638, 0
@@ -2878,7 +2876,7 @@ tok_nextc.exit1309:                               ; preds = %617, %611, %612, %6
 
 653:                                              ; preds = %tok_nextc.exit1301
   %654 = zext nneg i32 %.71008 to i64
-  %655 = getelementptr i32, ptr @_Py_ctype_table, i64 %654
+  %655 = getelementptr [4 x i8], ptr @_Py_ctype_table, i64 %654
   %656 = load i32, ptr %655, align 4, !tbaa !51
   %657 = and i32 %656, 4
   %.not1164 = icmp eq i32 %657, 0
@@ -2977,7 +2975,7 @@ tok_nextc.exit1317:                               ; preds = %680, %694, %685, %6
   %.101011 = phi i32 [ %.91010, %665 ], [ -1, %674 ], [ %679, %675 ], [ -1, %685 ], [ -1, %694 ], [ -1, %680 ]
   %697 = and i32 %.101011, 255
   %698 = zext nneg i32 %697 to i64
-  %699 = getelementptr i32, ptr @_Py_ctype_table, i64 %698
+  %699 = getelementptr [4 x i8], ptr @_Py_ctype_table, i64 %698
   %700 = load i32, ptr %699, align 4, !tbaa !51
   %701 = and i32 %700, 16
   %.not1177 = icmp eq i32 %701, 0
@@ -3062,7 +3060,7 @@ tok_nextc.exit1325:                               ; preds = %714, %708, %709, %7
   %.0.i1321 = phi i32 [ -1, %708 ], [ %713, %709 ], [ -1, %719 ], [ -1, %728 ], [ -1, %714 ]
   %731 = and i32 %.0.i1321, 255
   %732 = zext nneg i32 %731 to i64
-  %733 = getelementptr i32, ptr @_Py_ctype_table, i64 %732
+  %733 = getelementptr [4 x i8], ptr @_Py_ctype_table, i64 %732
   %734 = load i32, ptr %733, align 4, !tbaa !51
   %735 = and i32 %734, 16
   %.not1178 = icmp eq i32 %735, 0
@@ -3167,7 +3165,7 @@ tok_nextc.exit1333.thread:                        ; preds = %tok_nextc.exit1333,
   %.1210131502 = phi i32 [ -1, %759 ], [ -1, %753 ], [ -1, %764 ], [ -1, %773 ], [ %.121013, %tok_nextc.exit1333 ]
   %777 = and i32 %.1210131502, 255
   %778 = zext nneg i32 %777 to i64
-  %779 = getelementptr i32, ptr @_Py_ctype_table, i64 %778
+  %779 = getelementptr [4 x i8], ptr @_Py_ctype_table, i64 %778
   %780 = load i32, ptr %779, align 4, !tbaa !51
   %781 = and i32 %780, 4
   %.not1176 = icmp eq i32 %781, 0
@@ -3255,7 +3253,7 @@ tok_nextc.exit1341:                               ; preds = %789
   %.0.i133715041507 = phi i32 [ -1, %793 ], [ -1, %792 ], [ -1, %807 ], [ -1, %798 ], [ %813, %816 ]
   %818 = and i32 %.0.i133715041507, 255
   %819 = zext nneg i32 %818 to i64
-  %820 = getelementptr i32, ptr @_Py_ctype_table, i64 %819
+  %820 = getelementptr [4 x i8], ptr @_Py_ctype_table, i64 %819
   %821 = load i32, ptr %820, align 4, !tbaa !51
   %822 = and i32 %821, 4
   %.not1174 = icmp eq i32 %822, 0
@@ -3302,7 +3300,7 @@ tok_nextc.exit1341:                               ; preds = %789
 838:                                              ; preds = %836
   %839 = and i32 %.141015, 255
   %840 = zext nneg i32 %839 to i64
-  %841 = getelementptr i32, ptr @_Py_ctype_table, i64 %840
+  %841 = getelementptr [4 x i8], ptr @_Py_ctype_table, i64 %840
   %842 = load i32, ptr %841, align 4, !tbaa !51
   %843 = and i32 %842, 4
   %.not1173 = icmp eq i32 %843, 0
@@ -3390,7 +3388,7 @@ tok_nextc.exit1349:                               ; preds = %851
   %.0.i134515091512 = phi i32 [ -1, %855 ], [ -1, %854 ], [ -1, %869 ], [ -1, %860 ], [ %875, %878 ]
   %880 = and i32 %.0.i134515091512, 255
   %881 = zext nneg i32 %880 to i64
-  %882 = getelementptr i32, ptr @_Py_ctype_table, i64 %881
+  %882 = getelementptr [4 x i8], ptr @_Py_ctype_table, i64 %881
   %883 = load i32, ptr %882, align 4, !tbaa !51
   %884 = and i32 %883, 4
   %.not1171 = icmp eq i32 %884, 0
@@ -3419,7 +3417,7 @@ tok_nextc.exit1349:                               ; preds = %851
   %894 = tail call fastcc i32 @tok_nextc(ptr noundef nonnull %0)
   %895 = and i32 %894, 255
   %896 = zext nneg i32 %895 to i64
-  %897 = getelementptr i32, ptr @_Py_ctype_table, i64 %896
+  %897 = getelementptr [4 x i8], ptr @_Py_ctype_table, i64 %896
   %898 = load i32, ptr %897, align 4, !tbaa !51
   %899 = and i32 %898, 4
   %.not1165 = icmp eq i32 %899, 0
@@ -3505,7 +3503,7 @@ tok_nextc.exit1349:                               ; preds = %851
 934:                                              ; preds = %903
   %935 = and i32 %.161017, 255
   %936 = zext nneg i32 %935 to i64
-  %937 = getelementptr i32, ptr @_Py_ctype_table, i64 %936
+  %937 = getelementptr [4 x i8], ptr @_Py_ctype_table, i64 %936
   %938 = load i32, ptr %937, align 4, !tbaa !51
   %939 = and i32 %938, 4
   %.not1167 = icmp eq i32 %939, 0
@@ -3584,7 +3582,7 @@ tok_nextc.exit1349:                               ; preds = %851
   %.81009 = phi i32 [ %.0.i1305, %tok_nextc.exit1309 ], [ %972, %.sink.split ]
   %974 = and i32 %.81009, 255
   %975 = zext nneg i32 %974 to i64
-  %976 = getelementptr i32, ptr @_Py_ctype_table, i64 %975
+  %976 = getelementptr [4 x i8], ptr @_Py_ctype_table, i64 %975
   %977 = load i32, ptr %976, align 4, !tbaa !51
   %978 = and i32 %977, 4
   %.not1181 = icmp eq i32 %978, 0
@@ -3617,7 +3615,7 @@ tok_nextc.exit1349:                               ; preds = %851
   %988 = tail call fastcc i32 @tok_nextc(ptr noundef nonnull %0)
   %989 = and i32 %988, 255
   %990 = zext nneg i32 %989 to i64
-  %991 = getelementptr i32, ptr @_Py_ctype_table, i64 %990
+  %991 = getelementptr [4 x i8], ptr @_Py_ctype_table, i64 %990
   %992 = load i32, ptr %991, align 4, !tbaa !51
   %993 = and i32 %992, 4
   %.not1184 = icmp eq i32 %993, 0
@@ -3632,7 +3630,7 @@ tok_nextc.exit1349:                               ; preds = %851
 997:                                              ; preds = %.thread1526
   %998 = and i32 %986, 255
   %999 = zext nneg i32 %998 to i64
-  %1000 = getelementptr i32, ptr @_Py_ctype_table, i64 %999
+  %1000 = getelementptr [4 x i8], ptr @_Py_ctype_table, i64 %999
   %1001 = load i32, ptr %1000, align 4, !tbaa !51
   %1002 = and i32 %1001, 4
   %.not1182 = icmp eq i32 %1002, 0
@@ -3965,7 +3963,7 @@ tok_backup.exit1382:                              ; preds = %tok_backup.exit1382
   %1144 = getelementptr inbounds nuw i8, ptr %0, i64 2856
   store i32 %1138, ptr %1136, align 8, !tbaa !13
   %1145 = sext i32 %1138 to i64
-  %1146 = getelementptr %struct._tokenizer_mode, ptr %1144, i64 %1145
+  %1146 = getelementptr [96 x i8], ptr %1144, i64 %1145
   store i32 1, ptr %1146, align 8, !tbaa !21
   %1147 = trunc nuw i32 %.51006 to i8
   %1148 = getelementptr inbounds nuw i8, ptr %1146, i64 12
@@ -4344,7 +4342,7 @@ tok_nextc.exit1409:                               ; preds = %1269, %tok_nextc.ex
 1301:                                             ; preds = %.loopexit
   %1302 = getelementptr inbounds nuw i8, ptr %0, i64 2856
   %1303 = zext nneg i32 %1299 to i64
-  %1304 = getelementptr %struct._tokenizer_mode, ptr %1302, i64 %1303
+  %1304 = getelementptr [96 x i8], ptr %1302, i64 %1303
   %1305 = getelementptr inbounds nuw i8, ptr %1304, i64 12
   %1306 = load i8, ptr %1305, align 4, !tbaa !35
   %1307 = sext i8 %1306 to i32
@@ -4889,7 +4887,7 @@ tok_backup.exit1447.thread:                       ; preds = %1513, %1524
   %1542 = getelementptr inbounds nuw i8, ptr %0, i64 732
   %1543 = load i32, ptr %16, align 8, !tbaa !49
   %1544 = sext i32 %1543 to i64
-  %1545 = getelementptr i32, ptr %1542, i64 %1544
+  %1545 = getelementptr [4 x i8], ptr %1542, i64 %1544
   store i32 %1541, ptr %1545, align 4, !tbaa !51
   %1546 = load ptr, ptr %4, align 8, !tbaa !19
   %1547 = load ptr, ptr %11, align 8, !tbaa !28
@@ -4900,7 +4898,7 @@ tok_backup.exit1447.thread:                       ; preds = %1513, %1524
   %1552 = getelementptr inbounds nuw i8, ptr %0, i64 1532
   %1553 = load i32, ptr %16, align 8, !tbaa !49
   %1554 = sext i32 %1553 to i64
-  %1555 = getelementptr i32, ptr %1552, i64 %1554
+  %1555 = getelementptr [4 x i8], ptr %1552, i64 %1554
   store i32 %1551, ptr %1555, align 4, !tbaa !51
   %1556 = load i32, ptr %16, align 8, !tbaa !49
   %1557 = add i32 %1556, 1
@@ -5008,7 +5006,7 @@ tok_backup.exit1447.thread:                       ; preds = %1513, %1524
 1610:                                             ; preds = %1602, %1601
   %1611 = getelementptr inbounds nuw i8, ptr %0, i64 732
   %1612 = zext nneg i32 %1588 to i64
-  %1613 = getelementptr i32, ptr %1611, i64 %1612
+  %1613 = getelementptr [4 x i8], ptr %1611, i64 %1612
   %1614 = load i32, ptr %1613, align 4, !tbaa !51
   %1615 = load i32, ptr %15, align 8, !tbaa !22
   %.not1203 = icmp eq i32 %1614, %1615
@@ -5798,7 +5796,7 @@ tok_nextc.exit:                                   ; preds = %18, %12, %13, %23, 
   %.0.i = phi i32 [ -1, %12 ], [ %17, %13 ], [ -1, %23 ], [ -1, %32 ], [ -1, %18 ]
   %35 = and i32 %.0.i, 255
   %36 = zext nneg i32 %35 to i64
-  %37 = getelementptr i32, ptr @_Py_ctype_table, i64 %36
+  %37 = getelementptr [4 x i8], ptr @_Py_ctype_table, i64 %36
   %38 = load i32, ptr %37, align 4, !tbaa !51
   %39 = and i32 %38, 4
   %.not = icmp eq i32 %39, 0
@@ -5874,7 +5872,7 @@ tok_nextc.exit19:                                 ; preds = %52, %46, %47, %57, 
   %.0.i15 = phi i32 [ -1, %46 ], [ %51, %47 ], [ -1, %57 ], [ -1, %66 ], [ -1, %52 ]
   %70 = and i32 %.0.i15, 255
   %71 = zext nneg i32 %70 to i64
-  %72 = getelementptr i32, ptr @_Py_ctype_table, i64 %71
+  %72 = getelementptr [4 x i8], ptr @_Py_ctype_table, i64 %71
   %73 = load i32, ptr %72, align 4, !tbaa !51
   %74 = and i32 %73, 4
   %.not11 = icmp eq i32 %74, 0
@@ -5928,7 +5926,7 @@ define internal fastcc range(i32 -1, 1) i32 @set_fstring_expr(ptr noundef readon
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 17256
   %5 = load i32, ptr %4, align 8, !tbaa !13
   %6 = sext i32 %5 to i64
-  %7 = getelementptr %struct._tokenizer_mode, ptr %3, i64 %6
+  %7 = getelementptr [96 x i8], ptr %3, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %9 = load i32, ptr %8, align 8, !tbaa !78
   %.not = icmp eq i32 %9, 0

@@ -9,7 +9,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.z_stream_s = type { ptr, i32, i64, ptr, i32, i64, ptr, ptr, ptr, ptr, ptr, i32, i64, i64 }
 %struct.msxml_cbdata = type { i32, ptr, ptr, i64, i64, i64 }
 %struct.msxml_ctx = type { ptr, ptr, ptr, ptr, ptr }
-%struct.attrib_entry = type { ptr, ptr }
 
 @.str = private unnamed_addr constant [52 x i8] c"HWPOLE2: Failed to read uncompressed ole2 filesize\0A\00", align 1
 @.str.1 = private unnamed_addr constant [60 x i8] c"HWPOLE2: Mismatched uncompressed prefix and size: %u != %u\0A\00", align 1
@@ -968,7 +967,7 @@ parsehwp3_docinfo.exit:                           ; preds = %convert_hstr_to_utf
 
 .preheader.i:                                     ; preds = %63, %68
   %.02742.i = phi i64 [ %69, %68 ], [ 0, %63 ]
-  %70 = getelementptr inbounds nuw %struct.hwp3_docsummary_entry, ptr @hwp3_docsummary_fields, i64 %.02742.i
+  %70 = getelementptr inbounds nuw [16 x i8], ptr @hwp3_docsummary_fields, i64 %.02742.i
   %71 = load i64, ptr %70, align 16, !tbaa !68
   %72 = tail call ptr @cli_max_calloc(i64 noundef 1, i64 noundef 113) #10
   %.not.i.i29 = icmp eq ptr %72, null
@@ -1792,7 +1791,7 @@ define internal i32 @hwpml_binary_cb(i32 noundef %0, ptr noundef %1, ptr noundef
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %28 ]
   %.06098 = phi i32 [ 0, %.lr.ph.preheader ], [ %.161, %28 ]
   %.06297 = phi i32 [ 0, %.lr.ph.preheader ], [ %.163, %28 ]
-  %13 = getelementptr inbounds nuw %struct.attrib_entry, ptr %4, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8, !tbaa !80
   %15 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(9) @.str.118) #11
   %.not79 = icmp eq i32 %15, 0

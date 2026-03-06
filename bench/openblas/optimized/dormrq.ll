@@ -42,7 +42,7 @@ define void @dormrq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %25 = load i32, ptr %6, align 4, !tbaa !3
   %narrow = xor i32 %25, -1
   %26 = sext i32 %narrow to i64
-  %27 = getelementptr inbounds double, ptr %5, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %5, i64 %26
   %28 = getelementptr inbounds i8, ptr %7, i64 -8
   store i32 0, ptr %12, align 4, !tbaa !3
   %29 = tail call i32 @lsame_(ptr noundef %0, ptr noundef nonnull @.str) #5
@@ -150,7 +150,7 @@ define void @dormrq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge ], [ 0, %67 ]
   %.0196298 = phi ptr [ %.1197.lcssa, %._crit_edge ], [ %18, %67 ]
   %.0200297 = phi i32 [ %77, %._crit_edge ], [ 2, %67 ]
-  %75 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv
   %76 = load i32, ptr %75, align 4, !tbaa !3
   %spec.select243 = tail call i32 @llvm.smin.i32(i32 %76, i32 %.0200297)
   %77 = sub nsw i32 %.0200297, %spec.select243
@@ -158,7 +158,7 @@ define void @dormrq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %78, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph300
-  %79 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   %80 = load ptr, ptr %79, align 8, !tbaa !7
   %81 = zext nneg i32 %spec.select243 to i64
   %82 = getelementptr i8, ptr %.0196298, i64 %81
@@ -275,7 +275,7 @@ define void @dormrq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %indvars.iv335 = phi i64 [ %indvars.iv.next336, %._crit_edge312 ], [ 0, %114 ]
   %.0316 = phi ptr [ %.1.lcssa, %._crit_edge312 ], [ %18, %114 ]
   %.0191315 = phi i32 [ %126, %._crit_edge312 ], [ 2, %114 ]
-  %124 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv335
+  %124 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv335
   %125 = load i32, ptr %124, align 4, !tbaa !3
   %spec.select244 = call i32 @llvm.smin.i32(i32 %125, i32 %.0191315)
   %126 = sub nsw i32 %.0191315, %spec.select244
@@ -283,7 +283,7 @@ define void @dormrq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %127, label %.lr.ph311.preheader, label %._crit_edge312
 
 .lr.ph311.preheader:                              ; preds = %.lr.ph318
-  %128 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv335
+  %128 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv335
   %129 = load ptr, ptr %128, align 8, !tbaa !7
   %130 = zext nneg i32 %spec.select244 to i64
   %131 = getelementptr i8, ptr %.0316, i64 %130
@@ -365,11 +365,11 @@ define void @dormrq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 .lr.ph328:                                        ; preds = %150
   %156 = add i32 %.0208249, -1
   %157 = zext nneg i32 %143 to i64
-  %158 = getelementptr double, ptr %10, i64 %157
+  %158 = getelementptr [8 x i8], ptr %10, i64 %157
   %159 = sext i32 %.0214 to i64
   %160 = sext i32 %.0212 to i64
   %161 = sext i32 %25 to i64
-  %invariant.gep = getelementptr double, ptr %27, i64 %161
+  %invariant.gep = getelementptr [8 x i8], ptr %27, i64 %161
   %162 = zext nneg i32 %151 to i64
   %.377 = select i1 %.not, ptr %2, ptr %3
   %.378 = select i1 %.not, ptr %21, ptr %22
@@ -387,8 +387,8 @@ define void @dormrq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %169 = sub i32 %168, %164
   %170 = add i32 %169, %167
   store i32 %170, ptr %17, align 4, !tbaa !3
-  %gep = getelementptr double, ptr %invariant.gep, i64 %indvars.iv338
-  %171 = getelementptr inbounds double, ptr %28, i64 %indvars.iv338
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %indvars.iv338
+  %171 = getelementptr inbounds [8 x i8], ptr %28, i64 %indvars.iv338
   call void @dlarft_(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef nonnull %17, ptr noundef nonnull %20, ptr noundef %gep, ptr noundef nonnull %6, ptr noundef nonnull %171, ptr noundef %158, ptr noundef nonnull @c__65) #5
   %172 = load i32, ptr %4, align 4, !tbaa !3
   %173 = load i32, ptr %20, align 4, !tbaa !3

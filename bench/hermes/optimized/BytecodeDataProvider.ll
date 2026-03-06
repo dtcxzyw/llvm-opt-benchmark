@@ -7,7 +7,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.llvh::raw_string_ostream" = type { %"class.llvh::raw_ostream.base", ptr }
 %"class.llvh::raw_ostream.base" = type <{ ptr, ptr, ptr, ptr, i32 }>
 %struct.BytecodeFileFieldsPopulator.8 = type { ptr, ptr, ptr, ptr }
-%"struct.hermes::hbc::HBCExceptionHandlerInfo" = type { i32, i32, i32 }
 %"class.llvh::Optional" = type { %"struct.llvh::optional_detail::OptionalStorage" }
 %"struct.llvh::optional_detail::OptionalStorage" = type { %"struct.llvh::AlignedCharArrayUnion", i8, [7 x i8] }
 %"struct.llvh::AlignedCharArrayUnion" = type { %"struct.llvh::AlignedCharArray" }
@@ -19,7 +18,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon = type { i64, [8 x i8] }
 %"struct.hermes::SourceMapTextLocation" = type { %"class.std::__cxx11::basic_string", i32, i32 }
 %"class.std::allocator" = type { i8 }
-%"class.hermes::StringTableEntry" = type { i32, i32 }
 %"class.std::unique_ptr.48" = type { %"struct.std::__uniq_ptr_data.49" }
 %"struct.std::__uniq_ptr_data.49" = type { %"class.std::__uniq_ptr_impl.50" }
 %"class.std::__uniq_ptr_impl.50" = type { %"class.std::tuple.51" }
@@ -28,7 +26,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Head_base.55" = type { ptr }
 %"class.std::thread" = type { %"class.std::thread::id" }
 %"class.std::thread::id" = type { i64 }
-%"struct.hermes::hbc::OverflowStringTableEntry" = type { i32, i32 }
 %"struct.hermes::hbc::BytecodeFileFields" = type { ptr, %"class.llvh::ArrayRef.0", %"class.llvh::ArrayRef.1", %"class.llvh::ArrayRef.2", %"class.llvh::ArrayRef.3", %"class.llvh::ArrayRef.4", %"class.llvh::ArrayRef", %"class.llvh::ArrayRef", %"class.llvh::ArrayRef", %"class.llvh::ArrayRef", %"class.llvh::ArrayRef.5", %"class.llvh::ArrayRef", %"class.llvh::ArrayRef.6", %"class.llvh::ArrayRef", %"class.llvh::ArrayRef.7", %"class.llvh::ArrayRef.7", %"class.llvh::ArrayRef.7" }
 %"class.llvh::ArrayRef.0" = type { ptr, i64 }
 %"class.llvh::ArrayRef.1" = type { ptr, i64 }
@@ -48,13 +45,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.llvh::SmallVectorStorage" = type { [1 x %"struct.llvh::AlignedCharArrayUnion.27"] }
 %"struct.llvh::AlignedCharArrayUnion.27" = type { %"struct.llvh::AlignedCharArray.28" }
 %"struct.llvh::AlignedCharArray.28" = type { [12 x i8] }
-%"struct.hermes::hbc::DebugFileRegion" = type { i32, i32, i32 }
 %"struct.std::pair" = type { %"class.llvh::ArrayRef.18", ptr }
 %"class.llvh::ArrayRef.18" = type { ptr, i64 }
-%"struct.hermes::hbc::SmallFuncHeader" = type { [15 x i8], %"union.hermes::hbc::FunctionHeaderFlag" }
-%"union.hermes::hbc::FunctionHeaderFlag" = type { %struct.anon.45 }
-%struct.anon.45 = type { i8 }
-%"struct.hermes::hbc::SmallStringTableEntry" = type { i32 }
 
 $_ZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormE = comdat any
 
@@ -1447,7 +1439,7 @@ for.body.preheader:                               ; preds = %entry
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx.i = getelementptr inbounds nuw %"struct.hermes::hbc::HBCExceptionHandlerInfo", ptr %1, i64 %indvars.iv
+  %arrayidx.i = getelementptr inbounds nuw [12 x i8], ptr %1, i64 %indvars.iv
   %4 = load i32, ptr %arrayidx.i, align 1
   %cmp5.not = icmp ugt i32 %4, %exceptionOffset
   br i1 %cmp5.not, label %for.inc, label %land.lhs.true
@@ -1597,7 +1589,7 @@ entry:
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %utf8Storage) #19
   %conv = zext i32 %id to i64
   %0 = load ptr, ptr %this, align 8
-  %add.ptr.i = getelementptr inbounds nuw %"class.hermes::StringTableEntry", ptr %0, i64 %conv
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %conv
   %filenameStorage_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load ptr, ptr %filenameStorage_, align 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -1844,7 +1836,7 @@ entry:
   %1 = load ptr, ptr %overflowStringTableEntries_, align 8
   %Length.i1 = getelementptr inbounds nuw i8, ptr %this, i64 320
   %2 = load i64, ptr %Length.i1, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.hermes::hbc::OverflowStringTableEntry", ptr %1, i64 %2
+  %add.ptr.i = getelementptr inbounds [8 x i8], ptr %1, i64 %2
   %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr.i to i64
   %stringStorage_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   %3 = load ptr, ptr %stringStorage_, align 8
@@ -1886,7 +1878,7 @@ entry:
   %1 = load ptr, ptr %overflowStringTableEntries_, align 8
   %Length.i1 = getelementptr inbounds nuw i8, ptr %this, i64 320
   %2 = load i64, ptr %Length.i1, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.hermes::hbc::OverflowStringTableEntry", ptr %1, i64 %2
+  %add.ptr.i = getelementptr inbounds [8 x i8], ptr %1, i64 %2
   %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr.i to i64
   %call.i = tail call noundef i64 @_ZN6hermes8oscompat9page_sizeEv() #19
   %add.ptr.i2 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -2177,7 +2169,7 @@ _ZN4llvh23SmallVectorTemplateBaseIN6hermes3hbc15DebugFileRegionELb1EE9push_backE
   %8 = phi i32 [ %.pre.i, %if.then.i19 ], [ %6, %for.body ]
   %9 = load ptr, ptr %files, align 8
   %conv.i3.i = zext i32 %8 to i64
-  %add.ptr.i.i = getelementptr inbounds nuw %"struct.hermes::hbc::DebugFileRegion", ptr %9, i64 %conv.i3.i
+  %add.ptr.i.i = getelementptr inbounds nuw [12 x i8], ptr %9, i64 %conv.i3.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %add.ptr.i.i, ptr noundef nonnull align 1 dereferenceable(12) %buf.051, i64 12, i1 false)
   %10 = load i32, ptr %Size.i.i.i.i.i, align 8
   %add.i = add i32 %10, 1
@@ -2331,7 +2323,7 @@ entry:
   %functionHeaders_ = getelementptr inbounds nuw i8, ptr %this, i64 296
   %0 = load ptr, ptr %functionHeaders_, align 8
   %idxprom = zext i32 %functionID to i64
-  %arrayidx = getelementptr inbounds nuw %"struct.hermes::hbc::SmallFuncHeader", ptr %0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %idxprom
   %bufferPtr_ = getelementptr inbounds nuw i8, ptr %this, i64 288
   %1 = load ptr, ptr %bufferPtr_, align 8
   %flags = getelementptr inbounds nuw i8, ptr %arrayidx, i64 15
@@ -2463,7 +2455,7 @@ if.end:                                           ; preds = %entry
   %functionHeaders4 = getelementptr inbounds nuw i8, ptr %fields, i64 8
   %5 = load ptr, ptr %functionHeaders4, align 8
   %idxprom = zext i32 %4 to i64
-  %arrayidx = getelementptr inbounds nuw %"struct.hermes::hbc::SmallFuncHeader", ptr %5, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %idxprom
   %flags = getelementptr inbounds nuw i8, ptr %arrayidx, i64 15
   %bf.load = load i8, ptr %flags, align 1
   %6 = and i8 %bf.load, 32
@@ -2576,7 +2568,7 @@ entry:
   %stringTableEntries_ = getelementptr inbounds nuw i8, ptr %this, i64 304
   %0 = load ptr, ptr %stringTableEntries_, align 8
   %idxprom = zext i32 %index to i64
-  %arrayidx = getelementptr inbounds nuw %"struct.hermes::hbc::SmallStringTableEntry", ptr %0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %idxprom
   %bf.load.i = load i32, ptr %arrayidx, align 1
   %cmp.i = icmp ugt i32 %bf.load.i, -16777217
   br i1 %cmp.i, label %if.then, label %if.end
@@ -2587,7 +2579,7 @@ if.then:                                          ; preds = %entry
   %bf.clear = and i32 %bf.lshr, 8388607
   %conv = zext nneg i32 %bf.clear to i64
   %1 = load ptr, ptr %overflowStringTableEntries_, align 8
-  %arrayidx.i = getelementptr inbounds nuw %"struct.hermes::hbc::OverflowStringTableEntry", ptr %1, i64 %conv
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %conv
   %overflow.sroa.0.0.copyload = load i32, ptr %arrayidx.i, align 1
   %overflow.sroa.2.0.call2.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 4
   %overflow.sroa.2.0.copyload = load i32, ptr %overflow.sroa.2.0.call2.sroa_idx, align 1
@@ -2617,7 +2609,7 @@ entry:
   %functionHeaders_ = getelementptr inbounds nuw i8, ptr %this, i64 296
   %0 = load ptr, ptr %functionHeaders_, align 8
   %idxprom = zext i32 %functionID to i64
-  %arrayidx = getelementptr inbounds nuw %"struct.hermes::hbc::SmallFuncHeader", ptr %0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %idxprom
   %flags = getelementptr inbounds nuw i8, ptr %arrayidx, i64 15
   %bf.load = load i8, ptr %flags, align 1
   %1 = and i8 %bf.load, 32
@@ -2651,7 +2643,7 @@ entry:
   %functionHeaders_.i = getelementptr inbounds nuw i8, ptr %this, i64 296
   %1 = load ptr, ptr %functionHeaders_.i, align 8
   %idxprom.i = zext i32 %functionID to i64
-  %arrayidx.i = getelementptr inbounds nuw %"struct.hermes::hbc::SmallFuncHeader", ptr %1, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %idxprom.i
   %flags.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 15
   %bf.load.i = load i8, ptr %flags.i, align 1
   %2 = and i8 %bf.load.i, 32
@@ -2700,7 +2692,7 @@ entry:
   %functionHeaders_.i = getelementptr inbounds nuw i8, ptr %this, i64 296
   %0 = load ptr, ptr %functionHeaders_.i, align 8, !noalias !18
   %idxprom.i = zext i32 %functionID to i64
-  %arrayidx.i = getelementptr inbounds nuw %"struct.hermes::hbc::SmallFuncHeader", ptr %0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %idxprom.i
   %bufferPtr_.i = getelementptr inbounds nuw i8, ptr %this, i64 288
   %1 = load ptr, ptr %bufferPtr_.i, align 8, !noalias !18
   %flags.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 15
@@ -2773,7 +2765,7 @@ entry:
   %functionHeaders_.i = getelementptr inbounds nuw i8, ptr %this, i64 296
   %0 = load ptr, ptr %functionHeaders_.i, align 8, !noalias !21
   %idxprom.i = zext i32 %functionID to i64
-  %arrayidx.i = getelementptr inbounds nuw %"struct.hermes::hbc::SmallFuncHeader", ptr %0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %idxprom.i
   %bufferPtr_.i = getelementptr inbounds nuw i8, ptr %this, i64 288
   %1 = load ptr, ptr %bufferPtr_.i, align 8, !noalias !21
   %flags.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 15

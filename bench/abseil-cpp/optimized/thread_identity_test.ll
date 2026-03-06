@@ -1722,7 +1722,7 @@ _ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i: ; preds = %
 _ZNSt6vectorISt6threadSaIS0_EE9push_backEOS0_.exit: ; preds = %_ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i, %65
   store ptr %58, ptr %3, align 8, !tbaa !90
   store ptr %64, ptr %9, align 8, !tbaa !81
-  %66 = getelementptr inbounds nuw %"class.std::thread", ptr %58, i64 %56
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %56
   store ptr %66, ptr %10, align 8, !tbaa !91
   %.sroa.0.0.copyload.i.i.pr = load i64, ptr %4, align 8, !tbaa !41
   %.not.i = icmp eq i64 %.sroa.0.0.copyload.i.i.pr, 0
@@ -2947,7 +2947,7 @@ _ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i: ; preds = %
 _ZNSt6vectorISt6threadSaIS0_EE9push_backEOS0_.exit: ; preds = %_ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i, %50
   store ptr %43, ptr %3, align 8, !tbaa !90
   store ptr %49, ptr %6, align 8, !tbaa !81
-  %51 = getelementptr inbounds nuw %"class.std::thread", ptr %43, i64 %41
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %41
   store ptr %51, ptr %7, align 8, !tbaa !91
   %.sroa.0.0.copyload.i.i.pr = load i64, ptr %4, align 8, !tbaa !41
   %.not.i = icmp eq i64 %.sroa.0.0.copyload.i.i.pr, 0
@@ -3082,7 +3082,7 @@ define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4absl1
 5:                                                ; preds = %_ZN4absl9MutexLockD2Ev.exit.i.i.i.i.i, %.preheader.i.i.i.i.i
   %indvars.iv.i.i.i.i.i = phi i64 [ 0, %.preheader.i.i.i.i.i ], [ %indvars.iv.next.i.i.i.i.i, %_ZN4absl9MutexLockD2Ev.exit.i.i.i.i.i ]
   %6 = load ptr, ptr %2, align 8, !tbaa !111
-  %7 = getelementptr inbounds nuw %"class.absl::Mutex", ptr %6, i64 %indvars.iv.i.i.i.i.i
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv.i.i.i.i.i
   tail call void @_ZN4absl5Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
   invoke void @_ZN4absl5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
           to label %_ZN4absl9MutexLockD2Ev.exit.i.i.i.i.i unwind label %8

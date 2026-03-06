@@ -1072,7 +1072,7 @@ define internal fastcc i32 @dissect_beep_int(ptr noundef %0, ptr noundef readonl
   %10 = add i32 %.0.i, %2
   %11 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %10)
   %12 = zext i8 %11 to i64
-  %13 = getelementptr i16, ptr %8, i64 %12
+  %13 = getelementptr [2 x i8], ptr %8, i64 %12
   %14 = load i16, ptr %13, align 2
   %15 = and i16 %14, 8
   %.not.i = icmp eq i16 %15, 0
@@ -1114,7 +1114,7 @@ num_len.exit:                                     ; preds = %9
 proto_item_set_hidden.exit:                       ; preds = %.lr.ph, %27, %30
   %34 = add i32 %.028, 1
   %35 = sext i32 %34 to i64
-  %36 = getelementptr ptr, ptr %6, i64 %35
+  %36 = getelementptr [8 x i8], ptr %6, i64 %35
   %37 = load ptr, ptr %36, align 8
   %.not = icmp eq ptr %37, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10

@@ -202,7 +202,7 @@ define internal ptr @H5FA__cache_hdr_deserialize(ptr noundef %0, i64 %1, ptr nou
 
 44:                                               ; preds = %36
   %45 = zext nneg i8 %38 to i64
-  %46 = getelementptr inbounds nuw ptr, ptr @H5FA_client_class_g, i64 %45
+  %46 = getelementptr inbounds nuw [8 x i8], ptr @H5FA_client_class_g, i64 %45
   %47 = load ptr, ptr %46, align 8, !tbaa !35
   %48 = getelementptr inbounds nuw i8, ptr %14, i64 248
   store ptr %47, ptr %48, align 8, !tbaa !36

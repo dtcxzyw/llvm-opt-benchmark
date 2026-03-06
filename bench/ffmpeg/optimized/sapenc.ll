@@ -236,9 +236,9 @@ define internal range(i32 -2147483648, 1) i32 @sap_write_header(ptr noundef %0) 
   br i1 %.not137, label %90, label %.thread145
 
 90:                                               ; preds = %86
-  %91 = getelementptr inbounds nuw ptr, ptr %80, i64 %indvars.iv
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %indvars.iv
   %92 = load ptr, ptr %78, align 8, !tbaa !39
-  %93 = getelementptr inbounds nuw ptr, ptr %92, i64 %indvars.iv
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %92, i64 %indvars.iv
   %94 = load ptr, ptr %93, align 8, !tbaa !40
   %95 = load ptr, ptr %13, align 8, !tbaa !42
   %96 = trunc nuw nsw i64 %indvars.iv to i32
@@ -248,10 +248,10 @@ define internal range(i32 -2147483648, 1) i32 @sap_write_header(ptr noundef %0) 
 
 99:                                               ; preds = %90
   %100 = load ptr, ptr %7, align 8, !tbaa !25
-  %101 = getelementptr inbounds nuw ptr, ptr %100, i64 %indvars.iv
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %100, i64 %indvars.iv
   %102 = load ptr, ptr %101, align 8, !tbaa !44
   %103 = load ptr, ptr %78, align 8, !tbaa !39
-  %104 = getelementptr inbounds nuw ptr, ptr %103, i64 %indvars.iv
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %103, i64 %indvars.iv
   %105 = load ptr, ptr %104, align 8, !tbaa !40
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 24
   store ptr %102, ptr %106, align 8, !tbaa !46
@@ -464,7 +464,7 @@ define internal i32 @sap_write_packet(ptr noundef %0, ptr noundef %1) #0 {
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %24 = load i32, ptr %23, align 4, !tbaa !68
   %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds ptr, ptr %22, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %22, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !40
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %29 = load ptr, ptr %28, align 8, !tbaa !46
@@ -494,7 +494,7 @@ define internal noundef i32 @sap_write_close(ptr noundef readonly captures(none)
   %8 = phi i32 [ %5, %.lr.ph ], [ %23, %22 ]
   %9 = phi ptr [ %.pre, %.lr.ph ], [ %24, %22 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %22 ]
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !40
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load ptr, ptr %12, align 8, !tbaa !46
@@ -507,7 +507,7 @@ define internal noundef i32 @sap_write_close(ptr noundef readonly captures(none)
   %17 = tail call i32 @avio_closep(ptr noundef nonnull %16) #9
   tail call void @avformat_free_context(ptr noundef nonnull %13) #9
   %18 = load ptr, ptr %6, align 8, !tbaa !39
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8, !tbaa !40
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store ptr null, ptr %21, align 8, !tbaa !46

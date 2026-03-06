@@ -3,8 +3,6 @@ source_filename = "bench/zlib/original/inffast.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.code = type { i8, i8, i16 }
-
 @.str = private unnamed_addr constant [30 x i8] c"invalid distance too far back\00", align 1
 @.str.1 = private unnamed_addr constant [22 x i8] c"invalid distance code\00", align 1
 @.str.2 = private unnamed_addr constant [28 x i8] c"invalid literal/length code\00", align 1
@@ -92,7 +90,7 @@ define hidden void @inflate_fast(ptr noundef captures(none) %0, i32 noundef %1) 
   %.1265 = phi i64 [ %65, %52 ], [ %.0264, %50 ]
   %.1250 = phi ptr [ %60, %52 ], [ %.0249, %50 ]
   %68 = and i64 %.1265, %44
-  %69 = getelementptr inbounds nuw %struct.code, ptr %35, i64 %68
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %68
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 1
   %71 = load i8, ptr %70, align 1, !tbaa !30
   %72 = zext i8 %71 to i32
@@ -190,7 +188,7 @@ define hidden void @inflate_fast(ptr noundef captures(none) %0, i32 noundef %1) 
   %.5269 = phi i64 [ %124, %111 ], [ %.3267, %109 ]
   %.4253 = phi ptr [ %119, %111 ], [ %.2251, %109 ]
   %127 = and i64 %.5269, %45
-  %128 = getelementptr inbounds nuw %struct.code, ptr %37, i64 %127
+  %128 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %127
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 1
   %130 = load i8, ptr %129, align 1, !tbaa !30
   %131 = zext i8 %130 to i32
@@ -472,12 +470,12 @@ define hidden void @inflate_fast(ptr noundef captures(none) %0, i32 noundef %1) 
   %282 = getelementptr inbounds nuw i8, ptr %.1248364, i64 2
   %283 = load i16, ptr %282, align 2, !tbaa !34
   %284 = zext i16 %283 to i64
-  %285 = getelementptr inbounds nuw %struct.code, ptr %37, i64 %284
+  %285 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %284
   %notmask316 = shl nsw i32 -1, %276
   %286 = xor i32 %notmask316, -1
   %287 = zext nneg i32 %286 to i64
   %288 = and i64 %278, %287
-  %289 = getelementptr inbounds nuw %struct.code, ptr %285, i64 %288
+  %289 = getelementptr inbounds nuw [4 x i8], ptr %285, i64 %288
   %290 = getelementptr inbounds nuw i8, ptr %289, i64 1
   %291 = load i8, ptr %290, align 1, !tbaa !30
   %292 = zext i8 %291 to i32
@@ -499,12 +497,12 @@ define hidden void @inflate_fast(ptr noundef captures(none) %0, i32 noundef %1) 
   %303 = getelementptr inbounds nuw i8, ptr %.0247360, i64 2
   %304 = load i16, ptr %303, align 2, !tbaa !34
   %305 = zext i16 %304 to i64
-  %306 = getelementptr inbounds nuw %struct.code, ptr %35, i64 %305
+  %306 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %305
   %notmask312 = shl nsw i32 -1, %84
   %307 = xor i32 %notmask312, -1
   %308 = zext nneg i32 %307 to i64
   %309 = and i64 %83, %308
-  %310 = getelementptr inbounds nuw %struct.code, ptr %306, i64 %309
+  %310 = getelementptr inbounds nuw [4 x i8], ptr %306, i64 %309
   %311 = getelementptr inbounds nuw i8, ptr %310, i64 1
   %312 = load i8, ptr %311, align 1, !tbaa !30
   %313 = zext i8 %312 to i32

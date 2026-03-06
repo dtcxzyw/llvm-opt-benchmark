@@ -119,10 +119,10 @@ define internal noundef zeroext i1 @"_ZN72_$LT$hdrhistogram..errors..CreationErr
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !7, !noundef !6
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN72_$LT$hdrhistogram..errors..CreationError$u20$as$u20$core..fmt..Debug$GT$3fmt17hf50b673a9bdbf982E", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN72_$LT$hdrhistogram..errors..CreationError$u20$as$u20$core..fmt..Debug$GT$3fmt17hf50b673a9bdbf982E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN72_$LT$hdrhistogram..errors..CreationError$u20$as$u20$core..fmt..Debug$GT$3fmt17hf50b673a9bdbf982E.17", i64 %4
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN72_$LT$hdrhistogram..errors..CreationError$u20$as$u20$core..fmt..Debug$GT$3fmt17hf50b673a9bdbf982E.17", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -531,7 +531,7 @@ _ZN4perf5stats8Interval3new17h4f5e7d432319a437E.exit: ; preds = %27, %31
 86:                                               ; preds = %81, %75
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %88 = load ptr, ptr %87, align 8, !alias.scope !68, !noalias !71, !nonnull !6, !noundef !6
-  %89 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { double, double, double } }, ptr %88, i64 %78
+  %89 = getelementptr inbounds nuw [48 x i8], ptr %88, i64 %78
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %89, ptr noundef nonnull align 8 dereferenceable(48) %6, i64 48, i1 false)
   %90 = add i64 %78, 1
   store i64 %90, ptr %77, align 8, !alias.scope !68, !noalias !71
@@ -1865,7 +1865,7 @@ define internal fastcc void @_ZN4perf5stats15OpenStreamStats4push17h6861dbe3deff
 41:                                               ; preds = %33, %22
   %42 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %43 = load ptr, ptr %42, align 8, !alias.scope !154, !nonnull !6, !noundef !6
-  %44 = getelementptr inbounds nuw ptr, ptr %43, i64 %30
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %30
   store ptr %0, ptr %44, align 8
   %45 = add i64 %30, 1
   store i64 %45, ptr %29, align 8, !alias.scope !154
@@ -1991,7 +1991,7 @@ define hidden void @_ZN4perf5stats8Interval19record_stream_stats17h34c69978ea27c
 22:                                               ; preds = %2, %15
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load ptr, ptr %23, align 8, !alias.scope !167, !noalias !170, !nonnull !6, !noundef !6
-  %25 = getelementptr inbounds nuw { i64, i64, i8, [7 x i8] }, ptr %24, i64 %12
+  %25 = getelementptr inbounds nuw [24 x i8], ptr %24, i64 %12
   store i64 %8, ptr %25, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i64 %5, ptr %.sroa.4.0..sroa_idx, align 8

@@ -1312,7 +1312,7 @@ define dso_local range(i32 0, 2) i32 @rb_bug_reporter_add(ptr noundef %0, ptr no
   %6 = add nsw i32 %3, 1
   store i32 %6, ptr @bug_reporters_size, align 4, !tbaa !32
   %7 = sext i32 %3 to i64
-  %8 = getelementptr %struct.bug_reporters, ptr @bug_reporters, i64 %7
+  %8 = getelementptr [16 x i8], ptr @bug_reporters, i64 %7
   store ptr %0, ptr %8, align 16, !tbaa !34
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %1, ptr %9, align 8, !tbaa !36
@@ -1383,7 +1383,7 @@ define internal fastcc void @rb_bug_without_die_internal(ptr noundef %0, ptr nou
 
 .lr.ph.i:                                         ; preds = %13, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %13 ]
-  %24 = getelementptr %struct.bug_reporters, ptr @bug_reporters, i64 %indvars.iv.i
+  %24 = getelementptr [16 x i8], ptr @bug_reporters, i64 %indvars.iv.i
   %25 = load ptr, ptr %24, align 16, !tbaa !34
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !36
@@ -1485,7 +1485,7 @@ define hidden void @rb_bug_for_fatal_signal(ptr noundef readonly captures(addres
 
 .lr.ph.i:                                         ; preds = %16, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %16 ]
-  %27 = getelementptr %struct.bug_reporters, ptr @bug_reporters, i64 %indvars.iv.i
+  %27 = getelementptr [16 x i8], ptr @bug_reporters, i64 %indvars.iv.i
   %28 = load ptr, ptr %27, align 16, !tbaa !34
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %30 = load ptr, ptr %29, align 8, !tbaa !36
@@ -1619,7 +1619,7 @@ define internal fastcc ptr @bug_report_file(ptr noundef %0, i32 noundef %1, ptr 
   br label %open_report_path.exit
 
 33:                                               ; preds = %.critedge.i
-  %34 = getelementptr ptr, ptr %6, i64 %indvars.iv.i
+  %34 = getelementptr [8 x i8], ptr %6, i64 %indvars.iv.i
   store ptr %.02245.i, ptr %34, align 8, !tbaa !37
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 15
@@ -2379,7 +2379,7 @@ RSTRING_PTR.exit:                                 ; preds = %4, %11
 
 .lr.ph.i:                                         ; preds = %13, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %13 ]
-  %24 = getelementptr %struct.bug_reporters, ptr @bug_reporters, i64 %indvars.iv.i
+  %24 = getelementptr [16 x i8], ptr @bug_reporters, i64 %indvars.iv.i
   %25 = load ptr, ptr %24, align 16, !tbaa !34
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !36
@@ -2470,7 +2470,7 @@ define dso_local void @rb_assert_failure_detail(ptr noundef %0, i32 noundef %1, 
 
 .lr.ph.i:                                         ; preds = %20, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %20 ]
-  %27 = getelementptr %struct.bug_reporters, ptr @bug_reporters, i64 %indvars.iv.i
+  %27 = getelementptr [16 x i8], ptr @bug_reporters, i64 %indvars.iv.i
   %28 = load ptr, ptr %27, align 16, !tbaa !34
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %30 = load ptr, ptr %29, align 8, !tbaa !36
@@ -2620,7 +2620,7 @@ define dso_local void @rb_check_type(i64 noundef %0, i32 noundef %1) local_unnam
   br label %rb_type.exit
 
 switch.lookup:                                    ; preds = %15
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.rb_type, i64 %16
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.rb_type, i64 %16
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %rb_type.exit
 
@@ -2688,7 +2688,7 @@ define internal fastcc range(i32 0, 32) i32 @rb_type(i64 noundef %0) unnamed_add
   br label %19
 
 switch.lookup:                                    ; preds = %11
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.rb_type, i64 %12
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.rb_type, i64 %12
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %19
 
@@ -3316,7 +3316,7 @@ rb_array_len.exit.us:                             ; preds = %rbimpl_RB_TYPE_P_fa
 
 RARRAY_AREF.exit.us:                              ; preds = %rb_array_len.exit.us
   %25 = load ptr, ptr %23, align 8, !tbaa !26
-  %26 = getelementptr i64, ptr %25, i64 %.014.us
+  %26 = getelementptr [8 x i8], ptr %25, i64 %.014.us
   %27 = load i64, ptr %26, align 8, !tbaa !15
   %28 = icmp eq i64 %27, 0
   %29 = and i64 %27, 7
@@ -3343,7 +3343,7 @@ rb_array_len.exit.thread:                         ; preds = %.preheader, %rbimpl
   br i1 %exitcond.not, label %.loopexit, label %.thread25
 
 .thread25:                                        ; preds = %rb_array_len.exit.thread
-  %38 = getelementptr i64, ptr %22, i64 %.014
+  %38 = getelementptr [8 x i8], ptr %22, i64 %.014
   %39 = load i64, ptr %38, align 8, !tbaa !15
   %40 = icmp eq i64 %39, 0
   %41 = and i64 %39, 7
@@ -4145,7 +4145,7 @@ rb_scan_args_n_opt.exit:
 
 4:                                                ; preds = %rb_scan_args_n_opt.exit
   %5 = zext nneg i32 %0 to i64
-  %6 = getelementptr i64, ptr %1, i64 %5
+  %6 = getelementptr [8 x i8], ptr %1, i64 %5
   %7 = getelementptr i8, ptr %6, i64 -8
   %8 = load i64, ptr %7, align 8, !tbaa !15
   %9 = tail call i32 @rb_keyword_given_p() #33
@@ -4268,7 +4268,7 @@ rb_scan_args_n_opt.exit:
 
 6:                                                ; preds = %rb_scan_args_n_opt.exit
   %7 = zext nneg i32 %0 to i64
-  %8 = getelementptr i64, ptr %1, i64 %7
+  %8 = getelementptr [8 x i8], ptr %1, i64 %7
   %9 = getelementptr i8, ptr %8, i64 -8
   %10 = load i64, ptr %9, align 8, !tbaa !15
   %11 = tail call i32 @rb_keyword_given_p() #33
@@ -4607,7 +4607,7 @@ rb_scan_args_n_opt.exit:
 
 6:                                                ; preds = %rb_scan_args_n_opt.exit
   %7 = zext nneg i32 %0 to i64
-  %8 = getelementptr i64, ptr %1, i64 %7
+  %8 = getelementptr [8 x i8], ptr %1, i64 %7
   %9 = getelementptr i8, ptr %8, i64 -8
   %10 = load i64, ptr %9, align 8, !tbaa !15
   %11 = tail call i32 @rb_keyword_given_p() #33
@@ -4748,7 +4748,7 @@ rb_scan_args_n_opt.exit:
 
 6:                                                ; preds = %rb_scan_args_n_opt.exit
   %7 = zext nneg i32 %0 to i64
-  %8 = getelementptr i64, ptr %1, i64 %7
+  %8 = getelementptr [8 x i8], ptr %1, i64 %7
   %9 = getelementptr i8, ptr %8, i64 -8
   %10 = load i64, ptr %9, align 8, !tbaa !15
   %11 = tail call i32 @rb_keyword_given_p() #33
@@ -4780,7 +4780,7 @@ rb_scan_args_set.exit:                            ; preds = %14, %12, %6
 21:                                               ; preds = %rb_scan_args_set.exit
   %22 = add nsw i32 %.0.i1823, -1
   %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr i64, ptr %1, i64 %23
+  %24 = getelementptr [8 x i8], ptr %1, i64 %23
   %25 = load i64, ptr %24, align 8, !tbaa !15
   br label %26
 
@@ -5304,7 +5304,7 @@ rb_scan_args_n_opt.exit:
 
 4:                                                ; preds = %rb_scan_args_n_opt.exit
   %5 = zext nneg i32 %0 to i64
-  %6 = getelementptr i64, ptr %1, i64 %5
+  %6 = getelementptr [8 x i8], ptr %1, i64 %5
   %7 = getelementptr i8, ptr %6, i64 -8
   %8 = load i64, ptr %7, align 8, !tbaa !15
   %9 = tail call i32 @rb_keyword_given_p() #33
@@ -5332,7 +5332,7 @@ rb_scan_args_set.exit:                            ; preds = %12, %4
 
 .thread:                                          ; preds = %rb_scan_args_set.exit
   %17 = zext nneg i32 %.0.i2833 to i64
-  %18 = getelementptr i64, ptr %1, i64 %17
+  %18 = getelementptr [8 x i8], ptr %1, i64 %17
   %19 = getelementptr i8, ptr %18, i64 -8
   %20 = load i64, ptr %19, align 8, !tbaa !15
   %21 = and i64 %20, -5
@@ -5349,7 +5349,7 @@ rb_scan_args_set.exit:                            ; preds = %12, %4
   %27 = phi i64 [ %23, %.thread ], [ 0, %24 ]
   %.019 = phi i32 [ %22, %.thread ], [ 2, %24 ]
   %28 = zext nneg i32 %.019 to i64
-  %29 = getelementptr i64, ptr %1, i64 %28
+  %29 = getelementptr [8 x i8], ptr %1, i64 %28
   %30 = load i64, ptr %29, align 8, !tbaa !15
   br label %31
 
@@ -5363,7 +5363,7 @@ rb_scan_args_set.exit:                            ; preds = %12, %4
 34:                                               ; preds = %31
   %35 = add nuw nsw i32 %.1, 1
   %36 = zext nneg i32 %.1 to i64
-  %37 = getelementptr i64, ptr %1, i64 %36
+  %37 = getelementptr [8 x i8], ptr %1, i64 %36
   store i64 %.087.i2735, ptr %37, align 8, !tbaa !15
   br label %.thread52
 
@@ -5408,7 +5408,7 @@ rb_scan_args_n_opt.exit:
 
 6:                                                ; preds = %rb_scan_args_n_opt.exit
   %7 = zext nneg i32 %0 to i64
-  %8 = getelementptr i64, ptr %1, i64 %7
+  %8 = getelementptr [8 x i8], ptr %1, i64 %7
   %9 = getelementptr i8, ptr %8, i64 -8
   %10 = load i64, ptr %9, align 8, !tbaa !15
   %11 = tail call i32 @rb_keyword_given_p() #33
@@ -5462,7 +5462,7 @@ rb_scan_args_n_opt.exit:
 
 6:                                                ; preds = %rb_scan_args_n_opt.exit
   %7 = zext nneg i32 %0 to i64
-  %8 = getelementptr i64, ptr %1, i64 %7
+  %8 = getelementptr [8 x i8], ptr %1, i64 %7
   %9 = getelementptr i8, ptr %8, i64 -8
   %10 = load i64, ptr %9, align 8, !tbaa !15
   %11 = tail call i32 @rb_keyword_given_p() #33
@@ -5607,7 +5607,7 @@ define internal noundef i64 @syserr_initialize(i32 noundef %0, ptr noundef reado
   %18 = phi i1 [ true, %.preheader ], [ false, %31 ]
   %.185.i60 = phi i32 [ 1, %.preheader ], [ %.286.i, %31 ]
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
-  %19 = getelementptr ptr, ptr %8, i64 %indvars.iv65
+  %19 = getelementptr [8 x i8], ptr %8, i64 %indvars.iv65
   %20 = load ptr, ptr %19, align 8, !tbaa !122
   %21 = icmp slt i32 %.185.i60, %0
   %.not108.i = icmp eq ptr %20, null
@@ -5618,7 +5618,7 @@ define internal noundef i64 @syserr_initialize(i32 noundef %0, ptr noundef reado
 
 23:                                               ; preds = %22
   %24 = sext i32 %.185.i60 to i64
-  %25 = getelementptr i64, ptr %1, i64 %24
+  %25 = getelementptr [8 x i8], ptr %1, i64 %24
   %26 = load i64, ptr %25, align 8, !tbaa !15
   store i64 %26, ptr %20, align 8, !tbaa !15
   br label %27
@@ -5739,7 +5739,7 @@ RBASIC_SET_CLASS.exit:                            ; preds = %68, %61, %rb_num2lo
 
 72:                                               ; preds = %.preheader53
   %73 = sext i32 %.185.i2755 to i64
-  %74 = getelementptr i64, ptr %1, i64 %73
+  %74 = getelementptr [8 x i8], ptr %1, i64 %73
   %75 = load i64, ptr %74, align 8, !tbaa !15
   store i64 %75, ptr %indvars.iv.sroa.phi.sroa.speculated, align 8, !tbaa !15
   %76 = add nsw i32 %.185.i2755, 1
@@ -6036,7 +6036,7 @@ rbimpl_size_mul_or_raise.exit:                    ; preds = %1
 
 .lr.ph:                                           ; preds = %rbimpl_size_mul_or_raise.exit, %.lr.ph
   %.010 = phi i64 [ %16, %.lr.ph ], [ 0, %rbimpl_size_mul_or_raise.exit ]
-  %12 = getelementptr i64, ptr %8, i64 %.010
+  %12 = getelementptr [8 x i8], ptr %8, i64 %.010
   %13 = load i64, ptr %12, align 8, !tbaa !15
   %14 = call i64 @rb_id2sym(i64 noundef %13) #33
   %15 = call i64 @rb_ary_push(i64 noundef %10, i64 noundef %14) #33
@@ -6058,7 +6058,7 @@ rb_scan_args_n_opt.exit:
 
 7:                                                ; preds = %rb_scan_args_n_opt.exit
   %8 = zext nneg i32 %0 to i64
-  %9 = getelementptr i64, ptr %1, i64 %8
+  %9 = getelementptr [8 x i8], ptr %1, i64 %8
   %10 = getelementptr i8, ptr %9, i64 -8
   %11 = load i64, ptr %10, align 8, !tbaa !15
   %12 = tail call i32 @rb_keyword_given_p() #33

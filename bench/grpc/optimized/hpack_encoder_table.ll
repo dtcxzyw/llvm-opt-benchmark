@@ -91,7 +91,7 @@ define noundef i32 @_ZN9grpc_core17HPackEncoderTable13AllocateIndexEm(ptr nounde
   %36 = trunc i64 %1 to i16
   %37 = zext i32 %8 to i64
   %38 = urem i64 %37, %34
-  %39 = getelementptr inbounds nuw i16, ptr %30, i64 %38
+  %39 = getelementptr inbounds nuw [2 x i8], ptr %30, i64 %38
   store i16 %36, ptr %39, align 2, !tbaa !23
   %40 = trunc nuw i64 %1 to i32
   %41 = add i32 %.lcssa, %40
@@ -143,7 +143,7 @@ define void @_ZN9grpc_core17HPackEncoderTable8EvictOneEv(ptr noundef nonnull ali
   %23 = sub i64 %21, %22
   %24 = ashr exact i64 %23, 1
   %25 = urem i64 %17, %24
-  %26 = getelementptr inbounds nuw i16, ptr %20, i64 %25
+  %26 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %25
   %27 = load i16, ptr %26, align 2, !tbaa !23
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %29 = load i32, ptr %28, align 4, !tbaa !16
@@ -238,7 +238,7 @@ define void @_ZN9grpc_core17HPackEncoderTable7RebuildEj(ptr noundef nonnull alig
 .noexc:                                           ; preds = %2
   %5 = shl nuw nsw i64 %4, 1
   %6 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %5) #11
-  %7 = getelementptr inbounds nuw i16, ptr %6, i64 %4
+  %7 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %4
   store i16 0, ptr %6, align 2, !tbaa !23
   %8 = getelementptr i8, ptr %6, i64 2
   %9 = add nsw i64 %4, -1
@@ -347,11 +347,11 @@ _ZN4absl12lts_2024072212log_internal12Check_LEImplIjjEEPNSt7__cxx1112basic_strin
   %.reass = add i32 %invariant.op, %48
   %49 = zext i32 %.reass to i64
   %50 = urem i64 %49, %22
-  %51 = getelementptr inbounds nuw i16, ptr %18, i64 %50
+  %51 = getelementptr inbounds nuw [2 x i8], ptr %18, i64 %50
   %52 = load i16, ptr %51, align 2, !tbaa !23
   %53 = urem i32 %.reass, %1
   %54 = zext i32 %53 to i64
-  %55 = getelementptr inbounds nuw i16, ptr %.sroa.023.0, i64 %54
+  %55 = getelementptr inbounds nuw [2 x i8], ptr %.sroa.023.0, i64 %54
   store i16 %52, ptr %55, align 2, !tbaa !23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

@@ -337,7 +337,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN10tokio_test2io7Build
   %.0.i.i = sub nuw i64 %23, %24
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !25, !noalias !28, !nonnull !5, !noundef !5
-  %27 = getelementptr inbounds { i64, [3 x i64] }, ptr %26, i64 %.0.i.i
+  %27 = getelementptr inbounds [32 x i8], ptr %26, i64 %.0.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
   %28 = load i64, ptr %9, align 8, !alias.scope !25, !noalias !28, !noundef !5
   %29 = add i64 %28, 1
@@ -429,7 +429,7 @@ common.resume:                                    ; preds = %21, %11
   %.0.i.i = sub nuw i64 %29, %30
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %32 = load ptr, ptr %31, align 8, !alias.scope !36, !noalias !39, !nonnull !5, !noundef !5
-  %33 = getelementptr inbounds { i64, [3 x i64] }, ptr %32, i64 %.0.i.i
+  %33 = getelementptr inbounds [32 x i8], ptr %32, i64 %.0.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
   %34 = load i64, ptr %16, align 8, !alias.scope !36, !noalias !39, !noundef !5
   %35 = add i64 %34, 1
@@ -495,7 +495,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN10tokio_test2io7Build
   %.0.i.i = sub nuw i64 %23, %24
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !49, !noalias !52, !nonnull !5, !noundef !5
-  %27 = getelementptr inbounds { i64, [3 x i64] }, ptr %26, i64 %.0.i.i
+  %27 = getelementptr inbounds [32 x i8], ptr %26, i64 %.0.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
   %28 = load i64, ptr %9, align 8, !alias.scope !49, !noalias !52, !noundef !5
   %29 = add i64 %28, 1
@@ -587,7 +587,7 @@ common.resume:                                    ; preds = %21, %11
   %.0.i.i = sub nuw i64 %29, %30
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %32 = load ptr, ptr %31, align 8, !alias.scope !60, !noalias !63, !nonnull !5, !noundef !5
-  %33 = getelementptr inbounds { i64, [3 x i64] }, ptr %32, i64 %.0.i.i
+  %33 = getelementptr inbounds [32 x i8], ptr %32, i64 %.0.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
   %34 = load i64, ptr %16, align 8, !alias.scope !60, !noalias !63, !noundef !5
   %35 = add i64 %34, 1
@@ -649,7 +649,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN10tokio_test2io7Build
   %.0.i.i = sub nuw i64 %23, %24
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !68, !noalias !71, !nonnull !5, !noundef !5
-  %27 = getelementptr inbounds { i64, [3 x i64] }, ptr %26, i64 %.0.i.i
+  %27 = getelementptr inbounds [32 x i8], ptr %26, i64 %.0.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
   %28 = load i64, ptr %9, align 8, !alias.scope !68, !noalias !71, !noundef !5
   %29 = add i64 %28, 1
@@ -1091,7 +1091,7 @@ default.unreachable42:                            ; preds = %18
   %22 = select i1 %.not.i.i, i64 0, i64 %21
   %.0.i.i = sub nuw i64 %20, %22
   %23 = load ptr, ptr %9, align 8, !alias.scope !133, !nonnull !5, !noundef !5
-  %24 = getelementptr inbounds { i64, [3 x i64] }, ptr %23, i64 %.0.i.i
+  %24 = getelementptr inbounds [32 x i8], ptr %23, i64 %.0.i.i
   %25 = load i64, ptr %24, align 8, !range !134, !noundef !5
   switch i64 %25, label %default.unreachable42 [
     i64 0, label %26
@@ -1128,7 +1128,7 @@ default.unreachable42:                            ; preds = %18
   store i64 %.0.i.i14, ptr %8, align 8, !alias.scope !136, !noalias !139
   %38 = add i64 %19, -1
   store i64 %38, ptr %5, align 8, !alias.scope !136, !noalias !139
-  %39 = getelementptr inbounds { i64, [3 x i64] }, ptr %23, i64 %20
+  %39 = getelementptr inbounds [32 x i8], ptr %23, i64 %20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %39, i64 32, i1 false), !noalias !136
   call void @llvm.experimental.noalias.scope.decl(metadata !141)
   %40 = load i64, ptr %4, align 8, !range !95, !alias.scope !141, !noundef !5
@@ -1581,7 +1581,7 @@ _ZN10tokio_test2io5Inner11poll_action17h70e2505b9b8d6805E.exit: ; preds = %112
   %128 = select i1 %.not.i.i, i64 0, i64 %124
   %.0.i.i = sub nuw i64 %127, %128
   %129 = load ptr, ptr %26, align 8, !alias.scope !231, !noalias !234, !nonnull !5, !noundef !5
-  %130 = getelementptr inbounds { i64, [3 x i64] }, ptr %129, i64 %.0.i.i
+  %130 = getelementptr inbounds [32 x i8], ptr %129, i64 %.0.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %130, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false)
   %131 = load i64, ptr %24, align 8, !alias.scope !231, !noalias !234, !noundef !5
   %132 = add i64 %131, 1
@@ -1935,7 +1935,7 @@ common.resume:                                    ; preds = %.body62, %233, %228
   %69 = select i1 %.not.i.i, i64 0, i64 %65
   %.0.i.i = sub nuw i64 %68, %69
   %70 = load ptr, ptr %26, align 8, !alias.scope !285, !noalias !288, !nonnull !5, !noundef !5
-  %71 = getelementptr inbounds { i64, [3 x i64] }, ptr %70, i64 %.0.i.i
+  %71 = getelementptr inbounds [32 x i8], ptr %70, i64 %.0.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %71, ptr noundef nonnull align 8 dereferenceable(32) %20, i64 32, i1 false)
   %72 = load i64, ptr %23, align 8, !alias.scope !285, !noalias !288, !noundef !5
   %73 = add i64 %72, 1
@@ -2052,7 +2052,7 @@ thread-pre-split94:                               ; preds = %49
   %.not.i.i.i = icmp ult i64 %113, %88
   %114 = select i1 %.not.i.i.i, i64 0, i64 %88
   %.0.i.i.i = sub nuw i64 %113, %114
-  %115 = getelementptr inbounds { i64, [3 x i64] }, ptr %89, i64 %.0.i.i.i
+  %115 = getelementptr inbounds [32 x i8], ptr %89, i64 %.0.i.i.i
   %116 = load i64, ptr %115, align 8, !range !134, !noalias !317, !noundef !5
   switch i64 %116, label %117 [
     i64 1, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb774deade1e57dbfE.exit.i"
@@ -2254,7 +2254,7 @@ _ZN10tokio_test2io5Inner11poll_action17h70e2505b9b8d6805E.exit: ; preds = %.thre
   %177 = select i1 %.not.i.i68, i64 0, i64 %173
   %.0.i.i69 = sub nuw i64 %176, %177
   %178 = load ptr, ptr %26, align 8, !alias.scope !333, !noalias !336, !nonnull !5, !noundef !5
-  %179 = getelementptr inbounds { i64, [3 x i64] }, ptr %178, i64 %.0.i.i69
+  %179 = getelementptr inbounds [32 x i8], ptr %178, i64 %.0.i.i69
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %179, ptr noundef nonnull align 8 dereferenceable(32) %14, i64 32, i1 false)
   %180 = load i64, ptr %23, align 8, !alias.scope !333, !noalias !336, !noundef !5
   %181 = add i64 %180, 1

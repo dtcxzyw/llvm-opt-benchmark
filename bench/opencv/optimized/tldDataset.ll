@@ -130,9 +130,9 @@ define void @_ZN2cv6detail8tracking3tld15tld_InitDatasetEiPKci(ptr dead_on_unwin
   %_ZN2cv6detail8tracking3tld10tldFlagPNGE.sink = phi ptr [ @_ZN2cv6detail8tracking3tld10votFlagPNGE, %6 ], [ @_ZN2cv6detail8tracking3tld10tldFlagPNGE, %4 ]
   %.sink = phi i8 [ 1, %6 ], [ 0, %4 ]
   %7 = sext i32 %5 to i64
-  %8 = getelementptr inbounds ptr, ptr %_ZN2cv6detail8tracking3tld13tldFolderNameE.sink, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr %_ZN2cv6detail8tracking3tld13tldFolderNameE.sink, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !3
-  %10 = getelementptr inbounds %"class.cv::Rect_", ptr %_ZN2cv6detail8tracking3tldL9tldInitBBE.sink, i64 %7
+  %10 = getelementptr inbounds [32 x i8], ptr %_ZN2cv6detail8tracking3tldL9tldInitBBE.sink, i64 %7
   %11 = load double, ptr %10, align 16, !tbaa !8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %13 = load double, ptr %12, align 8, !tbaa !11
@@ -140,7 +140,7 @@ define void @_ZN2cv6detail8tracking3tld15tld_InitDatasetEiPKci(ptr dead_on_unwin
   %15 = load double, ptr %14, align 16, !tbaa !12
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %17 = load double, ptr %16, align 8, !tbaa !13
-  %18 = getelementptr inbounds i32, ptr %_ZN2cv6detail8tracking3tld14tldFrameOffsetE.sink, i64 %7
+  %18 = getelementptr inbounds [4 x i8], ptr %_ZN2cv6detail8tracking3tld14tldFrameOffsetE.sink, i64 %7
   %19 = load i32, ptr %18, align 4, !tbaa !14
   store i32 %19, ptr @_ZN2cv6detail8tracking3tld8frameNumE, align 4, !tbaa !14
   %20 = getelementptr inbounds i8, ptr %_ZN2cv6detail8tracking3tld10tldFlagPNGE.sink, i64 %7

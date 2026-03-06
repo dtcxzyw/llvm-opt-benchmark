@@ -694,7 +694,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %356 = add nsw i32 %355, 1
   store i32 %356, ptr %328, align 4, !tbaa !55
   %357 = sext i32 %355 to i64
-  %358 = getelementptr inbounds ptr, ptr %354, i64 %357
+  %358 = getelementptr inbounds [8 x i8], ptr %354, i64 %357
   store ptr %327, ptr %358, align 8, !tbaa !59
   br label %359
 
@@ -1311,7 +1311,7 @@ Vec_PtrPush.exit374:                              ; preds = %.Vec_PtrGrow.exit11
   %648 = add nsw i32 %647, 1
   store i32 %648, ptr %620, align 4, !tbaa !55
   %649 = sext i32 %647 to i64
-  %650 = getelementptr inbounds ptr, ptr %646, i64 %649
+  %650 = getelementptr inbounds [8 x i8], ptr %646, i64 %649
   store ptr %619, ptr %650, align 8, !tbaa !59
   br label %654
 

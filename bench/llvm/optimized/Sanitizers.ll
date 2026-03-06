@@ -529,7 +529,7 @@ define dso_local void @_ZN5clang20SanitizerMaskCutoffs3setENS_13SanitizerMaskEd(
 
 _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %31, %33, %34, %36
   %37 = phi ptr [ %.pre, %31 ], [ %25, %33 ], [ %25, %34 ], [ %25, %36 ]
-  %38 = getelementptr inbounds nuw double, ptr %37, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv
   store double %3, ptr %38, align 8, !tbaa !11
   br label %39
 
@@ -555,7 +555,7 @@ define dso_local { double, i8 } @_ZNK5clang20SanitizerMaskCutoffsixEj(ptr nounde
 
 7:                                                ; preds = %2
   %8 = zext i32 %1 to i64
-  %9 = getelementptr inbounds nuw double, ptr %3, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %8
   %10 = load double, ptr %9, align 8, !tbaa !11
   %11 = fcmp olt double %10, 0x3E112E0BE0000000
   br i1 %11, label %13, label %12
@@ -624,7 +624,7 @@ define dso_local void @_ZN5clang20SanitizerMaskCutoffs5clearENS_13SanitizerMaskE
 
 _ZNSt6vectorIdSaIdEE6resizeEm.exit.i:             ; preds = %30, %28, %27, %25
   %31 = phi ptr [ %.pre.i, %25 ], [ %8, %27 ], [ %8, %28 ], [ %8, %30 ]
-  %32 = getelementptr inbounds nuw double, ptr %31, i64 %indvars.iv.i
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv.i
   store double 0.000000e+00, ptr %32, align 8, !tbaa !11
   br label %33
 
@@ -659,7 +659,7 @@ define dso_local void @_ZNK5clang20SanitizerMaskCutoffs12getAllScaledEj(ptr dead
   br i1 %10, label %41, label %11
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %13 = load double, ptr %12, align 8, !tbaa !11
   %14 = fcmp olt double %13, 0x3E112E0BE0000000
   br i1 %14, label %41, label %15
@@ -719,7 +719,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i: ; preds = %37, %_ZN
   br label %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i: ; preds = %39, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i
-  %40 = getelementptr inbounds nuw i32, ptr %34, i64 %32
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %32
   br label %_ZNSt6vectorIjSaIjEE9push_backEOj.exit
 
 41:                                               ; preds = %11, %7
@@ -772,7 +772,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i10: ; preds = %59, %_
   br label %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i12
 
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i12: ; preds = %61, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i10
-  %62 = getelementptr inbounds nuw i32, ptr %56, i64 %54
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %54
   br label %_ZNSt6vectorIjSaIjEE9push_backEOj.exit
 
 _ZNSt6vectorIjSaIjEE9push_backEOj.exit:           ; preds = %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i12, %42, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i, %20
@@ -2259,7 +2259,7 @@ _ZNK4llvm9StringRef5splitEc.exit:                 ; preds = %163, %165
 
 _ZNSt6vectorIdSaIdEE6resizeEm.exit.i:             ; preds = %213, %211, %210, %208
   %214 = phi ptr [ %.pre.i, %208 ], [ %202, %210 ], [ %202, %211 ], [ %202, %213 ]
-  %215 = getelementptr inbounds nuw double, ptr %214, i64 %indvars.iv.i
+  %215 = getelementptr inbounds nuw [8 x i8], ptr %214, i64 %indvars.iv.i
   store double %.sroa.speculated, ptr %215, align 8, !tbaa !11
   br label %216
 
@@ -2376,7 +2376,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit: ; pred
   %14 = phi i32 [ %7, %5 ], [ %.pre.i, %10 ]
   %15 = load ptr, ptr %2, align 8, !tbaa !46
   %16 = zext i32 %14 to i64
-  %17 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %16
   store ptr @.str, ptr %17, align 1
   %.sroa.2.0..sroa_idx.i184 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i64 7, ptr %.sroa.2.0..sroa_idx.i184, align 1
@@ -2410,7 +2410,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit192: ; p
   %31 = phi i32 [ %24, %22 ], [ %.pre.i190, %27 ]
   %32 = load ptr, ptr %2, align 8, !tbaa !46
   %33 = zext i32 %31 to i64
-  %34 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %32, i64 %33
+  %34 = getelementptr inbounds nuw [16 x i8], ptr %32, i64 %33
   store ptr @.str.1, ptr %34, align 1
   %.sroa.2.0..sroa_idx.i191 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i64 15, ptr %.sroa.2.0..sroa_idx.i191, align 1
@@ -2444,7 +2444,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit200: ; p
   %48 = phi i32 [ %41, %39 ], [ %.pre.i198, %44 ]
   %49 = load ptr, ptr %2, align 8, !tbaa !46
   %50 = zext i32 %48 to i64
-  %51 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [16 x i8], ptr %49, i64 %50
   store ptr @.str.2, ptr %51, align 1
   %.sroa.2.0..sroa_idx.i199 = getelementptr inbounds nuw i8, ptr %51, i64 8
   store i64 16, ptr %.sroa.2.0..sroa_idx.i199, align 1
@@ -2478,7 +2478,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit208: ; p
   %65 = phi i32 [ %58, %56 ], [ %.pre.i206, %61 ]
   %66 = load ptr, ptr %2, align 8, !tbaa !46
   %67 = zext i32 %65 to i64
-  %68 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %66, i64 %67
+  %68 = getelementptr inbounds nuw [16 x i8], ptr %66, i64 %67
   store ptr @.str.3, ptr %68, align 1
   %.sroa.2.0..sroa_idx.i207 = getelementptr inbounds nuw i8, ptr %68, i64 8
   store i64 14, ptr %.sroa.2.0..sroa_idx.i207, align 1
@@ -2512,7 +2512,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit216: ; p
   %82 = phi i32 [ %75, %73 ], [ %.pre.i214, %78 ]
   %83 = load ptr, ptr %2, align 8, !tbaa !46
   %84 = zext i32 %82 to i64
-  %85 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %83, i64 %84
+  %85 = getelementptr inbounds nuw [16 x i8], ptr %83, i64 %84
   store ptr @.str.4, ptr %85, align 1
   %.sroa.2.0..sroa_idx.i215 = getelementptr inbounds nuw i8, ptr %85, i64 8
   store i64 9, ptr %.sroa.2.0..sroa_idx.i215, align 1
@@ -2546,7 +2546,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit224: ; p
   %99 = phi i32 [ %92, %90 ], [ %.pre.i222, %95 ]
   %100 = load ptr, ptr %2, align 8, !tbaa !46
   %101 = zext i32 %99 to i64
-  %102 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %100, i64 %101
+  %102 = getelementptr inbounds nuw [16 x i8], ptr %100, i64 %101
   store ptr @.str.5, ptr %102, align 1
   %.sroa.2.0..sroa_idx.i223 = getelementptr inbounds nuw i8, ptr %102, i64 8
   store i64 16, ptr %.sroa.2.0..sroa_idx.i223, align 1
@@ -2580,7 +2580,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit232: ; p
   %116 = phi i32 [ %109, %107 ], [ %.pre.i230, %112 ]
   %117 = load ptr, ptr %2, align 8, !tbaa !46
   %118 = zext i32 %116 to i64
-  %119 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %117, i64 %118
+  %119 = getelementptr inbounds nuw [16 x i8], ptr %117, i64 %118
   store ptr @.str.6, ptr %119, align 1
   %.sroa.2.0..sroa_idx.i231 = getelementptr inbounds nuw i8, ptr %119, i64 8
   store i64 12, ptr %.sroa.2.0..sroa_idx.i231, align 1
@@ -2614,7 +2614,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit240: ; p
   %133 = phi i32 [ %126, %124 ], [ %.pre.i238, %129 ]
   %134 = load ptr, ptr %2, align 8, !tbaa !46
   %135 = zext i32 %133 to i64
-  %136 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %134, i64 %135
+  %136 = getelementptr inbounds nuw [16 x i8], ptr %134, i64 %135
   store ptr @.str.7, ptr %136, align 1
   %.sroa.2.0..sroa_idx.i239 = getelementptr inbounds nuw i8, ptr %136, i64 8
   store i64 11, ptr %.sroa.2.0..sroa_idx.i239, align 1
@@ -2648,7 +2648,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit248: ; p
   %150 = phi i32 [ %143, %141 ], [ %.pre.i246, %146 ]
   %151 = load ptr, ptr %2, align 8, !tbaa !46
   %152 = zext i32 %150 to i64
-  %153 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %151, i64 %152
+  %153 = getelementptr inbounds nuw [16 x i8], ptr %151, i64 %152
   store ptr @.str.8, ptr %153, align 1
   %.sroa.2.0..sroa_idx.i247 = getelementptr inbounds nuw i8, ptr %153, i64 8
   store i64 14, ptr %.sroa.2.0..sroa_idx.i247, align 1
@@ -2682,7 +2682,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit256: ; p
   %167 = phi i32 [ %160, %158 ], [ %.pre.i254, %163 ]
   %168 = load ptr, ptr %2, align 8, !tbaa !46
   %169 = zext i32 %167 to i64
-  %170 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %168, i64 %169
+  %170 = getelementptr inbounds nuw [16 x i8], ptr %168, i64 %169
   store ptr @.str.10, ptr %170, align 1
   %.sroa.2.0..sroa_idx.i255 = getelementptr inbounds nuw i8, ptr %170, i64 8
   store i64 6, ptr %.sroa.2.0..sroa_idx.i255, align 1
@@ -2716,7 +2716,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit264: ; p
   %184 = phi i32 [ %177, %175 ], [ %.pre.i262, %180 ]
   %185 = load ptr, ptr %2, align 8, !tbaa !46
   %186 = zext i32 %184 to i64
-  %187 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %185, i64 %186
+  %187 = getelementptr inbounds nuw [16 x i8], ptr %185, i64 %186
   store ptr @.str.11, ptr %187, align 1
   %.sroa.2.0..sroa_idx.i263 = getelementptr inbounds nuw i8, ptr %187, i64 8
   store i64 13, ptr %.sroa.2.0..sroa_idx.i263, align 1
@@ -2750,7 +2750,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit272: ; p
   %201 = phi i32 [ %194, %192 ], [ %.pre.i270, %197 ]
   %202 = load ptr, ptr %2, align 8, !tbaa !46
   %203 = zext i32 %201 to i64
-  %204 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %202, i64 %203
+  %204 = getelementptr inbounds nuw [16 x i8], ptr %202, i64 %203
   store ptr @.str.12, ptr %204, align 1
   %.sroa.2.0..sroa_idx.i271 = getelementptr inbounds nuw i8, ptr %204, i64 8
   store i64 6, ptr %.sroa.2.0..sroa_idx.i271, align 1
@@ -2784,7 +2784,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit280: ; p
   %218 = phi i32 [ %211, %209 ], [ %.pre.i278, %214 ]
   %219 = load ptr, ptr %2, align 8, !tbaa !46
   %220 = zext i32 %218 to i64
-  %221 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %219, i64 %220
+  %221 = getelementptr inbounds nuw [16 x i8], ptr %219, i64 %220
   store ptr @.str.13, ptr %221, align 1
   %.sroa.2.0..sroa_idx.i279 = getelementptr inbounds nuw i8, ptr %221, i64 8
   store i64 14, ptr %.sroa.2.0..sroa_idx.i279, align 1
@@ -2818,7 +2818,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit288: ; p
   %235 = phi i32 [ %228, %226 ], [ %.pre.i286, %231 ]
   %236 = load ptr, ptr %2, align 8, !tbaa !46
   %237 = zext i32 %235 to i64
-  %238 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %236, i64 %237
+  %238 = getelementptr inbounds nuw [16 x i8], ptr %236, i64 %237
   store ptr @.str.14, ptr %238, align 1
   %.sroa.2.0..sroa_idx.i287 = getelementptr inbounds nuw i8, ptr %238, i64 8
   store i64 4, ptr %.sroa.2.0..sroa_idx.i287, align 1
@@ -2852,7 +2852,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit296: ; p
   %252 = phi i32 [ %245, %243 ], [ %.pre.i294, %248 ]
   %253 = load ptr, ptr %2, align 8, !tbaa !46
   %254 = zext i32 %252 to i64
-  %255 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %253, i64 %254
+  %255 = getelementptr inbounds nuw [16 x i8], ptr %253, i64 %254
   store ptr @.str.15, ptr %255, align 1
   %.sroa.2.0..sroa_idx.i295 = getelementptr inbounds nuw i8, ptr %255, i64 8
   store i64 6, ptr %.sroa.2.0..sroa_idx.i295, align 1
@@ -2886,7 +2886,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit304: ; p
   %269 = phi i32 [ %262, %260 ], [ %.pre.i302, %265 ]
   %270 = load ptr, ptr %2, align 8, !tbaa !46
   %271 = zext i32 %269 to i64
-  %272 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %270, i64 %271
+  %272 = getelementptr inbounds nuw [16 x i8], ptr %270, i64 %271
   store ptr @.str.16, ptr %272, align 1
   %.sroa.2.0..sroa_idx.i303 = getelementptr inbounds nuw i8, ptr %272, i64 8
   store i64 9, ptr %.sroa.2.0..sroa_idx.i303, align 1
@@ -2920,7 +2920,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit312: ; p
   %286 = phi i32 [ %279, %277 ], [ %.pre.i310, %282 ]
   %287 = load ptr, ptr %2, align 8, !tbaa !46
   %288 = zext i32 %286 to i64
-  %289 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %287, i64 %288
+  %289 = getelementptr inbounds nuw [16 x i8], ptr %287, i64 %288
   store ptr @.str.17, ptr %289, align 1
   %.sroa.2.0..sroa_idx.i311 = getelementptr inbounds nuw i8, ptr %289, i64 8
   store i64 8, ptr %.sroa.2.0..sroa_idx.i311, align 1
@@ -2954,7 +2954,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit320: ; p
   %303 = phi i32 [ %296, %294 ], [ %.pre.i318, %299 ]
   %304 = load ptr, ptr %2, align 8, !tbaa !46
   %305 = zext i32 %303 to i64
-  %306 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %304, i64 %305
+  %306 = getelementptr inbounds nuw [16 x i8], ptr %304, i64 %305
   store ptr @.str.18, ptr %306, align 1
   %.sroa.2.0..sroa_idx.i319 = getelementptr inbounds nuw i8, ptr %306, i64 8
   store i64 4, ptr %.sroa.2.0..sroa_idx.i319, align 1
@@ -2988,7 +2988,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit328: ; p
   %320 = phi i32 [ %313, %311 ], [ %.pre.i326, %316 ]
   %321 = load ptr, ptr %2, align 8, !tbaa !46
   %322 = zext i32 %320 to i64
-  %323 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %321, i64 %322
+  %323 = getelementptr inbounds nuw [16 x i8], ptr %321, i64 %322
   store ptr @.str.19, ptr %323, align 1
   %.sroa.2.0..sroa_idx.i327 = getelementptr inbounds nuw i8, ptr %323, i64 8
   store i64 9, ptr %.sroa.2.0..sroa_idx.i327, align 1
@@ -3022,7 +3022,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit336: ; p
   %337 = phi i32 [ %330, %328 ], [ %.pre.i334, %333 ]
   %338 = load ptr, ptr %2, align 8, !tbaa !46
   %339 = zext i32 %337 to i64
-  %340 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %338, i64 %339
+  %340 = getelementptr inbounds nuw [16 x i8], ptr %338, i64 %339
   store ptr @.str.20, ptr %340, align 1
   %.sroa.2.0..sroa_idx.i335 = getelementptr inbounds nuw i8, ptr %340, i64 8
   store i64 12, ptr %.sroa.2.0..sroa_idx.i335, align 1
@@ -3056,7 +3056,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit344: ; p
   %354 = phi i32 [ %347, %345 ], [ %.pre.i342, %350 ]
   %355 = load ptr, ptr %2, align 8, !tbaa !46
   %356 = zext i32 %354 to i64
-  %357 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %355, i64 %356
+  %357 = getelementptr inbounds nuw [16 x i8], ptr %355, i64 %356
   store ptr @.str.21, ptr %357, align 1
   %.sroa.2.0..sroa_idx.i343 = getelementptr inbounds nuw i8, ptr %357, i64 8
   store i64 4, ptr %.sroa.2.0..sroa_idx.i343, align 1
@@ -3090,7 +3090,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit352: ; p
   %371 = phi i32 [ %364, %362 ], [ %.pre.i350, %367 ]
   %372 = load ptr, ptr %2, align 8, !tbaa !46
   %373 = zext i32 %371 to i64
-  %374 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %372, i64 %373
+  %374 = getelementptr inbounds nuw [16 x i8], ptr %372, i64 %373
   store ptr @.str.22, ptr %374, align 1
   %.sroa.2.0..sroa_idx.i351 = getelementptr inbounds nuw i8, ptr %374, i64 8
   store i64 7, ptr %.sroa.2.0..sroa_idx.i351, align 1
@@ -3124,7 +3124,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit360: ; p
   %388 = phi i32 [ %381, %379 ], [ %.pre.i358, %384 ]
   %389 = load ptr, ptr %2, align 8, !tbaa !46
   %390 = zext i32 %388 to i64
-  %391 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %389, i64 %390
+  %391 = getelementptr inbounds nuw [16 x i8], ptr %389, i64 %390
   store ptr @.str.23, ptr %391, align 1
   %.sroa.2.0..sroa_idx.i359 = getelementptr inbounds nuw i8, ptr %391, i64 8
   store i64 4, ptr %.sroa.2.0..sroa_idx.i359, align 1
@@ -3158,7 +3158,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit368: ; p
   %405 = phi i32 [ %398, %396 ], [ %.pre.i366, %401 ]
   %406 = load ptr, ptr %2, align 8, !tbaa !46
   %407 = zext i32 %405 to i64
-  %408 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %406, i64 %407
+  %408 = getelementptr inbounds nuw [16 x i8], ptr %406, i64 %407
   store ptr @.str.24, ptr %408, align 1
   %.sroa.2.0..sroa_idx.i367 = getelementptr inbounds nuw i8, ptr %408, i64 8
   store i64 19, ptr %.sroa.2.0..sroa_idx.i367, align 1
@@ -3192,7 +3192,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit376: ; p
   %422 = phi i32 [ %415, %413 ], [ %.pre.i374, %418 ]
   %423 = load ptr, ptr %2, align 8, !tbaa !46
   %424 = zext i32 %422 to i64
-  %425 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %423, i64 %424
+  %425 = getelementptr inbounds nuw [16 x i8], ptr %423, i64 %424
   store ptr @.str.25, ptr %425, align 1
   %.sroa.2.0..sroa_idx.i375 = getelementptr inbounds nuw i8, ptr %425, i64 8
   store i64 20, ptr %.sroa.2.0..sroa_idx.i375, align 1
@@ -3226,7 +3226,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit384: ; p
   %439 = phi i32 [ %432, %430 ], [ %.pre.i382, %435 ]
   %440 = load ptr, ptr %2, align 8, !tbaa !46
   %441 = zext i32 %439 to i64
-  %442 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %440, i64 %441
+  %442 = getelementptr inbounds nuw [16 x i8], ptr %440, i64 %441
   store ptr @.str.26, ptr %442, align 1
   %.sroa.2.0..sroa_idx.i383 = getelementptr inbounds nuw i8, ptr %442, i64 8
   store i64 8, ptr %.sroa.2.0..sroa_idx.i383, align 1
@@ -3260,7 +3260,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit392: ; p
   %456 = phi i32 [ %449, %447 ], [ %.pre.i390, %452 ]
   %457 = load ptr, ptr %2, align 8, !tbaa !46
   %458 = zext i32 %456 to i64
-  %459 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %457, i64 %458
+  %459 = getelementptr inbounds nuw [16 x i8], ptr %457, i64 %458
   store ptr @.str.27, ptr %459, align 1
   %.sroa.2.0..sroa_idx.i391 = getelementptr inbounds nuw i8, ptr %459, i64 8
   store i64 22, ptr %.sroa.2.0..sroa_idx.i391, align 1
@@ -3294,7 +3294,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit400: ; p
   %473 = phi i32 [ %466, %464 ], [ %.pre.i398, %469 ]
   %474 = load ptr, ptr %2, align 8, !tbaa !46
   %475 = zext i32 %473 to i64
-  %476 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %474, i64 %475
+  %476 = getelementptr inbounds nuw [16 x i8], ptr %474, i64 %475
   store ptr @.str.28, ptr %476, align 1
   %.sroa.2.0..sroa_idx.i399 = getelementptr inbounds nuw i8, ptr %476, i64 8
   store i64 17, ptr %.sroa.2.0..sroa_idx.i399, align 1
@@ -3328,7 +3328,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit408: ; p
   %490 = phi i32 [ %483, %481 ], [ %.pre.i406, %486 ]
   %491 = load ptr, ptr %2, align 8, !tbaa !46
   %492 = zext i32 %490 to i64
-  %493 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %491, i64 %492
+  %493 = getelementptr inbounds nuw [16 x i8], ptr %491, i64 %492
   store ptr @.str.29, ptr %493, align 1
   %.sroa.2.0..sroa_idx.i407 = getelementptr inbounds nuw i8, ptr %493, i64 8
   store i64 4, ptr %.sroa.2.0..sroa_idx.i407, align 1
@@ -3362,7 +3362,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit416: ; p
   %507 = phi i32 [ %500, %498 ], [ %.pre.i414, %503 ]
   %508 = load ptr, ptr %2, align 8, !tbaa !46
   %509 = zext i32 %507 to i64
-  %510 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %508, i64 %509
+  %510 = getelementptr inbounds nuw [16 x i8], ptr %508, i64 %509
   store ptr @.str.30, ptr %510, align 1
   %.sroa.2.0..sroa_idx.i415 = getelementptr inbounds nuw i8, ptr %510, i64 8
   store i64 15, ptr %.sroa.2.0..sroa_idx.i415, align 1
@@ -3396,7 +3396,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit424: ; p
   %524 = phi i32 [ %517, %515 ], [ %.pre.i422, %520 ]
   %525 = load ptr, ptr %2, align 8, !tbaa !46
   %526 = zext i32 %524 to i64
-  %527 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %525, i64 %526
+  %527 = getelementptr inbounds nuw [16 x i8], ptr %525, i64 %526
   store ptr @.str.31, ptr %527, align 1
   %.sroa.2.0..sroa_idx.i423 = getelementptr inbounds nuw i8, ptr %527, i64 8
   store i64 18, ptr %.sroa.2.0..sroa_idx.i423, align 1
@@ -3430,7 +3430,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit432: ; p
   %541 = phi i32 [ %534, %532 ], [ %.pre.i430, %537 ]
   %542 = load ptr, ptr %2, align 8, !tbaa !46
   %543 = zext i32 %541 to i64
-  %544 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %542, i64 %543
+  %544 = getelementptr inbounds nuw [16 x i8], ptr %542, i64 %543
   store ptr @.str.32, ptr %544, align 1
   %.sroa.2.0..sroa_idx.i431 = getelementptr inbounds nuw i8, ptr %544, i64 8
   store i64 18, ptr %.sroa.2.0..sroa_idx.i431, align 1
@@ -3464,7 +3464,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit440: ; p
   %558 = phi i32 [ %551, %549 ], [ %.pre.i438, %554 ]
   %559 = load ptr, ptr %2, align 8, !tbaa !46
   %560 = zext i32 %558 to i64
-  %561 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %559, i64 %560
+  %561 = getelementptr inbounds nuw [16 x i8], ptr %559, i64 %560
   store ptr @.str.34, ptr %561, align 1
   %.sroa.2.0..sroa_idx.i439 = getelementptr inbounds nuw i8, ptr %561, i64 8
   store i64 11, ptr %.sroa.2.0..sroa_idx.i439, align 1
@@ -3498,7 +3498,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit448: ; p
   %575 = phi i32 [ %568, %566 ], [ %.pre.i446, %571 ]
   %576 = load ptr, ptr %2, align 8, !tbaa !46
   %577 = zext i32 %575 to i64
-  %578 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %576, i64 %577
+  %578 = getelementptr inbounds nuw [16 x i8], ptr %576, i64 %577
   store ptr @.str.35, ptr %578, align 1
   %.sroa.2.0..sroa_idx.i447 = getelementptr inbounds nuw i8, ptr %578, i64 8
   store i64 16, ptr %.sroa.2.0..sroa_idx.i447, align 1
@@ -3532,7 +3532,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit456: ; p
   %592 = phi i32 [ %585, %583 ], [ %.pre.i454, %588 ]
   %593 = load ptr, ptr %2, align 8, !tbaa !46
   %594 = zext i32 %592 to i64
-  %595 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %593, i64 %594
+  %595 = getelementptr inbounds nuw [16 x i8], ptr %593, i64 %594
   store ptr @.str.36, ptr %595, align 1
   %.sroa.2.0..sroa_idx.i455 = getelementptr inbounds nuw i8, ptr %595, i64 8
   store i64 6, ptr %.sroa.2.0..sroa_idx.i455, align 1
@@ -3566,7 +3566,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit464: ; p
   %609 = phi i32 [ %602, %600 ], [ %.pre.i462, %605 ]
   %610 = load ptr, ptr %2, align 8, !tbaa !46
   %611 = zext i32 %609 to i64
-  %612 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %610, i64 %611
+  %612 = getelementptr inbounds nuw [16 x i8], ptr %610, i64 %611
   store ptr @.str.37, ptr %612, align 1
   %.sroa.2.0..sroa_idx.i463 = getelementptr inbounds nuw i8, ptr %612, i64 8
   store i64 25, ptr %.sroa.2.0..sroa_idx.i463, align 1
@@ -3600,7 +3600,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit472: ; p
   %626 = phi i32 [ %619, %617 ], [ %.pre.i470, %622 ]
   %627 = load ptr, ptr %2, align 8, !tbaa !46
   %628 = zext i32 %626 to i64
-  %629 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %627, i64 %628
+  %629 = getelementptr inbounds nuw [16 x i8], ptr %627, i64 %628
   store ptr @.str.38, ptr %629, align 1
   %.sroa.2.0..sroa_idx.i471 = getelementptr inbounds nuw i8, ptr %629, i64 8
   store i64 10, ptr %.sroa.2.0..sroa_idx.i471, align 1
@@ -3634,7 +3634,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit480: ; p
   %643 = phi i32 [ %636, %634 ], [ %.pre.i478, %639 ]
   %644 = load ptr, ptr %2, align 8, !tbaa !46
   %645 = zext i32 %643 to i64
-  %646 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %644, i64 %645
+  %646 = getelementptr inbounds nuw [16 x i8], ptr %644, i64 %645
   store ptr @.str.39, ptr %646, align 1
   %.sroa.2.0..sroa_idx.i479 = getelementptr inbounds nuw i8, ptr %646, i64 8
   store i64 14, ptr %.sroa.2.0..sroa_idx.i479, align 1
@@ -3668,7 +3668,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit488: ; p
   %660 = phi i32 [ %653, %651 ], [ %.pre.i486, %656 ]
   %661 = load ptr, ptr %2, align 8, !tbaa !46
   %662 = zext i32 %660 to i64
-  %663 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %661, i64 %662
+  %663 = getelementptr inbounds nuw [16 x i8], ptr %661, i64 %662
   store ptr @.str.41, ptr %663, align 1
   %.sroa.2.0..sroa_idx.i487 = getelementptr inbounds nuw i8, ptr %663, i64 8
   store i64 23, ptr %.sroa.2.0..sroa_idx.i487, align 1
@@ -3702,7 +3702,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit496: ; p
   %677 = phi i32 [ %670, %668 ], [ %.pre.i494, %673 ]
   %678 = load ptr, ptr %2, align 8, !tbaa !46
   %679 = zext i32 %677 to i64
-  %680 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %678, i64 %679
+  %680 = getelementptr inbounds nuw [16 x i8], ptr %678, i64 %679
   store ptr @.str.42, ptr %680, align 1
   %.sroa.2.0..sroa_idx.i495 = getelementptr inbounds nuw i8, ptr %680, i64 8
   store i64 11, ptr %.sroa.2.0..sroa_idx.i495, align 1
@@ -3736,7 +3736,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit504: ; p
   %694 = phi i32 [ %687, %685 ], [ %.pre.i502, %690 ]
   %695 = load ptr, ptr %2, align 8, !tbaa !46
   %696 = zext i32 %694 to i64
-  %697 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %695, i64 %696
+  %697 = getelementptr inbounds nuw [16 x i8], ptr %695, i64 %696
   store ptr @.str.43, ptr %697, align 1
   %.sroa.2.0..sroa_idx.i503 = getelementptr inbounds nuw i8, ptr %697, i64 8
   store i64 9, ptr %.sroa.2.0..sroa_idx.i503, align 1
@@ -3770,7 +3770,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit512: ; p
   %711 = phi i32 [ %704, %702 ], [ %.pre.i510, %707 ]
   %712 = load ptr, ptr %2, align 8, !tbaa !46
   %713 = zext i32 %711 to i64
-  %714 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %712, i64 %713
+  %714 = getelementptr inbounds nuw [16 x i8], ptr %712, i64 %713
   store ptr @.str.44, ptr %714, align 1
   %.sroa.2.0..sroa_idx.i511 = getelementptr inbounds nuw i8, ptr %714, i64 8
   store i64 4, ptr %.sroa.2.0..sroa_idx.i511, align 1
@@ -3804,7 +3804,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit520: ; p
   %728 = phi i32 [ %721, %719 ], [ %.pre.i518, %724 ]
   %729 = load ptr, ptr %2, align 8, !tbaa !46
   %730 = zext i32 %728 to i64
-  %731 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %729, i64 %730
+  %731 = getelementptr inbounds nuw [16 x i8], ptr %729, i64 %730
   store ptr @.str.45, ptr %731, align 1
   %.sroa.2.0..sroa_idx.i519 = getelementptr inbounds nuw i8, ptr %731, i64 8
   store i64 25, ptr %.sroa.2.0..sroa_idx.i519, align 1
@@ -3838,7 +3838,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit528: ; p
   %745 = phi i32 [ %738, %736 ], [ %.pre.i526, %741 ]
   %746 = load ptr, ptr %2, align 8, !tbaa !46
   %747 = zext i32 %745 to i64
-  %748 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %746, i64 %747
+  %748 = getelementptr inbounds nuw [16 x i8], ptr %746, i64 %747
   store ptr @.str.46, ptr %748, align 1
   %.sroa.2.0..sroa_idx.i527 = getelementptr inbounds nuw i8, ptr %748, i64 8
   store i64 19, ptr %.sroa.2.0..sroa_idx.i527, align 1
@@ -3872,7 +3872,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit536: ; p
   %762 = phi i32 [ %755, %753 ], [ %.pre.i534, %758 ]
   %763 = load ptr, ptr %2, align 8, !tbaa !46
   %764 = zext i32 %762 to i64
-  %765 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %763, i64 %764
+  %765 = getelementptr inbounds nuw [16 x i8], ptr %763, i64 %764
   store ptr @.str.47, ptr %765, align 1
   %.sroa.2.0..sroa_idx.i535 = getelementptr inbounds nuw i8, ptr %765, i64 8
   store i64 8, ptr %.sroa.2.0..sroa_idx.i535, align 1
@@ -3906,7 +3906,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit544: ; p
   %779 = phi i32 [ %772, %770 ], [ %.pre.i542, %775 ]
   %780 = load ptr, ptr %2, align 8, !tbaa !46
   %781 = zext i32 %779 to i64
-  %782 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %780, i64 %781
+  %782 = getelementptr inbounds nuw [16 x i8], ptr %780, i64 %781
   store ptr @.str.48, ptr %782, align 1
   %.sroa.2.0..sroa_idx.i543 = getelementptr inbounds nuw i8, ptr %782, i64 8
   store i64 15, ptr %.sroa.2.0..sroa_idx.i543, align 1
@@ -3940,7 +3940,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit552: ; p
   %796 = phi i32 [ %789, %787 ], [ %.pre.i550, %792 ]
   %797 = load ptr, ptr %2, align 8, !tbaa !46
   %798 = zext i32 %796 to i64
-  %799 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %797, i64 %798
+  %799 = getelementptr inbounds nuw [16 x i8], ptr %797, i64 %798
   store ptr @.str.49, ptr %799, align 1
   %.sroa.2.0..sroa_idx.i551 = getelementptr inbounds nuw i8, ptr %799, i64 8
   store i64 16, ptr %.sroa.2.0..sroa_idx.i551, align 1
@@ -3974,7 +3974,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit560: ; p
   %813 = phi i32 [ %806, %804 ], [ %.pre.i558, %809 ]
   %814 = load ptr, ptr %2, align 8, !tbaa !46
   %815 = zext i32 %813 to i64
-  %816 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %814, i64 %815
+  %816 = getelementptr inbounds nuw [16 x i8], ptr %814, i64 %815
   store ptr @.str.50, ptr %816, align 1
   %.sroa.2.0..sroa_idx.i559 = getelementptr inbounds nuw i8, ptr %816, i64 8
   store i64 9, ptr %.sroa.2.0..sroa_idx.i559, align 1
@@ -4008,7 +4008,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit568: ; p
   %830 = phi i32 [ %823, %821 ], [ %.pre.i566, %826 ]
   %831 = load ptr, ptr %2, align 8, !tbaa !46
   %832 = zext i32 %830 to i64
-  %833 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %831, i64 %832
+  %833 = getelementptr inbounds nuw [16 x i8], ptr %831, i64 %832
   store ptr @.str.51, ptr %833, align 1
   %.sroa.2.0..sroa_idx.i567 = getelementptr inbounds nuw i8, ptr %833, i64 8
   store i64 10, ptr %.sroa.2.0..sroa_idx.i567, align 1
@@ -4042,7 +4042,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit576: ; p
   %847 = phi i32 [ %840, %838 ], [ %.pre.i574, %843 ]
   %848 = load ptr, ptr %2, align 8, !tbaa !46
   %849 = zext i32 %847 to i64
-  %850 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %848, i64 %849
+  %850 = getelementptr inbounds nuw [16 x i8], ptr %848, i64 %849
   store ptr @.str.52, ptr %850, align 1
   %.sroa.2.0..sroa_idx.i575 = getelementptr inbounds nuw i8, ptr %850, i64 8
   store i64 18, ptr %.sroa.2.0..sroa_idx.i575, align 1
@@ -4076,7 +4076,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit584: ; p
   %864 = phi i32 [ %857, %855 ], [ %.pre.i582, %860 ]
   %865 = load ptr, ptr %2, align 8, !tbaa !46
   %866 = zext i32 %864 to i64
-  %867 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %865, i64 %866
+  %867 = getelementptr inbounds nuw [16 x i8], ptr %865, i64 %866
   store ptr @.str.53, ptr %867, align 1
   %.sroa.2.0..sroa_idx.i583 = getelementptr inbounds nuw i8, ptr %867, i64 8
   store i64 10, ptr %.sroa.2.0..sroa_idx.i583, align 1
@@ -4110,7 +4110,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit592: ; p
   %881 = phi i32 [ %874, %872 ], [ %.pre.i590, %877 ]
   %882 = load ptr, ptr %2, align 8, !tbaa !46
   %883 = zext i32 %881 to i64
-  %884 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %882, i64 %883
+  %884 = getelementptr inbounds nuw [16 x i8], ptr %882, i64 %883
   store ptr @.str.54, ptr %884, align 1
   %.sroa.2.0..sroa_idx.i591 = getelementptr inbounds nuw i8, ptr %884, i64 8
   store i64 9, ptr %.sroa.2.0..sroa_idx.i591, align 1
@@ -4144,7 +4144,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit600: ; p
   %898 = phi i32 [ %891, %889 ], [ %.pre.i598, %894 ]
   %899 = load ptr, ptr %2, align 8, !tbaa !46
   %900 = zext i32 %898 to i64
-  %901 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %899, i64 %900
+  %901 = getelementptr inbounds nuw [16 x i8], ptr %899, i64 %900
   store ptr @.str.56, ptr %901, align 1
   %.sroa.2.0..sroa_idx.i599 = getelementptr inbounds nuw i8, ptr %901, i64 8
   store i64 4, ptr %.sroa.2.0..sroa_idx.i599, align 1
@@ -4178,7 +4178,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit608: ; p
   %915 = phi i32 [ %908, %906 ], [ %.pre.i606, %911 ]
   %916 = load ptr, ptr %2, align 8, !tbaa !46
   %917 = zext i32 %915 to i64
-  %918 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %916, i64 %917
+  %918 = getelementptr inbounds nuw [16 x i8], ptr %916, i64 %917
   store ptr @.str.57, ptr %918, align 1
   %.sroa.2.0..sroa_idx.i607 = getelementptr inbounds nuw i8, ptr %918, i64 8
   store i64 10, ptr %.sroa.2.0..sroa_idx.i607, align 1
@@ -4212,7 +4212,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit616: ; p
   %932 = phi i32 [ %925, %923 ], [ %.pre.i614, %928 ]
   %933 = load ptr, ptr %2, align 8, !tbaa !46
   %934 = zext i32 %932 to i64
-  %935 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %933, i64 %934
+  %935 = getelementptr inbounds nuw [16 x i8], ptr %933, i64 %934
   store ptr @.str.58, ptr %935, align 1
   %.sroa.2.0..sroa_idx.i615 = getelementptr inbounds nuw i8, ptr %935, i64 8
   store i64 17, ptr %.sroa.2.0..sroa_idx.i615, align 1
@@ -4246,7 +4246,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit624: ; p
   %949 = phi i32 [ %942, %940 ], [ %.pre.i622, %945 ]
   %950 = load ptr, ptr %2, align 8, !tbaa !46
   %951 = zext i32 %949 to i64
-  %952 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %950, i64 %951
+  %952 = getelementptr inbounds nuw [16 x i8], ptr %950, i64 %951
   store ptr @.str.61, ptr %952, align 1
   %.sroa.2.0..sroa_idx.i623 = getelementptr inbounds nuw i8, ptr %952, i64 8
   store i64 36, ptr %.sroa.2.0..sroa_idx.i623, align 1
@@ -4280,7 +4280,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit632: ; p
   %966 = phi i32 [ %959, %957 ], [ %.pre.i630, %962 ]
   %967 = load ptr, ptr %2, align 8, !tbaa !46
   %968 = zext i32 %966 to i64
-  %969 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %967, i64 %968
+  %969 = getelementptr inbounds nuw [16 x i8], ptr %967, i64 %968
   store ptr @.str.62, ptr %969, align 1
   %.sroa.2.0..sroa_idx.i631 = getelementptr inbounds nuw i8, ptr %969, i64 8
   store i64 34, ptr %.sroa.2.0..sroa_idx.i631, align 1
@@ -4314,7 +4314,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit640: ; p
   %983 = phi i32 [ %976, %974 ], [ %.pre.i638, %979 ]
   %984 = load ptr, ptr %2, align 8, !tbaa !46
   %985 = zext i32 %983 to i64
-  %986 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %984, i64 %985
+  %986 = getelementptr inbounds nuw [16 x i8], ptr %984, i64 %985
   store ptr @.str.64, ptr %986, align 1
   %.sroa.2.0..sroa_idx.i639 = getelementptr inbounds nuw i8, ptr %986, i64 8
   store i64 28, ptr %.sroa.2.0..sroa_idx.i639, align 1
@@ -4348,7 +4348,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit648: ; p
   %1000 = phi i32 [ %993, %991 ], [ %.pre.i646, %996 ]
   %1001 = load ptr, ptr %2, align 8, !tbaa !46
   %1002 = zext i32 %1000 to i64
-  %1003 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %1001, i64 %1002
+  %1003 = getelementptr inbounds nuw [16 x i8], ptr %1001, i64 %1002
   store ptr @.str.67, ptr %1003, align 1
   %.sroa.2.0..sroa_idx.i647 = getelementptr inbounds nuw i8, ptr %1003, i64 8
   store i64 28, ptr %.sroa.2.0..sroa_idx.i647, align 1
@@ -4382,7 +4382,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit656: ; p
   %1017 = phi i32 [ %1010, %1008 ], [ %.pre.i654, %1013 ]
   %1018 = load ptr, ptr %2, align 8, !tbaa !46
   %1019 = zext i32 %1017 to i64
-  %1020 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %1018, i64 %1019
+  %1020 = getelementptr inbounds nuw [16 x i8], ptr %1018, i64 %1019
   store ptr @.str.70, ptr %1020, align 1
   %.sroa.2.0..sroa_idx.i655 = getelementptr inbounds nuw i8, ptr %1020, i64 8
   store i64 9, ptr %.sroa.2.0..sroa_idx.i655, align 1
@@ -4416,7 +4416,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit664: ; p
   %1034 = phi i32 [ %1027, %1025 ], [ %.pre.i662, %1030 ]
   %1035 = load ptr, ptr %2, align 8, !tbaa !46
   %1036 = zext i32 %1034 to i64
-  %1037 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %1035, i64 %1036
+  %1037 = getelementptr inbounds nuw [16 x i8], ptr %1035, i64 %1036
   store ptr @.str.71, ptr %1037, align 1
   %.sroa.2.0..sroa_idx.i663 = getelementptr inbounds nuw i8, ptr %1037, i64 8
   store i64 12, ptr %.sroa.2.0..sroa_idx.i663, align 1
@@ -4450,7 +4450,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit672: ; p
   %1051 = phi i32 [ %1044, %1042 ], [ %.pre.i670, %1047 ]
   %1052 = load ptr, ptr %2, align 8, !tbaa !46
   %1053 = zext i32 %1051 to i64
-  %1054 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %1052, i64 %1053
+  %1054 = getelementptr inbounds nuw [16 x i8], ptr %1052, i64 %1053
   store ptr @.str.73, ptr %1054, align 1
   %.sroa.2.0..sroa_idx.i671 = getelementptr inbounds nuw i8, ptr %1054, i64 8
   store i64 5, ptr %.sroa.2.0..sroa_idx.i671, align 1
@@ -10813,7 +10813,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN4
 10:                                               ; preds = %2
   %11 = zext i32 %5 to i64
   %12 = load ptr, ptr %0, align 8, !tbaa !46
-  %13 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %12, i64 %11
+  %13 = getelementptr inbounds nuw [32 x i8], ptr %12, i64 %11
   %14 = load ptr, ptr %1, align 8, !tbaa !41
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load i64, ptr %15, align 8, !tbaa !39
@@ -10870,7 +10870,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_
   store i32 %35, ptr %4, align 8, !tbaa !42
   %36 = load ptr, ptr %0, align 8, !tbaa !46
   %37 = zext i32 %35 to i64
-  %38 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %36, i64 %37
+  %38 = getelementptr inbounds nuw [32 x i8], ptr %36, i64 %37
   %39 = getelementptr inbounds i8, ptr %38, i64 -32
   br label %40
 
@@ -10998,10 +10998,10 @@ define dso_local { ptr, i64 } @_ZN5clang41AsanDetectStackUseAfterReturnModeToStr
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5clang41AsanDetectStackUseAfterReturnModeToStringEN4llvm33AsanDetectStackUseAfterReturnModeE, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5clang41AsanDetectStackUseAfterReturnModeToStringEN4llvm33AsanDetectStackUseAfterReturnModeE, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i32 %0 to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5clang41AsanDetectStackUseAfterReturnModeToStringEN4llvm33AsanDetectStackUseAfterReturnModeE.1, i64 %4
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5clang41AsanDetectStackUseAfterReturnModeToStringEN4llvm33AsanDetectStackUseAfterReturnModeE.1, i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   br label %5
 
@@ -11153,9 +11153,9 @@ _ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit: ; preds = %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !10
-  %39 = getelementptr inbounds nuw double, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !8
-  %40 = getelementptr inbounds nuw double, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !254
   br label %41
 
@@ -11200,7 +11200,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8, !tbaa !42
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %6, i64 %9
+  %10 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %9
   %11 = load ptr, ptr %1, align 8, !tbaa !41
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load i64, ptr %12, align 8, !tbaa !39
@@ -11351,7 +11351,7 @@ _ZN4llvm23SmallVectorTemplateBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcES
   %65 = add i32 %64, 1
   store i32 %65, ptr %7, align 8, !tbaa !42
   %66 = zext i32 %65 to i64
-  %67 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %6, i64 %66
+  %67 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %66
   %68 = getelementptr inbounds i8, ptr %67, i64 -32
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %68

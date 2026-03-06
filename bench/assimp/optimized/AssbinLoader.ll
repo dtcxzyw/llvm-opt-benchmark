@@ -19,7 +19,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.5" }
 %"struct.std::_Head_base.5" = type { ptr }
-%struct.aiMetadataEntry = type { i32, ptr }
 %"class.Assimp::Formatter::basic_formatter" = type { %"class.std::__cxx11::basic_ostringstream" }
 %"class.std::__cxx11::basic_ostringstream" = type { %"class.std::basic_ostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_ostream.base" = type { ptr }
@@ -29,9 +28,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
-%struct.aiVertexWeight = type { i32, float }
-%class.aiColor4t = type { float, float, float, float }
-%struct.aiFace = type { i32, ptr }
 %struct.aiColor3D = type { float, float, float }
 %"class.Assimp::MemoryIOStream" = type <{ %"class.Assimp::IOStream", ptr, i64, i64, i8, [7 x i8] }>
 %"class.Assimp::IOStream" = type { ptr }
@@ -762,7 +758,7 @@ default.unreachable5.i:                           ; preds = %_Z4ReadIfET_PN6Assi
 
 _ZN12aiMatrix4x4tIfEixEj.exit:                    ; preds = %_Z4ReadIfET_PN6Assimp8IOStreamE.exit, %27, %28, %29
   %.0.i = phi ptr [ %11, %28 ], [ %10, %29 ], [ %0, %_Z4ReadIfET_PN6Assimp8IOStreamE.exit ], [ %12, %27 ]
-  %30 = getelementptr inbounds nuw float, ptr %.0.i, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %.0.i, i64 %indvars.iv
   store float %26, ptr %30, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -1206,7 +1202,7 @@ _ZN8aiStringaSERKS_.exit:                         ; preds = %.noexc78, %.noexc
   %136 = load i32, ptr %11, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %137 = load ptr, ptr %123, align 8
-  %138 = getelementptr inbounds nuw i32, ptr %137, i64 %indvars.iv
+  %138 = getelementptr inbounds nuw [4 x i8], ptr %137, i64 %indvars.iv
   store i32 %136, ptr %138, align 4
   %139 = load i32, ptr %124, align 8
   %140 = add i32 %139, 1
@@ -1244,7 +1240,7 @@ _ZN8aiStringaSERKS_.exit:                         ; preds = %.noexc78, %.noexc
 148:                                              ; preds = %145, %151
   %indvars.iv205 = phi i64 [ 0, %145 ], [ %indvars.iv.next206, %151 ]
   %149 = load ptr, ptr %146, align 8
-  %150 = getelementptr inbounds nuw ptr, ptr %149, i64 %indvars.iv205
+  %150 = getelementptr inbounds nuw [8 x i8], ptr %149, i64 %indvars.iv205
   invoke void @_ZN6Assimp14AssbinImporter14ReadBinaryNodeEPNS_8IOStreamEPP6aiNodeS4_(ptr noundef nonnull align 8 dereferenceable(74) %0, ptr noundef %1, ptr noundef %150, ptr noundef nonnull %46)
           to label %151 unwind label %154
 
@@ -1288,7 +1284,7 @@ _ZN8aiStringaSERKS_.exit:                         ; preds = %.noexc78, %.noexc
           to label %.noexc103 unwind label %115
 
 .noexc103:                                        ; preds = %.noexc102
-  %167 = getelementptr inbounds nuw %struct.aiMetadataEntry, ptr %166, i64 %158
+  %167 = getelementptr inbounds nuw [16 x i8], ptr %166, i64 %158
   br label %168
 
 168:                                              ; preds = %168, %.noexc103
@@ -1346,7 +1342,7 @@ _ZN8aiStringaSERKS_.exit:                         ; preds = %.noexc78, %.noexc
   %194 = load ptr, ptr %175, align 8
   %195 = getelementptr inbounds nuw i8, ptr %194, i64 8
   %196 = load ptr, ptr %195, align 8
-  %197 = getelementptr inbounds nuw %struct.aiString, ptr %196, i64 %indvars.iv210
+  %197 = getelementptr inbounds nuw [1028 x i8], ptr %196, i64 %indvars.iv210
   %198 = icmp eq ptr %197, %20
   br i1 %198, label %_ZN8aiStringaSERKS_.exit110, label %199
 
@@ -1398,12 +1394,12 @@ _ZN8aiStringaSERKS_.exit110:                      ; preds = %191, %199
   %215 = load ptr, ptr %175, align 8
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 16
   %217 = load ptr, ptr %216, align 8
-  %218 = getelementptr inbounds nuw %struct.aiMetadataEntry, ptr %217, i64 %indvars.iv210
+  %218 = getelementptr inbounds nuw [16 x i8], ptr %217, i64 %indvars.iv210
   store i32 %214, ptr %218, align 8
   %219 = load ptr, ptr %175, align 8
   %220 = getelementptr inbounds nuw i8, ptr %219, i64 16
   %221 = load ptr, ptr %220, align 8
-  %222 = getelementptr inbounds nuw %struct.aiMetadataEntry, ptr %221, i64 %indvars.iv210
+  %222 = getelementptr inbounds nuw [16 x i8], ptr %221, i64 %indvars.iv210
   %223 = load i32, ptr %222, align 8
   switch i32 %223, label %326 [
     i32 0, label %226
@@ -1788,7 +1784,7 @@ _Z4ReadI8aiStringET_PN6Assimp8IOStreamE.exit145:  ; preds = %.noexc143, %.noexc1
   %327 = load ptr, ptr %175, align 8
   %328 = getelementptr inbounds nuw i8, ptr %327, i64 16
   %329 = load ptr, ptr %328, align 8
-  %330 = getelementptr inbounds nuw %struct.aiMetadataEntry, ptr %329, i64 %indvars.iv210
+  %330 = getelementptr inbounds nuw [16 x i8], ptr %329, i64 %indvars.iv210
   %331 = getelementptr inbounds nuw i8, ptr %330, i64 8
   store ptr %.053, ptr %331, align 8
   %indvars.iv.next211 = add nuw nsw i64 %indvars.iv210, 1
@@ -2089,7 +2085,7 @@ _Z4ReadIjET_PN6Assimp8IOStreamE.exit22:           ; preds = %_ZN8aiStringaSERKS_
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %84 = call i64 @_Z4ReadI14aiVertexWeightET_PN6Assimp8IOStreamE(ptr noundef nonnull %1)
-  %85 = getelementptr inbounds nuw %struct.aiVertexWeight, ptr %80, i64 %indvars.iv.i
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %indvars.iv.i
   store i64 %84, ptr %85, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %72
@@ -2406,7 +2402,7 @@ _Z4ReadIjET_PN6Assimp8IOStreamE.exit147:          ; preds = %_Z4ReadIjET_PN6Assi
   %128 = call { <2 x float>, float } @_Z4ReadI10aiVector3tIfEET_PN6Assimp8IOStreamE(ptr noundef nonnull %1)
   %.fca.0.extract.i = extractvalue { <2 x float>, float } %128, 0
   %.fca.1.extract.i = extractvalue { <2 x float>, float } %128, 1
-  %129 = getelementptr inbounds nuw %class.aiVector3t, ptr %120, i64 %indvars.iv.i
+  %129 = getelementptr inbounds nuw [12 x i8], ptr %120, i64 %indvars.iv.i
   store <2 x float> %.fca.0.extract.i, ptr %129, align 4
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %129, i64 8
   store float %.fca.1.extract.i, ptr %.sroa.4.0..sroa_idx.i, align 4
@@ -2460,7 +2456,7 @@ _Z9ReadArrayI10aiVector3tIfEEvPN6Assimp8IOStreamEPT_j.exit: ; preds = %.lr.ph.i,
   %152 = call { <2 x float>, float } @_Z4ReadI10aiVector3tIfEET_PN6Assimp8IOStreamE(ptr noundef nonnull %1)
   %.fca.0.extract.i154 = extractvalue { <2 x float>, float } %152, 0
   %.fca.1.extract.i155 = extractvalue { <2 x float>, float } %152, 1
-  %153 = getelementptr inbounds nuw %class.aiVector3t, ptr %144, i64 %indvars.iv.i153
+  %153 = getelementptr inbounds nuw [12 x i8], ptr %144, i64 %indvars.iv.i153
   store <2 x float> %.fca.0.extract.i154, ptr %153, align 4
   %.sroa.4.0..sroa_idx.i156 = getelementptr inbounds nuw i8, ptr %153, i64 8
   store float %.fca.1.extract.i155, ptr %.sroa.4.0..sroa_idx.i156, align 4
@@ -2522,7 +2518,7 @@ _Z9ReadArrayI10aiVector3tIfEEvPN6Assimp8IOStreamEPT_j.exit170.thread: ; preds = 
   %184 = call { <2 x float>, float } @_Z4ReadI10aiVector3tIfEET_PN6Assimp8IOStreamE(ptr noundef nonnull %1)
   %.fca.0.extract.i165 = extractvalue { <2 x float>, float } %184, 0
   %.fca.1.extract.i166 = extractvalue { <2 x float>, float } %184, 1
-  %185 = getelementptr inbounds nuw %class.aiVector3t, ptr %175, i64 %indvars.iv.i164
+  %185 = getelementptr inbounds nuw [12 x i8], ptr %175, i64 %indvars.iv.i164
   store <2 x float> %.fca.0.extract.i165, ptr %185, align 4
   %.sroa.4.0..sroa_idx.i167 = getelementptr inbounds nuw i8, ptr %185, i64 8
   store float %.fca.1.extract.i166, ptr %.sroa.4.0..sroa_idx.i167, align 4
@@ -2559,7 +2555,7 @@ _Z9ReadArrayI10aiVector3tIfEEvPN6Assimp8IOStreamEPT_j.exit170: ; preds = %.lr.ph
   %197 = call { <2 x float>, float } @_Z4ReadI10aiVector3tIfEET_PN6Assimp8IOStreamE(ptr noundef nonnull %1)
   %.fca.0.extract.i176 = extractvalue { <2 x float>, float } %197, 0
   %.fca.1.extract.i177 = extractvalue { <2 x float>, float } %197, 1
-  %198 = getelementptr inbounds nuw %class.aiVector3t, ptr %188, i64 %indvars.iv.i175
+  %198 = getelementptr inbounds nuw [12 x i8], ptr %188, i64 %indvars.iv.i175
   store <2 x float> %.fca.0.extract.i176, ptr %198, align 4
   %.sroa.4.0..sroa_idx.i178 = getelementptr inbounds nuw i8, ptr %198, i64 8
   store float %.fca.1.extract.i177, ptr %.sroa.4.0..sroa_idx.i178, align 4
@@ -2601,13 +2597,13 @@ _Z9ReadArrayI10aiVector3tIfEEvPN6Assimp8IOStreamEPT_j.exit181: ; preds = %.lr.ph
   br i1 %218, label %.thread213, label %.lr.ph.preheader.i183
 
 .thread213:                                       ; preds = %216
-  %219 = getelementptr inbounds nuw ptr, ptr %200, i64 %indvars.iv
+  %219 = getelementptr inbounds nuw [8 x i8], ptr %200, i64 %indvars.iv
   store ptr %217, ptr %219, align 8
   br label %_Z9ReadArrayI9aiColor4tIfEEvPN6Assimp8IOStreamEPT_j.exit
 
 .lr.ph.preheader.i183:                            ; preds = %216
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %217, i8 0, i64 %210, i1 false)
-  %220 = getelementptr inbounds nuw ptr, ptr %200, i64 %indvars.iv
+  %220 = getelementptr inbounds nuw [8 x i8], ptr %200, i64 %indvars.iv
   store ptr %217, ptr %220, align 8
   br label %.lr.ph.i185
 
@@ -2616,7 +2612,7 @@ _Z9ReadArrayI10aiVector3tIfEEvPN6Assimp8IOStreamEPT_j.exit181: ; preds = %.lr.ph
   %221 = call { <2 x float>, <2 x float> } @_Z4ReadI9aiColor4tIfEET_PN6Assimp8IOStreamE(ptr noundef %1)
   %222 = extractvalue { <2 x float>, <2 x float> } %221, 0
   %223 = extractvalue { <2 x float>, <2 x float> } %221, 1
-  %224 = getelementptr inbounds nuw %class.aiColor4t, ptr %217, i64 %indvars.iv.i186
+  %224 = getelementptr inbounds nuw [16 x i8], ptr %217, i64 %indvars.iv.i186
   store <2 x float> %222, ptr %224, align 4
   %.sroa.4.0..sroa_idx.i187 = getelementptr inbounds nuw i8, ptr %224, i64 8
   store <2 x float> %223, ptr %.sroa.4.0..sroa_idx.i187, align 4
@@ -2670,7 +2666,7 @@ _Z9ReadArrayI9aiColor4tIfEEvPN6Assimp8IOStreamEPT_j.exit: ; preds = %.lr.ph.i185
 _Z4ReadIjET_PN6Assimp8IOStreamE.exit191:          ; preds = %232
   %242 = load i32, ptr %8, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %243 = getelementptr inbounds nuw i32, ptr %226, i64 %indvars.iv230
+  %243 = getelementptr inbounds nuw [4 x i8], ptr %226, i64 %indvars.iv230
   store i32 %242, ptr %243, align 4
   %244 = load i8, ptr %199, align 8, !range !14, !noundef !15
   %245 = trunc nuw i8 %244 to i1
@@ -2692,7 +2688,7 @@ _Z4ReadIjET_PN6Assimp8IOStreamE.exit191:          ; preds = %232
   br i1 %256, label %.thread214, label %.lr.ph.preheader.i193
 
 .thread214:                                       ; preds = %254
-  %257 = getelementptr inbounds nuw ptr, ptr %227, i64 %indvars.iv230
+  %257 = getelementptr inbounds nuw [8 x i8], ptr %227, i64 %indvars.iv230
   store ptr %255, ptr %257, align 8
   br label %_Z9ReadArrayI10aiVector3tIfEEvPN6Assimp8IOStreamEPT_j.exit202
 
@@ -2702,7 +2698,7 @@ _Z4ReadIjET_PN6Assimp8IOStreamE.exit191:          ; preds = %232
   %260 = sub nuw nsw i64 %258, %259
   %261 = add nsw i64 %260, 12
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %255, i8 0, i64 %261, i1 false)
-  %262 = getelementptr inbounds nuw ptr, ptr %227, i64 %indvars.iv230
+  %262 = getelementptr inbounds nuw [8 x i8], ptr %227, i64 %indvars.iv230
   store ptr %255, ptr %262, align 8
   br label %.lr.ph.i195
 
@@ -2711,7 +2707,7 @@ _Z4ReadIjET_PN6Assimp8IOStreamE.exit191:          ; preds = %232
   %263 = call { <2 x float>, float } @_Z4ReadI10aiVector3tIfEET_PN6Assimp8IOStreamE(ptr noundef nonnull %1)
   %.fca.0.extract.i197 = extractvalue { <2 x float>, float } %263, 0
   %.fca.1.extract.i198 = extractvalue { <2 x float>, float } %263, 1
-  %264 = getelementptr inbounds nuw %class.aiVector3t, ptr %255, i64 %indvars.iv.i196
+  %264 = getelementptr inbounds nuw [12 x i8], ptr %255, i64 %indvars.iv.i196
   store <2 x float> %.fca.0.extract.i197, ptr %264, align 4
   %.sroa.4.0..sroa_idx.i199 = getelementptr inbounds nuw i8, ptr %264, i64 8
   store float %.fca.1.extract.i198, ptr %.sroa.4.0..sroa_idx.i199, align 4
@@ -2775,7 +2771,7 @@ _Z4ReadIjET_PN6Assimp8IOStreamE.exit204:          ; preds = %268
   br label %.loopexit215
 
 287:                                              ; preds = %278
-  %288 = getelementptr inbounds nuw %struct.aiFace, ptr %284, i64 %280
+  %288 = getelementptr inbounds nuw [16 x i8], ptr %284, i64 %280
   br label %289
 
 289:                                              ; preds = %289, %287
@@ -2795,7 +2791,7 @@ _Z4ReadIjET_PN6Assimp8IOStreamE.exit204:          ; preds = %268
 .lr.ph222:                                        ; preds = %.lr.ph222.preheader, %._crit_edge
   %indvars.iv237 = phi i64 [ 0, %.lr.ph222.preheader ], [ %indvars.iv.next238, %._crit_edge ]
   %295 = load ptr, ptr %294, align 8
-  %296 = getelementptr inbounds nuw %struct.aiFace, ptr %295, i64 %indvars.iv237
+  %296 = getelementptr inbounds nuw [16 x i8], ptr %295, i64 %indvars.iv237
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %297 = load ptr, ptr %1, align 8
   %298 = getelementptr inbounds nuw i8, ptr %297, i64 16
@@ -2911,7 +2907,7 @@ _Z4ReadIjET_PN6Assimp8IOStreamE.exit209:          ; preds = %330
 341:                                              ; preds = %_Z4ReadItET_PN6Assimp8IOStreamE.exit207, %_Z4ReadIjET_PN6Assimp8IOStreamE.exit209
   %.sink = phi i32 [ %329, %_Z4ReadItET_PN6Assimp8IOStreamE.exit207 ], [ %340, %_Z4ReadIjET_PN6Assimp8IOStreamE.exit209 ]
   %342 = load ptr, ptr %311, align 8
-  %343 = getelementptr inbounds nuw i32, ptr %342, i64 %indvars.iv234
+  %343 = getelementptr inbounds nuw [4 x i8], ptr %342, i64 %indvars.iv234
   store i32 %.sink, ptr %343, align 4
   %indvars.iv.next235 = add nuw nsw i64 %indvars.iv234, 1
   %344 = load i32, ptr %296, align 8
@@ -2951,10 +2947,10 @@ _Z4ReadIjET_PN6Assimp8IOStreamE.exit209:          ; preds = %330
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %358, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %359, align 4
   %360 = load ptr, ptr %351, align 8
-  %361 = getelementptr inbounds nuw ptr, ptr %360, i64 %indvars.iv240
+  %361 = getelementptr inbounds nuw [8 x i8], ptr %360, i64 %indvars.iv240
   store ptr %352, ptr %361, align 8
   %362 = load ptr, ptr %351, align 8
-  %363 = getelementptr inbounds nuw ptr, ptr %362, i64 %indvars.iv240
+  %363 = getelementptr inbounds nuw [8 x i8], ptr %362, i64 %indvars.iv240
   %364 = load ptr, ptr %363, align 8
   call void @_ZN6Assimp14AssbinImporter14ReadBinaryBoneEPNS_8IOStreamEP6aiBone(ptr noundef nonnull align 8 dereferenceable(74) %0, ptr noundef %1, ptr noundef %364)
   %indvars.iv.next241 = add nuw nsw i64 %indvars.iv240, 1
@@ -3366,10 +3362,10 @@ _Z4ReadIjET_PN6Assimp8IOStreamE.exit26:           ; preds = %_Z4ReadIjET_PN6Assi
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 1048
   store ptr null, ptr %54, align 8
   %55 = load ptr, ptr %2, align 8
-  %56 = getelementptr inbounds nuw ptr, ptr %55, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %indvars.iv
   store ptr %52, ptr %56, align 8
   %57 = load ptr, ptr %2, align 8
-  %58 = getelementptr inbounds nuw ptr, ptr %57, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %indvars.iv
   %59 = load ptr, ptr %58, align 8
   call void @_ZN6Assimp14AssbinImporter26ReadBinaryMaterialPropertyEPNS_8IOStreamEP18aiMaterialProperty(ptr nonnull align 8 poison, ptr noundef nonnull %1, ptr noundef %59)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3680,7 +3676,7 @@ _Z4ReadIjET_PN6Assimp8IOStreamE.exit60:           ; preds = %_Z4ReadIjET_PN6Assi
 
 126:                                              ; preds = %115
   %127 = call noalias noundef nonnull ptr @_Znam(i64 noundef %120) #20
-  %128 = getelementptr inbounds nuw %struct.aiVectorKey, ptr %127, i64 %119
+  %128 = getelementptr inbounds nuw [24 x i8], ptr %127, i64 %119
   br label %129
 
 129:                                              ; preds = %129, %126
@@ -3720,7 +3716,7 @@ _Z4ReadIjET_PN6Assimp8IOStreamE.exit60:           ; preds = %_Z4ReadIjET_PN6Assi
 
 149:                                              ; preds = %138
   %150 = call noalias noundef nonnull ptr @_Znam(i64 noundef %143) #20
-  %151 = getelementptr inbounds nuw %struct.aiQuatKey, ptr %150, i64 %142
+  %151 = getelementptr inbounds nuw [32 x i8], ptr %150, i64 %142
   br label %152
 
 152:                                              ; preds = %152, %149
@@ -3768,7 +3764,7 @@ _Z4ReadIjET_PN6Assimp8IOStreamE.exit60:           ; preds = %_Z4ReadIjET_PN6Assi
 
 176:                                              ; preds = %165
   %177 = call noalias noundef nonnull ptr @_Znam(i64 noundef %170) #20
-  %178 = getelementptr inbounds nuw %struct.aiVectorKey, ptr %177, i64 %169
+  %178 = getelementptr inbounds nuw [24 x i8], ptr %177, i64 %169
   br label %179
 
 179:                                              ; preds = %179, %176
@@ -3835,7 +3831,7 @@ _Z4ReadI11aiVectorKeyET_PN6Assimp8IOStreamE.exit: ; preds = %.lr.ph
   %15 = call { <2 x float>, float } @_Z4ReadI10aiVector3tIfEET_PN6Assimp8IOStreamE(ptr noundef nonnull %0), !noalias !38
   %.fca.0.extract.i = extractvalue { <2 x float>, float } %15, 0
   %.fca.1.extract.i = extractvalue { <2 x float>, float } %15, 1
-  %16 = getelementptr inbounds nuw %struct.aiVectorKey, ptr %1, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %indvars.iv
   store double %14, ptr %16, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 8
   store <2 x float> %.fca.0.extract.i, ptr %.sroa.5.0..sroa_idx, align 8
@@ -3893,7 +3889,7 @@ _Z4ReadI9aiQuatKeyET_PN6Assimp8IOStreamE.exit:    ; preds = %.lr.ph
   %15 = call { <2 x float>, <2 x float> } @_Z4ReadI13aiQuaterniontIfEET_PN6Assimp8IOStreamE(ptr noundef nonnull %0), !noalias !42
   %16 = extractvalue { <2 x float>, <2 x float> } %15, 0
   %17 = extractvalue { <2 x float>, <2 x float> } %15, 1
-  %18 = getelementptr inbounds nuw %struct.aiQuatKey, ptr %1, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv
   store double %14, ptr %18, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 8
   store <2 x float> %16, ptr %.sroa.5.0..sroa_idx, align 8
@@ -4142,10 +4138,10 @@ _Z4ReadIjET_PN6Assimp8IOStreamE.exit32:           ; preds = %_Z4ReadIdET_PN6Assi
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1080) %94, i8 0, i64 1044, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %97, i8 0, i64 16, i1 false)
   %98 = load ptr, ptr %93, align 8
-  %99 = getelementptr inbounds nuw ptr, ptr %98, i64 %indvars.iv
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %indvars.iv
   store ptr %94, ptr %99, align 8
   %100 = load ptr, ptr %93, align 8
-  %101 = getelementptr inbounds nuw ptr, ptr %100, i64 %indvars.iv
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %100, i64 %indvars.iv
   %102 = load ptr, ptr %101, align 8
   call void @_ZN6Assimp14AssbinImporter18ReadBinaryNodeAnimEPNS_8IOStreamEP10aiNodeAnim(ptr noundef nonnull align 8 dereferenceable(74) %0, ptr noundef nonnull %1, ptr noundef %102)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -5400,10 +5396,10 @@ _Z4ReadIjET_PN6Assimp8IOStreamE.exit133:          ; preds = %_Z4ReadIjET_PN6Assi
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1044) %124, i8 0, i64 1044, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %125, i8 0, i64 36, i1 false)
   %127 = load ptr, ptr %119, align 8
-  %128 = getelementptr inbounds nuw ptr, ptr %127, i64 %indvars.iv
+  %128 = getelementptr inbounds nuw [8 x i8], ptr %127, i64 %indvars.iv
   store ptr %120, ptr %128, align 8
   %129 = load ptr, ptr %119, align 8
-  %130 = getelementptr inbounds nuw ptr, ptr %129, i64 %indvars.iv
+  %130 = getelementptr inbounds nuw [8 x i8], ptr %129, i64 %indvars.iv
   %131 = load ptr, ptr %130, align 8
   call void @_ZN6Assimp14AssbinImporter14ReadBinaryMeshEPNS_8IOStreamEP6aiMesh(ptr noundef nonnull align 8 dereferenceable(74) %0, ptr noundef nonnull %1, ptr noundef %131)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -5434,10 +5430,10 @@ _Z4ReadIjET_PN6Assimp8IOStreamE.exit133:          ; preds = %_Z4ReadIjET_PN6Assi
 
 141:                                              ; preds = %.lr.ph141
   %142 = load ptr, ptr %139, align 8
-  %143 = getelementptr inbounds nuw ptr, ptr %142, i64 %indvars.iv158
+  %143 = getelementptr inbounds nuw [8 x i8], ptr %142, i64 %indvars.iv158
   store ptr %140, ptr %143, align 8
   %144 = load ptr, ptr %139, align 8
-  %145 = getelementptr inbounds nuw ptr, ptr %144, i64 %indvars.iv158
+  %145 = getelementptr inbounds nuw [8 x i8], ptr %144, i64 %indvars.iv158
   %146 = load ptr, ptr %145, align 8
   call void @_ZN6Assimp14AssbinImporter18ReadBinaryMaterialEPNS_8IOStreamEP10aiMaterial(ptr nonnull align 8 poison, ptr noundef nonnull %1, ptr noundef %146)
   %indvars.iv.next159 = add nuw nsw i64 %indvars.iv158, 1
@@ -5487,10 +5483,10 @@ _Z4ReadIjET_PN6Assimp8IOStreamE.exit133:          ; preds = %_Z4ReadIjET_PN6Assi
   %165 = getelementptr inbounds nuw i8, ptr %157, i64 1088
   store ptr null, ptr %165, align 8
   %166 = load ptr, ptr %156, align 8
-  %167 = getelementptr inbounds nuw ptr, ptr %166, i64 %indvars.iv161
+  %167 = getelementptr inbounds nuw [8 x i8], ptr %166, i64 %indvars.iv161
   store ptr %157, ptr %167, align 8
   %168 = load ptr, ptr %156, align 8
-  %169 = getelementptr inbounds nuw ptr, ptr %168, i64 %indvars.iv161
+  %169 = getelementptr inbounds nuw [8 x i8], ptr %168, i64 %indvars.iv161
   %170 = load ptr, ptr %169, align 8
   call void @_ZN6Assimp14AssbinImporter14ReadBinaryAnimEPNS_8IOStreamEP11aiAnimation(ptr noundef nonnull align 8 dereferenceable(74) %0, ptr noundef nonnull %1, ptr noundef %170)
   %indvars.iv.next162 = add nuw nsw i64 %indvars.iv161, 1
@@ -5520,10 +5516,10 @@ _Z4ReadIjET_PN6Assimp8IOStreamE.exit133:          ; preds = %_Z4ReadIjET_PN6Assi
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1060) %179, i8 0, i64 17, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1036) %180, i8 0, i64 1036, i1 false)
   %181 = load ptr, ptr %178, align 8
-  %182 = getelementptr inbounds nuw ptr, ptr %181, i64 %indvars.iv164
+  %182 = getelementptr inbounds nuw [8 x i8], ptr %181, i64 %indvars.iv164
   store ptr %179, ptr %182, align 8
   %183 = load ptr, ptr %178, align 8
-  %184 = getelementptr inbounds nuw ptr, ptr %183, i64 %indvars.iv164
+  %184 = getelementptr inbounds nuw [8 x i8], ptr %183, i64 %indvars.iv164
   %185 = load ptr, ptr %184, align 8
   call void @_ZN6Assimp14AssbinImporter17ReadBinaryTextureEPNS_8IOStreamEP9aiTexture(ptr noundef nonnull align 8 dereferenceable(74) %0, ptr noundef nonnull %1, ptr noundef %185)
   %indvars.iv.next165 = add nuw nsw i64 %indvars.iv164, 1
@@ -5563,10 +5559,10 @@ _Z4ReadIjET_PN6Assimp8IOStreamE.exit133:          ; preds = %_Z4ReadIjET_PN6Assi
   %200 = getelementptr inbounds nuw i8, ptr %194, i64 1128
   store float 0.000000e+00, ptr %200, align 4
   %201 = load ptr, ptr %193, align 8
-  %202 = getelementptr inbounds nuw ptr, ptr %201, i64 %indvars.iv167
+  %202 = getelementptr inbounds nuw [8 x i8], ptr %201, i64 %indvars.iv167
   store ptr %194, ptr %202, align 8
   %203 = load ptr, ptr %193, align 8
-  %204 = getelementptr inbounds nuw ptr, ptr %203, i64 %indvars.iv167
+  %204 = getelementptr inbounds nuw [8 x i8], ptr %203, i64 %indvars.iv167
   %205 = load ptr, ptr %204, align 8
   call void @_ZN6Assimp14AssbinImporter15ReadBinaryLightEPNS_8IOStreamEP7aiLight(ptr nonnull align 8 poison, ptr noundef nonnull %1, ptr noundef %205)
   %indvars.iv.next168 = add nuw nsw i64 %indvars.iv167, 1
@@ -5614,10 +5610,10 @@ _Z4ReadIjET_PN6Assimp8IOStreamE.exit133:          ; preds = %_Z4ReadIjET_PN6Assi
   %224 = getelementptr inbounds nuw i8, ptr %214, i64 1080
   store float 0.000000e+00, ptr %224, align 4
   %225 = load ptr, ptr %213, align 8
-  %226 = getelementptr inbounds nuw ptr, ptr %225, i64 %indvars.iv170
+  %226 = getelementptr inbounds nuw [8 x i8], ptr %225, i64 %indvars.iv170
   store ptr %214, ptr %226, align 8
   %227 = load ptr, ptr %213, align 8
-  %228 = getelementptr inbounds nuw ptr, ptr %227, i64 %indvars.iv170
+  %228 = getelementptr inbounds nuw [8 x i8], ptr %227, i64 %indvars.iv170
   %229 = load ptr, ptr %228, align 8
   call void @_ZN6Assimp14AssbinImporter16ReadBinaryCameraEPNS_8IOStreamEP8aiCamera(ptr nonnull align 8 poison, ptr noundef nonnull %1, ptr noundef %229)
   %indvars.iv.next171 = add nuw nsw i64 %indvars.iv170, 1

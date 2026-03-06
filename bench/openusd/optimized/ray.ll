@@ -488,32 +488,32 @@ _ZNK32pxrInternal_v0_24__pxrReserved__5GfRay9IntersectERKNS_7GfPlaneEPdPb.exit: 
   %.76 = select i1 %55, i64 0, i64 2
   %.068 = select i1 %or.cond75, i64 2, i64 %.
   %.067 = select i1 %or.cond75, i64 1, i64 %.76
-  %56 = getelementptr inbounds nuw double, ptr %0, i64 %.067
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.067
   %57 = load double, ptr %56, align 8
-  %58 = getelementptr inbounds nuw double, ptr %10, i64 %.067
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.067
   %59 = load double, ptr %58, align 8
   %60 = call double @llvm.fmuladd.f64(double %42, double %59, double %57)
-  %61 = getelementptr inbounds nuw double, ptr %0, i64 %.068
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.068
   %62 = load double, ptr %61, align 8
-  %63 = getelementptr inbounds nuw double, ptr %10, i64 %.068
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.068
   %64 = load double, ptr %63, align 8
   %65 = call double @llvm.fmuladd.f64(double %42, double %64, double %62)
-  %66 = getelementptr inbounds nuw double, ptr %1, i64 %.067
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.067
   %67 = load double, ptr %66, align 8
   %68 = fsub double %60, %67
-  %69 = getelementptr inbounds nuw double, ptr %1, i64 %.068
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.068
   %70 = load double, ptr %69, align 8
   %71 = fsub double %65, %70
-  %72 = getelementptr inbounds nuw double, ptr %2, i64 %.067
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.067
   %73 = load double, ptr %72, align 8
   %74 = fsub double %73, %67
-  %75 = getelementptr inbounds nuw double, ptr %2, i64 %.068
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.068
   %76 = load double, ptr %75, align 8
   %77 = fsub double %76, %70
-  %78 = getelementptr inbounds nuw double, ptr %3, i64 %.067
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.067
   %79 = load double, ptr %78, align 8
   %80 = fsub double %79, %67
-  %81 = getelementptr inbounds nuw double, ptr %3, i64 %.068
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.068
   %82 = load double, ptr %81, align 8
   %83 = fsub double %82, %70
   %84 = fneg double %77
@@ -693,35 +693,35 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3d7IsEmptyEv.exit: ; preds = %9
   %.04459 = phi i64 [ 0, %.preheader ], [ %53, %52 ]
   %.04558 = phi double [ 0x7FEFFFFFFFFFFFFF, %.preheader ], [ %.1, %52 ]
   %.04657 = phi double [ 0xFFEFFFFFFFFFFFFF, %.preheader ], [ %.147, %52 ]
-  %22 = getelementptr inbounds nuw double, ptr %20, i64 %.04459
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %.04459
   %23 = load double, ptr %22, align 8
   %24 = tail call noundef double @llvm.fabs.f64(double %23)
   %25 = fcmp olt double %24, 1.000000e-10
   br i1 %25, label %26, label %36
 
 26:                                               ; preds = %21
-  %27 = getelementptr inbounds nuw double, ptr %0, i64 %.04459
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.04459
   %28 = load double, ptr %27, align 8
-  %29 = getelementptr inbounds nuw double, ptr %1, i64 %.04459
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.04459
   %30 = load double, ptr %29, align 8
   %31 = fcmp olt double %28, %30
   br i1 %31, label %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3d7IsEmptyEv.exit.thread, label %32
 
 32:                                               ; preds = %26
-  %33 = getelementptr inbounds nuw double, ptr %6, i64 %.04459
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.04459
   %34 = load double, ptr %33, align 8
   %35 = fcmp ogt double %28, %34
   br i1 %35, label %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3d7IsEmptyEv.exit.thread, label %52
 
 36:                                               ; preds = %21
   %37 = fdiv double 1.000000e+00, %23
-  %38 = getelementptr inbounds nuw double, ptr %1, i64 %.04459
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.04459
   %39 = load double, ptr %38, align 8
-  %40 = getelementptr inbounds nuw double, ptr %0, i64 %.04459
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.04459
   %41 = load double, ptr %40, align 8
   %42 = fsub double %39, %41
   %43 = fmul double %37, %42
-  %44 = getelementptr inbounds nuw double, ptr %6, i64 %.04459
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.04459
   %45 = load double, ptr %44, align 8
   %46 = fsub double %45, %41
   %47 = fmul double %37, %46
@@ -880,35 +880,35 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3d7IsEmptyEv.exit.i: ; preds = %84
   %.04459.i = phi i64 [ %126, %125 ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3d7IsEmptyEv.exit.i ]
   %.04558.i = phi double [ %.1.i, %125 ], [ 0x7FEFFFFFFFFFFFFF, %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3d7IsEmptyEv.exit.i ]
   %.04657.i = phi double [ %.147.i, %125 ], [ 0xFFEFFFFFFFFFFFFF, %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3d7IsEmptyEv.exit.i ]
-  %95 = getelementptr inbounds nuw double, ptr %65, i64 %.04459.i
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %.04459.i
   %96 = load double, ptr %95, align 8
   %97 = tail call noundef double @llvm.fabs.f64(double %96)
   %98 = fcmp olt double %97, 1.000000e-10
   br i1 %98, label %99, label %109
 
 99:                                               ; preds = %.preheader.i
-  %100 = getelementptr inbounds nuw double, ptr %5, i64 %.04459.i
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.04459.i
   %101 = load double, ptr %100, align 8
-  %102 = getelementptr inbounds nuw double, ptr %1, i64 %.04459.i
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.04459.i
   %103 = load double, ptr %102, align 8
   %104 = fcmp olt double %101, %103
   br i1 %104, label %_ZNK32pxrInternal_v0_24__pxrReserved__5GfRay9IntersectERKNS_9GfRange3dEPdS4_.exit, label %105
 
 105:                                              ; preds = %99
-  %106 = getelementptr inbounds nuw double, ptr %81, i64 %.04459.i
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %.04459.i
   %107 = load double, ptr %106, align 8
   %108 = fcmp ogt double %101, %107
   br i1 %108, label %_ZNK32pxrInternal_v0_24__pxrReserved__5GfRay9IntersectERKNS_9GfRange3dEPdS4_.exit, label %125
 
 109:                                              ; preds = %.preheader.i
   %110 = fdiv double 1.000000e+00, %96
-  %111 = getelementptr inbounds nuw double, ptr %1, i64 %.04459.i
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.04459.i
   %112 = load double, ptr %111, align 8
-  %113 = getelementptr inbounds nuw double, ptr %5, i64 %.04459.i
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.04459.i
   %114 = load double, ptr %113, align 8
   %115 = fsub double %112, %114
   %116 = fmul double %110, %115
-  %117 = getelementptr inbounds nuw double, ptr %81, i64 %.04459.i
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %.04459.i
   %118 = load double, ptr %117, align 8
   %119 = fsub double %118, %114
   %120 = fmul double %110, %119

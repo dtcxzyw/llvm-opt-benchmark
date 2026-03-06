@@ -65,10 +65,10 @@ define dso_local noundef double @_ZN3igl29mapping_energy_with_jacobiansERKN5Eige
   %29 = phi i64 [ %22, %.lr.ph142 ], [ %112, %111 ]
   %.0140 = phi double [ 0.000000e+00, %.lr.ph142 ], [ %.1, %111 ]
   %30 = load ptr, ptr %0, align 8, !tbaa !12
-  %31 = getelementptr double, ptr %30, i64 %indvars.iv146
+  %31 = getelementptr [8 x i8], ptr %30, i64 %indvars.iv146
   %32 = load double, ptr %31, align 8, !tbaa !13
   store double %32, ptr %5, align 16, !tbaa !13
-  %33 = getelementptr double, ptr %31, i64 %29
+  %33 = getelementptr [8 x i8], ptr %31, i64 %29
   %34 = load double, ptr %33, align 8, !tbaa !13
   store double %34, ptr %24, align 16, !tbaa !13
   %.idx135 = shl i64 %29, 4
@@ -98,7 +98,7 @@ define dso_local noundef double @_ZN3igl29mapping_energy_with_jacobiansERKN5Eige
 
 41:                                               ; preds = %28
   %42 = load ptr, ptr %1, align 8, !tbaa !15
-  %43 = getelementptr inbounds nuw double, ptr %42, i64 %indvars.iv146
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv146
   %44 = load double, ptr %43, align 8, !tbaa !13
   %45 = fadd double %39, -1.000000e+00
   %46 = call double @pow(double noundef %45, double noundef 2.000000e+00) #5, !tbaa !17
@@ -110,7 +110,7 @@ define dso_local noundef double @_ZN3igl29mapping_energy_with_jacobiansERKN5Eige
 
 51:                                               ; preds = %28
   %52 = load ptr, ptr %1, align 8, !tbaa !15
-  %53 = getelementptr inbounds nuw double, ptr %52, i64 %indvars.iv146
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %indvars.iv146
   %54 = load double, ptr %53, align 8, !tbaa !13
   %55 = call double @pow(double noundef %39, double noundef 2.000000e+00) #5, !tbaa !17
   %56 = call double @pow(double noundef %39, double noundef -2.000000e+00) #5, !tbaa !17
@@ -124,7 +124,7 @@ define dso_local noundef double @_ZN3igl29mapping_energy_with_jacobiansERKN5Eige
 
 63:                                               ; preds = %28
   %64 = load ptr, ptr %1, align 8, !tbaa !15
-  %65 = getelementptr inbounds nuw double, ptr %64, i64 %indvars.iv146
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %indvars.iv146
   %66 = load double, ptr %65, align 8, !tbaa !13
   %67 = call double @pow(double noundef %39, double noundef 2.000000e+00) #5, !tbaa !17
   %68 = call double @pow(double noundef %39, double noundef -2.000000e+00) #5, !tbaa !17
@@ -140,7 +140,7 @@ define dso_local noundef double @_ZN3igl29mapping_energy_with_jacobiansERKN5Eige
 
 77:                                               ; preds = %28
   %78 = load ptr, ptr %1, align 8, !tbaa !15
-  %79 = getelementptr inbounds nuw double, ptr %78, i64 %indvars.iv146
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %indvars.iv146
   %80 = load double, ptr %79, align 8, !tbaa !13
   %81 = call double @log(double noundef %39) #5, !tbaa !17
   %82 = call double @pow(double noundef %81, double noundef 2.000000e+00) #5, !tbaa !17
@@ -152,7 +152,7 @@ define dso_local noundef double @_ZN3igl29mapping_energy_with_jacobiansERKN5Eige
 
 87:                                               ; preds = %28
   %88 = load ptr, ptr %1, align 8, !tbaa !15
-  %89 = getelementptr inbounds nuw double, ptr %88, i64 %indvars.iv146
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %indvars.iv146
   %90 = load double, ptr %89, align 8, !tbaa !13
   %91 = call double @pow(double noundef %39, double noundef 2.000000e+00) #5, !tbaa !17
   %92 = call double @pow(double noundef %40, double noundef 2.000000e+00) #5, !tbaa !17
@@ -165,7 +165,7 @@ define dso_local noundef double @_ZN3igl29mapping_energy_with_jacobiansERKN5Eige
 
 98:                                               ; preds = %28
   %99 = load ptr, ptr %1, align 8, !tbaa !15
-  %100 = getelementptr inbounds nuw double, ptr %99, i64 %indvars.iv146
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %99, i64 %indvars.iv146
   %101 = load double, ptr %100, align 8, !tbaa !13
   %102 = call double @pow(double noundef %39, double noundef 2.000000e+00) #5, !tbaa !17
   %103 = call double @pow(double noundef %40, double noundef 2.000000e+00) #5, !tbaa !17
@@ -219,10 +219,10 @@ define dso_local noundef double @_ZN3igl29mapping_energy_with_jacobiansERKN5Eige
   %128 = phi i64 [ %115, %.lr.ph ], [ %246, %245 ]
   %.3138 = phi double [ 0.000000e+00, %.lr.ph ], [ %.4, %245 ]
   %129 = load ptr, ptr %0, align 8, !tbaa !12
-  %130 = getelementptr double, ptr %129, i64 %indvars.iv
+  %130 = getelementptr [8 x i8], ptr %129, i64 %indvars.iv
   %131 = load double, ptr %130, align 8, !tbaa !13
   store double %131, ptr %11, align 8, !tbaa !13
-  %132 = getelementptr double, ptr %130, i64 %128
+  %132 = getelementptr [8 x i8], ptr %130, i64 %128
   %133 = load double, ptr %132, align 8, !tbaa !13
   store double %133, ptr %117, align 8, !tbaa !13
   %.idx = shl i64 %128, 4
@@ -273,7 +273,7 @@ define dso_local noundef double @_ZN3igl29mapping_energy_with_jacobiansERKN5Eige
 
 151:                                              ; preds = %127
   %152 = load ptr, ptr %1, align 8, !tbaa !15
-  %153 = getelementptr inbounds nuw double, ptr %152, i64 %indvars.iv
+  %153 = getelementptr inbounds nuw [8 x i8], ptr %152, i64 %indvars.iv
   %154 = load double, ptr %153, align 8, !tbaa !13
   %155 = fadd double %148, -1.000000e+00
   %156 = call double @pow(double noundef %155, double noundef 2.000000e+00) #5, !tbaa !17
@@ -288,7 +288,7 @@ define dso_local noundef double @_ZN3igl29mapping_energy_with_jacobiansERKN5Eige
 
 164:                                              ; preds = %127
   %165 = load ptr, ptr %1, align 8, !tbaa !15
-  %166 = getelementptr inbounds nuw double, ptr %165, i64 %indvars.iv
+  %166 = getelementptr inbounds nuw [8 x i8], ptr %165, i64 %indvars.iv
   %167 = load double, ptr %166, align 8, !tbaa !13
   %168 = call double @pow(double noundef %148, double noundef 2.000000e+00) #5, !tbaa !17
   %169 = call double @pow(double noundef %148, double noundef -2.000000e+00) #5, !tbaa !17
@@ -306,7 +306,7 @@ define dso_local noundef double @_ZN3igl29mapping_energy_with_jacobiansERKN5Eige
 
 180:                                              ; preds = %127
   %181 = load ptr, ptr %1, align 8, !tbaa !15
-  %182 = getelementptr inbounds nuw double, ptr %181, i64 %indvars.iv
+  %182 = getelementptr inbounds nuw [8 x i8], ptr %181, i64 %indvars.iv
   %183 = load double, ptr %182, align 8, !tbaa !13
   %184 = call double @pow(double noundef %148, double noundef 2.000000e+00) #5, !tbaa !17
   %185 = call double @pow(double noundef %148, double noundef -2.000000e+00) #5, !tbaa !17
@@ -326,7 +326,7 @@ define dso_local noundef double @_ZN3igl29mapping_energy_with_jacobiansERKN5Eige
 
 198:                                              ; preds = %127
   %199 = load ptr, ptr %1, align 8, !tbaa !15
-  %200 = getelementptr inbounds nuw double, ptr %199, i64 %indvars.iv
+  %200 = getelementptr inbounds nuw [8 x i8], ptr %199, i64 %indvars.iv
   %201 = load double, ptr %200, align 8, !tbaa !13
   %202 = call double @log(double noundef %148) #5, !tbaa !17
   %203 = call double @pow(double noundef %202, double noundef 2.000000e+00) #5, !tbaa !17
@@ -343,7 +343,7 @@ define dso_local noundef double @_ZN3igl29mapping_energy_with_jacobiansERKN5Eige
 
 213:                                              ; preds = %127
   %214 = load ptr, ptr %1, align 8, !tbaa !15
-  %215 = getelementptr inbounds nuw double, ptr %214, i64 %indvars.iv
+  %215 = getelementptr inbounds nuw [8 x i8], ptr %214, i64 %indvars.iv
   %216 = load double, ptr %215, align 8, !tbaa !13
   %217 = call double @pow(double noundef %148, double noundef 2.000000e+00) #5, !tbaa !17
   %218 = call double @pow(double noundef %149, double noundef 2.000000e+00) #5, !tbaa !17
@@ -360,7 +360,7 @@ define dso_local noundef double @_ZN3igl29mapping_energy_with_jacobiansERKN5Eige
 
 228:                                              ; preds = %127
   %229 = load ptr, ptr %1, align 8, !tbaa !15
-  %230 = getelementptr inbounds nuw double, ptr %229, i64 %indvars.iv
+  %230 = getelementptr inbounds nuw [8 x i8], ptr %229, i64 %indvars.iv
   %231 = load double, ptr %230, align 8, !tbaa !13
   %232 = call double @pow(double noundef %148, double noundef 2.000000e+00) #5, !tbaa !17
   %233 = call double @pow(double noundef %149, double noundef 2.000000e+00) #5, !tbaa !17

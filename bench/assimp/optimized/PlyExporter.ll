@@ -18,10 +18,8 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::allocator" = type { i8 }
 %"class.Assimp::Formatter::basic_formatter" = type { %"class.std::__cxx11::basic_ostringstream" }
 %struct.aiString = type { i32, [1024 x i8] }
-%struct.aiFace = type { i32, ptr }
 %class.aiVector3t = type { float, float, float }
 %class.aiVector2t = type { float, float }
-%class.aiColor4t = type { float, float, float, float }
 
 $_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_ = comdat any
 
@@ -943,7 +941,7 @@ _ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread: ; preds = %_ZNK6aiMesh24Has
   %.0111431 = phi i32 [ 0, %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread.lr.ph ], [ %62, %_ZNK6aiMesh15HasVertexColorsEj.exit.thread ]
   %.0113429 = phi i32 [ 0, %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread.lr.ph ], [ %.us-phi427, %_ZNK6aiMesh15HasVertexColorsEj.exit.thread ]
   %.0118428 = phi i32 [ 0, %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread.lr.ph ], [ %65, %_ZNK6aiMesh15HasVertexColorsEj.exit.thread ]
-  %58 = getelementptr inbounds nuw ptr, ptr %48, i64 %indvars.iv465
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %indvars.iv465
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %61 = load i32, ptr %60, align 8
@@ -980,7 +978,7 @@ _ZNK6aiMesh16HasTextureCoordsEj.exit.preheader:   ; preds = %81, %_ZNK6aiMesh24H
 _ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread.split: ; preds = %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread, %81
   %indvars.iv = phi i64 [ %indvars.iv.next, %81 ], [ 0, %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread ]
   %.3116422 = phi i32 [ %84, %81 ], [ %76, %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread ]
-  %79 = getelementptr inbounds nuw ptr, ptr %77, i64 %indvars.iv
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %indvars.iv
   %80 = load ptr, ptr %79, align 8
   %.not.i136.not = icmp eq ptr %80, null
   br i1 %.not.i136.not, label %_ZNK6aiMesh16HasTextureCoordsEj.exit.preheader, label %81
@@ -996,7 +994,7 @@ _ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread.split: ; preds = %_ZNK6aiMes
 _ZNK6aiMesh15HasVertexColorsEj.exit:              ; preds = %_ZNK6aiMesh16HasTextureCoordsEj.exit.preheader, %_ZNK6aiMesh16HasTextureCoordsEj.exit
   %indvars.iv461 = phi i64 [ %indvars.iv.next462, %_ZNK6aiMesh16HasTextureCoordsEj.exit ], [ 0, %_ZNK6aiMesh16HasTextureCoordsEj.exit.preheader ]
   %.4117424 = phi i32 [ %89, %_ZNK6aiMesh16HasTextureCoordsEj.exit ], [ %.us-phi, %_ZNK6aiMesh16HasTextureCoordsEj.exit.preheader ]
-  %85 = getelementptr inbounds nuw ptr, ptr %78, i64 %indvars.iv461
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %indvars.iv461
   %86 = load ptr, ptr %85, align 8
   %.not.i137.not = icmp eq ptr %86, null
   br i1 %.not.i137.not, label %_ZNK6aiMesh15HasVertexColorsEj.exit.thread, label %_ZNK6aiMesh16HasTextureCoordsEj.exit
@@ -1141,7 +1139,7 @@ _ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic
 145:                                              ; preds = %.lr.ph, %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit177
   %indvars.iv469 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next470, %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit177 ]
   %146 = load ptr, ptr %142, align 8
-  %147 = getelementptr inbounds nuw ptr, ptr %146, i64 %indvars.iv469
+  %147 = getelementptr inbounds nuw [8 x i8], ptr %146, i64 %indvars.iv469
   %148 = load ptr, ptr %147, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1028) %12, i8 0, i64 1028, i1 false)
@@ -1748,7 +1746,7 @@ _ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic
 .lr.ph443.split.us:                               ; preds = %.lr.ph443, %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit399.us
   %indvars.iv481 = phi i64 [ %indvars.iv.next482, %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit399.us ], [ 0, %.lr.ph443 ]
   %354 = load ptr, ptr %353, align 8
-  %355 = getelementptr inbounds nuw ptr, ptr %354, i64 %indvars.iv481
+  %355 = getelementptr inbounds nuw [8 x i8], ptr %354, i64 %indvars.iv481
   %356 = load ptr, ptr %355, align 8
   invoke void @_ZN6Assimp11PlyExporter20WriteMeshVertsBinaryEPK6aiMeshj(ptr noundef nonnull align 8 dereferenceable(440) %0, ptr noundef %356, i32 noundef %.0113.lcssa)
           to label %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit399.us unwind label %.split.us
@@ -1780,7 +1778,7 @@ _ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic
   %364 = phi ptr [ %392, %_ZN6Assimp11PlyExporter22WriteMeshIndicesBinaryEPK6aiMeshj.exit.us ], [ %.pre492, %.lr.ph447 ]
   %indvars.iv487 = phi i64 [ %indvars.iv.next488, %_ZN6Assimp11PlyExporter22WriteMeshIndicesBinaryEPK6aiMeshj.exit.us ], [ 0, %.lr.ph447 ]
   %.0446.us = phi i32 [ %395, %_ZN6Assimp11PlyExporter22WriteMeshIndicesBinaryEPK6aiMeshj.exit.us ], [ 0, %.lr.ph447 ]
-  %365 = getelementptr inbounds nuw ptr, ptr %364, i64 %indvars.iv487
+  %365 = getelementptr inbounds nuw [8 x i8], ptr %364, i64 %indvars.iv487
   %366 = load ptr, ptr %365, align 8
   %367 = getelementptr inbounds nuw i8, ptr %366, i64 8
   %368 = load i32, ptr %367, align 8
@@ -1794,7 +1792,7 @@ _ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic
 370:                                              ; preds = %._crit_edge.i.i400.us, %.lr.ph17.i.i.us
   %indvars.iv21.i.i.us = phi i64 [ 0, %.lr.ph17.i.i.us ], [ %indvars.iv.next22.i.i.us, %._crit_edge.i.i400.us ]
   %371 = load ptr, ptr %369, align 8
-  %372 = getelementptr inbounds nuw %struct.aiFace, ptr %371, i64 %indvars.iv21.i.i.us
+  %372 = getelementptr inbounds nuw [16 x i8], ptr %371, i64 %indvars.iv21.i.i.us
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %373 = load i32, ptr %372, align 8
   %374 = trunc i32 %373 to i8
@@ -1815,7 +1813,7 @@ _ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic
   %indvars.iv.i.i.us = phi i64 [ 0, %.lr.ph.i.i.us ], [ %indvars.iv.next.i.i.us, %.noexc402.us ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %379 = load ptr, ptr %377, align 8
-  %380 = getelementptr inbounds nuw i32, ptr %379, i64 %indvars.iv.i.i.us
+  %380 = getelementptr inbounds nuw [4 x i8], ptr %379, i64 %indvars.iv.i.i.us
   %381 = load i32, ptr %380, align 4
   %382 = add i32 %381, %.0446.us
   store i32 %382, ptr %6, align 4
@@ -1841,7 +1839,7 @@ _ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic
 _ZN6Assimp11PlyExporter22WriteMeshIndicesBinaryEPK6aiMeshj.exit.us.loopexit: ; preds = %._crit_edge.i.i400.us
   %.pre493 = load ptr, ptr %362, align 8
   %.pre494 = load i32, ptr %45, align 8
-  %.phi.trans.insert496 = getelementptr inbounds nuw ptr, ptr %.pre493, i64 %indvars.iv487
+  %.phi.trans.insert496 = getelementptr inbounds nuw [8 x i8], ptr %.pre493, i64 %indvars.iv487
   %.pre497 = load ptr, ptr %.phi.trans.insert496, align 8
   br label %_ZN6Assimp11PlyExporter22WriteMeshIndicesBinaryEPK6aiMeshj.exit.us
 
@@ -1870,7 +1868,7 @@ _ZN6Assimp11PlyExporter22WriteMeshIndicesBinaryEPK6aiMeshj.exit.us: ; preds = %_
 .lr.ph443.split:                                  ; preds = %.lr.ph443, %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit399
   %indvars.iv478 = phi i64 [ %indvars.iv.next479, %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit399 ], [ 0, %.lr.ph443 ]
   %398 = load ptr, ptr %353, align 8
-  %399 = getelementptr inbounds nuw ptr, ptr %398, i64 %indvars.iv478
+  %399 = getelementptr inbounds nuw [8 x i8], ptr %398, i64 %indvars.iv478
   %400 = load ptr, ptr %399, align 8
   invoke void @_ZN6Assimp11PlyExporter14WriteMeshVertsEPK6aiMeshj(ptr noundef nonnull align 8 dereferenceable(440) %0, ptr noundef %400, i32 noundef %.0113.lcssa)
           to label %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit399 unwind label %.split
@@ -1897,7 +1895,7 @@ _ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic
   %406 = phi ptr [ %439, %_ZN6Assimp11PlyExporter22WriteMeshIndicesBinaryEPK6aiMeshj.exit ], [ %.pre492, %.lr.ph447 ]
   %indvars.iv484 = phi i64 [ %indvars.iv.next485, %_ZN6Assimp11PlyExporter22WriteMeshIndicesBinaryEPK6aiMeshj.exit ], [ 0, %.lr.ph447 ]
   %.0446 = phi i32 [ %442, %_ZN6Assimp11PlyExporter22WriteMeshIndicesBinaryEPK6aiMeshj.exit ], [ 0, %.lr.ph447 ]
-  %407 = getelementptr inbounds nuw ptr, ptr %406, i64 %indvars.iv484
+  %407 = getelementptr inbounds nuw [8 x i8], ptr %406, i64 %indvars.iv484
   %408 = load ptr, ptr %407, align 8
   %409 = getelementptr inbounds nuw i8, ptr %408, i64 8
   %410 = load i32, ptr %409, align 8
@@ -1921,7 +1919,7 @@ _ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic
 412:                                              ; preds = %.noexc405, %.lr.ph16.i
   %indvars.iv20.i = phi i64 [ 0, %.lr.ph16.i ], [ %indvars.iv.next21.i, %.noexc405 ]
   %413 = load ptr, ptr %411, align 8
-  %414 = getelementptr inbounds nuw %struct.aiFace, ptr %413, i64 %indvars.iv20.i
+  %414 = getelementptr inbounds nuw [16 x i8], ptr %413, i64 %indvars.iv20.i
   %415 = load i32, ptr %414, align 8
   %416 = zext i32 %415 to i64
   %417 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(440) %0, i64 noundef %416)
@@ -1956,7 +1954,7 @@ _ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic
 
 .noexc406:                                        ; preds = %426
   %428 = load ptr, ptr %419, align 8
-  %429 = getelementptr inbounds nuw i32, ptr %428, i64 %indvars.iv.i
+  %429 = getelementptr inbounds nuw [4 x i8], ptr %428, i64 %indvars.iv.i
   %430 = load i32, ptr %429, align 4
   %431 = add i32 %430, %.0446
   %432 = zext i32 %431 to i64
@@ -1973,7 +1971,7 @@ _ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic
 _ZN6Assimp11PlyExporter22WriteMeshIndicesBinaryEPK6aiMeshj.exit.loopexit: ; preds = %.noexc405
   %.pre490 = load ptr, ptr %362, align 8
   %.pre491 = load i32, ptr %45, align 8
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre490, i64 %indvars.iv484
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre490, i64 %indvars.iv484
   %.pre495 = load ptr, ptr %.phi.trans.insert, align 8
   br label %_ZN6Assimp11PlyExporter22WriteMeshIndicesBinaryEPK6aiMeshj.exit
 
@@ -2089,7 +2087,7 @@ define hidden void @_ZN6Assimp11PlyExporter20WriteMeshVertsBinaryEPK6aiMeshj(ptr
 26:                                               ; preds = %.lr.ph65, %90
   %indvars.iv74 = phi i64 [ 0, %.lr.ph65 ], [ %indvars.iv.next75, %90 ]
   %27 = load ptr, ptr %13, align 8
-  %28 = getelementptr inbounds nuw %class.aiVector3t, ptr %27, i64 %indvars.iv74
+  %28 = getelementptr inbounds nuw [12 x i8], ptr %27, i64 %indvars.iv74
   %29 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %28, i64 noundef 12)
   br i1 %.not, label %36, label %.sink.split
 
@@ -2099,7 +2097,7 @@ define hidden void @_ZN6Assimp11PlyExporter20WriteMeshVertsBinaryEPK6aiMeshj(ptr
   %31 = load i32, ptr %11, align 4
   %32 = icmp ne i32 %31, 0
   %33 = select i1 %.not.i, i1 %32, i1 false
-  %34 = getelementptr inbounds nuw %class.aiVector3t, ptr %30, i64 %indvars.iv74
+  %34 = getelementptr inbounds nuw [12 x i8], ptr %30, i64 %indvars.iv74
   %.sink = select i1 %33, ptr %34, ptr %4
   %35 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %.sink, i64 noundef 12)
   br label %36
@@ -2113,13 +2111,13 @@ define hidden void @_ZN6Assimp11PlyExporter20WriteMeshVertsBinaryEPK6aiMeshj(ptr
 _ZNK6aiMesh16HasTextureCoordsEj.exit:             ; preds = %36, %_ZNK6aiMesh16HasTextureCoordsEj.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNK6aiMesh16HasTextureCoordsEj.exit ], [ 0, %36 ]
   %.04656 = phi i32 [ %44, %_ZNK6aiMesh16HasTextureCoordsEj.exit ], [ 4, %36 ]
-  %37 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv
   %38 = load ptr, ptr %37, align 8
   %.not.i49 = icmp ne ptr %38, null
   %39 = load i32, ptr %11, align 4
   %40 = icmp ne i32 %39, 0
   %41 = select i1 %.not.i49, i1 %40, i1 false
-  %42 = getelementptr inbounds nuw %class.aiVector3t, ptr %38, i64 %indvars.iv74
+  %42 = getelementptr inbounds nuw [12 x i8], ptr %38, i64 %indvars.iv74
   %.sink80 = select i1 %41, ptr %42, ptr %5
   %43 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %.sink80, i64 noundef 8)
   %44 = shl i32 %.04656, 1
@@ -2136,7 +2134,7 @@ _ZNK6aiMesh16HasTextureCoordsEj.exit:             ; preds = %36, %_ZNK6aiMesh16H
 _ZNK6aiMesh15HasVertexColorsEj.exit:              ; preds = %.preheader, %73
   %indvars.iv71 = phi i64 [ %indvars.iv.next72, %73 ], [ 0, %.preheader ]
   %.04459 = phi i32 [ %74, %73 ], [ 1024, %.preheader ]
-  %49 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv71
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv71
   %50 = load ptr, ptr %49, align 8
   %.not.i50 = icmp ne ptr %50, null
   %51 = load i32, ptr %11, align 4
@@ -2146,7 +2144,7 @@ _ZNK6aiMesh15HasVertexColorsEj.exit:              ; preds = %.preheader, %73
 
 54:                                               ; preds = %_ZNK6aiMesh15HasVertexColorsEj.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %55 = getelementptr inbounds nuw %class.aiColor4t, ptr %50, i64 %indvars.iv74
+  %55 = getelementptr inbounds nuw [16 x i8], ptr %50, i64 %indvars.iv74
   %56 = load float, ptr %55, align 4
   %57 = fmul float %56, 2.550000e+02
   %58 = fptoui float %57 to i8
@@ -2199,10 +2197,10 @@ _ZNK6aiMesh24HasTangentsAndBitangentsEv.exit:     ; preds = %79
   br i1 %.not55, label %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread, label %83
 
 83:                                               ; preds = %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit
-  %84 = getelementptr inbounds nuw %class.aiVector3t, ptr %80, i64 %indvars.iv74
+  %84 = getelementptr inbounds nuw [12 x i8], ptr %80, i64 %indvars.iv74
   %85 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %84, i64 noundef 12)
   %86 = load ptr, ptr %25, align 8
-  %87 = getelementptr inbounds nuw %class.aiVector3t, ptr %86, i64 %indvars.iv74
+  %87 = getelementptr inbounds nuw [12 x i8], ptr %86, i64 %indvars.iv74
   br label %.sink.split81
 
 _ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread: ; preds = %79, %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit
@@ -2254,20 +2252,20 @@ define hidden void @_ZN6Assimp11PlyExporter14WriteMeshVertsEPK6aiMeshj(ptr nound
 18:                                               ; preds = %.lr.ph89, %187
   %indvars.iv98 = phi i64 [ 0, %.lr.ph89 ], [ %indvars.iv.next99, %187 ]
   %19 = load ptr, ptr %6, align 8
-  %20 = getelementptr inbounds nuw %class.aiVector3t, ptr %19, i64 %indvars.iv98
+  %20 = getelementptr inbounds nuw [12 x i8], ptr %19, i64 %indvars.iv98
   %21 = load float, ptr %20, align 4
   %22 = fpext float %21 to double
   %23 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %0, double noundef %22)
   %24 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull @.str.39, i64 noundef 1)
   %25 = load ptr, ptr %6, align 8
-  %26 = getelementptr inbounds nuw %class.aiVector3t, ptr %25, i64 %indvars.iv98
+  %26 = getelementptr inbounds nuw [12 x i8], ptr %25, i64 %indvars.iv98
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 4
   %28 = load float, ptr %27, align 4
   %29 = fpext float %28 to double
   %30 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %23, double noundef %29)
   %31 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull @.str.39, i64 noundef 1)
   %32 = load ptr, ptr %6, align 8
-  %33 = getelementptr inbounds nuw %class.aiVector3t, ptr %32, i64 %indvars.iv98
+  %33 = getelementptr inbounds nuw [12 x i8], ptr %32, i64 %indvars.iv98
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load float, ptr %34, align 4
   %36 = fpext float %35 to double
@@ -2283,7 +2281,7 @@ define hidden void @_ZN6Assimp11PlyExporter14WriteMeshVertsEPK6aiMeshj(ptr nound
   br i1 %42, label %43, label %68
 
 43:                                               ; preds = %38
-  %44 = getelementptr inbounds nuw %class.aiVector3t, ptr %39, i64 %indvars.iv98
+  %44 = getelementptr inbounds nuw [12 x i8], ptr %39, i64 %indvars.iv98
   %45 = load float, ptr %44, align 4
   %46 = tail call float @llvm.fabs.f32(float %45)
   %or.cond = fcmp ueq float %46, 0x7FF0000000000000
@@ -2292,20 +2290,20 @@ define hidden void @_ZN6Assimp11PlyExporter14WriteMeshVertsEPK6aiMeshj(ptr nound
 47:                                               ; preds = %43
   %48 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.39, i64 noundef 1)
   %49 = load ptr, ptr %8, align 8
-  %50 = getelementptr inbounds nuw %class.aiVector3t, ptr %49, i64 %indvars.iv98
+  %50 = getelementptr inbounds nuw [12 x i8], ptr %49, i64 %indvars.iv98
   %51 = load float, ptr %50, align 4
   %52 = fpext float %51 to double
   %53 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %0, double noundef %52)
   %54 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %53, ptr noundef nonnull @.str.39, i64 noundef 1)
   %55 = load ptr, ptr %8, align 8
-  %56 = getelementptr inbounds nuw %class.aiVector3t, ptr %55, i64 %indvars.iv98
+  %56 = getelementptr inbounds nuw [12 x i8], ptr %55, i64 %indvars.iv98
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 4
   %58 = load float, ptr %57, align 4
   %59 = fpext float %58 to double
   %60 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %53, double noundef %59)
   %61 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %60, ptr noundef nonnull @.str.39, i64 noundef 1)
   %62 = load ptr, ptr %8, align 8
-  %63 = getelementptr inbounds nuw %class.aiVector3t, ptr %62, i64 %indvars.iv98
+  %63 = getelementptr inbounds nuw [12 x i8], ptr %62, i64 %indvars.iv98
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %65 = load float, ptr %64, align 4
   %66 = fpext float %65 to double
@@ -2325,7 +2323,7 @@ define hidden void @_ZN6Assimp11PlyExporter14WriteMeshVertsEPK6aiMeshj(ptr nound
 _ZNK6aiMesh16HasTextureCoordsEj.exit:             ; preds = %70, %91
   %indvars.iv = phi i64 [ %indvars.iv.next, %91 ], [ 0, %70 ]
   %.06980 = phi i32 [ %92, %91 ], [ 4, %70 ]
-  %71 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %72 = load ptr, ptr %71, align 8
   %.not.i72 = icmp ne ptr %72, null
   %73 = load i32, ptr %4, align 4
@@ -2336,13 +2334,13 @@ _ZNK6aiMesh16HasTextureCoordsEj.exit:             ; preds = %70, %91
 76:                                               ; preds = %_ZNK6aiMesh16HasTextureCoordsEj.exit
   %77 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.39, i64 noundef 1)
   %78 = load ptr, ptr %71, align 8
-  %79 = getelementptr inbounds nuw %class.aiVector3t, ptr %78, i64 %indvars.iv98
+  %79 = getelementptr inbounds nuw [12 x i8], ptr %78, i64 %indvars.iv98
   %80 = load float, ptr %79, align 4
   %81 = fpext float %80 to double
   %82 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %0, double noundef %81)
   %83 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %82, ptr noundef nonnull @.str.39, i64 noundef 1)
   %84 = load ptr, ptr %71, align 8
-  %85 = getelementptr inbounds nuw %class.aiVector3t, ptr %84, i64 %indvars.iv98
+  %85 = getelementptr inbounds nuw [12 x i8], ptr %84, i64 %indvars.iv98
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 4
   %87 = load float, ptr %86, align 4
   %88 = fpext float %87 to double
@@ -2368,7 +2366,7 @@ _ZNK6aiMesh16HasTextureCoordsEj.exit.thread:      ; preds = %_ZNK6aiMesh16HasTex
 _ZNK6aiMesh15HasVertexColorsEj.exit:              ; preds = %.preheader, %135
   %indvars.iv95 = phi i64 [ %indvars.iv.next96, %135 ], [ 0, %.preheader ]
   %.06783 = phi i32 [ %136, %135 ], [ 1024, %.preheader ]
-  %97 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv95
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv95
   %98 = load ptr, ptr %97, align 8
   %.not.i73 = icmp ne ptr %98, null
   %99 = load i32, ptr %4, align 4
@@ -2379,14 +2377,14 @@ _ZNK6aiMesh15HasVertexColorsEj.exit:              ; preds = %.preheader, %135
 102:                                              ; preds = %_ZNK6aiMesh15HasVertexColorsEj.exit
   %103 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.39, i64 noundef 1)
   %104 = load ptr, ptr %97, align 8
-  %105 = getelementptr inbounds nuw %class.aiColor4t, ptr %104, i64 %indvars.iv98
+  %105 = getelementptr inbounds nuw [16 x i8], ptr %104, i64 %indvars.iv98
   %106 = load float, ptr %105, align 4
   %107 = fmul float %106, 2.550000e+02
   %108 = fptosi float %107 to i32
   %109 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %108)
   %110 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %109, ptr noundef nonnull @.str.39, i64 noundef 1)
   %111 = load ptr, ptr %97, align 8
-  %112 = getelementptr inbounds nuw %class.aiColor4t, ptr %111, i64 %indvars.iv98
+  %112 = getelementptr inbounds nuw [16 x i8], ptr %111, i64 %indvars.iv98
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 4
   %114 = load float, ptr %113, align 4
   %115 = fmul float %114, 2.550000e+02
@@ -2394,7 +2392,7 @@ _ZNK6aiMesh15HasVertexColorsEj.exit:              ; preds = %.preheader, %135
   %117 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %109, i32 noundef %116)
   %118 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %117, ptr noundef nonnull @.str.39, i64 noundef 1)
   %119 = load ptr, ptr %97, align 8
-  %120 = getelementptr inbounds nuw %class.aiColor4t, ptr %119, i64 %indvars.iv98
+  %120 = getelementptr inbounds nuw [16 x i8], ptr %119, i64 %indvars.iv98
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 8
   %122 = load float, ptr %121, align 4
   %123 = fmul float %122, 2.550000e+02
@@ -2402,7 +2400,7 @@ _ZNK6aiMesh15HasVertexColorsEj.exit:              ; preds = %.preheader, %135
   %125 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %117, i32 noundef %124)
   %126 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %125, ptr noundef nonnull @.str.39, i64 noundef 1)
   %127 = load ptr, ptr %97, align 8
-  %128 = getelementptr inbounds nuw %class.aiColor4t, ptr %127, i64 %indvars.iv98
+  %128 = getelementptr inbounds nuw [16 x i8], ptr %127, i64 %indvars.iv98
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 12
   %130 = load float, ptr %129, align 4
   %131 = fmul float %130, 2.550000e+02
@@ -2439,40 +2437,40 @@ _ZNK6aiMesh24HasTangentsAndBitangentsEv.exit:     ; preds = %141
 145:                                              ; preds = %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit
   %146 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.39, i64 noundef 1)
   %147 = load ptr, ptr %14, align 8
-  %148 = getelementptr inbounds nuw %class.aiVector3t, ptr %147, i64 %indvars.iv98
+  %148 = getelementptr inbounds nuw [12 x i8], ptr %147, i64 %indvars.iv98
   %149 = load float, ptr %148, align 4
   %150 = fpext float %149 to double
   %151 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %0, double noundef %150)
   %152 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %151, ptr noundef nonnull @.str.39, i64 noundef 1)
   %153 = load ptr, ptr %14, align 8
-  %154 = getelementptr inbounds nuw %class.aiVector3t, ptr %153, i64 %indvars.iv98
+  %154 = getelementptr inbounds nuw [12 x i8], ptr %153, i64 %indvars.iv98
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 4
   %156 = load float, ptr %155, align 4
   %157 = fpext float %156 to double
   %158 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %151, double noundef %157)
   %159 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %158, ptr noundef nonnull @.str.39, i64 noundef 1)
   %160 = load ptr, ptr %14, align 8
-  %161 = getelementptr inbounds nuw %class.aiVector3t, ptr %160, i64 %indvars.iv98
+  %161 = getelementptr inbounds nuw [12 x i8], ptr %160, i64 %indvars.iv98
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 8
   %163 = load float, ptr %162, align 4
   %164 = fpext float %163 to double
   %165 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %158, double noundef %164)
   %166 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %165, ptr noundef nonnull @.str.39, i64 noundef 1)
   %167 = load ptr, ptr %15, align 8
-  %168 = getelementptr inbounds nuw %class.aiVector3t, ptr %167, i64 %indvars.iv98
+  %168 = getelementptr inbounds nuw [12 x i8], ptr %167, i64 %indvars.iv98
   %169 = load float, ptr %168, align 4
   %170 = fpext float %169 to double
   %171 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %165, double noundef %170)
   %172 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %171, ptr noundef nonnull @.str.39, i64 noundef 1)
   %173 = load ptr, ptr %15, align 8
-  %174 = getelementptr inbounds nuw %class.aiVector3t, ptr %173, i64 %indvars.iv98
+  %174 = getelementptr inbounds nuw [12 x i8], ptr %173, i64 %indvars.iv98
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 4
   %176 = load float, ptr %175, align 4
   %177 = fpext float %176 to double
   %178 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %171, double noundef %177)
   %179 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %178, ptr noundef nonnull @.str.39, i64 noundef 1)
   %180 = load ptr, ptr %15, align 8
-  %181 = getelementptr inbounds nuw %class.aiVector3t, ptr %180, i64 %indvars.iv98
+  %181 = getelementptr inbounds nuw [12 x i8], ptr %180, i64 %indvars.iv98
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 8
   %183 = load float, ptr %182, align 4
   %184 = fpext float %183 to double
@@ -2510,7 +2508,7 @@ define hidden void @_ZN6Assimp11PlyExporter22WriteMeshIndicesBinaryEPK6aiMeshj(p
 9:                                                ; preds = %._crit_edge.i, %.lr.ph17.i
   %indvars.iv21.i = phi i64 [ 0, %.lr.ph17.i ], [ %indvars.iv.next22.i, %._crit_edge.i ]
   %10 = load ptr, ptr %8, align 8
-  %11 = getelementptr inbounds nuw %struct.aiFace, ptr %10, i64 %indvars.iv21.i
+  %11 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %indvars.iv21.i
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %12 = load i32, ptr %11, align 8
   %13 = trunc i32 %12 to i8
@@ -2536,7 +2534,7 @@ define hidden void @_ZN6Assimp11PlyExporter22WriteMeshIndicesBinaryEPK6aiMeshj(p
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %20 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %21 = load ptr, ptr %16, align 8
-  %22 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %indvars.iv.i
   %23 = load i32, ptr %22, align 4
   %24 = add i32 %23, %2
   store i32 %24, ptr %5, align 4
@@ -2571,7 +2569,7 @@ define hidden void @_ZN6Assimp11PlyExporter16WriteMeshIndicesEPK6aiMeshj(ptr nou
 9:                                                ; preds = %.lr.ph16, %._crit_edge
   %indvars.iv20 = phi i64 [ 0, %.lr.ph16 ], [ %indvars.iv.next21, %._crit_edge ]
   %10 = load ptr, ptr %6, align 8
-  %11 = getelementptr inbounds nuw %struct.aiFace, ptr %10, i64 %indvars.iv20
+  %11 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %indvars.iv20
   %12 = load i32, ptr %11, align 8
   %13 = zext i32 %12 to i64
   %14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %13)
@@ -2597,7 +2595,7 @@ define hidden void @_ZN6Assimp11PlyExporter16WriteMeshIndicesEPK6aiMeshj(ptr nou
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %23 ]
   %24 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.39, i64 noundef 1)
   %25 = load ptr, ptr %16, align 8
-  %26 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %indvars.iv
   %27 = load i32, ptr %26, align 4
   %28 = add i32 %27, %2
   %29 = zext i32 %28 to i64

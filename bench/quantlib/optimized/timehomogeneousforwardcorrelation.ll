@@ -15,6 +15,10 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
 %"class.std::allocator.0" = type { i8 }
+%"class.std::vector" = type { %"struct.std::_Vector_base" }
+%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<QuantLib::Matrix, std::allocator<QuantLib::Matrix>>::_Vector_impl" }
+%"struct.std::_Vector_base<QuantLib::Matrix, std::allocator<QuantLib::Matrix>>::_Vector_impl" = type { %"struct.std::_Vector_base<QuantLib::Matrix, std::allocator<QuantLib::Matrix>>::_Vector_impl_data" }
+%"struct.std::_Vector_base<QuantLib::Matrix, std::allocator<QuantLib::Matrix>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.QuantLib::Matrix" = type { %"class.std::unique_ptr", i64, i64 }
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
 %"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
@@ -22,10 +26,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.4" }
 %"struct.std::_Head_base.4" = type { ptr }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<QuantLib::Matrix, std::allocator<QuantLib::Matrix>>::_Vector_impl" }
-%"struct.std::_Vector_base<QuantLib::Matrix, std::allocator<QuantLib::Matrix>>::_Vector_impl" = type { %"struct.std::_Vector_base<QuantLib::Matrix, std::allocator<QuantLib::Matrix>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<QuantLib::Matrix, std::allocator<QuantLib::Matrix>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 
 $_ZNK8QuantLib28PiecewiseConstantCorrelation11correlationEm = comdat any
 
@@ -249,7 +249,7 @@ ehcleanup34:                                      ; preds = %if.then.i.i32, %ehc
   resume { ptr, i32 } %.pn.pn.pn.pn
 
 do.end:                                           ; preds = %entry
-  %add.ptr.i = getelementptr inbounds nuw %"class.QuantLib::Matrix", ptr %2, i64 %i
+  %add.ptr.i = getelementptr inbounds nuw [24 x i8], ptr %2, i64 %i
   ret ptr %add.ptr.i
 
 unreachable:                                      ; preds = %invoke.cont24
@@ -521,7 +521,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIdSaIdE
 
 call5.i.i.i.i2.i.i.noexc:                         ; preds = %if.then.i.i.i.i.i
   store ptr %call5.i.i.i.i2.i.i42, ptr %times_, align 8, !tbaa !42
-  %add.ptr.i.i.i38 = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i42, i64 %cond
+  %add.ptr.i.i.i38 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i42, i64 %cond
   %_M_end_of_storage.i.i.i39 = getelementptr inbounds nuw i8, ptr %this, i64 80
   store ptr %add.ptr.i.i.i38, ptr %_M_end_of_storage.i.i.i39, align 8, !tbaa !44
   store double 0.000000e+00, ptr %call5.i.i.i.i2.i.i42, align 8, !tbaa !45
@@ -1222,7 +1222,7 @@ _ZNSt12_Vector_baseIN8QuantLib6MatrixESaIS1_EEC2EmRKS2_.exit.i: ; preds = %_ZNSt
   store ptr %cond.i.i.i.i, ptr %agg.result, align 8, !tbaa !10
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %cond.i.i.i.i, ptr %_M_finish.i.i.i, align 8, !tbaa !6
-  %add.ptr.i.i.i = getelementptr inbounds nuw %"class.QuantLib::Matrix", ptr %cond.i.i.i.i, i64 %0
+  %add.ptr.i.i.i = getelementptr inbounds nuw [24 x i8], ptr %cond.i.i.i.i, i64 %0
   %_M_end_of_storage.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !47
   %call.i.i.i.i3.i = invoke noundef ptr @_ZSt18__do_uninit_fill_nIPN8QuantLib6MatrixEmS1_ET_S3_T0_RKT1_(ptr noundef %cond.i.i.i.i, i64 noundef %0, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
@@ -1268,7 +1268,7 @@ for.cond3.preheader:                              ; preds = %for.cond3.preheader
   br i1 %cmp458, label %invoke.cont9.lr.ph, label %for.cond.cleanup14
 
 invoke.cont9.lr.ph:                               ; preds = %for.cond3.preheader
-  %add.ptr.i = getelementptr inbounds nuw %"class.QuantLib::Matrix", ptr %cond.i.i.i.i, i64 %k.065
+  %add.ptr.i = getelementptr inbounds nuw [24 x i8], ptr %cond.i.i.i.i, i64 %k.065
   %6 = load ptr, ptr %add.ptr.i, align 8, !tbaa !21
   %columns_.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 16
   %7 = load i64, ptr %columns_.i.i, align 8, !tbaa !40
@@ -1296,15 +1296,15 @@ _ZN8QuantLib6MatrixD2Ev.exit34:                   ; preds = %lpad.body, %_ZNKSt1
 for.cond16.preheader.lr.ph:                       ; preds = %invoke.cont9
   %10 = load ptr, ptr %fwdCorrelation, align 8
   %11 = load i64, ptr %columns_.i.i36, align 8
-  %add.ptr.i39 = getelementptr inbounds nuw %"class.QuantLib::Matrix", ptr %cond.i.i.i.i, i64 %k.065
+  %add.ptr.i39 = getelementptr inbounds nuw [24 x i8], ptr %cond.i.i.i.i, i64 %k.065
   %columns_.i.i40 = getelementptr inbounds nuw i8, ptr %add.ptr.i39, i64 16
   br label %for.cond16.preheader
 
 invoke.cont9:                                     ; preds = %invoke.cont9.lr.ph, %invoke.cont9
   %i.059 = phi i64 [ %k.065, %invoke.cont9.lr.ph ], [ %inc, %invoke.cont9 ]
   %mul.i.i = mul i64 %7, %i.059
-  %add.ptr.i.i35 = getelementptr inbounds nuw double, ptr %6, i64 %mul.i.i
-  %arrayidx = getelementptr inbounds nuw double, ptr %add.ptr.i.i35, i64 %i.059
+  %add.ptr.i.i35 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %mul.i.i
+  %arrayidx = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i35, i64 %i.059
   store double 1.000000e+00, ptr %arrayidx, align 8, !tbaa !45
   %inc = add nuw i64 %i.059, 1
   %exitcond.not = icmp eq i64 %inc, %0
@@ -1318,12 +1318,12 @@ for.cond16.preheader:                             ; preds = %for.cond16.preheade
 invoke.cont30.lr.ph:                              ; preds = %for.cond16.preheader
   %sub = sub nuw i64 %i11.063, %k.065
   %mul.i.i37 = mul i64 %11, %sub
-  %add.ptr.i.i38 = getelementptr inbounds nuw double, ptr %10, i64 %mul.i.i37
+  %add.ptr.i.i38 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %mul.i.i37
   %12 = load ptr, ptr %add.ptr.i39, align 8, !tbaa !21
   %13 = load i64, ptr %columns_.i.i40, align 8, !tbaa !40
-  %invariant.gep = getelementptr double, ptr %12, i64 %i11.063
+  %invariant.gep = getelementptr [8 x i8], ptr %12, i64 %i11.063
   %mul.i.i45 = mul i64 %13, %i11.063
-  %add.ptr.i.i46 = getelementptr inbounds nuw double, ptr %12, i64 %mul.i.i45
+  %add.ptr.i.i46 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %mul.i.i45
   br label %invoke.cont30
 
 for.cond.cleanup14:                               ; preds = %for.cond.cleanup18, %for.cond3.preheader
@@ -1339,12 +1339,12 @@ for.cond.cleanup18:                               ; preds = %invoke.cont30, %for
 invoke.cont30:                                    ; preds = %invoke.cont30.lr.ph, %invoke.cont30
   %j.061 = phi i64 [ %k.065, %invoke.cont30.lr.ph ], [ %inc34, %invoke.cont30 ]
   %sub23 = sub nuw i64 %j.061, %k.065
-  %arrayidx24 = getelementptr inbounds nuw double, ptr %add.ptr.i.i38, i64 %sub23
+  %arrayidx24 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i38, i64 %sub23
   %14 = load double, ptr %arrayidx24, align 8, !tbaa !45
   %mul.i.i41 = mul i64 %13, %j.061
-  %gep = getelementptr double, ptr %invariant.gep, i64 %mul.i.i41
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %mul.i.i41
   store double %14, ptr %gep, align 8, !tbaa !45
-  %arrayidx32 = getelementptr inbounds nuw double, ptr %add.ptr.i.i46, i64 %j.061
+  %arrayidx32 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i46, i64 %j.061
   store double %14, ptr %arrayidx32, align 8, !tbaa !45
   %inc34 = add nuw i64 %j.061, 1
   %exitcond67.not = icmp eq i64 %inc34, %i11.063

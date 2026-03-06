@@ -67,14 +67,10 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.32" = type { %"struct.std::_Vector_base<msgpack::v1::object_parser::elem, std::allocator<msgpack::v1::object_parser::elem>>::_Vector_impl" }
 %"struct.std::_Vector_base<msgpack::v1::object_parser::elem, std::allocator<msgpack::v1::object_parser::elem>>::_Vector_impl" = type { %"struct.std::_Vector_base<msgpack::v1::object_parser::elem, std::allocator<msgpack::v1::object_parser::elem>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<msgpack::v1::object_parser::elem, std::allocator<msgpack::v1::object_parser::elem>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.msgpack::v1::zone::finalizer" = type { ptr, ptr }
 %"struct.msgpack::v2::detail::context<msgpack::v2::unpacker>::array_sv" = type { ptr }
 %"struct.msgpack::v2::detail::context<msgpack::v2::unpacker>::array_ev" = type { ptr }
 %"struct.msgpack::v2::detail::context<msgpack::v2::unpacker>::map_sv" = type { ptr }
 %"struct.msgpack::v2::detail::context<msgpack::v2::unpacker>::map_ev" = type { ptr }
-%"struct.msgpack::v2::detail::context<msgpack::v2::unpacker>::unpack_stack::stack_elem" = type { i32, i32 }
-%"struct.msgpack::v1::object_parser::elem" = type <{ %union.anon.36, i64, i8, i8, [6 x i8] }>
-%union.anon.36 = type { ptr }
 
 $_ZN5boost4noneE = comdat any
 
@@ -1816,7 +1812,7 @@ thread-pre-split:                                 ; preds = %8, %13
 
 _ZN7msgpack2v14zone15finalizer_array11push_expandEPFvPvES3_.exit.i.i.i: ; preds = %74
   store ptr %83, ptr %75, align 8, !tbaa !128
-  %86 = getelementptr inbounds nuw %"struct.msgpack::v1::zone::finalizer", ptr %83, i64 %.0.i.i.i.i
+  %86 = getelementptr inbounds nuw [16 x i8], ptr %83, i64 %.0.i.i.i.i
   store ptr %86, ptr %71, align 8, !tbaa !150
   %87 = getelementptr inbounds nuw i8, ptr %83, i64 %79
   store ptr @_ZN7msgpack2v16detail10decr_countEPv, ptr %87, align 8, !tbaa !129
@@ -2142,7 +2138,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7msgpack2v28unpacker12release_zone
 
 _ZN7msgpack2v14zone15finalizer_array11push_expandEPFvPvES3_.exit.i.i.i: ; preds = %15
   store ptr %24, ptr %16, align 8, !tbaa !128
-  %27 = getelementptr inbounds nuw %"struct.msgpack::v1::zone::finalizer", ptr %24, i64 %.0.i.i.i.i
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %24, i64 %.0.i.i.i.i
   store ptr %27, ptr %12, align 8, !tbaa !150
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 %20
   store ptr @_ZN7msgpack2v16detail10decr_countEPv, ptr %28, align 8, !tbaa !129
@@ -2464,7 +2460,7 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit540: ; p
 130:                                              ; preds = %128
   %131 = add nuw nsw i64 %35, 4294967100
   %132 = and i64 %131, 4294967295
-  %133 = getelementptr inbounds nuw i32, ptr @__const._ZN7msgpack2v26detail7contextINS0_8unpackerEE7executeEPKcmRm.trail, i64 %132
+  %133 = getelementptr inbounds nuw [4 x i8], ptr @__const._ZN7msgpack2v26detail7contextINS0_8unpackerEE7executeEPKcmRm.trail, i64 %132
   %134 = load i32, ptr %133, align 4, !tbaa !4
   %135 = zext i32 %134 to i64
   store i64 %135, ptr %24, align 8, !tbaa !87
@@ -5569,7 +5565,7 @@ _ZNSt6vectorIN7msgpack2v26detail7contextINS1_8unpackerEE12unpack_stack10stack_el
 _ZNSt6vectorIN7msgpack2v26detail7contextINS1_8unpackerEE12unpack_stack10stack_elemESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i.i.i: ; preds = %106, %_ZNSt6vectorIN7msgpack2v26detail7contextINS1_8unpackerEE12unpack_stack10stack_elemESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22.i.i.i.i
   store ptr %100, ptr %79, align 8, !tbaa !89
   store ptr %105, ptr %80, align 8, !tbaa !90
-  %107 = getelementptr inbounds nuw %"struct.msgpack::v2::detail::context<msgpack::v2::unpacker>::unpack_stack::stack_elem", ptr %100, i64 %98
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %100, i64 %98
   store ptr %107, ptr %82, align 8, !tbaa !91
   br label %.critedge
 
@@ -5786,7 +5782,7 @@ _ZNSt6vectorIN7msgpack2v26detail7contextINS1_8unpackerEE12unpack_stack10stack_el
 _ZNSt6vectorIN7msgpack2v26detail7contextINS1_8unpackerEE12unpack_stack10stack_elemESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i.i.i: ; preds = %106, %_ZNSt6vectorIN7msgpack2v26detail7contextINS1_8unpackerEE12unpack_stack10stack_elemESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22.i.i.i.i
   store ptr %100, ptr %79, align 8, !tbaa !89
   store ptr %105, ptr %80, align 8, !tbaa !90
-  %107 = getelementptr inbounds nuw %"struct.msgpack::v2::detail::context<msgpack::v2::unpacker>::unpack_stack::stack_elem", ptr %100, i64 %98
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %100, i64 %98
   store ptr %107, ptr %82, align 8, !tbaa !91
   br label %.critedge
 
@@ -6264,7 +6260,7 @@ _ZNSt6vectorIN7msgpack2v26detail7contextINS1_8unpackerEE12unpack_stack10stack_el
 _ZNSt6vectorIN7msgpack2v26detail7contextINS1_8unpackerEE12unpack_stack10stack_elemESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i.i.i: ; preds = %105, %_ZNSt6vectorIN7msgpack2v26detail7contextINS1_8unpackerEE12unpack_stack10stack_elemESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22.i.i.i.i
   store ptr %99, ptr %78, align 8, !tbaa !89
   store ptr %104, ptr %79, align 8, !tbaa !90
-  %106 = getelementptr inbounds nuw %"struct.msgpack::v2::detail::context<msgpack::v2::unpacker>::unpack_stack::stack_elem", ptr %99, i64 %97
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %99, i64 %97
   store ptr %106, ptr %81, align 8, !tbaa !91
   br label %.critedge
 
@@ -6476,7 +6472,7 @@ _ZNSt6vectorIN7msgpack2v26detail7contextINS1_8unpackerEE12unpack_stack10stack_el
 _ZNSt6vectorIN7msgpack2v26detail7contextINS1_8unpackerEE12unpack_stack10stack_elemESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i.i.i: ; preds = %103, %_ZNSt6vectorIN7msgpack2v26detail7contextINS1_8unpackerEE12unpack_stack10stack_elemESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22.i.i.i.i
   store ptr %97, ptr %76, align 8, !tbaa !89
   store ptr %102, ptr %77, align 8, !tbaa !90
-  %104 = getelementptr inbounds nuw %"struct.msgpack::v2::detail::context<msgpack::v2::unpacker>::unpack_stack::stack_elem", ptr %97, i64 %95
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %97, i64 %95
   store ptr %104, ptr %79, align 8, !tbaa !91
   br label %.critedge
 
@@ -6693,7 +6689,7 @@ _ZNSt6vectorIN7msgpack2v26detail7contextINS1_8unpackerEE12unpack_stack10stack_el
 _ZNSt6vectorIN7msgpack2v26detail7contextINS1_8unpackerEE12unpack_stack10stack_elemESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i.i.i: ; preds = %105, %_ZNSt6vectorIN7msgpack2v26detail7contextINS1_8unpackerEE12unpack_stack10stack_elemESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22.i.i.i.i
   store ptr %99, ptr %78, align 8, !tbaa !89
   store ptr %104, ptr %79, align 8, !tbaa !90
-  %106 = getelementptr inbounds nuw %"struct.msgpack::v2::detail::context<msgpack::v2::unpacker>::unpack_stack::stack_elem", ptr %99, i64 %97
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %99, i64 %97
   store ptr %106, ptr %81, align 8, !tbaa !91
   br label %.critedge
 
@@ -6907,7 +6903,7 @@ _ZNSt6vectorIN7msgpack2v26detail7contextINS1_8unpackerEE12unpack_stack10stack_el
 _ZNSt6vectorIN7msgpack2v26detail7contextINS1_8unpackerEE12unpack_stack10stack_elemESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i.i.i: ; preds = %103, %_ZNSt6vectorIN7msgpack2v26detail7contextINS1_8unpackerEE12unpack_stack10stack_elemESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22.i.i.i.i
   store ptr %97, ptr %76, align 8, !tbaa !89
   store ptr %102, ptr %77, align 8, !tbaa !90
-  %104 = getelementptr inbounds nuw %"struct.msgpack::v2::detail::context<msgpack::v2::unpacker>::unpack_stack::stack_elem", ptr %97, i64 %95
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %97, i64 %95
   store ptr %104, ptr %79, align 8, !tbaa !91
   br label %.critedge
 
@@ -7130,7 +7126,7 @@ _ZNSt6vectorIPN7msgpack2v26objectESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.
 _ZNSt6vectorIPN7msgpack2v26objectESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %99, %_ZNSt6vectorIPN7msgpack2v26objectESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
   store ptr %94, ptr %13, align 8, !tbaa !105
   store ptr %98, ptr %14, align 8, !tbaa !109
-  %100 = getelementptr inbounds nuw ptr, ptr %94, i64 %92
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %92
   store ptr %100, ptr %77, align 8, !tbaa !106
   br label %_ZNSt6vectorIPN7msgpack2v26objectESaIS3_EE9push_backERKS3_.exit
 
@@ -7362,7 +7358,7 @@ _ZNSt6vectorIPN7msgpack2v26objectESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.
 _ZNSt6vectorIPN7msgpack2v26objectESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %99, %_ZNSt6vectorIPN7msgpack2v26objectESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
   store ptr %94, ptr %13, align 8, !tbaa !105
   store ptr %98, ptr %14, align 8, !tbaa !109
-  %100 = getelementptr inbounds nuw ptr, ptr %94, i64 %92
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %92
   store ptr %100, ptr %77, align 8, !tbaa !106
   br label %_ZNSt6vectorIPN7msgpack2v26objectESaIS3_EE9push_backEOS3_.exit
 
@@ -7521,9 +7517,9 @@ _ZNSt6vectorIPN7msgpack2v26objectESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; p
 
 _ZNSt12_Vector_baseIPN7msgpack2v26objectESaIS3_EE13_M_deallocateEPS3_m.exit36: ; preds = %_ZNSt6vectorIPN7msgpack2v26objectESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !105
-  %39 = getelementptr inbounds nuw ptr, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !109
-  %40 = getelementptr inbounds nuw ptr, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !106
   br label %41
 
@@ -7736,7 +7732,7 @@ _ZNSt6vectorIN7msgpack2v113object_parser4elemESaIS3_EE11_S_relocateEPS3_S6_S6_RS
 _ZNSt6vectorIN7msgpack2v113object_parser4elemESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %110, %_ZNSt6vectorIN7msgpack2v113object_parser4elemESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i
   store ptr %105, ptr %3, align 8, !tbaa !142
   store ptr %109, ptr %4, align 8, !tbaa !209
-  %111 = getelementptr inbounds nuw %"struct.msgpack::v1::object_parser::elem", ptr %105, i64 %103
+  %111 = getelementptr inbounds nuw [24 x i8], ptr %105, i64 %103
   store ptr %111, ptr %5, align 8, !tbaa !143
   br label %_ZNSt6vectorIN7msgpack2v113object_parser4elemESaIS3_EE9push_backEOS3_.exit
 
@@ -7834,7 +7830,7 @@ _ZNSt6vectorIN7msgpack2v113object_parser4elemESaIS3_EE11_S_relocateEPS3_S6_S6_RS
 _ZNSt6vectorIN7msgpack2v113object_parser4elemESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i35: ; preds = %150, %_ZNSt6vectorIN7msgpack2v113object_parser4elemESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i32
   store ptr %145, ptr %3, align 8, !tbaa !142
   store ptr %149, ptr %4, align 8, !tbaa !209
-  %151 = getelementptr inbounds nuw %"struct.msgpack::v1::object_parser::elem", ptr %145, i64 %143
+  %151 = getelementptr inbounds nuw [24 x i8], ptr %145, i64 %143
   store ptr %151, ptr %5, align 8, !tbaa !143
   br label %_ZNSt6vectorIN7msgpack2v113object_parser4elemESaIS3_EE9push_backEOS3_.exit36
 
@@ -8288,7 +8284,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i: ; preds = %26, %_ZNKS
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i: ; preds = %28, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i
   store ptr %23, ptr %3, align 8, !tbaa !144
   store ptr %27, ptr %4, align 8, !tbaa !224
-  %29 = getelementptr inbounds nuw i32, ptr %23, i64 %21
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %21
   store ptr %29, ptr %6, align 8, !tbaa !146
   br label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit
 
@@ -8358,7 +8354,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i: ; preds = %26, %_ZNKS
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i: ; preds = %28, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i
   store ptr %23, ptr %3, align 8, !tbaa !144
   store ptr %27, ptr %4, align 8, !tbaa !224
-  %29 = getelementptr inbounds nuw i32, ptr %23, i64 %21
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %21
   store ptr %29, ptr %6, align 8, !tbaa !146
   br label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit
 

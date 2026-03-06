@@ -1840,7 +1840,7 @@ common.resume:                                    ; preds = %67, %.thread, %26
 .noexc26:                                         ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h8896b0871e03b815E.exit.i"
   %60 = load ptr, ptr %5, align 8, !alias.scope !296, !noalias !299, !nonnull !13, !noundef !13
   %61 = load i64, ptr %32, align 8, !alias.scope !296, !noalias !299, !noundef !13
-  %62 = getelementptr inbounds { { { [2 x i64] } } }, ptr %60, i64 %61
+  %62 = getelementptr inbounds [16 x i8], ptr %60, i64 %61
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %62, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
   %63 = load i64, ptr %32, align 8, !alias.scope !296, !noalias !299, !noundef !13
   %64 = add i64 %63, 1
@@ -2863,8 +2863,8 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
   ret i1 %.0
 
 5:                                                ; preds = %.preheader.split
-  %6 = getelementptr inbounds { { { [2 x i64] } } }, ptr %0, i64 %.sroa.01.0
-  %7 = getelementptr inbounds { { { [2 x i64] } } }, ptr %2, i64 %.sroa.01.0
+  %6 = getelementptr inbounds [16 x i8], ptr %0, i64 %.sroa.01.0
+  %7 = getelementptr inbounds [16 x i8], ptr %2, i64 %.sroa.01.0
   tail call void @llvm.experimental.noalias.scope.decl(metadata !472)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !475)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !477)

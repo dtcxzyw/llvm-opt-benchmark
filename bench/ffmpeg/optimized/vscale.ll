@@ -3,8 +3,6 @@ source_filename = "bench/ffmpeg/original/vscale.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.SwsFilterDescriptor = type { ptr, ptr, i32, ptr, ptr }
-
 @.str = private unnamed_addr constant [30 x i8] c"Assertion %s failed at %s:%d\0A\00", align 1
 @.str.1 = private unnamed_addr constant [5 x i8] c"desc\00", align 1
 @.str.2 = private unnamed_addr constant [30 x i8] c"libswscale/swscale_internal.h\00", align 1
@@ -224,7 +222,7 @@ define internal noundef i32 @lum_planar_vscale(ptr noundef readonly captures(non
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %14 = load ptr, ptr %13, align 8, !tbaa !49
   %15 = sext i32 %2 to i64
-  %16 = getelementptr inbounds i32, ptr %14, i64 %15
+  %16 = getelementptr inbounds [4 x i8], ptr %14, i64 %15
   %17 = load i32, ptr %16, align 4, !tbaa !50
   %. = tail call i32 @llvm.smax.i32(i32 %12, i32 %17)
   %18 = load ptr, ptr %1, align 8, !tbaa !33
@@ -237,11 +235,11 @@ define internal noundef i32 @lum_planar_vscale(ptr noundef readonly captures(non
   %25 = getelementptr inbounds nuw i8, ptr %18, i64 40
   %26 = load ptr, ptr %25, align 8, !tbaa !54
   %27 = sext i32 %21 to i64
-  %28 = getelementptr inbounds ptr, ptr %26, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %26, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %30 = load ptr, ptr %29, align 8, !tbaa !54
   %31 = sext i32 %24 to i64
-  %32 = getelementptr inbounds ptr, ptr %30, i64 %31
+  %32 = getelementptr inbounds [8 x i8], ptr %30, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 28
   %34 = icmp eq i32 %11, 1
   br i1 %34, label %35, label %42
@@ -263,7 +261,7 @@ define internal noundef i32 @lum_planar_vscale(ptr noundef readonly captures(non
   %narrow = select i1 %.not, i32 %44, i32 0
   %45 = sext i32 %narrow to i64
   %46 = load ptr, ptr %6, align 8, !tbaa !59
-  %47 = getelementptr inbounds i16, ptr %46, i64 %45
+  %47 = getelementptr inbounds [2 x i8], ptr %46, i64 %45
   %48 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %49 = load ptr, ptr %48, align 8, !tbaa !55
   %50 = load ptr, ptr %32, align 8, !tbaa !56
@@ -290,11 +288,11 @@ thread-pre-split:                                 ; preds = %53
   %64 = getelementptr inbounds nuw i8, ptr %56, i64 136
   %65 = load ptr, ptr %64, align 8, !tbaa !54
   %66 = sext i32 %59 to i64
-  %67 = getelementptr inbounds ptr, ptr %65, i64 %66
+  %67 = getelementptr inbounds [8 x i8], ptr %65, i64 %66
   %68 = getelementptr inbounds nuw i8, ptr %60, i64 136
   %69 = load ptr, ptr %68, align 8, !tbaa !54
   %70 = sext i32 %63 to i64
-  %71 = getelementptr inbounds ptr, ptr %69, i64 %70
+  %71 = getelementptr inbounds [8 x i8], ptr %69, i64 %70
   %72 = load i32, ptr %10, align 8, !tbaa !47
   %73 = icmp eq i32 %72, 1
   %74 = load ptr, ptr %71, align 8, !tbaa !56
@@ -317,7 +315,7 @@ thread-pre-split:                                 ; preds = %53
   %84 = sext i32 %narrow64 to i64
   %85 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %86 = load ptr, ptr %85, align 8, !tbaa !59
-  %87 = getelementptr inbounds i16, ptr %86, i64 %84
+  %87 = getelementptr inbounds [2 x i8], ptr %86, i64 %84
   %88 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %89 = load ptr, ptr %88, align 8, !tbaa !55
   tail call void %89(ptr noundef %87, i32 noundef %72, ptr noundef %67, ptr noundef %74, i32 noundef %9, ptr noundef %76, i32 noundef 0) #5
@@ -355,7 +353,7 @@ define internal range(i32 0, 2) i32 @chr_planar_vscale(ptr noundef readonly capt
   %24 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %25 = load ptr, ptr %24, align 8, !tbaa !49
   %26 = sext i32 %20 to i64
-  %27 = getelementptr inbounds i32, ptr %25, i64 %26
+  %27 = getelementptr inbounds [4 x i8], ptr %25, i64 %26
   %28 = load i32, ptr %27, align 4, !tbaa !50
   %. = tail call i32 @llvm.smax.i32(i32 %23, i32 %28)
   %29 = load ptr, ptr %1, align 8, !tbaa !33
@@ -374,19 +372,19 @@ define internal range(i32 0, 2) i32 @chr_planar_vscale(ptr noundef readonly capt
   %42 = getelementptr inbounds nuw i8, ptr %29, i64 72
   %43 = load ptr, ptr %42, align 8, !tbaa !54
   %44 = sext i32 %32 to i64
-  %45 = getelementptr inbounds ptr, ptr %43, i64 %44
+  %45 = getelementptr inbounds [8 x i8], ptr %43, i64 %44
   %46 = getelementptr inbounds nuw i8, ptr %29, i64 104
   %47 = load ptr, ptr %46, align 8, !tbaa !54
   %48 = sext i32 %35 to i64
-  %49 = getelementptr inbounds ptr, ptr %47, i64 %48
+  %49 = getelementptr inbounds [8 x i8], ptr %47, i64 %48
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %51 = load ptr, ptr %50, align 8, !tbaa !54
   %52 = sext i32 %38 to i64
-  %53 = getelementptr inbounds ptr, ptr %51, i64 %52
+  %53 = getelementptr inbounds [8 x i8], ptr %51, i64 %52
   %54 = getelementptr inbounds nuw i8, ptr %6, i64 104
   %55 = load ptr, ptr %54, align 8, !tbaa !54
   %56 = sext i32 %41 to i64
-  %57 = getelementptr inbounds ptr, ptr %55, i64 %56
+  %57 = getelementptr inbounds [8 x i8], ptr %55, i64 %56
   %58 = load ptr, ptr %13, align 8, !tbaa !59
   %59 = getelementptr inbounds nuw i8, ptr %13, i64 28
   %60 = load i32, ptr %59, align 4, !tbaa !58
@@ -394,7 +392,7 @@ define internal range(i32 0, 2) i32 @chr_planar_vscale(ptr noundef readonly capt
   %61 = mul nsw i32 %22, %20
   %narrow = select i1 %.not78, i32 %61, i32 0
   %62 = sext i32 %narrow to i64
-  %63 = getelementptr inbounds i16, ptr %58, i64 %62
+  %63 = getelementptr inbounds [2 x i8], ptr %58, i64 %62
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 52984
   %65 = load ptr, ptr %64, align 8, !tbaa !40
   %.not79 = icmp eq ptr %65, null
@@ -483,14 +481,14 @@ define internal noundef i32 @packed_vscale(ptr noundef %0, ptr noundef readonly 
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %22 = load ptr, ptr %21, align 8, !tbaa !49
   %23 = sext i32 %2 to i64
-  %24 = getelementptr inbounds i32, ptr %22, i64 %23
+  %24 = getelementptr inbounds [4 x i8], ptr %22, i64 %23
   %25 = load i32, ptr %24, align 4, !tbaa !50
   %. = tail call i32 @llvm.smax.i32(i32 %20, i32 %25)
   %26 = sub nsw i32 1, %17
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %28 = load ptr, ptr %27, align 8, !tbaa !49
   %29 = sext i32 %12 to i64
-  %30 = getelementptr inbounds i32, ptr %28, i64 %29
+  %30 = getelementptr inbounds [4 x i8], ptr %28, i64 %29
   %31 = load i32, ptr %30, align 4, !tbaa !50
   %32 = tail call i32 @llvm.smax.i32(i32 %26, i32 %31)
   %33 = load ptr, ptr %1, align 8, !tbaa !33
@@ -509,15 +507,15 @@ define internal noundef i32 @packed_vscale(ptr noundef %0, ptr noundef readonly 
   %46 = getelementptr inbounds nuw i8, ptr %33, i64 40
   %47 = load ptr, ptr %46, align 8, !tbaa !54
   %48 = sext i32 %36 to i64
-  %49 = getelementptr inbounds ptr, ptr %47, i64 %48
+  %49 = getelementptr inbounds [8 x i8], ptr %47, i64 %48
   %50 = getelementptr inbounds nuw i8, ptr %33, i64 72
   %51 = load ptr, ptr %50, align 8, !tbaa !54
   %52 = sext i32 %39 to i64
-  %53 = getelementptr inbounds ptr, ptr %51, i64 %52
+  %53 = getelementptr inbounds [8 x i8], ptr %51, i64 %52
   %54 = getelementptr inbounds nuw i8, ptr %33, i64 104
   %55 = load ptr, ptr %54, align 8, !tbaa !54
   %56 = sext i32 %42 to i64
-  %57 = getelementptr inbounds ptr, ptr %55, i64 %56
+  %57 = getelementptr inbounds [8 x i8], ptr %55, i64 %56
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %59 = load i32, ptr %58, align 8, !tbaa !36
   %.not = icmp eq i32 %59, 0
@@ -530,7 +528,7 @@ define internal noundef i32 @packed_vscale(ptr noundef %0, ptr noundef readonly 
   %64 = getelementptr inbounds nuw i8, ptr %33, i64 136
   %65 = load ptr, ptr %64, align 8, !tbaa !54
   %66 = sext i32 %63 to i64
-  %67 = getelementptr inbounds ptr, ptr %65, i64 %66
+  %67 = getelementptr inbounds [8 x i8], ptr %65, i64 %66
   br label %68
 
 68:                                               ; preds = %4, %60
@@ -538,7 +536,7 @@ define internal noundef i32 @packed_vscale(ptr noundef %0, ptr noundef readonly 
   %70 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %71 = load ptr, ptr %70, align 8, !tbaa !54
   %72 = sext i32 %45 to i64
-  %73 = getelementptr inbounds ptr, ptr %71, i64 %72
+  %73 = getelementptr inbounds [8 x i8], ptr %71, i64 %72
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 52992
   %75 = load ptr, ptr %74, align 16, !tbaa !41
   %76 = icmp ne ptr %75, null
@@ -572,7 +570,7 @@ define internal noundef i32 @packed_vscale(ptr noundef %0, ptr noundef readonly 
 90:                                               ; preds = %88
   %91 = shl nsw i32 %12, 1
   %92 = sext i32 %91 to i64
-  %93 = getelementptr i16, ptr %19, i64 %92
+  %93 = getelementptr [2 x i8], ptr %19, i64 %92
   %94 = getelementptr i8, ptr %93, i64 2
   %95 = load i16, ptr %94, align 2, !tbaa !64
   %96 = zext i16 %95 to i32
@@ -610,7 +608,7 @@ define internal noundef i32 @packed_vscale(ptr noundef %0, ptr noundef readonly 
 115:                                              ; preds = %110
   %116 = shl nsw i32 %2, 1
   %117 = sext i32 %116 to i64
-  %118 = getelementptr i16, ptr %18, i64 %117
+  %118 = getelementptr [2 x i8], ptr %18, i64 %117
   %119 = getelementptr i8, ptr %118, i64 2
   %120 = load i16, ptr %119, align 2, !tbaa !64
   %121 = zext i16 %120 to i32
@@ -623,7 +621,7 @@ define internal noundef i32 @packed_vscale(ptr noundef %0, ptr noundef readonly 
 126:                                              ; preds = %115
   %127 = shl nsw i32 %12, 1
   %128 = sext i32 %127 to i64
-  %129 = getelementptr i16, ptr %19, i64 %128
+  %129 = getelementptr [2 x i8], ptr %19, i64 %128
   %130 = getelementptr i8, ptr %129, i64 2
   %131 = load i16, ptr %130, align 2, !tbaa !64
   %132 = zext i16 %131 to i32
@@ -669,10 +667,10 @@ define internal noundef i32 @packed_vscale(ptr noundef %0, ptr noundef readonly 
   %153 = load ptr, ptr %152, align 8, !tbaa !67
   %154 = mul nsw i32 %14, %2
   %155 = sext i32 %154 to i64
-  %156 = getelementptr inbounds i16, ptr %18, i64 %155
+  %156 = getelementptr inbounds [2 x i8], ptr %18, i64 %155
   %157 = mul nsw i32 %17, %12
   %158 = sext i32 %157 to i64
-  %159 = getelementptr inbounds i16, ptr %19, i64 %158
+  %159 = getelementptr inbounds [2 x i8], ptr %19, i64 %158
   %160 = load ptr, ptr %73, align 8, !tbaa !56
   tail call void %153(ptr noundef nonnull %0, ptr noundef %156, ptr noundef %49, i32 noundef %14, ptr noundef %159, ptr noundef %53, ptr noundef %57, i32 noundef %17, ptr noundef %69, ptr noundef %160, i32 noundef %9, i32 noundef %2) #5
   br label %161
@@ -703,13 +701,13 @@ define internal noundef i32 @any_vscale(ptr noundef %0, ptr noundef readonly cap
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %23 = load ptr, ptr %22, align 8, !tbaa !49
   %24 = sext i32 %2 to i64
-  %25 = getelementptr inbounds i32, ptr %23, i64 %24
+  %25 = getelementptr inbounds [4 x i8], ptr %23, i64 %24
   %26 = load i32, ptr %25, align 4, !tbaa !50
   %. = tail call i32 @llvm.smax.i32(i32 %21, i32 %26)
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %28 = load ptr, ptr %27, align 8, !tbaa !49
   %29 = sext i32 %13 to i64
-  %30 = getelementptr inbounds i32, ptr %28, i64 %29
+  %30 = getelementptr inbounds [4 x i8], ptr %28, i64 %29
   %31 = load i32, ptr %30, align 4, !tbaa !50
   %32 = load ptr, ptr %1, align 8, !tbaa !33
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 28
@@ -748,7 +746,7 @@ define internal noundef i32 @any_vscale(ptr noundef %0, ptr noundef readonly cap
   %63 = getelementptr inbounds nuw i8, ptr %32, i64 136
   %64 = load ptr, ptr %63, align 8, !tbaa !54
   %65 = sext i32 %62 to i64
-  %66 = getelementptr inbounds ptr, ptr %64, i64 %65
+  %66 = getelementptr inbounds [8 x i8], ptr %64, i64 %65
   br label %67
 
 67:                                               ; preds = %4, %59
@@ -757,21 +755,21 @@ define internal noundef i32 @any_vscale(ptr noundef %0, ptr noundef readonly cap
   %69 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %70 = load ptr, ptr %69, align 8, !tbaa !54
   %71 = sext i32 %41 to i64
-  %72 = getelementptr inbounds ptr, ptr %70, i64 %71
+  %72 = getelementptr inbounds [8 x i8], ptr %70, i64 %71
   %73 = load ptr, ptr %72, align 8, !tbaa !56
   store ptr %73, ptr %5, align 16, !tbaa !56
   %74 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %75 = getelementptr inbounds nuw i8, ptr %9, i64 72
   %76 = load ptr, ptr %75, align 8, !tbaa !54
   %77 = sext i32 %44 to i64
-  %78 = getelementptr inbounds ptr, ptr %76, i64 %77
+  %78 = getelementptr inbounds [8 x i8], ptr %76, i64 %77
   %79 = load ptr, ptr %78, align 8, !tbaa !56
   store ptr %79, ptr %74, align 8, !tbaa !56
   %80 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %81 = getelementptr inbounds nuw i8, ptr %9, i64 104
   %82 = load ptr, ptr %81, align 8, !tbaa !54
   %83 = sext i32 %47 to i64
-  %84 = getelementptr inbounds ptr, ptr %82, i64 %83
+  %84 = getelementptr inbounds [8 x i8], ptr %82, i64 %83
   %85 = load ptr, ptr %84, align 8, !tbaa !56
   store ptr %85, ptr %80, align 16, !tbaa !56
   br i1 %.not, label %92, label %86
@@ -780,7 +778,7 @@ define internal noundef i32 @any_vscale(ptr noundef %0, ptr noundef readonly cap
   %87 = getelementptr inbounds nuw i8, ptr %9, i64 136
   %88 = load ptr, ptr %87, align 8, !tbaa !54
   %89 = sext i32 %50 to i64
-  %90 = getelementptr inbounds ptr, ptr %88, i64 %89
+  %90 = getelementptr inbounds [8 x i8], ptr %88, i64 %89
   %91 = load ptr, ptr %90, align 8, !tbaa !56
   br label %92
 
@@ -791,22 +789,22 @@ define internal noundef i32 @any_vscale(ptr noundef %0, ptr noundef readonly cap
   %96 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %97 = sub nsw i32 %95, %38
   %98 = sext i32 %97 to i64
-  %99 = getelementptr inbounds ptr, ptr %56, i64 %98
+  %99 = getelementptr inbounds [8 x i8], ptr %56, i64 %98
   %100 = sub nsw i32 %95, %36
   %101 = sext i32 %100 to i64
-  %102 = getelementptr inbounds ptr, ptr %54, i64 %101
+  %102 = getelementptr inbounds [8 x i8], ptr %54, i64 %101
   %103 = sub nsw i32 %., %34
   %104 = sext i32 %103 to i64
-  %105 = getelementptr inbounds ptr, ptr %52, i64 %104
+  %105 = getelementptr inbounds [8 x i8], ptr %52, i64 %104
   store ptr %93, ptr %96, align 8, !tbaa !56
   %106 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %107 = load ptr, ptr %106, align 8, !tbaa !55
   %108 = mul nsw i32 %15, %2
   %109 = sext i32 %108 to i64
-  %110 = getelementptr inbounds i16, ptr %19, i64 %109
+  %110 = getelementptr inbounds [2 x i8], ptr %19, i64 %109
   %111 = mul nsw i32 %18, %2
   %112 = sext i32 %111 to i64
-  %113 = getelementptr inbounds i16, ptr %20, i64 %112
+  %113 = getelementptr inbounds [2 x i8], ptr %20, i64 %112
   call void %107(ptr noundef %0, ptr noundef %110, ptr noundef %105, i32 noundef %15, ptr noundef %113, ptr noundef %102, ptr noundef %99, i32 noundef %18, ptr noundef %68, ptr noundef nonnull %5, i32 noundef %10, i32 noundef %2) #5
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 1
@@ -942,7 +940,7 @@ isGray.exit.thread:                               ; preds = %59, %63
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %70 = load ptr, ptr %69, align 8, !tbaa !70
   %71 = sext i32 %14 to i64
-  %72 = getelementptr inbounds %struct.SwsFilterDescriptor, ptr %70, i64 %71
+  %72 = getelementptr inbounds [40 x i8], ptr %70, i64 %71
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 24
   %74 = load ptr, ptr %73, align 8, !tbaa !32
   %.not90 = icmp eq i32 %8, 0
@@ -997,7 +995,7 @@ isGray.exit.thread:                               ; preds = %59, %63
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %99 = load ptr, ptr %98, align 8, !tbaa !70
   %100 = sext i32 %.0 to i64
-  %101 = getelementptr inbounds %struct.SwsFilterDescriptor, ptr %99, i64 %100
+  %101 = getelementptr inbounds [40 x i8], ptr %99, i64 %100
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 24
   %103 = load ptr, ptr %102, align 8, !tbaa !32
   %.not92 = icmp eq i32 %8, 0
@@ -1045,7 +1043,7 @@ isGray.exit99.thread:                             ; preds = %50, %36, %40, %isAL
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %125 = load ptr, ptr %124, align 8, !tbaa !70
   %126 = sext i32 %14 to i64
-  %127 = getelementptr inbounds %struct.SwsFilterDescriptor, ptr %125, i64 %126
+  %127 = getelementptr inbounds [40 x i8], ptr %125, i64 %126
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 24
   %129 = load ptr, ptr %128, align 8, !tbaa !32
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 48

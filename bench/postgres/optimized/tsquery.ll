@@ -4,9 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.TSQueryParserStateData = type { ptr, ptr, ptr, i32, i32, ptr, ptr, ptr, i32, i32, ptr, ptr }
-%union.ListCell = type { ptr }
-%union.QueryItem = type { %struct.QueryOperand }
-%struct.QueryOperand = type { i8, i8, i8, i32, i32 }
 %struct.OperatorElement = type { i8, i16 }
 %struct.INFIX = type { ptr, ptr, ptr, ptr, i32 }
 %struct.StringInfoData = type { ptr, i32, i32, i32 }
@@ -109,7 +106,7 @@ define dso_local void @pushValue(ptr noundef captures(none) %0, ptr noundef read
   %20 = zext i8 %19 to i32
   %21 = xor i32 %17, %20
   %22 = zext nneg i32 %21 to i64
-  %23 = getelementptr inbounds nuw i32, ptr @pg_crc32_table, i64 %22
+  %23 = getelementptr inbounds nuw [4 x i8], ptr @pg_crc32_table, i64 %22
   %24 = load i32, ptr %23, align 4
   %25 = shl i32 %.049, 8
   %26 = xor i32 %24, %25
@@ -404,7 +401,7 @@ list_length.exit64:                               ; preds = %list_length.exit62,
 .lr.ph71:                                         ; preds = %.lr.ph, %111
   %indvars.iv = phi i64 [ %indvars.iv.next, %111 ], [ 0, %.lr.ph ]
   %82 = load ptr, ptr %79, align 8
-  %83 = getelementptr inbounds nuw %union.ListCell, ptr %82, i64 %indvars.iv
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %82, i64 %indvars.iv
   %84 = load ptr, ptr %83, align 8
   %85 = load i8, ptr %84, align 4
   switch i8 %85, label %.split [
@@ -445,17 +442,17 @@ findoprnd.exit:                                   ; preds = %.critedge
   br i1 %99, label %115, label %117
 
 100:                                              ; preds = %.lr.ph71
-  %101 = getelementptr inbounds nuw %union.QueryItem, ptr %76, i64 %indvars.iv
+  %101 = getelementptr inbounds nuw [12 x i8], ptr %76, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %101, ptr noundef nonnull align 4 dereferenceable(12) %84, i64 12, i1 false)
   br label %111
 
 102:                                              ; preds = %.lr.ph71
-  %103 = getelementptr inbounds nuw %union.QueryItem, ptr %76, i64 %indvars.iv
+  %103 = getelementptr inbounds nuw [12 x i8], ptr %76, i64 %indvars.iv
   store i8 3, ptr %103, align 4
   br label %111
 
 104:                                              ; preds = %.lr.ph71
-  %105 = getelementptr inbounds nuw %union.QueryItem, ptr %76, i64 %indvars.iv
+  %105 = getelementptr inbounds nuw [12 x i8], ptr %76, i64 %indvars.iv
   %106 = load i64, ptr %84, align 4
   store i64 %106, ptr %105, align 4
   br label %111
@@ -624,7 +621,7 @@ define internal range(i32 0, 4) i32 @gettoken_query_websearch(ptr noundef %0, pt
   %41 = tail call ptr @__ctype_b_loc() #14
   %42 = load ptr, ptr %41, align 8
   %43 = zext i8 %.pre93 to i64
-  %44 = getelementptr inbounds nuw i16, ptr %42, i64 %43
+  %44 = getelementptr inbounds nuw [2 x i8], ptr %42, i64 %43
   %45 = load i16, ptr %44, align 2
   %46 = and i16 %45, 8192
   %.not64 = icmp eq i16 %46, 0
@@ -710,7 +707,7 @@ define internal range(i32 0, 4) i32 @gettoken_query_websearch(ptr noundef %0, pt
   %87 = tail call ptr @__ctype_b_loc() #14
   %88 = load ptr, ptr %87, align 8
   %89 = zext i8 %84 to i64
-  %90 = getelementptr inbounds nuw i16, ptr %88, i64 %89
+  %90 = getelementptr inbounds nuw [2 x i8], ptr %88, i64 %89
   %91 = load i16, ptr %90, align 2
   %92 = and i16 %91, 8192
   %.not16.i = icmp eq i16 %92, 0
@@ -751,7 +748,7 @@ define internal range(i32 0, 4) i32 @gettoken_query_websearch(ptr noundef %0, pt
   %103 = tail call ptr @__ctype_b_loc() #14
   %104 = load ptr, ptr %103, align 8
   %105 = zext i8 %.pre91 to i64
-  %106 = getelementptr inbounds nuw i16, ptr %104, i64 %105
+  %106 = getelementptr inbounds nuw [2 x i8], ptr %104, i64 %105
   %107 = load i16, ptr %106, align 2
   %108 = and i16 %107, 8192
   %.not = icmp eq i16 %108, 0
@@ -824,7 +821,7 @@ define internal range(i32 0, 6) i32 @gettoken_query_standard(ptr noundef %0, ptr
   %23 = tail call ptr @__ctype_b_loc() #14
   %24 = load ptr, ptr %23, align 8
   %25 = zext i8 %14 to i64
-  %26 = getelementptr inbounds nuw i16, ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %25
   %27 = load i16, ptr %26, align 2
   %28 = and i16 %27, 8192
   %.not63 = icmp eq i16 %28, 0
@@ -1011,7 +1008,7 @@ get_modifiers.exit:                               ; preds = %.lr.ph.i, %41, %56,
   %97 = tail call ptr @__ctype_b_loc() #14
   %98 = load ptr, ptr %97, align 8
   %99 = zext i8 %86 to i64
-  %100 = getelementptr inbounds nuw i16, ptr %98, i64 %99
+  %100 = getelementptr inbounds nuw [2 x i8], ptr %98, i64 %99
   %101 = load i16, ptr %100, align 2
   %102 = and i16 %101, 2048
   %.not33.i = icmp eq i16 %102, 0
@@ -1118,7 +1115,7 @@ default.unreachable.i:                            ; preds = %85
   %148 = tail call ptr @__ctype_b_loc() #14
   %149 = load ptr, ptr %148, align 8
   %150 = zext i8 %135 to i64
-  %151 = getelementptr inbounds nuw i16, ptr %149, i64 %150
+  %151 = getelementptr inbounds nuw [2 x i8], ptr %149, i64 %150
   %152 = load i16, ptr %151, align 2
   %153 = and i16 %152, 8192
   %.not61 = icmp eq i16 %153, 0
@@ -1205,7 +1202,7 @@ pushOpStack.exit:                                 ; preds = %21
   %28 = load i16, ptr %9, align 2
   %29 = load i8, ptr %4, align 1
   %30 = sext i32 %23 to i64
-  %31 = getelementptr inbounds %struct.OperatorElement, ptr %7, i64 %30
+  %31 = getelementptr inbounds [4 x i8], ptr %7, i64 %30
   store i8 %29, ptr %31, align 4
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 2
   store i16 %28, ptr %32, align 2
@@ -1225,10 +1222,10 @@ pushOpStack.exit:                                 ; preds = %21
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %37 = add i32 %.promoted33, -1
   %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds %struct.OperatorElement, ptr %7, i64 %38
+  %39 = getelementptr inbounds [4 x i8], ptr %7, i64 %38
   %40 = load i8, ptr %39, align 4
   %41 = sext i8 %40 to i64
-  %42 = getelementptr i32, ptr @tsearch_op_priority, i64 %41
+  %42 = getelementptr [4 x i8], ptr @tsearch_op_priority, i64 %41
   %43 = getelementptr i8, ptr %42, i64 -4
   %44 = load i32, ptr %43, align 4
   %45 = icmp slt i32 %44, 1
@@ -1237,10 +1234,10 @@ pushOpStack.exit:                                 ; preds = %21
 .lr.ph.split.i:                                   ; preds = %.lr.ph
   %46 = add i32 %57, -1
   %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds %struct.OperatorElement, ptr %7, i64 %47
+  %48 = getelementptr inbounds [4 x i8], ptr %7, i64 %47
   %49 = load i8, ptr %48, align 4
   %50 = sext i8 %49 to i64
-  %51 = getelementptr i32, ptr @tsearch_op_priority, i64 %50
+  %51 = getelementptr [4 x i8], ptr @tsearch_op_priority, i64 %50
   %52 = getelementptr i8, ptr %51, i64 -4
   %53 = load i32, ptr %52, align 4
   %54 = icmp slt i32 %53, 1
@@ -1250,7 +1247,7 @@ pushOpStack.exit:                                 ; preds = %21
   %55 = phi i8 [ %49, %.lr.ph.split.i ], [ %40, %.lr.ph.i ]
   %56 = phi i64 [ %47, %.lr.ph.split.i ], [ %38, %.lr.ph.i ]
   %57 = phi i32 [ %46, %.lr.ph.split.i ], [ %37, %.lr.ph.i ]
-  %58 = getelementptr inbounds %struct.OperatorElement, ptr %7, i64 %56
+  %58 = getelementptr inbounds [4 x i8], ptr %7, i64 %56
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 2
   %60 = load i16, ptr %59, align 2
   %61 = call ptr @palloc0(i64 noundef 8) #11
@@ -1323,10 +1320,10 @@ pushOpStack.exit:                                 ; preds = %21
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %96 = add i32 %.promoted33, -1
   %97 = sext i32 %96 to i64
-  %98 = getelementptr inbounds %struct.OperatorElement, ptr %7, i64 %97
+  %98 = getelementptr inbounds [4 x i8], ptr %7, i64 %97
   %99 = load i8, ptr %98, align 4
   %100 = sext i8 %99 to i64
-  %101 = getelementptr i32, ptr @tsearch_op_priority, i64 %100
+  %101 = getelementptr [4 x i8], ptr @tsearch_op_priority, i64 %100
   %102 = getelementptr i8, ptr %101, i64 -4
   %103 = load i32, ptr %102, align 4
   %104 = icmp slt i32 %103, 1
@@ -1335,10 +1332,10 @@ pushOpStack.exit:                                 ; preds = %21
 .lr.ph.split.i27:                                 ; preds = %.lr.ph34
   %105 = add i32 %116, -1
   %106 = sext i32 %105 to i64
-  %107 = getelementptr inbounds %struct.OperatorElement, ptr %7, i64 %106
+  %107 = getelementptr inbounds [4 x i8], ptr %7, i64 %106
   %108 = load i8, ptr %107, align 4
   %109 = sext i8 %108 to i64
-  %110 = getelementptr i32, ptr @tsearch_op_priority, i64 %109
+  %110 = getelementptr [4 x i8], ptr @tsearch_op_priority, i64 %109
   %111 = getelementptr i8, ptr %110, i64 -4
   %112 = load i32, ptr %111, align 4
   %113 = icmp slt i32 %112, 1
@@ -1348,7 +1345,7 @@ pushOpStack.exit:                                 ; preds = %21
   %114 = phi i8 [ %108, %.lr.ph.split.i27 ], [ %99, %.lr.ph.i26 ]
   %115 = phi i64 [ %106, %.lr.ph.split.i27 ], [ %97, %.lr.ph.i26 ]
   %116 = phi i32 [ %105, %.lr.ph.split.i27 ], [ %96, %.lr.ph.i26 ]
-  %117 = getelementptr inbounds %struct.OperatorElement, ptr %7, i64 %115
+  %117 = getelementptr inbounds [4 x i8], ptr %7, i64 %115
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 2
   %119 = load i16, ptr %118, align 2
   %120 = call ptr @palloc0(i64 noundef 8) #11
@@ -1839,7 +1836,7 @@ define internal fastcc void @infix(ptr noundef nonnull %0, i32 noundef %1, i1 no
 
 204:                                              ; preds = %123
   %205 = sext i8 %125 to i64
-  %206 = getelementptr i32, ptr @tsearch_op_priority, i64 %205
+  %206 = getelementptr [4 x i8], ptr @tsearch_op_priority, i64 %205
   %207 = getelementptr i8, ptr %206, i64 -4
   %208 = load i32, ptr %207, align 4
   %209 = getelementptr inbounds nuw i8, ptr %5, i64 2
@@ -2320,7 +2317,7 @@ define dso_local i64 @tsqueryrecv(ptr noundef readonly captures(none) %0) local_
   %52 = zext i8 %51 to i32
   %53 = xor i32 %49, %52
   %54 = zext nneg i32 %53 to i64
-  %55 = getelementptr inbounds nuw i32, ptr @pg_crc32_table, i64 %54
+  %55 = getelementptr inbounds nuw [4 x i8], ptr @pg_crc32_table, i64 %54
   %56 = load i32, ptr %55, align 4
   %57 = shl i32 %.094124, 8
   %58 = xor i32 %56, %57
@@ -2347,7 +2344,7 @@ define dso_local i64 @tsqueryrecv(ptr noundef readonly captures(none) %0) local_
   %68 = or disjoint i32 %67, %47
   store i32 %68, ptr %66, align 4
   %69 = sext i32 %.0129 to i64
-  %70 = getelementptr inbounds ptr, ptr %15, i64 %69
+  %70 = getelementptr inbounds [8 x i8], ptr %15, i64 %69
   store ptr %30, ptr %70, align 8
   %71 = add nsw i32 %.097127, 1
   %72 = add nsw i32 %71, %47
@@ -2454,7 +2451,7 @@ findoprnd.exit:                                   ; preds = %._crit_edge132
 
 116:                                              ; preds = %.lr.ph137
   %117 = sext i32 %.1136 to i64
-  %118 = getelementptr inbounds ptr, ptr %15, i64 %117
+  %118 = getelementptr inbounds [8 x i8], ptr %15, i64 %117
   %119 = load ptr, ptr %118, align 8
   %120 = getelementptr inbounds nuw i8, ptr %.196135, i64 8
   %121 = load i32, ptr %120, align 4
@@ -2596,7 +2593,7 @@ declare void @check_stack_depth() local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @cleanOpStack(ptr noundef nonnull captures(none) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef nonnull captures(none) %2, i8 noundef signext %3) unnamed_addr #0 {
   %5 = sext i8 %3 to i64
-  %6 = getelementptr i32, ptr @tsearch_op_priority, i64 %5
+  %6 = getelementptr [4 x i8], ptr @tsearch_op_priority, i64 %5
   %7 = getelementptr i8, ptr %6, i64 -4
   %8 = load i32, ptr %7, align 4
   %9 = load i32, ptr %2, align 4
@@ -2612,10 +2609,10 @@ define internal fastcc void @cleanOpStack(ptr noundef nonnull captures(none) %0,
   %11 = phi i32 [ %31, %20 ], [ %9, %.lr.ph ]
   %12 = add i32 %11, -1
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds %struct.OperatorElement, ptr %1, i64 %13
+  %14 = getelementptr inbounds [4 x i8], ptr %1, i64 %13
   %15 = load i8, ptr %14, align 2
   %16 = sext i8 %15 to i64
-  %17 = getelementptr i32, ptr @tsearch_op_priority, i64 %16
+  %17 = getelementptr [4 x i8], ptr @tsearch_op_priority, i64 %16
   %18 = getelementptr i8, ptr %17, i64 -4
   %19 = load i32, ptr %18, align 4
   %.not16.us = icmp slt i32 %8, %19
@@ -2645,10 +2642,10 @@ define internal fastcc void @cleanOpStack(ptr noundef nonnull captures(none) %0,
   %32 = phi i32 [ %53, %42 ], [ %9, %.lr.ph ]
   %33 = add i32 %32, -1
   %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds %struct.OperatorElement, ptr %1, i64 %34
+  %35 = getelementptr inbounds [4 x i8], ptr %1, i64 %34
   %36 = load i8, ptr %35, align 2
   %37 = sext i8 %36 to i64
-  %38 = getelementptr i32, ptr @tsearch_op_priority, i64 %37
+  %38 = getelementptr [4 x i8], ptr @tsearch_op_priority, i64 %37
   %39 = getelementptr i8, ptr %38, i64 -4
   %40 = load i32, ptr %39, align 4
   %41 = icmp sgt i32 %8, %40
@@ -2694,7 +2691,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse.backedg
 .lr.ph:                                           ; preds = %4, %tailrecurse.backedge
   %8 = phi i32 [ %22, %tailrecurse.backedge ], [ %5, %4 ]
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw %union.QueryItem, ptr %0, i64 %9
+  %10 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %9
   %11 = load i8, ptr %10, align 4
   switch i8 %11, label %14 [
     i8 1, label %.loopexit

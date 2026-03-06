@@ -251,7 +251,7 @@ define internal i32 @dissect_vpp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %.0106 = phi i32 [ %65, %60 ], [ %58, %34 ]
   %67 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.0106)
   %68 = zext nneg i8 %.0107 to i64
-  %69 = getelementptr ptr, ptr @next_dissectors, i64 %68
+  %69 = getelementptr [8 x i8], ptr @next_dissectors, i64 %68
   %70 = load ptr, ptr %69, align 8
   %71 = icmp eq i8 %.0107, 0
   br i1 %71, label %72, label %78

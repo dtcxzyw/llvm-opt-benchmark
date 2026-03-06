@@ -559,7 +559,7 @@ define internal range(i32 -1, 1) i32 @pysqlite_connection_init(ptr noundef %0, p
 
 .preheader.i:                                     ; preds = %63, %66
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %66 ], [ 0, %63 ]
-  %67 = getelementptr ptr, ptr @get_isolation_level.allowed_levels, i64 %indvars.iv.i.i
+  %67 = getelementptr [8 x i8], ptr @get_isolation_level.allowed_levels, i64 %indvars.iv.i.i
   %68 = load ptr, ptr %67, align 8, !tbaa !46
   %69 = call i32 @sqlite3_stricmp(ptr noundef nonnull %64, ptr noundef %68) #7
   %.not12.i.i = icmp eq i32 %69, 0
@@ -5450,7 +5450,7 @@ define internal fastcc ptr @_pysqlite_build_py_params(ptr noundef %0, i32 nounde
 
 8:                                                ; preds = %.lr.ph, %_Py_NewRef.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_Py_NewRef.exit.thread ]
-  %9 = getelementptr ptr, ptr %2, i64 %indvars.iv
+  %9 = getelementptr [8 x i8], ptr %2, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !100
   %11 = tail call i32 @sqlite3_value_type(ptr noundef %10) #7
   switch i32 %11, label %38 [
@@ -5521,7 +5521,7 @@ _Py_NewRef.exit:                                  ; preds = %.thread42, %.thread
 
 _Py_NewRef.exit.thread:                           ; preds = %41, %38, %_Py_NewRef.exit
   %.147 = phi ptr [ %.1, %_Py_NewRef.exit ], [ @_Py_NoneStruct, %38 ], [ @_Py_NoneStruct, %41 ]
-  %43 = getelementptr ptr, ptr %7, i64 %indvars.iv
+  %43 = getelementptr [8 x i8], ptr %7, i64 %indvars.iv
   store ptr %.147, ptr %43, align 8, !tbaa !25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -7554,7 +7554,7 @@ define internal range(i32 -1, 1) i32 @pysqlite_connection_set_isolation_level(pt
 
 .preheader.i:                                     ; preds = %23, %26
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %26 ], [ 0, %23 ]
-  %27 = getelementptr ptr, ptr @get_isolation_level.allowed_levels, i64 %indvars.iv.i.i
+  %27 = getelementptr [8 x i8], ptr @get_isolation_level.allowed_levels, i64 %indvars.iv.i.i
   %28 = load ptr, ptr %27, align 8, !tbaa !46
   %29 = tail call i32 @sqlite3_stricmp(ptr noundef nonnull %24, ptr noundef %28) #7
   %.not12.i.i = icmp eq i32 %29, 0

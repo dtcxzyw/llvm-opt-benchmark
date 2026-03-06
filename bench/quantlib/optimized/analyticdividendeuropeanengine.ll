@@ -29,7 +29,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.QuantLib::DayCounter" = type { %"class.boost::shared_ptr.18" }
 %"class.boost::shared_ptr.18" = type { ptr, %"class.boost::detail::shared_count" }
 %"class.QuantLib::InterestRate" = type { double, %"class.QuantLib::DayCounter", i32, i8, double }
-%"class.boost::shared_ptr.53" = type { ptr, %"class.boost::detail::shared_count" }
 
 $__clang_call_terminate = comdat any
 
@@ -1379,7 +1378,7 @@ for.body:                                         ; preds = %invoke.cont80, %if.
   %riskless.0554 = phi double [ %riskless.1, %if.end138 ], [ 0.000000e+00, %invoke.cont80 ]
   %i.0553 = phi i64 [ %inc, %if.end138 ], [ 0, %invoke.cont80 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %cashFlowDate)
-  %add.ptr.i = getelementptr inbounds nuw %"class.boost::shared_ptr.53", ptr %51, i64 %i.0553
+  %add.ptr.i = getelementptr inbounds nuw [16 x i8], ptr %51, i64 %i.0553
   %52 = load ptr, ptr %add.ptr.i, align 8, !tbaa !70
   %cmp.not.i112 = icmp eq ptr %52, null
   br i1 %cmp.not.i112, label %cond.false.i113, label %invoke.cont87, !prof !53
@@ -1430,7 +1429,7 @@ invoke.cont101:                                   ; preds = %invoke.cont99
 
 if.then107:                                       ; preds = %invoke.cont101
   %58 = load ptr, ptr %dividends_, align 8, !tbaa !41
-  %add.ptr.i123 = getelementptr inbounds nuw %"class.boost::shared_ptr.53", ptr %58, i64 %i.0553
+  %add.ptr.i123 = getelementptr inbounds nuw [16 x i8], ptr %58, i64 %i.0553
   %59 = load ptr, ptr %add.ptr.i123, align 8, !tbaa !70
   %cmp.not.i124 = icmp eq ptr %59, null
   br i1 %cmp.not.i124, label %cond.false.i125, label %invoke.cont110, !prof !53
@@ -2258,7 +2257,7 @@ for.body363:                                      ; preds = %for.body363.lr.ph, 
   %delta_theta.0562 = phi double [ 0.000000e+00, %for.body363.lr.ph ], [ %delta_theta.1, %if.end504 ]
   %i.1561 = phi i64 [ 0, %for.body363.lr.ph ], [ %inc507, %if.end504 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %d)
-  %add.ptr.i299 = getelementptr inbounds nuw %"class.boost::shared_ptr.53", ptr %145, i64 %i.1561
+  %add.ptr.i299 = getelementptr inbounds nuw [16 x i8], ptr %145, i64 %i.1561
   %146 = load ptr, ptr %add.ptr.i299, align 8, !tbaa !70
   %cmp.not.i300 = icmp eq ptr %146, null
   br i1 %cmp.not.i300, label %cond.false.i301, label %invoke.cont367, !prof !53
@@ -2309,7 +2308,7 @@ invoke.cont383:                                   ; preds = %invoke.cont381
 
 if.then390:                                       ; preds = %invoke.cont383
   %152 = load ptr, ptr %dividends_, align 8, !tbaa !41
-  %add.ptr.i312 = getelementptr inbounds nuw %"class.boost::shared_ptr.53", ptr %152, i64 %i.1561
+  %add.ptr.i312 = getelementptr inbounds nuw [16 x i8], ptr %152, i64 %i.1561
   %153 = load ptr, ptr %add.ptr.i312, align 8, !tbaa !70
   %cmp.not.i313 = icmp eq ptr %153, null
   br i1 %cmp.not.i313, label %cond.false.i314, label %invoke.cont393, !prof !53
@@ -2608,7 +2607,7 @@ invoke.cont463:                                   ; preds = %.noexc385, %_ZN8Qua
 
 invoke.cont467:                                   ; preds = %invoke.cont463
   %191 = load ptr, ptr %dividends_, align 8, !tbaa !41
-  %add.ptr.i387 = getelementptr inbounds nuw %"class.boost::shared_ptr.53", ptr %191, i64 %i.1561
+  %add.ptr.i387 = getelementptr inbounds nuw [16 x i8], ptr %191, i64 %i.1561
   %192 = load ptr, ptr %add.ptr.i387, align 8, !tbaa !70
   %cmp.not.i388 = icmp eq ptr %192, null
   br i1 %cmp.not.i388, label %cond.false.i389, label %invoke.cont471, !prof !53

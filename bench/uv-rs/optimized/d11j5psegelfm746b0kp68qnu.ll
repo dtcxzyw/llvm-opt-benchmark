@@ -732,7 +732,7 @@ define internal void @"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$$u5b$
   br i1 %5, label %"_ZN4core3ptr66drop_in_place$LT$$u5b$uv_normalize..extra_name..ExtraName$u5d$$GT$17h2977005350811c78E.exit", label %6
 
 6:                                                ; preds = %"_ZN4core3ptr56drop_in_place$LT$uv_normalize..extra_name..ExtraName$GT$17he7a2f6fa5a734ff4E.exit.i"
-  %7 = getelementptr inbounds ptr, ptr %2, i64 %.sroa.0.0.i
+  %7 = getelementptr inbounds [8 x i8], ptr %2, i64 %.sroa.0.0.i
   %8 = add i64 %.sroa.0.0.i, 1
   invoke void @"_ZN65_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8e919af4bb65cafcE.llvm.4810286183617026763"(ptr noalias noundef nonnull align 8 dereferenceable(8) %7)
           to label %"_ZN4core3ptr56drop_in_place$LT$uv_normalize..extra_name..ExtraName$GT$17he7a2f6fa5a734ff4E.exit.i" unwind label %10
@@ -748,7 +748,7 @@ define internal void @"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$$u5b$
   br label %"_ZN4core3ptr56drop_in_place$LT$uv_normalize..extra_name..ExtraName$GT$17he7a2f6fa5a734ff4E.exit7.i"
 
 12:                                               ; preds = %"_ZN4core3ptr56drop_in_place$LT$uv_normalize..extra_name..ExtraName$GT$17he7a2f6fa5a734ff4E.exit7.i"
-  %13 = getelementptr inbounds ptr, ptr %2, i64 %.sroa.0.1.i
+  %13 = getelementptr inbounds [8 x i8], ptr %2, i64 %.sroa.0.1.i
   %14 = add i64 %.sroa.0.1.i, 1
   invoke void @"_ZN65_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8e919af4bb65cafcE.llvm.4810286183617026763"(ptr noalias noundef nonnull align 8 dereferenceable(8) %13)
           to label %"_ZN4core3ptr56drop_in_place$LT$uv_normalize..extra_name..ExtraName$GT$17he7a2f6fa5a734ff4E.exit7.i" unwind label %15
@@ -3883,7 +3883,7 @@ define void @_ZN15uv_requirements7upgrade22read_lock_requirements17h7e5b821a33a7
 
 50:                                               ; preds = %45, %41
   %51 = load ptr, ptr %16, align 8, !alias.scope !736, !noalias !739, !nonnull !3, !noundef !3
-  %52 = getelementptr inbounds { { i64, [1 x i64] }, { { { i64, ptr, {} }, {} }, i64 }, ptr, { { { { { ptr, i64 } }, {} }, {} } }, { { [9 x i8], i8, [6 x i8] } }, i64 }, ptr %51, i64 %42
+  %52 = getelementptr inbounds [88 x i8], ptr %51, i64 %42
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %52, ptr noundef nonnull align 8 dereferenceable(88) %10, i64 88, i1 false)
   %53 = add i64 %42, 1
   store i64 %53, ptr %17, align 8, !alias.scope !736, !noalias !739
@@ -3940,7 +3940,7 @@ define void @_ZN15uv_requirements7upgrade22read_lock_requirements17h7e5b821a33a7
 
 70:                                               ; preds = %65, %61
   %71 = load ptr, ptr %18, align 8, !alias.scope !742, !noalias !745, !nonnull !3, !noundef !3
-  %72 = getelementptr inbounds { { { i64, [3 x i64] }, { { { { { { i64, ptr, {} }, {} }, i64 } }, { i32, [1 x i32] }, { i32, [1 x i32] }, { i16, [1 x i16] }, i32, i32, i32, i32, i32, { i8, [16 x i8] }, [7 x i8] } } }, { i64, [40 x i8] } }, ptr %71, i64 %62
+  %72 = getelementptr inbounds [168 x i8], ptr %71, i64 %62
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %72, ptr noundef nonnull align 8 dereferenceable(168) %8, i64 168, i1 false)
   %73 = add i64 %62, 1
   store i64 %73, ptr %19, align 8, !alias.scope !742, !noalias !745

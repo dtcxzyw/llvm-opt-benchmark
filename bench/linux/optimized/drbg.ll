@@ -72,8 +72,8 @@ define internal i32 @drbg_init() #0 section ".init.text" align 16 {
 
 1:                                                ; preds = %1, %0
   %2 = phi i64 [ 0, %0 ], [ %5, %1 ]
-  %3 = getelementptr %struct.rng_alg, ptr @drbg_algs, i64 %2
-  %4 = getelementptr %struct.drbg_core, ptr @drbg_cores, i64 %2
+  %3 = getelementptr [416 x i8], ptr @drbg_algs, i64 %2
+  %4 = getelementptr [264 x i8], ptr @drbg_cores, i64 %2
   tail call fastcc void @drbg_fill_array(ptr noundef %3, ptr noundef %4, i32 noundef 1) #13
   %5 = add nuw nsw i64 %2, 1
   %6 = icmp eq i64 %5, 3
@@ -82,8 +82,8 @@ define internal i32 @drbg_init() #0 section ".init.text" align 16 {
 .preheader:                                       ; preds = %1, %.preheader
   %7 = phi i64 [ %12, %.preheader ], [ 3, %1 ]
   %8 = phi i64 [ %11, %.preheader ], [ 0, %1 ]
-  %9 = getelementptr %struct.rng_alg, ptr @drbg_algs, i64 %7
-  %10 = getelementptr %struct.drbg_core, ptr @drbg_cores, i64 %8
+  %9 = getelementptr [416 x i8], ptr @drbg_algs, i64 %7
+  %10 = getelementptr [264 x i8], ptr @drbg_cores, i64 %8
   tail call fastcc void @drbg_fill_array(ptr noundef %9, ptr noundef %10, i32 noundef 0) #13
   %11 = add nuw nsw i64 %8, 1
   %12 = add nuw nsw i64 %7, 1
@@ -467,7 +467,7 @@ define internal i32 @drbg_kcapi_seed(ptr noundef %0, ptr noundef %1, i32 noundef
 
 21:                                               ; preds = %26, %14
   %22 = phi i64 [ 0, %14 ], [ %27, %26 ]
-  %.split = getelementptr %struct.drbg_core, ptr @drbg_cores, i64 %22
+  %.split = getelementptr [264 x i8], ptr @drbg_cores, i64 %22
   %23 = getelementptr i8, ptr %.split, i64 6
   %24 = tail call i32 @bcmp(ptr %18, ptr %23, i64 %20)
   %25 = icmp eq i32 %24, 0
@@ -510,7 +510,7 @@ define internal i32 @drbg_kcapi_seed(ptr noundef %0, ptr noundef %1, i32 noundef
   br i1 %42, label %152, label %43
 
 43:                                               ; preds = %38
-  %44 = getelementptr %struct.drbg_core, ptr @drbg_cores, i64 %31
+  %44 = getelementptr [264 x i8], ptr @drbg_cores, i64 %31
   store ptr %44, ptr %40, align 8
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 288
   store i8 %30, ptr %45, align 8

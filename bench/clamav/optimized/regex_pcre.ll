@@ -415,7 +415,7 @@ define void @cli_pcre_report(ptr noundef readonly captures(none) %0, ptr noundef
   %58 = or disjoint i32 %54, %57
   %59 = shl nuw nsw i32 %58, 1
   %60 = zext nneg i32 %59 to i64
-  %61 = getelementptr inbounds nuw i64, ptr %13, i64 %60
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %60
   %62 = load i64, ptr %61, align 8, !tbaa !17
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 %62
   %64 = getelementptr inbounds nuw i8, ptr %61, i64 8

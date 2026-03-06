@@ -48,13 +48,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<cmGlobCacheEntry, std::allocator<cmGlobCacheEntry>>::_Vector_impl" = type { %"struct.std::_Vector_base<cmGlobCacheEntry, std::allocator<cmGlobCacheEntry>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<cmGlobCacheEntry, std::allocator<cmGlobCacheEntry>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"struct.std::_Rb_tree<cmGlobVerificationManager::CacheEntryKey, std::pair<const cmGlobVerificationManager::CacheEntryKey, cmGlobVerificationManager::CacheEntryValue>, std::_Select1st<std::pair<const cmGlobVerificationManager::CacheEntryKey, cmGlobVerificationManager::CacheEntryValue>>, std::less<cmGlobVerificationManager::CacheEntryKey>>::_Auto_node" = type { ptr, ptr }
-%"struct.std::pair.13" = type { %"class.std::__cxx11::basic_string", %class.cmListFileBacktrace }
-%class.cmListFileBacktrace = type { %class.cmConstStack }
-%class.cmConstStack = type { %"class.std::shared_ptr" }
-%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
-%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
-%struct.cmGlobCacheEntry = type { i8, i8, i8, %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::vector" }
 
 $_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_ = comdat any
 
@@ -4501,7 +4494,7 @@ _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE19cmLis
 _ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE19cmListFileBacktraceESaIS8_EE13_M_deallocateEPS8_m.exit: ; preds = %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE19cmListFileBacktraceESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit37, %98
   store ptr %24, ptr %0, align 8, !tbaa !73
   store ptr %.0.lcssa.i.i.i36, ptr %6, align 8, !tbaa !72
-  %102 = getelementptr inbounds nuw %"struct.std::pair.13", ptr %24, i64 %18
+  %102 = getelementptr inbounds nuw [48 x i8], ptr %24, i64 %18
   store ptr %102, ptr %97, align 8, !tbaa !74
   ret void
 
@@ -4780,7 +4773,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIP16cmGlobCacheEntryS1_SaIS0_EET0_T_S4_S
 _ZNSt12_Vector_baseI16cmGlobCacheEntrySaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIP16cmGlobCacheEntryS1_SaIS0_EET0_T_S4_S3_RT1_.exit44, %59
   store ptr %27, ptr %0, align 8, !tbaa !111
   store ptr %.0.lcssa.i.i.i.i.i40, ptr %9, align 8, !tbaa !107
-  %63 = getelementptr inbounds nuw %struct.cmGlobCacheEntry, ptr %27, i64 %21
+  %63 = getelementptr inbounds nuw [96 x i8], ptr %27, i64 %21
   store ptr %63, ptr %58, align 8, !tbaa !110
   ret void
 

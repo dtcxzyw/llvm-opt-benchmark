@@ -329,7 +329,7 @@ define dso_local void @jq_util_input_free(ptr noundef captures(none) %0) local_u
 23:                                               ; preds = %.lr.ph, %23
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %23 ]
   %24 = load ptr, ptr %12, align 8, !tbaa !23
-  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8, !tbaa !24
   tail call void @free(ptr noundef %26) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -363,7 +363,7 @@ define dso_local void @jq_util_input_add_input(ptr noundef captures(none) %0, pt
   %14 = add nsw i32 %13, 1
   store i32 %14, ptr %5, align 8, !tbaa !22
   %15 = sext i32 %13 to i64
-  %16 = getelementptr inbounds ptr, ptr %12, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %12, i64 %15
   store ptr %11, ptr %16, align 8, !tbaa !24
   ret void
 }
@@ -793,7 +793,7 @@ next_file.exit:                                   ; preds = %.thread98
   %38 = add nsw i32 %32, 1
   store i32 %38, ptr %31, align 4, !tbaa !35
   %39 = sext i32 %32 to i64
-  %40 = getelementptr inbounds ptr, ptr %37, i64 %39
+  %40 = getelementptr inbounds [8 x i8], ptr %37, i64 %39
   %41 = load ptr, ptr %40, align 8, !tbaa !24
   %.not79 = icmp eq ptr %41, null
   br i1 %.not79, label %thread-pre-split102, label %sub_0

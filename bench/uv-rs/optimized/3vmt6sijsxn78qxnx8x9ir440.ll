@@ -267,7 +267,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hf1bdbbe7e772d2aeE.exit.i.i": ; preds = %42, %.lr.ph.i.i
   %35 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !68, !noalias !69, !nonnull !11, !noundef !11
-  %36 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %35, i64 %31
+  %36 = getelementptr inbounds nuw [24 x i8], ptr %35, i64 %31
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %36, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false), !noalias !69
   %37 = add nuw nsw i64 %31, 1
   store i64 %37, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !68, !noalias !69

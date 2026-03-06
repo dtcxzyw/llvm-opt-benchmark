@@ -17,8 +17,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.anon.8 = type { %union.nf_inet_addr, %union.anon.9, i8, %struct.anon.16, i8 }
 %union.anon.9 = type { i16 }
 %struct.anon.16 = type {}
-%struct.nf_conntrack_tuple_hash = type { %struct.hlist_nulls_node, %struct.nf_conntrack_tuple }
-%struct.hlist_nulls_node = type { ptr, ptr }
 
 @invmap = internal unnamed_addr constant [19 x i8] c"\09\00\00\00\00\00\00\00\01\00\00\00\00\0F\0E\11\10\13\12", align 16
 @.str = private unnamed_addr constant [40 x i8] c"net/netfilter/nf_conntrack_proto_icmp.c\00", align 1
@@ -203,7 +201,7 @@ define dso_local noundef range(i32 -1, 2) i32 @nf_conntrack_inet_error(ptr readn
   %30 = mul nsw i64 %29, -56
   %31 = getelementptr i8, ptr %24, i64 %30
   %32 = getelementptr i8, ptr %31, i64 -16
-  %.split = getelementptr %struct.nf_conntrack_tuple_hash, ptr %31, i64 %29
+  %.split = getelementptr [56 x i8], ptr %31, i64 %29
   %33 = getelementptr i8, ptr %.split, i64 36
   %34 = load i64, ptr %5, align 8
   %35 = load i64, ptr %33, align 8

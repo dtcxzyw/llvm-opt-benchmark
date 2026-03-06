@@ -3,13 +3,10 @@ source_filename = "bench/sdl/original/SDL_x11modes.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.XPixmapFormatValues = type { i32, i32, i32 }
 %struct.SDL_VideoDisplay = type { i32, ptr, i32, i32, ptr, %struct.SDL_DisplayMode, ptr, i32, i32, float, %struct.SDL_HDROutputProperties, i8, ptr, ptr, i32, ptr }
 %struct.SDL_DisplayMode = type { i32, i32, i32, i32, float, float, i32, i32, ptr }
 %struct.SDL_HDROutputProperties = type { float, float }
-%struct.Screen = type { ptr, ptr, i64, i32, i32, i32, i32, i32, ptr, i32, ptr, ptr, i64, i64, i64, i32, i32, i32, i32, i64 }
 %struct.XVisualInfo = type { ptr, i64, i32, i32, i32, i64, i64, i64, i32, i32 }
-%struct._XRRModeInfo = type { i64, i32, i32, i64, i32, i32, i32, i32, i32, i32, i32, ptr, i32, i64 }
 %struct.SDL_Rect = type { i32, i32, i32, i32 }
 %struct.XrmValue = type { i32, ptr }
 
@@ -154,7 +151,7 @@ define hidden i32 @X11_GetPixelFormatFromVisualInfo(ptr noundef %0, ptr noundef 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %29
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %29 ]
-  %30 = getelementptr inbounds nuw %struct.XPixmapFormatValues, ptr %26, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [12 x i8], ptr %26, i64 %indvars.iv
   %31 = load i32, ptr %30, align 4
   %32 = icmp eq i32 %31, 24
   br i1 %32, label %33, label %29
@@ -254,7 +251,7 @@ define hidden void @X11_HandleXRandREvent(ptr noundef %0, ptr noundef readonly c
   %indvars.iv19.i.i = phi i64 [ 0, %.lr.ph9.i.i ], [ %indvars.iv.next20.i.i, %68 ]
   %21 = load ptr, ptr @X11_XRRGetScreenResourcesCurrent, align 8
   %22 = load ptr, ptr %17, align 8
-  %23 = getelementptr inbounds nuw %struct.Screen, ptr %22, i64 %indvars.iv19.i.i
+  %23 = getelementptr inbounds nuw [128 x i8], ptr %22, i64 %indvars.iv19.i.i
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load i64, ptr %24, align 8
   %26 = call ptr %21(ptr noundef %12, i64 noundef %25) #8
@@ -275,7 +272,7 @@ define hidden void @X11_HandleXRandREvent(ptr noundef %0, ptr noundef readonly c
 X11_GetScreenResources.exit.i.i:                  ; preds = %31, %20
   %33 = load ptr, ptr @X11_XRRGetScreenResources, align 8
   %34 = load ptr, ptr %17, align 8
-  %35 = getelementptr inbounds nuw %struct.Screen, ptr %34, i64 %indvars.iv19.i.i
+  %35 = getelementptr inbounds nuw [128 x i8], ptr %34, i64 %indvars.iv19.i.i
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load i64, ptr %36, align 8
   %38 = call ptr %33(ptr noundef nonnull %12, i64 noundef %37) #8
@@ -318,7 +315,7 @@ X11_GetScreenResources.exit.i..preheader2.i_crit_edge.i: ; preds = %X11_GetScree
 .lr.ph.i.i:                                       ; preds = %.preheader1.i.i, %.critedge.i.i
   %48 = phi i32 [ %62, %.critedge.i.i ], [ %45, %.preheader1.i.i ]
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.critedge.i.i ], [ 0, %.preheader1.i.i ]
-  %49 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv.i.i
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv.i.i
   %50 = load i32, ptr %49, align 4
   %.not41.i.i = icmp eq i32 %50, 0
   br i1 %.not41.i.i, label %.critedge.i.i, label %51
@@ -330,7 +327,7 @@ X11_GetScreenResources.exit.i..preheader2.i_crit_edge.i: ; preds = %X11_GetScree
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 48
   %56 = load i64, ptr %55, align 8
   %57 = load ptr, ptr %42, align 8
-  %58 = getelementptr inbounds nuw i64, ptr %57, i64 %indvars.iv16.i.i
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %indvars.iv16.i.i
   %59 = load i64, ptr %58, align 8
   %.not42.i.i = icmp eq i64 %56, %59
   br i1 %.not42.i.i, label %60, label %..critedge_crit_edge.i.i
@@ -340,7 +337,7 @@ X11_GetScreenResources.exit.i..preheader2.i_crit_edge.i: ; preds = %X11_GetScree
   br label %.critedge.i.i
 
 60:                                               ; preds = %51
-  %61 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv.i.i
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv.i.i
   store i32 0, ptr %61, align 4
   br label %.loopexit.i.i
 
@@ -370,7 +367,7 @@ X11_GetScreenResources.exit.i..preheader2.i_crit_edge.i: ; preds = %X11_GetScree
 .lr.ph11.i.i:                                     ; preds = %.preheader.i.i, %73
   %69 = phi i32 [ %74, %73 ], [ %18, %.preheader.i.i ]
   %indvars.iv22.i.i = phi i64 [ %indvars.iv.next23.i.i, %73 ], [ 0, %.preheader.i.i ]
-  %70 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv22.i.i
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv22.i.i
   %71 = load i32, ptr %70, align 4
   %.not39.i.i = icmp eq i32 %71, 0
   br i1 %.not39.i.i, label %73, label %72
@@ -404,7 +401,7 @@ X11_CheckDisplaysRemoved.exit.i:                  ; preds = %._crit_edge12.i.i, 
 
 80:                                               ; preds = %83
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %81 = getelementptr inbounds nuw i32, ptr %77, i64 %indvars.iv.next.i
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %indvars.iv.next.i
   %82 = load i32, ptr %81, align 4
   %.not39.i = icmp eq i32 %82, 0
   br i1 %.not39.i, label %._crit_edge.i, label %83, !llvm.loop !10
@@ -456,7 +453,7 @@ X11_CheckDisplaysRemoved.exit.i:                  ; preds = %._crit_edge12.i.i, 
   %104 = getelementptr inbounds nuw i8, ptr %100, i64 232
   %105 = load ptr, ptr %104, align 8
   %106 = sext i32 %102 to i64
-  %107 = getelementptr inbounds %struct.Screen, ptr %105, i64 %106
+  %107 = getelementptr inbounds [128 x i8], ptr %105, i64 %106
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 16
   %109 = load i64, ptr %108, align 8
   %110 = call ptr %103(ptr noundef %100, i64 noundef %109) #8
@@ -477,7 +474,7 @@ X11_CheckDisplaysRemoved.exit.i:                  ; preds = %._crit_edge12.i.i, 
 X11_GetScreenResources.exit.i:                    ; preds = %115, %99
   %117 = load ptr, ptr @X11_XRRGetScreenResources, align 8
   %118 = load ptr, ptr %104, align 8
-  %119 = getelementptr inbounds %struct.Screen, ptr %118, i64 %106
+  %119 = getelementptr inbounds [128 x i8], ptr %118, i64 %106
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 16
   %121 = load i64, ptr %120, align 8
   %122 = call ptr %117(ptr noundef nonnull %100, i64 noundef %121) #8
@@ -532,7 +529,7 @@ X11_AddXRandRDisplay.exit.i:                      ; preds = %126, %X11_GetScreen
   %indvars.iv38.i = phi i64 [ 0, %.lr.ph35.i ], [ %indvars.iv.next39.i, %195 ]
   %139 = load ptr, ptr @X11_XRRGetScreenResourcesCurrent, align 8
   %140 = load ptr, ptr %134, align 8
-  %141 = getelementptr inbounds nuw %struct.Screen, ptr %140, i64 %indvars.iv38.i
+  %141 = getelementptr inbounds nuw [128 x i8], ptr %140, i64 %indvars.iv38.i
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 16
   %143 = load i64, ptr %142, align 8
   %144 = call ptr %139(ptr noundef %129, i64 noundef %143) #8
@@ -553,7 +550,7 @@ X11_AddXRandRDisplay.exit.i:                      ; preds = %126, %X11_GetScreen
 X11_GetScreenResources.exit.i11:                  ; preds = %149, %138
   %151 = load ptr, ptr @X11_XRRGetScreenResources, align 8
   %152 = load ptr, ptr %134, align 8
-  %153 = getelementptr inbounds nuw %struct.Screen, ptr %152, i64 %indvars.iv38.i
+  %153 = getelementptr inbounds nuw [128 x i8], ptr %152, i64 %indvars.iv38.i
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 16
   %155 = load i64, ptr %154, align 8
   %156 = call ptr %151(ptr noundef nonnull %129, i64 noundef %155) #8
@@ -638,7 +635,7 @@ X11_UpdateXRandRDisplay.exit.i:                   ; preds = %189, %167
 
 192:                                              ; preds = %X11_UpdateXRandRDisplay.exit.i, %.lr.ph.i7
   %indvars.iv.next.i9 = add nuw nsw i64 %indvars.iv.i8, 1
-  %193 = getelementptr inbounds nuw i32, ptr %132, i64 %indvars.iv.next.i9
+  %193 = getelementptr inbounds nuw [4 x i8], ptr %132, i64 %indvars.iv.next.i9
   %194 = load i32, ptr %193, align 4
   %.not28.i = icmp eq i32 %194, 0
   br i1 %.not28.i, label %._crit_edge.i10, label %.lr.ph.i7, !llvm.loop !11
@@ -705,7 +702,7 @@ CheckXRandR.exit:                                 ; preds = %16
   %33 = getelementptr inbounds nuw i8, ptr %27, i64 232
   %34 = load ptr, ptr %33, align 8
   %35 = sext i32 %31 to i64
-  %36 = getelementptr inbounds %struct.Screen, ptr %34, i64 %35
+  %36 = getelementptr inbounds [128 x i8], ptr %34, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load i64, ptr %37, align 8
   %39 = call i64 %32(ptr noundef %27, i64 noundef %38) #8
@@ -736,7 +733,7 @@ CheckXRandR.exit:                                 ; preds = %16
   %.not50.us.i.us = icmp eq i64 %indvars.iv98.i.us, %44
   %45 = load ptr, ptr @X11_XRRGetScreenResourcesCurrent, align 8
   %46 = load ptr, ptr %33, align 8
-  %47 = getelementptr inbounds nuw %struct.Screen, ptr %46, i64 %indvars.iv98.i.us
+  %47 = getelementptr inbounds nuw [128 x i8], ptr %46, i64 %indvars.iv98.i.us
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %49 = load i64, ptr %48, align 8
   %50 = call ptr %45(ptr noundef %27, i64 noundef %49) #8
@@ -757,7 +754,7 @@ CheckXRandR.exit:                                 ; preds = %16
 X11_GetScreenResources.exit.us.i.us:              ; preds = %55, %.preheader58.us.i.split.us
   %57 = load ptr, ptr @X11_XRRGetScreenResources, align 8
   %58 = load ptr, ptr %33, align 8
-  %59 = getelementptr inbounds nuw %struct.Screen, ptr %58, i64 %indvars.iv98.i.us
+  %59 = getelementptr inbounds nuw [128 x i8], ptr %58, i64 %indvars.iv98.i.us
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %61 = load i64, ptr %60, align 8
   %62 = call ptr %57(ptr noundef nonnull %27, i64 noundef %61) #8
@@ -787,7 +784,7 @@ X11_GetScreenResources.exit.us.i.us..preheader.us.i.us_crit_edge: ; preds = %X11
 .critedge.us.us78.i.us:                           ; preds = %73, %.critedge.us.us78.preheader.i.us
   %indvars.iv92.i.us = phi i64 [ 0, %.critedge.us.us78.preheader.i.us ], [ %indvars.iv.next93.i.us, %73 ]
   %68 = load ptr, ptr %66, align 8
-  %69 = getelementptr inbounds nuw i64, ptr %68, i64 %indvars.iv92.i.us
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %indvars.iv92.i.us
   %70 = load i64, ptr %69, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -816,7 +813,7 @@ X11_AddXRandRDisplay.exit.us.us81.i.us:           ; preds = %.critedge.us.us78.i
 .critedge.us.us.us.i.us:                          ; preds = %.lr.ph.us.i.us, %84
   %indvars.iv95.i.us = phi i64 [ %indvars.iv.next96.i.us, %84 ], [ 0, %.lr.ph.us.i.us ]
   %77 = load ptr, ptr %66, align 8
-  %78 = getelementptr inbounds nuw i64, ptr %77, i64 %indvars.iv95.i.us
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %indvars.iv95.i.us
   %79 = load i64, ptr %78, align 8
   %80 = icmp eq i64 %79, %39
   br i1 %80, label %84, label %81
@@ -851,7 +848,7 @@ X11_AddXRandRDisplay.exit._crit_edge.us.i.us:     ; preds = %X11_AddXRandRDispla
   call void %88(ptr noundef nonnull %.0.i.us117.i.us) #8
   %89 = load ptr, ptr @X11_XRRSelectInput, align 8
   %90 = load ptr, ptr %33, align 8
-  %91 = getelementptr inbounds nuw %struct.Screen, ptr %90, i64 %indvars.iv98.i.us
+  %91 = getelementptr inbounds nuw [128 x i8], ptr %90, i64 %indvars.iv98.i.us
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 16
   %93 = load i64, ptr %92, align 8
   call void %89(ptr noundef %27, i64 noundef %93, i32 noundef 4) #8
@@ -870,7 +867,7 @@ X11_AddXRandRDisplay.exit._crit_edge.us.i.us:     ; preds = %X11_AddXRandRDispla
 95:                                               ; preds = %.preheader58.us.i.split
   %96 = load ptr, ptr @X11_XRRGetScreenResourcesCurrent, align 8
   %97 = load ptr, ptr %33, align 8
-  %98 = getelementptr inbounds nuw %struct.Screen, ptr %97, i64 %44
+  %98 = getelementptr inbounds nuw [128 x i8], ptr %97, i64 %44
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 16
   %100 = load i64, ptr %99, align 8
   %101 = call ptr %96(ptr noundef %27, i64 noundef %100) #8
@@ -891,7 +888,7 @@ X11_AddXRandRDisplay.exit._crit_edge.us.i.us:     ; preds = %X11_AddXRandRDispla
 X11_GetScreenResources.exit.us.i:                 ; preds = %106, %95
   %108 = load ptr, ptr @X11_XRRGetScreenResources, align 8
   %109 = load ptr, ptr %33, align 8
-  %110 = getelementptr inbounds nuw %struct.Screen, ptr %109, i64 %44
+  %110 = getelementptr inbounds nuw [128 x i8], ptr %109, i64 %44
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 16
   %112 = load i64, ptr %111, align 8
   %113 = call ptr %108(ptr noundef nonnull %27, i64 noundef %112) #8
@@ -906,7 +903,7 @@ X11_GetScreenResources.exit.us.i..preheader.us.i_crit_edge: ; preds = %X11_GetSc
 .lr.ph.split.us77.i:                              ; preds = %.lr.ph.us.i, %126
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.us.i ], [ %indvars.iv.next.i, %126 ]
   %114 = load ptr, ptr %134, align 8
-  %115 = getelementptr inbounds nuw i64, ptr %114, i64 %indvars.iv.i
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %114, i64 %indvars.iv.i
   %116 = load i64, ptr %115, align 8
   %.not52.us.i = icmp eq i64 %116, %39
   br i1 %.not52.us.i, label %117, label %126
@@ -934,7 +931,7 @@ X11_AddXRandRDisplay.exit._crit_edge.us.i:        ; preds = %126, %X11_AddXRandR
   call void %120(ptr noundef nonnull %.0.i.us117.i) #8
   %121 = load ptr, ptr @X11_XRRSelectInput, align 8
   %122 = load ptr, ptr %33, align 8
-  %123 = getelementptr inbounds nuw %struct.Screen, ptr %122, i64 %44
+  %123 = getelementptr inbounds nuw [128 x i8], ptr %122, i64 %44
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 16
   %125 = load i64, ptr %124, align 8
   call void %121(ptr noundef %27, i64 noundef %125, i32 noundef 4) #8
@@ -1027,7 +1024,7 @@ X11_AddXRandRDisplay.exit._crit_edge.us.i:        ; preds = %126, %X11_AddXRandR
   %160 = phi i32 [ %174, %.thread.i.i ], [ %154, %.preheader66.i.i ]
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.thread.i.i ], [ 0, %.preheader66.i.i ]
   %161 = load ptr, ptr %153, align 8
-  %162 = getelementptr inbounds nuw ptr, ptr %161, i64 %indvars.iv.i.i
+  %162 = getelementptr inbounds nuw [8 x i8], ptr %161, i64 %indvars.iv.i.i
   %163 = load ptr, ptr %162, align 8
   %.not51.i.i = icmp eq ptr %163, null
   br i1 %.not51.i.i, label %.thread.i.i, label %164
@@ -1047,10 +1044,10 @@ X11_AddXRandRDisplay.exit._crit_edge.us.i:        ; preds = %126, %X11_AddXRandR
 .thread62.i.i:                                    ; preds = %164
   %169 = add nsw i32 %.03873.i.i, 1
   %170 = sext i32 %.03873.i.i to i64
-  %171 = getelementptr inbounds ptr, ptr %148, i64 %170
+  %171 = getelementptr inbounds [8 x i8], ptr %148, i64 %170
   store ptr %163, ptr %171, align 8
   %172 = load ptr, ptr %153, align 8
-  %173 = getelementptr inbounds nuw ptr, ptr %172, i64 %indvars.iv.i.i
+  %173 = getelementptr inbounds nuw [8 x i8], ptr %172, i64 %indvars.iv.i.i
   store ptr null, ptr %173, align 8
   br label %.loopexit.i.i
 
@@ -1076,7 +1073,7 @@ X11_AddXRandRDisplay.exit._crit_edge.us.i:        ; preds = %126, %X11_AddXRandR
 180:                                              ; preds = %187, %.lr.ph76.i.i
   %indvars.iv82.i.i = phi i64 [ 0, %.lr.ph76.i.i ], [ %indvars.iv.next83.i.i, %187 ]
   %.674.i.i = phi i32 [ %.038.lcssa.i.i, %.lr.ph76.i.i ], [ %.7.i.i, %187 ]
-  %181 = getelementptr inbounds nuw ptr, ptr %159, i64 %indvars.iv82.i.i
+  %181 = getelementptr inbounds nuw [8 x i8], ptr %159, i64 %indvars.iv82.i.i
   %182 = load ptr, ptr %181, align 8
   %.not50.i.i = icmp eq ptr %182, null
   br i1 %.not50.i.i, label %187, label %183
@@ -1084,7 +1081,7 @@ X11_AddXRandRDisplay.exit._crit_edge.us.i:        ; preds = %126, %X11_AddXRandR
 183:                                              ; preds = %180
   %184 = add nsw i32 %.674.i.i, 1
   %185 = sext i32 %.674.i.i to i64
-  %186 = getelementptr inbounds ptr, ptr %148, i64 %185
+  %186 = getelementptr inbounds [8 x i8], ptr %148, i64 %185
   store ptr %182, ptr %186, align 8
   br label %187
 
@@ -1124,7 +1121,7 @@ CheckXRandR.exit.thread:                          ; preds = %16, %1, %139, %X11_
   %194 = getelementptr inbounds nuw i8, ptr %191, i64 232
   %195 = load ptr, ptr %194, align 8
   %196 = sext i32 %193 to i64
-  %197 = getelementptr inbounds %struct.Screen, ptr %195, i64 %196
+  %197 = getelementptr inbounds [128 x i8], ptr %195, i64 %196
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -1226,7 +1223,7 @@ switch.edge.i:                                    ; preds = %225, %224, %223, %2
 
 235:                                              ; preds = %234, %.lr.ph.i
   %indvars.iv.i13 = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i14, %234 ]
-  %236 = getelementptr inbounds nuw %struct.XPixmapFormatValues, ptr %230, i64 %indvars.iv.i13
+  %236 = getelementptr inbounds nuw [12 x i8], ptr %230, i64 %indvars.iv.i13
   %237 = load i32, ptr %236, align 4
   %238 = icmp eq i32 %237, %233
   br i1 %238, label %239, label %234
@@ -1311,7 +1308,7 @@ define hidden noundef zeroext i1 @X11_GetDisplayModes(ptr noundef readonly captu
   %18 = load ptr, ptr %17, align 8
   %19 = load i32, ptr %5, align 8
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds %struct.Screen, ptr %18, i64 %20
+  %21 = getelementptr inbounds [128 x i8], ptr %18, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load i64, ptr %22, align 8
   %24 = tail call ptr %16(ptr noundef %15, i64 noundef %23) #8
@@ -1354,7 +1351,7 @@ define hidden noundef zeroext i1 @X11_GetDisplayModes(ptr noundef readonly captu
   store ptr %40, ptr %36, align 8
   %42 = load i64, ptr %37, align 8
   %43 = load ptr, ptr %38, align 8
-  %44 = getelementptr inbounds nuw i64, ptr %43, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv
   %45 = load i64, ptr %44, align 8
   %46 = call fastcc zeroext i1 @SetXRandRModeInfo(ptr noundef nonnull %15, ptr noundef %24, i64 noundef %42, i64 noundef %45, ptr noundef %3)
   br i1 %46, label %47, label %49
@@ -1413,7 +1410,7 @@ define internal fastcc noundef zeroext i1 @SetXRandRModeInfo(ptr noundef %0, ptr
 
 .critedge:                                        ; preds = %.critedge.lr.ph, %12
   %indvars.iv = phi i64 [ 0, %.critedge.lr.ph ], [ %indvars.iv.next, %12 ]
-  %13 = getelementptr inbounds nuw %struct._XRRModeInfo, ptr %11, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [80 x i8], ptr %11, i64 %indvars.iv
   %14 = load i64, ptr %13, align 8
   %.not44 = icmp eq i64 %14, %3
   br i1 %.not44, label %15, label %12
@@ -1570,7 +1567,7 @@ define hidden zeroext i1 @X11_SetDisplayMode(ptr noundef readonly captures(none)
   %31 = load ptr, ptr %30, align 8
   %32 = load i32, ptr %7, align 8
   %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds %struct.Screen, ptr %31, i64 %33
+  %34 = getelementptr inbounds [128 x i8], ptr %31, i64 %33
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load i64, ptr %35, align 8
   %37 = tail call ptr %29(ptr noundef %26, i64 noundef %36) #8
@@ -1641,7 +1638,7 @@ define hidden zeroext i1 @X11_SetDisplayMode(ptr noundef readonly captures(none)
   %77 = load ptr, ptr %30, align 8
   %78 = load i32, ptr %7, align 8
   %79 = sext i32 %78 to i64
-  %80 = getelementptr inbounds %struct.Screen, ptr %77, i64 %79
+  %80 = getelementptr inbounds [128 x i8], ptr %77, i64 %79
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 32
   %82 = load i32, ptr %81, align 8
   %83 = mul nsw i32 %82, %76
@@ -1665,7 +1662,7 @@ define hidden zeroext i1 @X11_SetDisplayMode(ptr noundef readonly captures(none)
   %100 = load ptr, ptr %30, align 8
   %101 = load i32, ptr %7, align 8
   %102 = sext i32 %101 to i64
-  %103 = getelementptr inbounds %struct.Screen, ptr %100, i64 %102
+  %103 = getelementptr inbounds [128 x i8], ptr %100, i64 %102
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 16
   %105 = load i64, ptr %104, align 8
   %106 = load i32, ptr %75, align 8
@@ -1827,7 +1824,7 @@ define hidden noundef zeroext i1 @X11_GetDisplayUsableBounds(ptr noundef readonl
   %34 = getelementptr inbounds nuw i8, ptr %12, i64 224
   %35 = load i32, ptr %34, align 8
   %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds %struct.Screen, ptr %33, i64 %36
+  %37 = getelementptr inbounds [128 x i8], ptr %33, i64 %36
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %39 = load i64, ptr %38, align 8
   %40 = call i32 %31(ptr noundef %12, i64 noundef %39, i64 noundef %30, i64 noundef 0, i64 noundef 4, i32 noundef 0, i64 noundef 6, ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8) #8
@@ -1969,7 +1966,7 @@ switch.edge:                                      ; preds = %20, %21, %20, %20, 
 
 33:                                               ; preds = %.lr.ph, %32
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %32 ]
-  %34 = getelementptr inbounds nuw %struct.XPixmapFormatValues, ptr %27, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [12 x i8], ptr %27, i64 %indvars.iv
   %35 = load i32, ptr %34, align 4
   %36 = icmp eq i32 %35, %31
   br i1 %36, label %37, label %32
@@ -2160,7 +2157,7 @@ define internal fastcc zeroext i1 @get_visualinfo(ptr noundef %0, i32 noundef %1
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %19 = load ptr, ptr %18, align 8
   %20 = sext i32 %1 to i64
-  %21 = getelementptr inbounds %struct.Screen, ptr %19, i64 %20
+  %21 = getelementptr inbounds [128 x i8], ptr %19, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 56
   %23 = load i32, ptr %22, align 8
   %24 = call zeroext i1 @X11_UseDirectColorVisuals() #8
@@ -2223,7 +2220,7 @@ define internal fastcc void @SetXRandRDisplayName(ptr noundef %0, i64 noundef %1
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %17 = getelementptr inbounds nuw i64, ptr %14, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   %18 = load i64, ptr %17, align 8
   %19 = icmp eq i64 %18, %1
   br i1 %19, label %20, label %34

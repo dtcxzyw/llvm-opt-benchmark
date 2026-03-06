@@ -10,7 +10,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.anon = type { ptr, ptr, ptr }
 %struct.anon.0 = type { ptr, ptr, ptr }
 %struct._mka_ckn_info_key = type { ptr, i32 }
-%struct._mka_ckn_info = type { %struct._mka_ckn_info_key, ptr }
 
 @proto_register_mka.ei = internal global [3 x { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } }] [{ ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_mka_undecoded, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str, i32 83886080, i32 6291456, ptr @.str.1, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_unexpected_data, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.2, i32 150994944, i32 6291456, ptr @.str.3, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_mka_unimplemented, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.4, i32 83886080, i32 6291456, ptr @.str.5, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
 @ei_mka_undecoded = internal global %struct.expert_field zeroinitializer, align 4
@@ -1149,7 +1148,7 @@ ckn_info_reset_cb.exit:                           ; preds = %0, %2
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %ckn_info_reset_cb.exit ]
   %5 = load ptr, ptr @ht_mka_ckn, align 8
   %6 = load ptr, ptr @mka_ckn_uat_data, align 8
-  %7 = getelementptr %struct._mka_ckn_info, ptr %6, i64 %indvars.iv
+  %7 = getelementptr [24 x i8], ptr %6, i64 %indvars.iv
   %8 = tail call i32 @g_hash_table_insert(ptr noundef %5, ptr noundef %7, ptr noundef %7)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %9 = load i32, ptr @num_mka_ckn_uat_data, align 4

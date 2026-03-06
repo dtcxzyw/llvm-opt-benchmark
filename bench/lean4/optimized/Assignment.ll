@@ -631,7 +631,7 @@ define ptr @l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_instToString(i8 nound
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_instToString___boxed, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_instToString___boxed, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -673,7 +673,7 @@ lean_dec.exit:                                    ; preds = %12, %11, %9, %1
 
 switch.lookup:                                    ; preds = %lean_dec.exit
   %14 = and i64 %3, 3
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_instToString___boxed, i64 %14
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_instToString___boxed, i64 %14
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_instToString.exit
 

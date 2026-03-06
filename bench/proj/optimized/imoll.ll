@@ -167,7 +167,7 @@ _ZL10setup_zoneP8PJconstsPN11pj_imoll_ns13pj_imoll_dataEiPFS0_S0_Eddd.exit.threa
 
 .preheader.i:                                     ; preds = %_ZL10setup_zoneP8PJconstsPN11pj_imoll_ns13pj_imoll_dataEiPFS0_S0_Eddd.exit.thread, %62
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %62 ], [ 0, %_ZL10setup_zoneP8PJconstsPN11pj_imoll_ns13pj_imoll_dataEiPFS0_S0_Eddd.exit.thread ]
-  %56 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv.i
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %indvars.iv.i
   %57 = load ptr, ptr %56, align 8, !tbaa !41
   %.not.i58 = icmp eq ptr %57, null
   br i1 %.not.i58, label %62, label %58
@@ -256,7 +256,7 @@ declare noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef, i32 nound
 define internal fastcc noundef zeroext i1 @_ZL10setup_zoneP8PJconstsPN11pj_imoll_ns13pj_imoll_dataEiPFS0_S0_Eddd(ptr noundef readonly captures(none) %0, ptr noundef nonnull writeonly captures(none) %1, i32 noundef range(i32 1, 7) %2, double noundef nofpclass(nan inf zero sub nnorm) %3, double noundef nofpclass(nan inf zero sub nnorm) %4) unnamed_addr #0 {
   %6 = tail call noundef ptr @pj_moll(ptr noundef null)
   %7 = zext nneg i32 %2 to i64
-  %8 = getelementptr ptr, ptr %1, i64 %7
+  %8 = getelementptr [8 x i8], ptr %1, i64 %7
   %9 = getelementptr i8, ptr %8, i64 -8
   store ptr %6, ptr %9, align 8, !tbaa !41
   %.not = icmp eq ptr %6, null
@@ -299,7 +299,7 @@ define internal noundef ptr @_ZL19pj_imoll_destructorP8PJconstsi(ptr noundef %0,
 
 .preheader:                                       ; preds = %4, %14
   %indvars.iv = phi i64 [ %indvars.iv.next, %14 ], [ 0, %4 ]
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8, !tbaa !41
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %14, label %10
@@ -327,14 +327,14 @@ define internal noundef ptr @_ZL19pj_imoll_destructorP8PJconstsi(ptr noundef %0,
 ; Function Attrs: mustprogress uwtable
 define internal fastcc noundef double @_ZL19compute_zone_offsetPN11pj_imoll_ns13pj_imoll_dataEiiddd(ptr noundef nonnull readonly captures(none) %0, i32 noundef range(i32 2, 7) %1, i32 noundef range(i32 1, 3) %2, double noundef nofpclass(nan inf zero sub) %3, double noundef nofpclass(nan inf zero sub) %4) unnamed_addr #0 {
   %6 = zext nneg i32 %1 to i64
-  %7 = getelementptr ptr, ptr %0, i64 %6
+  %7 = getelementptr [8 x i8], ptr %0, i64 %6
   %8 = getelementptr i8, ptr %7, i64 -8
   %9 = load ptr, ptr %8, align 8, !tbaa !41
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 440
   %11 = load double, ptr %10, align 8, !tbaa !45
   %12 = fsub double %3, %11
   %13 = zext nneg i32 %2 to i64
-  %14 = getelementptr ptr, ptr %0, i64 %13
+  %14 = getelementptr [8 x i8], ptr %0, i64 %13
   %15 = getelementptr i8, ptr %14, i64 -8
   %16 = load ptr, ptr %15, align 8, !tbaa !41
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 440
@@ -390,7 +390,7 @@ define internal fastcc noundef double @_ZL23compute_zone_x_boundaryP8PJconstsdd(
 
 _ZL15imoll_s_forward5PJ_LPP8PJconsts.exit:        ; preds = %9, %12, %14, %16
   %.0.i = phi i64 [ %11, %9 ], [ 3, %14 ], [ 2, %12 ], [ %..i, %16 ]
-  %18 = getelementptr inbounds nuw ptr, ptr %7, i64 %.0.i
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.0.i
   %19 = load ptr, ptr %18, align 8, !tbaa !41
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 440
   %21 = load double, ptr %20, align 8, !tbaa !45
@@ -426,7 +426,7 @@ _ZL15imoll_s_forward5PJ_LPP8PJconsts.exit23:      ; preds = %30, %33, %35, %37
   %.0.i19 = phi i64 [ %32, %30 ], [ 3, %35 ], [ 2, %33 ], [ %..i22, %37 ]
   %39 = extractvalue { double, double } %25, 0
   %40 = fadd double %39, %28
-  %41 = getelementptr inbounds nuw ptr, ptr %29, i64 %.0.i19
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %.0.i19
   %42 = load ptr, ptr %41, align 8, !tbaa !41
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 440
   %44 = load double, ptr %43, align 8, !tbaa !45
@@ -490,7 +490,7 @@ select.unfold79:                                  ; preds = %10
 26:                                               ; preds = %10, %22, %18, %select.unfold79, %14, %select.unfold
   %.066.ph = phi i32 [ 5, %22 ], [ 3, %14 ], [ 2, %10 ], [ 4, %18 ], [ 6, %select.unfold ], [ 1, %select.unfold79 ]
   %27 = zext nneg i32 %.066.ph to i64
-  %28 = getelementptr ptr, ptr %5, i64 %27
+  %28 = getelementptr [8 x i8], ptr %5, i64 %27
   %29 = getelementptr i8, ptr %28, i64 -8
   %30 = load ptr, ptr %29, align 8, !tbaa !41
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 456
@@ -612,7 +612,7 @@ define internal { double, double } @_ZL15imoll_s_forward5PJ_LPP8PJconsts(double 
 
 16:                                               ; preds = %14, %12, %10, %7
   %.0 = phi i64 [ %9, %7 ], [ 3, %12 ], [ 2, %10 ], [ %., %14 ]
-  %17 = getelementptr inbounds nuw ptr, ptr %5, i64 %.0
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.0
   %18 = load ptr, ptr %17, align 8, !tbaa !41
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 440
   %20 = load double, ptr %19, align 8, !tbaa !45

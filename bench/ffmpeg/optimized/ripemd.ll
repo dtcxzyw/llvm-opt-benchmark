@@ -4912,7 +4912,7 @@ av_ripemd_update.exit26:                          ; preds = %av_ripemd_update.ex
 
 .lr.ph31:                                         ; preds = %av_ripemd_update.exit26, %.lr.ph31
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph31 ], [ 0, %av_ripemd_update.exit26 ]
-  %42 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %indvars.iv
   %43 = load i32, ptr %42, align 4, !tbaa !10
   %44 = shl nuw nsw i64 %indvars.iv, 2
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 %44

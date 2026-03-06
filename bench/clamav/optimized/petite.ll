@@ -3,8 +3,6 @@ source_filename = "bench/clamav/original/petite.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.cli_exe_section = type { i32, i32, i32, i32, i32, i32, i32, i32, i32 }
-
 @.str = private unnamed_addr constant [20 x i8] c"Petite: Old EP: %x\0A\00", align 1
 @.str.1 = private unnamed_addr constant [72 x i8] c"Petite: In troubles while attempting to decrypt old EP, using bogus %x\0A\00", align 1
 @.str.2 = private unnamed_addr constant [48 x i8] c"Petite: Skipping section %d, Raw: %x, RSize:%x\0A\00", align 1
@@ -34,7 +32,7 @@ define range(i32 0, 2) i32 @petite_inflate2x_1to9(ptr noundef %0, i32 noundef %1
   %.0841.ph = phi i32 [ 53, %11 ], [ 52, %16 ]
   %18 = add i32 %4, -1
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %3, i64 %19
+  %20 = getelementptr inbounds nuw [36 x i8], ptr %3, i64 %19
   %21 = load i32, ptr %20, align 4, !tbaa !3
   %22 = zext i32 %21 to i64
   %23 = getelementptr inbounds nuw i8, ptr %14, i64 %22
@@ -122,13 +120,13 @@ define range(i32 0, 2) i32 @petite_inflate2x_1to9(ptr noundef %0, i32 noundef %1
   %indvars.iv1672 = phi i64 [ 0, %.preheader1242.us ], [ %indvars.iv.next1673, %65 ]
   %.17861466.us = phi i32 [ 0, %.preheader1242.us ], [ %.2787.us, %65 ]
   %indvars.iv.next1673 = add nuw nsw i64 %indvars.iv1672, 1
-  %53 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %.082214512088, i64 %indvars.iv.next1673
+  %53 = getelementptr inbounds nuw [36 x i8], ptr %.082214512088, i64 %indvars.iv.next1673
   %54 = load i32, ptr %53, align 4, !tbaa !3
   %.not939.us = icmp ugt i32 %52, %54
   br i1 %.not939.us, label %55, label %65
 
 55:                                               ; preds = %51
-  %56 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %.082214512088, i64 %indvars.iv1672
+  %56 = getelementptr inbounds nuw [36 x i8], ptr %.082214512088, i64 %indvars.iv1672
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 12
   %58 = load i32, ptr %57, align 4, !tbaa !9
   %59 = getelementptr inbounds nuw i8, ptr %56, i64 4
@@ -164,11 +162,11 @@ define range(i32 0, 2) i32 @petite_inflate2x_1to9(ptr noundef %0, i32 noundef %1
 .lr.ph1470:                                       ; preds = %.lr.ph1470.preheader, %75
   %67 = phi i32 [ %.pre1736, %.lr.ph1470.preheader ], [ %72, %75 ]
   %indvars.iv1677 = phi i64 [ 0, %.lr.ph1470.preheader ], [ %indvars.iv.next1678, %75 ]
-  %68 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %.082214512088, i64 %indvars.iv1677
+  %68 = getelementptr inbounds nuw [36 x i8], ptr %.082214512088, i64 %indvars.iv1677
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %70 = load i32, ptr %69, align 4, !tbaa !10
   %indvars.iv.next1678 = add nuw nsw i64 %indvars.iv1677, 1
-  %71 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %.082214512088, i64 %indvars.iv.next1678
+  %71 = getelementptr inbounds nuw [36 x i8], ptr %.082214512088, i64 %indvars.iv.next1678
   %72 = load i32, ptr %71, align 4, !tbaa !3
   %73 = sub i32 %72, %67
   %.not938 = icmp eq i32 %70, %73
@@ -199,7 +197,7 @@ define range(i32 0, 2) i32 @petite_inflate2x_1to9(ptr noundef %0, i32 noundef %1
 
 .lr.ph1509:                                       ; preds = %.preheader
   %.not1534 = icmp eq i32 %.08301449.fr2091, 0
-  %81 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %3, i64 %40
+  %81 = getelementptr inbounds nuw [36 x i8], ptr %3, i64 %40
   br label %82
 
 82:                                               ; preds = %.lr.ph1509, %.critedge10
@@ -344,7 +342,7 @@ define range(i32 0, 2) i32 @petite_inflate2x_1to9(ptr noundef %0, i32 noundef %1
   br i1 %.not933, label %141, label %134
 
 134:                                              ; preds = %.lr.ph1513
-  %135 = getelementptr %struct.cli_exe_section, ptr %.082214512088, i64 %indvars.iv1682
+  %135 = getelementptr [36 x i8], ptr %.082214512088, i64 %indvars.iv1682
   %136 = getelementptr i8, ptr %135, i64 -28
   %137 = load i32, ptr %136, align 4, !tbaa !11
   %138 = getelementptr i8, ptr %135, i64 -24
@@ -354,7 +352,7 @@ define range(i32 0, 2) i32 @petite_inflate2x_1to9(ptr noundef %0, i32 noundef %1
 
 141:                                              ; preds = %.lr.ph1513, %134
   %142 = phi i32 [ %140, %134 ], [ 0, %.lr.ph1513 ]
-  %143 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %.082214512088, i64 %indvars.iv1682
+  %143 = getelementptr inbounds nuw [36 x i8], ptr %.082214512088, i64 %indvars.iv1682
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 8
   store i32 %142, ptr %144, align 4, !tbaa !11
   %145 = getelementptr inbounds nuw i8, ptr %143, i64 12
@@ -414,7 +412,7 @@ define range(i32 0, 2) i32 @petite_inflate2x_1to9(ptr noundef %0, i32 noundef %1
 
 .lr.ph1517:                                       ; preds = %.lr.ph1517.preheader, %.lr.ph1517
   %indvars.iv1709 = phi i64 [ 0, %.lr.ph1517.preheader ], [ %indvars.iv.next1710, %.lr.ph1517 ]
-  %168 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %.082214512088, i64 %indvars.iv1709
+  %168 = getelementptr inbounds nuw [36 x i8], ptr %.082214512088, i64 %indvars.iv1709
   %169 = load i32, ptr %168, align 4, !tbaa !3
   %170 = getelementptr inbounds nuw i8, ptr %168, i64 4
   %171 = load i32, ptr %170, align 4, !tbaa !10
@@ -589,7 +587,7 @@ define range(i32 0, 2) i32 @petite_inflate2x_1to9(ptr noundef %0, i32 noundef %1
 
 247:                                              ; preds = %240
   %248 = sext i32 %.083714482090 to i64
-  %249 = getelementptr inbounds %struct.cli_exe_section, ptr %244, i64 %248
+  %249 = getelementptr inbounds [36 x i8], ptr %244, i64 %248
   store i32 %236, ptr %249, align 4, !tbaa !3
   %250 = getelementptr inbounds nuw i8, ptr %249, i64 12
   store i32 %234, ptr %250, align 4, !tbaa !9
@@ -618,7 +616,7 @@ define range(i32 0, 2) i32 @petite_inflate2x_1to9(ptr noundef %0, i32 noundef %1
 
 263:                                              ; preds = %.lr.ph, %281
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %281 ]
-  %264 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %3, i64 %indvars.iv
+  %264 = getelementptr inbounds nuw [36 x i8], ptr %3, i64 %indvars.iv
   %265 = getelementptr inbounds nuw i8, ptr %264, i64 4
   %266 = load i32, ptr %265, align 4, !tbaa !10
   %267 = zext i32 %266 to i64

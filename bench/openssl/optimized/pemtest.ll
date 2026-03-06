@@ -83,7 +83,7 @@ define internal range(i32 0, 2) i32 @test_b64(i32 noundef %0) #0 {
   store ptr null, ptr %4, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %8 = sext i32 %0 to i64
-  %9 = getelementptr inbounds %struct.TESTDATA, ptr @b64_pem_data, i64 %8
+  %9 = getelementptr inbounds [16 x i8], ptr @b64_pem_data, i64 %8
   %10 = load ptr, ptr %9, align 16, !tbaa !9
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !11

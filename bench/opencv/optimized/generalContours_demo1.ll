@@ -29,12 +29,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.cv::Vec" = type { %"class.cv::Matx" }
 %"class.cv::Matx" = type { [4 x double] }
 %"class.cv::_InputOutputArray" = type { %"class.cv::_OutputArray" }
-%"class.std::vector.18" = type { %"struct.std::_Vector_base.19" }
-%"struct.std::_Vector_base.19" = type { %"struct.std::_Vector_base<cv::Point_<int>, std::allocator<cv::Point_<int>>>::_Vector_impl" }
-%"struct.std::_Vector_base<cv::Point_<int>, std::allocator<cv::Point_<int>>>::_Vector_impl" = type { %"struct.std::_Vector_base<cv::Point_<int>, std::allocator<cv::Point_<int>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<cv::Point_<int>, std::allocator<cv::Point_<int>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.cv::Rect_" = type { i32, i32, i32, i32 }
-%"class.cv::Point_.23" = type { float, float }
 
 $_ZN2cv7MatExprD2Ev = comdat any
 
@@ -837,14 +831,14 @@ _ZNSt6vectorIfSaIfEED2Ev.exit130.thread:          ; preds = %56
   %85 = phi ptr [ %41, %.lr.ph ], [ %104, %101 ]
   %.047229 = phi i64 [ 0, %.lr.ph ], [ %102, %101 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %86 = getelementptr inbounds nuw %"class.std::vector.18", ptr %85, i64 %.047229
+  %86 = getelementptr inbounds nuw [24 x i8], ptr %85, i64 %.047229
   store i32 0, ptr %63, align 8, !tbaa !46
   store i32 0, ptr %64, align 4, !tbaa !48
   store i32 -2130509812, ptr %10, align 8, !tbaa !49
   store ptr %86, ptr %65, align 8, !tbaa !51
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %87 = load ptr, ptr %9, align 8, !tbaa !56
-  %88 = getelementptr inbounds nuw %"class.std::vector.18", ptr %87, i64 %.047229
+  %88 = getelementptr inbounds nuw [24 x i8], ptr %87, i64 %.047229
   store i64 0, ptr %67, align 8
   store i32 -2113732596, ptr %11, align 8, !tbaa !49
   store ptr %88, ptr %66, align 8, !tbaa !51
@@ -856,7 +850,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit130.thread:          ; preds = %56
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %90 = load ptr, ptr %9, align 8, !tbaa !56
-  %91 = getelementptr inbounds nuw %"class.std::vector.18", ptr %90, i64 %.047229
+  %91 = getelementptr inbounds nuw [24 x i8], ptr %90, i64 %.047229
   store i32 0, ptr %68, align 8, !tbaa !46
   store i32 0, ptr %69, align 4, !tbaa !48
   store i32 -2130509812, ptr %12, align 8, !tbaa !49
@@ -867,20 +861,20 @@ _ZNSt6vectorIfSaIfEED2Ev.exit130.thread:          ; preds = %56
 93:                                               ; preds = %89
   %94 = extractvalue { i64, i64 } %92, 0
   %95 = extractvalue { i64, i64 } %92, 1
-  %96 = getelementptr inbounds nuw %"class.cv::Rect_", ptr %53, i64 %.047229
+  %96 = getelementptr inbounds nuw [16 x i8], ptr %53, i64 %.047229
   store i64 %94, ptr %96, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %96, i64 8
   store i64 %95, ptr %.sroa.5.0..sroa_idx, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %97 = load ptr, ptr %9, align 8, !tbaa !56
-  %98 = getelementptr inbounds nuw %"class.std::vector.18", ptr %97, i64 %.047229
+  %98 = getelementptr inbounds nuw [24 x i8], ptr %97, i64 %.047229
   store i32 0, ptr %71, align 8, !tbaa !46
   store i32 0, ptr %72, align 4, !tbaa !48
   store i32 -2130509812, ptr %13, align 8, !tbaa !49
   store ptr %98, ptr %73, align 8, !tbaa !51
-  %99 = getelementptr inbounds nuw %"class.cv::Point_.23", ptr %55, i64 %.047229
-  %100 = getelementptr inbounds nuw float, ptr %58, i64 %.047229
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %.047229
+  %100 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %.047229
   invoke void @_ZN2cv18minEnclosingCircleERKNS_11_InputArrayERNS_6Point_IfEERf(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 4 dereferenceable(8) %99, ptr noundef nonnull align 4 dereferenceable(4) %100)
           to label %101 unwind label %.thread
 
@@ -1062,7 +1056,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %121
   store i64 0, ptr %141, align 8
   store i32 50397184, ptr %19, align 8, !tbaa !49
   store ptr %14, ptr %140, align 8, !tbaa !51
-  %180 = getelementptr inbounds nuw %"class.cv::Rect_", ptr %.sroa.0149.0179183262, i64 %.048230
+  %180 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0149.0179183262, i64 %.048230
   %181 = load i64, ptr %180, align 4
   %182 = trunc i64 %181 to i32
   %183 = getelementptr inbounds nuw i8, ptr %180, i64 8
@@ -1086,7 +1080,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %121
   store i64 0, ptr %143, align 8
   store i32 50397184, ptr %20, align 8, !tbaa !49
   store ptr %14, ptr %142, align 8, !tbaa !51
-  %192 = getelementptr inbounds nuw %"class.cv::Point_.23", ptr %.sroa.0142.0202254, i64 %.048230
+  %192 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0142.0202254, i64 %.048230
   %193 = load float, ptr %192, align 4, !tbaa !85
   %194 = insertelement <4 x float> poison, float %193, i64 0
   %195 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %194)
@@ -1098,7 +1092,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %121
   %.sroa.2.0.insert.shift.i108 = shl nuw i64 %.sroa.2.0.insert.ext.i107, 32
   %.sroa.0.0.insert.ext.i109 = zext i32 %195 to i64
   %.sroa.0.0.insert.insert.i110 = or disjoint i64 %.sroa.2.0.insert.shift.i108, %.sroa.0.0.insert.ext.i109
-  %200 = getelementptr inbounds nuw float, ptr %.sroa.0137.0272, i64 %.048230
+  %200 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0137.0272, i64 %.048230
   %201 = load float, ptr %200, align 4, !tbaa !58
   %202 = fptosi float %201 to i32
   invoke void @_ZN2cv6circleERKNS_17_InputOutputArrayENS_6Point_IiEEiRKNS_7Scalar_IdEEiii(ptr noundef nonnull align 8 dereferenceable(24) %20, i64 %.sroa.0.0.insert.insert.i110, i32 noundef %202, ptr noundef nonnull align 8 dereferenceable(32) %16, i32 noundef 2, i32 noundef 8, i32 noundef 0)

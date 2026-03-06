@@ -240,7 +240,7 @@ define noundef zeroext i1 @_Z24dtIntersectSegmentPoly2DPKfS0_S0_iRfS1_RiS2_(ptr 
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
   %20 = mul nsw i32 %.03948, 3
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds float, ptr %2, i64 %21
+  %22 = getelementptr inbounds [4 x i8], ptr %2, i64 %21
   %23 = load float, ptr %19, align 4
   %24 = load float, ptr %22, align 4
   %25 = fsub float %23, %24
@@ -381,7 +381,7 @@ define void @_Z16dtCalcPolyCenterPfPKtiPKf(ptr noundef writeonly captures(none) 
   %9 = phi float [ 0.000000e+00, %.lr.ph ], [ %23, %8 ]
   %10 = phi float [ 0.000000e+00, %.lr.ph ], [ %20, %8 ]
   %11 = phi float [ 0.000000e+00, %.lr.ph ], [ %17, %8 ]
-  %12 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv
   %13 = load i16, ptr %12, align 2
   %14 = zext i16 %13 to i64
   %.idx = mul nuw nsw i64 %14, 12
@@ -506,7 +506,7 @@ define noundef zeroext i1 @_Z16dtPointInPolygonPKfS0_i(ptr noundef readonly capt
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %10 = mul nsw i32 %.02124, 3
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds float, ptr %1, i64 %11
+  %12 = getelementptr inbounds [4 x i8], ptr %1, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %14 = load float, ptr %13, align 4
   %15 = fcmp ogt float %14, %7
@@ -564,7 +564,7 @@ define noundef zeroext i1 @_Z24dtDistancePtPolyEdgesSqrPKfS0_iPfS1_(ptr noundef 
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %11 = mul nsw i32 %.02831, 3
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds float, ptr %1, i64 %12
+  %13 = getelementptr inbounds [4 x i8], ptr %1, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %15 = load float, ptr %14, align 4
   %16 = load float, ptr %8, align 4
@@ -595,7 +595,7 @@ define noundef zeroext i1 @_Z24dtDistancePtPolyEdgesSqrPKfS0_iPfS1_(ptr noundef 
 31:                                               ; preds = %29, %21, %9
   %.1 = phi i1 [ %30, %29 ], [ %.02930, %21 ], [ %.02930, %9 ]
   %32 = sext i32 %.02831 to i64
-  %33 = getelementptr inbounds float, ptr %4, i64 %32
+  %33 = getelementptr inbounds [4 x i8], ptr %4, i64 %32
   %34 = fsub float %.pre, %.pre33
   %35 = fsub float %15, %19
   %36 = fsub float %.pre34, %.pre33
@@ -632,7 +632,7 @@ _Z20dtDistancePtSegSqr2DPKfS0_S0_Rf.exit:         ; preds = %45, %.sink.split.i
   %55 = fsub float %53, %54
   %56 = fmul float %55, %55
   %57 = tail call noundef float @llvm.fmuladd.f32(float %51, float %51, float %56)
-  %58 = getelementptr inbounds float, ptr %3, i64 %32
+  %58 = getelementptr inbounds [4 x i8], ptr %3, i64 %32
   store float %57, ptr %58, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %59 = trunc nuw nsw i64 %indvars.iv to i32
@@ -668,7 +668,7 @@ define noundef zeroext i1 @_Z19dtOverlapPolyPoly2DPKfiS0_i(ptr noundef readonly 
   %.035111.us = phi i32 [ %30, %29 ], [ %5, %.lr.ph ]
   %14 = mul nsw i32 %.035111.us, 3
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds float, ptr %0, i64 %15
+  %16 = getelementptr inbounds [4 x i8], ptr %0, i64 %15
   %.idx = mul nuw nsw i64 %indvars.iv, 12
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -746,7 +746,7 @@ _ZL11projectPolyPKfS0_iRfS1_.exit.loopexit.us:    ; preds = %.lr.ph.i.us
 .lr.ph.split:                                     ; preds = %.lr.ph
   %57 = mul nuw nsw i32 %5, 3
   %58 = zext nneg i32 %57 to i64
-  %59 = getelementptr inbounds nuw float, ptr %0, i64 %58
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %58
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %61 = load float, ptr %60, align 4
   %62 = fsub float %9, %61
@@ -824,7 +824,7 @@ _ZL11projectPolyPKfS0_iRfS1_.exit:                ; preds = %.lr.ph.split
   %.033132 = phi i32 [ %93, %.lr.ph134 ], [ %143, %_ZL11projectPolyPKfS0_iRfS1_.exit68 ]
   %102 = mul nsw i32 %.033132, 3
   %103 = sext i32 %102 to i64
-  %104 = getelementptr inbounds float, ptr %2, i64 %103
+  %104 = getelementptr inbounds [4 x i8], ptr %2, i64 %103
   %.idx165 = mul nuw nsw i64 %indvars.iv158, 12
   %105 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx165
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 8
@@ -921,9 +921,9 @@ define void @_Z25dtRandomPointInConvexPolyPKfiPfffS1_(ptr noundef readonly captu
   %11 = mul i32 %10, 3
   %12 = add i32 %11, -3
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds float, ptr %0, i64 %13
+  %14 = getelementptr inbounds [4 x i8], ptr %0, i64 %13
   %15 = zext nneg i32 %11 to i64
-  %16 = getelementptr inbounds nuw float, ptr %0, i64 %15
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %15
   %17 = load float, ptr %14, align 4
   %18 = load float, ptr %0, align 4
   %19 = fsub float %17, %18
@@ -939,7 +939,7 @@ define void @_Z25dtRandomPointInConvexPolyPKfiPfffS1_(ptr noundef readonly captu
   %29 = fneg float %28
   %30 = fmul float %19, %29
   %31 = tail call noundef float @llvm.fmuladd.f32(float %25, float %23, float %30)
-  %32 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   store float %31, ptr %32, align 4
   %33 = fcmp olt float %31, 0x3F50624DE0000000
   %34 = select i1 %33, float 0x3F50624DE0000000, float %31
@@ -961,7 +961,7 @@ define void @_Z25dtRandomPointInConvexPolyPKfiPfffS1_(ptr noundef readonly captu
 .lr.ph78:                                         ; preds = %.lr.ph78.preheader, %48
   %indvars.iv84 = phi i64 [ 2, %.lr.ph78.preheader ], [ %indvars.iv.next85, %48 ]
   %.06476 = phi float [ 0.000000e+00, %.lr.ph78.preheader ], [ %42, %48 ]
-  %39 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv84
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv84
   %40 = load float, ptr %39, align 4
   %41 = fcmp oge float %37, %.06476
   %42 = fadd float %.06476, %40
@@ -991,9 +991,9 @@ define void @_Z25dtRandomPointInConvexPolyPKfiPfffS1_(ptr noundef readonly captu
   %54 = mul i32 %.066, 3
   %55 = add i32 %54, -3
   %56 = sext i32 %55 to i64
-  %57 = getelementptr inbounds float, ptr %0, i64 %56
+  %57 = getelementptr inbounds [4 x i8], ptr %0, i64 %56
   %58 = sext i32 %54 to i64
-  %59 = getelementptr inbounds float, ptr %0, i64 %58
+  %59 = getelementptr inbounds [4 x i8], ptr %0, i64 %58
   %60 = load float, ptr %0, align 4
   %61 = load float, ptr %57, align 4
   %62 = fmul float %52, %61

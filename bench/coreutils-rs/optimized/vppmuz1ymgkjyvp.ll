@@ -55,7 +55,7 @@ define hidden void @"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u2
 
 15:                                               ; preds = %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h48ec0b507c6882e6E.exit.i", %8
   %.0.i = phi i64 [ 0, %8 ], [ %24, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h48ec0b507c6882e6E.exit.i" ]
-  %16 = getelementptr inbounds i32, ptr %0, i64 %.0.i
+  %16 = getelementptr inbounds [4 x i8], ptr %0, i64 %.0.i
   %.val15.i = load i32, ptr %16, align 4, !range !4, !alias.scope !5, !noalias !8, !noundef !11
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !8
   store i32 %.val15.i, ptr %6, align 4, !noalias !12
@@ -1201,7 +1201,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
 
 12:                                               ; preds = %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h2bd41ba58e46081dE.exit", %5
   %.0 = phi i64 [ 0, %5 ], [ %76, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h2bd41ba58e46081dE.exit" ]
-  %13 = getelementptr inbounds i32, ptr %0, i64 %.0
+  %13 = getelementptr inbounds [4 x i8], ptr %0, i64 %.0
   %.val15 = load i32, ptr %13, align 4, !range !4, !alias.scope !170, !noundef !11
   tail call void @llvm.experimental.noalias.scope.decl(metadata !173)
   %14 = icmp samesign ult i32 %.val15, 128
@@ -1343,7 +1343,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
 
 15:                                               ; preds = %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h48ec0b507c6882e6E.exit", %8
   %.0 = phi i64 [ 0, %8 ], [ %24, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h48ec0b507c6882e6E.exit" ]
-  %16 = getelementptr inbounds i32, ptr %0, i64 %.0
+  %16 = getelementptr inbounds [4 x i8], ptr %0, i64 %.0
   %.val15 = load i32, ptr %16, align 4, !range !4, !alias.scope !170, !noundef !11
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %.val15, ptr %6, align 4, !noalias !192

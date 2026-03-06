@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %class.VMRegImpl = type { i8 }
-%class.OptoRegPair = type { i16, i16 }
 
 @g_assert_poison = external local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [40 x i8] c"src/hotspot/cpu/x86/peephole_x86_64.cpp\00", align 1
@@ -25,7 +24,7 @@ define hidden noundef zeroext i1 @_ZN8Peephole15test_may_removeEP5BlockiP8PhaseC
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8
   %13 = zext i32 %1 to i64
-  %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8
   br label %_ZNK5Block8get_nodeEj.exit
 
@@ -47,7 +46,7 @@ _ZNK5Block8get_nodeEj.exit:                       ; preds = %6, %10
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %27 = load ptr, ptr %26, align 8
   %28 = zext nneg i32 %23 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %28
   %30 = load ptr, ptr %29, align 8
   br label %_ZNK5Block8get_nodeEj.exit51
 
@@ -105,7 +104,7 @@ _ZNK5Block8get_nodeEj.exit51:                     ; preds = %22, %25
 55:                                               ; preds = %.lr.ph, %51
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %51 ]
   %56 = load ptr, ptr %50, align 8
-  %57 = getelementptr inbounds nuw ptr, ptr %56, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %indvars.iv
   %58 = load ptr, ptr %57, align 8
   %59 = load ptr, ptr %58, align 8
   %60 = load ptr, ptr %59, align 8
@@ -136,7 +135,7 @@ _ZNK5Block8get_nodeEj.exit51:                     ; preds = %22, %25
 
 switch.lookup:                                    ; preds = %68
   %76 = zext nneg i32 %72 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN8Peephole15test_may_removeEP5BlockiP8PhaseCFGP13PhaseRegAllocPFP8MachNodevEj, i64 %76
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN8Peephole15test_may_removeEP5BlockiP8PhaseCFGP13PhaseRegAllocPFP8MachNodevEj, i64 %76
   %switch.load = load i32, ptr %switch.gep, align 4
   %77 = or i32 %switch.load, %.04162
   %78 = getelementptr inbounds nuw i8, ptr %.04261, i64 8
@@ -158,7 +157,7 @@ _ZNK5Block8get_nodeEj.exit53:                     ; preds = %._crit_edge
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %87 = load ptr, ptr %86, align 8
   %88 = zext nneg i32 %83 to i64
-  %89 = getelementptr inbounds nuw ptr, ptr %87, i64 %88
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %87, i64 %88
   %90 = load ptr, ptr %89, align 8
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 44
   %92 = load i32, ptr %91, align 4
@@ -191,7 +190,7 @@ _ZN8PhaseCFG17map_node_to_blockEPK4NodeP5Block.exit: ; preds = %_ZNK5Block8get_n
   %107 = getelementptr inbounds nuw i8, ptr %2, i64 120
   %108 = load ptr, ptr %107, align 8
   %109 = zext i32 %104 to i64
-  %110 = getelementptr inbounds nuw ptr, ptr %108, i64 %109
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %108, i64 %109
   store ptr null, ptr %110, align 8
   br label %.critedge
 
@@ -219,7 +218,7 @@ define internal fastcc noundef zeroext i1 @_ZL19lea_coalesce_helperP5BlockiP8Pha
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8
   %13 = zext i32 %1 to i64
-  %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8
   br label %_ZNK5Block8get_nodeEj.exit
 
@@ -246,7 +245,7 @@ _ZNK5Block8get_nodeEj.exit:                       ; preds = %6, %10
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 40
   %34 = load i32, ptr %33, align 8
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds nuw %class.OptoRegPair, ptr %18, i64 %35
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 2
   %38 = load i16, ptr %37, align 2
   %39 = icmp ne i16 %38, -1
@@ -256,7 +255,7 @@ _ZNK5Block8get_nodeEj.exit:                       ; preds = %6, %10
 
 _ZN7OptoReg8as_VMRegEi.exit:                      ; preds = %28
   %42 = sext i16 %38 to i64
-  %43 = getelementptr inbounds ptr, ptr @_ZN7OptoReg7opto2vmE, i64 %42
+  %43 = getelementptr inbounds [8 x i8], ptr @_ZN7OptoReg7opto2vmE, i64 %42
   %44 = load ptr, ptr %43, align 8
   %45 = load i8, ptr @UseAPX, align 1
   %46 = trunc i8 %45 to i1
@@ -278,7 +277,7 @@ _ZN7OptoReg8as_VMRegEi.exit:                      ; preds = %28
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %57 = load ptr, ptr %56, align 8
   %58 = zext nneg i32 %53 to i64
-  %59 = getelementptr inbounds nuw ptr, ptr %57, i64 %58
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %58
   %60 = load ptr, ptr %59, align 8
   br label %_ZNK5Block8get_nodeEj.exit102
 
@@ -309,7 +308,7 @@ _ZN7OptoReg8as_VMRegEi.exit104:                   ; preds = %67, %63
   %73 = getelementptr inbounds nuw i8, ptr %.094.ph, i64 40
   %74 = load i32, ptr %73, align 8
   %75 = zext i32 %74 to i64
-  %76 = getelementptr inbounds nuw %class.OptoRegPair, ptr %18, i64 %75
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %75
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 2
   %78 = load i16, ptr %77, align 2
   %79 = icmp ne i16 %78, -1
@@ -319,7 +318,7 @@ _ZN7OptoReg8as_VMRegEi.exit104:                   ; preds = %67, %63
 
 82:                                               ; preds = %_ZN7OptoReg8as_VMRegEi.exit104
   %83 = sext i16 %78 to i64
-  %84 = getelementptr inbounds ptr, ptr @_ZN7OptoReg7opto2vmE, i64 %83
+  %84 = getelementptr inbounds [8 x i8], ptr @_ZN7OptoReg7opto2vmE, i64 %83
   %85 = load ptr, ptr %84, align 8
   br label %_ZN7OptoReg8as_VMRegEi.exit106
 
@@ -361,7 +360,7 @@ _ZN7OptoReg8as_VMRegEi.exit106:                   ; preds = %_ZN7OptoReg8as_VMRe
 
 100:                                              ; preds = %98
   %101 = load ptr, ptr %95, align 8
-  %102 = getelementptr inbounds nuw ptr, ptr %101, i64 %indvars.iv
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %101, i64 %indvars.iv
   %103 = load ptr, ptr %102, align 8
   br label %_ZNK5Block8get_nodeEj.exit109
 
@@ -407,12 +406,12 @@ _ZNK5Block8get_nodeEj.exit109:                    ; preds = %98, %100
   %123 = load ptr, ptr %17, align 8
   %124 = load i32, ptr %19, align 8
   %125 = zext i32 %124 to i64
-  %126 = getelementptr inbounds nuw %class.OptoRegPair, ptr %123, i64 %125
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %123, i64 %125
   %127 = load i16, ptr %126, align 2
   %128 = getelementptr inbounds nuw i8, ptr %126, i64 2
   %129 = load i16, ptr %128, align 2
   %130 = zext i32 %122 to i64
-  %131 = getelementptr inbounds nuw %class.OptoRegPair, ptr %123, i64 %130
+  %131 = getelementptr inbounds nuw [4 x i8], ptr %123, i64 %130
   store i16 %127, ptr %131, align 2
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 2
   store i16 %129, ptr %132, align 2
@@ -447,7 +446,7 @@ _ZNK5Block8get_nodeEj.exit109:                    ; preds = %98, %100
   %148 = getelementptr inbounds nuw i8, ptr %142, i64 32
   %149 = load i32, ptr %148, align 8
   %150 = zext i32 %149 to i64
-  %151 = getelementptr inbounds nuw ptr, ptr %145, i64 %150
+  %151 = getelementptr inbounds nuw [8 x i8], ptr %145, i64 %150
   br label %152
 
 152:                                              ; preds = %152, %147
@@ -461,7 +460,7 @@ _ZNK5Block8get_nodeEj.exit109:                    ; preds = %98, %100
   %156 = add i32 %149, -1
   store i32 %156, ptr %148, align 8
   %157 = zext i32 %156 to i64
-  %158 = getelementptr inbounds nuw ptr, ptr %145, i64 %157
+  %158 = getelementptr inbounds nuw [8 x i8], ptr %145, i64 %157
   %159 = load ptr, ptr %158, align 8
   store ptr %159, ptr %153, align 8
   br label %160
@@ -493,7 +492,7 @@ _ZNK5Block8get_nodeEj.exit109:                    ; preds = %98, %100
   %174 = add i32 %172, 1
   store i32 %174, ptr %165, align 8
   %175 = zext i32 %172 to i64
-  %176 = getelementptr inbounds nuw ptr, ptr %173, i64 %175
+  %176 = getelementptr inbounds nuw [8 x i8], ptr %173, i64 %175
   store ptr %.091, ptr %176, align 8
   br label %_ZN4Node7set_reqEjPS_.exit
 
@@ -567,7 +566,7 @@ _ZN8PhaseCFG17map_node_to_blockEPK4NodeP5Block.exit: ; preds = %_ZN4Node7set_req
   %223 = getelementptr inbounds nuw i8, ptr %2, i64 120
   %224 = load ptr, ptr %223, align 8
   %225 = zext i32 %220 to i64
-  %226 = getelementptr inbounds nuw ptr, ptr %224, i64 %225
+  %226 = getelementptr inbounds nuw [8 x i8], ptr %224, i64 %225
   store ptr null, ptr %226, align 8
   %227 = getelementptr inbounds nuw i8, ptr %23, i64 40
   %228 = load i32, ptr %227, align 8
@@ -582,7 +581,7 @@ _ZN8PhaseCFG17map_node_to_blockEPK4NodeP5Block.exit: ; preds = %_ZN4Node7set_req
 _ZN8PhaseCFG17map_node_to_blockEPK4NodeP5Block.exit112: ; preds = %_ZN8PhaseCFG17map_node_to_blockEPK4NodeP5Block.exit, %230
   %231 = load ptr, ptr %223, align 8
   %232 = zext i32 %228 to i64
-  %233 = getelementptr inbounds nuw ptr, ptr %231, i64 %232
+  %233 = getelementptr inbounds nuw [8 x i8], ptr %231, i64 %232
   store ptr null, ptr %233, align 8
   %234 = getelementptr inbounds nuw i8, ptr %.091, i64 40
   %235 = load i32, ptr %234, align 8
@@ -597,7 +596,7 @@ _ZN8PhaseCFG17map_node_to_blockEPK4NodeP5Block.exit112: ; preds = %_ZN8PhaseCFG1
 _ZN8PhaseCFG17map_node_to_blockEPK4NodeP5Block.exit114: ; preds = %_ZN8PhaseCFG17map_node_to_blockEPK4NodeP5Block.exit112, %237
   %238 = load ptr, ptr %223, align 8
   %239 = zext i32 %235 to i64
-  %240 = getelementptr inbounds nuw ptr, ptr %238, i64 %239
+  %240 = getelementptr inbounds nuw [8 x i8], ptr %238, i64 %239
   store ptr null, ptr %240, align 8
   %241 = load i32, ptr %121, align 8
   %242 = load i32, ptr %219, align 8
@@ -611,7 +610,7 @@ _ZN8PhaseCFG17map_node_to_blockEPK4NodeP5Block.exit114: ; preds = %_ZN8PhaseCFG1
 _ZN8PhaseCFG17map_node_to_blockEPK4NodeP5Block.exit116: ; preds = %_ZN8PhaseCFG17map_node_to_blockEPK4NodeP5Block.exit114, %243
   %244 = load ptr, ptr %223, align 8
   %245 = zext i32 %241 to i64
-  %246 = getelementptr inbounds nuw ptr, ptr %244, i64 %245
+  %246 = getelementptr inbounds nuw [8 x i8], ptr %244, i64 %245
   store ptr %0, ptr %246, align 8
   br label %.thread
 

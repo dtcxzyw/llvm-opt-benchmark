@@ -12,9 +12,6 @@ module asm ".previous\09\09\09\09\09"
 %struct.xfrm_type = type { ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
 %struct.static_call_key = type { ptr, %union.anon.84 }
 %union.anon.84 = type { i64 }
-%struct.scatterlist = type { i64, i32, i32, i64, i32, i32 }
-%struct.in6_addr = type { %union.anon.24 }
-%union.anon.24 = type { [4 x i32] }
 
 @ah6_protocol = internal global %struct.xfrm6_protocol { ptr @xfrm6_rcv, ptr @xfrm_input, ptr @ah6_rcv_cb, ptr @ah6_err, ptr null, i32 0 }, align 8
 @.str = private unnamed_addr constant [35 x i8] c"\016IPv6: %s: can't remove protocol\0A\00", align 1
@@ -530,7 +527,7 @@ define internal i32 @ah6_input(ptr noundef readonly captures(none) %0, ptr nound
   %148 = and i64 %147, -8
   %149 = inttoptr i64 %148 to ptr
   %150 = zext nneg i32 %82 to i64
-  %151 = getelementptr %struct.scatterlist, ptr %149, i64 %150
+  %151 = getelementptr [32 x i8], ptr %149, i64 %150
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %121, ptr align 4 %90, i64 %124, i1 false)
   %152 = getelementptr inbounds nuw i8, ptr %85, i64 12
   %153 = load i32, ptr %102, align 4
@@ -773,7 +770,7 @@ define internal i32 @ah6_output(ptr noundef readonly captures(none) %0, ptr noun
   %82 = and i64 %81, -8
   %83 = inttoptr i64 %82 to ptr
   %84 = zext nneg i32 %8 to i64
-  %85 = getelementptr %struct.scatterlist, ptr %83, i64 %84
+  %85 = getelementptr [32 x i8], ptr %83, i64 %84
   %86 = load ptr, ptr %11, align 8
   %87 = load i16, ptr %24, align 2
   %88 = zext i16 %87 to i64
@@ -1076,12 +1073,12 @@ define internal fastcc noundef range(i32 -22, 1) i32 @ipv6_clear_mutable_options
   %62 = zext nneg i8 %61 to i32
   %63 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %64 = zext nneg i8 %61 to i64
-  %65 = getelementptr %struct.in6_addr, ptr %63, i64 %64
+  %65 = getelementptr [16 x i8], ptr %63, i64 %64
   %66 = getelementptr i8, ptr %65, i64 -16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef align 4 dereferenceable(16) %66, i64 16, i1 false)
   %67 = sub nsw i32 %62, %58
   %68 = sext i32 %67 to i64
-  %69 = getelementptr %struct.in6_addr, ptr %63, i64 %68
+  %69 = getelementptr [16 x i8], ptr %63, i64 %68
   %70 = getelementptr i8, ptr %69, i64 16
   %71 = add nsw i32 %58, -1
   %72 = zext nneg i32 %71 to i64
@@ -1140,7 +1137,7 @@ define internal void @ah6_input_done(ptr noundef %0, i32 noundef %1) #4 align 16
   %18 = load i32, ptr %16, align 8
   %19 = add i32 %18, -1
   %20 = sext i32 %19 to i64
-  %21 = getelementptr ptr, ptr %17, i64 %20
+  %21 = getelementptr [8 x i8], ptr %17, i64 %20
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %24 = load ptr, ptr %23, align 8

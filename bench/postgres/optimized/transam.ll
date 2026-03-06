@@ -307,7 +307,7 @@ define dso_local i32 @TransactionIdLatest(i32 noundef %0, i32 noundef %1, ptr no
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %16
   %indvars.iv = phi i64 [ %6, %.lr.ph.preheader ], [ %indvars.iv.next, %16 ]
   %.09 = phi i32 [ %0, %.lr.ph.preheader ], [ %.1, %16 ]
-  %7 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %8 = load i32, ptr %7, align 4
   %9 = icmp ugt i32 %.09, 2
   %10 = icmp ugt i32 %8, 2

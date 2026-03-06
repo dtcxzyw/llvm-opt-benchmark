@@ -739,7 +739,7 @@ _ZNSt6vectorIPKN3gmx10IHelpTopicESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
 _ZNSt6vectorIPKN3gmx10IHelpTopicESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %167, %_ZNSt6vectorIPKN3gmx10IHelpTopicESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
   store ptr %162, ptr %71, align 8, !tbaa !28
   store ptr %166, ptr %72, align 8, !tbaa !30
-  %168 = getelementptr inbounds nuw ptr, ptr %162, i64 %160
+  %168 = getelementptr inbounds nuw [8 x i8], ptr %162, i64 %160
   store ptr %168, ptr %145, align 8, !tbaa !31
   br label %_ZNSt6vectorIPKN3gmx10IHelpTopicESaIS3_EE9push_backERKS3_.exit
 

@@ -1973,7 +1973,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5ZXing6QRCode14GetDataMaskBitEiiib(i3
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 7, ptr %15, align 4, !tbaa !78
   %16 = zext nneg i32 %0 to i64
-  %17 = getelementptr inbounds nuw i32, ptr %5, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !78
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %19

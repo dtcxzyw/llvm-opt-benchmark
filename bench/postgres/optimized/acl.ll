@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.priv_map = type { ptr, i64 }
 %struct.AclItem = type { i32, i32, i64 }
-%union.ListCell = type { ptr }
 
 @.str = private unnamed_addr constant [50 x i8] c"extra garbage at the end of the ACL specification\00", align 1
 @.str.1 = private unnamed_addr constant [6 x i8] c"acl.c\00", align 1
@@ -305,7 +304,7 @@ define dso_local noundef ptr @aclconcat(ptr noundef readonly captures(none) %0, 
 52:                                               ; preds = %46, %44
   %53 = phi i64 [ %45, %44 ], [ %51, %46 ]
   %54 = sext i32 %41 to i64
-  %55 = getelementptr inbounds %struct.AclItem, ptr %24, i64 %54
+  %55 = getelementptr inbounds [16 x i8], ptr %24, i64 %54
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 %53
   %57 = load i32, ptr %5, align 4
   %58 = sext i32 %57 to i64
@@ -641,7 +640,7 @@ allocacl.exit102:                                 ; preds = %14
 
 53:                                               ; preds = %.lr.ph, %62
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %62 ]
-  %54 = getelementptr inbounds nuw %struct.AclItem, ptr %50, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [16 x i8], ptr %50, i64 %indvars.iv
   %55 = load i32, ptr %54, align 8
   %56 = icmp eq i32 %55, %52
   br i1 %56, label %57, label %62
@@ -718,7 +717,7 @@ check_circularity.exit:                           ; preds = %74, %10, %7, %5
 
 93:                                               ; preds = %.lr.ph112, %aclitem_match.exit.thread
   %indvars.iv133 = phi i64 [ 0, %.lr.ph112 ], [ %indvars.iv.next134, %aclitem_match.exit.thread ]
-  %94 = getelementptr inbounds nuw %struct.AclItem, ptr %89, i64 %indvars.iv133
+  %94 = getelementptr inbounds nuw [16 x i8], ptr %89, i64 %indvars.iv133
   %95 = load i32, ptr %94, align 8
   %96 = icmp eq i32 %91, %95
   br i1 %96, label %aclitem_match.exit, label %aclitem_match.exit.thread
@@ -803,7 +802,7 @@ aclitem_match.exit.thread:                        ; preds = %93, %aclitem_match.
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %135, ptr align 8 %89, i64 %137, i1 false)
   %138 = load i32, ptr %1, align 8
   %139 = zext nneg i32 %76 to i64
-  %140 = getelementptr inbounds nuw %struct.AclItem, ptr %135, i64 %139
+  %140 = getelementptr inbounds nuw [16 x i8], ptr %135, i64 %139
   store i32 %138, ptr %140, align 8
   %141 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %142 = load i32, ptr %141, align 4
@@ -819,7 +818,7 @@ aclitem_match.exit.thread:                        ; preds = %93, %aclitem_match.
   %.1 = phi ptr [ %127, %123 ], [ %.084, %.loopexit ]
   %.0 = phi i32 [ %118, %123 ], [ %76, %.loopexit ]
   %146 = zext nneg i32 %.083105171 to i64
-  %147 = getelementptr inbounds nuw %struct.AclItem, ptr %.186, i64 %146
+  %147 = getelementptr inbounds nuw [16 x i8], ptr %.186, i64 %146
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 8
   %149 = load i64, ptr %148, align 8
   switch i32 %2, label %162 [
@@ -932,7 +931,7 @@ aclitem_match.exit.thread:                        ; preds = %93, %aclitem_match.
 
 .lr.ph116.us:                                     ; preds = %.lr.ph116.us.preheader, %221
   %indvars.iv143 = phi i64 [ 0, %.lr.ph116.us.preheader ], [ %indvars.iv.next144, %221 ]
-  %209 = getelementptr inbounds nuw %struct.AclItem, ptr %207, i64 %indvars.iv143
+  %209 = getelementptr inbounds nuw [16 x i8], ptr %207, i64 %indvars.iv143
   %210 = getelementptr inbounds nuw i8, ptr %209, i64 4
   %211 = load i32, ptr %210, align 4
   %212 = icmp eq i32 %211, %180
@@ -992,7 +991,7 @@ aclitem_match.exit.thread:                        ; preds = %93, %aclitem_match.
 
 .lr.ph116:                                        ; preds = %.lr.ph116.preheader, %249
   %indvars.iv138 = phi i64 [ 0, %.lr.ph116.preheader ], [ %indvars.iv.next139, %249 ]
-  %238 = getelementptr inbounds nuw %struct.AclItem, ptr %236, i64 %indvars.iv138
+  %238 = getelementptr inbounds nuw [16 x i8], ptr %236, i64 %indvars.iv138
   %239 = getelementptr inbounds nuw i8, ptr %238, i64 4
   %240 = load i32, ptr %239, align 4
   %241 = icmp eq i32 %240, %180
@@ -1269,7 +1268,7 @@ define dso_local i64 @aclitemin(ptr noundef captures(none) %0) local_unnamed_add
   %.172.i = getelementptr inbounds nuw i8, ptr %.05289.i, i64 1
   %38 = load i8, ptr %.172.i, align 1
   %39 = zext i8 %38 to i64
-  %40 = getelementptr inbounds nuw i16, ptr %37, i64 %39
+  %40 = getelementptr inbounds nuw [2 x i8], ptr %37, i64 %39
   %41 = load i16, ptr %40, align 2
   %42 = and i16 %41, 1024
   %.not6573.i = icmp ne i16 %42, 0
@@ -1375,7 +1374,7 @@ define dso_local i64 @aclitemin(ptr noundef captures(none) %0) local_unnamed_add
   %.1.i = getelementptr inbounds nuw i8, ptr %.178.i, i64 1
   %73 = load i8, ptr %.1.i, align 1
   %74 = zext i8 %73 to i64
-  %75 = getelementptr inbounds nuw i16, ptr %37, i64 %74
+  %75 = getelementptr inbounds nuw [2 x i8], ptr %37, i64 %74
   %76 = load i16, ptr %75, align 2
   %77 = and i16 %76, 1024
   %.not65.i = icmp ne i16 %77, 0
@@ -1493,7 +1492,7 @@ aclparse.exit:                                    ; preds = %107, %116, %119
   %.014 = phi ptr [ %.2.i, %aclparse.exit ], [ %132, %126 ]
   %127 = load i8, ptr %.014, align 1
   %128 = zext i8 %127 to i64
-  %129 = getelementptr inbounds nuw i16, ptr %123, i64 %128
+  %129 = getelementptr inbounds nuw [2 x i8], ptr %123, i64 %128
   %130 = load i16, ptr %129, align 2
   %131 = and i16 %130, 8192
   %.not = icmp eq i16 %131, 0
@@ -1580,7 +1579,7 @@ define dso_local noundef i64 @aclitemout(ptr noundef readonly captures(none) %0)
   %24 = phi i8 [ %17, %.lr.ph.i ], [ %22, %20 ]
   %.01627.i = phi ptr [ %16, %.lr.ph.i ], [ %21, %20 ]
   %25 = zext i8 %24 to i64
-  %26 = getelementptr inbounds nuw i16, ptr %19, i64 %25
+  %26 = getelementptr inbounds nuw [2 x i8], ptr %19, i64 %25
   %27 = load i16, ptr %26, align 2
   %28 = and i16 %27, 8
   %.not21.i = icmp ne i16 %28, 0
@@ -1722,7 +1721,7 @@ putid.exit:                                       ; preds = %39, %40
   %83 = phi i8 [ %76, %.lr.ph.i43 ], [ %81, %79 ]
   %.01627.i44 = phi ptr [ %75, %.lr.ph.i43 ], [ %80, %79 ]
   %84 = zext i8 %83 to i64
-  %85 = getelementptr inbounds nuw i16, ptr %78, i64 %84
+  %85 = getelementptr inbounds nuw [2 x i8], ptr %78, i64 %84
   %86 = load i16, ptr %85, align 2
   %87 = and i16 %86, 8
   %.not21.i45 = icmp ne i16 %87, 0
@@ -2265,7 +2264,7 @@ aclitem_match.exit.thread:                        ; preds = %60, %aclitem_match.
 
 ._crit_edge84:                                    ; preds = %aclitem_match.exit.thread, %.preheader
   %71 = sext i32 %.187 to i64
-  %72 = getelementptr inbounds %struct.AclItem, ptr %35, i64 %71
+  %72 = getelementptr inbounds [16 x i8], ptr %35, i64 %71
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %72, ptr noundef nonnull align 8 dereferenceable(16) %.06585, i64 16, i1 false)
   %73 = add i32 %.187, 1
   br label %.lr.ph89._crit_edge
@@ -2362,7 +2361,7 @@ has_privs_of_role.exit.thread:                    ; preds = %16, %14, %has_privs
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %50
   %indvars.iv128 = phi i64 [ %indvars.iv.next129, %50 ], [ 0, %.lr.ph ]
   %.161107.us = phi i64 [ %.262.us, %50 ], [ %.060, %.lr.ph ]
-  %40 = getelementptr inbounds nuw %struct.AclItem, ptr %37, i64 %indvars.iv128
+  %40 = getelementptr inbounds nuw [16 x i8], ptr %37, i64 %indvars.iv128
   %41 = load i32, ptr %40, align 8
   %42 = icmp eq i32 %41, 0
   %43 = icmp eq i32 %41, %1
@@ -2386,7 +2385,7 @@ has_privs_of_role.exit.thread:                    ; preds = %16, %14, %has_privs
 .lr.ph.split:                                     ; preds = %.lr.ph, %60
   %indvars.iv = phi i64 [ %indvars.iv.next, %60 ], [ 0, %.lr.ph ]
   %.161107 = phi i64 [ %.262, %60 ], [ %.060, %.lr.ph ]
-  %51 = getelementptr inbounds nuw %struct.AclItem, ptr %37, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [16 x i8], ptr %37, i64 %indvars.iv
   %52 = load i32, ptr %51, align 8
   %53 = icmp eq i32 %52, 0
   %54 = icmp eq i32 %52, %1
@@ -2419,7 +2418,7 @@ has_privs_of_role.exit.thread:                    ; preds = %16, %14, %has_privs
   %indvars.iv138 = phi i64 [ %indvars.iv.next139, %83 ], [ 0, %.lr.ph113 ]
   %.464111.us = phi i64 [ %.5.ph.us, %83 ], [ %.161.lcssa, %.lr.ph113 ]
   %.067110.us = phi i64 [ %.168.ph.us, %83 ], [ %62, %.lr.ph113 ]
-  %64 = getelementptr inbounds nuw %struct.AclItem, ptr %37, i64 %indvars.iv138
+  %64 = getelementptr inbounds nuw [16 x i8], ptr %37, i64 %indvars.iv138
   %65 = load i32, ptr %64, align 8
   %66 = icmp eq i32 %65, 0
   %67 = icmp eq i32 %65, %1
@@ -2465,7 +2464,7 @@ has_privs_of_role.exit89.thread.us:               ; preds = %has_privs_of_role.e
   %indvars.iv133 = phi i64 [ %indvars.iv.next134, %99 ], [ 0, %.lr.ph113 ]
   %.464111 = phi i64 [ %.5.ph, %99 ], [ %.161.lcssa, %.lr.ph113 ]
   %.067110 = phi i64 [ %.168.ph, %99 ], [ %62, %.lr.ph113 ]
-  %84 = getelementptr inbounds nuw %struct.AclItem, ptr %37, i64 %indvars.iv133
+  %84 = getelementptr inbounds nuw [16 x i8], ptr %37, i64 %indvars.iv133
   %85 = load i32, ptr %84, align 8
   %86 = icmp eq i32 %85, 0
   %87 = icmp eq i32 %85, %1
@@ -2575,7 +2574,7 @@ define dso_local i32 @aclmembers(ptr noundef readonly captures(address_is_null) 
 .lr.ph:                                           ; preds = %25, %43
   %indvars.iv = phi i64 [ %indvars.iv.next, %43 ], [ 0, %25 ]
   %.02837 = phi i32 [ %.2, %43 ], [ 0, %25 ]
-  %30 = getelementptr inbounds nuw %struct.AclItem, ptr %27, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %indvars.iv
   %31 = load i32, ptr %30, align 8
   %.not34 = icmp eq i32 %31, 0
   br i1 %.not34, label %36, label %32
@@ -2583,7 +2582,7 @@ define dso_local i32 @aclmembers(ptr noundef readonly captures(address_is_null) 
 32:                                               ; preds = %.lr.ph
   %33 = add i32 %.02837, 1
   %34 = sext i32 %.02837 to i64
-  %35 = getelementptr inbounds i32, ptr %14, i64 %34
+  %35 = getelementptr inbounds [4 x i8], ptr %14, i64 %34
   store i32 %31, ptr %35, align 4
   br label %36
 
@@ -2597,7 +2596,7 @@ define dso_local i32 @aclmembers(ptr noundef readonly captures(address_is_null) 
 39:                                               ; preds = %36
   %40 = add i32 %.1, 1
   %41 = sext i32 %.1 to i64
-  %42 = getelementptr inbounds i32, ptr %14, i64 %41
+  %42 = getelementptr inbounds [4 x i8], ptr %14, i64 %41
   store i32 %38, ptr %42, align 4
   br label %43
 
@@ -2720,7 +2719,7 @@ define dso_local range(i64 0, 2) i64 @aclcontains(ptr noundef readonly captures(
 
 28:                                               ; preds = %.lr.ph, %43
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %43 ]
-  %29 = getelementptr inbounds nuw %struct.AclItem, ptr %23, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [16 x i8], ptr %23, i64 %indvars.iv
   %30 = load i32, ptr %29, align 8
   %31 = icmp eq i32 %26, %30
   br i1 %31, label %32, label %43
@@ -2820,7 +2819,7 @@ define internal fastcc i64 @convert_any_priv_string(ptr noundef %0, ptr noundef 
   %14 = phi i8 [ %10, %.lr.ph ], [ %21, %19 ]
   %.152 = phi ptr [ %.031, %.lr.ph ], [ %20, %19 ]
   %15 = zext i8 %14 to i64
-  %16 = getelementptr inbounds nuw i16, ptr %12, i64 %15
+  %16 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %15
   %17 = load i16, ptr %16, align 2
   %18 = and i16 %17, 8192
   %.not39 = icmp eq i16 %18, 0
@@ -2851,7 +2850,7 @@ define internal fastcc i64 @convert_any_priv_string(ptr noundef %0, ptr noundef 
   %30 = getelementptr i8, ptr %29, i64 -1
   %31 = load i8, ptr %30, align 1
   %32 = zext i8 %31 to i64
-  %33 = getelementptr inbounds nuw i16, ptr %26, i64 %32
+  %33 = getelementptr inbounds nuw [2 x i8], ptr %26, i64 %32
   %34 = load i16, ptr %33, align 2
   %35 = and i16 %34, 8192
   %.not40 = icmp eq i16 %35, 0
@@ -2997,7 +2996,7 @@ define dso_local i64 @aclexplode(ptr noundef %0) local_unnamed_addr #0 {
   %54 = phi i32 [ 0, %50 ], [ %48, %46 ]
   %55 = phi i32 [ %51, %50 ], [ %43, %46 ]
   %56 = sext i32 %55 to i64
-  %57 = getelementptr inbounds %struct.AclItem, ptr %39, i64 %56
+  %57 = getelementptr inbounds [16 x i8], ptr %39, i64 %56
   %58 = zext nneg i32 %54 to i64
   %59 = shl nuw i64 1, %58
   %60 = getelementptr inbounds nuw i8, ptr %57, i64 8
@@ -3032,7 +3031,7 @@ define dso_local i64 @aclexplode(ptr noundef %0) local_unnamed_addr #0 {
 switch.lookup:                                    ; preds = %64
   %76 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %77 = zext nneg i32 %54 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.aclexplode, i64 %77
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.aclexplode, i64 %77
   %switch.load = load ptr, ptr %switch.gep, align 8
   %78 = tail call ptr @cstring_to_text(ptr noundef nonnull %switch.load) #13
   %79 = ptrtoint ptr %78 to i64
@@ -7160,7 +7159,7 @@ define internal fastcc ptr @roles_is_member_of(i32 noundef %0, i32 noundef range
 
 10:                                               ; preds = %9, %4
   %11 = zext nneg i32 %1 to i64
-  %12 = getelementptr inbounds nuw i32, ptr @cached_role, i64 %11
+  %12 = getelementptr inbounds nuw [4 x i8], ptr @cached_role, i64 %11
   %13 = load i32, ptr %12, align 4
   %14 = icmp ne i32 %13, %0
   %15 = icmp ne i32 %2, 0
@@ -7170,7 +7169,7 @@ define internal fastcc ptr @roles_is_member_of(i32 noundef %0, i32 noundef range
   br i1 %or.cond76, label %20, label %17
 
 17:                                               ; preds = %10
-  %18 = getelementptr inbounds nuw ptr, ptr @cached_roles, i64 %11
+  %18 = getelementptr inbounds nuw [8 x i8], ptr @cached_roles, i64 %11
   %19 = load ptr, ptr %18, align 8
   br label %156
 
@@ -7225,7 +7224,7 @@ define internal fastcc ptr @roles_is_member_of(i32 noundef %0, i32 noundef range
   %.060127148 = phi ptr [ %.3, %146 ], [ %39, %.lr.ph129 ]
   %indvars.iv136147 = phi i64 [ %indvars.iv.next137, %146 ], [ 0, %.lr.ph129 ]
   %45 = load ptr, ptr %41, align 8
-  %46 = getelementptr inbounds nuw %union.ListCell, ptr %45, i64 %indvars.iv136147
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv136147
   %47 = load i32, ptr %46, align 8
   %48 = zext i32 %47 to i64
   %49 = call ptr @SearchSysCacheList(i32 noundef 8, i32 noundef 1, i64 noundef %48, i64 noundef 0, i64 noundef 0) #13
@@ -7248,7 +7247,7 @@ define internal fastcc ptr @roles_is_member_of(i32 noundef %0, i32 noundef range
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %111 ]
   %.1123 = phi ptr [ %.060127148, %.lr.ph ], [ %.2, %111 ]
   %.1101121 = phi ptr [ %.0100125149, %.lr.ph ], [ %.2102, %111 ]
-  %55 = getelementptr inbounds nuw ptr, ptr %53, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %indvars.iv
   %56 = load ptr, ptr %55, align 8
   %57 = getelementptr i8, ptr %56, i64 80
   %.val = load ptr, ptr %57, align 8
@@ -7349,7 +7348,7 @@ list_length.exit.thread.i.thread:                 ; preds = %list_length.exit.i
 .lr.ph.i:                                         ; preds = %95, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %95 ]
   %101 = load ptr, ptr %98, align 8
-  %102 = getelementptr inbounds nuw %union.ListCell, ptr %101, i64 %indvars.iv.i
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %101, i64 %indvars.iv.i
   %103 = load i32, ptr %102, align 8
   store i32 %103, ptr %8, align 4
   call void @bloom_add_element(ptr noundef %97, ptr noundef nonnull %8, i64 noundef 4) #13
@@ -7449,7 +7448,7 @@ list_length.exit.thread.i84.thread:               ; preds = %list_length.exit.i8
 .lr.ph.i88:                                       ; preds = %130, %.lr.ph.i88
   %indvars.iv.i89 = phi i64 [ %indvars.iv.next.i90, %.lr.ph.i88 ], [ 0, %130 ]
   %136 = load ptr, ptr %133, align 8
-  %137 = getelementptr inbounds nuw %union.ListCell, ptr %136, i64 %indvars.iv.i89
+  %137 = getelementptr inbounds nuw [8 x i8], ptr %136, i64 %indvars.iv.i89
   %138 = load i32, ptr %137, align 8
   store i32 %138, ptr %6, align 4
   call void @bloom_add_element(ptr noundef %132, ptr noundef nonnull %6, i64 noundef 4) #13
@@ -7500,7 +7499,7 @@ roles_list_append.exit91:                         ; preds = %list_length.exit.th
   store ptr %152, ptr @CurrentMemoryContext, align 8
   call void @list_free(ptr noundef %.060.lcssa146) #13
   store i32 0, ptr %12, align 4
-  %154 = getelementptr inbounds nuw ptr, ptr @cached_roles, i64 %11
+  %154 = getelementptr inbounds nuw [8 x i8], ptr @cached_roles, i64 %11
   %155 = load ptr, ptr %154, align 8
   call void @list_free(ptr noundef %155) #13
   store ptr %153, ptr %154, align 8
@@ -7694,7 +7693,7 @@ aclmask_direct.exit.us.us:                        ; preds = %.lr.ph.split.split.
   %.06194 = phi i32 [ %.1.ph, %.thread ], [ 0, %.lr.ph.split.split.preheader ]
   %28 = load ptr, ptr %14, align 8
   %29 = sext i32 %.sroa.6.06095 to i64
-  %30 = getelementptr inbounds %union.ListCell, ptr %28, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %28, i64 %29
   %31 = load i32, ptr %30, align 8
   tail call fastcc void @check_acl(ptr noundef nonnull readonly %2)
   %32 = icmp eq i32 %31, %3
@@ -7730,7 +7729,7 @@ aclmask_direct.exit.us.us:                        ; preds = %.lr.ph.split.split.
 .lr.ph.i:                                         ; preds = %.thread.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.thread.i ]
   %.13654.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %.350.i, %.thread.i ]
-  %47 = getelementptr inbounds nuw %struct.AclItem, ptr %45, i64 %indvars.iv.i
+  %47 = getelementptr inbounds nuw [16 x i8], ptr %45, i64 %indvars.iv.i
   %48 = load i32, ptr %47, align 8
   %49 = icmp eq i32 %48, %31
   br i1 %49, label %50, label %.thread.i
@@ -8002,7 +8001,7 @@ define internal fastcc noundef ptr @getid(ptr noundef readonly captures(ret: add
   %.030 = phi ptr [ %0, %3 ], [ %12, %6 ]
   %7 = load i8, ptr %.030, align 1
   %8 = zext i8 %7 to i64
-  %9 = getelementptr inbounds nuw i16, ptr %5, i64 %8
+  %9 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %8
   %10 = load i16, ptr %9, align 2
   %11 = and i16 %10, 8192
   %.not = icmp eq i16 %11, 0
@@ -8020,7 +8019,7 @@ define internal fastcc noundef ptr @getid(ptr noundef readonly captures(ret: add
   %.13143 = phi ptr [ %41, %39 ], [ %.030, %.preheader ]
   %14 = load ptr, ptr %4, align 8
   %15 = zext i8 %13 to i64
-  %16 = getelementptr inbounds nuw i16, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [2 x i8], ptr %14, i64 %15
   %17 = load i16, ptr %16, align 2
   %18 = and i16 %17, 8
   %.not34 = icmp ne i16 %18, 0
@@ -8096,7 +8095,7 @@ define internal fastcc noundef ptr @getid(ptr noundef readonly captures(ret: add
   %.4 = phi ptr [ %.131.lcssa, %.critedge ], [ %51, %45 ]
   %46 = load i8, ptr %.4, align 1
   %47 = zext i8 %46 to i64
-  %48 = getelementptr inbounds nuw i16, ptr %44, i64 %47
+  %48 = getelementptr inbounds nuw [2 x i8], ptr %44, i64 %47
   %49 = load i16, ptr %48, align 2
   %50 = and i16 %49, 8192
   %.not35 = icmp eq i16 %50, 0

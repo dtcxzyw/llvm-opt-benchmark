@@ -626,7 +626,7 @@ define void @_ZN6icu_7713DecimalFormatC2ER10UErrorCode(ptr noundef nonnull align
 
 .preheader.i.i:                                   ; preds = %18, %.preheader.i.i
   %.0.i.i.i.i = phi i64 [ %24, %.preheader.i.i ], [ 0, %18 ]
-  %21 = getelementptr inbounds nuw i16, ptr %17, i64 %.0.i.i.i.i
+  %21 = getelementptr inbounds nuw [2 x i8], ptr %17, i64 %.0.i.i.i.i
   %22 = load i16, ptr %21, align 2, !tbaa !21
   %23 = icmp eq i16 %22, 0
   %24 = add i64 %.0.i.i.i.i, 1

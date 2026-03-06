@@ -126,7 +126,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.absl::container_internal::internal_compressed_tuple::CompressedTupleImpl.230" = type { %"struct.absl::container_internal::internal_compressed_tuple::Storage.88" }
 %"union.absl::inlined_vector_internal::Storage<(anonymous namespace)::RefCounted, 8, std::allocator<(anonymous namespace)::RefCounted>>::Data" = type { %"struct.absl::inlined_vector_internal::Storage<(anonymous namespace)::RefCounted, 8, std::allocator<(anonymous namespace)::RefCounted>>::Allocated", [112 x i8] }
 %"struct.absl::inlined_vector_internal::Storage<(anonymous namespace)::RefCounted, 8, std::allocator<(anonymous namespace)::RefCounted>>::Allocated" = type { ptr, i64 }
-%"class.(anonymous namespace)::RefCounted" = type { i32, ptr }
 %"class.absl::inlined_vector_internal::IteratorValueAdapter.248" = type { %"class.std::move_iterator.249" }
 %"class.std::move_iterator.249" = type { ptr }
 %"class.absl::InlinedVector.297" = type { %"class.absl::inlined_vector_internal::Storage.298" }
@@ -135,7 +134,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.absl::container_internal::internal_compressed_tuple::CompressedTupleImpl.300" = type { %"struct.absl::container_internal::internal_compressed_tuple::Storage.88" }
 %"union.absl::inlined_vector_internal::Storage<std::pair<std::__cxx11::basic_string<char>, int>, 1, std::allocator<std::pair<std::__cxx11::basic_string<char>, int>>>::Data" = type { %"struct.absl::inlined_vector_internal::Storage<std::pair<std::__cxx11::basic_string<char>, int>, 1, std::allocator<std::pair<std::__cxx11::basic_string<char>, int>>>::Allocated", [24 x i8] }
 %"struct.absl::inlined_vector_internal::Storage<std::pair<std::__cxx11::basic_string<char>, int>, 1, std::allocator<std::pair<std::__cxx11::basic_string<char>, int>>>::Allocated" = type { ptr, i64 }
-%"struct.std::pair.305" = type <{ %"class.std::__cxx11::basic_string", i32, [4 x i8] }>
 %"class.absl::InlinedVector.315" = type { %"class.absl::inlined_vector_internal::Storage.316" }
 %"class.absl::inlined_vector_internal::Storage.316" = type { %"class.absl::container_internal::CompressedTuple.317", %"union.absl::inlined_vector_internal::Storage<std::__cxx11::basic_string<char>, 2, std::allocator<std::__cxx11::basic_string<char>>>::Data" }
 %"class.absl::container_internal::CompressedTuple.317" = type { %"struct.absl::container_internal::internal_compressed_tuple::CompressedTupleImpl.318" }
@@ -172,13 +170,13 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.383" = type { %"struct.std::_Vector_base<std::pair<int, int>, std::allocator<std::pair<int, int>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::pair<int, int>, std::allocator<std::pair<int, int>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::pair<int, int>, std::allocator<std::pair<int, int>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::pair<int, int>, std::allocator<std::pair<int, int>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.std::pair.392" = type { i32, i32 }
 %"class.testing::Matcher.412" = type { %"class.testing::internal::MatcherBase.413" }
 %"class.testing::internal::MatcherBase.413" = type { %"class.testing::MatcherDescriberInterface", ptr, %"union.testing::internal::MatcherBase<const absl::InlinedVector<std::pair<int, int>, 8> &>::Buffer" }
 %"union.testing::internal::MatcherBase<const absl::InlinedVector<std::pair<int, int>, 8> &>::Buffer" = type { ptr }
 %"class.testing::Matcher.423" = type { %"class.testing::internal::MatcherBase.424" }
 %"class.testing::internal::MatcherBase.424" = type { %"class.testing::MatcherDescriberInterface", ptr, %"union.testing::internal::MatcherBase<const std::pair<int, int> &>::Buffer" }
 %"union.testing::internal::MatcherBase<const std::pair<int, int> &>::Buffer" = type { ptr }
+%"class.(anonymous namespace)::RefCounted" = type { i32, ptr }
 %"class.testing::internal::PredicateFormatterFromMatcher.451" = type { %"class.testing::internal::EachMatcher" }
 %"class.testing::internal::EachMatcher" = type { %"class.testing::internal::EqMatcher.355" }
 %"class.testing::internal::EqMatcher.355" = type { %"class.testing::internal::ComparisonBase.356" }
@@ -440,7 +438,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Head_base.989" = type { %"class.(anonymous namespace)::CapacityIsMatcherP.990" }
 %"class.(anonymous namespace)::CapacityIsMatcherP.990" = type { %"class.testing::internal::MatcherBaseImpl.991" }
 %"class.testing::internal::MatcherBaseImpl.991" = type { %"class.std::tuple.992" }
-%"class.(anonymous namespace)::Dynamic" = type { ptr }
 %"class.absl::InlinedVector.1074" = type { %"class.absl::inlined_vector_internal::Storage.1075" }
 %"class.absl::inlined_vector_internal::Storage.1075" = type { %"class.absl::container_internal::CompressedTuple.1076", %"union.absl::inlined_vector_internal::Storage<(anonymous namespace)::Dynamic, 8, std::allocator<(anonymous namespace)::Dynamic>>::Data" }
 %"class.absl::container_internal::CompressedTuple.1076" = type { %"struct.absl::container_internal::internal_compressed_tuple::CompressedTupleImpl.1077" }
@@ -479,10 +476,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.absl::container_internal::CountingAllocator.1155" = type { ptr, ptr }
 %"union.absl::inlined_vector_internal::Storage<std::vector<int, absl::container_internal::CountingAllocator<int>>, 1, std::scoped_allocator_adaptor<absl::container_internal::CountingAllocator<std::vector<int, absl::container_internal::CountingAllocator<int>>>>>::Data" = type { %"struct.absl::inlined_vector_internal::Storage<std::vector<int, absl::container_internal::CountingAllocator<int>>, 1, std::scoped_allocator_adaptor<absl::container_internal::CountingAllocator<std::vector<int, absl::container_internal::CountingAllocator<int>>>>>::Allocated", [24 x i8] }
 %"struct.absl::inlined_vector_internal::Storage<std::vector<int, absl::container_internal::CountingAllocator<int>>, 1, std::scoped_allocator_adaptor<absl::container_internal::CountingAllocator<std::vector<int, absl::container_internal::CountingAllocator<int>>>>>::Allocated" = type { ptr, i64 }
-%"class.std::vector.1156" = type { %"struct.std::_Vector_base.1157" }
-%"struct.std::_Vector_base.1157" = type { %"struct.std::_Vector_base<int, absl::container_internal::CountingAllocator<int>>::_Vector_impl" }
-%"struct.std::_Vector_base<int, absl::container_internal::CountingAllocator<int>>::_Vector_impl" = type { %"class.absl::container_internal::CountingAllocator", %"struct.std::_Vector_base<int, absl::container_internal::CountingAllocator<int>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<int, absl::container_internal::CountingAllocator<int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.absl::inlined_vector_internal::AllocationTransaction.1162" = type { %"class.absl::container_internal::CompressedTuple.1163", i64 }
 %"class.absl::container_internal::CompressedTuple.1163" = type { %"struct.absl::container_internal::internal_compressed_tuple::CompressedTupleImpl.1164" }
 %"struct.absl::container_internal::internal_compressed_tuple::CompressedTupleImpl.1164" = type { %"struct.absl::container_internal::internal_compressed_tuple::Storage.1154", %"struct.absl::container_internal::internal_compressed_tuple::Storage.1165" }
@@ -525,20 +518,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Optional_payload.base" = type { %"struct.std::_Optional_payload_base.base" }
 %"struct.std::_Optional_payload_base.base" = type <{ %"union.std::_Optional_payload_base<std::__cxx11::basic_string<char>>::_Storage", i8 }>
 %"union.std::_Optional_payload_base<std::__cxx11::basic_string<char>>::_Storage" = type { %"class.std::__cxx11::basic_string" }
-%struct.Info = type { ptr, i64 }
-%"class.std::variant" = type { %"struct.std::__detail::__variant::_Variant_base.base", [7 x i8] }
-%"struct.std::__detail::__variant::_Variant_base.base" = type { %"struct.std::__detail::__variant::_Move_assign_base.base" }
-%"struct.std::__detail::__variant::_Move_assign_base.base" = type { %"struct.std::__detail::__variant::_Copy_assign_base.base" }
-%"struct.std::__detail::__variant::_Copy_assign_base.base" = type { %"struct.std::__detail::__variant::_Move_ctor_base.base" }
-%"struct.std::__detail::__variant::_Move_ctor_base.base" = type { %"struct.std::__detail::__variant::_Copy_ctor_base.base" }
-%"struct.std::__detail::__variant::_Copy_ctor_base.base" = type { %"struct.std::__detail::__variant::_Variant_storage.base" }
-%"struct.std::__detail::__variant::_Variant_storage.base" = type <{ %"union.std::__detail::__variant::_Variadic_union", i8 }>
-%"union.std::__detail::__variant::_Variadic_union" = type { %"struct.std::__detail::__variant::_Uninitialized" }
-%"struct.std::__detail::__variant::_Uninitialized" = type { ptr }
-%"class.std::vector.1233" = type { %"struct.std::_Vector_base.1234" }
-%"struct.std::_Vector_base.1234" = type { %"struct.std::_Vector_base<Info, std::allocator<Info>>::_Vector_impl" }
-%"struct.std::_Vector_base<Info, std::allocator<Info>>::_Vector_impl" = type { %"struct.std::_Vector_base<Info, std::allocator<Info>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<Info, std::allocator<Info>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.absl::hash_internal::SpyHashStateImpl.1246" = type <{ %"class.std::vector", %"class.std::shared_ptr", i8, [7 x i8] }>
 %"class.absl::hash_internal::SpyHashStateImpl.1249" = type <{ %"class.std::vector", %"class.std::shared_ptr", i8, [7 x i8] }>
 %"struct.absl::hash_internal::CombineRaw" = type { i8 }
@@ -562,7 +541,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.absl::container_internal::internal_compressed_tuple::CompressedTupleImpl.1285" = type { %"struct.absl::container_internal::internal_compressed_tuple::Storage.88" }
 %"union.absl::inlined_vector_internal::Storage<(anonymous namespace)::MoveConstructibleOnlyInstance, 2, std::allocator<(anonymous namespace)::MoveConstructibleOnlyInstance>>::Data" = type { %"struct.absl::inlined_vector_internal::Storage<(anonymous namespace)::MoveConstructibleOnlyInstance, 2, std::allocator<(anonymous namespace)::MoveConstructibleOnlyInstance>>::Allocated" }
 %"struct.absl::inlined_vector_internal::Storage<(anonymous namespace)::MoveConstructibleOnlyInstance, 2, std::allocator<(anonymous namespace)::MoveConstructibleOnlyInstance>>::Allocated" = type { ptr, i64 }
-%"class.(anonymous namespace)::MoveConstructibleOnlyInstance" = type { %"class.absl::test_internal::BaseCountedInstance.base", [3 x i8] }
 %"class.testing::Matcher.1300" = type { %"class.testing::internal::MatcherBase.1301" }
 %"class.testing::internal::MatcherBase.1301" = type { %"class.testing::MatcherDescriberInterface", ptr, %"union.testing::internal::MatcherBase<const absl::InlinedVector<(anonymous namespace)::MoveConstructibleOnlyInstance, 2> &>::Buffer" }
 %"union.testing::internal::MatcherBase<const absl::InlinedVector<(anonymous namespace)::MoveConstructibleOnlyInstance, 2> &>::Buffer" = type { ptr }
@@ -577,7 +555,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.absl::container_internal::internal_compressed_tuple::CompressedTupleImpl.1350" = type { %"struct.absl::container_internal::internal_compressed_tuple::Storage.88" }
 %"union.absl::inlined_vector_internal::Storage<(anonymous namespace)::NonSwappableInstance, 2, std::allocator<(anonymous namespace)::NonSwappableInstance>>::Data" = type { %"struct.absl::inlined_vector_internal::Storage<(anonymous namespace)::NonSwappableInstance, 2, std::allocator<(anonymous namespace)::NonSwappableInstance>>::Allocated" }
 %"struct.absl::inlined_vector_internal::Storage<(anonymous namespace)::NonSwappableInstance, 2, std::allocator<(anonymous namespace)::NonSwappableInstance>>::Allocated" = type { ptr, i64 }
-%"class.(anonymous namespace)::NonSwappableInstance" = type { %"class.absl::test_internal::BaseCountedInstance.base", [3 x i8] }
 %"class.testing::Matcher.1363" = type { %"class.testing::internal::MatcherBase.1364" }
 %"class.testing::internal::MatcherBase.1364" = type { %"class.testing::MatcherDescriberInterface", ptr, %"union.testing::internal::MatcherBase<const absl::InlinedVector<(anonymous namespace)::NonSwappableInstance, 2> &>::Buffer" }
 %"union.testing::internal::MatcherBase<const absl::InlinedVector<(anonymous namespace)::NonSwappableInstance, 2> &>::Buffer" = type { ptr }
@@ -8980,7 +8957,7 @@ _ZN12_GLOBAL__N_14FillIN4absl13InlinedVectorIiLm8ESaIiEEEEEvPT_mi.exit.thread: ;
 123:                                              ; preds = %.lr.ph.i
   %124 = load ptr, ptr %85, align 8, !noalias !131
   %.sink2.i.i.i.i.i = select i1 %121, ptr %124, ptr %85
-  %125 = getelementptr inbounds nuw i32, ptr %.sink2.i.i.i.i.i, i64 %.sink1.i.i.i.i.i
+  %125 = getelementptr inbounds nuw [4 x i8], ptr %.sink2.i.i.i.i.i, i64 %.sink1.i.i.i.i.i
   store i32 %119, ptr %125, align 4, !tbaa !130
   %126 = add i64 %120, 2
   store i64 %126, ptr %18, align 8, !tbaa !43
@@ -9293,7 +9270,7 @@ _ZN7testing15AssertionResultD2Ev.exit180:         ; preds = %206, %_ZNKSt14defau
   %218 = trunc i64 %217 to i1
   %219 = load ptr, ptr %85, align 8
   %220 = select i1 %218, ptr %219, ptr %85
-  %221 = getelementptr inbounds nuw i32, ptr %220, i64 %.027533
+  %221 = getelementptr inbounds nuw [4 x i8], ptr %220, i64 %.027533
   %222 = load i32, ptr %221, align 4, !tbaa !130, !noalias !155
   %223 = icmp eq i32 %222, %216
   br i1 %223, label %224, label %225
@@ -9514,7 +9491,7 @@ _ZN7testing15AssertionResultD2Ev.exit197:         ; preds = %274, %_ZNKSt14defau
   %286 = trunc i64 %282 to i1
   %287 = load ptr, ptr %85, align 8
   %288 = select i1 %286, ptr %287, ptr %85
-  %289 = getelementptr inbounds nuw i32, ptr %288, i64 %.027533
+  %289 = getelementptr inbounds nuw [4 x i8], ptr %288, i64 %.027533
   %290 = load i32, ptr %289, align 4, !tbaa !130, !noalias !164
   %291 = icmp eq i32 %290, %216
   br i1 %291, label %292, label %293
@@ -10216,7 +10193,7 @@ _ZN7testing15AssertionResultD2Ev.exit262:         ; preds = %489, %_ZNKSt14defau
   %502 = load ptr, ptr %85, align 8
   %503 = select i1 %501, ptr %502, ptr %85
   %504 = lshr i64 %500, 1
-  %505 = getelementptr inbounds nuw i32, ptr %503, i64 %504
+  %505 = getelementptr inbounds nuw [4 x i8], ptr %503, i64 %504
   %.not = icmp eq ptr %499, %505
   br i1 %.not, label %._crit_edge537, label %.lr.ph536, !llvm.loop !186
 
@@ -10584,7 +10561,7 @@ _ZN7testing15AssertionResultD2Ev.exit294:         ; preds = %606, %_ZNKSt14defau
   %619 = load ptr, ptr %85, align 8
   %620 = select i1 %618, ptr %619, ptr %85
   %621 = lshr i64 %617, 1
-  %622 = getelementptr inbounds nuw i32, ptr %620, i64 %621
+  %622 = getelementptr inbounds nuw [4 x i8], ptr %620, i64 %621
   %.not103 = icmp eq ptr %616, %622
   br i1 %.not103, label %._crit_edge541, label %.lr.ph540, !llvm.loop !200
 
@@ -10952,7 +10929,7 @@ _ZN7testing15AssertionResultD2Ev.exit326:         ; preds = %723, %_ZNKSt14defau
   %736 = load ptr, ptr %85, align 8
   %737 = select i1 %735, ptr %736, ptr %85
   %738 = lshr i64 %734, 1
-  %739 = getelementptr inbounds nuw i32, ptr %737, i64 %738
+  %739 = getelementptr inbounds nuw [4 x i8], ptr %737, i64 %738
   %.not108 = icmp eq ptr %733, %739
   br i1 %.not108, label %._crit_edge545, label %.lr.ph544, !llvm.loop !214
 
@@ -11225,7 +11202,7 @@ _ZN7testing15AssertionResultD2Ev.exit355:         ; preds = %813, %_ZNKSt14defau
   %826 = load ptr, ptr %85, align 8
   %827 = select i1 %825, ptr %826, ptr %85
   %828 = lshr i64 %824, 1
-  %829 = getelementptr i32, ptr %827, i64 %828
+  %829 = getelementptr [4 x i8], ptr %827, i64 %828
   %830 = getelementptr i8, ptr %829, i64 -4
   %831 = load i32, ptr %830, align 4, !tbaa !130, !noalias !220
   %832 = icmp eq i32 %823, %831
@@ -11518,7 +11495,7 @@ _ZN7testing15AssertionResultD2Ev.exit387:         ; preds = %907, %_ZNKSt14defau
   %919 = trunc i64 %917 to i1
   %920 = load ptr, ptr %85, align 8
   %921 = select i1 %919, ptr %920, ptr %85
-  %922 = getelementptr inbounds nuw i32, ptr %921, i64 %.0546
+  %922 = getelementptr inbounds nuw [4 x i8], ptr %921, i64 %.0546
   %923 = load i32, ptr %922, align 4, !tbaa !130, !noalias !225
   %924 = icmp eq i32 %923, %918
   br i1 %924, label %925, label %926
@@ -11739,7 +11716,7 @@ _ZN7testing15AssertionResultD2Ev.exit403:         ; preds = %975, %_ZNKSt14defau
   %987 = trunc i64 %983 to i1
   %988 = load ptr, ptr %85, align 8
   %989 = select i1 %987, ptr %988, ptr %85
-  %990 = getelementptr inbounds nuw i32, ptr %989, i64 %.0546
+  %990 = getelementptr inbounds nuw [4 x i8], ptr %989, i64 %.0546
   %991 = load i32, ptr %990, align 4, !tbaa !130, !noalias !233
   %992 = icmp eq i32 %991, %918
   br i1 %992, label %993, label %994
@@ -12078,7 +12055,7 @@ define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(4) ptr @_Z
 _ZN4absl23inlined_vector_internal13MallocAdapterISaIiELb0EE8AllocateERS2_m.exit.i: ; preds = %2
   %14 = shl nuw nsw i64 %10, 2
   %15 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %14) #42
-  %16 = getelementptr inbounds nuw i32, ptr %15, i64 %.sink1.i
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %.sink1.i
   %17 = load i32, ptr %1, align 4, !tbaa !130
   store i32 %17, ptr %16, align 4, !tbaa !130
   %.not.i = icmp eq i64 %.sink1.i, 0
@@ -12091,7 +12068,7 @@ _ZN4absl23inlined_vector_internal13MallocAdapterISaIiELb0EE8AllocateERS2_m.exit.
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %.012.i = phi i64 [ %22, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
   %18 = phi ptr [ %21, %.lr.ph.i ], [ %.sink2.i, %.lr.ph.i.preheader ]
-  %19 = getelementptr inbounds nuw i32, ptr %15, i64 %.012.i
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %.012.i
   %20 = load i32, ptr %18, align 4, !tbaa !130
   store i32 %20, ptr %19, align 4, !tbaa !130
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 4
@@ -14831,7 +14808,7 @@ define internal void @_ZN12_GLOBAL__N_127IntVec_ReverseIterator_Test8TestBodyEv(
 55:                                               ; preds = %.lr.ph.i
   %56 = load ptr, ptr %36, align 8, !noalias !296
   %.sink2.i.i.i.i.i = select i1 %53, ptr %56, ptr %36
-  %57 = getelementptr inbounds nuw i32, ptr %.sink2.i.i.i.i.i, i64 %.sink1.i.i.i.i.i
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %.sink2.i.i.i.i.i, i64 %.sink1.i.i.i.i.i
   store i32 %51, ptr %57, align 4, !tbaa !130
   %58 = add i64 %52, 2
   store i64 %58, ptr %9, align 8, !tbaa !43
@@ -16125,7 +16102,7 @@ define internal void @_ZN12_GLOBAL__N_117IntVec_Erase_Test8TestBodyEv(ptr nonnul
 44:                                               ; preds = %39
   %45 = load ptr, ptr %24, align 8, !noalias !365
   %.sink2.i.i.i.i.i = select i1 %42, ptr %45, ptr %24
-  %46 = getelementptr inbounds nuw i32, ptr %.sink2.i.i.i.i.i, i64 %.sink1.i.i.i.i.i
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %.sink2.i.i.i.i.i, i64 %.sink1.i.i.i.i.i
   store i32 %40, ptr %46, align 4, !tbaa !130
   %47 = add i64 %41, 2
   store i64 %47, ptr %9, align 8, !tbaa !43
@@ -16146,10 +16123,10 @@ _ZN4absl13InlinedVectorIiLm8ESaIiEE9push_backEOi.exit.i: ; preds = %48, %44
   %53 = trunc i64 %52 to i1
   %54 = load ptr, ptr %24, align 8
   %55 = select i1 %53, ptr %54, ptr %24
-  %56 = getelementptr inbounds nuw i32, ptr %55, i64 %.032169
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %.032169
   %.sink1.i.i.i = lshr i64 %52, 1
   %57 = add nuw nsw i64 %.032169, 1
-  %58 = getelementptr inbounds nuw i32, ptr %55, i64 %57
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %57
   %59 = sub nsw i64 %.sink1.i.i.i, %57
   %60 = shl i64 %59, 2
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %56, ptr nonnull align 1 %58, i64 %60, i1 false)
@@ -16391,7 +16368,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %117, %_ZNKSt14defau
   %129 = trunc i64 %128 to i1
   %130 = load ptr, ptr %24, align 8
   %131 = select i1 %129, ptr %130, ptr %24
-  %132 = getelementptr inbounds nuw i32, ptr %131, i64 %.020166
+  %132 = getelementptr inbounds nuw [4 x i8], ptr %131, i64 %.020166
   %133 = load i32, ptr %132, align 4, !tbaa !130, !noalias !371
   %134 = icmp eq i32 %133, %127
   br i1 %134, label %135, label %136
@@ -16647,7 +16624,7 @@ _ZN4absl13InlinedVectorIiLm8ESaIiEED2Ev.exit:     ; preds = %._crit_edge, %203
   %210 = trunc i64 %209 to i1
   %211 = load ptr, ptr %24, align 8
   %212 = select i1 %210, ptr %211, ptr %24
-  %213 = getelementptr inbounds nuw i32, ptr %212, i64 %.0167
+  %213 = getelementptr inbounds nuw [4 x i8], ptr %212, i64 %.0167
   %214 = load i32, ptr %213, align 4, !tbaa !130, !noalias !381
   %215 = icmp eq i32 %214, %208
   br i1 %215, label %216, label %217
@@ -16955,7 +16932,7 @@ define internal void @_ZN12_GLOBAL__N_120IntVec_Hardened_Test8TestBodyEv(ptr non
 15:                                               ; preds = %10
   %16 = load ptr, ptr %9, align 8, !noalias !390
   %.sink2.i.i.i.i.i = select i1 %13, ptr %16, ptr %9
-  %17 = getelementptr inbounds nuw i32, ptr %.sink2.i.i.i.i.i, i64 %.sink1.i.i.i.i.i
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %.sink2.i.i.i.i.i, i64 %.sink1.i.i.i.i.i
   store i32 %11, ptr %17, align 4, !tbaa !130
   %18 = add i64 %12, 2
   store i64 %18, ptr %3, align 8, !tbaa !43
@@ -17243,7 +17220,7 @@ define internal void @_ZN12_GLOBAL__N_128UniquePtr_MoveConstruct_Test8TestBodyEv
   %.012.i.i = phi i64 [ %32, %.lr.ph.i.i ], [ 0, %27 ]
   %.pn.i = phi ptr [ %29, %.lr.ph.i.i ], [ %4, %27 ]
   %29 = getelementptr inbounds nuw i8, ptr %.pn.i, i64 8
-  %30 = getelementptr inbounds nuw %"class.std::unique_ptr.122", ptr %17, i64 %.012.i.i
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %.012.i.i
   %31 = load i64, ptr %29, align 8, !tbaa !398
   store i64 %31, ptr %30, align 8, !tbaa !398
   store ptr null, ptr %29, align 8, !tbaa !398
@@ -17279,7 +17256,7 @@ _ZN4absl13InlinedVectorISt10unique_ptrImSt14default_deleteImEELm2ESaIS4_EE9push_
   %39 = ptrtoint ptr %34 to i64
   %40 = load ptr, ptr %16, align 8, !noalias !404
   %.sink2.i.i.i.i = select i1 %37, ptr %40, ptr %16
-  %41 = getelementptr inbounds nuw %"class.std::unique_ptr.122", ptr %.sink2.i.i.i.i, i64 %.sink1.i.i.i.i
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i.i.i.i, i64 %.sink1.i.i.i.i
   store i64 %39, ptr %41, align 8, !tbaa !398
   %42 = add i64 %36, 2
   store i64 %42, ptr %4, align 8, !tbaa !43
@@ -17483,7 +17460,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %100 = trunc i64 %99 to i1
   %101 = load ptr, ptr %17, align 8
   %102 = select i1 %100, ptr %101, ptr %17
-  %103 = getelementptr inbounds nuw %"class.std::unique_ptr.122", ptr %102, i64 %storemerge2687
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %102, i64 %storemerge2687
   invoke void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_14PointeeMatcherImEEEclISt10unique_ptrImSt14default_deleteImEEEENS_15AssertionResultEPKcRKT_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull @.str.238, ptr noundef nonnull align 8 dereferenceable(8) %103)
           to label %104 unwind label %107
 
@@ -19102,7 +19079,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
 _ZN4absl23inlined_vector_internal13MallocAdapterISaISt10unique_ptrImSt14default_deleteImEEELb0EE8AllocateERS6_m.exit.i: ; preds = %2
   %14 = shl nuw nsw i64 %10, 3
   %15 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %14) #42
-  %16 = getelementptr inbounds nuw %"class.std::unique_ptr.122", ptr %15, i64 %.sink1.i
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %.sink1.i
   %17 = load i64, ptr %1, align 8, !tbaa !398
   store i64 %17, ptr %16, align 8, !tbaa !398
   store ptr null, ptr %1, align 8, !tbaa !398
@@ -19112,7 +19089,7 @@ _ZN4absl23inlined_vector_internal13MallocAdapterISaISt10unique_ptrImSt14default_
 .lr.ph.i:                                         ; preds = %_ZN4absl23inlined_vector_internal13MallocAdapterISaISt10unique_ptrImSt14default_deleteImEEELb0EE8AllocateERS6_m.exit.i, %.lr.ph.i
   %.012.i = phi i64 [ %22, %.lr.ph.i ], [ 0, %_ZN4absl23inlined_vector_internal13MallocAdapterISaISt10unique_ptrImSt14default_deleteImEEELb0EE8AllocateERS6_m.exit.i ]
   %18 = phi ptr [ %21, %.lr.ph.i ], [ %.sink2.i, %_ZN4absl23inlined_vector_internal13MallocAdapterISaISt10unique_ptrImSt14default_deleteImEEELb0EE8AllocateERS6_m.exit.i ]
-  %19 = getelementptr inbounds nuw %"class.std::unique_ptr.122", ptr %15, i64 %.012.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %.012.i
   %20 = load i64, ptr %18, align 8, !tbaa !398
   store i64 %20, ptr %19, align 8, !tbaa !398
   store ptr null, ptr %18, align 8, !tbaa !398
@@ -19124,7 +19101,7 @@ _ZN4absl23inlined_vector_internal13MallocAdapterISaISt10unique_ptrImSt14default_
 .lr.ph.i15:                                       ; preds = %.lr.ph.i, %_ZNSt16allocator_traitsISaISt10unique_ptrImSt14default_deleteImEEEE7destroyIS3_EEvRS4_PT_.exit.i
   %.06.i = phi i64 [ %23, %_ZNSt16allocator_traitsISaISt10unique_ptrImSt14default_deleteImEEEE7destroyIS3_EEvRS4_PT_.exit.i ], [ %.sink1.i, %.lr.ph.i ]
   %23 = add nsw i64 %.06.i, -1
-  %24 = getelementptr inbounds nuw %"class.std::unique_ptr.122", ptr %.sink2.i, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !398
   %.not.i.i.i.i = icmp eq ptr %25, null
   br i1 %.not.i.i.i.i, label %_ZNSt16allocator_traitsISaISt10unique_ptrImSt14default_deleteImEEEE7destroyIS3_EEvRS4_PT_.exit.i, label %_ZNKSt14default_deleteImEclEPm.exit.i.i.i.i
@@ -22003,7 +21980,7 @@ define linkonce_odr dso_local void @_ZN4absl23inlined_vector_internal7StorageISt
 .lr.ph.i:                                         ; preds = %1, %_ZNSt16allocator_traitsISaISt10unique_ptrImSt14default_deleteImEEEE7destroyIS3_EEvRS4_PT_.exit.i
   %.06.i = phi i64 [ %8, %_ZNSt16allocator_traitsISaISt10unique_ptrImSt14default_deleteImEEEE7destroyIS3_EEvRS4_PT_.exit.i ], [ %7, %1 ]
   %8 = add nsw i64 %.06.i, -1
-  %9 = getelementptr inbounds nuw %"class.std::unique_ptr.122", ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !398
   %.not.i.i.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i.i.i, label %_ZNSt16allocator_traitsISaISt10unique_ptrImSt14default_deleteImEEEE7destroyIS3_EEvRS4_PT_.exit.i, label %_ZNKSt14default_deleteImEclEPm.exit.i.i.i.i
@@ -22151,7 +22128,7 @@ _ZN4absl13InlinedVectorISt10unique_ptrImSt14default_deleteImEELm2ESaIS4_EE9push_
   %31 = ptrtoint ptr %26 to i64
   %32 = load ptr, ptr %16, align 8, !noalias !585
   %.sink2.i.i.i.i = select i1 %29, ptr %32, ptr %16
-  %33 = getelementptr inbounds nuw %"class.std::unique_ptr.122", ptr %.sink2.i.i.i.i, i64 %.sink1.i.i.i.i
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i.i.i.i, i64 %.sink1.i.i.i.i
   store i64 %31, ptr %33, align 8, !tbaa !398
   %34 = add i64 %28, 2
   store i64 %34, ptr %4, align 8, !tbaa !43
@@ -22360,7 +22337,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %95 = trunc i64 %94 to i1
   %96 = load ptr, ptr %17, align 8
   %97 = select i1 %95, ptr %96, ptr %17
-  %98 = getelementptr inbounds nuw %"class.std::unique_ptr.122", ptr %97, i64 %storemerge2686
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %97, i64 %storemerge2686
   invoke void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_14PointeeMatcherImEEEclISt10unique_ptrImSt14default_deleteImEEEENS_15AssertionResultEPKcRKT_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull @.str.238, ptr noundef nonnull align 8 dereferenceable(8) %98)
           to label %99 unwind label %102
 
@@ -22684,12 +22661,12 @@ _ZN4absl23inlined_vector_internal13MallocAdapterISaISt10unique_ptrImSt14default_
   br i1 %19, label %20, label %23
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds nuw %"class.std::unique_ptr.122", ptr %.sink2.i, i64 %.sink1.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i, i64 %.sink1.i
   %22 = sub nuw i64 %2, %.sink1.i
   br label %_ZN4absl23inlined_vector_internal21AllocationTransactionISaISt10unique_ptrImSt14default_deleteImEEEE8AllocateEm.exit
 
 23:                                               ; preds = %18
-  %24 = getelementptr inbounds nuw %"class.std::unique_ptr.122", ptr %.sink2.i, i64 %2
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i, i64 %2
   %25 = sub nuw nsw i64 %.sink1.i, %2
   br label %_ZN4absl23inlined_vector_internal21AllocationTransactionISaISt10unique_ptrImSt14default_deleteImEEEE8AllocateEm.exit
 
@@ -22705,7 +22682,7 @@ _ZN4absl23inlined_vector_internal21AllocationTransactionISaISt10unique_ptrImSt14
 .lr.ph.i:                                         ; preds = %_ZN4absl23inlined_vector_internal21AllocationTransactionISaISt10unique_ptrImSt14default_deleteImEEEE8AllocateEm.exit, %_ZN4absl23inlined_vector_internal20IteratorValueAdapterISaISt10unique_ptrImSt14default_deleteImEEESt13move_iteratorIPS5_EE10AssignNextES8_.exit.i
   %.sroa.057.0 = phi ptr [ %29, %_ZN4absl23inlined_vector_internal20IteratorValueAdapterISaISt10unique_ptrImSt14default_deleteImEEESt13move_iteratorIPS5_EE10AssignNextES8_.exit.i ], [ %1, %_ZN4absl23inlined_vector_internal21AllocationTransactionISaISt10unique_ptrImSt14default_deleteImEEEE8AllocateEm.exit ]
   %.05.i = phi i64 [ %30, %_ZN4absl23inlined_vector_internal20IteratorValueAdapterISaISt10unique_ptrImSt14default_deleteImEEESt13move_iteratorIPS5_EE10AssignNextES8_.exit.i ], [ 0, %_ZN4absl23inlined_vector_internal21AllocationTransactionISaISt10unique_ptrImSt14default_deleteImEEEE8AllocateEm.exit ]
-  %26 = getelementptr inbounds nuw %"class.std::unique_ptr.122", ptr %.sink2.i, i64 %.05.i
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i, i64 %.05.i
   %27 = load ptr, ptr %.sroa.057.0, align 8, !tbaa !398
   store ptr null, ptr %.sroa.057.0, align 8, !tbaa !398
   %28 = load ptr, ptr %26, align 8, !tbaa !398
@@ -22741,7 +22718,7 @@ _ZN4absl23inlined_vector_internal14AssignElementsISaISt10unique_ptrImSt14default
 .lr.ph.i20:                                       ; preds = %.lr.ph.i20, %.lr.ph.preheader.i19
   %.012.i = phi i64 [ %35, %.lr.ph.i20 ], [ 0, %.lr.ph.preheader.i19 ]
   %31 = phi ptr [ %34, %.lr.ph.i20 ], [ %.sroa.057.191, %.lr.ph.preheader.i19 ]
-  %32 = getelementptr inbounds nuw %"class.std::unique_ptr.122", ptr %.sroa.038.07085, i64 %.012.i
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.038.07085, i64 %.012.i
   %33 = load i64, ptr %31, align 8, !tbaa !398
   store i64 %33, ptr %32, align 8, !tbaa !398
   store ptr null, ptr %31, align 8, !tbaa !398
@@ -22761,7 +22738,7 @@ _ZN4absl23inlined_vector_internal17ConstructElementsISaISt10unique_ptrImSt14defa
 .lr.ph.i22:                                       ; preds = %_ZN4absl23inlined_vector_internal17ConstructElementsISaISt10unique_ptrImSt14default_deleteImEEENS0_20IteratorValueAdapterIS6_St13move_iteratorIPS5_EEEEEvRNS_8internal13type_identityIT_E4typeENSt16allocator_traitsISE_E7pointerERT0_NSJ_9size_typeE.exit, %_ZNSt16allocator_traitsISaISt10unique_ptrImSt14default_deleteImEEEE7destroyIS3_EEvRS4_PT_.exit.i
   %.06.i = phi i64 [ %36, %_ZNSt16allocator_traitsISaISt10unique_ptrImSt14default_deleteImEEEE7destroyIS3_EEvRS4_PT_.exit.i ], [ %.sroa.7.06790, %_ZN4absl23inlined_vector_internal17ConstructElementsISaISt10unique_ptrImSt14default_deleteImEEENS0_20IteratorValueAdapterIS6_St13move_iteratorIPS5_EEEEEvRNS_8internal13type_identityIT_E4typeENSt16allocator_traitsISE_E7pointerERT0_NSJ_9size_typeE.exit ]
   %36 = add nsw i64 %.06.i, -1
-  %37 = getelementptr inbounds nuw %"class.std::unique_ptr.122", ptr %.sroa.037.06888, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.037.06888, i64 %36
   %38 = load ptr, ptr %37, align 8, !tbaa !398
   %.not.i.i.i.i = icmp eq ptr %38, null
   br i1 %.not.i.i.i.i, label %_ZNSt16allocator_traitsISaISt10unique_ptrImSt14default_deleteImEEEE7destroyIS3_EEvRS4_PT_.exit.i, label %_ZNKSt14default_deleteImEclEPm.exit.i.i.i.i
@@ -22911,7 +22888,7 @@ _ZN4absl13InlinedVectorISt10unique_ptrImSt14default_deleteImEELm2ESaIS4_EE9push_
   %34 = ptrtoint ptr %28 to i64
   %35 = load ptr, ptr %.032.i.sroa.gep, align 8, !noalias !598
   %.sink2.i.i.i.i = select i1 %32, ptr %35, ptr %.032.i.sroa.gep
-  %36 = getelementptr inbounds nuw %"class.std::unique_ptr.122", ptr %.sink2.i.i.i.i, i64 %.sink1.i.i.i.i
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i.i.i.i, i64 %.sink1.i.i.i.i
   store i64 %34, ptr %36, align 8, !tbaa !398
   %37 = add i64 %31, 2
   store i64 %37, ptr %3, align 8, !tbaa !43
@@ -23004,16 +22981,16 @@ _ZNSt10unique_ptrImSt14default_deleteImEED2Ev.exit98: ; preds = %_ZNKSt14default
 
 _ZN4absl23inlined_vector_internal7StorageISt10unique_ptrImSt14default_deleteImEELm2ESaIS5_EE5SwapNENS7_21ElementwiseSwapPolicyEPS7_m.exit.i.i: ; preds = %.lr.ph.i.i.i.i, %53
   %spec.select.i.i.sroa.sel = select i1 %54, ptr %.032.i.sroa.gep, ptr %.032.i.sroa.gep194
-  %64 = getelementptr inbounds nuw %"class.std::unique_ptr.122", ptr %spec.select.i.i.sroa.sel, i64 %57
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %spec.select.i.i.sroa.sel, i64 %57
   %spec.select23.i.i.sroa.sel = select i1 %54, ptr %.032.i.sroa.gep194, ptr %.032.i.sroa.gep
-  %65 = getelementptr inbounds nuw %"class.std::unique_ptr.122", ptr %spec.select23.i.i.sroa.sel, i64 %57
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %spec.select23.i.i.sroa.sel, i64 %57
   %.not.i.i.i186 = icmp eq i64 %59, 0
   br i1 %.not.i.i.i186, label %.loopexit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN4absl23inlined_vector_internal7StorageISt10unique_ptrImSt14default_deleteImEELm2ESaIS5_EE5SwapNENS7_21ElementwiseSwapPolicyEPS7_m.exit.i.i, %.lr.ph.i.i.i
   %.012.i.i.i = phi i64 [ %70, %.lr.ph.i.i.i ], [ 0, %_ZN4absl23inlined_vector_internal7StorageISt10unique_ptrImSt14default_deleteImEELm2ESaIS5_EE5SwapNENS7_21ElementwiseSwapPolicyEPS7_m.exit.i.i ]
   %66 = phi ptr [ %69, %.lr.ph.i.i.i ], [ %64, %_ZN4absl23inlined_vector_internal7StorageISt10unique_ptrImSt14default_deleteImEELm2ESaIS5_EE5SwapNENS7_21ElementwiseSwapPolicyEPS7_m.exit.i.i ]
-  %67 = getelementptr inbounds nuw %"class.std::unique_ptr.122", ptr %65, i64 %.012.i.i.i
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %.012.i.i.i
   %68 = load i64, ptr %66, align 8, !tbaa !398
   store i64 %68, ptr %67, align 8, !tbaa !398
   store ptr null, ptr %66, align 8, !tbaa !398
@@ -23025,7 +23002,7 @@ _ZN4absl23inlined_vector_internal7StorageISt10unique_ptrImSt14default_deleteImEE
 .lr.ph.i9.i.i:                                    ; preds = %.lr.ph.i.i.i, %_ZNSt16allocator_traitsISaISt10unique_ptrImSt14default_deleteImEEEE7destroyIS3_EEvRS4_PT_.exit.i.i.i
   %.06.i.i.i = phi i64 [ %71, %_ZNSt16allocator_traitsISaISt10unique_ptrImSt14default_deleteImEEEE7destroyIS3_EEvRS4_PT_.exit.i.i.i ], [ %59, %.lr.ph.i.i.i ]
   %71 = add i64 %.06.i.i.i, -1
-  %72 = getelementptr inbounds nuw %"class.std::unique_ptr.122", ptr %64, i64 %71
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %71
   %73 = load ptr, ptr %72, align 8, !tbaa !398
   %.not.i.i.i.i.i.i = icmp eq ptr %73, null
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaISt10unique_ptrImSt14default_deleteImEEEE7destroyIS3_EEvRS4_PT_.exit.i.i.i, label %_ZNKSt14default_deleteImEclEPm.exit.i.i.i.i.i.i
@@ -23055,7 +23032,7 @@ _ZNSt16allocator_traitsISaISt10unique_ptrImSt14default_deleteImEEEE7destroyIS3_E
 .lr.ph.i.i:                                       ; preds = %.thread33.i, %.lr.ph.i.i
   %.012.i.i = phi i64 [ %82, %.lr.ph.i.i ], [ 0, %.thread33.i ]
   %78 = phi ptr [ %81, %.lr.ph.i.i ], [ %.032.i.sroa.phi, %.thread33.i ]
-  %79 = getelementptr inbounds nuw %"class.std::unique_ptr.122", ptr %.0.i.sroa.phi, i64 %.012.i.i
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.sroa.phi, i64 %.012.i.i
   %80 = load i64, ptr %78, align 8, !tbaa !398
   store i64 %80, ptr %79, align 8, !tbaa !398
   store ptr null, ptr %78, align 8, !tbaa !398
@@ -23067,7 +23044,7 @@ _ZNSt16allocator_traitsISaISt10unique_ptrImSt14default_deleteImEEEE7destroyIS3_E
 .lr.ph.i15.i:                                     ; preds = %.lr.ph.i.i, %_ZNSt16allocator_traitsISaISt10unique_ptrImSt14default_deleteImEEEE7destroyIS3_EEvRS4_PT_.exit.i.i
   %.06.i.i = phi i64 [ %83, %_ZNSt16allocator_traitsISaISt10unique_ptrImSt14default_deleteImEEEE7destroyIS3_EEvRS4_PT_.exit.i.i ], [ %77, %.lr.ph.i.i ]
   %83 = add nsw i64 %.06.i.i, -1
-  %84 = getelementptr %"class.std::unique_ptr.122", ptr %.032.i, i64 %.06.i.i
+  %84 = getelementptr [8 x i8], ptr %.032.i, i64 %.06.i.i
   %85 = load ptr, ptr %84, align 8, !tbaa !398
   %.not.i.i.i.i.i = icmp eq ptr %85, null
   br i1 %.not.i.i.i.i.i, label %_ZNSt16allocator_traitsISaISt10unique_ptrImSt14default_deleteImEEEE7destroyIS3_EEvRS4_PT_.exit.i.i, label %_ZNKSt14default_deleteImEclEPm.exit.i.i.i.i.i
@@ -23109,7 +23086,7 @@ _ZN4absl13InlinedVectorISt10unique_ptrImSt14default_deleteImEELm2ESaIS4_EE9push_
   %92 = ptrtoint ptr %86 to i64
   %93 = load ptr, ptr %.032.i.sroa.gep194, align 8, !noalias !609
   %.sink2.i.i.i.i106 = select i1 %90, ptr %93, ptr %.032.i.sroa.gep194
-  %94 = getelementptr inbounds nuw %"class.std::unique_ptr.122", ptr %.sink2.i.i.i.i106, i64 %.sink1.i.i.i.i104
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i.i.i.i106, i64 %.sink1.i.i.i.i104
   store i64 %92, ptr %94, align 8, !tbaa !398
   %95 = add i64 %89, 2
   store i64 %95, ptr %4, align 8, !tbaa !43
@@ -23471,7 +23448,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %198 = trunc i64 %196 to i1
   %199 = load ptr, ptr %.032.i.sroa.gep, align 8
   %200 = select i1 %198, ptr %199, ptr %.032.i.sroa.gep
-  %201 = getelementptr inbounds nuw %"class.std::unique_ptr.122", ptr %200, i64 %.035219
+  %201 = getelementptr inbounds nuw [8 x i8], ptr %200, i64 %.035219
   invoke void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_14PointeeMatcherImEEEclISt10unique_ptrImSt14default_deleteImEEEENS_15AssertionResultEPKcRKT_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %15, ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull @.str.266, ptr noundef nonnull align 8 dereferenceable(8) %201)
           to label %202 unwind label %205
 
@@ -23631,7 +23608,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %252 = trunc i64 %250 to i1
   %253 = load ptr, ptr %.032.i.sroa.gep194, align 8
   %254 = select i1 %252, ptr %253, ptr %.032.i.sroa.gep194
-  %255 = getelementptr inbounds nuw %"class.std::unique_ptr.122", ptr %254, i64 %.033223
+  %255 = getelementptr inbounds nuw [8 x i8], ptr %254, i64 %.033223
   invoke void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_14PointeeMatcherImEEEclISt10unique_ptrImSt14default_deleteImEEEENS_15AssertionResultEPKcRKT_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %19, ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull @.str.238, ptr noundef nonnull align 8 dereferenceable(8) %255)
           to label %256 unwind label %259
 
@@ -24028,7 +24005,7 @@ define internal void @_ZN12_GLOBAL__N_126UniquePtr_EraseSingle_Test8TestBodyEv(p
   %.sroa.014.0.i.i.pn = phi ptr [ %.sroa.014.0.i.i, %_ZN4absl23inlined_vector_internal20IteratorValueAdapterISaISt10unique_ptrImSt14default_deleteImEEESt13move_iteratorIPS5_EE10AssignNextES8_.exit.i.i.i ], [ %41, %.lr.ph.i.i.i.preheader ]
   %.05.i.i.i = phi i64 [ %46, %_ZN4absl23inlined_vector_internal20IteratorValueAdapterISaISt10unique_ptrImSt14default_deleteImEEESt13move_iteratorIPS5_EE10AssignNextES8_.exit.i.i.i ], [ 0, %.lr.ph.i.i.i.preheader ]
   %.sroa.014.0.i.i = getelementptr inbounds nuw i8, ptr %.sroa.014.0.i.i.pn, i64 8
-  %43 = getelementptr inbounds nuw %"class.std::unique_ptr.122", ptr %41, i64 %.05.i.i.i
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %.05.i.i.i
   %44 = load ptr, ptr %.sroa.014.0.i.i, align 8, !tbaa !398
   store ptr null, ptr %.sroa.014.0.i.i, align 8, !tbaa !398
   %45 = load ptr, ptr %43, align 8, !tbaa !398
@@ -24046,7 +24023,7 @@ _ZN4absl23inlined_vector_internal20IteratorValueAdapterISaISt10unique_ptrImSt14d
   br i1 %exitcond.not.i.i.i, label %_ZN4absl23inlined_vector_internal14AssignElementsISaISt10unique_ptrImSt14default_deleteImEEENS0_20IteratorValueAdapterIS6_St13move_iteratorIPS5_EEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSE_9size_typeE.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !594
 
 _ZN4absl23inlined_vector_internal14AssignElementsISaISt10unique_ptrImSt14default_deleteImEEENS0_20IteratorValueAdapterIS6_St13move_iteratorIPS5_EEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSE_9size_typeE.exit.i.i: ; preds = %_ZN4absl23inlined_vector_internal20IteratorValueAdapterISaISt10unique_ptrImSt14default_deleteImEEESt13move_iteratorIPS5_EE10AssignNextES8_.exit.i.i.i, %37
-  %47 = getelementptr %"class.std::unique_ptr.122", ptr %41, i64 %.sink1.i.i.i
+  %47 = getelementptr [8 x i8], ptr %41, i64 %.sink1.i.i.i
   %48 = getelementptr i8, ptr %47, i64 -8
   %49 = load ptr, ptr %48, align 8, !tbaa !398
   %.not.i.i.i.i.i.i = icmp eq ptr %49, null
@@ -24078,7 +24055,7 @@ _ZN4absl13InlinedVectorISt10unique_ptrImSt14default_deleteImEELm8ESaIS4_EE9push_
   %56 = ptrtoint ptr %51 to i64
   %57 = load ptr, ptr %29, align 8, !noalias !620
   %.sink2.i.i.i.i = select i1 %54, ptr %57, ptr %29
-  %58 = getelementptr inbounds nuw %"class.std::unique_ptr.122", ptr %.sink2.i.i.i.i, i64 %.sink1.i.i.i.i
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i.i.i.i, i64 %.sink1.i.i.i.i
   store i64 %56, ptr %58, align 8, !tbaa !398
   %59 = add i64 %53, 2
   store i64 %59, ptr %2, align 8, !tbaa !43
@@ -24288,7 +24265,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %117 = trunc i64 %116 to i1
   %118 = load ptr, ptr %29, align 8
   %119 = select i1 %117, ptr %118, ptr %29
-  %120 = getelementptr inbounds nuw %"class.std::unique_ptr.122", ptr %119, i64 %.069248
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %119, i64 %.069248
   invoke void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_14PointeeMatcherImEEEclISt10unique_ptrImSt14default_deleteImEEEENS_15AssertionResultEPKcRKT_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %8, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull @.str.266, ptr noundef nonnull align 8 dereferenceable(8) %120)
           to label %121 unwind label %124
 
@@ -24454,13 +24431,13 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br i1 %.not.i.i.i147, label %_ZN4absl23inlined_vector_internal14AssignElementsISaISt10unique_ptrImSt14default_deleteImEEENS0_20IteratorValueAdapterIS6_St13move_iteratorIPS5_EEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSE_9size_typeE.exit.i.i156, label %.lr.ph.i.preheader.i.i148
 
 .lr.ph.i.preheader.i.i148:                        ; preds = %.critedge100
-  %176 = getelementptr inbounds nuw %"class.std::unique_ptr.122", ptr %.sink2.i.i.i145, i64 %173
+  %176 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i.i.i145, i64 %173
   br label %.lr.ph.i.i.i149
 
 .lr.ph.i.i.i149:                                  ; preds = %_ZN4absl23inlined_vector_internal20IteratorValueAdapterISaISt10unique_ptrImSt14default_deleteImEEESt13move_iteratorIPS5_EE10AssignNextES8_.exit.i.i.i154, %.lr.ph.i.preheader.i.i148
   %.sroa.014.0.i.i150 = phi ptr [ %180, %_ZN4absl23inlined_vector_internal20IteratorValueAdapterISaISt10unique_ptrImSt14default_deleteImEEESt13move_iteratorIPS5_EE10AssignNextES8_.exit.i.i.i154 ], [ %176, %.lr.ph.i.preheader.i.i148 ]
   %.05.i.i.i151 = phi i64 [ %181, %_ZN4absl23inlined_vector_internal20IteratorValueAdapterISaISt10unique_ptrImSt14default_deleteImEEESt13move_iteratorIPS5_EE10AssignNextES8_.exit.i.i.i154 ], [ 0, %.lr.ph.i.preheader.i.i148 ]
-  %177 = getelementptr inbounds nuw %"class.std::unique_ptr.122", ptr %174, i64 %.05.i.i.i151
+  %177 = getelementptr inbounds nuw [8 x i8], ptr %174, i64 %.05.i.i.i151
   %178 = load ptr, ptr %.sroa.014.0.i.i150, align 8, !tbaa !398
   store ptr null, ptr %.sroa.014.0.i.i150, align 8, !tbaa !398
   %179 = load ptr, ptr %177, align 8, !tbaa !398
@@ -24479,7 +24456,7 @@ _ZN4absl23inlined_vector_internal20IteratorValueAdapterISaISt10unique_ptrImSt14d
   br i1 %exitcond.not.i.i.i155, label %_ZN4absl23inlined_vector_internal14AssignElementsISaISt10unique_ptrImSt14default_deleteImEEENS0_20IteratorValueAdapterIS6_St13move_iteratorIPS5_EEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSE_9size_typeE.exit.i.i156, label %.lr.ph.i.i.i149, !llvm.loop !594
 
 _ZN4absl23inlined_vector_internal14AssignElementsISaISt10unique_ptrImSt14default_deleteImEEENS0_20IteratorValueAdapterIS6_St13move_iteratorIPS5_EEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSE_9size_typeE.exit.i.i156: ; preds = %_ZN4absl23inlined_vector_internal20IteratorValueAdapterISaISt10unique_ptrImSt14default_deleteImEEESt13move_iteratorIPS5_EE10AssignNextES8_.exit.i.i.i154, %.critedge100
-  %182 = getelementptr %"class.std::unique_ptr.122", ptr %.sink2.i.i.i145, i64 %.sink1.i.i.i146
+  %182 = getelementptr [8 x i8], ptr %.sink2.i.i.i145, i64 %.sink1.i.i.i146
   %183 = getelementptr i8, ptr %182, i64 -8
   %184 = load ptr, ptr %183, align 8, !tbaa !398
   %.not.i.i.i.i.i.i157 = icmp eq ptr %184, null
@@ -24955,7 +24932,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %330 = trunc i64 %329 to i1
   %331 = load ptr, ptr %29, align 8
   %332 = select i1 %330, ptr %331, ptr %29
-  %333 = getelementptr inbounds nuw %"class.std::unique_ptr.122", ptr %332, i64 %.038250
+  %333 = getelementptr inbounds nuw [8 x i8], ptr %332, i64 %.038250
   invoke void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_14PointeeMatcherImEEEclISt10unique_ptrImSt14default_deleteImEEEENS_15AssertionResultEPKcRKT_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %24, ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull @.str.266, ptr noundef nonnull align 8 dereferenceable(8) %333)
           to label %334 unwind label %337
 
@@ -26418,7 +26395,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
 _ZN4absl23inlined_vector_internal13MallocAdapterISaISt10unique_ptrImSt14default_deleteImEEELb0EE8AllocateERS6_m.exit.i: ; preds = %2
   %14 = shl nuw nsw i64 %10, 3
   %15 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %14) #42
-  %16 = getelementptr inbounds nuw %"class.std::unique_ptr.122", ptr %15, i64 %.sink1.i
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %.sink1.i
   %17 = load i64, ptr %1, align 8, !tbaa !398
   store i64 %17, ptr %16, align 8, !tbaa !398
   store ptr null, ptr %1, align 8, !tbaa !398
@@ -26428,7 +26405,7 @@ _ZN4absl23inlined_vector_internal13MallocAdapterISaISt10unique_ptrImSt14default_
 .lr.ph.i:                                         ; preds = %_ZN4absl23inlined_vector_internal13MallocAdapterISaISt10unique_ptrImSt14default_deleteImEEELb0EE8AllocateERS6_m.exit.i, %.lr.ph.i
   %.012.i = phi i64 [ %22, %.lr.ph.i ], [ 0, %_ZN4absl23inlined_vector_internal13MallocAdapterISaISt10unique_ptrImSt14default_deleteImEEELb0EE8AllocateERS6_m.exit.i ]
   %18 = phi ptr [ %21, %.lr.ph.i ], [ %.sink2.i, %_ZN4absl23inlined_vector_internal13MallocAdapterISaISt10unique_ptrImSt14default_deleteImEEELb0EE8AllocateERS6_m.exit.i ]
-  %19 = getelementptr inbounds nuw %"class.std::unique_ptr.122", ptr %15, i64 %.012.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %.012.i
   %20 = load i64, ptr %18, align 8, !tbaa !398
   store i64 %20, ptr %19, align 8, !tbaa !398
   store ptr null, ptr %18, align 8, !tbaa !398
@@ -26440,7 +26417,7 @@ _ZN4absl23inlined_vector_internal13MallocAdapterISaISt10unique_ptrImSt14default_
 .lr.ph.i15:                                       ; preds = %.lr.ph.i, %_ZNSt16allocator_traitsISaISt10unique_ptrImSt14default_deleteImEEEE7destroyIS3_EEvRS4_PT_.exit.i
   %.06.i = phi i64 [ %23, %_ZNSt16allocator_traitsISaISt10unique_ptrImSt14default_deleteImEEEE7destroyIS3_EEvRS4_PT_.exit.i ], [ %.sink1.i, %.lr.ph.i ]
   %23 = add nsw i64 %.06.i, -1
-  %24 = getelementptr inbounds nuw %"class.std::unique_ptr.122", ptr %.sink2.i, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !398
   %.not.i.i.i.i = icmp eq ptr %25, null
   br i1 %.not.i.i.i.i, label %_ZNSt16allocator_traitsISaISt10unique_ptrImSt14default_deleteImEEEE7destroyIS3_EEvRS4_PT_.exit.i, label %_ZNKSt14default_deleteImEclEPm.exit.i.i.i.i
@@ -27810,7 +27787,7 @@ define linkonce_odr dso_local void @_ZN4absl23inlined_vector_internal7StorageISt
 .lr.ph.i:                                         ; preds = %1, %_ZNSt16allocator_traitsISaISt10unique_ptrImSt14default_deleteImEEEE7destroyIS3_EEvRS4_PT_.exit.i
   %.06.i = phi i64 [ %8, %_ZNSt16allocator_traitsISaISt10unique_ptrImSt14default_deleteImEEEE7destroyIS3_EEvRS4_PT_.exit.i ], [ %7, %1 ]
   %8 = add nsw i64 %.06.i, -1
-  %9 = getelementptr inbounds nuw %"class.std::unique_ptr.122", ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !398
   %.not.i.i.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i.i.i, label %_ZNSt16allocator_traitsISaISt10unique_ptrImSt14default_deleteImEEEE7destroyIS3_EEvRS4_PT_.exit.i, label %_ZNKSt14default_deleteImEclEPm.exit.i.i.i.i
@@ -27945,7 +27922,7 @@ define internal void @_ZN12_GLOBAL__N_125UniquePtr_EraseMulti_Test8TestBodyEv(pt
 .lr.ph.i.i.i:                                     ; preds = %_ZN4absl23inlined_vector_internal20IteratorValueAdapterISaISt10unique_ptrImSt14default_deleteImEEESt13move_iteratorIPS5_EE10AssignNextES8_.exit.i.i.i, %.lr.ph.i.preheader.i.i
   %.sroa.014.0.i.i = phi ptr [ %47, %_ZN4absl23inlined_vector_internal20IteratorValueAdapterISaISt10unique_ptrImSt14default_deleteImEEESt13move_iteratorIPS5_EE10AssignNextES8_.exit.i.i.i ], [ %43, %.lr.ph.i.preheader.i.i ]
   %.05.i.i.i = phi i64 [ %48, %_ZN4absl23inlined_vector_internal20IteratorValueAdapterISaISt10unique_ptrImSt14default_deleteImEEESt13move_iteratorIPS5_EE10AssignNextES8_.exit.i.i.i ], [ 0, %.lr.ph.i.preheader.i.i ]
-  %44 = getelementptr inbounds nuw %"class.std::unique_ptr.122", ptr %36, i64 %.05.i.i.i
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %.05.i.i.i
   %45 = load ptr, ptr %.sroa.014.0.i.i, align 8, !tbaa !398
   store ptr null, ptr %.sroa.014.0.i.i, align 8, !tbaa !398
   %46 = load ptr, ptr %44, align 8, !tbaa !398
@@ -27964,13 +27941,13 @@ _ZN4absl23inlined_vector_internal20IteratorValueAdapterISaISt10unique_ptrImSt14d
   br i1 %exitcond.not.i.i.i, label %_ZN4absl23inlined_vector_internal14AssignElementsISaISt10unique_ptrImSt14default_deleteImEEENS0_20IteratorValueAdapterIS6_St13move_iteratorIPS5_EEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSE_9size_typeE.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !594
 
 _ZN4absl23inlined_vector_internal14AssignElementsISaISt10unique_ptrImSt14default_deleteImEEENS0_20IteratorValueAdapterIS6_St13move_iteratorIPS5_EEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSE_9size_typeE.exit.i.i: ; preds = %_ZN4absl23inlined_vector_internal20IteratorValueAdapterISaISt10unique_ptrImSt14default_deleteImEEESt13move_iteratorIPS5_EE10AssignNextES8_.exit.i.i.i, %37
-  %49 = getelementptr inbounds nuw %"class.std::unique_ptr.122", ptr %36, i64 %42
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %42
   br label %.lr.ph.i12.i.i
 
 .lr.ph.i12.i.i:                                   ; preds = %_ZNSt16allocator_traitsISaISt10unique_ptrImSt14default_deleteImEEEE7destroyIS3_EEvRS4_PT_.exit.i.i.i, %_ZN4absl23inlined_vector_internal14AssignElementsISaISt10unique_ptrImSt14default_deleteImEEENS0_20IteratorValueAdapterIS6_St13move_iteratorIPS5_EEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSE_9size_typeE.exit.i.i
   %.06.i.i.i = phi i64 [ %50, %_ZNSt16allocator_traitsISaISt10unique_ptrImSt14default_deleteImEEEE7destroyIS3_EEvRS4_PT_.exit.i.i.i ], [ %41, %_ZN4absl23inlined_vector_internal14AssignElementsISaISt10unique_ptrImSt14default_deleteImEEENS0_20IteratorValueAdapterIS6_St13move_iteratorIPS5_EEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSE_9size_typeE.exit.i.i ]
   %50 = add i64 %.06.i.i.i, -1
-  %51 = getelementptr inbounds nuw %"class.std::unique_ptr.122", ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %50
   %52 = load ptr, ptr %51, align 8, !tbaa !398
   %.not.i.i.i.i.i.i = icmp eq ptr %52, null
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaISt10unique_ptrImSt14default_deleteImEEEE7destroyIS3_EEvRS4_PT_.exit.i.i.i, label %_ZNKSt14default_deleteImEclEPm.exit.i.i.i.i.i.i
@@ -28013,7 +27990,7 @@ _ZN4absl13InlinedVectorISt10unique_ptrImSt14default_deleteImEELm8ESaIS4_EE9push_
   %62 = ptrtoint ptr %57 to i64
   %63 = load ptr, ptr %25, align 8, !noalias !750
   %.sink2.i.i.i.i = select i1 %60, ptr %63, ptr %25
-  %64 = getelementptr inbounds nuw %"class.std::unique_ptr.122", ptr %.sink2.i.i.i.i, i64 %.sink1.i.i.i.i
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i.i.i.i, i64 %.sink1.i.i.i.i
   store i64 %62, ptr %64, align 8, !tbaa !398
   %65 = add i64 %59, 2
   store i64 %65, ptr %2, align 8, !tbaa !43
@@ -28219,7 +28196,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %121 = trunc i64 %120 to i1
   %122 = load ptr, ptr %25, align 8
   %123 = select i1 %121, ptr %122, ptr %25
-  %124 = getelementptr inbounds nuw %"class.std::unique_ptr.122", ptr %123, i64 %.062227
+  %124 = getelementptr inbounds nuw [8 x i8], ptr %123, i64 %.062227
   invoke void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_14PointeeMatcherImEEEclISt10unique_ptrImSt14default_deleteImEEEENS_15AssertionResultEPKcRKT_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %8, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull @.str.266, ptr noundef nonnull align 8 dereferenceable(8) %124)
           to label %125 unwind label %128
 
@@ -28395,13 +28372,13 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br i1 %.not.i.i.i136, label %_ZN4absl23inlined_vector_internal14AssignElementsISaISt10unique_ptrImSt14default_deleteImEEENS0_20IteratorValueAdapterIS6_St13move_iteratorIPS5_EEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSE_9size_typeE.exit.i.i145, label %.lr.ph.i.preheader.i.i137
 
 .lr.ph.i.preheader.i.i137:                        ; preds = %174
-  %185 = getelementptr inbounds nuw %"class.std::unique_ptr.122", ptr %.sink2.i.i.i134, i64 %182
+  %185 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i.i.i134, i64 %182
   br label %.lr.ph.i.i.i138
 
 .lr.ph.i.i.i138:                                  ; preds = %_ZN4absl23inlined_vector_internal20IteratorValueAdapterISaISt10unique_ptrImSt14default_deleteImEEESt13move_iteratorIPS5_EE10AssignNextES8_.exit.i.i.i143, %.lr.ph.i.preheader.i.i137
   %.sroa.014.0.i.i139 = phi ptr [ %189, %_ZN4absl23inlined_vector_internal20IteratorValueAdapterISaISt10unique_ptrImSt14default_deleteImEEESt13move_iteratorIPS5_EE10AssignNextES8_.exit.i.i.i143 ], [ %185, %.lr.ph.i.preheader.i.i137 ]
   %.05.i.i.i140 = phi i64 [ %190, %_ZN4absl23inlined_vector_internal20IteratorValueAdapterISaISt10unique_ptrImSt14default_deleteImEEESt13move_iteratorIPS5_EE10AssignNextES8_.exit.i.i.i143 ], [ 0, %.lr.ph.i.preheader.i.i137 ]
-  %186 = getelementptr inbounds nuw %"class.std::unique_ptr.122", ptr %183, i64 %.05.i.i.i140
+  %186 = getelementptr inbounds nuw [8 x i8], ptr %183, i64 %.05.i.i.i140
   %187 = load ptr, ptr %.sroa.014.0.i.i139, align 8, !tbaa !398
   store ptr null, ptr %.sroa.014.0.i.i139, align 8, !tbaa !398
   %188 = load ptr, ptr %186, align 8, !tbaa !398
@@ -28421,13 +28398,13 @@ _ZN4absl23inlined_vector_internal20IteratorValueAdapterISaISt10unique_ptrImSt14d
 
 _ZN4absl23inlined_vector_internal14AssignElementsISaISt10unique_ptrImSt14default_deleteImEEENS0_20IteratorValueAdapterIS6_St13move_iteratorIPS5_EEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSE_9size_typeE.exit.i.i145: ; preds = %_ZN4absl23inlined_vector_internal20IteratorValueAdapterISaISt10unique_ptrImSt14default_deleteImEEESt13move_iteratorIPS5_EE10AssignNextES8_.exit.i.i.i143, %174
   %191 = sub i64 %.sink1.i.i.i135, %178
-  %192 = getelementptr inbounds nuw %"class.std::unique_ptr.122", ptr %.sink2.i.i.i134, i64 %191
+  %192 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i.i.i134, i64 %191
   br label %.lr.ph.i12.i.i146
 
 .lr.ph.i12.i.i146:                                ; preds = %_ZNSt16allocator_traitsISaISt10unique_ptrImSt14default_deleteImEEEE7destroyIS3_EEvRS4_PT_.exit.i.i.i150, %_ZN4absl23inlined_vector_internal14AssignElementsISaISt10unique_ptrImSt14default_deleteImEEENS0_20IteratorValueAdapterIS6_St13move_iteratorIPS5_EEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSE_9size_typeE.exit.i.i145
   %.06.i.i.i147 = phi i64 [ %193, %_ZNSt16allocator_traitsISaISt10unique_ptrImSt14default_deleteImEEEE7destroyIS3_EEvRS4_PT_.exit.i.i.i150 ], [ %178, %_ZN4absl23inlined_vector_internal14AssignElementsISaISt10unique_ptrImSt14default_deleteImEEENS0_20IteratorValueAdapterIS6_St13move_iteratorIPS5_EEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSE_9size_typeE.exit.i.i145 ]
   %193 = add i64 %.06.i.i.i147, -1
-  %194 = getelementptr inbounds nuw %"class.std::unique_ptr.122", ptr %192, i64 %193
+  %194 = getelementptr inbounds nuw [8 x i8], ptr %192, i64 %193
   %195 = load ptr, ptr %194, align 8, !tbaa !398
   %.not.i.i.i.i.i.i148 = icmp eq ptr %195, null
   br i1 %.not.i.i.i.i.i.i148, label %_ZNSt16allocator_traitsISaISt10unique_ptrImSt14default_deleteImEEEE7destroyIS3_EEvRS4_PT_.exit.i.i.i150, label %_ZNKSt14default_deleteImEclEPm.exit.i.i.i.i.i.i149
@@ -28759,7 +28736,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %295 = trunc i64 %294 to i1
   %296 = load ptr, ptr %25, align 8
   %297 = select i1 %295, ptr %296, ptr %25
-  %298 = getelementptr inbounds nuw %"class.std::unique_ptr.122", ptr %297, i64 %.035229
+  %298 = getelementptr inbounds nuw [8 x i8], ptr %297, i64 %.035229
   invoke void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_14PointeeMatcherImEEEclISt10unique_ptrImSt14default_deleteImEEEENS_15AssertionResultEPKcRKT_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %20, ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull @.str.266, ptr noundef nonnull align 8 dereferenceable(8) %298)
           to label %299 unwind label %302
 
@@ -29131,7 +29108,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %.preheader344,
   br i1 %.not.i242, label %.noexc113, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %81
-  %83 = getelementptr inbounds nuw %"class.(anonymous namespace)::RefCounted", ptr %79, i64 %.076477
+  %83 = getelementptr inbounds nuw [16 x i8], ptr %79, i64 %.076477
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %_ZN4absl23inlined_vector_internal20IteratorValueAdapterISaIN12_GLOBAL__N_110RefCountedEESt13move_iteratorIPS3_EE10AssignNextES6_.exit.i
@@ -29156,7 +29133,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %.preheader344,
   unreachable
 
 88:                                               ; preds = %.lr.ph.i
-  %89 = getelementptr inbounds nuw %"class.(anonymous namespace)::RefCounted", ptr %80, i64 %.05.i
+  %89 = getelementptr inbounds nuw [16 x i8], ptr %80, i64 %.05.i
   %.val3.i.i = load i32, ptr %84, align 8, !tbaa !762
   %90 = load i32, ptr %.val4.i.i, align 4, !tbaa !130
   %91 = add nsw i32 %90, 1
@@ -29200,13 +29177,13 @@ _ZN4absl23inlined_vector_internal20IteratorValueAdapterISaIN12_GLOBAL__N_110RefC
 
 .noexc113:                                        ; preds = %_ZN4absl23inlined_vector_internal20IteratorValueAdapterISaIN12_GLOBAL__N_110RefCountedEESt13move_iteratorIPS3_EE10AssignNextES6_.exit.i, %81
   %104 = sub nsw i64 %.sink5.i.i.i, %77
-  %105 = getelementptr inbounds nuw %"class.(anonymous namespace)::RefCounted", ptr %79, i64 %104
+  %105 = getelementptr inbounds nuw [16 x i8], ptr %79, i64 %104
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_110RefCountedEEE7destroyIS1_EEvRS2_PT_.exit.i.i.i, %.noexc113
   %.02.i.i.i = phi i64 [ %106, %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_110RefCountedEEE7destroyIS1_EEvRS2_PT_.exit.i.i.i ], [ %77, %.noexc113 ]
   %106 = add i64 %.02.i.i.i, -1
-  %107 = getelementptr inbounds nuw %"class.(anonymous namespace)::RefCounted", ptr %105, i64 %106
+  %107 = getelementptr inbounds nuw [16 x i8], ptr %105, i64 %106
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 8
   %.val.i.i.i.i.i.i = load ptr, ptr %108, align 8, !tbaa !760
   %109 = load i32, ptr %.val.i.i.i.i.i.i, align 4, !tbaa !130
@@ -29250,7 +29227,7 @@ _ZN4absl23inlined_vector_internal7StorageIN12_GLOBAL__N_110RefCountedELm8ESaIS3_
 119:                                              ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i, %74
   %.052465 = phi i64 [ 0, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ], [ %75, %74 ]
   %120 = trunc nuw nsw i64 %.052465 to i32
-  %121 = getelementptr inbounds nuw i32, ptr %73, i64 %.052465
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %73, i64 %.052465
   %122 = load i32, ptr %121, align 4, !tbaa !130
   %123 = add nsw i32 %122, 1
   store i32 %123, ptr %121, align 4, !tbaa !130
@@ -29265,7 +29242,7 @@ _ZN4absl23inlined_vector_internal7StorageIN12_GLOBAL__N_110RefCountedELm8ESaIS3_
 _ZNSt16allocator_traitsISaIN12_GLOBAL__N_110RefCountedEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit.i.i.i: ; preds = %119
   %.val1.i.i.i.i = load ptr, ptr %46, align 8, !noalias !765
   %.sink6.i.i.i.i = select i1 %124, ptr %.val1.i.i.i.i, ptr %46
-  %125 = getelementptr inbounds nuw %"class.(anonymous namespace)::RefCounted", ptr %.sink6.i.i.i.i, i64 %.sink5.i.i.i.i
+  %125 = getelementptr inbounds nuw [16 x i8], ptr %.sink6.i.i.i.i, i64 %.sink5.i.i.i.i
   store i32 %120, ptr %125, align 8, !tbaa !762
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 8
   store ptr %121, ptr %126, align 8, !tbaa !760
@@ -29581,7 +29558,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %204, %_ZNKSt14defau
   %216 = trunc i64 %.val.i.i130 to i1
   %.val1.i.i131 = load ptr, ptr %46, align 8
   %217 = select i1 %216, ptr %.val1.i.i131, ptr %46
-  %218 = getelementptr inbounds nuw %"class.(anonymous namespace)::RefCounted", ptr %217, i64 %.050466
+  %218 = getelementptr inbounds nuw [16 x i8], ptr %217, i64 %.050466
   %219 = load i32, ptr %218, align 4, !tbaa !130, !noalias !771
   %220 = icmp eq i32 %219, %215
   br i1 %220, label %221, label %222
@@ -29823,7 +29800,7 @@ _ZN7testing15AssertionResultD2Ev.exit146:         ; preds = %_ZNKSt14default_del
   %289 = trunc i64 %.val108469 to i1
   %.val1.i.i153 = load ptr, ptr %46, align 8
   %290 = select i1 %289, ptr %.val1.i.i153, ptr %46
-  %291 = getelementptr inbounds nuw %"class.(anonymous namespace)::RefCounted", ptr %290, i64 %.049468
+  %291 = getelementptr inbounds nuw [16 x i8], ptr %290, i64 %.049468
   %292 = load i32, ptr %291, align 4, !tbaa !130, !noalias !780
   %293 = icmp eq i32 %292, %288
   br i1 %293, label %294, label %295
@@ -30062,7 +30039,7 @@ _ZN7testing15AssertionResultD2Ev.exit169:         ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.start.p0(ptr nonnull %33)
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
   store i32 1, ptr %34, align 4, !tbaa !130
-  %363 = getelementptr inbounds nuw i32, ptr %73, i64 %.048471
+  %363 = getelementptr inbounds nuw [4 x i8], ptr %73, i64 %.048471
   %364 = load i32, ptr %363, align 4, !tbaa !130, !noalias !789
   %365 = icmp eq i32 %364, 1
   br i1 %365, label %366, label %367
@@ -30299,7 +30276,7 @@ _ZN7testing15AssertionResultD2Ev.exit190:         ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.start.p0(ptr nonnull %37)
   call void @llvm.lifetime.start.p0(ptr nonnull %38)
   store i32 0, ptr %38, align 4, !tbaa !130
-  %433 = getelementptr inbounds nuw i32, ptr %73, i64 %.047473
+  %433 = getelementptr inbounds nuw [4 x i8], ptr %73, i64 %.047473
   %434 = load i32, ptr %433, align 4, !tbaa !130, !noalias !798
   %435 = icmp eq i32 %434, 0
   br i1 %435, label %436, label %437
@@ -30548,7 +30525,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %._crit_edge, %504
   call void @llvm.lifetime.start.p0(ptr nonnull %41)
   call void @llvm.lifetime.start.p0(ptr nonnull %42)
   store i32 1, ptr %42, align 4, !tbaa !130
-  %506 = getelementptr inbounds nuw i32, ptr %73, i64 %.0475
+  %506 = getelementptr inbounds nuw [4 x i8], ptr %73, i64 %.0475
   %507 = load i32, ptr %506, align 4, !tbaa !130, !noalias !808
   %508 = icmp eq i32 %507, 1
   br i1 %508, label %509, label %510
@@ -30865,7 +30842,7 @@ define internal fastcc void @_ZN4absl23inlined_vector_internal7StorageIN12_GLOBA
 _ZN4absl23inlined_vector_internal13MallocAdapterISaIN12_GLOBAL__N_110RefCountedEELb0EE8AllocateERS4_m.exit.i: ; preds = %1
   %14 = shl nuw nsw i64 %10, 4
   %15 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %14) #42
-  %16 = getelementptr inbounds nuw %"class.(anonymous namespace)::RefCounted", ptr %15, i64 %.sink5.i
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %.sink5.i
   store i32 %.0.val, ptr %16, align 8, !tbaa !762
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %.8.val, ptr %17, align 8, !tbaa !760
@@ -30919,7 +30896,7 @@ _ZN4absl23inlined_vector_internal13MallocAdapterISaIN12_GLOBAL__N_110RefCountedE
 .lr.ph.i:                                         ; preds = %31, %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_110RefCountedEEE7destroyIS1_EEvRS2_PT_.exit.i
   %.02.i = phi i64 [ %32, %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_110RefCountedEEE7destroyIS1_EEvRS2_PT_.exit.i ], [ %.sink5.i, %31 ]
   %32 = add nsw i64 %.02.i, -1
-  %33 = getelementptr inbounds nuw %"class.(anonymous namespace)::RefCounted", ptr %.sink6.i, i64 %32
+  %33 = getelementptr inbounds nuw [16 x i8], ptr %.sink6.i, i64 %32
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %.val.i.i.i.i = load ptr, ptr %34, align 8, !tbaa !760
   %35 = load i32, ptr %.val.i.i.i.i, align 4, !tbaa !130
@@ -31018,7 +30995,7 @@ define internal fastcc void @_ZN4absl23inlined_vector_internal17ConstructElement
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %16
   %.04 = phi i64 [ %20, %16 ], [ 0, %.lr.ph.preheader ]
   %.val.i23 = phi ptr [ %19, %16 ], [ %.promoted, %.lr.ph.preheader ]
-  %5 = getelementptr inbounds nuw %"class.(anonymous namespace)::RefCounted", ptr %0, i64 %.04
+  %5 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %.04
   %.val3.i = load i32, ptr %.val.i23, align 8, !tbaa !762
   %6 = getelementptr i8, ptr %.val.i23, i64 8
   %.val4.i = load ptr, ptr %6, align 8, !tbaa !760
@@ -31129,7 +31106,7 @@ define internal fastcc void @_ZN4absl23inlined_vector_internal14DestroyAdapterIS
 .lr.ph:                                           ; preds = %2, %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_110RefCountedEEE7destroyIS1_EEvRS2_PT_.exit
   %.02 = phi i64 [ %4, %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_110RefCountedEEE7destroyIS1_EEvRS2_PT_.exit ], [ %1, %2 ]
   %4 = add i64 %.02, -1
-  %5 = getelementptr inbounds nuw %"class.(anonymous namespace)::RefCounted", ptr %0, i64 %4
+  %5 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.val.i.i.i = load ptr, ptr %6, align 8, !tbaa !760
   %7 = load i32, ptr %.val.i.i.i, align 4, !tbaa !130
@@ -31182,7 +31159,7 @@ define internal fastcc void @_ZN4absl23inlined_vector_internal7StorageIN12_GLOBA
 .lr.ph.i:                                         ; preds = %1, %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_110RefCountedEEE7destroyIS1_EEvRS2_PT_.exit.i
   %.02.i = phi i64 [ %7, %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_110RefCountedEEE7destroyIS1_EEvRS2_PT_.exit.i ], [ %6, %1 ]
   %7 = add nsw i64 %.02.i, -1
-  %8 = getelementptr inbounds nuw %"class.(anonymous namespace)::RefCounted", ptr %5, i64 %7
+  %8 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.val.i.i.i.i = load ptr, ptr %9, align 8, !tbaa !760
   %10 = load i32, ptr %.val.i.i.i.i, align 4, !tbaa !130
@@ -32507,7 +32484,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(36) ptr @_
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !noalias !847
   %.sink2.i = select i1 %6, ptr %11, ptr %10
-  %12 = getelementptr inbounds nuw %"struct.std::pair.305", ptr %.sink2.i, i64 %.sink1.i
+  %12 = getelementptr inbounds nuw [40 x i8], ptr %.sink2.i, i64 %.sink1.i
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr %13, ptr %12, align 8, !tbaa !42
   %14 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(7) %1) #37
@@ -32595,7 +32572,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(36) ptr @_
 _ZN4absl23inlined_vector_internal13MallocAdapterISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEELb0EE8AllocateERSA_m.exit.i: ; preds = %3
   %16 = mul nuw nsw i64 %12, 40
   %17 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %16) #42
-  %18 = getelementptr inbounds nuw %"struct.std::pair.305", ptr %17, i64 %.sink1.i
+  %18 = getelementptr inbounds nuw [40 x i8], ptr %17, i64 %.sink1.i
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store ptr %19, ptr %18, align 8, !tbaa !42
   %20 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(7) %1) #37
@@ -32647,7 +32624,7 @@ _ZN4absl23inlined_vector_internal13MallocAdapterISaISt4pairINSt7__cxx1112basic_s
 .lr.ph.i:                                         ; preds = %28, %46
   %.sroa.023.0 = phi ptr [ %53, %46 ], [ %.sink2.i, %28 ]
   %.012.i = phi i64 [ %54, %46 ], [ 0, %28 ]
-  %35 = getelementptr inbounds nuw %"struct.std::pair.305", ptr %17, i64 %.012.i
+  %35 = getelementptr inbounds nuw [40 x i8], ptr %17, i64 %.012.i
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   store ptr %36, ptr %35, align 8, !tbaa !42
   %37 = load ptr, ptr %.sroa.023.0, align 8, !tbaa !39
@@ -32698,7 +32675,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 .lr.ph.i17:                                       ; preds = %46, %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEE7destroyIS7_EEvRS8_PT_.exit.i
   %.06.i = phi i64 [ %56, %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEE7destroyIS7_EEvRS8_PT_.exit.i ], [ %.sink1.i, %46 ]
   %56 = add nsw i64 %.06.i, -1
-  %57 = getelementptr inbounds nuw %"struct.std::pair.305", ptr %.sink2.i, i64 %56
+  %57 = getelementptr inbounds nuw [40 x i8], ptr %.sink2.i, i64 %56
   %58 = load ptr, ptr %57, align 8, !tbaa !39
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %60 = icmp eq ptr %58, %59
@@ -33352,7 +33329,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(36) ptr @_
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !noalias !886
   %.sink2.i = select i1 %6, ptr %11, ptr %10
-  %12 = getelementptr inbounds nuw %"struct.std::pair.305", ptr %.sink2.i, i64 %.sink1.i
+  %12 = getelementptr inbounds nuw [40 x i8], ptr %.sink2.i, i64 %.sink1.i
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr %13, ptr %12, align 8, !tbaa !42
   %14 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(8) %1) #37
@@ -33440,7 +33417,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(36) ptr @_
 _ZN4absl23inlined_vector_internal13MallocAdapterISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEELb0EE8AllocateERSA_m.exit.i: ; preds = %3
   %16 = mul nuw nsw i64 %12, 40
   %17 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %16) #42
-  %18 = getelementptr inbounds nuw %"struct.std::pair.305", ptr %17, i64 %.sink1.i
+  %18 = getelementptr inbounds nuw [40 x i8], ptr %17, i64 %.sink1.i
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store ptr %19, ptr %18, align 8, !tbaa !42
   %20 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(8) %1) #37
@@ -33492,7 +33469,7 @@ _ZN4absl23inlined_vector_internal13MallocAdapterISaISt4pairINSt7__cxx1112basic_s
 .lr.ph.i:                                         ; preds = %28, %46
   %.sroa.023.0 = phi ptr [ %53, %46 ], [ %.sink2.i, %28 ]
   %.012.i = phi i64 [ %54, %46 ], [ 0, %28 ]
-  %35 = getelementptr inbounds nuw %"struct.std::pair.305", ptr %17, i64 %.012.i
+  %35 = getelementptr inbounds nuw [40 x i8], ptr %17, i64 %.012.i
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   store ptr %36, ptr %35, align 8, !tbaa !42
   %37 = load ptr, ptr %.sroa.023.0, align 8, !tbaa !39
@@ -33543,7 +33520,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 .lr.ph.i17:                                       ; preds = %46, %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEE7destroyIS7_EEvRS8_PT_.exit.i
   %.06.i = phi i64 [ %56, %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEE7destroyIS7_EEvRS8_PT_.exit.i ], [ %.sink1.i, %46 ]
   %56 = add nsw i64 %.06.i, -1
-  %57 = getelementptr inbounds nuw %"struct.std::pair.305", ptr %.sink2.i, i64 %56
+  %57 = getelementptr inbounds nuw [40 x i8], ptr %.sink2.i, i64 %56
   %58 = load ptr, ptr %57, align 8, !tbaa !39
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %60 = icmp eq ptr %58, %59
@@ -33681,7 +33658,7 @@ define linkonce_odr dso_local void @_ZN4absl23inlined_vector_internal7StorageISt
 .lr.ph.i:                                         ; preds = %1, %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEE7destroyIS7_EEvRS8_PT_.exit.i
   %.06.i = phi i64 [ %8, %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEE7destroyIS7_EEvRS8_PT_.exit.i ], [ %7, %1 ]
   %8 = add nsw i64 %.06.i, -1
-  %9 = getelementptr inbounds nuw %"struct.std::pair.305", ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw [40 x i8], ptr %6, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !39
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %12 = icmp eq ptr %10, %11
@@ -34801,7 +34778,7 @@ _ZN4absl23inlined_vector_internal13MallocAdapterISaISt4pairINSt7__cxx1112basic_s
 .lr.ph.i:                                         ; preds = %30, %.lr.ph.preheader.i
   %.sroa.033.0 = phi ptr [ %3, %.lr.ph.preheader.i ], [ %37, %30 ]
   %.012.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %38, %30 ]
-  %19 = getelementptr inbounds nuw %"struct.std::pair.305", ptr %.02149, i64 %.012.i
+  %19 = getelementptr inbounds nuw [40 x i8], ptr %.02149, i64 %.012.i
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store ptr %20, ptr %19, align 8, !tbaa !42
   %21 = load ptr, ptr %.sroa.033.0, align 8, !tbaa !39
@@ -34844,7 +34821,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 .lr.ph.i27:                                       ; preds = %30, %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEE7destroyIS7_EEvRS8_PT_.exit.i
   %.06.i = phi i64 [ %39, %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEE7destroyIS7_EEvRS8_PT_.exit.i ], [ %5, %30 ]
   %39 = add i64 %.06.i, -1
-  %40 = getelementptr inbounds nuw %"struct.std::pair.305", ptr %3, i64 %39
+  %40 = getelementptr inbounds nuw [40 x i8], ptr %3, i64 %39
   %41 = load ptr, ptr %40, align 8, !tbaa !39
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %43 = icmp eq ptr %41, %42
@@ -35572,7 +35549,7 @@ _ZN4absl23inlined_vector_internal13MallocAdapterISaISt4pairINSt7__cxx1112basic_s
 .lr.ph.i:                                         ; preds = %_ZN4absl23inlined_vector_internal13MallocAdapterISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEELb0EE8AllocateERSA_m.exit.i, %27
   %.sroa.014.0 = phi ptr [ %34, %27 ], [ %.sink2.i, %_ZN4absl23inlined_vector_internal13MallocAdapterISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEELb0EE8AllocateERSA_m.exit.i ]
   %.012.i = phi i64 [ %35, %27 ], [ 0, %_ZN4absl23inlined_vector_internal13MallocAdapterISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEELb0EE8AllocateERSA_m.exit.i ]
-  %16 = getelementptr inbounds nuw %"struct.std::pair.305", ptr %15, i64 %.012.i
+  %16 = getelementptr inbounds nuw [40 x i8], ptr %15, i64 %.012.i
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store ptr %17, ptr %16, align 8, !tbaa !42
   %18 = load ptr, ptr %.sroa.014.0, align 8, !tbaa !39
@@ -35617,7 +35594,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 .lr.ph.i8:                                        ; preds = %27, %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEE7destroyIS7_EEvRS8_PT_.exit.i
   %.06.i = phi i64 [ %36, %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEE7destroyIS7_EEvRS8_PT_.exit.i ], [ %.sink1.i, %27 ]
   %36 = add nsw i64 %.06.i, -1
-  %37 = getelementptr inbounds nuw %"struct.std::pair.305", ptr %.sink2.i, i64 %36
+  %37 = getelementptr inbounds nuw [40 x i8], ptr %.sink2.i, i64 %36
   %38 = load ptr, ptr %37, align 8, !tbaa !39
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %40 = icmp eq ptr %38, %39
@@ -35910,7 +35887,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %87, %_ZNKSt14defaul
   %99 = load ptr, ptr %98, align 8
   %100 = select i1 %97, ptr %99, ptr %98
   %101 = lshr i64 %96, 1
-  %102 = getelementptr %"struct.std::pair.305", ptr %100, i64 %101
+  %102 = getelementptr [40 x i8], ptr %100, i64 %101
   %103 = getelementptr i8, ptr %102, i64 -40
   %104 = load ptr, ptr %103, align 8, !tbaa !39
   %105 = getelementptr i8, ptr %102, i64 -24
@@ -36394,7 +36371,7 @@ _ZN4absl13InlinedVectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaI
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.noexc5.i
   %.06.i.i.i = phi i64 [ %263, %.lr.ph.i.i.i ], [ 0, %.noexc5.i ]
-  %260 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %257, i64 %.06.i.i.i
+  %260 = getelementptr inbounds nuw [32 x i8], ptr %257, i64 %.06.i.i.i
   %261 = getelementptr inbounds nuw i8, ptr %260, i64 16
   store ptr %261, ptr %260, align 8, !tbaa !42
   %262 = getelementptr inbounds nuw i8, ptr %260, i64 8
@@ -36623,7 +36600,7 @@ _ZN4absl13InlinedVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm2E
 
 .lr.ph.i.i.i156:                                  ; preds = %.lr.ph.i.i.i156, %.noexc5.i155
   %.06.i.i.i157 = phi i64 [ %328, %.lr.ph.i.i.i156 ], [ 0, %.noexc5.i155 ]
-  %325 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %322, i64 %.06.i.i.i157
+  %325 = getelementptr inbounds nuw [32 x i8], ptr %322, i64 %.06.i.i.i157
   %326 = getelementptr inbounds nuw i8, ptr %325, i64 16
   store ptr %326, ptr %325, align 8, !tbaa !42
   %327 = getelementptr inbounds nuw i8, ptr %325, i64 8
@@ -36856,7 +36833,7 @@ _ZN4absl13InlinedVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm2E
 
 .lr.ph.i.i.i185:                                  ; preds = %.lr.ph.i.i.i185, %.noexc5.i184
   %.06.i.i.i186 = phi i64 [ %393, %.lr.ph.i.i.i185 ], [ 0, %.noexc5.i184 ]
-  %390 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %387, i64 %.06.i.i.i186
+  %390 = getelementptr inbounds nuw [32 x i8], ptr %387, i64 %.06.i.i.i186
   %391 = getelementptr inbounds nuw i8, ptr %390, i64 16
   store ptr %391, ptr %390, align 8, !tbaa !42
   %392 = getelementptr inbounds nuw i8, ptr %390, i64 8
@@ -37089,7 +37066,7 @@ _ZN4absl13InlinedVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm2E
 
 .lr.ph.i.i.i214:                                  ; preds = %.lr.ph.i.i.i214, %.noexc5.i213
   %.06.i.i.i215 = phi i64 [ %458, %.lr.ph.i.i.i214 ], [ 0, %.noexc5.i213 ]
-  %455 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %452, i64 %.06.i.i.i215
+  %455 = getelementptr inbounds nuw [32 x i8], ptr %452, i64 %.06.i.i.i215
   %456 = getelementptr inbounds nuw i8, ptr %455, i64 16
   store ptr %456, ptr %455, align 8, !tbaa !42
   %457 = getelementptr inbounds nuw i8, ptr %455, i64 8
@@ -37383,7 +37360,7 @@ define linkonce_odr dso_local void @_ZN4absl23inlined_vector_internal14DestroyAd
 .lr.ph:                                           ; preds = %3, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7destroyIS5_EEvRS6_PT_.exit
   %.06 = phi i64 [ %4, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7destroyIS5_EEvRS6_PT_.exit ], [ %2, %3 ]
   %4 = add i64 %.06, -1
-  %5 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %1, i64 %4
+  %5 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !39
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = icmp eq ptr %6, %7
@@ -37414,7 +37391,7 @@ define linkonce_odr dso_local void @_ZN4absl23inlined_vector_internal7StorageINS
 .lr.ph.i:                                         ; preds = %1, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7destroyIS5_EEvRS6_PT_.exit.i
   %.06.i = phi i64 [ %8, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7destroyIS5_EEvRS6_PT_.exit.i ], [ %7, %1 ]
   %8 = add nsw i64 %.06.i, -1
-  %9 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !39
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %12 = icmp eq ptr %10, %11
@@ -37466,7 +37443,7 @@ define linkonce_odr dso_local void @_ZN4absl23inlined_vector_internal7StorageINS
   br i1 %.not, label %19, label %9
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.sink2.i, i64 %1
+  %10 = getelementptr inbounds nuw [32 x i8], ptr %.sink2.i, i64 %1
   %11 = sub nuw nsw i64 %.sink1.i, %1
   %.not5.i = icmp eq i64 %11, 0
   br i1 %.not5.i, label %_ZN4absl23inlined_vector_internal14DestroyAdapterISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEELb0EE15DestroyElementsERS8_PS7_m.exit, label %.lr.ph.i
@@ -37474,7 +37451,7 @@ define linkonce_odr dso_local void @_ZN4absl23inlined_vector_internal7StorageINS
 .lr.ph.i:                                         ; preds = %9, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7destroyIS5_EEvRS6_PT_.exit.i
   %.06.i = phi i64 [ %12, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7destroyIS5_EEvRS6_PT_.exit.i ], [ %11, %9 ]
   %12 = add nsw i64 %.06.i, -1
-  %13 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %10, i64 %12
+  %13 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !39
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %16 = icmp eq ptr %14, %15
@@ -37495,13 +37472,13 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
   br i1 %.not39, label %26, label %.lr.ph.i45.preheader
 
 .lr.ph.i45.preheader:                             ; preds = %19
-  %20 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.sink2.i, i64 %.sink1.i
+  %20 = getelementptr inbounds nuw [32 x i8], ptr %.sink2.i, i64 %.sink1.i
   %21 = sub i64 %1, %.sink1.i
   br label %.lr.ph.i45
 
 .lr.ph.i45:                                       ; preds = %.lr.ph.i45.preheader, %.lr.ph.i45
   %.06.i46 = phi i64 [ %25, %.lr.ph.i45 ], [ 0, %.lr.ph.i45.preheader ]
-  %22 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %20, i64 %.06.i46
+  %22 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %.06.i46
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store ptr %23, ptr %22, align 8, !tbaa !42
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
@@ -37532,13 +37509,13 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
 _ZN4absl23inlined_vector_internal13MallocAdapterISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEELb0EE8AllocateERS8_m.exit.i: ; preds = %26
   %31 = shl nuw nsw i64 %.sroa.speculated.i, 5
   %32 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %31) #42
-  %33 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %32, i64 %.sink1.i
+  %33 = getelementptr inbounds nuw [32 x i8], ptr %32, i64 %.sink1.i
   %34 = sub i64 %1, %.sink1.i
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN4absl23inlined_vector_internal13MallocAdapterISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEELb0EE8AllocateERS8_m.exit.i, %.lr.ph.i.i
   %.06.i.i = phi i64 [ %38, %.lr.ph.i.i ], [ 0, %_ZN4absl23inlined_vector_internal13MallocAdapterISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEELb0EE8AllocateERS8_m.exit.i ]
-  %35 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %33, i64 %.06.i.i
+  %35 = getelementptr inbounds nuw [32 x i8], ptr %33, i64 %.06.i.i
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   store ptr %36, ptr %35, align 8, !tbaa !42
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 8
@@ -37555,7 +37532,7 @@ _ZN4absl23inlined_vector_internal13MallocAdapterISaINSt7__cxx1112basic_stringIcS
 .lr.ph.i50:                                       ; preds = %.loopexit, %50
   %.sroa.067.0 = phi ptr [ %54, %50 ], [ %.sink2.i, %.loopexit ]
   %.012.i = phi i64 [ %55, %50 ], [ 0, %.loopexit ]
-  %39 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %32, i64 %.012.i
+  %39 = getelementptr inbounds nuw [32 x i8], ptr %32, i64 %.012.i
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
   store ptr %40, ptr %39, align 8, !tbaa !42
   %41 = load ptr, ptr %.sroa.067.0, align 8, !tbaa !39
@@ -37596,7 +37573,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 .lr.ph.i54:                                       ; preds = %50, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7destroyIS5_EEvRS6_PT_.exit.i57
   %.06.i55 = phi i64 [ %56, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7destroyIS5_EEvRS6_PT_.exit.i57 ], [ %.sink1.i, %50 ]
   %56 = add nsw i64 %.06.i55, -1
-  %57 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.sink2.i, i64 %56
+  %57 = getelementptr inbounds nuw [32 x i8], ptr %.sink2.i, i64 %56
   %58 = load ptr, ptr %57, align 8, !tbaa !39
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %60 = icmp eq ptr %58, %59
@@ -37701,7 +37678,7 @@ _ZN4absl23inlined_vector_internal13MallocAdapterISaINSt7__cxx1112basic_stringIcS
 .lr.ph.i:                                         ; preds = %30, %.lr.ph.preheader.i
   %.sroa.033.0 = phi ptr [ %3, %.lr.ph.preheader.i ], [ %34, %30 ]
   %.012.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %35, %30 ]
-  %19 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.02149, i64 %.012.i
+  %19 = getelementptr inbounds nuw [32 x i8], ptr %.02149, i64 %.012.i
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store ptr %20, ptr %19, align 8, !tbaa !42
   %21 = load ptr, ptr %.sroa.033.0, align 8, !tbaa !39
@@ -37740,7 +37717,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 .lr.ph.i27:                                       ; preds = %30, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7destroyIS5_EEvRS6_PT_.exit.i
   %.06.i = phi i64 [ %36, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7destroyIS5_EEvRS6_PT_.exit.i ], [ %5, %30 ]
   %36 = add i64 %.06.i, -1
-  %37 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i64 %36
+  %37 = getelementptr inbounds nuw [32 x i8], ptr %3, i64 %36
   %38 = load ptr, ptr %37, align 8, !tbaa !39
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %40 = icmp eq ptr %38, %39
@@ -38009,7 +37986,7 @@ define internal void @_ZN12_GLOBAL__N_118IntVec_Insert_Test8TestBodyEv(ptr nonnu
 _ZN12_GLOBAL__N_14FillIN4absl13InlinedVectorIiLm8ESaIiEEEEEvPT_mi.exit.thread: ; preds = %171
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i64 0, ptr %23, align 8, !tbaa !128
-  %172 = getelementptr inbounds nuw i32, ptr null, i64 %.0606032
+  %172 = getelementptr inbounds nuw [4 x i8], ptr null, i64 %.0606032
   %173 = ptrtoint ptr %172 to i64
   br label %226
 
@@ -38073,7 +38050,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i.i: ; preds = %193, %
   br label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i
 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i: ; preds = %194, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i.i
-  %195 = getelementptr inbounds nuw i32, ptr %190, i64 %188
+  %195 = getelementptr inbounds nuw [4 x i8], ptr %190, i64 %188
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit.i
 
 _ZNSt6vectorIiSaIiEE9push_backEOi.exit.i:         ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i, %177
@@ -38107,7 +38084,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit.i:         ; preds = %_ZNSt6vectorIiSaIiE
 203:                                              ; preds = %198
   %204 = load ptr, ptr %91, align 8, !noalias !921
   %.sink2.i.i.i.i.i = select i1 %201, ptr %204, ptr %91
-  %205 = getelementptr inbounds nuw i32, ptr %.sink2.i.i.i.i.i, i64 %.sink1.i.i.i.i.i
+  %205 = getelementptr inbounds nuw [4 x i8], ptr %.sink2.i.i.i.i.i, i64 %.sink1.i.i.i.i.i
   store i32 %199, ptr %205, align 4, !tbaa !130
   %206 = add i64 %200, 2
   store i64 %206, ptr %23, align 8, !tbaa !43
@@ -38124,7 +38101,7 @@ _ZN4absl13InlinedVectorIiLm8ESaIiEE9push_backEOi.exit.i: ; preds = %207, %203
   br i1 %exitcond.not.i231, label %_ZN12_GLOBAL__N_14FillIN4absl13InlinedVectorIiLm8ESaIiEEEEEvPT_mi.exit, label %198, !llvm.loop !135
 
 _ZN12_GLOBAL__N_14FillIN4absl13InlinedVectorIiLm8ESaIiEEEEEvPT_mi.exit: ; preds = %_ZN4absl13InlinedVectorIiLm8ESaIiEE9push_backEOi.exit.i
-  %210 = getelementptr inbounds nuw i32, ptr %.sroa.01351.3, i64 %.0606032
+  %210 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.01351.3, i64 %.0606032
   %211 = ptrtoint ptr %210 to i64
   %212 = ptrtoint ptr %.sroa.01351.3 to i64
   %.idx = shl i64 %.0606032, 2
@@ -38152,7 +38129,7 @@ _ZN12_GLOBAL__N_14FillIN4absl13InlinedVectorIiLm8ESaIiEEEEEvPT_mi.exit: ; preds 
   %222 = sub i64 %221, %211
   %223 = ashr exact i64 %222, 2
   %224 = sub nsw i64 0, %223
-  %225 = getelementptr inbounds i32, ptr %.sroa.13.0, i64 %224
+  %225 = getelementptr inbounds [4 x i8], ptr %.sroa.13.0, i64 %224
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %225, ptr align 4 %210, i64 %222, i1 false)
   br label %_ZNSt6vectorIiSaIiEE13_M_insert_auxIiEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEOT_.exit.i
 
@@ -38222,7 +38199,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i: ; preds = %248, %_ZNS
 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i: ; preds = %249, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i
   %250 = getelementptr inbounds i8, ptr %245, i64 %246
-  %251 = getelementptr inbounds nuw i32, ptr %241, i64 %239
+  %251 = getelementptr inbounds nuw [4 x i8], ptr %241, i64 %239
   %.pre9885 = shl i64 %.0606032, 2
   br label %_ZNSt6vectorIiSaIiEE6insertEN9__gnu_cxx17__normal_iteratorIPKiS1_EEOi.exit
 
@@ -38285,7 +38262,7 @@ _ZN4absl23inlined_vector_internal13MallocAdapterISaIiELb0EE8AllocateERS2_m.exit.
 .lr.ph.i.i57.i:                                   ; preds = %.noexc817, %.lr.ph.i.i57.i
   %.012.i.i58.i = phi i64 [ %272, %.lr.ph.i.i57.i ], [ 0, %.noexc817 ]
   %268 = phi ptr [ %271, %.lr.ph.i.i57.i ], [ %255, %.noexc817 ]
-  %269 = getelementptr inbounds nuw i32, ptr %266, i64 %.012.i.i58.i
+  %269 = getelementptr inbounds nuw [4 x i8], ptr %266, i64 %.012.i.i58.i
   %270 = load i32, ptr %268, align 4, !tbaa !130
   store i32 %270, ptr %269, align 4, !tbaa !130
   %271 = getelementptr inbounds nuw i8, ptr %268, i64 4
@@ -38295,7 +38272,7 @@ _ZN4absl23inlined_vector_internal13MallocAdapterISaIiELb0EE8AllocateERS2_m.exit.
 
 _ZN4absl23inlined_vector_internal23ConstructionTransactionISaIiEE9ConstructINS0_20IteratorValueAdapterIS2_St13move_iteratorIPiEEEEEvS7_RT_m.exit61.i: ; preds = %.lr.ph.i.i57.i, %.noexc817
   %.sroa.0103.0.i = phi ptr [ %255, %.noexc817 ], [ %271, %.lr.ph.i.i57.i ]
-  %273 = getelementptr inbounds nuw i32, ptr %266, i64 %258
+  %273 = getelementptr inbounds nuw [4 x i8], ptr %266, i64 %258
   %274 = sub nsw i64 %.sink1.i.i, %.0606032
   %.not.i.i812 = icmp eq i64 %.sink1.i.i, %.0606032
   br i1 %.not.i.i812, label %_ZN4absl23inlined_vector_internal17ConstructElementsISaIiENS0_20IteratorValueAdapterIS2_St13move_iteratorIPiEEEEEvRNS_8internal13type_identityIT_E4typeENSt16allocator_traitsISA_E7pointerERT0_NSF_9size_typeE.exit.i, label %.lr.ph.i.i813
@@ -38303,7 +38280,7 @@ _ZN4absl23inlined_vector_internal23ConstructionTransactionISaIiEE9ConstructINS0_
 .lr.ph.i.i813:                                    ; preds = %_ZN4absl23inlined_vector_internal23ConstructionTransactionISaIiEE9ConstructINS0_20IteratorValueAdapterIS2_St13move_iteratorIPiEEEEEvS7_RT_m.exit61.i, %.lr.ph.i.i813
   %.012.i.i = phi i64 [ %279, %.lr.ph.i.i813 ], [ 0, %_ZN4absl23inlined_vector_internal23ConstructionTransactionISaIiEE9ConstructINS0_20IteratorValueAdapterIS2_St13move_iteratorIPiEEEEEvS7_RT_m.exit61.i ]
   %275 = phi ptr [ %278, %.lr.ph.i.i813 ], [ %.sroa.0103.0.i, %_ZN4absl23inlined_vector_internal23ConstructionTransactionISaIiEE9ConstructINS0_20IteratorValueAdapterIS2_St13move_iteratorIPiEEEEEvS7_RT_m.exit61.i ]
-  %276 = getelementptr inbounds nuw i32, ptr %273, i64 %.012.i.i
+  %276 = getelementptr inbounds nuw [4 x i8], ptr %273, i64 %.012.i.i
   %277 = load i32, ptr %275, align 4, !tbaa !130
   store i32 %277, ptr %276, align 4, !tbaa !130
   %278 = getelementptr inbounds nuw i8, ptr %275, i64 4
@@ -38328,12 +38305,12 @@ _ZN4absl23inlined_vector_internal21AllocationTransactionISaIiEED2Ev.exit.i: ; pr
 
 284:                                              ; preds = %_ZNSt6vectorIiSaIiEE6insertEN9__gnu_cxx17__normal_iteratorIPKiS1_EEOi.exit
   %.sroa.speculated.i = call i64 @llvm.umax.i64(i64 %258, i64 %.sink1.i.i)
-  %285 = getelementptr i32, ptr %255, i64 %.sroa.speculated.i
+  %285 = getelementptr [4 x i8], ptr %255, i64 %.sroa.speculated.i
   %286 = sub i64 %259, %.sroa.speculated.i
   %.idx133.i = shl nuw nsw i64 %258, 2
   %287 = getelementptr inbounds nuw i8, ptr %255, i64 %.idx133.i
   %288 = sub nsw i64 %.sroa.speculated.i, %258
-  %289 = getelementptr i32, ptr %256, i64 %286
+  %289 = getelementptr [4 x i8], ptr %256, i64 %286
   %.not.i.i65.i = icmp eq i64 %.0606032, %.sink1.i.i
   br i1 %.not.i.i65.i, label %_ZN4absl23inlined_vector_internal23ConstructionTransactionISaIiEE9ConstructINS0_20IteratorValueAdapterIS2_St13move_iteratorIPiEEEEEvS7_RT_m.exit72.i, label %.lr.ph.i.i68.preheader.i
 
@@ -38344,7 +38321,7 @@ _ZN4absl23inlined_vector_internal21AllocationTransactionISaIiEED2Ev.exit.i: ; pr
 
 .lr.ph.i.i68.i:                                   ; preds = %.lr.ph.i.i68.i, %.lr.ph.i.i68.preheader.i
   %.012.i.i69.i = phi i64 [ %292, %.lr.ph.i.i68.i ], [ 0, %.lr.ph.i.i68.preheader.i ]
-  %291 = getelementptr inbounds nuw i32, ptr %285, i64 %.012.i.i69.i
+  %291 = getelementptr inbounds nuw [4 x i8], ptr %285, i64 %.012.i.i69.i
   store i32 %load_initial, ptr %291, align 4, !tbaa !130
   %292 = add nuw i64 %.012.i.i69.i, 1
   %exitcond.not.i.i70.i = icmp eq i64 %292, %286
@@ -38358,7 +38335,7 @@ _ZN4absl23inlined_vector_internal23ConstructionTransactionISaIiEE9ConstructINS0_
 .lr.ph.preheader.i:                               ; preds = %_ZN4absl23inlined_vector_internal23ConstructionTransactionISaIiEE9ConstructINS0_20IteratorValueAdapterIS2_St13move_iteratorIPiEEEEEvS7_RT_m.exit72.i
   %293 = getelementptr i8, ptr %255, i64 %.idx.i
   %294 = getelementptr i8, ptr %293, i64 -4
-  %295 = getelementptr inbounds nuw i32, ptr %256, i64 %288
+  %295 = getelementptr inbounds nuw [4 x i8], ptr %256, i64 %288
   br label %.lr.ph.i811
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i811, %_ZN4absl23inlined_vector_internal23ConstructionTransactionISaIiEE9ConstructINS0_20IteratorValueAdapterIS2_St13move_iteratorIPiEEEEEvS7_RT_m.exit72.i
@@ -38758,7 +38735,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %383, %_ZNKSt14defau
   %392 = trunc i64 %391 to i1
   %393 = load ptr, ptr %91, align 8
   %394 = select i1 %392, ptr %393, ptr %91
-  %395 = getelementptr inbounds nuw i32, ptr %394, i64 %.0606032
+  %395 = getelementptr inbounds nuw [4 x i8], ptr %394, i64 %.0606032
   store ptr %395, ptr %30, align 8, !tbaa !269
   %396 = load ptr, ptr %24, align 8, !tbaa !269, !noalias !940
   %397 = icmp eq ptr %396, %395
@@ -39057,7 +39034,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i.i280: ; preds = %485
   br label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i282
 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i282: ; preds = %486, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i.i280
-  %487 = getelementptr inbounds nuw i32, ptr %482, i64 %480
+  %487 = getelementptr inbounds nuw [4 x i8], ptr %482, i64 %480
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit.i275
 
 _ZNSt6vectorIiSaIiEE9push_backEOi.exit.i275:      ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i282, %469
@@ -39091,7 +39068,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit.i275:      ; preds = %_ZNSt6vectorIiSaIiE
 495:                                              ; preds = %490
   %496 = load ptr, ptr %99, align 8, !noalias !948
   %.sink2.i.i.i.i.i292 = select i1 %493, ptr %496, ptr %99
-  %497 = getelementptr inbounds nuw i32, ptr %.sink2.i.i.i.i.i292, i64 %.sink1.i.i.i.i.i290
+  %497 = getelementptr inbounds nuw [4 x i8], ptr %.sink2.i.i.i.i.i292, i64 %.sink1.i.i.i.i.i290
   store i32 %491, ptr %497, align 4, !tbaa !130
   %498 = add i64 %492, 2
   store i64 %498, ptr %33, align 8, !tbaa !43
@@ -39137,7 +39114,7 @@ _ZN12_GLOBAL__N_14FillIN4absl13InlinedVectorIiLm8ESaIiEEEEEvPT_mi.exit296: ; pre
   %516 = sub i64 %515, %503
   %517 = ashr exact i64 %516, 2
   %518 = sub nsw i64 0, %517
-  %519 = getelementptr inbounds i32, ptr %.sroa.141332.11380, i64 %518
+  %519 = getelementptr inbounds [4 x i8], ptr %.sroa.141332.11380, i64 %518
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %519, ptr align 4 %502, i64 %516, i1 false)
   br label %.lr.ph.i.i.i.i.preheader
 
@@ -39258,7 +39235,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit.i: ; pr
   br label %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i
 
 _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i: ; preds = %549, %547
-  %551 = getelementptr inbounds nuw i32, ptr %541, i64 %537
+  %551 = getelementptr inbounds nuw [4 x i8], ptr %541, i64 %537
   br label %_ZNSt6vectorIiSaIiEE6insertEN9__gnu_cxx17__normal_iteratorIPKiS1_EEmRS4_.exit
 
 _ZNSt6vectorIiSaIiEE6insertEN9__gnu_cxx17__normal_iteratorIPKiS1_EEmRS4_.exit.loopexit6035: ; preds = %.lr.ph.i.i.i71.i
@@ -39318,7 +39295,7 @@ _ZN4absl23inlined_vector_internal13MallocAdapterISaIiELb0EE8AllocateERS2_m.exit.
 
 570:                                              ; preds = %570, %.noexc857
   %.06.i.i.i845 = phi i64 [ 0, %.noexc857 ], [ %572, %570 ]
-  %571 = getelementptr inbounds nuw i32, ptr %569, i64 %.06.i.i.i845
+  %571 = getelementptr inbounds nuw [4 x i8], ptr %569, i64 %.06.i.i.i845
   store i32 9999, ptr %571, align 4, !tbaa !130
   %572 = add nuw nsw i64 %.06.i.i.i845, 1
   %exitcond.not.i.i.i = icmp eq i64 %572, 5
@@ -39331,7 +39308,7 @@ _ZN4absl23inlined_vector_internal23ConstructionTransactionISaIiEE9ConstructINS0_
 .lr.ph.i.i55.i:                                   ; preds = %_ZN4absl23inlined_vector_internal23ConstructionTransactionISaIiEE9ConstructINS0_16CopyValueAdapterIS2_EEEEvPiRT_m.exit.i, %.lr.ph.i.i55.i
   %.012.i.i.i = phi i64 [ %577, %.lr.ph.i.i55.i ], [ 0, %_ZN4absl23inlined_vector_internal23ConstructionTransactionISaIiEE9ConstructINS0_16CopyValueAdapterIS2_EEEEvPiRT_m.exit.i ]
   %573 = phi ptr [ %576, %.lr.ph.i.i55.i ], [ %556, %_ZN4absl23inlined_vector_internal23ConstructionTransactionISaIiEE9ConstructINS0_16CopyValueAdapterIS2_EEEEvPiRT_m.exit.i ]
-  %574 = getelementptr inbounds nuw i32, ptr %568, i64 %.012.i.i.i
+  %574 = getelementptr inbounds nuw [4 x i8], ptr %568, i64 %.012.i.i.i
   %575 = load i32, ptr %573, align 4, !tbaa !130
   store i32 %575, ptr %574, align 4, !tbaa !130
   %576 = getelementptr inbounds nuw i8, ptr %573, i64 4
@@ -39341,7 +39318,7 @@ _ZN4absl23inlined_vector_internal23ConstructionTransactionISaIiEE9ConstructINS0_
 
 _ZN4absl23inlined_vector_internal23ConstructionTransactionISaIiEE9ConstructINS0_20IteratorValueAdapterIS2_St13move_iteratorIPiEEEEEvS7_RT_m.exit.i: ; preds = %.lr.ph.i.i55.i, %_ZN4absl23inlined_vector_internal23ConstructionTransactionISaIiEE9ConstructINS0_16CopyValueAdapterIS2_EEEEvPiRT_m.exit.i
   %.sroa.093.0.i = phi ptr [ %556, %_ZN4absl23inlined_vector_internal23ConstructionTransactionISaIiEE9ConstructINS0_16CopyValueAdapterIS2_EEEEvPiRT_m.exit.i ], [ %576, %.lr.ph.i.i55.i ]
-  %578 = getelementptr inbounds nuw i32, ptr %568, i64 %559
+  %578 = getelementptr inbounds nuw [4 x i8], ptr %568, i64 %559
   %579 = sub nsw i64 %.sink1.i.i831, %.0606032
   %.not.i.i847 = icmp eq i64 %.sink1.i.i831, %.0606032
   br i1 %.not.i.i847, label %_ZN4absl23inlined_vector_internal17ConstructElementsISaIiENS0_20IteratorValueAdapterIS2_St13move_iteratorIPiEEEEEvRNS_8internal13type_identityIT_E4typeENSt16allocator_traitsISA_E7pointerERT0_NSF_9size_typeE.exit.i851, label %.lr.ph.i.i848
@@ -39349,7 +39326,7 @@ _ZN4absl23inlined_vector_internal23ConstructionTransactionISaIiEE9ConstructINS0_
 .lr.ph.i.i848:                                    ; preds = %_ZN4absl23inlined_vector_internal23ConstructionTransactionISaIiEE9ConstructINS0_20IteratorValueAdapterIS2_St13move_iteratorIPiEEEEEvS7_RT_m.exit.i, %.lr.ph.i.i848
   %.012.i.i849 = phi i64 [ %584, %.lr.ph.i.i848 ], [ 0, %_ZN4absl23inlined_vector_internal23ConstructionTransactionISaIiEE9ConstructINS0_20IteratorValueAdapterIS2_St13move_iteratorIPiEEEEEvS7_RT_m.exit.i ]
   %580 = phi ptr [ %583, %.lr.ph.i.i848 ], [ %.sroa.093.0.i, %_ZN4absl23inlined_vector_internal23ConstructionTransactionISaIiEE9ConstructINS0_20IteratorValueAdapterIS2_St13move_iteratorIPiEEEEEvS7_RT_m.exit.i ]
-  %581 = getelementptr inbounds nuw i32, ptr %578, i64 %.012.i.i849
+  %581 = getelementptr inbounds nuw [4 x i8], ptr %578, i64 %.012.i.i849
   %582 = load i32, ptr %580, align 4, !tbaa !130
   store i32 %582, ptr %581, align 4, !tbaa !130
   %583 = getelementptr inbounds nuw i8, ptr %580, i64 4
@@ -39374,12 +39351,12 @@ _ZN4absl23inlined_vector_internal21AllocationTransactionISaIiEED2Ev.exit.i852: ;
 
 589:                                              ; preds = %_ZNSt6vectorIiSaIiEE6insertEN9__gnu_cxx17__normal_iteratorIPKiS1_EEmRS4_.exit
   %.sroa.speculated.i832 = call i64 @llvm.umax.i64(i64 %559, i64 %.sink1.i.i831)
-  %590 = getelementptr i32, ptr %556, i64 %.sroa.speculated.i832
+  %590 = getelementptr [4 x i8], ptr %556, i64 %.sroa.speculated.i832
   %591 = sub i64 %560, %.sroa.speculated.i832
   %.idx124.i = shl nuw nsw i64 %559, 2
   %592 = getelementptr inbounds nuw i8, ptr %556, i64 %.idx124.i
   %593 = sub nsw i64 %.sroa.speculated.i832, %559
-  %594 = getelementptr inbounds nuw i32, ptr %557, i64 %591
+  %594 = getelementptr inbounds nuw [4 x i8], ptr %557, i64 %591
   %595 = sub i64 5, %591
   %.not.i.i60.i = icmp eq i64 %.0606032, %.sink1.i.i831
   br i1 %.not.i.i60.i, label %_ZN4absl23inlined_vector_internal23ConstructionTransactionISaIiEE9ConstructINS0_20IteratorValueAdapterIS2_St13move_iteratorIPiEEEEEvS7_RT_m.exit67.i, label %.lr.ph.i.i63.preheader.i
@@ -39391,7 +39368,7 @@ _ZN4absl23inlined_vector_internal21AllocationTransactionISaIiEED2Ev.exit.i852: ;
 .lr.ph.i.i63.i:                                   ; preds = %.lr.ph.i.i63.i, %.lr.ph.i.i63.preheader.i
   %.012.i.i64.i = phi i64 [ %601, %.lr.ph.i.i63.i ], [ 0, %.lr.ph.i.i63.preheader.i ]
   %597 = phi ptr [ %600, %.lr.ph.i.i63.i ], [ %596, %.lr.ph.i.i63.preheader.i ]
-  %598 = getelementptr inbounds nuw i32, ptr %590, i64 %.012.i.i64.i
+  %598 = getelementptr inbounds nuw [4 x i8], ptr %590, i64 %.012.i.i64.i
   %599 = load i32, ptr %597, align 4, !tbaa !130
   store i32 %599, ptr %598, align 4, !tbaa !130
   %600 = getelementptr inbounds nuw i8, ptr %597, i64 4
@@ -39407,7 +39384,7 @@ _ZN4absl23inlined_vector_internal23ConstructionTransactionISaIiEE9ConstructINS0_
 .lr.ph.preheader.i840:                            ; preds = %_ZN4absl23inlined_vector_internal23ConstructionTransactionISaIiEE9ConstructINS0_20IteratorValueAdapterIS2_St13move_iteratorIPiEEEEEvS7_RT_m.exit67.i
   %602 = getelementptr i8, ptr %556, i64 %.idx.i833
   %603 = getelementptr i8, ptr %602, i64 -4
-  %604 = getelementptr inbounds nuw i32, ptr %557, i64 %593
+  %604 = getelementptr inbounds nuw [4 x i8], ptr %557, i64 %593
   br label %.lr.ph.i841
 
 ._crit_edge.i835:                                 ; preds = %.lr.ph.i841, %_ZN4absl23inlined_vector_internal23ConstructionTransactionISaIiEE9ConstructINS0_20IteratorValueAdapterIS2_St13move_iteratorIPiEEEEEvS7_RT_m.exit67.i
@@ -39415,7 +39392,7 @@ _ZN4absl23inlined_vector_internal23ConstructionTransactionISaIiEE9ConstructINS0_
 
 .lr.ph.i69.i:                                     ; preds = %._crit_edge.i835, %.lr.ph.i69.i
   %.05.i.i836 = phi i64 [ %606, %.lr.ph.i69.i ], [ 0, %._crit_edge.i835 ]
-  %605 = getelementptr inbounds nuw i32, ptr %557, i64 %.05.i.i836
+  %605 = getelementptr inbounds nuw [4 x i8], ptr %557, i64 %.05.i.i836
   store i32 9999, ptr %605, align 4, !tbaa !130
   %606 = add nuw i64 %.05.i.i836, 1
   %exitcond.not.i70.i = icmp eq i64 %606, %591
@@ -39437,7 +39414,7 @@ _ZN4absl23inlined_vector_internal14AssignElementsISaIiENS0_16CopyValueAdapterIS2
 
 .lr.ph.i73.i:                                     ; preds = %_ZN4absl23inlined_vector_internal14AssignElementsISaIiENS0_16CopyValueAdapterIS2_EEEEvNSt16allocator_traitsIT_E7pointerERT0_NS7_9size_typeE.exit.i, %.lr.ph.i73.i
   %.06.i.i = phi i64 [ %613, %.lr.ph.i73.i ], [ 0, %_ZN4absl23inlined_vector_internal14AssignElementsISaIiENS0_16CopyValueAdapterIS2_EEEEvNSt16allocator_traitsIT_E7pointerERT0_NS7_9size_typeE.exit.i ]
-  %612 = getelementptr inbounds nuw i32, ptr %594, i64 %.06.i.i
+  %612 = getelementptr inbounds nuw [4 x i8], ptr %594, i64 %.06.i.i
   store i32 9999, ptr %612, align 4, !tbaa !130
   %613 = add nuw i64 %.06.i.i, 1
   %exitcond.not.i75.i = icmp eq i64 %613, %595
@@ -39843,7 +39820,7 @@ _ZN7testing15AssertionResultD2Ev.exit348:         ; preds = %702, %_ZNKSt14defau
   %711 = trunc i64 %710 to i1
   %712 = load ptr, ptr %99, align 8
   %713 = select i1 %711, ptr %712, ptr %99
-  %714 = getelementptr inbounds nuw i32, ptr %713, i64 %.0606032
+  %714 = getelementptr inbounds nuw [4 x i8], ptr %713, i64 %.0606032
   store ptr %714, ptr %40, align 8, !tbaa !269
   %715 = load ptr, ptr %34, align 8, !tbaa !269, !noalias !966
   %716 = icmp eq ptr %715, %714
@@ -40142,7 +40119,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i.i379: ; preds = %804
   br label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i381
 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i381: ; preds = %805, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i.i379
-  %806 = getelementptr inbounds nuw i32, ptr %801, i64 %799
+  %806 = getelementptr inbounds nuw [4 x i8], ptr %801, i64 %799
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit.i374
 
 _ZNSt6vectorIiSaIiEE9push_backEOi.exit.i374:      ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i381, %788
@@ -40176,7 +40153,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit.i374:      ; preds = %_ZNSt6vectorIiSaIiE
 814:                                              ; preds = %809
   %815 = load ptr, ptr %107, align 8, !noalias !974
   %.sink2.i.i.i.i.i391 = select i1 %812, ptr %815, ptr %107
-  %816 = getelementptr inbounds nuw i32, ptr %.sink2.i.i.i.i.i391, i64 %.sink1.i.i.i.i.i389
+  %816 = getelementptr inbounds nuw [4 x i8], ptr %.sink2.i.i.i.i.i391, i64 %.sink1.i.i.i.i.i389
   store i32 %810, ptr %816, align 4, !tbaa !130
   %817 = add i64 %811, 2
   store i64 %817, ptr %43, align 8, !tbaa !43
@@ -40232,7 +40209,7 @@ _ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit.i: ; preds = %829
   %837 = sub i64 %836, %824
   %838 = ashr exact i64 %837, 2
   %839 = sub nsw i64 0, %838
-  %840 = getelementptr inbounds i32, ptr %.sroa.141307.11386, i64 %839
+  %840 = getelementptr inbounds [4 x i8], ptr %.sroa.141307.11386, i64 %839
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %840, ptr align 4 %823, i64 %837, i1 false)
   br label %_ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i880
 
@@ -40252,7 +40229,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEmEvRT_T0_.exit
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEPiiET0_T_SA_S9_RSaIT1_E.exit.i: ; preds = %841, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEmEvRT_T0_.exit.i
   %843 = sub nuw nsw i64 3, %831
-  %844 = getelementptr inbounds nuw i32, ptr %.sroa.141307.11386, i64 %843
+  %844 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.141307.11386, i64 %843
   %.not.i.i.i.i.i.i.i.i.i52.i = icmp eq ptr %.sroa.141307.11386, %823
   br i1 %.not.i.i.i.i.i.i.i.i.i52.i, label %_ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit53.i.thread, label %846
 
@@ -40326,7 +40303,7 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i: ; preds = %858, %_ZNKSt6vecto
   br label %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i884
 
 _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i884: ; preds = %870, %868
-  %872 = getelementptr inbounds nuw i32, ptr %861, i64 %857
+  %872 = getelementptr inbounds nuw [4 x i8], ptr %861, i64 %857
   br label %873
 
 873:                                              ; preds = %_ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit53.i.thread, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i884, %846, %_ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i880
@@ -40385,7 +40362,7 @@ _ZN4absl23inlined_vector_internal23ConstructionTransactionISaIiEE9ConstructINS0_
 .lr.ph.i.i57.i906:                                ; preds = %_ZN4absl23inlined_vector_internal23ConstructionTransactionISaIiEE9ConstructINS0_20IteratorValueAdapterIS2_N9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiS2_EEEEEEEvPiRT_m.exit.i, %.lr.ph.i.i57.i906
   %.012.i.i.i907 = phi i64 [ %895, %.lr.ph.i.i57.i906 ], [ 0, %_ZN4absl23inlined_vector_internal23ConstructionTransactionISaIiEE9ConstructINS0_20IteratorValueAdapterIS2_N9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiS2_EEEEEEEvPiRT_m.exit.i ]
   %891 = phi ptr [ %894, %.lr.ph.i.i57.i906 ], [ %877, %_ZN4absl23inlined_vector_internal23ConstructionTransactionISaIiEE9ConstructINS0_20IteratorValueAdapterIS2_N9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiS2_EEEEEEEvPiRT_m.exit.i ]
-  %892 = getelementptr inbounds nuw i32, ptr %889, i64 %.012.i.i.i907
+  %892 = getelementptr inbounds nuw [4 x i8], ptr %889, i64 %.012.i.i.i907
   %893 = load i32, ptr %891, align 4, !tbaa !130
   store i32 %893, ptr %892, align 4, !tbaa !130
   %894 = getelementptr inbounds nuw i8, ptr %891, i64 4
@@ -40395,7 +40372,7 @@ _ZN4absl23inlined_vector_internal23ConstructionTransactionISaIiEE9ConstructINS0_
 
 _ZN4absl23inlined_vector_internal23ConstructionTransactionISaIiEE9ConstructINS0_20IteratorValueAdapterIS2_St13move_iteratorIPiEEEEEvS7_RT_m.exit.i908: ; preds = %.lr.ph.i.i57.i906, %_ZN4absl23inlined_vector_internal23ConstructionTransactionISaIiEE9ConstructINS0_20IteratorValueAdapterIS2_N9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiS2_EEEEEEEvPiRT_m.exit.i
   %.sroa.099.0.i = phi ptr [ %877, %_ZN4absl23inlined_vector_internal23ConstructionTransactionISaIiEE9ConstructINS0_20IteratorValueAdapterIS2_N9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiS2_EEEEEEEvPiRT_m.exit.i ], [ %894, %.lr.ph.i.i57.i906 ]
-  %896 = getelementptr inbounds nuw i32, ptr %889, i64 %880
+  %896 = getelementptr inbounds nuw [4 x i8], ptr %889, i64 %880
   %897 = sub nsw i64 %.sink1.i.i889, %.0606032
   %.not.i.i909 = icmp eq i64 %.sink1.i.i889, %.0606032
   br i1 %.not.i.i909, label %_ZN4absl23inlined_vector_internal17ConstructElementsISaIiENS0_20IteratorValueAdapterIS2_St13move_iteratorIPiEEEEEvRNS_8internal13type_identityIT_E4typeENSt16allocator_traitsISA_E7pointerERT0_NSF_9size_typeE.exit.i913, label %.lr.ph.i.i910
@@ -40403,7 +40380,7 @@ _ZN4absl23inlined_vector_internal23ConstructionTransactionISaIiEE9ConstructINS0_
 .lr.ph.i.i910:                                    ; preds = %_ZN4absl23inlined_vector_internal23ConstructionTransactionISaIiEE9ConstructINS0_20IteratorValueAdapterIS2_St13move_iteratorIPiEEEEEvS7_RT_m.exit.i908, %.lr.ph.i.i910
   %.012.i.i911 = phi i64 [ %902, %.lr.ph.i.i910 ], [ 0, %_ZN4absl23inlined_vector_internal23ConstructionTransactionISaIiEE9ConstructINS0_20IteratorValueAdapterIS2_St13move_iteratorIPiEEEEEvS7_RT_m.exit.i908 ]
   %898 = phi ptr [ %901, %.lr.ph.i.i910 ], [ %.sroa.099.0.i, %_ZN4absl23inlined_vector_internal23ConstructionTransactionISaIiEE9ConstructINS0_20IteratorValueAdapterIS2_St13move_iteratorIPiEEEEEvS7_RT_m.exit.i908 ]
-  %899 = getelementptr inbounds nuw i32, ptr %896, i64 %.012.i.i911
+  %899 = getelementptr inbounds nuw [4 x i8], ptr %896, i64 %.012.i.i911
   %900 = load i32, ptr %898, align 4, !tbaa !130
   store i32 %900, ptr %899, align 4, !tbaa !130
   %901 = getelementptr inbounds nuw i8, ptr %898, i64 4
@@ -40428,12 +40405,12 @@ _ZN4absl23inlined_vector_internal21AllocationTransactionISaIiEED2Ev.exit.i914: ;
 
 907:                                              ; preds = %873
   %.sroa.speculated.i890 = call i64 @llvm.umax.i64(i64 %880, i64 %.sink1.i.i889)
-  %908 = getelementptr i32, ptr %877, i64 %.sroa.speculated.i890
+  %908 = getelementptr [4 x i8], ptr %877, i64 %.sroa.speculated.i890
   %909 = sub i64 %881, %.sroa.speculated.i890
   %.idx129.i = shl nuw nsw i64 %880, 2
   %910 = getelementptr inbounds nuw i8, ptr %877, i64 %.idx129.i
   %911 = sub nsw i64 %.sroa.speculated.i890, %880
-  %912 = getelementptr inbounds nuw i32, ptr %878, i64 %909
+  %912 = getelementptr inbounds nuw [4 x i8], ptr %878, i64 %909
   %913 = sub i64 3, %909
   %.not.i.i63.i = icmp eq i64 %.0606032, %.sink1.i.i889
   br i1 %.not.i.i63.i, label %_ZN4absl23inlined_vector_internal23ConstructionTransactionISaIiEE9ConstructINS0_20IteratorValueAdapterIS2_St13move_iteratorIPiEEEEEvS7_RT_m.exit70.i, label %.lr.ph.i.i66.preheader.i
@@ -40445,7 +40422,7 @@ _ZN4absl23inlined_vector_internal21AllocationTransactionISaIiEED2Ev.exit.i914: ;
 .lr.ph.i.i66.i:                                   ; preds = %.lr.ph.i.i66.i, %.lr.ph.i.i66.preheader.i
   %.012.i.i67.i = phi i64 [ %919, %.lr.ph.i.i66.i ], [ 0, %.lr.ph.i.i66.preheader.i ]
   %915 = phi ptr [ %918, %.lr.ph.i.i66.i ], [ %914, %.lr.ph.i.i66.preheader.i ]
-  %916 = getelementptr inbounds nuw i32, ptr %908, i64 %.012.i.i67.i
+  %916 = getelementptr inbounds nuw [4 x i8], ptr %908, i64 %.012.i.i67.i
   %917 = load i32, ptr %915, align 4, !tbaa !130
   store i32 %917, ptr %916, align 4, !tbaa !130
   %918 = getelementptr inbounds nuw i8, ptr %915, i64 4
@@ -40461,7 +40438,7 @@ _ZN4absl23inlined_vector_internal23ConstructionTransactionISaIiEE9ConstructINS0_
 .lr.ph.preheader.i900:                            ; preds = %_ZN4absl23inlined_vector_internal23ConstructionTransactionISaIiEE9ConstructINS0_20IteratorValueAdapterIS2_St13move_iteratorIPiEEEEEvS7_RT_m.exit70.i
   %920 = getelementptr i8, ptr %877, i64 %.idx.i891
   %921 = getelementptr i8, ptr %920, i64 -4
-  %922 = getelementptr inbounds nuw i32, ptr %878, i64 %911
+  %922 = getelementptr inbounds nuw [4 x i8], ptr %878, i64 %911
   br label %.lr.ph.i901
 
 ._crit_edge.i893:                                 ; preds = %.lr.ph.i901, %_ZN4absl23inlined_vector_internal23ConstructionTransactionISaIiEE9ConstructINS0_20IteratorValueAdapterIS2_St13move_iteratorIPiEEEEEvS7_RT_m.exit70.i
@@ -40470,7 +40447,7 @@ _ZN4absl23inlined_vector_internal23ConstructionTransactionISaIiEE9ConstructINS0_
 .lr.ph.i74.i:                                     ; preds = %._crit_edge.i893, %.lr.ph.i74.i
   %.05.i.i894 = phi i64 [ %927, %.lr.ph.i74.i ], [ 0, %._crit_edge.i893 ]
   %923 = phi ptr [ %926, %.lr.ph.i74.i ], [ %821, %._crit_edge.i893 ]
-  %924 = getelementptr inbounds nuw i32, ptr %878, i64 %.05.i.i894
+  %924 = getelementptr inbounds nuw [4 x i8], ptr %878, i64 %.05.i.i894
   %925 = load i32, ptr %923, align 4, !tbaa !130
   store i32 %925, ptr %924, align 4, !tbaa !130
   %926 = getelementptr inbounds nuw i8, ptr %923, i64 4
@@ -40496,7 +40473,7 @@ _ZN4absl23inlined_vector_internal14AssignElementsISaIiENS0_20IteratorValueAdapte
 .lr.ph.i80.i:                                     ; preds = %_ZN4absl23inlined_vector_internal14AssignElementsISaIiENS0_20IteratorValueAdapterIS2_N9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiS2_EEEEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSE_9size_typeE.exit.i, %.lr.ph.i80.i
   %.06.i.i896 = phi i64 [ %937, %.lr.ph.i80.i ], [ 0, %_ZN4absl23inlined_vector_internal14AssignElementsISaIiENS0_20IteratorValueAdapterIS2_N9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiS2_EEEEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSE_9size_typeE.exit.i ]
   %933 = phi ptr [ %936, %.lr.ph.i80.i ], [ %.sroa.0126.0.i, %_ZN4absl23inlined_vector_internal14AssignElementsISaIiENS0_20IteratorValueAdapterIS2_N9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiS2_EEEEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSE_9size_typeE.exit.i ]
-  %934 = getelementptr inbounds nuw i32, ptr %912, i64 %.06.i.i896
+  %934 = getelementptr inbounds nuw [4 x i8], ptr %912, i64 %.06.i.i896
   %935 = load i32, ptr %933, align 4, !tbaa !130
   store i32 %935, ptr %934, align 4, !tbaa !130
   %936 = getelementptr inbounds nuw i8, ptr %933, i64 4
@@ -40909,7 +40886,7 @@ _ZN7testing15AssertionResultD2Ev.exit449:         ; preds = %1028, %_ZNKSt14defa
   %1037 = trunc i64 %1036 to i1
   %1038 = load ptr, ptr %107, align 8
   %1039 = select i1 %1037, ptr %1038, ptr %107
-  %1040 = getelementptr inbounds nuw i32, ptr %1039, i64 %.0606032
+  %1040 = getelementptr inbounds nuw [4 x i8], ptr %1039, i64 %.0606032
   store ptr %1040, ptr %50, align 8, !tbaa !269
   %1041 = load ptr, ptr %44, align 8, !tbaa !269, !noalias !991
   %1042 = icmp eq ptr %1041, %1040
@@ -41209,7 +41186,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i.i482: ; preds = %113
   br label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i484
 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i484: ; preds = %1131, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i.i482
-  %1132 = getelementptr inbounds nuw i32, ptr %1127, i64 %1125
+  %1132 = getelementptr inbounds nuw [4 x i8], ptr %1127, i64 %1125
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit.i477
 
 _ZNSt6vectorIiSaIiEE9push_backEOi.exit.i477:      ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i484, %1114
@@ -41243,7 +41220,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit.i477:      ; preds = %_ZNSt6vectorIiSaIiE
 1140:                                             ; preds = %1135
   %1141 = load ptr, ptr %115, align 8, !noalias !999
   %.sink2.i.i.i.i.i494 = select i1 %1138, ptr %1141, ptr %115
-  %1142 = getelementptr inbounds nuw i32, ptr %.sink2.i.i.i.i.i494, i64 %.sink1.i.i.i.i.i492
+  %1142 = getelementptr inbounds nuw [4 x i8], ptr %.sink2.i.i.i.i.i494, i64 %.sink1.i.i.i.i.i492
   store i32 %1136, ptr %1142, align 4, !tbaa !130
   %1143 = add i64 %1137, 2
   store i64 %1143, ptr %53, align 8, !tbaa !43
@@ -41344,7 +41321,7 @@ _ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit.i951: ; preds = %11
   %.neg.i = shl i64 %.06.i.i.i938, 2
   %.idx.neg.i = add i64 %.neg.i, 4
   call void @llvm.memmove.p0.p0.i64(ptr align 4 %.sroa.141275.11393, ptr nonnull align 4 %1167, i64 %.idx.neg.i, i1 false)
-  %1168 = getelementptr inbounds nuw i32, ptr %.sroa.141275.11393, i64 %1157
+  %1168 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.141275.11393, i64 %1157
   %.not.i.i.i.i.i.i953 = icmp eq ptr %1167, %1153
   br i1 %.not.i.i.i.i.i.i953, label %.lr.ph.i.i.i.i.i.i.preheader, label %1169
 
@@ -41353,7 +41330,7 @@ _ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit.i951: ; preds = %11
   %1171 = sub i64 %1170, %1154
   %1172 = ashr exact i64 %1171, 2
   %1173 = sub nsw i64 0, %1172
-  %1174 = getelementptr inbounds i32, ptr %.sroa.141275.11393, i64 %1173
+  %1174 = getelementptr inbounds [4 x i8], ptr %.sroa.141275.11393, i64 %1173
   call void @llvm.memmove.p0.p0.i64(ptr align 4 %1174, ptr align 4 %1153, i64 %1171, i1 false)
   br label %.lr.ph.i.i.i.i.i.i.preheader
 
@@ -41389,7 +41366,7 @@ _ZSt7advanceISt24_Fwd_list_const_iteratorIiEmEvRT_T0_.exit.i: ; preds = %.lr.ph.
 
 _ZSt22__uninitialized_copy_aISt24_Fwd_list_const_iteratorIiEPiiET0_T_S4_S3_RSaIT1_E.exit.i.thread: ; preds = %_ZSt7advanceISt24_Fwd_list_const_iteratorIiEmEvRT_T0_.exit.i
   %1183 = sub nuw i64 %1157, %1164
-  %1184 = getelementptr inbounds nuw i32, ptr %.sroa.141275.11393, i64 %1183
+  %1184 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.141275.11393, i64 %1183
   br label %1191
 
 .lr.ph.i.i.i.i.i.i.i.i.i.preheader:               ; preds = %1179, %_ZSt7advanceISt24_Fwd_list_const_iteratorIiEmEvRT_T0_.exit.i
@@ -41409,7 +41386,7 @@ _ZSt22__uninitialized_copy_aISt24_Fwd_list_const_iteratorIiEPiiET0_T_S4_S3_RSaIT
 
 _ZSt22__uninitialized_copy_aISt24_Fwd_list_const_iteratorIiEPiiET0_T_S4_S3_RSaIT1_E.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i
   %1189 = sub nuw i64 %1157, %1164
-  %1190 = getelementptr inbounds nuw i32, ptr %.sroa.141275.11393, i64 %1189
+  %1190 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.141275.11393, i64 %1189
   br i1 %.not1.i.i.i948, label %_ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit55.i, label %1191
 
 1191:                                             ; preds = %_ZSt22__uninitialized_copy_aISt24_Fwd_list_const_iteratorIiEPiiET0_T_S4_S3_RSaIT1_E.exit.i.thread, %_ZSt22__uninitialized_copy_aISt24_Fwd_list_const_iteratorIiEPiiET0_T_S4_S3_RSaIT1_E.exit.i
@@ -41508,7 +41485,7 @@ _ZSt22__uninitialized_copy_aISt24_Fwd_list_const_iteratorIiEPiiET0_T_S4_S3_RSaIT
   br label %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i947
 
 _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i947: ; preds = %1223, %1221
-  %1225 = getelementptr inbounds nuw i32, ptr %1211, i64 %1207
+  %1225 = getelementptr inbounds nuw [4 x i8], ptr %1211, i64 %1207
   br label %_ZNSt6vectorIiSaIiEE6insertISt24_Fwd_list_const_iteratorIiEvEEN9__gnu_cxx17__normal_iteratorIPiS1_EENS6_IPKiS1_EET_SC_.exit
 
 _ZNSt6vectorIiSaIiEE6insertISt24_Fwd_list_const_iteratorIiEvEEN9__gnu_cxx17__normal_iteratorIPiS1_EENS6_IPKiS1_EET_SC_.exit: ; preds = %.lr.ph.i.i.i.i.i57.i, %.lr.ph.i.i.i.i.i.i, %_ZNSt12forward_listIiSaIiEEC2ESt16initializer_listIiERKS0_.exit, %_ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit55.i, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i947
@@ -41578,7 +41555,7 @@ _ZN4absl23inlined_vector_internal13MallocAdapterISaIiELb0EE8AllocateERS2_m.exit.
 .lr.ph.i.i.i988:                                  ; preds = %.noexc1007, %.lr.ph.i.i.i988
   %.06.i.i.i989 = phi i64 [ %1250, %.lr.ph.i.i.i988 ], [ 0, %.noexc1007 ]
   %1245 = phi ptr [ %1249, %.lr.ph.i.i.i988 ], [ %.sroa.01262.0..sroa.01262.0..sroa.01262.0..sroa.01262.0.1264, %.noexc1007 ]
-  %1246 = getelementptr inbounds nuw i32, ptr %1244, i64 %.06.i.i.i989
+  %1246 = getelementptr inbounds nuw [4 x i8], ptr %1244, i64 %.06.i.i.i989
   %1247 = getelementptr inbounds nuw i8, ptr %1245, i64 8
   %1248 = load i32, ptr %1247, align 4, !tbaa !130
   store i32 %1248, ptr %1246, align 4, !tbaa !130
@@ -41594,7 +41571,7 @@ _ZN4absl23inlined_vector_internal23ConstructionTransactionISaIiEE9ConstructINS0_
 .lr.ph.i.i57.i992:                                ; preds = %_ZN4absl23inlined_vector_internal23ConstructionTransactionISaIiEE9ConstructINS0_20IteratorValueAdapterIS2_St24_Fwd_list_const_iteratorIiEEEEEvPiRT_m.exit.i, %.lr.ph.i.i57.i992
   %.012.i.i.i993 = phi i64 [ %1255, %.lr.ph.i.i57.i992 ], [ 0, %_ZN4absl23inlined_vector_internal23ConstructionTransactionISaIiEE9ConstructINS0_20IteratorValueAdapterIS2_St24_Fwd_list_const_iteratorIiEEEEEvPiRT_m.exit.i ]
   %1251 = phi ptr [ %1254, %.lr.ph.i.i57.i992 ], [ %1229, %_ZN4absl23inlined_vector_internal23ConstructionTransactionISaIiEE9ConstructINS0_20IteratorValueAdapterIS2_St24_Fwd_list_const_iteratorIiEEEEEvPiRT_m.exit.i ]
-  %1252 = getelementptr inbounds nuw i32, ptr %1243, i64 %.012.i.i.i993
+  %1252 = getelementptr inbounds nuw [4 x i8], ptr %1243, i64 %.012.i.i.i993
   %1253 = load i32, ptr %1251, align 4, !tbaa !130
   store i32 %1253, ptr %1252, align 4, !tbaa !130
   %1254 = getelementptr inbounds nuw i8, ptr %1251, i64 4
@@ -41604,7 +41581,7 @@ _ZN4absl23inlined_vector_internal23ConstructionTransactionISaIiEE9ConstructINS0_
 
 _ZN4absl23inlined_vector_internal23ConstructionTransactionISaIiEE9ConstructINS0_20IteratorValueAdapterIS2_St13move_iteratorIPiEEEEEvS7_RT_m.exit.i995: ; preds = %.lr.ph.i.i57.i992, %_ZN4absl23inlined_vector_internal23ConstructionTransactionISaIiEE9ConstructINS0_20IteratorValueAdapterIS2_St24_Fwd_list_const_iteratorIiEEEEEvPiRT_m.exit.i
   %.sroa.099.0.i996 = phi ptr [ %1229, %_ZN4absl23inlined_vector_internal23ConstructionTransactionISaIiEE9ConstructINS0_20IteratorValueAdapterIS2_St24_Fwd_list_const_iteratorIiEEEEEvPiRT_m.exit.i ], [ %1254, %.lr.ph.i.i57.i992 ]
-  %1256 = getelementptr inbounds nuw i32, ptr %1243, i64 %1234
+  %1256 = getelementptr inbounds nuw [4 x i8], ptr %1243, i64 %1234
   %1257 = sub nsw i64 %.sink1.i.i959, %.0606032
   %.not.i.i997 = icmp eq i64 %.sink1.i.i959, %.0606032
   br i1 %.not.i.i997, label %_ZN4absl23inlined_vector_internal17ConstructElementsISaIiENS0_20IteratorValueAdapterIS2_St13move_iteratorIPiEEEEEvRNS_8internal13type_identityIT_E4typeENSt16allocator_traitsISA_E7pointerERT0_NSF_9size_typeE.exit.i1001, label %.lr.ph.i.i998
@@ -41612,7 +41589,7 @@ _ZN4absl23inlined_vector_internal23ConstructionTransactionISaIiEE9ConstructINS0_
 .lr.ph.i.i998:                                    ; preds = %_ZN4absl23inlined_vector_internal23ConstructionTransactionISaIiEE9ConstructINS0_20IteratorValueAdapterIS2_St13move_iteratorIPiEEEEEvS7_RT_m.exit.i995, %.lr.ph.i.i998
   %.012.i.i999 = phi i64 [ %1262, %.lr.ph.i.i998 ], [ 0, %_ZN4absl23inlined_vector_internal23ConstructionTransactionISaIiEE9ConstructINS0_20IteratorValueAdapterIS2_St13move_iteratorIPiEEEEEvS7_RT_m.exit.i995 ]
   %1258 = phi ptr [ %1261, %.lr.ph.i.i998 ], [ %.sroa.099.0.i996, %_ZN4absl23inlined_vector_internal23ConstructionTransactionISaIiEE9ConstructINS0_20IteratorValueAdapterIS2_St13move_iteratorIPiEEEEEvS7_RT_m.exit.i995 ]
-  %1259 = getelementptr inbounds nuw i32, ptr %1256, i64 %.012.i.i999
+  %1259 = getelementptr inbounds nuw [4 x i8], ptr %1256, i64 %.012.i.i999
   %1260 = load i32, ptr %1258, align 4, !tbaa !130
   store i32 %1260, ptr %1259, align 4, !tbaa !130
   %1261 = getelementptr inbounds nuw i8, ptr %1258, i64 4
@@ -41637,25 +41614,25 @@ _ZN4absl23inlined_vector_internal21AllocationTransactionISaIiEED2Ev.exit.i1002: 
 
 1267:                                             ; preds = %_ZSt8distanceISt24_Fwd_list_const_iteratorIiEENSt15iterator_traitsIT_E15difference_typeES3_S3_.exit.i
   %.sroa.speculated.i960 = call i64 @llvm.umax.i64(i64 %1234, i64 %.sink1.i.i959)
-  %1268 = getelementptr inbounds nuw i32, ptr %1229, i64 %.sroa.speculated.i960
+  %1268 = getelementptr inbounds nuw [4 x i8], ptr %1229, i64 %.sroa.speculated.i960
   %1269 = sub i64 %1235, %.sroa.speculated.i960
   %.idx129.i961 = shl nuw nsw i64 %1234, 2
   %1270 = getelementptr inbounds nuw i8, ptr %1229, i64 %.idx129.i961
   %1271 = sub i64 %.sroa.speculated.i960, %1234
-  %1272 = getelementptr inbounds nuw i32, ptr %1230, i64 %1269
+  %1272 = getelementptr inbounds nuw [4 x i8], ptr %1230, i64 %1269
   %1273 = sub i64 %1232, %1269
   %.not.i.i63.i962 = icmp eq i64 %.0606032, %.sink1.i.i959
   br i1 %.not.i.i63.i962, label %_ZN4absl23inlined_vector_internal23ConstructionTransactionISaIiEE9ConstructINS0_20IteratorValueAdapterIS2_St13move_iteratorIPiEEEEEvS7_RT_m.exit70.i967, label %.lr.ph.i.i66.preheader.i963
 
 .lr.ph.i.i66.preheader.i963:                      ; preds = %1267
   %1274 = sub i64 %.sroa.speculated.i960, %1232
-  %1275 = getelementptr inbounds nuw i32, ptr %1229, i64 %1274
+  %1275 = getelementptr inbounds nuw [4 x i8], ptr %1229, i64 %1274
   br label %.lr.ph.i.i66.i964
 
 .lr.ph.i.i66.i964:                                ; preds = %.lr.ph.i.i66.i964, %.lr.ph.i.i66.preheader.i963
   %.012.i.i67.i965 = phi i64 [ %1280, %.lr.ph.i.i66.i964 ], [ 0, %.lr.ph.i.i66.preheader.i963 ]
   %1276 = phi ptr [ %1279, %.lr.ph.i.i66.i964 ], [ %1275, %.lr.ph.i.i66.preheader.i963 ]
-  %1277 = getelementptr inbounds nuw i32, ptr %1268, i64 %.012.i.i67.i965
+  %1277 = getelementptr inbounds nuw [4 x i8], ptr %1268, i64 %.012.i.i67.i965
   %1278 = load i32, ptr %1276, align 4, !tbaa !130
   store i32 %1278, ptr %1277, align 4, !tbaa !130
   %1279 = getelementptr inbounds nuw i8, ptr %1276, i64 4
@@ -41671,7 +41648,7 @@ _ZN4absl23inlined_vector_internal23ConstructionTransactionISaIiEE9ConstructINS0_
 .lr.ph.preheader.i982:                            ; preds = %_ZN4absl23inlined_vector_internal23ConstructionTransactionISaIiEE9ConstructINS0_20IteratorValueAdapterIS2_St13move_iteratorIPiEEEEEvS7_RT_m.exit70.i967
   %1281 = getelementptr i8, ptr %1229, i64 %.idx.i968
   %1282 = getelementptr i8, ptr %1281, i64 -4
-  %1283 = getelementptr inbounds nuw i32, ptr %1230, i64 %1271
+  %1283 = getelementptr inbounds nuw [4 x i8], ptr %1230, i64 %1271
   br label %.lr.ph.i983
 
 ._crit_edge.i970:                                 ; preds = %.lr.ph.i983, %_ZN4absl23inlined_vector_internal23ConstructionTransactionISaIiEE9ConstructINS0_20IteratorValueAdapterIS2_St13move_iteratorIPiEEEEEvS7_RT_m.exit70.i967
@@ -41680,7 +41657,7 @@ _ZN4absl23inlined_vector_internal23ConstructionTransactionISaIiEE9ConstructINS0_
 .lr.ph.i74.i971:                                  ; preds = %._crit_edge.i970, %.lr.ph.i74.i971
   %.05.i.i972 = phi i64 [ %1289, %.lr.ph.i74.i971 ], [ 0, %._crit_edge.i970 ]
   %1284 = phi ptr [ %1288, %.lr.ph.i74.i971 ], [ %.sroa.01262.0..sroa.01262.0..sroa.01262.0..sroa.01262.0.1264, %._crit_edge.i970 ]
-  %1285 = getelementptr inbounds nuw i32, ptr %1230, i64 %.05.i.i972
+  %1285 = getelementptr inbounds nuw [4 x i8], ptr %1230, i64 %.05.i.i972
   %1286 = getelementptr inbounds nuw i8, ptr %1284, i64 8
   %1287 = load i32, ptr %1286, align 4, !tbaa !130
   store i32 %1287, ptr %1285, align 4, !tbaa !130
@@ -41707,7 +41684,7 @@ _ZN4absl23inlined_vector_internal14AssignElementsISaIiENS0_20IteratorValueAdapte
 .lr.ph.i80.i976:                                  ; preds = %_ZN4absl23inlined_vector_internal14AssignElementsISaIiENS0_20IteratorValueAdapterIS2_St24_Fwd_list_const_iteratorIiEEEEEvNSt16allocator_traitsIT_E7pointerERT0_NS9_9size_typeE.exit.i, %.lr.ph.i80.i976
   %.06.i.i977 = phi i64 [ %1300, %.lr.ph.i80.i976 ], [ 0, %_ZN4absl23inlined_vector_internal14AssignElementsISaIiENS0_20IteratorValueAdapterIS2_St24_Fwd_list_const_iteratorIiEEEEEvNSt16allocator_traitsIT_E7pointerERT0_NS9_9size_typeE.exit.i ]
   %1295 = phi ptr [ %1299, %.lr.ph.i80.i976 ], [ %.sroa.0126.0.i974, %_ZN4absl23inlined_vector_internal14AssignElementsISaIiENS0_20IteratorValueAdapterIS2_St24_Fwd_list_const_iteratorIiEEEEEvNSt16allocator_traitsIT_E7pointerERT0_NS9_9size_typeE.exit.i ]
-  %1296 = getelementptr inbounds nuw i32, ptr %1272, i64 %.06.i.i977
+  %1296 = getelementptr inbounds nuw [4 x i8], ptr %1272, i64 %.06.i.i977
   %1297 = getelementptr inbounds nuw i8, ptr %1295, i64 8
   %1298 = load i32, ptr %1297, align 4, !tbaa !130
   store i32 %1298, ptr %1296, align 4, !tbaa !130
@@ -42128,7 +42105,7 @@ _ZN7testing15AssertionResultD2Ev.exit561:         ; preds = %1389, %_ZNKSt14defa
   %1398 = trunc i64 %1397 to i1
   %1399 = load ptr, ptr %115, align 8
   %1400 = select i1 %1398, ptr %1399, ptr %115
-  %1401 = getelementptr inbounds nuw i32, ptr %1400, i64 %.0606032
+  %1401 = getelementptr inbounds nuw [4 x i8], ptr %1400, i64 %.0606032
   store ptr %1401, ptr %61, align 8, !tbaa !269
   %1402 = load ptr, ptr %55, align 8, !tbaa !269, !noalias !1027
   %1403 = icmp eq ptr %1402, %1401
@@ -42440,7 +42417,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i.i594: ; preds = %149
   br label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i596
 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i596: ; preds = %1493, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i.i594
-  %1494 = getelementptr inbounds nuw i32, ptr %1489, i64 %1487
+  %1494 = getelementptr inbounds nuw [4 x i8], ptr %1489, i64 %1487
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit.i589
 
 _ZNSt6vectorIiSaIiEE9push_backEOi.exit.i589:      ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i596, %1476
@@ -42474,7 +42451,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit.i589:      ; preds = %_ZNSt6vectorIiSaIiE
 1502:                                             ; preds = %1497
   %1503 = load ptr, ptr %125, align 8, !noalias !1035
   %.sink2.i.i.i.i.i606 = select i1 %1500, ptr %1503, ptr %125
-  %1504 = getelementptr inbounds nuw i32, ptr %.sink2.i.i.i.i.i606, i64 %.sink1.i.i.i.i.i604
+  %1504 = getelementptr inbounds nuw [4 x i8], ptr %.sink2.i.i.i.i.i606, i64 %.sink1.i.i.i.i.i604
   store i32 %1498, ptr %1504, align 4, !tbaa !130
   %1505 = add i64 %1499, 2
   store i64 %1505, ptr %64, align 8, !tbaa !43
@@ -42525,7 +42502,7 @@ _ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit.i1031: ; preds = %1
   %1523 = sub i64 %1522, %1510
   %1524 = ashr exact i64 %1523, 2
   %1525 = sub nsw i64 0, %1524
-  %1526 = getelementptr inbounds i32, ptr %.sroa.141246.11400, i64 %1525
+  %1526 = getelementptr inbounds [4 x i8], ptr %.sroa.141246.11400, i64 %1525
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %1526, ptr align 4 %1509, i64 %1523, i1 false)
   br label %_ZSt4copyIPKiN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET0_T_SA_S9_.exit.i
 
@@ -42545,7 +42522,7 @@ _ZSt7advanceIPKimEvRT_T0_.exit.i:                 ; preds = %1515
 
 _ZSt22__uninitialized_copy_aIPKiPiiET0_T_S4_S3_RSaIT1_E.exit.i: ; preds = %1527, %_ZSt7advanceIPKimEvRT_T0_.exit.i
   %1529 = sub nuw nsw i64 3, %1517
-  %1530 = getelementptr inbounds nuw i32, ptr %.sroa.141246.11400, i64 %1529
+  %1530 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.141246.11400, i64 %1529
   %.not.i.i.i.i.i.i.i.i.i56.i1030 = icmp eq ptr %.sroa.141246.11400, %1509
   br i1 %.not.i.i.i.i.i.i.i.i.i56.i1030, label %_ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit57.i.thread, label %1532
 
@@ -42619,7 +42596,7 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i1037: ; preds = %1544, %_ZNKSt6
   br label %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i1039
 
 _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i1039: ; preds = %1556, %1554
-  %1558 = getelementptr inbounds nuw i32, ptr %1547, i64 %1543
+  %1558 = getelementptr inbounds nuw [4 x i8], ptr %1547, i64 %1543
   br label %_ZNSt6vectorIiSaIiEE6insertEN9__gnu_cxx17__normal_iteratorIPKiS1_EESt16initializer_listIiE.exit
 
 _ZNSt6vectorIiSaIiEE6insertEN9__gnu_cxx17__normal_iteratorIPKiS1_EESt16initializer_listIiE.exit: ; preds = %_ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit57.i.thread, %_ZSt4copyIPKiN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET0_T_SA_S9_.exit.i, %1532, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i1039
@@ -42814,7 +42791,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt
   %1615 = load i32, ptr %1614, align 8, !tbaa !15
   %1616 = and i32 %1615, 5
   %.not1.i.i = icmp eq i32 %1616, 0
-  %1617 = getelementptr inbounds nuw i32, ptr %1609, i64 %.0606032
+  %1617 = getelementptr inbounds nuw [4 x i8], ptr %1609, i64 %.0606032
   %1618 = ptrtoint ptr %1617 to i64
   br i1 %.not1.i.i, label %_ZNSt16istream_iteratorIicSt11char_traitsIcElEC2ERSi.exit, label %_ZNSt16istream_iteratorIicSt11char_traitsIcElEC2ERSi.exit.thread
 
@@ -42903,7 +42880,7 @@ _ZN4absl23inlined_vector_internal13MallocAdapterISaIiELb0EE8AllocateERS2_m.exit.
 .lr.ph.i.i57.i1083:                               ; preds = %.noexc1098, %.lr.ph.i.i57.i1083
   %.012.i.i58.i1084 = phi i64 [ %1654, %.lr.ph.i.i57.i1083 ], [ 0, %.noexc1098 ]
   %1650 = phi ptr [ %1653, %.lr.ph.i.i57.i1083 ], [ %1636, %.noexc1098 ]
-  %1651 = getelementptr inbounds nuw i32, ptr %1648, i64 %.012.i.i58.i1084
+  %1651 = getelementptr inbounds nuw [4 x i8], ptr %1648, i64 %.012.i.i58.i1084
   %1652 = load i32, ptr %1650, align 4, !tbaa !130
   store i32 %1652, ptr %1651, align 4, !tbaa !130
   %1653 = getelementptr inbounds nuw i8, ptr %1650, i64 4
@@ -42913,7 +42890,7 @@ _ZN4absl23inlined_vector_internal13MallocAdapterISaIiELb0EE8AllocateERS2_m.exit.
 
 _ZN4absl23inlined_vector_internal23ConstructionTransactionISaIiEE9ConstructINS0_20IteratorValueAdapterIS2_St13move_iteratorIPiEEEEEvS7_RT_m.exit61.i1086: ; preds = %.lr.ph.i.i57.i1083, %.noexc1098
   %.sroa.0103.0.i1087 = phi ptr [ %1636, %.noexc1098 ], [ %1653, %.lr.ph.i.i57.i1083 ]
-  %1655 = getelementptr inbounds nuw i32, ptr %1648, i64 %1640
+  %1655 = getelementptr inbounds nuw [4 x i8], ptr %1648, i64 %1640
   %1656 = sub i64 %.sink1.i.i1051, %.0.i6176031
   %.not.i.i1088 = icmp eq i64 %.sink1.i.i1051, %.0.i6176031
   br i1 %.not.i.i1088, label %_ZN4absl23inlined_vector_internal17ConstructElementsISaIiENS0_20IteratorValueAdapterIS2_St13move_iteratorIPiEEEEEvRNS_8internal13type_identityIT_E4typeENSt16allocator_traitsISA_E7pointerERT0_NSF_9size_typeE.exit.i1092, label %.lr.ph.i.i1089
@@ -42921,7 +42898,7 @@ _ZN4absl23inlined_vector_internal23ConstructionTransactionISaIiEE9ConstructINS0_
 .lr.ph.i.i1089:                                   ; preds = %_ZN4absl23inlined_vector_internal23ConstructionTransactionISaIiEE9ConstructINS0_20IteratorValueAdapterIS2_St13move_iteratorIPiEEEEEvS7_RT_m.exit61.i1086, %.lr.ph.i.i1089
   %.012.i.i1090 = phi i64 [ %1661, %.lr.ph.i.i1089 ], [ 0, %_ZN4absl23inlined_vector_internal23ConstructionTransactionISaIiEE9ConstructINS0_20IteratorValueAdapterIS2_St13move_iteratorIPiEEEEEvS7_RT_m.exit61.i1086 ]
   %1657 = phi ptr [ %1660, %.lr.ph.i.i1089 ], [ %.sroa.0103.0.i1087, %_ZN4absl23inlined_vector_internal23ConstructionTransactionISaIiEE9ConstructINS0_20IteratorValueAdapterIS2_St13move_iteratorIPiEEEEEvS7_RT_m.exit61.i1086 ]
-  %1658 = getelementptr inbounds nuw i32, ptr %1655, i64 %.012.i.i1090
+  %1658 = getelementptr inbounds nuw [4 x i8], ptr %1655, i64 %.012.i.i1090
   %1659 = load i32, ptr %1657, align 4, !tbaa !130
   store i32 %1659, ptr %1658, align 4, !tbaa !130
   %1660 = getelementptr inbounds nuw i8, ptr %1657, i64 4
@@ -42946,12 +42923,12 @@ _ZN4absl23inlined_vector_internal21AllocationTransactionISaIiEED2Ev.exit.i1093: 
 
 1666:                                             ; preds = %_ZStneRKSt16istream_iteratorIicSt11char_traitsIcElES4_.exit.thread.i
   %.sroa.speculated.i1052 = call i64 @llvm.umax.i64(i64 %1640, i64 %.sink1.i.i1051)
-  %1667 = getelementptr i32, ptr %1636, i64 %.sroa.speculated.i1052
+  %1667 = getelementptr [4 x i8], ptr %1636, i64 %.sroa.speculated.i1052
   %1668 = sub i64 %1641, %.sroa.speculated.i1052
   %.idx133.i1053 = shl nuw nsw i64 %1640, 2
   %1669 = getelementptr inbounds nuw i8, ptr %1636, i64 %.idx133.i1053
   %1670 = sub i64 %.sroa.speculated.i1052, %1640
-  %1671 = getelementptr i32, ptr %1637, i64 %1668
+  %1671 = getelementptr [4 x i8], ptr %1637, i64 %1668
   %.not.i.i65.i1054 = icmp eq i64 %.0.i6176031, %.sink1.i.i1051
   br i1 %.not.i.i65.i1054, label %_ZN4absl23inlined_vector_internal23ConstructionTransactionISaIiEE9ConstructINS0_20IteratorValueAdapterIS2_St13move_iteratorIPiEEEEEvS7_RT_m.exit72.i1059, label %.lr.ph.i.i68.preheader.i1055
 
@@ -42962,7 +42939,7 @@ _ZN4absl23inlined_vector_internal21AllocationTransactionISaIiEED2Ev.exit.i1093: 
 
 .lr.ph.i.i68.i1056:                               ; preds = %.lr.ph.i.i68.i1056, %.lr.ph.i.i68.preheader.i1055
   %.012.i.i69.i1057 = phi i64 [ %1674, %.lr.ph.i.i68.i1056 ], [ 0, %.lr.ph.i.i68.preheader.i1055 ]
-  %1673 = getelementptr inbounds nuw i32, ptr %1667, i64 %.012.i.i69.i1057
+  %1673 = getelementptr inbounds nuw [4 x i8], ptr %1667, i64 %.012.i.i69.i1057
   store i32 %load_initial17973, ptr %1673, align 4, !tbaa !130
   %1674 = add nuw i64 %.012.i.i69.i1057, 1
   %exitcond.not.i.i70.i1058 = icmp eq i64 %1674, %1668
@@ -42976,7 +42953,7 @@ _ZN4absl23inlined_vector_internal23ConstructionTransactionISaIiEE9ConstructINS0_
 .lr.ph.preheader.i1075:                           ; preds = %_ZN4absl23inlined_vector_internal23ConstructionTransactionISaIiEE9ConstructINS0_20IteratorValueAdapterIS2_St13move_iteratorIPiEEEEEvS7_RT_m.exit72.i1059
   %1675 = getelementptr i8, ptr %1636, i64 %.idx.i1060
   %1676 = getelementptr i8, ptr %1675, i64 -4
-  %1677 = getelementptr inbounds nuw i32, ptr %1637, i64 %1670
+  %1677 = getelementptr inbounds nuw [4 x i8], ptr %1637, i64 %1670
   br label %.lr.ph.i1076
 
 ._crit_edge.i1062:                                ; preds = %.lr.ph.i1076, %_ZN4absl23inlined_vector_internal23ConstructionTransactionISaIiEE9ConstructINS0_20IteratorValueAdapterIS2_St13move_iteratorIPiEEEEEvS7_RT_m.exit72.i1059
@@ -43494,7 +43471,7 @@ _ZN7testing15AssertionResultD2Ev.exit679:         ; preds = %1791, %_ZNKSt14defa
   %1800 = trunc i64 %1799 to i1
   %1801 = load ptr, ptr %125, align 8
   %1802 = select i1 %1800, ptr %1801, ptr %125
-  %1803 = getelementptr inbounds nuw i32, ptr %1802, i64 %.0606032
+  %1803 = getelementptr inbounds nuw [4 x i8], ptr %1802, i64 %.0606032
   store ptr %1803, ptr %75, align 8, !tbaa !269
   %1804 = load ptr, ptr %68, align 8, !tbaa !269, !noalias !1065
   %1805 = icmp eq ptr %1804, %1803
@@ -43818,7 +43795,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i.i712: ; preds = %190
   br label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i714
 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i714: ; preds = %1902, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i.i712
-  %1903 = getelementptr inbounds nuw i32, ptr %1898, i64 %1896
+  %1903 = getelementptr inbounds nuw [4 x i8], ptr %1898, i64 %1896
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit.i707
 
 _ZNSt6vectorIiSaIiEE9push_backEOi.exit.i707:      ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i714, %1885
@@ -43852,7 +43829,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit.i707:      ; preds = %_ZNSt6vectorIiSaIiE
 1911:                                             ; preds = %1906
   %1912 = load ptr, ptr %158, align 8, !noalias !1073
   %.sink2.i.i.i.i.i724 = select i1 %1909, ptr %1912, ptr %158
-  %1913 = getelementptr inbounds nuw i32, ptr %.sink2.i.i.i.i.i724, i64 %.sink1.i.i.i.i.i722
+  %1913 = getelementptr inbounds nuw [4 x i8], ptr %.sink2.i.i.i.i.i724, i64 %.sink1.i.i.i.i.i722
   store i32 %1907, ptr %1913, align 4, !tbaa !130
   %1914 = add i64 %1908, 2
   store i64 %1914, ptr %78, align 8, !tbaa !43
@@ -43903,7 +43880,7 @@ _ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit.i1129: ; preds = %1
   %1933 = sub i64 %1932, %1919
   %1934 = ashr exact i64 %1933, 2
   %1935 = sub nsw i64 0, %1934
-  %1936 = getelementptr inbounds i32, ptr %.sroa.14.11406, i64 %1935
+  %1936 = getelementptr inbounds [4 x i8], ptr %.sroa.14.11406, i64 %1935
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %1936, ptr align 4 %1918, i64 %1933, i1 false)
   br label %_ZSt4copyIPKiN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET0_T_SA_S9_.exit.i1132
 
@@ -43924,7 +43901,7 @@ _ZSt7advanceIPKimEvRT_T0_.exit.i1120:             ; preds = %1924
 
 _ZSt22__uninitialized_copy_aIPKiPiiET0_T_S4_S3_RSaIT1_E.exit.i1124: ; preds = %1938, %_ZSt7advanceIPKimEvRT_T0_.exit.i1120
   %1940 = sub nuw nsw i64 2, %1926
-  %1941 = getelementptr inbounds nuw i32, ptr %.sroa.14.11406, i64 %1940
+  %1941 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.14.11406, i64 %1940
   %.not.i.i.i.i.i.i.i.i.i56.i1125 = icmp eq ptr %.sroa.14.11406, %1918
   br i1 %.not.i.i.i.i.i.i.i.i.i56.i1125, label %_ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit57.i1127.thread, label %1943
 
@@ -43999,7 +43976,7 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i1136: ; preds = %1955, %_ZNKSt6
   br label %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i1140
 
 _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i1140: ; preds = %1968, %1966
-  %1970 = getelementptr inbounds nuw i32, ptr %1958, i64 %1954
+  %1970 = getelementptr inbounds nuw [4 x i8], ptr %1958, i64 %1954
   br label %_ZNSt6vectorIiSaIiEE6insertEN9__gnu_cxx17__normal_iteratorIPKiS1_EESt16initializer_listIiE.exit730
 
 _ZNSt6vectorIiSaIiEE6insertEN9__gnu_cxx17__normal_iteratorIPKiS1_EESt16initializer_listIiE.exit730: ; preds = %_ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit57.i1127.thread, %_ZSt4copyIPKiN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET0_T_SA_S9_.exit.i1132, %1943, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i1140
@@ -44063,7 +44040,7 @@ _ZN4absl23inlined_vector_internal13MallocAdapterISaIiELb0EE8AllocateERS2_m.exit.
 .lr.ph.i.i57.i1176:                               ; preds = %.noexc1191, %.lr.ph.i.i57.i1176
   %.012.i.i.i1177 = phi i64 [ %1993, %.lr.ph.i.i57.i1176 ], [ 0, %.noexc1191 ]
   %1989 = phi ptr [ %1992, %.lr.ph.i.i57.i1176 ], [ %1974, %.noexc1191 ]
-  %1990 = getelementptr inbounds nuw i32, ptr %1986, i64 %.012.i.i.i1177
+  %1990 = getelementptr inbounds nuw [4 x i8], ptr %1986, i64 %.012.i.i.i1177
   %1991 = load i32, ptr %1989, align 4, !tbaa !130
   store i32 %1991, ptr %1990, align 4, !tbaa !130
   %1992 = getelementptr inbounds nuw i8, ptr %1989, i64 4
@@ -44073,7 +44050,7 @@ _ZN4absl23inlined_vector_internal13MallocAdapterISaIiELb0EE8AllocateERS2_m.exit.
 
 _ZN4absl23inlined_vector_internal23ConstructionTransactionISaIiEE9ConstructINS0_20IteratorValueAdapterIS2_St13move_iteratorIPiEEEEEvS7_RT_m.exit.i1179: ; preds = %.lr.ph.i.i57.i1176, %.noexc1191
   %.sroa.099.0.i1180 = phi ptr [ %1974, %.noexc1191 ], [ %1992, %.lr.ph.i.i57.i1176 ]
-  %1994 = getelementptr inbounds nuw i32, ptr %1986, i64 %1977
+  %1994 = getelementptr inbounds nuw [4 x i8], ptr %1986, i64 %1977
   %1995 = sub nsw i64 %.sink1.i.i1146, %.0606032
   %.not.i.i1181 = icmp eq i64 %.sink1.i.i1146, %.0606032
   br i1 %.not.i.i1181, label %_ZN4absl23inlined_vector_internal17ConstructElementsISaIiENS0_20IteratorValueAdapterIS2_St13move_iteratorIPiEEEEEvRNS_8internal13type_identityIT_E4typeENSt16allocator_traitsISA_E7pointerERT0_NSF_9size_typeE.exit.i1185, label %.lr.ph.i.i1182
@@ -44081,7 +44058,7 @@ _ZN4absl23inlined_vector_internal23ConstructionTransactionISaIiEE9ConstructINS0_
 .lr.ph.i.i1182:                                   ; preds = %_ZN4absl23inlined_vector_internal23ConstructionTransactionISaIiEE9ConstructINS0_20IteratorValueAdapterIS2_St13move_iteratorIPiEEEEEvS7_RT_m.exit.i1179, %.lr.ph.i.i1182
   %.012.i.i1183 = phi i64 [ %2000, %.lr.ph.i.i1182 ], [ 0, %_ZN4absl23inlined_vector_internal23ConstructionTransactionISaIiEE9ConstructINS0_20IteratorValueAdapterIS2_St13move_iteratorIPiEEEEEvS7_RT_m.exit.i1179 ]
   %1996 = phi ptr [ %1999, %.lr.ph.i.i1182 ], [ %.sroa.099.0.i1180, %_ZN4absl23inlined_vector_internal23ConstructionTransactionISaIiEE9ConstructINS0_20IteratorValueAdapterIS2_St13move_iteratorIPiEEEEEvS7_RT_m.exit.i1179 ]
-  %1997 = getelementptr inbounds nuw i32, ptr %1994, i64 %.012.i.i1183
+  %1997 = getelementptr inbounds nuw [4 x i8], ptr %1994, i64 %.012.i.i1183
   %1998 = load i32, ptr %1996, align 4, !tbaa !130
   store i32 %1998, ptr %1997, align 4, !tbaa !130
   %1999 = getelementptr inbounds nuw i8, ptr %1996, i64 4
@@ -44106,12 +44083,12 @@ _ZN4absl23inlined_vector_internal21AllocationTransactionISaIiEED2Ev.exit.i1186: 
 
 2005:                                             ; preds = %_ZNSt6vectorIiSaIiEE6insertEN9__gnu_cxx17__normal_iteratorIPKiS1_EESt16initializer_listIiE.exit730
   %.sroa.speculated.i1147 = call i64 @llvm.umax.i64(i64 %1977, i64 %.sink1.i.i1146)
-  %2006 = getelementptr i32, ptr %1974, i64 %.sroa.speculated.i1147
+  %2006 = getelementptr [4 x i8], ptr %1974, i64 %.sroa.speculated.i1147
   %2007 = sub i64 %1978, %.sroa.speculated.i1147
   %.idx129.i1148 = shl nuw nsw i64 %1977, 2
   %2008 = getelementptr inbounds nuw i8, ptr %1974, i64 %.idx129.i1148
   %2009 = sub nsw i64 %.sroa.speculated.i1147, %1977
-  %2010 = getelementptr i32, ptr %1975, i64 %2007
+  %2010 = getelementptr [4 x i8], ptr %1975, i64 %2007
   %.not.i.i63.i1149 = icmp eq i64 %.0606032, %.sink1.i.i1146
   br i1 %.not.i.i63.i1149, label %_ZN4absl23inlined_vector_internal23ConstructionTransactionISaIiEE9ConstructINS0_20IteratorValueAdapterIS2_St13move_iteratorIPiEEEEEvS7_RT_m.exit70.i1154, label %.lr.ph.i.i66.preheader.i1150
 
@@ -44122,7 +44099,7 @@ _ZN4absl23inlined_vector_internal21AllocationTransactionISaIiEED2Ev.exit.i1186: 
 .lr.ph.i.i66.i1151:                               ; preds = %.lr.ph.i.i66.i1151, %.lr.ph.i.i66.preheader.i1150
   %.012.i.i67.i1152 = phi i64 [ %2016, %.lr.ph.i.i66.i1151 ], [ 0, %.lr.ph.i.i66.preheader.i1150 ]
   %2012 = phi ptr [ %2015, %.lr.ph.i.i66.i1151 ], [ %2011, %.lr.ph.i.i66.preheader.i1150 ]
-  %2013 = getelementptr inbounds nuw i32, ptr %2006, i64 %.012.i.i67.i1152
+  %2013 = getelementptr inbounds nuw [4 x i8], ptr %2006, i64 %.012.i.i67.i1152
   %2014 = load i32, ptr %2012, align 4, !tbaa !130
   store i32 %2014, ptr %2013, align 4, !tbaa !130
   %2015 = getelementptr inbounds nuw i8, ptr %2012, i64 4
@@ -44138,7 +44115,7 @@ _ZN4absl23inlined_vector_internal23ConstructionTransactionISaIiEE9ConstructINS0_
 .lr.ph.preheader.i1169:                           ; preds = %_ZN4absl23inlined_vector_internal23ConstructionTransactionISaIiEE9ConstructINS0_20IteratorValueAdapterIS2_St13move_iteratorIPiEEEEEvS7_RT_m.exit70.i1154
   %2017 = getelementptr i8, ptr %1974, i64 %.idx.i1155
   %2018 = getelementptr i8, ptr %2017, i64 -4
-  %2019 = getelementptr inbounds nuw i32, ptr %1975, i64 %2009
+  %2019 = getelementptr inbounds nuw [4 x i8], ptr %1975, i64 %2009
   br label %.lr.ph.i1170
 
 ._crit_edge.i1157:                                ; preds = %.lr.ph.i1170, %_ZN4absl23inlined_vector_internal23ConstructionTransactionISaIiEE9ConstructINS0_20IteratorValueAdapterIS2_St13move_iteratorIPiEEEEEvS7_RT_m.exit70.i1154
@@ -44590,7 +44567,7 @@ _ZN7testing15AssertionResultD2Ev.exit781:         ; preds = %2119, %_ZNKSt14defa
   %2128 = trunc i64 %2127 to i1
   %2129 = load ptr, ptr %158, align 8
   %2130 = select i1 %2128, ptr %2129, ptr %158
-  %2131 = getelementptr inbounds nuw i32, ptr %2130, i64 %.0606032
+  %2131 = getelementptr inbounds nuw [4 x i8], ptr %2130, i64 %.0606032
   store ptr %2131, ptr %87, align 8, !tbaa !269
   %2132 = load ptr, ptr %80, align 8, !tbaa !269, !noalias !1088
   %2133 = icmp eq ptr %2132, %2131
@@ -46371,7 +46348,7 @@ _ZN7testing7MessageD2Ev.exit17:                   ; preds = %.body, %_ZNKSt14def
   %93 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %.021)
   %94 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %93, ptr noundef nonnull @.str.246, i64 noundef 1)
   %95 = load ptr, ptr %8, align 8, !tbaa !1169
-  %96 = getelementptr inbounds nuw %"class.testing::Matcher.350", ptr %95, i64 %.021
+  %96 = getelementptr inbounds nuw [24 x i8], ptr %95, i64 %.021
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
   %98 = load ptr, ptr %97, align 8, !tbaa !1159
   %99 = icmp ne ptr %98, null
@@ -46614,7 +46591,7 @@ _ZN7testing7MessageD2Ev.exit15:                   ; preds = %.body, %_ZNKSt14def
   %75 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %.017)
   %76 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %75, ptr noundef nonnull @.str.246, i64 noundef 1)
   %77 = load ptr, ptr %7, align 8, !tbaa !1169
-  %78 = getelementptr inbounds nuw %"class.testing::Matcher.350", ptr %77, i64 %.017
+  %78 = getelementptr inbounds nuw [24 x i8], ptr %77, i64 %.017
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %80 = load ptr, ptr %79, align 8, !tbaa !1159
   %81 = icmp ne ptr %80, null
@@ -46716,7 +46693,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %25 = shl nuw nsw i64 %23, 5
   %26 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %25) #42
   store ptr %26, ptr %9, align 8, !tbaa !64
-  %27 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %26, i64 %23
+  %27 = getelementptr inbounds nuw [32 x i8], ptr %26, i64 %23
   %28 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %27, ptr %28, align 8, !tbaa !124
   br label %.lr.ph.i.i.i.i.i
@@ -46792,7 +46769,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 
 _ZN7testing25StringMatchResultListenerC2Ev.exit.us: ; preds = %67
   %68 = load ptr, ptr %16, align 8, !tbaa !1169
-  %69 = getelementptr inbounds nuw %"class.testing::Matcher.350", ptr %68, i64 %storemerge156.us
+  %69 = getelementptr inbounds nuw [24 x i8], ptr %68, i64 %storemerge156.us
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %71 = load ptr, ptr %70, align 8, !tbaa !1159
   %72 = icmp ne ptr %71, null
@@ -46853,7 +46830,7 @@ _ZNK7testing8internal11MatcherBaseIRKiE15MatchAndExplainES3_PNS_19MatchResultLis
 
 _ZNK7testing25StringMatchResultListener3strB5cxx11Ev.exit.us: ; preds = %89, %83
   %90 = load ptr, ptr %9, align 8, !tbaa !64
-  %91 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %90, i64 %storemerge156.us
+  %91 = getelementptr inbounds nuw [32 x i8], ptr %90, i64 %storemerge156.us
   %92 = load ptr, ptr %91, align 8, !tbaa !39
   %93 = getelementptr inbounds nuw i8, ptr %91, i64 16
   %94 = icmp eq ptr %92, %93
@@ -46981,7 +46958,7 @@ _ZN7testing25StringMatchResultListenerD2Ev.exit.us: ; preds = %_ZNSt7__cxx1112ba
   %135 = load ptr, ptr %36, align 8
   %136 = select i1 %134, ptr %135, ptr %36
   %137 = lshr i64 %133, 1
-  %138 = getelementptr inbounds nuw i32, ptr %136, i64 %137
+  %138 = getelementptr inbounds nuw [4 x i8], ptr %136, i64 %137
   %.not.us = icmp eq ptr %131, %138
   br i1 %.not.us, label %.critedge, label %.lr.ph.split.us, !llvm.loop !1192
 
@@ -47022,7 +46999,7 @@ _ZN7testing25StringMatchResultListenerD2Ev.exit.us: ; preds = %_ZNSt7__cxx1112ba
   br i1 %.not52, label %.critedge, label %151
 
 151:                                              ; preds = %.lr.ph.split
-  %152 = getelementptr inbounds nuw %"class.testing::Matcher.350", ptr %146, i64 %storemerge156
+  %152 = getelementptr inbounds nuw [24 x i8], ptr %146, i64 %storemerge156
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %39, align 8, !tbaa !448
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN7testing8internal24DummyMatchResultListenerE, i64 16), ptr %7, align 8, !tbaa !13
@@ -47100,7 +47077,7 @@ _ZNK7testing8internal11MatcherBaseIRKiE15MatchAndExplainES3_PNS_19MatchResultLis
   %173 = load ptr, ptr %36, align 8
   %174 = select i1 %172, ptr %173, ptr %36
   %175 = lshr i64 %171, 1
-  %176 = getelementptr inbounds nuw i32, ptr %174, i64 %175
+  %176 = getelementptr inbounds nuw [4 x i8], ptr %174, i64 %175
   %.not = icmp eq ptr %169, %176
   br i1 %.not, label %.critedge, label %.lr.ph.split, !llvm.loop !1192
 
@@ -47113,7 +47090,7 @@ _ZNK7testing8internal11MatcherBaseIRKiE15MatchAndExplainES3_PNS_19MatchResultLis
   %179 = load ptr, ptr %36, align 8
   %180 = select i1 %178, ptr %179, ptr %36
   %181 = lshr i64 %177, 1
-  %182 = getelementptr inbounds nuw i32, ptr %180, i64 %181
+  %182 = getelementptr inbounds nuw [4 x i8], ptr %180, i64 %181
   %.not56191 = icmp eq ptr %.040.lcssa, %182
   br i1 %.not56191, label %._crit_edge, label %.lr.ph194.preheader
 
@@ -47355,7 +47332,7 @@ _ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit: ; preds = %265
 _ZN7testing19MatchResultListenerlsIA15_cEERS0_RKT_.exit: ; preds = %267
   %.pre208 = load ptr, ptr %13, align 8, !tbaa !448
   %269 = load ptr, ptr %9, align 8, !tbaa !64
-  %270 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %269, i64 %storemerge.lcssa
+  %270 = getelementptr inbounds nuw [32 x i8], ptr %269, i64 %storemerge.lcssa
   %271 = getelementptr inbounds nuw i8, ptr %270, i64 8
   %272 = load i64, ptr %271, align 8, !tbaa !45
   %273 = icmp eq i64 %272, 0
@@ -47385,7 +47362,7 @@ _ZN7testing19MatchResultListenerlsIA15_cEERS0_RKT_.exit: ; preds = %267
 .lr.ph198:                                        ; preds = %.lr.ph198.preheader, %_ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit
   %.034197 = phi i1 [ %.1, %_ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit ], [ false, %.lr.ph198.preheader ]
   %storemerge58196 = phi i64 [ %301, %_ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit ], [ 0, %.lr.ph198.preheader ]
-  %281 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.pre, i64 %storemerge58196
+  %281 = getelementptr inbounds nuw [32 x i8], ptr %.pre, i64 %storemerge58196
   %282 = getelementptr inbounds nuw i8, ptr %281, i64 8
   %283 = load i64, ptr %282, align 8, !tbaa !45
   %284 = icmp eq i64 %283, 0
@@ -47653,7 +47630,7 @@ _ZSt8_DestroyIPN7testing7MatcherIRKiEES4_EvT_S6_RSaIT0_E.exit: ; preds = %.lr.ph
 _ZNSt12_Vector_baseIN7testing7MatcherIRKiEESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZSt8_DestroyIPN7testing7MatcherIRKiEES4_EvT_S6_RSaIT0_E.exit, %61
   store ptr %20, ptr %0, align 8, !tbaa !1169
   store ptr %.0.lcssa.i.i.i.i.i36, ptr %4, align 8, !tbaa !1162
-  %65 = getelementptr inbounds nuw %"class.testing::Matcher.350", ptr %20, i64 %16
+  %65 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %65, ptr %60, align 8, !tbaa !1165
   ret void
 }
@@ -48520,7 +48497,7 @@ _ZNSt6vectorISt4pairIiiESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i: ; preds
   br label %_ZNSt6vectorISt4pairIiiESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
 
 _ZNSt6vectorISt4pairIiiESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %62, %_ZNSt6vectorISt4pairIiiESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i
-  %65 = getelementptr inbounds nuw %"struct.std::pair.392", ptr %57, i64 %55
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %55
   br label %.noexc104
 
 .noexc104:                                        ; preds = %_ZNSt6vectorISt4pairIiiESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %47
@@ -48617,7 +48594,7 @@ _ZNSt6vectorISt4pairIiiESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32.i.i: ; preds
   br label %.noexc.i134
 
 .noexc.i134:                                      ; preds = %99, %_ZNSt6vectorISt4pairIiiESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32.i.i
-  %100 = getelementptr inbounds nuw %"struct.std::pair.392", ptr %91, i64 %89
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %89
   br label %_ZNSt6vectorISt4pairIiiESaIS1_EE12emplace_backIJS0_IRKiS6_EEEERS1_DpOT_.exit.i
 
 _ZNSt6vectorISt4pairIiiESaIS1_EE12emplace_backIJS0_IRKiS6_EEEERS1_DpOT_.exit.i: ; preds = %.noexc.i134, %75
@@ -48773,7 +48750,7 @@ _ZSt7advanceISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vec
 
 _ZSt22__uninitialized_copy_aISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vectorIS4_SaIS4_EEEEES5_S4_ET0_T_SC_SB_RSaIT1_E.exit.i: ; preds = %.lr.ph.i.i.i.i.i113, %_ZSt7advanceISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vectorIS4_SaIS4_EEEEEmEvRT_T0_.exit.i
   %159 = sub nuw nsw i64 %120, %126
-  %160 = getelementptr inbounds nuw %"struct.std::pair.392", ptr %.sroa.18.0.lcssa, i64 %159
+  %160 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.18.0.lcssa, i64 %159
   br label %.lr.ph.i.i.i.i.i54.i
 
 .lr.ph.i.i.i.i.i54.i:                             ; preds = %_ZSt22__uninitialized_copy_aISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vectorIS4_SaIS4_EEEEES5_S4_ET0_T_SC_SB_RSaIT1_E.exit.i, %.lr.ph.i.i.i.i.i54.i
@@ -48884,7 +48861,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPSt4pairIiiES2_SaIS1_EET0_T_S5_S4_RT1_.
   br label %_ZNSt12_Vector_baseISt4pairIiiESaIS1_EE13_M_deallocateEPS1_m.exit.i
 
 _ZNSt12_Vector_baseISt4pairIiiESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %197, %_ZSt34__uninitialized_move_if_noexcept_aIPSt4pairIiiES2_SaIS1_EET0_T_S5_S4_RT1_.exit85.i
-  %199 = getelementptr inbounds nuw %"struct.std::pair.392", ptr %187, i64 %183
+  %199 = getelementptr inbounds nuw [8 x i8], ptr %187, i64 %183
   br label %_ZNSt6vectorISt4pairIiiESaIS1_EE15_M_range_insertISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPS1_S3_EEEEEvS9_T_SB_St20forward_iterator_tag.exit
 
 _ZNSt6vectorISt4pairIiiESaIS1_EE15_M_range_insertISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPS1_S3_EEEEEvS9_T_SB_St20forward_iterator_tag.exit: ; preds = %.lr.ph.i.i.i.i.i61.i, %.lr.ph.i.i.i.i.i52.i, %_ZNSt12_Vector_baseISt4pairIiiESaIS1_EE13_M_deallocateEPS1_m.exit.i, %_ZSt22__uninitialized_move_aIPSt4pairIiiES2_SaIS1_EET0_T_S5_S4_RT1_.exit59.i, %_ZSt13move_backwardIPSt4pairIiiES2_ET0_T_S4_S3_.exit.i, %_ZNSt6vectorISt4pairIiiESaIS1_EE19_M_range_initializeIN4absl13base_internal23Cpp20ForwardZipIteratorISt24_Fwd_list_const_iteratorIiEEEEEvT_SB_St18input_iterator_tag.exit
@@ -48995,7 +48972,7 @@ _ZNSt6vectorISt4pairIiiESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33.i.i: ; preds
   br label %_ZNSt6vectorISt4pairIiiESaIS1_EE17_M_realloc_insertIJRmS5_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
 
 _ZNSt6vectorISt4pairIiiESaIS1_EE17_M_realloc_insertIJRmS5_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %230, %_ZNSt6vectorISt4pairIiiESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33.i.i
-  %231 = getelementptr inbounds nuw %"struct.std::pair.392", ptr %223, i64 %221
+  %231 = getelementptr inbounds nuw [8 x i8], ptr %223, i64 %221
   br label %_ZNSt6vectorISt4pairIiiESaIS1_EE12emplace_backIJRmS5_EEERS1_DpOT_.exit
 
 _ZNSt6vectorISt4pairIiiESaIS1_EE12emplace_backIJRmS5_EEERS1_DpOT_.exit: ; preds = %_ZNSt6vectorISt4pairIiiESaIS1_EE17_M_realloc_insertIJRmS5_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %208
@@ -49014,7 +48991,7 @@ _ZNSt6vectorISt4pairIiiESaIS1_EE12emplace_backIJRmS5_EEERS1_DpOT_.exit: ; preds 
 235:                                              ; preds = %_ZNSt6vectorISt4pairIiiESaIS1_EE12emplace_backIJRmS5_EEERS1_DpOT_.exit
   %236 = load ptr, ptr %19, align 8, !noalias !1224
   %.sink2.i.i.i = select i1 %233, ptr %236, ptr %19
-  %237 = getelementptr inbounds nuw %"struct.std::pair.392", ptr %.sink2.i.i.i, i64 %.sink1.i.i.i
+  %237 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i.i.i, i64 %.sink1.i.i.i
   %238 = load i64, ptr %6, align 8, !tbaa !43
   %239 = trunc i64 %238 to i32
   store i32 %239, ptr %237, align 4, !tbaa !1206
@@ -49064,7 +49041,7 @@ _ZNSt6vectorISt4pairIiiESaIS1_EE6insertIN4absl13base_internal23Cpp20ForwardZipIt
   %249 = trunc i64 %248 to i1
   %250 = load ptr, ptr %19, align 8
   %251 = select i1 %249, ptr %250, ptr %19
-  %252 = getelementptr inbounds nuw %"struct.std::pair.392", ptr %251, i64 %.023439
+  %252 = getelementptr inbounds nuw [8 x i8], ptr %251, i64 %.023439
   br label %_ZN4absl13InlinedVectorISt4pairIiiELm8ESaIS2_EE6insertINS_13base_internal23Cpp20ForwardZipIteratorISt24_Fwd_list_const_iteratorIiEEETnNSt9enable_ifIXsr13base_internal24IsAtLeastForwardIteratorIT_EE5valueEiE4typeELi0EEEPS2_PKS2_SC_SC_.exit
 
 _ZNSt6vectorISt4pairIiiESaIS1_EE6insertIN4absl13base_internal23Cpp20ForwardZipIteratorISt24_Fwd_list_const_iteratorIiEEEvEEN9__gnu_cxx17__normal_iteratorIPS1_S3_EENSC_IPKS1_S3_EET_SI_.exit: ; preds = %.noexc104, %_ZNSt6vectorISt4pairIiiESaIS1_EE15_M_range_insertISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPS1_S3_EEEEEvS9_T_SB_St20forward_iterator_tag.exit, %200
@@ -49076,7 +49053,7 @@ _ZNSt6vectorISt4pairIiiESaIS1_EE6insertIN4absl13base_internal23Cpp20ForwardZipIt
   %254 = trunc i64 %253 to i1
   %255 = load ptr, ptr %19, align 8
   %256 = select i1 %254, ptr %255, ptr %19
-  %257 = getelementptr inbounds nuw %"struct.std::pair.392", ptr %256, i64 %.023439
+  %257 = getelementptr inbounds nuw [8 x i8], ptr %256, i64 %.023439
   br i1 %.not240, label %_ZN4absl13InlinedVectorISt4pairIiiELm8ESaIS2_EE6insertINS_13base_internal23Cpp20ForwardZipIteratorISt24_Fwd_list_const_iteratorIiEEETnNSt9enable_ifIXsr13base_internal24IsAtLeastForwardIteratorIT_EE5valueEiE4typeELi0EEEPS2_PKS2_SC_SC_.exit, label %.lr.ph.i.i.i54, !prof !1228
 
 .lr.ph.i.i.i54:                                   ; preds = %_ZNSt6vectorISt4pairIiiESaIS1_EE6insertIN4absl13base_internal23Cpp20ForwardZipIteratorISt24_Fwd_list_const_iteratorIiEEEvEEN9__gnu_cxx17__normal_iteratorIPS1_S3_EENSC_IPKS1_S3_EET_SI_.exit, %.lr.ph.i.i.i54
@@ -49365,7 +49342,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %325, %_ZNKSt14defau
   %334 = trunc i64 %333 to i1
   %335 = load ptr, ptr %19, align 8
   %336 = select i1 %334, ptr %335, ptr %19
-  %337 = getelementptr inbounds nuw %"struct.std::pair.392", ptr %336, i64 %.023439
+  %337 = getelementptr inbounds nuw [8 x i8], ptr %336, i64 %.023439
   store ptr %337, ptr %13, align 8, !tbaa !1230
   %338 = load ptr, ptr %7, align 8, !tbaa !1230, !noalias !1244
   %339 = icmp eq ptr %338, %337
@@ -50304,7 +50281,7 @@ define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(8) ptr @_Z
 _ZN4absl23inlined_vector_internal13MallocAdapterISaISt4pairIiiEELb0EE8AllocateERS4_m.exit.i: ; preds = %3
   %15 = shl nuw nsw i64 %11, 3
   %16 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %15) #42
-  %17 = getelementptr inbounds nuw %"struct.std::pair.392", ptr %16, i64 %.sink1.i
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.sink1.i
   %18 = load i64, ptr %1, align 8, !tbaa !43
   %19 = trunc i64 %18 to i32
   store i32 %19, ptr %17, align 4, !tbaa !1206
@@ -50322,7 +50299,7 @@ _ZN4absl23inlined_vector_internal13MallocAdapterISaISt4pairIiiEELb0EE8AllocateER
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %.sroa.019.0 = phi ptr [ %25, %.lr.ph.i ], [ %.sink2.i, %.lr.ph.i.preheader ]
   %.012.i = phi i64 [ %26, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %23 = getelementptr inbounds nuw %"struct.std::pair.392", ptr %16, i64 %.012.i
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.012.i
   %24 = load i64, ptr %.sroa.019.0, align 4
   store i64 %24, ptr %23, align 4
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.019.0, i64 8
@@ -50398,7 +50375,7 @@ _ZN4absl23inlined_vector_internal13MallocAdapterISaISt4pairIiiEELb0EE8AllocateER
   %27 = phi ptr [ %36, %.lr.ph.i.i ], [ %3, %_ZN4absl23inlined_vector_internal13MallocAdapterISaISt4pairIiiEELb0EE8AllocateERS4_m.exit.i ]
   %.012.i.i = phi i64 [ %37, %.lr.ph.i.i ], [ 0, %_ZN4absl23inlined_vector_internal13MallocAdapterISaISt4pairIiiEELb0EE8AllocateERS4_m.exit.i ]
   %28 = phi ptr [ %35, %.lr.ph.i.i ], [ %2, %_ZN4absl23inlined_vector_internal13MallocAdapterISaISt4pairIiiEELb0EE8AllocateERS4_m.exit.i ]
-  %29 = getelementptr inbounds nuw %"struct.std::pair.392", ptr %26, i64 %.012.i.i
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %.012.i.i
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %31 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %32 = load i32, ptr %30, align 4, !tbaa !130
@@ -50419,7 +50396,7 @@ _ZN4absl23inlined_vector_internal23ConstructionTransactionISaISt4pairIiiEEE9Cons
 .lr.ph.i.i53:                                     ; preds = %_ZN4absl23inlined_vector_internal23ConstructionTransactionISaISt4pairIiiEEE9ConstructINS0_20IteratorValueAdapterIS4_NS_13base_internal23Cpp20ForwardZipIteratorISt24_Fwd_list_const_iteratorIiEEEEEEEvPS3_RT_m.exit, %.lr.ph.i.i53
   %.sroa.091.0 = phi ptr [ %40, %.lr.ph.i.i53 ], [ %.sink2.i, %_ZN4absl23inlined_vector_internal23ConstructionTransactionISaISt4pairIiiEEE9ConstructINS0_20IteratorValueAdapterIS4_NS_13base_internal23Cpp20ForwardZipIteratorISt24_Fwd_list_const_iteratorIiEEEEEEEvPS3_RT_m.exit ]
   %.012.i.i54 = phi i64 [ %41, %.lr.ph.i.i53 ], [ 0, %_ZN4absl23inlined_vector_internal23ConstructionTransactionISaISt4pairIiiEEE9ConstructINS0_20IteratorValueAdapterIS4_NS_13base_internal23Cpp20ForwardZipIteratorISt24_Fwd_list_const_iteratorIiEEEEEEEvPS3_RT_m.exit ]
-  %38 = getelementptr inbounds nuw %"struct.std::pair.392", ptr %25, i64 %.012.i.i54
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %.012.i.i54
   %39 = load i64, ptr %.sroa.091.0, align 4
   store i64 %39, ptr %38, align 4
   %40 = getelementptr inbounds nuw i8, ptr %.sroa.091.0, i64 8
@@ -50429,7 +50406,7 @@ _ZN4absl23inlined_vector_internal23ConstructionTransactionISaISt4pairIiiEEE9Cons
 
 _ZN4absl23inlined_vector_internal23ConstructionTransactionISaISt4pairIiiEEE9ConstructINS0_20IteratorValueAdapterIS4_St13move_iteratorIPS3_EEEEEvS9_RT_m.exit: ; preds = %.lr.ph.i.i53, %_ZN4absl23inlined_vector_internal23ConstructionTransactionISaISt4pairIiiEEE9ConstructINS0_20IteratorValueAdapterIS4_NS_13base_internal23Cpp20ForwardZipIteratorISt24_Fwd_list_const_iteratorIiEEEEEEEvPS3_RT_m.exit
   %.sroa.091.1 = phi ptr [ %.sink2.i, %_ZN4absl23inlined_vector_internal23ConstructionTransactionISaISt4pairIiiEEE9ConstructINS0_20IteratorValueAdapterIS4_NS_13base_internal23Cpp20ForwardZipIteratorISt24_Fwd_list_const_iteratorIiEEEEEEEvPS3_RT_m.exit ], [ %40, %.lr.ph.i.i53 ]
-  %42 = getelementptr inbounds nuw %"struct.std::pair.392", ptr %25, i64 %16
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %16
   %43 = sub i64 %.sink1.i, %15
   %.not.i = icmp eq i64 %.sink1.i, %15
   br i1 %.not.i, label %_ZN4absl23inlined_vector_internal17ConstructElementsISaISt4pairIiiEENS0_20IteratorValueAdapterIS4_St13move_iteratorIPS3_EEEEEvRNS_8internal13type_identityIT_E4typeENSt16allocator_traitsISC_E7pointerERT0_NSH_9size_typeE.exit, label %.lr.ph.i
@@ -50437,7 +50414,7 @@ _ZN4absl23inlined_vector_internal23ConstructionTransactionISaISt4pairIiiEEE9Cons
 .lr.ph.i:                                         ; preds = %_ZN4absl23inlined_vector_internal23ConstructionTransactionISaISt4pairIiiEEE9ConstructINS0_20IteratorValueAdapterIS4_St13move_iteratorIPS3_EEEEEvS9_RT_m.exit, %.lr.ph.i
   %.sroa.091.2 = phi ptr [ %46, %.lr.ph.i ], [ %.sroa.091.1, %_ZN4absl23inlined_vector_internal23ConstructionTransactionISaISt4pairIiiEEE9ConstructINS0_20IteratorValueAdapterIS4_St13move_iteratorIPS3_EEEEEvS9_RT_m.exit ]
   %.012.i = phi i64 [ %47, %.lr.ph.i ], [ 0, %_ZN4absl23inlined_vector_internal23ConstructionTransactionISaISt4pairIiiEEE9ConstructINS0_20IteratorValueAdapterIS4_St13move_iteratorIPS3_EEEEEvS9_RT_m.exit ]
-  %44 = getelementptr inbounds nuw %"struct.std::pair.392", ptr %42, i64 %.012.i
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %.012.i
   %45 = load i64, ptr %.sroa.091.2, align 4
   store i64 %45, ptr %44, align 4
   %46 = getelementptr inbounds nuw i8, ptr %.sroa.091.2, i64 8
@@ -50462,26 +50439,26 @@ _ZN4absl23inlined_vector_internal21AllocationTransactionISaISt4pairIiiEEED2Ev.ex
 
 52:                                               ; preds = %5
   %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %16, i64 %.sink1.i)
-  %53 = getelementptr inbounds nuw %"struct.std::pair.392", ptr %.sink2.i, i64 %.sroa.speculated
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i, i64 %.sroa.speculated
   %54 = sub i64 %17, %.sroa.speculated
   %55 = getelementptr inbounds nuw i8, ptr %.sink2.i, i64 %14
   %.idx124 = shl nuw nsw i64 %16, 3
   %56 = getelementptr inbounds nuw i8, ptr %.sink2.i, i64 %.idx124
   %57 = sub i64 %.sroa.speculated, %16
-  %58 = getelementptr inbounds nuw %"struct.std::pair.392", ptr %55, i64 %54
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %54
   %59 = sub i64 %4, %54
   %.not.i.i59 = icmp eq i64 %17, %.sroa.speculated
   br i1 %.not.i.i59, label %_ZN4absl23inlined_vector_internal23ConstructionTransactionISaISt4pairIiiEEE9ConstructINS0_20IteratorValueAdapterIS4_St13move_iteratorIPS3_EEEEEvS9_RT_m.exit65, label %.lr.ph.i.i62.preheader
 
 .lr.ph.i.i62.preheader:                           ; preds = %52
   %60 = sub i64 %.sroa.speculated, %4
-  %61 = getelementptr inbounds nuw %"struct.std::pair.392", ptr %.sink2.i, i64 %60
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i, i64 %60
   br label %.lr.ph.i.i62
 
 .lr.ph.i.i62:                                     ; preds = %.lr.ph.i.i62.preheader, %.lr.ph.i.i62
   %.sroa.087.0 = phi ptr [ %64, %.lr.ph.i.i62 ], [ %61, %.lr.ph.i.i62.preheader ]
   %.012.i.i63 = phi i64 [ %65, %.lr.ph.i.i62 ], [ 0, %.lr.ph.i.i62.preheader ]
-  %62 = getelementptr inbounds nuw %"struct.std::pair.392", ptr %53, i64 %.012.i.i63
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %.012.i.i63
   %63 = load i64, ptr %.sroa.087.0, align 4
   store i64 %63, ptr %62, align 4
   %64 = getelementptr inbounds nuw i8, ptr %.sroa.087.0, i64 8
@@ -50497,7 +50474,7 @@ _ZN4absl23inlined_vector_internal23ConstructionTransactionISaISt4pairIiiEEE9Cons
 .lr.ph.preheader:                                 ; preds = %_ZN4absl23inlined_vector_internal23ConstructionTransactionISaISt4pairIiiEEE9ConstructINS0_20IteratorValueAdapterIS4_St13move_iteratorIPS3_EEEEEvS9_RT_m.exit65
   %66 = getelementptr inbounds nuw i8, ptr %.sink2.i, i64 %.idx
   %67 = getelementptr inbounds i8, ptr %66, i64 -8
-  %68 = getelementptr inbounds nuw %"struct.std::pair.392", ptr %55, i64 %57
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %57
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZN4absl23inlined_vector_internal23ConstructionTransactionISaISt4pairIiiEEE9ConstructINS0_20IteratorValueAdapterIS4_St13move_iteratorIPS3_EEEEEvS9_RT_m.exit65
@@ -50507,7 +50484,7 @@ _ZN4absl23inlined_vector_internal23ConstructionTransactionISaISt4pairIiiEEE9Cons
   %69 = phi ptr [ %78, %.lr.ph.i67 ], [ %3, %._crit_edge ]
   %.05.i = phi i64 [ %79, %.lr.ph.i67 ], [ 0, %._crit_edge ]
   %70 = phi ptr [ %77, %.lr.ph.i67 ], [ %2, %._crit_edge ]
-  %71 = getelementptr inbounds nuw %"struct.std::pair.392", ptr %55, i64 %.05.i
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %.05.i
   %72 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %73 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %74 = load i32, ptr %72, align 4, !tbaa !130
@@ -50546,7 +50523,7 @@ _ZN4absl23inlined_vector_internal14AssignElementsISaISt4pairIiiEENS0_20IteratorV
   %88 = phi ptr [ %97, %.lr.ph.i70 ], [ %.sroa.7.0, %_ZN4absl23inlined_vector_internal14AssignElementsISaISt4pairIiiEENS0_20IteratorValueAdapterIS4_NS_13base_internal23Cpp20ForwardZipIteratorISt24_Fwd_list_const_iteratorIiEEEEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSE_9size_typeE.exit ]
   %.012.i72 = phi i64 [ %98, %.lr.ph.i70 ], [ 0, %_ZN4absl23inlined_vector_internal14AssignElementsISaISt4pairIiiEENS0_20IteratorValueAdapterIS4_NS_13base_internal23Cpp20ForwardZipIteratorISt24_Fwd_list_const_iteratorIiEEEEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSE_9size_typeE.exit ]
   %89 = phi ptr [ %96, %.lr.ph.i70 ], [ %.sroa.0119.0, %_ZN4absl23inlined_vector_internal14AssignElementsISaISt4pairIiiEENS0_20IteratorValueAdapterIS4_NS_13base_internal23Cpp20ForwardZipIteratorISt24_Fwd_list_const_iteratorIiEEEEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSE_9size_typeE.exit ]
-  %90 = getelementptr inbounds nuw %"struct.std::pair.392", ptr %58, i64 %.012.i72
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %.012.i72
   %91 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %92 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %93 = load i32, ptr %91, align 4, !tbaa !130
@@ -51458,7 +51435,7 @@ _ZN7testing7MessageD2Ev.exit17:                   ; preds = %.body, %_ZNKSt14def
   %93 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %.021)
   %94 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %93, ptr noundef nonnull @.str.246, i64 noundef 1)
   %95 = load ptr, ptr %8, align 8, !tbaa !1335
-  %96 = getelementptr inbounds nuw %"class.testing::Matcher.423", ptr %95, i64 %.021
+  %96 = getelementptr inbounds nuw [24 x i8], ptr %95, i64 %.021
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
   %98 = load ptr, ptr %97, align 8, !tbaa !1325
   %99 = icmp ne ptr %98, null
@@ -51701,7 +51678,7 @@ _ZN7testing7MessageD2Ev.exit15:                   ; preds = %.body, %_ZNKSt14def
   %75 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %.017)
   %76 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %75, ptr noundef nonnull @.str.246, i64 noundef 1)
   %77 = load ptr, ptr %7, align 8, !tbaa !1335
-  %78 = getelementptr inbounds nuw %"class.testing::Matcher.423", ptr %77, i64 %.017
+  %78 = getelementptr inbounds nuw [24 x i8], ptr %77, i64 %.017
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %80 = load ptr, ptr %79, align 8, !tbaa !1325
   %81 = icmp ne ptr %80, null
@@ -51803,7 +51780,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %25 = shl nuw nsw i64 %23, 5
   %26 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %25) #42
   store ptr %26, ptr %9, align 8, !tbaa !64
-  %27 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %26, i64 %23
+  %27 = getelementptr inbounds nuw [32 x i8], ptr %26, i64 %23
   %28 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %27, ptr %28, align 8, !tbaa !124
   br label %.lr.ph.i.i.i.i.i
@@ -51879,7 +51856,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 
 _ZN7testing25StringMatchResultListenerC2Ev.exit.us: ; preds = %67
   %68 = load ptr, ptr %16, align 8, !tbaa !1335
-  %69 = getelementptr inbounds nuw %"class.testing::Matcher.423", ptr %68, i64 %storemerge156.us
+  %69 = getelementptr inbounds nuw [24 x i8], ptr %68, i64 %storemerge156.us
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %71 = load ptr, ptr %70, align 8, !tbaa !1325
   %72 = icmp ne ptr %71, null
@@ -51940,7 +51917,7 @@ _ZNK7testing8internal11MatcherBaseIRKSt4pairIiiEE15MatchAndExplainES5_PNS_19Matc
 
 _ZNK7testing25StringMatchResultListener3strB5cxx11Ev.exit.us: ; preds = %89, %83
   %90 = load ptr, ptr %9, align 8, !tbaa !64
-  %91 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %90, i64 %storemerge156.us
+  %91 = getelementptr inbounds nuw [32 x i8], ptr %90, i64 %storemerge156.us
   %92 = load ptr, ptr %91, align 8, !tbaa !39
   %93 = getelementptr inbounds nuw i8, ptr %91, i64 16
   %94 = icmp eq ptr %92, %93
@@ -52068,7 +52045,7 @@ _ZN7testing25StringMatchResultListenerD2Ev.exit.us: ; preds = %_ZNSt7__cxx1112ba
   %135 = load ptr, ptr %36, align 8
   %136 = select i1 %134, ptr %135, ptr %36
   %137 = lshr i64 %133, 1
-  %138 = getelementptr inbounds nuw %"struct.std::pair.392", ptr %136, i64 %137
+  %138 = getelementptr inbounds nuw [8 x i8], ptr %136, i64 %137
   %.not.us = icmp eq ptr %131, %138
   br i1 %.not.us, label %.critedge, label %.lr.ph.split.us, !llvm.loop !1357
 
@@ -52109,7 +52086,7 @@ _ZN7testing25StringMatchResultListenerD2Ev.exit.us: ; preds = %_ZNSt7__cxx1112ba
   br i1 %.not52, label %.critedge, label %151
 
 151:                                              ; preds = %.lr.ph.split
-  %152 = getelementptr inbounds nuw %"class.testing::Matcher.423", ptr %146, i64 %storemerge156
+  %152 = getelementptr inbounds nuw [24 x i8], ptr %146, i64 %storemerge156
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %39, align 8, !tbaa !448
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN7testing8internal24DummyMatchResultListenerE, i64 16), ptr %7, align 8, !tbaa !13
@@ -52187,7 +52164,7 @@ _ZNK7testing8internal11MatcherBaseIRKSt4pairIiiEE15MatchAndExplainES5_PNS_19Matc
   %173 = load ptr, ptr %36, align 8
   %174 = select i1 %172, ptr %173, ptr %36
   %175 = lshr i64 %171, 1
-  %176 = getelementptr inbounds nuw %"struct.std::pair.392", ptr %174, i64 %175
+  %176 = getelementptr inbounds nuw [8 x i8], ptr %174, i64 %175
   %.not = icmp eq ptr %169, %176
   br i1 %.not, label %.critedge, label %.lr.ph.split, !llvm.loop !1357
 
@@ -52200,7 +52177,7 @@ _ZNK7testing8internal11MatcherBaseIRKSt4pairIiiEE15MatchAndExplainES5_PNS_19Matc
   %179 = load ptr, ptr %36, align 8
   %180 = select i1 %178, ptr %179, ptr %36
   %181 = lshr i64 %177, 1
-  %182 = getelementptr inbounds nuw %"struct.std::pair.392", ptr %180, i64 %181
+  %182 = getelementptr inbounds nuw [8 x i8], ptr %180, i64 %181
   %.not56191 = icmp eq ptr %.040.lcssa, %182
   br i1 %.not56191, label %._crit_edge, label %.lr.ph194.preheader
 
@@ -52442,7 +52419,7 @@ _ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit: ; preds = %265
 _ZN7testing19MatchResultListenerlsIA15_cEERS0_RKT_.exit: ; preds = %267
   %.pre208 = load ptr, ptr %13, align 8, !tbaa !448
   %269 = load ptr, ptr %9, align 8, !tbaa !64
-  %270 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %269, i64 %storemerge.lcssa
+  %270 = getelementptr inbounds nuw [32 x i8], ptr %269, i64 %storemerge.lcssa
   %271 = getelementptr inbounds nuw i8, ptr %270, i64 8
   %272 = load i64, ptr %271, align 8, !tbaa !45
   %273 = icmp eq i64 %272, 0
@@ -52472,7 +52449,7 @@ _ZN7testing19MatchResultListenerlsIA15_cEERS0_RKT_.exit: ; preds = %267
 .lr.ph198:                                        ; preds = %.lr.ph198.preheader, %_ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit
   %.034197 = phi i1 [ %.1, %_ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit ], [ false, %.lr.ph198.preheader ]
   %storemerge58196 = phi i64 [ %301, %_ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit ], [ 0, %.lr.ph198.preheader ]
-  %281 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.pre, i64 %storemerge58196
+  %281 = getelementptr inbounds nuw [32 x i8], ptr %.pre, i64 %storemerge58196
   %282 = getelementptr inbounds nuw i8, ptr %281, i64 8
   %283 = load i64, ptr %282, align 8, !tbaa !45
   %284 = icmp eq i64 %283, 0
@@ -52740,7 +52717,7 @@ _ZSt8_DestroyIPN7testing7MatcherIRKSt4pairIiiEEES6_EvT_S8_RSaIT0_E.exit: ; preds
 _ZNSt12_Vector_baseIN7testing7MatcherIRKSt4pairIiiEEESaIS6_EE13_M_deallocateEPS6_m.exit: ; preds = %_ZSt8_DestroyIPN7testing7MatcherIRKSt4pairIiiEEES6_EvT_S8_RSaIT0_E.exit, %61
   store ptr %20, ptr %0, align 8, !tbaa !1335
   store ptr %.0.lcssa.i.i.i.i.i36, ptr %4, align 8, !tbaa !1328
-  %65 = getelementptr inbounds nuw %"class.testing::Matcher.423", ptr %20, i64 %16
+  %65 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %65, ptr %60, align 8, !tbaa !1331
   ret void
 }
@@ -53804,7 +53781,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %113
 
 .lr.ph.preheader:                                 ; preds = %117
   store ptr %119, ptr %37, align 8, !tbaa !938
-  %120 = getelementptr inbounds nuw i32, ptr %119, i64 %114
+  %120 = getelementptr inbounds nuw [4 x i8], ptr %119, i64 %114
   store ptr %120, ptr %63, align 8, !tbaa !936
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %119, i8 0, i64 %118, i1 false), !tbaa !130
   %121 = getelementptr inbounds nuw i8, ptr %119, i64 %118
@@ -53915,7 +53892,7 @@ _ZN7testing7MessageD2Ev.exit12.i69:               ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   %150 = trunc i64 %storemerge32592 to i32
   %151 = load ptr, ptr %37, align 8, !tbaa !938
-  %152 = getelementptr inbounds nuw i32, ptr %151, i64 %storemerge32592
+  %152 = getelementptr inbounds nuw [4 x i8], ptr %151, i64 %storemerge32592
   %153 = load i32, ptr %152, align 4, !tbaa !130
   %154 = add nsw i32 %153, 1
   store i32 %154, ptr %152, align 4, !tbaa !130
@@ -53930,7 +53907,7 @@ _ZN7testing7MessageD2Ev.exit12.i69:               ; preds = %_ZNKSt14default_del
 _ZNSt16allocator_traitsISaIN12_GLOBAL__N_110RefCountedEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit.i.i.i: ; preds = %149
   %.val1.i.i.i.i = load ptr, ptr %67, align 8, !noalias !1378
   %.sink6.i.i.i.i = select i1 %155, ptr %.val1.i.i.i.i, ptr %67
-  %156 = getelementptr inbounds nuw %"class.(anonymous namespace)::RefCounted", ptr %.sink6.i.i.i.i, i64 %.sink5.i.i.i.i
+  %156 = getelementptr inbounds nuw [16 x i8], ptr %.sink6.i.i.i.i, i64 %.sink5.i.i.i.i
   store i32 %150, ptr %156, align 8, !tbaa !762
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 8
   store ptr %152, ptr %157, align 8, !tbaa !760
@@ -54367,7 +54344,7 @@ _ZN12_GLOBAL__N_110RefCountedC2ERKS0_.exit.i.i:   ; preds = %_ZNKSt14default_del
   %284 = trunc i64 %.val.i.i to i1
   %.val1.i.i = load ptr, ptr %67, align 8
   %285 = select i1 %284, ptr %.val1.i.i, ptr %67
-  %286 = getelementptr inbounds nuw %"class.(anonymous namespace)::RefCounted", ptr %285, i64 %storemerge31593
+  %286 = getelementptr inbounds nuw [16 x i8], ptr %285, i64 %storemerge31593
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
   store i32 9999, ptr %27, align 8, !tbaa !762
   store ptr %38, ptr %73, align 8, !tbaa !760
@@ -54425,7 +54402,7 @@ _ZN4absl23inlined_vector_internal23ConstructionTransactionISaIN12_GLOBAL__N_110R
 .lr.ph.i255:                                      ; preds = %_ZN4absl23inlined_vector_internal23ConstructionTransactionISaIN12_GLOBAL__N_110RefCountedEEE9ConstructINS0_20IteratorValueAdapterIS4_St13move_iteratorIPS3_EEEEEvS9_RT_m.exit.i.i.i, %325
   %.04.i256 = phi i64 [ %329, %325 ], [ 0, %_ZN4absl23inlined_vector_internal23ConstructionTransactionISaIN12_GLOBAL__N_110RefCountedEEE9ConstructINS0_20IteratorValueAdapterIS4_St13move_iteratorIPS3_EEEEEvS9_RT_m.exit.i.i.i ]
   %.val.i23.i257 = phi ptr [ %328, %325 ], [ %285, %_ZN4absl23inlined_vector_internal23ConstructionTransactionISaIN12_GLOBAL__N_110RefCountedEEE9ConstructINS0_20IteratorValueAdapterIS4_St13move_iteratorIPS3_EEEEEvS9_RT_m.exit.i.i.i ]
-  %303 = getelementptr inbounds nuw %"class.(anonymous namespace)::RefCounted", ptr %299, i64 %.04.i256
+  %303 = getelementptr inbounds nuw [16 x i8], ptr %299, i64 %.04.i256
   %.val3.i.i258 = load i32, ptr %.val.i23.i257, align 8, !tbaa !762
   %304 = getelementptr i8, ptr %.val.i23.i257, i64 8
   %.val4.i.i259 = load ptr, ptr %304, align 8, !tbaa !760
@@ -54459,7 +54436,7 @@ _ZN4absl23inlined_vector_internal23ConstructionTransactionISaIN12_GLOBAL__N_110R
 .lr.ph.i348:                                      ; preds = %308, %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_110RefCountedEEE7destroyIS1_EEvRS2_PT_.exit.i352
   %.02.i349 = phi i64 [ %312, %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_110RefCountedEEE7destroyIS1_EEvRS2_PT_.exit.i352 ], [ %.04.i256, %308 ]
   %312 = add i64 %.02.i349, -1
-  %313 = getelementptr inbounds nuw %"class.(anonymous namespace)::RefCounted", ptr %299, i64 %312
+  %313 = getelementptr inbounds nuw [16 x i8], ptr %299, i64 %312
   %314 = getelementptr inbounds nuw i8, ptr %313, i64 8
   %.val.i.i.i.i350 = load ptr, ptr %314, align 8, !tbaa !760
   %315 = load i32, ptr %.val.i.i.i.i350, align 4, !tbaa !130
@@ -54525,7 +54502,7 @@ _ZN4absl23inlined_vector_internal14DestroyAdapterISaIN12_GLOBAL__N_110RefCounted
 
 _ZN4absl23inlined_vector_internal23ConstructionTransactionISaIN12_GLOBAL__N_110RefCountedEEE9ConstructINS0_20IteratorValueAdapterIS4_St13move_iteratorIPS3_EEEEEvS9_RT_m.exit93.i.i.i: ; preds = %325, %_ZN4absl23inlined_vector_internal23ConstructionTransactionISaIN12_GLOBAL__N_110RefCountedEEE9ConstructINS0_20IteratorValueAdapterIS4_St13move_iteratorIPS3_EEEEEvS9_RT_m.exit.i.i.i
   %.sroa.0376.0 = phi ptr [ %285, %_ZN4absl23inlined_vector_internal23ConstructionTransactionISaIN12_GLOBAL__N_110RefCountedEEE9ConstructINS0_20IteratorValueAdapterIS4_St13move_iteratorIPS3_EEEEEvS9_RT_m.exit.i.i.i ], [ %328, %325 ]
-  %334 = getelementptr inbounds nuw %"class.(anonymous namespace)::RefCounted", ptr %299, i64 %289
+  %334 = getelementptr inbounds nuw [16 x i8], ptr %299, i64 %289
   %335 = sub i64 %.sink5.i.i.i.i117, %storemerge31593
   %.not.i237 = icmp eq i64 %.sink5.i.i.i.i117, %storemerge31593
   br i1 %.not.i237, label %_ZN4absl23inlined_vector_internal17ConstructElementsISaIN12_GLOBAL__N_110RefCountedEENS0_20IteratorValueAdapterIS4_St13move_iteratorIPS3_EEEEEvRNS_8internal13type_identityIT_E4typeENSt16allocator_traitsISC_E7pointerERT0_NSH_9size_typeE.exit251, label %.lr.ph.i240
@@ -54533,7 +54510,7 @@ _ZN4absl23inlined_vector_internal23ConstructionTransactionISaIN12_GLOBAL__N_110R
 .lr.ph.i240:                                      ; preds = %_ZN4absl23inlined_vector_internal23ConstructionTransactionISaIN12_GLOBAL__N_110RefCountedEEE9ConstructINS0_20IteratorValueAdapterIS4_St13move_iteratorIPS3_EEEEEvS9_RT_m.exit93.i.i.i, %358
   %.04.i241 = phi i64 [ %362, %358 ], [ 0, %_ZN4absl23inlined_vector_internal23ConstructionTransactionISaIN12_GLOBAL__N_110RefCountedEEE9ConstructINS0_20IteratorValueAdapterIS4_St13move_iteratorIPS3_EEEEEvS9_RT_m.exit93.i.i.i ]
   %.val.i23.i242 = phi ptr [ %361, %358 ], [ %.sroa.0376.0, %_ZN4absl23inlined_vector_internal23ConstructionTransactionISaIN12_GLOBAL__N_110RefCountedEEE9ConstructINS0_20IteratorValueAdapterIS4_St13move_iteratorIPS3_EEEEEvS9_RT_m.exit93.i.i.i ]
-  %336 = getelementptr inbounds nuw %"class.(anonymous namespace)::RefCounted", ptr %334, i64 %.04.i241
+  %336 = getelementptr inbounds nuw [16 x i8], ptr %334, i64 %.04.i241
   %.val3.i.i243 = load i32, ptr %.val.i23.i242, align 8, !tbaa !762
   %337 = getelementptr i8, ptr %.val.i23.i242, i64 8
   %.val4.i.i244 = load ptr, ptr %337, align 8, !tbaa !760
@@ -54567,7 +54544,7 @@ _ZN4absl23inlined_vector_internal23ConstructionTransactionISaIN12_GLOBAL__N_110R
 .lr.ph.i338:                                      ; preds = %341, %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_110RefCountedEEE7destroyIS1_EEvRS2_PT_.exit.i342
   %.02.i339 = phi i64 [ %345, %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_110RefCountedEEE7destroyIS1_EEvRS2_PT_.exit.i342 ], [ %.04.i241, %341 ]
   %345 = add i64 %.02.i339, -1
-  %346 = getelementptr inbounds nuw %"class.(anonymous namespace)::RefCounted", ptr %334, i64 %345
+  %346 = getelementptr inbounds nuw [16 x i8], ptr %334, i64 %345
   %347 = getelementptr inbounds nuw i8, ptr %346, i64 8
   %.val.i.i.i.i340 = load ptr, ptr %347, align 8, !tbaa !760
   %348 = load i32, ptr %.val.i.i.i.i340, align 4, !tbaa !130
@@ -54638,7 +54615,7 @@ _ZN4absl23inlined_vector_internal17ConstructElementsISaIN12_GLOBAL__N_110RefCoun
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN4absl23inlined_vector_internal17ConstructElementsISaIN12_GLOBAL__N_110RefCountedEENS0_20IteratorValueAdapterIS4_St13move_iteratorIPS3_EEEEEvRNS_8internal13type_identityIT_E4typeENSt16allocator_traitsISC_E7pointerERT0_NSH_9size_typeE.exit251, %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_110RefCountedEEE7destroyIS1_EEvRS2_PT_.exit.i.i.i.i
   %.02.i.i.i.i = phi i64 [ %367, %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_110RefCountedEEE7destroyIS1_EEvRS2_PT_.exit.i.i.i.i ], [ %.sink5.i.i.i.i117, %_ZN4absl23inlined_vector_internal17ConstructElementsISaIN12_GLOBAL__N_110RefCountedEENS0_20IteratorValueAdapterIS4_St13move_iteratorIPS3_EEEEEvRNS_8internal13type_identityIT_E4typeENSt16allocator_traitsISC_E7pointerERT0_NSH_9size_typeE.exit251 ]
   %367 = add nsw i64 %.02.i.i.i.i, -1
-  %368 = getelementptr inbounds nuw %"class.(anonymous namespace)::RefCounted", ptr %285, i64 %367
+  %368 = getelementptr inbounds nuw [16 x i8], ptr %285, i64 %367
   %369 = getelementptr inbounds nuw i8, ptr %368, i64 8
   %.val.i.i.i.i.i.i.i = load ptr, ptr %369, align 8, !tbaa !760
   %370 = load i32, ptr %.val.i.i.i.i.i.i.i, align 4, !tbaa !130
@@ -54706,7 +54683,7 @@ _ZN4absl23inlined_vector_internal23ConstructionTransactionISaIN12_GLOBAL__N_110R
 .lr.ph.i.i228:                                    ; preds = %.body249, %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_110RefCountedEEE7destroyIS1_EEvRS2_PT_.exit.i.i232
   %.02.i.i229 = phi i64 [ %382, %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_110RefCountedEEE7destroyIS1_EEvRS2_PT_.exit.i.i232 ], [ %storemerge31593, %.body249 ]
   %382 = add i64 %.02.i.i229, -1
-  %383 = getelementptr inbounds nuw %"class.(anonymous namespace)::RefCounted", ptr %299, i64 %382
+  %383 = getelementptr inbounds nuw [16 x i8], ptr %299, i64 %382
   %384 = getelementptr inbounds nuw i8, ptr %383, i64 8
   %.val.i.i.i.i.i230 = load ptr, ptr %384, align 8, !tbaa !760
   %385 = load i32, ptr %.val.i.i.i.i.i230, align 4, !tbaa !130
@@ -54778,10 +54755,10 @@ _ZN4absl23inlined_vector_internal23ConstructionTransactionISaIN12_GLOBAL__N_110R
 
 402:                                              ; preds = %_ZN12_GLOBAL__N_110RefCountedC2ERKS0_.exit.i.i
   %.sroa.speculated.i.i.i = call i64 @llvm.umax.i64(i64 %289, i64 %.sink5.i.i.i.i117)
-  %403 = getelementptr %"class.(anonymous namespace)::RefCounted", ptr %285, i64 %.sroa.speculated.i.i.i
+  %403 = getelementptr [16 x i8], ptr %285, i64 %.sroa.speculated.i.i.i
   %404 = sub i64 %290, %.sroa.speculated.i.i.i
-  %405 = getelementptr inbounds nuw %"class.(anonymous namespace)::RefCounted", ptr %285, i64 %289
-  %406 = getelementptr inbounds nuw %"class.(anonymous namespace)::RefCounted", ptr %286, i64 %404
+  %405 = getelementptr inbounds nuw [16 x i8], ptr %285, i64 %289
+  %406 = getelementptr inbounds nuw [16 x i8], ptr %286, i64 %404
   %407 = sub i64 1, %404
   %.not.i198 = icmp eq i64 %404, 0
   br i1 %.not.i198, label %_ZN4absl23inlined_vector_internal23ConstructionTransactionISaIN12_GLOBAL__N_110RefCountedEEE9ConstructINS0_20IteratorValueAdapterIS4_St13move_iteratorIPS3_EEEEEvS9_RT_m.exit111.i.i.i, label %.lr.ph.i201.preheader
@@ -54793,7 +54770,7 @@ _ZN4absl23inlined_vector_internal23ConstructionTransactionISaIN12_GLOBAL__N_110R
 .lr.ph.i201:                                      ; preds = %.lr.ph.i201.preheader, %431
   %.04.i202 = phi i64 [ %435, %431 ], [ 0, %.lr.ph.i201.preheader ]
   %.val.i23.i203 = phi ptr [ %434, %431 ], [ %408, %.lr.ph.i201.preheader ]
-  %409 = getelementptr inbounds nuw %"class.(anonymous namespace)::RefCounted", ptr %403, i64 %.04.i202
+  %409 = getelementptr inbounds nuw [16 x i8], ptr %403, i64 %.04.i202
   %.val3.i.i204 = load i32, ptr %.val.i23.i203, align 8, !tbaa !762
   %410 = getelementptr i8, ptr %.val.i23.i203, i64 8
   %.val4.i.i205 = load ptr, ptr %410, align 8, !tbaa !760
@@ -54827,7 +54804,7 @@ _ZN4absl23inlined_vector_internal23ConstructionTransactionISaIN12_GLOBAL__N_110R
 .lr.ph.i328:                                      ; preds = %414, %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_110RefCountedEEE7destroyIS1_EEvRS2_PT_.exit.i332
   %.02.i329 = phi i64 [ %418, %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_110RefCountedEEE7destroyIS1_EEvRS2_PT_.exit.i332 ], [ %.04.i202, %414 ]
   %418 = add i64 %.02.i329, -1
-  %419 = getelementptr inbounds nuw %"class.(anonymous namespace)::RefCounted", ptr %403, i64 %418
+  %419 = getelementptr inbounds nuw [16 x i8], ptr %403, i64 %418
   %420 = getelementptr inbounds nuw i8, ptr %419, i64 8
   %.val.i.i.i.i330 = load ptr, ptr %420, align 8, !tbaa !760
   %421 = load i32, ptr %.val.i.i.i.i330, align 4, !tbaa !130
@@ -54893,7 +54870,7 @@ _ZN4absl23inlined_vector_internal14DestroyAdapterISaIN12_GLOBAL__N_110RefCounted
 
 _ZN4absl23inlined_vector_internal23ConstructionTransactionISaIN12_GLOBAL__N_110RefCountedEEE9ConstructINS0_20IteratorValueAdapterIS4_St13move_iteratorIPS3_EEEEEvS9_RT_m.exit111.i.i.i: ; preds = %431, %402
   %440 = sub i64 %.sroa.speculated.i.i.i, %289
-  %441 = getelementptr inbounds nuw %"class.(anonymous namespace)::RefCounted", ptr %286, i64 %440
+  %441 = getelementptr inbounds nuw [16 x i8], ptr %286, i64 %440
   br label %_ZN12_GLOBAL__N_110RefCountedD2Ev.exit.i.i.i
 
 _ZN12_GLOBAL__N_110RefCountedD2Ev.exit.i.i.i:     ; preds = %472, %_ZN4absl23inlined_vector_internal23ConstructionTransactionISaIN12_GLOBAL__N_110RefCountedEEE9ConstructINS0_20IteratorValueAdapterIS4_St13move_iteratorIPS3_EEEEEvS9_RT_m.exit111.i.i.i
@@ -54929,7 +54906,7 @@ _ZN12_GLOBAL__N_110RefCountedD2Ev.exit.i.i.i:     ; preds = %472, %_ZN4absl23inl
   unreachable
 
 450:                                              ; preds = %.lr.ph.i113.i.i.i
-  %451 = getelementptr inbounds nuw %"class.(anonymous namespace)::RefCounted", ptr %286, i64 %.05.i.i.i.i
+  %451 = getelementptr inbounds nuw [16 x i8], ptr %286, i64 %.05.i.i.i.i
   %.val3.i.i.i.i.i = load i32, ptr %446, align 8, !tbaa !762
   %452 = load i32, ptr %.val4.i.i.i.i.i, align 4, !tbaa !130
   %453 = add nsw i32 %452, 1
@@ -55047,7 +55024,7 @@ _ZN4absl23inlined_vector_internal14AssignElementsISaIN12_GLOBAL__N_110RefCounted
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %509
   %.04.i = phi i64 [ %513, %509 ], [ 0, %.lr.ph.i.preheader ]
   %.val.i23.i = phi ptr [ %512, %509 ], [ %.val.i23.i.ph, %.lr.ph.i.preheader ]
-  %487 = getelementptr inbounds nuw %"class.(anonymous namespace)::RefCounted", ptr %406, i64 %.04.i
+  %487 = getelementptr inbounds nuw [16 x i8], ptr %406, i64 %.04.i
   %.val3.i.i = load i32, ptr %.val.i23.i, align 8, !tbaa !762
   %488 = getelementptr i8, ptr %.val.i23.i, i64 8
   %.val4.i.i = load ptr, ptr %488, align 8, !tbaa !760
@@ -55081,7 +55058,7 @@ _ZN4absl23inlined_vector_internal14AssignElementsISaIN12_GLOBAL__N_110RefCounted
 .lr.ph.i321:                                      ; preds = %492, %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_110RefCountedEEE7destroyIS1_EEvRS2_PT_.exit.i
   %.02.i = phi i64 [ %496, %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_110RefCountedEEE7destroyIS1_EEvRS2_PT_.exit.i ], [ %.04.i, %492 ]
   %496 = add i64 %.02.i, -1
-  %497 = getelementptr inbounds nuw %"class.(anonymous namespace)::RefCounted", ptr %406, i64 %496
+  %497 = getelementptr inbounds nuw [16 x i8], ptr %406, i64 %496
   %498 = getelementptr inbounds nuw i8, ptr %497, i64 8
   %.val.i.i.i.i322 = load ptr, ptr %498, align 8, !tbaa !760
   %499 = load i32, ptr %.val.i.i.i.i322, align 4, !tbaa !130
@@ -55160,7 +55137,7 @@ _ZN4absl23inlined_vector_internal23ConstructionTransactionISaIN12_GLOBAL__N_110R
 .lr.ph.i.i:                                       ; preds = %.body196, %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_110RefCountedEEE7destroyIS1_EEvRS2_PT_.exit.i.i
   %.02.i.i = phi i64 [ %520, %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_110RefCountedEEE7destroyIS1_EEvRS2_PT_.exit.i.i ], [ %404, %.body196 ]
   %520 = add i64 %.02.i.i, -1
-  %521 = getelementptr inbounds nuw %"class.(anonymous namespace)::RefCounted", ptr %403, i64 %520
+  %521 = getelementptr inbounds nuw [16 x i8], ptr %403, i64 %520
   %522 = getelementptr inbounds nuw i8, ptr %521, i64 8
   %.val.i.i.i.i.i = load ptr, ptr %522, align 8, !tbaa !760
   %523 = load i32, ptr %.val.i.i.i.i.i, align 4, !tbaa !130
@@ -57804,7 +57781,7 @@ _ZN12_GLOBAL__N_14FillIN4absl13InlinedVectorIiLm8ESaIiEEEEEvPT_mi.exit.preheader
 69:                                               ; preds = %.lr.ph.i
   %70 = load ptr, ptr %45, align 8, !noalias !1478
   %.sink2.i.i.i.i.i = select i1 %67, ptr %70, ptr %45
-  %71 = getelementptr inbounds nuw i32, ptr %.sink2.i.i.i.i.i, i64 %.sink1.i.i.i.i.i
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %.sink2.i.i.i.i.i, i64 %.sink1.i.i.i.i.i
   store i32 %65, ptr %71, align 4, !tbaa !130
   %72 = add i64 %66, 2
   store i64 %72, ptr %14, align 8, !tbaa !43
@@ -57869,13 +57846,13 @@ _ZN12_GLOBAL__N_14FillIN4absl13InlinedVectorIiLm8ESaIiEEEEEvPT_mi.exit: ; preds 
   br i1 %.not39.i, label %99, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %93
-  %94 = getelementptr inbounds nuw i32, ptr %.sink2.i.i, i64 %.sink1.i.i
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %.sink2.i.i, i64 %.sink1.i.i
   %95 = sub i64 %88, %.sink1.i.i
   br label %96
 
 96:                                               ; preds = %96, %.lr.ph.i.i
   %.06.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %98, %96 ]
-  %97 = getelementptr inbounds nuw i32, ptr %94, i64 %.06.i.i
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %94, i64 %.06.i.i
   store i32 1000000, ptr %97, align 4, !tbaa !130
   %98 = add nuw i64 %.06.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %98, %95
@@ -57911,13 +57888,13 @@ _ZN4absl23inlined_vector_internal13MallocAdapterISaIiELb0EE8AllocateERS2_m.exit.
           to label %.noexc199 unwind label %.loopexit294
 
 .noexc199:                                        ; preds = %_ZN4absl23inlined_vector_internal13MallocAdapterISaIiELb0EE8AllocateERS2_m.exit.i.i
-  %106 = getelementptr inbounds nuw i32, ptr %105, i64 %.sink1.i.i
+  %106 = getelementptr inbounds nuw [4 x i8], ptr %105, i64 %.sink1.i.i
   %107 = sub i64 %88, %.sink1.i.i
   br label %108
 
 108:                                              ; preds = %108, %.noexc199
   %.06.i.i.i = phi i64 [ 0, %.noexc199 ], [ %110, %108 ]
-  %109 = getelementptr inbounds nuw i32, ptr %106, i64 %.06.i.i.i
+  %109 = getelementptr inbounds nuw [4 x i8], ptr %106, i64 %.06.i.i.i
   store i32 1000000, ptr %109, align 4, !tbaa !130
   %110 = add nuw i64 %.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %110, %107
@@ -57930,7 +57907,7 @@ _ZN4absl23inlined_vector_internal23ConstructionTransactionISaIiEE9ConstructINS0_
 .lr.ph.i47.i:                                     ; preds = %_ZN4absl23inlined_vector_internal23ConstructionTransactionISaIiEE9ConstructINS0_16CopyValueAdapterIS2_EEEEvPiRT_m.exit.i, %.lr.ph.i47.i
   %.012.i.i = phi i64 [ %115, %.lr.ph.i47.i ], [ 0, %_ZN4absl23inlined_vector_internal23ConstructionTransactionISaIiEE9ConstructINS0_16CopyValueAdapterIS2_EEEEvPiRT_m.exit.i ]
   %111 = phi ptr [ %114, %.lr.ph.i47.i ], [ %.sink2.i.i, %_ZN4absl23inlined_vector_internal23ConstructionTransactionISaIiEE9ConstructINS0_16CopyValueAdapterIS2_EEEEvPiRT_m.exit.i ]
-  %112 = getelementptr inbounds nuw i32, ptr %105, i64 %.012.i.i
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %105, i64 %.012.i.i
   %113 = load i32, ptr %111, align 4, !tbaa !130
   store i32 %113, ptr %112, align 4, !tbaa !130
   %114 = getelementptr inbounds nuw i8, ptr %111, i64 4
@@ -58343,13 +58320,13 @@ _ZN7testing15AssertionResultD2Ev.exit97:          ; preds = %218, %_ZNKSt14defau
   br i1 %.not39.i205, label %238, label %.lr.ph.i.i206
 
 .lr.ph.i.i206:                                    ; preds = %232
-  %233 = getelementptr inbounds nuw i32, ptr %.sink2.i.i201, i64 %.sink1.i.i203
+  %233 = getelementptr inbounds nuw [4 x i8], ptr %.sink2.i.i201, i64 %.sink1.i.i203
   %234 = sub i64 %.lcssa, %.sink1.i.i203
   br label %235
 
 235:                                              ; preds = %235, %.lr.ph.i.i206
   %.06.i.i207 = phi i64 [ 0, %.lr.ph.i.i206 ], [ %237, %235 ]
-  %236 = getelementptr inbounds nuw i32, ptr %233, i64 %.06.i.i207
+  %236 = getelementptr inbounds nuw [4 x i8], ptr %233, i64 %.06.i.i207
   store i32 1000000, ptr %236, align 4, !tbaa !130
   %237 = add nuw i64 %.06.i.i207, 1
   %exitcond.not.i.i208 = icmp eq i64 %237, %234
@@ -58371,13 +58348,13 @@ _ZN4absl23inlined_vector_internal13MallocAdapterISaIiELb0EE8AllocateERS2_m.exit.
           to label %.noexc225 unwind label %.loopexit294
 
 .noexc225:                                        ; preds = %_ZN4absl23inlined_vector_internal13MallocAdapterISaIiELb0EE8AllocateERS2_m.exit.i.i210
-  %245 = getelementptr inbounds nuw i32, ptr %244, i64 %.sink1.i.i203
+  %245 = getelementptr inbounds nuw [4 x i8], ptr %244, i64 %.sink1.i.i203
   %246 = sub i64 %.lcssa, %.sink1.i.i203
   br label %247
 
 247:                                              ; preds = %247, %.noexc225
   %.06.i.i.i211 = phi i64 [ 0, %.noexc225 ], [ %249, %247 ]
-  %248 = getelementptr inbounds nuw i32, ptr %245, i64 %.06.i.i.i211
+  %248 = getelementptr inbounds nuw [4 x i8], ptr %245, i64 %.06.i.i.i211
   store i32 1000000, ptr %248, align 4, !tbaa !130
   %249 = add nuw i64 %.06.i.i.i211, 1
   %exitcond.not.i.i.i212 = icmp eq i64 %249, %246
@@ -58390,7 +58367,7 @@ _ZN4absl23inlined_vector_internal23ConstructionTransactionISaIiEE9ConstructINS0_
 .lr.ph.i47.i215:                                  ; preds = %_ZN4absl23inlined_vector_internal23ConstructionTransactionISaIiEE9ConstructINS0_16CopyValueAdapterIS2_EEEEvPiRT_m.exit.i213, %.lr.ph.i47.i215
   %.012.i.i216 = phi i64 [ %254, %.lr.ph.i47.i215 ], [ 0, %_ZN4absl23inlined_vector_internal23ConstructionTransactionISaIiEE9ConstructINS0_16CopyValueAdapterIS2_EEEEvPiRT_m.exit.i213 ]
   %250 = phi ptr [ %253, %.lr.ph.i47.i215 ], [ %.sink2.i.i201, %_ZN4absl23inlined_vector_internal23ConstructionTransactionISaIiEE9ConstructINS0_16CopyValueAdapterIS2_EEEEvPiRT_m.exit.i213 ]
-  %251 = getelementptr inbounds nuw i32, ptr %244, i64 %.012.i.i216
+  %251 = getelementptr inbounds nuw [4 x i8], ptr %244, i64 %.012.i.i216
   %252 = load i32, ptr %250, align 4, !tbaa !130
   store i32 %252, ptr %251, align 4, !tbaa !130
   %253 = getelementptr inbounds nuw i8, ptr %250, i64 4
@@ -58431,7 +58408,7 @@ _ZN4absl23inlined_vector_internal21AllocationTransactionISaIiEED2Ev.exit.i219: ;
   %263 = trunc i64 %262 to i1
   %264 = load ptr, ptr %45, align 8
   %265 = select i1 %263, ptr %264, ptr %45
-  %266 = getelementptr inbounds nuw i32, ptr %265, i64 %.017307
+  %266 = getelementptr inbounds nuw [4 x i8], ptr %265, i64 %.017307
   %267 = load i32, ptr %266, align 4, !tbaa !130, !noalias !1491
   %268 = icmp eq i32 %267, %261
   br i1 %268, label %269, label %270
@@ -58663,7 +58640,7 @@ _ZN7testing15AssertionResultD2Ev.exit114:         ; preds = %_ZNKSt14default_del
   %336 = trunc i64 %335 to i1
   %337 = load ptr, ptr %45, align 8
   %338 = select i1 %336, ptr %337, ptr %45
-  %339 = getelementptr inbounds nuw i32, ptr %338, i64 %.017307
+  %339 = getelementptr inbounds nuw [4 x i8], ptr %338, i64 %.017307
   %340 = load i32, ptr %339, align 4, !tbaa !130, !noalias !1499
   %341 = icmp eq i32 %340, 1000000
   br i1 %341, label %342, label %343
@@ -59263,7 +59240,7 @@ _ZN7testing15AssertionResultD2Ev.exit173:         ; preds = %512, %_ZNKSt14defau
   %526 = trunc i64 %525 to i1
   %527 = load ptr, ptr %45, align 8
   %528 = select i1 %526, ptr %527, ptr %45
-  %529 = getelementptr inbounds nuw i32, ptr %528, i64 %.0308
+  %529 = getelementptr inbounds nuw [4 x i8], ptr %528, i64 %.0308
   %530 = load i32, ptr %529, align 4, !tbaa !130, !noalias !1520
   %531 = icmp eq i32 %530, %524
   br i1 %531, label %532, label %533
@@ -59599,7 +59576,7 @@ define internal void @_ZN12_GLOBAL__N_126IntVec_InitWithLength_Test8TestBodyEv(p
 
 32:                                               ; preds = %32, %.lr.ph.i.i.i
   %.06.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %34, %32 ]
-  %33 = getelementptr inbounds nuw i32, ptr %.010.i.i, i64 %.06.i.i.i
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %.010.i.i, i64 %.06.i.i.i
   store i32 7, ptr %33, align 4, !tbaa !130
   %34 = add nuw i64 %.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %34, %storemerge72
@@ -59915,7 +59892,7 @@ _ZN4absl13InlinedVectorIiLm8ESaIiEED2Ev.exit:     ; preds = %._crit_edge, %124
   %133 = trunc i64 %132 to i1
   %134 = load ptr, ptr %18, align 8
   %135 = select i1 %133, ptr %134, ptr %18
-  %136 = getelementptr inbounds nuw i32, ptr %135, i64 %.071
+  %136 = getelementptr inbounds nuw [4 x i8], ptr %135, i64 %.071
   %137 = load i32, ptr %136, align 4, !tbaa !130, !noalias !1533
   %138 = icmp eq i32 %137, 7
   br i1 %138, label %139, label %140
@@ -60261,7 +60238,7 @@ _ZN12_GLOBAL__N_14FillIN4absl13InlinedVectorIiLm8ESaIiEEEEEvPT_mi.exit.thread: ;
 54:                                               ; preds = %.lr.ph.i
   %55 = load ptr, ptr %29, align 8, !noalias !1542
   %.sink2.i.i.i.i.i = select i1 %52, ptr %55, ptr %29
-  %56 = getelementptr inbounds nuw i32, ptr %.sink2.i.i.i.i.i, i64 %.sink1.i.i.i.i.i
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %.sink2.i.i.i.i.i, i64 %.sink1.i.i.i.i.i
   store i32 %50, ptr %56, align 4, !tbaa !130
   %57 = add i64 %51, 2
   store i64 %57, ptr %5, align 8, !tbaa !43
@@ -60908,7 +60885,7 @@ _ZN4absl13InlinedVectorIiLm8ESaIiEED2Ev.exit117:  ; preds = %_ZN4absl13InlinedVe
 265:                                              ; preds = %.lr.ph.i119
   %266 = load ptr, ptr %40, align 8, !noalias !1556
   %.sink2.i.i.i.i.i124 = select i1 %263, ptr %266, ptr %40
-  %267 = getelementptr inbounds nuw i32, ptr %.sink2.i.i.i.i.i124, i64 %.sink1.i.i.i.i.i122
+  %267 = getelementptr inbounds nuw [4 x i8], ptr %.sink2.i.i.i.i.i124, i64 %.sink1.i.i.i.i.i122
   store i32 %261, ptr %267, align 4, !tbaa !130
   %268 = add i64 %262, 2
   store i64 %268, ptr %21, align 8, !tbaa !43
@@ -60974,7 +60951,7 @@ _ZN4absl23inlined_vector_internal13MallocAdapterISaIiELb0EE8AllocateERS2_m.exit.
 
 _ZN4absl23inlined_vector_internal21AllocationTransactionISaIiEE8AllocateEm.exit.i: ; preds = %_ZN12_GLOBAL__N_14FillIN4absl13InlinedVectorIiLm8ESaIiEEEEEvPT_mi.exit128
   %.sink1.i.i = lshr i64 %272, 1
-  %289 = getelementptr inbounds nuw i32, ptr %.sink2.i.i, i64 %.sink1.i.i
+  %289 = getelementptr inbounds nuw [4 x i8], ptr %.sink2.i.i, i64 %.sink1.i.i
   %.sroa.742.0.i = call i64 @llvm.usub.sat.i64(i64 %277, i64 %.sink1.i.i)
   %.sroa.744.0.i = call i64 @llvm.umin.i64(i64 %277, i64 %.sink1.i.i)
   %.not.i.i176 = icmp eq i64 %.sroa.744.0.i, 0
@@ -60983,7 +60960,7 @@ _ZN4absl23inlined_vector_internal21AllocationTransactionISaIiEE8AllocateEm.exit.
 .lr.ph.i.i:                                       ; preds = %_ZN4absl23inlined_vector_internal21AllocationTransactionISaIiEE8AllocateEm.exit.i, %.lr.ph.i.i
   %.05.i.i = phi i64 [ %294, %.lr.ph.i.i ], [ 0, %_ZN4absl23inlined_vector_internal21AllocationTransactionISaIiEE8AllocateEm.exit.i ]
   %290 = phi ptr [ %293, %.lr.ph.i.i ], [ %276, %_ZN4absl23inlined_vector_internal21AllocationTransactionISaIiEE8AllocateEm.exit.i ]
-  %291 = getelementptr inbounds nuw i32, ptr %.sink2.i.i, i64 %.05.i.i
+  %291 = getelementptr inbounds nuw [4 x i8], ptr %.sink2.i.i, i64 %.05.i.i
   %292 = load i32, ptr %290, align 4, !tbaa !130
   store i32 %292, ptr %291, align 4, !tbaa !130
   %293 = getelementptr inbounds nuw i8, ptr %290, i64 4
@@ -61007,7 +60984,7 @@ _ZN4absl23inlined_vector_internal14AssignElementsISaIiENS0_20IteratorValueAdapte
 .lr.ph.i25.i:                                     ; preds = %.lr.ph.i25.i, %.lr.ph.preheader.i23.i
   %.06.i.i = phi i64 [ %299, %.lr.ph.i25.i ], [ 0, %.lr.ph.preheader.i23.i ]
   %295 = phi ptr [ %298, %.lr.ph.i25.i ], [ %.sroa.060.084.i, %.lr.ph.preheader.i23.i ]
-  %296 = getelementptr inbounds nuw i32, ptr %.sroa.041.06982.i, i64 %.06.i.i
+  %296 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.041.06982.i, i64 %.06.i.i
   %297 = load i32, ptr %295, align 4, !tbaa !130
   store i32 %297, ptr %296, align 4, !tbaa !130
   %298 = getelementptr inbounds nuw i8, ptr %295, i64 4
@@ -61629,7 +61606,7 @@ _ZN12_GLOBAL__N_14FillIN4absl13InlinedVectorIiLm8ESaIiEEEEEvPT_mi.exit.thread: ;
 19:                                               ; preds = %.lr.ph.i
   %20 = load ptr, ptr %9, align 8, !noalias !1572
   %.sink2.i.i.i.i.i = select i1 %17, ptr %20, ptr %9
-  %21 = getelementptr inbounds nuw i32, ptr %.sink2.i.i.i.i.i, i64 %.sink1.i.i.i.i.i
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %.sink2.i.i.i.i.i, i64 %.sink1.i.i.i.i.i
   store i32 %15, ptr %21, align 4, !tbaa !130
   %22 = add i64 %16, 2
   store i64 %22, ptr %3, align 8, !tbaa !43
@@ -62121,7 +62098,7 @@ _ZN12_GLOBAL__N_14FillIN4absl13InlinedVectorIiLm8ESaIiEEEEEvPT_mi.exit.thread: ;
 84:                                               ; preds = %.lr.ph.i
   %85 = load ptr, ptr %47, align 8, !noalias !1581
   %.sink2.i.i.i.i.i = select i1 %82, ptr %85, ptr %47
-  %86 = getelementptr inbounds nuw i32, ptr %.sink2.i.i.i.i.i, i64 %.sink1.i.i.i.i.i
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %.sink2.i.i.i.i.i, i64 %.sink1.i.i.i.i.i
   store i32 %80, ptr %86, align 4, !tbaa !130
   %87 = add i64 %81, 2
   store i64 %87, ptr %5, align 8, !tbaa !43
@@ -63101,7 +63078,7 @@ _ZN4absl13InlinedVectorIiLm8ESaIiEED2Ev.exit187:  ; preds = %390, %393
 408:                                              ; preds = %.lr.ph.i190
   %409 = load ptr, ptr %65, align 8, !noalias !1593
   %.sink2.i.i.i.i.i195 = select i1 %406, ptr %409, ptr %65
-  %410 = getelementptr inbounds nuw i32, ptr %.sink2.i.i.i.i.i195, i64 %.sink1.i.i.i.i.i193
+  %410 = getelementptr inbounds nuw [4 x i8], ptr %.sink2.i.i.i.i.i195, i64 %.sink1.i.i.i.i.i193
   store i32 %404, ptr %410, align 4, !tbaa !130
   %411 = add i64 %405, 2
   store i64 %411, ptr %30, align 8, !tbaa !43
@@ -63895,7 +63872,7 @@ define internal void @_ZN12_GLOBAL__N_125AliasingTest_Emplace_Test8TestBodyEv(pt
 
 .noexc:                                           ; preds = %27
   %.sink6.i.i.i.i = select i1 %26, ptr %.val1.i.i.i.i, ptr %13
-  %29 = getelementptr inbounds nuw %"class.(anonymous namespace)::NotTriviallyDestructible", ptr %.sink6.i.i.i.i, i64 %.sink5.i.i.i.i
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %.sink6.i.i.i.i, i64 %.sink5.i.i.i.i
   store i32 %23, ptr %28, align 4, !tbaa !130
   store ptr %28, ptr %29, align 8, !tbaa !269
   %30 = add i64 %.val.i.i.i.i, 2
@@ -64055,7 +64032,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %69, %_ZNKSt14defaul
   %.val1.i.i59 = load ptr, ptr %13, align 8
   %78 = select i1 %77, ptr %.val1.i.i59, ptr %13
   %79 = lshr i64 %.023103, 1
-  %80 = getelementptr inbounds nuw %"class.(anonymous namespace)::NotTriviallyDestructible", ptr %78, i64 %79
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %79
   %.val38 = load ptr, ptr %80, align 8
   invoke fastcc void @_ZN4absl13InlinedVectorIN12_GLOBAL__N_124NotTriviallyDestructibleELm10ESaIS2_EE7emplaceIJRS2_EEEPS2_PKS2_DpOT_(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull %80, ptr %.val38)
           to label %81 unwind label %42
@@ -64066,7 +64043,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %69, %_ZNKSt14defaul
   %82 = trunc i64 %.val.i.i62 to i1
   %.val1.i.i63 = load ptr, ptr %13, align 8
   %83 = select i1 %82, ptr %.val1.i.i63, ptr %13
-  %84 = getelementptr inbounds nuw %"class.(anonymous namespace)::NotTriviallyDestructible", ptr %83, i64 %79
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %79
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
   invoke fastcc void @_ZN7testing8internal8EqHelper7CompareIN12_GLOBAL__N_124NotTriviallyDestructibleES4_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSE_RKS6_RKS7_(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull @.str.345, ptr noundef nonnull @.str.346, ptr noundef nonnull align 8 dereferenceable(8) %84, ptr noundef nonnull align 8 dereferenceable(8) %85)
           to label %86 unwind label %90
@@ -64192,7 +64169,7 @@ _ZN7testing15AssertionResultD2Ev.exit78:          ; preds = %115, %_ZNKSt14defau
   %.val1.i.i80 = load ptr, ptr %13, align 8
   %124 = select i1 %123, ptr %.val1.i.i80, ptr %13
   %125 = lshr i64 %.val.i.i79, 1
-  %126 = getelementptr inbounds nuw %"class.(anonymous namespace)::NotTriviallyDestructible", ptr %124, i64 %125
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %124, i64 %125
   %127 = getelementptr inbounds i8, ptr %126, i64 -8
   %.val39 = load ptr, ptr %127, align 8
   invoke fastcc void @_ZN4absl13InlinedVectorIN12_GLOBAL__N_124NotTriviallyDestructibleELm10ESaIS2_EE7emplaceIJRS2_EEEPS2_PKS2_DpOT_(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull %127, ptr %.val39)
@@ -64205,7 +64182,7 @@ _ZN7testing15AssertionResultD2Ev.exit78:          ; preds = %115, %_ZNKSt14defau
   %130 = trunc i64 %.val41 to i1
   %.val1.i.i84 = load ptr, ptr %13, align 8
   %131 = select i1 %130, ptr %.val1.i.i84, ptr %13
-  %132 = getelementptr %"class.(anonymous namespace)::NotTriviallyDestructible", ptr %131, i64 %129
+  %132 = getelementptr [8 x i8], ptr %131, i64 %129
   %133 = getelementptr i8, ptr %132, i64 -16
   %134 = getelementptr i8, ptr %132, i64 -8
   invoke fastcc void @_ZN7testing8internal8EqHelper7CompareIN12_GLOBAL__N_124NotTriviallyDestructibleES4_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSE_RKS6_RKS7_(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull @.str.347, ptr noundef nonnull @.str.348, ptr noundef nonnull align 8 dereferenceable(8) %133, ptr noundef nonnull align 8 dereferenceable(8) %134)
@@ -64474,7 +64451,7 @@ _ZN4absl23inlined_vector_internal23ConstructionTransactionISaIN12_GLOBAL__N_124N
           to label %.body.i unwind label %48
 
 43:                                               ; preds = %.lr.ph.i.i88.i
-  %44 = getelementptr inbounds nuw %"class.(anonymous namespace)::NotTriviallyDestructible", ptr %23, i64 %.04.i.i89.i
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %.04.i.i89.i
   %45 = load i32, ptr %.val3.i.i.i91.i, align 4, !tbaa !130
   store i32 %45, ptr %36, align 4, !tbaa !130
   store ptr %36, ptr %44, align 8, !tbaa !269
@@ -64495,7 +64472,7 @@ _ZN4absl23inlined_vector_internal23ConstructionTransactionISaIN12_GLOBAL__N_124N
 
 _ZN4absl23inlined_vector_internal23ConstructionTransactionISaIN12_GLOBAL__N_124NotTriviallyDestructibleEEE9ConstructINS0_20IteratorValueAdapterIS4_St13move_iteratorIPS3_EEEEEvS9_RT_m.exit95.i: ; preds = %43, %_ZN4absl23inlined_vector_internal23ConstructionTransactionISaIN12_GLOBAL__N_124NotTriviallyDestructibleEEE9ConstructINS0_20IteratorValueAdapterIS4_St13move_iteratorIPS3_EEEEEvS9_RT_m.exit.i
   %.sroa.0169.0.i = phi ptr [ %.sink6.i.i, %_ZN4absl23inlined_vector_internal23ConstructionTransactionISaIN12_GLOBAL__N_124NotTriviallyDestructibleEEE9ConstructINS0_20IteratorValueAdapterIS4_St13move_iteratorIPS3_EEEEEvS9_RT_m.exit.i ], [ %46, %43 ]
-  %52 = getelementptr inbounds nuw %"class.(anonymous namespace)::NotTriviallyDestructible", ptr %23, i64 %13
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %13
   %53 = sub i64 %.sink5.i.i, %12
   %.not.i.i = icmp eq i64 %.sink5.i.i, %12
   br i1 %.not.i.i, label %_ZN4absl23inlined_vector_internal17ConstructElementsISaIN12_GLOBAL__N_124NotTriviallyDestructibleEENS0_20IteratorValueAdapterIS4_St13move_iteratorIPS3_EEEEEvRNS_8internal13type_identityIT_E4typeENSt16allocator_traitsISC_E7pointerERT0_NSH_9size_typeE.exit.i, label %.lr.ph.i.i
@@ -64523,7 +64500,7 @@ _ZN4absl23inlined_vector_internal23ConstructionTransactionISaIN12_GLOBAL__N_124N
           to label %.body.i unwind label %66
 
 61:                                               ; preds = %.lr.ph.i.i
-  %62 = getelementptr inbounds nuw %"class.(anonymous namespace)::NotTriviallyDestructible", ptr %52, i64 %.04.i.i
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %.04.i.i
   %63 = load i32, ptr %.val3.i.i.i, align 4, !tbaa !130
   store i32 %63, ptr %54, align 4, !tbaa !130
   store ptr %54, ptr %62, align 8, !tbaa !269
@@ -64549,7 +64526,7 @@ _ZN4absl23inlined_vector_internal17ConstructElementsISaIN12_GLOBAL__N_124NotTriv
 .lr.ph.i98.i:                                     ; preds = %_ZN4absl23inlined_vector_internal17ConstructElementsISaIN12_GLOBAL__N_124NotTriviallyDestructibleEENS0_20IteratorValueAdapterIS4_St13move_iteratorIPS3_EEEEEvRNS_8internal13type_identityIT_E4typeENSt16allocator_traitsISC_E7pointerERT0_NSH_9size_typeE.exit.i, %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_124NotTriviallyDestructibleEEE7destroyIS1_EEvRS2_PT_.exit.i.i
   %.02.i.i = phi i64 [ %70, %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_124NotTriviallyDestructibleEEE7destroyIS1_EEvRS2_PT_.exit.i.i ], [ %.sink5.i.i, %_ZN4absl23inlined_vector_internal17ConstructElementsISaIN12_GLOBAL__N_124NotTriviallyDestructibleEENS0_20IteratorValueAdapterIS4_St13move_iteratorIPS3_EEEEEvRNS_8internal13type_identityIT_E4typeENSt16allocator_traitsISC_E7pointerERT0_NSH_9size_typeE.exit.i ]
   %70 = add nsw i64 %.02.i.i, -1
-  %71 = getelementptr inbounds nuw %"class.(anonymous namespace)::NotTriviallyDestructible", ptr %.sink6.i.i, i64 %70
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %.sink6.i.i, i64 %70
   %72 = load ptr, ptr %71, align 8, !tbaa !269
   %.not.i.i.i.i.i.i = icmp eq ptr %72, null
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_124NotTriviallyDestructibleEEE7destroyIS1_EEvRS2_PT_.exit.i.i, label %_ZNKSt14default_deleteIiEclEPi.exit.i.i.i.i.i.i
@@ -64612,13 +64589,13 @@ _ZN4absl23inlined_vector_internal14DestroyAdapterISaIN12_GLOBAL__N_124NotTrivial
 
 82:                                               ; preds = %2
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %13, i64 %.sink5.i.i)
-  %83 = getelementptr %"class.(anonymous namespace)::NotTriviallyDestructible", ptr %.sink6.i.i, i64 %.sroa.speculated.i
+  %83 = getelementptr [8 x i8], ptr %.sink6.i.i, i64 %.sroa.speculated.i
   %84 = sub i64 %14, %.sroa.speculated.i
   %85 = getelementptr inbounds nuw i8, ptr %.sink6.i.i, i64 %11
   %.idx207.i = shl nuw nsw i64 %13, 3
   %86 = getelementptr inbounds nuw i8, ptr %.sink6.i.i, i64 %.idx207.i
   %87 = sub i64 %.sroa.speculated.i, %13
-  %88 = getelementptr inbounds nuw %"class.(anonymous namespace)::NotTriviallyDestructible", ptr %85, i64 %84
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %84
   %89 = sub i64 1, %84
   %.not.i.i116.i = icmp eq i64 %84, 0
   br i1 %.not.i.i116.i, label %_ZN4absl23inlined_vector_internal23ConstructionTransactionISaIN12_GLOBAL__N_124NotTriviallyDestructibleEEE9ConstructINS0_20IteratorValueAdapterIS4_St13move_iteratorIPS3_EEEEEvS9_RT_m.exit126.i, label %.lr.ph.i.i119.preheader.i
@@ -64650,7 +64627,7 @@ _ZN4absl23inlined_vector_internal14DestroyAdapterISaIN12_GLOBAL__N_124NotTrivial
           to label %.body unwind label %103
 
 98:                                               ; preds = %.lr.ph.i.i119.i
-  %99 = getelementptr inbounds nuw %"class.(anonymous namespace)::NotTriviallyDestructible", ptr %83, i64 %.04.i.i120.i
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %.04.i.i120.i
   %100 = load i32, ptr %.val3.i.i.i122.i, align 4, !tbaa !130
   store i32 %100, ptr %91, align 4, !tbaa !130
   store ptr %91, ptr %99, align 8, !tbaa !269
@@ -64677,7 +64654,7 @@ _ZN4absl23inlined_vector_internal23ConstructionTransactionISaIN12_GLOBAL__N_124N
 .lr.ph.preheader.i:                               ; preds = %_ZN4absl23inlined_vector_internal23ConstructionTransactionISaIN12_GLOBAL__N_124NotTriviallyDestructibleEEE9ConstructINS0_20IteratorValueAdapterIS4_St13move_iteratorIPS3_EEEEEvS9_RT_m.exit126.i
   %107 = getelementptr i8, ptr %.sink6.i.i, i64 %.idx.i
   %108 = getelementptr i8, ptr %107, i64 -8
-  %109 = getelementptr inbounds nuw %"class.(anonymous namespace)::NotTriviallyDestructible", ptr %85, i64 %87
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %87
   br label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %_ZN12_GLOBAL__N_124NotTriviallyDestructibleaSERKS0_.exit.i, %_ZN4absl23inlined_vector_internal23ConstructionTransactionISaIN12_GLOBAL__N_124NotTriviallyDestructibleEEE9ConstructINS0_20IteratorValueAdapterIS4_St13move_iteratorIPS3_EEEEEvS9_RT_m.exit126.i
@@ -64691,7 +64668,7 @@ _ZN4absl23inlined_vector_internal23ConstructionTransactionISaIN12_GLOBAL__N_124N
           to label %.noexc131.i unwind label %116
 
 .noexc131.i:                                      ; preds = %.lr.ph.i129.i
-  %111 = getelementptr inbounds nuw %"class.(anonymous namespace)::NotTriviallyDestructible", ptr %85, i64 %.05.i.i
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %.05.i.i
   %112 = load i32, ptr %.val2.i.i.i, align 4, !tbaa !130, !noalias !1607
   store i32 %112, ptr %110, align 4, !tbaa !130, !noalias !1607
   %113 = load ptr, ptr %111, align 8, !tbaa !269
@@ -64775,7 +64752,7 @@ _ZN4absl23inlined_vector_internal14AssignElementsISaIN12_GLOBAL__N_124NotTrivial
           to label %.body unwind label %139
 
 134:                                              ; preds = %.lr.ph.i138.i
-  %135 = getelementptr inbounds nuw %"class.(anonymous namespace)::NotTriviallyDestructible", ptr %88, i64 %.04.i139.i
+  %135 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %.04.i139.i
   %136 = load i32, ptr %.val3.i.i141.i, align 4, !tbaa !130
   store i32 %136, ptr %127, align 4, !tbaa !130
   store ptr %127, ptr %135, align 8, !tbaa !269
@@ -64958,7 +64935,7 @@ define internal fastcc void @_ZN4absl23inlined_vector_internal7StorageIN12_GLOBA
 _ZN4absl23inlined_vector_internal13MallocAdapterISaIN12_GLOBAL__N_124NotTriviallyDestructibleEELb0EE8AllocateERS4_m.exit.i: ; preds = %1
   %10 = shl nuw nsw i64 %6, 3
   %11 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %10) #42
-  %12 = getelementptr inbounds nuw %"class.(anonymous namespace)::NotTriviallyDestructible", ptr %11, i64 %.sink5.i
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.sink5.i
   %13 = invoke noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #42
           to label %14 unwind label %32
 
@@ -64992,7 +64969,7 @@ _ZN4absl23inlined_vector_internal13MallocAdapterISaIN12_GLOBAL__N_124NotTriviall
           to label %34 unwind label %28
 
 23:                                               ; preds = %.lr.ph.i
-  %24 = getelementptr inbounds nuw %"class.(anonymous namespace)::NotTriviallyDestructible", ptr %11, i64 %.04.i
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.04.i
   %25 = load i32, ptr %.val3.i.i, align 4, !tbaa !130
   store i32 %25, ptr %16, align 4, !tbaa !130
   store ptr %16, ptr %24, align 8, !tbaa !269
@@ -65041,7 +65018,7 @@ _ZNSt16allocator_traitsISaIN12_GLOBAL__N_124NotTriviallyDestructibleEEE7destroyI
 .lr.ph.i21:                                       ; preds = %23, %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_124NotTriviallyDestructibleEEE7destroyIS1_EEvRS2_PT_.exit.i
   %.02.i = phi i64 [ %40, %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_124NotTriviallyDestructibleEEE7destroyIS1_EEvRS2_PT_.exit.i ], [ %.sink5.i, %23 ]
   %40 = add nsw i64 %.02.i, -1
-  %41 = getelementptr inbounds nuw %"class.(anonymous namespace)::NotTriviallyDestructible", ptr %.sink6.i, i64 %40
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %.sink6.i, i64 %40
   %42 = load ptr, ptr %41, align 8, !tbaa !269
   %.not.i.i.i.i.i = icmp eq ptr %42, null
   br i1 %.not.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_124NotTriviallyDestructibleEEE7destroyIS1_EEvRS2_PT_.exit.i, label %_ZNKSt14default_deleteIiEclEPi.exit.i.i.i.i.i
@@ -65108,7 +65085,7 @@ define internal fastcc void @_ZN4absl23inlined_vector_internal14DestroyAdapterIS
 .lr.ph:                                           ; preds = %2, %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_124NotTriviallyDestructibleEEE7destroyIS1_EEvRS2_PT_.exit
   %.02 = phi i64 [ %3, %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_124NotTriviallyDestructibleEEE7destroyIS1_EEvRS2_PT_.exit ], [ %1, %2 ]
   %3 = add i64 %.02, -1
-  %4 = getelementptr inbounds nuw %"class.(anonymous namespace)::NotTriviallyDestructible", ptr %0, i64 %3
+  %4 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !269
   %.not.i.i.i.i = icmp eq ptr %5, null
   br i1 %.not.i.i.i.i, label %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_124NotTriviallyDestructibleEEE7destroyIS1_EEvRS2_PT_.exit, label %_ZNKSt14default_deleteIiEclEPi.exit.i.i.i.i
@@ -65133,7 +65110,7 @@ define internal fastcc void @_ZN4absl23inlined_vector_internal23ConstructionTran
 .lr.ph.i:                                         ; preds = %0, %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_124NotTriviallyDestructibleEEE7destroyIS1_EEvRS2_PT_.exit.i
   %.02.i = phi i64 [ %2, %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_124NotTriviallyDestructibleEEE7destroyIS1_EEvRS2_PT_.exit.i ], [ %.8.val, %0 ]
   %2 = add i64 %.02.i, -1
-  %3 = getelementptr inbounds nuw %"class.(anonymous namespace)::NotTriviallyDestructible", ptr %.0.val, i64 %2
+  %3 = getelementptr inbounds nuw [8 x i8], ptr %.0.val, i64 %2
   %4 = load ptr, ptr %3, align 8, !tbaa !269
   %.not.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_124NotTriviallyDestructibleEEE7destroyIS1_EEvRS2_PT_.exit.i, label %_ZNKSt14default_deleteIiEclEPi.exit.i.i.i.i.i
@@ -65278,7 +65255,7 @@ define internal fastcc void @_ZN4absl23inlined_vector_internal7StorageIN12_GLOBA
 .lr.ph.i:                                         ; preds = %1, %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_124NotTriviallyDestructibleEEE7destroyIS1_EEvRS2_PT_.exit.i
   %.02.i = phi i64 [ %6, %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_124NotTriviallyDestructibleEEE7destroyIS1_EEvRS2_PT_.exit.i ], [ %5, %1 ]
   %6 = add nsw i64 %.02.i, -1
-  %7 = getelementptr inbounds nuw %"class.(anonymous namespace)::NotTriviallyDestructible", ptr %4, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !269
   %.not.i.i.i.i.i = icmp eq ptr %8, null
   br i1 %.not.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_124NotTriviallyDestructibleEEE7destroyIS1_EEvRS2_PT_.exit.i, label %_ZNKSt14default_deleteIiEclEPi.exit.i.i.i.i.i
@@ -65406,7 +65383,7 @@ define internal void @_ZN12_GLOBAL__N_133AliasingTest_InsertWithCount_Test8TestB
 
 .noexc:                                           ; preds = %30
   %.sink6.i.i.i.i = select i1 %29, ptr %.val1.i.i.i.i, ptr %16
-  %32 = getelementptr inbounds nuw %"class.(anonymous namespace)::NotTriviallyDestructible", ptr %.sink6.i.i.i.i, i64 %.sink5.i.i.i.i
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %.sink6.i.i.i.i, i64 %.sink5.i.i.i.i
   store i32 %26, ptr %31, align 4, !tbaa !130
   store ptr %31, ptr %32, align 8, !tbaa !269
   %33 = add i64 %.val.i.i.i.i, 2
@@ -65456,7 +65433,7 @@ _ZN4absl13InlinedVectorIN12_GLOBAL__N_124NotTriviallyDestructibleELm10ESaIS2_EED
   %.val1.i.i = load ptr, ptr %16, align 8
   %45 = select i1 %44, ptr %.val1.i.i, ptr %16
   %46 = lshr i64 %.val.i.i, 1
-  %47 = getelementptr %"class.(anonymous namespace)::NotTriviallyDestructible", ptr %45, i64 %46
+  %47 = getelementptr [8 x i8], ptr %45, i64 %46
   %48 = getelementptr i8, ptr %47, i64 -8
   %.val77 = load ptr, ptr %48, align 8
   invoke fastcc void @_ZN4absl13InlinedVectorIN12_GLOBAL__N_124NotTriviallyDestructibleELm10ESaIS2_EE6insertEPKS2_mRS5_(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull %45, i64 noundef %.050307, ptr %.val77)
@@ -65475,7 +65452,7 @@ _ZN4absl13InlinedVectorIN12_GLOBAL__N_124NotTriviallyDestructibleELm10ESaIS2_EED
 
 .lr.ph.i.i.i.i:                                   ; preds = %49
   %53 = lshr i64 %.val.i.i87, 1
-  %54 = getelementptr %"class.(anonymous namespace)::NotTriviallyDestructible", ptr %51, i64 %53
+  %54 = getelementptr [8 x i8], ptr %51, i64 %53
   %55 = getelementptr i8, ptr %54, i64 -8
   %.val2.i.i.i.i.i.i = load ptr, ptr %55, align 8, !tbaa !269
   %.val2.val.i.i.i.i.i.i = load i32, ptr %.val2.i.i.i.i.i.i, align 4, !tbaa !130
@@ -65525,7 +65502,7 @@ _ZN4absl13InlinedVectorIN12_GLOBAL__N_124NotTriviallyDestructibleELm10ESaIS2_EED
 
 ._crit_edge._crit_edge88.i.i.i.i:                 ; preds = %._crit_edge.i.i.i.i
   %.pre104.i.i.i.i = lshr i64 %.val.i.i87, 1
-  %.phi.trans.insert18.i.i.i = getelementptr %"class.(anonymous namespace)::NotTriviallyDestructible", ptr %51, i64 %.pre104.i.i.i.i
+  %.phi.trans.insert18.i.i.i = getelementptr [8 x i8], ptr %51, i64 %.pre104.i.i.i.i
   %.phi.trans.insert19.i.i.i = getelementptr i8, ptr %.phi.trans.insert18.i.i.i, i64 -8
   %.val2.i.i62.i.pre.i.i.i = load ptr, ptr %.phi.trans.insert19.i.i.i, align 8, !tbaa !269
   %.val2.val.i.i63.i.pre.i.i.i = load i32, ptr %.val2.i.i62.i.pre.i.i.i, align 4, !tbaa !130
@@ -65533,7 +65510,7 @@ _ZN4absl13InlinedVectorIN12_GLOBAL__N_124NotTriviallyDestructibleELm10ESaIS2_EED
 
 ._crit_edge._crit_edge.i.i.i.i:                   ; preds = %._crit_edge.i.i.i.i
   %.pre98.i.i.i.i = lshr i64 %.val.i.i87, 1
-  %.phi.trans.insert.i.i.i = getelementptr %"class.(anonymous namespace)::NotTriviallyDestructible", ptr %51, i64 %.pre98.i.i.i.i
+  %.phi.trans.insert.i.i.i = getelementptr [8 x i8], ptr %51, i64 %.pre98.i.i.i.i
   %.phi.trans.insert15.i.i.i = getelementptr i8, ptr %.phi.trans.insert.i.i.i, i64 -8
   %.val2.i.i58.i.pre.i.i.i = load ptr, ptr %.phi.trans.insert15.i.i.i, align 8, !tbaa !269
   %.val2.val.i.i59.i.pre.i.i.i = load i32, ptr %.val2.i.i58.i.pre.i.i.i, align 4, !tbaa !130
@@ -65543,7 +65520,7 @@ _ZN4absl13InlinedVectorIN12_GLOBAL__N_124NotTriviallyDestructibleELm10ESaIS2_EED
   %.029.val37.i.i.i.i = load ptr, ptr %.029.lcssa.i.i.i.i, align 8, !tbaa !269
   %.029.val37.val.i.i.i.i = load i32, ptr %.029.val37.i.i.i.i, align 4, !tbaa !130
   %62 = lshr i64 %.val.i.i87, 1
-  %63 = getelementptr %"class.(anonymous namespace)::NotTriviallyDestructible", ptr %51, i64 %62
+  %63 = getelementptr [8 x i8], ptr %51, i64 %62
   %64 = getelementptr i8, ptr %63, i64 -8
   %.val2.i.i54.i.i.i.i = load ptr, ptr %64, align 8, !tbaa !269
   %.val2.val.i.i55.i.i.i.i = load i32, ptr %.val2.i.i54.i.i.i.i, align 4, !tbaa !130
@@ -65733,8 +65710,8 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %70, %._crit_edge.i.
   %115 = trunc i64 %.val76 to i1
   %.val1.i.i98 = load ptr, ptr %16, align 8
   %116 = select i1 %115, ptr %.val1.i.i98, ptr %16
-  %117 = getelementptr inbounds nuw %"class.(anonymous namespace)::NotTriviallyDestructible", ptr %116, i64 %114
-  %118 = getelementptr %"class.(anonymous namespace)::NotTriviallyDestructible", ptr %116, i64 %113
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %116, i64 %114
+  %118 = getelementptr [8 x i8], ptr %116, i64 %113
   %119 = getelementptr i8, ptr %118, i64 -8
   %.val78 = load ptr, ptr %119, align 8
   invoke fastcc void @_ZN4absl13InlinedVectorIN12_GLOBAL__N_124NotTriviallyDestructibleELm10ESaIS2_EE6insertEPKS2_mRS5_(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull %117, i64 noundef %.050307, ptr %.val78)
@@ -65745,14 +65722,14 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %70, %._crit_edge.i.
   %121 = trunc i64 %.val.i.i101 to i1
   %.val1.i.i102 = load ptr, ptr %16, align 8
   %122 = select i1 %121, ptr %.val1.i.i102, ptr %16
-  %123 = getelementptr inbounds nuw %"class.(anonymous namespace)::NotTriviallyDestructible", ptr %122, i64 %114
+  %123 = getelementptr inbounds nuw [8 x i8], ptr %122, i64 %114
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 %.idx266
   br i1 %.not, label %._crit_edge.i.i.i.i103, label %.lr.ph.i.i.i.i146
 
 .lr.ph.i.i.i.i146:                                ; preds = %120
   %125 = lshr i64 %.val.i.i101, 1
-  %126 = getelementptr %"class.(anonymous namespace)::NotTriviallyDestructible", ptr %122, i64 %125
+  %126 = getelementptr [8 x i8], ptr %122, i64 %125
   %127 = getelementptr i8, ptr %126, i64 -8
   %.val2.i.i.i.i.i.i149 = load ptr, ptr %127, align 8, !tbaa !269
   %.val2.val.i.i.i.i.i.i150 = load i32, ptr %.val2.i.i.i.i.i.i149, align 4, !tbaa !130
@@ -65799,7 +65776,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %70, %._crit_edge.i.
 
 ._crit_edge._crit_edge88.i.i.i.i106:              ; preds = %._crit_edge.i.i.i.i103
   %.pre104.i.i.i.i112 = lshr i64 %.val.i.i101, 1
-  %.phi.trans.insert18.i.i.i113 = getelementptr %"class.(anonymous namespace)::NotTriviallyDestructible", ptr %122, i64 %.pre104.i.i.i.i112
+  %.phi.trans.insert18.i.i.i113 = getelementptr [8 x i8], ptr %122, i64 %.pre104.i.i.i.i112
   %.phi.trans.insert19.i.i.i114 = getelementptr i8, ptr %.phi.trans.insert18.i.i.i113, i64 -8
   %.val2.i.i62.i.pre.i.i.i115 = load ptr, ptr %.phi.trans.insert19.i.i.i114, align 8, !tbaa !269
   %.val2.val.i.i63.i.pre.i.i.i116 = load i32, ptr %.val2.i.i62.i.pre.i.i.i115, align 4, !tbaa !130
@@ -65807,7 +65784,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %70, %._crit_edge.i.
 
 ._crit_edge._crit_edge.i.i.i.i123:                ; preds = %._crit_edge.i.i.i.i103
   %.pre98.i.i.i.i129 = lshr i64 %.val.i.i101, 1
-  %.phi.trans.insert.i.i.i130 = getelementptr %"class.(anonymous namespace)::NotTriviallyDestructible", ptr %122, i64 %.pre98.i.i.i.i129
+  %.phi.trans.insert.i.i.i130 = getelementptr [8 x i8], ptr %122, i64 %.pre98.i.i.i.i129
   %.phi.trans.insert15.i.i.i131 = getelementptr i8, ptr %.phi.trans.insert.i.i.i130, i64 -8
   %.val2.i.i58.i.pre.i.i.i132 = load ptr, ptr %.phi.trans.insert15.i.i.i131, align 8, !tbaa !269
   %.val2.val.i.i59.i.pre.i.i.i133 = load i32, ptr %.val2.i.i58.i.pre.i.i.i132, align 4, !tbaa !130
@@ -65817,7 +65794,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %70, %._crit_edge.i.
   %.029.val37.i.i.i.i139 = load ptr, ptr %.029.lcssa.i.i.i.i105, align 8, !tbaa !269
   %.029.val37.val.i.i.i.i140 = load i32, ptr %.029.val37.i.i.i.i139, align 4, !tbaa !130
   %137 = lshr i64 %.val.i.i101, 1
-  %138 = getelementptr %"class.(anonymous namespace)::NotTriviallyDestructible", ptr %122, i64 %137
+  %138 = getelementptr [8 x i8], ptr %122, i64 %137
   %139 = getelementptr i8, ptr %138, i64 -8
   %.val2.i.i54.i.i.i.i143 = load ptr, ptr %139, align 8, !tbaa !269
   %.val2.val.i.i55.i.i.i.i144 = load i32, ptr %.val2.i.i54.i.i.i.i143, align 4, !tbaa !130
@@ -65992,7 +65969,7 @@ _ZN7testing15AssertionResultD2Ev.exit185:         ; preds = %145, %._crit_edge.i
   %190 = trunc i64 %.val75 to i1
   %.val1.i.i187 = load ptr, ptr %16, align 8
   %191 = select i1 %190, ptr %.val1.i.i187, ptr %16
-  %192 = getelementptr inbounds nuw %"class.(anonymous namespace)::NotTriviallyDestructible", ptr %191, i64 %189
+  %192 = getelementptr inbounds nuw [8 x i8], ptr %191, i64 %189
   %.val = load ptr, ptr %192, align 8
   %193 = invoke noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #42
           to label %194 unwind label %219
@@ -66000,7 +65977,7 @@ _ZN7testing15AssertionResultD2Ev.exit185:         ; preds = %145, %._crit_edge.i
 194:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit185
   %195 = load i32, ptr %.val, align 4, !tbaa !130
   store i32 %195, ptr %193, align 4, !tbaa !130
-  %196 = getelementptr inbounds nuw %"class.(anonymous namespace)::NotTriviallyDestructible", ptr %191, i64 %188
+  %196 = getelementptr inbounds nuw [8 x i8], ptr %191, i64 %188
   invoke fastcc void @_ZN4absl13InlinedVectorIN12_GLOBAL__N_124NotTriviallyDestructibleELm10ESaIS2_EE6insertEPKS2_mRS5_(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef %196, i64 noundef %.050307, ptr nonnull %.val)
           to label %197 unwind label %221
 
@@ -66009,7 +65986,7 @@ _ZN7testing15AssertionResultD2Ev.exit185:         ; preds = %145, %._crit_edge.i
   %198 = trunc i64 %.val.i.i193 to i1
   %.val1.i.i194 = load ptr, ptr %16, align 8
   %199 = select i1 %198, ptr %.val1.i.i194, ptr %16
-  %200 = getelementptr inbounds nuw %"class.(anonymous namespace)::NotTriviallyDestructible", ptr %199, i64 %189
+  %200 = getelementptr inbounds nuw [8 x i8], ptr %199, i64 %189
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %201 = getelementptr inbounds nuw i8, ptr %200, i64 %.idx266
   br i1 %.not, label %._crit_edge.i.i.i.i195, label %.lr.ph.i.i.i.i208
@@ -66345,7 +66322,7 @@ _ZN4absl23inlined_vector_internal21AllocationTransactionISaIN12_GLOBAL__N_124Not
           to label %.body.i unwind label %37
 
 34:                                               ; preds = %.lr.ph.i.i.i
-  %35 = getelementptr inbounds nuw %"class.(anonymous namespace)::NotTriviallyDestructible", ptr %26, i64 %.02.i.i.i
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %.02.i.i.i
   store i32 %6, ptr %27, align 4, !tbaa !130
   store ptr %27, ptr %35, align 8, !tbaa !269
   %36 = add nuw nsw i64 %.02.i.i.i, 1
@@ -66389,7 +66366,7 @@ _ZN4absl23inlined_vector_internal23ConstructionTransactionISaIN12_GLOBAL__N_124N
           to label %.body.i unwind label %53
 
 48:                                               ; preds = %.lr.ph.i.i90.i
-  %49 = getelementptr inbounds nuw %"class.(anonymous namespace)::NotTriviallyDestructible", ptr %25, i64 %.04.i.i.i
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %.04.i.i.i
   %50 = load i32, ptr %.val3.i.i.i.i, align 4, !tbaa !130
   store i32 %50, ptr %41, align 4, !tbaa !130
   store ptr %41, ptr %49, align 8, !tbaa !269
@@ -66410,7 +66387,7 @@ _ZN4absl23inlined_vector_internal23ConstructionTransactionISaIN12_GLOBAL__N_124N
 
 _ZN4absl23inlined_vector_internal23ConstructionTransactionISaIN12_GLOBAL__N_124NotTriviallyDestructibleEEE9ConstructINS0_20IteratorValueAdapterIS4_St13move_iteratorIPS3_EEEEEvS9_RT_m.exit.i: ; preds = %48, %_ZN4absl23inlined_vector_internal23ConstructionTransactionISaIN12_GLOBAL__N_124NotTriviallyDestructibleEEE9ConstructINS0_16CopyValueAdapterIS4_EEEEvPS3_RT_m.exit.i
   %.sroa.0163.0.i = phi ptr [ %.sink6.i.i, %_ZN4absl23inlined_vector_internal23ConstructionTransactionISaIN12_GLOBAL__N_124NotTriviallyDestructibleEEE9ConstructINS0_16CopyValueAdapterIS4_EEEEvPS3_RT_m.exit.i ], [ %51, %48 ]
-  %57 = getelementptr inbounds nuw %"class.(anonymous namespace)::NotTriviallyDestructible", ptr %25, i64 %14
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %14
   %58 = sub i64 %.sink5.i.i, %13
   %.not.i.i = icmp eq i64 %.sink5.i.i, %13
   br i1 %.not.i.i, label %_ZN4absl23inlined_vector_internal17ConstructElementsISaIN12_GLOBAL__N_124NotTriviallyDestructibleEENS0_20IteratorValueAdapterIS4_St13move_iteratorIPS3_EEEEEvRNS_8internal13type_identityIT_E4typeENSt16allocator_traitsISC_E7pointerERT0_NSH_9size_typeE.exit.i, label %.lr.ph.i.i
@@ -66438,7 +66415,7 @@ _ZN4absl23inlined_vector_internal23ConstructionTransactionISaIN12_GLOBAL__N_124N
           to label %.body.i unwind label %71
 
 66:                                               ; preds = %.lr.ph.i.i
-  %67 = getelementptr inbounds nuw %"class.(anonymous namespace)::NotTriviallyDestructible", ptr %57, i64 %.04.i.i
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %.04.i.i
   %68 = load i32, ptr %.val3.i.i.i, align 4, !tbaa !130
   store i32 %68, ptr %59, align 4, !tbaa !130
   store ptr %59, ptr %67, align 8, !tbaa !269
@@ -66464,7 +66441,7 @@ _ZN4absl23inlined_vector_internal17ConstructElementsISaIN12_GLOBAL__N_124NotTriv
 .lr.ph.i96.i:                                     ; preds = %_ZN4absl23inlined_vector_internal17ConstructElementsISaIN12_GLOBAL__N_124NotTriviallyDestructibleEENS0_20IteratorValueAdapterIS4_St13move_iteratorIPS3_EEEEEvRNS_8internal13type_identityIT_E4typeENSt16allocator_traitsISC_E7pointerERT0_NSH_9size_typeE.exit.i, %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_124NotTriviallyDestructibleEEE7destroyIS1_EEvRS2_PT_.exit.i.i
   %.02.i.i = phi i64 [ %75, %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_124NotTriviallyDestructibleEEE7destroyIS1_EEvRS2_PT_.exit.i.i ], [ %.sink5.i.i, %_ZN4absl23inlined_vector_internal17ConstructElementsISaIN12_GLOBAL__N_124NotTriviallyDestructibleEENS0_20IteratorValueAdapterIS4_St13move_iteratorIPS3_EEEEEvRNS_8internal13type_identityIT_E4typeENSt16allocator_traitsISC_E7pointerERT0_NSH_9size_typeE.exit.i ]
   %75 = add nsw i64 %.02.i.i, -1
-  %76 = getelementptr inbounds nuw %"class.(anonymous namespace)::NotTriviallyDestructible", ptr %.sink6.i.i, i64 %75
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %.sink6.i.i, i64 %75
   %77 = load ptr, ptr %76, align 8, !tbaa !269
   %.not.i.i.i.i.i.i = icmp eq ptr %77, null
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_124NotTriviallyDestructibleEEE7destroyIS1_EEvRS2_PT_.exit.i.i, label %_ZNKSt14default_deleteIiEclEPi.exit.i.i.i.i.i.i
@@ -66526,20 +66503,20 @@ _ZN4absl23inlined_vector_internal14DestroyAdapterISaIN12_GLOBAL__N_124NotTrivial
 
 88:                                               ; preds = %4
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %14, i64 %.sink5.i.i)
-  %89 = getelementptr inbounds nuw %"class.(anonymous namespace)::NotTriviallyDestructible", ptr %.sink6.i.i, i64 %.sroa.speculated.i
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %.sink6.i.i, i64 %.sroa.speculated.i
   %90 = sub i64 %15, %.sroa.speculated.i
   %91 = getelementptr inbounds nuw i8, ptr %.sink6.i.i, i64 %12
   %.idx197.i = shl nuw nsw i64 %14, 3
   %92 = getelementptr inbounds nuw i8, ptr %.sink6.i.i, i64 %.idx197.i
   %93 = sub i64 %.sroa.speculated.i, %14
-  %94 = getelementptr inbounds nuw %"class.(anonymous namespace)::NotTriviallyDestructible", ptr %91, i64 %90
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %90
   %95 = sub i64 %2, %90
   %.not.i.i115.i = icmp eq i64 %90, 0
   br i1 %.not.i.i115.i, label %_ZN4absl23inlined_vector_internal23ConstructionTransactionISaIN12_GLOBAL__N_124NotTriviallyDestructibleEEE9ConstructINS0_20IteratorValueAdapterIS4_St13move_iteratorIPS3_EEEEEvS9_RT_m.exit125.i, label %.lr.ph.i.i118.preheader.i
 
 .lr.ph.i.i118.preheader.i:                        ; preds = %88
   %96 = sub nsw i64 %.sroa.speculated.i, %2
-  %97 = getelementptr inbounds nuw %"class.(anonymous namespace)::NotTriviallyDestructible", ptr %.sink6.i.i, i64 %96
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %.sink6.i.i, i64 %96
   br label %.lr.ph.i.i118.i
 
 .lr.ph.i.i118.i:                                  ; preds = %105, %.lr.ph.i.i118.preheader.i
@@ -66565,7 +66542,7 @@ _ZN4absl23inlined_vector_internal14DestroyAdapterISaIN12_GLOBAL__N_124NotTrivial
           to label %.body123.i unwind label %110
 
 105:                                              ; preds = %.lr.ph.i.i118.i
-  %106 = getelementptr inbounds nuw %"class.(anonymous namespace)::NotTriviallyDestructible", ptr %89, i64 %.04.i.i119.i
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %89, i64 %.04.i.i119.i
   %107 = load i32, ptr %.val3.i.i.i121.i, align 4, !tbaa !130
   store i32 %107, ptr %98, align 4, !tbaa !130
   store ptr %98, ptr %106, align 8, !tbaa !269
@@ -66592,7 +66569,7 @@ _ZN4absl23inlined_vector_internal23ConstructionTransactionISaIN12_GLOBAL__N_124N
 .lr.ph.preheader.i:                               ; preds = %_ZN4absl23inlined_vector_internal23ConstructionTransactionISaIN12_GLOBAL__N_124NotTriviallyDestructibleEEE9ConstructINS0_20IteratorValueAdapterIS4_St13move_iteratorIPS3_EEEEEvS9_RT_m.exit125.i
   %114 = getelementptr i8, ptr %.sink6.i.i, i64 %.idx.i
   %115 = getelementptr i8, ptr %114, i64 -8
-  %116 = getelementptr inbounds nuw %"class.(anonymous namespace)::NotTriviallyDestructible", ptr %91, i64 %93
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %93
   br label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %_ZN12_GLOBAL__N_124NotTriviallyDestructibleaSERKS0_.exit.i, %_ZN4absl23inlined_vector_internal23ConstructionTransactionISaIN12_GLOBAL__N_124NotTriviallyDestructibleEEE9ConstructINS0_20IteratorValueAdapterIS4_St13move_iteratorIPS3_EEEEEvS9_RT_m.exit125.i
@@ -66604,7 +66581,7 @@ _ZN4absl23inlined_vector_internal23ConstructionTransactionISaIN12_GLOBAL__N_124N
           to label %.noexc129.i unwind label %122
 
 .noexc129.i:                                      ; preds = %.lr.ph.i127.i
-  %118 = getelementptr inbounds nuw %"class.(anonymous namespace)::NotTriviallyDestructible", ptr %91, i64 %.01.i.i
+  %118 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %.01.i.i
   %119 = load i32, ptr %5, align 4, !tbaa !130, !noalias !1647
   store i32 %119, ptr %117, align 4, !tbaa !130, !noalias !1647
   %120 = load ptr, ptr %118, align 8, !tbaa !269
@@ -66681,7 +66658,7 @@ _ZN4absl23inlined_vector_internal14AssignElementsISaIN12_GLOBAL__N_124NotTrivial
           to label %.body123.i unwind label %144
 
 140:                                              ; preds = %.lr.ph.i134.i
-  %141 = getelementptr inbounds nuw %"class.(anonymous namespace)::NotTriviallyDestructible", ptr %94, i64 %.02.i135.i
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %.02.i135.i
   %142 = load i32, ptr %5, align 4, !tbaa !130
   store i32 %142, ptr %133, align 4, !tbaa !130
   store ptr %133, ptr %141, align 8, !tbaa !269
@@ -67869,7 +67846,7 @@ define internal void @_ZN12_GLOBAL__N_117IntVec_Clear_Test8TestBodyEv(ptr nonnul
 25:                                               ; preds = %.lr.ph.i
   %26 = load ptr, ptr %15, align 8, !noalias !1689
   %.sink2.i.i.i.i.i = select i1 %23, ptr %26, ptr %15
-  %27 = getelementptr inbounds nuw i32, ptr %.sink2.i.i.i.i.i, i64 %.sink1.i.i.i.i.i
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %.sink2.i.i.i.i.i, i64 %.sink1.i.i.i.i.i
   store i32 %21, ptr %27, align 4, !tbaa !130
   %28 = add i64 %22, 2
   store i64 %28, ptr %5, align 8, !tbaa !43
@@ -68380,7 +68357,7 @@ define internal void @_ZN12_GLOBAL__N_119IntVec_Reserve_Test8TestBodyEv(ptr nonn
 38:                                               ; preds = %.lr.ph.i
   %39 = load ptr, ptr %24, align 8, !noalias !1693
   %.sink2.i.i.i.i.i = select i1 %36, ptr %39, ptr %24
-  %40 = getelementptr inbounds nuw i32, ptr %.sink2.i.i.i.i.i, i64 %.sink1.i.i.i.i.i
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %.sink2.i.i.i.i.i, i64 %.sink1.i.i.i.i.i
   store i32 %34, ptr %40, align 4, !tbaa !130
   %41 = add i64 %35, 2
   store i64 %41, ptr %7, align 8, !tbaa !43
@@ -68453,7 +68430,7 @@ _ZN4absl23inlined_vector_internal13MallocAdapterISaIiELb0EE8AllocateERS2_m.exit.
 .lr.ph.i.i.i:                                     ; preds = %.noexc35, %.lr.ph.i.i.i
   %.012.i.i.i = phi i64 [ %68, %.lr.ph.i.i.i ], [ 0, %.noexc35 ]
   %64 = phi ptr [ %67, %.lr.ph.i.i.i ], [ %59, %.noexc35 ]
-  %65 = getelementptr inbounds nuw i32, ptr %63, i64 %.012.i.i.i
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %.012.i.i.i
   %66 = load i32, ptr %64, align 4, !tbaa !130
   store i32 %66, ptr %65, align 4, !tbaa !130
   %67 = getelementptr inbounds nuw i8, ptr %64, i64 4
@@ -68856,7 +68833,7 @@ _ZN7testing15AssertionResultD2Ev.exit59:          ; preds = %171, %_ZNKSt14defau
 188:                                              ; preds = %.lr.ph
   %189 = load ptr, ptr %24, align 8, !noalias !1711
   %.sink2.i.i.i.i = select i1 %186, ptr %189, ptr %24
-  %190 = getelementptr inbounds nuw i32, ptr %.sink2.i.i.i.i, i64 %184
+  %190 = getelementptr inbounds nuw [4 x i8], ptr %.sink2.i.i.i.i, i64 %184
   store i32 0, ptr %190, align 4, !tbaa !130
   %191 = add i64 %185, 2
   store i64 %191, ptr %7, align 8, !tbaa !43
@@ -69288,7 +69265,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   %51 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %52 = load ptr, ptr %51, align 8, !noalias !1724
   %.sink2.i.i.i.i = select i1 %47, ptr %52, ptr %51
-  %53 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.sink2.i.i.i.i, i64 %.sink1.i.i.i.i
+  %53 = getelementptr inbounds nuw [32 x i8], ptr %.sink2.i.i.i.i, i64 %.sink1.i.i.i.i
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
   store ptr %54, ptr %53, align 8, !tbaa !42
   %55 = load ptr, ptr %8, align 8, !tbaa !39
@@ -69691,7 +69668,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %171, %_ZNKSt14defau
   %181 = load ptr, ptr %77, align 8
   %182 = select i1 %180, ptr %181, ptr %77
   %183 = lshr i64 %179, 1
-  %184 = getelementptr %"class.std::__cxx11::basic_string", ptr %182, i64 %183
+  %184 = getelementptr [32 x i8], ptr %182, i64 %183
   %185 = getelementptr i8, ptr %184, i64 -32
   %186 = load i64, ptr %48, align 8, !noalias !1741
   %.sink.i.i.i.i61 = select i1 %180, i64 %186, i64 4
@@ -71203,7 +71180,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit36, %73
   store ptr %23, ptr %0, align 8, !tbaa !64
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8, !tbaa !122
-  %77 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %77, ptr %72, align 8, !tbaa !124
   ret void
 
@@ -71268,7 +71245,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(32) ptr @_
 _ZN4absl23inlined_vector_internal13MallocAdapterISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEELb0EE8AllocateERS8_m.exit.i: ; preds = %2
   %15 = shl nuw nsw i64 %11, 5
   %16 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %15) #42
-  %17 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %16, i64 %.sink1.i
+  %17 = getelementptr inbounds nuw [32 x i8], ptr %16, i64 %.sink1.i
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store ptr %18, ptr %17, align 8, !tbaa !42
   %19 = load ptr, ptr %1, align 8, !tbaa !39
@@ -71319,7 +71296,7 @@ _ZN4absl23inlined_vector_internal13MallocAdapterISaINSt7__cxx1112basic_stringIcS
 .lr.ph.i:                                         ; preds = %29, %45
   %.sroa.022.0 = phi ptr [ %49, %45 ], [ %.sink2.i, %29 ]
   %.012.i = phi i64 [ %50, %45 ], [ 0, %29 ]
-  %34 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %16, i64 %.012.i
+  %34 = getelementptr inbounds nuw [32 x i8], ptr %16, i64 %.012.i
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   store ptr %35, ptr %34, align 8, !tbaa !42
   %36 = load ptr, ptr %.sroa.022.0, align 8, !tbaa !39
@@ -71366,7 +71343,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 .lr.ph.i16:                                       ; preds = %45, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7destroyIS5_EEvRS6_PT_.exit.i
   %.06.i = phi i64 [ %52, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7destroyIS5_EEvRS6_PT_.exit.i ], [ %.sink1.i, %45 ]
   %52 = add nsw i64 %.06.i, -1
-  %53 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.sink2.i, i64 %52
+  %53 = getelementptr inbounds nuw [32 x i8], ptr %.sink2.i, i64 %52
   %54 = load ptr, ptr %53, align 8, !tbaa !39
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %56 = icmp eq ptr %54, %55
@@ -72391,7 +72368,7 @@ _ZN7testing7MessageD2Ev.exit17:                   ; preds = %.body, %_ZNKSt14def
   %93 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %.021)
   %94 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %93, ptr noundef nonnull @.str.246, i64 noundef 1)
   %95 = load ptr, ptr %8, align 8, !tbaa !1824
-  %96 = getelementptr inbounds nuw %"class.testing::Matcher.529", ptr %95, i64 %.021
+  %96 = getelementptr inbounds nuw [24 x i8], ptr %95, i64 %.021
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
   %98 = load ptr, ptr %97, align 8, !tbaa !1818
   %99 = icmp ne ptr %98, null
@@ -72634,7 +72611,7 @@ _ZN7testing7MessageD2Ev.exit15:                   ; preds = %.body, %_ZNKSt14def
   %75 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %.017)
   %76 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %75, ptr noundef nonnull @.str.246, i64 noundef 1)
   %77 = load ptr, ptr %7, align 8, !tbaa !1824
-  %78 = getelementptr inbounds nuw %"class.testing::Matcher.529", ptr %77, i64 %.017
+  %78 = getelementptr inbounds nuw [24 x i8], ptr %77, i64 %.017
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %80 = load ptr, ptr %79, align 8, !tbaa !1818
   %81 = icmp ne ptr %80, null
@@ -72736,7 +72713,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %25 = shl nuw nsw i64 %23, 5
   %26 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %25) #42
   store ptr %26, ptr %9, align 8, !tbaa !64
-  %27 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %26, i64 %23
+  %27 = getelementptr inbounds nuw [32 x i8], ptr %26, i64 %23
   %28 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %27, ptr %28, align 8, !tbaa !124
   br label %.lr.ph.i.i.i.i.i
@@ -72812,7 +72789,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 
 _ZN7testing25StringMatchResultListenerC2Ev.exit.us: ; preds = %67
   %68 = load ptr, ptr %16, align 8, !tbaa !1824
-  %69 = getelementptr inbounds nuw %"class.testing::Matcher.529", ptr %68, i64 %storemerge156.us
+  %69 = getelementptr inbounds nuw [24 x i8], ptr %68, i64 %storemerge156.us
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %71 = load ptr, ptr %70, align 8, !tbaa !1818
   %72 = icmp ne ptr %71, null
@@ -72873,7 +72850,7 @@ _ZNK7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsI
 
 _ZNK7testing25StringMatchResultListener3strB5cxx11Ev.exit.us: ; preds = %89, %83
   %90 = load ptr, ptr %9, align 8, !tbaa !64
-  %91 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %90, i64 %storemerge156.us
+  %91 = getelementptr inbounds nuw [32 x i8], ptr %90, i64 %storemerge156.us
   %92 = load ptr, ptr %91, align 8, !tbaa !39
   %93 = getelementptr inbounds nuw i8, ptr %91, i64 16
   %94 = icmp eq ptr %92, %93
@@ -73001,7 +72978,7 @@ _ZN7testing25StringMatchResultListenerD2Ev.exit.us: ; preds = %_ZNSt7__cxx1112ba
   %135 = load ptr, ptr %36, align 8
   %136 = select i1 %134, ptr %135, ptr %36
   %137 = lshr i64 %133, 1
-  %138 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %136, i64 %137
+  %138 = getelementptr inbounds nuw [32 x i8], ptr %136, i64 %137
   %.not.us = icmp eq ptr %131, %138
   br i1 %.not.us, label %.critedge, label %.lr.ph.split.us, !llvm.loop !1846
 
@@ -73042,7 +73019,7 @@ _ZN7testing25StringMatchResultListenerD2Ev.exit.us: ; preds = %_ZNSt7__cxx1112ba
   br i1 %.not52, label %.critedge, label %151
 
 151:                                              ; preds = %.lr.ph.split
-  %152 = getelementptr inbounds nuw %"class.testing::Matcher.529", ptr %146, i64 %storemerge156
+  %152 = getelementptr inbounds nuw [24 x i8], ptr %146, i64 %storemerge156
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %39, align 8, !tbaa !448
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN7testing8internal24DummyMatchResultListenerE, i64 16), ptr %7, align 8, !tbaa !13
@@ -73120,7 +73097,7 @@ _ZNK7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsI
   %173 = load ptr, ptr %36, align 8
   %174 = select i1 %172, ptr %173, ptr %36
   %175 = lshr i64 %171, 1
-  %176 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %174, i64 %175
+  %176 = getelementptr inbounds nuw [32 x i8], ptr %174, i64 %175
   %.not = icmp eq ptr %169, %176
   br i1 %.not, label %.critedge, label %.lr.ph.split, !llvm.loop !1846
 
@@ -73133,7 +73110,7 @@ _ZNK7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsI
   %179 = load ptr, ptr %36, align 8
   %180 = select i1 %178, ptr %179, ptr %36
   %181 = lshr i64 %177, 1
-  %182 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %180, i64 %181
+  %182 = getelementptr inbounds nuw [32 x i8], ptr %180, i64 %181
   %.not56191 = icmp eq ptr %.040.lcssa, %182
   br i1 %.not56191, label %._crit_edge, label %.lr.ph194.preheader
 
@@ -73375,7 +73352,7 @@ _ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit: ; preds = %265
 _ZN7testing19MatchResultListenerlsIA15_cEERS0_RKT_.exit: ; preds = %267
   %.pre208 = load ptr, ptr %13, align 8, !tbaa !448
   %269 = load ptr, ptr %9, align 8, !tbaa !64
-  %270 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %269, i64 %storemerge.lcssa
+  %270 = getelementptr inbounds nuw [32 x i8], ptr %269, i64 %storemerge.lcssa
   %271 = getelementptr inbounds nuw i8, ptr %270, i64 8
   %272 = load i64, ptr %271, align 8, !tbaa !45
   %273 = icmp eq i64 %272, 0
@@ -73405,7 +73382,7 @@ _ZN7testing19MatchResultListenerlsIA15_cEERS0_RKT_.exit: ; preds = %267
 .lr.ph198:                                        ; preds = %.lr.ph198.preheader, %_ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit
   %.034197 = phi i1 [ %.1, %_ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit ], [ false, %.lr.ph198.preheader ]
   %storemerge58196 = phi i64 [ %301, %_ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit ], [ 0, %.lr.ph198.preheader ]
-  %281 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.pre, i64 %storemerge58196
+  %281 = getelementptr inbounds nuw [32 x i8], ptr %.pre, i64 %storemerge58196
   %282 = getelementptr inbounds nuw i8, ptr %281, i64 8
   %283 = load i64, ptr %282, align 8, !tbaa !45
   %284 = icmp eq i64 %283, 0
@@ -73673,7 +73650,7 @@ _ZSt8_DestroyIPN7testing7MatcherIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcE
 _ZNSt12_Vector_baseIN7testing7MatcherIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaISA_EE13_M_deallocateEPSA_m.exit: ; preds = %_ZSt8_DestroyIPN7testing7MatcherIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESA_EvT_SC_RSaIT0_E.exit, %61
   store ptr %20, ptr %0, align 8, !tbaa !1824
   store ptr %.0.lcssa.i.i.i.i.i36, ptr %4, align 8, !tbaa !1814
-  %65 = getelementptr inbounds nuw %"class.testing::Matcher.529", ptr %20, i64 %16
+  %65 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %65, ptr %60, align 8, !tbaa !1817
   ret void
 }
@@ -74176,7 +74153,7 @@ define linkonce_odr dso_local void @_ZN4absl23inlined_vector_internal7StorageINS
 .lr.ph.i:                                         ; preds = %1, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7destroyIS5_EEvRS6_PT_.exit.i
   %.06.i = phi i64 [ %8, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7destroyIS5_EEvRS6_PT_.exit.i ], [ %7, %1 ]
   %8 = add nsw i64 %.06.i, -1
-  %9 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !39
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %12 = icmp eq ptr %10, %11
@@ -74354,7 +74331,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   %45 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %46 = load ptr, ptr %45, align 8, !noalias !1852
   %.sink2.i.i.i.i = select i1 %41, ptr %46, ptr %45
-  %47 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.sink2.i.i.i.i, i64 %.sink1.i.i.i.i
+  %47 = getelementptr inbounds nuw [32 x i8], ptr %.sink2.i.i.i.i, i64 %.sink1.i.i.i.i
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   store ptr %48, ptr %47, align 8, !tbaa !42
   %49 = load ptr, ptr %6, align 8, !tbaa !39
@@ -74419,7 +74396,7 @@ _ZN4absl13InlinedVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm4E
   %71 = load ptr, ptr %66, align 8
   %72 = select i1 %70, ptr %71, ptr %66
   %73 = lshr i64 %69, 1
-  %74 = getelementptr %"class.std::__cxx11::basic_string", ptr %72, i64 %73
+  %74 = getelementptr [32 x i8], ptr %72, i64 %73
   %75 = getelementptr i8, ptr %74, i64 -32
   %76 = load ptr, ptr %18, align 8, !tbaa !149
   %77 = getelementptr inbounds i8, ptr %76, i64 -32
@@ -74467,7 +74444,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %95 = load ptr, ptr %66, align 8
   %96 = select i1 %94, ptr %95, ptr %66
   %97 = lshr i64 %93, 1
-  %98 = getelementptr %"class.std::__cxx11::basic_string", ptr %96, i64 %97
+  %98 = getelementptr [32 x i8], ptr %96, i64 %97
   %99 = getelementptr i8, ptr %98, i64 -32
   %100 = load ptr, ptr %18, align 8, !tbaa !149
   %101 = getelementptr inbounds i8, ptr %100, i64 -32
@@ -74613,7 +74590,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %139, %_ZNKSt14defau
   %149 = load ptr, ptr %66, align 8
   %150 = select i1 %148, ptr %149, ptr %66
   %151 = lshr i64 %147, 1
-  %152 = getelementptr %"class.std::__cxx11::basic_string", ptr %150, i64 %151
+  %152 = getelementptr [32 x i8], ptr %150, i64 %151
   %153 = getelementptr i8, ptr %152, i64 -32
   %154 = load i64, ptr %42, align 8, !noalias !1865
   %.sink.i.i.i.i42 = select i1 %148, i64 %154, i64 4
@@ -75050,7 +75027,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(32) ptr @_
 _ZN4absl23inlined_vector_internal13MallocAdapterISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEELb0EE8AllocateERS8_m.exit.i: ; preds = %2
   %14 = shl nuw nsw i64 %10, 5
   %15 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %14) #42
-  %16 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %15, i64 %.sink1.i
+  %16 = getelementptr inbounds nuw [32 x i8], ptr %15, i64 %.sink1.i
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store ptr %17, ptr %16, align 8, !tbaa !42
   %18 = load ptr, ptr %1, align 8, !tbaa !39
@@ -75089,7 +75066,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 .lr.ph.i:                                         ; preds = %27, %42
   %.sroa.021.0 = phi ptr [ %46, %42 ], [ %.sink2.i, %27 ]
   %.012.i = phi i64 [ %47, %42 ], [ 0, %27 ]
-  %31 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %15, i64 %.012.i
+  %31 = getelementptr inbounds nuw [32 x i8], ptr %15, i64 %.012.i
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   store ptr %32, ptr %31, align 8, !tbaa !42
   %33 = load ptr, ptr %.sroa.021.0, align 8, !tbaa !39
@@ -75130,7 +75107,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 .lr.ph.i15:                                       ; preds = %42, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7destroyIS5_EEvRS6_PT_.exit.i
   %.06.i = phi i64 [ %48, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7destroyIS5_EEvRS6_PT_.exit.i ], [ %.sink1.i, %42 ]
   %48 = add nsw i64 %.06.i, -1
-  %49 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.sink2.i, i64 %48
+  %49 = getelementptr inbounds nuw [32 x i8], ptr %.sink2.i, i64 %48
   %50 = load ptr, ptr %49, align 8, !tbaa !39
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %52 = icmp eq ptr %50, %51
@@ -75345,7 +75322,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %69
   store ptr %22, ptr %0, align 8, !tbaa !64
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !122
-  %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %73, ptr %68, align 8, !tbaa !124
   ret void
 }
@@ -75541,7 +75518,7 @@ _ZN7testing7MessageD2Ev.exit12.i:                 ; preds = %_ZNKSt14default_del
 58:                                               ; preds = %54
   %59 = load ptr, ptr %17, align 8, !noalias !1884
   %.sink2.i.i.i.i = select i1 %56, ptr %59, ptr %17
-  %60 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.sink2.i.i.i.i, i64 %.sink1.i.i.i.i
+  %60 = getelementptr inbounds nuw [32 x i8], ptr %.sink2.i.i.i.i, i64 %.sink1.i.i.i.i
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 16
   store ptr %61, ptr %60, align 8, !tbaa !42
   %62 = load ptr, ptr %5, align 8, !tbaa !39
@@ -75875,7 +75852,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(32) ptr @_
 _ZN4absl23inlined_vector_internal13MallocAdapterISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEELb0EE8AllocateERS8_m.exit.i: ; preds = %2
   %15 = shl nuw nsw i64 %11, 5
   %16 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %15) #42
-  %17 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %16, i64 %.sink1.i
+  %17 = getelementptr inbounds nuw [32 x i8], ptr %16, i64 %.sink1.i
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store ptr %18, ptr %17, align 8, !tbaa !42
   %19 = load ptr, ptr %1, align 8, !tbaa !39
@@ -75926,7 +75903,7 @@ _ZN4absl23inlined_vector_internal13MallocAdapterISaINSt7__cxx1112basic_stringIcS
 .lr.ph.i:                                         ; preds = %29, %45
   %.sroa.022.0 = phi ptr [ %49, %45 ], [ %.sink2.i, %29 ]
   %.012.i = phi i64 [ %50, %45 ], [ 0, %29 ]
-  %34 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %16, i64 %.012.i
+  %34 = getelementptr inbounds nuw [32 x i8], ptr %16, i64 %.012.i
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   store ptr %35, ptr %34, align 8, !tbaa !42
   %36 = load ptr, ptr %.sroa.022.0, align 8, !tbaa !39
@@ -75973,7 +75950,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 .lr.ph.i16:                                       ; preds = %45, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7destroyIS5_EEvRS6_PT_.exit.i
   %.06.i = phi i64 [ %52, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7destroyIS5_EEvRS6_PT_.exit.i ], [ %.sink1.i, %45 ]
   %52 = add nsw i64 %.06.i, -1
-  %53 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.sink2.i, i64 %52
+  %53 = getelementptr inbounds nuw [32 x i8], ptr %.sink2.i, i64 %52
   %54 = load ptr, ptr %53, align 8, !tbaa !39
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %56 = icmp eq ptr %54, %55
@@ -76120,7 +76097,7 @@ define linkonce_odr dso_local void @_ZN4absl23inlined_vector_internal7StorageINS
 .lr.ph.i:                                         ; preds = %1, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7destroyIS5_EEvRS6_PT_.exit.i
   %.06.i = phi i64 [ %8, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7destroyIS5_EEvRS6_PT_.exit.i ], [ %7, %1 ]
   %8 = add nsw i64 %.06.i, -1
-  %9 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !39
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %12 = icmp eq ptr %10, %11
@@ -76381,7 +76358,7 @@ _ZN7testing7MessageD2Ev.exit12.i:                 ; preds = %_ZNKSt14default_del
 98:                                               ; preds = %.lr.ph.i.i
   %99 = load ptr, ptr %.029.i.i.i.sroa.gep, align 8, !alias.scope !1894, !noalias !1897
   %.sink2.i.i.i.i.i.i = select i1 %96, ptr %99, ptr %.029.i.i.i.sroa.gep
-  %100 = getelementptr inbounds nuw i32, ptr %.sink2.i.i.i.i.i.i, i64 %.sink1.i.i.i.i.i.i
+  %100 = getelementptr inbounds nuw [4 x i8], ptr %.sink2.i.i.i.i.i.i, i64 %.sink1.i.i.i.i.i.i
   store i32 %94, ptr %100, align 4, !tbaa !130
   %101 = add i64 %95, 2
   store i64 %101, ptr %24, align 8, !tbaa !43, !alias.scope !1894
@@ -76429,7 +76406,7 @@ _ZN12_GLOBAL__N_14FillEmi.exit:                   ; preds = %_ZN4absl13InlinedVe
 115:                                              ; preds = %.lr.ph.i.i52
   %116 = load ptr, ptr %.029.i.i.i.sroa.gep228, align 8, !alias.scope !1900, !noalias !1903
   %.sink2.i.i.i.i.i.i57 = select i1 %113, ptr %116, ptr %.029.i.i.i.sroa.gep228
-  %117 = getelementptr inbounds nuw i32, ptr %.sink2.i.i.i.i.i.i57, i64 %.sink1.i.i.i.i.i.i55
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %.sink2.i.i.i.i.i.i57, i64 %.sink1.i.i.i.i.i.i55
   store i32 %111, ptr %117, align 4, !tbaa !130
   %118 = add i64 %112, 2
   store i64 %118, ptr %25, align 8, !tbaa !43, !alias.scope !1900
@@ -76500,7 +76477,7 @@ _ZN12_GLOBAL__N_14FillEmi.exit63:                 ; preds = %_ZN12_GLOBAL__N_14F
 .lr.ph.i.i.i.i:                                   ; preds = %.thread30.i.i.i, %.lr.ph.i.i.i.i
   %.012.i.i.i.i = phi i64 [ %142, %.lr.ph.i.i.i.i ], [ 0, %.thread30.i.i.i ]
   %138 = phi ptr [ %141, %.lr.ph.i.i.i.i ], [ %.029.i.i.i.sroa.phi, %.thread30.i.i.i ]
-  %139 = getelementptr inbounds nuw i32, ptr %.0.i.i.i.sroa.phi, i64 %.012.i.i.i.i
+  %139 = getelementptr inbounds nuw [4 x i8], ptr %.0.i.i.i.sroa.phi, i64 %.012.i.i.i.i
   %140 = load i32, ptr %138, align 4, !tbaa !130
   store i32 %140, ptr %139, align 4, !tbaa !130
   %141 = getelementptr inbounds nuw i8, ptr %138, i64 4
@@ -77042,7 +77019,7 @@ _ZN7testing7MessageD2Ev.exit12.i93:               ; preds = %_ZNKSt14default_del
   %301 = trunc i64 %300 to i1
   %302 = load ptr, ptr %.029.i.i.i.sroa.gep228, align 8
   %303 = select i1 %301, ptr %302, ptr %.029.i.i.i.sroa.gep228
-  %304 = getelementptr inbounds nuw i32, ptr %303, i64 %storemerge33236
+  %304 = getelementptr inbounds nuw [4 x i8], ptr %303, i64 %storemerge33236
   %305 = load i32, ptr %304, align 4, !tbaa !130, !noalias !1923
   %306 = icmp eq i32 %305, %299
   br i1 %306, label %307, label %308
@@ -77411,7 +77388,7 @@ _ZN7testing7MessageD2Ev.exit12.i131:              ; preds = %_ZNKSt14default_del
   %421 = trunc i64 %420 to i1
   %422 = load ptr, ptr %.029.i.i.i.sroa.gep, align 8
   %423 = select i1 %421, ptr %422, ptr %.029.i.i.i.sroa.gep
-  %424 = getelementptr inbounds nuw i32, ptr %423, i64 %storemerge34237
+  %424 = getelementptr inbounds nuw [4 x i8], ptr %423, i64 %storemerge34237
   %425 = load i32, ptr %424, align 4, !tbaa !130, !noalias !1933
   %426 = icmp eq i32 %419, %425
   br i1 %426, label %427, label %428
@@ -78336,7 +78313,7 @@ _ZN7testing15AssertionResultD2Ev.exit287:         ; preds = %_ZN4absleqIiLm8ESaI
 100:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit287
   %101 = load ptr, ptr %52, align 8, !noalias !1950
   %.sink2.i.i.i.i291 = select i1 %98, ptr %101, ptr %52
-  %102 = getelementptr inbounds nuw i32, ptr %.sink2.i.i.i.i291, i64 %.sink1.i.i.i.i289
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %.sink2.i.i.i.i291, i64 %.sink1.i.i.i.i289
   store i32 7, ptr %102, align 4, !tbaa !130
   %103 = add i64 %97, 2
   store i64 %103, ptr %2, align 8, !tbaa !43
@@ -78709,7 +78686,7 @@ _ZN7testing15AssertionResultD2Ev.exit343:         ; preds = %_ZN4abslneIiLm8ESaI
 225:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit343
   %226 = load ptr, ptr %51, align 8, !noalias !1953
   %.sink2.i.i.i.i347 = select i1 %223, ptr %226, ptr %51
-  %227 = getelementptr inbounds nuw i32, ptr %.sink2.i.i.i.i347, i64 %.sink1.i.i.i.i345
+  %227 = getelementptr inbounds nuw [4 x i8], ptr %.sink2.i.i.i.i347, i64 %.sink1.i.i.i.i345
   store i32 6, ptr %227, align 4, !tbaa !130
   %228 = add i64 %222, 2
   store i64 %228, ptr %1, align 8, !tbaa !43
@@ -79154,7 +79131,7 @@ _ZN4absl13InlinedVectorIiLm8ESaIiEED2Ev.exit401:  ; preds = %_ZN4absl13InlinedVe
 389:                                              ; preds = %384
   %390 = load ptr, ptr %51, align 8, !noalias !1956
   %.sink2.i.i.i.i405 = select i1 %387, ptr %390, ptr %51
-  %391 = getelementptr inbounds nuw i32, ptr %.sink2.i.i.i.i405, i64 %.sink1.i.i.i.i403
+  %391 = getelementptr inbounds nuw [4 x i8], ptr %.sink2.i.i.i.i405, i64 %.sink1.i.i.i.i403
   store i32 %385, ptr %391, align 4, !tbaa !130
   %392 = add i64 %386, 2
   store i64 %392, ptr %1, align 8, !tbaa !43
@@ -79179,7 +79156,7 @@ _ZN4absl13InlinedVectorIiLm8ESaIiEE9push_backEOi.exit407: ; preds = %389, %393
 398:                                              ; preds = %_ZN4absl13InlinedVectorIiLm8ESaIiEE9push_backEOi.exit407
   %399 = load ptr, ptr %52, align 8, !noalias !1959
   %.sink2.i.i.i.i411 = select i1 %396, ptr %399, ptr %52
-  %400 = getelementptr inbounds nuw i32, ptr %.sink2.i.i.i.i411, i64 %.sink1.i.i.i.i409
+  %400 = getelementptr inbounds nuw [4 x i8], ptr %.sink2.i.i.i.i411, i64 %.sink1.i.i.i.i409
   store i32 %385, ptr %400, align 4, !tbaa !130
   %401 = add i64 %395, 2
   store i64 %401, ptr %2, align 8, !tbaa !43
@@ -79527,7 +79504,7 @@ _ZN7testing15AssertionResultD2Ev.exit463:         ; preds = %468, %_ZN4abslneIiL
   %509 = trunc i64 %508 to i1
   %510 = load ptr, ptr %52, align 8
   %511 = select i1 %509, ptr %510, ptr %52
-  %512 = getelementptr inbounds nuw i32, ptr %511, i64 %.0697
+  %512 = getelementptr inbounds nuw [4 x i8], ptr %511, i64 %.0697
   %513 = load i32, ptr %512, align 4, !tbaa !130
   %514 = add nsw i32 %513, 1
   store i32 %514, ptr %512, align 4, !tbaa !130
@@ -79849,7 +79826,7 @@ _ZN7testing15AssertionResultD2Ev.exit513:         ; preds = %_ZN7testing15Assert
   %614 = trunc i64 %613 to i1
   %615 = load ptr, ptr %52, align 8
   %616 = select i1 %614, ptr %615, ptr %52
-  %617 = getelementptr inbounds nuw i32, ptr %616, i64 %.0697
+  %617 = getelementptr inbounds nuw [4 x i8], ptr %616, i64 %.0697
   %618 = load i32, ptr %617, align 4, !tbaa !130
   %619 = add nsw i32 %618, -1
   store i32 %619, ptr %617, align 4, !tbaa !130
@@ -80261,7 +80238,7 @@ _ZN7testing15AssertionResultD2Ev.exit504:
   %15 = load ptr, ptr %11, align 8
   %16 = select i1 %14, ptr %15, ptr %11
   %17 = lshr i64 %13, 1
-  %18 = getelementptr inbounds nuw i32, ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %17
   %19 = icmp ugt i64 %13, 3
   %.sroa.gep = getelementptr inbounds nuw i8, ptr %15, i64 4
   %.sroa.gep890 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -80451,9 +80428,9 @@ _ZN7testing15AssertionResultD2Ev.exit532:         ; preds = %_ZN4abslgeIiLm8ESaI
   %81 = load ptr, ptr %11, align 8
   %82 = select i1 %80, ptr %81, ptr %11
   %83 = lshr i64 %75, 1
-  %84 = getelementptr inbounds nuw i32, ptr %78, i64 %83
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %78, i64 %83
   %85 = lshr i64 %79, 1
-  %86 = getelementptr inbounds nuw i32, ptr %82, i64 %85
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %82, i64 %85
   %.idx8.i.i533 = shl nuw nsw i64 %85, 2
   %87 = icmp samesign ult i64 %85, %83
   %88 = getelementptr inbounds nuw i8, ptr %78, i64 %.idx8.i.i533
@@ -80787,7 +80764,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %19
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !951
 
 _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i
-  %28 = getelementptr inbounds nuw i32, ptr %25, i64 %20
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %20
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %29 = ptrtoint ptr %25 to i64
   %30 = icmp samesign ugt i64 %20, 4
@@ -81862,7 +81839,7 @@ _ZN4absl23inlined_vector_internal13MallocAdapterISaIiELb0EE8AllocateERS2_m.exit.
 
 _ZN4absl23inlined_vector_internal21AllocationTransactionISaIiEE8AllocateEm.exit: ; preds = %3
   %.sink1.i = lshr i64 %4, 1
-  %18 = getelementptr inbounds nuw i32, ptr %.sink2.i, i64 %.sink1.i
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %.sink2.i, i64 %.sink1.i
   %.sroa.740.0 = tail call i64 @llvm.usub.sat.i64(i64 %2, i64 %.sink1.i)
   %.sroa.742.0 = tail call i64 @llvm.umin.i64(i64 %2, i64 %.sink1.i)
   %.not.i = icmp eq i64 %.sroa.742.0, 0
@@ -81874,7 +81851,7 @@ _ZN4absl23inlined_vector_internal21AllocationTransactionISaIiEE8AllocateEm.exit:
 
 19:                                               ; preds = %19, %.lr.ph.i
   %.05.i = phi i64 [ 0, %.lr.ph.i ], [ %21, %19 ]
-  %20 = getelementptr inbounds nuw i32, ptr %.sink2.i, i64 %.05.i
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %.sink2.i, i64 %.05.i
   store i32 %.pre.i, ptr %20, align 4, !tbaa !130
   %21 = add nuw nsw i64 %.05.i, 1
   %exitcond.not.i = icmp eq i64 %21, %.sroa.742.0
@@ -81894,7 +81871,7 @@ _ZN4absl23inlined_vector_internal14AssignElementsISaIiENS0_16CopyValueAdapterIS2
 
 22:                                               ; preds = %22, %.lr.ph.i23
   %.06.i = phi i64 [ 0, %.lr.ph.i23 ], [ %24, %22 ]
-  %23 = getelementptr inbounds nuw i32, ptr %.sroa.039.06880, i64 %.06.i
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.039.06880, i64 %.06.i
   store i32 %.pre.i24, ptr %23, align 4, !tbaa !130
   %24 = add nuw i64 %.06.i, 1
   %exitcond.not.i25 = icmp eq i64 %24, %.sroa.740.06781
@@ -82693,7 +82670,7 @@ _ZSt8_DestroyIPN7testing7MatcherIRKN4absl13InlinedVectorIiLm2ESaIiEEEEES8_EvT_SA
 _ZNSt12_Vector_baseIN7testing7MatcherIRKN4absl13InlinedVectorIiLm2ESaIiEEEEESaIS8_EE13_M_deallocateEPS8_m.exit: ; preds = %_ZSt8_DestroyIPN7testing7MatcherIRKN4absl13InlinedVectorIiLm2ESaIiEEEEES8_EvT_SA_RSaIT0_E.exit, %61
   store ptr %20, ptr %0, align 8, !tbaa !1968
   store ptr %.0.lcssa.i.i.i.i.i36, ptr %4, align 8, !tbaa !1971
-  %65 = getelementptr inbounds nuw %"class.testing::Matcher.575", ptr %20, i64 %16
+  %65 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %65, ptr %60, align 8, !tbaa !1972
   ret void
 }
@@ -83900,7 +83877,7 @@ _ZN7testing7MessageD2Ev.exit17:                   ; preds = %.body, %_ZNKSt14def
   %93 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %.021)
   %94 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %93, ptr noundef nonnull @.str.246, i64 noundef 1)
   %95 = load ptr, ptr %8, align 8, !tbaa !1169
-  %96 = getelementptr inbounds nuw %"class.testing::Matcher.350", ptr %95, i64 %.021
+  %96 = getelementptr inbounds nuw [24 x i8], ptr %95, i64 %.021
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
   %98 = load ptr, ptr %97, align 8, !tbaa !1159
   %99 = icmp ne ptr %98, null
@@ -84143,7 +84120,7 @@ _ZN7testing7MessageD2Ev.exit15:                   ; preds = %.body, %_ZNKSt14def
   %75 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %.017)
   %76 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %75, ptr noundef nonnull @.str.246, i64 noundef 1)
   %77 = load ptr, ptr %7, align 8, !tbaa !1169
-  %78 = getelementptr inbounds nuw %"class.testing::Matcher.350", ptr %77, i64 %.017
+  %78 = getelementptr inbounds nuw [24 x i8], ptr %77, i64 %.017
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %80 = load ptr, ptr %79, align 8, !tbaa !1159
   %81 = icmp ne ptr %80, null
@@ -84245,7 +84222,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %25 = shl nuw nsw i64 %23, 5
   %26 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %25) #42
   store ptr %26, ptr %9, align 8, !tbaa !64
-  %27 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %26, i64 %23
+  %27 = getelementptr inbounds nuw [32 x i8], ptr %26, i64 %23
   %28 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %27, ptr %28, align 8, !tbaa !124
   br label %.lr.ph.i.i.i.i.i
@@ -84321,7 +84298,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 
 _ZN7testing25StringMatchResultListenerC2Ev.exit.us: ; preds = %67
   %68 = load ptr, ptr %16, align 8, !tbaa !1169
-  %69 = getelementptr inbounds nuw %"class.testing::Matcher.350", ptr %68, i64 %storemerge156.us
+  %69 = getelementptr inbounds nuw [24 x i8], ptr %68, i64 %storemerge156.us
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %71 = load ptr, ptr %70, align 8, !tbaa !1159
   %72 = icmp ne ptr %71, null
@@ -84382,7 +84359,7 @@ _ZNK7testing8internal11MatcherBaseIRKiE15MatchAndExplainES3_PNS_19MatchResultLis
 
 _ZNK7testing25StringMatchResultListener3strB5cxx11Ev.exit.us: ; preds = %89, %83
   %90 = load ptr, ptr %9, align 8, !tbaa !64
-  %91 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %90, i64 %storemerge156.us
+  %91 = getelementptr inbounds nuw [32 x i8], ptr %90, i64 %storemerge156.us
   %92 = load ptr, ptr %91, align 8, !tbaa !39
   %93 = getelementptr inbounds nuw i8, ptr %91, i64 16
   %94 = icmp eq ptr %92, %93
@@ -84510,7 +84487,7 @@ _ZN7testing25StringMatchResultListenerD2Ev.exit.us: ; preds = %_ZNSt7__cxx1112ba
   %135 = load ptr, ptr %36, align 8
   %136 = select i1 %134, ptr %135, ptr %36
   %137 = lshr i64 %133, 1
-  %138 = getelementptr inbounds nuw i32, ptr %136, i64 %137
+  %138 = getelementptr inbounds nuw [4 x i8], ptr %136, i64 %137
   %.not.us = icmp eq ptr %131, %138
   br i1 %.not.us, label %.critedge, label %.lr.ph.split.us, !llvm.loop !2104
 
@@ -84551,7 +84528,7 @@ _ZN7testing25StringMatchResultListenerD2Ev.exit.us: ; preds = %_ZNSt7__cxx1112ba
   br i1 %.not52, label %.critedge, label %151
 
 151:                                              ; preds = %.lr.ph.split
-  %152 = getelementptr inbounds nuw %"class.testing::Matcher.350", ptr %146, i64 %storemerge156
+  %152 = getelementptr inbounds nuw [24 x i8], ptr %146, i64 %storemerge156
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %39, align 8, !tbaa !448
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN7testing8internal24DummyMatchResultListenerE, i64 16), ptr %7, align 8, !tbaa !13
@@ -84629,7 +84606,7 @@ _ZNK7testing8internal11MatcherBaseIRKiE15MatchAndExplainES3_PNS_19MatchResultLis
   %173 = load ptr, ptr %36, align 8
   %174 = select i1 %172, ptr %173, ptr %36
   %175 = lshr i64 %171, 1
-  %176 = getelementptr inbounds nuw i32, ptr %174, i64 %175
+  %176 = getelementptr inbounds nuw [4 x i8], ptr %174, i64 %175
   %.not = icmp eq ptr %169, %176
   br i1 %.not, label %.critedge, label %.lr.ph.split, !llvm.loop !2104
 
@@ -84642,7 +84619,7 @@ _ZNK7testing8internal11MatcherBaseIRKiE15MatchAndExplainES3_PNS_19MatchResultLis
   %179 = load ptr, ptr %36, align 8
   %180 = select i1 %178, ptr %179, ptr %36
   %181 = lshr i64 %177, 1
-  %182 = getelementptr inbounds nuw i32, ptr %180, i64 %181
+  %182 = getelementptr inbounds nuw [4 x i8], ptr %180, i64 %181
   %.not56191 = icmp eq ptr %.040.lcssa, %182
   br i1 %.not56191, label %._crit_edge, label %.lr.ph194.preheader
 
@@ -84884,7 +84861,7 @@ _ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit: ; preds = %265
 _ZN7testing19MatchResultListenerlsIA15_cEERS0_RKT_.exit: ; preds = %267
   %.pre208 = load ptr, ptr %13, align 8, !tbaa !448
   %269 = load ptr, ptr %9, align 8, !tbaa !64
-  %270 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %269, i64 %storemerge.lcssa
+  %270 = getelementptr inbounds nuw [32 x i8], ptr %269, i64 %storemerge.lcssa
   %271 = getelementptr inbounds nuw i8, ptr %270, i64 8
   %272 = load i64, ptr %271, align 8, !tbaa !45
   %273 = icmp eq i64 %272, 0
@@ -84914,7 +84891,7 @@ _ZN7testing19MatchResultListenerlsIA15_cEERS0_RKT_.exit: ; preds = %267
 .lr.ph198:                                        ; preds = %.lr.ph198.preheader, %_ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit
   %.034197 = phi i1 [ %.1, %_ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit ], [ false, %.lr.ph198.preheader ]
   %storemerge58196 = phi i64 [ %301, %_ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit ], [ 0, %.lr.ph198.preheader ]
-  %281 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.pre, i64 %storemerge58196
+  %281 = getelementptr inbounds nuw [32 x i8], ptr %.pre, i64 %storemerge58196
   %282 = getelementptr inbounds nuw i8, ptr %281, i64 8
   %283 = load i64, ptr %282, align 8, !tbaa !45
   %284 = icmp eq i64 %283, 0
@@ -85147,7 +85124,7 @@ define linkonce_odr dso_local void @_ZNK7testing8internal16AllOfMatcherImplIRKN4
 .split9:                                          ; preds = %.lr.ph
   %11 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.387, i64 noundef 7)
   %12 = load ptr, ptr %5, align 8, !tbaa !1968
-  %13 = getelementptr inbounds nuw %"class.testing::Matcher.575", ptr %12, i64 %.010
+  %13 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %.010
   br label %.split
 
 .split:                                           ; preds = %.lr.ph, %.split9
@@ -85216,7 +85193,7 @@ define linkonce_odr dso_local void @_ZNK7testing8internal16AllOfMatcherImplIRKN4
 .split9:                                          ; preds = %.lr.ph
   %11 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.388, i64 noundef 6)
   %12 = load ptr, ptr %5, align 8, !tbaa !1968
-  %13 = getelementptr inbounds nuw %"class.testing::Matcher.575", ptr %12, i64 %.010
+  %13 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %.010
   br label %.split
 
 .split:                                           ; preds = %.lr.ph, %.split9
@@ -86310,7 +86287,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %20
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !951
 
 _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i
-  %29 = getelementptr inbounds nuw i32, ptr %26, i64 %21
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %21
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %30 = ptrtoint ptr %26 to i64
   %31 = icmp samesign ugt i64 %21, 4
@@ -87971,7 +87948,7 @@ _ZNSt12_Vector_baseIN4absl13test_internal20CopyableOnlyInstanceESaIS2_EEC2EmRKS3
 
 .lr.ph.i.split.us.i.i.i.i.preheader.i.i:          ; preds = %.lr.ph.i.i.i.i.i.i.i
   store ptr %32, ptr %4, align 8, !tbaa !2229
-  %33 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %32, i64 %24
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %24
   store ptr %33, ptr %16, align 8, !tbaa !2232
   %.pre14.i.i = load i32, ptr @_ZN4absl13test_internal19BaseCountedInstance11num_copies_E, align 4, !tbaa !130
   br label %.lr.ph.i.split.us.i.i.i.i.i.i
@@ -88054,7 +88031,7 @@ _ZN4absl13test_internal19BaseCountedInstanceD2Ev.exit.i: ; preds = %_ZN4absl13te
   %61 = phi i32 [ %72, %71 ], [ %46, %.lr.ph.preheader.i.i.i.i ]
   %.012.i.i.i.i = phi i64 [ %74, %71 ], [ 0, %.lr.ph.preheader.i.i.i.i ]
   %62 = phi ptr [ %73, %71 ], [ %45, %.lr.ph.preheader.i.i.i.i ]
-  %63 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %.010.i.i.i, i64 %.012.i.i.i.i
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %.010.i.i.i, i64 %.012.i.i.i.i
   %64 = load i32, ptr %62, align 4, !tbaa !2233
   store i32 %64, ptr %63, align 4, !tbaa !2233
   %65 = getelementptr inbounds nuw i8, ptr %63, i64 4
@@ -89567,7 +89544,7 @@ define linkonce_odr dso_local void @_ZN4absl23inlined_vector_internal7StorageINS
   %.06.i = phi i64 [ %11, %_ZNSt16allocator_traitsISaIN4absl13test_internal20CopyableOnlyInstanceEEE7destroyIS2_EEvRS3_PT_.exit.i ], [ %7, %.lr.ph.preheader.i ]
   %10 = phi i32 [ %18, %_ZNSt16allocator_traitsISaIN4absl13test_internal20CopyableOnlyInstanceEEE7destroyIS2_EEvRS3_PT_.exit.i ], [ %_ZN4absl13test_internal19BaseCountedInstance19num_live_instances_E.promoted.i, %.lr.ph.preheader.i ]
   %11 = add nsw i64 %.06.i, -1
-  %12 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %6, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %14 = load i8, ptr %13, align 4, !tbaa !2235, !range !35, !noundef !36
   %15 = trunc nuw i8 %14 to i1
@@ -89639,12 +89616,12 @@ _ZN4absl23inlined_vector_internal13MallocAdapterISaINS_13test_internal20Copyable
   br i1 %19, label %20, label %23
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %.sink2.i, i64 %.sink1.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i, i64 %.sink1.i
   %22 = sub nuw i64 %2, %.sink1.i
   br label %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal20CopyableOnlyInstanceEEE8AllocateEm.exit
 
 23:                                               ; preds = %18
-  %24 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %.sink2.i, i64 %2
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i, i64 %2
   %25 = sub nuw nsw i64 %.sink1.i, %2
   br label %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal20CopyableOnlyInstanceEEE8AllocateEm.exit
 
@@ -89663,7 +89640,7 @@ _ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal20
 
 27:                                               ; preds = %_ZN4absl23inlined_vector_internal16CopyValueAdapterISaINS_13test_internal20CopyableOnlyInstanceEEE10AssignNextEPS3_.exit.i, %.lr.ph.i
   %.05.i = phi i64 [ 0, %.lr.ph.i ], [ %44, %_ZN4absl23inlined_vector_internal16CopyValueAdapterISaINS_13test_internal20CopyableOnlyInstanceEEE10AssignNextEPS3_.exit.i ]
-  %28 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %.sink2.i, i64 %.05.i
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i, i64 %.05.i
   %29 = load i32, ptr %1, align 4, !tbaa !2233
   store i32 %29, ptr %28, align 4, !tbaa !2233
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 4
@@ -89719,7 +89696,7 @@ _ZN4absl23inlined_vector_internal14AssignElementsISaINS_13test_internal20Copyabl
 
 .lr.ph.i23.split.us:                              ; preds = %.lr.ph.i23, %.lr.ph.i23.split.us
   %.012.i.us = phi i64 [ %56, %.lr.ph.i23.split.us ], [ 0, %.lr.ph.i23 ]
-  %47 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %.sroa.040.07387, i64 %.012.i.us
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.040.07387, i64 %.012.i.us
   %48 = load i32, ptr %1, align 4, !tbaa !2233
   store i32 %48, ptr %47, align 4, !tbaa !2233
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 4
@@ -89739,7 +89716,7 @@ _ZN4absl23inlined_vector_internal14AssignElementsISaINS_13test_internal20Copyabl
 
 .lr.ph.i23.split:                                 ; preds = %.lr.ph.i23, %.lr.ph.i23.split
   %.012.i = phi i64 [ %64, %.lr.ph.i23.split ], [ 0, %.lr.ph.i23 ]
-  %57 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %.sroa.040.07387, i64 %.012.i
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.040.07387, i64 %.012.i
   %58 = load i32, ptr %1, align 4, !tbaa !2233
   store i32 %58, ptr %57, align 4, !tbaa !2233
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 4
@@ -89777,7 +89754,7 @@ _ZN4absl23inlined_vector_internal17ConstructElementsISaINS_13test_internal20Copy
   %.06.i = phi i64 [ %68, %_ZNSt16allocator_traitsISaIN4absl13test_internal20CopyableOnlyInstanceEEE7destroyIS2_EEvRS3_PT_.exit.i ], [ %.sroa.7.07092, %.lr.ph.preheader.i ]
   %67 = phi i32 [ %75, %_ZNSt16allocator_traitsISaIN4absl13test_internal20CopyableOnlyInstanceEEE7destroyIS2_EEvRS3_PT_.exit.i ], [ %_ZN4absl13test_internal19BaseCountedInstance19num_live_instances_E.promoted.i, %.lr.ph.preheader.i ]
   %68 = add nsw i64 %.06.i, -1
-  %69 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %.sroa.039.07190, i64 %68
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.039.07190, i64 %68
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 4
   %71 = load i8, ptr %70, align 4, !tbaa !2235, !range !35, !noundef !36
   %72 = trunc nuw i8 %71 to i1
@@ -90405,7 +90382,7 @@ _ZSt8_DestroyIPN7testing7MatcherIRKN4absl13InlinedVectorINS2_13test_internal20Co
 _ZNSt12_Vector_baseIN7testing7MatcherIRKN4absl13InlinedVectorINS2_13test_internal20CopyableOnlyInstanceELm2ESaIS5_EEEEESaISA_EE13_M_deallocateEPSA_m.exit: ; preds = %_ZSt8_DestroyIPN7testing7MatcherIRKN4absl13InlinedVectorINS2_13test_internal20CopyableOnlyInstanceELm2ESaIS5_EEEEESA_EvT_SC_RSaIT0_E.exit, %61
   store ptr %20, ptr %0, align 8, !tbaa !2367
   store ptr %.0.lcssa.i.i.i.i.i36, ptr %4, align 8, !tbaa !2363
-  %65 = getelementptr inbounds nuw %"class.testing::Matcher.671", ptr %20, i64 %16
+  %65 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %65, ptr %60, align 8, !tbaa !2366
   ret void
 }
@@ -92082,7 +92059,7 @@ _ZSt8_DestroyIPN7testing7MatcherIRKN4absl13test_internal20CopyableOnlyInstanceEE
 _ZNSt12_Vector_baseIN7testing7MatcherIRKN4absl13test_internal20CopyableOnlyInstanceEEESaIS7_EE13_M_deallocateEPS7_m.exit: ; preds = %_ZSt8_DestroyIPN7testing7MatcherIRKN4absl13test_internal20CopyableOnlyInstanceEEES7_EvT_S9_RSaIT0_E.exit, %61
   store ptr %20, ptr %0, align 8, !tbaa !2309
   store ptr %.0.lcssa.i.i.i.i.i36, ptr %4, align 8, !tbaa !2312
-  %65 = getelementptr inbounds nuw %"class.testing::Matcher.697", ptr %20, i64 %16
+  %65 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %65, ptr %60, align 8, !tbaa !2313
   ret void
 }
@@ -92395,7 +92372,7 @@ _ZN7testing7MessageD2Ev.exit17:                   ; preds = %.body, %_ZNKSt14def
   %93 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %.021)
   %94 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %93, ptr noundef nonnull @.str.246, i64 noundef 1)
   %95 = load ptr, ptr %8, align 8, !tbaa !2309
-  %96 = getelementptr inbounds nuw %"class.testing::Matcher.697", ptr %95, i64 %.021
+  %96 = getelementptr inbounds nuw [24 x i8], ptr %95, i64 %.021
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
   %98 = load ptr, ptr %97, align 8, !tbaa !2332
   %99 = icmp ne ptr %98, null
@@ -92638,7 +92615,7 @@ _ZN7testing7MessageD2Ev.exit15:                   ; preds = %.body, %_ZNKSt14def
   %75 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %.017)
   %76 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %75, ptr noundef nonnull @.str.246, i64 noundef 1)
   %77 = load ptr, ptr %7, align 8, !tbaa !2309
-  %78 = getelementptr inbounds nuw %"class.testing::Matcher.697", ptr %77, i64 %.017
+  %78 = getelementptr inbounds nuw [24 x i8], ptr %77, i64 %.017
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %80 = load ptr, ptr %79, align 8, !tbaa !2332
   %81 = icmp ne ptr %80, null
@@ -92740,7 +92717,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %25 = shl nuw nsw i64 %23, 5
   %26 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %25) #42
   store ptr %26, ptr %9, align 8, !tbaa !64
-  %27 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %26, i64 %23
+  %27 = getelementptr inbounds nuw [32 x i8], ptr %26, i64 %23
   %28 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %27, ptr %28, align 8, !tbaa !124
   br label %.lr.ph.i.i.i.i.i
@@ -92816,7 +92793,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 
 _ZN7testing25StringMatchResultListenerC2Ev.exit.us: ; preds = %67
   %68 = load ptr, ptr %16, align 8, !tbaa !2309
-  %69 = getelementptr inbounds nuw %"class.testing::Matcher.697", ptr %68, i64 %storemerge156.us
+  %69 = getelementptr inbounds nuw [24 x i8], ptr %68, i64 %storemerge156.us
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %71 = load ptr, ptr %70, align 8, !tbaa !2332
   %72 = icmp ne ptr %71, null
@@ -92877,7 +92854,7 @@ _ZNK7testing8internal11MatcherBaseIRKN4absl13test_internal20CopyableOnlyInstance
 
 _ZNK7testing25StringMatchResultListener3strB5cxx11Ev.exit.us: ; preds = %89, %83
   %90 = load ptr, ptr %9, align 8, !tbaa !64
-  %91 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %90, i64 %storemerge156.us
+  %91 = getelementptr inbounds nuw [32 x i8], ptr %90, i64 %storemerge156.us
   %92 = load ptr, ptr %91, align 8, !tbaa !39
   %93 = getelementptr inbounds nuw i8, ptr %91, i64 16
   %94 = icmp eq ptr %92, %93
@@ -93005,7 +92982,7 @@ _ZN7testing25StringMatchResultListenerD2Ev.exit.us: ; preds = %_ZNSt7__cxx1112ba
   %135 = load ptr, ptr %36, align 8
   %136 = select i1 %134, ptr %135, ptr %36
   %137 = lshr i64 %133, 1
-  %138 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %136, i64 %137
+  %138 = getelementptr inbounds nuw [8 x i8], ptr %136, i64 %137
   %.not.us = icmp eq ptr %131, %138
   br i1 %.not.us, label %.critedge, label %.lr.ph.split.us, !llvm.loop !2472
 
@@ -93046,7 +93023,7 @@ _ZN7testing25StringMatchResultListenerD2Ev.exit.us: ; preds = %_ZNSt7__cxx1112ba
   br i1 %.not52, label %.critedge, label %151
 
 151:                                              ; preds = %.lr.ph.split
-  %152 = getelementptr inbounds nuw %"class.testing::Matcher.697", ptr %146, i64 %storemerge156
+  %152 = getelementptr inbounds nuw [24 x i8], ptr %146, i64 %storemerge156
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %39, align 8, !tbaa !448
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN7testing8internal24DummyMatchResultListenerE, i64 16), ptr %7, align 8, !tbaa !13
@@ -93124,7 +93101,7 @@ _ZNK7testing8internal11MatcherBaseIRKN4absl13test_internal20CopyableOnlyInstance
   %173 = load ptr, ptr %36, align 8
   %174 = select i1 %172, ptr %173, ptr %36
   %175 = lshr i64 %171, 1
-  %176 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %174, i64 %175
+  %176 = getelementptr inbounds nuw [8 x i8], ptr %174, i64 %175
   %.not = icmp eq ptr %169, %176
   br i1 %.not, label %.critedge, label %.lr.ph.split, !llvm.loop !2472
 
@@ -93137,7 +93114,7 @@ _ZNK7testing8internal11MatcherBaseIRKN4absl13test_internal20CopyableOnlyInstance
   %179 = load ptr, ptr %36, align 8
   %180 = select i1 %178, ptr %179, ptr %36
   %181 = lshr i64 %177, 1
-  %182 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %180, i64 %181
+  %182 = getelementptr inbounds nuw [8 x i8], ptr %180, i64 %181
   %.not56191 = icmp eq ptr %.040.lcssa, %182
   br i1 %.not56191, label %._crit_edge, label %.lr.ph194.preheader
 
@@ -93379,7 +93356,7 @@ _ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit: ; preds = %265
 _ZN7testing19MatchResultListenerlsIA15_cEERS0_RKT_.exit: ; preds = %267
   %.pre208 = load ptr, ptr %13, align 8, !tbaa !448
   %269 = load ptr, ptr %9, align 8, !tbaa !64
-  %270 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %269, i64 %storemerge.lcssa
+  %270 = getelementptr inbounds nuw [32 x i8], ptr %269, i64 %storemerge.lcssa
   %271 = getelementptr inbounds nuw i8, ptr %270, i64 8
   %272 = load i64, ptr %271, align 8, !tbaa !45
   %273 = icmp eq i64 %272, 0
@@ -93409,7 +93386,7 @@ _ZN7testing19MatchResultListenerlsIA15_cEERS0_RKT_.exit: ; preds = %267
 .lr.ph198:                                        ; preds = %.lr.ph198.preheader, %_ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit
   %.034197 = phi i1 [ %.1, %_ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit ], [ false, %.lr.ph198.preheader ]
   %storemerge58196 = phi i64 [ %301, %_ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit ], [ 0, %.lr.ph198.preheader ]
-  %281 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.pre, i64 %storemerge58196
+  %281 = getelementptr inbounds nuw [32 x i8], ptr %.pre, i64 %storemerge58196
   %282 = getelementptr inbounds nuw i8, ptr %281, i64 8
   %283 = load i64, ptr %282, align 8, !tbaa !45
   %284 = icmp eq i64 %283, 0
@@ -93642,7 +93619,7 @@ define linkonce_odr dso_local void @_ZNK7testing8internal16AllOfMatcherImplIRKN4
 .split9:                                          ; preds = %.lr.ph
   %11 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.387, i64 noundef 7)
   %12 = load ptr, ptr %5, align 8, !tbaa !2367
-  %13 = getelementptr inbounds nuw %"class.testing::Matcher.671", ptr %12, i64 %.010
+  %13 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %.010
   br label %.split
 
 .split:                                           ; preds = %.lr.ph, %.split9
@@ -93711,7 +93688,7 @@ define linkonce_odr dso_local void @_ZNK7testing8internal16AllOfMatcherImplIRKN4
 .split9:                                          ; preds = %.lr.ph
   %11 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.388, i64 noundef 6)
   %12 = load ptr, ptr %5, align 8, !tbaa !2367
-  %13 = getelementptr inbounds nuw %"class.testing::Matcher.671", ptr %12, i64 %.010
+  %13 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %.010
   br label %.split
 
 .split:                                           ; preds = %.lr.ph, %.split9
@@ -94818,7 +94795,7 @@ _ZNSt12_Vector_baseIN4absl13test_internal23CopyableMovableInstanceESaIS2_EEC2EmR
 
 .lr.ph.i.split.us.i.i.i.i.preheader.i.i:          ; preds = %.lr.ph.i.i.i.i.i.i.i
   store ptr %32, ptr %4, align 8, !tbaa !2510
-  %33 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %32, i64 %24
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %24
   store ptr %33, ptr %16, align 8, !tbaa !2513
   %.pre14.i.i = load i32, ptr @_ZN4absl13test_internal19BaseCountedInstance11num_copies_E, align 4, !tbaa !130
   br label %.lr.ph.i.split.us.i.i.i.i.i.i
@@ -94901,7 +94878,7 @@ _ZN4absl13test_internal19BaseCountedInstanceD2Ev.exit.i: ; preds = %_ZN4absl13te
   %61 = phi i32 [ %72, %71 ], [ %46, %.lr.ph.preheader.i.i.i.i ]
   %.012.i.i.i.i = phi i64 [ %74, %71 ], [ 0, %.lr.ph.preheader.i.i.i.i ]
   %62 = phi ptr [ %73, %71 ], [ %45, %.lr.ph.preheader.i.i.i.i ]
-  %63 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %.010.i.i.i, i64 %.012.i.i.i.i
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %.010.i.i.i, i64 %.012.i.i.i.i
   %64 = load i32, ptr %62, align 4, !tbaa !2233
   store i32 %64, ptr %63, align 4, !tbaa !2233
   %65 = getelementptr inbounds nuw i8, ptr %63, i64 4
@@ -96414,7 +96391,7 @@ define linkonce_odr dso_local void @_ZN4absl23inlined_vector_internal7StorageINS
   %.06.i = phi i64 [ %11, %_ZNSt16allocator_traitsISaIN4absl13test_internal23CopyableMovableInstanceEEE7destroyIS2_EEvRS3_PT_.exit.i ], [ %7, %.lr.ph.preheader.i ]
   %10 = phi i32 [ %18, %_ZNSt16allocator_traitsISaIN4absl13test_internal23CopyableMovableInstanceEEE7destroyIS2_EEvRS3_PT_.exit.i ], [ %_ZN4absl13test_internal19BaseCountedInstance19num_live_instances_E.promoted.i, %.lr.ph.preheader.i ]
   %11 = add nsw i64 %.06.i, -1
-  %12 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %6, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %14 = load i8, ptr %13, align 4, !tbaa !2235, !range !35, !noundef !36
   %15 = trunc nuw i8 %14 to i1
@@ -96486,12 +96463,12 @@ _ZN4absl23inlined_vector_internal13MallocAdapterISaINS_13test_internal23Copyable
   br i1 %19, label %20, label %23
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %.sink2.i, i64 %.sink1.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i, i64 %.sink1.i
   %22 = sub nuw i64 %2, %.sink1.i
   br label %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal23CopyableMovableInstanceEEE8AllocateEm.exit
 
 23:                                               ; preds = %18
-  %24 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %.sink2.i, i64 %2
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i, i64 %2
   %25 = sub nuw nsw i64 %.sink1.i, %2
   br label %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal23CopyableMovableInstanceEEE8AllocateEm.exit
 
@@ -96510,7 +96487,7 @@ _ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal23
 
 27:                                               ; preds = %_ZN4absl23inlined_vector_internal16CopyValueAdapterISaINS_13test_internal23CopyableMovableInstanceEEE10AssignNextEPS3_.exit.i, %.lr.ph.i
   %.05.i = phi i64 [ 0, %.lr.ph.i ], [ %44, %_ZN4absl23inlined_vector_internal16CopyValueAdapterISaINS_13test_internal23CopyableMovableInstanceEEE10AssignNextEPS3_.exit.i ]
-  %28 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %.sink2.i, i64 %.05.i
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i, i64 %.05.i
   %29 = load i32, ptr %1, align 4, !tbaa !2233
   store i32 %29, ptr %28, align 4, !tbaa !2233
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 4
@@ -96566,7 +96543,7 @@ _ZN4absl23inlined_vector_internal14AssignElementsISaINS_13test_internal23Copyabl
 
 .lr.ph.i23.split.us:                              ; preds = %.lr.ph.i23, %.lr.ph.i23.split.us
   %.012.i.us = phi i64 [ %56, %.lr.ph.i23.split.us ], [ 0, %.lr.ph.i23 ]
-  %47 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %.sroa.040.07387, i64 %.012.i.us
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.040.07387, i64 %.012.i.us
   %48 = load i32, ptr %1, align 4, !tbaa !2233
   store i32 %48, ptr %47, align 4, !tbaa !2233
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 4
@@ -96586,7 +96563,7 @@ _ZN4absl23inlined_vector_internal14AssignElementsISaINS_13test_internal23Copyabl
 
 .lr.ph.i23.split:                                 ; preds = %.lr.ph.i23, %.lr.ph.i23.split
   %.012.i = phi i64 [ %64, %.lr.ph.i23.split ], [ 0, %.lr.ph.i23 ]
-  %57 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %.sroa.040.07387, i64 %.012.i
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.040.07387, i64 %.012.i
   %58 = load i32, ptr %1, align 4, !tbaa !2233
   store i32 %58, ptr %57, align 4, !tbaa !2233
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 4
@@ -96624,7 +96601,7 @@ _ZN4absl23inlined_vector_internal17ConstructElementsISaINS_13test_internal23Copy
   %.06.i = phi i64 [ %68, %_ZNSt16allocator_traitsISaIN4absl13test_internal23CopyableMovableInstanceEEE7destroyIS2_EEvRS3_PT_.exit.i ], [ %.sroa.7.07092, %.lr.ph.preheader.i ]
   %67 = phi i32 [ %75, %_ZNSt16allocator_traitsISaIN4absl13test_internal23CopyableMovableInstanceEEE7destroyIS2_EEvRS3_PT_.exit.i ], [ %_ZN4absl13test_internal19BaseCountedInstance19num_live_instances_E.promoted.i, %.lr.ph.preheader.i ]
   %68 = add nsw i64 %.06.i, -1
-  %69 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %.sroa.039.07190, i64 %68
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.039.07190, i64 %68
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 4
   %71 = load i8, ptr %70, align 4, !tbaa !2235, !range !35, !noundef !36
   %72 = trunc nuw i8 %71 to i1
@@ -97252,7 +97229,7 @@ _ZSt8_DestroyIPN7testing7MatcherIRKN4absl13InlinedVectorINS2_13test_internal23Co
 _ZNSt12_Vector_baseIN7testing7MatcherIRKN4absl13InlinedVectorINS2_13test_internal23CopyableMovableInstanceELm2ESaIS5_EEEEESaISA_EE13_M_deallocateEPSA_m.exit: ; preds = %_ZSt8_DestroyIPN7testing7MatcherIRKN4absl13InlinedVectorINS2_13test_internal23CopyableMovableInstanceELm2ESaIS5_EEEEESA_EvT_SC_RSaIT0_E.exit, %61
   store ptr %20, ptr %0, align 8, !tbaa !2645
   store ptr %.0.lcssa.i.i.i.i.i36, ptr %4, align 8, !tbaa !2641
-  %65 = getelementptr inbounds nuw %"class.testing::Matcher.764", ptr %20, i64 %16
+  %65 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %65, ptr %60, align 8, !tbaa !2644
   ret void
 }
@@ -98650,7 +98627,7 @@ _ZSt8_DestroyIPN7testing7MatcherIRKN4absl13test_internal23CopyableMovableInstanc
 _ZNSt12_Vector_baseIN7testing7MatcherIRKN4absl13test_internal23CopyableMovableInstanceEEESaIS7_EE13_M_deallocateEPS7_m.exit: ; preds = %_ZSt8_DestroyIPN7testing7MatcherIRKN4absl13test_internal23CopyableMovableInstanceEEES7_EvT_S9_RSaIT0_E.exit, %61
   store ptr %20, ptr %0, align 8, !tbaa !2587
   store ptr %.0.lcssa.i.i.i.i.i36, ptr %4, align 8, !tbaa !2590
-  %65 = getelementptr inbounds nuw %"class.testing::Matcher.790", ptr %20, i64 %16
+  %65 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %65, ptr %60, align 8, !tbaa !2591
   ret void
 }
@@ -98963,7 +98940,7 @@ _ZN7testing7MessageD2Ev.exit17:                   ; preds = %.body, %_ZNKSt14def
   %93 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %.021)
   %94 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %93, ptr noundef nonnull @.str.246, i64 noundef 1)
   %95 = load ptr, ptr %8, align 8, !tbaa !2587
-  %96 = getelementptr inbounds nuw %"class.testing::Matcher.790", ptr %95, i64 %.021
+  %96 = getelementptr inbounds nuw [24 x i8], ptr %95, i64 %.021
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
   %98 = load ptr, ptr %97, align 8, !tbaa !2610
   %99 = icmp ne ptr %98, null
@@ -99206,7 +99183,7 @@ _ZN7testing7MessageD2Ev.exit15:                   ; preds = %.body, %_ZNKSt14def
   %75 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %.017)
   %76 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %75, ptr noundef nonnull @.str.246, i64 noundef 1)
   %77 = load ptr, ptr %7, align 8, !tbaa !2587
-  %78 = getelementptr inbounds nuw %"class.testing::Matcher.790", ptr %77, i64 %.017
+  %78 = getelementptr inbounds nuw [24 x i8], ptr %77, i64 %.017
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %80 = load ptr, ptr %79, align 8, !tbaa !2610
   %81 = icmp ne ptr %80, null
@@ -99308,7 +99285,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %25 = shl nuw nsw i64 %23, 5
   %26 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %25) #42
   store ptr %26, ptr %9, align 8, !tbaa !64
-  %27 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %26, i64 %23
+  %27 = getelementptr inbounds nuw [32 x i8], ptr %26, i64 %23
   %28 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %27, ptr %28, align 8, !tbaa !124
   br label %.lr.ph.i.i.i.i.i
@@ -99384,7 +99361,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 
 _ZN7testing25StringMatchResultListenerC2Ev.exit.us: ; preds = %67
   %68 = load ptr, ptr %16, align 8, !tbaa !2587
-  %69 = getelementptr inbounds nuw %"class.testing::Matcher.790", ptr %68, i64 %storemerge156.us
+  %69 = getelementptr inbounds nuw [24 x i8], ptr %68, i64 %storemerge156.us
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %71 = load ptr, ptr %70, align 8, !tbaa !2610
   %72 = icmp ne ptr %71, null
@@ -99445,7 +99422,7 @@ _ZNK7testing8internal11MatcherBaseIRKN4absl13test_internal23CopyableMovableInsta
 
 _ZNK7testing25StringMatchResultListener3strB5cxx11Ev.exit.us: ; preds = %89, %83
   %90 = load ptr, ptr %9, align 8, !tbaa !64
-  %91 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %90, i64 %storemerge156.us
+  %91 = getelementptr inbounds nuw [32 x i8], ptr %90, i64 %storemerge156.us
   %92 = load ptr, ptr %91, align 8, !tbaa !39
   %93 = getelementptr inbounds nuw i8, ptr %91, i64 16
   %94 = icmp eq ptr %92, %93
@@ -99573,7 +99550,7 @@ _ZN7testing25StringMatchResultListenerD2Ev.exit.us: ; preds = %_ZNSt7__cxx1112ba
   %135 = load ptr, ptr %36, align 8
   %136 = select i1 %134, ptr %135, ptr %36
   %137 = lshr i64 %133, 1
-  %138 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %136, i64 %137
+  %138 = getelementptr inbounds nuw [8 x i8], ptr %136, i64 %137
   %.not.us = icmp eq ptr %131, %138
   br i1 %.not.us, label %.critedge, label %.lr.ph.split.us, !llvm.loop !2727
 
@@ -99614,7 +99591,7 @@ _ZN7testing25StringMatchResultListenerD2Ev.exit.us: ; preds = %_ZNSt7__cxx1112ba
   br i1 %.not52, label %.critedge, label %151
 
 151:                                              ; preds = %.lr.ph.split
-  %152 = getelementptr inbounds nuw %"class.testing::Matcher.790", ptr %146, i64 %storemerge156
+  %152 = getelementptr inbounds nuw [24 x i8], ptr %146, i64 %storemerge156
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %39, align 8, !tbaa !448
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN7testing8internal24DummyMatchResultListenerE, i64 16), ptr %7, align 8, !tbaa !13
@@ -99692,7 +99669,7 @@ _ZNK7testing8internal11MatcherBaseIRKN4absl13test_internal23CopyableMovableInsta
   %173 = load ptr, ptr %36, align 8
   %174 = select i1 %172, ptr %173, ptr %36
   %175 = lshr i64 %171, 1
-  %176 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %174, i64 %175
+  %176 = getelementptr inbounds nuw [8 x i8], ptr %174, i64 %175
   %.not = icmp eq ptr %169, %176
   br i1 %.not, label %.critedge, label %.lr.ph.split, !llvm.loop !2727
 
@@ -99705,7 +99682,7 @@ _ZNK7testing8internal11MatcherBaseIRKN4absl13test_internal23CopyableMovableInsta
   %179 = load ptr, ptr %36, align 8
   %180 = select i1 %178, ptr %179, ptr %36
   %181 = lshr i64 %177, 1
-  %182 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %180, i64 %181
+  %182 = getelementptr inbounds nuw [8 x i8], ptr %180, i64 %181
   %.not56191 = icmp eq ptr %.040.lcssa, %182
   br i1 %.not56191, label %._crit_edge, label %.lr.ph194.preheader
 
@@ -99947,7 +99924,7 @@ _ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit: ; preds = %265
 _ZN7testing19MatchResultListenerlsIA15_cEERS0_RKT_.exit: ; preds = %267
   %.pre208 = load ptr, ptr %13, align 8, !tbaa !448
   %269 = load ptr, ptr %9, align 8, !tbaa !64
-  %270 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %269, i64 %storemerge.lcssa
+  %270 = getelementptr inbounds nuw [32 x i8], ptr %269, i64 %storemerge.lcssa
   %271 = getelementptr inbounds nuw i8, ptr %270, i64 8
   %272 = load i64, ptr %271, align 8, !tbaa !45
   %273 = icmp eq i64 %272, 0
@@ -99977,7 +99954,7 @@ _ZN7testing19MatchResultListenerlsIA15_cEERS0_RKT_.exit: ; preds = %267
 .lr.ph198:                                        ; preds = %.lr.ph198.preheader, %_ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit
   %.034197 = phi i1 [ %.1, %_ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit ], [ false, %.lr.ph198.preheader ]
   %storemerge58196 = phi i64 [ %301, %_ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit ], [ 0, %.lr.ph198.preheader ]
-  %281 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.pre, i64 %storemerge58196
+  %281 = getelementptr inbounds nuw [32 x i8], ptr %.pre, i64 %storemerge58196
   %282 = getelementptr inbounds nuw i8, ptr %281, i64 8
   %283 = load i64, ptr %282, align 8, !tbaa !45
   %284 = icmp eq i64 %283, 0
@@ -100210,7 +100187,7 @@ define linkonce_odr dso_local void @_ZNK7testing8internal16AllOfMatcherImplIRKN4
 .split9:                                          ; preds = %.lr.ph
   %11 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.387, i64 noundef 7)
   %12 = load ptr, ptr %5, align 8, !tbaa !2645
-  %13 = getelementptr inbounds nuw %"class.testing::Matcher.764", ptr %12, i64 %.010
+  %13 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %.010
   br label %.split
 
 .split:                                           ; preds = %.lr.ph, %.split9
@@ -100279,7 +100256,7 @@ define linkonce_odr dso_local void @_ZNK7testing8internal16AllOfMatcherImplIRKN4
 .split9:                                          ; preds = %.lr.ph
   %11 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.388, i64 noundef 6)
   %12 = load ptr, ptr %5, align 8, !tbaa !2645
-  %13 = getelementptr inbounds nuw %"class.testing::Matcher.764", ptr %12, i64 %.010
+  %13 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %.010
   br label %.split
 
 .split:                                           ; preds = %.lr.ph, %.split9
@@ -104135,7 +104112,7 @@ define linkonce_odr dso_local void @_ZN4absl23inlined_vector_internal17Construct
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %25
   %6 = phi ptr [ %31, %25 ], [ %.pre, %.lr.ph.preheader ]
   %.013 = phi i64 [ %32, %25 ], [ 0, %.lr.ph.preheader ]
-  %7 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %1, i64 %.013
+  %7 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %.013
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %8, ptr %7, align 8, !tbaa !42
   %9 = load ptr, ptr %6, align 8, !tbaa !39
@@ -104230,7 +104207,7 @@ define linkonce_odr dso_local void @_ZN4absl23inlined_vector_internal7StorageINS
 .lr.ph.i:                                         ; preds = %1, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7destroyIS5_EEvRS6_PT_.exit.i
   %.06.i = phi i64 [ %8, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7destroyIS5_EEvRS6_PT_.exit.i ], [ %7, %1 ]
   %8 = add nsw i64 %.06.i, -1
-  %9 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !39
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %12 = icmp eq ptr %10, %11
@@ -104473,7 +104450,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %44
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.loopexit, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !951
 
 _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.loopexit:   ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i
-  %53 = getelementptr inbounds nuw i32, ptr %50, i64 %45
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %45
   %54 = ptrtoint ptr %53 to i64
   br label %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit
 
@@ -104727,7 +104704,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i: ; preds = %127, %.n
   br label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i: ; preds = %128, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i
-  %129 = getelementptr inbounds nuw i32, ptr %124, i64 %122
+  %129 = getelementptr inbounds nuw [4 x i8], ptr %124, i64 %122
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit
 
 _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i, %111
@@ -104796,7 +104773,7 @@ _ZN4absl23inlined_vector_internal13MallocAdapterISaIiELb0EE8AllocateERS2_m.exit.
 
 _ZN4absl23inlined_vector_internal21AllocationTransactionISaIiEE8AllocateEm.exit.i: ; preds = %.loopexit
   %.sink1.i.i = lshr i64 %132, 1
-  %148 = getelementptr inbounds nuw i32, ptr %.sink2.i.i, i64 %.sink1.i.i
+  %148 = getelementptr inbounds nuw [4 x i8], ptr %.sink2.i.i, i64 %.sink1.i.i
   %.sroa.742.0.i = call i64 @llvm.usub.sat.i64(i64 %136, i64 %.sink1.i.i)
   %.sroa.744.0.i = call i64 @llvm.umin.i64(i64 %136, i64 %.sink1.i.i)
   %.not.i.i142 = icmp eq i64 %.sroa.744.0.i, 0
@@ -104805,7 +104782,7 @@ _ZN4absl23inlined_vector_internal21AllocationTransactionISaIiEE8AllocateEm.exit.
 .lr.ph.i.i:                                       ; preds = %_ZN4absl23inlined_vector_internal21AllocationTransactionISaIiEE8AllocateEm.exit.i, %.lr.ph.i.i
   %.05.i.i = phi i64 [ %153, %.lr.ph.i.i ], [ 0, %_ZN4absl23inlined_vector_internal21AllocationTransactionISaIiEE8AllocateEm.exit.i ]
   %149 = phi ptr [ %152, %.lr.ph.i.i ], [ %.sroa.0177.0.lcssa, %_ZN4absl23inlined_vector_internal21AllocationTransactionISaIiEE8AllocateEm.exit.i ]
-  %150 = getelementptr inbounds nuw i32, ptr %.sink2.i.i, i64 %.05.i.i
+  %150 = getelementptr inbounds nuw [4 x i8], ptr %.sink2.i.i, i64 %.05.i.i
   %151 = load i32, ptr %149, align 4, !tbaa !130
   store i32 %151, ptr %150, align 4, !tbaa !130
   %152 = getelementptr inbounds nuw i8, ptr %149, i64 4
@@ -104829,7 +104806,7 @@ _ZN4absl23inlined_vector_internal14AssignElementsISaIiENS0_20IteratorValueAdapte
 .lr.ph.i25.i:                                     ; preds = %.lr.ph.i25.i, %.lr.ph.preheader.i23.i
   %.06.i.i = phi i64 [ %158, %.lr.ph.i25.i ], [ 0, %.lr.ph.preheader.i23.i ]
   %154 = phi ptr [ %157, %.lr.ph.i25.i ], [ %.sroa.060.084.i, %.lr.ph.preheader.i23.i ]
-  %155 = getelementptr inbounds nuw i32, ptr %.sroa.041.06982.i, i64 %.06.i.i
+  %155 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.041.06982.i, i64 %.06.i.i
   %156 = load i32, ptr %154, align 4, !tbaa !130
   store i32 %156, ptr %155, align 4, !tbaa !130
   %157 = getelementptr inbounds nuw i8, ptr %154, i64 4
@@ -107260,7 +107237,7 @@ _ZN7testing7MessageD2Ev.exit17:                   ; preds = %.body, %_ZNKSt14def
   %93 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %.021)
   %94 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %93, ptr noundef nonnull @.str.246, i64 noundef 1)
   %95 = load ptr, ptr %8, align 8, !tbaa !1169
-  %96 = getelementptr inbounds nuw %"class.testing::Matcher.350", ptr %95, i64 %.021
+  %96 = getelementptr inbounds nuw [24 x i8], ptr %95, i64 %.021
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
   %98 = load ptr, ptr %97, align 8, !tbaa !1159
   %99 = icmp ne ptr %98, null
@@ -107503,7 +107480,7 @@ _ZN7testing7MessageD2Ev.exit15:                   ; preds = %.body, %_ZNKSt14def
   %75 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %.017)
   %76 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %75, ptr noundef nonnull @.str.246, i64 noundef 1)
   %77 = load ptr, ptr %7, align 8, !tbaa !1169
-  %78 = getelementptr inbounds nuw %"class.testing::Matcher.350", ptr %77, i64 %.017
+  %78 = getelementptr inbounds nuw [24 x i8], ptr %77, i64 %.017
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %80 = load ptr, ptr %79, align 8, !tbaa !1159
   %81 = icmp ne ptr %80, null
@@ -107605,7 +107582,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %25 = shl nuw nsw i64 %23, 5
   %26 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %25) #42
   store ptr %26, ptr %9, align 8, !tbaa !64
-  %27 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %26, i64 %23
+  %27 = getelementptr inbounds nuw [32 x i8], ptr %26, i64 %23
   %28 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %27, ptr %28, align 8, !tbaa !124
   br label %.lr.ph.i.i.i.i.i
@@ -107681,7 +107658,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 
 _ZN7testing25StringMatchResultListenerC2Ev.exit.us: ; preds = %67
   %68 = load ptr, ptr %16, align 8, !tbaa !1169
-  %69 = getelementptr inbounds nuw %"class.testing::Matcher.350", ptr %68, i64 %storemerge156.us
+  %69 = getelementptr inbounds nuw [24 x i8], ptr %68, i64 %storemerge156.us
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %71 = load ptr, ptr %70, align 8, !tbaa !1159
   %72 = icmp ne ptr %71, null
@@ -107742,7 +107719,7 @@ _ZNK7testing8internal11MatcherBaseIRKiE15MatchAndExplainES3_PNS_19MatchResultLis
 
 _ZNK7testing25StringMatchResultListener3strB5cxx11Ev.exit.us: ; preds = %89, %83
   %90 = load ptr, ptr %9, align 8, !tbaa !64
-  %91 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %90, i64 %storemerge156.us
+  %91 = getelementptr inbounds nuw [32 x i8], ptr %90, i64 %storemerge156.us
   %92 = load ptr, ptr %91, align 8, !tbaa !39
   %93 = getelementptr inbounds nuw i8, ptr %91, i64 16
   %94 = icmp eq ptr %92, %93
@@ -107870,7 +107847,7 @@ _ZN7testing25StringMatchResultListenerD2Ev.exit.us: ; preds = %_ZNSt7__cxx1112ba
   %135 = load ptr, ptr %36, align 8
   %136 = select i1 %134, ptr %135, ptr %36
   %137 = lshr i64 %133, 1
-  %138 = getelementptr inbounds nuw i32, ptr %136, i64 %137
+  %138 = getelementptr inbounds nuw [4 x i8], ptr %136, i64 %137
   %.not.us = icmp eq ptr %131, %138
   br i1 %.not.us, label %.critedge, label %.lr.ph.split.us, !llvm.loop !2920
 
@@ -107911,7 +107888,7 @@ _ZN7testing25StringMatchResultListenerD2Ev.exit.us: ; preds = %_ZNSt7__cxx1112ba
   br i1 %.not52, label %.critedge, label %151
 
 151:                                              ; preds = %.lr.ph.split
-  %152 = getelementptr inbounds nuw %"class.testing::Matcher.350", ptr %146, i64 %storemerge156
+  %152 = getelementptr inbounds nuw [24 x i8], ptr %146, i64 %storemerge156
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %39, align 8, !tbaa !448
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN7testing8internal24DummyMatchResultListenerE, i64 16), ptr %7, align 8, !tbaa !13
@@ -107989,7 +107966,7 @@ _ZNK7testing8internal11MatcherBaseIRKiE15MatchAndExplainES3_PNS_19MatchResultLis
   %173 = load ptr, ptr %36, align 8
   %174 = select i1 %172, ptr %173, ptr %36
   %175 = lshr i64 %171, 1
-  %176 = getelementptr inbounds nuw i32, ptr %174, i64 %175
+  %176 = getelementptr inbounds nuw [4 x i8], ptr %174, i64 %175
   %.not = icmp eq ptr %169, %176
   br i1 %.not, label %.critedge, label %.lr.ph.split, !llvm.loop !2920
 
@@ -108002,7 +107979,7 @@ _ZNK7testing8internal11MatcherBaseIRKiE15MatchAndExplainES3_PNS_19MatchResultLis
   %179 = load ptr, ptr %36, align 8
   %180 = select i1 %178, ptr %179, ptr %36
   %181 = lshr i64 %177, 1
-  %182 = getelementptr inbounds nuw i32, ptr %180, i64 %181
+  %182 = getelementptr inbounds nuw [4 x i8], ptr %180, i64 %181
   %.not56191 = icmp eq ptr %.040.lcssa, %182
   br i1 %.not56191, label %._crit_edge, label %.lr.ph194.preheader
 
@@ -108244,7 +108221,7 @@ _ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit: ; preds = %265
 _ZN7testing19MatchResultListenerlsIA15_cEERS0_RKT_.exit: ; preds = %267
   %.pre208 = load ptr, ptr %13, align 8, !tbaa !448
   %269 = load ptr, ptr %9, align 8, !tbaa !64
-  %270 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %269, i64 %storemerge.lcssa
+  %270 = getelementptr inbounds nuw [32 x i8], ptr %269, i64 %storemerge.lcssa
   %271 = getelementptr inbounds nuw i8, ptr %270, i64 8
   %272 = load i64, ptr %271, align 8, !tbaa !45
   %273 = icmp eq i64 %272, 0
@@ -108274,7 +108251,7 @@ _ZN7testing19MatchResultListenerlsIA15_cEERS0_RKT_.exit: ; preds = %267
 .lr.ph198:                                        ; preds = %.lr.ph198.preheader, %_ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit
   %.034197 = phi i1 [ %.1, %_ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit ], [ false, %.lr.ph198.preheader ]
   %storemerge58196 = phi i64 [ %301, %_ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit ], [ 0, %.lr.ph198.preheader ]
-  %281 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.pre, i64 %storemerge58196
+  %281 = getelementptr inbounds nuw [32 x i8], ptr %.pre, i64 %storemerge58196
   %282 = getelementptr inbounds nuw i8, ptr %281, i64 8
   %283 = load i64, ptr %282, align 8, !tbaa !45
   %284 = icmp eq i64 %283, 0
@@ -110367,7 +110344,7 @@ _ZSt8_DestroyIPN7testing7MatcherIRKN4absl13InlinedVectorIiLm4ESaIiEEEEES8_EvT_SA
 _ZNSt12_Vector_baseIN7testing7MatcherIRKN4absl13InlinedVectorIiLm4ESaIiEEEEESaIS8_EE13_M_deallocateEPS8_m.exit: ; preds = %_ZSt8_DestroyIPN7testing7MatcherIRKN4absl13InlinedVectorIiLm4ESaIiEEEEES8_EvT_SA_RSaIT0_E.exit, %61
   store ptr %20, ptr %0, align 8, !tbaa !3004
   store ptr %.0.lcssa.i.i.i.i.i36, ptr %4, align 8, !tbaa !3000
-  %65 = getelementptr inbounds nuw %"class.testing::Matcher.875", ptr %20, i64 %16
+  %65 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %65, ptr %60, align 8, !tbaa !3003
   ret void
 }
@@ -112011,7 +111988,7 @@ _ZN7testing7MessageD2Ev.exit17:                   ; preds = %.body, %_ZNKSt14def
   %93 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %.021)
   %94 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %93, ptr noundef nonnull @.str.246, i64 noundef 1)
   %95 = load ptr, ptr %8, align 8, !tbaa !1169
-  %96 = getelementptr inbounds nuw %"class.testing::Matcher.350", ptr %95, i64 %.021
+  %96 = getelementptr inbounds nuw [24 x i8], ptr %95, i64 %.021
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
   %98 = load ptr, ptr %97, align 8, !tbaa !1159
   %99 = icmp ne ptr %98, null
@@ -112254,7 +112231,7 @@ _ZN7testing7MessageD2Ev.exit15:                   ; preds = %.body, %_ZNKSt14def
   %75 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %.017)
   %76 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %75, ptr noundef nonnull @.str.246, i64 noundef 1)
   %77 = load ptr, ptr %7, align 8, !tbaa !1169
-  %78 = getelementptr inbounds nuw %"class.testing::Matcher.350", ptr %77, i64 %.017
+  %78 = getelementptr inbounds nuw [24 x i8], ptr %77, i64 %.017
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %80 = load ptr, ptr %79, align 8, !tbaa !1159
   %81 = icmp ne ptr %80, null
@@ -112356,7 +112333,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %25 = shl nuw nsw i64 %23, 5
   %26 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %25) #42
   store ptr %26, ptr %9, align 8, !tbaa !64
-  %27 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %26, i64 %23
+  %27 = getelementptr inbounds nuw [32 x i8], ptr %26, i64 %23
   %28 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %27, ptr %28, align 8, !tbaa !124
   br label %.lr.ph.i.i.i.i.i
@@ -112432,7 +112409,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 
 _ZN7testing25StringMatchResultListenerC2Ev.exit.us: ; preds = %67
   %68 = load ptr, ptr %16, align 8, !tbaa !1169
-  %69 = getelementptr inbounds nuw %"class.testing::Matcher.350", ptr %68, i64 %storemerge156.us
+  %69 = getelementptr inbounds nuw [24 x i8], ptr %68, i64 %storemerge156.us
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %71 = load ptr, ptr %70, align 8, !tbaa !1159
   %72 = icmp ne ptr %71, null
@@ -112493,7 +112470,7 @@ _ZNK7testing8internal11MatcherBaseIRKiE15MatchAndExplainES3_PNS_19MatchResultLis
 
 _ZNK7testing25StringMatchResultListener3strB5cxx11Ev.exit.us: ; preds = %89, %83
   %90 = load ptr, ptr %9, align 8, !tbaa !64
-  %91 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %90, i64 %storemerge156.us
+  %91 = getelementptr inbounds nuw [32 x i8], ptr %90, i64 %storemerge156.us
   %92 = load ptr, ptr %91, align 8, !tbaa !39
   %93 = getelementptr inbounds nuw i8, ptr %91, i64 16
   %94 = icmp eq ptr %92, %93
@@ -112621,7 +112598,7 @@ _ZN7testing25StringMatchResultListenerD2Ev.exit.us: ; preds = %_ZNSt7__cxx1112ba
   %135 = load ptr, ptr %36, align 8
   %136 = select i1 %134, ptr %135, ptr %36
   %137 = lshr i64 %133, 1
-  %138 = getelementptr inbounds nuw i32, ptr %136, i64 %137
+  %138 = getelementptr inbounds nuw [4 x i8], ptr %136, i64 %137
   %.not.us = icmp eq ptr %131, %138
   br i1 %.not.us, label %.critedge, label %.lr.ph.split.us, !llvm.loop !3095
 
@@ -112662,7 +112639,7 @@ _ZN7testing25StringMatchResultListenerD2Ev.exit.us: ; preds = %_ZNSt7__cxx1112ba
   br i1 %.not52, label %.critedge, label %151
 
 151:                                              ; preds = %.lr.ph.split
-  %152 = getelementptr inbounds nuw %"class.testing::Matcher.350", ptr %146, i64 %storemerge156
+  %152 = getelementptr inbounds nuw [24 x i8], ptr %146, i64 %storemerge156
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %39, align 8, !tbaa !448
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN7testing8internal24DummyMatchResultListenerE, i64 16), ptr %7, align 8, !tbaa !13
@@ -112740,7 +112717,7 @@ _ZNK7testing8internal11MatcherBaseIRKiE15MatchAndExplainES3_PNS_19MatchResultLis
   %173 = load ptr, ptr %36, align 8
   %174 = select i1 %172, ptr %173, ptr %36
   %175 = lshr i64 %171, 1
-  %176 = getelementptr inbounds nuw i32, ptr %174, i64 %175
+  %176 = getelementptr inbounds nuw [4 x i8], ptr %174, i64 %175
   %.not = icmp eq ptr %169, %176
   br i1 %.not, label %.critedge, label %.lr.ph.split, !llvm.loop !3095
 
@@ -112753,7 +112730,7 @@ _ZNK7testing8internal11MatcherBaseIRKiE15MatchAndExplainES3_PNS_19MatchResultLis
   %179 = load ptr, ptr %36, align 8
   %180 = select i1 %178, ptr %179, ptr %36
   %181 = lshr i64 %177, 1
-  %182 = getelementptr inbounds nuw i32, ptr %180, i64 %181
+  %182 = getelementptr inbounds nuw [4 x i8], ptr %180, i64 %181
   %.not56191 = icmp eq ptr %.040.lcssa, %182
   br i1 %.not56191, label %._crit_edge, label %.lr.ph194.preheader
 
@@ -112995,7 +112972,7 @@ _ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit: ; preds = %265
 _ZN7testing19MatchResultListenerlsIA15_cEERS0_RKT_.exit: ; preds = %267
   %.pre208 = load ptr, ptr %13, align 8, !tbaa !448
   %269 = load ptr, ptr %9, align 8, !tbaa !64
-  %270 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %269, i64 %storemerge.lcssa
+  %270 = getelementptr inbounds nuw [32 x i8], ptr %269, i64 %storemerge.lcssa
   %271 = getelementptr inbounds nuw i8, ptr %270, i64 8
   %272 = load i64, ptr %271, align 8, !tbaa !45
   %273 = icmp eq i64 %272, 0
@@ -113025,7 +113002,7 @@ _ZN7testing19MatchResultListenerlsIA15_cEERS0_RKT_.exit: ; preds = %267
 .lr.ph198:                                        ; preds = %.lr.ph198.preheader, %_ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit
   %.034197 = phi i1 [ %.1, %_ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit ], [ false, %.lr.ph198.preheader ]
   %storemerge58196 = phi i64 [ %301, %_ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit ], [ 0, %.lr.ph198.preheader ]
-  %281 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.pre, i64 %storemerge58196
+  %281 = getelementptr inbounds nuw [32 x i8], ptr %.pre, i64 %storemerge58196
   %282 = getelementptr inbounds nuw i8, ptr %281, i64 8
   %283 = load i64, ptr %282, align 8, !tbaa !45
   %284 = icmp eq i64 %283, 0
@@ -113258,7 +113235,7 @@ define linkonce_odr dso_local void @_ZNK7testing8internal16AllOfMatcherImplIRKN4
 .split9:                                          ; preds = %.lr.ph
   %11 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.387, i64 noundef 7)
   %12 = load ptr, ptr %5, align 8, !tbaa !3004
-  %13 = getelementptr inbounds nuw %"class.testing::Matcher.875", ptr %12, i64 %.010
+  %13 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %.010
   br label %.split
 
 .split:                                           ; preds = %.lr.ph, %.split9
@@ -113327,7 +113304,7 @@ define linkonce_odr dso_local void @_ZNK7testing8internal16AllOfMatcherImplIRKN4
 .split9:                                          ; preds = %.lr.ph
   %11 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.388, i64 noundef 6)
   %12 = load ptr, ptr %5, align 8, !tbaa !3004
-  %13 = getelementptr inbounds nuw %"class.testing::Matcher.875", ptr %12, i64 %.010
+  %13 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %.010
   br label %.split
 
 .split:                                           ; preds = %.lr.ph, %.split9
@@ -118701,7 +118678,7 @@ _ZN7testing7MessageD2Ev.exit17:                   ; preds = %.body, %_ZNKSt14def
   %93 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %.021)
   %94 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %93, ptr noundef nonnull @.str.246, i64 noundef 1)
   %95 = load ptr, ptr %8, align 8, !tbaa !1824
-  %96 = getelementptr inbounds nuw %"class.testing::Matcher.529", ptr %95, i64 %.021
+  %96 = getelementptr inbounds nuw [24 x i8], ptr %95, i64 %.021
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
   %98 = load ptr, ptr %97, align 8, !tbaa !1818
   %99 = icmp ne ptr %98, null
@@ -118944,7 +118921,7 @@ _ZN7testing7MessageD2Ev.exit15:                   ; preds = %.body, %_ZNKSt14def
   %75 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %.017)
   %76 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %75, ptr noundef nonnull @.str.246, i64 noundef 1)
   %77 = load ptr, ptr %7, align 8, !tbaa !1824
-  %78 = getelementptr inbounds nuw %"class.testing::Matcher.529", ptr %77, i64 %.017
+  %78 = getelementptr inbounds nuw [24 x i8], ptr %77, i64 %.017
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %80 = load ptr, ptr %79, align 8, !tbaa !1818
   %81 = icmp ne ptr %80, null
@@ -119046,7 +119023,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %25 = shl nuw nsw i64 %23, 5
   %26 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %25) #42
   store ptr %26, ptr %9, align 8, !tbaa !64
-  %27 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %26, i64 %23
+  %27 = getelementptr inbounds nuw [32 x i8], ptr %26, i64 %23
   %28 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %27, ptr %28, align 8, !tbaa !124
   br label %.lr.ph.i.i.i.i.i
@@ -119122,7 +119099,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 
 _ZN7testing25StringMatchResultListenerC2Ev.exit.us: ; preds = %67
   %68 = load ptr, ptr %16, align 8, !tbaa !1824
-  %69 = getelementptr inbounds nuw %"class.testing::Matcher.529", ptr %68, i64 %storemerge156.us
+  %69 = getelementptr inbounds nuw [24 x i8], ptr %68, i64 %storemerge156.us
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %71 = load ptr, ptr %70, align 8, !tbaa !1818
   %72 = icmp ne ptr %71, null
@@ -119183,7 +119160,7 @@ _ZNK7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsI
 
 _ZNK7testing25StringMatchResultListener3strB5cxx11Ev.exit.us: ; preds = %89, %83
   %90 = load ptr, ptr %9, align 8, !tbaa !64
-  %91 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %90, i64 %storemerge156.us
+  %91 = getelementptr inbounds nuw [32 x i8], ptr %90, i64 %storemerge156.us
   %92 = load ptr, ptr %91, align 8, !tbaa !39
   %93 = getelementptr inbounds nuw i8, ptr %91, i64 16
   %94 = icmp eq ptr %92, %93
@@ -119311,7 +119288,7 @@ _ZN7testing25StringMatchResultListenerD2Ev.exit.us: ; preds = %_ZNSt7__cxx1112ba
   %135 = load ptr, ptr %36, align 8
   %136 = select i1 %134, ptr %135, ptr %36
   %137 = lshr i64 %133, 1
-  %138 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %136, i64 %137
+  %138 = getelementptr inbounds nuw [32 x i8], ptr %136, i64 %137
   %.not.us = icmp eq ptr %131, %138
   br i1 %.not.us, label %.critedge, label %.lr.ph.split.us, !llvm.loop !3337
 
@@ -119352,7 +119329,7 @@ _ZN7testing25StringMatchResultListenerD2Ev.exit.us: ; preds = %_ZNSt7__cxx1112ba
   br i1 %.not52, label %.critedge, label %151
 
 151:                                              ; preds = %.lr.ph.split
-  %152 = getelementptr inbounds nuw %"class.testing::Matcher.529", ptr %146, i64 %storemerge156
+  %152 = getelementptr inbounds nuw [24 x i8], ptr %146, i64 %storemerge156
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %39, align 8, !tbaa !448
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN7testing8internal24DummyMatchResultListenerE, i64 16), ptr %7, align 8, !tbaa !13
@@ -119430,7 +119407,7 @@ _ZNK7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsI
   %173 = load ptr, ptr %36, align 8
   %174 = select i1 %172, ptr %173, ptr %36
   %175 = lshr i64 %171, 1
-  %176 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %174, i64 %175
+  %176 = getelementptr inbounds nuw [32 x i8], ptr %174, i64 %175
   %.not = icmp eq ptr %169, %176
   br i1 %.not, label %.critedge, label %.lr.ph.split, !llvm.loop !3337
 
@@ -119443,7 +119420,7 @@ _ZNK7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsI
   %179 = load ptr, ptr %36, align 8
   %180 = select i1 %178, ptr %179, ptr %36
   %181 = lshr i64 %177, 1
-  %182 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %180, i64 %181
+  %182 = getelementptr inbounds nuw [32 x i8], ptr %180, i64 %181
   %.not56191 = icmp eq ptr %.040.lcssa, %182
   br i1 %.not56191, label %._crit_edge, label %.lr.ph194.preheader
 
@@ -119685,7 +119662,7 @@ _ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit: ; preds = %265
 _ZN7testing19MatchResultListenerlsIA15_cEERS0_RKT_.exit: ; preds = %267
   %.pre208 = load ptr, ptr %13, align 8, !tbaa !448
   %269 = load ptr, ptr %9, align 8, !tbaa !64
-  %270 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %269, i64 %storemerge.lcssa
+  %270 = getelementptr inbounds nuw [32 x i8], ptr %269, i64 %storemerge.lcssa
   %271 = getelementptr inbounds nuw i8, ptr %270, i64 8
   %272 = load i64, ptr %271, align 8, !tbaa !45
   %273 = icmp eq i64 %272, 0
@@ -119715,7 +119692,7 @@ _ZN7testing19MatchResultListenerlsIA15_cEERS0_RKT_.exit: ; preds = %267
 .lr.ph198:                                        ; preds = %.lr.ph198.preheader, %_ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit
   %.034197 = phi i1 [ %.1, %_ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit ], [ false, %.lr.ph198.preheader ]
   %storemerge58196 = phi i64 [ %301, %_ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit ], [ 0, %.lr.ph198.preheader ]
-  %281 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.pre, i64 %storemerge58196
+  %281 = getelementptr inbounds nuw [32 x i8], ptr %.pre, i64 %storemerge58196
   %282 = getelementptr inbounds nuw i8, ptr %281, i64 8
   %283 = load i64, ptr %282, align 8, !tbaa !45
   %284 = icmp eq i64 %283, 0
@@ -120187,7 +120164,7 @@ define linkonce_odr dso_local void @_ZN4absl23inlined_vector_internal17Construct
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %25
   %6 = phi ptr [ %31, %25 ], [ %.pre, %.lr.ph.preheader ]
   %.013 = phi i64 [ %32, %25 ], [ 0, %.lr.ph.preheader ]
-  %7 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %1, i64 %.013
+  %7 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %.013
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %8, ptr %7, align 8, !tbaa !42
   %9 = load ptr, ptr %6, align 8, !tbaa !39
@@ -121473,7 +121450,7 @@ define linkonce_odr dso_local void @_ZN4absl23inlined_vector_internal7StorageINS
   %.06.i = phi i64 [ %11, %_ZNSt16allocator_traitsISaIN4absl13test_internal23CopyableMovableInstanceEEE7destroyIS2_EEvRS3_PT_.exit.i ], [ %7, %.lr.ph.preheader.i ]
   %10 = phi i32 [ %18, %_ZNSt16allocator_traitsISaIN4absl13test_internal23CopyableMovableInstanceEEE7destroyIS2_EEvRS3_PT_.exit.i ], [ %_ZN4absl13test_internal19BaseCountedInstance19num_live_instances_E.promoted.i, %.lr.ph.preheader.i ]
   %11 = add nsw i64 %.06.i, -1
-  %12 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %6, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %14 = load i8, ptr %13, align 4, !tbaa !2235, !range !35, !noundef !36
   %15 = trunc nuw i8 %14 to i1
@@ -122084,7 +122061,7 @@ _ZSt8_DestroyIPN7testing7MatcherIRKN4absl13InlinedVectorINS2_13test_internal23Co
 _ZNSt12_Vector_baseIN7testing7MatcherIRKN4absl13InlinedVectorINS2_13test_internal23CopyableMovableInstanceELm1ESaIS5_EEEEESaISA_EE13_M_deallocateEPSA_m.exit: ; preds = %_ZSt8_DestroyIPN7testing7MatcherIRKN4absl13InlinedVectorINS2_13test_internal23CopyableMovableInstanceELm1ESaIS5_EEEEESA_EvT_SC_RSaIT0_E.exit, %61
   store ptr %20, ptr %0, align 8, !tbaa !3443
   store ptr %.0.lcssa.i.i.i.i.i36, ptr %4, align 8, !tbaa !3420
-  %65 = getelementptr inbounds nuw %"class.testing::Matcher.996", ptr %20, i64 %16
+  %65 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %65, ptr %60, align 8, !tbaa !3423
   ret void
 }
@@ -123717,7 +123694,7 @@ _ZN7testing7MessageD2Ev.exit17:                   ; preds = %.body, %_ZNKSt14def
   %93 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %.021)
   %94 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %93, ptr noundef nonnull @.str.246, i64 noundef 1)
   %95 = load ptr, ptr %8, align 8, !tbaa !2587
-  %96 = getelementptr inbounds nuw %"class.testing::Matcher.790", ptr %95, i64 %.021
+  %96 = getelementptr inbounds nuw [24 x i8], ptr %95, i64 %.021
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
   %98 = load ptr, ptr %97, align 8, !tbaa !2610
   %99 = icmp ne ptr %98, null
@@ -123960,7 +123937,7 @@ _ZN7testing7MessageD2Ev.exit15:                   ; preds = %.body, %_ZNKSt14def
   %75 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %.017)
   %76 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %75, ptr noundef nonnull @.str.246, i64 noundef 1)
   %77 = load ptr, ptr %7, align 8, !tbaa !2587
-  %78 = getelementptr inbounds nuw %"class.testing::Matcher.790", ptr %77, i64 %.017
+  %78 = getelementptr inbounds nuw [24 x i8], ptr %77, i64 %.017
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %80 = load ptr, ptr %79, align 8, !tbaa !2610
   %81 = icmp ne ptr %80, null
@@ -124062,7 +124039,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %25 = shl nuw nsw i64 %23, 5
   %26 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %25) #42
   store ptr %26, ptr %9, align 8, !tbaa !64
-  %27 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %26, i64 %23
+  %27 = getelementptr inbounds nuw [32 x i8], ptr %26, i64 %23
   %28 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %27, ptr %28, align 8, !tbaa !124
   br label %.lr.ph.i.i.i.i.i
@@ -124138,7 +124115,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 
 _ZN7testing25StringMatchResultListenerC2Ev.exit.us: ; preds = %67
   %68 = load ptr, ptr %16, align 8, !tbaa !2587
-  %69 = getelementptr inbounds nuw %"class.testing::Matcher.790", ptr %68, i64 %storemerge156.us
+  %69 = getelementptr inbounds nuw [24 x i8], ptr %68, i64 %storemerge156.us
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %71 = load ptr, ptr %70, align 8, !tbaa !2610
   %72 = icmp ne ptr %71, null
@@ -124199,7 +124176,7 @@ _ZNK7testing8internal11MatcherBaseIRKN4absl13test_internal23CopyableMovableInsta
 
 _ZNK7testing25StringMatchResultListener3strB5cxx11Ev.exit.us: ; preds = %89, %83
   %90 = load ptr, ptr %9, align 8, !tbaa !64
-  %91 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %90, i64 %storemerge156.us
+  %91 = getelementptr inbounds nuw [32 x i8], ptr %90, i64 %storemerge156.us
   %92 = load ptr, ptr %91, align 8, !tbaa !39
   %93 = getelementptr inbounds nuw i8, ptr %91, i64 16
   %94 = icmp eq ptr %92, %93
@@ -124327,7 +124304,7 @@ _ZN7testing25StringMatchResultListenerD2Ev.exit.us: ; preds = %_ZNSt7__cxx1112ba
   %135 = load ptr, ptr %36, align 8
   %136 = select i1 %134, ptr %135, ptr %36
   %137 = lshr i64 %133, 1
-  %138 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %136, i64 %137
+  %138 = getelementptr inbounds nuw [8 x i8], ptr %136, i64 %137
   %.not.us = icmp eq ptr %131, %138
   br i1 %.not.us, label %.critedge, label %.lr.ph.split.us, !llvm.loop !3553
 
@@ -124368,7 +124345,7 @@ _ZN7testing25StringMatchResultListenerD2Ev.exit.us: ; preds = %_ZNSt7__cxx1112ba
   br i1 %.not52, label %.critedge, label %151
 
 151:                                              ; preds = %.lr.ph.split
-  %152 = getelementptr inbounds nuw %"class.testing::Matcher.790", ptr %146, i64 %storemerge156
+  %152 = getelementptr inbounds nuw [24 x i8], ptr %146, i64 %storemerge156
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %39, align 8, !tbaa !448
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN7testing8internal24DummyMatchResultListenerE, i64 16), ptr %7, align 8, !tbaa !13
@@ -124446,7 +124423,7 @@ _ZNK7testing8internal11MatcherBaseIRKN4absl13test_internal23CopyableMovableInsta
   %173 = load ptr, ptr %36, align 8
   %174 = select i1 %172, ptr %173, ptr %36
   %175 = lshr i64 %171, 1
-  %176 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %174, i64 %175
+  %176 = getelementptr inbounds nuw [8 x i8], ptr %174, i64 %175
   %.not = icmp eq ptr %169, %176
   br i1 %.not, label %.critedge, label %.lr.ph.split, !llvm.loop !3553
 
@@ -124459,7 +124436,7 @@ _ZNK7testing8internal11MatcherBaseIRKN4absl13test_internal23CopyableMovableInsta
   %179 = load ptr, ptr %36, align 8
   %180 = select i1 %178, ptr %179, ptr %36
   %181 = lshr i64 %177, 1
-  %182 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %180, i64 %181
+  %182 = getelementptr inbounds nuw [8 x i8], ptr %180, i64 %181
   %.not56191 = icmp eq ptr %.040.lcssa, %182
   br i1 %.not56191, label %._crit_edge, label %.lr.ph194.preheader
 
@@ -124701,7 +124678,7 @@ _ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit: ; preds = %265
 _ZN7testing19MatchResultListenerlsIA15_cEERS0_RKT_.exit: ; preds = %267
   %.pre208 = load ptr, ptr %13, align 8, !tbaa !448
   %269 = load ptr, ptr %9, align 8, !tbaa !64
-  %270 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %269, i64 %storemerge.lcssa
+  %270 = getelementptr inbounds nuw [32 x i8], ptr %269, i64 %storemerge.lcssa
   %271 = getelementptr inbounds nuw i8, ptr %270, i64 8
   %272 = load i64, ptr %271, align 8, !tbaa !45
   %273 = icmp eq i64 %272, 0
@@ -124731,7 +124708,7 @@ _ZN7testing19MatchResultListenerlsIA15_cEERS0_RKT_.exit: ; preds = %267
 .lr.ph198:                                        ; preds = %.lr.ph198.preheader, %_ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit
   %.034197 = phi i1 [ %.1, %_ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit ], [ false, %.lr.ph198.preheader ]
   %storemerge58196 = phi i64 [ %301, %_ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit ], [ 0, %.lr.ph198.preheader ]
-  %281 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.pre, i64 %storemerge58196
+  %281 = getelementptr inbounds nuw [32 x i8], ptr %.pre, i64 %storemerge58196
   %282 = getelementptr inbounds nuw i8, ptr %281, i64 8
   %283 = load i64, ptr %282, align 8, !tbaa !45
   %284 = icmp eq i64 %283, 0
@@ -124964,7 +124941,7 @@ define linkonce_odr dso_local void @_ZNK7testing8internal16AllOfMatcherImplIRKN4
 .split9:                                          ; preds = %.lr.ph
   %11 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.387, i64 noundef 7)
   %12 = load ptr, ptr %5, align 8, !tbaa !3443
-  %13 = getelementptr inbounds nuw %"class.testing::Matcher.996", ptr %12, i64 %.010
+  %13 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %.010
   br label %.split
 
 .split:                                           ; preds = %.lr.ph, %.split9
@@ -125033,7 +125010,7 @@ define linkonce_odr dso_local void @_ZNK7testing8internal16AllOfMatcherImplIRKN4
 .split9:                                          ; preds = %.lr.ph
   %11 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.388, i64 noundef 6)
   %12 = load ptr, ptr %5, align 8, !tbaa !3443
-  %13 = getelementptr inbounds nuw %"class.testing::Matcher.996", ptr %12, i64 %.010
+  %13 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %.010
   br label %.split
 
 .split:                                           ; preds = %.lr.ph, %.split9
@@ -126129,7 +126106,7 @@ define internal void @_ZN12_GLOBAL__N_167InitializerListConstructor_ComplexTypeW
   %exitcond.not.i.i.i.i = phi i1 [ true, %42 ], [ false, %1 ]
   %.012.i.i.i.i = phi i64 [ 1, %42 ], [ 0, %1 ]
   %33 = phi ptr [ %44, %42 ], [ %21, %1 ]
-  %34 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %31, i64 %.012.i.i.i.i
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %.012.i.i.i.i
   %35 = load i32, ptr %33, align 4, !tbaa !2233
   store i32 %35, ptr %34, align 8, !tbaa !2233
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 4
@@ -127892,7 +127869,7 @@ define internal void @_ZN12_GLOBAL__N_154InitializerListAssign_SimpleTypeFitsInl
 
 36:                                               ; preds = %36, %.lr.ph.i.i.i
   %.06.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %38, %36 ]
-  %37 = getelementptr inbounds nuw i32, ptr %.010.i.i, i64 %.06.i.i.i
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %.010.i.i, i64 %.06.i.i.i
   store i32 12345, ptr %37, align 4, !tbaa !130
   %38 = add nuw i64 %.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %38, %24
@@ -128109,7 +128086,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %82, %_ZNKSt14defaul
 
 102:                                              ; preds = %102, %.lr.ph.i.i.i47
   %.06.i.i.i50 = phi i64 [ 0, %.lr.ph.i.i.i47 ], [ %104, %102 ]
-  %103 = getelementptr inbounds nuw i32, ptr %.010.i.i48, i64 %.06.i.i.i50
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %.010.i.i48, i64 %.06.i.i.i50
   store i32 12345, ptr %103, align 4, !tbaa !130
   %104 = add nuw i64 %.06.i.i.i50, 1
   %exitcond.not.i.i.i51 = icmp eq i64 %104, %90
@@ -129280,7 +129257,7 @@ _ZN4absl23inlined_vector_internal13MallocAdapterISaIiELb0EE8AllocateERS2_m.exit.
 
 _ZN4absl23inlined_vector_internal21AllocationTransactionISaIiEE8AllocateEm.exit: ; preds = %3
   %.sink1.i = lshr i64 %4, 1
-  %18 = getelementptr inbounds nuw i32, ptr %.sink2.i, i64 %.sink1.i
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %.sink2.i, i64 %.sink1.i
   %.sroa.742.0 = tail call i64 @llvm.usub.sat.i64(i64 %2, i64 %.sink1.i)
   %.sroa.744.0 = tail call i64 @llvm.umin.i64(i64 %2, i64 %.sink1.i)
   %.not.i = icmp eq i64 %.sroa.744.0, 0
@@ -129289,7 +129266,7 @@ _ZN4absl23inlined_vector_internal21AllocationTransactionISaIiEE8AllocateEm.exit:
 .lr.ph.i:                                         ; preds = %_ZN4absl23inlined_vector_internal21AllocationTransactionISaIiEE8AllocateEm.exit, %.lr.ph.i
   %.05.i = phi i64 [ %23, %.lr.ph.i ], [ 0, %_ZN4absl23inlined_vector_internal21AllocationTransactionISaIiEE8AllocateEm.exit ]
   %19 = phi ptr [ %22, %.lr.ph.i ], [ %1, %_ZN4absl23inlined_vector_internal21AllocationTransactionISaIiEE8AllocateEm.exit ]
-  %20 = getelementptr inbounds nuw i32, ptr %.sink2.i, i64 %.05.i
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %.sink2.i, i64 %.05.i
   %21 = load i32, ptr %19, align 4, !tbaa !130
   store i32 %21, ptr %20, align 4, !tbaa !130
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 4
@@ -129313,7 +129290,7 @@ _ZN4absl23inlined_vector_internal14AssignElementsISaIiENS0_20IteratorValueAdapte
 .lr.ph.i25:                                       ; preds = %.lr.ph.i25, %.lr.ph.preheader.i23
   %.06.i = phi i64 [ %28, %.lr.ph.i25 ], [ 0, %.lr.ph.preheader.i23 ]
   %24 = phi ptr [ %27, %.lr.ph.i25 ], [ %.sroa.060.084, %.lr.ph.preheader.i23 ]
-  %25 = getelementptr inbounds nuw i32, ptr %.sroa.041.06982, i64 %.06.i
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.041.06982, i64 %.06.i
   %26 = load i32, ptr %24, align 4, !tbaa !130
   store i32 %26, ptr %25, align 4, !tbaa !130
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 4
@@ -129907,7 +129884,7 @@ define internal void @_ZN12_GLOBAL__N_160InitializerListAssign_SimpleTypeDoesNot
 
 52:                                               ; preds = %52, %.lr.ph.i.i.i
   %.06.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %54, %52 ]
-  %53 = getelementptr inbounds nuw i32, ptr %.010.i.i, i64 %.06.i.i.i
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %.010.i.i, i64 %.06.i.i.i
   store i32 12345, ptr %53, align 4, !tbaa !130
   %54 = add nuw i64 %.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %54, %40
@@ -130264,7 +130241,7 @@ _ZN7testing15AssertionResultD2Ev.exit66:          ; preds = %137, %_ZNKSt14defau
 
 157:                                              ; preds = %157, %.lr.ph.i.i.i68
   %.06.i.i.i71 = phi i64 [ 0, %.lr.ph.i.i.i68 ], [ %159, %157 ]
-  %158 = getelementptr inbounds nuw i32, ptr %.010.i.i69, i64 %.06.i.i.i71
+  %158 = getelementptr inbounds nuw [4 x i8], ptr %.010.i.i69, i64 %.06.i.i.i71
   store i32 12345, ptr %158, align 4, !tbaa !130
   %159 = add nuw i64 %.06.i.i.i71, 1
   %exitcond.not.i.i.i72 = icmp eq i64 %159, %145
@@ -131560,12 +131537,12 @@ _ZN4absl23inlined_vector_internal13MallocAdapterISaINSt7__cxx1112basic_stringIcS
   br i1 %20, label %21, label %24
 
 21:                                               ; preds = %19
-  %22 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.sink2.i, i64 %.sink1.i
+  %22 = getelementptr inbounds nuw [32 x i8], ptr %.sink2.i, i64 %.sink1.i
   %23 = sub nuw i64 %2, %.sink1.i
   br label %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8AllocateEm.exit
 
 24:                                               ; preds = %19
-  %25 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.sink2.i, i64 %2
+  %25 = getelementptr inbounds nuw [32 x i8], ptr %.sink2.i, i64 %2
   %26 = sub nuw nsw i64 %.sink1.i, %2
   br label %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8AllocateEm.exit
 
@@ -131581,7 +131558,7 @@ _ZN4absl23inlined_vector_internal21AllocationTransactionISaINSt7__cxx1112basic_s
 .lr.ph.i:                                         ; preds = %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8AllocateEm.exit, %.lr.ph.i
   %27 = phi ptr [ %29, %.lr.ph.i ], [ %1, %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8AllocateEm.exit ]
   %.05.i = phi i64 [ %30, %.lr.ph.i ], [ 0, %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8AllocateEm.exit ]
-  %28 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.sink2.i, i64 %.05.i
+  %28 = getelementptr inbounds nuw [32 x i8], ptr %.sink2.i, i64 %.05.i
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %27)
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %30 = add nuw nsw i64 %.05.i, 1
@@ -131609,7 +131586,7 @@ _ZN4absl23inlined_vector_internal14AssignElementsISaINSt7__cxx1112basic_stringIc
 .lr.ph.i23:                                       ; preds = %31, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7destroyIS5_EEvRS6_PT_.exit.i
   %.06.i = phi i64 [ %32, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7destroyIS5_EEvRS6_PT_.exit.i ], [ %.sroa.7.066, %31 ]
   %32 = add nsw i64 %.06.i, -1
-  %33 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.sroa.037.067, i64 %32
+  %33 = getelementptr inbounds nuw [32 x i8], ptr %.sroa.037.067, i64 %32
   %34 = load ptr, ptr %33, align 8, !tbaa !39
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %36 = icmp eq ptr %34, %35
@@ -131723,7 +131700,7 @@ define internal fastcc void @_ZN4absl23inlined_vector_internal7StorageIN12_GLOBA
 .lr.ph.i:                                         ; preds = %1, %.lr.ph.i
   %.02.i = phi i64 [ %6, %.lr.ph.i ], [ %5, %1 ]
   %6 = add nsw i64 %.02.i, -1
-  %7 = getelementptr inbounds nuw %"class.(anonymous namespace)::Dynamic", ptr %4, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !13
   %9 = load ptr, ptr %8, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(8) %7) #37
@@ -133118,7 +133095,7 @@ _ZN4absl23inlined_vector_internal13MallocAdapterINS_18container_internal17Counti
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %.lr.ph.split.us.i
   %.013.us.i = phi i64 [ %31, %.lr.ph.split.us.i ], [ 0, %.lr.ph.i ]
   %27 = phi ptr [ %30, %.lr.ph.split.us.i ], [ %storemerge, %.lr.ph.i ]
-  %28 = getelementptr inbounds nuw i32, ptr %.0, i64 %.013.us.i
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %.0, i64 %.013.us.i
   %29 = load i32, ptr %27, align 4, !tbaa !130
   store i32 %29, ptr %28, align 4, !tbaa !130
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 4
@@ -133138,7 +133115,7 @@ _ZN4absl23inlined_vector_internal13MallocAdapterINS_18container_internal17Counti
 33:                                               ; preds = %33, %.lr.ph.split.i
   %.013.i = phi i64 [ 0, %.lr.ph.split.i ], [ %38, %33 ]
   %34 = phi ptr [ %storemerge, %.lr.ph.split.i ], [ %37, %33 ]
-  %35 = getelementptr inbounds nuw i32, ptr %.0, i64 %.013.i
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %.0, i64 %.013.i
   %36 = load i32, ptr %34, align 4, !tbaa !130
   store i32 %36, ptr %35, align 4, !tbaa !130
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 4
@@ -134384,7 +134361,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN4absl23inlined_vector_internal16CopyValueAdapterINS_18container_internal17CountingAllocatorIiEEE13ConstructNextERS4_Pi.exit.i.i: ; preds = %_ZN4absl23inlined_vector_internal16CopyValueAdapterINS_18container_internal17CountingAllocatorIiEEE13ConstructNextERS4_Pi.exit.i.i, %.lr.ph.split.i.i708
   %.013.i.i709 = phi i64 [ 0, %.lr.ph.split.i.i708 ], [ %468, %_ZN4absl23inlined_vector_internal16CopyValueAdapterINS_18container_internal17CountingAllocatorIiEEE13ConstructNextERS4_Pi.exit.i.i ]
-  %467 = getelementptr inbounds nuw i32, ptr %466, i64 %.013.i.i709
+  %467 = getelementptr inbounds nuw [4 x i8], ptr %466, i64 %.013.i.i709
   store i32 1, ptr %467, align 4, !tbaa !130
   %468 = add nuw nsw i64 %.013.i.i709, 1
   %exitcond.not.i.i710 = icmp eq i64 %468, 4
@@ -134881,7 +134858,7 @@ _ZNSt15__new_allocatorIiE8allocateEmPKv.exit.i.i.i.i.i: ; preds = %614
 .lr.ph.split.us.i.i720:                           ; preds = %.lr.ph.i.i, %.lr.ph.split.us.i.i720
   %.013.us.i.i721 = phi i64 [ %629, %.lr.ph.split.us.i.i720 ], [ 0, %.lr.ph.i.i ]
   %625 = phi ptr [ %628, %.lr.ph.split.us.i.i720 ], [ %611, %.lr.ph.i.i ]
-  %626 = getelementptr inbounds nuw i32, ptr %.010.i, i64 %.013.us.i.i721
+  %626 = getelementptr inbounds nuw [4 x i8], ptr %.010.i, i64 %.013.us.i.i721
   %627 = load i32, ptr %625, align 4, !tbaa !130
   store i32 %627, ptr %626, align 4, !tbaa !130
   %628 = getelementptr inbounds nuw i8, ptr %625, i64 4
@@ -135359,7 +135336,7 @@ _ZN7testing15AssertionResultD2Ev.exit421:         ; preds = %757, %_ZNKSt14defau
 
 _ZN4absl23inlined_vector_internal16CopyValueAdapterINS_18container_internal17CountingAllocatorIiEEE13ConstructNextERS4_Pi.exit.i.i737: ; preds = %_ZN4absl23inlined_vector_internal16CopyValueAdapterINS_18container_internal17CountingAllocatorIiEEE13ConstructNextERS4_Pi.exit.i.i737, %.lr.ph.split.i.i734
   %.013.i.i738 = phi i64 [ 0, %.lr.ph.split.i.i734 ], [ %773, %_ZN4absl23inlined_vector_internal16CopyValueAdapterINS_18container_internal17CountingAllocatorIiEEE13ConstructNextERS4_Pi.exit.i.i737 ]
-  %772 = getelementptr inbounds nuw i32, ptr %767, i64 %.013.i.i738
+  %772 = getelementptr inbounds nuw [4 x i8], ptr %767, i64 %.013.i.i738
   store i32 2, ptr %772, align 4, !tbaa !130
   %773 = add nuw nsw i64 %.013.i.i738, 1
   %exitcond.not.i.i739 = icmp eq i64 %773, 8
@@ -135870,7 +135847,7 @@ _ZNSt15__new_allocatorIiE8allocateEmPKv.exit.i.i.i.i.i761: ; preds = %925
 .lr.ph.split.us.i.i757:                           ; preds = %.lr.ph.i.i749, %.lr.ph.split.us.i.i757
   %.013.us.i.i758 = phi i64 [ %940, %.lr.ph.split.us.i.i757 ], [ 0, %.lr.ph.i.i749 ]
   %936 = phi ptr [ %939, %.lr.ph.split.us.i.i757 ], [ %922, %.lr.ph.i.i749 ]
-  %937 = getelementptr inbounds nuw i32, ptr %.010.i750, i64 %.013.us.i.i758
+  %937 = getelementptr inbounds nuw [4 x i8], ptr %.010.i750, i64 %.013.us.i.i758
   %938 = load i32, ptr %936, align 4, !tbaa !130
   store i32 %938, ptr %937, align 4, !tbaa !130
   %939 = getelementptr inbounds nuw i8, ptr %936, i64 4
@@ -136375,7 +136352,7 @@ _ZN7testing15AssertionResultD2Ev.exit514:         ; preds = %1079, %_ZNKSt14defa
 
 _ZN4absl23inlined_vector_internal16CopyValueAdapterINS_18container_internal17CountingAllocatorIiEEE13ConstructNextERS4_Pi.exit.i.i779: ; preds = %_ZN4absl23inlined_vector_internal16CopyValueAdapterINS_18container_internal17CountingAllocatorIiEEE13ConstructNextERS4_Pi.exit.i.i779, %.lr.ph.split.i.i776
   %.013.i.i780 = phi i64 [ 0, %.lr.ph.split.i.i776 ], [ %1095, %_ZN4absl23inlined_vector_internal16CopyValueAdapterINS_18container_internal17CountingAllocatorIiEEE13ConstructNextERS4_Pi.exit.i.i779 ]
-  %1094 = getelementptr inbounds nuw i32, ptr %1089, i64 %.013.i.i780
+  %1094 = getelementptr inbounds nuw [4 x i8], ptr %1089, i64 %.013.i.i780
   store i32 2, ptr %1094, align 4, !tbaa !130
   %1095 = add nuw nsw i64 %.013.i.i780, 1
   %exitcond.not.i.i781 = icmp eq i64 %1095, 8
@@ -139992,7 +139969,7 @@ define linkonce_odr dso_local void @_ZN4absl23inlined_vector_internal7StorageIiL
   br i1 %.not39, label %23, label %.lr.ph.i44
 
 .lr.ph.i44:                                       ; preds = %15
-  %16 = getelementptr inbounds nuw i32, ptr %.sink2.i, i64 %.sink1.i
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %.sink2.i, i64 %.sink1.i
   %17 = sub i64 %1, %.sink1.i
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !3871
@@ -140059,7 +140036,7 @@ _ZNSt15__new_allocatorIiE8allocateEmPKv.exit.i.i.i.i.i: ; preds = %23
 .lr.ph.i.i:                                       ; preds = %.noexc49, %32
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !398
-  %35 = getelementptr inbounds nuw i32, ptr %30, i64 %.sink1.i
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %.sink1.i
   %36 = sub i64 %1, %.sink1.i
   %.not.i.i.i.i.i.i = icmp eq ptr %.sroa.4.0.copyload, null
   br i1 %.not.i.i.i.i.i.i, label %_ZN4absl23inlined_vector_internal23ConstructionTransactionINS_18container_internal17CountingAllocatorIiEEE9ConstructINS0_19DefaultValueAdapterIS4_EEEEvPiRT_m.exit, label %_ZN4absl23inlined_vector_internal23ConstructionTransactionINS_18container_internal17CountingAllocatorIiEEE9ConstructINS0_19DefaultValueAdapterIS4_EEEEvPiRT_m.exit.thread
@@ -140082,7 +140059,7 @@ _ZN4absl23inlined_vector_internal23ConstructionTransactionINS_18container_intern
 .lr.ph.split.us.i:                                ; preds = %_ZN4absl23inlined_vector_internal23ConstructionTransactionINS_18container_internal17CountingAllocatorIiEEE9ConstructINS0_19DefaultValueAdapterIS4_EEEEvPiRT_m.exit, %.lr.ph.split.us.i
   %.013.us.i = phi i64 [ %44, %.lr.ph.split.us.i ], [ 0, %_ZN4absl23inlined_vector_internal23ConstructionTransactionINS_18container_internal17CountingAllocatorIiEEE9ConstructINS0_19DefaultValueAdapterIS4_EEEEvPiRT_m.exit ]
   %40 = phi ptr [ %43, %.lr.ph.split.us.i ], [ %.sink2.i, %_ZN4absl23inlined_vector_internal23ConstructionTransactionINS_18container_internal17CountingAllocatorIiEEE9ConstructINS0_19DefaultValueAdapterIS4_EEEEvPiRT_m.exit ]
-  %41 = getelementptr inbounds nuw i32, ptr %30, i64 %.013.us.i
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %.013.us.i
   %42 = load i32, ptr %40, align 4, !tbaa !130
   store i32 %42, ptr %41, align 4, !tbaa !130
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 4
@@ -140093,7 +140070,7 @@ _ZN4absl23inlined_vector_internal23ConstructionTransactionINS_18container_intern
 .lr.ph.split.i54:                                 ; preds = %_ZN4absl23inlined_vector_internal23ConstructionTransactionINS_18container_internal17CountingAllocatorIiEEE9ConstructINS0_19DefaultValueAdapterIS4_EEEEvPiRT_m.exit.thread, %.lr.ph.split.i54
   %.013.i = phi i64 [ %49, %.lr.ph.split.i54 ], [ 0, %_ZN4absl23inlined_vector_internal23ConstructionTransactionINS_18container_internal17CountingAllocatorIiEEE9ConstructINS0_19DefaultValueAdapterIS4_EEEEvPiRT_m.exit.thread ]
   %45 = phi ptr [ %48, %.lr.ph.split.i54 ], [ %.sink2.i, %_ZN4absl23inlined_vector_internal23ConstructionTransactionINS_18container_internal17CountingAllocatorIiEEE9ConstructINS0_19DefaultValueAdapterIS4_EEEEvPiRT_m.exit.thread ]
-  %46 = getelementptr inbounds nuw i32, ptr %30, i64 %.013.i
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %.013.i
   %47 = load i32, ptr %45, align 4, !tbaa !130
   store i32 %47, ptr %46, align 4, !tbaa !130
   %48 = getelementptr inbounds nuw i8, ptr %45, i64 4
@@ -140258,7 +140235,7 @@ _ZNSt15__new_allocatorIiE8allocateEmPKv.exit.i.i.i.i.i: ; preds = %14
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %.lr.ph.split.us.i
   %.013.us.i = phi i64 [ %36, %.lr.ph.split.us.i ], [ 0, %.lr.ph.i ]
   %32 = phi ptr [ %35, %.lr.ph.split.us.i ], [ %4, %.lr.ph.i ]
-  %33 = getelementptr inbounds nuw i32, ptr %.02137, i64 %.013.us.i
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %.02137, i64 %.013.us.i
   %34 = load i32, ptr %32, align 4, !tbaa !130
   store i32 %34, ptr %33, align 4, !tbaa !130
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 4
@@ -140273,7 +140250,7 @@ _ZNSt15__new_allocatorIiE8allocateEmPKv.exit.i.i.i.i.i: ; preds = %14
 37:                                               ; preds = %37, %.lr.ph.split.i
   %.013.i = phi i64 [ 0, %.lr.ph.split.i ], [ %42, %37 ]
   %38 = phi ptr [ %4, %.lr.ph.split.i ], [ %41, %37 ]
-  %39 = getelementptr inbounds nuw i32, ptr %.02137, i64 %.013.i
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %.02137, i64 %.013.i
   %40 = load i32, ptr %38, align 4, !tbaa !130
   store i32 %40, ptr %39, align 4, !tbaa !130
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 4
@@ -142984,13 +142961,13 @@ define linkonce_odr dso_local void @_ZN4absl23inlined_vector_internal7StorageIiL
 
 _ZN4absl23inlined_vector_internal7StorageIiLm4ENS_18container_internal17CountingAllocatorIiEEE5SwapNENS5_21ElementwiseSwapPolicyEPS5_m.exit.i: ; preds = %.lr.ph.i.i.i, %16
   %32 = getelementptr inbounds nuw i8, ptr %spec.select24.i, i64 24
-  %33 = getelementptr inbounds nuw i32, ptr %32, i64 %20
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %20
   %.not.i.i = icmp eq i64 %23, %20
   br i1 %.not.i.i, label %_ZN4absl23inlined_vector_internal7StorageIiLm4ENS_18container_internal17CountingAllocatorIiEEE19SwapInlinedElementsINS5_21ElementwiseSwapPolicyEEEvT_PS5_.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN4absl23inlined_vector_internal7StorageIiLm4ENS_18container_internal17CountingAllocatorIiEEE5SwapNENS5_21ElementwiseSwapPolicyEPS5_m.exit.i
   %34 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 24
-  %35 = getelementptr inbounds nuw i32, ptr %34, i64 %20
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %20
   %36 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 8
   %37 = load ptr, ptr %36, align 8, !tbaa !3871
   %.not.i.i.i.i.i.i = icmp eq ptr %37, null
@@ -142999,7 +142976,7 @@ _ZN4absl23inlined_vector_internal7StorageIiLm4ENS_18container_internal17Counting
 .lr.ph.split.us.i.i:                              ; preds = %.lr.ph.i.i, %.lr.ph.split.us.i.i
   %.013.us.i.i = phi i64 [ %42, %.lr.ph.split.us.i.i ], [ 0, %.lr.ph.i.i ]
   %38 = phi ptr [ %41, %.lr.ph.split.us.i.i ], [ %35, %.lr.ph.i.i ]
-  %39 = getelementptr inbounds nuw i32, ptr %33, i64 %.013.us.i.i
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %.013.us.i.i
   %40 = load i32, ptr %38, align 4, !tbaa !130
   store i32 %40, ptr %39, align 4, !tbaa !130
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 4
@@ -143010,7 +142987,7 @@ _ZN4absl23inlined_vector_internal7StorageIiLm4ENS_18container_internal17Counting
 .lr.ph.split.i.i:                                 ; preds = %.lr.ph.i.i, %.lr.ph.split.i.i
   %.013.i.i = phi i64 [ %47, %.lr.ph.split.i.i ], [ 0, %.lr.ph.i.i ]
   %43 = phi ptr [ %46, %.lr.ph.split.i.i ], [ %35, %.lr.ph.i.i ]
-  %44 = getelementptr inbounds nuw i32, ptr %33, i64 %.013.i.i
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %.013.i.i
   %45 = load i32, ptr %43, align 4, !tbaa !130
   store i32 %45, ptr %44, align 4, !tbaa !130
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 4
@@ -143041,7 +143018,7 @@ _ZN4absl23inlined_vector_internal7StorageIiLm4ENS_18container_internal17Counting
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %.lr.ph.split.us.i
   %.013.us.i = phi i64 [ %62, %.lr.ph.split.us.i ], [ 0, %.lr.ph.i ]
   %58 = phi ptr [ %61, %.lr.ph.split.us.i ], [ %53, %.lr.ph.i ]
-  %59 = getelementptr inbounds nuw i32, ptr %49, i64 %.013.us.i
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %.013.us.i
   %60 = load i32, ptr %58, align 4, !tbaa !130
   store i32 %60, ptr %59, align 4, !tbaa !130
   %61 = getelementptr inbounds nuw i8, ptr %58, i64 4
@@ -143056,7 +143033,7 @@ _ZN4absl23inlined_vector_internal7StorageIiLm4ENS_18container_internal17Counting
 63:                                               ; preds = %63, %.lr.ph.split.i
   %.013.i = phi i64 [ 0, %.lr.ph.split.i ], [ %68, %63 ]
   %64 = phi ptr [ %53, %.lr.ph.split.i ], [ %67, %63 ]
-  %65 = getelementptr inbounds nuw i32, ptr %49, i64 %.013.i
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %.013.i
   %66 = load i32, ptr %64, align 4, !tbaa !130
   store i32 %66, ptr %65, align 4, !tbaa !130
   %67 = getelementptr inbounds nuw i8, ptr %64, i64 4
@@ -143912,7 +143889,7 @@ _ZN7testing7MessageD2Ev.exit17:                   ; preds = %.body, %_ZNKSt14def
   %93 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %.021)
   %94 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %93, ptr noundef nonnull @.str.246, i64 noundef 1)
   %95 = load ptr, ptr %8, align 8, !tbaa !1169
-  %96 = getelementptr inbounds nuw %"class.testing::Matcher.350", ptr %95, i64 %.021
+  %96 = getelementptr inbounds nuw [24 x i8], ptr %95, i64 %.021
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
   %98 = load ptr, ptr %97, align 8, !tbaa !1159
   %99 = icmp ne ptr %98, null
@@ -144155,7 +144132,7 @@ _ZN7testing7MessageD2Ev.exit15:                   ; preds = %.body, %_ZNKSt14def
   %75 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %.017)
   %76 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %75, ptr noundef nonnull @.str.246, i64 noundef 1)
   %77 = load ptr, ptr %7, align 8, !tbaa !1169
-  %78 = getelementptr inbounds nuw %"class.testing::Matcher.350", ptr %77, i64 %.017
+  %78 = getelementptr inbounds nuw [24 x i8], ptr %77, i64 %.017
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %80 = load ptr, ptr %79, align 8, !tbaa !1159
   %81 = icmp ne ptr %80, null
@@ -144257,7 +144234,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %25 = shl nuw nsw i64 %23, 5
   %26 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %25) #42
   store ptr %26, ptr %9, align 8, !tbaa !64
-  %27 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %26, i64 %23
+  %27 = getelementptr inbounds nuw [32 x i8], ptr %26, i64 %23
   %28 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %27, ptr %28, align 8, !tbaa !124
   br label %.lr.ph.i.i.i.i.i
@@ -144334,7 +144311,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 
 _ZN7testing25StringMatchResultListenerC2Ev.exit.us: ; preds = %68
   %69 = load ptr, ptr %16, align 8, !tbaa !1169
-  %70 = getelementptr inbounds nuw %"class.testing::Matcher.350", ptr %69, i64 %storemerge156.us
+  %70 = getelementptr inbounds nuw [24 x i8], ptr %69, i64 %storemerge156.us
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %72 = load ptr, ptr %71, align 8, !tbaa !1159
   %73 = icmp ne ptr %72, null
@@ -144395,7 +144372,7 @@ _ZNK7testing8internal11MatcherBaseIRKiE15MatchAndExplainES3_PNS_19MatchResultLis
 
 _ZNK7testing25StringMatchResultListener3strB5cxx11Ev.exit.us: ; preds = %90, %84
   %91 = load ptr, ptr %9, align 8, !tbaa !64
-  %92 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %91, i64 %storemerge156.us
+  %92 = getelementptr inbounds nuw [32 x i8], ptr %91, i64 %storemerge156.us
   %93 = load ptr, ptr %92, align 8, !tbaa !39
   %94 = getelementptr inbounds nuw i8, ptr %92, i64 16
   %95 = icmp eq ptr %93, %94
@@ -144523,7 +144500,7 @@ _ZN7testing25StringMatchResultListenerD2Ev.exit.us: ; preds = %_ZNSt7__cxx1112ba
   %136 = load ptr, ptr %37, align 8
   %137 = select i1 %135, ptr %136, ptr %37
   %138 = lshr i64 %134, 1
-  %139 = getelementptr inbounds nuw i32, ptr %137, i64 %138
+  %139 = getelementptr inbounds nuw [4 x i8], ptr %137, i64 %138
   %.not.us = icmp eq ptr %132, %139
   br i1 %.not.us, label %.critedge, label %.lr.ph.split.us, !llvm.loop !4143
 
@@ -144564,7 +144541,7 @@ _ZN7testing25StringMatchResultListenerD2Ev.exit.us: ; preds = %_ZNSt7__cxx1112ba
   br i1 %.not52, label %.critedge, label %152
 
 152:                                              ; preds = %.lr.ph.split
-  %153 = getelementptr inbounds nuw %"class.testing::Matcher.350", ptr %147, i64 %storemerge156
+  %153 = getelementptr inbounds nuw [24 x i8], ptr %147, i64 %storemerge156
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %40, align 8, !tbaa !448
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN7testing8internal24DummyMatchResultListenerE, i64 16), ptr %7, align 8, !tbaa !13
@@ -144642,7 +144619,7 @@ _ZNK7testing8internal11MatcherBaseIRKiE15MatchAndExplainES3_PNS_19MatchResultLis
   %174 = load ptr, ptr %37, align 8
   %175 = select i1 %173, ptr %174, ptr %37
   %176 = lshr i64 %172, 1
-  %177 = getelementptr inbounds nuw i32, ptr %175, i64 %176
+  %177 = getelementptr inbounds nuw [4 x i8], ptr %175, i64 %176
   %.not = icmp eq ptr %170, %177
   br i1 %.not, label %.critedge, label %.lr.ph.split, !llvm.loop !4143
 
@@ -144655,7 +144632,7 @@ _ZNK7testing8internal11MatcherBaseIRKiE15MatchAndExplainES3_PNS_19MatchResultLis
   %180 = load ptr, ptr %37, align 8
   %181 = select i1 %179, ptr %180, ptr %37
   %182 = lshr i64 %178, 1
-  %183 = getelementptr inbounds nuw i32, ptr %181, i64 %182
+  %183 = getelementptr inbounds nuw [4 x i8], ptr %181, i64 %182
   %.not56191 = icmp eq ptr %.040.lcssa, %183
   br i1 %.not56191, label %._crit_edge, label %.lr.ph194.preheader
 
@@ -144897,7 +144874,7 @@ _ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit: ; preds = %266
 _ZN7testing19MatchResultListenerlsIA15_cEERS0_RKT_.exit: ; preds = %268
   %.pre208 = load ptr, ptr %13, align 8, !tbaa !448
   %270 = load ptr, ptr %9, align 8, !tbaa !64
-  %271 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %270, i64 %storemerge.lcssa
+  %271 = getelementptr inbounds nuw [32 x i8], ptr %270, i64 %storemerge.lcssa
   %272 = getelementptr inbounds nuw i8, ptr %271, i64 8
   %273 = load i64, ptr %272, align 8, !tbaa !45
   %274 = icmp eq i64 %273, 0
@@ -144927,7 +144904,7 @@ _ZN7testing19MatchResultListenerlsIA15_cEERS0_RKT_.exit: ; preds = %268
 .lr.ph198:                                        ; preds = %.lr.ph198.preheader, %_ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit
   %.034197 = phi i1 [ %.1, %_ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit ], [ false, %.lr.ph198.preheader ]
   %storemerge58196 = phi i64 [ %302, %_ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit ], [ 0, %.lr.ph198.preheader ]
-  %282 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.pre, i64 %storemerge58196
+  %282 = getelementptr inbounds nuw [32 x i8], ptr %.pre, i64 %storemerge58196
   %283 = getelementptr inbounds nuw i8, ptr %282, i64 8
   %284 = load i64, ptr %283, align 8, !tbaa !45
   %285 = icmp eq i64 %284, 0
@@ -147466,7 +147443,7 @@ define linkonce_odr dso_local void @_ZN4absl13InlinedVectorISt6vectorIiNS_18cont
 10:                                               ; preds = %_ZNSt16allocator_traitsISt24scoped_allocator_adaptorIN4absl18container_internal17CountingAllocatorISt6vectorIiNS3_IiEEEEEJEEE7destroyIS6_EEvRS8_PT_.exit.i, %.lr.ph.i
   %.06.i = phi i64 [ %8, %.lr.ph.i ], [ %11, %_ZNSt16allocator_traitsISt24scoped_allocator_adaptorIN4absl18container_internal17CountingAllocatorISt6vectorIiNS3_IiEEEEEJEEE7destroyIS6_EEvRS8_PT_.exit.i ]
   %11 = add nsw i64 %.06.i, -1
-  %12 = getelementptr inbounds nuw %"class.std::vector.1156", ptr %7, i64 %11
+  %12 = getelementptr inbounds nuw [40 x i8], ptr %7, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8, !tbaa !4165
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 24
@@ -147643,7 +147620,7 @@ _ZNSt15__new_allocatorISt6vectorIiN4absl18container_internal17CountingAllocatorI
   store ptr %19, ptr %11, align 8, !tbaa !4173
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i64 %14, ptr %25, align 8, !tbaa !43
-  %26 = getelementptr inbounds nuw %"class.std::vector.1156", ptr %19, i64 %.sink1.i
+  %26 = getelementptr inbounds nuw [40 x i8], ptr %19, i64 %.sink1.i
   %27 = load ptr, ptr %0, align 8, !tbaa !4169
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !4166
@@ -147695,7 +147672,7 @@ _ZNSt16allocator_traitsISt24scoped_allocator_adaptorIN4absl18container_internal1
 .lr.ph.i:                                         ; preds = %43, %_ZNSt16allocator_traitsISt24scoped_allocator_adaptorIN4absl18container_internal17CountingAllocatorISt6vectorIiNS3_IiEEEEEJEEE7destroyIS6_EEvRS8_PT_.exit.i
   %.06.i = phi i64 [ %44, %_ZNSt16allocator_traitsISt24scoped_allocator_adaptorIN4absl18container_internal17CountingAllocatorISt6vectorIiNS3_IiEEEEEJEEE7destroyIS6_EEvRS8_PT_.exit.i ], [ %.sink1.i, %43 ]
   %44 = add nsw i64 %.06.i, -1
-  %45 = getelementptr inbounds nuw %"class.std::vector.1156", ptr %.sink2.i, i64 %44
+  %45 = getelementptr inbounds nuw [40 x i8], ptr %.sink2.i, i64 %44
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %47 = load ptr, ptr %46, align 8, !tbaa !4165
   %48 = getelementptr inbounds nuw i8, ptr %45, i64 24
@@ -147826,7 +147803,7 @@ define linkonce_odr dso_local void @_ZN4absl23inlined_vector_internal17Construct
   %9 = phi ptr [ %.pre15, %.lr.ph ], [ %13, %24 ]
   %10 = phi ptr [ %.pre, %.lr.ph ], [ %26, %24 ]
   %.013 = phi i64 [ 0, %.lr.ph ], [ %27, %24 ]
-  %11 = getelementptr inbounds nuw %"class.std::vector.1156", ptr %1, i64 %.013
+  %11 = getelementptr inbounds nuw [40 x i8], ptr %1, i64 %.013
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %12 = load ptr, ptr %0, align 8, !tbaa !4169
   store ptr %12, ptr %5, align 8, !tbaa !3873
@@ -147964,7 +147941,7 @@ define linkonce_odr dso_local void @_ZN4absl23inlined_vector_internal14DestroyAd
 5:                                                ; preds = %.lr.ph, %_ZNSt16allocator_traitsISt24scoped_allocator_adaptorIN4absl18container_internal17CountingAllocatorISt6vectorIiNS3_IiEEEEEJEEE7destroyIS6_EEvRS8_PT_.exit
   %.06 = phi i64 [ %2, %.lr.ph ], [ %6, %_ZNSt16allocator_traitsISt24scoped_allocator_adaptorIN4absl18container_internal17CountingAllocatorISt6vectorIiNS3_IiEEEEEJEEE7destroyIS6_EEvRS8_PT_.exit ]
   %6 = add i64 %.06, -1
-  %7 = getelementptr inbounds nuw %"class.std::vector.1156", ptr %1, i64 %6
+  %7 = getelementptr inbounds nuw [40 x i8], ptr %1, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !4165
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 24
@@ -148401,7 +148378,7 @@ _ZSt8_DestroyIPiN4absl18container_internal17CountingAllocatorIiEEEvT_S5_RT0_.exi
 _ZNSt12_Vector_baseIiN4absl18container_internal17CountingAllocatorIiEEE13_M_deallocateEPim.exit: ; preds = %_ZSt8_DestroyIPiN4absl18container_internal17CountingAllocatorIiEEEvT_S5_RT0_.exit, %56, %58
   store ptr %20, ptr %3, align 8, !tbaa !4165
   store ptr %.0.lcssa.i.i3863, ptr %4, align 8, !tbaa !4154
-  %61 = getelementptr inbounds nuw i32, ptr %20, i64 %16
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %16
   store ptr %61, ptr %52, align 8, !tbaa !4156
   ret void
 }
@@ -149161,7 +149138,7 @@ _ZNSt15__new_allocatorISt6vectorIiN4absl18container_internal17CountingAllocatorI
 40:                                               ; preds = %_ZNSt16allocator_traitsISt24scoped_allocator_adaptorIN4absl18container_internal17CountingAllocatorISt6vectorIiNS3_IiEEEEEJEEE7destroyIS6_EEvRS8_PT_.exit.i, %.lr.ph.i
   %.06.i = phi i64 [ %8, %.lr.ph.i ], [ %41, %_ZNSt16allocator_traitsISt24scoped_allocator_adaptorIN4absl18container_internal17CountingAllocatorISt6vectorIiNS3_IiEEEEEJEEE7destroyIS6_EEvRS8_PT_.exit.i ]
   %41 = add nsw i64 %.06.i, -1
-  %42 = getelementptr inbounds nuw %"class.std::vector.1156", ptr %5, i64 %41
+  %42 = getelementptr inbounds nuw [40 x i8], ptr %5, i64 %41
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %44 = load ptr, ptr %43, align 8, !tbaa !4165
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 24
@@ -149312,7 +149289,7 @@ define linkonce_odr dso_local void @_ZN4absl23inlined_vector_internal7StorageISt
 10:                                               ; preds = %_ZNSt16allocator_traitsISt24scoped_allocator_adaptorIN4absl18container_internal17CountingAllocatorISt6vectorIiNS3_IiEEEEEJEEE7destroyIS6_EEvRS8_PT_.exit.i, %.lr.ph.i
   %.06.i = phi i64 [ %8, %.lr.ph.i ], [ %11, %_ZNSt16allocator_traitsISt24scoped_allocator_adaptorIN4absl18container_internal17CountingAllocatorISt6vectorIiNS3_IiEEEEEJEEE7destroyIS6_EEvRS8_PT_.exit.i ]
   %11 = add nsw i64 %.06.i, -1
-  %12 = getelementptr inbounds nuw %"class.std::vector.1156", ptr %7, i64 %11
+  %12 = getelementptr inbounds nuw [40 x i8], ptr %7, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8, !tbaa !4165
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 24
@@ -152274,7 +152251,7 @@ _ZSt8_DestroyIPN7testing7MatcherIRKN4absl13InlinedVectorIiLm4ENS2_18container_in
 _ZNSt12_Vector_baseIN7testing7MatcherIRKN4absl13InlinedVectorIiLm4ENS2_18container_internal17CountingAllocatorIiEEEEEESaISA_EE13_M_deallocateEPSA_m.exit: ; preds = %_ZSt8_DestroyIPN7testing7MatcherIRKN4absl13InlinedVectorIiLm4ENS2_18container_internal17CountingAllocatorIiEEEEEESA_EvT_SC_RSaIT0_E.exit, %61
   store ptr %20, ptr %0, align 8, !tbaa !4191
   store ptr %.0.lcssa.i.i.i.i.i36, ptr %4, align 8, !tbaa !4194
-  %65 = getelementptr inbounds nuw %"class.testing::Matcher.1126", ptr %20, i64 %16
+  %65 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %65, ptr %60, align 8, !tbaa !4195
   ret void
 }
@@ -153105,7 +153082,7 @@ _ZN7testing25StringMatchResultListenerD2Ev.exit:  ; preds = %99, %_ZNKSt7__cxx11
   %113 = load ptr, ptr %10, align 8
   %114 = select i1 %112, ptr %113, ptr %10
   %115 = lshr i64 %111, 1
-  %116 = getelementptr inbounds nuw i32, ptr %114, i64 %115
+  %116 = getelementptr inbounds nuw [4 x i8], ptr %114, i64 %115
   %.not = icmp eq ptr %109, %116
   br i1 %.not, label %._crit_edge, label %39, !llvm.loop !4289
 
@@ -153227,7 +153204,7 @@ define linkonce_odr dso_local void @_ZNK7testing8internal16AllOfMatcherImplIRKN4
 .split9:                                          ; preds = %.lr.ph
   %11 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.387, i64 noundef 7)
   %12 = load ptr, ptr %5, align 8, !tbaa !4191
-  %13 = getelementptr inbounds nuw %"class.testing::Matcher.1126", ptr %12, i64 %.010
+  %13 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %.010
   br label %.split
 
 .split:                                           ; preds = %.lr.ph, %.split9
@@ -153296,7 +153273,7 @@ define linkonce_odr dso_local void @_ZNK7testing8internal16AllOfMatcherImplIRKN4
 .split9:                                          ; preds = %.lr.ph
   %11 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.388, i64 noundef 6)
   %12 = load ptr, ptr %5, align 8, !tbaa !4191
-  %13 = getelementptr inbounds nuw %"class.testing::Matcher.1126", ptr %12, i64 %.010
+  %13 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %.010
   br label %.split
 
 .split:                                           ; preds = %.lr.ph, %.split9
@@ -154285,7 +154262,7 @@ _ZNSt16allocator_traitsISaIN4absl13InlinedVectorIiLm4ESaIiEEEEE9constructIS3_JRK
 59:                                               ; preds = %.lr.ph
   %60 = load ptr, ptr %11, align 8, !noalias !4334
   %.sink2.i.i.i.i = select i1 %57, ptr %60, ptr %11
-  %61 = getelementptr inbounds nuw i32, ptr %.sink2.i.i.i.i, i64 %.sink1.i.i.i.i
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %.sink2.i.i.i.i, i64 %.sink1.i.i.i.i
   store i32 %storemerge45, ptr %61, align 4, !tbaa !130
   %62 = add i64 %56, 2
   store i64 %62, ptr %4, align 8, !tbaa !43
@@ -154683,7 +154660,7 @@ define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(4) ptr @_Z
 _ZN4absl23inlined_vector_internal13MallocAdapterISaIiELb0EE8AllocateERS2_m.exit.i: ; preds = %2
   %14 = shl nuw nsw i64 %10, 2
   %15 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %14) #42
-  %16 = getelementptr inbounds nuw i32, ptr %15, i64 %.sink1.i
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %.sink1.i
   %17 = load i32, ptr %1, align 4, !tbaa !130
   store i32 %17, ptr %16, align 4, !tbaa !130
   %.not.i = icmp eq i64 %.sink1.i, 0
@@ -154696,7 +154673,7 @@ _ZN4absl23inlined_vector_internal13MallocAdapterISaIiELb0EE8AllocateERS2_m.exit.
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %.012.i = phi i64 [ %22, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
   %18 = phi ptr [ %21, %.lr.ph.i ], [ %.sink2.i, %.lr.ph.i.preheader ]
-  %19 = getelementptr inbounds nuw i32, ptr %15, i64 %.012.i
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %.012.i
   %20 = load i32, ptr %18, align 4, !tbaa !130
   store i32 %20, ptr %19, align 4, !tbaa !130
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 4
@@ -154846,7 +154823,7 @@ _ZNSt6vectorIN4absl13InlinedVectorIiLm4ESaIiEEESaIS3_EE11_S_relocateEPS3_S6_S6_R
 _ZNSt12_Vector_baseIN4absl13InlinedVectorIiLm4ESaIiEEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorIN4absl13InlinedVectorIiLm4ESaIiEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit32, %51
   store ptr %20, ptr %0, align 8, !tbaa !4339
   store ptr %.0.lcssa.i.i.i31, ptr %4, align 8, !tbaa !4330
-  %55 = getelementptr inbounds nuw %"class.absl::InlinedVector.833", ptr %20, i64 %16
+  %55 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %55, ptr %50, align 8, !tbaa !4333
   ret void
 
@@ -154947,7 +154924,7 @@ define linkonce_odr dso_local void @_ZN4absl23inlined_vector_internal7StorageIiL
 
 .lr.ph.preheader.i:                               ; preds = %9
   %10 = sub i64 %1, %.sink1.i
-  %11 = getelementptr inbounds nuw i32, ptr %.sink2.i, i64 %.sink1.i
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %.sink2.i, i64 %.sink1.i
   %12 = shl nuw i64 %10, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %11, i8 0, i64 %12, i1 false), !tbaa !130
   br label %_ZN4absl23inlined_vector_internal17ConstructElementsISaIiENS0_19DefaultValueAdapterIS2_EEEEvRNS_8internal13type_identityIT_E4typeENSt16allocator_traitsIS7_E7pointerERT0_NSC_9size_typeE.exit
@@ -154974,7 +154951,7 @@ _ZN4absl23inlined_vector_internal13MallocAdapterISaIiELb0EE8AllocateERS2_m.exit.
   %18 = shl nuw nsw i64 %.sroa.speculated.i, 2
   %19 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %18) #42
   %20 = sub i64 %1, %.sink1.i
-  %21 = getelementptr inbounds nuw i32, ptr %19, i64 %.sink1.i
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %.sink1.i
   %22 = shl nuw i64 %20, 2
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %21, i8 0, i64 %22, i1 false), !tbaa !130
   %.not.i46 = icmp eq i64 %.sink1.i, 0
@@ -154983,7 +154960,7 @@ _ZN4absl23inlined_vector_internal13MallocAdapterISaIiELb0EE8AllocateERS2_m.exit.
 .lr.ph.i:                                         ; preds = %_ZN4absl23inlined_vector_internal13MallocAdapterISaIiELb0EE8AllocateERS2_m.exit.i, %.lr.ph.i
   %.012.i = phi i64 [ %27, %.lr.ph.i ], [ 0, %_ZN4absl23inlined_vector_internal13MallocAdapterISaIiELb0EE8AllocateERS2_m.exit.i ]
   %23 = phi ptr [ %26, %.lr.ph.i ], [ %.sink2.i, %_ZN4absl23inlined_vector_internal13MallocAdapterISaIiELb0EE8AllocateERS2_m.exit.i ]
-  %24 = getelementptr inbounds nuw i32, ptr %19, i64 %.012.i
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %.012.i
   %25 = load i32, ptr %23, align 4, !tbaa !130
   store i32 %25, ptr %24, align 4, !tbaa !130
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 4
@@ -155282,7 +155259,7 @@ _ZNSt6vectorIZN4absl13hash_internal37VerifyTypeImplementsAbslHashCorrectlyIS_ISt
 _ZNSt6vectorIZN4absl13hash_internal37VerifyTypeImplementsAbslHashCorrectlyIS_ISt7variantIJPKNS0_13InlinedVectorIiLm4ESaIiEEEEESaIS9_EENS1_13DefaultEqualsEEEN7testing15AssertionResultERKT_T0_E4InfoSaISJ_EE17_M_realloc_insertIJSJ_EEEvN9__gnu_cxx17__normal_iteratorIPSJ_SL_EEDpOT_.exit.i.i: ; preds = %157, %_ZNSt6vectorIZN4absl13hash_internal37VerifyTypeImplementsAbslHashCorrectlyIS_ISt7variantIJPKNS0_13InlinedVectorIiLm4ESaIiEEEEESaIS9_EENS1_13DefaultEqualsEEEN7testing15AssertionResultERKT_T0_E4InfoSaISJ_EE11_S_relocateEPSJ_SM_SM_RSK_.exit16.i.i.i
   store ptr %152, ptr %.371, align 8, !tbaa !4364
   store ptr %156, ptr %133, align 8, !tbaa !4372
-  %158 = getelementptr inbounds nuw %struct.Info, ptr %152, i64 %150
+  %158 = getelementptr inbounds nuw [16 x i8], ptr %152, i64 %150
   store ptr %158, ptr %135, align 8, !tbaa !4373
   br label %_ZNSt6vectorIZN4absl13hash_internal37VerifyTypeImplementsAbslHashCorrectlyIS_ISt7variantIJPKNS0_13InlinedVectorIiLm4ESaIiEEEEESaIS9_EENS1_13DefaultEqualsEEEN7testing15AssertionResultERKT_T0_E4InfoSaISJ_EE9push_backEOSJ_.exit
 
@@ -159623,7 +159600,7 @@ _ZNSt6vectorISt7variantIJPKN4absl13InlinedVectorIiLm4ESaIiEEEEESaIS7_EE11_S_relo
 
 _ZNSt6vectorISt7variantIJPKN4absl13InlinedVectorIiLm4ESaIiEEEEESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i.i: ; preds = %31, %_ZNSt6vectorISt7variantIJPKN4absl13InlinedVectorIiLm4ESaIiEEEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22.i.i.i
   store ptr %30, ptr %6, align 8, !tbaa !4647
-  %32 = getelementptr inbounds nuw %"class.std::variant", ptr %26, i64 %24
+  %32 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %24
   store ptr %32, ptr %7, align 8, !tbaa !4329
   br label %_ZNSt6vectorISt7variantIJPKN4absl13InlinedVectorIiLm4ESaIiEEEEESaIS7_EE9push_backEOS7_.exit
 
@@ -160181,7 +160158,7 @@ _ZNSt6vectorIS_IZN4absl13hash_internal37VerifyTypeImplementsAbslHashCorrectlyIS_
 _ZNSt12_Vector_baseISt6vectorIZN4absl13hash_internal37VerifyTypeImplementsAbslHashCorrectlyIS0_ISt7variantIJPKNS1_13InlinedVectorIiLm4ESaIiEEEEESaISA_EENS2_13DefaultEqualsEEEN7testing15AssertionResultERKT_T0_E4InfoSaISK_EESaISM_EE13_M_deallocateEPSM_m.exit: ; preds = %_ZNSt6vectorIS_IZN4absl13hash_internal37VerifyTypeImplementsAbslHashCorrectlyIS_ISt7variantIJPKNS0_13InlinedVectorIiLm4ESaIiEEEEESaIS9_EENS1_13DefaultEqualsEEEN7testing15AssertionResultERKT_T0_E4InfoSaISJ_EESaISL_EE11_S_relocateEPSL_SO_SO_RSM_.exit21, %41
   store ptr %19, ptr %0, align 8, !tbaa !4408
   store ptr %.0.lcssa.i.i.i20, ptr %3, align 8, !tbaa !4371
-  %45 = getelementptr inbounds nuw %"class.std::vector.1233", ptr %19, i64 %15
+  %45 = getelementptr inbounds nuw [24 x i8], ptr %19, i64 %15
   store ptr %45, ptr %40, align 8, !tbaa !4369
   ret void
 }
@@ -164019,7 +163996,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit38, %76
   store ptr %24, ptr %0, align 8, !tbaa !64
   store ptr %.0.lcssa.i.i.i37, ptr %6, align 8, !tbaa !122
-  %80 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %24, i64 %18
+  %80 = getelementptr inbounds nuw [32 x i8], ptr %24, i64 %18
   store ptr %80, ptr %75, align 8, !tbaa !124
   ret void
 
@@ -165500,7 +165477,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZN4absl
   %.02.i.i.i = phi i64 [ %13, %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_129MoveConstructibleOnlyInstanceEEE7destroyIS1_EEvRS2_PT_.exit.i.i.i ], [ %8, %.lr.ph.preheader.i.i.i ]
   %12 = phi i32 [ %19, %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_129MoveConstructibleOnlyInstanceEEE7destroyIS1_EEvRS2_PT_.exit.i.i.i ], [ %_ZN4absl13test_internal19BaseCountedInstance19num_live_instances_E.promoted.i.i.i, %.lr.ph.preheader.i.i.i ]
   %13 = add nsw i64 %.02.i.i.i, -1
-  %14 = getelementptr inbounds nuw %"class.(anonymous namespace)::MoveConstructibleOnlyInstance", ptr %7, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %13
   %15 = getelementptr i8, ptr %14, i64 4
   %.val.i3.i.i = load i8, ptr %15, align 4, !tbaa !2235, !range !35, !noundef !36
   %16 = trunc nuw i8 %.val.i3.i.i to i1
@@ -165552,7 +165529,7 @@ _ZN4absl13InlinedVectorIN12_GLOBAL__N_129MoveConstructibleOnlyInstanceELm2ESaIS2
   %.02.i.i = phi i64 [ %29, %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_129MoveConstructibleOnlyInstanceEEE7destroyIS1_EEvRS2_PT_.exit.i.i ], [ %8, %.lr.ph.preheader.i.i ]
   %28 = phi i32 [ %35, %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_129MoveConstructibleOnlyInstanceEEE7destroyIS1_EEvRS2_PT_.exit.i.i ], [ %_ZN4absl13test_internal19BaseCountedInstance19num_live_instances_E.promoted.i.i, %.lr.ph.preheader.i.i ]
   %29 = add nsw i64 %.02.i.i, -1
-  %30 = getelementptr inbounds nuw %"class.(anonymous namespace)::MoveConstructibleOnlyInstance", ptr %7, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %29
   %31 = getelementptr i8, ptr %30, i64 4
   %.val.i10.i = load i8, ptr %31, align 4, !tbaa !2235, !range !35, !noundef !36
   %32 = trunc nuw i8 %.val.i10.i to i1
@@ -165589,7 +165566,7 @@ _ZN4absl23inlined_vector_internal7StorageIN12_GLOBAL__N_129MoveConstructibleOnly
   %.03.i.i = phi i64 [ %49, %.lr.ph.i15.i ], [ 0, %_ZN4absl23inlined_vector_internal7StorageIN12_GLOBAL__N_129MoveConstructibleOnlyInstanceELm2ESaIS3_EE21DeallocateIfAllocatedEv.exit.i ]
   %.val.i12.i.pn.i = phi ptr [ %.val.i12.i.i, %.lr.ph.i15.i ], [ %1, %_ZN4absl23inlined_vector_internal7StorageIN12_GLOBAL__N_129MoveConstructibleOnlyInstanceELm2ESaIS3_EE21DeallocateIfAllocatedEv.exit.i ]
   %.val.i12.i.i = getelementptr inbounds nuw i8, ptr %.val.i12.i.pn.i, i64 8
-  %40 = getelementptr inbounds nuw %"class.(anonymous namespace)::MoveConstructibleOnlyInstance", ptr %6, i64 %.03.i.i
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.03.i.i
   %41 = load i32, ptr %.val.i12.i.i, align 4, !tbaa !2233
   store i32 %41, ptr %40, align 8, !tbaa !2233
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 4
@@ -166835,7 +166812,7 @@ define internal fastcc void @_ZN4absl23inlined_vector_internal7StorageIN12_GLOBA
 _ZN4absl23inlined_vector_internal13MallocAdapterISaIN12_GLOBAL__N_129MoveConstructibleOnlyInstanceEELb0EE8AllocateERS4_m.exit.i: ; preds = %1
   %10 = shl nuw nsw i64 %6, 3
   %11 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %10) #42
-  %12 = getelementptr inbounds nuw %"class.(anonymous namespace)::MoveConstructibleOnlyInstance", ptr %11, i64 %.sink5.i
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.sink5.i
   store i32 %.0.val, ptr %12, align 4, !tbaa !2233
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i8 1, ptr %13, align 4, !tbaa !2235
@@ -166857,7 +166834,7 @@ _ZN4absl23inlined_vector_internal13MallocAdapterISaIN12_GLOBAL__N_129MoveConstru
   %19 = phi i32 [ %25, %.lr.ph.i ], [ %15, %.lr.ph.i.preheader ]
   %.03.i = phi i64 [ %28, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
   %.val.i12.i = phi ptr [ %27, %.lr.ph.i ], [ %.sink6.i, %.lr.ph.i.preheader ]
-  %20 = getelementptr inbounds nuw %"class.(anonymous namespace)::MoveConstructibleOnlyInstance", ptr %11, i64 %.03.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.03.i
   %21 = load i32, ptr %.val.i12.i, align 4, !tbaa !2233
   store i32 %21, ptr %20, align 4, !tbaa !2233
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 4
@@ -166884,7 +166861,7 @@ _ZN4absl23inlined_vector_internal13MallocAdapterISaIN12_GLOBAL__N_129MoveConstru
   %.02.i = phi i64 [ %32, %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_129MoveConstructibleOnlyInstanceEEE7destroyIS1_EEvRS2_PT_.exit.i ], [ %.sink5.i, %.lr.ph.i ]
   %31 = phi i32 [ %38, %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_129MoveConstructibleOnlyInstanceEEE7destroyIS1_EEvRS2_PT_.exit.i ], [ %17, %.lr.ph.i ]
   %32 = add nsw i64 %.02.i, -1
-  %33 = getelementptr inbounds nuw %"class.(anonymous namespace)::MoveConstructibleOnlyInstance", ptr %.sink6.i, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %.sink6.i, i64 %32
   %34 = getelementptr i8, ptr %33, i64 4
   %.val.i23 = load i8, ptr %34, align 4, !tbaa !2235, !range !35, !noundef !36
   %35 = trunc nuw i8 %.val.i23 to i1
@@ -168341,7 +168318,7 @@ define internal fastcc void @_ZN4absl23inlined_vector_internal7StorageIN12_GLOBA
   %.02.i = phi i64 [ %9, %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_129MoveConstructibleOnlyInstanceEEE7destroyIS1_EEvRS2_PT_.exit.i ], [ %5, %.lr.ph.preheader.i ]
   %8 = phi i32 [ %15, %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_129MoveConstructibleOnlyInstanceEEE7destroyIS1_EEvRS2_PT_.exit.i ], [ %_ZN4absl13test_internal19BaseCountedInstance19num_live_instances_E.promoted.i, %.lr.ph.preheader.i ]
   %9 = add nsw i64 %.02.i, -1
-  %10 = getelementptr inbounds nuw %"class.(anonymous namespace)::MoveConstructibleOnlyInstance", ptr %4, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %9
   %11 = getelementptr i8, ptr %10, i64 4
   %.val.i = load i8, ptr %11, align 4, !tbaa !2235, !range !35, !noundef !36
   %12 = trunc nuw i8 %.val.i to i1
@@ -169639,7 +169616,7 @@ _ZN4absl13InlinedVectorIN12_GLOBAL__N_129MoveConstructibleOnlyInstanceELm2ESaIS2
 43:                                               ; preds = %_ZN4absl13InlinedVectorIN12_GLOBAL__N_129MoveConstructibleOnlyInstanceELm2ESaIS2_EE12emplace_backIJiEEERS2_DpOT_.exit98
   %.val1.i.i.i104 = load ptr, ptr %37, align 8, !noalias !4876
   %.sink6.i.i.i105 = select i1 %42, ptr %.val1.i.i.i104, ptr %37
-  %44 = getelementptr inbounds nuw %"class.(anonymous namespace)::MoveConstructibleOnlyInstance", ptr %.sink6.i.i.i105, i64 %.sink5.i.i.i102
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %.sink6.i.i.i105, i64 %.sink5.i.i.i102
   store i32 7, ptr %44, align 4, !tbaa !2233
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 4
   store i8 1, ptr %45, align 4, !tbaa !2235
@@ -171429,16 +171406,16 @@ _ZN4absl13test_internal19BaseCountedInstanceD2Ev.exit.i.i.i: ; preds = %12, %_ZN
 
 _ZN4absl23inlined_vector_internal7StorageIN12_GLOBAL__N_120NonSwappableInstanceELm2ESaIS3_EE5SwapNENS5_26ElementwiseConstructPolicyEPS5_m.exit.i.i: ; preds = %._crit_edge.i.i.i, %12
   %29 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 8
-  %30 = getelementptr inbounds nuw %"class.(anonymous namespace)::NonSwappableInstance", ptr %29, i64 %16
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %16
   %31 = getelementptr inbounds nuw i8, ptr %spec.select30.i.i, i64 8
-  %32 = getelementptr inbounds nuw %"class.(anonymous namespace)::NonSwappableInstance", ptr %31, i64 %16
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %16
   %.not.i13.i.i = icmp eq i64 %18, 0
   br i1 %.not.i13.i.i, label %_ZN4absl23inlined_vector_internal7StorageIN12_GLOBAL__N_120NonSwappableInstanceELm2ESaIS3_EE4SwapEPS5_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN4absl23inlined_vector_internal7StorageIN12_GLOBAL__N_120NonSwappableInstanceELm2ESaIS3_EE5SwapNENS5_26ElementwiseConstructPolicyEPS5_m.exit.i.i, %.lr.ph.i.i.i
   %.03.i.i.i = phi i64 [ %43, %.lr.ph.i.i.i ], [ 0, %_ZN4absl23inlined_vector_internal7StorageIN12_GLOBAL__N_120NonSwappableInstanceELm2ESaIS3_EE5SwapNENS5_26ElementwiseConstructPolicyEPS5_m.exit.i.i ]
   %.val.i12.i.i.i = phi ptr [ %42, %.lr.ph.i.i.i ], [ %30, %_ZN4absl23inlined_vector_internal7StorageIN12_GLOBAL__N_120NonSwappableInstanceELm2ESaIS3_EE5SwapNENS5_26ElementwiseConstructPolicyEPS5_m.exit.i.i ]
-  %33 = getelementptr inbounds nuw %"class.(anonymous namespace)::NonSwappableInstance", ptr %32, i64 %.03.i.i.i
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.03.i.i.i
   %34 = load i32, ptr %.val.i12.i.i.i, align 4, !tbaa !2233
   store i32 %34, ptr %33, align 8, !tbaa !2233
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 4
@@ -171471,7 +171448,7 @@ _ZN4absl23inlined_vector_internal7StorageIN12_GLOBAL__N_120NonSwappableInstanceE
   %.02.i.i.i = phi i64 [ %47, %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_120NonSwappableInstanceEEE7destroyIS1_EEvRS2_PT_.exit.i.i.i ], [ %18, %.lr.ph.preheader.i16.i.i ]
   %46 = phi i32 [ %53, %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_120NonSwappableInstanceEEE7destroyIS1_EEvRS2_PT_.exit.i.i.i ], [ %_ZN4absl13test_internal19BaseCountedInstance19num_live_instances_E.promoted.i.i.i, %.lr.ph.preheader.i16.i.i ]
   %47 = add i64 %.02.i.i.i, -1
-  %48 = getelementptr inbounds nuw %"class.(anonymous namespace)::NonSwappableInstance", ptr %30, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %47
   %49 = getelementptr i8, ptr %48, i64 4
   %.val.i.i.i = load i8, ptr %49, align 4, !tbaa !2235, !range !35, !noundef !36
   %50 = trunc nuw i8 %.val.i.i.i to i1
@@ -171503,7 +171480,7 @@ _ZNSt16allocator_traitsISaIN12_GLOBAL__N_120NonSwappableInstanceEEE7destroyIS1_E
 .lr.ph.i.i:                                       ; preds = %.thread43.i, %.lr.ph.i.i
   %.03.i.i = phi i64 [ %68, %.lr.ph.i.i ], [ 0, %.thread43.i ]
   %.val.i12.i.i = phi ptr [ %67, %.lr.ph.i.i ], [ %56, %.thread43.i ]
-  %58 = getelementptr inbounds nuw %"class.(anonymous namespace)::NonSwappableInstance", ptr %54, i64 %.03.i.i
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %.03.i.i
   %59 = load i32, ptr %.val.i12.i.i, align 4, !tbaa !2233
   store i32 %59, ptr %58, align 8, !tbaa !2233
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 4
@@ -171536,7 +171513,7 @@ _ZNSt16allocator_traitsISaIN12_GLOBAL__N_120NonSwappableInstanceEEE7destroyIS1_E
   %.02.i.i = phi i64 [ %72, %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_120NonSwappableInstanceEEE7destroyIS1_EEvRS2_PT_.exit.i.i ], [ %57, %.lr.ph.preheader.i25.i ]
   %71 = phi i32 [ %78, %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_120NonSwappableInstanceEEE7destroyIS1_EEvRS2_PT_.exit.i.i ], [ %_ZN4absl13test_internal19BaseCountedInstance19num_live_instances_E.promoted.i.i, %.lr.ph.preheader.i25.i ]
   %72 = add nsw i64 %.02.i.i, -1
-  %73 = getelementptr %"class.(anonymous namespace)::NonSwappableInstance", ptr %.042.i, i64 %.02.i.i
+  %73 = getelementptr [8 x i8], ptr %.042.i, i64 %.02.i.i
   %74 = getelementptr i8, ptr %73, i64 4
   %.val.i.i = load i8, ptr %74, align 4, !tbaa !2235, !range !35, !noundef !36
   %75 = trunc nuw i8 %.val.i.i to i1
@@ -172762,7 +172739,7 @@ define internal fastcc void @_ZN4absl23inlined_vector_internal7StorageIN12_GLOBA
 _ZN4absl23inlined_vector_internal13MallocAdapterISaIN12_GLOBAL__N_120NonSwappableInstanceEELb0EE8AllocateERS4_m.exit.i: ; preds = %1
   %10 = shl nuw nsw i64 %6, 3
   %11 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %10) #42
-  %12 = getelementptr inbounds nuw %"class.(anonymous namespace)::NonSwappableInstance", ptr %11, i64 %.sink5.i
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.sink5.i
   store i32 %.0.val, ptr %12, align 4, !tbaa !2233
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i8 1, ptr %13, align 4, !tbaa !2235
@@ -172784,7 +172761,7 @@ _ZN4absl23inlined_vector_internal13MallocAdapterISaIN12_GLOBAL__N_120NonSwappabl
   %19 = phi i32 [ %25, %.lr.ph.i ], [ %15, %.lr.ph.i.preheader ]
   %.03.i = phi i64 [ %28, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
   %.val.i12.i = phi ptr [ %27, %.lr.ph.i ], [ %.sink6.i, %.lr.ph.i.preheader ]
-  %20 = getelementptr inbounds nuw %"class.(anonymous namespace)::NonSwappableInstance", ptr %11, i64 %.03.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.03.i
   %21 = load i32, ptr %.val.i12.i, align 4, !tbaa !2233
   store i32 %21, ptr %20, align 4, !tbaa !2233
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 4
@@ -172811,7 +172788,7 @@ _ZN4absl23inlined_vector_internal13MallocAdapterISaIN12_GLOBAL__N_120NonSwappabl
   %.02.i = phi i64 [ %32, %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_120NonSwappableInstanceEEE7destroyIS1_EEvRS2_PT_.exit.i ], [ %.sink5.i, %.lr.ph.i ]
   %31 = phi i32 [ %38, %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_120NonSwappableInstanceEEE7destroyIS1_EEvRS2_PT_.exit.i ], [ %17, %.lr.ph.i ]
   %32 = add nsw i64 %.02.i, -1
-  %33 = getelementptr inbounds nuw %"class.(anonymous namespace)::NonSwappableInstance", ptr %.sink6.i, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %.sink6.i, i64 %32
   %34 = getelementptr i8, ptr %33, i64 4
   %.val.i23 = load i8, ptr %34, align 4, !tbaa !2235, !range !35, !noundef !36
   %35 = trunc nuw i8 %.val.i23 to i1
@@ -174268,7 +174245,7 @@ define internal fastcc void @_ZN4absl23inlined_vector_internal7StorageIN12_GLOBA
   %.02.i = phi i64 [ %9, %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_120NonSwappableInstanceEEE7destroyIS1_EEvRS2_PT_.exit.i ], [ %5, %.lr.ph.preheader.i ]
   %8 = phi i32 [ %15, %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_120NonSwappableInstanceEEE7destroyIS1_EEvRS2_PT_.exit.i ], [ %_ZN4absl13test_internal19BaseCountedInstance19num_live_instances_E.promoted.i, %.lr.ph.preheader.i ]
   %9 = add nsw i64 %.02.i, -1
-  %10 = getelementptr inbounds nuw %"class.(anonymous namespace)::NonSwappableInstance", ptr %4, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %9
   %11 = getelementptr i8, ptr %10, i64 4
   %.val.i = load i8, ptr %11, align 4, !tbaa !2235, !range !35, !noundef !36
   %12 = trunc nuw i8 %.val.i to i1
@@ -175120,7 +175097,7 @@ _ZN4absl13InlinedVectorIN12_GLOBAL__N_120NonSwappableInstanceELm2ESaIS2_EE12empl
 46:                                               ; preds = %_ZN4absl13InlinedVectorIN12_GLOBAL__N_120NonSwappableInstanceELm2ESaIS2_EE12emplace_backIJiEEERS2_DpOT_.exit127
   %.val1.i.i.i133 = load ptr, ptr %40, align 8, !noalias !5003
   %.sink6.i.i.i134 = select i1 %45, ptr %.val1.i.i.i133, ptr %40
-  %47 = getelementptr inbounds nuw %"class.(anonymous namespace)::NonSwappableInstance", ptr %.sink6.i.i.i134, i64 %.sink5.i.i.i131
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %.sink6.i.i.i134, i64 %.sink5.i.i.i131
   store i32 7, ptr %47, align 4, !tbaa !2233
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 4
   store i8 1, ptr %48, align 4, !tbaa !2235
@@ -177711,7 +177688,7 @@ _ZN7testing7MessageD2Ev.exit12.i:                 ; preds = %_ZNKSt14default_del
 _ZNSt16allocator_traitsISaIN4absl13test_internal20CopyableOnlyInstanceEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i: ; preds = %.lr.ph
   %188 = load ptr, ptr %.033.i.sroa.gep, align 8, !noalias !5025
   %.sink2.i.i.i.i = select i1 %186, ptr %188, ptr %.033.i.sroa.gep
-  %189 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %.sink2.i.i.i.i, i64 %.sink1.i.i.i.i
+  %189 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i.i.i.i, i64 %.sink1.i.i.i.i
   store i32 %182, ptr %189, align 4, !tbaa !2233
   %190 = getelementptr inbounds nuw i8, ptr %189, i64 4
   store i8 1, ptr %190, align 4, !tbaa !2235
@@ -177899,7 +177876,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit17.i: ; preds = %_
 _ZNSt16allocator_traitsISaIN4absl13test_internal20CopyableOnlyInstanceEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i138: ; preds = %.lr.ph728
   %256 = load ptr, ptr %.033.i.sroa.gep539, align 8, !noalias !5032
   %.sink2.i.i.i.i137 = select i1 %254, ptr %256, ptr %.033.i.sroa.gep539
-  %257 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %.sink2.i.i.i.i137, i64 %.sink1.i.i.i.i135
+  %257 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i.i.i.i137, i64 %.sink1.i.i.i.i135
   store i32 %250, ptr %257, align 4, !tbaa !2233
   %258 = getelementptr inbounds nuw i8, ptr %257, i64 4
   store i8 1, ptr %258, align 4, !tbaa !2235
@@ -178148,9 +178125,9 @@ _ZN4absl23inlined_vector_internal7StorageINS_13test_internal20CopyableOnlyInstan
 
 _ZN4absl23inlined_vector_internal7StorageINS_13test_internal20CopyableOnlyInstanceELm8ESaIS3_EE5SwapNENS5_21ElementwiseSwapPolicyEPS5_m.exit.i.i: ; preds = %_ZN4absl23inlined_vector_internal7StorageINS_13test_internal20CopyableOnlyInstanceELm8ESaIS3_EE5SwapNENS5_21ElementwiseSwapPolicyEPS5_m.exit.i.i.loopexit, %332
   %spec.select.i.i.sroa.sel = select i1 %333, ptr %.033.i.sroa.gep, ptr %.033.i.sroa.gep539
-  %352 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %spec.select.i.i.sroa.sel, i64 %336
+  %352 = getelementptr inbounds nuw [8 x i8], ptr %spec.select.i.i.sroa.sel, i64 %336
   %spec.select25.i.i.sroa.sel = select i1 %333, ptr %.033.i.sroa.gep539, ptr %.033.i.sroa.gep
-  %353 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %spec.select25.i.i.sroa.sel, i64 %336
+  %353 = getelementptr inbounds nuw [8 x i8], ptr %spec.select25.i.i.sroa.sel, i64 %336
   %.not.i.i.i349 = icmp eq i64 %338, 0
   br i1 %.not.i.i.i349, label %411, label %.lr.ph.i.i.i.preheader
 
@@ -178165,7 +178142,7 @@ _ZN4absl23inlined_vector_internal7StorageINS_13test_internal20CopyableOnlyInstan
   %356 = phi i32 [ %363, %367 ], [ %_ZN4absl13test_internal19BaseCountedInstance14num_instances_E.promoted, %.lr.ph.i.i.i.preheader ]
   %.012.i.i.i = phi i64 [ %370, %367 ], [ 0, %.lr.ph.i.i.i.preheader ]
   %357 = phi ptr [ %369, %367 ], [ %352, %.lr.ph.i.i.i.preheader ]
-  %358 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %353, i64 %.012.i.i.i
+  %358 = getelementptr inbounds nuw [8 x i8], ptr %353, i64 %.012.i.i.i
   %359 = load i32, ptr %357, align 4, !tbaa !2233
   store i32 %359, ptr %358, align 8, !tbaa !2233
   %360 = getelementptr inbounds nuw i8, ptr %358, i64 4
@@ -178201,7 +178178,7 @@ _ZN4absl23inlined_vector_internal7StorageINS_13test_internal20CopyableOnlyInstan
   %.06.i.i.i = phi i64 [ %374, %_ZNSt16allocator_traitsISaIN4absl13test_internal20CopyableOnlyInstanceEEE7destroyIS2_EEvRS3_PT_.exit.i.i.i ], [ %338, %367 ]
   %373 = phi i32 [ %381, %_ZNSt16allocator_traitsISaIN4absl13test_internal20CopyableOnlyInstanceEEE7destroyIS2_EEvRS3_PT_.exit.i.i.i ], [ %_ZN4absl13test_internal19BaseCountedInstance19num_live_instances_E.promoted.i.i.i, %367 ]
   %374 = add i64 %.06.i.i.i, -1
-  %375 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %352, i64 %374
+  %375 = getelementptr inbounds nuw [8 x i8], ptr %352, i64 %374
   %376 = getelementptr inbounds nuw i8, ptr %375, i64 4
   %377 = load i8, ptr %376, align 4, !tbaa !2235, !range !35, !noundef !36
   %378 = trunc nuw i8 %377 to i1
@@ -178239,7 +178216,7 @@ _ZNSt16allocator_traitsISaIN4absl13test_internal20CopyableOnlyInstanceEEE7destro
   %386 = phi i32 [ %_ZN4absl13test_internal19BaseCountedInstance19num_live_instances_E.promoted.i.i, %396 ], [ %_ZN4absl13test_internal19BaseCountedInstance19num_live_instances_E.promoted732, %.lr.ph.i.i.preheader ]
   %.012.i.i = phi i64 [ %398, %396 ], [ 0, %.lr.ph.i.i.preheader ]
   %387 = phi ptr [ %397, %396 ], [ %.033.i.sroa.phi, %.lr.ph.i.i.preheader ]
-  %388 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %.0.i.sroa.phi, i64 %.012.i.i
+  %388 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.sroa.phi, i64 %.012.i.i
   %389 = load i32, ptr %387, align 4, !tbaa !2233
   store i32 %389, ptr %388, align 4, !tbaa !2233
   %390 = getelementptr inbounds nuw i8, ptr %388, i64 4
@@ -178277,7 +178254,7 @@ _ZNSt16allocator_traitsISaIN4absl13test_internal20CopyableOnlyInstanceEEE7destro
   %.06.i.i = phi i64 [ %403, %_ZNSt16allocator_traitsISaIN4absl13test_internal20CopyableOnlyInstanceEEE7destroyIS2_EEvRS3_PT_.exit.i.i ], [ %385, %.lr.ph.preheader.i15.i ]
   %402 = phi i32 [ %410, %_ZNSt16allocator_traitsISaIN4absl13test_internal20CopyableOnlyInstanceEEE7destroyIS2_EEvRS3_PT_.exit.i.i ], [ %_ZN4absl13test_internal19BaseCountedInstance19num_live_instances_E.promoted.i.i, %.lr.ph.preheader.i15.i ]
   %403 = add nsw i64 %.06.i.i, -1
-  %404 = getelementptr %"class.absl::test_internal::CopyableOnlyInstance", ptr %.033.i, i64 %.06.i.i
+  %404 = getelementptr [8 x i8], ptr %.033.i, i64 %.06.i.i
   %405 = getelementptr inbounds nuw i8, ptr %404, i64 4
   %406 = load i8, ptr %405, align 4, !tbaa !2235, !range !35, !noundef !36
   %407 = trunc nuw i8 %406 to i1
@@ -180284,7 +180261,7 @@ _ZN7testing15AssertionResultD2Ev.exit292:         ; preds = %987, %_ZNKSt14defau
   %1000 = trunc i64 %999 to i1
   %1001 = load ptr, ptr %.033.i.sroa.gep539, align 8
   %1002 = select i1 %1000, ptr %1001, ptr %.033.i.sroa.gep539
-  %1003 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %1002, i64 %.023735
+  %1003 = getelementptr inbounds nuw [8 x i8], ptr %1002, i64 %.023735
   %1004 = getelementptr inbounds nuw i8, ptr %1003, i64 4
   %1005 = load i8, ptr %1004, align 4, !tbaa !2235, !range !35, !noundef !36
   %1006 = trunc nuw i8 %1005 to i1
@@ -180599,7 +180576,7 @@ _ZN4absl13test_internal15InstanceTrackerD2Ev.exit: ; preds = %1092
   %1101 = trunc i64 %1100 to i1
   %1102 = load ptr, ptr %.033.i.sroa.gep, align 8
   %1103 = select i1 %1101, ptr %1102, ptr %.033.i.sroa.gep
-  %1104 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %1103, i64 %.0737
+  %1104 = getelementptr inbounds nuw [8 x i8], ptr %1103, i64 %.0737
   %1105 = getelementptr inbounds nuw i8, ptr %1104, i64 4
   %1106 = load i8, ptr %1105, align 4, !tbaa !2235, !range !35, !noundef !36
   %1107 = trunc nuw i8 %1106 to i1
@@ -180959,7 +180936,7 @@ define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(5) ptr @_Z
 _ZN4absl23inlined_vector_internal13MallocAdapterISaINS_13test_internal20CopyableOnlyInstanceEELb0EE8AllocateERS4_m.exit.i: ; preds = %2
   %14 = shl nuw nsw i64 %10, 3
   %15 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %14) #42
-  %16 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %15, i64 %.sink1.i
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %.sink1.i
   %17 = load i32, ptr %1, align 4, !tbaa !2233
   store i32 %17, ptr %16, align 4, !tbaa !2233
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 4
@@ -180995,7 +180972,7 @@ _ZN4absl23inlined_vector_internal13MallocAdapterISaINS_13test_internal20Copyable
   %32 = phi i32 [ %39, %43 ], [ %22, %.lr.ph.i.preheader ]
   %.012.i = phi i64 [ %46, %43 ], [ 0, %.lr.ph.i.preheader ]
   %33 = phi ptr [ %45, %43 ], [ %.sink2.i, %.lr.ph.i.preheader ]
-  %34 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %15, i64 %.012.i
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %.012.i
   %35 = load i32, ptr %33, align 4, !tbaa !2233
   store i32 %35, ptr %34, align 4, !tbaa !2233
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 4
@@ -181031,7 +181008,7 @@ _ZN4absl23inlined_vector_internal13MallocAdapterISaINS_13test_internal20Copyable
   %.06.i = phi i64 [ %50, %_ZNSt16allocator_traitsISaIN4absl13test_internal20CopyableOnlyInstanceEEE7destroyIS2_EEvRS3_PT_.exit.i ], [ %.sink1.i, %43 ]
   %49 = phi i32 [ %57, %_ZNSt16allocator_traitsISaIN4absl13test_internal20CopyableOnlyInstanceEEE7destroyIS2_EEvRS3_PT_.exit.i ], [ %_ZN4absl13test_internal19BaseCountedInstance19num_live_instances_E.promoted.i, %43 ]
   %50 = add nsw i64 %.06.i, -1
-  %51 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %.sink2.i, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 4
   %53 = load i8, ptr %52, align 4, !tbaa !2235, !range !35, !noundef !36
   %54 = trunc nuw i8 %53 to i1
@@ -181113,7 +181090,7 @@ define linkonce_odr dso_local void @_ZN4absl23inlined_vector_internal7StorageINS
   %.06.i = phi i64 [ %11, %_ZNSt16allocator_traitsISaIN4absl13test_internal20CopyableOnlyInstanceEEE7destroyIS2_EEvRS3_PT_.exit.i ], [ %7, %.lr.ph.preheader.i ]
   %10 = phi i32 [ %18, %_ZNSt16allocator_traitsISaIN4absl13test_internal20CopyableOnlyInstanceEEE7destroyIS2_EEvRS3_PT_.exit.i ], [ %_ZN4absl13test_internal19BaseCountedInstance19num_live_instances_E.promoted.i, %.lr.ph.preheader.i ]
   %11 = add nsw i64 %.06.i, -1
-  %12 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %6, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %14 = load i8, ptr %13, align 4, !tbaa !2235, !range !35, !noundef !36
   %15 = trunc nuw i8 %14 to i1
@@ -181478,7 +181455,7 @@ _ZN7testing7MessageD2Ev.exit12.i:                 ; preds = %_ZNKSt14default_del
 _ZN4absl13InlinedVectorINS_13test_internal23CopyableMovableInstanceELm8ESaIS2_EE9push_backEOS2_.exit.thread: ; preds = %.lr.ph
   %188 = load ptr, ptr %.033.i.sroa.gep, align 8, !noalias !5090
   %.sink2.i.i.i.i = select i1 %186, ptr %188, ptr %.033.i.sroa.gep
-  %189 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %.sink2.i.i.i.i, i64 %.sink1.i.i.i.i
+  %189 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i.i.i.i, i64 %.sink1.i.i.i.i
   store i32 %182, ptr %189, align 4, !tbaa !2233
   %190 = getelementptr inbounds nuw i8, ptr %189, i64 4
   store i8 1, ptr %190, align 4, !tbaa !2235
@@ -181661,7 +181638,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit17.i: ; preds = %_
 _ZN4absl13InlinedVectorINS_13test_internal23CopyableMovableInstanceELm8ESaIS2_EE9push_backEOS2_.exit134.thread: ; preds = %.lr.ph722
   %254 = load ptr, ptr %.033.i.sroa.gep533, align 8, !noalias !5097
   %.sink2.i.i.i.i132 = select i1 %252, ptr %254, ptr %.033.i.sroa.gep533
-  %255 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %.sink2.i.i.i.i132, i64 %.sink1.i.i.i.i130
+  %255 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i.i.i.i132, i64 %.sink1.i.i.i.i130
   store i32 %248, ptr %255, align 4, !tbaa !2233
   %256 = getelementptr inbounds nuw i8, ptr %255, i64 4
   store i8 1, ptr %256, align 4, !tbaa !2235
@@ -181905,9 +181882,9 @@ _ZN4absl23inlined_vector_internal7StorageINS_13test_internal23CopyableMovableIns
 
 _ZN4absl23inlined_vector_internal7StorageINS_13test_internal23CopyableMovableInstanceELm8ESaIS3_EE5SwapNENS5_21ElementwiseSwapPolicyEPS5_m.exit.i.i: ; preds = %_ZN4absl23inlined_vector_internal7StorageINS_13test_internal23CopyableMovableInstanceELm8ESaIS3_EE5SwapNENS5_21ElementwiseSwapPolicyEPS5_m.exit.i.i.loopexit, %328
   %spec.select.i.i.sroa.sel = select i1 %329, ptr %.033.i.sroa.gep, ptr %.033.i.sroa.gep533
-  %348 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %spec.select.i.i.sroa.sel, i64 %332
+  %348 = getelementptr inbounds nuw [8 x i8], ptr %spec.select.i.i.sroa.sel, i64 %332
   %spec.select25.i.i.sroa.sel = select i1 %329, ptr %.033.i.sroa.gep533, ptr %.033.i.sroa.gep
-  %349 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %spec.select25.i.i.sroa.sel, i64 %332
+  %349 = getelementptr inbounds nuw [8 x i8], ptr %spec.select25.i.i.sroa.sel, i64 %332
   %.not.i.i.i343 = icmp eq i64 %334, 0
   br i1 %.not.i.i.i343, label %397, label %.lr.ph.i.i.i.preheader
 
@@ -181920,7 +181897,7 @@ _ZN4absl23inlined_vector_internal7StorageINS_13test_internal23CopyableMovableIns
   %351 = phi i32 [ %358, %.lr.ph.i.i.i ], [ %_ZN4absl13test_internal19BaseCountedInstance14num_instances_E.promoted, %.lr.ph.i.i.i.preheader ]
   %.012.i.i.i = phi i64 [ %361, %.lr.ph.i.i.i ], [ 0, %.lr.ph.i.i.i.preheader ]
   %352 = phi ptr [ %360, %.lr.ph.i.i.i ], [ %348, %.lr.ph.i.i.i.preheader ]
-  %353 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %349, i64 %.012.i.i.i
+  %353 = getelementptr inbounds nuw [8 x i8], ptr %349, i64 %.012.i.i.i
   %354 = load i32, ptr %352, align 4, !tbaa !2233
   store i32 %354, ptr %353, align 8, !tbaa !2233
   %355 = getelementptr inbounds nuw i8, ptr %353, i64 4
@@ -181951,7 +181928,7 @@ _ZN4absl23inlined_vector_internal7StorageINS_13test_internal23CopyableMovableIns
   %.06.i.i.i = phi i64 [ %365, %_ZNSt16allocator_traitsISaIN4absl13test_internal23CopyableMovableInstanceEEE7destroyIS2_EEvRS3_PT_.exit.i.i.i ], [ %334, %.lr.ph.preheader.i9.i.i ]
   %364 = phi i32 [ %372, %_ZNSt16allocator_traitsISaIN4absl13test_internal23CopyableMovableInstanceEEE7destroyIS2_EEvRS3_PT_.exit.i.i.i ], [ %_ZN4absl13test_internal19BaseCountedInstance19num_live_instances_E.promoted.i.i.i, %.lr.ph.preheader.i9.i.i ]
   %365 = add i64 %.06.i.i.i, -1
-  %366 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %348, i64 %365
+  %366 = getelementptr inbounds nuw [8 x i8], ptr %348, i64 %365
   %367 = getelementptr inbounds nuw i8, ptr %366, i64 4
   %368 = load i8, ptr %367, align 4, !tbaa !2235, !range !35, !noundef !36
   %369 = trunc nuw i8 %368 to i1
@@ -181987,7 +181964,7 @@ _ZNSt16allocator_traitsISaIN4absl13test_internal23CopyableMovableInstanceEEE7des
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i
   %.012.i.i = phi i64 [ %384, %.lr.ph.i.i ], [ 0, %.lr.ph.i.i.preheader ]
   %377 = phi ptr [ %383, %.lr.ph.i.i ], [ %.033.i.sroa.phi, %.lr.ph.i.i.preheader ]
-  %378 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %.0.i.sroa.phi, i64 %.012.i.i
+  %378 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.sroa.phi, i64 %.012.i.i
   %379 = load i32, ptr %377, align 4, !tbaa !2233
   store i32 %379, ptr %378, align 4, !tbaa !2233
   %380 = getelementptr inbounds nuw i8, ptr %378, i64 4
@@ -182017,7 +181994,7 @@ _ZNSt16allocator_traitsISaIN4absl13test_internal23CopyableMovableInstanceEEE7des
   %.06.i.i = phi i64 [ %389, %_ZNSt16allocator_traitsISaIN4absl13test_internal23CopyableMovableInstanceEEE7destroyIS2_EEvRS3_PT_.exit.i.i ], [ %376, %.lr.ph.preheader.i15.i ]
   %388 = phi i32 [ %396, %_ZNSt16allocator_traitsISaIN4absl13test_internal23CopyableMovableInstanceEEE7destroyIS2_EEvRS3_PT_.exit.i.i ], [ %_ZN4absl13test_internal19BaseCountedInstance19num_live_instances_E.promoted.i.i, %.lr.ph.preheader.i15.i ]
   %389 = add nsw i64 %.06.i.i, -1
-  %390 = getelementptr %"class.absl::test_internal::CopyableMovableInstance", ptr %.033.i, i64 %.06.i.i
+  %390 = getelementptr [8 x i8], ptr %.033.i, i64 %.06.i.i
   %391 = getelementptr inbounds nuw i8, ptr %390, i64 4
   %392 = load i8, ptr %391, align 4, !tbaa !2235, !range !35, !noundef !36
   %393 = trunc nuw i8 %392 to i1
@@ -184024,7 +184001,7 @@ _ZN7testing15AssertionResultD2Ev.exit286:         ; preds = %973, %_ZNKSt14defau
   %986 = trunc i64 %985 to i1
   %987 = load ptr, ptr %.033.i.sroa.gep533, align 8
   %988 = select i1 %986, ptr %987, ptr %.033.i.sroa.gep533
-  %989 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %988, i64 %.023728
+  %989 = getelementptr inbounds nuw [8 x i8], ptr %988, i64 %.023728
   %990 = getelementptr inbounds nuw i8, ptr %989, i64 4
   %991 = load i8, ptr %990, align 4, !tbaa !2235, !range !35, !noundef !36
   %992 = trunc nuw i8 %991 to i1
@@ -184339,7 +184316,7 @@ _ZN4absl13test_internal15InstanceTrackerD2Ev.exit: ; preds = %1078
   %1087 = trunc i64 %1086 to i1
   %1088 = load ptr, ptr %.033.i.sroa.gep, align 8
   %1089 = select i1 %1087, ptr %1088, ptr %.033.i.sroa.gep
-  %1090 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %1089, i64 %.0730
+  %1090 = getelementptr inbounds nuw [8 x i8], ptr %1089, i64 %.0730
   %1091 = getelementptr inbounds nuw i8, ptr %1090, i64 4
   %1092 = load i8, ptr %1091, align 4, !tbaa !2235, !range !35, !noundef !36
   %1093 = trunc nuw i8 %1092 to i1
@@ -184699,7 +184676,7 @@ define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(5) ptr @_Z
 _ZN4absl23inlined_vector_internal13MallocAdapterISaINS_13test_internal23CopyableMovableInstanceEELb0EE8AllocateERS4_m.exit.i: ; preds = %2
   %14 = shl nuw nsw i64 %10, 3
   %15 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %14) #42
-  %16 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %15, i64 %.sink1.i
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %.sink1.i
   %17 = load i32, ptr %1, align 4, !tbaa !2233
   store i32 %17, ptr %16, align 4, !tbaa !2233
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 4
@@ -184721,7 +184698,7 @@ _ZN4absl23inlined_vector_internal13MallocAdapterISaINS_13test_internal23Copyable
   %26 = phi i32 [ %33, %.lr.ph.i ], [ %22, %_ZN4absl23inlined_vector_internal13MallocAdapterISaINS_13test_internal23CopyableMovableInstanceEELb0EE8AllocateERS4_m.exit.i ]
   %.012.i = phi i64 [ %36, %.lr.ph.i ], [ 0, %_ZN4absl23inlined_vector_internal13MallocAdapterISaINS_13test_internal23CopyableMovableInstanceEELb0EE8AllocateERS4_m.exit.i ]
   %27 = phi ptr [ %35, %.lr.ph.i ], [ %.sink2.i, %_ZN4absl23inlined_vector_internal13MallocAdapterISaINS_13test_internal23CopyableMovableInstanceEELb0EE8AllocateERS4_m.exit.i ]
-  %28 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %15, i64 %.012.i
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %.012.i
   %29 = load i32, ptr %27, align 4, !tbaa !2233
   store i32 %29, ptr %28, align 4, !tbaa !2233
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 4
@@ -184752,7 +184729,7 @@ _ZN4absl23inlined_vector_internal13MallocAdapterISaINS_13test_internal23Copyable
   %.06.i = phi i64 [ %40, %_ZNSt16allocator_traitsISaIN4absl13test_internal23CopyableMovableInstanceEEE7destroyIS2_EEvRS3_PT_.exit.i ], [ %.sink1.i, %.lr.ph.preheader.i15 ]
   %39 = phi i32 [ %47, %_ZNSt16allocator_traitsISaIN4absl13test_internal23CopyableMovableInstanceEEE7destroyIS2_EEvRS3_PT_.exit.i ], [ %_ZN4absl13test_internal19BaseCountedInstance19num_live_instances_E.promoted.i, %.lr.ph.preheader.i15 ]
   %40 = add nsw i64 %.06.i, -1
-  %41 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %.sink2.i, i64 %40
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i, i64 %40
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
   %43 = load i8, ptr %42, align 4, !tbaa !2235, !range !35, !noundef !36
   %44 = trunc nuw i8 %43 to i1
@@ -184836,7 +184813,7 @@ define linkonce_odr dso_local void @_ZN4absl23inlined_vector_internal7StorageINS
   %.06.i = phi i64 [ %11, %_ZNSt16allocator_traitsISaIN4absl13test_internal23CopyableMovableInstanceEEE7destroyIS2_EEvRS3_PT_.exit.i ], [ %7, %.lr.ph.preheader.i ]
   %10 = phi i32 [ %18, %_ZNSt16allocator_traitsISaIN4absl13test_internal23CopyableMovableInstanceEEE7destroyIS2_EEvRS3_PT_.exit.i ], [ %_ZN4absl13test_internal19BaseCountedInstance19num_live_instances_E.promoted.i, %.lr.ph.preheader.i ]
   %11 = add nsw i64 %.06.i, -1
-  %12 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %6, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %14 = load i8, ptr %13, align 4, !tbaa !2235, !range !35, !noundef !36
   %15 = trunc nuw i8 %14 to i1
@@ -189200,7 +189177,7 @@ _ZN4absl13test_internal15InstanceTrackerD2Ev.exit: ; preds = %130
 _ZNSt16allocator_traitsISaIN4absl13test_internal20CopyableOnlyInstanceEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i: ; preds = %.lr.ph
   %158 = load ptr, ptr %106, align 8, !noalias !5220
   %.sink2.i.i.i.i = select i1 %156, ptr %158, ptr %106
-  %159 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %.sink2.i.i.i.i, i64 %.sink1.i.i.i.i
+  %159 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i.i.i.i, i64 %.sink1.i.i.i.i
   store i32 %152, ptr %159, align 4, !tbaa !2233
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 4
   store i8 1, ptr %160, align 4, !tbaa !2235
@@ -190812,7 +190789,7 @@ _ZN7testing15AssertionResultD2Ev.exit310:         ; preds = %670, %_ZNKSt14defau
   %686 = load ptr, ptr %106, align 8
   %687 = select i1 %685, ptr %686, ptr %106
   %688 = lshr i64 %684, 1
-  %689 = getelementptr %"class.absl::test_internal::CopyableOnlyInstance", ptr %687, i64 %688
+  %689 = getelementptr [8 x i8], ptr %687, i64 %688
   %690 = load i32, ptr @_ZN4absl13test_internal19BaseCountedInstance14num_instances_E, align 4, !tbaa !130
   %691 = add nsw i32 %690, -1
   store i32 %691, ptr @_ZN4absl13test_internal19BaseCountedInstance14num_instances_E, align 4, !tbaa !130
@@ -191273,7 +191250,7 @@ _ZN7testing15AssertionResultD2Ev.exit358:         ; preds = %815, %_ZNKSt14defau
   %.05.i.i.i = phi i64 [ %851, %_ZN4absl23inlined_vector_internal20IteratorValueAdapterISaINS_13test_internal20CopyableOnlyInstanceEESt13move_iteratorIPS3_EE10AssignNextES6_.exit.i.i.i ], [ 0, %.lr.ph.i.i.i.preheader ]
   %.pn436 = phi ptr [ %833, %_ZN4absl23inlined_vector_internal20IteratorValueAdapterISaINS_13test_internal20CopyableOnlyInstanceEESt13move_iteratorIPS3_EE10AssignNextES6_.exit.i.i.i ], [ %831, %.lr.ph.i.i.i.preheader ]
   %833 = getelementptr inbounds nuw i8, ptr %.pn436, i64 8
-  %834 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %831, i64 %.05.i.i.i
+  %834 = getelementptr inbounds nuw [8 x i8], ptr %831, i64 %.05.i.i.i
   %835 = load i32, ptr %833, align 4, !tbaa !2233
   store i32 %835, ptr %834, align 4, !tbaa !2233
   %836 = getelementptr inbounds nuw i8, ptr %834, i64 4
@@ -191309,7 +191286,7 @@ _ZN4absl23inlined_vector_internal20IteratorValueAdapterISaINS_13test_internal20C
   br i1 %exitcond.not.i.i.i, label %_ZN4absl23inlined_vector_internal14AssignElementsISaINS_13test_internal20CopyableOnlyInstanceEENS0_20IteratorValueAdapterIS4_St13move_iteratorIPS3_EEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSC_9size_typeE.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !5224
 
 _ZN4absl23inlined_vector_internal14AssignElementsISaINS_13test_internal20CopyableOnlyInstanceEENS0_20IteratorValueAdapterIS4_St13move_iteratorIPS3_EEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSC_9size_typeE.exit.i.i: ; preds = %_ZN4absl23inlined_vector_internal20IteratorValueAdapterISaINS_13test_internal20CopyableOnlyInstanceEESt13move_iteratorIPS3_EE10AssignNextES6_.exit.i.i.i, %824
-  %852 = getelementptr %"class.absl::test_internal::CopyableOnlyInstance", ptr %831, i64 %.sink1.i.i.i
+  %852 = getelementptr [8 x i8], ptr %831, i64 %.sink1.i.i.i
   %_ZN4absl13test_internal19BaseCountedInstance14num_instances_E.promoted.i.i.i = load i32, ptr @_ZN4absl13test_internal19BaseCountedInstance14num_instances_E, align 4
   %853 = getelementptr i8, ptr %852, i64 -4
   %854 = load i8, ptr %853, align 4, !tbaa !2235, !range !35, !noundef !36
@@ -192683,7 +192660,7 @@ define linkonce_odr dso_local void @_ZN4absl23inlined_vector_internal7StorageINS
   br i1 %.not, label %24, label %10
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %.sink2.i, i64 %2
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i, i64 %2
   %12 = sub nuw nsw i64 %.sink1.i, %2
   %_ZN4absl13test_internal19BaseCountedInstance14num_instances_E.promoted.i = load i32, ptr @_ZN4absl13test_internal19BaseCountedInstance14num_instances_E, align 4
   %.not5.i = icmp eq i64 %12, 0
@@ -192703,7 +192680,7 @@ define linkonce_odr dso_local void @_ZN4absl23inlined_vector_internal7StorageINS
   %.06.i = phi i64 [ %16, %_ZNSt16allocator_traitsISaIN4absl13test_internal20CopyableOnlyInstanceEEE7destroyIS2_EEvRS3_PT_.exit.i ], [ %12, %.lr.ph.preheader.i ]
   %15 = phi i32 [ %23, %_ZNSt16allocator_traitsISaIN4absl13test_internal20CopyableOnlyInstanceEEE7destroyIS2_EEvRS3_PT_.exit.i ], [ %_ZN4absl13test_internal19BaseCountedInstance19num_live_instances_E.promoted.i, %.lr.ph.preheader.i ]
   %16 = add nsw i64 %.06.i, -1
-  %17 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %11, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %19 = load i8, ptr %18, align 4, !tbaa !2235, !range !35, !noundef !36
   %20 = trunc nuw i8 %19 to i1
@@ -192724,7 +192701,7 @@ _ZNSt16allocator_traitsISaIN4absl13test_internal20CopyableOnlyInstanceEEE7destro
   br i1 %.not38, label %47, label %.lr.ph.i43
 
 .lr.ph.i43:                                       ; preds = %24
-  %25 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %.sink2.i, i64 %.sink1.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i, i64 %.sink1.i
   %26 = sub i64 %2, %.sink1.i
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.pre.i = load i8, ptr %27, align 4, !tbaa !2235, !range !35
@@ -192733,7 +192710,7 @@ _ZNSt16allocator_traitsISaIN4absl13test_internal20CopyableOnlyInstanceEEE7destro
 
 .lr.ph.i43.split.us:                              ; preds = %.lr.ph.i43, %.lr.ph.i43.split.us
   %.012.i.us = phi i64 [ %38, %.lr.ph.i43.split.us ], [ 0, %.lr.ph.i43 ]
-  %29 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %25, i64 %.012.i.us
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %.012.i.us
   %30 = load i32, ptr %1, align 4, !tbaa !2233
   store i32 %30, ptr %29, align 4, !tbaa !2233
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 4
@@ -192753,7 +192730,7 @@ _ZNSt16allocator_traitsISaIN4absl13test_internal20CopyableOnlyInstanceEEE7destro
 
 .lr.ph.i43.split:                                 ; preds = %.lr.ph.i43, %.lr.ph.i43.split
   %.012.i = phi i64 [ %46, %.lr.ph.i43.split ], [ 0, %.lr.ph.i43 ]
-  %39 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %25, i64 %.012.i
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %.012.i
   %40 = load i32, ptr %1, align 4, !tbaa !2233
   store i32 %40, ptr %39, align 4, !tbaa !2233
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 4
@@ -192789,7 +192766,7 @@ _ZNSt16allocator_traitsISaIN4absl13test_internal20CopyableOnlyInstanceEEE7destro
 _ZN4absl23inlined_vector_internal13MallocAdapterISaINS_13test_internal20CopyableOnlyInstanceEELb0EE8AllocateERS4_m.exit.i: ; preds = %47
   %52 = shl nuw nsw i64 %.sroa.speculated.i, 3
   %53 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %52) #42
-  %54 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %53, i64 %.sink1.i
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %.sink1.i
   %55 = sub i64 %2, %.sink1.i
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.pre.i.i = load i8, ptr %56, align 4, !tbaa !2235, !range !35
@@ -192811,7 +192788,7 @@ _ZN4absl23inlined_vector_internal13MallocAdapterISaINS_13test_internal20Copyable
   %59 = phi i32 [ %65, %.lr.ph.i.split.us.i ], [ %.pre99, %.lr.ph.i.split.us.i.preheader ]
   %60 = phi i32 [ %64, %.lr.ph.i.split.us.i ], [ %.pre98, %.lr.ph.i.split.us.i.preheader ]
   %.012.i.us.i = phi i64 [ %67, %.lr.ph.i.split.us.i ], [ 0, %.lr.ph.i.split.us.i.preheader ]
-  %61 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %54, i64 %.012.i.us.i
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %.012.i.us.i
   %62 = load i32, ptr %1, align 4, !tbaa !2233
   store i32 %62, ptr %61, align 4, !tbaa !2233
   %63 = getelementptr inbounds nuw i8, ptr %61, i64 4
@@ -192830,7 +192807,7 @@ _ZN4absl23inlined_vector_internal13MallocAdapterISaINS_13test_internal20Copyable
   %68 = phi i32 [ %74, %.lr.ph.i.split.i ], [ %.pre97, %.lr.ph.i.split.i.preheader ]
   %69 = phi i32 [ %73, %.lr.ph.i.split.i ], [ %.pre98, %.lr.ph.i.split.i.preheader ]
   %.012.i.i = phi i64 [ %75, %.lr.ph.i.split.i ], [ 0, %.lr.ph.i.split.i.preheader ]
-  %70 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %54, i64 %.012.i.i
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %.012.i.i
   %71 = load i32, ptr %1, align 4, !tbaa !2233
   store i32 %71, ptr %70, align 4, !tbaa !2233
   %72 = getelementptr inbounds nuw i8, ptr %70, i64 4
@@ -192859,7 +192836,7 @@ _ZN4absl23inlined_vector_internal23ConstructionTransactionISaINS_13test_internal
   %78 = phi i32 [ %85, %89 ], [ %_ZN4absl13test_internal19BaseCountedInstance14num_instances_E.promoted, %.lr.ph.i49.preheader ]
   %.012.i50 = phi i64 [ %92, %89 ], [ 0, %.lr.ph.i49.preheader ]
   %79 = phi ptr [ %91, %89 ], [ %.sink2.i, %.lr.ph.i49.preheader ]
-  %80 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %53, i64 %.012.i50
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %.012.i50
   %81 = load i32, ptr %79, align 4, !tbaa !2233
   store i32 %81, ptr %80, align 4, !tbaa !2233
   %82 = getelementptr inbounds nuw i8, ptr %80, i64 4
@@ -192895,7 +192872,7 @@ _ZN4absl23inlined_vector_internal23ConstructionTransactionISaINS_13test_internal
   %.06.i58 = phi i64 [ %96, %_ZNSt16allocator_traitsISaIN4absl13test_internal20CopyableOnlyInstanceEEE7destroyIS2_EEvRS3_PT_.exit.i59 ], [ %.sink1.i, %89 ]
   %95 = phi i32 [ %103, %_ZNSt16allocator_traitsISaIN4absl13test_internal20CopyableOnlyInstanceEEE7destroyIS2_EEvRS3_PT_.exit.i59 ], [ %_ZN4absl13test_internal19BaseCountedInstance19num_live_instances_E.promoted.i56, %89 ]
   %96 = add nsw i64 %.06.i58, -1
-  %97 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %.sink2.i, i64 %96
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i, i64 %96
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 4
   %99 = load i8, ptr %98, align 4, !tbaa !2235, !range !35, !noundef !36
   %100 = trunc nuw i8 %99 to i1
@@ -192986,7 +192963,7 @@ _ZN4absl23inlined_vector_internal13MallocAdapterISaINS_13test_internal20Copyable
   %18 = phi i32 [ %25, %29 ], [ %_ZN4absl13test_internal19BaseCountedInstance14num_instances_E.promoted, %.lr.ph.i.preheader ]
   %.012.i = phi i64 [ %32, %29 ], [ 0, %.lr.ph.i.preheader ]
   %19 = phi ptr [ %31, %29 ], [ %.sink2.i, %.lr.ph.i.preheader ]
-  %20 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %15, i64 %.012.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %.012.i
   %21 = load i32, ptr %19, align 4, !tbaa !2233
   store i32 %21, ptr %20, align 4, !tbaa !2233
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 4
@@ -193022,7 +192999,7 @@ _ZN4absl23inlined_vector_internal13MallocAdapterISaINS_13test_internal20Copyable
   %.06.i = phi i64 [ %36, %_ZNSt16allocator_traitsISaIN4absl13test_internal20CopyableOnlyInstanceEEE7destroyIS2_EEvRS3_PT_.exit.i ], [ %.sink1.i, %29 ]
   %35 = phi i32 [ %43, %_ZNSt16allocator_traitsISaIN4absl13test_internal20CopyableOnlyInstanceEEE7destroyIS2_EEvRS3_PT_.exit.i ], [ %_ZN4absl13test_internal19BaseCountedInstance19num_live_instances_E.promoted.i, %29 ]
   %36 = add nsw i64 %.06.i, -1
-  %37 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %.sink2.i, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i, i64 %36
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 4
   %39 = load i8, ptr %38, align 4, !tbaa !2235, !range !35, !noundef !36
   %40 = trunc nuw i8 %39 to i1
@@ -193328,7 +193305,7 @@ _ZN4absl13test_internal15InstanceTrackerD2Ev.exit: ; preds = %130
 _ZN4absl13InlinedVectorINS_13test_internal23CopyableMovableInstanceELm8ESaIS2_EE9push_backEOS2_.exit.thread: ; preds = %.lr.ph
   %158 = load ptr, ptr %106, align 8, !noalias !5232
   %.sink2.i.i.i.i = select i1 %156, ptr %158, ptr %106
-  %159 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %.sink2.i.i.i.i, i64 %.sink1.i.i.i.i
+  %159 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i.i.i.i, i64 %.sink1.i.i.i.i
   store i32 %152, ptr %159, align 4, !tbaa !2233
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 4
   store i8 1, ptr %160, align 4, !tbaa !2235
@@ -194935,7 +194912,7 @@ _ZN7testing15AssertionResultD2Ev.exit302:         ; preds = %667, %_ZNKSt14defau
   %683 = load ptr, ptr %106, align 8
   %684 = select i1 %682, ptr %683, ptr %106
   %685 = lshr i64 %681, 1
-  %686 = getelementptr %"class.absl::test_internal::CopyableMovableInstance", ptr %684, i64 %685
+  %686 = getelementptr [8 x i8], ptr %684, i64 %685
   %687 = load i32, ptr @_ZN4absl13test_internal19BaseCountedInstance14num_instances_E, align 4, !tbaa !130
   %688 = add nsw i32 %687, -1
   store i32 %688, ptr @_ZN4absl13test_internal19BaseCountedInstance14num_instances_E, align 4, !tbaa !130
@@ -195396,7 +195373,7 @@ _ZN7testing15AssertionResultD2Ev.exit350:         ; preds = %812, %_ZNKSt14defau
   %.05.i.i.i = phi i64 [ %843, %_ZN4absl23inlined_vector_internal20IteratorValueAdapterISaINS_13test_internal23CopyableMovableInstanceEESt13move_iteratorIPS3_EE10AssignNextES6_.exit.i.i.i ], [ 0, %.lr.ph.i.i.i.preheader ]
   %.pn428 = phi ptr [ %830, %_ZN4absl23inlined_vector_internal20IteratorValueAdapterISaINS_13test_internal23CopyableMovableInstanceEESt13move_iteratorIPS3_EE10AssignNextES6_.exit.i.i.i ], [ %828, %.lr.ph.i.i.i.preheader ]
   %830 = getelementptr inbounds nuw i8, ptr %.pn428, i64 8
-  %831 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %828, i64 %.05.i.i.i
+  %831 = getelementptr inbounds nuw [8 x i8], ptr %828, i64 %.05.i.i.i
   %832 = load i32, ptr %830, align 4, !tbaa !2233
   store i32 %832, ptr %831, align 4, !tbaa !2233
   %833 = getelementptr inbounds nuw i8, ptr %831, i64 4
@@ -195423,7 +195400,7 @@ _ZN4absl23inlined_vector_internal20IteratorValueAdapterISaINS_13test_internal23C
   br i1 %exitcond.not.i.i.i, label %_ZN4absl23inlined_vector_internal14AssignElementsISaINS_13test_internal23CopyableMovableInstanceEENS0_20IteratorValueAdapterIS4_St13move_iteratorIPS3_EEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSC_9size_typeE.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !5236
 
 _ZN4absl23inlined_vector_internal14AssignElementsISaINS_13test_internal23CopyableMovableInstanceEENS0_20IteratorValueAdapterIS4_St13move_iteratorIPS3_EEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSC_9size_typeE.exit.i.i: ; preds = %_ZN4absl23inlined_vector_internal20IteratorValueAdapterISaINS_13test_internal23CopyableMovableInstanceEESt13move_iteratorIPS3_EE10AssignNextES6_.exit.i.i.i, %821
-  %844 = getelementptr %"class.absl::test_internal::CopyableMovableInstance", ptr %828, i64 %.sink1.i.i.i
+  %844 = getelementptr [8 x i8], ptr %828, i64 %.sink1.i.i.i
   %_ZN4absl13test_internal19BaseCountedInstance14num_instances_E.promoted.i.i.i = load i32, ptr @_ZN4absl13test_internal19BaseCountedInstance14num_instances_E, align 4
   %845 = getelementptr i8, ptr %844, i64 -4
   %846 = load i8, ptr %845, align 4, !tbaa !2235, !range !35, !noundef !36
@@ -196072,7 +196049,7 @@ define linkonce_odr dso_local void @_ZN4absl23inlined_vector_internal7StorageINS
   br i1 %.not, label %24, label %10
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %.sink2.i, i64 %2
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i, i64 %2
   %12 = sub nuw nsw i64 %.sink1.i, %2
   %_ZN4absl13test_internal19BaseCountedInstance14num_instances_E.promoted.i = load i32, ptr @_ZN4absl13test_internal19BaseCountedInstance14num_instances_E, align 4
   %.not5.i = icmp eq i64 %12, 0
@@ -196092,7 +196069,7 @@ define linkonce_odr dso_local void @_ZN4absl23inlined_vector_internal7StorageINS
   %.06.i = phi i64 [ %16, %_ZNSt16allocator_traitsISaIN4absl13test_internal23CopyableMovableInstanceEEE7destroyIS2_EEvRS3_PT_.exit.i ], [ %12, %.lr.ph.preheader.i ]
   %15 = phi i32 [ %23, %_ZNSt16allocator_traitsISaIN4absl13test_internal23CopyableMovableInstanceEEE7destroyIS2_EEvRS3_PT_.exit.i ], [ %_ZN4absl13test_internal19BaseCountedInstance19num_live_instances_E.promoted.i, %.lr.ph.preheader.i ]
   %16 = add nsw i64 %.06.i, -1
-  %17 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %11, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %19 = load i8, ptr %18, align 4, !tbaa !2235, !range !35, !noundef !36
   %20 = trunc nuw i8 %19 to i1
@@ -196113,7 +196090,7 @@ _ZNSt16allocator_traitsISaIN4absl13test_internal23CopyableMovableInstanceEEE7des
   br i1 %.not38, label %47, label %.lr.ph.i43
 
 .lr.ph.i43:                                       ; preds = %24
-  %25 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %.sink2.i, i64 %.sink1.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i, i64 %.sink1.i
   %26 = sub i64 %2, %.sink1.i
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.pre.i = load i8, ptr %27, align 4, !tbaa !2235, !range !35
@@ -196122,7 +196099,7 @@ _ZNSt16allocator_traitsISaIN4absl13test_internal23CopyableMovableInstanceEEE7des
 
 .lr.ph.i43.split.us:                              ; preds = %.lr.ph.i43, %.lr.ph.i43.split.us
   %.012.i.us = phi i64 [ %38, %.lr.ph.i43.split.us ], [ 0, %.lr.ph.i43 ]
-  %29 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %25, i64 %.012.i.us
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %.012.i.us
   %30 = load i32, ptr %1, align 4, !tbaa !2233
   store i32 %30, ptr %29, align 4, !tbaa !2233
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 4
@@ -196142,7 +196119,7 @@ _ZNSt16allocator_traitsISaIN4absl13test_internal23CopyableMovableInstanceEEE7des
 
 .lr.ph.i43.split:                                 ; preds = %.lr.ph.i43, %.lr.ph.i43.split
   %.012.i = phi i64 [ %46, %.lr.ph.i43.split ], [ 0, %.lr.ph.i43 ]
-  %39 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %25, i64 %.012.i
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %.012.i
   %40 = load i32, ptr %1, align 4, !tbaa !2233
   store i32 %40, ptr %39, align 4, !tbaa !2233
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 4
@@ -196178,7 +196155,7 @@ _ZNSt16allocator_traitsISaIN4absl13test_internal23CopyableMovableInstanceEEE7des
 _ZN4absl23inlined_vector_internal13MallocAdapterISaINS_13test_internal23CopyableMovableInstanceEELb0EE8AllocateERS4_m.exit.i: ; preds = %47
   %52 = shl nuw nsw i64 %.sroa.speculated.i, 3
   %53 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %52) #42
-  %54 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %53, i64 %.sink1.i
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %.sink1.i
   %55 = sub i64 %2, %.sink1.i
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.pre.i.i = load i8, ptr %56, align 4, !tbaa !2235, !range !35
@@ -196200,7 +196177,7 @@ _ZN4absl23inlined_vector_internal13MallocAdapterISaINS_13test_internal23Copyable
   %59 = phi i32 [ %65, %.lr.ph.i.split.us.i ], [ %.pre99, %.lr.ph.i.split.us.i.preheader ]
   %60 = phi i32 [ %64, %.lr.ph.i.split.us.i ], [ %.pre98, %.lr.ph.i.split.us.i.preheader ]
   %.012.i.us.i = phi i64 [ %67, %.lr.ph.i.split.us.i ], [ 0, %.lr.ph.i.split.us.i.preheader ]
-  %61 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %54, i64 %.012.i.us.i
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %.012.i.us.i
   %62 = load i32, ptr %1, align 4, !tbaa !2233
   store i32 %62, ptr %61, align 4, !tbaa !2233
   %63 = getelementptr inbounds nuw i8, ptr %61, i64 4
@@ -196219,7 +196196,7 @@ _ZN4absl23inlined_vector_internal13MallocAdapterISaINS_13test_internal23Copyable
   %68 = phi i32 [ %74, %.lr.ph.i.split.i ], [ %.pre97, %.lr.ph.i.split.i.preheader ]
   %69 = phi i32 [ %73, %.lr.ph.i.split.i ], [ %.pre98, %.lr.ph.i.split.i.preheader ]
   %.012.i.i = phi i64 [ %75, %.lr.ph.i.split.i ], [ 0, %.lr.ph.i.split.i.preheader ]
-  %70 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %54, i64 %.012.i.i
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %.012.i.i
   %71 = load i32, ptr %1, align 4, !tbaa !2233
   store i32 %71, ptr %70, align 4, !tbaa !2233
   %72 = getelementptr inbounds nuw i8, ptr %70, i64 4
@@ -196246,7 +196223,7 @@ _ZN4absl23inlined_vector_internal23ConstructionTransactionISaINS_13test_internal
   %77 = phi i32 [ %84, %.lr.ph.i49 ], [ %_ZN4absl13test_internal19BaseCountedInstance14num_instances_E.promoted, %.lr.ph.i49.preheader ]
   %.012.i50 = phi i64 [ %87, %.lr.ph.i49 ], [ 0, %.lr.ph.i49.preheader ]
   %78 = phi ptr [ %86, %.lr.ph.i49 ], [ %.sink2.i, %.lr.ph.i49.preheader ]
-  %79 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %53, i64 %.012.i50
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %.012.i50
   %80 = load i32, ptr %78, align 4, !tbaa !2233
   store i32 %80, ptr %79, align 4, !tbaa !2233
   %81 = getelementptr inbounds nuw i8, ptr %79, i64 4
@@ -196277,7 +196254,7 @@ _ZN4absl23inlined_vector_internal23ConstructionTransactionISaINS_13test_internal
   %.06.i58 = phi i64 [ %91, %_ZNSt16allocator_traitsISaIN4absl13test_internal23CopyableMovableInstanceEEE7destroyIS2_EEvRS3_PT_.exit.i59 ], [ %.sink1.i, %.lr.ph.preheader.i55 ]
   %90 = phi i32 [ %98, %_ZNSt16allocator_traitsISaIN4absl13test_internal23CopyableMovableInstanceEEE7destroyIS2_EEvRS3_PT_.exit.i59 ], [ %_ZN4absl13test_internal19BaseCountedInstance19num_live_instances_E.promoted.i56, %.lr.ph.preheader.i55 ]
   %91 = add nsw i64 %.06.i58, -1
-  %92 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %.sink2.i, i64 %91
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i, i64 %91
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 4
   %94 = load i8, ptr %93, align 4, !tbaa !2235, !range !35, !noundef !36
   %95 = trunc nuw i8 %94 to i1
@@ -196368,7 +196345,7 @@ _ZN4absl23inlined_vector_internal13MallocAdapterISaINS_13test_internal23Copyable
   %17 = phi i32 [ %24, %.lr.ph.i ], [ %_ZN4absl13test_internal19BaseCountedInstance14num_instances_E.promoted, %.lr.ph.i.preheader ]
   %.012.i = phi i64 [ %27, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
   %18 = phi ptr [ %26, %.lr.ph.i ], [ %.sink2.i, %.lr.ph.i.preheader ]
-  %19 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %15, i64 %.012.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %.012.i
   %20 = load i32, ptr %18, align 4, !tbaa !2233
   store i32 %20, ptr %19, align 4, !tbaa !2233
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 4
@@ -196399,7 +196376,7 @@ _ZN4absl23inlined_vector_internal13MallocAdapterISaINS_13test_internal23Copyable
   %.06.i = phi i64 [ %31, %_ZNSt16allocator_traitsISaIN4absl13test_internal23CopyableMovableInstanceEEE7destroyIS2_EEvRS3_PT_.exit.i ], [ %.sink1.i, %.lr.ph.preheader.i8 ]
   %30 = phi i32 [ %38, %_ZNSt16allocator_traitsISaIN4absl13test_internal23CopyableMovableInstanceEEE7destroyIS2_EEvRS3_PT_.exit.i ], [ %_ZN4absl13test_internal19BaseCountedInstance19num_live_instances_E.promoted.i, %.lr.ph.preheader.i8 ]
   %31 = add nsw i64 %.06.i, -1
-  %32 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %.sink2.i, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %34 = load i8, ptr %33, align 4, !tbaa !2235, !range !35, !noundef !36
   %35 = trunc nuw i8 %34 to i1
@@ -196631,7 +196608,7 @@ _ZN4absl13test_internal15InstanceTrackerD2Ev.exit: ; preds = %63
 _ZNSt16allocator_traitsISaIN4absl13test_internal20CopyableOnlyInstanceEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i: ; preds = %.lr.ph
   %88 = load ptr, ptr %52, align 8, !noalias !5244
   %.sink2.i.i.i.i = select i1 %86, ptr %88, ptr %52
-  %89 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %.sink2.i.i.i.i, i64 %.sink1.i.i.i.i
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i.i.i.i, i64 %.sink1.i.i.i.i
   store i32 %.0175, ptr %89, align 4, !tbaa !2233
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 4
   store i8 1, ptr %90, align 4, !tbaa !2235
@@ -197788,7 +197765,7 @@ _ZN4absl23inlined_vector_internal13MallocAdapterISaINS_13test_internal20Copyable
 .lr.ph.i:                                         ; preds = %21, %34
   %.012.i = phi i64 [ %38, %34 ], [ 0, %21 ]
   %22 = phi ptr [ %37, %34 ], [ %storemerge, %21 ]
-  %23 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %.0, i64 %.012.i
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %.0, i64 %.012.i
   %24 = load i32, ptr %22, align 4, !tbaa !2233
   store i32 %24, ptr %23, align 4, !tbaa !2233
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 4
@@ -198015,7 +197992,7 @@ _ZN4absl13test_internal15InstanceTrackerD2Ev.exit: ; preds = %63
 _ZN4absl13InlinedVectorINS_13test_internal23CopyableMovableInstanceELm8ESaIS2_EE9push_backEOS2_.exit.thread: ; preds = %.lr.ph
   %88 = load ptr, ptr %52, align 8, !noalias !5263
   %.sink2.i.i.i.i = select i1 %86, ptr %88, ptr %52
-  %89 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %.sink2.i.i.i.i, i64 %.sink1.i.i.i.i
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i.i.i.i, i64 %.sink1.i.i.i.i
   store i32 %.0173, ptr %89, align 4, !tbaa !2233
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 4
   store i8 1, ptr %90, align 4, !tbaa !2235
@@ -199167,7 +199144,7 @@ _ZN4absl23inlined_vector_internal13MallocAdapterISaINS_13test_internal23Copyable
 .lr.ph.i:                                         ; preds = %21, %34
   %.012.i = phi i64 [ %38, %34 ], [ 0, %21 ]
   %22 = phi ptr [ %37, %34 ], [ %storemerge, %21 ]
-  %23 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %.0, i64 %.012.i
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %.0, i64 %.012.i
   %24 = load i32, ptr %22, align 4, !tbaa !2233
   store i32 %24, ptr %23, align 4, !tbaa !2233
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 4
@@ -203498,7 +203475,7 @@ _ZN4absl13test_internal15InstanceTrackerD2Ev.exit: ; preds = %100
 _ZNSt16allocator_traitsISaIN4absl13test_internal20CopyableOnlyInstanceEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i: ; preds = %.lr.ph
   %127 = load ptr, ptr %80, align 8, !noalias !5347
   %.sink2.i.i.i.i = select i1 %125, ptr %127, ptr %80
-  %128 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %.sink2.i.i.i.i, i64 %.sink1.i.i.i.i
+  %128 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i.i.i.i, i64 %.sink1.i.i.i.i
   store i32 %.0381, ptr %128, align 4, !tbaa !2233
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 4
   store i8 1, ptr %129, align 4, !tbaa !2235
@@ -203853,7 +203830,7 @@ _ZN7testing15AssertionResultD2Ev.exit154:         ; preds = %229, %_ZNKSt14defau
   %.012.i.i = phi i64 [ %260, %258 ], [ 0, %.lr.ph.i.i.preheader ]
   %.pn.i = phi ptr [ %249, %258 ], [ %5, %.lr.ph.i.i.preheader ]
   %249 = getelementptr inbounds nuw i8, ptr %.pn.i, i64 8
-  %250 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %83, i64 %.012.i.i
+  %250 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %.012.i.i
   %251 = load i32, ptr %249, align 4, !tbaa !2233
   store i32 %251, ptr %250, align 8, !tbaa !2233
   %252 = getelementptr inbounds nuw i8, ptr %250, i64 4
@@ -205792,7 +205769,7 @@ _ZN4absl13test_internal15InstanceTrackerD2Ev.exit: ; preds = %99
 _ZN4absl13InlinedVectorINS_13test_internal23CopyableMovableInstanceELm8ESaIS2_EE9push_backEOS2_.exit.thread: ; preds = %.lr.ph
   %126 = load ptr, ptr %79, align 8, !noalias !5370
   %.sink2.i.i.i.i = select i1 %124, ptr %126, ptr %79
-  %127 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %.sink2.i.i.i.i, i64 %.sink1.i.i.i.i
+  %127 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i.i.i.i, i64 %.sink1.i.i.i.i
   store i32 %.0379, ptr %127, align 4, !tbaa !2233
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 4
   store i8 1, ptr %128, align 4, !tbaa !2235
@@ -206140,7 +206117,7 @@ _ZN7testing15AssertionResultD2Ev.exit152:         ; preds = %226, %_ZNKSt14defau
   %.012.i.i = phi i64 [ %251, %.lr.ph.i.i ], [ 0, %.lr.ph.i.i.preheader ]
   %.pn.i = phi ptr [ %245, %.lr.ph.i.i ], [ %5, %.lr.ph.i.i.preheader ]
   %245 = getelementptr inbounds nuw i8, ptr %.pn.i, i64 8
-  %246 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %82, i64 %.012.i.i
+  %246 = getelementptr inbounds nuw [8 x i8], ptr %82, i64 %.012.i.i
   %247 = load i32, ptr %245, align 4, !tbaa !2233
   store i32 %247, ptr %246, align 8, !tbaa !2233
   %248 = getelementptr inbounds nuw i8, ptr %246, i64 4
@@ -208026,7 +208003,7 @@ _ZN7testing7MessageD2Ev.exit12.i:                 ; preds = %_ZNKSt14default_del
 _ZNSt16allocator_traitsISaIN4absl13test_internal20CopyableOnlyInstanceEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i: ; preds = %.lr.ph
   %125 = load ptr, ptr %54, align 8, !noalias !5399
   %.sink2.i.i.i.i = select i1 %123, ptr %125, ptr %54
-  %126 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %.sink2.i.i.i.i, i64 %.sink1.i.i.i.i
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i.i.i.i, i64 %.sink1.i.i.i.i
   store i32 %.0363, ptr %126, align 4, !tbaa !2233
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 4
   store i8 1, ptr %127, align 4, !tbaa !2235
@@ -208086,7 +208063,7 @@ _ZN4absl13InlinedVectorINS_13test_internal20CopyableOnlyInstanceELm8ESaIS2_EE9pu
 _ZNSt16allocator_traitsISaIN4absl13test_internal20CopyableOnlyInstanceEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i74: ; preds = %143
   %149 = load ptr, ptr %57, align 8, !noalias !5402
   %.sink2.i.i.i.i73 = select i1 %147, ptr %149, ptr %57
-  %150 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %.sink2.i.i.i.i73, i64 %.sink1.i.i.i.i71
+  %150 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i.i.i.i73, i64 %.sink1.i.i.i.i71
   store i32 %.0363, ptr %150, align 4, !tbaa !2233
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 4
   store i8 1, ptr %151, align 4, !tbaa !2235
@@ -208198,7 +208175,7 @@ _ZN4absl13test_internal19BaseCountedInstanceD2Ev.exit79: ; preds = %186, %180
 _ZNSt16allocator_traitsISaIN4absl13test_internal20CopyableOnlyInstanceEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i84: ; preds = %._crit_edge
   %196 = load ptr, ptr %54, align 8, !noalias !5406
   %.sink2.i.i.i.i83 = select i1 %194, ptr %196, ptr %54
-  %197 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %.sink2.i.i.i.i83, i64 %.sink1.i.i.i.i81
+  %197 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i.i.i.i83, i64 %.sink1.i.i.i.i81
   store i32 %.lcssa, ptr %197, align 4, !tbaa !2233
   %198 = getelementptr inbounds nuw i8, ptr %197, i64 4
   store i8 1, ptr %198, align 4, !tbaa !2235
@@ -208668,12 +208645,12 @@ _ZN4absl23inlined_vector_internal13MallocAdapterISaINS_13test_internal20Copyable
   br i1 %354, label %355, label %358
 
 355:                                              ; preds = %353
-  %356 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %.sink2.i.i, i64 %.sink1.i.i
+  %356 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i.i, i64 %.sink1.i.i
   %357 = sub nuw nsw i64 %340, %.sink1.i.i
   br label %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal20CopyableOnlyInstanceEEE8AllocateEm.exit.i
 
 358:                                              ; preds = %353
-  %359 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %.sink2.i.i, i64 %340
+  %359 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i.i, i64 %340
   %360 = sub nuw nsw i64 %.sink1.i.i, %340
   br label %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal20CopyableOnlyInstanceEEE8AllocateEm.exit.i
 
@@ -208689,7 +208666,7 @@ _ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal20
 .lr.ph.i.i:                                       ; preds = %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal20CopyableOnlyInstanceEEE8AllocateEm.exit.i, %_ZN4absl23inlined_vector_internal20IteratorValueAdapterISaINS_13test_internal20CopyableOnlyInstanceEEPKS3_E10AssignNextEPS3_.exit.i.i
   %.05.i.i = phi i64 [ %380, %_ZN4absl23inlined_vector_internal20IteratorValueAdapterISaINS_13test_internal20CopyableOnlyInstanceEEPKS3_E10AssignNextEPS3_.exit.i.i ], [ 0, %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal20CopyableOnlyInstanceEEE8AllocateEm.exit.i ]
   %361 = phi ptr [ %379, %_ZN4absl23inlined_vector_internal20IteratorValueAdapterISaINS_13test_internal20CopyableOnlyInstanceEEPKS3_E10AssignNextEPS3_.exit.i.i ], [ %339, %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal20CopyableOnlyInstanceEEE8AllocateEm.exit.i ]
-  %362 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %.sink2.i.i, i64 %.05.i.i
+  %362 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i.i, i64 %.05.i.i
   %363 = load i32, ptr %361, align 4, !tbaa !2233
   store i32 %363, ptr %362, align 4, !tbaa !2233
   %364 = getelementptr inbounds nuw i8, ptr %362, i64 4
@@ -208747,7 +208724,7 @@ _ZN4absl23inlined_vector_internal14AssignElementsISaINS_13test_internal20Copyabl
 .lr.ph.i21.i:                                     ; preds = %393, %.lr.ph.preheader.i19.i
   %.012.i.i = phi i64 [ %397, %393 ], [ 0, %.lr.ph.preheader.i19.i ]
   %381 = phi ptr [ %396, %393 ], [ %.sroa.060.094.i, %.lr.ph.preheader.i19.i ]
-  %382 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %.sroa.041.07388.i, i64 %.012.i.i
+  %382 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.041.07388.i, i64 %.012.i.i
   %383 = load i32, ptr %381, align 4, !tbaa !2233
   store i32 %383, ptr %382, align 4, !tbaa !2233
   %384 = getelementptr inbounds nuw i8, ptr %382, i64 4
@@ -208798,7 +208775,7 @@ _ZN4absl23inlined_vector_internal17ConstructElementsISaINS_13test_internal20Copy
   %.06.i.i = phi i64 [ %401, %_ZNSt16allocator_traitsISaIN4absl13test_internal20CopyableOnlyInstanceEEE7destroyIS2_EEvRS3_PT_.exit.i.i ], [ %.sroa.7.07093.i, %.lr.ph.preheader.i24.i ]
   %400 = phi i32 [ %408, %_ZNSt16allocator_traitsISaIN4absl13test_internal20CopyableOnlyInstanceEEE7destroyIS2_EEvRS3_PT_.exit.i.i ], [ %_ZN4absl13test_internal19BaseCountedInstance19num_live_instances_E.promoted.i.i, %.lr.ph.preheader.i24.i ]
   %401 = add nsw i64 %.06.i.i, -1
-  %402 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %.sroa.040.07191.i, i64 %401
+  %402 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.040.07191.i, i64 %401
   %403 = getelementptr inbounds nuw i8, ptr %402, i64 4
   %404 = load i8, ptr %403, align 4, !tbaa !2235, !range !35, !noundef !36
   %405 = trunc nuw i8 %404 to i1
@@ -209255,12 +209232,12 @@ _ZN4absl23inlined_vector_internal13MallocAdapterISaINS_13test_internal20Copyable
   br i1 %552, label %553, label %556
 
 553:                                              ; preds = %551
-  %554 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %.sink2.i.i217, i64 %.sink1.i.i219
+  %554 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i.i217, i64 %.sink1.i.i219
   %555 = sub nuw nsw i64 %538, %.sink1.i.i219
   br label %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal20CopyableOnlyInstanceEEE8AllocateEm.exit.i220
 
 556:                                              ; preds = %551
-  %557 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %.sink2.i.i217, i64 %538
+  %557 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i.i217, i64 %538
   %558 = sub nuw nsw i64 %.sink1.i.i219, %538
   br label %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal20CopyableOnlyInstanceEEE8AllocateEm.exit.i220
 
@@ -209276,7 +209253,7 @@ _ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal20
 .lr.ph.i.i227:                                    ; preds = %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal20CopyableOnlyInstanceEEE8AllocateEm.exit.i220, %_ZN4absl23inlined_vector_internal20IteratorValueAdapterISaINS_13test_internal20CopyableOnlyInstanceEEPKS3_E10AssignNextEPS3_.exit.i.i229
   %.05.i.i228 = phi i64 [ %578, %_ZN4absl23inlined_vector_internal20IteratorValueAdapterISaINS_13test_internal20CopyableOnlyInstanceEEPKS3_E10AssignNextEPS3_.exit.i.i229 ], [ 0, %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal20CopyableOnlyInstanceEEE8AllocateEm.exit.i220 ]
   %559 = phi ptr [ %577, %_ZN4absl23inlined_vector_internal20IteratorValueAdapterISaINS_13test_internal20CopyableOnlyInstanceEEPKS3_E10AssignNextEPS3_.exit.i.i229 ], [ %537, %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal20CopyableOnlyInstanceEEE8AllocateEm.exit.i220 ]
-  %560 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %.sink2.i.i217, i64 %.05.i.i228
+  %560 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i.i217, i64 %.05.i.i228
   %561 = load i32, ptr %559, align 4, !tbaa !2233
   store i32 %561, ptr %560, align 4, !tbaa !2233
   %562 = getelementptr inbounds nuw i8, ptr %560, i64 4
@@ -209334,7 +209311,7 @@ _ZN4absl23inlined_vector_internal14AssignElementsISaINS_13test_internal20Copyabl
 .lr.ph.i21.i242:                                  ; preds = %591, %.lr.ph.preheader.i19.i234
   %.012.i.i243 = phi i64 [ %595, %591 ], [ 0, %.lr.ph.preheader.i19.i234 ]
   %579 = phi ptr [ %594, %591 ], [ %.sroa.060.094.i235, %.lr.ph.preheader.i19.i234 ]
-  %580 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %.sroa.041.07388.i239, i64 %.012.i.i243
+  %580 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.041.07388.i239, i64 %.012.i.i243
   %581 = load i32, ptr %579, align 4, !tbaa !2233
   store i32 %581, ptr %580, align 4, !tbaa !2233
   %582 = getelementptr inbounds nuw i8, ptr %580, i64 4
@@ -209385,7 +209362,7 @@ _ZN4absl23inlined_vector_internal17ConstructElementsISaINS_13test_internal20Copy
   %.06.i.i255 = phi i64 [ %599, %_ZNSt16allocator_traitsISaIN4absl13test_internal20CopyableOnlyInstanceEEE7destroyIS2_EEvRS3_PT_.exit.i.i256 ], [ %.sroa.7.07093.i247, %.lr.ph.preheader.i24.i252 ]
   %598 = phi i32 [ %606, %_ZNSt16allocator_traitsISaIN4absl13test_internal20CopyableOnlyInstanceEEE7destroyIS2_EEvRS3_PT_.exit.i.i256 ], [ %_ZN4absl13test_internal19BaseCountedInstance19num_live_instances_E.promoted.i.i253, %.lr.ph.preheader.i24.i252 ]
   %599 = add nsw i64 %.06.i.i255, -1
-  %600 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %.sroa.040.07191.i248, i64 %599
+  %600 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.040.07191.i248, i64 %599
   %601 = getelementptr inbounds nuw i8, ptr %600, i64 4
   %602 = load i8, ptr %601, align 4, !tbaa !2235, !range !35, !noundef !36
   %603 = trunc nuw i8 %602 to i1
@@ -210243,7 +210220,7 @@ _ZN7testing7MessageD2Ev.exit12.i:                 ; preds = %_ZNKSt14default_del
 _ZN4absl13InlinedVectorINS_13test_internal23CopyableMovableInstanceELm8ESaIS2_EE9push_backEOS2_.exit.thread: ; preds = %._crit_edge
   %124 = load ptr, ptr %54, align 8, !noalias !5435
   %.sink2.i.i.i.i = select i1 %122, ptr %124, ptr %54
-  %125 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %.sink2.i.i.i.i, i64 %.sink1.i.i.i.i
+  %125 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i.i.i.i, i64 %.sink1.i.i.i.i
   store i32 %.lcssa, ptr %125, align 4, !tbaa !2233
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 4
   store i8 1, ptr %126, align 4, !tbaa !2235
@@ -210286,7 +210263,7 @@ _ZN4absl13InlinedVectorINS_13test_internal23CopyableMovableInstanceELm8ESaIS2_EE
 _ZN4absl13InlinedVectorINS_13test_internal23CopyableMovableInstanceELm8ESaIS2_EE9push_backEOS2_.exit67.thread: ; preds = %.lr.ph
   %141 = load ptr, ptr %54, align 8, !noalias !5438
   %.sink2.i.i.i.i65 = select i1 %139, ptr %141, ptr %54
-  %142 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %.sink2.i.i.i.i65, i64 %.sink1.i.i.i.i63
+  %142 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i.i.i.i65, i64 %.sink1.i.i.i.i63
   store i32 %.0353, ptr %142, align 4, !tbaa !2233
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 4
   store i8 1, ptr %143, align 4, !tbaa !2235
@@ -210340,7 +210317,7 @@ _ZN4absl13test_internal19BaseCountedInstanceD2Ev.exit: ; preds = %_ZN4absl13Inli
 _ZN4absl13InlinedVectorINS_13test_internal23CopyableMovableInstanceELm8ESaIS2_EE9push_backEOS2_.exit73.thread: ; preds = %_ZN4absl13test_internal19BaseCountedInstanceD2Ev.exit
   %161 = load ptr, ptr %57, align 8, !noalias !5441
   %.sink2.i.i.i.i71 = select i1 %159, ptr %161, ptr %57
-  %162 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %.sink2.i.i.i.i71, i64 %.sink1.i.i.i.i69
+  %162 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i.i.i.i71, i64 %.sink1.i.i.i.i69
   store i32 %.0353, ptr %162, align 4, !tbaa !2233
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 4
   store i8 1, ptr %163, align 4, !tbaa !2235
@@ -210867,12 +210844,12 @@ _ZN4absl23inlined_vector_internal13MallocAdapterISaINS_13test_internal23Copyable
   br i1 %344, label %345, label %348
 
 345:                                              ; preds = %343
-  %346 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %.sink2.i.i, i64 %.sink1.i.i
+  %346 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i.i, i64 %.sink1.i.i
   %347 = sub nuw nsw i64 %330, %.sink1.i.i
   br label %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal23CopyableMovableInstanceEEE8AllocateEm.exit.i
 
 348:                                              ; preds = %343
-  %349 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %.sink2.i.i, i64 %330
+  %349 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i.i, i64 %330
   %350 = sub nuw nsw i64 %.sink1.i.i, %330
   br label %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal23CopyableMovableInstanceEEE8AllocateEm.exit.i
 
@@ -210888,7 +210865,7 @@ _ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal23
 .lr.ph.i.i:                                       ; preds = %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal23CopyableMovableInstanceEEE8AllocateEm.exit.i, %_ZN4absl23inlined_vector_internal20IteratorValueAdapterISaINS_13test_internal23CopyableMovableInstanceEEPKS3_E10AssignNextEPS3_.exit.i.i
   %.05.i.i = phi i64 [ %370, %_ZN4absl23inlined_vector_internal20IteratorValueAdapterISaINS_13test_internal23CopyableMovableInstanceEEPKS3_E10AssignNextEPS3_.exit.i.i ], [ 0, %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal23CopyableMovableInstanceEEE8AllocateEm.exit.i ]
   %351 = phi ptr [ %369, %_ZN4absl23inlined_vector_internal20IteratorValueAdapterISaINS_13test_internal23CopyableMovableInstanceEEPKS3_E10AssignNextEPS3_.exit.i.i ], [ %329, %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal23CopyableMovableInstanceEEE8AllocateEm.exit.i ]
-  %352 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %.sink2.i.i, i64 %.05.i.i
+  %352 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i.i, i64 %.05.i.i
   %353 = load i32, ptr %351, align 4, !tbaa !2233
   store i32 %353, ptr %352, align 4, !tbaa !2233
   %354 = getelementptr inbounds nuw i8, ptr %352, i64 4
@@ -210946,7 +210923,7 @@ _ZN4absl23inlined_vector_internal14AssignElementsISaINS_13test_internal23Copyabl
 .lr.ph.i21.i:                                     ; preds = %383, %.lr.ph.preheader.i19.i
   %.012.i.i = phi i64 [ %387, %383 ], [ 0, %.lr.ph.preheader.i19.i ]
   %371 = phi ptr [ %386, %383 ], [ %.sroa.060.094.i, %.lr.ph.preheader.i19.i ]
-  %372 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %.sroa.041.07388.i, i64 %.012.i.i
+  %372 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.041.07388.i, i64 %.012.i.i
   %373 = load i32, ptr %371, align 4, !tbaa !2233
   store i32 %373, ptr %372, align 4, !tbaa !2233
   %374 = getelementptr inbounds nuw i8, ptr %372, i64 4
@@ -210997,7 +210974,7 @@ _ZN4absl23inlined_vector_internal17ConstructElementsISaINS_13test_internal23Copy
   %.06.i.i = phi i64 [ %391, %_ZNSt16allocator_traitsISaIN4absl13test_internal23CopyableMovableInstanceEEE7destroyIS2_EEvRS3_PT_.exit.i.i ], [ %.sroa.7.07093.i, %.lr.ph.preheader.i24.i ]
   %390 = phi i32 [ %398, %_ZNSt16allocator_traitsISaIN4absl13test_internal23CopyableMovableInstanceEEE7destroyIS2_EEvRS3_PT_.exit.i.i ], [ %_ZN4absl13test_internal19BaseCountedInstance19num_live_instances_E.promoted.i.i, %.lr.ph.preheader.i24.i ]
   %391 = add nsw i64 %.06.i.i, -1
-  %392 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %.sroa.040.07191.i, i64 %391
+  %392 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.040.07191.i, i64 %391
   %393 = getelementptr inbounds nuw i8, ptr %392, i64 4
   %394 = load i8, ptr %393, align 4, !tbaa !2235, !range !35, !noundef !36
   %395 = trunc nuw i8 %394 to i1
@@ -211454,12 +211431,12 @@ _ZN4absl23inlined_vector_internal13MallocAdapterISaINS_13test_internal23Copyable
   br i1 %542, label %543, label %546
 
 543:                                              ; preds = %541
-  %544 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %.sink2.i.i207, i64 %.sink1.i.i209
+  %544 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i.i207, i64 %.sink1.i.i209
   %545 = sub nuw nsw i64 %528, %.sink1.i.i209
   br label %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal23CopyableMovableInstanceEEE8AllocateEm.exit.i210
 
 546:                                              ; preds = %541
-  %547 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %.sink2.i.i207, i64 %528
+  %547 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i.i207, i64 %528
   %548 = sub nuw nsw i64 %.sink1.i.i209, %528
   br label %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal23CopyableMovableInstanceEEE8AllocateEm.exit.i210
 
@@ -211475,7 +211452,7 @@ _ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal23
 .lr.ph.i.i217:                                    ; preds = %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal23CopyableMovableInstanceEEE8AllocateEm.exit.i210, %_ZN4absl23inlined_vector_internal20IteratorValueAdapterISaINS_13test_internal23CopyableMovableInstanceEEPKS3_E10AssignNextEPS3_.exit.i.i219
   %.05.i.i218 = phi i64 [ %568, %_ZN4absl23inlined_vector_internal20IteratorValueAdapterISaINS_13test_internal23CopyableMovableInstanceEEPKS3_E10AssignNextEPS3_.exit.i.i219 ], [ 0, %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal23CopyableMovableInstanceEEE8AllocateEm.exit.i210 ]
   %549 = phi ptr [ %567, %_ZN4absl23inlined_vector_internal20IteratorValueAdapterISaINS_13test_internal23CopyableMovableInstanceEEPKS3_E10AssignNextEPS3_.exit.i.i219 ], [ %527, %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal23CopyableMovableInstanceEEE8AllocateEm.exit.i210 ]
-  %550 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %.sink2.i.i207, i64 %.05.i.i218
+  %550 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i.i207, i64 %.05.i.i218
   %551 = load i32, ptr %549, align 4, !tbaa !2233
   store i32 %551, ptr %550, align 4, !tbaa !2233
   %552 = getelementptr inbounds nuw i8, ptr %550, i64 4
@@ -211533,7 +211510,7 @@ _ZN4absl23inlined_vector_internal14AssignElementsISaINS_13test_internal23Copyabl
 .lr.ph.i21.i232:                                  ; preds = %581, %.lr.ph.preheader.i19.i224
   %.012.i.i233 = phi i64 [ %585, %581 ], [ 0, %.lr.ph.preheader.i19.i224 ]
   %569 = phi ptr [ %584, %581 ], [ %.sroa.060.094.i225, %.lr.ph.preheader.i19.i224 ]
-  %570 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %.sroa.041.07388.i229, i64 %.012.i.i233
+  %570 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.041.07388.i229, i64 %.012.i.i233
   %571 = load i32, ptr %569, align 4, !tbaa !2233
   store i32 %571, ptr %570, align 4, !tbaa !2233
   %572 = getelementptr inbounds nuw i8, ptr %570, i64 4
@@ -211584,7 +211561,7 @@ _ZN4absl23inlined_vector_internal17ConstructElementsISaINS_13test_internal23Copy
   %.06.i.i245 = phi i64 [ %589, %_ZNSt16allocator_traitsISaIN4absl13test_internal23CopyableMovableInstanceEEE7destroyIS2_EEvRS3_PT_.exit.i.i246 ], [ %.sroa.7.07093.i237, %.lr.ph.preheader.i24.i242 ]
   %588 = phi i32 [ %596, %_ZNSt16allocator_traitsISaIN4absl13test_internal23CopyableMovableInstanceEEE7destroyIS2_EEvRS3_PT_.exit.i.i246 ], [ %_ZN4absl13test_internal19BaseCountedInstance19num_live_instances_E.promoted.i.i243, %.lr.ph.preheader.i24.i242 ]
   %589 = add nsw i64 %.06.i.i245, -1
-  %590 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %.sroa.040.07191.i238, i64 %589
+  %590 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.040.07191.i238, i64 %589
   %591 = getelementptr inbounds nuw i8, ptr %590, i64 4
   %592 = load i8, ptr %591, align 4, !tbaa !2235, !range !35, !noundef !36
   %593 = trunc nuw i8 %592 to i1
@@ -216560,7 +216537,7 @@ _ZN7testing7MessageD2Ev.exit12.i:                 ; preds = %_ZNKSt14default_del
 _ZNSt16allocator_traitsISaIN4absl13test_internal20CopyableOnlyInstanceEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i: ; preds = %.lr.ph
   %178 = load ptr, ptr %90, align 8, !noalias !5537
   %.sink2.i.i.i.i = select i1 %176, ptr %178, ptr %90
-  %179 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %.sink2.i.i.i.i, i64 %.sink1.i.i.i.i
+  %179 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i.i.i.i, i64 %.sink1.i.i.i.i
   store i32 %.0750, ptr %179, align 4, !tbaa !2233
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 4
   store i8 1, ptr %180, align 4, !tbaa !2235
@@ -216620,7 +216597,7 @@ _ZN4absl13InlinedVectorINS_13test_internal20CopyableOnlyInstanceELm8ESaIS2_EE9pu
 _ZNSt16allocator_traitsISaIN4absl13test_internal20CopyableOnlyInstanceEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i132: ; preds = %196
   %202 = load ptr, ptr %93, align 8, !noalias !5540
   %.sink2.i.i.i.i131 = select i1 %200, ptr %202, ptr %93
-  %203 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %.sink2.i.i.i.i131, i64 %.sink1.i.i.i.i129
+  %203 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i.i.i.i131, i64 %.sink1.i.i.i.i129
   store i32 %.0750, ptr %203, align 4, !tbaa !2233
   %204 = getelementptr inbounds nuw i8, ptr %203, i64 4
   store i8 1, ptr %204, align 4, !tbaa !2235
@@ -216732,7 +216709,7 @@ _ZN4absl13test_internal19BaseCountedInstanceD2Ev.exit137: ; preds = %239, %233
 _ZNSt16allocator_traitsISaIN4absl13test_internal20CopyableOnlyInstanceEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i142: ; preds = %._crit_edge
   %249 = load ptr, ptr %90, align 8, !noalias !5544
   %.sink2.i.i.i.i141 = select i1 %247, ptr %249, ptr %90
-  %250 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %.sink2.i.i.i.i141, i64 %.sink1.i.i.i.i139
+  %250 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i.i.i.i141, i64 %.sink1.i.i.i.i139
   store i32 %.lcssa, ptr %250, align 4, !tbaa !2233
   %251 = getelementptr inbounds nuw i8, ptr %250, i64 4
   store i8 1, ptr %251, align 4, !tbaa !2235
@@ -217186,7 +217163,7 @@ _ZN7testing15AssertionResultD2Ev.exit169:         ; preds = %378, %_ZNKSt14defau
   %.06.i.i.i.i = phi i64 [ %403, %_ZNSt16allocator_traitsISaIN4absl13test_internal20CopyableOnlyInstanceEEE7destroyIS2_EEvRS3_PT_.exit.i.i.i.i ], [ %399, %.lr.ph.preheader.i.i.i.i ]
   %402 = phi i32 [ %410, %_ZNSt16allocator_traitsISaIN4absl13test_internal20CopyableOnlyInstanceEEE7destroyIS2_EEvRS3_PT_.exit.i.i.i.i ], [ %_ZN4absl13test_internal19BaseCountedInstance19num_live_instances_E.promoted.i.i.i.i, %.lr.ph.preheader.i.i.i.i ]
   %403 = add nsw i64 %.06.i.i.i.i, -1
-  %404 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %398, i64 %403
+  %404 = getelementptr inbounds nuw [8 x i8], ptr %398, i64 %403
   %405 = getelementptr inbounds nuw i8, ptr %404, i64 4
   %406 = load i8, ptr %405, align 4, !tbaa !2235, !range !35, !noundef !36
   %407 = trunc nuw i8 %406 to i1
@@ -217265,12 +217242,12 @@ _ZN4absl23inlined_vector_internal13MallocAdapterISaINS_13test_internal20Copyable
   br i1 %430, label %431, label %434
 
 431:                                              ; preds = %429
-  %432 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %.sink2.i.i, i64 %.sink1.i.i
+  %432 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i.i, i64 %.sink1.i.i
   %433 = sub nuw nsw i64 %416, %.sink1.i.i
   br label %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal20CopyableOnlyInstanceEEE8AllocateEm.exit.i
 
 434:                                              ; preds = %429
-  %435 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %.sink2.i.i, i64 %416
+  %435 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i.i, i64 %416
   %436 = sub nuw nsw i64 %.sink1.i.i, %416
   br label %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal20CopyableOnlyInstanceEEE8AllocateEm.exit.i
 
@@ -217286,7 +217263,7 @@ _ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal20
 .lr.ph.i.i:                                       ; preds = %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal20CopyableOnlyInstanceEEE8AllocateEm.exit.i, %_ZN4absl23inlined_vector_internal20IteratorValueAdapterISaINS_13test_internal20CopyableOnlyInstanceEESt13move_iteratorIPS3_EE10AssignNextES6_.exit.i.i
   %.05.i.i = phi i64 [ %456, %_ZN4absl23inlined_vector_internal20IteratorValueAdapterISaINS_13test_internal20CopyableOnlyInstanceEESt13move_iteratorIPS3_EE10AssignNextES6_.exit.i.i ], [ 0, %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal20CopyableOnlyInstanceEEE8AllocateEm.exit.i ]
   %437 = phi ptr [ %455, %_ZN4absl23inlined_vector_internal20IteratorValueAdapterISaINS_13test_internal20CopyableOnlyInstanceEESt13move_iteratorIPS3_EE10AssignNextES6_.exit.i.i ], [ %90, %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal20CopyableOnlyInstanceEEE8AllocateEm.exit.i ]
-  %438 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %.sink2.i.i, i64 %.05.i.i
+  %438 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i.i, i64 %.05.i.i
   %439 = load i32, ptr %437, align 4, !tbaa !2233
   store i32 %439, ptr %438, align 4, !tbaa !2233
   %440 = getelementptr inbounds nuw i8, ptr %438, i64 4
@@ -217344,7 +217321,7 @@ _ZN4absl23inlined_vector_internal14AssignElementsISaINS_13test_internal20Copyabl
 .lr.ph.i21.i:                                     ; preds = %469, %.lr.ph.preheader.i19.i
   %.012.i.i = phi i64 [ %473, %469 ], [ 0, %.lr.ph.preheader.i19.i ]
   %457 = phi ptr [ %472, %469 ], [ %.sroa.060.094.i, %.lr.ph.preheader.i19.i ]
-  %458 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %.sroa.041.07388.i, i64 %.012.i.i
+  %458 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.041.07388.i, i64 %.012.i.i
   %459 = load i32, ptr %457, align 4, !tbaa !2233
   store i32 %459, ptr %458, align 4, !tbaa !2233
   %460 = getelementptr inbounds nuw i8, ptr %458, i64 4
@@ -217395,7 +217372,7 @@ _ZN4absl23inlined_vector_internal17ConstructElementsISaINS_13test_internal20Copy
   %.06.i.i = phi i64 [ %477, %_ZNSt16allocator_traitsISaIN4absl13test_internal20CopyableOnlyInstanceEEE7destroyIS2_EEvRS3_PT_.exit.i.i ], [ %.sroa.7.07093.i, %.lr.ph.preheader.i24.i ]
   %476 = phi i32 [ %484, %_ZNSt16allocator_traitsISaIN4absl13test_internal20CopyableOnlyInstanceEEE7destroyIS2_EEvRS3_PT_.exit.i.i ], [ %_ZN4absl13test_internal19BaseCountedInstance19num_live_instances_E.promoted.i.i, %.lr.ph.preheader.i24.i ]
   %477 = add nsw i64 %.06.i.i, -1
-  %478 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %.sroa.040.07191.i, i64 %477
+  %478 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.040.07191.i, i64 %477
   %479 = getelementptr inbounds nuw i8, ptr %478, i64 4
   %480 = load i8, ptr %479, align 4, !tbaa !2235, !range !35, !noundef !36
   %481 = trunc nuw i8 %480 to i1
@@ -217482,7 +217459,7 @@ _ZNSt16allocator_traitsISaIN4absl13test_internal20CopyableOnlyInstanceEEE7destro
   %.06.i.i.i.i178 = phi i64 [ %508, %_ZNSt16allocator_traitsISaIN4absl13test_internal20CopyableOnlyInstanceEEE7destroyIS2_EEvRS3_PT_.exit.i.i.i.i179 ], [ %504, %.lr.ph.preheader.i.i.i.i175 ]
   %507 = phi i32 [ %515, %_ZNSt16allocator_traitsISaIN4absl13test_internal20CopyableOnlyInstanceEEE7destroyIS2_EEvRS3_PT_.exit.i.i.i.i179 ], [ %_ZN4absl13test_internal19BaseCountedInstance19num_live_instances_E.promoted.i.i.i.i176, %.lr.ph.preheader.i.i.i.i175 ]
   %508 = add nsw i64 %.06.i.i.i.i178, -1
-  %509 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %503, i64 %508
+  %509 = getelementptr inbounds nuw [8 x i8], ptr %503, i64 %508
   %510 = getelementptr inbounds nuw i8, ptr %509, i64 4
   %511 = load i8, ptr %510, align 4, !tbaa !2235, !range !35, !noundef !36
   %512 = trunc nuw i8 %511 to i1
@@ -217547,12 +217524,12 @@ _ZN4absl23inlined_vector_internal13MallocAdapterISaINS_13test_internal20Copyable
   br i1 %535, label %536, label %539
 
 536:                                              ; preds = %534
-  %537 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %.sink2.i.i397, i64 %.sink1.i.i399
+  %537 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i.i397, i64 %.sink1.i.i399
   %538 = sub nuw nsw i64 %521, %.sink1.i.i399
   br label %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal20CopyableOnlyInstanceEEE8AllocateEm.exit.i400
 
 539:                                              ; preds = %534
-  %540 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %.sink2.i.i397, i64 %521
+  %540 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i.i397, i64 %521
   %541 = sub nuw nsw i64 %.sink1.i.i399, %521
   br label %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal20CopyableOnlyInstanceEEE8AllocateEm.exit.i400
 
@@ -217568,7 +217545,7 @@ _ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal20
 .lr.ph.i.i407:                                    ; preds = %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal20CopyableOnlyInstanceEEE8AllocateEm.exit.i400, %_ZN4absl23inlined_vector_internal20IteratorValueAdapterISaINS_13test_internal20CopyableOnlyInstanceEESt13move_iteratorIPS3_EE10AssignNextES6_.exit.i.i409
   %.05.i.i408 = phi i64 [ %561, %_ZN4absl23inlined_vector_internal20IteratorValueAdapterISaINS_13test_internal20CopyableOnlyInstanceEESt13move_iteratorIPS3_EE10AssignNextES6_.exit.i.i409 ], [ 0, %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal20CopyableOnlyInstanceEEE8AllocateEm.exit.i400 ]
   %542 = phi ptr [ %560, %_ZN4absl23inlined_vector_internal20IteratorValueAdapterISaINS_13test_internal20CopyableOnlyInstanceEESt13move_iteratorIPS3_EE10AssignNextES6_.exit.i.i409 ], [ %93, %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal20CopyableOnlyInstanceEEE8AllocateEm.exit.i400 ]
-  %543 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %.sink2.i.i397, i64 %.05.i.i408
+  %543 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i.i397, i64 %.05.i.i408
   %544 = load i32, ptr %542, align 4, !tbaa !2233
   store i32 %544, ptr %543, align 4, !tbaa !2233
   %545 = getelementptr inbounds nuw i8, ptr %543, i64 4
@@ -217626,7 +217603,7 @@ _ZN4absl23inlined_vector_internal14AssignElementsISaINS_13test_internal20Copyabl
 .lr.ph.i21.i422:                                  ; preds = %574, %.lr.ph.preheader.i19.i414
   %.012.i.i423 = phi i64 [ %578, %574 ], [ 0, %.lr.ph.preheader.i19.i414 ]
   %562 = phi ptr [ %577, %574 ], [ %.sroa.060.094.i415, %.lr.ph.preheader.i19.i414 ]
-  %563 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %.sroa.041.07388.i419, i64 %.012.i.i423
+  %563 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.041.07388.i419, i64 %.012.i.i423
   %564 = load i32, ptr %562, align 4, !tbaa !2233
   store i32 %564, ptr %563, align 4, !tbaa !2233
   %565 = getelementptr inbounds nuw i8, ptr %563, i64 4
@@ -217677,7 +217654,7 @@ _ZN4absl23inlined_vector_internal17ConstructElementsISaINS_13test_internal20Copy
   %.06.i.i435 = phi i64 [ %582, %_ZNSt16allocator_traitsISaIN4absl13test_internal20CopyableOnlyInstanceEEE7destroyIS2_EEvRS3_PT_.exit.i.i436 ], [ %.sroa.7.07093.i427, %.lr.ph.preheader.i24.i432 ]
   %581 = phi i32 [ %589, %_ZNSt16allocator_traitsISaIN4absl13test_internal20CopyableOnlyInstanceEEE7destroyIS2_EEvRS3_PT_.exit.i.i436 ], [ %_ZN4absl13test_internal19BaseCountedInstance19num_live_instances_E.promoted.i.i433, %.lr.ph.preheader.i24.i432 ]
   %582 = add nsw i64 %.06.i.i435, -1
-  %583 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %.sroa.040.07191.i428, i64 %582
+  %583 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.040.07191.i428, i64 %582
   %584 = getelementptr inbounds nuw i8, ptr %583, i64 4
   %585 = load i8, ptr %584, align 4, !tbaa !2235, !range !35, !noundef !36
   %586 = trunc nuw i8 %585 to i1
@@ -220089,7 +220066,7 @@ _ZN7testing7MessageD2Ev.exit12.i:                 ; preds = %_ZNKSt14default_del
 _ZN4absl13InlinedVectorINS_13test_internal23CopyableMovableInstanceELm8ESaIS2_EE9push_backEOS2_.exit.thread: ; preds = %._crit_edge
   %176 = load ptr, ptr %89, align 8, !noalias !5596
   %.sink2.i.i.i.i = select i1 %174, ptr %176, ptr %89
-  %177 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %.sink2.i.i.i.i, i64 %.sink1.i.i.i.i
+  %177 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i.i.i.i, i64 %.sink1.i.i.i.i
   store i32 %.lcssa, ptr %177, align 4, !tbaa !2233
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 4
   store i8 1, ptr %178, align 4, !tbaa !2235
@@ -220132,7 +220109,7 @@ _ZN4absl13InlinedVectorINS_13test_internal23CopyableMovableInstanceELm8ESaIS2_EE
 _ZN4absl13InlinedVectorINS_13test_internal23CopyableMovableInstanceELm8ESaIS2_EE9push_backEOS2_.exit125.thread: ; preds = %.lr.ph
   %193 = load ptr, ptr %89, align 8, !noalias !5599
   %.sink2.i.i.i.i123 = select i1 %191, ptr %193, ptr %89
-  %194 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %.sink2.i.i.i.i123, i64 %.sink1.i.i.i.i121
+  %194 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i.i.i.i123, i64 %.sink1.i.i.i.i121
   store i32 %.0740, ptr %194, align 4, !tbaa !2233
   %195 = getelementptr inbounds nuw i8, ptr %194, i64 4
   store i8 1, ptr %195, align 4, !tbaa !2235
@@ -220186,7 +220163,7 @@ _ZN4absl13test_internal19BaseCountedInstanceD2Ev.exit: ; preds = %_ZN4absl13Inli
 _ZN4absl13InlinedVectorINS_13test_internal23CopyableMovableInstanceELm8ESaIS2_EE9push_backEOS2_.exit131.thread: ; preds = %_ZN4absl13test_internal19BaseCountedInstanceD2Ev.exit
   %213 = load ptr, ptr %92, align 8, !noalias !5602
   %.sink2.i.i.i.i129 = select i1 %211, ptr %213, ptr %92
-  %214 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %.sink2.i.i.i.i129, i64 %.sink1.i.i.i.i127
+  %214 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i.i.i.i129, i64 %.sink1.i.i.i.i127
   store i32 %.0740, ptr %214, align 4, !tbaa !2233
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 4
   store i8 1, ptr %215, align 4, !tbaa !2235
@@ -220697,7 +220674,7 @@ _ZN7testing15AssertionResultD2Ev.exit159:         ; preds = %367, %_ZNKSt14defau
   %.06.i.i.i.i = phi i64 [ %392, %_ZNSt16allocator_traitsISaIN4absl13test_internal23CopyableMovableInstanceEEE7destroyIS2_EEvRS3_PT_.exit.i.i.i.i ], [ %388, %.lr.ph.preheader.i.i.i.i ]
   %391 = phi i32 [ %399, %_ZNSt16allocator_traitsISaIN4absl13test_internal23CopyableMovableInstanceEEE7destroyIS2_EEvRS3_PT_.exit.i.i.i.i ], [ %_ZN4absl13test_internal19BaseCountedInstance19num_live_instances_E.promoted.i.i.i.i, %.lr.ph.preheader.i.i.i.i ]
   %392 = add nsw i64 %.06.i.i.i.i, -1
-  %393 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %387, i64 %392
+  %393 = getelementptr inbounds nuw [8 x i8], ptr %387, i64 %392
   %394 = getelementptr inbounds nuw i8, ptr %393, i64 4
   %395 = load i8, ptr %394, align 4, !tbaa !2235, !range !35, !noundef !36
   %396 = trunc nuw i8 %395 to i1
@@ -220776,12 +220753,12 @@ _ZN4absl23inlined_vector_internal13MallocAdapterISaINS_13test_internal23Copyable
   br i1 %419, label %420, label %423
 
 420:                                              ; preds = %418
-  %421 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %.sink2.i.i, i64 %.sink1.i.i
+  %421 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i.i, i64 %.sink1.i.i
   %422 = sub nuw nsw i64 %405, %.sink1.i.i
   br label %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal23CopyableMovableInstanceEEE8AllocateEm.exit.i
 
 423:                                              ; preds = %418
-  %424 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %.sink2.i.i, i64 %405
+  %424 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i.i, i64 %405
   %425 = sub nuw nsw i64 %.sink1.i.i, %405
   br label %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal23CopyableMovableInstanceEEE8AllocateEm.exit.i
 
@@ -220797,7 +220774,7 @@ _ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal23
 .lr.ph.i.i:                                       ; preds = %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal23CopyableMovableInstanceEEE8AllocateEm.exit.i, %_ZN4absl23inlined_vector_internal20IteratorValueAdapterISaINS_13test_internal23CopyableMovableInstanceEESt13move_iteratorIPS3_EE10AssignNextES6_.exit.i.i
   %.05.i.i = phi i64 [ %440, %_ZN4absl23inlined_vector_internal20IteratorValueAdapterISaINS_13test_internal23CopyableMovableInstanceEESt13move_iteratorIPS3_EE10AssignNextES6_.exit.i.i ], [ 0, %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal23CopyableMovableInstanceEEE8AllocateEm.exit.i ]
   %426 = phi ptr [ %439, %_ZN4absl23inlined_vector_internal20IteratorValueAdapterISaINS_13test_internal23CopyableMovableInstanceEESt13move_iteratorIPS3_EE10AssignNextES6_.exit.i.i ], [ %89, %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal23CopyableMovableInstanceEEE8AllocateEm.exit.i ]
-  %427 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %.sink2.i.i, i64 %.05.i.i
+  %427 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i.i, i64 %.05.i.i
   %428 = load i32, ptr %426, align 4, !tbaa !2233
   store i32 %428, ptr %427, align 4, !tbaa !2233
   %429 = getelementptr inbounds nuw i8, ptr %427, i64 4
@@ -220846,7 +220823,7 @@ _ZN4absl23inlined_vector_internal14AssignElementsISaINS_13test_internal23Copyabl
 .lr.ph.i21.i:                                     ; preds = %.lr.ph.i21.i, %.lr.ph.preheader.i19.i
   %.012.i.i = phi i64 [ %452, %.lr.ph.i21.i ], [ 0, %.lr.ph.preheader.i19.i ]
   %441 = phi ptr [ %451, %.lr.ph.i21.i ], [ %.sroa.060.094.i, %.lr.ph.preheader.i19.i ]
-  %442 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %.sroa.041.07388.i, i64 %.012.i.i
+  %442 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.041.07388.i, i64 %.012.i.i
   %443 = load i32, ptr %441, align 4, !tbaa !2233
   store i32 %443, ptr %442, align 4, !tbaa !2233
   %444 = getelementptr inbounds nuw i8, ptr %442, i64 4
@@ -220888,7 +220865,7 @@ _ZN4absl23inlined_vector_internal17ConstructElementsISaINS_13test_internal23Copy
   %.06.i.i = phi i64 [ %456, %_ZNSt16allocator_traitsISaIN4absl13test_internal23CopyableMovableInstanceEEE7destroyIS2_EEvRS3_PT_.exit.i.i ], [ %.sroa.7.07093.i, %.lr.ph.preheader.i24.i ]
   %455 = phi i32 [ %463, %_ZNSt16allocator_traitsISaIN4absl13test_internal23CopyableMovableInstanceEEE7destroyIS2_EEvRS3_PT_.exit.i.i ], [ %_ZN4absl13test_internal19BaseCountedInstance19num_live_instances_E.promoted.i.i, %.lr.ph.preheader.i24.i ]
   %456 = add nsw i64 %.06.i.i, -1
-  %457 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %.sroa.040.07191.i, i64 %456
+  %457 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.040.07191.i, i64 %456
   %458 = getelementptr inbounds nuw i8, ptr %457, i64 4
   %459 = load i8, ptr %458, align 4, !tbaa !2235, !range !35, !noundef !36
   %460 = trunc nuw i8 %459 to i1
@@ -220975,7 +220952,7 @@ _ZNSt16allocator_traitsISaIN4absl13test_internal23CopyableMovableInstanceEEE7des
   %.06.i.i.i.i168 = phi i64 [ %487, %_ZNSt16allocator_traitsISaIN4absl13test_internal23CopyableMovableInstanceEEE7destroyIS2_EEvRS3_PT_.exit.i.i.i.i169 ], [ %483, %.lr.ph.preheader.i.i.i.i165 ]
   %486 = phi i32 [ %494, %_ZNSt16allocator_traitsISaIN4absl13test_internal23CopyableMovableInstanceEEE7destroyIS2_EEvRS3_PT_.exit.i.i.i.i169 ], [ %_ZN4absl13test_internal19BaseCountedInstance19num_live_instances_E.promoted.i.i.i.i166, %.lr.ph.preheader.i.i.i.i165 ]
   %487 = add nsw i64 %.06.i.i.i.i168, -1
-  %488 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %482, i64 %487
+  %488 = getelementptr inbounds nuw [8 x i8], ptr %482, i64 %487
   %489 = getelementptr inbounds nuw i8, ptr %488, i64 4
   %490 = load i8, ptr %489, align 4, !tbaa !2235, !range !35, !noundef !36
   %491 = trunc nuw i8 %490 to i1
@@ -221040,12 +221017,12 @@ _ZN4absl23inlined_vector_internal13MallocAdapterISaINS_13test_internal23Copyable
   br i1 %514, label %515, label %518
 
 515:                                              ; preds = %513
-  %516 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %.sink2.i.i387, i64 %.sink1.i.i389
+  %516 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i.i387, i64 %.sink1.i.i389
   %517 = sub nuw nsw i64 %500, %.sink1.i.i389
   br label %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal23CopyableMovableInstanceEEE8AllocateEm.exit.i390
 
 518:                                              ; preds = %513
-  %519 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %.sink2.i.i387, i64 %500
+  %519 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i.i387, i64 %500
   %520 = sub nuw nsw i64 %.sink1.i.i389, %500
   br label %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal23CopyableMovableInstanceEEE8AllocateEm.exit.i390
 
@@ -221061,7 +221038,7 @@ _ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal23
 .lr.ph.i.i397:                                    ; preds = %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal23CopyableMovableInstanceEEE8AllocateEm.exit.i390, %_ZN4absl23inlined_vector_internal20IteratorValueAdapterISaINS_13test_internal23CopyableMovableInstanceEESt13move_iteratorIPS3_EE10AssignNextES6_.exit.i.i399
   %.05.i.i398 = phi i64 [ %535, %_ZN4absl23inlined_vector_internal20IteratorValueAdapterISaINS_13test_internal23CopyableMovableInstanceEESt13move_iteratorIPS3_EE10AssignNextES6_.exit.i.i399 ], [ 0, %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal23CopyableMovableInstanceEEE8AllocateEm.exit.i390 ]
   %521 = phi ptr [ %534, %_ZN4absl23inlined_vector_internal20IteratorValueAdapterISaINS_13test_internal23CopyableMovableInstanceEESt13move_iteratorIPS3_EE10AssignNextES6_.exit.i.i399 ], [ %92, %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal23CopyableMovableInstanceEEE8AllocateEm.exit.i390 ]
-  %522 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %.sink2.i.i387, i64 %.05.i.i398
+  %522 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i.i387, i64 %.05.i.i398
   %523 = load i32, ptr %521, align 4, !tbaa !2233
   store i32 %523, ptr %522, align 4, !tbaa !2233
   %524 = getelementptr inbounds nuw i8, ptr %522, i64 4
@@ -221110,7 +221087,7 @@ _ZN4absl23inlined_vector_internal14AssignElementsISaINS_13test_internal23Copyabl
 .lr.ph.i21.i412:                                  ; preds = %.lr.ph.i21.i412, %.lr.ph.preheader.i19.i404
   %.012.i.i413 = phi i64 [ %547, %.lr.ph.i21.i412 ], [ 0, %.lr.ph.preheader.i19.i404 ]
   %536 = phi ptr [ %546, %.lr.ph.i21.i412 ], [ %.sroa.060.094.i405, %.lr.ph.preheader.i19.i404 ]
-  %537 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %.sroa.041.07388.i409, i64 %.012.i.i413
+  %537 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.041.07388.i409, i64 %.012.i.i413
   %538 = load i32, ptr %536, align 4, !tbaa !2233
   store i32 %538, ptr %537, align 4, !tbaa !2233
   %539 = getelementptr inbounds nuw i8, ptr %537, i64 4
@@ -221152,7 +221129,7 @@ _ZN4absl23inlined_vector_internal17ConstructElementsISaINS_13test_internal23Copy
   %.06.i.i425 = phi i64 [ %551, %_ZNSt16allocator_traitsISaIN4absl13test_internal23CopyableMovableInstanceEEE7destroyIS2_EEvRS3_PT_.exit.i.i426 ], [ %.sroa.7.07093.i417, %.lr.ph.preheader.i24.i422 ]
   %550 = phi i32 [ %558, %_ZNSt16allocator_traitsISaIN4absl13test_internal23CopyableMovableInstanceEEE7destroyIS2_EEvRS3_PT_.exit.i.i426 ], [ %_ZN4absl13test_internal19BaseCountedInstance19num_live_instances_E.promoted.i.i423, %.lr.ph.preheader.i24.i422 ]
   %551 = add nsw i64 %.06.i.i425, -1
-  %552 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %.sroa.040.07191.i418, i64 %551
+  %552 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.040.07191.i418, i64 %551
   %553 = getelementptr inbounds nuw i8, ptr %552, i64 4
   %554 = load i8, ptr %553, align 4, !tbaa !2235, !range !35, !noundef !36
   %555 = trunc nuw i8 %554 to i1
@@ -223390,7 +223367,7 @@ _ZNSt12_Vector_baseIN4absl13test_internal20CopyableOnlyInstanceESaIS2_EEC2EmRKS3
 
 .lr.ph.i.split.us.i.i.i.i.preheader.i:            ; preds = %.lr.ph.i.i.i.i.i.i
   store ptr %92, ptr %19, align 8, !tbaa !2229
-  %93 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %92, i64 %84
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %92, i64 %84
   store ptr %93, ptr %30, align 8, !tbaa !2232
   %.pre14.i = load i32, ptr @_ZN4absl13test_internal19BaseCountedInstance11num_copies_E, align 4, !tbaa !130
   br label %.lr.ph.i.split.us.i.i.i.i.i
@@ -223473,7 +223450,7 @@ _ZN4absl13test_internal19BaseCountedInstanceD2Ev.exit: ; preds = %_ZN4absl13test
   %120 = phi i32 [ %127, %131 ], [ %105, %.lr.ph.preheader.i.i.i ]
   %.012.i.i.i = phi i64 [ %135, %131 ], [ 0, %.lr.ph.preheader.i.i.i ]
   %121 = phi ptr [ %134, %131 ], [ %103, %.lr.ph.preheader.i.i.i ]
-  %122 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %.010.i.i, i64 %.012.i.i.i
+  %122 = getelementptr inbounds nuw [8 x i8], ptr %.010.i.i, i64 %.012.i.i.i
   %123 = load i32, ptr %121, align 4, !tbaa !2233
   store i32 %123, ptr %122, align 4, !tbaa !2233
   %124 = getelementptr inbounds nuw i8, ptr %122, i64 4
@@ -224907,7 +224884,7 @@ _ZNSt12_Vector_baseIN4absl13test_internal23CopyableMovableInstanceESaIS2_EEC2EmR
 
 .lr.ph.i.split.us.i.i.i.i.preheader.i:            ; preds = %.lr.ph.i.i.i.i.i.i
   store ptr %93, ptr %19, align 8, !tbaa !2510
-  %94 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %93, i64 %85
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %85
   store ptr %94, ptr %31, align 8, !tbaa !2513
   %.pre14.i = load i32, ptr @_ZN4absl13test_internal19BaseCountedInstance11num_copies_E, align 4, !tbaa !130
   br label %.lr.ph.i.split.us.i.i.i.i.i
@@ -224990,7 +224967,7 @@ _ZN4absl13test_internal19BaseCountedInstanceD2Ev.exit: ; preds = %_ZN4absl13test
   %121 = phi i32 [ %128, %132 ], [ %106, %.lr.ph.preheader.i.i.i ]
   %.012.i.i.i = phi i64 [ %136, %132 ], [ 0, %.lr.ph.preheader.i.i.i ]
   %122 = phi ptr [ %135, %132 ], [ %104, %.lr.ph.preheader.i.i.i ]
-  %123 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %.010.i.i, i64 %.012.i.i.i
+  %123 = getelementptr inbounds nuw [8 x i8], ptr %.010.i.i, i64 %.012.i.i.i
   %124 = load i32, ptr %122, align 4, !tbaa !2233
   store i32 %124, ptr %123, align 4, !tbaa !2233
   %125 = getelementptr inbounds nuw i8, ptr %123, i64 4
@@ -232867,7 +232844,7 @@ _ZN4absl13test_internal19BaseCountedInstanceD2Ev.exit.i154: ; preds = %919, %912
   %938 = phi i32 [ %949, %948 ], [ %_ZN4absl13test_internal19BaseCountedInstance19num_live_instances_E.promoted163.i, %.lr.ph.preheader.i.i.i.i ]
   %.012.i.i.i.i = phi i64 [ %951, %948 ], [ 0, %.lr.ph.preheader.i.i.i.i ]
   %939 = phi ptr [ %950, %948 ], [ %895, %.lr.ph.preheader.i.i.i.i ]
-  %940 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %.010.i.i.i, i64 %.012.i.i.i.i
+  %940 = getelementptr inbounds nuw [8 x i8], ptr %.010.i.i.i, i64 %.012.i.i.i.i
   %941 = load i32, ptr %939, align 4, !tbaa !2233
   store i32 %941, ptr %940, align 4, !tbaa !2233
   %942 = getelementptr inbounds nuw i8, ptr %940, i64 4
@@ -234044,7 +234021,7 @@ _ZN4absl13test_internal19BaseCountedInstanceD2Ev.exit.i281: ; preds = %1308, %13
   %1327 = phi i32 [ %1338, %1337 ], [ %_ZN4absl13test_internal19BaseCountedInstance19num_live_instances_E.promoted163.i282, %.lr.ph.preheader.i.i.i.i283 ]
   %.012.i.i.i.i286 = phi i64 [ %1340, %1337 ], [ 0, %.lr.ph.preheader.i.i.i.i283 ]
   %1328 = phi ptr [ %1339, %1337 ], [ %1284, %.lr.ph.preheader.i.i.i.i283 ]
-  %1329 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %.010.i.i.i284, i64 %.012.i.i.i.i286
+  %1329 = getelementptr inbounds nuw [8 x i8], ptr %.010.i.i.i284, i64 %.012.i.i.i.i286
   %1330 = load i32, ptr %1328, align 4, !tbaa !2233
   store i32 %1330, ptr %1329, align 4, !tbaa !2233
   %1331 = getelementptr inbounds nuw i8, ptr %1329, i64 4
@@ -237650,7 +237627,7 @@ _ZN4absl13test_internal19BaseCountedInstanceD2Ev.exit.i154: ; preds = %919, %912
   %938 = phi i32 [ %949, %948 ], [ %_ZN4absl13test_internal19BaseCountedInstance19num_live_instances_E.promoted163.i, %.lr.ph.preheader.i.i.i.i ]
   %.012.i.i.i.i = phi i64 [ %951, %948 ], [ 0, %.lr.ph.preheader.i.i.i.i ]
   %939 = phi ptr [ %950, %948 ], [ %895, %.lr.ph.preheader.i.i.i.i ]
-  %940 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %.010.i.i.i, i64 %.012.i.i.i.i
+  %940 = getelementptr inbounds nuw [8 x i8], ptr %.010.i.i.i, i64 %.012.i.i.i.i
   %941 = load i32, ptr %939, align 4, !tbaa !2233
   store i32 %941, ptr %940, align 4, !tbaa !2233
   %942 = getelementptr inbounds nuw i8, ptr %940, i64 4
@@ -238827,7 +238804,7 @@ _ZN4absl13test_internal19BaseCountedInstanceD2Ev.exit.i281: ; preds = %1308, %13
   %1327 = phi i32 [ %1338, %1337 ], [ %_ZN4absl13test_internal19BaseCountedInstance19num_live_instances_E.promoted163.i282, %.lr.ph.preheader.i.i.i.i283 ]
   %.012.i.i.i.i286 = phi i64 [ %1340, %1337 ], [ 0, %.lr.ph.preheader.i.i.i.i283 ]
   %1328 = phi ptr [ %1339, %1337 ], [ %1284, %.lr.ph.preheader.i.i.i.i283 ]
-  %1329 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %.010.i.i.i284, i64 %.012.i.i.i.i286
+  %1329 = getelementptr inbounds nuw [8 x i8], ptr %.010.i.i.i284, i64 %.012.i.i.i.i286
   %1330 = load i32, ptr %1328, align 4, !tbaa !2233
   store i32 %1330, ptr %1329, align 4, !tbaa !2233
   %1331 = getelementptr inbounds nuw i8, ptr %1329, i64 4
@@ -239958,7 +239935,7 @@ _ZSt8distanceISt14_List_iteratorIN4absl13test_internal20CopyableOnlyInstanceEEEN
 .lr.ph.i.i:                                       ; preds = %33, %.lr.ph.preheader.i.i
   %.012.i.i = phi i64 [ %37, %33 ], [ 0, %.lr.ph.preheader.i.i ]
   %20 = phi ptr [ %36, %33 ], [ %1, %.lr.ph.preheader.i.i ]
-  %21 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %.010.i, i64 %.012.i.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %.010.i, i64 %.012.i.i
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %23 = load i32, ptr %22, align 4, !tbaa !2233
   store i32 %23, ptr %21, align 4, !tbaa !2233
@@ -240107,7 +240084,7 @@ define linkonce_odr dso_local void @_ZN4absl23inlined_vector_internal7StorageINS
   %.06.i = phi i64 [ %11, %_ZNSt16allocator_traitsISaIN4absl13test_internal20CopyableOnlyInstanceEEE7destroyIS2_EEvRS3_PT_.exit.i ], [ %7, %.lr.ph.preheader.i ]
   %10 = phi i32 [ %18, %_ZNSt16allocator_traitsISaIN4absl13test_internal20CopyableOnlyInstanceEEE7destroyIS2_EEvRS3_PT_.exit.i ], [ %_ZN4absl13test_internal19BaseCountedInstance19num_live_instances_E.promoted.i, %.lr.ph.preheader.i ]
   %11 = add nsw i64 %.06.i, -1
-  %12 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %6, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %14 = load i8, ptr %13, align 4, !tbaa !2235, !range !35, !noundef !36
   %15 = trunc nuw i8 %14 to i1
@@ -240204,7 +240181,7 @@ _ZSt8distanceISt20_List_const_iteratorIN4absl13test_internal20CopyableOnlyInstan
 .lr.ph.i.i6:                                      ; preds = %33, %.lr.ph.preheader.i.i
   %.012.i.i = phi i64 [ %37, %33 ], [ 0, %.lr.ph.preheader.i.i ]
   %20 = phi ptr [ %36, %33 ], [ %1, %.lr.ph.preheader.i.i ]
-  %21 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %.010.i, i64 %.012.i.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %.010.i, i64 %.012.i.i
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %23 = load i32, ptr %22, align 4, !tbaa !2233
   store i32 %23, ptr %21, align 4, !tbaa !2233
@@ -240317,7 +240294,7 @@ _ZSt8distanceISt14_List_iteratorIN4absl13test_internal20CopyableOnlyInstanceEEEN
 .lr.ph.i.i:                                       ; preds = %33, %.lr.ph.preheader.i.i
   %.012.i.i = phi i64 [ %37, %33 ], [ 0, %.lr.ph.preheader.i.i ]
   %20 = phi ptr [ %36, %33 ], [ %1, %.lr.ph.preheader.i.i ]
-  %21 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %.010.i, i64 %.012.i.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %.010.i, i64 %.012.i.i
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %23 = load i32, ptr %22, align 4, !tbaa !2233
   store i32 %23, ptr %21, align 4, !tbaa !2233
@@ -240430,7 +240407,7 @@ _ZSt8distanceISt20_List_const_iteratorIN4absl13test_internal20CopyableOnlyInstan
 .lr.ph.i.i6:                                      ; preds = %33, %.lr.ph.preheader.i.i
   %.012.i.i = phi i64 [ %37, %33 ], [ 0, %.lr.ph.preheader.i.i ]
   %20 = phi ptr [ %36, %33 ], [ %1, %.lr.ph.preheader.i.i ]
-  %21 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %.010.i, i64 %.012.i.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %.010.i, i64 %.012.i.i
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %23 = load i32, ptr %22, align 4, !tbaa !2233
   store i32 %23, ptr %21, align 4, !tbaa !2233
@@ -243101,7 +243078,7 @@ _ZN4absl13test_internal19BaseCountedInstanceD2Ev.exit.i154: ; preds = %919, %912
   %938 = phi i32 [ %949, %948 ], [ %_ZN4absl13test_internal19BaseCountedInstance19num_live_instances_E.promoted159.i, %.lr.ph.preheader.i.i.i.i ]
   %.012.i.i.i.i = phi i64 [ %951, %948 ], [ 0, %.lr.ph.preheader.i.i.i.i ]
   %939 = phi ptr [ %950, %948 ], [ %895, %.lr.ph.preheader.i.i.i.i ]
-  %940 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %.010.i.i.i, i64 %.012.i.i.i.i
+  %940 = getelementptr inbounds nuw [8 x i8], ptr %.010.i.i.i, i64 %.012.i.i.i.i
   %941 = load i32, ptr %939, align 4, !tbaa !2233
   store i32 %941, ptr %940, align 4, !tbaa !2233
   %942 = getelementptr inbounds nuw i8, ptr %940, i64 4
@@ -244278,7 +244255,7 @@ _ZN4absl13test_internal19BaseCountedInstanceD2Ev.exit.i281: ; preds = %1308, %13
   %1327 = phi i32 [ %1338, %1337 ], [ %_ZN4absl13test_internal19BaseCountedInstance19num_live_instances_E.promoted159.i282, %.lr.ph.preheader.i.i.i.i283 ]
   %.012.i.i.i.i286 = phi i64 [ %1340, %1337 ], [ 0, %.lr.ph.preheader.i.i.i.i283 ]
   %1328 = phi ptr [ %1339, %1337 ], [ %1284, %.lr.ph.preheader.i.i.i.i283 ]
-  %1329 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %.010.i.i.i284, i64 %.012.i.i.i.i286
+  %1329 = getelementptr inbounds nuw [8 x i8], ptr %.010.i.i.i284, i64 %.012.i.i.i.i286
   %1330 = load i32, ptr %1328, align 4, !tbaa !2233
   store i32 %1330, ptr %1329, align 4, !tbaa !2233
   %1331 = getelementptr inbounds nuw i8, ptr %1329, i64 4
@@ -247884,7 +247861,7 @@ _ZN4absl13test_internal19BaseCountedInstanceD2Ev.exit.i154: ; preds = %919, %912
   %938 = phi i32 [ %949, %948 ], [ %_ZN4absl13test_internal19BaseCountedInstance19num_live_instances_E.promoted159.i, %.lr.ph.preheader.i.i.i.i ]
   %.012.i.i.i.i = phi i64 [ %951, %948 ], [ 0, %.lr.ph.preheader.i.i.i.i ]
   %939 = phi ptr [ %950, %948 ], [ %895, %.lr.ph.preheader.i.i.i.i ]
-  %940 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %.010.i.i.i, i64 %.012.i.i.i.i
+  %940 = getelementptr inbounds nuw [8 x i8], ptr %.010.i.i.i, i64 %.012.i.i.i.i
   %941 = load i32, ptr %939, align 4, !tbaa !2233
   store i32 %941, ptr %940, align 4, !tbaa !2233
   %942 = getelementptr inbounds nuw i8, ptr %940, i64 4
@@ -249061,7 +249038,7 @@ _ZN4absl13test_internal19BaseCountedInstanceD2Ev.exit.i281: ; preds = %1308, %13
   %1327 = phi i32 [ %1338, %1337 ], [ %_ZN4absl13test_internal19BaseCountedInstance19num_live_instances_E.promoted159.i282, %.lr.ph.preheader.i.i.i.i283 ]
   %.012.i.i.i.i286 = phi i64 [ %1340, %1337 ], [ 0, %.lr.ph.preheader.i.i.i.i283 ]
   %1328 = phi ptr [ %1339, %1337 ], [ %1284, %.lr.ph.preheader.i.i.i.i283 ]
-  %1329 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %.010.i.i.i284, i64 %.012.i.i.i.i286
+  %1329 = getelementptr inbounds nuw [8 x i8], ptr %.010.i.i.i284, i64 %.012.i.i.i.i286
   %1330 = load i32, ptr %1328, align 4, !tbaa !2233
   store i32 %1330, ptr %1329, align 4, !tbaa !2233
   %1331 = getelementptr inbounds nuw i8, ptr %1329, i64 4
@@ -250192,7 +250169,7 @@ _ZSt8distanceISt14_List_iteratorIN4absl13test_internal23CopyableMovableInstanceE
 .lr.ph.i.i:                                       ; preds = %33, %.lr.ph.preheader.i.i
   %.012.i.i = phi i64 [ %37, %33 ], [ 0, %.lr.ph.preheader.i.i ]
   %20 = phi ptr [ %36, %33 ], [ %1, %.lr.ph.preheader.i.i ]
-  %21 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %.010.i, i64 %.012.i.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %.010.i, i64 %.012.i.i
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %23 = load i32, ptr %22, align 4, !tbaa !2233
   store i32 %23, ptr %21, align 4, !tbaa !2233
@@ -250337,7 +250314,7 @@ _ZSt8distanceISt20_List_const_iteratorIN4absl13test_internal23CopyableMovableIns
 .lr.ph.i.i6:                                      ; preds = %33, %.lr.ph.preheader.i.i
   %.012.i.i = phi i64 [ %37, %33 ], [ 0, %.lr.ph.preheader.i.i ]
   %20 = phi ptr [ %36, %33 ], [ %1, %.lr.ph.preheader.i.i ]
-  %21 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %.010.i, i64 %.012.i.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %.010.i, i64 %.012.i.i
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %23 = load i32, ptr %22, align 4, !tbaa !2233
   store i32 %23, ptr %21, align 4, !tbaa !2233
@@ -250450,7 +250427,7 @@ _ZSt8distanceISt14_List_iteratorIN4absl13test_internal23CopyableMovableInstanceE
 .lr.ph.i.i:                                       ; preds = %33, %.lr.ph.preheader.i.i
   %.012.i.i = phi i64 [ %37, %33 ], [ 0, %.lr.ph.preheader.i.i ]
   %20 = phi ptr [ %36, %33 ], [ %1, %.lr.ph.preheader.i.i ]
-  %21 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %.010.i, i64 %.012.i.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %.010.i, i64 %.012.i.i
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %23 = load i32, ptr %22, align 4, !tbaa !2233
   store i32 %23, ptr %21, align 4, !tbaa !2233
@@ -250563,7 +250540,7 @@ _ZSt8distanceISt20_List_const_iteratorIN4absl13test_internal23CopyableMovableIns
 .lr.ph.i.i6:                                      ; preds = %33, %.lr.ph.preheader.i.i
   %.012.i.i = phi i64 [ %37, %33 ], [ 0, %.lr.ph.preheader.i.i ]
   %20 = phi ptr [ %36, %33 ], [ %1, %.lr.ph.preheader.i.i ]
-  %21 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %.010.i, i64 %.012.i.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %.010.i, i64 %.012.i.i
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %23 = load i32, ptr %22, align 4, !tbaa !2233
   store i32 %23, ptr %21, align 4, !tbaa !2233
@@ -250831,7 +250808,7 @@ _ZNSt6vectorIN4absl13test_internal20CopyableOnlyInstanceESaIS2_EE17_S_check_init
   br i1 %.not.i.us.i.i.i.i.i.i, label %_ZN4absl13test_internal19BaseCountedInstanceD2Ev.exit.loopexit.i, label %.lr.ph.i.split.us.i.i.i.i.i.i, !llvm.loop !2236
 
 _ZN4absl13test_internal19BaseCountedInstanceD2Ev.exit.loopexit.i: ; preds = %.lr.ph.i.split.us.i.i.i.i.i.i
-  %151 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %147, i64 %139
+  %151 = getelementptr inbounds nuw [8 x i8], ptr %147, i64 %139
   %152 = trunc i64 %139 to i32
   %153 = add i32 %141, %152
   %154 = add i32 %143, %152
@@ -251239,7 +251216,7 @@ _ZSt8_DestroyIPN4absl13test_internal20CopyableOnlyInstanceES2_EvT_S4_RSaIT0_E.ex
 .noexc68.i:                                       ; preds = %298, %_ZSt8_DestroyIPN4absl13test_internal20CopyableOnlyInstanceES2_EvT_S4_RSaIT0_E.exit.i182.i
   %.pre916.i = phi i32 [ %.pre916.pre.i, %298 ], [ %.pre916924.i, %_ZSt8_DestroyIPN4absl13test_internal20CopyableOnlyInstanceES2_EvT_S4_RSaIT0_E.exit.i182.i ]
   %.pre915.i = phi i32 [ %.pre915.pre.i, %298 ], [ %268, %_ZSt8_DestroyIPN4absl13test_internal20CopyableOnlyInstanceES2_EvT_S4_RSaIT0_E.exit.i182.i ]
-  %299 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %264, i64 %262
+  %299 = getelementptr inbounds nuw [8 x i8], ptr %264, i64 %262
   %300 = add nsw i32 %.pre915.i, -1
   %301 = add nsw i32 %.pre916.i, -1
   br label %_ZN4absl13test_internal19BaseCountedInstanceD2Ev.exit69.i
@@ -251322,7 +251299,7 @@ _ZNSt7__cxx114listIN4absl13test_internal20CopyableOnlyInstanceESaIS3_EEC2IN9__gn
   %315 = phi i32 [ %326, %325 ], [ %_ZN4absl13test_internal19BaseCountedInstance19num_live_instances_E.promoted.i, %.lr.ph.preheader.i.i.i.i ]
   %.012.i.i.i.i = phi i64 [ %328, %325 ], [ 0, %.lr.ph.preheader.i.i.i.i ]
   %316 = phi ptr [ %327, %325 ], [ %.sroa.0234.0.i, %.lr.ph.preheader.i.i.i.i ]
-  %317 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %.010.i.i.i, i64 %.012.i.i.i.i
+  %317 = getelementptr inbounds nuw [8 x i8], ptr %.010.i.i.i, i64 %.012.i.i.i.i
   %318 = load i32, ptr %316, align 4, !tbaa !2233
   store i32 %318, ptr %317, align 4, !tbaa !2233
   %319 = getelementptr inbounds nuw i8, ptr %317, i64 4
@@ -252460,7 +252437,7 @@ _ZNSt6vectorIN4absl13test_internal20CopyableOnlyInstanceESaIS2_EE17_S_check_init
   br i1 %.not.i.us.i.i.i.i.i.i27, label %_ZN4absl13test_internal19BaseCountedInstanceD2Ev.exit.loopexit.i28, label %.lr.ph.i.split.us.i.i.i.i.i.i24, !llvm.loop !2236
 
 _ZN4absl13test_internal19BaseCountedInstanceD2Ev.exit.loopexit.i28: ; preds = %.lr.ph.i.split.us.i.i.i.i.i.i24
-  %673 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %669, i64 %661
+  %673 = getelementptr inbounds nuw [8 x i8], ptr %669, i64 %661
   %674 = trunc i64 %661 to i32
   %675 = add i32 %663, %674
   %676 = add i32 %665, %674
@@ -252868,7 +252845,7 @@ _ZSt8_DestroyIPN4absl13test_internal20CopyableOnlyInstanceES2_EvT_S4_RSaIT0_E.ex
 .noexc68.i298:                                    ; preds = %820, %_ZSt8_DestroyIPN4absl13test_internal20CopyableOnlyInstanceES2_EvT_S4_RSaIT0_E.exit.i182.i293
   %.pre916.i299 = phi i32 [ %.pre916.pre.i297, %820 ], [ %.pre916924.i294, %_ZSt8_DestroyIPN4absl13test_internal20CopyableOnlyInstanceES2_EvT_S4_RSaIT0_E.exit.i182.i293 ]
   %.pre915.i300 = phi i32 [ %.pre915.pre.i296, %820 ], [ %790, %_ZSt8_DestroyIPN4absl13test_internal20CopyableOnlyInstanceES2_EvT_S4_RSaIT0_E.exit.i182.i293 ]
-  %821 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %786, i64 %784
+  %821 = getelementptr inbounds nuw [8 x i8], ptr %786, i64 %784
   %822 = add nsw i32 %.pre915.i300, -1
   %823 = add nsw i32 %.pre916.i299, -1
   br label %_ZN4absl13test_internal19BaseCountedInstanceD2Ev.exit69.i72
@@ -252951,7 +252928,7 @@ _ZNSt7__cxx114listIN4absl13test_internal20CopyableOnlyInstanceESaIS3_EEC2IN9__gn
   %837 = phi i32 [ %848, %847 ], [ %_ZN4absl13test_internal19BaseCountedInstance19num_live_instances_E.promoted.i113, %.lr.ph.preheader.i.i.i.i110 ]
   %.012.i.i.i.i116 = phi i64 [ %850, %847 ], [ 0, %.lr.ph.preheader.i.i.i.i110 ]
   %838 = phi ptr [ %849, %847 ], [ %.sroa.0234.0.i31, %.lr.ph.preheader.i.i.i.i110 ]
-  %839 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %.010.i.i.i111, i64 %.012.i.i.i.i116
+  %839 = getelementptr inbounds nuw [8 x i8], ptr %.010.i.i.i111, i64 %.012.i.i.i.i116
   %840 = load i32, ptr %838, align 4, !tbaa !2233
   store i32 %840, ptr %839, align 4, !tbaa !2233
   %841 = getelementptr inbounds nuw i8, ptr %839, i64 4
@@ -254087,7 +254064,7 @@ _ZNSt6vectorIN4absl13test_internal20CopyableOnlyInstanceESaIS2_EE17_S_check_init
   br i1 %.not.i.us.i.i.i.i.i.i328, label %_ZN4absl13test_internal19BaseCountedInstanceD2Ev.exit.loopexit.i329, label %.lr.ph.i.split.us.i.i.i.i.i.i325, !llvm.loop !2236
 
 _ZN4absl13test_internal19BaseCountedInstanceD2Ev.exit.loopexit.i329: ; preds = %.lr.ph.i.split.us.i.i.i.i.i.i325
-  %1193 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %1189, i64 %1181
+  %1193 = getelementptr inbounds nuw [8 x i8], ptr %1189, i64 %1181
   %1194 = trunc i64 %1181 to i32
   %1195 = add i32 %1183, %1194
   %1196 = add i32 %1185, %1194
@@ -254505,7 +254482,7 @@ _ZSt8_DestroyIPN4absl13test_internal20CopyableOnlyInstanceES2_EvT_S4_RSaIT0_E.ex
 .noexc71.i:                                       ; preds = %1343, %_ZSt8_DestroyIPN4absl13test_internal20CopyableOnlyInstanceES2_EvT_S4_RSaIT0_E.exit.i197.i
   %.pre1004.i = phi i32 [ %.pre1004.pre.i, %1343 ], [ %.pre10041012.i, %_ZSt8_DestroyIPN4absl13test_internal20CopyableOnlyInstanceES2_EvT_S4_RSaIT0_E.exit.i197.i ]
   %.pre1003.i = phi i32 [ %.pre1003.pre.i, %1343 ], [ %1313, %_ZSt8_DestroyIPN4absl13test_internal20CopyableOnlyInstanceES2_EvT_S4_RSaIT0_E.exit.i197.i ]
-  %1344 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %1309, i64 %1307
+  %1344 = getelementptr inbounds nuw [8 x i8], ptr %1309, i64 %1307
   %1345 = add nsw i32 %.pre1003.i, -1
   %1346 = add nsw i32 %.pre1004.i, -1
   br label %_ZN4absl13test_internal19BaseCountedInstanceD2Ev.exit72.i
@@ -254596,7 +254573,7 @@ _ZN4absl13test_internal19BaseCountedInstanceD2Ev.exit73.i: ; preds = %_ZN4absl13
   %1363 = phi i32 [ %1374, %1373 ], [ %_ZN4absl13test_internal19BaseCountedInstance19num_live_instances_E.promoted.i364, %.lr.ph.preheader.i.i.i.i361 ]
   %.012.i.i.i.i367 = phi i64 [ %1376, %1373 ], [ 0, %.lr.ph.preheader.i.i.i.i361 ]
   %1364 = phi ptr [ %1375, %1373 ], [ %.sroa.0258.0.i, %.lr.ph.preheader.i.i.i.i361 ]
-  %1365 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %.010.i.i.i362, i64 %.012.i.i.i.i367
+  %1365 = getelementptr inbounds nuw [8 x i8], ptr %.010.i.i.i362, i64 %.012.i.i.i.i367
   %1366 = load i32, ptr %1364, align 4, !tbaa !2233
   store i32 %1366, ptr %1365, align 4, !tbaa !2233
   %1367 = getelementptr inbounds nuw i8, ptr %1365, i64 4
@@ -254699,7 +254676,7 @@ _ZN4absl23inlined_vector_internal13MallocAdapterISaINS_13test_internal20Copyable
   br i1 %1404, label %1405, label %1408
 
 1405:                                             ; preds = %1403
-  %1406 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %.sink2.i.i.i, i64 %.sink1.i.i.i
+  %1406 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i.i.i, i64 %.sink1.i.i.i
   %1407 = sub nuw i64 %1391, %.sink1.i.i.i
   br label %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal20CopyableOnlyInstanceEEE8AllocateEm.exit.i.i
 
@@ -254720,7 +254697,7 @@ _ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal20
 .lr.ph.i.i.i369:                                  ; preds = %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal20CopyableOnlyInstanceEEE8AllocateEm.exit.i.i, %_ZN4absl23inlined_vector_internal20IteratorValueAdapterISaINS_13test_internal20CopyableOnlyInstanceEEN9__gnu_cxx17__normal_iteratorIPS3_St6vectorIS3_S4_EEEE10AssignNextES7_.exit.i.i.i
   %.05.i.i.i = phi i64 [ %1430, %_ZN4absl23inlined_vector_internal20IteratorValueAdapterISaINS_13test_internal20CopyableOnlyInstanceEEN9__gnu_cxx17__normal_iteratorIPS3_St6vectorIS3_S4_EEEE10AssignNextES7_.exit.i.i.i ], [ 0, %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal20CopyableOnlyInstanceEEE8AllocateEm.exit.i.i ]
   %1411 = phi ptr [ %1429, %_ZN4absl23inlined_vector_internal20IteratorValueAdapterISaINS_13test_internal20CopyableOnlyInstanceEEN9__gnu_cxx17__normal_iteratorIPS3_St6vectorIS3_S4_EEEE10AssignNextES7_.exit.i.i.i ], [ %.sroa.0.0, %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal20CopyableOnlyInstanceEEE8AllocateEm.exit.i.i ]
-  %1412 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %.sink2.i.i.i, i64 %.05.i.i.i
+  %1412 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i.i.i, i64 %.05.i.i.i
   %1413 = load i32, ptr %1411, align 4, !tbaa !2233
   store i32 %1413, ptr %1412, align 4, !tbaa !2233
   %1414 = getelementptr inbounds nuw i8, ptr %1412, i64 4
@@ -254778,7 +254755,7 @@ _ZN4absl23inlined_vector_internal14AssignElementsISaINS_13test_internal20Copyabl
 .lr.ph.i25.i.i:                                   ; preds = %1443, %.lr.ph.preheader.i23.i.i
   %.012.i.i.i = phi i64 [ %1447, %1443 ], [ 0, %.lr.ph.preheader.i23.i.i ]
   %1431 = phi ptr [ %1446, %1443 ], [ %.sroa.064.098.i.i, %.lr.ph.preheader.i23.i.i ]
-  %1432 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %.sroa.045.07792.i.i, i64 %.012.i.i.i
+  %1432 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.045.07792.i.i, i64 %.012.i.i.i
   %1433 = load i32, ptr %1431, align 4, !tbaa !2233
   store i32 %1433, ptr %1432, align 4, !tbaa !2233
   %1434 = getelementptr inbounds nuw i8, ptr %1432, i64 4
@@ -254829,7 +254806,7 @@ _ZN4absl23inlined_vector_internal17ConstructElementsISaINS_13test_internal20Copy
   %.06.i.i.i = phi i64 [ %1451, %_ZNSt16allocator_traitsISaIN4absl13test_internal20CopyableOnlyInstanceEEE7destroyIS2_EEvRS3_PT_.exit.i.i.i ], [ %.sroa.7.07497.i.i, %.lr.ph.preheader.i28.i.i ]
   %1450 = phi i32 [ %1458, %_ZNSt16allocator_traitsISaIN4absl13test_internal20CopyableOnlyInstanceEEE7destroyIS2_EEvRS3_PT_.exit.i.i.i ], [ %_ZN4absl13test_internal19BaseCountedInstance19num_live_instances_E.promoted.i.i202.i, %.lr.ph.preheader.i28.i.i ]
   %1451 = add nsw i64 %.06.i.i.i, -1
-  %1452 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %.sroa.044.07595.i.i, i64 %1451
+  %1452 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.044.07595.i.i, i64 %1451
   %1453 = getelementptr inbounds nuw i8, ptr %1452, i64 4
   %1454 = load i8, ptr %1453, align 4, !tbaa !2235, !range !35, !noundef !36
   %1455 = trunc nuw i8 %1454 to i1
@@ -255978,7 +255955,7 @@ _ZNSt6vectorIN4absl13test_internal20CopyableOnlyInstanceESaIS2_EE17_S_check_init
   br i1 %.not.i.us.i.i.i.i.i.i476, label %_ZN4absl13test_internal19BaseCountedInstanceD2Ev.exit.loopexit.i477, label %.lr.ph.i.split.us.i.i.i.i.i.i473, !llvm.loop !2236
 
 _ZN4absl13test_internal19BaseCountedInstanceD2Ev.exit.loopexit.i477: ; preds = %.lr.ph.i.split.us.i.i.i.i.i.i473
-  %1806 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %1802, i64 %1794
+  %1806 = getelementptr inbounds nuw [8 x i8], ptr %1802, i64 %1794
   %1807 = trunc i64 %1794 to i32
   %1808 = add i32 %1796, %1807
   %1809 = add i32 %1798, %1807
@@ -256396,7 +256373,7 @@ _ZSt8_DestroyIPN4absl13test_internal20CopyableOnlyInstanceES2_EvT_S4_RSaIT0_E.ex
 .noexc71.i818:                                    ; preds = %1956, %_ZSt8_DestroyIPN4absl13test_internal20CopyableOnlyInstanceES2_EvT_S4_RSaIT0_E.exit.i197.i813
   %.pre1004.i819 = phi i32 [ %.pre1004.pre.i817, %1956 ], [ %.pre10041012.i814, %_ZSt8_DestroyIPN4absl13test_internal20CopyableOnlyInstanceES2_EvT_S4_RSaIT0_E.exit.i197.i813 ]
   %.pre1003.i820 = phi i32 [ %.pre1003.pre.i816, %1956 ], [ %1926, %_ZSt8_DestroyIPN4absl13test_internal20CopyableOnlyInstanceES2_EvT_S4_RSaIT0_E.exit.i197.i813 ]
-  %1957 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %1922, i64 %1920
+  %1957 = getelementptr inbounds nuw [8 x i8], ptr %1922, i64 %1920
   %1958 = add nsw i32 %.pre1003.i820, -1
   %1959 = add nsw i32 %.pre1004.i819, -1
   br label %_ZN4absl13test_internal19BaseCountedInstanceD2Ev.exit72.i521
@@ -256487,7 +256464,7 @@ _ZN4absl13test_internal19BaseCountedInstanceD2Ev.exit73.i799: ; preds = %_ZN4abs
   %1976 = phi i32 [ %1987, %1986 ], [ %_ZN4absl13test_internal19BaseCountedInstance19num_live_instances_E.promoted.i569, %.lr.ph.preheader.i.i.i.i566 ]
   %.012.i.i.i.i572 = phi i64 [ %1989, %1986 ], [ 0, %.lr.ph.preheader.i.i.i.i566 ]
   %1977 = phi ptr [ %1988, %1986 ], [ %.sroa.0258.0.i480, %.lr.ph.preheader.i.i.i.i566 ]
-  %1978 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %.010.i.i.i567, i64 %.012.i.i.i.i572
+  %1978 = getelementptr inbounds nuw [8 x i8], ptr %.010.i.i.i567, i64 %.012.i.i.i.i572
   %1979 = load i32, ptr %1977, align 4, !tbaa !2233
   store i32 %1979, ptr %1978, align 4, !tbaa !2233
   %1980 = getelementptr inbounds nuw i8, ptr %1978, i64 4
@@ -256590,7 +256567,7 @@ _ZN4absl23inlined_vector_internal13MallocAdapterISaINS_13test_internal20Copyable
   br i1 %2017, label %2018, label %2021
 
 2018:                                             ; preds = %2016
-  %2019 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %.sink2.i.i.i575, i64 %.sink1.i.i.i577
+  %2019 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i.i.i575, i64 %.sink1.i.i.i577
   %2020 = sub nuw i64 %2004, %.sink1.i.i.i577
   br label %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal20CopyableOnlyInstanceEEE8AllocateEm.exit.i.i578
 
@@ -256611,7 +256588,7 @@ _ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal20
 .lr.ph.i.i.i585:                                  ; preds = %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal20CopyableOnlyInstanceEEE8AllocateEm.exit.i.i578, %_ZN4absl23inlined_vector_internal20IteratorValueAdapterISaINS_13test_internal20CopyableOnlyInstanceEEN9__gnu_cxx17__normal_iteratorIPKS3_St6vectorIS3_S4_EEEE10AssignNextEPS3_.exit.i.i.i
   %.05.i.i.i586 = phi i64 [ %2043, %_ZN4absl23inlined_vector_internal20IteratorValueAdapterISaINS_13test_internal20CopyableOnlyInstanceEEN9__gnu_cxx17__normal_iteratorIPKS3_St6vectorIS3_S4_EEEE10AssignNextEPS3_.exit.i.i.i ], [ 0, %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal20CopyableOnlyInstanceEEE8AllocateEm.exit.i.i578 ]
   %2024 = phi ptr [ %2042, %_ZN4absl23inlined_vector_internal20IteratorValueAdapterISaINS_13test_internal20CopyableOnlyInstanceEEN9__gnu_cxx17__normal_iteratorIPKS3_St6vectorIS3_S4_EEEE10AssignNextEPS3_.exit.i.i.i ], [ %.sroa.0864.0, %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal20CopyableOnlyInstanceEEE8AllocateEm.exit.i.i578 ]
-  %2025 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %.sink2.i.i.i575, i64 %.05.i.i.i586
+  %2025 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i.i.i575, i64 %.05.i.i.i586
   %2026 = load i32, ptr %2024, align 4, !tbaa !2233
   store i32 %2026, ptr %2025, align 4, !tbaa !2233
   %2027 = getelementptr inbounds nuw i8, ptr %2025, i64 4
@@ -256669,7 +256646,7 @@ _ZN4absl23inlined_vector_internal14AssignElementsISaINS_13test_internal20Copyabl
 .lr.ph.i25.i.i598:                                ; preds = %2056, %.lr.ph.preheader.i23.i.i590
   %.012.i.i.i599 = phi i64 [ %2060, %2056 ], [ 0, %.lr.ph.preheader.i23.i.i590 ]
   %2044 = phi ptr [ %2059, %2056 ], [ %.sroa.064.098.i.i591, %.lr.ph.preheader.i23.i.i590 ]
-  %2045 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %.sroa.045.07792.i.i595, i64 %.012.i.i.i599
+  %2045 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.045.07792.i.i595, i64 %.012.i.i.i599
   %2046 = load i32, ptr %2044, align 4, !tbaa !2233
   store i32 %2046, ptr %2045, align 4, !tbaa !2233
   %2047 = getelementptr inbounds nuw i8, ptr %2045, i64 4
@@ -256720,7 +256697,7 @@ _ZN4absl23inlined_vector_internal17ConstructElementsISaINS_13test_internal20Copy
   %.06.i.i.i610 = phi i64 [ %2064, %_ZNSt16allocator_traitsISaIN4absl13test_internal20CopyableOnlyInstanceEEE7destroyIS2_EEvRS3_PT_.exit.i.i.i611 ], [ %.sroa.7.07497.i.i602, %.lr.ph.preheader.i28.i.i607 ]
   %2063 = phi i32 [ %2071, %_ZNSt16allocator_traitsISaIN4absl13test_internal20CopyableOnlyInstanceEEE7destroyIS2_EEvRS3_PT_.exit.i.i.i611 ], [ %_ZN4absl13test_internal19BaseCountedInstance19num_live_instances_E.promoted.i.i202.i608, %.lr.ph.preheader.i28.i.i607 ]
   %2064 = add nsw i64 %.06.i.i.i610, -1
-  %2065 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %.sroa.044.07595.i.i603, i64 %2064
+  %2065 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.044.07595.i.i603, i64 %2064
   %2066 = getelementptr inbounds nuw i8, ptr %2065, i64 4
   %2067 = load i8, ptr %2066, align 4, !tbaa !2235, !range !35, !noundef !36
   %2068 = trunc nuw i8 %2067 to i1
@@ -257929,7 +257906,7 @@ define linkonce_odr dso_local void @_ZN4absl23inlined_vector_internal7StorageINS
   %.06.i = phi i64 [ %11, %_ZNSt16allocator_traitsISaIN4absl13test_internal20CopyableOnlyInstanceEEE7destroyIS2_EEvRS3_PT_.exit.i ], [ %7, %.lr.ph.preheader.i ]
   %10 = phi i32 [ %18, %_ZNSt16allocator_traitsISaIN4absl13test_internal20CopyableOnlyInstanceEEE7destroyIS2_EEvRS3_PT_.exit.i ], [ %_ZN4absl13test_internal19BaseCountedInstance19num_live_instances_E.promoted.i, %.lr.ph.preheader.i ]
   %11 = add nsw i64 %.06.i, -1
-  %12 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %6, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %14 = load i8, ptr %13, align 4, !tbaa !2235, !range !35, !noundef !36
   %15 = trunc nuw i8 %14 to i1
@@ -258001,12 +257978,12 @@ _ZN4absl23inlined_vector_internal13MallocAdapterISaINS_13test_internal20Copyable
   br i1 %19, label %20, label %23
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %.sink2.i, i64 %.sink1.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i, i64 %.sink1.i
   %22 = sub nuw i64 %2, %.sink1.i
   br label %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal20CopyableOnlyInstanceEEE8AllocateEm.exit
 
 23:                                               ; preds = %18
-  %24 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %.sink2.i, i64 %2
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i, i64 %2
   %25 = sub nuw nsw i64 %.sink1.i, %2
   br label %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal20CopyableOnlyInstanceEEE8AllocateEm.exit
 
@@ -258022,7 +257999,7 @@ _ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal20
 .lr.ph.i:                                         ; preds = %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal20CopyableOnlyInstanceEEE8AllocateEm.exit, %_ZN4absl23inlined_vector_internal20IteratorValueAdapterISaINS_13test_internal20CopyableOnlyInstanceEESt14_List_iteratorIS3_EE10AssignNextEPS3_.exit.i
   %.05.i = phi i64 [ %46, %_ZN4absl23inlined_vector_internal20IteratorValueAdapterISaINS_13test_internal20CopyableOnlyInstanceEESt14_List_iteratorIS3_EE10AssignNextEPS3_.exit.i ], [ 0, %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal20CopyableOnlyInstanceEEE8AllocateEm.exit ]
   %26 = phi ptr [ %45, %_ZN4absl23inlined_vector_internal20IteratorValueAdapterISaINS_13test_internal20CopyableOnlyInstanceEESt14_List_iteratorIS3_EE10AssignNextEPS3_.exit.i ], [ %1, %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal20CopyableOnlyInstanceEEE8AllocateEm.exit ]
-  %27 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %.sink2.i, i64 %.05.i
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i, i64 %.05.i
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %29 = load i32, ptr %28, align 4, !tbaa !2233
   store i32 %29, ptr %27, align 4, !tbaa !2233
@@ -258081,7 +258058,7 @@ _ZN4absl23inlined_vector_internal14AssignElementsISaINS_13test_internal20Copyabl
 .lr.ph.i25:                                       ; preds = %60, %.lr.ph.preheader.i23
   %.012.i = phi i64 [ %64, %60 ], [ 0, %.lr.ph.preheader.i23 ]
   %47 = phi ptr [ %63, %60 ], [ %.sroa.064.098, %.lr.ph.preheader.i23 ]
-  %48 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %.sroa.045.07792, i64 %.012.i
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.045.07792, i64 %.012.i
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %50 = load i32, ptr %49, align 4, !tbaa !2233
   store i32 %50, ptr %48, align 4, !tbaa !2233
@@ -258133,7 +258110,7 @@ _ZN4absl23inlined_vector_internal17ConstructElementsISaINS_13test_internal20Copy
   %.06.i = phi i64 [ %68, %_ZNSt16allocator_traitsISaIN4absl13test_internal20CopyableOnlyInstanceEEE7destroyIS2_EEvRS3_PT_.exit.i ], [ %.sroa.7.07497, %.lr.ph.preheader.i28 ]
   %67 = phi i32 [ %75, %_ZNSt16allocator_traitsISaIN4absl13test_internal20CopyableOnlyInstanceEEE7destroyIS2_EEvRS3_PT_.exit.i ], [ %_ZN4absl13test_internal19BaseCountedInstance19num_live_instances_E.promoted.i, %.lr.ph.preheader.i28 ]
   %68 = add nsw i64 %.06.i, -1
-  %69 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %.sroa.044.07595, i64 %68
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.044.07595, i64 %68
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 4
   %71 = load i8, ptr %70, align 4, !tbaa !2235, !range !35, !noundef !36
   %72 = trunc nuw i8 %71 to i1
@@ -258222,12 +258199,12 @@ _ZN4absl23inlined_vector_internal13MallocAdapterISaINS_13test_internal20Copyable
   br i1 %19, label %20, label %23
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %.sink2.i, i64 %.sink1.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i, i64 %.sink1.i
   %22 = sub nuw i64 %2, %.sink1.i
   br label %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal20CopyableOnlyInstanceEEE8AllocateEm.exit
 
 23:                                               ; preds = %18
-  %24 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %.sink2.i, i64 %2
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i, i64 %2
   %25 = sub nuw nsw i64 %.sink1.i, %2
   br label %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal20CopyableOnlyInstanceEEE8AllocateEm.exit
 
@@ -258243,7 +258220,7 @@ _ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal20
 .lr.ph.i:                                         ; preds = %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal20CopyableOnlyInstanceEEE8AllocateEm.exit, %_ZN4absl23inlined_vector_internal20IteratorValueAdapterISaINS_13test_internal20CopyableOnlyInstanceEESt20_List_const_iteratorIS3_EE10AssignNextEPS3_.exit.i
   %.05.i = phi i64 [ %46, %_ZN4absl23inlined_vector_internal20IteratorValueAdapterISaINS_13test_internal20CopyableOnlyInstanceEESt20_List_const_iteratorIS3_EE10AssignNextEPS3_.exit.i ], [ 0, %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal20CopyableOnlyInstanceEEE8AllocateEm.exit ]
   %26 = phi ptr [ %45, %_ZN4absl23inlined_vector_internal20IteratorValueAdapterISaINS_13test_internal20CopyableOnlyInstanceEESt20_List_const_iteratorIS3_EE10AssignNextEPS3_.exit.i ], [ %1, %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal20CopyableOnlyInstanceEEE8AllocateEm.exit ]
-  %27 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %.sink2.i, i64 %.05.i
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i, i64 %.05.i
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %29 = load i32, ptr %28, align 4, !tbaa !2233
   store i32 %29, ptr %27, align 4, !tbaa !2233
@@ -258302,7 +258279,7 @@ _ZN4absl23inlined_vector_internal14AssignElementsISaINS_13test_internal20Copyabl
 .lr.ph.i25:                                       ; preds = %60, %.lr.ph.preheader.i23
   %.012.i = phi i64 [ %64, %60 ], [ 0, %.lr.ph.preheader.i23 ]
   %47 = phi ptr [ %63, %60 ], [ %.sroa.064.098, %.lr.ph.preheader.i23 ]
-  %48 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %.sroa.045.07792, i64 %.012.i
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.045.07792, i64 %.012.i
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %50 = load i32, ptr %49, align 4, !tbaa !2233
   store i32 %50, ptr %48, align 4, !tbaa !2233
@@ -258354,7 +258331,7 @@ _ZN4absl23inlined_vector_internal17ConstructElementsISaINS_13test_internal20Copy
   %.06.i = phi i64 [ %68, %_ZNSt16allocator_traitsISaIN4absl13test_internal20CopyableOnlyInstanceEEE7destroyIS2_EEvRS3_PT_.exit.i ], [ %.sroa.7.07497, %.lr.ph.preheader.i28 ]
   %67 = phi i32 [ %75, %_ZNSt16allocator_traitsISaIN4absl13test_internal20CopyableOnlyInstanceEEE7destroyIS2_EEvRS3_PT_.exit.i ], [ %_ZN4absl13test_internal19BaseCountedInstance19num_live_instances_E.promoted.i, %.lr.ph.preheader.i28 ]
   %68 = add nsw i64 %.06.i, -1
-  %69 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %.sroa.044.07595, i64 %68
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.044.07595, i64 %68
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 4
   %71 = load i8, ptr %70, align 4, !tbaa !2235, !range !35, !noundef !36
   %72 = trunc nuw i8 %71 to i1
@@ -258623,7 +258600,7 @@ _ZNSt6vectorIN4absl13test_internal23CopyableMovableInstanceESaIS2_EE17_S_check_i
   br i1 %.not.i.us.i.i.i.i.i.i, label %_ZN4absl13test_internal19BaseCountedInstanceD2Ev.exit.loopexit.i, label %.lr.ph.i.split.us.i.i.i.i.i.i, !llvm.loop !2514
 
 _ZN4absl13test_internal19BaseCountedInstanceD2Ev.exit.loopexit.i: ; preds = %.lr.ph.i.split.us.i.i.i.i.i.i
-  %151 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %147, i64 %139
+  %151 = getelementptr inbounds nuw [8 x i8], ptr %147, i64 %139
   %152 = trunc i64 %139 to i32
   %153 = add i32 %141, %152
   %154 = add i32 %143, %152
@@ -259026,7 +259003,7 @@ _ZSt8_DestroyIPN4absl13test_internal23CopyableMovableInstanceES2_EvT_S4_RSaIT0_E
 
 .noexc63.i:                                       ; preds = %295, %_ZSt8_DestroyIPN4absl13test_internal23CopyableMovableInstanceES2_EvT_S4_RSaIT0_E.exit.i177.i
   %.pre910.i = phi i32 [ %.pre910.pre.i, %295 ], [ %266, %_ZSt8_DestroyIPN4absl13test_internal23CopyableMovableInstanceES2_EvT_S4_RSaIT0_E.exit.i177.i ]
-  %296 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %263, i64 %261
+  %296 = getelementptr inbounds nuw [8 x i8], ptr %263, i64 %261
   %297 = add nsw i32 %.pre910.i, -1
   br label %_ZN4absl13test_internal19BaseCountedInstanceD2Ev.exit64.i
 
@@ -259106,7 +259083,7 @@ _ZNSt7__cxx114listIN4absl13test_internal23CopyableMovableInstanceESaIS3_EEC2IN9_
   %310 = phi i32 [ %321, %320 ], [ %_ZN4absl13test_internal19BaseCountedInstance19num_live_instances_E.promoted.i, %.lr.ph.preheader.i.i.i.i ]
   %.012.i.i.i.i = phi i64 [ %323, %320 ], [ 0, %.lr.ph.preheader.i.i.i.i ]
   %311 = phi ptr [ %322, %320 ], [ %.sroa.0229.0.i, %.lr.ph.preheader.i.i.i.i ]
-  %312 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %.010.i.i.i, i64 %.012.i.i.i.i
+  %312 = getelementptr inbounds nuw [8 x i8], ptr %.010.i.i.i, i64 %.012.i.i.i.i
   %313 = load i32, ptr %311, align 4, !tbaa !2233
   store i32 %313, ptr %312, align 4, !tbaa !2233
   %314 = getelementptr inbounds nuw i8, ptr %312, i64 4
@@ -260244,7 +260221,7 @@ _ZNSt6vectorIN4absl13test_internal23CopyableMovableInstanceESaIS2_EE17_S_check_i
   br i1 %.not.i.us.i.i.i.i.i.i27, label %_ZN4absl13test_internal19BaseCountedInstanceD2Ev.exit.loopexit.i28, label %.lr.ph.i.split.us.i.i.i.i.i.i24, !llvm.loop !2514
 
 _ZN4absl13test_internal19BaseCountedInstanceD2Ev.exit.loopexit.i28: ; preds = %.lr.ph.i.split.us.i.i.i.i.i.i24
-  %668 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %664, i64 %656
+  %668 = getelementptr inbounds nuw [8 x i8], ptr %664, i64 %656
   %669 = trunc i64 %656 to i32
   %670 = add i32 %658, %669
   %671 = add i32 %660, %669
@@ -260647,7 +260624,7 @@ _ZSt8_DestroyIPN4absl13test_internal23CopyableMovableInstanceES2_EvT_S4_RSaIT0_E
 
 .noexc63.i297:                                    ; preds = %812, %_ZSt8_DestroyIPN4absl13test_internal23CopyableMovableInstanceES2_EvT_S4_RSaIT0_E.exit.i177.i294
   %.pre910.i298 = phi i32 [ %.pre910.pre.i296, %812 ], [ %783, %_ZSt8_DestroyIPN4absl13test_internal23CopyableMovableInstanceES2_EvT_S4_RSaIT0_E.exit.i177.i294 ]
-  %813 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %780, i64 %778
+  %813 = getelementptr inbounds nuw [8 x i8], ptr %780, i64 %778
   %814 = add nsw i32 %.pre910.i298, -1
   br label %_ZN4absl13test_internal19BaseCountedInstanceD2Ev.exit64.i70
 
@@ -260727,7 +260704,7 @@ _ZNSt7__cxx114listIN4absl13test_internal23CopyableMovableInstanceESaIS3_EEC2IN9_
   %827 = phi i32 [ %838, %837 ], [ %_ZN4absl13test_internal19BaseCountedInstance19num_live_instances_E.promoted.i111, %.lr.ph.preheader.i.i.i.i108 ]
   %.012.i.i.i.i114 = phi i64 [ %840, %837 ], [ 0, %.lr.ph.preheader.i.i.i.i108 ]
   %828 = phi ptr [ %839, %837 ], [ %.sroa.0229.0.i31, %.lr.ph.preheader.i.i.i.i108 ]
-  %829 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %.010.i.i.i109, i64 %.012.i.i.i.i114
+  %829 = getelementptr inbounds nuw [8 x i8], ptr %.010.i.i.i109, i64 %.012.i.i.i.i114
   %830 = load i32, ptr %828, align 4, !tbaa !2233
   store i32 %830, ptr %829, align 4, !tbaa !2233
   %831 = getelementptr inbounds nuw i8, ptr %829, i64 4
@@ -261863,7 +261840,7 @@ _ZNSt6vectorIN4absl13test_internal23CopyableMovableInstanceESaIS2_EE17_S_check_i
   br i1 %.not.i.us.i.i.i.i.i.i326, label %_ZN4absl13test_internal19BaseCountedInstanceD2Ev.exit.loopexit.i327, label %.lr.ph.i.split.us.i.i.i.i.i.i323, !llvm.loop !2514
 
 _ZN4absl13test_internal19BaseCountedInstanceD2Ev.exit.loopexit.i327: ; preds = %.lr.ph.i.split.us.i.i.i.i.i.i323
-  %1183 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %1179, i64 %1171
+  %1183 = getelementptr inbounds nuw [8 x i8], ptr %1179, i64 %1171
   %1184 = trunc i64 %1171 to i32
   %1185 = add i32 %1173, %1184
   %1186 = add i32 %1175, %1184
@@ -262277,7 +262254,7 @@ _ZSt8_DestroyIPN4absl13test_internal23CopyableMovableInstanceES2_EvT_S4_RSaIT0_E
 
 .noexc66.i:                                       ; preds = %1330, %_ZSt8_DestroyIPN4absl13test_internal23CopyableMovableInstanceES2_EvT_S4_RSaIT0_E.exit.i192.i
   %.pre998.i = phi i32 [ %.pre998.pre.i, %1330 ], [ %1301, %_ZSt8_DestroyIPN4absl13test_internal23CopyableMovableInstanceES2_EvT_S4_RSaIT0_E.exit.i192.i ]
-  %1331 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %1298, i64 %1296
+  %1331 = getelementptr inbounds nuw [8 x i8], ptr %1298, i64 %1296
   %1332 = add nsw i32 %.pre998.i, -1
   br label %_ZN4absl13test_internal19BaseCountedInstanceD2Ev.exit67.i
 
@@ -262365,7 +262342,7 @@ _ZN4absl13test_internal19BaseCountedInstanceD2Ev.exit68.i: ; preds = %_ZN4absl13
   %1348 = phi i32 [ %1359, %1358 ], [ %_ZN4absl13test_internal19BaseCountedInstance19num_live_instances_E.promoted.i360, %.lr.ph.preheader.i.i.i.i357 ]
   %.012.i.i.i.i363 = phi i64 [ %1361, %1358 ], [ 0, %.lr.ph.preheader.i.i.i.i357 ]
   %1349 = phi ptr [ %1360, %1358 ], [ %.sroa.0253.0.i, %.lr.ph.preheader.i.i.i.i357 ]
-  %1350 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %.010.i.i.i358, i64 %.012.i.i.i.i363
+  %1350 = getelementptr inbounds nuw [8 x i8], ptr %.010.i.i.i358, i64 %.012.i.i.i.i363
   %1351 = load i32, ptr %1349, align 4, !tbaa !2233
   store i32 %1351, ptr %1350, align 4, !tbaa !2233
   %1352 = getelementptr inbounds nuw i8, ptr %1350, i64 4
@@ -262468,7 +262445,7 @@ _ZN4absl23inlined_vector_internal13MallocAdapterISaINS_13test_internal23Copyable
   br i1 %1389, label %1390, label %1393
 
 1390:                                             ; preds = %1388
-  %1391 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %.sink2.i.i.i, i64 %.sink1.i.i.i
+  %1391 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i.i.i, i64 %.sink1.i.i.i
   %1392 = sub nuw i64 %1376, %.sink1.i.i.i
   br label %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal23CopyableMovableInstanceEEE8AllocateEm.exit.i.i
 
@@ -262489,7 +262466,7 @@ _ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal23
 .lr.ph.i.i.i365:                                  ; preds = %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal23CopyableMovableInstanceEEE8AllocateEm.exit.i.i, %_ZN4absl23inlined_vector_internal20IteratorValueAdapterISaINS_13test_internal23CopyableMovableInstanceEEN9__gnu_cxx17__normal_iteratorIPS3_St6vectorIS3_S4_EEEE10AssignNextES7_.exit.i.i.i
   %.05.i.i.i = phi i64 [ %1415, %_ZN4absl23inlined_vector_internal20IteratorValueAdapterISaINS_13test_internal23CopyableMovableInstanceEEN9__gnu_cxx17__normal_iteratorIPS3_St6vectorIS3_S4_EEEE10AssignNextES7_.exit.i.i.i ], [ 0, %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal23CopyableMovableInstanceEEE8AllocateEm.exit.i.i ]
   %1396 = phi ptr [ %1414, %_ZN4absl23inlined_vector_internal20IteratorValueAdapterISaINS_13test_internal23CopyableMovableInstanceEEN9__gnu_cxx17__normal_iteratorIPS3_St6vectorIS3_S4_EEEE10AssignNextES7_.exit.i.i.i ], [ %.sroa.0.0, %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal23CopyableMovableInstanceEEE8AllocateEm.exit.i.i ]
-  %1397 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %.sink2.i.i.i, i64 %.05.i.i.i
+  %1397 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i.i.i, i64 %.05.i.i.i
   %1398 = load i32, ptr %1396, align 4, !tbaa !2233
   store i32 %1398, ptr %1397, align 4, !tbaa !2233
   %1399 = getelementptr inbounds nuw i8, ptr %1397, i64 4
@@ -262547,7 +262524,7 @@ _ZN4absl23inlined_vector_internal14AssignElementsISaINS_13test_internal23Copyabl
 .lr.ph.i25.i.i:                                   ; preds = %1428, %.lr.ph.preheader.i23.i.i
   %.012.i.i.i = phi i64 [ %1432, %1428 ], [ 0, %.lr.ph.preheader.i23.i.i ]
   %1416 = phi ptr [ %1431, %1428 ], [ %.sroa.064.098.i.i, %.lr.ph.preheader.i23.i.i ]
-  %1417 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %.sroa.045.07792.i.i, i64 %.012.i.i.i
+  %1417 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.045.07792.i.i, i64 %.012.i.i.i
   %1418 = load i32, ptr %1416, align 4, !tbaa !2233
   store i32 %1418, ptr %1417, align 4, !tbaa !2233
   %1419 = getelementptr inbounds nuw i8, ptr %1417, i64 4
@@ -262598,7 +262575,7 @@ _ZN4absl23inlined_vector_internal17ConstructElementsISaINS_13test_internal23Copy
   %.06.i.i.i = phi i64 [ %1436, %_ZNSt16allocator_traitsISaIN4absl13test_internal23CopyableMovableInstanceEEE7destroyIS2_EEvRS3_PT_.exit.i.i.i ], [ %.sroa.7.07497.i.i, %.lr.ph.preheader.i28.i.i ]
   %1435 = phi i32 [ %1443, %_ZNSt16allocator_traitsISaIN4absl13test_internal23CopyableMovableInstanceEEE7destroyIS2_EEvRS3_PT_.exit.i.i.i ], [ %_ZN4absl13test_internal19BaseCountedInstance19num_live_instances_E.promoted.i.i197.i, %.lr.ph.preheader.i28.i.i ]
   %1436 = add nsw i64 %.06.i.i.i, -1
-  %1437 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %.sroa.044.07595.i.i, i64 %1436
+  %1437 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.044.07595.i.i, i64 %1436
   %1438 = getelementptr inbounds nuw i8, ptr %1437, i64 4
   %1439 = load i8, ptr %1438, align 4, !tbaa !2235, !range !35, !noundef !36
   %1440 = trunc nuw i8 %1439 to i1
@@ -263747,7 +263724,7 @@ _ZNSt6vectorIN4absl13test_internal23CopyableMovableInstanceESaIS2_EE17_S_check_i
   br i1 %.not.i.us.i.i.i.i.i.i474, label %_ZN4absl13test_internal19BaseCountedInstanceD2Ev.exit.loopexit.i475, label %.lr.ph.i.split.us.i.i.i.i.i.i471, !llvm.loop !2514
 
 _ZN4absl13test_internal19BaseCountedInstanceD2Ev.exit.loopexit.i475: ; preds = %.lr.ph.i.split.us.i.i.i.i.i.i471
-  %1791 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %1787, i64 %1779
+  %1791 = getelementptr inbounds nuw [8 x i8], ptr %1787, i64 %1779
   %1792 = trunc i64 %1779 to i32
   %1793 = add i32 %1781, %1792
   %1794 = add i32 %1783, %1792
@@ -264161,7 +264138,7 @@ _ZSt8_DestroyIPN4absl13test_internal23CopyableMovableInstanceES2_EvT_S4_RSaIT0_E
 
 .noexc66.i815:                                    ; preds = %1938, %_ZSt8_DestroyIPN4absl13test_internal23CopyableMovableInstanceES2_EvT_S4_RSaIT0_E.exit.i192.i812
   %.pre998.i816 = phi i32 [ %.pre998.pre.i814, %1938 ], [ %1909, %_ZSt8_DestroyIPN4absl13test_internal23CopyableMovableInstanceES2_EvT_S4_RSaIT0_E.exit.i192.i812 ]
-  %1939 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %1906, i64 %1904
+  %1939 = getelementptr inbounds nuw [8 x i8], ptr %1906, i64 %1904
   %1940 = add nsw i32 %.pre998.i816, -1
   br label %_ZN4absl13test_internal19BaseCountedInstanceD2Ev.exit67.i517
 
@@ -264249,7 +264226,7 @@ _ZN4absl13test_internal19BaseCountedInstanceD2Ev.exit68.i795: ; preds = %_ZN4abs
   %1956 = phi i32 [ %1967, %1966 ], [ %_ZN4absl13test_internal19BaseCountedInstance19num_live_instances_E.promoted.i565, %.lr.ph.preheader.i.i.i.i562 ]
   %.012.i.i.i.i568 = phi i64 [ %1969, %1966 ], [ 0, %.lr.ph.preheader.i.i.i.i562 ]
   %1957 = phi ptr [ %1968, %1966 ], [ %.sroa.0253.0.i478, %.lr.ph.preheader.i.i.i.i562 ]
-  %1958 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %.010.i.i.i563, i64 %.012.i.i.i.i568
+  %1958 = getelementptr inbounds nuw [8 x i8], ptr %.010.i.i.i563, i64 %.012.i.i.i.i568
   %1959 = load i32, ptr %1957, align 4, !tbaa !2233
   store i32 %1959, ptr %1958, align 4, !tbaa !2233
   %1960 = getelementptr inbounds nuw i8, ptr %1958, i64 4
@@ -264352,7 +264329,7 @@ _ZN4absl23inlined_vector_internal13MallocAdapterISaINS_13test_internal23Copyable
   br i1 %1997, label %1998, label %2001
 
 1998:                                             ; preds = %1996
-  %1999 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %.sink2.i.i.i571, i64 %.sink1.i.i.i573
+  %1999 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i.i.i571, i64 %.sink1.i.i.i573
   %2000 = sub nuw i64 %1984, %.sink1.i.i.i573
   br label %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal23CopyableMovableInstanceEEE8AllocateEm.exit.i.i574
 
@@ -264373,7 +264350,7 @@ _ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal23
 .lr.ph.i.i.i581:                                  ; preds = %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal23CopyableMovableInstanceEEE8AllocateEm.exit.i.i574, %_ZN4absl23inlined_vector_internal20IteratorValueAdapterISaINS_13test_internal23CopyableMovableInstanceEEN9__gnu_cxx17__normal_iteratorIPKS3_St6vectorIS3_S4_EEEE10AssignNextEPS3_.exit.i.i.i
   %.05.i.i.i582 = phi i64 [ %2023, %_ZN4absl23inlined_vector_internal20IteratorValueAdapterISaINS_13test_internal23CopyableMovableInstanceEEN9__gnu_cxx17__normal_iteratorIPKS3_St6vectorIS3_S4_EEEE10AssignNextEPS3_.exit.i.i.i ], [ 0, %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal23CopyableMovableInstanceEEE8AllocateEm.exit.i.i574 ]
   %2004 = phi ptr [ %2022, %_ZN4absl23inlined_vector_internal20IteratorValueAdapterISaINS_13test_internal23CopyableMovableInstanceEEN9__gnu_cxx17__normal_iteratorIPKS3_St6vectorIS3_S4_EEEE10AssignNextEPS3_.exit.i.i.i ], [ %.sroa.0860.0, %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal23CopyableMovableInstanceEEE8AllocateEm.exit.i.i574 ]
-  %2005 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %.sink2.i.i.i571, i64 %.05.i.i.i582
+  %2005 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i.i.i571, i64 %.05.i.i.i582
   %2006 = load i32, ptr %2004, align 4, !tbaa !2233
   store i32 %2006, ptr %2005, align 4, !tbaa !2233
   %2007 = getelementptr inbounds nuw i8, ptr %2005, i64 4
@@ -264431,7 +264408,7 @@ _ZN4absl23inlined_vector_internal14AssignElementsISaINS_13test_internal23Copyabl
 .lr.ph.i25.i.i594:                                ; preds = %2036, %.lr.ph.preheader.i23.i.i586
   %.012.i.i.i595 = phi i64 [ %2040, %2036 ], [ 0, %.lr.ph.preheader.i23.i.i586 ]
   %2024 = phi ptr [ %2039, %2036 ], [ %.sroa.064.098.i.i587, %.lr.ph.preheader.i23.i.i586 ]
-  %2025 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %.sroa.045.07792.i.i591, i64 %.012.i.i.i595
+  %2025 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.045.07792.i.i591, i64 %.012.i.i.i595
   %2026 = load i32, ptr %2024, align 4, !tbaa !2233
   store i32 %2026, ptr %2025, align 4, !tbaa !2233
   %2027 = getelementptr inbounds nuw i8, ptr %2025, i64 4
@@ -264482,7 +264459,7 @@ _ZN4absl23inlined_vector_internal17ConstructElementsISaINS_13test_internal23Copy
   %.06.i.i.i606 = phi i64 [ %2044, %_ZNSt16allocator_traitsISaIN4absl13test_internal23CopyableMovableInstanceEEE7destroyIS2_EEvRS3_PT_.exit.i.i.i607 ], [ %.sroa.7.07497.i.i598, %.lr.ph.preheader.i28.i.i603 ]
   %2043 = phi i32 [ %2051, %_ZNSt16allocator_traitsISaIN4absl13test_internal23CopyableMovableInstanceEEE7destroyIS2_EEvRS3_PT_.exit.i.i.i607 ], [ %_ZN4absl13test_internal19BaseCountedInstance19num_live_instances_E.promoted.i.i197.i604, %.lr.ph.preheader.i28.i.i603 ]
   %2044 = add nsw i64 %.06.i.i.i606, -1
-  %2045 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %.sroa.044.07595.i.i599, i64 %2044
+  %2045 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.044.07595.i.i599, i64 %2044
   %2046 = getelementptr inbounds nuw i8, ptr %2045, i64 4
   %2047 = load i8, ptr %2046, align 4, !tbaa !2235, !range !35, !noundef !36
   %2048 = trunc nuw i8 %2047 to i1
@@ -265691,7 +265668,7 @@ define linkonce_odr dso_local void @_ZN4absl23inlined_vector_internal7StorageINS
   %.06.i = phi i64 [ %11, %_ZNSt16allocator_traitsISaIN4absl13test_internal23CopyableMovableInstanceEEE7destroyIS2_EEvRS3_PT_.exit.i ], [ %7, %.lr.ph.preheader.i ]
   %10 = phi i32 [ %18, %_ZNSt16allocator_traitsISaIN4absl13test_internal23CopyableMovableInstanceEEE7destroyIS2_EEvRS3_PT_.exit.i ], [ %_ZN4absl13test_internal19BaseCountedInstance19num_live_instances_E.promoted.i, %.lr.ph.preheader.i ]
   %11 = add nsw i64 %.06.i, -1
-  %12 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %6, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %14 = load i8, ptr %13, align 4, !tbaa !2235, !range !35, !noundef !36
   %15 = trunc nuw i8 %14 to i1
@@ -265763,12 +265740,12 @@ _ZN4absl23inlined_vector_internal13MallocAdapterISaINS_13test_internal23Copyable
   br i1 %19, label %20, label %23
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %.sink2.i, i64 %.sink1.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i, i64 %.sink1.i
   %22 = sub nuw i64 %2, %.sink1.i
   br label %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal23CopyableMovableInstanceEEE8AllocateEm.exit
 
 23:                                               ; preds = %18
-  %24 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %.sink2.i, i64 %2
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i, i64 %2
   %25 = sub nuw nsw i64 %.sink1.i, %2
   br label %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal23CopyableMovableInstanceEEE8AllocateEm.exit
 
@@ -265784,7 +265761,7 @@ _ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal23
 .lr.ph.i:                                         ; preds = %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal23CopyableMovableInstanceEEE8AllocateEm.exit, %_ZN4absl23inlined_vector_internal20IteratorValueAdapterISaINS_13test_internal23CopyableMovableInstanceEESt14_List_iteratorIS3_EE10AssignNextEPS3_.exit.i
   %.05.i = phi i64 [ %46, %_ZN4absl23inlined_vector_internal20IteratorValueAdapterISaINS_13test_internal23CopyableMovableInstanceEESt14_List_iteratorIS3_EE10AssignNextEPS3_.exit.i ], [ 0, %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal23CopyableMovableInstanceEEE8AllocateEm.exit ]
   %26 = phi ptr [ %45, %_ZN4absl23inlined_vector_internal20IteratorValueAdapterISaINS_13test_internal23CopyableMovableInstanceEESt14_List_iteratorIS3_EE10AssignNextEPS3_.exit.i ], [ %1, %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal23CopyableMovableInstanceEEE8AllocateEm.exit ]
-  %27 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %.sink2.i, i64 %.05.i
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i, i64 %.05.i
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %29 = load i32, ptr %28, align 4, !tbaa !2233
   store i32 %29, ptr %27, align 4, !tbaa !2233
@@ -265843,7 +265820,7 @@ _ZN4absl23inlined_vector_internal14AssignElementsISaINS_13test_internal23Copyabl
 .lr.ph.i25:                                       ; preds = %60, %.lr.ph.preheader.i23
   %.012.i = phi i64 [ %64, %60 ], [ 0, %.lr.ph.preheader.i23 ]
   %47 = phi ptr [ %63, %60 ], [ %.sroa.064.098, %.lr.ph.preheader.i23 ]
-  %48 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %.sroa.045.07792, i64 %.012.i
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.045.07792, i64 %.012.i
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %50 = load i32, ptr %49, align 4, !tbaa !2233
   store i32 %50, ptr %48, align 4, !tbaa !2233
@@ -265895,7 +265872,7 @@ _ZN4absl23inlined_vector_internal17ConstructElementsISaINS_13test_internal23Copy
   %.06.i = phi i64 [ %68, %_ZNSt16allocator_traitsISaIN4absl13test_internal23CopyableMovableInstanceEEE7destroyIS2_EEvRS3_PT_.exit.i ], [ %.sroa.7.07497, %.lr.ph.preheader.i28 ]
   %67 = phi i32 [ %75, %_ZNSt16allocator_traitsISaIN4absl13test_internal23CopyableMovableInstanceEEE7destroyIS2_EEvRS3_PT_.exit.i ], [ %_ZN4absl13test_internal19BaseCountedInstance19num_live_instances_E.promoted.i, %.lr.ph.preheader.i28 ]
   %68 = add nsw i64 %.06.i, -1
-  %69 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %.sroa.044.07595, i64 %68
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.044.07595, i64 %68
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 4
   %71 = load i8, ptr %70, align 4, !tbaa !2235, !range !35, !noundef !36
   %72 = trunc nuw i8 %71 to i1
@@ -265984,12 +265961,12 @@ _ZN4absl23inlined_vector_internal13MallocAdapterISaINS_13test_internal23Copyable
   br i1 %19, label %20, label %23
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %.sink2.i, i64 %.sink1.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i, i64 %.sink1.i
   %22 = sub nuw i64 %2, %.sink1.i
   br label %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal23CopyableMovableInstanceEEE8AllocateEm.exit
 
 23:                                               ; preds = %18
-  %24 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %.sink2.i, i64 %2
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i, i64 %2
   %25 = sub nuw nsw i64 %.sink1.i, %2
   br label %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal23CopyableMovableInstanceEEE8AllocateEm.exit
 
@@ -266005,7 +265982,7 @@ _ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal23
 .lr.ph.i:                                         ; preds = %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal23CopyableMovableInstanceEEE8AllocateEm.exit, %_ZN4absl23inlined_vector_internal20IteratorValueAdapterISaINS_13test_internal23CopyableMovableInstanceEESt20_List_const_iteratorIS3_EE10AssignNextEPS3_.exit.i
   %.05.i = phi i64 [ %46, %_ZN4absl23inlined_vector_internal20IteratorValueAdapterISaINS_13test_internal23CopyableMovableInstanceEESt20_List_const_iteratorIS3_EE10AssignNextEPS3_.exit.i ], [ 0, %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal23CopyableMovableInstanceEEE8AllocateEm.exit ]
   %26 = phi ptr [ %45, %_ZN4absl23inlined_vector_internal20IteratorValueAdapterISaINS_13test_internal23CopyableMovableInstanceEESt20_List_const_iteratorIS3_EE10AssignNextEPS3_.exit.i ], [ %1, %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal23CopyableMovableInstanceEEE8AllocateEm.exit ]
-  %27 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %.sink2.i, i64 %.05.i
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i, i64 %.05.i
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %29 = load i32, ptr %28, align 4, !tbaa !2233
   store i32 %29, ptr %27, align 4, !tbaa !2233
@@ -266064,7 +266041,7 @@ _ZN4absl23inlined_vector_internal14AssignElementsISaINS_13test_internal23Copyabl
 .lr.ph.i25:                                       ; preds = %60, %.lr.ph.preheader.i23
   %.012.i = phi i64 [ %64, %60 ], [ 0, %.lr.ph.preheader.i23 ]
   %47 = phi ptr [ %63, %60 ], [ %.sroa.064.098, %.lr.ph.preheader.i23 ]
-  %48 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %.sroa.045.07792, i64 %.012.i
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.045.07792, i64 %.012.i
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %50 = load i32, ptr %49, align 4, !tbaa !2233
   store i32 %50, ptr %48, align 4, !tbaa !2233
@@ -266116,7 +266093,7 @@ _ZN4absl23inlined_vector_internal17ConstructElementsISaINS_13test_internal23Copy
   %.06.i = phi i64 [ %68, %_ZNSt16allocator_traitsISaIN4absl13test_internal23CopyableMovableInstanceEEE7destroyIS2_EEvRS3_PT_.exit.i ], [ %.sroa.7.07497, %.lr.ph.preheader.i28 ]
   %67 = phi i32 [ %75, %_ZNSt16allocator_traitsISaIN4absl13test_internal23CopyableMovableInstanceEEE7destroyIS2_EEvRS3_PT_.exit.i ], [ %_ZN4absl13test_internal19BaseCountedInstance19num_live_instances_E.promoted.i, %.lr.ph.preheader.i28 ]
   %68 = add nsw i64 %.06.i, -1
-  %69 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %.sroa.044.07595, i64 %68
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.044.07595, i64 %68
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 4
   %71 = load i8, ptr %70, align 4, !tbaa !2235, !range !35, !noundef !36
   %72 = trunc nuw i8 %71 to i1
@@ -266366,7 +266343,7 @@ define internal void @_ZN12_GLOBAL__N_125gtest_suite_InstanceTest_21InitializerL
 
 .lr.ph.i.split.us.i:                              ; preds = %.lr.ph.i.i, %.lr.ph.i.split.us.i
   %.012.i.us.i = phi i64 [ %120, %.lr.ph.i.split.us.i ], [ 0, %.lr.ph.i.i ]
-  %118 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %.010.i, i64 %.012.i.us.i
+  %118 = getelementptr inbounds nuw [8 x i8], ptr %.010.i, i64 %.012.i.us.i
   store i32 12345, ptr %118, align 4, !tbaa !2233
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 4
   store i8 1, ptr %119, align 4, !tbaa !2235
@@ -267531,7 +267508,7 @@ _ZN4absl13InlinedVectorINS_13test_internal20CopyableOnlyInstanceELm2ESaIS2_EED2E
 
 .lr.ph.i.split.us.i131:                           ; preds = %.lr.ph.i.i125, %.lr.ph.i.split.us.i131
   %.012.i.us.i132 = phi i64 [ %485, %.lr.ph.i.split.us.i131 ], [ 0, %.lr.ph.i.i125 ]
-  %483 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %.010.i126, i64 %.012.i.us.i132
+  %483 = getelementptr inbounds nuw [8 x i8], ptr %.010.i126, i64 %.012.i.us.i132
   store i32 12345, ptr %483, align 4, !tbaa !2233
   %484 = getelementptr inbounds nuw i8, ptr %483, i64 4
   store i8 1, ptr %484, align 4, !tbaa !2235
@@ -268003,12 +267980,12 @@ _ZN4absl23inlined_vector_internal13MallocAdapterISaINS_13test_internal20Copyable
   br i1 %19, label %20, label %23
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %.sink2.i, i64 %.sink1.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i, i64 %.sink1.i
   %22 = sub nuw i64 %2, %.sink1.i
   br label %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal20CopyableOnlyInstanceEEE8AllocateEm.exit
 
 23:                                               ; preds = %18
-  %24 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %.sink2.i, i64 %2
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i, i64 %2
   %25 = sub nuw nsw i64 %.sink1.i, %2
   br label %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal20CopyableOnlyInstanceEEE8AllocateEm.exit
 
@@ -268024,7 +268001,7 @@ _ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal20
 .lr.ph.i:                                         ; preds = %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal20CopyableOnlyInstanceEEE8AllocateEm.exit, %_ZN4absl23inlined_vector_internal20IteratorValueAdapterISaINS_13test_internal20CopyableOnlyInstanceEEPKS3_E10AssignNextEPS3_.exit.i
   %.05.i = phi i64 [ %45, %_ZN4absl23inlined_vector_internal20IteratorValueAdapterISaINS_13test_internal20CopyableOnlyInstanceEEPKS3_E10AssignNextEPS3_.exit.i ], [ 0, %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal20CopyableOnlyInstanceEEE8AllocateEm.exit ]
   %26 = phi ptr [ %44, %_ZN4absl23inlined_vector_internal20IteratorValueAdapterISaINS_13test_internal20CopyableOnlyInstanceEEPKS3_E10AssignNextEPS3_.exit.i ], [ %1, %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal20CopyableOnlyInstanceEEE8AllocateEm.exit ]
-  %27 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %.sink2.i, i64 %.05.i
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i, i64 %.05.i
   %28 = load i32, ptr %26, align 4, !tbaa !2233
   store i32 %28, ptr %27, align 4, !tbaa !2233
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 4
@@ -268082,7 +268059,7 @@ _ZN4absl23inlined_vector_internal14AssignElementsISaINS_13test_internal20Copyabl
 .lr.ph.i25:                                       ; preds = %58, %.lr.ph.preheader.i23
   %.012.i = phi i64 [ %62, %58 ], [ 0, %.lr.ph.preheader.i23 ]
   %46 = phi ptr [ %61, %58 ], [ %.sroa.064.098, %.lr.ph.preheader.i23 ]
-  %47 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %.sroa.045.07792, i64 %.012.i
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.045.07792, i64 %.012.i
   %48 = load i32, ptr %46, align 4, !tbaa !2233
   store i32 %48, ptr %47, align 4, !tbaa !2233
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 4
@@ -268133,7 +268110,7 @@ _ZN4absl23inlined_vector_internal17ConstructElementsISaINS_13test_internal20Copy
   %.06.i = phi i64 [ %66, %_ZNSt16allocator_traitsISaIN4absl13test_internal20CopyableOnlyInstanceEEE7destroyIS2_EEvRS3_PT_.exit.i ], [ %.sroa.7.07497, %.lr.ph.preheader.i28 ]
   %65 = phi i32 [ %73, %_ZNSt16allocator_traitsISaIN4absl13test_internal20CopyableOnlyInstanceEEE7destroyIS2_EEvRS3_PT_.exit.i ], [ %_ZN4absl13test_internal19BaseCountedInstance19num_live_instances_E.promoted.i, %.lr.ph.preheader.i28 ]
   %66 = add nsw i64 %.06.i, -1
-  %67 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %.sroa.044.07595, i64 %66
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.044.07595, i64 %66
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 4
   %69 = load i8, ptr %68, align 4, !tbaa !2235, !range !35, !noundef !36
   %70 = trunc nuw i8 %69 to i1
@@ -268712,7 +268689,7 @@ define internal void @_ZN12_GLOBAL__N_125gtest_suite_InstanceTest_21InitializerL
 
 .lr.ph.i.split.us.i:                              ; preds = %.lr.ph.i.i, %.lr.ph.i.split.us.i
   %.012.i.us.i = phi i64 [ %120, %.lr.ph.i.split.us.i ], [ 0, %.lr.ph.i.i ]
-  %118 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %.010.i, i64 %.012.i.us.i
+  %118 = getelementptr inbounds nuw [8 x i8], ptr %.010.i, i64 %.012.i.us.i
   store i32 12345, ptr %118, align 4, !tbaa !2233
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 4
   store i8 1, ptr %119, align 4, !tbaa !2235
@@ -269889,7 +269866,7 @@ _ZN4absl13InlinedVectorINS_13test_internal23CopyableMovableInstanceELm2ESaIS2_EE
 
 .lr.ph.i.split.us.i117:                           ; preds = %.lr.ph.i.i111, %.lr.ph.i.split.us.i117
   %.012.i.us.i118 = phi i64 [ %490, %.lr.ph.i.split.us.i117 ], [ 0, %.lr.ph.i.i111 ]
-  %488 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %.010.i112, i64 %.012.i.us.i118
+  %488 = getelementptr inbounds nuw [8 x i8], ptr %.010.i112, i64 %.012.i.us.i118
   store i32 12345, ptr %488, align 4, !tbaa !2233
   %489 = getelementptr inbounds nuw i8, ptr %488, i64 4
   store i8 1, ptr %489, align 4, !tbaa !2235
@@ -270361,12 +270338,12 @@ _ZN4absl23inlined_vector_internal13MallocAdapterISaINS_13test_internal23Copyable
   br i1 %19, label %20, label %23
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %.sink2.i, i64 %.sink1.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i, i64 %.sink1.i
   %22 = sub nuw i64 %2, %.sink1.i
   br label %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal23CopyableMovableInstanceEEE8AllocateEm.exit
 
 23:                                               ; preds = %18
-  %24 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %.sink2.i, i64 %2
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i, i64 %2
   %25 = sub nuw nsw i64 %.sink1.i, %2
   br label %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal23CopyableMovableInstanceEEE8AllocateEm.exit
 
@@ -270382,7 +270359,7 @@ _ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal23
 .lr.ph.i:                                         ; preds = %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal23CopyableMovableInstanceEEE8AllocateEm.exit, %_ZN4absl23inlined_vector_internal20IteratorValueAdapterISaINS_13test_internal23CopyableMovableInstanceEEPKS3_E10AssignNextEPS3_.exit.i
   %.05.i = phi i64 [ %45, %_ZN4absl23inlined_vector_internal20IteratorValueAdapterISaINS_13test_internal23CopyableMovableInstanceEEPKS3_E10AssignNextEPS3_.exit.i ], [ 0, %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal23CopyableMovableInstanceEEE8AllocateEm.exit ]
   %26 = phi ptr [ %44, %_ZN4absl23inlined_vector_internal20IteratorValueAdapterISaINS_13test_internal23CopyableMovableInstanceEEPKS3_E10AssignNextEPS3_.exit.i ], [ %1, %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_13test_internal23CopyableMovableInstanceEEE8AllocateEm.exit ]
-  %27 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %.sink2.i, i64 %.05.i
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i, i64 %.05.i
   %28 = load i32, ptr %26, align 4, !tbaa !2233
   store i32 %28, ptr %27, align 4, !tbaa !2233
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 4
@@ -270440,7 +270417,7 @@ _ZN4absl23inlined_vector_internal14AssignElementsISaINS_13test_internal23Copyabl
 .lr.ph.i25:                                       ; preds = %58, %.lr.ph.preheader.i23
   %.012.i = phi i64 [ %62, %58 ], [ 0, %.lr.ph.preheader.i23 ]
   %46 = phi ptr [ %61, %58 ], [ %.sroa.064.098, %.lr.ph.preheader.i23 ]
-  %47 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %.sroa.045.07792, i64 %.012.i
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.045.07792, i64 %.012.i
   %48 = load i32, ptr %46, align 4, !tbaa !2233
   store i32 %48, ptr %47, align 4, !tbaa !2233
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 4
@@ -270491,7 +270468,7 @@ _ZN4absl23inlined_vector_internal17ConstructElementsISaINS_13test_internal23Copy
   %.06.i = phi i64 [ %66, %_ZNSt16allocator_traitsISaIN4absl13test_internal23CopyableMovableInstanceEEE7destroyIS2_EEvRS3_PT_.exit.i ], [ %.sroa.7.07497, %.lr.ph.preheader.i28 ]
   %65 = phi i32 [ %73, %_ZNSt16allocator_traitsISaIN4absl13test_internal23CopyableMovableInstanceEEE7destroyIS2_EEvRS3_PT_.exit.i ], [ %_ZN4absl13test_internal19BaseCountedInstance19num_live_instances_E.promoted.i, %.lr.ph.preheader.i28 ]
   %66 = add nsw i64 %.06.i, -1
-  %67 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %.sroa.044.07595, i64 %66
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.044.07595, i64 %66
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 4
   %69 = load i8, ptr %68, align 4, !tbaa !2235, !range !35, !noundef !36
   %70 = trunc nuw i8 %69 to i1

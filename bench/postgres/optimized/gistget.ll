@@ -10,9 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.ItemPointerData = type { %struct.BlockIdData, i16 }
 %struct.BlockIdData = type { i16, i16 }
 %struct.IndexOrderByDistance = type { double, i8 }
-%struct.ItemIdData = type { i32 }
 %struct.GISTENTRY = type { i64, ptr, ptr, i16, i8 }
-%struct.CompactAttribute = type { i32, i16, i8, i8, i8, i8, i8, i8, i8 }
 
 @.str = private unnamed_addr constant [42 x i8] c"GiST only supports forward scan direction\00", align 1
 @.str.1 = private unnamed_addr constant [10 x i8] c"gistget.c\00", align 1
@@ -254,13 +252,13 @@ getNextGISTSearchItem.exit.i:                     ; preds = %62, %93
 
 117:                                              ; preds = %112
   %118 = zext i16 %.pre103 to i64
-  %119 = getelementptr %struct.GISTSearchHeapItem, ptr %5, i64 %118
+  %119 = getelementptr [24 x i8], ptr %5, i64 %118
   %120 = getelementptr i8, ptr %119, i64 64
   %121 = load i16, ptr %120, align 8
   %122 = add nsw i32 %115, 1
   store i32 %122, ptr %114, align 8
   %123 = sext i32 %115 to i64
-  %124 = getelementptr inbounds i16, ptr %113, i64 %123
+  %124 = getelementptr inbounds [2 x i8], ptr %113, i64 %123
   store i16 %121, ptr %124, align 2
   %.pre102 = load i16, ptr %46, align 2
   br label %125
@@ -270,11 +268,11 @@ getNextGISTSearchItem.exit.i:                     ; preds = %62, %93
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %128 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %129 = zext i16 %126 to i64
-  %130 = getelementptr inbounds nuw %struct.GISTSearchHeapItem, ptr %128, i64 %129
+  %130 = getelementptr inbounds nuw [24 x i8], ptr %128, i64 %129
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %127, ptr noundef nonnull align 8 dereferenceable(6) %130, i64 6, i1 false)
   %131 = load i16, ptr %46, align 2
   %132 = zext i16 %131 to i64
-  %133 = getelementptr inbounds nuw %struct.GISTSearchHeapItem, ptr %128, i64 %132
+  %133 = getelementptr inbounds nuw [24 x i8], ptr %128, i64 %132
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 6
   %135 = load i8, ptr %134, align 2, !range !4, !noundef !5
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -287,7 +285,7 @@ getNextGISTSearchItem.exit.i:                     ; preds = %62, %93
 140:                                              ; preds = %125
   %141 = load i16, ptr %46, align 2
   %142 = zext i16 %141 to i64
-  %143 = getelementptr inbounds nuw %struct.GISTSearchHeapItem, ptr %128, i64 %142
+  %143 = getelementptr inbounds nuw [24 x i8], ptr %128, i64 %142
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 8
   %145 = load ptr, ptr %144, align 8
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -335,13 +333,13 @@ getNextGISTSearchItem.exit.i:                     ; preds = %62, %93
 168:                                              ; preds = %164
   %169 = load i16, ptr %46, align 2
   %170 = zext i16 %169 to i64
-  %171 = getelementptr %struct.GISTSearchHeapItem, ptr %5, i64 %170
+  %171 = getelementptr [24 x i8], ptr %5, i64 %170
   %172 = getelementptr i8, ptr %171, i64 64
   %173 = load i16, ptr %172, align 8
   %174 = add nsw i32 %166, 1
   store i32 %174, ptr %53, align 8
   %175 = sext i32 %166 to i64
-  %176 = getelementptr inbounds i16, ptr %165, i64 %175
+  %176 = getelementptr inbounds [2 x i8], ptr %165, i64 %175
   store i16 %173, ptr %176, align 2
   br label %.preheader132
 
@@ -378,7 +376,7 @@ getNextGISTSearchItem.exit.i:                     ; preds = %62, %93
   %192 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %193 = xor i32 %187, -1
   %194 = zext nneg i32 %193 to i64
-  %195 = getelementptr inbounds nuw ptr, ptr %192, i64 %194
+  %195 = getelementptr inbounds nuw [8 x i8], ptr %192, i64 %194
   %196 = load ptr, ptr %195, align 8
   br label %BufferGetPage.exit.i
 
@@ -418,10 +416,10 @@ BufferGetPage.exit.i:                             ; preds = %197, %191
 213:                                              ; preds = %213, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %213 ]
   %214 = load ptr, ptr %209, align 8
-  %215 = getelementptr inbounds nuw i16, ptr %214, i64 %indvars.iv.i
+  %215 = getelementptr inbounds nuw [2 x i8], ptr %214, i64 %indvars.iv.i
   %216 = load i16, ptr %215, align 2
   %217 = zext i16 %216 to i64
-  %218 = getelementptr %struct.ItemIdData, ptr %210, i64 %217
+  %218 = getelementptr [4 x i8], ptr %210, i64 %217
   %219 = load i32, ptr %218, align 4
   %220 = or i32 %219, 98304
   store i32 %220, ptr %218, align 4
@@ -524,7 +522,7 @@ define internal fastcc void @gistScanPage(ptr noundef captures(none) %0, ptr nou
   %24 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %25 = xor i32 %17, -1
   %26 = zext nneg i32 %25 to i64
-  %27 = getelementptr inbounds nuw ptr, ptr %24, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %26
   %28 = load ptr, ptr %27, align 8
   br label %BufferGetPage.exit
 
@@ -662,7 +660,7 @@ BufferGetPage.exit:                               ; preds = %23, %29
 110:                                              ; preds = %.lr.ph, %423
   %.0161 = phi i16 [ 1, %.lr.ph ], [ %424, %423 ]
   %111 = zext i16 %.0161 to i64
-  %112 = getelementptr %struct.ItemIdData, ptr %95, i64 %111
+  %112 = getelementptr [4 x i8], ptr %95, i64 %111
   %113 = load i8, ptr %96, align 1, !range !4, !noundef !5
   %114 = trunc nuw i8 %113 to i1
   %.val130.pre = load i32, ptr %112, align 4
@@ -728,10 +726,10 @@ BufferGetPage.exit:                               ; preds = %23, %29
 149:                                              ; preds = %149, %.lr.ph101.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph101.i ], [ %indvars.iv.next.i, %149 ]
   %150 = load ptr, ptr %145, align 8
-  %151 = getelementptr inbounds nuw %struct.IndexOrderByDistance, ptr %150, i64 %indvars.iv.i
+  %151 = getelementptr inbounds nuw [16 x i8], ptr %150, i64 %indvars.iv.i
   store double 0xFFF0000000000000, ptr %151, align 8
   %152 = load ptr, ptr %145, align 8
-  %153 = getelementptr inbounds nuw %struct.IndexOrderByDistance, ptr %152, i64 %indvars.iv.i
+  %153 = getelementptr inbounds nuw [16 x i8], ptr %152, i64 %indvars.iv.i
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 8
   store i8 0, ptr %154, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -754,7 +752,7 @@ BufferGetPage.exit:                               ; preds = %23, %29
 
 164:                                              ; preds = %158
   %165 = sext i16 %160 to i64
-  %166 = getelementptr %struct.CompactAttribute, ptr %162, i64 %165
+  %166 = getelementptr [16 x i8], ptr %162, i64 %165
   %167 = getelementptr i8, ptr %166, i64 8
   %168 = load i32, ptr %167, align 4
   %169 = icmp sgt i32 %168, -1
@@ -935,7 +933,7 @@ index_getattr.exit139.thread:                     ; preds = %201
 
 262:                                              ; preds = %256
   %263 = sext i16 %258 to i64
-  %264 = getelementptr %struct.CompactAttribute, ptr %260, i64 %263
+  %264 = getelementptr [16 x i8], ptr %260, i64 %263
   %265 = getelementptr i8, ptr %264, i64 8
   %266 = load i32, ptr %265, align 4
   %267 = icmp sgt i32 %266, -1
@@ -1111,11 +1109,11 @@ gistindex_keytest.exit:                           ; preds = %333, %149, %.prehea
 362:                                              ; preds = %355
   %363 = load i16, ptr %81, align 8
   %364 = zext i16 %363 to i64
-  %365 = getelementptr inbounds nuw %struct.GISTSearchHeapItem, ptr %105, i64 %364
+  %365 = getelementptr inbounds nuw [24 x i8], ptr %105, i64 %364
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %365, ptr noundef nonnull align 2 dereferenceable(6) %120, i64 6, i1 false)
   %366 = load i16, ptr %81, align 8
   %367 = zext i16 %366 to i64
-  %368 = getelementptr inbounds nuw %struct.GISTSearchHeapItem, ptr %105, i64 %367
+  %368 = getelementptr inbounds nuw [24 x i8], ptr %105, i64 %367
   %369 = getelementptr inbounds nuw i8, ptr %368, i64 6
   store i8 %.3, ptr %369, align 2
   %370 = getelementptr inbounds nuw i8, ptr %368, i64 16
@@ -1131,7 +1129,7 @@ gistindex_keytest.exit:                           ; preds = %333, %149, %.prehea
   %376 = call ptr @gistFetchTuple(ptr noundef %12, ptr noundef %14, ptr noundef nonnull %120) #8
   %377 = load i16, ptr %81, align 8
   %378 = zext i16 %377 to i64
-  %379 = getelementptr inbounds nuw %struct.GISTSearchHeapItem, ptr %105, i64 %378
+  %379 = getelementptr inbounds nuw [24 x i8], ptr %105, i64 %378
   %380 = getelementptr inbounds nuw i8, ptr %379, i64 8
   store ptr %376, ptr %380, align 8
   store ptr %375, ptr @CurrentMemoryContext, align 8

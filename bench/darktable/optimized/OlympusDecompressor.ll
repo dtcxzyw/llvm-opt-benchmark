@@ -483,10 +483,10 @@ _ZN8rawspeed14BitStreamerMSBCI2NS_11BitStreamerIS0_NS_39BitStreamerForwardSequen
   %107 = add nsw i64 %indvars.iv.i, -2
   %108 = icmp samesign ult i64 %107, %104
   %109 = mul nuw nsw i64 %107, %103
-  %110 = getelementptr inbounds nuw i16, ptr %99, i64 %109
+  %110 = getelementptr inbounds nuw [2 x i8], ptr %99, i64 %109
   %111 = icmp samesign ult i64 %indvars.iv.i, %104
   %112 = mul nuw nsw i64 %indvars.iv.i, %103
-  %113 = getelementptr inbounds nuw i16, ptr %99, i64 %112
+  %113 = getelementptr inbounds nuw [2 x i8], ptr %99, i64 %112
   br label %114
 
 _ZNK8rawspeed12_GLOBAL__N_123OlympusDecompressorImpl15decompressGroupERSt5arrayINS0_24OlympusDifferenceDecoderELm2EERNS_14BitStreamerMSBEii.exit.preheader.i.i: ; preds = %_ZN8rawspeed12_GLOBAL__N_123OlympusDecompressorImpl7getPredENS_10Array2DRefItEEii.exit25.i.i
@@ -643,7 +643,7 @@ _ZN8rawspeed12_GLOBAL__N_124OlympusDifferenceDecoder7getDiffERNS_14BitStreamerMS
   %201 = icmp samesign ult i64 %indvars.iv.i.i, %101
   call void @llvm.assume(i1 %201)
   call void @llvm.assume(i1 %108)
-  %202 = getelementptr inbounds nuw i16, ptr %110, i64 %indvars.iv.i.i
+  %202 = getelementptr inbounds nuw [2 x i8], ptr %110, i64 %indvars.iv.i.i
   %203 = load i16, ptr %202, align 2, !tbaa !116
   %204 = zext i16 %203 to i32
   br label %_ZN8rawspeed12_GLOBAL__N_123OlympusDecompressorImpl7getPredENS_10Array2DRefItEEii.exit25.i.i
@@ -655,7 +655,7 @@ _ZN8rawspeed12_GLOBAL__N_123OlympusDecompressorImpl7getPredENS_10Array2DRefItEEi
   %207 = icmp samesign ult i64 %indvars.iv.i.i, %101
   call void @llvm.assume(i1 %207)
   call void @llvm.assume(i1 %111)
-  %208 = getelementptr inbounds nuw i16, ptr %113, i64 %indvars.iv.i.i
+  %208 = getelementptr inbounds nuw [2 x i8], ptr %113, i64 %indvars.iv.i.i
   store i16 %206, ptr %208, align 2, !tbaa !116
   br i1 %.not.i.i10.i, label %_ZNK8rawspeed12_GLOBAL__N_123OlympusDecompressorImpl15decompressGroupERSt5arrayINS0_24OlympusDifferenceDecoderELm2EERNS_14BitStreamerMSBEii.exit.preheader.i.i, label %114, !llvm.loop !118
 
@@ -828,7 +828,7 @@ _ZN8rawspeed12_GLOBAL__N_124OlympusDifferenceDecoder7getDiffERNS_14BitStreamerMS
   %300 = add nsw i64 %213, -2
   %301 = icmp samesign ult i64 %300, %101
   call void @llvm.assume(i1 %301)
-  %302 = getelementptr inbounds nuw i16, ptr %113, i64 %300
+  %302 = getelementptr inbounds nuw [2 x i8], ptr %113, i64 %300
   %303 = load i16, ptr %302, align 2, !tbaa !116
   %304 = zext i16 %303 to i32
   br i1 %106, label %_ZN8rawspeed12_GLOBAL__N_123OlympusDecompressorImpl7getPredENS_10Array2DRefItEEii.exit.i.i, label %305
@@ -837,10 +837,10 @@ _ZN8rawspeed12_GLOBAL__N_124OlympusDifferenceDecoder7getDiffERNS_14BitStreamerMS
   %306 = icmp samesign ult i64 %213, %101
   call void @llvm.assume(i1 %306)
   call void @llvm.assume(i1 %108)
-  %307 = getelementptr inbounds nuw i16, ptr %110, i64 %213
+  %307 = getelementptr inbounds nuw [2 x i8], ptr %110, i64 %213
   %308 = load i16, ptr %307, align 2, !tbaa !116
   %309 = zext i16 %308 to i32
-  %310 = getelementptr inbounds nuw i16, ptr %110, i64 %300
+  %310 = getelementptr inbounds nuw [2 x i8], ptr %110, i64 %300
   %311 = load i16, ptr %310, align 2, !tbaa !116
   %312 = zext i16 %311 to i32
   %313 = sub nsw i32 %304, %312
@@ -883,7 +883,7 @@ _ZN8rawspeed12_GLOBAL__N_123OlympusDecompressorImpl7getPredENS_10Array2DRefItEEi
   %335 = trunc i32 %334 to i16
   %336 = icmp samesign ult i64 %213, %101
   call void @llvm.assume(i1 %336)
-  %337 = getelementptr inbounds nuw i16, ptr %113, i64 %213
+  %337 = getelementptr inbounds nuw [2 x i8], ptr %113, i64 %213
   store i16 %335, ptr %337, align 2, !tbaa !116
   br i1 %.not.i11.i.i, label %_ZNK8rawspeed12_GLOBAL__N_123OlympusDecompressorImpl15decompressGroupERSt5arrayINS0_24OlympusDifferenceDecoderELm2EERNS_14BitStreamerMSBEii.exit12.i.i, label %210, !llvm.loop !118
 

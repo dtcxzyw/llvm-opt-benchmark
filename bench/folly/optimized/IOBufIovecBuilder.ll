@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.Initializer = type { i8 }
-%struct.iovec = type { ptr, i64 }
 %struct.Initializer.10 = type { i8 }
 %struct.Initializer.9 = type { i8 }
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
@@ -229,7 +228,7 @@ _ZNSt5dequeIPN5folly17IOBufIovecBuilder11RefCountMemESaIS3_EE9push_backEOS3_.exi
   br i1 %82, label %83, label %91
 
 83:                                               ; preds = %81
-  %84 = getelementptr inbounds nuw ptr, ptr %74, i64 %.01225
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %.01225
   %85 = load ptr, ptr %84, align 8, !tbaa !40
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
   %87 = load ptr, ptr %86, align 8, !tbaa !39
@@ -248,10 +247,10 @@ _ZNSt5dequeIPN5folly17IOBufIovecBuilder11RefCountMemESaIS3_EE9push_backEOS3_.exi
 
 95:                                               ; preds = %93, %91
   %.sink = phi i64 [ %94, %93 ], [ %92, %91 ]
-  %96 = getelementptr inbounds ptr, ptr %73, i64 %.sink
+  %96 = getelementptr inbounds [8 x i8], ptr %73, i64 %.sink
   %97 = load ptr, ptr %96, align 8, !tbaa !48, !noalias !44
   %98 = and i64 %79, 63
-  %99 = getelementptr inbounds nuw ptr, ptr %97, i64 %98
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %97, i64 %98
   %100 = load ptr, ptr %99, align 8, !tbaa !40
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 8
   %102 = load ptr, ptr %101, align 8, !tbaa !39
@@ -260,7 +259,7 @@ _ZNSt5dequeIPN5folly17IOBufIovecBuilder11RefCountMemESaIS3_EE9push_backEOS3_.exi
   %105 = getelementptr inbounds nuw i8, ptr %102, i64 %104
   %106 = shl nsw i64 %.sink, 6
   %107 = sub nsw i64 %79, %106
-  %108 = getelementptr inbounds ptr, ptr %97, i64 %107
+  %108 = getelementptr inbounds [8 x i8], ptr %97, i64 %107
   %.pre31 = load ptr, ptr %108, align 8, !tbaa !40
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre31, i64 24
   %.pre32 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !47
@@ -333,7 +332,7 @@ _ZNSt6vectorI5iovecSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i: ; preds = %1
 _ZNSt6vectorI5iovecSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i: ; preds = %138, %_ZNSt6vectorI5iovecSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i
   store ptr %133, ptr %1, align 8, !tbaa !7
   store ptr %137, ptr %7, align 8, !tbaa !13
-  %139 = getelementptr inbounds nuw %struct.iovec, ptr %133, i64 %131
+  %139 = getelementptr inbounds nuw [16 x i8], ptr %133, i64 %131
   store ptr %139, ptr %19, align 8, !tbaa !49
   br label %_ZNSt6vectorI5iovecSaIS0_EE12emplace_backIJRS0_EEES4_DpOT_.exit
 
@@ -354,7 +353,7 @@ _ZNSt6vectorI5iovecSaIS0_EE12emplace_backIJRS0_EEES4_DpOT_.exit: ; preds = %117,
   br i1 %150, label %151, label %153
 
 151:                                              ; preds = %149
-  %152 = getelementptr inbounds nuw ptr, ptr %140, i64 %.01225
+  %152 = getelementptr inbounds nuw [8 x i8], ptr %140, i64 %.01225
   br label %_ZNSt5dequeIPN5folly17IOBufIovecBuilder11RefCountMemESaIS3_EEixEm.exit18
 
 153:                                              ; preds = %149
@@ -367,11 +366,11 @@ _ZNSt6vectorI5iovecSaIS0_EE12emplace_backIJRS0_EEES4_DpOT_.exit: ; preds = %117,
 
 157:                                              ; preds = %155, %153
   %158 = phi i64 [ %154, %153 ], [ %156, %155 ]
-  %159 = getelementptr inbounds ptr, ptr %142, i64 %158
+  %159 = getelementptr inbounds [8 x i8], ptr %142, i64 %158
   %160 = load ptr, ptr %159, align 8, !tbaa !48, !noalias !52
   %161 = shl nsw i64 %158, 6
   %162 = sub nsw i64 %147, %161
-  %163 = getelementptr inbounds ptr, ptr %160, i64 %162
+  %163 = getelementptr inbounds [8 x i8], ptr %160, i64 %162
   br label %_ZNSt5dequeIPN5folly17IOBufIovecBuilder11RefCountMemESaIS3_EEixEm.exit18
 
 _ZNSt5dequeIPN5folly17IOBufIovecBuilder11RefCountMemESaIS3_EEixEm.exit18: ; preds = %151, %157
@@ -512,9 +511,9 @@ define linkonce_odr void @_ZNSt5dequeIPN5folly17IOBufIovecBuilder11RefCountMemES
   %19 = load ptr, ptr %0, align 8, !tbaa !58
   %20 = sub i64 %15, %13
   %21 = lshr i64 %20, 1
-  %22 = getelementptr inbounds nuw ptr, ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %21
   %23 = select i1 %2, i64 %1, i64 0
-  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %23
   %25 = icmp ult ptr %24, %7
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %26, %7
@@ -533,12 +532,12 @@ define linkonce_odr void @_ZNSt5dequeIPN5folly17IOBufIovecBuilder11RefCountMemES
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIPPPN5folly17IOBufIovecBuilder11RefCountMemES5_ET0_T_S7_S6_.exit, label %32
 
 32:                                               ; preds = %31
-  %33 = getelementptr inbounds nuw ptr, ptr %24, i64 %12
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %12
   %34 = ptrtoint ptr %26 to i64
   %35 = sub i64 %34, %9
   %36 = ashr exact i64 %35, 3
   %37 = sub nsw i64 0, %36
-  %38 = getelementptr inbounds ptr, ptr %33, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %33, i64 %37
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %38, ptr align 8 %7, i64 %35, i1 false)
   br label %_ZSt4copyIPPPN5folly17IOBufIovecBuilder11RefCountMemES5_ET0_T_S7_S6_.exit
 
@@ -566,9 +565,9 @@ _ZNSt11_Deque_baseIPN5folly17IOBufIovecBuilder11RefCountMemESaIS3_EE15_M_allocat
   %46 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %45) #21
   %47 = sub i64 %41, %13
   %48 = lshr i64 %47, 1
-  %49 = getelementptr inbounds nuw ptr, ptr %46, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %48
   %50 = select i1 %2, i64 %1, i64 0
-  %51 = getelementptr inbounds nuw ptr, ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i25 = icmp eq ptr %52, %7
   br i1 %.not.i.i.i.i.i25, label %_ZSt4copyIPPPN5folly17IOBufIovecBuilder11RefCountMemES5_ET0_T_S7_S6_.exit26, label %53
@@ -596,7 +595,7 @@ _ZSt4copyIPPPN5folly17IOBufIovecBuilder11RefCountMemES5_ET0_T_S7_S6_.exit: ; pre
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 512
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %60, ptr %61, align 8, !tbaa !20
-  %62 = getelementptr inbounds nuw ptr, ptr %.0, i64 %12
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %.0, i64 %12
   %63 = getelementptr inbounds i8, ptr %62, i64 -8
   store ptr %63, ptr %4, align 8, !tbaa !14
   %64 = load ptr, ptr %63, align 8, !tbaa !48

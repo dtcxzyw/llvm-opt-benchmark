@@ -71,7 +71,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN3smt7displayERS
   %21 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.5, i64 noundef 5)
   %22 = lshr i32 %1, 1
   %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr inbounds nuw ptr, ptr %3, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !8
   tail call void @_Z17ast_ll_bounded_ppRSoR11ast_managerP3astj(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(976) %2, ptr noundef %25, i32 noundef 3)
   %26 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.6, i64 noundef 1)
@@ -80,7 +80,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN3smt7displayERS
 27:                                               ; preds = %18
   %28 = lshr exact i32 %1, 1
   %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr inbounds nuw ptr, ptr %3, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !8
   tail call void @_Z17ast_ll_bounded_ppRSoR11ast_managerP3astj(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(976) %2, ptr noundef %31, i32 noundef 3)
   br label %32
@@ -127,7 +127,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN3smt12display_s
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %24 = lshr i32 %1, 1
   %25 = zext nneg i32 %24 to i64
-  %26 = getelementptr inbounds nuw ptr, ptr %3, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !8
   call void @_ZN11mk_ismt2_ppC2EP3astR11ast_managerjjPKc(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef %27, ptr noundef nonnull align 8 dereferenceable(976) %2, i32 noundef 3, i32 noundef 0, ptr noundef null)
   %28 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSoRK11mk_ismt2_pp(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(48) %5)
@@ -155,7 +155,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %29
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %36 = lshr exact i32 %1, 1
   %37 = zext nneg i32 %36 to i64
-  %38 = getelementptr inbounds nuw ptr, ptr %3, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %37
   %39 = load ptr, ptr %38, align 8, !tbaa !8
   call void @_ZN11mk_ismt2_ppC2EP3astR11ast_managerjjPKc(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef %39, ptr noundef nonnull align 8 dereferenceable(976) %2, i32 noundef 3, i32 noundef 0, ptr noundef null)
   %40 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSoRK11mk_ismt2_pp(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(48) %6)
@@ -210,7 +210,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN3smt15display_c
   %14 = trunc i32 %1 to i1
   %15 = lshr i32 %1, 1
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds nuw ptr, ptr %2, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %16
   br i1 %14, label %18, label %25
 
 18:                                               ; preds = %13
@@ -349,7 +349,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN3smt15display_c
   br label %7
 
 7:                                                ; preds = %5, %.lr.ph
-  %8 = getelementptr inbounds nuw %"class.sat::literal", ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %.sroa.0.0.copyload = load i32, ptr %8, align 4, !tbaa !16
   %9 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN3smt15display_compactERSoN3sat7literalEPKP4expr(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 %.sroa.0.0.copyload, ptr noundef %3)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -384,7 +384,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN3smt15display_v
   br label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us: ; preds = %7, %.lr.ph.split.us
-  %15 = getelementptr inbounds nuw %"class.sat::literal", ptr %3, i64 %indvars.iv15
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv15
   %.sroa.0.0.copyload.us = load i32, ptr %15, align 4, !tbaa !16
   %16 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN3smt7displayERSoN3sat7literalER11ast_managerPKP4expr(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 %.sroa.0.0.copyload.us, ptr noundef nonnull align 8 dereferenceable(976) %1, ptr noundef %4)
   %indvars.iv.next16 = add nuw nsw i64 %indvars.iv15, 1
@@ -405,7 +405,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us: ; preds = %7, %
   br label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %17, %.lr.ph.split
-  %20 = getelementptr inbounds nuw %"class.sat::literal", ptr %3, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %.sroa.0.0.copyload = load i32, ptr %20, align 4, !tbaa !16
   %21 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN3smt7displayERSoN3sat7literalER11ast_managerPKP4expr(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 %.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(976) %1, ptr noundef %4)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -427,13 +427,13 @@ define hidden noundef zeroext i1 @_ZN3smt20backward_subsumptionEjPKN3sat7literal
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %17
   %indvars.iv31 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next32, %17 ]
-  %7 = getelementptr inbounds nuw %"class.sat::literal", ptr %1, i64 %indvars.iv31
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv31
   %8 = load i32, ptr %7, align 4, !tbaa !16
   br label %9
 
 9:                                                ; preds = %.lr.ph.us, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %13 ]
-  %10 = getelementptr inbounds nuw %"class.sat::literal", ptr %3, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4, !tbaa !3
   %12 = icmp eq i32 %8, %11
   br i1 %12, label %._crit_edge.us, label %13

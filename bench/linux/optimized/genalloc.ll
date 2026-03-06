@@ -303,7 +303,7 @@ define dso_local i64 @gen_pool_alloc_algo_owner(ptr noundef %0, i64 noundef %1, 
 
 42:                                               ; preds = %37
   %43 = lshr i64 %40, 6
-  %44 = getelementptr i64, ptr %36, i64 %43
+  %44 = getelementptr [8 x i8], ptr %36, i64 %43
   %45 = add i64 %17, %40
   %46 = and i64 %40, 63
   %47 = sub nuw nsw i64 64, %46
@@ -959,7 +959,7 @@ define dso_local void @gen_pool_free_owner(ptr noundef %0, i64 noundef %1, i64 n
   %32 = lshr i64 %31, %10
   %33 = getelementptr inbounds nuw i8, ptr %18, i64 56
   %34 = lshr i64 %32, 6
-  %35 = getelementptr i64, ptr %33, i64 %34
+  %35 = getelementptr [8 x i8], ptr %33, i64 %34
   %36 = add i64 %14, %32
   %37 = and i64 %32, 63
   %38 = sub nuw nsw i64 64, %37

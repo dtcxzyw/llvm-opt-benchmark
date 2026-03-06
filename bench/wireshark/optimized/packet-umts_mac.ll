@@ -368,7 +368,7 @@ proto_item_set_generated.exit:                    ; preds = %46, %49, %52
   %56 = getelementptr inbounds nuw i8, ptr %20, i64 28
   %57 = and i32 %45, 255
   %58 = zext nneg i32 %57 to i64
-  %59 = getelementptr i32, ptr %56, i64 %58
+  %59 = getelementptr [4 x i8], ptr %56, i64 %58
   %60 = load i32, ptr %59, align 4
   %61 = add i32 %60, -2
   %62 = tail call ptr @tvb_new_octet_aligned(ptr noundef %0, i32 noundef 2, i32 noundef %61)
@@ -430,7 +430,7 @@ proto_item_set_generated.exit:                    ; preds = %46, %49, %52
 
 proto_item_set_generated.exit103:                 ; preds = %84, %87, %90
   %94 = getelementptr inbounds nuw i8, ptr %20, i64 28
-  %95 = getelementptr i32, ptr %94, i64 %74
+  %95 = getelementptr [4 x i8], ptr %94, i64 %74
   %96 = load i32, ptr %95, align 4
   %97 = sub i32 %96, %37
   %98 = tail call ptr @tvb_new_octet_aligned(ptr noundef %0, i32 noundef %37, i32 noundef %97)
@@ -461,7 +461,7 @@ proto_item_set_generated.exit103:                 ; preds = %84, %87, %90
 
 proto_item_set_generated.exit106:                 ; preds = %101, %104, %107
   %111 = getelementptr inbounds nuw i8, ptr %20, i64 28
-  %112 = getelementptr i32, ptr %111, i64 %74
+  %112 = getelementptr [4 x i8], ptr %111, i64 %74
   %113 = load i32, ptr %112, align 4
   %114 = sub i32 %113, %37
   %115 = tail call ptr @tvb_new_octet_aligned(ptr noundef %0, i32 noundef %37, i32 noundef %114)
@@ -644,7 +644,7 @@ proto_item_set_generated.exit119:                 ; preds = %78, %81, %84
   %88 = getelementptr inbounds nuw i8, ptr %21, i64 28
   %89 = and i32 %39, 65535
   %90 = zext nneg i32 %89 to i64
-  %91 = getelementptr i32, ptr %88, i64 %90
+  %91 = getelementptr [4 x i8], ptr %88, i64 %90
   %92 = load i32, ptr %91, align 4
   %93 = sub i32 %92, %40
   %94 = tail call ptr @tvb_new_octet_aligned(ptr noundef %0, i32 noundef %40, i32 noundef %93)
@@ -677,7 +677,7 @@ proto_item_set_generated.exit122:                 ; preds = %97, %100, %103
   %107 = getelementptr inbounds nuw i8, ptr %21, i64 28
   %.mask = and i32 %39, 65535
   %108 = zext nneg i32 %.mask to i64
-  %109 = getelementptr i32, ptr %107, i64 %108
+  %109 = getelementptr [4 x i8], ptr %107, i64 %108
   %110 = load i32, ptr %109, align 4
   %111 = sub i32 %110, %40
   %112 = tail call ptr @tvb_new_octet_aligned(ptr noundef %0, i32 noundef %40, i32 noundef %111)
@@ -767,7 +767,7 @@ proto_item_set_generated.exit128:                 ; preds = %132, %135, %138
   %155 = getelementptr inbounds nuw i8, ptr %21, i64 692
   %156 = load i32, ptr %155, align 4
   %157 = sext i32 %156 to i64
-  %158 = getelementptr i32, ptr %.0112, i64 %157
+  %158 = getelementptr [4 x i8], ptr %.0112, i64 %157
   store i32 6, ptr %158, align 4
   %159 = load ptr, ptr @rrc_handle, align 8
   %160 = tail call i32 @call_dissector_with_data(ptr noundef %159, ptr noundef %145, ptr noundef %1, ptr noundef %2, ptr noundef %3)
@@ -887,7 +887,7 @@ define internal i32 @dissect_mac_fdd_dch(ptr noundef %0, ptr noundef %1, ptr nou
   %41 = load i32, ptr @hf_mac_ct, align 4
   %42 = tail call ptr @proto_tree_add_bits_item(ptr noundef %10, i32 noundef %41, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0)
   %43 = getelementptr inbounds nuw i8, ptr %16, i64 28
-  %44 = getelementptr i32, ptr %43, i64 %28
+  %44 = getelementptr [4 x i8], ptr %43, i64 %28
   %45 = load i32, ptr %44, align 4
   %46 = add i32 %45, -4
   %47 = tail call ptr @tvb_new_octet_aligned(ptr noundef %0, i32 noundef 4, i32 noundef %46)
@@ -1444,7 +1444,7 @@ ss_interpretation.exit:                           ; preds = %35, %37, %40, %42, 
   %88 = getelementptr i8, ptr %62, i64 %indvars.iv
   %89 = load i8, ptr %88, align 1
   %90 = add i8 %89, 1
-  %91 = getelementptr i32, ptr %63, i64 %indvars.iv
+  %91 = getelementptr [4 x i8], ptr %63, i64 %indvars.iv
   %92 = load i32, ptr %91, align 4
   %93 = load i32, ptr @hf_mac_edch_type2_sdu, align 4
   %94 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %93, ptr noundef %0, i32 noundef %.092121, i32 noundef %92, i32 noundef 0)
@@ -1477,11 +1477,11 @@ proto_item_set_generated.exit:                    ; preds = %87, %100, %103
   %110 = getelementptr i8, ptr %64, i64 %indvars.iv
   store i8 %109, ptr %110, align 1
   %111 = load i32, ptr %65, align 4
-  %112 = getelementptr i32, ptr %14, i64 %indvars.iv
+  %112 = getelementptr [4 x i8], ptr %14, i64 %indvars.iv
   store i32 %111, ptr %112, align 4
   %113 = getelementptr i8, ptr %66, i64 %indvars.iv
   store i8 %90, ptr %113, align 1
-  %114 = getelementptr i32, ptr %67, i64 %indvars.iv
+  %114 = getelementptr [4 x i8], ptr %67, i64 %indvars.iv
   store i32 1, ptr %114, align 4
   %115 = getelementptr i8, ptr %68, i64 %indvars.iv
   store i8 0, ptr %115, align 1
@@ -1518,7 +1518,7 @@ proto_item_set_generated.exit:                    ; preds = %87, %100, %103
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %133 ], [ 0, %129 ]
   %134 = call ptr @wmem_file_scope()
   %135 = call noalias dereferenceable_or_null(24) ptr @wmem_alloc0(ptr noundef %134, i64 noundef 24) #8
-  %136 = getelementptr ptr, ptr %132, i64 %indvars.iv.i
+  %136 = getelementptr [8 x i8], ptr %132, i64 %indvars.iv.i
   store ptr %135, ptr %136, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %137 = trunc nuw i64 %indvars.iv.next.i to i32
@@ -1544,7 +1544,7 @@ get_body_parts.exit.i:                            ; preds = %140, %125
   br i1 %or.cond.i, label %148, label %216
 
 148:                                              ; preds = %get_body_parts.exit.i
-  %149 = getelementptr ptr, ptr %.010.i.i, i64 %84
+  %149 = getelementptr [8 x i8], ptr %.010.i.i, i64 %84
   %150 = load ptr, ptr %149, align 8
   %151 = and i32 %92, 65535
   %152 = load i32, ptr %74, align 4
@@ -1580,7 +1580,7 @@ init_frag.exit.i:                                 ; preds = %148
   %168 = select i1 %.b16.i.i, i16 16383, i16 63
   %.01219.i.i = and i16 %168, %.pn18.i175.i
   %169 = zext nneg i16 %.01219.i.i to i64
-  %170 = getelementptr ptr, ptr %.010.i.i, i64 %169
+  %170 = getelementptr [8 x i8], ptr %.010.i.i, i64 %169
   %171 = load ptr, ptr %170, align 8
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 8
   %173 = load ptr, ptr %172, align 8
@@ -1597,7 +1597,7 @@ init_frag.exit.i:                                 ; preds = %148
   %.pn.i.i = add nuw nsw i16 %.01222.i.i, 1
   %.012.i.i = and i16 %.pn.i.i, %168
   %178 = zext nneg i16 %.012.i.i to i64
-  %179 = getelementptr ptr, ptr %.010.i.i, i64 %178
+  %179 = getelementptr [8 x i8], ptr %.010.i.i, i64 %178
   %180 = load ptr, ptr %179, align 8
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 8
   %182 = load ptr, ptr %181, align 8
@@ -1622,7 +1622,7 @@ find_tail.exit.i:                                 ; preds = %._crit_edge.i.i
 188:                                              ; preds = %find_tail.exit.i
   %189 = select i1 %85, i16 %168, i16 %86
   %190 = zext nneg i16 %189 to i64
-  %191 = getelementptr ptr, ptr %.010.i.i, i64 %190
+  %191 = getelementptr [8 x i8], ptr %.010.i.i, i64 %190
   %192 = load ptr, ptr %191, align 8
   %193 = getelementptr inbounds nuw i8, ptr %192, i64 8
   %194 = load ptr, ptr %193, align 8
@@ -1640,7 +1640,7 @@ find_tail.exit.i:                                 ; preds = %._crit_edge.i.i
   %200 = add i16 %storemerge24.i.i, -1
   %201 = select i1 %199, i16 %168, i16 %200
   %202 = zext i16 %201 to i64
-  %203 = getelementptr ptr, ptr %.010.i.i, i64 %202
+  %203 = getelementptr [8 x i8], ptr %.010.i.i, i64 %202
   %204 = load ptr, ptr %203, align 8
   %205 = getelementptr inbounds nuw i8, ptr %204, i64 8
   %206 = load ptr, ptr %205, align 8
@@ -1676,7 +1676,7 @@ find_head.exit.i:                                 ; preds = %._crit_edge.i157.i
 
 218:                                              ; preds = %216
   %219 = and i32 %92, 65535
-  %220 = getelementptr ptr, ptr %.010.i.i, i64 %84
+  %220 = getelementptr [8 x i8], ptr %.010.i.i, i64 %84
   %221 = load ptr, ptr %220, align 8
   %222 = load i32, ptr %74, align 4
   %223 = call ptr @wmem_file_scope()
@@ -1711,7 +1711,7 @@ init_frag.exit160.i:                              ; preds = %218
   %238 = select i1 %.b21.i161.i, i16 16383, i16 63
   %239 = select i1 %85, i16 %238, i16 %86
   %240 = zext nneg i16 %239 to i64
-  %241 = getelementptr ptr, ptr %.010.i.i, i64 %240
+  %241 = getelementptr [8 x i8], ptr %.010.i.i, i64 %240
   %242 = load ptr, ptr %241, align 8
   %243 = getelementptr inbounds nuw i8, ptr %242, i64 8
   %244 = load ptr, ptr %243, align 8
@@ -1729,7 +1729,7 @@ init_frag.exit160.i:                              ; preds = %218
   %250 = add i16 %storemerge24.i165.i, -1
   %251 = select i1 %249, i16 %238, i16 %250
   %252 = zext i16 %251 to i64
-  %253 = getelementptr ptr, ptr %.010.i.i, i64 %252
+  %253 = getelementptr [8 x i8], ptr %.010.i.i, i64 %252
   %254 = load ptr, ptr %253, align 8
   %255 = getelementptr inbounds nuw i8, ptr %254, i64 8
   %256 = load ptr, ptr %255, align 8
@@ -1770,7 +1770,7 @@ find_head.exit172.i:                              ; preds = %258, %._crit_edge.i
   br i1 %or.cond150.i, label %312, label %270
 
 270:                                              ; preds = %265
-  %271 = getelementptr ptr, ptr %.010.i.i, i64 %84
+  %271 = getelementptr [8 x i8], ptr %.010.i.i, i64 %84
   %272 = load ptr, ptr %271, align 8
   %273 = load i32, ptr %74, align 4
   %274 = call ptr @wmem_file_scope()
@@ -1804,7 +1804,7 @@ init_frag.exit173.i:                              ; preds = %270
   %288 = select i1 %.b16.i174.i, i16 16383, i16 63
   %.01219.i176.i = and i16 %288, %.pn18.i175.i
   %289 = zext nneg i16 %.01219.i176.i to i64
-  %290 = getelementptr ptr, ptr %.010.i.i, i64 %289
+  %290 = getelementptr [8 x i8], ptr %.010.i.i, i64 %289
   %291 = load ptr, ptr %290, align 8
   %292 = getelementptr inbounds nuw i8, ptr %291, i64 8
   %293 = load ptr, ptr %292, align 8
@@ -1821,7 +1821,7 @@ init_frag.exit173.i:                              ; preds = %270
   %.pn.i181.i = add nuw nsw i16 %.01222.i179.i, 1
   %.012.i182.i = and i16 %.pn.i181.i, %288
   %298 = zext nneg i16 %.012.i182.i to i64
-  %299 = getelementptr ptr, ptr %.010.i.i, i64 %298
+  %299 = getelementptr [8 x i8], ptr %.010.i.i, i64 %298
   %300 = load ptr, ptr %299, align 8
   %301 = getelementptr inbounds nuw i8, ptr %300, i64 8
   %302 = load ptr, ptr %301, align 8
@@ -2509,7 +2509,7 @@ define internal fastcc noundef zeroext i16 @tree_add_common_dcch_dtch_fields(ptr
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 692
   %19 = load i32, ptr %18, align 4
   %20 = sext i32 %19 to i64
-  %21 = getelementptr i32, ptr %6, i64 %20
+  %21 = getelementptr [4 x i8], ptr %6, i64 %20
   store i32 %17, ptr %21, align 4
   %22 = add i16 %3, 34
   br label %106
@@ -2616,7 +2616,7 @@ define internal fastcc noundef zeroext i16 @tree_add_common_dcch_dtch_fields(ptr
   %75 = getelementptr inbounds nuw i8, ptr %4, i64 692
   %76 = load i32, ptr %75, align 4
   %77 = sext i32 %76 to i64
-  %78 = getelementptr i32, ptr %6, i64 %77
+  %78 = getelementptr [4 x i8], ptr %6, i64 %77
   store i32 %74, ptr %78, align 4
   %79 = load i32, ptr @hf_mac_resolved_urnti, align 4
   %80 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %79, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %74)
@@ -2662,7 +2662,7 @@ proto_item_set_generated.exit:                    ; preds = %72, %81, %84
   %101 = getelementptr inbounds nuw i8, ptr %4, i64 692
   %102 = load i32, ptr %101, align 4
   %103 = sext i32 %102 to i64
-  %104 = getelementptr i32, ptr %6, i64 %103
+  %104 = getelementptr [4 x i8], ptr %6, i64 %103
   store i32 %60, ptr %104, align 4
   br label %proto_item_set_generated.exit106
 
@@ -2832,7 +2832,7 @@ define internal fastcc ptr @reassemble(ptr noundef %0, ptr noundef readonly capt
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %23, ptr %24, align 8
   %25 = zext i16 %2 to i64
-  %26 = getelementptr ptr, ptr %1, i64 %25
+  %26 = getelementptr [8 x i8], ptr %1, i64 %25
   %27 = load ptr, ptr %26, align 8
   %28 = load ptr, ptr %27, align 8
   %29 = tail call i32 @g_hash_table_insert(ptr noundef %.056, ptr noundef %28, ptr noundef %19)
@@ -2871,7 +2871,7 @@ mac_is_copy.exit:                                 ; preds = %17
   %48 = select i1 %.b61, i16 16383, i16 63
   %49 = and i16 %48, %47
   %50 = zext nneg i16 %49 to i64
-  %51 = getelementptr ptr, ptr %1, i64 %50
+  %51 = getelementptr [8 x i8], ptr %1, i64 %50
   %52 = load ptr, ptr %51, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %54 = load ptr, ptr %53, align 8
@@ -2919,7 +2919,7 @@ mac_is_copy.exit64:                               ; preds = %.lr.ph
   %77 = select i1 %.b, i16 16383, i16 63
   %78 = and i16 %77, %76
   %79 = zext nneg i16 %78 to i64
-  %80 = getelementptr ptr, ptr %1, i64 %79
+  %80 = getelementptr [8 x i8], ptr %1, i64 %79
   %81 = load ptr, ptr %80, align 8
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %83 = load ptr, ptr %82, align 8
@@ -3030,7 +3030,7 @@ switch.lookup:                                    ; preds = %7
   %36 = zext i16 %5 to i32
   %37 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %4, i32 noundef %36, i32 noundef -1)
   %38 = zext nneg i8 %6 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.add_to_tree, i64 %38
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.add_to_tree, i64 %38
   %switch.load = load ptr, ptr %switch.gep, align 8
   %39 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull %switch.load, ptr noundef %37, i32 noundef 0, i32 noundef -1)
   %40 = load i32, ptr @hf_mac_is_reasmin, align 4

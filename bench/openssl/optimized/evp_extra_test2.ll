@@ -3,7 +3,6 @@ source_filename = "bench/openssl/original/evp_extra_test2.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.APK_DATA_st = type { ptr, i64, i32 }
 %struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
 
 @mainctx = internal global ptr null, align 8
@@ -381,7 +380,7 @@ define internal range(i32 0, 2) i32 @test_d2i_AutoPrivateKey_ex(i32 noundef %0) 
   %7 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %8 = sext i32 %0 to i64
-  %9 = getelementptr inbounds %struct.APK_DATA_st, ptr @keydata, i64 %8
+  %9 = getelementptr inbounds [24 x i8], ptr @keydata, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !9
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %12 = load i64, ptr %11, align 8, !tbaa !14
@@ -615,7 +614,7 @@ define internal i32 @test_d2i_PrivateKey_ex(i32 noundef %0) #0 {
 4:                                                ; preds = %1
   %5 = icmp eq i32 %0, 0
   %6 = select i1 %5, i64 0, i64 2
-  %7 = getelementptr inbounds nuw %struct.APK_DATA_st, ptr @keydata, i64 %6
+  %7 = getelementptr inbounds nuw [24 x i8], ptr @keydata, i64 %6
   %8 = load ptr, ptr %7, align 16, !tbaa !9
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %10 = load i64, ptr %9, align 8, !tbaa !14
@@ -1801,7 +1800,7 @@ define internal range(i32 0, 2) i32 @test_pkcs8key_nid_bio() #0 {
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_PEM_read_bio_negative(i32 noundef %0) #0 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds %struct.APK_DATA_st, ptr @keydata, i64 %2
+  %3 = getelementptr inbounds [24 x i8], ptr @keydata, i64 %2
   %4 = load ptr, ptr %3, align 8, !tbaa !9
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !14

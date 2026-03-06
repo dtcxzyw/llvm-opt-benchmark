@@ -197,7 +197,7 @@ define internal void @start_pass_fdctmgr(ptr noundef %0) #0 {
 
 18:                                               ; preds = %15
   %19 = zext nneg i32 %17 to i64
-  %20 = getelementptr inbounds nuw ptr, ptr %9, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !48
   %22 = icmp eq ptr %21, null
   br i1 %22, label %23, label %._crit_edge135
@@ -216,7 +216,7 @@ define internal void @start_pass_fdctmgr(ptr noundef %0) #0 {
   %28 = load ptr, ptr %27, align 8, !tbaa !30
   tail call void %28(ptr noundef nonnull %0) #5
   %.phi.trans.insert = sext i32 %17 to i64
-  %.phi.trans.insert134 = getelementptr inbounds ptr, ptr %9, i64 %.phi.trans.insert
+  %.phi.trans.insert134 = getelementptr inbounds [8 x i8], ptr %9, i64 %.phi.trans.insert
   %.pre = load ptr, ptr %.phi.trans.insert134, align 8, !tbaa !48
   br label %29
 
@@ -231,7 +231,7 @@ define internal void @start_pass_fdctmgr(ptr noundef %0) #0 {
   ]
 
 32:                                               ; preds = %29
-  %33 = getelementptr inbounds ptr, ptr %13, i64 %.pre-phi
+  %33 = getelementptr inbounds [8 x i8], ptr %13, i64 %.pre-phi
   %34 = load ptr, ptr %33, align 8, !tbaa !49
   %35 = icmp eq ptr %34, null
   br i1 %35, label %36, label %40
@@ -249,10 +249,10 @@ define internal void @start_pass_fdctmgr(ptr noundef %0) #0 {
 
 42:                                               ; preds = %40, %83
   %indvars.iv130 = phi i64 [ 0, %40 ], [ %indvars.iv.next131, %83 ]
-  %43 = getelementptr inbounds nuw i16, ptr %30, i64 %indvars.iv130
+  %43 = getelementptr inbounds nuw [2 x i8], ptr %30, i64 %indvars.iv130
   %44 = load i16, ptr %43, align 2, !tbaa !55
   %45 = shl i16 %44, 3
-  %46 = getelementptr inbounds nuw i16, ptr %41, i64 %indvars.iv130
+  %46 = getelementptr inbounds nuw [2 x i8], ptr %41, i64 %indvars.iv130
   %47 = zext i16 %45 to i32
   %cond = icmp eq i16 %45, 0
   br i1 %cond, label %flss.exit.i, label %48
@@ -340,7 +340,7 @@ compute_reciprocal.exit:                          ; preds = %60, %65, %67
   br i1 %exitcond133.not, label %.loopexit, label %42, !llvm.loop !56
 
 84:                                               ; preds = %29
-  %85 = getelementptr inbounds ptr, ptr %13, i64 %.pre-phi
+  %85 = getelementptr inbounds [8 x i8], ptr %13, i64 %.pre-phi
   %86 = load ptr, ptr %85, align 8, !tbaa !49
   %87 = icmp eq ptr %86, null
   br i1 %87, label %88, label %92
@@ -358,17 +358,17 @@ compute_reciprocal.exit:                          ; preds = %60, %65, %67
 
 94:                                               ; preds = %92, %145
   %indvars.iv126 = phi i64 [ 0, %92 ], [ %indvars.iv.next127, %145 ]
-  %95 = getelementptr inbounds nuw i16, ptr %30, i64 %indvars.iv126
+  %95 = getelementptr inbounds nuw [2 x i8], ptr %30, i64 %indvars.iv126
   %96 = load i16, ptr %95, align 2, !tbaa !55
   %97 = zext i16 %96 to i32
-  %98 = getelementptr inbounds nuw i16, ptr @start_pass_fdctmgr.aanscales, i64 %indvars.iv126
+  %98 = getelementptr inbounds nuw [2 x i8], ptr @start_pass_fdctmgr.aanscales, i64 %indvars.iv126
   %99 = load i16, ptr %98, align 2, !tbaa !55
   %100 = sext i16 %99 to i32
   %101 = mul nsw i32 %100, %97
   %102 = add nsw i32 %101, 1024
   %103 = lshr i32 %102, 11
   %104 = trunc i32 %103 to i16
-  %105 = getelementptr inbounds nuw i16, ptr %93, i64 %indvars.iv126
+  %105 = getelementptr inbounds nuw [2 x i8], ptr %93, i64 %indvars.iv126
   %106 = and i32 %103, 65535
   switch i16 %104, label %110 [
     i16 1, label %compute_reciprocal.exit100.thread
@@ -468,7 +468,7 @@ compute_reciprocal.exit100:                       ; preds = %122, %127, %129
   br i1 %exitcond129.not, label %.loopexit, label %94, !llvm.loop !58
 
 146:                                              ; preds = %29
-  %147 = getelementptr inbounds ptr, ptr %11, i64 %.pre-phi
+  %147 = getelementptr inbounds [8 x i8], ptr %11, i64 %.pre-phi
   %148 = load ptr, ptr %147, align 8, !tbaa !50
   %149 = icmp eq ptr %148, null
   br i1 %149, label %150, label %154
@@ -487,7 +487,7 @@ compute_reciprocal.exit100:                       ; preds = %122, %127, %129
 .preheader:                                       ; preds = %154, %171
   %indvars.iv122 = phi i64 [ 0, %154 ], [ %indvars.iv.next123, %171 ]
   %.2109 = phi i64 [ 0, %154 ], [ %indvars.iv.next118, %171 ]
-  %156 = getelementptr inbounds nuw double, ptr @start_pass_fdctmgr.aanscalefactor, i64 %indvars.iv122
+  %156 = getelementptr inbounds nuw [8 x i8], ptr @start_pass_fdctmgr.aanscalefactor, i64 %indvars.iv122
   %157 = load double, ptr %156, align 8, !tbaa !59
   %sext = shl i64 %.2109, 32
   %158 = ashr exact i64 %sext, 32
@@ -496,17 +496,17 @@ compute_reciprocal.exit100:                       ; preds = %122, %127, %129
 159:                                              ; preds = %.preheader, %159
   %indvars.iv117 = phi i64 [ %158, %.preheader ], [ %indvars.iv.next118, %159 ]
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %159 ]
-  %160 = getelementptr inbounds i16, ptr %30, i64 %indvars.iv117
+  %160 = getelementptr inbounds [2 x i8], ptr %30, i64 %indvars.iv117
   %161 = load i16, ptr %160, align 2, !tbaa !55
   %162 = uitofp i16 %161 to double
   %163 = fmul double %157, %162
-  %164 = getelementptr inbounds nuw double, ptr @start_pass_fdctmgr.aanscalefactor, i64 %indvars.iv
+  %164 = getelementptr inbounds nuw [8 x i8], ptr @start_pass_fdctmgr.aanscalefactor, i64 %indvars.iv
   %165 = load double, ptr %164, align 8, !tbaa !59
   %166 = fmul double %163, %165
   %167 = fmul double %166, 8.000000e+00
   %168 = fdiv double 1.000000e+00, %167
   %169 = fptrunc double %168 to float
-  %170 = getelementptr inbounds float, ptr %155, i64 %indvars.iv117
+  %170 = getelementptr inbounds [4 x i8], ptr %155, i64 %indvars.iv117
   store float %169, ptr %170, align 4, !tbaa !60
   %indvars.iv.next118 = add nsw i64 %indvars.iv117, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -545,7 +545,7 @@ define internal void @forward_DCT(ptr noundef readonly captures(none) %0, ptr no
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i32, ptr %11, align 8, !tbaa !53
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds ptr, ptr %10, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %10, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !49
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %17 = load ptr, ptr %16, align 8, !tbaa !42
@@ -556,7 +556,7 @@ define internal void @forward_DCT(ptr noundef readonly captures(none) %0, ptr no
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 80
   %23 = load ptr, ptr %22, align 8, !tbaa !65
   %24 = zext i32 %4 to i64
-  %25 = getelementptr inbounds nuw ptr, ptr %2, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %24
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
@@ -569,7 +569,7 @@ define internal void @forward_DCT(ptr noundef readonly captures(none) %0, ptr no
   %.025 = phi i32 [ %5, %.lr.ph.preheader ], [ %27, %.lr.ph ]
   tail call void %19(ptr noundef %25, i32 noundef %.025, ptr noundef %23) #5
   tail call void %17(ptr noundef %23) #5
-  %26 = getelementptr inbounds nuw [64 x i16], ptr %3, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [128 x i8], ptr %3, i64 %indvars.iv
   tail call void %21(ptr noundef %26, ptr noundef %15, ptr noundef %23) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %27 = add i32 %.025, 8
@@ -600,7 +600,7 @@ define internal void @forward_DCT_float(ptr noundef readonly captures(none) %0, 
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i32, ptr %11, align 8, !tbaa !53
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds ptr, ptr %10, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %10, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !50
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 88
   %17 = load ptr, ptr %16, align 8, !tbaa !43
@@ -611,7 +611,7 @@ define internal void @forward_DCT_float(ptr noundef readonly captures(none) %0, 
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 144
   %23 = load ptr, ptr %22, align 8, !tbaa !67
   %24 = zext i32 %4 to i64
-  %25 = getelementptr inbounds nuw ptr, ptr %2, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %24
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
@@ -624,7 +624,7 @@ define internal void @forward_DCT_float(ptr noundef readonly captures(none) %0, 
   %.025 = phi i32 [ %5, %.lr.ph.preheader ], [ %27, %.lr.ph ]
   tail call void %19(ptr noundef %25, i32 noundef %.025, ptr noundef %23) #5
   tail call void %17(ptr noundef %23) #5
-  %26 = getelementptr inbounds nuw [64 x i16], ptr %3, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [128 x i8], ptr %3, i64 %indvars.iv
   tail call void %21(ptr noundef %26, ptr noundef %15, ptr noundef %23) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %27 = add i32 %.025, 8
@@ -653,7 +653,7 @@ define internal void @convsamp(ptr noundef readonly captures(none) %0, i32 nound
 5:                                                ; preds = %3, %5
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %5 ]
   %.02122 = phi ptr [ %2, %3 ], [ %47, %5 ]
-  %6 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8, !tbaa !69
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 %4
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 1
@@ -721,9 +721,9 @@ define internal void @quantize(ptr noundef writeonly captures(none) %0, ptr noun
 
 4:                                                ; preds = %3, %36
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %36 ]
-  %5 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv
   %6 = load i16, ptr %5, align 2, !tbaa !55
-  %7 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv
   %8 = load i16, ptr %7, align 2, !tbaa !55
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 128
   %10 = load i16, ptr %9, align 2, !tbaa !55
@@ -760,7 +760,7 @@ define internal void @quantize(ptr noundef writeonly captures(none) %0, ptr noun
 
 36:                                               ; preds = %26, %14
   %.028 = phi i16 [ %25, %14 ], [ %35, %26 ]
-  %37 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv
   store i16 %.028, ptr %37, align 2, !tbaa !55
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
@@ -782,7 +782,7 @@ define internal void @convsamp_float(ptr noundef readonly captures(none) %0, i32
 5:                                                ; preds = %3, %5
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %5 ]
   %.02122 = phi ptr [ %2, %3 ], [ %55, %5 ]
-  %6 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8, !tbaa !69
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 %4
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 1
@@ -858,16 +858,16 @@ define internal void @quantize_float(ptr noundef writeonly captures(none) %0, pt
 
 4:                                                ; preds = %3, %4
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %4 ]
-  %5 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %6 = load float, ptr %5, align 4, !tbaa !60
-  %7 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %8 = load float, ptr %7, align 4, !tbaa !60
   %9 = fmul float %6, %8
   %10 = fadd float %9, 1.638450e+04
   %11 = fptosi float %10 to i32
   %12 = trunc i32 %11 to i16
   %13 = add i16 %12, -16384
-  %14 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv
   store i16 %13, ptr %14, align 2, !tbaa !55
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64

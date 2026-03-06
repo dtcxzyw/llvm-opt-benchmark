@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
 %struct.raw_key_details_st = type { ptr, ptr, i32 }
-%struct.ossl_item_st = type { i32, ptr }
 
 @.str = private unnamed_addr constant [30 x i8] c"../openssl/crypto/evp/p_lib.c\00", align 1
 @__func__.EVP_PKEY_get_bits = private unnamed_addr constant [18 x i8] c"EVP_PKEY_get_bits\00", align 1
@@ -2764,7 +2763,7 @@ define i32 @evp_pkey_name2type(ptr noundef %0) local_unnamed_addr #0 {
 
 6:                                                ; preds = %1, %4
   %.015 = phi i64 [ 0, %1 ], [ %5, %4 ]
-  %7 = getelementptr inbounds nuw %struct.ossl_item_st, ptr @standard_name2type, i64 %.015
+  %7 = getelementptr inbounds nuw [16 x i8], ptr @standard_name2type, i64 %.015
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !86
   %10 = tail call i32 @OPENSSL_strcasecmp(ptr noundef %0, ptr noundef %9) #12
@@ -2836,7 +2835,7 @@ define ptr @evp_pkey_type2name(i32 noundef %0) local_unnamed_addr #0 {
 
 4:                                                ; preds = %1, %2
   %.07 = phi i64 [ 0, %1 ], [ %3, %2 ]
-  %5 = getelementptr inbounds nuw %struct.ossl_item_st, ptr @standard_name2type, i64 %.07
+  %5 = getelementptr inbounds nuw [16 x i8], ptr @standard_name2type, i64 %.07
   %6 = load i32, ptr %5, align 16, !tbaa !88
   %7 = icmp eq i32 %0, %6
   br i1 %7, label %8, label %2

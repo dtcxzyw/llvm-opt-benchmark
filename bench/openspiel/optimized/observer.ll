@@ -380,7 +380,7 @@ _ZNK4absl7debian24SpanIfE7subspanEmm.exit:        ; preds = %_ZN4absl7debian212c
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = sext i32 %.05.lcssa.i.i to i64
   %25 = load ptr, ptr %23, align 8
-  %26 = getelementptr inbounds float, ptr %25, i64 %19
+  %26 = getelementptr inbounds [4 x i8], ptr %25, i64 %19
   %27 = sub nuw i64 %21, %19
   %28 = tail call noundef i64 @llvm.umin.i64(i64 %27, i64 %24)
   %29 = add nsw i32 %18, %.05.lcssa.i.i
@@ -2290,7 +2290,7 @@ _ZNK10open_spiel14SpanTensorInfo4sizeEv.exit:     ; preds = %.lr.ph.i.i, %_ZNSt6
   br i1 %43, label %44, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 44:                                               ; preds = %42
-  %45 = getelementptr inbounds float, ptr %20, i64 %38
+  %45 = getelementptr inbounds [4 x i8], ptr %20, i64 %38
   %.not.i.i14 = icmp eq ptr %19, %45
   br i1 %.not.i.i14, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %46
 
@@ -2326,7 +2326,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %46, %44, %42, %40
 
 58:                                               ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
   %59 = sext i32 %.05.lcssa.i.i to i64
-  %60 = getelementptr inbounds float, ptr %50, i64 %56
+  %60 = getelementptr inbounds [4 x i8], ptr %50, i64 %56
   %61 = sub nuw nsw i64 %55, %56
   %62 = call noundef i64 @llvm.umin.i64(i64 %61, i64 %59)
   invoke void @_ZN10open_spiel10SpanTensorC2ENS_14SpanTensorInfoEN4absl7debian24SpanIfEE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull %7, ptr %60, i64 %62)
@@ -2823,7 +2823,7 @@ define linkonce_odr void @_ZN10open_spiel23TrackingVectorAllocatorD2Ev(ptr nound
 
 12:                                               ; preds = %6
   %13 = load ptr, ptr %5, align 8
-  %14 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %13, i64 %.07.i.i.i
+  %14 = getelementptr inbounds [32 x i8], ptr %13, i64 %.07.i.i.i
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #26
   %.pre.i.i.i = load i64, ptr %3, align 8
   br label %15
@@ -3101,7 +3101,7 @@ _ZNK10open_spiel14SpanTensorInfo4sizeEv.exit:     ; preds = %.lr.ph.i.i, %18
 
 38:                                               ; preds = %_ZNK10open_spiel14SpanTensorInfo4sizeEv.exit
   %39 = sext i32 %.05.lcssa.i.i to i64
-  %40 = getelementptr inbounds float, ptr %30, i64 %36
+  %40 = getelementptr inbounds [4 x i8], ptr %30, i64 %36
   %41 = sub nuw nsw i64 %35, %36
   %42 = call noundef i64 @llvm.umin.i64(i64 %41, i64 %39)
   store ptr %40, ptr %3, align 8
@@ -3208,7 +3208,7 @@ _ZNSt12_Vector_baseIN10open_spiel10SpanTensorESaIS1_EE13_M_deallocateEPS1_m.exit
   store ptr %19, ptr %0, align 8
   %35 = getelementptr inbounds i8, ptr %19, i64 %17
   store ptr %35, ptr %14, align 8
-  %36 = getelementptr inbounds nuw %"class.open_spiel::SpanTensor", ptr %19, i64 %1
+  %36 = getelementptr inbounds nuw [72 x i8], ptr %19, i64 %1
   store ptr %36, ptr %6, align 8
   br label %37
 
@@ -3498,7 +3498,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
 
 _ZNK4absl7debian24SpanIKfEixEm.exit:              ; preds = %11, %30
   %indvars.iv = phi i64 [ %indvars.iv.next, %30 ], [ 0, %11 ]
-  %12 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %13 = load float, ptr %12, align 4
   %14 = fcmp une float %13, 0.000000e+00
   br i1 %14, label %15, label %30
@@ -3918,7 +3918,7 @@ _ZNK4absl7debian211string_viewixEm.exit:          ; preds = %_ZNK4absl7debian211
   unreachable
 
 _ZNK4absl7debian24SpanIfEixEm.exit:               ; preds = %30
-  %34 = getelementptr inbounds nuw float, ptr %2, i64 %31
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %31
   store float 1.000000e+00, ptr %34, align 4
   br label %35
 
@@ -5645,7 +5645,7 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i: ; preds = %11
 
 _ZN4absl7debian223inlined_vector_internal21AllocationTransactionISaIiEE8AllocateEm.exit: ; preds = %3
   %.sink1.i = lshr i64 %4, 1
-  %18 = getelementptr inbounds nuw i32, ptr %.sink2.i, i64 %.sink1.i
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %.sink2.i, i64 %.sink1.i
   %.sroa.436.0 = tail call i64 @llvm.usub.sat.i64(i64 %2, i64 %.sink1.i)
   %.sroa.438.0 = tail call i64 @llvm.umin.i64(i64 %2, i64 %.sink1.i)
   %.not.i16 = icmp eq i64 %.sroa.438.0, 0
@@ -5654,7 +5654,7 @@ _ZN4absl7debian223inlined_vector_internal21AllocationTransactionISaIiEE8Allocate
 .lr.ph.i:                                         ; preds = %_ZN4absl7debian223inlined_vector_internal21AllocationTransactionISaIiEE8AllocateEm.exit, %.lr.ph.i
   %.sroa.053.0 = phi ptr [ %21, %.lr.ph.i ], [ %1, %_ZN4absl7debian223inlined_vector_internal21AllocationTransactionISaIiEE8AllocateEm.exit ]
   %.05.i = phi i64 [ %22, %.lr.ph.i ], [ 0, %_ZN4absl7debian223inlined_vector_internal21AllocationTransactionISaIiEE8AllocateEm.exit ]
-  %19 = getelementptr inbounds nuw i32, ptr %.sink2.i, i64 %.05.i
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %.sink2.i, i64 %.05.i
   %20 = load i32, ptr %.sroa.053.0, align 4
   store i32 %20, ptr %19, align 4
   %21 = getelementptr inbounds nuw i8, ptr %.sroa.053.0, i64 4
@@ -5682,7 +5682,7 @@ _ZN4absl7debian223inlined_vector_internal14AssignElementsIPiNS1_20IteratorValueA
 .lr.ph.i20:                                       ; preds = %.lr.ph.i20, %.lr.ph.preheader.i18
   %.sroa.053.2 = phi ptr [ %.sroa.053.178, %.lr.ph.preheader.i18 ], [ %25, %.lr.ph.i20 ]
   %.06.i = phi i64 [ 0, %.lr.ph.preheader.i18 ], [ %26, %.lr.ph.i20 ]
-  %23 = getelementptr inbounds i32, ptr %.sroa.035.06376, i64 %.06.i
+  %23 = getelementptr inbounds [4 x i8], ptr %.sroa.035.06376, i64 %.06.i
   %24 = load i32, ptr %.sroa.053.2, align 4
   store i32 %24, ptr %23, align 4
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.053.2, i64 4
@@ -6222,7 +6222,7 @@ _ZNSt6vectorIN10open_spiel14SpanTensorInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.
 _ZNSt12_Vector_baseIN10open_spiel14SpanTensorInfoESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN10open_spiel14SpanTensorInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32, %38
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i31, ptr %4, align 8
-  %42 = getelementptr inbounds nuw %"class.open_spiel::SpanTensorInfo", ptr %20, i64 %16
+  %42 = getelementptr inbounds nuw [56 x i8], ptr %20, i64 %16
   store ptr %42, ptr %37, align 8
   ret void
 
@@ -6344,9 +6344,9 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36: ; preds = %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8
-  %39 = getelementptr inbounds nuw float, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8
-  %40 = getelementptr inbounds nuw float, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8
   br label %41
 
@@ -6517,7 +6517,7 @@ _ZNSt6vectorIN10open_spiel10SpanTensorESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit
 _ZNSt12_Vector_baseIN10open_spiel10SpanTensorESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN10open_spiel10SpanTensorESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33, %57
   store ptr %24, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i32, ptr %6, align 8
-  %61 = getelementptr inbounds nuw %"class.open_spiel::SpanTensor", ptr %24, i64 %18
+  %61 = getelementptr inbounds nuw [72 x i8], ptr %24, i64 %18
   store ptr %61, ptr %56, align 8
   ret void
 

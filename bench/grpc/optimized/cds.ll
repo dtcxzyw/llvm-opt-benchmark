@@ -116,33 +116,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon.128 = type { %"class.std::shared_ptr.129" }
 %"class.std::shared_ptr.129" = type { %"class.std::__shared_ptr.130" }
 %"class.std::__shared_ptr.130" = type { ptr, %"class.std::__shared_count" }
-%"union.absl::lts_20240722::container_internal::map_slot_type" = type { %"struct.std::pair" }
-%"struct.std::pair" = type { %"class.std::__cxx11::basic_string", %"struct.grpc_core::XdsDependencyManager::DnsState" }
-%"struct.grpc_core::XdsDependencyManager::DnsState" = type { %"class.std::unique_ptr.195", %"struct.grpc_core::XdsDependencyManager::EndpointConfig" }
-%"class.std::unique_ptr.195" = type { %"struct.std::__uniq_ptr_data.196" }
-%"struct.std::__uniq_ptr_data.196" = type { %"class.std::__uniq_ptr_impl.197" }
-%"class.std::__uniq_ptr_impl.197" = type { %"class.std::tuple.198" }
-%"class.std::tuple.198" = type { %"struct.std::_Tuple_impl.199" }
-%"struct.std::_Tuple_impl.199" = type { %"struct.std::_Head_base.200" }
-%"struct.std::_Head_base.200" = type { ptr }
-%"struct.grpc_core::XdsDependencyManager::EndpointConfig" = type { %"class.std::shared_ptr.201", %"class.std::__cxx11::basic_string" }
-%"class.std::shared_ptr.201" = type { %"class.std::__shared_ptr.202" }
-%"class.std::__shared_ptr.202" = type { ptr, %"class.std::__shared_count" }
-%"union.absl::lts_20240722::container_internal::map_slot_type.212" = type { %"struct.std::pair.213" }
-%"struct.std::pair.213" = type { %"class.std::__cxx11::basic_string", %"struct.grpc_core::XdsDependencyManager::EndpointWatcherState" }
-%"struct.grpc_core::XdsDependencyManager::EndpointWatcherState" = type { ptr, %"struct.grpc_core::XdsDependencyManager::EndpointConfig" }
-%"union.absl::lts_20240722::container_internal::map_slot_type.218" = type { %"struct.std::pair.219" }
-%"struct.std::pair.219" = type { %"class.std::basic_string_view", %"class.grpc_core::WeakRefCountedPtr" }
-%"class.grpc_core::WeakRefCountedPtr" = type { ptr }
-%"union.absl::lts_20240722::container_internal::map_slot_type.224" = type { %"struct.std::pair.225" }
-%"struct.std::pair.225" = type { %"class.std::__cxx11::basic_string", %"struct.grpc_core::XdsDependencyManager::ClusterWatcherState" }
-%"struct.grpc_core::XdsDependencyManager::ClusterWatcherState" = type { ptr, %"class.absl::lts_20240722::StatusOr.227", %"class.std::__cxx11::basic_string" }
-%"class.absl::lts_20240722::StatusOr.227" = type { %"class.absl::lts_20240722::internal_statusor::StatusOrData.228" }
-%"class.absl::lts_20240722::internal_statusor::StatusOrData.228" = type { %union.anon.229, %union.anon.230 }
-%union.anon.229 = type { %"class.absl::lts_20240722::Status" }
-%union.anon.230 = type { %"class.std::shared_ptr.231" }
-%"class.std::shared_ptr.231" = type { %"class.std::__shared_ptr.232" }
-%"class.std::__shared_ptr.232" = type { ptr, %"class.std::__shared_count" }
 %"class.grpc_core::RefCountedPtr.394" = type { ptr }
 %"class.grpc_core::RefCountedPtr.395" = type { ptr }
 %class.anon.467 = type { ptr, ptr }
@@ -164,23 +137,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::__detail::__variant::_Uninitialized.405" = type { %"struct.__gnu_cxx::__aligned_membuf.406" }
 %"struct.__gnu_cxx::__aligned_membuf.406" = type { [200 x i8] }
 %"struct.grpc_core::LoadBalancingPolicy::PickArgs" = type { %"class.std::basic_string_view", ptr, ptr }
-%"union.absl::lts_20240722::container_internal::map_slot_type.459" = type { %"struct.std::pair.339" }
-%"struct.std::pair.339" = type { %"class.std::__cxx11::basic_string", %"class.absl::lts_20240722::StatusOr.341" }
-%"class.absl::lts_20240722::StatusOr.341" = type { %"class.absl::lts_20240722::internal_statusor::StatusOrData.342" }
-%"class.absl::lts_20240722::internal_statusor::StatusOrData.342" = type { %union.anon.343, %union.anon.344 }
-%union.anon.343 = type { %"class.absl::lts_20240722::Status" }
-%union.anon.344 = type { %"struct.grpc_core::XdsConfig::ClusterConfig" }
-%"struct.grpc_core::XdsConfig::ClusterConfig" = type { %"class.std::shared_ptr.231", %"class.std::variant.345" }
-%"class.std::variant.345" = type { %"struct.std::__detail::__variant::_Variant_base.base.363", [7 x i8] }
-%"struct.std::__detail::__variant::_Variant_base.base.363" = type { %"struct.std::__detail::__variant::_Move_assign_base.base.362" }
-%"struct.std::__detail::__variant::_Move_assign_base.base.362" = type { %"struct.std::__detail::__variant::_Copy_assign_base.base.361" }
-%"struct.std::__detail::__variant::_Copy_assign_base.base.361" = type { %"struct.std::__detail::__variant::_Move_ctor_base.base.360" }
-%"struct.std::__detail::__variant::_Move_ctor_base.base.360" = type { %"struct.std::__detail::__variant::_Copy_ctor_base.base.359" }
-%"struct.std::__detail::__variant::_Copy_ctor_base.base.359" = type { %"struct.std::__detail::__variant::_Variant_storage.base.358" }
-%"struct.std::__detail::__variant::_Variant_storage.base.358" = type { %"union.std::__detail::__variant::_Variadic_union.352", i8 }
-%"union.std::__detail::__variant::_Variadic_union.352" = type { %"struct.std::__detail::__variant::_Uninitialized.353" }
-%"struct.std::__detail::__variant::_Uninitialized.353" = type { %"struct.__gnu_cxx::__aligned_membuf.354" }
-%"struct.__gnu_cxx::__aligned_membuf.354" = type { [48 x i8] }
 %"class.absl::lts_20240722::log_internal::CheckOpMessageBuilder" = type { %"class.std::__cxx11::basic_ostringstream" }
 %"class.std::__cxx11::basic_ostringstream" = type { %"class.std::basic_ostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_ostream.base" = type { ptr }
@@ -199,6 +155,8 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::pair.722" = type { %"class.std::__cxx11::basic_string", %"class.grpc_core::experimental::Json" }
 %"struct.std::less.724" = type { i8 }
 %"class.std::allocator.726" = type { i8 }
+%"class.std::shared_ptr.201" = type { %"class.std::__shared_ptr.202" }
+%"class.std::__shared_ptr.202" = type { ptr, %"class.std::__shared_count" }
 %"struct.std::_Rb_tree<unsigned long, std::pair<const unsigned long, std::set<grpc_core::XdsLocalityName *, grpc_core::XdsLocalityName::Less>>, std::_Select1st<std::pair<const unsigned long, std::set<grpc_core::XdsLocalityName *, grpc_core::XdsLocalityName::Less>>>, std::less<unsigned long>>::_Auto_node" = type { ptr, ptr }
 %"class.std::tuple.662" = type { %"struct.std::_Tuple_impl.663" }
 %"struct.std::_Tuple_impl.663" = type { %"struct.std::_Head_base.664" }
@@ -215,10 +173,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Optional_payload.630" = type { %"struct.std::_Optional_payload_base.base.632", [7 x i8] }
 %"struct.std::_Optional_payload_base.base.632" = type <{ %"union.std::_Optional_payload_base<unsigned long>::_Storage", i8 }>
 %"union.std::_Optional_payload_base<unsigned long>::_Storage" = type { i64 }
-%"struct.grpc_core::XdsEndpointResource::Priority" = type { %"class.std::map.607" }
-%"class.std::map.607" = type { %"class.std::_Rb_tree.608" }
-%"class.std::_Rb_tree.608" = type { %"struct.std::_Rb_tree<grpc_core::XdsLocalityName *, std::pair<grpc_core::XdsLocalityName *const, grpc_core::XdsEndpointResource::Priority::Locality>, std::_Select1st<std::pair<grpc_core::XdsLocalityName *const, grpc_core::XdsEndpointResource::Priority::Locality>>, grpc_core::XdsLocalityName::Less>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<grpc_core::XdsLocalityName *, std::pair<grpc_core::XdsLocalityName *const, grpc_core::XdsEndpointResource::Priority::Locality>, std::_Select1st<std::pair<grpc_core::XdsLocalityName *const, grpc_core::XdsEndpointResource::Priority::Locality>>, grpc_core::XdsLocalityName::Less>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
 %"class.grpc_core::ChannelArgs::Pointer" = type { ptr, ptr }
 %"class.grpc_core::RefCountedStringValue" = type { %"class.grpc_core::RefCountedPtr.647" }
 %"class.grpc_core::RefCountedPtr.647" = type { ptr }
@@ -955,7 +909,7 @@ _ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds = %2
 _ZNSt6vectorIPFvPvESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %30, %_ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %25, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, align 8, !tbaa !21
   store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 8), align 8, !tbaa !18
-  %31 = getelementptr inbounds nuw ptr, ptr %25, i64 %23
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %23
   store ptr %31, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 16), align 8, !tbaa !22
   br label %_ZNSt6vectorIPFvPvESaIS2_EE9push_backERKS2_.exit
 
@@ -5107,7 +5061,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   %.sroa.08.028 = phi i64 [ %16, %.lr.ph30 ], [ %11, %.lr.ph30.preheader ]
   %12 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.sroa.08.028, i1 true)
   %13 = lshr i64 %12, 3
-  %14 = getelementptr inbounds nuw %"union.absl::lts_20240722::container_internal::map_slot_type", ptr %10, i64 %13
+  %14 = getelementptr inbounds nuw [88 x i8], ptr %10, i64 %13
   tail call void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core20XdsDependencyManager8DnsStateEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %14) #39
   %15 = add i64 %.sroa.08.028, -1
   %16 = and i64 %15, %.sroa.08.028
@@ -5143,7 +5097,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   %.sroa.02.019 = phi i16 [ %73, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core20XdsDependencyManager8DnsStateEED2Ev.exit ], [ %23, %.lr.ph26 ]
   %26 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.02.019, i1 true)
   %27 = zext nneg i16 %26 to i64
-  %28 = getelementptr inbounds nuw %"union.absl::lts_20240722::container_internal::map_slot_type", ptr %.0.i24, i64 %27
+  %28 = getelementptr inbounds nuw [88 x i8], ptr %.0.i24, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 56
   %31 = load ptr, ptr %30, align 8, !tbaa !43
@@ -5476,7 +5430,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   %.sroa.019.038 = phi i64 [ %50, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core20XdsDependencyManager20EndpointWatcherStateEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SC_EEE7destroyEPNS1_13map_slot_typeIS9_SC_EE.exit ], [ %11, %.lr.ph40.preheader ]
   %12 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.sroa.019.038, i1 true)
   %13 = lshr i64 %12, 3
-  %14 = getelementptr inbounds nuw %"union.absl::lts_20240722::container_internal::map_slot_type.212", ptr %10, i64 %13
+  %14 = getelementptr inbounds nuw [88 x i8], ptr %10, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %16 = load ptr, ptr %15, align 8, !tbaa !43
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 72
@@ -5586,7 +5540,7 @@ _ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicy
   %.sroa.013.029 = phi i16 [ %99, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core20XdsDependencyManager20EndpointWatcherStateEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SC_EEE7destroyEPNS1_13map_slot_typeIS9_SC_EE.exit12 ], [ %57, %.lr.ph36 ]
   %60 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.013.029, i1 true)
   %61 = zext nneg i16 %60 to i64
-  %62 = getelementptr inbounds nuw %"union.absl::lts_20240722::container_internal::map_slot_type.212", ptr %.0.i34, i64 %61
+  %62 = getelementptr inbounds nuw [88 x i8], ptr %.0.i34, i64 %61
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 56
   %64 = load ptr, ptr %63, align 8, !tbaa !43
   %65 = getelementptr inbounds nuw i8, ptr %62, i64 72
@@ -5697,7 +5651,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   %.sroa.012.031 = phi i64 [ %22, %_ZN9grpc_core17WeakRefCountedPtrINS_20XdsDependencyManager19ClusterSubscriptionEED2Ev.exit ], [ %10, %.lr.ph33.preheader ]
   %11 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.sroa.012.031, i1 true)
   %12 = lshr i64 %11, 3
-  %13 = getelementptr %"union.absl::lts_20240722::container_internal::map_slot_type.218", ptr %.sroa.0.0.copyload.i.i.i, i64 %12
+  %13 = getelementptr [24 x i8], ptr %.sroa.0.0.copyload.i.i.i, i64 %12
   %14 = getelementptr i8, ptr %13, i64 -8
   %15 = load ptr, ptr %14, align 8, !tbaa !228
   %.not.i2 = icmp eq ptr %15, null
@@ -5749,7 +5703,7 @@ _ZN9grpc_core17WeakRefCountedPtrINS_20XdsDependencyManager19ClusterSubscriptionE
   %.sroa.06.022 = phi i16 [ %57, %_ZN9grpc_core17WeakRefCountedPtrINS_20XdsDependencyManager19ClusterSubscriptionEED2Ev.exit5 ], [ %29, %.lr.ph29 ]
   %32 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.06.022, i1 true)
   %33 = zext nneg i16 %32 to i64
-  %34 = getelementptr inbounds nuw %"union.absl::lts_20240722::container_internal::map_slot_type.218", ptr %.0.i27, i64 %33
+  %34 = getelementptr inbounds nuw [24 x i8], ptr %.0.i27, i64 %33
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8, !tbaa !228
   %.not.i3 = icmp eq ptr %36, null
@@ -5832,7 +5786,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   %.sroa.08.028 = phi i64 [ %16, %.lr.ph30 ], [ %11, %.lr.ph30.preheader ]
   %12 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.sroa.08.028, i1 true)
   %13 = lshr i64 %12, 3
-  %14 = getelementptr inbounds nuw %"union.absl::lts_20240722::container_internal::map_slot_type.224", ptr %10, i64 %13
+  %14 = getelementptr inbounds nuw [96 x i8], ptr %10, i64 %13
   tail call void @_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core20XdsDependencyManager19ClusterWatcherStateEED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %14) #39
   %15 = add i64 %.sroa.08.028, -1
   %16 = and i64 %15, %.sroa.08.028
@@ -5868,7 +5822,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   %.sroa.02.019 = phi i16 [ %75, %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core20XdsDependencyManager19ClusterWatcherStateEED2Ev.exit ], [ %23, %.lr.ph26 ]
   %26 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.02.019, i1 true)
   %27 = zext nneg i16 %26 to i64
-  %28 = getelementptr inbounds nuw %"union.absl::lts_20240722::container_internal::map_slot_type.224", ptr %.0.i24, i64 %27
+  %28 = getelementptr inbounds nuw [96 x i8], ptr %.0.i24, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 64
   %30 = load ptr, ptr %29, align 8, !tbaa !43
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 80
@@ -7137,7 +7091,7 @@ define linkonce_odr { ptr, ptr } @_ZN4absl12lts_2024072218container_internal12ra
   %39 = zext nneg i16 %38 to i64
   %40 = add i64 %.sroa.6.0.i.us, %39
   %41 = and i64 %40, %16
-  %42 = getelementptr inbounds nuw %"union.absl::lts_20240722::container_internal::map_slot_type.459", ptr %.sroa.0.0.copyload.i.i.i.i, i64 %41
+  %42 = getelementptr inbounds nuw [112 x i8], ptr %.sroa.0.0.copyload.i.i.i.i, i64 %41
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load i64, ptr %43, align 8, !tbaa !36
   %45 = icmp eq i64 %44, 0
@@ -7166,7 +7120,7 @@ define linkonce_odr { ptr, ptr } @_ZN4absl12lts_2024072218container_internal12ra
   %54 = zext nneg i16 %53 to i64
   %55 = add i64 %.sroa.6.0.i, %54
   %56 = and i64 %55, %16
-  %57 = getelementptr inbounds nuw %"union.absl::lts_20240722::container_internal::map_slot_type.459", ptr %.sroa.0.0.copyload.i.i.i.i, i64 %56
+  %57 = getelementptr inbounds nuw [112 x i8], ptr %.sroa.0.0.copyload.i.i.i.i, i64 %56
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %59 = load i64, ptr %58, align 8, !tbaa !36
   %60 = icmp eq i64 %59, %.fr24
@@ -7632,7 +7586,7 @@ define linkonce_odr { ptr, ptr } @_ZN4absl12lts_2024072218container_internal12ra
   %34 = zext nneg i16 %33 to i64
   %35 = add i64 %.sroa.6.0.i.us, %34
   %36 = and i64 %35, %13
-  %37 = getelementptr inbounds nuw %"union.absl::lts_20240722::container_internal::map_slot_type.459", ptr %.sroa.0.0.copyload.i.i.i.i, i64 %36
+  %37 = getelementptr inbounds nuw [112 x i8], ptr %.sroa.0.0.copyload.i.i.i.i, i64 %36
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load i64, ptr %38, align 8, !tbaa !36
   %40 = icmp eq i64 %39, 0
@@ -7661,7 +7615,7 @@ define linkonce_odr { ptr, ptr } @_ZN4absl12lts_2024072218container_internal12ra
   %49 = zext nneg i16 %48 to i64
   %50 = add i64 %.sroa.6.0.i, %49
   %51 = and i64 %50, %13
-  %52 = getelementptr inbounds nuw %"union.absl::lts_20240722::container_internal::map_slot_type.459", ptr %.sroa.0.0.copyload.i.i.i.i, i64 %51
+  %52 = getelementptr inbounds nuw [112 x i8], ptr %.sroa.0.0.copyload.i.i.i.i, i64 %51
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %54 = load i64, ptr %53, align 8, !tbaa !36
   %55 = icmp eq i64 %54, %.sroa.0.0.copyload.i.i.i.i.i.i7.fr
@@ -8021,9 +7975,9 @@ _ZN9grpc_core12_GLOBAL__N_121GetUpdatePriorityListEPKNS_19XdsEndpointResourceE.e
   %149 = phi ptr [ %145, %.lr.ph79.i.i.i.i.i ], [ %158, %._crit_edge.i.i.i.i.i ]
   %.04978.i.i.i.i.i = phi i64 [ 0, %.lr.ph79.i.i.i.i.i ], [ %159, %._crit_edge.i.i.i.i.i ]
   %150 = load ptr, ptr %146, align 8, !tbaa !60, !noalias !279
-  %151 = getelementptr inbounds nuw i64, ptr %150, i64 %.04978.i.i.i.i.i
+  %151 = getelementptr inbounds nuw [8 x i8], ptr %150, i64 %.04978.i.i.i.i.i
   %152 = load i64, ptr %151, align 8, !tbaa !150, !noalias !279
-  %153 = getelementptr inbounds nuw %"struct.grpc_core::XdsEndpointResource::Priority", ptr %148, i64 %.04978.i.i.i.i.i
+  %153 = getelementptr inbounds nuw [48 x i8], ptr %148, i64 %.04978.i.i.i.i.i
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 24
   %155 = load ptr, ptr %154, align 8, !tbaa !78, !noalias !279
   %156 = getelementptr inbounds nuw i8, ptr %153, i64 8
@@ -9006,7 +8960,7 @@ _ZN9grpc_core12_GLOBAL__N_121GetUpdatePriorityListEPKNS_19XdsEndpointResourceE.e
   %.sroa.13.0.i.i.i.i = phi ptr [ null, %.lr.ph92.i.i.i.i.i ], [ %.sroa.13.1.i.i.i.i, %_ZNSt6vectorImSaImEE9push_backERKm.exit.i.i.i.i.i ]
   %545 = phi ptr [ %539, %.lr.ph92.i.i.i.i.i ], [ %1058, %_ZNSt6vectorImSaImEE9push_backERKm.exit.i.i.i.i.i ]
   %.05091.i.i.i.i.i = phi i64 [ 0, %.lr.ph92.i.i.i.i.i ], [ %1056, %_ZNSt6vectorImSaImEE9push_backERKm.exit.i.i.i.i.i ]
-  %546 = getelementptr inbounds nuw %"struct.grpc_core::XdsEndpointResource::Priority", ptr %545, i64 %.05091.i.i.i.i.i
+  %546 = getelementptr inbounds nuw [48 x i8], ptr %545, i64 %.05091.i.i.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %83), !noalias !279
   store i8 0, ptr %542, align 8, !tbaa !308, !noalias !279
   %547 = getelementptr inbounds nuw i8, ptr %546, i64 24
@@ -10451,7 +10405,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i: ; preds = %
   br label %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i.i.i
 
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i.i.i: ; preds = %1054, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i.i.i.i
-  %1055 = getelementptr inbounds nuw i64, ptr %1049, i64 %1047
+  %1055 = getelementptr inbounds nuw [8 x i8], ptr %1049, i64 %1047
   br label %_ZNSt6vectorImSaImEE9push_backERKm.exit.i.i.i.i.i
 
 _ZNSt6vectorImSaImEE9push_backERKm.exit.i.i.i.i.i: ; preds = %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i.i.i, %1035
@@ -13378,7 +13332,7 @@ _ZN9grpc_core12_GLOBAL__N_121GetUpdatePriorityListEPKNS_19XdsEndpointResourceE.e
   %425 = load ptr, ptr %397, align 8, !tbaa !43
   %426 = load i64, ptr %398, align 8, !tbaa !36
   %427 = load ptr, ptr %399, align 8, !tbaa !60
-  %428 = getelementptr inbounds nuw i64, ptr %427, i64 %.0227906
+  %428 = getelementptr inbounds nuw [8 x i8], ptr %427, i64 %.0227906
   %429 = load i64, ptr %428, align 8, !tbaa !150
   call void @llvm.lifetime.start.p0(ptr nonnull %78), !noalias !403
   %430 = invoke noundef ptr @_ZN4absl12lts_2024072216numbers_internal15FastIntToBufferEmPc(i64 noundef %429, ptr noundef nonnull %400)
@@ -17250,7 +17204,7 @@ _ZNSt12_Vector_baseIN9grpc_core19XdsEndpointResource8PriorityESaIS2_EEC2EmRKS3_.
   %6 = mul nuw nsw i64 %4, 48
   %7 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %6) #38
   store ptr %7, ptr %0, align 8, !tbaa !285
-  %8 = getelementptr inbounds nuw %"struct.grpc_core::XdsEndpointResource::Priority", ptr %7, i64 %4
+  %8 = getelementptr inbounds nuw [48 x i8], ptr %7, i64 %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %8, ptr %9, align 8, !tbaa !508
   br label %.lr.ph.i.i.i.i.i
@@ -18637,12 +18591,12 @@ _ZN9grpc_core12_GLOBAL__N_121GetUpdatePriorityListEPKNS_19XdsEndpointResourceE.e
 67:                                               ; preds = %.lr.ph300, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %68 = phi ptr [ %38, %.lr.ph300 ], [ %87, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   %.0299 = phi i64 [ 0, %.lr.ph300 ], [ %85, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
-  %69 = getelementptr inbounds nuw %"struct.grpc_core::XdsEndpointResource::Priority", ptr %68, i64 %.0299
+  %69 = getelementptr inbounds nuw [48 x i8], ptr %68, i64 %.0299
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %70 = load ptr, ptr %41, align 8, !tbaa !43
   %71 = load i64, ptr %42, align 8, !tbaa !36
   %72 = load ptr, ptr %43, align 8, !tbaa !60
-  %73 = getelementptr inbounds nuw i64, ptr %72, i64 %.0299
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %.0299
   %74 = load i64, ptr %73, align 8, !tbaa !150
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !519
   %75 = call noundef ptr @_ZN4absl12lts_2024072216numbers_internal15FastIntToBufferEmPc(i64 noundef %74, ptr noundef nonnull %44), !noalias !519
@@ -23564,7 +23518,7 @@ _ZNSt16allocator_traitsISaIN9grpc_core12experimental4JsonEEE9constructIS2_JS2_EE
 _ZNSt12_Vector_baseIN9grpc_core12experimental4JsonESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt16allocator_traitsISaIN9grpc_core12experimental4JsonEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit, %40
   store ptr %24, ptr %0, align 8, !tbaa !354
   store ptr %38, ptr %6, align 8, !tbaa !357
-  %44 = getelementptr inbounds nuw %"class.grpc_core::experimental::Json", ptr %24, i64 %18
+  %44 = getelementptr inbounds nuw [56 x i8], ptr %24, i64 %18
   store ptr %44, ptr %39, align 8, !tbaa !356
   ret void
 }

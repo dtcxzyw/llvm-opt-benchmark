@@ -220,14 +220,14 @@ _ZNK6icu_779UVector3210elementAtiEi.exit.lr.ph:   ; preds = %.preheader
 
 _ZNK6icu_779UVector3210elementAtiEi.exit:         ; preds = %_ZNK6icu_779UVector3210elementAtiEi.exit.lr.ph, %17
   %indvars.iv = phi i64 [ 2, %_ZNK6icu_779UVector3210elementAtiEi.exit.lr.ph ], [ %indvars.iv.next, %17 ]
-  %20 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv
   %21 = load i32, ptr %20, align 4, !tbaa !22
   %22 = or disjoint i64 %indvars.iv, 1
   %23 = icmp samesign ult i64 %22, %16
   br i1 %23, label %24, label %_ZNK6icu_779UVector3210elementAtiEi.exit24
 
 24:                                               ; preds = %_ZNK6icu_779UVector3210elementAtiEi.exit
-  %25 = getelementptr inbounds nuw i32, ptr %15, i64 %22
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %22
   %26 = load i32, ptr %25, align 4, !tbaa !22
   br label %_ZNK6icu_779UVector3210elementAtiEi.exit24
 
@@ -314,7 +314,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7721FieldPositionIterator4next
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %17 = load ptr, ptr %16, align 8, !tbaa !19
   %18 = zext nneg i32 %7 to i64
-  %19 = getelementptr inbounds nuw i32, ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %18
   %20 = load i32, ptr %19, align 4, !tbaa !22
   br label %_ZNK6icu_779UVector3210elementAtiEi.exit
 
@@ -334,7 +334,7 @@ _ZNK6icu_779UVector3210elementAtiEi.exit:         ; preds = %6, %15
   %28 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %29 = load ptr, ptr %28, align 8, !tbaa !19
   %30 = zext nneg i32 %10 to i64
-  %31 = getelementptr inbounds nuw i32, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %30
   %32 = load i32, ptr %31, align 4, !tbaa !22
   br label %_ZNK6icu_779UVector3210elementAtiEi.exit6
 
@@ -354,7 +354,7 @@ _ZNK6icu_779UVector3210elementAtiEi.exit6:        ; preds = %_ZNK6icu_779UVector
   %40 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %41 = load ptr, ptr %40, align 8, !tbaa !19
   %42 = zext nneg i32 %23 to i64
-  %43 = getelementptr inbounds nuw i32, ptr %41, i64 %42
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %42
   %44 = load i32, ptr %43, align 4, !tbaa !22
   br label %_ZNK6icu_779UVector3210elementAtiEi.exit8
 

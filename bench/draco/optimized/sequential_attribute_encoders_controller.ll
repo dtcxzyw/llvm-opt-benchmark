@@ -13,12 +13,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"class.std::unique_ptr.24" = type { %"struct.std::__uniq_ptr_data.25" }
-%"struct.std::__uniq_ptr_data.25" = type { %"class.std::__uniq_ptr_impl.26" }
-%"class.std::__uniq_ptr_impl.26" = type { %"class.std::tuple.27" }
-%"class.std::tuple.27" = type { %"struct.std::_Tuple_impl.28" }
-%"struct.std::_Tuple_impl.28" = type { %"struct.std::_Head_base.31" }
-%"struct.std::_Head_base.31" = type { ptr }
 
 $_ZNK5draco12DracoOptionsIiE15GetAttributeIntERKiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi = comdat any
 
@@ -155,11 +149,11 @@ define noundef zeroext i1 @_ZN5draco37SequentialAttributeEncodersController4Init
   %30 = phi ptr [ %13, %.lr.ph ], [ %23, %20 ]
   %.01314 = phi i32 [ 0, %.lr.ph ], [ %21, %20 ]
   %31 = sext i32 %.01314 to i64
-  %32 = getelementptr inbounds nuw i32, ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %31
   %33 = load i32, ptr %32, align 4, !tbaa !21
   %34 = zext i32 %.01314 to i64
   %35 = load ptr, ptr %19, align 8, !tbaa !22
-  %36 = getelementptr inbounds nuw %"class.std::unique_ptr.16", ptr %35, i64 %34
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %34
   %37 = load ptr, ptr %36, align 8, !tbaa !25
   %38 = load ptr, ptr %37, align 8, !tbaa !3
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
@@ -199,7 +193,7 @@ define noundef zeroext i1 @_ZN5draco37SequentialAttributeEncodersController27Enc
   %14 = phi i64 [ 0, %.lr.ph ], [ %31, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ]
   %.08 = phi i32 [ 0, %.lr.ph ], [ %30, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %15 = getelementptr inbounds nuw %"class.std::unique_ptr.16", ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !25
   %17 = load ptr, ptr %16, align 8, !tbaa !3
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 64
@@ -311,7 +305,7 @@ define noundef zeroext i1 @_ZN5draco37SequentialAttributeEncodersController35Tra
   %18 = phi ptr [ %5, %.lr.ph ], [ %12, %8 ]
   %19 = phi i64 [ 0, %.lr.ph ], [ %10, %8 ]
   %.058 = phi i32 [ 0, %.lr.ph ], [ %9, %8 ]
-  %20 = getelementptr inbounds nuw %"class.std::unique_ptr.16", ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !25
   %22 = load ptr, ptr %21, align 8, !tbaa !3
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
@@ -353,7 +347,7 @@ define noundef zeroext i1 @_ZN5draco37SequentialAttributeEncodersController24Enc
   %19 = phi ptr [ %6, %.lr.ph ], [ %13, %9 ]
   %20 = phi i64 [ 0, %.lr.ph ], [ %11, %9 ]
   %.069 = phi i32 [ 0, %.lr.ph ], [ %10, %9 ]
-  %21 = getelementptr inbounds nuw %"class.std::unique_ptr.16", ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !25
   %23 = load ptr, ptr %22, align 8, !tbaa !3
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 40
@@ -391,7 +385,7 @@ define noundef zeroext i1 @_ZN5draco37SequentialAttributeEncodersController36Enc
   %17 = phi ptr [ %12, %8 ], [ %6, %2 ]
   %18 = phi i64 [ %10, %8 ], [ 0, %2 ]
   %.069 = phi i32 [ %9, %8 ], [ 0, %2 ]
-  %19 = getelementptr inbounds nuw %"class.std::unique_ptr.16", ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !25
   %21 = load ptr, ptr %20, align 8, !tbaa !3
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 48
@@ -437,7 +431,7 @@ define noundef zeroext i1 @_ZN5draco37SequentialAttributeEncodersController24Cre
   br i1 %24, label %25, label %_ZNSt6vectorISt10unique_ptrIN5draco26SequentialAttributeEncoderESt14default_deleteIS2_EESaIS5_EE6resizeEm.exit
 
 25:                                               ; preds = %23
-  %26 = getelementptr inbounds nuw %"class.std::unique_ptr.16", ptr %15, i64 %12
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %12
   %.not.i.i = icmp eq ptr %14, %26
   br i1 %.not.i.i, label %_ZNSt6vectorISt10unique_ptrIN5draco26SequentialAttributeEncoderESt14default_deleteIS2_EESaIS5_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i
 
@@ -489,7 +483,7 @@ _ZNSt6vectorISt10unique_ptrIN5draco26SequentialAttributeEncoderESt14default_dele
   call void %45(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.16") align 8 %2, ptr noundef nonnull align 8 dereferenceable(168) %0, i32 noundef %.01014)
   %46 = zext i32 %.01014 to i64
   %47 = load ptr, ptr %3, align 8, !tbaa !22
-  %48 = getelementptr inbounds nuw %"class.std::unique_ptr.16", ptr %47, i64 %46
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %46
   %49 = load ptr, ptr %2, align 8, !tbaa !25
   store ptr null, ptr %2, align 8, !tbaa !25
   %50 = load ptr, ptr %48, align 8, !tbaa !25
@@ -519,7 +513,7 @@ _ZNKSt14default_deleteIN5draco26SequentialAttributeEncoderEEclEPS1_.exit.i: ; pr
 _ZNSt10unique_ptrIN5draco26SequentialAttributeEncoderESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN5draco26SequentialAttributeEncoderESt14default_deleteIS1_EEaSEOS4_.exit, %_ZNKSt14default_deleteIN5draco26SequentialAttributeEncoderEEclEPS1_.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %58 = load ptr, ptr %3, align 8, !tbaa !22
-  %59 = getelementptr inbounds nuw %"class.std::unique_ptr.16", ptr %58, i64 %46
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %46
   %60 = load ptr, ptr %59, align 8, !tbaa !25
   %.not.i13.not.not = icmp ne ptr %60, null
   br i1 %.not.i13.not.not, label %61, label %_ZNSt10unique_ptrIN5draco26SequentialAttributeEncoderESt14default_deleteIS1_EED2Ev.exit._crit_edge
@@ -540,7 +534,7 @@ _ZNSt10unique_ptrIN5draco26SequentialAttributeEncoderESt14default_deleteIS1_EED2
 72:                                               ; preds = %61
   %73 = lshr i32 %.01014, 6
   %.zext = zext nneg i32 %73 to i64
-  %74 = getelementptr inbounds nuw i64, ptr %64, i64 %.zext
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %.zext
   %75 = and i64 %46, 63
   %76 = shl nuw i64 1, %75
   %77 = load i64, ptr %74, align 8, !tbaa !54
@@ -580,7 +574,7 @@ define void @_ZN5draco37SequentialAttributeEncodersController23CreateSequentialE
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = sext i32 %2 to i64
   %9 = load ptr, ptr %7, align 8, !tbaa !18
-  %10 = getelementptr inbounds nuw i32, ptr %9, i64 %8
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %8
   %11 = load i32, ptr %10, align 4, !tbaa !21
   store i32 %11, ptr %5, align 4, !tbaa !21
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -590,7 +584,7 @@ define void @_ZN5draco37SequentialAttributeEncodersController23CreateSequentialE
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = sext i32 %11 to i64
   %18 = load ptr, ptr %16, align 8, !tbaa !72
-  %19 = getelementptr inbounds nuw %"class.std::unique_ptr.24", ptr %18, i64 %17
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %17
   %20 = load ptr, ptr %19, align 8, !tbaa !75
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 28
   %22 = load i32, ptr %21, align 4, !tbaa !77
@@ -922,7 +916,7 @@ _ZNSt6vectorIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EED2Ev.exit: 
   %22 = sub i64 %20, %21
   %23 = ashr exact i64 %22, 3
   %24 = sub nsw i64 0, %23
-  %25 = getelementptr inbounds i64, ptr %19, i64 %24
+  %25 = getelementptr inbounds [8 x i8], ptr %19, i64 %24
   tail call void @_ZdlPvm(ptr noundef %25, i64 noundef %22) #19
   store ptr null, ptr %15, align 8
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -1042,7 +1036,7 @@ define linkonce_odr noundef i32 @_ZNK5draco37SequentialAttributeEncodersControll
 
 _ZNK5draco17AttributesEncoder27GetLocalIdForPointAttributeEi.exit: ; preds = %2
   %12 = sext i32 %1 to i64
-  %13 = getelementptr inbounds nuw i32, ptr %6, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !21
   %15 = icmp slt i32 %14, 0
   br i1 %15, label %_ZNK5draco17AttributesEncoder27GetLocalIdForPointAttributeEi.exit.thread, label %16
@@ -1051,7 +1045,7 @@ _ZNK5draco17AttributesEncoder27GetLocalIdForPointAttributeEi.exit: ; preds = %2
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %18 = zext nneg i32 %14 to i64
   %19 = load ptr, ptr %17, align 8, !tbaa !22
-  %20 = getelementptr inbounds nuw %"class.std::unique_ptr.16", ptr %19, i64 %18
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %18
   %21 = load ptr, ptr %20, align 8, !tbaa !25
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 40
@@ -1085,7 +1079,7 @@ define linkonce_odr noundef i32 @_ZNK5draco37SequentialAttributeEncodersControll
 
 _ZNK5draco17AttributesEncoder27GetLocalIdForPointAttributeEi.exit: ; preds = %3
   %13 = sext i32 %1 to i64
-  %14 = getelementptr inbounds nuw i32, ptr %7, i64 %13
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !21
   %16 = icmp slt i32 %15, 0
   br i1 %16, label %_ZNK5draco17AttributesEncoder27GetLocalIdForPointAttributeEi.exit.thread, label %17
@@ -1094,12 +1088,12 @@ _ZNK5draco17AttributesEncoder27GetLocalIdForPointAttributeEi.exit: ; preds = %3
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %19 = zext nneg i32 %15 to i64
   %20 = load ptr, ptr %18, align 8, !tbaa !22
-  %21 = getelementptr inbounds nuw %"class.std::unique_ptr.16", ptr %20, i64 %19
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %19
   %22 = load ptr, ptr %21, align 8, !tbaa !25
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %24 = sext i32 %2 to i64
   %25 = load ptr, ptr %23, align 8, !tbaa !18
-  %26 = getelementptr inbounds nuw i32, ptr %25, i64 %24
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %24
   %27 = load i32, ptr %26, align 4, !tbaa !21
   br label %_ZNK5draco17AttributesEncoder27GetLocalIdForPointAttributeEi.exit.thread
 
@@ -1124,7 +1118,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco37SequentialAttributeEncodersCo
 
 _ZNK5draco17AttributesEncoder27GetLocalIdForPointAttributeEi.exit: ; preds = %2
   %12 = sext i32 %1 to i64
-  %13 = getelementptr inbounds nuw i32, ptr %6, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !21
   %15 = icmp sgt i32 %14, -1
   br i1 %15, label %16, label %_ZNK5draco17AttributesEncoder27GetLocalIdForPointAttributeEi.exit.thread
@@ -1158,7 +1152,7 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit:              ; preds = %30, %16
   %34 = phi ptr [ %.pre, %30 ], [ %22, %16 ]
   %35 = lshr i32 %14, 6
   %.zext = zext nneg i32 %35 to i64
-  %36 = getelementptr inbounds nuw i64, ptr %34, i64 %.zext
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %.zext
   %37 = and i64 %29, 63
   %38 = shl nuw i64 1, %37
   %39 = load i64, ptr %36, align 8, !tbaa !54
@@ -1176,7 +1170,7 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit:              ; preds = %30, %16
   br i1 %.not10, label %49, label %_ZNK5draco17AttributesEncoder27GetLocalIdForPointAttributeEi.exit.thread
 
 49:                                               ; preds = %_ZNSt6vectorIbSaIbEE6resizeEmb.exit
-  %50 = getelementptr inbounds nuw %"class.std::unique_ptr.16", ptr %44, i64 %29
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %29
   %51 = load ptr, ptr %50, align 8, !tbaa !25
   tail call void @_ZN5draco26SequentialAttributeEncoder19MarkParentAttributeEv(ptr noundef nonnull align 8 dereferenceable(72) %51)
   br label %_ZNK5draco17AttributesEncoder27GetLocalIdForPointAttributeEi.exit.thread
@@ -1202,7 +1196,7 @@ define linkonce_odr noundef ptr @_ZN5draco37SequentialAttributeEncodersControlle
 
 _ZNK5draco17AttributesEncoder27GetLocalIdForPointAttributeEi.exit: ; preds = %2
   %12 = sext i32 %1 to i64
-  %13 = getelementptr inbounds nuw i32, ptr %6, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !21
   %15 = icmp slt i32 %14, 0
   br i1 %15, label %_ZNK5draco17AttributesEncoder27GetLocalIdForPointAttributeEi.exit.thread, label %16
@@ -1211,7 +1205,7 @@ _ZNK5draco17AttributesEncoder27GetLocalIdForPointAttributeEi.exit: ; preds = %2
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %18 = zext nneg i32 %14 to i64
   %19 = load ptr, ptr %17, align 8, !tbaa !22
-  %20 = getelementptr inbounds nuw %"class.std::unique_ptr.16", ptr %19, i64 %18
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %18
   %21 = load ptr, ptr %20, align 8, !tbaa !25
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 64
   %23 = load ptr, ptr %22, align 8, !tbaa !75
@@ -1273,7 +1267,7 @@ _ZNSt13_Bit_iteratormmEv.exit.i.i.i.i.i.preheader: ; preds = %25
   %34 = trunc i64 %33 to i32
   %35 = and i32 %34, 63
   %36 = sdiv i64 %33, 64
-  %37 = getelementptr inbounds i64, ptr %16, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr %16, i64 %36
   %38 = and i64 %33, -9223372036854775745
   %39 = icmp ugt i64 %38, -9223372036854775808
   %storemerge.idx.i.i.i = select i1 %39, i64 -8, i64 0
@@ -1428,7 +1422,7 @@ _ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit:    ; preds = %77, %_ZSt14__fill_b
   %107 = add nsw i64 %3, %106
   %108 = sdiv i64 %107, 64
   %109 = load ptr, ptr %15, align 8, !tbaa !6
-  %110 = getelementptr inbounds i64, ptr %109, i64 %108
+  %110 = getelementptr inbounds [8 x i8], ptr %109, i64 %108
   %111 = and i64 %107, -9223372036854775745
   %112 = icmp ugt i64 %111, -9223372036854775808
   %storemerge.idx.i.i = select i1 %112, i64 -8, i64 0
@@ -1689,13 +1683,13 @@ _ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit:  ; preds = %_ZNSt14_Bit_referen
   %231 = sub i64 %229, %230
   %232 = ashr exact i64 %231, 3
   %233 = sub nsw i64 0, %232
-  %234 = getelementptr inbounds i64, ptr %228, i64 %233
+  %234 = getelementptr inbounds [8 x i8], ptr %228, i64 %233
   tail call void @_ZdlPvm(ptr noundef %234, i64 noundef %231) #19
   br label %_ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit
 
 _ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit: ; preds = %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit, %227
   %235 = lshr i64 %123, 6
-  %236 = getelementptr inbounds nuw i64, ptr %126, i64 %235
+  %236 = getelementptr inbounds nuw [8 x i8], ptr %126, i64 %235
   store ptr %236, ptr %8, align 8, !tbaa !105
   store ptr %126, ptr %0, align 8
   %.sroa.5138.0..sroa_idx139 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1996,9 +1990,9 @@ _ZNSt6vectorISt10unique_ptrIN5draco26SequentialAttributeEncoderESt14default_dele
 
 _ZNSt12_Vector_baseISt10unique_ptrIN5draco26SequentialAttributeEncoderESt14default_deleteIS2_EESaIS5_EE13_M_deallocateEPS5_m.exit37: ; preds = %_ZNSt6vectorISt10unique_ptrIN5draco26SequentialAttributeEncoderESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %32
   store ptr %26, ptr %0, align 8, !tbaa !22
-  %34 = getelementptr inbounds nuw %"class.std::unique_ptr.16", ptr %27, i64 %1
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %1
   store ptr %34, ptr %4, align 8, !tbaa !27
-  %35 = getelementptr inbounds nuw %"class.std::unique_ptr.16", ptr %26, i64 %24
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %24
   store ptr %35, ptr %11, align 8, !tbaa !108
   br label %36
 

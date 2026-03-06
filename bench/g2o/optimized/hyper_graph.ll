@@ -273,7 +273,7 @@ define void @_ZN3g2o10HyperGraph4Edge6resizeEm(ptr noundef nonnull align 8 deref
   br i1 %16, label %17, label %_ZNSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EE6resizeEmRKS3_.exit
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds nuw ptr, ptr %7, i64 %1
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %1
   %.not.i.i = icmp eq ptr %6, %18
   br i1 %.not.i.i, label %_ZNSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EE6resizeEmRKS3_.exit, label %19
 
@@ -323,7 +323,7 @@ define noundef ptr @_ZN3g2o10HyperGraph6vertexEi(ptr noundef nonnull readonly al
   %16 = load i64, ptr %15, align 8, !tbaa !56
   %17 = urem i64 %14, %16
   %18 = load ptr, ptr %13, align 8, !tbaa !57
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %17
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %17
   %20 = load ptr, ptr %19, align 8, !tbaa !58
   %.not.i.i.i.i = icmp eq ptr %20, null
   br i1 %.not.i.i.i.i, label %_ZNSt13unordered_mapIiPN3g2o10HyperGraph6VertexESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE4findERS9_.exit.thread, label %21
@@ -397,7 +397,7 @@ define noundef ptr @_ZNK3g2o10HyperGraph6vertexEi(ptr noundef nonnull readonly a
   %16 = load i64, ptr %15, align 8, !tbaa !56
   %17 = urem i64 %14, %16
   %18 = load ptr, ptr %13, align 8, !tbaa !57
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %17
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %17
   %20 = load ptr, ptr %19, align 8, !tbaa !58
   %.not.i.i.i.i = icmp eq ptr %20, null
   br i1 %.not.i.i.i.i, label %_ZNKSt13unordered_mapIiPN3g2o10HyperGraph6VertexESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE4findERS9_.exit.thread, label %21
@@ -492,7 +492,7 @@ define noundef zeroext i1 @_ZN3g2o10HyperGraph8changeIdEPNS0_6VertexEi(ptr nound
   %21 = load i64, ptr %20, align 8, !tbaa !56
   %22 = urem i64 %19, %21
   %23 = load ptr, ptr %18, align 8, !tbaa !57
-  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %22
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %22
   %25 = load ptr, ptr %24, align 8, !tbaa !58
   %.not.i.i.i.i.i = icmp eq ptr %25, null
   br i1 %.not.i.i.i.i.i, label %_ZN3g2o10HyperGraph6vertexEi.exit.thread, label %26
@@ -883,7 +883,7 @@ define noundef zeroext i1 @_ZN3g2o10HyperGraph13setEdgeVertexEPNS0_4EdgeEiPNS0_6
   %6 = sext i32 %2 to i64
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !38
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %6
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %6
   %10 = load ptr, ptr %9, align 8, !tbaa !41
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %14, label %11
@@ -899,7 +899,7 @@ define noundef zeroext i1 @_ZN3g2o10HyperGraph13setEdgeVertexEPNS0_4EdgeEiPNS0_6
 14:                                               ; preds = %11, %4
   %15 = phi ptr [ %.pre10, %11 ], [ %8, %4 ]
   %16 = phi ptr [ %.pre, %11 ], [ %1, %4 ]
-  %17 = getelementptr inbounds nuw ptr, ptr %15, i64 %6
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %6
   store ptr %3, ptr %17, align 8, !tbaa !41
   %.not7 = icmp eq ptr %3, null
   br i1 %.not7, label %_ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EE6insertERKS3_.exit, label %18
@@ -1005,7 +1005,7 @@ define noundef zeroext i1 @_ZN3g2o10HyperGraph13mergeVerticesEPNS0_6VertexES2_b(
   %22 = load i64, ptr %21, align 8, !tbaa !56
   %23 = urem i64 %20, %22
   %24 = load ptr, ptr %7, align 8, !tbaa !57
-  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %23
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %23
   %26 = load ptr, ptr %25, align 8, !tbaa !58
   %.not.i.i.i.i = icmp eq ptr %26, null
   br i1 %.not.i.i.i.i, label %_ZNSt13unordered_mapIiPN3g2o10HyperGraph6VertexESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE4findERS9_.exit.thread, label %27
@@ -1076,7 +1076,7 @@ _ZNSt13unordered_mapIiPN3g2o10HyperGraph6VertexESt4hashIiESt8equal_toIiESaISt4pa
   %54 = phi i32 [ %33, %_ZNSt13unordered_mapIiPN3g2o10HyperGraph6VertexESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE4findERS9_.exit.thread49 ], [ %43, %_ZNSt13unordered_mapIiPN3g2o10HyperGraph6VertexESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE4findERS9_.exit._crit_edge ]
   %55 = sext i32 %54 to i64
   %56 = urem i64 %55, %53
-  %57 = getelementptr inbounds nuw ptr, ptr %52, i64 %56
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %56
   %58 = load ptr, ptr %57, align 8, !tbaa !58
   %.not.i.i.i.i26 = icmp eq ptr %58, null
   br i1 %.not.i.i.i.i26, label %_ZNSt13unordered_mapIiPN3g2o10HyperGraph6VertexESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE4findERS9_.exit.thread, label %59
@@ -1191,7 +1191,7 @@ _ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EEC2ERKS7_.exit: ; preds = %
   %97 = phi ptr [ %115, %113 ], [ %93, %.lr.ph64 ]
   %.02260 = phi i64 [ %116, %113 ], [ 0, %.lr.ph64 ]
   %.159 = phi i8 [ %.2, %113 ], [ %.02363, %.lr.ph64 ]
-  %98 = getelementptr inbounds nuw ptr, ptr %96, i64 %.02260
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %96, i64 %.02260
   %99 = load ptr, ptr %98, align 8, !tbaa !41
   %100 = icmp eq ptr %99, %2
   br i1 %100, label %101, label %113
@@ -1302,7 +1302,7 @@ define noundef zeroext i1 @_ZN3g2o10HyperGraph12detachVertexEPNS0_6VertexE(ptr n
   %20 = load i64, ptr %19, align 8, !tbaa !56
   %21 = urem i64 %18, %20
   %22 = load ptr, ptr %17, align 8, !tbaa !57
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %21
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %21
   %24 = load ptr, ptr %23, align 8, !tbaa !58
   %.not.i.i.i.i = icmp eq ptr %24, null
   br i1 %.not.i.i.i.i, label %_ZNSt13unordered_mapIiPN3g2o10HyperGraph6VertexESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE4findERS9_.exit.thread, label %25
@@ -1433,7 +1433,7 @@ _ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EED2Ev.exit: ; preds = %._cr
   %67 = phi ptr [ %79, %78 ], [ %63, %.lr.ph27 ]
   %68 = phi ptr [ %80, %78 ], [ %62, %.lr.ph27 ]
   %.01324 = phi i64 [ %81, %78 ], [ 0, %.lr.ph27 ]
-  %69 = getelementptr inbounds nuw ptr, ptr %67, i64 %.01324
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %.01324
   %70 = load ptr, ptr %69, align 8, !tbaa !41
   %71 = icmp eq ptr %1, %70
   br i1 %71, label %72, label %78
@@ -1511,7 +1511,7 @@ define noundef zeroext i1 @_ZN3g2o10HyperGraph12removeVertexEPNS0_6VertexEb(ptr 
   %27 = load i64, ptr %26, align 8, !tbaa !56
   %28 = urem i64 %25, %27
   %29 = load ptr, ptr %12, align 8, !tbaa !57
-  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %28
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %28
   %31 = load ptr, ptr %30, align 8, !tbaa !58
   %.not.i.i.i.i = icmp eq ptr %31, null
   br i1 %.not.i.i.i.i, label %_ZNSt13unordered_mapIiPN3g2o10HyperGraph6VertexESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE4findERS9_.exit.thread, label %32
@@ -1604,7 +1604,7 @@ _ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EEC2ERKS7_.exit: ; preds = %
   %65 = sext i32 %64 to i64
   %66 = urem i64 %65, %63
   %67 = load ptr, ptr %12, align 8, !tbaa !57
-  %68 = getelementptr inbounds nuw ptr, ptr %67, i64 %66
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %66
   %69 = load ptr, ptr %68, align 8, !tbaa !58
   br label %70
 
@@ -1632,7 +1632,7 @@ _ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Se
   br i1 %.not9.i.i.i.i.i, label %104, label %80
 
 80:                                               ; preds = %75
-  %81 = getelementptr inbounds nuw ptr, ptr %67, i64 %79
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %79
   store ptr %69, ptr %81, align 8, !tbaa !58
   br label %._crit_edge.i.i.i.i.i
 
@@ -1661,7 +1661,7 @@ _ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Se
   br i1 %.not17.i.i.i.i, label %104, label %92
 
 92:                                               ; preds = %87
-  %93 = getelementptr inbounds nuw ptr, ptr %67, i64 %91
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %91
   store ptr %.0.i.i.i.i, ptr %93, align 8, !tbaa !58
   br label %104
 
@@ -2247,7 +2247,7 @@ define linkonce_odr void @_ZNSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EE14_M_fi
 
 _ZSt22__uninitialized_move_aIPPN3g2o10HyperGraph6VertexES4_SaIS3_EET0_T_S7_S6_RT1_.exit: ; preds = %23, %20
   %24 = phi ptr [ %.pre, %23 ], [ %9, %20 ]
-  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %2
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %2
   store ptr %25, ptr %8, align 8, !tbaa !45
   %.not.i.i.i.i.i = icmp eq ptr %21, %1
   br i1 %.not.i.i.i.i.i, label %_ZSt13move_backwardIPPN3g2o10HyperGraph6VertexES4_ET0_T_S6_S5_.exit, label %26
@@ -2256,7 +2256,7 @@ _ZSt22__uninitialized_move_aIPPN3g2o10HyperGraph6VertexES4_SaIS3_EET0_T_S7_S6_RT
   %27 = sub i64 %22, %16
   %28 = ashr exact i64 %27, 3
   %29 = sub nsw i64 0, %28
-  %30 = getelementptr inbounds ptr, ptr %9, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %9, i64 %29
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %30, ptr align 8 %1, i64 %27, i1 false)
   br label %_ZSt13move_backwardIPPN3g2o10HyperGraph6VertexES4_ET0_T_S6_S5_.exit
 
@@ -2367,7 +2367,7 @@ _ZSt24__uninitialized_fill_n_aIPPN3g2o10HyperGraph6VertexEmS3_S3_ET_S5_T0_RKT1_R
   br label %_ZSt34__uninitialized_move_if_noexcept_aIPPN3g2o10HyperGraph6VertexES4_SaIS3_EET0_T_S7_S6_RT1_.exit
 
 _ZSt34__uninitialized_move_if_noexcept_aIPPN3g2o10HyperGraph6VertexES4_SaIS3_EET0_T_S7_S6_RT1_.exit: ; preds = %67, %_ZSt24__uninitialized_fill_n_aIPPN3g2o10HyperGraph6VertexEmS3_S3_ET_S5_T0_RKT1_RSaIT2_E.exit80
-  %68 = getelementptr inbounds nuw ptr, ptr %63, i64 %2
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %2
   %69 = sub i64 %11, %56
   %.not.i.i.i.i.i.i.i.i.i82 = icmp eq ptr %9, %1
   br i1 %.not.i.i.i.i.i.i.i.i.i82, label %71, label %70
@@ -2389,7 +2389,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPPN3g2o10HyperGraph6VertexES4_SaIS3_EET
 _ZNSt12_Vector_baseIPN3g2o10HyperGraph6VertexESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %71, %73
   store ptr %62, ptr %0, align 8, !tbaa !38
   store ptr %72, ptr %8, align 8, !tbaa !45
-  %75 = getelementptr inbounds nuw ptr, ptr %62, i64 %55
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %55
   store ptr %75, ptr %6, align 8, !tbaa !39
   br label %_ZSt4fillIPPN3g2o10HyperGraph6VertexES3_EvT_S5_RKT0_.exit
 
@@ -2425,7 +2425,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph
   %13 = load i64, ptr %12, align 8, !tbaa !56
   %14 = urem i64 %11, %13
   %15 = load ptr, ptr %0, align 8, !tbaa !57
-  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %14
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %14
   %17 = load ptr, ptr %16, align 8, !tbaa !58
   %.not.i.i = icmp eq ptr %17, null
   br i1 %.not.i.i, label %.critedge27, label %30
@@ -2561,7 +2561,7 @@ _ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Se
 31:                                               ; preds = %_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit, %5
   %.0 = phi i64 [ %30, %_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit ], [ %1, %5 ]
   %32 = load ptr, ptr %0, align 8, !tbaa !57
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %.0
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.0
   %34 = load ptr, ptr %33, align 8, !tbaa !58
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %38, label %35
@@ -2588,7 +2588,7 @@ _ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Se
   %45 = load i32, ptr %43, align 4, !tbaa !54
   %46 = sext i32 %45 to i64
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %32, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !58
   br label %49
 
@@ -2653,7 +2653,7 @@ _ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Se
   %16 = load i32, ptr %15, align 8, !tbaa !54
   %17 = sext i32 %16 to i64
   %18 = urem i64 %17, %1
-  %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !58
   %.not27 = icmp eq ptr %20, null
   br i1 %.not27, label %21, label %26
@@ -2668,7 +2668,7 @@ _ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Se
   br i1 %.not28, label %29, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %25, align 8, !tbaa !58
   br label %29
 
@@ -2744,7 +2744,7 @@ _ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Se
   %20 = sext i32 %8 to i64
   %21 = urem i64 %20, %19
   %.pre = load ptr, ptr %0, align 8, !tbaa !57
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre, i64 %21
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %21
   %.pre41 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !58
   br label %_ZNKSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS1_m.exit
 
@@ -2755,7 +2755,7 @@ _ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Se
   %26 = load i64, ptr %25, align 8, !tbaa !56
   %27 = urem i64 %24, %26
   %28 = load ptr, ptr %0, align 8, !tbaa !57
-  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %27
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %27
   %30 = load ptr, ptr %29, align 8, !tbaa !58
   %.not.i25 = icmp eq ptr %30, null
   br i1 %.not.i25, label %.critedge, label %31
@@ -2768,7 +2768,7 @@ _ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Se
   br i1 %35, label %_ZNKSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS1_m.exit.thread, label %.lr.ph.i
 
 _ZNKSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS1_m.exit.thread: ; preds = %31
-  %36 = getelementptr inbounds nuw ptr, ptr %28, i64 %27
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %27
   %37 = load ptr, ptr %32, align 8, !tbaa !53
   %.not18.i2756 = icmp eq ptr %37, null
   br i1 %.not18.i2756, label %._crit_edge.i.i, label %53
@@ -2807,7 +2807,7 @@ _ZNKSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_S
   br i1 %49, label %51, label %72
 
 51:                                               ; preds = %_ZNKSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS1_m.exit
-  %52 = getelementptr inbounds nuw ptr, ptr %48, i64 %.018
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %.018
   br i1 %.not18.i27, label %._crit_edge.i.i, label %53
 
 53:                                               ; preds = %_ZNKSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS1_m.exit.thread, %51
@@ -2827,7 +2827,7 @@ _ZNKSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_S
   br i1 %.not9.i.i, label %_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNS8_15_Hash_node_baseEPNS8_10_Hash_nodeIS6_Lb0EEE.exit, label %63
 
 63:                                               ; preds = %53
-  %64 = getelementptr inbounds nuw ptr, ptr %56, i64 %62
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %62
   store ptr %55, ptr %64, align 8, !tbaa !58
   br label %._crit_edge.i.i
 
@@ -2861,7 +2861,7 @@ _ZNKSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_S
   br i1 %.not17.i, label %_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNS8_15_Hash_node_baseEPNS8_10_Hash_nodeIS6_Lb0EEE.exit, label %78
 
 78:                                               ; preds = %73
-  %79 = getelementptr inbounds nuw ptr, ptr %48, i64 %77
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %77
   store ptr %.016, ptr %79, align 8, !tbaa !58
   br label %_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNS8_15_Hash_node_baseEPNS8_10_Hash_nodeIS6_Lb0EEE.exit
 
@@ -2895,7 +2895,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIPN3g2o10HyperGraph6VertexES3_
   %10 = load i64, ptr %9, align 8, !tbaa !65
   %11 = urem i64 %8, %10
   %12 = load ptr, ptr %0, align 8, !tbaa !63
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %11
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %11
   %14 = load ptr, ptr %13, align 8, !tbaa !58
   %.not.i.i = icmp eq ptr %14, null
   br i1 %.not.i.i, label %.critedge, label %28
@@ -3032,7 +3032,7 @@ _ZNSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8
 31:                                               ; preds = %_ZNSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE9_M_rehashEmRKm.exit, %5
   %.0 = phi i64 [ %30, %_ZNSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE9_M_rehashEmRKm.exit ], [ %1, %5 ]
   %32 = load ptr, ptr %0, align 8, !tbaa !63
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %.0
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.0
   %34 = load ptr, ptr %33, align 8, !tbaa !58
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %38, label %35
@@ -3059,7 +3059,7 @@ _ZNSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8
   %45 = load ptr, ptr %43, align 8, !tbaa !41
   %46 = ptrtoint ptr %45 to i64
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %32, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !58
   br label %49
 
@@ -3122,7 +3122,7 @@ _ZNSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8
   %16 = load ptr, ptr %15, align 8, !tbaa !41
   %17 = ptrtoint ptr %16 to i64
   %18 = urem i64 %17, %1
-  %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !58
   %.not27 = icmp eq ptr %20, null
   br i1 %.not27, label %21, label %26
@@ -3137,7 +3137,7 @@ _ZNSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8
   br i1 %.not28, label %29, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %25, align 8, !tbaa !58
   br label %29
 

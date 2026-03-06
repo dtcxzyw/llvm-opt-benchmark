@@ -385,7 +385,7 @@ define internal fastcc ptr @unpack_to_rootfs(ptr noundef %0, i64 noundef %1) unn
 28:                                               ; preds = %28, %27
   %29 = load i32, ptr @state, align 4
   %30 = zext nneg i32 %29 to i64
-  %31 = getelementptr ptr, ptr @actions, i64 %30
+  %31 = getelementptr [8 x i8], ptr @actions, i64 %30
   %32 = load ptr, ptr %31, align 8
   %33 = call i32 %32() #21
   %34 = icmp eq i32 %33, 0
@@ -565,7 +565,7 @@ define internal noundef i64 @flush_buffer(ptr noundef %0, i64 noundef %1) #1 sec
 8:                                                ; preds = %8, %7
   %9 = load i32, ptr @state, align 4
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr ptr, ptr @actions, i64 %10
+  %11 = getelementptr [8 x i8], ptr @actions, i64 %10
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 %12() #21
   %14 = icmp eq i32 %13, 0
@@ -1235,7 +1235,7 @@ define internal fastcc void @parse_header(ptr noundef readonly captures(none) %0
   %9 = load i64, ptr %8, align 1
   store i64 %9, ptr %3, align 8
   %10 = call i64 @simple_strtoul(ptr noundef nonnull %3, ptr noundef null, i32 noundef 16) #21
-  %11 = getelementptr i64, ptr %2, i64 %7
+  %11 = getelementptr [8 x i8], ptr %2, i64 %7
   store i64 %10, ptr %11, align 8
   %12 = add nuw nsw i64 %7, 1
   %13 = getelementptr i8, ptr %8, i64 8
@@ -1477,7 +1477,7 @@ define internal fastcc ptr @find_link(i32 noundef %0, i32 noundef %1, i32 nounde
   %10 = add i32 %9, %8
   %11 = and i32 %10, 31
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr ptr, ptr @head, i64 %12
+  %13 = getelementptr [8 x i8], ptr @head, i64 %12
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %.loopexit, label %.preheader

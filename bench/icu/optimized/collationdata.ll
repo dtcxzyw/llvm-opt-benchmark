@@ -17,7 +17,7 @@ define noundef i32 @_ZNK6icu_7713CollationData15getIndirectCE32Ej(ptr noundef no
   %6 = load ptr, ptr %5, align 8, !tbaa !3
   %7 = lshr i32 %1, 13
   %8 = zext nneg i32 %7 to i64
-  %9 = getelementptr inbounds nuw i32, ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %8
   %10 = load i32, ptr %9, align 4, !tbaa !18
   br label %15
 
@@ -54,7 +54,7 @@ define noundef i32 @_ZNK6icu_7713CollationData12getFinalCE32Ej(ptr noundef nonnu
   %8 = load ptr, ptr %7, align 8, !tbaa !3
   %9 = lshr i32 %1, 13
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr inbounds nuw i32, ptr %8, i64 %10
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %10
   %12 = load i32, ptr %11, align 4, !tbaa !18
   br label %_ZNK6icu_7713CollationData15getIndirectCE32Ej.exit
 
@@ -108,7 +108,7 @@ define noundef i64 @_ZNK6icu_7713CollationData11getSingleCEEiR10UErrorCode(ptr n
   %22 = load ptr, ptr %7, align 8, !tbaa !28
   %23 = lshr i32 %1, 11
   %24 = zext nneg i32 %23 to i64
-  %25 = getelementptr inbounds nuw i16, ptr %22, i64 %24
+  %25 = getelementptr inbounds nuw [2 x i8], ptr %22, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 4160
   %27 = load i16, ptr %26, align 2, !tbaa !29
   %28 = zext i16 %27 to i32
@@ -116,7 +116,7 @@ define noundef i64 @_ZNK6icu_7713CollationData11getSingleCEEiR10UErrorCode(ptr n
   %30 = and i32 %29, 63
   %31 = add nuw nsw i32 %30, %28
   %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr inbounds nuw i16, ptr %22, i64 %32
+  %33 = getelementptr inbounds nuw [2 x i8], ptr %22, i64 %32
   %34 = load i16, ptr %33, align 2, !tbaa !29
   %35 = zext i16 %34 to i32
   %36 = shl nuw nsw i32 %35, 2
@@ -127,7 +127,7 @@ define noundef i64 @_ZNK6icu_7713CollationData11getSingleCEEiR10UErrorCode(ptr n
 _ZNK6icu_7713CollationData7getCE32Ei.exit:        ; preds = %13, %18, %21
   %39 = phi i32 [ %38, %21 ], [ %20, %18 ], [ 128, %13 ]
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds i32, ptr %9, i64 %40
+  %41 = getelementptr inbounds [4 x i8], ptr %9, i64 %40
   %42 = load i32, ptr %41, align 4, !tbaa !18
   %43 = icmp eq i32 %42, 192
   br i1 %43, label %84, label %138
@@ -139,14 +139,14 @@ _ZNK6icu_7713CollationData7getCE32Ei.exit.thread58: ; preds = %11
   %47 = lshr i32 %1, 5
   %48 = add nuw nsw i32 %46, %47
   %49 = zext nneg i32 %48 to i64
-  %50 = getelementptr inbounds nuw i16, ptr %44, i64 %49
+  %50 = getelementptr inbounds nuw [2 x i8], ptr %44, i64 %49
   %51 = load i16, ptr %50, align 2, !tbaa !29
   %52 = zext i16 %51 to i32
   %53 = shl nuw nsw i32 %52, 2
   %54 = and i32 %1, 31
   %55 = add nuw nsw i32 %53, %54
   %56 = zext nneg i32 %55 to i64
-  %57 = getelementptr inbounds nuw i32, ptr %9, i64 %56
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %56
   %58 = load i32, ptr %57, align 4, !tbaa !18
   %59 = icmp eq i32 %58, 192
   br i1 %59, label %.thread59, label %138
@@ -155,14 +155,14 @@ _ZNK6icu_7713CollationData7getCE32Ei.exit.thread: ; preds = %6
   %60 = load ptr, ptr %7, align 8, !tbaa !28
   %61 = lshr i32 %1, 5
   %62 = zext nneg i32 %61 to i64
-  %63 = getelementptr inbounds nuw i16, ptr %60, i64 %62
+  %63 = getelementptr inbounds nuw [2 x i8], ptr %60, i64 %62
   %64 = load i16, ptr %63, align 2, !tbaa !29
   %65 = zext i16 %64 to i32
   %66 = shl nuw nsw i32 %65, 2
   %67 = and i32 %1, 31
   %68 = add nuw nsw i32 %66, %67
   %69 = zext nneg i32 %68 to i64
-  %70 = getelementptr inbounds nuw i32, ptr %9, i64 %69
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %69
   %71 = load i32, ptr %70, align 4, !tbaa !18
   %72 = icmp eq i32 %71, 192
   br i1 %72, label %.thread, label %138
@@ -174,7 +174,7 @@ _ZNK6icu_7713CollationData7getCE32Ei.exit.thread: ; preds = %6
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 16
   %77 = load ptr, ptr %76, align 8, !tbaa !22
   %78 = load ptr, ptr %75, align 8, !tbaa !28
-  %79 = getelementptr inbounds nuw i16, ptr %78, i64 %62
+  %79 = getelementptr inbounds nuw [2 x i8], ptr %78, i64 %62
   %80 = load i16, ptr %79, align 2, !tbaa !29
   %81 = zext i16 %80 to i32
   %82 = shl nuw nsw i32 %81, 2
@@ -202,7 +202,7 @@ _ZNK6icu_7713CollationData7getCE32Ei.exit.thread: ; preds = %6
   %99 = lshr i32 %1, 5
   %100 = add nuw nsw i32 %98, %99
   %101 = zext nneg i32 %100 to i64
-  %102 = getelementptr inbounds nuw i16, ptr %96, i64 %101
+  %102 = getelementptr inbounds nuw [2 x i8], ptr %96, i64 %101
   %103 = load i16, ptr %102, align 2, !tbaa !29
   %104 = zext i16 %103 to i32
   %105 = shl nuw nsw i32 %104, 2
@@ -225,7 +225,7 @@ _ZNK6icu_7713CollationData7getCE32Ei.exit.thread: ; preds = %6
   %115 = load ptr, ptr %87, align 8, !tbaa !28
   %116 = lshr i32 %1, 11
   %117 = zext nneg i32 %116 to i64
-  %118 = getelementptr inbounds nuw i16, ptr %115, i64 %117
+  %118 = getelementptr inbounds nuw [2 x i8], ptr %115, i64 %117
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 4160
   %120 = load i16, ptr %119, align 2, !tbaa !29
   %121 = zext i16 %120 to i32
@@ -233,7 +233,7 @@ _ZNK6icu_7713CollationData7getCE32Ei.exit.thread: ; preds = %6
   %123 = and i32 %122, 63
   %124 = add nuw nsw i32 %123, %121
   %125 = zext nneg i32 %124 to i64
-  %126 = getelementptr inbounds nuw i16, ptr %115, i64 %125
+  %126 = getelementptr inbounds nuw [2 x i8], ptr %115, i64 %125
   %127 = load i16, ptr %126, align 2, !tbaa !29
   %128 = zext i16 %127 to i32
   %129 = shl nuw nsw i32 %128, 2
@@ -246,7 +246,7 @@ _ZNK6icu_7713CollationData7getCE32Ei.exit33:      ; preds = %.thread, %.thread59
   %133 = phi ptr [ %74, %.thread ], [ %92, %.thread59 ], [ %86, %84 ], [ %86, %111 ], [ %86, %114 ]
   %134 = phi i32 [ %83, %.thread ], [ %107, %.thread59 ], [ 128, %84 ], [ %113, %111 ], [ %131, %114 ]
   %135 = sext i32 %134 to i64
-  %136 = getelementptr inbounds i32, ptr %132, i64 %135
+  %136 = getelementptr inbounds [4 x i8], ptr %132, i64 %135
   %137 = load i32, ptr %136, align 4, !tbaa !18
   br label %138
 
@@ -312,7 +312,7 @@ _ZNK6icu_7713CollationData7getCE32Ei.exit33:      ; preds = %.thread, %.thread59
   %157 = load ptr, ptr %140, align 8, !tbaa !3
   %158 = lshr i32 %.144, 13
   %159 = zext nneg i32 %158 to i64
-  %160 = getelementptr inbounds nuw i32, ptr %157, i64 %159
+  %160 = getelementptr inbounds nuw [4 x i8], ptr %157, i64 %159
   br label %196
 
 161:                                              ; preds = %153
@@ -329,7 +329,7 @@ _ZNK6icu_7713CollationData7getCE32Ei.exit33:      ; preds = %.thread, %.thread59
   %167 = load ptr, ptr %166, align 8, !tbaa !31
   %168 = lshr i32 %.144, 13
   %169 = zext nneg i32 %168 to i64
-  %170 = getelementptr inbounds nuw i64, ptr %167, i64 %169
+  %170 = getelementptr inbounds nuw [8 x i8], ptr %167, i64 %169
   %171 = load i64, ptr %170, align 8, !tbaa !32
   br label %209
 
@@ -341,7 +341,7 @@ _ZNK6icu_7713CollationData7getCE32Ei.exit33:      ; preds = %.thread, %.thread59
   %174 = load ptr, ptr %140, align 8, !tbaa !3
   %175 = lshr i32 %.144, 13
   %176 = zext nneg i32 %175 to i64
-  %177 = getelementptr inbounds nuw i32, ptr %174, i64 %176
+  %177 = getelementptr inbounds nuw [4 x i8], ptr %174, i64 %176
   br label %196
 
 178:                                              ; preds = %141
@@ -353,7 +353,7 @@ _ZNK6icu_7713CollationData7getCE32Ei.exit33:      ; preds = %.thread, %.thread59
   %182 = load ptr, ptr %181, align 8, !tbaa !31
   %183 = lshr i32 %.144, 13
   %184 = zext nneg i32 %183 to i64
-  %185 = getelementptr inbounds nuw i64, ptr %182, i64 %184
+  %185 = getelementptr inbounds nuw [8 x i8], ptr %182, i64 %184
   %186 = load i64, ptr %185, align 8, !tbaa !32
   %187 = tail call noundef i32 @_ZN6icu_779Collation32getThreeBytePrimaryForOffsetDataEil(i32 noundef %1, i64 noundef %186)
   %188 = zext i32 %187 to i64
@@ -413,7 +413,7 @@ define noundef range(i32 0, -65535) i32 @_ZNK6icu_7713CollationData23getFirstPri
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %10 = load ptr, ptr %9, align 8, !tbaa !37
   %11 = zext nneg i32 %1 to i64
-  %12 = getelementptr inbounds nuw i16, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [2 x i8], ptr %10, i64 %11
   br label %_ZNK6icu_7713CollationData14getScriptIndexEi.exit
 
 13:                                               ; preds = %4
@@ -427,7 +427,7 @@ define noundef range(i32 0, -65535) i32 @_ZNK6icu_7713CollationData23getFirstPri
   %18 = load ptr, ptr %17, align 8, !tbaa !37
   %19 = add nsw i32 %16, %6
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds i16, ptr %18, i64 %20
+  %21 = getelementptr inbounds [2 x i8], ptr %18, i64 %20
   br label %_ZNK6icu_7713CollationData14getScriptIndexEi.exit
 
 _ZNK6icu_7713CollationData14getScriptIndexEi.exit: ; preds = %8, %15
@@ -440,7 +440,7 @@ _ZNK6icu_7713CollationData14getScriptIndexEi.exit: ; preds = %8, %15
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %25 = load ptr, ptr %24, align 8, !tbaa !38
   %26 = zext i16 %.0.shrunk.i to i64
-  %27 = getelementptr inbounds nuw i16, ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [2 x i8], ptr %25, i64 %26
   %28 = load i16, ptr %27, align 2, !tbaa !29
   %29 = zext i16 %28 to i32
   %30 = shl nuw i32 %29, 16
@@ -466,7 +466,7 @@ define noundef range(i32 0, 65536) i32 @_ZNK6icu_7713CollationData14getScriptInd
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %10 = load ptr, ptr %9, align 8, !tbaa !37
   %11 = zext nneg i32 %1 to i64
-  %12 = getelementptr inbounds nuw i16, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [2 x i8], ptr %10, i64 %11
   %13 = load i16, ptr %12, align 2, !tbaa !29
   br label %24
 
@@ -481,7 +481,7 @@ define noundef range(i32 0, 65536) i32 @_ZNK6icu_7713CollationData14getScriptInd
   %19 = load ptr, ptr %18, align 8, !tbaa !37
   %20 = add nsw i32 %17, %6
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds i16, ptr %19, i64 %21
+  %22 = getelementptr inbounds [2 x i8], ptr %19, i64 %21
   %23 = load i16, ptr %22, align 2, !tbaa !29
   br label %24
 
@@ -506,7 +506,7 @@ define noundef range(i32 -1, -65536) i32 @_ZNK6icu_7713CollationData22getLastPri
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %10 = load ptr, ptr %9, align 8, !tbaa !37
   %11 = zext nneg i32 %1 to i64
-  %12 = getelementptr inbounds nuw i16, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [2 x i8], ptr %10, i64 %11
   br label %_ZNK6icu_7713CollationData14getScriptIndexEi.exit
 
 13:                                               ; preds = %4
@@ -520,7 +520,7 @@ define noundef range(i32 -1, -65536) i32 @_ZNK6icu_7713CollationData22getLastPri
   %18 = load ptr, ptr %17, align 8, !tbaa !37
   %19 = add nsw i32 %16, %6
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds i16, ptr %18, i64 %20
+  %21 = getelementptr inbounds [2 x i8], ptr %18, i64 %20
   br label %_ZNK6icu_7713CollationData14getScriptIndexEi.exit
 
 _ZNK6icu_7713CollationData14getScriptIndexEi.exit: ; preds = %8, %15
@@ -533,7 +533,7 @@ _ZNK6icu_7713CollationData14getScriptIndexEi.exit: ; preds = %8, %15
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %25 = load ptr, ptr %24, align 8, !tbaa !38
   %26 = zext i16 %.0.shrunk.i to i64
-  %27 = getelementptr inbounds nuw i16, ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [2 x i8], ptr %25, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 2
   %29 = load i16, ptr %28, align 2, !tbaa !29
   %30 = zext i16 %29 to i32
@@ -561,7 +561,7 @@ define noundef i32 @_ZNK6icu_7713CollationData18getGroupForPrimaryEj(ptr noundef
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %12 = load i32, ptr %11, align 8, !tbaa !39
   %13 = sext i32 %12 to i64
-  %14 = getelementptr i16, ptr %5, i64 %13
+  %14 = getelementptr [2 x i8], ptr %5, i64 %13
   %15 = getelementptr i8, ptr %14, i64 -2
   %16 = load i16, ptr %15, align 2, !tbaa !29
   %17 = zext i16 %16 to i32
@@ -575,7 +575,7 @@ define noundef i32 @_ZNK6icu_7713CollationData18getGroupForPrimaryEj(ptr noundef
 .preheader29:                                     ; preds = %.preheader29.preheader, %.preheader29
   %indvars.iv = phi i64 [ 1, %.preheader29.preheader ], [ %indvars.iv.next, %.preheader29 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %19 = getelementptr inbounds nuw i16, ptr %5, i64 %indvars.iv.next
+  %19 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %indvars.iv.next
   %20 = load i16, ptr %19, align 2, !tbaa !29
   %.not26 = icmp ugt i16 %20, %18
   br i1 %.not26, label %.preheader, label %.preheader29, !llvm.loop !40
@@ -594,12 +594,12 @@ define noundef i32 @_ZNK6icu_7713CollationData18getGroupForPrimaryEj(ptr noundef
 
 .critedge.preheader:                              ; preds = %31, %.preheader
   %25 = sext i32 %22 to i64
-  %invariant.gep = getelementptr i16, ptr %24, i64 %25
+  %invariant.gep = getelementptr [2 x i8], ptr %24, i64 %25
   br label %32
 
 26:                                               ; preds = %.lr.ph, %31
   %indvars.iv40 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next41, %31 ]
-  %27 = getelementptr inbounds nuw i16, ptr %24, i64 %indvars.iv40
+  %27 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %indvars.iv40
   %28 = load i16, ptr %27, align 2, !tbaa !29
   %29 = zext i16 %28 to i64
   %30 = icmp eq i64 %indvars.iv, %29
@@ -612,7 +612,7 @@ define noundef i32 @_ZNK6icu_7713CollationData18getGroupForPrimaryEj(ptr noundef
 
 32:                                               ; preds = %.critedge.preheader, %.critedge
   %indvars.iv43 = phi i64 [ 0, %.critedge.preheader ], [ %indvars.iv.next44, %.critedge ]
-  %gep = getelementptr i16, ptr %invariant.gep, i64 %indvars.iv43
+  %gep = getelementptr [2 x i8], ptr %invariant.gep, i64 %indvars.iv43
   %33 = load i16, ptr %gep, align 2, !tbaa !29
   %34 = zext i16 %33 to i64
   %35 = icmp eq i64 %indvars.iv, %34
@@ -655,7 +655,7 @@ define noundef i32 @_ZNK6icu_7713CollationData20getEquivalentScriptsEiPiiR10UErr
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %15 = load ptr, ptr %14, align 8, !tbaa !37
   %16 = zext nneg i32 %1 to i64
-  %17 = getelementptr inbounds nuw i16, ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [2 x i8], ptr %15, i64 %16
   br label %_ZNK6icu_7713CollationData14getScriptIndexEi.exit
 
 18:                                               ; preds = %9
@@ -669,7 +669,7 @@ define noundef i32 @_ZNK6icu_7713CollationData20getEquivalentScriptsEiPiiR10UErr
   %23 = load ptr, ptr %22, align 8, !tbaa !37
   %24 = add nsw i32 %21, %11
   %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds i16, ptr %23, i64 %25
+  %26 = getelementptr inbounds [2 x i8], ptr %23, i64 %25
   br label %_ZNK6icu_7713CollationData14getScriptIndexEi.exit
 
 _ZNK6icu_7713CollationData14getScriptIndexEi.exit: ; preds = %13, %20
@@ -709,7 +709,7 @@ _ZNK6icu_7713CollationData14getScriptIndexEi.exit: ; preds = %13, %20
   %37 = phi i32 [ %50, %49 ], [ %11, %.preheader ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %49 ], [ 0, %.preheader ]
   %.02330 = phi i32 [ %.1, %49 ], [ 0, %.preheader ]
-  %38 = getelementptr inbounds nuw i16, ptr %27, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [2 x i8], ptr %27, i64 %indvars.iv
   %39 = load i16, ptr %38, align 2, !tbaa !29
   %40 = icmp eq i16 %.0.shrunk.i, %39
   br i1 %40, label %41, label %49
@@ -720,7 +720,7 @@ _ZNK6icu_7713CollationData14getScriptIndexEi.exit: ; preds = %13, %20
 
 43:                                               ; preds = %41
   %44 = sext i32 %.02330 to i64
-  %45 = getelementptr inbounds i32, ptr %2, i64 %44
+  %45 = getelementptr inbounds [4 x i8], ptr %2, i64 %44
   %46 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %46, ptr %45, align 4, !tbaa !18
   %.pre.pre = load i32, ptr %10, align 4, !tbaa !36
@@ -782,7 +782,7 @@ define void @_ZNK6icu_7713CollationData17makeReorderRangesEPKiiaRNS_9UVector32ER
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %18 = load i32, ptr %17, align 4, !tbaa !36
   %19 = sext i32 %18 to i64
-  %20 = getelementptr i16, ptr %16, i64 %19
+  %20 = getelementptr [2 x i8], ptr %16, i64 %19
   %21 = getelementptr i8, ptr %20, i64 28
   %22 = load i16, ptr %21, align 2, !tbaa !29
   %.not157 = icmp eq i16 %22, 0
@@ -815,7 +815,7 @@ define void @_ZNK6icu_7713CollationData17makeReorderRangesEPKiiaRNS_9UVector32ER
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %39 = load i32, ptr %38, align 8, !tbaa !39
   %40 = sext i32 %39 to i64
-  %41 = getelementptr i16, ptr %34, i64 %40
+  %41 = getelementptr [2 x i8], ptr %34, i64 %40
   %42 = getelementptr i8, ptr %41, i64 -2
   %43 = load i16, ptr %42, align 2, !tbaa !29
   %44 = zext i16 %43 to i32
@@ -828,13 +828,13 @@ define void @_ZNK6icu_7713CollationData17makeReorderRangesEPKiiaRNS_9UVector32ER
 
 .preheader203:                                    ; preds = %.lr.ph, %32
   %.0129.lcssa = phi i32 [ 0, %32 ], [ %.1130, %.lr.ph ]
-  %invariant.gep = getelementptr i16, ptr %16, i64 %19
+  %invariant.gep = getelementptr [2 x i8], ptr %16, i64 %19
   br label %54
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.0129218 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1130, %.lr.ph ]
-  %46 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %47 = load i32, ptr %46, align 4, !tbaa !18
   %48 = and i32 %47, -8
   %or.cond = icmp eq i32 %48, 4096
@@ -853,7 +853,7 @@ define void @_ZNK6icu_7713CollationData17makeReorderRangesEPKiiaRNS_9UVector32ER
 54:                                               ; preds = %.preheader203, %83
   %indvars.iv255 = phi i64 [ 0, %.preheader203 ], [ %indvars.iv.next256, %83 ]
   %.0119220 = phi i32 [ %37, %.preheader203 ], [ %.1120, %83 ]
-  %gep = getelementptr i16, ptr %invariant.gep, i64 %indvars.iv255
+  %gep = getelementptr [2 x i8], ptr %invariant.gep, i64 %indvars.iv255
   %55 = load i16, ptr %gep, align 2, !tbaa !29
   %.not167 = icmp eq i16 %55, 0
   br i1 %.not167, label %83, label %56
@@ -867,7 +867,7 @@ define void @_ZNK6icu_7713CollationData17makeReorderRangesEPKiiaRNS_9UVector32ER
 
 61:                                               ; preds = %56
   %62 = zext i16 %55 to i64
-  %63 = getelementptr inbounds nuw i16, ptr %34, i64 %62
+  %63 = getelementptr inbounds nuw [2 x i8], ptr %34, i64 %62
   %64 = load i16, ptr %63, align 2, !tbaa !29
   %65 = zext i16 %64 to i32
   %66 = and i32 %65, 255
@@ -908,7 +908,7 @@ define void @_ZNK6icu_7713CollationData17makeReorderRangesEPKiiaRNS_9UVector32ER
   %89 = getelementptr inbounds nuw i8, ptr %16, i64 50
   %90 = load i16, ptr %89, align 2, !tbaa !29
   %91 = zext i16 %90 to i64
-  %92 = getelementptr inbounds nuw i16, ptr %34, i64 %91
+  %92 = getelementptr inbounds nuw [2 x i8], ptr %34, i64 %91
   %93 = load i16, ptr %92, align 2, !tbaa !29
   %94 = zext i16 %93 to i32
   %95 = sub nsw i32 %94, %.1120
@@ -929,7 +929,7 @@ define void @_ZNK6icu_7713CollationData17makeReorderRangesEPKiiaRNS_9UVector32ER
   %indvars.iv259 = phi i64 [ 0, %.lr.ph225 ], [ %indvars.iv.next260, %_ZNK6icu_7713CollationData14getScriptIndexEi.exit173.thread ]
   %.3122223 = phi i32 [ %.2121, %.lr.ph225 ], [ %.5, %_ZNK6icu_7713CollationData14getScriptIndexEi.exit173.thread ]
   %indvars.iv.next260 = add nuw nsw i64 %indvars.iv259, 1
-  %100 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv259
+  %100 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv259
   %101 = load i32, ptr %100, align 4, !tbaa !18
   switch i32 %101, label %147 [
     i32 103, label %.preheader201
@@ -951,7 +951,7 @@ define void @_ZNK6icu_7713CollationData17makeReorderRangesEPKiiaRNS_9UVector32ER
   %indvars.iv264 = phi i64 [ %104, %.lr.ph230 ], [ %indvars.iv.next265, %_ZNK6icu_7713CollationData14getScriptIndexEi.exit.thread ]
   %.2126228 = phi i32 [ %44, %.lr.ph230 ], [ %.4128, %_ZNK6icu_7713CollationData14getScriptIndexEi.exit.thread ]
   %indvars.iv.next265 = add nsw i64 %indvars.iv264, -1
-  %107 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.next265
+  %107 = getelementptr inbounds [4 x i8], ptr %1, i64 %indvars.iv.next265
   %108 = load i32, ptr %107, align 4, !tbaa !18
   switch i32 %108, label %110 [
     i32 -1, label %109
@@ -986,7 +986,7 @@ define void @_ZNK6icu_7713CollationData17makeReorderRangesEPKiiaRNS_9UVector32ER
 
 _ZNK6icu_7713CollationData14getScriptIndexEi.exit: ; preds = %114, %118
   %.pn = phi i64 [ %120, %118 ], [ %115, %114 ]
-  %.0.shrunk.i.in = getelementptr inbounds i16, ptr %16, i64 %.pn
+  %.0.shrunk.i.in = getelementptr inbounds [2 x i8], ptr %16, i64 %.pn
   %.0.shrunk.i = load i16, ptr %.0.shrunk.i.in, align 2, !tbaa !29
   %121 = icmp eq i16 %.0.shrunk.i, 0
   br i1 %121, label %_ZNK6icu_7713CollationData14getScriptIndexEi.exit.thread, label %122, !llvm.loop !47
@@ -1003,7 +1003,7 @@ _ZNK6icu_7713CollationData14getScriptIndexEi.exit: ; preds = %114, %118
   br label %.thread182.thread
 
 126:                                              ; preds = %122
-  %127 = getelementptr i16, ptr %34, i64 %123
+  %127 = getelementptr [2 x i8], ptr %34, i64 %123
   %128 = getelementptr i8, ptr %127, i64 2
   %129 = load i16, ptr %128, align 2, !tbaa !29
   %130 = zext i16 %129 to i32
@@ -1059,7 +1059,7 @@ _ZNK6icu_7713CollationData14getScriptIndexEi.exit.thread: ; preds = %110, %116, 
 
 _ZNK6icu_7713CollationData14getScriptIndexEi.exit173: ; preds = %151, %155
   %.pn198 = phi i64 [ %157, %155 ], [ %152, %151 ]
-  %.0.shrunk.i171.in = getelementptr inbounds i16, ptr %16, i64 %.pn198
+  %.0.shrunk.i171.in = getelementptr inbounds [2 x i8], ptr %16, i64 %.pn198
   %.0.shrunk.i171 = load i16, ptr %.0.shrunk.i171.in, align 2, !tbaa !29
   %158 = icmp eq i16 %.0.shrunk.i171, 0
   br i1 %158, label %_ZNK6icu_7713CollationData14getScriptIndexEi.exit173.thread, label %159, !llvm.loop !48
@@ -1076,7 +1076,7 @@ _ZNK6icu_7713CollationData14getScriptIndexEi.exit173: ; preds = %151, %155
   br label %.thread182.thread
 
 164:                                              ; preds = %159
-  %165 = getelementptr inbounds nuw i16, ptr %34, i64 %160
+  %165 = getelementptr inbounds nuw [2 x i8], ptr %34, i64 %160
   %166 = load i16, ptr %165, align 2, !tbaa !29
   %167 = zext i16 %166 to i32
   %168 = and i32 %167, 255
@@ -1136,7 +1136,7 @@ _ZNK6icu_7713CollationData14getScriptIndexEi.exit173.thread: ; preds = %147, %15
   br i1 %.not165, label %192, label %213
 
 192:                                              ; preds = %.lr.ph234
-  %193 = getelementptr inbounds nuw i16, ptr %34, i64 %indvars.iv267
+  %193 = getelementptr inbounds nuw [2 x i8], ptr %34, i64 %indvars.iv267
   %194 = load i16, ptr %193, align 2, !tbaa !29
   %195 = zext i16 %194 to i32
   %196 = tail call i32 @llvm.smax.i32(i32 %.7233, i32 %195)
@@ -1204,7 +1204,7 @@ _ZNK6icu_7713CollationData14getScriptIndexEi.exit173.thread: ; preds = %147, %15
 
 229:                                              ; preds = %225
   %230 = zext i8 %227 to i32
-  %231 = getelementptr inbounds i16, ptr %222, i64 %indvars.iv272
+  %231 = getelementptr inbounds [2 x i8], ptr %222, i64 %indvars.iv272
   %232 = load i16, ptr %231, align 2, !tbaa !29
   %233 = lshr i16 %232, 8
   %234 = zext nneg i16 %233 to i32
@@ -1233,7 +1233,7 @@ _ZNK6icu_7713CollationData14getScriptIndexEi.exit173.thread: ; preds = %147, %15
 240:                                              ; preds = %.thread188
   %241 = load ptr, ptr %33, align 8, !tbaa !38
   %242 = sext i32 %.1114.lcssa to i64
-  %243 = getelementptr inbounds i16, ptr %241, i64 %242
+  %243 = getelementptr inbounds [2 x i8], ptr %241, i64 %242
   %244 = load i16, ptr %243, align 2, !tbaa !29
   %245 = zext i16 %244 to i32
   %246 = shl nuw i32 %245, 16
@@ -1260,7 +1260,7 @@ _ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread.i: ; preds = %_Z
   %254 = phi i32 [ %.pre.i, %_ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i ], [ %249, %240 ]
   %255 = load ptr, ptr %189, align 8, !tbaa !53
   %256 = sext i32 %254 to i64
-  %257 = getelementptr inbounds i32, ptr %255, i64 %256
+  %257 = getelementptr inbounds [4 x i8], ptr %255, i64 %256
   store i32 %248, ptr %257, align 4, !tbaa !18
   %258 = load i32, ptr %187, align 8, !tbaa !50
   %259 = add nsw i32 %258, 1
@@ -1292,7 +1292,7 @@ define noundef i32 @_ZNK6icu_7713CollationData17addLowScriptRangeEPhii(ptr nound
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %6 = load ptr, ptr %5, align 8, !tbaa !38
   %7 = sext i32 %2 to i64
-  %8 = getelementptr inbounds i16, ptr %6, i64 %7
+  %8 = getelementptr inbounds [2 x i8], ptr %6, i64 %7
   %9 = load i16, ptr %8, align 2, !tbaa !29
   %10 = zext i16 %9 to i32
   %11 = and i32 %10, 255
@@ -1305,7 +1305,7 @@ define noundef i32 @_ZNK6icu_7713CollationData17addLowScriptRangeEPhii(ptr nound
   %17 = getelementptr inbounds i8, ptr %1, i64 %7
   store i8 %16, ptr %17, align 1, !tbaa !44
   %18 = load ptr, ptr %5, align 8, !tbaa !38
-  %19 = getelementptr i16, ptr %18, i64 %7
+  %19 = getelementptr [2 x i8], ptr %18, i64 %7
   %20 = getelementptr i8, ptr %19, i64 2
   %21 = load i16, ptr %20, align 2, !tbaa !29
   %22 = zext i16 %21 to i32
@@ -1324,7 +1324,7 @@ define noundef i32 @_ZNK6icu_7713CollationData18addHighScriptRangeEPhii(ptr noun
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %6 = load ptr, ptr %5, align 8, !tbaa !38
   %7 = sext i32 %2 to i64
-  %8 = getelementptr i16, ptr %6, i64 %7
+  %8 = getelementptr [2 x i8], ptr %6, i64 %7
   %9 = getelementptr i8, ptr %8, i64 2
   %10 = load i16, ptr %9, align 2, !tbaa !29
   %11 = zext i16 %10 to i32

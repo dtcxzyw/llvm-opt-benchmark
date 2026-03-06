@@ -13,9 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.reassembly_table_functions = type { ptr, ptr, ptr, ptr, ptr, ptr }
 %struct._fragment_items = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct._wmem_tree_key_t = type { i32, ptr }
-%struct._value_string = type { i32, ptr }
 %struct._sccp_decode_context_t = type { i8, i32, i32, ptr, ptr }
-%struct._sccp_user_t = type { i32, ptr, ptr, i32, i8, ptr }
 
 @.str = private unnamed_addr constant [3 x i8] c"CR\00", align 1
 @.str.1 = private unnamed_addr constant [3 x i8] c"CC\00", align 1
@@ -2038,7 +2036,7 @@ define internal void @sccp_users_user_set_cb(ptr noundef writeonly captures(none
   %.01622 = phi i32 [ %12, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %12 = add i32 %.01622, 1
   %13 = zext i32 %12 to i64
-  %14 = getelementptr %struct._value_string, ptr %3, i64 %13
+  %14 = getelementptr [16 x i8], ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
@@ -2078,7 +2076,7 @@ define internal void @sccp_users_user_tostr_cb(ptr noundef readonly captures(non
   %.01520 = phi i32 [ %12, %17 ], [ 0, %.lr.ph ]
   %12 = add i32 %.01520, 1
   %13 = zext i32 %12 to i64
-  %14 = getelementptr %struct._value_string, ptr %3, i64 %13
+  %14 = getelementptr [16 x i8], ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
@@ -2285,7 +2283,7 @@ define internal i32 @dissect_sccp(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 switch.lookup:                                    ; preds = %19
   %21 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_sccp, i64 %21
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_sccp, i64 %21
   %switch.load = load ptr, ptr %switch.gep, align 8
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = load ptr, ptr %22, align 8
@@ -4228,7 +4226,7 @@ define internal fastcc void @dissect_sccp_data_param(ptr noundef %0, ptr noundef
   %38 = phi i32 [ %27, %.lr.ph.split.split.us.preheader ], [ %57, %56 ]
   %39 = phi ptr [ %.pre127, %.lr.ph.split.split.us.preheader ], [ %58, %56 ]
   %indvars.iv124 = phi i64 [ 0, %.lr.ph.split.split.us.preheader ], [ %indvars.iv.next125, %56 ]
-  %40 = getelementptr %struct._sccp_user_t, ptr %39, i64 %indvars.iv124
+  %40 = getelementptr [40 x i8], ptr %39, i64 %indvars.iv124
   %41 = load i8, ptr %33, align 4
   %42 = zext i8 %41 to i32
   %43 = load i32, ptr %40, align 8
@@ -4266,7 +4264,7 @@ define internal fastcc void @dissect_sccp_data_param(ptr noundef %0, ptr noundef
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %83
   %indvars.iv = phi i64 [ %indvars.iv.next, %83 ], [ 0, %.lr.ph.split ]
   %61 = load ptr, ptr @sccp_users, align 8
-  %62 = getelementptr %struct._sccp_user_t, ptr %61, i64 %indvars.iv
+  %62 = getelementptr [40 x i8], ptr %61, i64 %indvars.iv
   %63 = load i8, ptr %33, align 4
   %64 = zext i8 %63 to i32
   %65 = load i32, ptr %62, align 8

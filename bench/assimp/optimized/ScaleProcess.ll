@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %class.aiVector3t = type { float, float, float }
 %class.aiQuaterniont = type { float, float, float, float }
-%struct.aiVectorKey = type { double, %class.aiVector3t, i32 }
 
 $_ZNK12aiMatrix4x4tIfE9DecomposeER10aiVector3tIfER13aiQuaterniontIfES3_ = comdat any
 
@@ -119,7 +118,7 @@ define void @_ZN6Assimp12ScaleProcess7ExecuteEP7aiScene(ptr noundef nonnull read
   %28 = phi i32 [ %15, %.lr.ph164 ], [ %35, %._crit_edge162 ]
   %indvars.iv191 = phi i64 [ 0, %.lr.ph164 ], [ %indvars.iv.next192, %._crit_edge162 ]
   %29 = load ptr, ptr %16, align 8
-  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv191
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv191
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 1048
   %33 = load i32, ptr %32, align 8
@@ -145,7 +144,7 @@ define void @_ZN6Assimp12ScaleProcess7ExecuteEP7aiScene(ptr noundef nonnull read
   %39 = phi i32 [ %33, %.lr.ph161 ], [ %46, %._crit_edge ]
   %indvars.iv188 = phi i64 [ 0, %.lr.ph161 ], [ %indvars.iv.next189, %._crit_edge ]
   %40 = load ptr, ptr %34, align 8
-  %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv188
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv188
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 1028
   %44 = load i32, ptr %43, align 4
@@ -170,7 +169,7 @@ define void @_ZN6Assimp12ScaleProcess7ExecuteEP7aiScene(ptr noundef nonnull read
 49:                                               ; preds = %.lr.ph, %49
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %49 ]
   %50 = load ptr, ptr %45, align 8
-  %51 = getelementptr inbounds nuw %struct.aiVectorKey, ptr %50, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [24 x i8], ptr %50, i64 %indvars.iv
   %52 = load float, ptr %6, align 8
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %54 = load float, ptr %53, align 4
@@ -198,7 +197,7 @@ define void @_ZN6Assimp12ScaleProcess7ExecuteEP7aiScene(ptr noundef nonnull read
 66:                                               ; preds = %.lr.ph178, %._crit_edge176
   %indvars.iv206 = phi i64 [ 0, %.lr.ph178 ], [ %indvars.iv.next207, %._crit_edge176 ]
   %67 = load ptr, ptr %19, align 8
-  %68 = getelementptr inbounds nuw ptr, ptr %67, i64 %indvars.iv206
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %indvars.iv206
   %69 = load ptr, ptr %68, align 8
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 4
   %71 = load i32, ptr %70, align 4
@@ -222,7 +221,7 @@ define void @_ZN6Assimp12ScaleProcess7ExecuteEP7aiScene(ptr noundef nonnull read
 76:                                               ; preds = %.lr.ph167, %76
   %indvars.iv194 = phi i64 [ 0, %.lr.ph167 ], [ %indvars.iv.next195, %76 ]
   %77 = load ptr, ptr %72, align 8
-  %78 = getelementptr inbounds nuw %class.aiVector3t, ptr %77, i64 %indvars.iv194
+  %78 = getelementptr inbounds nuw [12 x i8], ptr %77, i64 %indvars.iv194
   %79 = load float, ptr %6, align 8
   %80 = load float, ptr %78, align 4
   %81 = fmul float %79, %80
@@ -254,7 +253,7 @@ define void @_ZN6Assimp12ScaleProcess7ExecuteEP7aiScene(ptr noundef nonnull read
 94:                                               ; preds = %.lr.ph169, %94
   %indvars.iv197 = phi i64 [ 0, %.lr.ph169 ], [ %indvars.iv.next198, %94 ]
   %95 = load ptr, ptr %75, align 8
-  %96 = getelementptr inbounds nuw ptr, ptr %95, i64 %indvars.iv197
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %indvars.iv197
   %97 = load ptr, ptr %96, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store float 0.000000e+00, ptr %3, align 4
@@ -454,7 +453,7 @@ define void @_ZN6Assimp12ScaleProcess7ExecuteEP7aiScene(ptr noundef nonnull read
   %235 = phi i32 [ %92, %.lr.ph175 ], [ %242, %._crit_edge173 ]
   %indvars.iv203 = phi i64 [ 0, %.lr.ph175 ], [ %indvars.iv.next204, %._crit_edge173 ]
   %236 = load ptr, ptr %93, align 8
-  %237 = getelementptr inbounds nuw ptr, ptr %236, i64 %indvars.iv203
+  %237 = getelementptr inbounds nuw [8 x i8], ptr %236, i64 %indvars.iv203
   %238 = load ptr, ptr %237, align 8
   %239 = getelementptr inbounds nuw i8, ptr %238, i64 1192
   %240 = load i32, ptr %239, align 8
@@ -479,7 +478,7 @@ define void @_ZN6Assimp12ScaleProcess7ExecuteEP7aiScene(ptr noundef nonnull read
 245:                                              ; preds = %.lr.ph172, %245
   %indvars.iv200 = phi i64 [ 0, %.lr.ph172 ], [ %indvars.iv.next201, %245 ]
   %246 = load ptr, ptr %241, align 8
-  %247 = getelementptr inbounds nuw %class.aiVector3t, ptr %246, i64 %indvars.iv200
+  %247 = getelementptr inbounds nuw [12 x i8], ptr %246, i64 %indvars.iv200
   %248 = load float, ptr %6, align 8
   %249 = load float, ptr %247, align 4
   %250 = fmul float %248, %249
@@ -786,7 +785,7 @@ define void @_ZN6Assimp12ScaleProcess13traverseNodesEP6aiNodej(ptr noundef nonnu
 8:                                                ; preds = %.lr.ph, %8
   %.07 = phi i64 [ 0, %.lr.ph ], [ %12, %8 ]
   %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %.07
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.07
   %11 = load ptr, ptr %10, align 8
   tail call void @_ZN6Assimp12ScaleProcess13traverseNodesEP6aiNodej(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef %11, i32 noundef %7)
   %12 = add nuw nsw i64 %.07, 1

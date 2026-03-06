@@ -103,7 +103,7 @@ define dso_local void @rpcb_put_local(ptr noundef %0) local_unnamed_addr #0 alig
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2536
   %4 = load volatile ptr, ptr %3, align 8
   %5 = zext i32 %2 to i64
-  %6 = getelementptr ptr, ptr %4, i64 %5
+  %6 = getelementptr [8 x i8], ptr %4, i64 %5
   %7 = load ptr, ptr %6, align 8
   tail call void @__rcu_read_unlock() #10
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 112
@@ -164,7 +164,7 @@ define dso_local i32 @rpcb_create_local(ptr noundef %0) local_unnamed_addr #0 al
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2536
   %5 = load volatile ptr, ptr %4, align 8
   %6 = zext i32 %3 to i64
-  %7 = getelementptr ptr, ptr %5, i64 %6
+  %7 = getelementptr [8 x i8], ptr %5, i64 %6
   %8 = load ptr, ptr %7, align 8
   tail call void @__rcu_read_unlock() #10
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 128
@@ -191,7 +191,7 @@ define dso_local i32 @rpcb_create_local(ptr noundef %0) local_unnamed_addr #0 al
   tail call void @__rcu_read_lock() #10
   %18 = load volatile ptr, ptr %4, align 8
   %19 = zext i32 %17 to i64
-  %20 = getelementptr ptr, ptr %18, i64 %19
+  %20 = getelementptr [8 x i8], ptr %18, i64 %19
   %21 = load ptr, ptr %20, align 8
   tail call void @__rcu_read_unlock() #10
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 128
@@ -278,7 +278,7 @@ define dso_local i32 @rpcb_create_local(ptr noundef %0) local_unnamed_addr #0 al
   call void @__rcu_read_lock() #10
   %66 = load volatile ptr, ptr %4, align 8
   %67 = zext i32 %65 to i64
-  %68 = getelementptr ptr, ptr %66, i64 %67
+  %68 = getelementptr [8 x i8], ptr %66, i64 %67
   %69 = load ptr, ptr %68, align 8
   call void @__rcu_read_unlock() #10
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 112
@@ -340,7 +340,7 @@ define dso_local i32 @rpcb_register(ptr noundef %0, i32 noundef %1, i32 noundef 
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 2536
   %17 = load volatile ptr, ptr %16, align 8
   %18 = zext i32 %15 to i64
-  %19 = getelementptr ptr, ptr %17, i64 %18
+  %19 = getelementptr [8 x i8], ptr %17, i64 %18
   %20 = load ptr, ptr %19, align 8
   call void @__rcu_read_unlock() #10
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_pmap_register, i64 8), i32 2) #10
@@ -450,7 +450,7 @@ define dso_local i32 @rpcb_v4_register(ptr noundef %0, i32 noundef %1, i32 nound
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 2536
   %20 = load volatile ptr, ptr %19, align 8
   %21 = zext i32 %18 to i64
-  %22 = getelementptr ptr, ptr %20, i64 %21
+  %22 = getelementptr [8 x i8], ptr %20, i64 %21
   %23 = load ptr, ptr %22, align 8
   call void @__rcu_read_unlock() #10
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 120
@@ -745,7 +745,7 @@ define dso_local void @rpcb_getport_async(ptr noundef %0) #0 align 16 {
   %49 = getelementptr inbounds nuw i8, ptr %28, i64 1048
   %50 = load i32, ptr %49, align 8
   %51 = zext i32 %50 to i64
-  %52 = getelementptr %struct.rpcb_info, ptr %48, i64 %51
+  %52 = getelementptr [16 x i8], ptr %48, i64 %51
   %53 = load i32, ptr %52, align 16
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %55 = load ptr, ptr %54, align 8
@@ -884,7 +884,7 @@ define dso_local void @rpcb_getport_async(ptr noundef %0) #0 align 16 {
 126:                                              ; preds = %122, %118
   %127 = phi i64 [ 0, %118 ], [ %125, %122 ]
   %128 = or i32 %119, 256
-  %.split = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %127
+  %.split = getelementptr [112 x i8], ptr @kmalloc_caches, i64 %127
   %129 = getelementptr i8, ptr %.split, i64 48
   %130 = load ptr, ptr %129, align 16
   %131 = call noalias noundef align 8 dereferenceable_or_null(56) ptr @kmalloc_trace(ptr noundef %130, i32 noundef %128, i64 noundef 56) #12
@@ -1098,7 +1098,7 @@ define internal fastcc i32 @rpcb_create_af_local(ptr noundef %0, ptr noundef %1)
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 2536
   %38 = load volatile ptr, ptr %37, align 8
   %39 = zext i32 %36 to i64
-  %40 = getelementptr ptr, ptr %38, i64 %39
+  %40 = getelementptr [8 x i8], ptr %38, i64 %39
   %41 = load ptr, ptr %40, align 8
   call void @__rcu_read_unlock() #10
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 112

@@ -3,9 +3,6 @@ source_filename = "bench/ffmpeg/original/apv_entropy.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.APVSingleVLCLUTEntry = type { i16, i8, i8 }
-%struct.APVMultiVLCLUTEntry = type { i8, i8, [2 x i8], [2 x i16], [4 x i8] }
-
 @.str = private unnamed_addr constant [40 x i8] c"Out-of-range DC coefficient value: %d.\0A\00", align 1
 @.str.1 = private unnamed_addr constant [44 x i8] c"Out-of-range run value: %d leading zeroes.\0A\00", align 1
 @ff_zigzag_direct = external local_unnamed_addr constant [64 x i8], align 16
@@ -24,7 +21,7 @@ define void @ff_apv_entropy_build_decode_lut(ptr noundef captures(none) %0) loca
 
 .preheader319:                                    ; preds = %1, %16
   %indvars.iv334 = phi i64 [ 0, %1 ], [ %indvars.iv.next335, %16 ]
-  %4 = getelementptr inbounds nuw [512 x %struct.APVSingleVLCLUTEntry], ptr %0, i64 %indvars.iv334
+  %4 = getelementptr inbounds nuw [2048 x i8], ptr %0, i64 %indvars.iv334
   %5 = trunc nuw nsw i64 %indvars.iv334 to i32
   %6 = trunc i64 %indvars.iv334 to i8
   %7 = add nuw nsw i8 %6, 1
@@ -52,7 +49,7 @@ define void @ff_apv_entropy_build_decode_lut(ptr noundef captures(none) %0) loca
 
 17:                                               ; preds = %.preheader319, %54
   %indvars.iv = phi i64 [ 0, %.preheader319 ], [ %indvars.iv.next, %54 ]
-  %18 = getelementptr inbounds nuw %struct.APVSingleVLCLUTEntry, ptr %4, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   %.not181 = icmp samesign ult i64 %indvars.iv, 256
   %19 = trunc nuw nsw i64 %indvars.iv to i32
   br i1 %.not181, label %25, label %20
@@ -124,8 +121,8 @@ define void @ff_apv_entropy_build_decode_lut(ptr noundef captures(none) %0) loca
 
 .preheader317:                                    ; preds = %.preheader318, %63
   %indvars.iv353 = phi i64 [ 0, %.preheader318 ], [ %indvars.iv.next354, %63 ]
-  %56 = getelementptr inbounds nuw [5 x [512 x %struct.APVMultiVLCLUTEntry]], ptr %14, i64 %indvars.iv353
-  %57 = getelementptr inbounds nuw [5 x [512 x %struct.APVMultiVLCLUTEntry]], ptr %15, i64 %indvars.iv353
+  %56 = getelementptr inbounds nuw [30720 x i8], ptr %14, i64 %indvars.iv353
+  %57 = getelementptr inbounds nuw [30720 x i8], ptr %15, i64 %indvars.iv353
   %58 = trunc nuw nsw i64 %indvars.iv353 to i32
   br label %.preheader
 
@@ -134,8 +131,8 @@ define void @ff_apv_entropy_build_decode_lut(ptr noundef captures(none) %0) loca
 
 .preheader:                                       ; preds = %.preheader317, %64
   %indvars.iv349 = phi i64 [ 0, %.preheader317 ], [ %indvars.iv.next350, %64 ]
-  %60 = getelementptr inbounds nuw [512 x %struct.APVMultiVLCLUTEntry], ptr %56, i64 %indvars.iv349
-  %61 = getelementptr inbounds nuw [512 x %struct.APVMultiVLCLUTEntry], ptr %57, i64 %indvars.iv349
+  %60 = getelementptr inbounds nuw [6144 x i8], ptr %56, i64 %indvars.iv349
+  %61 = getelementptr inbounds nuw [6144 x i8], ptr %57, i64 %indvars.iv349
   %62 = trunc nuw nsw i64 %indvars.iv349 to i32
   br label %.lr.ph.i
 
@@ -184,7 +181,7 @@ flush_put_bits.exit:                              ; preds = %66
   %.sroa.6.0..sroa.6.0.copyload365 = load i8, ptr %.sroa.6, align 1
   store i8 %.sroa.6.0..sroa.6.0.copyload365, ptr %.sroa.6.0..sroa_idx364, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(14) %.sroa.7.0..sroa_idx366, ptr noundef nonnull align 2 dereferenceable(14) %.sroa.7, i64 14, i1 false)
-  %70 = getelementptr inbounds nuw %struct.APVMultiVLCLUTEntry, ptr %60, i64 %indvars.iv345
+  %70 = getelementptr inbounds nuw [12 x i8], ptr %60, i64 %indvars.iv345
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 2
   %72 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %73 = getelementptr inbounds nuw i8, ptr %70, i64 4
@@ -210,9 +207,9 @@ flush_put_bits.exit:                              ; preds = %66
   %85 = shl i32 %83, %84
   %86 = lshr i32 %85, 23
   %87 = sext i32 %.0162323 to i64
-  %88 = getelementptr inbounds [512 x %struct.APVSingleVLCLUTEntry], ptr %0, i64 %87
+  %88 = getelementptr inbounds [2048 x i8], ptr %0, i64 %87
   %89 = zext nneg i32 %86 to i64
-  %90 = getelementptr inbounds nuw %struct.APVSingleVLCLUTEntry, ptr %88, i64 %89
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %88, i64 %89
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 3
   %92 = load i8, ptr %91, align 1, !tbaa !13, !alias.scope !18, !noalias !21
   %.not.i = icmp eq i8 %92, 0
@@ -299,9 +296,9 @@ apv_read_vlc.exit:                                ; preds = %98, %112, %131
   %150 = shl i32 %148, %149
   %151 = lshr i32 %150, 23
   %152 = sext i32 %.0160324 to i64
-  %153 = getelementptr inbounds [512 x %struct.APVSingleVLCLUTEntry], ptr %0, i64 %152
+  %153 = getelementptr inbounds [2048 x i8], ptr %0, i64 %152
   %154 = zext nneg i32 %151 to i64
-  %155 = getelementptr inbounds nuw %struct.APVSingleVLCLUTEntry, ptr %153, i64 %154
+  %155 = getelementptr inbounds nuw [4 x i8], ptr %153, i64 %154
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 3
   %157 = load i8, ptr %156, align 1, !tbaa !13, !alias.scope !26, !noalias !29
   %.not.i185 = icmp eq i8 %157, 0
@@ -383,7 +380,7 @@ apv_read_vlc.exit193:                             ; preds = %163, %177, %196
   %212 = xor i32 %.1.i192, -1
   %213 = select i1 %.not, i32 %209, i32 %212
   %214 = trunc i32 %213 to i16
-  %215 = getelementptr inbounds nuw i16, ptr %73, i64 %indvars.iv339
+  %215 = getelementptr inbounds nuw [2 x i8], ptr %73, i64 %indvars.iv339
   store i16 %214, ptr %215, align 2, !tbaa !32
   %216 = trunc nuw nsw i32 %spec.select.i to i8
   %217 = zext i8 %141 to i64
@@ -431,7 +428,7 @@ apv_read_vlc.exit193:                             ; preds = %163, %177, %196
   %243 = shl i8 %242, 5
   %244 = or disjoint i8 %241, %243
   store i8 %244, ptr %74, align 1
-  %245 = getelementptr inbounds nuw %struct.APVMultiVLCLUTEntry, ptr %61, i64 %indvars.iv345
+  %245 = getelementptr inbounds nuw [12 x i8], ptr %61, i64 %indvars.iv345
   %246 = getelementptr inbounds nuw i8, ptr %245, i64 4
   %247 = getelementptr inbounds nuw i8, ptr %245, i64 8
   %248 = getelementptr inbounds nuw i8, ptr %245, i64 1
@@ -457,9 +454,9 @@ apv_read_vlc.exit193:                             ; preds = %163, %177, %196
   %260 = shl i32 %258, %259
   %261 = lshr i32 %260, 23
   %262 = sext i32 %.3328 to i64
-  %263 = getelementptr inbounds [512 x %struct.APVSingleVLCLUTEntry], ptr %0, i64 %262
+  %263 = getelementptr inbounds [2048 x i8], ptr %0, i64 %262
   %264 = zext nneg i32 %261 to i64
-  %265 = getelementptr inbounds nuw %struct.APVSingleVLCLUTEntry, ptr %263, i64 %264
+  %265 = getelementptr inbounds nuw [4 x i8], ptr %263, i64 %264
   %266 = getelementptr inbounds nuw i8, ptr %265, i64 3
   %267 = load i8, ptr %266, align 1, !tbaa !13, !alias.scope !34, !noalias !37
   %.not.i194 = icmp eq i8 %267, 0
@@ -541,7 +538,7 @@ apv_read_vlc.exit202:                             ; preds = %273, %287, %306
   %322 = xor i32 %.1.i201, -1
   %323 = select i1 %.not179, i32 %319, i32 %322
   %324 = trunc i32 %323 to i16
-  %325 = getelementptr inbounds nuw i16, ptr %246, i64 %indvars.iv342
+  %325 = getelementptr inbounds nuw [2 x i8], ptr %246, i64 %indvars.iv342
   store i16 %324, ptr %325, align 2, !tbaa !32
   %326 = trunc nuw nsw i32 %spec.select.i231 to i8
   %327 = zext i8 %252 to i64
@@ -574,9 +571,9 @@ apv_read_vlc.exit202:                             ; preds = %273, %287, %306
   %346 = shl i32 %344, %345
   %347 = lshr i32 %346, 23
   %348 = sext i32 %.3165327 to i64
-  %349 = getelementptr inbounds [512 x %struct.APVSingleVLCLUTEntry], ptr %0, i64 %348
+  %349 = getelementptr inbounds [2048 x i8], ptr %0, i64 %348
   %350 = zext nneg i32 %347 to i64
-  %351 = getelementptr inbounds nuw %struct.APVSingleVLCLUTEntry, ptr %349, i64 %350
+  %351 = getelementptr inbounds nuw [4 x i8], ptr %349, i64 %350
   %352 = getelementptr inbounds nuw i8, ptr %351, i64 3
   %353 = load i8, ptr %352, align 1, !tbaa !13, !alias.scope !40, !noalias !43
   %.not.i203 = icmp eq i8 %353, 0
@@ -719,9 +716,9 @@ define range(i32 -1094995529, 1) i32 @ff_apv_entropy_decode_block(ptr noalias no
   %16 = shl i32 %14, %15
   %17 = lshr i32 %16, 23
   %18 = zext i8 %7 to i64
-  %19 = getelementptr inbounds nuw [512 x %struct.APVSingleVLCLUTEntry], ptr %5, i64 %18
+  %19 = getelementptr inbounds nuw [2048 x i8], ptr %5, i64 %18
   %20 = zext nneg i32 %17 to i64
-  %21 = getelementptr inbounds nuw %struct.APVSingleVLCLUTEntry, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 3
   %23 = load i8, ptr %22, align 1, !tbaa !13, !alias.scope !53, !noalias !61
   %.not.i397 = icmp eq i8 %23, 0
@@ -865,9 +862,9 @@ apv_read_vlc.exit.thread:                         ; preds = %apv_read_vlc.exit.a
   %107 = lshr i32 %106, 23
   %108 = getelementptr inbounds nuw i8, ptr %5, i64 12288
   %109 = zext i8 %98 to i64
-  %110 = getelementptr inbounds nuw [512 x %struct.APVMultiVLCLUTEntry], ptr %108, i64 %109
+  %110 = getelementptr inbounds nuw [6144 x i8], ptr %108, i64 %109
   %111 = zext nneg i32 %107 to i64
-  %112 = getelementptr inbounds nuw %struct.APVMultiVLCLUTEntry, ptr %110, i64 %111
+  %112 = getelementptr inbounds nuw [12 x i8], ptr %110, i64 %111
   %113 = load i8, ptr %112, align 2, !tbaa !24
   %114 = icmp eq i8 %113, 0
   br i1 %114, label %115, label %141
@@ -944,7 +941,7 @@ apv_read_vlc.exit.thread:                         ; preds = %apv_read_vlc.exit.a
   %154 = getelementptr inbounds nuw i8, ptr @ff_zigzag_direct, i64 %153
   %155 = load i8, ptr %154, align 1, !tbaa !12
   %156 = zext i8 %155 to i64
-  %157 = getelementptr inbounds nuw i16, ptr %0, i64 %156
+  %157 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %156
   store i16 %152, ptr %157, align 2, !tbaa !32
   %158 = add nuw nsw i32 %144, 2
   %159 = getelementptr inbounds nuw i8, ptr %112, i64 1
@@ -991,7 +988,7 @@ apv_read_vlc.exit.thread:                         ; preds = %apv_read_vlc.exit.a
   %185 = getelementptr inbounds nuw i8, ptr @ff_zigzag_direct, i64 %184
   %186 = load i8, ptr %185, align 1, !tbaa !12
   %187 = zext i8 %186 to i64
-  %188 = getelementptr inbounds nuw i16, ptr %0, i64 %187
+  %188 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %187
   store i16 %183, ptr %188, align 2, !tbaa !32
   %189 = add nuw nsw i32 %176, 1
   %190 = icmp eq i32 %176, 63
@@ -1041,11 +1038,11 @@ apv_read_vlc.exit.thread:                         ; preds = %apv_read_vlc.exit.a
   %217 = lshr i32 %216, 23
   %218 = getelementptr inbounds nuw i8, ptr %5, i64 104448
   %219 = zext nneg i32 %.1305 to i64
-  %220 = getelementptr inbounds nuw [5 x [512 x %struct.APVMultiVLCLUTEntry]], ptr %218, i64 %219
+  %220 = getelementptr inbounds nuw [30720 x i8], ptr %218, i64 %219
   %221 = zext nneg i32 %.0309 to i64
-  %222 = getelementptr inbounds nuw [512 x %struct.APVMultiVLCLUTEntry], ptr %220, i64 %221
+  %222 = getelementptr inbounds nuw [6144 x i8], ptr %220, i64 %221
   %223 = zext nneg i32 %217 to i64
-  %224 = getelementptr inbounds nuw %struct.APVMultiVLCLUTEntry, ptr %222, i64 %223
+  %224 = getelementptr inbounds nuw [12 x i8], ptr %222, i64 %223
   %225 = load i8, ptr %224, align 2, !tbaa !24
   %226 = icmp eq i8 %225, 0
   br i1 %226, label %227, label %281
@@ -1114,7 +1111,7 @@ apv_read_vlc.exit.thread:                         ; preds = %apv_read_vlc.exit.a
   %272 = getelementptr inbounds nuw i8, ptr @ff_zigzag_direct, i64 %271
   %273 = load i8, ptr %272, align 1, !tbaa !12
   %274 = zext i8 %273 to i64
-  %275 = getelementptr inbounds nuw i16, ptr %0, i64 %274
+  %275 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %274
   store i16 %270, ptr %275, align 2, !tbaa !32
   %276 = add nuw nsw i32 %.1295, 1
   %277 = ashr i32 %256, 2
@@ -1131,7 +1128,7 @@ apv_read_vlc.exit.thread:                         ; preds = %apv_read_vlc.exit.a
   %285 = getelementptr inbounds nuw i8, ptr @ff_zigzag_direct, i64 %284
   %286 = load i8, ptr %285, align 1, !tbaa !12
   %287 = zext i8 %286 to i64
-  %288 = getelementptr inbounds nuw i16, ptr %0, i64 %287
+  %288 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %287
   store i16 %283, ptr %288, align 2, !tbaa !32
   %289 = add nuw nsw i32 %.1295, 1
   %290 = getelementptr inbounds nuw i8, ptr %224, i64 1
@@ -1173,7 +1170,7 @@ apv_read_vlc.exit.thread:                         ; preds = %apv_read_vlc.exit.a
   %312 = getelementptr inbounds nuw i8, ptr @ff_zigzag_direct, i64 %311
   %313 = load i8, ptr %312, align 1, !tbaa !12
   %314 = zext i8 %313 to i64
-  %315 = getelementptr inbounds nuw i16, ptr %0, i64 %314
+  %315 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %314
   store i16 %310, ptr %315, align 2, !tbaa !32
   %316 = add nuw nsw i32 %302, 1
   %317 = icmp eq i32 %302, 63
@@ -1241,11 +1238,11 @@ apv_read_vlc.exit.thread:                         ; preds = %apv_read_vlc.exit.a
   %350 = shl i32 %348, %349
   %351 = lshr i32 %350, 23
   %352 = sext i32 %.3307 to i64
-  %353 = getelementptr inbounds [5 x [512 x %struct.APVMultiVLCLUTEntry]], ptr %108, i64 %352
+  %353 = getelementptr inbounds [30720 x i8], ptr %108, i64 %352
   %354 = sext i32 %.2311 to i64
-  %355 = getelementptr inbounds [512 x %struct.APVMultiVLCLUTEntry], ptr %353, i64 %354
+  %355 = getelementptr inbounds [6144 x i8], ptr %353, i64 %354
   %356 = zext nneg i32 %351 to i64
-  %357 = getelementptr inbounds nuw %struct.APVMultiVLCLUTEntry, ptr %355, i64 %356
+  %357 = getelementptr inbounds nuw [12 x i8], ptr %355, i64 %356
   %358 = load i8, ptr %357, align 2, !tbaa !24
   %359 = icmp eq i8 %358, 0
   br i1 %359, label %360, label %392
@@ -1324,7 +1321,7 @@ apv_read_vlc.exit.thread:                         ; preds = %apv_read_vlc.exit.a
   %405 = getelementptr inbounds i8, ptr @ff_zigzag_direct, i64 %404
   %406 = load i8, ptr %405, align 1, !tbaa !12
   %407 = zext i8 %406 to i64
-  %408 = getelementptr inbounds nuw i16, ptr %0, i64 %407
+  %408 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %407
   store i16 %403, ptr %408, align 2, !tbaa !32
   %409 = add nsw i32 %396, 1
   %410 = icmp eq i32 %396, 63
@@ -1366,7 +1363,7 @@ apv_read_vlc.exit.thread:                         ; preds = %apv_read_vlc.exit.a
   %432 = getelementptr inbounds i8, ptr @ff_zigzag_direct, i64 %431
   %433 = load i8, ptr %432, align 1, !tbaa !12
   %434 = zext i8 %433 to i64
-  %435 = getelementptr inbounds nuw i16, ptr %0, i64 %434
+  %435 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %434
   store i16 %430, ptr %435, align 2, !tbaa !32
   %436 = add nsw i32 %423, 1
   %437 = icmp eq i32 %423, 63
@@ -1421,11 +1418,11 @@ apv_read_vlc.exit.thread:                         ; preds = %apv_read_vlc.exit.a
   %465 = shl i32 %463, %464
   %466 = lshr i32 %465, 23
   %467 = sext i32 %.2306 to i64
-  %468 = getelementptr inbounds [5 x [512 x %struct.APVMultiVLCLUTEntry]], ptr %456, i64 %467
+  %468 = getelementptr inbounds [30720 x i8], ptr %456, i64 %467
   %469 = sext i32 %.1310 to i64
-  %470 = getelementptr inbounds [512 x %struct.APVMultiVLCLUTEntry], ptr %468, i64 %469
+  %470 = getelementptr inbounds [6144 x i8], ptr %468, i64 %469
   %471 = zext nneg i32 %466 to i64
-  %472 = getelementptr inbounds nuw %struct.APVMultiVLCLUTEntry, ptr %470, i64 %471
+  %472 = getelementptr inbounds nuw [12 x i8], ptr %470, i64 %471
   %473 = load i8, ptr %472, align 2, !tbaa !24
   %474 = icmp eq i8 %473, 0
   br i1 %474, label %475, label %528
@@ -1494,7 +1491,7 @@ apv_read_vlc.exit.thread:                         ; preds = %apv_read_vlc.exit.a
   %520 = getelementptr inbounds i8, ptr @ff_zigzag_direct, i64 %519
   %521 = load i8, ptr %520, align 1, !tbaa !12
   %522 = zext i8 %521 to i64
-  %523 = getelementptr inbounds nuw i16, ptr %0, i64 %522
+  %523 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %522
   store i16 %518, ptr %523, align 2, !tbaa !32
   %524 = add nsw i32 %.6300, 1
   %525 = ashr i32 %504, 2
@@ -1509,7 +1506,7 @@ apv_read_vlc.exit.thread:                         ; preds = %apv_read_vlc.exit.a
   %532 = getelementptr inbounds i8, ptr @ff_zigzag_direct, i64 %531
   %533 = load i8, ptr %532, align 1, !tbaa !12
   %534 = zext i8 %533 to i64
-  %535 = getelementptr inbounds nuw i16, ptr %0, i64 %534
+  %535 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %534
   store i16 %530, ptr %535, align 2, !tbaa !32
   %536 = add nsw i32 %.6300, 1
   %537 = icmp sgt i32 %.6300, 62
@@ -1546,7 +1543,7 @@ apv_read_vlc.exit.thread:                         ; preds = %apv_read_vlc.exit.a
   %555 = getelementptr inbounds i8, ptr @ff_zigzag_direct, i64 %554
   %556 = load i8, ptr %555, align 1, !tbaa !12
   %557 = zext i8 %556 to i64
-  %558 = getelementptr inbounds nuw i16, ptr %0, i64 %557
+  %558 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %557
   store i16 %553, ptr %558, align 2, !tbaa !32
   %559 = add nsw i32 %545, 1
   %560 = icmp eq i32 %545, 63

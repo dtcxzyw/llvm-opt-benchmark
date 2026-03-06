@@ -326,9 +326,9 @@ define internal fastcc range(i32 -1094995529, 1) i32 @codec2_read_header_common(
 
 19:                                               ; preds = %2
   %20 = zext nneg i8 %.val to i64
-  %21 = getelementptr inbounds nuw i32, ptr @__const.codec2_mode_block_align.block_align_table, i64 %20
+  %21 = getelementptr inbounds nuw [4 x i8], ptr @__const.codec2_mode_block_align.block_align_table, i64 %20
   %22 = load i32, ptr %21, align 4, !tbaa !57
-  %23 = getelementptr inbounds nuw i32, ptr @__const.codec2_mode_frame_size.frame_size_table, i64 %20
+  %23 = getelementptr inbounds nuw [4 x i8], ptr @__const.codec2_mode_frame_size.frame_size_table, i64 %20
   %24 = load i32, ptr %23, align 4, !tbaa !57
   %25 = mul nuw nsw i32 %22, 64000
   %26 = udiv i32 %25, %24

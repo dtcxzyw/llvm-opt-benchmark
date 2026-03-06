@@ -18,7 +18,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon = type { ptr }
 %struct.ProcPeerCertArgs = type { ptr, ptr, ptr, i32, i32, i32, i32, i32, i32, i8, i8 }
 %struct.WOLFSSL_BUFFER_INFO = type { ptr, i32 }
-%struct.CipherSuiteInfo = type { ptr, ptr, i8, i8, i8 }
 %struct.ecc_key = type { i32, i32, i32, i32, ptr, ptr, %struct.ecc_point, [1 x %struct.sp_int], ptr }
 %struct.ecc_point = type { [1 x %struct.sp_int], [1 x %struct.sp_int], [1 x %struct.sp_int], i8 }
 %struct.sp_int = type { i16, i16, [129 x i64] }
@@ -28,7 +27,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
 %struct.DhKey = type { %struct.sp_int, %struct.sp_int, %struct.sp_int, ptr, i32 }
-%struct.iovec = type { ptr, i64 }
 %struct.Suites = type { i16, i16, [300 x i8], [38 x i8], i8 }
 
 @.str = private unnamed_addr constant [3 x i8] c"rb\00", align 1
@@ -1068,7 +1066,7 @@ HashObject.exit:                                  ; preds = %14
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %35 = urem i32 %34, 11
   %36 = zext nneg i32 %35 to i64
-  %37 = getelementptr inbounds nuw %struct.SessionRow, ptr @SessionCache, i64 %36
+  %37 = getelementptr inbounds nuw [704 x i8], ptr @SessionCache, i64 %36
   %38 = call i32 @wc_LockRwLock_Wr(ptr noundef nonnull @session_lock) #22
   %.not60 = icmp eq i32 %38, 0
   br i1 %.not60, label %.preheader, label %112
@@ -1087,7 +1085,7 @@ HashObject.exit:                                  ; preds = %14
   br i1 %exitcond.not, label %56, label %43
 
 43:                                               ; preds = %42
-  %44 = getelementptr inbounds nuw %struct.WOLFSSL_SESSION, ptr %41, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [232 x i8], ptr %41, i64 %indvars.iv
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 116
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %2, ptr noundef nonnull dereferenceable(32) %45, i64 32)
   %46 = icmp eq i32 %bcmp, 0
@@ -1108,13 +1106,13 @@ HashObject.exit:                                  ; preds = %14
 .critedge:                                        ; preds = %47
   %53 = trunc nuw nsw i64 %indvars.iv to i32
   %54 = and i64 %indvars.iv, 4294967295
-  %55 = getelementptr inbounds nuw %struct.WOLFSSL_SESSION, ptr %41, i64 %54
+  %55 = getelementptr inbounds nuw [232 x i8], ptr %41, i64 %54
   br label %74
 
 56:                                               ; preds = %42, %52
   %57 = load i32, ptr %37, align 16, !tbaa !83
   %58 = zext i32 %57 to i64
-  %59 = getelementptr inbounds nuw %struct.WOLFSSL_SESSION, ptr %41, i64 %58
+  %59 = getelementptr inbounds nuw [232 x i8], ptr %41, i64 %58
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 149
   %61 = ptrtoint ptr %60 to i64
   %62 = trunc i64 %61 to i32
@@ -1650,7 +1648,7 @@ HashObject.exit:                                  ; preds = %14
   %37 = or disjoint i32 %35, %36
   %38 = urem i32 %37, 88
   %39 = zext nneg i32 %38 to i64
-  %40 = getelementptr inbounds nuw %struct.ClientRow, ptr @ClientCache, i64 %39
+  %40 = getelementptr inbounds nuw [200 x i8], ptr @ClientCache, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 4
   %42 = load i32, ptr %41, align 4, !tbaa !97
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 8
@@ -1671,7 +1669,7 @@ HashObject.exit:                                  ; preds = %14
   %.03343 = phi i32 [ %44, %.lr.ph ], [ %81, %76 ]
   %.03442 = phi i32 [ %spec.store.select, %.lr.ph ], [ %80, %76 ]
   %50 = sext i32 %.03442 to i64
-  %51 = getelementptr inbounds %struct.ClientSession, ptr %43, i64 %50
+  %51 = getelementptr inbounds [8 x i8], ptr %43, i64 %50
   %52 = load i16, ptr %51, align 8, !tbaa !100
   %53 = icmp ugt i16 %52, 10
   br i1 %53, label %.thread, label %54
@@ -1683,12 +1681,12 @@ HashObject.exit:                                  ; preds = %14
 
 56:                                               ; preds = %54
   %57 = zext nneg i16 %52 to i64
-  %58 = getelementptr inbounds nuw %struct.SessionRow, ptr @SessionCache, i64 %57
+  %58 = getelementptr inbounds nuw [704 x i8], ptr @SessionCache, i64 %57
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %60 = getelementptr inbounds nuw i8, ptr %51, i64 2
   %61 = load i16, ptr %60, align 2, !tbaa !102
   %62 = zext i16 %61 to i64
-  %63 = getelementptr inbounds nuw %struct.WOLFSSL_SESSION, ptr %59, i64 %62
+  %63 = getelementptr inbounds nuw [232 x i8], ptr %59, i64 %62
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 204
   %bcmp = call i32 @bcmp(ptr nonnull %64, ptr %1, i64 %48)
   %65 = icmp eq i32 %bcmp, 0
@@ -1774,13 +1772,13 @@ define void @wolfSSL_CTX_flush_sessions(ptr noundef readnone captures(none) %0, 
   br i1 %.not, label %.preheader, label %37
 
 .preheader:                                       ; preds = %4
-  %6 = getelementptr inbounds nuw %struct.SessionRow, ptr @SessionCache, i64 %indvars.iv19
+  %6 = getelementptr inbounds nuw [704 x i8], ptr @SessionCache, i64 %indvars.iv19
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br label %8
 
 8:                                                ; preds = %.preheader, %34
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %34 ]
-  %9 = getelementptr inbounds nuw %struct.WOLFSSL_SESSION, ptr %7, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [232 x i8], ptr %7, i64 %indvars.iv
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 148
   %11 = load i8, ptr %10, align 4, !tbaa !77
   %.not11 = icmp eq i8 %11, 0
@@ -1979,7 +1977,7 @@ HashObject.exit:                                  ; preds = %5
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %27 = urem i32 %26, 11
   %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr inbounds nuw %struct.SessionRow, ptr @SessionCache, i64 %28
+  %29 = getelementptr inbounds nuw [704 x i8], ptr @SessionCache, i64 %28
   %.not29 = icmp eq i8 %3, 0
   br i1 %.not29, label %32, label %30
 
@@ -2016,7 +2014,7 @@ HashObject.exit:                                  ; preds = %5
   %.032 = phi i32 [ %spec.store.select, %.lr.ph ], [ %59, %56 ]
   %.02631 = phi i32 [ %38, %.lr.ph ], [ %60, %56 ]
   %44 = sext i32 %.032 to i64
-  %45 = getelementptr inbounds %struct.WOLFSSL_SESSION, ptr %42, i64 %44
+  %45 = getelementptr inbounds [232 x i8], ptr %42, i64 %44
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 148
   %47 = load i8, ptr %46, align 4, !tbaa !77
   %48 = icmp eq i8 %47, 32
@@ -2354,12 +2352,12 @@ define ptr @ClientSessionToSession(ptr noundef readonly captures(address, ret: a
 
 19:                                               ; preds = %16
   %20 = zext nneg i16 %10 to i64
-  %21 = getelementptr inbounds nuw %struct.SessionRow, ptr @SessionCache, i64 %20
+  %21 = getelementptr inbounds nuw [704 x i8], ptr @SessionCache, i64 %20
   %22 = load i16, ptr %13, align 2, !tbaa !102
   fence seq_cst
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %24 = zext i16 %22 to i64
-  %25 = getelementptr inbounds nuw %struct.WOLFSSL_SESSION, ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw [232 x i8], ptr %23, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 148
   %27 = load i8, ptr %26, align 4, !tbaa !77
   %28 = icmp eq i8 %27, 0
@@ -2655,7 +2653,7 @@ HashObject.exit38:                                ; preds = %42, %45
 
 70:                                               ; preds = %67
   %71 = zext nneg i32 %.0.ph to i64
-  %72 = getelementptr inbounds nuw %struct.ClientRow, ptr @ClientCache, i64 %71
+  %72 = getelementptr inbounds nuw [200 x i8], ptr @ClientCache, i64 %71
   %73 = load i32, ptr %72, align 8, !tbaa !99
   %74 = icmp ult i32 %73, 24
   br i1 %74, label %75, label %.thread42.sink.split
@@ -2664,7 +2662,7 @@ HashObject.exit38:                                ; preds = %42, %45
   %76 = trunc i32 %1 to i16
   %77 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %78 = zext nneg i32 %73 to i64
-  %79 = getelementptr inbounds nuw %struct.ClientSession, ptr %77, i64 %78
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %78
   store i16 %76, ptr %79, align 8, !tbaa !100
   %80 = trunc i32 %2 to i16
   %81 = getelementptr inbounds nuw i8, ptr %79, i64 2
@@ -3410,7 +3408,7 @@ define ptr @wolfSSL_get_cipher_list(i32 noundef %0) local_unnamed_addr #0 {
 
 6:                                                ; preds = %1
   %7 = zext nneg i32 %0 to i64
-  %8 = getelementptr inbounds nuw %struct.CipherSuiteInfo, ptr %2, i64 %7
+  %8 = getelementptr inbounds nuw [24 x i8], ptr %2, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !121
   br label %10
 
@@ -3448,7 +3446,7 @@ define ptr @wolfSSL_get_cipher_list_ex(ptr noundef %0, i32 noundef %1) local_unn
 
 13:                                               ; preds = %8
   %14 = zext nneg i32 %1 to i64
-  %15 = getelementptr inbounds nuw %struct.CipherSuiteInfo, ptr %9, i64 %14
+  %15 = getelementptr inbounds nuw [24 x i8], ptr %9, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !121
   br label %wolfSSL_get_cipher_list.exit
 
@@ -3482,7 +3480,7 @@ define range(i32 -173, 2) i32 @wolfSSL_get_ciphers(ptr noundef %0, i32 noundef %
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
   %.02535 = phi ptr [ %0, %.lr.ph ], [ %.126, %25 ]
   %.02834 = phi i32 [ %1, %.lr.ph ], [ %26, %25 ]
-  %11 = getelementptr inbounds nuw %struct.CipherSuiteInfo, ptr %3, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %3, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !121
   %13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #23
   %14 = trunc i64 %13 to i32
@@ -3546,7 +3544,7 @@ define range(i32 -173, 2) i32 @wolfSSL_get_ciphers_iana(ptr noundef %0, i32 noun
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %32 ]
   %.02533 = phi ptr [ %0, %.lr.ph ], [ %.1, %32 ]
   %.02632 = phi i32 [ %1, %.lr.ph ], [ %.127, %32 ]
-  %11 = getelementptr inbounds nuw %struct.CipherSuiteInfo, ptr %3, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %3, i64 %indvars.iv
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 18
   %13 = load i8, ptr %12, align 2, !tbaa !124
   %14 = and i8 %13, 1
@@ -6230,7 +6228,7 @@ define range(i32 0, 2) i32 @AlreadySigner(ptr noundef %0, ptr noundef readonly c
   %25 = or disjoint i32 %23, %24
   %26 = urem i32 %25, 11
   %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr inbounds nuw ptr, ptr %0, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %27
   %.01827 = load ptr, ptr %28, align 8, !tbaa !177
   %.not2328 = icmp eq ptr %.01827, null
   br i1 %.not2328, label %.thread, label %.lr.ph
@@ -6291,7 +6289,7 @@ define ptr @GetCA(ptr noundef %0, ptr noundef readonly captures(address_is_null)
   %25 = or disjoint i32 %23, %24
   %26 = urem i32 %25, 11
   %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr inbounds nuw ptr, ptr %0, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %27
   %.01928 = load ptr, ptr %28, align 8, !tbaa !177
   %.not2429 = icmp eq ptr %.01928, null
   br i1 %.not2429, label %.thread, label %.lr.ph
@@ -6332,7 +6330,7 @@ define ptr @GetCAByName(ptr noundef %0, ptr noundef readonly captures(none) %1) 
 
 .preheader:                                       ; preds = %4, %._crit_edge
   %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge ], [ 0, %4 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %.01721 = load ptr, ptr %7, align 8, !tbaa !177
   %.not24 = icmp eq ptr %.01721, null
   br i1 %.not24, label %._crit_edge, label %.lr.ph
@@ -6401,7 +6399,7 @@ define range(i32 -173, 1) i32 @AddSigner(ptr noundef %0, ptr noundef %1) local_u
   %26 = or disjoint i32 %24, %25
   %27 = urem i32 %26, 11
   %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %0, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %28
   %.01827.i = load ptr, ptr %29, align 8, !tbaa !177
   %.not2328.i = icmp eq ptr %.01827.i, null
   br i1 %.not2328.i, label %AlreadySigner.exit.thread23, label %.lr.ph.i
@@ -6452,7 +6450,7 @@ AlreadySigner.exit.thread:                        ; preds = %5, %AlreadySigner.e
   %54 = or disjoint i32 %52, %53
   %55 = urem i32 %54, 11
   %56 = zext nneg i32 %55 to i64
-  %57 = getelementptr inbounds nuw ptr, ptr %0, i64 %56
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %56
   %58 = load ptr, ptr %57, align 8, !tbaa !177
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store ptr %58, ptr %59, align 8, !tbaa !181
@@ -6575,7 +6573,7 @@ define range(i32 1, 0) i32 @AddCA(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %72 = or disjoint i32 %70, %71
   %73 = urem i32 %72, 11
   %74 = zext nneg i32 %73 to i64
-  %75 = getelementptr inbounds nuw ptr, ptr %0, i64 %74
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %74
   %.01827.i = load ptr, ptr %75, align 8, !tbaa !177
   %.not2328.i = icmp eq ptr %.01827.i, null
   br i1 %.not2328.i, label %AlreadySigner.exit.thread95, label %.lr.ph.i
@@ -6638,7 +6636,7 @@ AlreadySigner.exit:                               ; preds = %.lr.ph.i
 
 109:                                              ; preds = %106
   %110 = zext nneg i32 %104 to i64
-  %111 = getelementptr inbounds nuw ptr, ptr %0, i64 %110
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %110
   %112 = load ptr, ptr %111, align 8, !tbaa !177
   %113 = getelementptr inbounds nuw i8, ptr %83, i64 104
   store ptr %112, ptr %113, align 8, !tbaa !181
@@ -6735,13 +6733,13 @@ define range(i32 -241, 2) i32 @wolfSSL_Cleanup() local_unnamed_addr #0 {
 
 .preheader:                                       ; preds = %14, %33
   %indvars.iv31 = phi i64 [ 0, %14 ], [ %indvars.iv.next32, %33 ]
-  %15 = getelementptr inbounds nuw %struct.SessionRow, ptr @SessionCache, i64 %indvars.iv31
+  %15 = getelementptr inbounds nuw [704 x i8], ptr @SessionCache, i64 %indvars.iv31
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   br label %17
 
 17:                                               ; preds = %.preheader, %EvictSessionFromCache.exit
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %EvictSessionFromCache.exit ]
-  %18 = getelementptr inbounds nuw %struct.WOLFSSL_SESSION, ptr %16, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [232 x i8], ptr %16, i64 %indvars.iv
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 149
   %20 = ptrtoint ptr %19 to i64
   %21 = trunc i64 %20 to i32
@@ -8341,7 +8339,7 @@ define range(i32 -461, 2) i32 @wolfSSL_CTX_load_system_CA_certs(ptr noundef %0) 
 
 .lr.ph.split.i:                                   ; preds = %1, %3
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %3 ], [ 0, %1 ]
-  %4 = getelementptr inbounds nuw ptr, ptr @systemCaDirs, i64 %indvars.iv.i
+  %4 = getelementptr inbounds nuw [8 x i8], ptr @systemCaDirs, i64 %indvars.iv.i
   %5 = load ptr, ptr %4, align 8, !tbaa !218
   %6 = tail call i32 @wolfSSL_CTX_load_verify_locations_ex(ptr noundef nonnull %0, ptr noundef null, ptr noundef %5, i32 noundef 1)
   %.not.i.not = icmp eq i32 %6, 1
@@ -10519,7 +10517,7 @@ define range(i32 -303, -2147483648) i32 @wolfSSL_writev(ptr noundef %0, ptr noun
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.03238 = phi i32 [ 0, %.lr.ph.preheader ], [ %10, %.lr.ph ]
-  %6 = getelementptr inbounds nuw %struct.iovec, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %indvars.iv
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load i64, ptr %7, align 8, !tbaa !239
   %9 = trunc i64 %8 to i32
@@ -10548,7 +10546,7 @@ define range(i32 -303, -2147483648) i32 @wolfSSL_writev(ptr noundef %0, ptr noun
   %.03140 = phi i32 [ 0, %.lr.ph43.preheader ], [ %23, %.lr.ph43 ]
   %15 = sext i32 %.03140 to i64
   %16 = getelementptr inbounds i8, ptr %.029.ph, i64 %15
-  %17 = getelementptr inbounds nuw %struct.iovec, ptr %1, i64 %indvars.iv46
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %indvars.iv46
   %18 = load ptr, ptr %17, align 8, !tbaa !242
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %20 = load i64, ptr %19, align 8, !tbaa !239
@@ -10897,7 +10895,7 @@ define noundef nonnull ptr @wolfSSL_get_version(ptr noundef readonly captures(ad
 
 switch.lookup:                                    ; preds = %7
   %11 = zext nneg i8 %9 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.wolfSSL_CIPHER_get_version, i64 %11
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.wolfSSL_CIPHER_get_version, i64 %11
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %wolfSSL_internal_get_version.exit
 
@@ -11000,7 +10998,7 @@ define noundef ptr @wolfSSL_CIPHER_get_version(ptr noundef readonly captures(add
 
 switch.lookup:                                    ; preds = %11
   %15 = zext nneg i8 %13 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.wolfSSL_CIPHER_get_version, i64 %15
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.wolfSSL_CIPHER_get_version, i64 %15
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %wolfSSL_get_version.exit
 
@@ -11130,7 +11128,7 @@ wolfssl_ffdhe_name.exit:                          ; preds = %3
 
 switch.lookup:                                    ; preds = %3
   %12 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.wolfSSL_get_curve_name, i64 %12
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.wolfSSL_get_curve_name, i64 %12
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %wolfssl_ffdhe_name.exit.thread
 
@@ -11502,7 +11500,7 @@ switch.lookup:                                    ; preds = %4
 switch.lookup5:                                   ; preds = %8
   %switch.tableidx = add i8 %10, 4
   %12 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.wolfSSL_version, i64 %12
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.wolfSSL_version, i64 %12
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %13
 

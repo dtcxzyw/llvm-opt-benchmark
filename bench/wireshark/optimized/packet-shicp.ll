@@ -500,10 +500,10 @@ define internal i32 @dissect_shicp(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 switch.lookup:                                    ; preds = %.lr.ph
   %158 = zext nneg i8 %152 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_shicp, i64 %158
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_shicp, i64 %158
   %switch.load = load ptr, ptr %switch.gep, align 8
   %159 = zext nneg i8 %152 to i64
-  %switch.gep245 = getelementptr inbounds nuw i32, ptr @switch.table.dissect_shicp.1, i64 %159
+  %switch.gep245 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_shicp.1, i64 %159
   %switch.load246 = load i32, ptr %switch.gep245, align 4
   %160 = load i32, ptr %switch.load, align 4
   %161 = call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %160, ptr noundef %0, i32 noundef %156, i32 noundef %155, i32 noundef %switch.load246)

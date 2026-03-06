@@ -285,7 +285,7 @@ _ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.i: ; preds = %145
           to label %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit.i unwind label %.loopexit.split-lp990.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit.i: ; preds = %_ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.i
-  %148 = getelementptr inbounds nuw float, ptr %147, i64 %142
+  %148 = getelementptr inbounds nuw [4 x i8], ptr %147, i64 %142
   br label %_ZNSt6vectorIfSaIfEE7reserveEm.exit
 
 _ZNSt6vectorIfSaIfEE7reserveEm.exit:              ; preds = %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit.i, %145
@@ -401,7 +401,7 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i.i.i: ; preds = %186, %
   br label %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i.i
 
 _ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i.i: ; preds = %187, %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i.i.i
-  %188 = getelementptr inbounds nuw float, ptr %183, i64 %181
+  %188 = getelementptr inbounds nuw [4 x i8], ptr %183, i64 %181
   br label %_ZNSt6vectorIfSaIfEE9push_backEOf.exit.i
 
 _ZNSt6vectorIfSaIfEE9push_backEOf.exit.i:         ; preds = %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i.i, %170
@@ -480,7 +480,7 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i.i60.i: ; preds = %211,
   br label %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i62.i
 
 _ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i62.i: ; preds = %212, %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i.i60.i
-  %213 = getelementptr inbounds nuw float, ptr %208, i64 %206
+  %213 = getelementptr inbounds nuw [4 x i8], ptr %208, i64 %206
   br label %_ZNSt6vectorIfSaIfEE9push_backEOf.exit63.i
 
 _ZNSt6vectorIfSaIfEE9push_backEOf.exit63.i:       ; preds = %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i62.i, %195
@@ -565,7 +565,7 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i.i68.i: ; preds = %240,
   br label %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i70.i
 
 _ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i70.i: ; preds = %242, %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i.i68.i
-  %243 = getelementptr inbounds nuw float, ptr %237, i64 %235
+  %243 = getelementptr inbounds nuw [4 x i8], ptr %237, i64 %235
   br label %_ZNSt6vectorIfSaIfEE9push_backEOf.exit71.i
 
 .lr.ph126.i:                                      ; preds = %215, %_ZNSt6vectorIfSaIfEE9push_backEOf.exit79.i
@@ -634,7 +634,7 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i.i76.i: ; preds = %264,
   br label %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i78.i
 
 _ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i78.i: ; preds = %265, %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i.i76.i
-  %266 = getelementptr inbounds nuw float, ptr %261, i64 %259
+  %266 = getelementptr inbounds nuw [4 x i8], ptr %261, i64 %259
   br label %_ZNSt6vectorIfSaIfEE9push_backEOf.exit79.i
 
 _ZNSt6vectorIfSaIfEE9push_backEOf.exit79.i:       ; preds = %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i78.i, %248
@@ -712,7 +712,7 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i.i84.i: ; preds = %288,
   br label %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i86.i
 
 _ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i86.i: ; preds = %289, %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i.i84.i
-  %290 = getelementptr inbounds nuw float, ptr %285, i64 %283
+  %290 = getelementptr inbounds nuw [4 x i8], ptr %285, i64 %283
   br label %_ZNSt6vectorIfSaIfEE9push_backEOf.exit87.i
 
 _ZNSt6vectorIfSaIfEE9push_backEOf.exit87.i:       ; preds = %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i86.i, %272
@@ -806,7 +806,7 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i.i92.i: ; preds = %319,
   br label %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i94.i
 
 _ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i94.i: ; preds = %320, %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i.i92.i
-  %321 = getelementptr inbounds nuw float, ptr %316, i64 %314
+  %321 = getelementptr inbounds nuw [4 x i8], ptr %316, i64 %314
   br label %_ZNSt6vectorIfSaIfEE9push_backEOf.exit95.i
 
 _ZNSt6vectorIfSaIfEE9push_backEOf.exit95.i:       ; preds = %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i94.i, %303
@@ -982,7 +982,7 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i.i.i.i.i: ; preds = %35
   br label %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i.i.i.i
 
 _ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i.i.i.i: ; preds = %352, %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i.i.i.i.i
-  %353 = getelementptr inbounds nuw float, ptr %348, i64 %346
+  %353 = getelementptr inbounds nuw [4 x i8], ptr %348, i64 %346
   br label %_ZNSt20back_insert_iteratorISt6vectorIfSaIfEEEaSEOf.exit.i.i
 
 _ZNSt20back_insert_iteratorISt6vectorIfSaIfEEEaSEOf.exit.i.i: ; preds = %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i.i.i.i, %335
@@ -1003,7 +1003,7 @@ _ZNSt20back_insert_iteratorISt6vectorIfSaIfEEEaSEOf.exit.i.i: ; preds = %_ZNSt6v
   %.sroa.47.25 = phi ptr [ %.sroa.47.22, %.lr.ph188.i ], [ %.sroa.47.24, %"_ZSt9transformIPKfSt20back_insert_iteratorISt6vectorIfSaIfEEEZN19OpenColorIO_v2_5dev12_GLOBAL__N_123CreatePaddedLutChannelsEmmRKS5_RS5_E3$_0ET0_T_SE_SD_T1_.exit.loopexit.i" ]
   %.sroa.0904.29 = phi ptr [ %.sroa.0904.26, %.lr.ph188.i ], [ %.sroa.0904.28, %"_ZSt9transformIPKfSt20back_insert_iteratorISt6vectorIfSaIfEEEZN19OpenColorIO_v2_5dev12_GLOBAL__N_123CreatePaddedLutChannelsEmmRKS5_RS5_E3$_0ET0_T_SE_SD_T1_.exit.loopexit.i" ]
   %355 = phi ptr [ %327, %.lr.ph188.i ], [ %.pre.i, %"_ZSt9transformIPKfSt20back_insert_iteratorISt6vectorIfSaIfEEEZN19OpenColorIO_v2_5dev12_GLOBAL__N_123CreatePaddedLutChannelsEmmRKS5_RS5_E3$_0ET0_T_SE_SD_T1_.exit.loopexit.i" ]
-  %356 = getelementptr inbounds nuw float, ptr %355, i64 %329
+  %356 = getelementptr inbounds nuw [4 x i8], ptr %355, i64 %329
   %357 = load float, ptr %356, align 4, !tbaa !20
   %358 = invoke noundef float @_ZN19OpenColorIO_v2_5dev13SanitizeFloatEf(float noundef %357)
           to label %.noexc420 unwind label %.loopexit.split-lp990.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -1062,7 +1062,7 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i.i.i414: ; preds = %375
   br label %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i.i416
 
 _ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i.i416: ; preds = %376, %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i.i.i414
-  %377 = getelementptr inbounds nuw float, ptr %372, i64 %370
+  %377 = getelementptr inbounds nuw [4 x i8], ptr %372, i64 %370
   br label %_ZNSt6vectorIfSaIfEE9push_backEOf.exit.i408
 
 _ZNSt6vectorIfSaIfEE9push_backEOf.exit.i408:      ; preds = %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i.i416, %359
@@ -1071,7 +1071,7 @@ _ZNSt6vectorIfSaIfEE9push_backEOf.exit.i408:      ; preds = %_ZNSt6vectorIfSaIfE
   %.sroa.0904.30 = phi ptr [ %372, %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i.i416 ], [ %.sroa.0904.29, %359 ]
   %.sroa.47.26 = getelementptr inbounds nuw i8, ptr %.pn983, i64 4
   %378 = load ptr, ptr %150, align 8, !tbaa !19
-  %379 = getelementptr float, ptr %378, i64 %329
+  %379 = getelementptr [4 x i8], ptr %378, i64 %329
   %380 = getelementptr i8, ptr %379, i64 4
   %381 = load float, ptr %380, align 4, !tbaa !20
   %382 = invoke noundef float @_ZN19OpenColorIO_v2_5dev13SanitizeFloatEf(float noundef %381)
@@ -1133,7 +1133,7 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i.i74.i: ; preds = %400,
   br label %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i76.i
 
 _ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i76.i: ; preds = %402, %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i.i74.i
-  %403 = getelementptr inbounds nuw float, ptr %397, i64 %395
+  %403 = getelementptr inbounds nuw [4 x i8], ptr %397, i64 %395
   br label %_ZNSt6vectorIfSaIfEE9push_backEOf.exit77.i
 
 _ZNSt6vectorIfSaIfEE9push_backEOf.exit77.i:       ; preds = %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i76.i, %383
@@ -1141,7 +1141,7 @@ _ZNSt6vectorIfSaIfEE9push_backEOf.exit77.i:       ; preds = %_ZNSt6vectorIfSaIfE
   %.sroa.47.27 = phi ptr [ %401, %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i76.i ], [ %384, %383 ]
   %.sroa.0904.31 = phi ptr [ %397, %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i76.i ], [ %.sroa.0904.30, %383 ]
   %404 = load ptr, ptr %150, align 8, !tbaa !19
-  %405 = getelementptr float, ptr %404, i64 %329
+  %405 = getelementptr [4 x i8], ptr %404, i64 %329
   %406 = getelementptr i8, ptr %405, i64 8
   %407 = load float, ptr %406, align 4, !tbaa !20
   %408 = invoke noundef float @_ZN19OpenColorIO_v2_5dev13SanitizeFloatEf(float noundef %407)
@@ -1201,7 +1201,7 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i.i82.i: ; preds = %425,
   br label %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i84.i
 
 _ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i84.i: ; preds = %426, %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i.i82.i
-  %427 = getelementptr inbounds nuw float, ptr %422, i64 %420
+  %427 = getelementptr inbounds nuw [4 x i8], ptr %422, i64 %420
   br label %_ZNSt6vectorIfSaIfEE9push_backEOf.exit85.i
 
 _ZNSt6vectorIfSaIfEE9push_backEOf.exit85.i:       ; preds = %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i84.i, %409
@@ -1291,7 +1291,7 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i.i.i.i95.i: ; preds = %
   br label %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i.i.i97.i
 
 _ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i.i.i97.i: ; preds = %457, %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i.i.i.i95.i
-  %458 = getelementptr inbounds nuw float, ptr %453, i64 %451
+  %458 = getelementptr inbounds nuw [4 x i8], ptr %453, i64 %451
   br label %_ZNSt20back_insert_iteratorISt6vectorIfSaIfEEEaSEOf.exit.i90.i
 
 _ZNSt20back_insert_iteratorISt6vectorIfSaIfEEEaSEOf.exit.i90.i: ; preds = %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i.i.i97.i, %440
@@ -1312,7 +1312,7 @@ _ZNSt20back_insert_iteratorISt6vectorIfSaIfEEEaSEOf.exit.i90.i: ; preds = %_ZNSt
   %.sroa.47.32 = phi ptr [ %.sroa.47.29, %430 ], [ %.sroa.47.31, %"_ZSt9transformIPKfSt20back_insert_iteratorISt6vectorIfSaIfEEEZN19OpenColorIO_v2_5dev12_GLOBAL__N_123CreatePaddedLutChannelsEmmRKS5_RS5_E3$_1ET0_T_SE_SD_T1_.exit.loopexit.i" ]
   %.sroa.0904.36 = phi ptr [ %.sroa.0904.33, %430 ], [ %.sroa.0904.35, %"_ZSt9transformIPKfSt20back_insert_iteratorISt6vectorIfSaIfEEEZN19OpenColorIO_v2_5dev12_GLOBAL__N_123CreatePaddedLutChannelsEmmRKS5_RS5_E3$_1ET0_T_SE_SD_T1_.exit.loopexit.i" ]
   %460 = phi ptr [ %432, %430 ], [ %.pre194.i, %"_ZSt9transformIPKfSt20back_insert_iteratorISt6vectorIfSaIfEEEZN19OpenColorIO_v2_5dev12_GLOBAL__N_123CreatePaddedLutChannelsEmmRKS5_RS5_E3$_1ET0_T_SE_SD_T1_.exit.loopexit.i" ]
-  %461 = getelementptr inbounds nuw float, ptr %460, i64 %434
+  %461 = getelementptr inbounds nuw [4 x i8], ptr %460, i64 %434
   %462 = load float, ptr %461, align 4, !tbaa !20
   %463 = invoke noundef float @_ZN19OpenColorIO_v2_5dev13SanitizeFloatEf(float noundef %462)
           to label %.noexc432 unwind label %.loopexit.split-lp990.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -1371,7 +1371,7 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i.i102.i: ; preds = %480
   br label %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i104.i
 
 _ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i104.i: ; preds = %481, %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i.i102.i
-  %482 = getelementptr inbounds nuw float, ptr %477, i64 %475
+  %482 = getelementptr inbounds nuw [4 x i8], ptr %477, i64 %475
   br label %_ZNSt6vectorIfSaIfEE9push_backEOf.exit105.i
 
 _ZNSt6vectorIfSaIfEE9push_backEOf.exit105.i:      ; preds = %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i104.i, %464
@@ -1380,7 +1380,7 @@ _ZNSt6vectorIfSaIfEE9push_backEOf.exit105.i:      ; preds = %_ZNSt6vectorIfSaIfE
   %.sroa.0904.37 = phi ptr [ %477, %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i104.i ], [ %.sroa.0904.36, %464 ]
   %.sroa.47.33 = getelementptr inbounds nuw i8, ptr %.pn986, i64 4
   %483 = load ptr, ptr %150, align 8, !tbaa !19
-  %484 = getelementptr float, ptr %483, i64 %433
+  %484 = getelementptr [4 x i8], ptr %483, i64 %433
   %485 = getelementptr i8, ptr %484, i64 -8
   %486 = load float, ptr %485, align 4, !tbaa !20
   %487 = invoke noundef float @_ZN19OpenColorIO_v2_5dev13SanitizeFloatEf(float noundef %486)
@@ -1442,7 +1442,7 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i.i110.i: ; preds = %505
   br label %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i112.i
 
 _ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i112.i: ; preds = %507, %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i.i110.i
-  %508 = getelementptr inbounds nuw float, ptr %502, i64 %500
+  %508 = getelementptr inbounds nuw [4 x i8], ptr %502, i64 %500
   br label %_ZNSt6vectorIfSaIfEE9push_backEOf.exit113.i
 
 _ZNSt6vectorIfSaIfEE9push_backEOf.exit113.i:      ; preds = %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i112.i, %488
@@ -1450,7 +1450,7 @@ _ZNSt6vectorIfSaIfEE9push_backEOf.exit113.i:      ; preds = %_ZNSt6vectorIfSaIfE
   %.sroa.47.34 = phi ptr [ %506, %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i112.i ], [ %489, %488 ]
   %.sroa.0904.38 = phi ptr [ %502, %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i112.i ], [ %.sroa.0904.37, %488 ]
   %509 = load ptr, ptr %150, align 8, !tbaa !19
-  %510 = getelementptr float, ptr %509, i64 %433
+  %510 = getelementptr [4 x i8], ptr %509, i64 %433
   %511 = getelementptr i8, ptr %510, i64 -4
   %512 = load float, ptr %511, align 4, !tbaa !20
   %513 = invoke noundef float @_ZN19OpenColorIO_v2_5dev13SanitizeFloatEf(float noundef %512)
@@ -1512,7 +1512,7 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i.i118.i: ; preds = %531
   br label %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i120.i
 
 _ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i120.i: ; preds = %533, %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i.i118.i
-  %534 = getelementptr inbounds nuw float, ptr %528, i64 %526
+  %534 = getelementptr inbounds nuw [4 x i8], ptr %528, i64 %526
   br label %_ZNSt6vectorIfSaIfEE9push_backEOf.exit121.i
 
 .lr.ph.i404:                                      ; preds = %.preheader.i403, %_ZNSt6vectorIfSaIfEE9push_backEOf.exit129.i
@@ -1578,7 +1578,7 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i.i126.i: ; preds = %553
   br label %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i128.i
 
 _ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i128.i: ; preds = %554, %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i.i126.i
-  %555 = getelementptr inbounds nuw float, ptr %550, i64 %548
+  %555 = getelementptr inbounds nuw [4 x i8], ptr %550, i64 %548
   br label %_ZNSt6vectorIfSaIfEE9push_backEOf.exit129.i
 
 _ZNSt6vectorIfSaIfEE9push_backEOf.exit129.i:      ; preds = %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i128.i, %537
@@ -1613,7 +1613,7 @@ _ZNSt6vectorIfSaIfEE9push_backEOf.exit121.i:      ; preds = %_ZNSt6vectorIfSaIfE
   %.sroa.0904.22 = phi ptr [ %.sroa.0904.21, %.lr.ph190.i ], [ %.sroa.0904.25, %_ZNSt6vectorIfSaIfEE9push_backEOf.exit153.i ]
   %.0189.i = phi i64 [ 0, %.lr.ph190.i ], [ %639, %_ZNSt6vectorIfSaIfEE9push_backEOf.exit153.i ]
   %565 = load ptr, ptr %150, align 8, !tbaa !19
-  %566 = getelementptr float, ptr %565, i64 %563
+  %566 = getelementptr [4 x i8], ptr %565, i64 %563
   %567 = getelementptr i8, ptr %566, i64 -12
   %568 = load float, ptr %567, align 4, !tbaa !20
   %569 = invoke noundef float @_ZN19OpenColorIO_v2_5dev13SanitizeFloatEf(float noundef %568)
@@ -1673,7 +1673,7 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i.i134.i: ; preds = %586
   br label %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i136.i
 
 _ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i136.i: ; preds = %587, %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i.i134.i
-  %588 = getelementptr inbounds nuw float, ptr %583, i64 %581
+  %588 = getelementptr inbounds nuw [4 x i8], ptr %583, i64 %581
   br label %_ZNSt6vectorIfSaIfEE9push_backEOf.exit137.i
 
 _ZNSt6vectorIfSaIfEE9push_backEOf.exit137.i:      ; preds = %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i136.i, %570
@@ -1682,7 +1682,7 @@ _ZNSt6vectorIfSaIfEE9push_backEOf.exit137.i:      ; preds = %_ZNSt6vectorIfSaIfE
   %.sroa.0904.23 = phi ptr [ %583, %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i136.i ], [ %.sroa.0904.22, %570 ]
   %.sroa.47.19 = getelementptr inbounds nuw i8, ptr %.pn987, i64 4
   %589 = load ptr, ptr %150, align 8, !tbaa !19
-  %590 = getelementptr float, ptr %589, i64 %563
+  %590 = getelementptr [4 x i8], ptr %589, i64 %563
   %591 = getelementptr i8, ptr %590, i64 -8
   %592 = load float, ptr %591, align 4, !tbaa !20
   %593 = invoke noundef float @_ZN19OpenColorIO_v2_5dev13SanitizeFloatEf(float noundef %592)
@@ -1744,7 +1744,7 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i.i142.i: ; preds = %611
   br label %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i144.i
 
 _ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i144.i: ; preds = %613, %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i.i142.i
-  %614 = getelementptr inbounds nuw float, ptr %608, i64 %606
+  %614 = getelementptr inbounds nuw [4 x i8], ptr %608, i64 %606
   br label %_ZNSt6vectorIfSaIfEE9push_backEOf.exit145.i
 
 _ZNSt6vectorIfSaIfEE9push_backEOf.exit145.i:      ; preds = %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i144.i, %594
@@ -1752,7 +1752,7 @@ _ZNSt6vectorIfSaIfEE9push_backEOf.exit145.i:      ; preds = %_ZNSt6vectorIfSaIfE
   %.sroa.47.20 = phi ptr [ %612, %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i144.i ], [ %595, %594 ]
   %.sroa.0904.24 = phi ptr [ %608, %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i144.i ], [ %.sroa.0904.23, %594 ]
   %615 = load ptr, ptr %150, align 8, !tbaa !19
-  %616 = getelementptr float, ptr %615, i64 %563
+  %616 = getelementptr [4 x i8], ptr %615, i64 %563
   %617 = getelementptr i8, ptr %616, i64 -4
   %618 = load float, ptr %617, align 4, !tbaa !20
   %619 = invoke noundef float @_ZN19OpenColorIO_v2_5dev13SanitizeFloatEf(float noundef %618)
@@ -1812,7 +1812,7 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i.i150.i: ; preds = %636
   br label %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i152.i
 
 _ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i152.i: ; preds = %637, %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i.i150.i
-  %638 = getelementptr inbounds nuw float, ptr %633, i64 %631
+  %638 = getelementptr inbounds nuw [4 x i8], ptr %633, i64 %631
   br label %_ZNSt6vectorIfSaIfEE9push_backEOf.exit153.i
 
 _ZNSt6vectorIfSaIfEE9push_backEOf.exit153.i:      ; preds = %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i152.i, %620

@@ -32,12 +32,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple.153" = type { %"struct.std::_Tuple_impl.154" }
 %"struct.std::_Tuple_impl.154" = type { %"struct.std::_Head_base.157" }
 %"struct.std::_Head_base.157" = type { ptr }
-%"class.std::unique_ptr.158" = type { %"struct.std::__uniq_ptr_data.159" }
-%"struct.std::__uniq_ptr_data.159" = type { %"class.std::__uniq_ptr_impl.160" }
-%"class.std::__uniq_ptr_impl.160" = type { %"class.std::tuple.161" }
-%"class.std::tuple.161" = type { %"struct.std::_Tuple_impl.162" }
-%"struct.std::_Tuple_impl.162" = type { %"struct.std::_Head_base.165" }
-%"struct.std::_Head_base.165" = type { ptr }
 
 $_ZNK4llvm3pdb12GSIHashTable5beginEv = comdat any
 
@@ -474,7 +468,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i: ; preds = %186, %_ZNK
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i: ; preds = %188, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i
   store ptr %183, ptr %12, align 8, !tbaa !69
   store ptr %187, ptr %32, align 8, !tbaa !67
-  %189 = getelementptr inbounds nuw i32, ptr %183, i64 %181
+  %189 = getelementptr inbounds nuw [4 x i8], ptr %183, i64 %181
   store ptr %189, ptr %33, align 8, !tbaa !68
   br label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit
 
@@ -907,7 +901,7 @@ define dso_local void @_ZNK4llvm3pdb17NativeEnumGlobals15getChildAtIndexEj(ptr d
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %16 = load ptr, ptr %15, align 8, !tbaa !15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %18 = getelementptr inbounds nuw i32, ptr %8, i64 %4
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %4
   %19 = load i32, ptr %18, align 4, !tbaa !54
   %20 = tail call noundef i32 @_ZN4llvm3pdb11SymbolCache31getOrCreateGlobalSymbolByOffsetEj(ptr noundef nonnull align 8 dereferenceable(280) %17, i32 noundef %19) #15
   %21 = load ptr, ptr %15, align 8, !tbaa !15
@@ -1319,7 +1313,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i, %68
   store ptr %61, ptr %40, align 8, !tbaa !114
   store ptr %67, ptr %41, align 8, !tbaa !111
-  %69 = getelementptr inbounds nuw %"class.std::unique_ptr.158", ptr %61, i64 %59
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %59
   store ptr %69, ptr %43, align 8, !tbaa !113
   br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit
 
@@ -1469,7 +1463,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit52: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i49, %130
   store ptr %124, ptr %79, align 8, !tbaa !114
   store ptr %.0.lcssa.i.i.i21.i50, ptr %83, align 8, !tbaa !111
-  %131 = getelementptr inbounds nuw %"class.std::unique_ptr.158", ptr %124, i64 %122
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %124, i64 %122
   store ptr %131, ptr %85, align 8, !tbaa !113
   br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit21
 
@@ -1595,7 +1589,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_
 _ZNSt12_Vector_baseISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, %31
   store ptr %20, ptr %0, align 8, !tbaa !114
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !111
-  %35 = getelementptr inbounds nuw %"class.std::unique_ptr.158", ptr %20, i64 %16
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %16
   store ptr %35, ptr %30, align 8, !tbaa !113
   ret void
 }

@@ -1558,7 +1558,7 @@ define internal fastcc void @client_display_socks_v5(ptr noundef %0, i32 noundef
 
 switch.lookup:                                    ; preds = %.lr.ph
   %34 = zext nneg i8 %28 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.server_display_socks_v5, i64 %34
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.server_display_socks_v5, i64 %34
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %get_auth_method_name.exit
 
@@ -1756,7 +1756,7 @@ define internal fastcc void @server_display_socks_v5(ptr noundef %0, ptr noundef
 
 switch.lookup:                                    ; preds = %10
   %21 = zext nneg i8 %15 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.server_display_socks_v5, i64 %21
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.server_display_socks_v5, i64 %21
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %get_auth_method_name.exit
 

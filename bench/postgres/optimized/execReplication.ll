@@ -10,11 +10,8 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.TM_FailureData = type { %struct.ItemPointerData, i32, i32, i8 }
 %struct.ItemPointerData = type { %struct.BlockIdData, i16 }
 %struct.BlockIdData = type { i16, i16 }
-%struct.FormData_pg_attribute = type { i32, %struct.nameData, i32, i16, i16, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i32 }
-%struct.nameData = type { [64 x i8] }
 %struct.PublicationDesc = type { %struct.PublicationActions, i8, i8, i8, i8, i8, i8 }
 %struct.PublicationActions = type { i8, i8, i8, i8 }
-%union.ListCell = type { ptr }
 
 @.str = private unnamed_addr constant [25 x i8] c"cannot update table \22%s\22\00", align 1
 @.str.1 = private unnamed_addr constant [85 x i8] c"Column used in the publication WHERE expression is not part of the replica identity.\00", align 1
@@ -82,14 +79,14 @@ define dso_local noundef zeroext i1 @RelationFindReplTupleByIndex(ptr noundef %0
   %29 = phi ptr [ %17, %.lr.ph.i ], [ %72, %71 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %71 ]
   %.0424.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %71 ]
-  %30 = getelementptr inbounds nuw i16, ptr %22, i64 %indvars.iv.i
+  %30 = getelementptr inbounds nuw [2 x i8], ptr %22, i64 %indvars.iv.i
   %31 = load i16, ptr %30, align 2
   %32 = sext i16 %31 to i64
   %.not.i = icmp eq i16 %31, 0
   br i1 %.not.i, label %71, label %33
 
 33:                                               ; preds = %28
-  %34 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv.i
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %indvars.iv.i
   %35 = load i32, ptr %34, align 4
   %36 = call i32 @get_opclass_input_type(i32 noundef %35) #4
   %37 = load i32, ptr %34, align 4
@@ -112,16 +109,16 @@ define dso_local noundef zeroext i1 @RelationFindReplTupleByIndex(ptr noundef %0
 48:                                               ; preds = %33
   %49 = call i32 @get_opcode(i32 noundef %43) #4
   %50 = sext i32 %.0424.i to i64
-  %51 = getelementptr inbounds %struct.ScanKeyData, ptr %6, i64 %50
+  %51 = getelementptr inbounds [72 x i8], ptr %6, i64 %50
   %52 = trunc i64 %indvars.iv.i to i16
   %53 = add i16 %52, 1
   %54 = load ptr, ptr %25, align 8
   %55 = add nsw i64 %32, -1
-  %56 = getelementptr inbounds i64, ptr %54, i64 %55
+  %56 = getelementptr inbounds [8 x i8], ptr %54, i64 %55
   %57 = load i64, ptr %56, align 8
   call void @ScanKeyInit(ptr noundef nonnull %51, i16 noundef signext %53, i16 noundef zeroext %42, i32 noundef %49, i64 noundef %57) #4
   %58 = load ptr, ptr %26, align 8
-  %59 = getelementptr inbounds nuw i32, ptr %58, i64 %indvars.iv.i
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %indvars.iv.i
   %60 = load i32, ptr %59, align 4
   %61 = getelementptr inbounds nuw i8, ptr %51, i64 12
   store i32 %60, ptr %61, align 4
@@ -336,7 +333,7 @@ slot_getallattrs.exit39:                          ; preds = %slot_getallattrs.ex
   %31 = shl nsw i64 %30, 4
   %32 = getelementptr i8, ptr %29, i64 %31
   %33 = getelementptr i8, ptr %32, i64 24
-  %34 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %33, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [100 x i8], ptr %33, i64 %indvars.iv
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 91
   %36 = load i8, ptr %35, align 1, !range !4, !noundef !5
   %37 = trunc nuw i8 %36 to i1
@@ -363,7 +360,7 @@ slot_getallattrs.exit39:                          ; preds = %slot_getallattrs.ex
   br i1 %brmerge.not, label %49, label %select.unfold
 
 49:                                               ; preds = %48
-  %50 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %51 = load ptr, ptr %50, align 8
   %52 = icmp eq ptr %51, null
   br i1 %52, label %53, label %67
@@ -397,10 +394,10 @@ slot_getallattrs.exit39:                          ; preds = %slot_getallattrs.ex
   %69 = getelementptr inbounds nuw i8, ptr %34, i64 96
   %70 = load i32, ptr %69, align 4
   %71 = load ptr, ptr %25, align 8
-  %72 = getelementptr inbounds nuw i64, ptr %71, i64 %indvars.iv
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %indvars.iv
   %73 = load i64, ptr %72, align 8
   %74 = load ptr, ptr %26, align 8
-  %75 = getelementptr inbounds nuw i64, ptr %74, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %indvars.iv
   %76 = load i64, ptr %75, align 8
   %77 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %68, i32 noundef %70, i64 noundef %73, i64 noundef %76) #4
   %.not41 = icmp eq i64 %77, 0
@@ -924,7 +921,7 @@ define internal fastcc void @CheckAndReportConflict(ptr noundef %0, ptr noundef 
 .lr.ph38:                                         ; preds = %.lr.ph27, %49
   %indvars.iv37 = phi i64 [ %indvars.iv.next, %49 ], [ 0, %.lr.ph27 ]
   %21 = load ptr, ptr %18, align 8
-  %22 = getelementptr inbounds nuw %union.ListCell, ptr %21, i64 %indvars.iv37
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv37
   %23 = load i32, ptr %22, align 8
   %24 = call zeroext i1 @list_member_oid(ptr noundef %3, i32 noundef %23) #4
   br i1 %24, label %25, label %49

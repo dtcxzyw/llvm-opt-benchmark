@@ -143,7 +143,7 @@ define hidden noundef i32 @_ZN4cvc58internal13preprocessing6passes16FfDisjunctiv
   %.01759 = phi i64 [ 0, %.lr.ph ], [ %139, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit43 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %24 = load ptr, ptr %14, align 8, !tbaa !20
-  %25 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %24, i64 %.01759
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %.01759
   %26 = load ptr, ptr %25, align 8, !tbaa !21
   store ptr %26, ptr %9, align 8, !tbaa !21
   %27 = load i64, ptr %26, align 8

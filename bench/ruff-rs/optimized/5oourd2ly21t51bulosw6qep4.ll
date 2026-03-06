@@ -849,11 +849,11 @@ _ZN20ruff_python_semantic3cfg5graph10CFGBuilder13with_capacity17h7cd6bfc9ada116f
   unreachable
 
 _ZN20ruff_python_semantic3cfg5graph10CFGBuilder23set_current_block_stmts17hd1ba769d1f39ab15E.exit.i: ; preds = %65
-  %74 = getelementptr inbounds nuw { i64, [14 x i64] }, ptr %1, i64 %.sroa.03.0.lcssa.i
+  %74 = getelementptr inbounds nuw [120 x i8], ptr %1, i64 %.sroa.03.0.lcssa.i
   %75 = sub nuw i64 %2, %.sroa.03.0.lcssa.i
   %76 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %77 = load ptr, ptr %76, align 8, !alias.scope !122, !noalias !123, !nonnull !3, !noundef !3
-  %78 = getelementptr inbounds nuw { { ptr, i64 }, { { { [2 x i64] }, i64 }, { { [2 x i64] }, i64 } }, { { [2 x i64] }, i64 }, i8, [7 x i8] }, ptr %77, i64 %69
+  %78 = getelementptr inbounds nuw [96 x i8], ptr %77, i64 %69
   store ptr %74, ptr %78, align 8, !noalias !125
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
   store i64 %75, ptr %79, align 8, !noalias !119
@@ -863,7 +863,7 @@ _ZN20ruff_python_semantic3cfg5graph10CFGBuilder23set_current_block_stmts17hd1ba7
 80:                                               ; preds = %58
   %81 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %82 = load ptr, ptr %81, align 8, !alias.scope !112, !noalias !115, !nonnull !3, !noundef !3
-  %83 = getelementptr inbounds nuw { { ptr, i64 }, { { { [2 x i64] }, i64 }, { { [2 x i64] }, i64 } }, { { [2 x i64] }, i64 }, i8, [7 x i8] }, ptr %82, i64 %63
+  %83 = getelementptr inbounds nuw [96 x i8], ptr %82, i64 %63
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 56
   %85 = load i64, ptr %84, align 8, !alias.scope !126, !noalias !131, !noundef !3
   %86 = icmp ugt i64 %85, 4
@@ -977,10 +977,10 @@ _ZN20ruff_python_semantic3cfg5graph10CFGBuilder23set_current_block_edges17h8337e
   unreachable
 
 116:                                              ; preds = %109
-  %117 = getelementptr inbounds nuw { i64, [14 x i64] }, ptr %1, i64 %.sroa.03.0136.i
+  %117 = getelementptr inbounds nuw [120 x i8], ptr %1, i64 %.sroa.03.0136.i
   %118 = sub nuw i64 %52, %.sroa.03.0136.i
   %119 = load ptr, ptr %48, align 8, !alias.scope !158, !noalias !159, !nonnull !3, !noundef !3
-  %120 = getelementptr inbounds nuw { { ptr, i64 }, { { { [2 x i64] }, i64 }, { { [2 x i64] }, i64 } }, { { [2 x i64] }, i64 }, i8, [7 x i8] }, ptr %119, i64 %113
+  %120 = getelementptr inbounds nuw [96 x i8], ptr %119, i64 %113
   store ptr %117, ptr %120, align 8, !noalias !161
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 8
   store i64 %118, ptr %121, align 8, !noalias !155
@@ -996,7 +996,7 @@ _ZN20ruff_python_semantic3cfg5graph10CFGBuilder23set_current_block_edges17h8337e
 
 126:                                              ; preds = %116
   %127 = load ptr, ptr %48, align 8, !alias.scope !167, !noalias !168, !nonnull !3, !noundef !3
-  %128 = getelementptr inbounds nuw { { ptr, i64 }, { { { [2 x i64] }, i64 }, { { [2 x i64] }, i64 } }, { { [2 x i64] }, i64 }, i8, [7 x i8] }, ptr %127, i64 %125
+  %128 = getelementptr inbounds nuw [96 x i8], ptr %127, i64 %125
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 16
   invoke void @"_ZN4core3ptr60drop_in_place$LT$ruff_python_semantic..cfg..graph..Edges$GT$17h077b9e3996544aabE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %129)
           to label %137 unwind label %.thread.i38.i, !noalias !169
@@ -1073,10 +1073,10 @@ _ZN20ruff_python_semantic3cfg5graph10CFGBuilder23set_current_block_edges17h8337e
   unreachable
 
 152:                                              ; preds = %145
-  %153 = getelementptr inbounds nuw { i64, [14 x i64] }, ptr %1, i64 %.sroa.03.0136.i
+  %153 = getelementptr inbounds nuw [120 x i8], ptr %1, i64 %.sroa.03.0136.i
   %154 = sub nuw i64 %52, %.sroa.03.0136.i
   %155 = load ptr, ptr %48, align 8, !alias.scope !176, !noalias !177, !nonnull !3, !noundef !3
-  %156 = getelementptr inbounds nuw { { ptr, i64 }, { { { [2 x i64] }, i64 }, { { [2 x i64] }, i64 } }, { { [2 x i64] }, i64 }, i8, [7 x i8] }, ptr %155, i64 %149
+  %156 = getelementptr inbounds nuw [96 x i8], ptr %155, i64 %149
   store ptr %153, ptr %156, align 8, !noalias !179
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 8
   store i64 %154, ptr %157, align 8, !noalias !173
@@ -1092,7 +1092,7 @@ _ZN20ruff_python_semantic3cfg5graph10CFGBuilder23set_current_block_edges17h8337e
 
 162:                                              ; preds = %152
   %163 = load ptr, ptr %48, align 8, !alias.scope !185, !noalias !186, !nonnull !3, !noundef !3
-  %164 = getelementptr inbounds nuw { { ptr, i64 }, { { { [2 x i64] }, i64 }, { { [2 x i64] }, i64 } }, { { [2 x i64] }, i64 }, i8, [7 x i8] }, ptr %163, i64 %161
+  %164 = getelementptr inbounds nuw [96 x i8], ptr %163, i64 %161
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 16
   invoke void @"_ZN4core3ptr60drop_in_place$LT$ruff_python_semantic..cfg..graph..Edges$GT$17h077b9e3996544aabE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %165)
           to label %173 unwind label %.thread.i44.i, !noalias !187
@@ -1206,7 +1206,7 @@ define { ptr, i64 } @_ZN20ruff_python_semantic3cfg5graph16ControlFlowGraph5stmts
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !nonnull !3, !noundef !3
-  %11 = getelementptr inbounds nuw { { ptr, i64 }, { { { [2 x i64] }, i64 }, { { [2 x i64] }, i64 } }, { { [2 x i64] }, i64 }, i8, [7 x i8] }, ptr %10, i64 %6
+  %11 = getelementptr inbounds nuw [96 x i8], ptr %10, i64 %6
   %12 = load ptr, ptr %11, align 8, !nonnull !3, !align !4, !noundef !3
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %14 = load i64, ptr %13, align 8, !noundef !3
@@ -1231,7 +1231,7 @@ define { i32, i32 } @_ZN20ruff_python_semantic3cfg5graph16ControlFlowGraph5range
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !nonnull !3, !noundef !3
-  %11 = getelementptr inbounds nuw { { ptr, i64 }, { { { [2 x i64] }, i64 }, { { [2 x i64] }, i64 } }, { { [2 x i64] }, i64 }, i8, [7 x i8] }, ptr %10, i64 %6
+  %11 = getelementptr inbounds nuw [96 x i8], ptr %10, i64 %6
   tail call void @llvm.experimental.noalias.scope.decl(metadata !191)
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load i64, ptr %12, align 8, !alias.scope !191, !noundef !3
@@ -1240,7 +1240,7 @@ define { i32, i32 } @_ZN20ruff_python_semantic3cfg5graph16ControlFlowGraph5range
 
 14:                                               ; preds = %8
   %15 = load ptr, ptr %11, align 8, !alias.scope !191, !nonnull !3, !align !4, !noundef !3
-  %16 = getelementptr { i64, [14 x i64] }, ptr %15, i64 %13
+  %16 = getelementptr [120 x i8], ptr %15, i64 %13
   %17 = getelementptr i8, ptr %16, i64 -120
   %18 = tail call { i32, i32 } @"_ZN83_$LT$ruff_python_ast..generated..Stmt$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h0f2bd1b6fc512939E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %15), !noalias !191
   %19 = extractvalue { i32, i32 } %18, 0
@@ -1277,7 +1277,7 @@ define noundef nonnull align 8 dereferenceable(48) ptr @_ZN20ruff_python_semanti
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !nonnull !3, !noundef !3
-  %11 = getelementptr inbounds nuw { { ptr, i64 }, { { { [2 x i64] }, i64 }, { { [2 x i64] }, i64 } }, { { [2 x i64] }, i64 }, i8, [7 x i8] }, ptr %10, i64 %6
+  %11 = getelementptr inbounds nuw [96 x i8], ptr %10, i64 %6
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   ret ptr %12
 
@@ -1298,7 +1298,7 @@ define { ptr, ptr } @_ZN20ruff_python_semantic3cfg5graph16ControlFlowGraph12pred
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !nonnull !3, !noundef !3
-  %11 = getelementptr inbounds nuw { { ptr, i64 }, { { { [2 x i64] }, i64 }, { { [2 x i64] }, i64 } }, { { [2 x i64] }, i64 }, i8, [7 x i8] }, ptr %10, i64 %6
+  %11 = getelementptr inbounds nuw [96 x i8], ptr %10, i64 %6
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 64
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 80
   %14 = load i64, ptr %13, align 8, !alias.scope !194, !noalias !197, !noundef !3
@@ -1308,7 +1308,7 @@ define { ptr, ptr } @_ZN20ruff_python_semantic3cfg5graph16ControlFlowGraph12pred
   %18 = load i64, ptr %17, align 8, !alias.scope !194, !noalias !197
   %.sink11.i = select i1 %15, ptr %16, ptr %12
   %.sink10.i = select i1 %15, i64 %18, i64 %14
-  %19 = getelementptr inbounds nuw i32, ptr %.sink11.i, i64 %.sink10.i
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %.sink11.i, i64 %.sink10.i
   %20 = insertvalue { ptr, ptr } poison, ptr %.sink11.i, 0
   %21 = insertvalue { ptr, ptr } %20, ptr %19, 1
   ret { ptr, ptr } %21
@@ -1330,7 +1330,7 @@ define hidden noundef range(i8 0, 3) i8 @_ZN20ruff_python_semantic3cfg5graph16Co
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !nonnull !3, !noundef !3
-  %11 = getelementptr inbounds nuw { { ptr, i64 }, { { { [2 x i64] }, i64 }, { { [2 x i64] }, i64 } }, { { [2 x i64] }, i64 }, i8, [7 x i8] }, ptr %10, i64 %6
+  %11 = getelementptr inbounds nuw [96 x i8], ptr %10, i64 %6
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 88
   %13 = load i8, ptr %12, align 8, !range !199, !noundef !3
   ret i8 %13
@@ -1356,7 +1356,7 @@ define { i32, i32 } @"_ZN94_$LT$ruff_python_semantic..cfg..graph..BlockData$u20$
 
 7:                                                ; preds = %1
   %8 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
-  %9 = getelementptr { i64, [14 x i64] }, ptr %8, i64 %3
+  %9 = getelementptr [120 x i8], ptr %8, i64 %3
   %10 = getelementptr i8, ptr %9, i64 -120
   %11 = tail call { i32, i32 } @"_ZN83_$LT$ruff_python_ast..generated..Stmt$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h0f2bd1b6fc512939E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %8)
   %12 = extractvalue { i32, i32 } %11, 0
@@ -1381,7 +1381,7 @@ define { ptr, ptr } @_ZN20ruff_python_semantic3cfg5graph5Edges7targets17h2fe8546
   %8 = load i64, ptr %7, align 8, !alias.scope !200, !noalias !203
   %.sink11.i = select i1 %5, ptr %6, ptr %2
   %.sink10.i = select i1 %5, i64 %8, i64 %4
-  %9 = getelementptr inbounds nuw i32, ptr %.sink11.i, i64 %.sink10.i
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %.sink11.i, i64 %.sink10.i
   %10 = insertvalue { ptr, ptr } poison, ptr %.sink11.i, 0
   %11 = insertvalue { ptr, ptr } %10, ptr %9, 1
   ret { ptr, ptr } %11
@@ -1472,7 +1472,7 @@ define internal fastcc noundef range(i32 1, 0) i32 @_ZN20ruff_python_semantic3cf
   %24 = add nuw i32 %23, 1
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !216, !noalias !219, !nonnull !3, !noundef !3
-  %27 = getelementptr inbounds nuw { { ptr, i64 }, { { { [2 x i64] }, i64 }, { { [2 x i64] }, i64 } }, { { [2 x i64] }, i64 }, i8, [7 x i8] }, ptr %26, i64 %7
+  %27 = getelementptr inbounds nuw [96 x i8], ptr %26, i64 %7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %27, ptr noundef nonnull align 8 dereferenceable(96) %3, i64 96, i1 false)
   %28 = add nuw nsw i64 %7, 1
   store i64 %28, ptr %6, align 8, !alias.scope !216, !noalias !219
@@ -1543,7 +1543,7 @@ define hidden noundef range(i32 1, 0) i32 @_ZN20ruff_python_semantic7globals12Gl
   %22 = add nuw i32 %21, 1
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load ptr, ptr %23, align 8, !alias.scope !227, !noalias !230, !nonnull !3, !noundef !3
-  %25 = getelementptr inbounds nuw { { { { { ptr, i64, i64, i64 }, {}, {} }, {} } } }, ptr %24, i64 %5
+  %25 = getelementptr inbounds nuw [32 x i8], ptr %24, i64 %5
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   %26 = add nuw nsw i64 %5, 1
   store i64 %26, ptr %4, align 8, !alias.scope !227, !noalias !230
@@ -1643,7 +1643,7 @@ define hidden void @_ZN20ruff_python_semantic7globals7Globals3get17hca326c419694
   %22 = add i64 %.sroa.01.0.i.i.i, %21
   %23 = and i64 %22, %14
   %24 = sub nsw i64 0, %23
-  %25 = getelementptr inbounds { { ptr, i64 }, { i32, i32 } }, ptr %15, i64 %24
+  %25 = getelementptr inbounds [24 x i8], ptr %15, i64 %24
   %26 = getelementptr inbounds i8, ptr %25, i64 -24
   %27 = tail call noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h26bfc44a5d85eb65E"(ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %26), !noalias !253
   br i1 %27, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17hbb456406175ca906E.exit", label %31, !prof !148

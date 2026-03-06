@@ -209,7 +209,7 @@ define i32 @uprv_decNumberToInt32_77(ptr noundef readonly captures(none) %0, ptr
   %.03649 = phi ptr [ %17, %.lr.ph.preheader ], [ %25, %.lr.ph ]
   %18 = load i8, ptr %.03649, align 1, !tbaa !10
   %19 = zext i8 %18 to i32
-  %20 = getelementptr i32, ptr @_ZL9DECPOWERS, i64 %indvars.iv
+  %20 = getelementptr [4 x i8], ptr @_ZL9DECPOWERS, i64 %indvars.iv
   %21 = getelementptr i8, ptr %20, i64 -4
   %22 = load i32, ptr %21, align 4, !tbaa !14
   %23 = mul i32 %22, %19
@@ -301,7 +301,7 @@ define i32 @uprv_decNumberToUInt32_77(ptr noundef readonly captures(none) %0, pt
   %.02838 = phi ptr [ %18, %.lr.ph.preheader ], [ %26, %.lr.ph ]
   %19 = load i8, ptr %.02838, align 1, !tbaa !10
   %20 = zext i8 %19 to i32
-  %21 = getelementptr i32, ptr @_ZL9DECPOWERS, i64 %indvars.iv
+  %21 = getelementptr [4 x i8], ptr @_ZL9DECPOWERS, i64 %indvars.iv
   %22 = getelementptr i8, ptr %21, i64 -4
   %23 = load i32, ptr %22, align 4, !tbaa !14
   %24 = mul i32 %23, %20
@@ -466,7 +466,7 @@ thread-pre-split:                                 ; preds = %32, %.thread-pre-sp
   %.0264400 = phi i32 [ %50, %.lr.ph401.preheader ], [ %.5, %78 ]
   %.4280399 = phi ptr [ %.3279405, %.lr.ph401.preheader ], [ %79, %78 ]
   store i8 48, ptr %.4280399, align 1, !tbaa !10
-  %52 = getelementptr inbounds nuw i32, ptr @_ZL9DECPOWERS, i64 %indvars.iv415
+  %52 = getelementptr inbounds nuw [4 x i8], ptr @_ZL9DECPOWERS, i64 %indvars.iv415
   %53 = load i32, ptr %52, align 4, !tbaa !14
   %54 = shl i32 %53, 1
   %55 = icmp ugt i32 %.0264400, %54
@@ -639,7 +639,7 @@ thread-pre-split:                                 ; preds = %32, %.thread-pre-sp
   %.7 = phi i32 [ %123, %121 ], [ %.6389, %.preheader380 ]
   store i8 48, ptr %.5281387, align 1, !tbaa !10
   %125 = zext nneg i32 %.3294 to i64
-  %126 = getelementptr inbounds nuw i32, ptr @_ZL9DECPOWERS, i64 %125
+  %126 = getelementptr inbounds nuw [4 x i8], ptr @_ZL9DECPOWERS, i64 %125
   %127 = load i32, ptr %126, align 4, !tbaa !14
   %128 = shl i32 %127, 1
   %129 = icmp ugt i32 %.7, %128
@@ -748,7 +748,7 @@ thread-pre-split:                                 ; preds = %32, %.thread-pre-sp
   %.14 = phi i32 [ %171, %169 ], [ %.13, %165 ]
   store i8 48, ptr %.6282, align 1, !tbaa !10
   %173 = zext nneg i32 %.5296 to i64
-  %174 = getelementptr inbounds nuw i32, ptr @_ZL9DECPOWERS, i64 %173
+  %174 = getelementptr inbounds nuw [4 x i8], ptr @_ZL9DECPOWERS, i64 %173
   %175 = load i32, ptr %174, align 4, !tbaa !14
   %176 = shl i32 %175, 1
   %177 = icmp ugt i32 %.14, %176
@@ -849,7 +849,7 @@ thread-pre-split:                                 ; preds = %32, %.thread-pre-sp
   %.21 = phi i32 [ %215, %213 ], [ %.20, %.preheader381 ]
   store i8 48, ptr %.11287, align 1, !tbaa !10
   %217 = zext nneg i32 %.7298 to i64
-  %218 = getelementptr inbounds nuw i32, ptr @_ZL9DECPOWERS, i64 %217
+  %218 = getelementptr inbounds nuw [4 x i8], ptr @_ZL9DECPOWERS, i64 %217
   %219 = load i32, ptr %218, align 4, !tbaa !14
   %220 = shl i32 %219, 1
   %221 = icmp ugt i32 %.21, %220
@@ -934,7 +934,7 @@ thread-pre-split:                                 ; preds = %32, %.thread-pre-sp
   %.28396 = phi i32 [ %.33, %281 ], [ %.28396.ph, %.preheader485 ]
   %.13289395 = phi ptr [ %spec.select374, %281 ], [ %249, %.preheader485 ]
   store i8 48, ptr %.13289395, align 1, !tbaa !10
-  %254 = getelementptr inbounds nuw i32, ptr @_ZL9DECPOWERS, i64 %indvars.iv
+  %254 = getelementptr inbounds nuw [4 x i8], ptr @_ZL9DECPOWERS, i64 %indvars.iv
   %255 = load i32, ptr %254, align 4, !tbaa !14
   %256 = shl i32 %255, 1
   %257 = icmp ugt i32 %.28396, %256
@@ -1706,11 +1706,11 @@ define internal fastcc void @_ZL11decSetCoeffP9decNumberP10decContextPKhiPiPj(pt
   %76 = zext i8 %59 to i32
   %77 = lshr i32 %76, %57
   %78 = zext i32 %57 to i64
-  %79 = getelementptr inbounds nuw i32, ptr @_ZL7multies, i64 %78
+  %79 = getelementptr inbounds nuw [4 x i8], ptr @_ZL7multies, i64 %78
   %80 = load i32, ptr %79, align 4, !tbaa !14
   %81 = mul i32 %77, %80
   %82 = lshr i32 %81, 17
-  %83 = getelementptr inbounds nuw i32, ptr @_ZL9DECPOWERS, i64 %78
+  %83 = getelementptr inbounds nuw [4 x i8], ptr @_ZL9DECPOWERS, i64 %78
   %84 = load i32, ptr %83, align 4, !tbaa !14
   %85 = mul i32 %82, %84
   %.not139 = icmp eq i32 %85, %76
@@ -1741,12 +1741,12 @@ define internal fastcc void @_ZL11decSetCoeffP9decNumberP10decContextPKhiPiPj(pt
 
 .lr.ph158:                                        ; preds = %96
   %102 = zext i32 %56 to i64
-  %103 = getelementptr inbounds nuw i32, ptr @_ZL7multies, i64 %102
+  %103 = getelementptr inbounds nuw [4 x i8], ptr @_ZL7multies, i64 %102
   %104 = load i32, ptr %103, align 4, !tbaa !14
-  %105 = getelementptr inbounds nuw i32, ptr @_ZL9DECPOWERS, i64 %102
+  %105 = getelementptr inbounds nuw [4 x i8], ptr @_ZL9DECPOWERS, i64 %102
   %106 = load i32, ptr %105, align 4, !tbaa !14
   %107 = zext i32 %98 to i64
-  %108 = getelementptr inbounds nuw i32, ptr @_ZL9DECPOWERS, i64 %107
+  %108 = getelementptr inbounds nuw [4 x i8], ptr @_ZL9DECPOWERS, i64 %107
   %109 = load i32, ptr %108, align 4, !tbaa !14
   br label %115
 
@@ -1923,7 +1923,7 @@ define internal fastcc void @_ZL11decFinalizeP9decNumberP10decContextPiPj(ptr no
 
 65:                                               ; preds = %62
   %66 = sext i32 %50 to i64
-  %67 = getelementptr inbounds i32, ptr @_ZL9DECPOWERS, i64 %66
+  %67 = getelementptr inbounds [4 x i8], ptr @_ZL9DECPOWERS, i64 %66
   %68 = load i32, ptr %67, align 4, !tbaa !14
   %69 = trunc i32 %68 to i8
   %70 = mul i8 %52, %69
@@ -2006,12 +2006,12 @@ define internal fastcc void @_ZL11decFinalizeP9decNumberP10decContextPiPj(ptr no
 
 .lr.ph.i:                                         ; preds = %108
   %113 = sext i32 %96 to i64
-  %114 = getelementptr inbounds i32, ptr @_ZL7multies, i64 %113
+  %114 = getelementptr inbounds [4 x i8], ptr @_ZL7multies, i64 %113
   %115 = load i32, ptr %114, align 4, !tbaa !14
-  %116 = getelementptr inbounds i32, ptr @_ZL9DECPOWERS, i64 %113
+  %116 = getelementptr inbounds [4 x i8], ptr @_ZL9DECPOWERS, i64 %113
   %117 = load i32, ptr %116, align 4, !tbaa !14
   %118 = sext i32 %95 to i64
-  %119 = getelementptr inbounds i32, ptr @_ZL9DECPOWERS, i64 %118
+  %119 = getelementptr inbounds [4 x i8], ptr @_ZL9DECPOWERS, i64 %118
   %120 = load i32, ptr %119, align 4, !tbaa !14
   br label %121
 
@@ -2307,7 +2307,7 @@ define internal fastcc noundef ptr @_ZL8decAddOpP9decNumberPKS_S2_P10decContexth
 94:                                               ; preds = %.thread
   %95 = load i8, ptr %61, align 1, !tbaa !10
   %96 = sext i32 %91 to i64
-  %97 = getelementptr inbounds i32, ptr @_ZL9DECPOWERS, i64 %96
+  %97 = getelementptr inbounds [4 x i8], ptr @_ZL9DECPOWERS, i64 %96
   %98 = load i32, ptr %97, align 4, !tbaa !14
   %99 = trunc i32 %98 to i8
   %100 = mul i8 %95, %99
@@ -2389,12 +2389,12 @@ define internal fastcc noundef ptr @_ZL8decAddOpP9decNumberPKS_S2_P10decContexth
 
 .lr.ph.i:                                         ; preds = %138
   %143 = sext i32 %125 to i64
-  %144 = getelementptr inbounds i32, ptr @_ZL7multies, i64 %143
+  %144 = getelementptr inbounds [4 x i8], ptr @_ZL7multies, i64 %143
   %145 = load i32, ptr %144, align 4, !tbaa !14
-  %146 = getelementptr inbounds i32, ptr @_ZL9DECPOWERS, i64 %143
+  %146 = getelementptr inbounds [4 x i8], ptr @_ZL9DECPOWERS, i64 %143
   %147 = load i32, ptr %146, align 4, !tbaa !14
   %148 = sext i32 %126 to i64
-  %149 = getelementptr inbounds i32, ptr @_ZL9DECPOWERS, i64 %148
+  %149 = getelementptr inbounds [4 x i8], ptr @_ZL9DECPOWERS, i64 %148
   %150 = load i32, ptr %149, align 4, !tbaa !14
   br label %151
 
@@ -2570,7 +2570,7 @@ _ZL14decShiftToMostPhii.exit:                     ; preds = %.lr.ph91.i, %85, %9
 
 235:                                              ; preds = %233
   %236 = sext i32 %226 to i64
-  %237 = getelementptr inbounds i32, ptr @_ZL9DECPOWERS, i64 %236
+  %237 = getelementptr inbounds [4 x i8], ptr @_ZL9DECPOWERS, i64 %236
   %238 = load i32, ptr %237, align 4, !tbaa !14
   %239 = icmp slt i32 %231, %238
   br i1 %239, label %240, label %.thread384
@@ -2698,7 +2698,7 @@ _ZL12decGetDigitsPhi.exit:                        ; preds = %.lr.ph.i334, %269, 
 297:                                              ; preds = %292
   %298 = load i8, ptr %293, align 1, !tbaa !10
   %299 = zext nneg i32 %283 to i64
-  %300 = getelementptr inbounds nuw i32, ptr @_ZL9DECPOWERS, i64 %299
+  %300 = getelementptr inbounds nuw [4 x i8], ptr @_ZL9DECPOWERS, i64 %299
   %301 = load i32, ptr %300, align 4, !tbaa !14
   %302 = trunc i32 %301 to i8
   %303 = mul i8 %298, %302
@@ -2777,12 +2777,12 @@ _ZL12decGetDigitsPhi.exit:                        ; preds = %.lr.ph.i334, %269, 
 
 .lr.ph.i339:                                      ; preds = %339
   %344 = sext i32 %327 to i64
-  %345 = getelementptr inbounds i32, ptr @_ZL7multies, i64 %344
+  %345 = getelementptr inbounds [4 x i8], ptr @_ZL7multies, i64 %344
   %346 = load i32, ptr %345, align 4, !tbaa !14
-  %347 = getelementptr inbounds i32, ptr @_ZL9DECPOWERS, i64 %344
+  %347 = getelementptr inbounds [4 x i8], ptr @_ZL9DECPOWERS, i64 %344
   %348 = load i32, ptr %347, align 4, !tbaa !14
   %349 = sext i32 %326 to i64
-  %350 = getelementptr inbounds i32, ptr @_ZL9DECPOWERS, i64 %349
+  %350 = getelementptr inbounds [4 x i8], ptr @_ZL9DECPOWERS, i64 %349
   %351 = load i32, ptr %350, align 4, !tbaa !14
   br label %352
 
@@ -2864,7 +2864,7 @@ _ZL14decShiftToMostPhii.exit361:                  ; preds = %.lr.ph91.i350, %297
   %384 = phi i32 [ %383, %377 ], [ %.1264, %375 ]
   %385 = sub nsw i32 %.1264, %384
   %386 = sext i32 %385 to i64
-  %387 = getelementptr inbounds i32, ptr @_ZL9DECPOWERS, i64 %386
+  %387 = getelementptr inbounds [4 x i8], ptr @_ZL9DECPOWERS, i64 %386
   %388 = load i32, ptr %387, align 4, !tbaa !14
   br label %390
 
@@ -4829,7 +4829,7 @@ _ZL15decShiftToLeastPhii.exit.thread:             ; preds = %255
   %287 = zext i8 %286 to i32
   %288 = lshr i32 %287, %268
   %289 = sext i32 %268 to i64
-  %290 = getelementptr inbounds i32, ptr @_ZL7multies, i64 %289
+  %290 = getelementptr inbounds [4 x i8], ptr @_ZL7multies, i64 %289
   %291 = load i32, ptr %290, align 4, !tbaa !14
   %292 = mul i32 %288, %291
   %293 = lshr i32 %292, 17
@@ -4843,10 +4843,10 @@ _ZL15decShiftToLeastPhii.exit.thread:             ; preds = %255
   br i1 %297, label %_ZL15decShiftToLeastPhii.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %280
-  %298 = getelementptr inbounds i32, ptr @_ZL9DECPOWERS, i64 %289
+  %298 = getelementptr inbounds [4 x i8], ptr @_ZL9DECPOWERS, i64 %289
   %299 = load i32, ptr %298, align 4, !tbaa !14
   %300 = sext i32 %294 to i64
-  %301 = getelementptr inbounds i32, ptr @_ZL9DECPOWERS, i64 %300
+  %301 = getelementptr inbounds [4 x i8], ptr @_ZL9DECPOWERS, i64 %300
   %302 = load i32, ptr %301, align 4, !tbaa !14
   br label %303
 
@@ -5302,7 +5302,7 @@ _ZL12decGetDigitsPhi.exit:                        ; preds = %.lr.ph.i577, %457, 
   %509 = load i8, ptr %.1410.lcssa, align 1, !tbaa !10
   %510 = zext i8 %509 to i32
   %511 = sext i32 %.0419.lcssa to i64
-  %512 = getelementptr inbounds i32, ptr @_ZL9DECPOWERS, i64 %511
+  %512 = getelementptr inbounds [4 x i8], ptr @_ZL9DECPOWERS, i64 %511
   %513 = load i32, ptr %512, align 4, !tbaa !14
   %514 = add i32 %513, -1
   %.not647 = icmp eq i32 %514, %510
@@ -5700,7 +5700,7 @@ define internal fastcc noundef ptr @_ZL8decExpOpP9decNumberPKS_P10decContextPj(p
 
 89:                                               ; preds = %87
   %90 = sext i32 %82 to i64
-  %91 = getelementptr inbounds i32, ptr @_ZL9DECPOWERS, i64 %90
+  %91 = getelementptr inbounds [4 x i8], ptr @_ZL9DECPOWERS, i64 %90
   %92 = load i32, ptr %91, align 4, !tbaa !14
   %93 = trunc i32 %92 to i8
   store i8 %93, ptr %85, align 1, !tbaa !10
@@ -5746,12 +5746,12 @@ define internal fastcc noundef ptr @_ZL8decExpOpP9decNumberPKS_P10decContextPj(p
   %115 = phi i32 [ %113, %109 ], [ %81, %107 ]
   %116 = zext nneg i32 %115 to i64
   %117 = sext i32 %105 to i64
-  %118 = getelementptr inbounds i32, ptr @_ZL7multies, i64 %117
+  %118 = getelementptr inbounds [4 x i8], ptr @_ZL7multies, i64 %117
   %119 = load i32, ptr %118, align 4, !tbaa !14
-  %120 = getelementptr inbounds i32, ptr @_ZL9DECPOWERS, i64 %117
+  %120 = getelementptr inbounds [4 x i8], ptr @_ZL9DECPOWERS, i64 %117
   %121 = load i32, ptr %120, align 4, !tbaa !14
   %122 = sext i32 %104 to i64
-  %123 = getelementptr inbounds i32, ptr @_ZL9DECPOWERS, i64 %122
+  %123 = getelementptr inbounds [4 x i8], ptr @_ZL9DECPOWERS, i64 %122
   %124 = load i32, ptr %123, align 4, !tbaa !14
   %125 = lshr i32 1, %105
   %126 = mul nuw nsw i32 %125, %119
@@ -6014,7 +6014,7 @@ _ZL14decShiftToMostPhii.exit:                     ; preds = %.lr.ph91.i, %80, %8
   %.1184253 = phi ptr [ %.3186, %250 ], [ null, %151 ], [ null, %156 ]
   %.1188251 = phi ptr [ %.2189, %250 ], [ null, %151 ], [ null, %156 ]
   %251 = zext nneg i32 %.0168259 to i64
-  %252 = getelementptr inbounds nuw i32, ptr @_ZL9DECPOWERS, i64 %251
+  %252 = getelementptr inbounds nuw [4 x i8], ptr @_ZL9DECPOWERS, i64 %251
   %253 = load i32, ptr %252, align 4, !tbaa !14
   %254 = add nsw i32 %.0170258, 2
   store i32 %254, ptr %7, align 4, !tbaa !27
@@ -6601,7 +6601,7 @@ define internal fastcc noundef ptr @_ZL13decMultiplyOpP9decNumberPKS_S2_P10decCo
 
 98:                                               ; preds = %91
   %99 = sext i32 %84 to i64
-  %100 = getelementptr i64, ptr %.0259, i64 %99
+  %100 = getelementptr [8 x i8], ptr %.0259, i64 %99
   %101 = load i32, ptr %spec.select304, align 4, !tbaa !9
   %102 = icmp sgt i32 %101, 0
   br i1 %102, label %.lr.ph332.preheader, label %._crit_edge
@@ -6628,7 +6628,7 @@ define internal fastcc noundef ptr @_ZL13decMultiplyOpP9decNumberPKS_S2_P10decCo
   %.1237326 = phi i32 [ %.0236330, %.lr.ph332 ], [ %115, %106 ]
   %108 = load i8, ptr %.1233327, align 1, !tbaa !10
   %109 = zext i8 %108 to i32
-  %110 = getelementptr inbounds nuw i32, ptr @_ZL9DECPOWERS, i64 %indvars.iv381
+  %110 = getelementptr inbounds nuw [4 x i8], ptr @_ZL9DECPOWERS, i64 %indvars.iv381
   %111 = load i32, ptr %110, align 4, !tbaa !14
   %112 = mul i32 %111, %109
   %113 = add i32 %107, %112
@@ -6673,7 +6673,7 @@ define internal fastcc noundef ptr @_ZL13decMultiplyOpP9decNumberPKS_S2_P10decCo
   %.3239334 = phi i32 [ %.2238338, %.lr.ph341 ], [ %134, %125 ]
   %127 = load i8, ptr %.3235335, align 1, !tbaa !10
   %128 = zext i8 %127 to i32
-  %129 = getelementptr inbounds nuw i32, ptr @_ZL9DECPOWERS, i64 %indvars.iv384
+  %129 = getelementptr inbounds nuw [4 x i8], ptr @_ZL9DECPOWERS, i64 %indvars.iv384
   %130 = load i32, ptr %129, align 4, !tbaa !14
   %131 = mul i32 %130, %128
   %132 = add i32 %126, %131
@@ -6733,7 +6733,7 @@ define internal fastcc noundef ptr @_ZL13decMultiplyOpP9decNumberPKS_S2_P10decCo
   %153 = ptrtoint ptr %.1255357 to i64
   %154 = sub i64 %153, %150
   %155 = ashr exact i64 %154, 2
-  %156 = getelementptr inbounds i64, ptr %100, i64 %155
+  %156 = getelementptr inbounds [8 x i8], ptr %100, i64 %155
   %157 = load i32, ptr %.1255357, align 4, !tbaa !14
   %158 = zext i32 %157 to i64
   br label %159
@@ -7707,7 +7707,7 @@ uprv_decNumberFromInt32_77.exit199:               ; preds = %.lr.ph.i.i.i191, %1
   %.671121.i = phi ptr [ %204, %.lr.ph.i202 ], [ %197, %.lr.ph.i202.preheader ]
   %198 = load i8, ptr %.671121.i, align 1, !tbaa !10
   %199 = zext i8 %198 to i32
-  %200 = getelementptr inbounds nuw i32, ptr @_ZL9DECPOWERS, i64 %indvars.iv.i
+  %200 = getelementptr inbounds nuw [4 x i8], ptr @_ZL9DECPOWERS, i64 %indvars.iv.i
   %201 = load i32, ptr %200, align 4, !tbaa !14
   %202 = mul i32 %201, %199
   %203 = add i32 %202, %.5122.i
@@ -7725,7 +7725,7 @@ uprv_decNumberFromInt32_77.exit199:               ; preds = %.lr.ph.i.i.i191, %1
   %208 = zext nneg i32 %207 to i64
   %209 = getelementptr i8, ptr %.0, i64 %208
   %scevgep = getelementptr i8, ptr %209, i64 10
-  %210 = getelementptr i32, ptr @_ZL9DECPOWERS, i64 %208
+  %210 = getelementptr [4 x i8], ptr @_ZL9DECPOWERS, i64 %208
   %211 = getelementptr i8, ptr %210, i64 4
   %212 = load i32, ptr %211, align 4, !tbaa !14
   %213 = sdiv i32 %203, %212
@@ -7762,7 +7762,7 @@ _ZL9decGetIntPK9decNumber.exit:                   ; preds = %.preheader.i, %._cr
 _ZL9decGetIntPK9decNumber.exit.thread:            ; preds = %uprv_decNumberFromInt32_77.exit199, %.thread101.i, %_ZL9decGetIntPK9decNumber.exit
   %225 = phi i32 [ %spec.select236, %_ZL9decGetIntPK9decNumber.exit ], [ 0, %uprv_decNumberFromInt32_77.exit199 ], [ %221, %.thread101.i ]
   %226 = sext i32 %225 to i64
-  %227 = getelementptr i16, ptr @_ZL4LNnn, i64 %226
+  %227 = getelementptr [2 x i8], ptr @_ZL4LNnn, i64 %226
   %228 = getelementptr i8, ptr %227, i64 -20
   %229 = load i16, ptr %228, align 2, !tbaa !80
   %230 = zext i16 %229 to i32
@@ -8427,7 +8427,7 @@ define internal fastcc noundef ptr @_ZL7decNaNsP9decNumberPKS_S2_P10decContextPj
   %.pn.i50 = getelementptr inbounds nuw i8, ptr %59, i64 %.pre55
   %85 = getelementptr inbounds i8, ptr %.pn.i50, i64 -1
   %86 = sext i32 %83 to i64
-  %87 = getelementptr inbounds i32, ptr @_ZL9DECPOWERS, i64 %86
+  %87 = getelementptr inbounds [4 x i8], ptr @_ZL9DECPOWERS, i64 %86
   %88 = load i32, ptr %87, align 4, !tbaa !14
   %89 = load i8, ptr %85, align 1, !tbaa !10
   %90 = zext i8 %89 to i32
@@ -9184,7 +9184,7 @@ _ZL14decSetMaxValueP9decNumberP10decContext.exit: ; preds = %11, %.lr.ph.prehead
   %.013.lcssa.i = phi ptr [ %13, %11 ], [ %scevgep.i, %.lr.ph.preheader.i ]
   %.0.lcssa.i = phi i32 [ %12, %11 ], [ 1, %.lr.ph.preheader.i ]
   %18 = sext i32 %.0.lcssa.i to i64
-  %19 = getelementptr inbounds i32, ptr @_ZL9DECPOWERS, i64 %18
+  %19 = getelementptr inbounds [4 x i8], ptr @_ZL9DECPOWERS, i64 %18
   %20 = load i32, ptr %19, align 4, !tbaa !14
   %21 = trunc i32 %20 to i8
   %22 = add i8 %21, -1
@@ -9269,7 +9269,7 @@ define internal fastcc void @_ZL14decSetMaxValueP9decNumberP10decContext(ptr nou
   %.013.lcssa = phi ptr [ %4, %2 ], [ %scevgep, %.lr.ph.preheader ]
   %.0.lcssa = phi i32 [ %3, %2 ], [ 1, %.lr.ph.preheader ]
   %9 = sext i32 %.0.lcssa to i64
-  %10 = getelementptr inbounds i32, ptr @_ZL9DECPOWERS, i64 %9
+  %10 = getelementptr inbounds [4 x i8], ptr @_ZL9DECPOWERS, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !14
   %12 = trunc i32 %11 to i8
   %13 = add i8 %12, -1
@@ -9321,7 +9321,7 @@ _ZL14decSetMaxValueP9decNumberP10decContext.exit: ; preds = %10, %.lr.ph.prehead
   %.013.lcssa.i = phi ptr [ %12, %10 ], [ %scevgep.i, %.lr.ph.preheader.i ]
   %.0.lcssa.i = phi i32 [ %11, %10 ], [ 1, %.lr.ph.preheader.i ]
   %17 = sext i32 %.0.lcssa.i to i64
-  %18 = getelementptr inbounds i32, ptr @_ZL9DECPOWERS, i64 %17
+  %18 = getelementptr inbounds [4 x i8], ptr @_ZL9DECPOWERS, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !14
   %20 = trunc i32 %19 to i8
   %21 = add i8 %20, -1
@@ -10286,7 +10286,7 @@ define noundef ptr @uprv_decNumberPower_77(ptr noundef returned %0, ptr noundef 
 
 59:                                               ; preds = %57
   %60 = sext i32 %55 to i64
-  %61 = getelementptr inbounds i32, ptr @_ZL9DECPOWERS, i64 %60
+  %61 = getelementptr inbounds [4 x i8], ptr @_ZL9DECPOWERS, i64 %60
   %62 = load i32, ptr %61, align 4, !tbaa !14
   %63 = trunc i32 %62 to i8
   store i8 %63, ptr %44, align 1, !tbaa !10
@@ -10332,12 +10332,12 @@ define noundef ptr @uprv_decNumberPower_77(ptr noundef returned %0, ptr noundef 
   %85 = phi i32 [ %83, %79 ], [ %54, %77 ]
   %86 = zext nneg i32 %85 to i64
   %87 = sext i32 %75 to i64
-  %88 = getelementptr inbounds i32, ptr @_ZL7multies, i64 %87
+  %88 = getelementptr inbounds [4 x i8], ptr @_ZL7multies, i64 %87
   %89 = load i32, ptr %88, align 4, !tbaa !14
-  %90 = getelementptr inbounds i32, ptr @_ZL9DECPOWERS, i64 %87
+  %90 = getelementptr inbounds [4 x i8], ptr @_ZL9DECPOWERS, i64 %87
   %91 = load i32, ptr %90, align 4, !tbaa !14
   %92 = sext i32 %74 to i64
-  %93 = getelementptr inbounds i32, ptr @_ZL9DECPOWERS, i64 %92
+  %93 = getelementptr inbounds [4 x i8], ptr @_ZL9DECPOWERS, i64 %92
   %94 = load i32, ptr %93, align 4, !tbaa !14
   %95 = lshr i32 1, %75
   %96 = mul nuw nsw i32 %95, %89
@@ -10457,7 +10457,7 @@ define noundef ptr @uprv_decNumberPower_77(ptr noundef returned %0, ptr noundef 
   %.671121.i = phi ptr [ %.570.i, %.lr.ph.preheader.i ], [ %143, %.lr.ph.i ]
   %137 = load i8, ptr %.671121.i, align 1, !tbaa !10
   %138 = zext i8 %137 to i32
-  %139 = getelementptr inbounds nuw i32, ptr @_ZL9DECPOWERS, i64 %indvars.iv.i
+  %139 = getelementptr inbounds nuw [4 x i8], ptr @_ZL9DECPOWERS, i64 %indvars.iv.i
   %140 = load i32, ptr %139, align 4, !tbaa !14
   %141 = mul i32 %140, %138
   %142 = add i32 %141, %.5122.i
@@ -10476,7 +10476,7 @@ define noundef ptr @uprv_decNumberPower_77(ptr noundef returned %0, ptr noundef 
 
 147:                                              ; preds = %._crit_edge.i
   %148 = zext nneg i32 %.580.lcssa.i to i64
-  %149 = getelementptr i32, ptr @_ZL9DECPOWERS, i64 %148
+  %149 = getelementptr [4 x i8], ptr @_ZL9DECPOWERS, i64 %148
   %150 = getelementptr i8, ptr %149, i64 -4
   %151 = load i32, ptr %150, align 4, !tbaa !14
   %152 = sdiv i32 %.5.lcssa.i, %151
@@ -10952,7 +10952,7 @@ define internal fastcc noundef i32 @_ZL14decShiftToMostPhii(ptr noundef captures
 8:                                                ; preds = %5
   %9 = load i8, ptr %0, align 1, !tbaa !10
   %10 = sext i32 %2 to i64
-  %11 = getelementptr inbounds i32, ptr @_ZL9DECPOWERS, i64 %10
+  %11 = getelementptr inbounds [4 x i8], ptr @_ZL9DECPOWERS, i64 %10
   %12 = load i32, ptr %11, align 4, !tbaa !14
   %13 = trunc i32 %12 to i8
   %14 = mul i8 %9, %13
@@ -11035,12 +11035,12 @@ define internal fastcc noundef i32 @_ZL14decShiftToMostPhii(ptr noundef captures
 
 .lr.ph:                                           ; preds = %52
   %57 = sext i32 %40 to i64
-  %58 = getelementptr inbounds i32, ptr @_ZL7multies, i64 %57
+  %58 = getelementptr inbounds [4 x i8], ptr @_ZL7multies, i64 %57
   %59 = load i32, ptr %58, align 4, !tbaa !14
-  %60 = getelementptr inbounds i32, ptr @_ZL9DECPOWERS, i64 %57
+  %60 = getelementptr inbounds [4 x i8], ptr @_ZL9DECPOWERS, i64 %57
   %61 = load i32, ptr %60, align 4, !tbaa !14
   %62 = sext i32 %39 to i64
-  %63 = getelementptr inbounds i32, ptr @_ZL9DECPOWERS, i64 %62
+  %63 = getelementptr inbounds [4 x i8], ptr @_ZL9DECPOWERS, i64 %62
   %64 = load i32, ptr %63, align 4, !tbaa !14
   br label %65
 
@@ -11311,7 +11311,7 @@ define internal fastcc noundef ptr @_ZL13decQuantizeOpP9decNumberPKS_S2_P10decCo
   %.671121.i = phi ptr [ %.570.i, %.lr.ph.preheader.i92 ], [ %98, %.lr.ph.i93 ]
   %92 = load i8, ptr %.671121.i, align 1, !tbaa !10
   %93 = zext i8 %92 to i32
-  %94 = getelementptr inbounds nuw i32, ptr @_ZL9DECPOWERS, i64 %indvars.iv.i
+  %94 = getelementptr inbounds nuw [4 x i8], ptr @_ZL9DECPOWERS, i64 %indvars.iv.i
   %95 = load i32, ptr %94, align 4, !tbaa !14
   %96 = mul i32 %95, %93
   %97 = add i32 %96, %.5122.i
@@ -11330,7 +11330,7 @@ define internal fastcc noundef ptr @_ZL13decQuantizeOpP9decNumberPKS_S2_P10decCo
 
 102:                                              ; preds = %._crit_edge.i
   %103 = zext nneg i32 %.580.lcssa.i to i64
-  %104 = getelementptr i32, ptr @_ZL9DECPOWERS, i64 %103
+  %104 = getelementptr [4 x i8], ptr @_ZL9DECPOWERS, i64 %103
   %105 = getelementptr i8, ptr %104, i64 -4
   %106 = load i32, ptr %105, align 4, !tbaa !14
   %107 = sdiv i32 %.5.lcssa.i, %106
@@ -11782,7 +11782,7 @@ define internal fastcc noundef ptr @_ZL7decTrimP9decNumberP10decContexthhPi(ptr 
   %100 = zext i8 %99 to i32
   %101 = lshr i32 %100, %81
   %102 = sext i32 %81 to i64
-  %103 = getelementptr inbounds i32, ptr @_ZL7multies, i64 %102
+  %103 = getelementptr inbounds [4 x i8], ptr @_ZL7multies, i64 %102
   %104 = load i32, ptr %103, align 4, !tbaa !14
   %105 = mul i32 %101, %104
   %106 = lshr i32 %105, 17
@@ -11796,10 +11796,10 @@ define internal fastcc noundef ptr @_ZL7decTrimP9decNumberP10decContexthhPi(ptr 
   br i1 %110, label %_ZL15decShiftToLeastPhii.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %93
-  %111 = getelementptr inbounds i32, ptr @_ZL9DECPOWERS, i64 %102
+  %111 = getelementptr inbounds [4 x i8], ptr @_ZL9DECPOWERS, i64 %102
   %112 = load i32, ptr %111, align 4, !tbaa !14
   %113 = sext i32 %107 to i64
-  %114 = getelementptr inbounds i32, ptr @_ZL9DECPOWERS, i64 %113
+  %114 = getelementptr inbounds [4 x i8], ptr @_ZL9DECPOWERS, i64 %113
   %115 = load i32, ptr %114, align 4, !tbaa !14
   br label %116
 
@@ -12041,7 +12041,7 @@ define noundef ptr @uprv_decNumberRotate_77(ptr noundef returned %0, ptr noundef
   %.671121.i = phi ptr [ %40, %.lr.ph.i ], [ %33, %.lr.ph.i.preheader ]
   %34 = load i8, ptr %.671121.i, align 1, !tbaa !10
   %35 = zext i8 %34 to i32
-  %36 = getelementptr inbounds nuw i32, ptr @_ZL9DECPOWERS, i64 %indvars.iv.i
+  %36 = getelementptr inbounds nuw [4 x i8], ptr @_ZL9DECPOWERS, i64 %indvars.iv.i
   %37 = load i32, ptr %36, align 4, !tbaa !14
   %38 = mul i32 %37, %35
   %39 = add i32 %38, %.5122.i
@@ -12059,7 +12059,7 @@ define noundef ptr @uprv_decNumberRotate_77(ptr noundef returned %0, ptr noundef
   %44 = zext nneg i32 %43 to i64
   %45 = getelementptr i8, ptr %2, i64 %44
   %scevgep = getelementptr i8, ptr %45, i64 10
-  %46 = getelementptr i32, ptr @_ZL9DECPOWERS, i64 %44
+  %46 = getelementptr [4 x i8], ptr @_ZL9DECPOWERS, i64 %44
   %47 = getelementptr i8, ptr %46, i64 4
   %48 = load i32, ptr %47, align 4, !tbaa !14
   %49 = sdiv i32 %39, %48
@@ -12209,13 +12209,13 @@ _ZL9decGetIntPK9decNumber.exit.thread:            ; preds = %20, %_ZL9decGetIntP
   %119 = load i8, ptr %75, align 1, !tbaa !10
   %120 = zext i8 %119 to i32
   %121 = zext i32 %118 to i64
-  %122 = getelementptr inbounds nuw i32, ptr @_ZL9DECPOWERS, i64 %121
+  %122 = getelementptr inbounds nuw [4 x i8], ptr @_ZL9DECPOWERS, i64 %121
   %123 = load i32, ptr %122, align 4, !tbaa !14
   %124 = urem i32 %120, %123
   %125 = tail call fastcc noundef i32 @_ZL15decShiftToLeastPhii(ptr noundef nonnull %75, i32 noundef %115, i32 noundef %118)
   %126 = load i8, ptr %97, align 1, !tbaa !10
   %127 = zext i32 %114 to i64
-  %128 = getelementptr inbounds nuw i32, ptr @_ZL9DECPOWERS, i64 %127
+  %128 = getelementptr inbounds nuw [4 x i8], ptr @_ZL9DECPOWERS, i64 %127
   %129 = load i32, ptr %128, align 4, !tbaa !14
   %130 = mul i32 %129, %124
   %131 = trunc i32 %130 to i8
@@ -12414,7 +12414,7 @@ define internal fastcc noundef i32 @_ZL15decShiftToLeastPhii(ptr noundef %0, i32
   %39 = zext i8 %38 to i32
   %40 = lshr i32 %39, %16
   %41 = sext i32 %16 to i64
-  %42 = getelementptr inbounds i32, ptr @_ZL7multies, i64 %41
+  %42 = getelementptr inbounds [4 x i8], ptr @_ZL7multies, i64 %41
   %43 = load i32, ptr %42, align 4, !tbaa !14
   %44 = mul i32 %40, %43
   %45 = lshr i32 %44, 17
@@ -12427,10 +12427,10 @@ define internal fastcc noundef i32 @_ZL15decShiftToLeastPhii(ptr noundef %0, i32
   br i1 %50, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %32
-  %51 = getelementptr inbounds i32, ptr @_ZL9DECPOWERS, i64 %41
+  %51 = getelementptr inbounds [4 x i8], ptr @_ZL9DECPOWERS, i64 %41
   %52 = load i32, ptr %51, align 4, !tbaa !14
   %53 = sext i32 %46 to i64
-  %54 = getelementptr inbounds i32, ptr @_ZL9DECPOWERS, i64 %53
+  %54 = getelementptr inbounds [4 x i8], ptr @_ZL9DECPOWERS, i64 %53
   %55 = load i32, ptr %54, align 4, !tbaa !14
   br label %56
 
@@ -12597,7 +12597,7 @@ define noundef ptr @uprv_decNumberScaleB_77(ptr noundef returned %0, ptr noundef
   %.671121.i = phi ptr [ %42, %.lr.ph.i ], [ %35, %.lr.ph.i.preheader ]
   %36 = load i8, ptr %.671121.i, align 1, !tbaa !10
   %37 = zext i8 %36 to i32
-  %38 = getelementptr inbounds nuw i32, ptr @_ZL9DECPOWERS, i64 %indvars.iv.i
+  %38 = getelementptr inbounds nuw [4 x i8], ptr @_ZL9DECPOWERS, i64 %indvars.iv.i
   %39 = load i32, ptr %38, align 4, !tbaa !14
   %40 = mul i32 %39, %37
   %41 = add i32 %40, %.5122.i
@@ -12615,7 +12615,7 @@ define noundef ptr @uprv_decNumberScaleB_77(ptr noundef returned %0, ptr noundef
   %46 = zext nneg i32 %45 to i64
   %47 = getelementptr i8, ptr %2, i64 %46
   %scevgep = getelementptr i8, ptr %47, i64 10
-  %48 = getelementptr i32, ptr @_ZL9DECPOWERS, i64 %46
+  %48 = getelementptr [4 x i8], ptr @_ZL9DECPOWERS, i64 %46
   %49 = getelementptr i8, ptr %48, i64 4
   %50 = load i32, ptr %49, align 4, !tbaa !14
   %51 = sdiv i32 %41, %50
@@ -12784,7 +12784,7 @@ define noundef ptr @uprv_decNumberShift_77(ptr noundef returned %0, ptr noundef 
   %.671121.i = phi ptr [ %39, %.lr.ph.i ], [ %32, %.lr.ph.i.preheader ]
   %33 = load i8, ptr %.671121.i, align 1, !tbaa !10
   %34 = zext i8 %33 to i32
-  %35 = getelementptr inbounds nuw i32, ptr @_ZL9DECPOWERS, i64 %indvars.iv.i
+  %35 = getelementptr inbounds nuw [4 x i8], ptr @_ZL9DECPOWERS, i64 %indvars.iv.i
   %36 = load i32, ptr %35, align 4, !tbaa !14
   %37 = mul i32 %36, %34
   %38 = add i32 %37, %.5122.i
@@ -12802,7 +12802,7 @@ define noundef ptr @uprv_decNumberShift_77(ptr noundef returned %0, ptr noundef 
   %43 = zext nneg i32 %42 to i64
   %44 = getelementptr i8, ptr %2, i64 %43
   %scevgep = getelementptr i8, ptr %44, i64 10
-  %45 = getelementptr i32, ptr @_ZL9DECPOWERS, i64 %43
+  %45 = getelementptr [4 x i8], ptr @_ZL9DECPOWERS, i64 %43
   %46 = getelementptr i8, ptr %45, i64 4
   %47 = load i32, ptr %46, align 4, !tbaa !14
   %48 = sdiv i32 %38, %47
@@ -13015,7 +13015,7 @@ define internal fastcc noundef ptr @_ZL8decDecapP9decNumberi(ptr noundef returne
   %.pn = getelementptr inbounds nuw i8, ptr %4, i64 %.pn34
   %21 = getelementptr inbounds i8, ptr %.pn, i64 -1
   %22 = sext i32 %19 to i64
-  %23 = getelementptr inbounds i32, ptr @_ZL9DECPOWERS, i64 %22
+  %23 = getelementptr inbounds [4 x i8], ptr @_ZL9DECPOWERS, i64 %22
   %24 = load i32, ptr %23, align 4, !tbaa !14
   %25 = load i8, ptr %21, align 1, !tbaa !10
   %26 = zext i8 %25 to i32
@@ -14512,7 +14512,7 @@ define noundef nonnull ptr @uprv_decNumberClassToString_77(i32 noundef %0) local
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.uprv_decNumberClassToString_77, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.uprv_decNumberClassToString_77, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -15199,7 +15199,7 @@ select.unfold:                                    ; preds = %30, %46, %20, %15, 
   %57 = load i8, ptr %.088.ptr.lcssa, align 1, !tbaa !10
   %58 = zext i8 %57 to i32
   %59 = zext nneg i32 %.087.lcssa to i64
-  %60 = getelementptr inbounds nuw i32, ptr @_ZL9DECPOWERS, i64 %59
+  %60 = getelementptr inbounds nuw [4 x i8], ptr @_ZL9DECPOWERS, i64 %59
   %61 = load i32, ptr %60, align 4, !tbaa !14
   %62 = add i32 %61, -1
   %.not105 = icmp eq i32 %62, %58
@@ -15208,7 +15208,7 @@ select.unfold:                                    ; preds = %30, %46, %20, %15, 
 63:                                               ; preds = %._crit_edge
   %64 = add nsw i32 %.087.lcssa, -1
   %65 = zext i32 %64 to i64
-  %66 = getelementptr inbounds nuw i32, ptr @_ZL9DECPOWERS, i64 %65
+  %66 = getelementptr inbounds nuw [4 x i8], ptr @_ZL9DECPOWERS, i64 %65
   %67 = load i32, ptr %66, align 4, !tbaa !14
   %68 = trunc i32 %67 to i8
   store i8 %68, ptr %.088.ptr.lcssa, align 1, !tbaa !10
@@ -15272,14 +15272,14 @@ select.unfold123:                                 ; preds = %44, %37, %18, %9
   %88 = zext i8 %87 to i32
   %89 = add nsw i32 %.0.lcssa, -1
   %90 = zext i32 %89 to i64
-  %91 = getelementptr inbounds nuw i32, ptr @_ZL9DECPOWERS, i64 %90
+  %91 = getelementptr inbounds nuw [4 x i8], ptr @_ZL9DECPOWERS, i64 %90
   %92 = load i32, ptr %91, align 4, !tbaa !14
   %.not98 = icmp eq i32 %92, %88
   br i1 %.not98, label %93, label %.loopexit
 
 93:                                               ; preds = %._crit_edge160
   %94 = zext nneg i32 %.0.lcssa to i64
-  %95 = getelementptr inbounds nuw i32, ptr @_ZL9DECPOWERS, i64 %94
+  %95 = getelementptr inbounds nuw [4 x i8], ptr @_ZL9DECPOWERS, i64 %94
   %96 = load i32, ptr %95, align 4, !tbaa !14
   %97 = trunc i32 %96 to i8
   %98 = add i8 %97, -1
@@ -15450,7 +15450,7 @@ _ZL14decSetMaxValueP9decNumberP10decContext.exit: ; preds = %.critedge31, %.lr.p
   %.013.lcssa.i = phi ptr [ %7, %.critedge31 ], [ %scevgep.i, %.lr.ph.preheader.i ]
   %.0.lcssa.i = phi i32 [ %34, %.critedge31 ], [ 1, %.lr.ph.preheader.i ]
   %39 = sext i32 %.0.lcssa.i to i64
-  %40 = getelementptr inbounds i32, ptr @_ZL9DECPOWERS, i64 %39
+  %40 = getelementptr inbounds [4 x i8], ptr @_ZL9DECPOWERS, i64 %39
   %41 = load i32, ptr %40, align 4, !tbaa !14
   %42 = trunc i32 %41 to i8
   %43 = add i8 %42, -1

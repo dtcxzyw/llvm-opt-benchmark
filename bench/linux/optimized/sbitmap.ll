@@ -31,16 +31,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_sbitmap_fini
 %union.anon.2 = type { %struct.anon.3, [16 x i8] }
 %struct.anon.3 = type { ptr, i32, i32, i64, i64, ptr, i16, i8 }
 %struct.cpumask = type { [1 x i64] }
-%struct.sbitmap_word = type { i64, [56 x i8], i64, [56 x i8] }
-%struct.sbq_wait_state = type { %struct.wait_queue_head, [40 x i8] }
-%struct.wait_queue_head = type { %struct.spinlock, %struct.list_head }
-%struct.spinlock = type { %union.anon }
-%union.anon = type { %struct.raw_spinlock }
-%struct.raw_spinlock = type { %struct.qspinlock }
-%struct.qspinlock = type { %union.anon.0 }
-%union.anon.0 = type { %struct.atomic_t }
-%struct.atomic_t = type { i32 }
-%struct.list_head = type { ptr, ptr }
 
 @__UNIQUE_ID___addressable_sbitmap_init_node294 = internal global ptr @sbitmap_init_node, section ".discard.addressable", align 8
 @__UNIQUE_ID___addressable_sbitmap_resize295 = internal global ptr @sbitmap_resize, section ".discard.addressable", align 8
@@ -170,7 +160,7 @@ define dso_local noundef range(i32 -22, 1) i32 @sbitmap_init_node(ptr noundef ca
   %48 = load ptr, ptr %32, align 8
   %49 = ptrtoint ptr %48 to i64
   %50 = and i64 %43, 63
-  %51 = getelementptr i64, ptr @__per_cpu_offset, i64 %50
+  %51 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %50
   %52 = load i64, ptr %51, align 8
   %53 = add i64 %52, %49
   %54 = inttoptr i64 %53 to ptr
@@ -227,7 +217,7 @@ define dso_local void @sbitmap_resize(ptr noundef captures(none) %0, i32 noundef
   %11 = phi i32 [ %6, %8 ], [ %22, %21 ]
   %12 = phi i64 [ 0, %8 ], [ %23, %21 ]
   %13 = load ptr, ptr %9, align 8
-  %14 = getelementptr %struct.sbitmap_word, ptr %13, i64 %12
+  %14 = getelementptr [128 x i8], ptr %13, i64 %12
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 64
   %16 = load volatile i64, ptr %15, align 64
   %17 = icmp eq i64 %16, 0
@@ -438,7 +428,7 @@ define dso_local zeroext i1 @sbitmap_any_bit_set(ptr noundef readonly captures(n
   br i1 %14, label %.split.loop.exit4, label %15, !llvm.loop !28
 
 15:                                               ; preds = %.preheader
-  %16 = getelementptr %struct.sbitmap_word, ptr %6, i64 %indvars.iv.next
+  %16 = getelementptr [128 x i8], ptr %6, i64 %indvars.iv.next
   %17 = load i64, ptr %16, align 64
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 64
   %19 = load i64, ptr %18, align 64
@@ -474,7 +464,7 @@ define dso_local i32 @sbitmap_weight(ptr noundef readonly captures(none) %0) #0 
   %10 = phi i32 [ %3, %5 ], [ %31, %26 ]
   %11 = phi i32 [ 0, %5 ], [ %29, %26 ]
   %12 = load ptr, ptr %6, align 8
-  %13 = getelementptr %struct.sbitmap_word, ptr %12, i64 %9
+  %13 = getelementptr [128 x i8], ptr %12, i64 %9
   %14 = add i32 %10, -1
   %15 = zext i32 %14 to i64
   %16 = icmp eq i64 %9, %15
@@ -532,7 +522,7 @@ define dso_local i32 @sbitmap_weight(ptr noundef readonly captures(none) %0) #0 
 
 52:                                               ; preds = %49, %43
   %53 = phi i32 [ %48, %43 ], [ %51, %49 ]
-  %.split = getelementptr %struct.sbitmap_word, ptr %39, i64 %36
+  %.split = getelementptr [128 x i8], ptr %39, i64 %36
   %54 = getelementptr i8, ptr %.split, i64 64
   %55 = tail call i32 @__bitmap_weight(ptr noundef %54, i32 noundef %53) #11
   %56 = add i32 %55, %38
@@ -568,7 +558,7 @@ define dso_local void @sbitmap_show(ptr noundef readonly captures(none) %0, ptr 
   %12 = phi i32 [ %5, %7 ], [ %33, %28 ]
   %13 = phi i32 [ 0, %7 ], [ %31, %28 ]
   %14 = load ptr, ptr %8, align 8
-  %15 = getelementptr %struct.sbitmap_word, ptr %14, i64 %11
+  %15 = getelementptr [128 x i8], ptr %14, i64 %11
   %16 = add i32 %12, -1
   %17 = zext i32 %16 to i64
   %18 = icmp eq i64 %11, %17
@@ -626,7 +616,7 @@ define dso_local void @sbitmap_show(ptr noundef readonly captures(none) %0, ptr 
 
 54:                                               ; preds = %51, %45
   %55 = phi i32 [ %50, %45 ], [ %53, %51 ]
-  %.split.i = getelementptr %struct.sbitmap_word, ptr %41, i64 %38
+  %.split.i = getelementptr [128 x i8], ptr %41, i64 %38
   %56 = getelementptr i8, ptr %.split.i, i64 64
   %57 = tail call i32 @__bitmap_weight(ptr noundef %56, i32 noundef %55) #11
   %58 = add i32 %57, %40
@@ -675,7 +665,7 @@ sbitmap_weight.exit:                              ; preds = %54, %2, %36
 
 88:                                               ; preds = %85, %79
   %89 = phi i32 [ %84, %79 ], [ %87, %85 ]
-  %.split = getelementptr %struct.sbitmap_word, ptr %75, i64 %72
+  %.split = getelementptr [128 x i8], ptr %75, i64 %72
   %90 = getelementptr i8, ptr %.split, i64 64
   %91 = tail call i32 @__bitmap_weight(ptr noundef %90, i32 noundef %89) #11
   %92 = add i32 %91, %74
@@ -720,7 +710,7 @@ define dso_local void @sbitmap_bitmap_show(ptr noundef readonly captures(none) %
   %14 = phi i32 [ 0, %6 ], [ %78, %.loopexit ]
   %15 = load ptr, ptr %7, align 8
   %16 = sext i32 %14 to i64
-  %17 = getelementptr %struct.sbitmap_word, ptr %15, i64 %16
+  %17 = getelementptr [128 x i8], ptr %15, i64 %16
   %18 = load volatile i64, ptr %17, align 64
   %19 = getelementptr i8, ptr %17, i64 64
   %20 = load volatile i64, ptr %19, align 64
@@ -918,7 +908,7 @@ define dso_local noundef range(i32 -22, 1) i32 @sbitmap_queue_init_node(ptr noun
 35:                                               ; preds = %31, %9
   %36 = phi i64 [ 0, %9 ], [ %34, %31 ]
   %37 = or i32 %4, 256
-  %.split = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %36
+  %.split = getelementptr [112 x i8], ptr @kmalloc_caches, i64 %36
   %38 = getelementptr i8, ptr %.split, i64 72
   %39 = load ptr, ptr %38, align 8
   %40 = tail call noalias noundef align 8 dereferenceable_or_null(512) ptr @kmalloc_node_trace(ptr noundef %39, i32 noundef %37, i32 noundef %5, i64 noundef 512) #12
@@ -940,7 +930,7 @@ define dso_local noundef range(i32 -22, 1) i32 @sbitmap_queue_init_node(ptr noun
 .preheader:                                       ; preds = %35, %.preheader
   %48 = phi i64 [ %51, %.preheader ], [ 0, %35 ]
   %49 = load ptr, ptr %41, align 8
-  %50 = getelementptr %struct.sbq_wait_state, ptr %49, i64 %48
+  %50 = getelementptr [64 x i8], ptr %49, i64 %48
   tail call void @__init_waitqueue_head(ptr noundef %50, ptr noundef nonnull @.str.6, ptr noundef nonnull @sbitmap_queue_init_node.__key) #11
   %51 = add nuw nsw i64 %48, 1
   %52 = icmp eq i64 %51, 8
@@ -1010,7 +1000,7 @@ define dso_local void @sbitmap_queue_resize(ptr noundef %0, i32 noundef %1) #0 a
   %30 = phi i32 [ %25, %27 ], [ %41, %40 ]
   %31 = phi i64 [ 0, %27 ], [ %42, %40 ]
   %32 = load ptr, ptr %28, align 8
-  %33 = getelementptr %struct.sbitmap_word, ptr %32, i64 %31
+  %33 = getelementptr [128 x i8], ptr %32, i64 %31
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 64
   %35 = load volatile i64, ptr %34, align 64
   %36 = icmp eq i64 %35, 0
@@ -1108,7 +1098,7 @@ define dso_local i64 @__sbitmap_queue_get_batch(ptr noundef %0, i32 noundef %1, 
   %46 = phi i32 [ 0, %26 ], [ %42, %36 ]
   %47 = phi i64 [ %29, %26 ], [ %41, %36 ]
   %48 = load ptr, ptr %30, align 8
-  %49 = getelementptr %struct.sbitmap_word, ptr %48, i64 %47
+  %49 = getelementptr [128 x i8], ptr %48, i64 %47
   %50 = trunc i64 %47 to i32
   %51 = add i32 %45, -1
   %52 = icmp eq i32 %51, %50
@@ -1327,7 +1317,7 @@ define dso_local void @sbitmap_queue_wake_up(ptr noundef %0, i32 noundef %1) #0 
   %35 = phi i32 [ %4, %28 ], [ %50, %49 ]
   %36 = load ptr, ptr %31, align 8
   %37 = sext i32 %33 to i64
-  %38 = getelementptr %struct.sbq_wait_state, ptr %36, i64 %37
+  %38 = getelementptr [64 x i8], ptr %36, i64 %37
   %39 = add i32 %33, 1
   %40 = and i32 %39, 7
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 8
@@ -1380,13 +1370,13 @@ define dso_local void @sbitmap_queue_clear_batch(ptr noundef %0, i32 noundef %1,
   %12 = phi i64 [ 0, %6 ], [ %37, %27 ]
   %13 = phi ptr [ null, %6 ], [ %30, %27 ]
   %14 = phi i64 [ 0, %6 ], [ %36, %27 ]
-  %15 = getelementptr i32, ptr %2, i64 %12
+  %15 = getelementptr [4 x i8], ptr %2, i64 %12
   %16 = load i32, ptr %15, align 4
   %17 = sub i32 %16, %1
   %18 = load ptr, ptr %7, align 8
   %19 = ashr i32 %17, %11
   %20 = sext i32 %19 to i64
-  %21 = getelementptr %struct.sbitmap_word, ptr %18, i64 %20
+  %21 = getelementptr [128 x i8], ptr %18, i64 %20
   %22 = icmp eq ptr %13, null
   br i1 %22, label %27, label %23
 
@@ -1424,7 +1414,7 @@ define dso_local void @sbitmap_queue_clear_batch(ptr noundef %0, i32 noundef %1,
   %41 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #11, !srcloc !46
   %42 = add i32 %3, -1
   %43 = sext i32 %42 to i64
-  %44 = getelementptr i32, ptr %2, i64 %43
+  %44 = getelementptr [4 x i8], ptr %2, i64 %43
   %45 = load i32, ptr %44, align 4
   %46 = sub i32 %45, %1
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -1442,7 +1432,7 @@ define dso_local void @sbitmap_queue_clear_batch(ptr noundef %0, i32 noundef %1,
   %55 = load ptr, ptr %54, align 8
   %56 = ptrtoint ptr %55 to i64
   %57 = sext i32 %41 to i64
-  %58 = getelementptr i64, ptr @__per_cpu_offset, i64 %57
+  %58 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %57
   %59 = load i64, ptr %58, align 8
   %60 = add i64 %59, %56
   %61 = inttoptr i64 %60 to ptr
@@ -1465,7 +1455,7 @@ define dso_local void @sbitmap_queue_clear(ptr noundef %0, i32 noundef %1, i32 n
   %11 = load ptr, ptr %10, align 8
   %12 = lshr i32 %1, %5
   %13 = zext i32 %12 to i64
-  %.split = getelementptr %struct.sbitmap_word, ptr %11, i64 %13
+  %.split = getelementptr [128 x i8], ptr %11, i64 %13
   %14 = getelementptr i8, ptr %.split, i64 64
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %14, i64 %9) #11, !srcloc !47
   tail call void @sbitmap_queue_wake_up(ptr noundef %0, i32 noundef 1)
@@ -1484,7 +1474,7 @@ define dso_local void @sbitmap_queue_clear(ptr noundef %0, i32 noundef %1, i32 n
   %23 = load ptr, ptr %22, align 8
   %24 = ptrtoint ptr %23 to i64
   %25 = sext i32 %2 to i64
-  %26 = getelementptr i64, ptr @__per_cpu_offset, i64 %25
+  %26 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %25
   %27 = load i64, ptr %26, align 8
   %28 = add i64 %27, %24
   %29 = inttoptr i64 %28 to ptr
@@ -1508,7 +1498,7 @@ define dso_local void @sbitmap_queue_wake_all(ptr noundef %0) #0 align 16 {
   %7 = phi i32 [ 0, %1 ], [ %19, %16 ]
   %8 = load ptr, ptr %4, align 8
   %9 = sext i32 %6 to i64
-  %10 = getelementptr %struct.sbq_wait_state, ptr %8, i64 %9
+  %10 = getelementptr [64 x i8], ptr %8, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load volatile ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, %11
@@ -1565,7 +1555,7 @@ define dso_local void @sbitmap_queue_show(ptr noundef %0, ptr noundef %1) #0 ali
   %18 = load ptr, ptr %3, align 8
   %19 = ptrtoint ptr %18 to i64
   %20 = and i64 %12, 63
-  %21 = getelementptr i64, ptr @__per_cpu_offset, i64 %20
+  %21 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %20
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %22, %19
   %24 = inttoptr i64 %23 to ptr
@@ -1594,7 +1584,7 @@ define dso_local void @sbitmap_queue_show(ptr noundef %0, ptr noundef %1) #0 ali
 36:                                               ; preds = %36, %.thread
   %37 = phi i64 [ 0, %.thread ], [ %43, %36 ]
   %38 = load ptr, ptr %35, align 8
-  %.split = getelementptr %struct.sbq_wait_state, ptr %38, i64 %37
+  %.split = getelementptr [64 x i8], ptr %38, i64 %37
   %39 = getelementptr i8, ptr %.split, i64 8
   %40 = load volatile ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, %39
@@ -1735,7 +1725,7 @@ define internal fastcc i32 @sbitmap_find_bit(ptr noundef readonly captures(none)
   %16 = phi i32 [ 0, %9 ], [ %92, %.split12.us ]
   %17 = load ptr, ptr %10, align 8
   %18 = zext i32 %14 to i64
-  %19 = getelementptr %struct.sbitmap_word, ptr %17, i64 %18
+  %19 = getelementptr [128 x i8], ptr %17, i64 %18
   %20 = add i32 %13, -1
   %21 = icmp eq i32 %20, %14
   br i1 %21, label %22, label %27

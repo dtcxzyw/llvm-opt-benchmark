@@ -1109,7 +1109,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_d
   %.0.lcssa.i = phi i32 [ %39, %38 ], [ %51, %49 ]
   %.017.lcssa.i = phi i32 [ %.01727.i, %38 ], [ %.017.i, %49 ]
   %43 = zext nneg i32 %.017.lcssa.i to i64
-  %44 = getelementptr inbounds nuw double, ptr @_ZN10serde_json2de5POW1017h2fcedf0d13991c2cE, i64 %43
+  %44 = getelementptr inbounds nuw [8 x i8], ptr @_ZN10serde_json2de5POW1017h2fcedf0d13991c2cE, i64 %43
   %45 = load double, ptr %44, align 8, !noalias !322, !noundef !9
   %46 = icmp sgt i32 %.0.lcssa.i, -1
   br i1 %46, label %60, label %58
@@ -1600,7 +1600,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$14parse_e
   %.0.lcssa.i = phi i32 [ %.0, %49 ], [ %61, %59 ]
   %.017.lcssa.i = phi i32 [ %.01727.i, %49 ], [ %.017.i, %59 ]
   %53 = zext nneg i32 %.017.lcssa.i to i64
-  %54 = getelementptr inbounds nuw double, ptr @_ZN10serde_json2de5POW1017h2fcedf0d13991c2cE, i64 %53
+  %54 = getelementptr inbounds nuw [8 x i8], ptr @_ZN10serde_json2de5POW1017h2fcedf0d13991c2cE, i64 %53
   %55 = load double, ptr %54, align 8, !noalias !419, !noundef !9
   %56 = icmp sgt i32 %.0.lcssa.i, -1
   br i1 %56, label %70, label %68
@@ -2047,7 +2047,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$18parse_l
   %.0.lcssa.i = phi i32 [ %.013, %.thread ], [ %33, %31 ]
   %.017.lcssa.i = phi i32 [ %.01727.i, %.thread ], [ %.017.i, %31 ]
   %25 = zext nneg i32 %.017.lcssa.i to i64
-  %26 = getelementptr inbounds nuw double, ptr @_ZN10serde_json2de5POW1017h2fcedf0d13991c2cE, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr @_ZN10serde_json2de5POW1017h2fcedf0d13991c2cE, i64 %25
   %27 = load double, ptr %26, align 8, !noalias !526, !noundef !9
   %28 = icmp sgt i32 %.0.lcssa.i, -1
   br i1 %28, label %42, label %40
@@ -2172,7 +2172,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$22parse_d
   %.0.lcssa.i = phi i32 [ %4, %"_ZN10serde_json2de21Deserializer$LT$R$GT$12peek_or_null17h1c9d8f5c2542fbd1E.exit5.thread" ], [ %29, %27 ]
   %.017.lcssa.i = phi i32 [ %.01727.i, %"_ZN10serde_json2de21Deserializer$LT$R$GT$12peek_or_null17h1c9d8f5c2542fbd1E.exit5.thread" ], [ %.017.i, %27 ]
   %21 = zext nneg i32 %.017.lcssa.i to i64
-  %22 = getelementptr inbounds nuw double, ptr @_ZN10serde_json2de5POW1017h2fcedf0d13991c2cE, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr @_ZN10serde_json2de5POW1017h2fcedf0d13991c2cE, i64 %21
   %23 = load double, ptr %22, align 8, !noalias !550, !noundef !9
   %24 = icmp sgt i32 %.0.lcssa.i, -1
   br i1 %24, label %38, label %36
@@ -4085,8 +4085,8 @@ define hidden void @_ZN4core3ptr19swap_nonoverlapping17h802ce231223f7a84E.llvm.2
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.0910 = phi i64 [ %12, %.lr.ph ], [ 0, %3 ]
-  %4 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 %.0910
-  %5 = getelementptr inbounds { ptr, ptr }, ptr %1, i64 %.0910
+  %4 = getelementptr inbounds [16 x i8], ptr %0, i64 %.0910
+  %5 = getelementptr inbounds [16 x i8], ptr %1, i64 %.0910
   %6 = load ptr, ptr %4, align 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -5746,7 +5746,7 @@ define void @"_ZN10ockam_core7routing5route151_$LT$impl$u20$core..convert..From$
   br i1 %8, label %"_ZN5alloc11collections9vec_deque138_$LT$impl$u20$core..convert..From$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A$GT$$GT$4from17hcd23461269a2dbb1E.exit", label %9
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %.sroa.02.0.copyload.i, i64 %.sroa.54.0.copyload.i
+  %10 = getelementptr inbounds [32 x i8], ptr %.sroa.02.0.copyload.i, i64 %.sroa.54.0.copyload.i
   %11 = shl i64 %.sroa.6.0.copyload.i, 5
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %.sroa.02.0.copyload.i, ptr nonnull align 8 %10, i64 %11, i1 false), !noalias !1174
   br label %"_ZN5alloc11collections9vec_deque138_$LT$impl$u20$core..convert..From$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A$GT$$GT$4from17hcd23461269a2dbb1E.exit"

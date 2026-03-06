@@ -149,7 +149,7 @@ define noundef zeroext i1 @_ZNK5ZXing24GlobalHistogramBinarizer13getPatternRowEi
   %25 = load i8, ptr %.sroa.07.011.i, align 1, !tbaa !22, !noalias !19
   %26 = lshr i8 %25, 3
   %27 = zext nneg i8 %26 to i64
-  %28 = getelementptr inbounds nuw i16, ptr %6, i64 %27
+  %28 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %27
   %29 = load i16, ptr %28, align 2, !tbaa !23, !alias.scope !19
   %30 = add i16 %29, 1
   store i16 %30, ptr %28, align 2, !tbaa !23, !alias.scope !19
@@ -204,7 +204,7 @@ _ZN5ZXingL18EstimateBlackPointERKSt5arrayItLm32EE.exit.thread: ; preds = %41
   %.03263.i = phi i32 [ 0, %_ZSt11max_elementIPKtET_S2_S2_.exit.i ], [ %spec.select58.i, %46 ]
   %.05261.i = phi i32 [ 0, %_ZSt11max_elementIPKtET_S2_S2_.exit.i ], [ %spec.select57.i, %46 ]
   %47 = sub nsw i64 %indvars.iv.i, %39
-  %48 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv.i
+  %48 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %indvars.iv.i
   %49 = load i16, ptr %48, align 2, !tbaa !23
   %50 = zext i16 %49 to i32
   %51 = trunc i64 %47 to i32
@@ -233,7 +233,7 @@ _ZN5ZXingL18EstimateBlackPointERKSt5arrayItLm32EE.exit.thread: ; preds = %41
   %61 = mul nuw nsw i32 %60, %60
   %62 = sub i32 %spec.select56.i, %59
   %63 = mul nsw i32 %61, %62
-  %64 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv68.i
+  %64 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %indvars.iv68.i
   %65 = load i16, ptr %64, align 2, !tbaa !23
   %66 = zext i16 %65 to i32
   %67 = sub nsw i32 %43, %66
@@ -513,7 +513,7 @@ define linkonce_odr void @_ZN5ZXing13GetPatternRowIN9__gnu_cxx17__normal_iterato
   br i1 %20, label %21, label %_ZNSt6vectorItSaItEE6resizeEm.exit
 
 21:                                               ; preds = %19
-  %22 = getelementptr inbounds nuw i16, ptr %11, i64 %8
+  %22 = getelementptr inbounds nuw [2 x i8], ptr %11, i64 %8
   %.not.i.i = icmp eq ptr %10, %22
   br i1 %.not.i.i, label %_ZNSt6vectorItSaItEE6resizeEm.exit, label %23
 
@@ -557,7 +557,7 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEEiEvT_S7_RKT0_.exit
   %38 = load i8, ptr %.sroa.018.025, align 1, !tbaa !22
   %39 = icmp ne i8 %37, %38
   %40 = zext i1 %39 to i64
-  %41 = getelementptr inbounds nuw i16, ptr %.126, i64 %40
+  %41 = getelementptr inbounds nuw [2 x i8], ptr %.126, i64 %40
   %42 = getelementptr inbounds nuw i8, ptr %34, i64 1
   %43 = icmp eq ptr %42, %1
   br i1 %43, label %._crit_edge, label %.lr.ph, !llvm.loop !45
@@ -591,7 +591,7 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEEiEvT_S7_RKT0_.exit
   br i1 %57, label %58, label %_ZNSt6vectorItSaItEE6resizeEm.exit17
 
 58:                                               ; preds = %56
-  %59 = getelementptr inbounds nuw i16, ptr %25, i64 %50
+  %59 = getelementptr inbounds nuw [2 x i8], ptr %25, i64 %50
   %.not.i.i16 = icmp eq ptr %24, %59
   br i1 %.not.i.i16, label %_ZNSt6vectorItSaItEE6resizeEm.exit17, label %60
 
@@ -643,7 +643,7 @@ define void @_ZNK5ZXing24GlobalHistogramBinarizer14getBlackMatrixEv(ptr dead_on_
   %25 = load i8, ptr %24, align 1, !tbaa !22
   %26 = lshr i8 %25, 3
   %27 = zext nneg i8 %26 to i64
-  %28 = getelementptr inbounds nuw i16, ptr %3, i64 %27
+  %28 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %27
   %29 = load i16, ptr %28, align 2, !tbaa !23
   %30 = add i16 %29, 1
   store i16 %30, ptr %28, align 2, !tbaa !23
@@ -699,7 +699,7 @@ _ZSt11max_elementIPKtET_S2_S2_.exit.i:            ; preds = %.lr.ph.i.i.i
   %.03263.i = phi i32 [ 0, %_ZSt11max_elementIPKtET_S2_S2_.exit.i ], [ %spec.select58.i, %46 ]
   %.05261.i = phi i32 [ 0, %_ZSt11max_elementIPKtET_S2_S2_.exit.i ], [ %spec.select57.i, %46 ]
   %47 = sub nsw i64 %indvars.iv.i, %39
-  %48 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv.i
+  %48 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %indvars.iv.i
   %49 = load i16, ptr %48, align 2, !tbaa !23
   %50 = zext i16 %49 to i32
   %51 = trunc i64 %47 to i32
@@ -728,7 +728,7 @@ _ZSt11max_elementIPKtET_S2_S2_.exit.i:            ; preds = %.lr.ph.i.i.i
   %61 = mul nuw nsw i32 %60, %60
   %62 = sub i32 %spec.select56.i, %59
   %63 = mul nsw i32 %61, %62
-  %64 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv68.i
+  %64 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %indvars.iv68.i
   %65 = load i16, ptr %64, align 2, !tbaa !23
   %66 = zext i16 %65 to i32
   %67 = sub nsw i32 %43, %66
@@ -1118,9 +1118,9 @@ _ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseItSaItEE13_M_deallocateEPtm.exit36: ; preds = %_ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !43
-  %39 = getelementptr inbounds nuw i16, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [2 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !40
-  %40 = getelementptr inbounds nuw i16, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [2 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !62
   br label %41
 

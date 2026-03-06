@@ -767,10 +767,10 @@ define internal range(i32 -1, 1) i32 @ewt(ptr noundef readonly captures(none) %0
 10:                                               ; preds = %3, %19
   %indvars.iv = phi i64 [ 1, %3 ], [ %indvars.iv.next, %19 ]
   %11 = add nsw i64 %indvars.iv, -1
-  %12 = getelementptr inbounds nuw double, ptr %9, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %11
   %13 = load double, ptr %12, align 8, !tbaa !9
   %14 = tail call double @llvm.fabs.f64(double %13)
-  %15 = getelementptr inbounds nuw double, ptr %4, i64 %11
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %11
   %16 = load double, ptr %15, align 8, !tbaa !9
   %17 = tail call double @llvm.fmuladd.f64(double %14, double 0x3EB0C6F7A0B5ED8D, double %16)
   %18 = fcmp ugt double %17, 0.000000e+00
@@ -781,7 +781,7 @@ define internal range(i32 -1, 1) i32 @ewt(ptr noundef readonly captures(none) %0
   %21 = load ptr, ptr %1, align 8, !tbaa !13
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8, !tbaa !16
-  %24 = getelementptr inbounds nuw double, ptr %23, i64 %11
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %11
   store double %20, ptr %24, align 8, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4

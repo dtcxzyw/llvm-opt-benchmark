@@ -549,7 +549,7 @@ define ptr @Ptngc_pack_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32
 .lr.ph231:                                        ; preds = %.lr.ph231.preheader, %.lr.ph231
   %indvars.iv273 = phi i64 [ 0, %.lr.ph231.preheader ], [ %indvars.iv.next274, %.lr.ph231 ]
   %.0148229 = phi i32 [ 2147483647, %.lr.ph231.preheader ], [ %spec.select, %.lr.ph231 ]
-  %23 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv273
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv273
   %24 = load i32, ptr %23, align 4, !tbaa !19
   %spec.select = tail call i32 @llvm.smin.i32(i32 %24, i32 %.0148229)
   %indvars.iv.next274 = add nuw nsw i64 %indvars.iv273, 1
@@ -590,11 +590,11 @@ define ptr @Ptngc_pack_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32
   %reass.mul.us.us = mul i32 %reass.add.us.us, 3
   %32 = add i32 %reass.mul.us.us, %.0143239.us.us
   %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds i32, ptr %1, i64 %33
+  %34 = getelementptr inbounds [4 x i8], ptr %1, i64 %33
   %35 = load i32, ptr %34, align 4, !tbaa !19
   %36 = sub nsw i32 %35, %.0148.lcssa
   %indvars.iv.next281 = add nsw i64 %indvars.iv280, 1
-  %37 = getelementptr inbounds i32, ptr %19, i64 %indvars.iv280
+  %37 = getelementptr inbounds [4 x i8], ptr %19, i64 %indvars.iv280
   store i32 %36, ptr %37, align 4, !tbaa !19
   %indvars.iv.next279 = add nuw nsw i64 %indvars.iv278, 1
   %exitcond286.not = icmp eq i64 %indvars.iv.next279, %wide.trip.count285
@@ -682,7 +682,7 @@ define ptr @Ptngc_pack_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %78
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %78 ]
   %.0139212 = phi i32 [ 0, %.lr.ph.preheader ], [ %spec.select163, %78 ]
-  %66 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %67 = load i32, ptr %66, align 4, !tbaa !19
   %68 = icmp sgt i32 %67, 0
   br i1 %68, label %69, label %72
@@ -768,9 +768,9 @@ Ptngc_out8bits.exit:                              ; preds = %Ptngc_out8bits.exit
 
 96:                                               ; preds = %.lr.ph223, %106
   %indvars.iv261 = phi i64 [ 0, %.lr.ph223 ], [ %indvars.iv.next262, %106 ]
-  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv261
+  %gep = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep, i64 %indvars.iv261
   %97 = load i32, ptr %gep, align 4, !tbaa !19
-  %98 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv261
+  %98 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv261
   store i32 0, ptr %98, align 4, !tbaa !19
   %99 = icmp sgt i32 %97, 0
   br i1 %99, label %.sink.split, label %100
@@ -800,7 +800,7 @@ Ptngc_out8bits.exit:                              ; preds = %Ptngc_out8bits.exit
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %._crit_edge.i ], [ 0, %106 ]
   %.02840.i = phi i32 [ %.1.lcssa.i, %._crit_edge.i ], [ 0, %106 ]
   %.03138.i = phi i32 [ %.132.lcssa.i, %._crit_edge.i ], [ %64, %106 ]
-  %107 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv.i
+  %107 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv.i
   %108 = load i32, ptr %107, align 4, !tbaa !19
   %.not34.i = icmp ult i32 %108, %.03138.i
   br i1 %.not34.i, label %._crit_edge.i, label %.lr.ph.i166
@@ -877,7 +877,7 @@ Ptngc_out8bits.exit.i:                            ; preds = %.lr.ph.i.i, %116
   %.pre.i179 = phi i32 [ %134, %Ptngc_out8bits.exit.i ], [ %190, %Ptngc_write32bits.exit ]
   %.6 = phi ptr [ %.5, %Ptngc_out8bits.exit.i ], [ %.19, %Ptngc_write32bits.exit ]
   %indvars.iv44.i = phi i64 [ 0, %Ptngc_out8bits.exit.i ], [ %indvars.iv.next45.i, %Ptngc_write32bits.exit ]
-  %142 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv44.i
+  %142 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv44.i
   %143 = load i32, ptr %142, align 4, !tbaa !19
   br i1 %140, label %.lr.ph.i178, label %._crit_edge.i172
 
@@ -985,7 +985,7 @@ pack_triplet.exit:                                ; preds = %114
 .lr.ph227:                                        ; preds = %.preheader196, %pack_stopbits_item.exit
   %indvars.iv270 = phi i64 [ %indvars.iv.next271, %pack_stopbits_item.exit ], [ 0, %.preheader196 ]
   %.2225 = phi ptr [ %.10, %pack_stopbits_item.exit ], [ %58, %.preheader196 ]
-  %191 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv270
+  %191 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv270
   %192 = load i32, ptr %191, align 4, !tbaa !19
   %193 = icmp sgt i32 %192, 0
   br i1 %193, label %194, label %197
@@ -1223,7 +1223,7 @@ define i32 @Ptngc_unpack_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
   %30 = icmp eq i32 %29, 0
   %31 = sub nsw i32 0, %28
   %spec.select61.i = select i1 %30, i32 %31, i32 %28
-  %32 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.i
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv.i
   store i32 %spec.select61.i, ptr %32, align 4, !tbaa !19
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond16.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -1340,7 +1340,7 @@ define i32 @Ptngc_unpack_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
   %78 = lshr i32 %77, 1
   %79 = sub nsw i32 0, %78
   %spec.select74.us.i = select i1 %.not69.us.i, i32 %78, i32 %79
-  %gep.i = getelementptr inbounds nuw i32, ptr %scevgep.i, i64 %indvars.iv.i45
+  %gep.i = getelementptr inbounds nuw [4 x i8], ptr %scevgep.i, i64 %indvars.iv.i45
   store i32 %spec.select74.us.i, ptr %gep.i, align 4, !tbaa !19
   %indvars.iv.next.i47 = add nuw nsw i64 %indvars.iv.i45, 1
   %exitcond31.not.i = icmp eq i64 %indvars.iv.next.i47, 3
@@ -1396,7 +1396,7 @@ define i32 @Ptngc_unpack_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
   %indvars.iv9.i = phi i64 [ %indvars.iv.next10.i, %95 ], [ 0, %.preheader.us.us.i ]
   %indvars.iv.i51 = phi i64 [ %indvars.iv.next.i52, %95 ], [ %94, %.preheader.us.us.i ]
   %indvars.iv.next.i52 = add nsw i64 %indvars.iv.i51, 1
-  %96 = getelementptr inbounds i32, ptr %87, i64 %indvars.iv.i51
+  %96 = getelementptr inbounds [4 x i8], ptr %87, i64 %indvars.iv.i51
   %97 = load i32, ptr %96, align 4, !tbaa !19
   %98 = sub nsw i32 %97, %89
   %99 = trunc nuw nsw i64 %indvars.iv9.i to i32
@@ -1405,7 +1405,7 @@ define i32 @Ptngc_unpack_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
   %reass.mul.us.us.i = mul i32 %reass.add.us.us.i, 3
   %101 = add i32 %reass.mul.us.us.i, %.0285.us.us.i
   %102 = sext i32 %101 to i64
-  %103 = getelementptr inbounds i32, ptr %2, i64 %102
+  %103 = getelementptr inbounds [4 x i8], ptr %2, i64 %102
   store i32 %98, ptr %103, align 4, !tbaa !19
   %indvars.iv.next10.i = add nuw nsw i64 %indvars.iv9.i, 1
   %exitcond.not.i53 = icmp eq i64 %indvars.iv.next10.i, %wide.trip.count.i50

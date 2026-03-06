@@ -332,7 +332,7 @@ _ZNSt12__shared_ptrIN2cv8datasets9IR_affineELN9__gnu_cxx12_Lock_policyE2EED2Ev.e
 
 115:                                              ; preds = %.preheader, %115
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %115 ]
-  %gep = getelementptr inbounds nuw double, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep, i64 %indvars.iv
   %116 = load double, ptr %gep, align 8, !tbaa !43
   %117 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, double noundef %116)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

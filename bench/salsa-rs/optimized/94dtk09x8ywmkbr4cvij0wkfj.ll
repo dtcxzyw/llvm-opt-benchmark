@@ -22,7 +22,7 @@ define hidden { ptr, ptr } @"_ZN100_$LT$$RF$mut$u20$thin_vec..ThinVec$LT$T$GT$$u
   %.val = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   %2 = getelementptr inbounds nuw i8, ptr %.val, i64 16
   %3 = load i64, ptr %.val, align 8, !noundef !3
-  %4 = getelementptr inbounds nuw { { ptr } }, ptr %2, i64 %3
+  %4 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %3
   %5 = insertvalue { ptr, ptr } poison, ptr %2, 0
   %6 = insertvalue { ptr, ptr } %5, ptr %4, 1
   ret { ptr, ptr } %6
@@ -513,7 +513,7 @@ define hidden void @"_ZN8thin_vec16ThinVec$LT$T$GT$4push17he8e9ea9d1d5a2712E"(pt
 9:                                                ; preds = %8, %2
   %10 = phi ptr [ %.pre, %8 ], [ %3, %2 ]
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %12 = getelementptr inbounds nuw { { i32, i32 }, i32 }, ptr %11, i64 %4
+  %12 = getelementptr inbounds nuw [12 x i8], ptr %11, i64 %4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
   %13 = add i64 %4, 1
   store i64 %13, ptr %10, align 8
@@ -748,7 +748,7 @@ define hidden void @"_ZN98_$LT$core..iter..adapters..rev..Rev$LT$I$GT$$u20$as$u2
   %24 = load i32, ptr %23, align 8, !alias.scope !71, !noalias !74, !noundef !3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !79)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !82)
-  %25 = getelementptr inbounds nuw { { i32, i32 }, i64, { { ptr, {} } }, i32, i8, [3 x i8] }, ptr %6, i64 %.val7.i
+  %25 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %.val7.i
   store i32 %11, ptr %25, align 8, !noalias !85
   %.sroa.43.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %25, i64 4
   store i32 %13, ptr %.sroa.43.0..sroa_idx.i.i, align 4, !noalias !85
@@ -817,7 +817,7 @@ define { ptr, ptr } @_ZN5salsa5cycle10CycleHeads4iter17haf5c46f9450221a7E(ptr no
   %2 = load ptr, ptr %0, align 8, !alias.scope !95, !nonnull !3, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load i64, ptr %2, align 8, !noundef !3
-  %5 = getelementptr inbounds nuw { { i32, i32 }, i32 }, ptr %3, i64 %4
+  %5 = getelementptr inbounds nuw [12 x i8], ptr %3, i64 %4
   %6 = insertvalue { ptr, ptr } poison, ptr %3, 0
   %7 = insertvalue { ptr, ptr } %6, ptr %5, 1
   ret { ptr, ptr } %7
@@ -830,7 +830,7 @@ define noundef zeroext i1 @_ZN5salsa5cycle10CycleHeads8contains17h541addd7c8a8bb
   %3 = load ptr, ptr %0, align 8, !alias.scope !104, !nonnull !3, !noundef !3
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load i64, ptr %3, align 8, !noalias !107, !noundef !3
-  %6 = getelementptr inbounds nuw { { i32, i32 }, i32 }, ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [12 x i8], ptr %4, i64 %5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !108)
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %8 = load i32, ptr %7, align 4, !alias.scope !108, !noalias !111
@@ -894,9 +894,9 @@ define noundef zeroext i1 @_ZN5salsa5cycle10CycleHeads6remove17h9a9d9e05821c4125
 "_ZN8thin_vec16ThinVec$LT$T$GT$11swap_remove17ha6740ebf36556f59E.exit": ; preds = %12
   %20 = icmp ult i64 %.sroa.02.016.i, %6
   tail call void @llvm.assume(i1 %20)
-  %21 = getelementptr inbounds nuw { { i32, i32 }, i32 }, ptr %5, i64 %.sroa.02.016.i
+  %21 = getelementptr inbounds nuw [12 x i8], ptr %5, i64 %.sroa.02.016.i
   %22 = add i64 %6, -1
-  %23 = getelementptr inbounds nuw { { i32, i32 }, i32 }, ptr %5, i64 %22
+  %23 = getelementptr inbounds nuw [12 x i8], ptr %5, i64 %22
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %3, ptr noundef nonnull align 4 dereferenceable(12) %21, i64 12, i1 false), !noalias !123
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %21, ptr noundef nonnull align 4 dereferenceable(12) %23, i64 12, i1 false), !noalias !123
@@ -960,7 +960,7 @@ define { ptr, ptr } @"_ZN90_$LT$$RF$salsa..cycle..CycleHeads$u20$as$u20$core..it
   %2 = load ptr, ptr %0, align 8, !alias.scope !136, !nonnull !3, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load i64, ptr %2, align 8, !noalias !133, !noundef !3
-  %5 = getelementptr inbounds nuw { { i32, i32 }, i32 }, ptr %3, i64 %4
+  %5 = getelementptr inbounds nuw [12 x i8], ptr %3, i64 %4
   %6 = insertvalue { ptr, ptr } poison, ptr %3, 0
   %7 = insertvalue { ptr, ptr } %6, ptr %5, 1
   ret { ptr, ptr } %7

@@ -1107,7 +1107,7 @@ strbuf_strip_suffix.exit:                         ; preds = %143, %142
 
 .preheader.i:                                     ; preds = %strbuf_strip_suffix.exit, %skip_prefix.exit.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %skip_prefix.exit.i ], [ 0, %strbuf_strip_suffix.exit ]
-  %147 = getelementptr inbounds nuw ptr, ptr @__const.is_alternate_allowed.protocols, i64 %indvars.iv.i
+  %147 = getelementptr inbounds nuw [8 x i8], ptr @__const.is_alternate_allowed.protocols, i64 %indvars.iv.i
   %148 = load ptr, ptr %147, align 8, !tbaa !105
   br label %149
 

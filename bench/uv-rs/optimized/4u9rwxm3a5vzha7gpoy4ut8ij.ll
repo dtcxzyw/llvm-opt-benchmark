@@ -6414,7 +6414,7 @@ define internal fastcc void @_ZN5alloc5slice11stable_sort17h7d25e10c883b5f55E(pt
   br label %_ZN4core5slice4sort6shared9smallsort25insertion_sort_shift_left17ha5dea699cc8837fbE.exit
 
 .lr.ph.preheader.i:                               ; preds = %5
-  %8 = getelementptr inbounds nuw { { i64, [1 x i64] }, { { { { i64, ptr, {} }, {} }, i64 } }, { i64, [2 x i64] } }, ptr %0, i64 %1
+  %8 = getelementptr inbounds nuw [64 x i8], ptr %0, i64 %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   br label %.lr.ph.i
 
@@ -9799,7 +9799,7 @@ define internal fastcc void @_ZN9uv_pep4407version7Version13without_local17heb17
 
 46:                                               ; preds = %"_ZN4core3ptr53drop_in_place$LT$uv_pep440..version..LocalSegment$GT$17h0d22b667e66f1a21E.llvm.17527439469218822883.exit.i.i24", %.lr.ph.i.i18
   %.sroa.0.08.i.i19 = phi i64 [ 0, %.lr.ph.i.i18 ], [ %48, %"_ZN4core3ptr53drop_in_place$LT$uv_pep440..version..LocalSegment$GT$17h0d22b667e66f1a21E.llvm.17527439469218822883.exit.i.i24" ]
-  %47 = getelementptr inbounds { i64, [2 x i64] }, ptr %40, i64 %.sroa.0.08.i.i19
+  %47 = getelementptr inbounds [24 x i8], ptr %40, i64 %.sroa.0.08.i.i19
   %48 = add nuw i64 %.sroa.0.08.i.i19, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !1917), !noalias !1902
   %49 = load i64, ptr %47, align 8, !range !134, !alias.scope !1920, !noalias !1921, !noundef !6
@@ -9842,7 +9842,7 @@ define internal fastcc void @_ZN9uv_pep4407version7Version13without_local17heb17
   br label %58
 
 62:                                               ; preds = %58
-  %63 = getelementptr inbounds { i64, [2 x i64] }, ptr %40, i64 %.sroa.0.1.i.i21
+  %63 = getelementptr inbounds [24 x i8], ptr %40, i64 %.sroa.0.1.i.i21
   %64 = add i64 %.sroa.0.1.i.i21, 1
   invoke void @"_ZN4core3ptr53drop_in_place$LT$uv_pep440..version..LocalSegment$GT$17h0d22b667e66f1a21E.llvm.17527439469218822883"(ptr noalias noundef nonnull align 8 dereferenceable(24) %63) #39
           to label %58 unwind label %65, !noalias !1921
@@ -9915,7 +9915,7 @@ define internal fastcc void @_ZN9uv_pep4407version7Version13without_local17heb17
 
 91:                                               ; preds = %"_ZN4core3ptr53drop_in_place$LT$uv_pep440..version..LocalSegment$GT$17h0d22b667e66f1a21E.llvm.17527439469218822883.exit.i.i.i", %.lr.ph.i.i.i
   %.sroa.0.08.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %93, %"_ZN4core3ptr53drop_in_place$LT$uv_pep440..version..LocalSegment$GT$17h0d22b667e66f1a21E.llvm.17527439469218822883.exit.i.i.i" ]
-  %92 = getelementptr inbounds { i64, [2 x i64] }, ptr %85, i64 %.sroa.0.08.i.i.i
+  %92 = getelementptr inbounds [24 x i8], ptr %85, i64 %.sroa.0.08.i.i.i
   %93 = add nuw i64 %.sroa.0.08.i.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1949)
   %94 = load i64, ptr %92, align 8, !range !134, !alias.scope !1952, !noalias !1953, !noundef !6
@@ -9958,7 +9958,7 @@ define internal fastcc void @_ZN9uv_pep4407version7Version13without_local17heb17
   br label %103
 
 107:                                              ; preds = %103
-  %108 = getelementptr inbounds { i64, [2 x i64] }, ptr %85, i64 %.sroa.0.1.i.i.i
+  %108 = getelementptr inbounds [24 x i8], ptr %85, i64 %.sroa.0.1.i.i.i
   %109 = add i64 %.sroa.0.1.i.i.i, 1
   invoke void @"_ZN4core3ptr53drop_in_place$LT$uv_pep440..version..LocalSegment$GT$17h0d22b667e66f1a21E.llvm.17527439469218822883"(ptr noalias noundef nonnull align 8 dereferenceable(24) %108) #39
           to label %103 unwind label %110, !noalias !1953
@@ -10029,7 +10029,7 @@ define internal fastcc void @_ZN9uv_pep4407version7Version13without_local17heb17
 
 131:                                              ; preds = %"_ZN4core3ptr53drop_in_place$LT$uv_pep440..version..LocalSegment$GT$17h0d22b667e66f1a21E.llvm.17527439469218822883.exit.i.i", %.lr.ph.i.i
   %.sroa.0.08.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %133, %"_ZN4core3ptr53drop_in_place$LT$uv_pep440..version..LocalSegment$GT$17h0d22b667e66f1a21E.llvm.17527439469218822883.exit.i.i" ]
-  %132 = getelementptr inbounds nuw { i64, [2 x i64] }, ptr %128, i64 %.sroa.0.08.i.i
+  %132 = getelementptr inbounds nuw [24 x i8], ptr %128, i64 %.sroa.0.08.i.i
   %133 = add nuw nsw i64 %.sroa.0.08.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1980), !noalias !1902
   %134 = load i64, ptr %132, align 8, !range !134, !alias.scope !1983, !noalias !1984, !noundef !6
@@ -10072,7 +10072,7 @@ define internal fastcc void @_ZN9uv_pep4407version7Version13without_local17heb17
   br label %143
 
 147:                                              ; preds = %143
-  %148 = getelementptr inbounds { i64, [2 x i64] }, ptr %128, i64 %.sroa.0.1.i.i
+  %148 = getelementptr inbounds [24 x i8], ptr %128, i64 %.sroa.0.1.i.i
   %149 = add i64 %.sroa.0.1.i.i, 1
   invoke void @"_ZN4core3ptr53drop_in_place$LT$uv_pep440..version..LocalSegment$GT$17h0d22b667e66f1a21E.llvm.17527439469218822883"(ptr noalias noundef nonnull align 8 dereferenceable(24) %148) #39
           to label %143 unwind label %150, !noalias !1984

@@ -37,7 +37,7 @@ define i64 @ff_vorbiscomment_length(ptr noundef %0, ptr noundef readonly capture
   %indvars.iv = phi i64 [ 0, %.preheader34.preheader ], [ %indvars.iv.next, %._crit_edge ]
   %.139 = phi i64 [ %6, %.preheader34.preheader ], [ %.2.lcssa, %._crit_edge ]
   %9 = add nsw i64 %.139, 27
-  %10 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !4
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %13 = load ptr, ptr %12, align 8, !tbaa !9
@@ -136,7 +136,7 @@ define range(i32 -22, 1) i32 @ff_vorbiscomment_write(ptr noundef %0, ptr noundef
 .preheader119:                                    ; preds = %.preheader119.preheader, %.preheader119
   %indvars.iv = phi i64 [ 0, %.preheader119.preheader ], [ %indvars.iv.next, %.preheader119 ]
   %.192121 = phi i32 [ 0, %.preheader119.preheader ], [ %18, %.preheader119 ]
-  %12 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !4
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %15 = load ptr, ptr %14, align 8, !tbaa !9
@@ -196,7 +196,7 @@ define range(i32 -22, 1) i32 @ff_vorbiscomment_write(ptr noundef %0, ptr noundef
 
 .lr.ph127:                                        ; preds = %.lr.ph127.preheader, %._crit_edge
   %indvars.iv130 = phi i64 [ 0, %.lr.ph127.preheader ], [ %indvars.iv.next131, %._crit_edge ]
-  %39 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv130
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv130
   %40 = load ptr, ptr %39, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)

@@ -569,7 +569,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %31 = load ptr, ptr @stderr, align 8, !tbaa !20
   %32 = sub nsw i32 0, %20
   %33 = zext nneg i32 %32 to i64
-  %34 = getelementptr inbounds nuw ptr, ptr %1, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %33
   %35 = load ptr, ptr %34, align 8, !tbaa !22
   %36 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %31, ptr noundef nonnull @.str.3, ptr noundef %35) #22
   br label %39
@@ -2006,7 +2006,7 @@ _ZL27getPlatformAndCCSIDFromNamePKcPaPi.exit.i:   ; preds = %56, %49
 
 110:                                              ; preds = %106
   %111 = sext i8 %100 to i64
-  %112 = getelementptr inbounds ptr, ptr @ucnv_converterStaticData, i64 %111
+  %112 = getelementptr inbounds [8 x i8], ptr @ucnv_converterStaticData, i64 %111
   %113 = load ptr, ptr %112, align 8, !tbaa !83
   %.not70.i = icmp eq ptr %113, null
   br i1 %.not70.i, label %158, label %114

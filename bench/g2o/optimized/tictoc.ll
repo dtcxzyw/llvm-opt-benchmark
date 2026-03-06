@@ -420,7 +420,7 @@ _ZNSt6vectorIN3g2o13TicTocElementESaIS1_EE7reserveEm.exit: ; preds = %_ZNSt12_Ve
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %15, ptr %3, align 8, !tbaa !53
   store ptr %15, ptr %16, align 8, !tbaa !56
-  %17 = getelementptr inbounds nuw %"struct.g2o::TicTocElement", ptr %15, i64 %9
+  %17 = getelementptr inbounds nuw [88 x i8], ptr %15, i64 %9
   store ptr %17, ptr %13, align 8, !tbaa !57
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load ptr, ptr %18, align 8, !tbaa !14
@@ -1140,7 +1140,7 @@ _ZNSt6vectorIN3g2o13TicTocElementESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit36: ;
 _ZNSt12_Vector_baseIN3g2o13TicTocElementESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN3g2o13TicTocElementESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit36, %86
   store ptr %21, ptr %0, align 8, !tbaa !53
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8, !tbaa !56
-  %90 = getelementptr inbounds nuw %"struct.g2o::TicTocElement", ptr %21, i64 %17
+  %90 = getelementptr inbounds nuw [88 x i8], ptr %21, i64 %17
   store ptr %90, ptr %85, align 8, !tbaa !57
   ret void
 
@@ -1233,7 +1233,7 @@ _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN3g2o13TicTocElementESt6vec
 26:                                               ; preds = %18
   %27 = add nsw i64 %.015, -1
   %28 = udiv i64 %19, 176
-  %29 = getelementptr inbounds nuw %"struct.g2o::TicTocElement", ptr %0, i64 %28
+  %29 = getelementptr inbounds nuw [88 x i8], ptr %0, i64 %28
   %30 = getelementptr inbounds i8, ptr %storemerge14, i64 -88
   %31 = load double, ptr %12, align 8, !tbaa !62
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 8
@@ -1510,7 +1510,7 @@ define linkonce_odr void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN3g2
 22:                                               ; preds = %_ZN3g2o13TicTocElementD2Ev.exit13, %11
   %.08 = phi i64 [ %13, %11 ], [ %49, %_ZN3g2o13TicTocElementD2Ev.exit13 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %23 = getelementptr inbounds %"struct.g2o::TicTocElement", ptr %0, i64 %.08
+  %23 = getelementptr inbounds [88 x i8], ptr %0, i64 %.08
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(81) %4, ptr noundef nonnull align 8 dereferenceable(81) %23, i64 48, i1 false)
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 48
   %25 = load ptr, ptr %24, align 8, !tbaa !31
@@ -1840,17 +1840,17 @@ define linkonce_odr void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3
   %.047 = phi i64 [ %spec.select, %_ZN3g2o13TicTocElementaSEOS0_.exit ], [ %1, %4 ]
   %10 = shl i64 %.047, 1
   %11 = add i64 %10, 2
-  %12 = getelementptr inbounds %"struct.g2o::TicTocElement", ptr %0, i64 %11
+  %12 = getelementptr inbounds [88 x i8], ptr %0, i64 %11
   %13 = or disjoint i64 %10, 1
-  %14 = getelementptr inbounds %"struct.g2o::TicTocElement", ptr %0, i64 %13
+  %14 = getelementptr inbounds [88 x i8], ptr %0, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %16 = load double, ptr %15, align 8, !tbaa !62
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %18 = load double, ptr %17, align 8, !tbaa !62
   %19 = fcmp olt double %16, %18
   %spec.select = select i1 %19, i64 %13, i64 %11
-  %20 = getelementptr inbounds %"struct.g2o::TicTocElement", ptr %0, i64 %spec.select
-  %21 = getelementptr inbounds %"struct.g2o::TicTocElement", ptr %0, i64 %.047
+  %20 = getelementptr inbounds [88 x i8], ptr %0, i64 %spec.select
+  %21 = getelementptr inbounds [88 x i8], ptr %0, i64 %.047
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(81) %21, ptr noundef nonnull align 8 dereferenceable(81) %20, i64 48, i1 false)
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 48
@@ -1959,8 +1959,8 @@ _ZN3g2o13TicTocElementaSEOS0_.exit:               ; preds = %30, %_ZNSt7__cxx111
 65:                                               ; preds = %61
   %66 = shl nsw i64 %.0.lcssa, 1
   %67 = or disjoint i64 %66, 1
-  %68 = getelementptr inbounds %"struct.g2o::TicTocElement", ptr %0, i64 %67
-  %69 = getelementptr inbounds %"struct.g2o::TicTocElement", ptr %0, i64 %.0.lcssa
+  %68 = getelementptr inbounds [88 x i8], ptr %0, i64 %67
+  %69 = getelementptr inbounds [88 x i8], ptr %0, i64 %.0.lcssa
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(81) %69, ptr noundef nonnull align 8 dereferenceable(81) %68, i64 48, i1 false)
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 48
   %71 = getelementptr inbounds nuw i8, ptr %68, i64 48
@@ -2144,7 +2144,7 @@ define linkonce_odr void @_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN3g2
   %.027 = phi i64 [ %1, %.lr.ph ], [ %.0928, %_ZN3g2o13TicTocElementaSEOS0_.exit ]
   %.0928.in = add nsw i64 %.027, -1
   %.0928 = sdiv i64 %.0928.in, 2
-  %9 = getelementptr inbounds %"struct.g2o::TicTocElement", ptr %0, i64 %.0928
+  %9 = getelementptr inbounds [88 x i8], ptr %0, i64 %.0928
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load double, ptr %10, align 8, !tbaa !62
   %12 = load double, ptr %7, align 8, !tbaa !62
@@ -2152,7 +2152,7 @@ define linkonce_odr void @_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN3g2
   br i1 %13, label %14, label %.critedge
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds %"struct.g2o::TicTocElement", ptr %0, i64 %.027
+  %15 = getelementptr inbounds [88 x i8], ptr %0, i64 %.027
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(81) %15, ptr noundef nonnull align 8 dereferenceable(81) %9, i64 48, i1 false)
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 48
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 48
@@ -2248,7 +2248,7 @@ _ZN3g2o13TicTocElementaSEOS0_.exit:               ; preds = %24, %_ZNSt7__cxx111
 
 .critedge:                                        ; preds = %8, %_ZN3g2o13TicTocElementaSEOS0_.exit, %5
   %.0.lcssa = phi i64 [ %1, %5 ], [ %.0928, %_ZN3g2o13TicTocElementaSEOS0_.exit ], [ %.027, %8 ]
-  %53 = getelementptr inbounds %"struct.g2o::TicTocElement", ptr %0, i64 %.0.lcssa
+  %53 = getelementptr inbounds [88 x i8], ptr %0, i64 %.0.lcssa
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(81) %53, ptr noundef nonnull align 8 dereferenceable(81) %3, i64 48, i1 false)
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 48
   %55 = getelementptr inbounds nuw i8, ptr %3, i64 48

@@ -74,7 +74,7 @@ define hidden noundef align 8 dereferenceable_or_null(40) ptr @_ZN10actix_http10
   %26 = add i64 %.sroa.01.0.i.i.i.i, %23
   %27 = and i64 %26, %11
   %28 = sub nsw i64 0, %27
-  %29 = getelementptr inbounds { i128, { { { { ptr, ptr } }, {} }, {} } }, ptr %12, i64 %28
+  %29 = getelementptr inbounds [32 x i8], ptr %12, i64 %28
   %30 = getelementptr inbounds i8, ptr %29, i64 -32
   %.val4.i.i.i.i = load i128, ptr %30, align 16, !alias.scope !34, !noalias !39, !noundef !9
   %31 = icmp eq i128 %.val4.i.i.i.i, 110187957355091152229701693612835449647
@@ -159,7 +159,7 @@ define hidden noundef align 8 dereferenceable_or_null(8) ptr @_ZN10actix_http10e
   %26 = add i64 %.sroa.01.0.i.i.i.i, %23
   %27 = and i64 %26, %11
   %28 = sub nsw i64 0, %27
-  %29 = getelementptr inbounds { i128, { { { { ptr, ptr } }, {} }, {} } }, ptr %12, i64 %28
+  %29 = getelementptr inbounds [32 x i8], ptr %12, i64 %28
   %30 = getelementptr inbounds i8, ptr %29, i64 -32
   %.val4.i.i.i.i = load i128, ptr %30, align 16, !alias.scope !77, !noalias !82, !noundef !9
   %31 = icmp eq i128 %.val4.i.i.i.i, -36251075979745135396320772093292234452
@@ -244,7 +244,7 @@ define hidden noundef align 8 dereferenceable_or_null(8) ptr @_ZN10actix_http10e
   %26 = add i64 %.sroa.01.0.i.i.i.i, %23
   %27 = and i64 %26, %11
   %28 = sub nsw i64 0, %27
-  %29 = getelementptr inbounds { i128, { { { { ptr, ptr } }, {} }, {} } }, ptr %12, i64 %28
+  %29 = getelementptr inbounds [32 x i8], ptr %12, i64 %28
   %30 = getelementptr inbounds i8, ptr %29, i64 -32
   %.val4.i.i.i.i = load i128, ptr %30, align 16, !alias.scope !119, !noalias !124, !noundef !9
   %31 = icmp eq i128 %.val4.i.i.i.i, -132569874041603309286945106659156482949
@@ -329,7 +329,7 @@ define hidden noundef align 8 dereferenceable_or_null(8) ptr @_ZN10actix_http10e
   %26 = add i64 %.sroa.01.0.i.i.i.i, %23
   %27 = and i64 %26, %11
   %28 = sub nsw i64 0, %27
-  %29 = getelementptr inbounds { i128, { { { { ptr, ptr } }, {} }, {} } }, ptr %12, i64 %28
+  %29 = getelementptr inbounds [32 x i8], ptr %12, i64 %28
   %30 = getelementptr inbounds i8, ptr %29, i64 -32
   %.val4.i.i.i.i = load i128, ptr %30, align 16, !alias.scope !161, !noalias !166, !noundef !9
   %31 = icmp eq i128 %.val4.i.i.i.i, 132943199169997886866197182959516594222
@@ -414,7 +414,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @_ZN10actix_http10
   %26 = add i64 %.sroa.01.0.i.i.i.i, %23
   %27 = and i64 %26, %11
   %28 = sub nsw i64 0, %27
-  %29 = getelementptr inbounds { i128, { { { { ptr, ptr } }, {} }, {} } }, ptr %12, i64 %28
+  %29 = getelementptr inbounds [32 x i8], ptr %12, i64 %28
   %30 = getelementptr inbounds i8, ptr %29, i64 -32
   %.val4.i.i.i.i = load i128, ptr %30, align 16, !alias.scope !203, !noalias !208, !noundef !9
   %31 = icmp eq i128 %.val4.i.i.i.i, 49148363287690074415576085520784965585
@@ -499,7 +499,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @_ZN10actix_http10
   %26 = add i64 %.sroa.01.0.i.i.i.i, %23
   %27 = and i64 %26, %11
   %28 = sub nsw i64 0, %27
-  %29 = getelementptr inbounds { i128, { { { { ptr, ptr } }, {} }, {} } }, ptr %12, i64 %28
+  %29 = getelementptr inbounds [32 x i8], ptr %12, i64 %28
   %30 = getelementptr inbounds i8, ptr %29, i64 -32
   %.val4.i.i.i.i = load i128, ptr %30, align 16, !alias.scope !245, !noalias !250, !noundef !9
   %31 = icmp eq i128 %.val4.i.i.i.i, 37454983965959637799287418366408264090
@@ -584,7 +584,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @_ZN10actix_http10
   %26 = add i64 %.sroa.01.0.i.i.i.i, %23
   %27 = and i64 %26, %11
   %28 = sub nsw i64 0, %27
-  %29 = getelementptr inbounds { i128, { { { { ptr, ptr } }, {} }, {} } }, ptr %12, i64 %28
+  %29 = getelementptr inbounds [32 x i8], ptr %12, i64 %28
   %30 = getelementptr inbounds i8, ptr %29, i64 -32
   %.val4.i.i.i.i = load i128, ptr %30, align 16, !alias.scope !287, !noalias !292, !noundef !9
   %31 = icmp eq i128 %.val4.i.i.i.i, -92912462635114752524505196768403385432
@@ -669,7 +669,7 @@ define hidden noundef align 8 dereferenceable_or_null(8) ptr @_ZN10actix_http10e
   %26 = add i64 %.sroa.01.0.i.i.i.i, %23
   %27 = and i64 %26, %11
   %28 = sub nsw i64 0, %27
-  %29 = getelementptr inbounds { i128, { { { { ptr, ptr } }, {} }, {} } }, ptr %12, i64 %28
+  %29 = getelementptr inbounds [32 x i8], ptr %12, i64 %28
   %30 = getelementptr inbounds i8, ptr %29, i64 -32
   %.val4.i.i.i.i = load i128, ptr %30, align 16, !alias.scope !329, !noalias !334, !noundef !9
   %31 = icmp eq i128 %.val4.i.i.i.i, 1130926395323386441091776359907432418
@@ -1187,7 +1187,7 @@ define hidden void @_ZN4mime4Mime6params17hc7d0d510e8c8bf4aE.llvm.12140633497304
   %11 = load ptr, ptr %10, align 8, !nonnull !9
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %13 = load i64, ptr %12, align 8
-  %14 = getelementptr inbounds { { i64, i64 }, { i64, i64 } }, ptr %11, i64 %13
+  %14 = getelementptr inbounds [32 x i8], ptr %11, i64 %13
   %.sroa.42.0 = select i1 %8, ptr %9, ptr undef
   %.sroa.5.0 = select i1 %8, ptr %11, ptr undef
   %.sroa.6.0 = select i1 %8, ptr %14, ptr undef
@@ -1221,7 +1221,7 @@ define hidden void @_ZN4mime4Mime9get_param17h6900ebdbaf11b486E(ptr noalias noun
   %14 = load ptr, ptr %13, align 8, !alias.scope !458, !noalias !455, !nonnull !9
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %16 = load i64, ptr %15, align 8, !alias.scope !458, !noalias !455
-  %17 = getelementptr inbounds { { i64, i64 }, { i64, i64 } }, ptr %14, i64 %16
+  %17 = getelementptr inbounds [32 x i8], ptr %14, i64 %16
   %.sroa.42.0.i = select i1 %11, ptr %12, ptr undef
   %.sroa.5.0.i = select i1 %11, ptr %14, ptr undef
   %.sroa.6.0.i = select i1 %11, ptr %17, ptr undef
@@ -1714,7 +1714,7 @@ define hidden noundef align 8 dereferenceable_or_null(16) ptr @"_ZN9hashbrown3ma
   %29 = add i64 %.sroa.01.0.i.i.i, %26
   %30 = and i64 %29, %14
   %31 = sub nsw i64 0, %30
-  %32 = getelementptr inbounds { i128, { { { { ptr, ptr } }, {} }, {} } }, ptr %15, i64 %31
+  %32 = getelementptr inbounds [32 x i8], ptr %15, i64 %31
   %33 = getelementptr inbounds i8, ptr %32, i64 -32
   %.val4.i.i.i = load i128, ptr %33, align 16, !alias.scope !576, !noalias !581, !noundef !9
   %34 = icmp eq i128 %8, %.val4.i.i.i
@@ -1784,7 +1784,7 @@ define hidden noundef align 16 dereferenceable_or_null(32) ptr @"_ZN9hashbrown3r
   %23 = add i64 %.sroa.01.0.i.i, %20
   %24 = and i64 %23, %7
   %25 = sub nsw i64 0, %24
-  %26 = getelementptr inbounds { i128, { { { { ptr, ptr } }, {} }, {} } }, ptr %8, i64 %25
+  %26 = getelementptr inbounds [32 x i8], ptr %8, i64 %25
   %27 = getelementptr inbounds i8, ptr %26, i64 -32
   %.val4.i.i = load i128, ptr %27, align 16, !alias.scope !598, !noalias !603, !noundef !9
   %28 = icmp eq i128 %9, %.val4.i.i
@@ -1845,7 +1845,7 @@ define hidden noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h1d1c
   %23 = add i64 %.sroa.01.0.i, %20
   %24 = and i64 %23, %7
   %25 = sub nsw i64 0, %24
-  %26 = getelementptr inbounds { i128, { { { { ptr, ptr } }, {} }, {} } }, ptr %8, i64 %25
+  %26 = getelementptr inbounds [32 x i8], ptr %8, i64 %25
   %27 = getelementptr inbounds i8, ptr %26, i64 -32
   %.val4.i = load i128, ptr %27, align 16, !alias.scope !614, !noalias !619, !noundef !9
   %28 = icmp eq i128 %9, %.val4.i

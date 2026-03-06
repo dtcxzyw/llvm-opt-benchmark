@@ -3,8 +3,6 @@ source_filename = "bench/php/original/ir_strtab.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct._ir_strtab_bucket = type { i32, i32, ptr, i32, i32 }
-
 ; Function Attrs: nounwind uwtable
 define hidden void @ir_strtab_init(ptr noundef writeonly captures(none) initializes((0, 40)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = add i32 %1, -1
@@ -96,7 +94,7 @@ ir_str_hash.exit:                                 ; preds = %3, %._crit_edge.loo
   %14 = load i32, ptr %13, align 8, !tbaa !11
   %15 = or i32 %14, %.0.lcssa.i
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds i32, ptr %12, i64 %16
+  %17 = getelementptr inbounds [4 x i8], ptr %12, i64 %16
   %.01820 = load i32, ptr %17, align 4, !tbaa !19
   %.not21 = icmp eq i32 %.01820, -1
   br i1 %.not21, label %.loopexit, label %.lr.ph
@@ -168,7 +166,7 @@ ir_str_hash.exit:                                 ; preds = %4, %._crit_edge.loo
   %15 = load i32, ptr %14, align 8, !tbaa !11
   %16 = or i32 %15, %.0.lcssa.i
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds i32, ptr %13, i64 %17
+  %18 = getelementptr inbounds [4 x i8], ptr %13, i64 %17
   %.068 = load i32, ptr %18, align 4, !tbaa !19
   %.not69 = icmp eq i32 %.068, -1
   br i1 %.not69, label %._crit_edge, label %.lr.ph
@@ -280,7 +278,7 @@ ir_str_hash.exit:                                 ; preds = %4, %._crit_edge.loo
   %79 = load i32, ptr %14, align 8, !tbaa !11
   %80 = or i32 %79, %.0.lcssa.i
   %81 = sext i32 %80 to i64
-  %82 = getelementptr inbounds i32, ptr %.061, i64 %81
+  %82 = getelementptr inbounds [4 x i8], ptr %.061, i64 %81
   %83 = load i32, ptr %82, align 4, !tbaa !19
   %84 = getelementptr inbounds nuw i8, ptr %76, i64 16
   store i32 %83, ptr %84, align 8, !tbaa !27
@@ -348,7 +346,7 @@ define internal fastcc void @ir_strtab_resize(ptr noundef captures(none) %0) unn
   %39 = load i32, ptr %2, align 8, !tbaa !11
   %40 = or i32 %39, %38
   %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds i32, ptr %36, i64 %41
+  %42 = getelementptr inbounds [4 x i8], ptr %36, i64 %41
   %43 = load i32, ptr %42, align 4, !tbaa !19
   %44 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   store i32 %43, ptr %44, align 8, !tbaa !27
@@ -451,7 +449,7 @@ ir_str_hash.exit:                                 ; preds = %4, %._crit_edge.loo
   %15 = load i32, ptr %14, align 8, !tbaa !11
   %16 = or i32 %15, %.0.lcssa.i
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds i32, ptr %13, i64 %17
+  %18 = getelementptr inbounds [4 x i8], ptr %13, i64 %17
   %.01921 = load i32, ptr %18, align 4, !tbaa !19
   %.not22 = icmp eq i32 %.01921, -1
   br i1 %.not22, label %.loopexit, label %.lr.ph
@@ -497,7 +495,7 @@ ir_str_hash.exit:                                 ; preds = %4, %._crit_edge.loo
 define hidden ptr @ir_strtab_str(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = load ptr, ptr %0, align 8, !tbaa !4
   %4 = sext i32 %1 to i64
-  %5 = getelementptr inbounds %struct._ir_strtab_bucket, ptr %3, i64 %4
+  %5 = getelementptr inbounds [24 x i8], ptr %3, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !23
   ret ptr %7
@@ -507,7 +505,7 @@ define hidden ptr @ir_strtab_str(ptr noundef readonly captures(none) %0, i32 nou
 define hidden ptr @ir_strtab_strl(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #7 {
   %4 = load ptr, ptr %0, align 8, !tbaa !4
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds %struct._ir_strtab_bucket, ptr %4, i64 %5
+  %6 = getelementptr inbounds [24 x i8], ptr %4, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %8 = load i32, ptr %7, align 4, !tbaa !22
   %9 = zext i32 %8 to i64
@@ -554,7 +552,7 @@ define hidden void @ir_strtab_apply(ptr noundef readonly captures(none) %0, ptr 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %2 ]
   %5 = load ptr, ptr %0, align 8, !tbaa !4
-  %6 = getelementptr inbounds nuw %struct._ir_strtab_bucket, ptr %5, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %indvars.iv
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !23
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 4

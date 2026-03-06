@@ -53,29 +53,29 @@ define weak_odr dso_local void @_ZN3igl17flipped_trianglesIN5Eigen6MatrixIdLin1E
   %16 = phi ptr [ null, %.lr.ph ], [ %77, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
   %17 = phi ptr [ null, %.lr.ph ], [ %78, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
   %18 = load ptr, ptr %1, align 8, !tbaa !11
-  %19 = getelementptr i32, ptr %18, i64 %indvars.iv
+  %19 = getelementptr [4 x i8], ptr %18, i64 %indvars.iv
   %20 = load i32, ptr %19, align 4, !tbaa !12
   %21 = sext i32 %20 to i64
   %22 = load ptr, ptr %0, align 8, !tbaa !14, !noalias !17
-  %23 = getelementptr inbounds double, ptr %22, i64 %21
+  %23 = getelementptr inbounds [8 x i8], ptr %22, i64 %21
   %24 = load i64, ptr %8, align 8, !tbaa !20
   %25 = load double, ptr %23, align 8, !tbaa !21
-  %26 = getelementptr inbounds double, ptr %23, i64 %24
+  %26 = getelementptr inbounds [8 x i8], ptr %23, i64 %24
   %27 = load double, ptr %26, align 8, !tbaa !21
-  %28 = getelementptr i32, ptr %19, i64 %14
+  %28 = getelementptr [4 x i8], ptr %19, i64 %14
   %29 = load i32, ptr %28, align 4, !tbaa !12
   %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds double, ptr %22, i64 %30
+  %31 = getelementptr inbounds [8 x i8], ptr %22, i64 %30
   %32 = load double, ptr %31, align 8, !tbaa !21
-  %33 = getelementptr inbounds double, ptr %31, i64 %24
+  %33 = getelementptr inbounds [8 x i8], ptr %31, i64 %24
   %34 = load double, ptr %33, align 8, !tbaa !21
   %.idx = shl i64 %14, 3
   %35 = getelementptr i8, ptr %19, i64 %.idx
   %36 = load i32, ptr %35, align 4, !tbaa !12
   %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds double, ptr %22, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %22, i64 %37
   %39 = load double, ptr %38, align 8, !tbaa !21
-  %40 = getelementptr inbounds double, ptr %38, i64 %24
+  %40 = getelementptr inbounds [8 x i8], ptr %38, i64 %24
   %41 = load double, ptr %40, align 8, !tbaa !21
   %42 = fsub double %34, %41
   %43 = fmul double %25, %42
@@ -151,7 +151,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i: ; preds = %71, %.noex
 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i: ; preds = %73, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i
   %.pre = phi i64 [ %.pre.pre, %73 ], [ %.pre158, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i ]
-  %74 = getelementptr inbounds nuw i32, ptr %67, i64 %65
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %67, i64 %65
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
 
 .loopexit:                                        ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i

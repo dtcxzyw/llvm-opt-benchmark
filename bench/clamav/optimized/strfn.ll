@@ -112,7 +112,7 @@ define void @_Z13ArcCharToWidePKcPwm13ACTW_ENCODING(ptr noundef %0, ptr noundef 
   br i1 %.not, label %14, label %11
 
 11:                                               ; preds = %10
-  %12 = getelementptr i32, ptr %1, i64 %2
+  %12 = getelementptr [4 x i8], ptr %1, i64 %2
   %13 = getelementptr i8, ptr %12, i64 -4
   store i32 0, ptr %13, align 4, !tbaa !8
   br label %14
@@ -236,7 +236,7 @@ define noundef ptr @_Z9RemoveEOLPw(ptr noundef returned captures(ret: address, p
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.critedge2
   %indvars.iv = phi i64 [ %5, %.lr.ph.preheader ], [ %indvars.iv.next, %.critedge2 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %6 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv.next
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv.next
   %7 = load i32, ptr %6, align 4, !tbaa !8
   switch i32 %7, label %.critedge [
     i32 13, label %.critedge2
@@ -271,7 +271,7 @@ define noundef ptr @_Z8RemoveLFPw(ptr noundef returned captures(ret: address, pr
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.critedge2
   %indvars.iv = phi i64 [ %5, %.lr.ph.preheader ], [ %indvars.iv.next, %.critedge2 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %6 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv.next
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv.next
   %7 = load i32, ptr %6, align 4, !tbaa !8
   switch i32 %7, label %.critedge [
     i32 13, label %.critedge2
@@ -356,11 +356,11 @@ define void @_Z8BinToHexPKhmPcPwm(ptr noundef readonly captures(none) %0, i64 no
   %22 = or disjoint i32 %20, 48
   %23 = select i1 %19, i32 %21, i32 %22
   %24 = add i32 %.04157.us, 1
-  %25 = getelementptr inbounds nuw i32, ptr %3, i64 %8
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %8
   store i32 %23, ptr %25, align 4, !tbaa !8
   %26 = add i32 %.04157.us, 2
   %27 = zext i32 %24 to i64
-  %28 = getelementptr inbounds nuw i32, ptr %3, i64 %27
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %27
   store i32 %18, ptr %28, align 4, !tbaa !8
   br label %29
 
@@ -461,11 +461,11 @@ define void @_Z8BinToHexPKhmPcPwm(ptr noundef readonly captures(none) %0, i64 no
 
 87:                                               ; preds = %84
   %88 = add i32 %.04157, 1
-  %89 = getelementptr inbounds nuw i32, ptr %3, i64 %85
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %85
   store i32 %69, ptr %89, align 4, !tbaa !8
   %90 = add i32 %.04157, 2
   %91 = zext i32 %88 to i64
-  %92 = getelementptr inbounds nuw i32, ptr %3, i64 %91
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %91
   store i32 %73, ptr %92, align 4, !tbaa !8
   br label %93
 
@@ -489,7 +489,7 @@ define void @_Z8BinToHexPKhmPcPwm(ptr noundef readonly captures(none) %0, i64 no
 
 102:                                              ; preds = %100
   %103 = zext i32 %.041.lcssa to i64
-  %104 = getelementptr inbounds nuw i32, ptr %3, i64 %103
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %103
   store i32 0, ptr %104, align 4, !tbaa !8
   br label %.thread
 
@@ -538,7 +538,7 @@ define noundef zeroext i1 @_Z8LowAsciiPKw(ptr noundef readonly captures(none) %0
 
 2:                                                ; preds = %2, %1
   %.06 = phi i64 [ 0, %1 ], [ %6, %2 ]
-  %3 = getelementptr inbounds nuw i32, ptr %0, i64 %.06
+  %3 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.06
   %4 = load i32, ptr %3, align 4, !tbaa !8
   %5 = add i32 %4, -128
   %or.cond = icmp ult i32 %5, -127
@@ -651,7 +651,7 @@ define void @_Z8wcsncatzPwPKwm(ptr noundef captures(none) %0, ptr noundef readon
   br i1 %5, label %.preheader.i, label %_Z8wcsncpyzPwPKwm.exit
 
 .preheader.i:                                     ; preds = %3
-  %6 = getelementptr inbounds nuw i32, ptr %0, i64 %4
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %4
   %7 = xor i64 %4, -1
   %8 = add i64 %2, %7
   %.not1012.i = icmp eq i64 %8, 0
@@ -769,7 +769,7 @@ define void @_Z4itoalPwm(i64 noundef %0, ptr noundef writeonly captures(none) %1
   %11 = urem i64 %.1, 10
   %12 = trunc nuw nsw i64 %11 to i32
   %13 = or disjoint i32 %12, 48
-  %14 = getelementptr inbounds nuw i32, ptr %4, i64 %.021
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.021
   store i32 %13, ptr %14, align 4, !tbaa !8
   %15 = udiv i64 %.1, 10
   %.not27 = icmp samesign ult i64 %.1, 10
@@ -781,7 +781,7 @@ define void @_Z4itoalPwm(i64 noundef %0, ptr noundef writeonly captures(none) %1
 
 17:                                               ; preds = %16
   %18 = add i64 %.122, 1
-  %19 = getelementptr inbounds nuw i32, ptr %4, i64 %.122
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.122
   store i32 45, ptr %19, align 4, !tbaa !8
   br label %20
 
@@ -791,11 +791,11 @@ define void @_Z4itoalPwm(i64 noundef %0, ptr noundef writeonly captures(none) %1
   br i1 %.not29, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %20
-  %21 = getelementptr i32, ptr %4, i64 %.2
+  %21 = getelementptr [4 x i8], ptr %4, i64 %.2
   br label %23
 
 ._crit_edge:                                      ; preds = %23, %20
-  %22 = getelementptr inbounds nuw i32, ptr %1, i64 %.2
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %.2
   store i32 0, ptr %22, align 4, !tbaa !8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
@@ -803,9 +803,9 @@ define void @_Z4itoalPwm(i64 noundef %0, ptr noundef writeonly captures(none) %1
 23:                                               ; preds = %.lr.ph, %23
   %.028 = phi i64 [ 0, %.lr.ph ], [ %28, %23 ]
   %24 = xor i64 %.028, -1
-  %25 = getelementptr i32, ptr %21, i64 %24
+  %25 = getelementptr [4 x i8], ptr %21, i64 %24
   %26 = load i32, ptr %25, align 4, !tbaa !8
-  %27 = getelementptr inbounds nuw i32, ptr %1, i64 %.028
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %.028
   store i32 %26, ptr %27, align 4, !tbaa !8
   %28 = add nuw i64 %.028, 1
   %exitcond30.not = icmp eq i64 %28, %.2
@@ -842,7 +842,7 @@ define void @_Z7fmtitoalPwm(i64 noundef %0, ptr noundef writeonly captures(none)
   %16 = urem i64 %.1.i, 10
   %17 = trunc nuw nsw i64 %16 to i32
   %18 = or disjoint i32 %17, 48
-  %19 = getelementptr inbounds nuw i32, ptr %4, i64 %.021.i
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.021.i
   store i32 %18, ptr %19, align 4, !tbaa !8
   %20 = udiv i64 %.1.i, 10
   %.not27.i = icmp samesign ult i64 %.1.i, 10
@@ -854,7 +854,7 @@ define void @_Z7fmtitoalPwm(i64 noundef %0, ptr noundef writeonly captures(none)
 
 22:                                               ; preds = %21
   %23 = add i64 %.122.i, 1
-  %24 = getelementptr inbounds nuw i32, ptr %4, i64 %.122.i
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.122.i
   store i32 45, ptr %24, align 4, !tbaa !8
   br label %25
 
@@ -864,22 +864,22 @@ define void @_Z7fmtitoalPwm(i64 noundef %0, ptr noundef writeonly captures(none)
   br i1 %.not29.i, label %_Z4itoalPwm.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %25
-  %26 = getelementptr i32, ptr %4, i64 %.2.i
+  %26 = getelementptr [4 x i8], ptr %4, i64 %.2.i
   br label %27
 
 27:                                               ; preds = %27, %.lr.ph.i
   %.028.i = phi i64 [ 0, %.lr.ph.i ], [ %32, %27 ]
   %28 = xor i64 %.028.i, -1
-  %29 = getelementptr i32, ptr %26, i64 %28
+  %29 = getelementptr [4 x i8], ptr %26, i64 %28
   %30 = load i32, ptr %29, align 4, !tbaa !8
-  %31 = getelementptr inbounds nuw i32, ptr %5, i64 %.028.i
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.028.i
   store i32 %30, ptr %31, align 4, !tbaa !8
   %32 = add nuw nsw i64 %.028.i, 1
   %exitcond30.not.i = icmp eq i64 %32, %.2.i
   br i1 %exitcond30.not.i, label %_Z4itoalPwm.exit, label %27, !llvm.loop !22
 
 _Z4itoalPwm.exit:                                 ; preds = %27, %25
-  %33 = getelementptr inbounds nuw i32, ptr %5, i64 %.2.i
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.2.i
   store i32 0, ptr %33, align 4, !tbaa !8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %34 = load i32, ptr %5, align 16, !tbaa !8
@@ -911,7 +911,7 @@ _Z4itoalPwm.exit:                                 ; preds = %27, %25
 
 49:                                               ; preds = %45
   %50 = zext i32 %.01314 to i64
-  %51 = getelementptr inbounds nuw i32, ptr %1, i64 %50
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %50
   store i32 %spec.store.select, ptr %51, align 4, !tbaa !8
   br label %52
 
@@ -920,10 +920,10 @@ _Z4itoalPwm.exit:                                 ; preds = %27, %25
   %53 = add i32 %.015, 1
   %54 = add i32 %.1, 1
   %55 = zext i32 %.1 to i64
-  %56 = getelementptr inbounds nuw i32, ptr %1, i64 %55
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %55
   store i32 %44, ptr %56, align 4, !tbaa !8
   %57 = zext i32 %53 to i64
-  %58 = getelementptr inbounds nuw i32, ptr %5, i64 %57
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %57
   %59 = load i32, ptr %58, align 4, !tbaa !8
   %60 = icmp ne i32 %59, 0
   %61 = add i32 %.1, 2
@@ -938,7 +938,7 @@ _Z4itoalPwm.exit:                                 ; preds = %27, %25
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_Z4itoalPwm.exit
   %.013.lcssa = phi i64 [ 0, %_Z4itoalPwm.exit ], [ %65, %._crit_edge.loopexit ]
-  %66 = getelementptr inbounds nuw i32, ptr %1, i64 %.013.lcssa
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %.013.lcssa
   store i32 0, ptr %66, align 4, !tbaa !8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
@@ -955,7 +955,7 @@ define noundef nonnull ptr @_Z7GetWidePKc(ptr noundef %0) local_unnamed_addr #2 
   %spec.store.select = select i1 %4, i32 0, i32 %3
   store i32 %spec.store.select, ptr @_ZZ7GetWidePKcE6StrNum, align 4
   %5 = zext i32 %spec.store.select to i64
-  %6 = getelementptr inbounds nuw [2048 x i32], ptr @_ZZ7GetWidePKcE8StrTable, i64 %5
+  %6 = getelementptr inbounds nuw [8192 x i8], ptr @_ZZ7GetWidePKcE8StrTable, i64 %5
   %7 = tail call noundef zeroext i1 @_Z10CharToWidePKcPwm(ptr noundef %0, ptr noundef nonnull %6, i64 noundef 2048)
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8188
   store i32 0, ptr %8, align 4, !tbaa !8
@@ -1047,7 +1047,7 @@ define noundef ptr @_Z11GetCmdParamPKwPwm(ptr noundef readonly captures(ret: add
 
 28:                                               ; preds = %26
   %29 = add nuw i64 %.02848, 1
-  %30 = getelementptr inbounds nuw i32, ptr %1, i64 %.02848
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %.02848
   store i32 34, ptr %30, align 4, !tbaa !8
   br label %38
 
@@ -1061,7 +1061,7 @@ define noundef ptr @_Z11GetCmdParamPKwPwm(ptr noundef readonly captures(ret: add
 
 35:                                               ; preds = %33
   %36 = add nuw i64 %.02848, 1
-  %37 = getelementptr inbounds nuw i32, ptr %1, i64 %.02848
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %.02848
   store i32 %19, ptr %37, align 4, !tbaa !8
   br label %38
 
@@ -1081,7 +1081,7 @@ define noundef ptr @_Z11GetCmdParamPKwPwm(ptr noundef readonly captures(ret: add
   br i1 %.not39, label %.loopexit, label %41
 
 41:                                               ; preds = %.critedge
-  %42 = getelementptr inbounds nuw i32, ptr %1, i64 %.028.lcssa
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %.028.lcssa
   store i32 0, ptr %42, align 4, !tbaa !8
   br label %.loopexit
 

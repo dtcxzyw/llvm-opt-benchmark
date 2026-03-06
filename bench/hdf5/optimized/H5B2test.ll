@@ -772,7 +772,7 @@ define range(i32 -1, 1) i32 @H5B2__get_node_info_test(ptr noundef readonly captu
   %72 = getelementptr inbounds nuw i8, ptr %36, i64 264
   %73 = load ptr, ptr %72, align 8, !tbaa !59
   %74 = zext i32 %71 to i64
-  %75 = getelementptr inbounds nuw %struct.H5B2_node_ptr_t, ptr %73, i64 %74
+  %75 = getelementptr inbounds nuw [24 x i8], ptr %73, i64 %74
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %75, i64 24, i1 false), !tbaa.struct !49
   %76 = load ptr, ptr %18, align 8, !tbaa !48
   %77 = load i64, ptr %4, align 8, !tbaa !60

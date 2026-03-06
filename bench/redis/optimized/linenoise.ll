@@ -138,7 +138,7 @@ define dso_local void @linenoiseAddCompletion(ptr noundef captures(none) %0, ptr
   %17 = load i64, ptr %0, align 8, !tbaa !14
   %18 = add i64 %17, 1
   store i64 %18, ptr %0, align 8, !tbaa !14
-  %19 = getelementptr inbounds nuw ptr, ptr %13, i64 %17
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %17
   store ptr %5, ptr %19, align 8, !tbaa !15
   br label %20
 
@@ -1158,7 +1158,7 @@ define dso_local void @linenoiseEditHistoryNext(ptr noundef captures(none) %0, i
   %9 = xor i32 %8, -1
   %10 = add i32 %3, %9
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds ptr, ptr %6, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %6, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !15
   tail call void @free(ptr noundef %13) #25
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1168,7 +1168,7 @@ define dso_local void @linenoiseEditHistoryNext(ptr noundef captures(none) %0, i
   %18 = xor i32 %17, -1
   %19 = add i32 %3, %18
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds ptr, ptr %6, i64 %20
+  %21 = getelementptr inbounds [8 x i8], ptr %6, i64 %20
   store ptr %16, ptr %21, align 8, !tbaa !15
   %22 = icmp eq i32 %1, 1
   %23 = select i1 %22, i32 1, i32 -1
@@ -1195,7 +1195,7 @@ define dso_local void @linenoiseEditHistoryNext(ptr noundef captures(none) %0, i
   %32 = xor i32 %24, -1
   %33 = add nsw i32 %3, %32
   %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds ptr, ptr %6, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %6, i64 %34
   %36 = load ptr, ptr %35, align 8, !tbaa !15
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %38 = load i64, ptr %37, align 8, !tbaa !25
@@ -1398,7 +1398,7 @@ define dso_local void @linenoisePrintKeyCodes() local_unnamed_addr #9 {
   %13 = load ptr, ptr %12, align 8, !tbaa !44
   %14 = sext i8 %10 to i32
   %15 = sext i8 %10 to i64
-  %16 = getelementptr inbounds i16, ptr %13, i64 %15
+  %16 = getelementptr inbounds [2 x i8], ptr %13, i64 %15
   %17 = load i16, ptr %16, align 2, !tbaa !46
   %18 = and i16 %17, 16384
   %.not = icmp eq i16 %18, 0
@@ -1623,7 +1623,7 @@ define dso_local ptr @linenoise(ptr noundef %0) local_unnamed_addr #9 {
 
 .preheader.i:                                     ; preds = %43, %46
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %46 ], [ 0, %43 ]
-  %47 = getelementptr inbounds nuw ptr, ptr @unsupported_term, i64 %indvars.iv.i
+  %47 = getelementptr inbounds nuw [8 x i8], ptr @unsupported_term, i64 %indvars.iv.i
   %48 = load ptr, ptr %47, align 8, !tbaa !15
   %49 = tail call i32 @strcasecmp(ptr noundef nonnull %44, ptr noundef %48) #26
   %.not8.i = icmp eq i32 %49, 0
@@ -1919,7 +1919,7 @@ getColumns.exit.i.i:                              ; preds = %131, %126, %124, %g
   %.sroa.41.0.copyload.i.i.i = load i64, ptr %73, align 8, !tbaa !60
   %.sroa.52.0.copyload.i.i.i = load i64, ptr %74, align 8, !tbaa !60
   %172 = load ptr, ptr %149, align 8, !tbaa !10
-  %173 = getelementptr inbounds nuw ptr, ptr %172, i64 %.03344.i.i.i
+  %173 = getelementptr inbounds nuw [8 x i8], ptr %172, i64 %.03344.i.i.i
   %174 = load ptr, ptr %173, align 8, !tbaa !15
   %175 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %174) #26
   store i64 %175, ptr %73, align 8, !tbaa !26
@@ -1950,7 +1950,7 @@ getColumns.exit.i.i:                              ; preds = %131, %126, %124, %g
 .lr.ph.i.i.i.i:                                   ; preds = %182, %.lr.ph.i.i.i.i
   %.07.i.i.i.i = phi i64 [ %187, %.lr.ph.i.i.i.i ], [ 0, %182 ]
   %184 = load ptr, ptr %149, align 8, !tbaa !10
-  %185 = getelementptr inbounds nuw ptr, ptr %184, i64 %.07.i.i.i.i
+  %185 = getelementptr inbounds nuw [8 x i8], ptr %184, i64 %.07.i.i.i.i
   %186 = load ptr, ptr %185, align 8, !tbaa !15
   call void @free(ptr noundef %186) #25
   %187 = add nuw i64 %.07.i.i.i.i, 1
@@ -2014,7 +2014,7 @@ completeLine.exit.thread.i.i:                     ; preds = %._crit_edge.i.i.i.i
   %211 = load ptr, ptr %68, align 8, !tbaa !20
   %212 = load i64, ptr %69, align 8, !tbaa !25
   %213 = load ptr, ptr %149, align 8, !tbaa !10
-  %214 = getelementptr inbounds nuw ptr, ptr %213, i64 %.03344.i.i.i
+  %214 = getelementptr inbounds nuw [8 x i8], ptr %213, i64 %.03344.i.i.i
   %215 = load ptr, ptr %214, align 8, !tbaa !15
   %216 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %211, i64 noundef %212, ptr noundef nonnull @.str.8, ptr noundef %215) #25
   %217 = sext i32 %216 to i64
@@ -2035,7 +2035,7 @@ completeLine.exit.thread.i.i:                     ; preds = %._crit_edge.i.i.i.i
 .lr.ph.i39.i.i.i:                                 ; preds = %.critedge.i.i.i, %.lr.ph.i39.i.i.i
   %.07.i40.i.i.i = phi i64 [ %224, %.lr.ph.i39.i.i.i ], [ 0, %.critedge.i.i.i ]
   %221 = load ptr, ptr %149, align 8, !tbaa !10
-  %222 = getelementptr inbounds nuw ptr, ptr %221, i64 %.07.i40.i.i.i
+  %222 = getelementptr inbounds nuw [8 x i8], ptr %221, i64 %.07.i40.i.i.i
   %223 = load ptr, ptr %222, align 8, !tbaa !15
   call void @free(ptr noundef %223) #25
   %224 = add nuw i64 %.07.i40.i.i.i, 1
@@ -2132,7 +2132,7 @@ disableReverseSearchMode.exit.i.i:                ; preds = %237, %236
   store i32 %243, ptr @history_len, align 4, !tbaa !4
   %244 = load ptr, ptr @history, align 8, !tbaa !40
   %245 = sext i32 %243 to i64
-  %246 = getelementptr inbounds ptr, ptr %244, i64 %245
+  %246 = getelementptr inbounds [8 x i8], ptr %244, i64 %245
   %247 = load ptr, ptr %246, align 8, !tbaa !15
   call void @free(ptr noundef %247) #25
   %248 = load i32, ptr @mlmode, align 4, !tbaa !4
@@ -2274,7 +2274,7 @@ disableReverseSearchMode.exit69.i.i:              ; preds = %257, %256
   store i32 %301, ptr @history_len, align 4, !tbaa !4
   %302 = load ptr, ptr @history, align 8, !tbaa !40
   %303 = sext i32 %301 to i64
-  %304 = getelementptr inbounds ptr, ptr %302, i64 %303
+  %304 = getelementptr inbounds [8 x i8], ptr %302, i64 %303
   %305 = load ptr, ptr %304, align 8, !tbaa !15
   call void @free(ptr noundef %305) #25
   br label %.thread.i.i
@@ -2723,7 +2723,7 @@ define dso_local range(i32 0, 2) i32 @linenoiseHistoryAdd(ptr noundef readonly c
 
 19:                                               ; preds = %16
   %20 = sext i32 %18 to i64
-  %21 = getelementptr ptr, ptr %17, i64 %20
+  %21 = getelementptr [8 x i8], ptr %17, i64 %20
   %22 = getelementptr i8, ptr %21, i64 -8
   %23 = load ptr, ptr %22, align 8, !tbaa !15
   %24 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(1) %0) #26
@@ -2756,9 +2756,9 @@ define dso_local range(i32 0, 2) i32 @linenoiseHistoryAdd(ptr noundef readonly c
 37:                                               ; preds = %29, %27
   %38 = phi i32 [ %32, %29 ], [ %18, %27 ]
   %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds ptr, ptr %17, i64 %39
+  %40 = getelementptr inbounds [8 x i8], ptr %17, i64 %39
   store ptr %26, ptr %40, align 8, !tbaa !15
-  %41 = getelementptr inbounds i32, ptr %.pre, i64 %39
+  %41 = getelementptr inbounds [4 x i8], ptr %.pre, i64 %39
   store i32 %1, ptr %41, align 4, !tbaa !4
   %42 = add nsw i32 %38, 1
   store i32 %42, ptr @history_len, align 4, !tbaa !4
@@ -2815,7 +2815,7 @@ define dso_local range(i32 0, 2) i32 @linenoiseHistorySetMaxLen(i32 noundef %0) 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %19 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8, !tbaa !15
   tail call void @free(ptr noundef %20) #25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2828,12 +2828,12 @@ define dso_local range(i32 0, 2) i32 @linenoiseHistorySetMaxLen(i32 noundef %0) 
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %8, i8 0, i64 %7, i1 false)
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %12, i8 0, i64 %11, i1 false)
   %21 = zext nneg i32 %.pre-phi to i64
-  %22 = getelementptr inbounds nuw ptr, ptr %4, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %21
   %23 = sext i32 %.028 to i64
   %24 = shl nsw i64 %23, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %8, ptr nonnull align 8 %22, i64 %24, i1 false)
   %25 = load ptr, ptr @history_sensitive, align 8, !tbaa !64
-  %26 = getelementptr inbounds nuw i32, ptr %25, i64 %21
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %21
   %27 = shl nsw i64 %23, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %12, ptr align 4 %26, i64 %27, i1 false)
   tail call void @free(ptr noundef nonnull %4) #25
@@ -2879,14 +2879,14 @@ define dso_local range(i32 -1, 1) i32 @linenoiseHistorySave(ptr noundef readonly
   %11 = phi i32 [ %9, %.lr.ph.preheader ], [ %21, %20 ]
   %12 = phi ptr [ %.pre14, %.lr.ph.preheader ], [ %22, %20 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %20 ]
-  %13 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4, !tbaa !4
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %15, label %20
 
 15:                                               ; preds = %.lr.ph
   %16 = load ptr, ptr @history, align 8, !tbaa !40
-  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8, !tbaa !15
   %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.10, ptr noundef %18) #25
   %.pre = load ptr, ptr @history_sensitive, align 8, !tbaa !64
@@ -2996,10 +2996,10 @@ define dso_local void @searchInHistory(ptr dead_on_unwind noalias writable write
   %6 = load i32, ptr @search_result_history_index, align 4, !tbaa !4
   %7 = load ptr, ptr @history, align 8, !tbaa !40
   %8 = sext i32 %6 to i64
-  %9 = getelementptr inbounds ptr, ptr %7, i64 %8
+  %9 = getelementptr inbounds [8 x i8], ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !15
   %11 = sext i32 %6 to i64
-  %12 = getelementptr inbounds ptr, ptr %7, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %7, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !15
   %14 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) %1) #26
   %15 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) %10) #26
@@ -3024,7 +3024,7 @@ define dso_local void @searchInHistory(ptr dead_on_unwind noalias writable write
 
 20:                                               ; preds = %.lr.ph41.split.us
   %indvars.iv.next73 = add nsw i64 %indvars.iv72, 1
-  %21 = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv.next73
+  %21 = getelementptr inbounds [8 x i8], ptr %7, i64 %indvars.iv.next73
   %22 = load ptr, ptr %21, align 8, !tbaa !15
   %23 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) %1) #26
   %24 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) %10) #26
@@ -3040,7 +3040,7 @@ define dso_local void @searchInHistory(ptr dead_on_unwind noalias writable write
 
 28:                                               ; preds = %.lr.ph41.split
   %indvars.iv.next70 = add nsw i64 %indvars.iv69, -1
-  %29 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.next70
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv.next70
   %30 = load ptr, ptr %29, align 8, !tbaa !15
   %31 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(1) %1) #26
   %32 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(1) %10) #26
@@ -3055,7 +3055,7 @@ define dso_local void @searchInHistory(ptr dead_on_unwind noalias writable write
   %37 = select i1 %36, i32 %.pre76, i32 0
   %38 = load ptr, ptr @history, align 8, !tbaa !40
   %39 = sext i32 %37 to i64
-  %40 = getelementptr inbounds ptr, ptr %38, i64 %39
+  %40 = getelementptr inbounds [8 x i8], ptr %38, i64 %39
   %41 = load ptr, ptr %40, align 8, !tbaa !15
   %42 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %41, ptr noundef nonnull dereferenceable(1) %1) #26
   %43 = icmp eq ptr %42, null
@@ -3076,7 +3076,7 @@ define dso_local void @searchInHistory(ptr dead_on_unwind noalias writable write
 
 46:                                               ; preds = %.lr.ph.split.us
   %indvars.iv.next67 = add nsw i64 %indvars.iv66, 1
-  %47 = getelementptr inbounds ptr, ptr %38, i64 %indvars.iv.next67
+  %47 = getelementptr inbounds [8 x i8], ptr %38, i64 %indvars.iv.next67
   %48 = load ptr, ptr %47, align 8, !tbaa !15
   %49 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %48, ptr noundef nonnull dereferenceable(1) %1) #26
   %50 = icmp eq ptr %49, null
@@ -3127,7 +3127,7 @@ define dso_local void @searchInHistory(ptr dead_on_unwind noalias writable write
 
 67:                                               ; preds = %.lr.ph.split
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %68 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv.next
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv.next
   %69 = load ptr, ptr %68, align 8, !tbaa !15
   %70 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %69, ptr noundef nonnull dereferenceable(1) %1) #26
   %71 = icmp eq ptr %70, null
@@ -3179,7 +3179,7 @@ disableRawMode.exit:                              ; preds = %0, %1, %3
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %7 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i
   %8 = load ptr, ptr %7, align 8, !tbaa !15
   tail call void @free(ptr noundef %8) #25
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1

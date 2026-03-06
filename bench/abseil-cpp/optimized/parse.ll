@@ -73,7 +73,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<absl::flags_internal::(anonymous namespace)::ArgsList, std::allocator<absl::flags_internal::(anonymous namespace)::ArgsList>>::_Vector_impl" = type { %"struct.std::_Vector_base<absl::flags_internal::(anonymous namespace)::ArgsList, std::allocator<absl::flags_internal::(anonymous namespace)::ArgsList>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<absl::flags_internal::(anonymous namespace)::ArgsList, std::allocator<absl::flags_internal::(anonymous namespace)::ArgsList>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %union.U = type { %"class.std::vector.15" }
-%"struct.absl::UnrecognizedFlag" = type { i32, %"class.std::__cxx11::basic_string" }
 
 $_ZN4absl14flags_internal7FlagOpsISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEEEPvNS0_6FlagOpEPKvSB_SB_ = comdat any
 
@@ -805,7 +804,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPKN4absl15CommandLineFlagESt6vector
   %.014.i.i = phi i64 [ %.1.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN4absl14flags_internal12_GLOBAL__N_121SpecifiedFlagsCompareEEclINS_17__normal_iteratorIPPKNS2_15CommandLineFlagESt6vectorISB_SaISB_EEEEKSt17basic_string_viewIcSt11char_traitsIcEEEEbT_RT0_.exit.i.i ], [ %45, %38 ]
   %.sroa.012.013.i.i = phi ptr [ %.sroa.012.1.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN4absl14flags_internal12_GLOBAL__N_121SpecifiedFlagsCompareEEclINS_17__normal_iteratorIPPKNS2_15CommandLineFlagESt6vectorISB_SaISB_EEEEKSt17basic_string_viewIcSt11char_traitsIcEEEEbT_RT0_.exit.i.i ], [ %39, %38 ]
   %47 = lshr i64 %.014.i.i, 1
-  %48 = getelementptr inbounds nuw ptr, ptr %.sroa.012.013.i.i, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.012.013.i.i, i64 %47
   %49 = load ptr, ptr %48, align 8, !tbaa !29
   %50 = load ptr, ptr %49, align 8, !tbaa !31
   %51 = load ptr, ptr %50, align 8
@@ -1695,7 +1694,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %.idx5.i = shl nuw nsw i64 %101, 3
   %104 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx5.i
   store ptr %102, ptr %55, align 8, !tbaa !4
-  %105 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %102, i64 %101
+  %105 = getelementptr inbounds nuw [32 x i8], ptr %102, i64 %101
   %106 = getelementptr inbounds nuw i8, ptr %55, i64 16
   store ptr %105, ptr %106, align 8, !tbaa !19
   %107 = invoke noundef ptr @_ZSt16__do_uninit_copyIPPcPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEET0_T_SA_S9_(ptr noundef nonnull %1, ptr noundef nonnull %104, ptr noundef nonnull %102)
@@ -1847,7 +1846,7 @@ _ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i: ; preds = %161, 
 _ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i: ; preds = %163, %_ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i
   store ptr %157, ptr %2, align 8, !tbaa !51
   store ptr %162, ptr %137, align 8, !tbaa !67
-  %164 = getelementptr inbounds nuw ptr, ptr %157, i64 %155
+  %164 = getelementptr inbounds nuw [8 x i8], ptr %157, i64 %155
   store ptr %164, ptr %139, align 8, !tbaa !54
   br label %_ZNSt6vectorIPcSaIS0_EE9push_backERKS0_.exit
 
@@ -2961,7 +2960,7 @@ _ZNSt6vectorIN4absl14flags_internal12_GLOBAL__N_18ArgsListESaIS3_EE11_S_relocate
 _ZNSt6vectorIN4absl14flags_internal12_GLOBAL__N_18ArgsListESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i: ; preds = %606, %_ZNSt6vectorIN4absl14flags_internal12_GLOBAL__N_18ArgsListESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit37.i.i.i.i
   store ptr %566, ptr %54, align 8, !tbaa !62
   store ptr %605, ptr %112, align 8, !tbaa !65
-  %616 = getelementptr inbounds nuw %"class.absl::flags_internal::(anonymous namespace)::ArgsList", ptr %566, i64 %564
+  %616 = getelementptr inbounds nuw [32 x i8], ptr %566, i64 %564
   store ptr %616, ptr %113, align 8, !tbaa !66
   br label %_ZNSt6vectorIN4absl14flags_internal12_GLOBAL__N_18ArgsListESaIS3_EE9push_backERKS3_.exit.i.i
 
@@ -3352,7 +3351,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br label %.body168
 
 739:                                              ; preds = %708
-  %740 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %719, i64 %716
+  %740 = getelementptr inbounds nuw [32 x i8], ptr %719, i64 %716
   %741 = load ptr, ptr %740, align 8, !tbaa !11
   %742 = getelementptr inbounds nuw i8, ptr %740, i64 8
   %743 = load i64, ptr %742, align 8, !tbaa !24
@@ -3482,7 +3481,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit182: ; preds = %77
   br label %.body168
 
 783:                                              ; preds = %_ZN4absl13ConsumePrefixEPSt17basic_string_viewIcSt11char_traitsIcEES3_.exit.thread
-  %784 = getelementptr inbounds nuw ptr, ptr %1, i64 %716
+  %784 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %716
   %785 = load ptr, ptr %137, align 8, !tbaa !67
   %786 = load ptr, ptr %139, align 8, !tbaa !54
   %.not.i183 = icmp eq ptr %785, %786
@@ -3546,7 +3545,7 @@ _ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i187: ; preds = %80
 _ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i189: ; preds = %809, %_ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i187
   store ptr %803, ptr %2, align 8, !tbaa !51
   store ptr %808, ptr %137, align 8, !tbaa !67
-  %810 = getelementptr inbounds nuw ptr, ptr %803, i64 %801
+  %810 = getelementptr inbounds nuw [8 x i8], ptr %803, i64 %801
   store ptr %810, ptr %139, align 8, !tbaa !54
   br label %.backedge
 
@@ -4095,7 +4094,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit73.i: ; preds = %9
 982:                                              ; preds = %953
   %983 = add i64 %960, 1
   store i64 %983, ptr %714, align 8, !tbaa !60, !noalias !128
-  %984 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %955, i64 %983
+  %984 = getelementptr inbounds nuw [32 x i8], ptr %955, i64 %983
   %985 = load ptr, ptr %984, align 8, !tbaa !11, !noalias !128
   %986 = getelementptr inbounds nuw i8, ptr %984, i64 8
   %987 = load i64, ptr %986, align 8, !tbaa !24, !noalias !128
@@ -4336,7 +4335,7 @@ _ZNSt6vectorIPKN4absl15CommandLineFlagESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit
 _ZNSt6vectorIPKN4absl15CommandLineFlagESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %1065, %_ZNSt6vectorIPKN4absl15CommandLineFlagESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
   store ptr %1060, ptr %1040, align 8, !tbaa !68
   store ptr %1064, ptr %1041, align 8, !tbaa !70
-  %1066 = getelementptr inbounds nuw ptr, ptr %1060, i64 %1058
+  %1066 = getelementptr inbounds nuw [8 x i8], ptr %1060, i64 %1058
   store ptr %1066, ptr %1043, align 8, !tbaa !134
   br label %_ZNSt6vectorIPKN4absl15CommandLineFlagESaIS3_EE9push_backERKS3_.exit
 
@@ -4719,7 +4718,7 @@ _ZN4absl14flags_internal12_GLOBAL__N_119ResetGeneratorFlagsERKSt6vectorINSt7__cx
   %1172 = phi ptr [ %1199, %_ZNSt6vectorIPcSaIS0_EE9push_backERKS0_.exit277 ], [ %.pre819, %.lr.ph.preheader ]
   %1173 = phi ptr [ %1200, %_ZNSt6vectorIPcSaIS0_EE9push_backERKS0_.exit277 ], [ %.pre, %.lr.ph.preheader ]
   %.092758 = phi i64 [ %1201, %_ZNSt6vectorIPcSaIS0_EE9push_backERKS0_.exit277 ], [ %.val133, %.lr.ph.preheader ]
-  %1174 = getelementptr inbounds nuw ptr, ptr %1, i64 %.092758
+  %1174 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.092758
   %.not.i268 = icmp eq ptr %1173, %1172
   br i1 %.not.i268, label %1178, label %1175
 
@@ -4781,7 +4780,7 @@ _ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i272: ; preds = %11
 _ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i274: ; preds = %1197, %_ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i272
   store ptr %1191, ptr %2, align 8, !tbaa !51
   store ptr %1196, ptr %137, align 8, !tbaa !67
-  %1198 = getelementptr inbounds nuw ptr, ptr %1191, i64 %1189
+  %1198 = getelementptr inbounds nuw [8 x i8], ptr %1191, i64 %1189
   store ptr %1198, ptr %139, align 8, !tbaa !54
   br label %_ZNSt6vectorIPcSaIS0_EE9push_backERKS0_.exit277
 
@@ -7524,7 +7523,7 @@ _ZNSt6vectorIN4absl14flags_internal12_GLOBAL__N_18ArgsListESaIS3_EE11_S_relocate
 _ZNSt6vectorIN4absl14flags_internal12_GLOBAL__N_18ArgsListESaIS3_EE17_M_realloc_insertIJRS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %237, %_ZNSt6vectorIN4absl14flags_internal12_GLOBAL__N_18ArgsListESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit37.i.i
   store ptr %201, ptr %1, align 8, !tbaa !62
   store ptr %236, ptr %157, align 8, !tbaa !65
-  %252 = getelementptr inbounds nuw %"class.absl::flags_internal::(anonymous namespace)::ArgsList", ptr %201, i64 %199
+  %252 = getelementptr inbounds nuw [32 x i8], ptr %201, i64 %199
   store ptr %252, ptr %159, align 8, !tbaa !66
   br label %_ZNSt6vectorIN4absl14flags_internal12_GLOBAL__N_18ArgsListESaIS3_EE12emplace_backIJRS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEEEERS3_DpOT_.exit
 
@@ -7774,7 +7773,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char
   %86 = tail call noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_(ptr %85, ptr %3, ptr noundef %13)
   %87 = sub nuw nsw i64 %9, %20
   %88 = load ptr, ptr %12, align 8, !tbaa !10
-  %89 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %88, i64 %87
+  %89 = getelementptr inbounds nuw [32 x i8], ptr %88, i64 %87
   store ptr %89, ptr %12, align 8, !tbaa !10
   %.not11.i.i.i.i.i53 = icmp eq ptr %1, %13
   br i1 %.not11.i.i.i.i.i53, label %_ZSt22__uninitialized_move_aIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_SaIS5_EET0_T_S9_S8_RT1_.exit61, label %.lr.ph.i.i.i.i.i54
@@ -7994,7 +7993,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit, %166
   store ptr %128, ptr %0, align 8, !tbaa !4
   store ptr %.0.lcssa.i.i.i.i.i83, ptr %12, align 8, !tbaa !10
-  %170 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %128, i64 %124
+  %170 = getelementptr inbounds nuw [32 x i8], ptr %128, i64 %124
   store ptr %170, ptr %10, align 8, !tbaa !19
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit
 
@@ -8455,7 +8454,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit36, %71
   store ptr %23, ptr %0, align 8, !tbaa !4
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8, !tbaa !10
-  %75 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %75 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %75, ptr %70, align 8, !tbaa !19
   ret void
 
@@ -8704,7 +8703,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit37, %73
   store ptr %23, ptr %0, align 8, !tbaa !4
   store ptr %.0.lcssa.i.i.i36, ptr %5, align 8, !tbaa !10
-  %77 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %77, ptr %72, align 8, !tbaa !19
   ret void
 
@@ -8922,7 +8921,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %69
   store ptr %22, ptr %0, align 8, !tbaa !4
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !10
-  %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %73, ptr %68, align 8, !tbaa !19
   ret void
 }
@@ -10382,7 +10381,7 @@ _ZNSt6vectorIN4absl16UnrecognizedFlagESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit3
 _ZNSt12_Vector_baseIN4absl16UnrecognizedFlagESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN4absl16UnrecognizedFlagESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit38, %80
   store ptr %22, ptr %0, align 8, !tbaa !55
   store ptr %.0.lcssa.i.i.i37, ptr %6, align 8, !tbaa !57
-  %84 = getelementptr inbounds nuw %"struct.absl::UnrecognizedFlag", ptr %22, i64 %18
+  %84 = getelementptr inbounds nuw [40 x i8], ptr %22, i64 %18
   store ptr %84, ptr %79, align 8, !tbaa !59
   ret void
 
@@ -10514,7 +10513,7 @@ define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iterat
 
 16:                                               ; preds = %16, %13
   %.09.i.i.i = phi i64 [ %15, %13 ], [ %19, %16 ]
-  %17 = getelementptr inbounds ptr, ptr %0, i64 %.09.i.i.i
+  %17 = getelementptr inbounds [8 x i8], ptr %0, i64 %.09.i.i.i
   %18 = load ptr, ptr %17, align 8, !tbaa !29
   tail call fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN4absl15CommandLineFlagESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterINS2_14flags_internal12_GLOBAL__N_121SpecifiedFlagsCompareEEEEvT_T0_SI_T1_T2_(ptr %0, i64 noundef %.09.i.i.i, i64 noundef %11, ptr noundef %18)
   %.not.i.i.i = icmp eq i64 %.09.i.i.i, 0
@@ -10537,7 +10536,7 @@ define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iterat
 27:                                               ; preds = %10
   %28 = add nsw i64 %.024, -1
   %29 = lshr i64 %11, 1
-  %30 = getelementptr inbounds nuw ptr, ptr %0, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %29
   %31 = getelementptr inbounds i8, ptr %storemerge23, i64 -8
   %32 = load ptr, ptr %9, align 8, !tbaa !29
   %33 = load ptr, ptr %30, align 8, !tbaa !29
@@ -10861,9 +10860,9 @@ define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorI
   %.034 = phi i64 [ %spec.select, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4absl14flags_internal12_GLOBAL__N_121SpecifiedFlagsCompareEEclINS_17__normal_iteratorIPPKNS2_15CommandLineFlagESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit ], [ %1, %4 ]
   %8 = shl i64 %.034, 1
   %9 = add i64 %8, 2
-  %10 = getelementptr inbounds ptr, ptr %0, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %0, i64 %9
   %11 = or disjoint i64 %8, 1
-  %12 = getelementptr inbounds ptr, ptr %0, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %0, i64 %11
   %13 = load ptr, ptr %10, align 8, !tbaa !29
   %14 = load ptr, ptr %12, align 8, !tbaa !29
   %15 = load ptr, ptr %13, align 8, !tbaa !31
@@ -10896,9 +10895,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4absl14flags_internal12_GLOBAL__N_121Speci
   %.0.i.i.i.i = phi i32 [ %.0.i4.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i ], [ %26, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i ]
   %29 = icmp slt i32 %.0.i.i.i.i, 0
   %spec.select = select i1 %29, i64 %11, i64 %9
-  %30 = getelementptr inbounds ptr, ptr %0, i64 %spec.select
+  %30 = getelementptr inbounds [8 x i8], ptr %0, i64 %spec.select
   %31 = load ptr, ptr %30, align 8, !tbaa !29
-  %32 = getelementptr inbounds ptr, ptr %0, i64 %.034
+  %32 = getelementptr inbounds [8 x i8], ptr %0, i64 %.034
   store ptr %31, ptr %32, align 8, !tbaa !29
   %33 = icmp slt i64 %spec.select, %6
   br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !252
@@ -10918,9 +10917,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4absl14flags_internal12_GLOBAL__N_121Speci
 40:                                               ; preds = %36
   %41 = shl nsw i64 %.0.lcssa, 1
   %42 = or disjoint i64 %41, 1
-  %43 = getelementptr inbounds ptr, ptr %0, i64 %42
+  %43 = getelementptr inbounds [8 x i8], ptr %0, i64 %42
   %44 = load ptr, ptr %43, align 8, !tbaa !29
-  %45 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa
+  %45 = getelementptr inbounds [8 x i8], ptr %0, i64 %.0.lcssa
   store ptr %44, ptr %45, align 8, !tbaa !29
   br label %46
 
@@ -10933,7 +10932,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4absl14flags_internal12_GLOBAL__N_121Speci
   %.010.i = phi i64 [ %.0911.i, %65 ], [ %.1, %46 ]
   %.0911.in.i = add nsw i64 %.010.i, -1
   %.0911.i = sdiv i64 %.0911.in.i, 2
-  %48 = getelementptr inbounds ptr, ptr %0, i64 %.0911.i
+  %48 = getelementptr inbounds [8 x i8], ptr %0, i64 %.0911.i
   %49 = load ptr, ptr %48, align 8, !tbaa !29
   %50 = load ptr, ptr %49, align 8, !tbaa !31
   %51 = load ptr, ptr %50, align 8
@@ -10968,14 +10967,14 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIN4absl14flags_internal12_GLOBAL__N_121Specif
 
 65:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN4absl14flags_internal12_GLOBAL__N_121SpecifiedFlagsCompareEEclINS_17__normal_iteratorIPPKNS2_15CommandLineFlagESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.exit.i
   %66 = load ptr, ptr %48, align 8, !tbaa !29
-  %67 = getelementptr inbounds ptr, ptr %0, i64 %.010.i
+  %67 = getelementptr inbounds [8 x i8], ptr %0, i64 %.010.i
   store ptr %66, ptr %67, align 8, !tbaa !29
   %68 = icmp sgt i64 %.0911.i, %1
   br i1 %68, label %.lr.ph.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPPKN4absl15CommandLineFlagESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops14_Iter_comp_valINS2_14flags_internal12_GLOBAL__N_121SpecifiedFlagsCompareEEEEvT_T0_SI_T1_RT2_.exit, !llvm.loop !253
 
 _ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPPKN4absl15CommandLineFlagESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops14_Iter_comp_valINS2_14flags_internal12_GLOBAL__N_121SpecifiedFlagsCompareEEEEvT_T0_SI_T1_RT2_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN4absl14flags_internal12_GLOBAL__N_121SpecifiedFlagsCompareEEclINS_17__normal_iteratorIPPKNS2_15CommandLineFlagESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.exit.i, %65, %46
   %.0.lcssa.i = phi i64 [ %.1, %46 ], [ %.010.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN4absl14flags_internal12_GLOBAL__N_121SpecifiedFlagsCompareEEclINS_17__normal_iteratorIPPKNS2_15CommandLineFlagESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.exit.i ], [ %.0911.i, %65 ]
-  %69 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa.i
+  %69 = getelementptr inbounds [8 x i8], ptr %0, i64 %.0.lcssa.i
   store ptr %3, ptr %69, align 8, !tbaa !29
   ret void
 }
@@ -11040,7 +11039,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN4absl15CommandLineFlagESt
   %26 = sub i64 %25, %4
   %27 = ashr exact i64 %26, 3
   %28 = sub nsw i64 0, %27
-  %29 = getelementptr inbounds ptr, ptr %24, i64 %28
+  %29 = getelementptr inbounds [8 x i8], ptr %24, i64 %28
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %29, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %26, i1 false)
   br label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPKN4absl15CommandLineFlagESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterINS2_14flags_internal12_GLOBAL__N_121SpecifiedFlagsCompareEEEEvT_T0_.exit
 
@@ -11290,7 +11289,7 @@ _ZNSt6vectorIN4absl16UnrecognizedFlagESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit3
 _ZNSt12_Vector_baseIN4absl16UnrecognizedFlagESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN4absl16UnrecognizedFlagESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit36, %80
   store ptr %21, ptr %0, align 8, !tbaa !55
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8, !tbaa !57
-  %84 = getelementptr inbounds nuw %"struct.absl::UnrecognizedFlag", ptr %21, i64 %17
+  %84 = getelementptr inbounds nuw [40 x i8], ptr %21, i64 %17
   store ptr %84, ptr %79, align 8, !tbaa !59
   ret void
 

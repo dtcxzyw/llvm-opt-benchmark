@@ -341,7 +341,7 @@ _ZNSt6vectorIZN9grpc_core21CreateRootCertsBundleEPKcE8FileDataSaIS3_EE11_S_reloc
   br label %_ZNSt6vectorIZN9grpc_core21CreateRootCertsBundleEPKcE8FileDataSaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i
 
 _ZNSt6vectorIZN9grpc_core21CreateRootCertsBundleEPKcE8FileDataSaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %68, %_ZNSt6vectorIZN9grpc_core21CreateRootCertsBundleEPKcE8FileDataSaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit20.i.i
-  %69 = getelementptr inbounds nuw %struct.FileData, ptr %64, i64 %62
+  %69 = getelementptr inbounds nuw [4104 x i8], ptr %64, i64 %62
   br label %_ZNSt6vectorIZN9grpc_core21CreateRootCertsBundleEPKcE8FileDataSaIS3_EE9push_backERKS3_.exit
 
 _ZNSt6vectorIZN9grpc_core21CreateRootCertsBundleEPKcE8FileDataSaIS3_EE9push_backERKS3_.exit: ; preds = %_ZNSt6vectorIZN9grpc_core21CreateRootCertsBundleEPKcE8FileDataSaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, %50
@@ -408,7 +408,7 @@ _ZNSt6vectorIZN9grpc_core21CreateRootCertsBundleEPKcE8FileDataSaIS3_EE9push_back
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %108
   %.030133 = phi i64 [ %109, %108 ], [ 0, %.lr.ph.preheader ]
   %.031132 = phi i64 [ %.132, %108 ], [ 0, %.lr.ph.preheader ]
-  %82 = getelementptr inbounds nuw %struct.FileData, ptr %.sroa.076.0, i64 %.030133
+  %82 = getelementptr inbounds nuw [4104 x i8], ptr %.sroa.076.0, i64 %.030133
   %83 = invoke i32 (ptr, i32, ...) @open(ptr noundef nonnull %82, i32 noundef 0)
           to label %84 unwind label %95
 
@@ -700,7 +700,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit14: ; preds = %40,
   %.01230.i = phi i64 [ 0, %53 ], [ %92, %91 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !34
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !34
-  %57 = getelementptr inbounds nuw ptr, ptr @_ZN9grpc_core12_GLOBAL__N_110kCertFilesE, i64 %.01230.i
+  %57 = getelementptr inbounds nuw [8 x i8], ptr @_ZN9grpc_core12_GLOBAL__N_110kCertFilesE, i64 %.01230.i
   %58 = load ptr, ptr %57, align 8, !tbaa !3, !noalias !34
   store ptr %54, ptr %4, align 8, !tbaa !30, !noalias !34
   %59 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %58) #20, !noalias !34
@@ -847,7 +847,7 @@ _ZN9grpc_core12_GLOBAL__N_118GetSystemRootCertsEv.exit: ; preds = %_ZN4absl12lts
 .preheader:                                       ; preds = %93, %100
   %.024 = phi i64 [ %106, %100 ], [ 0, %93 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %98 = getelementptr inbounds nuw ptr, ptr @_ZN9grpc_core12_GLOBAL__N_116kCertDirectoriesE, i64 %.024
+  %98 = getelementptr inbounds nuw [8 x i8], ptr @_ZN9grpc_core12_GLOBAL__N_116kCertDirectoriesE, i64 %.024
   %99 = load ptr, ptr %98, align 8, !tbaa !3
   invoke void @_ZN9grpc_core21CreateRootCertsBundleEPKc(ptr dead_on_unwind nonnull writable sret(%struct.grpc_slice) align 8 %10, ptr noundef %99)
           to label %100 unwind label %107

@@ -3,13 +3,6 @@ source_filename = "bench/lief/original/LoadCommand.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"class.std::unique_ptr.53" = type { %"struct.std::__uniq_ptr_data.54" }
-%"struct.std::__uniq_ptr_data.54" = type { %"class.std::__uniq_ptr_impl.55" }
-%"class.std::__uniq_ptr_impl.55" = type { %"class.std::tuple.56" }
-%"class.std::tuple.56" = type { %"struct.std::_Tuple_impl.57" }
-%"struct.std::_Tuple_impl.57" = type { %"struct.std::_Head_base.60" }
-%"struct.std::_Head_base.60" = type { ptr }
-
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN4LIEF5MachO15init_c_commandsEP14Macho_Binary_tPNS0_6BinaryE(ptr noundef writeonly captures(none) initializes((48, 56)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 136
@@ -37,10 +30,10 @@ _ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_5MachO11LoadCommandESt14defa
 
 _ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_5MachO11LoadCommandESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEixEm.exit: ; preds = %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_5MachO11LoadCommandESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEixEm.exit.lr.ph, %_ZSt4copyIPKhPhET0_T_S4_S3_.exit
   %.027 = phi i64 [ 0, %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_5MachO11LoadCommandESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEixEm.exit.lr.ph ], [ %39, %_ZSt4copyIPKhPhET0_T_S4_S3_.exit ]
-  %15 = getelementptr inbounds %"class.std::unique_ptr.53", ptr %4, i64 %.027
+  %15 = getelementptr inbounds [8 x i8], ptr %4, i64 %.027
   %16 = load ptr, ptr %15, align 8, !tbaa !27
   %17 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #5
-  %18 = getelementptr inbounds nuw ptr, ptr %11, i64 %.027
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.027
   store ptr %17, ptr %18, align 8, !tbaa !25
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !29
@@ -101,14 +94,14 @@ define hidden void @_ZN4LIEF5MachO16destroy_commandsEP14Macho_Binary_t(ptr nound
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %6 = phi ptr [ %13, %.lr.ph ], [ %4, %1 ]
   %.010 = phi i64 [ %11, %.lr.ph ], [ 0, %1 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %3, i64 %.010
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.010
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !45
   tail call void @free(ptr noundef %9) #6
   %10 = load ptr, ptr %7, align 8, !tbaa !25
   tail call void @free(ptr noundef %10) #6
   %11 = add i64 %.010, 1
-  %12 = getelementptr inbounds nuw ptr, ptr %3, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !25
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !50

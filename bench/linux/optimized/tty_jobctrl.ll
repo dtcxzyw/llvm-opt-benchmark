@@ -16,9 +16,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_tty_get_pgrp
 %struct.pcpu_hot = type { %union.anon.18 }
 %union.anon.18 = type { %struct.anon.19, [16 x i8] }
 %struct.anon.19 = type { ptr, i32, i32, i64, i64, ptr, i16, i8 }
-%struct.k_sigaction = type { %struct.sigaction }
-%struct.sigaction = type { ptr, i64, ptr, %struct.sigset_t }
-%struct.sigset_t = type { [1 x i64] }
 
 @.str = private unnamed_addr constant [37 x i8] c"\014%s %s: sig=%d, tty->pgrp == NULL!\0A\00", align 1
 @__UNIQUE_ID___addressable_tty_check_change346 = internal global ptr @tty_check_change, section ".discard.addressable", align 8
@@ -69,7 +66,7 @@ define dso_local noundef range(i32 -512, 1) i32 @__tty_check_change(ptr noundef 
   %31 = load ptr, ptr %30, align 32
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %33 = sext i32 %23 to i64
-  %34 = getelementptr %struct.k_sigaction, ptr %32, i64 %33
+  %34 = getelementptr [32 x i8], ptr %32, i64 %33
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, inttoptr (i64 1 to ptr)
   br i1 %36, label %37, label %40

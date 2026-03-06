@@ -690,7 +690,7 @@ define internal void @pov_polygon(ptr noundef %0, ptr noundef readonly captures(
 
 38:                                               ; preds = %.lr.ph, %38
   %.05658 = phi i64 [ 0, %.lr.ph ], [ %50, %38 ]
-  %39 = getelementptr inbounds nuw %struct.pointf_s, ptr %1, i64 %.05658
+  %39 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %.05658
   %40 = load double, ptr %39, align 8, !tbaa !48
   %41 = load double, ptr %13, align 8, !tbaa !45
   %42 = fadd double %40, %41
@@ -731,7 +731,7 @@ define internal void @pov_polygon(ptr noundef %0, ptr noundef readonly captures(
 
 .lr.ph61:                                         ; preds = %51, %.lr.ph61
   %.059 = phi i64 [ %71, %.lr.ph61 ], [ 0, %51 ]
-  %63 = getelementptr inbounds nuw %struct.pointf_s, ptr %1, i64 %.059
+  %63 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %.059
   %64 = load double, ptr %63, align 8, !tbaa !48
   %65 = load double, ptr %16, align 8, !tbaa !45
   %66 = fadd double %64, %65
@@ -867,7 +867,7 @@ agxbfree.exit:                                    ; preds = %agxbuse.exit, %49
 
 50:                                               ; preds = %.lr.ph, %75
   %.036 = phi i64 [ 0, %.lr.ph ], [ %63, %75 ]
-  %51 = getelementptr inbounds nuw %struct.pointf_s, ptr %1, i64 %.036
+  %51 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %.036
   %52 = load double, ptr %51, align 8, !tbaa !48
   %53 = load double, ptr %14, align 8, !tbaa !45
   %54 = fadd double %52, %53
@@ -942,7 +942,7 @@ define internal void @pov_polyline(ptr noundef %0, ptr noundef readonly captures
 
 23:                                               ; preds = %.lr.ph, %23
   %.025 = phi i64 [ 0, %.lr.ph ], [ %35, %23 ]
-  %24 = getelementptr inbounds nuw %struct.pointf_s, ptr %1, i64 %.025
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %.025
   %25 = load double, ptr %24, align 8, !tbaa !48
   %26 = load double, ptr %11, align 8, !tbaa !45
   %27 = fadd double %25, %26

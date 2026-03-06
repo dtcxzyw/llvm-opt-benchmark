@@ -5,12 +5,8 @@ target triple = "x86_64-pc-linux-gnu"
 
 %union.anon = type { ptr }
 %struct.GetByteContext = type { ptr, ptr, ptr }
-%struct.ImageContext = type { i32, ptr, i32, ptr, i32, ptr, i32, i32 }
 %struct.HuffReader = type { %struct.VLC, i32, i32, [2 x i16] }
 %struct.VLC = type { i32, ptr, i32, i32 }
-%struct.VLCElem = type { %union.anon.7 }
-%union.anon.7 = type { %struct.anon.8 }
-%struct.anon.8 = type { i16, i16 }
 
 @.str = private unnamed_addr constant [5 x i8] c"webp\00", align 1
 @.str.1 = private unnamed_addr constant [11 x i8] c"WebP image\00", align 1
@@ -1318,7 +1314,7 @@ update_canvas_size.exit:                          ; preds = %50, %53
   %129 = add nsw i32 %128, 1
   store i32 %129, ptr %92, align 8, !tbaa !106
   %130 = sext i32 %128 to i64
-  %131 = getelementptr inbounds i32, ptr %105, i64 %130
+  %131 = getelementptr inbounds [4 x i8], ptr %105, i64 %130
   store i32 %120, ptr %131, align 4, !tbaa !52
   switch i32 %120, label %default.unreachable [
     i32 0, label %132
@@ -1527,7 +1523,7 @@ default.unreachable:                              ; preds = %126
 265:                                              ; preds = %.lr.ph164, %apply_predictor_transform.exit
   %indvars.iv = phi i64 [ %264, %.lr.ph164 ], [ %indvars.iv.next, %apply_predictor_transform.exit ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %266 = getelementptr inbounds nuw i32, ptr %254, i64 %indvars.iv.next
+  %266 = getelementptr inbounds nuw [4 x i8], ptr %254, i64 %indvars.iv.next
   %267 = load i32, ptr %266, align 4, !tbaa !52
   switch i32 %267, label %apply_predictor_transform.exit [
     i32 0, label %268
@@ -1591,7 +1587,7 @@ default.unreachable:                              ; preds = %126
   %303 = getelementptr inbounds i8, ptr %282, i64 %301
   %304 = getelementptr inbounds i8, ptr %282, i64 %298
   %305 = zext i1 %280 to i64
-  %306 = getelementptr inbounds nuw ptr, ptr @inverse_predict, i64 %305
+  %306 = getelementptr inbounds nuw [8 x i8], ptr @inverse_predict, i64 %305
   %307 = load ptr, ptr %306, align 8, !tbaa !114
   call void %307(ptr noundef nonnull %8, ptr noundef %303, ptr noundef %302, ptr noundef %299, ptr noundef %.0.i.i104.us) #12
   %308 = load i8, ptr %8, align 1, !tbaa !59
@@ -1684,7 +1680,7 @@ default.unreachable:                              ; preds = %126
   %373 = getelementptr inbounds i8, ptr %355, i64 %371
   %374 = getelementptr inbounds i8, ptr %355, i64 %368
   %375 = zext nneg i32 %.02732.i to i64
-  %376 = getelementptr inbounds nuw ptr, ptr @inverse_predict, i64 %375
+  %376 = getelementptr inbounds nuw [8 x i8], ptr @inverse_predict, i64 %375
   %377 = load ptr, ptr %376, align 8, !tbaa !114
   call void %377(ptr noundef nonnull %8, ptr noundef %373, ptr noundef %372, ptr noundef %369, ptr noundef %.0.i.i104) #12
   %378 = load i8, ptr %8, align 1, !tbaa !59
@@ -2156,7 +2152,7 @@ apply_predictor_transform.exit:                   ; preds = %._crit_edge100.i, %
 
 674:                                              ; preds = %.thread, %image_ctx_free.exit
   %indvars.iv184 = phi i64 [ 0, %.thread ], [ %indvars.iv.next185, %image_ctx_free.exit ]
-  %675 = getelementptr inbounds nuw %struct.ImageContext, ptr %673, i64 %indvars.iv184
+  %675 = getelementptr inbounds nuw [56 x i8], ptr %673, i64 %indvars.iv184
   %676 = getelementptr inbounds nuw i8, ptr %675, i64 24
   %677 = load ptr, ptr %676, align 8, !tbaa !130
   call void @av_free(ptr noundef %677) #12
@@ -2195,7 +2191,7 @@ apply_predictor_transform.exit:                   ; preds = %._crit_edge100.i, %
 690:                                              ; preds = %690, %.preheader.i132
   %indvars.iv.i133 = phi i64 [ 0, %.preheader.i132 ], [ %indvars.iv.next.i134, %690 ]
   %691 = load ptr, ptr %685, align 8, !tbaa !132
-  %692 = getelementptr inbounds nuw %struct.HuffReader, ptr %691, i64 %indvars.iv.i133
+  %692 = getelementptr inbounds nuw [40 x i8], ptr %691, i64 %indvars.iv.i133
   %693 = getelementptr inbounds nuw i8, ptr %692, i64 %.idx.i
   call void @ff_vlc_free(ptr noundef %693) #12
   %indvars.iv.next.i134 = add nuw nsw i64 %indvars.iv.i133, 1
@@ -2270,7 +2266,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @decode_entropy_coded_image
   %9 = alloca [16 x i16], align 16
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 6696
   %11 = zext nneg i32 %1 to i64
-  %12 = getelementptr inbounds nuw %struct.ImageContext, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [56 x i8], ptr %10, i64 %11
   store i32 %1, ptr %12, align 8, !tbaa !131
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !111
@@ -2525,7 +2521,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @decode_entropy_coded_image
 
 161:                                              ; preds = %158, %517
   %indvars.iv423 = phi i64 [ 0, %158 ], [ %indvars.iv.next424, %517 ]
-  %162 = getelementptr inbounds nuw i16, ptr @alphabet_sizes, i64 %indvars.iv423
+  %162 = getelementptr inbounds nuw [2 x i8], ptr @alphabet_sizes, i64 %indvars.iv423
   %163 = load i16, ptr %162, align 2, !tbaa !142
   %164 = zext i16 %163 to i32
   %.not283 = icmp eq i64 %indvars.iv423, 0
@@ -2562,7 +2558,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @decode_entropy_coded_image
   br i1 %.not284, label %244, label %185
 
 185:                                              ; preds = %171
-  %186 = getelementptr inbounds nuw %struct.HuffReader, ptr %160, i64 %indvars.iv423
+  %186 = getelementptr inbounds nuw [40 x i8], ptr %160, i64 %indvars.iv423
   %187 = lshr i32 %spec.select.i296, 3
   %188 = zext nneg i32 %187 to i64
   %189 = getelementptr inbounds nuw i8, ptr %173, i64 %188
@@ -2671,7 +2667,7 @@ read_huffman_code_simple.exit:                    ; preds = %225, %231
   br label %267
 
 255:                                              ; preds = %267
-  %256 = getelementptr inbounds nuw %struct.HuffReader, ptr %160, i64 %indvars.iv423
+  %256 = getelementptr inbounds nuw [40 x i8], ptr %160, i64 %indvars.iv423
   %257 = lshr i32 %277, 3
   %258 = zext nneg i32 %257 to i64
   %259 = getelementptr inbounds nuw i8, ptr %173, i64 %258
@@ -2707,7 +2703,7 @@ read_huffman_code_simple.exit:                    ; preds = %225, %231
   %282 = getelementptr inbounds nuw i8, ptr %6, i64 %281
   store i8 %278, ptr %282, align 1, !tbaa !59
   %283 = zext nneg i32 %275 to i64
-  %284 = getelementptr inbounds nuw i16, ptr %9, i64 %283
+  %284 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %283
   %285 = load i16, ptr %284, align 2, !tbaa !142
   %286 = add i16 %285, 1
   store i16 %286, ptr %284, align 2, !tbaa !142
@@ -2757,7 +2753,7 @@ read_huffman_code_simple.exit:                    ; preds = %225, %231
 314:                                              ; preds = %314, %.critedge.i
   %indvars.iv.i.i = phi i64 [ 1, %.critedge.i ], [ %indvars.iv.next.i.i, %314 ]
   %.03944.i.i = phi i32 [ 0, %.critedge.i ], [ %319, %314 ]
-  %315 = getelementptr inbounds nuw i16, ptr %9, i64 %indvars.iv.i.i
+  %315 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %indvars.iv.i.i
   %316 = load i16, ptr %315, align 2, !tbaa !142
   %317 = zext i16 %316 to i32
   %318 = trunc i32 %.03944.i.i to i16
@@ -2780,13 +2776,13 @@ read_huffman_code_simple.exit:                    ; preds = %225, %231
 
 323:                                              ; preds = %.lr.ph.i.i
   %324 = zext i8 %322 to i64
-  %325 = getelementptr inbounds nuw i16, ptr %9, i64 %324
+  %325 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %324
   %326 = load i16, ptr %325, align 2, !tbaa !142
   %327 = add i16 %326, 1
   store i16 %327, ptr %325, align 2, !tbaa !142
   %328 = trunc i64 %indvars.iv47.i.i to i16
   %329 = zext i16 %326 to i64
-  %330 = getelementptr inbounds nuw i16, ptr %8, i64 %329
+  %330 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %329
   store i16 %328, ptr %330, align 2, !tbaa !142
   %331 = getelementptr inbounds nuw i8, ptr %7, i64 %329
   store i8 %322, ptr %331, align 1, !tbaa !59
@@ -2854,7 +2850,7 @@ read_huffman_code_simple.exit:                    ; preds = %225, %231
   %363 = and i32 %362, 1
   store i32 %spec.select.i.i.i, ptr %36, align 8, !tbaa !105
   %364 = zext nneg i32 %363 to i64
-  %365 = getelementptr inbounds nuw i16, ptr %156, i64 %364
+  %365 = getelementptr inbounds nuw [2 x i8], ptr %156, i64 %364
   %366 = load i16, ptr %365, align 2, !tbaa !142
   %367 = zext i16 %366 to i32
   br label %huff_reader_get_symbol.exit.i
@@ -2872,7 +2868,7 @@ read_huffman_code_simple.exit:                    ; preds = %225, %231
   %378 = lshr i32 %376, %377
   %379 = and i32 %378, 255
   %380 = zext nneg i32 %379 to i64
-  %381 = getelementptr inbounds nuw %struct.VLCElem, ptr %369, i64 %380
+  %381 = getelementptr inbounds nuw [4 x i8], ptr %369, i64 %380
   %382 = load i16, ptr %381, align 2, !tbaa !59
   %383 = sext i16 %382 to i32
   %384 = getelementptr inbounds nuw i8, ptr %381, i64 2
@@ -2895,7 +2891,7 @@ read_huffman_code_simple.exit:                    ; preds = %225, %231
   %399 = and i32 %396, %398
   %400 = add i32 %399, %383
   %401 = zext i32 %400 to i64
-  %402 = getelementptr inbounds nuw %struct.VLCElem, ptr %369, i64 %401
+  %402 = getelementptr inbounds nuw [4 x i8], ptr %369, i64 %401
   %403 = load i16, ptr %402, align 2, !tbaa !59
   %404 = sext i16 %403 to i32
   %405 = getelementptr inbounds nuw i8, ptr %402, i64 2
@@ -2924,7 +2920,7 @@ huff_reader_get_symbol.exit.i:                    ; preds = %get_vlc2.exit.i.i, 
   %415 = getelementptr inbounds i8, ptr %338, i64 %414
   store i8 %412, ptr %415, align 1, !tbaa !59
   %416 = zext nneg i32 %.0.i99.i to i64
-  %417 = getelementptr inbounds nuw i16, ptr %9, i64 %416
+  %417 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %416
   %418 = load i16, ptr %417, align 2, !tbaa !142
   %419 = add i16 %418, 1
   store i16 %419, ptr %417, align 2, !tbaa !142
@@ -2955,7 +2951,7 @@ huff_reader_get_symbol.exit.i:                    ; preds = %get_vlc2.exit.i.i, 
   store i32 %433, ptr %36, align 8, !tbaa !105
   %434 = add nuw nsw i32 %431, 3
   %435 = zext nneg i32 %.078136.i to i64
-  %436 = getelementptr inbounds nuw i16, ptr %9, i64 %435
+  %436 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %435
   %437 = load i16, ptr %436, align 2, !tbaa !142
   %438 = trunc nuw nsw i32 %434 to i16
   %439 = add i16 %437, %438
@@ -3043,7 +3039,7 @@ huff_reader_get_symbol.exit.i:                    ; preds = %get_vlc2.exit.i.i, 
 484:                                              ; preds = %484, %.thread120.i
   %indvars.iv.i100.i = phi i64 [ 1, %.thread120.i ], [ %indvars.iv.next.i102.i, %484 ]
   %.03944.i101.i = phi i32 [ 0, %.thread120.i ], [ %489, %484 ]
-  %485 = getelementptr inbounds nuw i16, ptr %9, i64 %indvars.iv.i100.i
+  %485 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %indvars.iv.i100.i
   %486 = load i16, ptr %485, align 2, !tbaa !142
   %487 = zext i16 %486 to i32
   %488 = trunc i32 %.03944.i101.i to i16
@@ -3066,13 +3062,13 @@ huff_reader_get_symbol.exit.i:                    ; preds = %get_vlc2.exit.i.i, 
 
 493:                                              ; preds = %.lr.ph.i107.i
   %494 = zext i8 %492 to i64
-  %495 = getelementptr inbounds nuw i16, ptr %9, i64 %494
+  %495 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %494
   %496 = load i16, ptr %495, align 2, !tbaa !142
   %497 = add i16 %496, 1
   store i16 %497, ptr %495, align 2, !tbaa !142
   %498 = trunc i64 %indvars.iv47.i108.i to i16
   %499 = zext i16 %496 to i64
-  %500 = getelementptr inbounds nuw i16, ptr %482, i64 %499
+  %500 = getelementptr inbounds nuw [2 x i8], ptr %482, i64 %499
   store i16 %498, ptr %500, align 2, !tbaa !142
   %501 = load i8, ptr %491, align 1, !tbaa !59
   %502 = getelementptr inbounds nuw i8, ptr %479, i64 %499
@@ -3201,7 +3197,7 @@ read_huffman_code_normal.exit:                    ; preds = %420, %336, %474, %5
 get_huffman_group.exit:                           ; preds = %536, %539
   %.0.i301 = phi i64 [ %560, %539 ], [ 0, %536 ]
   %561 = load ptr, ptr %149, align 8, !tbaa !132
-  %562 = getelementptr inbounds nuw %struct.HuffReader, ptr %561, i64 %.0.i301
+  %562 = getelementptr inbounds nuw [40 x i8], ptr %561, i64 %.0.i301
   %563 = getelementptr inbounds nuw i8, ptr %562, i64 24
   %564 = load i32, ptr %563, align 8, !tbaa !147
   %.not.i302 = icmp eq i32 %564, 0
@@ -3235,7 +3231,7 @@ get_huffman_group.exit:                           ; preds = %536, %539
   %585 = and i32 %584, 1
   store i32 %spec.select.i.i303, ptr %36, align 8, !tbaa !105
   %586 = zext nneg i32 %585 to i64
-  %587 = getelementptr inbounds nuw i16, ptr %569, i64 %586
+  %587 = getelementptr inbounds nuw [2 x i8], ptr %569, i64 %586
   %588 = load i16, ptr %587, align 2, !tbaa !142
   %589 = zext i16 %588 to i32
   br label %huff_reader_get_symbol.exit
@@ -3253,7 +3249,7 @@ get_huffman_group.exit:                           ; preds = %536, %539
   %600 = lshr i32 %598, %599
   %601 = and i32 %600, 255
   %602 = zext nneg i32 %601 to i64
-  %603 = getelementptr inbounds nuw %struct.VLCElem, ptr %592, i64 %602
+  %603 = getelementptr inbounds nuw [4 x i8], ptr %592, i64 %602
   %604 = load i16, ptr %603, align 2, !tbaa !59
   %605 = sext i16 %604 to i32
   %606 = getelementptr inbounds nuw i8, ptr %603, i64 2
@@ -3276,7 +3272,7 @@ get_huffman_group.exit:                           ; preds = %536, %539
   %621 = and i32 %618, %620
   %622 = add i32 %621, %605
   %623 = zext i32 %622 to i64
-  %624 = getelementptr inbounds nuw %struct.VLCElem, ptr %592, i64 %623
+  %624 = getelementptr inbounds nuw [4 x i8], ptr %592, i64 %623
   %625 = load i16, ptr %624, align 2, !tbaa !59
   %626 = sext i16 %625 to i32
   %627 = getelementptr inbounds nuw i8, ptr %624, i64 2
@@ -3345,7 +3341,7 @@ huff_reader_get_symbol.exit:                      ; preds = %570, %573, %get_vlc
   %668 = and i32 %667, 1
   store i32 %spec.select.i.i306, ptr %36, align 8, !tbaa !105
   %669 = zext nneg i32 %668 to i64
-  %670 = getelementptr inbounds nuw i16, ptr %652, i64 %669
+  %670 = getelementptr inbounds nuw [2 x i8], ptr %652, i64 %669
   %671 = load i16, ptr %670, align 2, !tbaa !142
   br label %huff_reader_get_symbol.exit312
 
@@ -3363,7 +3359,7 @@ huff_reader_get_symbol.exit:                      ; preds = %570, %573, %get_vlc
   %683 = lshr i32 %681, %682
   %684 = and i32 %683, 255
   %685 = zext nneg i32 %684 to i64
-  %686 = getelementptr inbounds nuw %struct.VLCElem, ptr %674, i64 %685
+  %686 = getelementptr inbounds nuw [4 x i8], ptr %674, i64 %685
   %687 = load i16, ptr %686, align 2, !tbaa !59
   %688 = getelementptr inbounds nuw i8, ptr %686, i64 2
   %689 = load i16, ptr %688, align 2, !tbaa !59
@@ -3386,7 +3382,7 @@ huff_reader_get_symbol.exit:                      ; preds = %570, %573, %get_vlc
   %704 = and i32 %701, %703
   %705 = add i32 %704, %693
   %706 = zext i32 %705 to i64
-  %707 = getelementptr inbounds nuw %struct.VLCElem, ptr %674, i64 %706
+  %707 = getelementptr inbounds nuw [4 x i8], ptr %674, i64 %706
   %708 = load i16, ptr %707, align 2, !tbaa !59
   %709 = getelementptr inbounds nuw i8, ptr %707, i64 2
   %710 = load i16, ptr %709, align 2, !tbaa !59
@@ -3440,7 +3436,7 @@ huff_reader_get_symbol.exit312:                   ; preds = %653, %655, %get_vlc
   %738 = and i32 %737, 1
   store i32 %spec.select.i.i314, ptr %36, align 8, !tbaa !105
   %739 = zext nneg i32 %738 to i64
-  %740 = getelementptr inbounds nuw i16, ptr %722, i64 %739
+  %740 = getelementptr inbounds nuw [2 x i8], ptr %722, i64 %739
   %741 = load i16, ptr %740, align 2, !tbaa !142
   br label %huff_reader_get_symbol.exit320
 
@@ -3458,7 +3454,7 @@ huff_reader_get_symbol.exit312:                   ; preds = %653, %655, %get_vlc
   %753 = lshr i32 %751, %752
   %754 = and i32 %753, 255
   %755 = zext nneg i32 %754 to i64
-  %756 = getelementptr inbounds nuw %struct.VLCElem, ptr %744, i64 %755
+  %756 = getelementptr inbounds nuw [4 x i8], ptr %744, i64 %755
   %757 = load i16, ptr %756, align 2, !tbaa !59
   %758 = getelementptr inbounds nuw i8, ptr %756, i64 2
   %759 = load i16, ptr %758, align 2, !tbaa !59
@@ -3481,7 +3477,7 @@ huff_reader_get_symbol.exit312:                   ; preds = %653, %655, %get_vlc
   %774 = and i32 %771, %773
   %775 = add i32 %774, %763
   %776 = zext i32 %775 to i64
-  %777 = getelementptr inbounds nuw %struct.VLCElem, ptr %744, i64 %776
+  %777 = getelementptr inbounds nuw [4 x i8], ptr %744, i64 %776
   %778 = load i16, ptr %777, align 2, !tbaa !59
   %779 = getelementptr inbounds nuw i8, ptr %777, i64 2
   %780 = load i16, ptr %779, align 2, !tbaa !59
@@ -3535,7 +3531,7 @@ huff_reader_get_symbol.exit320:                   ; preds = %723, %725, %get_vlc
   %808 = and i32 %807, 1
   store i32 %spec.select.i.i322, ptr %36, align 8, !tbaa !105
   %809 = zext nneg i32 %808 to i64
-  %810 = getelementptr inbounds nuw i16, ptr %792, i64 %809
+  %810 = getelementptr inbounds nuw [2 x i8], ptr %792, i64 %809
   %811 = load i16, ptr %810, align 2, !tbaa !142
   br label %huff_reader_get_symbol.exit328
 
@@ -3553,7 +3549,7 @@ huff_reader_get_symbol.exit320:                   ; preds = %723, %725, %get_vlc
   %823 = lshr i32 %821, %822
   %824 = and i32 %823, 255
   %825 = zext nneg i32 %824 to i64
-  %826 = getelementptr inbounds nuw %struct.VLCElem, ptr %814, i64 %825
+  %826 = getelementptr inbounds nuw [4 x i8], ptr %814, i64 %825
   %827 = load i16, ptr %826, align 2, !tbaa !59
   %828 = getelementptr inbounds nuw i8, ptr %826, i64 2
   %829 = load i16, ptr %828, align 2, !tbaa !59
@@ -3576,7 +3572,7 @@ huff_reader_get_symbol.exit320:                   ; preds = %723, %725, %get_vlc
   %844 = and i32 %841, %843
   %845 = add i32 %844, %833
   %846 = zext i32 %845 to i64
-  %847 = getelementptr inbounds nuw %struct.VLCElem, ptr %814, i64 %846
+  %847 = getelementptr inbounds nuw [4 x i8], ptr %814, i64 %846
   %848 = load i16, ptr %847, align 2, !tbaa !59
   %849 = getelementptr inbounds nuw i8, ptr %847, i64 2
   %850 = load i16, ptr %849, align 2, !tbaa !59
@@ -3608,7 +3604,7 @@ huff_reader_get_symbol.exit328:                   ; preds = %793, %795, %get_vlc
   %861 = lshr i32 %859, %860
   %862 = load ptr, ptr %532, align 8, !tbaa !130
   %863 = zext i32 %861 to i64
-  %864 = getelementptr inbounds nuw i32, ptr %862, i64 %863
+  %864 = getelementptr inbounds nuw [4 x i8], ptr %862, i64 %863
   store i32 %858, ptr %864, align 4, !tbaa !52
   br label %865
 
@@ -3692,7 +3688,7 @@ huff_reader_get_symbol.exit328:                   ; preds = %793, %795, %get_vlc
   %920 = and i32 %919, 1
   store i32 %spec.select.i.i330, ptr %36, align 8, !tbaa !105
   %921 = zext nneg i32 %920 to i64
-  %922 = getelementptr inbounds nuw i16, ptr %904, i64 %921
+  %922 = getelementptr inbounds nuw [2 x i8], ptr %904, i64 %921
   %923 = load i16, ptr %922, align 2, !tbaa !142
   %924 = zext i16 %923 to i32
   br label %huff_reader_get_symbol.exit336
@@ -3710,7 +3706,7 @@ huff_reader_get_symbol.exit328:                   ; preds = %793, %795, %get_vlc
   %935 = lshr i32 %933, %934
   %936 = and i32 %935, 255
   %937 = zext nneg i32 %936 to i64
-  %938 = getelementptr inbounds nuw %struct.VLCElem, ptr %927, i64 %937
+  %938 = getelementptr inbounds nuw [4 x i8], ptr %927, i64 %937
   %939 = load i16, ptr %938, align 2, !tbaa !59
   %940 = sext i16 %939 to i32
   %941 = getelementptr inbounds nuw i8, ptr %938, i64 2
@@ -3733,7 +3729,7 @@ huff_reader_get_symbol.exit328:                   ; preds = %793, %795, %get_vlc
   %956 = and i32 %953, %955
   %957 = add i32 %956, %940
   %958 = zext i32 %957 to i64
-  %959 = getelementptr inbounds nuw %struct.VLCElem, ptr %927, i64 %958
+  %959 = getelementptr inbounds nuw [4 x i8], ptr %927, i64 %958
   %960 = load i16, ptr %959, align 2, !tbaa !59
   %961 = sext i16 %960 to i32
   %962 = getelementptr inbounds nuw i8, ptr %959, i64 2
@@ -3875,7 +3871,7 @@ huff_reader_get_symbol.exit336:                   ; preds = %905, %908, %get_vlc
   %1038 = lshr i32 %1036, %1037
   %1039 = load ptr, ptr %532, align 8, !tbaa !130
   %1040 = zext i32 %1038 to i64
-  %1041 = getelementptr inbounds nuw i32, ptr %1039, i64 %1040
+  %1041 = getelementptr inbounds nuw [4 x i8], ptr %1039, i64 %1040
   store i32 %1035, ptr %1041, align 4, !tbaa !52
   br label %1042
 
@@ -3938,7 +3934,7 @@ huff_reader_get_symbol.exit336:                   ; preds = %905, %908, %get_vlc
 1076:                                             ; preds = %1071
   %1077 = load ptr, ptr %532, align 8, !tbaa !130
   %1078 = zext nneg i32 %1066 to i64
-  %1079 = getelementptr inbounds nuw i32, ptr %1077, i64 %1078
+  %1079 = getelementptr inbounds nuw [4 x i8], ptr %1077, i64 %1078
   %1080 = load i32, ptr %1079, align 4, !tbaa !52
   %1081 = call i32 @llvm.bswap.i32(i32 %1080)
   store i32 %1081, ptr %1065, align 1, !tbaa !59

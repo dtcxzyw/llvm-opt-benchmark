@@ -315,7 +315,7 @@ define internal void @_ZN4absl13hash_internal12_GLOBAL__N_128CityHashTest_Unchan
 _ZN4absl13hash_internal12_GLOBAL__N_15setupEv.exit: ; preds = %2, %_ZN4absl13hash_internal12_GLOBAL__N_15setupEv.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN4absl13hash_internal12_GLOBAL__N_15setupEv.exit ], [ 0, %2 ]
   %indvars8 = trunc i64 %indvars.iv to i32
-  %15 = getelementptr inbounds nuw [4 x i64], ptr @_ZN4absl13hash_internal12_GLOBAL__N_18testdataE, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [32 x i8], ptr @_ZN4absl13hash_internal12_GLOBAL__N_18testdataE, i64 %indvars.iv
   %16 = mul nuw nsw i32 %indvars8, %indvars8
   tail call fastcc void @_ZN4absl13hash_internal12_GLOBAL__N_114TestUnchangingEPKmii(ptr noundef nonnull %15, i32 noundef %16, i32 noundef %indvars8)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

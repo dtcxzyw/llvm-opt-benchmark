@@ -1488,7 +1488,7 @@ define internal i32 @dissect_omron_fins_tcp_pdu(ptr noundef %0, ptr noundef %1, 
 
 switch.lookup:                                    ; preds = %4
   %8 = zext nneg i32 %6 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.dissect_omron_fins_tcp_pdu, i64 %8
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_omron_fins_tcp_pdu, i64 %8
   %switch.load = load i32, ptr %switch.gep, align 4
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8

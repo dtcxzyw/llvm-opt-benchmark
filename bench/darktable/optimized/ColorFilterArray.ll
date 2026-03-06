@@ -1032,10 +1032,10 @@ _ZN8rawspeed12_GLOBAL__N_116getColorAsStringENS_8CFAColorE.exit.i: ; preds = %27
 
 switch.lookup:                                    ; preds = %27
   %46 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN8rawspeed16ColorFilterArray13colorToStringB5cxx11ENS_8CFAColorE, i64 %46
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN8rawspeed16ColorFilterArray13colorToStringB5cxx11ENS_8CFAColorE, i64 %46
   %switch.load = load i64, ptr %switch.gep, align 8
   %47 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep144 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN8rawspeed16ColorFilterArray13colorToStringB5cxx11ENS_8CFAColorE.2, i64 %47
+  %switch.gep144 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN8rawspeed16ColorFilterArray13colorToStringB5cxx11ENS_8CFAColorE.2, i64 %47
   %switch.load145 = load ptr, ptr %switch.gep144, align 8
   store ptr %11, ptr %3, align 8, !tbaa !34, !alias.scope !43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %11, ptr noundef nonnull align 1 dereferenceable(1) %switch.load145, i64 %switch.load, i1 false)
@@ -1346,10 +1346,10 @@ _ZN8rawspeed12_GLOBAL__N_116getColorAsStringENS_8CFAColorE.exit: ; preds = %2
 
 switch.lookup:                                    ; preds = %2
   %5 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN8rawspeed16ColorFilterArray13colorToStringB5cxx11ENS_8CFAColorE, i64 %5
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN8rawspeed16ColorFilterArray13colorToStringB5cxx11ENS_8CFAColorE, i64 %5
   %switch.load = load i64, ptr %switch.gep, align 8
   %6 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep13 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN8rawspeed16ColorFilterArray13colorToStringB5cxx11ENS_8CFAColorE.2, i64 %6
+  %switch.gep13 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN8rawspeed16ColorFilterArray13colorToStringB5cxx11ENS_8CFAColorE.2, i64 %6
   %switch.load14 = load ptr, ptr %switch.gep13, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %7, ptr %0, align 8, !tbaa !34

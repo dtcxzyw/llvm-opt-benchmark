@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.addrinfo = type { i32, i32, i32, i32, i32, ptr, ptr, ptr }
-%struct.private_ipv4_t = type { i32, i32 }
 
 @pmix_net_private_ipv4 = external local_unnamed_addr global ptr, align 8
 @private_ipv4 = internal unnamed_addr global ptr null, align 8
@@ -95,7 +94,7 @@ define i32 @pmix_net_init() local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %47
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %47 ]
   %.032 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %47 ]
-  %17 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8, !tbaa !13
   %19 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %18, ptr noundef nonnull @.str.1, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #15
   %20 = load i32, ptr %1, align 4, !tbaa !16
@@ -132,7 +131,7 @@ define i32 @pmix_net_init() local_unnamed_addr #0 {
   %41 = or disjoint i32 %40, %26
   %42 = call noundef i32 @llvm.bswap.i32(i32 %41)
   %43 = load ptr, ptr @private_ipv4, align 8, !tbaa !14
-  %44 = getelementptr inbounds nuw %struct.private_ipv4_t, ptr %43, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv
   store i32 %42, ptr %44, align 4, !tbaa !17
   %45 = load i32, ptr %5, align 4, !tbaa !16
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 4
@@ -153,7 +152,7 @@ define i32 @pmix_net_init() local_unnamed_addr #0 {
 ._crit_edge:                                      ; preds = %.preheader, %._crit_edge.loopexit
   %49 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %13, %.preheader ]
   %.025.lcssa = phi i64 [ %48, %._crit_edge.loopexit ], [ 0, %.preheader ]
-  %50 = getelementptr inbounds nuw %struct.private_ipv4_t, ptr %49, i64 %.025.lcssa
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %.025.lcssa
   store i32 0, ptr %50, align 4, !tbaa !17
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 4
   store i32 0, ptr %51, align 4, !tbaa !19
@@ -368,7 +367,7 @@ define noundef zeroext i1 @pmix_net_addr_isipv4public(ptr noundef readonly captu
 
 9:                                                ; preds = %12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %10 = getelementptr inbounds nuw %struct.private_ipv4_t, ptr %4, i64 %indvars.iv.next
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.next
   %11 = load i32, ptr %10, align 4, !tbaa !17
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %.loopexit, label %12, !llvm.loop !29
@@ -376,7 +375,7 @@ define noundef zeroext i1 @pmix_net_addr_isipv4public(ptr noundef readonly captu
 12:                                               ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
   %13 = phi i32 [ %6, %.lr.ph ], [ %11, %9 ]
-  %14 = getelementptr inbounds nuw %struct.private_ipv4_t, ptr %4, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %16 = load i32, ptr %15, align 4, !tbaa !19
   %notmask.i = shl nsw i32 -1, %16

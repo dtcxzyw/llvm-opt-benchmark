@@ -151,7 +151,7 @@ _ZNSt6vectorIPN10duckdb_re23RE2ESaIS2_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrI
   %10 = phi ptr [ %17, %16 ], [ %4, %1 ]
   %11 = phi ptr [ %18, %16 ], [ %3, %1 ]
   %.04 = phi i64 [ %19, %16 ], [ 0, %1 ]
-  %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %.04
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.04
   %13 = load ptr, ptr %12, align 8, !tbaa !12
   %14 = icmp eq ptr %13, null
   br i1 %14, label %16, label %15
@@ -300,7 +300,7 @@ _ZNSt10unique_ptrIN10duckdb_re213PrefilterTreeESt14default_deleteIS1_EED2Ev.exit
   %11 = phi ptr [ %18, %17 ], [ %5, %2 ]
   %12 = phi ptr [ %19, %17 ], [ %4, %2 ]
   %.04.i = phi i64 [ %20, %17 ], [ 0, %2 ]
-  %13 = getelementptr inbounds nuw ptr, ptr %11, i64 %.04.i
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.04.i
   %14 = load ptr, ptr %13, align 8, !tbaa !12
   %15 = icmp eq ptr %14, null
   br i1 %15, label %17, label %16
@@ -480,7 +480,7 @@ _ZNSt6vectorIPN10duckdb_re23RE2ESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i:
 _ZNSt6vectorIPN10duckdb_re23RE2ESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %71, %_ZNSt6vectorIPN10duckdb_re23RE2ESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %66, ptr %0, align 8, !tbaa !8
   store ptr %70, ptr %46, align 8, !tbaa !11
-  %72 = getelementptr inbounds nuw ptr, ptr %66, i64 %64
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %64
   store ptr %72, ptr %54, align 8, !tbaa !16
   br label %_ZNSt6vectorIPN10duckdb_re23RE2ESaIS2_EE9push_backERKS2_.exit
 
@@ -672,7 +672,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearE
 57:                                               ; preds = %.lr.ph, %57
   %58 = phi ptr [ %26, %.lr.ph ], [ %65, %57 ]
   %.0815 = phi i64 [ 0, %.lr.ph ], [ %63, %57 ]
-  %59 = getelementptr inbounds nuw ptr, ptr %58, i64 %.0815
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %.0815
   %60 = load ptr, ptr %59, align 8, !tbaa !12
   %61 = tail call noundef ptr @_ZN10duckdb_re29Prefilter7FromRE2EPKNS_3RE2E(ptr noundef %60)
   %62 = load ptr, ptr %30, align 8, !tbaa !3
@@ -718,7 +718,7 @@ define hidden noundef i32 @_ZNK10duckdb_re211FilteredRE214SlowFirstMatchERKNS_11
 8:                                                ; preds = %.lr.ph, %13
   %9 = phi ptr [ %6, %.lr.ph ], [ %16, %13 ]
   %.0712 = phi i64 [ 0, %.lr.ph ], [ %14, %13 ]
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %.0712
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.0712
   %11 = load ptr, ptr %10, align 8, !tbaa !12
   %.sroa.0.0.copyload.i = load ptr, ptr %1, align 8, !tbaa !68
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !69
@@ -831,11 +831,11 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %_ZStlsISt11char_tra
 36:                                               ; preds = %.lr.ph, %51
   %37 = phi ptr [ %32, %.lr.ph ], [ %54, %51 ]
   %.01028 = phi i64 [ 0, %.lr.ph ], [ %52, %51 ]
-  %38 = getelementptr inbounds nuw i32, ptr %37, i64 %.01028
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %.01028
   %39 = load i32, ptr %38, align 4, !tbaa !61
   %40 = sext i32 %39 to i64
   %41 = load ptr, ptr %0, align 8, !tbaa !8
-  %42 = getelementptr inbounds nuw ptr, ptr %41, i64 %40
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %40
   %43 = load ptr, ptr %42, align 8, !tbaa !12
   %.sroa.0.0.copyload.i = load ptr, ptr %1, align 8, !tbaa !68
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !69
@@ -851,7 +851,7 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %_ZStlsISt11char_tra
 
 .thread:                                          ; preds = %45
   %46 = load ptr, ptr %6, align 8, !tbaa !74
-  %47 = getelementptr inbounds nuw i32, ptr %46, i64 %.01028
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %.01028
   %48 = load i32, ptr %47, align 4, !tbaa !61
   br label %59
 
@@ -971,11 +971,11 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %._crit_edge, %20
 24:                                               ; preds = %.lr.ph, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
   %25 = phi ptr [ %15, %.lr.ph ], [ %62, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
   %.020 = phi i64 [ 0, %.lr.ph ], [ %63, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
-  %26 = getelementptr inbounds nuw i32, ptr %25, i64 %.020
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %.020
   %27 = load i32, ptr %26, align 4, !tbaa !61
   %28 = sext i32 %27 to i64
   %29 = load ptr, ptr %0, align 8, !tbaa !8
-  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %28
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %28
   %31 = load ptr, ptr %30, align 8, !tbaa !12
   %.sroa.0.0.copyload.i = load ptr, ptr %1, align 8, !tbaa !68
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !69
@@ -991,7 +991,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %._crit_edge, %20
   br i1 %32, label %34, label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
 
 34:                                               ; preds = %33
-  %35 = getelementptr inbounds nuw i32, ptr %.pre22, i64 %.020
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %.pre22, i64 %.020
   %36 = load ptr, ptr %8, align 8, !tbaa !71
   %37 = load ptr, ptr %17, align 8, !tbaa !77
   %.not.i = icmp eq ptr %36, %37
@@ -1057,7 +1057,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
   %.pre = phi ptr [ %.pre.pre, %60 ], [ %.pre22, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i ]
   store ptr %54, ptr %3, align 8, !tbaa !74
   store ptr %59, ptr %8, align 8, !tbaa !71
-  %61 = getelementptr inbounds nuw i32, ptr %54, i64 %52
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %52
   store ptr %61, ptr %17, align 8, !tbaa !77
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
 

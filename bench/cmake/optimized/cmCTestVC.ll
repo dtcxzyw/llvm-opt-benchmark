@@ -3106,7 +3106,7 @@ define dso_local void @_ZN9cmCTestVC13WriteXMLEntryER11cmXMLWriterRKNSt7__cxx111
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
   %72 = load i32, ptr %5, align 8, !tbaa !136
   %73 = zext i32 %72 to i64
-  %74 = getelementptr inbounds nuw ptr, ptr @_ZZN9cmCTestVC13WriteXMLEntryER11cmXMLWriterRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_S9_RKNS_4FileEE4desc, i64 %73
+  %74 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN9cmCTestVC13WriteXMLEntryER11cmXMLWriterRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_S9_RKNS_4FileEE4desc, i64 %73
   %75 = load ptr, ptr %74, align 8, !tbaa !137
   %76 = getelementptr inbounds nuw i8, ptr %34, i64 16
   store ptr %76, ptr %34, align 8, !tbaa !21
@@ -3780,7 +3780,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit258: ; preds = %_Z
   %223 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %224 = load i32, ptr %5, align 8, !tbaa !136
   %225 = zext i32 %224 to i64
-  %226 = getelementptr inbounds nuw i32, ptr %223, i64 %225
+  %226 = getelementptr inbounds nuw [4 x i8], ptr %223, i64 %225
   %227 = load i32, ptr %226, align 4, !tbaa !24
   %228 = add nsw i32 %227, 1
   store i32 %228, ptr %226, align 4, !tbaa !24

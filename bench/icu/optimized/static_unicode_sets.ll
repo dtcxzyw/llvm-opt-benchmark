@@ -461,7 +461,7 @@ _ZN12_GLOBAL__N_122initNumberParseUniSetsER10UErrorCode.exit: ; preds = %101, %1
 
 115:                                              ; preds = %111, %_ZN12_GLOBAL__N_122initNumberParseUniSetsER10UErrorCode.exit
   %116 = sext i32 %0 to i64
-  %117 = getelementptr inbounds ptr, ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 %116
+  %117 = getelementptr inbounds [8 x i8], ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 %116
   %118 = load ptr, ptr %117, align 8, !tbaa !10
   %119 = icmp eq ptr %118, null
   %_ZN12_GLOBAL__N_116gEmptyUnicodeSetE..i = select i1 %119, ptr @_ZN12_GLOBAL__N_116gEmptyUnicodeSetE, ptr %118
@@ -562,7 +562,7 @@ define internal noundef signext i8 @_ZN12_GLOBAL__N_125cleanupNumberParseUniSets
 
 3:                                                ; preds = %.preheader, %8
   %indvars.iv = phi i64 [ %indvars.iv.next, %8 ], [ 0, %.preheader ]
-  %4 = getelementptr inbounds nuw ptr, ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [8 x i8], ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 8, !tbaa !10
   %6 = icmp eq ptr %5, null
   br i1 %6, label %8, label %7
@@ -615,13 +615,13 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_112computeUnionEN6icu_777uni
 
 8:                                                ; preds = %5
   %9 = zext nneg i32 %0 to i64
-  %10 = getelementptr inbounds nuw ptr, ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !10
   %12 = icmp eq ptr %11, null
   %_ZN12_GLOBAL__N_116gEmptyUnicodeSetE..i = select i1 %12, ptr @_ZN12_GLOBAL__N_116gEmptyUnicodeSetE, ptr %11
   %13 = tail call noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7710UnicodeSet6addAllERKS0_(ptr noundef nonnull align 8 dereferenceable(200) %3, ptr noundef nonnull align 8 dereferenceable(200) %_ZN12_GLOBAL__N_116gEmptyUnicodeSetE..i)
   %14 = zext nneg i32 %1 to i64
-  %15 = getelementptr inbounds nuw ptr, ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !10
   %17 = icmp eq ptr %16, null
   %_ZN12_GLOBAL__N_116gEmptyUnicodeSetE..i14 = select i1 %17, ptr @_ZN12_GLOBAL__N_116gEmptyUnicodeSetE, ptr %16
@@ -646,7 +646,7 @@ define linkonce_odr void @_ZN6icu_7713UnicodeStringC2IA10_DsvEERKT_(ptr noundef 
 
 4:                                                ; preds = %4, %2
   %.0.i.i.i = phi i64 [ 0, %2 ], [ %8, %4 ]
-  %5 = getelementptr inbounds nuw i16, ptr %1, i64 %.0.i.i.i
+  %5 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %.0.i.i.i
   %6 = load i16, ptr %5, align 2, !tbaa !25
   %7 = icmp eq i16 %6, 0
   %8 = add i64 %.0.i.i.i, 1
@@ -688,7 +688,7 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_112computeUnionEN6icu_777uni
   %_ZN12_GLOBAL__N_116gEmptyUnicodeSetE..i = select i1 %9, ptr @_ZN12_GLOBAL__N_116gEmptyUnicodeSetE, ptr %8
   %10 = tail call noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7710UnicodeSet6addAllERKS0_(ptr noundef nonnull align 8 dereferenceable(200) %2, ptr noundef nonnull align 8 dereferenceable(200) %_ZN12_GLOBAL__N_116gEmptyUnicodeSetE..i)
   %11 = zext nneg i32 %0 to i64
-  %12 = getelementptr inbounds nuw ptr, ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !10
   %14 = icmp eq ptr %13, null
   %_ZN12_GLOBAL__N_116gEmptyUnicodeSetE..i12 = select i1 %14, ptr @_ZN12_GLOBAL__N_116gEmptyUnicodeSetE, ptr %13
@@ -829,9 +829,9 @@ define internal void @_ZN12_GLOBAL__N_113ParseDataSink3putEPKcRN6icu_7713Resourc
 
 .lr.ph:                                           ; preds = %.preheader
   %42 = select i1 %35, i64 4, i64 6
-  %43 = getelementptr inbounds nuw ptr, ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 %42
   %44 = select i1 %35, i64 3, i64 5
-  %45 = getelementptr inbounds nuw ptr, ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 %44
+  %45 = getelementptr inbounds nuw [8 x i8], ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 %44
   br label %49
 
 46:                                               ; preds = %221
@@ -1315,7 +1315,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_17saveSetEN6icu_777unisets3KeyERKNS
 
 7:                                                ; preds = %6, %3
   %8 = zext nneg i32 %0 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 %8
   store ptr %4, ptr %9, align 8, !tbaa !10
   ret void
 

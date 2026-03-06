@@ -15,7 +15,7 @@ define noundef ptr @_ZN5ZXing10DataMatrix10SymbolInfo6LookupEi(i32 noundef %0) l
 
 .split.split.split.i.i:                           ; preds = %select.unfold.i.i, %1
   %.02940.i.i = phi i64 [ %5, %select.unfold.i.i ], [ 0, %1 ]
-  %2 = getelementptr inbounds nuw %"class.ZXing::DataMatrix::SymbolInfo", ptr @_ZN5ZXing10DataMatrixL12PROD_SYMBOLSE, i64 %.02940.i.i
+  %2 = getelementptr inbounds nuw [32 x i8], ptr @_ZN5ZXing10DataMatrixL12PROD_SYMBOLSE, i64 %.02940.i.i
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %4 = load i32, ptr %3, align 4, !tbaa !3
   %.not.i.i = icmp sgt i32 %0, %4
@@ -40,7 +40,7 @@ define noundef ptr @_ZN5ZXing10DataMatrix10SymbolInfo6LookupEiNS0_11SymbolShapeE
 
 .split.split.split.us.i:                          ; preds = %2, %select.unfold.us49.i
   %.02940.us47.i = phi i64 [ %9, %select.unfold.us49.i ], [ 0, %2 ]
-  %3 = getelementptr inbounds nuw %"class.ZXing::DataMatrix::SymbolInfo", ptr @_ZN5ZXing10DataMatrixL12PROD_SYMBOLSE, i64 %.02940.us47.i
+  %3 = getelementptr inbounds nuw [32 x i8], ptr @_ZN5ZXing10DataMatrixL12PROD_SYMBOLSE, i64 %.02940.us47.i
   %4 = load i8, ptr %3, align 16, !tbaa !11, !range !12, !noundef !13
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %select.unfold.us49.i, label %6
@@ -58,7 +58,7 @@ select.unfold.us49.i:                             ; preds = %6, %.split.split.sp
 
 .split.split.split.us51.i:                        ; preds = %2, %select.unfold.us54.i
   %.02940.us52.i = phi i64 [ %16, %select.unfold.us54.i ], [ 0, %2 ]
-  %10 = getelementptr inbounds nuw %"class.ZXing::DataMatrix::SymbolInfo", ptr @_ZN5ZXing10DataMatrixL12PROD_SYMBOLSE, i64 %.02940.us52.i
+  %10 = getelementptr inbounds nuw [32 x i8], ptr @_ZN5ZXing10DataMatrixL12PROD_SYMBOLSE, i64 %.02940.us52.i
   %11 = load i8, ptr %10, align 16, !tbaa !11, !range !12, !noundef !13
   %12 = trunc nuw i8 %11 to i1
   br i1 %12, label %13, label %select.unfold.us54.i
@@ -76,7 +76,7 @@ select.unfold.us54.i:                             ; preds = %13, %.split.split.s
 
 .split.split.split.i:                             ; preds = %2, %select.unfold.i
   %.02940.i = phi i64 [ %20, %select.unfold.i ], [ 0, %2 ]
-  %17 = getelementptr inbounds nuw %"class.ZXing::DataMatrix::SymbolInfo", ptr @_ZN5ZXing10DataMatrixL12PROD_SYMBOLSE, i64 %.02940.i
+  %17 = getelementptr inbounds nuw [32 x i8], ptr @_ZN5ZXing10DataMatrixL12PROD_SYMBOLSE, i64 %.02940.i
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %19 = load i32, ptr %18, align 4, !tbaa !3
   %.not.i = icmp sgt i32 %0, %19
@@ -102,7 +102,7 @@ define noundef ptr @_ZN5ZXing10DataMatrix10SymbolInfo6LookupEiNS0_11SymbolShapeE
 
 .split.us:                                        ; preds = %6, %select.unfold.us
   %.02940.us = phi i64 [ %52, %select.unfold.us ], [ 0, %6 ]
-  %9 = getelementptr inbounds nuw %"class.ZXing::DataMatrix::SymbolInfo", ptr @_ZN5ZXing10DataMatrixL12PROD_SYMBOLSE, i64 %.02940.us
+  %9 = getelementptr inbounds nuw [32 x i8], ptr @_ZN5ZXing10DataMatrixL12PROD_SYMBOLSE, i64 %.02940.us
   switch i32 %1, label %16 [
     i32 1, label %13
     i32 2, label %10
@@ -177,7 +177,7 @@ select.unfold.us:                                 ; preds = %49, %42, %35, %25, 
 
 .split.split.us:                                  ; preds = %.split, %select.unfold.us45
   %.02940.us43 = phi i64 [ %81, %select.unfold.us45 ], [ 0, %.split ]
-  %53 = getelementptr inbounds nuw %"class.ZXing::DataMatrix::SymbolInfo", ptr @_ZN5ZXing10DataMatrixL12PROD_SYMBOLSE, i64 %.02940.us43
+  %53 = getelementptr inbounds nuw [32 x i8], ptr @_ZN5ZXing10DataMatrixL12PROD_SYMBOLSE, i64 %.02940.us43
   switch i32 %1, label %60 [
     i32 1, label %57
     i32 2, label %54
@@ -234,7 +234,7 @@ select.unfold.us45:                               ; preds = %78, %69, %60, %57, 
 
 .split.split.split.us:                            ; preds = %.split.split, %select.unfold.us49
   %.02940.us47 = phi i64 [ %88, %select.unfold.us49 ], [ 0, %.split.split ]
-  %82 = getelementptr inbounds nuw %"class.ZXing::DataMatrix::SymbolInfo", ptr @_ZN5ZXing10DataMatrixL12PROD_SYMBOLSE, i64 %.02940.us47
+  %82 = getelementptr inbounds nuw [32 x i8], ptr @_ZN5ZXing10DataMatrixL12PROD_SYMBOLSE, i64 %.02940.us47
   %83 = load i8, ptr %82, align 16, !tbaa !11, !range !12, !noundef !13
   %84 = trunc nuw i8 %83 to i1
   br i1 %84, label %select.unfold.us49, label %85
@@ -252,7 +252,7 @@ select.unfold.us49:                               ; preds = %85, %.split.split.s
 
 .split.split.split.us51:                          ; preds = %.split.split, %select.unfold.us54
   %.02940.us52 = phi i64 [ %95, %select.unfold.us54 ], [ 0, %.split.split ]
-  %89 = getelementptr inbounds nuw %"class.ZXing::DataMatrix::SymbolInfo", ptr @_ZN5ZXing10DataMatrixL12PROD_SYMBOLSE, i64 %.02940.us52
+  %89 = getelementptr inbounds nuw [32 x i8], ptr @_ZN5ZXing10DataMatrixL12PROD_SYMBOLSE, i64 %.02940.us52
   %90 = load i8, ptr %89, align 16, !tbaa !11, !range !12, !noundef !13
   %91 = trunc nuw i8 %90 to i1
   br i1 %91, label %92, label %select.unfold.us54
@@ -270,7 +270,7 @@ select.unfold.us54:                               ; preds = %92, %.split.split.s
 
 .split.split.split:                               ; preds = %.split.split, %select.unfold
   %.02940 = phi i64 [ %99, %select.unfold ], [ 0, %.split.split ]
-  %96 = getelementptr inbounds nuw %"class.ZXing::DataMatrix::SymbolInfo", ptr @_ZN5ZXing10DataMatrixL12PROD_SYMBOLSE, i64 %.02940
+  %96 = getelementptr inbounds nuw [32 x i8], ptr @_ZN5ZXing10DataMatrixL12PROD_SYMBOLSE, i64 %.02940
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 4
   %98 = load i32, ptr %97, align 4, !tbaa !3
   %.not = icmp sgt i32 %0, %98
@@ -292,7 +292,7 @@ define noundef ptr @_ZN5ZXing10DataMatrix10SymbolInfo6LookupEib(i32 noundef %0, 
 
 .split.split.split.us.i:                          ; preds = %2, %select.unfold.us49.i
   %.02940.us47.i = phi i64 [ %9, %select.unfold.us49.i ], [ 0, %2 ]
-  %3 = getelementptr inbounds nuw %"class.ZXing::DataMatrix::SymbolInfo", ptr @_ZN5ZXing10DataMatrixL12PROD_SYMBOLSE, i64 %.02940.us47.i
+  %3 = getelementptr inbounds nuw [32 x i8], ptr @_ZN5ZXing10DataMatrixL12PROD_SYMBOLSE, i64 %.02940.us47.i
   %4 = load i8, ptr %3, align 16, !tbaa !11, !range !12, !noundef !13
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %select.unfold.us49.i, label %6
@@ -310,7 +310,7 @@ select.unfold.us49.i:                             ; preds = %6, %.split.split.sp
 
 .split.split.split.i:                             ; preds = %2, %select.unfold.i
   %.02940.i = phi i64 [ %13, %select.unfold.i ], [ 0, %2 ]
-  %10 = getelementptr inbounds nuw %"class.ZXing::DataMatrix::SymbolInfo", ptr @_ZN5ZXing10DataMatrixL12PROD_SYMBOLSE, i64 %.02940.i
+  %10 = getelementptr inbounds nuw [32 x i8], ptr @_ZN5ZXing10DataMatrixL12PROD_SYMBOLSE, i64 %.02940.i
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %12 = load i32, ptr %11, align 4, !tbaa !3
   %.not.i = icmp sgt i32 %0, %12

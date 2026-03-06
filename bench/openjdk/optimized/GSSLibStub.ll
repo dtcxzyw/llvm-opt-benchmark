@@ -3,7 +3,6 @@ source_filename = "bench/openjdk/original/GSSLibStub.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.gss_OID_desc_struct = type { i32, ptr }
 %struct.gss_buffer_desc_struct = type { i64, ptr }
 
 @TYPE_CRED_NAME = hidden local_unnamed_addr constant i32 10, align 4
@@ -257,7 +256,7 @@ define noundef i64 @Java_sun_security_jgss_wrapper_GSSLibStub_getMechPtr(ptr nou
 22:                                               ; preds = %.lr.ph, %31
   %23 = phi i64 [ 0, %.lr.ph ], [ %33, %31 ]
   %.02531 = phi i32 [ 0, %.lr.ph ], [ %32, %31 ]
-  %24 = getelementptr inbounds nuw %struct.gss_OID_desc_struct, ptr %19, i64 %23
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %19, i64 %23
   %25 = load i32, ptr %24, align 8
   %26 = icmp eq i32 %9, %25
   br i1 %26, label %27, label %31

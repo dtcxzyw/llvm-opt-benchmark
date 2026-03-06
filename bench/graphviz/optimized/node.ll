@@ -53,7 +53,7 @@ node_set_get_capacity.exit.i:                     ; preds = %16
   %.02633.i = phi i64 [ 0, %node_set_get_capacity.exit.i ], [ %33, %32 ]
   %24 = add i64 %.02633.i, %1
   %25 = and i64 %24, %22
-  %26 = getelementptr inbounds nuw ptr, ptr %17, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !30
   %magicptr.i = ptrtoint ptr %27 to i64
   switch i64 %magicptr.i, label %28 [
@@ -114,7 +114,7 @@ node_set_get_capacity.exit:                       ; preds = %14
   %.02633 = phi i64 [ 0, %node_set_get_capacity.exit ], [ %31, %30 ]
   %22 = add i64 %.02633, %1
   %23 = and i64 %22, %20
-  %24 = getelementptr inbounds nuw ptr, ptr %15, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !30
   %magicptr = ptrtoint ptr %25 to i64
   switch i64 %magicptr, label %26 [
@@ -265,7 +265,7 @@ node_set_get_capacity.exit.i.i:                   ; preds = %17
   %.02633.i.i = phi i64 [ 0, %node_set_get_capacity.exit.i.i ], [ %34, %33 ]
   %25 = add i64 %.02633.i.i, %1
   %26 = and i64 %25, %23
-  %27 = getelementptr inbounds nuw ptr, ptr %18, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !30
   %magicptr.i.i = ptrtoint ptr %28 to i64
   switch i64 %magicptr.i.i, label %29 [
@@ -331,7 +331,7 @@ node_set_get_capacity.exit.i.i16:                 ; preds = %51
   %.02633.i.i17 = phi i64 [ 0, %node_set_get_capacity.exit.i.i16 ], [ %68, %67 ]
   %59 = add i64 %.02633.i.i17, %1
   %60 = and i64 %59, %57
-  %61 = getelementptr inbounds nuw ptr, ptr %52, i64 %60
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %60
   %62 = load ptr, ptr %61, align 8, !tbaa !30
   %magicptr.i.i18 = ptrtoint ptr %62 to i64
   switch i64 %magicptr.i.i18, label %63 [
@@ -410,7 +410,7 @@ node_set_get_capacity.exit.i.i:                   ; preds = %24
   %.02633.i.i = phi i64 [ 0, %node_set_get_capacity.exit.i.i ], [ %41, %40 ]
   %32 = add i64 %.02633.i.i, %10
   %33 = and i64 %32, %30
-  %34 = getelementptr inbounds nuw ptr, ptr %25, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %33
   %35 = load ptr, ptr %34, align 8, !tbaa !30
   %magicptr.i.i = ptrtoint ptr %35 to i64
   switch i64 %magicptr.i.i, label %36 [
@@ -524,7 +524,7 @@ node_set_get_capacity.exit.i.i:                   ; preds = %22
   %.02633.i.i = phi i64 [ 0, %node_set_get_capacity.exit.i.i ], [ %39, %38 ]
   %30 = add i64 %.02633.i.i, %8
   %31 = and i64 %30, %28
-  %32 = getelementptr inbounds nuw ptr, ptr %23, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %31
   %33 = load ptr, ptr %32, align 8, !tbaa !30
   %magicptr.i.i = ptrtoint ptr %33 to i64
   switch i64 %magicptr.i.i, label %34 [
@@ -587,7 +587,7 @@ node_set_get_capacity.exit.i.i33:                 ; preds = %54
   %.02633.i.i34 = phi i64 [ 0, %node_set_get_capacity.exit.i.i33 ], [ %71, %70 ]
   %62 = add i64 %.02633.i.i34, %8
   %63 = and i64 %62, %60
-  %64 = getelementptr inbounds nuw ptr, ptr %55, i64 %63
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %63
   %65 = load ptr, ptr %64, align 8, !tbaa !30
   %magicptr.i.i35 = ptrtoint ptr %65 to i64
   switch i64 %magicptr.i.i35, label %66 [
@@ -759,7 +759,7 @@ node_set_get_capacity.exit.i:                     ; preds = %._crit_edge
   %.024.i = phi i64 [ 0, %node_set_get_capacity.exit.i ], [ %33, %32 ]
   %19 = add i64 %.024.i, %11
   %20 = and i64 %19, %17
-  %21 = getelementptr inbounds nuw ptr, ptr %12, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !30
   %magicptr.i = ptrtoint ptr %22 to i64
   switch i64 %magicptr.i, label %23 [
@@ -776,7 +776,7 @@ node_set_get_capacity.exit.i:                     ; preds = %._crit_edge
   br i1 %26, label %27, label %32
 
 27:                                               ; preds = %23
-  %28 = getelementptr inbounds nuw ptr, ptr %12, i64 %20
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %20
   store ptr inttoptr (i64 -1 to ptr), ptr %28, align 8, !tbaa !30
   %29 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %30 = load i64, ptr %29, align 8, !tbaa !53
@@ -824,7 +824,7 @@ node_set_get_capacity.exit:                       ; preds = %2
   %.024 = phi i64 [ 0, %node_set_get_capacity.exit ], [ %24, %23 ]
   %10 = add i64 %.024, %1
   %11 = and i64 %10, %8
-  %12 = getelementptr inbounds nuw ptr, ptr %3, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !30
   %magicptr = ptrtoint ptr %13 to i64
   switch i64 %magicptr, label %14 [
@@ -841,7 +841,7 @@ node_set_get_capacity.exit:                       ; preds = %2
   br i1 %17, label %18, label %23
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds nuw ptr, ptr %3, i64 %11
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %11
   store ptr inttoptr (i64 -1 to ptr), ptr %19, align 8, !tbaa !30
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load i64, ptr %20, align 8, !tbaa !53
@@ -897,7 +897,7 @@ node_set_get_capacity.exit.i.i:                   ; preds = %18
   %.02633.i.i = phi i64 [ 0, %node_set_get_capacity.exit.i.i ], [ %35, %34 ]
   %26 = add i64 %.02633.i.i, %4
   %27 = and i64 %26, %24
-  %28 = getelementptr inbounds nuw ptr, ptr %19, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %27
   %29 = load ptr, ptr %28, align 8, !tbaa !30
   %magicptr.i.i = ptrtoint ptr %29 to i64
   switch i64 %magicptr.i.i, label %30 [
@@ -1036,7 +1036,7 @@ node_set_get_capacity.exit.i.i.i:                 ; preds = %23
   %.02633.i.i.i = phi i64 [ 0, %node_set_get_capacity.exit.i.i.i ], [ %40, %39 ]
   %31 = add i64 %.02633.i.i.i, %9
   %32 = and i64 %31, %29
-  %33 = getelementptr inbounds nuw ptr, ptr %24, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %32
   %34 = load ptr, ptr %33, align 8, !tbaa !30
   %magicptr.i.i.i = ptrtoint ptr %34 to i64
   switch i64 %magicptr.i.i.i, label %35 [
@@ -1105,7 +1105,7 @@ node_set_get_capacity.exit.i.i:                   ; preds = %58
   %.02633.i.i = phi i64 [ 0, %node_set_get_capacity.exit.i.i ], [ %75, %74 ]
   %66 = add i64 %.02633.i.i, %44
   %67 = and i64 %66, %64
-  %68 = getelementptr inbounds nuw ptr, ptr %59, i64 %67
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %67
   %69 = load ptr, ptr %68, align 8, !tbaa !30
   %magicptr.i.i = ptrtoint ptr %69 to i64
   switch i64 %magicptr.i.i, label %70 [
@@ -1171,7 +1171,7 @@ node_set_get_capacity.exit.i:                     ; preds = %3
   %.024.i = phi i64 [ 0, %node_set_get_capacity.exit.i ], [ %34, %33 ]
   %20 = add i64 %.024.i, %12
   %21 = and i64 %20, %18
-  %22 = getelementptr inbounds nuw ptr, ptr %13, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !30
   %magicptr.i = ptrtoint ptr %23 to i64
   switch i64 %magicptr.i, label %24 [
@@ -1188,7 +1188,7 @@ node_set_get_capacity.exit.i:                     ; preds = %3
   br i1 %27, label %28, label %33
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds nuw ptr, ptr %13, i64 %21
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %21
   store ptr inttoptr (i64 -1 to ptr), ptr %29, align 8, !tbaa !30
   %30 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %31 = load i64, ptr %30, align 8, !tbaa !53
@@ -1505,7 +1505,7 @@ gv_calloc.exit:                                   ; preds = %20
 .lr.ph:                                           ; preds = %gv_calloc.exit, %39
   %.04961 = phi i64 [ %40, %39 ], [ 0, %gv_calloc.exit ]
   %35 = load ptr, ptr %0, align 8, !tbaa !28
-  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %.04961
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %.04961
   %37 = load ptr, ptr %36, align 8, !tbaa !30
   %magicptr = ptrtoint ptr %37 to i64
   %magicptr.off = add i64 %magicptr, -1
@@ -1575,7 +1575,7 @@ node_set_get_capacity.exit59:                     ; preds = %60
   %.04864 = phi i64 [ 0, %node_set_get_capacity.exit59 ], [ %68, %67 ]
   %70 = add i64 %.04864, %49
   %71 = and i64 %70, %66
-  %72 = getelementptr inbounds nuw ptr, ptr %61, i64 %71
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %71
   %73 = load ptr, ptr %72, align 8, !tbaa !30
   %magicptr55 = ptrtoint ptr %73 to i64
   %magicptr55.off = add i64 %magicptr55, -1
@@ -1589,7 +1589,7 @@ node_set_get_capacity.exit59:                     ; preds = %60
   unreachable
 
 76:                                               ; preds = %69
-  %77 = getelementptr inbounds nuw ptr, ptr %61, i64 %71
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %71
   store ptr %1, ptr %77, align 8, !tbaa !30
   %78 = load i64, ptr %42, align 8, !tbaa !53
   %79 = add i64 %78, 1

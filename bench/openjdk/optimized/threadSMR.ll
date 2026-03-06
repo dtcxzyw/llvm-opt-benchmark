@@ -658,7 +658,7 @@ define hidden void @_ZN11ThreadsListC2Ei(ptr noundef nonnull align 8 dereference
   %9 = shl nsw i64 %8, 3
   %10 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %9, i8 noundef zeroext 2, i32 noundef 0) #15
   %11 = sext i32 %1 to i64
-  %12 = getelementptr inbounds ptr, ptr %10, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %10, i64 %11
   store ptr null, ptr %12, align 8
   br label %_ZL22make_threads_list_datai.exit
 
@@ -718,7 +718,7 @@ _ZN11ThreadsListC2Ei.exit:                        ; preds = %2
   %16 = shl nsw i64 %15, 3
   %17 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %16, i8 noundef zeroext 2, i32 noundef 0) #15
   %18 = sext i32 %5 to i64
-  %19 = getelementptr inbounds ptr, ptr %17, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %17, i64 %18
   store ptr null, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %17, ptr %20, align 8
@@ -809,7 +809,7 @@ _ZN4Copy14disjoint_wordsEPKP12HeapWordImplPS1_m.exit: ; preds = %56, %54, %_ZN11
   %61 = phi ptr [ %20, %_ZN11ThreadsListC2Ei.exit ], [ %59, %56 ], [ %20, %54 ]
   %62 = load ptr, ptr %61, align 8
   %63 = zext i32 %4 to i64
-  %64 = getelementptr inbounds nuw ptr, ptr %62, i64 %63
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %63
   store ptr %1, ptr %64, align 8
   ret ptr %6
 }
@@ -833,7 +833,7 @@ define hidden noundef i32 @_ZN11ThreadsList24find_index_of_JavaThreadEP10JavaThr
 8:                                                ; preds = %.lr.ph, %13
   %.09 = phi i32 [ 0, %.lr.ph ], [ %14, %13 ]
   %9 = zext i32 %.09 to i64
-  %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %9
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %1, %11
   br i1 %12, label %.loopexit, label %13
@@ -869,7 +869,7 @@ define hidden noundef ptr @_ZNK11ThreadsList29find_JavaThread_from_java_tidEl(pt
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %32 ]
   %.01725 = phi ptr [ undef, %.lr.ph ], [ %.3, %32 ]
   %9 = load ptr, ptr %7, align 8
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noundef ptr @_ZNK10JavaThread9threadObjEv(ptr noundef nonnull align 8 dereferenceable(1800) %11) #15
   %.not = icmp eq ptr %12, null
@@ -968,7 +968,7 @@ define hidden noundef zeroext i1 @_ZNK11ThreadsList8includesEPK10JavaThread(ptr 
 
 8:                                                ; preds = %8, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, %1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1000,7 +1000,7 @@ define hidden noundef ptr @_ZN11ThreadsList13remove_threadEPS_P10JavaThread(ptr 
 
 7:                                                ; preds = %11, %.lr.ph.i
   %indvars.iv = phi i64 [ %indvars.iv.next, %11 ], [ 0, %.lr.ph.i ]
-  %8 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %1, %9
   br i1 %10, label %_ZN11ThreadsList24find_index_of_JavaThreadEP10JavaThread.exit.loopexit.split.loop.exit29, label %11
@@ -1033,7 +1033,7 @@ _ZN11ThreadsList24find_index_of_JavaThreadEP10JavaThread.exit: ; preds = %11, %_
   %22 = shl nsw i64 %21, 3
   %23 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %22, i8 noundef zeroext 2, i32 noundef 0) #15
   %24 = sext i32 %14 to i64
-  %25 = getelementptr inbounds ptr, ptr %23, i64 %24
+  %25 = getelementptr inbounds [8 x i8], ptr %23, i64 %24
   store ptr null, ptr %25, align 8
   br label %_ZN11ThreadsListC2Ei.exit
 
@@ -1128,10 +1128,10 @@ _ZN4Copy14disjoint_wordsEPKP12HeapWordImplPS1_m.exit: ; preds = %61, %59, %_ZN11
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %66 = load ptr, ptr %65, align 8
   %67 = zext i32 %.07.i to i64
-  %68 = getelementptr inbounds nuw ptr, ptr %66, i64 %67
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %67
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %70 = load ptr, ptr %26, align 8
-  %71 = getelementptr inbounds nuw ptr, ptr %70, i64 %67
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %67
   switch i32 %15, label %102 [
     i32 8, label %72
     i32 7, label %76
@@ -1393,7 +1393,7 @@ _ZN10JNIHandles16resolve_non_nullEP8_jobject.exit: ; preds = %7, %11, %15
 
 31:                                               ; preds = %30, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %30 ]
-  %32 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv.i.i
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv.i.i
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %33, %19
   br i1 %34, label %_ZN17ThreadsListHandle8includesEP10JavaThread.exit, label %30
@@ -1643,7 +1643,7 @@ _ZN17ThreadsSMRSupport10threads_doEP13ThreadClosure.exit: ; preds = %.lr.ph.i.i.
   %44 = mul i32 %43, -1640531535
   %45 = urem i32 %44, 1031
   %46 = zext nneg i32 %45 to i64
-  %47 = getelementptr inbounds nuw ptr, ptr %41, i64 %46
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %46
   %48 = load ptr, ptr %47, align 8
   %.not11.i.i.i.i = icmp eq ptr %48, null
   br i1 %.not11.i.i.i.i, label %_ZN19ThreadScanHashtable9has_entryEPv.exit.thread, label %.lr.ph.i.i.i.i
@@ -1933,7 +1933,7 @@ _ZN17ThreadsSMRSupport10threads_doEP13ThreadClosure.exit: ; preds = %.lr.ph.i.i.
   %31 = mul i32 %30, -1640531535
   %32 = urem i32 %31, 1031
   %33 = zext nneg i32 %32 to i64
-  %34 = getelementptr inbounds nuw ptr, ptr %28, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %33
   %35 = load ptr, ptr %34, align 8
   %.not11.i.i.i.i = icmp eq ptr %35, null
   br i1 %.not11.i.i.i.i, label %.preheader.i.preheader, label %.lr.ph.i.i.i.i
@@ -2029,7 +2029,7 @@ define linkonce_odr hidden void @_ZNK11ThreadsList10threads_doI35AddThreadHazard
   %17 = mul i32 %16, -1640531535
   %18 = urem i32 %17, 1031
   %19 = zext nneg i32 %18 to i64
-  %20 = getelementptr inbounds nuw ptr, ptr %14, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %19
   %21 = load ptr, ptr %20, align 8
   %.not11.i.i.i.i.i.i = icmp eq ptr %21, null
   br i1 %.not11.i.i.i.i.i.i, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj1031EPviES1_iLN6AnyObj15allocation_typeE2EL8MEMFLAGS2EXadL_ZN19ThreadScanHashtable8ptr_hashERKS1_EEXadL_Z16primitive_equalsIS1_EbRKT_SC_EEE11lookup_nodeEjS8_.exit.thread.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
@@ -2342,7 +2342,7 @@ _ZNK11ThreadsList8includesEPK10JavaThread.exit.thread.us: ; preds = %.lr.ph, %_Z
 
 45:                                               ; preds = %44, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %44 ]
-  %46 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv.i
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv.i
   %47 = load ptr, ptr %46, align 8
   %48 = icmp eq ptr %47, %0
   br i1 %48, label %_ZNK11ThreadsList8includesEPK10JavaThread.exit, label %44
@@ -2701,7 +2701,7 @@ _ZN17ThreadsListHandleC2EP6Thread.exit:           ; preds = %_ZN18SafeThreadsLis
 
 _ZN18JavaThreadIterator4nextEv.exit.i:            ; preds = %104
   %107 = load ptr, ptr %90, align 8
-  %108 = getelementptr inbounds nuw ptr, ptr %107, i64 %indvars.iv.next
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %indvars.iv.next
   %109 = load ptr, ptr %108, align 8
   %.not.i = icmp eq ptr %109, null
   br i1 %.not.i, label %_ZN17ThreadsSMRSupport22print_info_elements_onEP12outputStreamP11ThreadsList.exit, label %.lr.ph.i, !llvm.loop !30
@@ -2803,7 +2803,7 @@ _ZN17ThreadsListHandleD2Ev.exit:                  ; preds = %_ZN17ThreadsSMRSupp
 
 _ZN18JavaThreadIterator4nextEv.exit.i39:          ; preds = %151
   %154 = load ptr, ptr %135, align 8
-  %155 = getelementptr inbounds nuw ptr, ptr %154, i64 %indvars.iv.next60
+  %155 = getelementptr inbounds nuw [8 x i8], ptr %154, i64 %indvars.iv.next60
   %156 = load ptr, ptr %155, align 8
   %.not.i40 = icmp eq ptr %156, null
   br i1 %.not.i40, label %_ZN17ThreadsSMRSupport22print_info_elements_onEP12outputStreamP11ThreadsList.exit41, label %139, !llvm.loop !30
@@ -2865,7 +2865,7 @@ _ZN17ThreadsSMRSupport22print_info_elements_onEP12outputStreamP11ThreadsList.exi
 
 _ZN18JavaThreadIterator4nextEv.exit.i47:          ; preds = %175
   %178 = load ptr, ptr %161, align 8
-  %179 = getelementptr inbounds nuw ptr, ptr %178, i64 %indvars.iv.next63
+  %179 = getelementptr inbounds nuw [8 x i8], ptr %178, i64 %indvars.iv.next63
   %180 = load ptr, ptr %179, align 8
   %.not.i48 = icmp eq ptr %180, null
   br i1 %.not.i48, label %_ZN17ThreadsSMRSupport22print_info_elements_onEP12outputStreamP11ThreadsList.exit49, label %.lr.ph.i43, !llvm.loop !30
@@ -3086,7 +3086,7 @@ define hidden void @_ZN17ThreadsSMRSupport22print_info_elements_onEP12outputStre
 _ZN18JavaThreadIterator4nextEv.exit:              ; preds = %18
   %21 = load ptr, ptr %3, align 8
   %22 = zext i32 %19 to i64
-  %23 = getelementptr inbounds nuw ptr, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %22
   %24 = load ptr, ptr %23, align 8
   %.not = icmp eq ptr %24, null
   br i1 %.not, label %._crit_edge, label %7, !llvm.loop !30
@@ -3266,7 +3266,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal15RuntimeDispatchILm5
 _ZN14AccessInternal15BarrierResolverILm598084EPFP7oopDescPvELNS_11BarrierTypeE2EE15resolve_barrierEv.exit: ; preds = %11, %8
   %switch.table._ZN14AccessInternal15RuntimeDispatchILm598084EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.1.sink = phi ptr [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm598084EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv, %8 ], [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm598084EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.1, %11 ]
   %14 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep5 = getelementptr inbounds nuw ptr, ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm598084EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.1.sink, i64 %14
+  %switch.gep5 = getelementptr inbounds nuw [8 x i8], ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm598084EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.1.sink, i64 %14
   %switch.load6 = load ptr, ptr %switch.gep5, align 8
   store ptr %switch.load6, ptr @_ZN14AccessInternal15RuntimeDispatchILm598084EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
   %15 = tail call noundef ptr %switch.load6(ptr noundef %0) #15
@@ -3442,7 +3442,7 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet13AccessBarrier
   %17 = lshr i64 %15, %16
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds ptr, ptr %19, i64 %17
+  %20 = getelementptr inbounds [8 x i8], ptr %19, i64 %17
   %21 = load ptr, ptr %20, align 8
   %.not.i.i = icmp ult ptr %3, %21
   br i1 %.not.i.i, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread.i
@@ -3462,7 +3462,7 @@ _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i: ; preds = %11
   %33 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %34 = load ptr, ptr %33, align 8
   %35 = lshr i64 %30, 6
-  %36 = getelementptr inbounds nuw i64, ptr %34, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %35
   %37 = load i64, ptr %36, align 8
   %38 = and i64 %32, %37
   %.not28.i = icmp eq i64 %38, 0
@@ -3502,7 +3502,7 @@ _ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit: ; 
   %56 = lshr i64 %54, %55
   %57 = getelementptr inbounds nuw i8, ptr %53, i64 56
   %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds ptr, ptr %58, i64 %56
+  %59 = getelementptr inbounds [8 x i8], ptr %58, i64 %56
   %60 = load ptr, ptr %59, align 8
   %.not.i.i.i.i.i.i = icmp ult ptr %39, %60
   br i1 %.not.i.i.i.i.i.i, label %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i, label %_ZN20ShenandoahBarrierSet8oop_loadIP7oopDescEES2_mPT_.exit
@@ -3520,7 +3520,7 @@ _ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i: ; preds = %50
   %70 = getelementptr inbounds nuw i8, ptr %53, i64 24
   %71 = load ptr, ptr %70, align 8
   %72 = lshr i64 %69, 6
-  %73 = getelementptr inbounds nuw i64, ptr %71, i64 %72
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %72
   %74 = load i64, ptr %73, align 8
   %75 = and i64 %69, 63
   %76 = shl nuw i64 1, %75
@@ -3675,7 +3675,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier63blocking_keep_alive_load_b
 7:                                                ; preds = %2
   %8 = lshr i64 %1, 12
   %9 = and i64 %8, 15
-  %10 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %9
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZL22ZPointerLoadShiftTable, i64 %9
   %11 = load i32, ptr %10, align 4
   %12 = zext nneg i32 %11 to i64
   %13 = lshr i64 %1, %12
@@ -3692,7 +3692,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier63blocking_keep_alive_load_b
   %.not.i.i.i = icmp eq i64 %19, 0
   %20 = lshr i64 %1, 12
   %21 = and i64 %20, 15
-  %22 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %21
+  %22 = getelementptr inbounds nuw [4 x i8], ptr @_ZL22ZPointerLoadShiftTable, i64 %21
   %23 = load i32, ptr %22, align 4
   %24 = zext nneg i32 %23 to i64
   %25 = lshr i64 %1, %24
@@ -3735,7 +3735,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier63blocking_keep_alive_load_b
   %46 = lshr i64 %45, 21
   %47 = getelementptr inbounds nuw i8, ptr %43, i64 40
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds nuw ptr, ptr %48, i64 %46
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %46
   %50 = load volatile ptr, ptr %49, align 8
   %.not.i6.i.i = icmp eq ptr %50, null
   %51 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
@@ -3770,7 +3770,7 @@ _Z15color_mark_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %60 = or i64 %58, %59
   %61 = lshr i64 %60, 12
   %62 = and i64 %61, 15
-  %63 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %62
+  %63 = getelementptr inbounds nuw [4 x i8], ptr @_ZL22ZPointerLoadShiftTable, i64 %62
   %64 = load i32, ptr %63, align 4
   %65 = zext nneg i32 %64 to i64
   %66 = shl i64 %53, %65
@@ -3816,7 +3816,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier46keep_alive_load_barrier_on
 7:                                                ; preds = %2
   %8 = lshr i64 %1, 12
   %9 = and i64 %8, 15
-  %10 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %9
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZL22ZPointerLoadShiftTable, i64 %9
   %11 = load i32, ptr %10, align 4
   %12 = zext nneg i32 %11 to i64
   %13 = lshr i64 %1, %12
@@ -3833,7 +3833,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier46keep_alive_load_barrier_on
   %.not.i.i.i = icmp eq i64 %19, 0
   %20 = lshr i64 %1, 12
   %21 = and i64 %20, 15
-  %22 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %21
+  %22 = getelementptr inbounds nuw [4 x i8], ptr @_ZL22ZPointerLoadShiftTable, i64 %21
   %23 = load i32, ptr %22, align 4
   %24 = zext nneg i32 %23 to i64
   %25 = lshr i64 %1, %24
@@ -3876,7 +3876,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier46keep_alive_load_barrier_on
   %46 = lshr i64 %45, 21
   %47 = getelementptr inbounds nuw i8, ptr %43, i64 40
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds nuw ptr, ptr %48, i64 %46
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %46
   %50 = load volatile ptr, ptr %49, align 8
   %.not.i6.i.i = icmp eq ptr %50, null
   %51 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
@@ -3911,7 +3911,7 @@ _Z15color_mark_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %60 = or i64 %58, %59
   %61 = lshr i64 %60, 12
   %62 = and i64 %61, 15
-  %63 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %62
+  %63 = getelementptr inbounds nuw [4 x i8], ptr @_ZL22ZPointerLoadShiftTable, i64 %62
   %64 = load i32, ptr %63, align 4
   %65 = zext nneg i32 %64 to i64
   %66 = shl i64 %53, %65
@@ -4115,7 +4115,7 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet13AccessBarrier
   %17 = lshr i64 %15, %16
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds ptr, ptr %19, i64 %17
+  %20 = getelementptr inbounds [8 x i8], ptr %19, i64 %17
   %21 = load ptr, ptr %20, align 8
   %.not.i.i = icmp ult ptr %3, %21
   br i1 %.not.i.i, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread.i
@@ -4135,7 +4135,7 @@ _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i: ; preds = %11
   %33 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %34 = load ptr, ptr %33, align 8
   %35 = lshr i64 %30, 6
-  %36 = getelementptr inbounds nuw i64, ptr %34, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %35
   %37 = load i64, ptr %36, align 8
   %38 = and i64 %32, %37
   %.not28.i = icmp eq i64 %38, 0
@@ -4175,7 +4175,7 @@ _ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit: ; 
   %56 = lshr i64 %54, %55
   %57 = getelementptr inbounds nuw i8, ptr %53, i64 56
   %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds ptr, ptr %58, i64 %56
+  %59 = getelementptr inbounds [8 x i8], ptr %58, i64 %56
   %60 = load ptr, ptr %59, align 8
   %.not.i.i.i.i.i.i = icmp ult ptr %39, %60
   br i1 %.not.i.i.i.i.i.i, label %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i, label %_ZN20ShenandoahBarrierSet8oop_loadIP7oopDescEES2_mPT_.exit
@@ -4193,7 +4193,7 @@ _ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i: ; preds = %50
   %70 = getelementptr inbounds nuw i8, ptr %53, i64 24
   %71 = load ptr, ptr %70, align 8
   %72 = lshr i64 %69, 6
-  %73 = getelementptr inbounds nuw i64, ptr %71, i64 %72
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %72
   %74 = load i64, ptr %73, align 8
   %75 = and i64 %69, 63
   %76 = shl nuw i64 1, %75
@@ -4246,7 +4246,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal15RuntimeDispatchILm5
 _ZN14AccessInternal15BarrierResolverILm548932EPFP7oopDescPvELNS_11BarrierTypeE2EE15resolve_barrierEv.exit: ; preds = %11, %8
   %switch.table._ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.2.sink = phi ptr [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv, %8 ], [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.2, %11 ]
   %14 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep5 = getelementptr inbounds nuw ptr, ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.2.sink, i64 %14
+  %switch.gep5 = getelementptr inbounds nuw [8 x i8], ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.2.sink, i64 %14
   %switch.load6 = load ptr, ptr %switch.gep5, align 8
   store ptr %switch.load6, ptr @_ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
   %15 = tail call noundef ptr %switch.load6(ptr noundef %0) #15
@@ -4350,7 +4350,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier35load_barrier_on_oop_field_
 5:                                                ; preds = %2
   %6 = lshr i64 %1, 12
   %7 = and i64 %6, 15
-  %8 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %7
+  %8 = getelementptr inbounds nuw [4 x i8], ptr @_ZL22ZPointerLoadShiftTable, i64 %7
   %9 = load i32, ptr %8, align 4
   %10 = zext nneg i32 %9 to i64
   %11 = lshr i64 %1, %10
@@ -4364,7 +4364,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier35load_barrier_on_oop_field_
 15:                                               ; preds = %12
   %16 = lshr i64 %1, 12
   %17 = and i64 %16, 15
-  %18 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %17
+  %18 = getelementptr inbounds nuw [4 x i8], ptr @_ZL22ZPointerLoadShiftTable, i64 %17
   %19 = load i32, ptr %18, align 4
   %20 = zext nneg i32 %19 to i64
   %21 = lshr i64 %1, %20
@@ -4404,7 +4404,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier35load_barrier_on_oop_field_
   %41 = lshr i64 %40, 21
   %42 = getelementptr inbounds nuw i8, ptr %38, i64 40
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds nuw ptr, ptr %43, i64 %41
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %41
   %45 = load volatile ptr, ptr %44, align 8
   %.not.i6.i.i = icmp eq ptr %45, null
   %46 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
@@ -4430,7 +4430,7 @@ _Z15color_load_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %50 = load i64, ptr @ZPointerLoadGoodMask, align 8
   %51 = lshr i64 %50, 12
   %52 = and i64 %51, 15
-  %53 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %52
+  %53 = getelementptr inbounds nuw [4 x i8], ptr @_ZL22ZPointerLoadShiftTable, i64 %52
   %54 = load i32, ptr %53, align 4
   %55 = zext nneg i32 %54 to i64
   %56 = shl i64 %47, %55
@@ -4582,7 +4582,7 @@ define linkonce_odr hidden void @_ZN37ScanHazardPtrGatherThreadsListClosure9do_t
   %16 = mul i32 %15, -1640531535
   %17 = urem i32 %16, 1031
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds nuw ptr, ptr %14, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %18
   %20 = load ptr, ptr %19, align 8
   %.not11.i.i.i.i = icmp eq ptr %20, null
   br i1 %.not11.i.i.i.i, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj1031EPviES1_iLN6AnyObj15allocation_typeE2EL8MEMFLAGS2EXadL_ZN19ThreadScanHashtable8ptr_hashERKS1_EEXadL_Z16primitive_equalsIS1_EbRKT_SC_EEE11lookup_nodeEjS8_.exit.thread.i.i, label %.lr.ph.i.i.i.i
@@ -4736,7 +4736,7 @@ define linkonce_odr hidden void @_ZN35AddThreadHazardPointerThreadClosure9do_thr
   %8 = mul i32 %7, -1640531535
   %9 = urem i32 %8, 1031
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr %5, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %10
   %12 = load ptr, ptr %11, align 8
   %.not11.i.i.i.i = icmp eq ptr %12, null
   br i1 %.not11.i.i.i.i, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj1031EPviES1_iLN6AnyObj15allocation_typeE2EL8MEMFLAGS2EXadL_ZN19ThreadScanHashtable8ptr_hashERKS1_EEXadL_Z16primitive_equalsIS1_EbRKT_SC_EEE11lookup_nodeEjS8_.exit.thread.i.i, label %.lr.ph.i.i.i.i
@@ -4880,7 +4880,7 @@ define linkonce_odr hidden void @_ZN40ScanHazardPtrPrintMatchingThreadsClosure9d
 
 _ZN18JavaThreadIterator4nextEv.exit:              ; preds = %26
   %29 = zext i32 %27 to i64
-  %30 = getelementptr inbounds nuw ptr, ptr %12, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %29
   %31 = load ptr, ptr %30, align 8
   %.not = icmp eq ptr %31, null
   br i1 %.not, label %.loopexit, label %17, !llvm.loop !36

@@ -12,19 +12,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.14" = type { %"struct.std::_Vector_base<std::__exception_ptr::exception_ptr, std::allocator<std::__exception_ptr::exception_ptr>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::__exception_ptr::exception_ptr, std::allocator<std::__exception_ptr::exception_ptr>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__exception_ptr::exception_ptr, std::allocator<std::__exception_ptr::exception_ptr>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::__exception_ptr::exception_ptr, std::allocator<std::__exception_ptr::exception_ptr>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.gmx::AwhBiasHistory" = type { %"class.std::vector.3", %"struct.gmx::AwhBiasStateHistory", %"struct.gmx::CorrelationGridHistory" }
-%"class.std::vector.3" = type { %"struct.std::_Vector_base.4" }
-%"struct.std::_Vector_base.4" = type { %"struct.std::_Vector_base<gmx::AwhPointStateHistory, std::allocator<gmx::AwhPointStateHistory>>::_Vector_impl" }
-%"struct.std::_Vector_base<gmx::AwhPointStateHistory, std::allocator<gmx::AwhPointStateHistory>>::_Vector_impl" = type { %"struct.std::_Vector_base<gmx::AwhPointStateHistory, std::allocator<gmx::AwhPointStateHistory>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<gmx::AwhPointStateHistory, std::allocator<gmx::AwhPointStateHistory>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.gmx::AwhBiasStateHistory" = type { i32, i32, i32, i8, i8, double, double, double, i64 }
-%"struct.gmx::CorrelationGridHistory" = type { i32, i32, i32, %"class.std::vector.8" }
-%"class.std::vector.8" = type { %"struct.std::_Vector_base.9" }
-%"struct.std::_Vector_base.9" = type { %"struct.std::_Vector_base<gmx::CorrelationBlockDataHistory, std::allocator<gmx::CorrelationBlockDataHistory>>::_Vector_impl" }
-%"struct.std::_Vector_base<gmx::CorrelationBlockDataHistory, std::allocator<gmx::CorrelationBlockDataHistory>>::_Vector_impl" = type { %"struct.std::_Vector_base<gmx::CorrelationBlockDataHistory, std::allocator<gmx::CorrelationBlockDataHistory>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<gmx::CorrelationBlockDataHistory, std::allocator<gmx::CorrelationBlockDataHistory>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.gmx::AwhPointStateHistory" = type { double, double, double, double, double, double, double, i64, double, double, double, double }
-%"struct.gmx::CorrelationBlockDataHistory" = type { double, double, double, double, double, double, double, double, double, i32, double }
 %"class.gmx::KeyValueTreeValue" = type { %"class.gmx::Any" }
 %"class.gmx::Any" = type { %"class.std::unique_ptr" }
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
@@ -41,8 +28,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"union.std::_Optional_payload_base<gmx::KeyValueTreeObjectBuilder>::_Storage" = type { %"class.gmx::KeyValueTreeObjectBuilder" }
 %"class.gmx::KeyValueTreeObjectBuilder" = type { ptr }
 %"struct.std::pair.61" = type { %"class.std::__cxx11::basic_string", %"class.gmx::KeyValueTreeValue" }
-%"class.gmx::KeyValueTreeProperty" = type { %"struct.std::_Rb_tree_const_iterator" }
-%"struct.std::_Rb_tree_const_iterator" = type { ptr }
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, gmx::KeyValueTreeValue>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, gmx::KeyValueTreeValue>>, std::less<std::__cxx11::basic_string<char>>>::_Auto_node" = type { ptr, ptr }
 %"class.gmx::KeyValueTreeObject" = type { %"class.std::map", %"class.std::vector.21" }
 %"class.std::map" = type { %"class.std::_Rb_tree" }
@@ -616,7 +601,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40: ; preds = %161
   br i1 %178, label %179, label %_ZNSt6vectorIN3gmx14AwhBiasHistoryESaIS1_EE6resizeEm.exit
 
 179:                                              ; preds = %177
-  %180 = getelementptr inbounds nuw %"struct.gmx::AwhBiasHistory", ptr %169, i64 %167
+  %180 = getelementptr inbounds nuw [112 x i8], ptr %169, i64 %167
   %.not.i.i41 = icmp eq ptr %168, %180
   br i1 %.not.i.i41, label %_ZNSt6vectorIN3gmx14AwhBiasHistoryESaIS1_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i
 
@@ -979,7 +964,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i58: ; preds = %3
   br i1 %382, label %383, label %_ZNSt6vectorIN3gmx20AwhPointStateHistoryESaIS1_EE6resizeEm.exit.i
 
 383:                                              ; preds = %381
-  %384 = getelementptr inbounds nuw %"struct.gmx::AwhPointStateHistory", ptr %373, i64 %371
+  %384 = getelementptr inbounds nuw [96 x i8], ptr %373, i64 %371
   %.not.i.i.i = icmp eq ptr %372, %384
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN3gmx20AwhPointStateHistoryESaIS1_EE6resizeEm.exit.i, label %385
 
@@ -4045,7 +4030,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit51.i98.i: ; preds 
   br i1 %1370, label %1371, label %_ZNSt6vectorIN3gmx27CorrelationBlockDataHistoryESaIS1_EE6resizeEm.exit.i.i
 
 1371:                                             ; preds = %1369
-  %1372 = getelementptr inbounds nuw %"struct.gmx::CorrelationBlockDataHistory", ptr %1361, i64 %1359
+  %1372 = getelementptr inbounds nuw [88 x i8], ptr %1361, i64 %1359
   %.not.i.i.i.i = icmp eq ptr %1360, %1372
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN3gmx27CorrelationBlockDataHistoryESaIS1_EE6resizeEm.exit.i.i, label %1373
 
@@ -7068,9 +7053,9 @@ _ZNSt6vectorIN3gmx14AwhBiasHistoryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; 
 
 _ZNSt12_Vector_baseIN3gmx14AwhBiasHistoryESaIS1_EE13_M_deallocateEPS1_m.exit37: ; preds = %_ZNSt6vectorIN3gmx14AwhBiasHistoryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %51
   store ptr %26, ptr %0, align 8, !tbaa !30
-  %55 = getelementptr inbounds nuw %"struct.gmx::AwhBiasHistory", ptr %27, i64 %1
+  %55 = getelementptr inbounds nuw [112 x i8], ptr %27, i64 %1
   store ptr %55, ptr %4, align 8, !tbaa !27
-  %56 = getelementptr inbounds nuw %"struct.gmx::AwhBiasHistory", ptr %26, i64 %24
+  %56 = getelementptr inbounds nuw [112 x i8], ptr %26, i64 %24
   store ptr %56, ptr %11, align 8, !tbaa !79
   br label %57
 
@@ -7189,9 +7174,9 @@ _ZNSt6vectorIN3gmx20AwhPointStateHistoryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.ex
 
 _ZNSt12_Vector_baseIN3gmx20AwhPointStateHistoryESaIS1_EE13_M_deallocateEPS1_m.exit38: ; preds = %_ZNSt6vectorIN3gmx20AwhPointStateHistoryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %42
   store ptr %32, ptr %0, align 8, !tbaa !36
-  %44 = getelementptr inbounds nuw %"struct.gmx::AwhPointStateHistory", ptr %33, i64 %1
+  %44 = getelementptr inbounds nuw [96 x i8], ptr %33, i64 %1
   store ptr %44, ptr %4, align 8, !tbaa !45
-  %45 = getelementptr inbounds nuw %"struct.gmx::AwhPointStateHistory", ptr %32, i64 %30
+  %45 = getelementptr inbounds nuw [96 x i8], ptr %32, i64 %30
   store ptr %45, ptr %11, align 8, !tbaa !39
   br label %46
 
@@ -7410,9 +7395,9 @@ _ZNSt6vectorIN3gmx27CorrelationBlockDataHistoryESaIS1_EE11_S_relocateEPS1_S4_S4_
 
 _ZNSt12_Vector_baseIN3gmx27CorrelationBlockDataHistoryESaIS1_EE13_M_deallocateEPS1_m.exit38: ; preds = %_ZNSt6vectorIN3gmx27CorrelationBlockDataHistoryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %42
   store ptr %32, ptr %0, align 8, !tbaa !32
-  %44 = getelementptr inbounds nuw %"struct.gmx::CorrelationBlockDataHistory", ptr %33, i64 %1
+  %44 = getelementptr inbounds nuw [88 x i8], ptr %33, i64 %1
   store ptr %44, ptr %4, align 8, !tbaa !59
-  %45 = getelementptr inbounds nuw %"struct.gmx::CorrelationBlockDataHistory", ptr %32, i64 %30
+  %45 = getelementptr inbounds nuw [88 x i8], ptr %32, i64 %30
   store ptr %45, ptr %11, align 8, !tbaa !35
   br label %46
 
@@ -12697,7 +12682,7 @@ _ZNSt12_Vector_baseIN3gmx20KeyValueTreePropertyESaIS1_EE13_M_deallocateEPS1_m.ex
   store ptr %52, ptr %33, align 8, !tbaa !361
   %57 = getelementptr inbounds nuw i8, ptr %52, i64 %39
   store ptr %57, ptr %34, align 8, !tbaa !358
-  %58 = getelementptr inbounds nuw %"class.gmx::KeyValueTreeProperty", ptr %52, i64 %41
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %41
   store ptr %58, ptr %45, align 8, !tbaa !362
   br label %_ZNSt6vectorIN3gmx20KeyValueTreePropertyESaIS1_EE7reserveEm.exit
 
@@ -12850,7 +12835,7 @@ _ZNSt6vectorIN3gmx20KeyValueTreePropertyESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.ex
 _ZNSt6vectorIN3gmx20KeyValueTreePropertyESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %116, %_ZNSt6vectorIN3gmx20KeyValueTreePropertyESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i
   store ptr %109, ptr %88, align 8, !tbaa !361
   store ptr %115, ptr %89, align 8, !tbaa !358
-  %117 = getelementptr inbounds nuw %"class.gmx::KeyValueTreeProperty", ptr %109, i64 %107
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %109, i64 %107
   store ptr %117, ptr %91, align 8, !tbaa !362
   br label %_ZNSt6vectorIN3gmx20KeyValueTreePropertyESaIS1_EE9push_backEOS1_.exit
 
@@ -14036,7 +14021,7 @@ _ZNSt6vectorIN3gmx20KeyValueTreePropertyESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.ex
 _ZNSt6vectorIN3gmx20KeyValueTreePropertyESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %84, %_ZNSt6vectorIN3gmx20KeyValueTreePropertyESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i
   store ptr %77, ptr %10, align 8, !tbaa !361
   store ptr %83, ptr %18, align 8, !tbaa !358
-  %85 = getelementptr inbounds nuw %"class.gmx::KeyValueTreeProperty", ptr %77, i64 %75
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %75
   store ptr %85, ptr %19, align 8, !tbaa !362
   br label %_ZNSt6vectorIN3gmx20KeyValueTreePropertyESaIS1_EE9push_backEOS1_.exit
 

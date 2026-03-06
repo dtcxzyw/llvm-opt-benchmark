@@ -191,7 +191,7 @@ define range(i32 0, 2) i32 @stmm_lookup(ptr noundef readonly captures(none) %0, 
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %31 = load ptr, ptr %30, align 8, !tbaa !17
   %32 = sext i32 %29 to i64
-  %33 = getelementptr inbounds ptr, ptr %31, i64 %32
+  %33 = getelementptr inbounds [8 x i8], ptr %31, i64 %32
   %.03647 = load ptr, ptr %33, align 8, !tbaa !19
   %.not48 = icmp eq ptr %.03647, null
   br i1 %.not48, label %.critedge44, label %.lr.ph
@@ -232,7 +232,7 @@ define range(i32 0, 2) i32 @stmm_lookup(ptr noundef readonly captures(none) %0, 
   %48 = load ptr, ptr %47, align 8, !tbaa !26
   store ptr %48, ptr %.049, align 8, !tbaa !19
   %49 = load ptr, ptr %30, align 8, !tbaa !17
-  %50 = getelementptr inbounds ptr, ptr %49, i64 %32
+  %50 = getelementptr inbounds [8 x i8], ptr %49, i64 %32
   %51 = load ptr, ptr %50, align 8, !tbaa !19
   store ptr %51, ptr %47, align 8, !tbaa !26
   store ptr %.03650, ptr %50, align 8, !tbaa !19
@@ -327,7 +327,7 @@ define range(i32 0, 2) i32 @stmm_lookup_int(ptr noundef readonly captures(none) 
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %31 = load ptr, ptr %30, align 8, !tbaa !17
   %32 = sext i32 %29 to i64
-  %33 = getelementptr inbounds ptr, ptr %31, i64 %32
+  %33 = getelementptr inbounds [8 x i8], ptr %31, i64 %32
   %.03647 = load ptr, ptr %33, align 8, !tbaa !19
   %.not48 = icmp eq ptr %.03647, null
   br i1 %.not48, label %.critedge44, label %.lr.ph
@@ -368,7 +368,7 @@ define range(i32 0, 2) i32 @stmm_lookup_int(ptr noundef readonly captures(none) 
   %48 = load ptr, ptr %47, align 8, !tbaa !26
   store ptr %48, ptr %.049, align 8, !tbaa !19
   %49 = load ptr, ptr %30, align 8, !tbaa !17
-  %50 = getelementptr inbounds ptr, ptr %49, i64 %32
+  %50 = getelementptr inbounds [8 x i8], ptr %49, i64 %32
   %51 = load ptr, ptr %50, align 8, !tbaa !19
   store ptr %51, ptr %47, align 8, !tbaa !26
   store ptr %.03650, ptr %50, align 8, !tbaa !19
@@ -432,7 +432,7 @@ define range(i32 -10000, 2) i32 @stmm_insert(ptr noundef captures(none) %0, ptr 
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %31 = load ptr, ptr %30, align 8, !tbaa !17
   %32 = sext i32 %29 to i64
-  %33 = getelementptr inbounds ptr, ptr %31, i64 %32
+  %33 = getelementptr inbounds [8 x i8], ptr %31, i64 %32
   %.06174 = load ptr, ptr %33, align 8, !tbaa !19
   %.not75 = icmp eq ptr %.06174, null
   br i1 %.not75, label %.critedge71, label %.lr.ph
@@ -473,7 +473,7 @@ define range(i32 -10000, 2) i32 @stmm_insert(ptr noundef captures(none) %0, ptr 
   %48 = load ptr, ptr %47, align 8, !tbaa !26
   store ptr %48, ptr %.076, align 8, !tbaa !19
   %49 = load ptr, ptr %30, align 8, !tbaa !17
-  %50 = getelementptr inbounds ptr, ptr %49, i64 %32
+  %50 = getelementptr inbounds [8 x i8], ptr %49, i64 %32
   %51 = load ptr, ptr %50, align 8, !tbaa !19
   store ptr %51, ptr %47, align 8, !tbaa !26
   store ptr %.06177, ptr %50, align 8, !tbaa !19
@@ -540,7 +540,7 @@ define range(i32 -10000, 2) i32 @stmm_insert(ptr noundef captures(none) %0, ptr 
   store ptr %2, ptr %89, align 8, !tbaa !27
   %90 = load ptr, ptr %30, align 8, !tbaa !17
   %91 = sext i32 %.063 to i64
-  %92 = getelementptr inbounds ptr, ptr %90, i64 %91
+  %92 = getelementptr inbounds [8 x i8], ptr %90, i64 %91
   %93 = load ptr, ptr %92, align 8, !tbaa !19
   %94 = getelementptr inbounds nuw i8, ptr %86, i64 16
   store ptr %93, ptr %94, align 8, !tbaa !26
@@ -613,7 +613,7 @@ define internal fastcc range(i32 -10000, 2) i32 @rehash(ptr noundef captures(non
   %.promoted = phi i32 [ 0, %.lr.ph60 ], [ %81, %._crit_edge ]
   %25 = phi ptr [ %15, %.lr.ph60 ], [ %82, %._crit_edge ]
   %indvars.iv = phi i64 [ 0, %.lr.ph60 ], [ %indvars.iv.next, %._crit_edge ]
-  %26 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8, !tbaa !19
   %.not5356 = icmp eq ptr %27, null
   br i1 %.not5356, label %._crit_edge, label %.lr.ph58
@@ -702,7 +702,7 @@ define internal fastcc range(i32 -10000, 2) i32 @rehash(ptr noundef captures(non
   %74 = phi ptr [ %47, %51 ], [ %47, %62 ], [ %.pre, %68 ]
   %75 = phi i32 [ %58, %51 ], [ %67, %62 ], [ %70, %68 ]
   %76 = sext i32 %75 to i64
-  %77 = getelementptr inbounds ptr, ptr %74, i64 %76
+  %77 = getelementptr inbounds [8 x i8], ptr %74, i64 %76
   %78 = load ptr, ptr %77, align 8, !tbaa !19
   store ptr %78, ptr %48, align 8, !tbaa !26
   store ptr %.04957, ptr %77, align 8, !tbaa !19
@@ -811,7 +811,7 @@ define range(i32 -10000, 2) i32 @stmm_add_direct(ptr noundef captures(none) %0, 
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %53 = load ptr, ptr %52, align 8, !tbaa !17
   %54 = sext i32 %45 to i64
-  %55 = getelementptr inbounds ptr, ptr %53, i64 %54
+  %55 = getelementptr inbounds [8 x i8], ptr %53, i64 %54
   %56 = load ptr, ptr %55, align 8, !tbaa !19
   %57 = getelementptr inbounds nuw i8, ptr %48, i64 16
   store ptr %56, ptr %57, align 8, !tbaa !26
@@ -867,7 +867,7 @@ define range(i32 -10000, 2) i32 @stmm_find_or_add(ptr noundef captures(none) %0,
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %31 = load ptr, ptr %30, align 8, !tbaa !17
   %32 = sext i32 %29 to i64
-  %33 = getelementptr inbounds ptr, ptr %31, i64 %32
+  %33 = getelementptr inbounds [8 x i8], ptr %31, i64 %32
   %.06480 = load ptr, ptr %33, align 8, !tbaa !19
   %.not81 = icmp eq ptr %.06480, null
   br i1 %.not81, label %.critedge77, label %.lr.ph
@@ -908,7 +908,7 @@ define range(i32 -10000, 2) i32 @stmm_find_or_add(ptr noundef captures(none) %0,
   %48 = load ptr, ptr %47, align 8, !tbaa !26
   store ptr %48, ptr %.082, align 8, !tbaa !19
   %49 = load ptr, ptr %30, align 8, !tbaa !17
-  %50 = getelementptr inbounds ptr, ptr %49, i64 %32
+  %50 = getelementptr inbounds [8 x i8], ptr %49, i64 %32
   %51 = load ptr, ptr %50, align 8, !tbaa !19
   store ptr %51, ptr %47, align 8, !tbaa !26
   store ptr %.06483, ptr %50, align 8, !tbaa !19
@@ -975,7 +975,7 @@ define range(i32 -10000, 2) i32 @stmm_find_or_add(ptr noundef captures(none) %0,
   store ptr null, ptr %89, align 8, !tbaa !27
   %90 = load ptr, ptr %30, align 8, !tbaa !17
   %91 = sext i32 %.066 to i64
-  %92 = getelementptr inbounds ptr, ptr %90, i64 %91
+  %92 = getelementptr inbounds [8 x i8], ptr %90, i64 %91
   %93 = load ptr, ptr %92, align 8, !tbaa !19
   %94 = getelementptr inbounds nuw i8, ptr %86, i64 16
   store ptr %93, ptr %94, align 8, !tbaa !26
@@ -1046,7 +1046,7 @@ define range(i32 0, 2) i32 @stmm_find(ptr noundef readonly captures(none) %0, pt
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %31 = load ptr, ptr %30, align 8, !tbaa !17
   %32 = sext i32 %29 to i64
-  %33 = getelementptr inbounds ptr, ptr %31, i64 %32
+  %33 = getelementptr inbounds [8 x i8], ptr %31, i64 %32
   %.03647 = load ptr, ptr %33, align 8, !tbaa !19
   %.not48 = icmp eq ptr %.03647, null
   br i1 %.not48, label %.critedge44, label %.lr.ph
@@ -1087,7 +1087,7 @@ define range(i32 0, 2) i32 @stmm_find(ptr noundef readonly captures(none) %0, pt
   %48 = load ptr, ptr %47, align 8, !tbaa !26
   store ptr %48, ptr %.049, align 8, !tbaa !19
   %49 = load ptr, ptr %30, align 8, !tbaa !17
-  %50 = getelementptr inbounds ptr, ptr %49, i64 %32
+  %50 = getelementptr inbounds [8 x i8], ptr %49, i64 %32
   %51 = load ptr, ptr %50, align 8, !tbaa !19
   store ptr %51, ptr %47, align 8, !tbaa !26
   store ptr %.03650, ptr %50, align 8, !tbaa !19
@@ -1139,10 +1139,10 @@ define noalias noundef ptr @stmm_copy(ptr noundef readonly captures(none) %0) lo
 
 17:                                               ; preds = %.lr.ph47, %._crit_edge
   %indvars.iv = phi i64 [ 0, %.lr.ph47 ], [ %indvars.iv.next, %._crit_edge ]
-  %18 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   store ptr null, ptr %18, align 8, !tbaa !19
   %19 = load ptr, ptr %16, align 8, !tbaa !17
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv
   %.03742 = load ptr, ptr %20, align 8, !tbaa !19
   %.not43 = icmp eq ptr %.03742, null
   br i1 %.not43, label %._crit_edge, label %.lr.ph
@@ -1228,7 +1228,7 @@ define range(i32 0, 2) i32 @stmm_delete(ptr noundef captures(none) %0, ptr nound
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %32 = load ptr, ptr %31, align 8, !tbaa !17
   %33 = sext i32 %30 to i64
-  %34 = getelementptr inbounds ptr, ptr %32, i64 %33
+  %34 = getelementptr inbounds [8 x i8], ptr %32, i64 %33
   %.04455 = load ptr, ptr %34, align 8, !tbaa !19
   %.not56 = icmp eq ptr %.04455, null
   br i1 %.not56, label %.critedge52, label %.lr.ph
@@ -1269,7 +1269,7 @@ define range(i32 0, 2) i32 @stmm_delete(ptr noundef captures(none) %0, ptr nound
   %49 = load ptr, ptr %48, align 8, !tbaa !26
   store ptr %49, ptr %.057, align 8, !tbaa !19
   %50 = load ptr, ptr %31, align 8, !tbaa !17
-  %51 = getelementptr inbounds ptr, ptr %50, i64 %33
+  %51 = getelementptr inbounds [8 x i8], ptr %50, i64 %33
   %52 = load ptr, ptr %51, align 8, !tbaa !19
   store ptr %52, ptr %48, align 8, !tbaa !26
   store ptr %.04458, ptr %51, align 8, !tbaa !19
@@ -1348,7 +1348,7 @@ define range(i32 0, 2) i32 @stmm_delete_int(ptr noundef captures(none) %0, ptr n
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %31 = load ptr, ptr %30, align 8, !tbaa !17
   %32 = sext i32 %29 to i64
-  %33 = getelementptr inbounds ptr, ptr %31, i64 %32
+  %33 = getelementptr inbounds [8 x i8], ptr %31, i64 %32
   %.04455 = load ptr, ptr %33, align 8, !tbaa !19
   %.not56 = icmp eq ptr %.04455, null
   br i1 %.not56, label %.critedge52, label %.lr.ph
@@ -1389,7 +1389,7 @@ define range(i32 0, 2) i32 @stmm_delete_int(ptr noundef captures(none) %0, ptr n
   %48 = load ptr, ptr %47, align 8, !tbaa !26
   store ptr %48, ptr %.057, align 8, !tbaa !19
   %49 = load ptr, ptr %30, align 8, !tbaa !17
-  %50 = getelementptr inbounds ptr, ptr %49, i64 %32
+  %50 = getelementptr inbounds [8 x i8], ptr %49, i64 %32
   %51 = load ptr, ptr %50, align 8, !tbaa !19
   store ptr %51, ptr %47, align 8, !tbaa !26
   store ptr %.04458, ptr %50, align 8, !tbaa !19
@@ -1443,7 +1443,7 @@ define range(i32 0, 2) i32 @stmm_foreach(ptr noundef captures(none) %0, ptr noun
   %11 = phi i32 [ %5, %.lr.ph30 ], [ %30, %._crit_edge ]
   %indvars.iv = phi i64 [ 0, %.lr.ph30 ], [ %indvars.iv.next, %._crit_edge ]
   %12 = load ptr, ptr %7, align 8, !tbaa !17
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8, !tbaa !19
   %.not25 = icmp eq ptr %14, null
   br i1 %.not25, label %._crit_edge, label %.lr.ph
@@ -1571,7 +1571,7 @@ define range(i32 0, 2) i32 @stmm_gen(ptr noundef captures(none) %0, ptr noundef 
 
 17:                                               ; preds = %.lr.ph, %22
   %indvars.iv = phi i64 [ %16, %.lr.ph ], [ %indvars.iv.next, %22 ]
-  %18 = getelementptr inbounds ptr, ptr %15, i64 %indvars.iv
+  %18 = getelementptr inbounds [8 x i8], ptr %15, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !19
   %.not = icmp eq ptr %19, null
   br i1 %.not, label %22, label %.thread
@@ -1636,7 +1636,7 @@ define range(i32 0, 2) i32 @stmm_gen_int(ptr noundef captures(none) %0, ptr noun
 
 17:                                               ; preds = %.lr.ph, %22
   %indvars.iv = phi i64 [ %16, %.lr.ph ], [ %indvars.iv.next, %22 ]
-  %18 = getelementptr inbounds ptr, ptr %15, i64 %indvars.iv
+  %18 = getelementptr inbounds [8 x i8], ptr %15, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !19
   %.not = icmp eq ptr %19, null
   br i1 %.not, label %22, label %.thread

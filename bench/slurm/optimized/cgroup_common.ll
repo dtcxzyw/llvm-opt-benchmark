@@ -124,7 +124,7 @@ define dso_local range(i32 -1, 1) i32 @common_file_read_uints(ptr noundef %0, pt
 .lr.ph73:                                         ; preds = %20, %.lr.ph73
   %indvars.iv79 = phi i64 [ %indvars.iv.next80, %.lr.ph73 ], [ 0, %20 ]
   %.171 = phi ptr [ %27, %.lr.ph73 ], [ %13, %20 ]
-  %24 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv79
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv79
   %25 = tail call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %.171, ptr noundef nonnull @.str.1, ptr noundef %24) #8
   %26 = tail call ptr @xstrchr(ptr noundef %.171, i32 noundef 10) #8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 1
@@ -146,7 +146,7 @@ define dso_local range(i32 -1, 1) i32 @common_file_read_uints(ptr noundef %0, pt
   %33 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %.265, ptr noundef nonnull @.str.2, ptr noundef nonnull %6) #8
   %34 = load i64, ptr %6, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %35 = getelementptr inbounds nuw i64, ptr %31, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv
   store i64 %34, ptr %35, align 8
   %36 = call ptr @xstrchr(ptr noundef %.265, i32 noundef 10) #8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 1
@@ -318,7 +318,7 @@ define dso_local i32 @common_file_write_uints(ptr noundef %0, ptr noundef readon
   br i1 %cond, label %13, label %21
 
 13:                                               ; preds = %12
-  %14 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4
   %16 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 256, ptr noundef nonnull @.str.1, i32 noundef %15) #8
   %17 = icmp sgt i32 %16, -1
@@ -330,7 +330,7 @@ define dso_local i32 @common_file_write_uints(ptr noundef %0, ptr noundef readon
   br label %.thread67
 
 21:                                               ; preds = %12
-  %22 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %23 = load i64, ptr %22, align 8
   %24 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 256, ptr noundef nonnull @.str.5, i64 noundef %23) #8
   %25 = icmp sgt i32 %24, -1
@@ -1436,7 +1436,7 @@ define dso_local noundef zeroext i1 @common_cgroup_wait_pid_moved(ptr noundef re
 
 13:                                               ; preds = %.lr.ph, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
-  %14 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, %1
   br i1 %16, label %17, label %12

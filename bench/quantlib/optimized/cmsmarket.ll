@@ -40,16 +40,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.boost::shared_ptr.16" = type { ptr, %"class.boost::detail::shared_count" }
 %"class.boost::shared_ptr.24" = type { ptr, %"class.boost::detail::shared_count" }
 %"class.boost::shared_ptr.78" = type { ptr, %"class.boost::detail::shared_count" }
-%"class.std::vector.71" = type { %"struct.std::_Vector_base.72" }
-%"struct.std::_Vector_base.72" = type { %"struct.std::_Vector_base<QuantLib::Handle<QuantLib::Quote>, std::allocator<QuantLib::Handle<QuantLib::Quote>>>::_Vector_impl" }
-%"struct.std::_Vector_base<QuantLib::Handle<QuantLib::Quote>, std::allocator<QuantLib::Handle<QuantLib::Quote>>>::_Vector_impl" = type { %"struct.std::_Vector_base<QuantLib::Handle<QuantLib::Quote>, std::allocator<QuantLib::Handle<QuantLib::Quote>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<QuantLib::Handle<QuantLib::Quote>, std::allocator<QuantLib::Handle<QuantLib::Quote>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.QuantLib::Handle.79" = type { %"class.boost::shared_ptr.80" }
 %"class.boost::shared_ptr.80" = type { ptr, %"class.boost::detail::shared_count" }
-%"class.std::vector.88" = type { %"struct.std::_Vector_base.89" }
-%"struct.std::_Vector_base.89" = type { %"struct.std::_Vector_base<boost::shared_ptr<QuantLib::CashFlow>, std::allocator<boost::shared_ptr<QuantLib::CashFlow>>>::_Vector_impl" }
-%"struct.std::_Vector_base<boost::shared_ptr<QuantLib::CashFlow>, std::allocator<boost::shared_ptr<QuantLib::CashFlow>>>::_Vector_impl" = type { %"struct.std::_Vector_base<boost::shared_ptr<QuantLib::CashFlow>, std::allocator<boost::shared_ptr<QuantLib::CashFlow>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<boost::shared_ptr<QuantLib::CashFlow>, std::allocator<boost::shared_ptr<QuantLib::CashFlow>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.boost::shared_ptr.82" = type { ptr, %"class.boost::detail::shared_count" }
 %"class.boost::shared_ptr.94" = type { ptr, %"class.boost::detail::shared_count" }
 %"class.boost::shared_ptr.97" = type { ptr, %"class.boost::detail::shared_count" }
@@ -1126,7 +1118,7 @@ for.body.preheader.i.i.i.i.i:                     ; preds = %_ZNSt6vectorIN8Quan
 
 call5.i.i.i.i2.i.i.noexc:                         ; preds = %for.body.preheader.i.i.i.i.i
   store ptr %call5.i.i.i.i2.i.i108, ptr %swapTenors_, align 8, !tbaa !50
-  %add.ptr.i.i.i104 = getelementptr inbounds nuw %"class.QuantLib::Period", ptr %call5.i.i.i.i2.i.i108, i64 %sub.ptr.div.i102
+  %add.ptr.i.i.i104 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i108, i64 %sub.ptr.div.i102
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %call5.i.i.i.i2.i.i108, i8 0, i64 %mul.i.i.i.i.i.i, i1 false)
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i108, i64 %mul.i.i.i.i.i.i
   br label %invoke.cont14
@@ -1412,7 +1404,7 @@ _ZNSt12_Vector_baseISt6vectorIN5boost10shared_ptrIN8QuantLib4SwapEEESaIS5_EESaIS
   store ptr %cond.i.i.i.i235, ptr %spotSwaps_, align 8, !tbaa !108
   %_M_finish.i.i.i236 = getelementptr inbounds nuw i8, ptr %this, i64 504
   store ptr %cond.i.i.i.i235, ptr %_M_finish.i.i.i236, align 8, !tbaa !109
-  %add.ptr.i.i.i237 = getelementptr inbounds nuw %"class.std::vector.66", ptr %cond.i.i.i.i235, i64 %sub.ptr.div.i
+  %add.ptr.i.i.i237 = getelementptr inbounds nuw [24 x i8], ptr %cond.i.i.i.i235, i64 %sub.ptr.div.i
   %_M_end_of_storage.i.i.i238 = getelementptr inbounds nuw i8, ptr %this, i64 512
   store ptr %add.ptr.i.i.i237, ptr %_M_end_of_storage.i.i.i238, align 8, !tbaa !110
   %call.i.i.i.i3.i = invoke noundef ptr @_ZSt18__do_uninit_fill_nIPSt6vectorIN5boost10shared_ptrIN8QuantLib4SwapEEESaIS5_EEmS7_ET_S9_T0_RKT1_(ptr noundef %cond.i.i.i.i235, i64 noundef %sub.ptr.div.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp68)
@@ -1530,7 +1522,7 @@ for.body.preheader.i.i.i.i.i262:                  ; preds = %_ZNSt6vectorIN5boos
 
 call5.i.i.i.i2.i.i.noexc273:                      ; preds = %for.body.preheader.i.i.i.i.i262
   store ptr %call5.i.i.i.i2.i.i274, ptr %ref.tmp79, align 8, !tbaa !104
-  %add.ptr.i.i.i264 = getelementptr inbounds nuw %"class.boost::shared_ptr.81", ptr %call5.i.i.i.i2.i.i274, i64 %61
+  %add.ptr.i.i.i264 = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i.i2.i.i274, i64 %61
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %call5.i.i.i.i2.i.i274, i8 0, i64 %mul.i.i.i.i.i.i263, i1 false)
   %scevgep.i.i.i.i.i265 = getelementptr i8, ptr %call5.i.i.i.i2.i.i274, i64 %mul.i.i.i.i.i.i263
   br label %invoke.cont83
@@ -1567,7 +1559,7 @@ _ZNSt12_Vector_baseISt6vectorIN5boost10shared_ptrIN8QuantLib4SwapEEESaIS5_EESaIS
   store ptr %cond.i.i.i.i282, ptr %fwdSwaps_, align 8, !tbaa !108
   %_M_finish.i.i.i283 = getelementptr inbounds nuw i8, ptr %this, i64 528
   store ptr %cond.i.i.i.i282, ptr %_M_finish.i.i.i283, align 8, !tbaa !109
-  %add.ptr.i.i.i284 = getelementptr inbounds nuw %"class.std::vector.66", ptr %cond.i.i.i.i282, i64 %60
+  %add.ptr.i.i.i284 = getelementptr inbounds nuw [24 x i8], ptr %cond.i.i.i.i282, i64 %60
   %_M_end_of_storage.i.i.i285 = getelementptr inbounds nuw i8, ptr %this, i64 536
   store ptr %add.ptr.i.i.i284, ptr %_M_end_of_storage.i.i.i285, align 8, !tbaa !110
   %call.i.i.i.i3.i286 = invoke noundef ptr @_ZSt18__do_uninit_fill_nIPSt6vectorIN5boost10shared_ptrIN8QuantLib4SwapEEESaIS5_EEmS7_ET_S9_T0_RKT1_(ptr noundef %cond.i.i.i.i282, i64 noundef %60, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp79)
@@ -2341,7 +2333,7 @@ for.body326.lr.ph:                                ; preds = %for.cond.cleanup
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond.cleanup278
   %j.01192 = phi i64 [ 0, %for.body.lr.ph ], [ %inc316, %for.cond.cleanup278 ]
   %171 = load ptr, ptr %swapIndexes_, align 8, !tbaa !54
-  %add.ptr.i473 = getelementptr inbounds nuw %"class.boost::shared_ptr.76", ptr %171, i64 %j.01192
+  %add.ptr.i473 = getelementptr inbounds nuw [16 x i8], ptr %171, i64 %j.01192
   %172 = load ptr, ptr %add.ptr.i473, align 8, !tbaa !120
   %cmp.not.i474 = icmp eq ptr %172, null
   br i1 %cmp.not.i474, label %cond.false.i, label %invoke.cont256, !prof !63
@@ -2359,7 +2351,7 @@ invoke.cont256:                                   ; preds = %.noexc475, %for.bod
   %tenor_.i = getelementptr inbounds nuw i8, ptr %173, i64 144
   %retval.sroa.0.0.copyload.i = load i64, ptr %tenor_.i, align 8
   %174 = load ptr, ptr %swapTenors_, align 8, !tbaa !50
-  %add.ptr.i476 = getelementptr inbounds nuw %"class.QuantLib::Period", ptr %174, i64 %j.01192
+  %add.ptr.i476 = getelementptr inbounds nuw [8 x i8], ptr %174, i64 %j.01192
   store i64 %retval.sroa.0.0.copyload.i, ptr %add.ptr.i476, align 4
   %vtable263 = load ptr, ptr %this, align 8, !tbaa !32
   %vbase.offset.ptr264 = getelementptr i8, ptr %vtable263, i64 -32
@@ -2367,7 +2359,7 @@ invoke.cont256:                                   ; preds = %.noexc475, %for.bod
   %add.ptr266 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset265
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp267)
   %175 = load ptr, ptr %pricers_, align 8, !tbaa !67
-  %add.ptr.i477 = getelementptr inbounds nuw %"class.boost::shared_ptr.78", ptr %175, i64 %j.01192
+  %add.ptr.i477 = getelementptr inbounds nuw [16 x i8], ptr %175, i64 %j.01192
   %176 = load ptr, ptr %add.ptr.i477, align 8, !tbaa !69
   %177 = icmp eq ptr %176, null
   br i1 %177, label %cast.end.i, label %cast.notnull.i
@@ -2628,9 +2620,9 @@ for.body279:                                      ; preds = %for.body279.lr.ph, 
   %add.ptr283 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset282
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp284)
   %210 = load ptr, ptr %bidAskSpreads_, align 8, !tbaa !62
-  %add.ptr.i496 = getelementptr inbounds nuw %"class.std::vector.71", ptr %210, i64 %i.01190
+  %add.ptr.i496 = getelementptr inbounds nuw [24 x i8], ptr %210, i64 %i.01190
   %211 = load ptr, ptr %add.ptr.i496, align 8, !tbaa !114
-  %add.ptr.i497 = getelementptr inbounds nuw %"class.QuantLib::Handle.79", ptr %211, i64 %mul287
+  %add.ptr.i497 = getelementptr inbounds nuw [16 x i8], ptr %211, i64 %mul287
   call void @llvm.experimental.noalias.scope.decl(metadata !127)
   %212 = load ptr, ptr %add.ptr.i497, align 8, !tbaa !130, !noalias !127
   store ptr %212, ptr %ref.tmp284, align 8, !tbaa !122, !alias.scope !127
@@ -2851,9 +2843,9 @@ _ZN5boost10shared_ptrIN8QuantLib10ObservableEED2Ev.exit564: ; preds = %invoke.co
   %add.ptr300 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset299
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp301)
   %240 = load ptr, ptr %bidAskSpreads_, align 8, !tbaa !62
-  %add.ptr.i565 = getelementptr inbounds nuw %"class.std::vector.71", ptr %240, i64 %i.01190
+  %add.ptr.i565 = getelementptr inbounds nuw [24 x i8], ptr %240, i64 %i.01190
   %241 = load ptr, ptr %add.ptr.i565, align 8, !tbaa !114
-  %242 = getelementptr inbounds nuw %"class.QuantLib::Handle.79", ptr %241, i64 %mul287
+  %242 = getelementptr inbounds nuw [16 x i8], ptr %241, i64 %mul287
   %add.ptr.i566 = getelementptr inbounds nuw i8, ptr %242, i64 16
   call void @llvm.experimental.noalias.scope.decl(metadata !132)
   %243 = load ptr, ptr %add.ptr.i566, align 8, !tbaa !130, !noalias !132
@@ -3106,7 +3098,7 @@ for.body326:                                      ; preds = %for.body326.lr.ph, 
 
 if.then328:                                       ; preds = %for.body326
   %277 = load ptr, ptr %swapLengths_, align 8, !tbaa !50
-  %278 = getelementptr %"class.QuantLib::Period", ptr %277, i64 %i321.01196
+  %278 = getelementptr [8 x i8], ptr %277, i64 %i321.01196
   %add.ptr.i637 = getelementptr i8, ptr %278, i64 -8
   %279 = load i64, ptr %add.ptr.i637, align 4
   store i64 %279, ptr %start, align 8
@@ -3132,9 +3124,9 @@ for.body337:                                      ; preds = %if.end331, %_ZN5boo
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp338)
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp339)
   %282 = load ptr, ptr %swapLengths_, align 8, !tbaa !50
-  %add.ptr.i638 = getelementptr inbounds nuw %"class.QuantLib::Period", ptr %282, i64 %i321.01196
+  %add.ptr.i638 = getelementptr inbounds nuw [8 x i8], ptr %282, i64 %i321.01196
   %283 = load ptr, ptr %swapIndexes_, align 8, !tbaa !54
-  %add.ptr.i639 = getelementptr inbounds nuw %"class.boost::shared_ptr.76", ptr %283, i64 %j332.01194
+  %add.ptr.i639 = getelementptr inbounds nuw [16 x i8], ptr %283, i64 %j332.01194
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp345)
   store i64 0, ptr %ref.tmp345, align 8
   invoke void @_ZN8QuantLib7MakeCmsC1ERKNS_6PeriodERKN5boost10shared_ptrINS_9SwapIndexEEERKNS5_INS_9IborIndexEEEdS3_(ptr noundef nonnull align 8 dereferenceable(296) %ref.tmp339, ptr noundef nonnull align 4 dereferenceable(8) %add.ptr.i638, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i639, ptr noundef nonnull align 8 dereferenceable(16) %iborIndex_, double noundef 0.000000e+00, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp345)
@@ -3146,9 +3138,9 @@ invoke.cont347:                                   ; preds = %for.body337
 
 invoke.cont349:                                   ; preds = %invoke.cont347
   %284 = load ptr, ptr %spotSwaps_, align 8, !tbaa !108
-  %add.ptr.i641 = getelementptr inbounds nuw %"class.std::vector.66", ptr %284, i64 %i321.01196
+  %add.ptr.i641 = getelementptr inbounds nuw [24 x i8], ptr %284, i64 %i321.01196
   %285 = load ptr, ptr %add.ptr.i641, align 8, !tbaa !104
-  %add.ptr.i642 = getelementptr inbounds nuw %"class.boost::shared_ptr.81", ptr %285, i64 %j332.01194
+  %add.ptr.i642 = getelementptr inbounds nuw [16 x i8], ptr %285, i64 %j332.01194
   %286 = load ptr, ptr %ref.tmp338, align 8, !tbaa !137
   %287 = load ptr, ptr %pn3.i.i643, align 8, !tbaa !41
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp338, i8 0, i64 16, i1 false)
@@ -3239,20 +3231,20 @@ _ZN5boost10shared_ptrIN8QuantLib4SwapEED2Ev.exit: ; preds = %_ZN5boost10shared_p
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp359)
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp360)
   %302 = load ptr, ptr %swapLengths_, align 8, !tbaa !50
-  %add.ptr.i667 = getelementptr inbounds nuw %"class.QuantLib::Period", ptr %302, i64 %i321.01196
+  %add.ptr.i667 = getelementptr inbounds nuw [8 x i8], ptr %302, i64 %i321.01196
   %call365 = invoke i64 @_ZN8QuantLibmiERKNS_6PeriodES2_(ptr noundef nonnull align 4 dereferenceable(8) %add.ptr.i667, ptr noundef nonnull align 4 dereferenceable(8) %start)
           to label %invoke.cont364 unwind label %lpad363
 
 invoke.cont364:                                   ; preds = %_ZN5boost10shared_ptrIN8QuantLib4SwapEED2Ev.exit
   store i64 %call365, ptr %ref.tmp360, align 8
   %303 = load ptr, ptr %swapIndexes_, align 8, !tbaa !54
-  %add.ptr.i668 = getelementptr inbounds nuw %"class.boost::shared_ptr.76", ptr %303, i64 %j332.01194
+  %add.ptr.i668 = getelementptr inbounds nuw [16 x i8], ptr %303, i64 %j332.01194
   invoke void @_ZN8QuantLib7MakeCmsC1ERKNS_6PeriodERKN5boost10shared_ptrINS_9SwapIndexEEERKNS5_INS_9IborIndexEEEdS3_(ptr noundef nonnull align 8 dereferenceable(296) %ref.tmp359, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp360, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i668, ptr noundef nonnull align 8 dereferenceable(16) %iborIndex_, double noundef 0.000000e+00, ptr noundef nonnull align 4 dereferenceable(8) %start)
           to label %invoke.cont369 unwind label %lpad363
 
 invoke.cont369:                                   ; preds = %invoke.cont364
   %304 = load ptr, ptr %pricers_, align 8, !tbaa !67
-  %add.ptr.i669 = getelementptr inbounds nuw %"class.boost::shared_ptr.78", ptr %304, i64 %j332.01194
+  %add.ptr.i669 = getelementptr inbounds nuw [16 x i8], ptr %304, i64 %j332.01194
   %call374 = invoke noundef nonnull align 8 dereferenceable(296) ptr @_ZN8QuantLib7MakeCms19withCmsCouponPricerERKN5boost10shared_ptrINS_15CmsCouponPricerEEE(ptr noundef nonnull align 8 dereferenceable(296) %ref.tmp359, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i669)
           to label %invoke.cont373 unwind label %lpad372
 
@@ -3266,9 +3258,9 @@ invoke.cont376:                                   ; preds = %invoke.cont373
 
 invoke.cont378:                                   ; preds = %invoke.cont376
   %305 = load ptr, ptr %fwdSwaps_, align 8, !tbaa !108
-  %add.ptr.i670 = getelementptr inbounds nuw %"class.std::vector.66", ptr %305, i64 %i321.01196
+  %add.ptr.i670 = getelementptr inbounds nuw [24 x i8], ptr %305, i64 %i321.01196
   %306 = load ptr, ptr %add.ptr.i670, align 8, !tbaa !104
-  %add.ptr.i671 = getelementptr inbounds nuw %"class.boost::shared_ptr.81", ptr %306, i64 %j332.01194
+  %add.ptr.i671 = getelementptr inbounds nuw [16 x i8], ptr %306, i64 %j332.01194
   %307 = load ptr, ptr %ref.tmp358, align 8, !tbaa !137
   %308 = load ptr, ptr %pn3.i.i672, align 8, !tbaa !41
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp358, i8 0, i64 16, i1 false)
@@ -4297,9 +4289,9 @@ for.body5:                                        ; preds = %for.body5.lr.ph, %_
   %mdlPrevPart.0198 = phi double [ 0.000000e+00, %for.body5.lr.ph ], [ %add104, %_ZNK5boost10shared_ptrIN8QuantLib4SwapEEptEv.exit144 ]
   %i.0197 = phi i64 [ 0, %for.body5.lr.ph ], [ %inc, %_ZNK5boost10shared_ptrIN8QuantLib4SwapEEptEv.exit144 ]
   %6 = load ptr, ptr %bidAskSpreads_, align 8, !tbaa !62
-  %add.ptr.i = getelementptr inbounds nuw %"class.std::vector.71", ptr %6, i64 %i.0197
+  %add.ptr.i = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %i.0197
   %7 = load ptr, ptr %add.ptr.i, align 8, !tbaa !114
-  %add.ptr.i74 = getelementptr inbounds nuw %"class.QuantLib::Handle.79", ptr %7, i64 %mul
+  %add.ptr.i74 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %mul
   %call7 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib6HandleINS_5QuoteEEptEv(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i74)
   %8 = load ptr, ptr %call7, align 8, !tbaa !142
   %cmp.not.i = icmp eq ptr %8, null
@@ -4319,13 +4311,13 @@ _ZNK5boost10shared_ptrIN8QuantLib5QuoteEEptEv.exit: ; preds = %for.body5, %cond.
   %11 = load ptr, ptr %mktBidSpreads_, align 8, !tbaa !3
   %12 = load i64, ptr %columns_.i.i, align 8, !tbaa !103
   %mul.i.i = mul i64 %12, %i.0197
-  %add.ptr.i.i = getelementptr inbounds nuw double, ptr %11, i64 %mul.i.i
-  %arrayidx = getelementptr inbounds nuw double, ptr %add.ptr.i.i, i64 %j.0201
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %mul.i.i
+  %arrayidx = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i, i64 %j.0201
   store double %call9, ptr %arrayidx, align 8, !tbaa !144
   %13 = load ptr, ptr %bidAskSpreads_, align 8, !tbaa !62
-  %add.ptr.i75 = getelementptr inbounds nuw %"class.std::vector.71", ptr %13, i64 %i.0197
+  %add.ptr.i75 = getelementptr inbounds nuw [24 x i8], ptr %13, i64 %i.0197
   %14 = load ptr, ptr %add.ptr.i75, align 8, !tbaa !114
-  %15 = getelementptr inbounds nuw %"class.QuantLib::Handle.79", ptr %14, i64 %mul
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %mul
   %add.ptr.i76 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %call15 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib6HandleINS_5QuoteEEptEv(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i76)
   %16 = load ptr, ptr %call15, align 8, !tbaa !142
@@ -4346,27 +4338,27 @@ _ZNK5boost10shared_ptrIN8QuantLib5QuoteEEptEv.exit80: ; preds = %_ZNK5boost10sha
   %19 = load ptr, ptr %mktAskSpreads_, align 8, !tbaa !3
   %20 = load i64, ptr %columns_.i.i81, align 8, !tbaa !103
   %mul.i.i82 = mul i64 %20, %i.0197
-  %add.ptr.i.i83 = getelementptr inbounds nuw double, ptr %19, i64 %mul.i.i82
-  %arrayidx21 = getelementptr inbounds nuw double, ptr %add.ptr.i.i83, i64 %j.0201
+  %add.ptr.i.i83 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %mul.i.i82
+  %arrayidx21 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i83, i64 %j.0201
   store double %call19, ptr %arrayidx21, align 8, !tbaa !144
   %21 = load ptr, ptr %mktBidSpreads_, align 8, !tbaa !3
   %22 = load i64, ptr %columns_.i.i, align 8, !tbaa !103
   %mul.i.i85 = mul i64 %22, %i.0197
-  %add.ptr.i.i86 = getelementptr inbounds nuw double, ptr %21, i64 %mul.i.i85
-  %arrayidx24 = getelementptr inbounds nuw double, ptr %add.ptr.i.i86, i64 %j.0201
+  %add.ptr.i.i86 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %mul.i.i85
+  %arrayidx24 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i86, i64 %j.0201
   %23 = load double, ptr %arrayidx24, align 8, !tbaa !144
   %add28 = fadd double %call19, %23
   %div = fmul double %add28, 5.000000e-01
   %24 = load ptr, ptr %mktSpreads_, align 8, !tbaa !3
   %25 = load i64, ptr %columns_.i.i90, align 8, !tbaa !103
   %mul.i.i91 = mul i64 %25, %i.0197
-  %add.ptr.i.i92 = getelementptr inbounds nuw double, ptr %24, i64 %mul.i.i91
-  %arrayidx30 = getelementptr inbounds nuw double, ptr %add.ptr.i.i92, i64 %j.0201
+  %add.ptr.i.i92 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %mul.i.i91
+  %arrayidx30 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i92, i64 %j.0201
   store double %div, ptr %arrayidx30, align 8, !tbaa !144
   %26 = load ptr, ptr %spotSwaps_, align 8, !tbaa !108
-  %add.ptr.i93 = getelementptr inbounds nuw %"class.std::vector.66", ptr %26, i64 %i.0197
+  %add.ptr.i93 = getelementptr inbounds nuw [24 x i8], ptr %26, i64 %i.0197
   %27 = load ptr, ptr %add.ptr.i93, align 8, !tbaa !104
-  %add.ptr.i94 = getelementptr inbounds nuw %"class.boost::shared_ptr.81", ptr %27, i64 %j.0201
+  %add.ptr.i94 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %j.0201
   %28 = load ptr, ptr %add.ptr.i94, align 8, !tbaa !137
   %cmp.not.i95 = icmp eq ptr %28, null
   br i1 %cmp.not.i95, label %cond.false.i96, label %_ZNK5boost10shared_ptrIN8QuantLib4SwapEEptEv.exit, !prof !63
@@ -4414,8 +4406,8 @@ _ZNK5boost10shared_ptrIN8QuantLib18YieldTermStructureEEptEv.exit: ; preds = %_ZN
   %36 = load ptr, ptr %spotFloatLegNPV_, align 8, !tbaa !3
   %37 = load i64, ptr %columns_.i.i104, align 8, !tbaa !103
   %mul.i.i105 = mul i64 %37, %i.0197
-  %add.ptr.i.i106 = getelementptr inbounds nuw double, ptr %36, i64 %mul.i.i105
-  %arrayidx47 = getelementptr inbounds nuw double, ptr %add.ptr.i.i106, i64 %j.0201
+  %add.ptr.i.i106 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %mul.i.i105
+  %arrayidx47 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i106, i64 %j.0201
   store double %call45, ptr %arrayidx47, align 8, !tbaa !144
   %call49 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib6HandleINS_18YieldTermStructureEEdeEv(ptr noundef nonnull align 8 dereferenceable(16) %discTS_)
   %38 = load ptr, ptr %call49, align 8, !tbaa !145
@@ -4452,20 +4444,20 @@ _ZNK5boost10shared_ptrIN8QuantLib18YieldTermStructureEEptEv.exit114: ; preds = %
   %44 = load ptr, ptr %spotFloatLegBPS_, align 8, !tbaa !3
   %45 = load i64, ptr %columns_.i.i115, align 8, !tbaa !103
   %mul.i.i116 = mul i64 %45, %i.0197
-  %add.ptr.i.i117 = getelementptr inbounds nuw double, ptr %44, i64 %mul.i.i116
-  %arrayidx63 = getelementptr inbounds nuw double, ptr %add.ptr.i.i117, i64 %j.0201
+  %add.ptr.i.i117 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %mul.i.i116
+  %arrayidx63 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i117, i64 %j.0201
   store double %call61, ptr %arrayidx63, align 8, !tbaa !144
   %46 = load ptr, ptr %spotFloatLegNPV_, align 8, !tbaa !3
   %47 = load i64, ptr %columns_.i.i104, align 8, !tbaa !103
   %mul.i.i119 = mul i64 %47, %i.0197
-  %add.ptr.i.i120 = getelementptr inbounds nuw double, ptr %46, i64 %mul.i.i119
-  %arrayidx66 = getelementptr inbounds nuw double, ptr %add.ptr.i.i120, i64 %j.0201
+  %add.ptr.i.i120 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %mul.i.i119
+  %arrayidx66 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i120, i64 %j.0201
   %48 = load double, ptr %arrayidx66, align 8, !tbaa !144
   %49 = load ptr, ptr %mktSpreads_, align 8, !tbaa !3
   %50 = load i64, ptr %columns_.i.i90, align 8, !tbaa !103
   %mul.i.i125 = mul i64 %50, %i.0197
-  %add.ptr.i.i126 = getelementptr inbounds nuw double, ptr %49, i64 %mul.i.i125
-  %arrayidx72 = getelementptr inbounds nuw double, ptr %add.ptr.i.i126, i64 %j.0201
+  %add.ptr.i.i126 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %mul.i.i125
+  %arrayidx72 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i126, i64 %j.0201
   %51 = load double, ptr %arrayidx72, align 8, !tbaa !144
   %mul73 = fmul double %call61, %51
   %div74 = fdiv double %mul73, 1.000000e-04
@@ -4474,21 +4466,21 @@ _ZNK5boost10shared_ptrIN8QuantLib18YieldTermStructureEEptEv.exit114: ; preds = %
   %52 = load ptr, ptr %mktSpotCmsLegNPV_, align 8, !tbaa !3
   %53 = load i64, ptr %columns_.i.i127, align 8, !tbaa !103
   %mul.i.i128 = mul i64 %53, %i.0197
-  %add.ptr.i.i129 = getelementptr inbounds nuw double, ptr %52, i64 %mul.i.i128
-  %arrayidx77 = getelementptr inbounds nuw double, ptr %add.ptr.i.i129, i64 %j.0201
+  %add.ptr.i.i129 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %mul.i.i128
+  %arrayidx77 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i129, i64 %j.0201
   store double %fneg, ptr %arrayidx77, align 8, !tbaa !144
   %sub = fsub double %fneg, %mktPrevPart.0199
   %54 = load ptr, ptr %mktFwdCmsLegNPV_, align 8, !tbaa !3
   %55 = load i64, ptr %columns_.i.i133, align 8, !tbaa !103
   %mul.i.i134 = mul i64 %55, %i.0197
-  %add.ptr.i.i135 = getelementptr inbounds nuw double, ptr %54, i64 %mul.i.i134
-  %arrayidx82 = getelementptr inbounds nuw double, ptr %add.ptr.i.i135, i64 %j.0201
+  %add.ptr.i.i135 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %mul.i.i134
+  %arrayidx82 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i135, i64 %j.0201
   store double %sub, ptr %arrayidx82, align 8, !tbaa !144
   %56 = load double, ptr %arrayidx77, align 8, !tbaa !144
   %57 = load ptr, ptr %fwdSwaps_, align 8, !tbaa !108
-  %add.ptr.i139 = getelementptr inbounds nuw %"class.std::vector.66", ptr %57, i64 %i.0197
+  %add.ptr.i139 = getelementptr inbounds nuw [24 x i8], ptr %57, i64 %i.0197
   %58 = load ptr, ptr %add.ptr.i139, align 8, !tbaa !104
-  %add.ptr.i140 = getelementptr inbounds nuw %"class.boost::shared_ptr.81", ptr %58, i64 %j.0201
+  %add.ptr.i140 = getelementptr inbounds nuw [16 x i8], ptr %58, i64 %j.0201
   %59 = load ptr, ptr %add.ptr.i140, align 8, !tbaa !137
   %cmp.not.i141 = icmp eq ptr %59, null
   br i1 %cmp.not.i141, label %cond.false.i142, label %_ZNK5boost10shared_ptrIN8QuantLib4SwapEEptEv.exit144, !prof !63
@@ -4504,48 +4496,48 @@ _ZNK5boost10shared_ptrIN8QuantLib4SwapEEptEv.exit144: ; preds = %_ZNK5boost10sha
   %61 = load ptr, ptr %mdlFwdCmsLegNPV_, align 8, !tbaa !3
   %62 = load i64, ptr %columns_.i.i145, align 8, !tbaa !103
   %mul.i.i146 = mul i64 %62, %i.0197
-  %add.ptr.i.i147 = getelementptr inbounds nuw double, ptr %61, i64 %mul.i.i146
-  %arrayidx91 = getelementptr inbounds nuw double, ptr %add.ptr.i.i147, i64 %j.0201
+  %add.ptr.i.i147 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %mul.i.i146
+  %arrayidx91 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i147, i64 %j.0201
   store double %call89, ptr %arrayidx91, align 8, !tbaa !144
   %63 = load ptr, ptr %mktFwdCmsLegNPV_, align 8, !tbaa !3
   %64 = load i64, ptr %columns_.i.i133, align 8, !tbaa !103
   %mul.i.i152 = mul i64 %64, %i.0197
-  %add.ptr.i.i153 = getelementptr inbounds nuw double, ptr %63, i64 %mul.i.i152
-  %arrayidx97 = getelementptr inbounds nuw double, ptr %add.ptr.i.i153, i64 %j.0201
+  %add.ptr.i.i153 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %mul.i.i152
+  %arrayidx97 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i153, i64 %j.0201
   %65 = load double, ptr %arrayidx97, align 8, !tbaa !144
   %sub98 = fsub double %call89, %65
   %66 = load ptr, ptr %errFwdCmsLegNPV_, align 8, !tbaa !3
   %67 = load i64, ptr %columns_.i.i154, align 8, !tbaa !103
   %mul.i.i155 = mul i64 %67, %i.0197
-  %add.ptr.i.i156 = getelementptr inbounds nuw double, ptr %66, i64 %mul.i.i155
-  %arrayidx100 = getelementptr inbounds nuw double, ptr %add.ptr.i.i156, i64 %j.0201
+  %add.ptr.i.i156 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %mul.i.i155
+  %arrayidx100 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i156, i64 %j.0201
   store double %sub98, ptr %arrayidx100, align 8, !tbaa !144
   %68 = load double, ptr %arrayidx91, align 8, !tbaa !144
   %add104 = fadd double %mdlPrevPart.0198, %68
   %69 = load ptr, ptr %mdlSpotCmsLegNPV_, align 8, !tbaa !3
   %70 = load i64, ptr %columns_.i.i160, align 8, !tbaa !103
   %mul.i.i161 = mul i64 %70, %i.0197
-  %add.ptr.i.i162 = getelementptr inbounds nuw double, ptr %69, i64 %mul.i.i161
-  %arrayidx106 = getelementptr inbounds nuw double, ptr %add.ptr.i.i162, i64 %j.0201
+  %add.ptr.i.i162 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %mul.i.i161
+  %arrayidx106 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i162, i64 %j.0201
   store double %add104, ptr %arrayidx106, align 8, !tbaa !144
   %71 = load ptr, ptr %mktSpotCmsLegNPV_, align 8, !tbaa !3
   %72 = load i64, ptr %columns_.i.i127, align 8, !tbaa !103
   %mul.i.i170 = mul i64 %72, %i.0197
-  %add.ptr.i.i171 = getelementptr inbounds nuw double, ptr %71, i64 %mul.i.i170
-  %arrayidx115 = getelementptr inbounds nuw double, ptr %add.ptr.i.i171, i64 %j.0201
+  %add.ptr.i.i171 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %mul.i.i170
+  %arrayidx115 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i171, i64 %j.0201
   %73 = load double, ptr %arrayidx115, align 8, !tbaa !144
   %sub116 = fsub double %add104, %73
   %74 = load ptr, ptr %errSpotCmsLegNPV_, align 8, !tbaa !3
   %75 = load i64, ptr %columns_.i.i172, align 8, !tbaa !103
   %mul.i.i173 = mul i64 %75, %i.0197
-  %add.ptr.i.i174 = getelementptr inbounds nuw double, ptr %74, i64 %mul.i.i173
-  %arrayidx118 = getelementptr inbounds nuw double, ptr %add.ptr.i.i174, i64 %j.0201
+  %add.ptr.i.i174 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %mul.i.i173
+  %arrayidx118 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i174, i64 %j.0201
   store double %sub116, ptr %arrayidx118, align 8, !tbaa !144
   %76 = load ptr, ptr %spotFloatLegNPV_, align 8, !tbaa !3
   %77 = load i64, ptr %columns_.i.i104, align 8, !tbaa !103
   %mul.i.i176 = mul i64 %77, %i.0197
-  %add.ptr.i.i177 = getelementptr inbounds nuw double, ptr %76, i64 %mul.i.i176
-  %arrayidx121 = getelementptr inbounds nuw double, ptr %add.ptr.i.i177, i64 %j.0201
+  %add.ptr.i.i177 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %mul.i.i176
+  %arrayidx121 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i177, i64 %j.0201
   %78 = load double, ptr %arrayidx121, align 8, !tbaa !144
   %79 = load double, ptr %arrayidx106, align 8, !tbaa !144
   %add125 = fadd double %78, %79
@@ -4553,29 +4545,29 @@ _ZNK5boost10shared_ptrIN8QuantLib4SwapEEptEv.exit144: ; preds = %_ZNK5boost10sha
   %80 = load ptr, ptr %spotFloatLegBPS_, align 8, !tbaa !3
   %81 = load i64, ptr %columns_.i.i115, align 8, !tbaa !103
   %mul.i.i182 = mul i64 %81, %i.0197
-  %add.ptr.i.i183 = getelementptr inbounds nuw double, ptr %80, i64 %mul.i.i182
-  %arrayidx129 = getelementptr inbounds nuw double, ptr %add.ptr.i.i183, i64 %j.0201
+  %add.ptr.i.i183 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %mul.i.i182
+  %arrayidx129 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i183, i64 %j.0201
   %82 = load double, ptr %arrayidx129, align 8, !tbaa !144
   %div130 = fdiv double %fneg126, %82
   %mul131 = fmul double %div130, 1.000000e-04
   %83 = load ptr, ptr %mdlSpreads_, align 8, !tbaa !3
   %84 = load i64, ptr %columns_.i.i184, align 8, !tbaa !103
   %mul.i.i185 = mul i64 %84, %i.0197
-  %add.ptr.i.i186 = getelementptr inbounds nuw double, ptr %83, i64 %mul.i.i185
-  %arrayidx133 = getelementptr inbounds nuw double, ptr %add.ptr.i.i186, i64 %j.0201
+  %add.ptr.i.i186 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %mul.i.i185
+  %arrayidx133 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i186, i64 %j.0201
   store double %mul131, ptr %arrayidx133, align 8, !tbaa !144
   %85 = load ptr, ptr %mktSpreads_, align 8, !tbaa !3
   %86 = load i64, ptr %columns_.i.i90, align 8, !tbaa !103
   %mul.i.i191 = mul i64 %86, %i.0197
-  %add.ptr.i.i192 = getelementptr inbounds nuw double, ptr %85, i64 %mul.i.i191
-  %arrayidx139 = getelementptr inbounds nuw double, ptr %add.ptr.i.i192, i64 %j.0201
+  %add.ptr.i.i192 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %mul.i.i191
+  %arrayidx139 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i192, i64 %j.0201
   %87 = load double, ptr %arrayidx139, align 8, !tbaa !144
   %sub140 = fsub double %mul131, %87
   %88 = load ptr, ptr %errSpreads_, align 8, !tbaa !3
   %89 = load i64, ptr %columns_.i.i193, align 8, !tbaa !103
   %mul.i.i194 = mul i64 %89, %i.0197
-  %add.ptr.i.i195 = getelementptr inbounds nuw double, ptr %88, i64 %mul.i.i194
-  %arrayidx142 = getelementptr inbounds nuw double, ptr %add.ptr.i.i195, i64 %j.0201
+  %add.ptr.i.i195 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %mul.i.i194
+  %arrayidx142 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i195, i64 %j.0201
   store double %sub140, ptr %arrayidx142, align 8, !tbaa !144
   %inc = add nuw i64 %i.0197, 1
   %90 = load i64, ptr %nExercise_, align 8, !tbaa !75
@@ -5311,7 +5303,7 @@ for.body.preheader.i.i.i.i.i:                     ; preds = %_ZNSt6vectorIN8Quan
 
 call5.i.i.i.i2.i.i.noexc:                         ; preds = %for.body.preheader.i.i.i.i.i
   store ptr %call5.i.i.i.i2.i.i113, ptr %swapTenors_, align 8, !tbaa !50
-  %add.ptr.i.i.i109 = getelementptr inbounds nuw %"class.QuantLib::Period", ptr %call5.i.i.i.i2.i.i113, i64 %sub.ptr.div.i107
+  %add.ptr.i.i.i109 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i113, i64 %sub.ptr.div.i107
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %call5.i.i.i.i2.i.i113, i8 0, i64 %mul.i.i.i.i.i.i, i1 false)
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i113, i64 %mul.i.i.i.i.i.i
   br label %invoke.cont12
@@ -5597,7 +5589,7 @@ _ZNSt12_Vector_baseISt6vectorIN5boost10shared_ptrIN8QuantLib4SwapEEESaIS5_EESaIS
   store ptr %cond.i.i.i.i240, ptr %spotSwaps_, align 8, !tbaa !108
   %_M_finish.i.i.i241 = getelementptr inbounds nuw i8, ptr %this, i64 504
   store ptr %cond.i.i.i.i240, ptr %_M_finish.i.i.i241, align 8, !tbaa !109
-  %add.ptr.i.i.i242 = getelementptr inbounds nuw %"class.std::vector.66", ptr %cond.i.i.i.i240, i64 %sub.ptr.div.i
+  %add.ptr.i.i.i242 = getelementptr inbounds nuw [24 x i8], ptr %cond.i.i.i.i240, i64 %sub.ptr.div.i
   %_M_end_of_storage.i.i.i243 = getelementptr inbounds nuw i8, ptr %this, i64 512
   store ptr %add.ptr.i.i.i242, ptr %_M_end_of_storage.i.i.i243, align 8, !tbaa !110
   %call.i.i.i.i3.i = invoke noundef ptr @_ZSt18__do_uninit_fill_nIPSt6vectorIN5boost10shared_ptrIN8QuantLib4SwapEEESaIS5_EEmS7_ET_S9_T0_RKT1_(ptr noundef %cond.i.i.i.i240, i64 noundef %sub.ptr.div.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp66)
@@ -5715,7 +5707,7 @@ for.body.preheader.i.i.i.i.i267:                  ; preds = %_ZNSt6vectorIN5boos
 
 call5.i.i.i.i2.i.i.noexc278:                      ; preds = %for.body.preheader.i.i.i.i.i267
   store ptr %call5.i.i.i.i2.i.i279, ptr %ref.tmp77, align 8, !tbaa !104
-  %add.ptr.i.i.i269 = getelementptr inbounds nuw %"class.boost::shared_ptr.81", ptr %call5.i.i.i.i2.i.i279, i64 %54
+  %add.ptr.i.i.i269 = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i.i2.i.i279, i64 %54
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %call5.i.i.i.i2.i.i279, i8 0, i64 %mul.i.i.i.i.i.i268, i1 false)
   %scevgep.i.i.i.i.i270 = getelementptr i8, ptr %call5.i.i.i.i2.i.i279, i64 %mul.i.i.i.i.i.i268
   br label %invoke.cont81
@@ -5752,7 +5744,7 @@ _ZNSt12_Vector_baseISt6vectorIN5boost10shared_ptrIN8QuantLib4SwapEEESaIS5_EESaIS
   store ptr %cond.i.i.i.i287, ptr %fwdSwaps_, align 8, !tbaa !108
   %_M_finish.i.i.i288 = getelementptr inbounds nuw i8, ptr %this, i64 528
   store ptr %cond.i.i.i.i287, ptr %_M_finish.i.i.i288, align 8, !tbaa !109
-  %add.ptr.i.i.i289 = getelementptr inbounds nuw %"class.std::vector.66", ptr %cond.i.i.i.i287, i64 %53
+  %add.ptr.i.i.i289 = getelementptr inbounds nuw [24 x i8], ptr %cond.i.i.i.i287, i64 %53
   %_M_end_of_storage.i.i.i290 = getelementptr inbounds nuw i8, ptr %this, i64 536
   store ptr %add.ptr.i.i.i289, ptr %_M_end_of_storage.i.i.i290, align 8, !tbaa !110
   %call.i.i.i.i3.i291 = invoke noundef ptr @_ZSt18__do_uninit_fill_nIPSt6vectorIN5boost10shared_ptrIN8QuantLib4SwapEEESaIS5_EEmS7_ET_S9_T0_RKT1_(ptr noundef %cond.i.i.i.i287, i64 noundef %53, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp77)
@@ -6526,7 +6518,7 @@ for.body321.lr.ph:                                ; preds = %for.cond.cleanup
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond.cleanup273
   %j.01195 = phi i64 [ 0, %for.body.lr.ph ], [ %inc311, %for.cond.cleanup273 ]
   %164 = load ptr, ptr %swapIndexes_, align 8, !tbaa !54
-  %add.ptr.i478 = getelementptr inbounds nuw %"class.boost::shared_ptr.76", ptr %164, i64 %j.01195
+  %add.ptr.i478 = getelementptr inbounds nuw [16 x i8], ptr %164, i64 %j.01195
   %165 = load ptr, ptr %add.ptr.i478, align 8, !tbaa !120
   %cmp.not.i479 = icmp eq ptr %165, null
   br i1 %cmp.not.i479, label %cond.false.i, label %invoke.cont254, !prof !63
@@ -6544,7 +6536,7 @@ invoke.cont254:                                   ; preds = %.noexc480, %for.bod
   %tenor_.i = getelementptr inbounds nuw i8, ptr %166, i64 144
   %retval.sroa.0.0.copyload.i = load i64, ptr %tenor_.i, align 8
   %167 = load ptr, ptr %swapTenors_, align 8, !tbaa !50
-  %add.ptr.i481 = getelementptr inbounds nuw %"class.QuantLib::Period", ptr %167, i64 %j.01195
+  %add.ptr.i481 = getelementptr inbounds nuw [8 x i8], ptr %167, i64 %j.01195
   store i64 %retval.sroa.0.0.copyload.i, ptr %add.ptr.i481, align 4
   %vtable = load ptr, ptr %this, align 8, !tbaa !32
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -32
@@ -6552,7 +6544,7 @@ invoke.cont254:                                   ; preds = %.noexc480, %for.bod
   %add.ptr261 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp262)
   %168 = load ptr, ptr %pricers_, align 8, !tbaa !67
-  %add.ptr.i482 = getelementptr inbounds nuw %"class.boost::shared_ptr.78", ptr %168, i64 %j.01195
+  %add.ptr.i482 = getelementptr inbounds nuw [16 x i8], ptr %168, i64 %j.01195
   %169 = load ptr, ptr %add.ptr.i482, align 8, !tbaa !69
   %170 = icmp eq ptr %169, null
   br i1 %170, label %cast.end.i, label %cast.notnull.i
@@ -6813,9 +6805,9 @@ for.body274:                                      ; preds = %for.body274.lr.ph, 
   %add.ptr278 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset277
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp279)
   %203 = load ptr, ptr %bidAskSpreads_, align 8, !tbaa !62
-  %add.ptr.i499 = getelementptr inbounds nuw %"class.std::vector.71", ptr %203, i64 %i.01193
+  %add.ptr.i499 = getelementptr inbounds nuw [24 x i8], ptr %203, i64 %i.01193
   %204 = load ptr, ptr %add.ptr.i499, align 8, !tbaa !114
-  %add.ptr.i500 = getelementptr inbounds nuw %"class.QuantLib::Handle.79", ptr %204, i64 %mul282
+  %add.ptr.i500 = getelementptr inbounds nuw [16 x i8], ptr %204, i64 %mul282
   call void @llvm.experimental.noalias.scope.decl(metadata !155)
   %205 = load ptr, ptr %add.ptr.i500, align 8, !tbaa !130, !noalias !155
   store ptr %205, ptr %ref.tmp279, align 8, !tbaa !122, !alias.scope !155
@@ -7036,9 +7028,9 @@ _ZN5boost10shared_ptrIN8QuantLib10ObservableEED2Ev.exit567: ; preds = %invoke.co
   %add.ptr295 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset294
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp296)
   %233 = load ptr, ptr %bidAskSpreads_, align 8, !tbaa !62
-  %add.ptr.i568 = getelementptr inbounds nuw %"class.std::vector.71", ptr %233, i64 %i.01193
+  %add.ptr.i568 = getelementptr inbounds nuw [24 x i8], ptr %233, i64 %i.01193
   %234 = load ptr, ptr %add.ptr.i568, align 8, !tbaa !114
-  %235 = getelementptr inbounds nuw %"class.QuantLib::Handle.79", ptr %234, i64 %mul282
+  %235 = getelementptr inbounds nuw [16 x i8], ptr %234, i64 %mul282
   %add.ptr.i569 = getelementptr inbounds nuw i8, ptr %235, i64 16
   call void @llvm.experimental.noalias.scope.decl(metadata !158)
   %236 = load ptr, ptr %add.ptr.i569, align 8, !tbaa !130, !noalias !158
@@ -7291,7 +7283,7 @@ for.body321:                                      ; preds = %for.body321.lr.ph, 
 
 if.then323:                                       ; preds = %for.body321
   %270 = load ptr, ptr %swapLengths_, align 8, !tbaa !50
-  %271 = getelementptr %"class.QuantLib::Period", ptr %270, i64 %i316.01199
+  %271 = getelementptr [8 x i8], ptr %270, i64 %i316.01199
   %add.ptr.i640 = getelementptr i8, ptr %271, i64 -8
   %272 = load i64, ptr %add.ptr.i640, align 4
   store i64 %272, ptr %start, align 8
@@ -7317,9 +7309,9 @@ for.body332:                                      ; preds = %if.end326, %_ZN5boo
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp333)
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp334)
   %275 = load ptr, ptr %swapLengths_, align 8, !tbaa !50
-  %add.ptr.i641 = getelementptr inbounds nuw %"class.QuantLib::Period", ptr %275, i64 %i316.01199
+  %add.ptr.i641 = getelementptr inbounds nuw [8 x i8], ptr %275, i64 %i316.01199
   %276 = load ptr, ptr %swapIndexes_, align 8, !tbaa !54
-  %add.ptr.i642 = getelementptr inbounds nuw %"class.boost::shared_ptr.76", ptr %276, i64 %j327.01197
+  %add.ptr.i642 = getelementptr inbounds nuw [16 x i8], ptr %276, i64 %j327.01197
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp340)
   store i64 0, ptr %ref.tmp340, align 8
   invoke void @_ZN8QuantLib7MakeCmsC1ERKNS_6PeriodERKN5boost10shared_ptrINS_9SwapIndexEEERKNS5_INS_9IborIndexEEEdS3_(ptr noundef nonnull align 8 dereferenceable(296) %ref.tmp334, ptr noundef nonnull align 4 dereferenceable(8) %add.ptr.i641, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i642, ptr noundef nonnull align 8 dereferenceable(16) %iborIndex_, double noundef 0.000000e+00, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp340)
@@ -7331,9 +7323,9 @@ invoke.cont342:                                   ; preds = %for.body332
 
 invoke.cont344:                                   ; preds = %invoke.cont342
   %277 = load ptr, ptr %spotSwaps_, align 8, !tbaa !108
-  %add.ptr.i644 = getelementptr inbounds nuw %"class.std::vector.66", ptr %277, i64 %i316.01199
+  %add.ptr.i644 = getelementptr inbounds nuw [24 x i8], ptr %277, i64 %i316.01199
   %278 = load ptr, ptr %add.ptr.i644, align 8, !tbaa !104
-  %add.ptr.i645 = getelementptr inbounds nuw %"class.boost::shared_ptr.81", ptr %278, i64 %j327.01197
+  %add.ptr.i645 = getelementptr inbounds nuw [16 x i8], ptr %278, i64 %j327.01197
   %279 = load ptr, ptr %ref.tmp333, align 8, !tbaa !137
   %280 = load ptr, ptr %pn3.i.i646, align 8, !tbaa !41
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp333, i8 0, i64 16, i1 false)
@@ -7424,20 +7416,20 @@ _ZN5boost10shared_ptrIN8QuantLib4SwapEED2Ev.exit: ; preds = %_ZN5boost10shared_p
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp354)
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp355)
   %295 = load ptr, ptr %swapLengths_, align 8, !tbaa !50
-  %add.ptr.i670 = getelementptr inbounds nuw %"class.QuantLib::Period", ptr %295, i64 %i316.01199
+  %add.ptr.i670 = getelementptr inbounds nuw [8 x i8], ptr %295, i64 %i316.01199
   %call360 = invoke i64 @_ZN8QuantLibmiERKNS_6PeriodES2_(ptr noundef nonnull align 4 dereferenceable(8) %add.ptr.i670, ptr noundef nonnull align 4 dereferenceable(8) %start)
           to label %invoke.cont359 unwind label %lpad358
 
 invoke.cont359:                                   ; preds = %_ZN5boost10shared_ptrIN8QuantLib4SwapEED2Ev.exit
   store i64 %call360, ptr %ref.tmp355, align 8
   %296 = load ptr, ptr %swapIndexes_, align 8, !tbaa !54
-  %add.ptr.i671 = getelementptr inbounds nuw %"class.boost::shared_ptr.76", ptr %296, i64 %j327.01197
+  %add.ptr.i671 = getelementptr inbounds nuw [16 x i8], ptr %296, i64 %j327.01197
   invoke void @_ZN8QuantLib7MakeCmsC1ERKNS_6PeriodERKN5boost10shared_ptrINS_9SwapIndexEEERKNS5_INS_9IborIndexEEEdS3_(ptr noundef nonnull align 8 dereferenceable(296) %ref.tmp354, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp355, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i671, ptr noundef nonnull align 8 dereferenceable(16) %iborIndex_, double noundef 0.000000e+00, ptr noundef nonnull align 4 dereferenceable(8) %start)
           to label %invoke.cont364 unwind label %lpad358
 
 invoke.cont364:                                   ; preds = %invoke.cont359
   %297 = load ptr, ptr %pricers_, align 8, !tbaa !67
-  %add.ptr.i672 = getelementptr inbounds nuw %"class.boost::shared_ptr.78", ptr %297, i64 %j327.01197
+  %add.ptr.i672 = getelementptr inbounds nuw [16 x i8], ptr %297, i64 %j327.01197
   %call369 = invoke noundef nonnull align 8 dereferenceable(296) ptr @_ZN8QuantLib7MakeCms19withCmsCouponPricerERKN5boost10shared_ptrINS_15CmsCouponPricerEEE(ptr noundef nonnull align 8 dereferenceable(296) %ref.tmp354, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i672)
           to label %invoke.cont368 unwind label %lpad367
 
@@ -7451,9 +7443,9 @@ invoke.cont371:                                   ; preds = %invoke.cont368
 
 invoke.cont373:                                   ; preds = %invoke.cont371
   %298 = load ptr, ptr %fwdSwaps_, align 8, !tbaa !108
-  %add.ptr.i673 = getelementptr inbounds nuw %"class.std::vector.66", ptr %298, i64 %i316.01199
+  %add.ptr.i673 = getelementptr inbounds nuw [24 x i8], ptr %298, i64 %i316.01199
   %299 = load ptr, ptr %add.ptr.i673, align 8, !tbaa !104
-  %add.ptr.i674 = getelementptr inbounds nuw %"class.boost::shared_ptr.81", ptr %299, i64 %j327.01197
+  %add.ptr.i674 = getelementptr inbounds nuw [16 x i8], ptr %299, i64 %j327.01197
   %300 = load ptr, ptr %ref.tmp353, align 8, !tbaa !137
   %301 = load ptr, ptr %pn3.i.i675, align 8, !tbaa !41
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp353, i8 0, i64 16, i1 false)
@@ -8277,7 +8269,7 @@ ehcleanup28:                                      ; preds = %if.then.i.i20, %ehc
   resume { ptr, i32 } %.pn.pn.pn.pn
 
 do.end:                                           ; preds = %entry
-  %add.ptr.i = getelementptr inbounds nuw %"class.std::vector.88", ptr %1, i64 %j
+  %add.ptr.i = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %j
   ret ptr %add.ptr.i
 
 unreachable:                                      ; preds = %invoke.cont18
@@ -8790,7 +8782,7 @@ do.end:                                           ; preds = %entry
   tail call void %19(ptr noundef nonnull align 8 dereferenceable(104) %this)
   %legNPV_ = getelementptr inbounds nuw i8, ptr %this, i64 152
   %20 = load ptr, ptr %legNPV_, align 8, !tbaa !167
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %20, i64 %j
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %j
   %21 = load double, ptr %add.ptr.i, align 8, !tbaa !144
   %cmp34 = fcmp oeq double %21, 0x47EFFFFFE0000000
   br i1 %cmp34, label %if.then35, label %do.end72
@@ -9074,7 +9066,7 @@ lpad:                                             ; preds = %entry
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %j.0102 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %19 = load ptr, ptr %pricers_, align 8, !tbaa !67
-  %add.ptr.i = getelementptr inbounds nuw %"class.boost::shared_ptr.78", ptr %19, i64 %j.0102
+  %add.ptr.i = getelementptr inbounds nuw [16 x i8], ptr %19, i64 %j.0102
   %20 = load ptr, ptr %add.ptr.i, align 8, !tbaa !69
   %cmp.not.i = icmp eq ptr %20, null
   br i1 %cmp.not.i, label %cond.false.i, label %invoke.cont4, !prof !63
@@ -9100,7 +9092,7 @@ invoke.cont9:                                     ; preds = %invoke.cont4
 if.then:                                          ; preds = %invoke.cont9
   call void @llvm.lifetime.start.p0(ptr nonnull %p)
   %23 = load ptr, ptr %pricers_, align 8, !tbaa !67
-  %add.ptr.i31 = getelementptr inbounds nuw %"class.boost::shared_ptr.78", ptr %23, i64 %j.0102
+  %add.ptr.i31 = getelementptr inbounds nuw [16 x i8], ptr %23, i64 %j.0102
   call void @llvm.experimental.noalias.scope.decl(metadata !171)
   %24 = load ptr, ptr %add.ptr.i31, align 8, !tbaa !69, !noalias !171
   %25 = icmp eq ptr %24, null
@@ -10211,17 +10203,17 @@ for.cond2.preheader.us.i:                         ; preds = %for.cond2.preheader
   %i.023.us.i = phi i64 [ %inc12.us.i, %for.cond2.for.cond.cleanup4_crit_edge.us.i ], [ 0, %for.cond2.preheader.lr.ph.i ]
   %mean.022.us.i = phi double [ %8, %for.cond2.for.cond.cleanup4_crit_edge.us.i ], [ 0.000000e+00, %for.cond2.preheader.lr.ph.i ]
   %mul.i.i.us.i = mul i64 %i.023.us.i, %3
-  %add.ptr.i.i.us.i = getelementptr inbounds nuw double, ptr %2, i64 %mul.i.i.us.i
+  %add.ptr.i.i.us.i = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %mul.i.i.us.i
   %mul.i.i13.us.i = mul i64 %i.023.us.i, %5
-  %add.ptr.i.i14.us.i = getelementptr inbounds nuw double, ptr %4, i64 %mul.i.i13.us.i
+  %add.ptr.i.i14.us.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %mul.i.i13.us.i
   br label %for.body5.us.i
 
 for.body5.us.i:                                   ; preds = %for.body5.us.i, %for.cond2.preheader.us.i
   %j.020.us.i = phi i64 [ 0, %for.cond2.preheader.us.i ], [ %inc.us.i, %for.body5.us.i ]
   %mean.119.us.i = phi double [ %mean.022.us.i, %for.cond2.preheader.us.i ], [ %8, %for.body5.us.i ]
-  %arrayidx.us.i = getelementptr inbounds nuw double, ptr %add.ptr.i.i.us.i, i64 %j.020.us.i
+  %arrayidx.us.i = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i.us.i, i64 %j.020.us.i
   %6 = load double, ptr %arrayidx.us.i, align 8, !tbaa !144
-  %arrayidx7.us.i = getelementptr inbounds nuw double, ptr %add.ptr.i.i14.us.i, i64 %j.020.us.i
+  %arrayidx7.us.i = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i14.us.i, i64 %j.020.us.i
   %7 = load double, ptr %arrayidx7.us.i, align 8, !tbaa !144
   %mul.us.i = fmul double %6, %7
   %8 = tail call double @llvm.fmuladd.f64(double %mul.us.i, double %7, double %mean.119.us.i)
@@ -10268,17 +10260,17 @@ for.cond2.preheader.us:                           ; preds = %for.cond2.preheader
   %i.023.us = phi i64 [ %inc12.us, %for.cond2.for.cond.cleanup4_crit_edge.us ], [ 0, %for.cond2.preheader.lr.ph ]
   %mean.022.us = phi double [ %7, %for.cond2.for.cond.cleanup4_crit_edge.us ], [ 0.000000e+00, %for.cond2.preheader.lr.ph ]
   %mul.i.i.us = mul i64 %2, %i.023.us
-  %add.ptr.i.i.us = getelementptr inbounds nuw double, ptr %1, i64 %mul.i.i.us
+  %add.ptr.i.i.us = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %mul.i.i.us
   %mul.i.i13.us = mul i64 %4, %i.023.us
-  %add.ptr.i.i14.us = getelementptr inbounds nuw double, ptr %3, i64 %mul.i.i13.us
+  %add.ptr.i.i14.us = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %mul.i.i13.us
   br label %for.body5.us
 
 for.body5.us:                                     ; preds = %for.cond2.preheader.us, %for.body5.us
   %j.020.us = phi i64 [ 0, %for.cond2.preheader.us ], [ %inc.us, %for.body5.us ]
   %mean.119.us = phi double [ %mean.022.us, %for.cond2.preheader.us ], [ %7, %for.body5.us ]
-  %arrayidx.us = getelementptr inbounds nuw double, ptr %add.ptr.i.i.us, i64 %j.020.us
+  %arrayidx.us = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i.us, i64 %j.020.us
   %5 = load double, ptr %arrayidx.us, align 8, !tbaa !144
-  %arrayidx7.us = getelementptr inbounds nuw double, ptr %add.ptr.i.i14.us, i64 %j.020.us
+  %arrayidx7.us = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i14.us, i64 %j.020.us
   %6 = load double, ptr %arrayidx7.us, align 8, !tbaa !144
   %mul.us = fmul double %5, %6
   %7 = tail call double @llvm.fmuladd.f64(double %mul.us, double %6, double %mean.119.us)
@@ -10330,17 +10322,17 @@ for.cond2.preheader.us.i:                         ; preds = %for.cond2.preheader
   %i.023.us.i = phi i64 [ %inc12.us.i, %for.cond2.for.cond.cleanup4_crit_edge.us.i ], [ 0, %for.cond2.preheader.lr.ph.i ]
   %mean.022.us.i = phi double [ %8, %for.cond2.for.cond.cleanup4_crit_edge.us.i ], [ 0.000000e+00, %for.cond2.preheader.lr.ph.i ]
   %mul.i.i.us.i = mul i64 %i.023.us.i, %3
-  %add.ptr.i.i.us.i = getelementptr inbounds nuw double, ptr %2, i64 %mul.i.i.us.i
+  %add.ptr.i.i.us.i = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %mul.i.i.us.i
   %mul.i.i13.us.i = mul i64 %i.023.us.i, %5
-  %add.ptr.i.i14.us.i = getelementptr inbounds nuw double, ptr %4, i64 %mul.i.i13.us.i
+  %add.ptr.i.i14.us.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %mul.i.i13.us.i
   br label %for.body5.us.i
 
 for.body5.us.i:                                   ; preds = %for.body5.us.i, %for.cond2.preheader.us.i
   %j.020.us.i = phi i64 [ 0, %for.cond2.preheader.us.i ], [ %inc.us.i, %for.body5.us.i ]
   %mean.119.us.i = phi double [ %mean.022.us.i, %for.cond2.preheader.us.i ], [ %8, %for.body5.us.i ]
-  %arrayidx.us.i = getelementptr inbounds nuw double, ptr %add.ptr.i.i.us.i, i64 %j.020.us.i
+  %arrayidx.us.i = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i.us.i, i64 %j.020.us.i
   %6 = load double, ptr %arrayidx.us.i, align 8, !tbaa !144
-  %arrayidx7.us.i = getelementptr inbounds nuw double, ptr %add.ptr.i.i14.us.i, i64 %j.020.us.i
+  %arrayidx7.us.i = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i14.us.i, i64 %j.020.us.i
   %7 = load double, ptr %arrayidx7.us.i, align 8, !tbaa !144
   %mul.us.i = fmul double %6, %7
   %8 = tail call double @llvm.fmuladd.f64(double %mul.us.i, double %7, double %mean.119.us.i)
@@ -10392,17 +10384,17 @@ for.cond2.preheader.us.i:                         ; preds = %for.cond2.preheader
   %i.023.us.i = phi i64 [ %inc12.us.i, %for.cond2.for.cond.cleanup4_crit_edge.us.i ], [ 0, %for.cond2.preheader.lr.ph.i ]
   %mean.022.us.i = phi double [ %8, %for.cond2.for.cond.cleanup4_crit_edge.us.i ], [ 0.000000e+00, %for.cond2.preheader.lr.ph.i ]
   %mul.i.i.us.i = mul i64 %i.023.us.i, %3
-  %add.ptr.i.i.us.i = getelementptr inbounds nuw double, ptr %2, i64 %mul.i.i.us.i
+  %add.ptr.i.i.us.i = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %mul.i.i.us.i
   %mul.i.i13.us.i = mul i64 %i.023.us.i, %5
-  %add.ptr.i.i14.us.i = getelementptr inbounds nuw double, ptr %4, i64 %mul.i.i13.us.i
+  %add.ptr.i.i14.us.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %mul.i.i13.us.i
   br label %for.body5.us.i
 
 for.body5.us.i:                                   ; preds = %for.body5.us.i, %for.cond2.preheader.us.i
   %j.020.us.i = phi i64 [ 0, %for.cond2.preheader.us.i ], [ %inc.us.i, %for.body5.us.i ]
   %mean.119.us.i = phi double [ %mean.022.us.i, %for.cond2.preheader.us.i ], [ %8, %for.body5.us.i ]
-  %arrayidx.us.i = getelementptr inbounds nuw double, ptr %add.ptr.i.i.us.i, i64 %j.020.us.i
+  %arrayidx.us.i = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i.us.i, i64 %j.020.us.i
   %6 = load double, ptr %arrayidx.us.i, align 8, !tbaa !144
-  %arrayidx7.us.i = getelementptr inbounds nuw double, ptr %add.ptr.i.i14.us.i, i64 %j.020.us.i
+  %arrayidx7.us.i = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i14.us.i, i64 %j.020.us.i
   %7 = load double, ptr %arrayidx7.us.i, align 8, !tbaa !144
   %mul.us.i = fmul double %6, %7
   %8 = tail call double @llvm.fmuladd.f64(double %mul.us.i, double %7, double %mean.119.us.i)
@@ -10470,22 +10462,22 @@ for.cond3.preheader.lr.ph.i:                      ; preds = %_ZN8QuantLib5ArrayC
 for.cond3.preheader.us.i:                         ; preds = %for.cond3.preheader.lr.ph.i, %for.cond3.for.cond.cleanup6_crit_edge.us.i
   %i.015.us.i = phi i64 [ %inc18.us.i, %for.cond3.for.cond.cleanup6_crit_edge.us.i ], [ 0, %for.cond3.preheader.lr.ph.i ]
   %mul.i.i.us.i = mul i64 %i.015.us.i, %7
-  %add.ptr.i.i.us.i = getelementptr inbounds nuw double, ptr %6, i64 %mul.i.i.us.i
+  %add.ptr.i.i.us.i = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %mul.i.i.us.i
   %mul.i.i10.us.i = mul i64 %i.015.us.i, %9
-  %add.ptr.i.i11.us.i = getelementptr inbounds nuw double, ptr %8, i64 %mul.i.i10.us.i
+  %add.ptr.i.i11.us.i = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %mul.i.i10.us.i
   %mul14.us.i = mul i64 %i.015.us.i, %2
-  %10 = getelementptr double, ptr %cond.i.i, i64 %mul14.us.i
+  %10 = getelementptr [8 x i8], ptr %cond.i.i, i64 %mul14.us.i
   br label %invoke.cont9.us.i
 
 invoke.cont9.us.i:                                ; preds = %invoke.cont9.us.i, %for.cond3.preheader.us.i
   %j.013.us.i = phi i64 [ 0, %for.cond3.preheader.us.i ], [ %inc.us.i, %invoke.cont9.us.i ]
-  %arrayidx.us.i = getelementptr inbounds nuw double, ptr %add.ptr.i.i.us.i, i64 %j.013.us.i
+  %arrayidx.us.i = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i.us.i, i64 %j.013.us.i
   %11 = load double, ptr %arrayidx.us.i, align 8, !tbaa !144, !noalias !202
   %call8.us.i = tail call double @sqrt(double noundef %11) #28, !tbaa !201, !noalias !202
-  %arrayidx11.us.i = getelementptr inbounds nuw double, ptr %add.ptr.i.i11.us.i, i64 %j.013.us.i
+  %arrayidx11.us.i = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i11.us.i, i64 %j.013.us.i
   %12 = load double, ptr %arrayidx11.us.i, align 8, !tbaa !144, !noalias !202
   %mul12.us.i = fmul double %call8.us.i, %12
-  %arrayidx.i.us.i = getelementptr double, ptr %10, i64 %j.013.us.i
+  %arrayidx.i.us.i = getelementptr [8 x i8], ptr %10, i64 %j.013.us.i
   store double %mul12.us.i, ptr %arrayidx.i.us.i, align 8, !tbaa !144, !noalias !202
   %inc.us.i = add nuw i64 %j.013.us.i, 1
   %exitcond.not.i = icmp eq i64 %inc.us.i, %2
@@ -10539,22 +10531,22 @@ for.cond3.preheader.lr.ph:                        ; preds = %_ZN8QuantLib5ArrayC
 for.cond3.preheader.us:                           ; preds = %for.cond3.preheader.lr.ph, %for.cond3.for.cond.cleanup6_crit_edge.us
   %i.015.us = phi i64 [ %inc18.us, %for.cond3.for.cond.cleanup6_crit_edge.us ], [ 0, %for.cond3.preheader.lr.ph ]
   %mul.i.i.us = mul i64 %6, %i.015.us
-  %add.ptr.i.i.us = getelementptr inbounds nuw double, ptr %5, i64 %mul.i.i.us
+  %add.ptr.i.i.us = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %mul.i.i.us
   %mul.i.i10.us = mul i64 %8, %i.015.us
-  %add.ptr.i.i11.us = getelementptr inbounds nuw double, ptr %7, i64 %mul.i.i10.us
+  %add.ptr.i.i11.us = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %mul.i.i10.us
   %mul14.us = mul i64 %i.015.us, %1
-  %9 = getelementptr double, ptr %cond.i, i64 %mul14.us
+  %9 = getelementptr [8 x i8], ptr %cond.i, i64 %mul14.us
   br label %invoke.cont9.us
 
 invoke.cont9.us:                                  ; preds = %for.cond3.preheader.us, %invoke.cont9.us
   %j.013.us = phi i64 [ 0, %for.cond3.preheader.us ], [ %inc.us, %invoke.cont9.us ]
-  %arrayidx.us = getelementptr inbounds nuw double, ptr %add.ptr.i.i.us, i64 %j.013.us
+  %arrayidx.us = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i.us, i64 %j.013.us
   %10 = load double, ptr %arrayidx.us, align 8, !tbaa !144
   %call8.us = tail call double @sqrt(double noundef %10) #28, !tbaa !201
-  %arrayidx11.us = getelementptr inbounds nuw double, ptr %add.ptr.i.i11.us, i64 %j.013.us
+  %arrayidx11.us = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i11.us, i64 %j.013.us
   %11 = load double, ptr %arrayidx11.us, align 8, !tbaa !144
   %mul12.us = fmul double %call8.us, %11
-  %arrayidx.i.us = getelementptr double, ptr %9, i64 %j.013.us
+  %arrayidx.i.us = getelementptr [8 x i8], ptr %9, i64 %j.013.us
   store double %mul12.us, ptr %arrayidx.i.us, align 8, !tbaa !144
   %inc.us = add nuw i64 %j.013.us, 1
   %exitcond.not = icmp eq i64 %inc.us, %1
@@ -10614,22 +10606,22 @@ for.cond3.preheader.lr.ph.i:                      ; preds = %_ZN8QuantLib5ArrayC
 for.cond3.preheader.us.i:                         ; preds = %for.cond3.preheader.lr.ph.i, %for.cond3.for.cond.cleanup6_crit_edge.us.i
   %i.015.us.i = phi i64 [ %inc18.us.i, %for.cond3.for.cond.cleanup6_crit_edge.us.i ], [ 0, %for.cond3.preheader.lr.ph.i ]
   %mul.i.i.us.i = mul i64 %i.015.us.i, %7
-  %add.ptr.i.i.us.i = getelementptr inbounds nuw double, ptr %6, i64 %mul.i.i.us.i
+  %add.ptr.i.i.us.i = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %mul.i.i.us.i
   %mul.i.i10.us.i = mul i64 %i.015.us.i, %9
-  %add.ptr.i.i11.us.i = getelementptr inbounds nuw double, ptr %8, i64 %mul.i.i10.us.i
+  %add.ptr.i.i11.us.i = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %mul.i.i10.us.i
   %mul14.us.i = mul i64 %i.015.us.i, %2
-  %10 = getelementptr double, ptr %cond.i.i, i64 %mul14.us.i
+  %10 = getelementptr [8 x i8], ptr %cond.i.i, i64 %mul14.us.i
   br label %invoke.cont9.us.i
 
 invoke.cont9.us.i:                                ; preds = %invoke.cont9.us.i, %for.cond3.preheader.us.i
   %j.013.us.i = phi i64 [ 0, %for.cond3.preheader.us.i ], [ %inc.us.i, %invoke.cont9.us.i ]
-  %arrayidx.us.i = getelementptr inbounds nuw double, ptr %add.ptr.i.i.us.i, i64 %j.013.us.i
+  %arrayidx.us.i = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i.us.i, i64 %j.013.us.i
   %11 = load double, ptr %arrayidx.us.i, align 8, !tbaa !144, !noalias !209
   %call8.us.i = tail call double @sqrt(double noundef %11) #28, !tbaa !201, !noalias !209
-  %arrayidx11.us.i = getelementptr inbounds nuw double, ptr %add.ptr.i.i11.us.i, i64 %j.013.us.i
+  %arrayidx11.us.i = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i11.us.i, i64 %j.013.us.i
   %12 = load double, ptr %arrayidx11.us.i, align 8, !tbaa !144, !noalias !209
   %mul12.us.i = fmul double %call8.us.i, %12
-  %arrayidx.i.us.i = getelementptr double, ptr %10, i64 %j.013.us.i
+  %arrayidx.i.us.i = getelementptr [8 x i8], ptr %10, i64 %j.013.us.i
   store double %mul12.us.i, ptr %arrayidx.i.us.i, align 8, !tbaa !144, !noalias !209
   %inc.us.i = add nuw i64 %j.013.us.i, 1
   %exitcond.not.i = icmp eq i64 %inc.us.i, %2
@@ -10689,22 +10681,22 @@ for.cond3.preheader.lr.ph.i:                      ; preds = %_ZN8QuantLib5ArrayC
 for.cond3.preheader.us.i:                         ; preds = %for.cond3.preheader.lr.ph.i, %for.cond3.for.cond.cleanup6_crit_edge.us.i
   %i.015.us.i = phi i64 [ %inc18.us.i, %for.cond3.for.cond.cleanup6_crit_edge.us.i ], [ 0, %for.cond3.preheader.lr.ph.i ]
   %mul.i.i.us.i = mul i64 %i.015.us.i, %7
-  %add.ptr.i.i.us.i = getelementptr inbounds nuw double, ptr %6, i64 %mul.i.i.us.i
+  %add.ptr.i.i.us.i = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %mul.i.i.us.i
   %mul.i.i10.us.i = mul i64 %i.015.us.i, %9
-  %add.ptr.i.i11.us.i = getelementptr inbounds nuw double, ptr %8, i64 %mul.i.i10.us.i
+  %add.ptr.i.i11.us.i = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %mul.i.i10.us.i
   %mul14.us.i = mul i64 %i.015.us.i, %2
-  %10 = getelementptr double, ptr %cond.i.i, i64 %mul14.us.i
+  %10 = getelementptr [8 x i8], ptr %cond.i.i, i64 %mul14.us.i
   br label %invoke.cont9.us.i
 
 invoke.cont9.us.i:                                ; preds = %invoke.cont9.us.i, %for.cond3.preheader.us.i
   %j.013.us.i = phi i64 [ 0, %for.cond3.preheader.us.i ], [ %inc.us.i, %invoke.cont9.us.i ]
-  %arrayidx.us.i = getelementptr inbounds nuw double, ptr %add.ptr.i.i.us.i, i64 %j.013.us.i
+  %arrayidx.us.i = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i.us.i, i64 %j.013.us.i
   %11 = load double, ptr %arrayidx.us.i, align 8, !tbaa !144, !noalias !212
   %call8.us.i = tail call double @sqrt(double noundef %11) #28, !tbaa !201, !noalias !212
-  %arrayidx11.us.i = getelementptr inbounds nuw double, ptr %add.ptr.i.i11.us.i, i64 %j.013.us.i
+  %arrayidx11.us.i = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i11.us.i, i64 %j.013.us.i
   %12 = load double, ptr %arrayidx11.us.i, align 8, !tbaa !144, !noalias !212
   %mul12.us.i = fmul double %call8.us.i, %12
-  %arrayidx.i.us.i = getelementptr double, ptr %10, i64 %j.013.us.i
+  %arrayidx.i.us.i = getelementptr [8 x i8], ptr %10, i64 %j.013.us.i
   store double %mul12.us.i, ptr %arrayidx.i.us.i, align 8, !tbaa !144, !noalias !212
   %inc.us.i = add nuw i64 %j.013.us.i, 1
   %exitcond.not.i = icmp eq i64 %inc.us.i, %2
@@ -10812,21 +10804,21 @@ for.cond3.preheader.lr.ph:                        ; preds = %_ZN8QuantLib6Matrix
 
 for.cond3.preheader.us:                           ; preds = %for.cond3.preheader.lr.ph, %for.cond3.for.cond.cleanup6_crit_edge.us
   %j.0201.us = phi i64 [ %inc186.us, %for.cond3.for.cond.cleanup6_crit_edge.us ], [ 0, %for.cond3.preheader.lr.ph ]
-  %add.ptr.i.us = getelementptr inbounds nuw %"class.QuantLib::Period", ptr %6, i64 %j.0201.us
+  %add.ptr.i.us = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %j.0201.us
   %30 = load i32, ptr %add.ptr.i.us, align 4, !tbaa !115
   %mul10.us = mul i64 %j.0201.us, %1
   %conv.us = sitofp i32 %30 to double
-  %invariant.gep.us = getelementptr double, ptr %8, i64 %j.0201.us
-  %invariant.gep180.us = getelementptr double, ptr %10, i64 %j.0201.us
-  %invariant.gep182.us = getelementptr double, ptr %12, i64 %j.0201.us
-  %invariant.gep184.us = getelementptr double, ptr %14, i64 %j.0201.us
-  %invariant.gep186.us = getelementptr double, ptr %16, i64 %j.0201.us
-  %invariant.gep188.us = getelementptr double, ptr %18, i64 %j.0201.us
-  %invariant.gep190.us = getelementptr double, ptr %20, i64 %j.0201.us
-  %invariant.gep192.us = getelementptr double, ptr %22, i64 %j.0201.us
-  %invariant.gep194.us = getelementptr double, ptr %24, i64 %j.0201.us
-  %invariant.gep196.us = getelementptr double, ptr %26, i64 %j.0201.us
-  %invariant.gep198.us = getelementptr double, ptr %28, i64 %j.0201.us
+  %invariant.gep.us = getelementptr [8 x i8], ptr %8, i64 %j.0201.us
+  %invariant.gep180.us = getelementptr [8 x i8], ptr %10, i64 %j.0201.us
+  %invariant.gep182.us = getelementptr [8 x i8], ptr %12, i64 %j.0201.us
+  %invariant.gep184.us = getelementptr [8 x i8], ptr %14, i64 %j.0201.us
+  %invariant.gep186.us = getelementptr [8 x i8], ptr %16, i64 %j.0201.us
+  %invariant.gep188.us = getelementptr [8 x i8], ptr %18, i64 %j.0201.us
+  %invariant.gep190.us = getelementptr [8 x i8], ptr %20, i64 %j.0201.us
+  %invariant.gep192.us = getelementptr [8 x i8], ptr %22, i64 %j.0201.us
+  %invariant.gep194.us = getelementptr [8 x i8], ptr %24, i64 %j.0201.us
+  %invariant.gep196.us = getelementptr [8 x i8], ptr %26, i64 %j.0201.us
+  %invariant.gep198.us = getelementptr [8 x i8], ptr %28, i64 %j.0201.us
   br label %invoke.cont78.us
 
 invoke.cont78.us:                                 ; preds = %for.cond3.preheader.us, %invoke.cont182.us
@@ -10835,37 +10827,37 @@ invoke.cont78.us:                                 ; preds = %for.cond3.preheader
   %add.ptr.i.i.idx.us = mul i64 %add.us, 112
   %add.ptr.i.i.us = getelementptr inbounds nuw i8, ptr %cond.i, i64 %add.ptr.i.i.idx.us
   store double %conv.us, ptr %add.ptr.i.i.us, align 8, !tbaa !144
-  %add.ptr.i75.us = getelementptr inbounds nuw %"class.QuantLib::Period", ptr %7, i64 %i.0179.us
+  %add.ptr.i75.us = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %i.0179.us
   %31 = load i32, ptr %add.ptr.i75.us, align 4, !tbaa !115
   %conv16.us = sitofp i32 %31 to double
   %arrayidx22.us = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.us, i64 8
   store double %conv16.us, ptr %arrayidx22.us, align 8, !tbaa !144
   %mul.i.i80.us = mul i64 %9, %i.0179.us
-  %gep.us = getelementptr double, ptr %invariant.gep.us, i64 %mul.i.i80.us
+  %gep.us = getelementptr [8 x i8], ptr %invariant.gep.us, i64 %mul.i.i80.us
   %32 = load double, ptr %gep.us, align 8, !tbaa !144
   %mul26.us = fmul double %32, 1.000000e+04
   %arrayidx32.us = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.us, i64 16
   store double %mul26.us, ptr %arrayidx32.us, align 8, !tbaa !144
   %mul.i.i86.us = mul i64 %11, %i.0179.us
-  %gep181.us = getelementptr double, ptr %invariant.gep180.us, i64 %mul.i.i86.us
+  %gep181.us = getelementptr [8 x i8], ptr %invariant.gep180.us, i64 %mul.i.i86.us
   %33 = load double, ptr %gep181.us, align 8, !tbaa !144
   %mul36.us = fmul double %33, 1.000000e+04
   %arrayidx42.us = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.us, i64 24
   store double %mul36.us, ptr %arrayidx42.us, align 8, !tbaa !144
   %mul.i.i92.us = mul i64 %13, %i.0179.us
-  %gep183.us = getelementptr double, ptr %invariant.gep182.us, i64 %mul.i.i92.us
+  %gep183.us = getelementptr [8 x i8], ptr %invariant.gep182.us, i64 %mul.i.i92.us
   %34 = load double, ptr %gep183.us, align 8, !tbaa !144
   %mul46.us = fmul double %34, 1.000000e+04
   %arrayidx52.us = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.us, i64 32
   store double %mul46.us, ptr %arrayidx52.us, align 8, !tbaa !144
   %mul.i.i98.us = mul i64 %15, %i.0179.us
-  %gep185.us = getelementptr double, ptr %invariant.gep184.us, i64 %mul.i.i98.us
+  %gep185.us = getelementptr [8 x i8], ptr %invariant.gep184.us, i64 %mul.i.i98.us
   %35 = load double, ptr %gep185.us, align 8, !tbaa !144
   %mul56.us = fmul double %35, 1.000000e+04
   %arrayidx62.us = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.us, i64 40
   store double %mul56.us, ptr %arrayidx62.us, align 8, !tbaa !144
   %mul.i.i104.us = mul i64 %17, %i.0179.us
-  %gep187.us = getelementptr double, ptr %invariant.gep186.us, i64 %mul.i.i104.us
+  %gep187.us = getelementptr [8 x i8], ptr %invariant.gep186.us, i64 %mul.i.i104.us
   %36 = load double, ptr %gep187.us, align 8, !tbaa !144
   %mul66.us = fmul double %36, 1.000000e+04
   %arrayidx72.us = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.us, i64 48
@@ -10895,32 +10887,32 @@ invoke.cont182.us:                                ; preds = %invoke.cont102.us, 
   %arrayidx96.us = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.us, i64 56
   store double %mul90.us.sink, ptr %arrayidx96.us, align 8, !tbaa !144
   %mul.i.i143.us = mul i64 %19, %i.0179.us
-  %gep189.us = getelementptr double, ptr %invariant.gep188.us, i64 %mul.i.i143.us
+  %gep189.us = getelementptr [8 x i8], ptr %invariant.gep188.us, i64 %mul.i.i143.us
   %40 = load double, ptr %gep189.us, align 8, !tbaa !144
   %arrayidx139.us = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.us, i64 64
   store double %40, ptr %arrayidx139.us, align 8, !tbaa !144
   %mul.i.i149.us = mul i64 %21, %i.0179.us
-  %gep191.us = getelementptr double, ptr %invariant.gep190.us, i64 %mul.i.i149.us
+  %gep191.us = getelementptr [8 x i8], ptr %invariant.gep190.us, i64 %mul.i.i149.us
   %41 = load double, ptr %gep191.us, align 8, !tbaa !144
   %arrayidx148.us = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.us, i64 72
   store double %41, ptr %arrayidx148.us, align 8, !tbaa !144
   %mul.i.i155.us = mul i64 %23, %i.0179.us
-  %gep193.us = getelementptr double, ptr %invariant.gep192.us, i64 %mul.i.i155.us
+  %gep193.us = getelementptr [8 x i8], ptr %invariant.gep192.us, i64 %mul.i.i155.us
   %42 = load double, ptr %gep193.us, align 8, !tbaa !144
   %arrayidx157.us = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.us, i64 80
   store double %42, ptr %arrayidx157.us, align 8, !tbaa !144
   %mul.i.i161.us = mul i64 %25, %i.0179.us
-  %gep195.us = getelementptr double, ptr %invariant.gep194.us, i64 %mul.i.i161.us
+  %gep195.us = getelementptr [8 x i8], ptr %invariant.gep194.us, i64 %mul.i.i161.us
   %43 = load double, ptr %gep195.us, align 8, !tbaa !144
   %arrayidx166.us = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.us, i64 88
   store double %43, ptr %arrayidx166.us, align 8, !tbaa !144
   %mul.i.i167.us = mul i64 %27, %i.0179.us
-  %gep197.us = getelementptr double, ptr %invariant.gep196.us, i64 %mul.i.i167.us
+  %gep197.us = getelementptr [8 x i8], ptr %invariant.gep196.us, i64 %mul.i.i167.us
   %44 = load double, ptr %gep197.us, align 8, !tbaa !144
   %arrayidx175.us = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.us, i64 96
   store double %44, ptr %arrayidx175.us, align 8, !tbaa !144
   %mul.i.i173.us = mul i64 %29, %i.0179.us
-  %gep199.us = getelementptr double, ptr %invariant.gep198.us, i64 %mul.i.i173.us
+  %gep199.us = getelementptr [8 x i8], ptr %invariant.gep198.us, i64 %mul.i.i173.us
   %45 = load double, ptr %gep199.us, align 8, !tbaa !144
   %arrayidx184.us = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.us, i64 104
   store double %45, ptr %arrayidx184.us, align 8, !tbaa !144

@@ -22,11 +22,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, int>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, int>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
 %"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
 %"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%"class.draco::PlyElement" = type { %"class.std::__cxx11::basic_string", i64, %"class.std::vector.30", %"class.std::map" }
-%"class.std::vector.30" = type { %"struct.std::_Vector_base.31" }
-%"struct.std::_Vector_base.31" = type { %"struct.std::_Vector_base<draco::PlyProperty, std::allocator<draco::PlyProperty>>::_Vector_impl" }
-%"struct.std::_Vector_base<draco::PlyProperty, std::allocator<draco::PlyProperty>>::_Vector_impl" = type { %"struct.std::_Vector_base<draco::PlyProperty, std::allocator<draco::PlyProperty>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<draco::PlyProperty, std::allocator<draco::PlyProperty>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"struct.std::array" = type { [3 x %"class.draco::IndexType"] }
 %"class.draco::IndexType" = type { i32 }
 %"class.draco::PlyPropertyReader" = type { ptr, %"class.std::function" }
@@ -34,15 +29,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
 %"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
 %"union.std::_Nocopy_types" = type { { i64, i64 } }
-%"class.draco::PlyProperty" = type { %"class.std::__cxx11::basic_string", %"class.std::vector.35", %"class.std::vector.40", i32, i32, i32, i32 }
-%"class.std::vector.35" = type { %"struct.std::_Vector_base.36" }
-%"struct.std::_Vector_base.36" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.40" = type { %"struct.std::_Vector_base.41" }
-%"struct.std::_Vector_base.41" = type { %"struct.std::_Vector_base<long, std::allocator<long>>::_Vector_impl" }
-%"struct.std::_Vector_base<long, std::allocator<long>>::_Vector_impl" = type { %"struct.std::_Vector_base<long, std::allocator<long>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<long, std::allocator<long>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.draco::GeometryAttribute" = type { ptr, %"struct.draco::DataBufferDescriptor", i8, i32, i8, i64, i64, i32, i32 }
 %"struct.draco::DataBufferDescriptor" = type { i64, i64 }
 %"class.std::vector.46" = type { %"struct.std::_Vector_base.47" }
@@ -63,12 +49,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Tuple_impl.88" = type { %"struct.std::_Head_base.91" }
 %"struct.std::_Head_base.91" = type { ptr }
 %"struct.std::array.96" = type { [4 x i8] }
-%"class.std::unique_ptr.98" = type { %"struct.std::__uniq_ptr_data.99" }
-%"struct.std::__uniq_ptr_data.99" = type { %"class.std::__uniq_ptr_impl.100" }
-%"class.std::__uniq_ptr_impl.100" = type { %"class.std::tuple.101" }
-%"class.std::tuple.101" = type { %"struct.std::_Tuple_impl.102" }
-%"struct.std::_Tuple_impl.102" = type { %"struct.std::_Head_base.105" }
-%"struct.std::_Head_base.105" = type { ptr }
 %"class.std::vector.115" = type { %"struct.std::_Vector_base.116" }
 %"struct.std::_Vector_base.116" = type { %"struct.std::_Vector_base<std::unique_ptr<draco::PlyPropertyReader<float>>, std::allocator<std::unique_ptr<draco::PlyPropertyReader<float>>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::unique_ptr<draco::PlyPropertyReader<float>>, std::allocator<std::unique_ptr<draco::PlyPropertyReader<float>>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::unique_ptr<draco::PlyPropertyReader<float>>, std::allocator<std::unique_ptr<draco::PlyPropertyReader<float>>>>::_Vector_impl_data" }
@@ -962,7 +942,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaIS
   %46 = load i32, ptr %.19.i.i.i.i.sroa.sel101.v.sroa.sel.v.sroa.sel, align 8, !tbaa !49
   %47 = sext i32 %46 to i64
   %48 = load ptr, ptr %5, align 8, !tbaa !52
-  %49 = getelementptr inbounds nuw %"class.draco::PlyElement", ptr %48, i64 %47
+  %49 = getelementptr inbounds nuw [112 x i8], ptr %48, i64 %47
   br label %_ZNK5draco9PlyReader16GetElementByNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 _ZNK5draco9PlyReader16GetElementByNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %45, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEE4findERS9_.exit.i, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_iESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i, %._crit_edge.i.i
@@ -1101,7 +1081,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaIS
   %91 = load i32, ptr %.19.i.i.i.i53.sroa.sel107.v.sroa.sel.v.sroa.sel, align 8, !tbaa !49
   %92 = sext i32 %91 to i64
   %93 = load ptr, ptr %5, align 8, !tbaa !52
-  %94 = getelementptr inbounds nuw %"class.draco::PlyElement", ptr %93, i64 %92
+  %94 = getelementptr inbounds nuw [112 x i8], ptr %93, i64 %92
   br label %_ZNK5draco9PlyReader16GetElementByNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit73
 
 _ZNK5draco9PlyReader16GetElementByNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit73: ; preds = %90, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEE4findERS9_.exit.i62, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_iESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i58, %_ZN5draco6StatusD2Ev.exit39
@@ -1432,7 +1412,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %47 = load i32, ptr %46, align 8, !tbaa !49
   %48 = sext i32 %47 to i64
   %49 = load ptr, ptr %45, align 8, !tbaa !67
-  %50 = getelementptr inbounds nuw %"class.draco::PlyProperty", ptr %49, i64 %48
+  %50 = getelementptr inbounds nuw [96 x i8], ptr %49, i64 %48
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %51 = icmp eq ptr %49, null
   br i1 %51, label %._crit_edge.i.i58, label %.thread
@@ -1521,7 +1501,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %75 = load i32, ptr %74, align 8, !tbaa !49
   %76 = sext i32 %75 to i64
   %77 = load ptr, ptr %73, align 8, !tbaa !67
-  %78 = getelementptr inbounds nuw %"class.draco::PlyProperty", ptr %77, i64 %76
+  %78 = getelementptr inbounds nuw [96 x i8], ptr %77, i64 %76
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %79 = icmp eq ptr %77, null
   br i1 %79, label %.noexc.i102, label %.thread
@@ -1689,7 +1669,7 @@ _ZN5draco12_GLOBAL__N_117CountNumTrianglesERKNS_10PlyElementERKNS_11PlyPropertyE
   br i1 %140, label %141, label %144
 
 141:                                              ; preds = %139
-  %142 = getelementptr inbounds nuw %"struct.std::array", ptr %131, i64 %.0.lcssa.i
+  %142 = getelementptr inbounds nuw [12 x i8], ptr %131, i64 %.0.lcssa.i
   %.not.i.i.i.i112 = icmp eq ptr %130, %142
   br i1 %.not.i.i.i.i112, label %144, label %143
 
@@ -1746,7 +1726,7 @@ _ZN5draco12_GLOBAL__N_117CountNumTrianglesERKNS_10PlyElementERKNS_11PlyPropertyE
   br i1 %166, label %167, label %231
 
 167:                                              ; preds = %165
-  %168 = getelementptr inbounds nuw %"struct.std::array", ptr %157, i64 %.sroa.0.0.lcssa
+  %168 = getelementptr inbounds nuw [12 x i8], ptr %157, i64 %.sroa.0.0.lcssa
   %.not.i.i.i.i113 = icmp eq ptr %156, %168
   br i1 %.not.i.i.i.i113, label %231, label %169
 
@@ -1849,7 +1829,7 @@ _ZNKSt8functionIFjiEEclEi.exit.i:                 ; preds = %179
   br i1 %205, label %206, label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS1_IjNS_20PointIndex_tag_type_EEELm3EEE6resizeEmRKS7_.exit.i
 
 206:                                              ; preds = %204
-  %207 = getelementptr inbounds nuw %"struct.std::array", ptr %192, i64 %200
+  %207 = getelementptr inbounds nuw [12 x i8], ptr %192, i64 %200
   %.not.i.i.i.i118 = icmp eq ptr %191, %207
   br i1 %.not.i.i.i.i118, label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS1_IjNS_20PointIndex_tag_type_EEELm3EEE6resizeEmRKS7_.exit.i, label %208
 
@@ -1865,13 +1845,13 @@ _ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS
 209:                                              ; preds = %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS1_IjNS_20PointIndex_tag_type_EEELm3EEE6resizeEmRKS7_.exit.i, %187
   %210 = phi ptr [ %.pre.i, %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS1_IjNS_20PointIndex_tag_type_EEELm3EEE6resizeEmRKS7_.exit.i ], [ %192, %187 ]
   %211 = zext i32 %.sroa.0.2151 to i64
-  %212 = getelementptr inbounds nuw %"struct.std::array", ptr %210, i64 %211
+  %212 = getelementptr inbounds nuw [12 x i8], ptr %210, i64 %211
   br label %213
 
 213:                                              ; preds = %213, %209
   %.05.i.i = phi i64 [ 0, %209 ], [ %217, %213 ]
-  %214 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %212, i64 %.05.i.i
-  %215 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %15, i64 %.05.i.i
+  %214 = getelementptr inbounds nuw [4 x i8], ptr %212, i64 %.05.i.i
+  %215 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %.05.i.i
   %216 = load i32, ptr %215, align 4, !tbaa !99
   store i32 %216, ptr %214, align 4, !tbaa !99
   %217 = add nuw nsw i64 %.05.i.i, 1
@@ -2250,7 +2230,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaIS
   %110 = load i32, ptr %109, align 8, !tbaa !49
   %111 = sext i32 %110 to i64
   %112 = load ptr, ptr %108, align 8, !tbaa !67
-  %113 = getelementptr inbounds nuw %"class.draco::PlyProperty", ptr %112, i64 %111
+  %113 = getelementptr inbounds nuw [96 x i8], ptr %112, i64 %111
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit240
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit240: ; preds = %107, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEE4findERS9_.exit.i, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_iESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i
@@ -2339,7 +2319,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaIS
   %135 = load i32, ptr %134, align 8, !tbaa !49
   %136 = sext i32 %135 to i64
   %137 = load ptr, ptr %133, align 8, !tbaa !67
-  %138 = getelementptr inbounds nuw %"class.draco::PlyProperty", ptr %137, i64 %136
+  %138 = getelementptr inbounds nuw [96 x i8], ptr %137, i64 %136
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit277
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit277: ; preds = %132, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEE4findERS9_.exit.i263, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_iESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i259
@@ -2432,7 +2412,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit314: ; preds = %_Z
   %159 = load i32, ptr %158, align 8, !tbaa !49
   %160 = sext i32 %159 to i64
   %161 = load ptr, ptr %157, align 8, !tbaa !67
-  %162 = getelementptr inbounds nuw %"class.draco::PlyProperty", ptr %161, i64 %160
+  %162 = getelementptr inbounds nuw [96 x i8], ptr %161, i64 %160
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %163 = icmp ne ptr %.0.i, null
   %164 = icmp ne ptr %.0.i265, null
@@ -2831,7 +2811,7 @@ _ZNSt6vectorIPKN5draco11PlyPropertyESaIS3_EE9push_backERKS3_.exit387: ; preds = 
   %301 = getelementptr inbounds nuw i8, ptr %300, i64 16
   %302 = sext i32 %285 to i64
   %303 = load ptr, ptr %301, align 8, !tbaa !129
-  %304 = getelementptr inbounds nuw %"class.std::unique_ptr.98", ptr %303, i64 %302
+  %304 = getelementptr inbounds nuw [8 x i8], ptr %303, i64 %302
   %305 = load ptr, ptr %304, align 8, !tbaa !130
   %306 = invoke noundef zeroext i1 @_ZN5draco10PlyDecoder25ReadPropertiesToAttributeIfEEbRKSt6vectorIPKNS_11PlyPropertyESaIS5_EEPNS_14PointAttributeEi(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef %305, i32 noundef %203)
           to label %323 unwind label %307
@@ -2861,7 +2841,7 @@ _ZNSt6vectorIPKN5draco11PlyPropertyESaIS3_EED2Ev.exit: ; preds = %307, %310
   %317 = getelementptr inbounds nuw i8, ptr %316, i64 16
   %318 = sext i32 %285 to i64
   %319 = load ptr, ptr %317, align 8, !tbaa !129
-  %320 = getelementptr inbounds nuw %"class.std::unique_ptr.98", ptr %319, i64 %318
+  %320 = getelementptr inbounds nuw [8 x i8], ptr %319, i64 %318
   %321 = load ptr, ptr %320, align 8, !tbaa !130
   %322 = invoke noundef zeroext i1 @_ZN5draco10PlyDecoder25ReadPropertiesToAttributeIiEEbRKSt6vectorIPKNS_11PlyPropertyESaIS5_EEPNS_14PointAttributeEi(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef %321, i32 noundef %203)
           to label %323 unwind label %307
@@ -2978,7 +2958,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaIS
   %355 = load i32, ptr %354, align 8, !tbaa !49
   %356 = sext i32 %355 to i64
   %357 = load ptr, ptr %353, align 8, !tbaa !67
-  %358 = getelementptr inbounds nuw %"class.draco::PlyProperty", ptr %357, i64 %356
+  %358 = getelementptr inbounds nuw [96 x i8], ptr %357, i64 %356
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit427
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit427: ; preds = %352, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEE4findERS9_.exit.i413, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_iESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i409
@@ -3063,7 +3043,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaIS
   %383 = load i32, ptr %382, align 8, !tbaa !49
   %384 = sext i32 %383 to i64
   %385 = load ptr, ptr %381, align 8, !tbaa !67
-  %386 = getelementptr inbounds nuw %"class.draco::PlyProperty", ptr %385, i64 %384
+  %386 = getelementptr inbounds nuw [96 x i8], ptr %385, i64 %384
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit464
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit464: ; preds = %380, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEE4findERS9_.exit.i450, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_iESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i446
@@ -3152,7 +3132,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit501: ; preds = %_Z
   %410 = load i32, ptr %409, align 8, !tbaa !49
   %411 = sext i32 %410 to i64
   %412 = load ptr, ptr %408, align 8, !tbaa !67
-  %413 = getelementptr inbounds nuw %"class.draco::PlyProperty", ptr %412, i64 %411
+  %413 = getelementptr inbounds nuw [96 x i8], ptr %412, i64 %411
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   %414 = icmp ne ptr %.0.i415, null
   %415 = icmp ne ptr %.0.i452, null
@@ -3347,7 +3327,7 @@ _ZNKSt8functionIFfiEEclEi.exit.i524:              ; preds = %481
   %486 = load ptr, ptr %204, align 8, !tbaa !30
   %487 = getelementptr inbounds nuw i8, ptr %486, i64 16
   %488 = load ptr, ptr %487, align 8, !tbaa !129
-  %489 = getelementptr inbounds nuw %"class.std::unique_ptr.98", ptr %488, i64 %443
+  %489 = getelementptr inbounds nuw [8 x i8], ptr %488, i64 %443
   %490 = load ptr, ptr %489, align 8, !tbaa !130
   %491 = getelementptr inbounds nuw i8, ptr %490, i64 40
   %492 = load i64, ptr %491, align 8, !tbaa !136
@@ -3525,7 +3505,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaIS
   %548 = load i32, ptr %547, align 8, !tbaa !49
   %549 = sext i32 %548 to i64
   %550 = load ptr, ptr %546, align 8, !tbaa !67
-  %551 = getelementptr inbounds nuw %"class.draco::PlyProperty", ptr %550, i64 %549
+  %551 = getelementptr inbounds nuw [96 x i8], ptr %550, i64 %549
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit570
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit570: ; preds = %545, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEE4findERS9_.exit.i556, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_iESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i552
@@ -3610,7 +3590,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaIS
   %576 = load i32, ptr %575, align 8, !tbaa !49
   %577 = sext i32 %576 to i64
   %578 = load ptr, ptr %574, align 8, !tbaa !67
-  %579 = getelementptr inbounds nuw %"class.draco::PlyProperty", ptr %578, i64 %577
+  %579 = getelementptr inbounds nuw [96 x i8], ptr %578, i64 %577
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit607
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit607: ; preds = %573, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEE4findERS9_.exit.i593, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_iESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i589
@@ -3695,7 +3675,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaIS
   %604 = load i32, ptr %603, align 8, !tbaa !49
   %605 = sext i32 %604 to i64
   %606 = load ptr, ptr %602, align 8, !tbaa !67
-  %607 = getelementptr inbounds nuw %"class.draco::PlyProperty", ptr %606, i64 %605
+  %607 = getelementptr inbounds nuw [96 x i8], ptr %606, i64 %605
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit644
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit644: ; preds = %601, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEE4findERS9_.exit.i630, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_iESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i626
@@ -3780,7 +3760,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaIS
   %632 = load i32, ptr %631, align 8, !tbaa !49
   %633 = sext i32 %632 to i64
   %634 = load ptr, ptr %630, align 8, !tbaa !67
-  %635 = getelementptr inbounds nuw %"class.draco::PlyProperty", ptr %634, i64 %633
+  %635 = getelementptr inbounds nuw [96 x i8], ptr %634, i64 %633
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit681
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit681: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit570.thread, %629, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEE4findERS9_.exit.i667, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_iESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i663
@@ -4227,7 +4207,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit717: ; preds = %74
 773:                                              ; preds = %771, %784
   %indvars.iv769 = phi i64 [ 0, %771 ], [ %indvars.iv.next770, %784 ]
   %774 = load ptr, ptr %36, align 8, !tbaa !146
-  %775 = getelementptr inbounds nuw %"class.std::unique_ptr.84", ptr %774, i64 %indvars.iv769
+  %775 = getelementptr inbounds nuw [8 x i8], ptr %774, i64 %indvars.iv769
   %776 = load ptr, ptr %775, align 8, !tbaa !144
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 %772, ptr %4, align 4, !tbaa !94
@@ -4277,7 +4257,7 @@ _ZNKSt8functionIFhiEEclEi.exit.i:                 ; preds = %773
   %788 = load ptr, ptr %204, align 8, !tbaa !30
   %789 = getelementptr inbounds nuw i8, ptr %788, i64 16
   %790 = load ptr, ptr %789, align 8, !tbaa !129
-  %791 = getelementptr inbounds nuw %"class.std::unique_ptr.98", ptr %790, i64 %766
+  %791 = getelementptr inbounds nuw [8 x i8], ptr %790, i64 %766
   %792 = load ptr, ptr %791, align 8, !tbaa !130
   %793 = getelementptr inbounds nuw i8, ptr %792, i64 40
   %794 = load i64, ptr %793, align 8, !tbaa !136
@@ -4642,7 +4622,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZNSt10unique_
           to label %.noexc36 unwind label %113
 
 .noexc36:                                         ; preds = %25
-  %28 = getelementptr inbounds nuw float, ptr %27, i64 %82
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %82
   store float 0.000000e+00, ptr %27, align 4, !tbaa !134
   %29 = add nsw i64 %82, -1
   %30 = icmp eq i64 %29, 0
@@ -4670,7 +4650,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc36
           to label %40 unwind label %84
 
 40:                                               ; preds = %34
-  %41 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv
   %42 = load ptr, ptr %41, align 8, !tbaa !123
   tail call void @_ZN5draco17PlyPropertyReaderIfEC2EPKNS_11PlyPropertyE(ptr noundef nonnull align 8 dereferenceable(40) %39, ptr noundef %42)
   store ptr %39, ptr %7, align 8, !tbaa !170
@@ -4744,7 +4724,7 @@ _ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_
 _ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i, %63
   store ptr %57, ptr %6, align 8, !tbaa !165
   store ptr %62, ptr %23, align 8, !tbaa !168
-  %64 = getelementptr inbounds nuw %"class.std::unique_ptr.120", ptr %57, i64 %55
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %55
   store ptr %64, ptr %17, align 8, !tbaa !169
   %.pr = load ptr, ptr %7, align 8, !tbaa !170
   %.not.i = icmp eq ptr %.pr, null
@@ -4908,7 +4888,7 @@ _ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_
 
 .lr.ph94:                                         ; preds = %.lr.ph94.preheader, %124
   %indvars.iv104 = phi i64 [ 0, %.lr.ph94.preheader ], [ %indvars.iv.next105, %124 ]
-  %115 = getelementptr inbounds nuw %"class.std::unique_ptr.120", ptr %.pr.i127, i64 %indvars.iv104
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %.pr.i127, i64 %indvars.iv104
   %116 = load ptr, ptr %115, align 8, !tbaa !170
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 %93, ptr %5, align 4, !tbaa !94
@@ -4933,7 +4913,7 @@ _ZNKSt8functionIFfiEEclEi.exit.i:                 ; preds = %.lr.ph94
 
 124:                                              ; preds = %_ZNKSt8functionIFfiEEclEi.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %125 = getelementptr inbounds nuw float, ptr %.sroa.058.0, i64 %indvars.iv104
+  %125 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.058.0, i64 %indvars.iv104
   store float %123, ptr %125, align 4, !tbaa !134
   %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
   %126 = load ptr, ptr %8, align 8, !tbaa !127
@@ -5045,7 +5025,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZNSt10unique_
           to label %.noexc36 unwind label %113
 
 .noexc36:                                         ; preds = %25
-  %28 = getelementptr inbounds nuw i32, ptr %27, i64 %82
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %82
   store i32 0, ptr %27, align 4, !tbaa !94
   %29 = add nsw i64 %82, -1
   %30 = icmp eq i64 %29, 0
@@ -5073,7 +5053,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc36
           to label %40 unwind label %84
 
 40:                                               ; preds = %34
-  %41 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv
   %42 = load ptr, ptr %41, align 8, !tbaa !123
   tail call void @_ZN5draco17PlyPropertyReaderIiEC2EPKNS_11PlyPropertyE(ptr noundef nonnull align 8 dereferenceable(40) %39, ptr noundef %42)
   store ptr %39, ptr %7, align 8, !tbaa !187
@@ -5147,7 +5127,7 @@ _ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_
 _ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i, %63
   store ptr %57, ptr %6, align 8, !tbaa !182
   store ptr %62, ptr %23, align 8, !tbaa !185
-  %64 = getelementptr inbounds nuw %"class.std::unique_ptr.139", ptr %57, i64 %55
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %55
   store ptr %64, ptr %17, align 8, !tbaa !186
   %.pr = load ptr, ptr %7, align 8, !tbaa !187
   %.not.i = icmp eq ptr %.pr, null
@@ -5311,7 +5291,7 @@ _ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_
 
 .lr.ph94:                                         ; preds = %.lr.ph94.preheader, %124
   %indvars.iv104 = phi i64 [ 0, %.lr.ph94.preheader ], [ %indvars.iv.next105, %124 ]
-  %115 = getelementptr inbounds nuw %"class.std::unique_ptr.139", ptr %.pr.i127, i64 %indvars.iv104
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %.pr.i127, i64 %indvars.iv104
   %116 = load ptr, ptr %115, align 8, !tbaa !187
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 %93, ptr %5, align 4, !tbaa !94
@@ -5336,7 +5316,7 @@ _ZNKSt8functionIFiiEEclEi.exit.i:                 ; preds = %.lr.ph94
 
 124:                                              ; preds = %_ZNKSt8functionIFiiEEclEi.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %125 = getelementptr inbounds nuw i32, ptr %.sroa.058.0, i64 %indvars.iv104
+  %125 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.058.0, i64 %indvars.iv104
   store i32 %123, ptr %125, align 4, !tbaa !94
   %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
   %126 = load ptr, ptr %8, align 8, !tbaa !127
@@ -5917,7 +5897,7 @@ _ZSt22__uninitialized_move_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_t
 
 _ZSt22__uninitialized_move_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EES6_SaIS5_EET0_T_S9_S8_RT1_.exit: ; preds = %_ZSt22__uninitialized_move_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EES6_SaIS5_EET0_T_S9_S8_RT1_.exit.loopexit, %19
   %23 = phi ptr [ %.pre, %_ZSt22__uninitialized_move_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EES6_SaIS5_EET0_T_S9_S8_RT1_.exit.loopexit ], [ %9, %19 ]
-  %24 = getelementptr inbounds nuw %"struct.std::array", ptr %23, i64 %2
+  %24 = getelementptr inbounds nuw [12 x i8], ptr %23, i64 %2
   store ptr %24, ptr %8, align 8, !tbaa !55
   %25 = ptrtoint ptr %20 to i64
   %26 = sub i64 %25, %15
@@ -5938,8 +5918,8 @@ _ZSt22__uninitialized_move_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_t
 
 31:                                               ; preds = %31, %.lr.ph.i.i.i.i.i68
   %.05.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i68 ], [ %35, %31 ]
-  %32 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %30, i64 %.05.i.i.i.i.i.i
-  %33 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %29, i64 %.05.i.i.i.i.i.i
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %.05.i.i.i.i.i.i
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %.05.i.i.i.i.i.i
   %34 = load i32, ptr %33, align 4, !tbaa !99
   store i32 %34, ptr %32, align 4, !tbaa !99
   %35 = add nuw nsw i64 %.05.i.i.i.i.i.i, 1
@@ -6078,7 +6058,7 @@ _ZSt24__uninitialized_fill_n_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag
 
 _ZSt34__uninitialized_move_if_noexcept_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EES6_SaIS5_EET0_T_S9_S8_RT1_.exit: ; preds = %.lr.ph.i.i.i.i.i93, %_ZSt24__uninitialized_fill_n_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EEmS5_S5_ET_S7_T0_RKT1_RSaIT2_E.exit91
   %.0.lcssa.i.i.i.i.i97 = phi ptr [ %68, %_ZSt24__uninitialized_fill_n_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EEmS5_S5_ET_S7_T0_RKT1_RSaIT2_E.exit91 ], [ %73, %.lr.ph.i.i.i.i.i93 ]
-  %74 = getelementptr inbounds nuw %"struct.std::array", ptr %.0.lcssa.i.i.i.i.i97, i64 %2
+  %74 = getelementptr inbounds nuw [12 x i8], ptr %.0.lcssa.i.i.i.i.i97, i64 %2
   %.not11.i.i.i.i.i98 = icmp eq ptr %1, %9
   br i1 %.not11.i.i.i.i.i98, label %_ZSt34__uninitialized_move_if_noexcept_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EES6_SaIS5_EET0_T_S9_S8_RT1_.exit104, label %.lr.ph.i.i.i.i.i99
 
@@ -6106,7 +6086,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPSt5arrayIN5draco9IndexTypeIjNS1_20Poin
 _ZNSt12_Vector_baseISt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EES6_SaIS5_EET0_T_S9_S8_RT1_.exit104, %77
   store ptr %68, ptr %0, align 8, !tbaa !58
   store ptr %.0.lcssa.i.i.i.i.i103, ptr %8, align 8, !tbaa !55
-  %81 = getelementptr inbounds nuw %"struct.std::array", ptr %68, i64 %62
+  %81 = getelementptr inbounds nuw [12 x i8], ptr %68, i64 %62
   store ptr %81, ptr %6, align 8, !tbaa !213
   br label %82
 
@@ -7850,7 +7830,7 @@ _ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIhEESt14default_deleteIS3_
 _ZNSt12_Vector_baseISt10unique_ptrIN5draco17PlyPropertyReaderIhEESt14default_deleteIS3_EESaIS6_EE13_M_deallocateEPS6_m.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIhEESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22, %31
   store ptr %20, ptr %0, align 8, !tbaa !146
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !156
-  %35 = getelementptr inbounds nuw %"class.std::unique_ptr.84", ptr %20, i64 %16
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %16
   store ptr %35, ptr %30, align 8, !tbaa !158
   ret void
 }

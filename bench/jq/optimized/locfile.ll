@@ -79,7 +79,7 @@ define dso_local ptr @locfile_init(ptr noundef %0, ptr noundef %1, ptr noundef r
   %32 = add nsw i32 %3, 1
   %33 = load i32, ptr %14, align 8, !tbaa !18
   %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds i32, ptr %31, i64 %34
+  %35 = getelementptr inbounds [4 x i8], ptr %31, i64 %34
   store i32 %32, ptr %35, align 4, !tbaa !21
   ret ptr %5
 
@@ -94,7 +94,7 @@ define dso_local ptr @locfile_init(ptr noundef %0, ptr noundef %1, ptr noundef r
 
 40:                                               ; preds = %.lr.ph41
   %41 = sext i32 %.03438 to i64
-  %42 = getelementptr inbounds i32, ptr %21, i64 %41
+  %42 = getelementptr inbounds [4 x i8], ptr %21, i64 %41
   %43 = trunc nuw nsw i64 %39 to i32
   store i32 %43, ptr %42, align 4, !tbaa !21
   %44 = add nsw i32 %.03438, 1
@@ -163,7 +163,7 @@ define dso_local range(i32 -2147483648, 2147483647) i32 @locfile_get_line(ptr no
 
 5:                                                ; preds = %5, %2
   %indvars.iv = phi i64 [ %indvars.iv.next, %5 ], [ 1, %2 ]
-  %6 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4, !tbaa !21
   %.not = icmp sgt i32 %7, %1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -191,7 +191,7 @@ define dso_local void @locfile_locate(ptr noundef readonly captures(none) %0, i6
 
 8:                                                ; preds = %8, %5
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %8 ], [ 1, %5 ]
-  %9 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv.i
   %10 = load i32, ptr %9, align 4, !tbaa !21
   %.not.i = icmp sgt i32 %10, %.sroa.025.0.extract.trunc
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -201,7 +201,7 @@ locfile_get_line.exit:                            ; preds = %8
   %11 = trunc nuw nsw i64 %indvars.iv.i to i32
   %12 = add nsw i32 %11, -1
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds i32, ptr %7, i64 %13
+  %14 = getelementptr inbounds [4 x i8], ptr %7, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !21
   br label %16
 
@@ -246,7 +246,7 @@ locfile_get_line.exit:                            ; preds = %8
   %39 = getelementptr i8, ptr %0, i64 32
   %.val = load ptr, ptr %39, align 8, !tbaa !20
   %40 = sext i32 %.0 to i64
-  %41 = getelementptr i32, ptr %.val, i64 %40
+  %41 = getelementptr [4 x i8], ptr %.val, i64 %40
   %42 = getelementptr i8, ptr %41, i64 4
   %43 = load i32, ptr %42, align 4, !tbaa !21
   %44 = load i32, ptr %41, align 4, !tbaa !21

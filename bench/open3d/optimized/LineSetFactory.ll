@@ -7,20 +7,15 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
 %"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
 %"class.std::__shared_count" = type { ptr }
-%"class.Eigen::Matrix" = type { %"class.Eigen::PlainObjectBase" }
-%"class.Eigen::PlainObjectBase" = type { %"class.Eigen::DenseStorage" }
-%"class.Eigen::DenseStorage" = type { %"struct.Eigen::internal::plain_array" }
-%"struct.Eigen::internal::plain_array" = type { [3 x double] }
-%"struct.std::pair" = type { i32, i32 }
-%"class.Eigen::Matrix.21" = type { %"class.Eigen::PlainObjectBase.22" }
-%"class.Eigen::PlainObjectBase.22" = type { %"class.Eigen::DenseStorage.29" }
-%"class.Eigen::DenseStorage.29" = type { %"struct.Eigen::internal::plain_array.30" }
-%"struct.Eigen::internal::plain_array.30" = type { [2 x i32] }
 %"class.std::unordered_set" = type { %"class.std::_Hashtable" }
 %"class.std::_Hashtable" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
 %"struct.std::__detail::_Hash_node_base" = type { ptr }
 %"struct.std::__detail::_Prime_rehash_policy" = type { float, i64 }
 %"struct.std::__detail::_AllocNode" = type { ptr }
+%"class.Eigen::Matrix.21" = type { %"class.Eigen::PlainObjectBase.22" }
+%"class.Eigen::PlainObjectBase.22" = type { %"class.Eigen::DenseStorage.29" }
+%"class.Eigen::DenseStorage.29" = type { %"struct.Eigen::internal::plain_array.30" }
+%"struct.Eigen::internal::plain_array.30" = type { [2 x i32] }
 %"class.std::vector" = type { %"struct.std::_Vector_base" }
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<Eigen::Matrix<double, 3, 1>, std::allocator<Eigen::Matrix<double, 3, 1>>>::_Vector_impl" }
 %"struct.std::_Vector_base<Eigen::Matrix<double, 3, 1>, std::allocator<Eigen::Matrix<double, 3, 1>>>::_Vector_impl" = type { %"struct.std::_Vector_base<Eigen::Matrix<double, 3, 1>, std::allocator<Eigen::Matrix<double, 3, 1>>>::_Vector_impl_data" }
@@ -32,6 +27,10 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.Eigen::internal::plain_array.151" = type { [16 x double] }
 %"class.Eigen::Inverse" = type { %"class.Eigen::Product" }
 %"class.Eigen::Product" = type { ptr, ptr }
+%"class.Eigen::Matrix" = type { %"class.Eigen::PlainObjectBase" }
+%"class.Eigen::PlainObjectBase" = type { %"class.Eigen::DenseStorage" }
+%"class.Eigen::DenseStorage" = type { %"struct.Eigen::internal::plain_array" }
+%"struct.Eigen::internal::plain_array" = type { [3 x double] }
 
 $_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE6resizeEm = comdat any
 
@@ -175,9 +174,9 @@ define void @_ZN6open3d8geometry7LineSet35CreateFromPointCloudCorrespondencesERK
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.03141 = phi i64 [ %45, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %37 = load ptr, ptr %16, align 8, !tbaa !35
-  %38 = getelementptr inbounds nuw %"class.Eigen::Matrix", ptr %37, i64 %.03141
+  %38 = getelementptr inbounds nuw [24 x i8], ptr %37, i64 %.03141
   %39 = load ptr, ptr %33, align 8, !tbaa !35
-  %40 = getelementptr inbounds nuw %"class.Eigen::Matrix", ptr %39, i64 %.03141
+  %40 = getelementptr inbounds nuw [24 x i8], ptr %39, i64 %.03141
   %41 = load <2 x double>, ptr %38, align 1, !tbaa !26
   store <2 x double> %41, ptr %40, align 1, !tbaa !26
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 16
@@ -211,10 +210,10 @@ define void @_ZN6open3d8geometry7LineSet35CreateFromPointCloudCorrespondencesERK
 .lr.ph43:                                         ; preds = %.lr.ph43.preheader, %.lr.ph43
   %.03042 = phi i64 [ %64, %.lr.ph43 ], [ 0, %.lr.ph43.preheader ]
   %55 = load ptr, ptr %24, align 8, !tbaa !35
-  %56 = getelementptr inbounds nuw %"class.Eigen::Matrix", ptr %55, i64 %.03042
+  %56 = getelementptr inbounds nuw [24 x i8], ptr %55, i64 %.03042
   %57 = load ptr, ptr %34, align 8, !tbaa !35
   %58 = getelementptr i8, ptr %57, i64 %22
-  %59 = getelementptr %"class.Eigen::Matrix", ptr %58, i64 %.03042
+  %59 = getelementptr [24 x i8], ptr %58, i64 %.03042
   %60 = load <2 x double>, ptr %56, align 1, !tbaa !26
   store <2 x double> %60, ptr %59, align 1, !tbaa !26
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 16
@@ -233,13 +232,13 @@ define void @_ZN6open3d8geometry7LineSet35CreateFromPointCloudCorrespondencesERK
 67:                                               ; preds = %.lr.ph45, %67
   %.044 = phi i64 [ 0, %.lr.ph45 ], [ %76, %67 ]
   %68 = load ptr, ptr %3, align 8, !tbaa !43
-  %69 = getelementptr inbounds nuw %"struct.std::pair", ptr %68, i64 %.044
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %.044
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 4
   %71 = load i32, ptr %70, align 4, !tbaa !45
   %72 = load i32, ptr %69, align 4, !tbaa !47
   %73 = add i32 %71, %54
   %74 = load ptr, ptr %53, align 8, !tbaa !48
-  %75 = getelementptr inbounds nuw %"class.Eigen::Matrix.21", ptr %74, i64 %.044
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %.044
   %.sroa.5.0.insert.ext = zext i32 %73 to i64
   %.sroa.5.0.insert.shift = shl nuw i64 %.sroa.5.0.insert.ext, 32
   %.sroa.0.0.insert.ext = zext i32 %72 to i64
@@ -329,9 +328,9 @@ _ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE11_S_relocateEPS2_S5_
 
 _ZNSt12_Vector_baseIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE13_M_deallocateEPS2_m.exit32.i: ; preds = %33, %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i
   store ptr %29, ptr %0, align 8, !tbaa !35
-  %35 = getelementptr inbounds nuw %"class.Eigen::Matrix", ptr %30, i64 %12
+  %35 = getelementptr inbounds nuw [24 x i8], ptr %30, i64 %12
   store ptr %35, ptr %3, align 8, !tbaa !32
-  %36 = getelementptr inbounds nuw %"class.Eigen::Matrix", ptr %29, i64 %27
+  %36 = getelementptr inbounds nuw [24 x i8], ptr %29, i64 %27
   store ptr %36, ptr %13, align 8, !tbaa !52
   br label %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE17_M_default_appendEm.exit
 
@@ -340,7 +339,7 @@ _ZNSt12_Vector_baseIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE13_M_deallocat
   br i1 %38, label %39, label %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE17_M_default_appendEm.exit
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds nuw %"class.Eigen::Matrix", ptr %5, i64 %1
+  %40 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %1
   %.not.i4 = icmp eq ptr %4, %40
   br i1 %.not.i4, label %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE17_M_default_appendEm.exit, label %_ZSt8_DestroyIPN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEES2_EvT_S4_RSaIT0_E.exit.i
 
@@ -428,9 +427,9 @@ _ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE11_S_relocateEPS2_S5_
 
 _ZNSt12_Vector_baseIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE13_M_deallocateEPS2_m.exit32.i: ; preds = %34, %_ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i
   store ptr %29, ptr %0, align 8, !tbaa !48
-  %36 = getelementptr inbounds nuw %"class.Eigen::Matrix.21", ptr %30, i64 %12
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %12
   store ptr %36, ptr %3, align 8, !tbaa !59
-  %37 = getelementptr inbounds nuw %"class.Eigen::Matrix.21", ptr %29, i64 %27
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %27
   store ptr %37, ptr %13, align 8, !tbaa !60
   br label %_ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE17_M_default_appendEm.exit
 
@@ -439,7 +438,7 @@ _ZNSt12_Vector_baseIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE13_M_deallocat
   br i1 %39, label %40, label %_ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE17_M_default_appendEm.exit
 
 40:                                               ; preds = %38
-  %41 = getelementptr inbounds nuw %"class.Eigen::Matrix.21", ptr %5, i64 %1
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %1
   %.not.i4 = icmp eq ptr %4, %41
   br i1 %.not.i4, label %_ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE17_M_default_appendEm.exit, label %_ZSt8_DestroyIPN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEES2_EvT_S4_RSaIT0_E.exit.i
 
@@ -972,7 +971,7 @@ _ZNKSt8__detail15_Hash_code_baseIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEES3_NS_9_I
   %29 = load i64, ptr %28, align 8, !tbaa !81
   %30 = urem i64 %27, %29
   %31 = load ptr, ptr %.0.val, align 8, !tbaa !73
-  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %30
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %30
   %33 = load ptr, ptr %32, align 8, !tbaa !94
   %.not.i.i.i.i.i = icmp eq ptr %33, null
   br i1 %.not.i.i.i.i.i, label %.loopexit, label %34
@@ -1093,7 +1092,7 @@ _ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE11_S_relocateEPS2_S5_
 _ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %81, %_ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i
   store ptr %75, ptr %54, align 8, !tbaa !48
   store ptr %80, ptr %55, align 8, !tbaa !59
-  %82 = getelementptr inbounds nuw %"class.Eigen::Matrix.21", ptr %75, i64 %73
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %73
   store ptr %82, ptr %57, align 8, !tbaa !60
   br label %_ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE9push_backEOS2_.exit
 
@@ -1175,7 +1174,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIN5Eigen6MatrixIiLi2ELi1ELi0EL
   %21 = phi i1 [ false, %.thread ], [ true, %.thread.preheader ]
   %indvars.iv.i.i = phi i64 [ 1, %.thread ], [ 0, %.thread.preheader ]
   %.011.i.i = phi i64 [ %30, %.thread ], [ 0, %.thread.preheader ]
-  %22 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i.i
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv.i.i
   %23 = load i32, ptr %22, align 4, !tbaa !47
   %24 = sext i32 %23 to i64
   %25 = shl i64 %.011.i.i, 6
@@ -1194,7 +1193,7 @@ _ZNKSt8__detail15_Hash_code_baseIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEES3_NS_9_I
 
 34:                                               ; preds = %_ZNKSt8__detail15_Hash_code_baseIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEES3_NS_9_IdentityEN6open3d7utility10hash_eigenIS3_EENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE15_M_hash_code_trIS3_EEmRKT_.exit
   %35 = load ptr, ptr %0, align 8, !tbaa !73
-  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %33
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %33
   %37 = load ptr, ptr %36, align 8, !tbaa !94
   %.not.i.i = icmp eq ptr %37, null
   br i1 %.not.i.i, label %.critedge, label %38
@@ -1316,7 +1315,7 @@ _ZNSt10_HashtableIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEES2_SaIS2_ENSt8__detail9_
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %2, ptr %32, align 8, !tbaa !95
   %33 = load ptr, ptr %0, align 8, !tbaa !73
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %.0
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.0
   %35 = load ptr, ptr %34, align 8, !tbaa !94
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %39, label %36
@@ -1342,7 +1341,7 @@ _ZNSt10_HashtableIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEES2_SaIS2_ENSt8__detail9_
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %46 = load i64, ptr %45, align 8, !tbaa !95
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %33, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !94
   br label %49
 
@@ -1406,7 +1405,7 @@ _ZNSt10_HashtableIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEES2_SaIS2_ENSt8__detail9_
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 16
   %16 = load i64, ptr %15, align 8, !tbaa !95
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !94
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -1421,7 +1420,7 @@ _ZNSt10_HashtableIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEES2_SaIS2_ENSt8__detail9_
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8, !tbaa !94
   br label %28
 
@@ -1603,7 +1602,7 @@ _ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE11_S_relocateEPS2_S5_
 _ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %61, %_ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i
   store ptr %55, ptr %34, align 8, !tbaa !48
   store ptr %60, ptr %35, align 8, !tbaa !59
-  %62 = getelementptr inbounds nuw %"class.Eigen::Matrix.21", ptr %55, i64 %53
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %53
   store ptr %62, ptr %37, align 8, !tbaa !60
   br label %63
 
@@ -1684,7 +1683,7 @@ _ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE11_S_relocateEPS2_S5_
 _ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i19: ; preds = %88, %_ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i16
   store ptr %82, ptr %34, align 8, !tbaa !48
   store ptr %87, ptr %35, align 8, !tbaa !59
-  %89 = getelementptr inbounds nuw %"class.Eigen::Matrix.21", ptr %82, i64 %80
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %82, i64 %80
   store ptr %89, ptr %37, align 8, !tbaa !60
   br label %90
 
@@ -1769,7 +1768,7 @@ _ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE11_S_relocateEPS2_S5_
 _ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i35: ; preds = %119, %_ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i32
   store ptr %113, ptr %94, align 8, !tbaa !48
   store ptr %118, ptr %95, align 8, !tbaa !59
-  %120 = getelementptr inbounds nuw %"class.Eigen::Matrix.21", ptr %113, i64 %111
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %113, i64 %111
   store ptr %120, ptr %96, align 8, !tbaa !60
   br label %121
 
@@ -1854,7 +1853,7 @@ _ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE11_S_relocateEPS2_S5_
 _ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i51: ; preds = %150, %_ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i48
   store ptr %144, ptr %125, align 8, !tbaa !48
   store ptr %149, ptr %126, align 8, !tbaa !59
-  %151 = getelementptr inbounds nuw %"class.Eigen::Matrix.21", ptr %144, i64 %142
+  %151 = getelementptr inbounds nuw [8 x i8], ptr %144, i64 %142
   store ptr %151, ptr %127, align 8, !tbaa !60
   br label %152
 
@@ -1939,7 +1938,7 @@ _ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE11_S_relocateEPS2_S5_
 _ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i67: ; preds = %181, %_ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i64
   store ptr %175, ptr %156, align 8, !tbaa !48
   store ptr %180, ptr %157, align 8, !tbaa !59
-  %182 = getelementptr inbounds nuw %"class.Eigen::Matrix.21", ptr %175, i64 %173
+  %182 = getelementptr inbounds nuw [8 x i8], ptr %175, i64 %173
   store ptr %182, ptr %158, align 8, !tbaa !60
   br label %183
 
@@ -2024,7 +2023,7 @@ _ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE11_S_relocateEPS2_S5_
 _ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i83: ; preds = %212, %_ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i80
   store ptr %206, ptr %187, align 8, !tbaa !48
   store ptr %211, ptr %188, align 8, !tbaa !59
-  %213 = getelementptr inbounds nuw %"class.Eigen::Matrix.21", ptr %206, i64 %204
+  %213 = getelementptr inbounds nuw [8 x i8], ptr %206, i64 %204
   store ptr %213, ptr %189, align 8, !tbaa !60
   br label %214
 
@@ -2109,7 +2108,7 @@ _ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE11_S_relocateEPS2_S5_
 _ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i99: ; preds = %243, %_ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i96
   store ptr %237, ptr %218, align 8, !tbaa !48
   store ptr %242, ptr %219, align 8, !tbaa !59
-  %244 = getelementptr inbounds nuw %"class.Eigen::Matrix.21", ptr %237, i64 %235
+  %244 = getelementptr inbounds nuw [8 x i8], ptr %237, i64 %235
   store ptr %244, ptr %220, align 8, !tbaa !60
   br label %245
 
@@ -2194,7 +2193,7 @@ _ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE11_S_relocateEPS2_S5_
 _ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i115: ; preds = %274, %_ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i112
   store ptr %268, ptr %249, align 8, !tbaa !48
   store ptr %273, ptr %250, align 8, !tbaa !59
-  %275 = getelementptr inbounds nuw %"class.Eigen::Matrix.21", ptr %268, i64 %266
+  %275 = getelementptr inbounds nuw [8 x i8], ptr %268, i64 %266
   store ptr %275, ptr %251, align 8, !tbaa !60
   br label %276
 
@@ -2279,7 +2278,7 @@ _ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE11_S_relocateEPS2_S5_
 _ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i131: ; preds = %305, %_ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i128
   store ptr %299, ptr %280, align 8, !tbaa !48
   store ptr %304, ptr %281, align 8, !tbaa !59
-  %306 = getelementptr inbounds nuw %"class.Eigen::Matrix.21", ptr %299, i64 %297
+  %306 = getelementptr inbounds nuw [8 x i8], ptr %299, i64 %297
   store ptr %306, ptr %282, align 8, !tbaa !60
   br label %307
 
@@ -2364,7 +2363,7 @@ _ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE11_S_relocateEPS2_S5_
 _ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i147: ; preds = %336, %_ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i144
   store ptr %330, ptr %311, align 8, !tbaa !48
   store ptr %335, ptr %312, align 8, !tbaa !59
-  %337 = getelementptr inbounds nuw %"class.Eigen::Matrix.21", ptr %330, i64 %328
+  %337 = getelementptr inbounds nuw [8 x i8], ptr %330, i64 %328
   store ptr %337, ptr %313, align 8, !tbaa !60
   br label %338
 
@@ -2449,7 +2448,7 @@ _ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE11_S_relocateEPS2_S5_
 _ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i163: ; preds = %367, %_ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i160
   store ptr %361, ptr %342, align 8, !tbaa !48
   store ptr %366, ptr %343, align 8, !tbaa !59
-  %368 = getelementptr inbounds nuw %"class.Eigen::Matrix.21", ptr %361, i64 %359
+  %368 = getelementptr inbounds nuw [8 x i8], ptr %361, i64 %359
   store ptr %368, ptr %344, align 8, !tbaa !60
   br label %369
 
@@ -2534,7 +2533,7 @@ _ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE11_S_relocateEPS2_S5_
 _ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i179: ; preds = %398, %_ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i176
   store ptr %392, ptr %373, align 8, !tbaa !48
   store ptr %397, ptr %374, align 8, !tbaa !59
-  %399 = getelementptr inbounds nuw %"class.Eigen::Matrix.21", ptr %392, i64 %390
+  %399 = getelementptr inbounds nuw [8 x i8], ptr %392, i64 %390
   store ptr %399, ptr %375, align 8, !tbaa !60
   br label %_ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE9push_backEOS2_.exit182
 
@@ -2778,7 +2777,7 @@ _ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE11_S_relocateEPS2_S5_
 _ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %61, %_ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i
   store ptr %55, ptr %34, align 8, !tbaa !48
   store ptr %60, ptr %35, align 8, !tbaa !59
-  %62 = getelementptr inbounds nuw %"class.Eigen::Matrix.21", ptr %55, i64 %53
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %53
   store ptr %62, ptr %37, align 8, !tbaa !60
   br label %63
 
@@ -2859,7 +2858,7 @@ _ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE11_S_relocateEPS2_S5_
 _ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i19: ; preds = %88, %_ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i16
   store ptr %82, ptr %34, align 8, !tbaa !48
   store ptr %87, ptr %35, align 8, !tbaa !59
-  %89 = getelementptr inbounds nuw %"class.Eigen::Matrix.21", ptr %82, i64 %80
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %82, i64 %80
   store ptr %89, ptr %37, align 8, !tbaa !60
   br label %90
 
@@ -2944,7 +2943,7 @@ _ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE11_S_relocateEPS2_S5_
 _ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i35: ; preds = %119, %_ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i32
   store ptr %113, ptr %94, align 8, !tbaa !48
   store ptr %118, ptr %95, align 8, !tbaa !59
-  %120 = getelementptr inbounds nuw %"class.Eigen::Matrix.21", ptr %113, i64 %111
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %113, i64 %111
   store ptr %120, ptr %96, align 8, !tbaa !60
   br label %121
 
@@ -3029,7 +3028,7 @@ _ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE11_S_relocateEPS2_S5_
 _ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i51: ; preds = %150, %_ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i48
   store ptr %144, ptr %125, align 8, !tbaa !48
   store ptr %149, ptr %126, align 8, !tbaa !59
-  %151 = getelementptr inbounds nuw %"class.Eigen::Matrix.21", ptr %144, i64 %142
+  %151 = getelementptr inbounds nuw [8 x i8], ptr %144, i64 %142
   store ptr %151, ptr %127, align 8, !tbaa !60
   br label %152
 
@@ -3114,7 +3113,7 @@ _ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE11_S_relocateEPS2_S5_
 _ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i67: ; preds = %181, %_ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i64
   store ptr %175, ptr %156, align 8, !tbaa !48
   store ptr %180, ptr %157, align 8, !tbaa !59
-  %182 = getelementptr inbounds nuw %"class.Eigen::Matrix.21", ptr %175, i64 %173
+  %182 = getelementptr inbounds nuw [8 x i8], ptr %175, i64 %173
   store ptr %182, ptr %158, align 8, !tbaa !60
   br label %183
 
@@ -3199,7 +3198,7 @@ _ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE11_S_relocateEPS2_S5_
 _ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i83: ; preds = %212, %_ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i80
   store ptr %206, ptr %187, align 8, !tbaa !48
   store ptr %211, ptr %188, align 8, !tbaa !59
-  %213 = getelementptr inbounds nuw %"class.Eigen::Matrix.21", ptr %206, i64 %204
+  %213 = getelementptr inbounds nuw [8 x i8], ptr %206, i64 %204
   store ptr %213, ptr %189, align 8, !tbaa !60
   br label %214
 
@@ -3284,7 +3283,7 @@ _ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE11_S_relocateEPS2_S5_
 _ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i99: ; preds = %243, %_ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i96
   store ptr %237, ptr %218, align 8, !tbaa !48
   store ptr %242, ptr %219, align 8, !tbaa !59
-  %244 = getelementptr inbounds nuw %"class.Eigen::Matrix.21", ptr %237, i64 %235
+  %244 = getelementptr inbounds nuw [8 x i8], ptr %237, i64 %235
   store ptr %244, ptr %220, align 8, !tbaa !60
   br label %245
 
@@ -3369,7 +3368,7 @@ _ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE11_S_relocateEPS2_S5_
 _ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i115: ; preds = %274, %_ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i112
   store ptr %268, ptr %249, align 8, !tbaa !48
   store ptr %273, ptr %250, align 8, !tbaa !59
-  %275 = getelementptr inbounds nuw %"class.Eigen::Matrix.21", ptr %268, i64 %266
+  %275 = getelementptr inbounds nuw [8 x i8], ptr %268, i64 %266
   store ptr %275, ptr %251, align 8, !tbaa !60
   br label %276
 
@@ -3454,7 +3453,7 @@ _ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE11_S_relocateEPS2_S5_
 _ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i131: ; preds = %305, %_ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i128
   store ptr %299, ptr %280, align 8, !tbaa !48
   store ptr %304, ptr %281, align 8, !tbaa !59
-  %306 = getelementptr inbounds nuw %"class.Eigen::Matrix.21", ptr %299, i64 %297
+  %306 = getelementptr inbounds nuw [8 x i8], ptr %299, i64 %297
   store ptr %306, ptr %282, align 8, !tbaa !60
   br label %307
 
@@ -3539,7 +3538,7 @@ _ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE11_S_relocateEPS2_S5_
 _ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i147: ; preds = %336, %_ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i144
   store ptr %330, ptr %311, align 8, !tbaa !48
   store ptr %335, ptr %312, align 8, !tbaa !59
-  %337 = getelementptr inbounds nuw %"class.Eigen::Matrix.21", ptr %330, i64 %328
+  %337 = getelementptr inbounds nuw [8 x i8], ptr %330, i64 %328
   store ptr %337, ptr %313, align 8, !tbaa !60
   br label %338
 
@@ -3624,7 +3623,7 @@ _ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE11_S_relocateEPS2_S5_
 _ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i163: ; preds = %367, %_ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i160
   store ptr %361, ptr %342, align 8, !tbaa !48
   store ptr %366, ptr %343, align 8, !tbaa !59
-  %368 = getelementptr inbounds nuw %"class.Eigen::Matrix.21", ptr %361, i64 %359
+  %368 = getelementptr inbounds nuw [8 x i8], ptr %361, i64 %359
   store ptr %368, ptr %344, align 8, !tbaa !60
   br label %369
 
@@ -3709,7 +3708,7 @@ _ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE11_S_relocateEPS2_S5_
 _ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i179: ; preds = %398, %_ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i176
   store ptr %392, ptr %373, align 8, !tbaa !48
   store ptr %397, ptr %374, align 8, !tbaa !59
-  %399 = getelementptr inbounds nuw %"class.Eigen::Matrix.21", ptr %392, i64 %390
+  %399 = getelementptr inbounds nuw [8 x i8], ptr %392, i64 %390
   store ptr %399, ptr %375, align 8, !tbaa !60
   br label %_ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE9push_backEOS2_.exit182
 
@@ -4007,7 +4006,7 @@ _ZNKSt8__detail15_Hash_code_baseIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEES3_NS_9_I
   %29 = load i64, ptr %28, align 8, !tbaa !81
   %30 = urem i64 %27, %29
   %31 = load ptr, ptr %.0.val, align 8, !tbaa !73
-  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %30
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %30
   %33 = load ptr, ptr %32, align 8, !tbaa !94
   %.not.i.i.i.i.i = icmp eq ptr %33, null
   br i1 %.not.i.i.i.i.i, label %.loopexit, label %34
@@ -4128,7 +4127,7 @@ _ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE11_S_relocateEPS2_S5_
 _ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %81, %_ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i
   store ptr %75, ptr %54, align 8, !tbaa !48
   store ptr %80, ptr %55, align 8, !tbaa !59
-  %82 = getelementptr inbounds nuw %"class.Eigen::Matrix.21", ptr %75, i64 %73
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %73
   store ptr %82, ptr %57, align 8, !tbaa !60
   br label %_ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE9push_backEOS2_.exit
 
@@ -4624,7 +4623,7 @@ _ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE11_S_relocateEPS2_S5_
 _ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i188: ; preds = %228, %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i185
   store ptr %223, ptr %179, align 8, !tbaa !35
   store ptr %227, ptr %203, align 8, !tbaa !32
-  %229 = getelementptr inbounds nuw %"class.Eigen::Matrix", ptr %223, i64 %221
+  %229 = getelementptr inbounds nuw [24 x i8], ptr %223, i64 %221
   store ptr %229, ptr %205, align 8, !tbaa !52
   br label %230
 
@@ -4774,7 +4773,7 @@ _ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE11_S_relocateEPS2_S5_
 _ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i211: ; preds = %276, %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i208
   store ptr %271, ptr %179, align 8, !tbaa !35
   store ptr %275, ptr %203, align 8, !tbaa !32
-  %277 = getelementptr inbounds nuw %"class.Eigen::Matrix", ptr %271, i64 %269
+  %277 = getelementptr inbounds nuw [24 x i8], ptr %271, i64 %269
   store ptr %277, ptr %205, align 8, !tbaa !52
   br label %278
 
@@ -4855,7 +4854,7 @@ _ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE11_S_relocateEPS2_S5_
 _ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %307, %_ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i
   store ptr %301, ptr %280, align 8, !tbaa !48
   store ptr %306, ptr %281, align 8, !tbaa !59
-  %308 = getelementptr inbounds nuw %"class.Eigen::Matrix.21", ptr %301, i64 %299
+  %308 = getelementptr inbounds nuw [8 x i8], ptr %301, i64 %299
   store ptr %308, ptr %283, align 8, !tbaa !60
   br label %309
 
@@ -4936,7 +4935,7 @@ _ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE11_S_relocateEPS2_S5_
 _ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i239: ; preds = %334, %_ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i236
   store ptr %328, ptr %280, align 8, !tbaa !48
   store ptr %333, ptr %281, align 8, !tbaa !59
-  %335 = getelementptr inbounds nuw %"class.Eigen::Matrix.21", ptr %328, i64 %326
+  %335 = getelementptr inbounds nuw [8 x i8], ptr %328, i64 %326
   store ptr %335, ptr %283, align 8, !tbaa !60
   br label %336
 
@@ -5021,7 +5020,7 @@ _ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE11_S_relocateEPS2_S5_
 _ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i255: ; preds = %365, %_ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i252
   store ptr %359, ptr %340, align 8, !tbaa !48
   store ptr %364, ptr %341, align 8, !tbaa !59
-  %366 = getelementptr inbounds nuw %"class.Eigen::Matrix.21", ptr %359, i64 %357
+  %366 = getelementptr inbounds nuw [8 x i8], ptr %359, i64 %357
   store ptr %366, ptr %342, align 8, !tbaa !60
   br label %367
 
@@ -5106,7 +5105,7 @@ _ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE11_S_relocateEPS2_S5_
 _ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i271: ; preds = %396, %_ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i268
   store ptr %390, ptr %371, align 8, !tbaa !48
   store ptr %395, ptr %372, align 8, !tbaa !59
-  %397 = getelementptr inbounds nuw %"class.Eigen::Matrix.21", ptr %390, i64 %388
+  %397 = getelementptr inbounds nuw [8 x i8], ptr %390, i64 %388
   store ptr %397, ptr %373, align 8, !tbaa !60
   br label %398
 
@@ -5191,7 +5190,7 @@ _ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE11_S_relocateEPS2_S5_
 _ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i287: ; preds = %427, %_ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i284
   store ptr %421, ptr %402, align 8, !tbaa !48
   store ptr %426, ptr %403, align 8, !tbaa !59
-  %428 = getelementptr inbounds nuw %"class.Eigen::Matrix.21", ptr %421, i64 %419
+  %428 = getelementptr inbounds nuw [8 x i8], ptr %421, i64 %419
   store ptr %428, ptr %404, align 8, !tbaa !60
   br label %429
 
@@ -5276,7 +5275,7 @@ _ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE11_S_relocateEPS2_S5_
 _ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i303: ; preds = %458, %_ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i300
   store ptr %452, ptr %433, align 8, !tbaa !48
   store ptr %457, ptr %434, align 8, !tbaa !59
-  %459 = getelementptr inbounds nuw %"class.Eigen::Matrix.21", ptr %452, i64 %450
+  %459 = getelementptr inbounds nuw [8 x i8], ptr %452, i64 %450
   store ptr %459, ptr %435, align 8, !tbaa !60
   br label %460
 
@@ -5361,7 +5360,7 @@ _ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE11_S_relocateEPS2_S5_
 _ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i319: ; preds = %489, %_ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i316
   store ptr %483, ptr %464, align 8, !tbaa !48
   store ptr %488, ptr %465, align 8, !tbaa !59
-  %490 = getelementptr inbounds nuw %"class.Eigen::Matrix.21", ptr %483, i64 %481
+  %490 = getelementptr inbounds nuw [8 x i8], ptr %483, i64 %481
   store ptr %490, ptr %466, align 8, !tbaa !60
   br label %491
 
@@ -5446,7 +5445,7 @@ _ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE11_S_relocateEPS2_S5_
 _ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i335: ; preds = %520, %_ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i332
   store ptr %514, ptr %495, align 8, !tbaa !48
   store ptr %519, ptr %496, align 8, !tbaa !59
-  %521 = getelementptr inbounds nuw %"class.Eigen::Matrix.21", ptr %514, i64 %512
+  %521 = getelementptr inbounds nuw [8 x i8], ptr %514, i64 %512
   store ptr %521, ptr %497, align 8, !tbaa !60
   br label %522
 
@@ -5602,7 +5601,7 @@ _ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE11_S_relocateEPS2_S5_
 _ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i359: ; preds = %613, %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i356
   store ptr %608, ptr %534, align 8, !tbaa !35
   store ptr %612, ptr %588, align 8, !tbaa !32
-  %614 = getelementptr inbounds nuw %"class.Eigen::Matrix", ptr %608, i64 %606
+  %614 = getelementptr inbounds nuw [24 x i8], ptr %608, i64 %606
   store ptr %614, ptr %590, align 8, !tbaa !52
   br label %615
 
@@ -5758,7 +5757,7 @@ _ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE11_S_relocateEPS2_S5_
 _ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i382: ; preds = %663, %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i379
   store ptr %658, ptr %534, align 8, !tbaa !35
   store ptr %662, ptr %588, align 8, !tbaa !32
-  %664 = getelementptr inbounds nuw %"class.Eigen::Matrix", ptr %658, i64 %656
+  %664 = getelementptr inbounds nuw [24 x i8], ptr %658, i64 %656
   store ptr %664, ptr %590, align 8, !tbaa !52
   br label %665
 
@@ -5916,7 +5915,7 @@ _ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE11_S_relocateEPS2_S5_
 _ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i405: ; preds = %719, %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i402
   store ptr %714, ptr %669, align 8, !tbaa !35
   store ptr %718, ptr %696, align 8, !tbaa !32
-  %720 = getelementptr inbounds nuw %"class.Eigen::Matrix", ptr %714, i64 %712
+  %720 = getelementptr inbounds nuw [24 x i8], ptr %714, i64 %712
   store ptr %720, ptr %697, align 8, !tbaa !52
   br label %721
 
@@ -5997,7 +5996,7 @@ _ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE11_S_relocateEPS2_S5_
 _ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i421: ; preds = %750, %_ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i418
   store ptr %744, ptr %723, align 8, !tbaa !48
   store ptr %749, ptr %724, align 8, !tbaa !59
-  %751 = getelementptr inbounds nuw %"class.Eigen::Matrix.21", ptr %744, i64 %742
+  %751 = getelementptr inbounds nuw [8 x i8], ptr %744, i64 %742
   store ptr %751, ptr %726, align 8, !tbaa !60
   br label %752
 
@@ -6078,7 +6077,7 @@ _ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE11_S_relocateEPS2_S5_
 _ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i437: ; preds = %777, %_ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i434
   store ptr %771, ptr %723, align 8, !tbaa !48
   store ptr %776, ptr %724, align 8, !tbaa !59
-  %778 = getelementptr inbounds nuw %"class.Eigen::Matrix.21", ptr %771, i64 %769
+  %778 = getelementptr inbounds nuw [8 x i8], ptr %771, i64 %769
   store ptr %778, ptr %726, align 8, !tbaa !60
   br label %779
 
@@ -6159,7 +6158,7 @@ _ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE11_S_relocateEPS2_S5_
 _ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i453: ; preds = %808, %_ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i450
   store ptr %802, ptr %783, align 8, !tbaa !48
   store ptr %807, ptr %784, align 8, !tbaa !59
-  %809 = getelementptr inbounds nuw %"class.Eigen::Matrix.21", ptr %802, i64 %800
+  %809 = getelementptr inbounds nuw [8 x i8], ptr %802, i64 %800
   store ptr %809, ptr %785, align 8, !tbaa !60
   br label %810
 
@@ -6241,7 +6240,7 @@ _ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE11_S_relocateEPS2_S5_
 _ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i469: ; preds = %838, %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i466
   store ptr %833, ptr %812, align 8, !tbaa !35
   store ptr %837, ptr %813, align 8, !tbaa !32
-  %839 = getelementptr inbounds nuw %"class.Eigen::Matrix", ptr %833, i64 %831
+  %839 = getelementptr inbounds nuw [24 x i8], ptr %833, i64 %831
   store ptr %839, ptr %815, align 8, !tbaa !52
   br label %840
 
@@ -6327,7 +6326,7 @@ _ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE11_S_relocateEPS2_S5_
 _ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i485: ; preds = %864, %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i482
   store ptr %859, ptr %812, align 8, !tbaa !35
   store ptr %863, ptr %813, align 8, !tbaa !32
-  %865 = getelementptr inbounds nuw %"class.Eigen::Matrix", ptr %859, i64 %857
+  %865 = getelementptr inbounds nuw [24 x i8], ptr %859, i64 %857
   store ptr %865, ptr %815, align 8, !tbaa !52
   br label %866
 
@@ -6408,7 +6407,7 @@ _ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE11_S_relocateEPS2_S5_
 _ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i501: ; preds = %894, %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i498
   store ptr %889, ptr %870, align 8, !tbaa !35
   store ptr %893, ptr %871, align 8, !tbaa !32
-  %895 = getelementptr inbounds nuw %"class.Eigen::Matrix", ptr %889, i64 %887
+  %895 = getelementptr inbounds nuw [24 x i8], ptr %889, i64 %887
   store ptr %895, ptr %872, align 8, !tbaa !52
   br label %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE9push_backEOS2_.exit504
 

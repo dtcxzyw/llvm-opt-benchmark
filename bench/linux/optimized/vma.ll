@@ -16,13 +16,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.static_key_false = type { %struct.static_key }
 %struct.vma_iterator = type { %struct.ma_state }
 %struct.ma_state = type { ptr, i64, i64, ptr, i64, i64, ptr, i32, i8, i8, i8, i8 }
-%struct.page = type { i64, %union.anon.25, %union.anon.33, %struct.atomic_t, [8 x i8] }
-%union.anon.25 = type { %struct.anon.26 }
-%struct.anon.26 = type { %union.anon.27, ptr, %union.anon.29, i64 }
-%union.anon.27 = type { %struct.list_head }
-%struct.list_head = type { ptr, ptr }
-%union.anon.29 = type { i64 }
-%union.anon.33 = type { %struct.atomic_t }
 
 @_vdso_data_offset = dso_local local_unnamed_addr constant i64 128, align 8
 @vdso64_enabled = dso_local local_unnamed_addr global i32 1, section ".data..read_mostly", align 4
@@ -646,7 +639,7 @@ define internal noundef range(i32 0, 3) i32 @vdso_fault(ptr readnone captures(no
   %27 = select i1 %23, i64 %24, i64 %26
   %28 = add i64 %22, %27
   %29 = lshr i64 %28, 12
-  %30 = getelementptr %struct.page, ptr %18, i64 %29
+  %30 = getelementptr [64 x i8], ptr %18, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store ptr %30, ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 8

@@ -20,7 +20,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.pm_buffer_t = type { i64, i64, ptr }
 %struct.parse_lex_data_t = type { i64, i64, ptr, i8 }
 %struct.pm_lex_callback_t = type { ptr, ptr }
-%struct.pm_options_scope = type { i64, ptr, i8 }
 
 @.str = private unnamed_addr constant [6 x i8] c"1.3.0\00", align 1
 @rb_eRuntimeError = external local_unnamed_addr global i64, align 8
@@ -517,7 +516,7 @@ define internal i64 @parse_stream(i32 noundef %0, ptr noundef readonly captures(
 
 10:                                               ; preds = %3
   %11 = zext nneg i32 %0 to i64
-  %12 = getelementptr i64, ptr %1, i64 %11
+  %12 = getelementptr [8 x i8], ptr %1, i64 %11
   %13 = getelementptr i8, ptr %12, i64 -8
   %14 = load i64, ptr %13, align 8, !tbaa !7
   %15 = tail call i32 @rb_keyword_given_p() #9
@@ -1082,7 +1081,7 @@ define internal fastcc void @string_options(i32 noundef %0, ptr noundef readonly
 
 8:                                                ; preds = %4
   %9 = zext nneg i32 %0 to i64
-  %10 = getelementptr i64, ptr %1, i64 %9
+  %10 = getelementptr [8 x i8], ptr %1, i64 %9
   %11 = getelementptr i8, ptr %10, i64 -8
   %12 = load i64, ptr %11, align 8, !tbaa !7
   %13 = tail call i32 @rb_keyword_given_p() #9
@@ -1251,7 +1250,7 @@ define internal fastcc i64 @parse_lex_input(ptr noundef nonnull %0, ptr noundef 
 44:                                               ; preds = %.lr.ph, %rb_ulong2num_inline.exit
   %.035 = phi i64 [ 0, %.lr.ph ], [ %55, %rb_ulong2num_inline.exit ]
   %45 = load ptr, ptr %41, align 8, !tbaa !65
-  %46 = getelementptr i64, ptr %45, i64 %.035
+  %46 = getelementptr [8 x i8], ptr %45, i64 %.035
   %47 = load i64, ptr %46, align 8, !tbaa !7
   %48 = icmp ult i64 %47, 4611686018427387904
   br i1 %48, label %49, label %52
@@ -2007,7 +2006,7 @@ RB_SYMBOL_P.exit.thread:                          ; preds = %.lr.ph, %RB_SYMBOL_
 rb_array_len.exit83:                              ; preds = %107, %110
   %.0.i82 = phi i64 [ %109, %107 ], [ %112, %110 ]
   %113 = load ptr, ptr %22, align 8, !tbaa !70
-  %114 = getelementptr %struct.pm_options_scope, ptr %113, i64 %.0116
+  %114 = getelementptr [24 x i8], ptr %113, i64 %.0116
   %115 = tail call zeroext i1 @pm_options_scope_init(ptr noundef %114, i64 noundef %.0.i82) #9
   br i1 %115, label %.preheader, label %117
 
@@ -2059,7 +2058,7 @@ RB_SYMBOL_P.exit84.thread90:                      ; preds = %124, %RB_SYMBOL_P.e
 
 RB_SYMBOL_P.exit84.thread:                        ; preds = %120, %RB_SYMBOL_P.exit84
   %135 = load ptr, ptr %116, align 8, !tbaa !72
-  %136 = getelementptr %struct.pm_string_t, ptr %135, i64 %.060114
+  %136 = getelementptr [24 x i8], ptr %135, i64 %.060114
   %137 = tail call i64 @rb_sym2id(i64 noundef %121) #9
   %138 = tail call ptr @rb_id2name(i64 noundef %137) #9
   %139 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %138) #10
@@ -2862,7 +2861,7 @@ define internal fastcc void @file_options(i32 noundef %0, ptr noundef readonly c
 
 7:                                                ; preds = %5
   %8 = zext nneg i32 %0 to i64
-  %9 = getelementptr i64, ptr %1, i64 %8
+  %9 = getelementptr [8 x i8], ptr %1, i64 %8
   %10 = getelementptr i8, ptr %9, i64 -8
   %11 = load i64, ptr %10, align 8, !tbaa !7
   %12 = tail call i32 @rb_keyword_given_p() #9

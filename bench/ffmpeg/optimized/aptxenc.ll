@@ -7,12 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon = type { i64 }
 %union.anon.0 = type { ptr }
 %struct.anon = type { ptr, ptr, ptr, ptr, i32, i32, i32 }
-%struct.Channel = type { i32, i32, [4 x i32], %struct.QMFAnalysis, [4 x %struct.Quantize], [4 x %struct.InvertQuantize], [4 x %struct.Prediction] }
-%struct.QMFAnalysis = type { [2 x %struct.FilterSignal], [2 x [2 x %struct.FilterSignal]] }
-%struct.FilterSignal = type { i32, [32 x i32] }
-%struct.Quantize = type { i32, i32, i32 }
-%struct.InvertQuantize = type { i32, i32, i32 }
-%struct.Prediction = type { [2 x i32], [2 x i32], [24 x i32], i32, [48 x i32], i32, i32, i32 }
 
 @.str = private unnamed_addr constant [5 x i8] c"aptx\00", align 1
 @.str.1 = private unnamed_addr constant [49 x i8] c"aptX (Audio Processing Technology for Bluetooth)\00", align 1
@@ -114,7 +108,7 @@ define internal range(i32 -2147483648, 1) i32 @aptx_encode_frame(ptr noundef %0,
   %33 = phi i1 [ true, %32 ], [ false, %43 ]
   %indvars.iv57.sroa.phi = phi ptr [ %7, %32 ], [ %indvars.iv57.sroa.gep82, %43 ]
   %indvars.iv57 = phi i64 [ 0, %32 ], [ 1, %43 ]
-  %34 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv57
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv57
   %35 = load ptr, ptr %34, align 8, !tbaa !43
   br label %36
 
@@ -125,7 +119,7 @@ define internal range(i32 -2147483648, 1) i32 @aptx_encode_frame(ptr noundef %0,
   %39 = getelementptr inbounds nuw i8, ptr %35, i64 %38
   %40 = load i32, ptr %39, align 4, !tbaa !44
   %41 = ashr i32 %40, 8
-  %42 = getelementptr inbounds nuw i32, ptr %indvars.iv57.sroa.phi, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %indvars.iv57.sroa.phi, i64 %indvars.iv
   store i32 %41, ptr %42, align 4, !tbaa !45
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -142,7 +136,7 @@ define internal range(i32 -2147483648, 1) i32 @aptx_encode_frame(ptr noundef %0,
   %47 = phi i1 [ true, %44 ], [ false, %aptx_encode_channel.exit.i ]
   %indvars.iv.i.sroa.phi = phi ptr [ %7, %44 ], [ %indvars.iv.i.sroa.gep40, %aptx_encode_channel.exit.i ]
   %indvars.iv.i = phi i64 [ 0, %44 ], [ 1, %aptx_encode_channel.exit.i ]
-  %48 = getelementptr inbounds nuw %struct.Channel, ptr %25, i64 %indvars.iv.i
+  %48 = getelementptr inbounds nuw [2192 x i8], ptr %25, i64 %indvars.iv.i
   %49 = load i32, ptr %9, align 4, !tbaa !51
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 24
@@ -166,36 +160,36 @@ define internal range(i32 -2147483648, 1) i32 @aptx_encode_frame(ptr noundef %0,
   %56 = phi i1 [ true, %52 ], [ false, %aptx_qmf_convolution.exit24.i.i.i ]
   %indvars.iv40.i.sroa.phi.i.i = phi ptr [ %.sroa.0.i.i, %52 ], [ %.sroa.4.i.i, %aptx_qmf_convolution.exit24.i.i.i ]
   %indvars.iv40.i.i.i = phi i64 [ 0, %52 ], [ 1, %aptx_qmf_convolution.exit24.i.i.i ]
-  %57 = getelementptr inbounds nuw %struct.FilterSignal, ptr %50, i64 %indvars.iv40.i.i.i
+  %57 = getelementptr inbounds nuw [132 x i8], ptr %50, i64 %indvars.iv40.i.i.i
   %58 = xor i64 %indvars.iv40.i.i.i, 1
-  %59 = getelementptr inbounds nuw i32, ptr %54, i64 %58
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %58
   %60 = load i32, ptr %59, align 4, !tbaa !45
   %61 = getelementptr inbounds nuw i8, ptr %57, i64 4
   %62 = load i32, ptr %57, align 4, !tbaa !52
   %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds i32, ptr %61, i64 %63
+  %64 = getelementptr inbounds [4 x i8], ptr %61, i64 %63
   store i32 %60, ptr %64, align 4, !tbaa !45
   %65 = load i32, ptr %57, align 4, !tbaa !52
   %66 = sext i32 %65 to i64
-  %67 = getelementptr i32, ptr %61, i64 %66
+  %67 = getelementptr [4 x i8], ptr %61, i64 %66
   %68 = getelementptr i8, ptr %67, i64 64
   store i32 %60, ptr %68, align 4, !tbaa !45
   %69 = load i32, ptr %57, align 4, !tbaa !52
   %70 = add nsw i32 %69, 1
   %71 = and i32 %70, 15
   store i32 %71, ptr %57, align 4, !tbaa !52
-  %72 = getelementptr inbounds nuw [16 x i32], ptr @aptx_qmf_outer_coeffs, i64 %indvars.iv40.i.i.i
+  %72 = getelementptr inbounds nuw [64 x i8], ptr @aptx_qmf_outer_coeffs, i64 %indvars.iv40.i.i.i
   %73 = zext nneg i32 %71 to i64
-  %74 = getelementptr inbounds nuw i32, ptr %61, i64 %73
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %73
   br label %75
 
 75:                                               ; preds = %75, %55
   %indvars.iv.i.i.i = phi i64 [ 0, %55 ], [ %indvars.iv.next.i.i.i, %75 ]
   %.010.i2230.i.i.i = phi i64 [ 0, %55 ], [ %83, %75 ]
-  %76 = getelementptr inbounds nuw i32, ptr %74, i64 %indvars.iv.i.i.i
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %74, i64 %indvars.iv.i.i.i
   %77 = load i32, ptr %76, align 4, !tbaa !45
   %78 = sext i32 %77 to i64
-  %79 = getelementptr inbounds nuw i32, ptr %72, i64 %indvars.iv.i.i.i
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %indvars.iv.i.i.i
   %80 = load i32, ptr %79, align 4, !tbaa !45
   %81 = sext i32 %80 to i64
   %82 = mul nsw i64 %81, %78
@@ -236,9 +230,9 @@ aptx_qmf_polyphase_analysis.exit.i.i.i:           ; preds = %aptx_qmf_convolutio
 96:                                               ; preds = %aptx_qmf_polyphase_analysis.exit20.i.i.i, %.preheader.i.i.i
   %97 = phi i1 [ true, %.preheader.i.i.i ], [ false, %aptx_qmf_polyphase_analysis.exit20.i.i.i ]
   %indvars.iv53.i.i.i = phi i64 [ 0, %.preheader.i.i.i ], [ 1, %aptx_qmf_polyphase_analysis.exit20.i.i.i ]
-  %98 = getelementptr inbounds nuw [2 x %struct.FilterSignal], ptr %51, i64 %indvars.iv53.i.i.i
+  %98 = getelementptr inbounds nuw [264 x i8], ptr %51, i64 %indvars.iv53.i.i.i
   %99 = shl nuw nsw i64 %indvars.iv53.i.i.i, 1
-  %100 = getelementptr inbounds nuw i32, ptr %5, i64 %99
+  %100 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %99
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.022.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.423.i.i)
   br label %101
@@ -247,36 +241,36 @@ aptx_qmf_polyphase_analysis.exit.i.i.i:           ; preds = %aptx_qmf_convolutio
   %102 = phi i1 [ true, %96 ], [ false, %aptx_qmf_convolution.exit.i.i.i ]
   %indvars.iv50.i.sroa.phi.i.i = phi ptr [ %.sroa.022.i.i, %96 ], [ %.sroa.423.i.i, %aptx_qmf_convolution.exit.i.i.i ]
   %indvars.iv50.i.i.i = phi i64 [ 0, %96 ], [ 1, %aptx_qmf_convolution.exit.i.i.i ]
-  %103 = getelementptr inbounds nuw %struct.FilterSignal, ptr %98, i64 %indvars.iv50.i.i.i
+  %103 = getelementptr inbounds nuw [132 x i8], ptr %98, i64 %indvars.iv50.i.i.i
   %104 = xor i64 %indvars.iv50.i.i.i, 1
-  %105 = getelementptr inbounds nuw i32, ptr %100, i64 %104
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %100, i64 %104
   %106 = load i32, ptr %105, align 4, !tbaa !45
   %107 = getelementptr inbounds nuw i8, ptr %103, i64 4
   %108 = load i32, ptr %103, align 4, !tbaa !52
   %109 = sext i32 %108 to i64
-  %110 = getelementptr inbounds i32, ptr %107, i64 %109
+  %110 = getelementptr inbounds [4 x i8], ptr %107, i64 %109
   store i32 %106, ptr %110, align 4, !tbaa !45
   %111 = load i32, ptr %103, align 4, !tbaa !52
   %112 = sext i32 %111 to i64
-  %113 = getelementptr i32, ptr %107, i64 %112
+  %113 = getelementptr [4 x i8], ptr %107, i64 %112
   %114 = getelementptr i8, ptr %113, i64 64
   store i32 %106, ptr %114, align 4, !tbaa !45
   %115 = load i32, ptr %103, align 4, !tbaa !52
   %116 = add nsw i32 %115, 1
   %117 = and i32 %116, 15
   store i32 %117, ptr %103, align 4, !tbaa !52
-  %118 = getelementptr inbounds nuw [16 x i32], ptr @aptx_qmf_inner_coeffs, i64 %indvars.iv50.i.i.i
+  %118 = getelementptr inbounds nuw [64 x i8], ptr @aptx_qmf_inner_coeffs, i64 %indvars.iv50.i.i.i
   %119 = zext nneg i32 %117 to i64
-  %120 = getelementptr inbounds nuw i32, ptr %107, i64 %119
+  %120 = getelementptr inbounds nuw [4 x i8], ptr %107, i64 %119
   br label %121
 
 121:                                              ; preds = %121, %101
   %indvars.iv46.i.i.i = phi i64 [ 0, %101 ], [ %indvars.iv.next47.i.i.i, %121 ]
   %.010.i34.i.i.i = phi i64 [ 0, %101 ], [ %129, %121 ]
-  %122 = getelementptr inbounds nuw i32, ptr %120, i64 %indvars.iv46.i.i.i
+  %122 = getelementptr inbounds nuw [4 x i8], ptr %120, i64 %indvars.iv46.i.i.i
   %123 = load i32, ptr %122, align 4, !tbaa !45
   %124 = sext i32 %123 to i64
-  %125 = getelementptr inbounds nuw i32, ptr %118, i64 %indvars.iv46.i.i.i
+  %125 = getelementptr inbounds nuw [4 x i8], ptr %118, i64 %indvars.iv46.i.i.i
   %126 = load i32, ptr %125, align 4, !tbaa !45
   %127 = sext i32 %126 to i64
   %128 = mul nsw i64 %127, %124
@@ -299,7 +293,7 @@ aptx_qmf_convolution.exit.i.i.i:                  ; preds = %121
   br i1 %102, label %101, label %aptx_qmf_polyphase_analysis.exit20.i.i.i, !llvm.loop !55
 
 aptx_qmf_polyphase_analysis.exit20.i.i.i:         ; preds = %aptx_qmf_convolution.exit.i.i.i
-  %137 = getelementptr inbounds nuw i32, ptr %6, i64 %99
+  %137 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %99
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 4
   %.sroa.022.i.i.0..sroa.022.i.i.0..sroa.022.i.i.0..sroa.022.i.0..sroa.022.i.0..sroa.022.0..sroa.022.0..sroa.022.0..i.i = load i32, ptr %.sroa.022.i.i, align 4, !tbaa !45
   %.sroa.423.i.i.0..sroa.423.i.i.0..sroa.423.i.i.0..sroa.423.i.0..sroa.423.i.0..sroa.423.0..sroa.423.0..sroa.423.4..i.i = load i32, ptr %.sroa.423.i.i, align 4, !tbaa !45
@@ -322,25 +316,25 @@ aptx_qmf_tree_analysis.exit.i.i:                  ; preds = %aptx_qmf_polyphase_
   %144 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %145 = getelementptr inbounds nuw i8, ptr %48, i64 864
   %146 = sext i32 %49 to i64
-  %147 = getelementptr inbounds [4 x %struct.anon], ptr @ff_aptx_quant_tables, i64 %146
+  %147 = getelementptr inbounds [192 x i8], ptr @ff_aptx_quant_tables, i64 %146
   br label %148
 
 148:                                              ; preds = %aptx_quantize_difference.exit.i.i, %aptx_qmf_tree_analysis.exit.i.i
   %indvars.iv.i.i = phi i64 [ 0, %aptx_qmf_tree_analysis.exit.i.i ], [ %indvars.iv.next.i.i, %aptx_quantize_difference.exit.i.i ]
-  %149 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.i.i
+  %149 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv.i.i
   %150 = load i32, ptr %149, align 4, !tbaa !45
-  %151 = getelementptr inbounds nuw %struct.Prediction, ptr %48, i64 %indvars.iv.i.i
+  %151 = getelementptr inbounds nuw [320 x i8], ptr %48, i64 %indvars.iv.i.i
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 1228
   %153 = load i32, ptr %152, align 4, !tbaa !58
   %154 = sub nsw i32 %150, %153
   %155 = tail call i32 @llvm.smax.i32(i32 %154, i32 -8388608)
   %.0.i.i.i = tail call i32 @llvm.smin.i32(i32 %155, i32 8388607)
-  %156 = getelementptr inbounds nuw %struct.Quantize, ptr %143, i64 %indvars.iv.i.i
-  %157 = getelementptr inbounds nuw i32, ptr %144, i64 %indvars.iv.i.i
+  %156 = getelementptr inbounds nuw [12 x i8], ptr %143, i64 %indvars.iv.i.i
+  %157 = getelementptr inbounds nuw [4 x i8], ptr %144, i64 %indvars.iv.i.i
   %158 = load i32, ptr %157, align 4, !tbaa !45
-  %159 = getelementptr inbounds nuw %struct.InvertQuantize, ptr %145, i64 %indvars.iv.i.i
+  %159 = getelementptr inbounds nuw [12 x i8], ptr %145, i64 %indvars.iv.i.i
   %160 = load i32, ptr %159, align 4, !tbaa !60
-  %161 = getelementptr inbounds nuw %struct.anon, ptr %147, i64 %indvars.iv.i.i
+  %161 = getelementptr inbounds nuw [48 x i8], ptr %147, i64 %indvars.iv.i.i
   %162 = load ptr, ptr %161, align 16, !tbaa !62
   %163 = tail call i32 @llvm.abs.i32(i32 %.0.i.i.i, i1 true)
   %164 = tail call i32 @llvm.umin.i32(i32 %163, i32 8388607)
@@ -366,7 +360,7 @@ aptx_qmf_tree_analysis.exit.i.i:                  ; preds = %aptx_qmf_polyphase_
   %.010.i54.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i ], [ %spec.select.i.i.i.i, %173 ]
   %174 = add nsw i32 %.010.i54.i.i.i, %.0.i4955.i.i.i
   %175 = sext i32 %174 to i64
-  %176 = getelementptr inbounds i32, ptr %162, i64 %175
+  %176 = getelementptr inbounds [4 x i8], ptr %162, i64 %175
   %177 = load i32, ptr %176, align 4, !tbaa !45
   %178 = sext i32 %177 to i64
   %179 = mul nsw i64 %178, %170
@@ -395,7 +389,7 @@ aptx_quantize_difference.exit.i.i:                ; preds = %173, %.aptx_bin_sea
   %192 = getelementptr inbounds nuw i8, ptr %161, i64 16
   %193 = load ptr, ptr %192, align 16, !tbaa !66
   %194 = sext i32 %.010.i.lcssa.i.i.i to i64
-  %195 = getelementptr inbounds i32, ptr %193, i64 %194
+  %195 = getelementptr inbounds [4 x i8], ptr %193, i64 %194
   %196 = load i32, ptr %195, align 4, !tbaa !45
   %197 = sext i32 %196 to i64
   %198 = mul nsw i64 %197, %191
@@ -406,7 +400,7 @@ aptx_quantize_difference.exit.i.i:                ; preds = %173, %.aptx_bin_sea
   %.neg.i45.i.i.i = sext i1 %202 to i64
   %203 = add nsw i64 %200, %.neg.i45.i.i.i
   %204 = trunc i64 %203 to i32
-  %205 = getelementptr inbounds i32, ptr %162, i64 %194
+  %205 = getelementptr inbounds [4 x i8], ptr %162, i64 %194
   %206 = getelementptr inbounds nuw i8, ptr %205, i64 4
   %207 = load i32, ptr %206, align 4, !tbaa !45
   %208 = load i32, ptr %205, align 4, !tbaa !45
@@ -472,7 +466,7 @@ aptx_encode_channel.exit.i:                       ; preds = %aptx_quantize_diffe
 247:                                              ; preds = %247, %245
   %indvars.iv.i.i.i.i = phi i64 [ 0, %245 ], [ %indvars.iv.next.i.i.i.i, %247 ]
   %.067.i.i.i.i = phi i32 [ %246, %245 ], [ %250, %247 ]
-  %248 = getelementptr inbounds nuw %struct.Quantize, ptr %27, i64 %indvars.iv.i.i.i.i
+  %248 = getelementptr inbounds nuw [12 x i8], ptr %27, i64 %indvars.iv.i.i.i.i
   %249 = load i32, ptr %248, align 4, !tbaa !60
   %250 = xor i32 %249, %.067.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
@@ -486,7 +480,7 @@ aptx_quantized_parity.exit.i.i.i:                 ; preds = %247
 252:                                              ; preds = %252, %aptx_quantized_parity.exit.i.i.i
   %indvars.iv.i6.i.i.i = phi i64 [ 0, %aptx_quantized_parity.exit.i.i.i ], [ %indvars.iv.next.i8.i.i.i, %252 ]
   %.067.i7.i.i.i = phi i32 [ %251, %aptx_quantized_parity.exit.i.i.i ], [ %255, %252 ]
-  %253 = getelementptr inbounds nuw %struct.Quantize, ptr %29, i64 %indvars.iv.i6.i.i.i
+  %253 = getelementptr inbounds nuw [12 x i8], ptr %29, i64 %indvars.iv.i6.i.i.i
   %254 = load i32, ptr %253, align 4, !tbaa !60
   %255 = xor i32 %254, %.067.i7.i.i.i
   %indvars.iv.next.i8.i.i.i = add nuw nsw i64 %indvars.iv.i6.i.i.i, 1
@@ -516,10 +510,10 @@ aptx_check_parity.exit.i.i:                       ; preds = %252
 265:                                              ; preds = %265, %.preheader.i.i
   %indvars.iv.i30.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next.i31.i, %265 ]
   %.120.i.i = phi ptr [ %.022.i.i, %.preheader.i.i ], [ %spec.select.i.i, %265 ]
-  %266 = getelementptr inbounds nuw i32, ptr @aptx_insert_sync.map, i64 %indvars.iv.i30.i
+  %266 = getelementptr inbounds nuw [4 x i8], ptr @aptx_insert_sync.map, i64 %indvars.iv.i30.i
   %267 = load i32, ptr %266, align 4, !tbaa !45
   %268 = sext i32 %267 to i64
-  %269 = getelementptr inbounds %struct.Quantize, ptr %264, i64 %268
+  %269 = getelementptr inbounds [12 x i8], ptr %264, i64 %268
   %270 = getelementptr inbounds nuw i8, ptr %269, i64 8
   %271 = load i32, ptr %270, align 4, !tbaa !67
   %272 = getelementptr inbounds nuw i8, ptr %.120.i.i, i64 8
@@ -547,7 +541,7 @@ aptx_insert_sync.exit.i.preheader:                ; preds = %276, %aptx_check_pa
 aptx_insert_sync.exit.i:                          ; preds = %aptx_insert_sync.exit.i.preheader, %352
   %279 = phi i1 [ false, %352 ], [ true, %aptx_insert_sync.exit.i.preheader ]
   %indvars.iv64.i = phi i64 [ 1, %352 ], [ 0, %aptx_insert_sync.exit.i.preheader ]
-  %280 = getelementptr inbounds nuw %struct.Channel, ptr %25, i64 %indvars.iv64.i
+  %280 = getelementptr inbounds nuw [2192 x i8], ptr %25, i64 %indvars.iv64.i
   %281 = load i32, ptr %9, align 4, !tbaa !51
   tail call void @ff_aptx_invert_quantize_and_prediction(ptr noundef nonnull %280, i32 noundef %281) #6
   %282 = load i32, ptr %9, align 4, !tbaa !51
@@ -584,7 +578,7 @@ aptxhd_pack_codeword.exit.i:                      ; preds = %aptx_insert_sync.ex
 305:                                              ; preds = %305, %aptxhd_pack_codeword.exit.i
   %indvars.iv.i.i41.i = phi i64 [ 0, %aptxhd_pack_codeword.exit.i ], [ %indvars.iv.next.i.i43.i, %305 ]
   %.067.i.i42.i = phi i32 [ %304, %aptxhd_pack_codeword.exit.i ], [ %308, %305 ]
-  %306 = getelementptr inbounds nuw %struct.Quantize, ptr %283, i64 %indvars.iv.i.i41.i
+  %306 = getelementptr inbounds nuw [12 x i8], ptr %283, i64 %indvars.iv.i.i41.i
   %307 = load i32, ptr %306, align 4, !tbaa !60
   %308 = xor i32 %307, %.067.i.i42.i
   %indvars.iv.next.i.i43.i = add nuw nsw i64 %indvars.iv.i.i41.i, 1
@@ -616,7 +610,7 @@ aptxhd_pack_codeword.exit45.i:                    ; preds = %305
 325:                                              ; preds = %325, %321
   %indvars.iv.i.i46.i = phi i64 [ 0, %321 ], [ %indvars.iv.next.i.i48.i, %325 ]
   %.067.i.i47.i = phi i32 [ %323, %321 ], [ %328, %325 ]
-  %326 = getelementptr inbounds nuw %struct.Quantize, ptr %324, i64 %indvars.iv.i.i46.i
+  %326 = getelementptr inbounds nuw [12 x i8], ptr %324, i64 %indvars.iv.i.i46.i
   %327 = load i32, ptr %326, align 4, !tbaa !60
   %328 = xor i32 %327, %.067.i.i47.i
   %indvars.iv.next.i.i48.i = add nuw nsw i64 %indvars.iv.i.i46.i, 1

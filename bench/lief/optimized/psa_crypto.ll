@@ -8412,7 +8412,7 @@ define internal fastcc i32 @psa_key_derivation_setup_kdf(ptr noundef writeonly c
 switch.lookup:                                    ; preds = %10
   %14 = icmp eq i32 %11, 0
   %15 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.psa_key_derivation_setup_kdf, i64 %15
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.psa_key_derivation_setup_kdf, i64 %15
   %switch.load = load i64, ptr %switch.gep, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %3, align 8
@@ -8672,7 +8672,7 @@ psa_key_derivation_start_hmac.exit.i:             ; preds = %41
 
 switch.lookup70:                                  ; preds = %57
   %59 = zext nneg i8 %switch.tableidx69 to i64
-  %switch.gep71 = getelementptr inbounds nuw i64, ptr @switch.table.psa_key_derivation_input_internal.31, i64 %59
+  %switch.gep71 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.psa_key_derivation_input_internal.31, i64 %59
   %switch.load72 = load i64, ptr %switch.gep71, align 8
   br label %60
 
@@ -8843,7 +8843,7 @@ psa_mac_update.exit.thread.i:                     ; preds = %psa_mac_update.exit
 
 switch.lookup78:                                  ; preds = %119
   %122 = zext nneg i8 %switch.tableidx77 to i64
-  %switch.gep79 = getelementptr inbounds nuw i64, ptr @switch.table.psa_key_derivation_input_internal.31, i64 %122
+  %switch.gep79 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.psa_key_derivation_input_internal.31, i64 %122
   %switch.load80 = load i64, ptr %switch.gep79, align 8
   br label %123
 
@@ -10065,7 +10065,7 @@ psa_is_dh_key_size_valid.exit.thread.fold.split:  ; preds = %10
   br label %psa_is_dh_key_size_valid.exit.thread
 
 switch.lookup:                                    ; preds = %12
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.psa_validate_key_type_and_size_for_key_generation, i64 %14
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.psa_validate_key_type_and_size_for_key_generation, i64 %14
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %psa_is_dh_key_size_valid.exit.thread
 
@@ -11801,7 +11801,7 @@ switch.early.test139:                             ; preds = %8
 
 switch.lookup:                                    ; preds = %54
   %66 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.psa_key_policy_algorithm_intersection.33, i64 %66
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.psa_key_policy_algorithm_intersection.33, i64 %66
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.thread
 
@@ -12097,7 +12097,7 @@ switch.early.test224:                             ; preds = %.critedge
 
 switch.lookup:                                    ; preds = %70
   %81 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.psa_key_policy_algorithm_intersection.33, i64 %81
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.psa_key_policy_algorithm_intersection.33, i64 %81
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %82
 
@@ -12136,7 +12136,7 @@ switch.lookup:                                    ; preds = %70
 
 switch.lookup248:                                 ; preds = %89
   %100 = zext nneg i32 %switch.tableidx247 to i64
-  %switch.gep249 = getelementptr inbounds nuw i32, ptr @switch.table.psa_key_policy_algorithm_intersection.33, i64 %100
+  %switch.gep249 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.psa_key_policy_algorithm_intersection.33, i64 %100
   %switch.load250 = load i32, ptr %switch.gep249, align 4
   br label %101
 
@@ -12266,7 +12266,7 @@ define internal fastcc range(i32 -135, 1) i32 @psa_mac_finalize_alg_and_key_vali
 
 switch.lookup:                                    ; preds = %20
   %30 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.psa_mac_finalize_alg_and_key_validation, i64 %30
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.psa_mac_finalize_alg_and_key_validation, i64 %30
   %switch.load = load i32, ptr %switch.gep, align 4
   %31 = trunc nuw nsw i32 %switch.load to i8
   store i8 %31, ptr %1, align 1, !tbaa !27

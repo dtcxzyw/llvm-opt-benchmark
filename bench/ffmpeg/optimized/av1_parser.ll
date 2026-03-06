@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.AVCodecParser = type { [7 x i32], i32, ptr, ptr, ptr, ptr }
-%struct.CodedBitstreamUnit = type { i32, ptr, i64, i64, ptr, ptr, ptr }
 
 @ff_av1_parser = local_unnamed_addr constant %struct.AVCodecParser { [7 x i32] [i32 225, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0], i32 64, ptr @av1_parser_init, ptr @av1_parser_parse, ptr @av1_parser_close, ptr null }, align 8
 @decompose_unit_types = internal constant [5 x i32] [i32 2, i32 1, i32 3, i32 4, i32 6], align 16
@@ -126,7 +125,7 @@ define internal noundef i32 @av1_parser_parse(ptr noundef captures(none) initial
 
 46:                                               ; preds = %.lr.ph, %78
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %78 ]
-  %47 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %41, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [56 x i8], ptr %41, i64 %indvars.iv
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 40
   %49 = load ptr, ptr %48, align 8, !tbaa !54
   %50 = load i32, ptr %47, align 8, !tbaa !56
@@ -183,7 +182,7 @@ define internal noundef i32 @av1_parser_parse(ptr noundef captures(none) initial
 
 switch.lookup:                                    ; preds = %73
   %75 = zext nneg i8 %69 to i64
-  %76 = getelementptr i32, ptr @switch.table.av1_parser_parse, i64 %75
+  %76 = getelementptr [4 x i8], ptr @switch.table.av1_parser_parse, i64 %75
   %switch.gep = getelementptr i8, ptr %76, i64 -4
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.sink.split
@@ -225,11 +224,11 @@ switch.lookup:                                    ; preds = %73
   %88 = getelementptr inbounds nuw i8, ptr %33, i64 583
   %89 = load i8, ptr %88, align 1, !tbaa !74
   %90 = zext i8 %89 to i64
-  %91 = getelementptr inbounds nuw [2 x i32], ptr %pix_fmts_12bit.sink, i64 %90
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %pix_fmts_12bit.sink, i64 %90
   %92 = getelementptr inbounds nuw i8, ptr %33, i64 584
   %93 = load i8, ptr %92, align 1, !tbaa !75
   %94 = zext i8 %93 to i64
-  %95 = getelementptr inbounds nuw i32, ptr %91, i64 %94
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %91, i64 %94
   %96 = load i32, ptr %95, align 4, !tbaa !26
   br label %.sink.split117
 
@@ -275,8 +274,8 @@ switch.lookup:                                    ; preds = %73
   %119 = getelementptr inbounds nuw i8, ptr %33, i64 576
   %120 = load i8, ptr %119, align 1, !tbaa !81
   %121 = zext i8 %120 to i64
-  %122 = getelementptr inbounds nuw i32, ptr @pix_fmts_rgb, i64 %118
-  %123 = getelementptr inbounds nuw i32, ptr %122, i64 %121
+  %122 = getelementptr inbounds nuw [4 x i8], ptr @pix_fmts_rgb, i64 %118
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %122, i64 %121
   %124 = load i32, ptr %123, align 4, !tbaa !26
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 328
   store i32 %124, ptr %125, align 8, !tbaa !76

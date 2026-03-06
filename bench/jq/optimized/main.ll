@@ -159,7 +159,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 28:                                               ; preds = %27
   %29 = sext i32 %.04861366 to i64
-  %30 = getelementptr inbounds ptr, ptr %1, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %1, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !9
   %32 = load i8, ptr %31, align 1, !tbaa !15
   %33 = icmp eq i8 %32, 45
@@ -175,7 +175,7 @@ isoptish.exit:                                    ; preds = %34
   %38 = tail call ptr @__ctype_b_loc() #21
   %39 = load ptr, ptr %38, align 8, !tbaa !16
   %40 = zext i8 %36 to i64
-  %41 = getelementptr inbounds nuw i16, ptr %39, i64 %40
+  %41 = getelementptr inbounds nuw [2 x i8], ptr %39, i64 %40
   %42 = load i16, ptr %41, align 2, !tbaa !18
   %43 = and i16 %42, 1024
   %.not507 = icmp eq i16 %43, 0
@@ -187,7 +187,7 @@ isoptish.exit.thread:                             ; preds = %28, %isoptish.exit,
 
 44:                                               ; preds = %isoptish.exit.thread
   %45 = sext i32 %.04861366 to i64
-  %46 = getelementptr inbounds ptr, ptr %1, i64 %45
+  %46 = getelementptr inbounds [8 x i8], ptr %1, i64 %45
   %47 = load ptr, ptr %46, align 8, !tbaa !9
   br label %.loopexit
 
@@ -197,7 +197,7 @@ isoptish.exit.thread:                             ; preds = %28, %isoptish.exit,
 
 49:                                               ; preds = %48
   %50 = sext i32 %.04861366 to i64
-  %51 = getelementptr inbounds ptr, ptr %1, i64 %50
+  %51 = getelementptr inbounds [8 x i8], ptr %1, i64 %50
   %52 = load ptr, ptr %51, align 8, !tbaa !9
   %53 = tail call { i64, ptr } @jv_string(ptr noundef %52) #19
   %54 = extractvalue { i64, ptr } %53, 0
@@ -210,7 +210,7 @@ isoptish.exit.thread:                             ; preds = %28, %isoptish.exit,
 59:                                               ; preds = %48
   %.not590 = icmp eq i32 %.04751371, 0
   %60 = sext i32 %.04861366 to i64
-  %61 = getelementptr inbounds ptr, ptr %1, i64 %60
+  %61 = getelementptr inbounds [8 x i8], ptr %1, i64 %60
   %62 = load ptr, ptr %61, align 8, !tbaa !9
   br i1 %.not590, label %76, label %63
 
@@ -540,7 +540,7 @@ isoption.exit683:                                 ; preds = %161, %158
 184:                                              ; preds = %180
   %185 = add nsw i32 %.04861366, 1
   %186 = sext i32 %185 to i64
-  %187 = getelementptr inbounds ptr, ptr %1, i64 %186
+  %187 = getelementptr inbounds [8 x i8], ptr %1, i64 %186
   %188 = load ptr, ptr %187, align 8, !tbaa !9
   %189 = tail call { i64, ptr } @jv_string(ptr noundef %188) #19
   %190 = extractvalue { i64, ptr } %189, 0
@@ -594,7 +594,7 @@ isoption.exit700:                                 ; preds = %207
 213:                                              ; preds = %isoption.exit700
   %214 = add nsw i32 %.04861366, 1
   %215 = sext i32 %214 to i64
-  %216 = getelementptr inbounds ptr, ptr %1, i64 %215
+  %216 = getelementptr inbounds [8 x i8], ptr %1, i64 %215
   %217 = load ptr, ptr %216, align 8, !tbaa !9
   %218 = tail call i64 @strtol(ptr noundef nonnull captures(none) %217, ptr noundef null, i32 noundef 10) #19
   %219 = trunc i64 %218 to i32
@@ -694,7 +694,7 @@ isoption.exit737:                                 ; preds = %250
   %258 = extractvalue { i64, ptr } %257, 0
   %259 = extractvalue { i64, ptr } %257, 1
   %260 = sext i32 %.04861366 to i64
-  %261 = getelementptr ptr, ptr %1, i64 %260
+  %261 = getelementptr [8 x i8], ptr %1, i64 %260
   %262 = getelementptr i8, ptr %261, i64 8
   %263 = load ptr, ptr %262, align 8, !tbaa !9
   %264 = tail call { i64, ptr } @jv_string(ptr noundef %263) #19
@@ -746,7 +746,7 @@ isoption.exit742:                                 ; preds = %283
   %291 = extractvalue { i64, ptr } %290, 0
   %292 = extractvalue { i64, ptr } %290, 1
   %293 = sext i32 %.04861366 to i64
-  %294 = getelementptr ptr, ptr %1, i64 %293
+  %294 = getelementptr [8 x i8], ptr %1, i64 %293
   %295 = getelementptr i8, ptr %294, i64 8
   %296 = load ptr, ptr %295, align 8, !tbaa !9
   %297 = tail call { i64, ptr } @jv_string(ptr noundef %296) #19
@@ -817,7 +817,7 @@ isoption.exit747:                                 ; preds = %324, %322
   %333 = extractvalue { i64, ptr } %332, 0
   %334 = extractvalue { i64, ptr } %332, 1
   %335 = sext i32 %.04861366 to i64
-  %336 = getelementptr ptr, ptr %1, i64 %335
+  %336 = getelementptr [8 x i8], ptr %1, i64 %335
   %337 = getelementptr i8, ptr %336, i64 8
   %338 = load ptr, ptr %337, align 8, !tbaa !9
   %339 = tail call { i64, ptr } @jv_string(ptr noundef %338) #19
@@ -930,7 +930,7 @@ isoption.exit791:                                 ; preds = %385
   %390 = select i1 %.not545, i32 %389, i32 1
   %391 = sub nsw i32 %0, %387
   %392 = sext i32 %387 to i64
-  %393 = getelementptr inbounds ptr, ptr %1, i64 %392
+  %393 = getelementptr inbounds [8 x i8], ptr %1, i64 %392
   %394 = tail call i32 @jq_testsuite(i64 %.sroa.0297.01367, ptr %.sroa.11.01368, i32 noundef %390, i32 noundef %391, ptr noundef %393) #19
   br label %711
 

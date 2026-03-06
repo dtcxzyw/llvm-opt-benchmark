@@ -3,10 +3,6 @@ source_filename = "bench/luajit/original/lj_opt_dce.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.SnapShot = type { i32, i16, i16, i8, i8, i8, i8 }
-%union.IRIns = type { %struct.GCRef }
-%struct.GCRef = type { i64 }
-
 @lj_ir_mode = external hidden local_unnamed_addr constant [102 x i8], align 16
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
@@ -34,11 +30,11 @@ define hidden void @lj_opt_dce(ptr noundef %0) local_unnamed_addr #0 {
 12:                                               ; preds = %._crit_edge.i, %.lr.ph21.i
   %indvars.iv25.i = phi i64 [ 0, %.lr.ph21.i ], [ %indvars.iv.next26.i, %._crit_edge.i ]
   %13 = load ptr, ptr %9, align 8, !tbaa !28
-  %14 = getelementptr inbounds nuw %struct.SnapShot, ptr %13, i64 %indvars.iv25.i
+  %14 = getelementptr inbounds nuw [12 x i8], ptr %13, i64 %indvars.iv25.i
   %15 = load ptr, ptr %10, align 8, !tbaa !29
   %16 = load i32, ptr %14, align 4, !tbaa !30
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw i32, ptr %15, i64 %17
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 10
   %20 = load i8, ptr %19, align 2, !tbaa !32
   %.not23.i = icmp eq i8 %20, 0
@@ -50,7 +46,7 @@ define hidden void @lj_opt_dce(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph.i:                                         ; preds = %32, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %32 ]
-  %21 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv.i
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv.i
   %22 = load i32, ptr %21, align 4, !tbaa !33
   %23 = and i32 %22, 65535
   %24 = icmp samesign ugt i32 %23, 32768
@@ -59,7 +55,7 @@ define hidden void @lj_opt_dce(ptr noundef %0) local_unnamed_addr #0 {
 25:                                               ; preds = %.lr.ph.i
   %26 = load ptr, ptr %11, align 8, !tbaa !34
   %27 = zext nneg i32 %23 to i64
-  %28 = getelementptr inbounds nuw %union.IRIns, ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %30 = load i8, ptr %29, align 4, !tbaa !35
   %31 = or i8 %30, 32
@@ -83,8 +79,8 @@ dce_marksnap.exit:                                ; preds = %._crit_edge.i, %6
 
 34:                                               ; preds = %34, %dce_marksnap.exit
   %indvars.iv.i4 = phi i64 [ 0, %dce_marksnap.exit ], [ %indvars.iv.next.i5, %34 ]
-  %35 = getelementptr inbounds nuw i16, ptr %33, i64 %indvars.iv.i4
-  %36 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.i4
+  %35 = getelementptr inbounds nuw [2 x i8], ptr %33, i64 %indvars.iv.i4
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.i4
   store ptr %35, ptr %36, align 8, !tbaa !39
   %indvars.iv.next.i5 = add nuw nsw i64 %indvars.iv.i4, 1
   %exitcond.not.i6 = icmp eq i64 %indvars.iv.next.i5, 101
@@ -105,7 +101,7 @@ dce_marksnap.exit:                                ; preds = %._crit_edge.i, %6
 43:                                               ; preds = %89, %.lr.ph.i8
   %indvars.iv29.i = phi i64 [ %42, %.lr.ph.i8 ], [ %indvars.iv.next30.i, %89 ]
   %44 = load ptr, ptr %41, align 8, !tbaa !34
-  %45 = getelementptr inbounds nuw %union.IRIns, ptr %44, i64 %indvars.iv29.i
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %indvars.iv29.i
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 4
   %47 = load i8, ptr %46, align 4, !tbaa !35
   %48 = and i8 %47, 32
@@ -134,7 +130,7 @@ dce_marksnap.exit:                                ; preds = %._crit_edge.i, %6
 60:                                               ; preds = %51
   %61 = getelementptr inbounds nuw i8, ptr %45, i64 6
   %62 = load i16, ptr %61, align 2, !tbaa !35
-  %63 = getelementptr inbounds nuw ptr, ptr %2, i64 %55
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %55
   %64 = load ptr, ptr %63, align 8, !tbaa !39
   store i16 %62, ptr %64, align 2, !tbaa !43
   store i16 3072, ptr %46, align 4, !tbaa !35
@@ -147,7 +143,7 @@ dce_marksnap.exit:                                ; preds = %._crit_edge.i, %6
 66:                                               ; preds = %51, %49
   %.pre-phi.i = phi i64 [ %55, %51 ], [ %.pre32.i, %49 ]
   %67 = getelementptr inbounds nuw i8, ptr %45, i64 6
-  %68 = getelementptr inbounds nuw ptr, ptr %2, i64 %.pre-phi.i
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.pre-phi.i
   store ptr %67, ptr %68, align 8, !tbaa !39
   %69 = load i16, ptr %45, align 8, !tbaa !35
   %70 = icmp ugt i16 %69, -32768
@@ -156,7 +152,7 @@ dce_marksnap.exit:                                ; preds = %._crit_edge.i, %6
 71:                                               ; preds = %66
   %72 = load ptr, ptr %41, align 8, !tbaa !34
   %73 = zext i16 %69 to i64
-  %74 = getelementptr inbounds nuw %union.IRIns, ptr %72, i64 %73
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %73
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 4
   %76 = load i8, ptr %75, align 4, !tbaa !35
   %77 = or i8 %76, 32
@@ -172,7 +168,7 @@ dce_marksnap.exit:                                ; preds = %._crit_edge.i, %6
 82:                                               ; preds = %78
   %83 = load ptr, ptr %41, align 8, !tbaa !34
   %84 = zext i16 %80 to i64
-  %85 = getelementptr inbounds nuw %union.IRIns, ptr %83, i64 %84
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %84
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 4
   %87 = load i8, ptr %86, align 4, !tbaa !35
   %88 = or i8 %87, 32

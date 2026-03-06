@@ -3221,7 +3221,7 @@ _ZN5alloc5alloc15exchange_malloc17hf45cfb43b91670a0E.llvm.1845134153835457127.ex
   %52 = load ptr, ptr %51, align 8, !alias.scope !342, !nonnull !14, !noundef !14
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %54 = load i64, ptr %53, align 8, !alias.scope !342, !noundef !14
-  %55 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } } }, ptr %52, i64 %54
+  %55 = getelementptr inbounds [48 x i8], ptr %52, i64 %54
   br label %"_ZN9hashbrown3set24HashSet$LT$T$C$S$C$A$GT$6insert17hb68671d8888fc8b1E.exit6"
 
 "_ZN9hashbrown3set24HashSet$LT$T$C$S$C$A$GT$6insert17hb68671d8888fc8b1E.exit6": ; preds = %"_ZN9hashbrown3set24HashSet$LT$T$C$S$C$A$GT$6insert17hb68671d8888fc8b1E.exit", %46

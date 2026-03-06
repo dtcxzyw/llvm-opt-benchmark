@@ -3,9 +3,6 @@ source_filename = "bench/icu/original/uhash.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.UHashElement = type { i32, %union.UElement, %union.UElement }
-%union.UElement = type { ptr }
-
 @_ZL6PRIMES = internal unnamed_addr constant [29 x i32] [i32 7, i32 13, i32 31, i32 61, i32 127, i32 251, i32 509, i32 1021, i32 2039, i32 4093, i32 8191, i32 16381, i32 32749, i32 65521, i32 131071, i32 262139, i32 524287, i32 1048573, i32 2097143, i32 4194301, i32 8388593, i32 16777213, i32 33554393, i32 67108859, i32 134217689, i32 268435399, i32 536870909, i32 1073741789, i32 2147483647], align 16
 @_ZL25RESIZE_POLICY_RATIO_TABLE = internal unnamed_addr constant [6 x float] [float 0.000000e+00, float 5.000000e-01, float 0x3FB99999A0000000, float 5.000000e-01, float 0.000000e+00, float 1.000000e+00], align 16
 
@@ -99,7 +96,7 @@ define noundef ptr @uhash_openSize_77(ptr noundef %0, ptr noundef %1, ptr nounde
 
 6:                                                ; preds = %5, %10
   %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %10 ]
-  %7 = getelementptr inbounds nuw i32, ptr @_ZL6PRIMES, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [4 x i8], ptr @_ZL6PRIMES, i64 %indvars.iv
   %8 = load i32, ptr %7, align 4, !tbaa !28
   %9 = icmp slt i32 %8, %3
   br i1 %9, label %10, label %.critedge.split.loop.exit11
@@ -152,7 +149,7 @@ define noundef ptr @uhash_openSize_77(ptr noundef %0, ptr noundef %1, ptr nounde
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 72
   store i8 %29, ptr %30, align 8, !tbaa !18
   %31 = zext nneg i32 %.0.lcssa to i64
-  %32 = getelementptr inbounds nuw i32, ptr @_ZL6PRIMES, i64 %31
+  %32 = getelementptr inbounds nuw [4 x i8], ptr @_ZL6PRIMES, i64 %31
   %33 = load i32, ptr %32, align 4, !tbaa !28
   %34 = getelementptr inbounds nuw i8, ptr %15, i64 52
   store i32 %33, ptr %34, align 4, !tbaa !19
@@ -290,7 +287,7 @@ define ptr @uhash_initSize_77(ptr noundef captures(ret: address, provenance) %0,
 
 7:                                                ; preds = %6, %11
   %indvars.iv = phi i64 [ 0, %6 ], [ %indvars.iv.next, %11 ]
-  %8 = getelementptr inbounds nuw i32, ptr @_ZL6PRIMES, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [4 x i8], ptr @_ZL6PRIMES, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4, !tbaa !28
   %10 = icmp slt i32 %9, %4
   br i1 %10, label %11, label %.critedge.split.loop.exit11
@@ -329,7 +326,7 @@ define ptr @uhash_initSize_77(ptr noundef captures(ret: address, provenance) %0,
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i8 %23, ptr %24, align 8, !tbaa !18
   %25 = zext nneg i32 %.0.lcssa to i64
-  %26 = getelementptr inbounds nuw i32, ptr @_ZL6PRIMES, i64 %25
+  %26 = getelementptr inbounds nuw [4 x i8], ptr @_ZL6PRIMES, i64 %25
   %27 = load i32, ptr %26, align 4, !tbaa !28
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 %27, ptr %28, align 4, !tbaa !19
@@ -428,7 +425,7 @@ define void @uhash_close_77(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %20, label %21, label %.loopexit
 
 21:                                               ; preds = %19
-  %22 = getelementptr inbounds %struct.UHashElement, ptr %18, i64 %indvars.iv.next.i
+  %22 = getelementptr inbounds [24 x i8], ptr %18, i64 %indvars.iv.next.i
   %23 = load i32, ptr %22, align 8, !tbaa !21
   %24 = icmp slt i32 %23, 0
   br i1 %24, label %19, label %25, !llvm.loop !33
@@ -503,7 +500,7 @@ define noundef ptr @uhash_nextElement_77(ptr noundef readonly captures(none) %0,
 
 10:                                               ; preds = %8
   %11 = load ptr, ptr %0, align 8, !tbaa !20
-  %12 = getelementptr inbounds %struct.UHashElement, ptr %11, i64 %indvars.iv.next
+  %12 = getelementptr inbounds [24 x i8], ptr %11, i64 %indvars.iv.next
   %13 = load i32, ptr %12, align 8, !tbaa !21
   %14 = icmp slt i32 %13, 0
   br i1 %14, label %8, label %15, !llvm.loop !33
@@ -567,7 +564,7 @@ define void @uhash_setResizePolicy_77(ptr noundef captures(none) initializes((56
   store i32 0, ptr %3, align 4, !tbaa !3
   %4 = shl nsw i32 %1, 1
   %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds float, ptr @_ZL25RESIZE_POLICY_RATIO_TABLE, i64 %5
+  %6 = getelementptr inbounds [4 x i8], ptr @_ZL25RESIZE_POLICY_RATIO_TABLE, i64 %5
   %7 = load float, ptr %6, align 8, !tbaa !36
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store float %7, ptr %8, align 4, !tbaa !16
@@ -630,7 +627,7 @@ define internal fastcc void @_ZL13_uhash_rehashP10UHashtableP10UErrorCode(ptr no
   %27 = trunc i32 %.0 to i8
   store i8 %27, ptr %6, align 8, !tbaa !18
   %28 = sext i32 %.0 to i64
-  %29 = getelementptr inbounds i32, ptr @_ZL6PRIMES, i64 %28
+  %29 = getelementptr inbounds [4 x i8], ptr @_ZL6PRIMES, i64 %28
   %30 = load i32, ptr %29, align 4, !tbaa !28
   store i32 %30, ptr %4, align 4, !tbaa !19
   %31 = sext i32 %30 to i64
@@ -696,7 +693,7 @@ _ZL15_uhash_allocateP10UHashtableiP10UErrorCode.exit.thread: ; preds = %35, %23,
 58:                                               ; preds = %.lr.ph, %105
   %indvars.iv = phi i64 [ %57, %.lr.ph ], [ %indvars.iv.next, %105 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %59 = getelementptr inbounds nuw %struct.UHashElement, ptr %3, i64 %indvars.iv.next
+  %59 = getelementptr inbounds nuw [24 x i8], ptr %3, i64 %indvars.iv.next
   %60 = load i32, ptr %59, align 8, !tbaa !21
   %61 = icmp slt i32 %60, 0
   br i1 %61, label %105, label %62
@@ -716,7 +713,7 @@ _ZL15_uhash_allocateP10UHashtableiP10UErrorCode.exit.thread: ; preds = %35, %23,
   %.033.i = phi i32 [ %67, %62 ], [ %90, %88 ]
   %.032.i = phi i32 [ -1, %62 ], [ %.1.i, %88 ]
   %69 = zext nneg i32 %.033.i to i64
-  %70 = getelementptr inbounds nuw %struct.UHashElement, ptr %64, i64 %69
+  %70 = getelementptr inbounds nuw [24 x i8], ptr %64, i64 %69
   %71 = load i32, ptr %70, align 8, !tbaa !21
   %72 = icmp eq i32 %71, %60
   br i1 %72, label %73, label %77
@@ -777,7 +774,7 @@ _ZL15_uhash_allocateP10UHashtableiP10UErrorCode.exit.thread: ; preds = %35, %23,
 .thread46.i:                                      ; preds = %79, %93, %91
   %.235.i = phi i32 [ %67, %93 ], [ %.1.i, %91 ], [ %spec.select49.i, %79 ]
   %95 = zext nneg i32 %.235.i to i64
-  %96 = getelementptr inbounds nuw %struct.UHashElement, ptr %64, i64 %95
+  %96 = getelementptr inbounds nuw [24 x i8], ptr %64, i64 %95
   br label %_ZL11_uhash_findPK10UHashtable8UElementi.exit
 
 _ZL11_uhash_findPK10UHashtable8UElementi.exit:    ; preds = %73, %.thread46.i
@@ -835,7 +832,7 @@ define ptr @uhash_get_77(ptr noundef readonly captures(none) %0, ptr noundef %1)
   %.033.i = phi i32 [ %11, %2 ], [ %35, %33 ]
   %.032.i = phi i32 [ -1, %2 ], [ %.1.i, %33 ]
   %14 = zext nneg i32 %.033.i to i64
-  %15 = getelementptr inbounds nuw %struct.UHashElement, ptr %6, i64 %14
+  %15 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %14
   %16 = load i32, ptr %15, align 8, !tbaa !21
   %17 = icmp eq i32 %16, %7
   br i1 %17, label %18, label %22
@@ -900,7 +897,7 @@ define ptr @uhash_get_77(ptr noundef readonly captures(none) %0, ptr noundef %1)
 
 _ZL11_uhash_findPK10UHashtable8UElementi.exit:    ; preds = %18, %.thread46.i
   %41 = phi i64 [ %40, %.thread46.i ], [ %14, %18 ]
-  %42 = getelementptr inbounds nuw %struct.UHashElement, ptr %6, i64 %41
+  %42 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %41
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load ptr, ptr %43, align 8, !tbaa !34
   ret ptr %44
@@ -928,7 +925,7 @@ define ptr @uhash_iget_77(ptr noundef readonly captures(none) %0, i32 noundef %1
   %.033.i = phi i32 [ %12, %2 ], [ %36, %34 ]
   %.032.i = phi i32 [ -1, %2 ], [ %.1.i, %34 ]
   %15 = zext nneg i32 %.033.i to i64
-  %16 = getelementptr inbounds nuw %struct.UHashElement, ptr %7, i64 %15
+  %16 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %15
   %17 = load i32, ptr %16, align 8, !tbaa !21
   %18 = icmp eq i32 %17, %8
   br i1 %18, label %19, label %23
@@ -993,7 +990,7 @@ define ptr @uhash_iget_77(ptr noundef readonly captures(none) %0, i32 noundef %1
 
 _ZL11_uhash_findPK10UHashtable8UElementi.exit:    ; preds = %19, %.thread46.i
   %42 = phi i64 [ %41, %.thread46.i ], [ %15, %19 ]
-  %43 = getelementptr inbounds nuw %struct.UHashElement, ptr %7, i64 %42
+  %43 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = load ptr, ptr %44, align 8, !tbaa !34
   ret ptr %45
@@ -1019,7 +1016,7 @@ define i32 @uhash_geti_77(ptr noundef readonly captures(none) %0, ptr noundef %1
   %.033.i = phi i32 [ %11, %2 ], [ %35, %33 ]
   %.032.i = phi i32 [ -1, %2 ], [ %.1.i, %33 ]
   %14 = zext nneg i32 %.033.i to i64
-  %15 = getelementptr inbounds nuw %struct.UHashElement, ptr %6, i64 %14
+  %15 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %14
   %16 = load i32, ptr %15, align 8, !tbaa !21
   %17 = icmp eq i32 %16, %7
   br i1 %17, label %18, label %22
@@ -1084,7 +1081,7 @@ define i32 @uhash_geti_77(ptr noundef readonly captures(none) %0, ptr noundef %1
 
 _ZL11_uhash_findPK10UHashtable8UElementi.exit:    ; preds = %18, %.thread46.i
   %41 = phi i64 [ %40, %.thread46.i ], [ %14, %18 ]
-  %42 = getelementptr inbounds nuw %struct.UHashElement, ptr %6, i64 %41
+  %42 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %41
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load i32, ptr %43, align 8, !tbaa !34
   ret i32 %44
@@ -1112,7 +1109,7 @@ define i32 @uhash_igeti_77(ptr noundef readonly captures(none) %0, i32 noundef %
   %.033.i = phi i32 [ %12, %2 ], [ %36, %34 ]
   %.032.i = phi i32 [ -1, %2 ], [ %.1.i, %34 ]
   %15 = zext nneg i32 %.033.i to i64
-  %16 = getelementptr inbounds nuw %struct.UHashElement, ptr %7, i64 %15
+  %16 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %15
   %17 = load i32, ptr %16, align 8, !tbaa !21
   %18 = icmp eq i32 %17, %8
   br i1 %18, label %19, label %23
@@ -1177,7 +1174,7 @@ define i32 @uhash_igeti_77(ptr noundef readonly captures(none) %0, i32 noundef %
 
 _ZL11_uhash_findPK10UHashtable8UElementi.exit:    ; preds = %19, %.thread46.i
   %42 = phi i64 [ %41, %.thread46.i ], [ %15, %19 ]
-  %43 = getelementptr inbounds nuw %struct.UHashElement, ptr %7, i64 %42
+  %43 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = load i32, ptr %44, align 8, !tbaa !34
   ret i32 %45
@@ -1203,7 +1200,7 @@ define i32 @uhash_getiAndFound_77(ptr noundef readonly captures(none) %0, ptr no
   %.033.i = phi i32 [ %12, %3 ], [ %36, %34 ]
   %.032.i = phi i32 [ -1, %3 ], [ %.1.i, %34 ]
   %15 = zext nneg i32 %.033.i to i64
-  %16 = getelementptr inbounds nuw %struct.UHashElement, ptr %7, i64 %15
+  %16 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %15
   %17 = load i32, ptr %16, align 8, !tbaa !21
   %18 = icmp eq i32 %17, %8
   br i1 %18, label %19, label %23
@@ -1264,7 +1261,7 @@ define i32 @uhash_getiAndFound_77(ptr noundef readonly captures(none) %0, ptr no
 .thread46.i:                                      ; preds = %25, %39, %37
   %.235.i = phi i32 [ %12, %39 ], [ %.1.i, %37 ], [ %spec.select49.i, %25 ]
   %41 = zext nneg i32 %.235.i to i64
-  %42 = getelementptr inbounds nuw %struct.UHashElement, ptr %7, i64 %41
+  %42 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %41
   br label %_ZL11_uhash_findPK10UHashtable8UElementi.exit
 
 _ZL11_uhash_findPK10UHashtable8UElementi.exit:    ; preds = %19, %.thread46.i
@@ -1300,7 +1297,7 @@ define i32 @uhash_igetiAndFound_77(ptr noundef readonly captures(none) %0, i32 n
   %.033.i = phi i32 [ %13, %3 ], [ %37, %35 ]
   %.032.i = phi i32 [ -1, %3 ], [ %.1.i, %35 ]
   %16 = zext nneg i32 %.033.i to i64
-  %17 = getelementptr inbounds nuw %struct.UHashElement, ptr %8, i64 %16
+  %17 = getelementptr inbounds nuw [24 x i8], ptr %8, i64 %16
   %18 = load i32, ptr %17, align 8, !tbaa !21
   %19 = icmp eq i32 %18, %9
   br i1 %19, label %20, label %24
@@ -1361,7 +1358,7 @@ define i32 @uhash_igetiAndFound_77(ptr noundef readonly captures(none) %0, i32 n
 .thread46.i:                                      ; preds = %26, %40, %38
   %.235.i = phi i32 [ %13, %40 ], [ %.1.i, %38 ], [ %spec.select49.i, %26 ]
   %42 = zext nneg i32 %.235.i to i64
-  %43 = getelementptr inbounds nuw %struct.UHashElement, ptr %8, i64 %42
+  %43 = getelementptr inbounds nuw [24 x i8], ptr %8, i64 %42
   br label %_ZL11_uhash_findPK10UHashtable8UElementi.exit
 
 _ZL11_uhash_findPK10UHashtable8UElementi.exit:    ; preds = %20, %.thread46.i
@@ -1441,7 +1438,7 @@ define internal fastcc ptr @_ZL10_uhash_putP10UHashtable8UElementS1_aP10UErrorCo
   %.033.i = phi i32 [ %37, %28 ], [ %61, %59 ]
   %.032.i = phi i32 [ -1, %28 ], [ %.1.i, %59 ]
   %40 = zext nneg i32 %.033.i to i64
-  %41 = getelementptr inbounds nuw %struct.UHashElement, ptr %32, i64 %40
+  %41 = getelementptr inbounds nuw [24 x i8], ptr %32, i64 %40
   %42 = load i32, ptr %41, align 8, !tbaa !21
   %43 = icmp eq i32 %42, %33
   br i1 %43, label %44, label %48
@@ -1502,7 +1499,7 @@ define internal fastcc ptr @_ZL10_uhash_putP10UHashtable8UElementS1_aP10UErrorCo
 .thread46.i:                                      ; preds = %50, %64, %62
   %.235.i = phi i32 [ %37, %64 ], [ %.1.i, %62 ], [ %spec.select49.i, %50 ]
   %66 = zext nneg i32 %.235.i to i64
-  %67 = getelementptr inbounds nuw %struct.UHashElement, ptr %32, i64 %66
+  %67 = getelementptr inbounds nuw [24 x i8], ptr %32, i64 %66
   br label %_ZL11_uhash_findPK10UHashtable8UElementi.exit
 
 _ZL11_uhash_findPK10UHashtable8UElementi.exit:    ; preds = %44, %.thread46.i
@@ -1676,7 +1673,7 @@ define internal fastcc ptr @_ZL13_uhash_removeP10UHashtable8UElement(ptr noundef
   %.033.i = phi i32 [ %12, %2 ], [ %36, %34 ]
   %.032.i = phi i32 [ -1, %2 ], [ %.1.i, %34 ]
   %15 = zext nneg i32 %.033.i to i64
-  %16 = getelementptr inbounds nuw %struct.UHashElement, ptr %7, i64 %15
+  %16 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %15
   %17 = load i32, ptr %16, align 8, !tbaa !21
   %18 = icmp eq i32 %17, %8
   br i1 %18, label %19, label %23
@@ -1737,7 +1734,7 @@ define internal fastcc ptr @_ZL13_uhash_removeP10UHashtable8UElement(ptr noundef
 .thread46.i:                                      ; preds = %25, %39, %37
   %.235.i = phi i32 [ %12, %39 ], [ %.1.i, %37 ], [ %spec.select49.i, %25 ]
   %41 = zext nneg i32 %.235.i to i64
-  %42 = getelementptr inbounds nuw %struct.UHashElement, ptr %7, i64 %41
+  %42 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %41
   br label %_ZL11_uhash_findPK10UHashtable8UElementi.exit
 
 _ZL11_uhash_findPK10UHashtable8UElementi.exit:    ; preds = %19, %.thread46.i
@@ -1859,7 +1856,7 @@ define void @uhash_removeAll_77(ptr noundef captures(none) %0) local_unnamed_add
 
 13:                                               ; preds = %11
   %14 = load ptr, ptr %0, align 8, !tbaa !20
-  %15 = getelementptr inbounds %struct.UHashElement, ptr %14, i64 %indvars.iv.next.i
+  %15 = getelementptr inbounds [24 x i8], ptr %14, i64 %indvars.iv.next.i
   %16 = load i32, ptr %15, align 8, !tbaa !21
   %17 = icmp slt i32 %16, 0
   br i1 %17, label %11, label %18, !llvm.loop !33
@@ -1977,7 +1974,7 @@ define signext range(i8 0, 2) i8 @uhash_containsKey_77(ptr noundef readonly capt
   %.033.i = phi i32 [ %11, %2 ], [ %35, %33 ]
   %.032.i = phi i32 [ -1, %2 ], [ %.1.i, %33 ]
   %14 = zext nneg i32 %.033.i to i64
-  %15 = getelementptr inbounds nuw %struct.UHashElement, ptr %6, i64 %14
+  %15 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %14
   %16 = load i32, ptr %15, align 8, !tbaa !21
   %17 = icmp eq i32 %16, %7
   br i1 %17, label %18, label %22
@@ -2038,7 +2035,7 @@ define signext range(i8 0, 2) i8 @uhash_containsKey_77(ptr noundef readonly capt
 .thread46.i:                                      ; preds = %24, %38, %36
   %.235.i = phi i32 [ %11, %38 ], [ %.1.i, %36 ], [ %spec.select49.i, %24 ]
   %40 = zext nneg i32 %.235.i to i64
-  %41 = getelementptr inbounds nuw %struct.UHashElement, ptr %6, i64 %40
+  %41 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %40
   br label %_ZL11_uhash_findPK10UHashtable8UElementi.exit
 
 _ZL11_uhash_findPK10UHashtable8UElementi.exit:    ; preds = %18, %.thread46.i
@@ -2071,7 +2068,7 @@ define signext range(i8 0, 2) i8 @uhash_icontainsKey_77(ptr noundef readonly cap
   %.033.i = phi i32 [ %12, %2 ], [ %36, %34 ]
   %.032.i = phi i32 [ -1, %2 ], [ %.1.i, %34 ]
   %15 = zext nneg i32 %.033.i to i64
-  %16 = getelementptr inbounds nuw %struct.UHashElement, ptr %7, i64 %15
+  %16 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %15
   %17 = load i32, ptr %16, align 8, !tbaa !21
   %18 = icmp eq i32 %17, %8
   br i1 %18, label %19, label %23
@@ -2132,7 +2129,7 @@ define signext range(i8 0, 2) i8 @uhash_icontainsKey_77(ptr noundef readonly cap
 .thread46.i:                                      ; preds = %25, %39, %37
   %.235.i = phi i32 [ %12, %39 ], [ %.1.i, %37 ], [ %spec.select49.i, %25 ]
   %41 = zext nneg i32 %.235.i to i64
-  %42 = getelementptr inbounds nuw %struct.UHashElement, ptr %7, i64 %41
+  %42 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %41
   br label %_ZL11_uhash_findPK10UHashtable8UElementi.exit
 
 _ZL11_uhash_findPK10UHashtable8UElementi.exit:    ; preds = %19, %.thread46.i
@@ -2163,7 +2160,7 @@ define ptr @uhash_find_77(ptr noundef readonly captures(none) %0, ptr noundef %1
   %.033.i = phi i32 [ %11, %2 ], [ %35, %33 ]
   %.032.i = phi i32 [ -1, %2 ], [ %.1.i, %33 ]
   %14 = zext nneg i32 %.033.i to i64
-  %15 = getelementptr inbounds nuw %struct.UHashElement, ptr %6, i64 %14
+  %15 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %14
   %16 = load i32, ptr %15, align 8, !tbaa !21
   %17 = icmp eq i32 %16, %7
   br i1 %17, label %18, label %22
@@ -2224,7 +2221,7 @@ define ptr @uhash_find_77(ptr noundef readonly captures(none) %0, ptr noundef %1
 .thread46.i:                                      ; preds = %24, %38, %36
   %.235.i = phi i32 [ %11, %38 ], [ %.1.i, %36 ], [ %spec.select49.i, %24 ]
   %40 = zext nneg i32 %.235.i to i64
-  %41 = getelementptr inbounds nuw %struct.UHashElement, ptr %6, i64 %40
+  %41 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %40
   br label %_ZL11_uhash_findPK10UHashtable8UElementi.exit
 
 _ZL11_uhash_findPK10UHashtable8UElementi.exit:    ; preds = %18, %.thread46.i
@@ -2378,7 +2375,7 @@ define signext range(i8 0, 2) i8 @uhash_equals_77(ptr noundef readonly captures(
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %35 = icmp slt i64 %indvars.iv.next.i, %32
   tail call void @llvm.assume(i1 %35)
-  %36 = getelementptr inbounds %struct.UHashElement, ptr %33, i64 %indvars.iv.next.i
+  %36 = getelementptr inbounds [24 x i8], ptr %33, i64 %indvars.iv.next.i
   %37 = load i32, ptr %36, align 8, !tbaa !21
   %38 = icmp slt i32 %37, 0
   br i1 %38, label %34, label %uhash_nextElement_77.exit, !llvm.loop !33
@@ -2403,7 +2400,7 @@ uhash_nextElement_77.exit:                        ; preds = %34
   %.033.i = phi i32 [ %47, %uhash_nextElement_77.exit ], [ %70, %68 ]
   %.032.i = phi i32 [ -1, %uhash_nextElement_77.exit ], [ %.1.i, %68 ]
   %49 = zext nneg i32 %.033.i to i64
-  %50 = getelementptr inbounds nuw %struct.UHashElement, ptr %43, i64 %49
+  %50 = getelementptr inbounds nuw [24 x i8], ptr %43, i64 %49
   %51 = load i32, ptr %50, align 8, !tbaa !21
   %52 = icmp eq i32 %51, %44
   br i1 %52, label %53, label %57
@@ -2468,7 +2465,7 @@ uhash_nextElement_77.exit:                        ; preds = %34
 
 _ZL11_uhash_findPK10UHashtable8UElementi.exit:    ; preds = %53, %.thread46.i
   %76 = phi i64 [ %75, %.thread46.i ], [ %49, %53 ]
-  %77 = getelementptr inbounds nuw %struct.UHashElement, ptr %43, i64 %76
+  %77 = getelementptr inbounds nuw [24 x i8], ptr %43, i64 %76
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %.sroa.03.0.copyload = load ptr, ptr %78, align 8, !tbaa !34
   %79 = load ptr, ptr %13, align 8, !tbaa !14

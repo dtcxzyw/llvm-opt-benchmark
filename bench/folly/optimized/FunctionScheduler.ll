@@ -34,18 +34,13 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.18" }
 %"struct.std::_Head_base.18" = type { ptr }
-%"struct.folly::f14::detail::F14Chunk" = type { %"struct.std::array.8", i8, i8, %"struct.std::array.9" }
-%"struct.std::array.8" = type { [14 x i8] }
-%"struct.std::array.9" = type { [12 x %"union.std::aligned_storage<4, 4>::type"] }
-%"union.std::aligned_storage<4, 4>::type" = type { [4 x i8] }
-%"struct.std::pair" = type { %"class.folly::Range", ptr }
-%"class.folly::Range" = type { ptr, ptr }
 %"struct.std::pair.57" = type <{ %"class.folly::f14::detail::F14ItemIter", i8, [7 x i8] }>
 %"class.folly::f14::detail::F14ItemIter" = type { ptr, i64 }
 %"class.std::tuple.60" = type { %"struct.std::_Tuple_impl.61" }
 %"struct.std::_Tuple_impl.61" = type { %"struct.std::_Head_base.62" }
 %"struct.std::_Head_base.62" = type { ptr }
 %"class.std::tuple.63" = type { i8 }
+%"class.folly::Range" = type { ptr, ptr }
 %class.anon = type { %"class.folly::Function.23" }
 %"struct.google::CheckOpString" = type { ptr }
 %"class.google::LogMessageFatal" = type { %"class.google::LogMessage" }
@@ -921,7 +916,7 @@ define linkonce_odr void @_ZN5folly11toAppendFitIJlA3_cPNSt7__cxx1112basic_strin
 
 8:                                                ; preds = %12, %3
   %.08.i4.i.i.i.i.i = phi i64 [ 0, %3 ], [ %13, %12 ]
-  %9 = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i4.i.i.i.i.i
+  %9 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i4.i.i.i.i.i
   %10 = load i64, ptr %9, align 8, !tbaa !64
   %11 = icmp ult i64 %7, %10
   br i1 %11, label %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i.i.i.i, label %12, !prof !82
@@ -1028,7 +1023,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit: ; preds 
 
 24:                                               ; preds = %28, %22
   %.08.i.i4.i.i.i = phi i64 [ 0, %22 ], [ %29, %28 ]
-  %25 = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i.i4.i.i.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i.i4.i.i.i
   %26 = load i64, ptr %25, align 8, !tbaa !64
   %27 = icmp ult i64 %23, %26
   br i1 %27, label %.loopexit.i.i.i, label %28, !prof !82
@@ -1053,7 +1048,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit: ; preds 
   %33 = add i64 %.014.i5.i.i.i, -2
   %34 = udiv i64 %.0.i6.i.i.i, 100
   %35 = urem i64 %.0.i6.i.i.i, 100
-  %36 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %35
+  %36 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %35
   %37 = load i16, ptr %36, align 2, !tbaa !85
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 %33
   store i16 %37, ptr %38, align 1
@@ -1064,7 +1059,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit: ; preds 
   %40 = phi i64 [ %30, %.loopexit.i.i.i ], [ %32, %.lr.ph.i.i.i ]
   %.014.i.lcssa.i.i.i = phi i64 [ %30, %.loopexit.i.i.i ], [ %33, %.lr.ph.i.i.i ]
   %.0.i.lcssa.i.i.i = phi i64 [ %23, %.loopexit.i.i.i ], [ %34, %.lr.ph.i.i.i ]
-  %41 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %.0.i.lcssa.i.i.i
+  %41 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %.0.i.lcssa.i.i.i
   %42 = load i16, ptr %41, align 2, !tbaa !85
   %43 = icmp eq i64 %.014.i.lcssa.i.i.i, 2
   br i1 %43, label %44, label %45, !prof !82
@@ -1910,7 +1905,7 @@ define linkonce_odr void @_ZN5folly11toAppendFitIJlA18_cPNSt7__cxx1112basic_stri
 
 8:                                                ; preds = %12, %3
   %.08.i4.i.i.i.i.i = phi i64 [ 0, %3 ], [ %13, %12 ]
-  %9 = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i4.i.i.i.i.i
+  %9 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i4.i.i.i.i.i
   %10 = load i64, ptr %9, align 8, !tbaa !64
   %11 = icmp ult i64 %7, %10
   br i1 %11, label %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i.i.i.i, label %12, !prof !82
@@ -2391,7 +2386,7 @@ define linkonce_odr void @_ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_trait
 
 14:                                               ; preds = %18, %6
   %.08.i4.i.i.i.i.i.i = phi i64 [ 0, %6 ], [ %19, %18 ]
-  %15 = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i4.i.i.i.i.i.i
+  %15 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i4.i.i.i.i.i.i
   %16 = load i64, ptr %15, align 8, !tbaa !64
   %17 = icmp ult i64 %13, %16
   br i1 %17, label %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i.i.i.i.i, label %18, !prof !82
@@ -2419,7 +2414,7 @@ _ZN5folly19estimateSpaceNeededIlEENSt9enable_ifIXaaaaaa13is_integral_vIT_E11is_s
 
 27:                                               ; preds = %31, %_ZN5folly19estimateSpaceNeededIlEENSt9enable_ifIXaaaaaa13is_integral_vIT_E11is_signed_vIS2_EgestS2_Li4EltstS2_Li16EEmE4typeES2_.exit.i.i.i
   %.08.i4.i.i.i15.i.i.i = phi i64 [ 0, %_ZN5folly19estimateSpaceNeededIlEENSt9enable_ifIXaaaaaa13is_integral_vIT_E11is_signed_vIS2_EgestS2_Li4EltstS2_Li16EEmE4typeES2_.exit.i.i.i ], [ %32, %31 ]
-  %28 = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i4.i.i.i15.i.i.i
+  %28 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i4.i.i.i15.i.i.i
   %29 = load i64, ptr %28, align 8, !tbaa !64
   %30 = icmp ult i64 %26, %29
   br i1 %30, label %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i.i18.i.i.i, label %31, !prof !82
@@ -3012,7 +3007,7 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %35
   %.0.i110.us = phi i64 [ %69, %68 ], [ %43, %.noexc34 ]
   %.022.i109.us = phi i64 [ %70, %68 ], [ %54, %.noexc34 ]
   %60 = and i64 %.0.i110.us, %57
-  %61 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk", ptr %56, i64 %60
+  %61 = getelementptr inbounds nuw [64 x i8], ptr %56, i64 %60
   %62 = load <16 x i8>, ptr %61, align 16
   %63 = icmp eq <16 x i8> %62, %50
   %64 = bitcast <16 x i1> %63 to i16
@@ -3042,10 +3037,10 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %35
   %.sroa.062.0104.us.us = phi i32 [ %71, %.noexc37.lr.ph.us ], [ %81, %.critedge.i.backedge.us.us ]
   %74 = call noundef range(i32 0, 32) i32 @llvm.cttz.i32(i32 %.sroa.062.0104.us.us, i1 true)
   %75 = zext nneg i32 %74 to i64
-  %76 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %73, i64 %75
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %73, i64 %75
   %77 = load i32, ptr %76, align 4, !tbaa !114
   %78 = zext i32 %77 to i64
-  %79 = getelementptr inbounds nuw %"struct.std::pair", ptr %58, i64 %78
+  %79 = getelementptr inbounds nuw [24 x i8], ptr %58, i64 %78
   %.sroa.0.0.copyload.i.i42.us.us = load ptr, ptr %79, align 8, !tbaa !163
   %.sroa.4.0..sroa_idx.i.i.us.us = getelementptr inbounds nuw i8, ptr %79, i64 8
   %.sroa.4.0.copyload.i.i.us.us = load ptr, ptr %.sroa.4.0..sroa_idx.i.i.us.us, align 8, !tbaa !163
@@ -3062,7 +3057,7 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %35
   %.0.i110 = phi i64 [ %107, %106 ], [ %43, %.noexc34 ]
   %.022.i109 = phi i64 [ %108, %106 ], [ %54, %.noexc34 ]
   %82 = and i64 %.0.i110, %57
-  %83 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk", ptr %56, i64 %82
+  %83 = getelementptr inbounds nuw [64 x i8], ptr %56, i64 %82
   %84 = load <16 x i8>, ptr %83, align 16
   %85 = icmp eq <16 x i8> %84, %50
   %86 = bitcast <16 x i1> %85 to i16
@@ -3084,10 +3079,10 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %35
   %93 = add nsw i32 %.sroa.062.0104, -1
   %94 = and i32 %93, %.sroa.062.0104
   %95 = zext nneg i32 %92 to i64
-  %96 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %91, i64 %95
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %91, i64 %95
   %97 = load i32, ptr %96, align 4, !tbaa !114
   %98 = zext i32 %97 to i64
-  %99 = getelementptr inbounds nuw %"struct.std::pair", ptr %58, i64 %98
+  %99 = getelementptr inbounds nuw [24 x i8], ptr %58, i64 %98
   %.sroa.0.0.copyload.i.i42 = load ptr, ptr %99, align 8, !tbaa !163
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %99, i64 8
   %.sroa.4.0.copyload.i.i = load ptr, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !tbaa !163
@@ -3118,7 +3113,7 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %35
 
 .noexc38.thread:                                  ; preds = %103, %.noexc37.us.us
   %.pre-phi = phi i64 [ %78, %.noexc37.us.us ], [ %98, %103 ]
-  %109 = getelementptr inbounds nuw %"struct.std::pair", ptr %58, i64 %.pre-phi
+  %109 = getelementptr inbounds nuw [24 x i8], ptr %58, i64 %.pre-phi
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 16
   %111 = load ptr, ptr %110, align 8, !tbaa !166
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 56
@@ -3481,7 +3476,7 @@ _ZNSt6vectorISt10unique_ptrIN5folly17FunctionScheduler10RepeatFuncESt14default_d
   %33 = load ptr, ptr %22, align 8, !tbaa !63, !noalias !175, !nonnull !59, !noundef !59
   %34 = load i32, ptr %32, align 4, !tbaa !114, !noalias !175
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds nuw %"struct.std::pair", ptr %33, i64 %35
+  %36 = getelementptr inbounds nuw [24 x i8], ptr %33, i64 %35
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !175
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   store ptr %21, ptr %37, align 8, !tbaa !48
@@ -3882,7 +3877,7 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %35
   %.0.i110.us = phi i64 [ %69, %68 ], [ %43, %.noexc34 ]
   %.022.i109.us = phi i64 [ %70, %68 ], [ %54, %.noexc34 ]
   %60 = and i64 %.0.i110.us, %57
-  %61 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk", ptr %56, i64 %60
+  %61 = getelementptr inbounds nuw [64 x i8], ptr %56, i64 %60
   %62 = load <16 x i8>, ptr %61, align 16
   %63 = icmp eq <16 x i8> %62, %50
   %64 = bitcast <16 x i1> %63 to i16
@@ -3912,10 +3907,10 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %35
   %.sroa.062.0104.us.us = phi i32 [ %71, %.noexc37.lr.ph.us ], [ %81, %.critedge.i.backedge.us.us ]
   %74 = call noundef range(i32 0, 32) i32 @llvm.cttz.i32(i32 %.sroa.062.0104.us.us, i1 true)
   %75 = zext nneg i32 %74 to i64
-  %76 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %73, i64 %75
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %73, i64 %75
   %77 = load i32, ptr %76, align 4, !tbaa !114
   %78 = zext i32 %77 to i64
-  %79 = getelementptr inbounds nuw %"struct.std::pair", ptr %58, i64 %78
+  %79 = getelementptr inbounds nuw [24 x i8], ptr %58, i64 %78
   %.sroa.0.0.copyload.i.i42.us.us = load ptr, ptr %79, align 8, !tbaa !163
   %.sroa.4.0..sroa_idx.i.i.us.us = getelementptr inbounds nuw i8, ptr %79, i64 8
   %.sroa.4.0.copyload.i.i.us.us = load ptr, ptr %.sroa.4.0..sroa_idx.i.i.us.us, align 8, !tbaa !163
@@ -3932,7 +3927,7 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %35
   %.0.i110 = phi i64 [ %107, %106 ], [ %43, %.noexc34 ]
   %.022.i109 = phi i64 [ %108, %106 ], [ %54, %.noexc34 ]
   %82 = and i64 %.0.i110, %57
-  %83 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk", ptr %56, i64 %82
+  %83 = getelementptr inbounds nuw [64 x i8], ptr %56, i64 %82
   %84 = load <16 x i8>, ptr %83, align 16
   %85 = icmp eq <16 x i8> %84, %50
   %86 = bitcast <16 x i1> %85 to i16
@@ -3954,10 +3949,10 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %35
   %93 = add nsw i32 %.sroa.062.0104, -1
   %94 = and i32 %93, %.sroa.062.0104
   %95 = zext nneg i32 %92 to i64
-  %96 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %91, i64 %95
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %91, i64 %95
   %97 = load i32, ptr %96, align 4, !tbaa !114
   %98 = zext i32 %97 to i64
-  %99 = getelementptr inbounds nuw %"struct.std::pair", ptr %58, i64 %98
+  %99 = getelementptr inbounds nuw [24 x i8], ptr %58, i64 %98
   %.sroa.0.0.copyload.i.i42 = load ptr, ptr %99, align 8, !tbaa !163
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %99, i64 8
   %.sroa.4.0.copyload.i.i = load ptr, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !tbaa !163
@@ -3988,7 +3983,7 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %35
 
 .noexc38.thread:                                  ; preds = %103, %.noexc37.us.us
   %.pre-phi = phi i64 [ %78, %.noexc37.us.us ], [ %98, %103 ]
-  %109 = getelementptr inbounds nuw %"struct.std::pair", ptr %58, i64 %.pre-phi
+  %109 = getelementptr inbounds nuw [24 x i8], ptr %58, i64 %.pre-phi
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 16
   %111 = load ptr, ptr %110, align 8, !tbaa !166
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 56
@@ -4575,7 +4570,7 @@ define linkonce_odr noundef i64 @_ZN5folly3f146detail16F14VectorMapImplINS_5Rang
   %.0.i40.us = phi i64 [ %38, %37 ], [ %9, %3 ]
   %.022.i39.us = phi i64 [ %39, %37 ], [ %20, %3 ]
   %29 = and i64 %.0.i40.us, %23
-  %30 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk", ptr %22, i64 %29
+  %30 = getelementptr inbounds nuw [64 x i8], ptr %22, i64 %29
   %31 = load <16 x i8>, ptr %30, align 16
   %32 = icmp eq <16 x i8> %31, %16
   %33 = bitcast <16 x i1> %32 to i16
@@ -4605,10 +4600,10 @@ define linkonce_odr noundef i64 @_ZN5folly3f146detail16F14VectorMapImplINS_5Rang
   %.sroa.04.033.us.us = phi i32 [ %40, %.lr.ph.us ], [ %54, %.critedge.i.backedge.us.us ]
   %44 = call noundef range(i32 0, 32) i32 @llvm.cttz.i32(i32 %.sroa.04.033.us.us, i1 true)
   %45 = zext nneg i32 %44 to i64
-  %46 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %42, i64 %45
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %45
   %47 = load i32, ptr %46, align 4, !tbaa !114
   %48 = zext i32 %47 to i64
-  %49 = getelementptr inbounds nuw %"struct.std::pair", ptr %24, i64 %48
+  %49 = getelementptr inbounds nuw [24 x i8], ptr %24, i64 %48
   %.sroa.0.0.copyload.i.i3.us.us = load ptr, ptr %49, align 8, !tbaa !163
   %.sroa.4.0..sroa_idx.i.i.us.us = getelementptr inbounds nuw i8, ptr %49, i64 8
   %.sroa.4.0.copyload.i.i.us.us = load ptr, ptr %.sroa.4.0..sroa_idx.i.i.us.us, align 8, !tbaa !163
@@ -4628,7 +4623,7 @@ define linkonce_odr noundef i64 @_ZN5folly3f146detail16F14VectorMapImplINS_5Rang
   %.0.i40 = phi i64 [ %81, %80 ], [ %9, %3 ]
   %.022.i39 = phi i64 [ %82, %80 ], [ %20, %3 ]
   %55 = and i64 %.0.i40, %23
-  %56 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk", ptr %22, i64 %55
+  %56 = getelementptr inbounds nuw [64 x i8], ptr %22, i64 %55
   %57 = load <16 x i8>, ptr %56, align 16
   %58 = icmp eq <16 x i8> %57, %16
   %59 = bitcast <16 x i1> %58 to i16
@@ -4650,10 +4645,10 @@ define linkonce_odr noundef i64 @_ZN5folly3f146detail16F14VectorMapImplINS_5Rang
   %67 = add nsw i32 %.sroa.04.033, -1
   %68 = and i32 %67, %.sroa.04.033
   %69 = zext nneg i32 %66 to i64
-  %70 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %64, i64 %69
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %69
   %71 = load i32, ptr %70, align 4, !tbaa !114
   %72 = zext i32 %71 to i64
-  %73 = getelementptr inbounds nuw %"struct.std::pair", ptr %24, i64 %72
+  %73 = getelementptr inbounds nuw [24 x i8], ptr %24, i64 %72
   %.sroa.0.0.copyload.i.i3 = load ptr, ptr %73, align 8, !tbaa !163
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %73, i64 8
   %.sroa.4.0.copyload.i.i = load ptr, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !tbaa !163
@@ -4685,9 +4680,9 @@ define linkonce_odr noundef i64 @_ZN5folly3f146detail16F14VectorMapImplINS_5Rang
 _ZNK5folly3f146detail21VectorContainerPolicyINS_5RangeIPKcEEPNS_17FunctionScheduler10RepeatFuncENS_4HashEvvSt17integral_constantIbLb1EEE14keyMatchesItemIS6_EEbRKT_RKj.exit.thread: ; preds = %77, %43
   %.us-phi = phi i64 [ %45, %43 ], [ %69, %77 ]
   %83 = phi i64 [ %29, %43 ], [ %55, %77 ]
-  %84 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk", ptr %22, i64 %83
+  %84 = getelementptr inbounds nuw [64 x i8], ptr %22, i64 %83
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 16
-  %86 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %85, i64 %.us-phi
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %85, i64 %.us-phi
   call void @_ZN5folly3f146detail16F14VectorMapImplINS_5RangeIPKcEEPNS_17FunctionScheduler10RepeatFuncENS_4HashENS_26HeterogeneousAccessEqualToIS6_vEESaISt4pairIKS6_S9_EESt17integral_constantIbLb1EEE15eraseUnderlyingIRKNS_16variadic_noop_fnEEEvNS1_11F14ItemIterIPNS1_8F14ChunkIjEEEEOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull %86, i64 %.us-phi, ptr noundef nonnull align 1 dereferenceable(1) %2)
   br label %_ZNK5folly3f146detail8F14TableINS1_21VectorContainerPolicyINS_5RangeIPKcEEPNS_17FunctionScheduler10RepeatFuncENS_4HashEvvSt17integral_constantIbLb1EEEEE8findImplIS7_EENS1_11F14ItemIterIPNS1_8F14ChunkIjEEEESt4pairImmERKT_NSF_8PrefetchE.exit.thread
 
@@ -4708,7 +4703,7 @@ define linkonce_odr void @_ZN5folly3f146detail16F14VectorMapImplINS_5RangeIPKcEE
   call void @_ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyINS_5RangeIPKcEEPNS_17FunctionScheduler10RepeatFuncENS_4HashEvvSt17integral_constantIbLb1EEEEE13eraseIterIntoIZNS1_11F14BasicMapISE_E18tableEraseIterIntoIRKNS_16variadic_noop_fnEEEvNS1_11F14ItemIterIPNS1_8F14ChunkIjEEEEOT_EUlOSt4pairIKS7_SA_EE_EEvSR_ST_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(8) %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw %"struct.std::pair", ptr %8, i64 %10
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %8, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load i64, ptr %12, align 8, !tbaa !18
   %14 = lshr i64 %13, 8
@@ -4719,7 +4714,7 @@ define linkonce_odr void @_ZN5folly3f146detail16F14VectorMapImplINS_5RangeIPKcEE
   %16 = trunc i64 %14 to i32
   %17 = load ptr, ptr %0, align 8, !tbaa !63
   %18 = and i64 %14, 4294967295
-  %19 = getelementptr inbounds nuw %"struct.std::pair", ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [24 x i8], ptr %17, i64 %18
   %.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %19, align 8, !tbaa !163
   %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %19, i64 8
   %.sroa.2.0.copyload.i.i.i.i = load ptr, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8, !tbaa !163
@@ -4752,7 +4747,7 @@ define linkonce_odr void @_ZN5folly3f146detail16F14VectorMapImplINS_5RangeIPKcEE
 36:                                               ; preds = %54, %15
   %.0.i = phi i64 [ %23, %15 ], [ %55, %54 ]
   %37 = and i64 %.0.i, %35
-  %38 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk", ptr %34, i64 %37
+  %38 = getelementptr inbounds nuw [64 x i8], ptr %34, i64 %37
   %39 = load <16 x i8>, ptr %38, align 16
   %40 = icmp eq <16 x i8> %39, %30
   %41 = bitcast <16 x i1> %40 to i16
@@ -4773,7 +4768,7 @@ define linkonce_odr void @_ZN5folly3f146detail16F14VectorMapImplINS_5RangeIPKcEE
   %49 = and i32 %48, %.sroa.018.0
   %50 = zext nneg i32 %47 to i64
   call void @llvm.assume(i1 %44)
-  %51 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %45, i64 %50
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %50
   %52 = load i32, ptr %51, align 4, !tbaa !114
   %53 = icmp eq i32 %52, %16
   br i1 %53, label %_ZNK5folly3f146detail8F14TableINS1_21VectorContainerPolicyINS_5RangeIPKcEEPNS_17FunctionScheduler10RepeatFuncENS_4HashEvvSt17integral_constantIbLb1EEEEE8findImplINS1_26VectorContainerIndexSearchEEENS1_11F14ItemIterIPNS1_8F14ChunkIjEEEESt4pairImmERKT_NSF_8PrefetchE.exit, label %.critedge.i, !prof !126, !llvm.loop !211
@@ -4783,10 +4778,10 @@ define linkonce_odr void @_ZN5folly3f146detail16F14VectorMapImplINS_5RangeIPKcEE
   br label %36, !llvm.loop !212
 
 _ZNK5folly3f146detail8F14TableINS1_21VectorContainerPolicyINS_5RangeIPKcEEPNS_17FunctionScheduler10RepeatFuncENS_4HashEvvSt17integral_constantIbLb1EEEEE8findImplINS1_26VectorContainerIndexSearchEEENS1_11F14ItemIterIPNS1_8F14ChunkIjEEEESt4pairImmERKT_NSF_8PrefetchE.exit: ; preds = %46
-  %56 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %45, i64 %50
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %50
   store i32 %9, ptr %56, align 4, !tbaa !114
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %8) ]
-  %57 = getelementptr inbounds nuw %"struct.std::pair", ptr %8, i64 %14
+  %57 = getelementptr inbounds nuw [24 x i8], ptr %8, i64 %14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %11, ptr noundef nonnull align 1 dereferenceable(24) %57, i64 24, i1 false)
   br label %58
 
@@ -4810,7 +4805,7 @@ define linkonce_odr void @_ZN5folly3f146detail8F14TableINS1_21VectorContainerPol
   %12 = load ptr, ptr %0, align 8, !tbaa !63
   %13 = load i32, ptr %1, align 4, !tbaa !114
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %"struct.std::pair", ptr %12, i64 %14
+  %15 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %14
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %15, align 8, !tbaa !163
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 8
   %.sroa.2.0.copyload.i.i.i = load ptr, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !tbaa !163
@@ -4862,14 +4857,14 @@ _ZN5folly3f146detail8F14ChunkIjE8clearTagEm.exit.i.i: ; preds = %22
   %notmask.i.i.i = shl nsw i64 -1, %37
   %38 = xor i64 %notmask.i.i.i, -1
   %39 = and i64 %.sroa.04.0, %38
-  %40 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk", ptr %35, i64 %39
+  %40 = getelementptr inbounds nuw [64 x i8], ptr %35, i64 %39
   %41 = icmp eq ptr %40, %8
   br i1 %41, label %.thread.i.i, label %.lr.ph.i.i
 
 .thread.i.i:                                      ; preds = %53, %33
   %.011.lcssa.i.i = phi i8 [ 0, %33 ], [ -16, %53 ]
   %42 = phi i64 [ %39, %33 ], [ %55, %53 ]
-  %43 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk", ptr %35, i64 %42
+  %43 = getelementptr inbounds nuw [64 x i8], ptr %35, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 14
   %45 = load i8, ptr %44, align 2, !tbaa !213
   %46 = add i8 %45, %.011.lcssa.i.i
@@ -4879,7 +4874,7 @@ _ZN5folly3f146detail8F14ChunkIjE8clearTagEm.exit.i.i: ; preds = %22
 .lr.ph.i.i:                                       ; preds = %33, %53
   %47 = phi i64 [ %55, %53 ], [ %39, %33 ]
   %.01026.i.i = phi i64 [ %54, %53 ], [ %.sroa.04.0, %33 ]
-  %48 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk", ptr %35, i64 %47
+  %48 = getelementptr inbounds nuw [64 x i8], ptr %35, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 15
   %50 = load i8, ptr %49, align 1, !tbaa !217
   %.not.i17.i.i = icmp eq i8 %50, -2
@@ -4893,7 +4888,7 @@ _ZN5folly3f146detail8F14ChunkIjE8clearTagEm.exit.i.i: ; preds = %22
 53:                                               ; preds = %51, %.lr.ph.i.i
   %54 = add i64 %.01026.i.i, %.sroa.5.0
   %55 = and i64 %54, %38
-  %56 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk", ptr %35, i64 %55
+  %56 = getelementptr inbounds nuw [64 x i8], ptr %35, i64 %55
   %57 = icmp eq ptr %56, %8
   br i1 %57, label %.thread.i.i, label %.lr.ph.i.i
 
@@ -4975,7 +4970,7 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %3
   %.0.i73.us = phi i64 [ %47, %46 ], [ %21, %.noexc14 ]
   %.022.i72.us = phi i64 [ %48, %46 ], [ %32, %.noexc14 ]
   %38 = and i64 %.0.i73.us, %35
-  %39 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk", ptr %34, i64 %38
+  %39 = getelementptr inbounds nuw [64 x i8], ptr %34, i64 %38
   %40 = load <16 x i8>, ptr %39, align 16
   %41 = icmp eq <16 x i8> %40, %28
   %42 = bitcast <16 x i1> %41 to i16
@@ -5005,10 +5000,10 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %3
   %.sroa.035.067.us.us = phi i32 [ %49, %.noexc17.lr.ph.us ], [ %62, %.critedge.i.backedge.us.us ]
   %52 = call noundef range(i32 0, 32) i32 @llvm.cttz.i32(i32 %.sroa.035.067.us.us, i1 true)
   %53 = zext nneg i32 %52 to i64
-  %54 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %51, i64 %53
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %53
   %55 = load i32, ptr %54, align 4, !tbaa !114
   %56 = zext i32 %55 to i64
-  %57 = getelementptr inbounds nuw %"struct.std::pair", ptr %36, i64 %56
+  %57 = getelementptr inbounds nuw [24 x i8], ptr %36, i64 %56
   %.sroa.0.0.copyload.i.i22.us.us = load ptr, ptr %57, align 8, !tbaa !163
   %.sroa.4.0..sroa_idx.i.i.us.us = getelementptr inbounds nuw i8, ptr %57, i64 8
   %.sroa.4.0.copyload.i.i.us.us = load ptr, ptr %.sroa.4.0..sroa_idx.i.i.us.us, align 8, !tbaa !163
@@ -5028,7 +5023,7 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %3
   %.0.i73 = phi i64 [ %88, %87 ], [ %21, %.noexc14 ]
   %.022.i72 = phi i64 [ %89, %87 ], [ %32, %.noexc14 ]
   %63 = and i64 %.0.i73, %35
-  %64 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk", ptr %34, i64 %63
+  %64 = getelementptr inbounds nuw [64 x i8], ptr %34, i64 %63
   %65 = load <16 x i8>, ptr %64, align 16
   %66 = icmp eq <16 x i8> %65, %28
   %67 = bitcast <16 x i1> %66 to i16
@@ -5050,10 +5045,10 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %3
   %74 = add nsw i32 %.sroa.035.067, -1
   %75 = and i32 %74, %.sroa.035.067
   %76 = zext nneg i32 %73 to i64
-  %77 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %72, i64 %76
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %76
   %78 = load i32, ptr %77, align 4, !tbaa !114
   %79 = zext i32 %78 to i64
-  %80 = getelementptr inbounds nuw %"struct.std::pair", ptr %36, i64 %79
+  %80 = getelementptr inbounds nuw [24 x i8], ptr %36, i64 %79
   %.sroa.0.0.copyload.i.i22 = load ptr, ptr %80, align 8, !tbaa !163
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %80, i64 8
   %.sroa.4.0.copyload.i.i = load ptr, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !tbaa !163
@@ -5084,7 +5079,7 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %3
 
 .noexc18.thread:                                  ; preds = %84, %.noexc17.us.us
   %.pre-phi = phi i64 [ %56, %.noexc17.us.us ], [ %79, %84 ]
-  %90 = getelementptr inbounds nuw %"struct.std::pair", ptr %36, i64 %.pre-phi
+  %90 = getelementptr inbounds nuw [24 x i8], ptr %36, i64 %.pre-phi
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 16
   %92 = load ptr, ptr %91, align 8, !tbaa !166
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 56
@@ -5257,7 +5252,7 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %3
   %.0.i77.us = phi i64 [ %50, %49 ], [ %24, %.noexc16 ]
   %.022.i76.us = phi i64 [ %51, %49 ], [ %35, %.noexc16 ]
   %41 = and i64 %.0.i77.us, %38
-  %42 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk", ptr %37, i64 %41
+  %42 = getelementptr inbounds nuw [64 x i8], ptr %37, i64 %41
   %43 = load <16 x i8>, ptr %42, align 16
   %44 = icmp eq <16 x i8> %43, %31
   %45 = bitcast <16 x i1> %44 to i16
@@ -5287,10 +5282,10 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %3
   %.sroa.038.071.us.us = phi i32 [ %52, %.noexc19.lr.ph.us ], [ %65, %.critedge.i.backedge.us.us ]
   %55 = call noundef range(i32 0, 32) i32 @llvm.cttz.i32(i32 %.sroa.038.071.us.us, i1 true)
   %56 = zext nneg i32 %55 to i64
-  %57 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %54, i64 %56
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %56
   %58 = load i32, ptr %57, align 4, !tbaa !114
   %59 = zext i32 %58 to i64
-  %60 = getelementptr inbounds nuw %"struct.std::pair", ptr %39, i64 %59
+  %60 = getelementptr inbounds nuw [24 x i8], ptr %39, i64 %59
   %.sroa.0.0.copyload.i.i25.us.us = load ptr, ptr %60, align 8, !tbaa !163
   %.sroa.4.0..sroa_idx.i.i.us.us = getelementptr inbounds nuw i8, ptr %60, i64 8
   %.sroa.4.0.copyload.i.i.us.us = load ptr, ptr %.sroa.4.0..sroa_idx.i.i.us.us, align 8, !tbaa !163
@@ -5310,7 +5305,7 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %3
   %.0.i77 = phi i64 [ %91, %90 ], [ %24, %.noexc16 ]
   %.022.i76 = phi i64 [ %92, %90 ], [ %35, %.noexc16 ]
   %66 = and i64 %.0.i77, %38
-  %67 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk", ptr %37, i64 %66
+  %67 = getelementptr inbounds nuw [64 x i8], ptr %37, i64 %66
   %68 = load <16 x i8>, ptr %67, align 16
   %69 = icmp eq <16 x i8> %68, %31
   %70 = bitcast <16 x i1> %69 to i16
@@ -5332,10 +5327,10 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %3
   %77 = add nsw i32 %.sroa.038.071, -1
   %78 = and i32 %77, %.sroa.038.071
   %79 = zext nneg i32 %76 to i64
-  %80 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %75, i64 %79
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %75, i64 %79
   %81 = load i32, ptr %80, align 4, !tbaa !114
   %82 = zext i32 %81 to i64
-  %83 = getelementptr inbounds nuw %"struct.std::pair", ptr %39, i64 %82
+  %83 = getelementptr inbounds nuw [24 x i8], ptr %39, i64 %82
   %.sroa.0.0.copyload.i.i25 = load ptr, ptr %83, align 8, !tbaa !163
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %83, i64 8
   %.sroa.4.0.copyload.i.i = load ptr, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !tbaa !163
@@ -5366,7 +5361,7 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %3
 
 .noexc20.thread:                                  ; preds = %87, %.noexc19.us.us
   %.pre-phi = phi i64 [ %59, %.noexc19.us.us ], [ %82, %87 ]
-  %93 = getelementptr inbounds nuw %"struct.std::pair", ptr %39, i64 %.pre-phi
+  %93 = getelementptr inbounds nuw [24 x i8], ptr %39, i64 %.pre-phi
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 16
   %95 = load ptr, ptr %94, align 8, !tbaa !166
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 56
@@ -5528,7 +5523,7 @@ _ZN6google12Check_EQImplIbbEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
 .preheader.i.i.i:                                 ; preds = %31, %.preheader.i.i.i
   %.020.i.i.i = phi i64 [ %37, %.preheader.i.i.i ], [ 0, %31 ]
   %35 = load ptr, ptr %15, align 8, !tbaa !7
-  %36 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk", ptr %35, i64 %.020.i.i.i
+  %36 = getelementptr inbounds nuw [64 x i8], ptr %35, i64 %.020.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %36, i8 0, i64 16, i1 false)
   %37 = add nuw i64 %.020.i.i.i, 1
   %38 = load i64, ptr %21, align 8, !tbaa !18
@@ -5906,7 +5901,7 @@ _ZN5follyeqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5RangeIPKcEEE
   %.0.i87.us = phi i64 [ %64, %63 ], [ %38, %.noexc19 ]
   %.022.i86.us = phi i64 [ %65, %63 ], [ %49, %.noexc19 ]
   %55 = and i64 %.0.i87.us, %52
-  %56 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk", ptr %51, i64 %55
+  %56 = getelementptr inbounds nuw [64 x i8], ptr %51, i64 %55
   %57 = load <16 x i8>, ptr %56, align 16
   %58 = icmp eq <16 x i8> %57, %45
   %59 = bitcast <16 x i1> %58 to i16
@@ -5936,10 +5931,10 @@ _ZN5follyeqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5RangeIPKcEEE
   %.sroa.045.081.us.us = phi i32 [ %66, %.noexc22.lr.ph.us ], [ %79, %.critedge.i.backedge.us.us ]
   %69 = call noundef range(i32 0, 32) i32 @llvm.cttz.i32(i32 %.sroa.045.081.us.us, i1 true)
   %70 = zext nneg i32 %69 to i64
-  %71 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %68, i64 %70
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %70
   %72 = load i32, ptr %71, align 4, !tbaa !114
   %73 = zext i32 %72 to i64
-  %74 = getelementptr inbounds nuw %"struct.std::pair", ptr %53, i64 %73
+  %74 = getelementptr inbounds nuw [24 x i8], ptr %53, i64 %73
   %.sroa.0.0.copyload.i.i27.us.us = load ptr, ptr %74, align 8, !tbaa !163
   %.sroa.4.0..sroa_idx.i.i.us.us = getelementptr inbounds nuw i8, ptr %74, i64 8
   %.sroa.4.0.copyload.i.i.us.us = load ptr, ptr %.sroa.4.0..sroa_idx.i.i.us.us, align 8, !tbaa !163
@@ -5959,7 +5954,7 @@ _ZN5follyeqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5RangeIPKcEEE
   %.0.i87 = phi i64 [ %105, %104 ], [ %38, %.noexc19 ]
   %.022.i86 = phi i64 [ %106, %104 ], [ %49, %.noexc19 ]
   %80 = and i64 %.0.i87, %52
-  %81 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk", ptr %51, i64 %80
+  %81 = getelementptr inbounds nuw [64 x i8], ptr %51, i64 %80
   %82 = load <16 x i8>, ptr %81, align 16
   %83 = icmp eq <16 x i8> %82, %45
   %84 = bitcast <16 x i1> %83 to i16
@@ -5981,10 +5976,10 @@ _ZN5follyeqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5RangeIPKcEEE
   %91 = add nsw i32 %.sroa.045.081, -1
   %92 = and i32 %91, %.sroa.045.081
   %93 = zext nneg i32 %90 to i64
-  %94 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %89, i64 %93
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %93
   %95 = load i32, ptr %94, align 4, !tbaa !114
   %96 = zext i32 %95 to i64
-  %97 = getelementptr inbounds nuw %"struct.std::pair", ptr %53, i64 %96
+  %97 = getelementptr inbounds nuw [24 x i8], ptr %53, i64 %96
   %.sroa.0.0.copyload.i.i27 = load ptr, ptr %97, align 8, !tbaa !163
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %97, i64 8
   %.sroa.4.0.copyload.i.i = load ptr, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !tbaa !163
@@ -6015,7 +6010,7 @@ _ZN5follyeqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5RangeIPKcEEE
 
 .noexc23.thread:                                  ; preds = %101, %.noexc22.us.us
   %.pre-phi = phi i64 [ %73, %.noexc22.us.us ], [ %96, %101 ]
-  %107 = getelementptr inbounds nuw %"struct.std::pair", ptr %53, i64 %.pre-phi
+  %107 = getelementptr inbounds nuw [24 x i8], ptr %53, i64 %.pre-phi
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 16
   %109 = load ptr, ptr %108, align 8, !tbaa !166
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 56
@@ -6088,7 +6083,7 @@ define linkonce_odr void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt10
 14:                                               ; preds = %_ZNSt10unique_ptrIN5folly17FunctionScheduler10RepeatFuncESt14default_deleteIS2_EED2Ev.exit22, %11
   %.010 = phi i64 [ %13, %11 ], [ %41, %_ZNSt10unique_ptrIN5folly17FunctionScheduler10RepeatFuncESt14default_deleteIS2_EED2Ev.exit22 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %15 = getelementptr inbounds %"class.std::unique_ptr", ptr %0, i64 %.010
+  %15 = getelementptr inbounds [8 x i8], ptr %0, i64 %.010
   %16 = load i64, ptr %15, align 8, !tbaa !48
   store ptr null, ptr %15, align 8, !tbaa !48
   store i64 %16, ptr %5, align 8, !tbaa !48
@@ -6184,9 +6179,9 @@ define linkonce_odr void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt
   %.046 = phi i64 [ %spec.select, %_ZNSt10unique_ptrIN5folly17FunctionScheduler10RepeatFuncESt14default_deleteIS2_EEaSEOS5_.exit ], [ %1, %4 ]
   %10 = shl i64 %.046, 1
   %11 = add i64 %10, 2
-  %12 = getelementptr inbounds %"class.std::unique_ptr", ptr %0, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %0, i64 %11
   %13 = or disjoint i64 %10, 1
-  %14 = getelementptr inbounds %"class.std::unique_ptr", ptr %0, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %0, i64 %13
   %15 = load ptr, ptr %12, align 8, !tbaa !48
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 128
   %.sroa.0.0.copyload.i.i.i = load i64, ptr %16, align 16, !tbaa !64
@@ -6195,8 +6190,8 @@ define linkonce_odr void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt
   %.sroa.0.0.copyload.i2.i.i = load i64, ptr %18, align 16, !tbaa !64
   %19 = icmp slt i64 %.sroa.0.0.copyload.i2.i.i, %.sroa.0.0.copyload.i.i.i
   %spec.select = select i1 %19, i64 %13, i64 %11
-  %20 = getelementptr inbounds %"class.std::unique_ptr", ptr %0, i64 %spec.select
-  %21 = getelementptr inbounds %"class.std::unique_ptr", ptr %0, i64 %.046
+  %20 = getelementptr inbounds [8 x i8], ptr %0, i64 %spec.select
+  %21 = getelementptr inbounds [8 x i8], ptr %0, i64 %.046
   %22 = load ptr, ptr %20, align 8, !tbaa !48
   store ptr null, ptr %20, align 8, !tbaa !48
   %23 = load ptr, ptr %21, align 8, !tbaa !48
@@ -6274,8 +6269,8 @@ _ZNSt10unique_ptrIN5folly17FunctionScheduler10RepeatFuncESt14default_deleteIS2_E
 53:                                               ; preds = %49
   %54 = shl nsw i64 %.0.lcssa, 1
   %55 = or disjoint i64 %54, 1
-  %56 = getelementptr inbounds %"class.std::unique_ptr", ptr %0, i64 %55
-  %57 = getelementptr inbounds %"class.std::unique_ptr", ptr %0, i64 %.0.lcssa
+  %56 = getelementptr inbounds [8 x i8], ptr %0, i64 %55
+  %57 = getelementptr inbounds [8 x i8], ptr %0, i64 %.0.lcssa
   %58 = load ptr, ptr %56, align 8, !tbaa !48
   store ptr null, ptr %56, align 8, !tbaa !48
   %59 = load ptr, ptr %57, align 8, !tbaa !48
@@ -6420,7 +6415,7 @@ define linkonce_odr void @_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPSt10
   %.030 = phi i64 [ %.0931, %_ZNSt10unique_ptrIN5folly17FunctionScheduler10RepeatFuncESt14default_deleteIS2_EEaSEOS5_.exit ], [ %1, %5 ]
   %.0931.in = add nsw i64 %.030, -1
   %.0931 = sdiv i64 %.0931.in, 2
-  %7 = getelementptr inbounds %"class.std::unique_ptr", ptr %0, i64 %.0931
+  %7 = getelementptr inbounds [8 x i8], ptr %0, i64 %.0931
   %8 = load ptr, ptr %7, align 8, !tbaa !48
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 128
   %.sroa.0.0.copyload.i.i.i = load i64, ptr %9, align 16, !tbaa !64
@@ -6431,7 +6426,7 @@ define linkonce_odr void @_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPSt10
   br i1 %12, label %13, label %.critedge
 
 13:                                               ; preds = %.lr.ph
-  %14 = getelementptr inbounds %"class.std::unique_ptr", ptr %0, i64 %.030
+  %14 = getelementptr inbounds [8 x i8], ptr %0, i64 %.030
   store ptr null, ptr %7, align 8, !tbaa !48
   %15 = load ptr, ptr %14, align 8, !tbaa !48
   store ptr %8, ptr %14, align 8, !tbaa !48
@@ -6495,7 +6490,7 @@ _ZNSt10unique_ptrIN5folly17FunctionScheduler10RepeatFuncESt14default_deleteIS2_E
 
 .critedge:                                        ; preds = %.lr.ph, %_ZNSt10unique_ptrIN5folly17FunctionScheduler10RepeatFuncESt14default_deleteIS2_EEaSEOS5_.exit, %5
   %.0.lcssa = phi i64 [ %1, %5 ], [ %.0931, %_ZNSt10unique_ptrIN5folly17FunctionScheduler10RepeatFuncESt14default_deleteIS2_EEaSEOS5_.exit ], [ %.030, %.lr.ph ]
-  %39 = getelementptr inbounds %"class.std::unique_ptr", ptr %0, i64 %.0.lcssa
+  %39 = getelementptr inbounds [8 x i8], ptr %0, i64 %.0.lcssa
   %40 = load ptr, ptr %3, align 8, !tbaa !48
   store ptr null, ptr %3, align 8, !tbaa !48
   %41 = load ptr, ptr %39, align 8, !tbaa !48
@@ -7646,7 +7641,7 @@ _ZNSt6vectorISt10unique_ptrIN5folly17FunctionScheduler10RepeatFuncESt14default_d
 .noexc77:                                         ; preds = %186, %_ZNSt6vectorISt10unique_ptrIN5folly17FunctionScheduler10RepeatFuncESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i
   store ptr %180, ptr %11, align 8, !tbaa !46
   store ptr %185, ptr %13, align 8, !tbaa !47
-  %187 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %180, i64 %178
+  %187 = getelementptr inbounds nuw [8 x i8], ptr %180, i64 %178
   store ptr %187, ptr %163, align 8, !tbaa !56
   br label %_ZNSt6vectorISt10unique_ptrIN5folly17FunctionScheduler10RepeatFuncESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit
 
@@ -8113,7 +8108,7 @@ _ZNSt6vectorISt10unique_ptrIN5folly17FunctionScheduler10RepeatFuncESt14default_d
 _ZNSt12_Vector_baseISt10unique_ptrIN5folly17FunctionScheduler10RepeatFuncESt14default_deleteIS3_EESaIS6_EE13_M_deallocateEPS6_m.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN5folly17FunctionScheduler10RepeatFuncESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22, %31
   store ptr %20, ptr %0, align 8, !tbaa !46
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !47
-  %35 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %20, i64 %16
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %16
   store ptr %35, ptr %30, align 8, !tbaa !56
   ret void
 }
@@ -8162,7 +8157,7 @@ define linkonce_odr void @_ZN5folly3f146detail8F14TableINS1_21VectorContainerPol
   %.0.i88.us = phi i64 [ %37, %36 ], [ %2, %12 ]
   %.022.i87.us = phi i64 [ %38, %36 ], [ %19, %12 ]
   %28 = and i64 %.0.i88.us, %22
-  %29 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk", ptr %21, i64 %28
+  %29 = getelementptr inbounds nuw [64 x i8], ptr %21, i64 %28
   %30 = load <16 x i8>, ptr %29, align 16
   %31 = icmp eq <16 x i8> %30, %17
   %32 = bitcast <16 x i1> %31 to i16
@@ -8192,10 +8187,10 @@ define linkonce_odr void @_ZN5folly3f146detail8F14TableINS1_21VectorContainerPol
   %.sroa.044.080.us.us = phi i32 [ %39, %.lr.ph.us ], [ %53, %.critedge.i.backedge.us.us ]
   %43 = tail call noundef range(i32 0, 32) i32 @llvm.cttz.i32(i32 %.sroa.044.080.us.us, i1 true)
   %44 = zext nneg i32 %43 to i64
-  %45 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %41, i64 %44
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %44
   %46 = load i32, ptr %45, align 4, !tbaa !114
   %47 = zext i32 %46 to i64
-  %48 = getelementptr inbounds nuw %"struct.std::pair", ptr %23, i64 %47
+  %48 = getelementptr inbounds nuw [24 x i8], ptr %23, i64 %47
   %.sroa.0.0.copyload.i.i.us.us = load ptr, ptr %48, align 8, !tbaa !163
   %.sroa.4.0..sroa_idx.i.i.us.us = getelementptr inbounds nuw i8, ptr %48, i64 8
   %.sroa.4.0.copyload.i.i.us.us = load ptr, ptr %.sroa.4.0..sroa_idx.i.i.us.us, align 8, !tbaa !163
@@ -8215,7 +8210,7 @@ define linkonce_odr void @_ZN5folly3f146detail8F14TableINS1_21VectorContainerPol
   %.0.i88 = phi i64 [ %80, %79 ], [ %2, %12 ]
   %.022.i87 = phi i64 [ %81, %79 ], [ %19, %12 ]
   %54 = and i64 %.0.i88, %22
-  %55 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk", ptr %21, i64 %54
+  %55 = getelementptr inbounds nuw [64 x i8], ptr %21, i64 %54
   %56 = load <16 x i8>, ptr %55, align 16
   %57 = icmp eq <16 x i8> %56, %17
   %58 = bitcast <16 x i1> %57 to i16
@@ -8237,10 +8232,10 @@ define linkonce_odr void @_ZN5folly3f146detail8F14TableINS1_21VectorContainerPol
   %66 = add nsw i32 %.sroa.044.080, -1
   %67 = and i32 %66, %.sroa.044.080
   %68 = zext nneg i32 %65 to i64
-  %69 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %63, i64 %68
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %68
   %70 = load i32, ptr %69, align 4, !tbaa !114
   %71 = zext i32 %70 to i64
-  %72 = getelementptr inbounds nuw %"struct.std::pair", ptr %23, i64 %71
+  %72 = getelementptr inbounds nuw [24 x i8], ptr %23, i64 %71
   %.sroa.0.0.copyload.i.i = load ptr, ptr %72, align 8, !tbaa !163
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %72, i64 8
   %.sroa.4.0.copyload.i.i = load ptr, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !tbaa !163
@@ -8272,9 +8267,9 @@ define linkonce_odr void @_ZN5folly3f146detail8F14TableINS1_21VectorContainerPol
 _ZNK5folly3f146detail21VectorContainerPolicyINS_5RangeIPKcEEPNS_17FunctionScheduler10RepeatFuncENS_4HashEvvSt17integral_constantIbLb1EEE14keyMatchesItemIS6_EEbRKT_RKj.exit.thread: ; preds = %76, %42
   %.us-phi = phi i64 [ %44, %42 ], [ %68, %76 ]
   %82 = phi i64 [ %28, %42 ], [ %54, %76 ]
-  %83 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk", ptr %21, i64 %82
+  %83 = getelementptr inbounds nuw [64 x i8], ptr %21, i64 %82
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 16
-  %85 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %84, i64 %.us-phi
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %84, i64 %.us-phi
   br label %149
 
 .thread69:                                        ; preds = %79, %.critedge.i._crit_edge.split, %36, %.critedge.i._crit_edge.split.us.us, %..thread69_crit_edge
@@ -8305,7 +8300,7 @@ _ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyINS_5RangeIPKcEEPNS_17F
   %notmask.i33 = shl nsw i64 -1, %.pre-phi110
   %96 = xor i64 %notmask.i33, -1
   %97 = and i64 %2, %96
-  %98 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk", ptr %95, i64 %97
+  %98 = getelementptr inbounds nuw [64 x i8], ptr %95, i64 %97
   %99 = load <16 x i8>, ptr %98, align 16, !tbaa !43
   %100 = icmp slt <16 x i8> %99, zeroinitializer
   %101 = bitcast <16 x i1> %100 to i16
@@ -8321,7 +8316,7 @@ _ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyINS_5RangeIPKcEEPNS_17F
 106:                                              ; preds = %_ZN5folly3f146detail8F14ChunkIjE25incrOutboundOverflowCountEv.exit, %103
   %107 = phi i64 [ %97, %103 ], [ %114, %_ZN5folly3f146detail8F14ChunkIjE25incrOutboundOverflowCountEv.exit ]
   %.030 = phi i64 [ %2, %103 ], [ %113, %_ZN5folly3f146detail8F14ChunkIjE25incrOutboundOverflowCountEv.exit ]
-  %108 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk", ptr %95, i64 %107
+  %108 = getelementptr inbounds nuw [64 x i8], ptr %95, i64 %107
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 15
   %110 = load i8, ptr %109, align 1, !tbaa !217
   %.not.i34 = icmp eq i8 %110, -2
@@ -8335,7 +8330,7 @@ _ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyINS_5RangeIPKcEEPNS_17F
 _ZN5folly3f146detail8F14ChunkIjE25incrOutboundOverflowCountEv.exit: ; preds = %106, %111
   %113 = add i64 %105, %.030
   %114 = and i64 %113, %96
-  %115 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk", ptr %95, i64 %114
+  %115 = getelementptr inbounds nuw [64 x i8], ptr %95, i64 %114
   %116 = load <16 x i8>, ptr %115, align 16
   %117 = icmp slt <16 x i8> %116, zeroinitializer
   %118 = bitcast <16 x i1> %117 to i16
@@ -8369,7 +8364,7 @@ _ZN5folly3f146detail8F14ChunkIjE6setTagEmm.exit:  ; preds = %124
   %131 = trunc i64 %3 to i8
   store i8 %131, ptr %127, align 1, !tbaa !43
   %132 = getelementptr inbounds nuw i8, ptr %.031, i64 16
-  %133 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %132, i64 %126
+  %133 = getelementptr inbounds nuw [4 x i8], ptr %132, i64 %126
   %134 = icmp ne ptr %.031, @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance
   tail call void @llvm.assume(i1 %134)
   %135 = load i64, ptr %9, align 8, !tbaa !18
@@ -8378,7 +8373,7 @@ _ZN5folly3f146detail8F14ChunkIjE6setTagEmm.exit:  ; preds = %124
   store i32 %137, ptr %133, align 4, !tbaa !114
   %138 = load ptr, ptr %1, align 8, !tbaa !63, !nonnull !59, !noundef !59
   %139 = and i64 %136, 4294967295
-  %140 = getelementptr inbounds nuw %"struct.std::pair", ptr %138, i64 %139
+  %140 = getelementptr inbounds nuw [24 x i8], ptr %138, i64 %139
   %141 = load i64, ptr %6, align 8, !tbaa !178
   %142 = inttoptr i64 %141 to ptr
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %140, ptr noundef nonnull align 8 dereferenceable(16) %142, i64 16, i1 false), !tbaa.struct !265
@@ -8559,7 +8554,7 @@ _ZN5folly3f146detail21VectorContainerPolicyINS_5RangeIPKcEEPNS_17FunctionSchedul
 
 .lr.ph.i:                                         ; preds = %_ZN5folly3f146detail21VectorContainerPolicyINS_5RangeIPKcEEPNS_17FunctionScheduler10RepeatFuncENS_4HashEvvSt17integral_constantIbLb1EEE12beforeRehashEmmmmRPh.exit, %.lr.ph.i
   %.08.i = phi i64 [ %50, %.lr.ph.i ], [ 0, %_ZN5folly3f146detail21VectorContainerPolicyINS_5RangeIPKcEEPNS_17FunctionScheduler10RepeatFuncENS_4HashEvvSt17integral_constantIbLb1EEE12beforeRehashEmmmmRPh.exit ]
-  %49 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk", ptr %43, i64 %.08.i
+  %49 = getelementptr inbounds nuw [64 x i8], ptr %43, i64 %.08.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %49, i8 0, i64 16, i1 false)
   %50 = add nuw i64 %.08.i, 1
   %exitcond.not.i = icmp eq i64 %50, %4
@@ -8635,9 +8630,9 @@ _ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyINS_5RangeIPKcEEPNS_17F
 
 _ZN5folly3f146detail8F14ChunkIjE6setTagEmm.exit:  ; preds = %68
   store i8 %67, ptr %69, align 1, !tbaa !43
-  %73 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %62, i64 %.034131
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %.034131
   call void @llvm.assume(i1 %63)
-  %74 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %64, i64 %.0132
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %.0132
   %75 = load i32, ptr %74, align 4, !tbaa !114
   store i32 %75, ptr %73, align 4, !tbaa !114
   %76 = add nuw i64 %.034131, 1
@@ -8677,7 +8672,7 @@ _ZNSt15__new_allocatorIhE8allocateEmPKv.exit.i:   ; preds = %81
 _ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit: ; preds = %_ZNSt15__new_allocatorIhE8allocateEmPKv.exit.i, %80
   %.0106 = phi ptr [ %20, %80 ], [ %84, %_ZNSt15__new_allocatorIhE8allocateEmPKv.exit.i ]
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %.0106, i8 0, i64 %4, i1 false)
-  %87 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk", ptr %22, i64 %2
+  %87 = getelementptr inbounds nuw [64 x i8], ptr %22, i64 %2
   br label %88
 
 .loopexit114:                                     ; preds = %162, %88
@@ -8723,10 +8718,10 @@ _ZN5folly3f146detail13DenseMaskIter4nextEv.exit:  ; preds = %96, %98
   %.sroa.8.1 = add i32 %.sroa.8.1.in, 1
   %.sroa.070.1 = lshr i32 %.sroa.070.0120, %.pn112
   %102 = zext i32 %.sroa.8.1.in to i64
-  %103 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %94, i64 %102
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %94, i64 %102
   %104 = load i32, ptr %103, align 4, !tbaa !114
   %105 = zext i32 %104 to i64
-  %106 = getelementptr inbounds nuw %"struct.std::pair", ptr %95, i64 %105
+  %106 = getelementptr inbounds nuw [24 x i8], ptr %95, i64 %105
   call void @llvm.prefetch.p0(ptr %106, i32 0, i32 3, i32 1)
   %.not110 = icmp eq i32 %.sroa.070.1, 0
   br i1 %.not110, label %.lr.ph126, label %96
@@ -8752,11 +8747,11 @@ _ZN5folly3f146detail13DenseMaskIter4nextEv.exit62: ; preds = %.lr.ph126, %109
   %.sroa.875.1 = add i32 %.sroa.875.1.in, 1
   %.sroa.073.1 = lshr i32 %.sroa.073.0123, %.pn
   %113 = zext i32 %.sroa.875.1.in to i64
-  %114 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %94, i64 %113
+  %114 = getelementptr inbounds nuw [4 x i8], ptr %94, i64 %113
   %115 = load ptr, ptr %0, align 8, !tbaa !63
   %116 = load i32, ptr %114, align 4, !tbaa !114
   %117 = zext i32 %116 to i64
-  %118 = getelementptr inbounds nuw %"struct.std::pair", ptr %115, i64 %117
+  %118 = getelementptr inbounds nuw [24 x i8], ptr %115, i64 %117
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %118, align 8, !tbaa !163
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %118, i64 8
   %.sroa.2.0.copyload.i.i.i = load ptr, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !tbaa !163
@@ -8807,7 +8802,7 @@ _ZN5folly3f146detail13DenseMaskIter4nextEv.exit62: ; preds = %.lr.ph126, %109
 
 .lr.ph.i64:                                       ; preds = %133, %_ZN5folly3f146detail8F14ChunkIjE25incrOutboundOverflowCountEv.exit.i
   %144 = phi i64 [ %151, %_ZN5folly3f146detail8F14ChunkIjE25incrOutboundOverflowCountEv.exit.i ], [ %140, %133 ]
-  %145 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk", ptr %139, i64 %144
+  %145 = getelementptr inbounds nuw [64 x i8], ptr %139, i64 %144
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 15
   %147 = load i8, ptr %146, align 1, !tbaa !217
   %.not.i.i = icmp eq i8 %147, -2
@@ -8830,7 +8825,7 @@ _ZN5folly3f146detail8F14ChunkIjE25incrOutboundOverflowCountEv.exit.i: ; preds = 
   %.lcssa22.i = phi i64 [ %140, %133 ], [ %151, %_ZN5folly3f146detail8F14ChunkIjE25incrOutboundOverflowCountEv.exit.i ]
   %.018.lcssa.i = phi i8 [ 0, %133 ], [ 16, %_ZN5folly3f146detail8F14ChunkIjE25incrOutboundOverflowCountEv.exit.i ]
   %.lcssa.i = phi i8 [ %142, %133 ], [ %153, %_ZN5folly3f146detail8F14ChunkIjE25incrOutboundOverflowCountEv.exit.i ]
-  %.lcssa21.i = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk", ptr %139, i64 %.lcssa22.i
+  %.lcssa21.i = getelementptr inbounds nuw [64 x i8], ptr %139, i64 %.lcssa22.i
   %155 = getelementptr inbounds nuw i8, ptr %.0106, i64 %.lcssa22.i
   %156 = add nuw nsw i8 %.lcssa.i, 1
   store i8 %156, ptr %155, align 1, !tbaa !43
@@ -8852,7 +8847,7 @@ _ZN5folly3f146detail8F14ChunkIjE25incrOutboundOverflowCountEv.exit.i: ; preds = 
   %166 = add i8 %165, %.018.lcssa.i
   store i8 %166, ptr %164, align 2, !tbaa !213
   %167 = getelementptr inbounds nuw i8, ptr %.lcssa21.i, i64 16
-  %168 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %167, i64 %157
+  %168 = getelementptr inbounds nuw [4 x i8], ptr %167, i64 %157
   %169 = icmp ne ptr %.lcssa21.i, @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance
   call void @llvm.assume(i1 %169)
   %170 = load i32, ptr %114, align 4, !tbaa !114

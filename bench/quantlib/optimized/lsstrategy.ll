@@ -12,7 +12,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base.12" = type { %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl" }
 %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.QuantLib::MarketModelDiscounter" = type { i64, double }
 %"class.std::unique_ptr.32" = type { %"struct.std::__uniq_ptr_data.33" }
 %"struct.std::__uniq_ptr_data.33" = type { %"class.std::__uniq_ptr_impl.34" }
 %"class.std::__uniq_ptr_impl.34" = type { %"class.std::tuple.35" }
@@ -507,7 +506,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %idx.0388 = phi i64 [ 0, %for.body.lr.ph ], [ %idx.1, %for.inc ]
   %exercises.0387 = phi i64 [ 0, %for.body.lr.ph ], [ %exercises.1, %for.inc ]
   %55 = load ptr, ptr %exerciseIndex_, align 8, !tbaa !19
-  %add.ptr.i = getelementptr inbounds nuw i64, ptr %55, i64 %i.0389
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %i.0389
   store i64 %exercises.0387, ptr %add.ptr.i, align 8, !tbaa !31
   %56 = load ptr, ptr %_M_data.i46, align 8, !tbaa !28
   %arrayidx.i = getelementptr inbounds nuw i8, ptr %56, i64 %i.0389
@@ -527,7 +526,7 @@ if.then:                                          ; preds = %for.body
   br i1 %loadedv93, label %if.then94, label %for.inc
 
 if.then94:                                        ; preds = %if.then
-  %add.ptr.i127 = getelementptr inbounds nuw double, ptr %53, i64 %i.0389
+  %add.ptr.i127 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %i.0389
   %61 = load ptr, ptr %_M_finish.i128, align 8, !tbaa !22
   %62 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !34
   %cmp.not.i129 = icmp eq ptr %61, %62
@@ -595,7 +594,7 @@ _ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIP
   %.pre409.pre = phi ptr [ %.pre409.pre.pre, %if.then.i18.i.i ], [ %.pre409.pre428, %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit17.i.i ]
   store ptr %call5.i.i.i.i.i139, ptr %exerciseTimes_, align 8, !tbaa !24
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i128, align 8, !tbaa !22
-  %add.ptr19.i.i = getelementptr inbounds nuw double, ptr %call5.i.i.i.i.i139, i64 %cond.i.i.i
+  %add.ptr19.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i139, i64 %cond.i.i.i
   store ptr %add.ptr19.i.i, ptr %_M_end_of_storage.i, align 8, !tbaa !34
   br label %invoke.cont99
 
@@ -752,7 +751,7 @@ _ZNSt12_Vector_baseIN8QuantLib21MarketModelDiscounterESaIS1_EE13_M_deallocateEPS
   store ptr %call5.i.i.i.i156, ptr %rebateDiscounters_, align 8, !tbaa !41
   %add.ptr.i153 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i156, i64 %sub.ptr.sub.i8.i
   store ptr %add.ptr.i153, ptr %_M_finish.i.i150, align 8, !tbaa !42
-  %add.ptr21.i = getelementptr inbounds nuw %"class.QuantLib::MarketModelDiscounter", ptr %call5.i.i.i.i156, i64 %sub.ptr.div.i144
+  %add.ptr21.i = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i.i156, i64 %sub.ptr.div.i144
   store ptr %add.ptr21.i, ptr %_M_end_of_storage.i.i146, align 8, !tbaa !39
   br label %_ZNSt6vectorIN8QuantLib21MarketModelDiscounterESaIS1_EE7reserveEm.exit
 
@@ -769,7 +768,7 @@ for.body120.lr.ph:                                ; preds = %_ZNSt6vectorIN8Quan
 for.body120:                                      ; preds = %for.body120.lr.ph, %for.inc125
   %85 = phi ptr [ %83, %for.body120.lr.ph ], [ %91, %for.inc125 ]
   %i.1395 = phi i64 [ 0, %for.body120.lr.ph ], [ %inc126, %for.inc125 ]
-  %add.ptr.i162 = getelementptr inbounds nuw double, ptr %85, i64 %i.1395
+  %add.ptr.i162 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %i.1395
   %86 = load ptr, ptr %_M_finish.i163, align 8, !tbaa !42
   %87 = load ptr, ptr %_M_end_of_storage.i.i146, align 8, !tbaa !39
   %cmp.not.i165 = icmp eq ptr %86, %87
@@ -897,7 +896,7 @@ _ZNSt12_Vector_baseIN8QuantLib21MarketModelDiscounterESaIS1_EE13_M_deallocateEPS
   store ptr %call5.i.i.i.i207, ptr %controlDiscounters_, align 8, !tbaa !41
   %add.ptr.i202 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i207, i64 %sub.ptr.sub.i8.i189
   store ptr %add.ptr.i202, ptr %_M_finish.i.i187, align 8, !tbaa !42
-  %add.ptr21.i203 = getelementptr inbounds nuw %"class.QuantLib::MarketModelDiscounter", ptr %call5.i.i.i.i207, i64 %sub.ptr.div.i177
+  %add.ptr21.i203 = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i.i207, i64 %sub.ptr.div.i177
   store ptr %add.ptr21.i203, ptr %_M_end_of_storage.i.i180, align 8, !tbaa !39
   br label %_ZNSt6vectorIN8QuantLib21MarketModelDiscounterESaIS1_EE7reserveEm.exit208
 
@@ -914,7 +913,7 @@ for.body142.lr.ph:                                ; preds = %_ZNSt6vectorIN8Quan
 for.body142:                                      ; preds = %for.body142.lr.ph, %for.inc147
   %103 = phi ptr [ %101, %for.body142.lr.ph ], [ %109, %for.inc147 ]
   %i.2401 = phi i64 [ 0, %for.body142.lr.ph ], [ %inc148, %for.inc147 ]
-  %add.ptr.i214 = getelementptr inbounds nuw double, ptr %103, i64 %i.2401
+  %add.ptr.i214 = getelementptr inbounds nuw [8 x i8], ptr %103, i64 %i.2401
   %104 = load ptr, ptr %_M_finish.i215, align 8, !tbaa !42
   %105 = load ptr, ptr %_M_end_of_storage.i.i180, align 8, !tbaa !39
   %cmp.not.i217 = icmp eq ptr %104, %105
@@ -1003,7 +1002,7 @@ if.else.i233:                                     ; preds = %invoke.cont164
   br i1 %cmp4.i, label %if.then5.i, label %_ZNSt6vectorIS_IdSaIdEESaIS1_EE6resizeEm.exit
 
 if.then5.i:                                       ; preds = %if.else.i233
-  %add.ptr.i234 = getelementptr inbounds nuw %"class.std::vector.16", ptr %116, i64 %call165
+  %add.ptr.i234 = getelementptr inbounds nuw [24 x i8], ptr %116, i64 %call165
   %tobool.not.i.i235 = icmp eq ptr %115, %add.ptr.i234
   br i1 %tobool.not.i.i235, label %_ZNSt6vectorIS_IdSaIdEESaIS1_EE6resizeEm.exit, label %for.body.i.i.i.i.i
 
@@ -1041,9 +1040,9 @@ for.body171:                                      ; preds = %_ZNSt6vectorIS_IdSa
   %121 = phi ptr [ %127, %for.inc176 ], [ %120, %_ZNSt6vectorIS_IdSaIdEESaIS1_EE6resizeEm.exit ]
   %122 = phi ptr [ %128, %for.inc176 ], [ %119, %_ZNSt6vectorIS_IdSaIdEESaIS1_EE6resizeEm.exit ]
   %i.3407 = phi i64 [ %inc177, %for.inc176 ], [ 0, %_ZNSt6vectorIS_IdSaIdEESaIS1_EE6resizeEm.exit ]
-  %add.ptr.i246 = getelementptr inbounds nuw %"class.std::vector.16", ptr %121, i64 %i.3407
+  %add.ptr.i246 = getelementptr inbounds nuw [24 x i8], ptr %121, i64 %i.3407
   %123 = load ptr, ptr %basisSizes, align 8, !tbaa !19
-  %add.ptr.i247 = getelementptr inbounds nuw i64, ptr %123, i64 %i.3407
+  %add.ptr.i247 = getelementptr inbounds nuw [8 x i8], ptr %123, i64 %i.3407
   %124 = load i64, ptr %add.ptr.i247, align 8, !tbaa !31
   %_M_finish.i.i248 = getelementptr inbounds nuw i8, ptr %add.ptr.i246, i64 8
   %125 = load ptr, ptr %_M_finish.i.i248, align 8, !tbaa !22
@@ -1070,7 +1069,7 @@ if.else.i254:                                     ; preds = %for.body171
   br i1 %cmp4.i255, label %if.then5.i256, label %for.inc176
 
 if.then5.i256:                                    ; preds = %if.else.i254
-  %add.ptr.i257 = getelementptr inbounds nuw double, ptr %126, i64 %124
+  %add.ptr.i257 = getelementptr inbounds nuw [8 x i8], ptr %126, i64 %124
   %tobool.not.i.i258 = icmp eq ptr %125, %add.ptr.i257
   br i1 %tobool.not.i.i258, label %for.inc176, label %invoke.cont.i.i259
 
@@ -1669,7 +1668,7 @@ entry:
   %currentIndex_ = getelementptr inbounds nuw i8, ptr %this, i64 80
   %0 = load i64, ptr %currentIndex_, align 8, !tbaa !57
   %1 = load ptr, ptr %exerciseIndex_, align 8, !tbaa !19
-  %2 = getelementptr i64, ptr %1, i64 %0
+  %2 = getelementptr [8 x i8], ptr %1, i64 %0
   %add.ptr.i = getelementptr i8, ptr %2, i64 -8
   %3 = load i64, ptr %add.ptr.i, align 8, !tbaa !31
   %exercise_ = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -1681,11 +1680,11 @@ entry:
   %6 = extractvalue { i64, double } %call3, 0
   %rebateDiscounters_ = getelementptr inbounds nuw i8, ptr %this, i64 216
   %7 = load ptr, ptr %rebateDiscounters_, align 8, !tbaa !41
-  %add.ptr.i8 = getelementptr inbounds nuw %"class.QuantLib::MarketModelDiscounter", ptr %7, i64 %6
+  %add.ptr.i8 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %6
   %numeraires_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   %8 = load i64, ptr %currentIndex_, align 8, !tbaa !57
   %9 = load ptr, ptr %numeraires_, align 8, !tbaa !19
-  %10 = getelementptr i64, ptr %9, i64 %8
+  %10 = getelementptr [8 x i8], ptr %9, i64 %8
   %add.ptr.i9 = getelementptr i8, ptr %10, i64 -8
   %11 = load i64, ptr %add.ptr.i9, align 8, !tbaa !31
   %call8 = tail call noundef double @_ZNK8QuantLib21MarketModelDiscounter14numeraireBondsERKNS_10CurveStateEm(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i8, ptr noundef nonnull align 8 dereferenceable(64) %currentState, i64 noundef %11)
@@ -1701,10 +1700,10 @@ entry:
   %16 = extractvalue { i64, double } %call12, 1
   %controlDiscounters_ = getelementptr inbounds nuw i8, ptr %this, i64 240
   %17 = load ptr, ptr %controlDiscounters_, align 8, !tbaa !41
-  %add.ptr.i10 = getelementptr inbounds nuw %"class.QuantLib::MarketModelDiscounter", ptr %17, i64 %15
+  %add.ptr.i10 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 %15
   %18 = load i64, ptr %currentIndex_, align 8, !tbaa !57
   %19 = load ptr, ptr %numeraires_, align 8, !tbaa !19
-  %20 = getelementptr i64, ptr %19, i64 %18
+  %20 = getelementptr [8 x i8], ptr %19, i64 %18
   %add.ptr.i11 = getelementptr i8, ptr %20, i64 -8
   %21 = load i64, ptr %add.ptr.i11, align 8, !tbaa !31
   %call20 = tail call noundef double @_ZNK8QuantLib21MarketModelDiscounter14numeraireBondsERKNS_10CurveStateEm(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i10, ptr noundef nonnull align 8 dereferenceable(64) %currentState, i64 noundef %21)
@@ -1715,14 +1714,14 @@ entry:
   %23 = load ptr, ptr %basisSystem_, align 8, !tbaa !10
   %basisValues_ = getelementptr inbounds nuw i8, ptr %this, i64 264
   %24 = load ptr, ptr %basisValues_, align 8, !tbaa !11
-  %add.ptr.i12 = getelementptr inbounds nuw %"class.std::vector.16", ptr %24, i64 %3
+  %add.ptr.i12 = getelementptr inbounds nuw [24 x i8], ptr %24, i64 %3
   %vtable26 = load ptr, ptr %23, align 8, !tbaa !3
   %vfn27 = getelementptr inbounds nuw i8, ptr %vtable26, i64 64
   %25 = load ptr, ptr %vfn27, align 8
   tail call void %25(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull align 8 dereferenceable(64) %currentState, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i12)
   %basisCoefficients_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %26 = load ptr, ptr %basisCoefficients_, align 8, !tbaa !11
-  %add.ptr.i13 = getelementptr inbounds nuw %"class.std::vector.16", ptr %26, i64 %3
+  %add.ptr.i13 = getelementptr inbounds nuw [24 x i8], ptr %26, i64 %3
   %27 = load ptr, ptr %add.ptr.i13, align 8, !tbaa !10
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %add.ptr.i13, i64 8
   %28 = load ptr, ptr %_M_finish.i, align 8, !tbaa !10
@@ -1731,7 +1730,7 @@ entry:
 
 for.body.i.preheader:                             ; preds = %entry
   %29 = load ptr, ptr %basisValues_, align 8, !tbaa !11
-  %add.ptr.i14 = getelementptr inbounds nuw %"class.std::vector.16", ptr %29, i64 %3
+  %add.ptr.i14 = getelementptr inbounds nuw [24 x i8], ptr %29, i64 %3
   %30 = load ptr, ptr %add.ptr.i14, align 8, !tbaa !10
   br label %for.body.i
 
@@ -1837,7 +1836,7 @@ if.end18:                                         ; preds = %if.then14, %if.end1
   br i1 %cmp, label %if.then21, label %if.end32
 
 if.then21:                                        ; preds = %if.end18
-  %add.ptr.i = getelementptr inbounds nuw i64, ptr %18, i64 %16
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %16
   %19 = load i64, ptr %add.ptr.i, align 8, !tbaa !31
   %add.ptr.i8 = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 8
   %20 = load i64, ptr %add.ptr.i8, align 8, !tbaa !31
@@ -3183,7 +3182,7 @@ if.then.i27:                                      ; preds = %_ZNSt6vectorIN8Quan
 _ZNSt12_Vector_baseIN8QuantLib21MarketModelDiscounterESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN8QuantLib21MarketModelDiscounterESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26, %if.then.i27
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !41
   store ptr %__cur.0.lcssa.i.i.i25, ptr %_M_finish.i.i, align 8, !tbaa !42
-  %add.ptr28 = getelementptr inbounds nuw %"class.QuantLib::MarketModelDiscounter", ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr28 = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr28, ptr %_M_end_of_storage, align 8, !tbaa !39
   ret void
 
@@ -3306,9 +3305,9 @@ if.then.i29:                                      ; preds = %_ZNSt6vectorIS_IdSa
 
 _ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EE13_M_deallocateEPS2_m.exit31: ; preds = %_ZNSt6vectorIS_IdSaIdEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %if.then.i29
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !11
-  %add.ptr37 = getelementptr inbounds nuw %"class.std::vector.16", ptr %add.ptr, i64 %__n
+  %add.ptr37 = getelementptr inbounds nuw [24 x i8], ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8, !tbaa !13
-  %add.ptr40 = getelementptr inbounds nuw %"class.std::vector.16", ptr %call5.i.i.i, i64 %4
+  %add.ptr40 = getelementptr inbounds nuw [24 x i8], ptr %call5.i.i.i, i64 %4
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8, !tbaa !14
   br label %if.end44
 
@@ -3406,9 +3405,9 @@ if.then.i35:                                      ; preds = %_ZNSt6vectorIdSaIdE
 
 _ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit37: ; preds = %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit, %if.then.i35
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !24
-  %add.ptr37 = getelementptr inbounds nuw double, ptr %add.ptr, i64 %__n
+  %add.ptr37 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8, !tbaa !22
-  %add.ptr40 = getelementptr inbounds nuw double, ptr %call5.i.i.i, i64 %3
+  %add.ptr40 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i, i64 %3
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8, !tbaa !34
   br label %if.end44
 

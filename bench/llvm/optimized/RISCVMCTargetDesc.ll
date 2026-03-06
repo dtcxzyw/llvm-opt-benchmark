@@ -50,15 +50,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple.44" = type { %"struct.std::_Tuple_impl.45" }
 %"struct.std::_Tuple_impl.45" = type { %"struct.std::_Head_base.48" }
 %"struct.std::_Head_base.48" = type { ptr }
-%"struct.llvm::SubtargetSubTypeKV" = type { ptr, %"class.llvm::FeatureBitArray", %"class.llvm::FeatureBitArray", ptr }
-%"class.llvm::FeatureBitArray" = type { %"class.llvm::FeatureBitset" }
-%"class.llvm::FeatureBitset" = type { %"struct.std::array" }
-%"class.std::vector.20" = type { %"struct.std::_Vector_base.21" }
-%"struct.std::_Vector_base.21" = type { %"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.llvm::MCOperand" = type { i8, %union.anon }
-%union.anon = type { i64 }
 %"class.std::vector.126" = type { %"struct.std::_Vector_base.127" }
 %"struct.std::_Vector_base.127" = type { %"struct.std::_Vector_base<std::pair<unsigned long, unsigned long>, std::allocator<std::pair<unsigned long, unsigned long>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::pair<unsigned long, unsigned long>, std::allocator<std::pair<unsigned long, unsigned long>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::pair<unsigned long, unsigned long>, std::allocator<std::pair<unsigned long, unsigned long>>>::_Vector_impl_data" }
@@ -1848,7 +1839,7 @@ _ZSt7advanceIPKN4llvm25RISCVVInversePseudosTable10PseudoInfoElEvRT_T0_.exit.i.i:
   %.033.i.i = phi ptr [ %29, %.thread27.i.i ], [ @_ZN4llvm25RISCVVInversePseudosTableL25RISCVVInversePseudosTableE, %3 ]
   %.01132.i.i = phi i64 [ %28, %.thread27.i.i ], [ 11193, %3 ]
   %5 = lshr i64 %.01132.i.i, 1
-  %6 = getelementptr inbounds nuw %"struct.llvm::RISCVVInversePseudosTable::PseudoInfo", ptr %.033.i.i, i64 %5
+  %6 = getelementptr inbounds nuw [6 x i8], ptr %.033.i.i, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %8 = load i16, ptr %7, align 2, !tbaa !12
   %9 = zext i16 %8 to i32
@@ -2444,7 +2435,7 @@ _ZSt7advanceIPKN4llvm18SubtargetSubTypeKVElEvRT_T0_.exit.i.i.i: ; preds = %3, %_
   %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPKN4llvm18SubtargetSubTypeKVEKNS3_9StringRefEEEbT_RT0_.exit.i.i.i ], [ %5, %3 ]
   %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPKN4llvm18SubtargetSubTypeKVEKNS3_9StringRefEEEbT_RT0_.exit.i.i.i ], [ %7, %3 ]
   %8 = lshr i64 %.01116.i.i.i, 1
-  %9 = getelementptr inbounds nuw %"struct.llvm::SubtargetSubTypeKV", ptr %.017.i.i.i, i64 %8
+  %9 = getelementptr inbounds nuw [96 x i8], ptr %.017.i.i.i, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !144
   %.not.i.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i.i.i.i.i, label %_ZN4llvm9StringRefC2EPKc.exit.i.i.i.i.i, label %11
@@ -2489,7 +2480,7 @@ _ZNK9__gnu_cxx5__ops14_Iter_less_valclIPKN4llvm18SubtargetSubTypeKVEKNS3_9String
 
 _ZN4llvm11lower_boundIRKNS_8ArrayRefINS_18SubtargetSubTypeKVEEERNS_9StringRefEEEDaOT_OT0_.exit: ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPKN4llvm18SubtargetSubTypeKVEKNS3_9StringRefEEEbT_RT0_.exit.i.i.i, %3
   %.0.lcssa.i.i.i = phi ptr [ %5, %3 ], [ %.1.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPKN4llvm18SubtargetSubTypeKVEKNS3_9StringRefEEEbT_RT0_.exit.i.i.i ]
-  %25 = getelementptr inbounds nuw %"struct.llvm::SubtargetSubTypeKV", ptr %5, i64 %7
+  %25 = getelementptr inbounds nuw [96 x i8], ptr %5, i64 %7
   %.not = icmp eq ptr %.0.lcssa.i.i.i, %25
   br i1 %.not, label %_ZN4llvmeqENS_9StringRefES0_.exit, label %26
 
@@ -2658,9 +2649,9 @@ _ZNSt6vectorIS_ItSaItEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr
 
 _ZNSt12_Vector_baseISt6vectorItSaItEESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIS_ItSaItEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %38
   store ptr %26, ptr %0, align 8, !tbaa !152
-  %42 = getelementptr inbounds nuw %"class.std::vector.20", ptr %27, i64 %1
+  %42 = getelementptr inbounds nuw [24 x i8], ptr %27, i64 %1
   store ptr %42, ptr %4, align 8, !tbaa !151
-  %43 = getelementptr inbounds nuw %"class.std::vector.20", ptr %26, i64 %24
+  %43 = getelementptr inbounds nuw [24 x i8], ptr %26, i64 %24
   store ptr %43, ptr %11, align 8, !tbaa !153
   br label %44
 
@@ -2730,7 +2721,7 @@ define internal void @_ZN12_GLOBAL__N_120RISCVMCInstrAnalysis11updateStateERKN4l
   %22 = load ptr, ptr %21, align 8, !tbaa !60
   %23 = zext i32 %18 to i64
   %24 = sub nsw i64 0, %23
-  %25 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %22, i64 %24
+  %25 = getelementptr inbounds [32 x i8], ptr %22, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %27 = load i8, ptr %26, align 4, !tbaa !173
   %.not = icmp eq i8 %27, 0
@@ -2747,7 +2738,7 @@ define internal void @_ZN12_GLOBAL__N_120RISCVMCInstrAnalysis11updateStateERKN4l
 31:                                               ; preds = %.lr.ph, %_ZN12_GLOBAL__N_120RISCVMCInstrAnalysis11setGPRStateEN4llvm10MCRegisterESt8optionalIlE.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN12_GLOBAL__N_120RISCVMCInstrAnalysis11setGPRStateEN4llvm10MCRegisterESt8optionalIlE.exit ]
   %32 = phi i64 [ %.promoted, %.lr.ph ], [ %42, %_ZN12_GLOBAL__N_120RISCVMCInstrAnalysis11setGPRStateEN4llvm10MCRegisterESt8optionalIlE.exit ]
-  %33 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %29, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [16 x i8], ptr %29, i64 %indvars.iv
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load i32, ptr %34, align 8, !tbaa !9
   %36 = add i32 %35, -75
@@ -2785,7 +2776,7 @@ _ZN12_GLOBAL__N_120RISCVMCInstrAnalysis11setGPRStateEN4llvm10MCRegisterESt8optio
   %54 = add i32 %47, -44
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %56 = zext i32 %54 to i64
-  %57 = getelementptr inbounds nuw i64, ptr %55, i64 %56
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %56
   store i64 %53, ptr %57, align 8, !tbaa !56
   %58 = icmp ugt i32 %54, 30
   br i1 %58, label %59, label %_ZNSt6bitsetILm31EE3setEmb.exit.i17
@@ -2814,7 +2805,7 @@ define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_120RISCVMCInstrAnalysis8isB
   %6 = load ptr, ptr %4, align 8, !tbaa !60
   %7 = zext i32 %5 to i64
   %8 = sub nsw i64 0, %7
-  %9 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %6, i64 %8
+  %9 = getelementptr inbounds [32 x i8], ptr %6, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load i64, ptr %10, align 8, !tbaa !176
   %12 = and i64 %11, 1024
@@ -2871,7 +2862,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm15MCInstrAnalysis19isCon
   %6 = load ptr, ptr %4, align 8, !tbaa !60
   %7 = zext i32 %5 to i64
   %8 = sub nsw i64 0, %7
-  %9 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %6, i64 %8
+  %9 = getelementptr inbounds [32 x i8], ptr %6, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load i64, ptr %10, align 8, !tbaa !176
   %12 = and i64 %11, 3328
@@ -2887,7 +2878,7 @@ define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_120RISCVMCInstrAnalysis21is
   %6 = load ptr, ptr %4, align 8, !tbaa !60
   %7 = zext i32 %5 to i64
   %8 = sub nsw i64 0, %7
-  %9 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %6, i64 %8
+  %9 = getelementptr inbounds [32 x i8], ptr %6, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load i64, ptr %10, align 8, !tbaa !176
   %12 = and i64 %11, 3328
@@ -2944,7 +2935,7 @@ define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_120RISCVMCInstrAnalysis16is
   %6 = load ptr, ptr %4, align 8, !tbaa !60
   %7 = zext i32 %5 to i64
   %8 = sub nsw i64 0, %7
-  %9 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %6, i64 %8
+  %9 = getelementptr inbounds [32 x i8], ptr %6, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load i64, ptr %10, align 8, !tbaa !176
   %12 = and i64 %11, 2048
@@ -2996,7 +2987,7 @@ define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_120RISCVMCInstrAnalysis6isC
   %6 = load ptr, ptr %4, align 8, !tbaa !60
   %7 = zext i32 %5 to i64
   %8 = sub nsw i64 0, %7
-  %9 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %6, i64 %8
+  %9 = getelementptr inbounds [32 x i8], ptr %6, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load i64, ptr %10, align 8, !tbaa !176
   %12 = and i64 %11, 128
@@ -3029,7 +3020,7 @@ define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_120RISCVMCInstrAnalysis8isR
   %6 = load ptr, ptr %4, align 8, !tbaa !60
   %7 = zext i32 %5 to i64
   %8 = sub nsw i64 0, %7
-  %9 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %6, i64 %8
+  %9 = getelementptr inbounds [32 x i8], ptr %6, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load i64, ptr %10, align 8, !tbaa !176
   %12 = and i64 %11, 32
@@ -3081,7 +3072,7 @@ define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_120RISCVMCInstrAnalysis12is
   %6 = load ptr, ptr %4, align 8, !tbaa !60
   %7 = zext i32 %5 to i64
   %8 = sub nsw i64 0, %7
-  %9 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %6, i64 %8
+  %9 = getelementptr inbounds [32 x i8], ptr %6, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load i64, ptr %10, align 8, !tbaa !176
   %12 = and i64 %11, 512
@@ -3148,7 +3139,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm15MCInstrAnalysis20mayAf
   %29 = load ptr, ptr %27, align 8, !tbaa !60
   %30 = zext i32 %28 to i64
   %31 = sub nsw i64 0, %30
-  %32 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %29, i64 %31
+  %32 = getelementptr inbounds [32 x i8], ptr %29, i64 %31
   %33 = tail call noundef zeroext i1 @_ZNK4llvm11MCInstrDesc15hasDefOfPhysRegERKNS_6MCInstENS_10MCRegisterERKNS_14MCRegisterInfoE(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(232) %2) #18
   br label %34
 
@@ -3249,7 +3240,7 @@ _ZNKSt6bitsetILm31EE4testEm.exit.i:               ; preds = %35
 
 44:                                               ; preds = %_ZNKSt6bitsetILm31EE4testEm.exit.i
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %46 = getelementptr inbounds nuw i64, ptr %45, i64 %37
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %37
   %47 = load i64, ptr %46, align 8, !tbaa !56
   br label %48
 

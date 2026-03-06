@@ -684,7 +684,7 @@ _ZN5ZXing5Aztec13EncodingStateD2Ev.exit63.i.i:    ; preds = %265, %263
   %284 = getelementptr inbounds nuw i8, ptr %.sroa.09.033.i, i64 40
   %285 = load i32, ptr %284, align 8, !tbaa !38, !noalias !40
   %286 = sext i32 %285 to i64
-  %287 = getelementptr inbounds nuw %"struct.std::array.0", ptr %283, i64 %286
+  %287 = getelementptr inbounds nuw [256 x i8], ptr %283, i64 %286
   %288 = zext i8 %282 to i64
   %289 = getelementptr inbounds nuw i8, ptr %287, i64 %288
   %290 = load i8, ptr %289, align 1, !tbaa !31, !noalias !40
@@ -703,7 +703,7 @@ _ZN5ZXing5Aztec13EncodingStateD2Ev.exit63.i.i:    ; preds = %265, %263
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i35 ], [ %indvars.iv.next.i.i, %.thread.i.i ]
   %.0382.i.i = phi i1 [ true, %.lr.ph.i35 ], [ %.139.i.i, %.thread.i.i ]
   %297 = load ptr, ptr @_ZN5ZXing5Aztec8CHAR_MAPE, align 8, !tbaa !43, !noalias !40
-  %298 = getelementptr inbounds nuw %"struct.std::array.0", ptr %297, i64 %indvars.iv.i.i
+  %298 = getelementptr inbounds nuw [256 x i8], ptr %297, i64 %indvars.iv.i.i
   %299 = getelementptr inbounds nuw i8, ptr %298, i64 %288
   %300 = load i8, ptr %299, align 1, !tbaa !31, !noalias !40
   %301 = sext i8 %300 to i32
@@ -846,7 +846,7 @@ _ZN5ZXing5Aztec13EncodingStateD2Ev.exit53.i.i44:  ; preds = %352, %349, %347
   %359 = load ptr, ptr @_ZN5ZXing5Aztec11SHIFT_TABLEE, align 8, !tbaa !45, !noalias !40
   %360 = load i32, ptr %284, align 8, !tbaa !38, !noalias !40
   %361 = sext i32 %360 to i64
-  %362 = getelementptr inbounds nuw %"struct.std::array.2", ptr %359, i64 %361
+  %362 = getelementptr inbounds nuw [6 x i8], ptr %359, i64 %361
   %363 = getelementptr inbounds nuw i8, ptr %362, i64 %indvars.iv.i.i
   %364 = load i8, ptr %363, align 1, !tbaa !31, !noalias !40
   %365 = icmp sgt i8 %364, -1
@@ -929,7 +929,7 @@ _ZN5ZXing5Aztec13EncodingStateD2Ev.exit58.i.i:    ; preds = %390, %387, %385
   %396 = load ptr, ptr @_ZN5ZXing5Aztec8CHAR_MAPE, align 8, !tbaa !43, !noalias !40
   %397 = load i32, ptr %284, align 8, !tbaa !38, !noalias !40
   %398 = sext i32 %397 to i64
-  %399 = getelementptr inbounds nuw %"struct.std::array.0", ptr %396, i64 %398
+  %399 = getelementptr inbounds nuw [256 x i8], ptr %396, i64 %398
   %400 = getelementptr inbounds nuw i8, ptr %399, i64 %288
   %401 = load i8, ptr %400, align 1, !tbaa !31, !noalias !40
   %402 = icmp eq i8 %401, 0
@@ -1405,9 +1405,9 @@ define internal fastcc void @_ZN5ZXing5AztecL14LatchAndAppendERKNS0_13EncodingSt
 
 12:                                               ; preds = %4
   %13 = sext i32 %11 to i64
-  %14 = getelementptr inbounds nuw %"struct.std::array.16", ptr @_ZN5ZXing5AztecL11LATCH_TABLEE, i64 %13
+  %14 = getelementptr inbounds nuw [20 x i8], ptr @_ZN5ZXing5AztecL11LATCH_TABLEE, i64 %13
   %15 = sext i32 %2 to i64
-  %16 = getelementptr inbounds nuw i32, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %15
   %17 = load i32, ptr %16, align 4, !tbaa !56
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %18 = and i32 %17, 65535
@@ -1516,7 +1516,7 @@ define internal fastcc void @_ZN5ZXing5AztecL14ShiftAndAppendERKNS0_13EncodingSt
   %12 = load ptr, ptr @_ZN5ZXing5Aztec11SHIFT_TABLEE, align 8, !tbaa !45
   %13 = load i32, ptr %8, align 8, !tbaa !38
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %"struct.std::array.2", ptr %12, i64 %14
+  %15 = getelementptr inbounds nuw [6 x i8], ptr %12, i64 %14
   %16 = sext i32 %2 to i64
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
   %18 = load i8, ptr %17, align 1, !tbaa !31
@@ -1625,7 +1625,7 @@ define internal fastcc void @_ZN5ZXing5AztecL18AddBinaryShiftCharERKNS0_13Encodi
 
 11:                                               ; preds = %3, %3
   %12 = zext nneg i32 %8 to i64
-  %13 = getelementptr inbounds nuw %"struct.std::array.16", ptr @_ZN5ZXing5AztecL11LATCH_TABLEE, i64 %12
+  %13 = getelementptr inbounds nuw [20 x i8], ptr @_ZN5ZXing5AztecL11LATCH_TABLEE, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !56
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %15 = and i32 %14, 65535
@@ -1964,7 +1964,7 @@ _ZNSt6vectorIN5ZXing5Aztec5TokenESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22: ; 
 _ZNSt12_Vector_baseIN5ZXing5Aztec5TokenESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN5ZXing5Aztec5TokenESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22, %21
   store ptr %10, ptr %0, align 8, !tbaa !35
   store ptr %.0.lcssa.i.i.i21, ptr %5, align 8, !tbaa !36
-  %25 = getelementptr inbounds nuw %"class.ZXing::Aztec::Token", ptr %10, i64 %3
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %3
   store ptr %25, ptr %20, align 8, !tbaa !37
   ret void
 }
@@ -2005,11 +2005,11 @@ define internal fastcc noundef zeroext i1 @_ZN5ZXing5AztecL21IsBetterThanOrEqual
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i32, ptr %5, align 8, !tbaa !38
   %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds nuw %"struct.std::array.16", ptr @_ZN5ZXing5AztecL11LATCH_TABLEE, i64 %7
+  %8 = getelementptr inbounds nuw [20 x i8], ptr @_ZN5ZXing5AztecL11LATCH_TABLEE, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load i32, ptr %9, align 8, !tbaa !38
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds nuw i32, ptr %8, i64 %11
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !56
   %14 = ashr i32 %13, 16
   %15 = add nsw i32 %14, %4

@@ -4143,7 +4143,7 @@ cba_ldev_link_acco.exit:                          ; preds = %77, %73, %69
   %132 = load ptr, ptr %100, align 8
   %133 = add i32 %.0143154, -1
   %134 = zext i32 %133 to i64
-  %135 = getelementptr ptr, ptr %132, i64 %134
+  %135 = getelementptr [8 x i8], ptr %132, i64 %134
   store ptr %.0142, ptr %135, align 8
   br label %136
 
@@ -4271,7 +4271,7 @@ proto_item_set_generated.exit:                    ; preds = %20, %23, %26
   %53 = load ptr, ptr %41, align 8
   %54 = add i32 %.18595, -1
   %55 = zext i32 %54 to i64
-  %56 = getelementptr ptr, ptr %53, i64 %55
+  %56 = getelementptr [8 x i8], ptr %53, i64 %55
   %57 = load ptr, ptr %56, align 8
   %58 = load i32, ptr %11, align 4
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 52
@@ -4314,7 +4314,7 @@ proto_item_set_generated.exit:                    ; preds = %20, %23, %26
   %73 = load ptr, ptr %71, align 8
   %74 = add i32 %.298105, -1
   %75 = zext i32 %74 to i64
-  %76 = getelementptr ptr, ptr %73, i64 %75
+  %76 = getelementptr [8 x i8], ptr %73, i64 %75
   %77 = load ptr, ptr %76, align 8
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 52
   store i32 0, ptr %78, align 4
@@ -4521,7 +4521,7 @@ cba_connection_find_by_provid.exit:               ; preds = %cba_packet_in_range
   %94 = load ptr, ptr %63, align 8
   %95 = add i32 %.05362, -1
   %96 = zext i32 %95 to i64
-  %97 = getelementptr ptr, ptr %94, i64 %96
+  %97 = getelementptr [8 x i8], ptr %94, i64 %96
   store ptr %.0.i, ptr %97, align 8
   %98 = add i32 %.05362, 1
   %99 = load i32, ptr %8, align 4
@@ -4627,7 +4627,7 @@ cba_connection_disconnect.exit.us:                ; preds = %.lr.ph, %cba_connec
 
 48:                                               ; preds = %.lr.ph.split
   %49 = load ptr, ptr %37, align 8
-  %50 = getelementptr ptr, ptr %49, i64 %indvars.iv
+  %50 = getelementptr [8 x i8], ptr %49, i64 %indvars.iv
   %51 = getelementptr i8, ptr %50, i64 -8
   %52 = load ptr, ptr %51, align 8
   %.not58 = icmp eq ptr %52, null
@@ -5378,7 +5378,7 @@ cba_ldev_link_acco.exit:                          ; preds = %.thread, %83, %79, 
 146:                                              ; preds = %.lr.ph.split
   %147 = add nsw i32 %.0185207, -1
   %148 = zext i32 %147 to i64
-  %149 = getelementptr i16, ptr %136, i64 %148
+  %149 = getelementptr [2 x i8], ptr %136, i64 %148
   store i16 %.pre222, ptr %149, align 2
   br label %150
 
@@ -5432,7 +5432,7 @@ cba_ldev_link_acco.exit:                          ; preds = %.thread, %83, %79, 
   %172 = load ptr, ptr %107, align 8
   %173 = add i32 %.0184213, -1
   %174 = zext i32 %173 to i64
-  %175 = getelementptr ptr, ptr %172, i64 %174
+  %175 = getelementptr [8 x i8], ptr %172, i64 %174
   store ptr %.0183, ptr %175, align 8
   br label %176
 
@@ -6183,7 +6183,7 @@ cba_frame_connect.exit:                           ; preds = %cba_packet_in_range
   %182 = load ptr, ptr %121, align 8
   %183 = add i32 %.0132147, -1
   %184 = zext i32 %183 to i64
-  %185 = getelementptr ptr, ptr %182, i64 %184
+  %185 = getelementptr [8 x i8], ptr %182, i64 %184
   store ptr %.0134, ptr %185, align 8
   br label %186
 
@@ -6325,7 +6325,7 @@ proto_item_set_generated.exit:                    ; preds = %21, %24, %27
   %58 = load ptr, ptr %46, align 8
   %59 = add i32 %.18999, -1
   %60 = zext i32 %59 to i64
-  %61 = getelementptr ptr, ptr %58, i64 %60
+  %61 = getelementptr [8 x i8], ptr %58, i64 %60
   %62 = load ptr, ptr %61, align 8
   %63 = load i32, ptr %9, align 4
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 56
@@ -6368,7 +6368,7 @@ proto_item_set_generated.exit:                    ; preds = %21, %24, %27
   %78 = load ptr, ptr %76, align 8
   %79 = add i32 %.2102106, -1
   %80 = zext i32 %79 to i64
-  %81 = getelementptr ptr, ptr %78, i64 %80
+  %81 = getelementptr [8 x i8], ptr %78, i64 %80
   %82 = load ptr, ptr %81, align 8
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 56
   store i32 0, ptr %83, align 8
@@ -6588,7 +6588,7 @@ cba_frame_find_by_provcrid.exit:                  ; preds = %cba_packet_in_range
   %98 = load ptr, ptr %66, align 8
   %99 = add i32 %.05057, -1
   %100 = zext i32 %99 to i64
-  %101 = getelementptr ptr, ptr %98, i64 %100
+  %101 = getelementptr [8 x i8], ptr %98, i64 %100
   store ptr %.0.i, ptr %101, align 8
   %102 = add i32 %.05057, 1
   %103 = load i32, ptr %8, align 4
@@ -6688,7 +6688,7 @@ cba_frame_disconnect.exit.us:                     ; preds = %.lr.ph, %cba_frame_
 
 44:                                               ; preds = %.lr.ph.split
   %45 = load ptr, ptr %33, align 8
-  %46 = getelementptr ptr, ptr %45, i64 %indvars.iv
+  %46 = getelementptr [8 x i8], ptr %45, i64 %indvars.iv
   %47 = getelementptr i8, ptr %46, i64 -8
   %48 = load ptr, ptr %47, align 8
   %.not56 = icmp eq ptr %48, null
@@ -7001,7 +7001,7 @@ cba_frame_find_by_provcrid.exit.thread:           ; preds = %proto_item_set_gene
 140:                                              ; preds = %138
   %141 = add nsw i32 %.0156181, -1
   %142 = zext i32 %141 to i64
-  %143 = getelementptr i16, ptr %133, i64 %142
+  %143 = getelementptr [2 x i8], ptr %133, i64 %142
   store i16 %.pre, ptr %143, align 2
   br label %144
 
@@ -7048,7 +7048,7 @@ cba_frame_find_by_provcrid.exit.thread:           ; preds = %proto_item_set_gene
   %164 = load ptr, ptr %111, align 8
   %165 = add i32 %.0155186, -1
   %166 = zext i32 %165 to i64
-  %167 = getelementptr ptr, ptr %164, i64 %166
+  %167 = getelementptr [8 x i8], ptr %164, i64 %166
   store ptr %.0150, ptr %167, align 8
   br label %168
 
@@ -7188,7 +7188,7 @@ proto_item_set_generated.exit:                    ; preds = %19, %22, %25
   %55 = load ptr, ptr %43, align 8
   %56 = add i32 %.18596, -1
   %57 = zext i32 %56 to i64
-  %58 = getelementptr ptr, ptr %55, i64 %57
+  %58 = getelementptr [8 x i8], ptr %55, i64 %57
   %59 = load ptr, ptr %58, align 8
   %60 = load i32, ptr %9, align 4
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 52
@@ -7231,7 +7231,7 @@ proto_item_set_generated.exit:                    ; preds = %19, %22, %25
   %75 = load ptr, ptr %73, align 8
   %76 = add i32 %.299106, -1
   %77 = zext i32 %76 to i64
-  %78 = getelementptr ptr, ptr %75, i64 %77
+  %78 = getelementptr [8 x i8], ptr %75, i64 %77
   %79 = load ptr, ptr %78, align 8
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 52
   store i32 0, ptr %80, align 4

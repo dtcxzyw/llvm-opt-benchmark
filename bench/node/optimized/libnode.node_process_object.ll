@@ -1491,7 +1491,7 @@ for.body.lr.ph:                                   ; preds = %_ZN4node16MaybeStac
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
   %6 = phi ptr [ %12, %for.inc.us ], [ %5, %for.body.lr.ph ]
   %i.044.us = phi i64 [ %inc.us, %for.inc.us ], [ 0, %for.body.lr.ph ]
-  %add.ptr.i.us = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %6, i64 %i.044.us
+  %add.ptr.i.us = getelementptr inbounds [32 x i8], ptr %6, i64 %i.044.us
   %call10.us = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.us) #19
   %7 = extractvalue { i64, ptr } %call10.us, 0
   %call3.i.us = call noundef ptr @_ZN2v87Context10GetIsolateEv(ptr noundef nonnull align 1 dereferenceable(1) %context.coerce) #19
@@ -1508,7 +1508,7 @@ _ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_tra
 
 _ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm128EEixEm.exit.us: ; preds = %_ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE.exit.us
   %10 = load ptr, ptr %buf_.i.i, align 8
-  %arrayidx.i.us = getelementptr inbounds %"class.v8::Local.24", ptr %10, i64 %i.044.us
+  %arrayidx.i.us = getelementptr inbounds [8 x i8], ptr %10, i64 %i.044.us
   store ptr %call11.i.us, ptr %arrayidx.i.us, align 8
   %cmp.i.i.i.us = icmp eq ptr %call11.i.us, null
   br i1 %cmp.i.i.i.us, label %cleanup, label %for.inc.us
@@ -1527,7 +1527,7 @@ for.inc.us:                                       ; preds = %_ZN4node16MaybeStac
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %13 = phi ptr [ %21, %for.inc ], [ %5, %for.body.lr.ph ]
   %i.044 = phi i64 [ %inc, %for.inc ], [ 0, %for.body.lr.ph ]
-  %add.ptr.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %13, i64 %i.044
+  %add.ptr.i = getelementptr inbounds [32 x i8], ptr %13, i64 %i.044
   %call10 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i) #19
   %14 = extractvalue { i64, ptr } %call10, 0
   %cmp5.i = icmp ugt i64 %14, 536870887
@@ -1551,7 +1551,7 @@ _ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_tra
 
 _ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm128EEixEm.exit.thread: ; preds = %_ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE.exit.thread
   %18 = load ptr, ptr %buf_.i.i, align 8
-  %arrayidx.i32 = getelementptr inbounds %"class.v8::Local.24", ptr %18, i64 %.us-phi45
+  %arrayidx.i32 = getelementptr inbounds [8 x i8], ptr %18, i64 %.us-phi45
   store ptr null, ptr %arrayidx.i32, align 8
   br label %cleanup
 
@@ -1562,7 +1562,7 @@ do.body4.i22:                                     ; preds = %_ZN4node9ToV8ValueE
 
 _ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm128EEixEm.exit: ; preds = %_ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE.exit
   %19 = load ptr, ptr %buf_.i.i, align 8
-  %arrayidx.i = getelementptr inbounds %"class.v8::Local.24", ptr %19, i64 %i.044
+  %arrayidx.i = getelementptr inbounds [8 x i8], ptr %19, i64 %i.044
   store ptr %call11.i, ptr %arrayidx.i, align 8
   %cmp.i.i.i = icmp eq ptr %call11.i, null
   br i1 %cmp.i.i.i, label %cleanup, label %for.inc
@@ -2145,7 +2145,7 @@ if.then.i18.i.i.i.i.i:                            ; preds = %_ZNSt6vectorIlSaIlE
 _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i.i.i: ; preds = %if.then.i18.i.i.i.i.i, %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit17.i.i.i.i.i
   store ptr %call5.i.i.i.i.i.i.i.i, ptr %external_references_.i.i, align 8
   store ptr %incdec.ptr.i.i.i.i.i, ptr %_M_finish.i.i.i.i, align 8
-  %add.ptr19.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %call5.i.i.i.i.i.i.i.i, i64 %cond.i.i.i.i.i.i
+  %add.ptr19.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i.i, i64 %cond.i.i.i.i.i.i
   store ptr %add.ptr19.i.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i, align 8
   br label %_ZN4node25ExternalReferenceRegistry8RegisterEPFvRKN2v820FunctionCallbackInfoINS1_5ValueEEEE.exit
 
@@ -2207,7 +2207,7 @@ if.then.i18.i.i.i.i.i31:                          ; preds = %_ZNSt6vectorIlSaIlE
 _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i.i.i32: ; preds = %if.then.i18.i.i.i.i.i31, %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit17.i.i.i.i.i28
   store ptr %call5.i.i.i.i.i.i.i.i25, ptr %external_references_.i.i, align 8
   store ptr %incdec.ptr.i.i.i.i.i29, ptr %_M_finish.i.i.i.i, align 8
-  %add.ptr19.i.i.i.i.i33 = getelementptr inbounds nuw i64, ptr %call5.i.i.i.i.i.i.i.i25, i64 %cond.i.i.i.i.i.i22
+  %add.ptr19.i.i.i.i.i33 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i.i25, i64 %cond.i.i.i.i.i.i22
   store ptr %add.ptr19.i.i.i.i.i33, ptr %_M_end_of_storage.i.i.i.i, align 8
   br label %_ZN4node25ExternalReferenceRegistry8RegisterEPFvN2v85LocalINS1_4NameEEERKNS1_20PropertyCallbackInfoINS1_5ValueEEEE.exit
 
@@ -2269,7 +2269,7 @@ if.then.i18.i.i.i.i.i61:                          ; preds = %_ZNSt6vectorIlSaIlE
 _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i.i.i62: ; preds = %if.then.i18.i.i.i.i.i61, %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit17.i.i.i.i.i58
   store ptr %call5.i.i.i.i.i.i.i.i55, ptr %external_references_.i.i, align 8
   store ptr %incdec.ptr.i.i.i.i.i59, ptr %_M_finish.i.i.i.i, align 8
-  %add.ptr19.i.i.i.i.i63 = getelementptr inbounds nuw i64, ptr %call5.i.i.i.i.i.i.i.i55, i64 %cond.i.i.i.i.i.i52
+  %add.ptr19.i.i.i.i.i63 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i.i55, i64 %cond.i.i.i.i.i.i52
   store ptr %add.ptr19.i.i.i.i.i63, ptr %_M_end_of_storage.i.i.i.i, align 8
   br label %_ZN4node25ExternalReferenceRegistry8RegisterEPFvN2v85LocalINS1_4NameEEENS2_INS1_5ValueEEERKNS1_20PropertyCallbackInfoIvEEE.exit
 
@@ -2331,7 +2331,7 @@ if.then.i18.i.i.i.i.i91:                          ; preds = %_ZNSt6vectorIlSaIlE
 _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i.i.i92: ; preds = %if.then.i18.i.i.i.i.i91, %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit17.i.i.i.i.i88
   store ptr %call5.i.i.i.i.i.i.i.i85, ptr %external_references_.i.i, align 8
   store ptr %incdec.ptr.i.i.i.i.i89, ptr %_M_finish.i.i.i.i, align 8
-  %add.ptr19.i.i.i.i.i93 = getelementptr inbounds nuw i64, ptr %call5.i.i.i.i.i.i.i.i85, i64 %cond.i.i.i.i.i.i82
+  %add.ptr19.i.i.i.i.i93 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i.i85, i64 %cond.i.i.i.i.i.i82
   store ptr %add.ptr19.i.i.i.i.i93, ptr %_M_end_of_storage.i.i.i.i, align 8
   br label %_ZN4node25ExternalReferenceRegistry8RegisterEPFvN2v85LocalINS1_4NameEEERKNS1_20PropertyCallbackInfoINS1_5ValueEEEE.exit96
 
@@ -2393,7 +2393,7 @@ if.then.i18.i.i.i.i.i122:                         ; preds = %_ZNSt6vectorIlSaIlE
 _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i.i.i123: ; preds = %if.then.i18.i.i.i.i.i122, %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit17.i.i.i.i.i119
   store ptr %call5.i.i.i.i.i.i.i.i116, ptr %external_references_.i.i, align 8
   store ptr %incdec.ptr.i.i.i.i.i120, ptr %_M_finish.i.i.i.i, align 8
-  %add.ptr19.i.i.i.i.i124 = getelementptr inbounds nuw i64, ptr %call5.i.i.i.i.i.i.i.i116, i64 %cond.i.i.i.i.i.i113
+  %add.ptr19.i.i.i.i.i124 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i.i116, i64 %cond.i.i.i.i.i.i113
   store ptr %add.ptr19.i.i.i.i.i124, ptr %_M_end_of_storage.i.i.i.i, align 8
   br label %_ZN4node25ExternalReferenceRegistry8RegisterEPFvN2v85LocalINS1_4NameEEENS2_INS1_5ValueEEERKNS1_20PropertyCallbackInfoIvEEE.exit127
 
@@ -2454,7 +2454,7 @@ if.then.i18.i.i.i.i.i153:                         ; preds = %_ZNSt6vectorIlSaIlE
 _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i.i.i154: ; preds = %if.then.i18.i.i.i.i.i153, %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit17.i.i.i.i.i150
   store ptr %call5.i.i.i.i.i.i.i.i147, ptr %external_references_.i.i, align 8
   store ptr %incdec.ptr.i.i.i.i.i151, ptr %_M_finish.i.i.i.i, align 8
-  %add.ptr19.i.i.i.i.i155 = getelementptr inbounds nuw i64, ptr %call5.i.i.i.i.i.i.i.i147, i64 %cond.i.i.i.i.i.i144
+  %add.ptr19.i.i.i.i.i155 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i.i147, i64 %cond.i.i.i.i.i.i144
   store ptr %add.ptr19.i.i.i.i.i155, ptr %_M_end_of_storage.i.i.i.i, align 8
   br label %_ZN4node25ExternalReferenceRegistry8RegisterEPFvN2v85LocalINS1_4NameEEERKNS1_20PropertyCallbackInfoINS1_5ValueEEEE.exit158
 
@@ -2787,7 +2787,7 @@ if.then:                                          ; preds = %while.body
 
 while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %if.then
   %__parent.0.i.i.i = phi i64 [ %div9.i.i.i, %if.then ], [ %dec.i.i.i, %while.body.i.i.i ]
-  %add.ptr.i.i.i = getelementptr inbounds nuw %"struct.std::pair", ptr %__first, i64 %__parent.0.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [32 x i8], ptr %__first, i64 %__parent.0.i.i.i
   tail call fastcc void @"_ZSt13__adjust_heapIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEES4_ElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZN4node19CreateProcessObjectEPNSA_5RealmEE3$_0EEEvT_T0_SG_T1_T2_"(ptr noundef nonnull %__first, i64 noundef %__parent.0.i.i.i, i64 noundef %sub.ptr.div.i.i.i, ptr noundef nonnull byval(%"struct.std::pair") align 8 %add.ptr.i.i.i)
   %cmp6.i.i.i = icmp eq i64 %__parent.0.i.i.i, 0
   %dec.i.i.i = add nsw i64 %__parent.0.i.i.i, -1
@@ -2812,7 +2812,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i.i, %
 if.end:                                           ; preds = %while.body
   %dec = add nsw i64 %__depth_limit.addr.023, -1
   %div.i1415 = lshr i64 %sub.ptr.sub25, 6
-  %add.ptr.i = getelementptr inbounds nuw %"struct.std::pair", ptr %__first, i64 %div.i1415
+  %add.ptr.i = getelementptr inbounds nuw [32 x i8], ptr %__first, i64 %div.i1415
   %add.ptr2.i = getelementptr inbounds i8, ptr %__last.addr.024, i64 -32
   %__a.val32.i.i = load i64, ptr %add.ptr1.i, align 8
   %__a.val33.i.i = load ptr, ptr %0, align 8
@@ -3119,8 +3119,8 @@ while.body:                                       ; preds = %entry, %"_ZN9__gnu_
   %__secondChild.032 = phi i64 [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4node19CreateProcessObjectEPNS2_5RealmEE3$_0EclIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEESC_ESE_EEbT_T0_.exit" ], [ %__holeIndex, %entry ]
   %add = shl nuw nsw i64 %__secondChild.032, 1
   %mul = add nuw nsw i64 %add, 2
-  %add.ptr = getelementptr inbounds nuw %"struct.std::pair", ptr %__first, i64 %mul
-  %0 = getelementptr inbounds nuw %"struct.std::pair", ptr %__first, i64 %add
+  %add.ptr = getelementptr inbounds nuw [32 x i8], ptr %__first, i64 %mul
+  %0 = getelementptr inbounds nuw [32 x i8], ptr %__first, i64 %add
   %add.ptr2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %add.ptr.val = load i64, ptr %add.ptr, align 8
   %add.ptr2.val = load i64, ptr %add.ptr2, align 8
@@ -3149,8 +3149,8 @@ if.then.i.i.i.i:                                  ; preds = %_ZNSt11char_traitsI
   %cmp.i.i.i = icmp slt i32 %__ret.0.i.i.i.i, 0
   %dec = or disjoint i64 %add, 1
   %spec.select = select i1 %cmp.i.i.i, i64 %dec, i64 %mul
-  %add.ptr3 = getelementptr inbounds nuw %"struct.std::pair", ptr %__first, i64 %spec.select
-  %add.ptr4 = getelementptr inbounds nuw %"struct.std::pair", ptr %__first, i64 %__secondChild.032
+  %add.ptr3 = getelementptr inbounds nuw [32 x i8], ptr %__first, i64 %spec.select
+  %add.ptr4 = getelementptr inbounds nuw [32 x i8], ptr %__first, i64 %__secondChild.032
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr4, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr3, i64 16, i1 false)
   %second.i = getelementptr inbounds nuw i8, ptr %add.ptr3, i64 16
   %second3.i = getelementptr inbounds nuw i8, ptr %add.ptr4, i64 16
@@ -3173,8 +3173,8 @@ land.lhs.true:                                    ; preds = %while.end
 if.then10:                                        ; preds = %land.lhs.true
   %add11 = shl nuw nsw i64 %__secondChild.0.lcssa, 1
   %sub13 = or disjoint i64 %add11, 1
-  %add.ptr14 = getelementptr inbounds nuw %"struct.std::pair", ptr %__first, i64 %sub13
-  %add.ptr15 = getelementptr inbounds nuw %"struct.std::pair", ptr %__first, i64 %__secondChild.0.lcssa
+  %add.ptr14 = getelementptr inbounds nuw [32 x i8], ptr %__first, i64 %sub13
+  %add.ptr15 = getelementptr inbounds nuw [32 x i8], ptr %__first, i64 %__secondChild.0.lcssa
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr15, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr14, i64 16, i1 false)
   %second.i25 = getelementptr inbounds nuw i8, ptr %add.ptr14, i64 16
   %second3.i26 = getelementptr inbounds nuw i8, ptr %add.ptr15, i64 16
@@ -3193,7 +3193,7 @@ land.rhs.i:                                       ; preds = %if.end18, %while.bo
   %__holeIndex.addr.04.i = phi i64 [ %__parent.057.i, %while.body.i ], [ %__holeIndex.addr.1, %if.end18 ]
   %__parent.05.in.i = add nsw i64 %__holeIndex.addr.04.i, -1
   %__parent.057.i = lshr i64 %__parent.05.in.i, 1
-  %add.ptr.i = getelementptr inbounds nuw %"struct.std::pair", ptr %__first, i64 %__parent.057.i
+  %add.ptr.i = getelementptr inbounds nuw [32 x i8], ptr %__first, i64 %__parent.057.i
   %add.ptr.val.i = load i64, ptr %add.ptr.i, align 8
   %.sroa.speculated.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %agg.tmp.sroa.0.0.copyload, i64 %add.ptr.val.i)
   %cmp.i2.i.i.i.i.i = icmp eq i64 %.sroa.speculated.i.i.i.i.i, 0
@@ -3219,7 +3219,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt11char_traitsI
   br i1 %cmp.i.i.i.i28, label %while.body.i, label %"_ZSt11__push_heapIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEES4_ElS5_N9__gnu_cxx5__ops14_Iter_comp_valIZN4node19CreateProcessObjectEPNSA_5RealmEE3$_0EEEvT_T0_SG_T1_RT2_.exit"
 
 while.body.i:                                     ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4node19CreateProcessObjectEPNS2_5RealmEE3$_0EclIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEESC_ESD_EEbT_RT0_.exit.i"
-  %add.ptr2.i = getelementptr inbounds nuw %"struct.std::pair", ptr %__first, i64 %__holeIndex.addr.04.i
+  %add.ptr2.i = getelementptr inbounds nuw [32 x i8], ptr %__first, i64 %__holeIndex.addr.04.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr2.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, i64 16, i1 false)
   %second.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 16
   %second3.i.i = getelementptr inbounds nuw i8, ptr %add.ptr2.i, i64 16
@@ -3230,7 +3230,7 @@ while.body.i:                                     ; preds = %"_ZN9__gnu_cxx5__op
 "_ZSt11__push_heapIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEES4_ElS5_N9__gnu_cxx5__ops14_Iter_comp_valIZN4node19CreateProcessObjectEPNSA_5RealmEE3$_0EEEvT_T0_SG_T1_RT2_.exit": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4node19CreateProcessObjectEPNS2_5RealmEE3$_0EclIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEESC_ESD_EEbT_RT0_.exit.i", %while.body.i, %if.end18
   %__holeIndex.addr.0.lcssa.i = phi i64 [ %__holeIndex.addr.1, %if.end18 ], [ %__holeIndex.addr.04.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4node19CreateProcessObjectEPNS2_5RealmEE3$_0EclIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEESC_ESD_EEbT_RT0_.exit.i" ], [ %__parent.057.i, %while.body.i ]
   %agg.tmp.sroa.3.0.__value.sroa_idx = getelementptr inbounds nuw i8, ptr %__value, i64 16
-  %add.ptr6.i = getelementptr inbounds nuw %"struct.std::pair", ptr %__first, i64 %__holeIndex.addr.0.lcssa.i
+  %add.ptr6.i = getelementptr inbounds nuw [32 x i8], ptr %__first, i64 %__holeIndex.addr.0.lcssa.i
   store i64 %agg.tmp.sroa.0.0.copyload, ptr %add.ptr6.i, align 8
   %agg.tmp27.sroa.5.0.add.ptr6.i.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr6.i, i64 8
   store ptr %agg.tmp.sroa.2.0.copyload, ptr %agg.tmp27.sroa.5.0.add.ptr6.i.sroa_idx, align 8

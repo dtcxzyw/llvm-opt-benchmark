@@ -24,7 +24,7 @@ define ptr @nextGraph(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8, !tbaa !11
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds ptr, ptr %5, i64 %8
+  %9 = getelementptr inbounds [8 x i8], ptr %5, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !12
   %.not23 = icmp eq ptr %10, null
   br i1 %.not23, label %.loopexit, label %11
@@ -91,7 +91,7 @@ define internal fastcc void @nextFile(ptr noundef captures(none) %0) unnamed_add
 
 .preheader:                                       ; preds = %1
   %7 = sext i32 %5 to i64
-  %8 = getelementptr inbounds ptr, ptr %2, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr %2, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !18
   %.not25 = icmp eq ptr %9, null
   br i1 %.not25, label %.thread, label %.lr.ph
@@ -123,7 +123,7 @@ define internal fastcc void @nextFile(ptr noundef captures(none) %0) unnamed_add
   %21 = load ptr, ptr %0, align 8, !tbaa !10
   %22 = load i32, ptr %4, align 8, !tbaa !11
   %23 = sext i32 %22 to i64
-  %24 = getelementptr ptr, ptr %21, i64 %23
+  %24 = getelementptr [8 x i8], ptr %21, i64 %23
   %25 = getelementptr i8, ptr %24, i64 -8
   %26 = load ptr, ptr %25, align 8, !tbaa !18
   %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str.3, ptr noundef %26) #9
@@ -135,7 +135,7 @@ define internal fastcc void @nextFile(ptr noundef captures(none) %0) unnamed_add
   %32 = add nsw i32 %31, 1
   store i32 %32, ptr %4, align 8, !tbaa !11
   %33 = sext i32 %31 to i64
-  %34 = getelementptr inbounds ptr, ptr %30, i64 %33
+  %34 = getelementptr inbounds [8 x i8], ptr %30, i64 %33
   %35 = load ptr, ptr %34, align 8, !tbaa !18
   %.not = icmp eq ptr %35, null
   br i1 %.not, label %.thread, label %13, !llvm.loop !23
@@ -165,7 +165,7 @@ select.unfold:                                    ; preds = %13
 
 43:                                               ; preds = %40
   %44 = sext i32 %42 to i64
-  %45 = getelementptr ptr, ptr %39, i64 %44
+  %45 = getelementptr [8 x i8], ptr %39, i64 %44
   %46 = getelementptr i8, ptr %45, i64 -8
   %47 = load ptr, ptr %46, align 8, !tbaa !18
   %48 = load i8, ptr %47, align 1, !tbaa !10
@@ -401,7 +401,7 @@ define ptr @fileName(ptr noundef readonly captures(none) %0) local_unnamed_addr 
 
 9:                                                ; preds = %6
   %10 = sext i32 %8 to i64
-  %11 = getelementptr ptr, ptr %5, i64 %10
+  %11 = getelementptr [8 x i8], ptr %5, i64 %10
   %12 = getelementptr i8, ptr %11, i64 -8
   %13 = load ptr, ptr %12, align 8, !tbaa !18
   %14 = load i8, ptr %13, align 1, !tbaa !10

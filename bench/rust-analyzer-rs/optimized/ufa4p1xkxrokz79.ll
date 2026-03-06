@@ -93,7 +93,7 @@ define noundef zeroext i1 @_ZN5salsa7runtime16dependency_graph15DependencyGraph1
   %25 = add i64 %.sroa.01.0.i.i.i.i, %22
   %26 = and i64 %25, %.val5.i
   %27 = sub nsw i64 0, %26
-  %28 = getelementptr inbounds { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, ptr, { i32, i16, i16 }, i32, [1 x i32] } }, ptr %.val.i, i64 %27
+  %28 = getelementptr inbounds [56 x i8], ptr %.val.i, i64 %27
   %29 = getelementptr inbounds i8, ptr %28, i64 -56
   %.val4.i.i.i.i = load i32, ptr %29, align 4, !alias.scope !27, !noalias !32, !noundef !5
   %30 = icmp eq i32 %storemerge, %.val4.i.i.i.i
@@ -242,7 +242,7 @@ define hidden { i1, i1 } @_ZN5salsa7runtime16dependency_graph15DependencyGraph31
   %59 = add i64 %.sroa.01.0.i.i.i.i, %56
   %60 = and i64 %59, %.val5.i
   %61 = sub nsw i64 0, %60
-  %62 = getelementptr inbounds { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, ptr, { i32, i16, i16 }, i32, [1 x i32] } }, ptr %.val.i, i64 %61
+  %62 = getelementptr inbounds [56 x i8], ptr %.val.i, i64 %61
   %63 = getelementptr inbounds i8, ptr %62, i64 -56
   %.val4.i.i.i.i = load i32, ptr %63, align 4, !alias.scope !67, !noalias !72, !noundef !5
   %64 = icmp eq i32 %38, %.val4.i.i.i.i
@@ -255,7 +255,7 @@ define hidden { i1, i1 } @_ZN5salsa7runtime16dependency_graph15DependencyGraph31
 
 "_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h07af414f35b8ec7bE.exit.thread": ; preds = %._crit_edge, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h07af414f35b8ec7bE.exit"
   %.1.i.i90 = phi i64 [ %.1.i.i, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h07af414f35b8ec7bE.exit" ], [ 0, %._crit_edge ]
-  %68 = getelementptr inbounds { { i64, [6 x i64] }, { i32, i16, i16 }, ptr, i32, i8, [3 x i8] }, ptr %18, i64 %.1.i.i90
+  %68 = getelementptr inbounds [80 x i8], ptr %18, i64 %.1.i.i90
   br label %69
 
 69:                                               ; preds = %71, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h07af414f35b8ec7bE.exit.thread"
@@ -345,7 +345,7 @@ select.unfold:                                    ; preds = %37, %51
 106:                                              ; preds = %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h64aaa459e1d97467E.exit.thread", %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h64aaa459e1d97467E.exit"
   %107 = phi i32 [ %85, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h64aaa459e1d97467E.exit.thread" ], [ %102, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h64aaa459e1d97467E.exit" ]
   %.1.i.i7094 = phi i64 [ 0, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h64aaa459e1d97467E.exit.thread" ], [ %.1.i.i70, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h64aaa459e1d97467E.exit" ]
-  %108 = getelementptr inbounds { { i64, [6 x i64] }, { i32, i16, i16 }, ptr, i32, i8, [3 x i8] }, ptr %79, i64 %.1.i.i7094
+  %108 = getelementptr inbounds [80 x i8], ptr %79, i64 %.1.i.i7094
   store ptr %108, ptr %7, align 8
   store ptr %82, ptr %12, align 8
   %109 = call noundef ptr @_ZN4core4iter6traits12double_ended19DoubleEndedIterator9try_rfold17hc65b4d9e87bb807fE.llvm.14225396269139012787(ptr noalias noundef nonnull align 8 dereferenceable(16) %7)
@@ -600,7 +600,7 @@ define noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph
   store i8 %58, ptr %65, align 1, !noalias !126
   %66 = load ptr, ptr %.sroa.032.0.copyload, align 8, !alias.scope !133, !noalias !126, !nonnull !5, !noundef !5
   %67 = sub nsw i64 0, %48
-  %68 = getelementptr inbounds { { i32, i16, i16 }, { { [2 x i64] }, i64 } }, ptr %66, i64 %67
+  %68 = getelementptr inbounds [32 x i8], ptr %66, i64 %67
   %69 = and i8 %56, 1
   %70 = zext nneg i8 %69 to i64
   %71 = getelementptr inbounds nuw i8, ptr %.sroa.032.0.copyload, i64 16
@@ -644,7 +644,7 @@ define noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph
   %89 = phi i64 [ %.pre.i, %.noexc24 ], [ %84, %78 ]
   %.05.i = phi ptr [ %83, %.noexc24 ], [ %.sink2.i.i, %78 ]
   %.0.i23 = phi ptr [ %87, %.noexc24 ], [ %.sink3.i.i, %78 ]
-  %90 = getelementptr inbounds i32, ptr %.0.i23, i64 %89
+  %90 = getelementptr inbounds [4 x i8], ptr %.0.i23, i64 %89
   store i32 %1, ptr %90, align 4
   %91 = load i64, ptr %.05.i, align 8, !alias.scope !141, !noundef !5
   %92 = add i64 %91, 1
@@ -790,7 +790,7 @@ define hidden void @_ZN5salsa7runtime16dependency_graph15DependencyGraph27unbloc
   %38 = icmp ugt i64 %37, 4
   %39 = load ptr, ptr %6, align 8, !alias.scope !149, !noalias !152, !nonnull !5
   %.sink5.i.i = select i1 %38, ptr %39, ptr %6
-  %40 = getelementptr inbounds i32, ptr %.sink5.i.i, i64 %31
+  %40 = getelementptr inbounds [4 x i8], ptr %.sink5.i.i, i64 %31
   %41 = load i32, ptr %40, align 4, !noundef !5
   %42 = load i64, ptr %7, align 8, !range !4, !noundef !5
   %43 = icmp eq i64 %42, 2

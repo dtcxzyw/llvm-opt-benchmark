@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 define noundef nonnull align 4 dereferenceable(4) ptr @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum8RawBigitEi(ptr noundef nonnull readnone align 4 captures(ret: address, provenance) dereferenceable(516) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = sext i32 %1 to i64
-  %5 = getelementptr inbounds i32, ptr %3, i64 %4
+  %5 = getelementptr inbounds [4 x i8], ptr %3, i64 %4
   ret ptr %5
 }
 
@@ -19,7 +19,7 @@ define noundef nonnull align 4 dereferenceable(4) ptr @_ZN32pxrInternal_v0_24__p
 define noundef nonnull align 4 dereferenceable(4) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum8RawBigitEi(ptr noundef nonnull readnone align 4 captures(ret: address, provenance) dereferenceable(516) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = sext i32 %1 to i64
-  %5 = getelementptr inbounds i32, ptr %3, i64 %4
+  %5 = getelementptr inbounds [4 x i8], ptr %3, i64 %4
   ret ptr %5
 }
 
@@ -60,7 +60,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum
   %6 = phi i16 [ 0, %.lr.ph ], [ %11, %5 ]
   %7 = trunc i64 %.057 to i32
   %8 = and i32 %7, 268435455
-  %9 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   store i32 %8, ptr %9, align 4
   %10 = lshr i64 %.057, 28
   %11 = add i16 %6, 1
@@ -93,9 +93,9 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum
 
 10:                                               ; preds = %.lr.ph, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
-  %11 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   %12 = load i32, ptr %11, align 4
-  %13 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv
   store i32 %12, ptr %13, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %14 = load i16, ptr %1, align 4
@@ -159,7 +159,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL10ReadUInt64ENS0_6V
   %.057.i.i = phi i64 [ %15, %.lr.ph.i.i ], [ %22, %18 ]
   %19 = trunc i64 %.057.i.i to i32
   %20 = and i32 %19, 268435455
-  %21 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv.i.i
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv.i.i
   store i32 %20, ptr %21, align 4
   %22 = lshr i64 %.057.i.i, 28
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -228,7 +228,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL10ReadUInt64ENS0_6V
   %.057.i.i20 = phi i64 [ %34, %.lr.ph.i.i18 ], [ %42, %38 ]
   %39 = trunc i64 %.057.i.i20 to i32
   %40 = and i32 %39, 268435455
-  %41 = getelementptr inbounds nuw i32, ptr %37, i64 %indvars.iv.i.i19
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %indvars.iv.i.i19
   store i32 %40, ptr %41, align 4
   %42 = lshr i64 %.057.i.i20, 28
   %indvars.iv.next.i.i21 = add nuw nsw i64 %indvars.iv.i.i19, 1
@@ -256,7 +256,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum9AddUInt64Em.
   %47 = zext nneg i16 %46 to i64
   %48 = add nuw nsw i64 %47, 4294967295
   %49 = and i64 %48, 4294967295
-  %50 = getelementptr inbounds nuw i32, ptr %44, i64 %49
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %49
   %51 = load i32, ptr %50, align 4
   %52 = icmp eq i32 %51, 0
   br i1 %52, label %53, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum5ClampEv.exit
@@ -343,7 +343,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByU
 25:                                               ; preds = %25, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %25 ]
   %.023.i = phi i64 [ 0, %.lr.ph.i ], [ %38, %25 ]
-  %26 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv.i
   %27 = load i32, ptr %26, align 4
   %28 = zext i32 %27 to i64
   %29 = mul nuw i64 %28, 4195354525
@@ -375,7 +375,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapac
   %42 = trunc i64 %.125.i to i32
   %43 = and i32 %42, 268435455
   %44 = sext i16 %39 to i64
-  %45 = getelementptr inbounds i32, ptr %7, i64 %44
+  %45 = getelementptr inbounds [4 x i8], ptr %7, i64 %44
   store i32 %43, ptr %45, align 4
   %46 = load i16, ptr %0, align 4
   %47 = add i16 %46, 1
@@ -407,7 +407,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByU
 54:                                               ; preds = %54, %.lr.ph.i11
   %indvars.iv.i13 = phi i64 [ 0, %.lr.ph.i11 ], [ %indvars.iv.next.i14, %54 ]
   %.017.i = phi i64 [ 0, %.lr.ph.i11 ], [ %62, %54 ]
-  %55 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.i13
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv.i13
   %56 = load i32, ptr %55, align 4
   %57 = zext i32 %56 to i64
   %58 = mul nuw nsw i64 %57, 1220703125
@@ -434,7 +434,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapac
   %66 = trunc i64 %.119.i to i32
   %67 = and i32 %66, 268435455
   %68 = sext i16 %63 to i64
-  %69 = getelementptr inbounds i32, ptr %16, i64 %68
+  %69 = getelementptr inbounds [4 x i8], ptr %16, i64 %68
   store i32 %67, ptr %69, align 4
   %70 = load i16, ptr %0, align 4
   %71 = add i16 %70, 1
@@ -457,7 +457,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByU
 
 77:                                               ; preds = %._crit_edge
   %78 = zext nneg i32 %.1.lcssa to i64
-  %79 = getelementptr i32, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum20MultiplyByPowerOfTenEiE12kFive1_to_12, i64 %78
+  %79 = getelementptr [4 x i8], ptr @_ZZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum20MultiplyByPowerOfTenEiE12kFive1_to_12, i64 %78
   %80 = getelementptr i8, ptr %79, i64 -4
   %81 = load i32, ptr %80, align 4
   switch i32 %81, label %83 [
@@ -488,7 +488,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByU
 87:                                               ; preds = %87, %.lr.ph.i19
   %indvars.iv.i21 = phi i64 [ 0, %.lr.ph.i19 ], [ %indvars.iv.next.i23, %87 ]
   %.017.i22 = phi i64 [ 0, %.lr.ph.i19 ], [ %95, %87 ]
-  %88 = getelementptr inbounds nuw i32, ptr %86, i64 %indvars.iv.i21
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %86, i64 %indvars.iv.i21
   %89 = load i32, ptr %88, align 4
   %90 = zext i32 %89 to i64
   %91 = mul nuw i64 %90, %85
@@ -515,7 +515,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapac
   %99 = trunc i64 %.119.i28 to i32
   %100 = and i32 %99, 268435455
   %101 = sext i16 %96 to i64
-  %102 = getelementptr inbounds i32, ptr %86, i64 %101
+  %102 = getelementptr inbounds [4 x i8], ptr %86, i64 %101
   store i32 %100, ptr %102, align 4
   %103 = load i16, ptr %0, align 4
   %104 = add i16 %103, 1
@@ -558,7 +558,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapac
 120:                                              ; preds = %120, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %120 ]
   %.014.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %123, %120 ]
-  %121 = getelementptr inbounds nuw i32, ptr %118, i64 %indvars.iv.i.i
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %118, i64 %indvars.iv.i.i
   %122 = load i32, ptr %121, align 4
   %123 = lshr i32 %122, %119
   %124 = shl i32 %122, %114
@@ -574,7 +574,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapac
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum9ShiftLeftEi.exit, label %127
 
 127:                                              ; preds = %._crit_edge.i.i
-  %128 = getelementptr inbounds nuw i32, ptr %118, i64 %wide.trip.count.i.i
+  %128 = getelementptr inbounds nuw [4 x i8], ptr %118, i64 %wide.trip.count.i.i
   store i32 %123, ptr %128, align 4
   %129 = add nuw nsw i16 %108, 1
   store i16 %129, ptr %0, align 4
@@ -600,7 +600,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum
   %.057.i = phi i64 [ %1, %.lr.ph.i ], [ %10, %6 ]
   %7 = trunc i64 %.057.i to i32
   %8 = and i32 %7, 268435455
-  %9 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv.i
   store i32 %8, ptr %9, align 4
   %10 = lshr i64 %.057.i, 28
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -632,7 +632,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum
   %6 = zext nneg i16 %5 to i64
   %7 = add nuw nsw i64 %6, 4294967295
   %8 = and i64 %7, 4294967295
-  %9 = getelementptr inbounds nuw i32, ptr %3, i64 %8
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %8
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %.critedge.thread
@@ -724,7 +724,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL12HexCharValueEi.ex
   %35 = add i16 %34, 1
   store i16 %35, ptr %0, align 4
   %36 = sext i16 %34 to i64
-  %37 = getelementptr inbounds i32, ptr %7, i64 %36
+  %37 = getelementptr inbounds [4 x i8], ptr %7, i64 %36
   store i32 %33, ptr %37, align 4
   %38 = add nsw i32 %.017, -24
   %39 = lshr i64 %28, 28
@@ -749,7 +749,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapac
   store i16 %44, ptr %0, align 4
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %46 = sext i16 %.pr.i.pre19.pre to i64
-  %47 = getelementptr inbounds i32, ptr %45, i64 %46
+  %47 = getelementptr inbounds [4 x i8], ptr %45, i64 %46
   store i32 %43, ptr %47, align 4
   %.pr.i.pre = load i16, ptr %0, align 4
   br label %48
@@ -768,7 +768,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapac
   %53 = zext nneg i16 %52 to i64
   %54 = add nuw nsw i64 %53, 4294967295
   %55 = and i64 %54, 4294967295
-  %56 = getelementptr inbounds nuw i32, ptr %50, i64 %55
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %55
   %57 = load i32, ptr %56, align 4
   %58 = icmp eq i32 %57, 0
   br i1 %58, label %59, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum5ClampEv.exit
@@ -817,7 +817,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapac
 .lr.ph.i:                                         ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapacityEi.exit.preheader.i
   %16 = zext nneg i16 %.pre67 to i64
   %17 = sext i32 %11 to i64
-  %invariant.gep.i = getelementptr i32, ptr %0, i64 %17
+  %invariant.gep.i = getelementptr [4 x i8], ptr %0, i64 %17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapacityEi.exit.i
 
 18:                                               ; preds = %8
@@ -847,9 +847,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapac
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapacityEi.exit.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapacityEi.exit.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %16, %.lr.ph.i ], [ %indvars.iv.next.i, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapacityEi.exit.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %27 = getelementptr i32, ptr %0, i64 %indvars.iv.i
+  %27 = getelementptr [4 x i8], ptr %0, i64 %indvars.iv.i
   %28 = load i32, ptr %27, align 4
-  %gep.i = getelementptr i32, ptr %invariant.gep.i, i64 %indvars.iv.i
+  %gep.i = getelementptr [4 x i8], ptr %invariant.gep.i, i64 %indvars.iv.i
   store i32 %28, ptr %gep.i, align 4
   %29 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %29, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapacityEi.exit.i, label %.lr.ph20.i.loopexit, !llvm.loop !19
@@ -926,18 +926,18 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapac
   br i1 %64, label %65, label %68
 
 65:                                               ; preds = %61
-  %66 = getelementptr inbounds i32, ptr %55, i64 %indvars.iv58
+  %66 = getelementptr inbounds [4 x i8], ptr %55, i64 %indvars.iv58
   %67 = load i32, ptr %66, align 4
   br label %68
 
 68:                                               ; preds = %61, %65
   %69 = phi i32 [ %67, %65 ], [ 0, %61 ]
-  %70 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %indvars.iv
   %71 = load i32, ptr %70, align 4
   %72 = add i32 %69, %.046
   %73 = add i32 %72, %71
   %74 = and i32 %73, 268435455
-  %75 = getelementptr inbounds i32, ptr %55, i64 %indvars.iv58
+  %75 = getelementptr inbounds [4 x i8], ptr %55, i64 %indvars.iv58
   store i32 %74, ptr %75, align 4
   %76 = lshr i32 %73, 28
   %indvars.iv.next59 = add nsw i64 %indvars.iv58, 1
@@ -956,7 +956,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapac
   br i1 %83, label %84, label %87
 
 84:                                               ; preds = %80
-  %85 = getelementptr inbounds i32, ptr %59, i64 %indvars.iv63
+  %85 = getelementptr inbounds [4 x i8], ptr %59, i64 %indvars.iv63
   %86 = load i32, ptr %85, align 4
   br label %87
 
@@ -964,7 +964,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapac
   %88 = phi i32 [ %86, %84 ], [ 0, %80 ]
   %89 = add i32 %88, %.151
   %90 = and i32 %89, 268435455
-  %91 = getelementptr inbounds i32, ptr %59, i64 %indvars.iv63
+  %91 = getelementptr inbounds [4 x i8], ptr %59, i64 %indvars.iv63
   store i32 %90, ptr %91, align 4
   %92 = lshr i32 %89, 28
   %indvars.iv.next64 = add nsw i64 %indvars.iv63, 1
@@ -1011,7 +1011,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapac
 .lr.ph:                                           ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapacityEi.exit.preheader
   %17 = zext nneg i16 %12 to i64
   %18 = sext i32 %11 to i64
-  %invariant.gep = getelementptr i32, ptr %0, i64 %18
+  %invariant.gep = getelementptr [4 x i8], ptr %0, i64 %18
   br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapacityEi.exit
 
 19:                                               ; preds = %8
@@ -1032,9 +1032,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapac
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapacityEi.exit: ; preds = %.lr.ph, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapacityEi.exit
   %indvars.iv = phi i64 [ %17, %.lr.ph ], [ %indvars.iv.next, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapacityEi.exit ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %24 = getelementptr i32, ptr %0, i64 %indvars.iv
+  %24 = getelementptr [4 x i8], ptr %0, i64 %indvars.iv
   %25 = load i32, ptr %24, align 4
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %indvars.iv
   store i32 %25, ptr %gep, align 4
   %26 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %26, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapacityEi.exit, label %.preheader, !llvm.loop !19
@@ -1079,7 +1079,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapac
 .lr.ph.i:                                         ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapacityEi.exit.preheader.i
   %17 = zext nneg i16 %12 to i64
   %18 = sext i32 %11 to i64
-  %invariant.gep.i = getelementptr i32, ptr %0, i64 %18
+  %invariant.gep.i = getelementptr [4 x i8], ptr %0, i64 %18
   br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapacityEi.exit.i
 
 19:                                               ; preds = %8
@@ -1109,9 +1109,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapac
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapacityEi.exit.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapacityEi.exit.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %17, %.lr.ph.i ], [ %indvars.iv.next.i, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapacityEi.exit.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %28 = getelementptr i32, ptr %0, i64 %indvars.iv.i
+  %28 = getelementptr [4 x i8], ptr %0, i64 %indvars.iv.i
   %29 = load i32, ptr %28, align 4
-  %gep.i = getelementptr i32, ptr %invariant.gep.i, i64 %indvars.iv.i
+  %gep.i = getelementptr [4 x i8], ptr %invariant.gep.i, i64 %indvars.iv.i
   store i32 %29, ptr %gep.i, align 4
   %30 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %30, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapacityEi.exit.i, label %.lr.ph20.i.loopexit, !llvm.loop !19
@@ -1130,7 +1130,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum5AlignERKS1_.
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %40 = sext i32 %35 to i64
-  %invariant.gep = getelementptr i32, ptr %38, i64 %40
+  %invariant.gep = getelementptr [4 x i8], ptr %38, i64 %40
   br label %45
 
 .preheader:                                       ; preds = %45
@@ -1141,15 +1141,15 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum5AlignERKS1_.
   %42 = and i64 %indvars.iv.next, 4294967295
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %44 = sext i32 %35 to i64
-  %invariant.gep47 = getelementptr i32, ptr %43, i64 %44
+  %invariant.gep47 = getelementptr [4 x i8], ptr %43, i64 %44
   br label %56
 
 45:                                               ; preds = %.lr.ph, %45
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %45 ]
   %.028 = phi i32 [ 0, %.lr.ph ], [ %52, %45 ]
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %indvars.iv
   %46 = load i32, ptr %gep, align 4
-  %47 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %indvars.iv
   %48 = load i32, ptr %47, align 4
   %49 = add i32 %.028, %48
   %50 = sub i32 %46, %49
@@ -1164,7 +1164,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum5AlignERKS1_.
 
 56:                                               ; preds = %.lr.ph32, %56
   %indvars.iv36 = phi i64 [ %42, %.lr.ph32 ], [ %indvars.iv.next37, %56 ]
-  %gep48 = getelementptr i32, ptr %invariant.gep47, i64 %indvars.iv36
+  %gep48 = getelementptr [4 x i8], ptr %invariant.gep47, i64 %indvars.iv36
   %57 = load i32, ptr %gep48, align 4
   %58 = add i32 %57, -1
   %59 = and i32 %58, 268435455
@@ -1187,7 +1187,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum5AlignERKS1_.
   %64 = zext nneg i16 %63 to i64
   %65 = add nuw nsw i64 %64, 4294967295
   %66 = and i64 %65, 4294967295
-  %67 = getelementptr inbounds nuw i32, ptr %61, i64 %66
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %66
   %68 = load i32, ptr %67, align 4
   %69 = icmp eq i32 %68, 0
   br i1 %69, label %70, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum5ClampEv.exit
@@ -1244,7 +1244,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapac
 17:                                               ; preds = %17, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %17 ]
   %.014.i = phi i32 [ 0, %.lr.ph.i ], [ %20, %17 ]
-  %18 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv.i
   %19 = load i32, ptr %18, align 4
   %20 = lshr i32 %19, %16
   %21 = shl i32 %19, %11
@@ -1260,7 +1260,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapac
   br i1 %.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum15BigitsShiftLeftEi.exit, label %24
 
 24:                                               ; preds = %._crit_edge.i
-  %25 = getelementptr inbounds nuw i32, ptr %15, i64 %wide.trip.count.i
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %wide.trip.count.i
   store i32 %20, ptr %25, align 4
   %26 = add nuw nsw i16 %3, 1
   store i16 %26, ptr %0, align 4
@@ -1285,7 +1285,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum
 7:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
   %.014 = phi i32 [ 0, %.lr.ph ], [ %10, %7 ]
-  %8 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4
   %10 = lshr i32 %9, %6
   %11 = shl i32 %9, %1
@@ -1303,7 +1303,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum
 14:                                               ; preds = %._crit_edge
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %16 = zext nneg i16 %3 to i64
-  %17 = getelementptr inbounds nuw i32, ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %16
   store i32 %10, ptr %17, align 4
   %18 = load i16, ptr %0, align 4
   %19 = add i16 %18, 1
@@ -1349,7 +1349,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum
 11:                                               ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
   %.017 = phi i64 [ 0, %.lr.ph ], [ %19, %11 ]
-  %12 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4
   %14 = zext i32 %13 to i64
   %15 = mul nuw i64 %14, %8
@@ -1376,7 +1376,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapac
   %24 = trunc i64 %.119 to i32
   %25 = and i32 %24, 268435455
   %26 = sext i16 %21 to i64
-  %27 = getelementptr inbounds i32, ptr %10, i64 %26
+  %27 = getelementptr inbounds [4 x i8], ptr %10, i64 %26
   store i32 %25, ptr %27, align 4
   %28 = load i16, ptr %0, align 4
   %29 = add i16 %28, 1
@@ -1430,7 +1430,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum
 15:                                               ; preds = %.lr.ph, %15
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
   %.023 = phi i64 [ 0, %.lr.ph ], [ %28, %15 ]
-  %16 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   %17 = load i32, ptr %16, align 4
   %18 = zext i32 %17 to i64
   %19 = mul nuw i64 %9, %18
@@ -1462,7 +1462,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapac
   %33 = trunc i64 %.125 to i32
   %34 = and i32 %33, 268435455
   %35 = sext i16 %30 to i64
-  %36 = getelementptr inbounds i32, ptr %14, i64 %35
+  %36 = getelementptr inbounds [4 x i8], ptr %14, i64 %35
   store i32 %34, ptr %36, align 4
   %37 = load i16, ptr %0, align 4
   %38 = add i16 %37, 1
@@ -1490,7 +1490,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapac
 .lr.ph:                                           ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapacityEi.exit.preheader
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %8 = zext nneg i16 %2 to i64
-  %invariant.gep = getelementptr inbounds nuw i32, ptr %7, i64 %8
+  %invariant.gep = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %8
   %9 = load i16, ptr %0, align 4
   %10 = sext i16 %9 to i64
   br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapacityEi.exit
@@ -1508,15 +1508,15 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapac
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %15 = zext nneg i16 %2 to i64
   %wide.trip.count90 = zext nneg i32 %12 to i64
-  %invariant.gep113 = getelementptr i32, ptr %14, i64 %15
-  %invariant.gep115 = getelementptr i32, ptr %14, i64 %15
+  %invariant.gep113 = getelementptr [4 x i8], ptr %14, i64 %15
+  %invariant.gep115 = getelementptr [4 x i8], ptr %14, i64 %15
   br label %.preheader51
 
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapacityEi.exit: ; preds = %.lr.ph, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapacityEi.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapacityEi.exit ]
-  %16 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv
   %17 = load i32, ptr %16, align 4
-  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep, i64 %indvars.iv
   store i32 %17, ptr %gep, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %18 = icmp slt i64 %indvars.iv.next, %10
@@ -1539,17 +1539,17 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapac
   %21 = sext i16 %2 to i64
   %22 = sext i32 %.lcssa109 to i64
   %wide.trip.count = sext i32 %4 to i64
-  %invariant.gep117 = getelementptr i32, ptr %0, i64 %21
-  %invariant.gep119 = getelementptr i32, ptr %20, i64 %21
+  %invariant.gep117 = getelementptr [4 x i8], ptr %0, i64 %21
+  %invariant.gep119 = getelementptr [4 x i8], ptr %20, i64 %21
   br label %35
 
 23:                                               ; preds = %.preheader51, %23
   %indvars.iv78 = phi i64 [ 0, %.preheader51 ], [ %indvars.iv.next79, %23 ]
   %indvars.iv76 = phi i64 [ %indvars.iv74, %.preheader51 ], [ %indvars.iv.next77, %23 ]
   %.156 = phi i64 [ %.058, %.preheader51 ], [ %29, %23 ]
-  %gep114 = getelementptr i32, ptr %invariant.gep113, i64 %indvars.iv76
+  %gep114 = getelementptr [4 x i8], ptr %invariant.gep113, i64 %indvars.iv76
   %24 = load i32, ptr %gep114, align 4
-  %gep116 = getelementptr i32, ptr %invariant.gep115, i64 %indvars.iv78
+  %gep116 = getelementptr [4 x i8], ptr %invariant.gep115, i64 %indvars.iv78
   %25 = load i32, ptr %gep116, align 4
   %26 = zext i32 %24 to i64
   %27 = zext i32 %25 to i64
@@ -1563,7 +1563,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapac
 30:                                               ; preds = %23
   %31 = trunc i64 %29 to i32
   %32 = and i32 %31, 268435455
-  %33 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv74
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv74
   store i32 %32, ptr %33, align 4
   %34 = lshr i64 %29, 28
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
@@ -1596,9 +1596,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapac
   %indvars.iv94 = phi i64 [ %42, %.lr.ph63.preheader ], [ %indvars.iv.next95, %.lr.ph63 ]
   %.362 = phi i64 [ %.266, %.lr.ph63.preheader ], [ %50, %.lr.ph63 ]
   %indvars.iv96 = add nsw i64 %indvars.iv96.in, -1
-  %gep118 = getelementptr i32, ptr %invariant.gep117, i64 %indvars.iv96.in
+  %gep118 = getelementptr [4 x i8], ptr %invariant.gep117, i64 %indvars.iv96.in
   %45 = load i32, ptr %gep118, align 4
-  %gep120 = getelementptr i32, ptr %invariant.gep119, i64 %indvars.iv94
+  %gep120 = getelementptr [4 x i8], ptr %invariant.gep119, i64 %indvars.iv94
   %46 = load i32, ptr %gep120, align 4
   %47 = zext i32 %45 to i64
   %48 = zext i32 %46 to i64
@@ -1612,7 +1612,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapac
   %.3.lcssa = phi i64 [ %.266, %35 ], [ %50, %.lr.ph63 ]
   %52 = trunc i64 %.3.lcssa to i32
   %53 = and i32 %52, 268435455
-  %54 = getelementptr inbounds i32, ptr %20, i64 %indvars.iv101
+  %54 = getelementptr inbounds [4 x i8], ptr %20, i64 %indvars.iv101
   store i32 %53, ptr %54, align 4
   %55 = lshr i64 %.3.lcssa, 28
   %indvars.iv.next102 = add nsw i64 %indvars.iv101, 1
@@ -1638,7 +1638,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapac
   %64 = zext nneg i16 %63 to i64
   %65 = add nuw nsw i64 %64, 4294967295
   %66 = and i64 %65, 4294967295
-  %67 = getelementptr inbounds nuw i32, ptr %61, i64 %66
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %66
   %68 = load i32, ptr %67, align 4
   %69 = icmp eq i32 %68, 0
   br i1 %69, label %70, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum5ClampEv.exit
@@ -1772,7 +1772,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapac
   %.057.i = phi i64 [ %.042.lcssa, %.lr.ph.i ], [ %47, %43 ]
   %44 = trunc i64 %.057.i to i32
   %45 = and i32 %44, 268435455
-  %46 = getelementptr inbounds nuw i32, ptr %42, i64 %indvars.iv.i
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %indvars.iv.i
   store i32 %45, ptr %46, align 4
   %47 = lshr i64 %.057.i, 28
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1815,7 +1815,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum12AssignUInt6
 54:                                               ; preds = %54, %.lr.ph.i53
   %indvars.iv.i54 = phi i64 [ 0, %.lr.ph.i53 ], [ %indvars.iv.next.i55, %54 ]
   %.017.i = phi i64 [ 0, %.lr.ph.i53 ], [ %62, %54 ]
-  %55 = getelementptr inbounds nuw i32, ptr %53, i64 %indvars.iv.i54
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %indvars.iv.i54
   %56 = load i32, ptr %55, align 4
   %57 = zext i32 %56 to i64
   %58 = mul nuw nsw i64 %57, %27
@@ -1838,7 +1838,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum12AssignUInt6
 
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapacityEi.exit.i: ; preds = %.lr.ph20.i
   %65 = trunc nuw nsw i64 %62 to i32
-  %66 = getelementptr inbounds nuw i32, ptr %53, i64 %wide.trip.count.i
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %wide.trip.count.i
   store i32 %65, ptr %66, align 4
   %67 = add nuw nsw i16 %48, 1
   store i16 %67, ptr %0, align 4
@@ -1887,7 +1887,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByU
 77:                                               ; preds = %77, %.lr.ph.i57
   %indvars.iv.i59 = phi i64 [ 0, %.lr.ph.i57 ], [ %indvars.iv.next.i61, %77 ]
   %.017.i60 = phi i64 [ 0, %.lr.ph.i57 ], [ %85, %77 ]
-  %78 = getelementptr inbounds nuw i32, ptr %69, i64 %indvars.iv.i59
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %69, i64 %indvars.iv.i59
   %79 = load i32, ptr %78, align 4
   %80 = zext i32 %79 to i64
   %81 = mul nuw nsw i64 %80, %27
@@ -1910,7 +1910,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByU
 
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapacityEi.exit.i67: ; preds = %.lr.ph20.i65
   %88 = trunc nuw nsw i64 %85 to i32
-  %89 = getelementptr inbounds nuw i32, ptr %69, i64 %wide.trip.count.i58
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %69, i64 %wide.trip.count.i58
   store i32 %88, ptr %89, align 4
   %90 = add nuw nsw i16 %75, 1
   store i16 %90, ptr %0, align 4
@@ -1957,7 +1957,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapac
 105:                                              ; preds = %105, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %105 ]
   %.014.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %108, %105 ]
-  %106 = getelementptr inbounds nuw i32, ptr %103, i64 %indvars.iv.i.i
+  %106 = getelementptr inbounds nuw [4 x i8], ptr %103, i64 %indvars.iv.i.i
   %107 = load i32, ptr %106, align 4
   %108 = lshr i32 %107, %104
   %109 = shl i32 %107, %99
@@ -1973,7 +1973,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapac
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum9ShiftLeftEi.exit, label %112
 
 112:                                              ; preds = %._crit_edge.i.i
-  %113 = getelementptr inbounds nuw i32, ptr %103, i64 %wide.trip.count.i.i
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %103, i64 %wide.trip.count.i.i
   store i32 %108, ptr %113, align 4
   %114 = add nuw nsw i16 %92, 1
   br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum9ShiftLeftEi.exit.sink.split
@@ -2021,7 +2021,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapac
 .lr.ph.i:                                         ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapacityEi.exit.preheader.i
   %23 = zext nneg i16 %3 to i64
   %24 = sext i32 %19 to i64
-  %invariant.gep.i = getelementptr i32, ptr %0, i64 %24
+  %invariant.gep.i = getelementptr [4 x i8], ptr %0, i64 %24
   br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapacityEi.exit.i
 
 25:                                               ; preds = %18
@@ -2058,9 +2058,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapac
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapacityEi.exit.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapacityEi.exit.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %23, %.lr.ph.i ], [ %indvars.iv.next.i, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapacityEi.exit.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %34 = getelementptr i32, ptr %0, i64 %indvars.iv.i
+  %34 = getelementptr [4 x i8], ptr %0, i64 %indvars.iv.i
   %35 = load i32, ptr %34, align 4
-  %gep.i = getelementptr i32, ptr %invariant.gep.i, i64 %indvars.iv.i
+  %gep.i = getelementptr [4 x i8], ptr %invariant.gep.i, i64 %indvars.iv.i
   store i32 %35, ptr %gep.i, align 4
   %36 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %36, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapacityEi.exit.i, label %.lr.ph20.i.loopexit, !llvm.loop !19
@@ -2077,7 +2077,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum5AlignERKS1_.
   %40 = phi i16 [ %46, %.lr.ph ], [ %38, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum5AlignERKS1_.exit ]
   %.03137 = phi i16 [ %45, %.lr.ph ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum5AlignERKS1_.exit ]
   %41 = sext i16 %40 to i64
-  %42 = getelementptr i32, ptr %0, i64 %41
+  %42 = getelementptr [4 x i8], ptr %0, i64 %41
   %43 = load i32, ptr %42, align 4
   %44 = trunc i32 %43 to i16
   %45 = add i16 %.03137, %44
@@ -2101,12 +2101,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum5AlignERKS1_.
   %.lcssa = phi i16 [ %37, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum5AlignERKS1_.exit ], [ %51, %.lr.ph ]
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %58 = sext i16 %.lcssa36 to i64
-  %59 = getelementptr i32, ptr %57, i64 %58
+  %59 = getelementptr [4 x i8], ptr %57, i64 %58
   %60 = getelementptr i8, ptr %59, i64 -4
   %61 = load i32, ptr %60, align 4
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %63 = sext i16 %.lcssa to i64
-  %64 = getelementptr i32, ptr %62, i64 %63
+  %64 = getelementptr [4 x i8], ptr %62, i64 %63
   %65 = getelementptr i8, ptr %64, i64 -4
   %66 = load i32, ptr %65, align 4
   %67 = icmp eq i16 %.lcssa, 1
@@ -2128,7 +2128,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum5AlignERKS1_.
   %75 = zext nneg i16 %74 to i64
   %76 = add nuw nsw i64 %75, 4294967295
   %77 = and i64 %76, 4294967295
-  %78 = getelementptr inbounds nuw i32, ptr %57, i64 %77
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %77
   %79 = load i32, ptr %78, align 4
   %80 = icmp eq i32 %79, 0
   br i1 %80, label %81, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum5ClampEv.exit
@@ -2197,7 +2197,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum5AlignERKS1_.
 111:                                              ; preds = %109
   %112 = sub nsw i32 %.019.i.i, %96
   %113 = zext nneg i32 %112 to i64
-  %114 = getelementptr inbounds nuw i32, ptr %62, i64 %113
+  %114 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %113
   %115 = load i32, ptr %114, align 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZeroEi.exit.i.i
 
@@ -2211,7 +2211,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZer
 117:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZeroEi.exit.i.i
   %118 = sub nsw i32 %.019.i.i, %101
   %119 = zext nneg i32 %118 to i64
-  %120 = getelementptr inbounds nuw i32, ptr %57, i64 %119
+  %120 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %119
   %121 = load i32, ptr %120, align 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZeroEi.exit27.i.i
 
@@ -2267,19 +2267,19 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %20 = sext i32 %14 to i64
-  %invariant.gep = getelementptr i32, ptr %19, i64 %20
+  %invariant.gep = getelementptr [4 x i8], ptr %19, i64 %20
   br label %21
 
 21:                                               ; preds = %.lr.ph, %21
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
   %.03343 = phi i32 [ 0, %.lr.ph ], [ %36, %21 ]
-  %22 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv
   %23 = load i32, ptr %22, align 4
   %24 = zext i32 %23 to i64
   %25 = mul nuw nsw i64 %24, %17
   %26 = zext i32 %.03343 to i64
   %27 = add nuw nsw i64 %25, %26
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %indvars.iv
   %28 = load i32, ptr %gep, align 4
   %29 = trunc i64 %27 to i32
   %30 = and i32 %29, 268435455
@@ -2318,7 +2318,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum
   br i1 %47, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum5ClampEv.exit, label %48
 
 48:                                               ; preds = %46
-  %49 = getelementptr inbounds i32, ptr %44, i64 %indvars.iv59
+  %49 = getelementptr inbounds [4 x i8], ptr %44, i64 %indvars.iv59
   %50 = load i32, ptr %49, align 4
   %51 = sub i32 %50, %.145
   %52 = and i32 %51, 268435455
@@ -2344,7 +2344,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum
   %61 = zext nneg i16 %60 to i64
   %62 = add nuw nsw i64 %61, 4294967295
   %63 = and i64 %62, 4294967295
-  %64 = getelementptr inbounds nuw i32, ptr %58, i64 %63
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %63
   %65 = load i32, ptr %64, align 4
   %66 = icmp eq i32 %65, 0
   br i1 %66, label %67, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum5ClampEv.exit
@@ -2393,7 +2393,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_co
   %17 = add nsw i32 %16, -7
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %19 = sext i16 %4 to i64
-  %20 = getelementptr i32, ptr %18, i64 %19
+  %20 = getelementptr [4 x i8], ptr %18, i64 %19
   %21 = getelementptr i8, ptr %20, i64 -4
   %22 = load i32, ptr %21, align 4
   %.not5.i = icmp eq i32 %22, 0
@@ -2457,7 +2457,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL14SizeInHexCharsIjE
 .lr.ph:                                           ; preds = %.preheader, %52
   %indvars.iv68 = phi i64 [ %indvars.iv.next69, %52 ], [ 0, %.preheader ]
   %.248 = phi i32 [ %53, %52 ], [ %.034.lcssa, %.preheader ]
-  %40 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv68
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv68
   %41 = load i32, ptr %40, align 4
   %42 = sext i32 %.248 to i64
   br label %43
@@ -2492,7 +2492,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL14SizeInHexCharsIjE
 ._crit_edge:                                      ; preds = %52, %.preheader.._crit_edge_crit_edge
   %.pre-phi = phi i64 [ %.pre, %.preheader.._crit_edge_crit_edge ], [ %56, %52 ]
   %.2.lcssa = phi i32 [ %.034.lcssa, %.preheader.._crit_edge_crit_edge ], [ %53, %52 ]
-  %58 = getelementptr inbounds i32, ptr %18, i64 %.pre-phi
+  %58 = getelementptr inbounds [4 x i8], ptr %18, i64 %.pre-phi
   %59 = load i32, ptr %58, align 4
   %.not3752 = icmp eq i32 %59, 0
   br i1 %.not3752, label %.loopexit, label %.lr.ph56.preheader
@@ -2539,7 +2539,7 @@ define noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversio
   %11 = sub nsw i32 %1, %7
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %13 = zext nneg i32 %11 to i64
-  %14 = getelementptr inbounds nuw i32, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %13
   %15 = load i32, ptr %14, align 4
   br label %16
 
@@ -2591,7 +2591,7 @@ define noundef range(i32 -1, 2) i32 @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_
 25:                                               ; preds = %23
   %26 = sub nsw i32 %.019, %7
   %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr inbounds nuw i32, ptr %20, i64 %27
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %27
   %29 = load i32, ptr %28, align 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZeroEi.exit
 
@@ -2605,7 +2605,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZer
 31:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZeroEi.exit
   %32 = sub nsw i32 %.019, %13
   %33 = zext nneg i32 %32 to i64
-  %34 = getelementptr inbounds nuw i32, ptr %21, i64 %33
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %33
   %35 = load i32, ptr %34, align 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZeroEi.exit27
 
@@ -2701,7 +2701,7 @@ tailrecurse:                                      ; preds = %tailrecurse, %3
 42:                                               ; preds = %40
   %43 = sub nsw i32 %.03870, %7
   %44 = zext nneg i32 %43 to i64
-  %45 = getelementptr inbounds nuw i32, ptr %35, i64 %44
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %44
   %46 = load i32, ptr %45, align 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZeroEi.exit
 
@@ -2715,7 +2715,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZer
 48:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZeroEi.exit
   %49 = sub nsw i32 %.03870, %13
   %50 = zext nneg i32 %49 to i64
-  %51 = getelementptr inbounds nuw i32, ptr %36, i64 %50
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %50
   %52 = load i32, ptr %51, align 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZeroEi.exit47
 
@@ -2729,7 +2729,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZer
 54:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZeroEi.exit47
   %55 = sub nsw i32 %.03870, %23
   %56 = zext nneg i32 %55 to i64
-  %57 = getelementptr inbounds nuw i32, ptr %37, i64 %56
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %56
   %58 = load i32, ptr %57, align 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZeroEi.exit51
 

@@ -10,7 +10,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.instr_time = type { i64 }
 %struct.__jmp_buf_tag = type { [8 x i64], i32, %struct.__sigset_t }
 %struct.__sigset_t = type { [16 x i64] }
-%union.ListCell = type { ptr }
 %union.anon = type { %struct.FunctionCallInfoBaseData, [16 x i8] }
 %struct.FunctionCallInfoBaseData = type { ptr, ptr, ptr, i32, i8, i16, [0 x %struct.NullableDatum] }
 %struct.NullableDatum = type { i64, i8 }
@@ -135,14 +134,14 @@ define internal fastcc void @fmgr_info_cxt_security(i32 noundef %0, ptr noundef 
   br i1 %16, label %._crit_edge, label %17
 
 17:                                               ; preds = %4
-  %18 = getelementptr inbounds nuw i16, ptr @fmgr_builtin_oid_index, i64 %.pre
+  %18 = getelementptr inbounds nuw [2 x i8], ptr @fmgr_builtin_oid_index, i64 %.pre
   %19 = load i16, ptr %18, align 2
   %20 = icmp eq i16 %19, -1
   br i1 %20, label %._crit_edge, label %21
 
 21:                                               ; preds = %17
   %22 = zext i16 %19 to i64
-  %23 = getelementptr inbounds nuw %struct.FmgrBuiltin, ptr @fmgr_builtins, i64 %22
+  %23 = getelementptr inbounds nuw [24 x i8], ptr @fmgr_builtins, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %25 = load i16, ptr %24, align 4
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -250,7 +249,7 @@ define internal fastcc void @fmgr_info_cxt_security(i32 noundef %0, ptr noundef 
 
 .lr.ph.i:                                         ; preds = %76, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %76 ]
-  %77 = getelementptr inbounds nuw %struct.FmgrBuiltin, ptr @fmgr_builtins, i64 %indvars.iv.i
+  %77 = getelementptr inbounds nuw [24 x i8], ptr @fmgr_builtins, i64 %indvars.iv.i
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %79 = load ptr, ptr %78, align 8
   %80 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %73, ptr noundef nonnull dereferenceable(1) %79) #14
@@ -635,7 +634,7 @@ define dso_local i32 @fmgr_internal_function(ptr noundef readonly captures(none)
 
 .lr.ph.i:                                         ; preds = %4, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %4 ]
-  %5 = getelementptr inbounds nuw %struct.FmgrBuiltin, ptr @fmgr_builtins, i64 %indvars.iv.i
+  %5 = getelementptr inbounds nuw [24 x i8], ptr @fmgr_builtins, i64 %indvars.iv.i
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %7) #14
@@ -773,7 +772,7 @@ pg_detoast_datum.exit:                            ; preds = %52, %61
 .lr.ph131:                                        ; preds = %.lr.ph, %.lr.ph131
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph131 ], [ 0, %.lr.ph ]
   %72 = load ptr, ptr %69, align 8
-  %73 = getelementptr inbounds nuw %union.ListCell, ptr %72, i64 %indvars.iv
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %indvars.iv
   %74 = load ptr, ptr %73, align 8
   %.0..0..0..0.58 = load volatile ptr, ptr %2, align 8
   %75 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.58, i64 64
@@ -867,7 +866,7 @@ pg_detoast_datum.exit:                            ; preds = %52, %61
 
 117:                                              ; preds = %.split.split.split
   %118 = load ptr, ptr %109, align 8
-  %119 = getelementptr inbounds nuw %union.ListCell, ptr %118, i64 %indvars.iv137
+  %119 = getelementptr inbounds nuw [8 x i8], ptr %118, i64 %indvars.iv137
   br label %120
 
 120:                                              ; preds = %.split.split.split, %117
@@ -879,7 +878,7 @@ pg_detoast_datum.exit:                            ; preds = %52, %61
 
 125:                                              ; preds = %120
   %126 = load ptr, ptr %111, align 8
-  %127 = getelementptr inbounds nuw %union.ListCell, ptr %126, i64 %indvars.iv137
+  %127 = getelementptr inbounds nuw [8 x i8], ptr %126, i64 %indvars.iv137
   br label %128
 
 128:                                              ; preds = %120, %125
@@ -904,7 +903,7 @@ pg_detoast_datum.exit:                            ; preds = %52, %61
   br i1 %.not119, label %150, label %148
 
 139:                                              ; preds = %133
-  %140 = getelementptr inbounds nuw %union.ListCell, ptr %134, i64 %indvars.iv137
+  %140 = getelementptr inbounds nuw [8 x i8], ptr %134, i64 %indvars.iv137
   %141 = call zeroext i1 @superuser() #12
   %142 = select i1 %141, i32 5, i32 6
   %143 = load ptr, ptr %121, align 8
@@ -3209,7 +3208,7 @@ define dso_local i32 @get_fn_expr_argtype(ptr noundef readonly captures(address_
 
 switch.lookup:                                    ; preds = %6
   %9 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.get_call_expr_arg_stable, i64 %9
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.get_call_expr_arg_stable, i64 %9
   %switch.load = load i64, ptr %switch.gep, align 8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 %switch.load
   %.023.i = load ptr, ptr %10, align 8
@@ -3228,7 +3227,7 @@ list_length.exit.i:                               ; preds = %switch.lookup
   %15 = getelementptr i8, ptr %.023.i, i64 16
   %.023.val.i = load ptr, ptr %15, align 8
   %16 = zext nneg i32 %1 to i64
-  %17 = getelementptr inbounds nuw %union.ListCell, ptr %.023.val.i, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %.023.val.i, i64 %16
   %18 = load ptr, ptr %17, align 8
   %19 = tail call i32 @exprType(ptr noundef %18) #12
   %20 = load i32, ptr %5, align 4
@@ -3263,7 +3262,7 @@ define dso_local i32 @get_call_expr_argtype(ptr noundef readonly captures(addres
 
 switch.lookup:                                    ; preds = %4
   %7 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.get_call_expr_arg_stable, i64 %7
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.get_call_expr_arg_stable, i64 %7
   %switch.load = load i64, ptr %switch.gep, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
   %.023 = load ptr, ptr %8, align 8
@@ -3282,7 +3281,7 @@ list_length.exit:                                 ; preds = %switch.lookup
   %13 = getelementptr i8, ptr %.023, i64 16
   %.023.val = load ptr, ptr %13, align 8
   %14 = zext nneg i32 %1 to i64
-  %15 = getelementptr inbounds nuw %union.ListCell, ptr %.023.val, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %.023.val, i64 %14
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i32 @exprType(ptr noundef %16) #12
   %18 = load i32, ptr %0, align 4
@@ -3325,7 +3324,7 @@ define dso_local noundef zeroext i1 @get_fn_expr_arg_stable(ptr noundef readonly
 
 switch.lookup:                                    ; preds = %6
   %9 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.get_call_expr_arg_stable, i64 %9
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.get_call_expr_arg_stable, i64 %9
   %switch.load = load i64, ptr %switch.gep, align 8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 %switch.load
   %.021.i = load ptr, ptr %10, align 8
@@ -3344,7 +3343,7 @@ list_length.exit.i:                               ; preds = %switch.lookup
   %15 = getelementptr i8, ptr %.021.i, i64 16
   %.021.val.i = load ptr, ptr %15, align 8
   %16 = zext nneg i32 %1 to i64
-  %17 = getelementptr inbounds nuw %union.ListCell, ptr %.021.val.i, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %.021.val.i, i64 %16
   %18 = load ptr, ptr %17, align 8
   %19 = load i32, ptr %18, align 4
   switch i32 %19, label %24 [
@@ -3383,7 +3382,7 @@ define dso_local noundef zeroext i1 @get_call_expr_arg_stable(ptr noundef readon
 
 switch.lookup:                                    ; preds = %4
   %7 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.get_call_expr_arg_stable, i64 %7
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.get_call_expr_arg_stable, i64 %7
   %switch.load = load i64, ptr %switch.gep, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
   %.021 = load ptr, ptr %8, align 8
@@ -3402,7 +3401,7 @@ list_length.exit:                                 ; preds = %switch.lookup
   %13 = getelementptr i8, ptr %.021, i64 16
   %.021.val = load ptr, ptr %13, align 8
   %14 = zext nneg i32 %1 to i64
-  %15 = getelementptr inbounds nuw %union.ListCell, ptr %.021.val, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %.021.val, i64 %14
   %16 = load ptr, ptr %15, align 8
   %17 = load i32, ptr %16, align 4
   switch i32 %17, label %22 [

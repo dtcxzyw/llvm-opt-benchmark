@@ -98,7 +98,7 @@ define void @open_libs() local_unnamed_addr #0 {
   %39 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(1) %20) #9
   %40 = tail call ptr @dlopen(ptr noundef nonnull %37, i32 noundef 2) #9
   %41 = sext i32 %.256 to i64
-  %42 = getelementptr inbounds ptr, ptr @libHandles, i64 %41
+  %42 = getelementptr inbounds [8 x i8], ptr @libHandles, i64 %41
   store ptr %40, ptr %42, align 8, !tbaa !6
   %.not49 = icmp eq ptr %40, null
   br i1 %.not49, label %46, label %43
@@ -133,7 +133,7 @@ define void @open_libs() local_unnamed_addr #0 {
 54:                                               ; preds = %._crit_edge
   tail call void @free(ptr noundef %.042) #9
   %55 = sext i32 %.2.lcssa to i64
-  %56 = getelementptr inbounds ptr, ptr @libHandles, i64 %55
+  %56 = getelementptr inbounds [8 x i8], ptr @libHandles, i64 %55
   store ptr null, ptr %56, align 8, !tbaa !6
   ret void
 }
@@ -194,7 +194,7 @@ define void @close_libs() local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %0, %8
   %indvars.iv = phi i64 [ %indvars.iv.next, %8 ], [ 0, %0 ]
   %2 = phi ptr [ %10, %8 ], [ %1, %0 ]
-  %3 = getelementptr inbounds nuw ptr, ptr @libHandles, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [8 x i8], ptr @libHandles, i64 %indvars.iv
   %4 = tail call i32 @dlclose(ptr noundef nonnull %2) #9
   %.not6 = icmp eq i32 %4, 0
   br i1 %.not6, label %8, label %5
@@ -207,7 +207,7 @@ define void @close_libs() local_unnamed_addr #0 {
 8:                                                ; preds = %5, %.lr.ph
   store ptr null, ptr %3, align 8, !tbaa !6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %9 = getelementptr inbounds nuw ptr, ptr @libHandles, i64 %indvars.iv.next
+  %9 = getelementptr inbounds nuw [8 x i8], ptr @libHandles, i64 %indvars.iv.next
   %10 = load ptr, ptr %9, align 8, !tbaa !6
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
@@ -222,7 +222,7 @@ declare i32 @dlclose(ptr noundef) local_unnamed_addr #7
 ; Function Attrs: nounwind uwtable
 define ptr @get_fnct_ptr(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = sext i32 %0 to i64
-  %4 = getelementptr inbounds ptr, ptr @libHandles, i64 %3
+  %4 = getelementptr inbounds [8 x i8], ptr @libHandles, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !6
   %6 = tail call ptr @dlsym(ptr noundef %5, ptr noundef %1) #9
   ret ptr %6
@@ -255,7 +255,7 @@ define void @call_inits(ptr noundef %0) local_unnamed_addr #0 {
 
 10:                                               ; preds = %6, %9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %11 = getelementptr inbounds nuw ptr, ptr @libHandles, i64 %indvars.iv.next
+  %11 = getelementptr inbounds nuw [8 x i8], ptr @libHandles, i64 %indvars.iv.next
   %12 = load ptr, ptr %11, align 8, !tbaa !6
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
@@ -288,7 +288,7 @@ define void @call_ends(ptr noundef %0) local_unnamed_addr #0 {
 
 10:                                               ; preds = %6, %9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %11 = getelementptr inbounds nuw ptr, ptr @libHandles, i64 %indvars.iv.next
+  %11 = getelementptr inbounds nuw [8 x i8], ptr @libHandles, i64 %indvars.iv.next
   %12 = load ptr, ptr %11, align 8, !tbaa !6
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
@@ -322,7 +322,7 @@ define void @Libs_Init(ptr noundef %0) local_unnamed_addr #0 {
 
 10:                                               ; preds = %9, %6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %11 = getelementptr inbounds nuw ptr, ptr @libHandles, i64 %indvars.iv.next.i
+  %11 = getelementptr inbounds nuw [8 x i8], ptr @libHandles, i64 %indvars.iv.next.i
   %12 = load ptr, ptr %11, align 8, !tbaa !6
   %.not.i = icmp eq ptr %12, null
   br i1 %.not.i, label %call_inits.exit, label %.lr.ph.i, !llvm.loop !11
@@ -355,7 +355,7 @@ define void @Libs_End(ptr noundef %0) local_unnamed_addr #0 {
 
 10:                                               ; preds = %9, %6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %11 = getelementptr inbounds nuw ptr, ptr @libHandles, i64 %indvars.iv.next.i
+  %11 = getelementptr inbounds nuw [8 x i8], ptr @libHandles, i64 %indvars.iv.next.i
   %12 = load ptr, ptr %11, align 8, !tbaa !6
   %.not.i = icmp eq ptr %12, null
   br i1 %.not.i, label %call_ends.exit, label %.lr.ph.i, !llvm.loop !12

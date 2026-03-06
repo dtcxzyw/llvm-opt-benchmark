@@ -318,7 +318,7 @@ define void @_ZN6LibRaw13parse_minoltaEi(ptr noundef nonnull align 8 dereference
   %216 = xor i32 %.03053, %215
   %217 = xor i32 %216, 3
   %218 = zext nneg i32 %217 to i64
-  %219 = getelementptr inbounds nuw float, ptr %56, i64 %218
+  %219 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %218
   store float %214, ptr %219, align 4, !tbaa !83
   %220 = add nuw nsw i32 %.03053, 1
   %exitcond59.not = icmp eq i32 %220, 4
@@ -331,7 +331,7 @@ define void @_ZN6LibRaw13parse_minoltaEi(ptr noundef nonnull align 8 dereference
   %223 = lshr i32 %.13152, 1
   %224 = xor i32 %223, %.13152
   %225 = zext nneg i32 %224 to i64
-  %226 = getelementptr inbounds nuw float, ptr %56, i64 %225
+  %226 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %225
   store float %222, ptr %226, align 4, !tbaa !83
   %227 = add nuw nsw i32 %.13152, 1
   %exitcond58.not = icmp eq i32 %227, 4

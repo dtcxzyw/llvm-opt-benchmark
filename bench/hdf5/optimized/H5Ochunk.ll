@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.H5C_class_t = type { i32, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.H5O_chunk_t = type { i64, i64, i64, ptr, ptr }
 %struct.H5O_chk_cache_ud_t = type { i8, ptr, i32, i64, %struct.H5O_common_cache_ud_t }
 %struct.H5O_common_cache_ud_t = type { ptr, i32, i32, ptr, i64 }
 
@@ -113,7 +112,7 @@ define range(i32 -1, 1) i32 @H5O__chunk_add(ptr noundef %0, ptr noundef %1, i32 
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 392
   %42 = load ptr, ptr %41, align 8, !tbaa !33
   %43 = zext i32 %2 to i64
-  %44 = getelementptr inbounds nuw %struct.H5O_chunk_t, ptr %42, i64 %43
+  %44 = getelementptr inbounds nuw [40 x i8], ptr %42, i64 %43
   %45 = load i64, ptr %44, align 8, !tbaa !34
   %46 = call i32 @H5AC_insert_entry(ptr noundef %0, ptr noundef nonnull @H5AC_OHDR_CHK, i64 noundef %45, ptr noundef nonnull %15, i32 noundef 0) #4
   %47 = icmp slt i32 %46, 0
@@ -245,7 +244,7 @@ define ptr @H5O__chunk_protect(ptr noundef %0, ptr noundef %1, i32 noundef %2) l
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 392
   %34 = load ptr, ptr %33, align 8, !tbaa !33
   %35 = zext i32 %2 to i64
-  %36 = getelementptr inbounds nuw %struct.H5O_chunk_t, ptr %34, i64 %35
+  %36 = getelementptr inbounds nuw [40 x i8], ptr %34, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = load i64, ptr %37, align 8, !tbaa !43
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -397,7 +396,7 @@ define range(i32 -1, 1) i32 @H5O__chunk_unprotect(ptr noundef %0, ptr noundef %1
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 392
   %39 = load ptr, ptr %38, align 8, !tbaa !33
   %40 = zext i32 %12 to i64
-  %41 = getelementptr inbounds nuw %struct.H5O_chunk_t, ptr %39, i64 %40
+  %41 = getelementptr inbounds nuw [40 x i8], ptr %39, i64 %40
   %42 = load i64, ptr %41, align 8, !tbaa !34
   %43 = select i1 %2, i32 2, i32 0
   %44 = tail call i32 @H5AC_unprotect(ptr noundef %0, ptr noundef nonnull @H5AC_OHDR_CHK, i64 noundef %42, ptr noundef nonnull %1, i32 noundef %43) #4
@@ -455,7 +454,7 @@ define range(i32 -1, 1) i32 @H5O__chunk_resize(ptr noundef %0, ptr noundef %1) l
 
 20:                                               ; preds = %9
   %21 = zext i32 %11 to i64
-  %22 = getelementptr inbounds nuw %struct.H5O_chunk_t, ptr %14, i64 %21
+  %22 = getelementptr inbounds nuw [40 x i8], ptr %14, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load i64, ptr %23, align 8, !tbaa !43
   %25 = tail call i32 @H5AC_resize_entry(ptr noundef nonnull %1, i64 noundef %24) #4
@@ -503,7 +502,7 @@ define range(i32 -1, 1) i32 @H5O__chunk_update_idx(ptr noundef %0, ptr noundef %
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 392
   %18 = load ptr, ptr %17, align 8, !tbaa !33
   %19 = zext i32 %2 to i64
-  %20 = getelementptr inbounds nuw %struct.H5O_chunk_t, ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw [40 x i8], ptr %18, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load i64, ptr %21, align 8, !tbaa !43
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -523,7 +522,7 @@ define range(i32 -1, 1) i32 @H5O__chunk_update_idx(ptr noundef %0, ptr noundef %
   %32 = getelementptr inbounds nuw i8, ptr %25, i64 264
   store i32 %2, ptr %32, align 8, !tbaa !31
   %33 = load ptr, ptr %17, align 8, !tbaa !33
-  %34 = getelementptr inbounds nuw %struct.H5O_chunk_t, ptr %33, i64 %19
+  %34 = getelementptr inbounds nuw [40 x i8], ptr %33, i64 %19
   %35 = load i64, ptr %34, align 8, !tbaa !34
   %36 = call i32 @H5AC_unprotect(ptr noundef %0, ptr noundef nonnull @H5AC_OHDR_CHK, i64 noundef %35, ptr noundef nonnull %25, i32 noundef 2) #4
   %37 = icmp slt i32 %36, 0
@@ -579,7 +578,7 @@ define range(i32 -1, 1) i32 @H5O__chunk_delete(ptr noundef %0, ptr noundef %1, i
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 392
   %24 = load ptr, ptr %23, align 8, !tbaa !33
   %25 = zext i32 %2 to i64
-  %26 = getelementptr inbounds nuw %struct.H5O_chunk_t, ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw [40 x i8], ptr %24, i64 %25
   %27 = load i64, ptr %26, align 8, !tbaa !34
   %28 = call i32 @H5AC_unprotect(ptr noundef %0, ptr noundef nonnull @H5AC_OHDR_CHK, i64 noundef %27, ptr noundef nonnull %14, i32 noundef %spec.select) #4
   %29 = icmp slt i32 %28, 0

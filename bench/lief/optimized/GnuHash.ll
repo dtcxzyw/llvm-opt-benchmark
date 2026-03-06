@@ -120,7 +120,7 @@ define noundef zeroext i1 @_ZNK4LIEF3ELF7GnuHash18check_bloom_filterEj(ptr nound
   %20 = urem i64 %8, %4
   %21 = zext i32 %7 to i64
   %22 = urem i64 %21, %4
-  %23 = getelementptr inbounds nuw i64, ptr %13, i64 %.zext
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.zext
   %24 = load i64, ptr %23, align 8, !tbaa !31
   %25 = lshr i64 %24, %20
   %26 = lshr i64 %24, %22
@@ -155,7 +155,7 @@ define noundef zeroext i1 @_ZNK4LIEF3ELF7GnuHash5checkERKNSt7__cxx1112basic_stri
   %22 = urem i64 %10, %6
   %23 = zext i32 %9 to i64
   %24 = urem i64 %23, %6
-  %25 = getelementptr inbounds nuw i64, ptr %15, i64 %.zext.i.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %.zext.i.i
   %26 = load i64, ptr %25, align 8, !tbaa !31
   %27 = lshr i64 %26, %22
   %28 = lshr i64 %26, %24
@@ -175,7 +175,7 @@ define noundef zeroext i1 @_ZNK4LIEF3ELF7GnuHash5checkERKNSt7__cxx1112basic_stri
   %40 = trunc i64 %39 to i32
   %41 = urem i32 %4, %40
   %42 = zext i32 %41 to i64
-  %43 = getelementptr inbounds nuw i32, ptr %35, i64 %42
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %42
   %44 = load i32, ptr %43, align 4, !tbaa !36
   %45 = icmp ne i32 %44, 0
   br label %_ZNK4LIEF3ELF7GnuHash5checkEj.exit
@@ -211,7 +211,7 @@ define noundef zeroext i1 @_ZNK4LIEF3ELF7GnuHash5checkEj(ptr noundef nonnull rea
   %20 = urem i64 %8, %4
   %21 = zext i32 %7 to i64
   %22 = urem i64 %21, %4
-  %23 = getelementptr inbounds nuw i64, ptr %13, i64 %.zext.i
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.zext.i
   %24 = load i64, ptr %23, align 8, !tbaa !31
   %25 = lshr i64 %24, %20
   %26 = lshr i64 %24, %22
@@ -231,7 +231,7 @@ define noundef zeroext i1 @_ZNK4LIEF3ELF7GnuHash5checkEj(ptr noundef nonnull rea
   %38 = trunc i64 %37 to i32
   %39 = urem i32 %1, %38
   %40 = zext i32 %39 to i64
-  %41 = getelementptr inbounds nuw i32, ptr %33, i64 %40
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %40
   %42 = load i32, ptr %41, align 4, !tbaa !36
   %43 = icmp ne i32 %42, 0
   br label %44

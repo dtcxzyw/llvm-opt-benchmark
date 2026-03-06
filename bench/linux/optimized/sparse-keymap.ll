@@ -116,7 +116,7 @@ define dso_local i32 @sparse_keymap_setup(ptr noundef %0, ptr noundef %1, ptr no
 .split.us:                                        ; preds = %19, %36
   %24 = phi i64 [ %38, %36 ], [ 0, %19 ]
   %25 = phi i32 [ %37, %36 ], [ 0, %19 ]
-  %26 = getelementptr %struct.key_entry, ptr %15, i64 %24
+  %26 = getelementptr [12 x i8], ptr %15, i64 %24
   %27 = load i32, ptr %26, align 4
   switch i32 %27, label %36 [
     i32 1, label %32
@@ -149,7 +149,7 @@ define dso_local i32 @sparse_keymap_setup(ptr noundef %0, ptr noundef %1, ptr no
 .split:                                           ; preds = %19, %55
   %40 = phi i64 [ %57, %55 ], [ 0, %19 ]
   %41 = phi i32 [ %56, %55 ], [ 0, %19 ]
-  %42 = getelementptr %struct.key_entry, ptr %15, i64 %40
+  %42 = getelementptr [12 x i8], ptr %15, i64 %40
   %43 = tail call i32 %2(ptr noundef %0, ptr noundef %42) #6
   %44 = icmp eq i32 %43, 0
   br i1 %44, label %45, label %.loopexit

@@ -100,10 +100,10 @@ define void @guided_filter(ptr noundef readonly captures(none) %0, ptr noundef r
   %69 = sub i32 %68, %44
   %70 = mul i32 %69, %64
   %71 = sext i32 %70 to i64
-  %72 = getelementptr inbounds float, ptr %55, i64 %71
+  %72 = getelementptr inbounds [4 x i8], ptr %55, i64 %71
   %73 = mul i32 %69, %65
   %74 = sext i32 %73 to i64
-  %75 = getelementptr inbounds float, ptr %57, i64 %74
+  %75 = getelementptr inbounds [4 x i8], ptr %57, i64 %74
   tail call void @dt_box_mean_horizontal(ptr noundef %72, i64 noundef %49, i32 noundef 16777220, i64 noundef %.pre.i, ptr noundef %62) #6
   tail call void @dt_box_mean_horizontal(ptr noundef %75, i64 noundef %49, i32 noundef 16777225, i64 noundef %.pre.i, ptr noundef %62) #6
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
@@ -123,12 +123,12 @@ define void @guided_filter(ptr noundef readonly captures(none) %0, ptr noundef r
   %79 = sub i32 %78, %44
   %80 = mul i32 %79, %64
   %81 = sext i32 %80 to i64
-  %82 = getelementptr inbounds float, ptr %55, i64 %81
+  %82 = getelementptr inbounds [4 x i8], ptr %55, i64 %81
   %83 = mul i32 %79, %65
   %84 = sext i32 %83 to i64
-  %85 = getelementptr inbounds float, ptr %57, i64 %84
+  %85 = getelementptr inbounds [4 x i8], ptr %57, i64 %84
   %86 = mul nuw nsw i64 %indvars.iv346.i.us, %24
-  %87 = getelementptr float, ptr %1, i64 %86
+  %87 = getelementptr [4 x i8], ptr %1, i64 %86
   br label %88
 
 88:                                               ; preds = %88, %.lr.ph.us.i.us
@@ -136,7 +136,7 @@ define void @guided_filter(ptr noundef readonly captures(none) %0, ptr noundef r
   %89 = sub nuw nsw i64 %indvars.iv341.i.us, %76
   %90 = add nuw nsw i64 %indvars.iv341.i.us, %86
   %91 = mul i64 %90, %25
-  %92 = getelementptr inbounds nuw float, ptr %0, i64 %91
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %91
   %93 = load float, ptr %92, align 4, !tbaa !12
   %94 = fmul reassoc nsz arcp contract afn float %93, %8
   %95 = getelementptr inbounds nuw i8, ptr %92, i64 4
@@ -145,7 +145,7 @@ define void @guided_filter(ptr noundef readonly captures(none) %0, ptr noundef r
   %98 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %99 = load float, ptr %98, align 4, !tbaa !12
   %100 = fmul reassoc nsz arcp contract afn float %99, %8
-  %101 = getelementptr float, ptr %87, i64 %indvars.iv341.i.us
+  %101 = getelementptr [4 x i8], ptr %87, i64 %indvars.iv341.i.us
   %102 = load float, ptr %101, align 4, !tbaa !12
   %.idx312.us.i.us = shl nsw i64 %89, 4
   %103 = getelementptr inbounds nuw i8, ptr %82, i64 %.idx312.us.i.us
@@ -344,7 +344,7 @@ define void @guided_filter(ptr noundef readonly captures(none) %0, ptr noundef r
   %227 = sub nsw i64 %indvars.iv357.i.us, %224
   %228 = mul nsw i64 %227, %49
   %229 = add i64 %228, %221
-  %230 = getelementptr float, ptr %2, i64 %225
+  %230 = getelementptr [4 x i8], ptr %2, i64 %225
   br label %231
 
 231:                                              ; preds = %231, %.lr.ph332.us.i.us
@@ -352,7 +352,7 @@ define void @guided_filter(ptr noundef readonly captures(none) %0, ptr noundef r
   %.0267329.us.i.us = phi i64 [ %229, %.lr.ph332.us.i.us ], [ %259, %231 ]
   %.0268328.us.i.us = phi i64 [ %226, %.lr.ph332.us.i.us ], [ %260, %231 ]
   %232 = mul i64 %.0268328.us.i.us, %25
-  %233 = getelementptr inbounds nuw float, ptr %0, i64 %232
+  %233 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %232
   %.idx.us.i.us = shl i64 %.0267329.us.i.us, 4
   %234 = getelementptr inbounds nuw i8, ptr %55, i64 %.idx.us.i.us
   %235 = load float, ptr %234, align 16, !tbaa !12
@@ -378,7 +378,7 @@ define void @guided_filter(ptr noundef readonly captures(none) %0, ptr noundef r
   %255 = fcmp reassoc nsz arcp contract afn olt float %253, %9
   %256 = select reassoc nsz arcp contract afn i1 %255, float %9, float %253
   %257 = select reassoc nsz arcp contract afn i1 %254, float %10, float %256
-  %258 = getelementptr float, ptr %230, i64 %indvars.iv352.i.us
+  %258 = getelementptr [4 x i8], ptr %230, i64 %indvars.iv352.i.us
   store float %257, ptr %258, align 4, !tbaa !12
   %indvars.iv.next353.i.us = add nsw i64 %indvars.iv352.i.us, 1
   %259 = add i64 %.0267329.us.i.us, 1

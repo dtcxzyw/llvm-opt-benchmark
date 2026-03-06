@@ -3,8 +3,6 @@ source_filename = "bench/cmake/original/block_header_encoder.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.lzma_filter = type { i64, ptr }
-
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @lzma_block_header_size(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
@@ -73,7 +71,7 @@ define dso_local i32 @lzma_block_header_size(ptr noundef captures(none) %0) loca
   %33 = add i32 %31, %.43961
   %34 = add nuw nsw i64 %.03462, 1
   %35 = load ptr, ptr %21, align 8, !tbaa !13
-  %36 = getelementptr inbounds nuw %struct.lzma_filter, ptr %35, i64 %34
+  %36 = getelementptr inbounds nuw [16 x i8], ptr %35, i64 %34
   %37 = load i64, ptr %36, align 8, !tbaa !14
   %.not55 = icmp eq i64 %37, -1
   br i1 %.not55, label %._crit_edge, label %.lr.ph, !llvm.loop !16
@@ -171,7 +169,7 @@ define dso_local i32 @lzma_block_header_encode(ptr noundef readonly %0, ptr noun
   br i1 %39, label %.loopexit, label %40
 
 40:                                               ; preds = %.preheader
-  %41 = getelementptr inbounds nuw %struct.lzma_filter, ptr %38, i64 %.045
+  %41 = getelementptr inbounds nuw [16 x i8], ptr %38, i64 %.045
   %42 = call i32 @lzma_filter_flags_encode(ptr noundef %41, ptr noundef nonnull %1, ptr noundef nonnull %3, i64 noundef %13) #6
   %.not58 = icmp eq i32 %42, 0
   br i1 %.not58, label %43, label %.loopexit
@@ -179,7 +177,7 @@ define dso_local i32 @lzma_block_header_encode(ptr noundef readonly %0, ptr noun
 43:                                               ; preds = %40
   %44 = load ptr, ptr %32, align 8, !tbaa !13
   %45 = add nuw nsw i64 %.045, 1
-  %46 = getelementptr inbounds nuw %struct.lzma_filter, ptr %44, i64 %45
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %44, i64 %45
   %47 = load i64, ptr %46, align 8, !tbaa !14
   %.not59 = icmp eq i64 %47, -1
   br i1 %.not59, label %48, label %.preheader, !llvm.loop !21

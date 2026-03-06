@@ -153,17 +153,17 @@ define internal void @start_pass(ptr noundef %0) #0 {
 
 57:                                               ; preds = %.lr.ph179, %._crit_edge176
   %indvars.iv188 = phi i64 [ 0, %.lr.ph179 ], [ %indvars.iv.next189, %._crit_edge176 ]
-  %58 = getelementptr inbounds nuw ptr, ptr %50, i64 %indvars.iv188
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %indvars.iv188
   %59 = load ptr, ptr %58, align 8, !tbaa !53
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 4
   %61 = load i32, ptr %60, align 4, !tbaa !54
   %62 = load ptr, ptr %51, align 8, !tbaa !40
   %63 = sext i32 %61 to i64
-  %64 = getelementptr inbounds [64 x i32], ptr %62, i64 %63
+  %64 = getelementptr inbounds [256 x i8], ptr %62, i64 %63
   %65 = load i32, ptr %52, align 8, !tbaa !39
   %66 = add nsw i32 %65, %61
   %67 = sext i32 %66 to i64
-  %68 = getelementptr inbounds [64 x i32], ptr %62, i64 %67
+  %68 = getelementptr inbounds [256 x i8], ptr %62, i64 %67
   %69 = load i32, ptr %6, align 4, !tbaa !44
   %.not162 = icmp eq i32 %69, 0
   br i1 %.not162, label %.lr.ph.preheader, label %70
@@ -202,13 +202,13 @@ define internal void @start_pass(ptr noundef %0) #0 {
   br i1 %85, label %86, label %89
 
 86:                                               ; preds = %.lr.ph
-  %87 = getelementptr inbounds i32, ptr %64, i64 %indvars.iv
+  %87 = getelementptr inbounds [4 x i8], ptr %64, i64 %indvars.iv
   %88 = load i32, ptr %87, align 4, !tbaa !41
   br label %89
 
 89:                                               ; preds = %.lr.ph, %86
   %.sink = phi i32 [ %88, %86 ], [ 0, %.lr.ph ]
-  %90 = getelementptr inbounds i32, ptr %68, i64 %indvars.iv
+  %90 = getelementptr inbounds [4 x i8], ptr %68, i64 %indvars.iv
   store i32 %.sink, ptr %90, align 4, !tbaa !41
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %91 = load i32, ptr %53, align 8, !tbaa !45
@@ -228,7 +228,7 @@ define internal void @start_pass(ptr noundef %0) #0 {
 
 .lr.ph175:                                        ; preds = %.lr.ph175.preheader, %107
   %indvars.iv185 = phi i64 [ %93, %.lr.ph175.preheader ], [ %indvars.iv.next186, %107 ]
-  %94 = getelementptr inbounds i32, ptr %64, i64 %indvars.iv185
+  %94 = getelementptr inbounds [4 x i8], ptr %64, i64 %indvars.iv185
   %95 = load i32, ptr %94, align 4, !tbaa !41
   %spec.select168 = tail call i32 @llvm.smax.i32(i32 %95, i32 0)
   %96 = load i32, ptr %55, align 4, !tbaa !47
@@ -355,7 +355,7 @@ define internal void @start_pass(ptr noundef %0) #0 {
 
 156:                                              ; preds = %.lr.ph183, %.thread.thread
   %indvars.iv191 = phi i64 [ 0, %.lr.ph183 ], [ %indvars.iv.next192, %.thread.thread ]
-  %157 = getelementptr inbounds nuw ptr, ptr %148, i64 %indvars.iv191
+  %157 = getelementptr inbounds nuw [8 x i8], ptr %148, i64 %indvars.iv191
   %158 = load ptr, ptr %157, align 8, !tbaa !53
   %159 = load i32, ptr %4, align 8, !tbaa !38
   %.not159 = icmp eq i32 %159, 0
@@ -390,7 +390,7 @@ define internal void @start_pass(ptr noundef %0) #0 {
 
 175:                                              ; preds = %166, %169
   %176 = sext i32 %168 to i64
-  %177 = getelementptr inbounds ptr, ptr %151, i64 %176
+  %177 = getelementptr inbounds [8 x i8], ptr %151, i64 %176
   %178 = load ptr, ptr %177, align 8, !tbaa !63
   %179 = icmp eq ptr %178, null
   br i1 %179, label %180, label %184
@@ -405,9 +405,9 @@ define internal void @start_pass(ptr noundef %0) #0 {
 184:                                              ; preds = %175, %180
   %185 = phi ptr [ %183, %180 ], [ %178, %175 ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %185, i8 0, i64 64, i1 false)
-  %186 = getelementptr inbounds nuw i32, ptr %153, i64 %indvars.iv191
+  %186 = getelementptr inbounds nuw [4 x i8], ptr %153, i64 %indvars.iv191
   store i32 0, ptr %186, align 4, !tbaa !41
-  %187 = getelementptr inbounds nuw i32, ptr %154, i64 %indvars.iv191
+  %187 = getelementptr inbounds nuw [4 x i8], ptr %154, i64 %indvars.iv191
   store i32 0, ptr %187, align 4, !tbaa !41
   %.pre200 = load i32, ptr %4, align 8, !tbaa !38
   %188 = icmp eq i32 %.pre200, 0
@@ -437,7 +437,7 @@ define internal void @start_pass(ptr noundef %0) #0 {
 
 197:                                              ; preds = %.thread.thread213, %191
   %198 = sext i32 %190 to i64
-  %199 = getelementptr inbounds ptr, ptr %155, i64 %198
+  %199 = getelementptr inbounds [8 x i8], ptr %155, i64 %198
   %200 = load ptr, ptr %199, align 8, !tbaa !63
   %201 = icmp eq ptr %200, null
   br i1 %201, label %202, label %206
@@ -526,7 +526,7 @@ define internal noundef i32 @decode_mcu_DC_first(ptr noundef %0, ptr noundef rea
 
 33:                                               ; preds = %.thread.thread.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %.thread.thread.i ]
-  %34 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv.i
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv.i
   %35 = load ptr, ptr %34, align 8, !tbaa !53
   %36 = load i32, ptr %26, align 8, !tbaa !38
   %.not28.i = icmp eq i32 %36, 0
@@ -546,12 +546,12 @@ define internal noundef i32 @decode_mcu_DC_first(ptr noundef %0, ptr noundef rea
   %44 = getelementptr inbounds nuw i8, ptr %35, i64 20
   %45 = load i32, ptr %44, align 4, !tbaa !62
   %46 = sext i32 %45 to i64
-  %47 = getelementptr inbounds ptr, ptr %29, i64 %46
+  %47 = getelementptr inbounds [8 x i8], ptr %29, i64 %46
   %48 = load ptr, ptr %47, align 8, !tbaa !63
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %48, i8 0, i64 64, i1 false)
-  %49 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv.i
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %indvars.iv.i
   store i32 0, ptr %49, align 4, !tbaa !41
-  %50 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv.i
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv.i
   store i32 0, ptr %50, align 4, !tbaa !41
   %.pre.i = load i32, ptr %26, align 8, !tbaa !38
   %51 = icmp eq i32 %.pre.i, 0
@@ -566,7 +566,7 @@ define internal noundef i32 @decode_mcu_DC_first(ptr noundef %0, ptr noundef rea
   %52 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %53 = load i32, ptr %52, align 8, !tbaa !64
   %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds ptr, ptr %32, i64 %54
+  %55 = getelementptr inbounds [8 x i8], ptr %32, i64 %54
   %56 = load ptr, ptr %55, align 8, !tbaa !63
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %56, i8 0, i64 256, i1 false)
   br label %.thread.thread.i
@@ -617,19 +617,19 @@ process_restart.exit:                             ; preds = %.thread.thread.i, %
 
 81:                                               ; preds = %.lr.ph102, %155
   %indvars.iv = phi i64 [ 0, %.lr.ph102 ], [ %indvars.iv.next, %155 ]
-  %82 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %83 = load ptr, ptr %82, align 8, !tbaa !75
-  %84 = getelementptr inbounds nuw i32, ptr %73, i64 %indvars.iv
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %73, i64 %indvars.iv
   %85 = load i32, ptr %84, align 4, !tbaa !41
   %86 = sext i32 %85 to i64
-  %87 = getelementptr inbounds ptr, ptr %74, i64 %86
+  %87 = getelementptr inbounds [8 x i8], ptr %74, i64 %86
   %88 = load ptr, ptr %87, align 8, !tbaa !53
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 20
   %90 = load i32, ptr %89, align 4, !tbaa !62
   %91 = sext i32 %90 to i64
-  %92 = getelementptr inbounds ptr, ptr %75, i64 %91
+  %92 = getelementptr inbounds [8 x i8], ptr %75, i64 %91
   %93 = load ptr, ptr %92, align 8, !tbaa !63
-  %94 = getelementptr inbounds i32, ptr %76, i64 %86
+  %94 = getelementptr inbounds [4 x i8], ptr %76, i64 %86
   %95 = load i32, ptr %94, align 4, !tbaa !41
   %96 = sext i32 %95 to i64
   %97 = getelementptr inbounds i8, ptr %93, i64 %96
@@ -639,7 +639,7 @@ process_restart.exit:                             ; preds = %.thread.thread.i, %
 
 100:                                              ; preds = %81
   store i32 0, ptr %94, align 4, !tbaa !41
-  %.phi.trans.insert = getelementptr inbounds i32, ptr %79, i64 %86
+  %.phi.trans.insert = getelementptr inbounds [4 x i8], ptr %79, i64 %86
   %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !41
   br label %155
 
@@ -739,7 +739,7 @@ process_restart.exit:                             ; preds = %.thread.thread.i, %
   %.not87 = icmp eq i32 %103, 0
   %150 = xor i32 %.073.lcssa, -1
   %spec.select89 = select i1 %.not87, i32 %149, i32 %150
-  %151 = getelementptr inbounds i32, ptr %79, i64 %86
+  %151 = getelementptr inbounds [4 x i8], ptr %79, i64 %86
   %152 = load i32, ptr %151, align 4, !tbaa !41
   %153 = add nsw i32 %152, %spec.select89
   %154 = and i32 %153, 65535
@@ -815,7 +815,7 @@ define internal noundef i32 @decode_mcu_AC_first(ptr noundef %0, ptr noundef rea
 
 33:                                               ; preds = %.thread.thread.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %.thread.thread.i ]
-  %34 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv.i
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv.i
   %35 = load ptr, ptr %34, align 8, !tbaa !53
   %36 = load i32, ptr %26, align 8, !tbaa !38
   %.not28.i = icmp eq i32 %36, 0
@@ -835,12 +835,12 @@ define internal noundef i32 @decode_mcu_AC_first(ptr noundef %0, ptr noundef rea
   %44 = getelementptr inbounds nuw i8, ptr %35, i64 20
   %45 = load i32, ptr %44, align 4, !tbaa !62
   %46 = sext i32 %45 to i64
-  %47 = getelementptr inbounds ptr, ptr %29, i64 %46
+  %47 = getelementptr inbounds [8 x i8], ptr %29, i64 %46
   %48 = load ptr, ptr %47, align 8, !tbaa !63
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %48, i8 0, i64 64, i1 false)
-  %49 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv.i
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %indvars.iv.i
   store i32 0, ptr %49, align 4, !tbaa !41
-  %50 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv.i
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv.i
   store i32 0, ptr %50, align 4, !tbaa !41
   %.pre.i = load i32, ptr %26, align 8, !tbaa !38
   %51 = icmp eq i32 %.pre.i, 0
@@ -855,7 +855,7 @@ define internal noundef i32 @decode_mcu_AC_first(ptr noundef %0, ptr noundef rea
   %52 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %53 = load i32, ptr %52, align 8, !tbaa !64
   %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds ptr, ptr %32, i64 %54
+  %55 = getelementptr inbounds [8 x i8], ptr %32, i64 %54
   %56 = load ptr, ptr %55, align 8, !tbaa !63
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %56, i8 0, i64 256, i1 false)
   br label %.thread.thread.i
@@ -903,7 +903,7 @@ process_restart.exit:                             ; preds = %.thread.thread.i, %
   %79 = load i32, ptr %78, align 8, !tbaa !64
   %80 = getelementptr inbounds nuw i8, ptr %4, i64 224
   %81 = sext i32 %79 to i64
-  %82 = getelementptr inbounds ptr, ptr %80, i64 %81
+  %82 = getelementptr inbounds [8 x i8], ptr %80, i64 %81
   %83 = getelementptr inbounds nuw i8, ptr %4, i64 352
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %85 = getelementptr inbounds i8, ptr %84, i64 %81
@@ -1009,10 +1009,10 @@ process_restart.exit:                             ; preds = %.thread.thread.i, %
   %131 = shl i32 %spec.select86, %130
   %132 = trunc i32 %131 to i16
   %133 = sext i32 %.166 to i64
-  %134 = getelementptr inbounds i32, ptr @jpeg_natural_order, i64 %133
+  %134 = getelementptr inbounds [4 x i8], ptr @jpeg_natural_order, i64 %133
   %135 = load i32, ptr %134, align 4, !tbaa !41
   %136 = sext i32 %135 to i64
-  %137 = getelementptr inbounds i16, ptr %71, i64 %136
+  %137 = getelementptr inbounds [2 x i8], ptr %71, i64 %136
   store i16 %132, ptr %137, align 2, !tbaa !79
   %138 = add nsw i32 %.166, 1
   %139 = load i32, ptr %74, align 8, !tbaa !45
@@ -1084,7 +1084,7 @@ define internal noundef i32 @decode_mcu_DC_refine(ptr noundef %0, ptr noundef re
 
 33:                                               ; preds = %.thread.thread.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %.thread.thread.i ]
-  %34 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv.i
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv.i
   %35 = load ptr, ptr %34, align 8, !tbaa !53
   %36 = load i32, ptr %26, align 8, !tbaa !38
   %.not28.i = icmp eq i32 %36, 0
@@ -1104,12 +1104,12 @@ define internal noundef i32 @decode_mcu_DC_refine(ptr noundef %0, ptr noundef re
   %44 = getelementptr inbounds nuw i8, ptr %35, i64 20
   %45 = load i32, ptr %44, align 4, !tbaa !62
   %46 = sext i32 %45 to i64
-  %47 = getelementptr inbounds ptr, ptr %29, i64 %46
+  %47 = getelementptr inbounds [8 x i8], ptr %29, i64 %46
   %48 = load ptr, ptr %47, align 8, !tbaa !63
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %48, i8 0, i64 64, i1 false)
-  %49 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv.i
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %indvars.iv.i
   store i32 0, ptr %49, align 4, !tbaa !41
-  %50 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv.i
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv.i
   store i32 0, ptr %50, align 4, !tbaa !41
   %.pre.i = load i32, ptr %26, align 8, !tbaa !38
   %51 = icmp eq i32 %.pre.i, 0
@@ -1124,7 +1124,7 @@ define internal noundef i32 @decode_mcu_DC_refine(ptr noundef %0, ptr noundef re
   %52 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %53 = load i32, ptr %52, align 8, !tbaa !64
   %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds ptr, ptr %32, i64 %54
+  %55 = getelementptr inbounds [8 x i8], ptr %32, i64 %54
   %56 = load ptr, ptr %55, align 8, !tbaa !63
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %56, i8 0, i64 256, i1 false)
   br label %.thread.thread.i
@@ -1171,7 +1171,7 @@ process_restart.exit:                             ; preds = %.thread.thread.i, %
   br i1 %.not14, label %82, label %77
 
 77:                                               ; preds = %75
-  %78 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %79 = load ptr, ptr %78, align 8, !tbaa !75
   %80 = load i16, ptr %79, align 2, !tbaa !79
   %81 = or i16 %80, %74
@@ -1240,7 +1240,7 @@ define internal noundef i32 @decode_mcu_AC_refine(ptr noundef %0, ptr noundef re
 
 33:                                               ; preds = %.thread.thread.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %.thread.thread.i ]
-  %34 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv.i
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv.i
   %35 = load ptr, ptr %34, align 8, !tbaa !53
   %36 = load i32, ptr %26, align 8, !tbaa !38
   %.not28.i = icmp eq i32 %36, 0
@@ -1260,12 +1260,12 @@ define internal noundef i32 @decode_mcu_AC_refine(ptr noundef %0, ptr noundef re
   %44 = getelementptr inbounds nuw i8, ptr %35, i64 20
   %45 = load i32, ptr %44, align 4, !tbaa !62
   %46 = sext i32 %45 to i64
-  %47 = getelementptr inbounds ptr, ptr %29, i64 %46
+  %47 = getelementptr inbounds [8 x i8], ptr %29, i64 %46
   %48 = load ptr, ptr %47, align 8, !tbaa !63
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %48, i8 0, i64 64, i1 false)
-  %49 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv.i
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %indvars.iv.i
   store i32 0, ptr %49, align 4, !tbaa !41
-  %50 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv.i
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv.i
   store i32 0, ptr %50, align 4, !tbaa !41
   %.pre.i = load i32, ptr %26, align 8, !tbaa !38
   %51 = icmp eq i32 %.pre.i, 0
@@ -1280,7 +1280,7 @@ define internal noundef i32 @decode_mcu_AC_refine(ptr noundef %0, ptr noundef re
   %52 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %53 = load i32, ptr %52, align 8, !tbaa !64
   %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds ptr, ptr %32, i64 %54
+  %55 = getelementptr inbounds [8 x i8], ptr %32, i64 %54
   %56 = load ptr, ptr %55, align 8, !tbaa !63
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %56, i8 0, i64 256, i1 false)
   br label %.thread.thread.i
@@ -1330,10 +1330,10 @@ process_restart.exit:                             ; preds = %.thread.thread.i, %
 .lr.ph:                                           ; preds = %70, %89
   %.05372 = phi i32 [ %90, %89 ], [ %81, %70 ]
   %83 = zext nneg i32 %.05372 to i64
-  %84 = getelementptr inbounds nuw i32, ptr @jpeg_natural_order, i64 %83
+  %84 = getelementptr inbounds nuw [4 x i8], ptr @jpeg_natural_order, i64 %83
   %85 = load i32, ptr %84, align 4, !tbaa !41
   %86 = sext i32 %85 to i64
-  %87 = getelementptr inbounds i16, ptr %71, i64 %86
+  %87 = getelementptr inbounds [2 x i8], ptr %71, i64 %86
   %88 = load i16, ptr %87, align 2, !tbaa !79
   %.not57 = icmp eq i16 %88, 0
   br i1 %.not57, label %89, label %._crit_edge
@@ -1353,7 +1353,7 @@ process_restart.exit:                             ; preds = %.thread.thread.i, %
 .lr.ph80:                                         ; preds = %._crit_edge
   %94 = getelementptr inbounds nuw i8, ptr %4, i64 224
   %95 = sext i32 %75 to i64
-  %96 = getelementptr inbounds ptr, ptr %94, i64 %95
+  %96 = getelementptr inbounds [8 x i8], ptr %94, i64 %95
   %97 = trunc i32 %78 to i16
   %98 = shl i32 65535, %77
   %99 = trunc i32 %98 to i16
@@ -1383,16 +1383,16 @@ process_restart.exit:                             ; preds = %.thread.thread.i, %
 113:                                              ; preds = %138, %111
   %indvars.iv = phi i64 [ %indvars.iv.next, %138 ], [ %112, %111 ]
   %.052 = phi ptr [ %139, %138 ], [ %107, %111 ]
-  %114 = getelementptr inbounds i32, ptr @jpeg_natural_order, i64 %indvars.iv
+  %114 = getelementptr inbounds [4 x i8], ptr @jpeg_natural_order, i64 %indvars.iv
   %115 = load i32, ptr %114, align 4, !tbaa !41
   %116 = sext i32 %115 to i64
-  %117 = getelementptr inbounds i16, ptr %71, i64 %116
+  %117 = getelementptr inbounds [2 x i8], ptr %71, i64 %116
   %118 = load i16, ptr %117, align 2, !tbaa !79
   %.not60 = icmp eq i16 %118, 0
   br i1 %.not60, label %130, label %119
 
 119:                                              ; preds = %113
-  %120 = getelementptr inbounds i16, ptr %71, i64 %116
+  %120 = getelementptr inbounds [2 x i8], ptr %71, i64 %116
   %121 = getelementptr inbounds nuw i8, ptr %.052, i64 2
   %122 = tail call fastcc i32 @arith_decode(ptr noundef nonnull %0, ptr noundef nonnull %121)
   %.not64 = icmp eq i32 %122, 0
@@ -1420,7 +1420,7 @@ process_restart.exit:                             ; preds = %.thread.thread.i, %
   br i1 %.not61, label %138, label %133
 
 133:                                              ; preds = %130
-  %134 = getelementptr inbounds i16, ptr %71, i64 %116
+  %134 = getelementptr inbounds [2 x i8], ptr %71, i64 %116
   %135 = tail call fastcc i32 @arith_decode(ptr noundef nonnull %0, ptr noundef nonnull %100)
   %.not63 = icmp eq i32 %135, 0
   br i1 %.not63, label %137, label %136
@@ -1513,7 +1513,7 @@ define internal noundef i32 @decode_mcu(ptr noundef %0, ptr noundef readonly cap
 
 33:                                               ; preds = %.thread.thread.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %.thread.thread.i ]
-  %34 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv.i
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv.i
   %35 = load ptr, ptr %34, align 8, !tbaa !53
   %36 = load i32, ptr %26, align 8, !tbaa !38
   %.not28.i = icmp eq i32 %36, 0
@@ -1533,12 +1533,12 @@ define internal noundef i32 @decode_mcu(ptr noundef %0, ptr noundef readonly cap
   %44 = getelementptr inbounds nuw i8, ptr %35, i64 20
   %45 = load i32, ptr %44, align 4, !tbaa !62
   %46 = sext i32 %45 to i64
-  %47 = getelementptr inbounds ptr, ptr %29, i64 %46
+  %47 = getelementptr inbounds [8 x i8], ptr %29, i64 %46
   %48 = load ptr, ptr %47, align 8, !tbaa !63
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %48, i8 0, i64 64, i1 false)
-  %49 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv.i
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %indvars.iv.i
   store i32 0, ptr %49, align 4, !tbaa !41
-  %50 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv.i
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv.i
   store i32 0, ptr %50, align 4, !tbaa !41
   %.pre.i = load i32, ptr %26, align 8, !tbaa !38
   %51 = icmp eq i32 %.pre.i, 0
@@ -1553,7 +1553,7 @@ define internal noundef i32 @decode_mcu(ptr noundef %0, ptr noundef readonly cap
   %52 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %53 = load i32, ptr %52, align 8, !tbaa !64
   %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds ptr, ptr %32, i64 %54
+  %55 = getelementptr inbounds [8 x i8], ptr %32, i64 %54
   %56 = load ptr, ptr %55, align 8, !tbaa !63
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %56, i8 0, i64 256, i1 false)
   br label %.thread.thread.i
@@ -1610,23 +1610,23 @@ process_restart.exit:                             ; preds = %.thread.thread.i, %
   br i1 %.not154, label %87, label %84
 
 84:                                               ; preds = %83
-  %85 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %86 = load ptr, ptr %85, align 8, !tbaa !75
   br label %87
 
 87:                                               ; preds = %83, %84
   %88 = phi ptr [ %86, %84 ], [ null, %83 ]
-  %89 = getelementptr inbounds nuw i32, ptr %73, i64 %indvars.iv
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %73, i64 %indvars.iv
   %90 = load i32, ptr %89, align 4, !tbaa !41
   %91 = sext i32 %90 to i64
-  %92 = getelementptr inbounds ptr, ptr %74, i64 %91
+  %92 = getelementptr inbounds [8 x i8], ptr %74, i64 %91
   %93 = load ptr, ptr %92, align 8, !tbaa !53
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 20
   %95 = load i32, ptr %94, align 4, !tbaa !62
   %96 = sext i32 %95 to i64
-  %97 = getelementptr inbounds ptr, ptr %75, i64 %96
+  %97 = getelementptr inbounds [8 x i8], ptr %75, i64 %96
   %98 = load ptr, ptr %97, align 8, !tbaa !63
-  %99 = getelementptr inbounds i32, ptr %76, i64 %91
+  %99 = getelementptr inbounds [4 x i8], ptr %76, i64 %91
   %100 = load i32, ptr %99, align 4, !tbaa !41
   %101 = sext i32 %100 to i64
   %102 = getelementptr inbounds i8, ptr %98, i64 %101
@@ -1724,7 +1724,7 @@ process_restart.exit:                             ; preds = %.thread.thread.i, %
   %.not158 = icmp eq i32 %108, 0
   %150 = xor i32 %.0127.lcssa, -1
   %spec.select169 = select i1 %.not158, i32 %149, i32 %150
-  %151 = getelementptr inbounds i32, ptr %79, i64 %91
+  %151 = getelementptr inbounds [4 x i8], ptr %79, i64 %91
   %152 = load i32, ptr %151, align 4, !tbaa !41
   %153 = add nsw i32 %152, %spec.select169
   %154 = and i32 %153, 65535
@@ -1736,7 +1736,7 @@ process_restart.exit:                             ; preds = %.thread.thread.i, %
   br i1 %.not160, label %160, label %156
 
 156:                                              ; preds = %155
-  %157 = getelementptr inbounds i32, ptr %79, i64 %91
+  %157 = getelementptr inbounds [4 x i8], ptr %79, i64 %91
   %158 = load i32, ptr %157, align 4, !tbaa !41
   %159 = trunc i32 %158 to i16
   store i16 %159, ptr %88, align 2, !tbaa !79
@@ -1746,7 +1746,7 @@ process_restart.exit:                             ; preds = %.thread.thread.i, %
   %161 = getelementptr inbounds nuw i8, ptr %93, i64 24
   %162 = load i32, ptr %161, align 8, !tbaa !64
   %163 = sext i32 %162 to i64
-  %164 = getelementptr inbounds ptr, ptr %80, i64 %163
+  %164 = getelementptr inbounds [8 x i8], ptr %80, i64 %163
   %165 = getelementptr inbounds i8, ptr %82, i64 %163
   br label %166
 
@@ -1849,10 +1849,10 @@ process_restart.exit:                             ; preds = %.thread.thread.i, %
   %spec.select171 = select i1 %.not167, i32 %207, i32 %208
   %209 = trunc i32 %spec.select171 to i16
   %210 = sext i32 %.1134 to i64
-  %211 = getelementptr inbounds i32, ptr @jpeg_natural_order, i64 %210
+  %211 = getelementptr inbounds [4 x i8], ptr @jpeg_natural_order, i64 %210
   %212 = load i32, ptr %211, align 4, !tbaa !41
   %213 = sext i32 %212 to i64
-  %214 = getelementptr inbounds i16, ptr %88, i64 %213
+  %214 = getelementptr inbounds [2 x i8], ptr %88, i64 %213
   store i16 %209, ptr %214, align 2, !tbaa !79
   br label %215
 
@@ -2034,7 +2034,7 @@ get_byte.exit68:                                  ; preds = %.preheader, %42, %4
   %74 = zext i8 %73 to i32
   %75 = and i32 %74, 127
   %76 = zext nneg i32 %75 to i64
-  %77 = getelementptr inbounds nuw i64, ptr @jpeg_aritab, i64 %76
+  %77 = getelementptr inbounds nuw [8 x i8], ptr @jpeg_aritab, i64 %76
   %78 = load i64, ptr %77, align 8, !tbaa !104
   %79 = trunc i64 %78 to i8
   %80 = lshr i64 %78, 8

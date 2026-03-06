@@ -8488,8 +8488,8 @@ define linkonce_odr noundef i32 @_ZN6colvar12selfcoordnum20compute_selfcoordnumI
   %65 = load ptr, ptr %35, align 8, !tbaa !154
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 504
   %67 = load ptr, ptr %66, align 8, !tbaa !132
-  %68 = getelementptr inbounds nuw %"class.colvarmodule::atom", ptr %67, i64 %.093
-  %69 = getelementptr inbounds nuw %"class.colvarmodule::atom", ptr %67, i64 %.03089
+  %68 = getelementptr inbounds nuw [120 x i8], ptr %67, i64 %.093
+  %69 = getelementptr inbounds nuw [120 x i8], ptr %67, i64 %.03089
   %70 = load double, ptr %56, align 8, !tbaa !158
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %71 = getelementptr inbounds nuw i8, ptr %68, i64 24
@@ -8663,8 +8663,8 @@ _ZN6colvar8coordnum18switching_functionILi1537EEEdRKdRKN12colvarmodule7rvectorEi
   %159 = load ptr, ptr %35, align 8, !tbaa !154
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 504
   %161 = load ptr, ptr %160, align 8, !tbaa !132
-  %162 = getelementptr inbounds nuw %"class.colvarmodule::atom", ptr %161, i64 %.186
-  %163 = getelementptr inbounds nuw %"class.colvarmodule::atom", ptr %161, i64 %.13184
+  %162 = getelementptr inbounds nuw [120 x i8], ptr %161, i64 %.186
+  %163 = getelementptr inbounds nuw [120 x i8], ptr %161, i64 %.13184
   %164 = load double, ptr %48, align 8, !tbaa !158
   %165 = load i8, ptr %.383, align 1, !tbaa !176, !range !100, !noundef !101
   %166 = trunc nuw i8 %165 to i1
@@ -8834,8 +8834,8 @@ _ZN6colvar8coordnum18switching_functionILi513EEEdRKdRKN12colvarmodule7rvectorEii
   %254 = load ptr, ptr %8, align 8, !tbaa !154
   %255 = getelementptr inbounds nuw i8, ptr %254, i64 504
   %256 = load ptr, ptr %255, align 8, !tbaa !132
-  %257 = getelementptr inbounds nuw %"class.colvarmodule::atom", ptr %256, i64 %.297
-  %258 = getelementptr inbounds nuw %"class.colvarmodule::atom", ptr %256, i64 %.23295
+  %257 = getelementptr inbounds nuw [120 x i8], ptr %256, i64 %.297
+  %258 = getelementptr inbounds nuw [120 x i8], ptr %256, i64 %.23295
   %259 = load double, ptr %22, align 8, !tbaa !158
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %260 = getelementptr inbounds nuw i8, ptr %257, i64 24
@@ -9086,8 +9086,8 @@ define linkonce_odr noundef i32 @_ZN6colvar12selfcoordnum20compute_selfcoordnumI
   %65 = load ptr, ptr %35, align 8, !tbaa !154
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 504
   %67 = load ptr, ptr %66, align 8, !tbaa !132
-  %68 = getelementptr inbounds nuw %"class.colvarmodule::atom", ptr %67, i64 %.093
-  %69 = getelementptr inbounds nuw %"class.colvarmodule::atom", ptr %67, i64 %.03089
+  %68 = getelementptr inbounds nuw [120 x i8], ptr %67, i64 %.093
+  %69 = getelementptr inbounds nuw [120 x i8], ptr %67, i64 %.03089
   %70 = load double, ptr %56, align 8, !tbaa !158
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %71 = getelementptr inbounds nuw i8, ptr %68, i64 24
@@ -9220,8 +9220,8 @@ _ZN6colvar8coordnum18switching_functionILi1536EEEdRKdRKN12colvarmodule7rvectorEi
   %127 = load ptr, ptr %35, align 8, !tbaa !154
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 504
   %129 = load ptr, ptr %128, align 8, !tbaa !132
-  %130 = getelementptr inbounds nuw %"class.colvarmodule::atom", ptr %129, i64 %.13184
-  %131 = getelementptr inbounds nuw %"class.colvarmodule::atom", ptr %129, i64 %.186
+  %130 = getelementptr inbounds nuw [120 x i8], ptr %129, i64 %.13184
+  %131 = getelementptr inbounds nuw [120 x i8], ptr %129, i64 %.186
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 24
   %133 = getelementptr inbounds nuw i8, ptr %130, i64 24
@@ -9336,8 +9336,8 @@ _ZN6colvar8coordnum18switching_functionILi512EEEdRKdRKN12colvarmodule7rvectorEii
   %179 = load ptr, ptr %8, align 8, !tbaa !154
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 504
   %181 = load ptr, ptr %180, align 8, !tbaa !132
-  %182 = getelementptr inbounds nuw %"class.colvarmodule::atom", ptr %181, i64 %.297
-  %183 = getelementptr inbounds nuw %"class.colvarmodule::atom", ptr %181, i64 %.23295
+  %182 = getelementptr inbounds nuw [120 x i8], ptr %181, i64 %.297
+  %183 = getelementptr inbounds nuw [120 x i8], ptr %181, i64 %.23295
   %184 = load double, ptr %22, align 8, !tbaa !158
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %185 = getelementptr inbounds nuw i8, ptr %182, i64 24

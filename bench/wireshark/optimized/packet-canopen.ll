@@ -841,7 +841,7 @@ sdo_cmd_fields_ccs.exit.sink.split.i:             ; preds = %153, %150, %146, %1
   %.081111.ph.i = phi i8 [ %spec.select.i, %150 ], [ 1, %137 ], [ %131, %135 ], [ 0, %139 ], [ 1, %138 ], [ 1, %146 ], [ 0, %153 ]
   %.084109.ph.i = phi i8 [ 0, %150 ], [ 4, %137 ], [ 7, %135 ], [ 0, %139 ], [ 0, %138 ], [ 4, %146 ], [ 2, %153 ]
   %155 = zext nneg i8 %.sink.i to i64
-  %156 = getelementptr ptr, ptr %_sdo_cmd_fields_ccs.sink.i, i64 %155
+  %156 = getelementptr [8 x i8], ptr %_sdo_cmd_fields_ccs.sink.i, i64 %155
   %157 = load ptr, ptr %156, align 8
   br label %sdo_cmd_fields_ccs.exit.i
 
@@ -903,7 +903,7 @@ sdo_cmd_fields_ccs.exit.i:                        ; preds = %sdo_cmd_fields_ccs.
   %.286.ph.i = phi i8 [ 7, %159 ], [ 0, %163 ], [ 4, %162 ], [ 0, %161 ]
   %.3.ph.i = phi i8 [ %131, %159 ], [ 1, %163 ], [ 1, %162 ], [ 0, %161 ]
   %176 = zext nneg i8 %131 to i64
-  %177 = getelementptr ptr, ptr @_sdo_cmd_fields_scs, i64 %176
+  %177 = getelementptr [8 x i8], ptr @_sdo_cmd_fields_scs, i64 %176
   %178 = load ptr, ptr %177, align 8
   br label %sdo_cmd_fields_scs.exit.i
 
@@ -913,7 +913,7 @@ sdo_cmd_fields_ccs.exit.i:                        ; preds = %sdo_cmd_fields_ccs.
 
 181:                                              ; preds = %179
   %182 = zext nneg i8 %165 to i64
-  %183 = getelementptr ptr, ptr @_sdo_cmd_fields_scs5, i64 %182
+  %183 = getelementptr [8 x i8], ptr @_sdo_cmd_fields_scs5, i64 %182
   %184 = load ptr, ptr %183, align 8
   br label %sdo_cmd_fields_scs.exit.i
 
@@ -925,7 +925,7 @@ sdo_cmd_fields_ccs.exit.i:                        ; preds = %sdo_cmd_fields_ccs.
   %.3.ph149190.i = phi i8 [ 0, %185 ], [ 1, %171 ]
   %.286.ph148189.i = phi i8 [ 2, %185 ], [ 4, %171 ]
   %187 = zext nneg i8 %169 to i64
-  %188 = getelementptr ptr, ptr @_sdo_cmd_fields_scs6, i64 %187
+  %188 = getelementptr [8 x i8], ptr @_sdo_cmd_fields_scs6, i64 %187
   %189 = load ptr, ptr %188, align 8
   br label %sdo_cmd_fields_scs.exit.i
 
@@ -1121,7 +1121,7 @@ sdo_cmd_fields_scs.exit.thread.i:                 ; preds = %sdo_cmd_fields_scs.
   %281 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 1)
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %279, i32 noundef 25, ptr noundef nonnull @.str.358, ptr noundef %280, i32 noundef %281)
   %282 = zext nneg i8 %232 to i64
-  %283 = getelementptr ptr, ptr @hf_canopen_lss_addr_ident, i64 %282
+  %283 = getelementptr [8 x i8], ptr @hf_canopen_lss_addr_ident, i64 %282
   %284 = getelementptr i8, ptr %283, i64 -560
   %285 = load ptr, ptr %284, align 8
   %286 = load i32, ptr %285, align 4
@@ -1204,7 +1204,7 @@ sdo_cmd_fields_scs.exit.thread.i:                 ; preds = %sdo_cmd_fields_scs.
   %327 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 1)
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %325, i32 noundef 25, ptr noundef nonnull @.str.358, ptr noundef %326, i32 noundef %327)
   %328 = zext nneg i8 %232 to i64
-  %329 = getelementptr ptr, ptr @hf_canopen_lss_addr_inquire, i64 %328
+  %329 = getelementptr [8 x i8], ptr @hf_canopen_lss_addr_inquire, i64 %328
   %330 = getelementptr i8, ptr %329, i64 -720
   %331 = load ptr, ptr %330, align 8
   %332 = load i32, ptr %331, align 4

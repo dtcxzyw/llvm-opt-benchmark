@@ -1772,7 +1772,7 @@ define internal fastcc range(i32 0, 89) i32 @check_header_mismatch(ptr noundef r
 
 19:                                               ; preds = %.preheader149, %18
   %indvars.iv = phi i64 [ 0, %.preheader149 ], [ %indvars.iv.next, %18 ]
-  %20 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %indvars.iv
   %21 = load i32, ptr %20, align 4, !tbaa !58
   %22 = icmp slt i32 %21, 50
   br i1 %22, label %23, label %18
@@ -1886,7 +1886,7 @@ define internal fastcc range(i32 0, 89) i32 @check_header_mismatch(ptr noundef r
 71:                                               ; preds = %._crit_edge161
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %73 = zext nneg i32 %66 to i64
-  %74 = getelementptr inbounds nuw i32, ptr %72, i64 %73
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %73
   %75 = load i32, ptr %74, align 4, !tbaa !58
   %76 = icmp slt i32 %75, 50
   %77 = icmp eq i32 %75, 100000
@@ -1915,7 +1915,7 @@ define internal fastcc range(i32 0, 89) i32 @check_header_mismatch(ptr noundef r
   br i1 %.not125, label %.critedge134, label %.preheader, !llvm.loop !104
 
 88:                                               ; preds = %82
-  %89 = getelementptr i32, ptr %.096157, i64 %73
+  %89 = getelementptr [4 x i8], ptr %.096157, i64 %73
   %90 = load i32, ptr %89, align 4, !tbaa !58
   %91 = icmp slt i32 %90, 50
   %spec.select = zext i1 %91 to i32
@@ -2306,7 +2306,7 @@ frame_header_is_valid.exit.thread:                ; preds = %60, %flac_fifo_read
 
 102:                                              ; preds = %99, %102
   %indvars.iv = phi i64 [ 0, %99 ], [ %indvars.iv.next, %102 ]
-  %103 = getelementptr inbounds nuw i32, ptr %101, i64 %indvars.iv
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %101, i64 %indvars.iv
   store i32 100000, ptr %103, align 4, !tbaa !58
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -2423,7 +2423,7 @@ check_header_fi_mismatch.exit:                    ; preds = %34, %39
 47:                                               ; preds = %.lr.ph, %62
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %62 ]
   %.03541 = phi ptr [ %.03539, %.lr.ph ], [ %.035, %62 ]
-  %48 = getelementptr inbounds nuw i32, ptr %45, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %indvars.iv
   %49 = load i32, ptr %48, align 4, !tbaa !58
   %50 = icmp eq i32 %49, 100000
   br i1 %50, label %51, label %53

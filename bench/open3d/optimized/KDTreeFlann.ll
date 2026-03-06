@@ -11,12 +11,11 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.33" = type { %"struct.std::_Vector_base<nanoflann::ResultItem<long>, std::allocator<nanoflann::ResultItem<long>>>::_Vector_impl" }
 %"struct.std::_Vector_base<nanoflann::ResultItem<long>, std::allocator<nanoflann::ResultItem<long>>>::_Vector_impl" = type { %"struct.std::_Vector_base<nanoflann::ResultItem<long>, std::allocator<nanoflann::ResultItem<long>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<nanoflann::ResultItem<long>, std::allocator<nanoflann::ResultItem<long>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.nanoflann::ResultItem" = type { i64, double }
 %"class.std::vector.14" = type { %"struct.std::_Vector_base.15" }
 %"struct.std::_Vector_base.15" = type { %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl" }
 %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl" = type { %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.nanoflann::KDTreeBaseClass<nanoflann::KDTreeSingleIndexAdaptor<nanoflann::L2_Adaptor<double, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, double, long>, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, -1, long>, nanoflann::L2_Adaptor<double, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, double, long>, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, -1, long>::Interval" = type { double, double }
+%"struct.nanoflann::ResultItem" = type { i64, double }
 %"class.Eigen::Map" = type <{ %"class.Eigen::MapBase", [8 x i8] }>
 %"class.Eigen::MapBase" = type { ptr, %"class.Eigen::internal::variable_if_dynamic", %"class.Eigen::internal::variable_if_dynamic" }
 %"class.Eigen::internal::variable_if_dynamic" = type { i64 }
@@ -460,7 +459,7 @@ define weak_odr noundef i32 @_ZNK6open3d8geometry11KDTreeFlann9SearchKNNIN5Eigen
   br i1 %30, label %31, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 31:                                               ; preds = %29
-  %32 = getelementptr inbounds nuw i32, ptr %21, i64 %18
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %18
   %.not.i.i = icmp eq ptr %20, %32
   br i1 %.not.i.i, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit, label %_ZSt8_DestroyIPiiEvT_S1_RSaIT0_E.exit.i.i
 
@@ -489,7 +488,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit.thread:        ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %43, label %44, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 
 44:                                               ; preds = %42
-  %45 = getelementptr inbounds nuw double, ptr %35, i64 %18
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %18
   %.not.i.i27 = icmp eq ptr %34, %45
   br i1 %.not.i.i27, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit, label %_ZSt8_DestroyIPddEvT_S1_RSaIT0_E.exit.i.i
 
@@ -504,7 +503,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %42, %44, %_ZSt8_Des
 .noexc:                                           ; preds = %_ZNSt6vectorIdSaIdEE6resizeEm.exit.thread, %_ZNSt6vectorIdSaIdEE6resizeEm.exit
   %46 = shl nuw nsw i64 %18, 3
   %47 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %46) #30
-  %48 = getelementptr inbounds nuw i64, ptr %47, i64 %18
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %18
   store i64 0, ptr %47, align 8, !tbaa !31
   %49 = add nsw i64 %18, -1
   %50 = icmp eq i64 %49, 0
@@ -535,7 +534,7 @@ _ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc
   br i1 %.not.i.i.i.i46, label %_ZN9nanoflann12KNNResultSetIdlmE4initEPlPd.exit.i, label %60
 
 60:                                               ; preds = %52
-  %61 = getelementptr double, ptr %56, i64 %18
+  %61 = getelementptr [8 x i8], ptr %56, i64 %18
   %62 = getelementptr i8, ptr %61, i64 -8
   store double 0x7FEFFFFFFFFFFFFF, ptr %62, align 8, !tbaa !45
   br label %_ZN9nanoflann12KNNResultSetIdlmE4initEPlPd.exit.i
@@ -574,7 +573,7 @@ _ZN9nanoflann12KNNResultSetIdlmE4initEPlPd.exit.i: ; preds = %60, %52
   br i1 %79, label %80, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit33
 
 80:                                               ; preds = %78
-  %81 = getelementptr inbounds nuw i32, ptr %70, i64 %68
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %70, i64 %68
   %.not.i.i30 = icmp eq ptr %69, %81
   br i1 %.not.i.i30, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit33, label %_ZSt8_DestroyIPiiEvT_S1_RSaIT0_E.exit.i.i31
 
@@ -602,7 +601,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit33:             ; preds = %_ZSt8_DestroyIPiiEv
   br i1 %92, label %93, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit37
 
 93:                                               ; preds = %91
-  %94 = getelementptr inbounds nuw double, ptr %83, i64 %68
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %68
   %.not.i.i34 = icmp eq ptr %82, %94
   br i1 %.not.i.i34, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit37, label %_ZSt8_DestroyIPddEvT_S1_RSaIT0_E.exit.i.i35
 
@@ -758,7 +757,7 @@ _ZN9nanoflann15RadiusResultSetIdlEC2EdRSt6vectorINS_10ResultItemIldEESaIS4_EE.ex
   br i1 %58, label %59, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 59:                                               ; preds = %57
-  %60 = getelementptr inbounds nuw i32, ptr %49, i64 %46
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %46
   %.not.i.i = icmp eq ptr %48, %60
   br i1 %.not.i.i, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit, label %_ZSt8_DestroyIPiiEvT_S1_RSaIT0_E.exit.i.i
 
@@ -787,7 +786,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %_ZSt8_DestroyIPiiEv
   br i1 %72, label %73, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 
 73:                                               ; preds = %71
-  %74 = getelementptr inbounds nuw double, ptr %63, i64 %46
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %46
   %.not.i.i29 = icmp eq ptr %62, %74
   br i1 %.not.i.i29, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit, label %_ZSt8_DestroyIPddEvT_S1_RSaIT0_E.exit.i.i
 
@@ -841,14 +840,14 @@ _ZNSt6vectorIN9nanoflann10ResultItemIldEESaIS2_EED2Ev.exit: ; preds = %._crit_ed
 
 89:                                               ; preds = %.lr.ph, %89
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %89 ]
-  %90 = getelementptr inbounds nuw %"struct.nanoflann::ResultItem", ptr %.pre36, i64 %indvars.iv
+  %90 = getelementptr inbounds nuw [16 x i8], ptr %.pre36, i64 %indvars.iv
   %91 = load i64, ptr %90, align 8, !tbaa !68
   %92 = trunc i64 %91 to i32
-  %93 = getelementptr inbounds nuw i32, ptr %76, i64 %indvars.iv
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %indvars.iv
   store i32 %92, ptr %93, align 4, !tbaa !52
   %94 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %95 = load double, ptr %94, align 8, !tbaa !70
-  %96 = getelementptr inbounds nuw double, ptr %77, i64 %indvars.iv
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %indvars.iv
   store double %95, ptr %96, align 8, !tbaa !45
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -918,7 +917,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit.thread:        ; preds = %18
   br i1 %30, label %31, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 
 31:                                               ; preds = %29
-  %32 = getelementptr inbounds nuw double, ptr %22, i64 %19
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %19
   %.not.i.i = icmp eq ptr %21, %32
   br i1 %.not.i.i, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit, label %_ZSt8_DestroyIPddEvT_S1_RSaIT0_E.exit.i.i
 
@@ -933,7 +932,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %29, %31, %_ZSt8_Des
 .noexc:                                           ; preds = %_ZNSt6vectorIdSaIdEE6resizeEm.exit.thread, %_ZNSt6vectorIdSaIdEE6resizeEm.exit
   %33 = shl nuw nsw i64 %19, 3
   %34 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %33) #30
-  %35 = getelementptr inbounds nuw i64, ptr %34, i64 %19
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %19
   store i64 0, ptr %34, align 8, !tbaa !31
   %36 = add nsw i64 %19, -1
   %37 = icmp eq i64 %36, 0
@@ -964,7 +963,7 @@ _ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc
   br i1 %.not.i.i.i.i58, label %_ZN9nanoflann12KNNResultSetIdlmE4initEPlPd.exit.i, label %47
 
 47:                                               ; preds = %39
-  %48 = getelementptr double, ptr %43, i64 %19
+  %48 = getelementptr [8 x i8], ptr %43, i64 %19
   %49 = getelementptr i8, ptr %48, i64 -8
   store double 0x7FEFFFFFFFFFFFFF, ptr %49, align 8, !tbaa !45
   br label %_ZN9nanoflann12KNNResultSetIdlmE4initEPlPd.exit.i
@@ -993,7 +992,7 @@ _ZSt9__advanceIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEElEvRT_T0_St26
   %.016.i.i = phi i64 [ %.1.i.i, %_ZSt9__advanceIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEElEvRT_T0_St26random_access_iterator_tag.exit.i.i ], [ %57, %52 ]
   %.sroa.011.015.i.i = phi ptr [ %.sroa.011.1.i.i, %_ZSt9__advanceIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEElEvRT_T0_St26random_access_iterator_tag.exit.i.i ], [ %54, %52 ]
   %59 = lshr i64 %.016.i.i, 1
-  %60 = getelementptr inbounds nuw double, ptr %.sroa.011.015.i.i, i64 %59
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.011.015.i.i, i64 %59
   %61 = load double, ptr %60, align 8, !tbaa !45
   %62 = fcmp olt double %61, %55
   %63 = getelementptr inbounds nuw i8, ptr %60, i64 8
@@ -1035,7 +1034,7 @@ _ZSt9__advanceIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEElEvRT_T0_St26
   br i1 %82, label %83, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 83:                                               ; preds = %81
-  %84 = getelementptr inbounds nuw i32, ptr %73, i64 %70
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %73, i64 %70
   %.not.i.i40 = icmp eq ptr %72, %84
   br i1 %.not.i.i40, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit, label %_ZSt8_DestroyIPiiEvT_S1_RSaIT0_E.exit.i.i
 
@@ -1063,7 +1062,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %_ZSt8_DestroyIPiiEv
   br i1 %95, label %96, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit45
 
 96:                                               ; preds = %94
-  %97 = getelementptr inbounds nuw double, ptr %86, i64 %70
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %86, i64 %70
   %.not.i.i42 = icmp eq ptr %85, %97
   br i1 %.not.i.i42, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit45, label %_ZSt8_DestroyIPddEvT_S1_RSaIT0_E.exit.i.i43
 
@@ -1228,9 +1227,9 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit36: ; preds = %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !27
-  %39 = getelementptr inbounds nuw i32, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !24
-  %40 = getelementptr inbounds nuw i32, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !74
   br label %41
 
@@ -1346,9 +1345,9 @@ _ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit36: ; preds = %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !30
-  %39 = getelementptr inbounds nuw double, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !28
-  %40 = getelementptr inbounds nuw double, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !75
   br label %41
 
@@ -1416,7 +1415,7 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %24
 .lr.ph.i:                                         ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.i
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %28, i8 0, i64 %27, i1 false), !tbaa !45
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 %27
-  %30 = getelementptr inbounds nuw double, ptr %28, i64 %22
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %22
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %28, ptr %5, align 8, !tbaa !30
   store ptr %29, ptr %31, align 8, !tbaa !28
@@ -1429,9 +1428,9 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %24
 34:                                               ; preds = %54, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %54 ]
   %.03334.i = phi double [ 0.000000e+00, %.lr.ph.i ], [ %.2.i, %54 ]
-  %35 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv.i
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.i
   %36 = load double, ptr %35, align 8, !tbaa !45
-  %37 = getelementptr inbounds nuw %"struct.nanoflann::KDTreeBaseClass<nanoflann::KDTreeSingleIndexAdaptor<nanoflann::L2_Adaptor<double, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, double, long>, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, -1, long>, nanoflann::L2_Adaptor<double, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, double, long>, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, -1, long>::Interval", ptr %33, i64 %indvars.iv.i
+  %37 = getelementptr inbounds nuw [16 x i8], ptr %33, i64 %indvars.iv.i
   %38 = load double, ptr %37, align 8, !tbaa !92
   %39 = fcmp olt double %36, %38
   br i1 %39, label %40, label %45
@@ -1439,7 +1438,7 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %24
 40:                                               ; preds = %34
   %41 = fsub double %36, %38
   %42 = fmul double %41, %41
-  %43 = getelementptr inbounds nuw double, ptr %28, i64 %indvars.iv.i
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv.i
   store double %42, ptr %43, align 8, !tbaa !45
   %44 = fadd double %.03334.i, %42
   br label %45
@@ -1454,7 +1453,7 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %24
 49:                                               ; preds = %45
   %50 = fsub double %36, %47
   %51 = fmul double %50, %50
-  %52 = getelementptr inbounds nuw double, ptr %28, i64 %indvars.iv.i
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv.i
   store double %51, ptr %52, align 8, !tbaa !45
   %53 = fadd double %.1.i, %51
   br label %54
@@ -1556,7 +1555,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK9nanoflann24KDTreeSingleIndexAdaptor
   %17 = load ptr, ptr %16, align 8, !tbaa !43
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %19 = load i64, ptr %18, align 8, !tbaa !39
-  %20 = getelementptr double, ptr %17, i64 %19
+  %20 = getelementptr [8 x i8], ptr %17, i64 %19
   %21 = getelementptr i8, ptr %20, i64 -8
   %22 = load double, ptr %21, align 8, !tbaa !45
   %23 = load i64, ptr %3, align 8, !tbaa !99
@@ -1582,7 +1581,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK9nanoflann24KDTreeSingleIndexAdaptor
 36:                                               ; preds = %.lr.ph, %.critedge
   %37 = phi i64 [ %19, %.lr.ph ], [ %120, %.critedge ]
   %.06778 = phi i64 [ %23, %.lr.ph ], [ %121, %.critedge ]
-  %38 = getelementptr inbounds nuw i64, ptr %26, i64 %.06778
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %.06778
   %39 = load i64, ptr %38, align 8, !tbaa !31
   %40 = load ptr, ptr %27, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
@@ -1594,7 +1593,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK9nanoflann24KDTreeSingleIndexAdaptor
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %45 = load i64, ptr %44, align 8, !tbaa !18
   %46 = mul nsw i64 %45, %39
-  %invariant.gep.i = getelementptr double, ptr %43, i64 %46
+  %invariant.gep.i = getelementptr [8 x i8], ptr %43, i64 %46
   br label %47
 
 47:                                               ; preds = %47, %.lr.ph.i
@@ -1602,27 +1601,27 @@ define linkonce_odr noundef zeroext i1 @_ZNK9nanoflann24KDTreeSingleIndexAdaptor
   %.045.us60.i = phi double [ 0.000000e+00, %.lr.ph.i ], [ %75, %47 ]
   %.047.us59.i = phi i64 [ 0, %.lr.ph.i ], [ %66, %47 ]
   %48 = load double, ptr %.043.us61.i, align 8, !tbaa !45
-  %gep.i = getelementptr double, ptr %invariant.gep.i, i64 %.047.us59.i
+  %gep.i = getelementptr [8 x i8], ptr %invariant.gep.i, i64 %.047.us59.i
   %49 = load double, ptr %gep.i, align 8, !tbaa !45
   %50 = fsub double %48, %49
   %51 = getelementptr inbounds nuw i8, ptr %.043.us61.i, i64 8
   %52 = load double, ptr %51, align 8, !tbaa !45
-  %53 = getelementptr double, ptr %43, i64 %.047.us59.i
+  %53 = getelementptr [8 x i8], ptr %43, i64 %.047.us59.i
   %54 = getelementptr i8, ptr %53, i64 8
-  %55 = getelementptr double, ptr %54, i64 %46
+  %55 = getelementptr [8 x i8], ptr %54, i64 %46
   %56 = load double, ptr %55, align 8, !tbaa !45
   %57 = fsub double %52, %56
   %58 = getelementptr inbounds nuw i8, ptr %.043.us61.i, i64 16
   %59 = load double, ptr %58, align 8, !tbaa !45
   %60 = getelementptr i8, ptr %53, i64 16
-  %61 = getelementptr double, ptr %60, i64 %46
+  %61 = getelementptr [8 x i8], ptr %60, i64 %46
   %62 = load double, ptr %61, align 8, !tbaa !45
   %63 = fsub double %59, %62
   %64 = getelementptr inbounds nuw i8, ptr %.043.us61.i, i64 24
   %65 = load double, ptr %64, align 8, !tbaa !45
   %66 = add nuw nsw i64 %.047.us59.i, 4
   %67 = getelementptr i8, ptr %53, i64 24
-  %68 = getelementptr double, ptr %67, i64 %46
+  %68 = getelementptr [8 x i8], ptr %67, i64 %46
   %69 = load double, ptr %68, align 8, !tbaa !45
   %70 = fsub double %65, %69
   %71 = fmul double %57, %57
@@ -1647,7 +1646,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK9nanoflann24KDTreeSingleIndexAdaptor
   %81 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %82 = load i64, ptr %81, align 8, !tbaa !18
   %83 = mul nsw i64 %82, %39
-  %invariant.gep69.i = getelementptr double, ptr %80, i64 %83
+  %invariant.gep69.i = getelementptr [8 x i8], ptr %80, i64 %83
   br label %84
 
 84:                                               ; preds = %84, %.lr.ph67.i
@@ -1657,7 +1656,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK9nanoflann24KDTreeSingleIndexAdaptor
   %85 = getelementptr inbounds nuw i8, ptr %.14466.i, i64 8
   %86 = load double, ptr %.14466.i, align 8, !tbaa !45
   %87 = add nuw nsw i64 %.14864.i, 1
-  %gep70.i = getelementptr double, ptr %invariant.gep69.i, i64 %.14864.i
+  %gep70.i = getelementptr [8 x i8], ptr %invariant.gep69.i, i64 %.14864.i
   %88 = load double, ptr %gep70.i, align 8, !tbaa !45
   %89 = fsub double %86, %88
   %90 = tail call double @llvm.fmuladd.f64(double %89, double %89, double %.14665.i)
@@ -1681,7 +1680,7 @@ _ZNK9nanoflann10L2_AdaptorIdNS_24KDTreeEigenMatrixAdaptorIKN5Eigen6MatrixIdLin1E
 96:                                               ; preds = %108, %.lr.ph.i73
   %.017.i = phi i64 [ %94, %.lr.ph.i73 ], [ %97, %108 ]
   %97 = add i64 %.017.i, -1
-  %98 = getelementptr inbounds nuw double, ptr %17, i64 %97
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %97
   %99 = load double, ptr %98, align 8, !tbaa !45
   %100 = fcmp ogt double %99, %.2.i
   %.pre82.pre83 = load i64, ptr %18, align 8, !tbaa !39
@@ -1692,11 +1691,11 @@ _ZNK9nanoflann10L2_AdaptorIdNS_24KDTreeEigenMatrixAdaptorIKN5Eigen6MatrixIdLin1E
   br i1 %102, label %103, label %108
 
 103:                                              ; preds = %101
-  %104 = getelementptr inbounds nuw double, ptr %17, i64 %.017.i
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %.017.i
   store double %99, ptr %104, align 8, !tbaa !45
-  %105 = getelementptr inbounds nuw i64, ptr %95, i64 %97
+  %105 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %97
   %106 = load i64, ptr %105, align 8, !tbaa !31
-  %107 = getelementptr inbounds nuw i64, ptr %95, i64 %.017.i
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %.017.i
   store i64 %106, ptr %107, align 8, !tbaa !31
   br label %108
 
@@ -1715,9 +1714,9 @@ _ZNK9nanoflann10L2_AdaptorIdNS_24KDTreeEigenMatrixAdaptorIKN5Eigen6MatrixIdLin1E
   br i1 %110, label %111, label %114
 
 111:                                              ; preds = %._crit_edge.i
-  %112 = getelementptr inbounds nuw double, ptr %17, i64 %.0.lcssa.i
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %.0.lcssa.i
   store double %.2.i, ptr %112, align 8, !tbaa !45
-  %113 = getelementptr inbounds nuw i64, ptr %35, i64 %.0.lcssa.i
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %.0.lcssa.i
   store i64 %39, ptr %113, align 8, !tbaa !31
   %.pre.i = load i64, ptr %18, align 8, !tbaa !39
   br label %114
@@ -1743,7 +1742,7 @@ _ZNK9nanoflann10L2_AdaptorIdNS_24KDTreeEigenMatrixAdaptorIKN5Eigen6MatrixIdLin1E
 123:                                              ; preds = %11, %7
   %124 = load i32, ptr %3, align 8, !tbaa !99
   %125 = sext i32 %124 to i64
-  %126 = getelementptr inbounds double, ptr %2, i64 %125
+  %126 = getelementptr inbounds [8 x i8], ptr %2, i64 %125
   %127 = load double, ptr %126, align 8, !tbaa !45
   %128 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %129 = load double, ptr %128, align 8, !tbaa !99
@@ -1765,7 +1764,7 @@ _ZNK9nanoflann10L2_AdaptorIdNS_24KDTreeEigenMatrixAdaptorIKN5Eigen6MatrixIdLin1E
   %141 = fmul double %130, %130
   %.064 = select i1 %135, double %140, double %141
   %142 = load ptr, ptr %5, align 8, !tbaa !30
-  %143 = getelementptr inbounds nuw double, ptr %142, i64 %125
+  %143 = getelementptr inbounds nuw [8 x i8], ptr %142, i64 %125
   %144 = load double, ptr %143, align 8, !tbaa !45
   %145 = fadd double %4, %.064
   %146 = fsub double %145, %144
@@ -1776,7 +1775,7 @@ _ZNK9nanoflann10L2_AdaptorIdNS_24KDTreeEigenMatrixAdaptorIKN5Eigen6MatrixIdLin1E
   %150 = load ptr, ptr %149, align 8, !tbaa !43
   %151 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %152 = load i64, ptr %151, align 8, !tbaa !39
-  %153 = getelementptr double, ptr %150, i64 %152
+  %153 = getelementptr [8 x i8], ptr %150, i64 %152
   %154 = getelementptr i8, ptr %153, i64 -8
   %155 = load double, ptr %154, align 8, !tbaa !45
   %156 = fcmp ugt double %148, %155
@@ -1792,7 +1791,7 @@ _ZNK9nanoflann10L2_AdaptorIdNS_24KDTreeEigenMatrixAdaptorIKN5Eigen6MatrixIdLin1E
 
 159:                                              ; preds = %._crit_edge, %139
   %160 = phi ptr [ %.pre, %._crit_edge ], [ %142, %139 ]
-  %161 = getelementptr inbounds nuw double, ptr %160, i64 %125
+  %161 = getelementptr inbounds nuw [8 x i8], ptr %160, i64 %125
   store double %144, ptr %161, align 8, !tbaa !45
   br label %.critedge72
 
@@ -1867,7 +1866,7 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %24
 .lr.ph.i:                                         ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.i
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %28, i8 0, i64 %27, i1 false), !tbaa !45
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 %27
-  %30 = getelementptr inbounds nuw double, ptr %28, i64 %22
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %22
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %28, ptr %5, align 8, !tbaa !30
   store ptr %29, ptr %31, align 8, !tbaa !28
@@ -1880,9 +1879,9 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %24
 34:                                               ; preds = %54, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %54 ]
   %.03334.i = phi double [ 0.000000e+00, %.lr.ph.i ], [ %.2.i, %54 ]
-  %35 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv.i
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.i
   %36 = load double, ptr %35, align 8, !tbaa !45
-  %37 = getelementptr inbounds nuw %"struct.nanoflann::KDTreeBaseClass<nanoflann::KDTreeSingleIndexAdaptor<nanoflann::L2_Adaptor<double, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, double, long>, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, -1, long>, nanoflann::L2_Adaptor<double, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, double, long>, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, -1, long>::Interval", ptr %33, i64 %indvars.iv.i
+  %37 = getelementptr inbounds nuw [16 x i8], ptr %33, i64 %indvars.iv.i
   %38 = load double, ptr %37, align 8, !tbaa !92
   %39 = fcmp olt double %36, %38
   br i1 %39, label %40, label %45
@@ -1890,7 +1889,7 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %24
 40:                                               ; preds = %34
   %41 = fsub double %36, %38
   %42 = fmul double %41, %41
-  %43 = getelementptr inbounds nuw double, ptr %28, i64 %indvars.iv.i
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv.i
   store double %42, ptr %43, align 8, !tbaa !45
   %44 = fadd double %.03334.i, %42
   br label %45
@@ -1905,7 +1904,7 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %24
 49:                                               ; preds = %45
   %50 = fsub double %36, %47
   %51 = fmul double %50, %50
-  %52 = getelementptr inbounds nuw double, ptr %28, i64 %indvars.iv.i
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv.i
   store double %51, ptr %52, align 8, !tbaa !45
   %53 = fadd double %.1.i, %51
   br label %54
@@ -2001,7 +2000,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK9nanoflann24KDTreeSingleIndexAdaptor
 23:                                               ; preds = %.lr.ph, %.critedge
   %.06778 = phi i64 [ %17, %.lr.ph ], [ %117, %.critedge ]
   %24 = load ptr, ptr %0, align 8, !tbaa !100
-  %25 = getelementptr inbounds nuw i64, ptr %24, i64 %.06778
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %.06778
   %26 = load i64, ptr %25, align 8, !tbaa !31
   %27 = load i32, ptr %21, align 8, !tbaa !90
   %28 = sext i32 %27 to i64
@@ -2019,7 +2018,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK9nanoflann24KDTreeSingleIndexAdaptor
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %37 = load i64, ptr %36, align 8, !tbaa !18
   %38 = mul nsw i64 %37, %26
-  %invariant.gep.i = getelementptr double, ptr %35, i64 %38
+  %invariant.gep.i = getelementptr [8 x i8], ptr %35, i64 %38
   br label %39
 
 39:                                               ; preds = %39, %.lr.ph.i
@@ -2027,27 +2026,27 @@ define linkonce_odr noundef zeroext i1 @_ZNK9nanoflann24KDTreeSingleIndexAdaptor
   %.045.us60.i = phi double [ 0.000000e+00, %.lr.ph.i ], [ %67, %39 ]
   %.047.us59.i = phi i64 [ 0, %.lr.ph.i ], [ %58, %39 ]
   %40 = load double, ptr %.043.us61.i, align 8, !tbaa !45
-  %gep.i = getelementptr double, ptr %invariant.gep.i, i64 %.047.us59.i
+  %gep.i = getelementptr [8 x i8], ptr %invariant.gep.i, i64 %.047.us59.i
   %41 = load double, ptr %gep.i, align 8, !tbaa !45
   %42 = fsub double %40, %41
   %43 = getelementptr inbounds nuw i8, ptr %.043.us61.i, i64 8
   %44 = load double, ptr %43, align 8, !tbaa !45
-  %45 = getelementptr double, ptr %35, i64 %.047.us59.i
+  %45 = getelementptr [8 x i8], ptr %35, i64 %.047.us59.i
   %46 = getelementptr i8, ptr %45, i64 8
-  %47 = getelementptr double, ptr %46, i64 %38
+  %47 = getelementptr [8 x i8], ptr %46, i64 %38
   %48 = load double, ptr %47, align 8, !tbaa !45
   %49 = fsub double %44, %48
   %50 = getelementptr inbounds nuw i8, ptr %.043.us61.i, i64 16
   %51 = load double, ptr %50, align 8, !tbaa !45
   %52 = getelementptr i8, ptr %45, i64 16
-  %53 = getelementptr double, ptr %52, i64 %38
+  %53 = getelementptr [8 x i8], ptr %52, i64 %38
   %54 = load double, ptr %53, align 8, !tbaa !45
   %55 = fsub double %51, %54
   %56 = getelementptr inbounds nuw i8, ptr %.043.us61.i, i64 24
   %57 = load double, ptr %56, align 8, !tbaa !45
   %58 = add nuw nsw i64 %.047.us59.i, 4
   %59 = getelementptr i8, ptr %45, i64 24
-  %60 = getelementptr double, ptr %59, i64 %38
+  %60 = getelementptr [8 x i8], ptr %59, i64 %38
   %61 = load double, ptr %60, align 8, !tbaa !45
   %62 = fsub double %57, %61
   %63 = fmul double %49, %49
@@ -2072,7 +2071,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK9nanoflann24KDTreeSingleIndexAdaptor
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %74 = load i64, ptr %73, align 8, !tbaa !18
   %75 = mul nsw i64 %74, %26
-  %invariant.gep69.i = getelementptr double, ptr %72, i64 %75
+  %invariant.gep69.i = getelementptr [8 x i8], ptr %72, i64 %75
   br label %76
 
 76:                                               ; preds = %76, %.lr.ph67.i
@@ -2082,7 +2081,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK9nanoflann24KDTreeSingleIndexAdaptor
   %77 = getelementptr inbounds nuw i8, ptr %.14466.i, i64 8
   %78 = load double, ptr %.14466.i, align 8, !tbaa !45
   %79 = add nuw nsw i64 %.14864.i, 1
-  %gep70.i = getelementptr double, ptr %invariant.gep69.i, i64 %.14864.i
+  %gep70.i = getelementptr [8 x i8], ptr %invariant.gep69.i, i64 %.14864.i
   %80 = load double, ptr %gep70.i, align 8, !tbaa !45
   %81 = fsub double %78, %80
   %82 = tail call double @llvm.fmuladd.f64(double %81, double %81, double %.14665.i)
@@ -2160,7 +2159,7 @@ _ZNSt6vectorIN9nanoflann10ResultItemIldEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.ex
 _ZNSt6vectorIN9nanoflann10ResultItemIldEESaIS2_EE17_M_realloc_insertIJRlRdEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %115, %_ZNSt6vectorIN9nanoflann10ResultItemIldEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit27.i.i.i
   store ptr %109, ptr %88, align 8, !tbaa !63
   store ptr %114, ptr %89, align 8, !tbaa !60
-  %116 = getelementptr inbounds nuw %"struct.nanoflann::ResultItem", ptr %109, i64 %107
+  %116 = getelementptr inbounds nuw [16 x i8], ptr %109, i64 %107
   store ptr %116, ptr %91, align 8, !tbaa !67
   br label %.critedge
 
@@ -2173,7 +2172,7 @@ _ZNSt6vectorIN9nanoflann10ResultItemIldEESaIS2_EE17_M_realloc_insertIJRlRdEEEvN9
 119:                                              ; preds = %11, %7
   %120 = load i32, ptr %3, align 8, !tbaa !99
   %121 = sext i32 %120 to i64
-  %122 = getelementptr inbounds double, ptr %2, i64 %121
+  %122 = getelementptr inbounds [8 x i8], ptr %2, i64 %121
   %123 = load double, ptr %122, align 8, !tbaa !45
   %124 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %125 = load double, ptr %124, align 8, !tbaa !99
@@ -2195,7 +2194,7 @@ _ZNSt6vectorIN9nanoflann10ResultItemIldEESaIS2_EE17_M_realloc_insertIJRlRdEEEvN9
   %137 = fmul double %126, %126
   %.064 = select i1 %131, double %136, double %137
   %138 = load ptr, ptr %5, align 8, !tbaa !30
-  %139 = getelementptr inbounds nuw double, ptr %138, i64 %121
+  %139 = getelementptr inbounds nuw [8 x i8], ptr %138, i64 %121
   %140 = load double, ptr %139, align 8, !tbaa !45
   %141 = fadd double %4, %.064
   %142 = fsub double %141, %140
@@ -2216,7 +2215,7 @@ _ZNSt6vectorIN9nanoflann10ResultItemIldEESaIS2_EE17_M_realloc_insertIJRlRdEEEvN9
 
 149:                                              ; preds = %._crit_edge, %135
   %150 = phi ptr [ %.pre, %._crit_edge ], [ %138, %135 ]
-  %151 = getelementptr inbounds nuw double, ptr %150, i64 %121
+  %151 = getelementptr inbounds nuw [8 x i8], ptr %150, i64 %121
   store double %140, ptr %151, align 8, !tbaa !45
   br label %.critedge72
 
@@ -2264,13 +2263,13 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
   %27 = and i64 %.fr.i27.lcssa, 16
   %28 = icmp eq i64 %27, 0
   %29 = or disjoint i64 %23, 1
-  %30 = getelementptr inbounds nuw %"struct.nanoflann::ResultItem", ptr %0, i64 %29
-  %31 = getelementptr inbounds nuw %"struct.nanoflann::ResultItem", ptr %0, i64 %24
+  %30 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %29
+  %31 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %24
   br label %32
 
 32:                                               ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN9nanoflann10ResultItemIldEESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterINS2_16IndexDist_SorterEEEEvT_T0_SF_T1_T2_.exit.i.i, %._crit_edge
   %.010.i.i = phi i64 [ %24, %._crit_edge ], [ %60, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN9nanoflann10ResultItemIldEESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterINS2_16IndexDist_SorterEEEEvT_T0_SF_T1_T2_.exit.i.i ]
-  %33 = getelementptr inbounds %"struct.nanoflann::ResultItem", ptr %0, i64 %.010.i.i
+  %33 = getelementptr inbounds [16 x i8], ptr %0, i64 %.010.i.i
   %.sroa.03.0.copyload.i.i = load i64, ptr %33, align 8, !tbaa !31
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %33, i64 8
   %.sroa.4.0.copyload.i.i = load double, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !tbaa !45
@@ -2281,17 +2280,17 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
   %.037.i.i.i = phi i64 [ %spec.select.i.i.i, %.lr.ph.i.i.i ], [ %.010.i.i, %32 ]
   %35 = shl i64 %.037.i.i.i, 1
   %36 = add i64 %35, 2
-  %37 = getelementptr inbounds %"struct.nanoflann::ResultItem", ptr %0, i64 %36
+  %37 = getelementptr inbounds [16 x i8], ptr %0, i64 %36
   %38 = or disjoint i64 %35, 1
-  %39 = getelementptr inbounds %"struct.nanoflann::ResultItem", ptr %0, i64 %38
+  %39 = getelementptr inbounds [16 x i8], ptr %0, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %41 = load double, ptr %40, align 8, !tbaa !70
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %43 = load double, ptr %42, align 8, !tbaa !70
   %44 = fcmp olt double %41, %43
   %spec.select.i.i.i = select i1 %44, i64 %38, i64 %36
-  %45 = getelementptr inbounds %"struct.nanoflann::ResultItem", ptr %0, i64 %spec.select.i.i.i
-  %46 = getelementptr inbounds %"struct.nanoflann::ResultItem", ptr %0, i64 %.037.i.i.i
+  %45 = getelementptr inbounds [16 x i8], ptr %0, i64 %spec.select.i.i.i
+  %46 = getelementptr inbounds [16 x i8], ptr %0, i64 %.037.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %46, ptr noundef nonnull align 8 dereferenceable(16) %45, i64 16, i1 false), !tbaa.struct !108
   %47 = icmp slt i64 %spec.select.i.i.i, %26
   br i1 %47, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !109
@@ -2315,21 +2314,21 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
   %.019.i.i.i.i = phi i64 [ %.0920.i.i.i.i, %56 ], [ %.1.i.i.i, %50 ]
   %.0920.in.i.i.i.i = add nsw i64 %.019.i.i.i.i, -1
   %.0920.i.i.i.i = sdiv i64 %.0920.in.i.i.i.i, 2
-  %52 = getelementptr inbounds nuw %"struct.nanoflann::ResultItem", ptr %0, i64 %.0920.i.i.i.i
+  %52 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %.0920.i.i.i.i
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %54 = load double, ptr %53, align 8, !tbaa !70
   %55 = fcmp olt double %54, %.sroa.4.0.copyload.i.i
   br i1 %55, label %56, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN9nanoflann10ResultItemIldEESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterINS2_16IndexDist_SorterEEEEvT_T0_SF_T1_T2_.exit.i.i
 
 56:                                               ; preds = %.lr.ph.i.i.i.i17
-  %57 = getelementptr inbounds nuw %"struct.nanoflann::ResultItem", ptr %0, i64 %.019.i.i.i.i
+  %57 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %.019.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %57, ptr noundef nonnull align 8 dereferenceable(16) %52, i64 16, i1 false), !tbaa.struct !108
   %58 = icmp sgt i64 %.0920.i.i.i.i, %.010.i.i
   br i1 %58, label %.lr.ph.i.i.i.i17, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN9nanoflann10ResultItemIldEESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterINS2_16IndexDist_SorterEEEEvT_T0_SF_T1_T2_.exit.i.i, !llvm.loop !110
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN9nanoflann10ResultItemIldEESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterINS2_16IndexDist_SorterEEEEvT_T0_SF_T1_T2_.exit.i.i: ; preds = %56, %.lr.ph.i.i.i.i17, %50
   %.0.lcssa.i.i.i.i16 = phi i64 [ %.1.i.i.i, %50 ], [ %.0920.i.i.i.i, %56 ], [ %.019.i.i.i.i, %.lr.ph.i.i.i.i17 ]
-  %59 = getelementptr inbounds nuw %"struct.nanoflann::ResultItem", ptr %0, i64 %.0.lcssa.i.i.i.i16
+  %59 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %.0.lcssa.i.i.i.i16
   store i64 %.sroa.03.0.copyload.i.i, ptr %59, align 8, !tbaa !31
   %.sroa.2.0..sroa.0.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %59, i64 8
   store double %.sroa.4.0.copyload.i.i, ptr %.sroa.2.0..sroa.0.0..sroa_idx.i.i.i.i, align 8, !tbaa !45
@@ -2360,17 +2359,17 @@ _ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN9nanoflann10ResultItemIldEE
   %.037.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ 0, %.lr.ph.i.i ]
   %69 = shl i64 %.037.i.i.i.i, 1
   %70 = add i64 %69, 2
-  %71 = getelementptr inbounds %"struct.nanoflann::ResultItem", ptr %0, i64 %70
+  %71 = getelementptr inbounds [16 x i8], ptr %0, i64 %70
   %72 = or disjoint i64 %69, 1
-  %73 = getelementptr inbounds %"struct.nanoflann::ResultItem", ptr %0, i64 %72
+  %73 = getelementptr inbounds [16 x i8], ptr %0, i64 %72
   %74 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %75 = load double, ptr %74, align 8, !tbaa !70
   %76 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %77 = load double, ptr %76, align 8, !tbaa !70
   %78 = fcmp olt double %75, %77
   %spec.select.i.i.i.i = select i1 %78, i64 %72, i64 %70
-  %79 = getelementptr inbounds %"struct.nanoflann::ResultItem", ptr %0, i64 %spec.select.i.i.i.i
-  %80 = getelementptr inbounds %"struct.nanoflann::ResultItem", ptr %0, i64 %.037.i.i.i.i
+  %79 = getelementptr inbounds [16 x i8], ptr %0, i64 %spec.select.i.i.i.i
+  %80 = getelementptr inbounds [16 x i8], ptr %0, i64 %.037.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %80, ptr noundef nonnull align 8 dereferenceable(16) %79, i64 16, i1 false), !tbaa.struct !108
   %81 = icmp slt i64 %spec.select.i.i.i.i, %67
   br i1 %81, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !109
@@ -2390,8 +2389,8 @@ _ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN9nanoflann10ResultItemIldEE
 .thread.i.i.i:                                    ; preds = %84
   %88 = shl nuw nsw i64 %.0.lcssa.i.i.i.i, 1
   %89 = or disjoint i64 %88, 1
-  %90 = getelementptr inbounds nuw %"struct.nanoflann::ResultItem", ptr %0, i64 %89
-  %91 = getelementptr inbounds %"struct.nanoflann::ResultItem", ptr %0, i64 %.0.lcssa.i.i.i.i
+  %90 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %89
+  %91 = getelementptr inbounds [16 x i8], ptr %0, i64 %.0.lcssa.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %91, ptr noundef nonnull align 8 dereferenceable(16) %90, i64 16, i1 false), !tbaa.struct !108
   br label %.lr.ph.i.i.i.i.i.preheader
 
@@ -2407,21 +2406,21 @@ _ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN9nanoflann10ResultItemIldEE
   %.019.i.i.i.i.i = phi i64 [ %.0920.i.i89.i.i.i, %97 ], [ %.019.i.i.i.i.i.ph, %.lr.ph.i.i.i.i.i.preheader ]
   %.0920.in.i.i.i.i.i = add nsw i64 %.019.i.i.i.i.i, -1
   %.0920.i.i89.i.i.i = lshr i64 %.0920.in.i.i.i.i.i, 1
-  %93 = getelementptr inbounds nuw %"struct.nanoflann::ResultItem", ptr %0, i64 %.0920.i.i89.i.i.i
+  %93 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %.0920.i.i89.i.i.i
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 8
   %95 = load double, ptr %94, align 8, !tbaa !70
   %96 = fcmp olt double %95, %.sroa.4.0.copyload.i.i.i
   br i1 %96, label %97, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN9nanoflann10ResultItemIldEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterINS2_16IndexDist_SorterEEEEvT_SE_SE_RT0_.exit.i.i
 
 97:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %98 = getelementptr inbounds %"struct.nanoflann::ResultItem", ptr %0, i64 %.019.i.i.i.i.i
+  %98 = getelementptr inbounds [16 x i8], ptr %0, i64 %.019.i.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %98, ptr noundef nonnull align 8 dereferenceable(16) %93, i64 16, i1 false), !tbaa.struct !108
   %.not10.i.i.i = icmp eq i64 %.0920.i.i89.i.i.i, 0
   br i1 %.not10.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN9nanoflann10ResultItemIldEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterINS2_16IndexDist_SorterEEEEvT_SE_SE_RT0_.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !110
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN9nanoflann10ResultItemIldEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterINS2_16IndexDist_SorterEEEEvT_SE_SE_RT0_.exit.i.i: ; preds = %97, %.lr.ph.i.i.i.i.i, %92
   %.0.lcssa.i.i.i.i.i = phi i64 [ 0, %92 ], [ %.019.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ 0, %97 ]
-  %99 = getelementptr inbounds %"struct.nanoflann::ResultItem", ptr %0, i64 %.0.lcssa.i.i.i.i.i
+  %99 = getelementptr inbounds [16 x i8], ptr %0, i64 %.0.lcssa.i.i.i.i.i
   store i64 %.sroa.03.0.copyload.i.i.i, ptr %99, align 8, !tbaa !31
   %.sroa.2.0..sroa.0.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %99, i64 8
   store double %.sroa.4.0.copyload.i.i.i, ptr %.sroa.2.0..sroa.0.0..sroa_idx.i.i.i.i.i, align 8, !tbaa !45
@@ -2434,7 +2433,7 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN9nanoflann10ResultItemIldEESt6
   %101 = phi i64 [ %140, %20 ], [ %14, %.lr.ph ]
   %102 = add nsw i64 %.02646, -1
   %103 = lshr i64 %101, 1
-  %104 = getelementptr inbounds nuw %"struct.nanoflann::ResultItem", ptr %0, i64 %103
+  %104 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %103
   %105 = getelementptr inbounds i8, ptr %storemerge2547, i64 -16
   %106 = load double, ptr %17, align 8, !tbaa !70
   %107 = getelementptr inbounds nuw i8, ptr %104, i64 8
@@ -2698,7 +2697,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN9nanoflann10Res
 49:                                               ; preds = %44
   %50 = getelementptr inbounds nuw i8, ptr %.pn18.i26, i64 32
   %51 = sub nsw i64 0, %47
-  %52 = getelementptr inbounds %"struct.nanoflann::ResultItem", ptr %50, i64 %51
+  %52 = getelementptr inbounds [16 x i8], ptr %50, i64 %51
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %52, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %46, i1 false)
   br label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN9nanoflann10ResultItemIldEESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i36
 
@@ -2828,7 +2827,7 @@ define weak_odr noundef i32 @_ZNK6open3d8geometry11KDTreeFlann9SearchKNNIN5Eigen
   br i1 %32, label %33, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 33:                                               ; preds = %31
-  %34 = getelementptr inbounds nuw i32, ptr %23, i64 %20
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %20
   %.not.i.i = icmp eq ptr %22, %34
   br i1 %.not.i.i, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit, label %_ZSt8_DestroyIPiiEvT_S1_RSaIT0_E.exit.i.i
 
@@ -2857,7 +2856,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit.thread:        ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %45, label %46, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 
 46:                                               ; preds = %44
-  %47 = getelementptr inbounds nuw double, ptr %37, i64 %20
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %20
   %.not.i.i27 = icmp eq ptr %36, %47
   br i1 %.not.i.i27, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit, label %_ZSt8_DestroyIPddEvT_S1_RSaIT0_E.exit.i.i
 
@@ -2872,7 +2871,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %44, %46, %_ZSt8_Des
 .noexc:                                           ; preds = %_ZNSt6vectorIdSaIdEE6resizeEm.exit.thread, %_ZNSt6vectorIdSaIdEE6resizeEm.exit
   %48 = shl nuw nsw i64 %20, 3
   %49 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %48) #30
-  %50 = getelementptr inbounds nuw i64, ptr %49, i64 %20
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %20
   store i64 0, ptr %49, align 8, !tbaa !31
   %51 = add nsw i64 %20, -1
   %52 = icmp eq i64 %51, 0
@@ -2904,7 +2903,7 @@ _ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc
   br i1 %.not.i.i.i.i46, label %_ZN9nanoflann12KNNResultSetIdlmE4initEPlPd.exit.i, label %63
 
 63:                                               ; preds = %54
-  %64 = getelementptr double, ptr %59, i64 %20
+  %64 = getelementptr [8 x i8], ptr %59, i64 %20
   %65 = getelementptr i8, ptr %64, i64 -8
   store double 0x7FEFFFFFFFFFFFFF, ptr %65, align 8, !tbaa !45
   br label %_ZN9nanoflann12KNNResultSetIdlmE4initEPlPd.exit.i
@@ -2943,7 +2942,7 @@ _ZN9nanoflann12KNNResultSetIdlmE4initEPlPd.exit.i: ; preds = %63, %54
   br i1 %82, label %83, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit33
 
 83:                                               ; preds = %81
-  %84 = getelementptr inbounds nuw i32, ptr %73, i64 %71
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %73, i64 %71
   %.not.i.i30 = icmp eq ptr %72, %84
   br i1 %.not.i.i30, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit33, label %_ZSt8_DestroyIPiiEvT_S1_RSaIT0_E.exit.i.i31
 
@@ -2971,7 +2970,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit33:             ; preds = %_ZSt8_DestroyIPiiEv
   br i1 %95, label %96, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit37
 
 96:                                               ; preds = %94
-  %97 = getelementptr inbounds nuw double, ptr %86, i64 %71
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %86, i64 %71
   %.not.i.i34 = icmp eq ptr %85, %97
   br i1 %.not.i.i34, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit37, label %_ZSt8_DestroyIPddEvT_S1_RSaIT0_E.exit.i.i35
 
@@ -3130,7 +3129,7 @@ _ZN9nanoflann15RadiusResultSetIdlEC2EdRSt6vectorINS_10ResultItemIldEESaIS4_EE.ex
   br i1 %61, label %62, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 62:                                               ; preds = %60
-  %63 = getelementptr inbounds nuw i32, ptr %52, i64 %49
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %49
   %.not.i.i = icmp eq ptr %51, %63
   br i1 %.not.i.i, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit, label %_ZSt8_DestroyIPiiEvT_S1_RSaIT0_E.exit.i.i
 
@@ -3159,7 +3158,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %_ZSt8_DestroyIPiiEv
   br i1 %75, label %76, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 
 76:                                               ; preds = %74
-  %77 = getelementptr inbounds nuw double, ptr %66, i64 %49
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %49
   %.not.i.i29 = icmp eq ptr %65, %77
   br i1 %.not.i.i29, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit, label %_ZSt8_DestroyIPddEvT_S1_RSaIT0_E.exit.i.i
 
@@ -3213,14 +3212,14 @@ _ZNSt6vectorIN9nanoflann10ResultItemIldEESaIS2_EED2Ev.exit: ; preds = %._crit_ed
 
 92:                                               ; preds = %.lr.ph, %92
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %92 ]
-  %93 = getelementptr inbounds nuw %"struct.nanoflann::ResultItem", ptr %.pre37, i64 %indvars.iv
+  %93 = getelementptr inbounds nuw [16 x i8], ptr %.pre37, i64 %indvars.iv
   %94 = load i64, ptr %93, align 8, !tbaa !68
   %95 = trunc i64 %94 to i32
-  %96 = getelementptr inbounds nuw i32, ptr %79, i64 %indvars.iv
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %79, i64 %indvars.iv
   store i32 %95, ptr %96, align 4, !tbaa !52
   %97 = getelementptr inbounds nuw i8, ptr %93, i64 8
   %98 = load double, ptr %97, align 8, !tbaa !70
-  %99 = getelementptr inbounds nuw double, ptr %80, i64 %indvars.iv
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %indvars.iv
   store double %98, ptr %99, align 8, !tbaa !45
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -3292,7 +3291,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit.thread:        ; preds = %20
   br i1 %32, label %33, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 
 33:                                               ; preds = %31
-  %34 = getelementptr inbounds nuw double, ptr %24, i64 %21
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %21
   %.not.i.i = icmp eq ptr %23, %34
   br i1 %.not.i.i, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit, label %_ZSt8_DestroyIPddEvT_S1_RSaIT0_E.exit.i.i
 
@@ -3307,7 +3306,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %31, %33, %_ZSt8_Des
 .noexc:                                           ; preds = %_ZNSt6vectorIdSaIdEE6resizeEm.exit.thread, %_ZNSt6vectorIdSaIdEE6resizeEm.exit
   %35 = shl nuw nsw i64 %21, 3
   %36 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %35) #30
-  %37 = getelementptr inbounds nuw i64, ptr %36, i64 %21
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %21
   store i64 0, ptr %36, align 8, !tbaa !31
   %38 = add nsw i64 %21, -1
   %39 = icmp eq i64 %38, 0
@@ -3339,7 +3338,7 @@ _ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc
   br i1 %.not.i.i.i.i58, label %_ZN9nanoflann12KNNResultSetIdlmE4initEPlPd.exit.i, label %50
 
 50:                                               ; preds = %41
-  %51 = getelementptr double, ptr %46, i64 %21
+  %51 = getelementptr [8 x i8], ptr %46, i64 %21
   %52 = getelementptr i8, ptr %51, i64 -8
   store double 0x7FEFFFFFFFFFFFFF, ptr %52, align 8, !tbaa !45
   br label %_ZN9nanoflann12KNNResultSetIdlmE4initEPlPd.exit.i
@@ -3368,7 +3367,7 @@ _ZSt9__advanceIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEElEvRT_T0_St26
   %.016.i.i = phi i64 [ %.1.i.i, %_ZSt9__advanceIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEElEvRT_T0_St26random_access_iterator_tag.exit.i.i ], [ %60, %55 ]
   %.sroa.011.015.i.i = phi ptr [ %.sroa.011.1.i.i, %_ZSt9__advanceIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEElEvRT_T0_St26random_access_iterator_tag.exit.i.i ], [ %57, %55 ]
   %62 = lshr i64 %.016.i.i, 1
-  %63 = getelementptr inbounds nuw double, ptr %.sroa.011.015.i.i, i64 %62
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.011.015.i.i, i64 %62
   %64 = load double, ptr %63, align 8, !tbaa !45
   %65 = fcmp olt double %64, %58
   %66 = getelementptr inbounds nuw i8, ptr %63, i64 8
@@ -3410,7 +3409,7 @@ _ZSt9__advanceIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEElEvRT_T0_St26
   br i1 %85, label %86, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 86:                                               ; preds = %84
-  %87 = getelementptr inbounds nuw i32, ptr %76, i64 %73
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %73
   %.not.i.i40 = icmp eq ptr %75, %87
   br i1 %.not.i.i40, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit, label %_ZSt8_DestroyIPiiEvT_S1_RSaIT0_E.exit.i.i
 
@@ -3438,7 +3437,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %_ZSt8_DestroyIPiiEv
   br i1 %98, label %99, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit45
 
 99:                                               ; preds = %97
-  %100 = getelementptr inbounds nuw double, ptr %89, i64 %73
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %89, i64 %73
   %.not.i.i42 = icmp eq ptr %88, %100
   br i1 %.not.i.i42, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit45, label %_ZSt8_DestroyIPddEvT_S1_RSaIT0_E.exit.i.i43
 
@@ -3983,8 +3982,8 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %._crit_edge.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i.i = phi i64 [ %33, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %27, %._crit_edge.i.i.i.i.i.i.i.i ]
-  %30 = getelementptr inbounds double, ptr %25, i64 %.05.i.i.i.i.i.i.i.i.i
-  %31 = getelementptr inbounds double, ptr %12, i64 %.05.i.i.i.i.i.i.i.i.i
+  %30 = getelementptr inbounds [8 x i8], ptr %25, i64 %.05.i.i.i.i.i.i.i.i.i
+  %31 = getelementptr inbounds [8 x i8], ptr %12, i64 %.05.i.i.i.i.i.i.i.i.i
   %32 = load double, ptr %31, align 8, !tbaa !45
   store double %32, ptr %30, align 8, !tbaa !45
   %33 = add nsw i64 %.05.i.i.i.i.i.i.i.i.i, 1
@@ -3993,8 +3992,8 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %24, %.lr.ph.i.i.i.i.i.i.i.i
   %.011.i.i.i.i.i.i.i.i = phi i64 [ %37, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %24 ]
-  %34 = getelementptr inbounds nuw double, ptr %25, i64 %.011.i.i.i.i.i.i.i.i
-  %35 = getelementptr inbounds nuw double, ptr %12, i64 %.011.i.i.i.i.i.i.i.i
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %.011.i.i.i.i.i.i.i.i
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.011.i.i.i.i.i.i.i.i
   %36 = load <2 x double>, ptr %35, align 1, !tbaa !99
   store <2 x double> %36, ptr %34, align 16, !tbaa !99
   %37 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i, 2
@@ -4191,7 +4190,7 @@ define linkonce_odr void @_ZN9nanoflann24KDTreeSingleIndexAdaptorINS_10L2_Adapto
   br i1 %24, label %25, label %_ZNSt6vectorIlSaIlEE6resizeEm.exit.i
 
 25:                                               ; preds = %23
-  %26 = getelementptr inbounds nuw i64, ptr %14, i64 %9
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %9
   %.not.i.i.i = icmp eq ptr %13, %26
   br i1 %.not.i.i.i, label %_ZNSt6vectorIlSaIlEE6resizeEm.exit.i, label %_ZSt8_DestroyIPllEvT_S1_RSaIT0_E.exit.i.i.i
 
@@ -4210,7 +4209,7 @@ _ZNSt6vectorIlSaIlEE6resizeEm.exit.i:             ; preds = %_ZSt8_DestroyIPllEv
 
 29:                                               ; preds = %29, %.lr.ph.i
   %.05.i = phi i64 [ 0, %.lr.ph.i ], [ %31, %29 ]
-  %30 = getelementptr inbounds nuw i64, ptr %28, i64 %.05.i
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %.05.i
   store i64 %.05.i, ptr %30, align 8, !tbaa !31
   %31 = add nuw i64 %.05.i, 1
   %32 = load i64, ptr %10, align 8, !tbaa !76
@@ -4437,7 +4436,7 @@ define linkonce_odr void @_ZN9nanoflann24KDTreeSingleIndexAdaptorINS_10L2_Adapto
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds nuw %"struct.nanoflann::KDTreeBaseClass<nanoflann::KDTreeSingleIndexAdaptor<nanoflann::L2_Adaptor<double, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, double, long>, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, -1, long>, nanoflann::L2_Adaptor<double, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, double, long>, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, -1, long>::Interval", ptr %8, i64 %5
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %5
   %.not.i.i.i = icmp eq ptr %7, %19
   br i1 %.not.i.i.i, label %20, label %_ZSt8_DestroyIPN9nanoflann15KDTreeBaseClassINS0_24KDTreeSingleIndexAdaptorINS0_10L2_AdaptorIdNS0_24KDTreeEigenMatrixAdaptorIKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ENS0_9metric_L2ELb0EEEdlEESA_Lin1ElEESB_SA_Lin1ElE8IntervalESE_EvT_SG_RSaIT0_E.exit.i.i.i
 
@@ -4466,7 +4465,7 @@ _ZSt8_DestroyIPN9nanoflann15KDTreeBaseClassINS0_24KDTreeSingleIndexAdaptorINS0_1
   %31 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %32 = load i64, ptr %31, align 8, !tbaa !18
   %33 = mul nsw i64 %32, %29
-  %invariant.gep = getelementptr double, ptr %30, i64 %33
+  %invariant.gep = getelementptr [8 x i8], ptr %30, i64 %33
   %34 = load ptr, ptr %1, align 8, !tbaa !91
   %wide.trip.count = zext nneg i32 %4 to i64
   br label %61
@@ -4501,17 +4500,17 @@ _ZSt8_DestroyIPN9nanoflann15KDTreeBaseClassINS0_24KDTreeSingleIndexAdaptorINS0_1
 
 .preheader.us:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph
   %.03546.us = phi i64 [ 1, %.preheader.lr.ph ], [ %60, %._crit_edge.us ]
-  %45 = getelementptr inbounds nuw i64, ptr %40, i64 %.03546.us
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %.03546.us
   %46 = load i64, ptr %45, align 8, !tbaa !31
   %47 = mul nsw i64 %44, %46
-  %invariant.gep44.us = getelementptr double, ptr %43, i64 %47
+  %invariant.gep44.us = getelementptr [8 x i8], ptr %43, i64 %47
   br label %48
 
 48:                                               ; preds = %.preheader.us, %59
   %indvars.iv51 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next52, %59 ]
-  %gep45.us = getelementptr double, ptr %invariant.gep44.us, i64 %indvars.iv51
+  %gep45.us = getelementptr [8 x i8], ptr %invariant.gep44.us, i64 %indvars.iv51
   %49 = load double, ptr %gep45.us, align 8, !tbaa !45
-  %50 = getelementptr inbounds nuw %"struct.nanoflann::KDTreeBaseClass<nanoflann::KDTreeSingleIndexAdaptor<nanoflann::L2_Adaptor<double, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, double, long>, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, -1, long>, nanoflann::L2_Adaptor<double, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, double, long>, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, -1, long>::Interval", ptr %41, i64 %indvars.iv51
+  %50 = getelementptr inbounds nuw [16 x i8], ptr %41, i64 %indvars.iv51
   %51 = load double, ptr %50, align 8, !tbaa !92
   %52 = fcmp olt double %49, %51
   br i1 %52, label %53, label %54
@@ -4542,9 +4541,9 @@ _ZSt8_DestroyIPN9nanoflann15KDTreeBaseClassINS0_24KDTreeSingleIndexAdaptorINS0_1
 
 61:                                               ; preds = %.lr.ph, %61
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %61 ]
-  %gep = getelementptr double, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %indvars.iv
   %62 = load double, ptr %gep, align 8, !tbaa !45
-  %63 = getelementptr inbounds nuw %"struct.nanoflann::KDTreeBaseClass<nanoflann::KDTreeSingleIndexAdaptor<nanoflann::L2_Adaptor<double, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, double, long>, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, -1, long>, nanoflann::L2_Adaptor<double, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, double, long>, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, -1, long>::Interval", ptr %34, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw [16 x i8], ptr %34, i64 %indvars.iv
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store double %62, ptr %64, align 8, !tbaa !94
   store double %62, ptr %63, align 8, !tbaa !92
@@ -4629,7 +4628,7 @@ _ZN9nanoflann15PooledAllocator6mallocEm.exit:     ; preds = %._crit_edge.i, %24
 
 .lr.ph:                                           ; preds = %40
   %44 = load ptr, ptr %1, align 8, !tbaa !100
-  %45 = getelementptr inbounds nuw i64, ptr %44, i64 %2
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %2
   %46 = load i64, ptr %45, align 8, !tbaa !31
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %48 = load ptr, ptr %47, align 8, !tbaa !156
@@ -4639,7 +4638,7 @@ _ZN9nanoflann15PooledAllocator6mallocEm.exit:     ; preds = %._crit_edge.i, %24
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %53 = load i64, ptr %52, align 8, !tbaa !18
   %54 = mul nsw i64 %53, %46
-  %invariant.gep = getelementptr double, ptr %51, i64 %54
+  %invariant.gep = getelementptr [8 x i8], ptr %51, i64 %54
   %55 = load ptr, ptr %4, align 8, !tbaa !91
   %wide.trip.count = zext nneg i32 %36 to i64
   br label %81
@@ -4664,17 +4663,17 @@ _ZN9nanoflann15PooledAllocator6mallocEm.exit:     ; preds = %._crit_edge.i, %24
 
 .preheader.us:                                    ; preds = %..loopexit_crit_edge.us, %.preheader.lr.ph
   %.086117.us = phi i64 [ %.086116, %.preheader.lr.ph ], [ %.086.us, %..loopexit_crit_edge.us ]
-  %66 = getelementptr inbounds nuw i64, ptr %57, i64 %.086117.us
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %.086117.us
   %67 = load i64, ptr %66, align 8, !tbaa !31
   %68 = mul nsw i64 %65, %67
-  %invariant.gep114.us = getelementptr double, ptr %63, i64 %68
+  %invariant.gep114.us = getelementptr [8 x i8], ptr %63, i64 %68
   br label %69
 
 69:                                               ; preds = %.preheader.us, %80
   %indvars.iv122 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next123, %80 ]
-  %gep115.us = getelementptr double, ptr %invariant.gep114.us, i64 %indvars.iv122
+  %gep115.us = getelementptr [8 x i8], ptr %invariant.gep114.us, i64 %indvars.iv122
   %70 = load double, ptr %gep115.us, align 8, !tbaa !45
-  %71 = getelementptr inbounds nuw %"struct.nanoflann::KDTreeBaseClass<nanoflann::KDTreeSingleIndexAdaptor<nanoflann::L2_Adaptor<double, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, double, long>, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, -1, long>, nanoflann::L2_Adaptor<double, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, double, long>, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, -1, long>::Interval", ptr %58, i64 %indvars.iv122
+  %71 = getelementptr inbounds nuw [16 x i8], ptr %58, i64 %indvars.iv122
   %72 = load double, ptr %71, align 8, !tbaa !92
   %73 = fcmp ogt double %72, %70
   br i1 %73, label %74, label %75
@@ -4705,9 +4704,9 @@ _ZN9nanoflann15PooledAllocator6mallocEm.exit:     ; preds = %._crit_edge.i, %24
 
 81:                                               ; preds = %.lr.ph, %81
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %81 ]
-  %gep = getelementptr double, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %indvars.iv
   %82 = load double, ptr %gep, align 8, !tbaa !45
-  %83 = getelementptr inbounds nuw %"struct.nanoflann::KDTreeBaseClass<nanoflann::KDTreeSingleIndexAdaptor<nanoflann::L2_Adaptor<double, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, double, long>, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, -1, long>, nanoflann::L2_Adaptor<double, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, double, long>, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, -1, long>::Interval", ptr %55, i64 %indvars.iv
+  %83 = getelementptr inbounds nuw [16 x i8], ptr %55, i64 %indvars.iv
   store double %82, ptr %83, align 8, !tbaa !92
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
   store double %82, ptr %84, align 8, !tbaa !94
@@ -4764,7 +4763,7 @@ _ZNSt6vectorIN9nanoflann15KDTreeBaseClassINS0_24KDTreeSingleIndexAdaptorINS0_10L
   store ptr %97, ptr %96, align 8, !tbaa !167
   %104 = load double, ptr %8, align 8, !tbaa !45
   %105 = sext i32 %86 to i64
-  %106 = getelementptr inbounds nuw %"struct.nanoflann::KDTreeBaseClass<nanoflann::KDTreeSingleIndexAdaptor<nanoflann::L2_Adaptor<double, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, double, long>, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, -1, long>, nanoflann::L2_Adaptor<double, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, double, long>, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, -1, long>::Interval", ptr %95, i64 %105
+  %106 = getelementptr inbounds nuw [16 x i8], ptr %95, i64 %105
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 8
   store double %104, ptr %107, align 8, !tbaa !94
   %108 = load i64, ptr %6, align 8, !tbaa !31
@@ -4823,7 +4822,7 @@ _ZNSt15__new_allocatorIN9nanoflann15KDTreeBaseClassINS0_24KDTreeSingleIndexAdapt
   %129 = load double, ptr %8, align 8, !tbaa !45
   %130 = load i32, ptr %7, align 4, !tbaa !52
   %131 = sext i32 %130 to i64
-  %132 = getelementptr inbounds nuw %"struct.nanoflann::KDTreeBaseClass<nanoflann::KDTreeSingleIndexAdaptor<nanoflann::L2_Adaptor<double, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, double, long>, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, -1, long>, nanoflann::L2_Adaptor<double, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, double, long>, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, -1, long>::Interval", ptr %119, i64 %131
+  %132 = getelementptr inbounds nuw [16 x i8], ptr %119, i64 %131
   store double %129, ptr %132, align 8, !tbaa !92
   %133 = load i64, ptr %6, align 8, !tbaa !31
   %134 = add i64 %133, %2
@@ -4836,13 +4835,13 @@ _ZNSt15__new_allocatorIN9nanoflann15KDTreeBaseClassINS0_24KDTreeSingleIndexAdapt
   %138 = load i32, ptr %7, align 4, !tbaa !52
   %139 = sext i32 %138 to i64
   %140 = load ptr, ptr %9, align 8, !tbaa !91
-  %141 = getelementptr inbounds nuw %"struct.nanoflann::KDTreeBaseClass<nanoflann::KDTreeSingleIndexAdaptor<nanoflann::L2_Adaptor<double, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, double, long>, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, -1, long>, nanoflann::L2_Adaptor<double, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, double, long>, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, -1, long>::Interval", ptr %140, i64 %139
+  %141 = getelementptr inbounds nuw [16 x i8], ptr %140, i64 %139
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 8
   %143 = load double, ptr %142, align 8, !tbaa !94
   %144 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store double %143, ptr %144, align 8, !tbaa !99
   %145 = load ptr, ptr %10, align 8, !tbaa !91
-  %146 = getelementptr inbounds nuw %"struct.nanoflann::KDTreeBaseClass<nanoflann::KDTreeSingleIndexAdaptor<nanoflann::L2_Adaptor<double, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, double, long>, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, -1, long>, nanoflann::L2_Adaptor<double, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, double, long>, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, -1, long>::Interval", ptr %145, i64 %139
+  %146 = getelementptr inbounds nuw [16 x i8], ptr %145, i64 %139
   %147 = load double, ptr %146, align 8, !tbaa !92
   %148 = getelementptr inbounds nuw i8, ptr %29, i64 16
   store double %147, ptr %148, align 8, !tbaa !99
@@ -4907,13 +4906,13 @@ _ZNSt6vectorIN9nanoflann15KDTreeBaseClassINS0_24KDTreeSingleIndexAdaptorINS0_10L
 
 173:                                              ; preds = %.lr.ph119, %173
   %indvars.iv128 = phi i64 [ 0, %.lr.ph119 ], [ %indvars.iv.next129, %173 ]
-  %174 = getelementptr inbounds nuw %"struct.nanoflann::KDTreeBaseClass<nanoflann::KDTreeSingleIndexAdaptor<nanoflann::L2_Adaptor<double, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, double, long>, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, -1, long>, nanoflann::L2_Adaptor<double, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, double, long>, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, -1, long>::Interval", ptr %140, i64 %indvars.iv128
-  %175 = getelementptr inbounds nuw %"struct.nanoflann::KDTreeBaseClass<nanoflann::KDTreeSingleIndexAdaptor<nanoflann::L2_Adaptor<double, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, double, long>, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, -1, long>, nanoflann::L2_Adaptor<double, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, double, long>, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, -1, long>::Interval", ptr %145, i64 %indvars.iv128
+  %174 = getelementptr inbounds nuw [16 x i8], ptr %140, i64 %indvars.iv128
+  %175 = getelementptr inbounds nuw [16 x i8], ptr %145, i64 %indvars.iv128
   %176 = load double, ptr %175, align 8, !tbaa !45
   %177 = load double, ptr %174, align 8, !tbaa !45
   %178 = fcmp olt double %176, %177
   %179 = select i1 %178, double %176, double %177
-  %180 = getelementptr inbounds nuw %"struct.nanoflann::KDTreeBaseClass<nanoflann::KDTreeSingleIndexAdaptor<nanoflann::L2_Adaptor<double, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, double, long>, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, -1, long>, nanoflann::L2_Adaptor<double, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, double, long>, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, -1, long>::Interval", ptr %150, i64 %indvars.iv128
+  %180 = getelementptr inbounds nuw [16 x i8], ptr %150, i64 %indvars.iv128
   store double %179, ptr %180, align 8, !tbaa !92
   %181 = getelementptr inbounds nuw i8, ptr %174, i64 8
   %182 = getelementptr inbounds nuw i8, ptr %175, i64 8
@@ -5069,7 +5068,7 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %7
 
 .lr.ph:                                           ; preds = %68
   %73 = load ptr, ptr %1, align 8, !tbaa !100
-  %74 = getelementptr inbounds nuw i64, ptr %73, i64 %.pre
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %.pre
   %75 = load i64, ptr %74, align 8, !tbaa !31
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %77 = load ptr, ptr %76, align 8, !tbaa !156
@@ -5079,7 +5078,7 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %7
   %81 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %82 = load i64, ptr %81, align 8, !tbaa !18
   %83 = mul nsw i64 %82, %75
-  %invariant.gep = getelementptr double, ptr %80, i64 %83
+  %invariant.gep = getelementptr [8 x i8], ptr %80, i64 %83
   %84 = load ptr, ptr %4, align 8, !tbaa !91
   %wide.trip.count = zext nneg i32 %64 to i64
   br label %112
@@ -5104,17 +5103,17 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %7
 
 .preheader.us:                                    ; preds = %..loopexit_crit_edge.us, %.preheader.lr.ph
   %.089186.us = phi i64 [ %.089185, %.preheader.lr.ph ], [ %.089.us, %..loopexit_crit_edge.us ]
-  %95 = getelementptr inbounds nuw i64, ptr %86, i64 %.089186.us
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %86, i64 %.089186.us
   %96 = load i64, ptr %95, align 8, !tbaa !31
   %97 = mul nsw i64 %94, %96
-  %invariant.gep183.us = getelementptr double, ptr %92, i64 %97
+  %invariant.gep183.us = getelementptr [8 x i8], ptr %92, i64 %97
   br label %98
 
 98:                                               ; preds = %.preheader.us, %109
   %indvars.iv192 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next193, %109 ]
-  %gep184.us = getelementptr double, ptr %invariant.gep183.us, i64 %indvars.iv192
+  %gep184.us = getelementptr [8 x i8], ptr %invariant.gep183.us, i64 %indvars.iv192
   %99 = load double, ptr %gep184.us, align 8, !tbaa !45
-  %100 = getelementptr inbounds nuw %"struct.nanoflann::KDTreeBaseClass<nanoflann::KDTreeSingleIndexAdaptor<nanoflann::L2_Adaptor<double, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, double, long>, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, -1, long>, nanoflann::L2_Adaptor<double, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, double, long>, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, -1, long>::Interval", ptr %87, i64 %indvars.iv192
+  %100 = getelementptr inbounds nuw [16 x i8], ptr %87, i64 %indvars.iv192
   %101 = load double, ptr %100, align 8, !tbaa !92
   %102 = fcmp ogt double %101, %99
   br i1 %102, label %103, label %104
@@ -5151,9 +5150,9 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %7
 
 112:                                              ; preds = %.lr.ph, %112
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %112 ]
-  %gep = getelementptr double, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %indvars.iv
   %113 = load double, ptr %gep, align 8, !tbaa !45
-  %114 = getelementptr inbounds nuw %"struct.nanoflann::KDTreeBaseClass<nanoflann::KDTreeSingleIndexAdaptor<nanoflann::L2_Adaptor<double, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, double, long>, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, -1, long>, nanoflann::L2_Adaptor<double, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, double, long>, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, -1, long>::Interval", ptr %84, i64 %indvars.iv
+  %114 = getelementptr inbounds nuw [16 x i8], ptr %84, i64 %indvars.iv
   store double %113, ptr %114, align 8, !tbaa !92
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 8
   store double %113, ptr %115, align 8, !tbaa !94
@@ -5225,7 +5224,7 @@ _ZNSt15__new_allocatorIN9nanoflann15KDTreeBaseClassINS0_24KDTreeSingleIndexAdapt
   store ptr %128, ptr %127, align 8, !tbaa !167
   %136 = load double, ptr %14, align 8, !tbaa !45
   %137 = sext i32 %118 to i64
-  %138 = getelementptr inbounds nuw %"struct.nanoflann::KDTreeBaseClass<nanoflann::KDTreeSingleIndexAdaptor<nanoflann::L2_Adaptor<double, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, double, long>, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, -1, long>, nanoflann::L2_Adaptor<double, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, double, long>, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, -1, long>::Interval", ptr %126, i64 %137
+  %138 = getelementptr inbounds nuw [16 x i8], ptr %126, i64 %137
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 8
   store double %136, ptr %139, align 8, !tbaa !94
   %140 = atomicrmw add ptr %5, i32 1 seq_cst, align 4
@@ -5468,7 +5467,7 @@ _ZNSt15__new_allocatorIN9nanoflann15KDTreeBaseClassINS0_24KDTreeSingleIndexAdapt
   %232 = load double, ptr %14, align 8, !tbaa !45
   %233 = load i32, ptr %13, align 4, !tbaa !52
   %234 = sext i32 %233 to i64
-  %235 = getelementptr inbounds nuw %"struct.nanoflann::KDTreeBaseClass<nanoflann::KDTreeSingleIndexAdaptor<nanoflann::L2_Adaptor<double, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, double, long>, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, -1, long>, nanoflann::L2_Adaptor<double, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, double, long>, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, -1, long>::Interval", ptr %222, i64 %234
+  %235 = getelementptr inbounds nuw [16 x i8], ptr %222, i64 %234
   store double %232, ptr %235, align 8, !tbaa !92
   %236 = atomicrmw add ptr %5, i32 1 seq_cst, align 4
   %237 = add i32 %236, 1
@@ -5816,13 +5815,13 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i133: ; preds = %3
   %380 = load i32, ptr %13, align 4, !tbaa !52
   %381 = sext i32 %380 to i64
   %382 = load ptr, ptr %17, align 8, !tbaa !91
-  %383 = getelementptr inbounds nuw %"struct.nanoflann::KDTreeBaseClass<nanoflann::KDTreeSingleIndexAdaptor<nanoflann::L2_Adaptor<double, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, double, long>, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, -1, long>, nanoflann::L2_Adaptor<double, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, double, long>, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, -1, long>::Interval", ptr %382, i64 %381
+  %383 = getelementptr inbounds nuw [16 x i8], ptr %382, i64 %381
   %384 = getelementptr inbounds nuw i8, ptr %383, i64 8
   %385 = load double, ptr %384, align 8, !tbaa !94
   %386 = getelementptr inbounds nuw i8, ptr %56, i64 8
   store double %385, ptr %386, align 8, !tbaa !99
   %387 = load ptr, ptr %26, align 8, !tbaa !91
-  %388 = getelementptr inbounds nuw %"struct.nanoflann::KDTreeBaseClass<nanoflann::KDTreeSingleIndexAdaptor<nanoflann::L2_Adaptor<double, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, double, long>, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, -1, long>, nanoflann::L2_Adaptor<double, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, double, long>, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, -1, long>::Interval", ptr %387, i64 %381
+  %388 = getelementptr inbounds nuw [16 x i8], ptr %387, i64 %381
   %389 = load double, ptr %388, align 8, !tbaa !92
   %390 = getelementptr inbounds nuw i8, ptr %56, i64 16
   store double %389, ptr %390, align 8, !tbaa !99
@@ -5964,13 +5963,13 @@ _ZNSt14__basic_futureIPN9nanoflann15KDTreeBaseClassINS0_24KDTreeSingleIndexAdapt
 
 449:                                              ; preds = %.lr.ph189, %449
   %indvars.iv198 = phi i64 [ 0, %.lr.ph189 ], [ %indvars.iv.next199, %449 ]
-  %450 = getelementptr inbounds nuw %"struct.nanoflann::KDTreeBaseClass<nanoflann::KDTreeSingleIndexAdaptor<nanoflann::L2_Adaptor<double, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, double, long>, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, -1, long>, nanoflann::L2_Adaptor<double, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, double, long>, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, -1, long>::Interval", ptr %382, i64 %indvars.iv198
-  %451 = getelementptr inbounds nuw %"struct.nanoflann::KDTreeBaseClass<nanoflann::KDTreeSingleIndexAdaptor<nanoflann::L2_Adaptor<double, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, double, long>, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, -1, long>, nanoflann::L2_Adaptor<double, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, double, long>, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, -1, long>::Interval", ptr %387, i64 %indvars.iv198
+  %450 = getelementptr inbounds nuw [16 x i8], ptr %382, i64 %indvars.iv198
+  %451 = getelementptr inbounds nuw [16 x i8], ptr %387, i64 %indvars.iv198
   %452 = load double, ptr %451, align 8, !tbaa !45
   %453 = load double, ptr %450, align 8, !tbaa !45
   %454 = fcmp olt double %452, %453
   %455 = select i1 %454, double %452, double %453
-  %456 = getelementptr inbounds nuw %"struct.nanoflann::KDTreeBaseClass<nanoflann::KDTreeSingleIndexAdaptor<nanoflann::L2_Adaptor<double, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, double, long>, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, -1, long>, nanoflann::L2_Adaptor<double, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, double, long>, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, -1, long>::Interval", ptr %392, i64 %indvars.iv198
+  %456 = getelementptr inbounds nuw [16 x i8], ptr %392, i64 %indvars.iv198
   store double %455, ptr %456, align 8, !tbaa !92
   %457 = getelementptr inbounds nuw i8, ptr %450, i64 8
   %458 = getelementptr inbounds nuw i8, ptr %451, i64 8
@@ -6130,9 +6129,9 @@ _ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit36: ; preds = %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !100
-  %39 = getelementptr inbounds nuw i64, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !162
-  %40 = getelementptr inbounds nuw i64, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !135
   br label %41
 
@@ -6242,9 +6241,9 @@ _ZNSt6vectorIN9nanoflann15KDTreeBaseClassINS0_24KDTreeSingleIndexAdaptorINS0_10L
 
 _ZNSt12_Vector_baseIN9nanoflann15KDTreeBaseClassINS0_24KDTreeSingleIndexAdaptorINS0_10L2_AdaptorIdNS0_24KDTreeEigenMatrixAdaptorIKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ENS0_9metric_L2ELb0EEEdlEESA_Lin1ElEESB_SA_Lin1ElE8IntervalESaISE_EE13_M_deallocateEPSE_m.exit38: ; preds = %_ZNSt6vectorIN9nanoflann15KDTreeBaseClassINS0_24KDTreeSingleIndexAdaptorINS0_10L2_AdaptorIdNS0_24KDTreeEigenMatrixAdaptorIKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ENS0_9metric_L2ELb0EEEdlEESA_Lin1ElEESB_SA_Lin1ElE8IntervalESaISE_EE11_S_relocateEPSE_SH_SH_RSF_.exit, %42
   store ptr %32, ptr %0, align 8, !tbaa !91
-  %44 = getelementptr inbounds nuw %"struct.nanoflann::KDTreeBaseClass<nanoflann::KDTreeSingleIndexAdaptor<nanoflann::L2_Adaptor<double, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, double, long>, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, -1, long>, nanoflann::L2_Adaptor<double, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, double, long>, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, -1, long>::Interval", ptr %33, i64 %1
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %33, i64 %1
   store ptr %44, ptr %4, align 8, !tbaa !167
-  %45 = getelementptr inbounds nuw %"struct.nanoflann::KDTreeBaseClass<nanoflann::KDTreeSingleIndexAdaptor<nanoflann::L2_Adaptor<double, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, double, long>, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, -1, long>, nanoflann::L2_Adaptor<double, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, double, long>, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, -1, long>::Interval", ptr %32, i64 %30
+  %45 = getelementptr inbounds nuw [16 x i8], ptr %32, i64 %30
   store ptr %45, ptr %11, align 8, !tbaa !134
   br label %46
 
@@ -6284,7 +6283,7 @@ define linkonce_odr void @_ZN9nanoflann15KDTreeBaseClassINS_24KDTreeSingleIndexA
   %.0.lcssa121 = phi double [ %.1, %._crit_edge.thread ], [ %17, %._crit_edge ]
   %20 = fmul double %.0.lcssa121, 9.999900e-01
   %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr i64, ptr %21, i64 %2
+  %22 = getelementptr [8 x i8], ptr %21, i64 %2
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
@@ -6296,7 +6295,7 @@ define linkonce_odr void @_ZN9nanoflann15KDTreeBaseClassINS_24KDTreeSingleIndexA
   %27 = phi i32 [ %54, %53 ], [ 0, %.lr.ph97 ]
   %indvars.iv106 = phi i64 [ %indvars.iv.next107, %53 ], [ 0, %.lr.ph97 ]
   %.05895.us = phi double [ %.159.us, %53 ], [ -1.000000e+00, %.lr.ph97 ]
-  %28 = getelementptr inbounds nuw %"struct.nanoflann::KDTreeBaseClass<nanoflann::KDTreeSingleIndexAdaptor<nanoflann::L2_Adaptor<double, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, double, long>, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, -1, long>, nanoflann::L2_Adaptor<double, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, double, long>, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, -1, long>::Interval", ptr %13, i64 %indvars.iv106
+  %28 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %indvars.iv106
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load double, ptr %29, align 8, !tbaa !94
   %31 = load double, ptr %28, align 8, !tbaa !92
@@ -6311,8 +6310,8 @@ define linkonce_odr void @_ZN9nanoflann15KDTreeBaseClassINS_24KDTreeSingleIndexA
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %38 = load i64, ptr %37, align 8, !tbaa !18
   %39 = mul nsw i64 %38, %34
-  %40 = getelementptr double, ptr %36, i64 %indvars.iv106
-  %41 = getelementptr double, ptr %40, i64 %39
+  %40 = getelementptr [8 x i8], ptr %36, i64 %indvars.iv106
+  %41 = getelementptr [8 x i8], ptr %40, i64 %39
   %42 = load double, ptr %41, align 8, !tbaa !45
   br label %.lr.ph.i70.us
 
@@ -6320,10 +6319,10 @@ define linkonce_odr void @_ZN9nanoflann15KDTreeBaseClassINS_24KDTreeSingleIndexA
   %.089.us = phi double [ %.190.us, %.lr.ph.i70.us ], [ %42, %.lr.ph.i70.preheader.us ]
   %.086.us = phi double [ %.187.us, %.lr.ph.i70.us ], [ %42, %.lr.ph.i70.preheader.us ]
   %.022.i71.us = phi i64 [ %50, %.lr.ph.i70.us ], [ 1, %.lr.ph.i70.preheader.us ]
-  %43 = getelementptr i64, ptr %22, i64 %.022.i71.us
+  %43 = getelementptr [8 x i8], ptr %22, i64 %.022.i71.us
   %44 = load i64, ptr %43, align 8, !tbaa !31
   %45 = mul nsw i64 %44, %38
-  %46 = getelementptr double, ptr %40, i64 %45
+  %46 = getelementptr [8 x i8], ptr %40, i64 %45
   %47 = load double, ptr %46, align 8, !tbaa !45
   %48 = fcmp olt double %47, %.089.us
   %.190.us = select i1 %48, double %47, double %.089.us
@@ -6353,7 +6352,7 @@ _ZN9nanoflann15KDTreeBaseClassINS_24KDTreeSingleIndexAdaptorINS_10L2_AdaptorIdNS
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.093 = phi double [ %17, %.lr.ph.preheader ], [ %.1, %.lr.ph ]
-  %57 = getelementptr inbounds nuw %"struct.nanoflann::KDTreeBaseClass<nanoflann::KDTreeSingleIndexAdaptor<nanoflann::L2_Adaptor<double, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, double, long>, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, -1, long>, nanoflann::L2_Adaptor<double, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, double, long>, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, -1, long>::Interval", ptr %13, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %indvars.iv
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %59 = load double, ptr %58, align 8, !tbaa !94
   %60 = load double, ptr %57, align 8, !tbaa !92
@@ -6372,12 +6371,12 @@ _ZN9nanoflann15KDTreeBaseClassINS_24KDTreeSingleIndexAdaptorINS_10L2_AdaptorIdNS
   %63 = phi ptr [ %24, %53 ], [ %.pre, %._crit_edge.._crit_edge98_crit_edge ], [ %24, %119 ]
   %64 = phi i32 [ %54, %53 ], [ 0, %._crit_edge.._crit_edge98_crit_edge ], [ %120, %119 ]
   %65 = sext i32 %64 to i64
-  %66 = getelementptr inbounds nuw %"struct.nanoflann::KDTreeBaseClass<nanoflann::KDTreeSingleIndexAdaptor<nanoflann::L2_Adaptor<double, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, double, long>, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, -1, long>, nanoflann::L2_Adaptor<double, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, double, long>, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, -1, long>::Interval", ptr %13, i64 %65
+  %66 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %65
   %67 = load double, ptr %66, align 8, !tbaa !92
   %68 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %69 = load double, ptr %68, align 8, !tbaa !94
   %70 = load ptr, ptr %0, align 8, !tbaa !100
-  %71 = getelementptr i64, ptr %70, i64 %2
+  %71 = getelementptr [8 x i8], ptr %70, i64 %2
   %72 = load i64, ptr %71, align 8, !tbaa !31
   %73 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %74 = load ptr, ptr %73, align 8, !tbaa !101
@@ -6385,8 +6384,8 @@ _ZN9nanoflann15KDTreeBaseClassINS_24KDTreeSingleIndexAdaptorINS_10L2_AdaptorIdNS
   %76 = getelementptr inbounds nuw i8, ptr %74, i64 8
   %77 = load i64, ptr %76, align 8, !tbaa !18
   %78 = mul nsw i64 %77, %72
-  %79 = getelementptr double, ptr %75, i64 %65
-  %80 = getelementptr double, ptr %79, i64 %78
+  %79 = getelementptr [8 x i8], ptr %75, i64 %65
+  %80 = getelementptr [8 x i8], ptr %79, i64 %78
   %81 = load double, ptr %80, align 8, !tbaa !45
   %82 = icmp ugt i64 %3, 1
   br i1 %82, label %.lr.ph.i, label %_ZN9nanoflann15KDTreeBaseClassINS_24KDTreeSingleIndexAdaptorINS_10L2_AdaptorIdNS_24KDTreeEigenMatrixAdaptorIKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ENS_9metric_L2ELb0EEEdlEES9_Lin1ElEESA_S9_Lin1ElE13computeMinMaxERKSB_mmiRdSF_.exit
@@ -6395,10 +6394,10 @@ _ZN9nanoflann15KDTreeBaseClassINS_24KDTreeSingleIndexAdaptorINS_10L2_AdaptorIdNS
   %.083 = phi double [ %.184, %.lr.ph.i ], [ %81, %._crit_edge98 ]
   %.080 = phi double [ %.181, %.lr.ph.i ], [ %81, %._crit_edge98 ]
   %.022.i = phi i64 [ %90, %.lr.ph.i ], [ 1, %._crit_edge98 ]
-  %83 = getelementptr i64, ptr %71, i64 %.022.i
+  %83 = getelementptr [8 x i8], ptr %71, i64 %.022.i
   %84 = load i64, ptr %83, align 8, !tbaa !31
   %85 = mul nsw i64 %84, %77
-  %86 = getelementptr double, ptr %79, i64 %85
+  %86 = getelementptr [8 x i8], ptr %79, i64 %85
   %87 = load double, ptr %86, align 8, !tbaa !45
   %88 = fcmp olt double %87, %.083
   %.184 = select i1 %88, double %87, double %.083
@@ -6436,7 +6435,7 @@ _ZN9nanoflann15KDTreeBaseClassINS_24KDTreeSingleIndexAdaptorINS_10L2_AdaptorIdNS
   %99 = phi i32 [ %120, %119 ], [ 0, %.lr.ph97 ]
   %indvars.iv101 = phi i64 [ %indvars.iv.next102, %119 ], [ 0, %.lr.ph97 ]
   %.05895 = phi double [ %.159, %119 ], [ -1.000000e+00, %.lr.ph97 ]
-  %100 = getelementptr inbounds nuw %"struct.nanoflann::KDTreeBaseClass<nanoflann::KDTreeSingleIndexAdaptor<nanoflann::L2_Adaptor<double, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, double, long>, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, -1, long>, nanoflann::L2_Adaptor<double, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, double, long>, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, -1, long>::Interval", ptr %13, i64 %indvars.iv101
+  %100 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %indvars.iv101
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 8
   %102 = load double, ptr %101, align 8, !tbaa !94
   %103 = load double, ptr %100, align 8, !tbaa !92
@@ -6451,8 +6450,8 @@ _ZN9nanoflann15KDTreeBaseClassINS_24KDTreeSingleIndexAdaptorINS_10L2_AdaptorIdNS
   %109 = getelementptr inbounds nuw i8, ptr %107, i64 8
   %110 = load i64, ptr %109, align 8, !tbaa !18
   %111 = mul nsw i64 %110, %106
-  %112 = getelementptr double, ptr %108, i64 %indvars.iv101
-  %113 = getelementptr double, ptr %112, i64 %111
+  %112 = getelementptr [8 x i8], ptr %108, i64 %indvars.iv101
+  %113 = getelementptr [8 x i8], ptr %112, i64 %111
   %114 = load double, ptr %113, align 8, !tbaa !45
   %115 = fsub double %114, %114
   %116 = fcmp ogt double %115, %.05895
@@ -6475,7 +6474,7 @@ _ZN9nanoflann15KDTreeBaseClassINS_24KDTreeSingleIndexAdaptorINS_10L2_AdaptorIdNS
 define linkonce_odr void @_ZN9nanoflann15KDTreeBaseClassINS_24KDTreeSingleIndexAdaptorINS_10L2_AdaptorIdNS_24KDTreeEigenMatrixAdaptorIKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ENS_9metric_L2ELb0EEEdlEES9_Lin1ElEESA_S9_Lin1ElE10planeSplitERKSB_mmiRKdRmSH_(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(160) %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7) local_unnamed_addr #0 comdat align 2 {
   %9 = add i64 %3, -1
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr i64, ptr %10, i64 %2
+  %11 = getelementptr [8 x i8], ptr %10, i64 %2
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %13 = load ptr, ptr %12, align 8
   %14 = sext i32 %4 to i64
@@ -6494,15 +6493,15 @@ define linkonce_odr void @_ZN9nanoflann15KDTreeBaseClassINS_24KDTreeSingleIndexA
   %19 = load ptr, ptr %18, align 8, !tbaa !102
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %21 = load i64, ptr %20, align 8, !tbaa !18
-  %22 = getelementptr double, ptr %19, i64 %14
+  %22 = getelementptr [8 x i8], ptr %19, i64 %14
   br label %23
 
 23:                                               ; preds = %.lr.ph, %30
   %.16880 = phi i64 [ %.067, %.lr.ph ], [ %31, %30 ]
-  %24 = getelementptr i64, ptr %11, i64 %.16880
+  %24 = getelementptr [8 x i8], ptr %11, i64 %.16880
   %25 = load i64, ptr %24, align 8, !tbaa !31
   %26 = mul nsw i64 %21, %25
-  %27 = getelementptr double, ptr %22, i64 %26
+  %27 = getelementptr [8 x i8], ptr %22, i64 %26
   %28 = load double, ptr %27, align 8, !tbaa !45
   %29 = fcmp olt double %28, %16
   br i1 %29, label %30, label %.critedge
@@ -6524,15 +6523,15 @@ define linkonce_odr void @_ZN9nanoflann15KDTreeBaseClassINS_24KDTreeSingleIndexA
   %34 = load ptr, ptr %33, align 8, !tbaa !102
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %36 = load i64, ptr %35, align 8, !tbaa !18
-  %37 = getelementptr double, ptr %34, i64 %14
+  %37 = getelementptr [8 x i8], ptr %34, i64 %14
   br label %38
 
 38:                                               ; preds = %.lr.ph86, %45
   %.185 = phi i64 [ %.0, %.lr.ph86 ], [ %46, %45 ]
-  %39 = getelementptr i64, ptr %11, i64 %.185
+  %39 = getelementptr [8 x i8], ptr %11, i64 %.185
   %40 = load i64, ptr %39, align 8, !tbaa !31
   %41 = mul nsw i64 %36, %40
-  %42 = getelementptr double, ptr %37, i64 %41
+  %42 = getelementptr [8 x i8], ptr %37, i64 %41
   %43 = load double, ptr %42, align 8, !tbaa !45
   %44 = fcmp ult double %43, %16
   br i1 %44, label %.critedge2, label %45
@@ -6552,8 +6551,8 @@ define linkonce_odr void @_ZN9nanoflann15KDTreeBaseClassINS_24KDTreeSingleIndexA
   br i1 %or.cond, label %49, label %56
 
 49:                                               ; preds = %.critedge2
-  %50 = getelementptr i64, ptr %11, i64 %.168.lcssa
-  %51 = getelementptr i64, ptr %11, i64 %.1.lcssa
+  %50 = getelementptr [8 x i8], ptr %11, i64 %.168.lcssa
+  %51 = getelementptr [8 x i8], ptr %11, i64 %.1.lcssa
   %52 = load i64, ptr %50, align 8, !tbaa !31
   %53 = load i64, ptr %51, align 8, !tbaa !31
   store i64 %53, ptr %50, align 8, !tbaa !31
@@ -6565,7 +6564,7 @@ define linkonce_odr void @_ZN9nanoflann15KDTreeBaseClassINS_24KDTreeSingleIndexA
 56:                                               ; preds = %.critedge2
   store i64 %.168.lcssa, ptr %6, align 8, !tbaa !31
   %57 = load ptr, ptr %0, align 8
-  %58 = getelementptr i64, ptr %57, i64 %2
+  %58 = getelementptr [8 x i8], ptr %57, i64 %2
   %59 = load ptr, ptr %12, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %61 = load double, ptr %5, align 8
@@ -6582,15 +6581,15 @@ define linkonce_odr void @_ZN9nanoflann15KDTreeBaseClassINS_24KDTreeSingleIndexA
   %64 = load ptr, ptr %63, align 8, !tbaa !102
   %65 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %66 = load i64, ptr %65, align 8, !tbaa !18
-  %67 = getelementptr double, ptr %64, i64 %14
+  %67 = getelementptr [8 x i8], ptr %64, i64 %14
   br label %68
 
 68:                                               ; preds = %.lr.ph94, %75
   %.37093 = phi i64 [ %.269, %.lr.ph94 ], [ %76, %75 ]
-  %69 = getelementptr i64, ptr %58, i64 %.37093
+  %69 = getelementptr [8 x i8], ptr %58, i64 %.37093
   %70 = load i64, ptr %69, align 8, !tbaa !31
   %71 = mul nsw i64 %66, %70
-  %72 = getelementptr double, ptr %67, i64 %71
+  %72 = getelementptr [8 x i8], ptr %67, i64 %71
   %73 = load double, ptr %72, align 8, !tbaa !45
   %74 = fcmp ugt double %73, %61
   br i1 %74, label %.critedge5, label %75
@@ -6612,15 +6611,15 @@ define linkonce_odr void @_ZN9nanoflann15KDTreeBaseClassINS_24KDTreeSingleIndexA
   %79 = load ptr, ptr %78, align 8, !tbaa !102
   %80 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %81 = load i64, ptr %80, align 8, !tbaa !18
-  %82 = getelementptr double, ptr %79, i64 %14
+  %82 = getelementptr [8 x i8], ptr %79, i64 %14
   br label %83
 
 83:                                               ; preds = %.lr.ph101, %90
   %.3100 = phi i64 [ %.2, %.lr.ph101 ], [ %91, %90 ]
-  %84 = getelementptr i64, ptr %58, i64 %.3100
+  %84 = getelementptr [8 x i8], ptr %58, i64 %.3100
   %85 = load i64, ptr %84, align 8, !tbaa !31
   %86 = mul nsw i64 %81, %85
-  %87 = getelementptr double, ptr %82, i64 %86
+  %87 = getelementptr [8 x i8], ptr %82, i64 %86
   %88 = load double, ptr %87, align 8, !tbaa !45
   %89 = fcmp ogt double %88, %61
   br i1 %89, label %90, label %.critedge7
@@ -6640,8 +6639,8 @@ define linkonce_odr void @_ZN9nanoflann15KDTreeBaseClassINS_24KDTreeSingleIndexA
   br i1 %or.cond9, label %94, label %101
 
 94:                                               ; preds = %.critedge7
-  %95 = getelementptr i64, ptr %58, i64 %.370.lcssa
-  %96 = getelementptr i64, ptr %58, i64 %.3.lcssa
+  %95 = getelementptr [8 x i8], ptr %58, i64 %.370.lcssa
+  %96 = getelementptr [8 x i8], ptr %58, i64 %.3.lcssa
   %97 = load i64, ptr %95, align 8, !tbaa !31
   %98 = load i64, ptr %96, align 8, !tbaa !31
   store i64 %98, ptr %95, align 8, !tbaa !31

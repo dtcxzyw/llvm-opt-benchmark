@@ -1009,7 +1009,7 @@ define internal range(i32 0, 2) i32 @H5F__get_all_ids_cb(ptr readnone captures(n
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !26
-  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %12
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %12
   store i64 %1, ptr %17, align 8, !tbaa !11
   %18 = load i64, ptr %11, align 8, !tbaa !27
   %19 = add i64 %18, 1

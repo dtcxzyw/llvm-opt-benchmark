@@ -2817,7 +2817,7 @@ define internal fastcc void @dissect_17221_aem(ptr noundef %0, ptr noundef %1) u
 
 switch.lookup:                                    ; preds = %.lr.ph24
   %219 = zext nneg i32 %216 to i64
-  %switch.gep = getelementptr inbounds nuw float, ptr @switch.table.dissect_17221_aem, i64 %219
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_17221_aem, i64 %219
   %switch.load = load float, ptr %switch.gep, align 4
   br label %220
 

@@ -119,7 +119,7 @@ define dso_local range(i32 -1, 2) i32 @badblocks_check(ptr noundef %0, i64 nound
   br i1 %56, label %57, label %.thread.i
 
 57:                                               ; preds = %54
-  %58 = getelementptr i64, ptr %46, i64 %51
+  %58 = getelementptr [8 x i8], ptr %46, i64 %51
   %59 = load i64, ptr %58, align 8
   %60 = lshr i64 %59, 9
   %61 = and i64 %60, 18014398509481983
@@ -131,7 +131,7 @@ define dso_local range(i32 -1, 2) i32 @badblocks_check(ptr noundef %0, i64 nound
   br i1 %64, label %71, label %65
 
 65:                                               ; preds = %63
-  %66 = getelementptr i64, ptr %46, i64 %55
+  %66 = getelementptr [8 x i8], ptr %46, i64 %55
   %67 = load i64, ptr %66, align 8
   %68 = lshr i64 %67, 9
   %69 = and i64 %68, 18014398509481983
@@ -154,7 +154,7 @@ define dso_local range(i32 -1, 2) i32 @badblocks_check(ptr noundef %0, i64 nound
 79:                                               ; preds = %.thread.i
   %80 = add i32 %40, -1
   %81 = sext i32 %80 to i64
-  %82 = getelementptr i64, ptr %74, i64 %81
+  %82 = getelementptr [8 x i8], ptr %74, i64 %81
   %83 = load i64, ptr %82, align 8
   %84 = lshr i64 %83, 9
   %85 = and i64 %84, 18014398509481983
@@ -172,7 +172,7 @@ define dso_local range(i32 -1, 2) i32 @badblocks_check(ptr noundef %0, i64 nound
   %92 = add i32 %88, %87
   %93 = sdiv i32 %92, 2
   %94 = sext i32 %93 to i64
-  %95 = getelementptr i64, ptr %74, i64 %94
+  %95 = getelementptr [8 x i8], ptr %74, i64 %94
   %96 = load i64, ptr %95, align 8
   %97 = lshr i64 %96, 9
   %98 = and i64 %97, 18014398509481983
@@ -185,7 +185,7 @@ define dso_local range(i32 -1, 2) i32 @badblocks_check(ptr noundef %0, i64 nound
 
 103:                                              ; preds = %.preheader.i
   %104 = sext i32 %87 to i64
-  %105 = getelementptr i64, ptr %74, i64 %104
+  %105 = getelementptr [8 x i8], ptr %74, i64 %104
   %106 = load i64, ptr %105, align 8
   %107 = lshr i64 %106, 9
   %108 = and i64 %107, 18014398509481983
@@ -203,7 +203,7 @@ prev_badblocks.exit.thread7:                      ; preds = %71, %prev_badblocks
   %114 = add nuw i32 %113, 1
   %115 = icmp slt i32 %114, %40
   %.phi.trans.insert = zext nneg i32 %113 to i64
-  %.phi.trans.insert33 = getelementptr i64, ptr %112, i64 %.phi.trans.insert
+  %.phi.trans.insert33 = getelementptr [8 x i8], ptr %112, i64 %.phi.trans.insert
   %.pre = load i64, ptr %.phi.trans.insert33, align 8
   %.pre35 = lshr i64 %.pre, 9
   %.pre37 = and i64 %.pre35, 18014398509481983
@@ -232,7 +232,7 @@ prev_badblocks.exit.thread7._crit_edge:           ; preds = %prev_badblocks.exit
   br i1 %128, label %129, label %prev_badblocks.exit.thread
 
 129:                                              ; preds = %124
-  %130 = getelementptr i64, ptr %28, i64 %.phi.trans.insert
+  %130 = getelementptr [8 x i8], ptr %28, i64 %.phi.trans.insert
   %131 = load i64, ptr %130, align 8
   %132 = icmp sgt i64 %131, -1
   %133 = lshr i64 %131, 63
@@ -271,7 +271,7 @@ prev_badblocks.exit.thread:                       ; preds = %103, %.thread.i, %1
 
 158:                                              ; preds = %prev_badblocks.exit.thread
   %159 = sext i32 %156 to i64
-  %160 = getelementptr i64, ptr %154, i64 %159
+  %160 = getelementptr [8 x i8], ptr %154, i64 %159
   %161 = load i64, ptr %160, align 8
   %162 = lshr i64 %161, 9
   %163 = and i64 %162, 18014398509481983
@@ -282,7 +282,7 @@ prev_badblocks.exit.thread:                       ; preds = %103, %.thread.i, %1
   br i1 %167, label %168, label %174
 
 168:                                              ; preds = %158
-  %169 = getelementptr i64, ptr %28, i64 %159
+  %169 = getelementptr [8 x i8], ptr %28, i64 %159
   %170 = load i64, ptr %169, align 8
   %171 = lshr i64 %170, 9
   %172 = sub nsw i64 %171, %38
@@ -490,7 +490,7 @@ define dso_local range(i32 0, 2) i32 @badblocks_set(ptr noundef %0, i64 noundef 
 
 111:                                              ; preds = %109
   %112 = zext nneg i32 %48 to i64
-  %113 = getelementptr i64, ptr %.pre63, i64 %112
+  %113 = getelementptr [8 x i8], ptr %.pre63, i64 %112
   %114 = load i64, ptr %113, align 8
   %115 = lshr i64 %114, 9
   %116 = and i64 %115, 18014398509481983
@@ -522,7 +522,7 @@ define dso_local range(i32 0, 2) i32 @badblocks_set(ptr noundef %0, i64 noundef 
   %.pre-phi74 = phi i64 [ %.pre73, %._crit_edge ], [ %116, %127 ], [ %116, %118 ], [ %116, %111 ]
   %.pre-phi = phi i64 [ 0, %._crit_edge ], [ %112, %127 ], [ %112, %118 ], [ %112, %111 ]
   %136 = phi i64 [ %.pre65, %._crit_edge ], [ %114, %127 ], [ %114, %118 ], [ %114, %111 ]
-  %137 = getelementptr i64, ptr %.pre63, i64 %.pre-phi
+  %137 = getelementptr [8 x i8], ptr %.pre63, i64 %.pre-phi
   %138 = icmp ult i64 %32, %.pre-phi74
   br i1 %138, label %163, label %158
 
@@ -653,7 +653,7 @@ define dso_local range(i32 0, 2) i32 @badblocks_set(ptr noundef %0, i64 noundef 
   %221 = or i64 %220, %196
   %222 = add nuw i32 %48, 1
   %223 = sext i32 %222 to i64
-  %224 = getelementptr i64, ptr %.pre63, i64 %223
+  %224 = getelementptr [8 x i8], ptr %.pre63, i64 %223
   store i64 %221, ptr %224, align 8
   br label %277
 
@@ -677,7 +677,7 @@ define dso_local range(i32 0, 2) i32 @badblocks_set(ptr noundef %0, i64 noundef 
   %240 = or i64 %239, -9223372036854775808
   %241 = add nuw i32 %48, 1
   %242 = sext i32 %241 to i64
-  %243 = getelementptr i64, ptr %.pre63, i64 %242
+  %243 = getelementptr [8 x i8], ptr %.pre63, i64 %242
   store i64 %240, ptr %243, align 8
   br label %277
 
@@ -702,7 +702,7 @@ define dso_local range(i32 0, 2) i32 @badblocks_set(ptr noundef %0, i64 noundef 
   %260 = or i64 %259, -9223372036854775808
   %261 = add nuw i32 %48, 1
   %262 = sext i32 %261 to i64
-  %263 = getelementptr i64, ptr %.pre63, i64 %262
+  %263 = getelementptr [8 x i8], ptr %.pre63, i64 %262
   store i64 %260, ptr %263, align 8
   %264 = lshr i64 %259, 9
   %265 = and i64 %264, 18014398509481983
@@ -716,7 +716,7 @@ define dso_local range(i32 0, 2) i32 @badblocks_set(ptr noundef %0, i64 noundef 
   %273 = or i64 %272, %196
   %274 = add nuw i32 %48, 2
   %275 = sext i32 %274 to i64
-  %276 = getelementptr i64, ptr %.pre63, i64 %275
+  %276 = getelementptr [8 x i8], ptr %.pre63, i64 %275
   store i64 %273, ptr %276, align 8
   br label %277
 
@@ -732,7 +732,7 @@ default.unreachable120:                           ; preds = %195
 
 281:                                              ; preds = %277
   %282 = load ptr, ptr %16, align 8
-  %283 = getelementptr i64, ptr %282, i64 %.pre-phi
+  %283 = getelementptr [8 x i8], ptr %282, i64 %.pre-phi
   %284 = load i64, ptr %283, align 8
   %285 = lshr i64 %284, 9
   %286 = and i64 %285, 18014398509481983
@@ -789,7 +789,7 @@ default.unreachable120:                           ; preds = %195
   br label %332
 
 .thread:                                          ; preds = %176, %190
-  %323 = getelementptr i64, ptr %17, i64 %.pre-phi
+  %323 = getelementptr [8 x i8], ptr %17, i64 %.pre-phi
   %324 = load i64, ptr %323, align 8
   %325 = lshr i64 %324, 9
   %326 = and i64 %325, 18014398509481983
@@ -862,7 +862,7 @@ default.unreachable120:                           ; preds = %195
 
 362:                                              ; preds = %356
   %363 = sext i32 %359 to i64
-  %364 = getelementptr i64, ptr %.pre63, i64 %363
+  %364 = getelementptr [8 x i8], ptr %.pre63, i64 %363
   %365 = load i64, ptr %364, align 8
   %366 = lshr i64 %365, 9
   %367 = and i64 %366, 18014398509481983
@@ -890,7 +890,7 @@ default.unreachable120:                           ; preds = %195
 
 381:                                              ; preds = %380
   %382 = sext i32 %345 to i64
-  %383 = getelementptr i64, ptr %.pre63, i64 %382
+  %383 = getelementptr [8 x i8], ptr %.pre63, i64 %382
   %384 = load i64, ptr %383, align 8
   %385 = lshr i64 %384, 9
   %386 = and i64 %385, 18014398509481983
@@ -901,7 +901,7 @@ default.unreachable120:                           ; preds = %195
   br i1 %390, label %391, label %437
 
 391:                                              ; preds = %381
-  %392 = getelementptr i64, ptr %17, i64 %382
+  %392 = getelementptr [8 x i8], ptr %17, i64 %382
   %393 = load i64, ptr %392, align 8
   %394 = lshr i64 %393, 9
   %395 = and i64 %394, 18014398509481983
@@ -921,7 +921,7 @@ default.unreachable120:                           ; preds = %195
   br i1 %346, label %405, label %._crit_edge85
 
 405:                                              ; preds = %403
-  %406 = getelementptr i64, ptr %.pre63, i64 %404
+  %406 = getelementptr [8 x i8], ptr %.pre63, i64 %404
   %407 = load i64, ptr %406, align 8
   %408 = lshr i64 %407, 9
   %409 = and i64 %408, 18014398509481983
@@ -932,7 +932,7 @@ default.unreachable120:                           ; preds = %195
   br i1 %413, label %414, label %421
 
 414:                                              ; preds = %405
-  %415 = getelementptr i64, ptr %17, i64 %404
+  %415 = getelementptr [8 x i8], ptr %17, i64 %404
   %416 = load i64, ptr %415, align 8
   %417 = lshr i64 %416, 9
   %418 = and i64 %417, 18014398509481983
@@ -957,7 +957,7 @@ default.unreachable120:                           ; preds = %195
   %430 = add nsw i64 %427, -1
   %431 = or i64 %429, %430
   %432 = or i64 %431, %20
-  %433 = getelementptr i64, ptr %.pre63, i64 %404
+  %433 = getelementptr [8 x i8], ptr %.pre63, i64 %404
   store i64 %432, ptr %433, align 8
   %434 = load i32, ptr %18, align 8
   %435 = add i32 %434, 1
@@ -999,7 +999,7 @@ default.unreachable120:                           ; preds = %195
 
 456:                                              ; preds = %452
   %457 = zext nneg i32 %439 to i64
-  %458 = getelementptr i64, ptr %17, i64 %457
+  %458 = getelementptr [8 x i8], ptr %17, i64 %457
   %459 = load i64, ptr %458, align 8
   %460 = lshr i64 %459, 9
   %461 = and i64 %460, 18014398509481983
@@ -1007,7 +1007,7 @@ default.unreachable120:                           ; preds = %195
   %463 = add nuw nsw i64 %462, 1
   %464 = add nuw nsw i64 %461, %463
   %465 = sext i32 %453 to i64
-  %466 = getelementptr i64, ptr %17, i64 %465
+  %466 = getelementptr [8 x i8], ptr %17, i64 %465
   %467 = load i64, ptr %466, align 8
   %468 = lshr i64 %467, 9
   %469 = and i64 %468, 18014398509481983
@@ -1110,7 +1110,7 @@ default.unreachable120:                           ; preds = %195
 
 528:                                              ; preds = %525, %523
   %529 = phi i64 [ 0, %523 ], [ %526, %525 ]
-  %530 = getelementptr i64, ptr %516, i64 %529
+  %530 = getelementptr [8 x i8], ptr %516, i64 %529
   %531 = load i64, ptr %530, align 8
   %532 = icmp sgt i64 %531, -1
   br i1 %532, label %.loopexit, label %525
@@ -1208,7 +1208,7 @@ define dso_local noundef range(i32 0, 2) i32 @badblocks_clear(ptr noundef %0, i6
 52:                                               ; preds = %49
   %53 = load ptr, ptr %14, align 8
   %54 = zext nneg i32 %29 to i64
-  %55 = getelementptr i64, ptr %53, i64 %54
+  %55 = getelementptr [8 x i8], ptr %53, i64 %54
   %56 = load i64, ptr %55, align 8
   %57 = lshr i64 %56, 9
   %58 = and i64 %57, 18014398509481983
@@ -1232,7 +1232,7 @@ define dso_local noundef range(i32 0, 2) i32 @badblocks_clear(ptr noundef %0, i6
   br i1 %68, label %._crit_edge, label %69
 
 69:                                               ; preds = %67
-  %70 = getelementptr i64, ptr %15, i64 %.pre
+  %70 = getelementptr [8 x i8], ptr %15, i64 %.pre
   %71 = load i64, ptr %70, align 8
   %72 = lshr i64 %71, 9
   %73 = and i64 %72, 18014398509481983
@@ -1249,7 +1249,7 @@ define dso_local noundef range(i32 0, 2) i32 @badblocks_clear(ptr noundef %0, i6
 
 ._crit_edge:                                      ; preds = %67, %75, %69
   %81 = load ptr, ptr %14, align 8
-  %82 = getelementptr i64, ptr %81, i64 %.pre
+  %82 = getelementptr [8 x i8], ptr %81, i64 %.pre
   %83 = load i64, ptr %82, align 8
   %84 = lshr i64 %83, 9
   %85 = and i64 %84, 18014398509481983
@@ -1267,7 +1267,7 @@ define dso_local noundef range(i32 0, 2) i32 @badblocks_clear(ptr noundef %0, i6
   br i1 %51, label %173, label %190
 
 93:                                               ; preds = %87
-  %94 = getelementptr i64, ptr %15, i64 %.pre
+  %94 = getelementptr [8 x i8], ptr %15, i64 %.pre
   %95 = load i64, ptr %94, align 8
   %96 = lshr i64 %95, 9
   %97 = and i64 %96, 18014398509481983
@@ -1309,7 +1309,7 @@ define dso_local noundef range(i32 0, 2) i32 @badblocks_clear(ptr noundef %0, i6
   %125 = or i64 %122, %124
   %126 = or i64 %125, %109
   %127 = sext i32 %50 to i64
-  %128 = getelementptr i64, ptr %81, i64 %127
+  %128 = getelementptr [8 x i8], ptr %81, i64 %127
   store i64 %126, ptr %128, align 8
   %129 = load i32, ptr %16, align 8
   %130 = add i32 %129, 1
@@ -1386,7 +1386,7 @@ define dso_local noundef range(i32 0, 2) i32 @badblocks_clear(ptr noundef %0, i6
 
 173:                                              ; preds = %92
   %174 = sext i32 %50 to i64
-  %175 = getelementptr i64, ptr %81, i64 %174
+  %175 = getelementptr [8 x i8], ptr %81, i64 %174
   %176 = load i64, ptr %175, align 8
   %177 = lshr i64 %176, 9
   %178 = and i64 %177, 18014398509481983
@@ -1397,7 +1397,7 @@ define dso_local noundef range(i32 0, 2) i32 @badblocks_clear(ptr noundef %0, i6
   br i1 %182, label %183, label %190
 
 183:                                              ; preds = %173
-  %184 = getelementptr i64, ptr %15, i64 %174
+  %184 = getelementptr [8 x i8], ptr %15, i64 %174
   %185 = load i64, ptr %184, align 8
   %186 = lshr i64 %185, 9
   %187 = sub nsw i64 %186, %23
@@ -1457,7 +1457,7 @@ define dso_local noundef range(i32 0, 2) i32 @badblocks_clear(ptr noundef %0, i6
 
 216:                                              ; preds = %213, %211
   %217 = phi i64 [ 0, %211 ], [ %214, %213 ]
-  %218 = getelementptr i64, ptr %204, i64 %217
+  %218 = getelementptr [8 x i8], ptr %204, i64 %217
   %219 = load i64, ptr %218, align 8
   %220 = icmp sgt i64 %219, -1
   br i1 %220, label %.loopexit, label %213
@@ -1531,7 +1531,7 @@ define dso_local void @ack_all_badblocks(ptr noundef %0) #0 align 16 {
 .preheader:                                       ; preds = %20, %32
   %25 = phi i32 [ %33, %32 ], [ %23, %20 ]
   %26 = phi i64 [ %34, %32 ], [ 0, %20 ]
-  %27 = getelementptr i64, ptr %21, i64 %26
+  %27 = getelementptr [8 x i8], ptr %21, i64 %26
   %28 = load i64, ptr %27, align 8
   %29 = icmp sgt i64 %28, -1
   br i1 %29, label %30, label %32
@@ -1608,7 +1608,7 @@ define dso_local i64 @badblocks_show(ptr noundef %0, ptr noundef writeonly captu
   br i1 %25, label %26, label %.thread.us
 
 26:                                               ; preds = %20
-  %27 = getelementptr i64, ptr %5, i64 %21
+  %27 = getelementptr [8 x i8], ptr %5, i64 %21
   %28 = load i64, ptr %27, align 8
   %29 = add nuw nsw i64 %21, 1
   %30 = trunc i64 %28 to i32
@@ -1662,7 +1662,7 @@ define dso_local i64 @badblocks_show(ptr noundef %0, ptr noundef writeonly captu
   br i1 %60, label %61, label %83
 
 61:                                               ; preds = %55
-  %62 = getelementptr i64, ptr %5, i64 %56
+  %62 = getelementptr [8 x i8], ptr %5, i64 %56
   %63 = load i64, ptr %62, align 8
   %64 = icmp slt i64 %63, 0
   %65 = add nuw nsw i64 %56, 1
@@ -1908,7 +1908,7 @@ define internal fastcc i32 @prev_badblocks(ptr noundef readonly captures(none) %
   br i1 %21, label %22, label %.thread
 
 22:                                               ; preds = %19
-  %23 = getelementptr i64, ptr %11, i64 %16
+  %23 = getelementptr [8 x i8], ptr %11, i64 %16
   %24 = load i64, ptr %23, align 8
   %25 = lshr i64 %24, 9
   %26 = and i64 %25, 18014398509481983
@@ -1920,7 +1920,7 @@ define internal fastcc i32 @prev_badblocks(ptr noundef readonly captures(none) %
   br i1 %29, label %36, label %30
 
 30:                                               ; preds = %28
-  %31 = getelementptr i64, ptr %11, i64 %20
+  %31 = getelementptr [8 x i8], ptr %11, i64 %20
   %32 = load i64, ptr %31, align 8
   %33 = lshr i64 %32, 9
   %34 = and i64 %33, 18014398509481983
@@ -1943,7 +1943,7 @@ define internal fastcc i32 @prev_badblocks(ptr noundef readonly captures(none) %
 44:                                               ; preds = %.thread
   %45 = add i32 %4, -1
   %46 = sext i32 %45 to i64
-  %47 = getelementptr i64, ptr %39, i64 %46
+  %47 = getelementptr [8 x i8], ptr %39, i64 %46
   %48 = load i64, ptr %47, align 8
   %49 = lshr i64 %48, 9
   %50 = and i64 %49, 18014398509481983
@@ -1961,7 +1961,7 @@ define internal fastcc i32 @prev_badblocks(ptr noundef readonly captures(none) %
   %57 = add i32 %53, %52
   %58 = sdiv i32 %57, 2
   %59 = sext i32 %58 to i64
-  %60 = getelementptr i64, ptr %39, i64 %59
+  %60 = getelementptr [8 x i8], ptr %39, i64 %59
   %61 = load i64, ptr %60, align 8
   %62 = lshr i64 %61, 9
   %63 = and i64 %62, 18014398509481983
@@ -1974,7 +1974,7 @@ define internal fastcc i32 @prev_badblocks(ptr noundef readonly captures(none) %
 
 68:                                               ; preds = %.preheader
   %69 = sext i32 %52 to i64
-  %70 = getelementptr i64, ptr %39, i64 %69
+  %70 = getelementptr [8 x i8], ptr %39, i64 %69
   %71 = load i64, ptr %70, align 8
   %72 = lshr i64 %71, 9
   %73 = and i64 %72, 18014398509481983

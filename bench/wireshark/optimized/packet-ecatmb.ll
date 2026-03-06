@@ -894,7 +894,7 @@ define internal i32 @dissect_ecat_mailbox(ptr noundef %0, ptr noundef %1, ptr no
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %181 = getelementptr i32, ptr @hf_ecat_mailbox_eoe_macfilter_filters, i64 %indvars.iv.i
+  %181 = getelementptr [4 x i8], ptr @hf_ecat_mailbox_eoe_macfilter_filters, i64 %indvars.iv.i
   %182 = load i32, ptr %181, align 4
   %183 = trunc i64 %indvars.iv.i to i32
   %184 = mul i32 %183, 6
@@ -920,7 +920,7 @@ define internal i32 @dissect_ecat_mailbox(ptr noundef %0, ptr noundef %1, ptr no
 
 .lr.ph196.i:                                      ; preds = %.lr.ph196.i, %.lr.ph196.preheader.i
   %indvars.iv200.i = phi i64 [ 0, %.lr.ph196.preheader.i ], [ %indvars.iv.next201.i, %.lr.ph196.i ]
-  %193 = getelementptr i32, ptr @hf_ecat_mailbox_eoe_macfilter_filtermasks, i64 %indvars.iv200.i
+  %193 = getelementptr [4 x i8], ptr @hf_ecat_mailbox_eoe_macfilter_filtermasks, i64 %indvars.iv200.i
   %194 = load i32, ptr %193, align 4
   %indvars.iv200.tr.i = trunc i64 %indvars.iv200.i to i32
   %195 = shl i32 %indvars.iv200.tr.i, 2

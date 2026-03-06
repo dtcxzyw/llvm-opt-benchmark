@@ -3,8 +3,6 @@ source_filename = "bench/msdfgen/original/Scanline.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"struct.msdfgen::Scanline::Intersection" = type { double, i32 }
-
 $_ZNSt6vectorIN7msdfgen8Scanline12IntersectionESaIS2_EEaSERKS4_ = comdat any
 
 @_ZN7msdfgen8ScanlineC1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN7msdfgen8ScanlineC2Ev
@@ -126,7 +124,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 
 if.then:                                          ; preds = %while.body
   %conv21 = sext i32 %ai.0147 to i64
-  %add.ptr.i = getelementptr inbounds %"struct.msdfgen::Scanline::Intersection", ptr %0, i64 %conv21
+  %add.ptr.i = getelementptr inbounds [16 x i8], ptr %0, i64 %conv21
   %direction = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 8
   %8 = load i32, ptr %direction, align 8
   switch i32 %fillRule, label %_ZN7msdfgen17interpretFillRuleEiNS_8FillRuleE.exit [
@@ -161,7 +159,7 @@ _ZN7msdfgen17interpretFillRuleEiNS_8FillRuleE.exit: ; preds = %if.then, %sw.bb.i
 
 cond.true28:                                      ; preds = %_ZN7msdfgen17interpretFillRuleEiNS_8FillRuleE.exit
   %conv30 = sext i32 %inc to i64
-  %add.ptr.i75 = getelementptr inbounds %"struct.msdfgen::Scanline::Intersection", ptr %0, i64 %conv30
+  %add.ptr.i75 = getelementptr inbounds [16 x i8], ptr %0, i64 %conv30
   %9 = load double, ptr %add.ptr.i75, align 8
   br label %if.end
 
@@ -176,7 +174,7 @@ if.end:                                           ; preds = %cond.true28, %_ZN7m
 
 if.then42:                                        ; preds = %if.end
   %conv44 = sext i32 %bi.0148 to i64
-  %add.ptr.i81 = getelementptr inbounds %"struct.msdfgen::Scanline::Intersection", ptr %3, i64 %conv44
+  %add.ptr.i81 = getelementptr inbounds [16 x i8], ptr %3, i64 %conv44
   %direction46 = getelementptr inbounds nuw i8, ptr %add.ptr.i81, i64 8
   %10 = load i32, ptr %direction46, align 8
   switch i32 %fillRule, label %_ZN7msdfgen17interpretFillRuleEiNS_8FillRuleE.exit91 [
@@ -211,7 +209,7 @@ _ZN7msdfgen17interpretFillRuleEiNS_8FillRuleE.exit91: ; preds = %if.then42, %sw.
 
 cond.true54:                                      ; preds = %_ZN7msdfgen17interpretFillRuleEiNS_8FillRuleE.exit91
   %conv56 = sext i32 %inc49 to i64
-  %add.ptr.i97 = getelementptr inbounds %"struct.msdfgen::Scanline::Intersection", ptr %3, i64 %conv56
+  %add.ptr.i97 = getelementptr inbounds [16 x i8], ptr %3, i64 %conv56
   %11 = load double, ptr %add.ptr.i97, align 8
   br label %if.end62
 
@@ -246,7 +244,7 @@ while.body69:                                     ; preds = %while.body69.lr.ph,
 
 if.then84:                                        ; preds = %while.body69
   %conv86 = sext i32 %ai.2160 to i64
-  %add.ptr.i105 = getelementptr inbounds %"struct.msdfgen::Scanline::Intersection", ptr %0, i64 %conv86
+  %add.ptr.i105 = getelementptr inbounds [16 x i8], ptr %0, i64 %conv86
   %direction88 = getelementptr inbounds nuw i8, ptr %add.ptr.i105, i64 8
   %13 = load i32, ptr %direction88, align 8
   switch i32 %fillRule, label %_ZN7msdfgen17interpretFillRuleEiNS_8FillRuleE.exit115 [
@@ -281,7 +279,7 @@ _ZN7msdfgen17interpretFillRuleEiNS_8FillRuleE.exit115: ; preds = %if.then84, %sw
 
 cond.true96:                                      ; preds = %_ZN7msdfgen17interpretFillRuleEiNS_8FillRuleE.exit115
   %conv98 = sext i32 %inc91 to i64
-  %add.ptr.i121 = getelementptr inbounds %"struct.msdfgen::Scanline::Intersection", ptr %0, i64 %conv98
+  %add.ptr.i121 = getelementptr inbounds [16 x i8], ptr %0, i64 %conv98
   %14 = load double, ptr %add.ptr.i121, align 8
   br label %if.end104
 
@@ -296,7 +294,7 @@ if.end104:                                        ; preds = %cond.true96, %_ZN7m
 
 if.then111:                                       ; preds = %if.end104
   %conv113 = sext i32 %bi.2161 to i64
-  %add.ptr.i127 = getelementptr inbounds %"struct.msdfgen::Scanline::Intersection", ptr %3, i64 %conv113
+  %add.ptr.i127 = getelementptr inbounds [16 x i8], ptr %3, i64 %conv113
   %direction115 = getelementptr inbounds nuw i8, ptr %add.ptr.i127, i64 8
   %15 = load i32, ptr %direction115, align 8
   switch i32 %fillRule, label %_ZN7msdfgen17interpretFillRuleEiNS_8FillRuleE.exit137 [
@@ -331,7 +329,7 @@ _ZN7msdfgen17interpretFillRuleEiNS_8FillRuleE.exit137: ; preds = %if.then111, %s
 
 cond.true123:                                     ; preds = %_ZN7msdfgen17interpretFillRuleEiNS_8FillRuleE.exit137
   %conv125 = sext i32 %inc118 to i64
-  %add.ptr.i143 = getelementptr inbounds %"struct.msdfgen::Scanline::Intersection", ptr %3, i64 %conv125
+  %add.ptr.i143 = getelementptr inbounds [16 x i8], ptr %3, i64 %conv125
   %16 = load double, ptr %add.ptr.i143, align 8
   br label %if.end131
 
@@ -638,7 +636,7 @@ if.end:                                           ; preds = %entry
   %lastIndex = getelementptr inbounds nuw i8, ptr %this, i64 24
   %2 = load i32, ptr %lastIndex, align 8
   %conv = sext i32 %2 to i64
-  %add.ptr.i = getelementptr inbounds %"struct.msdfgen::Scanline::Intersection", ptr %0, i64 %conv
+  %add.ptr.i = getelementptr inbounds [16 x i8], ptr %0, i64 %conv
   %3 = load double, ptr %add.ptr.i, align 8
   %cmp = fcmp olt double %x, %3
   br i1 %cmp, label %do.body, label %while.cond.preheader
@@ -661,7 +659,7 @@ do.body:                                          ; preds = %if.end, %if.end9
 
 if.end9:                                          ; preds = %do.body
   %indvars.iv.next17 = add nsw i64 %indvars.iv16, -1
-  %add.ptr.i11 = getelementptr inbounds %"struct.msdfgen::Scanline::Intersection", ptr %0, i64 %indvars.iv.next17
+  %add.ptr.i11 = getelementptr inbounds [16 x i8], ptr %0, i64 %indvars.iv.next17
   %5 = load double, ptr %add.ptr.i11, align 8
   %cmp14 = fcmp olt double %x, %5
   br i1 %cmp14, label %do.body, label %if.end24.loopexit, !llvm.loop !9
@@ -673,7 +671,7 @@ while.cond:                                       ; preds = %while.cond.preheade
 
 land.rhs:                                         ; preds = %while.cond
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %add.ptr.i12 = getelementptr inbounds %"struct.msdfgen::Scanline::Intersection", ptr %0, i64 %indvars.iv.next
+  %add.ptr.i12 = getelementptr inbounds [16 x i8], ptr %0, i64 %indvars.iv.next
   %6 = load double, ptr %add.ptr.i12, align 8
   %cmp23 = fcmp ult double %x, %6
   br i1 %cmp23, label %if.end24.loopexit20.split.loop.exit21, label %while.cond, !llvm.loop !10
@@ -710,7 +708,7 @@ if.end.i:                                         ; preds = %entry
   %lastIndex.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %2 = load i32, ptr %lastIndex.i, align 8
   %conv.i = sext i32 %2 to i64
-  %add.ptr.i.i = getelementptr inbounds %"struct.msdfgen::Scanline::Intersection", ptr %0, i64 %conv.i
+  %add.ptr.i.i = getelementptr inbounds [16 x i8], ptr %0, i64 %conv.i
   %3 = load double, ptr %add.ptr.i.i, align 8
   %cmp.i = fcmp olt double %x, %3
   br i1 %cmp.i, label %do.body.i, label %while.cond.preheader.i
@@ -733,7 +731,7 @@ do.body.i:                                        ; preds = %if.end.i, %if.end9.
 
 if.end9.i:                                        ; preds = %do.body.i
   %indvars.iv.next17.i = add nsw i64 %indvars.iv16.i, -1
-  %add.ptr.i11.i = getelementptr inbounds %"struct.msdfgen::Scanline::Intersection", ptr %0, i64 %indvars.iv.next17.i
+  %add.ptr.i11.i = getelementptr inbounds [16 x i8], ptr %0, i64 %indvars.iv.next17.i
   %5 = load double, ptr %add.ptr.i11.i, align 8
   %cmp14.i = fcmp olt double %x, %5
   br i1 %cmp14.i, label %do.body.i, label %if.end24.loopexit.i, !llvm.loop !9
@@ -745,7 +743,7 @@ while.cond.i:                                     ; preds = %land.rhs.i, %while.
 
 land.rhs.i:                                       ; preds = %while.cond.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
-  %add.ptr.i12.i = getelementptr inbounds %"struct.msdfgen::Scanline::Intersection", ptr %0, i64 %indvars.iv.next.i
+  %add.ptr.i12.i = getelementptr inbounds [16 x i8], ptr %0, i64 %indvars.iv.next.i
   %6 = load double, ptr %add.ptr.i12.i, align 8
   %cmp23.i = fcmp ult double %x, %6
   br i1 %cmp23.i, label %if.end24.loopexit20.split.loop.exit21.i, label %while.cond.i, !llvm.loop !10
@@ -783,7 +781,7 @@ if.end.i:                                         ; preds = %entry
   %lastIndex.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %2 = load i32, ptr %lastIndex.i, align 8
   %conv.i = sext i32 %2 to i64
-  %add.ptr.i.i = getelementptr inbounds %"struct.msdfgen::Scanline::Intersection", ptr %0, i64 %conv.i
+  %add.ptr.i.i = getelementptr inbounds [16 x i8], ptr %0, i64 %conv.i
   %3 = load double, ptr %add.ptr.i.i, align 8
   %cmp.i = fcmp olt double %x, %3
   br i1 %cmp.i, label %do.body.i, label %while.cond.preheader.i
@@ -810,7 +808,7 @@ _ZNK7msdfgen8Scanline6moveToEd.exit.thread4:      ; preds = %do.body.i
 
 if.end9.i:                                        ; preds = %do.body.i
   %indvars.iv.next17.i = add nsw i64 %indvars.iv16.i, -1
-  %add.ptr.i11.i = getelementptr inbounds %"struct.msdfgen::Scanline::Intersection", ptr %0, i64 %indvars.iv.next17.i
+  %add.ptr.i11.i = getelementptr inbounds [16 x i8], ptr %0, i64 %indvars.iv.next17.i
   %5 = load double, ptr %add.ptr.i11.i, align 8
   %cmp14.i = fcmp olt double %x, %5
   br i1 %cmp14.i, label %do.body.i, label %if.end24.loopexit.i, !llvm.loop !9
@@ -822,7 +820,7 @@ while.cond.i:                                     ; preds = %land.rhs.i, %while.
 
 land.rhs.i:                                       ; preds = %while.cond.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
-  %add.ptr.i12.i = getelementptr inbounds %"struct.msdfgen::Scanline::Intersection", ptr %0, i64 %indvars.iv.next.i
+  %add.ptr.i12.i = getelementptr inbounds [16 x i8], ptr %0, i64 %indvars.iv.next.i
   %6 = load double, ptr %add.ptr.i12.i, align 8
   %cmp23.i = fcmp ult double %x, %6
   br i1 %cmp23.i, label %if.end24.loopexit20.split.loop.exit21.i, label %while.cond.i, !llvm.loop !10
@@ -843,7 +841,7 @@ _ZNK7msdfgen8Scanline6moveToEd.exit:              ; preds = %while.cond.i, %if.e
 
 if.then:                                          ; preds = %_ZNK7msdfgen8Scanline6moveToEd.exit
   %conv = zext nneg i32 %index.1.sink.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %"struct.msdfgen::Scanline::Intersection", ptr %0, i64 %conv
+  %add.ptr.i = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %conv
   %direction = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 8
   %9 = load i32, ptr %direction, align 8
   br label %return
@@ -866,7 +864,7 @@ if.end.i.i:                                       ; preds = %entry
   %lastIndex.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %2 = load i32, ptr %lastIndex.i.i, align 8
   %conv.i.i = sext i32 %2 to i64
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.msdfgen::Scanline::Intersection", ptr %0, i64 %conv.i.i
+  %add.ptr.i.i.i = getelementptr inbounds [16 x i8], ptr %0, i64 %conv.i.i
   %3 = load double, ptr %add.ptr.i.i.i, align 8
   %cmp.i.i = fcmp olt double %x, %3
   br i1 %cmp.i.i, label %do.body.i.i, label %while.cond.preheader.i.i
@@ -893,7 +891,7 @@ _ZNK7msdfgen8Scanline6moveToEd.exit.thread4.i:    ; preds = %do.body.i.i
 
 if.end9.i.i:                                      ; preds = %do.body.i.i
   %indvars.iv.next17.i.i = add nsw i64 %indvars.iv16.i.i, -1
-  %add.ptr.i11.i.i = getelementptr inbounds %"struct.msdfgen::Scanline::Intersection", ptr %0, i64 %indvars.iv.next17.i.i
+  %add.ptr.i11.i.i = getelementptr inbounds [16 x i8], ptr %0, i64 %indvars.iv.next17.i.i
   %5 = load double, ptr %add.ptr.i11.i.i, align 8
   %cmp14.i.i = fcmp olt double %x, %5
   br i1 %cmp14.i.i, label %do.body.i.i, label %if.end24.loopexit.i.i, !llvm.loop !9
@@ -905,7 +903,7 @@ while.cond.i.i:                                   ; preds = %land.rhs.i.i, %whil
 
 land.rhs.i.i:                                     ; preds = %while.cond.i.i
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
-  %add.ptr.i12.i.i = getelementptr inbounds %"struct.msdfgen::Scanline::Intersection", ptr %0, i64 %indvars.iv.next.i.i
+  %add.ptr.i12.i.i = getelementptr inbounds [16 x i8], ptr %0, i64 %indvars.iv.next.i.i
   %6 = load double, ptr %add.ptr.i12.i.i, align 8
   %cmp23.i.i = fcmp ult double %x, %6
   br i1 %cmp23.i.i, label %if.end24.loopexit20.split.loop.exit21.i.i, label %while.cond.i.i, !llvm.loop !10
@@ -926,7 +924,7 @@ _ZNK7msdfgen8Scanline6moveToEd.exit.i:            ; preds = %while.cond.i.i, %if
 
 if.then.i:                                        ; preds = %_ZNK7msdfgen8Scanline6moveToEd.exit.i
   %conv.i = zext nneg i32 %index.1.sink.i.i to i64
-  %add.ptr.i.i = getelementptr inbounds nuw %"struct.msdfgen::Scanline::Intersection", ptr %0, i64 %conv.i
+  %add.ptr.i.i = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %conv.i
   %direction.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 8
   %9 = load i32, ptr %direction.i, align 8
   br label %_ZNK7msdfgen8Scanline16sumIntersectionsEd.exit

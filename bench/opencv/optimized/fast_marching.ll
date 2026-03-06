@@ -64,7 +64,7 @@ define noundef float @_ZNK2cv9videostab18FastMarchingMethod5solveEiiii(ptr nound
   %35 = load i64, ptr %34, align 8, !tbaa !30
   %36 = mul i64 %35, %23
   %37 = getelementptr inbounds nuw i8, ptr %32, i64 %36
-  %38 = getelementptr inbounds nuw float, ptr %37, i64 %26
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %26
   %39 = load float, ptr %38, align 4, !tbaa !33
   %40 = icmp sgt i32 %4, -1
   br i1 %40, label %41, label %72
@@ -90,7 +90,7 @@ define noundef float @_ZNK2cv9videostab18FastMarchingMethod5solveEiiii(ptr nound
 53:                                               ; preds = %45
   %54 = mul i64 %35, %46
   %55 = getelementptr inbounds nuw i8, ptr %32, i64 %54
-  %56 = getelementptr inbounds nuw float, ptr %55, i64 %49
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %49
   %57 = load float, ptr %56, align 4, !tbaa !33
   %58 = fsub float %39, %57
   %59 = fmul float %58, %58
@@ -158,7 +158,7 @@ define noundef float @_ZNK2cv9videostab18FastMarchingMethod5solveEiiii(ptr nound
   %103 = mul i64 %102, %90
   %104 = getelementptr inbounds nuw i8, ptr %99, i64 %103
   %105 = sext i32 %1 to i64
-  %106 = getelementptr inbounds float, ptr %104, i64 %105
+  %106 = getelementptr inbounds [4 x i8], ptr %104, i64 %105
   %107 = load float, ptr %106, align 4, !tbaa !33
   %108 = fadd float %107, 1.000000e+00
   br label %109
@@ -186,9 +186,9 @@ define void @_ZN2cv9videostab18FastMarchingMethod6heapUpEi(ptr noundef nonnull r
   %.014 = sdiv i32 %.014.in, 2
   %9 = zext nneg i32 %.01013 to i64
   %10 = load ptr, ptr %4, align 8, !tbaa !35
-  %11 = getelementptr inbounds nuw %"struct.cv::videostab::FastMarchingMethod::DXY", ptr %10, i64 %9
+  %11 = getelementptr inbounds nuw [12 x i8], ptr %10, i64 %9
   %12 = zext nneg i32 %.014 to i64
-  %13 = getelementptr inbounds nuw %"struct.cv::videostab::FastMarchingMethod::DXY", ptr %10, i64 %12
+  %13 = getelementptr inbounds nuw [12 x i8], ptr %10, i64 %12
   %14 = load float, ptr %11, align 4, !tbaa !36
   %15 = load float, ptr %13, align 4, !tbaa !36
   %16 = fcmp olt float %14, %15
@@ -206,7 +206,7 @@ define void @_ZN2cv9videostab18FastMarchingMethod6heapUpEi(ptr noundef nonnull r
   %26 = mul i64 %24, %25
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 %26
   %28 = sext i32 %21 to i64
-  %29 = getelementptr inbounds i32, ptr %27, i64 %28
+  %29 = getelementptr inbounds [4 x i8], ptr %27, i64 %28
   %30 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %31 = load i32, ptr %30, align 4, !tbaa !38
   %32 = getelementptr inbounds nuw i8, ptr %11, i64 4
@@ -215,7 +215,7 @@ define void @_ZN2cv9videostab18FastMarchingMethod6heapUpEi(ptr noundef nonnull r
   %35 = mul i64 %24, %34
   %36 = getelementptr inbounds nuw i8, ptr %22, i64 %35
   %37 = sext i32 %33 to i64
-  %38 = getelementptr inbounds i32, ptr %36, i64 %37
+  %38 = getelementptr inbounds [4 x i8], ptr %36, i64 %37
   %39 = load i32, ptr %29, align 4, !tbaa !34
   %40 = load i32, ptr %38, align 4, !tbaa !34
   store i32 %40, ptr %29, align 4, !tbaa !34
@@ -253,9 +253,9 @@ define void @_ZN2cv9videostab18FastMarchingMethod8heapDownEi(ptr noundef nonnull
 14:                                               ; preds = %8
   %15 = sext i32 %10 to i64
   %16 = load ptr, ptr %5, align 8, !tbaa !35
-  %17 = getelementptr inbounds nuw %"struct.cv::videostab::FastMarchingMethod::DXY", ptr %16, i64 %15
+  %17 = getelementptr inbounds nuw [12 x i8], ptr %16, i64 %15
   %18 = sext i32 %.018 to i64
-  %19 = getelementptr inbounds nuw %"struct.cv::videostab::FastMarchingMethod::DXY", ptr %16, i64 %18
+  %19 = getelementptr inbounds nuw [12 x i8], ptr %16, i64 %18
   %20 = load float, ptr %17, align 4, !tbaa !36
   %21 = load float, ptr %19, align 4, !tbaa !36
   %22 = fcmp olt float %20, %21
@@ -270,9 +270,9 @@ define void @_ZN2cv9videostab18FastMarchingMethod8heapDownEi(ptr noundef nonnull
 25:                                               ; preds = %23
   %26 = sext i32 %11 to i64
   %27 = load ptr, ptr %5, align 8, !tbaa !35
-  %28 = getelementptr inbounds nuw %"struct.cv::videostab::FastMarchingMethod::DXY", ptr %27, i64 %26
+  %28 = getelementptr inbounds nuw [12 x i8], ptr %27, i64 %26
   %29 = sext i32 %.0 to i64
-  %30 = getelementptr inbounds nuw %"struct.cv::videostab::FastMarchingMethod::DXY", ptr %27, i64 %29
+  %30 = getelementptr inbounds nuw [12 x i8], ptr %27, i64 %29
   %31 = load float, ptr %28, align 4, !tbaa !36
   %32 = load float, ptr %30, align 4, !tbaa !36
   %33 = fcmp olt float %31, %32
@@ -287,7 +287,7 @@ define void @_ZN2cv9videostab18FastMarchingMethod8heapDownEi(ptr noundef nonnull
 36:                                               ; preds = %34
   %37 = sext i32 %.018 to i64
   %38 = load ptr, ptr %5, align 8, !tbaa !35
-  %39 = getelementptr inbounds nuw %"struct.cv::videostab::FastMarchingMethod::DXY", ptr %38, i64 %37
+  %39 = getelementptr inbounds nuw [12 x i8], ptr %38, i64 %37
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load i32, ptr %40, align 4, !tbaa !38
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 4
@@ -299,9 +299,9 @@ define void @_ZN2cv9videostab18FastMarchingMethod8heapDownEi(ptr noundef nonnull
   %48 = mul i64 %46, %47
   %49 = getelementptr inbounds nuw i8, ptr %44, i64 %48
   %50 = sext i32 %43 to i64
-  %51 = getelementptr inbounds i32, ptr %49, i64 %50
+  %51 = getelementptr inbounds [4 x i8], ptr %49, i64 %50
   %52 = sext i32 %.1 to i64
-  %53 = getelementptr inbounds nuw %"struct.cv::videostab::FastMarchingMethod::DXY", ptr %38, i64 %52
+  %53 = getelementptr inbounds nuw [12 x i8], ptr %38, i64 %52
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %55 = load i32, ptr %54, align 4, !tbaa !38
   %56 = getelementptr inbounds nuw i8, ptr %53, i64 4
@@ -310,7 +310,7 @@ define void @_ZN2cv9videostab18FastMarchingMethod8heapDownEi(ptr noundef nonnull
   %59 = mul i64 %46, %58
   %60 = getelementptr inbounds nuw i8, ptr %44, i64 %59
   %61 = sext i32 %57 to i64
-  %62 = getelementptr inbounds i32, ptr %60, i64 %61
+  %62 = getelementptr inbounds [4 x i8], ptr %60, i64 %61
   %63 = load i32, ptr %51, align 4, !tbaa !34
   %64 = load i32, ptr %62, align 4, !tbaa !34
   store i32 %64, ptr %51, align 4, !tbaa !34
@@ -356,7 +356,7 @@ define void @_ZN2cv9videostab18FastMarchingMethod7heapAddERKNS1_3DXYE(ptr nounde
   %20 = phi ptr [ %.pre3, %15 ], [ %7, %2 ]
   %21 = phi i32 [ %.pre, %15 ], [ %14, %2 ]
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds nuw %"struct.cv::videostab::FastMarchingMethod::DXY", ptr %20, i64 %22
+  %23 = getelementptr inbounds nuw [12 x i8], ptr %20, i64 %22
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %23, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false), !tbaa.struct !40
   %24 = load i32, ptr %13, align 8, !tbaa !43
   %25 = add nsw i32 %24, 1
@@ -374,7 +374,7 @@ define void @_ZN2cv9videostab18FastMarchingMethod7heapAddERKNS1_3DXYE(ptr nounde
   %36 = mul i64 %34, %35
   %37 = getelementptr inbounds nuw i8, ptr %31, i64 %36
   %38 = sext i32 %29 to i64
-  %39 = getelementptr inbounds i32, ptr %37, i64 %38
+  %39 = getelementptr inbounds [4 x i8], ptr %37, i64 %38
   store i32 %24, ptr %39, align 4, !tbaa !34
   %40 = load i32, ptr %13, align 8, !tbaa !43
   %41 = icmp sgt i32 %40, 1
@@ -390,9 +390,9 @@ define void @_ZN2cv9videostab18FastMarchingMethod7heapAddERKNS1_3DXYE(ptr nounde
   %.014.i = sdiv i32 %.014.in.i, 2
   %43 = zext nneg i32 %.01013.i to i64
   %44 = load ptr, ptr %4, align 8, !tbaa !35
-  %45 = getelementptr inbounds nuw %"struct.cv::videostab::FastMarchingMethod::DXY", ptr %44, i64 %43
+  %45 = getelementptr inbounds nuw [12 x i8], ptr %44, i64 %43
   %46 = zext nneg i32 %.014.i to i64
-  %47 = getelementptr inbounds nuw %"struct.cv::videostab::FastMarchingMethod::DXY", ptr %44, i64 %46
+  %47 = getelementptr inbounds nuw [12 x i8], ptr %44, i64 %46
   %48 = load float, ptr %45, align 4, !tbaa !36
   %49 = load float, ptr %47, align 4, !tbaa !36
   %50 = fcmp olt float %48, %49
@@ -410,7 +410,7 @@ define void @_ZN2cv9videostab18FastMarchingMethod7heapAddERKNS1_3DXYE(ptr nounde
   %60 = mul i64 %58, %59
   %61 = getelementptr inbounds nuw i8, ptr %56, i64 %60
   %62 = sext i32 %55 to i64
-  %63 = getelementptr inbounds i32, ptr %61, i64 %62
+  %63 = getelementptr inbounds [4 x i8], ptr %61, i64 %62
   %64 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %65 = load i32, ptr %64, align 4, !tbaa !38
   %66 = getelementptr inbounds nuw i8, ptr %45, i64 4
@@ -419,7 +419,7 @@ define void @_ZN2cv9videostab18FastMarchingMethod7heapAddERKNS1_3DXYE(ptr nounde
   %69 = mul i64 %58, %68
   %70 = getelementptr inbounds nuw i8, ptr %56, i64 %69
   %71 = sext i32 %67 to i64
-  %72 = getelementptr inbounds i32, ptr %70, i64 %71
+  %72 = getelementptr inbounds [4 x i8], ptr %70, i64 %71
   %73 = load i32, ptr %63, align 4, !tbaa !34
   %74 = load i32, ptr %72, align 4, !tbaa !34
   store i32 %74, ptr %63, align 4, !tbaa !34
@@ -509,9 +509,9 @@ _ZNSt6vectorIN2cv9videostab18FastMarchingMethod3DXYESaIS3_EE11_S_relocateEPS3_S6
 
 _ZNSt12_Vector_baseIN2cv9videostab18FastMarchingMethod3DXYESaIS3_EE13_M_deallocateEPS3_m.exit36.i: ; preds = %33, %_ZNSt6vectorIN2cv9videostab18FastMarchingMethod3DXYESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.i
   store ptr %28, ptr %0, align 8, !tbaa !35
-  %34 = getelementptr inbounds nuw %"struct.cv::videostab::FastMarchingMethod::DXY", ptr %29, i64 %12
+  %34 = getelementptr inbounds nuw [12 x i8], ptr %29, i64 %12
   store ptr %34, ptr %3, align 8, !tbaa !45
-  %35 = getelementptr inbounds nuw %"struct.cv::videostab::FastMarchingMethod::DXY", ptr %28, i64 %26
+  %35 = getelementptr inbounds nuw [12 x i8], ptr %28, i64 %26
   store ptr %35, ptr %13, align 8, !tbaa !46
   br label %_ZNSt6vectorIN2cv9videostab18FastMarchingMethod3DXYESaIS3_EE17_M_default_appendEm.exit
 
@@ -520,7 +520,7 @@ _ZNSt12_Vector_baseIN2cv9videostab18FastMarchingMethod3DXYESaIS3_EE13_M_dealloca
   br i1 %37, label %38, label %_ZNSt6vectorIN2cv9videostab18FastMarchingMethod3DXYESaIS3_EE17_M_default_appendEm.exit
 
 38:                                               ; preds = %36
-  %39 = getelementptr inbounds nuw %"struct.cv::videostab::FastMarchingMethod::DXY", ptr %5, i64 %1
+  %39 = getelementptr inbounds nuw [12 x i8], ptr %5, i64 %1
   %.not.i4 = icmp eq ptr %4, %39
   br i1 %.not.i4, label %_ZNSt6vectorIN2cv9videostab18FastMarchingMethod3DXYESaIS3_EE17_M_default_appendEm.exit, label %40
 
@@ -562,9 +562,9 @@ define void @_ZN2cv9videostab18FastMarchingMethod13heapRemoveMinEv(ptr noundef n
   %21 = mul i64 %19, %20
   %22 = getelementptr inbounds nuw i8, ptr %16, i64 %21
   %23 = sext i32 %14 to i64
-  %24 = getelementptr inbounds i32, ptr %22, i64 %23
+  %24 = getelementptr inbounds [4 x i8], ptr %22, i64 %23
   %25 = zext nneg i32 %8 to i64
-  %26 = getelementptr inbounds nuw %"struct.cv::videostab::FastMarchingMethod::DXY", ptr %10, i64 %25
+  %26 = getelementptr inbounds nuw [12 x i8], ptr %10, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load i32, ptr %27, align 4, !tbaa !38
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 4
@@ -573,14 +573,14 @@ define void @_ZN2cv9videostab18FastMarchingMethod13heapRemoveMinEv(ptr noundef n
   %32 = mul i64 %19, %31
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 %32
   %34 = sext i32 %30 to i64
-  %35 = getelementptr inbounds i32, ptr %33, i64 %34
+  %35 = getelementptr inbounds [4 x i8], ptr %33, i64 %34
   %36 = load i32, ptr %24, align 4, !tbaa !34
   %37 = load i32, ptr %35, align 4, !tbaa !34
   store i32 %37, ptr %24, align 4, !tbaa !34
   store i32 %36, ptr %35, align 4, !tbaa !34
   %38 = load i32, ptr %4, align 8, !tbaa !43
   %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds nuw %"struct.cv::videostab::FastMarchingMethod::DXY", ptr %10, i64 %39
+  %40 = getelementptr inbounds nuw [12 x i8], ptr %10, i64 %39
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %3, ptr noundef nonnull align 4 dereferenceable(12) %10, i64 12, i1 false), !tbaa.struct !40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %40, i64 12, i1 false), !tbaa.struct !40
@@ -600,9 +600,9 @@ define void @_ZN2cv9videostab18FastMarchingMethod13heapRemoveMinEv(ptr noundef n
 47:                                               ; preds = %41
   %48 = sext i32 %43 to i64
   %49 = load ptr, ptr %9, align 8, !tbaa !35
-  %50 = getelementptr inbounds nuw %"struct.cv::videostab::FastMarchingMethod::DXY", ptr %49, i64 %48
+  %50 = getelementptr inbounds nuw [12 x i8], ptr %49, i64 %48
   %51 = sext i32 %.018.i to i64
-  %52 = getelementptr inbounds nuw %"struct.cv::videostab::FastMarchingMethod::DXY", ptr %49, i64 %51
+  %52 = getelementptr inbounds nuw [12 x i8], ptr %49, i64 %51
   %53 = load float, ptr %50, align 4, !tbaa !36
   %54 = load float, ptr %52, align 4, !tbaa !36
   %55 = fcmp olt float %53, %54
@@ -617,9 +617,9 @@ define void @_ZN2cv9videostab18FastMarchingMethod13heapRemoveMinEv(ptr noundef n
 58:                                               ; preds = %56
   %59 = sext i32 %44 to i64
   %60 = load ptr, ptr %9, align 8, !tbaa !35
-  %61 = getelementptr inbounds nuw %"struct.cv::videostab::FastMarchingMethod::DXY", ptr %60, i64 %59
+  %61 = getelementptr inbounds nuw [12 x i8], ptr %60, i64 %59
   %62 = sext i32 %.0.i to i64
-  %63 = getelementptr inbounds nuw %"struct.cv::videostab::FastMarchingMethod::DXY", ptr %60, i64 %62
+  %63 = getelementptr inbounds nuw [12 x i8], ptr %60, i64 %62
   %64 = load float, ptr %61, align 4, !tbaa !36
   %65 = load float, ptr %63, align 4, !tbaa !36
   %66 = fcmp olt float %64, %65
@@ -634,7 +634,7 @@ define void @_ZN2cv9videostab18FastMarchingMethod13heapRemoveMinEv(ptr noundef n
 69:                                               ; preds = %67
   %70 = sext i32 %.018.i to i64
   %71 = load ptr, ptr %9, align 8, !tbaa !35
-  %72 = getelementptr inbounds nuw %"struct.cv::videostab::FastMarchingMethod::DXY", ptr %71, i64 %70
+  %72 = getelementptr inbounds nuw [12 x i8], ptr %71, i64 %70
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %74 = load i32, ptr %73, align 4, !tbaa !38
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 4
@@ -646,9 +646,9 @@ define void @_ZN2cv9videostab18FastMarchingMethod13heapRemoveMinEv(ptr noundef n
   %81 = mul i64 %79, %80
   %82 = getelementptr inbounds nuw i8, ptr %77, i64 %81
   %83 = sext i32 %76 to i64
-  %84 = getelementptr inbounds i32, ptr %82, i64 %83
+  %84 = getelementptr inbounds [4 x i8], ptr %82, i64 %83
   %85 = sext i32 %.1.i to i64
-  %86 = getelementptr inbounds nuw %"struct.cv::videostab::FastMarchingMethod::DXY", ptr %71, i64 %85
+  %86 = getelementptr inbounds nuw [12 x i8], ptr %71, i64 %85
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
   %88 = load i32, ptr %87, align 4, !tbaa !38
   %89 = getelementptr inbounds nuw i8, ptr %86, i64 4
@@ -657,7 +657,7 @@ define void @_ZN2cv9videostab18FastMarchingMethod13heapRemoveMinEv(ptr noundef n
   %92 = mul i64 %79, %91
   %93 = getelementptr inbounds nuw i8, ptr %77, i64 %92
   %94 = sext i32 %90 to i64
-  %95 = getelementptr inbounds i32, ptr %93, i64 %94
+  %95 = getelementptr inbounds [4 x i8], ptr %93, i64 %94
   %96 = load i32, ptr %84, align 4, !tbaa !34
   %97 = load i32, ptr %95, align 4, !tbaa !34
   store i32 %97, ptr %84, align 4, !tbaa !34

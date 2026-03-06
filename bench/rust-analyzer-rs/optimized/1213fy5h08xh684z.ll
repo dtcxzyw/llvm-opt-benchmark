@@ -88,7 +88,7 @@ define hidden { i64, ptr } @_ZN4core4iter6traits8iterator8Iterator6reduce17h2e08
   %.sroa.05.0.i.i = phi i64 [ %9, %12 ], [ %.sroa.0.0.sroa.speculated.i.i.i.i.i, %17 ]
   %.sroa.6.0.i.i = phi ptr [ %4, %12 ], [ %.sroa.3.0.i.i.i.i.i, %17 ]
   %.0.i.i = phi i64 [ 0, %12 ], [ %22, %17 ]
-  %18 = getelementptr inbounds { i32, i16, i16 }, ptr %7, i64 %.0.i.i
+  %18 = getelementptr inbounds [8 x i8], ptr %7, i64 %.0.i.i
   %19 = tail call noundef i8 @"_ZN58_$LT$salsa..DatabaseKeyIndex$u20$as$u20$core..cmp..Ord$GT$3cmp17h561c8876f79b38dcE.llvm.12611796297594801985"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %.sroa.6.0.i.i, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %18), !range !16, !noalias !17
   %20 = icmp eq i8 %19, 1
   %.sroa.3.0.i.i.i.i.i = select i1 %20, ptr %18, ptr %.sroa.6.0.i.i
@@ -154,7 +154,7 @@ define hidden { i64, i64 } @_ZN9itertools9Itertools12position_min17h6dfda8075a43
   %.sroa.05.0.i.i.i = phi i64 [ 0, %7 ], [ %.sroa.0.0.sroa.speculated.i.i.i.i.i.i, %12 ]
   %.sroa.6.0.i.i.i = phi ptr [ %0, %7 ], [ %.sroa.3.0.i.i.i.i.i.i, %12 ]
   %.0.i.i.i = phi i64 [ 0, %7 ], [ %17, %12 ]
-  %13 = getelementptr inbounds { i32, i16, i16 }, ptr %5, i64 %.0.i.i.i
+  %13 = getelementptr inbounds [8 x i8], ptr %5, i64 %.0.i.i.i
   %14 = tail call noundef i8 @"_ZN58_$LT$salsa..DatabaseKeyIndex$u20$as$u20$core..cmp..Ord$GT$3cmp17h561c8876f79b38dcE.llvm.12611796297594801985"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %.sroa.6.0.i.i.i, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %13), !range !16, !noalias !36
   %15 = icmp eq i8 %14, 1
   %.sroa.3.0.i.i.i.i.i.i = select i1 %15, ptr %13, ptr %.sroa.6.0.i.i.i

@@ -11213,7 +11213,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i12
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1241: ; preds = %1866, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1239
   call void @llvm.lifetime.end.p0(ptr nonnull %166)
   %1871 = load ptr, ptr %1825, align 8, !tbaa !110
-  %1872 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %1871, i64 %.01711547
+  %1872 = getelementptr inbounds nuw [32 x i8], ptr %1871, i64 %.01711547
   call void @llvm.lifetime.start.p0(ptr nonnull %167)
   invoke void @_ZN5cmsys11SystemTools15GetFilenameNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %167, ptr noundef nonnull align 8 dereferenceable(32) %1872)
           to label %1873 unwind label %1949
@@ -11440,7 +11440,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1277: ; preds = %_
   unreachable
 
 1934:                                             ; preds = %._crit_edge.i.i1278
-  %1935 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %1928, i64 %.01711547
+  %1935 = getelementptr inbounds nuw [32 x i8], ptr %1928, i64 %.01711547
   invoke void @_ZN11cmXMLWriter12StartElementERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(83) %98, ptr noundef nonnull align 8 dereferenceable(32) %171)
           to label %.noexc1283 unwind label %.loopexit1449
 
@@ -11726,7 +11726,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1316: ; preds = %_
 2036:                                             ; preds = %2035
   call void @llvm.lifetime.start.p0(ptr nonnull %174)
   %2037 = load ptr, ptr %2001, align 8, !tbaa !110
-  %2038 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %2037, i64 %.01721549
+  %2038 = getelementptr inbounds nuw [32 x i8], ptr %2037, i64 %.01721549
   invoke void @_ZN5cmsys11SystemTools15GetFilenameNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %174, ptr noundef nonnull align 8 dereferenceable(32) %2038)
           to label %2039 unwind label %2114
 
@@ -11877,7 +11877,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i13
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1338: ; preds = %2078, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1336
   call void @llvm.lifetime.end.p0(ptr nonnull %176)
   %2085 = load ptr, ptr %2001, align 8, !tbaa !110
-  %2086 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %2085, i64 %.01721549
+  %2086 = getelementptr inbounds nuw [32 x i8], ptr %2085, i64 %.01721549
   %2087 = invoke { i64, i32 } @_ZN5cmsys11SystemTools19CopyFileIfDifferentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_(ptr noundef nonnull align 8 dereferenceable(32) %2086, ptr noundef nonnull align 8 dereferenceable(32) %175)
           to label %2088 unwind label %2123
 
@@ -12035,7 +12035,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1355: ; preds = %_
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %2134
   %2136 = load ptr, ptr %2001, align 8, !tbaa !110
-  %2137 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %2136, i64 %.01721549
+  %2137 = getelementptr inbounds nuw [32 x i8], ptr %2136, i64 %.01721549
   %2138 = load ptr, ptr %2137, align 8, !tbaa !22
   %2139 = getelementptr inbounds nuw i8, ptr %2137, i64 8
   %2140 = load i64, ptr %2139, align 8, !tbaa !10
@@ -12622,7 +12622,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN25cmCPackIFWResourcesParser
   %7 = load ptr, ptr %6, align 8, !tbaa !310
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 872
   %9 = load ptr, ptr %8, align 8, !tbaa !110
-  %10 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %9, i64 %1
+  %10 = getelementptr inbounds nuw [32 x i8], ptr %9, i64 %1
   call void @_ZN5cmsys11SystemTools15GetFilenamePathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 8 dereferenceable(32) %10)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %12 = load ptr, ptr %11, align 8, !tbaa !22
@@ -12724,7 +12724,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt
   %48 = load ptr, ptr %6, align 8, !tbaa !310
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 872
   %50 = load ptr, ptr %49, align 8, !tbaa !110
-  %51 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %50, i64 %1
+  %51 = getelementptr inbounds nuw [32 x i8], ptr %50, i64 %1
   %52 = load ptr, ptr %51, align 8, !tbaa !22
   %53 = load ptr, ptr %0, align 8, !tbaa !23
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 24
@@ -14876,7 +14876,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %69
   store ptr %22, ptr %0, align 8, !tbaa !110
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !111
-  %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %73, ptr %68, align 8, !tbaa !301
   ret void
 }

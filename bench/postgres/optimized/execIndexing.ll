@@ -3,13 +3,11 @@ source_filename = "bench/postgres/original/execIndexing.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%union.ListCell = type { ptr }
 %struct.nameData = type { [64 x i8] }
 %struct.ScanKeyData = type { i32, i16, i16, i32, i32, %struct.FmgrInfo, i64 }
 %struct.FmgrInfo = type { ptr, i32, i16, i8, i8, i8, ptr, ptr, ptr }
 %struct.SnapshotData = type { i32, i32, i32, ptr, i32, ptr, i32, i8, i8, i8, i32, i32, ptr, i32, i32, %struct.pairingheap_node, i64 }
 %struct.pairingheap_node = type { ptr, ptr, ptr }
-%struct.FormData_pg_attribute = type { i32, %struct.nameData, i32, i16, i16, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i32 }
 
 @.str = private unnamed_addr constant [93 x i8] c"ON CONFLICT does not support deferrable unique constraints/exclusion constraints as arbiters\00", align 1
 @.str.1 = private unnamed_addr constant [15 x i8] c"execIndexing.c\00", align 1
@@ -73,7 +71,7 @@ list_length.exit:                                 ; preds = %11
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %41
   %indvars.iv44 = phi i64 [ %indvars.iv.next45, %41 ], [ 0, %.lr.ph ]
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds nuw %union.ListCell, ptr %26, i64 %indvars.iv44
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv44
   %28 = load i32, ptr %27, align 8
   %29 = tail call ptr @index_open(i32 noundef %28, i32 noundef 3) #5
   %30 = tail call ptr @BuildIndexInfo(ptr noundef %29) #5
@@ -95,9 +93,9 @@ list_length.exit:                                 ; preds = %11
   br label %41
 
 41:                                               ; preds = %40, %34, %.lr.ph.split.us
-  %42 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv44
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv44
   store ptr %29, ptr %42, align 8
-  %43 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv44
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv44
   store ptr %30, ptr %43, align 8
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
   %44 = load i32, ptr %13, align 4
@@ -108,13 +106,13 @@ list_length.exit:                                 ; preds = %11
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
   %47 = load ptr, ptr %25, align 8
-  %48 = getelementptr inbounds nuw %union.ListCell, ptr %47, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %indvars.iv
   %49 = load i32, ptr %48, align 8
   %50 = tail call ptr @index_open(i32 noundef %49, i32 noundef 3) #5
   %51 = tail call ptr @BuildIndexInfo(ptr noundef %50) #5
-  %52 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv
   store ptr %50, ptr %52, align 8
-  %53 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv
   store ptr %51, ptr %53, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %54 = load i32, ptr %13, align 4
@@ -159,13 +157,13 @@ define dso_local void @ExecCloseIndices(ptr noundef readonly captures(none) %0) 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %16
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %16 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %16, label %12
 
 12:                                               ; preds = %.lr.ph
-  %13 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8
   tail call void @index_insert_cleanup(ptr noundef nonnull %10, ptr noundef %14) #5
   %15 = load ptr, ptr %9, align 8
@@ -227,13 +225,13 @@ define dso_local ptr @ExecInsertIndexTuples(ptr noundef %0, ptr noundef %1, ptr 
 32:                                               ; preds = %.lr.ph, %164
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %164 ]
   %.079115 = phi ptr [ null, %.lr.ph ], [ %.1, %164 ]
-  %33 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8
   %35 = icmp eq ptr %34, null
   br i1 %35, label %164, label %36
 
 36:                                               ; preds = %32
-  %37 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 162
   %40 = load i8, ptr %39, align 2, !range !4, !noundef !5
@@ -367,13 +365,13 @@ ExecQual.exit:                                    ; preds = %54, %.thread
   %indvars.iv.ph.i = phi i64 [ %indvars.iv.next.i, %114 ], [ 0, %.lr.ph.i ]
   %.03952.ph.i = phi i1 [ %.03952.i.lcssa, %114 ], [ false, %.lr.ph.i ]
   %101 = sext i32 %.ph.i to i64
-  %102 = getelementptr inbounds nuw i16, ptr %100, i64 %indvars.iv.ph.i
+  %102 = getelementptr inbounds nuw [2 x i8], ptr %100, i64 %indvars.iv.ph.i
   %103 = load i16, ptr %102, align 2
   %104 = icmp slt i16 %103, 1
   br i1 %104, label %.thread.i, label %._crit_edge
 
 105:                                              ; preds = %.thread.i
-  %106 = getelementptr inbounds nuw i16, ptr %100, i64 %indvars.iv.next60.i
+  %106 = getelementptr inbounds nuw [2 x i8], ptr %100, i64 %indvars.iv.next60.i
   %107 = load i16, ptr %106, align 2
   %108 = icmp slt i16 %107, 1
   br i1 %108, label %.thread.i, label %._crit_edge, !llvm.loop !9
@@ -587,7 +585,7 @@ define internal fastcc noundef zeroext i1 @check_exclusion_or_unique_constraint(
 
 35:                                               ; preds = %29
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %37 = getelementptr inbounds i16, ptr %36, i64 %31
+  %37 = getelementptr inbounds [2 x i8], ptr %36, i64 %31
   %38 = load i16, ptr %37, align 2
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %40 = load ptr, ptr %39, align 8
@@ -597,12 +595,12 @@ define internal fastcc noundef zeroext i1 @check_exclusion_or_unique_constraint(
   %44 = shl nsw i64 %43, 4
   %45 = getelementptr i8, ptr %40, i64 %44
   %46 = getelementptr i8, ptr %45, i64 -76
-  %47 = getelementptr %struct.FormData_pg_attribute, ptr %46, i64 %41
+  %47 = getelementptr [100 x i8], ptr %46, i64 %41
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 68
   %49 = load i32, ptr %48, align 4
   %50 = tail call ptr @lookup_type_cache(i32 noundef %49, i32 noundef 0) #5
   %51 = getelementptr inbounds nuw i8, ptr %47, i64 4
-  %52 = getelementptr inbounds i64, ptr %4, i64 %31
+  %52 = getelementptr inbounds [8 x i8], ptr %4, i64 %31
   %53 = load i64, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %50, i64 13
   %55 = load i8, ptr %54, align 1
@@ -686,19 +684,19 @@ ExecWithoutOverlapsNotEmpty.exit:                 ; preds = %56, %64
 
 .lr.ph157:                                        ; preds = %.lr.ph157.preheader, %.lr.ph157
   %indvars.iv168 = phi i64 [ 0, %.lr.ph157.preheader ], [ %indvars.iv.next169, %.lr.ph157 ]
-  %87 = getelementptr inbounds nuw %struct.ScanKeyData, ptr %13, i64 %indvars.iv168
+  %87 = getelementptr inbounds nuw [72 x i8], ptr %13, i64 %indvars.iv168
   %88 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv168
   %89 = load i8, ptr %88, align 1, !range !4, !noundef !5
   %90 = trunc nuw i8 %89 to i1
   %91 = select i1 %90, i32 65, i32 0
   %indvars.iv.next169 = add nuw nsw i64 %indvars.iv168, 1
-  %92 = getelementptr inbounds nuw i16, ptr %.0115, i64 %indvars.iv168
+  %92 = getelementptr inbounds nuw [2 x i8], ptr %.0115, i64 %indvars.iv168
   %93 = load i16, ptr %92, align 2
-  %94 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv168
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv168
   %95 = load i32, ptr %94, align 4
-  %96 = getelementptr inbounds nuw i32, ptr %.0114, i64 %indvars.iv168
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %.0114, i64 %indvars.iv168
   %97 = load i32, ptr %96, align 4
-  %98 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv168
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv168
   %99 = load i64, ptr %98, align 8
   %100 = trunc nuw nsw i64 %indvars.iv.next169 to i16
   call void @ScanKeyEntryInitialize(ptr noundef nonnull %87, i32 noundef %91, i16 noundef signext %100, i16 noundef zeroext %93, i32 noundef 0, i32 noundef %95, i32 noundef %97, i64 noundef %99) #5
@@ -800,14 +798,14 @@ ItemPointerIsValid.exit.thread:                   ; preds = %.lr.ph201, %121, %I
   br i1 %141, label %index_recheck_constraint.exit, label %142, !llvm.loop !13
 
 142:                                              ; preds = %138
-  %143 = getelementptr inbounds nuw i32, ptr %.0114, i64 %indvars.iv.i
+  %143 = getelementptr inbounds nuw [4 x i8], ptr %.0114, i64 %indvars.iv.i
   %144 = load i32, ptr %143, align 4
   %145 = load ptr, ptr %17, align 8
-  %146 = getelementptr inbounds nuw i32, ptr %145, i64 %indvars.iv.i
+  %146 = getelementptr inbounds nuw [4 x i8], ptr %145, i64 %indvars.iv.i
   %147 = load i32, ptr %146, align 4
-  %148 = getelementptr inbounds nuw i64, ptr %15, i64 %indvars.iv.i
+  %148 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv.i
   %149 = load i64, ptr %148, align 8
-  %150 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv.i
+  %150 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i
   %151 = load i64, ptr %150, align 8
   %152 = call i64 @OidFunctionCall2Coll(i32 noundef %144, i32 noundef %147, i64 noundef %149, i64 noundef %151) #5
   %.not.i138 = icmp eq i64 %152, 0
@@ -988,13 +986,13 @@ define dso_local noundef zeroext i1 @ExecCheckIndexConstraints(ptr noundef reado
 29:                                               ; preds = %.lr.ph, %select.unfold
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %select.unfold ]
   %.05585 = phi i1 [ false, %.lr.ph ], [ %.156.ph, %select.unfold ]
-  %30 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, null
   br i1 %32, label %select.unfold, label %33
 
 33:                                               ; preds = %29
-  %34 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 160
   %37 = load i8, ptr %36, align 8, !range !4, !noundef !5

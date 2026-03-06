@@ -287,7 +287,7 @@ _ZN5serde2de9SeqAccess12next_element17hb4d5acecc6c1bb78E.exit: ; preds = %17
 38:                                               ; preds = %.noexc, %33
   %39 = phi i64 [ %.pre.i, %.noexc ], [ %34, %33 ]
   %40 = load ptr, ptr %13, align 8, !alias.scope !46, !noalias !49, !nonnull !4, !noundef !4
-  %41 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr %40, i64 %39
+  %41 = getelementptr inbounds [32 x i8], ptr %40, i64 %39
   store ptr %21, ptr %41, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %41, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.2.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.0..sroa_idx, i64 24, i1 false)
@@ -1963,7 +1963,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZN9has
   store i8 %19, ptr %26, align 1, !noalias !382
   %27 = load ptr, ptr %5, align 8, !alias.scope !389, !noalias !382, !nonnull !4, !noundef !4
   %28 = sub nsw i64 0, %9
-  %29 = getelementptr inbounds { { [3 x i64], i64, [2 x i64] }, { { i64, [2 x i64] }, ptr } }, ptr %27, i64 %28
+  %29 = getelementptr inbounds [80 x i8], ptr %27, i64 %28
   %30 = and i8 %17, 1
   %31 = zext nneg i8 %30 to i64
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 16

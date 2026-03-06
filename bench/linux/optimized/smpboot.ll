@@ -207,7 +207,7 @@ define dso_local i32 @topology_phys_to_logical_pkg(i32 noundef %0) #1 align 16 {
 
 15:                                               ; preds = %11
   %16 = and i64 %12, 63
-  %17 = getelementptr i64, ptr @__per_cpu_offset, i64 %16
+  %17 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %16
   %18 = load i64, ptr %17, align 8
   %19 = add i64 %18, ptrtoint (ptr @logical_maps to i64)
   %20 = inttoptr i64 %19 to ptr
@@ -252,7 +252,7 @@ define dso_local noundef i32 @topology_update_package_map(i32 noundef %0, i32 no
 
 16:                                               ; preds = %12
   %17 = and i64 %13, 63
-  %18 = getelementptr i64, ptr @__per_cpu_offset, i64 %17
+  %18 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %17
   %19 = load i64, ptr %18, align 8
   %20 = add i64 %19, ptrtoint (ptr @logical_maps to i64)
   %21 = inttoptr i64 %20 to ptr
@@ -282,7 +282,7 @@ define dso_local noundef i32 @topology_update_package_map(i32 noundef %0, i32 no
 35:                                               ; preds = %33, %.thread6, %25
   %36 = phi i32 [ %28, %25 ], [ %30, %33 ], [ %0, %.thread6 ]
   %37 = zext i32 %1 to i64
-  %38 = getelementptr i64, ptr @__per_cpu_offset, i64 %37
+  %38 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %37
   %39 = load i64, ptr %38, align 8
   %40 = add i64 %39, ptrtoint (ptr @logical_maps to i64)
   %41 = inttoptr i64 %40 to ptr
@@ -305,7 +305,7 @@ declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #3
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @topology_update_die_map(i32 noundef %0, i32 noundef %1) local_unnamed_addr #2 align 16 {
   %3 = zext i32 %1 to i64
-  %4 = getelementptr i64, ptr @__per_cpu_offset, i64 %3
+  %4 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %3
   %5 = load i64, ptr %4, align 8
   %6 = add i64 %5, ptrtoint (ptr @cpu_info to i64)
   %7 = inttoptr i64 %6 to ptr
@@ -329,7 +329,7 @@ define dso_local noundef i32 @topology_update_die_map(i32 noundef %0, i32 nounde
 
 20:                                               ; preds = %16
   %21 = and i64 %17, 63
-  %22 = getelementptr i64, ptr @__per_cpu_offset, i64 %21
+  %22 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %21
   %23 = load i64, ptr %22, align 8
   %24 = add i64 %23, ptrtoint (ptr @logical_maps to i64)
   %25 = inttoptr i64 %24 to ptr
@@ -390,7 +390,7 @@ define dso_local noundef i32 @topology_update_die_map(i32 noundef %0, i32 nounde
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @smp_store_cpu_info(i32 noundef %0) local_unnamed_addr #2 align 16 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr i64, ptr @__per_cpu_offset, i64 %2
+  %3 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %2
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, ptrtoint (ptr @cpu_info to i64)
   %6 = inttoptr i64 %5 to ptr
@@ -429,7 +429,7 @@ define dso_local void @set_cpu_sibling_map(i32 noundef %0) local_unnamed_addr #2
   %5 = icmp ugt i16 %4, 1
   %6 = select i1 %3, i1 true, i1 %5
   %7 = sext i32 %0 to i64
-  %8 = getelementptr i64, ptr @__per_cpu_offset, i64 %7
+  %8 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %7
   %9 = load i64, ptr %8, align 8
   %10 = add i64 %9, ptrtoint (ptr @cpu_info to i64)
   %11 = inttoptr i64 %10 to ptr
@@ -484,7 +484,7 @@ define dso_local void @set_cpu_sibling_map(i32 noundef %0) local_unnamed_addr #2
 
 44:                                               ; preds = %40
   %45 = and i64 %41, 63
-  %46 = getelementptr i64, ptr @__per_cpu_offset, i64 %45
+  %46 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %45
   %47 = load i64, ptr %46, align 8
   %48 = add i64 %47, ptrtoint (ptr @cpu_info to i64)
   %49 = inttoptr i64 %48 to ptr
@@ -499,13 +499,13 @@ define dso_local void @set_cpu_sibling_map(i32 noundef %0) local_unnamed_addr #2
   %56 = getelementptr inbounds nuw i8, ptr %49, i64 302
   %57 = load i16, ptr %56, align 2
   %58 = zext i16 %55 to i64
-  %59 = getelementptr i64, ptr @__per_cpu_offset, i64 %58
+  %59 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %58
   %60 = load i64, ptr %59, align 8
   %61 = add i64 %60, ptrtoint (ptr @numa_node to i64)
   %62 = inttoptr i64 %61 to ptr
   %63 = load i32, ptr %62, align 4
   %64 = zext i16 %57 to i64
-  %65 = getelementptr i64, ptr @__per_cpu_offset, i64 %64
+  %65 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %64
   %66 = load i64, ptr %65, align 8
   %67 = add i64 %66, ptrtoint (ptr @numa_node to i64)
   %68 = inttoptr i64 %67 to ptr
@@ -558,7 +558,7 @@ define dso_local void @set_cpu_sibling_map(i32 noundef %0) local_unnamed_addr #2
 95:                                               ; preds = %91, %.thread14
   %96 = phi i1 [ true, %.thread14 ], [ %94, %91 ]
   %97 = zext i16 %85 to i64
-  %98 = getelementptr i64, ptr @__per_cpu_offset, i64 %97
+  %98 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %97
   %99 = load i64, ptr %98, align 8
   %100 = add i64 %99, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @cpu_info, i64 248) to i64)
   %101 = inttoptr i64 %100 to ptr
@@ -568,7 +568,7 @@ define dso_local void @set_cpu_sibling_map(i32 noundef %0) local_unnamed_addr #2
 
 104:                                              ; preds = %95
   %105 = zext i16 %88 to i64
-  %106 = getelementptr i64, ptr @__per_cpu_offset, i64 %105
+  %106 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %105
   %107 = load i64, ptr %106, align 8
   %108 = add i64 %107, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @cpu_info, i64 248) to i64)
   %109 = inttoptr i64 %108 to ptr
@@ -653,7 +653,7 @@ define dso_local void @set_cpu_sibling_map(i32 noundef %0) local_unnamed_addr #2
   %153 = load i16, ptr %15, align 2
   %154 = zext i16 %153 to i32
   %155 = zext i16 %153 to i64
-  %156 = getelementptr i64, ptr @__per_cpu_offset, i64 %155
+  %156 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %155
   %157 = load i64, ptr %156, align 8
   %158 = add i64 %157, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @cpu_info, i64 252) to i64)
   %159 = inttoptr i64 %158 to ptr
@@ -670,7 +670,7 @@ define dso_local void @set_cpu_sibling_map(i32 noundef %0) local_unnamed_addr #2
   %166 = load i16, ptr %165, align 2
   %167 = zext i16 %166 to i32
   %168 = zext i16 %166 to i64
-  %169 = getelementptr i64, ptr @__per_cpu_offset, i64 %168
+  %169 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %168
   %170 = load i64, ptr %169, align 8
   %171 = add i64 %170, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @cpu_info, i64 252) to i64)
   %172 = inttoptr i64 %171 to ptr
@@ -826,7 +826,7 @@ define dso_local void @set_cpu_sibling_map(i32 noundef %0) local_unnamed_addr #2
 
 263:                                              ; preds = %259
   %264 = and i64 %260, 63
-  %265 = getelementptr i64, ptr @__per_cpu_offset, i64 %264
+  %265 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %264
   %266 = load i64, ptr %265, align 8
   %267 = icmp eq i32 %0, %261
   br i1 %267, label %275, label %268
@@ -890,7 +890,7 @@ define dso_local void @set_cpu_sibling_map(i32 noundef %0) local_unnamed_addr #2
 
 305:                                              ; preds = %248
   %306 = and i64 %249, 63
-  %307 = getelementptr i64, ptr @__per_cpu_offset, i64 %306
+  %307 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %306
   %308 = load i64, ptr %307, align 8
   %309 = add i64 %308, ptrtoint (ptr @cpu_info to i64)
   %310 = inttoptr i64 %309 to ptr
@@ -917,7 +917,7 @@ define dso_local void @set_cpu_sibling_map(i32 noundef %0) local_unnamed_addr #2
 
 324:                                              ; preds = %320
   %325 = and i64 %321, 63
-  %326 = getelementptr i64, ptr @__per_cpu_offset, i64 %325
+  %326 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %325
   %327 = load i64, ptr %326, align 8
   %328 = icmp eq i32 %0, %322
   br i1 %328, label %.critedge, label %329
@@ -1003,13 +1003,13 @@ define internal fastcc zeroext i1 @match_smt(ptr noundef readonly captures(none)
 
 24:                                               ; preds = %18
   %25 = zext i16 %8 to i64
-  %26 = getelementptr i64, ptr @__per_cpu_offset, i64 %25
+  %26 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %25
   %27 = load i64, ptr %26, align 8
   %28 = add i64 %27, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @cpu_info, i64 248) to i64)
   %29 = inttoptr i64 %28 to ptr
   %30 = load i32, ptr %29, align 4
   %31 = zext i16 %11 to i64
-  %32 = getelementptr i64, ptr @__per_cpu_offset, i64 %31
+  %32 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %31
   %33 = load i64, ptr %32, align 8
   %34 = add i64 %33, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @cpu_info, i64 248) to i64)
   %35 = inttoptr i64 %34 to ptr
@@ -1101,13 +1101,13 @@ define internal fastcc zeroext i1 @match_smt(ptr noundef readonly captures(none)
   %94 = getelementptr inbounds nuw i8, ptr %1, i64 302
   %95 = load i16, ptr %94, align 2
   %96 = zext i16 %93 to i64
-  %97 = getelementptr i64, ptr @__per_cpu_offset, i64 %96
+  %97 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %96
   %98 = load i64, ptr %97, align 8
   %99 = add i64 %98, ptrtoint (ptr @numa_node to i64)
   %100 = inttoptr i64 %99 to ptr
   %101 = load i32, ptr %100, align 4
   %102 = zext i16 %95 to i64
-  %103 = getelementptr i64, ptr @__per_cpu_offset, i64 %102
+  %103 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %102
   %104 = load i64, ptr %103, align 8
   %105 = add i64 %104, ptrtoint (ptr @numa_node to i64)
   %106 = inttoptr i64 %105 to ptr
@@ -1145,7 +1145,7 @@ define internal fastcc zeroext i1 @match_smt(ptr noundef readonly captures(none)
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none)
 define dso_local ptr @cpu_coregroup_mask(i32 noundef %0) #6 align 16 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr i64, ptr @__per_cpu_offset, i64 %2
+  %3 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %2
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, ptrtoint (ptr @cpu_llc_shared_map to i64)
   %6 = inttoptr i64 %5 to ptr
@@ -1155,7 +1155,7 @@ define dso_local ptr @cpu_coregroup_mask(i32 noundef %0) #6 align 16 {
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none)
 define dso_local ptr @cpu_clustergroup_mask(i32 noundef %0) #6 align 16 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr i64, ptr @__per_cpu_offset, i64 %2
+  %3 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %2
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, ptrtoint (ptr @cpu_l2c_shared_map to i64)
   %6 = inttoptr i64 %5 to ptr
@@ -1174,7 +1174,7 @@ define internal noundef i32 @cpu_init_udelay(ptr noundef %0) #7 section ".init.t
 define dso_local i32 @common_cpu_up(i32 noundef %0, ptr noundef %1) local_unnamed_addr #2 align 16 {
   tail call void @alternatives_enable_smp() #23
   %3 = zext i32 %0 to i64
-  %4 = getelementptr i64, ptr @__per_cpu_offset, i64 %3
+  %4 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %3
   %5 = load i64, ptr %4, align 8
   %6 = add i64 %5, ptrtoint (ptr @pcpu_hot to i64)
   %7 = inttoptr i64 %6 to ptr
@@ -1220,7 +1220,7 @@ define dso_local i32 @native_kick_ap(i32 noundef %0, ptr noundef %1) #2 align 16
 20:                                               ; preds = %13
   tail call void @mtrr_save_state() #23
   %21 = zext i32 %0 to i64
-  %22 = getelementptr i64, ptr @__per_cpu_offset, i64 %21
+  %22 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %21
   %23 = load i64, ptr %22, align 8
   %24 = add i64 %23, ptrtoint (ptr @fpu_fpregs_owner_ctx to i64)
   %25 = inttoptr i64 %24 to ptr
@@ -1267,11 +1267,11 @@ define dso_local i32 @native_kick_ap(i32 noundef %0, ptr noundef %1) #2 align 16
   br i1 %51, label %55, label %53
 
 53:                                               ; preds = %49
-  %54 = getelementptr i32, ptr %50, i64 %52
+  %54 = getelementptr [4 x i8], ptr %50, i64 %52
   br label %60
 
 55:                                               ; preds = %49
-  %56 = getelementptr i64, ptr @__per_cpu_offset, i64 %52
+  %56 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %52
   %57 = load i64, ptr %56, align 8
   %58 = add i64 %57, ptrtoint (ptr @x86_cpu_to_node_map to i64)
   %59 = inttoptr i64 %58 to ptr
@@ -1727,7 +1727,7 @@ define dso_local void @smp_prepare_cpus_common() local_unnamed_addr #7 section "
 
 11:                                               ; preds = %7
   %12 = and i64 %8, 63
-  %13 = getelementptr i64, ptr @__per_cpu_offset, i64 %12
+  %13 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %12
   %14 = load i64, ptr %13, align 8
   %15 = add i64 %14, ptrtoint (ptr @cpu_sibling_map to i64)
   %16 = inttoptr i64 %15 to ptr
@@ -1780,7 +1780,7 @@ define internal fastcc void @smp_cpu_index_default() unnamed_addr #8 section ".i
 
 13:                                               ; preds = %9
   %14 = and i64 %10, 63
-  %15 = getelementptr i64, ptr @__per_cpu_offset, i64 %14
+  %15 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %14
   %16 = load i64, ptr %15, align 8
   %17 = add i64 %16, ptrtoint (ptr @cpu_info to i64)
   %18 = inttoptr i64 %17 to ptr
@@ -2020,7 +2020,7 @@ define dso_local void @native_smp_cpus_done(i32 noundef %0) local_unnamed_addr #
 
 13:                                               ; preds = %9
   %14 = and i64 %10, 63
-  %15 = getelementptr i64, ptr @__per_cpu_offset, i64 %14
+  %15 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %14
   %16 = load i64, ptr %15, align 8
   %17 = add i64 %16, ptrtoint (ptr @cpu_info to i64)
   %18 = inttoptr i64 %17 to ptr
@@ -2159,7 +2159,7 @@ define dso_local void @setup_cpu_local_masks() local_unnamed_addr #10 section ".
 define dso_local void @cpu_disable_common() local_unnamed_addr #2 align 16 {
   %1 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #21, !srcloc !42
   %2 = sext i32 %1 to i64
-  %3 = getelementptr i64, ptr @__per_cpu_offset, i64 %2
+  %3 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %2
   %4 = load i64, ptr %3, align 8
   %5 = zext i32 %1 to i64
   br label %6
@@ -2183,7 +2183,7 @@ define dso_local void @cpu_disable_common() local_unnamed_addr #2 align 16 {
 
 19:                                               ; preds = %15
   %20 = and i64 %16, 63
-  %21 = getelementptr i64, ptr @__per_cpu_offset, i64 %20
+  %21 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %20
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %22, ptrtoint (ptr @cpu_core_map to i64)
   %24 = inttoptr i64 %23 to ptr
@@ -2235,7 +2235,7 @@ define dso_local void @cpu_disable_common() local_unnamed_addr #2 align 16 {
 
 .preheader16:                                     ; preds = %51
   %55 = and i64 %52, 63
-  %56 = getelementptr i64, ptr @__per_cpu_offset, i64 %55
+  %56 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %55
   %57 = load i64, ptr %56, align 8
   %58 = add i64 %57, ptrtoint (ptr @cpu_die_map to i64)
   %59 = inttoptr i64 %58 to ptr
@@ -2267,7 +2267,7 @@ define dso_local void @cpu_disable_common() local_unnamed_addr #2 align 16 {
 
 75:                                               ; preds = %71
   %76 = and i64 %72, 63
-  %77 = getelementptr i64, ptr @__per_cpu_offset, i64 %76
+  %77 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %76
   %78 = load i64, ptr %77, align 8
   %79 = add i64 %78, ptrtoint (ptr @cpu_sibling_map to i64)
   %80 = inttoptr i64 %79 to ptr
@@ -2320,7 +2320,7 @@ define dso_local void @cpu_disable_common() local_unnamed_addr #2 align 16 {
 
 .preheader14:                                     ; preds = %103
   %108 = and i64 %104, 63
-  %109 = getelementptr i64, ptr @__per_cpu_offset, i64 %108
+  %109 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %108
   %110 = load i64, ptr %109, align 8
   %111 = add i64 %110, ptrtoint (ptr @cpu_llc_shared_map to i64)
   %112 = inttoptr i64 %111 to ptr
@@ -2349,7 +2349,7 @@ define dso_local void @cpu_disable_common() local_unnamed_addr #2 align 16 {
 
 129:                                              ; preds = %125
   %130 = and i64 %126, 63
-  %131 = getelementptr i64, ptr @__per_cpu_offset, i64 %130
+  %131 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %130
   %132 = load i64, ptr %131, align 8
   %133 = add i64 %132, ptrtoint (ptr @cpu_l2c_shared_map to i64)
   %134 = inttoptr i64 %133 to ptr
@@ -2407,7 +2407,7 @@ define dso_local void @cpu_disable_common() local_unnamed_addr #2 align 16 {
 
 168:                                              ; preds = %164
   %169 = and i64 %165, 63
-  %170 = getelementptr i64, ptr @__per_cpu_offset, i64 %169
+  %170 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %169
   %171 = load i64, ptr %170, align 8
   %172 = add i64 %171, ptrtoint (ptr @cpu_sibling_map to i64)
   %173 = inttoptr i64 %172 to ptr
@@ -2502,7 +2502,7 @@ define dso_local void @smp_kick_mwait_play_dead() local_unnamed_addr #2 align 16
 
 14:                                               ; preds = %10
   %15 = and i64 %11, 63
-  %16 = getelementptr i64, ptr @__per_cpu_offset, i64 %15
+  %16 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %15
   %17 = load i64, ptr %16, align 8
   %18 = add i64 %17, ptrtoint (ptr @mwait_cpu_dead to i64)
   %19 = inttoptr i64 %18 to ptr
@@ -2716,13 +2716,13 @@ declare dso_local i32 @cpuidle_play_dead() local_unnamed_addr #5
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc zeroext i1 @topology_sane(i16 %.302.val, i16 %.302.val1) unnamed_addr #2 align 16 {
   %1 = zext i16 %.302.val to i64
-  %2 = getelementptr i64, ptr @__per_cpu_offset, i64 %1
+  %2 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %1
   %3 = load i64, ptr %2, align 8
   %4 = add i64 %3, ptrtoint (ptr @numa_node to i64)
   %5 = inttoptr i64 %4 to ptr
   %6 = load i32, ptr %5, align 4
   %7 = zext i16 %.302.val1 to i64
-  %8 = getelementptr i64, ptr @__per_cpu_offset, i64 %7
+  %8 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %7
   %9 = load i64, ptr %8, align 8
   %10 = add i64 %9, ptrtoint (ptr @numa_node to i64)
   %11 = inttoptr i64 %10 to ptr
@@ -2827,7 +2827,7 @@ define internal fastcc void @ap_starting() unnamed_addr #2 align 16 {
   tail call void asm sideeffect "movl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @mwait_cpu_dead, i32 0, ptr nonnull elementtype(i32) @mwait_cpu_dead) #23, !srcloc !81
   tail call void @apic_ap_setup() #23
   %2 = sext i32 %1 to i64
-  %3 = getelementptr i64, ptr @__per_cpu_offset, i64 %2
+  %3 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %2
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, ptrtoint (ptr @cpu_info to i64)
   %6 = inttoptr i64 %5 to ptr
@@ -2865,7 +2865,7 @@ define internal fastcc void @ap_calibrate_delay() unnamed_addr #2 align 16 {
   %1 = load i64, ptr @loops_per_jiffy, align 8
   %2 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #21, !srcloc !83
   %3 = sext i32 %2 to i64
-  %4 = getelementptr i64, ptr @__per_cpu_offset, i64 %3
+  %4 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %3
   %5 = load i64, ptr %4, align 8
   %6 = add i64 %5, ptrtoint (ptr @cpu_info to i64)
   %7 = inttoptr i64 %6 to ptr
@@ -2943,7 +2943,7 @@ declare dso_local void @init_cpu_possible(ptr noundef) local_unnamed_addr #5
 ; Function Attrs: fn_ret_thunk_extern inlinehint mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none)
 define internal ptr @cpu_smt_mask(i32 noundef %0) #17 align 16 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr i64, ptr @__per_cpu_offset, i64 %2
+  %3 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %2
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, ptrtoint (ptr @cpu_sibling_map to i64)
   %6 = inttoptr i64 %5 to ptr
@@ -2974,13 +2974,13 @@ define internal range(i32 512, 2561) i32 @x86_core_flags() #6 align 16 {
 ; Function Attrs: fn_ret_thunk_extern inlinehint mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none)
 define internal nonnull ptr @cpu_cpu_mask(i32 noundef %0) #19 align 16 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr i64, ptr @__per_cpu_offset, i64 %2
+  %3 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %2
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, ptrtoint (ptr @numa_node to i64)
   %6 = inttoptr i64 %5 to ptr
   %7 = load i32, ptr %6, align 4
   %8 = sext i32 %7 to i64
-  %9 = getelementptr [1 x %struct.cpumask], ptr @node_to_cpumask_map, i64 %8
+  %9 = getelementptr [8 x i8], ptr @node_to_cpumask_map, i64 %8
   ret ptr %9
 }
 

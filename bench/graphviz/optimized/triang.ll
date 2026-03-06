@@ -72,8 +72,8 @@ gv_calloc.exit._crit_edge:                        ; preds = %gv_calloc.exit, %gv
 
 gv_calloc.exit:                                   ; preds = %.lr.ph, %gv_calloc.exit
   %.017 = phi i64 [ 0, %.lr.ph ], [ %21, %gv_calloc.exit ]
-  %19 = getelementptr inbounds nuw %struct.Pxy_t, ptr %13, i64 %.017
-  %20 = getelementptr inbounds nuw ptr, ptr %11, i64 %.017
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %.017
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.017
   store ptr %19, ptr %20, align 8, !tbaa !13
   %21 = add nuw i64 %.017, 1
   %exitcond.not = icmp eq i64 %21, %5
@@ -100,17 +100,17 @@ define internal fastcc range(i32 -1, 1) i32 @triangulate(ptr noundef captures(no
   %13 = select i1 %12, i64 0, i64 %9
   %14 = add i64 %7, %.043126
   %15 = urem i64 %14, %1
-  %16 = getelementptr inbounds nuw ptr, ptr %0, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !13
   %.sroa.0.0.copyload.i110 = load double, ptr %17, align 8, !tbaa !16
   %.sroa.2.0..sroa_idx.i111 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %.sroa.2.0.copyload.i112 = load double, ptr %.sroa.2.0..sroa_idx.i111, align 8, !tbaa !16
-  %18 = getelementptr inbounds nuw ptr, ptr %0, i64 %.043126
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.043126
   %19 = load ptr, ptr %18, align 8, !tbaa !13
   %.sroa.0.0.copyload.i105 = load double, ptr %19, align 8, !tbaa !16
   %.sroa.2.0..sroa_idx.i106 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %.sroa.2.0.copyload.i107 = load double, ptr %.sroa.2.0..sroa_idx.i106, align 8, !tbaa !16
-  %20 = getelementptr inbounds nuw ptr, ptr %0, i64 %13
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %13
   %21 = load ptr, ptr %20, align 8, !tbaa !13
   %.sroa.0.0.copyload.i100 = load double, ptr %21, align 8, !tbaa !16
   %.sroa.2.0..sroa_idx.i101 = getelementptr inbounds nuw i8, ptr %21, i64 8
@@ -123,7 +123,7 @@ define internal fastcc range(i32 -1, 1) i32 @triangulate(ptr noundef captures(no
   %27 = fmul double %24, %26
   %28 = tail call double @llvm.fmuladd.f64(double %22, double %23, double %27)
   %29 = fcmp olt double %28, 0.000000e+00
-  %30 = getelementptr inbounds nuw ptr, ptr %0, i64 %11
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %11
   %31 = load ptr, ptr %30, align 8, !tbaa !13
   %.sroa.0.0.copyload.i90 = load double, ptr %31, align 8, !tbaa !16
   %.sroa.2.0..sroa_idx.i91 = getelementptr inbounds nuw i8, ptr %31, i64 8
@@ -176,12 +176,12 @@ define internal fastcc range(i32 -1, 1) i32 @triangulate(ptr noundef captures(no
   br i1 %or.cond109.i, label %.critedge111.i, label %61
 
 61:                                               ; preds = %.preheader.i
-  %62 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0103114.i
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.0103114.i
   %63 = load ptr, ptr %62, align 8, !tbaa !13
   %.sroa.0.0.copyload.i50 = load double, ptr %63, align 8, !tbaa !16
   %.sroa.2.0..sroa_idx.i51 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %.sroa.2.0.copyload.i52 = load double, ptr %.sroa.2.0..sroa_idx.i51, align 8, !tbaa !16
-  %64 = getelementptr inbounds nuw ptr, ptr %0, i64 %56
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %56
   %65 = load ptr, ptr %64, align 8, !tbaa !13
   %.sroa.0.0.copyload.i = load double, ptr %65, align 8, !tbaa !16
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %65, i64 8
@@ -208,10 +208,10 @@ isdiagonal.exit:                                  ; preds = %.critedge111.i
   br i1 %.not49, label %75, label %70
 
 70:                                               ; preds = %69
-  %71 = getelementptr inbounds nuw ptr, ptr %0, i64 %.144127
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.144127
   %72 = load ptr, ptr %71, align 8, !tbaa !13
   %73 = add i64 %.0128, 1
-  %74 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0128
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.0128
   store ptr %72, ptr %74, align 8, !tbaa !13
   br label %75
 

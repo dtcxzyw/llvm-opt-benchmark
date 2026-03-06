@@ -9,7 +9,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %"class.irr::core::dimension2d" = type { i32, i32 }
-%"struct.irr::CIrrDeviceSDL::SKeyMap" = type { i32, i32 }
 %"struct.irr::SEvent" = type { i32, %union.anon.30 }
 %union.anon.30 = type { %"struct.irr::SEvent::SGUIEvent", [24 x i8] }
 %"struct.irr::SEvent::SGUIEvent" = type { ptr, ptr, i32 }
@@ -24,12 +23,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon.42 = type { i32 }
 %"class.irr::core::string.18" = type { %"class.std::__cxx11::basic_string.19" }
 %"struct.irr::SJoystickInfo" = type <{ i8, [7 x i8], %"class.irr::core::string", i32, i32, i32, [4 x i8] }>
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.40" }
-%"struct.std::_Head_base.40" = type { ptr }
 %"struct.__gnu_cxx::__ops::_Iter_less_iter" = type { i8 }
 
 $_ZN3irr4core6stringIcEC2Ei = comdat any
@@ -944,7 +937,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i421 = phi ptr [ %incdec.ptr.i.i.i.i420, %if.then.i41.i.i.i.i ], [ %incdec.ptr.i.i.i.i, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i ]
   store ptr %call5.i.i.i.i.i.i.i, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i421, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i, i64 %cond.i.i.i.i.i
+  %add.ptr19.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i, i64 %cond.i.i.i.i.i
   store ptr %add.ptr19.i.i.i.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit
 
@@ -1068,7 +1061,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i245426 = phi ptr [ %incdec.ptr.i.i.i.i245425, %if.then.i41.i.i.i.i247 ], [ %incdec.ptr.i.i.i.i245, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i243 ]
   store ptr %call5.i.i.i.i.i.i.i232, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i245426, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i249 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i232, i64 %cond.i.i.i.i.i228
+  %add.ptr19.i.i.i.i249 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i232, i64 %cond.i.i.i.i.i228
   store ptr %add.ptr19.i.i.i.i249, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit251
 
@@ -1191,7 +1184,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i286431 = phi ptr [ %incdec.ptr.i.i.i.i286430, %if.then.i41.i.i.i.i288 ], [ %incdec.ptr.i.i.i.i286, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i284 ]
   store ptr %call5.i.i.i.i.i.i.i273, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i286431, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i290 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i273, i64 %cond.i.i.i.i.i269
+  %add.ptr19.i.i.i.i290 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i273, i64 %cond.i.i.i.i.i269
   store ptr %add.ptr19.i.i.i.i290, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit292
 
@@ -1314,7 +1307,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i327436 = phi ptr [ %incdec.ptr.i.i.i.i327435, %if.then.i41.i.i.i.i329 ], [ %incdec.ptr.i.i.i.i327, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i325 ]
   store ptr %call5.i.i.i.i.i.i.i314, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i327436, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i331 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i314, i64 %cond.i.i.i.i.i310
+  %add.ptr19.i.i.i.i331 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i314, i64 %cond.i.i.i.i.i310
   store ptr %add.ptr19.i.i.i.i331, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit333
 
@@ -1437,7 +1430,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i368441 = phi ptr [ %incdec.ptr.i.i.i.i368440, %if.then.i41.i.i.i.i370 ], [ %incdec.ptr.i.i.i.i368, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i366 ]
   store ptr %call5.i.i.i.i.i.i.i355, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i368441, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i372 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i355, i64 %cond.i.i.i.i.i351
+  %add.ptr19.i.i.i.i372 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i355, i64 %cond.i.i.i.i.i351
   store ptr %add.ptr19.i.i.i.i372, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit374
 
@@ -1560,7 +1553,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i409446 = phi ptr [ %incdec.ptr.i.i.i.i409445, %if.then.i41.i.i.i.i411 ], [ %incdec.ptr.i.i.i.i409, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i407 ]
   store ptr %call5.i.i.i.i.i.i.i396, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i409446, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i413 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i396, i64 %cond.i.i.i.i.i392
+  %add.ptr19.i.i.i.i413 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i396, i64 %cond.i.i.i.i.i392
   store ptr %add.ptr19.i.i.i.i413, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit415
 
@@ -1683,7 +1676,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i450451 = phi ptr [ %incdec.ptr.i.i.i.i450450, %if.then.i41.i.i.i.i452 ], [ %incdec.ptr.i.i.i.i450, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i448 ]
   store ptr %call5.i.i.i.i.i.i.i437, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i450451, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i454 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i437, i64 %cond.i.i.i.i.i433
+  %add.ptr19.i.i.i.i454 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i437, i64 %cond.i.i.i.i.i433
   store ptr %add.ptr19.i.i.i.i454, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit456
 
@@ -1806,7 +1799,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i491456 = phi ptr [ %incdec.ptr.i.i.i.i491455, %if.then.i41.i.i.i.i493 ], [ %incdec.ptr.i.i.i.i491, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i489 ]
   store ptr %call5.i.i.i.i.i.i.i478, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i491456, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i495 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i478, i64 %cond.i.i.i.i.i474
+  %add.ptr19.i.i.i.i495 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i478, i64 %cond.i.i.i.i.i474
   store ptr %add.ptr19.i.i.i.i495, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit497
 
@@ -1929,7 +1922,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i532461 = phi ptr [ %incdec.ptr.i.i.i.i532460, %if.then.i41.i.i.i.i534 ], [ %incdec.ptr.i.i.i.i532, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i530 ]
   store ptr %call5.i.i.i.i.i.i.i519, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i532461, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i536 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i519, i64 %cond.i.i.i.i.i515
+  %add.ptr19.i.i.i.i536 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i519, i64 %cond.i.i.i.i.i515
   store ptr %add.ptr19.i.i.i.i536, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit538
 
@@ -2052,7 +2045,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i573466 = phi ptr [ %incdec.ptr.i.i.i.i573465, %if.then.i41.i.i.i.i575 ], [ %incdec.ptr.i.i.i.i573, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i571 ]
   store ptr %call5.i.i.i.i.i.i.i560, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i573466, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i577 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i560, i64 %cond.i.i.i.i.i556
+  %add.ptr19.i.i.i.i577 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i560, i64 %cond.i.i.i.i.i556
   store ptr %add.ptr19.i.i.i.i577, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit579
 
@@ -2175,7 +2168,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i614471 = phi ptr [ %incdec.ptr.i.i.i.i614470, %if.then.i41.i.i.i.i616 ], [ %incdec.ptr.i.i.i.i614, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i612 ]
   store ptr %call5.i.i.i.i.i.i.i601, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i614471, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i618 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i601, i64 %cond.i.i.i.i.i597
+  %add.ptr19.i.i.i.i618 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i601, i64 %cond.i.i.i.i.i597
   store ptr %add.ptr19.i.i.i.i618, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit620
 
@@ -2298,7 +2291,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i655476 = phi ptr [ %incdec.ptr.i.i.i.i655475, %if.then.i41.i.i.i.i657 ], [ %incdec.ptr.i.i.i.i655, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i653 ]
   store ptr %call5.i.i.i.i.i.i.i642, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i655476, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i659 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i642, i64 %cond.i.i.i.i.i638
+  %add.ptr19.i.i.i.i659 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i642, i64 %cond.i.i.i.i.i638
   store ptr %add.ptr19.i.i.i.i659, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit661
 
@@ -2421,7 +2414,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i696481 = phi ptr [ %incdec.ptr.i.i.i.i696480, %if.then.i41.i.i.i.i698 ], [ %incdec.ptr.i.i.i.i696, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i694 ]
   store ptr %call5.i.i.i.i.i.i.i683, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i696481, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i700 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i683, i64 %cond.i.i.i.i.i679
+  %add.ptr19.i.i.i.i700 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i683, i64 %cond.i.i.i.i.i679
   store ptr %add.ptr19.i.i.i.i700, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit702
 
@@ -2544,7 +2537,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i737486 = phi ptr [ %incdec.ptr.i.i.i.i737485, %if.then.i41.i.i.i.i739 ], [ %incdec.ptr.i.i.i.i737, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i735 ]
   store ptr %call5.i.i.i.i.i.i.i724, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i737486, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i741 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i724, i64 %cond.i.i.i.i.i720
+  %add.ptr19.i.i.i.i741 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i724, i64 %cond.i.i.i.i.i720
   store ptr %add.ptr19.i.i.i.i741, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit743
 
@@ -2667,7 +2660,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i778491 = phi ptr [ %incdec.ptr.i.i.i.i778490, %if.then.i41.i.i.i.i780 ], [ %incdec.ptr.i.i.i.i778, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i776 ]
   store ptr %call5.i.i.i.i.i.i.i765, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i778491, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i782 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i765, i64 %cond.i.i.i.i.i761
+  %add.ptr19.i.i.i.i782 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i765, i64 %cond.i.i.i.i.i761
   store ptr %add.ptr19.i.i.i.i782, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit784
 
@@ -2790,7 +2783,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i819496 = phi ptr [ %incdec.ptr.i.i.i.i819495, %if.then.i41.i.i.i.i821 ], [ %incdec.ptr.i.i.i.i819, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i817 ]
   store ptr %call5.i.i.i.i.i.i.i806, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i819496, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i823 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i806, i64 %cond.i.i.i.i.i802
+  %add.ptr19.i.i.i.i823 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i806, i64 %cond.i.i.i.i.i802
   store ptr %add.ptr19.i.i.i.i823, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit825
 
@@ -2913,7 +2906,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i860501 = phi ptr [ %incdec.ptr.i.i.i.i860500, %if.then.i41.i.i.i.i862 ], [ %incdec.ptr.i.i.i.i860, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i858 ]
   store ptr %call5.i.i.i.i.i.i.i847, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i860501, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i864 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i847, i64 %cond.i.i.i.i.i843
+  %add.ptr19.i.i.i.i864 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i847, i64 %cond.i.i.i.i.i843
   store ptr %add.ptr19.i.i.i.i864, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit866
 
@@ -3036,7 +3029,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i901506 = phi ptr [ %incdec.ptr.i.i.i.i901505, %if.then.i41.i.i.i.i903 ], [ %incdec.ptr.i.i.i.i901, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i899 ]
   store ptr %call5.i.i.i.i.i.i.i888, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i901506, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i905 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i888, i64 %cond.i.i.i.i.i884
+  %add.ptr19.i.i.i.i905 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i888, i64 %cond.i.i.i.i.i884
   store ptr %add.ptr19.i.i.i.i905, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit907
 
@@ -3159,7 +3152,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i942511 = phi ptr [ %incdec.ptr.i.i.i.i942510, %if.then.i41.i.i.i.i944 ], [ %incdec.ptr.i.i.i.i942, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i940 ]
   store ptr %call5.i.i.i.i.i.i.i929, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i942511, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i946 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i929, i64 %cond.i.i.i.i.i925
+  %add.ptr19.i.i.i.i946 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i929, i64 %cond.i.i.i.i.i925
   store ptr %add.ptr19.i.i.i.i946, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit948
 
@@ -3282,7 +3275,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i983516 = phi ptr [ %incdec.ptr.i.i.i.i983515, %if.then.i41.i.i.i.i985 ], [ %incdec.ptr.i.i.i.i983, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i981 ]
   store ptr %call5.i.i.i.i.i.i.i970, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i983516, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i987 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i970, i64 %cond.i.i.i.i.i966
+  %add.ptr19.i.i.i.i987 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i970, i64 %cond.i.i.i.i.i966
   store ptr %add.ptr19.i.i.i.i987, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit989
 
@@ -3405,7 +3398,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i1024521 = phi ptr [ %incdec.ptr.i.i.i.i1024520, %if.then.i41.i.i.i.i1026 ], [ %incdec.ptr.i.i.i.i1024, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i1022 ]
   store ptr %call5.i.i.i.i.i.i.i1011, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i1024521, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i1028 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i1011, i64 %cond.i.i.i.i.i1007
+  %add.ptr19.i.i.i.i1028 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i1011, i64 %cond.i.i.i.i.i1007
   store ptr %add.ptr19.i.i.i.i1028, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit1030
 
@@ -3528,7 +3521,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i1065526 = phi ptr [ %incdec.ptr.i.i.i.i1065525, %if.then.i41.i.i.i.i1067 ], [ %incdec.ptr.i.i.i.i1065, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i1063 ]
   store ptr %call5.i.i.i.i.i.i.i1052, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i1065526, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i1069 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i1052, i64 %cond.i.i.i.i.i1048
+  %add.ptr19.i.i.i.i1069 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i1052, i64 %cond.i.i.i.i.i1048
   store ptr %add.ptr19.i.i.i.i1069, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit1071
 
@@ -3651,7 +3644,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i1106531 = phi ptr [ %incdec.ptr.i.i.i.i1106530, %if.then.i41.i.i.i.i1108 ], [ %incdec.ptr.i.i.i.i1106, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i1104 ]
   store ptr %call5.i.i.i.i.i.i.i1093, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i1106531, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i1110 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i1093, i64 %cond.i.i.i.i.i1089
+  %add.ptr19.i.i.i.i1110 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i1093, i64 %cond.i.i.i.i.i1089
   store ptr %add.ptr19.i.i.i.i1110, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit1112
 
@@ -3774,7 +3767,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i1147536 = phi ptr [ %incdec.ptr.i.i.i.i1147535, %if.then.i41.i.i.i.i1149 ], [ %incdec.ptr.i.i.i.i1147, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i1145 ]
   store ptr %call5.i.i.i.i.i.i.i1134, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i1147536, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i1151 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i1134, i64 %cond.i.i.i.i.i1130
+  %add.ptr19.i.i.i.i1151 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i1134, i64 %cond.i.i.i.i.i1130
   store ptr %add.ptr19.i.i.i.i1151, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit1153
 
@@ -3897,7 +3890,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i1188541 = phi ptr [ %incdec.ptr.i.i.i.i1188540, %if.then.i41.i.i.i.i1190 ], [ %incdec.ptr.i.i.i.i1188, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i1186 ]
   store ptr %call5.i.i.i.i.i.i.i1175, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i1188541, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i1192 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i1175, i64 %cond.i.i.i.i.i1171
+  %add.ptr19.i.i.i.i1192 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i1175, i64 %cond.i.i.i.i.i1171
   store ptr %add.ptr19.i.i.i.i1192, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit1194
 
@@ -4020,7 +4013,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i1229546 = phi ptr [ %incdec.ptr.i.i.i.i1229545, %if.then.i41.i.i.i.i1231 ], [ %incdec.ptr.i.i.i.i1229, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i1227 ]
   store ptr %call5.i.i.i.i.i.i.i1216, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i1229546, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i1233 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i1216, i64 %cond.i.i.i.i.i1212
+  %add.ptr19.i.i.i.i1233 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i1216, i64 %cond.i.i.i.i.i1212
   store ptr %add.ptr19.i.i.i.i1233, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit1235
 
@@ -4143,7 +4136,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i1270551 = phi ptr [ %incdec.ptr.i.i.i.i1270550, %if.then.i41.i.i.i.i1272 ], [ %incdec.ptr.i.i.i.i1270, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i1268 ]
   store ptr %call5.i.i.i.i.i.i.i1257, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i1270551, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i1274 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i1257, i64 %cond.i.i.i.i.i1253
+  %add.ptr19.i.i.i.i1274 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i1257, i64 %cond.i.i.i.i.i1253
   store ptr %add.ptr19.i.i.i.i1274, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit1276
 
@@ -4266,7 +4259,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i1311556 = phi ptr [ %incdec.ptr.i.i.i.i1311555, %if.then.i41.i.i.i.i1313 ], [ %incdec.ptr.i.i.i.i1311, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i1309 ]
   store ptr %call5.i.i.i.i.i.i.i1298, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i1311556, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i1315 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i1298, i64 %cond.i.i.i.i.i1294
+  %add.ptr19.i.i.i.i1315 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i1298, i64 %cond.i.i.i.i.i1294
   store ptr %add.ptr19.i.i.i.i1315, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit1317
 
@@ -4389,7 +4382,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i1352561 = phi ptr [ %incdec.ptr.i.i.i.i1352560, %if.then.i41.i.i.i.i1354 ], [ %incdec.ptr.i.i.i.i1352, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i1350 ]
   store ptr %call5.i.i.i.i.i.i.i1339, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i1352561, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i1356 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i1339, i64 %cond.i.i.i.i.i1335
+  %add.ptr19.i.i.i.i1356 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i1339, i64 %cond.i.i.i.i.i1335
   store ptr %add.ptr19.i.i.i.i1356, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit1358
 
@@ -4512,7 +4505,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i1393566 = phi ptr [ %incdec.ptr.i.i.i.i1393565, %if.then.i41.i.i.i.i1395 ], [ %incdec.ptr.i.i.i.i1393, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i1391 ]
   store ptr %call5.i.i.i.i.i.i.i1380, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i1393566, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i1397 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i1380, i64 %cond.i.i.i.i.i1376
+  %add.ptr19.i.i.i.i1397 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i1380, i64 %cond.i.i.i.i.i1376
   store ptr %add.ptr19.i.i.i.i1397, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit1399
 
@@ -4635,7 +4628,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i1434571 = phi ptr [ %incdec.ptr.i.i.i.i1434570, %if.then.i41.i.i.i.i1436 ], [ %incdec.ptr.i.i.i.i1434, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i1432 ]
   store ptr %call5.i.i.i.i.i.i.i1421, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i1434571, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i1438 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i1421, i64 %cond.i.i.i.i.i1417
+  %add.ptr19.i.i.i.i1438 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i1421, i64 %cond.i.i.i.i.i1417
   store ptr %add.ptr19.i.i.i.i1438, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit1440
 
@@ -4758,7 +4751,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i1475576 = phi ptr [ %incdec.ptr.i.i.i.i1475575, %if.then.i41.i.i.i.i1477 ], [ %incdec.ptr.i.i.i.i1475, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i1473 ]
   store ptr %call5.i.i.i.i.i.i.i1462, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i1475576, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i1479 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i1462, i64 %cond.i.i.i.i.i1458
+  %add.ptr19.i.i.i.i1479 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i1462, i64 %cond.i.i.i.i.i1458
   store ptr %add.ptr19.i.i.i.i1479, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit1481
 
@@ -4881,7 +4874,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i1516581 = phi ptr [ %incdec.ptr.i.i.i.i1516580, %if.then.i41.i.i.i.i1518 ], [ %incdec.ptr.i.i.i.i1516, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i1514 ]
   store ptr %call5.i.i.i.i.i.i.i1503, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i1516581, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i1520 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i1503, i64 %cond.i.i.i.i.i1499
+  %add.ptr19.i.i.i.i1520 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i1503, i64 %cond.i.i.i.i.i1499
   store ptr %add.ptr19.i.i.i.i1520, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit1522
 
@@ -5004,7 +4997,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i1557586 = phi ptr [ %incdec.ptr.i.i.i.i1557585, %if.then.i41.i.i.i.i1559 ], [ %incdec.ptr.i.i.i.i1557, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i1555 ]
   store ptr %call5.i.i.i.i.i.i.i1544, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i1557586, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i1561 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i1544, i64 %cond.i.i.i.i.i1540
+  %add.ptr19.i.i.i.i1561 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i1544, i64 %cond.i.i.i.i.i1540
   store ptr %add.ptr19.i.i.i.i1561, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit1563
 
@@ -5127,7 +5120,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i1598591 = phi ptr [ %incdec.ptr.i.i.i.i1598590, %if.then.i41.i.i.i.i1600 ], [ %incdec.ptr.i.i.i.i1598, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i1596 ]
   store ptr %call5.i.i.i.i.i.i.i1585, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i1598591, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i1602 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i1585, i64 %cond.i.i.i.i.i1581
+  %add.ptr19.i.i.i.i1602 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i1585, i64 %cond.i.i.i.i.i1581
   store ptr %add.ptr19.i.i.i.i1602, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit1604
 
@@ -5250,7 +5243,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i1639596 = phi ptr [ %incdec.ptr.i.i.i.i1639595, %if.then.i41.i.i.i.i1641 ], [ %incdec.ptr.i.i.i.i1639, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i1637 ]
   store ptr %call5.i.i.i.i.i.i.i1626, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i1639596, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i1643 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i1626, i64 %cond.i.i.i.i.i1622
+  %add.ptr19.i.i.i.i1643 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i1626, i64 %cond.i.i.i.i.i1622
   store ptr %add.ptr19.i.i.i.i1643, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit1645
 
@@ -5373,7 +5366,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i1680601 = phi ptr [ %incdec.ptr.i.i.i.i1680600, %if.then.i41.i.i.i.i1682 ], [ %incdec.ptr.i.i.i.i1680, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i1678 ]
   store ptr %call5.i.i.i.i.i.i.i1667, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i1680601, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i1684 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i1667, i64 %cond.i.i.i.i.i1663
+  %add.ptr19.i.i.i.i1684 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i1667, i64 %cond.i.i.i.i.i1663
   store ptr %add.ptr19.i.i.i.i1684, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit1686
 
@@ -5496,7 +5489,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i1721606 = phi ptr [ %incdec.ptr.i.i.i.i1721605, %if.then.i41.i.i.i.i1723 ], [ %incdec.ptr.i.i.i.i1721, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i1719 ]
   store ptr %call5.i.i.i.i.i.i.i1708, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i1721606, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i1725 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i1708, i64 %cond.i.i.i.i.i1704
+  %add.ptr19.i.i.i.i1725 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i1708, i64 %cond.i.i.i.i.i1704
   store ptr %add.ptr19.i.i.i.i1725, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit1727
 
@@ -5619,7 +5612,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i1762611 = phi ptr [ %incdec.ptr.i.i.i.i1762610, %if.then.i41.i.i.i.i1764 ], [ %incdec.ptr.i.i.i.i1762, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i1760 ]
   store ptr %call5.i.i.i.i.i.i.i1749, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i1762611, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i1766 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i1749, i64 %cond.i.i.i.i.i1745
+  %add.ptr19.i.i.i.i1766 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i1749, i64 %cond.i.i.i.i.i1745
   store ptr %add.ptr19.i.i.i.i1766, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit1768
 
@@ -5742,7 +5735,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i1803616 = phi ptr [ %incdec.ptr.i.i.i.i1803615, %if.then.i41.i.i.i.i1805 ], [ %incdec.ptr.i.i.i.i1803, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i1801 ]
   store ptr %call5.i.i.i.i.i.i.i1790, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i1803616, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i1807 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i1790, i64 %cond.i.i.i.i.i1786
+  %add.ptr19.i.i.i.i1807 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i1790, i64 %cond.i.i.i.i.i1786
   store ptr %add.ptr19.i.i.i.i1807, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit1809
 
@@ -5865,7 +5858,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i1844621 = phi ptr [ %incdec.ptr.i.i.i.i1844620, %if.then.i41.i.i.i.i1846 ], [ %incdec.ptr.i.i.i.i1844, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i1842 ]
   store ptr %call5.i.i.i.i.i.i.i1831, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i1844621, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i1848 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i1831, i64 %cond.i.i.i.i.i1827
+  %add.ptr19.i.i.i.i1848 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i1831, i64 %cond.i.i.i.i.i1827
   store ptr %add.ptr19.i.i.i.i1848, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit1850
 
@@ -5988,7 +5981,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i1885626 = phi ptr [ %incdec.ptr.i.i.i.i1885625, %if.then.i41.i.i.i.i1887 ], [ %incdec.ptr.i.i.i.i1885, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i1883 ]
   store ptr %call5.i.i.i.i.i.i.i1872, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i1885626, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i1889 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i1872, i64 %cond.i.i.i.i.i1868
+  %add.ptr19.i.i.i.i1889 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i1872, i64 %cond.i.i.i.i.i1868
   store ptr %add.ptr19.i.i.i.i1889, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit1891
 
@@ -6111,7 +6104,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i1926631 = phi ptr [ %incdec.ptr.i.i.i.i1926630, %if.then.i41.i.i.i.i1928 ], [ %incdec.ptr.i.i.i.i1926, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i1924 ]
   store ptr %call5.i.i.i.i.i.i.i1913, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i1926631, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i1930 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i1913, i64 %cond.i.i.i.i.i1909
+  %add.ptr19.i.i.i.i1930 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i1913, i64 %cond.i.i.i.i.i1909
   store ptr %add.ptr19.i.i.i.i1930, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit1932
 
@@ -6234,7 +6227,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i1967636 = phi ptr [ %incdec.ptr.i.i.i.i1967635, %if.then.i41.i.i.i.i1969 ], [ %incdec.ptr.i.i.i.i1967, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i1965 ]
   store ptr %call5.i.i.i.i.i.i.i1954, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i1967636, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i1971 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i1954, i64 %cond.i.i.i.i.i1950
+  %add.ptr19.i.i.i.i1971 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i1954, i64 %cond.i.i.i.i.i1950
   store ptr %add.ptr19.i.i.i.i1971, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit1973
 
@@ -6357,7 +6350,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i2008641 = phi ptr [ %incdec.ptr.i.i.i.i2008640, %if.then.i41.i.i.i.i2010 ], [ %incdec.ptr.i.i.i.i2008, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i2006 ]
   store ptr %call5.i.i.i.i.i.i.i1995, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i2008641, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i2012 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i1995, i64 %cond.i.i.i.i.i1991
+  %add.ptr19.i.i.i.i2012 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i1995, i64 %cond.i.i.i.i.i1991
   store ptr %add.ptr19.i.i.i.i2012, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit2014
 
@@ -6480,7 +6473,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i2049646 = phi ptr [ %incdec.ptr.i.i.i.i2049645, %if.then.i41.i.i.i.i2051 ], [ %incdec.ptr.i.i.i.i2049, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i2047 ]
   store ptr %call5.i.i.i.i.i.i.i2036, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i2049646, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i2053 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i2036, i64 %cond.i.i.i.i.i2032
+  %add.ptr19.i.i.i.i2053 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i2036, i64 %cond.i.i.i.i.i2032
   store ptr %add.ptr19.i.i.i.i2053, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit2055
 
@@ -6603,7 +6596,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i2090651 = phi ptr [ %incdec.ptr.i.i.i.i2090650, %if.then.i41.i.i.i.i2092 ], [ %incdec.ptr.i.i.i.i2090, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i2088 ]
   store ptr %call5.i.i.i.i.i.i.i2077, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i2090651, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i2094 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i2077, i64 %cond.i.i.i.i.i2073
+  %add.ptr19.i.i.i.i2094 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i2077, i64 %cond.i.i.i.i.i2073
   store ptr %add.ptr19.i.i.i.i2094, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit2096
 
@@ -6726,7 +6719,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i2131656 = phi ptr [ %incdec.ptr.i.i.i.i2131655, %if.then.i41.i.i.i.i2133 ], [ %incdec.ptr.i.i.i.i2131, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i2129 ]
   store ptr %call5.i.i.i.i.i.i.i2118, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i2131656, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i2135 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i2118, i64 %cond.i.i.i.i.i2114
+  %add.ptr19.i.i.i.i2135 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i2118, i64 %cond.i.i.i.i.i2114
   store ptr %add.ptr19.i.i.i.i2135, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit2137
 
@@ -6849,7 +6842,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i2172661 = phi ptr [ %incdec.ptr.i.i.i.i2172660, %if.then.i41.i.i.i.i2174 ], [ %incdec.ptr.i.i.i.i2172, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i2170 ]
   store ptr %call5.i.i.i.i.i.i.i2159, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i2172661, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i2176 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i2159, i64 %cond.i.i.i.i.i2155
+  %add.ptr19.i.i.i.i2176 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i2159, i64 %cond.i.i.i.i.i2155
   store ptr %add.ptr19.i.i.i.i2176, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit2178
 
@@ -6972,7 +6965,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i2213666 = phi ptr [ %incdec.ptr.i.i.i.i2213665, %if.then.i41.i.i.i.i2215 ], [ %incdec.ptr.i.i.i.i2213, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i2211 ]
   store ptr %call5.i.i.i.i.i.i.i2200, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i2213666, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i2217 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i2200, i64 %cond.i.i.i.i.i2196
+  %add.ptr19.i.i.i.i2217 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i2200, i64 %cond.i.i.i.i.i2196
   store ptr %add.ptr19.i.i.i.i2217, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit2219
 
@@ -7095,7 +7088,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i2254671 = phi ptr [ %incdec.ptr.i.i.i.i2254670, %if.then.i41.i.i.i.i2256 ], [ %incdec.ptr.i.i.i.i2254, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i2252 ]
   store ptr %call5.i.i.i.i.i.i.i2241, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i2254671, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i2258 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i2241, i64 %cond.i.i.i.i.i2237
+  %add.ptr19.i.i.i.i2258 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i2241, i64 %cond.i.i.i.i.i2237
   store ptr %add.ptr19.i.i.i.i2258, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit2260
 
@@ -7218,7 +7211,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i2295676 = phi ptr [ %incdec.ptr.i.i.i.i2295675, %if.then.i41.i.i.i.i2297 ], [ %incdec.ptr.i.i.i.i2295, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i2293 ]
   store ptr %call5.i.i.i.i.i.i.i2282, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i2295676, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i2299 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i2282, i64 %cond.i.i.i.i.i2278
+  %add.ptr19.i.i.i.i2299 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i2282, i64 %cond.i.i.i.i.i2278
   store ptr %add.ptr19.i.i.i.i2299, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit2301
 
@@ -7341,7 +7334,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i2336681 = phi ptr [ %incdec.ptr.i.i.i.i2336680, %if.then.i41.i.i.i.i2338 ], [ %incdec.ptr.i.i.i.i2336, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i2334 ]
   store ptr %call5.i.i.i.i.i.i.i2323, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i2336681, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i2340 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i2323, i64 %cond.i.i.i.i.i2319
+  %add.ptr19.i.i.i.i2340 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i2323, i64 %cond.i.i.i.i.i2319
   store ptr %add.ptr19.i.i.i.i2340, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit2342
 
@@ -7464,7 +7457,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i2377686 = phi ptr [ %incdec.ptr.i.i.i.i2377685, %if.then.i41.i.i.i.i2379 ], [ %incdec.ptr.i.i.i.i2377, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i2375 ]
   store ptr %call5.i.i.i.i.i.i.i2364, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i2377686, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i2381 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i2364, i64 %cond.i.i.i.i.i2360
+  %add.ptr19.i.i.i.i2381 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i2364, i64 %cond.i.i.i.i.i2360
   store ptr %add.ptr19.i.i.i.i2381, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit2383
 
@@ -7587,7 +7580,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i2418691 = phi ptr [ %incdec.ptr.i.i.i.i2418690, %if.then.i41.i.i.i.i2420 ], [ %incdec.ptr.i.i.i.i2418, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i2416 ]
   store ptr %call5.i.i.i.i.i.i.i2405, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i2418691, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i2422 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i2405, i64 %cond.i.i.i.i.i2401
+  %add.ptr19.i.i.i.i2422 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i2405, i64 %cond.i.i.i.i.i2401
   store ptr %add.ptr19.i.i.i.i2422, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit2424
 
@@ -7710,7 +7703,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i2459696 = phi ptr [ %incdec.ptr.i.i.i.i2459695, %if.then.i41.i.i.i.i2461 ], [ %incdec.ptr.i.i.i.i2459, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i2457 ]
   store ptr %call5.i.i.i.i.i.i.i2446, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i2459696, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i2463 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i2446, i64 %cond.i.i.i.i.i2442
+  %add.ptr19.i.i.i.i2463 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i2446, i64 %cond.i.i.i.i.i2442
   store ptr %add.ptr19.i.i.i.i2463, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit2465
 
@@ -7833,7 +7826,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i2500701 = phi ptr [ %incdec.ptr.i.i.i.i2500700, %if.then.i41.i.i.i.i2502 ], [ %incdec.ptr.i.i.i.i2500, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i2498 ]
   store ptr %call5.i.i.i.i.i.i.i2487, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i2500701, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i2504 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i2487, i64 %cond.i.i.i.i.i2483
+  %add.ptr19.i.i.i.i2504 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i2487, i64 %cond.i.i.i.i.i2483
   store ptr %add.ptr19.i.i.i.i2504, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit2506
 
@@ -7956,7 +7949,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i2541706 = phi ptr [ %incdec.ptr.i.i.i.i2541705, %if.then.i41.i.i.i.i2543 ], [ %incdec.ptr.i.i.i.i2541, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i2539 ]
   store ptr %call5.i.i.i.i.i.i.i2528, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i2541706, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i2545 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i2528, i64 %cond.i.i.i.i.i2524
+  %add.ptr19.i.i.i.i2545 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i2528, i64 %cond.i.i.i.i.i2524
   store ptr %add.ptr19.i.i.i.i2545, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit2547
 
@@ -8079,7 +8072,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i2582711 = phi ptr [ %incdec.ptr.i.i.i.i2582710, %if.then.i41.i.i.i.i2584 ], [ %incdec.ptr.i.i.i.i2582, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i2580 ]
   store ptr %call5.i.i.i.i.i.i.i2569, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i2582711, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i2586 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i2569, i64 %cond.i.i.i.i.i2565
+  %add.ptr19.i.i.i.i2586 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i2569, i64 %cond.i.i.i.i.i2565
   store ptr %add.ptr19.i.i.i.i2586, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit2588
 
@@ -8202,7 +8195,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i2623716 = phi ptr [ %incdec.ptr.i.i.i.i2623715, %if.then.i41.i.i.i.i2625 ], [ %incdec.ptr.i.i.i.i2623, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i2621 ]
   store ptr %call5.i.i.i.i.i.i.i2610, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i2623716, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i2627 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i2610, i64 %cond.i.i.i.i.i2606
+  %add.ptr19.i.i.i.i2627 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i2610, i64 %cond.i.i.i.i.i2606
   store ptr %add.ptr19.i.i.i.i2627, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit2629
 
@@ -8325,7 +8318,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i2664721 = phi ptr [ %incdec.ptr.i.i.i.i2664720, %if.then.i41.i.i.i.i2666 ], [ %incdec.ptr.i.i.i.i2664, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i2662 ]
   store ptr %call5.i.i.i.i.i.i.i2651, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i2664721, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i2668 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i2651, i64 %cond.i.i.i.i.i2647
+  %add.ptr19.i.i.i.i2668 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i2651, i64 %cond.i.i.i.i.i2647
   store ptr %add.ptr19.i.i.i.i2668, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit2670
 
@@ -8448,7 +8441,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i2705726 = phi ptr [ %incdec.ptr.i.i.i.i2705725, %if.then.i41.i.i.i.i2707 ], [ %incdec.ptr.i.i.i.i2705, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i2703 ]
   store ptr %call5.i.i.i.i.i.i.i2692, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i2705726, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i2709 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i2692, i64 %cond.i.i.i.i.i2688
+  %add.ptr19.i.i.i.i2709 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i2692, i64 %cond.i.i.i.i.i2688
   store ptr %add.ptr19.i.i.i.i2709, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit2711
 
@@ -8571,7 +8564,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i2746731 = phi ptr [ %incdec.ptr.i.i.i.i2746730, %if.then.i41.i.i.i.i2748 ], [ %incdec.ptr.i.i.i.i2746, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i2744 ]
   store ptr %call5.i.i.i.i.i.i.i2733, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i2746731, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i2750 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i2733, i64 %cond.i.i.i.i.i2729
+  %add.ptr19.i.i.i.i2750 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i2733, i64 %cond.i.i.i.i.i2729
   store ptr %add.ptr19.i.i.i.i2750, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit2752
 
@@ -8694,7 +8687,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i2787736 = phi ptr [ %incdec.ptr.i.i.i.i2787735, %if.then.i41.i.i.i.i2789 ], [ %incdec.ptr.i.i.i.i2787, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i2785 ]
   store ptr %call5.i.i.i.i.i.i.i2774, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i2787736, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i2791 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i2774, i64 %cond.i.i.i.i.i2770
+  %add.ptr19.i.i.i.i2791 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i2774, i64 %cond.i.i.i.i.i2770
   store ptr %add.ptr19.i.i.i.i2791, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit2793
 
@@ -8817,7 +8810,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i2828741 = phi ptr [ %incdec.ptr.i.i.i.i2828740, %if.then.i41.i.i.i.i2830 ], [ %incdec.ptr.i.i.i.i2828, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i2826 ]
   store ptr %call5.i.i.i.i.i.i.i2815, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i2828741, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i2832 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i2815, i64 %cond.i.i.i.i.i2811
+  %add.ptr19.i.i.i.i2832 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i2815, i64 %cond.i.i.i.i.i2811
   store ptr %add.ptr19.i.i.i.i2832, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit2834
 
@@ -8940,7 +8933,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i2869746 = phi ptr [ %incdec.ptr.i.i.i.i2869745, %if.then.i41.i.i.i.i2871 ], [ %incdec.ptr.i.i.i.i2869, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i2867 ]
   store ptr %call5.i.i.i.i.i.i.i2856, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i2869746, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i2873 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i2856, i64 %cond.i.i.i.i.i2852
+  %add.ptr19.i.i.i.i2873 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i2856, i64 %cond.i.i.i.i.i2852
   store ptr %add.ptr19.i.i.i.i2873, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit2875
 
@@ -9063,7 +9056,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i2910751 = phi ptr [ %incdec.ptr.i.i.i.i2910750, %if.then.i41.i.i.i.i2912 ], [ %incdec.ptr.i.i.i.i2910, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i2908 ]
   store ptr %call5.i.i.i.i.i.i.i2897, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i2910751, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i2914 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i2897, i64 %cond.i.i.i.i.i2893
+  %add.ptr19.i.i.i.i2914 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i2897, i64 %cond.i.i.i.i.i2893
   store ptr %add.ptr19.i.i.i.i2914, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit2916
 
@@ -9186,7 +9179,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i2951756 = phi ptr [ %incdec.ptr.i.i.i.i2951755, %if.then.i41.i.i.i.i2953 ], [ %incdec.ptr.i.i.i.i2951, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i2949 ]
   store ptr %call5.i.i.i.i.i.i.i2938, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i2951756, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i2955 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i2938, i64 %cond.i.i.i.i.i2934
+  %add.ptr19.i.i.i.i2955 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i2938, i64 %cond.i.i.i.i.i2934
   store ptr %add.ptr19.i.i.i.i2955, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit2957
 
@@ -9309,7 +9302,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i2992761 = phi ptr [ %incdec.ptr.i.i.i.i2992760, %if.then.i41.i.i.i.i2994 ], [ %incdec.ptr.i.i.i.i2992, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i2990 ]
   store ptr %call5.i.i.i.i.i.i.i2979, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i2992761, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i2996 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i2979, i64 %cond.i.i.i.i.i2975
+  %add.ptr19.i.i.i.i2996 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i2979, i64 %cond.i.i.i.i.i2975
   store ptr %add.ptr19.i.i.i.i2996, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit2998
 
@@ -9432,7 +9425,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i3033766 = phi ptr [ %incdec.ptr.i.i.i.i3033765, %if.then.i41.i.i.i.i3035 ], [ %incdec.ptr.i.i.i.i3033, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i3031 ]
   store ptr %call5.i.i.i.i.i.i.i3020, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i3033766, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i3037 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i3020, i64 %cond.i.i.i.i.i3016
+  %add.ptr19.i.i.i.i3037 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i3020, i64 %cond.i.i.i.i.i3016
   store ptr %add.ptr19.i.i.i.i3037, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit3039
 
@@ -9555,7 +9548,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i3074771 = phi ptr [ %incdec.ptr.i.i.i.i3074770, %if.then.i41.i.i.i.i3076 ], [ %incdec.ptr.i.i.i.i3074, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i3072 ]
   store ptr %call5.i.i.i.i.i.i.i3061, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i3074771, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i3078 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i3061, i64 %cond.i.i.i.i.i3057
+  %add.ptr19.i.i.i.i3078 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i3061, i64 %cond.i.i.i.i.i3057
   store ptr %add.ptr19.i.i.i.i3078, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit3080
 
@@ -9678,7 +9671,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i3115776 = phi ptr [ %incdec.ptr.i.i.i.i3115775, %if.then.i41.i.i.i.i3117 ], [ %incdec.ptr.i.i.i.i3115, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i3113 ]
   store ptr %call5.i.i.i.i.i.i.i3102, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i3115776, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i3119 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i3102, i64 %cond.i.i.i.i.i3098
+  %add.ptr19.i.i.i.i3119 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i3102, i64 %cond.i.i.i.i.i3098
   store ptr %add.ptr19.i.i.i.i3119, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit3121
 
@@ -9801,7 +9794,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i3156781 = phi ptr [ %incdec.ptr.i.i.i.i3156780, %if.then.i41.i.i.i.i3158 ], [ %incdec.ptr.i.i.i.i3156, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i3154 ]
   store ptr %call5.i.i.i.i.i.i.i3143, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i3156781, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i3160 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i3143, i64 %cond.i.i.i.i.i3139
+  %add.ptr19.i.i.i.i3160 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i3143, i64 %cond.i.i.i.i.i3139
   store ptr %add.ptr19.i.i.i.i3160, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit3162
 
@@ -9924,7 +9917,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i3197786 = phi ptr [ %incdec.ptr.i.i.i.i3197785, %if.then.i41.i.i.i.i3199 ], [ %incdec.ptr.i.i.i.i3197, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i3195 ]
   store ptr %call5.i.i.i.i.i.i.i3184, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i3197786, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i3201 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i3184, i64 %cond.i.i.i.i.i3180
+  %add.ptr19.i.i.i.i3201 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i3184, i64 %cond.i.i.i.i.i3180
   store ptr %add.ptr19.i.i.i.i3201, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit3203
 
@@ -10047,7 +10040,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i3238791 = phi ptr [ %incdec.ptr.i.i.i.i3238790, %if.then.i41.i.i.i.i3240 ], [ %incdec.ptr.i.i.i.i3238, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i3236 ]
   store ptr %call5.i.i.i.i.i.i.i3225, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i3238791, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i3242 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i3225, i64 %cond.i.i.i.i.i3221
+  %add.ptr19.i.i.i.i3242 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i3225, i64 %cond.i.i.i.i.i3221
   store ptr %add.ptr19.i.i.i.i3242, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit3244
 
@@ -10170,7 +10163,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i3279796 = phi ptr [ %incdec.ptr.i.i.i.i3279795, %if.then.i41.i.i.i.i3281 ], [ %incdec.ptr.i.i.i.i3279, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i3277 ]
   store ptr %call5.i.i.i.i.i.i.i3266, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i3279796, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i3283 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i3266, i64 %cond.i.i.i.i.i3262
+  %add.ptr19.i.i.i.i3283 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i3266, i64 %cond.i.i.i.i.i3262
   store ptr %add.ptr19.i.i.i.i3283, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit3285
 
@@ -10293,7 +10286,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i3320801 = phi ptr [ %incdec.ptr.i.i.i.i3320800, %if.then.i41.i.i.i.i3322 ], [ %incdec.ptr.i.i.i.i3320, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i3318 ]
   store ptr %call5.i.i.i.i.i.i.i3307, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i3320801, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i3324 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i3307, i64 %cond.i.i.i.i.i3303
+  %add.ptr19.i.i.i.i3324 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i3307, i64 %cond.i.i.i.i.i3303
   store ptr %add.ptr19.i.i.i.i3324, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit3326
 
@@ -10416,7 +10409,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i3361806 = phi ptr [ %incdec.ptr.i.i.i.i3361805, %if.then.i41.i.i.i.i3363 ], [ %incdec.ptr.i.i.i.i3361, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i3359 ]
   store ptr %call5.i.i.i.i.i.i.i3348, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i3361806, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i3365 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i3348, i64 %cond.i.i.i.i.i3344
+  %add.ptr19.i.i.i.i3365 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i3348, i64 %cond.i.i.i.i.i3344
   store ptr %add.ptr19.i.i.i.i3365, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit3367
 
@@ -10539,7 +10532,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i3402811 = phi ptr [ %incdec.ptr.i.i.i.i3402810, %if.then.i41.i.i.i.i3404 ], [ %incdec.ptr.i.i.i.i3402, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i3400 ]
   store ptr %call5.i.i.i.i.i.i.i3389, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i3402811, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i3406 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i3389, i64 %cond.i.i.i.i.i3385
+  %add.ptr19.i.i.i.i3406 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i3389, i64 %cond.i.i.i.i.i3385
   store ptr %add.ptr19.i.i.i.i3406, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit3408
 
@@ -10662,7 +10655,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i3443816 = phi ptr [ %incdec.ptr.i.i.i.i3443815, %if.then.i41.i.i.i.i3445 ], [ %incdec.ptr.i.i.i.i3443, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i3441 ]
   store ptr %call5.i.i.i.i.i.i.i3430, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i3443816, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i3447 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i3430, i64 %cond.i.i.i.i.i3426
+  %add.ptr19.i.i.i.i3447 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i3430, i64 %cond.i.i.i.i.i3426
   store ptr %add.ptr19.i.i.i.i3447, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit3449
 
@@ -10785,7 +10778,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i3484821 = phi ptr [ %incdec.ptr.i.i.i.i3484820, %if.then.i41.i.i.i.i3486 ], [ %incdec.ptr.i.i.i.i3484, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i3482 ]
   store ptr %call5.i.i.i.i.i.i.i3471, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i3484821, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i3488 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i3471, i64 %cond.i.i.i.i.i3467
+  %add.ptr19.i.i.i.i3488 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i3471, i64 %cond.i.i.i.i.i3467
   store ptr %add.ptr19.i.i.i.i3488, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit3490
 
@@ -10908,7 +10901,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i3525826 = phi ptr [ %incdec.ptr.i.i.i.i3525825, %if.then.i41.i.i.i.i3527 ], [ %incdec.ptr.i.i.i.i3525, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i3523 ]
   store ptr %call5.i.i.i.i.i.i.i3512, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i3525826, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i3529 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i3512, i64 %cond.i.i.i.i.i3508
+  %add.ptr19.i.i.i.i3529 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i3512, i64 %cond.i.i.i.i.i3508
   store ptr %add.ptr19.i.i.i.i3529, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit3531
 
@@ -11031,7 +11024,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i3566831 = phi ptr [ %incdec.ptr.i.i.i.i3566830, %if.then.i41.i.i.i.i3568 ], [ %incdec.ptr.i.i.i.i3566, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i3564 ]
   store ptr %call5.i.i.i.i.i.i.i3553, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i3566831, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i3570 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i3553, i64 %cond.i.i.i.i.i3549
+  %add.ptr19.i.i.i.i3570 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i3553, i64 %cond.i.i.i.i.i3549
   store ptr %add.ptr19.i.i.i.i3570, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit3572
 
@@ -11154,7 +11147,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i3607836 = phi ptr [ %incdec.ptr.i.i.i.i3607835, %if.then.i41.i.i.i.i3609 ], [ %incdec.ptr.i.i.i.i3607, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i3605 ]
   store ptr %call5.i.i.i.i.i.i.i3594, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i3607836, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i3611 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i3594, i64 %cond.i.i.i.i.i3590
+  %add.ptr19.i.i.i.i3611 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i3594, i64 %cond.i.i.i.i.i3590
   store ptr %add.ptr19.i.i.i.i3611, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit3613
 
@@ -11277,7 +11270,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i3648841 = phi ptr [ %incdec.ptr.i.i.i.i3648840, %if.then.i41.i.i.i.i3650 ], [ %incdec.ptr.i.i.i.i3648, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i3646 ]
   store ptr %call5.i.i.i.i.i.i.i3635, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i3648841, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i3652 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i3635, i64 %cond.i.i.i.i.i3631
+  %add.ptr19.i.i.i.i3652 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i3635, i64 %cond.i.i.i.i.i3631
   store ptr %add.ptr19.i.i.i.i3652, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit3654
 
@@ -11400,7 +11393,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i3689846 = phi ptr [ %incdec.ptr.i.i.i.i3689845, %if.then.i41.i.i.i.i3691 ], [ %incdec.ptr.i.i.i.i3689, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i3687 ]
   store ptr %call5.i.i.i.i.i.i.i3676, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i3689846, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i3693 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i3676, i64 %cond.i.i.i.i.i3672
+  %add.ptr19.i.i.i.i3693 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i3676, i64 %cond.i.i.i.i.i3672
   store ptr %add.ptr19.i.i.i.i3693, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit3695
 
@@ -11523,7 +11516,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i3730851 = phi ptr [ %incdec.ptr.i.i.i.i3730850, %if.then.i41.i.i.i.i3732 ], [ %incdec.ptr.i.i.i.i3730, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i3728 ]
   store ptr %call5.i.i.i.i.i.i.i3717, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i3730851, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i3734 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i3717, i64 %cond.i.i.i.i.i3713
+  %add.ptr19.i.i.i.i3734 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i3717, i64 %cond.i.i.i.i.i3713
   store ptr %add.ptr19.i.i.i.i3734, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit3736
 
@@ -11646,7 +11639,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i3771856 = phi ptr [ %incdec.ptr.i.i.i.i3771855, %if.then.i41.i.i.i.i3773 ], [ %incdec.ptr.i.i.i.i3771, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i3769 ]
   store ptr %call5.i.i.i.i.i.i.i3758, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i3771856, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i3775 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i3758, i64 %cond.i.i.i.i.i3754
+  %add.ptr19.i.i.i.i3775 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i3758, i64 %cond.i.i.i.i.i3754
   store ptr %add.ptr19.i.i.i.i3775, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit3777
 
@@ -11769,7 +11762,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i3812861 = phi ptr [ %incdec.ptr.i.i.i.i3812860, %if.then.i41.i.i.i.i3814 ], [ %incdec.ptr.i.i.i.i3812, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i3810 ]
   store ptr %call5.i.i.i.i.i.i.i3799, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i3812861, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i3816 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i3799, i64 %cond.i.i.i.i.i3795
+  %add.ptr19.i.i.i.i3816 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i3799, i64 %cond.i.i.i.i.i3795
   store ptr %add.ptr19.i.i.i.i3816, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit3818
 
@@ -11892,7 +11885,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i3853866 = phi ptr [ %incdec.ptr.i.i.i.i3853865, %if.then.i41.i.i.i.i3855 ], [ %incdec.ptr.i.i.i.i3853, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i3851 ]
   store ptr %call5.i.i.i.i.i.i.i3840, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i3853866, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i3857 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i3840, i64 %cond.i.i.i.i.i3836
+  %add.ptr19.i.i.i.i3857 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i3840, i64 %cond.i.i.i.i.i3836
   store ptr %add.ptr19.i.i.i.i3857, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit3859
 
@@ -12015,7 +12008,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i3894871 = phi ptr [ %incdec.ptr.i.i.i.i3894870, %if.then.i41.i.i.i.i3896 ], [ %incdec.ptr.i.i.i.i3894, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i3892 ]
   store ptr %call5.i.i.i.i.i.i.i3881, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i3894871, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i3898 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i3881, i64 %cond.i.i.i.i.i3877
+  %add.ptr19.i.i.i.i3898 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i3881, i64 %cond.i.i.i.i.i3877
   store ptr %add.ptr19.i.i.i.i3898, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit3900
 
@@ -12138,7 +12131,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i3935876 = phi ptr [ %incdec.ptr.i.i.i.i3935875, %if.then.i41.i.i.i.i3937 ], [ %incdec.ptr.i.i.i.i3935, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i3933 ]
   store ptr %call5.i.i.i.i.i.i.i3922, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i3935876, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i3939 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i3922, i64 %cond.i.i.i.i.i3918
+  %add.ptr19.i.i.i.i3939 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i3922, i64 %cond.i.i.i.i.i3918
   store ptr %add.ptr19.i.i.i.i3939, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit3941
 
@@ -12261,7 +12254,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i3976881 = phi ptr [ %incdec.ptr.i.i.i.i3976880, %if.then.i41.i.i.i.i3978 ], [ %incdec.ptr.i.i.i.i3976, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i3974 ]
   store ptr %call5.i.i.i.i.i.i.i3963, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i3976881, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i3980 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i3963, i64 %cond.i.i.i.i.i3959
+  %add.ptr19.i.i.i.i3980 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i3963, i64 %cond.i.i.i.i.i3959
   store ptr %add.ptr19.i.i.i.i3980, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit3982
 
@@ -12384,7 +12377,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i4017886 = phi ptr [ %incdec.ptr.i.i.i.i4017885, %if.then.i41.i.i.i.i4019 ], [ %incdec.ptr.i.i.i.i4017, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i4015 ]
   store ptr %call5.i.i.i.i.i.i.i4004, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i4017886, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i4021 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i4004, i64 %cond.i.i.i.i.i4000
+  %add.ptr19.i.i.i.i4021 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i4004, i64 %cond.i.i.i.i.i4000
   store ptr %add.ptr19.i.i.i.i4021, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit4023
 
@@ -12507,7 +12500,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i4058891 = phi ptr [ %incdec.ptr.i.i.i.i4058890, %if.then.i41.i.i.i.i4060 ], [ %incdec.ptr.i.i.i.i4058, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i4056 ]
   store ptr %call5.i.i.i.i.i.i.i4045, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i4058891, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i4062 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i4045, i64 %cond.i.i.i.i.i4041
+  %add.ptr19.i.i.i.i4062 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i4045, i64 %cond.i.i.i.i.i4041
   store ptr %add.ptr19.i.i.i.i4062, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit4064
 
@@ -12630,7 +12623,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i4099896 = phi ptr [ %incdec.ptr.i.i.i.i4099895, %if.then.i41.i.i.i.i4101 ], [ %incdec.ptr.i.i.i.i4099, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i4097 ]
   store ptr %call5.i.i.i.i.i.i.i4086, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i4099896, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i4103 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i4086, i64 %cond.i.i.i.i.i4082
+  %add.ptr19.i.i.i.i4103 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i4086, i64 %cond.i.i.i.i.i4082
   store ptr %add.ptr19.i.i.i.i4103, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit4105
 
@@ -12753,7 +12746,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i4140901 = phi ptr [ %incdec.ptr.i.i.i.i4140900, %if.then.i41.i.i.i.i4142 ], [ %incdec.ptr.i.i.i.i4140, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i4138 ]
   store ptr %call5.i.i.i.i.i.i.i4127, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i4140901, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i4144 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i4127, i64 %cond.i.i.i.i.i4123
+  %add.ptr19.i.i.i.i4144 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i4127, i64 %cond.i.i.i.i.i4123
   store ptr %add.ptr19.i.i.i.i4144, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit4146
 
@@ -12876,7 +12869,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i4181906 = phi ptr [ %incdec.ptr.i.i.i.i4181905, %if.then.i41.i.i.i.i4183 ], [ %incdec.ptr.i.i.i.i4181, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i4179 ]
   store ptr %call5.i.i.i.i.i.i.i4168, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i4181906, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i4185 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i4168, i64 %cond.i.i.i.i.i4164
+  %add.ptr19.i.i.i.i4185 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i4168, i64 %cond.i.i.i.i.i4164
   store ptr %add.ptr19.i.i.i.i4185, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit4187
 
@@ -12999,7 +12992,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i4222911 = phi ptr [ %incdec.ptr.i.i.i.i4222910, %if.then.i41.i.i.i.i4224 ], [ %incdec.ptr.i.i.i.i4222, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i4220 ]
   store ptr %call5.i.i.i.i.i.i.i4209, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i4222911, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i4226 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i4209, i64 %cond.i.i.i.i.i4205
+  %add.ptr19.i.i.i.i4226 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i4209, i64 %cond.i.i.i.i.i4205
   store ptr %add.ptr19.i.i.i.i4226, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit4228
 
@@ -13122,7 +13115,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i4263916 = phi ptr [ %incdec.ptr.i.i.i.i4263915, %if.then.i41.i.i.i.i4265 ], [ %incdec.ptr.i.i.i.i4263, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i4261 ]
   store ptr %call5.i.i.i.i.i.i.i4250, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i4263916, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i4267 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i4250, i64 %cond.i.i.i.i.i4246
+  %add.ptr19.i.i.i.i4267 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i4250, i64 %cond.i.i.i.i.i4246
   store ptr %add.ptr19.i.i.i.i4267, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit4269
 
@@ -13245,7 +13238,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i4304921 = phi ptr [ %incdec.ptr.i.i.i.i4304920, %if.then.i41.i.i.i.i4306 ], [ %incdec.ptr.i.i.i.i4304, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i4302 ]
   store ptr %call5.i.i.i.i.i.i.i4291, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i4304921, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i4308 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i4291, i64 %cond.i.i.i.i.i4287
+  %add.ptr19.i.i.i.i4308 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i4291, i64 %cond.i.i.i.i.i4287
   store ptr %add.ptr19.i.i.i.i4308, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit4310
 
@@ -13368,7 +13361,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i4345926 = phi ptr [ %incdec.ptr.i.i.i.i4345925, %if.then.i41.i.i.i.i4347 ], [ %incdec.ptr.i.i.i.i4345, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i4343 ]
   store ptr %call5.i.i.i.i.i.i.i4332, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i4345926, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i4349 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i4332, i64 %cond.i.i.i.i.i4328
+  %add.ptr19.i.i.i.i4349 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i4332, i64 %cond.i.i.i.i.i4328
   store ptr %add.ptr19.i.i.i.i4349, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE9push_backEOS3_.exit4351
 
@@ -13491,7 +13484,7 @@ _ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   %incdec.ptr.i.i.i.i4386931 = phi ptr [ %incdec.ptr.i.i.i.i4386930, %if.then.i41.i.i.i.i4388 ], [ %incdec.ptr.i.i.i.i4386, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i4384 ]
   store ptr %call5.i.i.i.i.i.i.i4373, ptr %KeyMap, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i.i.i4386931, ptr %_M_finish.i.i.i208, align 8, !tbaa !82
-  %add.ptr19.i.i.i.i4390 = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i.i.i.i4373, i64 %cond.i.i.i.i.i4369
+  %add.ptr19.i.i.i.i4390 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i4373, i64 %cond.i.i.i.i.i4369
   store ptr %add.ptr19.i.i.i.i4390, ptr %_M_end_of_storage.i.i, align 8, !tbaa !80
   br label %if.then.i4394
 
@@ -14196,7 +14189,7 @@ for.cond.cleanup:                                 ; preds = %for.body, %if.then
 for.body:                                         ; preds = %for.body, %for.body.preheader
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
   %8 = load ptr, ptr %Joysticks, align 8, !tbaa !834
-  %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %9 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !93
   tail call void @SDL_JoystickClose(ptr noundef %9) #22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -15827,7 +15820,7 @@ while.body.i.i.i.i:                               ; preds = %if.end.i.i, %while.
   %__len.019.i.i.i.i = phi i64 [ %__len.1.i.i.i.i, %while.body.i.i.i.i ], [ %sub.ptr.div.i.i.i.i.i.i.i, %if.end.i.i ]
   %__first.sroa.0.018.i.i.i.i = phi ptr [ %__first.sroa.0.1.i.i.i.i, %while.body.i.i.i.i ], [ %45, %if.end.i.i ]
   %shr.i.i.i.i = lshr i64 %__len.019.i.i.i.i, 1
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %__first.sroa.0.018.i.i.i.i, i64 %shr.i.i.i.i
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %__first.sroa.0.018.i.i.i.i, i64 %shr.i.i.i.i
   %46 = load i32, ptr %add.ptr.i.i.i.i.i.i.i, align 4, !tbaa !880
   %cmp.i.i15.i.i.i.i = icmp slt i32 %46, %41
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i.i.i, i64 8
@@ -15854,7 +15847,7 @@ _ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE13binary_searchERKS3_.exit: ; pre
 if.end143:                                        ; preds = %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE13binary_searchERKS3_.exit
   %sub.ptr.div.i.i.i = lshr exact i64 %sub.ptr.sub.i.i.i, 3
   %conv.i404 = and i64 %sub.ptr.div.i.i.i, 4294967295
-  %Win32Key.split = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %45, i64 %conv.i404
+  %Win32Key.split = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %conv.i404
   %Win32Key = getelementptr inbounds nuw i8, ptr %Win32Key.split, i64 4
   %50 = load i32, ptr %Win32Key, align 4, !tbaa !883
   %cmp144 = icmp eq i32 %50, 0
@@ -16105,7 +16098,7 @@ for.body:                                         ; preds = %if.end363, %for.bod
   %97 = phi ptr [ %93, %for.body.lr.ph ], [ %106, %if.end363 ]
   %98 = phi ptr [ %92, %for.body.lr.ph ], [ %107, %if.end363 ]
   %indvars.iv450 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next451, %if.end363 ]
-  %add.ptr.i.i416 = getelementptr inbounds nuw ptr, ptr %97, i64 %indvars.iv450
+  %add.ptr.i.i416 = getelementptr inbounds nuw [8 x i8], ptr %97, i64 %indvars.iv450
   %99 = load ptr, ptr %add.ptr.i.i416, align 8, !tbaa !93
   %tobool294.not = icmp eq ptr %99, null
   br i1 %tobool294.not, label %if.end363, label %if.then295
@@ -16144,7 +16137,7 @@ for.body325:                                      ; preds = %for.body325, %for.b
   %indvars.iv = phi i64 [ 0, %for.body325.preheader ], [ %indvars.iv.next, %for.body325 ]
   %102 = trunc i64 %indvars.iv to i32
   %call326 = call signext i16 @SDL_JoystickGetAxis(ptr noundef nonnull %99, i32 noundef %102) #22
-  %arrayidx328 = getelementptr inbounds nuw i16, ptr %Axis, i64 %indvars.iv
+  %arrayidx328 = getelementptr inbounds nuw [2 x i8], ptr %Axis, i64 %indvars.iv
   store i16 %call326, ptr %arrayidx328, align 2, !tbaa !62
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond449.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -16163,7 +16156,7 @@ if.then334:                                       ; preds = %for.end331
 
 switch.lookup:                                    ; preds = %if.then334
   %104 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i16, ptr @switch.table._ZN3irr13CIrrDeviceSDL3runEv, i64 %104
+  %switch.gep = getelementptr inbounds nuw [2 x i8], ptr @switch.table._ZN3irr13CIrrDeviceSDL3runEv, i64 %104
   %switch.load = load i16, ptr %switch.gep, align 2
   br label %if.end358
 
@@ -16275,7 +16268,7 @@ _ZN3irr4core6stringIwEC2EONSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEE.e
   %10 = phi i64 [ %.pre8.i.i.i, %if.end.i.i.i.i.i.i ], [ %6, %if.then.i.i.i.i.i ], [ %6, %if.end.i.i.i ]
   %_M_string_length.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store i64 %10, ptr %_M_string_length.i.i.i.i.i, align 8, !tbaa !875
-  %arrayidx.i.i.i.i = getelementptr inbounds i32, ptr %9, i64 %10
+  %arrayidx.i.i.i.i = getelementptr inbounds [4 x i8], ptr %9, i64 %10
   store i32 0, ptr %arrayidx.i.i.i.i, align 4, !tbaa !877
   call void @llvm.lifetime.end.p0(ptr nonnull %__dnew.i.i.i)
   %cmp.i = icmp eq ptr %ref.tmp, %destination
@@ -16435,7 +16428,7 @@ if.else.i.i:                                      ; preds = %if.then.i
   br i1 %cmp4.i.i, label %if.then5.i.i, label %_ZN3irr4core5arrayIP13_SDL_JoystickE10reallocateEjb.exit
 
 if.then5.i.i:                                     ; preds = %if.else.i.i
-  %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %5, i64 %conv.i
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %conv.i
   %tobool.not.i.i.i = icmp eq ptr %6, %add.ptr.i.i
   br i1 %tobool.not.i.i.i, label %_ZN3irr4core5arrayIP13_SDL_JoystickE10reallocateEjb.exit, label %if.then.i.i.i
 
@@ -16473,7 +16466,7 @@ _ZNSt12_Vector_baseIP13_SDL_JoystickSaIS1_EE13_M_deallocateEPS1_m.exit.i.i: ; pr
   store ptr %call5.i.i.i.i.i, ptr %Joysticks, align 8, !tbaa !834
   %add.ptr.i17.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 %sub.ptr.sub.i32.i.i
   store ptr %add.ptr.i17.i, ptr %_M_finish.i.i14.i, align 8, !tbaa !833
-  %add.ptr21.i.i = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i, i64 %conv.i
+  %add.ptr21.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i, i64 %conv.i
   store ptr %add.ptr21.i.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !912
   br label %_ZN3irr4core5arrayIP13_SDL_JoystickE10reallocateEjb.exit
 
@@ -16506,7 +16499,7 @@ if.else.i.i73:                                    ; preds = %if.then.i67
   br i1 %cmp4.i.i74, label %if.then5.i.i75, label %_ZN3irr4core5arrayINS_13SJoystickInfoEE10reallocateEjb.exit
 
 if.then5.i.i75:                                   ; preds = %if.else.i.i73
-  %add.ptr.i.i76 = getelementptr inbounds nuw %"struct.irr::SJoystickInfo", ptr %9, i64 %conv.i
+  %add.ptr.i.i76 = getelementptr inbounds nuw [56 x i8], ptr %9, i64 %conv.i
   %tobool.not.i.i.i77 = icmp eq ptr %10, %add.ptr.i.i76
   br i1 %tobool.not.i.i.i77, label %_ZN3irr4core5arrayINS_13SJoystickInfoEE10reallocateEjb.exit, label %for.body.i.i.i.i.i.i
 
@@ -16624,7 +16617,7 @@ if.then.i39.i.i.i.i:                              ; preds = %_ZNSt6vectorIP13_SD
 _ZNSt6vectorIP13_SDL_JoystickSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i: ; preds = %if.then.i39.i.i.i.i, %_ZNSt6vectorIP13_SDL_JoystickSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit38.i.i.i.i
   store ptr %call5.i.i.i.i.i.i.i, ptr %Joysticks, align 8, !tbaa !834
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_finish.i.i.i80, align 8, !tbaa !833
-  %add.ptr19.i.i.i.i = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i.i.i, i64 %cond.i.i.i.i.i
+  %add.ptr19.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i, i64 %cond.i.i.i.i.i
   store ptr %add.ptr19.i.i.i.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !912
   br label %_ZN3irr4core5arrayIP13_SDL_JoystickE9push_backEOS3_.exit
 
@@ -16637,17 +16630,17 @@ _ZN3irr4core5arrayIP13_SDL_JoystickE9push_backEOS3_.exit: ; preds = %_ZNSt6vecto
   store i8 0, ptr %13, align 8, !tbaa !62
   %conv = trunc i64 %indvars.iv to i8
   store i8 %conv, ptr %info, align 8, !tbaa !914
-  %add.ptr.i.i85 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv
+  %add.ptr.i.i85 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv
   %24 = load ptr, ptr %add.ptr.i.i85, align 8, !tbaa !93
   %call9 = call i32 @SDL_JoystickNumAxes(ptr noundef %24) #22
   store i32 %call9, ptr %Axes, align 4, !tbaa !917
   %25 = load ptr, ptr %Joysticks, align 8, !tbaa !834
-  %add.ptr.i.i87 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv
+  %add.ptr.i.i87 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv
   %26 = load ptr, ptr %add.ptr.i.i87, align 8, !tbaa !93
   %call12 = call i32 @SDL_JoystickNumButtons(ptr noundef %26) #22
   store i32 %call12, ptr %Buttons, align 8, !tbaa !918
   %27 = load ptr, ptr %Joysticks, align 8, !tbaa !834
-  %add.ptr.i.i89 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
+  %add.ptr.i.i89 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   %28 = load ptr, ptr %add.ptr.i.i89, align 8, !tbaa !93
   %call15 = call ptr @SDL_JoystickName(ptr noundef %28) #22
   %tobool.not.i = icmp eq ptr %call15, null
@@ -16736,7 +16729,7 @@ for.body.i.epil:                                  ; preds = %_ZN3irr4core6string
 
 _ZN3irr4core6stringIcEaSIcEERS2_PKT_.exit:        ; preds = %for.body.i.epil, %_ZN3irr4core6stringIcEaSIcEERS2_PKT_.exit.loopexit.unr-lcssa, %if.end.i, %_ZN3irr4core6stringIcE5clearEb.exit.i
   %41 = load ptr, ptr %Joysticks, align 8, !tbaa !834
-  %add.ptr.i.i96 = getelementptr inbounds nuw ptr, ptr %41, i64 %indvars.iv
+  %add.ptr.i.i96 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv
   %42 = load ptr, ptr %add.ptr.i.i96, align 8, !tbaa !93
   %call19 = call i32 @SDL_JoystickNumHats(ptr noundef %42) #22
   %cmp20 = icmp slt i32 %call19, 1
@@ -16795,7 +16788,7 @@ for.body24:                                       ; preds = %for.cond21.preheade
   %indvars.iv133 = phi i64 [ %indvars.iv.next134, %for.body24 ], [ 0, %for.cond21.preheader ]
   %49 = phi ptr [ %55, %for.body24 ], [ %16, %for.cond21.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %logString)
-  %add.ptr.i.i115 = getelementptr inbounds nuw %"struct.irr::SJoystickInfo", ptr %49, i64 %indvars.iv133
+  %add.ptr.i.i115 = getelementptr inbounds nuw [56 x i8], ptr %49, i64 %indvars.iv133
   %Axes26 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i115, i64 44
   %50 = load i32, ptr %Axes26, align 4, !tbaa !917
   %Buttons28 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i115, i64 40
@@ -17002,7 +16995,7 @@ entry:
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp)
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp1)
   %call.i.i = call noundef i64 @wcslen(ptr noundef %source) #26, !noalias !926
-  %add.ptr.i = getelementptr inbounds i32, ptr %source, i64 %call.i.i
+  %add.ptr.i = getelementptr inbounds [4 x i8], ptr %source, i64 %call.i.i
   call void @_ZNSt7__cxx1115wstring_convertISt12codecvt_utf8IwLm1114111ELSt12codecvt_mode0EEwSaIwESaIcEE8to_bytesEPKwS8_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp1, ptr noundef nonnull align 8 dereferenceable(90) %conv, ptr noundef %source, ptr noundef %add.ptr.i)
   %2 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   store ptr %2, ptr %ref.tmp, align 8, !tbaa !60
@@ -17631,7 +17624,7 @@ _ZNSt6vectorISt10unique_ptrI10SDL_CursorN3irr13CIrrDeviceSDL14CCursorControl13Cu
   %incdec.ptr.i.i72 = phi ptr [ %incdec.ptr.i.i71, %if.then.i41.i.i ], [ %incdec.ptr.i.i, %_ZNSt6vectorISt10unique_ptrI10SDL_CursorN3irr13CIrrDeviceSDL14CCursorControl13CursorDeleterEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit40.i.i ]
   store ptr %call5.i.i.i.i.i, ptr %Cursors, align 8, !tbaa !937
   store ptr %incdec.ptr.i.i72, ptr %_M_finish.i, align 8, !tbaa !938
-  %add.ptr19.i.i = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
+  %add.ptr19.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
   store ptr %add.ptr19.i.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !936
   br label %_ZNSt6vectorISt10unique_ptrI10SDL_CursorN3irr13CIrrDeviceSDL14CCursorControl13CursorDeleterEESaIS6_EE12emplace_backIJPS1_EEERS6_DpOT_.exit
 
@@ -17761,7 +17754,7 @@ _ZNSt6vectorISt10unique_ptrI10SDL_CursorN3irr13CIrrDeviceSDL14CCursorControl13Cu
   %incdec.ptr.i.i8277 = phi ptr [ %incdec.ptr.i.i8276, %if.then.i41.i.i84 ], [ %incdec.ptr.i.i82, %_ZNSt6vectorISt10unique_ptrI10SDL_CursorN3irr13CIrrDeviceSDL14CCursorControl13CursorDeleterEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit40.i.i80 ]
   store ptr %call5.i.i.i.i.i69, ptr %Cursors, align 8, !tbaa !937
   store ptr %incdec.ptr.i.i8277, ptr %_M_finish.i, align 8, !tbaa !938
-  %add.ptr19.i.i86 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %call5.i.i.i.i.i69, i64 %cond.i.i.i65
+  %add.ptr19.i.i86 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i69, i64 %cond.i.i.i65
   store ptr %add.ptr19.i.i86, ptr %_M_end_of_storage.i.i, align 8, !tbaa !936
   br label %_ZNSt6vectorISt10unique_ptrI10SDL_CursorN3irr13CIrrDeviceSDL14CCursorControl13CursorDeleterEESaIS6_EE12emplace_backIJPS1_EEERS6_DpOT_.exit88
 
@@ -17892,7 +17885,7 @@ _ZNSt6vectorISt10unique_ptrI10SDL_CursorN3irr13CIrrDeviceSDL14CCursorControl13Cu
   %incdec.ptr.i.i12182 = phi ptr [ %incdec.ptr.i.i12181, %if.then.i41.i.i123 ], [ %incdec.ptr.i.i121, %_ZNSt6vectorISt10unique_ptrI10SDL_CursorN3irr13CIrrDeviceSDL14CCursorControl13CursorDeleterEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit40.i.i119 ]
   store ptr %call5.i.i.i.i.i108, ptr %Cursors, align 8, !tbaa !937
   store ptr %incdec.ptr.i.i12182, ptr %_M_finish.i, align 8, !tbaa !938
-  %add.ptr19.i.i125 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %call5.i.i.i.i.i108, i64 %cond.i.i.i104
+  %add.ptr19.i.i125 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i108, i64 %cond.i.i.i104
   store ptr %add.ptr19.i.i125, ptr %_M_end_of_storage.i.i, align 8, !tbaa !936
   br label %_ZNSt6vectorISt10unique_ptrI10SDL_CursorN3irr13CIrrDeviceSDL14CCursorControl13CursorDeleterEESaIS6_EE12emplace_backIJPS1_EEERS6_DpOT_.exit127
 
@@ -18020,7 +18013,7 @@ _ZNSt6vectorISt10unique_ptrI10SDL_CursorN3irr13CIrrDeviceSDL14CCursorControl13Cu
   %incdec.ptr.i.i16087 = phi ptr [ %incdec.ptr.i.i16086, %if.then.i41.i.i162 ], [ %incdec.ptr.i.i160, %_ZNSt6vectorISt10unique_ptrI10SDL_CursorN3irr13CIrrDeviceSDL14CCursorControl13CursorDeleterEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit40.i.i158 ]
   store ptr %call5.i.i.i.i.i147, ptr %Cursors, align 8, !tbaa !937
   store ptr %incdec.ptr.i.i16087, ptr %_M_finish.i, align 8, !tbaa !938
-  %add.ptr19.i.i163 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %call5.i.i.i.i.i147, i64 %cond.i.i.i143
+  %add.ptr19.i.i163 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i147, i64 %cond.i.i.i143
   store ptr %add.ptr19.i.i163, ptr %_M_end_of_storage.i.i, align 8, !tbaa !936
   br label %_ZNSt6vectorISt10unique_ptrI10SDL_CursorN3irr13CIrrDeviceSDL14CCursorControl13CursorDeleterEESaIS6_EE12emplace_backIJDnEEERS6_DpOT_.exit
 
@@ -18150,7 +18143,7 @@ _ZNSt6vectorISt10unique_ptrI10SDL_CursorN3irr13CIrrDeviceSDL14CCursorControl13Cu
   %incdec.ptr.i.i19792 = phi ptr [ %incdec.ptr.i.i19791, %if.then.i41.i.i199 ], [ %incdec.ptr.i.i197, %_ZNSt6vectorISt10unique_ptrI10SDL_CursorN3irr13CIrrDeviceSDL14CCursorControl13CursorDeleterEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit40.i.i195 ]
   store ptr %call5.i.i.i.i.i184, ptr %Cursors, align 8, !tbaa !937
   store ptr %incdec.ptr.i.i19792, ptr %_M_finish.i, align 8, !tbaa !938
-  %add.ptr19.i.i201 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %call5.i.i.i.i.i184, i64 %cond.i.i.i180
+  %add.ptr19.i.i201 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i184, i64 %cond.i.i.i180
   store ptr %add.ptr19.i.i201, ptr %_M_end_of_storage.i.i, align 8, !tbaa !936
   br label %_ZNSt6vectorISt10unique_ptrI10SDL_CursorN3irr13CIrrDeviceSDL14CCursorControl13CursorDeleterEESaIS6_EE12emplace_backIJPS1_EEERS6_DpOT_.exit203
 
@@ -18280,7 +18273,7 @@ _ZNSt6vectorISt10unique_ptrI10SDL_CursorN3irr13CIrrDeviceSDL14CCursorControl13Cu
   %incdec.ptr.i.i23697 = phi ptr [ %incdec.ptr.i.i23696, %if.then.i41.i.i238 ], [ %incdec.ptr.i.i236, %_ZNSt6vectorISt10unique_ptrI10SDL_CursorN3irr13CIrrDeviceSDL14CCursorControl13CursorDeleterEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit40.i.i234 ]
   store ptr %call5.i.i.i.i.i223, ptr %Cursors, align 8, !tbaa !937
   store ptr %incdec.ptr.i.i23697, ptr %_M_finish.i, align 8, !tbaa !938
-  %add.ptr19.i.i240 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %call5.i.i.i.i.i223, i64 %cond.i.i.i219
+  %add.ptr19.i.i240 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i223, i64 %cond.i.i.i219
   store ptr %add.ptr19.i.i240, ptr %_M_end_of_storage.i.i, align 8, !tbaa !936
   br label %_ZNSt6vectorISt10unique_ptrI10SDL_CursorN3irr13CIrrDeviceSDL14CCursorControl13CursorDeleterEESaIS6_EE12emplace_backIJPS1_EEERS6_DpOT_.exit242
 
@@ -18410,7 +18403,7 @@ _ZNSt6vectorISt10unique_ptrI10SDL_CursorN3irr13CIrrDeviceSDL14CCursorControl13Cu
   %incdec.ptr.i.i275102 = phi ptr [ %incdec.ptr.i.i275101, %if.then.i41.i.i277 ], [ %incdec.ptr.i.i275, %_ZNSt6vectorISt10unique_ptrI10SDL_CursorN3irr13CIrrDeviceSDL14CCursorControl13CursorDeleterEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit40.i.i273 ]
   store ptr %call5.i.i.i.i.i262, ptr %Cursors, align 8, !tbaa !937
   store ptr %incdec.ptr.i.i275102, ptr %_M_finish.i, align 8, !tbaa !938
-  %add.ptr19.i.i279 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %call5.i.i.i.i.i262, i64 %cond.i.i.i258
+  %add.ptr19.i.i279 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i262, i64 %cond.i.i.i258
   store ptr %add.ptr19.i.i279, ptr %_M_end_of_storage.i.i, align 8, !tbaa !936
   br label %_ZNSt6vectorISt10unique_ptrI10SDL_CursorN3irr13CIrrDeviceSDL14CCursorControl13CursorDeleterEESaIS6_EE12emplace_backIJPS1_EEERS6_DpOT_.exit281
 
@@ -18540,7 +18533,7 @@ _ZNSt6vectorISt10unique_ptrI10SDL_CursorN3irr13CIrrDeviceSDL14CCursorControl13Cu
   %incdec.ptr.i.i314107 = phi ptr [ %incdec.ptr.i.i314106, %if.then.i41.i.i316 ], [ %incdec.ptr.i.i314, %_ZNSt6vectorISt10unique_ptrI10SDL_CursorN3irr13CIrrDeviceSDL14CCursorControl13CursorDeleterEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit40.i.i312 ]
   store ptr %call5.i.i.i.i.i301, ptr %Cursors, align 8, !tbaa !937
   store ptr %incdec.ptr.i.i314107, ptr %_M_finish.i, align 8, !tbaa !938
-  %add.ptr19.i.i318 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %call5.i.i.i.i.i301, i64 %cond.i.i.i297
+  %add.ptr19.i.i318 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i301, i64 %cond.i.i.i297
   store ptr %add.ptr19.i.i318, ptr %_M_end_of_storage.i.i, align 8, !tbaa !936
   br label %_ZNSt6vectorISt10unique_ptrI10SDL_CursorN3irr13CIrrDeviceSDL14CCursorControl13CursorDeleterEESaIS6_EE12emplace_backIJPS1_EEERS6_DpOT_.exit320
 
@@ -18670,7 +18663,7 @@ _ZNSt6vectorISt10unique_ptrI10SDL_CursorN3irr13CIrrDeviceSDL14CCursorControl13Cu
   %incdec.ptr.i.i353112 = phi ptr [ %incdec.ptr.i.i353111, %if.then.i41.i.i355 ], [ %incdec.ptr.i.i353, %_ZNSt6vectorISt10unique_ptrI10SDL_CursorN3irr13CIrrDeviceSDL14CCursorControl13CursorDeleterEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit40.i.i351 ]
   store ptr %call5.i.i.i.i.i340, ptr %Cursors, align 8, !tbaa !937
   store ptr %incdec.ptr.i.i353112, ptr %_M_finish.i, align 8, !tbaa !938
-  %add.ptr19.i.i357 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %call5.i.i.i.i.i340, i64 %cond.i.i.i336
+  %add.ptr19.i.i357 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i340, i64 %cond.i.i.i336
   store ptr %add.ptr19.i.i357, ptr %_M_end_of_storage.i.i, align 8, !tbaa !936
   br label %_ZNSt6vectorISt10unique_ptrI10SDL_CursorN3irr13CIrrDeviceSDL14CCursorControl13CursorDeleterEESaIS6_EE12emplace_backIJPS1_EEERS6_DpOT_.exit359
 
@@ -18800,7 +18793,7 @@ _ZNSt6vectorISt10unique_ptrI10SDL_CursorN3irr13CIrrDeviceSDL14CCursorControl13Cu
   %incdec.ptr.i.i392117 = phi ptr [ %incdec.ptr.i.i392116, %if.then.i41.i.i394 ], [ %incdec.ptr.i.i392, %_ZNSt6vectorISt10unique_ptrI10SDL_CursorN3irr13CIrrDeviceSDL14CCursorControl13CursorDeleterEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit40.i.i390 ]
   store ptr %call5.i.i.i.i.i379, ptr %Cursors, align 8, !tbaa !937
   store ptr %incdec.ptr.i.i392117, ptr %_M_finish.i, align 8, !tbaa !938
-  %add.ptr19.i.i396 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %call5.i.i.i.i.i379, i64 %cond.i.i.i375
+  %add.ptr19.i.i396 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i379, i64 %cond.i.i.i375
   store ptr %add.ptr19.i.i396, ptr %_M_end_of_storage.i.i, align 8, !tbaa !936
   br label %_ZNSt6vectorISt10unique_ptrI10SDL_CursorN3irr13CIrrDeviceSDL14CCursorControl13CursorDeleterEESaIS6_EE12emplace_backIJPS1_EEERS6_DpOT_.exit398
 
@@ -18930,7 +18923,7 @@ _ZNSt6vectorISt10unique_ptrI10SDL_CursorN3irr13CIrrDeviceSDL14CCursorControl13Cu
   %incdec.ptr.i.i431122 = phi ptr [ %incdec.ptr.i.i431121, %if.then.i41.i.i433 ], [ %incdec.ptr.i.i431, %_ZNSt6vectorISt10unique_ptrI10SDL_CursorN3irr13CIrrDeviceSDL14CCursorControl13CursorDeleterEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit40.i.i429 ]
   store ptr %call5.i.i.i.i.i418, ptr %Cursors, align 8, !tbaa !937
   store ptr %incdec.ptr.i.i431122, ptr %_M_finish.i, align 8, !tbaa !938
-  %add.ptr19.i.i435 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %call5.i.i.i.i.i418, i64 %cond.i.i.i414
+  %add.ptr19.i.i435 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i418, i64 %cond.i.i.i414
   store ptr %add.ptr19.i.i435, ptr %_M_end_of_storage.i.i, align 8, !tbaa !936
   br label %_ZNSt6vectorISt10unique_ptrI10SDL_CursorN3irr13CIrrDeviceSDL14CCursorControl13CursorDeleterEESaIS6_EE12emplace_backIJPS1_EEERS6_DpOT_.exit437
 
@@ -19061,7 +19054,7 @@ _ZNSt6vectorISt10unique_ptrI10SDL_CursorN3irr13CIrrDeviceSDL14CCursorControl13Cu
   %incdec.ptr.i.i470127 = phi ptr [ %incdec.ptr.i.i470126, %if.then.i41.i.i472 ], [ %incdec.ptr.i.i470, %_ZNSt6vectorISt10unique_ptrI10SDL_CursorN3irr13CIrrDeviceSDL14CCursorControl13CursorDeleterEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit40.i.i468 ]
   store ptr %call5.i.i.i.i.i457, ptr %Cursors, align 8, !tbaa !937
   store ptr %incdec.ptr.i.i470127, ptr %_M_finish.i, align 8, !tbaa !938
-  %add.ptr19.i.i474 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %call5.i.i.i.i.i457, i64 %cond.i.i.i453
+  %add.ptr19.i.i474 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i457, i64 %cond.i.i.i453
   store ptr %add.ptr19.i.i474, ptr %_M_end_of_storage.i.i, align 8, !tbaa !936
   br label %_ZNSt6vectorISt10unique_ptrI10SDL_CursorN3irr13CIrrDeviceSDL14CCursorControl13CursorDeleterEESaIS6_EE12emplace_backIJPS1_EEERS6_DpOT_.exit476
 
@@ -19189,7 +19182,7 @@ _ZNSt6vectorISt10unique_ptrI10SDL_CursorN3irr13CIrrDeviceSDL14CCursorControl13Cu
   %incdec.ptr.i.i509132 = phi ptr [ %incdec.ptr.i.i509131, %if.then.i41.i.i511 ], [ %incdec.ptr.i.i509, %_ZNSt6vectorISt10unique_ptrI10SDL_CursorN3irr13CIrrDeviceSDL14CCursorControl13CursorDeleterEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit40.i.i507 ]
   store ptr %call5.i.i.i.i.i496, ptr %Cursors, align 8, !tbaa !937
   store ptr %incdec.ptr.i.i509132, ptr %_M_finish.i, align 8, !tbaa !938
-  %add.ptr19.i.i513 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %call5.i.i.i.i.i496, i64 %cond.i.i.i492
+  %add.ptr19.i.i513 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i496, i64 %cond.i.i.i492
   store ptr %add.ptr19.i.i513, ptr %_M_end_of_storage.i.i, align 8, !tbaa !936
   br label %_ZNSt6vectorISt10unique_ptrI10SDL_CursorN3irr13CIrrDeviceSDL14CCursorControl13CursorDeleterEESaIS6_EE12emplace_backIJDnEEERS6_DpOT_.exit515
 
@@ -19624,7 +19617,7 @@ entry:
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %add.ptr.i = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %1, i64 %conv
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %conv
   %2 = load ptr, ptr %add.ptr.i, align 8, !tbaa !93
   %cmp.i.not = icmp eq ptr %2, null
   br i1 %cmp.i.not, label %if.then, label %if.end16
@@ -20020,7 +20013,7 @@ cleanup:                                          ; preds = %if.end.i.i.i.i.i, %
   %17 = phi i64 [ %.pre8.i.i, %if.end.i.i.i.i.i ], [ %13, %if.then.i.i.i.i ], [ %13, %if.end.i.i ]
   %_M_string_length.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i64 %17, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !875
-  %arrayidx.i.i.i = getelementptr inbounds i32, ptr %16, i64 %17
+  %arrayidx.i.i.i = getelementptr inbounds [4 x i8], ptr %16, i64 %17
   store i32 0, ptr %arrayidx.i.i.i, align 4, !tbaa !877
   call void @llvm.lifetime.end.p0(ptr nonnull %__dnew.i.i)
   %.pre = load ptr, ptr %__out, align 8, !tbaa !879
@@ -20098,10 +20091,10 @@ do.body.us:                                       ; preds = %if.end, %land.rhs.u
   call void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE6resizeEmw(ptr noundef nonnull align 8 dereferenceable(32) %__outstr, i64 noundef %add2.us, i32 noundef signext 0) #22
   call void @llvm.lifetime.start.p0(ptr nonnull %__outnext)
   %7 = load ptr, ptr %__outstr, align 8, !tbaa !879
-  %add.ptr.us = getelementptr inbounds i32, ptr %7, i64 %__outchars.0.us
+  %add.ptr.us = getelementptr inbounds [4 x i8], ptr %7, i64 %__outchars.0.us
   store ptr %add.ptr.us, ptr %__outnext, align 8, !tbaa !93
   %8 = load i64, ptr %_M_string_length.i, align 8, !tbaa !875
-  %9 = getelementptr i32, ptr %7, i64 %8
+  %9 = getelementptr [4 x i8], ptr %7, i64 %8
   %10 = load ptr, ptr %__next, align 8, !tbaa !93
   %call6.us = call noundef i32 %memptr.nonvirtualfn(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 4 dereferenceable(8) %__state, ptr noundef %10, ptr noundef %__last, ptr noundef nonnull align 8 dereferenceable(8) %__next, ptr noundef %add.ptr.us, ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(8) %__outnext) #22
   %11 = load ptr, ptr %__outnext, align 8, !tbaa !93
@@ -20134,10 +20127,10 @@ do.body:                                          ; preds = %if.end, %land.rhs
   call void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE6resizeEmw(ptr noundef nonnull align 8 dereferenceable(32) %__outstr, i64 noundef %add2, i32 noundef signext 0) #22
   call void @llvm.lifetime.start.p0(ptr nonnull %__outnext)
   %17 = load ptr, ptr %__outstr, align 8, !tbaa !879
-  %add.ptr = getelementptr inbounds i32, ptr %17, i64 %__outchars.0
+  %add.ptr = getelementptr inbounds [4 x i8], ptr %17, i64 %__outchars.0
   store ptr %add.ptr, ptr %__outnext, align 8, !tbaa !93
   %18 = load i64, ptr %_M_string_length.i, align 8, !tbaa !875
-  %19 = getelementptr i32, ptr %17, i64 %18
+  %19 = getelementptr [4 x i8], ptr %17, i64 %18
   %vtable = load ptr, ptr %3, align 8, !tbaa !23
   %20 = getelementptr i8, ptr %vtable, i64 %__fn.unpack.fr
   %21 = getelementptr i8, ptr %20, i64 -1
@@ -20540,7 +20533,7 @@ if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i
   %3 = shl nuw nsw i64 %__n, 3
   %4 = add nsw i64 %3, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i, i8 0, i64 %4, i1 false), !tbaa !93
-  %add.ptr.i.i.i.i.i = getelementptr ptr, ptr %0, i64 %__n
+  %add.ptr.i.i.i.i.i = getelementptr [8 x i8], ptr %0, i64 %__n
   br label %_ZSt27__uninitialized_default_n_aIPP13_SDL_JoystickmS1_ET_S3_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPP13_SDL_JoystickmS1_ET_S3_T0_RSaIT1_E.exit: ; preds = %if.end.i.i.i.i.i, %if.then.i.i.i
@@ -20592,9 +20585,9 @@ if.then.i69:                                      ; preds = %_ZNSt6vectorIP13_SD
 
 _ZNSt12_Vector_baseIP13_SDL_JoystickSaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %if.then.i69, %_ZNSt6vectorIP13_SDL_JoystickSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !834
-  %add.ptr34 = getelementptr inbounds nuw ptr, ptr %add.ptr, i64 %__n
+  %add.ptr34 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr, i64 %__n
   store ptr %add.ptr34, ptr %_M_finish.i, align 8, !tbaa !833
-  %add.ptr37 = getelementptr inbounds nuw ptr, ptr %call5.i.i.i, i64 %5
+  %add.ptr37 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i, i64 %5
   store ptr %add.ptr37, ptr %_M_end_of_storage, align 8, !tbaa !912
   br label %if.end41
 
@@ -20704,7 +20697,7 @@ _ZNSt12_Vector_baseIN3irr13SJoystickInfoESaIS1_EE13_M_deallocateEPS1_m.exit: ; p
   store ptr %call5.i.i.i.i, ptr %this, align 8, !tbaa !903
   %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 %sub.ptr.sub.i36
   store ptr %add.ptr, ptr %_M_finish.i, align 8, !tbaa !905
-  %add.ptr26 = getelementptr inbounds nuw %"struct.irr::SJoystickInfo", ptr %call5.i.i.i.i, i64 %__n
+  %add.ptr26 = getelementptr inbounds nuw [56 x i8], ptr %call5.i.i.i.i, i64 %__n
   store ptr %add.ptr26, ptr %_M_end_of_storage.i, align 8, !tbaa !913
   br label %if.end29
 
@@ -20966,9 +20959,9 @@ if.then.i80:                                      ; preds = %_ZSt8_DestroyIPN3ir
 
 _ZNSt12_Vector_baseIN3irr13SJoystickInfoESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %if.then.i80, %_ZSt8_DestroyIPN3irr13SJoystickInfoES1_EvT_S3_RSaIT0_E.exit
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !903
-  %add.ptr36 = getelementptr inbounds nuw %"struct.irr::SJoystickInfo", ptr %add.ptr, i64 %__n
+  %add.ptr36 = getelementptr inbounds nuw [56 x i8], ptr %add.ptr, i64 %__n
   store ptr %add.ptr36, ptr %_M_finish.i, align 8, !tbaa !905
-  %add.ptr39 = getelementptr inbounds nuw %"struct.irr::SJoystickInfo", ptr %call5.i.i.i, i64 %14
+  %add.ptr39 = getelementptr inbounds nuw [56 x i8], ptr %call5.i.i.i, i64 %14
   store ptr %add.ptr39, ptr %_M_end_of_storage, align 8, !tbaa !913
   br label %if.end43
 
@@ -21125,7 +21118,7 @@ _ZNSt12_Vector_baseIN3irr13SJoystickInfoESaIS1_EE13_M_deallocateEPS1_m.exit: ; p
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !903
   store ptr %__cur.0.lcssa.i.i.i.i.i50, ptr %_M_finish.i.i, align 8, !tbaa !905
-  %add.ptr20 = getelementptr inbounds nuw %"struct.irr::SJoystickInfo", ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr20 = getelementptr inbounds nuw [56 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr20, ptr %_M_end_of_storage, align 8, !tbaa !913
   ret void
 }
@@ -21249,9 +21242,9 @@ if.then.i60.i:                                    ; preds = %middle.block, %_ZNS
 
 _ZNSt12_Vector_baseIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE13_M_deallocateEPS2_m.exit.i: ; preds = %if.then.i60.i, %_ZNSt6vectorIN3irr13CIrrDeviceSDL7SKeyMapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i
   store ptr %call5.i.i.i.i, ptr %this, align 8, !tbaa !81
-  %add.ptr34.i = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %add.ptr.i, i64 %sub
+  %add.ptr34.i = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i, i64 %sub
   store ptr %add.ptr34.i, ptr %_M_finish.i, align 8, !tbaa !82
-  %add.ptr37.i = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %call5.i.i.i.i, i64 %4
+  %add.ptr37.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i, i64 %4
   store ptr %add.ptr37.i, ptr %_M_end_of_storage.i, align 8, !tbaa !80
   br label %if.end6
 
@@ -21260,7 +21253,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp4, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %if.else
-  %add.ptr = getelementptr inbounds %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %1, i64 %__new_size
+  %add.ptr = getelementptr inbounds [8 x i8], ptr %1, i64 %__new_size
   %tobool.not.i = icmp eq ptr %0, %add.ptr
   br i1 %tobool.not.i, label %if.end6, label %if.then.i24
 
@@ -21318,15 +21311,15 @@ while.body.i.i.i.i:                               ; preds = %while.body.i.i, %wh
   %__holeIndex.addr.065.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %while.body.i.i.i.i ], [ 0, %while.body.i.i ]
   %add.i.i.i.i = shl i64 %__holeIndex.addr.065.i.i.i.i, 1
   %mul.i.i.i.i = add i64 %add.i.i.i.i, 2
-  %add.ptr.i.i.i.i.i = getelementptr inbounds %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %__first.coerce, i64 %mul.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %__first.coerce, i64 %mul.i.i.i.i
   %sub3.i.i.i.i = or disjoint i64 %add.i.i.i.i, 1
-  %add.ptr.i54.i.i.i.i = getelementptr inbounds %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %__first.coerce, i64 %sub3.i.i.i.i
+  %add.ptr.i54.i.i.i.i = getelementptr inbounds [8 x i8], ptr %__first.coerce, i64 %sub3.i.i.i.i
   %1 = load i32, ptr %add.ptr.i.i.i.i.i, align 4, !tbaa !880
   %2 = load i32, ptr %add.ptr.i54.i.i.i.i, align 4, !tbaa !880
   %cmp.i.i.i.i.i.i = icmp slt i32 %1, %2
   %spec.select.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 %sub3.i.i.i.i, i64 %mul.i.i.i.i
-  %add.ptr.i55.i.i.i.i = getelementptr inbounds %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %__first.coerce, i64 %spec.select.i.i.i.i
-  %add.ptr.i56.i.i.i.i = getelementptr inbounds %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %__first.coerce, i64 %__holeIndex.addr.065.i.i.i.i
+  %add.ptr.i55.i.i.i.i = getelementptr inbounds [8 x i8], ptr %__first.coerce, i64 %spec.select.i.i.i.i
+  %add.ptr.i56.i.i.i.i = getelementptr inbounds [8 x i8], ptr %__first.coerce, i64 %__holeIndex.addr.065.i.i.i.i
   %3 = load i64, ptr %add.ptr.i55.i.i.i.i, align 4, !tbaa.struct !27
   store i64 %3, ptr %add.ptr.i56.i.i.i.i, align 4, !tbaa.struct !27
   %cmp.i.i.i.i = icmp slt i64 %spec.select.i.i.i.i, %div.i.i.i.i
@@ -21347,8 +21340,8 @@ land.lhs.true.i.i.i.i:                            ; preds = %while.end.i.i.i.i
 if.then20.i.i.i.i:                                ; preds = %land.lhs.true.i.i.i.i
   %add21.i.i.i.i = shl nsw i64 %__holeIndex.addr.0.lcssa.i.i.i.i, 1
   %sub24.i.i.i.i = or disjoint i64 %add21.i.i.i.i, 1
-  %add.ptr.i57.i.i.i.i = getelementptr inbounds %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %__first.coerce, i64 %sub24.i.i.i.i
-  %add.ptr.i58.i.i.i.i = getelementptr inbounds %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i.i.i.i
+  %add.ptr.i57.i.i.i.i = getelementptr inbounds [8 x i8], ptr %__first.coerce, i64 %sub24.i.i.i.i
+  %add.ptr.i58.i.i.i.i = getelementptr inbounds [8 x i8], ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i.i.i.i
   %5 = load i64, ptr %add.ptr.i57.i.i.i.i, align 4, !tbaa.struct !27
   store i64 %5, ptr %add.ptr.i58.i.i.i.i, align 4, !tbaa.struct !27
   br label %if.end33.i.i.i.i
@@ -21363,13 +21356,13 @@ land.rhs.i.i.i.i.i:                               ; preds = %if.end33.i.i.i.i, %
   %__holeIndex.addr.033.i.i.i.i.i = phi i64 [ %__parent.034.i.i1112.i.i.i, %while.body.i.i.i.i.i ], [ %__holeIndex.addr.1.i.i.i.i, %if.end33.i.i.i.i ]
   %__parent.034.in.i.i.i.i.i = add nsw i64 %__holeIndex.addr.033.i.i.i.i.i, -1
   %__parent.034.i.i1112.i.i.i = lshr i64 %__parent.034.in.i.i.i.i.i, 1
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %__first.coerce, i64 %__parent.034.i.i1112.i.i.i
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %__first.coerce, i64 %__parent.034.i.i1112.i.i.i
   %6 = load i32, ptr %add.ptr.i.i.i.i.i.i, align 4, !tbaa !880
   %cmp.i.i.i.i.i.i.i = icmp slt i32 %6, %__value.sroa.0.0.extract.trunc.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3irr13CIrrDeviceSDL7SKeyMapESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_RT0_.exit.i.i
 
 while.body.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i
-  %add.ptr.i24.i.i.i.i.i = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %__first.coerce, i64 %__holeIndex.addr.033.i.i.i.i.i
+  %add.ptr.i24.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %__first.coerce, i64 %__holeIndex.addr.033.i.i.i.i.i
   %7 = load i64, ptr %add.ptr.i.i.i.i.i.i, align 4, !tbaa.struct !27
   store i64 %7, ptr %add.ptr.i24.i.i.i.i.i, align 4, !tbaa.struct !27
   %cmp.i.i.not.i.i.i = icmp ult i64 %__parent.034.in.i.i.i.i.i, 2
@@ -21377,7 +21370,7 @@ while.body.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3irr13CIrrDeviceSDL7SKeyMapESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_RT0_.exit.i.i: ; preds = %while.body.i.i.i.i.i, %land.rhs.i.i.i.i.i, %if.end33.i.i.i.i
   %__holeIndex.addr.0.lcssa.i.i.i.i.i = phi i64 [ %__holeIndex.addr.1.i.i.i.i, %if.end33.i.i.i.i ], [ 0, %while.body.i.i.i.i.i ], [ %__holeIndex.addr.033.i.i.i.i.i, %land.rhs.i.i.i.i.i ]
-  %add.ptr.i25.i.i.i.i.i = getelementptr inbounds %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i.i.i.i.i
+  %add.ptr.i25.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i.i.i.i.i
   store i64 %__value.sroa.0.0.copyload.i.i.i, ptr %add.ptr.i25.i.i.i.i.i, align 4, !tbaa.struct !27
   %cmp.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i, 8
   br i1 %cmp.i.i, label %while.body.i.i, label %while.end, !llvm.loop !1139
@@ -21385,7 +21378,7 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3irr13CIrrDeviceSDL7SKeyMapESt
 if.end:                                           ; preds = %while.body
   %dec = add nsw i64 %__depth_limit.addr.036, -1
   %div.i2627 = lshr i64 %sub.ptr.div.i37, 1
-  %add.ptr.i.i = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %__first.coerce, i64 %div.i2627
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %__first.coerce, i64 %div.i2627
   %add.ptr.i29.i = getelementptr inbounds i8, ptr %storemerge35, i64 -8
   %8 = load i32, ptr %add.ptr.i28.i, align 4, !tbaa !880
   %9 = load i32, ptr %add.ptr.i.i, align 4, !tbaa !880
@@ -22006,7 +21999,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN3irr13CIrrDeviceSDL7SKeyMap
   %sub.ptr.sub.i.i.i.i.i.i54 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i53, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i.i.i.i.i.i55 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i54, 3
   %.pre.i.i.i.i.i.i56 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i55
-  %add.ptr.i.i.i.i.i.i57 = getelementptr inbounds %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %add.ptr.i29.i52, i64 %.pre.i.i.i.i.i.i56
+  %add.ptr.i.i.i.i.i.i57 = getelementptr inbounds [8 x i8], ptr %add.ptr.i29.i52, i64 %.pre.i.i.i.i.i.i56
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %add.ptr.i.i.i.i.i.i57, ptr noundef nonnull align 4 dereferenceable(1) %__first.coerce, i64 %sub.ptr.sub.i.i.i.i.i.i54, i1 false)
   br label %for.inc.i42
 
@@ -22059,13 +22052,13 @@ if.end:                                           ; preds = %entry
 
 while.cond.preheader:                             ; preds = %if.end
   %sub24.i = or disjoint i64 %sub, 1
-  %add.ptr.i57.i = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %__first.coerce, i64 %sub24.i
-  %add.ptr.i58.i = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %__first.coerce, i64 %div2526
+  %add.ptr.i57.i = getelementptr inbounds nuw [8 x i8], ptr %__first.coerce, i64 %sub24.i
+  %add.ptr.i58.i = getelementptr inbounds nuw [8 x i8], ptr %__first.coerce, i64 %div2526
   br label %while.cond
 
 while.cond.us:                                    ; preds = %if.end, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3irr13CIrrDeviceSDL7SKeyMapESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_less_iterEEvT_T0_SD_T1_T2_.exit.us
   %__parent.0.us = phi i64 [ %dec.us, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3irr13CIrrDeviceSDL7SKeyMapESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_less_iterEEvT_T0_SD_T1_T2_.exit.us ], [ %div2526, %if.end ]
-  %add.ptr.i.us = getelementptr inbounds %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %__first.coerce, i64 %__parent.0.us
+  %add.ptr.i.us = getelementptr inbounds [8 x i8], ptr %__first.coerce, i64 %__parent.0.us
   %__value.sroa.0.0.copyload.us = load i64, ptr %add.ptr.i.us, align 4, !tbaa.struct !27
   %cmp64.i.us = icmp sgt i64 %div.i3133, %__parent.0.us
   br i1 %cmp64.i.us, label %while.body.i.us, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3irr13CIrrDeviceSDL7SKeyMapESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_less_iterEEvT_T0_SD_T1_T2_.exit.us
@@ -22074,15 +22067,15 @@ while.body.i.us:                                  ; preds = %while.cond.us, %whi
   %__holeIndex.addr.065.i.us = phi i64 [ %spec.select.i.us, %while.body.i.us ], [ %__parent.0.us, %while.cond.us ]
   %add.i.us = shl i64 %__holeIndex.addr.065.i.us, 1
   %mul.i.us = add i64 %add.i.us, 2
-  %add.ptr.i.i.us = getelementptr inbounds %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %__first.coerce, i64 %mul.i.us
+  %add.ptr.i.i.us = getelementptr inbounds [8 x i8], ptr %__first.coerce, i64 %mul.i.us
   %sub3.i.us = or disjoint i64 %add.i.us, 1
-  %add.ptr.i54.i.us = getelementptr inbounds %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %__first.coerce, i64 %sub3.i.us
+  %add.ptr.i54.i.us = getelementptr inbounds [8 x i8], ptr %__first.coerce, i64 %sub3.i.us
   %1 = load i32, ptr %add.ptr.i.i.us, align 4, !tbaa !880
   %2 = load i32, ptr %add.ptr.i54.i.us, align 4, !tbaa !880
   %cmp.i.i.i.us = icmp slt i32 %1, %2
   %spec.select.i.us = select i1 %cmp.i.i.i.us, i64 %sub3.i.us, i64 %mul.i.us
-  %add.ptr.i55.i.us = getelementptr inbounds %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %__first.coerce, i64 %spec.select.i.us
-  %add.ptr.i56.i.us = getelementptr inbounds %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %__first.coerce, i64 %__holeIndex.addr.065.i.us
+  %add.ptr.i55.i.us = getelementptr inbounds [8 x i8], ptr %__first.coerce, i64 %spec.select.i.us
+  %add.ptr.i56.i.us = getelementptr inbounds [8 x i8], ptr %__first.coerce, i64 %__holeIndex.addr.065.i.us
   %3 = load i64, ptr %add.ptr.i55.i.us, align 4, !tbaa.struct !27
   store i64 %3, ptr %add.ptr.i56.i.us, align 4, !tbaa.struct !27
   %cmp.i.us = icmp slt i64 %spec.select.i.us, %div.i3133
@@ -22096,13 +22089,13 @@ land.rhs.i.i.us:                                  ; preds = %while.end.i.us, %wh
   %__holeIndex.addr.033.i.i.us = phi i64 [ %__parent.034.i.i.us, %while.body.i.i.us ], [ %spec.select.i.us, %while.end.i.us ]
   %__parent.034.in.i.i.us = add nsw i64 %__holeIndex.addr.033.i.i.us, -1
   %__parent.034.i.i.us = sdiv i64 %__parent.034.in.i.i.us, 2
-  %add.ptr.i.i.i.us = getelementptr inbounds %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %__first.coerce, i64 %__parent.034.i.i.us
+  %add.ptr.i.i.i.us = getelementptr inbounds [8 x i8], ptr %__first.coerce, i64 %__parent.034.i.i.us
   %4 = load i32, ptr %add.ptr.i.i.i.us, align 4, !tbaa !880
   %cmp.i.i.i.i.us = icmp slt i32 %4, %__value.sroa.0.0.extract.trunc.i.i.us
   br i1 %cmp.i.i.i.i.us, label %while.body.i.i.us, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3irr13CIrrDeviceSDL7SKeyMapESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_less_iterEEvT_T0_SD_T1_T2_.exit.us
 
 while.body.i.i.us:                                ; preds = %land.rhs.i.i.us
-  %add.ptr.i24.i.i.us = getelementptr inbounds %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %__first.coerce, i64 %__holeIndex.addr.033.i.i.us
+  %add.ptr.i24.i.i.us = getelementptr inbounds [8 x i8], ptr %__first.coerce, i64 %__holeIndex.addr.033.i.i.us
   %5 = load i64, ptr %add.ptr.i.i.i.us, align 4, !tbaa.struct !27
   store i64 %5, ptr %add.ptr.i24.i.i.us, align 4, !tbaa.struct !27
   %cmp.i.i.us = icmp sgt i64 %__parent.034.i.i.us, %__parent.0.us
@@ -22110,7 +22103,7 @@ while.body.i.i.us:                                ; preds = %land.rhs.i.i.us
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3irr13CIrrDeviceSDL7SKeyMapESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_less_iterEEvT_T0_SD_T1_T2_.exit.us: ; preds = %while.body.i.i.us, %land.rhs.i.i.us, %while.cond.us
   %__holeIndex.addr.0.lcssa.i.i.us = phi i64 [ %__parent.0.us, %while.cond.us ], [ %__holeIndex.addr.033.i.i.us, %land.rhs.i.i.us ], [ %__parent.034.i.i.us, %while.body.i.i.us ]
-  %add.ptr.i25.i.i.us = getelementptr inbounds %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i.i.us
+  %add.ptr.i25.i.i.us = getelementptr inbounds [8 x i8], ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i.i.us
   store i64 %__value.sroa.0.0.copyload.us, ptr %add.ptr.i25.i.i.us, align 4, !tbaa.struct !27
   %cmp9.not.us = icmp eq i64 %__parent.0.us, 0
   %dec.us = add nsw i64 %__parent.0.us, -1
@@ -22118,7 +22111,7 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3irr13CIrrDeviceSDL7SKeyMap
 
 while.cond:                                       ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3irr13CIrrDeviceSDL7SKeyMapESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_less_iterEEvT_T0_SD_T1_T2_.exit, %while.cond.preheader
   %__parent.0 = phi i64 [ %dec, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3irr13CIrrDeviceSDL7SKeyMapESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_less_iterEEvT_T0_SD_T1_T2_.exit ], [ %div2526, %while.cond.preheader ]
-  %add.ptr.i = getelementptr inbounds %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %__first.coerce, i64 %__parent.0
+  %add.ptr.i = getelementptr inbounds [8 x i8], ptr %__first.coerce, i64 %__parent.0
   %__value.sroa.0.0.copyload = load i64, ptr %add.ptr.i, align 4, !tbaa.struct !27
   %cmp64.i = icmp sgt i64 %div.i3133, %__parent.0
   br i1 %cmp64.i, label %while.body.i, label %while.end.i
@@ -22127,15 +22120,15 @@ while.body.i:                                     ; preds = %while.cond, %while.
   %__holeIndex.addr.065.i = phi i64 [ %spec.select.i, %while.body.i ], [ %__parent.0, %while.cond ]
   %add.i = shl i64 %__holeIndex.addr.065.i, 1
   %mul.i = add i64 %add.i, 2
-  %add.ptr.i.i = getelementptr inbounds %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %__first.coerce, i64 %mul.i
+  %add.ptr.i.i = getelementptr inbounds [8 x i8], ptr %__first.coerce, i64 %mul.i
   %sub3.i = or disjoint i64 %add.i, 1
-  %add.ptr.i54.i = getelementptr inbounds %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %__first.coerce, i64 %sub3.i
+  %add.ptr.i54.i = getelementptr inbounds [8 x i8], ptr %__first.coerce, i64 %sub3.i
   %6 = load i32, ptr %add.ptr.i.i, align 4, !tbaa !880
   %7 = load i32, ptr %add.ptr.i54.i, align 4, !tbaa !880
   %cmp.i.i.i = icmp slt i32 %6, %7
   %spec.select.i = select i1 %cmp.i.i.i, i64 %sub3.i, i64 %mul.i
-  %add.ptr.i55.i = getelementptr inbounds %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %__first.coerce, i64 %spec.select.i
-  %add.ptr.i56.i = getelementptr inbounds %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %__first.coerce, i64 %__holeIndex.addr.065.i
+  %add.ptr.i55.i = getelementptr inbounds [8 x i8], ptr %__first.coerce, i64 %spec.select.i
+  %add.ptr.i56.i = getelementptr inbounds [8 x i8], ptr %__first.coerce, i64 %__holeIndex.addr.065.i
   %8 = load i64, ptr %add.ptr.i55.i, align 4, !tbaa.struct !27
   store i64 %8, ptr %add.ptr.i56.i, align 4, !tbaa.struct !27
   %cmp.i = icmp slt i64 %spec.select.i, %div.i3133
@@ -22161,13 +22154,13 @@ land.rhs.i.i:                                     ; preds = %if.end33.i, %while.
   %__holeIndex.addr.033.i.i = phi i64 [ %__parent.034.i.i, %while.body.i.i ], [ %__holeIndex.addr.1.i, %if.end33.i ]
   %__parent.034.in.i.i = add nsw i64 %__holeIndex.addr.033.i.i, -1
   %__parent.034.i.i = sdiv i64 %__parent.034.in.i.i, 2
-  %add.ptr.i.i.i = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %__first.coerce, i64 %__parent.034.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %__first.coerce, i64 %__parent.034.i.i
   %10 = load i32, ptr %add.ptr.i.i.i, align 4, !tbaa !880
   %cmp.i.i.i.i = icmp slt i32 %10, %__value.sroa.0.0.extract.trunc.i.i
   br i1 %cmp.i.i.i.i, label %while.body.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3irr13CIrrDeviceSDL7SKeyMapESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_less_iterEEvT_T0_SD_T1_T2_.exit
 
 while.body.i.i:                                   ; preds = %land.rhs.i.i
-  %add.ptr.i24.i.i = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %__first.coerce, i64 %__holeIndex.addr.033.i.i
+  %add.ptr.i24.i.i = getelementptr inbounds nuw [8 x i8], ptr %__first.coerce, i64 %__holeIndex.addr.033.i.i
   %11 = load i64, ptr %add.ptr.i.i.i, align 4, !tbaa.struct !27
   store i64 %11, ptr %add.ptr.i24.i.i, align 4, !tbaa.struct !27
   %cmp.i.i = icmp sgt i64 %__parent.034.i.i, %__parent.0
@@ -22175,7 +22168,7 @@ while.body.i.i:                                   ; preds = %land.rhs.i.i
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3irr13CIrrDeviceSDL7SKeyMapESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_less_iterEEvT_T0_SD_T1_T2_.exit: ; preds = %while.body.i.i, %land.rhs.i.i, %if.end33.i
   %__holeIndex.addr.0.lcssa.i.i = phi i64 [ %__holeIndex.addr.1.i, %if.end33.i ], [ %__holeIndex.addr.033.i.i, %land.rhs.i.i ], [ %__parent.034.i.i, %while.body.i.i ]
-  %add.ptr.i25.i.i = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i.i
+  %add.ptr.i25.i.i = getelementptr inbounds nuw [8 x i8], ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i.i
   store i64 %__value.sroa.0.0.copyload, ptr %add.ptr.i25.i.i, align 4, !tbaa.struct !27
   %cmp9.not = icmp eq i64 %__parent.0, 0
   %dec = add nsw i64 %__parent.0, -1

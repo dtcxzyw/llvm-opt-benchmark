@@ -3,8 +3,6 @@ source_filename = "bench/postgres/original/domains.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%union.ListCell = type { ptr }
-
 @.str = private unnamed_addr constant [32 x i8] c"cache lookup failed for type %u\00", align 1
 @.str.1 = private unnamed_addr constant [10 x i8] c"domains.c\00", align 1
 @__func__.errdatatype = private unnamed_addr constant [12 x i8] c"errdatatype\00", align 1
@@ -185,7 +183,7 @@ define internal fastcc void @domain_check_input(i64 noundef %0, i1 noundef zeroe
   %indvars.iv114 = phi i64 [ %indvars.iv.next115, %33 ], [ 0, %.lr.ph.split.us.split ]
   %.061.us96 = phi ptr [ %.4.us, %33 ], [ %7, %.lr.ph.split.us.split ]
   %16 = load ptr, ptr %11, align 8
-  %17 = getelementptr inbounds nuw %union.ListCell, ptr %16, i64 %indvars.iv114
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv114
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %20 = load i32, ptr %19, align 4
@@ -233,7 +231,7 @@ define internal fastcc void @domain_check_input(i64 noundef %0, i1 noundef zeroe
   %indvars.iv = phi i64 [ %indvars.iv.next, %86 ], [ 0, %.lr.ph.split.split.split ]
   %.06187 = phi ptr [ %.2, %86 ], [ %7, %.lr.ph.split.split.split ]
   %38 = load ptr, ptr %11, align 8
-  %39 = getelementptr inbounds nuw %union.ListCell, ptr %38, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 4
   %42 = load i32, ptr %41, align 4

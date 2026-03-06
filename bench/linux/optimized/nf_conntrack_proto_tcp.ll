@@ -354,7 +354,7 @@ tcp_new.exit:                                     ; preds = %85, %117
   %177 = zext i1 %156 to i64
   %178 = zext nneg i32 %176 to i64
   %179 = zext i8 %154 to i64
-  %.split = getelementptr [6 x [10 x i8]], ptr @tcp_conntracks, i64 %177
+  %.split = getelementptr [60 x i8], ptr @tcp_conntracks, i64 %177
   %.split22 = getelementptr [10 x i8], ptr %.split, i64 %178
   %180 = getelementptr i8, ptr %.split22, i64 %179
   %181 = load i8, ptr %180, align 1
@@ -432,7 +432,7 @@ tcp_new.exit:                                     ; preds = %85, %117
 
 223:                                              ; preds = %216
   %224 = zext i8 %213 to i64
-  %225 = getelementptr %struct.ip_ct_tcp_state, ptr %152, i64 %224
+  %225 = getelementptr [20 x i8], ptr %152, i64 %224
   store i32 %219, ptr %225, align 4
   %226 = load i32, ptr %220, align 4
   %227 = load i8, ptr %212, align 1
@@ -457,7 +457,7 @@ tcp_new.exit:                                     ; preds = %85, %117
   store i8 %241, ptr %239, align 1
   %242 = getelementptr i8, ptr %229, i64 17
   store i8 %241, ptr %242, align 1
-  %243 = getelementptr %struct.ip_ct_tcp_state, ptr %152, i64 %177
+  %243 = getelementptr [20 x i8], ptr %152, i64 %177
   %244 = getelementptr inbounds nuw i8, ptr %243, i64 17
   call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(17) %243, i8 0, i64 17, i1 false)
   %245 = load i8, ptr %244, align 1
@@ -572,14 +572,14 @@ tcp_new.exit:                                     ; preds = %85, %117
 
 314:                                              ; preds = %.thread39, %309, %304
   call void @_raw_spin_unlock_bh(ptr noundef nonnull %151) #11
-  %315 = getelementptr ptr, ptr @tcp_conntrack_names, i64 %179
+  %315 = getelementptr [8 x i8], ptr @tcp_conntrack_names, i64 %179
   %316 = load ptr, ptr %315, align 8
   call void (ptr, ptr, ptr, ptr, ...) @nf_ct_l4proto_log_invalid(ptr noundef %1, ptr noundef %0, ptr noundef %4, ptr noundef nonnull @.str, i32 noundef %176, i32 noundef %157, ptr noundef %316) #12
   br label %.thread
 
 317:                                              ; preds = %175
   call void @_raw_spin_unlock_bh(ptr noundef nonnull %151) #11
-  %318 = getelementptr ptr, ptr @tcp_conntrack_names, i64 %179
+  %318 = getelementptr [8 x i8], ptr @tcp_conntrack_names, i64 %179
   %319 = load ptr, ptr %318, align 8
   call void (ptr, ptr, ptr, ptr, ...) @nf_ct_l4proto_log_invalid(ptr noundef %1, ptr noundef %0, ptr noundef %4, ptr noundef nonnull @.str.1, i32 noundef %176, i32 noundef %157, ptr noundef %319) #12
   br label %.thread
@@ -648,7 +648,7 @@ tcp_new.exit:                                     ; preds = %85, %117
 357:                                              ; preds = %354
   %358 = xor i1 %156, true
   %359 = zext i1 %358 to i64
-  %360 = getelementptr %struct.ip_ct_tcp_state, ptr %152, i64 %359
+  %360 = getelementptr [20 x i8], ptr %152, i64 %359
   %361 = getelementptr inbounds nuw i8, ptr %360, i64 17
   %362 = load i8, ptr %361, align 1
   %363 = and i8 %362, 32
@@ -787,11 +787,11 @@ tcp_new.exit:                                     ; preds = %85, %117
 .thread41:                                        ; preds = %389, %374, %404, %391, %376, %442, %438, %434, %432, %352, %347, %344, %340, %333, %329, %324, %320, %223, %183, %175
   %449 = phi i32 [ %182, %175 ], [ 8, %352 ], [ %351, %347 ], [ %409, %442 ], [ %409, %438 ], [ %409, %434 ], [ %409, %432 ], [ 2, %344 ], [ 9, %340 ], [ 7, %333 ], [ 7, %329 ], [ 7, %324 ], [ 7, %320 ], [ 2, %223 ], [ 1, %183 ], [ 8, %376 ], [ 8, %391 ], [ 8, %404 ], [ 8, %374 ], [ 8, %389 ]
   %450 = phi i32 [ %155, %175 ], [ %155, %352 ], [ %155, %347 ], [ 1, %442 ], [ 1, %438 ], [ 1, %434 ], [ %155, %432 ], [ %155, %344 ], [ %155, %340 ], [ 6, %333 ], [ 6, %329 ], [ 6, %324 ], [ %155, %320 ], [ 1, %223 ], [ %155, %183 ], [ 3, %376 ], [ 3, %391 ], [ 3, %404 ], [ %155, %374 ], [ %155, %389 ]
-  %451 = getelementptr %struct.ip_ct_tcp_state, ptr %152, i64 %177
+  %451 = getelementptr [20 x i8], ptr %152, i64 %177
   %452 = xor i1 %156, true
   %453 = zext i1 %452 to i32
   %454 = zext i1 %452 to i64
-  %455 = getelementptr %struct.ip_ct_tcp_state, ptr %152, i64 %454
+  %455 = getelementptr [20 x i8], ptr %152, i64 %454
   %456 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %457 = load i32, ptr %456, align 4
   %458 = call i32 @llvm.bswap.i32(i32 %457)
@@ -1425,7 +1425,7 @@ tcp_new.exit:                                     ; preds = %85, %117
 
 847:                                              ; preds = %841
   %848 = zext nneg i32 %827 to i64
-  %849 = getelementptr i32, ptr %11, i64 %848
+  %849 = getelementptr [4 x i8], ptr %11, i64 %848
   %850 = load i32, ptr %849, align 4
   %851 = getelementptr i8, ptr %10, i64 2508
   %852 = load i32, ptr %851, align 4
@@ -1452,7 +1452,7 @@ tcp_new.exit:                                     ; preds = %85, %117
 
 866:                                              ; preds = %858
   %867 = zext nneg i32 %827 to i64
-  %868 = getelementptr i32, ptr %11, i64 %867
+  %868 = getelementptr [4 x i8], ptr %11, i64 %867
   %869 = load i32, ptr %868, align 4
   %870 = getelementptr i8, ptr %10, i64 2512
   %871 = load i32, ptr %870, align 4
@@ -1467,7 +1467,7 @@ tcp_new.exit:                                     ; preds = %85, %117
   br i1 %876, label %878, label %._crit_edge77
 
 878:                                              ; preds = %873
-  %879 = getelementptr i32, ptr %11, i64 %877
+  %879 = getelementptr [4 x i8], ptr %11, i64 %877
   %880 = load i32, ptr %879, align 4
   %881 = getelementptr i8, ptr %10, i64 2508
   %882 = load i32, ptr %881, align 4
@@ -1475,7 +1475,7 @@ tcp_new.exit:                                     ; preds = %85, %117
   br i1 %883, label %888, label %._crit_edge77
 
 ._crit_edge77:                                    ; preds = %873, %878
-  %884 = getelementptr i32, ptr %11, i64 %877
+  %884 = getelementptr [4 x i8], ptr %11, i64 %877
   br label %885
 
 885:                                              ; preds = %._crit_edge77, %856

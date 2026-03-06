@@ -3,8 +3,6 @@ source_filename = "bench/luajit/original/lj_opt_mem.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%union.IRIns = type { %struct.GCRef }
-%struct.GCRef = type { i64 }
 %union.TValue = type { i64 }
 
 @lj_ir_type_size = external hidden local_unnamed_addr constant [0 x i8], align 1
@@ -23,7 +21,7 @@ define hidden range(i32 0, 2) i32 @lj_opt_fwd_tptr(ptr noundef readonly captures
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8, !tbaa !7
   %9 = zext i16 %4 to i64
-  %10 = getelementptr inbounds nuw %union.IRIns, ptr %8, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 5
   %12 = ptrtoint ptr %8 to i64
   %13 = trunc nuw i32 %1 to i16
@@ -32,14 +30,14 @@ define hidden range(i32 0, 2) i32 @lj_opt_fwd_tptr(ptr noundef readonly captures
 14:                                               ; preds = %.lr.ph, %.loopexit
   %.017.in29 = phi i16 [ %.017.in27, %.lr.ph ], [ %.017.in, %.loopexit ]
   %15 = zext i16 %.017.in29 to i64
-  %16 = getelementptr inbounds nuw %union.IRIns, ptr %8, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %15
   %17 = load i16, ptr %16, align 8, !tbaa !4
   %18 = icmp eq i16 %4, %17
   br i1 %18, label %.critedge, label %19
 
 19:                                               ; preds = %14
   %20 = zext i16 %17 to i64
-  %21 = getelementptr inbounds nuw %union.IRIns, ptr %8, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %20
   %22 = load i8, ptr %11, align 1, !tbaa !4
   %23 = add i8 %22, -81
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 5
@@ -106,7 +104,7 @@ define hidden range(i32 0, 2) i32 @lj_opt_fwd_tptr(ptr noundef readonly captures
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %52 = load ptr, ptr %51, align 8, !tbaa !7
   %53 = zext i16 %4 to i64
-  %54 = getelementptr inbounds nuw %union.IRIns, ptr %52, i64 %53
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %53
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 5
   %56 = ptrtoint ptr %52 to i64
   %57 = trunc nuw i32 %1 to i16
@@ -115,7 +113,7 @@ define hidden range(i32 0, 2) i32 @lj_opt_fwd_tptr(ptr noundef readonly captures
 58:                                               ; preds = %aa_table.exit.thread.i, %.lr.ph.i
   %.014.in23.i = phi i16 [ %.014.in21.i, %.lr.ph.i ], [ %.014.in.i, %aa_table.exit.thread.i ]
   %59 = zext i16 %.014.in23.i to i64
-  %60 = getelementptr inbounds nuw %union.IRIns, ptr %52, i64 %59
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %59
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 2
   %62 = load i16, ptr %61, align 2, !tbaa !4
   %63 = icmp eq i16 %62, 34
@@ -128,7 +126,7 @@ define hidden range(i32 0, 2) i32 @lj_opt_fwd_tptr(ptr noundef readonly captures
 
 67:                                               ; preds = %64
   %68 = zext i16 %65 to i64
-  %69 = getelementptr inbounds nuw %union.IRIns, ptr %52, i64 %68
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %68
   %70 = load i8, ptr %55, align 1, !tbaa !4
   %71 = add i8 %70, -81
   %72 = getelementptr inbounds nuw i8, ptr %69, i64 5
@@ -203,11 +201,11 @@ define hidden i32 @lj_opt_fwd_aload(ptr noundef %0) local_unnamed_addr #1 {
   %8 = load ptr, ptr %7, align 8, !tbaa !7
   %9 = load i16, ptr %2, align 8, !tbaa !4
   %10 = zext i16 %9 to i64
-  %11 = getelementptr inbounds nuw %union.IRIns, ptr %8, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 2
   %13 = load i16, ptr %12, align 2, !tbaa !4
   %14 = zext i16 %13 to i64
-  %15 = getelementptr inbounds nuw %union.IRIns, ptr %8, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 5
   %17 = load i8, ptr %16, align 1, !tbaa !4
   %18 = icmp eq i8 %17, 41
@@ -222,7 +220,7 @@ define hidden i32 @lj_opt_fwd_aload(ptr noundef %0) local_unnamed_addr #1 {
 23:                                               ; preds = %19
   %24 = load i16, ptr %15, align 8, !tbaa !4
   %25 = zext i16 %24 to i64
-  %26 = getelementptr inbounds nuw %union.IRIns, ptr %8, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 5
   %28 = load i8, ptr %27, align 1, !tbaa !4
   %29 = icmp eq i8 %28, 41
@@ -236,10 +234,10 @@ define hidden i32 @lj_opt_fwd_aload(ptr noundef %0) local_unnamed_addr #1 {
 
 34:                                               ; preds = %30
   %35 = zext nneg i16 %21 to i64
-  %36 = getelementptr inbounds nuw %union.IRIns, ptr %8, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %35
   %37 = load i32, ptr %36, align 8, !tbaa !4
   %38 = zext nneg i16 %32 to i64
-  %39 = getelementptr inbounds nuw %union.IRIns, ptr %8, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %38
   %40 = load i32, ptr %39, align 8, !tbaa !4
   %41 = sub nsw i32 0, %40
   %42 = icmp eq i32 %37, %41
@@ -257,7 +255,7 @@ define hidden i32 @lj_opt_fwd_aload(ptr noundef %0) local_unnamed_addr #1 {
 .lr.ph.i:                                         ; preds = %43, %55
   %.039.in56.i = phi i16 [ %.039.in.i, %55 ], [ %.039.in54.i, %43 ]
   %47 = zext i16 %.039.in56.i to i64
-  %48 = getelementptr inbounds nuw %union.IRIns, ptr %8, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %47
   %49 = load i16, ptr %48, align 8, !tbaa !4
   %50 = icmp eq i16 %49, %46
   br i1 %50, label %51, label %55
@@ -295,12 +293,12 @@ define internal fastcc i32 @fwd_ahload(ptr noundef %0, i32 noundef range(i32 0, 
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8, !tbaa !7
   %6 = zext nneg i32 %1 to i64
-  %7 = getelementptr inbounds nuw %union.IRIns, ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 402
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 189
   %10 = load i8, ptr %9, align 1, !tbaa !4
   %11 = zext i8 %10 to i64
-  %12 = getelementptr inbounds nuw i16, ptr %8, i64 %11
+  %12 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %.0104.in181 = load i16, ptr %13, align 2, !tbaa !4
   %.0104182 = zext i16 %.0104.in181 to i32
@@ -311,10 +309,10 @@ define internal fastcc i32 @fwd_ahload(ptr noundef %0, i32 noundef range(i32 0, 
   %.0104184 = phi i32 [ %.0104, %24 ], [ %.0104182, %2 ]
   %.0104.in183 = phi i16 [ %.0104.in, %24 ], [ %.0104.in181, %2 ]
   %15 = zext i16 %.0104.in183 to i64
-  %16 = getelementptr inbounds nuw %union.IRIns, ptr %5, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %15
   %17 = load i16, ptr %16, align 8, !tbaa !4
   %18 = zext i16 %17 to i64
-  %19 = getelementptr inbounds nuw %union.IRIns, ptr %5, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %18
   %20 = tail call fastcc i32 @aa_ahref(ptr noundef %0, ptr noundef %7, ptr noundef %19)
   switch i32 %20, label %24 [
     i32 2, label %.thread
@@ -345,7 +343,7 @@ define internal fastcc i32 @fwd_ahload(ptr noundef %0, i32 noundef range(i32 0, 
 30:                                               ; preds = %._crit_edge
   %31 = load i16, ptr %7, align 8, !tbaa !4
   %32 = zext i16 %31 to i64
-  %33 = getelementptr inbounds nuw %union.IRIns, ptr %5, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %32
   br label %34
 
 34:                                               ; preds = %._crit_edge, %30
@@ -353,7 +351,7 @@ define internal fastcc i32 @fwd_ahload(ptr noundef %0, i32 noundef range(i32 0, 
   %36 = load i16, ptr %35, align 8, !tbaa !4
   %37 = zext i16 %36 to i32
   %38 = zext i16 %36 to i64
-  %39 = getelementptr inbounds nuw %union.IRIns, ptr %5, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 5
   %41 = load i8, ptr %40, align 1, !tbaa !4
   switch i8 %41, label %.thread131 [
@@ -382,7 +380,7 @@ define internal fastcc i32 @fwd_ahload(ptr noundef %0, i32 noundef range(i32 0, 
 52:                                               ; preds = %aa_table.exit.thread.i, %.lr.ph.i
   %.014.in23.i = phi i16 [ %.014.in21.i, %.lr.ph.i ], [ %.014.in.i, %aa_table.exit.thread.i ]
   %53 = zext i16 %.014.in23.i to i64
-  %54 = getelementptr inbounds nuw %union.IRIns, ptr %5, i64 %53
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %53
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 2
   %56 = load i16, ptr %55, align 2, !tbaa !4
   %57 = icmp eq i16 %56, 34
@@ -395,7 +393,7 @@ define internal fastcc i32 @fwd_ahload(ptr noundef %0, i32 noundef range(i32 0, 
 
 61:                                               ; preds = %58
   %62 = zext i16 %59 to i64
-  %63 = getelementptr inbounds nuw %union.IRIns, ptr %5, i64 %62
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %62
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 5
   %65 = load i8, ptr %64, align 1, !tbaa !4
   %66 = add i8 %65, -81
@@ -465,11 +463,11 @@ fwd_aa_tab_clear.exit:                            ; preds = %aa_table.exit.threa
 .lr.ph188:                                        ; preds = %88, %91
   %.0119.in186 = phi i16 [ %.0119.in, %91 ], [ %.0119.in185, %88 ]
   %94 = zext i16 %.0119.in186 to i64
-  %95 = getelementptr inbounds nuw %union.IRIns, ptr %5, i64 %94
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %94
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 2
   %97 = load i16, ptr %96, align 2, !tbaa !4
   %98 = zext i16 %97 to i64
-  %99 = getelementptr inbounds nuw %union.IRIns, ptr %5, i64 %98
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %98
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 4
   %101 = load i8, ptr %100, align 4, !tbaa !4
   %102 = and i8 %101, 31
@@ -480,7 +478,7 @@ fwd_aa_tab_clear.exit:                            ; preds = %aa_table.exit.threa
   %104 = getelementptr inbounds nuw i8, ptr %7, i64 2
   %105 = load i16, ptr %104, align 2, !tbaa !4
   %106 = zext i16 %105 to i64
-  %107 = getelementptr inbounds nuw %union.IRIns, ptr %5, i64 %106
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %106
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 5
   %109 = load i8, ptr %108, align 1, !tbaa !4
   %110 = icmp eq i8 %109, 30
@@ -493,7 +491,7 @@ fwd_aa_tab_clear.exit:                            ; preds = %aa_table.exit.threa
 
 114:                                              ; preds = %111, %103
   %115 = phi i64 [ %113, %111 ], [ %106, %103 ]
-  %116 = getelementptr inbounds nuw %union.IRIns, ptr %5, i64 %115
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %115
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 4
   %118 = load i8, ptr %117, align 4, !tbaa !4
   %119 = and i8 %118, 31
@@ -513,10 +511,10 @@ fwd_aa_tab_clear.exit:                            ; preds = %aa_table.exit.threa
 .lr.ph190:                                        ; preds = %.thread141, %135
   %.2106189 = phi i32 [ %138, %135 ], [ %.0104.lcssa, %.thread141 ]
   %126 = zext nneg i32 %.2106189 to i64
-  %127 = getelementptr inbounds nuw %union.IRIns, ptr %5, i64 %126
+  %127 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %126
   %128 = load i16, ptr %127, align 8, !tbaa !4
   %129 = zext i16 %128 to i64
-  %130 = getelementptr inbounds nuw %union.IRIns, ptr %5, i64 %129
+  %130 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %129
   %131 = tail call fastcc i32 @aa_ahref(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %130)
   switch i32 %131, label %135 [
     i32 2, label %.thread166
@@ -545,7 +543,7 @@ fwd_aa_tab_clear.exit:                            ; preds = %aa_table.exit.threa
   %142 = getelementptr inbounds nuw i8, ptr %7, i64 2
   %143 = load i16, ptr %142, align 2, !tbaa !4
   %144 = zext i16 %143 to i64
-  %145 = getelementptr inbounds nuw %union.IRIns, ptr %5, i64 %144
+  %145 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %144
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 5
   %147 = load i8, ptr %146, align 1, !tbaa !4
   %148 = icmp eq i8 %147, 30
@@ -554,7 +552,7 @@ fwd_aa_tab_clear.exit:                            ; preds = %aa_table.exit.threa
 149:                                              ; preds = %141
   %150 = load i16, ptr %145, align 8, !tbaa !4
   %151 = zext i16 %150 to i64
-  %152 = getelementptr inbounds nuw %union.IRIns, ptr %5, i64 %151
+  %152 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %151
   br label %153
 
 153:                                              ; preds = %149, %141
@@ -566,7 +564,7 @@ fwd_aa_tab_clear.exit:                            ; preds = %aa_table.exit.threa
   %157 = load ptr, ptr %4, align 8, !tbaa !7
   %158 = load i16, ptr %39, align 8, !tbaa !4
   %159 = zext i16 %158 to i64
-  %160 = getelementptr inbounds nuw %union.IRIns, ptr %157, i64 %159
+  %160 = getelementptr inbounds nuw [8 x i8], ptr %157, i64 %159
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 8
   %162 = load i64, ptr %161, align 8, !tbaa !4
   %163 = inttoptr i64 %162 to ptr
@@ -616,7 +614,7 @@ fwd_aa_tab_clear.exit:                            ; preds = %aa_table.exit.threa
 .thread131:                                       ; preds = %.lr.ph, %58, %68, %80, %.lr.ph188, %.lr.ph190, %184, %34, %42, %121
   %.pre-phi = phi i64 [ %11, %.lr.ph188 ], [ %11, %.lr.ph190 ], [ %11, %58 ], [ %11, %80 ], [ %11, %121 ], [ %.pre212, %184 ], [ %11, %34 ], [ %11, %42 ], [ %11, %68 ], [ %11, %.lr.ph ]
   %.2103 = phi i32 [ %1, %.lr.ph188 ], [ %1, %.lr.ph190 ], [ %1, %58 ], [ %1, %80 ], [ %1, %121 ], [ %1, %184 ], [ %1, %34 ], [ %1, %42 ], [ %1, %68 ], [ %.0104184, %.lr.ph ]
-  %185 = getelementptr inbounds nuw i16, ptr %8, i64 %.pre-phi
+  %185 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %.pre-phi
   %.4108.in192 = load i16, ptr %185, align 2, !tbaa !4
   %.4108193 = zext i16 %.4108.in192 to i32
   %186 = icmp samesign ult i32 %.2103, %.4108193
@@ -625,7 +623,7 @@ fwd_aa_tab_clear.exit:                            ; preds = %aa_table.exit.threa
 .lr.ph196:                                        ; preds = %.thread131
   %187 = load ptr, ptr %4, align 8, !tbaa !7
   %188 = zext i16 %.4108.in192 to i64
-  %189 = getelementptr inbounds nuw %union.IRIns, ptr %187, i64 %188
+  %189 = getelementptr inbounds nuw [8 x i8], ptr %187, i64 %188
   %190 = load i16, ptr %189, align 8, !tbaa !4
   %191 = zext i16 %190 to i32
   %.not125241 = icmp eq i32 %1, %191
@@ -633,7 +631,7 @@ fwd_aa_tab_clear.exit:                            ; preds = %aa_table.exit.threa
 
 .lr.ph242:                                        ; preds = %.lr.ph196, %196
   %192 = phi i64 [ %197, %196 ], [ %188, %.lr.ph196 ]
-  %193 = getelementptr inbounds nuw %union.IRIns, ptr %187, i64 %192
+  %193 = getelementptr inbounds nuw [8 x i8], ptr %187, i64 %192
   %194 = getelementptr inbounds nuw i8, ptr %193, i64 6
   %.4108.in = load i16, ptr %194, align 2, !tbaa !4
   %.4108 = zext i16 %.4108.in to i32
@@ -642,7 +640,7 @@ fwd_aa_tab_clear.exit:                            ; preds = %aa_table.exit.threa
 
 196:                                              ; preds = %.lr.ph242
   %197 = zext i16 %.4108.in to i64
-  %198 = getelementptr inbounds nuw %union.IRIns, ptr %187, i64 %197
+  %198 = getelementptr inbounds nuw [8 x i8], ptr %187, i64 %197
   %199 = load i16, ptr %198, align 8, !tbaa !4
   %200 = zext i16 %199 to i32
   %.not125 = icmp eq i32 %1, %200
@@ -686,7 +684,7 @@ define hidden i32 @lj_opt_fwd_hrefk(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %9 = getelementptr inbounds nuw %union.IRIns, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 5
   %11 = ptrtoint ptr %7 to i64
   br label %12
@@ -694,7 +692,7 @@ define hidden i32 @lj_opt_fwd_hrefk(ptr noundef %0) local_unnamed_addr #1 {
 12:                                               ; preds = %.lr.ph, %fwd_aa_tab_clear.exit
   %.027.in84 = phi i16 [ %.027.in83, %.lr.ph ], [ %.027.in, %fwd_aa_tab_clear.exit ]
   %13 = zext i16 %.027.in84 to i64
-  %14 = getelementptr inbounds nuw %union.IRIns, ptr %7, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %13
   %15 = load i16, ptr %14, align 8, !tbaa !4
   %16 = icmp eq i16 %3, %15
   br i1 %16, label %17, label %64
@@ -717,7 +715,7 @@ define hidden i32 @lj_opt_fwd_hrefk(ptr noundef %0) local_unnamed_addr #1 {
 .lr.ph.i:                                         ; preds = %23, %aa_table.exit.thread.i
   %.014.in23.i = phi i16 [ %.014.in.i, %aa_table.exit.thread.i ], [ %.014.in21.i, %23 ]
   %26 = zext i16 %.014.in23.i to i64
-  %27 = getelementptr inbounds nuw %union.IRIns, ptr %7, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 2
   %29 = load i16, ptr %28, align 2, !tbaa !4
   %30 = icmp eq i16 %29, 34
@@ -730,7 +728,7 @@ define hidden i32 @lj_opt_fwd_hrefk(ptr noundef %0) local_unnamed_addr #1 {
 
 34:                                               ; preds = %31
   %35 = zext i16 %32 to i64
-  %36 = getelementptr inbounds nuw %union.IRIns, ptr %7, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %35
   %37 = load i8, ptr %10, align 1, !tbaa !4
   %38 = add i8 %37, -81
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 5
@@ -788,7 +786,7 @@ aa_table.exit.thread.i:                           ; preds = %60, %47, %34, %.lr.
 
 64:                                               ; preds = %12
   %65 = zext i16 %15 to i64
-  %66 = getelementptr inbounds nuw %union.IRIns, ptr %7, i64 %65
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %65
   %67 = load i8, ptr %10, align 1, !tbaa !4
   %68 = add i8 %67, -81
   %69 = getelementptr inbounds nuw i8, ptr %66, i64 5
@@ -866,7 +864,7 @@ fwd_aa_tab_clear.exit:                            ; preds = %90, %77, %64
 102:                                              ; preds = %aa_table.exit.thread.i38, %.lr.ph.i36
   %.014.in23.i37 = phi i16 [ %.014.in21.i33, %.lr.ph.i36 ], [ %.014.in.i39, %aa_table.exit.thread.i38 ]
   %103 = zext i16 %.014.in23.i37 to i64
-  %104 = getelementptr inbounds nuw %union.IRIns, ptr %7, i64 %103
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %103
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 2
   %106 = load i16, ptr %105, align 2, !tbaa !4
   %107 = icmp eq i16 %106, 34
@@ -967,7 +965,7 @@ define hidden range(i32 0, 2) i32 @lj_opt_fwd_href_nokey(ptr noundef readonly ca
 18:                                               ; preds = %16
   %19 = load ptr, ptr %15, align 8, !tbaa !7
   %20 = zext i16 %.023.in29 to i64
-  %21 = getelementptr inbounds nuw %union.IRIns, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 6
   %.023.in = load i16, ptr %22, align 2, !tbaa !4
   %23 = icmp ugt i16 %.023.in, %3
@@ -993,10 +991,10 @@ define hidden range(i32 0, 2) i32 @lj_opt_fwd_href_nokey(ptr noundef readonly ca
 31:                                               ; preds = %.lr.ph32, %28
   %.124.in31 = phi i16 [ %.124.in30, %.lr.ph32 ], [ %.124.in, %28 ]
   %32 = zext i16 %.124.in31 to i64
-  %33 = getelementptr inbounds nuw %union.IRIns, ptr %27, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %32
   %34 = load i16, ptr %33, align 8, !tbaa !4
   %35 = zext i16 %34 to i64
-  %36 = getelementptr inbounds nuw %union.IRIns, ptr %27, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %35
   %37 = tail call fastcc i32 @aa_ahref(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef %36)
   %.not = icmp eq i32 %37, 0
   br i1 %.not, label %28, label %.critedge
@@ -1019,7 +1017,7 @@ define internal fastcc range(i32 0, 3) i32 @aa_ahref(ptr noundef readonly captur
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load ptr, ptr %10, align 8, !tbaa !7
   %12 = zext i16 %9 to i64
-  %13 = getelementptr inbounds nuw %union.IRIns, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 5
   %15 = load i8, ptr %14, align 1, !tbaa !4
   %16 = icmp eq i8 %15, 30
@@ -1028,14 +1026,14 @@ define internal fastcc range(i32 0, 3) i32 @aa_ahref(ptr noundef readonly captur
 17:                                               ; preds = %7
   %18 = load i16, ptr %13, align 8, !tbaa !4
   %19 = zext i16 %18 to i64
-  %20 = getelementptr inbounds nuw %union.IRIns, ptr %11, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %19
   br label %21
 
 21:                                               ; preds = %17, %7
   %.078 = phi ptr [ %20, %17 ], [ %13, %7 ]
   %.076.in = phi i16 [ %18, %17 ], [ %9, %7 ]
   %22 = zext i16 %5 to i64
-  %23 = getelementptr inbounds nuw %union.IRIns, ptr %11, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 5
   %25 = load i8, ptr %24, align 1, !tbaa !4
   %26 = icmp eq i8 %25, 30
@@ -1044,7 +1042,7 @@ define internal fastcc range(i32 0, 3) i32 @aa_ahref(ptr noundef readonly captur
 27:                                               ; preds = %21
   %28 = load i16, ptr %23, align 8, !tbaa !4
   %29 = zext i16 %28 to i64
-  %30 = getelementptr inbounds nuw %union.IRIns, ptr %11, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %29
   br label %31
 
 31:                                               ; preds = %27, %21
@@ -1059,7 +1057,7 @@ define internal fastcc range(i32 0, 3) i32 @aa_ahref(ptr noundef readonly captur
 35:                                               ; preds = %31
   %36 = load i16, ptr %1, align 8, !tbaa !4
   %37 = zext i16 %36 to i64
-  %38 = getelementptr inbounds nuw %union.IRIns, ptr %11, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %37
   br label %39
 
 39:                                               ; preds = %31, %35
@@ -1074,7 +1072,7 @@ define internal fastcc range(i32 0, 3) i32 @aa_ahref(ptr noundef readonly captur
 43:                                               ; preds = %39
   %44 = load i16, ptr %2, align 8, !tbaa !4
   %45 = zext i16 %44 to i64
-  %46 = getelementptr inbounds nuw %union.IRIns, ptr %11, i64 %45
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %45
   br label %47
 
 47:                                               ; preds = %39, %43
@@ -1089,9 +1087,9 @@ define internal fastcc range(i32 0, 3) i32 @aa_ahref(ptr noundef readonly captur
 
 51:                                               ; preds = %49
   %52 = zext i16 %.in to i64
-  %53 = getelementptr inbounds nuw %union.IRIns, ptr %11, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %52
   %54 = zext i16 %.in87 to i64
-  %55 = getelementptr inbounds nuw %union.IRIns, ptr %11, i64 %54
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %54
   %56 = getelementptr inbounds nuw i8, ptr %53, i64 5
   %57 = load i8, ptr %56, align 1, !tbaa !4
   %58 = add i8 %57, -81
@@ -1168,7 +1166,7 @@ define internal fastcc range(i32 0, 3) i32 @aa_ahref(ptr noundef readonly captur
 96:                                               ; preds = %92
   %97 = load i16, ptr %.078, align 8, !tbaa !4
   %98 = zext nneg i16 %94 to i64
-  %99 = getelementptr inbounds nuw %union.IRIns, ptr %11, i64 %98
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %98
   %100 = load i32, ptr %99, align 8, !tbaa !4
   %101 = icmp eq i16 %97, %.079.in
   %102 = icmp ne i32 %100, 0
@@ -1192,7 +1190,7 @@ define internal fastcc range(i32 0, 3) i32 @aa_ahref(ptr noundef readonly captur
 111:                                              ; preds = %107
   %112 = load i16, ptr %.077, align 8, !tbaa !4
   %113 = zext nneg i16 %109 to i64
-  %114 = getelementptr inbounds nuw %union.IRIns, ptr %11, i64 %113
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %113
   %115 = load i32, ptr %114, align 8, !tbaa !4
   %116 = icmp eq i16 %.076.in, %112
   %117 = icmp ne i32 %115, 0
@@ -1223,9 +1221,9 @@ define internal fastcc range(i32 0, 3) i32 @aa_ahref(ptr noundef readonly captur
 
 129:                                              ; preds = %.critedge
   %130 = zext i16 %.in to i64
-  %131 = getelementptr inbounds nuw %union.IRIns, ptr %11, i64 %130
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %130
   %132 = zext i16 %.in87 to i64
-  %133 = getelementptr inbounds nuw %union.IRIns, ptr %11, i64 %132
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %132
   %134 = getelementptr inbounds nuw i8, ptr %131, i64 5
   %135 = load i8, ptr %134, align 1, !tbaa !4
   %136 = add i8 %135, -81
@@ -1291,12 +1289,12 @@ define hidden i32 @lj_opt_dse_ahstore(ptr noundef %0) local_unnamed_addr #1 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8, !tbaa !7
   %8 = zext i16 %3 to i64
-  %9 = getelementptr inbounds nuw %union.IRIns, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 402
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 189
   %12 = load i8, ptr %11, align 1, !tbaa !4
   %13 = zext i8 %12 to i64
-  %14 = getelementptr inbounds nuw i16, ptr %10, i64 %13
+  %14 = getelementptr inbounds nuw [2 x i8], ptr %10, i64 %13
   %.038.in59 = load i16, ptr %14, align 2, !tbaa !33
   %15 = icmp ugt i16 %.038.in59, %3
   br i1 %15, label %.lr.ph, label %.thread47
@@ -1305,10 +1303,10 @@ define hidden i32 @lj_opt_dse_ahstore(ptr noundef %0) local_unnamed_addr #1 {
   %.038.in61 = phi i16 [ %.038.in, %50 ], [ %.038.in59, %1 ]
   %.04060 = phi ptr [ %51, %50 ], [ %14, %1 ]
   %16 = zext i16 %.038.in61 to i64
-  %17 = getelementptr inbounds nuw %union.IRIns, ptr %7, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %16
   %18 = load i16, ptr %17, align 8, !tbaa !4
   %19 = zext i16 %18 to i64
-  %20 = getelementptr inbounds nuw %union.IRIns, ptr %7, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %19
   %21 = tail call fastcc i32 @aa_ahref(ptr noundef nonnull %0, ptr noundef %9, ptr noundef %20)
   switch i32 %21, label %50 [
     i32 2, label %25
@@ -1342,7 +1340,7 @@ define hidden i32 @lj_opt_dse_ahstore(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %.not4463, label %.lr.ph65.preheader, label %._crit_edge
 
 .lr.ph65.preheader:                               ; preds = %33
-  %38 = getelementptr inbounds nuw %union.IRIns, ptr %7, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %37
   br label %.lr.ph65
 
 39:                                               ; preds = %43
@@ -1412,14 +1410,14 @@ define hidden i32 @lj_opt_fwd_alen(ptr noundef %0) local_unnamed_addr #1 {
 11:                                               ; preds = %.lr.ph, %8
   %.063.in100 = phi i16 [ %.063.in99, %.lr.ph ], [ %.063.in, %8 ]
   %12 = zext i16 %.063.in100 to i64
-  %13 = getelementptr inbounds nuw %union.IRIns, ptr %7, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %12
   %14 = load i16, ptr %13, align 8, !tbaa !4
   %15 = zext i16 %14 to i64
-  %16 = getelementptr inbounds nuw %union.IRIns, ptr %7, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 2
   %18 = load i16, ptr %17, align 2, !tbaa !4
   %19 = zext i16 %18 to i64
-  %20 = getelementptr inbounds nuw %union.IRIns, ptr %7, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 5
   %22 = load i8, ptr %21, align 1, !tbaa !4
   %23 = icmp eq i8 %22, 30
@@ -1432,7 +1430,7 @@ define hidden i32 @lj_opt_fwd_alen(ptr noundef %0) local_unnamed_addr #1 {
 
 27:                                               ; preds = %11, %24
   %28 = phi i64 [ %26, %24 ], [ %19, %11 ]
-  %29 = getelementptr inbounds nuw %union.IRIns, ptr %7, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %28
   %.sroa.0.0.in = getelementptr inbounds nuw i8, ptr %29, i64 4
   %.sroa.0.0 = load i8, ptr %.sroa.0.0.in, align 4, !tbaa !4
   %30 = and i8 %.sroa.0.0, 31
@@ -1460,7 +1458,7 @@ define hidden i32 @lj_opt_fwd_alen(ptr noundef %0) local_unnamed_addr #1 {
 39:                                               ; preds = %.lr.ph105, %36
   %.265.in104 = phi i16 [ %.265.in103, %.lr.ph105 ], [ %.265.in, %36 ]
   %40 = zext i16 %.265.in104 to i64
-  %41 = getelementptr inbounds nuw %union.IRIns, ptr %35, i64 %40
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %40
   %42 = load i16, ptr %41, align 8, !tbaa !4
   %43 = icmp eq i16 %42, %3
   br i1 %43, label %44, label %36
@@ -1474,7 +1472,7 @@ define hidden i32 @lj_opt_fwd_alen(ptr noundef %0) local_unnamed_addr #1 {
 
 .lr.ph.i:                                         ; preds = %44
   %47 = zext i16 %3 to i64
-  %48 = getelementptr inbounds nuw %union.IRIns, ptr %35, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 5
   %50 = ptrtoint ptr %35 to i64
   br label %51
@@ -1482,7 +1480,7 @@ define hidden i32 @lj_opt_fwd_alen(ptr noundef %0) local_unnamed_addr #1 {
 51:                                               ; preds = %aa_table.exit.thread.i, %.lr.ph.i
   %.014.in23.i = phi i16 [ %.014.in21.i, %.lr.ph.i ], [ %.014.in.i, %aa_table.exit.thread.i ]
   %52 = zext i16 %.014.in23.i to i64
-  %53 = getelementptr inbounds nuw %union.IRIns, ptr %35, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %52
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 2
   %55 = load i16, ptr %54, align 2, !tbaa !4
   %56 = icmp eq i16 %55, 34
@@ -1495,7 +1493,7 @@ define hidden i32 @lj_opt_fwd_alen(ptr noundef %0) local_unnamed_addr #1 {
 
 60:                                               ; preds = %57
   %61 = zext i16 %58 to i64
-  %62 = getelementptr inbounds nuw %union.IRIns, ptr %35, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %61
   %63 = load i8, ptr %49, align 1, !tbaa !4
   %64 = add i8 %63, -81
   %65 = getelementptr inbounds nuw i8, ptr %62, i64 5
@@ -1559,7 +1557,7 @@ fwd_aa_tab_clear.exit:                            ; preds = %aa_table.exit.threa
 
 .lr.ph109:                                        ; preds = %fwd_aa_tab_clear.exit
   %92 = zext i16 %3 to i64
-  %93 = getelementptr inbounds nuw %union.IRIns, ptr %35, i64 %92
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %92
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 5
   %95 = ptrtoint ptr %35 to i64
   br label %96
@@ -1567,23 +1565,23 @@ fwd_aa_tab_clear.exit:                            ; preds = %aa_table.exit.threa
 96:                                               ; preds = %.lr.ph109, %aa_table.exit
   %.066.in108 = phi i16 [ %.066.in107, %.lr.ph109 ], [ %.066.in, %aa_table.exit ]
   %97 = zext i16 %.066.in108 to i64
-  %98 = getelementptr inbounds nuw %union.IRIns, ptr %35, i64 %97
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %97
   %99 = load i16, ptr %98, align 8, !tbaa !4
   %100 = zext i16 %99 to i64
-  %101 = getelementptr inbounds nuw %union.IRIns, ptr %35, i64 %100
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %100
   %102 = load i16, ptr %101, align 8, !tbaa !4
   %103 = zext i16 %102 to i64
-  %104 = getelementptr inbounds nuw %union.IRIns, ptr %35, i64 %103
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %103
   %105 = load i16, ptr %104, align 8, !tbaa !4
   %106 = icmp eq i16 %3, %105
   br i1 %106, label %107, label %137
 
 107:                                              ; preds = %96
-  %108 = getelementptr inbounds nuw %union.IRIns, ptr %35, i64 %100
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %100
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 2
   %110 = load i16, ptr %109, align 2, !tbaa !4
   %111 = zext i16 %110 to i64
-  %112 = getelementptr inbounds nuw %union.IRIns, ptr %35, i64 %111
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %111
   %113 = getelementptr inbounds nuw i8, ptr %98, i64 4
   %114 = load i8, ptr %113, align 4, !tbaa !4
   %115 = and i8 %114, 31
@@ -1605,7 +1603,7 @@ fwd_aa_tab_clear.exit:                            ; preds = %aa_table.exit.threa
   %125 = getelementptr inbounds nuw i8, ptr %112, i64 2
   %126 = load i16, ptr %125, align 2, !tbaa !4
   %127 = zext i16 %126 to i64
-  %128 = getelementptr inbounds nuw %union.IRIns, ptr %35, i64 %127
+  %128 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %127
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 5
   %130 = load i8, ptr %129, align 1, !tbaa !4
   %131 = icmp eq i8 %130, 23
@@ -1623,7 +1621,7 @@ fwd_aa_tab_clear.exit:                            ; preds = %aa_table.exit.threa
 
 137:                                              ; preds = %96
   %138 = zext i16 %105 to i64
-  %139 = getelementptr inbounds nuw %union.IRIns, ptr %35, i64 %138
+  %139 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %138
   %140 = load i8, ptr %94, align 1, !tbaa !4
   %141 = add i8 %140, -81
   %142 = getelementptr inbounds nuw i8, ptr %139, i64 5
@@ -1695,7 +1693,7 @@ define hidden i32 @lj_opt_fwd_uload(ptr noundef %0) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8, !tbaa !7
   %6 = zext i16 %3 to i64
-  %7 = getelementptr inbounds nuw %union.IRIns, ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 554
   %.039.in62 = load i16, ptr %8, align 2, !tbaa !4
   %9 = icmp ugt i16 %.039.in62, -32768
@@ -1711,10 +1709,10 @@ define hidden i32 @lj_opt_fwd_uload(ptr noundef %0) local_unnamed_addr #1 {
   %.039.in63 = phi i16 [ %.039.in62, %.lr.ph ], [ %.039.in, %aa_uref.exit ]
   %14 = load ptr, ptr %4, align 8, !tbaa !7
   %15 = zext i16 %.039.in63 to i64
-  %16 = getelementptr inbounds nuw %union.IRIns, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %15
   %17 = load i16, ptr %16, align 8, !tbaa !4
   %18 = zext i16 %17 to i64
-  %19 = getelementptr inbounds nuw %union.IRIns, ptr %14, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %18
   %20 = load i16, ptr %7, align 8, !tbaa !4
   %21 = load i16, ptr %19, align 8, !tbaa !4
   %22 = icmp eq i16 %20, %21
@@ -1789,10 +1787,10 @@ aa_uref.exit.thread51:                            ; preds = %aa_uref.exit, %1, %
 
 .lr.ph68:                                         ; preds = %aa_uref.exit.thread51
   %55 = load ptr, ptr %4, align 8, !tbaa !7
-  %56 = getelementptr inbounds nuw %union.IRIns, ptr %55, i64 %6
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %6
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 5
   %58 = zext i16 %.241.in64 to i64
-  %59 = getelementptr inbounds nuw %union.IRIns, ptr %55, i64 %58
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %58
   %60 = load i16, ptr %59, align 8, !tbaa !4
   %61 = icmp eq i16 %60, %3
   br i1 %61, label %.thread, label %.lr.ph85.preheader
@@ -1803,7 +1801,7 @@ aa_uref.exit.thread51:                            ; preds = %aa_uref.exit, %1, %
 
 63:                                               ; preds = %79
   %64 = zext i16 %.241.in to i64
-  %65 = getelementptr inbounds nuw %union.IRIns, ptr %55, i64 %64
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %64
   %66 = load i16, ptr %65, align 8, !tbaa !4
   %67 = icmp eq i16 %66, %3
   br i1 %67, label %.thread, label %.lr.ph85, !llvm.loop !42
@@ -1813,7 +1811,7 @@ aa_uref.exit.thread51:                            ; preds = %aa_uref.exit, %1, %
   %69 = phi i64 [ %64, %63 ], [ %58, %.lr.ph85.preheader ]
   %.2416784 = phi i32 [ %.241, %63 ], [ %.24165, %.lr.ph85.preheader ]
   %70 = zext i16 %68 to i64
-  %71 = getelementptr inbounds nuw %union.IRIns, ptr %55, i64 %70
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %70
   %72 = load i32, ptr %71, align 8, !tbaa !4
   %73 = icmp eq i32 %72, %62
   br i1 %73, label %74, label %79
@@ -1826,7 +1824,7 @@ aa_uref.exit.thread51:                            ; preds = %aa_uref.exit, %1, %
   br i1 %78, label %.thread, label %79
 
 79:                                               ; preds = %.lr.ph85, %74
-  %80 = getelementptr inbounds nuw %union.IRIns, ptr %55, i64 %69
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %69
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 6
   %.241.in = load i16, ptr %81, align 2, !tbaa !4
   %.241 = zext i16 %.241.in to i32
@@ -1851,7 +1849,7 @@ define hidden i32 @lj_opt_dse_ustore(ptr noundef %0) local_unnamed_addr #1 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8, !tbaa !7
   %8 = zext i16 %3 to i64
-  %9 = getelementptr inbounds nuw %union.IRIns, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 554
   %11 = load i16, ptr %10, align 2, !tbaa !33
   %12 = icmp ugt i16 %11, %3
@@ -1868,10 +1866,10 @@ define hidden i32 @lj_opt_dse_ustore(ptr noundef %0) local_unnamed_addr #1 {
   %.05580 = phi ptr [ %10, %.lr.ph ], [ %96, %aa_uref.exit.thread ]
   %17 = load ptr, ptr %6, align 8, !tbaa !7
   %18 = zext i16 %.05381.in to i64
-  %19 = getelementptr inbounds nuw %union.IRIns, ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %18
   %20 = load i16, ptr %19, align 8, !tbaa !4
   %21 = zext i16 %20 to i64
-  %22 = getelementptr inbounds nuw %union.IRIns, ptr %17, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %21
   %23 = load i16, ptr %9, align 8, !tbaa !4
   %24 = load i16, ptr %22, align 8, !tbaa !4
   %25 = icmp eq i16 %23, %24
@@ -1948,7 +1946,7 @@ aa_uref.exit:                                     ; preds = %34
   br i1 %.not6182, label %.lr.ph84.preheader, label %._crit_edge
 
 .lr.ph84.preheader:                               ; preds = %61
-  %66 = getelementptr inbounds nuw %union.IRIns, ptr %17, i64 %65
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %65
   br label %.lr.ph84
 
 67:                                               ; preds = %.lr.ph84
@@ -1998,7 +1996,7 @@ aa_uref.exit:                                     ; preds = %34
   %.048 = phi ptr [ %86, %85 ], [ %91, %88 ]
   %.pn.in = load i16, ptr %.048, align 2, !tbaa !33
   %.pn = zext i16 %.pn.in to i64
-  %.0 = getelementptr inbounds nuw %union.IRIns, ptr %87, i64 %.pn
+  %.0 = getelementptr inbounds nuw [8 x i8], ptr %87, i64 %.pn
   %89 = zext i16 %.pn.in to i32
   %90 = icmp samesign ult i32 %74, %89
   %91 = getelementptr inbounds nuw i8, ptr %.0, i64 6
@@ -2048,7 +2046,7 @@ define hidden i32 @lj_opt_fwd_fload(ptr noundef %0) local_unnamed_addr #1 {
   %10 = add i16 %.fr65, -5
   %or.cond.i = icmp ult i16 %10, 6
   %11 = zext i16 %3 to i64
-  %12 = getelementptr inbounds nuw %union.IRIns, ptr %9, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 5
   %14 = ptrtoint ptr %9 to i64
   br i1 %or.cond.i, label %.lr.ph.split.us, label %.lr.ph.split
@@ -2056,10 +2054,10 @@ define hidden i32 @lj_opt_fwd_fload(ptr noundef %0) local_unnamed_addr #1 {
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.loopexit.us
   %.030.in57.us = phi i16 [ %.030.in.us, %.loopexit.us ], [ %.030.in56, %.lr.ph ]
   %15 = zext i16 %.030.in57.us to i64
-  %16 = getelementptr inbounds nuw %union.IRIns, ptr %9, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %15
   %17 = load i16, ptr %16, align 8, !tbaa !4
   %18 = zext i16 %17 to i64
-  %19 = getelementptr inbounds nuw %union.IRIns, ptr %9, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 2
   %21 = load i16, ptr %20, align 2, !tbaa !4
   %.not.i.us = icmp eq i16 %.fr65, %21
@@ -2072,7 +2070,7 @@ define hidden i32 @lj_opt_fwd_fload(ptr noundef %0) local_unnamed_addr #1 {
 
 25:                                               ; preds = %22
   %26 = zext i16 %23 to i64
-  %27 = getelementptr inbounds nuw %union.IRIns, ptr %9, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %26
   %28 = load i8, ptr %13, align 1, !tbaa !4
   %29 = add i8 %28, -81
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 5
@@ -2131,10 +2129,10 @@ define hidden i32 @lj_opt_fwd_fload(ptr noundef %0) local_unnamed_addr #1 {
 .lr.ph.split:                                     ; preds = %.lr.ph, %70
   %.030.in57 = phi i16 [ %.030.in, %70 ], [ %.030.in56, %.lr.ph ]
   %55 = zext i16 %.030.in57 to i64
-  %56 = getelementptr inbounds nuw %union.IRIns, ptr %9, i64 %55
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %55
   %57 = load i16, ptr %56, align 8, !tbaa !4
   %58 = zext i16 %57 to i64
-  %59 = getelementptr inbounds nuw %union.IRIns, ptr %9, i64 %58
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %58
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 2
   %61 = load i16, ptr %60, align 2, !tbaa !4
   %.not.i = icmp eq i16 %.fr65, %61
@@ -2147,7 +2145,7 @@ define hidden i32 @lj_opt_fwd_fload(ptr noundef %0) local_unnamed_addr #1 {
 
 .thread:                                          ; preds = %22, %62
   %65 = phi i64 [ %55, %62 ], [ %15, %22 ]
-  %66 = getelementptr inbounds nuw %union.IRIns, ptr %9, i64 %65
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %65
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 2
   %68 = load i16, ptr %67, align 2, !tbaa !4
   %69 = zext i16 %68 to i32
@@ -2167,7 +2165,7 @@ define hidden i32 @lj_opt_fwd_fload(ptr noundef %0) local_unnamed_addr #1 {
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %76 = load ptr, ptr %75, align 8, !tbaa !7
   %77 = zext i16 %3 to i64
-  %78 = getelementptr inbounds nuw %union.IRIns, ptr %76, i64 %77
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %77
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 5
   %80 = load i8, ptr %79, align 1, !tbaa !4
   %.off = add i8 %80, -81
@@ -2202,7 +2200,7 @@ define hidden i32 @lj_opt_dse_fstore(ptr noundef %0) local_unnamed_addr #1 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8, !tbaa !7
   %8 = zext i16 %3 to i64
-  %9 = getelementptr inbounds nuw %union.IRIns, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 556
   %.041.in69 = load i16, ptr %10, align 4, !tbaa !33
   %11 = icmp ugt i16 %.041.in69, %3
@@ -2221,10 +2219,10 @@ define hidden i32 @lj_opt_dse_fstore(ptr noundef %0) local_unnamed_addr #1 {
   %.041.in71.us = phi i16 [ %.041.in.us, %aa_fref.exit.thread.us ], [ %.041.in69, %.lr.ph ]
   %.04370.us = phi ptr [ %60, %aa_fref.exit.thread.us ], [ %10, %.lr.ph ]
   %16 = zext i16 %.041.in71.us to i64
-  %17 = getelementptr inbounds nuw %union.IRIns, ptr %7, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %16
   %18 = load i16, ptr %17, align 8, !tbaa !4
   %19 = zext i16 %18 to i64
-  %20 = getelementptr inbounds nuw %union.IRIns, ptr %7, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 2
   %22 = load i16, ptr %21, align 2, !tbaa !4
   %.not.i.us = icmp eq i16 %.fr80, %22
@@ -2238,9 +2236,9 @@ define hidden i32 @lj_opt_dse_fstore(ptr noundef %0) local_unnamed_addr #1 {
 
 27:                                               ; preds = %23
   %28 = zext i16 %24 to i64
-  %29 = getelementptr inbounds nuw %union.IRIns, ptr %7, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %28
   %30 = zext i16 %25 to i64
-  %31 = getelementptr inbounds nuw %union.IRIns, ptr %7, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 5
   %33 = load i8, ptr %32, align 1, !tbaa !4
   %34 = add i8 %33, -81
@@ -2307,10 +2305,10 @@ aa_fref.exit.thread.us:                           ; preds = %56, %.loopexit.us, 
   %.041.in71 = phi i16 [ %.041.in, %aa_fref.exit.thread ], [ %.041.in69, %.lr.ph ]
   %.04370 = phi ptr [ %105, %aa_fref.exit.thread ], [ %10, %.lr.ph ]
   %62 = zext i16 %.041.in71 to i64
-  %63 = getelementptr inbounds nuw %union.IRIns, ptr %7, i64 %62
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %62
   %64 = load i16, ptr %63, align 8, !tbaa !4
   %65 = zext i16 %64 to i64
-  %66 = getelementptr inbounds nuw %union.IRIns, ptr %7, i64 %65
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %65
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 2
   %68 = load i16, ptr %67, align 2, !tbaa !4
   %.not.i = icmp eq i16 %.fr80, %68
@@ -2351,7 +2349,7 @@ aa_fref.exit:                                     ; preds = %69, %23
   %86 = load i32, ptr %85, align 4, !tbaa !38
   %87 = add i32 %86, -1
   %88 = zext i32 %87 to i64
-  %89 = getelementptr inbounds nuw %union.IRIns, ptr %7, i64 %88
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %88
   %.not4877 = icmp ugt ptr %89, %.us-phi75
   br i1 %.not4877, label %.lr.ph79, label %._crit_edge
 
@@ -2435,7 +2433,7 @@ define hidden range(i32 0, 2) i32 @lj_opt_fwd_sbuf(ptr noundef readonly captures
 16:                                               ; preds = %.lr.ph, %13
   %.021.in36 = phi i16 [ %.021.in34, %.lr.ph ], [ %.021.in, %13 ]
   %17 = zext i16 %.021.in36 to i64
-  %18 = getelementptr inbounds nuw %union.IRIns, ptr %11, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 2
   %20 = load i16, ptr %19, align 2, !tbaa !4
   %21 = add i16 %20, -7
@@ -2464,7 +2462,7 @@ define hidden range(i32 0, 2) i32 @lj_opt_fwd_sbuf(ptr noundef readonly captures
 30:                                               ; preds = %.lr.ph41, %27
   %.223.in39 = phi i16 [ %.223.in37, %.lr.ph41 ], [ %.223.in, %27 ]
   %31 = zext i16 %.223.in39 to i64
-  %32 = getelementptr inbounds nuw %union.IRIns, ptr %25, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 2
   %34 = load i16, ptr %33, align 2, !tbaa !4
   %35 = add i16 %34, -7
@@ -2484,7 +2482,7 @@ define hidden i32 @lj_opt_fwd_xload(ptr noundef %0) local_unnamed_addr #1 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8, !tbaa !7
   %7 = zext i16 %3 to i64
-  %8 = getelementptr inbounds nuw %union.IRIns, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 186
   %10 = load i16, ptr %9, align 2, !tbaa !4
   %11 = zext i16 %10 to i32
@@ -2522,7 +2520,7 @@ define hidden i32 @lj_opt_fwd_xload(ptr noundef %0) local_unnamed_addr #1 {
 .lr.ph:                                           ; preds = %19, %61
   %.178121 = phi i32 [ %64, %61 ], [ %.077, %19 ]
   %28 = zext nneg i32 %.178121 to i64
-  %29 = getelementptr inbounds nuw %union.IRIns, ptr %20, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %28
   %30 = tail call fastcc i32 @aa_xref(ptr noundef nonnull %0, ptr noundef %.188, ptr noundef nonnull %2, ptr noundef nonnull %29)
   switch i32 %30, label %61 [
     i32 2, label %31
@@ -2536,7 +2534,7 @@ define hidden i32 @lj_opt_fwd_xload(ptr noundef %0) local_unnamed_addr #1 {
   %35 = getelementptr inbounds nuw i8, ptr %29, i64 2
   %36 = load i16, ptr %35, align 2, !tbaa !4
   %37 = zext i16 %36 to i64
-  %38 = getelementptr inbounds nuw %union.IRIns, ptr %20, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %37
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %40 = load i8, ptr %39, align 4, !tbaa !4
   %41 = zext i8 %40 to i32
@@ -2608,7 +2606,7 @@ define hidden i32 @lj_opt_fwd_xload(ptr noundef %0) local_unnamed_addr #1 {
   %.380127 = phi i32 [ %.380125, %.lr.ph128 ], [ %.380, %83 ]
   %.380.in126 = phi i16 [ %.380.in124, %.lr.ph128 ], [ %.380.in, %83 ]
   %71 = zext i16 %.380.in126 to i64
-  %72 = getelementptr inbounds nuw %union.IRIns, ptr %66, i64 %71
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %71
   %73 = load i16, ptr %72, align 8, !tbaa !4
   %74 = zext i16 %73 to i32
   %75 = icmp eq i32 %.089, %74
@@ -2662,7 +2660,7 @@ define hidden i32 @lj_opt_fwd_xload(ptr noundef %0) local_unnamed_addr #1 {
 
 103:                                              ; preds = %99
   %104 = zext nneg i16 %101 to i64
-  %105 = getelementptr inbounds nuw %union.IRIns, ptr %66, i64 %104
+  %105 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %104
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 5
   %107 = load i8, ptr %106, align 1, !tbaa !4
   %108 = icmp eq i8 %107, 29
@@ -2682,7 +2680,7 @@ define hidden i32 @lj_opt_fwd_xload(ptr noundef %0) local_unnamed_addr #1 {
   %116 = phi i64 [ %111, %109 ], [ %114, %112 ]
   %117 = load i16, ptr %.087, align 8, !tbaa !4
   %118 = zext i16 %117 to i64
-  %119 = getelementptr inbounds nuw %union.IRIns, ptr %66, i64 %118
+  %119 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %118
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %119, i64 5
   %.pre.i = load i8, ptr %.phi.trans.insert.i, align 1, !tbaa !4
   %120 = icmp eq i8 %.pre.i, 41
@@ -2693,7 +2691,7 @@ define hidden i32 @lj_opt_fwd_xload(ptr noundef %0) local_unnamed_addr #1 {
   %.055123.i = phi i64 [ %116, %115 ], [ 0, %99 ]
   %121 = load i16, ptr %.054124.i, align 8, !tbaa !4
   %122 = zext i16 %121 to i64
-  %123 = getelementptr inbounds nuw %union.IRIns, ptr %66, i64 %122
+  %123 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %122
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 5
   %125 = load i8, ptr %124, align 1, !tbaa !4
   switch i8 %125, label %.thread.i [
@@ -2709,7 +2707,7 @@ define hidden i32 @lj_opt_fwd_xload(ptr noundef %0) local_unnamed_addr #1 {
 
 130:                                              ; preds = %126
   %131 = zext nneg i16 %128 to i64
-  %132 = getelementptr inbounds nuw %union.IRIns, ptr %66, i64 %131
+  %132 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %131
   %133 = load i32, ptr %132, align 8, !tbaa !4
   %134 = zext i32 %133 to i64
   br label %140
@@ -2729,7 +2727,7 @@ define hidden i32 @lj_opt_fwd_xload(ptr noundef %0) local_unnamed_addr #1 {
   %.052.i = phi i64 [ %134, %130 ], [ 0, %.thread.i ], [ 1, %135 ]
   %141 = load i16, ptr %.053.i, align 8, !tbaa !4
   %142 = zext i16 %141 to i64
-  %143 = getelementptr inbounds nuw %union.IRIns, ptr %66, i64 %142
+  %143 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %142
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 5
   %145 = load i8, ptr %144, align 1, !tbaa !4
   %146 = icmp eq i8 %145, 41
@@ -2750,7 +2748,7 @@ define hidden i32 @lj_opt_fwd_xload(ptr noundef %0) local_unnamed_addr #1 {
 
 156:                                              ; preds = %152
   %157 = zext nneg i16 %154 to i64
-  %158 = getelementptr inbounds nuw %union.IRIns, ptr %66, i64 %157
+  %158 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %157
   %159 = load i32, ptr %158, align 8, !tbaa !4
   %160 = sext i32 %159 to i64
   %161 = shl i64 %160, %.052.i
@@ -2782,7 +2780,7 @@ define hidden i32 @lj_opt_fwd_xload(ptr noundef %0) local_unnamed_addr #1 {
   %.02136.i.i = phi i32 [ %.021.i.i, %184 ], [ %.02134.i.i, %.split.i ]
   %.021.in35.i.i = phi i16 [ %.021.in.i.i, %184 ], [ %.021.in33.i.i, %.split.i ]
   %174 = zext i16 %.021.in35.i.i to i64
-  %175 = getelementptr inbounds nuw %union.IRIns, ptr %66, i64 %174
+  %175 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %174
   %176 = load i16, ptr %175, align 8, !tbaa !4
   %177 = zext i16 %176 to i32
   %178 = icmp eq i32 %spec.select29.i.i, %177
@@ -2805,7 +2803,7 @@ define hidden i32 @lj_opt_fwd_xload(ptr noundef %0) local_unnamed_addr #1 {
 .split57.i:                                       ; preds = %165
   %187 = getelementptr inbounds nuw i8, ptr %0, i64 402
   %188 = zext i8 %167 to i64
-  %189 = getelementptr inbounds nuw i16, ptr %187, i64 %188
+  %189 = getelementptr inbounds nuw [2 x i8], ptr %187, i64 %188
   %.021.in33.i67.i = load i16, ptr %189, align 2, !tbaa !4
   %190 = icmp ult i16 %163, %.021.in33.i67.i
   br i1 %190, label %.lr.ph.i70.i, label %reassoc_xref.exit.thread
@@ -2813,7 +2811,7 @@ define hidden i32 @lj_opt_fwd_xload(ptr noundef %0) local_unnamed_addr #1 {
 .lr.ph.i70.i:                                     ; preds = %.split57.i, %199
   %.021.in35.i72.i = phi i16 [ %.021.in.i73.i, %199 ], [ %.021.in33.i67.i, %.split57.i ]
   %191 = zext i16 %.021.in35.i72.i to i64
-  %192 = getelementptr inbounds nuw %union.IRIns, ptr %66, i64 %191
+  %192 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %191
   %193 = load i16, ptr %192, align 8, !tbaa !4
   %194 = icmp eq i16 %163, %193
   br i1 %194, label %195, label %199
@@ -2851,7 +2849,7 @@ reassoc_trycse.exit.i:                            ; preds = %179, %reassoc_trycs
   %.02136.i82.i = phi i32 [ %.021.i85.i, %217 ], [ %.02134.i79.i, %reassoc_trycse.exit.i ]
   %.021.in35.i83.i = phi i16 [ %.021.in.i84.i, %217 ], [ %.021.in33.i78.i, %reassoc_trycse.exit.i ]
   %207 = zext i16 %.021.in35.i83.i to i64
-  %208 = getelementptr inbounds nuw %union.IRIns, ptr %66, i64 %207
+  %208 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %207
   %209 = load i16, ptr %208, align 8, !tbaa !4
   %210 = zext i16 %209 to i32
   %211 = icmp eq i32 %spec.select29.i77.i, %210
@@ -2893,7 +2891,7 @@ reassoc_trycse.exit86.i:                          ; preds = %212
   %.02136.i93.i = phi i32 [ %.02134.i90.i, %.lr.ph.i92.i ], [ %.021.i96.i, %236 ]
   %.021.in35.i94.i = phi i16 [ %.021.in33.i89.i, %.lr.ph.i92.i ], [ %.021.in.i95.i, %236 ]
   %226 = zext i16 %.021.in35.i94.i to i64
-  %227 = getelementptr inbounds nuw %union.IRIns, ptr %224, i64 %226
+  %227 = getelementptr inbounds nuw [8 x i8], ptr %224, i64 %226
   %228 = load i16, ptr %227, align 8, !tbaa !4
   %229 = zext i16 %228 to i32
   %230 = icmp eq i32 %spec.select29.i88.i, %229
@@ -2925,7 +2923,7 @@ reassoc_xref.exit:                                ; preds = %231, %reassoc_trycs
 .lr.ph132:                                        ; preds = %reassoc_xref.exit, %.lr.ph132
   %.481.in131 = phi i16 [ %.481.in, %.lr.ph132 ], [ %.481.in129, %reassoc_xref.exit ]
   %242 = zext i16 %.481.in131 to i64
-  %243 = getelementptr inbounds nuw %union.IRIns, ptr %239, i64 %242
+  %243 = getelementptr inbounds nuw [8 x i8], ptr %239, i64 %242
   %244 = getelementptr inbounds nuw i8, ptr %243, i64 6
   %.481.in = load i16, ptr %244, align 2, !tbaa !4
   %.481 = zext i16 %.481.in to i32
@@ -2935,7 +2933,7 @@ reassoc_xref.exit:                                ; preds = %231, %reassoc_trycs
 ._crit_edge133:                                   ; preds = %.lr.ph132, %reassoc_xref.exit
   %.481.lcssa = phi i32 [ %.481130, %reassoc_xref.exit ], [ %.481, %.lr.ph132 ]
   %246 = zext nneg i32 %.2.i to i64
-  %247 = getelementptr inbounds nuw %union.IRIns, ptr %239, i64 %246
+  %247 = getelementptr inbounds nuw [8 x i8], ptr %239, i64 %246
   br label %19
 
 reassoc_xref.exit.thread:                         ; preds = %199, %184, %217, %236, %220, %reassoc_trycse.exit.i, %.split57.i, %.split.i, %147, %152, %140, %95, %115, %._crit_edge, %88, %91, %13
@@ -2953,7 +2951,7 @@ define internal fastcc range(i32 0, 3) i32 @aa_xref(ptr noundef readonly capture
   %6 = load ptr, ptr %5, align 8, !tbaa !7
   %7 = load i16, ptr %3, align 8, !tbaa !4
   %8 = zext i16 %7 to i64
-  %9 = getelementptr inbounds nuw %union.IRIns, ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %8
   %10 = icmp eq ptr %1, %9
   br i1 %10, label %11, label %19
 
@@ -2981,10 +2979,10 @@ define internal fastcc range(i32 0, 3) i32 @aa_xref(ptr noundef readonly capture
 
 27:                                               ; preds = %23
   %28 = zext nneg i16 %25 to i64
-  %29 = getelementptr inbounds nuw %union.IRIns, ptr %6, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %28
   %30 = load i16, ptr %1, align 8, !tbaa !4
   %31 = zext i16 %30 to i64
-  %32 = getelementptr inbounds nuw %union.IRIns, ptr %6, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %29, i64 5
   %34 = load i8, ptr %33, align 1, !tbaa !4
   %35 = icmp eq i8 %34, 29
@@ -3016,10 +3014,10 @@ define internal fastcc range(i32 0, 3) i32 @aa_xref(ptr noundef readonly capture
 
 50:                                               ; preds = %46
   %51 = zext nneg i16 %48 to i64
-  %52 = getelementptr inbounds nuw %union.IRIns, ptr %6, i64 %51
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %51
   %53 = load i16, ptr %9, align 8, !tbaa !4
   %54 = zext i16 %53 to i64
-  %55 = getelementptr inbounds nuw %union.IRIns, ptr %6, i64 %54
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %54
   %56 = getelementptr inbounds nuw i8, ptr %52, i64 5
   %57 = load i8, ptr %56, align 1, !tbaa !4
   %58 = icmp eq i8 %57, 29
@@ -3185,7 +3183,7 @@ define hidden i32 @lj_opt_dse_xstore(ptr noundef %0) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8, !tbaa !7
   %6 = zext i16 %3 to i64
-  %7 = getelementptr inbounds nuw %union.IRIns, ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 186
   %9 = load i16, ptr %8, align 2, !tbaa !4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 558
@@ -3206,7 +3204,7 @@ define hidden i32 @lj_opt_dse_xstore(ptr noundef %0) local_unnamed_addr #1 {
   %.047.in77 = phi i16 [ %.047.in, %49 ], [ %.047.in75, %1 ]
   %.04976 = phi ptr [ %50, %49 ], [ %10, %1 ]
   %18 = zext i16 %.047.in77 to i64
-  %19 = getelementptr inbounds nuw %union.IRIns, ptr %5, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %18
   %20 = tail call fastcc i32 @aa_xref(ptr noundef nonnull %0, ptr noundef %7, ptr noundef nonnull %2, ptr noundef nonnull %19)
   switch i32 %20, label %49 [
     i32 2, label %24
@@ -3240,7 +3238,7 @@ define hidden i32 @lj_opt_dse_xstore(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %.not6079, label %.lr.ph81.preheader, label %._crit_edge
 
 .lr.ph81.preheader:                               ; preds = %32
-  %37 = getelementptr inbounds nuw %union.IRIns, ptr %5, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %36
   br label %.lr.ph81
 
 38:                                               ; preds = %42
@@ -3291,7 +3289,7 @@ define hidden i32 @lj_opt_dse_xstore(ptr noundef %0) local_unnamed_addr #1 {
 define hidden range(i32 0, 2) i32 @lj_opt_fwd_wasnonnil(ptr noundef readonly captures(none) %0, i16 noundef zeroext %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 402
   %5 = zext i16 %1 to i64
-  %6 = getelementptr inbounds nuw i16, ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.046.in69 = load i16, ptr %7, align 2, !tbaa !4
   %.04670 = zext i16 %.046.in69 to i32
@@ -3302,7 +3300,7 @@ define hidden range(i32 0, 2) i32 @lj_opt_fwd_wasnonnil(ptr noundef readonly cap
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8, !tbaa !7
   %11 = zext nneg i32 %2 to i64
-  %12 = getelementptr inbounds nuw %union.IRIns, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 2
   %14 = icmp eq i16 %1, 66
   %15 = trunc nuw i32 %2 to i16
@@ -3311,7 +3309,7 @@ define hidden range(i32 0, 2) i32 @lj_opt_fwd_wasnonnil(ptr noundef readonly cap
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %35
   %.046.in71.us = phi i16 [ %.046.in.us, %35 ], [ %.046.in69, %.lr.ph ]
   %16 = zext i16 %.046.in71.us to i64
-  %17 = getelementptr inbounds nuw %union.IRIns, ptr %10, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %16
   %18 = load i16, ptr %17, align 8, !tbaa !4
   %19 = zext i16 %18 to i32
   %20 = icmp eq i32 %2, %19
@@ -3326,7 +3324,7 @@ define hidden range(i32 0, 2) i32 @lj_opt_fwd_wasnonnil(ptr noundef readonly cap
 
 26:                                               ; preds = %21
   %27 = zext i16 %18 to i64
-  %28 = getelementptr inbounds nuw %union.IRIns, ptr %10, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 2
   %30 = load i16, ptr %29, align 2, !tbaa !4
   %31 = load i16, ptr %13, align 2, !tbaa !4
@@ -3357,7 +3355,7 @@ define hidden range(i32 0, 2) i32 @lj_opt_fwd_wasnonnil(ptr noundef readonly cap
 .lr.ph.split:                                     ; preds = %.lr.ph, %82
   %.046.in71 = phi i16 [ %.046.in, %82 ], [ %.046.in69, %.lr.ph ]
   %42 = zext i16 %.046.in71 to i64
-  %43 = getelementptr inbounds nuw %union.IRIns, ptr %10, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %42
   %44 = load i16, ptr %43, align 8, !tbaa !4
   %45 = zext i16 %44 to i32
   %46 = icmp eq i32 %2, %45
@@ -3365,7 +3363,7 @@ define hidden range(i32 0, 2) i32 @lj_opt_fwd_wasnonnil(ptr noundef readonly cap
 
 .split.us:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us
   %47 = phi i64 [ %16, %.lr.ph.split.us ], [ %42, %.lr.ph.split ]
-  %48 = getelementptr inbounds nuw %union.IRIns, ptr %10, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %47
   br label %.thread59.sink.split
 
 49:                                               ; preds = %.lr.ph.split
@@ -3377,17 +3375,17 @@ define hidden range(i32 0, 2) i32 @lj_opt_fwd_wasnonnil(ptr noundef readonly cap
 
 54:                                               ; preds = %49
   %55 = zext i16 %44 to i64
-  %56 = getelementptr inbounds nuw %union.IRIns, ptr %10, i64 %55
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %55
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 2
   %58 = load i16, ptr %57, align 2, !tbaa !4
   %59 = load i16, ptr %13, align 2, !tbaa !4
   %60 = zext i16 %58 to i64
-  %61 = getelementptr inbounds nuw %union.IRIns, ptr %10, i64 %60
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %60
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 4
   %63 = load i8, ptr %62, align 4, !tbaa !4
   %64 = zext i8 %63 to i32
   %65 = zext i16 %59 to i64
-  %66 = getelementptr inbounds nuw %union.IRIns, ptr %10, i64 %65
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %65
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 4
   %68 = load i8, ptr %67, align 4, !tbaa !4
   %69 = zext i8 %68 to i32
@@ -3420,7 +3418,7 @@ define hidden range(i32 0, 2) i32 @lj_opt_fwd_wasnonnil(ptr noundef readonly cap
 85:                                               ; preds = %.lr.ph75, %90
   %.248.in74 = phi i16 [ %.248.in72, %.lr.ph75 ], [ %.248.in, %90 ]
   %86 = zext i16 %.248.in74 to i64
-  %87 = getelementptr inbounds nuw %union.IRIns, ptr %40, i64 %86
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %86
   %88 = load i16, ptr %87, align 8, !tbaa !4
   %89 = zext i16 %88 to i32
   %.not = icmp eq i32 %2, %89
@@ -3474,7 +3472,7 @@ define internal fastcc ptr @aa_findcnew(ptr noundef readonly captures(none) %0, 
 10:                                               ; preds = %7
   %11 = load ptr, ptr %6, align 8, !tbaa !7
   %12 = zext i16 %8 to i64
-  %13 = getelementptr inbounds nuw %union.IRIns, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %12
   %14 = tail call fastcc ptr @aa_findcnew(ptr noundef %0, ptr noundef nonnull %13)
   %.not.not = icmp eq ptr %14, null
   br i1 %.not.not, label %15, label %.loopexit
@@ -3488,7 +3486,7 @@ define internal fastcc ptr @aa_findcnew(ptr noundef readonly captures(none) %0, 
 19:                                               ; preds = %15
   %20 = load ptr, ptr %6, align 8, !tbaa !7
   %21 = zext i16 %17 to i64
-  %22 = getelementptr inbounds nuw %union.IRIns, ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 5
   %24 = load i8, ptr %23, align 1, !tbaa !4
   %25 = icmp eq i8 %24, 41

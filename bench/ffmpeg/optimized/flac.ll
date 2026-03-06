@@ -284,7 +284,7 @@ get_utf8.exit:                                    ; preds = %.preheader.i
 
 177:                                              ; preds = %get_utf8.exit
   %178 = zext nneg i32 %41 to i64
-  %179 = getelementptr inbounds nuw i32, ptr @ff_flac_blocksize_table, i64 %178
+  %179 = getelementptr inbounds nuw [4 x i8], ptr @ff_flac_blocksize_table, i64 %178
   %180 = load i32, ptr %179, align 4, !tbaa !23
   br label %181
 
@@ -298,7 +298,7 @@ get_utf8.exit:                                    ; preds = %.preheader.i
 
 185:                                              ; preds = %181
   %186 = zext nneg i32 %51 to i64
-  %187 = getelementptr inbounds nuw i32, ptr @ff_flac_sample_rate_table, i64 %186
+  %187 = getelementptr inbounds nuw [4 x i8], ptr @ff_flac_sample_rate_table, i64 %186
   %188 = load i32, ptr %187, align 4, !tbaa !23
   br label %227
 
@@ -462,7 +462,7 @@ define void @ff_flac_set_channel_layout(ptr noundef %0, i32 noundef %1) local_un
 
 11:                                               ; preds = %9
   %12 = zext nneg i32 %1 to i64
-  %13 = getelementptr %struct.AVChannelLayout, ptr @flac_channel_layouts, i64 %12
+  %13 = getelementptr [24 x i8], ptr @flac_channel_layouts, i64 %12
   %14 = getelementptr i8, ptr %13, i64 -24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false), !tbaa.struct !47
   br label %16
@@ -570,7 +570,7 @@ define range(i32 -1094995529, 1) i32 @ff_flac_parse_streaminfo(ptr noundef %0, p
 61:                                               ; preds = %52, %59
   tail call void @av_channel_layout_uninit(ptr noundef nonnull %55) #6
   %62 = zext nneg i32 %38 to i64
-  %63 = getelementptr %struct.AVChannelLayout, ptr @flac_channel_layouts, i64 %62
+  %63 = getelementptr [24 x i8], ptr @flac_channel_layouts, i64 %62
   %64 = getelementptr i8, ptr %63, i64 -24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %55, ptr noundef nonnull align 8 dereferenceable(24) %64, i64 24, i1 false), !tbaa.struct !47
   br label %ff_flac_set_channel_layout.exit

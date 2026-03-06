@@ -663,7 +663,7 @@ define dso_local ptr @phy_device_create(ptr noundef %0, i32 noundef %1, i32 noun
 38:                                               ; preds = %36, %9
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 2192
   %40 = sext i32 %1 to i64
-  %41 = getelementptr i32, ptr %39, i64 %40
+  %41 = getelementptr [4 x i8], ptr %39, i64 %40
   %42 = load i32, ptr %41, align 4
   %43 = getelementptr inbounds nuw i8, ptr %7, i64 1176
   store i32 %42, ptr %43, align 8
@@ -697,7 +697,7 @@ define dso_local ptr @phy_device_create(ptr noundef %0, i32 noundef %1, i32 noun
 
 58:                                               ; preds = %66, %56
   %59 = phi i64 [ 1, %56 ], [ %67, %66 ]
-  %60 = getelementptr i32, ptr %57, i64 %59
+  %60 = getelementptr [4 x i8], ptr %57, i64 %59
   %61 = load i32, ptr %60, align 4
   %62 = icmp eq i32 %61, -1
   br i1 %62, label %66, label %63
@@ -761,7 +761,7 @@ define internal i32 @phy_bus_match(ptr noundef %0, ptr noundef readonly captures
 
 21:                                               ; preds = %32, %17
   %22 = phi i64 [ 1, %17 ], [ %33, %32 ]
-  %23 = getelementptr i32, ptr %19, i64 %22
+  %23 = getelementptr [4 x i8], ptr %19, i64 %22
   %24 = load i32, ptr %23, align 4
   %25 = icmp eq i32 %24, -1
   br i1 %25, label %32, label %26
@@ -1144,7 +1144,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @get_phy_c45_ids(ptr nounde
 
 67:                                               ; preds = %64
   %68 = shl i32 %65, 16
-  %69 = getelementptr i32, ptr %49, i64 %51
+  %69 = getelementptr [4 x i8], ptr %49, i64 %51
   store i32 %68, ptr %69, align 4
   %70 = tail call i32 @mdiobus_c45_read(ptr noundef %0, i32 noundef %1, i32 noundef %52, i32 noundef 3) #18
   %71 = icmp slt i32 %70, 0
@@ -2430,7 +2430,7 @@ define dso_local noundef range(i32 -22, 1) i32 @phy_package_join(ptr noundef cap
   tail call void @mutex_lock(ptr noundef nonnull %8) #18
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 2368
   %10 = zext nneg i32 %1 to i64
-  %11 = getelementptr ptr, ptr %9, i64 %10
+  %11 = getelementptr [8 x i8], ptr %9, i64 %10
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %29
@@ -2535,7 +2535,7 @@ define dso_local void @phy_package_leave(ptr noundef captures(none) %0) #0 align
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 2368
   %13 = load i8, ptr %3, align 8
   %14 = zext i8 %13 to i64
-  %15 = getelementptr ptr, ptr %12, i64 %14
+  %15 = getelementptr [8 x i8], ptr %12, i64 %14
   store ptr null, ptr %15, align 8
   tail call void @mutex_unlock(ptr noundef nonnull %9) #18
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -2603,7 +2603,7 @@ define internal void @devm_phy_package_leave(ptr readnone captures(none) %0, ptr
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 2368
   %15 = load i8, ptr %5, align 8
   %16 = zext i8 %15 to i64
-  %17 = getelementptr ptr, ptr %14, i64 %16
+  %17 = getelementptr [8 x i8], ptr %14, i64 %16
   store ptr null, ptr %17, align 8
   tail call void @mutex_unlock(ptr noundef nonnull %11) #18
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -4095,7 +4095,7 @@ define dso_local range(i32 -2147483648, 1) i32 @genphy_read_abilities(ptr nounde
 
 3:                                                ; preds = %3, %1
   %4 = phi i64 [ 0, %1 ], [ %8, %3 ]
-  %5 = getelementptr i32, ptr @phy_basic_ports_array, i64 %4
+  %5 = getelementptr [4 x i8], ptr @phy_basic_ports_array, i64 %4
   %6 = load i32, ptr %5, align 4
   %7 = sext i32 %6 to i64
   tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %2, i64 %7) #18, !srcloc !25
@@ -5005,7 +5005,7 @@ define dso_local i32 @phy_drivers_register(ptr noundef %0, i32 noundef %1, ptr n
 
 7:                                                ; preds = %19, %5
   %8 = phi i64 [ 0, %5 ], [ %20, %19 ]
-  %9 = getelementptr %struct.phy_driver, ptr %0, i64 %8
+  %9 = getelementptr [536 x i8], ptr %0, i64 %8
   %10 = tail call i32 @phy_driver_register(ptr noundef %9, ptr noundef %2)
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %19, label %12
@@ -5018,7 +5018,7 @@ define dso_local i32 @phy_drivers_register(ptr noundef %0, i32 noundef %1, ptr n
 .preheader:                                       ; preds = %12, %.preheader
   %15 = phi i64 [ %16, %.preheader ], [ %8, %12 ]
   %16 = add nsw i64 %15, -1
-  %17 = getelementptr %struct.phy_driver, ptr %0, i64 %16
+  %17 = getelementptr [536 x i8], ptr %0, i64 %16
   tail call void @driver_unregister(ptr noundef %17) #18
   %18 = icmp sgt i64 %15, 1
   br i1 %18, label %.preheader, label %.loopexit, !llvm.loop !36
@@ -5053,7 +5053,7 @@ define dso_local void @phy_drivers_unregister(ptr noundef %0, i32 noundef %1) #0
 
 6:                                                ; preds = %6, %4
   %7 = phi i64 [ 0, %4 ], [ %9, %6 ]
-  %8 = getelementptr %struct.phy_driver, ptr %0, i64 %7
+  %8 = getelementptr [536 x i8], ptr %0, i64 %7
   tail call void @driver_unregister(ptr noundef %8) #18
   %9 = add nuw nsw i64 %7, 1
   %10 = icmp eq i64 %9, %5
@@ -5099,7 +5099,7 @@ define internal i32 @phy_init() #12 section ".init.text" align 16 {
 
 .preheader17:                                     ; preds = %0, %.preheader17
   %3 = phi i64 [ %7, %.preheader17 ], [ 0, %0 ]
-  %4 = getelementptr i32, ptr @phy_basic_ports_array, i64 %3
+  %4 = getelementptr [4 x i8], ptr @phy_basic_ports_array, i64 %3
   %5 = load i32, ptr %4, align 4
   %6 = sext i32 %5 to i64
   tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @phy_basic_features, i64 %6) #18, !srcloc !25
@@ -5109,7 +5109,7 @@ define internal i32 @phy_init() #12 section ".init.text" align 16 {
 
 .preheader16:                                     ; preds = %.preheader17, %.preheader16
   %9 = phi i64 [ %13, %.preheader16 ], [ 0, %.preheader17 ]
-  %10 = getelementptr i32, ptr @phy_10_100_features_array, i64 %9
+  %10 = getelementptr [4 x i8], ptr @phy_10_100_features_array, i64 %9
   %11 = load i32, ptr %10, align 4
   %12 = sext i32 %11 to i64
   tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @phy_basic_features, i64 %12) #18, !srcloc !25
@@ -5119,7 +5119,7 @@ define internal i32 @phy_init() #12 section ".init.text" align 16 {
 
 .preheader15:                                     ; preds = %.preheader16, %.preheader15
   %15 = phi i64 [ %19, %.preheader15 ], [ 0, %.preheader16 ]
-  %16 = getelementptr i32, ptr @phy_basic_t1_features_array, i64 %15
+  %16 = getelementptr [4 x i8], ptr @phy_basic_t1_features_array, i64 %15
   %17 = load i32, ptr %16, align 4
   %18 = sext i32 %17 to i64
   tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @phy_basic_t1_features, i64 %18) #18, !srcloc !25
@@ -5129,7 +5129,7 @@ define internal i32 @phy_init() #12 section ".init.text" align 16 {
 
 .preheader14:                                     ; preds = %.preheader15, %.preheader14
   %21 = phi i64 [ %25, %.preheader14 ], [ 0, %.preheader15 ]
-  %22 = getelementptr i32, ptr @phy_basic_t1s_p2mp_features_array, i64 %21
+  %22 = getelementptr [4 x i8], ptr @phy_basic_t1s_p2mp_features_array, i64 %21
   %23 = load i32, ptr %22, align 4
   %24 = sext i32 %23 to i64
   tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @phy_basic_t1s_p2mp_features, i64 %24) #18, !srcloc !25
@@ -5139,7 +5139,7 @@ define internal i32 @phy_init() #12 section ".init.text" align 16 {
 
 .preheader13:                                     ; preds = %.preheader14, %.preheader13
   %27 = phi i64 [ %31, %.preheader13 ], [ 0, %.preheader14 ]
-  %28 = getelementptr i32, ptr @phy_basic_ports_array, i64 %27
+  %28 = getelementptr [4 x i8], ptr @phy_basic_ports_array, i64 %27
   %29 = load i32, ptr %28, align 4
   %30 = sext i32 %29 to i64
   tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @phy_gbit_features, i64 %30) #18, !srcloc !25
@@ -5149,7 +5149,7 @@ define internal i32 @phy_init() #12 section ".init.text" align 16 {
 
 .preheader12:                                     ; preds = %.preheader13, %.preheader12
   %33 = phi i64 [ %37, %.preheader12 ], [ 0, %.preheader13 ]
-  %34 = getelementptr i32, ptr @phy_10_100_features_array, i64 %33
+  %34 = getelementptr [4 x i8], ptr @phy_10_100_features_array, i64 %33
   %35 = load i32, ptr %34, align 4
   %36 = sext i32 %35 to i64
   tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @phy_gbit_features, i64 %36) #18, !srcloc !25
@@ -5159,7 +5159,7 @@ define internal i32 @phy_init() #12 section ".init.text" align 16 {
 
 .preheader11:                                     ; preds = %.preheader12, %.preheader11
   %39 = phi i64 [ %43, %.preheader11 ], [ 0, %.preheader12 ]
-  %40 = getelementptr i32, ptr @phy_gbit_features_array, i64 %39
+  %40 = getelementptr [4 x i8], ptr @phy_gbit_features_array, i64 %39
   %41 = load i32, ptr %40, align 4
   %42 = sext i32 %41 to i64
   tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @phy_gbit_features, i64 %42) #18, !srcloc !25
@@ -5169,7 +5169,7 @@ define internal i32 @phy_init() #12 section ".init.text" align 16 {
 
 .preheader10:                                     ; preds = %.preheader11, %.preheader10
   %45 = phi i64 [ %49, %.preheader10 ], [ 0, %.preheader11 ]
-  %46 = getelementptr i32, ptr @phy_basic_ports_array, i64 %45
+  %46 = getelementptr [4 x i8], ptr @phy_basic_ports_array, i64 %45
   %47 = load i32, ptr %46, align 4
   %48 = sext i32 %47 to i64
   tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @phy_gbit_fibre_features, i64 %48) #18, !srcloc !25
@@ -5179,7 +5179,7 @@ define internal i32 @phy_init() #12 section ".init.text" align 16 {
 
 .preheader9:                                      ; preds = %.preheader10, %.preheader9
   %51 = phi i64 [ %55, %.preheader9 ], [ 0, %.preheader10 ]
-  %52 = getelementptr i32, ptr @phy_10_100_features_array, i64 %51
+  %52 = getelementptr [4 x i8], ptr @phy_10_100_features_array, i64 %51
   %53 = load i32, ptr %52, align 4
   %54 = sext i32 %53 to i64
   tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @phy_gbit_fibre_features, i64 %54) #18, !srcloc !25
@@ -5189,7 +5189,7 @@ define internal i32 @phy_init() #12 section ".init.text" align 16 {
 
 .preheader8:                                      ; preds = %.preheader9, %.preheader8
   %57 = phi i64 [ %61, %.preheader8 ], [ 0, %.preheader9 ]
-  %58 = getelementptr i32, ptr @phy_gbit_features_array, i64 %57
+  %58 = getelementptr [4 x i8], ptr @phy_gbit_features_array, i64 %57
   %59 = load i32, ptr %58, align 4
   %60 = sext i32 %59 to i64
   tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @phy_gbit_fibre_features, i64 %60) #18, !srcloc !25
@@ -5203,7 +5203,7 @@ define internal i32 @phy_init() #12 section ".init.text" align 16 {
 
 64:                                               ; preds = %64, %63
   %65 = phi i64 [ %69, %64 ], [ 0, %63 ]
-  %66 = getelementptr i32, ptr @phy_all_ports_features_array, i64 %65
+  %66 = getelementptr [4 x i8], ptr @phy_all_ports_features_array, i64 %65
   %67 = load i32, ptr %66, align 4
   %68 = sext i32 %67 to i64
   tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @phy_gbit_all_ports_features, i64 %68) #18, !srcloc !25
@@ -5213,7 +5213,7 @@ define internal i32 @phy_init() #12 section ".init.text" align 16 {
 
 .preheader7:                                      ; preds = %64, %.preheader7
   %71 = phi i64 [ %75, %.preheader7 ], [ 0, %64 ]
-  %72 = getelementptr i32, ptr @phy_10_100_features_array, i64 %71
+  %72 = getelementptr [4 x i8], ptr @phy_10_100_features_array, i64 %71
   %73 = load i32, ptr %72, align 4
   %74 = sext i32 %73 to i64
   tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @phy_gbit_all_ports_features, i64 %74) #18, !srcloc !25
@@ -5223,7 +5223,7 @@ define internal i32 @phy_init() #12 section ".init.text" align 16 {
 
 .preheader6:                                      ; preds = %.preheader7, %.preheader6
   %77 = phi i64 [ %81, %.preheader6 ], [ 0, %.preheader7 ]
-  %78 = getelementptr i32, ptr @phy_gbit_features_array, i64 %77
+  %78 = getelementptr [4 x i8], ptr @phy_gbit_features_array, i64 %77
   %79 = load i32, ptr %78, align 4
   %80 = sext i32 %79 to i64
   tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @phy_gbit_all_ports_features, i64 %80) #18, !srcloc !25
@@ -5233,7 +5233,7 @@ define internal i32 @phy_init() #12 section ".init.text" align 16 {
 
 .preheader5:                                      ; preds = %.preheader6, %.preheader5
   %83 = phi i64 [ %87, %.preheader5 ], [ 0, %.preheader6 ]
-  %84 = getelementptr i32, ptr @phy_all_ports_features_array, i64 %83
+  %84 = getelementptr [4 x i8], ptr @phy_all_ports_features_array, i64 %83
   %85 = load i32, ptr %84, align 4
   %86 = sext i32 %85 to i64
   tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @phy_10gbit_features, i64 %86) #18, !srcloc !25
@@ -5243,7 +5243,7 @@ define internal i32 @phy_init() #12 section ".init.text" align 16 {
 
 .preheader4:                                      ; preds = %.preheader5, %.preheader4
   %89 = phi i64 [ %93, %.preheader4 ], [ 0, %.preheader5 ]
-  %90 = getelementptr i32, ptr @phy_10_100_features_array, i64 %89
+  %90 = getelementptr [4 x i8], ptr @phy_10_100_features_array, i64 %89
   %91 = load i32, ptr %90, align 4
   %92 = sext i32 %91 to i64
   tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @phy_10gbit_features, i64 %92) #18, !srcloc !25
@@ -5253,7 +5253,7 @@ define internal i32 @phy_init() #12 section ".init.text" align 16 {
 
 .preheader3:                                      ; preds = %.preheader4, %.preheader3
   %95 = phi i64 [ %99, %.preheader3 ], [ 0, %.preheader4 ]
-  %96 = getelementptr i32, ptr @phy_gbit_features_array, i64 %95
+  %96 = getelementptr [4 x i8], ptr @phy_gbit_features_array, i64 %95
   %97 = load i32, ptr %96, align 4
   %98 = sext i32 %97 to i64
   tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @phy_10gbit_features, i64 %98) #18, !srcloc !25
@@ -5267,7 +5267,7 @@ define internal i32 @phy_init() #12 section ".init.text" align 16 {
 
 102:                                              ; preds = %102, %101
   %103 = phi i64 [ %107, %102 ], [ 0, %101 ]
-  %104 = getelementptr i32, ptr @phy_all_ports_features_array, i64 %103
+  %104 = getelementptr [4 x i8], ptr @phy_all_ports_features_array, i64 %103
   %105 = load i32, ptr %104, align 4
   %106 = sext i32 %105 to i64
   tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @phy_10gbit_full_features, i64 %106) #18, !srcloc !25
@@ -5277,7 +5277,7 @@ define internal i32 @phy_init() #12 section ".init.text" align 16 {
 
 .preheader:                                       ; preds = %102, %.preheader
   %109 = phi i64 [ %113, %.preheader ], [ 0, %102 ]
-  %110 = getelementptr i32, ptr @phy_10gbit_full_features_array, i64 %109
+  %110 = getelementptr [4 x i8], ptr @phy_10gbit_full_features_array, i64 %109
   %111 = load i32, ptr %110, align 4
   %112 = sext i32 %111 to i64
   tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @phy_10gbit_full_features, i64 %112) #18, !srcloc !25
@@ -5291,7 +5291,7 @@ define internal i32 @phy_init() #12 section ".init.text" align 16 {
 
 116:                                              ; preds = %116, %115
   %117 = phi i64 [ %121, %116 ], [ 0, %115 ]
-  %118 = getelementptr i32, ptr @phy_eee_cap1_features_array, i64 %117
+  %118 = getelementptr [4 x i8], ptr @phy_eee_cap1_features_array, i64 %117
   %119 = load i32, ptr %118, align 4
   %120 = sext i32 %119 to i64
   tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @phy_eee_cap1_features, i64 %120) #18, !srcloc !25

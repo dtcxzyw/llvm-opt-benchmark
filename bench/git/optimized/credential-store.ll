@@ -10,7 +10,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.credential = type { %struct.string_list, %struct.strvec, %struct.strvec, %struct.strvec, i16, [2 x i8], %struct.credential_capability, %struct.credential_capability, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr }
 %struct.string_list = type { ptr, i64, i64, i8, ptr }
 %struct.option = type { i32, i32, ptr, ptr, ptr, ptr, i32, ptr, i64, ptr, i64, ptr }
-%struct.string_list_item = type { ptr, ptr }
 
 @.str = private unnamed_addr constant [42 x i8] c"git credential-store [<options>] <action>\00", align 1
 @__const.cmd_credential_store.usage = private unnamed_addr constant [2 x ptr] [ptr @.str, ptr null], align 16
@@ -147,7 +146,7 @@ define dso_local noundef i32 @cmd_credential_store(i32 noundef %0, ptr noundef %
   %46 = getelementptr inbounds nuw i8, ptr %.010.i36, i64 16
   %47 = load ptr, ptr %8, align 8, !tbaa !22
   %48 = load i64, ptr %33, align 8, !tbaa !17
-  %49 = getelementptr inbounds nuw %struct.string_list_item, ptr %47, i64 %48
+  %49 = getelementptr inbounds nuw [16 x i8], ptr %47, i64 %48
   %50 = icmp ult ptr %46, %49
   br i1 %50, label %.lr.ph37, label %lookup_credential.exit
 
@@ -203,7 +202,7 @@ define dso_local noundef i32 @cmd_credential_store(i32 noundef %0, ptr noundef %
   %70 = getelementptr inbounds nuw i8, ptr %.019.i34, i64 16
   %71 = load ptr, ptr %8, align 8, !tbaa !22
   %72 = load i64, ptr %33, align 8, !tbaa !17
-  %73 = getelementptr inbounds nuw %struct.string_list_item, ptr %71, i64 %72
+  %73 = getelementptr inbounds nuw [16 x i8], ptr %71, i64 %72
   %74 = icmp ult ptr %70, %73
   br i1 %74, label %.lr.ph35, label %lookup_credential.exit
 
@@ -261,7 +260,7 @@ define dso_local noundef i32 @cmd_credential_store(i32 noundef %0, ptr noundef %
   %95 = getelementptr inbounds nuw i8, ptr %.026.i33, i64 16
   %96 = load ptr, ptr %8, align 8, !tbaa !22
   %97 = load i64, ptr %33, align 8, !tbaa !17
-  %98 = getelementptr inbounds nuw %struct.string_list_item, ptr %96, i64 %97
+  %98 = getelementptr inbounds nuw [16 x i8], ptr %96, i64 %97
   %99 = icmp ult ptr %95, %98
   br i1 %99, label %.lr.ph, label %.critedge.i
 

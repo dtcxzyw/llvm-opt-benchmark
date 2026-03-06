@@ -3,13 +3,12 @@ source_filename = "bench/assimp/original/TargetAnimation.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.aiVectorKey = type { double, %class.aiVector3t, i32 }
-%class.aiVector3t = type { float, float, float }
 %"class.std::vector" = type { %"struct.std::_Vector_base" }
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<aiVectorKey, std::allocator<aiVectorKey>>::_Vector_impl" }
 %"struct.std::_Vector_base<aiVectorKey, std::allocator<aiVectorKey>>::_Vector_impl" = type { %"struct.std::_Vector_base<aiVectorKey, std::allocator<aiVectorKey>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<aiVectorKey, std::allocator<aiVectorKey>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.Assimp::KeyIterator" = type { i8, %class.aiVector3t, %class.aiVector3t, double, ptr, ptr, i32, i32, %"class.std::vector", %"class.std::vector" }
+%class.aiVector3t = type { float, float, float }
 
 $_ZNSt6vectorI11aiVectorKeySaIS0_EEaSERKS2_ = comdat any
 
@@ -203,7 +202,7 @@ define hidden void @_ZN6Assimp11KeyIteratorppEv(ptr noundef nonnull align 8 capt
   unreachable
 
 _ZNKSt6vectorI11aiVectorKeySaIS0_EE2atEm.exit:    ; preds = %4
-  %20 = getelementptr inbounds nuw %struct.aiVectorKey, ptr %10, i64 %18
+  %20 = getelementptr inbounds nuw [24 x i8], ptr %10, i64 %18
   %21 = load double, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %23 = load ptr, ptr %22, align 8
@@ -228,7 +227,7 @@ _ZNKSt6vectorI11aiVectorKeySaIS0_EE2atEm.exit:    ; preds = %4
   unreachable
 
 _ZNKSt6vectorI11aiVectorKeySaIS0_EE2atEm.exit37:  ; preds = %_ZNKSt6vectorI11aiVectorKeySaIS0_EE2atEm.exit
-  %37 = getelementptr inbounds nuw %struct.aiVectorKey, ptr %27, i64 %35
+  %37 = getelementptr inbounds nuw [24 x i8], ptr %27, i64 %35
   %38 = load double, ptr %37, align 8
   %39 = fcmp oeq double %21, %38
   br i1 %39, label %40, label %86
@@ -251,7 +250,7 @@ _ZNKSt6vectorI11aiVectorKeySaIS0_EE2atEm.exit37:  ; preds = %_ZNKSt6vectorI11aiV
   unreachable
 
 _ZNKSt6vectorI11aiVectorKeySaIS0_EE2atEm.exit39:  ; preds = %40
-  %50 = getelementptr inbounds nuw %struct.aiVectorKey, ptr %44, i64 %42
+  %50 = getelementptr inbounds nuw [24 x i8], ptr %44, i64 %42
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %52, ptr noundef nonnull align 8 dereferenceable(12) %51, i64 12, i1 false)
@@ -270,7 +269,7 @@ _ZNKSt6vectorI11aiVectorKeySaIS0_EE2atEm.exit39:  ; preds = %40
   unreachable
 
 _ZNKSt6vectorI11aiVectorKeySaIS0_EE2atEm.exit41:  ; preds = %_ZNKSt6vectorI11aiVectorKeySaIS0_EE2atEm.exit39
-  %61 = getelementptr inbounds nuw %struct.aiVectorKey, ptr %55, i64 %53
+  %61 = getelementptr inbounds nuw [24 x i8], ptr %55, i64 %53
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %63, ptr noundef nonnull align 8 dereferenceable(12) %62, i64 12, i1 false)
@@ -352,8 +351,8 @@ _ZNKSt6vectorI11aiVectorKeySaIS0_EE2atEm.exit43:  ; preds = %97
 _ZNKSt6vectorI11aiVectorKeySaIS0_EE2atEm.exit45:  ; preds = %101
   %104 = add i32 %34, -1
   %105 = zext i32 %104 to i64
-  %106 = getelementptr inbounds nuw %struct.aiVectorKey, ptr %91, i64 %102
-  %107 = getelementptr inbounds nuw %struct.aiVectorKey, ptr %91, i64 %105
+  %106 = getelementptr inbounds nuw [24 x i8], ptr %91, i64 %102
+  %107 = getelementptr inbounds nuw [24 x i8], ptr %91, i64 %105
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 8
   %109 = getelementptr inbounds nuw i8, ptr %106, i64 8
   %110 = load double, ptr %107, align 8
@@ -445,8 +444,8 @@ _ZNKSt6vectorI11aiVectorKeySaIS0_EE2atEm.exit49:  ; preds = %155
 _ZNKSt6vectorI11aiVectorKeySaIS0_EE2atEm.exit51:  ; preds = %159
   %162 = add i32 %17, -1
   %163 = zext i32 %162 to i64
-  %164 = getelementptr inbounds nuw %struct.aiVectorKey, ptr %149, i64 %160
-  %165 = getelementptr inbounds nuw %struct.aiVectorKey, ptr %149, i64 %163
+  %164 = getelementptr inbounds nuw [24 x i8], ptr %149, i64 %160
+  %165 = getelementptr inbounds nuw [24 x i8], ptr %149, i64 %163
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 8
   %167 = getelementptr inbounds nuw i8, ptr %164, i64 8
   %168 = load double, ptr %165, align 8
@@ -633,7 +632,7 @@ _ZNSt12_Vector_baseI11aiVectorKeySaIS0_EE13_M_deallocateEPS0_m.exit.i: ; preds =
   store ptr %37, ptr %8, align 8
   %41 = getelementptr inbounds nuw i8, ptr %37, i64 %35
   store ptr %41, ptr %.sroa.sel49.v.sroa.sel.v.sroa.sel, align 8
-  %42 = getelementptr inbounds nuw %struct.aiVectorKey, ptr %37, i64 %.sroa.speculated
+  %42 = getelementptr inbounds nuw [24 x i8], ptr %37, i64 %.sroa.speculated
   store ptr %42, ptr %.sroa.sel, align 8
   %.pre = load ptr, ptr %5, align 8
   %.pre68 = load ptr, ptr %0, align 8
@@ -756,7 +755,7 @@ _ZNSt6vectorI11aiVectorKeySaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i.i.i: ; p
 _ZNSt6vectorI11aiVectorKeySaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i: ; preds = %94, %_ZNSt6vectorI11aiVectorKeySaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i.i.i
   store ptr %89, ptr %8, align 8
   store ptr %93, ptr %.sroa.sel52.v.sroa.sel, align 8
-  %95 = getelementptr inbounds nuw %struct.aiVectorKey, ptr %89, i64 %87
+  %95 = getelementptr inbounds nuw [24 x i8], ptr %89, i64 %87
   store ptr %95, ptr %.sroa.sel, align 8
   br label %_ZNSt6vectorI11aiVectorKeySaIS0_EE9push_backEOS0_.exit
 
@@ -1134,9 +1133,9 @@ _ZNSt6vectorI11aiVectorKeySaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit: ; preds = %
 
 _ZNSt12_Vector_baseI11aiVectorKeySaIS0_EE13_M_deallocateEPS0_m.exit41: ; preds = %_ZNSt6vectorI11aiVectorKeySaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, %35
   store ptr %28, ptr %0, align 8
-  %37 = getelementptr inbounds nuw %struct.aiVectorKey, ptr %29, i64 %1
+  %37 = getelementptr inbounds nuw [24 x i8], ptr %29, i64 %1
   store ptr %37, ptr %4, align 8
-  %38 = getelementptr inbounds nuw %struct.aiVectorKey, ptr %28, i64 %26
+  %38 = getelementptr inbounds nuw [24 x i8], ptr %28, i64 %26
   store ptr %38, ptr %11, align 8
   br label %39
 

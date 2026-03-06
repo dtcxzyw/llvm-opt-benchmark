@@ -10,8 +10,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.anon = type { ptr, ptr, ptr }
 %struct.anon.0 = type { ptr, ptr, ptr }
 %struct.decode_as_s = type { ptr, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.uat_esp_sa_record_t = type { i8, ptr, ptr, ptr, i8, ptr, ptr, i32, i8, ptr, i8, ptr, ptr, i32, i8, i32 }
-%struct._value_string = type { i32, ptr }
 
 @extra_esp_sa_records.0 = internal unnamed_addr global i32 0, align 8
 @extra_esp_sa_records.1 = internal unnamed_addr global ptr null, align 8
@@ -338,7 +336,7 @@ define void @esp_sa_record_add_from_dissector(i8 noundef zeroext %0, ptr noundef
   %19 = add nuw nsw i32 %15, 1
   store i32 %19, ptr @extra_esp_sa_records.0, align 8
   %20 = zext nneg i32 %15 to i64
-  %21 = getelementptr %struct.uat_esp_sa_record_t, ptr %18, i64 %20
+  %21 = getelementptr [112 x i8], ptr %18, i64 %20
   store i8 %0, ptr %21, align 8
   %22 = tail call noalias ptr @g_strdup(ptr noundef %1)
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
@@ -583,7 +581,7 @@ define internal void @uat_esp_sa_records_protocol_set_cb(ptr noundef writeonly c
   %.01622 = phi i32 [ %11, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %11 = add i32 %.01622, 1
   %12 = zext i32 %11 to i64
-  %13 = getelementptr %struct._value_string, ptr %3, i64 %12
+  %13 = getelementptr [16 x i8], ptr %3, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   %.not = icmp eq ptr %15, null
@@ -624,7 +622,7 @@ define internal void @uat_esp_sa_records_protocol_tostr_cb(ptr noundef readonly 
   %.01520 = phi i32 [ %12, %17 ], [ 0, %.lr.ph ]
   %12 = add i32 %.01520, 1
   %13 = zext i32 %12 to i64
-  %14 = getelementptr %struct._value_string, ptr %3, i64 %13
+  %14 = getelementptr [16 x i8], ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
@@ -788,7 +786,7 @@ define internal void @uat_esp_sa_records_encryption_algo_set_cb(ptr noundef writ
   %.01622 = phi i32 [ %12, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %12 = add i32 %.01622, 1
   %13 = zext i32 %12 to i64
-  %14 = getelementptr %struct._value_string, ptr %3, i64 %13
+  %14 = getelementptr [16 x i8], ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
@@ -830,7 +828,7 @@ define internal void @uat_esp_sa_records_encryption_algo_tostr_cb(ptr noundef re
   %.01520 = phi i32 [ %13, %18 ], [ 0, %.lr.ph ]
   %13 = add i32 %.01520, 1
   %14 = zext i32 %13 to i64
-  %15 = getelementptr %struct._value_string, ptr %3, i64 %14
+  %15 = getelementptr [16 x i8], ptr %3, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
   %.not = icmp eq ptr %17, null
@@ -917,7 +915,7 @@ define internal void @uat_esp_sa_records_authentication_algo_set_cb(ptr noundef 
   %.01622 = phi i32 [ %12, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %12 = add i32 %.01622, 1
   %13 = zext i32 %12 to i64
-  %14 = getelementptr %struct._value_string, ptr %3, i64 %13
+  %14 = getelementptr [16 x i8], ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
@@ -959,7 +957,7 @@ define internal void @uat_esp_sa_records_authentication_algo_tostr_cb(ptr nounde
   %.01520 = phi i32 [ %13, %18 ], [ 0, %.lr.ph ]
   %13 = add i32 %.01520, 1
   %14 = zext i32 %13 to i64
-  %15 = getelementptr %struct._value_string, ptr %3, i64 %14
+  %15 = getelementptr [16 x i8], ptr %3, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
   %.not = icmp eq ptr %17, null
@@ -1046,7 +1044,7 @@ define internal void @uat_esp_sa_records_sn_length_set_cb(ptr noundef writeonly 
   %.01622 = phi i32 [ %12, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %12 = add i32 %.01622, 1
   %13 = zext i32 %12 to i64
-  %14 = getelementptr %struct._value_string, ptr %3, i64 %13
+  %14 = getelementptr [16 x i8], ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
@@ -1088,7 +1086,7 @@ define internal void @uat_esp_sa_records_sn_length_tostr_cb(ptr noundef readonly
   %.01520 = phi i32 [ %13, %18 ], [ 0, %.lr.ph ]
   %13 = add i32 %.01520, 1
   %14 = zext i32 %13 to i64
-  %15 = getelementptr %struct._value_string, ptr %3, i64 %14
+  %15 = getelementptr [16 x i8], ptr %3, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
   %.not = icmp eq ptr %17, null
@@ -1399,7 +1397,7 @@ define internal void @ipsec_cleanup_protocol() #0 {
 .lr.ph:                                           ; preds = %0, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %0 ]
   %2 = load ptr, ptr @extra_esp_sa_records.1, align 8
-  %3 = getelementptr %struct.uat_esp_sa_record_t, ptr %2, i64 %indvars.iv
+  %3 = getelementptr [112 x i8], ptr %2, i64 %indvars.iv
   tail call void @uat_esp_sa_record_free_cb(ptr noundef %3)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %4 = load i32, ptr @extra_esp_sa_records.0, align 8
@@ -1681,7 +1679,7 @@ show_esp_sequence_info.exit:                      ; preds = %115, %112, %107, %c
   %.1.i = phi i32 [ %.04558.i767, %152 ], [ %151, %150 ]
   %.sink.i = load ptr, ptr %.sink.in.i, align 8
   %155 = zext i32 %.04657.sink.i to i64
-  %156 = getelementptr %struct.uat_esp_sa_record_t, ptr %.sink.i, i64 %155
+  %156 = getelementptr [112 x i8], ptr %.sink.i, i64 %155
   %157 = load i8, ptr %156, align 8
   %158 = zext i8 %157 to i32
   %159 = icmp eq i32 %switch.select501, %158
@@ -1809,7 +1807,7 @@ get_esp_sa.exit:                                  ; preds = %200
 
 switch.lookup:                                    ; preds = %get_esp_sa.exit
   %228 = zext nneg i8 %204 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.dissect_esp, i64 %228
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_esp, i64 %228
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %229
 
@@ -1821,7 +1819,7 @@ switch.lookup:                                    ; preds = %get_esp_sa.exit
 
 switch.lookup902:                                 ; preds = %229
   %231 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep903 = getelementptr inbounds nuw i32, ptr @switch.table.dissect_esp.1, i64 %231
+  %switch.gep903 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_esp.1, i64 %231
   %switch.load904 = load i32, ptr %switch.gep903, align 4
   br label %232
 
@@ -1880,7 +1878,7 @@ switch.lookup902:                                 ; preds = %229
 
 switch.lookup906:                                 ; preds = %257
   %259 = zext nneg i8 %switch.tableidx905 to i64
-  %switch.gep907 = getelementptr inbounds nuw i32, ptr @switch.table.dissect_esp.2, i64 %259
+  %switch.gep907 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_esp.2, i64 %259
   %switch.load908 = load i32, ptr %switch.gep907, align 4
   %260 = load ptr, ptr %131, align 8
   %261 = sub i32 %118, %.2423
@@ -2238,7 +2236,7 @@ switch.lookup906:                                 ; preds = %257
   %415 = load i32, ptr @hf_esp_encrypted_data, align 4
   %416 = call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %415, ptr noundef %0, i32 noundef %.1431, i32 noundef %404, i32 noundef 0)
   %417 = zext nneg i32 %.0606 to i64
-  %418 = getelementptr %struct._value_string, ptr @esp_encryption_type_vals, i64 %417
+  %418 = getelementptr [16 x i8], ptr @esp_encryption_type_vals, i64 %417
   %419 = getelementptr inbounds nuw i8, ptr %418, i64 8
   %420 = load ptr, ptr %419, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %416, ptr noundef nonnull @.str.196, i32 noundef %404, ptr noundef %420)
@@ -2279,7 +2277,7 @@ switch.lookup906:                                 ; preds = %257
 
 436:                                              ; preds = %433
   %437 = zext i8 %204 to i64
-  %438 = getelementptr %struct._value_string, ptr @esp_authentication_type_vals, i64 %437
+  %438 = getelementptr [16 x i8], ptr @esp_authentication_type_vals, i64 %437
   %439 = getelementptr inbounds nuw i8, ptr %438, i64 8
   %440 = load ptr, ptr %439, align 8
   br label %441
@@ -2886,7 +2884,7 @@ export_ipsec_pdu.exit.i:                          ; preds = %744, %741
 
 766:                                              ; preds = %740, %728, %710, %706
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %767 = getelementptr i32, ptr @esp_null_heur.icv_lengths, i64 %indvars.iv.next.i
+  %767 = getelementptr [4 x i8], ptr @esp_null_heur.icv_lengths, i64 %indvars.iv.next.i
   %768 = load i32, ptr %767, align 4
   %.not.i506 = icmp eq i64 %indvars.iv.next.i, 4
   br i1 %.not.i506, label %esp_null_heur.exit, label %706, !llvm.loop !43

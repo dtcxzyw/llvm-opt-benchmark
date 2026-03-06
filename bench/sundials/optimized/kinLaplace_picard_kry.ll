@@ -238,38 +238,38 @@ define internal noundef i32 @func(ptr noundef %0, ptr noundef %1, ptr readnone c
   br i1 %7, label %.thread.us.preheader, label %.preheader.split.preheader
 
 .preheader.split.preheader:                       ; preds = %.preheader
-  %10 = getelementptr double, ptr %4, i64 %indvars.iv57
+  %10 = getelementptr [8 x i8], ptr %4, i64 %indvars.iv57
   %11 = getelementptr i8, ptr %10, i64 -16
-  %invariant.gep = getelementptr double, ptr %4, i64 %indvars.iv57
-  %invariant.gep63 = getelementptr double, ptr %4, i64 %8
-  %invariant.gep65 = getelementptr double, ptr %4, i64 %6
+  %invariant.gep = getelementptr [8 x i8], ptr %4, i64 %indvars.iv57
+  %invariant.gep63 = getelementptr [8 x i8], ptr %4, i64 %8
+  %invariant.gep65 = getelementptr [8 x i8], ptr %4, i64 %6
   br label %.preheader.split
 
 .thread.us.preheader:                             ; preds = %.preheader
-  %invariant.gep67 = getelementptr double, ptr %4, i64 %8
+  %invariant.gep67 = getelementptr [8 x i8], ptr %4, i64 %8
   br label %.thread.us
 
 .thread.us:                                       ; preds = %.thread.us.preheader, %26
   %indvars.iv52 = phi i64 [ 1, %.thread.us.preheader ], [ %indvars.iv.next53, %26 ]
   %12 = mul nuw nsw i64 %indvars.iv52, 31
   %13 = add nsw i64 %12, -31
-  %14 = getelementptr inbounds double, ptr %4, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %4, i64 %13
   %15 = load double, ptr %14, align 8, !tbaa !12
-  %16 = getelementptr double, ptr %4, i64 %12
+  %16 = getelementptr [8 x i8], ptr %4, i64 %12
   %17 = getelementptr i8, ptr %16, i64 -240
   %18 = load double, ptr %17, align 8, !tbaa !12
   %19 = icmp eq i64 %indvars.iv52, 1
   br i1 %19, label %.thread46.us, label %20
 
 20:                                               ; preds = %.thread.us
-  %gep68 = getelementptr double, ptr %invariant.gep67, i64 %12
+  %gep68 = getelementptr [8 x i8], ptr %invariant.gep67, i64 %12
   %21 = load double, ptr %gep68, align 8, !tbaa !12
   %22 = icmp eq i64 %indvars.iv52, 31
   br i1 %22, label %26, label %.thread46.us
 
 .thread46.us:                                     ; preds = %20, %.thread.us
   %23 = phi double [ %21, %20 ], [ 0.000000e+00, %.thread.us ]
-  %24 = getelementptr inbounds nuw double, ptr %4, i64 %12
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %12
   %25 = load double, ptr %24, align 8, !tbaa !12
   br label %26
 
@@ -288,7 +288,7 @@ define internal noundef i32 @func(ptr noundef %0, ptr noundef %1, ptr readnone c
   %38 = fmul double %15, %37
   %39 = tail call double @llvm.fmuladd.f64(double %38, double %15, double %36)
   %40 = fadd double %39, 2.000000e+00
-  %41 = getelementptr inbounds double, ptr %5, i64 %13
+  %41 = getelementptr inbounds [8 x i8], ptr %5, i64 %13
   store double %40, ptr %41, align 8, !tbaa !12
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
   %exitcond56.not = icmp eq i64 %indvars.iv.next53, 32
@@ -299,14 +299,14 @@ define internal noundef i32 @func(ptr noundef %0, ptr noundef %1, ptr readnone c
   %42 = mul nuw nsw i64 %indvars.iv, 31
   %43 = add nsw i64 %42, -31
   %44 = add nuw nsw i64 %43, %6
-  %45 = getelementptr inbounds double, ptr %4, i64 %44
+  %45 = getelementptr inbounds [8 x i8], ptr %4, i64 %44
   %46 = load double, ptr %45, align 8, !tbaa !12
-  %47 = getelementptr double, ptr %11, i64 %43
+  %47 = getelementptr [8 x i8], ptr %11, i64 %43
   %48 = load double, ptr %47, align 8, !tbaa !12
   br i1 %9, label %50, label %.thread
 
 .thread:                                          ; preds = %.preheader.split
-  %gep = getelementptr double, ptr %invariant.gep, i64 %43
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %43
   %49 = load double, ptr %gep, align 8, !tbaa !12
   br label %50
 
@@ -316,14 +316,14 @@ define internal noundef i32 @func(ptr noundef %0, ptr noundef %1, ptr readnone c
   br i1 %52, label %.thread46, label %53
 
 53:                                               ; preds = %50
-  %gep64 = getelementptr double, ptr %invariant.gep63, i64 %42
+  %gep64 = getelementptr [8 x i8], ptr %invariant.gep63, i64 %42
   %54 = load double, ptr %gep64, align 8, !tbaa !12
   %55 = icmp eq i64 %indvars.iv, 31
   br i1 %55, label %58, label %.thread46
 
 .thread46:                                        ; preds = %50, %53
   %56 = phi double [ %54, %53 ], [ 0.000000e+00, %50 ]
-  %gep66 = getelementptr double, ptr %invariant.gep65, i64 %42
+  %gep66 = getelementptr [8 x i8], ptr %invariant.gep65, i64 %42
   %57 = load double, ptr %gep66, align 8, !tbaa !12
   br label %58
 
@@ -342,7 +342,7 @@ define internal noundef i32 @func(ptr noundef %0, ptr noundef %1, ptr readnone c
   %70 = fmul double %46, %69
   %71 = tail call double @llvm.fmuladd.f64(double %70, double %46, double %68)
   %72 = fadd double %71, 2.000000e+00
-  %73 = getelementptr inbounds double, ptr %5, i64 %44
+  %73 = getelementptr inbounds [8 x i8], ptr %5, i64 %44
   store double %72, ptr %73, align 8, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
@@ -383,38 +383,38 @@ define internal noundef i32 @jactimes(ptr noundef %0, ptr noundef %1, ptr readno
   br i1 %9, label %.thread.us.preheader, label %.preheader.split.preheader
 
 .preheader.split.preheader:                       ; preds = %.preheader
-  %12 = getelementptr double, ptr %6, i64 %indvars.iv53
+  %12 = getelementptr [8 x i8], ptr %6, i64 %indvars.iv53
   %13 = getelementptr i8, ptr %12, i64 -16
-  %invariant.gep = getelementptr double, ptr %6, i64 %indvars.iv53
-  %invariant.gep59 = getelementptr double, ptr %6, i64 %10
-  %invariant.gep61 = getelementptr double, ptr %6, i64 %8
+  %invariant.gep = getelementptr [8 x i8], ptr %6, i64 %indvars.iv53
+  %invariant.gep59 = getelementptr [8 x i8], ptr %6, i64 %10
+  %invariant.gep61 = getelementptr [8 x i8], ptr %6, i64 %8
   br label %.preheader.split
 
 .thread.us.preheader:                             ; preds = %.preheader
-  %invariant.gep63 = getelementptr double, ptr %6, i64 %10
+  %invariant.gep63 = getelementptr [8 x i8], ptr %6, i64 %10
   br label %.thread.us
 
 .thread.us:                                       ; preds = %.thread.us.preheader, %28
   %indvars.iv48 = phi i64 [ 1, %.thread.us.preheader ], [ %indvars.iv.next49, %28 ]
   %14 = mul nuw nsw i64 %indvars.iv48, 31
   %15 = add nsw i64 %14, -31
-  %16 = getelementptr inbounds double, ptr %6, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %6, i64 %15
   %17 = load double, ptr %16, align 8, !tbaa !12
-  %18 = getelementptr double, ptr %6, i64 %14
+  %18 = getelementptr [8 x i8], ptr %6, i64 %14
   %19 = getelementptr i8, ptr %18, i64 -240
   %20 = load double, ptr %19, align 8, !tbaa !12
   %21 = icmp eq i64 %indvars.iv48, 1
   br i1 %21, label %.thread42.us, label %22
 
 22:                                               ; preds = %.thread.us
-  %gep64 = getelementptr double, ptr %invariant.gep63, i64 %14
+  %gep64 = getelementptr [8 x i8], ptr %invariant.gep63, i64 %14
   %23 = load double, ptr %gep64, align 8, !tbaa !12
   %24 = icmp eq i64 %indvars.iv48, 31
   br i1 %24, label %28, label %.thread42.us
 
 .thread42.us:                                     ; preds = %22, %.thread.us
   %25 = phi double [ %23, %22 ], [ 0.000000e+00, %.thread.us ]
-  %26 = getelementptr inbounds nuw double, ptr %6, i64 %14
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %14
   %27 = load double, ptr %26, align 8, !tbaa !12
   br label %28
 
@@ -428,7 +428,7 @@ define internal noundef i32 @jactimes(ptr noundef %0, ptr noundef %1, ptr readno
   %35 = fadd double %34, 0.000000e+00
   %36 = fmul double %35, 1.024000e+03
   %37 = fadd double %36, %33
-  %38 = getelementptr inbounds double, ptr %7, i64 %15
+  %38 = getelementptr inbounds [8 x i8], ptr %7, i64 %15
   store double %37, ptr %38, align 8, !tbaa !12
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %exitcond52.not = icmp eq i64 %indvars.iv.next49, 32
@@ -439,14 +439,14 @@ define internal noundef i32 @jactimes(ptr noundef %0, ptr noundef %1, ptr readno
   %39 = mul nuw nsw i64 %indvars.iv, 31
   %40 = add nsw i64 %39, -31
   %41 = add nuw nsw i64 %40, %8
-  %42 = getelementptr inbounds double, ptr %6, i64 %41
+  %42 = getelementptr inbounds [8 x i8], ptr %6, i64 %41
   %43 = load double, ptr %42, align 8, !tbaa !12
-  %44 = getelementptr double, ptr %13, i64 %40
+  %44 = getelementptr [8 x i8], ptr %13, i64 %40
   %45 = load double, ptr %44, align 8, !tbaa !12
   br i1 %11, label %47, label %.thread
 
 .thread:                                          ; preds = %.preheader.split
-  %gep = getelementptr double, ptr %invariant.gep, i64 %40
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %40
   %46 = load double, ptr %gep, align 8, !tbaa !12
   br label %47
 
@@ -456,14 +456,14 @@ define internal noundef i32 @jactimes(ptr noundef %0, ptr noundef %1, ptr readno
   br i1 %49, label %.thread42, label %50
 
 50:                                               ; preds = %47
-  %gep60 = getelementptr double, ptr %invariant.gep59, i64 %39
+  %gep60 = getelementptr [8 x i8], ptr %invariant.gep59, i64 %39
   %51 = load double, ptr %gep60, align 8, !tbaa !12
   %52 = icmp eq i64 %indvars.iv, 31
   br i1 %52, label %55, label %.thread42
 
 .thread42:                                        ; preds = %47, %50
   %53 = phi double [ %51, %50 ], [ 0.000000e+00, %47 ]
-  %gep62 = getelementptr double, ptr %invariant.gep61, i64 %39
+  %gep62 = getelementptr [8 x i8], ptr %invariant.gep61, i64 %39
   %54 = load double, ptr %gep62, align 8, !tbaa !12
   br label %55
 
@@ -477,7 +477,7 @@ define internal noundef i32 @jactimes(ptr noundef %0, ptr noundef %1, ptr readno
   %62 = fadd double %45, %61
   %63 = fmul double %62, 1.024000e+03
   %64 = fadd double %63, %60
-  %65 = getelementptr inbounds double, ptr %7, i64 %41
+  %65 = getelementptr inbounds [8 x i8], ptr %7, i64 %41
   store double %64, ptr %65, align 8, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
@@ -525,7 +525,7 @@ define internal fastcc void @PrintOutput(ptr noundef %0) unnamed_addr #0 {
   %13 = uitofp nneg i32 %12 to double
   %14 = fmul nnan double %13, 3.125000e-02
   %15 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.22, double noundef %14)
-  %invariant.gep = getelementptr double, ptr %2, i64 %indvars.iv20
+  %invariant.gep = getelementptr [8 x i8], ptr %2, i64 %indvars.iv20
   br label %16
 
 16:                                               ; preds = %11, %16

@@ -1304,7 +1304,7 @@ define hidden noundef range(i8 0, -125) i8 @_ZN12typst_syntax5lexer5Lexer4next17
   tail call void @llvm.assume(i1 %32)
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %34 = load ptr, ptr %33, align 8, !alias.scope !93, !nonnull !7, !noundef !7
-  %35 = getelementptr inbounds { i8, [7 x i8], i64 }, ptr %34, i64 %30
+  %35 = getelementptr inbounds [16 x i8], ptr %34, i64 %30
   %36 = load i8, ptr %35, align 8, !range !99, !noalias !93, !noundef !7
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %38 = load i64, ptr %37, align 8, !noalias !93, !noundef !7
@@ -5783,7 +5783,7 @@ define internal fastcc noundef range(i8 12, -127) i8 @_ZN12typst_syntax5lexer5Le
 _ZN12typst_syntax5lexer5Lexer8push_raw17h1b50d60c46aa1239E.exit: ; preds = %30, %34
   %35 = phi i64 [ %.pre.i.i, %34 ], [ 0, %30 ]
   %36 = load ptr, ptr %15, align 8, !alias.scope !984, !nonnull !7, !noundef !7
-  %37 = getelementptr inbounds { i8, [7 x i8], i64 }, ptr %36, i64 %35
+  %37 = getelementptr inbounds [16 x i8], ptr %36, i64 %35
   store i8 12, ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store i64 %25, ptr %38, align 8
@@ -5997,7 +5997,7 @@ _ZN8unscanny7Scanner4snap17h2e39fcdb92f477b4E.llvm.1264627266016737169.exit27: ;
 _ZN12typst_syntax5lexer5Lexer8push_raw17h1b50d60c46aa1239E.exit29: ; preds = %_ZN8unscanny7Scanner4snap17h2e39fcdb92f477b4E.llvm.1264627266016737169.exit27, %128
   %129 = phi i64 [ %.pre.i.i28, %128 ], [ 0, %_ZN8unscanny7Scanner4snap17h2e39fcdb92f477b4E.llvm.1264627266016737169.exit27 ]
   %130 = load ptr, ptr %15, align 8, !alias.scope !1015, !nonnull !7, !noundef !7
-  %131 = getelementptr inbounds { i8, [7 x i8], i64 }, ptr %130, i64 %129
+  %131 = getelementptr inbounds [16 x i8], ptr %130, i64 %129
   store i8 1, ptr %131, align 8
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 8
   store i64 %.0.lcssa.i26, ptr %132, align 8
@@ -6160,7 +6160,7 @@ _ZN8unscanny7Scanner4snap17h2e39fcdb92f477b4E.llvm.1264627266016737169.exit.i: ;
 _ZN12typst_syntax5lexer5Lexer8push_raw17h1b50d60c46aa1239E.exit.i: ; preds = %208, %201
   %209 = phi i64 [ %.pre.i.i.i, %208 ], [ %205, %201 ]
   %210 = load ptr, ptr %15, align 8, !alias.scope !1050, !nonnull !7, !noundef !7
-  %211 = getelementptr inbounds { i8, [7 x i8], i64 }, ptr %210, i64 %209
+  %211 = getelementptr inbounds [16 x i8], ptr %210, i64 %209
   store i8 11, ptr %211, align 8
   %212 = getelementptr inbounds nuw i8, ptr %211, i64 8
   store i64 %203, ptr %212, align 8
@@ -6351,7 +6351,7 @@ _ZN8unscanny7Scanner4snap17h2e39fcdb92f477b4E.llvm.1264627266016737169.exit83.i:
   %281 = load ptr, ptr %280, align 8, !noalias !1026, !nonnull !7, !noundef !7
   %282 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %283 = load i64, ptr %282, align 8, !noalias !1026, !noundef !7
-  %284 = getelementptr { ptr, i64 }, ptr %281, i64 %283
+  %284 = getelementptr [16 x i8], ptr %281, i64 %283
   %.not.i37 = icmp eq i64 %283, 0
   %285 = getelementptr i8, ptr %284, i64 -16
   %.062.i = select i1 %.not.i37, ptr null, ptr %285
@@ -6959,7 +6959,7 @@ _ZN8unscanny7Scanner4snap17h2e39fcdb92f477b4E.llvm.1264627266016737169.exit117.i
 _ZN12typst_syntax5lexer5Lexer8push_raw17h1b50d60c46aa1239E.exit126.i: ; preds = %.noexc125.i, %_ZN8unscanny7Scanner4snap17h2e39fcdb92f477b4E.llvm.1264627266016737169.exit117.i
   %562 = phi i64 [ %.pre.i.i124.i, %.noexc125.i ], [ %559, %_ZN8unscanny7Scanner4snap17h2e39fcdb92f477b4E.llvm.1264627266016737169.exit117.i ]
   %563 = load ptr, ptr %15, align 8, !alias.scope !1210, !nonnull !7, !noundef !7
-  %564 = getelementptr inbounds { i8, [7 x i8], i64 }, ptr %563, i64 %562
+  %564 = getelementptr inbounds [16 x i8], ptr %563, i64 %562
   store i8 13, ptr %564, align 8
   %565 = getelementptr inbounds nuw i8, ptr %564, i64 8
   store i64 %.0.lcssa.i116.i, ptr %565, align 8
@@ -7060,7 +7060,7 @@ _ZN12typst_syntax5lexer5Lexer8push_raw17h1b50d60c46aa1239E.exit126.i: ; preds = 
 598:                                              ; preds = %.noexc141.i, %.loopexit206.i
   %599 = phi i64 [ %.pre.i.i140.i, %.noexc141.i ], [ %594, %.loopexit206.i ]
   %600 = load ptr, ptr %15, align 8, !alias.scope !1238, !nonnull !7, !noundef !7
-  %601 = getelementptr inbounds { i8, [7 x i8], i64 }, ptr %600, i64 %599
+  %601 = getelementptr inbounds [16 x i8], ptr %600, i64 %599
   store i8 13, ptr %601, align 8
   %602 = getelementptr inbounds nuw i8, ptr %601, i64 8
   store i64 %.0.lcssa.i.i137.i, ptr %602, align 8
@@ -7120,7 +7120,7 @@ _ZN12typst_syntax5lexer5Lexer8push_raw17h1b50d60c46aa1239E.exit126.i: ; preds = 
 624:                                              ; preds = %.noexc151.i, %.loopexit.i
   %625 = phi i64 [ %.pre.i.i150.i, %.noexc151.i ], [ %620, %.loopexit.i ]
   %626 = load ptr, ptr %15, align 8, !alias.scope !1255, !nonnull !7, !noundef !7
-  %627 = getelementptr inbounds { i8, [7 x i8], i64 }, ptr %626, i64 %625
+  %627 = getelementptr inbounds [16 x i8], ptr %626, i64 %625
   store i8 1, ptr %627, align 8
   %628 = getelementptr inbounds nuw i8, ptr %627, i64 8
   store i64 %.0.lcssa.i.i147.i, ptr %628, align 8
@@ -7184,7 +7184,7 @@ _ZN12typst_syntax5lexer5Lexer10blocky_raw17h7994f63cc325a580E.exit: ; preds = %.
 _ZN12typst_syntax5lexer5Lexer8push_raw17h1b50d60c46aa1239E.exit43: ; preds = %638, %644
   %645 = phi i64 [ %.pre.i.i42, %644 ], [ %639, %638 ]
   %646 = load ptr, ptr %15, align 8, !alias.scope !1263, !nonnull !7, !noundef !7
-  %647 = getelementptr inbounds { i8, [7 x i8], i64 }, ptr %646, i64 %645
+  %647 = getelementptr inbounds [16 x i8], ptr %646, i64 %645
   store i8 12, ptr %647, align 8
   %648 = getelementptr inbounds nuw i8, ptr %647, i64 8
   store i64 %640, ptr %648, align 8
@@ -7199,14 +7199,14 @@ _ZN12typst_syntax5lexer5Lexer8push_raw17h1b50d60c46aa1239E.exit43: ; preds = %63
   br i1 %.not.i.i44, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h6ec9655499267c9aE.exit", label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %_ZN12typst_syntax5lexer5Lexer8push_raw17h1b50d60c46aa1239E.exit43
-  %653 = getelementptr inbounds { i8, [7 x i8], i64 }, ptr %651, i64 %650
+  %653 = getelementptr inbounds [16 x i8], ptr %651, i64 %650
   br label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17he9b6b7319cc002d0E.exit10.i.i"
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17he9b6b7319cc002d0E.exit10.i.i": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17he9b6b7319cc002d0E.exit10.i.i", %.lr.ph.preheader.i.i
   %.011.i.i = phi i64 [ %663, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17he9b6b7319cc002d0E.exit10.i.i" ], [ 0, %.lr.ph.preheader.i.i ]
   %654 = xor i64 %.011.i.i, -1
-  %655 = getelementptr inbounds nuw { i8, [7 x i8], i64 }, ptr %651, i64 %.011.i.i
-  %656 = getelementptr { i8, [7 x i8], i64 }, ptr %653, i64 %654
+  %655 = getelementptr inbounds nuw [16 x i8], ptr %651, i64 %.011.i.i
+  %656 = getelementptr [16 x i8], ptr %653, i64 %654
   %657 = load i8, ptr %655, align 8, !range !99, !alias.scope !1273, !noalias !1271, !noundef !7
   %658 = getelementptr inbounds nuw i8, ptr %655, i64 8
   %659 = load i64, ptr %658, align 8, !alias.scope !1273, !noalias !1271, !noundef !7
@@ -10714,7 +10714,7 @@ _ZN8unscanny7Scanner6eat_if17h2e8b568420fc68f7E.exit: ; preds = %"_ZN8unscanny75
 95:                                               ; preds = %.noexc, %89
   %96 = phi i64 [ %.pre.i, %.noexc ], [ %8, %89 ]
   %97 = load ptr, ptr %5, align 8, !alias.scope !1831, !noalias !1834, !nonnull !7, !noundef !7
-  %98 = getelementptr inbounds { ptr, i64 }, ptr %97, i64 %96
+  %98 = getelementptr inbounds [16 x i8], ptr %97, i64 %96
   store ptr %90, ptr %98, align 8, !noalias !1834
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
   store i64 %91, ptr %99, align 8
@@ -10743,7 +10743,7 @@ _ZN8unscanny7Scanner3eat17h7eda3949b49f0e96E.exit.thread.thread: ; preds = %3, %
   %108 = phi i64 [ %.pre.i23, %.noexc24 ], [ %102, %_ZN8unscanny7Scanner3eat17h7eda3949b49f0e96E.exit.thread.thread ]
   %109 = getelementptr inbounds i8, ptr %1, i64 %.0.lcssa60
   %110 = load ptr, ptr %5, align 8, !alias.scope !1836, !noalias !1839, !nonnull !7, !noundef !7
-  %111 = getelementptr inbounds { ptr, i64 }, ptr %110, i64 %108
+  %111 = getelementptr inbounds [16 x i8], ptr %110, i64 %108
   store ptr %109, ptr %111, align 8, !noalias !1839
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 8
   store i64 %103, ptr %112, align 8

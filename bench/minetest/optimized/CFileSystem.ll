@@ -167,7 +167,7 @@ if.then.i39.i.i.i.i:                              ; preds = %_ZNSt6vectorIPN3irr
 _ZNSt6vectorIPN3irr2io14IArchiveLoaderESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i: ; preds = %if.then.i39.i.i.i.i, %_ZNSt6vectorIPN3irr2io14IArchiveLoaderESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit38.i.i.i.i
   store ptr %call5.i.i.i.i.i.i.i, ptr %ArchiveLoader, align 8, !tbaa !30
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_finish.i.i.i, align 8, !tbaa !29
-  %add.ptr19.i.i.i.i = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i.i.i, i64 %cond.i.i.i.i.i
+  %add.ptr19.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i, i64 %cond.i.i.i.i.i
   store ptr %add.ptr19.i.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !28
   br label %_ZN3irr4core5arrayIPNS_2io14IArchiveLoaderEE9push_backEOS4_.exit
 
@@ -274,7 +274,7 @@ if.then.i39.i.i.i.i:                              ; preds = %_ZNSt6vectorIPN3irr
 _ZNSt6vectorIPN3irr2io14IArchiveLoaderESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i: ; preds = %if.then.i39.i.i.i.i, %_ZNSt6vectorIPN3irr2io14IArchiveLoaderESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit38.i.i.i.i
   store ptr %call5.i.i.i.i.i.i.i, ptr %ArchiveLoader, align 8, !tbaa !30
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_finish.i.i.i, align 8, !tbaa !29
-  %add.ptr19.i.i.i.i = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i.i.i, i64 %cond.i.i.i.i.i
+  %add.ptr19.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i, i64 %cond.i.i.i.i.i
   store ptr %add.ptr19.i.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !28
   br label %_ZN3irr4core5arrayIPNS_2io14IArchiveLoaderEE9push_backEOS4_.exit
 
@@ -322,7 +322,7 @@ for.body:                                         ; preds = %entry, %_ZNK3irr17I
   %10 = phi ptr [ %15, %_ZNK3irr17IReferenceCounted4dropEv.exit ], [ %4, %entry ]
   %11 = phi ptr [ %16, %_ZNK3irr17IReferenceCounted4dropEv.exit ], [ %3, %entry ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNK3irr17IReferenceCounted4dropEv.exit ], [ 0, %entry ]
-  %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !27
   %vtable5 = load ptr, ptr %12, align 8, !tbaa !3
   %vbase.offset.ptr6 = getelementptr i8, ptr %vtable5, i64 -24
@@ -360,7 +360,7 @@ for.body13:                                       ; preds = %for.cond10.preheade
   %18 = phi ptr [ %23, %_ZNK3irr17IReferenceCounted4dropEv.exit47 ], [ %8, %for.cond10.preheader ]
   %19 = phi ptr [ %24, %_ZNK3irr17IReferenceCounted4dropEv.exit47 ], [ %7, %for.cond10.preheader ]
   %indvars.iv65 = phi i64 [ %indvars.iv.next66, %_ZNK3irr17IReferenceCounted4dropEv.exit47 ], [ 0, %for.cond10.preheader ]
-  %add.ptr.i.i40 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv65
+  %add.ptr.i.i40 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv65
   %20 = load ptr, ptr %add.ptr.i.i40, align 8, !tbaa !27
   %vtable16 = load ptr, ptr %20, align 8, !tbaa !3
   %vbase.offset.ptr17 = getelementptr i8, ptr %vtable16, i64 -24
@@ -521,7 +521,7 @@ for.cond:                                         ; preds = %for.body
 for.body:                                         ; preds = %for.cond.preheader, %for.cond
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.cond ], [ 0, %for.cond.preheader ]
   %7 = phi ptr [ %5, %for.cond ], [ %2, %for.cond.preheader ]
-  %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %8 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !27
   %vtable = load ptr, ptr %8, align 8, !tbaa !3
   %9 = load ptr, ptr %vtable, align 8
@@ -695,7 +695,7 @@ if.then.i39.i.i.i:                                ; preds = %_ZNSt6vectorIPN3irr
 _ZNSt6vectorIPN3irr2io14IArchiveLoaderESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %if.then.i39.i.i.i, %_ZNSt6vectorIPN3irr2io14IArchiveLoaderESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit38.i.i.i
   store ptr %call5.i.i.i.i.i.i, ptr %ArchiveLoader, align 8, !tbaa !30
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i, align 8, !tbaa !29
-  %add.ptr19.i.i.i = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
+  %add.ptr19.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
   store ptr %add.ptr19.i.i.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !28
   br label %_ZN3irr4core5arrayIPNS_2io14IArchiveLoaderEE9push_backERKS4_.exit
 
@@ -740,7 +740,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %conv.i5 = zext i32 %index to i64
-  %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %1, i64 %conv.i5
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %conv.i5
   %2 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !27
   br label %return
 
@@ -793,14 +793,14 @@ lor.lhs.false5:                                   ; preds = %for.body
 if.end:                                           ; preds = %lor.lhs.false5
   %conv.i39 = zext nneg i32 %add6 to i64
   %3 = load ptr, ptr %FileArchives, align 8, !tbaa !40
-  %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %3, i64 %conv.i39
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %conv.i39
   %4 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !27
   %conv.i40 = zext nneg i32 %s.048 to i64
-  %add.ptr.i.i41 = getelementptr inbounds nuw ptr, ptr %3, i64 %conv.i40
+  %add.ptr.i.i41 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %conv.i40
   %5 = load ptr, ptr %add.ptr.i.i41, align 8, !tbaa !27
   store ptr %5, ptr %add.ptr.i.i, align 8, !tbaa !27
   %6 = load ptr, ptr %FileArchives, align 8, !tbaa !40
-  %add.ptr.i.i45 = getelementptr inbounds nuw ptr, ptr %6, i64 %conv.i40
+  %add.ptr.i.i45 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %conv.i40
   store ptr %4, ptr %add.ptr.i.i45, align 8, !tbaa !27
   br label %for.inc
 
@@ -837,7 +837,7 @@ for.body.preheader:                               ; preds = %if.then
 for.body:                                         ; preds = %for.inc, %for.body.preheader
   %indvars.iv244 = phi i64 [ %2, %for.body.preheader ], [ %indvars.iv.next245, %for.inc ]
   %3 = load ptr, ptr %ArchiveLoader, align 8, !tbaa !30
-  %add.ptr.i.i = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv244
+  %add.ptr.i.i = getelementptr inbounds [8 x i8], ptr %3, i64 %indvars.iv244
   %4 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !27
   %vtable = load ptr, ptr %4, align 8, !tbaa !3
   %5 = load ptr, ptr %vtable, align 8
@@ -846,7 +846,7 @@ for.body:                                         ; preds = %for.inc, %for.body.
 
 if.then7:                                         ; preds = %for.body
   %6 = load ptr, ptr %ArchiveLoader, align 8, !tbaa !30
-  %add.ptr.i.i169 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv244
+  %add.ptr.i.i169 = getelementptr inbounds [8 x i8], ptr %6, i64 %indvars.iv244
   %7 = load ptr, ptr %add.ptr.i.i169, align 8, !tbaa !27
   %vtable11 = load ptr, ptr %7, align 8, !tbaa !3
   %vfn12 = getelementptr inbounds nuw i8, ptr %vtable11, i64 24
@@ -890,7 +890,7 @@ for.body29:                                       ; preds = %for.inc53, %for.bod
   %13 = load ptr, ptr %vfn31, align 8
   %call32 = tail call noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(8) %call21, i64 noundef 0, i1 noundef zeroext false) #23
   %14 = load ptr, ptr %ArchiveLoader, align 8, !tbaa !30
-  %add.ptr.i.i177 = getelementptr inbounds ptr, ptr %14, i64 %indvars.iv247
+  %add.ptr.i.i177 = getelementptr inbounds [8 x i8], ptr %14, i64 %indvars.iv247
   %15 = load ptr, ptr %add.ptr.i.i177, align 8, !tbaa !27
   %vtable35 = load ptr, ptr %15, align 8, !tbaa !3
   %vfn36 = getelementptr inbounds nuw i8, ptr %vtable35, i64 8
@@ -904,7 +904,7 @@ if.then38:                                        ; preds = %for.body29
   %17 = load ptr, ptr %vfn40, align 8
   %call41 = tail call noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(8) %call21, i64 noundef 0, i1 noundef zeroext false) #23
   %18 = load ptr, ptr %ArchiveLoader, align 8, !tbaa !30
-  %add.ptr.i.i179 = getelementptr inbounds ptr, ptr %18, i64 %indvars.iv247
+  %add.ptr.i.i179 = getelementptr inbounds [8 x i8], ptr %18, i64 %indvars.iv247
   %19 = load ptr, ptr %add.ptr.i.i179, align 8, !tbaa !27
   %vtable46 = load ptr, ptr %19, align 8, !tbaa !3
   %vfn47 = getelementptr inbounds nuw i8, ptr %vtable46, i64 32
@@ -942,7 +942,7 @@ for.body66:                                       ; preds = %for.inc107, %for.bo
   %indvars.iv = phi i64 [ %22, %for.body66.preheader ], [ %indvars.iv.next, %for.inc107 ]
   %file60.0233 = phi ptr [ null, %for.body66.preheader ], [ %file60.2, %for.inc107 ]
   %23 = load ptr, ptr %ArchiveLoader, align 8, !tbaa !30
-  %add.ptr.i.i187 = getelementptr inbounds ptr, ptr %23, i64 %indvars.iv
+  %add.ptr.i.i187 = getelementptr inbounds [8 x i8], ptr %23, i64 %indvars.iv
   %24 = load ptr, ptr %add.ptr.i.i187, align 8, !tbaa !27
   %vtable69 = load ptr, ptr %24, align 8, !tbaa !3
   %vfn70 = getelementptr inbounds nuw i8, ptr %vtable69, i64 16
@@ -968,7 +968,7 @@ if.then80:                                        ; preds = %if.end78, %if.then7
   %27 = load ptr, ptr %vfn82, align 8
   %call83 = tail call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(8) %file60.1210, i64 noundef 0, i1 noundef zeroext false) #23
   %28 = load ptr, ptr %ArchiveLoader, align 8, !tbaa !30
-  %add.ptr.i.i189 = getelementptr inbounds ptr, ptr %28, i64 %indvars.iv
+  %add.ptr.i.i189 = getelementptr inbounds [8 x i8], ptr %28, i64 %indvars.iv
   %29 = load ptr, ptr %add.ptr.i.i189, align 8, !tbaa !27
   %vtable86 = load ptr, ptr %29, align 8, !tbaa !3
   %vfn87 = getelementptr inbounds nuw i8, ptr %vtable86, i64 8
@@ -982,7 +982,7 @@ if.then89:                                        ; preds = %if.then80
   %31 = load ptr, ptr %vfn91, align 8
   %call92 = tail call noundef zeroext i1 %31(ptr noundef nonnull align 8 dereferenceable(8) %file60.1210, i64 noundef 0, i1 noundef zeroext false) #23
   %32 = load ptr, ptr %ArchiveLoader, align 8, !tbaa !30
-  %add.ptr.i.i191 = getelementptr inbounds ptr, ptr %32, i64 %indvars.iv
+  %add.ptr.i.i191 = getelementptr inbounds [8 x i8], ptr %32, i64 %indvars.iv
   %33 = load ptr, ptr %add.ptr.i.i191, align 8, !tbaa !27
   %vtable97 = load ptr, ptr %33, align 8, !tbaa !3
   %vfn98 = getelementptr inbounds nuw i8, ptr %vtable97, i64 32
@@ -1090,7 +1090,7 @@ if.then.i39.i.i.i:                                ; preds = %_ZNSt6vectorIPN3irr
 _ZNSt6vectorIPN3irr2io12IFileArchiveESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %if.then.i39.i.i.i, %_ZNSt6vectorIPN3irr2io12IFileArchiveESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit38.i.i.i
   store ptr %call5.i.i.i.i.i.i, ptr %FileArchives, align 8, !tbaa !40
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i199, align 8, !tbaa !39
-  %add.ptr19.i.i.i = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
+  %add.ptr19.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
   store ptr %add.ptr19.i.i.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !50
   br label %_ZN3irr4core5arrayIPNS_2io12IFileArchiveEE9push_backERKS4_.exit
 
@@ -1162,7 +1162,7 @@ for.body.preheader:                               ; preds = %if.then5
 for.body:                                         ; preds = %for.inc, %for.body.preheader
   %indvars.iv203 = phi i64 [ %2, %for.body.preheader ], [ %indvars.iv.next204, %for.inc ]
   %3 = load ptr, ptr %ArchiveLoader, align 8, !tbaa !30
-  %add.ptr.i.i = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv203
+  %add.ptr.i.i = getelementptr inbounds [8 x i8], ptr %3, i64 %indvars.iv203
   %4 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !27
   %vtable = load ptr, ptr %file, align 8, !tbaa !3
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 32
@@ -1175,7 +1175,7 @@ for.body:                                         ; preds = %for.inc, %for.body.
 
 if.then13:                                        ; preds = %for.body
   %7 = load ptr, ptr %ArchiveLoader, align 8, !tbaa !30
-  %add.ptr.i.i150 = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv203
+  %add.ptr.i.i150 = getelementptr inbounds [8 x i8], ptr %7, i64 %indvars.iv203
   %8 = load ptr, ptr %add.ptr.i.i150, align 8, !tbaa !27
   %vtable18 = load ptr, ptr %8, align 8, !tbaa !3
   %vfn19 = getelementptr inbounds nuw i8, ptr %vtable18, i64 32
@@ -1212,7 +1212,7 @@ for.body32:                                       ; preds = %for.inc56, %for.bod
   %11 = load ptr, ptr %vfn34, align 8
   %call35 = tail call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(8) %file, i64 noundef 0, i1 noundef zeroext false) #23
   %12 = load ptr, ptr %ArchiveLoader, align 8, !tbaa !30
-  %add.ptr.i.i158 = getelementptr inbounds ptr, ptr %12, i64 %indvars.iv206
+  %add.ptr.i.i158 = getelementptr inbounds [8 x i8], ptr %12, i64 %indvars.iv206
   %13 = load ptr, ptr %add.ptr.i.i158, align 8, !tbaa !27
   %vtable38 = load ptr, ptr %13, align 8, !tbaa !3
   %vfn39 = getelementptr inbounds nuw i8, ptr %vtable38, i64 8
@@ -1226,7 +1226,7 @@ if.then41:                                        ; preds = %for.body32
   %15 = load ptr, ptr %vfn43, align 8
   %call44 = tail call noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(8) %file, i64 noundef 0, i1 noundef zeroext false) #23
   %16 = load ptr, ptr %ArchiveLoader, align 8, !tbaa !30
-  %add.ptr.i.i160 = getelementptr inbounds ptr, ptr %16, i64 %indvars.iv206
+  %add.ptr.i.i160 = getelementptr inbounds [8 x i8], ptr %16, i64 %indvars.iv206
   %17 = load ptr, ptr %add.ptr.i.i160, align 8, !tbaa !27
   %vtable49 = load ptr, ptr %17, align 8, !tbaa !3
   %vfn50 = getelementptr inbounds nuw i8, ptr %vtable49, i64 32
@@ -1250,7 +1250,7 @@ for.body65.preheader:                             ; preds = %if.else
 for.body65:                                       ; preds = %for.inc96, %for.body65.preheader
   %indvars.iv = phi i64 [ %19, %for.body65.preheader ], [ %indvars.iv.next, %for.inc96 ]
   %20 = load ptr, ptr %ArchiveLoader, align 8, !tbaa !30
-  %add.ptr.i.i168 = getelementptr inbounds ptr, ptr %20, i64 %indvars.iv
+  %add.ptr.i.i168 = getelementptr inbounds [8 x i8], ptr %20, i64 %indvars.iv
   %21 = load ptr, ptr %add.ptr.i.i168, align 8, !tbaa !27
   %vtable68 = load ptr, ptr %21, align 8, !tbaa !3
   %vfn69 = getelementptr inbounds nuw i8, ptr %vtable68, i64 16
@@ -1264,7 +1264,7 @@ if.then71:                                        ; preds = %for.body65
   %23 = load ptr, ptr %vfn73, align 8
   %call74 = tail call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(8) %file, i64 noundef 0, i1 noundef zeroext false) #23
   %24 = load ptr, ptr %ArchiveLoader, align 8, !tbaa !30
-  %add.ptr.i.i170 = getelementptr inbounds ptr, ptr %24, i64 %indvars.iv
+  %add.ptr.i.i170 = getelementptr inbounds [8 x i8], ptr %24, i64 %indvars.iv
   %25 = load ptr, ptr %add.ptr.i.i170, align 8, !tbaa !27
   %vtable77 = load ptr, ptr %25, align 8, !tbaa !3
   %vfn78 = getelementptr inbounds nuw i8, ptr %vtable77, i64 8
@@ -1278,7 +1278,7 @@ if.then80:                                        ; preds = %if.then71
   %27 = load ptr, ptr %vfn82, align 8
   %call83 = tail call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(8) %file, i64 noundef 0, i1 noundef zeroext false) #23
   %28 = load ptr, ptr %ArchiveLoader, align 8, !tbaa !30
-  %add.ptr.i.i172 = getelementptr inbounds ptr, ptr %28, i64 %indvars.iv
+  %add.ptr.i.i172 = getelementptr inbounds [8 x i8], ptr %28, i64 %indvars.iv
   %29 = load ptr, ptr %add.ptr.i.i172, align 8, !tbaa !27
   %vtable88 = load ptr, ptr %29, align 8, !tbaa !3
   %vfn89 = getelementptr inbounds nuw i8, ptr %vtable88, i64 32
@@ -1353,7 +1353,7 @@ if.then.i39.i.i.i:                                ; preds = %_ZNSt6vectorIPN3irr
 _ZNSt6vectorIPN3irr2io12IFileArchiveESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %if.then.i39.i.i.i, %_ZNSt6vectorIPN3irr2io12IFileArchiveESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit38.i.i.i
   store ptr %call5.i.i.i.i.i.i, ptr %FileArchives, align 8, !tbaa !40
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i173, align 8, !tbaa !39
-  %add.ptr19.i.i.i = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
+  %add.ptr19.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
   store ptr %add.ptr19.i.i.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !50
   br label %_ZN3irr4core5arrayIPNS_2io12IFileArchiveEE9push_backERKS4_.exit
 
@@ -1426,7 +1426,7 @@ for.cond:                                         ; preds = %for.body
 
 for.body:                                         ; preds = %for.cond, %for.body.preheader
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.cond ]
-  %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %3 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !27
   %cmp4 = icmp eq ptr %3, %archive
   br i1 %cmp4, label %return, label %for.cond
@@ -1484,7 +1484,7 @@ if.then.i39.i.i.i:                                ; preds = %_ZNSt6vectorIPN3irr
 _ZNSt6vectorIPN3irr2io12IFileArchiveESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %if.then.i39.i.i.i, %_ZNSt6vectorIPN3irr2io12IFileArchiveESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit38.i.i.i
   store ptr %call5.i.i.i.i.i.i, ptr %FileArchives, align 8, !tbaa !40
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i, align 8, !tbaa !39
-  %add.ptr19.i.i.i = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
+  %add.ptr19.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
   store ptr %add.ptr19.i.i.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !50
   br label %_ZN3irr4core5arrayIPNS_2io12IFileArchiveEE9push_backERKS4_.exit
 
@@ -1523,7 +1523,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %conv.i8 = zext i32 %index to i64
-  %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %1, i64 %conv.i8
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %conv.i8
   %2 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !27
   %vtable = load ptr, ptr %2, align 8, !tbaa !3
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
@@ -1550,7 +1550,7 @@ _ZNK3irr17IReferenceCounted4dropEv.exit:          ; preds = %delete.notnull.i, %
   %sub.ptr.rhs.cast.i.i.i.pre-phi = phi i64 [ %sub.ptr.rhs.cast.i.i, %if.then ], [ %.pre11, %delete.notnull.i ]
   %5 = phi ptr [ %0, %if.then ], [ %.pre10, %delete.notnull.i ]
   %6 = phi ptr [ %1, %if.then ], [ %.pre, %delete.notnull.i ]
-  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw ptr, ptr %6, i64 %conv.i8
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %conv.i8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %add.ptr.i.i.i.i.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i.pre-phi
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %6, i64 %sub.ptr.sub.i.i.i
@@ -1603,7 +1603,7 @@ for.body.lr.ph:                                   ; preds = %entry
 for.body:                                         ; preds = %for.inc, %for.body.lr.ph
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %4 = phi ptr [ %2, %for.body.lr.ph ], [ %16, %for.inc ]
-  %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %5 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !27
   %vtable4 = load ptr, ptr %5, align 8, !tbaa !3
   %vfn5 = getelementptr inbounds nuw i8, ptr %vtable4, i64 16
@@ -1688,7 +1688,7 @@ for.body.preheader:                               ; preds = %entry
   br i1 %cmp422, label %if.then, label %for.inc
 
 for.body:                                         ; preds = %for.inc
-  %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.next
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.next
   %5 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !27
   %cmp4 = icmp eq ptr %5, %archive
   br i1 %cmp4, label %for.body.if.then_crit_edge, label %for.inc, !llvm.loop !56
@@ -1748,7 +1748,7 @@ cond.true:                                        ; preds = %entry
   %FileArchives = getelementptr inbounds nuw i8, ptr %this, i64 112
   %conv.i = zext i32 %index to i64
   %1 = load ptr, ptr %FileArchives, align 8, !tbaa !40
-  %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %1, i64 %conv.i
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %conv.i
   %2 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !27
   br label %cond.end
 
@@ -1909,7 +1909,7 @@ if.then.i:                                        ; preds = %_ZN3irr4core6string
 if.end16:                                         ; preds = %if.then.i, %_ZN3irr4core6stringIcEaSIcEERS2_PKT_.exit, %entry
   %type.0 = phi i64 [ 1, %entry ], [ 0, %_ZN3irr4core6stringIcEaSIcEERS2_PKT_.exit ], [ 0, %if.then.i ]
   %WorkingDirectory17 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %arrayidx19 = getelementptr inbounds nuw %"class.irr::core::string", ptr %WorkingDirectory17, i64 %type.0
+  %arrayidx19 = getelementptr inbounds nuw [32 x i8], ptr %WorkingDirectory17, i64 %type.0
   ret ptr %arrayidx19
 }
 
@@ -5373,7 +5373,7 @@ _ZN3irr2io14SFileListEntryD2Ev.exit205:           ; preds = %_ZN3irr4core6string
 for.body:                                         ; preds = %_ZN3irr4core6stringIcED2Ev.exit189, %for.cond.cleanup68
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.cond.cleanup68 ], [ 0, %_ZN3irr4core6stringIcED2Ev.exit189 ]
   %96 = phi ptr [ %101, %for.cond.cleanup68 ], [ %90, %_ZN3irr4core6stringIcED2Ev.exit189 ]
-  %add.ptr.i.i207 = getelementptr inbounds nuw ptr, ptr %96, i64 %indvars.iv
+  %add.ptr.i.i207 = getelementptr inbounds nuw [8 x i8], ptr %96, i64 %indvars.iv
   %97 = load ptr, ptr %add.ptr.i.i207, align 8, !tbaa !27
   %vtable60 = load ptr, ptr %97, align 8, !tbaa !3
   %vfn61 = getelementptr inbounds nuw i8, ptr %vtable60, i64 16
@@ -5588,7 +5588,7 @@ for.cond:                                         ; preds = %for.body
 for.body:                                         ; preds = %entry, %for.cond
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.cond ], [ 0, %entry ]
   %6 = phi ptr [ %4, %for.cond ], [ %1, %entry ]
-  %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %7 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !27
   %vtable = load ptr, ptr %7, align 8, !tbaa !3
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16

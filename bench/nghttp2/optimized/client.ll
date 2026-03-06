@@ -971,7 +971,7 @@ define internal noundef i32 @on_frame_send_callback(ptr noundef %0, ptr noundef 
 
 .lr.ph:                                           ; preds = %10, %.lr.ph
   %.016 = phi i64 [ %28, %.lr.ph ], [ 0, %10 ]
-  %15 = getelementptr inbounds nuw %struct.nghttp2_nv, ptr %12, i64 %.016
+  %15 = getelementptr inbounds nuw [40 x i8], ptr %12, i64 %.016
   %16 = load ptr, ptr %15, align 8, !tbaa !45
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %18 = load i64, ptr %17, align 8, !tbaa !49
@@ -1038,7 +1038,7 @@ define internal noundef i32 @on_frame_recv_callback(ptr noundef %0, ptr noundef 
 
 .lr.ph:                                           ; preds = %16, %.lr.ph
   %.018 = phi i64 [ %32, %.lr.ph ], [ 0, %16 ]
-  %19 = getelementptr inbounds nuw %struct.nghttp2_nv, ptr %12, i64 %.018
+  %19 = getelementptr inbounds nuw [40 x i8], ptr %12, i64 %.018
   %20 = load ptr, ptr %19, align 8, !tbaa !45
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %22 = load i64, ptr %21, align 8, !tbaa !49

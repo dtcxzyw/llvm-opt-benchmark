@@ -621,7 +621,7 @@ define hidden void @_ZN10hir_expand20builtin_derive_macro12VariantShape14as_patt
   unreachable
 
 46:                                               ; preds = %37
-  %47 = getelementptr inbounds { { { i8, [23 x i8] } }, { i32, { i32, i32 }, { i32, i32 } }, [1 x i32] }, ptr %39, i64 %41
+  %47 = getelementptr inbounds [48 x i8], ptr %39, i64 %41
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %43, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 64, i1 false)
   store i64 1, ptr %27, align 8, !alias.scope !136, !noalias !139
   %48 = getelementptr inbounds nuw i8, ptr %27, i64 8
@@ -785,7 +785,7 @@ define hidden void @_ZN10hir_expand20builtin_derive_macro12VariantShape14as_patt
   %91 = phi ptr [ %74, %81 ], [ %.pre154, %.noexc56 ]
   %92 = phi i64 [ %84, %81 ], [ %.pre.i55, %.noexc56 ]
   %93 = load ptr, ptr %48, align 8, !alias.scope !172, !noalias !175, !nonnull !4, !noundef !4
-  %94 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %93, i64 %92
+  %94 = getelementptr inbounds [64 x i8], ptr %93, i64 %92
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %94, ptr noundef nonnull align 8 dereferenceable(64) %74, i64 64, i1 false), !noalias !175
   %95 = add i64 %92, 1
   store i64 %95, ptr %49, align 8, !alias.scope !172, !noalias !175
@@ -1052,7 +1052,7 @@ define hidden void @_ZN10hir_expand20builtin_derive_macro12VariantShape14as_patt
   %169 = phi ptr [ %152, %159 ], [ %.pre, %.noexc84 ]
   %170 = phi i64 [ %162, %159 ], [ %.pre.i83, %.noexc84 ]
   %171 = load ptr, ptr %126, align 8, !alias.scope !233, !noalias !236, !nonnull !4, !noundef !4
-  %172 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %171, i64 %170
+  %172 = getelementptr inbounds [64 x i8], ptr %171, i64 %170
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %172, ptr noundef nonnull align 8 dereferenceable(64) %152, i64 64, i1 false), !noalias !236
   %173 = add i64 %170, 1
   store i64 %173, ptr %127, align 8, !alias.scope !233, !noalias !236
@@ -1207,7 +1207,7 @@ define hidden void @_ZN10hir_expand20builtin_derive_macro12VariantShape14as_patt
   unreachable
 
 46:                                               ; preds = %37
-  %47 = getelementptr inbounds { { { i8, [23 x i8] } }, { i32, { i32, i32 }, { i32, i32 } }, [1 x i32] }, ptr %39, i64 %41
+  %47 = getelementptr inbounds [48 x i8], ptr %39, i64 %41
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %43, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 64, i1 false)
   store i64 1, ptr %27, align 8, !alias.scope !258, !noalias !261
   %48 = getelementptr inbounds nuw i8, ptr %27, i64 8
@@ -1371,7 +1371,7 @@ define hidden void @_ZN10hir_expand20builtin_derive_macro12VariantShape14as_patt
   %91 = phi ptr [ %74, %81 ], [ %.pre154, %.noexc56 ]
   %92 = phi i64 [ %84, %81 ], [ %.pre.i55, %.noexc56 ]
   %93 = load ptr, ptr %48, align 8, !alias.scope !294, !noalias !297, !nonnull !4, !noundef !4
-  %94 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %93, i64 %92
+  %94 = getelementptr inbounds [64 x i8], ptr %93, i64 %92
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %94, ptr noundef nonnull align 8 dereferenceable(64) %74, i64 64, i1 false), !noalias !297
   %95 = add i64 %92, 1
   store i64 %95, ptr %49, align 8, !alias.scope !294, !noalias !297
@@ -1638,7 +1638,7 @@ define hidden void @_ZN10hir_expand20builtin_derive_macro12VariantShape14as_patt
   %169 = phi ptr [ %152, %159 ], [ %.pre, %.noexc84 ]
   %170 = phi i64 [ %162, %159 ], [ %.pre.i83, %.noexc84 ]
   %171 = load ptr, ptr %126, align 8, !alias.scope !355, !noalias !358, !nonnull !4, !noundef !4
-  %172 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %171, i64 %170
+  %172 = getelementptr inbounds [64 x i8], ptr %171, i64 %170
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %172, ptr noundef nonnull align 8 dereferenceable(64) %152, i64 64, i1 false), !noalias !358
   %173 = add i64 %170, 1
   store i64 %173, ptr %127, align 8, !alias.scope !355, !noalias !358
@@ -1793,7 +1793,7 @@ define hidden void @_ZN10hir_expand20builtin_derive_macro12VariantShape14as_patt
   unreachable
 
 46:                                               ; preds = %37
-  %47 = getelementptr inbounds { { { i8, [23 x i8] } }, { i32, { i32, i32 }, { i32, i32 } }, [1 x i32] }, ptr %39, i64 %41
+  %47 = getelementptr inbounds [48 x i8], ptr %39, i64 %41
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %43, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 64, i1 false)
   store i64 1, ptr %27, align 8, !alias.scope !380, !noalias !383
   %48 = getelementptr inbounds nuw i8, ptr %27, i64 8
@@ -1957,7 +1957,7 @@ define hidden void @_ZN10hir_expand20builtin_derive_macro12VariantShape14as_patt
   %91 = phi ptr [ %74, %81 ], [ %.pre154, %.noexc56 ]
   %92 = phi i64 [ %84, %81 ], [ %.pre.i55, %.noexc56 ]
   %93 = load ptr, ptr %48, align 8, !alias.scope !416, !noalias !419, !nonnull !4, !noundef !4
-  %94 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %93, i64 %92
+  %94 = getelementptr inbounds [64 x i8], ptr %93, i64 %92
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %94, ptr noundef nonnull align 8 dereferenceable(64) %74, i64 64, i1 false), !noalias !419
   %95 = add i64 %92, 1
   store i64 %95, ptr %49, align 8, !alias.scope !416, !noalias !419
@@ -2224,7 +2224,7 @@ define hidden void @_ZN10hir_expand20builtin_derive_macro12VariantShape14as_patt
   %169 = phi ptr [ %152, %159 ], [ %.pre, %.noexc84 ]
   %170 = phi i64 [ %162, %159 ], [ %.pre.i83, %.noexc84 ]
   %171 = load ptr, ptr %126, align 8, !alias.scope !477, !noalias !480, !nonnull !4, !noundef !4
-  %172 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %171, i64 %170
+  %172 = getelementptr inbounds [64 x i8], ptr %171, i64 %170
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %172, ptr noundef nonnull align 8 dereferenceable(64) %152, i64 64, i1 false), !noalias !480
   %173 = add i64 %170, 1
   store i64 %173, ptr %127, align 8, !alias.scope !477, !noalias !480
@@ -2379,7 +2379,7 @@ define hidden void @_ZN10hir_expand20builtin_derive_macro12VariantShape14as_patt
   unreachable
 
 46:                                               ; preds = %37
-  %47 = getelementptr inbounds { { { i8, [23 x i8] } }, { i32, { i32, i32 }, { i32, i32 } }, [1 x i32] }, ptr %39, i64 %41
+  %47 = getelementptr inbounds [48 x i8], ptr %39, i64 %41
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %43, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 64, i1 false)
   store i64 1, ptr %27, align 8, !alias.scope !502, !noalias !505
   %48 = getelementptr inbounds nuw i8, ptr %27, i64 8
@@ -2543,7 +2543,7 @@ define hidden void @_ZN10hir_expand20builtin_derive_macro12VariantShape14as_patt
   %91 = phi ptr [ %74, %81 ], [ %.pre154, %.noexc56 ]
   %92 = phi i64 [ %84, %81 ], [ %.pre.i55, %.noexc56 ]
   %93 = load ptr, ptr %48, align 8, !alias.scope !538, !noalias !541, !nonnull !4, !noundef !4
-  %94 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %93, i64 %92
+  %94 = getelementptr inbounds [64 x i8], ptr %93, i64 %92
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %94, ptr noundef nonnull align 8 dereferenceable(64) %74, i64 64, i1 false), !noalias !541
   %95 = add i64 %92, 1
   store i64 %95, ptr %49, align 8, !alias.scope !538, !noalias !541
@@ -2810,7 +2810,7 @@ define hidden void @_ZN10hir_expand20builtin_derive_macro12VariantShape14as_patt
   %169 = phi ptr [ %152, %159 ], [ %.pre, %.noexc84 ]
   %170 = phi i64 [ %162, %159 ], [ %.pre.i83, %.noexc84 ]
   %171 = load ptr, ptr %126, align 8, !alias.scope !599, !noalias !602, !nonnull !4, !noundef !4
-  %172 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %171, i64 %170
+  %172 = getelementptr inbounds [64 x i8], ptr %171, i64 %170
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %172, ptr noundef nonnull align 8 dereferenceable(64) %152, i64 64, i1 false), !noalias !602
   %173 = add i64 %170, 1
   store i64 %173, ptr %127, align 8, !alias.scope !599, !noalias !602
@@ -2965,7 +2965,7 @@ define hidden void @_ZN10hir_expand20builtin_derive_macro12VariantShape14as_patt
   unreachable
 
 46:                                               ; preds = %37
-  %47 = getelementptr inbounds { { { i8, [23 x i8] } }, { i32, { i32, i32 }, { i32, i32 } }, [1 x i32] }, ptr %39, i64 %41
+  %47 = getelementptr inbounds [48 x i8], ptr %39, i64 %41
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %43, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 64, i1 false)
   store i64 1, ptr %27, align 8, !alias.scope !624, !noalias !627
   %48 = getelementptr inbounds nuw i8, ptr %27, i64 8
@@ -3129,7 +3129,7 @@ define hidden void @_ZN10hir_expand20builtin_derive_macro12VariantShape14as_patt
   %91 = phi ptr [ %74, %81 ], [ %.pre154, %.noexc56 ]
   %92 = phi i64 [ %84, %81 ], [ %.pre.i55, %.noexc56 ]
   %93 = load ptr, ptr %48, align 8, !alias.scope !660, !noalias !663, !nonnull !4, !noundef !4
-  %94 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %93, i64 %92
+  %94 = getelementptr inbounds [64 x i8], ptr %93, i64 %92
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %94, ptr noundef nonnull align 8 dereferenceable(64) %74, i64 64, i1 false), !noalias !663
   %95 = add i64 %92, 1
   store i64 %95, ptr %49, align 8, !alias.scope !660, !noalias !663
@@ -3396,7 +3396,7 @@ define hidden void @_ZN10hir_expand20builtin_derive_macro12VariantShape14as_patt
   %169 = phi ptr [ %152, %159 ], [ %.pre, %.noexc84 ]
   %170 = phi i64 [ %162, %159 ], [ %.pre.i83, %.noexc84 ]
   %171 = load ptr, ptr %126, align 8, !alias.scope !721, !noalias !724, !nonnull !4, !noundef !4
-  %172 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %171, i64 %170
+  %172 = getelementptr inbounds [64 x i8], ptr %171, i64 %170
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %172, ptr noundef nonnull align 8 dereferenceable(64) %152, i64 64, i1 false), !noalias !724
   %173 = add i64 %170, 1
   store i64 %173, ptr %127, align 8, !alias.scope !721, !noalias !724
@@ -3788,7 +3788,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit: ; preds = %52
   %72 = load ptr, ptr %71, align 8, !nonnull !4, !noundef !4
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %74 = load i64, ptr %73, align 8, !noundef !4
-  %75 = getelementptr inbounds { { { { i8, [23 x i8] } }, { i32, { i32, i32 }, { i32, i32 } }, [1 x i32] }, { i64, [2 x i64] } }, ptr %72, i64 %74
+  %75 = getelementptr inbounds [72 x i8], ptr %72, i64 %74
   store ptr %72, ptr %40, align 8
   %76 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store ptr %75, ptr %76, align 8
@@ -3988,7 +3988,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit: ; preds = %52
   unreachable
 
 134:                                              ; preds = %125
-  %135 = getelementptr inbounds { { { i8, [23 x i8] } }, { i32, { i32, i32 }, { i32, i32 } }, [1 x i32] }, ptr %127, i64 %129
+  %135 = getelementptr inbounds [48 x i8], ptr %127, i64 %129
   store ptr %116, ptr %131, align 8, !noalias !872
   %.sroa.890.0..sroa_idx95 = getelementptr inbounds nuw i8, ptr %131, i64 8
   store i64 %117, ptr %.sroa.890.0..sroa_idx95, align 8, !noalias !872
@@ -4140,7 +4140,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit: ; preds = %52
 "_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he758f9f485c7e8d8E.llvm.10606712881621943088.exit.i58.i": ; preds = %164, %.noexc56.i
   %173 = phi i64 [ %167, %164 ], [ %.pre.i55.i, %.noexc56.i ]
   %174 = load ptr, ptr %136, align 8, !alias.scope !910, !noalias !918, !nonnull !4, !noundef !4
-  %175 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %174, i64 %173
+  %175 = getelementptr inbounds [64 x i8], ptr %174, i64 %173
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %175, ptr noundef nonnull align 8 dereferenceable(64) %157, i64 64, i1 false), !noalias !919
   %176 = add i64 %173, 1
   store i64 %176, ptr %137, align 8, !alias.scope !910, !noalias !918
@@ -4383,7 +4383,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit: ; preds = %52
 "_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he758f9f485c7e8d8E.llvm.10606712881621943088.exit.i86.i": ; preds = %229, %.noexc84.i
   %238 = phi i64 [ %232, %229 ], [ %.pre.i83.i, %.noexc84.i ]
   %239 = load ptr, ptr %201, align 8, !alias.scope !968, !noalias !976, !nonnull !4, !noundef !4
-  %240 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %239, i64 %238
+  %240 = getelementptr inbounds [64 x i8], ptr %239, i64 %238
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %240, ptr noundef nonnull align 8 dereferenceable(64) %222, i64 64, i1 false), !noalias !977
   %241 = add i64 %238, 1
   store i64 %241, ptr %202, align 8, !alias.scope !968, !noalias !976
@@ -4832,7 +4832,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit: ; preds = %52
   %72 = load ptr, ptr %71, align 8, !nonnull !4, !noundef !4
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %74 = load i64, ptr %73, align 8, !noundef !4
-  %75 = getelementptr inbounds { { { { i8, [23 x i8] } }, { i32, { i32, i32 }, { i32, i32 } }, [1 x i32] }, { i64, [2 x i64] } }, ptr %72, i64 %74
+  %75 = getelementptr inbounds [72 x i8], ptr %72, i64 %74
   store ptr %72, ptr %40, align 8
   %76 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store ptr %75, ptr %76, align 8
@@ -5032,7 +5032,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit: ; preds = %52
   unreachable
 
 134:                                              ; preds = %125
-  %135 = getelementptr inbounds { { { i8, [23 x i8] } }, { i32, { i32, i32 }, { i32, i32 } }, [1 x i32] }, ptr %127, i64 %129
+  %135 = getelementptr inbounds [48 x i8], ptr %127, i64 %129
   store ptr %116, ptr %131, align 8, !noalias !1086
   %.sroa.890.0..sroa_idx95 = getelementptr inbounds nuw i8, ptr %131, i64 8
   store i64 %117, ptr %.sroa.890.0..sroa_idx95, align 8, !noalias !1086
@@ -5184,7 +5184,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit: ; preds = %52
 "_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he758f9f485c7e8d8E.llvm.10606712881621943088.exit.i58.i": ; preds = %164, %.noexc56.i
   %173 = phi i64 [ %167, %164 ], [ %.pre.i55.i, %.noexc56.i ]
   %174 = load ptr, ptr %136, align 8, !alias.scope !1124, !noalias !1132, !nonnull !4, !noundef !4
-  %175 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %174, i64 %173
+  %175 = getelementptr inbounds [64 x i8], ptr %174, i64 %173
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %175, ptr noundef nonnull align 8 dereferenceable(64) %157, i64 64, i1 false), !noalias !1133
   %176 = add i64 %173, 1
   store i64 %176, ptr %137, align 8, !alias.scope !1124, !noalias !1132
@@ -5427,7 +5427,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit: ; preds = %52
 "_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he758f9f485c7e8d8E.llvm.10606712881621943088.exit.i86.i": ; preds = %229, %.noexc84.i
   %238 = phi i64 [ %232, %229 ], [ %.pre.i83.i, %.noexc84.i ]
   %239 = load ptr, ptr %201, align 8, !alias.scope !1182, !noalias !1190, !nonnull !4, !noundef !4
-  %240 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %239, i64 %238
+  %240 = getelementptr inbounds [64 x i8], ptr %239, i64 %238
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %240, ptr noundef nonnull align 8 dereferenceable(64) %222, i64 64, i1 false), !noalias !1191
   %241 = add i64 %238, 1
   store i64 %241, ptr %202, align 8, !alias.scope !1182, !noalias !1190
@@ -5876,7 +5876,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit: ; preds = %52
   %72 = load ptr, ptr %71, align 8, !nonnull !4, !noundef !4
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %74 = load i64, ptr %73, align 8, !noundef !4
-  %75 = getelementptr inbounds { { { { i8, [23 x i8] } }, { i32, { i32, i32 }, { i32, i32 } }, [1 x i32] }, { i64, [2 x i64] } }, ptr %72, i64 %74
+  %75 = getelementptr inbounds [72 x i8], ptr %72, i64 %74
   store ptr %72, ptr %40, align 8
   %76 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store ptr %75, ptr %76, align 8
@@ -6076,7 +6076,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit: ; preds = %52
   unreachable
 
 134:                                              ; preds = %125
-  %135 = getelementptr inbounds { { { i8, [23 x i8] } }, { i32, { i32, i32 }, { i32, i32 } }, [1 x i32] }, ptr %127, i64 %129
+  %135 = getelementptr inbounds [48 x i8], ptr %127, i64 %129
   store ptr %116, ptr %131, align 8, !noalias !1298
   %.sroa.890.0..sroa_idx95 = getelementptr inbounds nuw i8, ptr %131, i64 8
   store i64 %117, ptr %.sroa.890.0..sroa_idx95, align 8, !noalias !1298
@@ -6228,7 +6228,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit: ; preds = %52
 "_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he758f9f485c7e8d8E.llvm.10606712881621943088.exit.i58.i": ; preds = %164, %.noexc56.i
   %173 = phi i64 [ %167, %164 ], [ %.pre.i55.i, %.noexc56.i ]
   %174 = load ptr, ptr %136, align 8, !alias.scope !1336, !noalias !1344, !nonnull !4, !noundef !4
-  %175 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %174, i64 %173
+  %175 = getelementptr inbounds [64 x i8], ptr %174, i64 %173
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %175, ptr noundef nonnull align 8 dereferenceable(64) %157, i64 64, i1 false), !noalias !1345
   %176 = add i64 %173, 1
   store i64 %176, ptr %137, align 8, !alias.scope !1336, !noalias !1344
@@ -6471,7 +6471,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit: ; preds = %52
 "_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he758f9f485c7e8d8E.llvm.10606712881621943088.exit.i86.i": ; preds = %229, %.noexc84.i
   %238 = phi i64 [ %232, %229 ], [ %.pre.i83.i, %.noexc84.i ]
   %239 = load ptr, ptr %201, align 8, !alias.scope !1394, !noalias !1402, !nonnull !4, !noundef !4
-  %240 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %239, i64 %238
+  %240 = getelementptr inbounds [64 x i8], ptr %239, i64 %238
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %240, ptr noundef nonnull align 8 dereferenceable(64) %222, i64 64, i1 false), !noalias !1403
   %241 = add i64 %238, 1
   store i64 %241, ptr %202, align 8, !alias.scope !1394, !noalias !1402
@@ -8240,7 +8240,7 @@ define hidden void @_ZN10hir_expand20builtin_derive_macro20expand_simple_derive1
   %.sroa.4455.0.copyload = load ptr, ptr %.sroa.4455.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5456.0..sroa_idx = getelementptr inbounds nuw i8, ptr %85, i64 80
   %.sroa.5456.0.copyload = load i64, ptr %.sroa.5456.0..sroa_idx, align 8
-  %105 = getelementptr inbounds { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, ptr %.sroa.4455.0.copyload, i64 %.sroa.5456.0.copyload
+  %105 = getelementptr inbounds [64 x i8], ptr %.sroa.4455.0.copyload, i64 %.sroa.5456.0.copyload
   store ptr %.sroa.4455.0.copyload, ptr %81, align 8
   %.sroa.4452.0..sroa_idx = getelementptr inbounds nuw i8, ptr %81, i64 8
   store ptr %.sroa.4455.0.copyload, ptr %.sroa.4452.0..sroa_idx, align 8
@@ -8265,7 +8265,7 @@ define hidden void @_ZN10hir_expand20builtin_derive_macro20expand_simple_derive1
   %.sroa.4466.0.copyload = load ptr, ptr %.sroa.4466.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5467.0..sroa_idx = getelementptr inbounds nuw i8, ptr %85, i64 56
   %.sroa.5467.0.copyload = load i64, ptr %.sroa.5467.0..sroa_idx, align 8
-  %111 = getelementptr inbounds { { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, { [56 x i8], i8, [7 x i8] }, { [56 x i8], i8, [7 x i8] } }, ptr %.sroa.4466.0.copyload, i64 %.sroa.5467.0.copyload
+  %111 = getelementptr inbounds [192 x i8], ptr %.sroa.4466.0.copyload, i64 %.sroa.5467.0.copyload
   call void @llvm.lifetime.start.p0(ptr nonnull %28), !noalias !1895
   store i64 0, ptr %28, align 8, !alias.scope !1899, !noalias !1895
   %.sroa.4.0..sroa_idx2.i.i = getelementptr inbounds nuw i8, ptr %28, i64 8
@@ -8320,7 +8320,7 @@ define hidden void @_ZN10hir_expand20builtin_derive_macro20expand_simple_derive1
   %120 = load ptr, ptr %119, align 8, !nonnull !4, !noundef !4
   %121 = getelementptr inbounds nuw i8, ptr %85, i64 104
   %122 = load i64, ptr %121, align 8, !noundef !4
-  %123 = getelementptr inbounds { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, ptr %120, i64 %122
+  %123 = getelementptr inbounds [64 x i8], ptr %120, i64 %122
   store ptr %120, ptr %77, align 8
   %124 = getelementptr inbounds nuw i8, ptr %77, i64 8
   store ptr %123, ptr %124, align 8
@@ -8522,7 +8522,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit: ; preds = %"_ZN97_$LT
   %.sroa.4480.0.copyload = load ptr, ptr %.sroa.4480.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5481.0..sroa_idx = getelementptr inbounds nuw i8, ptr %80, i64 16
   %.sroa.5481.0.copyload = load i64, ptr %.sroa.5481.0..sroa_idx, align 8
-  %166 = getelementptr inbounds { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, ptr %.sroa.4480.0.copyload, i64 %.sroa.5481.0.copyload
+  %166 = getelementptr inbounds [64 x i8], ptr %.sroa.4480.0.copyload, i64 %.sroa.5481.0.copyload
   store ptr %.sroa.4480.0.copyload, ptr %67, align 8
   %.sroa.4476.0..sroa_idx = getelementptr inbounds nuw i8, ptr %67, i64 8
   store ptr %.sroa.4480.0.copyload, ptr %.sroa.4476.0..sroa_idx, align 8
@@ -8813,7 +8813,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit286: ; preds = %184
   %.sroa.4498.0.copyload = load ptr, ptr %.sroa.4498.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5499.0..sroa_idx = getelementptr inbounds nuw i8, ptr %79, i64 16
   %.sroa.5499.0.copyload = load i64, ptr %.sroa.5499.0..sroa_idx, align 8
-  %233 = getelementptr inbounds { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, ptr %.sroa.4498.0.copyload, i64 %.sroa.5499.0.copyload
+  %233 = getelementptr inbounds [64 x i8], ptr %.sroa.4498.0.copyload, i64 %.sroa.5499.0.copyload
   store ptr %.sroa.4498.0.copyload, ptr %46, align 8
   %.sroa.4494.0..sroa_idx = getelementptr inbounds nuw i8, ptr %46, i64 8
   store ptr %.sroa.4498.0.copyload, ptr %.sroa.4494.0..sroa_idx, align 8
@@ -8998,7 +8998,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit306: ; preds = %244
   %.sroa.4513.0.copyload = load ptr, ptr %.sroa.4513.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5514.0..sroa_idx = getelementptr inbounds nuw i8, ptr %82, i64 16
   %.sroa.5514.0.copyload = load i64, ptr %.sroa.5514.0..sroa_idx, align 8
-  %273 = getelementptr inbounds { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, ptr %.sroa.4513.0.copyload, i64 %.sroa.5514.0.copyload
+  %273 = getelementptr inbounds [64 x i8], ptr %.sroa.4513.0.copyload, i64 %.sroa.5514.0.copyload
   store ptr %.sroa.4513.0.copyload, ptr %36, align 8
   %.sroa.4509.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 8
   store ptr %.sroa.4513.0.copyload, ptr %.sroa.4509.0..sroa_idx, align 8
@@ -9186,7 +9186,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit306: ; preds = %244
   %326 = phi i64 [ %318, %314 ], [ %.pre.i327, %.noexc328 ]
   %327 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %328 = load ptr, ptr %327, align 8, !alias.scope !2014, !noalias !2017, !nonnull !4, !noundef !4
-  %329 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %328, i64 %326
+  %329 = getelementptr inbounds [64 x i8], ptr %328, i64 %326
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %329, ptr noundef nonnull align 8 dereferenceable(64) %307, i64 64, i1 false), !noalias !2017
   %330 = add i64 %326, 1
   store i64 %330, ptr %317, align 8, !alias.scope !2014, !noalias !2017
@@ -9265,7 +9265,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit306: ; preds = %244
 355:                                              ; preds = %.noexc338, %343
   %356 = phi i64 [ %348, %343 ], [ %.pre.i337, %.noexc338 ]
   %357 = load ptr, ptr %.sroa.4504.0..sroa_idx, align 8, !alias.scope !2037, !noalias !2040, !nonnull !4, !noundef !4
-  %358 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %357, i64 %356
+  %358 = getelementptr inbounds [64 x i8], ptr %357, i64 %356
   %359 = shl i64 %347, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %358, ptr nonnull align 8 %345, i64 %359, i1 false), !noalias !2040
   %360 = load i64, ptr %.sroa.5505.0..sroa_idx, align 8, !alias.scope !2037, !noalias !2040, !noundef !4
@@ -9347,7 +9347,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit306: ; preds = %244
 387:                                              ; preds = %.noexc347, %375
   %388 = phi i64 [ %380, %375 ], [ %.pre.i346, %.noexc347 ]
   %389 = load ptr, ptr %.sroa.4501.0..sroa_idx, align 8, !alias.scope !2060, !noalias !2063, !nonnull !4, !noundef !4
-  %390 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %389, i64 %388
+  %390 = getelementptr inbounds [64 x i8], ptr %389, i64 %388
   %391 = shl i64 %379, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %390, ptr nonnull align 8 %377, i64 %391, i1 false), !noalias !2063
   %392 = load i64, ptr %.sroa.5502.0..sroa_idx, align 8, !alias.scope !2060, !noalias !2063, !noundef !4
@@ -9431,7 +9431,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit306: ; preds = %244
   %421 = phi i64 [ %413, %407 ], [ %.pre.i355, %.noexc356 ]
   %422 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %423 = load ptr, ptr %422, align 8, !alias.scope !2083, !noalias !2086, !nonnull !4, !noundef !4
-  %424 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %423, i64 %421
+  %424 = getelementptr inbounds [64 x i8], ptr %423, i64 %421
   %425 = shl i64 %411, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %424, ptr nonnull align 8 %409, i64 %425, i1 false), !noalias !2086
   %426 = load i64, ptr %412, align 8, !alias.scope !2083, !noalias !2086, !noundef !4
@@ -9513,7 +9513,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit306: ; preds = %244
 453:                                              ; preds = %.noexc365, %441
   %454 = phi i64 [ %446, %441 ], [ %.pre.i364, %.noexc365 ]
   %455 = load ptr, ptr %.sroa.4491.0..sroa_idx, align 8, !alias.scope !2106, !noalias !2109, !nonnull !4, !noundef !4
-  %456 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %455, i64 %454
+  %456 = getelementptr inbounds [64 x i8], ptr %455, i64 %454
   %457 = shl i64 %445, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %456, ptr nonnull align 8 %443, i64 %457, i1 false), !noalias !2109
   %458 = load i64, ptr %.sroa.5492.0..sroa_idx, align 8, !alias.scope !2106, !noalias !2109, !noundef !4
@@ -9595,7 +9595,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit306: ; preds = %244
 485:                                              ; preds = %.noexc374, %473
   %486 = phi i64 [ %478, %473 ], [ %.pre.i373, %.noexc374 ]
   %487 = load ptr, ptr %221, align 8, !alias.scope !2129, !noalias !2132, !nonnull !4, !noundef !4
-  %488 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %487, i64 %486
+  %488 = getelementptr inbounds [64 x i8], ptr %487, i64 %486
   %489 = shl i64 %477, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %488, ptr nonnull align 8 %475, i64 %489, i1 false), !noalias !2132
   %490 = load i64, ptr %222, align 8, !alias.scope !2129, !noalias !2132, !noundef !4
@@ -9678,7 +9678,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit306: ; preds = %244
 517:                                              ; preds = %.noexc383, %505
   %518 = phi i64 [ %510, %505 ], [ %.pre.i382, %.noexc383 ]
   %519 = load ptr, ptr %.sroa.4486.0..sroa_idx, align 8, !alias.scope !2152, !noalias !2155, !nonnull !4, !noundef !4
-  %520 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %519, i64 %518
+  %520 = getelementptr inbounds [64 x i8], ptr %519, i64 %518
   %521 = shl i64 %509, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %520, ptr nonnull align 8 %507, i64 %521, i1 false), !noalias !2155
   %522 = load i64, ptr %.sroa.5487.0..sroa_idx, align 8, !alias.scope !2152, !noalias !2155, !noundef !4
@@ -9760,7 +9760,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit306: ; preds = %244
 549:                                              ; preds = %.noexc392, %537
   %550 = phi i64 [ %542, %537 ], [ %.pre.i391, %.noexc392 ]
   %551 = load ptr, ptr %185, align 8, !alias.scope !2175, !noalias !2178, !nonnull !4, !noundef !4
-  %552 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %551, i64 %550
+  %552 = getelementptr inbounds [64 x i8], ptr %551, i64 %550
   %553 = shl i64 %541, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %552, ptr nonnull align 8 %539, i64 %553, i1 false), !noalias !2178
   %554 = load i64, ptr %186, align 8, !alias.scope !2175, !noalias !2178, !noundef !4
@@ -9843,7 +9843,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit306: ; preds = %244
 581:                                              ; preds = %.noexc401, %569
   %582 = phi i64 [ %574, %569 ], [ %.pre.i400, %.noexc401 ]
   %583 = load ptr, ptr %.sroa.4483.0..sroa_idx, align 8, !alias.scope !2198, !noalias !2201, !nonnull !4, !noundef !4
-  %584 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %583, i64 %582
+  %584 = getelementptr inbounds [64 x i8], ptr %583, i64 %582
   %585 = shl i64 %573, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %584, ptr nonnull align 8 %571, i64 %585, i1 false), !noalias !2201
   %586 = load i64, ptr %.sroa.5484.0..sroa_idx, align 8, !alias.scope !2198, !noalias !2201, !noundef !4
@@ -9927,7 +9927,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit306: ; preds = %244
   %615 = phi i64 [ %607, %601 ], [ %.pre.i409, %.noexc410 ]
   %616 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %617 = load ptr, ptr %616, align 8, !alias.scope !2221, !noalias !2224, !nonnull !4, !noundef !4
-  %618 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %617, i64 %615
+  %618 = getelementptr inbounds [64 x i8], ptr %617, i64 %615
   %619 = shl i64 %605, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %618, ptr nonnull align 8 %603, i64 %619, i1 false), !noalias !2224
   %620 = load i64, ptr %606, align 8, !alias.scope !2221, !noalias !2224, !noundef !4
@@ -10009,7 +10009,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit306: ; preds = %244
 647:                                              ; preds = %.noexc419, %635
   %648 = phi i64 [ %640, %635 ], [ %.pre.i418, %.noexc419 ]
   %649 = load ptr, ptr %.sroa.4473.0..sroa_idx, align 8, !alias.scope !2244, !noalias !2247, !nonnull !4, !noundef !4
-  %650 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %649, i64 %648
+  %650 = getelementptr inbounds [64 x i8], ptr %649, i64 %648
   %651 = shl i64 %639, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %650, ptr nonnull align 8 %637, i64 %651, i1 false), !noalias !2247
   %652 = load i64, ptr %.sroa.5474.0..sroa_idx, align 8, !alias.scope !2244, !noalias !2247, !noundef !4
@@ -10091,7 +10091,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit306: ; preds = %244
 679:                                              ; preds = %.noexc428, %667
   %680 = phi i64 [ %672, %667 ], [ %.pre.i427, %.noexc428 ]
   %681 = load ptr, ptr %.sroa.4469.0..sroa_idx, align 8, !alias.scope !2267, !noalias !2270, !nonnull !4, !noundef !4
-  %682 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %681, i64 %680
+  %682 = getelementptr inbounds [64 x i8], ptr %681, i64 %680
   %683 = shl i64 %671, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %682, ptr nonnull align 8 %669, i64 %683, i1 false), !noalias !2270
   %684 = load i64, ptr %.sroa.5470.0..sroa_idx, align 8, !alias.scope !2267, !noalias !2270, !noundef !4
@@ -10997,7 +10997,7 @@ define hidden void @_ZN10hir_expand20builtin_derive_macro20expand_simple_derive1
   unreachable
 
 269:                                              ; preds = %260
-  %270 = getelementptr inbounds { { { i8, [23 x i8] } }, { i32, { i32, i32 }, { i32, i32 } }, [1 x i32] }, ptr %262, i64 %264
+  %270 = getelementptr inbounds [48 x i8], ptr %262, i64 %264
   store ptr %251, ptr %266, align 8, !noalias !2401
   %.sroa.8.0..sroa_idx386.i = getelementptr inbounds nuw i8, ptr %266, i64 8
   store i64 %252, ptr %.sroa.8.0..sroa_idx386.i, align 8, !noalias !2401
@@ -11149,7 +11149,7 @@ define hidden void @_ZN10hir_expand20builtin_derive_macro20expand_simple_derive1
 "_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he758f9f485c7e8d8E.llvm.10606712881621943088.exit.i58.i.i": ; preds = %.noexc56.i.i, %299
   %308 = phi i64 [ %302, %299 ], [ %.pre.i55.i.i, %.noexc56.i.i ]
   %309 = load ptr, ptr %271, align 8, !alias.scope !2439, !noalias !2447, !nonnull !4, !noundef !4
-  %310 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %309, i64 %308
+  %310 = getelementptr inbounds [64 x i8], ptr %309, i64 %308
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %310, ptr noundef nonnull align 8 dereferenceable(64) %292, i64 64, i1 false), !noalias !2448
   %311 = add i64 %308, 1
   store i64 %311, ptr %272, align 8, !alias.scope !2439, !noalias !2447
@@ -11399,7 +11399,7 @@ define hidden void @_ZN10hir_expand20builtin_derive_macro20expand_simple_derive1
 "_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he758f9f485c7e8d8E.llvm.10606712881621943088.exit.i86.i.i": ; preds = %.noexc84.i.i, %366
   %375 = phi i64 [ %369, %366 ], [ %.pre.i83.i.i, %.noexc84.i.i ]
   %376 = load ptr, ptr %338, align 8, !alias.scope !2499, !noalias !2507, !nonnull !4, !noundef !4
-  %377 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %376, i64 %375
+  %377 = getelementptr inbounds [64 x i8], ptr %376, i64 %375
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %377, ptr noundef nonnull align 8 dereferenceable(64) %359, i64 64, i1 false), !noalias !2508
   %378 = add i64 %375, 1
   store i64 %378, ptr %339, align 8, !alias.scope !2499, !noalias !2507
@@ -11545,7 +11545,7 @@ _ZN10hir_expand20builtin_derive_macro12VariantShape14as_pattern_map17h8df200576a
 419:                                              ; preds = %405
   %420 = getelementptr inbounds nuw i8, ptr %189, i64 24
   %421 = load ptr, ptr %420, align 8, !alias.scope !2317, !noalias !2322, !nonnull !4, !noundef !4
-  %422 = getelementptr inbounds { { { { i8, [23 x i8] } }, { i32, { i32, i32 }, { i32, i32 } }, [1 x i32] }, { i64, [2 x i64] } }, ptr %421, i64 %407
+  %422 = getelementptr inbounds [72 x i8], ptr %421, i64 %407
   %423 = getelementptr inbounds nuw i8, ptr %189, i64 112
   %424 = getelementptr inbounds nuw i8, ptr %422, i64 48
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.9419.i)
@@ -11854,7 +11854,7 @@ _ZN10hir_expand20builtin_derive_macro12VariantShape14as_pattern_map17h8df200576a
 "_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he758f9f485c7e8d8E.llvm.10606712881621943088.exit.i206.i": ; preds = %503, %.noexc204.i
   %510 = phi i64 [ %504, %503 ], [ %.pre.i203.i, %.noexc204.i ]
   %511 = load ptr, ptr %.sroa.4439.0..sroa_idx.i, align 8, !alias.scope !2625, !noalias !2633, !nonnull !4, !noundef !4
-  %512 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %511, i64 %510
+  %512 = getelementptr inbounds [64 x i8], ptr %511, i64 %510
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %512, ptr noundef nonnull align 8 dereferenceable(64) %490, i64 64, i1 false), !noalias !2634
   %513 = add i64 %510, 1
   store i64 %513, ptr %.sroa.5440.0..sroa_idx.i, align 8, !alias.scope !2625, !noalias !2633
@@ -11916,7 +11916,7 @@ _ZN10hir_expand20builtin_derive_macro12VariantShape14as_pattern_map17h8df200576a
 "_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he758f9f485c7e8d8E.llvm.10606712881621943088.exit.i215.i": ; preds = %522, %.noexc213.i
   %534 = phi i64 [ %527, %522 ], [ %.pre.i212.i, %.noexc213.i ]
   %535 = load ptr, ptr %454, align 8, !alias.scope !2647, !noalias !2656, !nonnull !4, !noundef !4
-  %536 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %535, i64 %534
+  %536 = getelementptr inbounds [64 x i8], ptr %535, i64 %534
   %537 = shl i64 %526, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %536, ptr nonnull align 8 %524, i64 %537, i1 false), !noalias !2657
   %538 = load i64, ptr %455, align 8, !alias.scope !2647, !noalias !2656, !noundef !4
@@ -12026,7 +12026,7 @@ _ZN10hir_expand20builtin_derive_macro12VariantShape14as_pattern_map17h8df200576a
   unreachable
 
 568:                                              ; preds = %559
-  %569 = getelementptr inbounds { { { i8, [23 x i8] } }, { i32, { i32, i32 }, { i32, i32 } }, [1 x i32] }, ptr %561, i64 %563
+  %569 = getelementptr inbounds [48 x i8], ptr %561, i64 %563
   store ptr %550, ptr %565, align 8, !noalias !2685
   %.sroa.8410.0..sroa_idx417.i = getelementptr inbounds nuw i8, ptr %565, i64 8
   store i64 %551, ptr %.sroa.8410.0..sroa_idx417.i, align 8, !noalias !2685
@@ -12178,7 +12178,7 @@ _ZN10hir_expand20builtin_derive_macro12VariantShape14as_pattern_map17h8df200576a
 "_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he758f9f485c7e8d8E.llvm.10606712881621943088.exit.i58.i271.i": ; preds = %.noexc56.i275.i, %598
   %607 = phi i64 [ %601, %598 ], [ %.pre.i55.i276.i, %.noexc56.i275.i ]
   %608 = load ptr, ptr %570, align 8, !alias.scope !2723, !noalias !2731, !nonnull !4, !noundef !4
-  %609 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %608, i64 %607
+  %609 = getelementptr inbounds [64 x i8], ptr %608, i64 %607
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %609, ptr noundef nonnull align 8 dereferenceable(64) %591, i64 64, i1 false), !noalias !2732
   %610 = add i64 %607, 1
   store i64 %610, ptr %571, align 8, !alias.scope !2723, !noalias !2731
@@ -12428,7 +12428,7 @@ _ZN10hir_expand20builtin_derive_macro12VariantShape14as_pattern_map17h8df200576a
 "_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he758f9f485c7e8d8E.llvm.10606712881621943088.exit.i86.i247.i": ; preds = %.noexc84.i251.i, %665
   %674 = phi i64 [ %668, %665 ], [ %.pre.i83.i252.i, %.noexc84.i251.i ]
   %675 = load ptr, ptr %637, align 8, !alias.scope !2783, !noalias !2791, !nonnull !4, !noundef !4
-  %676 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %675, i64 %674
+  %676 = getelementptr inbounds [64 x i8], ptr %675, i64 %674
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %676, ptr noundef nonnull align 8 dereferenceable(64) %658, i64 64, i1 false), !noalias !2792
   %677 = add i64 %674, 1
   store i64 %677, ptr %638, align 8, !alias.scope !2783, !noalias !2791
@@ -13110,7 +13110,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit300.i: ; preds = %767
 "_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he758f9f485c7e8d8E.llvm.10606712881621943088.exit.i327.i": ; preds = %827, %.noexc325.i
   %836 = phi i64 [ %830, %827 ], [ %.pre.i324.i, %.noexc325.i ]
   %837 = load ptr, ptr %.sroa.4464.0..sroa_idx.i, align 8, !alias.scope !2905, !noalias !2913, !nonnull !4, !noundef !4
-  %838 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %837, i64 %836
+  %838 = getelementptr inbounds [64 x i8], ptr %837, i64 %836
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %838, ptr noundef nonnull align 8 dereferenceable(64) %820, i64 64, i1 false), !noalias !2914
   %839 = add i64 %836, 1
   store i64 %839, ptr %.sroa.5465.0..sroa_idx.i, align 8, !alias.scope !2905, !noalias !2913
@@ -13172,7 +13172,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit300.i: ; preds = %767
 "_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he758f9f485c7e8d8E.llvm.10606712881621943088.exit.i337.i": ; preds = %848, %.noexc335.i
   %860 = phi i64 [ %853, %848 ], [ %.pre.i334.i, %.noexc335.i ]
   %861 = load ptr, ptr %.sroa.4461.0..sroa_idx.i, align 8, !alias.scope !2927, !noalias !2936, !nonnull !4, !noundef !4
-  %862 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %861, i64 %860
+  %862 = getelementptr inbounds [64 x i8], ptr %861, i64 %860
   %863 = shl i64 %852, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %862, ptr nonnull align 8 %850, i64 %863, i1 false), !noalias !2937
   %864 = load i64, ptr %.sroa.5462.0..sroa_idx.i, align 8, !alias.scope !2927, !noalias !2936, !noundef !4
@@ -13236,7 +13236,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit300.i: ; preds = %767
 "_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he758f9f485c7e8d8E.llvm.10606712881621943088.exit.i346.i": ; preds = %874, %.noexc344.i
   %886 = phi i64 [ %879, %874 ], [ %.pre.i343.i, %.noexc344.i ]
   %887 = load ptr, ptr %758, align 8, !alias.scope !2949, !noalias !2958, !nonnull !4, !noundef !4
-  %888 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %887, i64 %886
+  %888 = getelementptr inbounds [64 x i8], ptr %887, i64 %886
   %889 = shl i64 %878, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %888, ptr nonnull align 8 %876, i64 %889, i1 false), !noalias !2959
   %890 = load i64, ptr %759, align 8, !alias.scope !2949, !noalias !2958, !noundef !4
@@ -13300,7 +13300,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit300.i: ; preds = %767
 "_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he758f9f485c7e8d8E.llvm.10606712881621943088.exit.i355.i": ; preds = %900, %.noexc353.i
   %912 = phi i64 [ %905, %900 ], [ %.pre.i352.i, %.noexc353.i ]
   %913 = load ptr, ptr %.sroa.4449.0..sroa_idx.i, align 8, !alias.scope !2971, !noalias !2980, !nonnull !4, !noundef !4
-  %914 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %913, i64 %912
+  %914 = getelementptr inbounds [64 x i8], ptr %913, i64 %912
   %915 = shl i64 %904, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %914, ptr nonnull align 8 %902, i64 %915, i1 false), !noalias !2981
   %916 = load i64, ptr %.sroa.5450.0..sroa_idx.i, align 8, !alias.scope !2971, !noalias !2980, !noundef !4
@@ -13364,7 +13364,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit300.i: ; preds = %767
 "_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he758f9f485c7e8d8E.llvm.10606712881621943088.exit.i366.i": ; preds = %926, %.noexc364.i
   %938 = phi i64 [ %931, %926 ], [ %.pre.i363.i, %.noexc364.i ]
   %939 = load ptr, ptr %.sroa.4445.0..sroa_idx.i, align 8, !alias.scope !2993, !noalias !3002, !nonnull !4, !noundef !4
-  %940 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %939, i64 %938
+  %940 = getelementptr inbounds [64 x i8], ptr %939, i64 %938
   %941 = shl i64 %930, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %940, ptr nonnull align 8 %928, i64 %941, i1 false), !noalias !3003
   %942 = load i64, ptr %.sroa.5446.0..sroa_idx.i, align 8, !alias.scope !2993, !noalias !3002, !noundef !4
@@ -13492,7 +13492,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit300.i: ; preds = %767
   %.sroa.4482.0.copyload = load ptr, ptr %.sroa.4482.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5483.0..sroa_idx = getelementptr inbounds nuw i8, ptr %189, i64 80
   %.sroa.5483.0.copyload = load i64, ptr %.sroa.5483.0..sroa_idx, align 8
-  %968 = getelementptr inbounds { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, ptr %.sroa.4482.0.copyload, i64 %.sroa.5483.0.copyload
+  %968 = getelementptr inbounds [64 x i8], ptr %.sroa.4482.0.copyload, i64 %.sroa.5483.0.copyload
   store ptr %.sroa.4482.0.copyload, ptr %185, align 8
   %.sroa.4479.0..sroa_idx = getelementptr inbounds nuw i8, ptr %185, i64 8
   store ptr %.sroa.4482.0.copyload, ptr %.sroa.4479.0..sroa_idx, align 8
@@ -13517,7 +13517,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit300.i: ; preds = %767
   %.sroa.4493.0.copyload = load ptr, ptr %.sroa.4493.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5494.0..sroa_idx = getelementptr inbounds nuw i8, ptr %189, i64 56
   %.sroa.5494.0.copyload = load i64, ptr %.sroa.5494.0..sroa_idx, align 8
-  %974 = getelementptr inbounds { { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, { [56 x i8], i8, [7 x i8] }, { [56 x i8], i8, [7 x i8] } }, ptr %.sroa.4493.0.copyload, i64 %.sroa.5494.0.copyload
+  %974 = getelementptr inbounds [192 x i8], ptr %.sroa.4493.0.copyload, i64 %.sroa.5494.0.copyload
   call void @llvm.lifetime.start.p0(ptr nonnull %29), !noalias !3019
   store i64 0, ptr %29, align 8, !alias.scope !3023, !noalias !3019
   %.sroa.4.0..sroa_idx2.i.i = getelementptr inbounds nuw i8, ptr %29, i64 8
@@ -13572,7 +13572,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit300.i: ; preds = %767
   %983 = load ptr, ptr %982, align 8, !nonnull !4, !noundef !4
   %984 = getelementptr inbounds nuw i8, ptr %189, i64 104
   %985 = load i64, ptr %984, align 8, !noundef !4
-  %986 = getelementptr inbounds { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, ptr %983, i64 %985
+  %986 = getelementptr inbounds [64 x i8], ptr %983, i64 %985
   store ptr %983, ptr %181, align 8
   %987 = getelementptr inbounds nuw i8, ptr %181, i64 8
   store ptr %986, ptr %987, align 8
@@ -13774,7 +13774,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit: ; preds = %"_ZN97_$LT
   %.sroa.4507.0.copyload = load ptr, ptr %.sroa.4507.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5508.0..sroa_idx = getelementptr inbounds nuw i8, ptr %184, i64 16
   %.sroa.5508.0.copyload = load i64, ptr %.sroa.5508.0..sroa_idx, align 8
-  %1029 = getelementptr inbounds { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, ptr %.sroa.4507.0.copyload, i64 %.sroa.5508.0.copyload
+  %1029 = getelementptr inbounds [64 x i8], ptr %.sroa.4507.0.copyload, i64 %.sroa.5508.0.copyload
   store ptr %.sroa.4507.0.copyload, ptr %171, align 8
   %.sroa.4503.0..sroa_idx = getelementptr inbounds nuw i8, ptr %171, i64 8
   store ptr %.sroa.4507.0.copyload, ptr %.sroa.4503.0..sroa_idx, align 8
@@ -14065,7 +14065,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit310: ; preds = %1047
   %.sroa.4525.0.copyload = load ptr, ptr %.sroa.4525.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5526.0..sroa_idx = getelementptr inbounds nuw i8, ptr %183, i64 16
   %.sroa.5526.0.copyload = load i64, ptr %.sroa.5526.0..sroa_idx, align 8
-  %1096 = getelementptr inbounds { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, ptr %.sroa.4525.0.copyload, i64 %.sroa.5526.0.copyload
+  %1096 = getelementptr inbounds [64 x i8], ptr %.sroa.4525.0.copyload, i64 %.sroa.5526.0.copyload
   store ptr %.sroa.4525.0.copyload, ptr %150, align 8
   %.sroa.4521.0..sroa_idx = getelementptr inbounds nuw i8, ptr %150, i64 8
   store ptr %.sroa.4525.0.copyload, ptr %.sroa.4521.0..sroa_idx, align 8
@@ -14250,7 +14250,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit331: ; preds = %1107
   %.sroa.4540.0.copyload = load ptr, ptr %.sroa.4540.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5541.0..sroa_idx = getelementptr inbounds nuw i8, ptr %186, i64 16
   %.sroa.5541.0.copyload = load i64, ptr %.sroa.5541.0..sroa_idx, align 8
-  %1136 = getelementptr inbounds { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, ptr %.sroa.4540.0.copyload, i64 %.sroa.5541.0.copyload
+  %1136 = getelementptr inbounds [64 x i8], ptr %.sroa.4540.0.copyload, i64 %.sroa.5541.0.copyload
   store ptr %.sroa.4540.0.copyload, ptr %140, align 8
   %.sroa.4536.0..sroa_idx = getelementptr inbounds nuw i8, ptr %140, i64 8
   store ptr %.sroa.4540.0.copyload, ptr %.sroa.4536.0..sroa_idx, align 8
@@ -14438,7 +14438,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit331: ; preds = %1107
   %1189 = phi i64 [ %1181, %1177 ], [ %.pre.i354, %.noexc355 ]
   %1190 = getelementptr inbounds nuw i8, ptr %141, i64 8
   %1191 = load ptr, ptr %1190, align 8, !alias.scope !3138, !noalias !3141, !nonnull !4, !noundef !4
-  %1192 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1191, i64 %1189
+  %1192 = getelementptr inbounds [64 x i8], ptr %1191, i64 %1189
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %1192, ptr noundef nonnull align 8 dereferenceable(64) %1170, i64 64, i1 false), !noalias !3141
   %1193 = add i64 %1189, 1
   store i64 %1193, ptr %1180, align 8, !alias.scope !3138, !noalias !3141
@@ -14517,7 +14517,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit331: ; preds = %1107
 1218:                                             ; preds = %.noexc365, %1206
   %1219 = phi i64 [ %1211, %1206 ], [ %.pre.i364, %.noexc365 ]
   %1220 = load ptr, ptr %.sroa.4531.0..sroa_idx, align 8, !alias.scope !3161, !noalias !3164, !nonnull !4, !noundef !4
-  %1221 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1220, i64 %1219
+  %1221 = getelementptr inbounds [64 x i8], ptr %1220, i64 %1219
   %1222 = shl i64 %1210, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1221, ptr nonnull align 8 %1208, i64 %1222, i1 false), !noalias !3164
   %1223 = load i64, ptr %.sroa.5532.0..sroa_idx, align 8, !alias.scope !3161, !noalias !3164, !noundef !4
@@ -14599,7 +14599,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit331: ; preds = %1107
 1250:                                             ; preds = %.noexc374, %1238
   %1251 = phi i64 [ %1243, %1238 ], [ %.pre.i373, %.noexc374 ]
   %1252 = load ptr, ptr %.sroa.4528.0..sroa_idx, align 8, !alias.scope !3184, !noalias !3187, !nonnull !4, !noundef !4
-  %1253 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1252, i64 %1251
+  %1253 = getelementptr inbounds [64 x i8], ptr %1252, i64 %1251
   %1254 = shl i64 %1242, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1253, ptr nonnull align 8 %1240, i64 %1254, i1 false), !noalias !3187
   %1255 = load i64, ptr %.sroa.5529.0..sroa_idx, align 8, !alias.scope !3184, !noalias !3187, !noundef !4
@@ -14683,7 +14683,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit331: ; preds = %1107
   %1284 = phi i64 [ %1276, %1270 ], [ %.pre.i382, %.noexc383 ]
   %1285 = getelementptr inbounds nuw i8, ptr %151, i64 8
   %1286 = load ptr, ptr %1285, align 8, !alias.scope !3207, !noalias !3210, !nonnull !4, !noundef !4
-  %1287 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1286, i64 %1284
+  %1287 = getelementptr inbounds [64 x i8], ptr %1286, i64 %1284
   %1288 = shl i64 %1274, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1287, ptr nonnull align 8 %1272, i64 %1288, i1 false), !noalias !3210
   %1289 = load i64, ptr %1275, align 8, !alias.scope !3207, !noalias !3210, !noundef !4
@@ -14765,7 +14765,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit331: ; preds = %1107
 1316:                                             ; preds = %.noexc392, %1304
   %1317 = phi i64 [ %1309, %1304 ], [ %.pre.i391, %.noexc392 ]
   %1318 = load ptr, ptr %.sroa.4518.0..sroa_idx, align 8, !alias.scope !3230, !noalias !3233, !nonnull !4, !noundef !4
-  %1319 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1318, i64 %1317
+  %1319 = getelementptr inbounds [64 x i8], ptr %1318, i64 %1317
   %1320 = shl i64 %1308, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1319, ptr nonnull align 8 %1306, i64 %1320, i1 false), !noalias !3233
   %1321 = load i64, ptr %.sroa.5519.0..sroa_idx, align 8, !alias.scope !3230, !noalias !3233, !noundef !4
@@ -14847,7 +14847,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit331: ; preds = %1107
 1348:                                             ; preds = %.noexc401, %1336
   %1349 = phi i64 [ %1341, %1336 ], [ %.pre.i400, %.noexc401 ]
   %1350 = load ptr, ptr %1084, align 8, !alias.scope !3253, !noalias !3256, !nonnull !4, !noundef !4
-  %1351 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1350, i64 %1349
+  %1351 = getelementptr inbounds [64 x i8], ptr %1350, i64 %1349
   %1352 = shl i64 %1340, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1351, ptr nonnull align 8 %1338, i64 %1352, i1 false), !noalias !3256
   %1353 = load i64, ptr %1085, align 8, !alias.scope !3253, !noalias !3256, !noundef !4
@@ -14930,7 +14930,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit331: ; preds = %1107
 1380:                                             ; preds = %.noexc410, %1368
   %1381 = phi i64 [ %1373, %1368 ], [ %.pre.i409, %.noexc410 ]
   %1382 = load ptr, ptr %.sroa.4513.0..sroa_idx, align 8, !alias.scope !3276, !noalias !3279, !nonnull !4, !noundef !4
-  %1383 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1382, i64 %1381
+  %1383 = getelementptr inbounds [64 x i8], ptr %1382, i64 %1381
   %1384 = shl i64 %1372, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1383, ptr nonnull align 8 %1370, i64 %1384, i1 false), !noalias !3279
   %1385 = load i64, ptr %.sroa.5514.0..sroa_idx, align 8, !alias.scope !3276, !noalias !3279, !noundef !4
@@ -15012,7 +15012,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit331: ; preds = %1107
 1412:                                             ; preds = %.noexc419, %1400
   %1413 = phi i64 [ %1405, %1400 ], [ %.pre.i418, %.noexc419 ]
   %1414 = load ptr, ptr %1048, align 8, !alias.scope !3299, !noalias !3302, !nonnull !4, !noundef !4
-  %1415 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1414, i64 %1413
+  %1415 = getelementptr inbounds [64 x i8], ptr %1414, i64 %1413
   %1416 = shl i64 %1404, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1415, ptr nonnull align 8 %1402, i64 %1416, i1 false), !noalias !3302
   %1417 = load i64, ptr %1049, align 8, !alias.scope !3299, !noalias !3302, !noundef !4
@@ -15095,7 +15095,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit331: ; preds = %1107
 1444:                                             ; preds = %.noexc428, %1432
   %1445 = phi i64 [ %1437, %1432 ], [ %.pre.i427, %.noexc428 ]
   %1446 = load ptr, ptr %.sroa.4510.0..sroa_idx, align 8, !alias.scope !3322, !noalias !3325, !nonnull !4, !noundef !4
-  %1447 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1446, i64 %1445
+  %1447 = getelementptr inbounds [64 x i8], ptr %1446, i64 %1445
   %1448 = shl i64 %1436, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1447, ptr nonnull align 8 %1434, i64 %1448, i1 false), !noalias !3325
   %1449 = load i64, ptr %.sroa.5511.0..sroa_idx, align 8, !alias.scope !3322, !noalias !3325, !noundef !4
@@ -15179,7 +15179,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit331: ; preds = %1107
   %1478 = phi i64 [ %1470, %1464 ], [ %.pre.i436, %.noexc437 ]
   %1479 = getelementptr inbounds nuw i8, ptr %172, i64 8
   %1480 = load ptr, ptr %1479, align 8, !alias.scope !3345, !noalias !3348, !nonnull !4, !noundef !4
-  %1481 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1480, i64 %1478
+  %1481 = getelementptr inbounds [64 x i8], ptr %1480, i64 %1478
   %1482 = shl i64 %1468, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1481, ptr nonnull align 8 %1466, i64 %1482, i1 false), !noalias !3348
   %1483 = load i64, ptr %1469, align 8, !alias.scope !3345, !noalias !3348, !noundef !4
@@ -15261,7 +15261,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit331: ; preds = %1107
 1510:                                             ; preds = %.noexc446, %1498
   %1511 = phi i64 [ %1503, %1498 ], [ %.pre.i445, %.noexc446 ]
   %1512 = load ptr, ptr %.sroa.4500.0..sroa_idx, align 8, !alias.scope !3368, !noalias !3371, !nonnull !4, !noundef !4
-  %1513 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1512, i64 %1511
+  %1513 = getelementptr inbounds [64 x i8], ptr %1512, i64 %1511
   %1514 = shl i64 %1502, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1513, ptr nonnull align 8 %1500, i64 %1514, i1 false), !noalias !3371
   %1515 = load i64, ptr %.sroa.5501.0..sroa_idx, align 8, !alias.scope !3368, !noalias !3371, !noundef !4
@@ -15343,7 +15343,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit331: ; preds = %1107
 1542:                                             ; preds = %.noexc455, %1530
   %1543 = phi i64 [ %1535, %1530 ], [ %.pre.i454, %.noexc455 ]
   %1544 = load ptr, ptr %.sroa.4496.0..sroa_idx, align 8, !alias.scope !3391, !noalias !3394, !nonnull !4, !noundef !4
-  %1545 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1544, i64 %1543
+  %1545 = getelementptr inbounds [64 x i8], ptr %1544, i64 %1543
   %1546 = shl i64 %1534, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1545, ptr nonnull align 8 %1532, i64 %1546, i1 false), !noalias !3394
   %1547 = load i64, ptr %.sroa.5497.0..sroa_idx, align 8, !alias.scope !3391, !noalias !3394, !noundef !4
@@ -15900,7 +15900,7 @@ define hidden void @_ZN10hir_expand20builtin_derive_macro20expand_simple_derive1
   %.sroa.4455.0.copyload = load ptr, ptr %.sroa.4455.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5456.0..sroa_idx = getelementptr inbounds nuw i8, ptr %85, i64 80
   %.sroa.5456.0.copyload = load i64, ptr %.sroa.5456.0..sroa_idx, align 8
-  %98 = getelementptr inbounds { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, ptr %.sroa.4455.0.copyload, i64 %.sroa.5456.0.copyload
+  %98 = getelementptr inbounds [64 x i8], ptr %.sroa.4455.0.copyload, i64 %.sroa.5456.0.copyload
   store ptr %.sroa.4455.0.copyload, ptr %81, align 8
   %.sroa.4452.0..sroa_idx = getelementptr inbounds nuw i8, ptr %81, i64 8
   store ptr %.sroa.4455.0.copyload, ptr %.sroa.4452.0..sroa_idx, align 8
@@ -15925,7 +15925,7 @@ define hidden void @_ZN10hir_expand20builtin_derive_macro20expand_simple_derive1
   %.sroa.4466.0.copyload = load ptr, ptr %.sroa.4466.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5467.0..sroa_idx = getelementptr inbounds nuw i8, ptr %85, i64 56
   %.sroa.5467.0.copyload = load i64, ptr %.sroa.5467.0..sroa_idx, align 8
-  %104 = getelementptr inbounds { { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, { [56 x i8], i8, [7 x i8] }, { [56 x i8], i8, [7 x i8] } }, ptr %.sroa.4466.0.copyload, i64 %.sroa.5467.0.copyload
+  %104 = getelementptr inbounds [192 x i8], ptr %.sroa.4466.0.copyload, i64 %.sroa.5467.0.copyload
   call void @llvm.lifetime.start.p0(ptr nonnull %29), !noalias !3438
   store i64 0, ptr %29, align 8, !alias.scope !3442, !noalias !3438
   %.sroa.4.0..sroa_idx2.i.i = getelementptr inbounds nuw i8, ptr %29, i64 8
@@ -15980,7 +15980,7 @@ define hidden void @_ZN10hir_expand20builtin_derive_macro20expand_simple_derive1
   %113 = load ptr, ptr %112, align 8, !nonnull !4, !noundef !4
   %114 = getelementptr inbounds nuw i8, ptr %85, i64 104
   %115 = load i64, ptr %114, align 8, !noundef !4
-  %116 = getelementptr inbounds { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, ptr %113, i64 %115
+  %116 = getelementptr inbounds [64 x i8], ptr %113, i64 %115
   store ptr %113, ptr %77, align 8
   %117 = getelementptr inbounds nuw i8, ptr %77, i64 8
   store ptr %116, ptr %117, align 8
@@ -16182,7 +16182,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit: ; preds = %"_ZN97_$LT
   %.sroa.4480.0.copyload = load ptr, ptr %.sroa.4480.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5481.0..sroa_idx = getelementptr inbounds nuw i8, ptr %80, i64 16
   %.sroa.5481.0.copyload = load i64, ptr %.sroa.5481.0..sroa_idx, align 8
-  %159 = getelementptr inbounds { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, ptr %.sroa.4480.0.copyload, i64 %.sroa.5481.0.copyload
+  %159 = getelementptr inbounds [64 x i8], ptr %.sroa.4480.0.copyload, i64 %.sroa.5481.0.copyload
   store ptr %.sroa.4480.0.copyload, ptr %67, align 8
   %.sroa.4476.0..sroa_idx = getelementptr inbounds nuw i8, ptr %67, i64 8
   store ptr %.sroa.4480.0.copyload, ptr %.sroa.4476.0..sroa_idx, align 8
@@ -16473,7 +16473,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit286: ; preds = %177
   %.sroa.4498.0.copyload = load ptr, ptr %.sroa.4498.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5499.0..sroa_idx = getelementptr inbounds nuw i8, ptr %79, i64 16
   %.sroa.5499.0.copyload = load i64, ptr %.sroa.5499.0..sroa_idx, align 8
-  %226 = getelementptr inbounds { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, ptr %.sroa.4498.0.copyload, i64 %.sroa.5499.0.copyload
+  %226 = getelementptr inbounds [64 x i8], ptr %.sroa.4498.0.copyload, i64 %.sroa.5499.0.copyload
   store ptr %.sroa.4498.0.copyload, ptr %46, align 8
   %.sroa.4494.0..sroa_idx = getelementptr inbounds nuw i8, ptr %46, i64 8
   store ptr %.sroa.4498.0.copyload, ptr %.sroa.4494.0..sroa_idx, align 8
@@ -16658,7 +16658,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit306: ; preds = %237
   %.sroa.4513.0.copyload = load ptr, ptr %.sroa.4513.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5514.0..sroa_idx = getelementptr inbounds nuw i8, ptr %82, i64 16
   %.sroa.5514.0.copyload = load i64, ptr %.sroa.5514.0..sroa_idx, align 8
-  %266 = getelementptr inbounds { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, ptr %.sroa.4513.0.copyload, i64 %.sroa.5514.0.copyload
+  %266 = getelementptr inbounds [64 x i8], ptr %.sroa.4513.0.copyload, i64 %.sroa.5514.0.copyload
   store ptr %.sroa.4513.0.copyload, ptr %36, align 8
   %.sroa.4509.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 8
   store ptr %.sroa.4513.0.copyload, ptr %.sroa.4509.0..sroa_idx, align 8
@@ -16846,7 +16846,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit306: ; preds = %237
   %319 = phi i64 [ %311, %307 ], [ %.pre.i327, %.noexc328 ]
   %320 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %321 = load ptr, ptr %320, align 8, !alias.scope !3557, !noalias !3560, !nonnull !4, !noundef !4
-  %322 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %321, i64 %319
+  %322 = getelementptr inbounds [64 x i8], ptr %321, i64 %319
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %322, ptr noundef nonnull align 8 dereferenceable(64) %300, i64 64, i1 false), !noalias !3560
   %323 = add i64 %319, 1
   store i64 %323, ptr %310, align 8, !alias.scope !3557, !noalias !3560
@@ -16925,7 +16925,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit306: ; preds = %237
 348:                                              ; preds = %.noexc338, %336
   %349 = phi i64 [ %341, %336 ], [ %.pre.i337, %.noexc338 ]
   %350 = load ptr, ptr %.sroa.4504.0..sroa_idx, align 8, !alias.scope !3580, !noalias !3583, !nonnull !4, !noundef !4
-  %351 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %350, i64 %349
+  %351 = getelementptr inbounds [64 x i8], ptr %350, i64 %349
   %352 = shl i64 %340, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %351, ptr nonnull align 8 %338, i64 %352, i1 false), !noalias !3583
   %353 = load i64, ptr %.sroa.5505.0..sroa_idx, align 8, !alias.scope !3580, !noalias !3583, !noundef !4
@@ -17007,7 +17007,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit306: ; preds = %237
 380:                                              ; preds = %.noexc347, %368
   %381 = phi i64 [ %373, %368 ], [ %.pre.i346, %.noexc347 ]
   %382 = load ptr, ptr %.sroa.4501.0..sroa_idx, align 8, !alias.scope !3603, !noalias !3606, !nonnull !4, !noundef !4
-  %383 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %382, i64 %381
+  %383 = getelementptr inbounds [64 x i8], ptr %382, i64 %381
   %384 = shl i64 %372, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %383, ptr nonnull align 8 %370, i64 %384, i1 false), !noalias !3606
   %385 = load i64, ptr %.sroa.5502.0..sroa_idx, align 8, !alias.scope !3603, !noalias !3606, !noundef !4
@@ -17091,7 +17091,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit306: ; preds = %237
   %414 = phi i64 [ %406, %400 ], [ %.pre.i355, %.noexc356 ]
   %415 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %416 = load ptr, ptr %415, align 8, !alias.scope !3626, !noalias !3629, !nonnull !4, !noundef !4
-  %417 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %416, i64 %414
+  %417 = getelementptr inbounds [64 x i8], ptr %416, i64 %414
   %418 = shl i64 %404, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %417, ptr nonnull align 8 %402, i64 %418, i1 false), !noalias !3629
   %419 = load i64, ptr %405, align 8, !alias.scope !3626, !noalias !3629, !noundef !4
@@ -17173,7 +17173,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit306: ; preds = %237
 446:                                              ; preds = %.noexc365, %434
   %447 = phi i64 [ %439, %434 ], [ %.pre.i364, %.noexc365 ]
   %448 = load ptr, ptr %.sroa.4491.0..sroa_idx, align 8, !alias.scope !3649, !noalias !3652, !nonnull !4, !noundef !4
-  %449 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %448, i64 %447
+  %449 = getelementptr inbounds [64 x i8], ptr %448, i64 %447
   %450 = shl i64 %438, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %449, ptr nonnull align 8 %436, i64 %450, i1 false), !noalias !3652
   %451 = load i64, ptr %.sroa.5492.0..sroa_idx, align 8, !alias.scope !3649, !noalias !3652, !noundef !4
@@ -17255,7 +17255,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit306: ; preds = %237
 478:                                              ; preds = %.noexc374, %466
   %479 = phi i64 [ %471, %466 ], [ %.pre.i373, %.noexc374 ]
   %480 = load ptr, ptr %214, align 8, !alias.scope !3672, !noalias !3675, !nonnull !4, !noundef !4
-  %481 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %480, i64 %479
+  %481 = getelementptr inbounds [64 x i8], ptr %480, i64 %479
   %482 = shl i64 %470, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %481, ptr nonnull align 8 %468, i64 %482, i1 false), !noalias !3675
   %483 = load i64, ptr %215, align 8, !alias.scope !3672, !noalias !3675, !noundef !4
@@ -17338,7 +17338,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit306: ; preds = %237
 510:                                              ; preds = %.noexc383, %498
   %511 = phi i64 [ %503, %498 ], [ %.pre.i382, %.noexc383 ]
   %512 = load ptr, ptr %.sroa.4486.0..sroa_idx, align 8, !alias.scope !3695, !noalias !3698, !nonnull !4, !noundef !4
-  %513 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %512, i64 %511
+  %513 = getelementptr inbounds [64 x i8], ptr %512, i64 %511
   %514 = shl i64 %502, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %513, ptr nonnull align 8 %500, i64 %514, i1 false), !noalias !3698
   %515 = load i64, ptr %.sroa.5487.0..sroa_idx, align 8, !alias.scope !3695, !noalias !3698, !noundef !4
@@ -17420,7 +17420,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit306: ; preds = %237
 542:                                              ; preds = %.noexc392, %530
   %543 = phi i64 [ %535, %530 ], [ %.pre.i391, %.noexc392 ]
   %544 = load ptr, ptr %178, align 8, !alias.scope !3718, !noalias !3721, !nonnull !4, !noundef !4
-  %545 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %544, i64 %543
+  %545 = getelementptr inbounds [64 x i8], ptr %544, i64 %543
   %546 = shl i64 %534, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %545, ptr nonnull align 8 %532, i64 %546, i1 false), !noalias !3721
   %547 = load i64, ptr %179, align 8, !alias.scope !3718, !noalias !3721, !noundef !4
@@ -17503,7 +17503,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit306: ; preds = %237
 574:                                              ; preds = %.noexc401, %562
   %575 = phi i64 [ %567, %562 ], [ %.pre.i400, %.noexc401 ]
   %576 = load ptr, ptr %.sroa.4483.0..sroa_idx, align 8, !alias.scope !3741, !noalias !3744, !nonnull !4, !noundef !4
-  %577 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %576, i64 %575
+  %577 = getelementptr inbounds [64 x i8], ptr %576, i64 %575
   %578 = shl i64 %566, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %577, ptr nonnull align 8 %564, i64 %578, i1 false), !noalias !3744
   %579 = load i64, ptr %.sroa.5484.0..sroa_idx, align 8, !alias.scope !3741, !noalias !3744, !noundef !4
@@ -17587,7 +17587,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit306: ; preds = %237
   %608 = phi i64 [ %600, %594 ], [ %.pre.i409, %.noexc410 ]
   %609 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %610 = load ptr, ptr %609, align 8, !alias.scope !3764, !noalias !3767, !nonnull !4, !noundef !4
-  %611 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %610, i64 %608
+  %611 = getelementptr inbounds [64 x i8], ptr %610, i64 %608
   %612 = shl i64 %598, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %611, ptr nonnull align 8 %596, i64 %612, i1 false), !noalias !3767
   %613 = load i64, ptr %599, align 8, !alias.scope !3764, !noalias !3767, !noundef !4
@@ -17669,7 +17669,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit306: ; preds = %237
 640:                                              ; preds = %.noexc419, %628
   %641 = phi i64 [ %633, %628 ], [ %.pre.i418, %.noexc419 ]
   %642 = load ptr, ptr %.sroa.4473.0..sroa_idx, align 8, !alias.scope !3787, !noalias !3790, !nonnull !4, !noundef !4
-  %643 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %642, i64 %641
+  %643 = getelementptr inbounds [64 x i8], ptr %642, i64 %641
   %644 = shl i64 %632, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %643, ptr nonnull align 8 %630, i64 %644, i1 false), !noalias !3790
   %645 = load i64, ptr %.sroa.5474.0..sroa_idx, align 8, !alias.scope !3787, !noalias !3790, !noundef !4
@@ -17751,7 +17751,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit306: ; preds = %237
 672:                                              ; preds = %.noexc428, %660
   %673 = phi i64 [ %665, %660 ], [ %.pre.i427, %.noexc428 ]
   %674 = load ptr, ptr %.sroa.4469.0..sroa_idx, align 8, !alias.scope !3810, !noalias !3813, !nonnull !4, !noundef !4
-  %675 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %674, i64 %673
+  %675 = getelementptr inbounds [64 x i8], ptr %674, i64 %673
   %676 = shl i64 %664, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %675, ptr nonnull align 8 %662, i64 %676, i1 false), !noalias !3813
   %677 = load i64, ptr %.sroa.5470.0..sroa_idx, align 8, !alias.scope !3810, !noalias !3813, !noundef !4
@@ -18308,7 +18308,7 @@ define hidden void @_ZN10hir_expand20builtin_derive_macro20expand_simple_derive1
   %.sroa.4455.0.copyload = load ptr, ptr %.sroa.4455.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5456.0..sroa_idx = getelementptr inbounds nuw i8, ptr %85, i64 80
   %.sroa.5456.0.copyload = load i64, ptr %.sroa.5456.0..sroa_idx, align 8
-  %98 = getelementptr inbounds { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, ptr %.sroa.4455.0.copyload, i64 %.sroa.5456.0.copyload
+  %98 = getelementptr inbounds [64 x i8], ptr %.sroa.4455.0.copyload, i64 %.sroa.5456.0.copyload
   store ptr %.sroa.4455.0.copyload, ptr %81, align 8
   %.sroa.4452.0..sroa_idx = getelementptr inbounds nuw i8, ptr %81, i64 8
   store ptr %.sroa.4455.0.copyload, ptr %.sroa.4452.0..sroa_idx, align 8
@@ -18333,7 +18333,7 @@ define hidden void @_ZN10hir_expand20builtin_derive_macro20expand_simple_derive1
   %.sroa.4466.0.copyload = load ptr, ptr %.sroa.4466.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5467.0..sroa_idx = getelementptr inbounds nuw i8, ptr %85, i64 56
   %.sroa.5467.0.copyload = load i64, ptr %.sroa.5467.0..sroa_idx, align 8
-  %104 = getelementptr inbounds { { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, { [56 x i8], i8, [7 x i8] }, { [56 x i8], i8, [7 x i8] } }, ptr %.sroa.4466.0.copyload, i64 %.sroa.5467.0.copyload
+  %104 = getelementptr inbounds [192 x i8], ptr %.sroa.4466.0.copyload, i64 %.sroa.5467.0.copyload
   call void @llvm.lifetime.start.p0(ptr nonnull %29), !noalias !3857
   store i64 0, ptr %29, align 8, !alias.scope !3861, !noalias !3857
   %.sroa.4.0..sroa_idx2.i.i = getelementptr inbounds nuw i8, ptr %29, i64 8
@@ -18388,7 +18388,7 @@ define hidden void @_ZN10hir_expand20builtin_derive_macro20expand_simple_derive1
   %113 = load ptr, ptr %112, align 8, !nonnull !4, !noundef !4
   %114 = getelementptr inbounds nuw i8, ptr %85, i64 104
   %115 = load i64, ptr %114, align 8, !noundef !4
-  %116 = getelementptr inbounds { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, ptr %113, i64 %115
+  %116 = getelementptr inbounds [64 x i8], ptr %113, i64 %115
   store ptr %113, ptr %77, align 8
   %117 = getelementptr inbounds nuw i8, ptr %77, i64 8
   store ptr %116, ptr %117, align 8
@@ -18590,7 +18590,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit: ; preds = %"_ZN97_$LT
   %.sroa.4480.0.copyload = load ptr, ptr %.sroa.4480.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5481.0..sroa_idx = getelementptr inbounds nuw i8, ptr %80, i64 16
   %.sroa.5481.0.copyload = load i64, ptr %.sroa.5481.0..sroa_idx, align 8
-  %159 = getelementptr inbounds { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, ptr %.sroa.4480.0.copyload, i64 %.sroa.5481.0.copyload
+  %159 = getelementptr inbounds [64 x i8], ptr %.sroa.4480.0.copyload, i64 %.sroa.5481.0.copyload
   store ptr %.sroa.4480.0.copyload, ptr %67, align 8
   %.sroa.4476.0..sroa_idx = getelementptr inbounds nuw i8, ptr %67, i64 8
   store ptr %.sroa.4480.0.copyload, ptr %.sroa.4476.0..sroa_idx, align 8
@@ -18881,7 +18881,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit286: ; preds = %177
   %.sroa.4498.0.copyload = load ptr, ptr %.sroa.4498.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5499.0..sroa_idx = getelementptr inbounds nuw i8, ptr %79, i64 16
   %.sroa.5499.0.copyload = load i64, ptr %.sroa.5499.0..sroa_idx, align 8
-  %226 = getelementptr inbounds { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, ptr %.sroa.4498.0.copyload, i64 %.sroa.5499.0.copyload
+  %226 = getelementptr inbounds [64 x i8], ptr %.sroa.4498.0.copyload, i64 %.sroa.5499.0.copyload
   store ptr %.sroa.4498.0.copyload, ptr %46, align 8
   %.sroa.4494.0..sroa_idx = getelementptr inbounds nuw i8, ptr %46, i64 8
   store ptr %.sroa.4498.0.copyload, ptr %.sroa.4494.0..sroa_idx, align 8
@@ -19066,7 +19066,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit306: ; preds = %237
   %.sroa.4513.0.copyload = load ptr, ptr %.sroa.4513.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5514.0..sroa_idx = getelementptr inbounds nuw i8, ptr %82, i64 16
   %.sroa.5514.0.copyload = load i64, ptr %.sroa.5514.0..sroa_idx, align 8
-  %266 = getelementptr inbounds { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, ptr %.sroa.4513.0.copyload, i64 %.sroa.5514.0.copyload
+  %266 = getelementptr inbounds [64 x i8], ptr %.sroa.4513.0.copyload, i64 %.sroa.5514.0.copyload
   store ptr %.sroa.4513.0.copyload, ptr %36, align 8
   %.sroa.4509.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 8
   store ptr %.sroa.4513.0.copyload, ptr %.sroa.4509.0..sroa_idx, align 8
@@ -19254,7 +19254,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit306: ; preds = %237
   %319 = phi i64 [ %311, %307 ], [ %.pre.i327, %.noexc328 ]
   %320 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %321 = load ptr, ptr %320, align 8, !alias.scope !3976, !noalias !3979, !nonnull !4, !noundef !4
-  %322 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %321, i64 %319
+  %322 = getelementptr inbounds [64 x i8], ptr %321, i64 %319
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %322, ptr noundef nonnull align 8 dereferenceable(64) %300, i64 64, i1 false), !noalias !3979
   %323 = add i64 %319, 1
   store i64 %323, ptr %310, align 8, !alias.scope !3976, !noalias !3979
@@ -19333,7 +19333,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit306: ; preds = %237
 348:                                              ; preds = %.noexc338, %336
   %349 = phi i64 [ %341, %336 ], [ %.pre.i337, %.noexc338 ]
   %350 = load ptr, ptr %.sroa.4504.0..sroa_idx, align 8, !alias.scope !3999, !noalias !4002, !nonnull !4, !noundef !4
-  %351 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %350, i64 %349
+  %351 = getelementptr inbounds [64 x i8], ptr %350, i64 %349
   %352 = shl i64 %340, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %351, ptr nonnull align 8 %338, i64 %352, i1 false), !noalias !4002
   %353 = load i64, ptr %.sroa.5505.0..sroa_idx, align 8, !alias.scope !3999, !noalias !4002, !noundef !4
@@ -19415,7 +19415,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit306: ; preds = %237
 380:                                              ; preds = %.noexc347, %368
   %381 = phi i64 [ %373, %368 ], [ %.pre.i346, %.noexc347 ]
   %382 = load ptr, ptr %.sroa.4501.0..sroa_idx, align 8, !alias.scope !4022, !noalias !4025, !nonnull !4, !noundef !4
-  %383 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %382, i64 %381
+  %383 = getelementptr inbounds [64 x i8], ptr %382, i64 %381
   %384 = shl i64 %372, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %383, ptr nonnull align 8 %370, i64 %384, i1 false), !noalias !4025
   %385 = load i64, ptr %.sroa.5502.0..sroa_idx, align 8, !alias.scope !4022, !noalias !4025, !noundef !4
@@ -19499,7 +19499,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit306: ; preds = %237
   %414 = phi i64 [ %406, %400 ], [ %.pre.i355, %.noexc356 ]
   %415 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %416 = load ptr, ptr %415, align 8, !alias.scope !4045, !noalias !4048, !nonnull !4, !noundef !4
-  %417 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %416, i64 %414
+  %417 = getelementptr inbounds [64 x i8], ptr %416, i64 %414
   %418 = shl i64 %404, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %417, ptr nonnull align 8 %402, i64 %418, i1 false), !noalias !4048
   %419 = load i64, ptr %405, align 8, !alias.scope !4045, !noalias !4048, !noundef !4
@@ -19581,7 +19581,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit306: ; preds = %237
 446:                                              ; preds = %.noexc365, %434
   %447 = phi i64 [ %439, %434 ], [ %.pre.i364, %.noexc365 ]
   %448 = load ptr, ptr %.sroa.4491.0..sroa_idx, align 8, !alias.scope !4068, !noalias !4071, !nonnull !4, !noundef !4
-  %449 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %448, i64 %447
+  %449 = getelementptr inbounds [64 x i8], ptr %448, i64 %447
   %450 = shl i64 %438, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %449, ptr nonnull align 8 %436, i64 %450, i1 false), !noalias !4071
   %451 = load i64, ptr %.sroa.5492.0..sroa_idx, align 8, !alias.scope !4068, !noalias !4071, !noundef !4
@@ -19663,7 +19663,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit306: ; preds = %237
 478:                                              ; preds = %.noexc374, %466
   %479 = phi i64 [ %471, %466 ], [ %.pre.i373, %.noexc374 ]
   %480 = load ptr, ptr %214, align 8, !alias.scope !4091, !noalias !4094, !nonnull !4, !noundef !4
-  %481 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %480, i64 %479
+  %481 = getelementptr inbounds [64 x i8], ptr %480, i64 %479
   %482 = shl i64 %470, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %481, ptr nonnull align 8 %468, i64 %482, i1 false), !noalias !4094
   %483 = load i64, ptr %215, align 8, !alias.scope !4091, !noalias !4094, !noundef !4
@@ -19746,7 +19746,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit306: ; preds = %237
 510:                                              ; preds = %.noexc383, %498
   %511 = phi i64 [ %503, %498 ], [ %.pre.i382, %.noexc383 ]
   %512 = load ptr, ptr %.sroa.4486.0..sroa_idx, align 8, !alias.scope !4114, !noalias !4117, !nonnull !4, !noundef !4
-  %513 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %512, i64 %511
+  %513 = getelementptr inbounds [64 x i8], ptr %512, i64 %511
   %514 = shl i64 %502, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %513, ptr nonnull align 8 %500, i64 %514, i1 false), !noalias !4117
   %515 = load i64, ptr %.sroa.5487.0..sroa_idx, align 8, !alias.scope !4114, !noalias !4117, !noundef !4
@@ -19828,7 +19828,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit306: ; preds = %237
 542:                                              ; preds = %.noexc392, %530
   %543 = phi i64 [ %535, %530 ], [ %.pre.i391, %.noexc392 ]
   %544 = load ptr, ptr %178, align 8, !alias.scope !4137, !noalias !4140, !nonnull !4, !noundef !4
-  %545 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %544, i64 %543
+  %545 = getelementptr inbounds [64 x i8], ptr %544, i64 %543
   %546 = shl i64 %534, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %545, ptr nonnull align 8 %532, i64 %546, i1 false), !noalias !4140
   %547 = load i64, ptr %179, align 8, !alias.scope !4137, !noalias !4140, !noundef !4
@@ -19911,7 +19911,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit306: ; preds = %237
 574:                                              ; preds = %.noexc401, %562
   %575 = phi i64 [ %567, %562 ], [ %.pre.i400, %.noexc401 ]
   %576 = load ptr, ptr %.sroa.4483.0..sroa_idx, align 8, !alias.scope !4160, !noalias !4163, !nonnull !4, !noundef !4
-  %577 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %576, i64 %575
+  %577 = getelementptr inbounds [64 x i8], ptr %576, i64 %575
   %578 = shl i64 %566, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %577, ptr nonnull align 8 %564, i64 %578, i1 false), !noalias !4163
   %579 = load i64, ptr %.sroa.5484.0..sroa_idx, align 8, !alias.scope !4160, !noalias !4163, !noundef !4
@@ -19995,7 +19995,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit306: ; preds = %237
   %608 = phi i64 [ %600, %594 ], [ %.pre.i409, %.noexc410 ]
   %609 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %610 = load ptr, ptr %609, align 8, !alias.scope !4183, !noalias !4186, !nonnull !4, !noundef !4
-  %611 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %610, i64 %608
+  %611 = getelementptr inbounds [64 x i8], ptr %610, i64 %608
   %612 = shl i64 %598, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %611, ptr nonnull align 8 %596, i64 %612, i1 false), !noalias !4186
   %613 = load i64, ptr %599, align 8, !alias.scope !4183, !noalias !4186, !noundef !4
@@ -20077,7 +20077,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit306: ; preds = %237
 640:                                              ; preds = %.noexc419, %628
   %641 = phi i64 [ %633, %628 ], [ %.pre.i418, %.noexc419 ]
   %642 = load ptr, ptr %.sroa.4473.0..sroa_idx, align 8, !alias.scope !4206, !noalias !4209, !nonnull !4, !noundef !4
-  %643 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %642, i64 %641
+  %643 = getelementptr inbounds [64 x i8], ptr %642, i64 %641
   %644 = shl i64 %632, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %643, ptr nonnull align 8 %630, i64 %644, i1 false), !noalias !4209
   %645 = load i64, ptr %.sroa.5474.0..sroa_idx, align 8, !alias.scope !4206, !noalias !4209, !noundef !4
@@ -20159,7 +20159,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit306: ; preds = %237
 672:                                              ; preds = %.noexc428, %660
   %673 = phi i64 [ %665, %660 ], [ %.pre.i427, %.noexc428 ]
   %674 = load ptr, ptr %.sroa.4469.0..sroa_idx, align 8, !alias.scope !4229, !noalias !4232, !nonnull !4, !noundef !4
-  %675 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %674, i64 %673
+  %675 = getelementptr inbounds [64 x i8], ptr %674, i64 %673
   %676 = shl i64 %664, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %675, ptr nonnull align 8 %662, i64 %676, i1 false), !noalias !4232
   %677 = load i64, ptr %.sroa.5470.0..sroa_idx, align 8, !alias.scope !4229, !noalias !4232, !noundef !4
@@ -20717,7 +20717,7 @@ define hidden void @_ZN10hir_expand20builtin_derive_macro20expand_simple_derive1
   %.sroa.4456.0.copyload = load ptr, ptr %.sroa.4456.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5457.0..sroa_idx = getelementptr inbounds nuw i8, ptr %85, i64 80
   %.sroa.5457.0.copyload = load i64, ptr %.sroa.5457.0..sroa_idx, align 8
-  %98 = getelementptr inbounds { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, ptr %.sroa.4456.0.copyload, i64 %.sroa.5457.0.copyload
+  %98 = getelementptr inbounds [64 x i8], ptr %.sroa.4456.0.copyload, i64 %.sroa.5457.0.copyload
   store ptr %.sroa.4456.0.copyload, ptr %81, align 8
   %.sroa.4453.0..sroa_idx = getelementptr inbounds nuw i8, ptr %81, i64 8
   store ptr %.sroa.4456.0.copyload, ptr %.sroa.4453.0..sroa_idx, align 8
@@ -20742,7 +20742,7 @@ define hidden void @_ZN10hir_expand20builtin_derive_macro20expand_simple_derive1
   %.sroa.4467.0.copyload = load ptr, ptr %.sroa.4467.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5468.0..sroa_idx = getelementptr inbounds nuw i8, ptr %85, i64 56
   %.sroa.5468.0.copyload = load i64, ptr %.sroa.5468.0..sroa_idx, align 8
-  %104 = getelementptr inbounds { { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, { [56 x i8], i8, [7 x i8] }, { [56 x i8], i8, [7 x i8] } }, ptr %.sroa.4467.0.copyload, i64 %.sroa.5468.0.copyload
+  %104 = getelementptr inbounds [192 x i8], ptr %.sroa.4467.0.copyload, i64 %.sroa.5468.0.copyload
   call void @llvm.lifetime.start.p0(ptr nonnull %29), !noalias !4276
   store i64 0, ptr %29, align 8, !alias.scope !4280, !noalias !4276
   %.sroa.4.0..sroa_idx2.i.i = getelementptr inbounds nuw i8, ptr %29, i64 8
@@ -20797,7 +20797,7 @@ define hidden void @_ZN10hir_expand20builtin_derive_macro20expand_simple_derive1
   %113 = load ptr, ptr %112, align 8, !nonnull !4, !noundef !4
   %114 = getelementptr inbounds nuw i8, ptr %85, i64 104
   %115 = load i64, ptr %114, align 8, !noundef !4
-  %116 = getelementptr inbounds { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, ptr %113, i64 %115
+  %116 = getelementptr inbounds [64 x i8], ptr %113, i64 %115
   store ptr %113, ptr %77, align 8
   %117 = getelementptr inbounds nuw i8, ptr %77, i64 8
   store ptr %116, ptr %117, align 8
@@ -20999,7 +20999,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit: ; preds = %"_ZN97_$LT
   %.sroa.4481.0.copyload = load ptr, ptr %.sroa.4481.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5482.0..sroa_idx = getelementptr inbounds nuw i8, ptr %80, i64 16
   %.sroa.5482.0.copyload = load i64, ptr %.sroa.5482.0..sroa_idx, align 8
-  %159 = getelementptr inbounds { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, ptr %.sroa.4481.0.copyload, i64 %.sroa.5482.0.copyload
+  %159 = getelementptr inbounds [64 x i8], ptr %.sroa.4481.0.copyload, i64 %.sroa.5482.0.copyload
   store ptr %.sroa.4481.0.copyload, ptr %67, align 8
   %.sroa.4477.0..sroa_idx = getelementptr inbounds nuw i8, ptr %67, i64 8
   store ptr %.sroa.4481.0.copyload, ptr %.sroa.4477.0..sroa_idx, align 8
@@ -21290,7 +21290,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit287: ; preds = %177
   %.sroa.4499.0.copyload = load ptr, ptr %.sroa.4499.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5500.0..sroa_idx = getelementptr inbounds nuw i8, ptr %79, i64 16
   %.sroa.5500.0.copyload = load i64, ptr %.sroa.5500.0..sroa_idx, align 8
-  %226 = getelementptr inbounds { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, ptr %.sroa.4499.0.copyload, i64 %.sroa.5500.0.copyload
+  %226 = getelementptr inbounds [64 x i8], ptr %.sroa.4499.0.copyload, i64 %.sroa.5500.0.copyload
   store ptr %.sroa.4499.0.copyload, ptr %46, align 8
   %.sroa.4495.0..sroa_idx = getelementptr inbounds nuw i8, ptr %46, i64 8
   store ptr %.sroa.4499.0.copyload, ptr %.sroa.4495.0..sroa_idx, align 8
@@ -21475,7 +21475,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit307: ; preds = %237
   %.sroa.4514.0.copyload = load ptr, ptr %.sroa.4514.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5515.0..sroa_idx = getelementptr inbounds nuw i8, ptr %82, i64 16
   %.sroa.5515.0.copyload = load i64, ptr %.sroa.5515.0..sroa_idx, align 8
-  %266 = getelementptr inbounds { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, ptr %.sroa.4514.0.copyload, i64 %.sroa.5515.0.copyload
+  %266 = getelementptr inbounds [64 x i8], ptr %.sroa.4514.0.copyload, i64 %.sroa.5515.0.copyload
   store ptr %.sroa.4514.0.copyload, ptr %36, align 8
   %.sroa.4510.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 8
   store ptr %.sroa.4514.0.copyload, ptr %.sroa.4510.0..sroa_idx, align 8
@@ -21663,7 +21663,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit307: ; preds = %237
   %319 = phi i64 [ %311, %307 ], [ %.pre.i328, %.noexc329 ]
   %320 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %321 = load ptr, ptr %320, align 8, !alias.scope !4395, !noalias !4398, !nonnull !4, !noundef !4
-  %322 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %321, i64 %319
+  %322 = getelementptr inbounds [64 x i8], ptr %321, i64 %319
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %322, ptr noundef nonnull align 8 dereferenceable(64) %300, i64 64, i1 false), !noalias !4398
   %323 = add i64 %319, 1
   store i64 %323, ptr %310, align 8, !alias.scope !4395, !noalias !4398
@@ -21742,7 +21742,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit307: ; preds = %237
 348:                                              ; preds = %.noexc339, %336
   %349 = phi i64 [ %341, %336 ], [ %.pre.i338, %.noexc339 ]
   %350 = load ptr, ptr %.sroa.4505.0..sroa_idx, align 8, !alias.scope !4418, !noalias !4421, !nonnull !4, !noundef !4
-  %351 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %350, i64 %349
+  %351 = getelementptr inbounds [64 x i8], ptr %350, i64 %349
   %352 = shl i64 %340, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %351, ptr nonnull align 8 %338, i64 %352, i1 false), !noalias !4421
   %353 = load i64, ptr %.sroa.5506.0..sroa_idx, align 8, !alias.scope !4418, !noalias !4421, !noundef !4
@@ -21824,7 +21824,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit307: ; preds = %237
 380:                                              ; preds = %.noexc348, %368
   %381 = phi i64 [ %373, %368 ], [ %.pre.i347, %.noexc348 ]
   %382 = load ptr, ptr %.sroa.4502.0..sroa_idx, align 8, !alias.scope !4441, !noalias !4444, !nonnull !4, !noundef !4
-  %383 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %382, i64 %381
+  %383 = getelementptr inbounds [64 x i8], ptr %382, i64 %381
   %384 = shl i64 %372, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %383, ptr nonnull align 8 %370, i64 %384, i1 false), !noalias !4444
   %385 = load i64, ptr %.sroa.5503.0..sroa_idx, align 8, !alias.scope !4441, !noalias !4444, !noundef !4
@@ -21908,7 +21908,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit307: ; preds = %237
   %414 = phi i64 [ %406, %400 ], [ %.pre.i356, %.noexc357 ]
   %415 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %416 = load ptr, ptr %415, align 8, !alias.scope !4464, !noalias !4467, !nonnull !4, !noundef !4
-  %417 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %416, i64 %414
+  %417 = getelementptr inbounds [64 x i8], ptr %416, i64 %414
   %418 = shl i64 %404, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %417, ptr nonnull align 8 %402, i64 %418, i1 false), !noalias !4467
   %419 = load i64, ptr %405, align 8, !alias.scope !4464, !noalias !4467, !noundef !4
@@ -21990,7 +21990,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit307: ; preds = %237
 446:                                              ; preds = %.noexc366, %434
   %447 = phi i64 [ %439, %434 ], [ %.pre.i365, %.noexc366 ]
   %448 = load ptr, ptr %.sroa.4492.0..sroa_idx, align 8, !alias.scope !4487, !noalias !4490, !nonnull !4, !noundef !4
-  %449 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %448, i64 %447
+  %449 = getelementptr inbounds [64 x i8], ptr %448, i64 %447
   %450 = shl i64 %438, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %449, ptr nonnull align 8 %436, i64 %450, i1 false), !noalias !4490
   %451 = load i64, ptr %.sroa.5493.0..sroa_idx, align 8, !alias.scope !4487, !noalias !4490, !noundef !4
@@ -22072,7 +22072,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit307: ; preds = %237
 478:                                              ; preds = %.noexc375, %466
   %479 = phi i64 [ %471, %466 ], [ %.pre.i374, %.noexc375 ]
   %480 = load ptr, ptr %214, align 8, !alias.scope !4510, !noalias !4513, !nonnull !4, !noundef !4
-  %481 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %480, i64 %479
+  %481 = getelementptr inbounds [64 x i8], ptr %480, i64 %479
   %482 = shl i64 %470, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %481, ptr nonnull align 8 %468, i64 %482, i1 false), !noalias !4513
   %483 = load i64, ptr %215, align 8, !alias.scope !4510, !noalias !4513, !noundef !4
@@ -22155,7 +22155,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit307: ; preds = %237
 510:                                              ; preds = %.noexc384, %498
   %511 = phi i64 [ %503, %498 ], [ %.pre.i383, %.noexc384 ]
   %512 = load ptr, ptr %.sroa.4487.0..sroa_idx, align 8, !alias.scope !4533, !noalias !4536, !nonnull !4, !noundef !4
-  %513 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %512, i64 %511
+  %513 = getelementptr inbounds [64 x i8], ptr %512, i64 %511
   %514 = shl i64 %502, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %513, ptr nonnull align 8 %500, i64 %514, i1 false), !noalias !4536
   %515 = load i64, ptr %.sroa.5488.0..sroa_idx, align 8, !alias.scope !4533, !noalias !4536, !noundef !4
@@ -22237,7 +22237,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit307: ; preds = %237
 542:                                              ; preds = %.noexc393, %530
   %543 = phi i64 [ %535, %530 ], [ %.pre.i392, %.noexc393 ]
   %544 = load ptr, ptr %178, align 8, !alias.scope !4556, !noalias !4559, !nonnull !4, !noundef !4
-  %545 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %544, i64 %543
+  %545 = getelementptr inbounds [64 x i8], ptr %544, i64 %543
   %546 = shl i64 %534, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %545, ptr nonnull align 8 %532, i64 %546, i1 false), !noalias !4559
   %547 = load i64, ptr %179, align 8, !alias.scope !4556, !noalias !4559, !noundef !4
@@ -22320,7 +22320,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit307: ; preds = %237
 574:                                              ; preds = %.noexc402, %562
   %575 = phi i64 [ %567, %562 ], [ %.pre.i401, %.noexc402 ]
   %576 = load ptr, ptr %.sroa.4484.0..sroa_idx, align 8, !alias.scope !4579, !noalias !4582, !nonnull !4, !noundef !4
-  %577 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %576, i64 %575
+  %577 = getelementptr inbounds [64 x i8], ptr %576, i64 %575
   %578 = shl i64 %566, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %577, ptr nonnull align 8 %564, i64 %578, i1 false), !noalias !4582
   %579 = load i64, ptr %.sroa.5485.0..sroa_idx, align 8, !alias.scope !4579, !noalias !4582, !noundef !4
@@ -22404,7 +22404,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit307: ; preds = %237
   %608 = phi i64 [ %600, %594 ], [ %.pre.i410, %.noexc411 ]
   %609 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %610 = load ptr, ptr %609, align 8, !alias.scope !4602, !noalias !4605, !nonnull !4, !noundef !4
-  %611 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %610, i64 %608
+  %611 = getelementptr inbounds [64 x i8], ptr %610, i64 %608
   %612 = shl i64 %598, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %611, ptr nonnull align 8 %596, i64 %612, i1 false), !noalias !4605
   %613 = load i64, ptr %599, align 8, !alias.scope !4602, !noalias !4605, !noundef !4
@@ -22486,7 +22486,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit307: ; preds = %237
 640:                                              ; preds = %.noexc420, %628
   %641 = phi i64 [ %633, %628 ], [ %.pre.i419, %.noexc420 ]
   %642 = load ptr, ptr %.sroa.4474.0..sroa_idx, align 8, !alias.scope !4625, !noalias !4628, !nonnull !4, !noundef !4
-  %643 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %642, i64 %641
+  %643 = getelementptr inbounds [64 x i8], ptr %642, i64 %641
   %644 = shl i64 %632, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %643, ptr nonnull align 8 %630, i64 %644, i1 false), !noalias !4628
   %645 = load i64, ptr %.sroa.5475.0..sroa_idx, align 8, !alias.scope !4625, !noalias !4628, !noundef !4
@@ -22568,7 +22568,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit307: ; preds = %237
 672:                                              ; preds = %.noexc429, %660
   %673 = phi i64 [ %665, %660 ], [ %.pre.i428, %.noexc429 ]
   %674 = load ptr, ptr %.sroa.4470.0..sroa_idx, align 8, !alias.scope !4648, !noalias !4651, !nonnull !4, !noundef !4
-  %675 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %674, i64 %673
+  %675 = getelementptr inbounds [64 x i8], ptr %674, i64 %673
   %676 = shl i64 %664, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %675, ptr nonnull align 8 %662, i64 %676, i1 false), !noalias !4651
   %677 = load i64, ptr %.sroa.5471.0..sroa_idx, align 8, !alias.scope !4648, !noalias !4651, !noundef !4
@@ -23125,7 +23125,7 @@ define hidden void @_ZN10hir_expand20builtin_derive_macro20expand_simple_derive1
   %.sroa.4455.0.copyload = load ptr, ptr %.sroa.4455.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5456.0..sroa_idx = getelementptr inbounds nuw i8, ptr %84, i64 80
   %.sroa.5456.0.copyload = load i64, ptr %.sroa.5456.0..sroa_idx, align 8
-  %97 = getelementptr inbounds { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, ptr %.sroa.4455.0.copyload, i64 %.sroa.5456.0.copyload
+  %97 = getelementptr inbounds [64 x i8], ptr %.sroa.4455.0.copyload, i64 %.sroa.5456.0.copyload
   store ptr %.sroa.4455.0.copyload, ptr %80, align 8
   %.sroa.4452.0..sroa_idx = getelementptr inbounds nuw i8, ptr %80, i64 8
   store ptr %.sroa.4455.0.copyload, ptr %.sroa.4452.0..sroa_idx, align 8
@@ -23150,7 +23150,7 @@ define hidden void @_ZN10hir_expand20builtin_derive_macro20expand_simple_derive1
   %.sroa.4466.0.copyload = load ptr, ptr %.sroa.4466.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5467.0..sroa_idx = getelementptr inbounds nuw i8, ptr %84, i64 56
   %.sroa.5467.0.copyload = load i64, ptr %.sroa.5467.0..sroa_idx, align 8
-  %103 = getelementptr inbounds { { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, { [56 x i8], i8, [7 x i8] }, { [56 x i8], i8, [7 x i8] } }, ptr %.sroa.4466.0.copyload, i64 %.sroa.5467.0.copyload
+  %103 = getelementptr inbounds [192 x i8], ptr %.sroa.4466.0.copyload, i64 %.sroa.5467.0.copyload
   call void @llvm.lifetime.start.p0(ptr nonnull %28), !noalias !4695
   store i64 0, ptr %28, align 8, !alias.scope !4699, !noalias !4695
   %.sroa.4.0..sroa_idx2.i.i = getelementptr inbounds nuw i8, ptr %28, i64 8
@@ -23205,7 +23205,7 @@ define hidden void @_ZN10hir_expand20builtin_derive_macro20expand_simple_derive1
   %112 = load ptr, ptr %111, align 8, !nonnull !4, !noundef !4
   %113 = getelementptr inbounds nuw i8, ptr %84, i64 104
   %114 = load i64, ptr %113, align 8, !noundef !4
-  %115 = getelementptr inbounds { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, ptr %112, i64 %114
+  %115 = getelementptr inbounds [64 x i8], ptr %112, i64 %114
   store ptr %112, ptr %76, align 8
   %116 = getelementptr inbounds nuw i8, ptr %76, i64 8
   store ptr %115, ptr %116, align 8
@@ -23407,7 +23407,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit: ; preds = %"_ZN97_$LT
   %.sroa.4480.0.copyload = load ptr, ptr %.sroa.4480.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5481.0..sroa_idx = getelementptr inbounds nuw i8, ptr %79, i64 16
   %.sroa.5481.0.copyload = load i64, ptr %.sroa.5481.0..sroa_idx, align 8
-  %158 = getelementptr inbounds { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, ptr %.sroa.4480.0.copyload, i64 %.sroa.5481.0.copyload
+  %158 = getelementptr inbounds [64 x i8], ptr %.sroa.4480.0.copyload, i64 %.sroa.5481.0.copyload
   store ptr %.sroa.4480.0.copyload, ptr %66, align 8
   %.sroa.4476.0..sroa_idx = getelementptr inbounds nuw i8, ptr %66, i64 8
   store ptr %.sroa.4480.0.copyload, ptr %.sroa.4476.0..sroa_idx, align 8
@@ -23698,7 +23698,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit286: ; preds = %176
   %.sroa.4498.0.copyload = load ptr, ptr %.sroa.4498.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5499.0..sroa_idx = getelementptr inbounds nuw i8, ptr %78, i64 16
   %.sroa.5499.0.copyload = load i64, ptr %.sroa.5499.0..sroa_idx, align 8
-  %225 = getelementptr inbounds { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, ptr %.sroa.4498.0.copyload, i64 %.sroa.5499.0.copyload
+  %225 = getelementptr inbounds [64 x i8], ptr %.sroa.4498.0.copyload, i64 %.sroa.5499.0.copyload
   store ptr %.sroa.4498.0.copyload, ptr %45, align 8
   %.sroa.4494.0..sroa_idx = getelementptr inbounds nuw i8, ptr %45, i64 8
   store ptr %.sroa.4498.0.copyload, ptr %.sroa.4494.0..sroa_idx, align 8
@@ -23883,7 +23883,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit306: ; preds = %236
   %.sroa.4513.0.copyload = load ptr, ptr %.sroa.4513.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5514.0..sroa_idx = getelementptr inbounds nuw i8, ptr %81, i64 16
   %.sroa.5514.0.copyload = load i64, ptr %.sroa.5514.0..sroa_idx, align 8
-  %265 = getelementptr inbounds { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, ptr %.sroa.4513.0.copyload, i64 %.sroa.5514.0.copyload
+  %265 = getelementptr inbounds [64 x i8], ptr %.sroa.4513.0.copyload, i64 %.sroa.5514.0.copyload
   store ptr %.sroa.4513.0.copyload, ptr %35, align 8
   %.sroa.4509.0..sroa_idx = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %.sroa.4513.0.copyload, ptr %.sroa.4509.0..sroa_idx, align 8
@@ -24071,7 +24071,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit306: ; preds = %236
   %318 = phi i64 [ %310, %306 ], [ %.pre.i327, %.noexc328 ]
   %319 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %320 = load ptr, ptr %319, align 8, !alias.scope !4814, !noalias !4817, !nonnull !4, !noundef !4
-  %321 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %320, i64 %318
+  %321 = getelementptr inbounds [64 x i8], ptr %320, i64 %318
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %321, ptr noundef nonnull align 8 dereferenceable(64) %299, i64 64, i1 false), !noalias !4817
   %322 = add i64 %318, 1
   store i64 %322, ptr %309, align 8, !alias.scope !4814, !noalias !4817
@@ -24150,7 +24150,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit306: ; preds = %236
 347:                                              ; preds = %.noexc338, %335
   %348 = phi i64 [ %340, %335 ], [ %.pre.i337, %.noexc338 ]
   %349 = load ptr, ptr %.sroa.4504.0..sroa_idx, align 8, !alias.scope !4837, !noalias !4840, !nonnull !4, !noundef !4
-  %350 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %349, i64 %348
+  %350 = getelementptr inbounds [64 x i8], ptr %349, i64 %348
   %351 = shl i64 %339, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %350, ptr nonnull align 8 %337, i64 %351, i1 false), !noalias !4840
   %352 = load i64, ptr %.sroa.5505.0..sroa_idx, align 8, !alias.scope !4837, !noalias !4840, !noundef !4
@@ -24232,7 +24232,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit306: ; preds = %236
 379:                                              ; preds = %.noexc347, %367
   %380 = phi i64 [ %372, %367 ], [ %.pre.i346, %.noexc347 ]
   %381 = load ptr, ptr %.sroa.4501.0..sroa_idx, align 8, !alias.scope !4860, !noalias !4863, !nonnull !4, !noundef !4
-  %382 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %381, i64 %380
+  %382 = getelementptr inbounds [64 x i8], ptr %381, i64 %380
   %383 = shl i64 %371, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %382, ptr nonnull align 8 %369, i64 %383, i1 false), !noalias !4863
   %384 = load i64, ptr %.sroa.5502.0..sroa_idx, align 8, !alias.scope !4860, !noalias !4863, !noundef !4
@@ -24316,7 +24316,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit306: ; preds = %236
   %413 = phi i64 [ %405, %399 ], [ %.pre.i355, %.noexc356 ]
   %414 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %415 = load ptr, ptr %414, align 8, !alias.scope !4883, !noalias !4886, !nonnull !4, !noundef !4
-  %416 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %415, i64 %413
+  %416 = getelementptr inbounds [64 x i8], ptr %415, i64 %413
   %417 = shl i64 %403, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %416, ptr nonnull align 8 %401, i64 %417, i1 false), !noalias !4886
   %418 = load i64, ptr %404, align 8, !alias.scope !4883, !noalias !4886, !noundef !4
@@ -24398,7 +24398,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit306: ; preds = %236
 445:                                              ; preds = %.noexc365, %433
   %446 = phi i64 [ %438, %433 ], [ %.pre.i364, %.noexc365 ]
   %447 = load ptr, ptr %.sroa.4491.0..sroa_idx, align 8, !alias.scope !4906, !noalias !4909, !nonnull !4, !noundef !4
-  %448 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %447, i64 %446
+  %448 = getelementptr inbounds [64 x i8], ptr %447, i64 %446
   %449 = shl i64 %437, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %448, ptr nonnull align 8 %435, i64 %449, i1 false), !noalias !4909
   %450 = load i64, ptr %.sroa.5492.0..sroa_idx, align 8, !alias.scope !4906, !noalias !4909, !noundef !4
@@ -24480,7 +24480,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit306: ; preds = %236
 477:                                              ; preds = %.noexc374, %465
   %478 = phi i64 [ %470, %465 ], [ %.pre.i373, %.noexc374 ]
   %479 = load ptr, ptr %213, align 8, !alias.scope !4929, !noalias !4932, !nonnull !4, !noundef !4
-  %480 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %479, i64 %478
+  %480 = getelementptr inbounds [64 x i8], ptr %479, i64 %478
   %481 = shl i64 %469, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %480, ptr nonnull align 8 %467, i64 %481, i1 false), !noalias !4932
   %482 = load i64, ptr %214, align 8, !alias.scope !4929, !noalias !4932, !noundef !4
@@ -24563,7 +24563,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit306: ; preds = %236
 509:                                              ; preds = %.noexc383, %497
   %510 = phi i64 [ %502, %497 ], [ %.pre.i382, %.noexc383 ]
   %511 = load ptr, ptr %.sroa.4486.0..sroa_idx, align 8, !alias.scope !4952, !noalias !4955, !nonnull !4, !noundef !4
-  %512 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %511, i64 %510
+  %512 = getelementptr inbounds [64 x i8], ptr %511, i64 %510
   %513 = shl i64 %501, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %512, ptr nonnull align 8 %499, i64 %513, i1 false), !noalias !4955
   %514 = load i64, ptr %.sroa.5487.0..sroa_idx, align 8, !alias.scope !4952, !noalias !4955, !noundef !4
@@ -24645,7 +24645,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit306: ; preds = %236
 541:                                              ; preds = %.noexc392, %529
   %542 = phi i64 [ %534, %529 ], [ %.pre.i391, %.noexc392 ]
   %543 = load ptr, ptr %177, align 8, !alias.scope !4975, !noalias !4978, !nonnull !4, !noundef !4
-  %544 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %543, i64 %542
+  %544 = getelementptr inbounds [64 x i8], ptr %543, i64 %542
   %545 = shl i64 %533, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %544, ptr nonnull align 8 %531, i64 %545, i1 false), !noalias !4978
   %546 = load i64, ptr %178, align 8, !alias.scope !4975, !noalias !4978, !noundef !4
@@ -24728,7 +24728,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit306: ; preds = %236
 573:                                              ; preds = %.noexc401, %561
   %574 = phi i64 [ %566, %561 ], [ %.pre.i400, %.noexc401 ]
   %575 = load ptr, ptr %.sroa.4483.0..sroa_idx, align 8, !alias.scope !4998, !noalias !5001, !nonnull !4, !noundef !4
-  %576 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %575, i64 %574
+  %576 = getelementptr inbounds [64 x i8], ptr %575, i64 %574
   %577 = shl i64 %565, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %576, ptr nonnull align 8 %563, i64 %577, i1 false), !noalias !5001
   %578 = load i64, ptr %.sroa.5484.0..sroa_idx, align 8, !alias.scope !4998, !noalias !5001, !noundef !4
@@ -24812,7 +24812,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit306: ; preds = %236
   %607 = phi i64 [ %599, %593 ], [ %.pre.i409, %.noexc410 ]
   %608 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %609 = load ptr, ptr %608, align 8, !alias.scope !5021, !noalias !5024, !nonnull !4, !noundef !4
-  %610 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %609, i64 %607
+  %610 = getelementptr inbounds [64 x i8], ptr %609, i64 %607
   %611 = shl i64 %597, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %610, ptr nonnull align 8 %595, i64 %611, i1 false), !noalias !5024
   %612 = load i64, ptr %598, align 8, !alias.scope !5021, !noalias !5024, !noundef !4
@@ -24894,7 +24894,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit306: ; preds = %236
 639:                                              ; preds = %.noexc419, %627
   %640 = phi i64 [ %632, %627 ], [ %.pre.i418, %.noexc419 ]
   %641 = load ptr, ptr %.sroa.4473.0..sroa_idx, align 8, !alias.scope !5044, !noalias !5047, !nonnull !4, !noundef !4
-  %642 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %641, i64 %640
+  %642 = getelementptr inbounds [64 x i8], ptr %641, i64 %640
   %643 = shl i64 %631, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %642, ptr nonnull align 8 %629, i64 %643, i1 false), !noalias !5047
   %644 = load i64, ptr %.sroa.5474.0..sroa_idx, align 8, !alias.scope !5044, !noalias !5047, !noundef !4
@@ -24976,7 +24976,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit306: ; preds = %236
 671:                                              ; preds = %.noexc428, %659
   %672 = phi i64 [ %664, %659 ], [ %.pre.i427, %.noexc428 ]
   %673 = load ptr, ptr %.sroa.4469.0..sroa_idx, align 8, !alias.scope !5067, !noalias !5070, !nonnull !4, !noundef !4
-  %674 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %673, i64 %672
+  %674 = getelementptr inbounds [64 x i8], ptr %673, i64 %672
   %675 = shl i64 %663, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %674, ptr nonnull align 8 %661, i64 %675, i1 false), !noalias !5070
   %676 = load i64, ptr %.sroa.5470.0..sroa_idx, align 8, !alias.scope !5067, !noalias !5070, !noundef !4
@@ -25558,7 +25558,7 @@ define hidden void @_ZN10hir_expand20builtin_derive_macro20expand_simple_derive1
   %.sroa.4455.0.copyload = load ptr, ptr %.sroa.4455.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5456.0..sroa_idx = getelementptr inbounds nuw i8, ptr %85, i64 80
   %.sroa.5456.0.copyload = load i64, ptr %.sroa.5456.0..sroa_idx, align 8
-  %105 = getelementptr inbounds { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, ptr %.sroa.4455.0.copyload, i64 %.sroa.5456.0.copyload
+  %105 = getelementptr inbounds [64 x i8], ptr %.sroa.4455.0.copyload, i64 %.sroa.5456.0.copyload
   store ptr %.sroa.4455.0.copyload, ptr %81, align 8
   %.sroa.4452.0..sroa_idx = getelementptr inbounds nuw i8, ptr %81, i64 8
   store ptr %.sroa.4455.0.copyload, ptr %.sroa.4452.0..sroa_idx, align 8
@@ -25583,7 +25583,7 @@ define hidden void @_ZN10hir_expand20builtin_derive_macro20expand_simple_derive1
   %.sroa.4466.0.copyload = load ptr, ptr %.sroa.4466.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5467.0..sroa_idx = getelementptr inbounds nuw i8, ptr %85, i64 56
   %.sroa.5467.0.copyload = load i64, ptr %.sroa.5467.0..sroa_idx, align 8
-  %111 = getelementptr inbounds { { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, { [56 x i8], i8, [7 x i8] }, { [56 x i8], i8, [7 x i8] } }, ptr %.sroa.4466.0.copyload, i64 %.sroa.5467.0.copyload
+  %111 = getelementptr inbounds [192 x i8], ptr %.sroa.4466.0.copyload, i64 %.sroa.5467.0.copyload
   call void @llvm.lifetime.start.p0(ptr nonnull %28), !noalias !5127
   store i64 0, ptr %28, align 8, !alias.scope !5131, !noalias !5127
   %.sroa.4.0..sroa_idx2.i.i = getelementptr inbounds nuw i8, ptr %28, i64 8
@@ -25638,7 +25638,7 @@ define hidden void @_ZN10hir_expand20builtin_derive_macro20expand_simple_derive1
   %120 = load ptr, ptr %119, align 8, !nonnull !4, !noundef !4
   %121 = getelementptr inbounds nuw i8, ptr %85, i64 104
   %122 = load i64, ptr %121, align 8, !noundef !4
-  %123 = getelementptr inbounds { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, ptr %120, i64 %122
+  %123 = getelementptr inbounds [64 x i8], ptr %120, i64 %122
   store ptr %120, ptr %77, align 8
   %124 = getelementptr inbounds nuw i8, ptr %77, i64 8
   store ptr %123, ptr %124, align 8
@@ -25840,7 +25840,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit: ; preds = %"_ZN97_$LT
   %.sroa.4480.0.copyload = load ptr, ptr %.sroa.4480.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5481.0..sroa_idx = getelementptr inbounds nuw i8, ptr %80, i64 16
   %.sroa.5481.0.copyload = load i64, ptr %.sroa.5481.0..sroa_idx, align 8
-  %166 = getelementptr inbounds { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, ptr %.sroa.4480.0.copyload, i64 %.sroa.5481.0.copyload
+  %166 = getelementptr inbounds [64 x i8], ptr %.sroa.4480.0.copyload, i64 %.sroa.5481.0.copyload
   store ptr %.sroa.4480.0.copyload, ptr %67, align 8
   %.sroa.4476.0..sroa_idx = getelementptr inbounds nuw i8, ptr %67, i64 8
   store ptr %.sroa.4480.0.copyload, ptr %.sroa.4476.0..sroa_idx, align 8
@@ -26131,7 +26131,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit286: ; preds = %184
   %.sroa.4498.0.copyload = load ptr, ptr %.sroa.4498.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5499.0..sroa_idx = getelementptr inbounds nuw i8, ptr %79, i64 16
   %.sroa.5499.0.copyload = load i64, ptr %.sroa.5499.0..sroa_idx, align 8
-  %233 = getelementptr inbounds { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, ptr %.sroa.4498.0.copyload, i64 %.sroa.5499.0.copyload
+  %233 = getelementptr inbounds [64 x i8], ptr %.sroa.4498.0.copyload, i64 %.sroa.5499.0.copyload
   store ptr %.sroa.4498.0.copyload, ptr %46, align 8
   %.sroa.4494.0..sroa_idx = getelementptr inbounds nuw i8, ptr %46, i64 8
   store ptr %.sroa.4498.0.copyload, ptr %.sroa.4494.0..sroa_idx, align 8
@@ -26316,7 +26316,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit306: ; preds = %244
   %.sroa.4513.0.copyload = load ptr, ptr %.sroa.4513.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5514.0..sroa_idx = getelementptr inbounds nuw i8, ptr %82, i64 16
   %.sroa.5514.0.copyload = load i64, ptr %.sroa.5514.0..sroa_idx, align 8
-  %273 = getelementptr inbounds { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, ptr %.sroa.4513.0.copyload, i64 %.sroa.5514.0.copyload
+  %273 = getelementptr inbounds [64 x i8], ptr %.sroa.4513.0.copyload, i64 %.sroa.5514.0.copyload
   store ptr %.sroa.4513.0.copyload, ptr %36, align 8
   %.sroa.4509.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 8
   store ptr %.sroa.4513.0.copyload, ptr %.sroa.4509.0..sroa_idx, align 8
@@ -26504,7 +26504,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit306: ; preds = %244
   %326 = phi i64 [ %318, %314 ], [ %.pre.i327, %.noexc328 ]
   %327 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %328 = load ptr, ptr %327, align 8, !alias.scope !5246, !noalias !5249, !nonnull !4, !noundef !4
-  %329 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %328, i64 %326
+  %329 = getelementptr inbounds [64 x i8], ptr %328, i64 %326
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %329, ptr noundef nonnull align 8 dereferenceable(64) %307, i64 64, i1 false), !noalias !5249
   %330 = add i64 %326, 1
   store i64 %330, ptr %317, align 8, !alias.scope !5246, !noalias !5249
@@ -26583,7 +26583,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit306: ; preds = %244
 355:                                              ; preds = %.noexc338, %343
   %356 = phi i64 [ %348, %343 ], [ %.pre.i337, %.noexc338 ]
   %357 = load ptr, ptr %.sroa.4504.0..sroa_idx, align 8, !alias.scope !5269, !noalias !5272, !nonnull !4, !noundef !4
-  %358 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %357, i64 %356
+  %358 = getelementptr inbounds [64 x i8], ptr %357, i64 %356
   %359 = shl i64 %347, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %358, ptr nonnull align 8 %345, i64 %359, i1 false), !noalias !5272
   %360 = load i64, ptr %.sroa.5505.0..sroa_idx, align 8, !alias.scope !5269, !noalias !5272, !noundef !4
@@ -26665,7 +26665,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit306: ; preds = %244
 387:                                              ; preds = %.noexc347, %375
   %388 = phi i64 [ %380, %375 ], [ %.pre.i346, %.noexc347 ]
   %389 = load ptr, ptr %.sroa.4501.0..sroa_idx, align 8, !alias.scope !5292, !noalias !5295, !nonnull !4, !noundef !4
-  %390 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %389, i64 %388
+  %390 = getelementptr inbounds [64 x i8], ptr %389, i64 %388
   %391 = shl i64 %379, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %390, ptr nonnull align 8 %377, i64 %391, i1 false), !noalias !5295
   %392 = load i64, ptr %.sroa.5502.0..sroa_idx, align 8, !alias.scope !5292, !noalias !5295, !noundef !4
@@ -26749,7 +26749,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit306: ; preds = %244
   %421 = phi i64 [ %413, %407 ], [ %.pre.i355, %.noexc356 ]
   %422 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %423 = load ptr, ptr %422, align 8, !alias.scope !5315, !noalias !5318, !nonnull !4, !noundef !4
-  %424 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %423, i64 %421
+  %424 = getelementptr inbounds [64 x i8], ptr %423, i64 %421
   %425 = shl i64 %411, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %424, ptr nonnull align 8 %409, i64 %425, i1 false), !noalias !5318
   %426 = load i64, ptr %412, align 8, !alias.scope !5315, !noalias !5318, !noundef !4
@@ -26831,7 +26831,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit306: ; preds = %244
 453:                                              ; preds = %.noexc365, %441
   %454 = phi i64 [ %446, %441 ], [ %.pre.i364, %.noexc365 ]
   %455 = load ptr, ptr %.sroa.4491.0..sroa_idx, align 8, !alias.scope !5338, !noalias !5341, !nonnull !4, !noundef !4
-  %456 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %455, i64 %454
+  %456 = getelementptr inbounds [64 x i8], ptr %455, i64 %454
   %457 = shl i64 %445, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %456, ptr nonnull align 8 %443, i64 %457, i1 false), !noalias !5341
   %458 = load i64, ptr %.sroa.5492.0..sroa_idx, align 8, !alias.scope !5338, !noalias !5341, !noundef !4
@@ -26913,7 +26913,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit306: ; preds = %244
 485:                                              ; preds = %.noexc374, %473
   %486 = phi i64 [ %478, %473 ], [ %.pre.i373, %.noexc374 ]
   %487 = load ptr, ptr %221, align 8, !alias.scope !5361, !noalias !5364, !nonnull !4, !noundef !4
-  %488 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %487, i64 %486
+  %488 = getelementptr inbounds [64 x i8], ptr %487, i64 %486
   %489 = shl i64 %477, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %488, ptr nonnull align 8 %475, i64 %489, i1 false), !noalias !5364
   %490 = load i64, ptr %222, align 8, !alias.scope !5361, !noalias !5364, !noundef !4
@@ -26996,7 +26996,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit306: ; preds = %244
 517:                                              ; preds = %.noexc383, %505
   %518 = phi i64 [ %510, %505 ], [ %.pre.i382, %.noexc383 ]
   %519 = load ptr, ptr %.sroa.4486.0..sroa_idx, align 8, !alias.scope !5384, !noalias !5387, !nonnull !4, !noundef !4
-  %520 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %519, i64 %518
+  %520 = getelementptr inbounds [64 x i8], ptr %519, i64 %518
   %521 = shl i64 %509, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %520, ptr nonnull align 8 %507, i64 %521, i1 false), !noalias !5387
   %522 = load i64, ptr %.sroa.5487.0..sroa_idx, align 8, !alias.scope !5384, !noalias !5387, !noundef !4
@@ -27078,7 +27078,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit306: ; preds = %244
 549:                                              ; preds = %.noexc392, %537
   %550 = phi i64 [ %542, %537 ], [ %.pre.i391, %.noexc392 ]
   %551 = load ptr, ptr %185, align 8, !alias.scope !5407, !noalias !5410, !nonnull !4, !noundef !4
-  %552 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %551, i64 %550
+  %552 = getelementptr inbounds [64 x i8], ptr %551, i64 %550
   %553 = shl i64 %541, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %552, ptr nonnull align 8 %539, i64 %553, i1 false), !noalias !5410
   %554 = load i64, ptr %186, align 8, !alias.scope !5407, !noalias !5410, !noundef !4
@@ -27161,7 +27161,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit306: ; preds = %244
 581:                                              ; preds = %.noexc401, %569
   %582 = phi i64 [ %574, %569 ], [ %.pre.i400, %.noexc401 ]
   %583 = load ptr, ptr %.sroa.4483.0..sroa_idx, align 8, !alias.scope !5430, !noalias !5433, !nonnull !4, !noundef !4
-  %584 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %583, i64 %582
+  %584 = getelementptr inbounds [64 x i8], ptr %583, i64 %582
   %585 = shl i64 %573, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %584, ptr nonnull align 8 %571, i64 %585, i1 false), !noalias !5433
   %586 = load i64, ptr %.sroa.5484.0..sroa_idx, align 8, !alias.scope !5430, !noalias !5433, !noundef !4
@@ -27245,7 +27245,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit306: ; preds = %244
   %615 = phi i64 [ %607, %601 ], [ %.pre.i409, %.noexc410 ]
   %616 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %617 = load ptr, ptr %616, align 8, !alias.scope !5453, !noalias !5456, !nonnull !4, !noundef !4
-  %618 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %617, i64 %615
+  %618 = getelementptr inbounds [64 x i8], ptr %617, i64 %615
   %619 = shl i64 %605, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %618, ptr nonnull align 8 %603, i64 %619, i1 false), !noalias !5456
   %620 = load i64, ptr %606, align 8, !alias.scope !5453, !noalias !5456, !noundef !4
@@ -27327,7 +27327,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit306: ; preds = %244
 647:                                              ; preds = %.noexc419, %635
   %648 = phi i64 [ %640, %635 ], [ %.pre.i418, %.noexc419 ]
   %649 = load ptr, ptr %.sroa.4473.0..sroa_idx, align 8, !alias.scope !5476, !noalias !5479, !nonnull !4, !noundef !4
-  %650 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %649, i64 %648
+  %650 = getelementptr inbounds [64 x i8], ptr %649, i64 %648
   %651 = shl i64 %639, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %650, ptr nonnull align 8 %637, i64 %651, i1 false), !noalias !5479
   %652 = load i64, ptr %.sroa.5474.0..sroa_idx, align 8, !alias.scope !5476, !noalias !5479, !noundef !4
@@ -27409,7 +27409,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit306: ; preds = %244
 679:                                              ; preds = %.noexc428, %667
   %680 = phi i64 [ %672, %667 ], [ %.pre.i427, %.noexc428 ]
   %681 = load ptr, ptr %.sroa.4469.0..sroa_idx, align 8, !alias.scope !5499, !noalias !5502, !nonnull !4, !noundef !4
-  %682 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %681, i64 %680
+  %682 = getelementptr inbounds [64 x i8], ptr %681, i64 %680
   %683 = shl i64 %671, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %682, ptr nonnull align 8 %669, i64 %683, i1 false), !noalias !5502
   %684 = load i64, ptr %.sroa.5470.0..sroa_idx, align 8, !alias.scope !5499, !noalias !5502, !noundef !4
@@ -27967,7 +27967,7 @@ define hidden void @_ZN10hir_expand20builtin_derive_macro20expand_simple_derive1
   %.sroa.4456.0.copyload = load ptr, ptr %.sroa.4456.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5457.0..sroa_idx = getelementptr inbounds nuw i8, ptr %85, i64 80
   %.sroa.5457.0.copyload = load i64, ptr %.sroa.5457.0..sroa_idx, align 8
-  %98 = getelementptr inbounds { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, ptr %.sroa.4456.0.copyload, i64 %.sroa.5457.0.copyload
+  %98 = getelementptr inbounds [64 x i8], ptr %.sroa.4456.0.copyload, i64 %.sroa.5457.0.copyload
   store ptr %.sroa.4456.0.copyload, ptr %81, align 8
   %.sroa.4453.0..sroa_idx = getelementptr inbounds nuw i8, ptr %81, i64 8
   store ptr %.sroa.4456.0.copyload, ptr %.sroa.4453.0..sroa_idx, align 8
@@ -27992,7 +27992,7 @@ define hidden void @_ZN10hir_expand20builtin_derive_macro20expand_simple_derive1
   %.sroa.4467.0.copyload = load ptr, ptr %.sroa.4467.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5468.0..sroa_idx = getelementptr inbounds nuw i8, ptr %85, i64 56
   %.sroa.5468.0.copyload = load i64, ptr %.sroa.5468.0..sroa_idx, align 8
-  %104 = getelementptr inbounds { { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, { [56 x i8], i8, [7 x i8] }, { [56 x i8], i8, [7 x i8] } }, ptr %.sroa.4467.0.copyload, i64 %.sroa.5468.0.copyload
+  %104 = getelementptr inbounds [192 x i8], ptr %.sroa.4467.0.copyload, i64 %.sroa.5468.0.copyload
   call void @llvm.lifetime.start.p0(ptr nonnull %29), !noalias !5546
   store i64 0, ptr %29, align 8, !alias.scope !5550, !noalias !5546
   %.sroa.4.0..sroa_idx2.i.i = getelementptr inbounds nuw i8, ptr %29, i64 8
@@ -28047,7 +28047,7 @@ define hidden void @_ZN10hir_expand20builtin_derive_macro20expand_simple_derive1
   %113 = load ptr, ptr %112, align 8, !nonnull !4, !noundef !4
   %114 = getelementptr inbounds nuw i8, ptr %85, i64 104
   %115 = load i64, ptr %114, align 8, !noundef !4
-  %116 = getelementptr inbounds { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, ptr %113, i64 %115
+  %116 = getelementptr inbounds [64 x i8], ptr %113, i64 %115
   store ptr %113, ptr %77, align 8
   %117 = getelementptr inbounds nuw i8, ptr %77, i64 8
   store ptr %116, ptr %117, align 8
@@ -28249,7 +28249,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit: ; preds = %"_ZN97_$LT
   %.sroa.4481.0.copyload = load ptr, ptr %.sroa.4481.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5482.0..sroa_idx = getelementptr inbounds nuw i8, ptr %80, i64 16
   %.sroa.5482.0.copyload = load i64, ptr %.sroa.5482.0..sroa_idx, align 8
-  %159 = getelementptr inbounds { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, ptr %.sroa.4481.0.copyload, i64 %.sroa.5482.0.copyload
+  %159 = getelementptr inbounds [64 x i8], ptr %.sroa.4481.0.copyload, i64 %.sroa.5482.0.copyload
   store ptr %.sroa.4481.0.copyload, ptr %67, align 8
   %.sroa.4477.0..sroa_idx = getelementptr inbounds nuw i8, ptr %67, i64 8
   store ptr %.sroa.4481.0.copyload, ptr %.sroa.4477.0..sroa_idx, align 8
@@ -28540,7 +28540,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit287: ; preds = %177
   %.sroa.4499.0.copyload = load ptr, ptr %.sroa.4499.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5500.0..sroa_idx = getelementptr inbounds nuw i8, ptr %79, i64 16
   %.sroa.5500.0.copyload = load i64, ptr %.sroa.5500.0..sroa_idx, align 8
-  %226 = getelementptr inbounds { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, ptr %.sroa.4499.0.copyload, i64 %.sroa.5500.0.copyload
+  %226 = getelementptr inbounds [64 x i8], ptr %.sroa.4499.0.copyload, i64 %.sroa.5500.0.copyload
   store ptr %.sroa.4499.0.copyload, ptr %46, align 8
   %.sroa.4495.0..sroa_idx = getelementptr inbounds nuw i8, ptr %46, i64 8
   store ptr %.sroa.4499.0.copyload, ptr %.sroa.4495.0..sroa_idx, align 8
@@ -28725,7 +28725,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit307: ; preds = %237
   %.sroa.4514.0.copyload = load ptr, ptr %.sroa.4514.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5515.0..sroa_idx = getelementptr inbounds nuw i8, ptr %82, i64 16
   %.sroa.5515.0.copyload = load i64, ptr %.sroa.5515.0..sroa_idx, align 8
-  %266 = getelementptr inbounds { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, ptr %.sroa.4514.0.copyload, i64 %.sroa.5515.0.copyload
+  %266 = getelementptr inbounds [64 x i8], ptr %.sroa.4514.0.copyload, i64 %.sroa.5515.0.copyload
   store ptr %.sroa.4514.0.copyload, ptr %36, align 8
   %.sroa.4510.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 8
   store ptr %.sroa.4514.0.copyload, ptr %.sroa.4510.0..sroa_idx, align 8
@@ -28913,7 +28913,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit307: ; preds = %237
   %319 = phi i64 [ %311, %307 ], [ %.pre.i328, %.noexc329 ]
   %320 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %321 = load ptr, ptr %320, align 8, !alias.scope !5665, !noalias !5668, !nonnull !4, !noundef !4
-  %322 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %321, i64 %319
+  %322 = getelementptr inbounds [64 x i8], ptr %321, i64 %319
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %322, ptr noundef nonnull align 8 dereferenceable(64) %300, i64 64, i1 false), !noalias !5668
   %323 = add i64 %319, 1
   store i64 %323, ptr %310, align 8, !alias.scope !5665, !noalias !5668
@@ -28992,7 +28992,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit307: ; preds = %237
 348:                                              ; preds = %.noexc339, %336
   %349 = phi i64 [ %341, %336 ], [ %.pre.i338, %.noexc339 ]
   %350 = load ptr, ptr %.sroa.4505.0..sroa_idx, align 8, !alias.scope !5688, !noalias !5691, !nonnull !4, !noundef !4
-  %351 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %350, i64 %349
+  %351 = getelementptr inbounds [64 x i8], ptr %350, i64 %349
   %352 = shl i64 %340, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %351, ptr nonnull align 8 %338, i64 %352, i1 false), !noalias !5691
   %353 = load i64, ptr %.sroa.5506.0..sroa_idx, align 8, !alias.scope !5688, !noalias !5691, !noundef !4
@@ -29074,7 +29074,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit307: ; preds = %237
 380:                                              ; preds = %.noexc348, %368
   %381 = phi i64 [ %373, %368 ], [ %.pre.i347, %.noexc348 ]
   %382 = load ptr, ptr %.sroa.4502.0..sroa_idx, align 8, !alias.scope !5711, !noalias !5714, !nonnull !4, !noundef !4
-  %383 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %382, i64 %381
+  %383 = getelementptr inbounds [64 x i8], ptr %382, i64 %381
   %384 = shl i64 %372, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %383, ptr nonnull align 8 %370, i64 %384, i1 false), !noalias !5714
   %385 = load i64, ptr %.sroa.5503.0..sroa_idx, align 8, !alias.scope !5711, !noalias !5714, !noundef !4
@@ -29158,7 +29158,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit307: ; preds = %237
   %414 = phi i64 [ %406, %400 ], [ %.pre.i356, %.noexc357 ]
   %415 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %416 = load ptr, ptr %415, align 8, !alias.scope !5734, !noalias !5737, !nonnull !4, !noundef !4
-  %417 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %416, i64 %414
+  %417 = getelementptr inbounds [64 x i8], ptr %416, i64 %414
   %418 = shl i64 %404, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %417, ptr nonnull align 8 %402, i64 %418, i1 false), !noalias !5737
   %419 = load i64, ptr %405, align 8, !alias.scope !5734, !noalias !5737, !noundef !4
@@ -29240,7 +29240,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit307: ; preds = %237
 446:                                              ; preds = %.noexc366, %434
   %447 = phi i64 [ %439, %434 ], [ %.pre.i365, %.noexc366 ]
   %448 = load ptr, ptr %.sroa.4492.0..sroa_idx, align 8, !alias.scope !5757, !noalias !5760, !nonnull !4, !noundef !4
-  %449 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %448, i64 %447
+  %449 = getelementptr inbounds [64 x i8], ptr %448, i64 %447
   %450 = shl i64 %438, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %449, ptr nonnull align 8 %436, i64 %450, i1 false), !noalias !5760
   %451 = load i64, ptr %.sroa.5493.0..sroa_idx, align 8, !alias.scope !5757, !noalias !5760, !noundef !4
@@ -29322,7 +29322,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit307: ; preds = %237
 478:                                              ; preds = %.noexc375, %466
   %479 = phi i64 [ %471, %466 ], [ %.pre.i374, %.noexc375 ]
   %480 = load ptr, ptr %214, align 8, !alias.scope !5780, !noalias !5783, !nonnull !4, !noundef !4
-  %481 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %480, i64 %479
+  %481 = getelementptr inbounds [64 x i8], ptr %480, i64 %479
   %482 = shl i64 %470, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %481, ptr nonnull align 8 %468, i64 %482, i1 false), !noalias !5783
   %483 = load i64, ptr %215, align 8, !alias.scope !5780, !noalias !5783, !noundef !4
@@ -29405,7 +29405,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit307: ; preds = %237
 510:                                              ; preds = %.noexc384, %498
   %511 = phi i64 [ %503, %498 ], [ %.pre.i383, %.noexc384 ]
   %512 = load ptr, ptr %.sroa.4487.0..sroa_idx, align 8, !alias.scope !5803, !noalias !5806, !nonnull !4, !noundef !4
-  %513 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %512, i64 %511
+  %513 = getelementptr inbounds [64 x i8], ptr %512, i64 %511
   %514 = shl i64 %502, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %513, ptr nonnull align 8 %500, i64 %514, i1 false), !noalias !5806
   %515 = load i64, ptr %.sroa.5488.0..sroa_idx, align 8, !alias.scope !5803, !noalias !5806, !noundef !4
@@ -29487,7 +29487,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit307: ; preds = %237
 542:                                              ; preds = %.noexc393, %530
   %543 = phi i64 [ %535, %530 ], [ %.pre.i392, %.noexc393 ]
   %544 = load ptr, ptr %178, align 8, !alias.scope !5826, !noalias !5829, !nonnull !4, !noundef !4
-  %545 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %544, i64 %543
+  %545 = getelementptr inbounds [64 x i8], ptr %544, i64 %543
   %546 = shl i64 %534, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %545, ptr nonnull align 8 %532, i64 %546, i1 false), !noalias !5829
   %547 = load i64, ptr %179, align 8, !alias.scope !5826, !noalias !5829, !noundef !4
@@ -29570,7 +29570,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit307: ; preds = %237
 574:                                              ; preds = %.noexc402, %562
   %575 = phi i64 [ %567, %562 ], [ %.pre.i401, %.noexc402 ]
   %576 = load ptr, ptr %.sroa.4484.0..sroa_idx, align 8, !alias.scope !5849, !noalias !5852, !nonnull !4, !noundef !4
-  %577 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %576, i64 %575
+  %577 = getelementptr inbounds [64 x i8], ptr %576, i64 %575
   %578 = shl i64 %566, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %577, ptr nonnull align 8 %564, i64 %578, i1 false), !noalias !5852
   %579 = load i64, ptr %.sroa.5485.0..sroa_idx, align 8, !alias.scope !5849, !noalias !5852, !noundef !4
@@ -29654,7 +29654,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit307: ; preds = %237
   %608 = phi i64 [ %600, %594 ], [ %.pre.i410, %.noexc411 ]
   %609 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %610 = load ptr, ptr %609, align 8, !alias.scope !5872, !noalias !5875, !nonnull !4, !noundef !4
-  %611 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %610, i64 %608
+  %611 = getelementptr inbounds [64 x i8], ptr %610, i64 %608
   %612 = shl i64 %598, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %611, ptr nonnull align 8 %596, i64 %612, i1 false), !noalias !5875
   %613 = load i64, ptr %599, align 8, !alias.scope !5872, !noalias !5875, !noundef !4
@@ -29736,7 +29736,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit307: ; preds = %237
 640:                                              ; preds = %.noexc420, %628
   %641 = phi i64 [ %633, %628 ], [ %.pre.i419, %.noexc420 ]
   %642 = load ptr, ptr %.sroa.4474.0..sroa_idx, align 8, !alias.scope !5895, !noalias !5898, !nonnull !4, !noundef !4
-  %643 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %642, i64 %641
+  %643 = getelementptr inbounds [64 x i8], ptr %642, i64 %641
   %644 = shl i64 %632, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %643, ptr nonnull align 8 %630, i64 %644, i1 false), !noalias !5898
   %645 = load i64, ptr %.sroa.5475.0..sroa_idx, align 8, !alias.scope !5895, !noalias !5898, !noundef !4
@@ -29818,7 +29818,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit307: ; preds = %237
 672:                                              ; preds = %.noexc429, %660
   %673 = phi i64 [ %665, %660 ], [ %.pre.i428, %.noexc429 ]
   %674 = load ptr, ptr %.sroa.4470.0..sroa_idx, align 8, !alias.scope !5918, !noalias !5921, !nonnull !4, !noundef !4
-  %675 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %674, i64 %673
+  %675 = getelementptr inbounds [64 x i8], ptr %674, i64 %673
   %676 = shl i64 %664, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %675, ptr nonnull align 8 %662, i64 %676, i1 false), !noalias !5921
   %677 = load i64, ptr %.sroa.5471.0..sroa_idx, align 8, !alias.scope !5918, !noalias !5921, !noundef !4
@@ -30375,7 +30375,7 @@ define hidden void @_ZN10hir_expand20builtin_derive_macro20expand_simple_derive1
   %.sroa.4455.0.copyload = load ptr, ptr %.sroa.4455.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5456.0..sroa_idx = getelementptr inbounds nuw i8, ptr %84, i64 80
   %.sroa.5456.0.copyload = load i64, ptr %.sroa.5456.0..sroa_idx, align 8
-  %97 = getelementptr inbounds { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, ptr %.sroa.4455.0.copyload, i64 %.sroa.5456.0.copyload
+  %97 = getelementptr inbounds [64 x i8], ptr %.sroa.4455.0.copyload, i64 %.sroa.5456.0.copyload
   store ptr %.sroa.4455.0.copyload, ptr %80, align 8
   %.sroa.4452.0..sroa_idx = getelementptr inbounds nuw i8, ptr %80, i64 8
   store ptr %.sroa.4455.0.copyload, ptr %.sroa.4452.0..sroa_idx, align 8
@@ -30400,7 +30400,7 @@ define hidden void @_ZN10hir_expand20builtin_derive_macro20expand_simple_derive1
   %.sroa.4466.0.copyload = load ptr, ptr %.sroa.4466.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5467.0..sroa_idx = getelementptr inbounds nuw i8, ptr %84, i64 56
   %.sroa.5467.0.copyload = load i64, ptr %.sroa.5467.0..sroa_idx, align 8
-  %103 = getelementptr inbounds { { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, { [56 x i8], i8, [7 x i8] }, { [56 x i8], i8, [7 x i8] } }, ptr %.sroa.4466.0.copyload, i64 %.sroa.5467.0.copyload
+  %103 = getelementptr inbounds [192 x i8], ptr %.sroa.4466.0.copyload, i64 %.sroa.5467.0.copyload
   call void @llvm.lifetime.start.p0(ptr nonnull %28), !noalias !5965
   store i64 0, ptr %28, align 8, !alias.scope !5969, !noalias !5965
   %.sroa.4.0..sroa_idx2.i.i = getelementptr inbounds nuw i8, ptr %28, i64 8
@@ -30455,7 +30455,7 @@ define hidden void @_ZN10hir_expand20builtin_derive_macro20expand_simple_derive1
   %112 = load ptr, ptr %111, align 8, !nonnull !4, !noundef !4
   %113 = getelementptr inbounds nuw i8, ptr %84, i64 104
   %114 = load i64, ptr %113, align 8, !noundef !4
-  %115 = getelementptr inbounds { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, ptr %112, i64 %114
+  %115 = getelementptr inbounds [64 x i8], ptr %112, i64 %114
   store ptr %112, ptr %76, align 8
   %116 = getelementptr inbounds nuw i8, ptr %76, i64 8
   store ptr %115, ptr %116, align 8
@@ -30657,7 +30657,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit: ; preds = %"_ZN97_$LT
   %.sroa.4480.0.copyload = load ptr, ptr %.sroa.4480.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5481.0..sroa_idx = getelementptr inbounds nuw i8, ptr %79, i64 16
   %.sroa.5481.0.copyload = load i64, ptr %.sroa.5481.0..sroa_idx, align 8
-  %158 = getelementptr inbounds { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, ptr %.sroa.4480.0.copyload, i64 %.sroa.5481.0.copyload
+  %158 = getelementptr inbounds [64 x i8], ptr %.sroa.4480.0.copyload, i64 %.sroa.5481.0.copyload
   store ptr %.sroa.4480.0.copyload, ptr %66, align 8
   %.sroa.4476.0..sroa_idx = getelementptr inbounds nuw i8, ptr %66, i64 8
   store ptr %.sroa.4480.0.copyload, ptr %.sroa.4476.0..sroa_idx, align 8
@@ -30948,7 +30948,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit286: ; preds = %176
   %.sroa.4498.0.copyload = load ptr, ptr %.sroa.4498.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5499.0..sroa_idx = getelementptr inbounds nuw i8, ptr %78, i64 16
   %.sroa.5499.0.copyload = load i64, ptr %.sroa.5499.0..sroa_idx, align 8
-  %225 = getelementptr inbounds { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, ptr %.sroa.4498.0.copyload, i64 %.sroa.5499.0.copyload
+  %225 = getelementptr inbounds [64 x i8], ptr %.sroa.4498.0.copyload, i64 %.sroa.5499.0.copyload
   store ptr %.sroa.4498.0.copyload, ptr %45, align 8
   %.sroa.4494.0..sroa_idx = getelementptr inbounds nuw i8, ptr %45, i64 8
   store ptr %.sroa.4498.0.copyload, ptr %.sroa.4494.0..sroa_idx, align 8
@@ -31133,7 +31133,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit306: ; preds = %236
   %.sroa.4513.0.copyload = load ptr, ptr %.sroa.4513.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5514.0..sroa_idx = getelementptr inbounds nuw i8, ptr %81, i64 16
   %.sroa.5514.0.copyload = load i64, ptr %.sroa.5514.0..sroa_idx, align 8
-  %265 = getelementptr inbounds { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, ptr %.sroa.4513.0.copyload, i64 %.sroa.5514.0.copyload
+  %265 = getelementptr inbounds [64 x i8], ptr %.sroa.4513.0.copyload, i64 %.sroa.5514.0.copyload
   store ptr %.sroa.4513.0.copyload, ptr %35, align 8
   %.sroa.4509.0..sroa_idx = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %.sroa.4513.0.copyload, ptr %.sroa.4509.0..sroa_idx, align 8
@@ -31321,7 +31321,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit306: ; preds = %236
   %318 = phi i64 [ %310, %306 ], [ %.pre.i327, %.noexc328 ]
   %319 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %320 = load ptr, ptr %319, align 8, !alias.scope !6084, !noalias !6087, !nonnull !4, !noundef !4
-  %321 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %320, i64 %318
+  %321 = getelementptr inbounds [64 x i8], ptr %320, i64 %318
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %321, ptr noundef nonnull align 8 dereferenceable(64) %299, i64 64, i1 false), !noalias !6087
   %322 = add i64 %318, 1
   store i64 %322, ptr %309, align 8, !alias.scope !6084, !noalias !6087
@@ -31400,7 +31400,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit306: ; preds = %236
 347:                                              ; preds = %.noexc338, %335
   %348 = phi i64 [ %340, %335 ], [ %.pre.i337, %.noexc338 ]
   %349 = load ptr, ptr %.sroa.4504.0..sroa_idx, align 8, !alias.scope !6107, !noalias !6110, !nonnull !4, !noundef !4
-  %350 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %349, i64 %348
+  %350 = getelementptr inbounds [64 x i8], ptr %349, i64 %348
   %351 = shl i64 %339, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %350, ptr nonnull align 8 %337, i64 %351, i1 false), !noalias !6110
   %352 = load i64, ptr %.sroa.5505.0..sroa_idx, align 8, !alias.scope !6107, !noalias !6110, !noundef !4
@@ -31482,7 +31482,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit306: ; preds = %236
 379:                                              ; preds = %.noexc347, %367
   %380 = phi i64 [ %372, %367 ], [ %.pre.i346, %.noexc347 ]
   %381 = load ptr, ptr %.sroa.4501.0..sroa_idx, align 8, !alias.scope !6130, !noalias !6133, !nonnull !4, !noundef !4
-  %382 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %381, i64 %380
+  %382 = getelementptr inbounds [64 x i8], ptr %381, i64 %380
   %383 = shl i64 %371, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %382, ptr nonnull align 8 %369, i64 %383, i1 false), !noalias !6133
   %384 = load i64, ptr %.sroa.5502.0..sroa_idx, align 8, !alias.scope !6130, !noalias !6133, !noundef !4
@@ -31566,7 +31566,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit306: ; preds = %236
   %413 = phi i64 [ %405, %399 ], [ %.pre.i355, %.noexc356 ]
   %414 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %415 = load ptr, ptr %414, align 8, !alias.scope !6153, !noalias !6156, !nonnull !4, !noundef !4
-  %416 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %415, i64 %413
+  %416 = getelementptr inbounds [64 x i8], ptr %415, i64 %413
   %417 = shl i64 %403, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %416, ptr nonnull align 8 %401, i64 %417, i1 false), !noalias !6156
   %418 = load i64, ptr %404, align 8, !alias.scope !6153, !noalias !6156, !noundef !4
@@ -31648,7 +31648,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit306: ; preds = %236
 445:                                              ; preds = %.noexc365, %433
   %446 = phi i64 [ %438, %433 ], [ %.pre.i364, %.noexc365 ]
   %447 = load ptr, ptr %.sroa.4491.0..sroa_idx, align 8, !alias.scope !6176, !noalias !6179, !nonnull !4, !noundef !4
-  %448 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %447, i64 %446
+  %448 = getelementptr inbounds [64 x i8], ptr %447, i64 %446
   %449 = shl i64 %437, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %448, ptr nonnull align 8 %435, i64 %449, i1 false), !noalias !6179
   %450 = load i64, ptr %.sroa.5492.0..sroa_idx, align 8, !alias.scope !6176, !noalias !6179, !noundef !4
@@ -31730,7 +31730,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit306: ; preds = %236
 477:                                              ; preds = %.noexc374, %465
   %478 = phi i64 [ %470, %465 ], [ %.pre.i373, %.noexc374 ]
   %479 = load ptr, ptr %213, align 8, !alias.scope !6199, !noalias !6202, !nonnull !4, !noundef !4
-  %480 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %479, i64 %478
+  %480 = getelementptr inbounds [64 x i8], ptr %479, i64 %478
   %481 = shl i64 %469, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %480, ptr nonnull align 8 %467, i64 %481, i1 false), !noalias !6202
   %482 = load i64, ptr %214, align 8, !alias.scope !6199, !noalias !6202, !noundef !4
@@ -31813,7 +31813,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit306: ; preds = %236
 509:                                              ; preds = %.noexc383, %497
   %510 = phi i64 [ %502, %497 ], [ %.pre.i382, %.noexc383 ]
   %511 = load ptr, ptr %.sroa.4486.0..sroa_idx, align 8, !alias.scope !6222, !noalias !6225, !nonnull !4, !noundef !4
-  %512 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %511, i64 %510
+  %512 = getelementptr inbounds [64 x i8], ptr %511, i64 %510
   %513 = shl i64 %501, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %512, ptr nonnull align 8 %499, i64 %513, i1 false), !noalias !6225
   %514 = load i64, ptr %.sroa.5487.0..sroa_idx, align 8, !alias.scope !6222, !noalias !6225, !noundef !4
@@ -31895,7 +31895,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit306: ; preds = %236
 541:                                              ; preds = %.noexc392, %529
   %542 = phi i64 [ %534, %529 ], [ %.pre.i391, %.noexc392 ]
   %543 = load ptr, ptr %177, align 8, !alias.scope !6245, !noalias !6248, !nonnull !4, !noundef !4
-  %544 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %543, i64 %542
+  %544 = getelementptr inbounds [64 x i8], ptr %543, i64 %542
   %545 = shl i64 %533, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %544, ptr nonnull align 8 %531, i64 %545, i1 false), !noalias !6248
   %546 = load i64, ptr %178, align 8, !alias.scope !6245, !noalias !6248, !noundef !4
@@ -31978,7 +31978,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit306: ; preds = %236
 573:                                              ; preds = %.noexc401, %561
   %574 = phi i64 [ %566, %561 ], [ %.pre.i400, %.noexc401 ]
   %575 = load ptr, ptr %.sroa.4483.0..sroa_idx, align 8, !alias.scope !6268, !noalias !6271, !nonnull !4, !noundef !4
-  %576 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %575, i64 %574
+  %576 = getelementptr inbounds [64 x i8], ptr %575, i64 %574
   %577 = shl i64 %565, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %576, ptr nonnull align 8 %563, i64 %577, i1 false), !noalias !6271
   %578 = load i64, ptr %.sroa.5484.0..sroa_idx, align 8, !alias.scope !6268, !noalias !6271, !noundef !4
@@ -32062,7 +32062,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit306: ; preds = %236
   %607 = phi i64 [ %599, %593 ], [ %.pre.i409, %.noexc410 ]
   %608 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %609 = load ptr, ptr %608, align 8, !alias.scope !6291, !noalias !6294, !nonnull !4, !noundef !4
-  %610 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %609, i64 %607
+  %610 = getelementptr inbounds [64 x i8], ptr %609, i64 %607
   %611 = shl i64 %597, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %610, ptr nonnull align 8 %595, i64 %611, i1 false), !noalias !6294
   %612 = load i64, ptr %598, align 8, !alias.scope !6291, !noalias !6294, !noundef !4
@@ -32144,7 +32144,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit306: ; preds = %236
 639:                                              ; preds = %.noexc419, %627
   %640 = phi i64 [ %632, %627 ], [ %.pre.i418, %.noexc419 ]
   %641 = load ptr, ptr %.sroa.4473.0..sroa_idx, align 8, !alias.scope !6314, !noalias !6317, !nonnull !4, !noundef !4
-  %642 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %641, i64 %640
+  %642 = getelementptr inbounds [64 x i8], ptr %641, i64 %640
   %643 = shl i64 %631, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %642, ptr nonnull align 8 %629, i64 %643, i1 false), !noalias !6317
   %644 = load i64, ptr %.sroa.5474.0..sroa_idx, align 8, !alias.scope !6314, !noalias !6317, !noundef !4
@@ -32226,7 +32226,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit306: ; preds = %236
 671:                                              ; preds = %.noexc428, %659
   %672 = phi i64 [ %664, %659 ], [ %.pre.i427, %.noexc428 ]
   %673 = load ptr, ptr %.sroa.4469.0..sroa_idx, align 8, !alias.scope !6337, !noalias !6340, !nonnull !4, !noundef !4
-  %674 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %673, i64 %672
+  %674 = getelementptr inbounds [64 x i8], ptr %673, i64 %672
   %675 = shl i64 %663, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %674, ptr nonnull align 8 %661, i64 %675, i1 false), !noalias !6340
   %676 = load i64, ptr %.sroa.5470.0..sroa_idx, align 8, !alias.scope !6337, !noalias !6340, !noundef !4
@@ -33264,7 +33264,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit393: ; preds = %254
   %288 = phi ptr [ %256, %280 ], [ %.pre1514, %.noexc401 ]
   %289 = phi i64 [ %281, %280 ], [ %.pre.i, %.noexc401 ]
   %290 = load ptr, ptr %.sroa.4841.0..sroa_idx, align 8, !alias.scope !6436, !noalias !6439, !nonnull !4, !noundef !4
-  %291 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %290, i64 %289
+  %291 = getelementptr inbounds [64 x i8], ptr %290, i64 %289
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %291, ptr noundef nonnull align 8 dereferenceable(64) %256, i64 64, i1 false), !noalias !6439
   %292 = add i64 %289, 1
   store i64 %292, ptr %.sroa.5842.0..sroa_idx, align 8, !alias.scope !6436, !noalias !6439
@@ -33707,7 +33707,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit419: ; preds = %365
   %401 = phi ptr [ %369, %393 ], [ %.pre1515, %.noexc428 ]
   %402 = phi i64 [ %394, %393 ], [ %.pre.i427, %.noexc428 ]
   %403 = load ptr, ptr %366, align 8, !alias.scope !6516, !noalias !6519, !nonnull !4, !noundef !4
-  %404 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %403, i64 %402
+  %404 = getelementptr inbounds [64 x i8], ptr %403, i64 %402
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %404, ptr noundef nonnull align 8 dereferenceable(64) %369, i64 64, i1 false), !noalias !6519
   %405 = add i64 %402, 1
   store i64 %405, ptr %367, align 8, !alias.scope !6516, !noalias !6519
@@ -33844,7 +33844,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit419: ; preds = %365
   %444 = phi ptr [ %427, %434 ], [ %.pre1516, %.noexc442 ]
   %445 = phi i64 [ %437, %434 ], [ %.pre.i441, %.noexc442 ]
   %446 = load ptr, ptr %.sroa.4852.0..sroa_idx, align 8, !alias.scope !6549, !noalias !6552, !nonnull !4, !noundef !4
-  %447 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %446, i64 %445
+  %447 = getelementptr inbounds [64 x i8], ptr %446, i64 %445
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %447, ptr noundef nonnull align 8 dereferenceable(64) %427, i64 64, i1 false), !noalias !6552
   %448 = add i64 %445, 1
   store i64 %448, ptr %.sroa.5853.0..sroa_idx, align 8, !alias.scope !6549, !noalias !6552
@@ -33923,7 +33923,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit419: ; preds = %365
 473:                                              ; preds = %.noexc452, %461
   %474 = phi i64 [ %466, %461 ], [ %.pre.i451, %.noexc452 ]
   %475 = load ptr, ptr %.sroa.4849.0..sroa_idx, align 8, !alias.scope !6572, !noalias !6575, !nonnull !4, !noundef !4
-  %476 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %475, i64 %474
+  %476 = getelementptr inbounds [64 x i8], ptr %475, i64 %474
   %477 = shl i64 %465, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %476, ptr nonnull align 8 %463, i64 %477, i1 false), !noalias !6575
   %478 = load i64, ptr %.sroa.5850.0..sroa_idx, align 8, !alias.scope !6572, !noalias !6575, !noundef !4
@@ -34005,7 +34005,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit419: ; preds = %365
 505:                                              ; preds = %.noexc461, %493
   %506 = phi i64 [ %498, %493 ], [ %.pre.i460, %.noexc461 ]
   %507 = load ptr, ptr %321, align 8, !alias.scope !6595, !noalias !6598, !nonnull !4, !noundef !4
-  %508 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %507, i64 %506
+  %508 = getelementptr inbounds [64 x i8], ptr %507, i64 %506
   %509 = shl i64 %497, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %508, ptr nonnull align 8 %495, i64 %509, i1 false), !noalias !6598
   %510 = load i64, ptr %322, align 8, !alias.scope !6595, !noalias !6598, !noundef !4
@@ -34087,7 +34087,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit419: ; preds = %365
 537:                                              ; preds = %.noexc470, %525
   %538 = phi i64 [ %530, %525 ], [ %.pre.i469, %.noexc470 ]
   %539 = load ptr, ptr %.sroa.4836.0..sroa_idx, align 8, !alias.scope !6618, !noalias !6621, !nonnull !4, !noundef !4
-  %540 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %539, i64 %538
+  %540 = getelementptr inbounds [64 x i8], ptr %539, i64 %538
   %541 = shl i64 %529, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %540, ptr nonnull align 8 %527, i64 %541, i1 false), !noalias !6621
   %542 = load i64, ptr %.sroa.5837.0..sroa_idx, align 8, !alias.scope !6618, !noalias !6621, !noundef !4
@@ -34169,7 +34169,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit419: ; preds = %365
 569:                                              ; preds = %.noexc480, %557
   %570 = phi i64 [ %562, %557 ], [ %.pre.i479, %.noexc480 ]
   %571 = load ptr, ptr %.sroa.4833.0..sroa_idx, align 8, !alias.scope !6641, !noalias !6644, !nonnull !4, !noundef !4
-  %572 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %571, i64 %570
+  %572 = getelementptr inbounds [64 x i8], ptr %571, i64 %570
   %573 = shl i64 %561, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %572, ptr nonnull align 8 %559, i64 %573, i1 false), !noalias !6644
   %574 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !6641, !noalias !6644, !noundef !4
@@ -34386,7 +34386,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit.i: ; preds = %606
   %626 = load ptr, ptr %625, align 8, !alias.scope !6677, !noalias !6709, !nonnull !4, !noundef !4
   %627 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %628 = load i64, ptr %627, align 8, !alias.scope !6677, !noalias !6709, !noundef !4
-  %629 = getelementptr inbounds { { { { i8, [23 x i8] } }, { i32, { i32, i32 }, { i32, i32 } }, [1 x i32] }, { i64, [2 x i64] } }, ptr %626, i64 %628
+  %629 = getelementptr inbounds [72 x i8], ptr %626, i64 %628
   store ptr %626, ptr %73, align 8, !noalias !6681
   %630 = getelementptr inbounds nuw i8, ptr %73, i64 8
   store ptr %629, ptr %630, align 8, !noalias !6681
@@ -34573,7 +34573,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit.i: ; preds = %606
   unreachable
 
 681:                                              ; preds = %672
-  %682 = getelementptr inbounds { { { i8, [23 x i8] } }, { i32, { i32, i32 }, { i32, i32 } }, [1 x i32] }, ptr %674, i64 %676
+  %682 = getelementptr inbounds [48 x i8], ptr %674, i64 %676
   store ptr %663, ptr %678, align 8, !noalias !6756
   %.sroa.890.0..sroa_idx95.i = getelementptr inbounds nuw i8, ptr %678, i64 8
   store i64 %664, ptr %.sroa.890.0..sroa_idx95.i, align 8, !noalias !6756
@@ -34725,7 +34725,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit.i: ; preds = %606
 "_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he758f9f485c7e8d8E.llvm.10606712881621943088.exit.i58.i.i": ; preds = %.noexc56.i.i, %711
   %720 = phi i64 [ %714, %711 ], [ %.pre.i55.i.i, %.noexc56.i.i ]
   %721 = load ptr, ptr %683, align 8, !alias.scope !6794, !noalias !6802, !nonnull !4, !noundef !4
-  %722 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %721, i64 %720
+  %722 = getelementptr inbounds [64 x i8], ptr %721, i64 %720
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %722, ptr noundef nonnull align 8 dereferenceable(64) %704, i64 64, i1 false), !noalias !6803
   %723 = add i64 %720, 1
   store i64 %723, ptr %684, align 8, !alias.scope !6794, !noalias !6802
@@ -34968,7 +34968,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit.i: ; preds = %606
 "_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he758f9f485c7e8d8E.llvm.10606712881621943088.exit.i86.i.i": ; preds = %.noexc84.i.i, %776
   %785 = phi i64 [ %779, %776 ], [ %.pre.i83.i.i, %.noexc84.i.i ]
   %786 = load ptr, ptr %748, align 8, !alias.scope !6852, !noalias !6860, !nonnull !4, !noundef !4
-  %787 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %786, i64 %785
+  %787 = getelementptr inbounds [64 x i8], ptr %786, i64 %785
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %787, ptr noundef nonnull align 8 dereferenceable(64) %769, i64 64, i1 false), !noalias !6861
   %788 = add i64 %785, 1
   store i64 %788, ptr %749, align 8, !alias.scope !6852, !noalias !6860
@@ -35158,8 +35158,8 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit500: ; preds = %810
   %.sroa.4912.0.copyload = load ptr, ptr %.sroa.4912.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5913.0..sroa_idx = getelementptr inbounds nuw i8, ptr %136, i64 16
   %.sroa.5913.0.copyload = load i64, ptr %.sroa.5913.0..sroa_idx, align 8
-  %834 = getelementptr inbounds { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, ptr %.sroa.4912.0.copyload, i64 %.sroa.5913.0.copyload
-  %835 = getelementptr inbounds { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, ptr %.sroa.4915.0.copyload, i64 %.sroa.5916.0.copyload
+  %834 = getelementptr inbounds [64 x i8], ptr %.sroa.4912.0.copyload, i64 %.sroa.5913.0.copyload
+  %835 = getelementptr inbounds [64 x i8], ptr %.sroa.4915.0.copyload, i64 %.sroa.5916.0.copyload
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %134, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.8.0..sroa_idx, i8 0, i64 24, i1 false)
   store ptr %.sroa.4912.0.copyload, ptr %134, align 8
@@ -35576,7 +35576,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit534: ; preds = %889
   %923 = phi ptr [ %891, %915 ], [ %.pre1520, %.noexc543 ]
   %924 = phi i64 [ %916, %915 ], [ %.pre.i542, %.noexc543 ]
   %925 = load ptr, ptr %.sroa.4928.0..sroa_idx, align 8, !alias.scope !6943, !noalias !6946, !nonnull !4, !noundef !4
-  %926 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %925, i64 %924
+  %926 = getelementptr inbounds [64 x i8], ptr %925, i64 %924
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %926, ptr noundef nonnull align 8 dereferenceable(64) %891, i64 64, i1 false), !noalias !6946
   %927 = add i64 %924, 1
   store i64 %927, ptr %.sroa.5929.0..sroa_idx, align 8, !alias.scope !6943, !noalias !6946
@@ -36224,7 +36224,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit577: ; preds = %1016
   %1085 = phi ptr [ %1068, %1075 ], [ %.pre1521, %.noexc600 ]
   %1086 = phi i64 [ %1078, %1075 ], [ %.pre.i599, %.noexc600 ]
   %1087 = load ptr, ptr %.sroa.4949.0..sroa_idx, align 8, !alias.scope !7059, !noalias !7062, !nonnull !4, !noundef !4
-  %1088 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1087, i64 %1086
+  %1088 = getelementptr inbounds [64 x i8], ptr %1087, i64 %1086
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %1088, ptr noundef nonnull align 8 dereferenceable(64) %1068, i64 64, i1 false), !noalias !7062
   %1089 = add i64 %1086, 1
   store i64 %1089, ptr %.sroa.5950.0..sroa_idx, align 8, !alias.scope !7059, !noalias !7062
@@ -36303,7 +36303,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit577: ; preds = %1016
 1114:                                             ; preds = %.noexc610, %1102
   %1115 = phi i64 [ %1107, %1102 ], [ %.pre.i609, %.noexc610 ]
   %1116 = load ptr, ptr %.sroa.4944.0..sroa_idx, align 8, !alias.scope !7082, !noalias !7085, !nonnull !4, !noundef !4
-  %1117 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1116, i64 %1115
+  %1117 = getelementptr inbounds [64 x i8], ptr %1116, i64 %1115
   %1118 = shl i64 %1106, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1117, ptr nonnull align 8 %1104, i64 %1118, i1 false), !noalias !7085
   %1119 = load i64, ptr %.sroa.5945.0..sroa_idx, align 8, !alias.scope !7082, !noalias !7085, !noundef !4
@@ -36432,7 +36432,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit577: ; preds = %1016
   %1159 = phi ptr [ %1142, %1149 ], [ %.pre1522, %.noexc624 ]
   %1160 = phi i64 [ %1152, %1149 ], [ %.pre.i623, %.noexc624 ]
   %1161 = load ptr, ptr %.sroa.4939.0..sroa_idx, align 8, !alias.scope !7115, !noalias !7118, !nonnull !4, !noundef !4
-  %1162 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1161, i64 %1160
+  %1162 = getelementptr inbounds [64 x i8], ptr %1161, i64 %1160
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %1162, ptr noundef nonnull align 8 dereferenceable(64) %1142, i64 64, i1 false), !noalias !7118
   %1163 = add i64 %1160, 1
   store i64 %1163, ptr %.sroa.5940.0..sroa_idx, align 8, !alias.scope !7115, !noalias !7118
@@ -36511,7 +36511,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit577: ; preds = %1016
 1188:                                             ; preds = %.noexc635, %1176
   %1189 = phi i64 [ %1181, %1176 ], [ %.pre.i634, %.noexc635 ]
   %1190 = load ptr, ptr %.sroa.4936.0..sroa_idx, align 8, !alias.scope !7138, !noalias !7141, !nonnull !4, !noundef !4
-  %1191 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1190, i64 %1189
+  %1191 = getelementptr inbounds [64 x i8], ptr %1190, i64 %1189
   %1192 = shl i64 %1180, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1191, ptr nonnull align 8 %1178, i64 %1192, i1 false), !noalias !7141
   %1193 = load i64, ptr %.sroa.5937.0..sroa_idx, align 8, !alias.scope !7138, !noalias !7141, !noundef !4
@@ -36593,7 +36593,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit577: ; preds = %1016
 1220:                                             ; preds = %.noexc644, %1208
   %1221 = phi i64 [ %1213, %1208 ], [ %.pre.i643, %.noexc644 ]
   %1222 = load ptr, ptr %956, align 8, !alias.scope !7161, !noalias !7164, !nonnull !4, !noundef !4
-  %1223 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1222, i64 %1221
+  %1223 = getelementptr inbounds [64 x i8], ptr %1222, i64 %1221
   %1224 = shl i64 %1212, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1223, ptr nonnull align 8 %1210, i64 %1224, i1 false), !noalias !7164
   %1225 = load i64, ptr %957, align 8, !alias.scope !7161, !noalias !7164, !noundef !4
@@ -36675,7 +36675,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit577: ; preds = %1016
 1252:                                             ; preds = %.noexc653, %1240
   %1253 = phi i64 [ %1245, %1240 ], [ %.pre.i652, %.noexc653 ]
   %1254 = load ptr, ptr %.sroa.4923.0..sroa_idx, align 8, !alias.scope !7184, !noalias !7187, !nonnull !4, !noundef !4
-  %1255 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1254, i64 %1253
+  %1255 = getelementptr inbounds [64 x i8], ptr %1254, i64 %1253
   %1256 = shl i64 %1244, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1255, ptr nonnull align 8 %1242, i64 %1256, i1 false), !noalias !7187
   %1257 = load i64, ptr %.sroa.5924.0..sroa_idx, align 8, !alias.scope !7184, !noalias !7187, !noundef !4
@@ -36757,7 +36757,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit577: ; preds = %1016
 1284:                                             ; preds = %.noexc664, %1272
   %1285 = phi i64 [ %1277, %1272 ], [ %.pre.i663, %.noexc664 ]
   %1286 = load ptr, ptr %.sroa.4918.0..sroa_idx, align 8, !alias.scope !7207, !noalias !7210, !nonnull !4, !noundef !4
-  %1287 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1286, i64 %1285
+  %1287 = getelementptr inbounds [64 x i8], ptr %1286, i64 %1285
   %1288 = shl i64 %1276, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1287, ptr nonnull align 8 %1274, i64 %1288, i1 false), !noalias !7210
   %1289 = load i64, ptr %.sroa.5919.0..sroa_idx, align 8, !alias.scope !7207, !noalias !7210, !noundef !4
@@ -37199,7 +37199,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit689: ; preds = %1344
   %1378 = phi ptr [ %1346, %1370 ], [ %.pre, %.noexc698 ]
   %1379 = phi i64 [ %1371, %1370 ], [ %.pre.i697, %.noexc698 ]
   %1380 = load ptr, ptr %.sroa.4876.0..sroa_idx, align 8, !alias.scope !7273, !noalias !7276, !nonnull !4, !noundef !4
-  %1381 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1380, i64 %1379
+  %1381 = getelementptr inbounds [64 x i8], ptr %1380, i64 %1379
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %1381, ptr noundef nonnull align 8 dereferenceable(64) %1346, i64 64, i1 false), !noalias !7276
   %1382 = add i64 %1379, 1
   store i64 %1382, ptr %.sroa.5877.0..sroa_idx, align 8, !alias.scope !7273, !noalias !7276
@@ -37828,7 +37828,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit735: ; preds = %1479
   %1535 = phi ptr [ %1518, %1525 ], [ %.pre1512, %.noexc749 ]
   %1536 = phi i64 [ %1528, %1525 ], [ %.pre.i748, %.noexc749 ]
   %1537 = load ptr, ptr %.sroa.4897.0..sroa_idx, align 8, !alias.scope !7383, !noalias !7386, !nonnull !4, !noundef !4
-  %1538 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1537, i64 %1536
+  %1538 = getelementptr inbounds [64 x i8], ptr %1537, i64 %1536
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %1538, ptr noundef nonnull align 8 dereferenceable(64) %1518, i64 64, i1 false), !noalias !7386
   %1539 = add i64 %1536, 1
   store i64 %1539, ptr %.sroa.5898.0..sroa_idx, align 8, !alias.scope !7383, !noalias !7386
@@ -37907,7 +37907,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit735: ; preds = %1479
 1564:                                             ; preds = %.noexc759, %1552
   %1565 = phi i64 [ %1557, %1552 ], [ %.pre.i758, %.noexc759 ]
   %1566 = load ptr, ptr %1480, align 8, !alias.scope !7406, !noalias !7409, !nonnull !4, !noundef !4
-  %1567 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1566, i64 %1565
+  %1567 = getelementptr inbounds [64 x i8], ptr %1566, i64 %1565
   %1568 = shl i64 %1556, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1567, ptr nonnull align 8 %1554, i64 %1568, i1 false), !noalias !7409
   %1569 = load i64, ptr %1481, align 8, !alias.scope !7406, !noalias !7409, !noundef !4
@@ -37990,7 +37990,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit735: ; preds = %1479
 1596:                                             ; preds = %.noexc768, %1584
   %1597 = phi i64 [ %1589, %1584 ], [ %.pre.i767, %.noexc768 ]
   %1598 = load ptr, ptr %.sroa.4892.0..sroa_idx, align 8, !alias.scope !7429, !noalias !7432, !nonnull !4, !noundef !4
-  %1599 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1598, i64 %1597
+  %1599 = getelementptr inbounds [64 x i8], ptr %1598, i64 %1597
   %1600 = shl i64 %1588, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1599, ptr nonnull align 8 %1586, i64 %1600, i1 false), !noalias !7432
   %1601 = load i64, ptr %.sroa.5893.0..sroa_idx, align 8, !alias.scope !7429, !noalias !7432, !noundef !4
@@ -38119,7 +38119,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit735: ; preds = %1479
   %1641 = phi ptr [ %1624, %1631 ], [ %.pre1513, %.noexc782 ]
   %1642 = phi i64 [ %1634, %1631 ], [ %.pre.i781, %.noexc782 ]
   %1643 = load ptr, ptr %.sroa.4887.0..sroa_idx, align 8, !alias.scope !7462, !noalias !7465, !nonnull !4, !noundef !4
-  %1644 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1643, i64 %1642
+  %1644 = getelementptr inbounds [64 x i8], ptr %1643, i64 %1642
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %1644, ptr noundef nonnull align 8 dereferenceable(64) %1624, i64 64, i1 false), !noalias !7465
   %1645 = add i64 %1642, 1
   store i64 %1645, ptr %.sroa.5888.0..sroa_idx, align 8, !alias.scope !7462, !noalias !7465
@@ -38198,7 +38198,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit735: ; preds = %1479
 1670:                                             ; preds = %.noexc792, %1658
   %1671 = phi i64 [ %1663, %1658 ], [ %.pre.i791, %.noexc792 ]
   %1672 = load ptr, ptr %.sroa.4884.0..sroa_idx, align 8, !alias.scope !7485, !noalias !7488, !nonnull !4, !noundef !4
-  %1673 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1672, i64 %1671
+  %1673 = getelementptr inbounds [64 x i8], ptr %1672, i64 %1671
   %1674 = shl i64 %1662, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1673, ptr nonnull align 8 %1660, i64 %1674, i1 false), !noalias !7488
   %1675 = load i64, ptr %.sroa.5885.0..sroa_idx, align 8, !alias.scope !7485, !noalias !7488, !noundef !4
@@ -38280,7 +38280,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit735: ; preds = %1479
 1702:                                             ; preds = %.noexc801, %1690
   %1703 = phi i64 [ %1695, %1690 ], [ %.pre.i800, %.noexc801 ]
   %1704 = load ptr, ptr %1411, align 8, !alias.scope !7508, !noalias !7511, !nonnull !4, !noundef !4
-  %1705 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1704, i64 %1703
+  %1705 = getelementptr inbounds [64 x i8], ptr %1704, i64 %1703
   %1706 = shl i64 %1694, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1705, ptr nonnull align 8 %1692, i64 %1706, i1 false), !noalias !7511
   %1707 = load i64, ptr %1412, align 8, !alias.scope !7508, !noalias !7511, !noundef !4
@@ -38362,7 +38362,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit735: ; preds = %1479
 1734:                                             ; preds = %.noexc810, %1722
   %1735 = phi i64 [ %1727, %1722 ], [ %.pre.i809, %.noexc810 ]
   %1736 = load ptr, ptr %.sroa.4871.0..sroa_idx, align 8, !alias.scope !7531, !noalias !7534, !nonnull !4, !noundef !4
-  %1737 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1736, i64 %1735
+  %1737 = getelementptr inbounds [64 x i8], ptr %1736, i64 %1735
   %1738 = shl i64 %1726, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1737, ptr nonnull align 8 %1724, i64 %1738, i1 false), !noalias !7534
   %1739 = load i64, ptr %.sroa.5872.0..sroa_idx, align 8, !alias.scope !7531, !noalias !7534, !noundef !4
@@ -38444,7 +38444,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit735: ; preds = %1479
 1766:                                             ; preds = %.noexc820, %1754
   %1767 = phi i64 [ %1759, %1754 ], [ %.pre.i819, %.noexc820 ]
   %1768 = load ptr, ptr %.sroa.4866.0..sroa_idx, align 8, !alias.scope !7554, !noalias !7557, !nonnull !4, !noundef !4
-  %1769 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1768, i64 %1767
+  %1769 = getelementptr inbounds [64 x i8], ptr %1768, i64 %1767
   %1770 = shl i64 %1758, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1769, ptr nonnull align 8 %1756, i64 %1770, i1 false), !noalias !7557
   %1771 = load i64, ptr %.sroa.5867.0..sroa_idx, align 8, !alias.scope !7554, !noalias !7557, !noundef !4
@@ -38931,7 +38931,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit34: ; preds = %59
   %113 = phi ptr [ %96, %103 ], [ %.pre, %.noexc40 ]
   %114 = phi i64 [ %106, %103 ], [ %.pre.i, %.noexc40 ]
   %115 = load ptr, ptr %.sroa.465.0..sroa_idx, align 8, !alias.scope !7651, !noalias !7654, !nonnull !4, !noundef !4
-  %116 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %115, i64 %114
+  %116 = getelementptr inbounds [64 x i8], ptr %115, i64 %114
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %116, ptr noundef nonnull align 8 dereferenceable(64) %96, i64 64, i1 false), !noalias !7654
   %117 = add i64 %114, 1
   store i64 %117, ptr %.sroa.566.0..sroa_idx, align 8, !alias.scope !7651, !noalias !7654
@@ -39010,7 +39010,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit34: ; preds = %59
 142:                                              ; preds = %.noexc46, %130
   %143 = phi i64 [ %135, %130 ], [ %.pre.i45, %.noexc46 ]
   %144 = load ptr, ptr %.sroa.4.0..sroa_idx63, align 8, !alias.scope !7674, !noalias !7677, !nonnull !4, !noundef !4
-  %145 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %144, i64 %143
+  %145 = getelementptr inbounds [64 x i8], ptr %144, i64 %143
   %146 = shl i64 %134, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %145, ptr nonnull align 8 %132, i64 %146, i1 false), !noalias !7677
   %147 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !7674, !noalias !7677, !noundef !4
@@ -39092,7 +39092,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit34: ; preds = %59
 174:                                              ; preds = %.noexc55, %162
   %175 = phi i64 [ %167, %162 ], [ %.pre.i54, %.noexc55 ]
   %176 = load ptr, ptr %52, align 8, !alias.scope !7697, !noalias !7700, !nonnull !4, !noundef !4
-  %177 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %176, i64 %175
+  %177 = getelementptr inbounds [64 x i8], ptr %176, i64 %175
   %178 = shl i64 %166, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %177, ptr nonnull align 8 %164, i64 %178, i1 false), !noalias !7700
   %179 = load i64, ptr %53, align 8, !alias.scope !7697, !noalias !7700, !noundef !4
@@ -39659,7 +39659,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit: ; preds = %289
 326:                                              ; preds = %.critedge
   %327 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %328 = load ptr, ptr %327, align 8, !nonnull !4, !noundef !4
-  %329 = getelementptr inbounds { { { { i8, [23 x i8] } }, { i32, { i32, i32 }, { i32, i32 } }, [1 x i32] }, { i64, [2 x i64] } }, ptr %328, i64 %287
+  %329 = getelementptr inbounds [72 x i8], ptr %328, i64 %287
   store ptr %328, ptr %182, align 8
   %330 = getelementptr inbounds nuw i8, ptr %182, i64 8
   store ptr %329, ptr %330, align 8
@@ -40079,7 +40079,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit: ; preds = %289
   %448 = phi ptr [ %422, %440 ], [ %.pre, %.noexc842 ]
   %449 = phi i64 [ %441, %440 ], [ %.pre.i841, %.noexc842 ]
   %450 = load ptr, ptr %419, align 8, !alias.scope !7833, !noalias !7836, !nonnull !4, !noundef !4
-  %451 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %450, i64 %449
+  %451 = getelementptr inbounds [64 x i8], ptr %450, i64 %449
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %451, ptr noundef nonnull align 8 dereferenceable(64) %422, i64 64, i1 false), !noalias !7836
   %452 = add i64 %449, 1
   store i64 %452, ptr %420, align 8, !alias.scope !7833, !noalias !7836
@@ -40159,7 +40159,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit: ; preds = %289
 477:                                              ; preds = %.noexc851, %465
   %478 = phi i64 [ %470, %465 ], [ %.pre.i850, %.noexc851 ]
   %479 = load ptr, ptr %410, align 8, !alias.scope !7856, !noalias !7859, !nonnull !4, !noundef !4
-  %480 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %479, i64 %478
+  %480 = getelementptr inbounds [64 x i8], ptr %479, i64 %478
   %481 = shl i64 %469, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %480, ptr nonnull align 8 %467, i64 %481, i1 false), !noalias !7859
   %482 = load i64, ptr %411, align 8, !alias.scope !7856, !noalias !7859, !noundef !4
@@ -41485,7 +41485,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit949: ; preds = %746
   %781 = phi ptr [ %749, %773 ], [ %.pre1125, %.noexc958 ]
   %782 = phi i64 [ %774, %773 ], [ %.pre.i957, %.noexc958 ]
   %783 = load ptr, ptr %.sroa.4153.0..sroa_idx, align 8, !alias.scope !8056, !noalias !8059, !nonnull !4, !noundef !4
-  %784 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %783, i64 %782
+  %784 = getelementptr inbounds [64 x i8], ptr %783, i64 %782
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %784, ptr noundef nonnull align 8 dereferenceable(64) %749, i64 64, i1 false), !noalias !8059
   %785 = add i64 %782, 1
   store i64 %785, ptr %.sroa.5154.0..sroa_idx, align 8, !alias.scope !8056, !noalias !8059
@@ -41564,7 +41564,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit949: ; preds = %746
 810:                                              ; preds = %.noexc967, %798
   %811 = phi i64 [ %803, %798 ], [ %.pre.i966, %.noexc967 ]
   %812 = load ptr, ptr %.sroa.4148.0..sroa_idx, align 8, !alias.scope !8079, !noalias !8082, !nonnull !4, !noundef !4
-  %813 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %812, i64 %811
+  %813 = getelementptr inbounds [64 x i8], ptr %812, i64 %811
   %814 = shl i64 %802, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %813, ptr nonnull align 8 %800, i64 %814, i1 false), !noalias !8082
   %815 = load i64, ptr %.sroa.5149.0..sroa_idx, align 8, !alias.scope !8079, !noalias !8082, !noundef !4
@@ -41646,7 +41646,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit949: ; preds = %746
 842:                                              ; preds = %.noexc976, %830
   %843 = phi i64 [ %835, %830 ], [ %.pre.i975, %.noexc976 ]
   %844 = load ptr, ptr %.sroa.4145.0..sroa_idx, align 8, !alias.scope !8102, !noalias !8105, !nonnull !4, !noundef !4
-  %845 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %844, i64 %843
+  %845 = getelementptr inbounds [64 x i8], ptr %844, i64 %843
   %846 = shl i64 %834, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %845, ptr nonnull align 8 %832, i64 %846, i1 false), !noalias !8105
   %847 = load i64, ptr %.sroa.5146.0..sroa_idx, align 8, !alias.scope !8102, !noalias !8105, !noundef !4
@@ -41728,7 +41728,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit949: ; preds = %746
 874:                                              ; preds = %.noexc985, %862
   %875 = phi i64 [ %867, %862 ], [ %.pre.i984, %.noexc985 ]
   %876 = load ptr, ptr %702, align 8, !alias.scope !8125, !noalias !8128, !nonnull !4, !noundef !4
-  %877 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %876, i64 %875
+  %877 = getelementptr inbounds [64 x i8], ptr %876, i64 %875
   %878 = shl i64 %866, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %877, ptr nonnull align 8 %864, i64 %878, i1 false), !noalias !8128
   %879 = load i64, ptr %703, align 8, !alias.scope !8125, !noalias !8128, !noundef !4
@@ -41811,7 +41811,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit949: ; preds = %746
 906:                                              ; preds = %.noexc994, %894
   %907 = phi i64 [ %899, %894 ], [ %.pre.i993, %.noexc994 ]
   %908 = load ptr, ptr %.sroa.4140.0..sroa_idx, align 8, !alias.scope !8148, !noalias !8151, !nonnull !4, !noundef !4
-  %909 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %908, i64 %907
+  %909 = getelementptr inbounds [64 x i8], ptr %908, i64 %907
   %910 = shl i64 %898, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %909, ptr nonnull align 8 %896, i64 %910, i1 false), !noalias !8151
   %911 = load i64, ptr %.sroa.5141.0..sroa_idx, align 8, !alias.scope !8148, !noalias !8151, !noundef !4
@@ -41893,7 +41893,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit949: ; preds = %746
 938:                                              ; preds = %.noexc1003, %926
   %939 = phi i64 [ %931, %926 ], [ %.pre.i1002, %.noexc1003 ]
   %940 = load ptr, ptr %.sroa.4137.0..sroa_idx, align 8, !alias.scope !8171, !noalias !8174, !nonnull !4, !noundef !4
-  %941 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %940, i64 %939
+  %941 = getelementptr inbounds [64 x i8], ptr %940, i64 %939
   %942 = shl i64 %930, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %941, ptr nonnull align 8 %928, i64 %942, i1 false), !noalias !8174
   %943 = load i64, ptr %.sroa.5138.0..sroa_idx, align 8, !alias.scope !8171, !noalias !8174, !noundef !4
@@ -41975,7 +41975,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit949: ; preds = %746
 970:                                              ; preds = %.noexc1012, %958
   %971 = phi i64 [ %963, %958 ], [ %.pre.i1011, %.noexc1012 ]
   %972 = load ptr, ptr %.sroa.4134.0..sroa_idx, align 8, !alias.scope !8194, !noalias !8197, !nonnull !4, !noundef !4
-  %973 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %972, i64 %971
+  %973 = getelementptr inbounds [64 x i8], ptr %972, i64 %971
   %974 = shl i64 %962, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %973, ptr nonnull align 8 %960, i64 %974, i1 false), !noalias !8197
   %975 = load i64, ptr %.sroa.5135.0..sroa_idx, align 8, !alias.scope !8194, !noalias !8197, !noundef !4
@@ -42057,7 +42057,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit949: ; preds = %746
 1002:                                             ; preds = %.noexc1021, %990
   %1003 = phi i64 [ %995, %990 ], [ %.pre.i1020, %.noexc1021 ]
   %1004 = load ptr, ptr %.sroa.4128.0..sroa_idx129, align 8, !alias.scope !8217, !noalias !8220, !nonnull !4, !noundef !4
-  %1005 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1004, i64 %1003
+  %1005 = getelementptr inbounds [64 x i8], ptr %1004, i64 %1003
   %1006 = shl i64 %994, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1005, ptr nonnull align 8 %992, i64 %1006, i1 false), !noalias !8220
   %1007 = load i64, ptr %.sroa.5130.0..sroa_idx, align 8, !alias.scope !8217, !noalias !8220, !noundef !4
@@ -42139,7 +42139,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit949: ; preds = %746
 1034:                                             ; preds = %.noexc1030, %1022
   %1035 = phi i64 [ %1027, %1022 ], [ %.pre.i1029, %.noexc1030 ]
   %1036 = load ptr, ptr %.sroa.4125.0..sroa_idx, align 8, !alias.scope !8240, !noalias !8243, !nonnull !4, !noundef !4
-  %1037 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1036, i64 %1035
+  %1037 = getelementptr inbounds [64 x i8], ptr %1036, i64 %1035
   %1038 = shl i64 %1026, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1037, ptr nonnull align 8 %1024, i64 %1038, i1 false), !noalias !8243
   %1039 = load i64, ptr %.sroa.5126.0..sroa_idx, align 8, !alias.scope !8240, !noalias !8243, !noundef !4
@@ -42221,7 +42221,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit949: ; preds = %746
 1066:                                             ; preds = %.noexc1039, %1054
   %1067 = phi i64 [ %1059, %1054 ], [ %.pre.i1038, %.noexc1039 ]
   %1068 = load ptr, ptr %.sroa.4119.0..sroa_idx, align 8, !alias.scope !8263, !noalias !8266, !nonnull !4, !noundef !4
-  %1069 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1068, i64 %1067
+  %1069 = getelementptr inbounds [64 x i8], ptr %1068, i64 %1067
   %1070 = shl i64 %1058, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1069, ptr nonnull align 8 %1056, i64 %1070, i1 false), !noalias !8266
   %1071 = load i64, ptr %.sroa.5120.0..sroa_idx, align 8, !alias.scope !8263, !noalias !8266, !noundef !4
@@ -42303,7 +42303,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit949: ; preds = %746
 1098:                                             ; preds = %.noexc1048, %1086
   %1099 = phi i64 [ %1091, %1086 ], [ %.pre.i1047, %.noexc1048 ]
   %1100 = load ptr, ptr %.sroa.4116.0..sroa_idx, align 8, !alias.scope !8286, !noalias !8289, !nonnull !4, !noundef !4
-  %1101 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1100, i64 %1099
+  %1101 = getelementptr inbounds [64 x i8], ptr %1100, i64 %1099
   %1102 = shl i64 %1090, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1101, ptr nonnull align 8 %1088, i64 %1102, i1 false), !noalias !8289
   %1103 = load i64, ptr %.sroa.5117.0..sroa_idx, align 8, !alias.scope !8286, !noalias !8289, !noundef !4
@@ -43125,7 +43125,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1111: ; preds = %1266
   %.sroa.4194.0.copyload = load ptr, ptr %.sroa.4194.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5195.0..sroa_idx = getelementptr inbounds nuw i8, ptr %201, i64 16
   %.sroa.5195.0.copyload = load i64, ptr %.sroa.5195.0..sroa_idx, align 8
-  %1294 = getelementptr inbounds { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, ptr %.sroa.4194.0.copyload, i64 %.sroa.5195.0.copyload
+  %1294 = getelementptr inbounds [64 x i8], ptr %.sroa.4194.0.copyload, i64 %.sroa.5195.0.copyload
   store ptr %.sroa.4194.0.copyload, ptr %107, align 8
   %.sroa.4190.0..sroa_idx = getelementptr inbounds nuw i8, ptr %107, i64 8
   store ptr %.sroa.4194.0.copyload, ptr %.sroa.4190.0..sroa_idx, align 8
@@ -43273,7 +43273,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1111: ; preds = %1266
   %1336 = phi ptr [ %1319, %1326 ], [ %.pre1126, %.noexc1136 ]
   %1337 = phi i64 [ %1329, %1326 ], [ %.pre.i1135, %.noexc1136 ]
   %1338 = load ptr, ptr %.sroa.4185.0..sroa_idx, align 8, !alias.scope !8462, !noalias !8465, !nonnull !4, !noundef !4
-  %1339 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1338, i64 %1337
+  %1339 = getelementptr inbounds [64 x i8], ptr %1338, i64 %1337
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %1339, ptr noundef nonnull align 8 dereferenceable(64) %1319, i64 64, i1 false), !noalias !8465
   %1340 = add i64 %1337, 1
   store i64 %1340, ptr %.sroa.5186.0..sroa_idx, align 8, !alias.scope !8462, !noalias !8465
@@ -43352,7 +43352,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1111: ; preds = %1266
 1365:                                             ; preds = %.noexc1146, %1353
   %1366 = phi i64 [ %1358, %1353 ], [ %.pre.i1145, %.noexc1146 ]
   %1367 = load ptr, ptr %.sroa.4180.0..sroa_idx, align 8, !alias.scope !8485, !noalias !8488, !nonnull !4, !noundef !4
-  %1368 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1367, i64 %1366
+  %1368 = getelementptr inbounds [64 x i8], ptr %1367, i64 %1366
   %1369 = shl i64 %1357, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1368, ptr nonnull align 8 %1355, i64 %1369, i1 false), !noalias !8488
   %1370 = load i64, ptr %.sroa.5181.0..sroa_idx, align 8, !alias.scope !8485, !noalias !8488, !noundef !4
@@ -43481,7 +43481,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1111: ; preds = %1266
   %1410 = phi ptr [ %1393, %1400 ], [ %.pre1127, %.noexc1160 ]
   %1411 = phi i64 [ %1403, %1400 ], [ %.pre.i1159, %.noexc1160 ]
   %1412 = load ptr, ptr %.sroa.4175.0..sroa_idx, align 8, !alias.scope !8518, !noalias !8521, !nonnull !4, !noundef !4
-  %1413 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1412, i64 %1411
+  %1413 = getelementptr inbounds [64 x i8], ptr %1412, i64 %1411
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %1413, ptr noundef nonnull align 8 dereferenceable(64) %1393, i64 64, i1 false), !noalias !8521
   %1414 = add i64 %1411, 1
   store i64 %1414, ptr %.sroa.5176.0..sroa_idx, align 8, !alias.scope !8518, !noalias !8521
@@ -43560,7 +43560,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1111: ; preds = %1266
 1439:                                             ; preds = %.noexc1171, %1427
   %1440 = phi i64 [ %1432, %1427 ], [ %.pre.i1170, %.noexc1171 ]
   %1441 = load ptr, ptr %.sroa.4172.0..sroa_idx, align 8, !alias.scope !8541, !noalias !8544, !nonnull !4, !noundef !4
-  %1442 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1441, i64 %1440
+  %1442 = getelementptr inbounds [64 x i8], ptr %1441, i64 %1440
   %1443 = shl i64 %1431, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1442, ptr nonnull align 8 %1429, i64 %1443, i1 false), !noalias !8544
   %1444 = load i64, ptr %.sroa.5173.0..sroa_idx, align 8, !alias.scope !8541, !noalias !8544, !noundef !4
@@ -43642,7 +43642,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1111: ; preds = %1266
 1471:                                             ; preds = %.noexc1180, %1459
   %1472 = phi i64 [ %1464, %1459 ], [ %.pre.i1179, %.noexc1180 ]
   %1473 = load ptr, ptr %.sroa.4167.0..sroa_idx, align 8, !alias.scope !8564, !noalias !8567, !nonnull !4, !noundef !4
-  %1474 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1473, i64 %1472
+  %1474 = getelementptr inbounds [64 x i8], ptr %1473, i64 %1472
   %1475 = shl i64 %1463, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1474, ptr nonnull align 8 %1461, i64 %1475, i1 false), !noalias !8567
   %1476 = load i64, ptr %.sroa.5168.0..sroa_idx, align 8, !alias.scope !8564, !noalias !8567, !noundef !4
@@ -43724,7 +43724,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1111: ; preds = %1266
 1503:                                             ; preds = %.noexc1189, %1491
   %1504 = phi i64 [ %1496, %1491 ], [ %.pre.i1188, %.noexc1189 ]
   %1505 = load ptr, ptr %.sroa.4164.0..sroa_idx, align 8, !alias.scope !8587, !noalias !8590, !nonnull !4, !noundef !4
-  %1506 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1505, i64 %1504
+  %1506 = getelementptr inbounds [64 x i8], ptr %1505, i64 %1504
   %1507 = shl i64 %1495, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1506, ptr nonnull align 8 %1493, i64 %1507, i1 false), !noalias !8590
   %1508 = load i64, ptr %.sroa.5165.0..sroa_idx, align 8, !alias.scope !8587, !noalias !8590, !noundef !4
@@ -43806,7 +43806,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1111: ; preds = %1266
 1535:                                             ; preds = %.noexc1198, %1523
   %1536 = phi i64 [ %1528, %1523 ], [ %.pre.i1197, %.noexc1198 ]
   %1537 = load ptr, ptr %1171, align 8, !alias.scope !8610, !noalias !8613, !nonnull !4, !noundef !4
-  %1538 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1537, i64 %1536
+  %1538 = getelementptr inbounds [64 x i8], ptr %1537, i64 %1536
   %1539 = shl i64 %1527, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1538, ptr nonnull align 8 %1525, i64 %1539, i1 false), !noalias !8613
   %1540 = load i64, ptr %1172, align 8, !alias.scope !8610, !noalias !8613, !noundef !4
@@ -43889,7 +43889,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1111: ; preds = %1266
 1567:                                             ; preds = %.noexc1207, %1555
   %1568 = phi i64 [ %1560, %1555 ], [ %.pre.i1206, %.noexc1207 ]
   %1569 = load ptr, ptr %.sroa.4161.0..sroa_idx, align 8, !alias.scope !8633, !noalias !8636, !nonnull !4, !noundef !4
-  %1570 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1569, i64 %1568
+  %1570 = getelementptr inbounds [64 x i8], ptr %1569, i64 %1568
   %1571 = shl i64 %1559, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1570, ptr nonnull align 8 %1557, i64 %1571, i1 false), !noalias !8636
   %1572 = load i64, ptr %.sroa.5162.0..sroa_idx, align 8, !alias.scope !8633, !noalias !8636, !noundef !4
@@ -43971,7 +43971,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1111: ; preds = %1266
 1599:                                             ; preds = %.noexc1216, %1587
   %1600 = phi i64 [ %1592, %1587 ], [ %.pre.i1215, %.noexc1216 ]
   %1601 = load ptr, ptr %1134, align 8, !alias.scope !8656, !noalias !8659, !nonnull !4, !noundef !4
-  %1602 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1601, i64 %1600
+  %1602 = getelementptr inbounds [64 x i8], ptr %1601, i64 %1600
   %1603 = shl i64 %1591, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1602, ptr nonnull align 8 %1589, i64 %1603, i1 false), !noalias !8659
   %1604 = load i64, ptr %1135, align 8, !alias.scope !8656, !noalias !8659, !noundef !4
@@ -44053,7 +44053,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1111: ; preds = %1266
 1631:                                             ; preds = %.noexc1225, %1619
   %1632 = phi i64 [ %1624, %1619 ], [ %.pre.i1224, %.noexc1225 ]
   %1633 = load ptr, ptr %.sroa.4111.0..sroa_idx, align 8, !alias.scope !8679, !noalias !8682, !nonnull !4, !noundef !4
-  %1634 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1633, i64 %1632
+  %1634 = getelementptr inbounds [64 x i8], ptr %1633, i64 %1632
   %1635 = shl i64 %1623, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1634, ptr nonnull align 8 %1621, i64 %1635, i1 false), !noalias !8682
   %1636 = load i64, ptr %.sroa.5112.0..sroa_idx, align 8, !alias.scope !8679, !noalias !8682, !noundef !4
@@ -44135,7 +44135,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1111: ; preds = %1266
 1663:                                             ; preds = %.noexc1236, %1651
   %1664 = phi i64 [ %1656, %1651 ], [ %.pre.i1235, %.noexc1236 ]
   %1665 = load ptr, ptr %.sroa.4106.0..sroa_idx, align 8, !alias.scope !8702, !noalias !8705, !nonnull !4, !noundef !4
-  %1666 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1665, i64 %1664
+  %1666 = getelementptr inbounds [64 x i8], ptr %1665, i64 %1664
   %1667 = shl i64 %1655, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1666, ptr nonnull align 8 %1653, i64 %1667, i1 false), !noalias !8705
   %1668 = load i64, ptr %.sroa.5107.0..sroa_idx, align 8, !alias.scope !8702, !noalias !8705, !noundef !4
@@ -45436,7 +45436,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1325: ; preds = %1905
   %1940 = phi ptr [ %1908, %1932 ], [ %.pre1128, %.noexc1334 ]
   %1941 = phi i64 [ %1933, %1932 ], [ %.pre.i1333, %.noexc1334 ]
   %1942 = load ptr, ptr %.sroa.450.0..sroa_idx, align 8, !alias.scope !8888, !noalias !8891, !nonnull !4, !noundef !4
-  %1943 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1942, i64 %1941
+  %1943 = getelementptr inbounds [64 x i8], ptr %1942, i64 %1941
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %1943, ptr noundef nonnull align 8 dereferenceable(64) %1908, i64 64, i1 false), !noalias !8891
   %1944 = add i64 %1941, 1
   store i64 %1944, ptr %.sroa.551.0..sroa_idx, align 8, !alias.scope !8888, !noalias !8891
@@ -45515,7 +45515,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1325: ; preds = %1905
 1969:                                             ; preds = %.noexc1343, %1957
   %1970 = phi i64 [ %1962, %1957 ], [ %.pre.i1342, %.noexc1343 ]
   %1971 = load ptr, ptr %.sroa.445.0..sroa_idx, align 8, !alias.scope !8911, !noalias !8914, !nonnull !4, !noundef !4
-  %1972 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1971, i64 %1970
+  %1972 = getelementptr inbounds [64 x i8], ptr %1971, i64 %1970
   %1973 = shl i64 %1961, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1972, ptr nonnull align 8 %1959, i64 %1973, i1 false), !noalias !8914
   %1974 = load i64, ptr %.sroa.546.0..sroa_idx, align 8, !alias.scope !8911, !noalias !8914, !noundef !4
@@ -45597,7 +45597,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1325: ; preds = %1905
 2001:                                             ; preds = %.noexc1352, %1989
   %2002 = phi i64 [ %1994, %1989 ], [ %.pre.i1351, %.noexc1352 ]
   %2003 = load ptr, ptr %.sroa.442.0..sroa_idx, align 8, !alias.scope !8934, !noalias !8937, !nonnull !4, !noundef !4
-  %2004 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %2003, i64 %2002
+  %2004 = getelementptr inbounds [64 x i8], ptr %2003, i64 %2002
   %2005 = shl i64 %1993, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2004, ptr nonnull align 8 %1991, i64 %2005, i1 false), !noalias !8937
   %2006 = load i64, ptr %.sroa.543.0..sroa_idx, align 8, !alias.scope !8934, !noalias !8937, !noundef !4
@@ -45679,7 +45679,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1325: ; preds = %1905
 2033:                                             ; preds = %.noexc1361, %2021
   %2034 = phi i64 [ %2026, %2021 ], [ %.pre.i1360, %.noexc1361 ]
   %2035 = load ptr, ptr %1861, align 8, !alias.scope !8957, !noalias !8960, !nonnull !4, !noundef !4
-  %2036 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %2035, i64 %2034
+  %2036 = getelementptr inbounds [64 x i8], ptr %2035, i64 %2034
   %2037 = shl i64 %2025, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2036, ptr nonnull align 8 %2023, i64 %2037, i1 false), !noalias !8960
   %2038 = load i64, ptr %1862, align 8, !alias.scope !8957, !noalias !8960, !noundef !4
@@ -45762,7 +45762,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1325: ; preds = %1905
 2065:                                             ; preds = %.noexc1370, %2053
   %2066 = phi i64 [ %2058, %2053 ], [ %.pre.i1369, %.noexc1370 ]
   %2067 = load ptr, ptr %.sroa.437.0..sroa_idx, align 8, !alias.scope !8980, !noalias !8983, !nonnull !4, !noundef !4
-  %2068 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %2067, i64 %2066
+  %2068 = getelementptr inbounds [64 x i8], ptr %2067, i64 %2066
   %2069 = shl i64 %2057, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2068, ptr nonnull align 8 %2055, i64 %2069, i1 false), !noalias !8983
   %2070 = load i64, ptr %.sroa.538.0..sroa_idx, align 8, !alias.scope !8980, !noalias !8983, !noundef !4
@@ -45844,7 +45844,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1325: ; preds = %1905
 2097:                                             ; preds = %.noexc1379, %2085
   %2098 = phi i64 [ %2090, %2085 ], [ %.pre.i1378, %.noexc1379 ]
   %2099 = load ptr, ptr %.sroa.434.0..sroa_idx, align 8, !alias.scope !9003, !noalias !9006, !nonnull !4, !noundef !4
-  %2100 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %2099, i64 %2098
+  %2100 = getelementptr inbounds [64 x i8], ptr %2099, i64 %2098
   %2101 = shl i64 %2089, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2100, ptr nonnull align 8 %2087, i64 %2101, i1 false), !noalias !9006
   %2102 = load i64, ptr %.sroa.535.0..sroa_idx, align 8, !alias.scope !9003, !noalias !9006, !noundef !4
@@ -45926,7 +45926,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1325: ; preds = %1905
 2129:                                             ; preds = %.noexc1388, %2117
   %2130 = phi i64 [ %2122, %2117 ], [ %.pre.i1387, %.noexc1388 ]
   %2131 = load ptr, ptr %.sroa.431.0..sroa_idx, align 8, !alias.scope !9026, !noalias !9029, !nonnull !4, !noundef !4
-  %2132 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %2131, i64 %2130
+  %2132 = getelementptr inbounds [64 x i8], ptr %2131, i64 %2130
   %2133 = shl i64 %2121, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2132, ptr nonnull align 8 %2119, i64 %2133, i1 false), !noalias !9029
   %2134 = load i64, ptr %.sroa.532.0..sroa_idx, align 8, !alias.scope !9026, !noalias !9029, !noundef !4
@@ -46008,7 +46008,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1325: ; preds = %1905
 2161:                                             ; preds = %.noexc1397, %2149
   %2162 = phi i64 [ %2154, %2149 ], [ %.pre.i1396, %.noexc1397 ]
   %2163 = load ptr, ptr %.sroa.425.0..sroa_idx, align 8, !alias.scope !9049, !noalias !9052, !nonnull !4, !noundef !4
-  %2164 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %2163, i64 %2162
+  %2164 = getelementptr inbounds [64 x i8], ptr %2163, i64 %2162
   %2165 = shl i64 %2153, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2164, ptr nonnull align 8 %2151, i64 %2165, i1 false), !noalias !9052
   %2166 = load i64, ptr %.sroa.526.0..sroa_idx, align 8, !alias.scope !9049, !noalias !9052, !noundef !4
@@ -46090,7 +46090,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1325: ; preds = %1905
 2193:                                             ; preds = %.noexc1406, %2181
   %2194 = phi i64 [ %2186, %2181 ], [ %.pre.i1405, %.noexc1406 ]
   %2195 = load ptr, ptr %.sroa.422.0..sroa_idx, align 8, !alias.scope !9072, !noalias !9075, !nonnull !4, !noundef !4
-  %2196 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %2195, i64 %2194
+  %2196 = getelementptr inbounds [64 x i8], ptr %2195, i64 %2194
   %2197 = shl i64 %2185, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2196, ptr nonnull align 8 %2183, i64 %2197, i1 false), !noalias !9075
   %2198 = load i64, ptr %.sroa.523.0..sroa_idx, align 8, !alias.scope !9072, !noalias !9075, !noundef !4
@@ -46172,7 +46172,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1325: ; preds = %1905
 2225:                                             ; preds = %.noexc1415, %2213
   %2226 = phi i64 [ %2218, %2213 ], [ %.pre.i1414, %.noexc1415 ]
   %2227 = load ptr, ptr %.sroa.416.0..sroa_idx, align 8, !alias.scope !9095, !noalias !9098, !nonnull !4, !noundef !4
-  %2228 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %2227, i64 %2226
+  %2228 = getelementptr inbounds [64 x i8], ptr %2227, i64 %2226
   %2229 = shl i64 %2217, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2228, ptr nonnull align 8 %2215, i64 %2229, i1 false), !noalias !9098
   %2230 = load i64, ptr %.sroa.517.0..sroa_idx, align 8, !alias.scope !9095, !noalias !9098, !noundef !4
@@ -46254,7 +46254,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1325: ; preds = %1905
 2257:                                             ; preds = %.noexc1424, %2245
   %2258 = phi i64 [ %2250, %2245 ], [ %.pre.i1423, %.noexc1424 ]
   %2259 = load ptr, ptr %.sroa.413.0..sroa_idx, align 8, !alias.scope !9118, !noalias !9121, !nonnull !4, !noundef !4
-  %2260 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %2259, i64 %2258
+  %2260 = getelementptr inbounds [64 x i8], ptr %2259, i64 %2258
   %2261 = shl i64 %2249, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2260, ptr nonnull align 8 %2247, i64 %2261, i1 false), !noalias !9121
   %2262 = load i64, ptr %.sroa.514.0..sroa_idx, align 8, !alias.scope !9118, !noalias !9121, !noundef !4
@@ -47193,7 +47193,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1491: ; preds = %2433
   %2489 = phi ptr [ %2472, %2479 ], [ %.pre1129, %.noexc1505 ]
   %2490 = phi i64 [ %2482, %2479 ], [ %.pre.i1504, %.noexc1505 ]
   %2491 = load ptr, ptr %.sroa.482.0..sroa_idx, align 8, !alias.scope !9288, !noalias !9291, !nonnull !4, !noundef !4
-  %2492 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %2491, i64 %2490
+  %2492 = getelementptr inbounds [64 x i8], ptr %2491, i64 %2490
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2492, ptr noundef nonnull align 8 dereferenceable(64) %2472, i64 64, i1 false), !noalias !9291
   %2493 = add i64 %2490, 1
   store i64 %2493, ptr %.sroa.583.0..sroa_idx, align 8, !alias.scope !9288, !noalias !9291
@@ -47272,7 +47272,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1491: ; preds = %2433
 2518:                                             ; preds = %.noexc1515, %2506
   %2519 = phi i64 [ %2511, %2506 ], [ %.pre.i1514, %.noexc1515 ]
   %2520 = load ptr, ptr %2434, align 8, !alias.scope !9311, !noalias !9314, !nonnull !4, !noundef !4
-  %2521 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %2520, i64 %2519
+  %2521 = getelementptr inbounds [64 x i8], ptr %2520, i64 %2519
   %2522 = shl i64 %2510, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2521, ptr nonnull align 8 %2508, i64 %2522, i1 false), !noalias !9314
   %2523 = load i64, ptr %2435, align 8, !alias.scope !9311, !noalias !9314, !noundef !4
@@ -47355,7 +47355,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1491: ; preds = %2433
 2550:                                             ; preds = %.noexc1524, %2538
   %2551 = phi i64 [ %2543, %2538 ], [ %.pre.i1523, %.noexc1524 ]
   %2552 = load ptr, ptr %.sroa.477.0..sroa_idx, align 8, !alias.scope !9334, !noalias !9337, !nonnull !4, !noundef !4
-  %2553 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %2552, i64 %2551
+  %2553 = getelementptr inbounds [64 x i8], ptr %2552, i64 %2551
   %2554 = shl i64 %2542, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2553, ptr nonnull align 8 %2540, i64 %2554, i1 false), !noalias !9337
   %2555 = load i64, ptr %.sroa.578.0..sroa_idx, align 8, !alias.scope !9334, !noalias !9337, !noundef !4
@@ -47484,7 +47484,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1491: ; preds = %2433
   %2595 = phi ptr [ %2578, %2585 ], [ %.pre1130, %.noexc1538 ]
   %2596 = phi i64 [ %2588, %2585 ], [ %.pre.i1537, %.noexc1538 ]
   %2597 = load ptr, ptr %.sroa.472.0..sroa_idx, align 8, !alias.scope !9367, !noalias !9370, !nonnull !4, !noundef !4
-  %2598 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %2597, i64 %2596
+  %2598 = getelementptr inbounds [64 x i8], ptr %2597, i64 %2596
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2598, ptr noundef nonnull align 8 dereferenceable(64) %2578, i64 64, i1 false), !noalias !9370
   %2599 = add i64 %2596, 1
   store i64 %2599, ptr %.sroa.573.0..sroa_idx, align 8, !alias.scope !9367, !noalias !9370
@@ -47563,7 +47563,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1491: ; preds = %2433
 2624:                                             ; preds = %.noexc1548, %2612
   %2625 = phi i64 [ %2617, %2612 ], [ %.pre.i1547, %.noexc1548 ]
   %2626 = load ptr, ptr %.sroa.469.0..sroa_idx, align 8, !alias.scope !9390, !noalias !9393, !nonnull !4, !noundef !4
-  %2627 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %2626, i64 %2625
+  %2627 = getelementptr inbounds [64 x i8], ptr %2626, i64 %2625
   %2628 = shl i64 %2616, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2627, ptr nonnull align 8 %2614, i64 %2628, i1 false), !noalias !9393
   %2629 = load i64, ptr %.sroa.570.0..sroa_idx, align 8, !alias.scope !9390, !noalias !9393, !noundef !4
@@ -47645,7 +47645,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1491: ; preds = %2433
 2656:                                             ; preds = %.noexc1557, %2644
   %2657 = phi i64 [ %2649, %2644 ], [ %.pre.i1556, %.noexc1557 ]
   %2658 = load ptr, ptr %.sroa.464.0..sroa_idx, align 8, !alias.scope !9413, !noalias !9416, !nonnull !4, !noundef !4
-  %2659 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %2658, i64 %2657
+  %2659 = getelementptr inbounds [64 x i8], ptr %2658, i64 %2657
   %2660 = shl i64 %2648, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2659, ptr nonnull align 8 %2646, i64 %2660, i1 false), !noalias !9416
   %2661 = load i64, ptr %.sroa.565.0..sroa_idx, align 8, !alias.scope !9413, !noalias !9416, !noundef !4
@@ -47727,7 +47727,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1491: ; preds = %2433
 2688:                                             ; preds = %.noexc1566, %2676
   %2689 = phi i64 [ %2681, %2676 ], [ %.pre.i1565, %.noexc1566 ]
   %2690 = load ptr, ptr %.sroa.461.0..sroa_idx, align 8, !alias.scope !9436, !noalias !9439, !nonnull !4, !noundef !4
-  %2691 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %2690, i64 %2689
+  %2691 = getelementptr inbounds [64 x i8], ptr %2690, i64 %2689
   %2692 = shl i64 %2680, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2691, ptr nonnull align 8 %2678, i64 %2692, i1 false), !noalias !9439
   %2693 = load i64, ptr %.sroa.562.0..sroa_idx, align 8, !alias.scope !9436, !noalias !9439, !noundef !4
@@ -47809,7 +47809,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1491: ; preds = %2433
 2720:                                             ; preds = %.noexc1575, %2708
   %2721 = phi i64 [ %2713, %2708 ], [ %.pre.i1574, %.noexc1575 ]
   %2722 = load ptr, ptr %2330, align 8, !alias.scope !9459, !noalias !9462, !nonnull !4, !noundef !4
-  %2723 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %2722, i64 %2721
+  %2723 = getelementptr inbounds [64 x i8], ptr %2722, i64 %2721
   %2724 = shl i64 %2712, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2723, ptr nonnull align 8 %2710, i64 %2724, i1 false), !noalias !9462
   %2725 = load i64, ptr %2331, align 8, !alias.scope !9459, !noalias !9462, !noundef !4
@@ -47892,7 +47892,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1491: ; preds = %2433
 2752:                                             ; preds = %.noexc1584, %2740
   %2753 = phi i64 [ %2745, %2740 ], [ %.pre.i1583, %.noexc1584 ]
   %2754 = load ptr, ptr %.sroa.458.0..sroa_idx, align 8, !alias.scope !9482, !noalias !9485, !nonnull !4, !noundef !4
-  %2755 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %2754, i64 %2753
+  %2755 = getelementptr inbounds [64 x i8], ptr %2754, i64 %2753
   %2756 = shl i64 %2744, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2755, ptr nonnull align 8 %2742, i64 %2756, i1 false), !noalias !9485
   %2757 = load i64, ptr %.sroa.559.0..sroa_idx, align 8, !alias.scope !9482, !noalias !9485, !noundef !4
@@ -47974,7 +47974,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1491: ; preds = %2433
 2784:                                             ; preds = %.noexc1593, %2772
   %2785 = phi i64 [ %2777, %2772 ], [ %.pre.i1592, %.noexc1593 ]
   %2786 = load ptr, ptr %2293, align 8, !alias.scope !9505, !noalias !9508, !nonnull !4, !noundef !4
-  %2787 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %2786, i64 %2785
+  %2787 = getelementptr inbounds [64 x i8], ptr %2786, i64 %2785
   %2788 = shl i64 %2776, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2787, ptr nonnull align 8 %2774, i64 %2788, i1 false), !noalias !9508
   %2789 = load i64, ptr %2294, align 8, !alias.scope !9505, !noalias !9508, !noundef !4
@@ -48056,7 +48056,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1491: ; preds = %2433
 2816:                                             ; preds = %.noexc1602, %2804
   %2817 = phi i64 [ %2809, %2804 ], [ %.pre.i1601, %.noexc1602 ]
   %2818 = load ptr, ptr %.sroa.48.0..sroa_idx, align 8, !alias.scope !9528, !noalias !9531, !nonnull !4, !noundef !4
-  %2819 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %2818, i64 %2817
+  %2819 = getelementptr inbounds [64 x i8], ptr %2818, i64 %2817
   %2820 = shl i64 %2808, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2819, ptr nonnull align 8 %2806, i64 %2820, i1 false), !noalias !9531
   %2821 = load i64, ptr %.sroa.59.0..sroa_idx, align 8, !alias.scope !9528, !noalias !9531, !noundef !4
@@ -48138,7 +48138,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1491: ; preds = %2433
 2848:                                             ; preds = %.noexc1612, %2836
   %2849 = phi i64 [ %2841, %2836 ], [ %.pre.i1611, %.noexc1612 ]
   %2850 = load ptr, ptr %.sroa.44.0..sroa_idx5, align 8, !alias.scope !9551, !noalias !9554, !nonnull !4, !noundef !4
-  %2851 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %2850, i64 %2849
+  %2851 = getelementptr inbounds [64 x i8], ptr %2850, i64 %2849
   %2852 = shl i64 %2840, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2851, ptr nonnull align 8 %2838, i64 %2852, i1 false), !noalias !9554
   %2853 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !9551, !noalias !9554, !noundef !4
@@ -48491,7 +48491,7 @@ define internal fastcc void @"_ZN10hir_expand20builtin_derive_macro12debug_expan
   %126 = load ptr, ptr %125, align 8, !nonnull !4, !noundef !4
   %127 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %128 = load i64, ptr %127, align 8, !noundef !4
-  %129 = getelementptr inbounds { { { i8, [23 x i8] } }, { i32, { i32, i32 }, { i32, i32 } }, [1 x i32] }, ptr %126, i64 %128
+  %129 = getelementptr inbounds [48 x i8], ptr %126, i64 %128
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %118)
   call void @llvm.lifetime.start.p0(ptr nonnull %117)
@@ -49177,7 +49177,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit280: ; preds = %238
   %292 = phi ptr [ %275, %282 ], [ %.pre467, %.noexc294 ]
   %293 = phi i64 [ %285, %282 ], [ %.pre.i293, %.noexc294 ]
   %294 = load ptr, ptr %.sroa.415.0..sroa_idx16, align 8, !alias.scope !9679, !noalias !9682, !nonnull !4, !noundef !4
-  %295 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %294, i64 %293
+  %295 = getelementptr inbounds [64 x i8], ptr %294, i64 %293
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %295, ptr noundef nonnull align 8 dereferenceable(64) %275, i64 64, i1 false), !noalias !9682
   %296 = add i64 %293, 1
   store i64 %296, ptr %.sroa.517.0..sroa_idx, align 8, !alias.scope !9679, !noalias !9682
@@ -49256,7 +49256,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit280: ; preds = %238
 321:                                              ; preds = %.noexc304, %309
   %322 = phi i64 [ %314, %309 ], [ %.pre.i303, %.noexc304 ]
   %323 = load ptr, ptr %.sroa.412.0..sroa_idx, align 8, !alias.scope !9702, !noalias !9705, !nonnull !4, !noundef !4
-  %324 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %323, i64 %322
+  %324 = getelementptr inbounds [64 x i8], ptr %323, i64 %322
   %325 = shl i64 %313, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %324, ptr nonnull align 8 %311, i64 %325, i1 false), !noalias !9705
   %326 = load i64, ptr %.sroa.513.0..sroa_idx, align 8, !alias.scope !9702, !noalias !9705, !noundef !4
@@ -49340,7 +49340,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit280: ; preds = %238
   %355 = phi i64 [ %347, %341 ], [ %.pre.i312, %.noexc313 ]
   %356 = getelementptr inbounds nuw i8, ptr %99, i64 8
   %357 = load ptr, ptr %356, align 8, !alias.scope !9725, !noalias !9728, !nonnull !4, !noundef !4
-  %358 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %357, i64 %355
+  %358 = getelementptr inbounds [64 x i8], ptr %357, i64 %355
   %359 = shl i64 %345, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %358, ptr nonnull align 8 %343, i64 %359, i1 false), !noalias !9728
   %360 = load i64, ptr %346, align 8, !alias.scope !9725, !noalias !9728, !noundef !4
@@ -49422,7 +49422,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit280: ; preds = %238
 387:                                              ; preds = %.noexc322, %375
   %388 = phi i64 [ %380, %375 ], [ %.pre.i321, %.noexc322 ]
   %389 = load ptr, ptr %225, align 8, !alias.scope !9748, !noalias !9751, !nonnull !4, !noundef !4
-  %390 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %389, i64 %388
+  %390 = getelementptr inbounds [64 x i8], ptr %389, i64 %388
   %391 = shl i64 %379, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %390, ptr nonnull align 8 %377, i64 %391, i1 false), !noalias !9751
   %392 = load i64, ptr %226, align 8, !alias.scope !9748, !noalias !9751, !noundef !4
@@ -49504,7 +49504,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit280: ; preds = %238
 419:                                              ; preds = %.noexc331, %407
   %420 = phi i64 [ %412, %407 ], [ %.pre.i330, %.noexc331 ]
   %421 = load ptr, ptr %.sroa.47.0..sroa_idx, align 8, !alias.scope !9771, !noalias !9774, !nonnull !4, !noundef !4
-  %422 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %421, i64 %420
+  %422 = getelementptr inbounds [64 x i8], ptr %421, i64 %420
   %423 = shl i64 %411, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %422, ptr nonnull align 8 %409, i64 %423, i1 false), !noalias !9774
   %424 = load i64, ptr %.sroa.58.0..sroa_idx, align 8, !alias.scope !9771, !noalias !9774, !noundef !4
@@ -49586,7 +49586,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit280: ; preds = %238
 451:                                              ; preds = %.noexc341, %439
   %452 = phi i64 [ %444, %439 ], [ %.pre.i340, %.noexc341 ]
   %453 = load ptr, ptr %.sroa.43.0..sroa_idx, align 8, !alias.scope !9794, !noalias !9797, !nonnull !4, !noundef !4
-  %454 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %453, i64 %452
+  %454 = getelementptr inbounds [64 x i8], ptr %453, i64 %452
   %455 = shl i64 %443, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %454, ptr nonnull align 8 %441, i64 %455, i1 false), !noalias !9797
   %456 = load i64, ptr %.sroa.54.0..sroa_idx, align 8, !alias.scope !9794, !noalias !9797, !noundef !4
@@ -49668,7 +49668,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit280: ; preds = %238
 483:                                              ; preds = %.noexc350, %471
   %484 = phi i64 [ %476, %471 ], [ %.pre.i349, %.noexc350 ]
   %485 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !9817, !noalias !9820, !nonnull !4, !noundef !4
-  %486 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %485, i64 %484
+  %486 = getelementptr inbounds [64 x i8], ptr %485, i64 %484
   %487 = shl i64 %475, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %486, ptr nonnull align 8 %473, i64 %487, i1 false), !noalias !9820
   %488 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !9817, !noalias !9820, !noundef !4
@@ -50467,7 +50467,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit399: ; preds = %621
   %675 = phi ptr [ %658, %665 ], [ %.pre466, %.noexc413 ]
   %676 = phi i64 [ %668, %665 ], [ %.pre.i412, %.noexc413 ]
   %677 = load ptr, ptr %.sroa.450.0..sroa_idx, align 8, !alias.scope !9944, !noalias !9947, !nonnull !4, !noundef !4
-  %678 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %677, i64 %676
+  %678 = getelementptr inbounds [64 x i8], ptr %677, i64 %676
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %678, ptr noundef nonnull align 8 dereferenceable(64) %658, i64 64, i1 false), !noalias !9947
   %679 = add i64 %676, 1
   store i64 %679, ptr %.sroa.551.0..sroa_idx, align 8, !alias.scope !9944, !noalias !9947
@@ -50546,7 +50546,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit399: ; preds = %621
 704:                                              ; preds = %.noexc423, %692
   %705 = phi i64 [ %697, %692 ], [ %.pre.i422, %.noexc423 ]
   %706 = load ptr, ptr %.sroa.446.0..sroa_idx, align 8, !alias.scope !9967, !noalias !9970, !nonnull !4, !noundef !4
-  %707 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %706, i64 %705
+  %707 = getelementptr inbounds [64 x i8], ptr %706, i64 %705
   %708 = shl i64 %696, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %707, ptr nonnull align 8 %694, i64 %708, i1 false), !noalias !9970
   %709 = load i64, ptr %.sroa.547.0..sroa_idx, align 8, !alias.scope !9967, !noalias !9970, !noundef !4
@@ -50630,7 +50630,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit399: ; preds = %621
   %738 = phi i64 [ %730, %724 ], [ %.pre.i431, %.noexc432 ]
   %739 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %740 = load ptr, ptr %739, align 8, !alias.scope !9990, !noalias !9993, !nonnull !4, !noundef !4
-  %741 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %740, i64 %738
+  %741 = getelementptr inbounds [64 x i8], ptr %740, i64 %738
   %742 = shl i64 %728, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %741, ptr nonnull align 8 %726, i64 %742, i1 false), !noalias !9993
   %743 = load i64, ptr %729, align 8, !alias.scope !9990, !noalias !9993, !noundef !4
@@ -50712,7 +50712,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit399: ; preds = %621
 770:                                              ; preds = %.noexc441, %758
   %771 = phi i64 [ %763, %758 ], [ %.pre.i440, %.noexc441 ]
   %772 = load ptr, ptr %608, align 8, !alias.scope !10013, !noalias !10016, !nonnull !4, !noundef !4
-  %773 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %772, i64 %771
+  %773 = getelementptr inbounds [64 x i8], ptr %772, i64 %771
   %774 = shl i64 %762, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %773, ptr nonnull align 8 %760, i64 %774, i1 false), !noalias !10016
   %775 = load i64, ptr %609, align 8, !alias.scope !10013, !noalias !10016, !noundef !4
@@ -50794,7 +50794,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit399: ; preds = %621
 802:                                              ; preds = %.noexc450, %790
   %803 = phi i64 [ %795, %790 ], [ %.pre.i449, %.noexc450 ]
   %804 = load ptr, ptr %.sroa.441.0..sroa_idx, align 8, !alias.scope !10036, !noalias !10039, !nonnull !4, !noundef !4
-  %805 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %804, i64 %803
+  %805 = getelementptr inbounds [64 x i8], ptr %804, i64 %803
   %806 = shl i64 %794, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %805, ptr nonnull align 8 %792, i64 %806, i1 false), !noalias !10039
   %807 = load i64, ptr %.sroa.542.0..sroa_idx, align 8, !alias.scope !10036, !noalias !10039, !noundef !4
@@ -50876,7 +50876,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit399: ; preds = %621
 834:                                              ; preds = %.noexc460, %822
   %835 = phi i64 [ %827, %822 ], [ %.pre.i459, %.noexc460 ]
   %836 = load ptr, ptr %.sroa.438.0..sroa_idx, align 8, !alias.scope !10059, !noalias !10062, !nonnull !4, !noundef !4
-  %837 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %836, i64 %835
+  %837 = getelementptr inbounds [64 x i8], ptr %836, i64 %835
   %838 = shl i64 %826, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %837, ptr nonnull align 8 %824, i64 %838, i1 false), !noalias !10062
   %839 = load i64, ptr %.sroa.539.0..sroa_idx, align 8, !alias.scope !10059, !noalias !10062, !noundef !4
@@ -50958,7 +50958,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit399: ; preds = %621
 866:                                              ; preds = %.noexc469, %854
   %867 = phi i64 [ %859, %854 ], [ %.pre.i468, %.noexc469 ]
   %868 = load ptr, ptr %.sroa.433.0..sroa_idx, align 8, !alias.scope !10082, !noalias !10085, !nonnull !4, !noundef !4
-  %869 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %868, i64 %867
+  %869 = getelementptr inbounds [64 x i8], ptr %868, i64 %867
   %870 = shl i64 %858, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %869, ptr nonnull align 8 %856, i64 %870, i1 false), !noalias !10085
   %871 = load i64, ptr %.sroa.534.0..sroa_idx, align 8, !alias.scope !10082, !noalias !10085, !noundef !4
@@ -51482,7 +51482,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit492: ; preds = %918
   %991 = phi ptr [ %974, %981 ], [ %.pre, %.noexc517 ]
   %992 = phi i64 [ %984, %981 ], [ %.pre.i516, %.noexc517 ]
   %993 = load ptr, ptr %.sroa.471.0..sroa_idx, align 8, !alias.scope !10175, !noalias !10178, !nonnull !4, !noundef !4
-  %994 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %993, i64 %992
+  %994 = getelementptr inbounds [64 x i8], ptr %993, i64 %992
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %994, ptr noundef nonnull align 8 dereferenceable(64) %974, i64 64, i1 false), !noalias !10178
   %995 = add i64 %992, 1
   store i64 %995, ptr %.sroa.572.0..sroa_idx, align 8, !alias.scope !10175, !noalias !10178
@@ -51561,7 +51561,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit492: ; preds = %918
 1020:                                             ; preds = %.noexc527, %1008
   %1021 = phi i64 [ %1013, %1008 ], [ %.pre.i526, %.noexc527 ]
   %1022 = load ptr, ptr %.sroa.468.0..sroa_idx, align 8, !alias.scope !10198, !noalias !10201, !nonnull !4, !noundef !4
-  %1023 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1022, i64 %1021
+  %1023 = getelementptr inbounds [64 x i8], ptr %1022, i64 %1021
   %1024 = shl i64 %1012, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1023, ptr nonnull align 8 %1010, i64 %1024, i1 false), !noalias !10201
   %1025 = load i64, ptr %.sroa.569.0..sroa_idx, align 8, !alias.scope !10198, !noalias !10201, !noundef !4
@@ -51643,7 +51643,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit492: ; preds = %918
 1052:                                             ; preds = %.noexc536, %1040
   %1053 = phi i64 [ %1045, %1040 ], [ %.pre.i535, %.noexc536 ]
   %1054 = load ptr, ptr %.sroa.463.0..sroa_idx, align 8, !alias.scope !10221, !noalias !10224, !nonnull !4, !noundef !4
-  %1055 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1054, i64 %1053
+  %1055 = getelementptr inbounds [64 x i8], ptr %1054, i64 %1053
   %1056 = shl i64 %1044, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1055, ptr nonnull align 8 %1042, i64 %1056, i1 false), !noalias !10224
   %1057 = load i64, ptr %.sroa.564.0..sroa_idx, align 8, !alias.scope !10221, !noalias !10224, !noundef !4
@@ -52160,7 +52160,7 @@ define internal fastcc void @"_ZN10hir_expand20builtin_derive_macro11hash_expand
   %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !10264, !noalias !10261, !nonnull !4, !noundef !4
   %.sroa.5.0..sroa_idx.i852 = getelementptr inbounds nuw i8, ptr %229, i64 16
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i852, align 8, !alias.scope !10264, !noalias !10261
-  %327 = getelementptr inbounds { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, ptr %.sroa.4.0.copyload.i, i64 %.sroa.5.0.copyload.i
+  %327 = getelementptr inbounds [64 x i8], ptr %.sroa.4.0.copyload.i, i64 %.sroa.5.0.copyload.i
   store ptr %.sroa.4.0.copyload.i, ptr %230, align 8, !alias.scope !10261, !noalias !10264
   %328 = getelementptr inbounds nuw i8, ptr %230, i64 16
   store i64 %.sroa.0.0.copyload.i, ptr %328, align 8, !alias.scope !10261, !noalias !10264
@@ -52253,7 +52253,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit: ; preds = %331
   %.sroa.4.0.copyload.i.i = load ptr, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !10278, !noalias !10283, !nonnull !4, !noundef !4
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %228, i64 16
   %.sroa.5.0.copyload.i.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !10278, !noalias !10283
-  %353 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %.sroa.4.0.copyload.i.i, i64 %.sroa.5.0.copyload.i.i
+  %353 = getelementptr inbounds [24 x i8], ptr %.sroa.4.0.copyload.i.i, i64 %.sroa.5.0.copyload.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %231, ptr noundef nonnull align 8 dereferenceable(32) %230, i64 32, i1 false)
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %231, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.8.0..sroa_idx, i8 0, i64 24, i1 false)
@@ -53272,7 +53272,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit908: ; preds = %539
   %596 = phi ptr [ %582, %588 ], [ %.pre, %.noexc923 ]
   %597 = phi i64 [ %589, %588 ], [ %.pre.i, %.noexc923 ]
   %598 = load ptr, ptr %579, align 8, !alias.scope !10444, !noalias !10447, !nonnull !4, !noundef !4
-  %599 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %598, i64 %597
+  %599 = getelementptr inbounds [64 x i8], ptr %598, i64 %597
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %599, ptr noundef nonnull align 8 dereferenceable(64) %582, i64 64, i1 false), !noalias !10447
   %600 = add i64 %597, 1
   store i64 %600, ptr %580, align 8, !alias.scope !10444, !noalias !10447
@@ -53351,7 +53351,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit908: ; preds = %539
 625:                                              ; preds = %.noexc928, %613
   %626 = phi i64 [ %618, %613 ], [ %.pre.i927, %.noexc928 ]
   %627 = load ptr, ptr %.sroa.4118.0..sroa_idx, align 8, !alias.scope !10467, !noalias !10470, !nonnull !4, !noundef !4
-  %628 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %627, i64 %626
+  %628 = getelementptr inbounds [64 x i8], ptr %627, i64 %626
   %629 = shl i64 %617, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %628, ptr nonnull align 8 %615, i64 %629, i1 false), !noalias !10470
   %630 = load i64, ptr %.sroa.5119.0..sroa_idx, align 8, !alias.scope !10467, !noalias !10470, !noundef !4
@@ -53433,7 +53433,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit908: ; preds = %539
 657:                                              ; preds = %.noexc938, %645
   %658 = phi i64 [ %650, %645 ], [ %.pre.i937, %.noexc938 ]
   %659 = load ptr, ptr %.sroa.4115.0..sroa_idx, align 8, !alias.scope !10490, !noalias !10493, !nonnull !4, !noundef !4
-  %660 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %659, i64 %658
+  %660 = getelementptr inbounds [64 x i8], ptr %659, i64 %658
   %661 = shl i64 %649, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %660, ptr nonnull align 8 %647, i64 %661, i1 false), !noalias !10493
   %662 = load i64, ptr %.sroa.5116.0..sroa_idx, align 8, !alias.scope !10490, !noalias !10493, !noundef !4
@@ -53515,7 +53515,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit908: ; preds = %539
 689:                                              ; preds = %.noexc947, %677
   %690 = phi i64 [ %682, %677 ], [ %.pre.i946, %.noexc947 ]
   %691 = load ptr, ptr %504, align 8, !alias.scope !10513, !noalias !10516, !nonnull !4, !noundef !4
-  %692 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %691, i64 %690
+  %692 = getelementptr inbounds [64 x i8], ptr %691, i64 %690
   %693 = shl i64 %681, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %692, ptr nonnull align 8 %679, i64 %693, i1 false), !noalias !10516
   %694 = load i64, ptr %505, align 8, !alias.scope !10513, !noalias !10516, !noundef !4
@@ -53597,7 +53597,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit908: ; preds = %539
 721:                                              ; preds = %.noexc956, %709
   %722 = phi i64 [ %714, %709 ], [ %.pre.i955, %.noexc956 ]
   %723 = load ptr, ptr %.sroa.4105.0..sroa_idx, align 8, !alias.scope !10536, !noalias !10539, !nonnull !4, !noundef !4
-  %724 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %723, i64 %722
+  %724 = getelementptr inbounds [64 x i8], ptr %723, i64 %722
   %725 = shl i64 %713, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %724, ptr nonnull align 8 %711, i64 %725, i1 false), !noalias !10539
   %726 = load i64, ptr %.sroa.5106.0..sroa_idx, align 8, !alias.scope !10536, !noalias !10539, !noundef !4
@@ -53679,7 +53679,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit908: ; preds = %539
 753:                                              ; preds = %.noexc966, %741
   %754 = phi i64 [ %746, %741 ], [ %.pre.i965, %.noexc966 ]
   %755 = load ptr, ptr %.sroa.4102.0..sroa_idx, align 8, !alias.scope !10559, !noalias !10562, !nonnull !4, !noundef !4
-  %756 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %755, i64 %754
+  %756 = getelementptr inbounds [64 x i8], ptr %755, i64 %754
   %757 = shl i64 %745, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %756, ptr nonnull align 8 %743, i64 %757, i1 false), !noalias !10562
   %758 = load i64, ptr %.sroa.5103.0..sroa_idx, align 8, !alias.scope !10559, !noalias !10562, !noundef !4
@@ -53761,7 +53761,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit908: ; preds = %539
 785:                                              ; preds = %.noexc975, %773
   %786 = phi i64 [ %778, %773 ], [ %.pre.i974, %.noexc975 ]
   %787 = load ptr, ptr %.sroa.497.0..sroa_idx, align 8, !alias.scope !10582, !noalias !10585, !nonnull !4, !noundef !4
-  %788 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %787, i64 %786
+  %788 = getelementptr inbounds [64 x i8], ptr %787, i64 %786
   %789 = shl i64 %777, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %788, ptr nonnull align 8 %775, i64 %789, i1 false), !noalias !10585
   %790 = load i64, ptr %.sroa.598.0..sroa_idx, align 8, !alias.scope !10582, !noalias !10585, !noundef !4
@@ -53843,7 +53843,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit908: ; preds = %539
 817:                                              ; preds = %.noexc984, %805
   %818 = phi i64 [ %810, %805 ], [ %.pre.i983, %.noexc984 ]
   %819 = load ptr, ptr %.sroa.494.0..sroa_idx, align 8, !alias.scope !10605, !noalias !10608, !nonnull !4, !noundef !4
-  %820 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %819, i64 %818
+  %820 = getelementptr inbounds [64 x i8], ptr %819, i64 %818
   %821 = shl i64 %809, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %820, ptr nonnull align 8 %807, i64 %821, i1 false), !noalias !10608
   %822 = load i64, ptr %.sroa.595.0..sroa_idx, align 8, !alias.scope !10605, !noalias !10608, !noundef !4
@@ -53925,7 +53925,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit908: ; preds = %539
 849:                                              ; preds = %.noexc993, %837
   %850 = phi i64 [ %842, %837 ], [ %.pre.i992, %.noexc993 ]
   %851 = load ptr, ptr %393, align 8, !alias.scope !10628, !noalias !10631, !nonnull !4, !noundef !4
-  %852 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %851, i64 %850
+  %852 = getelementptr inbounds [64 x i8], ptr %851, i64 %850
   %853 = shl i64 %841, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %852, ptr nonnull align 8 %839, i64 %853, i1 false), !noalias !10631
   %854 = load i64, ptr %394, align 8, !alias.scope !10628, !noalias !10631, !noundef !4
@@ -55595,7 +55595,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1115: ; preds = %1195
   %1229 = phi ptr [ %1197, %1221 ], [ %.pre1260, %.noexc1124 ]
   %1230 = phi i64 [ %1222, %1221 ], [ %.pre.i1123, %.noexc1124 ]
   %1231 = load ptr, ptr %.sroa.4195.0..sroa_idx, align 8, !alias.scope !10872, !noalias !10875, !nonnull !4, !noundef !4
-  %1232 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1231, i64 %1230
+  %1232 = getelementptr inbounds [64 x i8], ptr %1231, i64 %1230
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %1232, ptr noundef nonnull align 8 dereferenceable(64) %1197, i64 64, i1 false), !noalias !10875
   %1233 = add i64 %1230, 1
   store i64 %1233, ptr %.sroa.5196.0..sroa_idx, align 8, !alias.scope !10872, !noalias !10875
@@ -55674,7 +55674,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1115: ; preds = %1195
 1258:                                             ; preds = %.noexc1133, %1246
   %1259 = phi i64 [ %1251, %1246 ], [ %.pre.i1132, %.noexc1133 ]
   %1260 = load ptr, ptr %.sroa.4192.0..sroa_idx, align 8, !alias.scope !10895, !noalias !10898, !nonnull !4, !noundef !4
-  %1261 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1260, i64 %1259
+  %1261 = getelementptr inbounds [64 x i8], ptr %1260, i64 %1259
   %1262 = shl i64 %1250, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1261, ptr nonnull align 8 %1248, i64 %1262, i1 false), !noalias !10898
   %1263 = load i64, ptr %.sroa.5193.0..sroa_idx, align 8, !alias.scope !10895, !noalias !10898, !noundef !4
@@ -55756,7 +55756,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1115: ; preds = %1195
 1290:                                             ; preds = %.noexc1142, %1278
   %1291 = phi i64 [ %1283, %1278 ], [ %.pre.i1141, %.noexc1142 ]
   %1292 = load ptr, ptr %.sroa.4189.0..sroa_idx, align 8, !alias.scope !10918, !noalias !10921, !nonnull !4, !noundef !4
-  %1293 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1292, i64 %1291
+  %1293 = getelementptr inbounds [64 x i8], ptr %1292, i64 %1291
   %1294 = shl i64 %1282, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1293, ptr nonnull align 8 %1280, i64 %1294, i1 false), !noalias !10921
   %1295 = load i64, ptr %.sroa.5190.0..sroa_idx, align 8, !alias.scope !10918, !noalias !10921, !noundef !4
@@ -55838,7 +55838,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1115: ; preds = %1195
 1322:                                             ; preds = %.noexc1151, %1310
   %1323 = phi i64 [ %1315, %1310 ], [ %.pre.i1150, %.noexc1151 ]
   %1324 = load ptr, ptr %.sroa.4183.0..sroa_idx, align 8, !alias.scope !10941, !noalias !10944, !nonnull !4, !noundef !4
-  %1325 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1324, i64 %1323
+  %1325 = getelementptr inbounds [64 x i8], ptr %1324, i64 %1323
   %1326 = shl i64 %1314, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1325, ptr nonnull align 8 %1312, i64 %1326, i1 false), !noalias !10944
   %1327 = load i64, ptr %.sroa.5184.0..sroa_idx, align 8, !alias.scope !10941, !noalias !10944, !noundef !4
@@ -55920,7 +55920,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1115: ; preds = %1195
 1354:                                             ; preds = %.noexc1160, %1342
   %1355 = phi i64 [ %1347, %1342 ], [ %.pre.i1159, %.noexc1160 ]
   %1356 = load ptr, ptr %.sroa.4180.0..sroa_idx, align 8, !alias.scope !10964, !noalias !10967, !nonnull !4, !noundef !4
-  %1357 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1356, i64 %1355
+  %1357 = getelementptr inbounds [64 x i8], ptr %1356, i64 %1355
   %1358 = shl i64 %1346, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1357, ptr nonnull align 8 %1344, i64 %1358, i1 false), !noalias !10967
   %1359 = load i64, ptr %.sroa.5181.0..sroa_idx, align 8, !alias.scope !10964, !noalias !10967, !noundef !4
@@ -56002,7 +56002,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1115: ; preds = %1195
 1386:                                             ; preds = %.noexc1169, %1374
   %1387 = phi i64 [ %1379, %1374 ], [ %.pre.i1168, %.noexc1169 ]
   %1388 = load ptr, ptr %.sroa.4174.0..sroa_idx, align 8, !alias.scope !10987, !noalias !10990, !nonnull !4, !noundef !4
-  %1389 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1388, i64 %1387
+  %1389 = getelementptr inbounds [64 x i8], ptr %1388, i64 %1387
   %1390 = shl i64 %1378, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1389, ptr nonnull align 8 %1376, i64 %1390, i1 false), !noalias !10990
   %1391 = load i64, ptr %.sroa.5175.0..sroa_idx, align 8, !alias.scope !10987, !noalias !10990, !noundef !4
@@ -56084,7 +56084,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1115: ; preds = %1195
 1418:                                             ; preds = %.noexc1178, %1406
   %1419 = phi i64 [ %1411, %1406 ], [ %.pre.i1177, %.noexc1178 ]
   %1420 = load ptr, ptr %.sroa.4171.0..sroa_idx, align 8, !alias.scope !11010, !noalias !11013, !nonnull !4, !noundef !4
-  %1421 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1420, i64 %1419
+  %1421 = getelementptr inbounds [64 x i8], ptr %1420, i64 %1419
   %1422 = shl i64 %1410, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1421, ptr nonnull align 8 %1408, i64 %1422, i1 false), !noalias !11013
   %1423 = load i64, ptr %.sroa.5172.0..sroa_idx, align 8, !alias.scope !11010, !noalias !11013, !noundef !4
@@ -56601,7 +56601,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1203: ; preds = %1490
   %1559 = phi ptr [ %1542, %1549 ], [ %.pre1261, %.noexc1226 ]
   %1560 = phi i64 [ %1552, %1549 ], [ %.pre.i1225, %.noexc1226 ]
   %1561 = load ptr, ptr %.sroa.4210.0..sroa_idx, align 8, !alias.scope !11111, !noalias !11114, !nonnull !4, !noundef !4
-  %1562 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1561, i64 %1560
+  %1562 = getelementptr inbounds [64 x i8], ptr %1561, i64 %1560
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %1562, ptr noundef nonnull align 8 dereferenceable(64) %1542, i64 64, i1 false), !noalias !11114
   %1563 = add i64 %1560, 1
   store i64 %1563, ptr %.sroa.5211.0..sroa_idx, align 8, !alias.scope !11111, !noalias !11114
@@ -56680,7 +56680,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1203: ; preds = %1490
 1588:                                             ; preds = %.noexc1236, %1576
   %1589 = phi i64 [ %1581, %1576 ], [ %.pre.i1235, %.noexc1236 ]
   %1590 = load ptr, ptr %.sroa.4205.0..sroa_idx, align 8, !alias.scope !11134, !noalias !11137, !nonnull !4, !noundef !4
-  %1591 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1590, i64 %1589
+  %1591 = getelementptr inbounds [64 x i8], ptr %1590, i64 %1589
   %1592 = shl i64 %1580, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1591, ptr nonnull align 8 %1578, i64 %1592, i1 false), !noalias !11137
   %1593 = load i64, ptr %.sroa.5206.0..sroa_idx, align 8, !alias.scope !11134, !noalias !11137, !noundef !4
@@ -56762,7 +56762,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1203: ; preds = %1490
 1620:                                             ; preds = %.noexc1245, %1608
   %1621 = phi i64 [ %1613, %1608 ], [ %.pre.i1244, %.noexc1245 ]
   %1622 = load ptr, ptr %1463, align 8, !alias.scope !11157, !noalias !11160, !nonnull !4, !noundef !4
-  %1623 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1622, i64 %1621
+  %1623 = getelementptr inbounds [64 x i8], ptr %1622, i64 %1621
   %1624 = shl i64 %1612, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1623, ptr nonnull align 8 %1610, i64 %1624, i1 false), !noalias !11160
   %1625 = load i64, ptr %1464, align 8, !alias.scope !11157, !noalias !11160, !noundef !4
@@ -56897,7 +56897,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1203: ; preds = %1490
   %1666 = phi ptr [ %1649, %1656 ], [ %.pre1262, %.noexc1259 ]
   %1667 = phi i64 [ %1659, %1656 ], [ %.pre.i1258, %.noexc1259 ]
   %1668 = load ptr, ptr %1456, align 8, !alias.scope !11190, !noalias !11193, !nonnull !4, !noundef !4
-  %1669 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1668, i64 %1667
+  %1669 = getelementptr inbounds [64 x i8], ptr %1668, i64 %1667
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %1669, ptr noundef nonnull align 8 dereferenceable(64) %1649, i64 64, i1 false), !noalias !11193
   %1670 = add i64 %1667, 1
   store i64 %1670, ptr %1457, align 8, !alias.scope !11190, !noalias !11193
@@ -56976,7 +56976,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1203: ; preds = %1490
 1695:                                             ; preds = %.noexc1269, %1683
   %1696 = phi i64 [ %1688, %1683 ], [ %.pre.i1268, %.noexc1269 ]
   %1697 = load ptr, ptr %.sroa.4168.0..sroa_idx, align 8, !alias.scope !11213, !noalias !11216, !nonnull !4, !noundef !4
-  %1698 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1697, i64 %1696
+  %1698 = getelementptr inbounds [64 x i8], ptr %1697, i64 %1696
   %1699 = shl i64 %1687, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1698, ptr nonnull align 8 %1685, i64 %1699, i1 false), !noalias !11216
   %1700 = load i64, ptr %.sroa.5169.0..sroa_idx, align 8, !alias.scope !11213, !noalias !11216, !noundef !4
@@ -57058,7 +57058,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1203: ; preds = %1490
 1727:                                             ; preds = %.noexc1280, %1715
   %1728 = phi i64 [ %1720, %1715 ], [ %.pre.i1279, %.noexc1280 ]
   %1729 = load ptr, ptr %.sroa.4163.0..sroa_idx, align 8, !alias.scope !11236, !noalias !11239, !nonnull !4, !noundef !4
-  %1730 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1729, i64 %1728
+  %1730 = getelementptr inbounds [64 x i8], ptr %1729, i64 %1728
   %1731 = shl i64 %1719, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1730, ptr nonnull align 8 %1717, i64 %1731, i1 false), !noalias !11239
   %1732 = load i64, ptr %.sroa.5164.0..sroa_idx, align 8, !alias.scope !11236, !noalias !11239, !noundef !4
@@ -57140,7 +57140,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1203: ; preds = %1490
 1759:                                             ; preds = %.noexc1289, %1747
   %1760 = phi i64 [ %1752, %1747 ], [ %.pre.i1288, %.noexc1289 ]
   %1761 = load ptr, ptr %.sroa.4160.0..sroa_idx, align 8, !alias.scope !11259, !noalias !11262, !nonnull !4, !noundef !4
-  %1762 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1761, i64 %1760
+  %1762 = getelementptr inbounds [64 x i8], ptr %1761, i64 %1760
   %1763 = shl i64 %1751, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1762, ptr nonnull align 8 %1749, i64 %1763, i1 false), !noalias !11262
   %1764 = load i64, ptr %.sroa.5161.0..sroa_idx, align 8, !alias.scope !11259, !noalias !11262, !noundef !4
@@ -57222,7 +57222,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1203: ; preds = %1490
 1791:                                             ; preds = %.noexc1298, %1779
   %1792 = phi i64 [ %1784, %1779 ], [ %.pre.i1297, %.noexc1298 ]
   %1793 = load ptr, ptr %.sroa.4155.0..sroa_idx, align 8, !alias.scope !11282, !noalias !11285, !nonnull !4, !noundef !4
-  %1794 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1793, i64 %1792
+  %1794 = getelementptr inbounds [64 x i8], ptr %1793, i64 %1792
   %1795 = shl i64 %1783, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1794, ptr nonnull align 8 %1781, i64 %1795, i1 false), !noalias !11285
   %1796 = load i64, ptr %.sroa.5156.0..sroa_idx, align 8, !alias.scope !11282, !noalias !11285, !noundef !4
@@ -57304,7 +57304,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1203: ; preds = %1490
 1823:                                             ; preds = %.noexc1307, %1811
   %1824 = phi i64 [ %1816, %1811 ], [ %.pre.i1306, %.noexc1307 ]
   %1825 = load ptr, ptr %.sroa.4152.0..sroa_idx, align 8, !alias.scope !11305, !noalias !11308, !nonnull !4, !noundef !4
-  %1826 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1825, i64 %1824
+  %1826 = getelementptr inbounds [64 x i8], ptr %1825, i64 %1824
   %1827 = shl i64 %1815, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1826, ptr nonnull align 8 %1813, i64 %1827, i1 false), !noalias !11308
   %1828 = load i64, ptr %.sroa.5153.0..sroa_idx, align 8, !alias.scope !11305, !noalias !11308, !noundef !4
@@ -57386,7 +57386,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1203: ; preds = %1490
 1855:                                             ; preds = %.noexc1316, %1843
   %1856 = phi i64 [ %1848, %1843 ], [ %.pre.i1315, %.noexc1316 ]
   %1857 = load ptr, ptr %1008, align 8, !alias.scope !11328, !noalias !11331, !nonnull !4, !noundef !4
-  %1858 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1857, i64 %1856
+  %1858 = getelementptr inbounds [64 x i8], ptr %1857, i64 %1856
   %1859 = shl i64 %1847, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1858, ptr nonnull align 8 %1845, i64 %1859, i1 false), !noalias !11331
   %1860 = load i64, ptr %1009, align 8, !alias.scope !11328, !noalias !11331, !noundef !4
@@ -57469,7 +57469,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1203: ; preds = %1490
 1887:                                             ; preds = %.noexc1325, %1875
   %1888 = phi i64 [ %1880, %1875 ], [ %.pre.i1324, %.noexc1325 ]
   %1889 = load ptr, ptr %.sroa.4149.0..sroa_idx, align 8, !alias.scope !11351, !noalias !11354, !nonnull !4, !noundef !4
-  %1890 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1889, i64 %1888
+  %1890 = getelementptr inbounds [64 x i8], ptr %1889, i64 %1888
   %1891 = shl i64 %1879, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1890, ptr nonnull align 8 %1877, i64 %1891, i1 false), !noalias !11354
   %1892 = load i64, ptr %.sroa.5150.0..sroa_idx, align 8, !alias.scope !11351, !noalias !11354, !noundef !4
@@ -57551,7 +57551,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1203: ; preds = %1490
 1919:                                             ; preds = %.noexc1334, %1907
   %1920 = phi i64 [ %1912, %1907 ], [ %.pre.i1333, %.noexc1334 ]
   %1921 = load ptr, ptr %.sroa.4144.0..sroa_idx, align 8, !alias.scope !11374, !noalias !11377, !nonnull !4, !noundef !4
-  %1922 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1921, i64 %1920
+  %1922 = getelementptr inbounds [64 x i8], ptr %1921, i64 %1920
   %1923 = shl i64 %1911, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1922, ptr nonnull align 8 %1909, i64 %1923, i1 false), !noalias !11377
   %1924 = load i64, ptr %.sroa.5145.0..sroa_idx, align 8, !alias.scope !11374, !noalias !11377, !noundef !4
@@ -57633,7 +57633,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1203: ; preds = %1490
 1951:                                             ; preds = %.noexc1343, %1939
   %1952 = phi i64 [ %1944, %1939 ], [ %.pre.i1342, %.noexc1343 ]
   %1953 = load ptr, ptr %.sroa.4141.0..sroa_idx, align 8, !alias.scope !11397, !noalias !11400, !nonnull !4, !noundef !4
-  %1954 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1953, i64 %1952
+  %1954 = getelementptr inbounds [64 x i8], ptr %1953, i64 %1952
   %1955 = shl i64 %1943, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1954, ptr nonnull align 8 %1941, i64 %1955, i1 false), !noalias !11400
   %1956 = load i64, ptr %.sroa.5142.0..sroa_idx, align 8, !alias.scope !11397, !noalias !11400, !noundef !4
@@ -57715,7 +57715,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1203: ; preds = %1490
 1983:                                             ; preds = %.noexc1352, %1971
   %1984 = phi i64 [ %1976, %1971 ], [ %.pre.i1351, %.noexc1352 ]
   %1985 = load ptr, ptr %.sroa.4136.0..sroa_idx, align 8, !alias.scope !11420, !noalias !11423, !nonnull !4, !noundef !4
-  %1986 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1985, i64 %1984
+  %1986 = getelementptr inbounds [64 x i8], ptr %1985, i64 %1984
   %1987 = shl i64 %1975, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1986, ptr nonnull align 8 %1973, i64 %1987, i1 false), !noalias !11423
   %1988 = load i64, ptr %.sroa.5137.0..sroa_idx, align 8, !alias.scope !11420, !noalias !11423, !noundef !4
@@ -57797,7 +57797,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1203: ; preds = %1490
 2015:                                             ; preds = %.noexc1361, %2003
   %2016 = phi i64 [ %2008, %2003 ], [ %.pre.i1360, %.noexc1361 ]
   %2017 = load ptr, ptr %.sroa.4131.0..sroa_idx, align 8, !alias.scope !11443, !noalias !11446, !nonnull !4, !noundef !4
-  %2018 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %2017, i64 %2016
+  %2018 = getelementptr inbounds [64 x i8], ptr %2017, i64 %2016
   %2019 = shl i64 %2007, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2018, ptr nonnull align 8 %2005, i64 %2019, i1 false), !noalias !11446
   %2020 = load i64, ptr %.sroa.5132.0..sroa_idx, align 8, !alias.scope !11443, !noalias !11446, !noundef !4
@@ -59476,7 +59476,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1475: ; preds = %2336
   %2370 = phi ptr [ %2338, %2362 ], [ %.pre1263, %.noexc1484 ]
   %2371 = phi i64 [ %2363, %2362 ], [ %.pre.i1483, %.noexc1484 ]
   %2372 = load ptr, ptr %.sroa.467.0..sroa_idx, align 8, !alias.scope !11673, !noalias !11676, !nonnull !4, !noundef !4
-  %2373 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %2372, i64 %2371
+  %2373 = getelementptr inbounds [64 x i8], ptr %2372, i64 %2371
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2373, ptr noundef nonnull align 8 dereferenceable(64) %2338, i64 64, i1 false), !noalias !11676
   %2374 = add i64 %2371, 1
   store i64 %2374, ptr %.sroa.568.0..sroa_idx, align 8, !alias.scope !11673, !noalias !11676
@@ -59555,7 +59555,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1475: ; preds = %2336
 2399:                                             ; preds = %.noexc1493, %2387
   %2400 = phi i64 [ %2392, %2387 ], [ %.pre.i1492, %.noexc1493 ]
   %2401 = load ptr, ptr %.sroa.464.0..sroa_idx, align 8, !alias.scope !11696, !noalias !11699, !nonnull !4, !noundef !4
-  %2402 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %2401, i64 %2400
+  %2402 = getelementptr inbounds [64 x i8], ptr %2401, i64 %2400
   %2403 = shl i64 %2391, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2402, ptr nonnull align 8 %2389, i64 %2403, i1 false), !noalias !11699
   %2404 = load i64, ptr %.sroa.565.0..sroa_idx, align 8, !alias.scope !11696, !noalias !11699, !noundef !4
@@ -59637,7 +59637,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1475: ; preds = %2336
 2431:                                             ; preds = %.noexc1502, %2419
   %2432 = phi i64 [ %2424, %2419 ], [ %.pre.i1501, %.noexc1502 ]
   %2433 = load ptr, ptr %.sroa.461.0..sroa_idx, align 8, !alias.scope !11719, !noalias !11722, !nonnull !4, !noundef !4
-  %2434 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %2433, i64 %2432
+  %2434 = getelementptr inbounds [64 x i8], ptr %2433, i64 %2432
   %2435 = shl i64 %2423, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2434, ptr nonnull align 8 %2421, i64 %2435, i1 false), !noalias !11722
   %2436 = load i64, ptr %.sroa.562.0..sroa_idx, align 8, !alias.scope !11719, !noalias !11722, !noundef !4
@@ -59719,7 +59719,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1475: ; preds = %2336
 2463:                                             ; preds = %.noexc1511, %2451
   %2464 = phi i64 [ %2456, %2451 ], [ %.pre.i1510, %.noexc1511 ]
   %2465 = load ptr, ptr %.sroa.456.0..sroa_idx, align 8, !alias.scope !11742, !noalias !11745, !nonnull !4, !noundef !4
-  %2466 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %2465, i64 %2464
+  %2466 = getelementptr inbounds [64 x i8], ptr %2465, i64 %2464
   %2467 = shl i64 %2455, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2466, ptr nonnull align 8 %2453, i64 %2467, i1 false), !noalias !11745
   %2468 = load i64, ptr %.sroa.557.0..sroa_idx, align 8, !alias.scope !11742, !noalias !11745, !noundef !4
@@ -59801,7 +59801,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1475: ; preds = %2336
 2495:                                             ; preds = %.noexc1520, %2483
   %2496 = phi i64 [ %2488, %2483 ], [ %.pre.i1519, %.noexc1520 ]
   %2497 = load ptr, ptr %.sroa.453.0..sroa_idx, align 8, !alias.scope !11765, !noalias !11768, !nonnull !4, !noundef !4
-  %2498 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %2497, i64 %2496
+  %2498 = getelementptr inbounds [64 x i8], ptr %2497, i64 %2496
   %2499 = shl i64 %2487, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2498, ptr nonnull align 8 %2485, i64 %2499, i1 false), !noalias !11768
   %2500 = load i64, ptr %.sroa.554.0..sroa_idx, align 8, !alias.scope !11765, !noalias !11768, !noundef !4
@@ -59883,7 +59883,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1475: ; preds = %2336
 2527:                                             ; preds = %.noexc1529, %2515
   %2528 = phi i64 [ %2520, %2515 ], [ %.pre.i1528, %.noexc1529 ]
   %2529 = load ptr, ptr %.sroa.448.0..sroa_idx, align 8, !alias.scope !11788, !noalias !11791, !nonnull !4, !noundef !4
-  %2530 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %2529, i64 %2528
+  %2530 = getelementptr inbounds [64 x i8], ptr %2529, i64 %2528
   %2531 = shl i64 %2519, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2530, ptr nonnull align 8 %2517, i64 %2531, i1 false), !noalias !11791
   %2532 = load i64, ptr %.sroa.549.0..sroa_idx, align 8, !alias.scope !11788, !noalias !11791, !noundef !4
@@ -59965,7 +59965,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1475: ; preds = %2336
 2559:                                             ; preds = %.noexc1538, %2547
   %2560 = phi i64 [ %2552, %2547 ], [ %.pre.i1537, %.noexc1538 ]
   %2561 = load ptr, ptr %.sroa.445.0..sroa_idx, align 8, !alias.scope !11811, !noalias !11814, !nonnull !4, !noundef !4
-  %2562 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %2561, i64 %2560
+  %2562 = getelementptr inbounds [64 x i8], ptr %2561, i64 %2560
   %2563 = shl i64 %2551, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2562, ptr nonnull align 8 %2549, i64 %2563, i1 false), !noalias !11814
   %2564 = load i64, ptr %.sroa.546.0..sroa_idx, align 8, !alias.scope !11811, !noalias !11814, !noundef !4
@@ -60434,7 +60434,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1563: ; preds = %2628
   %2684 = phi ptr [ %2667, %2674 ], [ %.pre1264, %.noexc1577 ]
   %2685 = phi i64 [ %2677, %2674 ], [ %.pre.i1576, %.noexc1577 ]
   %2686 = load ptr, ptr %.sroa.483.0..sroa_idx, align 8, !alias.scope !11901, !noalias !11904, !nonnull !4, !noundef !4
-  %2687 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %2686, i64 %2685
+  %2687 = getelementptr inbounds [64 x i8], ptr %2686, i64 %2685
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2687, ptr noundef nonnull align 8 dereferenceable(64) %2667, i64 64, i1 false), !noalias !11904
   %2688 = add i64 %2685, 1
   store i64 %2688, ptr %.sroa.584.0..sroa_idx, align 8, !alias.scope !11901, !noalias !11904
@@ -60513,7 +60513,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1563: ; preds = %2628
 2713:                                             ; preds = %.noexc1587, %2701
   %2714 = phi i64 [ %2706, %2701 ], [ %.pre.i1586, %.noexc1587 ]
   %2715 = load ptr, ptr %2629, align 8, !alias.scope !11924, !noalias !11927, !nonnull !4, !noundef !4
-  %2716 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %2715, i64 %2714
+  %2716 = getelementptr inbounds [64 x i8], ptr %2715, i64 %2714
   %2717 = shl i64 %2705, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2716, ptr nonnull align 8 %2703, i64 %2717, i1 false), !noalias !11927
   %2718 = load i64, ptr %2630, align 8, !alias.scope !11924, !noalias !11927, !noundef !4
@@ -60596,7 +60596,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1563: ; preds = %2628
 2745:                                             ; preds = %.noexc1596, %2733
   %2746 = phi i64 [ %2738, %2733 ], [ %.pre.i1595, %.noexc1596 ]
   %2747 = load ptr, ptr %.sroa.478.0..sroa_idx, align 8, !alias.scope !11947, !noalias !11950, !nonnull !4, !noundef !4
-  %2748 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %2747, i64 %2746
+  %2748 = getelementptr inbounds [64 x i8], ptr %2747, i64 %2746
   %2749 = shl i64 %2737, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2748, ptr nonnull align 8 %2735, i64 %2749, i1 false), !noalias !11950
   %2750 = load i64, ptr %.sroa.579.0..sroa_idx, align 8, !alias.scope !11947, !noalias !11950, !noundef !4
@@ -60725,7 +60725,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1563: ; preds = %2628
   %2790 = phi ptr [ %2773, %2780 ], [ %.pre1265, %.noexc1610 ]
   %2791 = phi i64 [ %2783, %2780 ], [ %.pre.i1609, %.noexc1610 ]
   %2792 = load ptr, ptr %2595, align 8, !alias.scope !11980, !noalias !11983, !nonnull !4, !noundef !4
-  %2793 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %2792, i64 %2791
+  %2793 = getelementptr inbounds [64 x i8], ptr %2792, i64 %2791
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2793, ptr noundef nonnull align 8 dereferenceable(64) %2773, i64 64, i1 false), !noalias !11983
   %2794 = add i64 %2791, 1
   store i64 %2794, ptr %2596, align 8, !alias.scope !11980, !noalias !11983
@@ -60804,7 +60804,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1563: ; preds = %2628
 2819:                                             ; preds = %.noexc1620, %2807
   %2820 = phi i64 [ %2812, %2807 ], [ %.pre.i1619, %.noexc1620 ]
   %2821 = load ptr, ptr %.sroa.442.0..sroa_idx, align 8, !alias.scope !12003, !noalias !12006, !nonnull !4, !noundef !4
-  %2822 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %2821, i64 %2820
+  %2822 = getelementptr inbounds [64 x i8], ptr %2821, i64 %2820
   %2823 = shl i64 %2811, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2822, ptr nonnull align 8 %2809, i64 %2823, i1 false), !noalias !12006
   %2824 = load i64, ptr %.sroa.543.0..sroa_idx, align 8, !alias.scope !12003, !noalias !12006, !noundef !4
@@ -60886,7 +60886,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1563: ; preds = %2628
 2851:                                             ; preds = %.noexc1630, %2839
   %2852 = phi i64 [ %2844, %2839 ], [ %.pre.i1629, %.noexc1630 ]
   %2853 = load ptr, ptr %.sroa.437.0..sroa_idx, align 8, !alias.scope !12026, !noalias !12029, !nonnull !4, !noundef !4
-  %2854 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %2853, i64 %2852
+  %2854 = getelementptr inbounds [64 x i8], ptr %2853, i64 %2852
   %2855 = shl i64 %2843, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2854, ptr nonnull align 8 %2841, i64 %2855, i1 false), !noalias !12029
   %2856 = load i64, ptr %.sroa.538.0..sroa_idx, align 8, !alias.scope !12026, !noalias !12029, !noundef !4
@@ -60968,7 +60968,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1563: ; preds = %2628
 2883:                                             ; preds = %.noexc1639, %2871
   %2884 = phi i64 [ %2876, %2871 ], [ %.pre.i1638, %.noexc1639 ]
   %2885 = load ptr, ptr %.sroa.434.0..sroa_idx, align 8, !alias.scope !12049, !noalias !12052, !nonnull !4, !noundef !4
-  %2886 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %2885, i64 %2884
+  %2886 = getelementptr inbounds [64 x i8], ptr %2885, i64 %2884
   %2887 = shl i64 %2875, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2886, ptr nonnull align 8 %2873, i64 %2887, i1 false), !noalias !12052
   %2888 = load i64, ptr %.sroa.535.0..sroa_idx, align 8, !alias.scope !12049, !noalias !12052, !noundef !4
@@ -61050,7 +61050,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1563: ; preds = %2628
 2915:                                             ; preds = %.noexc1648, %2903
   %2916 = phi i64 [ %2908, %2903 ], [ %.pre.i1647, %.noexc1648 ]
   %2917 = load ptr, ptr %.sroa.429.0..sroa_idx, align 8, !alias.scope !12072, !noalias !12075, !nonnull !4, !noundef !4
-  %2918 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %2917, i64 %2916
+  %2918 = getelementptr inbounds [64 x i8], ptr %2917, i64 %2916
   %2919 = shl i64 %2907, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2918, ptr nonnull align 8 %2905, i64 %2919, i1 false), !noalias !12075
   %2920 = load i64, ptr %.sroa.530.0..sroa_idx, align 8, !alias.scope !12072, !noalias !12075, !noundef !4
@@ -61132,7 +61132,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1563: ; preds = %2628
 2947:                                             ; preds = %.noexc1657, %2935
   %2948 = phi i64 [ %2940, %2935 ], [ %.pre.i1656, %.noexc1657 ]
   %2949 = load ptr, ptr %.sroa.426.0..sroa_idx, align 8, !alias.scope !12095, !noalias !12098, !nonnull !4, !noundef !4
-  %2950 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %2949, i64 %2948
+  %2950 = getelementptr inbounds [64 x i8], ptr %2949, i64 %2948
   %2951 = shl i64 %2939, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2950, ptr nonnull align 8 %2937, i64 %2951, i1 false), !noalias !12098
   %2952 = load i64, ptr %.sroa.527.0..sroa_idx, align 8, !alias.scope !12095, !noalias !12098, !noundef !4
@@ -61214,7 +61214,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1563: ; preds = %2628
 2979:                                             ; preds = %.noexc1666, %2967
   %2980 = phi i64 [ %2972, %2967 ], [ %.pre.i1665, %.noexc1666 ]
   %2981 = load ptr, ptr %2149, align 8, !alias.scope !12118, !noalias !12121, !nonnull !4, !noundef !4
-  %2982 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %2981, i64 %2980
+  %2982 = getelementptr inbounds [64 x i8], ptr %2981, i64 %2980
   %2983 = shl i64 %2971, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2982, ptr nonnull align 8 %2969, i64 %2983, i1 false), !noalias !12121
   %2984 = load i64, ptr %2150, align 8, !alias.scope !12118, !noalias !12121, !noundef !4
@@ -61297,7 +61297,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1563: ; preds = %2628
 3011:                                             ; preds = %.noexc1675, %2999
   %3012 = phi i64 [ %3004, %2999 ], [ %.pre.i1674, %.noexc1675 ]
   %3013 = load ptr, ptr %.sroa.423.0..sroa_idx, align 8, !alias.scope !12141, !noalias !12144, !nonnull !4, !noundef !4
-  %3014 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %3013, i64 %3012
+  %3014 = getelementptr inbounds [64 x i8], ptr %3013, i64 %3012
   %3015 = shl i64 %3003, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %3014, ptr nonnull align 8 %3001, i64 %3015, i1 false), !noalias !12144
   %3016 = load i64, ptr %.sroa.524.0..sroa_idx, align 8, !alias.scope !12141, !noalias !12144, !noundef !4
@@ -61379,7 +61379,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1563: ; preds = %2628
 3043:                                             ; preds = %.noexc1684, %3031
   %3044 = phi i64 [ %3036, %3031 ], [ %.pre.i1683, %.noexc1684 ]
   %3045 = load ptr, ptr %.sroa.417.0..sroa_idx, align 8, !alias.scope !12164, !noalias !12167, !nonnull !4, !noundef !4
-  %3046 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %3045, i64 %3044
+  %3046 = getelementptr inbounds [64 x i8], ptr %3045, i64 %3044
   %3047 = shl i64 %3035, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %3046, ptr nonnull align 8 %3033, i64 %3047, i1 false), !noalias !12167
   %3048 = load i64, ptr %.sroa.518.0..sroa_idx, align 8, !alias.scope !12164, !noalias !12167, !noundef !4
@@ -61461,7 +61461,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1563: ; preds = %2628
 3075:                                             ; preds = %.noexc1693, %3063
   %3076 = phi i64 [ %3068, %3063 ], [ %.pre.i1692, %.noexc1693 ]
   %3077 = load ptr, ptr %.sroa.413.0..sroa_idx, align 8, !alias.scope !12187, !noalias !12190, !nonnull !4, !noundef !4
-  %3078 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %3077, i64 %3076
+  %3078 = getelementptr inbounds [64 x i8], ptr %3077, i64 %3076
   %3079 = shl i64 %3067, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %3078, ptr nonnull align 8 %3065, i64 %3079, i1 false), !noalias !12190
   %3080 = load i64, ptr %.sroa.514.0..sroa_idx, align 8, !alias.scope !12187, !noalias !12190, !noundef !4
@@ -61543,7 +61543,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1563: ; preds = %2628
 3107:                                             ; preds = %.noexc1702, %3095
   %3108 = phi i64 [ %3100, %3095 ], [ %.pre.i1701, %.noexc1702 ]
   %3109 = load ptr, ptr %.sroa.48.0..sroa_idx, align 8, !alias.scope !12210, !noalias !12213, !nonnull !4, !noundef !4
-  %3110 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %3109, i64 %3108
+  %3110 = getelementptr inbounds [64 x i8], ptr %3109, i64 %3108
   %3111 = shl i64 %3099, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %3110, ptr nonnull align 8 %3097, i64 %3111, i1 false), !noalias !12213
   %3112 = load i64, ptr %.sroa.59.0..sroa_idx, align 8, !alias.scope !12210, !noalias !12213, !noundef !4
@@ -61625,7 +61625,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1563: ; preds = %2628
 3139:                                             ; preds = %.noexc1711, %3127
   %3140 = phi i64 [ %3132, %3127 ], [ %.pre.i1710, %.noexc1711 ]
   %3141 = load ptr, ptr %.sroa.44.0..sroa_idx5, align 8, !alias.scope !12233, !noalias !12236, !nonnull !4, !noundef !4
-  %3142 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %3141, i64 %3140
+  %3142 = getelementptr inbounds [64 x i8], ptr %3141, i64 %3140
   %3143 = shl i64 %3131, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %3142, ptr nonnull align 8 %3129, i64 %3143, i1 false), !noalias !12236
   %3144 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !12233, !noalias !12236, !noundef !4
@@ -62032,9 +62032,9 @@ common.resume:                                    ; preds = %1098, %1099, %146, 
   call void @llvm.lifetime.end.p0(ptr nonnull %51)
   call void @llvm.lifetime.start.p0(ptr nonnull %119)
   call void @llvm.lifetime.start.p0(ptr nonnull %118)
-  %139 = getelementptr inbounds { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, ptr %.sroa.4.0.copyload, i64 %.sroa.5.0.copyload
+  %139 = getelementptr inbounds [64 x i8], ptr %.sroa.4.0.copyload, i64 %.sroa.5.0.copyload
   call void @llvm.experimental.noalias.scope.decl(metadata !12278)
-  %140 = getelementptr inbounds { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, ptr %.sroa.6.sroa.4.0.copyload, i64 %.sroa.6.sroa.5.0.copyload
+  %140 = getelementptr inbounds [64 x i8], ptr %.sroa.6.sroa.4.0.copyload, i64 %.sroa.6.sroa.5.0.copyload
   call void @llvm.experimental.noalias.scope.decl(metadata !12281)
   call void @llvm.experimental.noalias.scope.decl(metadata !12284)
   store ptr %.sroa.4.0.copyload, ptr %118, align 8, !alias.scope !12286, !noalias !12289
@@ -62067,7 +62067,7 @@ common.resume:                                    ; preds = %1098, %1099, %146, 
   %.sroa.4.0.copyload.i.i281 = load ptr, ptr %.sroa.4.0..sroa_idx.i.i280, align 8, !alias.scope !12295, !noalias !12300, !nonnull !4, !noundef !4
   %.sroa.5.0..sroa_idx.i.i282 = getelementptr inbounds nuw i8, ptr %117, i64 16
   %.sroa.5.0.copyload.i.i283 = load i64, ptr %.sroa.5.0..sroa_idx.i.i282, align 8, !alias.scope !12295, !noalias !12300
-  %144 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %.sroa.4.0.copyload.i.i281, i64 %.sroa.5.0.copyload.i.i283
+  %144 = getelementptr inbounds [24 x i8], ptr %.sroa.4.0.copyload.i.i281, i64 %.sroa.5.0.copyload.i.i283
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %119, ptr noundef nonnull align 8 dereferenceable(88) %118, i64 88, i1 false)
   %.sroa.0.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %119, i64 120
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.sroa.8.0..sroa_idx, i8 0, i64 24, i1 false)
@@ -62852,7 +62852,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit328: ; preds = %280
   %314 = phi ptr [ %282, %306 ], [ %.pre, %.noexc336 ]
   %315 = phi i64 [ %307, %306 ], [ %.pre.i, %.noexc336 ]
   %316 = load ptr, ptr %.sroa.4620.0..sroa_idx, align 8, !alias.scope !12400, !noalias !12403, !nonnull !4, !noundef !4
-  %317 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %316, i64 %315
+  %317 = getelementptr inbounds [64 x i8], ptr %316, i64 %315
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %317, ptr noundef nonnull align 8 dereferenceable(64) %282, i64 64, i1 false), !noalias !12403
   %318 = add i64 %315, 1
   store i64 %318, ptr %.sroa.5621.0..sroa_idx, align 8, !alias.scope !12400, !noalias !12403
@@ -62931,7 +62931,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit328: ; preds = %280
 343:                                              ; preds = %.noexc339, %331
   %344 = phi i64 [ %336, %331 ], [ %.pre.i338, %.noexc339 ]
   %345 = load ptr, ptr %.sroa.4617.0..sroa_idx, align 8, !alias.scope !12423, !noalias !12426, !nonnull !4, !noundef !4
-  %346 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %345, i64 %344
+  %346 = getelementptr inbounds [64 x i8], ptr %345, i64 %344
   %347 = shl i64 %335, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %346, ptr nonnull align 8 %333, i64 %347, i1 false), !noalias !12426
   %348 = load i64, ptr %.sroa.5618.0..sroa_idx, align 8, !alias.scope !12423, !noalias !12426, !noundef !4
@@ -63013,7 +63013,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit328: ; preds = %280
 375:                                              ; preds = %.noexc348, %363
   %376 = phi i64 [ %368, %363 ], [ %.pre.i347, %.noexc348 ]
   %377 = load ptr, ptr %.sroa.4612.0..sroa_idx, align 8, !alias.scope !12446, !noalias !12449, !nonnull !4, !noundef !4
-  %378 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %377, i64 %376
+  %378 = getelementptr inbounds [64 x i8], ptr %377, i64 %376
   %379 = shl i64 %367, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %378, ptr nonnull align 8 %365, i64 %379, i1 false), !noalias !12449
   %380 = load i64, ptr %.sroa.5613.0..sroa_idx, align 8, !alias.scope !12446, !noalias !12449, !noundef !4
@@ -63095,7 +63095,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit328: ; preds = %280
 407:                                              ; preds = %.noexc357, %395
   %408 = phi i64 [ %400, %395 ], [ %.pre.i356, %.noexc357 ]
   %409 = load ptr, ptr %.sroa.4609.0..sroa_idx, align 8, !alias.scope !12469, !noalias !12472, !nonnull !4, !noundef !4
-  %410 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %409, i64 %408
+  %410 = getelementptr inbounds [64 x i8], ptr %409, i64 %408
   %411 = shl i64 %399, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %410, ptr nonnull align 8 %397, i64 %411, i1 false), !noalias !12472
   %412 = load i64, ptr %.sroa.5610.0..sroa_idx, align 8, !alias.scope !12469, !noalias !12472, !noundef !4
@@ -63177,7 +63177,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit328: ; preds = %280
 439:                                              ; preds = %.noexc366, %427
   %440 = phi i64 [ %432, %427 ], [ %.pre.i365, %.noexc366 ]
   %441 = load ptr, ptr %.sroa.4604.0..sroa_idx, align 8, !alias.scope !12492, !noalias !12495, !nonnull !4, !noundef !4
-  %442 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %441, i64 %440
+  %442 = getelementptr inbounds [64 x i8], ptr %441, i64 %440
   %443 = shl i64 %431, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %442, ptr nonnull align 8 %429, i64 %443, i1 false), !noalias !12495
   %444 = load i64, ptr %.sroa.5605.0..sroa_idx, align 8, !alias.scope !12492, !noalias !12495, !noundef !4
@@ -63259,7 +63259,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit328: ; preds = %280
 471:                                              ; preds = %.noexc375, %459
   %472 = phi i64 [ %464, %459 ], [ %.pre.i374, %.noexc375 ]
   %473 = load ptr, ptr %.sroa.4601.0..sroa_idx, align 8, !alias.scope !12515, !noalias !12518, !nonnull !4, !noundef !4
-  %474 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %473, i64 %472
+  %474 = getelementptr inbounds [64 x i8], ptr %473, i64 %472
   %475 = shl i64 %463, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %474, ptr nonnull align 8 %461, i64 %475, i1 false), !noalias !12518
   %476 = load i64, ptr %.sroa.5602.0..sroa_idx, align 8, !alias.scope !12515, !noalias !12518, !noundef !4
@@ -63934,7 +63934,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit417: ; preds = %599
   %633 = phi ptr [ %601, %625 ], [ %.pre1069, %.noexc426 ]
   %634 = phi i64 [ %626, %625 ], [ %.pre.i425, %.noexc426 ]
   %635 = load ptr, ptr %.sroa.4646.0..sroa_idx, align 8, !alias.scope !12620, !noalias !12623, !nonnull !4, !noundef !4
-  %636 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %635, i64 %634
+  %636 = getelementptr inbounds [64 x i8], ptr %635, i64 %634
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %636, ptr noundef nonnull align 8 dereferenceable(64) %601, i64 64, i1 false), !noalias !12623
   %637 = add i64 %634, 1
   store i64 %637, ptr %.sroa.5647.0..sroa_idx, align 8, !alias.scope !12620, !noalias !12623
@@ -64013,7 +64013,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit417: ; preds = %599
 662:                                              ; preds = %.noexc435, %650
   %663 = phi i64 [ %655, %650 ], [ %.pre.i434, %.noexc435 ]
   %664 = load ptr, ptr %.sroa.4641.0..sroa_idx, align 8, !alias.scope !12643, !noalias !12646, !nonnull !4, !noundef !4
-  %665 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %664, i64 %663
+  %665 = getelementptr inbounds [64 x i8], ptr %664, i64 %663
   %666 = shl i64 %654, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %665, ptr nonnull align 8 %652, i64 %666, i1 false), !noalias !12646
   %667 = load i64, ptr %.sroa.5642.0..sroa_idx, align 8, !alias.scope !12643, !noalias !12646, !noundef !4
@@ -64373,7 +64373,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit460: ; preds = %735
   %759 = phi ptr [ %739, %750 ], [ %.pre1070, %.noexc464 ]
   %760 = phi i64 [ %752, %750 ], [ %.pre.i463, %.noexc464 ]
   %761 = load ptr, ptr %736, align 8, !alias.scope !12712, !noalias !12715, !nonnull !4, !noundef !4
-  %762 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %761, i64 %760
+  %762 = getelementptr inbounds [64 x i8], ptr %761, i64 %760
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %762, ptr noundef nonnull align 8 dereferenceable(64) %739, i64 64, i1 false), !noalias !12715
   %763 = add i64 %760, 1
   store i64 %763, ptr %737, align 8, !alias.scope !12712, !noalias !12715
@@ -64453,7 +64453,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit460: ; preds = %735
 788:                                              ; preds = %.noexc473, %776
   %789 = phi i64 [ %781, %776 ], [ %.pre.i472, %.noexc473 ]
   %790 = load ptr, ptr %.sroa.4654.0..sroa_idx, align 8, !alias.scope !12735, !noalias !12738, !nonnull !4, !noundef !4
-  %791 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %790, i64 %789
+  %791 = getelementptr inbounds [64 x i8], ptr %790, i64 %789
   %792 = shl i64 %780, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %791, ptr nonnull align 8 %778, i64 %792, i1 false), !noalias !12738
   %793 = load i64, ptr %.sroa.5655.0..sroa_idx, align 8, !alias.scope !12735, !noalias !12738, !noundef !4
@@ -64537,7 +64537,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit460: ; preds = %735
   %822 = phi i64 [ %814, %808 ], [ %.pre.i481, %.noexc482 ]
   %823 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %824 = load ptr, ptr %823, align 8, !alias.scope !12758, !noalias !12761, !nonnull !4, !noundef !4
-  %825 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %824, i64 %822
+  %825 = getelementptr inbounds [64 x i8], ptr %824, i64 %822
   %826 = shl i64 %812, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %825, ptr nonnull align 8 %810, i64 %826, i1 false), !noalias !12761
   %827 = load i64, ptr %813, align 8, !alias.scope !12758, !noalias !12761, !noundef !4
@@ -64669,7 +64669,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit460: ; preds = %735
   %867 = phi ptr [ %850, %857 ], [ %.pre1071, %.noexc496 ]
   %868 = phi i64 [ %860, %857 ], [ %.pre.i495, %.noexc496 ]
   %869 = load ptr, ptr %698, align 8, !alias.scope !12791, !noalias !12794, !nonnull !4, !noundef !4
-  %870 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %869, i64 %868
+  %870 = getelementptr inbounds [64 x i8], ptr %869, i64 %868
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %870, ptr noundef nonnull align 8 dereferenceable(64) %850, i64 64, i1 false), !noalias !12794
   %871 = add i64 %868, 1
   store i64 %871, ptr %699, align 8, !alias.scope !12791, !noalias !12794
@@ -64748,7 +64748,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit460: ; preds = %735
 896:                                              ; preds = %.noexc507, %884
   %897 = phi i64 [ %889, %884 ], [ %.pre.i506, %.noexc507 ]
   %898 = load ptr, ptr %.sroa.4636.0..sroa_idx, align 8, !alias.scope !12814, !noalias !12817, !nonnull !4, !noundef !4
-  %899 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %898, i64 %897
+  %899 = getelementptr inbounds [64 x i8], ptr %898, i64 %897
   %900 = shl i64 %888, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %899, ptr nonnull align 8 %886, i64 %900, i1 false), !noalias !12817
   %901 = load i64, ptr %.sroa.5637.0..sroa_idx, align 8, !alias.scope !12814, !noalias !12817, !noundef !4
@@ -64877,7 +64877,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit460: ; preds = %735
   %941 = phi ptr [ %924, %931 ], [ %.pre1072, %.noexc523 ]
   %942 = phi i64 [ %934, %931 ], [ %.pre.i522, %.noexc523 ]
   %943 = load ptr, ptr %.sroa.4631.0..sroa_idx, align 8, !alias.scope !12847, !noalias !12850, !nonnull !4, !noundef !4
-  %944 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %943, i64 %942
+  %944 = getelementptr inbounds [64 x i8], ptr %943, i64 %942
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %944, ptr noundef nonnull align 8 dereferenceable(64) %924, i64 64, i1 false), !noalias !12850
   %945 = add i64 %942, 1
   store i64 %945, ptr %.sroa.5632.0..sroa_idx, align 8, !alias.scope !12847, !noalias !12850
@@ -64956,7 +64956,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit460: ; preds = %735
 970:                                              ; preds = %.noexc534, %958
   %971 = phi i64 [ %963, %958 ], [ %.pre.i533, %.noexc534 ]
   %972 = load ptr, ptr %.sroa.4628.0..sroa_idx, align 8, !alias.scope !12870, !noalias !12873, !nonnull !4, !noundef !4
-  %973 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %972, i64 %971
+  %973 = getelementptr inbounds [64 x i8], ptr %972, i64 %971
   %974 = shl i64 %962, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %973, ptr nonnull align 8 %960, i64 %974, i1 false), !noalias !12873
   %975 = load i64, ptr %.sroa.5629.0..sroa_idx, align 8, !alias.scope !12870, !noalias !12873, !noundef !4
@@ -65038,7 +65038,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit460: ; preds = %735
 1002:                                             ; preds = %.noexc543, %990
   %1003 = phi i64 [ %995, %990 ], [ %.pre.i542, %.noexc543 ]
   %1004 = load ptr, ptr %507, align 8, !alias.scope !12893, !noalias !12896, !nonnull !4, !noundef !4
-  %1005 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1004, i64 %1003
+  %1005 = getelementptr inbounds [64 x i8], ptr %1004, i64 %1003
   %1006 = shl i64 %994, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1005, ptr nonnull align 8 %992, i64 %1006, i1 false), !noalias !12896
   %1007 = load i64, ptr %508, align 8, !alias.scope !12893, !noalias !12896, !noundef !4
@@ -65120,7 +65120,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit460: ; preds = %735
 1034:                                             ; preds = %.noexc552, %1022
   %1035 = phi i64 [ %1027, %1022 ], [ %.pre.i551, %.noexc552 ]
   %1036 = load ptr, ptr %.sroa.4596.0..sroa_idx, align 8, !alias.scope !12916, !noalias !12919, !nonnull !4, !noundef !4
-  %1037 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1036, i64 %1035
+  %1037 = getelementptr inbounds [64 x i8], ptr %1036, i64 %1035
   %1038 = shl i64 %1026, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1037, ptr nonnull align 8 %1024, i64 %1038, i1 false), !noalias !12919
   %1039 = load i64, ptr %.sroa.5597.0..sroa_idx, align 8, !alias.scope !12916, !noalias !12919, !noundef !4
@@ -65202,7 +65202,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit460: ; preds = %735
 1066:                                             ; preds = %.noexc563, %1054
   %1067 = phi i64 [ %1059, %1054 ], [ %.pre.i562, %.noexc563 ]
   %1068 = load ptr, ptr %.sroa.4592.0..sroa_idx, align 8, !alias.scope !12939, !noalias !12942, !nonnull !4, !noundef !4
-  %1069 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1068, i64 %1067
+  %1069 = getelementptr inbounds [64 x i8], ptr %1068, i64 %1067
   %1070 = shl i64 %1058, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1069, ptr nonnull align 8 %1056, i64 %1070, i1 false), !noalias !12942
   %1071 = load i64, ptr %.sroa.5593.0..sroa_idx, align 8, !alias.scope !12939, !noalias !12942, !noundef !4
@@ -66057,9 +66057,9 @@ common.resume:                                    ; preds = %2355, %2356, %266, 
   call void @llvm.lifetime.end.p0(ptr nonnull %92)
   call void @llvm.lifetime.start.p0(ptr nonnull %235)
   call void @llvm.lifetime.start.p0(ptr nonnull %234)
-  %258 = getelementptr inbounds { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, ptr %.sroa.4.0.copyload, i64 %.sroa.5.0.copyload
+  %258 = getelementptr inbounds [64 x i8], ptr %.sroa.4.0.copyload, i64 %.sroa.5.0.copyload
   call void @llvm.experimental.noalias.scope.decl(metadata !13075)
-  %259 = getelementptr inbounds { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, ptr %.sroa.6.sroa.4.0.copyload, i64 %.sroa.6.sroa.5.0.copyload
+  %259 = getelementptr inbounds [64 x i8], ptr %.sroa.6.sroa.4.0.copyload, i64 %.sroa.6.sroa.5.0.copyload
   call void @llvm.experimental.noalias.scope.decl(metadata !13078)
   call void @llvm.experimental.noalias.scope.decl(metadata !13081)
   store ptr %.sroa.4.0.copyload, ptr %234, align 8, !alias.scope !13083, !noalias !13086
@@ -66092,7 +66092,7 @@ common.resume:                                    ; preds = %2355, %2356, %266, 
   %.sroa.4.0.copyload.i.i687 = load ptr, ptr %.sroa.4.0..sroa_idx.i.i686, align 8, !alias.scope !13092, !noalias !13097, !nonnull !4, !noundef !4
   %.sroa.5.0..sroa_idx.i.i688 = getelementptr inbounds nuw i8, ptr %233, i64 16
   %.sroa.5.0.copyload.i.i689 = load i64, ptr %.sroa.5.0..sroa_idx.i.i688, align 8, !alias.scope !13092, !noalias !13097
-  %263 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %.sroa.4.0.copyload.i.i687, i64 %.sroa.5.0.copyload.i.i689
+  %263 = getelementptr inbounds [24 x i8], ptr %.sroa.4.0.copyload.i.i687, i64 %.sroa.5.0.copyload.i.i689
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %235, ptr noundef nonnull align 8 dereferenceable(88) %234, i64 88, i1 false)
   %.sroa.0.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %235, i64 120
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.sroa.8.0..sroa_idx, i8 0, i64 24, i1 false)
@@ -66533,7 +66533,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit710: ; preds = %325
   %359 = phi ptr [ %327, %351 ], [ %.pre, %.noexc718 ]
   %360 = phi i64 [ %352, %351 ], [ %.pre.i, %.noexc718 ]
   %361 = load ptr, ptr %.sroa.41383.0..sroa_idx, align 8, !alias.scope !13153, !noalias !13156, !nonnull !4, !noundef !4
-  %362 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %361, i64 %360
+  %362 = getelementptr inbounds [64 x i8], ptr %361, i64 %360
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %362, ptr noundef nonnull align 8 dereferenceable(64) %327, i64 64, i1 false), !noalias !13156
   %363 = add i64 %360, 1
   store i64 %363, ptr %.sroa.51384.0..sroa_idx, align 8, !alias.scope !13153, !noalias !13156
@@ -66612,7 +66612,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit710: ; preds = %325
 388:                                              ; preds = %.noexc721, %376
   %389 = phi i64 [ %381, %376 ], [ %.pre.i720, %.noexc721 ]
   %390 = load ptr, ptr %.sroa.41378.0..sroa_idx, align 8, !alias.scope !13176, !noalias !13179, !nonnull !4, !noundef !4
-  %391 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %390, i64 %389
+  %391 = getelementptr inbounds [64 x i8], ptr %390, i64 %389
   %392 = shl i64 %380, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %391, ptr nonnull align 8 %378, i64 %392, i1 false), !noalias !13179
   %393 = load i64, ptr %.sroa.51379.0..sroa_idx, align 8, !alias.scope !13176, !noalias !13179, !noundef !4
@@ -67495,7 +67495,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit769: ; preds = %572
   %607 = phi ptr [ %575, %599 ], [ %.pre2317, %.noexc778 ]
   %608 = phi i64 [ %600, %599 ], [ %.pre.i777, %.noexc778 ]
   %609 = load ptr, ptr %.sroa.41412.0..sroa_idx, align 8, !alias.scope !13326, !noalias !13329, !nonnull !4, !noundef !4
-  %610 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %609, i64 %608
+  %610 = getelementptr inbounds [64 x i8], ptr %609, i64 %608
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %610, ptr noundef nonnull align 8 dereferenceable(64) %575, i64 64, i1 false), !noalias !13329
   %611 = add i64 %608, 1
   store i64 %611, ptr %.sroa.51413.0..sroa_idx, align 8, !alias.scope !13326, !noalias !13329
@@ -67574,7 +67574,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit769: ; preds = %572
 636:                                              ; preds = %.noexc787, %624
   %637 = phi i64 [ %629, %624 ], [ %.pre.i786, %.noexc787 ]
   %638 = load ptr, ptr %.sroa.41407.0..sroa_idx, align 8, !alias.scope !13349, !noalias !13352, !nonnull !4, !noundef !4
-  %639 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %638, i64 %637
+  %639 = getelementptr inbounds [64 x i8], ptr %638, i64 %637
   %640 = shl i64 %628, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %639, ptr nonnull align 8 %626, i64 %640, i1 false), !noalias !13352
   %641 = load i64, ptr %.sroa.51408.0..sroa_idx, align 8, !alias.scope !13349, !noalias !13352, !noundef !4
@@ -67656,7 +67656,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit769: ; preds = %572
 668:                                              ; preds = %.noexc796, %656
   %669 = phi i64 [ %661, %656 ], [ %.pre.i795, %.noexc796 ]
   %670 = load ptr, ptr %.sroa.41404.0..sroa_idx, align 8, !alias.scope !13372, !noalias !13375, !nonnull !4, !noundef !4
-  %671 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %670, i64 %669
+  %671 = getelementptr inbounds [64 x i8], ptr %670, i64 %669
   %672 = shl i64 %660, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %671, ptr nonnull align 8 %658, i64 %672, i1 false), !noalias !13375
   %673 = load i64, ptr %.sroa.51405.0..sroa_idx, align 8, !alias.scope !13372, !noalias !13375, !noundef !4
@@ -67738,7 +67738,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit769: ; preds = %572
 700:                                              ; preds = %.noexc805, %688
   %701 = phi i64 [ %693, %688 ], [ %.pre.i804, %.noexc805 ]
   %702 = load ptr, ptr %.sroa.41399.0..sroa_idx, align 8, !alias.scope !13395, !noalias !13398, !nonnull !4, !noundef !4
-  %703 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %702, i64 %701
+  %703 = getelementptr inbounds [64 x i8], ptr %702, i64 %701
   %704 = shl i64 %692, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %703, ptr nonnull align 8 %690, i64 %704, i1 false), !noalias !13398
   %705 = load i64, ptr %.sroa.51400.0..sroa_idx, align 8, !alias.scope !13395, !noalias !13398, !noundef !4
@@ -67820,7 +67820,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit769: ; preds = %572
 732:                                              ; preds = %.noexc814, %720
   %733 = phi i64 [ %725, %720 ], [ %.pre.i813, %.noexc814 ]
   %734 = load ptr, ptr %.sroa.41396.0..sroa_idx, align 8, !alias.scope !13418, !noalias !13421, !nonnull !4, !noundef !4
-  %735 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %734, i64 %733
+  %735 = getelementptr inbounds [64 x i8], ptr %734, i64 %733
   %736 = shl i64 %724, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %735, ptr nonnull align 8 %722, i64 %736, i1 false), !noalias !13421
   %737 = load i64, ptr %.sroa.51397.0..sroa_idx, align 8, !alias.scope !13418, !noalias !13421, !noundef !4
@@ -67902,7 +67902,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit769: ; preds = %572
 764:                                              ; preds = %.noexc823, %752
   %765 = phi i64 [ %757, %752 ], [ %.pre.i822, %.noexc823 ]
   %766 = load ptr, ptr %493, align 8, !alias.scope !13441, !noalias !13444, !nonnull !4, !noundef !4
-  %767 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %766, i64 %765
+  %767 = getelementptr inbounds [64 x i8], ptr %766, i64 %765
   %768 = shl i64 %756, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %767, ptr nonnull align 8 %754, i64 %768, i1 false), !noalias !13444
   %769 = load i64, ptr %494, align 8, !alias.scope !13441, !noalias !13444, !noundef !4
@@ -67985,7 +67985,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit769: ; preds = %572
 796:                                              ; preds = %.noexc832, %784
   %797 = phi i64 [ %789, %784 ], [ %.pre.i831, %.noexc832 ]
   %798 = load ptr, ptr %462, align 8, !alias.scope !13464, !noalias !13467, !nonnull !4, !noundef !4
-  %799 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %798, i64 %797
+  %799 = getelementptr inbounds [64 x i8], ptr %798, i64 %797
   %800 = shl i64 %788, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %799, ptr nonnull align 8 %786, i64 %800, i1 false), !noalias !13467
   %801 = load i64, ptr %463, align 8, !alias.scope !13464, !noalias !13467, !noundef !4
@@ -68068,7 +68068,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit769: ; preds = %572
 828:                                              ; preds = %.noexc841, %816
   %829 = phi i64 [ %821, %816 ], [ %.pre.i840, %.noexc841 ]
   %830 = load ptr, ptr %.sroa.41391.0..sroa_idx, align 8, !alias.scope !13487, !noalias !13490, !nonnull !4, !noundef !4
-  %831 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %830, i64 %829
+  %831 = getelementptr inbounds [64 x i8], ptr %830, i64 %829
   %832 = shl i64 %820, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %831, ptr nonnull align 8 %818, i64 %832, i1 false), !noalias !13490
   %833 = load i64, ptr %.sroa.51392.0..sroa_idx, align 8, !alias.scope !13487, !noalias !13490, !noundef !4
@@ -68152,7 +68152,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit769: ; preds = %572
   %862 = phi i64 [ %854, %848 ], [ %.pre.i849, %.noexc850 ]
   %863 = getelementptr inbounds nuw i8, ptr %214, i64 8
   %864 = load ptr, ptr %863, align 8, !alias.scope !13510, !noalias !13513, !nonnull !4, !noundef !4
-  %865 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %864, i64 %862
+  %865 = getelementptr inbounds [64 x i8], ptr %864, i64 %862
   %866 = shl i64 %852, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %865, ptr nonnull align 8 %850, i64 %866, i1 false), !noalias !13513
   %867 = load i64, ptr %853, align 8, !alias.scope !13510, !noalias !13513, !noundef !4
@@ -68284,7 +68284,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit769: ; preds = %572
   %907 = phi ptr [ %890, %897 ], [ %.pre2318, %.noexc864 ]
   %908 = phi i64 [ %900, %897 ], [ %.pre.i863, %.noexc864 ]
   %909 = load ptr, ptr %424, align 8, !alias.scope !13543, !noalias !13546, !nonnull !4, !noundef !4
-  %910 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %909, i64 %908
+  %910 = getelementptr inbounds [64 x i8], ptr %909, i64 %908
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %910, ptr noundef nonnull align 8 dereferenceable(64) %890, i64 64, i1 false), !noalias !13546
   %911 = add i64 %908, 1
   store i64 %911, ptr %425, align 8, !alias.scope !13543, !noalias !13546
@@ -68363,7 +68363,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit769: ; preds = %572
 936:                                              ; preds = %.noexc875, %924
   %937 = phi i64 [ %929, %924 ], [ %.pre.i874, %.noexc875 ]
   %938 = load ptr, ptr %.sroa.41374.0..sroa_idx, align 8, !alias.scope !13566, !noalias !13569, !nonnull !4, !noundef !4
-  %939 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %938, i64 %937
+  %939 = getelementptr inbounds [64 x i8], ptr %938, i64 %937
   %940 = shl i64 %928, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %939, ptr nonnull align 8 %926, i64 %940, i1 false), !noalias !13569
   %941 = load i64, ptr %.sroa.51375.0..sroa_idx, align 8, !alias.scope !13566, !noalias !13569, !noundef !4
@@ -69060,7 +69060,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit932: ; preds = %1062
   %1111 = phi ptr [ %1094, %1101 ], [ %.pre2319, %.noexc946 ]
   %1112 = phi i64 [ %1104, %1101 ], [ %.pre.i945, %.noexc946 ]
   %1113 = load ptr, ptr %.sroa.41431.0..sroa_idx, align 8, !alias.scope !13694, !noalias !13697, !nonnull !4, !noundef !4
-  %1114 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1113, i64 %1112
+  %1114 = getelementptr inbounds [64 x i8], ptr %1113, i64 %1112
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %1114, ptr noundef nonnull align 8 dereferenceable(64) %1094, i64 64, i1 false), !noalias !13697
   %1115 = add i64 %1112, 1
   store i64 %1115, ptr %.sroa.51432.0..sroa_idx, align 8, !alias.scope !13694, !noalias !13697
@@ -69139,7 +69139,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit932: ; preds = %1062
 1140:                                             ; preds = %.noexc956, %1128
   %1141 = phi i64 [ %1133, %1128 ], [ %.pre.i955, %.noexc956 ]
   %1142 = load ptr, ptr %.sroa.41428.0..sroa_idx, align 8, !alias.scope !13717, !noalias !13720, !nonnull !4, !noundef !4
-  %1143 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1142, i64 %1141
+  %1143 = getelementptr inbounds [64 x i8], ptr %1142, i64 %1141
   %1144 = shl i64 %1132, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1143, ptr nonnull align 8 %1130, i64 %1144, i1 false), !noalias !13720
   %1145 = load i64, ptr %.sroa.51429.0..sroa_idx, align 8, !alias.scope !13717, !noalias !13720, !noundef !4
@@ -69221,7 +69221,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit932: ; preds = %1062
 1172:                                             ; preds = %.noexc965, %1160
   %1173 = phi i64 [ %1165, %1160 ], [ %.pre.i964, %.noexc965 ]
   %1174 = load ptr, ptr %.sroa.41423.0..sroa_idx, align 8, !alias.scope !13740, !noalias !13743, !nonnull !4, !noundef !4
-  %1175 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1174, i64 %1173
+  %1175 = getelementptr inbounds [64 x i8], ptr %1174, i64 %1173
   %1176 = shl i64 %1164, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1175, ptr nonnull align 8 %1162, i64 %1176, i1 false), !noalias !13743
   %1177 = load i64, ptr %.sroa.51424.0..sroa_idx, align 8, !alias.scope !13740, !noalias !13743, !noundef !4
@@ -69303,7 +69303,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit932: ; preds = %1062
 1204:                                             ; preds = %.noexc974, %1192
   %1205 = phi i64 [ %1197, %1192 ], [ %.pre.i973, %.noexc974 ]
   %1206 = load ptr, ptr %.sroa.41420.0..sroa_idx, align 8, !alias.scope !13763, !noalias !13766, !nonnull !4, !noundef !4
-  %1207 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1206, i64 %1205
+  %1207 = getelementptr inbounds [64 x i8], ptr %1206, i64 %1205
   %1208 = shl i64 %1196, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1207, ptr nonnull align 8 %1194, i64 %1208, i1 false), !noalias !13766
   %1209 = load i64, ptr %.sroa.51421.0..sroa_idx, align 8, !alias.scope !13763, !noalias !13766, !noundef !4
@@ -69385,7 +69385,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit932: ; preds = %1062
 1236:                                             ; preds = %.noexc983, %1224
   %1237 = phi i64 [ %1229, %1224 ], [ %.pre.i982, %.noexc983 ]
   %1238 = load ptr, ptr %991, align 8, !alias.scope !13786, !noalias !13789, !nonnull !4, !noundef !4
-  %1239 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1238, i64 %1237
+  %1239 = getelementptr inbounds [64 x i8], ptr %1238, i64 %1237
   %1240 = shl i64 %1228, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1239, ptr nonnull align 8 %1226, i64 %1240, i1 false), !noalias !13789
   %1241 = load i64, ptr %992, align 8, !alias.scope !13786, !noalias !13789, !noundef !4
@@ -70058,7 +70058,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1037: ; preds = %1355
   %1404 = phi ptr [ %1387, %1394 ], [ %.pre2320, %.noexc1051 ]
   %1405 = phi i64 [ %1397, %1394 ], [ %.pre.i1050, %.noexc1051 ]
   %1406 = load ptr, ptr %.sroa.41452.0..sroa_idx, align 8, !alias.scope !13914, !noalias !13917, !nonnull !4, !noundef !4
-  %1407 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1406, i64 %1405
+  %1407 = getelementptr inbounds [64 x i8], ptr %1406, i64 %1405
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %1407, ptr noundef nonnull align 8 dereferenceable(64) %1387, i64 64, i1 false), !noalias !13917
   %1408 = add i64 %1405, 1
   store i64 %1408, ptr %.sroa.51453.0..sroa_idx, align 8, !alias.scope !13914, !noalias !13917
@@ -70137,7 +70137,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1037: ; preds = %1355
 1433:                                             ; preds = %.noexc1061, %1421
   %1434 = phi i64 [ %1426, %1421 ], [ %.pre.i1060, %.noexc1061 ]
   %1435 = load ptr, ptr %.sroa.41449.0..sroa_idx, align 8, !alias.scope !13937, !noalias !13940, !nonnull !4, !noundef !4
-  %1436 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1435, i64 %1434
+  %1436 = getelementptr inbounds [64 x i8], ptr %1435, i64 %1434
   %1437 = shl i64 %1425, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1436, ptr nonnull align 8 %1423, i64 %1437, i1 false), !noalias !13940
   %1438 = load i64, ptr %.sroa.51450.0..sroa_idx, align 8, !alias.scope !13937, !noalias !13940, !noundef !4
@@ -70219,7 +70219,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1037: ; preds = %1355
 1465:                                             ; preds = %.noexc1070, %1453
   %1466 = phi i64 [ %1458, %1453 ], [ %.pre.i1069, %.noexc1070 ]
   %1467 = load ptr, ptr %.sroa.41444.0..sroa_idx, align 8, !alias.scope !13960, !noalias !13963, !nonnull !4, !noundef !4
-  %1468 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1467, i64 %1466
+  %1468 = getelementptr inbounds [64 x i8], ptr %1467, i64 %1466
   %1469 = shl i64 %1457, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1468, ptr nonnull align 8 %1455, i64 %1469, i1 false), !noalias !13963
   %1470 = load i64, ptr %.sroa.51445.0..sroa_idx, align 8, !alias.scope !13960, !noalias !13963, !noundef !4
@@ -70301,7 +70301,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1037: ; preds = %1355
 1497:                                             ; preds = %.noexc1079, %1485
   %1498 = phi i64 [ %1490, %1485 ], [ %.pre.i1078, %.noexc1079 ]
   %1499 = load ptr, ptr %.sroa.41441.0..sroa_idx, align 8, !alias.scope !13983, !noalias !13986, !nonnull !4, !noundef !4
-  %1500 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1499, i64 %1498
+  %1500 = getelementptr inbounds [64 x i8], ptr %1499, i64 %1498
   %1501 = shl i64 %1489, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1500, ptr nonnull align 8 %1487, i64 %1501, i1 false), !noalias !13986
   %1502 = load i64, ptr %.sroa.51442.0..sroa_idx, align 8, !alias.scope !13983, !noalias !13986, !noundef !4
@@ -70383,7 +70383,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1037: ; preds = %1355
 1529:                                             ; preds = %.noexc1088, %1517
   %1530 = phi i64 [ %1522, %1517 ], [ %.pre.i1087, %.noexc1088 ]
   %1531 = load ptr, ptr %1284, align 8, !alias.scope !14006, !noalias !14009, !nonnull !4, !noundef !4
-  %1532 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1531, i64 %1530
+  %1532 = getelementptr inbounds [64 x i8], ptr %1531, i64 %1530
   %1533 = shl i64 %1521, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1532, ptr nonnull align 8 %1519, i64 %1533, i1 false), !noalias !14009
   %1534 = load i64, ptr %1285, align 8, !alias.scope !14006, !noalias !14009, !noundef !4
@@ -71268,7 +71268,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1144: ; preds = %1687
   %1721 = phi ptr [ %1689, %1713 ], [ %.pre2321, %.noexc1153 ]
   %1722 = phi i64 [ %1714, %1713 ], [ %.pre.i1152, %.noexc1153 ]
   %1723 = load ptr, ptr %.sroa.41491.0..sroa_idx, align 8, !alias.scope !14128, !noalias !14131, !nonnull !4, !noundef !4
-  %1724 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1723, i64 %1722
+  %1724 = getelementptr inbounds [64 x i8], ptr %1723, i64 %1722
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %1724, ptr noundef nonnull align 8 dereferenceable(64) %1689, i64 64, i1 false), !noalias !14131
   %1725 = add i64 %1722, 1
   store i64 %1725, ptr %.sroa.51492.0..sroa_idx, align 8, !alias.scope !14128, !noalias !14131
@@ -71347,7 +71347,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1144: ; preds = %1687
 1750:                                             ; preds = %.noexc1162, %1738
   %1751 = phi i64 [ %1743, %1738 ], [ %.pre.i1161, %.noexc1162 ]
   %1752 = load ptr, ptr %.sroa.41488.0..sroa_idx, align 8, !alias.scope !14151, !noalias !14154, !nonnull !4, !noundef !4
-  %1753 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1752, i64 %1751
+  %1753 = getelementptr inbounds [64 x i8], ptr %1752, i64 %1751
   %1754 = shl i64 %1742, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1753, ptr nonnull align 8 %1740, i64 %1754, i1 false), !noalias !14154
   %1755 = load i64, ptr %.sroa.51489.0..sroa_idx, align 8, !alias.scope !14151, !noalias !14154, !noundef !4
@@ -71429,7 +71429,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1144: ; preds = %1687
 1782:                                             ; preds = %.noexc1171, %1770
   %1783 = phi i64 [ %1775, %1770 ], [ %.pre.i1170, %.noexc1171 ]
   %1784 = load ptr, ptr %.sroa.41483.0..sroa_idx, align 8, !alias.scope !14174, !noalias !14177, !nonnull !4, !noundef !4
-  %1785 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1784, i64 %1783
+  %1785 = getelementptr inbounds [64 x i8], ptr %1784, i64 %1783
   %1786 = shl i64 %1774, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1785, ptr nonnull align 8 %1772, i64 %1786, i1 false), !noalias !14177
   %1787 = load i64, ptr %.sroa.51484.0..sroa_idx, align 8, !alias.scope !14174, !noalias !14177, !noundef !4
@@ -71511,7 +71511,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1144: ; preds = %1687
 1814:                                             ; preds = %.noexc1180, %1802
   %1815 = phi i64 [ %1807, %1802 ], [ %.pre.i1179, %.noexc1180 ]
   %1816 = load ptr, ptr %.sroa.41480.0..sroa_idx, align 8, !alias.scope !14197, !noalias !14200, !nonnull !4, !noundef !4
-  %1817 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1816, i64 %1815
+  %1817 = getelementptr inbounds [64 x i8], ptr %1816, i64 %1815
   %1818 = shl i64 %1806, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1817, ptr nonnull align 8 %1804, i64 %1818, i1 false), !noalias !14200
   %1819 = load i64, ptr %.sroa.51481.0..sroa_idx, align 8, !alias.scope !14197, !noalias !14200, !noundef !4
@@ -71593,7 +71593,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1144: ; preds = %1687
 1846:                                             ; preds = %.noexc1189, %1834
   %1847 = phi i64 [ %1839, %1834 ], [ %.pre.i1188, %.noexc1189 ]
   %1848 = load ptr, ptr %.sroa.41475.0..sroa_idx, align 8, !alias.scope !14220, !noalias !14223, !nonnull !4, !noundef !4
-  %1849 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1848, i64 %1847
+  %1849 = getelementptr inbounds [64 x i8], ptr %1848, i64 %1847
   %1850 = shl i64 %1838, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1849, ptr nonnull align 8 %1836, i64 %1850, i1 false), !noalias !14223
   %1851 = load i64, ptr %.sroa.51476.0..sroa_idx, align 8, !alias.scope !14220, !noalias !14223, !noundef !4
@@ -71675,7 +71675,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1144: ; preds = %1687
 1878:                                             ; preds = %.noexc1198, %1866
   %1879 = phi i64 [ %1871, %1866 ], [ %.pre.i1197, %.noexc1198 ]
   %1880 = load ptr, ptr %.sroa.41472.0..sroa_idx, align 8, !alias.scope !14243, !noalias !14246, !nonnull !4, !noundef !4
-  %1881 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1880, i64 %1879
+  %1881 = getelementptr inbounds [64 x i8], ptr %1880, i64 %1879
   %1882 = shl i64 %1870, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1881, ptr nonnull align 8 %1868, i64 %1882, i1 false), !noalias !14246
   %1883 = load i64, ptr %.sroa.51473.0..sroa_idx, align 8, !alias.scope !14243, !noalias !14246, !noundef !4
@@ -72408,7 +72408,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1245: ; preds = %1992
   %2067 = phi ptr [ %2050, %2057 ], [ %.pre2322, %.noexc1270 ]
   %2068 = phi i64 [ %2060, %2057 ], [ %.pre.i1269, %.noexc1270 ]
   %2069 = load ptr, ptr %.sroa.41513.0..sroa_idx, align 8, !alias.scope !14387, !noalias !14390, !nonnull !4, !noundef !4
-  %2070 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %2069, i64 %2068
+  %2070 = getelementptr inbounds [64 x i8], ptr %2069, i64 %2068
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2070, ptr noundef nonnull align 8 dereferenceable(64) %2050, i64 64, i1 false), !noalias !14390
   %2071 = add i64 %2068, 1
   store i64 %2071, ptr %.sroa.51514.0..sroa_idx, align 8, !alias.scope !14387, !noalias !14390
@@ -72487,7 +72487,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1245: ; preds = %1992
 2096:                                             ; preds = %.noexc1280, %2084
   %2097 = phi i64 [ %2089, %2084 ], [ %.pre.i1279, %.noexc1280 ]
   %2098 = load ptr, ptr %.sroa.41510.0..sroa_idx, align 8, !alias.scope !14410, !noalias !14413, !nonnull !4, !noundef !4
-  %2099 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %2098, i64 %2097
+  %2099 = getelementptr inbounds [64 x i8], ptr %2098, i64 %2097
   %2100 = shl i64 %2088, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2099, ptr nonnull align 8 %2086, i64 %2100, i1 false), !noalias !14413
   %2101 = load i64, ptr %.sroa.51511.0..sroa_idx, align 8, !alias.scope !14410, !noalias !14413, !noundef !4
@@ -72569,7 +72569,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1245: ; preds = %1992
 2128:                                             ; preds = %.noexc1289, %2116
   %2129 = phi i64 [ %2121, %2116 ], [ %.pre.i1288, %.noexc1289 ]
   %2130 = load ptr, ptr %.sroa.41505.0..sroa_idx, align 8, !alias.scope !14433, !noalias !14436, !nonnull !4, !noundef !4
-  %2131 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %2130, i64 %2129
+  %2131 = getelementptr inbounds [64 x i8], ptr %2130, i64 %2129
   %2132 = shl i64 %2120, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2131, ptr nonnull align 8 %2118, i64 %2132, i1 false), !noalias !14436
   %2133 = load i64, ptr %.sroa.51506.0..sroa_idx, align 8, !alias.scope !14433, !noalias !14436, !noundef !4
@@ -72651,7 +72651,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1245: ; preds = %1992
 2160:                                             ; preds = %.noexc1298, %2148
   %2161 = phi i64 [ %2153, %2148 ], [ %.pre.i1297, %.noexc1298 ]
   %2162 = load ptr, ptr %.sroa.41502.0..sroa_idx, align 8, !alias.scope !14456, !noalias !14459, !nonnull !4, !noundef !4
-  %2163 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %2162, i64 %2161
+  %2163 = getelementptr inbounds [64 x i8], ptr %2162, i64 %2161
   %2164 = shl i64 %2152, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2163, ptr nonnull align 8 %2150, i64 %2164, i1 false), !noalias !14459
   %2165 = load i64, ptr %.sroa.51503.0..sroa_idx, align 8, !alias.scope !14456, !noalias !14459, !noundef !4
@@ -72733,7 +72733,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1245: ; preds = %1992
 2192:                                             ; preds = %.noexc1307, %2180
   %2193 = phi i64 [ %2185, %2180 ], [ %.pre.i1306, %.noexc1307 ]
   %2194 = load ptr, ptr %1948, align 8, !alias.scope !14479, !noalias !14482, !nonnull !4, !noundef !4
-  %2195 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %2194, i64 %2193
+  %2195 = getelementptr inbounds [64 x i8], ptr %2194, i64 %2193
   %2196 = shl i64 %2184, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2195, ptr nonnull align 8 %2182, i64 %2196, i1 false), !noalias !14482
   %2197 = load i64, ptr %1949, align 8, !alias.scope !14479, !noalias !14482, !noundef !4
@@ -72816,7 +72816,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1245: ; preds = %1992
 2224:                                             ; preds = %.noexc1316, %2212
   %2225 = phi i64 [ %2217, %2212 ], [ %.pre.i1315, %.noexc1316 ]
   %2226 = load ptr, ptr %.sroa.41499.0..sroa_idx, align 8, !alias.scope !14502, !noalias !14505, !nonnull !4, !noundef !4
-  %2227 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %2226, i64 %2225
+  %2227 = getelementptr inbounds [64 x i8], ptr %2226, i64 %2225
   %2228 = shl i64 %2216, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2227, ptr nonnull align 8 %2214, i64 %2228, i1 false), !noalias !14505
   %2229 = load i64, ptr %.sroa.51500.0..sroa_idx, align 8, !alias.scope !14502, !noalias !14505, !noundef !4
@@ -72898,7 +72898,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1245: ; preds = %1992
 2256:                                             ; preds = %.noexc1325, %2244
   %2257 = phi i64 [ %2249, %2244 ], [ %.pre.i1324, %.noexc1325 ]
   %2258 = load ptr, ptr %1914, align 8, !alias.scope !14525, !noalias !14528, !nonnull !4, !noundef !4
-  %2259 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %2258, i64 %2257
+  %2259 = getelementptr inbounds [64 x i8], ptr %2258, i64 %2257
   %2260 = shl i64 %2248, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2259, ptr nonnull align 8 %2246, i64 %2260, i1 false), !noalias !14528
   %2261 = load i64, ptr %1915, align 8, !alias.scope !14525, !noalias !14528, !noundef !4
@@ -72980,7 +72980,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1245: ; preds = %1992
 2288:                                             ; preds = %.noexc1334, %2276
   %2289 = phi i64 [ %2281, %2276 ], [ %.pre.i1333, %.noexc1334 ]
   %2290 = load ptr, ptr %.sroa.41467.0..sroa_idx, align 8, !alias.scope !14548, !noalias !14551, !nonnull !4, !noundef !4
-  %2291 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %2290, i64 %2289
+  %2291 = getelementptr inbounds [64 x i8], ptr %2290, i64 %2289
   %2292 = shl i64 %2280, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2291, ptr nonnull align 8 %2278, i64 %2292, i1 false), !noalias !14551
   %2293 = load i64, ptr %.sroa.51468.0..sroa_idx, align 8, !alias.scope !14548, !noalias !14551, !noundef !4
@@ -73062,7 +73062,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1245: ; preds = %1992
 2320:                                             ; preds = %.noexc1345, %2308
   %2321 = phi i64 [ %2313, %2308 ], [ %.pre.i1344, %.noexc1345 ]
   %2322 = load ptr, ptr %.sroa.41462.0..sroa_idx, align 8, !alias.scope !14571, !noalias !14574, !nonnull !4, !noundef !4
-  %2323 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %2322, i64 %2321
+  %2323 = getelementptr inbounds [64 x i8], ptr %2322, i64 %2321
   %2324 = shl i64 %2312, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2323, ptr nonnull align 8 %2310, i64 %2324, i1 false), !noalias !14574
   %2325 = load i64, ptr %.sroa.51463.0..sroa_idx, align 8, !alias.scope !14571, !noalias !14574, !noundef !4
@@ -74333,7 +74333,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1006: ; preds = %427
   %476 = phi ptr [ %459, %466 ], [ %.pre, %.noexc1014 ]
   %477 = phi i64 [ %469, %466 ], [ %.pre.i, %.noexc1014 ]
   %478 = load ptr, ptr %.sroa.41927.0..sroa_idx, align 8, !alias.scope !14708, !noalias !14711, !nonnull !4, !noundef !4
-  %479 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %478, i64 %477
+  %479 = getelementptr inbounds [64 x i8], ptr %478, i64 %477
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %479, ptr noundef nonnull align 8 dereferenceable(64) %459, i64 64, i1 false), !noalias !14711
   %480 = add i64 %477, 1
   store i64 %480, ptr %.sroa.51928.0..sroa_idx, align 8, !alias.scope !14708, !noalias !14711
@@ -74412,7 +74412,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1006: ; preds = %427
 505:                                              ; preds = %.noexc1020, %493
   %506 = phi i64 [ %498, %493 ], [ %.pre.i1019, %.noexc1020 ]
   %507 = load ptr, ptr %.sroa.41924.0..sroa_idx, align 8, !alias.scope !14731, !noalias !14734, !nonnull !4, !noundef !4
-  %508 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %507, i64 %506
+  %508 = getelementptr inbounds [64 x i8], ptr %507, i64 %506
   %509 = shl i64 %497, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %508, ptr nonnull align 8 %495, i64 %509, i1 false), !noalias !14734
   %510 = load i64, ptr %.sroa.51925.0..sroa_idx, align 8, !alias.scope !14731, !noalias !14734, !noundef !4
@@ -74494,7 +74494,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1006: ; preds = %427
 537:                                              ; preds = %.noexc1029, %525
   %538 = phi i64 [ %530, %525 ], [ %.pre.i1028, %.noexc1029 ]
   %539 = load ptr, ptr %.sroa.41920.0..sroa_idx, align 8, !alias.scope !14754, !noalias !14757, !nonnull !4, !noundef !4
-  %540 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %539, i64 %538
+  %540 = getelementptr inbounds [64 x i8], ptr %539, i64 %538
   %541 = shl i64 %529, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %540, ptr nonnull align 8 %527, i64 %541, i1 false), !noalias !14757
   %542 = load i64, ptr %.sroa.51921.0..sroa_idx, align 8, !alias.scope !14754, !noalias !14757, !noundef !4
@@ -74576,7 +74576,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1006: ; preds = %427
 569:                                              ; preds = %.noexc1038, %557
   %570 = phi i64 [ %562, %557 ], [ %.pre.i1037, %.noexc1038 ]
   %571 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !14777, !noalias !14780, !nonnull !4, !noundef !4
-  %572 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %571, i64 %570
+  %572 = getelementptr inbounds [64 x i8], ptr %571, i64 %570
   %573 = shl i64 %561, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %572, ptr nonnull align 8 %559, i64 %573, i1 false), !noalias !14780
   %574 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !14777, !noalias !14780, !noundef !4
@@ -74658,7 +74658,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1006: ; preds = %427
 601:                                              ; preds = %.noexc1047, %589
   %602 = phi i64 [ %594, %589 ], [ %.pre.i1046, %.noexc1047 ]
   %603 = load ptr, ptr %358, align 8, !alias.scope !14800, !noalias !14803, !nonnull !4, !noundef !4
-  %604 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %603, i64 %602
+  %604 = getelementptr inbounds [64 x i8], ptr %603, i64 %602
   %605 = shl i64 %593, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %604, ptr nonnull align 8 %591, i64 %605, i1 false), !noalias !14803
   %606 = load i64, ptr %359, align 8, !alias.scope !14800, !noalias !14803, !noundef !4
@@ -75331,7 +75331,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1099: ; preds = %721
   %770 = phi ptr [ %753, %760 ], [ %.pre3221, %.noexc1113 ]
   %771 = phi i64 [ %763, %760 ], [ %.pre.i1112, %.noexc1113 ]
   %772 = load ptr, ptr %.sroa.41947.0..sroa_idx, align 8, !alias.scope !14929, !noalias !14932, !nonnull !4, !noundef !4
-  %773 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %772, i64 %771
+  %773 = getelementptr inbounds [64 x i8], ptr %772, i64 %771
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %773, ptr noundef nonnull align 8 dereferenceable(64) %753, i64 64, i1 false), !noalias !14932
   %774 = add i64 %771, 1
   store i64 %774, ptr %.sroa.51948.0..sroa_idx, align 8, !alias.scope !14929, !noalias !14932
@@ -75410,7 +75410,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1099: ; preds = %721
 799:                                              ; preds = %.noexc1123, %787
   %800 = phi i64 [ %792, %787 ], [ %.pre.i1122, %.noexc1123 ]
   %801 = load ptr, ptr %.sroa.41944.0..sroa_idx, align 8, !alias.scope !14952, !noalias !14955, !nonnull !4, !noundef !4
-  %802 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %801, i64 %800
+  %802 = getelementptr inbounds [64 x i8], ptr %801, i64 %800
   %803 = shl i64 %791, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %802, ptr nonnull align 8 %789, i64 %803, i1 false), !noalias !14955
   %804 = load i64, ptr %.sroa.51945.0..sroa_idx, align 8, !alias.scope !14952, !noalias !14955, !noundef !4
@@ -75492,7 +75492,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1099: ; preds = %721
 831:                                              ; preds = %.noexc1132, %819
   %832 = phi i64 [ %824, %819 ], [ %.pre.i1131, %.noexc1132 ]
   %833 = load ptr, ptr %.sroa.41939.0..sroa_idx, align 8, !alias.scope !14975, !noalias !14978, !nonnull !4, !noundef !4
-  %834 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %833, i64 %832
+  %834 = getelementptr inbounds [64 x i8], ptr %833, i64 %832
   %835 = shl i64 %823, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %834, ptr nonnull align 8 %821, i64 %835, i1 false), !noalias !14978
   %836 = load i64, ptr %.sroa.51940.0..sroa_idx, align 8, !alias.scope !14975, !noalias !14978, !noundef !4
@@ -75574,7 +75574,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1099: ; preds = %721
 863:                                              ; preds = %.noexc1141, %851
   %864 = phi i64 [ %856, %851 ], [ %.pre.i1140, %.noexc1141 ]
   %865 = load ptr, ptr %.sroa.41936.0..sroa_idx, align 8, !alias.scope !14998, !noalias !15001, !nonnull !4, !noundef !4
-  %866 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %865, i64 %864
+  %866 = getelementptr inbounds [64 x i8], ptr %865, i64 %864
   %867 = shl i64 %855, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %866, ptr nonnull align 8 %853, i64 %867, i1 false), !noalias !15001
   %868 = load i64, ptr %.sroa.51937.0..sroa_idx, align 8, !alias.scope !14998, !noalias !15001, !noundef !4
@@ -75656,7 +75656,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1099: ; preds = %721
 895:                                              ; preds = %.noexc1150, %883
   %896 = phi i64 [ %888, %883 ], [ %.pre.i1149, %.noexc1150 ]
   %897 = load ptr, ptr %650, align 8, !alias.scope !15021, !noalias !15024, !nonnull !4, !noundef !4
-  %898 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %897, i64 %896
+  %898 = getelementptr inbounds [64 x i8], ptr %897, i64 %896
   %899 = shl i64 %887, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %898, ptr nonnull align 8 %885, i64 %899, i1 false), !noalias !15024
   %900 = load i64, ptr %651, align 8, !alias.scope !15021, !noalias !15024, !noundef !4
@@ -75782,9 +75782,9 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1099: ; preds = %721
   call void @llvm.lifetime.end.p0(ptr nonnull %120)
   call void @llvm.lifetime.start.p0(ptr nonnull %278)
   call void @llvm.lifetime.start.p0(ptr nonnull %277)
-  %930 = getelementptr inbounds { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, ptr %.sroa.41960.0.copyload, i64 %.sroa.51961.0.copyload
+  %930 = getelementptr inbounds [64 x i8], ptr %.sroa.41960.0.copyload, i64 %.sroa.51961.0.copyload
   call void @llvm.experimental.noalias.scope.decl(metadata !15057)
-  %931 = getelementptr inbounds { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, ptr %.sroa.6.sroa.4.0.copyload, i64 %.sroa.6.sroa.5.0.copyload
+  %931 = getelementptr inbounds [64 x i8], ptr %.sroa.6.sroa.4.0.copyload, i64 %.sroa.6.sroa.5.0.copyload
   call void @llvm.experimental.noalias.scope.decl(metadata !15060)
   call void @llvm.experimental.noalias.scope.decl(metadata !15063)
   store ptr %.sroa.41960.0.copyload, ptr %277, align 8, !alias.scope !15065, !noalias !15068
@@ -75817,7 +75817,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1099: ; preds = %721
   %.sroa.4.0.copyload.i.i1170 = load ptr, ptr %.sroa.4.0..sroa_idx.i.i1169, align 8, !alias.scope !15074, !noalias !15079, !nonnull !4, !noundef !4
   %.sroa.5.0..sroa_idx.i.i1171 = getelementptr inbounds nuw i8, ptr %276, i64 16
   %.sroa.5.0.copyload.i.i1172 = load i64, ptr %.sroa.5.0..sroa_idx.i.i1171, align 8, !alias.scope !15074, !noalias !15079
-  %935 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %.sroa.4.0.copyload.i.i1170, i64 %.sroa.5.0.copyload.i.i1172
+  %935 = getelementptr inbounds [24 x i8], ptr %.sroa.4.0.copyload.i.i1170, i64 %.sroa.5.0.copyload.i.i1172
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %278, ptr noundef nonnull align 8 dereferenceable(88) %277, i64 88, i1 false)
   %.sroa.0143.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %278, i64 120
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0143.sroa.8.0..sroa_idx, i8 0, i64 24, i1 false)
@@ -76259,7 +76259,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1197: ; preds = %996
   %1030 = phi ptr [ %998, %1022 ], [ %.pre3222, %.noexc1206 ]
   %1031 = phi i64 [ %1023, %1022 ], [ %.pre.i1205, %.noexc1206 ]
   %1032 = load ptr, ptr %.sroa.41984.0..sroa_idx, align 8, !alias.scope !15135, !noalias !15138, !nonnull !4, !noundef !4
-  %1033 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1032, i64 %1031
+  %1033 = getelementptr inbounds [64 x i8], ptr %1032, i64 %1031
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %1033, ptr noundef nonnull align 8 dereferenceable(64) %998, i64 64, i1 false), !noalias !15138
   %1034 = add i64 %1031, 1
   store i64 %1034, ptr %.sroa.51985.0..sroa_idx, align 8, !alias.scope !15135, !noalias !15138
@@ -76338,7 +76338,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1197: ; preds = %996
 1059:                                             ; preds = %.noexc1215, %1047
   %1060 = phi i64 [ %1052, %1047 ], [ %.pre.i1214, %.noexc1215 ]
   %1061 = load ptr, ptr %.sroa.41979.0..sroa_idx, align 8, !alias.scope !15158, !noalias !15161, !nonnull !4, !noundef !4
-  %1062 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1061, i64 %1060
+  %1062 = getelementptr inbounds [64 x i8], ptr %1061, i64 %1060
   %1063 = shl i64 %1051, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1062, ptr nonnull align 8 %1049, i64 %1063, i1 false), !noalias !15161
   %1064 = load i64, ptr %.sroa.51980.0..sroa_idx, align 8, !alias.scope !15158, !noalias !15161, !noundef !4
@@ -77790,7 +77790,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1333: ; preds = %1367
   %1402 = phi ptr [ %1370, %1394 ], [ %.pre3223, %.noexc1342 ]
   %1403 = phi i64 [ %1395, %1394 ], [ %.pre.i1341, %.noexc1342 ]
   %1404 = load ptr, ptr %.sroa.42037.0..sroa_idx, align 8, !alias.scope !15404, !noalias !15407, !nonnull !4, !noundef !4
-  %1405 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1404, i64 %1403
+  %1405 = getelementptr inbounds [64 x i8], ptr %1404, i64 %1403
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %1405, ptr noundef nonnull align 8 dereferenceable(64) %1370, i64 64, i1 false), !noalias !15407
   %1406 = add i64 %1403, 1
   store i64 %1406, ptr %.sroa.52038.0..sroa_idx, align 8, !alias.scope !15404, !noalias !15407
@@ -77869,7 +77869,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1333: ; preds = %1367
 1431:                                             ; preds = %.noexc1351, %1419
   %1432 = phi i64 [ %1424, %1419 ], [ %.pre.i1350, %.noexc1351 ]
   %1433 = load ptr, ptr %.sroa.42032.0..sroa_idx, align 8, !alias.scope !15427, !noalias !15430, !nonnull !4, !noundef !4
-  %1434 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1433, i64 %1432
+  %1434 = getelementptr inbounds [64 x i8], ptr %1433, i64 %1432
   %1435 = shl i64 %1423, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1434, ptr nonnull align 8 %1421, i64 %1435, i1 false), !noalias !15430
   %1436 = load i64, ptr %.sroa.52033.0..sroa_idx, align 8, !alias.scope !15427, !noalias !15430, !noundef !4
@@ -77951,7 +77951,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1333: ; preds = %1367
 1463:                                             ; preds = %.noexc1360, %1451
   %1464 = phi i64 [ %1456, %1451 ], [ %.pre.i1359, %.noexc1360 ]
   %1465 = load ptr, ptr %.sroa.42029.0..sroa_idx, align 8, !alias.scope !15450, !noalias !15453, !nonnull !4, !noundef !4
-  %1466 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1465, i64 %1464
+  %1466 = getelementptr inbounds [64 x i8], ptr %1465, i64 %1464
   %1467 = shl i64 %1455, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1466, ptr nonnull align 8 %1453, i64 %1467, i1 false), !noalias !15453
   %1468 = load i64, ptr %.sroa.52030.0..sroa_idx, align 8, !alias.scope !15450, !noalias !15453, !noundef !4
@@ -78033,7 +78033,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1333: ; preds = %1367
 1495:                                             ; preds = %.noexc1369, %1483
   %1496 = phi i64 [ %1488, %1483 ], [ %.pre.i1368, %.noexc1369 ]
   %1497 = load ptr, ptr %.sroa.42024.0..sroa_idx, align 8, !alias.scope !15473, !noalias !15476, !nonnull !4, !noundef !4
-  %1498 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1497, i64 %1496
+  %1498 = getelementptr inbounds [64 x i8], ptr %1497, i64 %1496
   %1499 = shl i64 %1487, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1498, ptr nonnull align 8 %1485, i64 %1499, i1 false), !noalias !15476
   %1500 = load i64, ptr %.sroa.52025.0..sroa_idx, align 8, !alias.scope !15473, !noalias !15476, !noundef !4
@@ -78115,7 +78115,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1333: ; preds = %1367
 1527:                                             ; preds = %.noexc1378, %1515
   %1528 = phi i64 [ %1520, %1515 ], [ %.pre.i1377, %.noexc1378 ]
   %1529 = load ptr, ptr %.sroa.42021.0..sroa_idx, align 8, !alias.scope !15496, !noalias !15499, !nonnull !4, !noundef !4
-  %1530 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1529, i64 %1528
+  %1530 = getelementptr inbounds [64 x i8], ptr %1529, i64 %1528
   %1531 = shl i64 %1519, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1530, ptr nonnull align 8 %1517, i64 %1531, i1 false), !noalias !15499
   %1532 = load i64, ptr %.sroa.52022.0..sroa_idx, align 8, !alias.scope !15496, !noalias !15499, !noundef !4
@@ -78197,7 +78197,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1333: ; preds = %1367
 1559:                                             ; preds = %.noexc1387, %1547
   %1560 = phi i64 [ %1552, %1547 ], [ %.pre.i1386, %.noexc1387 ]
   %1561 = load ptr, ptr %1288, align 8, !alias.scope !15519, !noalias !15522, !nonnull !4, !noundef !4
-  %1562 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1561, i64 %1560
+  %1562 = getelementptr inbounds [64 x i8], ptr %1561, i64 %1560
   %1563 = shl i64 %1551, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1562, ptr nonnull align 8 %1549, i64 %1563, i1 false), !noalias !15522
   %1564 = load i64, ptr %1289, align 8, !alias.scope !15519, !noalias !15522, !noundef !4
@@ -78332,7 +78332,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1333: ; preds = %1367
   %1605 = phi ptr [ %1588, %1595 ], [ %.pre3224, %.noexc1401 ]
   %1606 = phi i64 [ %1598, %1595 ], [ %.pre.i1400, %.noexc1401 ]
   %1607 = load ptr, ptr %.sroa.42016.0..sroa_idx, align 8, !alias.scope !15552, !noalias !15555, !nonnull !4, !noundef !4
-  %1608 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1607, i64 %1606
+  %1608 = getelementptr inbounds [64 x i8], ptr %1607, i64 %1606
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %1608, ptr noundef nonnull align 8 dereferenceable(64) %1588, i64 64, i1 false), !noalias !15555
   %1609 = add i64 %1606, 1
   store i64 %1609, ptr %.sroa.52017.0..sroa_idx, align 8, !alias.scope !15552, !noalias !15555
@@ -78411,7 +78411,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1333: ; preds = %1367
 1634:                                             ; preds = %.noexc1411, %1622
   %1635 = phi i64 [ %1627, %1622 ], [ %.pre.i1410, %.noexc1411 ]
   %1636 = load ptr, ptr %.sroa.42013.0..sroa_idx, align 8, !alias.scope !15575, !noalias !15578, !nonnull !4, !noundef !4
-  %1637 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1636, i64 %1635
+  %1637 = getelementptr inbounds [64 x i8], ptr %1636, i64 %1635
   %1638 = shl i64 %1626, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1637, ptr nonnull align 8 %1624, i64 %1638, i1 false), !noalias !15578
   %1639 = load i64, ptr %.sroa.52014.0..sroa_idx, align 8, !alias.scope !15575, !noalias !15578, !noundef !4
@@ -78493,7 +78493,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1333: ; preds = %1367
 1666:                                             ; preds = %.noexc1420, %1654
   %1667 = phi i64 [ %1659, %1654 ], [ %.pre.i1419, %.noexc1420 ]
   %1668 = load ptr, ptr %.sroa.42008.0..sroa_idx, align 8, !alias.scope !15598, !noalias !15601, !nonnull !4, !noundef !4
-  %1669 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1668, i64 %1667
+  %1669 = getelementptr inbounds [64 x i8], ptr %1668, i64 %1667
   %1670 = shl i64 %1658, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1669, ptr nonnull align 8 %1656, i64 %1670, i1 false), !noalias !15601
   %1671 = load i64, ptr %.sroa.52009.0..sroa_idx, align 8, !alias.scope !15598, !noalias !15601, !noundef !4
@@ -78575,7 +78575,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1333: ; preds = %1367
 1698:                                             ; preds = %.noexc1429, %1686
   %1699 = phi i64 [ %1691, %1686 ], [ %.pre.i1428, %.noexc1429 ]
   %1700 = load ptr, ptr %.sroa.42005.0..sroa_idx, align 8, !alias.scope !15621, !noalias !15624, !nonnull !4, !noundef !4
-  %1701 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1700, i64 %1699
+  %1701 = getelementptr inbounds [64 x i8], ptr %1700, i64 %1699
   %1702 = shl i64 %1690, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1701, ptr nonnull align 8 %1688, i64 %1702, i1 false), !noalias !15624
   %1703 = load i64, ptr %.sroa.52006.0..sroa_idx, align 8, !alias.scope !15621, !noalias !15624, !noundef !4
@@ -78657,7 +78657,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1333: ; preds = %1367
 1730:                                             ; preds = %.noexc1438, %1718
   %1731 = phi i64 [ %1723, %1718 ], [ %.pre.i1437, %.noexc1438 ]
   %1732 = load ptr, ptr %.sroa.42000.0..sroa_idx, align 8, !alias.scope !15644, !noalias !15647, !nonnull !4, !noundef !4
-  %1733 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1732, i64 %1731
+  %1733 = getelementptr inbounds [64 x i8], ptr %1732, i64 %1731
   %1734 = shl i64 %1722, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1733, ptr nonnull align 8 %1720, i64 %1734, i1 false), !noalias !15647
   %1735 = load i64, ptr %.sroa.52001.0..sroa_idx, align 8, !alias.scope !15644, !noalias !15647, !noundef !4
@@ -78739,7 +78739,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1333: ; preds = %1367
 1762:                                             ; preds = %.noexc1447, %1750
   %1763 = phi i64 [ %1755, %1750 ], [ %.pre.i1446, %.noexc1447 ]
   %1764 = load ptr, ptr %.sroa.41997.0..sroa_idx, align 8, !alias.scope !15667, !noalias !15670, !nonnull !4, !noundef !4
-  %1765 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1764, i64 %1763
+  %1765 = getelementptr inbounds [64 x i8], ptr %1764, i64 %1763
   %1766 = shl i64 %1754, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1765, ptr nonnull align 8 %1752, i64 %1766, i1 false), !noalias !15670
   %1767 = load i64, ptr %.sroa.51998.0..sroa_idx, align 8, !alias.scope !15667, !noalias !15670, !noundef !4
@@ -78821,7 +78821,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1333: ; preds = %1367
 1794:                                             ; preds = %.noexc1456, %1782
   %1795 = phi i64 [ %1787, %1782 ], [ %.pre.i1455, %.noexc1456 ]
   %1796 = load ptr, ptr %1158, align 8, !alias.scope !15690, !noalias !15693, !nonnull !4, !noundef !4
-  %1797 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1796, i64 %1795
+  %1797 = getelementptr inbounds [64 x i8], ptr %1796, i64 %1795
   %1798 = shl i64 %1786, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1797, ptr nonnull align 8 %1784, i64 %1798, i1 false), !noalias !15693
   %1799 = load i64, ptr %1159, align 8, !alias.scope !15690, !noalias !15693, !noundef !4
@@ -78904,7 +78904,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1333: ; preds = %1367
 1826:                                             ; preds = %.noexc1465, %1814
   %1827 = phi i64 [ %1819, %1814 ], [ %.pre.i1464, %.noexc1465 ]
   %1828 = load ptr, ptr %1133, align 8, !alias.scope !15713, !noalias !15716, !nonnull !4, !noundef !4
-  %1829 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1828, i64 %1827
+  %1829 = getelementptr inbounds [64 x i8], ptr %1828, i64 %1827
   %1830 = shl i64 %1818, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1829, ptr nonnull align 8 %1816, i64 %1830, i1 false), !noalias !15716
   %1831 = load i64, ptr %1134, align 8, !alias.scope !15713, !noalias !15716, !noundef !4
@@ -78987,7 +78987,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1333: ; preds = %1367
 1858:                                             ; preds = %.noexc1474, %1846
   %1859 = phi i64 [ %1851, %1846 ], [ %.pre.i1473, %.noexc1474 ]
   %1860 = load ptr, ptr %.sroa.41992.0..sroa_idx, align 8, !alias.scope !15736, !noalias !15739, !nonnull !4, !noundef !4
-  %1861 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1860, i64 %1859
+  %1861 = getelementptr inbounds [64 x i8], ptr %1860, i64 %1859
   %1862 = shl i64 %1850, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1861, ptr nonnull align 8 %1848, i64 %1862, i1 false), !noalias !15739
   %1863 = load i64, ptr %.sroa.51993.0..sroa_idx, align 8, !alias.scope !15736, !noalias !15739, !noundef !4
@@ -79071,7 +79071,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1333: ; preds = %1367
   %1892 = phi i64 [ %1884, %1878 ], [ %.pre.i1482, %.noexc1483 ]
   %1893 = getelementptr inbounds nuw i8, ptr %254, i64 8
   %1894 = load ptr, ptr %1893, align 8, !alias.scope !15759, !noalias !15762, !nonnull !4, !noundef !4
-  %1895 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1894, i64 %1892
+  %1895 = getelementptr inbounds [64 x i8], ptr %1894, i64 %1892
   %1896 = shl i64 %1882, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1895, ptr nonnull align 8 %1880, i64 %1896, i1 false), !noalias !15762
   %1897 = load i64, ptr %1883, align 8, !alias.scope !15759, !noalias !15762, !noundef !4
@@ -79203,7 +79203,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1333: ; preds = %1367
   %1937 = phi ptr [ %1920, %1927 ], [ %.pre3225, %.noexc1497 ]
   %1938 = phi i64 [ %1930, %1927 ], [ %.pre.i1496, %.noexc1497 ]
   %1939 = load ptr, ptr %1095, align 8, !alias.scope !15792, !noalias !15795, !nonnull !4, !noundef !4
-  %1940 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1939, i64 %1938
+  %1940 = getelementptr inbounds [64 x i8], ptr %1939, i64 %1938
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %1940, ptr noundef nonnull align 8 dereferenceable(64) %1920, i64 64, i1 false), !noalias !15795
   %1941 = add i64 %1938, 1
   store i64 %1941, ptr %1096, align 8, !alias.scope !15792, !noalias !15795
@@ -79282,7 +79282,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1333: ; preds = %1367
 1966:                                             ; preds = %.noexc1508, %1954
   %1967 = phi i64 [ %1959, %1954 ], [ %.pre.i1507, %.noexc1508 ]
   %1968 = load ptr, ptr %.sroa.41974.0..sroa_idx, align 8, !alias.scope !15815, !noalias !15818, !nonnull !4, !noundef !4
-  %1969 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %1968, i64 %1967
+  %1969 = getelementptr inbounds [64 x i8], ptr %1968, i64 %1967
   %1970 = shl i64 %1958, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1969, ptr nonnull align 8 %1956, i64 %1970, i1 false), !noalias !15818
   %1971 = load i64, ptr %.sroa.51975.0..sroa_idx, align 8, !alias.scope !15815, !noalias !15818, !noundef !4
@@ -80104,7 +80104,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1568: ; preds = %2121
   %2155 = phi ptr [ %2123, %2147 ], [ %.pre3226, %.noexc1577 ]
   %2156 = phi i64 [ %2148, %2147 ], [ %.pre.i1576, %.noexc1577 ]
   %2157 = load ptr, ptr %.sroa.42074.0..sroa_idx, align 8, !alias.scope !15937, !noalias !15940, !nonnull !4, !noundef !4
-  %2158 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %2157, i64 %2156
+  %2158 = getelementptr inbounds [64 x i8], ptr %2157, i64 %2156
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2158, ptr noundef nonnull align 8 dereferenceable(64) %2123, i64 64, i1 false), !noalias !15940
   %2159 = add i64 %2156, 1
   store i64 %2159, ptr %.sroa.52075.0..sroa_idx, align 8, !alias.scope !15937, !noalias !15940
@@ -80183,7 +80183,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1568: ; preds = %2121
 2184:                                             ; preds = %.noexc1586, %2172
   %2185 = phi i64 [ %2177, %2172 ], [ %.pre.i1585, %.noexc1586 ]
   %2186 = load ptr, ptr %.sroa.42071.0..sroa_idx, align 8, !alias.scope !15960, !noalias !15963, !nonnull !4, !noundef !4
-  %2187 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %2186, i64 %2185
+  %2187 = getelementptr inbounds [64 x i8], ptr %2186, i64 %2185
   %2188 = shl i64 %2176, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2187, ptr nonnull align 8 %2174, i64 %2188, i1 false), !noalias !15963
   %2189 = load i64, ptr %.sroa.52072.0..sroa_idx, align 8, !alias.scope !15960, !noalias !15963, !noundef !4
@@ -80265,7 +80265,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1568: ; preds = %2121
 2216:                                             ; preds = %.noexc1595, %2204
   %2217 = phi i64 [ %2209, %2204 ], [ %.pre.i1594, %.noexc1595 ]
   %2218 = load ptr, ptr %.sroa.42066.0..sroa_idx, align 8, !alias.scope !15983, !noalias !15986, !nonnull !4, !noundef !4
-  %2219 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %2218, i64 %2217
+  %2219 = getelementptr inbounds [64 x i8], ptr %2218, i64 %2217
   %2220 = shl i64 %2208, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2219, ptr nonnull align 8 %2206, i64 %2220, i1 false), !noalias !15986
   %2221 = load i64, ptr %.sroa.52067.0..sroa_idx, align 8, !alias.scope !15983, !noalias !15986, !noundef !4
@@ -80347,7 +80347,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1568: ; preds = %2121
 2248:                                             ; preds = %.noexc1604, %2236
   %2249 = phi i64 [ %2241, %2236 ], [ %.pre.i1603, %.noexc1604 ]
   %2250 = load ptr, ptr %.sroa.42063.0..sroa_idx, align 8, !alias.scope !16006, !noalias !16009, !nonnull !4, !noundef !4
-  %2251 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %2250, i64 %2249
+  %2251 = getelementptr inbounds [64 x i8], ptr %2250, i64 %2249
   %2252 = shl i64 %2240, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2251, ptr nonnull align 8 %2238, i64 %2252, i1 false), !noalias !16009
   %2253 = load i64, ptr %.sroa.52064.0..sroa_idx, align 8, !alias.scope !16006, !noalias !16009, !noundef !4
@@ -80429,7 +80429,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1568: ; preds = %2121
 2280:                                             ; preds = %.noexc1613, %2268
   %2281 = phi i64 [ %2273, %2268 ], [ %.pre.i1612, %.noexc1613 ]
   %2282 = load ptr, ptr %.sroa.42058.0..sroa_idx, align 8, !alias.scope !16029, !noalias !16032, !nonnull !4, !noundef !4
-  %2283 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %2282, i64 %2281
+  %2283 = getelementptr inbounds [64 x i8], ptr %2282, i64 %2281
   %2284 = shl i64 %2272, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2283, ptr nonnull align 8 %2270, i64 %2284, i1 false), !noalias !16032
   %2285 = load i64, ptr %.sroa.52059.0..sroa_idx, align 8, !alias.scope !16029, !noalias !16032, !noundef !4
@@ -80511,7 +80511,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1568: ; preds = %2121
 2312:                                             ; preds = %.noexc1622, %2300
   %2313 = phi i64 [ %2305, %2300 ], [ %.pre.i1621, %.noexc1622 ]
   %2314 = load ptr, ptr %.sroa.42055.0..sroa_idx, align 8, !alias.scope !16052, !noalias !16055, !nonnull !4, !noundef !4
-  %2315 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %2314, i64 %2313
+  %2315 = getelementptr inbounds [64 x i8], ptr %2314, i64 %2313
   %2316 = shl i64 %2304, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2315, ptr nonnull align 8 %2302, i64 %2316, i1 false), !noalias !16055
   %2317 = load i64, ptr %.sroa.52056.0..sroa_idx, align 8, !alias.scope !16052, !noalias !16055, !noundef !4
@@ -81906,7 +81906,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1722: ; preds = %2564
   %2647 = phi ptr [ %2630, %2637 ], [ %.pre3227, %.noexc1749 ]
   %2648 = phi i64 [ %2640, %2637 ], [ %.pre.i1748, %.noexc1749 ]
   %2649 = load ptr, ptr %.sroa.42128.0..sroa_idx, align 8, !alias.scope !16300, !noalias !16303, !nonnull !4, !noundef !4
-  %2650 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %2649, i64 %2648
+  %2650 = getelementptr inbounds [64 x i8], ptr %2649, i64 %2648
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2650, ptr noundef nonnull align 8 dereferenceable(64) %2630, i64 64, i1 false), !noalias !16303
   %2651 = add i64 %2648, 1
   store i64 %2651, ptr %.sroa.52129.0..sroa_idx, align 8, !alias.scope !16300, !noalias !16303
@@ -81985,7 +81985,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1722: ; preds = %2564
 2676:                                             ; preds = %.noexc1759, %2664
   %2677 = phi i64 [ %2669, %2664 ], [ %.pre.i1758, %.noexc1759 ]
   %2678 = load ptr, ptr %.sroa.42123.0..sroa_idx, align 8, !alias.scope !16323, !noalias !16326, !nonnull !4, !noundef !4
-  %2679 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %2678, i64 %2677
+  %2679 = getelementptr inbounds [64 x i8], ptr %2678, i64 %2677
   %2680 = shl i64 %2668, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2679, ptr nonnull align 8 %2666, i64 %2680, i1 false), !noalias !16326
   %2681 = load i64, ptr %.sroa.52124.0..sroa_idx, align 8, !alias.scope !16323, !noalias !16326, !noundef !4
@@ -82067,7 +82067,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1722: ; preds = %2564
 2708:                                             ; preds = %.noexc1768, %2696
   %2709 = phi i64 [ %2701, %2696 ], [ %.pre.i1767, %.noexc1768 ]
   %2710 = load ptr, ptr %.sroa.42120.0..sroa_idx, align 8, !alias.scope !16346, !noalias !16349, !nonnull !4, !noundef !4
-  %2711 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %2710, i64 %2709
+  %2711 = getelementptr inbounds [64 x i8], ptr %2710, i64 %2709
   %2712 = shl i64 %2700, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2711, ptr nonnull align 8 %2698, i64 %2712, i1 false), !noalias !16349
   %2713 = load i64, ptr %.sroa.52121.0..sroa_idx, align 8, !alias.scope !16346, !noalias !16349, !noundef !4
@@ -82149,7 +82149,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1722: ; preds = %2564
 2740:                                             ; preds = %.noexc1777, %2728
   %2741 = phi i64 [ %2733, %2728 ], [ %.pre.i1776, %.noexc1777 ]
   %2742 = load ptr, ptr %.sroa.42115.0..sroa_idx, align 8, !alias.scope !16369, !noalias !16372, !nonnull !4, !noundef !4
-  %2743 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %2742, i64 %2741
+  %2743 = getelementptr inbounds [64 x i8], ptr %2742, i64 %2741
   %2744 = shl i64 %2732, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2743, ptr nonnull align 8 %2730, i64 %2744, i1 false), !noalias !16372
   %2745 = load i64, ptr %.sroa.52116.0..sroa_idx, align 8, !alias.scope !16369, !noalias !16372, !noundef !4
@@ -82231,7 +82231,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1722: ; preds = %2564
 2772:                                             ; preds = %.noexc1786, %2760
   %2773 = phi i64 [ %2765, %2760 ], [ %.pre.i1785, %.noexc1786 ]
   %2774 = load ptr, ptr %.sroa.42112.0..sroa_idx, align 8, !alias.scope !16392, !noalias !16395, !nonnull !4, !noundef !4
-  %2775 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %2774, i64 %2773
+  %2775 = getelementptr inbounds [64 x i8], ptr %2774, i64 %2773
   %2776 = shl i64 %2764, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2775, ptr nonnull align 8 %2762, i64 %2776, i1 false), !noalias !16395
   %2777 = load i64, ptr %.sroa.52113.0..sroa_idx, align 8, !alias.scope !16392, !noalias !16395, !noundef !4
@@ -82313,7 +82313,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1722: ; preds = %2564
 2804:                                             ; preds = %.noexc1795, %2792
   %2805 = phi i64 [ %2797, %2792 ], [ %.pre.i1794, %.noexc1795 ]
   %2806 = load ptr, ptr %2520, align 8, !alias.scope !16415, !noalias !16418, !nonnull !4, !noundef !4
-  %2807 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %2806, i64 %2805
+  %2807 = getelementptr inbounds [64 x i8], ptr %2806, i64 %2805
   %2808 = shl i64 %2796, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2807, ptr nonnull align 8 %2794, i64 %2808, i1 false), !noalias !16418
   %2809 = load i64, ptr %2521, align 8, !alias.scope !16415, !noalias !16418, !noundef !4
@@ -82396,7 +82396,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1722: ; preds = %2564
 2836:                                             ; preds = %.noexc1804, %2824
   %2837 = phi i64 [ %2829, %2824 ], [ %.pre.i1803, %.noexc1804 ]
   %2838 = load ptr, ptr %.sroa.42109.0..sroa_idx, align 8, !alias.scope !16438, !noalias !16441, !nonnull !4, !noundef !4
-  %2839 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %2838, i64 %2837
+  %2839 = getelementptr inbounds [64 x i8], ptr %2838, i64 %2837
   %2840 = shl i64 %2828, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2839, ptr nonnull align 8 %2826, i64 %2840, i1 false), !noalias !16441
   %2841 = load i64, ptr %.sroa.52110.0..sroa_idx, align 8, !alias.scope !16438, !noalias !16441, !noundef !4
@@ -82478,7 +82478,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1722: ; preds = %2564
 2868:                                             ; preds = %.noexc1813, %2856
   %2869 = phi i64 [ %2861, %2856 ], [ %.pre.i1812, %.noexc1813 ]
   %2870 = load ptr, ptr %.sroa.42104.0..sroa_idx, align 8, !alias.scope !16461, !noalias !16464, !nonnull !4, !noundef !4
-  %2871 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %2870, i64 %2869
+  %2871 = getelementptr inbounds [64 x i8], ptr %2870, i64 %2869
   %2872 = shl i64 %2860, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2871, ptr nonnull align 8 %2858, i64 %2872, i1 false), !noalias !16464
   %2873 = load i64, ptr %.sroa.52105.0..sroa_idx, align 8, !alias.scope !16461, !noalias !16464, !noundef !4
@@ -82560,7 +82560,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1722: ; preds = %2564
 2900:                                             ; preds = %.noexc1822, %2888
   %2901 = phi i64 [ %2893, %2888 ], [ %.pre.i1821, %.noexc1822 ]
   %2902 = load ptr, ptr %.sroa.42101.0..sroa_idx, align 8, !alias.scope !16484, !noalias !16487, !nonnull !4, !noundef !4
-  %2903 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %2902, i64 %2901
+  %2903 = getelementptr inbounds [64 x i8], ptr %2902, i64 %2901
   %2904 = shl i64 %2892, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2903, ptr nonnull align 8 %2890, i64 %2904, i1 false), !noalias !16487
   %2905 = load i64, ptr %.sroa.52102.0..sroa_idx, align 8, !alias.scope !16484, !noalias !16487, !noundef !4
@@ -82642,7 +82642,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1722: ; preds = %2564
 2932:                                             ; preds = %.noexc1831, %2920
   %2933 = phi i64 [ %2925, %2920 ], [ %.pre.i1830, %.noexc1831 ]
   %2934 = load ptr, ptr %.sroa.42096.0..sroa_idx, align 8, !alias.scope !16507, !noalias !16510, !nonnull !4, !noundef !4
-  %2935 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %2934, i64 %2933
+  %2935 = getelementptr inbounds [64 x i8], ptr %2934, i64 %2933
   %2936 = shl i64 %2924, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2935, ptr nonnull align 8 %2922, i64 %2936, i1 false), !noalias !16510
   %2937 = load i64, ptr %.sroa.52097.0..sroa_idx, align 8, !alias.scope !16507, !noalias !16510, !noundef !4
@@ -82724,7 +82724,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1722: ; preds = %2564
 2964:                                             ; preds = %.noexc1840, %2952
   %2965 = phi i64 [ %2957, %2952 ], [ %.pre.i1839, %.noexc1840 ]
   %2966 = load ptr, ptr %.sroa.42093.0..sroa_idx, align 8, !alias.scope !16530, !noalias !16533, !nonnull !4, !noundef !4
-  %2967 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %2966, i64 %2965
+  %2967 = getelementptr inbounds [64 x i8], ptr %2966, i64 %2965
   %2968 = shl i64 %2956, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2967, ptr nonnull align 8 %2954, i64 %2968, i1 false), !noalias !16533
   %2969 = load i64, ptr %.sroa.52094.0..sroa_idx, align 8, !alias.scope !16530, !noalias !16533, !noundef !4
@@ -82806,7 +82806,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1722: ; preds = %2564
 2996:                                             ; preds = %.noexc1849, %2984
   %2997 = phi i64 [ %2989, %2984 ], [ %.pre.i1848, %.noexc1849 ]
   %2998 = load ptr, ptr %.sroa.42088.0..sroa_idx, align 8, !alias.scope !16553, !noalias !16556, !nonnull !4, !noundef !4
-  %2999 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %2998, i64 %2997
+  %2999 = getelementptr inbounds [64 x i8], ptr %2998, i64 %2997
   %3000 = shl i64 %2988, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2999, ptr nonnull align 8 %2986, i64 %3000, i1 false), !noalias !16556
   %3001 = load i64, ptr %.sroa.52089.0..sroa_idx, align 8, !alias.scope !16553, !noalias !16556, !noundef !4
@@ -82888,7 +82888,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1722: ; preds = %2564
 3028:                                             ; preds = %.noexc1858, %3016
   %3029 = phi i64 [ %3021, %3016 ], [ %.pre.i1857, %.noexc1858 ]
   %3030 = load ptr, ptr %.sroa.42085.0..sroa_idx, align 8, !alias.scope !16576, !noalias !16579, !nonnull !4, !noundef !4
-  %3031 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %3030, i64 %3029
+  %3031 = getelementptr inbounds [64 x i8], ptr %3030, i64 %3029
   %3032 = shl i64 %3020, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %3031, ptr nonnull align 8 %3018, i64 %3032, i1 false), !noalias !16579
   %3033 = load i64, ptr %.sroa.52086.0..sroa_idx, align 8, !alias.scope !16576, !noalias !16579, !noundef !4
@@ -82970,7 +82970,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1722: ; preds = %2564
 3060:                                             ; preds = %.noexc1867, %3048
   %3061 = phi i64 [ %3053, %3048 ], [ %.pre.i1866, %.noexc1867 ]
   %3062 = load ptr, ptr %2382, align 8, !alias.scope !16599, !noalias !16602, !nonnull !4, !noundef !4
-  %3063 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %3062, i64 %3061
+  %3063 = getelementptr inbounds [64 x i8], ptr %3062, i64 %3061
   %3064 = shl i64 %3052, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %3063, ptr nonnull align 8 %3050, i64 %3064, i1 false), !noalias !16602
   %3065 = load i64, ptr %2383, align 8, !alias.scope !16599, !noalias !16602, !noundef !4
@@ -83053,7 +83053,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1722: ; preds = %2564
 3092:                                             ; preds = %.noexc1876, %3080
   %3093 = phi i64 [ %3085, %3080 ], [ %.pre.i1875, %.noexc1876 ]
   %3094 = load ptr, ptr %.sroa.42082.0..sroa_idx, align 8, !alias.scope !16622, !noalias !16625, !nonnull !4, !noundef !4
-  %3095 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %3094, i64 %3093
+  %3095 = getelementptr inbounds [64 x i8], ptr %3094, i64 %3093
   %3096 = shl i64 %3084, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %3095, ptr nonnull align 8 %3082, i64 %3096, i1 false), !noalias !16625
   %3097 = load i64, ptr %.sroa.52083.0..sroa_idx, align 8, !alias.scope !16622, !noalias !16625, !noundef !4
@@ -83135,7 +83135,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1722: ; preds = %2564
 3124:                                             ; preds = %.noexc1885, %3112
   %3125 = phi i64 [ %3117, %3112 ], [ %.pre.i1884, %.noexc1885 ]
   %3126 = load ptr, ptr %2348, align 8, !alias.scope !16645, !noalias !16648, !nonnull !4, !noundef !4
-  %3127 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %3126, i64 %3125
+  %3127 = getelementptr inbounds [64 x i8], ptr %3126, i64 %3125
   %3128 = shl i64 %3116, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %3127, ptr nonnull align 8 %3114, i64 %3128, i1 false), !noalias !16648
   %3129 = load i64, ptr %2349, align 8, !alias.scope !16645, !noalias !16648, !noundef !4
@@ -83217,7 +83217,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1722: ; preds = %2564
 3156:                                             ; preds = %.noexc1894, %3144
   %3157 = phi i64 [ %3149, %3144 ], [ %.pre.i1893, %.noexc1894 ]
   %3158 = load ptr, ptr %.sroa.42050.0..sroa_idx, align 8, !alias.scope !16668, !noalias !16671, !nonnull !4, !noundef !4
-  %3159 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %3158, i64 %3157
+  %3159 = getelementptr inbounds [64 x i8], ptr %3158, i64 %3157
   %3160 = shl i64 %3148, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %3159, ptr nonnull align 8 %3146, i64 %3160, i1 false), !noalias !16671
   %3161 = load i64, ptr %.sroa.52051.0..sroa_idx, align 8, !alias.scope !16668, !noalias !16671, !noundef !4
@@ -83299,7 +83299,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1722: ; preds = %2564
 3188:                                             ; preds = %.noexc1905, %3176
   %3189 = phi i64 [ %3181, %3176 ], [ %.pre.i1904, %.noexc1905 ]
   %3190 = load ptr, ptr %.sroa.42045.0..sroa_idx, align 8, !alias.scope !16691, !noalias !16694, !nonnull !4, !noundef !4
-  %3191 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %3190, i64 %3189
+  %3191 = getelementptr inbounds [64 x i8], ptr %3190, i64 %3189
   %3192 = shl i64 %3180, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %3191, ptr nonnull align 8 %3178, i64 %3192, i1 false), !noalias !16694
   %3193 = load i64, ptr %.sroa.52046.0..sroa_idx, align 8, !alias.scope !16691, !noalias !16694, !noundef !4

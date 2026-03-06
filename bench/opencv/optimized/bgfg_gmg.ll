@@ -548,7 +548,7 @@ define hidden void @_ZNK2cv6bgsegm12GMG_LoopBodyclERKNS_5RangeE(ptr noundef nonn
   %4 = load i32, ptr %3, align 8, !tbaa !41
   %5 = and i32 %4, 7
   %6 = zext nneg i32 %5 to i64
-  %7 = getelementptr inbounds nuw ptr, ptr @_ZZNK2cv6bgsegm12GMG_LoopBodyclERKNS_5RangeEE5funcs, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNK2cv6bgsegm12GMG_LoopBodyclERKNS_5RangeEE5funcs, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !42
   %9 = lshr i32 %4, 3
   %10 = and i32 %9, 511
@@ -637,7 +637,7 @@ define hidden void @_ZNK2cv6bgsegm12GMG_LoopBodyclERKNS_5RangeE(ptr noundef nonn
 .lr.ph114:                                        ; preds = %.lr.ph114.preheader, %_ZN2cv6bgsegmL18normalizeHistogramEPfi.exit91
   %indvars.iv130 = phi i64 [ 0, %.lr.ph114.preheader ], [ %indvars.iv.next131, %_ZN2cv6bgsegmL18normalizeHistogramEPfi.exit91 ]
   %indvars.iv128 = phi i64 [ %59, %.lr.ph114.preheader ], [ %indvars.iv.next129, %_ZN2cv6bgsegmL18normalizeHistogramEPfi.exit91 ]
-  %65 = getelementptr inbounds nuw i32, ptr %52, i64 %indvars.iv130
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %indvars.iv130
   %66 = load i32, ptr %65, align 4, !tbaa !56
   %67 = load ptr, ptr %24, align 8, !tbaa !50
   %68 = load ptr, ptr %25, align 8, !tbaa !51
@@ -674,13 +674,13 @@ define hidden void @_ZNK2cv6bgsegm12GMG_LoopBodyclERKNS_5RangeE(ptr noundef nonn
 
 .lr.ph.i:                                         ; preds = %86, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %86 ]
-  %87 = getelementptr inbounds nuw i32, ptr %71, i64 %indvars.iv.i
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %71, i64 %indvars.iv.i
   %88 = load i32, ptr %87, align 4, !tbaa !56
   %89 = icmp eq i32 %81, %88
   br i1 %89, label %90, label %86
 
 90:                                               ; preds = %.lr.ph.i
-  %91 = getelementptr inbounds nuw float, ptr %76, i64 %indvars.iv.i
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %indvars.iv.i
   %92 = load float, ptr %91, align 4, !tbaa !63
   %93 = fpext float %92 to double
   br label %_ZN2cv6bgsegmL11findFeatureEiPKiPKfi.exit
@@ -724,7 +724,7 @@ _ZN2cv6bgsegmL11findFeatureEiPKiPKfi.exit:        ; preds = %86, %84, %90
 
 .lr.ph.i56:                                       ; preds = %116, %.lr.ph.preheader.i54
   %indvars.iv.i57 = phi i64 [ 0, %.lr.ph.preheader.i54 ], [ %indvars.iv.next.i58, %116 ]
-  %113 = getelementptr inbounds nuw i32, ptr %71, i64 %indvars.iv.i57
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %71, i64 %indvars.iv.i57
   %114 = load i32, ptr %113, align 4, !tbaa !56
   %115 = icmp eq i32 %81, %114
   br i1 %115, label %117, label %116
@@ -735,7 +735,7 @@ _ZN2cv6bgsegmL11findFeatureEiPKiPKfi.exit:        ; preds = %86, %84, %90
   br i1 %exitcond.not.i59, label %._crit_edge.i, label %.lr.ph.i56, !llvm.loop !72
 
 117:                                              ; preds = %.lr.ph.i56
-  %118 = getelementptr inbounds nuw float, ptr %76, i64 %indvars.iv.i57
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %indvars.iv.i57
   %119 = load float, ptr %118, align 4, !tbaa !63
   %120 = fadd float %119, %111
   %121 = getelementptr inbounds nuw i8, ptr %71, i64 4
@@ -769,7 +769,7 @@ _ZN2cv6bgsegmL13insertFeatureEifPiPfRii.exit:     ; preds = %117, %127
 
 133:                                              ; preds = %.lr.ph, %133
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %133 ]
-  %134 = getelementptr inbounds nuw float, ptr %76, i64 %indvars.iv
+  %134 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %indvars.iv
   %135 = load float, ptr %134, align 4, !tbaa !63
   %136 = fmul float %135, %108
   store float %136, ptr %134, align 4, !tbaa !63
@@ -779,9 +779,9 @@ _ZN2cv6bgsegmL13insertFeatureEifPiPfRii.exit:     ; preds = %117, %127
 
 137:                                              ; preds = %._crit_edge.i
   %138 = sext i32 %66 to i64
-  %139 = getelementptr inbounds i32, ptr %71, i64 %138
+  %139 = getelementptr inbounds [4 x i8], ptr %71, i64 %138
   store i32 %81, ptr %139, align 4, !tbaa !56
-  %140 = getelementptr inbounds float, ptr %76, i64 %138
+  %140 = getelementptr inbounds [4 x i8], ptr %76, i64 %138
   store float %125, ptr %140, align 4, !tbaa !63
   %141 = add nsw i32 %66, 1
   %142 = icmp sgt i32 %66, -1
@@ -798,7 +798,7 @@ _ZN2cv6bgsegmL13insertFeatureEifPiPfRii.exit:     ; preds = %117, %127
 .lr.ph.i62:                                       ; preds = %.lr.ph.i62, %.lr.ph.preheader.i60
   %indvars.iv.i63 = phi i64 [ 0, %.lr.ph.preheader.i60 ], [ %indvars.iv.next.i64, %.lr.ph.i62 ]
   %.01315.i = phi float [ 0.000000e+00, %.lr.ph.preheader.i60 ], [ %146, %.lr.ph.i62 ]
-  %144 = getelementptr inbounds nuw float, ptr %76, i64 %indvars.iv.i63
+  %144 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %indvars.iv.i63
   %145 = load float, ptr %144, align 4, !tbaa !63
   %146 = fadd float %.01315.i, %145
   %indvars.iv.next.i64 = add nuw nsw i64 %indvars.iv.i63, 1
@@ -807,7 +807,7 @@ _ZN2cv6bgsegmL13insertFeatureEifPiPfRii.exit:     ; preds = %117, %127
 
 .lr.ph18.i:                                       ; preds = %._crit_edge.i66, %.lr.ph18.i
   %indvars.iv20.i = phi i64 [ %indvars.iv.next21.i, %.lr.ph18.i ], [ 0, %._crit_edge.i66 ]
-  %147 = getelementptr inbounds nuw float, ptr %76, i64 %indvars.iv20.i
+  %147 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %indvars.iv20.i
   %148 = load float, ptr %147, align 4, !tbaa !63
   %149 = fdiv float %148, %146
   store float %149, ptr %147, align 4, !tbaa !63
@@ -839,7 +839,7 @@ _ZN2cv6bgsegmL18normalizeHistogramEPfi.exit:      ; preds = %.lr.ph18.i, %137, %
 
 .lr.ph.i72:                                       ; preds = %161, %.lr.ph.preheader.i70
   %indvars.iv.i73 = phi i64 [ 0, %.lr.ph.preheader.i70 ], [ %indvars.iv.next.i74, %161 ]
-  %158 = getelementptr inbounds nuw i32, ptr %71, i64 %indvars.iv.i73
+  %158 = getelementptr inbounds nuw [4 x i8], ptr %71, i64 %indvars.iv.i73
   %159 = load i32, ptr %158, align 4, !tbaa !56
   %160 = icmp eq i32 %81, %159
   br i1 %160, label %162, label %161
@@ -850,7 +850,7 @@ _ZN2cv6bgsegmL18normalizeHistogramEPfi.exit:      ; preds = %.lr.ph18.i, %137, %
   br i1 %exitcond.not.i75, label %._crit_edge.i67, label %.lr.ph.i72, !llvm.loop !72
 
 162:                                              ; preds = %.lr.ph.i72
-  %163 = getelementptr inbounds nuw float, ptr %76, i64 %indvars.iv.i73
+  %163 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %indvars.iv.i73
   %164 = load float, ptr %163, align 4, !tbaa !63
   %165 = fadd float %164, 1.000000e+00
   %166 = getelementptr inbounds nuw i8, ptr %71, i64 4
@@ -873,9 +873,9 @@ _ZN2cv6bgsegmL18normalizeHistogramEPfi.exit:      ; preds = %.lr.ph18.i, %137, %
 
 175:                                              ; preds = %._crit_edge.i67
   %176 = sext i32 %66 to i64
-  %177 = getelementptr inbounds i32, ptr %71, i64 %176
+  %177 = getelementptr inbounds [4 x i8], ptr %71, i64 %176
   store i32 %81, ptr %177, align 4, !tbaa !56
-  %178 = getelementptr inbounds float, ptr %76, i64 %176
+  %178 = getelementptr inbounds [4 x i8], ptr %76, i64 %176
   store float 1.000000e+00, ptr %178, align 4, !tbaa !63
   %179 = add nsw i32 %66, 1
   br label %_ZN2cv6bgsegmL13insertFeatureEifPiPfRii.exit76
@@ -910,7 +910,7 @@ _ZN2cv6bgsegmL13insertFeatureEifPiPfRii.exit76:   ; preds = %175, %180
 .lr.ph.i79:                                       ; preds = %.lr.ph.i79, %.lr.ph.preheader.i77
   %indvars.iv.i80 = phi i64 [ 0, %.lr.ph.preheader.i77 ], [ %indvars.iv.next.i82, %.lr.ph.i79 ]
   %.01315.i81 = phi float [ 0.000000e+00, %.lr.ph.preheader.i77 ], [ %190, %.lr.ph.i79 ]
-  %188 = getelementptr inbounds nuw float, ptr %76, i64 %indvars.iv.i80
+  %188 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %indvars.iv.i80
   %189 = load float, ptr %188, align 4, !tbaa !63
   %190 = fadd float %.01315.i81, %189
   %indvars.iv.next.i82 = add nuw nsw i64 %indvars.iv.i80, 1
@@ -919,7 +919,7 @@ _ZN2cv6bgsegmL13insertFeatureEifPiPfRii.exit76:   ; preds = %175, %180
 
 .lr.ph18.i87:                                     ; preds = %._crit_edge.i84, %.lr.ph18.i87
   %indvars.iv20.i88 = phi i64 [ %indvars.iv.next21.i89, %.lr.ph18.i87 ], [ 0, %._crit_edge.i84 ]
-  %191 = getelementptr inbounds nuw float, ptr %76, i64 %indvars.iv20.i88
+  %191 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %indvars.iv20.i88
   %192 = load float, ptr %191, align 4, !tbaa !63
   %193 = fdiv float %192, %190
   store float %193, ptr %191, align 4, !tbaa !63
@@ -1021,7 +1021,7 @@ define linkonce_odr hidden noundef i32 @_ZN2cv6bgsegm12QuantizationItE5applyEPKv
 .lr.ph:                                           ; preds = %6
   %8 = mul nsw i32 %2, %1
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds i16, ptr %0, i64 %9
+  %10 = getelementptr inbounds [2 x i8], ptr %0, i64 %9
   %11 = sitofp i32 %5 to double
   %12 = fsub double %4, %3
   br label %13
@@ -1058,7 +1058,7 @@ define linkonce_odr hidden noundef i32 @_ZN2cv6bgsegm12QuantizationIsE5applyEPKv
 .lr.ph:                                           ; preds = %6
   %8 = mul nsw i32 %2, %1
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds i16, ptr %0, i64 %9
+  %10 = getelementptr inbounds [2 x i8], ptr %0, i64 %9
   %11 = sitofp i32 %5 to double
   %12 = fsub double %4, %3
   br label %13
@@ -1095,7 +1095,7 @@ define linkonce_odr hidden noundef i32 @_ZN2cv6bgsegm12QuantizationIiE5applyEPKv
 .lr.ph:                                           ; preds = %6
   %8 = mul nsw i32 %2, %1
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds i32, ptr %0, i64 %9
+  %10 = getelementptr inbounds [4 x i8], ptr %0, i64 %9
   %11 = sitofp i32 %5 to double
   %12 = fsub double %4, %3
   br label %13
@@ -1132,7 +1132,7 @@ define linkonce_odr hidden noundef i32 @_ZN2cv6bgsegm12QuantizationIfE5applyEPKv
 .lr.ph:                                           ; preds = %6
   %8 = mul nsw i32 %2, %1
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds float, ptr %0, i64 %9
+  %10 = getelementptr inbounds [4 x i8], ptr %0, i64 %9
   %11 = sitofp i32 %5 to double
   %12 = fsub double %4, %3
   br label %13
@@ -1169,7 +1169,7 @@ define linkonce_odr hidden noundef i32 @_ZN2cv6bgsegm12QuantizationIdE5applyEPKv
 .lr.ph:                                           ; preds = %6
   %8 = mul nsw i32 %2, %1
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds double, ptr %0, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %0, i64 %9
   %11 = sitofp i32 %5 to double
   %12 = fsub double %4, %3
   br label %13
@@ -1343,10 +1343,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %42, %
 
 switch.lookup:                                    ; preds = %66
   %68 = zext nneg i32 %20 to i64
-  %switch.gep = getelementptr inbounds nuw double, ptr @switch.table._ZN2cv6bgsegm27BackgroundSubtractorGMGImpl5applyERKNS_11_InputArrayERKNS_12_OutputArrayEd, i64 %68
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN2cv6bgsegm27BackgroundSubtractorGMGImpl5applyERKNS_11_InputArrayERKNS_12_OutputArrayEd, i64 %68
   %switch.load = load double, ptr %switch.gep, align 8
   %69 = zext nneg i32 %20 to i64
-  %switch.gep74 = getelementptr inbounds nuw double, ptr @switch.table._ZN2cv6bgsegm27BackgroundSubtractorGMGImpl5applyERKNS_11_InputArrayERKNS_12_OutputArrayEd.3, i64 %69
+  %switch.gep74 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN2cv6bgsegm27BackgroundSubtractorGMGImpl5applyERKNS_11_InputArrayERKNS_12_OutputArrayEd.3, i64 %69
   %switch.load75 = load double, ptr %switch.gep74, align 8
   br label %70
 

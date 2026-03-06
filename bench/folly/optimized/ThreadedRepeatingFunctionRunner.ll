@@ -13,8 +13,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"union.folly::detail::function::Data" = type { %"struct.folly::detail::function::Data::BigTrivialLayout", [24 x i8] }
 %"struct.folly::detail::function::Data::BigTrivialLayout" = type { ptr, i64, i64 }
 %"class.std::chrono::duration" = type { i64 }
-%"class.std::thread" = type { %"class.std::thread::id" }
-%"class.std::thread::id" = type { i64 }
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
 %"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
 %"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
@@ -538,7 +536,7 @@ _ZNSt12_Vector_baseISt6threadSaIS0_EE13_M_deallocateEPS0_m.exit37.i.i: ; preds =
 "_ZNSt6vectorISt6threadSaIS0_EE17_M_realloc_insertIJZN5folly31ThreadedRepeatingFunctionRunner3addENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_8FunctionIDoFNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEvEEESH_E3$_0EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i": ; preds = %60, %_ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit32.i.i
   store ptr %53, ptr %6, align 8, !tbaa !25
   store ptr %59, ptr %31, align 8, !tbaa !26
-  %77 = getelementptr inbounds nuw %"class.std::thread", ptr %53, i64 %49
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %49
   store ptr %77, ptr %33, align 8, !tbaa !31
   br label %"_ZNSt6vectorISt6threadSaIS0_EE12emplace_backIJZN5folly31ThreadedRepeatingFunctionRunner3addENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_8FunctionIDoFNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEvEEESH_E3$_0EEERS0_DpOT_.exit"
 

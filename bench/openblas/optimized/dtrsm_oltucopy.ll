@@ -26,7 +26,7 @@ define noundef i32 @dtrsm_oltucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   %.07593.us = phi ptr [ %.2.us, %30 ], [ %5, %.lr.ph.us.preheader ]
   %.07792.us = phi i64 [ %32, %30 ], [ %4, %.lr.ph.us.preheader ]
   %.07891.us = phi i64 [ %33, %30 ], [ %7, %.lr.ph.us.preheader ]
-  %14 = getelementptr inbounds double, ptr %.07494.us, i64 %3
+  %14 = getelementptr inbounds [8 x i8], ptr %.07494.us, i64 %3
   br label %35
 
 15:                                               ; preds = %._crit_edge.us
@@ -106,8 +106,8 @@ define noundef i32 @dtrsm_oltucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   br label %54
 
 54:                                               ; preds = %44, %42
-  %55 = getelementptr inbounds double, ptr %.07387.us, i64 %11
-  %56 = getelementptr inbounds double, ptr %.088.us, i64 %11
+  %55 = getelementptr inbounds [8 x i8], ptr %.07387.us, i64 %11
+  %56 = getelementptr inbounds [8 x i8], ptr %.088.us, i64 %11
   %57 = getelementptr inbounds nuw i8, ptr %.17686.us, i64 32
   %58 = add nsw i64 %.08184.us, -1
   %59 = add nuw nsw i64 %.07985.us, 2
@@ -200,7 +200,7 @@ define noundef i32 @dtrsm_oltucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   br label %89
 
 89:                                               ; preds = %87, %85
-  %90 = getelementptr inbounds double, ptr %.1117, i64 %3
+  %90 = getelementptr inbounds [8 x i8], ptr %.1117, i64 %3
   %91 = getelementptr inbounds nuw i8, ptr %.3116, i64 8
   %92 = add nuw nsw i64 %.180115, 1
   %exitcond.not = icmp eq i64 %92, %0

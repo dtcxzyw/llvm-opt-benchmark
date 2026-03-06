@@ -607,11 +607,11 @@ if.then.i:                                        ; preds = %entry
   store i32 %spec.select.i, ptr %mnCountRemaining, align 8
   %sub.i = sub nsw i32 624, %spec.select.i
   %idx.ext.i = zext nneg i32 %sub.i to i64
-  %add.ptr.i = getelementptr inbounds nuw i32, ptr %this, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [4 x i8], ptr %this, i64 %idx.ext.i
   store ptr %add.ptr.i, ptr %mpNextState, align 8
   %add.ptr7.i = getelementptr inbounds nuw i8, ptr %seedArray, i64 4
   %idx.ext13.i = zext i32 %nSeedArraySize to i64
-  %add.ptr14.i = getelementptr inbounds nuw i32, ptr %add.ptr7.i, i64 %idx.ext13.i
+  %add.ptr14.i = getelementptr inbounds nuw [4 x i8], ptr %add.ptr7.i, i64 %idx.ext13.i
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %if.then.i
@@ -644,12 +644,12 @@ if.then:                                          ; preds = %entry
   store i32 %spec.select, ptr %mnCountRemaining, align 8
   %sub = sub nsw i32 624, %spec.select
   %idx.ext = zext nneg i32 %sub to i64
-  %add.ptr = getelementptr inbounds nuw i32, ptr %this, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw [4 x i8], ptr %this, i64 %idx.ext
   %mpNextState = getelementptr inbounds nuw i8, ptr %this, i64 2496
   store ptr %add.ptr, ptr %mpNextState, align 8
   %add.ptr7 = getelementptr inbounds nuw i8, ptr %seedArray, i64 4
   %idx.ext13 = zext i32 %nSeedArraySize to i64
-  %add.ptr14 = getelementptr inbounds nuw i32, ptr %add.ptr7, i64 %idx.ext13
+  %add.ptr14 = getelementptr inbounds nuw [4 x i8], ptr %add.ptr7, i64 %idx.ext13
   br label %while.body
 
 while.body:                                       ; preds = %if.then, %while.body
@@ -726,10 +726,10 @@ for.body11.preheader:                             ; preds = %for.cond8.preheader
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
-  %arrayidx5 = getelementptr inbounds nuw i32, ptr %this, i64 %indvars.iv
+  %arrayidx5 = getelementptr inbounds nuw [4 x i8], ptr %this, i64 %indvars.iv
   %6 = load i32, ptr %arrayidx5, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %arrayidx7 = getelementptr inbounds nuw i32, ptr %seedArray, i64 %indvars.iv.next
+  %arrayidx7 = getelementptr inbounds nuw [4 x i8], ptr %seedArray, i64 %indvars.iv.next
   store i32 %6, ptr %arrayidx7, align 4
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.cond8.preheader, label %for.body, !llvm.loop !13

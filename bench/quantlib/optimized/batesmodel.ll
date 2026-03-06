@@ -10957,7 +10957,7 @@ entry:
   %0 = load ptr, ptr %params, align 8, !tbaa !3
   %n_.i = getelementptr inbounds nuw i8, ptr %params, i64 8
   %1 = load i64, ptr %n_.i, align 8, !tbaa !59
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %0, i64 %1
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %1
   %call10.i.i.i = tail call noundef ptr @_ZSt9__find_ifIPKdN9__gnu_cxx5__ops12_Iter_negateIZNK8QuantLib18BoundaryConstraint4Impl4testERKNS5_5ArrayEEUldE_EEET_SD_SD_T0_St26random_access_iterator_tag(ptr noundef %0, ptr noundef %add.ptr.i, ptr nonnull %this)
   %cmp.i = icmp eq ptr %add.ptr.i, %call10.i.i.i
   ret i1 %cmp.i
@@ -11387,9 +11387,9 @@ if.then.i25:                                      ; preds = %_ZNSt6vectorIN8Quan
 
 _ZNSt12_Vector_baseIN8QuantLib9ParameterESaIS1_EE13_M_deallocateEPS1_m.exit27: ; preds = %_ZNSt6vectorIN8QuantLib9ParameterESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %if.then.i25
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !45
-  %add.ptr37 = getelementptr inbounds nuw %"class.QuantLib::Parameter", ptr %add.ptr, i64 %__n
+  %add.ptr37 = getelementptr inbounds nuw [48 x i8], ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8, !tbaa !43
-  %add.ptr40 = getelementptr inbounds nuw %"class.QuantLib::Parameter", ptr %call5.i.i.i, i64 %3
+  %add.ptr40 = getelementptr inbounds nuw [48 x i8], ptr %call5.i.i.i, i64 %3
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8, !tbaa !94
   br label %if.end44
 

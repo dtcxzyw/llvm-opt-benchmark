@@ -246,7 +246,7 @@ define internal fastcc double @mcelem_array_contain_overlap_selec(ptr noundef re
 
 12:                                               ; preds = %8
   %13 = sext i32 %1 to i64
-  %14 = getelementptr inbounds float, ptr %2, i64 %13
+  %14 = getelementptr inbounds [4 x i8], ptr %2, i64 %13
   %15 = load float, ptr %14, align 4
   %16 = fmul float %15, 5.000000e-01
   %17 = fpext float %16 to double
@@ -310,7 +310,7 @@ floor_log2.exit:                                  ; preds = %18, %20
   br i1 %.not100, label %54, label %45
 
 45:                                               ; preds = %.lr.ph76.split.us
-  %46 = getelementptr i64, ptr %4, i64 %indvars.iv88
+  %46 = getelementptr [8 x i8], ptr %4, i64 %indvars.iv88
   %47 = getelementptr i8, ptr %46, i64 -8
   %48 = load i64, ptr %47, align 8
   %49 = load i64, ptr %46, align 8
@@ -321,7 +321,7 @@ floor_log2.exit:                                  ; preds = %18, %20
   br i1 %53, label %87, label %54
 
 54:                                               ; preds = %45, %.lr.ph76.split.us
-  %55 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv88
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv88
   %56 = load i64, ptr %55, align 8
   %.not21.not.i.us = icmp sgt i32 %.073.us, %42
   br i1 %.not21.not.i.us, label %find_next_mcelem.exit.us.thread, label %.lr.ph.i.us
@@ -332,7 +332,7 @@ floor_log2.exit:                                  ; preds = %18, %20
   %57 = add i32 %.01822.i.us, %.01723.i.us
   %58 = sdiv i32 %57, 2
   %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds i64, ptr %0, i64 %59
+  %60 = getelementptr inbounds [8 x i8], ptr %0, i64 %59
   %61 = load i64, ptr %60, align 8
   %62 = load i32, ptr %41, align 4
   %63 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %40, i32 noundef %62, i64 noundef %61, i64 noundef %56) #9
@@ -354,7 +354,7 @@ find_next_mcelem.exit.us:                         ; preds = %.lr.ph.i.us
 
 70:                                               ; preds = %find_next_mcelem.exit.us
   %71 = sext i32 %58 to i64
-  %72 = getelementptr inbounds float, ptr %2, i64 %71
+  %72 = getelementptr inbounds [4 x i8], ptr %2, i64 %71
   %73 = load float, ptr %72, align 4
   %74 = fpext float %73 to double
   %75 = add nsw i32 %58, 1
@@ -402,7 +402,7 @@ find_next_mcelem.exit.us.thread:                  ; preds = %66, %54, %find_next
   br i1 %.not99, label %.preheader, label %88
 
 88:                                               ; preds = %.lr.ph76.split
-  %89 = getelementptr i64, ptr %4, i64 %indvars.iv84
+  %89 = getelementptr [8 x i8], ptr %4, i64 %indvars.iv84
   %90 = getelementptr i8, ptr %89, i64 -8
   %91 = load i64, ptr %90, align 8
   %92 = load i64, ptr %89, align 8
@@ -417,13 +417,13 @@ find_next_mcelem.exit.us.thread:                  ; preds = %66, %54, %find_next
   br i1 %97, label %.lr.ph, label %find_next_mcelem.exit.thread
 
 .lr.ph:                                           ; preds = %.preheader
-  %98 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv84
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv84
   %99 = sext i32 %.073 to i64
   br label %100
 
 100:                                              ; preds = %.lr.ph, %108
   %indvars.iv = phi i64 [ %99, %.lr.ph ], [ %indvars.iv.next, %108 ]
-  %101 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv
+  %101 = getelementptr inbounds [8 x i8], ptr %0, i64 %indvars.iv
   %102 = load i64, ptr %101, align 8
   %103 = load i64, ptr %98, align 8
   %104 = load i32, ptr %41, align 4
@@ -508,15 +508,15 @@ define internal fastcc double @mcelem_array_contained_selec(ptr noundef readonly
 
 15:                                               ; preds = %12
   %16 = sext i32 %1 to i64
-  %17 = getelementptr inbounds float, ptr %2, i64 %16
+  %17 = getelementptr inbounds [4 x i8], ptr %2, i64 %16
   %18 = load float, ptr %17, align 4
   %19 = add i32 %1, 2
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds float, ptr %2, i64 %20
+  %21 = getelementptr inbounds [4 x i8], ptr %2, i64 %20
   %22 = load float, ptr %21, align 4
   %23 = add nsw i32 %7, -1
   %24 = zext nneg i32 %23 to i64
-  %25 = getelementptr inbounds nuw float, ptr %6, i64 %24
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %24
   %26 = load float, ptr %25, align 4
   %27 = sext i32 %5 to i64
   %28 = shl nsw i64 %27, 2
@@ -556,7 +556,7 @@ define internal fastcc double @mcelem_array_contained_selec(ptr noundef readonly
   br i1 %.not265, label %48, label %39
 
 39:                                               ; preds = %38
-  %40 = getelementptr i64, ptr %4, i64 %indvars.iv234
+  %40 = getelementptr [8 x i8], ptr %4, i64 %indvars.iv234
   %41 = getelementptr i8, ptr %40, i64 -8
   %42 = load i64, ptr %41, align 8
   %43 = load i64, ptr %40, align 8
@@ -571,7 +571,7 @@ define internal fastcc double @mcelem_array_contained_selec(ptr noundef readonly
   br i1 %49, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %48
-  %50 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv234
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv234
   %51 = sext i32 %.0111204 to i64
   br label %52
 
@@ -579,7 +579,7 @@ define internal fastcc double @mcelem_array_contained_selec(ptr noundef readonly
   %indvars.iv = phi i64 [ %51, %.lr.ph ], [ %indvars.iv.next, %62 ]
   %.2124196 = phi float [ %.0122201, %.lr.ph ], [ %67, %62 ]
   %.2131195 = phi float [ %.0129200, %.lr.ph ], [ %66, %62 ]
-  %53 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv
+  %53 = getelementptr inbounds [8 x i8], ptr %0, i64 %indvars.iv
   %54 = load i64, ptr %53, align 8
   %55 = load i64, ptr %50, align 8
   %56 = load i32, ptr %32, align 4
@@ -594,7 +594,7 @@ define internal fastcc double @mcelem_array_contained_selec(ptr noundef readonly
   br i1 %61, label %68, label %.critedge
 
 62:                                               ; preds = %52
-  %63 = getelementptr inbounds float, ptr %2, i64 %indvars.iv
+  %63 = getelementptr inbounds [4 x i8], ptr %2, i64 %indvars.iv
   %64 = load float, ptr %63, align 4
   %65 = fsub float 1.000000e+00, %64
   %66 = fmul float %.2131195, %65
@@ -609,7 +609,7 @@ define internal fastcc double @mcelem_array_contained_selec(ptr noundef readonly
   %70 = getelementptr inbounds i8, ptr %2, i64 %69
   %71 = load float, ptr %70, align 4
   %72 = sext i32 %.0119202 to i64
-  %73 = getelementptr inbounds float, ptr %29, i64 %72
+  %73 = getelementptr inbounds [4 x i8], ptr %29, i64 %72
   store float %71, ptr %73, align 4
   %74 = fsub float %.2124196, %71
   %75 = add i32 %60, 1
@@ -620,7 +620,7 @@ define internal fastcc double @mcelem_array_contained_selec(ptr noundef readonly
   %.2124191 = phi float [ %.2124196, %.thread ], [ %.0122201, %48 ], [ %67, %62 ]
   %.2189 = phi i32 [ %60, %.thread ], [ %.0111204, %48 ], [ %1, %62 ]
   %76 = sext i32 %.0119202 to i64
-  %77 = getelementptr inbounds float, ptr %29, i64 %76
+  %77 = getelementptr inbounds [4 x i8], ptr %29, i64 %76
   store float %narrow.sel, ptr %77, align 4
   br label %78
 
@@ -644,7 +644,7 @@ define internal fastcc double @mcelem_array_contained_selec(ptr noundef readonly
   %indvars.iv239 = phi i64 [ %37, %.lr.ph213.preheader ], [ %indvars.iv.next240, %.lr.ph213 ]
   %.6128211 = phi float [ %.0122.lcssa, %.lr.ph213.preheader ], [ %85, %.lr.ph213 ]
   %.5134210 = phi float [ %.0129.lcssa, %.lr.ph213.preheader ], [ %84, %.lr.ph213 ]
-  %81 = getelementptr inbounds float, ptr %2, i64 %indvars.iv239
+  %81 = getelementptr inbounds [4 x i8], ptr %2, i64 %indvars.iv239
   %82 = load float, ptr %81, align 4
   %83 = fsub float 1.000000e+00, %82
   %84 = fmul float %.5134210, %83
@@ -704,7 +704,7 @@ define internal fastcc double @mcelem_array_contained_selec(ptr noundef readonly
   %indvars.iv93.i = phi i64 [ 1, %.lr.ph77.preheader.i ], [ %indvars.iv.next94.i, %._crit_edge.i ]
   %.05875.i = phi ptr [ %111, %.lr.ph77.preheader.i ], [ %.06473.i, %._crit_edge.i ]
   %.06473.i = phi ptr [ %112, %.lr.ph77.preheader.i ], [ %.05875.i, %._crit_edge.i ]
-  %113 = getelementptr float, ptr %29, i64 %indvars.iv93.i
+  %113 = getelementptr [4 x i8], ptr %29, i64 %indvars.iv93.i
   %114 = getelementptr i8, ptr %113, i64 -4
   %115 = load float, ptr %114, align 4
   %116 = trunc nuw nsw i64 %indvars.iv93.i to i32
@@ -720,7 +720,7 @@ define internal fastcc double @mcelem_array_contained_selec(ptr noundef readonly
   br i1 %120, label %121, label %125
 
 121:                                              ; preds = %119
-  %122 = getelementptr inbounds nuw float, ptr %.05875.i, i64 %indvars.iv.i
+  %122 = getelementptr inbounds nuw [4 x i8], ptr %.05875.i, i64 %indvars.iv.i
   %123 = load float, ptr %122, align 4
   %124 = tail call float @llvm.fmuladd.f32(float %123, float %118, float 0.000000e+00)
   br label %125
@@ -731,7 +731,7 @@ define internal fastcc double @mcelem_array_contained_selec(ptr noundef readonly
   br i1 %.not.i, label %131, label %126
 
 126:                                              ; preds = %125
-  %127 = getelementptr float, ptr %.05875.i, i64 %indvars.iv.i
+  %127 = getelementptr [4 x i8], ptr %.05875.i, i64 %indvars.iv.i
   %128 = getelementptr i8, ptr %127, i64 -4
   %129 = load float, ptr %128, align 4
   %130 = tail call float @llvm.fmuladd.f32(float %129, float %115, float %.057.i)
@@ -739,7 +739,7 @@ define internal fastcc double @mcelem_array_contained_selec(ptr noundef readonly
 
 131:                                              ; preds = %126, %125
   %.1.i = phi float [ %130, %126 ], [ %.057.i, %125 ]
-  %132 = getelementptr inbounds nuw float, ptr %.06473.i, i64 %indvars.iv.i
+  %132 = getelementptr inbounds nuw [4 x i8], ptr %.06473.i, i64 %indvars.iv.i
   store float %.1.i, ptr %132, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -772,7 +772,7 @@ calc_distr.exit:                                  ; preds = %._crit_edge.i, %107
   %.06473.i155 = phi ptr [ %134, %.lr.ph77.preheader.i149 ], [ %.05875.i154, %._crit_edge.i157 ]
   %136 = trunc nuw nsw i64 %indvars.iv93.i153 to i32
   %smin.i156 = tail call i32 @llvm.smin.i32(i32 %.2121, i32 %136)
-  %137 = getelementptr float, ptr %2, i64 %indvars.iv93.i153
+  %137 = getelementptr [4 x i8], ptr %2, i64 %indvars.iv93.i153
   %138 = getelementptr i8, ptr %137, i64 -4
   %139 = load float, ptr %138, align 4
   %140 = icmp sgt i32 %smin.i156, -1
@@ -790,7 +790,7 @@ calc_distr.exit:                                  ; preds = %._crit_edge.i, %107
   br i1 %144, label %145, label %149
 
 145:                                              ; preds = %143
-  %146 = getelementptr inbounds nuw float, ptr %.05875.i154, i64 %indvars.iv.i164
+  %146 = getelementptr inbounds nuw [4 x i8], ptr %.05875.i154, i64 %indvars.iv.i164
   %147 = load float, ptr %146, align 4
   %148 = tail call float @llvm.fmuladd.f32(float %147, float %142, float 0.000000e+00)
   br label %149
@@ -801,7 +801,7 @@ calc_distr.exit:                                  ; preds = %._crit_edge.i, %107
   br i1 %.not.i166, label %155, label %150
 
 150:                                              ; preds = %149
-  %151 = getelementptr float, ptr %.05875.i154, i64 %indvars.iv.i164
+  %151 = getelementptr [4 x i8], ptr %.05875.i154, i64 %indvars.iv.i164
   %152 = getelementptr i8, ptr %151, i64 -4
   %153 = load float, ptr %152, align 4
   %154 = tail call float @llvm.fmuladd.f32(float %153, float %139, float %.057.i165)
@@ -809,7 +809,7 @@ calc_distr.exit:                                  ; preds = %._crit_edge.i, %107
 
 155:                                              ; preds = %150, %149
   %.1.i167 = phi float [ %154, %150 ], [ %.057.i165, %149 ]
-  %156 = getelementptr inbounds nuw float, ptr %.06473.i155, i64 %indvars.iv.i164
+  %156 = getelementptr inbounds nuw [4 x i8], ptr %.06473.i155, i64 %indvars.iv.i164
   store float %.1.i167, ptr %156, align 4
   %indvars.iv.next.i168 = add nuw nsw i64 %indvars.iv.i164, 1
   %exitcond.i169 = icmp eq i64 %indvars.iv.next.i168, %wide.trip.count.i163
@@ -862,7 +862,7 @@ cdce.call:                                        ; preds = %._crit_edge83.threa
 
 .lr.ph86.i:                                       ; preds = %.preheader.i, %.lr.ph86.i
   %indvars.iv102.i = phi i64 [ %indvars.iv.next103.i, %.lr.ph86.i ], [ 0, %.preheader.i ]
-  %170 = getelementptr inbounds nuw float, ptr %.058.lcssa.i161, i64 %indvars.iv102.i
+  %170 = getelementptr inbounds nuw [4 x i8], ptr %.058.lcssa.i161, i64 %indvars.iv102.i
   %171 = load float, ptr %170, align 4
   %172 = add nuw nsw i64 %indvars.iv102.i, %indvars.iv105.i
   %sext.i = shl i64 %172, 32
@@ -918,7 +918,7 @@ calc_distr.exit170:                               ; preds = %._crit_edge87.i, %c
 190:                                              ; preds = %194, %.lr.ph.i176
   %indvars.iv.i177 = phi i64 [ %188, %.lr.ph.i176 ], [ %indvars.iv.next.i178, %194 ]
   %.03852.i = phi i32 [ 0, %.lr.ph.i176 ], [ %195, %194 ]
-  %191 = getelementptr inbounds float, ptr %6, i64 %indvars.iv.i177
+  %191 = getelementptr inbounds [4 x i8], ptr %6, i64 %indvars.iv.i177
   %192 = load float, ptr %191, align 4
   %193 = fcmp ugt float %192, %187
   br i1 %193, label %.critedge.i, label %194
@@ -981,7 +981,7 @@ calc_distr.exit170:                               ; preds = %._crit_edge87.i, %c
   %.sink.i = phi float [ %219, %218 ], [ %216, %.thread.i ], [ 0.000000e+00, %.critedge.thread.thread.i ]
   %.14448.i = phi i32 [ %.14449.i, %218 ], [ %.14450.i, %.thread.i ], [ %.14449.i, %.critedge.thread.thread.i ]
   %.142.i = phi float [ %.04156.i, %218 ], [ %.040.i, %.thread.i ], [ %.04156.i, %.critedge.thread.thread.i ]
-  %221 = getelementptr inbounds nuw float, ptr %181, i64 %indvars.iv64.i
+  %221 = getelementptr inbounds nuw [4 x i8], ptr %181, i64 %indvars.iv64.i
   store float %.sink.i, ptr %221, align 4
   %indvars.iv.next65.i = add nuw nsw i64 %indvars.iv64.i, 1
   %exitcond67.i = icmp eq i64 %indvars.iv.next65.i, %wide.trip.count.i173
@@ -995,16 +995,16 @@ calc_distr.exit170:                               ; preds = %._crit_edge87.i, %c
 .lr.ph219:                                        ; preds = %.lr.ph219.preheader, %234
   %indvars.iv247 = phi i64 [ 0, %.lr.ph219.preheader ], [ %indvars.iv.next248, %234 ]
   %.0135217 = phi float [ 0.000000e+00, %.lr.ph219.preheader ], [ %.1136, %234 ]
-  %222 = getelementptr inbounds nuw float, ptr %.159.i, i64 %indvars.iv247
+  %222 = getelementptr inbounds nuw [4 x i8], ptr %.159.i, i64 %indvars.iv247
   %223 = load float, ptr %222, align 4
   %224 = fcmp ogt float %223, 0.000000e+00
   br i1 %224, label %225, label %234
 
 225:                                              ; preds = %.lr.ph219
-  %226 = getelementptr inbounds nuw float, ptr %181, i64 %indvars.iv247
+  %226 = getelementptr inbounds nuw [4 x i8], ptr %181, i64 %indvars.iv247
   %227 = load float, ptr %226, align 4
   %228 = fmul float %227, %91
-  %229 = getelementptr inbounds nuw float, ptr %.058.lcssa.i, i64 %indvars.iv247
+  %229 = getelementptr inbounds nuw [4 x i8], ptr %.058.lcssa.i, i64 %indvars.iv247
   %230 = load float, ptr %229, align 4
   %231 = fmul float %228, %230
   %232 = fdiv float %231, %223
@@ -1349,11 +1349,11 @@ define internal fastcc double @mcelem_array_selec(ptr noundef %0, ptr noundef %1
 
 28:                                               ; preds = %.lr.ph
   %29 = load ptr, ptr %11, align 8
-  %30 = getelementptr inbounds nuw i64, ptr %29, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv
   %31 = load i64, ptr %30, align 8
   %32 = add i32 %.03845, 1
   %33 = sext i32 %.03845 to i64
-  %34 = getelementptr inbounds i64, ptr %29, i64 %33
+  %34 = getelementptr inbounds [8 x i8], ptr %29, i64 %33
   store i64 %31, ptr %34, align 8
   br label %35
 

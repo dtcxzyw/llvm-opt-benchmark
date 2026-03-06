@@ -69,7 +69,7 @@ define void @_ZN6icu_779NFRuleSetC2EPNS_21RuleBasedNumberFormatEPNS_13UnicodeStr
 
 25:                                               ; preds = %14
   %26 = sext i32 %3 to i64
-  %27 = getelementptr inbounds %"class.icu_77::UnicodeString", ptr %2, i64 %26
+  %27 = getelementptr inbounds [64 x i8], ptr %2, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load i16, ptr %28, align 8, !tbaa !6
   %30 = icmp ugt i16 %29, 31
@@ -169,7 +169,7 @@ _ZN6icu_7713UnicodeString5setToERKS0_ii.exit:     ; preds = %_ZN6icu_7713Unicode
   %.not.i.i.i44 = icmp eq i16 %73, 0
   %74 = load ptr, ptr %43, align 8
   %75 = select i1 %.not.i.i.i44, ptr %74, ptr %42
-  %76 = getelementptr inbounds i16, ptr %75, i64 %indvars.iv.next
+  %76 = getelementptr inbounds [2 x i8], ptr %75, i64 %indvars.iv.next
   %77 = load i16, ptr %76, align 2, !tbaa !29
   %78 = zext i16 %77 to i32
   br label %_ZNK6icu_7713UnicodeString6charAtEi.exit45
@@ -376,7 +376,7 @@ define linkonce_odr void @_ZN6icu_7710NFRuleListD2Ev(ptr noundef nonnull align 8
   %6 = phi i32 [ %13, %12 ], [ %4, %.preheader ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %12 ], [ 0, %.preheader ]
   %7 = load ptr, ptr %0, align 8, !tbaa !19
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8, !tbaa !25
   %10 = icmp eq ptr %9, null
   br i1 %10, label %12, label %11
@@ -446,7 +446,7 @@ thread-pre-split.i.i.i:                           ; preds = %12
 24:                                               ; preds = %22
   %25 = load i32, ptr %9, align 8, !tbaa !20
   %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds nuw ptr, ptr %23, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %26
   store ptr null, ptr %27, align 8, !tbaa !25
   br label %.lr.ph.preheader.i
 
@@ -457,7 +457,7 @@ thread-pre-split.i.i.i:                           ; preds = %12
 
 .lr.ph.i:                                         ; preds = %32, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %32 ]
-  %28 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv.i
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv.i
   %29 = load ptr, ptr %28, align 8, !tbaa !25
   %30 = icmp eq ptr %29, null
   br i1 %30, label %32, label %31
@@ -555,7 +555,7 @@ _ZN6icu_7713UnicodeString5setToERKS0_ii.exit:     ; preds = %.noexc
 73:                                               ; preds = %71
   %74 = add i32 %70, -1
   %75 = zext i32 %74 to i64
-  %76 = getelementptr inbounds nuw ptr, ptr %72, i64 %75
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %75
   %77 = load ptr, ptr %76, align 8, !tbaa !25
   br label %_ZNK6icu_7710NFRuleList4lastEv.exit
 
@@ -590,7 +590,7 @@ _ZNK6icu_7710NFRuleListixEj.exit:                 ; preds = %_ZNK6icu_7710NFRule
   %indvars.iv = phi i64 [ 0, %_ZNK6icu_7710NFRuleListixEj.exit.lr.ph ], [ %indvars.iv.next, %102 ]
   %.03646 = phi i64 [ 0, %_ZNK6icu_7710NFRuleListixEj.exit.lr.ph ], [ %spec.select, %102 ]
   %92 = load ptr, ptr %8, align 8, !tbaa !19, !nonnull !40, !noundef !40
-  %93 = getelementptr inbounds nuw ptr, ptr %92, i64 %indvars.iv
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %92, i64 %indvars.iv
   %94 = load ptr, ptr %93, align 8, !tbaa !25
   %95 = load i64, ptr %94, align 8, !tbaa !41
   %96 = icmp eq i64 %95, 0
@@ -764,7 +764,7 @@ thread-pre-split.i:                               ; preds = %6
   %22 = load i32, ptr %8, align 8, !tbaa !20
   %23 = add i32 %22, 1
   %24 = zext i32 %22 to i64
-  %25 = getelementptr inbounds nuw ptr, ptr %20, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %24
   store ptr %2, ptr %25, align 8, !tbaa !25
   br label %_ZN6icu_7710NFRuleList3addEPNS_6NFRuleE.exit
 
@@ -780,7 +780,7 @@ _ZN6icu_7710NFRuleList3addEPNS_6NFRuleE.exit:     ; preds = %21, %26
 27:                                               ; preds = %_ZN6icu_7710NFRuleList3addEPNS_6NFRuleE.exit, %4
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %29 = sext i32 %1 to i64
-  %30 = getelementptr inbounds ptr, ptr %28, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %28, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !25
   %32 = icmp eq ptr %31, null
   br i1 %32, label %.sink.split, label %33
@@ -862,7 +862,7 @@ define void @_ZN6icu_779NFRuleSetD2Ev(ptr noundef nonnull align 8 dereferenceabl
   %9 = phi i32 [ %16, %15 ], [ %7, %.preheader.i ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %15 ], [ 0, %.preheader.i ]
   %10 = load ptr, ptr %4, align 8, !tbaa !19
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i
   %12 = load ptr, ptr %11, align 8, !tbaa !25
   %13 = icmp eq ptr %12, null
   br i1 %13, label %15, label %14
@@ -912,7 +912,7 @@ _ZN6icu_7710NFRuleListD2Ev.exit:                  ; preds = %3, %._crit_edge.i
   %27 = phi i32 [ %34, %33 ], [ %25, %.preheader.i11 ]
   %indvars.iv.i14 = phi i64 [ %indvars.iv.next.i16, %33 ], [ 0, %.preheader.i11 ]
   %28 = load ptr, ptr %22, align 8, !tbaa !19
-  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv.i14
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv.i14
   %30 = load ptr, ptr %29, align 8, !tbaa !25
   %31 = icmp eq ptr %30, null
   br i1 %31, label %33, label %32
@@ -950,7 +950,7 @@ _ZN6icu_7710NFRuleListD2Ev.exit20:                ; preds = %_ZN6icu_7710NFRuleL
   br i1 %or.cond3, label %44, label %49
 
 44:                                               ; preds = %41
-  %45 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %46 = load ptr, ptr %45, align 8, !tbaa !25
   %47 = icmp eq ptr %46, null
   br i1 %47, label %49, label %48
@@ -1043,9 +1043,9 @@ _ZNK6icu_7713UnicodeStringeqERKS0_.exit:          ; preds = %25
 
 52:                                               ; preds = %.preheader34, %_ZN6icu_77L15util_equalRulesEPKNS_6NFRuleES2_.exit.thread29
   %indvars.iv = phi i64 [ 0, %.preheader34 ], [ %indvars.iv.next, %_ZN6icu_77L15util_equalRulesEPKNS_6NFRuleES2_.exit.thread29 ]
-  %53 = getelementptr inbounds nuw ptr, ptr %48, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %indvars.iv
   %54 = load ptr, ptr %53, align 8, !tbaa !25
-  %55 = getelementptr inbounds nuw ptr, ptr %49, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %indvars.iv
   %56 = load ptr, ptr %55, align 8, !tbaa !25
   %.not.i21 = icmp eq ptr %54, null
   %.not7.i = icmp eq ptr %56, null
@@ -1076,10 +1076,10 @@ _ZN6icu_77L15util_equalRulesEPKNS_6NFRuleES2_.exit.thread29: ; preds = %58, %_ZN
 _ZNK6icu_7710NFRuleListixEj.exit:                 ; preds = %.preheader, %60
   %indvars.iv41 = phi i64 [ %indvars.iv.next42, %60 ], [ 0, %.preheader ]
   %63 = load ptr, ptr %3, align 8, !tbaa !19, !nonnull !40, !noundef !40
-  %64 = getelementptr inbounds nuw ptr, ptr %63, i64 %indvars.iv41
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %indvars.iv41
   %65 = load ptr, ptr %64, align 8, !tbaa !25
   %66 = load ptr, ptr %6, align 8, !tbaa !19, !nonnull !40, !noundef !40
-  %67 = getelementptr inbounds nuw ptr, ptr %66, i64 %indvars.iv41
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %indvars.iv41
   %68 = load ptr, ptr %67, align 8, !tbaa !25
   %69 = tail call noundef zeroext i1 @_ZNK6icu_776NFRuleeqERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %65, ptr noundef nonnull align 8 dereferenceable(112) %68)
   br i1 %69, label %60, label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread
@@ -1116,7 +1116,7 @@ _ZNK6icu_7710NFRuleListixEj.exit.lr.ph:           ; preds = %3
 _ZNK6icu_7710NFRuleListixEj.exit:                 ; preds = %_ZNK6icu_7710NFRuleListixEj.exit.lr.ph, %_ZNK6icu_7710NFRuleListixEj.exit
   %indvars.iv = phi i64 [ 0, %_ZNK6icu_7710NFRuleListixEj.exit.lr.ph ], [ %indvars.iv.next, %_ZNK6icu_7710NFRuleListixEj.exit ]
   %16 = load ptr, ptr %7, align 8, !tbaa !19, !nonnull !40, !noundef !40
-  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8, !tbaa !25
   tail call void @_ZN6icu_776NFRule23setDecimalFormatSymbolsERKNS_20DecimalFormatSymbolsER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(112) %18, ptr noundef nonnull align 8 dereferenceable(2579) %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1128,7 +1128,7 @@ _ZNK6icu_7710NFRuleListixEj.exit:                 ; preds = %_ZNK6icu_7710NFRule
 22:                                               ; preds = %.preheader30, %.loopexit
   %23 = phi i32 [ %.pre, %.preheader30 ], [ %57, %.loopexit ]
   %indvars.iv42 = phi i64 [ 1, %.preheader30 ], [ %indvars.iv.next43, %.loopexit ]
-  %24 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv42
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv42
   %25 = load ptr, ptr %24, align 8, !tbaa !25
   %.not26 = icmp ne ptr %25, null
   %26 = icmp ne i32 %23, 0
@@ -1142,7 +1142,7 @@ _ZNK6icu_7710NFRuleListixEj.exit:                 ; preds = %_ZNK6icu_7710NFRule
   br i1 %.not.i27, label %_ZNK6icu_7710NFRuleListixEj.exit28, label %28
 
 28:                                               ; preds = %.lr.ph
-  %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv39
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv39
   %30 = load ptr, ptr %29, align 8, !tbaa !25
   br label %_ZNK6icu_7710NFRuleListixEj.exit28
 
@@ -1208,7 +1208,7 @@ _ZN6icu_779NFRuleSet19setBestFractionRuleEiPNS_6NFRuleEa.exit: ; preds = %.sink.
 
 .preheader:                                       ; preds = %.loopexit, %62
   %indvars.iv45 = phi i64 [ %indvars.iv.next46, %62 ], [ 0, %.loopexit ]
-  %59 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv45
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv45
   %60 = load ptr, ptr %59, align 8, !tbaa !25
   %.not = icmp eq ptr %60, null
   br i1 %.not, label %62, label %61
@@ -1277,7 +1277,7 @@ _ZNK6icu_7710NFRuleListixEj.exit.thread.i:        ; preds = %_ZNK6icu_7710NFRule
   %28 = add nuw nsw i32 %.02965.i, %.02666.i
   %29 = lshr i32 %28, 1
   %30 = zext nneg i32 %29 to i64
-  %31 = getelementptr inbounds nuw ptr, ptr %27, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !25
   %33 = load i64, ptr %32, align 8, !tbaa !41
   %.not3948.i = icmp eq i64 %33, %.032.i
@@ -1297,7 +1297,7 @@ _ZNK6icu_7710NFRuleListixEj.exit41.i:             ; preds = %_ZNK6icu_7710NFRule
 
 _ZNK6icu_7710NFRuleListixEj.exit45.i:             ; preds = %37
   %39 = zext nneg i32 %.231.i to i64
-  %40 = getelementptr ptr, ptr %27, i64 %39
+  %40 = getelementptr [8 x i8], ptr %27, i64 %39
   %41 = getelementptr i8, ptr %40, i64 -8
   %42 = load ptr, ptr %41, align 8, !tbaa !25
   %43 = tail call noundef signext i8 @_ZNK6icu_776NFRule14shouldRollBackEl(ptr noundef nonnull align 8 dereferenceable(112) %42, i64 noundef %.032.i)
@@ -1314,7 +1314,7 @@ _ZNK6icu_7710NFRuleListixEj.exit45.i:             ; preds = %37
   br i1 %.not.i46.i, label %_ZNK6icu_779NFRuleSet14findNormalRuleEl.exit.thread, label %48
 
 48:                                               ; preds = %46
-  %49 = getelementptr ptr, ptr %47, i64 %39
+  %49 = getelementptr [8 x i8], ptr %47, i64 %39
   %50 = getelementptr i8, ptr %49, i64 -16
   %51 = load ptr, ptr %50, align 8, !tbaa !25
   br label %_ZNK6icu_779NFRuleSet14findNormalRuleEl.exit
@@ -1383,7 +1383,7 @@ _ZNK6icu_7710NFRuleListixEj.exit.thread:          ; preds = %.preheader, %_ZNK6i
   %21 = add nuw nsw i32 %.02666, %.02965
   %22 = lshr i32 %21, 1
   %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr inbounds nuw ptr, ptr %20, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !25
   %26 = load i64, ptr %25, align 8, !tbaa !41
   %.not3948 = icmp eq i64 %26, %.032
@@ -1403,7 +1403,7 @@ _ZNK6icu_7710NFRuleListixEj.exit41:               ; preds = %_ZNK6icu_7710NFRule
 
 _ZNK6icu_7710NFRuleListixEj.exit45:               ; preds = %30
   %32 = zext nneg i32 %.231 to i64
-  %33 = getelementptr ptr, ptr %20, i64 %32
+  %33 = getelementptr [8 x i8], ptr %20, i64 %32
   %34 = getelementptr i8, ptr %33, i64 -8
   %35 = load ptr, ptr %34, align 8, !tbaa !25
   %36 = tail call noundef signext i8 @_ZNK6icu_776NFRule14shouldRollBackEl(ptr noundef nonnull align 8 dereferenceable(112) %35, i64 noundef %.032)
@@ -1421,7 +1421,7 @@ _ZNK6icu_7710NFRuleListixEj.exit45:               ; preds = %30
 
 41:                                               ; preds = %39
   %42 = zext nneg i32 %.231 to i64
-  %43 = getelementptr ptr, ptr %40, i64 %42
+  %43 = getelementptr [8 x i8], ptr %40, i64 %42
   %44 = getelementptr i8, ptr %43, i64 -16
   %45 = load ptr, ptr %44, align 8, !tbaa !25
   br label %_ZNK6icu_7710NFRuleListixEj.exit47
@@ -1652,7 +1652,7 @@ _ZNK6icu_7710NFRuleListixEj.exit51.lr.ph:         ; preds = %_ZN6icu_7717util64_
 _ZNK6icu_7710NFRuleListixEj.exit49:               ; preds = %_ZNK6icu_7710NFRuleListixEj.exit49.preheader, %_ZN6icu_77L8util_lcmEll.exit
   %indvars.iv = phi i64 [ 1, %_ZNK6icu_7710NFRuleListixEj.exit49.preheader ], [ %indvars.iv.next, %_ZN6icu_77L8util_lcmEll.exit ]
   %.066 = phi i64 [ %5, %_ZNK6icu_7710NFRuleListixEj.exit49.preheader ], [ %69, %_ZN6icu_77L8util_lcmEll.exit ]
-  %41 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %42 = load ptr, ptr %41, align 8, !tbaa !25
   %43 = load i64, ptr %42, align 8, !tbaa !41
   %44 = and i64 %.066, 1
@@ -1725,7 +1725,7 @@ _ZNK6icu_7710NFRuleListixEj.exit51:               ; preds = %_ZNK6icu_7710NFRule
   %indvars.iv81 = phi i64 [ 0, %_ZNK6icu_7710NFRuleListixEj.exit51.lr.ph ], [ %indvars.iv.next82, %80 ]
   %.03268 = phi i32 [ 0, %_ZNK6icu_7710NFRuleListixEj.exit51.lr.ph ], [ %.2, %80 ]
   %.03367 = phi i64 [ %.013.i43, %_ZNK6icu_7710NFRuleListixEj.exit51.lr.ph ], [ %.134, %80 ]
-  %70 = getelementptr inbounds nuw ptr, ptr %.pre.pre, i64 %indvars.iv81
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %.pre.pre, i64 %indvars.iv81
   %71 = load ptr, ptr %70, align 8, !tbaa !25
   %72 = load i64, ptr %71, align 8, !tbaa !41
   %73 = mul nsw i64 %72, %.013.i
@@ -1755,11 +1755,11 @@ _ZNK6icu_7710NFRuleListixEj.exit51:               ; preds = %_ZNK6icu_7710NFRule
 
 _ZNK6icu_7710NFRuleListixEj.exit55.thread:        ; preds = %._crit_edge70
   %83 = zext i32 %81 to i64
-  %84 = getelementptr inbounds nuw ptr, ptr %.pre.pre, i64 %83
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %.pre.pre, i64 %83
   %85 = load ptr, ptr %84, align 8, !tbaa !25
   %86 = load i64, ptr %85, align 8, !tbaa !41
   %87 = zext i32 %.1 to i64
-  %88 = getelementptr inbounds nuw ptr, ptr %.pre.pre, i64 %87
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %.pre.pre, i64 %87
   %89 = load ptr, ptr %88, align 8, !tbaa !25
   %90 = load i64, ptr %89, align 8, !tbaa !41
   %91 = icmp eq i64 %86, %90
@@ -1781,7 +1781,7 @@ _ZNK6icu_7710NFRuleListixEj.exit55.thread:        ; preds = %._crit_edge70
 .thread96:                                        ; preds = %.thread, %_ZNK6icu_7710NFRuleListixEj.exit55.thread, %96
   %.399 = phi i32 [ %.1, %96 ], [ %.1, %_ZNK6icu_7710NFRuleListixEj.exit55.thread ], [ %spec.select40, %.thread ]
   %97 = zext i32 %.399 to i64
-  %98 = getelementptr inbounds nuw ptr, ptr %.pre.pre, i64 %97
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %.pre.pre, i64 %97
   %99 = load ptr, ptr %98, align 8, !tbaa !25
   br label %_ZNK6icu_7710NFRuleListixEj.exit59
 
@@ -1926,7 +1926,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_779NFRuleSet5parseERKNS_13Uni
 49:                                               ; preds = %23, %80
   %indvars.iv = phi i64 [ 0, %23 ], [ %indvars.iv.next, %80 ]
   %.03766 = phi i32 [ %4, %23 ], [ %.1, %80 ]
-  %50 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv
   %51 = load ptr, ptr %50, align 8, !tbaa !25
   %.not53 = icmp eq ptr %51, null
   br i1 %.not53, label %80, label %52
@@ -2050,7 +2050,7 @@ _ZN6icu_7717util64_fromDoubleEd.exit:             ; preds = %.noexc59, %.noexc
 
 _ZNK6icu_7710NFRuleListixEj.exit:                 ; preds = %100
   %102 = load ptr, ptr %81, align 8, !tbaa !19, !nonnull !40, !noundef !40
-  %103 = getelementptr inbounds nuw ptr, ptr %102, i64 %indvars.iv.next70
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %102, i64 %indvars.iv.next70
   %104 = load ptr, ptr %103, align 8, !tbaa !25
   %105 = load i64, ptr %104, align 8, !tbaa !41
   %.not48 = icmp slt i64 %105, %.013.i
@@ -2063,7 +2063,7 @@ _ZNK6icu_7710NFRuleListixEj.exit:                 ; preds = %100
 
 _ZNK6icu_7710NFRuleListixEj.exit62:               ; preds = %106
   %107 = load ptr, ptr %81, align 8, !tbaa !19, !nonnull !40, !noundef !40
-  %108 = getelementptr inbounds nuw ptr, ptr %107, i64 %indvars.iv.next70
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %indvars.iv.next70
   %109 = load ptr, ptr %108, align 8, !tbaa !25
   %110 = load i8, ptr %85, align 8, !tbaa !22
   %111 = invoke noundef signext i8 @_ZNK6icu_776NFRule7doParseERKNS_13UnicodeStringERNS_13ParsePositionEadjiRNS_11FormattableE(ptr noundef nonnull align 8 dereferenceable(112) %109, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(16) %9, i8 noundef signext %110, double noundef %3, i32 noundef %.1, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(112) %11)
@@ -2189,7 +2189,7 @@ _ZNK6icu_7710NFRuleListixEj.exit.lr.ph:           ; preds = %2
 _ZNK6icu_7710NFRuleListixEj.exit:                 ; preds = %_ZNK6icu_7710NFRuleListixEj.exit.lr.ph, %_ZNK6icu_7710NFRuleListixEj.exit
   %indvars.iv = phi i64 [ 0, %_ZNK6icu_7710NFRuleListixEj.exit.lr.ph ], [ %indvars.iv.next, %_ZNK6icu_7710NFRuleListixEj.exit ]
   %26 = load ptr, ptr %22, align 8, !tbaa !19, !nonnull !40, !noundef !40
-  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv
   %28 = load ptr, ptr %27, align 8, !tbaa !25
   call void @_ZNK6icu_776NFRule15_appendRuleTextERNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(112) %28, ptr noundef nonnull align 8 dereferenceable(64) %1)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -2204,7 +2204,7 @@ _ZNK6icu_7710NFRuleListixEj.exit:                 ; preds = %_ZNK6icu_7710NFRule
 
 33:                                               ; preds = %.preheader30, %.loopexit
   %indvars.iv40 = phi i64 [ 0, %.preheader30 ], [ %indvars.iv.next41, %.loopexit ]
-  %34 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv40
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv40
   %35 = load ptr, ptr %34, align 8, !tbaa !25
   %.not = icmp eq ptr %35, null
   br i1 %.not, label %.loopexit, label %36
@@ -2224,7 +2224,7 @@ _ZNK6icu_7710NFRuleListixEj.exit29:               ; preds = %.preheader, %48
   %39 = phi i32 [ %49, %48 ], [ %38, %.preheader ]
   %indvars.iv37 = phi i64 [ %indvars.iv.next38, %48 ], [ 0, %.preheader ]
   %40 = load ptr, ptr %25, align 8, !tbaa !19, !nonnull !40, !noundef !40
-  %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv37
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv37
   %42 = load ptr, ptr %41, align 8, !tbaa !25
   %43 = load i64, ptr %42, align 8, !tbaa !41
   %44 = load i64, ptr %35, align 8, !tbaa !41

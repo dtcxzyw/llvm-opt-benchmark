@@ -27,10 +27,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.ExceptionHandlerTable = type <{ ptr, i32, i32, %class.ReallocMark, [7 x i8] }>
 %class.ReallocMark = type { i8 }
 %class.ExceptionMark = type { ptr }
-%"class.EventLogBase<FormatStringLogMessage<512>>::EventRecord" = type { double, ptr, %class.FormatStringLogMessage }
-%class.FormatStringLogMessage = type { %class.FormatBuffer }
-%class.FormatBuffer = type { %class.FormatBufferBase, [512 x i8] }
-%class.FormatBufferBase = type { ptr }
 %class.WeakPreserveExceptionMark = type { ptr, %class.Handle, i32, ptr }
 %class.CompiledICLocker = type { ptr, ptr, i8, %class.NoSafepointVerifier }
 %class.NoSafepointVerifier = type { ptr }
@@ -64,7 +60,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.SignatureStream = type { ptr, i32, i32, i32, i32, i8, i32, ptr, ptr }
 %class.EventReservedStackActivation = type { %class.JfrEvent.base, ptr }
 %class.JfrEvent.base = type <{ i64, i64, i8, i8, i8 }>
-%class.ImmutableOopMapPair = type { i32, i32 }
 %class.JfrFlush = type { ptr }
 %class.EventWriterHost = type { %class.WriterHost.base, [7 x i8] }
 %class.WriterHost.base = type <{ %class.MemoryWriterHost, i8 }>
@@ -689,7 +684,7 @@ _ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %31 = load ptr, ptr %30, align 8
   %32 = sext i32 %28 to i64
-  %33 = getelementptr inbounds ptr, ptr %31, i64 %32
+  %33 = getelementptr inbounds [8 x i8], ptr %31, i64 %32
   store ptr %11, ptr %33, align 8
   br label %_ZN12methodHandleC2EP6ThreadP6Method.exit
 
@@ -782,7 +777,7 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit29:      ; preds = %59, %66
   %76 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %77 = load ptr, ptr %76, align 8
   %78 = sext i32 %74 to i64
-  %79 = getelementptr inbounds ptr, ptr %77, i64 %78
+  %79 = getelementptr inbounds [8 x i8], ptr %77, i64 %78
   store ptr %57, ptr %79, align 8
   %.pr = load ptr, ptr %9, align 8
   %80 = icmp eq ptr %.pr, null
@@ -2114,7 +2109,7 @@ _ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %31 = load ptr, ptr %30, align 8
   %32 = sext i32 %28 to i64
-  %33 = getelementptr inbounds ptr, ptr %31, i64 %32
+  %33 = getelementptr inbounds [8 x i8], ptr %31, i64 %32
   store ptr %11, ptr %33, align 8
   br label %_ZN12methodHandleC2EP6ThreadP6Method.exit
 
@@ -2183,7 +2178,7 @@ _ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.
   %67 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %68 = load ptr, ptr %67, align 8
   %69 = sext i32 %65 to i64
-  %70 = getelementptr inbounds ptr, ptr %68, i64 %69
+  %70 = getelementptr inbounds [8 x i8], ptr %68, i64 %69
   store ptr %48, ptr %70, align 8
   br label %_ZN12methodHandleC2EP6ThreadP6Method.exit24
 
@@ -2213,7 +2208,7 @@ _Z21Bytecode_invoke_checkRK12methodHandlei.exit:  ; preds = %75, %79
 
 _ZNK15Bytecode_invoke18is_invokeinterfaceEv.exit.i: ; preds = %_Z21Bytecode_invoke_checkRK12methodHandlei.exit
   %83 = sext i32 %81 to i64
-  %84 = getelementptr inbounds i32, ptr @_ZN9Bytecodes10_java_codeE, i64 %83
+  %84 = getelementptr inbounds [4 x i8], ptr @_ZN9Bytecodes10_java_codeE, i64 %83
   %85 = load i32, ptr %84, align 4
   switch i32 %85, label %_ZNK15Bytecode_invoke8is_validEv.exit [
     i32 185, label %86
@@ -3021,7 +3016,7 @@ _ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.
   %90 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %91 = load ptr, ptr %90, align 8
   %92 = sext i32 %88 to i64
-  %93 = getelementptr inbounds ptr, ptr %91, i64 %92
+  %93 = getelementptr inbounds [8 x i8], ptr %91, i64 %92
   store ptr %73, ptr %93, align 8
   br label %_ZN12methodHandleC2EP6ThreadP6Method.exit
 
@@ -4058,14 +4053,14 @@ _ZN11MutexLockerD2Ev.exit.i:                      ; preds = %21, %11
   %24 = getelementptr inbounds nuw i8, ptr %9, i64 152
   %25 = load ptr, ptr %24, align 8
   %26 = sext i32 %15 to i64
-  %27 = getelementptr inbounds %"class.EventLogBase<FormatStringLogMessage<512>>::EventRecord", ptr %25, i64 %26
+  %27 = getelementptr inbounds [536 x i8], ptr %25, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr %0, ptr %28, align 8
   %29 = load ptr, ptr %24, align 8
-  %30 = getelementptr inbounds %"class.EventLogBase<FormatStringLogMessage<512>>::EventRecord", ptr %29, i64 %26
+  %30 = getelementptr inbounds [536 x i8], ptr %29, i64 %26
   store double %12, ptr %30, align 8
   %31 = load ptr, ptr %24, align 8
-  %32 = getelementptr inbounds %"class.EventLogBase<FormatStringLogMessage<512>>::EventRecord", ptr %31, i64 %26
+  %32 = getelementptr inbounds [536 x i8], ptr %31, i64 %26
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %34 = load ptr, ptr %33, align 8
   %35 = call i32 @jio_vsnprintf(ptr noundef %34, i64 noundef 512, ptr noundef %1, ptr noundef nonnull %3) #20
@@ -4753,12 +4748,12 @@ define hidden noundef i32 @_ZN13SharedRuntime19dtrace_method_entryEP10JavaThread
   %9 = load i16, ptr %8, align 4
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %11 = zext i16 %9 to i64
-  %12 = getelementptr inbounds nuw i64, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %11
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 38
   %15 = load i16, ptr %14, align 2
   %16 = zext i16 %15 to i64
-  %17 = getelementptr inbounds nuw i64, ptr %10, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %16
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %0, null
   br i1 %19, label %_ZN13SharedRuntime12get_java_tidEP10JavaThread.exit, label %20
@@ -4829,12 +4824,12 @@ define hidden noundef i32 @_ZN13SharedRuntime18dtrace_method_exitEP10JavaThreadP
   %9 = load i16, ptr %8, align 4
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %11 = zext i16 %9 to i64
-  %12 = getelementptr inbounds nuw i64, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %11
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 38
   %15 = load i16, ptr %14, align 2
   %16 = zext i16 %15 to i64
-  %17 = getelementptr inbounds nuw i64, ptr %10, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %16
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %0, null
   br i1 %19, label %_ZN13SharedRuntime12get_java_tidEP10JavaThread.exit, label %20
@@ -4981,7 +4976,7 @@ _ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.
   %34 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %35 = load ptr, ptr %34, align 8
   %36 = sext i32 %32 to i64
-  %37 = getelementptr inbounds ptr, ptr %35, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr %35, i64 %36
   store ptr %15, ptr %37, align 8
   br label %_ZN12methodHandleC2EP6ThreadP6Method.exit
 
@@ -5024,7 +5019,7 @@ _ZN15Bytecode_invokeC2ERK12methodHandlei.exit:    ; preds = %42, %48
 
 56:                                               ; preds = %_ZN15Bytecode_invokeC2ERK12methodHandlei.exit
   %57 = sext i32 %54 to i64
-  %58 = getelementptr inbounds i32, ptr @_ZN9Bytecodes10_java_codeE, i64 %57
+  %58 = getelementptr inbounds [4 x i8], ptr @_ZN9Bytecodes10_java_codeE, i64 %57
   %59 = load i32, ptr %58, align 4
   br label %_ZNK8Bytecode11invoke_codeEv.exit
 
@@ -5076,7 +5071,7 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit54:      ; preds = %67, %74
   %84 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %85 = load ptr, ptr %84, align 8
   %86 = sext i32 %82 to i64
-  %87 = getelementptr inbounds ptr, ptr %85, i64 %86
+  %87 = getelementptr inbounds [8 x i8], ptr %85, i64 %86
   store ptr %65, ptr %87, align 8
   %.pr = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %.pr, null
@@ -5323,7 +5318,7 @@ _ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.
   %204 = getelementptr inbounds nuw i8, ptr %189, i64 8
   %205 = load ptr, ptr %204, align 8
   %206 = sext i32 %202 to i64
-  %207 = getelementptr inbounds ptr, ptr %205, i64 %206
+  %207 = getelementptr inbounds [8 x i8], ptr %205, i64 %206
   store ptr %185, ptr %207, align 8
   br label %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit
 
@@ -5491,7 +5486,7 @@ _ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.
   %61 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %62 = load ptr, ptr %61, align 8
   %63 = sext i32 %59 to i64
-  %64 = getelementptr inbounds ptr, ptr %62, i64 %63
+  %64 = getelementptr inbounds [8 x i8], ptr %62, i64 %63
   store ptr %42, ptr %64, align 8
   br label %_ZN12methodHandleC2EP6ThreadP6Method.exit
 
@@ -5553,7 +5548,7 @@ _ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.
   %93 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %94 = load ptr, ptr %93, align 8
   %95 = sext i32 %91 to i64
-  %96 = getelementptr inbounds ptr, ptr %94, i64 %95
+  %96 = getelementptr inbounds [8 x i8], ptr %94, i64 %95
   store ptr %74, ptr %96, align 8
   br label %_ZN12methodHandleC2EP6ThreadP6Method.exit15
 
@@ -5754,7 +5749,7 @@ _ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.
   %82 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %83 = load ptr, ptr %82, align 8
   %84 = sext i32 %80 to i64
-  %85 = getelementptr inbounds ptr, ptr %83, i64 %84
+  %85 = getelementptr inbounds [8 x i8], ptr %83, i64 %84
   store ptr %63, ptr %85, align 8
   br label %_ZN12methodHandleC2EP6ThreadP6Method.exit
 
@@ -5936,7 +5931,7 @@ _ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.
   %52 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %53 = load ptr, ptr %52, align 8
   %54 = sext i32 %50 to i64
-  %55 = getelementptr inbounds ptr, ptr %53, i64 %54
+  %55 = getelementptr inbounds [8 x i8], ptr %53, i64 %54
   store ptr %33, ptr %55, align 8
   br label %_ZN12methodHandleC2EP6ThreadP6Method.exit
 
@@ -6649,7 +6644,7 @@ _ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.
   %36 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %37 = load ptr, ptr %36, align 8
   %38 = sext i32 %34 to i64
-  %39 = getelementptr inbounds ptr, ptr %37, i64 %38
+  %39 = getelementptr inbounds [8 x i8], ptr %37, i64 %38
   store ptr %17, ptr %39, align 8
   br label %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit
 
@@ -7172,7 +7167,7 @@ define hidden noundef ptr @_ZN21AdapterHandlerLibrary14create_adapterERP11Adapte
 switch.lookup:                                    ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %56 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN21AdapterHandlerLibrary11get_adapterERK12methodHandle, i64 %56
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN21AdapterHandlerLibrary11get_adapterERK12methodHandle, i64 %56
   %switch.load = load i32, ptr %switch.gep, align 4
   %57 = shl i32 %.01927.i, 4
   %58 = or i32 %switch.load, %57
@@ -7189,7 +7184,7 @@ switch.lookup:                                    ; preds = %.lr.ph.i
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.preheader.i
   %.1.lcssa.i = phi i32 [ %.02130.i, %.preheader.i ], [ %63, %._crit_edge.loopexit.i ]
   %.019.lcssa.i = phi i32 [ 0, %.preheader.i ], [ %58, %._crit_edge.loopexit.i ]
-  %64 = getelementptr inbounds nuw i32, ptr %.041.i, i64 %indvars.iv36.i
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %.041.i, i64 %indvars.iv36.i
   store i32 %.019.lcssa.i, ptr %64, align 4
   %indvars.iv.next37.i = add nuw nsw i64 %indvars.iv36.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next37.i, %wide.trip.count.i
@@ -7306,7 +7301,7 @@ define internal fastcc void @_ZL21post_adapter_creationPK11AdapterBlobPK19Adapte
   %15 = icmp slt i32 %14, 0
   %16 = load ptr, ptr %11, align 8
   %.0.in.v.i.i = select i1 %15, ptr %11, ptr %16
-  %.0.in.i.i = getelementptr inbounds nuw i32, ptr %.0.in.v.i.i, i64 %indvars.iv.i
+  %.0.in.i.i = getelementptr inbounds nuw [4 x i8], ptr %.0.in.v.i.i, i64 %indvars.iv.i
   %.0.i3.i = load i32, ptr %.0.in.i.i, align 4
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str.67, i32 noundef %.0.i3.i) #20
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -7401,7 +7396,7 @@ define hidden noundef ptr @_ZN21AdapterHandlerLibrary18get_simple_adapterERK12me
   %22 = load i16, ptr %21, align 2
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 72
   %24 = zext i16 %22 to i64
-  %25 = getelementptr inbounds nuw i64, ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %24
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 7
   %28 = load i8, ptr %27, align 1
@@ -7435,7 +7430,7 @@ define hidden noundef ptr @_ZN21AdapterHandlerLibrary18get_simple_adapterERK12me
   %39 = load i16, ptr %38, align 2
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 72
   %41 = zext i16 %39 to i64
-  %42 = getelementptr inbounds nuw i64, ptr %40, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %41
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 7
   %45 = load i8, ptr %44, align 1
@@ -7497,7 +7492,7 @@ define hidden noundef ptr @_ZN21AdapterHandlerLibrary11get_adapterERK12methodHan
   %19 = load i16, ptr %18, align 2
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 72
   %21 = zext i16 %19 to i64
-  %22 = getelementptr inbounds nuw i64, ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %21
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 7
   %25 = load i8, ptr %24, align 1
@@ -7526,7 +7521,7 @@ define hidden noundef ptr @_ZN21AdapterHandlerLibrary11get_adapterERK12methodHan
   %33 = load i16, ptr %32, align 2
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 72
   %35 = zext i16 %33 to i64
-  %36 = getelementptr inbounds nuw i64, ptr %34, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %35
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 7
   %39 = load i8, ptr %38, align 1
@@ -7579,7 +7574,7 @@ _ZN21AdapterHandlerLibrary18get_simple_adapterERK12methodHandle.exit.thread: ; p
   %59 = load i16, ptr %58, align 2
   %60 = getelementptr inbounds nuw i8, ptr %57, i64 72
   %61 = zext i16 %59 to i64
-  %62 = getelementptr inbounds nuw i64, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   %63 = load ptr, ptr %62, align 8
   %64 = load volatile i64, ptr %42, align 8
   %65 = load volatile i64, ptr %42, align 8
@@ -7718,7 +7713,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %_ZN24Adapte
 switch.lookup:                                    ; preds = %.lr.ph.i.i
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
   %114 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN21AdapterHandlerLibrary11get_adapterERK12methodHandle, i64 %114
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN21AdapterHandlerLibrary11get_adapterERK12methodHandle, i64 %114
   %switch.load = load i32, ptr %switch.gep, align 4
   %115 = shl i32 %.01927.i.i, 4
   %116 = or i32 %switch.load, %115
@@ -7735,7 +7730,7 @@ switch.lookup:                                    ; preds = %.lr.ph.i.i
 ._crit_edge.i.i:                                  ; preds = %._crit_edge.loopexit.i.i, %.preheader.i.i
   %.1.lcssa.i.i = phi i32 [ %.02130.i.i, %.preheader.i.i ], [ %121, %._crit_edge.loopexit.i.i ]
   %.019.lcssa.i.i = phi i32 [ 0, %.preheader.i.i ], [ %116, %._crit_edge.loopexit.i.i ]
-  %122 = getelementptr inbounds nuw i32, ptr %.041.i.i, i64 %indvars.iv36.i.i
+  %122 = getelementptr inbounds nuw [4 x i8], ptr %.041.i.i, i64 %indvars.iv36.i.i
   store i32 %.019.lcssa.i.i, ptr %122, align 4
   %indvars.iv.next37.i.i = add nuw nsw i64 %indvars.iv36.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next37.i.i, %wide.trip.count.i.i
@@ -7764,7 +7759,7 @@ _ZN18AdapterFingerPrintC2EiP9BasicType.exit.i:    ; preds = %_ZN18AdapterFingerP
 127:                                              ; preds = %127, %.lr.ph.i.i.i.i
   %indvars.iv.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i ], [ %indvars.iv.next.i.i.i.i, %127 ]
   %.010.i.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i.i ], [ %131, %127 ]
-  %.0.in.i.i.i.i.i = getelementptr inbounds nuw i32, ptr %.0.in.v.i.i.i.i.i, i64 %indvars.iv.i.i.i.i
+  %.0.in.i.i.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %.0.in.v.i.i.i.i.i, i64 %indvars.iv.i.i.i.i
   %.0.i8.i.i.i.i = load i32, ptr %.0.in.i.i.i.i.i, align 4
   %128 = shl i32 %.010.i.i.i.i, 8
   %129 = ashr i32 %.010.i.i.i.i, 5
@@ -7778,7 +7773,7 @@ _ZN18AdapterFingerPrint12compute_hashERKPS_.exit.i.i: ; preds = %127, %_ZN18Adap
   %.0.lcssa.i.i.i.i = phi i32 [ 0, %_ZN18AdapterFingerPrintC2EiP9BasicType.exit.i ], [ %131, %127 ]
   %132 = urem i32 %.0.lcssa.i.i.i.i, 293
   %133 = zext nneg i32 %132 to i64
-  %134 = getelementptr inbounds nuw ptr, ptr %124, i64 %133
+  %134 = getelementptr inbounds nuw [8 x i8], ptr %124, i64 %133
   %135 = load ptr, ptr %134, align 8
   %.not18.i.i.i.i = icmp eq ptr %135, null
   br i1 %.not18.i.i.i.i, label %_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE3getESA_.exit.thread.i, label %.lr.ph.i.i7.i.i
@@ -7880,9 +7875,9 @@ _ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.thread.i.i.i.us21.i: ; preds = %167
 
 184:                                              ; preds = %183, %.preheader.i.i.i.i.i.i
   %indvars.iv.i.i.i.i.i.i = phi i64 [ 0, %.preheader.i.i.i.i.i.i ], [ %indvars.iv.next.i.i.i.i.i.i, %183 ]
-  %185 = getelementptr inbounds nuw i32, ptr %138, i64 %indvars.iv.i.i.i.i.i.i
+  %185 = getelementptr inbounds nuw [4 x i8], ptr %138, i64 %indvars.iv.i.i.i.i.i.i
   %186 = load i32, ptr %185, align 4
-  %187 = getelementptr inbounds nuw i32, ptr %182, i64 %indvars.iv.i.i.i.i.i.i
+  %187 = getelementptr inbounds nuw [4 x i8], ptr %182, i64 %indvars.iv.i.i.i.i.i.i
   %188 = load i32, ptr %187, align 4
   %.not12.i.i.i.i.i.i = icmp eq i32 %186, %188
   br i1 %.not12.i.i.i.i.i.i, label %183, label %_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.thread.i.i.i.i
@@ -8047,7 +8042,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN21ResourceHashtableBaseI29Fixe
 9:                                                ; preds = %9, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %9 ]
   %.010.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %13, %9 ]
-  %.0.in.i.i.i = getelementptr inbounds nuw i32, ptr %.0.in.v.i.i.i, i64 %indvars.iv.i.i
+  %.0.in.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %.0.in.v.i.i.i, i64 %indvars.iv.i.i
   %.0.i8.i.i = load i32, ptr %.0.in.i.i.i, align 4
   %10 = shl i32 %.010.i.i, 8
   %11 = ashr i32 %.010.i.i, 5
@@ -8061,7 +8056,7 @@ _ZN18AdapterFingerPrint12compute_hashERKPS_.exit: ; preds = %9, %3
   %.0.lcssa.i.i = phi i32 [ 0, %3 ], [ %13, %9 ]
   %14 = urem i32 %.0.lcssa.i.i, 293
   %15 = zext nneg i32 %14 to i64
-  %16 = getelementptr inbounds nuw ptr, ptr %0, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %15
   %17 = load ptr, ptr %16, align 8
   %.not18.i = icmp eq ptr %17, null
   br i1 %.not18.i, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE11lookup_nodeEjSA_.exit.thread, label %.lr.ph.i
@@ -8118,9 +8113,9 @@ _ZN18AdapterFingerPrint12compute_hashERKPS_.exit: ; preds = %9, %3
 
 42:                                               ; preds = %41, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %41 ]
-  %43 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv.i.i.i
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %indvars.iv.i.i.i
   %44 = load i32, ptr %43, align 4
-  %45 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv.i.i.i
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv.i.i.i
   %46 = load i32, ptr %45, align 4
   %.not12.i.i.i = icmp eq i32 %44, %46
   br i1 %.not12.i.i.i, label %41, label %_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.thread.i
@@ -8335,7 +8330,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %1, %21
   %71 = load i16, ptr %70, align 2
   %72 = getelementptr inbounds nuw i8, ptr %69, i64 72
   %73 = zext i16 %71 to i64
-  %74 = getelementptr inbounds nuw i64, ptr %72, i64 %73
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %73
   %75 = load ptr, ptr %74, align 8
   %76 = load volatile i64, ptr %65, align 8
   %77 = load volatile i64, ptr %65, align 8
@@ -8653,7 +8648,7 @@ define hidden noundef ptr @_ZN13SharedRuntime21find_callee_argumentsEP6SymbolbbP
 
 .lr.ph41:                                         ; preds = %.lr.ph41.preheader, %54
   %indvars.iv = phi i64 [ 0, %.lr.ph41.preheader ], [ %indvars.iv.next, %54 ]
-  %33 = getelementptr inbounds nuw %class.VMRegPair, ptr %7, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %indvars.iv
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load ptr, ptr %34, align 8
   %.not37 = icmp ult ptr %35, getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617)
@@ -8666,7 +8661,7 @@ define hidden noundef ptr @_ZN13SharedRuntime21find_callee_argumentsEP6SymbolbbP
   %40 = add i32 %39, sub (i32 0, i32 ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617) to i32))
   %41 = add i32 %40, %37
   %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617), i64 %42
+  %43 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617), i64 %42
   br label %44
 
 44:                                               ; preds = %36, %.lr.ph41
@@ -8682,7 +8677,7 @@ define hidden noundef ptr @_ZN13SharedRuntime21find_callee_argumentsEP6SymbolbbP
   %50 = add i32 %49, sub (i32 0, i32 ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617) to i32))
   %51 = add i32 %50, %47
   %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617), i64 %52
+  %53 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617), i64 %52
   br label %54
 
 54:                                               ; preds = %46, %44
@@ -8860,7 +8855,7 @@ _ZN4Copy14disjoint_wordsEPKP12HeapWordImplPS1_m.exit: ; preds = %._crit_edge, %5
 74:                                               ; preds = %73, %69
   %75 = load volatile i64, ptr %.02938, align 8
   %76 = sext i32 %.03037 to i64
-  %77 = getelementptr inbounds i64, ptr %25, i64 %76
+  %77 = getelementptr inbounds [8 x i8], ptr %25, i64 %76
   store i64 %75, ptr %77, align 8
   %.pre = load ptr, ptr %64, align 8
   br label %78
@@ -8870,7 +8865,7 @@ _ZN4Copy14disjoint_wordsEPKP12HeapWordImplPS1_m.exit: ; preds = %._crit_edge, %5
   %79 = phi ptr [ %65, %._crit_edge42 ], [ %.pre, %74 ]
   %80 = ptrtoint ptr %79 to i64
   %81 = add nsw i32 %.03037, 2
-  %82 = getelementptr i64, ptr %25, i64 %.pre-phi
+  %82 = getelementptr [8 x i8], ptr %25, i64 %.pre-phi
   %83 = getelementptr i8, ptr %82, i64 8
   store i64 %80, ptr %83, align 8
   br label %84
@@ -9081,7 +9076,7 @@ define hidden void @_ZNK19AdapterHandlerEntry16print_adapter_onEP12outputStream(
   %9 = icmp slt i32 %8, 0
   %10 = load ptr, ptr %5, align 8
   %.0.in.v.i.i = select i1 %9, ptr %5, ptr %10
-  %.0.in.i.i = getelementptr inbounds nuw i32, ptr %.0.in.v.i.i, i64 %indvars.iv.i
+  %.0.in.i.i = getelementptr inbounds nuw [4 x i8], ptr %.0.in.v.i.i, i64 %indvars.iv.i
   %.0.i3.i = load i32, ptr %.0.in.i.i, align 4
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str.67, i32 noundef %.0.i3.i) #20
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -9804,7 +9799,7 @@ _ZNK11RegisterMap7in_contEv.exit.thread:          ; preds = %1, %_ZNK11RegisterM
   %19 = inttoptr i64 %18 to ptr
   %20 = load i32, ptr %19, align 4, !noalias !97
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds i64, ptr %15, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %15, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load ptr, ptr @_ZN19AbstractInterpreter5_codeE, align 8, !noalias !97
   %.not.i.i.i.i.i.i = icmp eq ptr %24, null
@@ -9827,7 +9822,7 @@ _ZNK5frame20is_interpreted_frameEv.exit.i.i.i.i:  ; preds = %10
   %sext13.i = shl i64 %34, 32
   %35 = ashr exact i64 %sext13.i, 32
   %36 = sub nsw i64 0, %35
-  %37 = getelementptr inbounds i64, ptr %23, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr %23, i64 %36
   br label %_ZN17stackChunkOopDesc24interpreter_frame_methodERK5frame.exit
 
 _ZN17stackChunkOopDesc24interpreter_frame_methodERK5frame.exit: ; preds = %10, %_ZNK5frame20is_interpreted_frameEv.exit.i.i.i.i, %33
@@ -9837,12 +9832,12 @@ _ZN17stackChunkOopDesc24interpreter_frame_methodERK5frame.exit: ; preds = %10, %
   %sext12.i = shl i64 %38, 32
   %39 = ashr exact i64 %sext12.i, 32
   %40 = sub nsw i64 0, %39
-  %41 = getelementptr inbounds i64, ptr %23, i64 %40
+  %41 = getelementptr inbounds [8 x i8], ptr %23, i64 %40
   %42 = ptrtoint ptr %.sroa.011.0.copyload.i to i64
   %sext.i = shl i64 %42, 32
   %43 = ashr exact i64 %sext.i, 32
   %44 = sub nsw i64 0, %43
-  %45 = getelementptr inbounds i64, ptr %23, i64 %44
+  %45 = getelementptr inbounds [8 x i8], ptr %23, i64 %44
   store ptr %45, ptr %3, align 8
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %.sroa.2.0.copyload.i, ptr %.sroa.6.0..sroa_idx.i, align 8
@@ -9872,7 +9867,7 @@ _ZN17stackChunkOopDesc24interpreter_frame_methodERK5frame.exit: ; preds = %10, %
   %56 = inttoptr i64 %55 to ptr
   %57 = load i32, ptr %56, align 4, !noalias !100
   %58 = sext i32 %57 to i64
-  %59 = getelementptr inbounds i64, ptr %52, i64 %58
+  %59 = getelementptr inbounds [8 x i8], ptr %52, i64 %58
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %61 = load ptr, ptr @_ZN19AbstractInterpreter5_codeE, align 8, !noalias !100
   %.not.i.i.i.i.i.i14 = icmp eq ptr %61, null
@@ -9895,7 +9890,7 @@ _ZNK5frame20is_interpreted_frameEv.exit.i.i.i.i15: ; preds = %_ZN17stackChunkOop
   %sext13.i25 = shl i64 %71, 32
   %72 = ashr exact i64 %sext13.i25, 32
   %73 = sub nsw i64 0, %72
-  %74 = getelementptr inbounds i64, ptr %60, i64 %73
+  %74 = getelementptr inbounds [8 x i8], ptr %60, i64 %73
   br label %_ZN17stackChunkOopDesc21interpreter_frame_bcpERK5frame.exit
 
 _ZN17stackChunkOopDesc21interpreter_frame_bcpERK5frame.exit: ; preds = %_ZN17stackChunkOopDesc24interpreter_frame_methodERK5frame.exit, %_ZNK5frame20is_interpreted_frameEv.exit.i.i.i.i15, %70
@@ -9904,12 +9899,12 @@ _ZN17stackChunkOopDesc21interpreter_frame_bcpERK5frame.exit: ; preds = %_ZN17sta
   %sext12.i19 = shl i64 %75, 32
   %76 = ashr exact i64 %sext12.i19, 32
   %77 = sub nsw i64 0, %76
-  %78 = getelementptr inbounds i64, ptr %60, i64 %77
+  %78 = getelementptr inbounds [8 x i8], ptr %60, i64 %77
   %79 = ptrtoint ptr %.sroa.011.0.copyload.i7 to i64
   %sext.i20 = shl i64 %79, 32
   %80 = ashr exact i64 %sext.i20, 32
   %81 = sub nsw i64 0, %80
-  %82 = getelementptr inbounds i64, ptr %60, i64 %81
+  %82 = getelementptr inbounds [8 x i8], ptr %60, i64 %81
   store ptr %82, ptr %2, align 8
   %.sroa.6.0..sroa_idx.i21 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.sroa.2.0.copyload.i9, ptr %.sroa.6.0..sroa_idx.i21, align 8
@@ -10080,7 +10075,7 @@ _ZN20CompressedReadStream8read_intEv.exit.i:      ; preds = %.loopexit.loopexit.
   %83 = zext i16 %82 to i64
   %84 = getelementptr inbounds nuw i8, ptr %80, i64 %83
   %85 = sext i32 %.0.i.i.i to i64
-  %86 = getelementptr ptr, ptr %84, i64 %85
+  %86 = getelementptr [8 x i8], ptr %84, i64 %85
   %87 = getelementptr i8, ptr %86, i64 -8
   %88 = load ptr, ptr %87, align 8
   br label %_ZN19DebugInfoReadStream11read_methodEv.exit
@@ -10199,9 +10194,9 @@ _ZN13GrowableArrayIP8MetadataE8allocateEv.exit:   ; preds = %7, %11, %15
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %26 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv
   %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
   store ptr %29, ptr %26, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -10218,7 +10213,7 @@ _ZN13GrowableArrayIP8MetadataE8allocateEv.exit:   ; preds = %7, %11, %15
 
 .lr.ph18:                                         ; preds = %.lr.ph18.preheader, %.lr.ph18
   %indvars.iv20 = phi i64 [ %24, %.lr.ph18.preheader ], [ %indvars.iv.next21, %.lr.ph18 ]
-  %35 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv20
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv20
   store ptr null, ptr %35, align 8
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %36 = load i32, ptr %3, align 4
@@ -10502,7 +10497,7 @@ define linkonce_odr hidden void @_ZNK5frame25sender_for_compiled_frameEP11Regist
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 44
   %9 = load i32, ptr %8, align 4
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds i64, ptr %5, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %5, i64 %10
   %12 = getelementptr inbounds i8, ptr %11, i64 -8
   %13 = load i64, ptr %12, align 8
   %14 = inttoptr i64 %13 to ptr
@@ -10557,7 +10552,7 @@ _ZNK5frame7oop_mapEv.exit.thread23:               ; preds = %42
   %45 = lshr i32 %44, 24
   %46 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %47 = zext nneg i32 %45 to i64
-  %48 = getelementptr inbounds nuw %class.ImmutableOopMapPair, ptr %46, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 4
   %50 = load i32, ptr %49, align 4
   %51 = load i32, ptr %36, align 4

@@ -72,7 +72,7 @@ define ptr @l_Array_anyMUnsafe_any___at_Lean_Compiler_LCNF_LambdaLifting_hasInst
 10:                                               ; preds = %.lr.ph, %124
   %.047101 = phi i64 [ %1, %.lr.ph ], [ %125, %124 ]
   %.050100 = phi ptr [ %7, %.lr.ph ], [ %55, %124 ]
-  %11 = getelementptr inbounds nuw ptr, ptr %9, i64 %.047101
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.047101
   %12 = load ptr, ptr %11, align 8, !tbaa !4
   %13 = ptrtoint ptr %12 to i64
   %14 = trunc i64 %13 to i1
@@ -2505,7 +2505,7 @@ declare ptr @lean_apply_9(ptr noundef, ptr noundef, ptr noundef, ptr noundef, pt
 define internal fastcc void @lean_ctor_release(ptr noundef captures(none) %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = zext nneg i32 %1 to i64
-  %5 = getelementptr inbounds nuw ptr, ptr %3, i64 %4
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = ptrtoint ptr %6 to i64
   %8 = trunc i64 %7 to i1
@@ -17855,7 +17855,7 @@ lean_dec.exit139:                                 ; preds = %100, %99, %97, %lea
 104:                                              ; preds = %34, %lean_dec.exit148
   %105 = lshr i64 %32, 1
   %106 = getelementptr inbounds nuw i8, ptr %.096, i64 24
-  %107 = getelementptr inbounds nuw ptr, ptr %106, i64 %105
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %105
   %108 = load ptr, ptr %107, align 8, !tbaa !4
   %109 = ptrtoint ptr %108 to i64
   %110 = trunc i64 %109 to i1
@@ -18221,7 +18221,7 @@ lean_nat_add.exit110:                             ; preds = %224, %220, %.crited
 lean_ensure_exclusive_array.exit.i.i:             ; preds = %228, %lean_nat_add.exit110
   %.0.i.i.i = phi ptr [ %229, %228 ], [ %.096, %lean_nat_add.exit110 ]
   %230 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
-  %231 = getelementptr inbounds nuw ptr, ptr %230, i64 %105
+  %231 = getelementptr inbounds nuw [8 x i8], ptr %230, i64 %105
   %232 = load ptr, ptr %231, align 8, !tbaa !4
   %233 = ptrtoint ptr %232 to i64
   %234 = trunc i64 %233 to i1
@@ -22917,7 +22917,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lean_Compiler_LCNF_lambdaLifting___el
   %.061153 = phi i64 [ %1, %.lr.ph ], [ %209, %208 ]
   %.064152 = phi ptr [ %3, %.lr.ph ], [ %93, %208 ]
   %.067151 = phi ptr [ %8, %.lr.ph ], [ %77, %208 ]
-  %20 = getelementptr inbounds nuw ptr, ptr %10, i64 %.061153
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.061153
   %21 = load ptr, ptr %20, align 8, !tbaa !4
   %22 = ptrtoint ptr %21 to i64
   %23 = trunc i64 %22 to i1
@@ -23718,7 +23718,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lean_Compiler_LCNF_eagerLambdaLifting
   %.093217 = phi i64 [ %1, %.lr.ph ], [ %.497, %lean_dec.exit133 ]
   %.098216 = phi ptr [ %3, %.lr.ph ], [ %.4102, %lean_dec.exit133 ]
   %.0103215 = phi ptr [ %8, %.lr.ph ], [ %.4107, %lean_dec.exit133 ]
-  %20 = getelementptr inbounds nuw ptr, ptr %10, i64 %.093217
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.093217
   %21 = load ptr, ptr %20, align 8, !tbaa !4
   %22 = ptrtoint ptr %21 to i64
   %23 = trunc i64 %22 to i1

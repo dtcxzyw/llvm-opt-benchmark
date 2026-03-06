@@ -407,7 +407,7 @@ switch.lookup:
   %2 = add i64 %1, 9223372036854775807
   %3 = icmp ult i64 %2, 9
   %4 = select i1 %3, i64 %2, i64 1
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN137_$LT$aws_smithy_runtime_api..client..result..SdkError$LT$E$C$R$GT$$u20$as$u20$aws_smithy_types..error..metadata..ProvideErrorMetadata$GT$4meta17ha3343557342c9754E", i64 %4
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN137_$LT$aws_smithy_runtime_api..client..result..SdkError$LT$E$C$R$GT$$u20$as$u20$aws_smithy_types..error..metadata..ProvideErrorMetadata$GT$4meta17ha3343557342c9754E", i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
   ret ptr %5
@@ -567,7 +567,7 @@ switch.lookup:                                    ; preds = %1
   %6 = add i64 %5, 9223372036854775807
   %7 = icmp ult i64 %6, 9
   %8 = select i1 %7, i64 %6, i64 1
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN137_$LT$aws_smithy_runtime_api..client..result..SdkError$LT$E$C$R$GT$$u20$as$u20$aws_smithy_types..error..metadata..ProvideErrorMetadata$GT$4meta17ha3343557342c9754E", i64 %8
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN137_$LT$aws_smithy_runtime_api..client..result..SdkError$LT$E$C$R$GT$$u20$as$u20$aws_smithy_types..error..metadata..ProvideErrorMetadata$GT$4meta17ha3343557342c9754E", i64 %8
   %switch.load = load i64, ptr %switch.gep, align 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 %switch.load
   br label %10
@@ -1688,10 +1688,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !51, !noundef !5
   %.val = load i8, ptr %2, align 1, !range !205, !noundef !5
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h4493a5a4012d7512E", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h4493a5a4012d7512E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h4493a5a4012d7512E.11", i64 %4
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h4493a5a4012d7512E.11", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -3707,10 +3707,10 @@ define internal noundef zeroext i1 @"_ZN99_$LT$aws_smithy_runtime_api..client..i
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !426, !noundef !5
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN99_$LT$aws_smithy_runtime_api..client..interceptors..error..ErrorKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h079de2fe7384356dE", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN99_$LT$aws_smithy_runtime_api..client..interceptors..error..ErrorKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h079de2fe7384356dE", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN99_$LT$aws_smithy_runtime_api..client..interceptors..error..ErrorKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h079de2fe7384356dE.12", i64 %4
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN99_$LT$aws_smithy_runtime_api..client..interceptors..error..ErrorKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h079de2fe7384356dE.12", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5

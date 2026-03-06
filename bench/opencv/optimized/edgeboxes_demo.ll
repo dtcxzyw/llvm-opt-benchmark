@@ -39,7 +39,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.cv::Vec" = type { %"class.cv::Matx" }
 %"class.cv::Matx" = type { [4 x double] }
 %"class.cv::_InputOutputArray" = type { %"class.cv::_OutputArray" }
-%"class.cv::Rect_" = type { i32, i32, i32, i32 }
 
 $_ZNSt12__shared_ptrIKN2cv8ximgproc15RFFeatureGetterELN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
 
@@ -832,7 +831,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit112: ; preds = %30
 323:                                              ; preds = %.lr.ph, %336
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %336 ]
   %324 = phi ptr [ %275, %.lr.ph ], [ %338, %336 ]
-  %325 = getelementptr inbounds nuw %"class.cv::Rect_", ptr %324, i64 %indvars.iv
+  %325 = getelementptr inbounds nuw [16 x i8], ptr %324, i64 %indvars.iv
   %326 = load i64, ptr %325, align 4
   %327 = trunc i64 %326 to i32
   %328 = lshr i64 %326, 32

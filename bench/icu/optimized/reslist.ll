@@ -14,7 +14,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
 %"class.std::locale" = type { ptr }
 %"class.icu_77::ConstChar16Ptr" = type { ptr }
-%struct.KeyMapEntry = type { i32, i32 }
 %"class.icu_77::UnicodeString" = type { %"class.icu_77::Replaceable", %"union.icu_77::UnicodeString::StackBufferOrFields" }
 %"class.icu_77::Replaceable" = type { %"class.icu_77::UObject" }
 %"class.icu_77::UObject" = type { ptr }
@@ -1262,7 +1261,7 @@ define dso_local void @_ZN17IntVectorResource3addEiR10UErrorCode(ptr noundef non
   %28 = load i64, ptr %4, align 8, !tbaa !53
   %29 = add i64 %28, 1
   store i64 %29, ptr %4, align 8, !tbaa !53
-  %30 = getelementptr inbounds nuw i32, ptr %27, i64 %28
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %28
   store i32 %1, ptr %30, align 4, !tbaa !7
   br label %31
 
@@ -1669,7 +1668,7 @@ define dso_local noundef i32 @_ZNK7SRBRoot6mapKeyEi(ptr noundef nonnull readonly
   %16 = add nsw i32 %.020, %.01519
   %17 = sdiv i32 %16, 2
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds %struct.KeyMapEntry, ptr %4, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %4, i64 %18
   %20 = load i32, ptr %19, align 4, !tbaa !82
   %21 = icmp slt i32 %1, %20
   %.015. = select i1 %21, i32 %.01519, i32 %17
@@ -1681,7 +1680,7 @@ define dso_local noundef i32 @_ZNK7SRBRoot6mapKeyEi(ptr noundef nonnull readonly
 ._crit_edge:                                      ; preds = %.lr.ph, %6
   %.015.lcssa = phi i32 [ %10, %6 ], [ %.015., %.lr.ph ]
   %24 = sext i32 %.015.lcssa to i64
-  %25 = getelementptr inbounds %struct.KeyMapEntry, ptr %4, i64 %24
+  %25 = getelementptr inbounds [8 x i8], ptr %4, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %27 = load i32, ptr %26, align 4, !tbaa !85
   br label %28
@@ -1872,7 +1871,7 @@ define dso_local void @_ZN9SResource7write16EP7SRBRoot(ptr noundef nonnull align
   %20 = add nsw i32 %.01519.i, %.020.i
   %21 = sdiv i32 %20, 2
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds %struct.KeyMapEntry, ptr %8, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr %8, i64 %22
   %24 = load i32, ptr %23, align 4, !tbaa !82
   %25 = icmp slt i32 %4, %24
   %.015..i = select i1 %25, i32 %.01519.i, i32 %21
@@ -1884,7 +1883,7 @@ define dso_local void @_ZN9SResource7write16EP7SRBRoot(ptr noundef nonnull align
 _ZNK7SRBRoot6mapKeyEi.exit:                       ; preds = %.lr.ph.i, %10
   %.015.lcssa.i = phi i32 [ %14, %10 ], [ %.015..i, %.lr.ph.i ]
   %28 = sext i32 %.015.lcssa.i to i64
-  %29 = getelementptr inbounds %struct.KeyMapEntry, ptr %8, i64 %28
+  %29 = getelementptr inbounds [8 x i8], ptr %8, i64 %28
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %31 = load i32, ptr %30, align 4, !tbaa !85
   store i32 %31, ptr %3, align 4, !tbaa !36
@@ -2670,7 +2669,7 @@ define dso_local void @_ZN17IntVectorResource11handleWriteEP14UNewDataMemoryPj(p
   %15 = phi i64 [ 0, %.lr.ph ], [ %20, %14 ]
   %.08 = phi i32 [ 0, %.lr.ph ], [ %19, %14 ]
   %16 = load ptr, ptr %8, align 8, !tbaa !58
-  %17 = getelementptr inbounds nuw i32, ptr %16, i64 %15
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %15
   %18 = load i32, ptr %17, align 4, !tbaa !7
   tail call void @udata_write32(ptr noundef %1, i32 noundef %18)
   %19 = add i32 %.08, 1
@@ -3672,7 +3671,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %21, %23
   %70 = sub i64 %69, %67
   %71 = trunc i64 %70 to i32
   %72 = or i32 %71, -2147483648
-  %73 = getelementptr inbounds nuw %struct.KeyMapEntry, ptr %56, i64 %indvars.iv
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %indvars.iv
   store i32 %72, ptr %73, align 4, !tbaa !82
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 4
   store i32 0, ptr %74, align 4, !tbaa !85
@@ -3711,7 +3710,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %21, %23
   %88 = ptrtoint ptr %.2135200.us to i64
   %89 = sub i64 %88, %85
   %90 = trunc i64 %89 to i32
-  %91 = getelementptr inbounds nuw %struct.KeyMapEntry, ptr %56, i64 %indvars.iv247
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %indvars.iv247
   store i32 %90, ptr %91, align 4, !tbaa !82
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 4
   store i32 0, ptr %92, align 4, !tbaa !85
@@ -3783,7 +3782,7 @@ _ZNKSt3setIiSt4lessIiESaIiEE5countERKi.exit:      ; preds = %_ZNKSt8_Rb_treeIiiS
 
 109:                                              ; preds = %_ZNKSt3setIiSt4lessIiESaIiEE5countERKi.exit, %.lr.ph202.split
   %110 = zext nneg i32 %.1145198 to i64
-  %111 = getelementptr inbounds nuw %struct.KeyMapEntry, ptr %56, i64 %110
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %110
   store i32 %97, ptr %111, align 4, !tbaa !82
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 4
   store i32 0, ptr %112, align 4, !tbaa !85
@@ -3839,7 +3838,7 @@ _ZNKSt3setIiSt4lessIiESaIiEE5countERKi.exit:      ; preds = %_ZNKSt8_Rb_treeIiiS
   %.3147221 = phi i32 [ %.4148, %.critedge ], [ 0, %130 ]
   %133 = add nsw i32 %.3147221, 1
   %134 = sext i32 %.3147221 to i64
-  %135 = getelementptr inbounds %struct.KeyMapEntry, ptr %56, i64 %134
+  %135 = getelementptr inbounds [8 x i8], ptr %56, i64 %134
   %136 = load i32, ptr %135, align 4, !tbaa !82
   %137 = getelementptr inbounds nuw i8, ptr %135, i64 4
   store i32 %136, ptr %137, align 4, !tbaa !85
@@ -3848,7 +3847,7 @@ _ZNKSt3setIiSt4lessIiESaIiEE5countERKi.exit:      ; preds = %_ZNKSt8_Rb_treeIiiS
 
 139:                                              ; preds = %.lr.ph223
   %140 = sext i32 %133 to i64
-  %141 = getelementptr inbounds %struct.KeyMapEntry, ptr %56, i64 %140
+  %141 = getelementptr inbounds [8 x i8], ptr %56, i64 %140
   %142 = load i32, ptr %141, align 4, !tbaa !82
   %143 = icmp slt i32 %142, 0
   br i1 %143, label %.critedge, label %_ZNK7SRBRoot12getKeyStringEi.exit, !llvm.loop !138
@@ -3875,7 +3874,7 @@ _ZNK7SRBRoot12getKeyStringEi.exit:                ; preds = %139, %.lr.ph223
 
 154:                                              ; preds = %.lr.ph212, %._crit_edge209
   %indvars.iv258 = phi i64 [ %153, %.lr.ph212 ], [ %indvars.iv.next259, %._crit_edge209 ]
-  %155 = getelementptr inbounds %struct.KeyMapEntry, ptr %56, i64 %indvars.iv258
+  %155 = getelementptr inbounds [8 x i8], ptr %56, i64 %indvars.iv258
   %156 = load i32, ptr %155, align 4, !tbaa !82
   %157 = icmp sgt i32 %156, -1
   br i1 %157, label %158, label %.critedge.loopexit
@@ -3974,7 +3973,7 @@ _ZNK7SRBRoot12getKeyStringEi.exit:                ; preds = %139, %.lr.ph223
 
 .lr.ph227:                                        ; preds = %.lr.ph227.preheader, %203
   %indvars.iv262 = phi i64 [ 0, %.lr.ph227.preheader ], [ %indvars.iv.next263, %203 ]
-  %196 = getelementptr inbounds nuw %struct.KeyMapEntry, ptr %56, i64 %indvars.iv262
+  %196 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %indvars.iv262
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 4
   %198 = load i32, ptr %197, align 4, !tbaa !85
   %199 = icmp slt i32 %198, 0
@@ -4015,7 +4014,7 @@ _ZNK7SRBRoot12getKeyStringEi.exit:                ; preds = %139, %.lr.ph223
 
 .lr.ph229:                                        ; preds = %.lr.ph229.preheader, %214
   %indvars.iv267 = phi i64 [ %208, %.lr.ph229.preheader ], [ %indvars.iv.next268, %214 ]
-  %210 = getelementptr inbounds %struct.KeyMapEntry, ptr %56, i64 %indvars.iv267
+  %210 = getelementptr inbounds [8 x i8], ptr %56, i64 %indvars.iv267
   %211 = getelementptr inbounds nuw i8, ptr %210, i64 4
   %212 = load i32, ptr %211, align 4, !tbaa !85
   %213 = icmp eq i32 %212, %209
@@ -4208,7 +4207,7 @@ define dso_local void @_ZN7SRBRoot16compactStringsV2EP10UHashtableR10UErrorCode(
 21:                                               ; preds = %.lr.ph
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %23 = load ptr, ptr %22, align 8, !tbaa !4
-  %24 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   store ptr %23, ptr %24, align 8, !tbaa !146
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -4239,7 +4238,7 @@ define dso_local void @_ZN7SRBRoot16compactStringsV2EP10UHashtableR10UErrorCode(
 31:                                               ; preds = %.lr.ph200, %.thread
   %.0124199 = phi i32 [ 0, %.lr.ph200 ], [ %.0125.lcssa, %.thread ]
   %32 = sext i32 %.0124199 to i64
-  %33 = getelementptr inbounds ptr, ptr %13, i64 %32
+  %33 = getelementptr inbounds [8 x i8], ptr %13, i64 %32
   %34 = load ptr, ptr %33, align 8, !tbaa !146
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 132
   %36 = load i32, ptr %35, align 4, !tbaa !67
@@ -4273,7 +4272,7 @@ define dso_local void @_ZN7SRBRoot16compactStringsV2EP10UHashtableR10UErrorCode(
 
 58:                                               ; preds = %.lr.ph196, %135
   %indvars.iv225 = phi i64 [ %57, %.lr.ph196 ], [ %indvars.iv.next226, %135 ]
-  %59 = getelementptr inbounds ptr, ptr %13, i64 %indvars.iv225
+  %59 = getelementptr inbounds [8 x i8], ptr %13, i64 %indvars.iv225
   %60 = load ptr, ptr %59, align 8, !tbaa !146
   %61 = load i16, ptr %40, align 8, !tbaa !4
   %62 = icmp slt i16 %61, 0
@@ -4463,7 +4462,7 @@ _ZNK6icu_7713UnicodeString8endsWithERKS0_.exit:   ; preds = %79
   %.0126205 = phi i32 [ 0, %.lr.ph206 ], [ %.1127, %192 ]
   %.0132204 = phi i32 [ 0, %.lr.ph206 ], [ %.1133, %192 ]
   %.0134203 = phi i32 [ 0, %.lr.ph206 ], [ %.1135, %192 ]
-  %156 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv229
+  %156 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv229
   %157 = load ptr, ptr %156, align 8, !tbaa !146
   %158 = load i16, ptr %144, align 8, !tbaa !4
   %159 = icmp slt i16 %158, 0
@@ -4558,7 +4557,7 @@ _ZNK6icu_7713UnicodeString8endsWithERKS0_.exit:   ; preds = %79
 
 214:                                              ; preds = %.lr.ph212, %237
   %indvars.iv234 = phi i64 [ 0, %.lr.ph212 ], [ %indvars.iv.next235, %237 ]
-  %215 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv234
+  %215 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv234
   %216 = load ptr, ptr %215, align 8, !tbaa !146
   %217 = getelementptr inbounds nuw i8, ptr %216, i64 120
   %218 = load ptr, ptr %217, align 8, !tbaa !63
@@ -4638,7 +4637,7 @@ _ZNK6icu_7713UnicodeString8endsWithERKS0_.exit:   ; preds = %79
 
 252:                                              ; preds = %.lr.ph218, %266
   %indvars.iv239 = phi i64 [ 0, %.lr.ph218 ], [ %indvars.iv.next240, %266 ]
-  %253 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv239
+  %253 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv239
   %254 = load ptr, ptr %253, align 8, !tbaa !146
   %255 = getelementptr inbounds nuw i8, ptr %254, i64 120
   %256 = load ptr, ptr %255, align 8, !tbaa !63
@@ -4700,7 +4699,7 @@ _ZNK6icu_7713UnicodeString8endsWithERKS0_.exit:   ; preds = %79
 278:                                              ; preds = %.lr.ph223, %303
   %indvars.iv244 = phi i64 [ %277, %.lr.ph223 ], [ %indvars.iv.next245, %303 ]
   %279 = phi i32 [ %.promoted, %.lr.ph223 ], [ %304, %303 ]
-  %280 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv244
+  %280 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv244
   %281 = load ptr, ptr %280, align 8, !tbaa !146
   %282 = getelementptr inbounds nuw i8, ptr %281, i64 9
   %283 = load i8, ptr %282, align 1, !tbaa !17
@@ -5972,7 +5971,7 @@ _ZNK18StringBaseResource9getBufferEv.exit:        ; preds = %3, %11, %13
   %21 = load i32, ptr %20, align 4
   %22 = select i1 %17, i32 %21, i32 %19
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds i16, ptr %.0.i.i, i64 %23
+  %24 = getelementptr inbounds [2 x i8], ptr %.0.i.i, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %26 = load i16, ptr %25, align 8, !tbaa !4
   %27 = and i16 %26, 17
@@ -6004,7 +6003,7 @@ _ZNK18StringBaseResource9getBufferEv.exit24:      ; preds = %_ZNK18StringBaseRes
   %40 = load i32, ptr %39, align 4
   %41 = select i1 %36, i32 %40, i32 %38
   %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds i16, ptr %.0.i.i22, i64 %42
+  %43 = getelementptr inbounds [2 x i8], ptr %.0.i.i22, i64 %42
   br label %44
 
 44:                                               ; preds = %48, %_ZNK18StringBaseResource9getBufferEv.exit24

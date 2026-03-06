@@ -3,14 +3,6 @@ source_filename = "bench/openusd/original/coalescingDiagnosticDelegate.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"class.tbb::detail::d2::micro_queue" = type <{ %"struct.std::atomic.76", %"struct.std::atomic.2", %"struct.std::atomic.76", %"struct.std::atomic.2", %"class.tbb::detail::d1::spin_mutex", [7 x i8] }>
-%"struct.std::atomic.76" = type { %"struct.std::__atomic_base.77" }
-%"struct.std::__atomic_base.77" = type { ptr }
-%"struct.std::atomic.2" = type { %"struct.std::__atomic_base.3" }
-%"struct.std::__atomic_base.3" = type { i64 }
-%"class.tbb::detail::d1::spin_mutex" = type { %"struct.std::atomic.8" }
-%"struct.std::atomic.8" = type { %"struct.std::__atomic_base.9" }
-%"struct.std::__atomic_base.9" = type { i8 }
 %"class.std::vector.40" = type { %"struct.std::_Vector_base.41" }
 %"struct.std::_Vector_base.41" = type { %"struct.std::_Vector_base<std::unique_ptr<pxrInternal_v0_24__pxrReserved__::TfDiagnosticBase>, std::allocator<std::unique_ptr<pxrInternal_v0_24__pxrReserved__::TfDiagnosticBase>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::unique_ptr<pxrInternal_v0_24__pxrReserved__::TfDiagnosticBase>, std::allocator<std::unique_ptr<pxrInternal_v0_24__pxrReserved__::TfDiagnosticBase>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::unique_ptr<pxrInternal_v0_24__pxrReserved__::TfDiagnosticBase>, std::allocator<std::unique_ptr<pxrInternal_v0_24__pxrReserved__::TfDiagnosticBase>>>::_Vector_impl_data" }
@@ -224,7 +216,7 @@ _ZNK3tbb6detail2d216concurrent_queueIPN32pxrInternal_v0_24__pxrReserved__16TfDia
   %33 = load ptr, ptr %3, align 8
   %34 = mul i64 %.057.i.i.i, 3
   %35 = and i64 %34, 7
-  %36 = getelementptr inbounds nuw %"class.tbb::detail::d2::micro_queue", ptr %33, i64 %35
+  %36 = getelementptr inbounds nuw [40 x i8], ptr %33, i64 %35
   %37 = invoke noundef zeroext i1 @_ZN3tbb6detail2d211micro_queueIPN32pxrInternal_v0_24__pxrReserved__16TfDiagnosticBaseENS0_2d123cache_aligned_allocatorIS5_EEE3popEPvmRNS1_20concurrent_queue_repIS5_S8_EERNS7_ISC_EE(ptr noundef nonnull align 8 dereferenceable(33) %36, ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef %.057.i.i.i, ptr noundef nonnull align 128 dereferenceable(648) %33, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %.noexc unwind label %.loopexit.split-lp.loopexit
 
@@ -241,7 +233,7 @@ _ZN3tbb6detail2d216concurrent_queueIPN32pxrInternal_v0_24__pxrReserved__16TfDiag
 
 40:                                               ; preds = %46, %38
   %.08.i = phi i64 [ 0, %38 ], [ %47, %46 ]
-  %41 = getelementptr inbounds nuw %"class.tbb::detail::d2::micro_queue", ptr %39, i64 %.08.i
+  %41 = getelementptr inbounds nuw [40 x i8], ptr %39, i64 %.08.i
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load atomic i64, ptr %42 monotonic, align 8
   %44 = icmp ugt i64 %43, 1
@@ -398,7 +390,7 @@ _ZNK3tbb6detail2d216concurrent_queueIPN32pxrInternal_v0_24__pxrReserved__16TfDia
   %37 = load ptr, ptr %6, align 8
   %38 = mul i64 %.057.i.i, 3
   %39 = and i64 %38, 7
-  %40 = getelementptr inbounds nuw %"class.tbb::detail::d2::micro_queue", ptr %37, i64 %39
+  %40 = getelementptr inbounds nuw [40 x i8], ptr %37, i64 %39
   %41 = invoke noundef zeroext i1 @_ZN3tbb6detail2d211micro_queueIPN32pxrInternal_v0_24__pxrReserved__16TfDiagnosticBaseENS0_2d123cache_aligned_allocatorIS5_EEE3popEPvmRNS1_20concurrent_queue_repIS5_S8_EERNS7_ISC_EE(ptr noundef nonnull align 8 dereferenceable(33) %40, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef %.057.i.i, ptr noundef nonnull align 128 dereferenceable(648) %37, ptr noundef nonnull align 8 dereferenceable(16) %5)
           to label %.noexc unwind label %69
 
@@ -480,7 +472,7 @@ _ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__16TfDiagnosticBas
 _ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__16TfDiagnosticBaseESt14default_deleteIS2_EESaIS5_EE9push_backEOS5_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__16TfDiagnosticBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i, %67
   store ptr %61, ptr %0, align 8
   store ptr %66, ptr %7, align 8
-  %68 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %61, i64 %59
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %59
   store ptr %68, ptr %8, align 8
   br label %_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__16TfDiagnosticBaseESt14default_deleteIS1_EED2Ev.exit
 
@@ -743,13 +735,13 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__36UsdUtilsCoalescingDiagnostic
   %31 = load ptr, ptr %27, align 8
   %32 = mul i64 %30, 3
   %33 = and i64 %32, 7
-  %34 = getelementptr inbounds nuw %"class.tbb::detail::d2::micro_queue", ptr %31, i64 %33
+  %34 = getelementptr inbounds nuw [40 x i8], ptr %31, i64 %33
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
   %35 = call noundef i64 @_ZN3tbb6detail2d211micro_queueIPN32pxrInternal_v0_24__pxrReserved__16TfDiagnosticBaseENS0_2d123cache_aligned_allocatorIS5_EEE12prepare_pageEmRNS1_20concurrent_queue_repIS5_S8_EENS7_INS9_11padded_pageEEERPSD_(ptr noundef nonnull align 8 dereferenceable(33) %34, i64 noundef %30, ptr noundef nonnull align 128 dereferenceable(648) %31, ptr noundef nonnull align 8 dereferenceable(8) %3)
   %36 = load ptr, ptr %3, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  %38 = getelementptr inbounds ptr, ptr %37, i64 %35
+  %38 = getelementptr inbounds [8 x i8], ptr %37, i64 %35
   store ptr %5, ptr %38, align 8
   %39 = load ptr, ptr %3, align 8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
@@ -843,13 +835,13 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__36UsdUtilsCoalescingDiagnostic
   %31 = load ptr, ptr %27, align 8
   %32 = mul i64 %30, 3
   %33 = and i64 %32, 7
-  %34 = getelementptr inbounds nuw %"class.tbb::detail::d2::micro_queue", ptr %31, i64 %33
+  %34 = getelementptr inbounds nuw [40 x i8], ptr %31, i64 %33
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
   %35 = call noundef i64 @_ZN3tbb6detail2d211micro_queueIPN32pxrInternal_v0_24__pxrReserved__16TfDiagnosticBaseENS0_2d123cache_aligned_allocatorIS5_EEE12prepare_pageEmRNS1_20concurrent_queue_repIS5_S8_EENS7_INS9_11padded_pageEEERPSD_(ptr noundef nonnull align 8 dereferenceable(33) %34, i64 noundef %30, ptr noundef nonnull align 128 dereferenceable(648) %31, ptr noundef nonnull align 8 dereferenceable(8) %3)
   %36 = load ptr, ptr %3, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  %38 = getelementptr inbounds ptr, ptr %37, i64 %35
+  %38 = getelementptr inbounds [8 x i8], ptr %37, i64 %35
   store ptr %5, ptr %38, align 8
   %39 = load ptr, ptr %3, align 8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
@@ -970,7 +962,7 @@ _ZNK3tbb6detail2d216concurrent_queueIPN32pxrInternal_v0_24__pxrReserved__16TfDia
   %65 = load ptr, ptr %19, align 8
   %66 = mul i64 %.057.i.i, 3
   %67 = and i64 %66, 7
-  %68 = getelementptr inbounds nuw %"class.tbb::detail::d2::micro_queue", ptr %65, i64 %67
+  %68 = getelementptr inbounds nuw [40 x i8], ptr %65, i64 %67
   %69 = invoke noundef zeroext i1 @_ZN3tbb6detail2d211micro_queueIPN32pxrInternal_v0_24__pxrReserved__16TfDiagnosticBaseENS0_2d123cache_aligned_allocatorIS5_EEE3popEPvmRNS1_20concurrent_queue_repIS5_S8_EERNS7_ISC_EE(ptr noundef nonnull align 8 dereferenceable(33) %68, ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef %.057.i.i, ptr noundef nonnull align 128 dereferenceable(648) %65, ptr noundef nonnull align 8 dereferenceable(16) %18)
           to label %.noexc unwind label %261
 
@@ -1081,7 +1073,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %.val7.i.i = load i64, ptr %14, align 8
   %114 = urem i64 %113, %.val7.i.i
   %115 = load ptr, ptr %5, align 8
-  %116 = getelementptr inbounds ptr, ptr %115, i64 %114
+  %116 = getelementptr inbounds [8 x i8], ptr %115, i64 %114
   %117 = load ptr, ptr %116, align 8
   %.not.i.i.i.i = icmp eq ptr %117, null
   br i1 %.not.i.i.i.i, label %_ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__46UsdUtilsCoalescingDiagnosticDelegateSharedItemEmNS0_12_GLOBAL__N_118_CoalescedItemHashENS2_21_CoalescedItemEqualToESaISt4pairIKS1_mEEE4findERS6_.exit.thread, label %118
@@ -1210,7 +1202,7 @@ _ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__46UsdUtilsCoalescingDiag
 
 157:                                              ; preds = %152
   %158 = load ptr, ptr %5, align 8
-  %159 = getelementptr inbounds ptr, ptr %158, i64 %156
+  %159 = getelementptr inbounds [8 x i8], ptr %158, i64 %156
   %160 = load ptr, ptr %159, align 8
   %.not.i.i.i.i.i = icmp eq ptr %160, null
   br i1 %.not.i.i.i.i.i, label %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__46UsdUtilsCoalescingDiagnosticDelegateSharedItemESt4pairIKS1_mESaIS4_ENSt8__detail10_Select1stENS0_12_GLOBAL__N_121_CoalescedItemEqualToENS8_18_CoalescedItemHashENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit.thread.i.i.i, label %161
@@ -1321,7 +1313,7 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__46UsdUtilsCoalescingDiagnos
   %189 = getelementptr i8, ptr %.032.i.i.i.i.i.i, i64 88
   %.val29.i.i.i.i.i.i = load i64, ptr %189, align 8
   %190 = urem i64 %.val29.i.i.i.i.i.i, %179
-  %191 = getelementptr inbounds ptr, ptr %.0.i.i.i.i.i.i.i, i64 %190
+  %191 = getelementptr inbounds [8 x i8], ptr %.0.i.i.i.i.i.i.i, i64 %190
   %192 = load ptr, ptr %191, align 8
   %.not27.i.i.i.i.i.i = icmp eq ptr %192, null
   br i1 %.not27.i.i.i.i.i.i, label %193, label %198
@@ -1336,7 +1328,7 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__46UsdUtilsCoalescingDiagnos
   br i1 %.not28.i.i.i.i.i.i, label %201, label %196
 
 196:                                              ; preds = %193
-  %197 = getelementptr inbounds ptr, ptr %.0.i.i.i.i.i.i.i, i64 %.02531.i.i.i.i.i.i
+  %197 = getelementptr inbounds [8 x i8], ptr %.0.i.i.i.i.i.i.i, i64 %.02531.i.i.i.i.i.i
   store ptr %.032.i.i.i.i.i.i, ptr %197, align 8
   br label %201
 
@@ -1408,7 +1400,7 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__46UsdUtilsCoalescingDiagnos
   %.0.i22.i.i.i = phi i64 [ %216, %_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__46UsdUtilsCoalescingDiagnosticDelegateSharedItemESt4pairIKS1_mESaIS4_ENSt8__detail10_Select1stENS0_12_GLOBAL__N_121_CoalescedItemEqualToENS8_18_CoalescedItemHashENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_rehashEmRKm.exit.i.i.i.i ], [ %156, %.noexc26._crit_edge.i.i.i ]
   %219 = getelementptr inbounds nuw i8, ptr %134, i64 88
   store i64 %155, ptr %219, align 8
-  %220 = getelementptr inbounds ptr, ptr %218, i64 %.0.i22.i.i.i
+  %220 = getelementptr inbounds [8 x i8], ptr %218, i64 %.0.i22.i.i.i
   %221 = load ptr, ptr %220, align 8
   %.not.i.i23.i.i.i = icmp eq ptr %221, null
   br i1 %.not.i.i23.i.i.i, label %225, label %222
@@ -1432,14 +1424,14 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__46UsdUtilsCoalescingDiagnos
   %228 = getelementptr i8, ptr %226, i64 88
   %.val12.i.i.i.i.i = load i64, ptr %228, align 8
   %229 = urem i64 %.val12.i.i.i.i.i, %.val.i.i24.i.i.i
-  %230 = getelementptr inbounds ptr, ptr %218, i64 %229
+  %230 = getelementptr inbounds [8 x i8], ptr %218, i64 %229
   store ptr %134, ptr %230, align 8
   %.pre54.i.i.i = load ptr, ptr %5, align 8
   br label %231
 
 231:                                              ; preds = %227, %225
   %232 = phi ptr [ %.pre54.i.i.i, %227 ], [ %218, %225 ]
-  %233 = getelementptr inbounds ptr, ptr %232, i64 %.0.i22.i.i.i
+  %233 = getelementptr inbounds [8 x i8], ptr %232, i64 %.0.i22.i.i.i
   store ptr %15, ptr %233, align 8
   br label %234
 
@@ -1604,7 +1596,7 @@ _ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__46UsdUtilsCoalescingDiag
   %278 = getelementptr inbounds nuw i8, ptr %.sroa.08.1.i.i46, i64 80
   %279 = load i64, ptr %278, align 8
   %280 = load ptr, ptr %0, align 8
-  %281 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::UsdUtilsCoalescingDiagnosticDelegateItem", ptr %280, i64 %279
+  %281 = getelementptr inbounds [96 x i8], ptr %280, i64 %279
   %282 = getelementptr inbounds nuw i8, ptr %281, i64 80
   %283 = load ptr, ptr %282, align 8
   %284 = getelementptr inbounds nuw i8, ptr %281, i64 88
@@ -2853,7 +2845,7 @@ _ZN3tbb6detail2d015spin_wait_whileImZNS1_18spin_wait_while_eqImmEET_RKSt6atomicI
 
 40:                                               ; preds = %_ZN3tbb6detail2d015spin_wait_whileImZNS1_18spin_wait_while_eqImmEET_RKSt6atomicIS4_ET0_St12memory_orderEUlmE_EES4_S8_S9_SA_.exit
   %41 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
-  %42 = getelementptr inbounds nuw ptr, ptr %41, i64 %33
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %33
   %43 = load ptr, ptr %42, align 8
   store ptr %43, ptr %1, align 8
   br label %47
@@ -3287,7 +3279,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__40UsdUtilsCoalescingDiagnosticDe
 _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__40UsdUtilsCoalescingDiagnosticDelegateItemESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__40UsdUtilsCoalescingDiagnosticDelegateItemESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32, %67
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i31, ptr %4, align 8
-  %71 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::UsdUtilsCoalescingDiagnosticDelegateItem", ptr %20, i64 %16
+  %71 = getelementptr inbounds nuw [96 x i8], ptr %20, i64 %16
   store ptr %71, ptr %66, align 8
   ret void
 
@@ -3522,7 +3514,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__48UsdUtilsCoalescingDiagnosticDe
 _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__48UsdUtilsCoalescingDiagnosticDelegateUnsharedItemESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__48UsdUtilsCoalescingDiagnosticDelegateUnsharedItemESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32, %34
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i31, ptr %4, align 8
-  %38 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::UsdUtilsCoalescingDiagnosticDelegateUnsharedItem", ptr %20, i64 %16
+  %38 = getelementptr inbounds nuw [72 x i8], ptr %20, i64 %16
   store ptr %38, ptr %33, align 8
   ret void
 

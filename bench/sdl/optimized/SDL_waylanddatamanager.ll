@@ -544,7 +544,7 @@ Wayland_data_offer_check_source.exit:             ; preds = %26, %31, %44
 
 80:                                               ; preds = %._crit_edge
   %81 = zext nneg i32 %.139.lcssa to i64
-  %82 = getelementptr inbounds nuw ptr, ptr %78, i64 %81
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %81
   %.pn4863 = load ptr, ptr %6, align 8
   %.not4964 = icmp eq ptr %.pn4863, %5
   br i1 %.not4964, label %._crit_edge70, label %.lr.ph69.preheader
@@ -558,7 +558,7 @@ Wayland_data_offer_check_source.exit:             ; preds = %26, %31, %44
   %.pn4867 = phi ptr [ %.pn4863, %.lr.ph69.preheader ], [ %.pn48, %.lr.ph69 ]
   %.03265 = phi ptr [ %83, %.lr.ph69.preheader ], [ %87, %.lr.ph69 ]
   %.1 = getelementptr inbounds i8, ptr %.pn4867, i64 -24
-  %84 = getelementptr inbounds nuw ptr, ptr %78, i64 %indvars.iv
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %indvars.iv
   store ptr %.03265, ptr %84, align 8
   %85 = load ptr, ptr %.1, align 8
   %86 = tail call ptr @stpcpy(ptr noundef nonnull %.03265, ptr noundef %85) #12
@@ -1272,7 +1272,7 @@ define hidden zeroext i1 @Wayland_data_device_set_selection(ptr noundef %0, ptr 
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.02230 = phi i64 [ %17, %.lr.ph ], [ 0, %.preheader ]
-  %10 = getelementptr inbounds nuw ptr, ptr %2, i64 %.02230
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.02230
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %1, align 8
   %13 = load ptr, ptr @WAYLAND_wl_proxy_marshal_flags, align 8
@@ -1394,7 +1394,7 @@ define hidden zeroext i1 @Wayland_primary_selection_device_set_selection(ptr nou
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.031 = phi i64 [ %17, %.lr.ph ], [ 0, %.preheader ]
-  %10 = getelementptr inbounds nuw ptr, ptr %2, i64 %.031
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.031
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %1, align 8
   %13 = load ptr, ptr @WAYLAND_wl_proxy_marshal_flags, align 8

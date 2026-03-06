@@ -241,7 +241,7 @@ define hidden void @_ZN4cvc58internal6theory5arith19PreprocessRewriteEq11ppRewri
   %46 = icmp eq i32 %44, 2
   %47 = getelementptr inbounds nuw i8, ptr %37, i64 24
   %48 = zext i1 %46 to i64
-  %49 = getelementptr inbounds nuw ptr, ptr %47, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %48
   %50 = load ptr, ptr %49, align 8, !tbaa !220, !noalias !214
   store ptr %50, ptr %12, align 8, !tbaa !217, !alias.scope !214
   %51 = invoke noundef nonnull align 8 dereferenceable(124) ptr @_ZN4cvc58internal11NodeBuilderlsENS0_12NodeTemplateILb0EEE(ptr noundef nonnull align 8 dereferenceable(124) %11, ptr noundef nonnull %12)
@@ -263,7 +263,7 @@ define hidden void @_ZN4cvc58internal6theory5arith19PreprocessRewriteEq11ppRewri
   %62 = icmp eq i32 %60, 2
   %spec.select.i.i = select i1 %62, i64 2, i64 1
   %63 = getelementptr inbounds nuw i8, ptr %53, i64 24
-  %64 = getelementptr inbounds nuw ptr, ptr %63, i64 %spec.select.i.i
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %spec.select.i.i
   %65 = load ptr, ptr %64, align 8, !tbaa !220, !noalias !221
   store ptr %65, ptr %13, align 8, !tbaa !217, !alias.scope !221
   %66 = invoke noundef nonnull align 8 dereferenceable(124) ptr @_ZN4cvc58internal11NodeBuilderlsENS0_12NodeTemplateILb0EEE(ptr noundef nonnull align 8 dereferenceable(124) %51, ptr noundef nonnull %13)
@@ -301,7 +301,7 @@ define hidden void @_ZN4cvc58internal6theory5arith19PreprocessRewriteEq11ppRewri
   %81 = icmp eq i32 %79, 2
   %82 = getelementptr inbounds nuw i8, ptr %72, i64 24
   %83 = zext i1 %81 to i64
-  %84 = getelementptr inbounds nuw ptr, ptr %82, i64 %83
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %82, i64 %83
   %85 = load ptr, ptr %84, align 8, !tbaa !220, !noalias !224
   store ptr %85, ptr %16, align 8, !tbaa !217, !alias.scope !224
   %86 = invoke noundef nonnull align 8 dereferenceable(124) ptr @_ZN4cvc58internal11NodeBuilderlsENS0_12NodeTemplateILb0EEE(ptr noundef nonnull align 8 dereferenceable(124) %15, ptr noundef nonnull %16)
@@ -323,7 +323,7 @@ define hidden void @_ZN4cvc58internal6theory5arith19PreprocessRewriteEq11ppRewri
   %97 = icmp eq i32 %95, 2
   %spec.select.i.i47 = select i1 %97, i64 2, i64 1
   %98 = getelementptr inbounds nuw i8, ptr %88, i64 24
-  %99 = getelementptr inbounds nuw ptr, ptr %98, i64 %spec.select.i.i47
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %spec.select.i.i47
   %100 = load ptr, ptr %99, align 8, !tbaa !220, !noalias !227
   store ptr %100, ptr %17, align 8, !tbaa !217, !alias.scope !227
   %101 = invoke noundef nonnull align 8 dereferenceable(124) ptr @_ZN4cvc58internal11NodeBuilderlsENS0_12NodeTemplateILb0EEE(ptr noundef nonnull align 8 dereferenceable(124) %86, ptr noundef nonnull %17)

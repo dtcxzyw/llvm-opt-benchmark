@@ -119,7 +119,7 @@ _ZN4absl9call_onceIRFvvEJEEEvRNS_9once_flagEOT_DpOT0_.exit.i: ; preds = %3, %0
 
 _ZN4absl15random_internal12_GLOBAL__N_123GetPoolForCurrentThreadEv.exit: ; preds = %_ZN4absl9call_onceIRFvvEJEEEvRNS_9once_flagEOT_DpOT0_.exit.i, %7
   %10 = phi i64 [ %9, %7 ], [ %5, %_ZN4absl9call_onceIRFvvEJEEEvRNS_9once_flagEOT_DpOT0_.exit.i ]
-  %11 = getelementptr inbounds nuw ptr, ptr @_ZN4absl15random_internal12_GLOBAL__N_112shared_poolsE, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4absl15random_internal12_GLOBAL__N_112shared_poolsE, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !10
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 256
@@ -168,7 +168,7 @@ _ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry11MaybeRefillEv.exit.i: 
   %31 = load i64, ptr %20, align 8, !tbaa !16
   %32 = add i64 %31, 1
   store i64 %32, ptr %20, align 8, !tbaa !16
-  %33 = getelementptr inbounds nuw i32, ptr %12, i64 %31
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %31
   %34 = load i32, ptr %33, align 4, !tbaa !28
   %35 = load ptr, ptr %1, align 8, !tbaa !13
   %36 = load atomic i32, ptr %35 monotonic, align 4
@@ -225,7 +225,7 @@ _ZN4absl9call_onceIRFvvEJEEEvRNS_9once_flagEOT_DpOT0_.exit.i: ; preds = %4, %2
 
 _ZN4absl15random_internal12_GLOBAL__N_123GetPoolForCurrentThreadEv.exit: ; preds = %_ZN4absl9call_onceIRFvvEJEEEvRNS_9once_flagEOT_DpOT0_.exit.i, %8
   %11 = phi i64 [ %10, %8 ], [ %6, %_ZN4absl9call_onceIRFvvEJEEEvRNS_9once_flagEOT_DpOT0_.exit.i ]
-  %12 = getelementptr inbounds nuw ptr, ptr @_ZN4absl15random_internal12_GLOBAL__N_112shared_poolsE, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4absl15random_internal12_GLOBAL__N_112shared_poolsE, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !10
   tail call fastcc void @_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry4FillEPhm(ptr noundef nonnull align 8 dereferenceable(288) %13, ptr noundef %0, i64 noundef %1)
   ret void
@@ -292,7 +292,7 @@ _ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry11MaybeRefillEv.exit: ; 
   %25 = shl i64 %24, 2
   %26 = sub i64 256, %25
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %26, i64 %.01416)
-  %27 = getelementptr inbounds nuw i32, ptr %0, i64 %24
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %24
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.017, ptr nonnull align 4 %27, i64 %.sroa.speculated, i1 false)
   %28 = getelementptr inbounds nuw i8, ptr %.017, i64 %.sroa.speculated
   %29 = sub i64 %.01416, %.sroa.speculated
@@ -381,7 +381,7 @@ _ZN4absl9call_onceIRFvvEJEEEvRNS_9once_flagEOT_DpOT0_.exit.i: ; preds = %3, %0
 
 _ZN4absl15random_internal12_GLOBAL__N_123GetPoolForCurrentThreadEv.exit: ; preds = %_ZN4absl9call_onceIRFvvEJEEEvRNS_9once_flagEOT_DpOT0_.exit.i, %7
   %10 = phi i64 [ %9, %7 ], [ %5, %_ZN4absl9call_onceIRFvvEJEEEvRNS_9once_flagEOT_DpOT0_.exit.i ]
-  %11 = getelementptr inbounds nuw ptr, ptr @_ZN4absl15random_internal12_GLOBAL__N_112shared_poolsE, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4absl15random_internal12_GLOBAL__N_112shared_poolsE, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !10
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 256
@@ -430,7 +430,7 @@ _ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry11MaybeRefillEv.exit.i: 
   %31 = load i64, ptr %20, align 8, !tbaa !16
   %32 = add i64 %31, 1
   store i64 %32, ptr %20, align 8, !tbaa !16
-  %33 = getelementptr inbounds nuw i32, ptr %12, i64 %31
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %31
   %34 = load i32, ptr %33, align 4, !tbaa !28
   %35 = load ptr, ptr %1, align 8, !tbaa !13
   %36 = load atomic i32, ptr %35 monotonic, align 4
@@ -487,7 +487,7 @@ _ZN4absl9call_onceIRFvvEJEEEvRNS_9once_flagEOT_DpOT0_.exit.i: ; preds = %4, %2
 
 _ZN4absl15random_internal12_GLOBAL__N_123GetPoolForCurrentThreadEv.exit: ; preds = %_ZN4absl9call_onceIRFvvEJEEEvRNS_9once_flagEOT_DpOT0_.exit.i, %8
   %11 = phi i64 [ %10, %8 ], [ %6, %_ZN4absl9call_onceIRFvvEJEEEvRNS_9once_flagEOT_DpOT0_.exit.i ]
-  %12 = getelementptr inbounds nuw ptr, ptr @_ZN4absl15random_internal12_GLOBAL__N_112shared_poolsE, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4absl15random_internal12_GLOBAL__N_112shared_poolsE, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !10
   %14 = shl i64 %1, 1
   tail call fastcc void @_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry4FillEPhm(ptr noundef nonnull align 8 dereferenceable(288) %13, ptr noundef %0, i64 noundef %14)
@@ -540,7 +540,7 @@ _ZN4absl9call_onceIRFvvEJEEEvRNS_9once_flagEOT_DpOT0_.exit.i: ; preds = %3, %0
 
 _ZN4absl15random_internal12_GLOBAL__N_123GetPoolForCurrentThreadEv.exit: ; preds = %_ZN4absl9call_onceIRFvvEJEEEvRNS_9once_flagEOT_DpOT0_.exit.i, %7
   %10 = phi i64 [ %9, %7 ], [ %5, %_ZN4absl9call_onceIRFvvEJEEEvRNS_9once_flagEOT_DpOT0_.exit.i ]
-  %11 = getelementptr inbounds nuw ptr, ptr @_ZN4absl15random_internal12_GLOBAL__N_112shared_poolsE, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4absl15random_internal12_GLOBAL__N_112shared_poolsE, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !10
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 256
@@ -589,7 +589,7 @@ _ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry11MaybeRefillEv.exit.i: 
   %31 = load i64, ptr %20, align 8, !tbaa !16
   %32 = add i64 %31, 1
   store i64 %32, ptr %20, align 8, !tbaa !16
-  %33 = getelementptr inbounds nuw i32, ptr %12, i64 %31
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %31
   %34 = load i32, ptr %33, align 4, !tbaa !28
   %35 = load ptr, ptr %1, align 8, !tbaa !13
   %36 = load atomic i32, ptr %35 monotonic, align 4
@@ -645,7 +645,7 @@ _ZN4absl9call_onceIRFvvEJEEEvRNS_9once_flagEOT_DpOT0_.exit.i: ; preds = %4, %2
 
 _ZN4absl15random_internal12_GLOBAL__N_123GetPoolForCurrentThreadEv.exit: ; preds = %_ZN4absl9call_onceIRFvvEJEEEvRNS_9once_flagEOT_DpOT0_.exit.i, %8
   %11 = phi i64 [ %10, %8 ], [ %6, %_ZN4absl9call_onceIRFvvEJEEEvRNS_9once_flagEOT_DpOT0_.exit.i ]
-  %12 = getelementptr inbounds nuw ptr, ptr @_ZN4absl15random_internal12_GLOBAL__N_112shared_poolsE, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4absl15random_internal12_GLOBAL__N_112shared_poolsE, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !10
   %14 = shl i64 %1, 2
   tail call fastcc void @_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry4FillEPhm(ptr noundef nonnull align 8 dereferenceable(288) %13, ptr noundef %0, i64 noundef %14)
@@ -698,7 +698,7 @@ _ZN4absl9call_onceIRFvvEJEEEvRNS_9once_flagEOT_DpOT0_.exit.i: ; preds = %3, %0
 
 _ZN4absl15random_internal12_GLOBAL__N_123GetPoolForCurrentThreadEv.exit: ; preds = %_ZN4absl9call_onceIRFvvEJEEEvRNS_9once_flagEOT_DpOT0_.exit.i, %7
   %10 = phi i64 [ %9, %7 ], [ %5, %_ZN4absl9call_onceIRFvvEJEEEvRNS_9once_flagEOT_DpOT0_.exit.i ]
-  %11 = getelementptr inbounds nuw ptr, ptr @_ZN4absl15random_internal12_GLOBAL__N_112shared_poolsE, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4absl15random_internal12_GLOBAL__N_112shared_poolsE, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !10
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 256
@@ -752,7 +752,7 @@ _ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit.i: ; preds = %_ZN
 
 _ZNK4absl15random_internal6Randen8GenerateEPv.exit.i: ; preds = %30, %29, %_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit.i
   %33 = load i64, ptr %20, align 8, !tbaa !16
-  %34 = getelementptr inbounds nuw i32, ptr %12, i64 %33
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %33
   %35 = add i64 %33, 2
   store i64 %35, ptr %20, align 8, !tbaa !16
   %.0.copyload.i = load i64, ptr %34, align 4
@@ -803,7 +803,7 @@ _ZN4absl9call_onceIRFvvEJEEEvRNS_9once_flagEOT_DpOT0_.exit.i: ; preds = %4, %2
 
 _ZN4absl15random_internal12_GLOBAL__N_123GetPoolForCurrentThreadEv.exit: ; preds = %_ZN4absl9call_onceIRFvvEJEEEvRNS_9once_flagEOT_DpOT0_.exit.i, %8
   %11 = phi i64 [ %10, %8 ], [ %6, %_ZN4absl9call_onceIRFvvEJEEEvRNS_9once_flagEOT_DpOT0_.exit.i ]
-  %12 = getelementptr inbounds nuw ptr, ptr @_ZN4absl15random_internal12_GLOBAL__N_112shared_poolsE, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4absl15random_internal12_GLOBAL__N_112shared_poolsE, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !10
   %14 = shl i64 %1, 3
   tail call fastcc void @_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry4FillEPhm(ptr noundef nonnull align 8 dereferenceable(288) %13, ptr noundef %0, i64 noundef %14)
@@ -891,7 +891,7 @@ define internal void @_ZN4absl15random_internal12_GLOBAL__N_112InitPoolURBGEv() 
   store i32 2, ptr %13, align 64, !tbaa !31
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 264
   call void @_ZN4absl15random_internal6RandenC1Ev(ptr noundef nonnull align 8 dereferenceable(9) %14)
-  %15 = getelementptr inbounds nuw ptr, ptr @_ZN4absl15random_internal12_GLOBAL__N_112shared_poolsE, i64 %.08
+  %15 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4absl15random_internal12_GLOBAL__N_112shared_poolsE, i64 %.08
   store ptr %12, ptr %15, align 8, !tbaa !10
   %.idx = shl nuw nsw i64 %.08, 8
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx

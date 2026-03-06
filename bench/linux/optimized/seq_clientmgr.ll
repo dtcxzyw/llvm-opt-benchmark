@@ -119,7 +119,7 @@ define dso_local ptr @snd_seq_client_use_ptr(i32 noundef %0) local_unnamed_addr 
 3:                                                ; preds = %1
   %4 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @clients_lock) #19
   %5 = zext nneg i32 %0 to i64
-  %6 = getelementptr ptr, ptr @clienttab, i64 %5
+  %6 = getelementptr [8 x i8], ptr @clienttab, i64 %5
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %51
@@ -155,7 +155,7 @@ define dso_local ptr @snd_seq_client_use_ptr(i32 noundef %0) local_unnamed_addr 
 
 .preheader:                                       ; preds = %19, %23
   %26 = phi i64 [ %24, %23 ], [ 0, %19 ]
-  %27 = getelementptr i32, ptr @seq_client_load, i64 %26
+  %27 = getelementptr [4 x i8], ptr @seq_client_load, i64 %26
   %28 = load i32, ptr %27, align 4
   %29 = icmp slt i32 %28, 0
   br i1 %29, label %.loopexit, label %30
@@ -686,7 +686,7 @@ define internal fastcc noundef ptr @seq_create_client1(i32 noundef %0, i32 nound
 
 .preheader:                                       ; preds = %11, %33
   %21 = phi i64 [ %34, %33 ], [ 128, %11 ]
-  %22 = getelementptr ptr, ptr @clienttab, i64 %21
+  %22 = getelementptr [8 x i8], ptr @clienttab, i64 %21
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %33
@@ -698,7 +698,7 @@ define internal fastcc noundef ptr @seq_create_client1(i32 noundef %0, i32 nound
   br i1 %28, label %29, label %33
 
 29:                                               ; preds = %25
-  %30 = getelementptr ptr, ptr @clienttab, i64 %21
+  %30 = getelementptr [8 x i8], ptr @clienttab, i64 %21
   %31 = trunc i64 %21 to i32
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store i32 %31, ptr %32, align 8
@@ -713,7 +713,7 @@ define internal fastcc noundef ptr @seq_create_client1(i32 noundef %0, i32 nound
 
 36:                                               ; preds = %11
   %37 = zext nneg i32 %0 to i64
-  %38 = getelementptr ptr, ptr @clienttab, i64 %37
+  %38 = getelementptr [8 x i8], ptr @clienttab, i64 %37
   %39 = load ptr, ptr %38, align 8
   %40 = icmp eq ptr %39, null
   br i1 %40, label %41, label %.loopexit
@@ -761,7 +761,7 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_seq_delete_kernel_client(i32
 
 7:                                                ; preds = %5
   %8 = zext nneg i32 %0 to i64
-  %9 = getelementptr ptr, ptr @clienttab, i64 %8
+  %9 = getelementptr [8 x i8], ptr @clienttab, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %.thread, label %12
@@ -1067,7 +1067,7 @@ define dso_local i32 @snd_seq_kernel_client_ctl(i32 noundef %0, i32 noundef %1, 
 
 5:                                                ; preds = %3
   %6 = zext nneg i32 %0 to i64
-  %7 = getelementptr ptr, ptr @clienttab, i64 %6
+  %7 = getelementptr [8 x i8], ptr @clienttab, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %.thread, label %.preheader
@@ -1102,7 +1102,7 @@ define dso_local range(i32 -6, 2) i32 @snd_seq_kernel_client_write_poll(i32 noun
 
 5:                                                ; preds = %3
   %6 = zext nneg i32 %0 to i64
-  %7 = getelementptr ptr, ptr @clienttab, i64 %6
+  %7 = getelementptr [8 x i8], ptr @clienttab, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %.thread, label %10
@@ -1255,7 +1255,7 @@ define dso_local void @snd_seq_info_clients_read(ptr noundef readnone captures(n
 
 66:                                               ; preds = %40
   %67 = zext nneg i8 %64 to i64
-  %68 = getelementptr ptr, ptr @port_direction_name.names, i64 %67
+  %68 = getelementptr [8 x i8], ptr @port_direction_name.names, i64 %67
   %69 = load ptr, ptr %68, align 8
   br label %70
 
@@ -1960,7 +1960,7 @@ define internal fastcc void @seq_free_client1(ptr noundef nonnull %0) unnamed_ad
   %4 = sext i32 %3 to i64
   %5 = getelementptr i8, ptr @clienttablock, i64 %4
   store i8 1, ptr %5, align 1
-  %6 = getelementptr ptr, ptr @clienttab, i64 %4
+  %6 = getelementptr [8 x i8], ptr @clienttab, i64 %4
   store ptr null, ptr %6, align 8
   tail call void @_raw_spin_unlock_irq(ptr noundef nonnull @clients_lock) #19
   %7 = tail call i32 @snd_seq_delete_all_ports(ptr noundef nonnull %0) #19
@@ -4691,7 +4691,7 @@ define internal fastcc i32 @snd_seq_call_port_info_ioctl(ptr noundef nonnull rea
 
 37:                                               ; preds = %32
   %38 = zext nneg i32 %35 to i64
-  %39 = getelementptr ptr, ptr @clienttab, i64 %38
+  %39 = getelementptr [8 x i8], ptr @clienttab, i64 %38
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, null
   br i1 %41, label %.thread4, label %.preheader

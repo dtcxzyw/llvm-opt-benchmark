@@ -6,11 +6,9 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.TupleTableSlotOps = type { i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.ObjectAddress = type { i32, i32, i32 }
 %struct.nameData = type { [64 x i8] }
-%union.ListCell = type { ptr }
 %struct.StringInfoData = type { ptr, i32, i32, i32 }
 %struct.ScanKeyData = type { i32, i16, i16, i32, i32, %struct.FmgrInfo, i64 }
 %struct.FmgrInfo = type { ptr, i32, i16, i8, i8, i8, ptr, ptr, ptr }
-%struct.LexDescr = type { i32, ptr, ptr }
 
 @.str = private unnamed_addr constant [48 x i8] c"must be superuser to create text search parsers\00", align 1
 @.str.1 = private unnamed_addr constant [14 x i8] c"tsearchcmds.c\00", align 1
@@ -130,7 +128,7 @@ define dso_local { i64, i32 } @DefineTSParser(ptr noundef %0, ptr noundef readon
   %36 = phi i64 [ %78, %76 ], [ 0, %.lr.ph ]
   %37 = phi i64 [ %77, %76 ], [ 0, %.lr.ph ]
   %38 = load ptr, ptr %26, align 8
-  %39 = getelementptr inbounds nuw %union.ListCell, ptr %38, i64 %indvars.iv66
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv66
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = load ptr, ptr %41, align 8
@@ -469,7 +467,7 @@ define dso_local { i64, i32 } @DefineTSDictionary(ptr noundef %0, ptr noundef re
   %.0374757 = phi ptr [ %.138, %31 ], [ null, %.lr.ph ]
   %.0364856 = phi i32 [ %.1, %31 ], [ 0, %.lr.ph ]
   %19 = load ptr, ptr %16, align 8
-  %20 = getelementptr inbounds nuw %union.ListCell, ptr %19, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8
@@ -697,7 +695,7 @@ define dso_local ptr @serialize_deflist(ptr noundef readonly captures(address_is
 .lr.ph42:                                         ; preds = %.lr.ph36, %39
   %indvars.iv41 = phi i64 [ %indvars.iv.next, %39 ], [ 0, %.lr.ph36 ]
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds nuw %union.ListCell, ptr %7, i64 %indvars.iv41
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv41
   %9 = load ptr, ptr %8, align 8
   %10 = call ptr @defGetString(ptr noundef %9) #9
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -768,7 +766,7 @@ define dso_local ptr @serialize_deflist(ptr noundef readonly captures(address_is
   %.val30 = load ptr, ptr %4, align 8
   %35 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %36 = sext i32 %.val to i64
-  %37 = getelementptr inbounds %union.ListCell, ptr %.val30, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr %.val30, i64 %36
   %.not31 = icmp ult ptr %35, %37
   br i1 %.not31, label %38, label %39
 
@@ -848,7 +846,7 @@ define dso_local { i64, i32 } @AlterTSDictionary(ptr noundef readonly captures(n
   %indvars.iv = phi i64 [ %indvars.iv.next, %69 ], [ 0, %.lr.ph65 ]
   %.16470 = phi ptr [ %.4, %69 ], [ %.044, %.lr.ph65 ]
   %34 = load ptr, ptr %31, align 8
-  %35 = getelementptr inbounds nuw %union.ListCell, ptr %34, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv
   %36 = load ptr, ptr %35, align 8
   %.not5257 = icmp eq ptr %.16470, null
   br i1 %.not5257, label %.critedge56, label %.lr.ph
@@ -887,7 +885,7 @@ define dso_local { i64, i32 } @AlterTSDictionary(ptr noundef readonly captures(n
   %50 = getelementptr inbounds nuw i8, ptr %.sroa.01.059, i64 16
   %51 = load ptr, ptr %50, align 8
   %52 = sext i32 %.sroa.7.058 to i64
-  %53 = getelementptr inbounds %union.ListCell, ptr %51, i64 %52
+  %53 = getelementptr inbounds [8 x i8], ptr %51, i64 %52
   %54 = load ptr, ptr %53, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %56 = load ptr, ptr %55, align 8
@@ -1059,7 +1057,7 @@ select.unfold:                                    ; preds = %7, %15, %18
   %36 = load ptr, ptr %35, align 8
   %37 = load i8, ptr %.0112142, align 1
   %38 = zext i8 %37 to i64
-  %39 = getelementptr inbounds nuw i16, ptr %36, i64 %38
+  %39 = getelementptr inbounds nuw [2 x i8], ptr %36, i64 %38
   %40 = load i16, ptr %39, align 2
   %41 = and i16 %40, 8192
   %.not131 = icmp ne i16 %41, 0
@@ -1080,7 +1078,7 @@ select.unfold:                                    ; preds = %7, %15, %18
   %48 = load ptr, ptr %47, align 8
   %49 = load i8, ptr %.0112142, align 1
   %50 = zext i8 %49 to i64
-  %51 = getelementptr inbounds nuw i16, ptr %48, i64 %50
+  %51 = getelementptr inbounds nuw [2 x i8], ptr %48, i64 %50
   %52 = load i16, ptr %51, align 2
   %53 = and i16 %52, 8192
   %.not130 = icmp eq i16 %53, 0
@@ -1143,7 +1141,7 @@ select.unfold:                                    ; preds = %7, %15, %18
   %80 = tail call ptr @__ctype_b_loc() #12
   %81 = load ptr, ptr %80, align 8
   %82 = zext i8 %77 to i64
-  %83 = getelementptr inbounds nuw i16, ptr %81, i64 %82
+  %83 = getelementptr inbounds nuw [2 x i8], ptr %81, i64 %82
   %84 = load i16, ptr %83, align 2
   %85 = and i16 %84, 8192
   %.not129 = icmp eq i16 %85, 0
@@ -1179,7 +1177,7 @@ select.unfold:                                    ; preds = %7, %15, %18
   %99 = tail call ptr @__ctype_b_loc() #12
   %100 = load ptr, ptr %99, align 8
   %101 = zext i8 %92 to i64
-  %102 = getelementptr inbounds nuw i16, ptr %100, i64 %101
+  %102 = getelementptr inbounds nuw [2 x i8], ptr %100, i64 %101
   %103 = load i16, ptr %102, align 2
   %104 = and i16 %103, 8192
   %.not128 = icmp eq i16 %104, 0
@@ -1291,7 +1289,7 @@ select.unfold:                                    ; preds = %7, %15, %18
   %160 = tail call ptr @__ctype_b_loc() #12
   %161 = load ptr, ptr %160, align 8
   %162 = zext i8 %157 to i64
-  %163 = getelementptr inbounds nuw i16, ptr %161, i64 %162
+  %163 = getelementptr inbounds nuw [2 x i8], ptr %161, i64 %162
   %164 = load i16, ptr %163, align 2
   %165 = and i16 %164, 8192
   %.not127 = icmp eq i16 %165, 0
@@ -1418,7 +1416,7 @@ define dso_local { i64, i32 } @DefineTSTemplate(ptr noundef %0, ptr noundef read
   %33 = phi i64 [ %55, %54 ], [ 0, %.lr.ph ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %54 ], [ 0, %.lr.ph ]
   %34 = load ptr, ptr %26, align 8
-  %35 = getelementptr inbounds nuw %union.ListCell, ptr %34, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8
@@ -1615,7 +1613,7 @@ define dso_local { i64, i32 } @DefineTSConfiguration(ptr noundef %0, ptr noundef
   %.0108136147 = phi i32 [ %.1109, %42 ], [ 0, %.lr.ph ]
   %.0107137146 = phi i32 [ %.1, %42 ], [ 0, %.lr.ph ]
   %19 = load ptr, ptr %16, align 8
-  %20 = getelementptr inbounds nuw %union.ListCell, ptr %19, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8
@@ -1779,14 +1777,14 @@ define dso_local { i64, i32 } @DefineTSConfiguration(ptr noundef %0, ptr noundef
 
 .lr.ph154._crit_edge:                             ; preds = %.lr.ph154
   %.phi.trans.insert = sext i32 %.0114152 to i64
-  %.phi.trans.insert166 = getelementptr inbounds ptr, ptr %97, i64 %.phi.trans.insert
+  %.phi.trans.insert166 = getelementptr inbounds [8 x i8], ptr %97, i64 %.phi.trans.insert
   %.pre = load ptr, ptr %.phi.trans.insert166, align 8
   br label %113
 
 108:                                              ; preds = %.lr.ph154
   %109 = call ptr @MakeSingleTupleTableSlot(ptr noundef %95, ptr noundef nonnull @TTSOpsHeapTuple) #9
   %110 = sext i32 %.0114152 to i64
-  %111 = getelementptr inbounds ptr, ptr %97, i64 %110
+  %111 = getelementptr inbounds [8 x i8], ptr %97, i64 %110
   store ptr %109, ptr %111, align 8
   %112 = add nsw i32 %.0112153, 1
   br label %113
@@ -1795,7 +1793,7 @@ define dso_local { i64, i32 } @DefineTSConfiguration(ptr noundef %0, ptr noundef
   %.pre-phi = phi i64 [ %.phi.trans.insert, %.lr.ph154._crit_edge ], [ %110, %108 ]
   %114 = phi ptr [ %.pre, %.lr.ph154._crit_edge ], [ %109, %108 ]
   %.1113 = phi i32 [ %.0112153, %.lr.ph154._crit_edge ], [ %112, %108 ]
-  %115 = getelementptr inbounds ptr, ptr %97, i64 %.pre-phi
+  %115 = getelementptr inbounds [8 x i8], ptr %97, i64 %.pre-phi
   %116 = getelementptr inbounds nuw i8, ptr %114, i64 8
   %117 = load ptr, ptr %116, align 8
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 24
@@ -1877,7 +1875,7 @@ define dso_local { i64, i32 } @DefineTSConfiguration(ptr noundef %0, ptr noundef
 
 .lr.ph159:                                        ; preds = %.lr.ph159.preheader, %.lr.ph159
   %indvars.iv163 = phi i64 [ 0, %.lr.ph159.preheader ], [ %indvars.iv.next164, %.lr.ph159 ]
-  %162 = getelementptr inbounds nuw ptr, ptr %97, i64 %indvars.iv163
+  %162 = getelementptr inbounds nuw [8 x i8], ptr %97, i64 %indvars.iv163
   %163 = load ptr, ptr %162, align 8
   call void @ExecDropSingleTupleTableSlot(ptr noundef %163) #9
   %indvars.iv.next164 = add nuw nsw i64 %indvars.iv163, 1
@@ -2170,7 +2168,7 @@ list_length.exit.thread.i:                        ; preds = %37
 .lr.ph9.i:                                        ; preds = %.lr.ph6.i, %._crit_edge.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %._crit_edge.i ], [ 0, %.lr.ph6.i ]
   %57 = load ptr, ptr %53, align 8
-  %58 = getelementptr inbounds nuw %union.ListCell, ptr %57, i64 %indvars.iv.i
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %indvars.iv.i
   %59 = load ptr, ptr %58, align 8
   call void @ScanKeyInit(ptr noundef nonnull %3, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %54) #9
   %60 = load i32, ptr %59, align 8
@@ -2228,10 +2226,10 @@ list_length.exit174.i:                            ; preds = %72, %.critedge.i
 .lr.ph16.i:                                       ; preds = %.lr.ph12.i, %.lr.ph16.i
   %indvars.iv55.i = phi i64 [ %indvars.iv.next56.i, %.lr.ph16.i ], [ 0, %.lr.ph12.i ]
   %84 = load ptr, ptr %81, align 8
-  %85 = getelementptr inbounds nuw %union.ListCell, ptr %84, i64 %indvars.iv55.i
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %indvars.iv55.i
   %86 = load ptr, ptr %85, align 8
   %87 = call i32 @get_ts_dict_oid(ptr noundef %86, i1 noundef zeroext false) #9
-  %88 = getelementptr inbounds nuw i32, ptr %78, i64 %indvars.iv55.i
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %78, i64 %indvars.iv55.i
   store i32 %87, ptr %88, align 4
   %indvars.iv.next56.i = add nuw nsw i64 %indvars.iv55.i, 1
   %89 = load i32, ptr %80, align 4
@@ -2294,7 +2292,7 @@ list_length.exit174.i:                            ; preds = %72, %.critedge.i
 
 120:                                              ; preds = %119, %.lr.ph46.i
   %indvars.iv77.i = phi i64 [ 0, %.lr.ph46.i ], [ %indvars.iv.next78.i, %119 ]
-  %121 = getelementptr inbounds nuw %union.ListCell, ptr %116, i64 %indvars.iv77.i
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %116, i64 %indvars.iv77.i
   %122 = load ptr, ptr %121, align 8
   %123 = load i32, ptr %122, align 8
   %.not164.i = icmp eq i32 %118, %123
@@ -2369,7 +2367,7 @@ list_length.exit174.i:                            ; preds = %72, %.critedge.i
   %indvars.iv68.i = phi i64 [ 0, %.lr.ph23.us.preheader.i ], [ %indvars.iv.next69.i, %._crit_edge24.us.i ]
   %.013525.us40.i = phi i32 [ 0, %.lr.ph23.us.preheader.i ], [ %.2137.us.i, %._crit_edge24.us.i ]
   %145 = load ptr, ptr %140, align 8
-  %146 = getelementptr inbounds nuw %union.ListCell, ptr %145, i64 %indvars.iv68.i
+  %146 = getelementptr inbounds nuw [8 x i8], ptr %145, i64 %indvars.iv68.i
   %147 = load ptr, ptr %146, align 8
   br label %148
 
@@ -2377,7 +2375,7 @@ list_length.exit174.i:                            ; preds = %72, %.critedge.i
   %indvars.iv63.i = phi i64 [ 0, %.lr.ph23.us.i ], [ %indvars.iv.next64.i, %188 ]
   %.113620.us.i = phi i32 [ %.013525.us40.i, %.lr.ph23.us.i ], [ %.2137.us.i, %188 ]
   %149 = sext i32 %.113620.us.i to i64
-  %150 = getelementptr inbounds ptr, ptr %137, i64 %149
+  %150 = getelementptr inbounds [8 x i8], ptr %137, i64 %149
   %151 = load ptr, ptr %150, align 8
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 8
   %153 = load ptr, ptr %152, align 8
@@ -2409,7 +2407,7 @@ list_length.exit174.i:                            ; preds = %72, %.critedge.i
   %174 = load ptr, ptr %173, align 8
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 16
   store i64 %indvars.iv.next64.i, ptr %175, align 8
-  %176 = getelementptr inbounds nuw i32, ptr %78, i64 %indvars.iv63.i
+  %176 = getelementptr inbounds nuw [4 x i8], ptr %78, i64 %indvars.iv63.i
   %177 = load i32, ptr %176, align 4
   %178 = zext i32 %177 to i64
   %179 = load ptr, ptr %150, align 8
@@ -2443,7 +2441,7 @@ list_length.exit174.i:                            ; preds = %72, %.critedge.i
   %indvars.iv60.i = phi i64 [ 0, %.lr.ph19.i ], [ %indvars.iv.next61.i, %192 ]
   %193 = load ptr, ptr %138, align 8
   %194 = call ptr @MakeSingleTupleTableSlot(ptr noundef %193, ptr noundef nonnull @TTSOpsHeapTuple) #9
-  %195 = getelementptr inbounds nuw ptr, ptr %137, i64 %indvars.iv60.i
+  %195 = getelementptr inbounds nuw [8 x i8], ptr %137, i64 %indvars.iv60.i
   store ptr %194, ptr %195, align 8
   %indvars.iv.next61.i = add nuw nsw i64 %indvars.iv60.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next61.i, %wide.trip.count.i
@@ -2466,7 +2464,7 @@ list_length.exit174.i:                            ; preds = %72, %.critedge.i
 
 .lr.ph43.i:                                       ; preds = %.lr.ph43.i, %.lr.ph43.preheader.i
   %indvars.iv71.i = phi i64 [ 0, %.lr.ph43.preheader.i ], [ %indvars.iv.next72.i, %.lr.ph43.i ]
-  %198 = getelementptr inbounds nuw ptr, ptr %137, i64 %indvars.iv71.i
+  %198 = getelementptr inbounds nuw [8 x i8], ptr %137, i64 %indvars.iv71.i
   %199 = load ptr, ptr %198, align 8
   call void @ExecDropSingleTupleTableSlot(ptr noundef %199) #9
   %indvars.iv.next72.i = add nuw nsw i64 %indvars.iv71.i, 1
@@ -2512,7 +2510,7 @@ MakeConfigurationMapping.exit:                    ; preds = %.lr.ph43.i, %._crit
 .lr.ph:                                           ; preds = %.lr.ph4.i, %243
   %indvars.iv.i3239 = phi i64 [ %indvars.iv.next.i36, %243 ], [ 0, %.lr.ph4.i ]
   %219 = load ptr, ptr %213, align 8
-  %220 = getelementptr inbounds nuw %union.ListCell, ptr %219, i64 %indvars.iv.i3239
+  %220 = getelementptr inbounds nuw [8 x i8], ptr %219, i64 %indvars.iv.i3239
   %221 = load ptr, ptr %220, align 8
   call void @ScanKeyInit(ptr noundef nonnull %2, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %214) #9
   %222 = load i32, ptr %221, align 8
@@ -2793,7 +2791,7 @@ list_length.exit:                                 ; preds = %2
   %indvars.iv = phi i64 [ %indvars.iv.next, %tstoken_list_member.exit.thread ], [ 0, %.lr.ph66 ]
   %.03365 = phi ptr [ %.1, %tstoken_list_member.exit.thread ], [ null, %.lr.ph66 ]
   %23 = load ptr, ptr %18, align 8
-  %24 = getelementptr inbounds nuw %union.ListCell, ptr %23, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load ptr, ptr %26, align 8
@@ -2819,7 +2817,7 @@ list_length.exit:                                 ; preds = %2
 
 34:                                               ; preds = %33, %.lr.ph22.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph22.i ], [ %indvars.iv.next.i, %33 ]
-  %35 = getelementptr inbounds nuw %union.ListCell, ptr %32, i64 %indvars.iv.i
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv.i
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = load ptr, ptr %37, align 8
@@ -2835,7 +2833,7 @@ list_length.exit:                                 ; preds = %2
 41:                                               ; preds = %.lr.ph61
   %42 = add i32 %.0314960, 1
   %43 = sext i32 %42 to i64
-  %44 = getelementptr inbounds %struct.LexDescr, ptr %15, i64 %43
+  %44 = getelementptr inbounds [24 x i8], ptr %15, i64 %43
   %45 = load i32, ptr %44, align 8
   %.not41 = icmp eq i32 %45, 0
   br i1 %.not41, label %.critedge44, label %.lr.ph61

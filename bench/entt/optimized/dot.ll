@@ -1425,7 +1425,7 @@ define hidden void @_ZN21Dot_CustomWriter_Test8TestBodyEv(ptr nonnull readnone a
 
 .lr.ph.i.i.i.i:                                   ; preds = %.noexc65, %21
   %.sroa.311.0.i.i = phi i64 [ %22, %21 ], [ 0, %.noexc65 ]
-  %19 = getelementptr inbounds nuw i64, ptr %13, i64 %.sroa.311.0.i.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.sroa.311.0.i.i
   %20 = load i64, ptr %19, align 8, !tbaa !30, !noalias !110
   %.not1.i.i.i.i = icmp eq i64 %20, 0
   br i1 %.not1.i.i.i.i, label %21, label %.lr.ph42.i
@@ -1462,7 +1462,7 @@ define hidden void @_ZN21Dot_CustomWriter_Test8TestBodyEv(ptr nonnull readnone a
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.noexc63, %31
   %.sroa.314.0.i.i.i = phi i64 [ %32, %31 ], [ %.sroa.028.037.i, %.noexc63 ]
-  %29 = getelementptr inbounds nuw i64, ptr %13, i64 %.sroa.314.0.i.i.i
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.sroa.314.0.i.i.i
   %30 = load i64, ptr %29, align 8, !tbaa !30, !noalias !115
   %.not1.i.i.i.i.i = icmp eq i64 %30, 0
   br i1 %.not1.i.i.i.i.i, label %31, label %"_ZZN21Dot_CustomWriter_Test8TestBodyEvENK3$_0clERSom.exit.i"
@@ -1515,7 +1515,7 @@ _ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE8in_edgesEm.exit.thread.i.i:
 
 .lr.ph.i.i.i55:                                   ; preds = %.noexc70, %46
   %.sroa.5.1.i56 = phi i64 [ %47, %46 ], [ %43, %.noexc70 ]
-  %44 = getelementptr inbounds i64, ptr %13, i64 %.sroa.5.1.i56
+  %44 = getelementptr inbounds [8 x i8], ptr %13, i64 %.sroa.5.1.i56
   %45 = load i64, ptr %44, align 8, !tbaa !30
   %.not1.i.i.i57 = icmp eq i64 %45, 0
   br i1 %.not1.i.i.i57, label %46, label %.lr.ph42.i
@@ -2152,7 +2152,7 @@ define linkonce_odr hidden void @_ZN4entt3dotINS_16adjacency_matrixINS_12directe
 
 .lr.ph.i.i.i:                                     ; preds = %._crit_edge, %16
   %.sroa.311.0.i = phi i64 [ %17, %16 ], [ 0, %._crit_edge ]
-  %14 = getelementptr inbounds i64, ptr %7, i64 %.sroa.311.0.i
+  %14 = getelementptr inbounds [8 x i8], ptr %7, i64 %.sroa.311.0.i
   %15 = load i64, ptr %14, align 8, !tbaa !30, !noalias !130
   %.not1.i.i.i = icmp eq i64 %15, 0
   br i1 %.not1.i.i.i, label %16, label %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit
@@ -2194,7 +2194,7 @@ _ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit: ; preds = %.l
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph37, %32
   %.sroa.5.1 = phi i64 [ %33, %32 ], [ %29, %.lr.ph37 ]
-  %30 = getelementptr inbounds i64, ptr %7, i64 %.sroa.5.1
+  %30 = getelementptr inbounds [8 x i8], ptr %7, i64 %.sroa.5.1
   %31 = load i64, ptr %30, align 8, !tbaa !30
   %.not1.i.i = icmp eq i64 %31, 0
   br i1 %.not1.i.i, label %32, label %_ZN4entt8internal13edge_iteratorIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEEppEv.exit
@@ -2446,7 +2446,7 @@ define linkonce_odr hidden void @_ZN4entt3dotINS_16adjacency_matrixINS_14undirec
 
 .lr.ph.i.i.i:                                     ; preds = %._crit_edge, %16
   %.sroa.311.0.i = phi i64 [ %17, %16 ], [ 0, %._crit_edge ]
-  %14 = getelementptr inbounds i64, ptr %7, i64 %.sroa.311.0.i
+  %14 = getelementptr inbounds [8 x i8], ptr %7, i64 %.sroa.311.0.i
   %15 = load i64, ptr %14, align 8, !tbaa !30, !noalias !143
   %.not1.i.i.i = icmp eq i64 %15, 0
   br i1 %.not1.i.i.i, label %16, label %_ZNK4entt16adjacency_matrixINS_14undirected_tagESaImEE5edgesEv.exit
@@ -2488,7 +2488,7 @@ _ZNK4entt16adjacency_matrixINS_14undirected_tagESaImEE5edgesEv.exit: ; preds = %
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph37, %32
   %.sroa.5.1 = phi i64 [ %33, %32 ], [ %29, %.lr.ph37 ]
-  %30 = getelementptr inbounds i64, ptr %7, i64 %.sroa.5.1
+  %30 = getelementptr inbounds [8 x i8], ptr %7, i64 %.sroa.5.1
   %31 = load i64, ptr %30, align 8, !tbaa !30
   %.not1.i.i = icmp eq i64 %31, 0
   br i1 %.not1.i.i, label %32, label %_ZN4entt8internal13edge_iteratorIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEEppEv.exit

@@ -103,7 +103,7 @@ define noundef range(i64 5, 31) i64 @_ZN3net19HpackHuffmanDecoder18CodeLengthOfP
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef i32 @_ZN3net19HpackHuffmanDecoder17DecodeToCanonicalEmj(i64 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds nuw i32, ptr @_ZN3net12_GLOBAL__N_120kLengthToFirstLJCodeE, i64 %0
+  %3 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3net12_GLOBAL__N_120kLengthToFirstLJCodeE, i64 %0
   %4 = load i32, ptr %3, align 4, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr @_ZN3net12_GLOBAL__N_123kLengthToFirstCanonicalE, i64 %0
   %6 = load i8, ptr %5, align 1, !tbaa !7
@@ -256,7 +256,7 @@ thread-pre-split:                                 ; preds = %.preheader, %90
   br i1 %57, label %.preheader, label %thread-pre-split, !llvm.loop !16
 
 58:                                               ; preds = %50
-  %59 = getelementptr inbounds nuw i32, ptr @_ZN3net12_GLOBAL__N_120kLengthToFirstLJCodeE, i64 %.0.i
+  %59 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3net12_GLOBAL__N_120kLengthToFirstLJCodeE, i64 %.0.i
   %60 = load i32, ptr %59, align 4, !tbaa !3
   %61 = getelementptr inbounds nuw i8, ptr @_ZN3net12_GLOBAL__N_123kLengthToFirstCanonicalE, i64 %.0.i
   %62 = load i8, ptr %61, align 1, !tbaa !7

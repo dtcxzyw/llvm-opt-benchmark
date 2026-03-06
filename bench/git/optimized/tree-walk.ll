@@ -10,9 +10,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.tree_desc = type { ptr, ptr, %struct.name_entry, i32, i32 }
 %struct.name_entry = type { %struct.object_id, ptr, i32, i32 }
 %struct.object_id = type { [32 x i8], i32 }
-%struct.tree_desc_x = type { %struct.tree_desc, ptr }
-%struct.dir_state = type { ptr, i64, %struct.object_id }
-%struct.pathspec_item = type { ptr, ptr, i32, i32, i32, i32, i32, i32, ptr, ptr }
 
 @strbuf_slopbuf = external global [0 x i8], align 1
 @.str = private unnamed_addr constant [3 x i8] c"%s\00", align 1
@@ -64,7 +61,7 @@ define dso_local void @init_tree_desc(ptr noundef captures(none) initializes((0,
 
 9:                                                ; preds = %6
   %10 = sext i32 %8 to i64
-  %11 = getelementptr inbounds %struct.git_hash_algo, ptr @hash_algos, i64 %10
+  %11 = getelementptr inbounds [112 x i8], ptr @hash_algos, i64 %10
   br label %16
 
 12:                                               ; preds = %6, %4
@@ -127,7 +124,7 @@ define dso_local range(i32 -1, 1) i32 @init_tree_desc_gently(ptr noundef capture
 
 10:                                               ; preds = %7
   %11 = sext i32 %9 to i64
-  %12 = getelementptr inbounds %struct.git_hash_algo, ptr @hash_algos, i64 %11
+  %12 = getelementptr inbounds [112 x i8], ptr @hash_algos, i64 %11
   br label %17
 
 13:                                               ; preds = %7, %5
@@ -212,7 +209,7 @@ init_tree_desc.exit:                              ; preds = %3
 
 19:                                               ; preds = %15
   %20 = sext i32 %18 to i64
-  %21 = getelementptr inbounds %struct.git_hash_algo, ptr @hash_algos, i64 %20
+  %21 = getelementptr inbounds [112 x i8], ptr @hash_algos, i64 %20
   br label %26
 
 22:                                               ; preds = %15
@@ -775,8 +772,8 @@ st_mult.exit:                                     ; preds = %21
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %28 = getelementptr inbounds nuw %struct.tree_desc_x, ptr %27, i64 %indvars.iv
-  %29 = getelementptr inbounds nuw %struct.tree_desc, ptr %2, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [88 x i8], ptr %27, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [80 x i8], ptr %2, i64 %indvars.iv
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %28, ptr noundef nonnull align 8 dereferenceable(80) %29, i64 80, i1 false), !tbaa.struct !59
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 80
   store ptr null, ptr %30, align 8, !tbaa !62
@@ -867,8 +864,8 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
 
 .lr.ph204:                                        ; preds = %.lr.ph204.preheader, %extended_entry_extract.exit
   %indvars.iv248 = phi i64 [ %indvars.iv.next249, %extended_entry_extract.exit ], [ 0, %.lr.ph204.preheader ]
-  %66 = getelementptr inbounds nuw %struct.name_entry, ptr %25, i64 %indvars.iv248
-  %67 = getelementptr inbounds nuw %struct.tree_desc_x, ptr %27, i64 %indvars.iv248
+  %66 = getelementptr inbounds nuw [56 x i8], ptr %25, i64 %indvars.iv248
+  %67 = getelementptr inbounds nuw [88 x i8], ptr %27, i64 %indvars.iv248
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 72
   %69 = load i32, ptr %68, align 8, !tbaa !69
   %.not47.i = icmp eq i32 %69, 0
@@ -965,7 +962,7 @@ extended_entry_extract.exit:                      ; preds = %77, %._crit_edge.i
   %indvars.iv253 = phi i64 [ %indvars.iv.next254, %122 ], [ 0, %extended_entry_extract.exit ]
   %.0112207 = phi i32 [ %.1113, %122 ], [ 0, %extended_entry_extract.exit ]
   %.0114206 = phi ptr [ %.1115, %122 ], [ null, %extended_entry_extract.exit ]
-  %110 = getelementptr inbounds nuw %struct.name_entry, ptr %25, i64 %indvars.iv253
+  %110 = getelementptr inbounds nuw [56 x i8], ptr %25, i64 %indvars.iv253
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 40
   %112 = load ptr, ptr %111, align 8, !tbaa !71
   %.not152 = icmp eq ptr %112, null
@@ -1005,8 +1002,8 @@ extended_entry_extract.exit:                      ; preds = %77, %._crit_edge.i
 
 124:                                              ; preds = %.lr.ph214, %230
   %indvars.iv259 = phi i64 [ 0, %.lr.ph214 ], [ %indvars.iv.next260, %230 ]
-  %125 = getelementptr inbounds nuw %struct.name_entry, ptr %25, i64 %indvars.iv259
-  %126 = getelementptr inbounds nuw %struct.tree_desc_x, ptr %27, i64 %indvars.iv259
+  %125 = getelementptr inbounds nuw [56 x i8], ptr %25, i64 %indvars.iv259
+  %126 = getelementptr inbounds nuw [88 x i8], ptr %27, i64 %indvars.iv259
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 72
   %128 = load i32, ptr %127, align 8, !tbaa !69
@@ -1256,7 +1253,7 @@ extended_entry_extract.exit169:                   ; preds = %.lr.ph50.i, %.crite
   %.4219 = phi ptr [ %.5, %242 ], [ %.4219.ph, %.lr.ph221.preheader ]
   %.0116218 = phi i64 [ %.1117, %242 ], [ 0, %.lr.ph221.preheader ]
   %.0119217 = phi i64 [ %.1120, %242 ], [ 0, %.lr.ph221.preheader ]
-  %231 = getelementptr inbounds nuw %struct.name_entry, ptr %25, i64 %indvars.iv265
+  %231 = getelementptr inbounds nuw [56 x i8], ptr %25, i64 %indvars.iv265
   %232 = getelementptr inbounds nuw i8, ptr %231, i64 40
   %233 = load ptr, ptr %232, align 8, !tbaa !71
   %.not149 = icmp eq ptr %233, null
@@ -1375,8 +1372,8 @@ prune_traversal.exit:                             ; preds = %248, %267
   br i1 %.not148, label %update_extended_entry.exit, label %282
 
 282:                                              ; preds = %.lr.ph228
-  %283 = getelementptr inbounds nuw %struct.tree_desc_x, ptr %27, i64 %indvars.iv271
-  %284 = getelementptr inbounds nuw %struct.name_entry, ptr %25, i64 %indvars.iv271
+  %283 = getelementptr inbounds nuw [88 x i8], ptr %27, i64 %indvars.iv271
+  %284 = getelementptr inbounds nuw [56 x i8], ptr %25, i64 %indvars.iv271
   %285 = getelementptr inbounds nuw i8, ptr %283, i64 56
   %286 = load ptr, ptr %285, align 8, !tbaa !88
   %287 = getelementptr inbounds nuw i8, ptr %284, i64 40
@@ -1411,7 +1408,7 @@ update_extended_entry.exit:                       ; preds = %291, %290, %.lr.ph2
 
 .lr.ph230:                                        ; preds = %.lr.ph230.preheader, %free_extended_entry.exit
   %indvars.iv277 = phi i64 [ 0, %.lr.ph230.preheader ], [ %indvars.iv.next278, %free_extended_entry.exit ]
-  %297 = getelementptr inbounds nuw %struct.tree_desc_x, ptr %27, i64 %indvars.iv277
+  %297 = getelementptr inbounds nuw [88 x i8], ptr %27, i64 %indvars.iv277
   %298 = getelementptr i8, ptr %297, i64 80
   %.val156 = load ptr, ptr %298, align 8, !tbaa !62
   %.not1.i = icmp eq ptr %.val156, null
@@ -1501,7 +1498,7 @@ define dso_local i32 @get_tree_entry(ptr noundef %0, ptr noundef %1, ptr noundef
 
 24:                                               ; preds = %21
   %25 = sext i32 %23 to i64
-  %26 = getelementptr inbounds %struct.git_hash_algo, ptr @hash_algos, i64 %25
+  %26 = getelementptr inbounds [112 x i8], ptr @hash_algos, i64 %25
   br label %init_tree_desc_internal.exit.i
 
 27:                                               ; preds = %21, %20
@@ -1739,7 +1736,7 @@ st_mult.exit:                                     ; preds = %39
 46:                                               ; preds = %st_mult.exit, %36
   %.495 = phi i64 [ %., %st_mult.exit ], [ %.091, %36 ]
   %.388 = phi ptr [ %45, %st_mult.exit ], [ %.085, %36 ]
-  %47 = getelementptr inbounds nuw %struct.dir_state, ptr %.388, i64 %.0103
+  %47 = getelementptr inbounds nuw [56 x i8], ptr %.388, i64 %.0103
   store ptr %35, ptr %47, align 8, !tbaa !96
   %48 = load i64, ptr %15, align 8, !tbaa !40
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 8
@@ -1772,7 +1769,7 @@ st_mult.exit:                                     ; preds = %39
 
 60:                                               ; preds = %58
   %61 = sext i32 %59 to i64
-  %62 = getelementptr inbounds %struct.git_hash_algo, ptr @hash_algos, i64 %61
+  %62 = getelementptr inbounds [112 x i8], ptr @hash_algos, i64 %61
   br label %init_tree_desc_internal.exit.i
 
 63:                                               ; preds = %58
@@ -1882,7 +1879,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.lr.ph155.preheader
 
 97:                                               ; preds = %91
-  %98 = getelementptr %struct.dir_state, ptr %.186, i64 %.1104
+  %98 = getelementptr [56 x i8], ptr %.186, i64 %.1104
   %99 = getelementptr i8, ptr %98, i64 -56
   %100 = load ptr, ptr %99, align 8, !tbaa !96
   call void @free(ptr noundef %100) #15
@@ -1905,7 +1902,7 @@ sub_1:                                            ; preds = %sub_0
 
 110:                                              ; preds = %107
   %111 = sext i32 %109 to i64
-  %112 = getelementptr inbounds %struct.git_hash_algo, ptr @hash_algos, i64 %111
+  %112 = getelementptr inbounds [112 x i8], ptr @hash_algos, i64 %111
   br label %117
 
 113:                                              ; preds = %107, %97
@@ -1943,7 +1940,7 @@ init_tree_desc.exit134:                           ; preds = %117, %init_tree_des
   br label %.backedge
 
 125:                                              ; preds = %sub_0
-  %126 = getelementptr %struct.dir_state, ptr %.186, i64 %.1104
+  %126 = getelementptr [56 x i8], ptr %.186, i64 %.1104
   %127 = getelementptr i8, ptr %126, i64 -40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %3, ptr noundef nonnull readonly align 4 dereferenceable(32) %127, i64 32, i1 false)
   %128 = getelementptr i8, ptr %126, i64 -8
@@ -2033,7 +2030,7 @@ init_tree_desc.exit134:                           ; preds = %117, %init_tree_des
   %165 = sub i64 %163, %164
   %166 = load i64, ptr %30, align 8
   %.090 = select i1 %.not120, i64 %166, i64 %165
-  %167 = getelementptr %struct.dir_state, ptr %.186, i64 %.1104
+  %167 = getelementptr [56 x i8], ptr %.186, i64 %.1104
   %168 = getelementptr i8, ptr %167, i64 -56
   %169 = getelementptr i8, ptr %167, i64 -40
   %170 = load ptr, ptr %168, align 8, !tbaa !96
@@ -2052,7 +2049,7 @@ init_tree_desc.exit134:                           ; preds = %117, %init_tree_des
 
 176:                                              ; preds = %173
   %177 = sext i32 %175 to i64
-  %178 = getelementptr inbounds %struct.git_hash_algo, ptr @hash_algos, i64 %177
+  %178 = getelementptr inbounds [112 x i8], ptr @hash_algos, i64 %177
   br label %183
 
 179:                                              ; preds = %173, %161
@@ -2123,7 +2120,7 @@ init_tree_desc.exit140:                           ; preds = %183, %init_tree_des
 
 .lr.ph155:                                        ; preds = %.lr.ph155.preheader, %.lr.ph155
   %.0101154 = phi i64 [ %198, %.lr.ph155 ], [ 0, %.lr.ph155.preheader ]
-  %196 = getelementptr inbounds nuw %struct.dir_state, ptr %.489.ph193, i64 %.0101154
+  %196 = getelementptr inbounds nuw [56 x i8], ptr %.489.ph193, i64 %.0101154
   %197 = load ptr, ptr %196, align 8, !tbaa !96
   call void @free(ptr noundef %197) #15
   %198 = add nuw i64 %.0101154, 1
@@ -2276,7 +2273,7 @@ define internal fastcc range(i32 -1, 3) i32 @do_match(ptr noundef %0, ptr nounde
   %.0191250 = phi i32 [ %12, %.lr.ph ], [ %.1192, %match_wildcard_base.exit.thread213 ]
   %50 = add nsw i64 %.in, -1
   %51 = load ptr, ptr %38, align 8, !tbaa !103
-  %52 = getelementptr inbounds nuw %struct.pathspec_item, ptr %51, i64 %50
+  %52 = getelementptr inbounds nuw [56 x i8], ptr %51, i64 %50
   %53 = load ptr, ptr %52, align 8, !tbaa !104
   %54 = load ptr, ptr %39, align 8, !tbaa !38
   %55 = getelementptr inbounds nuw i8, ptr %52, i64 20
@@ -2944,7 +2941,7 @@ canon_mode.exit:                                  ; preds = %62, %61, %58, %57, 
 
 73:                                               ; preds = %.preheader, %75
   %.0811.i.i = phi i64 [ %76, %75 ], [ 0, %.preheader ]
-  %74 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i
+  %74 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %.0811.i.i
   %.not.i.i = icmp eq ptr %5, %74
   br i1 %.not.i.i, label %.split.loop.exit9.i.i, label %75
 

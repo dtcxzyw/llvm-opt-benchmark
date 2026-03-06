@@ -713,7 +713,7 @@ grow_memtuples.exit:                              ; preds = %114, %107, %93, %65
   %118 = add i32 %117, 1
   store i32 %118, ptr %60, align 8
   %119 = sext i32 %117 to i64
-  %120 = getelementptr inbounds %struct.SortTuple, ptr %116, i64 %119
+  %120 = getelementptr inbounds [24 x i8], ptr %116, i64 %119
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %120, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %122 = load i8, ptr %121, align 4, !range !4, !noundef !5
@@ -809,7 +809,7 @@ reversedirection.exit.i:                          ; preds = %.lr.ph.i.i, %147
 169:                                              ; preds = %165
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %170 = load ptr, ptr %115, align 8
-  %171 = getelementptr inbounds nuw %struct.SortTuple, ptr %170, i64 %indvars.iv.i
+  %171 = getelementptr inbounds nuw [24 x i8], ptr %170, i64 %indvars.iv.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %171, i64 24, i1 false)
   %172 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i.i = icmp eq i32 %172, 0
@@ -833,14 +833,14 @@ reversedirection.exit.i:                          ; preds = %.lr.ph.i.i, %147
   %179 = lshr i32 %178, 1
   %180 = load ptr, ptr %0, align 8
   %181 = zext nneg i32 %179 to i64
-  %182 = getelementptr inbounds nuw %struct.SortTuple, ptr %170, i64 %181
+  %182 = getelementptr inbounds nuw [24 x i8], ptr %170, i64 %181
   %183 = call i32 %180(ptr noundef nonnull %5, ptr noundef %182, ptr noundef nonnull %0) #12
   %184 = icmp sgt i32 %183, -1
   br i1 %184, label %tuplesort_heap_insert.exit.i, label %185
 
 185:                                              ; preds = %.lr.ph.i22.i
   %186 = zext nneg i32 %.01720.i.i to i64
-  %187 = getelementptr inbounds nuw %struct.SortTuple, ptr %170, i64 %186
+  %187 = getelementptr inbounds nuw [24 x i8], ptr %170, i64 %186
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %187, ptr noundef nonnull align 8 dereferenceable(24) %182, i64 24, i1 false)
   %.not23.i.i = icmp eq i32 %179, 0
   br i1 %.not23.i.i, label %tuplesort_heap_insert.exit.i, label %.lr.ph.i22.i
@@ -848,7 +848,7 @@ reversedirection.exit.i:                          ; preds = %.lr.ph.i.i, %147
 tuplesort_heap_insert.exit.i:                     ; preds = %185, %.lr.ph.i22.i, %174
   %.017.lcssa.i.i = phi i32 [ %175, %174 ], [ %.01720.i.i, %.lr.ph.i22.i ], [ 0, %185 ]
   %188 = sext i32 %.017.lcssa.i.i to i64
-  %189 = getelementptr inbounds %struct.SortTuple, ptr %170, i64 %188
+  %189 = getelementptr inbounds [24 x i8], ptr %170, i64 %188
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %189, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %235
@@ -856,11 +856,11 @@ tuplesort_heap_insert.exit.i:                     ; preds = %185, %.lr.ph.i22.i,
 190:                                              ; preds = %165
   %191 = load ptr, ptr %0, align 8
   %192 = load ptr, ptr %115, align 8
-  %193 = getelementptr inbounds nuw %struct.SortTuple, ptr %192, i64 %indvars.iv.i
+  %193 = getelementptr inbounds nuw [24 x i8], ptr %192, i64 %indvars.iv.i
   %194 = call i32 %191(ptr noundef %193, ptr noundef %192, ptr noundef nonnull %0) #12
   %195 = icmp slt i32 %194, 1
   %196 = load ptr, ptr %115, align 8
-  %197 = getelementptr inbounds nuw %struct.SortTuple, ptr %196, i64 %indvars.iv.i
+  %197 = getelementptr inbounds nuw [24 x i8], ptr %196, i64 %indvars.iv.i
   br i1 %195, label %198, label %207
 
 198:                                              ; preds = %190
@@ -912,9 +912,9 @@ free_sort_tuple.exit.i:                           ; preds = %200, %198
 216:                                              ; preds = %.lr.ph.i25.i
   %217 = load ptr, ptr %0, align 8
   %218 = zext i32 %212 to i64
-  %219 = getelementptr inbounds nuw %struct.SortTuple, ptr %196, i64 %218
+  %219 = getelementptr inbounds nuw [24 x i8], ptr %196, i64 %218
   %220 = zext i32 %214 to i64
-  %221 = getelementptr inbounds nuw %struct.SortTuple, ptr %196, i64 %220
+  %221 = getelementptr inbounds nuw [24 x i8], ptr %196, i64 %220
   %222 = call i32 %217(ptr noundef nonnull %219, ptr noundef nonnull %221, ptr noundef nonnull %0) #12
   %223 = icmp sgt i32 %222, 0
   %spec.select.i.i = select i1 %223, i32 %214, i32 %212
@@ -924,14 +924,14 @@ free_sort_tuple.exit.i:                           ; preds = %200, %198
   %.027.i.i = phi i32 [ %212, %.lr.ph.i25.i ], [ %spec.select.i.i, %216 ]
   %225 = load ptr, ptr %0, align 8
   %226 = zext i32 %.027.i.i to i64
-  %227 = getelementptr inbounds nuw %struct.SortTuple, ptr %196, i64 %226
+  %227 = getelementptr inbounds nuw [24 x i8], ptr %196, i64 %226
   %228 = call i32 %225(ptr noundef %197, ptr noundef %227, ptr noundef nonnull %0) #12
   %229 = icmp slt i32 %228, 1
   %.pre28.i = zext i32 %.02837.i.i to i64
   br i1 %229, label %tuplesort_heap_replace_top.exit.i, label %230
 
 230:                                              ; preds = %224
-  %231 = getelementptr inbounds nuw %struct.SortTuple, ptr %196, i64 %.pre28.i
+  %231 = getelementptr inbounds nuw [24 x i8], ptr %196, i64 %.pre28.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %231, ptr noundef nonnull align 8 dereferenceable(24) %227, i64 24, i1 false)
   %232 = shl i32 %.027.i.i, 1
   %233 = or disjoint i32 %232, 1
@@ -940,7 +940,7 @@ free_sort_tuple.exit.i:                           ; preds = %200, %198
 
 tuplesort_heap_replace_top.exit.i:                ; preds = %230, %224, %210
   %.028.lcssa.i.i = phi i64 [ 0, %210 ], [ %226, %230 ], [ %.pre28.i, %224 ]
-  %234 = getelementptr inbounds nuw %struct.SortTuple, ptr %196, i64 %.028.lcssa.i.i
+  %234 = getelementptr inbounds nuw [24 x i8], ptr %196, i64 %.028.lcssa.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %234, ptr noundef nonnull align 8 dereferenceable(24) %197, i64 24, i1 false)
   br label %235
 
@@ -1050,9 +1050,9 @@ free_sort_tuple.exit60:                           ; preds = %262, %265
 280:                                              ; preds = %.lr.ph.i62
   %281 = load ptr, ptr %0, align 8
   %282 = zext i32 %276 to i64
-  %283 = getelementptr inbounds nuw %struct.SortTuple, ptr %270, i64 %282
+  %283 = getelementptr inbounds nuw [24 x i8], ptr %270, i64 %282
   %284 = zext i32 %278 to i64
-  %285 = getelementptr inbounds nuw %struct.SortTuple, ptr %270, i64 %284
+  %285 = getelementptr inbounds nuw [24 x i8], ptr %270, i64 %284
   %286 = tail call i32 %281(ptr noundef nonnull %283, ptr noundef nonnull %285, ptr noundef nonnull %0) #12
   %287 = icmp sgt i32 %286, 0
   %spec.select.i = select i1 %287, i32 %278, i32 %276
@@ -1062,14 +1062,14 @@ free_sort_tuple.exit60:                           ; preds = %262, %265
   %.027.i = phi i32 [ %276, %.lr.ph.i62 ], [ %spec.select.i, %280 ]
   %289 = load ptr, ptr %0, align 8
   %290 = zext i32 %.027.i to i64
-  %291 = getelementptr inbounds nuw %struct.SortTuple, ptr %270, i64 %290
+  %291 = getelementptr inbounds nuw [24 x i8], ptr %270, i64 %290
   %292 = tail call i32 %289(ptr noundef %1, ptr noundef %291, ptr noundef nonnull %0) #12
   %293 = icmp slt i32 %292, 1
   %.pre71 = zext i32 %.02837.i to i64
   br i1 %293, label %tuplesort_heap_replace_top.exit, label %294
 
 294:                                              ; preds = %288
-  %295 = getelementptr inbounds nuw %struct.SortTuple, ptr %270, i64 %.pre71
+  %295 = getelementptr inbounds nuw [24 x i8], ptr %270, i64 %.pre71
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %295, ptr noundef nonnull align 8 dereferenceable(24) %291, i64 24, i1 false)
   %296 = shl i32 %.027.i, 1
   %297 = or disjoint i32 %296, 1
@@ -1078,7 +1078,7 @@ free_sort_tuple.exit60:                           ; preds = %262, %265
 
 tuplesort_heap_replace_top.exit:                  ; preds = %294, %288, %273
   %.028.lcssa.i = phi i64 [ 0, %273 ], [ %290, %294 ], [ %.pre71, %288 ]
-  %298 = getelementptr inbounds nuw %struct.SortTuple, ptr %270, i64 %.028.lcssa.i
+  %298 = getelementptr inbounds nuw [24 x i8], ptr %270, i64 %.028.lcssa.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %298, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   br label %310
 
@@ -1090,7 +1090,7 @@ tuplesort_heap_replace_top.exit:                  ; preds = %294, %288, %273
   %304 = add i32 %303, 1
   store i32 %304, ptr %302, align 8
   %305 = sext i32 %303 to i64
-  %306 = getelementptr inbounds %struct.SortTuple, ptr %301, i64 %305
+  %306 = getelementptr inbounds [24 x i8], ptr %301, i64 %305
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %306, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   tail call fastcc void @dumptuples(ptr noundef nonnull %0, i1 noundef zeroext false)
   br label %310
@@ -1202,7 +1202,7 @@ inittapestate.exit:                               ; preds = %22, %33
   %57 = load ptr, ptr %50, align 8
   %58 = load i32, ptr %51, align 8
   %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds ptr, ptr %57, i64 %59
+  %60 = getelementptr inbounds [8 x i8], ptr %57, i64 %59
   store ptr %55, ptr %60, align 8
   %61 = load i32, ptr %51, align 8
   %62 = add i32 %61, 1
@@ -1288,7 +1288,7 @@ define internal fastcc void @dumptuples(ptr noundef %0, i1 noundef zeroext %1) u
   %46 = load ptr, ptr %45, align 8
   %47 = load i32, ptr %35, align 8
   %48 = sext i32 %47 to i64
-  %49 = getelementptr inbounds ptr, ptr %46, i64 %48
+  %49 = getelementptr inbounds [8 x i8], ptr %46, i64 %48
   store ptr %43, ptr %49, align 8
   %50 = load i32, ptr %35, align 8
   %51 = add i32 %50, 1
@@ -1307,7 +1307,7 @@ define internal fastcc void @dumptuples(ptr noundef %0, i1 noundef zeroext %1) u
   %59 = load i32, ptr %58, align 4
   %60 = srem i32 %59, %36
   %61 = sext i32 %60 to i64
-  %62 = getelementptr inbounds ptr, ptr %57, i64 %61
+  %62 = getelementptr inbounds [8 x i8], ptr %57, i64 %61
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 288
   store ptr %63, ptr %64, align 8
@@ -1373,7 +1373,7 @@ selectnewtape.exit:                               ; preds = %.thread48, %55, %40
 98:                                               ; preds = %.lr.ph, %98
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %98 ]
   %99 = load ptr, ptr %95, align 8
-  %100 = getelementptr inbounds nuw %struct.SortTuple, ptr %99, i64 %indvars.iv
+  %100 = getelementptr inbounds nuw [24 x i8], ptr %99, i64 %indvars.iv
   %101 = load ptr, ptr %96, align 8
   %102 = load ptr, ptr %97, align 8
   tail call void %101(ptr noundef nonnull %0, ptr noundef %102, ptr noundef %100) #12
@@ -1508,7 +1508,7 @@ worker_nomergeruns.exit:                          ; preds = %28, %38
   %40 = getelementptr inbounds nuw i8, ptr %32, i64 72
   %41 = load i32, ptr %26, align 8
   %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds %struct.TapeShare, ptr %40, i64 %42
+  %43 = getelementptr inbounds [8 x i8], ptr %40, i64 %42
   %44 = load i64, ptr %3, align 8
   store i64 %44, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %32, i64 8
@@ -1594,11 +1594,11 @@ inittapestate.exit.i:                             ; preds = %70, %60
 86:                                               ; preds = %86, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %86 ]
   %87 = load ptr, ptr %76, align 8
-  %88 = getelementptr inbounds nuw %struct.TapeShare, ptr %85, i64 %indvars.iv.i
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %indvars.iv.i
   %89 = trunc nuw nsw i64 %indvars.iv.i to i32
   %90 = tail call ptr @LogicalTapeImport(ptr noundef %87, i32 noundef %89, ptr noundef nonnull %88) #12
   %91 = load ptr, ptr %81, align 8
-  %92 = getelementptr inbounds nuw ptr, ptr %91, i64 %indvars.iv.i
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %indvars.iv.i
   store ptr %90, ptr %92, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -1636,7 +1636,7 @@ leader_takeover_tapes.exit:                       ; preds = %86, %inittapestate.
   %105 = add nsw i32 %103, -1
   store i32 %105, ptr %98, align 8
   %106 = zext nneg i32 %105 to i64
-  %107 = getelementptr inbounds nuw %struct.SortTuple, ptr %104, i64 %106
+  %107 = getelementptr inbounds nuw [24 x i8], ptr %104, i64 %106
   %108 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i.i.i = icmp eq i32 %108, 0
   br i1 %.not.i.i.i, label %110, label %109, !prof !10
@@ -1662,9 +1662,9 @@ leader_takeover_tapes.exit:                       ; preds = %86, %inittapestate.
 116:                                              ; preds = %.lr.ph.i.i.i
   %117 = load ptr, ptr %0, align 8
   %118 = zext i32 %112 to i64
-  %119 = getelementptr inbounds nuw %struct.SortTuple, ptr %104, i64 %118
+  %119 = getelementptr inbounds nuw [24 x i8], ptr %104, i64 %118
   %120 = zext i32 %114 to i64
-  %121 = getelementptr inbounds nuw %struct.SortTuple, ptr %104, i64 %120
+  %121 = getelementptr inbounds nuw [24 x i8], ptr %104, i64 %120
   %122 = tail call i32 %117(ptr noundef nonnull %119, ptr noundef nonnull %121, ptr noundef nonnull %0) #12
   %123 = icmp sgt i32 %122, 0
   %spec.select.i.i.i = select i1 %123, i32 %114, i32 %112
@@ -1674,14 +1674,14 @@ leader_takeover_tapes.exit:                       ; preds = %86, %inittapestate.
   %.027.i.i.i = phi i32 [ %112, %.lr.ph.i.i.i ], [ %spec.select.i.i.i, %116 ]
   %125 = load ptr, ptr %0, align 8
   %126 = zext i32 %.027.i.i.i to i64
-  %127 = getelementptr inbounds nuw %struct.SortTuple, ptr %104, i64 %126
+  %127 = getelementptr inbounds nuw [24 x i8], ptr %104, i64 %126
   %128 = tail call i32 %125(ptr noundef nonnull %107, ptr noundef nonnull %127, ptr noundef nonnull %0) #12
   %129 = icmp slt i32 %128, 1
   %.pre6.i.i = zext i32 %.02837.i.i.i to i64
   br i1 %129, label %tuplesort_heap_delete_top.exit.i, label %130
 
 130:                                              ; preds = %124
-  %131 = getelementptr inbounds nuw %struct.SortTuple, ptr %104, i64 %.pre6.i.i
+  %131 = getelementptr inbounds nuw [24 x i8], ptr %104, i64 %.pre6.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %131, ptr noundef nonnull align 8 dereferenceable(24) %127, i64 24, i1 false)
   %132 = shl i32 %.027.i.i.i, 1
   %133 = or disjoint i32 %132, 1
@@ -1690,12 +1690,12 @@ leader_takeover_tapes.exit:                       ; preds = %86, %inittapestate.
 
 tuplesort_heap_delete_top.exit.i:                 ; preds = %130, %124, %110
   %.028.lcssa.i.i.i = phi i64 [ 0, %110 ], [ %126, %130 ], [ %.pre6.i.i, %124 ]
-  %134 = getelementptr inbounds nuw %struct.SortTuple, ptr %104, i64 %.028.lcssa.i.i.i
+  %134 = getelementptr inbounds nuw [24 x i8], ptr %104, i64 %.028.lcssa.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %134, ptr noundef nonnull align 8 dereferenceable(24) %107, i64 24, i1 false)
   %135 = load ptr, ptr %101, align 8
   %136 = load i32, ptr %98, align 8
   %137 = sext i32 %136 to i64
-  %138 = getelementptr inbounds %struct.SortTuple, ptr %135, i64 %137
+  %138 = getelementptr inbounds [24 x i8], ptr %135, i64 %137
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %138, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.pr.i = load i32, ptr %98, align 8
@@ -2056,7 +2056,7 @@ init_slab_allocator.exit:                         ; preds = %51, %._crit_edge.i,
 .lr.ph:                                           ; preds = %101, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %101 ]
   %104 = load ptr, ptr %81, align 8
-  %105 = getelementptr inbounds nuw ptr, ptr %104, i64 %indvars.iv
+  %105 = getelementptr inbounds nuw [8 x i8], ptr %104, i64 %indvars.iv
   %106 = load ptr, ptr %105, align 8
   call void @LogicalTapeClose(ptr noundef %106) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2123,7 +2123,7 @@ init_slab_allocator.exit:                         ; preds = %51, %._crit_edge.i,
 .lr.ph108:                                        ; preds = %140, %.lr.ph108
   %indvars.iv122 = phi i64 [ %indvars.iv.next123, %.lr.ph108 ], [ 0, %140 ]
   %143 = load ptr, ptr %81, align 8
-  %144 = getelementptr inbounds nuw ptr, ptr %143, i64 %indvars.iv122
+  %144 = getelementptr inbounds nuw [8 x i8], ptr %143, i64 %indvars.iv122
   %145 = load ptr, ptr %144, align 8
   call void @LogicalTapeRewindForRead(ptr noundef %145, i64 noundef %spec.select.i) #12
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
@@ -2175,7 +2175,7 @@ init_slab_allocator.exit:                         ; preds = %51, %._crit_edge.i,
   %167 = load ptr, ptr %82, align 8
   %168 = load i32, ptr %56, align 8
   %169 = sext i32 %168 to i64
-  %170 = getelementptr inbounds ptr, ptr %167, i64 %169
+  %170 = getelementptr inbounds [8 x i8], ptr %167, i64 %169
   store ptr %166, ptr %170, align 8
   %171 = load i32, ptr %56, align 8
   %172 = add i32 %171, 1
@@ -2188,7 +2188,7 @@ init_slab_allocator.exit:                         ; preds = %51, %._crit_edge.i,
   %176 = load i32, ptr %83, align 4
   %177 = srem i32 %176, %161
   %178 = sext i32 %177 to i64
-  %179 = getelementptr inbounds ptr, ptr %175, i64 %178
+  %179 = getelementptr inbounds [8 x i8], ptr %175, i64 %178
   %180 = load ptr, ptr %179, align 8
   store ptr %180, ptr %89, align 8
   br label %selectnewtape.exit
@@ -2209,7 +2209,7 @@ selectnewtape.exit:                               ; preds = %164, %174
   %185 = load i32, ptr %184, align 4
   %186 = load ptr, ptr %81, align 8
   %187 = sext i32 %185 to i64
-  %188 = getelementptr inbounds ptr, ptr %186, i64 %187
+  %188 = getelementptr inbounds [8 x i8], ptr %186, i64 %187
   %189 = load ptr, ptr %188, align 8
   %190 = load ptr, ptr %92, align 8
   %191 = load ptr, ptr %89, align 8
@@ -2286,9 +2286,9 @@ getlen.exit.i.i:                                  ; preds = %202
 219:                                              ; preds = %.lr.ph.i.i
   %220 = load ptr, ptr %0, align 8
   %221 = zext i32 %215 to i64
-  %222 = getelementptr inbounds nuw %struct.SortTuple, ptr %210, i64 %221
+  %222 = getelementptr inbounds nuw [24 x i8], ptr %210, i64 %221
   %223 = zext i32 %217 to i64
-  %224 = getelementptr inbounds nuw %struct.SortTuple, ptr %210, i64 %223
+  %224 = getelementptr inbounds nuw [24 x i8], ptr %210, i64 %223
   %225 = call i32 %220(ptr noundef nonnull %222, ptr noundef nonnull %224, ptr noundef nonnull %0) #12
   %226 = icmp sgt i32 %225, 0
   %spec.select.i.i = select i1 %226, i32 %217, i32 %215
@@ -2298,14 +2298,14 @@ getlen.exit.i.i:                                  ; preds = %202
   %.027.i.i = phi i32 [ %215, %.lr.ph.i.i ], [ %spec.select.i.i, %219 ]
   %228 = load ptr, ptr %0, align 8
   %229 = zext i32 %.027.i.i to i64
-  %230 = getelementptr inbounds nuw %struct.SortTuple, ptr %210, i64 %229
+  %230 = getelementptr inbounds nuw [24 x i8], ptr %210, i64 %229
   %231 = call i32 %228(ptr noundef nonnull %5, ptr noundef %230, ptr noundef nonnull %0) #12
   %232 = icmp slt i32 %231, 1
   %.pre.i = zext i32 %.02837.i.i to i64
   br i1 %232, label %tuplesort_heap_replace_top.exit.i, label %233
 
 233:                                              ; preds = %227
-  %234 = getelementptr inbounds nuw %struct.SortTuple, ptr %210, i64 %.pre.i
+  %234 = getelementptr inbounds nuw [24 x i8], ptr %210, i64 %.pre.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %234, ptr noundef nonnull align 8 dereferenceable(24) %230, i64 24, i1 false)
   %235 = shl i32 %.027.i.i, 1
   %236 = or disjoint i32 %235, 1
@@ -2314,7 +2314,7 @@ getlen.exit.i.i:                                  ; preds = %202
 
 tuplesort_heap_replace_top.exit.i:                ; preds = %233, %227, %213
   %.028.lcssa.i.i = phi i64 [ 0, %213 ], [ %229, %233 ], [ %.pre.i, %227 ]
-  %237 = getelementptr inbounds nuw %struct.SortTuple, ptr %210, i64 %.028.lcssa.i.i
+  %237 = getelementptr inbounds nuw [24 x i8], ptr %210, i64 %.028.lcssa.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %237, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   br label %274
 
@@ -2328,7 +2328,7 @@ mergereadnext.exit.i:                             ; preds = %getlen.exit.i.i
 
 242:                                              ; preds = %mergereadnext.exit.i
   %243 = zext nneg i32 %240 to i64
-  %244 = getelementptr inbounds nuw %struct.SortTuple, ptr %238, i64 %243
+  %244 = getelementptr inbounds nuw [24 x i8], ptr %238, i64 %243
   %245 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i.i27.i = icmp eq i32 %245, 0
   br i1 %.not.i.i27.i, label %247, label %246, !prof !10
@@ -2354,9 +2354,9 @@ mergereadnext.exit.i:                             ; preds = %getlen.exit.i.i
 253:                                              ; preds = %.lr.ph.i.i.i
   %254 = load ptr, ptr %0, align 8
   %255 = zext i32 %249 to i64
-  %256 = getelementptr inbounds nuw %struct.SortTuple, ptr %238, i64 %255
+  %256 = getelementptr inbounds nuw [24 x i8], ptr %238, i64 %255
   %257 = zext i32 %251 to i64
-  %258 = getelementptr inbounds nuw %struct.SortTuple, ptr %238, i64 %257
+  %258 = getelementptr inbounds nuw [24 x i8], ptr %238, i64 %257
   %259 = call i32 %254(ptr noundef nonnull %256, ptr noundef nonnull %258, ptr noundef nonnull %0) #12
   %260 = icmp sgt i32 %259, 0
   %spec.select.i.i.i = select i1 %260, i32 %251, i32 %249
@@ -2366,14 +2366,14 @@ mergereadnext.exit.i:                             ; preds = %getlen.exit.i.i
   %.027.i.i.i = phi i32 [ %249, %.lr.ph.i.i.i ], [ %spec.select.i.i.i, %253 ]
   %262 = load ptr, ptr %0, align 8
   %263 = zext i32 %.027.i.i.i to i64
-  %264 = getelementptr inbounds nuw %struct.SortTuple, ptr %238, i64 %263
+  %264 = getelementptr inbounds nuw [24 x i8], ptr %238, i64 %263
   %265 = call i32 %262(ptr noundef nonnull %244, ptr noundef %264, ptr noundef nonnull %0) #12
   %266 = icmp slt i32 %265, 1
   %.pre6.i.i = zext i32 %.02837.i.i.i to i64
   br i1 %266, label %tuplesort_heap_replace_top.exit.i.i, label %267
 
 267:                                              ; preds = %261
-  %268 = getelementptr inbounds nuw %struct.SortTuple, ptr %238, i64 %.pre6.i.i
+  %268 = getelementptr inbounds nuw [24 x i8], ptr %238, i64 %.pre6.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %268, ptr noundef nonnull align 8 dereferenceable(24) %264, i64 24, i1 false)
   %269 = shl i32 %.027.i.i.i, 1
   %270 = or disjoint i32 %269, 1
@@ -2382,7 +2382,7 @@ mergereadnext.exit.i:                             ; preds = %getlen.exit.i.i
 
 tuplesort_heap_replace_top.exit.i.i:              ; preds = %267, %261, %247
   %.028.lcssa.i.i.i = phi i64 [ 0, %247 ], [ %263, %267 ], [ %.pre6.i.i, %261 ]
-  %271 = getelementptr inbounds nuw %struct.SortTuple, ptr %238, i64 %.028.lcssa.i.i.i
+  %271 = getelementptr inbounds nuw [24 x i8], ptr %238, i64 %.028.lcssa.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %271, ptr noundef nonnull align 8 dereferenceable(24) %244, i64 24, i1 false)
   br label %tuplesort_heap_delete_top.exit.i
 
@@ -2454,7 +2454,7 @@ worker_freeze_result_tape.exit:                   ; preds = %291, %295
   %297 = getelementptr inbounds nuw i8, ptr %287, i64 72
   %298 = load i32, ptr %88, align 8
   %299 = sext i32 %298 to i64
-  %300 = getelementptr inbounds %struct.TapeShare, ptr %297, i64 %299
+  %300 = getelementptr inbounds [8 x i8], ptr %297, i64 %299
   %301 = load i64, ptr %2, align 8
   store i64 %301, ptr %300, align 8
   %302 = getelementptr inbounds nuw i8, ptr %287, i64 8
@@ -2476,7 +2476,7 @@ worker_freeze_result_tape.exit:                   ; preds = %291, %295
 .lr.ph112:                                        ; preds = %305, %.lr.ph112
   %indvars.iv125 = phi i64 [ %indvars.iv.next126, %.lr.ph112 ], [ 0, %305 ]
   %309 = load ptr, ptr %81, align 8
-  %310 = getelementptr inbounds nuw ptr, ptr %309, i64 %indvars.iv125
+  %310 = getelementptr inbounds nuw [8 x i8], ptr %309, i64 %indvars.iv125
   %311 = load ptr, ptr %310, align 8
   call void @LogicalTapeClose(ptr noundef %311) #12
   %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1
@@ -2519,7 +2519,7 @@ define dso_local noundef zeroext i1 @tuplesort_gettuple_common(ptr noundef %0, i
   %19 = add nsw i32 %11, 1
   store i32 %19, ptr %10, align 8
   %20 = sext i32 %11 to i64
-  %21 = getelementptr inbounds %struct.SortTuple, ptr %18, i64 %20
+  %21 = getelementptr inbounds [24 x i8], ptr %18, i64 %20
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %21, i64 24, i1 false)
   br label %234
 
@@ -2568,7 +2568,7 @@ define dso_local noundef zeroext i1 @tuplesort_gettuple_common(ptr noundef %0, i
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %46 = load ptr, ptr %45, align 8
   %47 = zext nneg i32 %44 to i64
-  %48 = getelementptr %struct.SortTuple, ptr %46, i64 %47
+  %48 = getelementptr [24 x i8], ptr %46, i64 %47
   %49 = getelementptr i8, ptr %48, i64 -24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %49, i64 24, i1 false)
   br label %234
@@ -2776,7 +2776,7 @@ getlen.exit:                                      ; preds = %70
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %151 = load ptr, ptr %150, align 8
   %152 = sext i32 %149 to i64
-  %153 = getelementptr inbounds ptr, ptr %151, i64 %152
+  %153 = getelementptr inbounds [8 x i8], ptr %151, i64 %152
   %154 = load ptr, ptr %153, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %147, i64 24, i1 false)
@@ -2809,7 +2809,7 @@ mergereadnext.exit:                               ; preds = %getlen.exit.i
 
 165:                                              ; preds = %mergereadnext.exit
   %166 = zext nneg i32 %163 to i64
-  %167 = getelementptr inbounds nuw %struct.SortTuple, ptr %161, i64 %166
+  %167 = getelementptr inbounds nuw [24 x i8], ptr %161, i64 %166
   %168 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i.i113 = icmp eq i32 %168, 0
   br i1 %.not.i.i113, label %170, label %169, !prof !10
@@ -2835,9 +2835,9 @@ mergereadnext.exit:                               ; preds = %getlen.exit.i
 176:                                              ; preds = %.lr.ph.i.i
   %177 = load ptr, ptr %0, align 8
   %178 = zext i32 %172 to i64
-  %179 = getelementptr inbounds nuw %struct.SortTuple, ptr %161, i64 %178
+  %179 = getelementptr inbounds nuw [24 x i8], ptr %161, i64 %178
   %180 = zext i32 %174 to i64
-  %181 = getelementptr inbounds nuw %struct.SortTuple, ptr %161, i64 %180
+  %181 = getelementptr inbounds nuw [24 x i8], ptr %161, i64 %180
   %182 = call i32 %177(ptr noundef nonnull %179, ptr noundef nonnull %181, ptr noundef nonnull %0) #12
   %183 = icmp sgt i32 %182, 0
   %spec.select.i.i = select i1 %183, i32 %174, i32 %172
@@ -2847,14 +2847,14 @@ mergereadnext.exit:                               ; preds = %getlen.exit.i
   %.027.i.i = phi i32 [ %172, %.lr.ph.i.i ], [ %spec.select.i.i, %176 ]
   %185 = load ptr, ptr %0, align 8
   %186 = zext i32 %.027.i.i to i64
-  %187 = getelementptr inbounds nuw %struct.SortTuple, ptr %161, i64 %186
+  %187 = getelementptr inbounds nuw [24 x i8], ptr %161, i64 %186
   %188 = call i32 %185(ptr noundef nonnull %167, ptr noundef %187, ptr noundef nonnull %0) #12
   %189 = icmp slt i32 %188, 1
   %.pre6.i = zext i32 %.02837.i.i to i64
   br i1 %189, label %tuplesort_heap_replace_top.exit.i, label %190
 
 190:                                              ; preds = %184
-  %191 = getelementptr inbounds nuw %struct.SortTuple, ptr %161, i64 %.pre6.i
+  %191 = getelementptr inbounds nuw [24 x i8], ptr %161, i64 %.pre6.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %191, ptr noundef nonnull align 8 dereferenceable(24) %187, i64 24, i1 false)
   %192 = shl i32 %.027.i.i, 1
   %193 = or disjoint i32 %192, 1
@@ -2863,7 +2863,7 @@ mergereadnext.exit:                               ; preds = %getlen.exit.i
 
 tuplesort_heap_replace_top.exit.i:                ; preds = %190, %184, %170
   %.028.lcssa.i.i = phi i64 [ 0, %170 ], [ %186, %190 ], [ %.pre6.i, %184 ]
-  %194 = getelementptr inbounds nuw %struct.SortTuple, ptr %161, i64 %.028.lcssa.i.i
+  %194 = getelementptr inbounds nuw [24 x i8], ptr %161, i64 %.028.lcssa.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %194, ptr noundef nonnull align 8 dereferenceable(24) %167, i64 24, i1 false)
   br label %tuplesort_heap_delete_top.exit
 
@@ -2906,9 +2906,9 @@ tuplesort_heap_delete_top.exit:                   ; preds = %mergereadnext.exit,
 211:                                              ; preds = %.lr.ph.i
   %212 = load ptr, ptr %0, align 8
   %213 = zext i32 %207 to i64
-  %214 = getelementptr inbounds nuw %struct.SortTuple, ptr %202, i64 %213
+  %214 = getelementptr inbounds nuw [24 x i8], ptr %202, i64 %213
   %215 = zext i32 %209 to i64
-  %216 = getelementptr inbounds nuw %struct.SortTuple, ptr %202, i64 %215
+  %216 = getelementptr inbounds nuw [24 x i8], ptr %202, i64 %215
   %217 = call i32 %212(ptr noundef nonnull %214, ptr noundef nonnull %216, ptr noundef nonnull %0) #12
   %218 = icmp sgt i32 %217, 0
   %spec.select.i = select i1 %218, i32 %209, i32 %207
@@ -2918,14 +2918,14 @@ tuplesort_heap_delete_top.exit:                   ; preds = %mergereadnext.exit,
   %.027.i = phi i32 [ %207, %.lr.ph.i ], [ %spec.select.i, %211 ]
   %220 = load ptr, ptr %0, align 8
   %221 = zext i32 %.027.i to i64
-  %222 = getelementptr inbounds nuw %struct.SortTuple, ptr %202, i64 %221
+  %222 = getelementptr inbounds nuw [24 x i8], ptr %202, i64 %221
   %223 = call i32 %220(ptr noundef nonnull %6, ptr noundef %222, ptr noundef nonnull %0) #12
   %224 = icmp slt i32 %223, 1
   %.pre = zext i32 %.02837.i to i64
   br i1 %224, label %tuplesort_heap_replace_top.exit, label %225
 
 225:                                              ; preds = %219
-  %226 = getelementptr inbounds nuw %struct.SortTuple, ptr %202, i64 %.pre
+  %226 = getelementptr inbounds nuw [24 x i8], ptr %202, i64 %.pre
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %226, ptr noundef nonnull align 8 dereferenceable(24) %222, i64 24, i1 false)
   %227 = shl i32 %.027.i, 1
   %228 = or disjoint i32 %227, 1
@@ -2934,7 +2934,7 @@ tuplesort_heap_delete_top.exit:                   ; preds = %mergereadnext.exit,
 
 tuplesort_heap_replace_top.exit:                  ; preds = %225, %219, %205
   %.028.lcssa.i = phi i64 [ 0, %205 ], [ %221, %225 ], [ %.pre, %219 ]
-  %229 = getelementptr inbounds nuw %struct.SortTuple, ptr %202, i64 %.028.lcssa.i
+  %229 = getelementptr inbounds nuw [24 x i8], ptr %202, i64 %.028.lcssa.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %229, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   br label %230
 
@@ -3333,7 +3333,7 @@ define dso_local noundef nonnull ptr @tuplesort_method_name(i32 noundef %0) loca
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.tuplesort_method_name, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.tuplesort_method_name, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -3498,7 +3498,7 @@ define internal fastcc void @beginmerge(ptr noundef %0) unnamed_addr #0 {
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %mergereadnext.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %15 = load ptr, ptr %9, align 8
-  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %18 = call i64 @LogicalTapeRead(ptr noundef %17, ptr noundef nonnull %2, i64 noundef 4) #12
@@ -3544,14 +3544,14 @@ getlen.exit.i:                                    ; preds = %14
   %34 = lshr i32 %33, 1
   %35 = load ptr, ptr %0, align 8
   %36 = zext nneg i32 %34 to i64
-  %37 = getelementptr inbounds nuw %struct.SortTuple, ptr %26, i64 %36
+  %37 = getelementptr inbounds nuw [24 x i8], ptr %26, i64 %36
   %38 = call i32 %35(ptr noundef nonnull %3, ptr noundef %37, ptr noundef nonnull %0) #12
   %39 = icmp sgt i32 %38, -1
   br i1 %39, label %tuplesort_heap_insert.exit, label %40
 
 40:                                               ; preds = %.lr.ph.i
   %41 = zext nneg i32 %.01720.i to i64
-  %42 = getelementptr inbounds nuw %struct.SortTuple, ptr %26, i64 %41
+  %42 = getelementptr inbounds nuw [24 x i8], ptr %26, i64 %41
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %42, ptr noundef nonnull align 8 dereferenceable(24) %37, i64 24, i1 false)
   %.not23.i = icmp eq i32 %34, 0
   br i1 %.not23.i, label %tuplesort_heap_insert.exit, label %.lr.ph.i
@@ -3559,7 +3559,7 @@ getlen.exit.i:                                    ; preds = %14
 tuplesort_heap_insert.exit:                       ; preds = %.lr.ph.i, %40, %29
   %.017.lcssa.i = phi i32 [ %30, %29 ], [ 0, %40 ], [ %.01720.i, %.lr.ph.i ]
   %43 = sext i32 %.017.lcssa.i to i64
-  %44 = getelementptr inbounds %struct.SortTuple, ptr %26, i64 %43
+  %44 = getelementptr inbounds [24 x i8], ptr %26, i64 %43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %44, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   br label %mergereadnext.exit
 
@@ -3793,7 +3793,7 @@ qsort_tuple_unsigned_compare.exit174.thread:      ; preds = %79, %84, %ApplyUnsi
 
 qsort_tuple_unsigned_compare.exit174.thread243:   ; preds = %84, %93, %79, %qsort_tuple_unsigned_compare.exit174
   %103 = lshr i64 %.0, 1
-  %104 = getelementptr inbounds nuw %struct.SortTuple, ptr %.0137.ph, i64 %103
+  %104 = getelementptr inbounds nuw [24 x i8], ptr %.0137.ph, i64 %103
   %.not163 = icmp eq i64 %.0, 7
   br i1 %.not163, label %124, label %105
 
@@ -3804,17 +3804,17 @@ qsort_tuple_unsigned_compare.exit174.thread243:   ; preds = %84, %93, %79, %qsor
 
 108:                                              ; preds = %105
   %109 = lshr i64 %.0, 3
-  %110 = getelementptr inbounds nuw %struct.SortTuple, ptr %.0137.ph, i64 %109
+  %110 = getelementptr inbounds nuw [24 x i8], ptr %.0137.ph, i64 %109
   %111 = shl nuw nsw i64 %109, 1
-  %112 = getelementptr inbounds nuw %struct.SortTuple, ptr %.0137.ph, i64 %111
+  %112 = getelementptr inbounds nuw [24 x i8], ptr %.0137.ph, i64 %111
   %113 = tail call fastcc ptr @qsort_tuple_unsigned_med3(ptr noundef %.0137.ph, ptr noundef %110, ptr noundef %112, ptr noundef nonnull %2)
   %114 = sub nsw i64 0, %109
-  %115 = getelementptr inbounds %struct.SortTuple, ptr %104, i64 %114
-  %116 = getelementptr inbounds nuw %struct.SortTuple, ptr %104, i64 %109
+  %115 = getelementptr inbounds [24 x i8], ptr %104, i64 %114
+  %116 = getelementptr inbounds nuw [24 x i8], ptr %104, i64 %109
   %117 = tail call fastcc ptr @qsort_tuple_unsigned_med3(ptr noundef %115, ptr noundef %104, ptr noundef %116, ptr noundef nonnull %2)
   %118 = sub nsw i64 0, %111
-  %119 = getelementptr inbounds %struct.SortTuple, ptr %106, i64 %118
-  %120 = getelementptr inbounds %struct.SortTuple, ptr %106, i64 %114
+  %119 = getelementptr inbounds [24 x i8], ptr %106, i64 %118
+  %120 = getelementptr inbounds [24 x i8], ptr %106, i64 %114
   %121 = tail call fastcc ptr @qsort_tuple_unsigned_med3(ptr noundef %119, ptr noundef %120, ptr noundef %106, ptr noundef nonnull %2)
   br label %122
 
@@ -4054,14 +4054,14 @@ qsort_tuple_unsigned_compare.exit182:             ; preds = %ApplyUnsignedSortCo
   %212 = sdiv exact i64 %211, 24
   %. = tail call i64 @llvm.smin.i64(i64 %209, i64 %212)
   %213 = sub nsw i64 0, %.
-  %214 = getelementptr inbounds %struct.SortTuple, ptr %.1148.lcssa, i64 %213
+  %214 = getelementptr inbounds [24 x i8], ptr %.1148.lcssa, i64 %213
   %.not.i196 = icmp eq i64 %., 0
   br i1 %.not.i196, label %qsort_tuple_unsigned_swapn.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.critedge2._crit_edge, %.lr.ph.i
   %.06.i = phi i64 [ %217, %.lr.ph.i ], [ 0, %.critedge2._crit_edge ]
-  %215 = getelementptr inbounds nuw %struct.SortTuple, ptr %.0137.ph, i64 %.06.i
-  %216 = getelementptr inbounds nuw %struct.SortTuple, ptr %214, i64 %.06.i
+  %215 = getelementptr inbounds nuw [24 x i8], ptr %.0137.ph, i64 %.06.i
+  %216 = getelementptr inbounds nuw [24 x i8], ptr %214, i64 %.06.i
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %215, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %215, ptr noundef nonnull align 8 dereferenceable(24) %216, i64 24, i1 false)
@@ -4082,14 +4082,14 @@ qsort_tuple_unsigned_swapn.exit:                  ; preds = %.lr.ph.i, %.critedg
   %225 = add nsw i64 %224, -1
   %226 = tail call i64 @llvm.smin.i64(i64 %221, i64 %225)
   %227 = sub nsw i64 0, %226
-  %228 = getelementptr inbounds %struct.SortTuple, ptr %23, i64 %227
+  %228 = getelementptr inbounds [24 x i8], ptr %23, i64 %227
   %.not.i197 = icmp eq i64 %226, 0
   br i1 %.not.i197, label %qsort_tuple_unsigned_swapn.exit201, label %.lr.ph.i198
 
 .lr.ph.i198:                                      ; preds = %qsort_tuple_unsigned_swapn.exit, %.lr.ph.i198
   %.06.i199 = phi i64 [ %231, %.lr.ph.i198 ], [ 0, %qsort_tuple_unsigned_swapn.exit ]
-  %229 = getelementptr inbounds nuw %struct.SortTuple, ptr %.1148.lcssa, i64 %.06.i199
-  %230 = getelementptr inbounds nuw %struct.SortTuple, ptr %228, i64 %.06.i199
+  %229 = getelementptr inbounds nuw [24 x i8], ptr %.1148.lcssa, i64 %.06.i199
+  %230 = getelementptr inbounds nuw [24 x i8], ptr %228, i64 %.06.i199
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %229, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %229, ptr noundef nonnull align 8 dereferenceable(24) %230, i64 24, i1 false)
@@ -4117,7 +4117,7 @@ qsort_tuple_unsigned_swapn.exit201:               ; preds = %.lr.ph.i198, %qsort
 
 237:                                              ; preds = %235
   %238 = sub nsw i64 0, %221
-  %239 = getelementptr inbounds %struct.SortTuple, ptr %23, i64 %238
+  %239 = getelementptr inbounds [24 x i8], ptr %23, i64 %238
   br label %.outer
 
 240:                                              ; preds = %qsort_tuple_unsigned_swapn.exit201
@@ -4126,7 +4126,7 @@ qsort_tuple_unsigned_swapn.exit201:               ; preds = %.lr.ph.i198, %qsort
 
 242:                                              ; preds = %240
   %243 = sub nsw i64 0, %221
-  %244 = getelementptr inbounds %struct.SortTuple, ptr %23, i64 %243
+  %244 = getelementptr inbounds [24 x i8], ptr %23, i64 %243
   tail call fastcc void @qsort_tuple_unsigned(ptr noundef nonnull %244, i64 noundef %221, ptr noundef %2)
   br label %245
 
@@ -4348,7 +4348,7 @@ qsort_tuple_signed_compare.exit174.thread:        ; preds = %79, %84, %ApplySign
 
 qsort_tuple_signed_compare.exit174.thread243:     ; preds = %84, %93, %79, %qsort_tuple_signed_compare.exit174
   %103 = lshr i64 %.0, 1
-  %104 = getelementptr inbounds nuw %struct.SortTuple, ptr %.0137.ph, i64 %103
+  %104 = getelementptr inbounds nuw [24 x i8], ptr %.0137.ph, i64 %103
   %.not163 = icmp eq i64 %.0, 7
   br i1 %.not163, label %124, label %105
 
@@ -4359,17 +4359,17 @@ qsort_tuple_signed_compare.exit174.thread243:     ; preds = %84, %93, %79, %qsor
 
 108:                                              ; preds = %105
   %109 = lshr i64 %.0, 3
-  %110 = getelementptr inbounds nuw %struct.SortTuple, ptr %.0137.ph, i64 %109
+  %110 = getelementptr inbounds nuw [24 x i8], ptr %.0137.ph, i64 %109
   %111 = shl nuw nsw i64 %109, 1
-  %112 = getelementptr inbounds nuw %struct.SortTuple, ptr %.0137.ph, i64 %111
+  %112 = getelementptr inbounds nuw [24 x i8], ptr %.0137.ph, i64 %111
   %113 = tail call fastcc ptr @qsort_tuple_signed_med3(ptr noundef %.0137.ph, ptr noundef %110, ptr noundef %112, ptr noundef nonnull %2)
   %114 = sub nsw i64 0, %109
-  %115 = getelementptr inbounds %struct.SortTuple, ptr %104, i64 %114
-  %116 = getelementptr inbounds nuw %struct.SortTuple, ptr %104, i64 %109
+  %115 = getelementptr inbounds [24 x i8], ptr %104, i64 %114
+  %116 = getelementptr inbounds nuw [24 x i8], ptr %104, i64 %109
   %117 = tail call fastcc ptr @qsort_tuple_signed_med3(ptr noundef %115, ptr noundef %104, ptr noundef %116, ptr noundef nonnull %2)
   %118 = sub nsw i64 0, %111
-  %119 = getelementptr inbounds %struct.SortTuple, ptr %106, i64 %118
-  %120 = getelementptr inbounds %struct.SortTuple, ptr %106, i64 %114
+  %119 = getelementptr inbounds [24 x i8], ptr %106, i64 %118
+  %120 = getelementptr inbounds [24 x i8], ptr %106, i64 %114
   %121 = tail call fastcc ptr @qsort_tuple_signed_med3(ptr noundef %119, ptr noundef %120, ptr noundef %106, ptr noundef nonnull %2)
   br label %122
 
@@ -4609,14 +4609,14 @@ qsort_tuple_signed_compare.exit182:               ; preds = %ApplySignedSortComp
   %212 = sdiv exact i64 %211, 24
   %. = tail call i64 @llvm.smin.i64(i64 %209, i64 %212)
   %213 = sub nsw i64 0, %.
-  %214 = getelementptr inbounds %struct.SortTuple, ptr %.1148.lcssa, i64 %213
+  %214 = getelementptr inbounds [24 x i8], ptr %.1148.lcssa, i64 %213
   %.not.i196 = icmp eq i64 %., 0
   br i1 %.not.i196, label %qsort_tuple_signed_swapn.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.critedge2._crit_edge, %.lr.ph.i
   %.06.i = phi i64 [ %217, %.lr.ph.i ], [ 0, %.critedge2._crit_edge ]
-  %215 = getelementptr inbounds nuw %struct.SortTuple, ptr %.0137.ph, i64 %.06.i
-  %216 = getelementptr inbounds nuw %struct.SortTuple, ptr %214, i64 %.06.i
+  %215 = getelementptr inbounds nuw [24 x i8], ptr %.0137.ph, i64 %.06.i
+  %216 = getelementptr inbounds nuw [24 x i8], ptr %214, i64 %.06.i
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %215, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %215, ptr noundef nonnull align 8 dereferenceable(24) %216, i64 24, i1 false)
@@ -4637,14 +4637,14 @@ qsort_tuple_signed_swapn.exit:                    ; preds = %.lr.ph.i, %.critedg
   %225 = add nsw i64 %224, -1
   %226 = tail call i64 @llvm.smin.i64(i64 %221, i64 %225)
   %227 = sub nsw i64 0, %226
-  %228 = getelementptr inbounds %struct.SortTuple, ptr %23, i64 %227
+  %228 = getelementptr inbounds [24 x i8], ptr %23, i64 %227
   %.not.i197 = icmp eq i64 %226, 0
   br i1 %.not.i197, label %qsort_tuple_signed_swapn.exit201, label %.lr.ph.i198
 
 .lr.ph.i198:                                      ; preds = %qsort_tuple_signed_swapn.exit, %.lr.ph.i198
   %.06.i199 = phi i64 [ %231, %.lr.ph.i198 ], [ 0, %qsort_tuple_signed_swapn.exit ]
-  %229 = getelementptr inbounds nuw %struct.SortTuple, ptr %.1148.lcssa, i64 %.06.i199
-  %230 = getelementptr inbounds nuw %struct.SortTuple, ptr %228, i64 %.06.i199
+  %229 = getelementptr inbounds nuw [24 x i8], ptr %.1148.lcssa, i64 %.06.i199
+  %230 = getelementptr inbounds nuw [24 x i8], ptr %228, i64 %.06.i199
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %229, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %229, ptr noundef nonnull align 8 dereferenceable(24) %230, i64 24, i1 false)
@@ -4672,7 +4672,7 @@ qsort_tuple_signed_swapn.exit201:                 ; preds = %.lr.ph.i198, %qsort
 
 237:                                              ; preds = %235
   %238 = sub nsw i64 0, %221
-  %239 = getelementptr inbounds %struct.SortTuple, ptr %23, i64 %238
+  %239 = getelementptr inbounds [24 x i8], ptr %23, i64 %238
   br label %.outer
 
 240:                                              ; preds = %qsort_tuple_signed_swapn.exit201
@@ -4681,7 +4681,7 @@ qsort_tuple_signed_swapn.exit201:                 ; preds = %.lr.ph.i198, %qsort
 
 242:                                              ; preds = %240
   %243 = sub nsw i64 0, %221
-  %244 = getelementptr inbounds %struct.SortTuple, ptr %23, i64 %243
+  %244 = getelementptr inbounds [24 x i8], ptr %23, i64 %243
   tail call fastcc void @qsort_tuple_signed(ptr noundef nonnull %244, i64 noundef %221, ptr noundef %2)
   br label %245
 
@@ -4907,7 +4907,7 @@ qsort_tuple_int32_compare.exit174.thread:         ; preds = %81, %86, %ApplyInt3
 
 qsort_tuple_int32_compare.exit174.thread243:      ; preds = %86, %97, %81, %qsort_tuple_int32_compare.exit174
   %107 = lshr i64 %.0, 1
-  %108 = getelementptr inbounds nuw %struct.SortTuple, ptr %.0137.ph, i64 %107
+  %108 = getelementptr inbounds nuw [24 x i8], ptr %.0137.ph, i64 %107
   %.not163 = icmp eq i64 %.0, 7
   br i1 %.not163, label %128, label %109
 
@@ -4918,17 +4918,17 @@ qsort_tuple_int32_compare.exit174.thread243:      ; preds = %86, %97, %81, %qsor
 
 112:                                              ; preds = %109
   %113 = lshr i64 %.0, 3
-  %114 = getelementptr inbounds nuw %struct.SortTuple, ptr %.0137.ph, i64 %113
+  %114 = getelementptr inbounds nuw [24 x i8], ptr %.0137.ph, i64 %113
   %115 = shl nuw nsw i64 %113, 1
-  %116 = getelementptr inbounds nuw %struct.SortTuple, ptr %.0137.ph, i64 %115
+  %116 = getelementptr inbounds nuw [24 x i8], ptr %.0137.ph, i64 %115
   %117 = tail call fastcc ptr @qsort_tuple_int32_med3(ptr noundef %.0137.ph, ptr noundef %114, ptr noundef %116, ptr noundef nonnull %2)
   %118 = sub nsw i64 0, %113
-  %119 = getelementptr inbounds %struct.SortTuple, ptr %108, i64 %118
-  %120 = getelementptr inbounds nuw %struct.SortTuple, ptr %108, i64 %113
+  %119 = getelementptr inbounds [24 x i8], ptr %108, i64 %118
+  %120 = getelementptr inbounds nuw [24 x i8], ptr %108, i64 %113
   %121 = tail call fastcc ptr @qsort_tuple_int32_med3(ptr noundef %119, ptr noundef %108, ptr noundef %120, ptr noundef nonnull %2)
   %122 = sub nsw i64 0, %115
-  %123 = getelementptr inbounds %struct.SortTuple, ptr %110, i64 %122
-  %124 = getelementptr inbounds %struct.SortTuple, ptr %110, i64 %118
+  %123 = getelementptr inbounds [24 x i8], ptr %110, i64 %122
+  %124 = getelementptr inbounds [24 x i8], ptr %110, i64 %118
   %125 = tail call fastcc ptr @qsort_tuple_int32_med3(ptr noundef %123, ptr noundef %124, ptr noundef %110, ptr noundef nonnull %2)
   br label %126
 
@@ -5172,14 +5172,14 @@ qsort_tuple_int32_compare.exit182:                ; preds = %ApplyInt32SortCompa
   %220 = sdiv exact i64 %219, 24
   %. = tail call i64 @llvm.smin.i64(i64 %217, i64 %220)
   %221 = sub nsw i64 0, %.
-  %222 = getelementptr inbounds %struct.SortTuple, ptr %.1148.lcssa, i64 %221
+  %222 = getelementptr inbounds [24 x i8], ptr %.1148.lcssa, i64 %221
   %.not.i196 = icmp eq i64 %., 0
   br i1 %.not.i196, label %qsort_tuple_int32_swapn.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.critedge2._crit_edge, %.lr.ph.i
   %.06.i = phi i64 [ %225, %.lr.ph.i ], [ 0, %.critedge2._crit_edge ]
-  %223 = getelementptr inbounds nuw %struct.SortTuple, ptr %.0137.ph, i64 %.06.i
-  %224 = getelementptr inbounds nuw %struct.SortTuple, ptr %222, i64 %.06.i
+  %223 = getelementptr inbounds nuw [24 x i8], ptr %.0137.ph, i64 %.06.i
+  %224 = getelementptr inbounds nuw [24 x i8], ptr %222, i64 %.06.i
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %223, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %223, ptr noundef nonnull align 8 dereferenceable(24) %224, i64 24, i1 false)
@@ -5200,14 +5200,14 @@ qsort_tuple_int32_swapn.exit:                     ; preds = %.lr.ph.i, %.critedg
   %233 = add nsw i64 %232, -1
   %234 = tail call i64 @llvm.smin.i64(i64 %229, i64 %233)
   %235 = sub nsw i64 0, %234
-  %236 = getelementptr inbounds %struct.SortTuple, ptr %23, i64 %235
+  %236 = getelementptr inbounds [24 x i8], ptr %23, i64 %235
   %.not.i197 = icmp eq i64 %234, 0
   br i1 %.not.i197, label %qsort_tuple_int32_swapn.exit201, label %.lr.ph.i198
 
 .lr.ph.i198:                                      ; preds = %qsort_tuple_int32_swapn.exit, %.lr.ph.i198
   %.06.i199 = phi i64 [ %239, %.lr.ph.i198 ], [ 0, %qsort_tuple_int32_swapn.exit ]
-  %237 = getelementptr inbounds nuw %struct.SortTuple, ptr %.1148.lcssa, i64 %.06.i199
-  %238 = getelementptr inbounds nuw %struct.SortTuple, ptr %236, i64 %.06.i199
+  %237 = getelementptr inbounds nuw [24 x i8], ptr %.1148.lcssa, i64 %.06.i199
+  %238 = getelementptr inbounds nuw [24 x i8], ptr %236, i64 %.06.i199
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %237, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %237, ptr noundef nonnull align 8 dereferenceable(24) %238, i64 24, i1 false)
@@ -5235,7 +5235,7 @@ qsort_tuple_int32_swapn.exit201:                  ; preds = %.lr.ph.i198, %qsort
 
 245:                                              ; preds = %243
   %246 = sub nsw i64 0, %229
-  %247 = getelementptr inbounds %struct.SortTuple, ptr %23, i64 %246
+  %247 = getelementptr inbounds [24 x i8], ptr %23, i64 %246
   br label %.outer
 
 248:                                              ; preds = %qsort_tuple_int32_swapn.exit201
@@ -5244,7 +5244,7 @@ qsort_tuple_int32_swapn.exit201:                  ; preds = %.lr.ph.i198, %qsort
 
 250:                                              ; preds = %248
   %251 = sub nsw i64 0, %229
-  %252 = getelementptr inbounds %struct.SortTuple, ptr %23, i64 %251
+  %252 = getelementptr inbounds [24 x i8], ptr %23, i64 %251
   tail call fastcc void @qsort_tuple_int32(ptr noundef nonnull %252, i64 noundef %229, ptr noundef %2)
   br label %253
 
@@ -5429,7 +5429,7 @@ ApplySortComparator.exit182.thread207:            ; preds = %70, %74, %69, %Appl
 
 ApplySortComparator.exit182.thread:               ; preds = %82, %74, %70, %ApplySortComparator.exit182
   %88 = lshr i64 %.0, 1
-  %89 = getelementptr inbounds nuw %struct.SortTuple, ptr %.0145.ph, i64 %88
+  %89 = getelementptr inbounds nuw [24 x i8], ptr %.0145.ph, i64 %88
   %.not171 = icmp eq i64 %.0, 7
   br i1 %.not171, label %109, label %90
 
@@ -5440,17 +5440,17 @@ ApplySortComparator.exit182.thread:               ; preds = %82, %74, %70, %Appl
 
 93:                                               ; preds = %90
   %94 = lshr i64 %.0, 3
-  %95 = getelementptr inbounds nuw %struct.SortTuple, ptr %.0145.ph, i64 %94
+  %95 = getelementptr inbounds nuw [24 x i8], ptr %.0145.ph, i64 %94
   %96 = shl nuw nsw i64 %94, 1
-  %97 = getelementptr inbounds nuw %struct.SortTuple, ptr %.0145.ph, i64 %96
+  %97 = getelementptr inbounds nuw [24 x i8], ptr %.0145.ph, i64 %96
   %98 = tail call fastcc ptr @qsort_ssup_med3(ptr noundef %.0145.ph, ptr noundef %95, ptr noundef %97, ptr noundef %2)
   %99 = sub nsw i64 0, %94
-  %100 = getelementptr inbounds %struct.SortTuple, ptr %89, i64 %99
-  %101 = getelementptr inbounds nuw %struct.SortTuple, ptr %89, i64 %94
+  %100 = getelementptr inbounds [24 x i8], ptr %89, i64 %99
+  %101 = getelementptr inbounds nuw [24 x i8], ptr %89, i64 %94
   %102 = tail call fastcc ptr @qsort_ssup_med3(ptr noundef %100, ptr noundef %89, ptr noundef %101, ptr noundef %2)
   %103 = sub nsw i64 0, %96
-  %104 = getelementptr inbounds %struct.SortTuple, ptr %91, i64 %103
-  %105 = getelementptr inbounds %struct.SortTuple, ptr %91, i64 %99
+  %104 = getelementptr inbounds [24 x i8], ptr %91, i64 %103
+  %105 = getelementptr inbounds [24 x i8], ptr %91, i64 %99
   %106 = tail call fastcc ptr @qsort_ssup_med3(ptr noundef %104, ptr noundef %105, ptr noundef %91, ptr noundef %2)
   br label %107
 
@@ -5654,14 +5654,14 @@ ApplySortComparator.exit190.thread223:            ; preds = %152, %156, %ApplySo
   %181 = sdiv exact i64 %180, 24
   %. = tail call i64 @llvm.smin.i64(i64 %178, i64 %181)
   %182 = sub nsw i64 0, %.
-  %183 = getelementptr inbounds %struct.SortTuple, ptr %.1156.lcssa, i64 %182
+  %183 = getelementptr inbounds [24 x i8], ptr %.1156.lcssa, i64 %182
   %.not.i = icmp eq i64 %., 0
   br i1 %.not.i, label %qsort_ssup_swapn.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.critedge4, %.lr.ph.i
   %.06.i = phi i64 [ %186, %.lr.ph.i ], [ 0, %.critedge4 ]
-  %184 = getelementptr inbounds nuw %struct.SortTuple, ptr %.0145.ph, i64 %.06.i
-  %185 = getelementptr inbounds nuw %struct.SortTuple, ptr %183, i64 %.06.i
+  %184 = getelementptr inbounds nuw [24 x i8], ptr %.0145.ph, i64 %.06.i
+  %185 = getelementptr inbounds nuw [24 x i8], ptr %183, i64 %.06.i
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %184, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %184, ptr noundef nonnull align 8 dereferenceable(24) %185, i64 24, i1 false)
@@ -5682,14 +5682,14 @@ qsort_ssup_swapn.exit:                            ; preds = %.lr.ph.i, %.critedg
   %194 = add nsw i64 %193, -1
   %195 = tail call i64 @llvm.smin.i64(i64 %190, i64 %194)
   %196 = sub nsw i64 0, %195
-  %197 = getelementptr inbounds %struct.SortTuple, ptr %23, i64 %196
+  %197 = getelementptr inbounds [24 x i8], ptr %23, i64 %196
   %.not.i191 = icmp eq i64 %195, 0
   br i1 %.not.i191, label %qsort_ssup_swapn.exit195, label %.lr.ph.i192
 
 .lr.ph.i192:                                      ; preds = %qsort_ssup_swapn.exit, %.lr.ph.i192
   %.06.i193 = phi i64 [ %200, %.lr.ph.i192 ], [ 0, %qsort_ssup_swapn.exit ]
-  %198 = getelementptr inbounds nuw %struct.SortTuple, ptr %.1156.lcssa, i64 %.06.i193
-  %199 = getelementptr inbounds nuw %struct.SortTuple, ptr %197, i64 %.06.i193
+  %198 = getelementptr inbounds nuw [24 x i8], ptr %.1156.lcssa, i64 %.06.i193
+  %199 = getelementptr inbounds nuw [24 x i8], ptr %197, i64 %.06.i193
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %198, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %198, ptr noundef nonnull align 8 dereferenceable(24) %199, i64 24, i1 false)
@@ -5717,7 +5717,7 @@ qsort_ssup_swapn.exit195:                         ; preds = %.lr.ph.i192, %qsort
 
 206:                                              ; preds = %204
   %207 = sub nsw i64 0, %190
-  %208 = getelementptr inbounds %struct.SortTuple, ptr %23, i64 %207
+  %208 = getelementptr inbounds [24 x i8], ptr %23, i64 %207
   br label %.outer
 
 209:                                              ; preds = %qsort_ssup_swapn.exit195
@@ -5726,7 +5726,7 @@ qsort_ssup_swapn.exit195:                         ; preds = %.lr.ph.i192, %qsort
 
 211:                                              ; preds = %209
   %212 = sub nsw i64 0, %190
-  %213 = getelementptr inbounds %struct.SortTuple, ptr %23, i64 %212
+  %213 = getelementptr inbounds [24 x i8], ptr %23, i64 %212
   tail call fastcc void @qsort_ssup(ptr noundef nonnull %213, i64 noundef %190, ptr noundef %2)
   br label %214
 
@@ -5825,7 +5825,7 @@ define internal fastcc void @qsort_tuple(ptr noundef %0, i64 noundef range(i64 -
 
 37:                                               ; preds = %33
   %38 = lshr i64 %.0, 1
-  %39 = getelementptr inbounds nuw %struct.SortTuple, ptr %.0147.ph, i64 %38
+  %39 = getelementptr inbounds nuw [24 x i8], ptr %.0147.ph, i64 %38
   %.not173 = icmp eq i64 %.0, 7
   br i1 %.not173, label %59, label %40
 
@@ -5836,17 +5836,17 @@ define internal fastcc void @qsort_tuple(ptr noundef %0, i64 noundef range(i64 -
 
 43:                                               ; preds = %40
   %44 = lshr i64 %.0, 3
-  %45 = getelementptr inbounds nuw %struct.SortTuple, ptr %.0147.ph, i64 %44
+  %45 = getelementptr inbounds nuw [24 x i8], ptr %.0147.ph, i64 %44
   %46 = shl nuw nsw i64 %44, 1
-  %47 = getelementptr inbounds nuw %struct.SortTuple, ptr %.0147.ph, i64 %46
+  %47 = getelementptr inbounds nuw [24 x i8], ptr %.0147.ph, i64 %46
   %48 = tail call fastcc ptr @qsort_tuple_med3(ptr noundef %.0147.ph, ptr noundef %45, ptr noundef %47, ptr noundef %2, ptr noundef %3)
   %49 = sub nsw i64 0, %44
-  %50 = getelementptr inbounds %struct.SortTuple, ptr %39, i64 %49
-  %51 = getelementptr inbounds nuw %struct.SortTuple, ptr %39, i64 %44
+  %50 = getelementptr inbounds [24 x i8], ptr %39, i64 %49
+  %51 = getelementptr inbounds nuw [24 x i8], ptr %39, i64 %44
   %52 = tail call fastcc ptr @qsort_tuple_med3(ptr noundef %50, ptr noundef %39, ptr noundef %51, ptr noundef %2, ptr noundef %3)
   %53 = sub nsw i64 0, %46
-  %54 = getelementptr inbounds %struct.SortTuple, ptr %41, i64 %53
-  %55 = getelementptr inbounds %struct.SortTuple, ptr %41, i64 %49
+  %54 = getelementptr inbounds [24 x i8], ptr %41, i64 %53
+  %55 = getelementptr inbounds [24 x i8], ptr %41, i64 %49
   %56 = tail call fastcc ptr @qsort_tuple_med3(ptr noundef %54, ptr noundef %55, ptr noundef %41, ptr noundef %2, ptr noundef %3)
   br label %57
 
@@ -5972,14 +5972,14 @@ define internal fastcc void @qsort_tuple(ptr noundef %0, i64 noundef range(i64 -
   %91 = sdiv exact i64 %90, 24
   %. = tail call i64 @llvm.smin.i64(i64 %88, i64 %91)
   %92 = sub nsw i64 0, %.
-  %93 = getelementptr inbounds %struct.SortTuple, ptr %.1158.lcssa, i64 %92
+  %93 = getelementptr inbounds [24 x i8], ptr %.1158.lcssa, i64 %92
   %.not.i = icmp eq i64 %., 0
   br i1 %.not.i, label %qsort_tuple_swapn.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.critedge2._crit_edge, %.lr.ph.i
   %.06.i = phi i64 [ %96, %.lr.ph.i ], [ 0, %.critedge2._crit_edge ]
-  %94 = getelementptr inbounds nuw %struct.SortTuple, ptr %.0147.ph, i64 %.06.i
-  %95 = getelementptr inbounds nuw %struct.SortTuple, ptr %93, i64 %.06.i
+  %94 = getelementptr inbounds nuw [24 x i8], ptr %.0147.ph, i64 %.06.i
+  %95 = getelementptr inbounds nuw [24 x i8], ptr %93, i64 %.06.i
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %94, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %94, ptr noundef nonnull align 8 dereferenceable(24) %95, i64 24, i1 false)
@@ -6000,14 +6000,14 @@ qsort_tuple_swapn.exit:                           ; preds = %.lr.ph.i, %.critedg
   %104 = add nsw i64 %103, -1
   %105 = tail call i64 @llvm.smin.i64(i64 %100, i64 %104)
   %106 = sub nsw i64 0, %105
-  %107 = getelementptr inbounds %struct.SortTuple, ptr %19, i64 %106
+  %107 = getelementptr inbounds [24 x i8], ptr %19, i64 %106
   %.not.i181 = icmp eq i64 %105, 0
   br i1 %.not.i181, label %qsort_tuple_swapn.exit185, label %.lr.ph.i182
 
 .lr.ph.i182:                                      ; preds = %qsort_tuple_swapn.exit, %.lr.ph.i182
   %.06.i183 = phi i64 [ %110, %.lr.ph.i182 ], [ 0, %qsort_tuple_swapn.exit ]
-  %108 = getelementptr inbounds nuw %struct.SortTuple, ptr %.1158.lcssa, i64 %.06.i183
-  %109 = getelementptr inbounds nuw %struct.SortTuple, ptr %107, i64 %.06.i183
+  %108 = getelementptr inbounds nuw [24 x i8], ptr %.1158.lcssa, i64 %.06.i183
+  %109 = getelementptr inbounds nuw [24 x i8], ptr %107, i64 %.06.i183
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %108, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %108, ptr noundef nonnull align 8 dereferenceable(24) %109, i64 24, i1 false)
@@ -6035,7 +6035,7 @@ qsort_tuple_swapn.exit185:                        ; preds = %.lr.ph.i182, %qsort
 
 116:                                              ; preds = %114
   %117 = sub nsw i64 0, %100
-  %118 = getelementptr inbounds %struct.SortTuple, ptr %19, i64 %117
+  %118 = getelementptr inbounds [24 x i8], ptr %19, i64 %117
   br label %.outer
 
 119:                                              ; preds = %qsort_tuple_swapn.exit185
@@ -6044,7 +6044,7 @@ qsort_tuple_swapn.exit185:                        ; preds = %.lr.ph.i182, %qsort
 
 121:                                              ; preds = %119
   %122 = sub nsw i64 0, %100
-  %123 = getelementptr inbounds %struct.SortTuple, ptr %19, i64 %122
+  %123 = getelementptr inbounds [24 x i8], ptr %19, i64 %122
   tail call fastcc void @qsort_tuple(ptr noundef nonnull %123, i64 noundef %100, ptr noundef %2, ptr noundef %3)
   br label %124
 

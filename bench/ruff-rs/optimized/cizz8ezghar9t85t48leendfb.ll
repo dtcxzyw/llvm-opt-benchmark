@@ -5604,7 +5604,7 @@ define hidden void @"_ZN10serde_json5value2de130_$LT$impl$u20$serde..de..Deseria
 
 39:                                               ; preds = %34, %30
   %40 = load ptr, ptr %15, align 8, !alias.scope !164, !noalias !167, !nonnull !3, !noundef !3
-  %41 = getelementptr inbounds nuw { i8, [63 x i8] }, ptr %40, i64 %31
+  %41 = getelementptr inbounds nuw [64 x i8], ptr %40, i64 %31
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %41, ptr noundef nonnull align 8 dereferenceable(64) %8, i64 64, i1 false), !noalias !161
   %42 = add i64 %31, 1
   store i64 %42, ptr %16, align 8, !alias.scope !164, !noalias !167
@@ -9675,7 +9675,7 @@ define hidden void @"_ZN10serde_json5value2de130_$LT$impl$u20$serde..de..Deseria
 
 62:                                               ; preds = %57, %53
   %63 = load ptr, ptr %24, align 8, !alias.scope !269, !noalias !272, !nonnull !3, !noundef !3
-  %64 = getelementptr inbounds nuw { i8, [63 x i8] }, ptr %63, i64 %54
+  %64 = getelementptr inbounds nuw [64 x i8], ptr %63, i64 %54
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %64, ptr noundef nonnull align 8 dereferenceable(64) %15, i64 64, i1 false), !noalias !264
   %65 = add i64 %54, 1
   store i64 %65, ptr %25, align 8, !alias.scope !269, !noalias !272
@@ -9716,7 +9716,7 @@ define hidden void @"_ZN10serde_json5value2de130_$LT$impl$u20$serde..de..Deseria
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !260
   %74 = load ptr, ptr %24, align 8, !noalias !260, !nonnull !3, !noundef !3
   %75 = load i64, ptr %25, align 8, !noalias !260, !noundef !3
-  %76 = getelementptr inbounds nuw { i8, [63 x i8] }, ptr %74, i64 %75
+  %76 = getelementptr inbounds nuw [64 x i8], ptr %74, i64 %75
   store ptr %74, ptr %11, align 8, !noalias !260
   %77 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %76, ptr %77, align 8, !noalias !260
@@ -11329,7 +11329,7 @@ default.unreachable:                              ; preds = %102
 
 171:                                              ; preds = %166, %162
   %172 = load ptr, ptr %37, align 8, !alias.scope !343, !noalias !346, !nonnull !3, !noundef !3
-  %173 = getelementptr inbounds nuw { i8, [63 x i8] }, ptr %172, i64 %163
+  %173 = getelementptr inbounds nuw [64 x i8], ptr %172, i64 %163
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %173, ptr noundef nonnull align 8 dereferenceable(64) %14, i64 64, i1 false), !noalias !321
   %174 = add i64 %163, 1
   store i64 %174, ptr %38, align 8, !alias.scope !343, !noalias !346
@@ -12627,7 +12627,7 @@ define hidden void @"_ZN10serde_json5value2de130_$LT$impl$u20$serde..de..Deseria
 
 76:                                               ; preds = %71, %67
   %77 = load ptr, ptr %22, align 8, !alias.scope !404, !noalias !407, !nonnull !3, !noundef !3
-  %78 = getelementptr inbounds nuw { i8, [63 x i8] }, ptr %77, i64 %68
+  %78 = getelementptr inbounds nuw [64 x i8], ptr %77, i64 %68
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %78, ptr noundef nonnull align 8 dereferenceable(64) %10, i64 64, i1 false), !noalias !396
   %79 = add i64 %68, 1
   store i64 %79, ptr %23, align 8, !alias.scope !404, !noalias !407
@@ -15148,7 +15148,7 @@ default.unreachable:                              ; preds = %58
 
 121:                                              ; preds = %116, %112
   %122 = load ptr, ptr %30, align 8, !alias.scope !484, !noalias !487, !nonnull !3, !noundef !3
-  %123 = getelementptr inbounds nuw { i8, [63 x i8] }, ptr %122, i64 %113
+  %123 = getelementptr inbounds nuw [64 x i8], ptr %122, i64 %113
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %123, ptr noundef nonnull align 8 dereferenceable(64) %13, i64 64, i1 false), !noalias !467
   %124 = add i64 %113, 1
   store i64 %124, ptr %31, align 8, !alias.scope !484, !noalias !487
@@ -15341,7 +15341,7 @@ default.unreachable:                              ; preds = %58
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !463
   %175 = load ptr, ptr %30, align 8, !noalias !463, !nonnull !3, !noundef !3
   %176 = load i64, ptr %31, align 8, !noalias !463, !noundef !3
-  %177 = getelementptr inbounds nuw { i8, [63 x i8] }, ptr %175, i64 %176
+  %177 = getelementptr inbounds nuw [64 x i8], ptr %175, i64 %176
   store ptr %175, ptr %3, align 8, !noalias !463
   %178 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %177, ptr %178, align 8, !noalias !463
@@ -18434,7 +18434,7 @@ define hidden void @"_ZN10serde_json5value2de130_$LT$impl$u20$serde..de..Deseria
 
 86:                                               ; preds = %81, %77
   %87 = load ptr, ptr %24, align 8, !alias.scope !583, !noalias !586, !nonnull !3, !noundef !3
-  %88 = getelementptr inbounds nuw { i8, [63 x i8] }, ptr %87, i64 %78
+  %88 = getelementptr inbounds nuw [64 x i8], ptr %87, i64 %78
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %88, ptr noundef nonnull align 8 dereferenceable(64) %11, i64 64, i1 false), !noalias !575
   %89 = add i64 %78, 1
   store i64 %89, ptr %25, align 8, !alias.scope !583, !noalias !586
@@ -23059,7 +23059,7 @@ define hidden void @"_ZN10serde_json5value2de130_$LT$impl$u20$serde..de..Deseria
 
 94:                                               ; preds = %89, %85
   %95 = load ptr, ptr %27, align 8, !alias.scope !716, !noalias !719, !nonnull !3, !noundef !3
-  %96 = getelementptr inbounds nuw { i8, [63 x i8] }, ptr %95, i64 %86
+  %96 = getelementptr inbounds nuw [64 x i8], ptr %95, i64 %86
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %96, ptr noundef nonnull align 8 dereferenceable(64) %15, i64 64, i1 false), !noalias !715
   %97 = add i64 %86, 1
   store i64 %97, ptr %28, align 8, !alias.scope !716, !noalias !719
@@ -23128,7 +23128,7 @@ define hidden void @"_ZN10serde_json5value2de130_$LT$impl$u20$serde..de..Deseria
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !711
   %121 = load ptr, ptr %27, align 8, !noalias !711, !nonnull !3, !noundef !3
   %122 = load i64, ptr %28, align 8, !noalias !711, !noundef !3
-  %123 = getelementptr inbounds nuw { i8, [63 x i8] }, ptr %121, i64 %122
+  %123 = getelementptr inbounds nuw [64 x i8], ptr %121, i64 %122
   store ptr %121, ptr %10, align 8, !noalias !711
   %124 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %123, ptr %124, align 8, !noalias !711
@@ -33739,7 +33739,7 @@ define hidden void @"_ZN10serde_json5value2de130_$LT$impl$u20$serde..de..Deseria
 
 73:                                               ; preds = %68, %64
   %74 = load ptr, ptr %20, align 8, !alias.scope !1059, !noalias !1062, !nonnull !3, !noundef !3
-  %75 = getelementptr inbounds nuw { i8, [63 x i8] }, ptr %74, i64 %65
+  %75 = getelementptr inbounds nuw [64 x i8], ptr %74, i64 %65
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %75, ptr noundef nonnull align 8 dereferenceable(64) %9, i64 64, i1 false), !noalias !1052
   %76 = add i64 %65, 1
   store i64 %76, ptr %21, align 8, !alias.scope !1059, !noalias !1062
@@ -37728,7 +37728,7 @@ default.unreachable:                              ; preds = %53
 
 112:                                              ; preds = %107, %103
   %113 = load ptr, ptr %27, align 8, !alias.scope !1185, !noalias !1188, !nonnull !3, !noundef !3
-  %114 = getelementptr inbounds nuw { i8, [63 x i8] }, ptr %113, i64 %104
+  %114 = getelementptr inbounds nuw [64 x i8], ptr %113, i64 %104
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %114, ptr noundef nonnull align 8 dereferenceable(64) %11, i64 64, i1 false), !noalias !1172
   %115 = add i64 %104, 1
   store i64 %115, ptr %28, align 8, !alias.scope !1185, !noalias !1188
@@ -37858,7 +37858,7 @@ default.unreachable:                              ; preds = %53
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !1168
   %146 = load ptr, ptr %27, align 8, !noalias !1168, !nonnull !3, !noundef !3
   %147 = load i64, ptr %28, align 8, !noalias !1168, !noundef !3
-  %148 = getelementptr inbounds nuw { i8, [63 x i8] }, ptr %146, i64 %147
+  %148 = getelementptr inbounds nuw [64 x i8], ptr %146, i64 %147
   store ptr %146, ptr %3, align 8, !noalias !1168
   %149 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %148, ptr %149, align 8, !noalias !1168
@@ -40996,7 +40996,7 @@ define hidden void @"_ZN10serde_json5value2de130_$LT$impl$u20$serde..de..Deseria
 
 89:                                               ; preds = %84, %80
   %90 = load ptr, ptr %25, align 8, !alias.scope !1295, !noalias !1298, !nonnull !3, !noundef !3
-  %91 = getelementptr inbounds nuw { i8, [63 x i8] }, ptr %90, i64 %81
+  %91 = getelementptr inbounds nuw [64 x i8], ptr %90, i64 %81
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %91, ptr noundef nonnull align 8 dereferenceable(64) %12, i64 64, i1 false), !noalias !1285
   %92 = add i64 %81, 1
   store i64 %92, ptr %26, align 8, !alias.scope !1295, !noalias !1298
@@ -41731,7 +41731,7 @@ define hidden void @"_ZN10serde_json5value2de130_$LT$impl$u20$serde..de..Deseria
 
 86:                                               ; preds = %81, %77
   %87 = load ptr, ptr %25, align 8, !alias.scope !1325, !noalias !1328, !nonnull !3, !noundef !3
-  %88 = getelementptr inbounds nuw { i8, [63 x i8] }, ptr %87, i64 %78
+  %88 = getelementptr inbounds nuw [64 x i8], ptr %87, i64 %78
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %88, ptr noundef nonnull align 8 dereferenceable(64) %13, i64 64, i1 false), !noalias !1318
   %89 = add i64 %78, 1
   store i64 %89, ptr %26, align 8, !alias.scope !1325, !noalias !1328
@@ -49283,10 +49283,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !1516, !noundef !3
   %.val = load i8, ptr %2, align 1, !range !50, !noundef !3
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h342d6b6793bbb040E", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h342d6b6793bbb040E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h342d6b6793bbb040E.287", i64 %4
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h342d6b6793bbb040E.287", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -49305,10 +49305,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !1516, !noundef !3
   %.val = load i8, ptr %2, align 1, !range !16, !noundef !3
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h80ee6c5f3598c134E", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h80ee6c5f3598c134E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h80ee6c5f3598c134E.288", i64 %4
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h80ee6c5f3598c134E.288", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -49320,10 +49320,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !1516, !noundef !3
   %.val = load i8, ptr %2, align 1, !range !16, !noundef !3
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hc73612b38dcb701cE", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hc73612b38dcb701cE", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hc73612b38dcb701cE.289", i64 %4
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hc73612b38dcb701cE.289", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5

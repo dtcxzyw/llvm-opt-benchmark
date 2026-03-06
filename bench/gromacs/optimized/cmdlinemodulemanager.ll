@@ -1921,7 +1921,7 @@ define noundef ptr @_ZN3gmx24CommandLineModuleManager4Impl20processCommonOptions
 
 23:                                               ; preds = %.lr.ph, %28
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %28 ]
-  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8, !tbaa !122
   %26 = load i8, ptr %25, align 1, !tbaa !69
   %27 = icmp eq i8 %26, 45
@@ -1984,7 +1984,7 @@ define noundef ptr @_ZN3gmx24CommandLineModuleManager4Impl20processCommonOptions
 46:                                               ; preds = %38
   %47 = load ptr, ptr %3, align 8, !tbaa !119
   %48 = zext nneg i32 %.050.lcssa151 to i64
-  %49 = getelementptr inbounds nuw ptr, ptr %47, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %48
   %50 = load ptr, ptr %49, align 8, !tbaa !122
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %51 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -2210,7 +2210,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit74: ; preds = %105
   %115 = sub nsw i32 %114, %.050.lcssa151
   store i32 %115, ptr %2, align 4, !tbaa !47
   %116 = load ptr, ptr %3, align 8, !tbaa !119
-  %117 = getelementptr inbounds nuw ptr, ptr %116, i64 %48
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %116, i64 %48
   store ptr %117, ptr %3, align 8, !tbaa !119
   %.not = icmp eq ptr %113, null
   br i1 %.not, label %.thread103, label %118
@@ -3259,7 +3259,7 @@ _ZNSt6vectorISt10unique_ptrIN3gmx26CommandLineModuleGroupDataESt14default_delete
   %38 = phi ptr [ %4, %_ZNSt6vectorISt10unique_ptrIN3gmx26CommandLineModuleGroupDataESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i ], [ %.pre, %37 ]
   store ptr %31, ptr %11, align 8, !tbaa !71
   store ptr %36, ptr %12, align 8, !tbaa !74
-  %39 = getelementptr inbounds nuw %"class.std::unique_ptr.25", ptr %31, i64 %29
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %29
   store ptr %39, ptr %14, align 8, !tbaa !85
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 56
   %41 = load ptr, ptr %40, align 8, !tbaa !179
@@ -4659,7 +4659,7 @@ _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcESaI
 _ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcESaIS9_EE13_M_deallocateEPS9_m.exit: ; preds = %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit26, %78
   store ptr %22, ptr %0, align 8, !tbaa !77
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !80
-  %82 = getelementptr inbounds nuw %"struct.std::pair", ptr %22, i64 %16
+  %82 = getelementptr inbounds nuw [40 x i8], ptr %22, i64 %16
   store ptr %82, ptr %77, align 8, !tbaa !83
   ret void
 }

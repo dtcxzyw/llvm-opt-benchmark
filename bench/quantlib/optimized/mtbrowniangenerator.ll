@@ -165,7 +165,7 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %entry
 if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %dimensionality, 3
   %call5.i.i.i.i2.i.i11 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #19
-  %add.ptr.i.i.i = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i11, i64 %dimensionality
+  %add.ptr.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i11, i64 %dimensionality
   store double 0.000000e+00, ptr %call5.i.i.i.i2.i.i11, align 8, !tbaa !33
   %incdec.ptr.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i11, i64 8
   %sub.i.i.i.i.i = add nsw i64 %dimensionality, -1
@@ -194,7 +194,7 @@ if.then.i.i.i.i.i14:                              ; preds = %if.end.i.i.i.i.i.i.
 
 call5.i.i.i.i2.i.i.noexc28:                       ; preds = %if.then.i.i.i.i.i14
   store ptr %call5.i.i.i.i2.i.i29, ptr %int32Sequence_61, align 8, !tbaa !38
-  %add.ptr.i.i.i16 = getelementptr inbounds nuw i64, ptr %call5.i.i.i.i2.i.i29, i64 %dimensionality
+  %add.ptr.i.i.i16 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i29, i64 %dimensionality
   %_M_end_of_storage.i.i.i17 = getelementptr inbounds nuw i8, ptr %this, i64 5056
   store ptr %add.ptr.i.i.i16, ptr %_M_end_of_storage.i.i.i17, align 8, !tbaa !39
   store i64 0, ptr %call5.i.i.i.i2.i.i29, align 8, !tbaa !32
@@ -412,7 +412,7 @@ entry:
   %add = add i64 %0, 1
   %mul4 = mul i64 %add, %1
   %2 = load ptr, ptr %sequence_.i, align 8, !tbaa !44
-  %add.ptr.i2 = getelementptr inbounds double, ptr %2, i64 %mul4
+  %add.ptr.i2 = getelementptr inbounds [8 x i8], ptr %2, i64 %mul4
   %inverseCumulative_ = getelementptr inbounds nuw i8, ptr %this, i64 5096
   %agg.tmp17.sroa.0.0.copyload = load double, ptr %inverseCumulative_, align 8, !tbaa !33
   %agg.tmp17.sroa.2.0.inverseCumulative_.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 5104
@@ -421,7 +421,7 @@ entry:
   br i1 %cmp.i.not5.i, label %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEENS1_IPdS6_EEN8QuantLib23InverseCumulativeNormalEET0_T_SD_SC_T1_.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %entry
-  %add.ptr.i = getelementptr inbounds double, ptr %2, i64 %mul
+  %add.ptr.i = getelementptr inbounds [8 x i8], ptr %2, i64 %mul
   %3 = load ptr, ptr %output, align 8, !tbaa !44
   %4 = load double, ptr @_ZN8QuantLib23InverseCumulativeNormal6x_low_E, align 8, !tbaa !33
   %5 = load double, ptr @_ZN8QuantLib23InverseCumulativeNormal7x_high_E, align 8
@@ -526,7 +526,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng4nextEv.exit.i: ; preds = %if.then.i.i.i
   %4 = phi i64 [ %.pre.i.i.i.i, %if.then.i.i.i.i ], [ %2, %for.body.i ]
   %inc.i.i.i.i = add i64 %4, 1
   store i64 %inc.i.i.i.i, ptr %mti.i.i.i.i, align 8, !tbaa !48
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw i64, ptr %rng_.i, i64 %4
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %rng_.i, i64 %4
   %5 = load i64, ptr %arrayidx.i.i.i.i, align 8, !tbaa !32
   %shr.i.i.i.i = lshr i64 %5, 11
   %xor.i.i.i.i = xor i64 %shr.i.i.i.i, %5
@@ -542,7 +542,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng4nextEv.exit.i: ; preds = %if.then.i.i.i
   %add.i.i.i = fadd nnan double %conv.i.i.i, 5.000000e-01
   %div.i.i.i = fmul nnan double %add.i.i.i, 0x3DF0000000000000
   %6 = load ptr, ptr %sequence_.i, align 8, !tbaa !34
-  %add.ptr.i.i = getelementptr inbounds nuw double, ptr %6, i64 %i.04.i
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %i.04.i
   store double %div.i.i.i, ptr %add.ptr.i.i, align 8, !tbaa !33
   %inc.i = add nuw i64 %i.04.i, 1
   %cmp.i = icmp ult i64 %inc.i, %3

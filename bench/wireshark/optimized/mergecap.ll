@@ -4,17 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.merge_progress_callback_t = type { ptr, ptr }
-%struct.merge_in_file_s = type { ptr, ptr, %struct.wtap_rec, i32, i32, i64, ptr, i32, i32 }
-%struct.wtap_rec = type { i32, i32, i32, %struct.nstime_t, i32, %struct.nstime_t, i8, %union.anon, ptr, i8, %struct.Buffer, %struct.Buffer }
-%struct.nstime_t = type { i64, i32 }
-%union.anon = type { %struct.wtap_packet_header }
-%struct.wtap_packet_header = type { i32, i32, i32, i32, %union.wtap_pseudo_header }
-%union.wtap_pseudo_header = type { %struct.erf_mc_phdr }
-%struct.erf_mc_phdr = type { %struct.erf_phdr, [16 x %struct.erf_ehdr], %union.anon.1 }
-%struct.erf_phdr = type { i64, i8, i8, i16, i16, i16 }
-%struct.erf_ehdr = type { i64 }
-%union.anon.1 = type { i32 }
-%struct.Buffer = type { ptr, i64, i64, i64 }
 
 @main.long_options = internal constant [4 x { ptr, i32, [4 x i8], ptr, i32, [4 x i8] }] [{ ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str, i32 0, [4 x i8] zeroinitializer, ptr null, i32 104, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.1, i32 0, [4 x i8] zeroinitializer, ptr null, i32 118, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.2, i32 1, [4 x i8] zeroinitializer, ptr null, i32 3001, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } zeroinitializer], align 16
 @.str = private unnamed_addr constant [5 x i8] c"help\00", align 1
@@ -379,7 +368,7 @@ sub_0:                                            ; preds = %.thread90, %112
 120:                                              ; preds = %.tail
   %121 = load i32, ptr @ws_optind, align 4
   %122 = sext i32 %121 to i64
-  %123 = getelementptr ptr, ptr %1, i64 %122
+  %123 = getelementptr [8 x i8], ptr %1, i64 %122
   %124 = trunc nuw i8 %.062 to i1
   %125 = call ptr @get_appname_and_version()
   %126 = trunc nuw i8 %.060 to i1
@@ -390,7 +379,7 @@ sub_0:                                            ; preds = %.thread90, %112
 .tail.thread:                                     ; preds = %sub_0, %.tail
   %128 = load i32, ptr @ws_optind, align 4
   %129 = sext i32 %128 to i64
-  %130 = getelementptr ptr, ptr %1, i64 %129
+  %130 = getelementptr [8 x i8], ptr %1, i64 %129
   %131 = trunc nuw i8 %.062 to i1
   %132 = call ptr @get_appname_and_version()
   %133 = trunc nuw i8 %.060 to i1
@@ -477,7 +466,7 @@ define internal fastcc void @list_capture_types() unnamed_addr #0 {
 .lr.ph:                                           ; preds = %0, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %0 ]
   %7 = load ptr, ptr %3, align 8
-  %8 = getelementptr i32, ptr %7, i64 %indvars.iv
+  %8 = getelementptr [4 x i8], ptr %7, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4
   %10 = load ptr, ptr @stderr, align 8
   %11 = tail call ptr @wtap_file_type_subtype_name(i32 noundef %9)
@@ -553,7 +542,7 @@ define internal noundef zeroext i1 @merge_callback(i32 noundef %0, i32 noundef %
 .lr.ph32:                                         ; preds = %.lr.ph32.preheader, %.lr.ph32
   %indvars.iv38 = phi i64 [ 0, %.lr.ph32.preheader ], [ %indvars.iv.next39, %.lr.ph32 ]
   %6 = load ptr, ptr @stderr, align 8
-  %7 = getelementptr %struct.merge_in_file_s, ptr %2, i64 %indvars.iv38
+  %7 = getelementptr [360 x i8], ptr %2, i64 %indvars.iv38
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %10 = load ptr, ptr %9, align 8
@@ -586,7 +575,7 @@ define internal noundef zeroext i1 @merge_callback(i32 noundef %0, i32 noundef %
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %21
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %21 ]
-  %22 = getelementptr %struct.merge_in_file_s, ptr %2, i64 %indvars.iv
+  %22 = getelementptr [360 x i8], ptr %2, i64 %indvars.iv
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = tail call i32 @wtap_file_encap(ptr noundef %24)

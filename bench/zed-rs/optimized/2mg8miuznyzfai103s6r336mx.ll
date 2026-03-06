@@ -721,10 +721,10 @@ define { ptr, i64 } @_ZN15release_channel14ReleaseChannel12display_name17h34f1fb
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !157, !noundef !4
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN15release_channel14ReleaseChannel12display_name17h34f1fbd7f736bd6fE, i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN15release_channel14ReleaseChannel12display_name17h34f1fbd7f736bd6fE, i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN15release_channel14ReleaseChannel12display_name17h34f1fbd7f736bd6fE.3, i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN15release_channel14ReleaseChannel12display_name17h34f1fbd7f736bd6fE.3, i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -736,10 +736,10 @@ define { ptr, i64 } @_ZN15release_channel14ReleaseChannel8dev_name17hc08dc19cd0b
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !157, !noundef !4
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN15release_channel14ReleaseChannel8dev_name17hc08dc19cd0b800daE, i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN15release_channel14ReleaseChannel8dev_name17hc08dc19cd0b800daE, i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN15release_channel14ReleaseChannel8dev_name17hc08dc19cd0b800daE.4, i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN15release_channel14ReleaseChannel8dev_name17hc08dc19cd0b800daE.4, i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -751,10 +751,10 @@ define { ptr, i64 } @_ZN15release_channel14ReleaseChannel6app_id17hf7f7501df3cc0
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !157, !noundef !4
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN15release_channel14ReleaseChannel6app_id17hf7f7501df3cc0790E, i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN15release_channel14ReleaseChannel6app_id17hf7f7501df3cc0790E, i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN15release_channel14ReleaseChannel6app_id17hf7f7501df3cc0790E.5, i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN15release_channel14ReleaseChannel6app_id17hf7f7501df3cc0790E.5, i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -766,7 +766,7 @@ define { ptr, i64 } @_ZN15release_channel14ReleaseChannel19release_query_param17
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !157, !noundef !4
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN15release_channel14ReleaseChannel19release_query_param17h3308b533a9f54b54E, i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN15release_channel14ReleaseChannel19release_query_param17h3308b533a9f54b54E, i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 9, 1

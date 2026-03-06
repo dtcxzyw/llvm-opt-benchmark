@@ -10390,7 +10390,7 @@ select.unfold184:                                 ; preds = %"_ZN81_$LT$core..st
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %141 = load ptr, ptr %90, align 8, !nonnull !3, !noundef !3
   %142 = load i64, ptr %91, align 8, !noundef !3
-  %143 = getelementptr inbounds { ptr, i64 }, ptr %141, i64 %142
+  %143 = getelementptr inbounds [16 x i8], ptr %141, i64 %142
   store ptr %141, ptr %19, align 8
   %144 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %143, ptr %144, align 8
@@ -10428,7 +10428,7 @@ select.unfold184:                                 ; preds = %"_ZN81_$LT$core..st
   %.sink252 = phi ptr [ %164, %165 ], [ %164, %169 ], [ inttoptr (i64 1 to ptr), %156 ], [ inttoptr (i64 1 to ptr), %152 ]
   %.sink = phi i64 [ %163, %165 ], [ %163, %169 ], [ 0, %156 ], [ 0, %152 ]
   %157 = load ptr, ptr %90, align 8, !noalias !3, !nonnull !3, !noundef !3
-  %158 = getelementptr inbounds { ptr, i64 }, ptr %157, i64 %.sink255
+  %158 = getelementptr inbounds [16 x i8], ptr %157, i64 %.sink255
   store ptr %.sink252, ptr %158, align 8, !noalias !3
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 8
   store i64 %.sink, ptr %159, align 8

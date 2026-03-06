@@ -727,10 +727,10 @@ define internal fastcc ptr @dotrim(ptr noundef %0, i32 noundef %1, ptr noundef %
   %.0141217 = phi ptr [ %23, %.lr.ph ], [ %0, %.lr.ph.preheader ]
   %.0149216 = phi i32 [ %21, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %17 = sext i32 %.0149216 to i64
-  %18 = getelementptr inbounds ptr, ptr %14, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %14, i64 %17
   store ptr %.0141217, ptr %18, align 8
   %19 = tail call i32 @pg_mblen(ptr noundef %.0141217) #7
-  %20 = getelementptr inbounds i32, ptr %16, i64 %17
+  %20 = getelementptr inbounds [4 x i8], ptr %16, i64 %17
   store i32 %19, ptr %20, align 4
   %21 = add i32 %.0149216, 1
   %22 = sext i32 %19 to i64
@@ -752,10 +752,10 @@ define internal fastcc ptr @dotrim(ptr noundef %0, i32 noundef %1, ptr noundef %
   %.1142221 = phi ptr [ %37, %.lr.ph224 ], [ %2, %.lr.ph224.preheader ]
   %.0148220 = phi i32 [ %35, %.lr.ph224 ], [ 0, %.lr.ph224.preheader ]
   %31 = sext i32 %.0148220 to i64
-  %32 = getelementptr inbounds ptr, ptr %28, i64 %31
+  %32 = getelementptr inbounds [8 x i8], ptr %28, i64 %31
   store ptr %.1142221, ptr %32, align 8
   %33 = tail call i32 @pg_mblen(ptr noundef %.1142221) #7
-  %34 = getelementptr inbounds i32, ptr %30, i64 %31
+  %34 = getelementptr inbounds [4 x i8], ptr %30, i64 %31
   store i32 %33, ptr %34, align 4
   %35 = add i32 %.0148220, 1
   %36 = sext i32 %33 to i64
@@ -781,22 +781,22 @@ define internal fastcc ptr @dotrim(ptr noundef %0, i32 noundef %1, ptr noundef %
   %.1144.us = phi i32 [ %21, %.lr.ph229.us.preheader ], [ %60, %57 ]
   %.2135.us = phi i32 [ %1, %.lr.ph229.us.preheader ], [ %59, %57 ]
   %.2.us = phi ptr [ %0, %.lr.ph229.us.preheader ], [ %58, %57 ]
-  %43 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv282
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv282
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv282
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv282
   %46 = load i32, ptr %45, align 4
   %47 = sext i32 %46 to i64
   br label %48
 
 48:                                               ; preds = %.lr.ph229.us, %56
   %indvars.iv277 = phi i64 [ 0, %.lr.ph229.us ], [ %indvars.iv.next278, %56 ]
-  %49 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv277
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %indvars.iv277
   %50 = load i32, ptr %49, align 4
   %51 = icmp eq i32 %46, %50
   br i1 %51, label %52, label %56
 
 52:                                               ; preds = %48
-  %53 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv277
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv277
   %54 = load ptr, ptr %53, align 8
   %bcmp.us = tail call i32 @bcmp(ptr %44, ptr %54, i64 %47)
   %55 = icmp eq i32 %bcmp.us, 0
@@ -841,22 +841,22 @@ define internal fastcc ptr @dotrim(ptr noundef %0, i32 noundef %1, ptr noundef %
   %65 = add i64 %.0146, %indvars.iv292
   %sext = shl i64 %65, 32
   %66 = ashr exact i64 %sext, 32
-  %67 = getelementptr inbounds ptr, ptr %14, i64 %66
+  %67 = getelementptr inbounds [8 x i8], ptr %14, i64 %66
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i32, ptr %16, i64 %66
+  %69 = getelementptr inbounds [4 x i8], ptr %16, i64 %66
   %70 = load i32, ptr %69, align 4
   %71 = sext i32 %70 to i64
   br label %72
 
 72:                                               ; preds = %.lr.ph246.us, %80
   %indvars.iv287 = phi i64 [ 0, %.lr.ph246.us ], [ %indvars.iv.next288, %80 ]
-  %73 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv287
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %indvars.iv287
   %74 = load i32, ptr %73, align 4
   %75 = icmp eq i32 %70, %74
   br i1 %75, label %76, label %80
 
 76:                                               ; preds = %72
-  %77 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv287
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv287
   %78 = load ptr, ptr %77, align 8
   %bcmp163.us = tail call i32 @bcmp(ptr %68, ptr %78, i64 %71)
   %79 = icmp eq i32 %bcmp163.us, 0

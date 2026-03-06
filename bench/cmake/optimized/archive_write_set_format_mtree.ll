@@ -2280,7 +2280,7 @@ define internal i64 @archive_write_mtree_data(ptr noundef readonly captures(none
   %26 = zext i8 %25 to i32
   %27 = xor i32 %24, %26
   %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr inbounds nuw i32, ptr @crctab, i64 %28
+  %29 = getelementptr inbounds nuw [4 x i8], ptr @crctab, i64 %28
   %30 = load i32, ptr %29, align 4, !tbaa !128
   %31 = xor i32 %30, %23
   store i32 %31, ptr %19, align 4, !tbaa !97
@@ -2413,7 +2413,7 @@ define internal noundef i32 @archive_write_mtree_finish_entry(ptr noundef readon
   %19 = zext nneg i32 %18 to i64
   %20 = and i64 %.037.i, 255
   %21 = xor i64 %20, %19
-  %22 = getelementptr inbounds nuw i32, ptr @crctab, i64 %21
+  %22 = getelementptr inbounds nuw [4 x i8], ptr @crctab, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !128
   %24 = xor i32 %23, %17
   %25 = lshr i64 %.037.i, 8

@@ -25125,7 +25125,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
 .lr.ph:                                           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit
   %110 = phi ptr [ %147, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit ], [ %98, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit ]
   %.0114343 = phi i64 [ %145, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit ]
-  %111 = getelementptr inbounds nuw %"class.dropbox::oxygen::nn.96", ptr %110, i64 %.0114343
+  %111 = getelementptr inbounds nuw [16 x i8], ptr %110, i64 %.0114343
   %112 = load ptr, ptr %44, align 8, !tbaa !354
   %113 = load ptr, ptr %46, align 8, !tbaa !356
   %.not.i222 = icmp eq ptr %112, %113
@@ -43746,7 +43746,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit55: ; preds = %73,
   %85 = phi i1 [ true, %79 ], [ false, %96 ]
   %indvars.iv.sroa.phi = phi ptr [ %.sroa.0, %79 ], [ %.sroa.5, %96 ]
   %indvars.iv = phi i64 [ 0, %79 ], [ 1, %96 ]
-  %86 = getelementptr inbounds nuw %"class.dropbox::oxygen::nn.480", ptr %80, i64 %indvars.iv
+  %86 = getelementptr inbounds nuw [16 x i8], ptr %80, i64 %indvars.iv
   %87 = load ptr, ptr %86, align 8, !tbaa !375
   %88 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5osgeo4proj2cs20CoordinateSystemAxis9directionEv(ptr noundef nonnull align 8 dereferenceable(56) %87) #45
   %89 = icmp eq ptr %88, @_ZN5osgeo4proj2cs13AxisDirection4WESTE
@@ -47075,7 +47075,7 @@ _ZNSt8__detail13_Scratch_list10_M_put_allEPNS_15_List_node_baseE.exit.i.preheade
 
 _ZNSt8__detail13_Scratch_list10_M_put_allEPNS_15_List_node_baseE.exit.i: ; preds = %_ZNSt8__detail13_Scratch_list10_M_put_allEPNS_15_List_node_baseE.exit.i.preheader, %_ZNSt8__detail13_Scratch_list10_M_put_allEPNS_15_List_node_baseE.exit35.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNSt8__detail13_Scratch_list10_M_put_allEPNS_15_List_node_baseE.exit35.i ], [ 0, %_ZNSt8__detail13_Scratch_list10_M_put_allEPNS_15_List_node_baseE.exit.i.preheader ]
-  %713 = getelementptr inbounds nuw %"struct.std::__detail::_Scratch_list", ptr %5, i64 %indvars.iv.i
+  %713 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %indvars.iv.i
   %714 = load ptr, ptr %713, align 16, !tbaa !609
   %715 = icmp eq ptr %714, %713
   br i1 %715, label %_ZNSt8__detail13_Scratch_list10_M_put_allEPNS_15_List_node_baseE.exit35.i, label %716
@@ -68949,7 +68949,7 @@ _ZNK5osgeo4proj4util8CodeListneERKS2_.exit.thread: ; preds = %103, %_ZNK5osgeo4p
   %117 = phi i1 [ true, %_ZNK5osgeo4proj4util8CodeListneERKS2_.exit.thread ], [ false, %128 ]
   %indvars.iv.sroa.phi = phi ptr [ %.sroa.0, %_ZNK5osgeo4proj4util8CodeListneERKS2_.exit.thread ], [ %.sroa.5, %128 ]
   %indvars.iv = phi i64 [ 0, %_ZNK5osgeo4proj4util8CodeListneERKS2_.exit.thread ], [ 1, %128 ]
-  %118 = getelementptr inbounds nuw %"class.dropbox::oxygen::nn.480", ptr %95, i64 %indvars.iv
+  %118 = getelementptr inbounds nuw [16 x i8], ptr %95, i64 %indvars.iv
   %119 = load ptr, ptr %118, align 8, !tbaa !375
   %120 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5osgeo4proj2cs20CoordinateSystemAxis9directionEv(ptr noundef nonnull align 8 dereferenceable(56) %119) #45
   %121 = icmp eq ptr %120, @_ZN5osgeo4proj2cs13AxisDirection4WESTE
@@ -74058,10 +74058,10 @@ define hidden noundef zeroext i1 @_ZNK5osgeo4proj3crs11CompoundCRS15_isEquivalen
 .lr.ph:                                           ; preds = %.preheader, %30
   %38 = phi ptr [ %33, %30 ], [ %20, %.preheader ]
   %.028 = phi i64 [ %31, %30 ], [ 0, %.preheader ]
-  %39 = getelementptr inbounds nuw %"class.dropbox::oxygen::nn.96", ptr %38, i64 %.028
+  %39 = getelementptr inbounds nuw [16 x i8], ptr %38, i64 %.028
   %40 = load ptr, ptr %39, align 8, !tbaa !74
   %41 = load ptr, ptr %17, align 8, !tbaa !357
-  %42 = getelementptr inbounds nuw %"class.dropbox::oxygen::nn.96", ptr %41, i64 %.028
+  %42 = getelementptr inbounds nuw [16 x i8], ptr %41, i64 %.028
   %43 = load ptr, ptr %42, align 8, !tbaa !74
   %44 = icmp eq ptr %43, null
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 16
@@ -74134,10 +74134,10 @@ define hidden noundef zeroext i1 @_ZThn16_NK5osgeo4proj3crs11CompoundCRS15_isEqu
 .lr.ph.i:                                         ; preds = %.preheader.i, %31
   %39 = phi ptr [ %34, %31 ], [ %21, %.preheader.i ]
   %.028.i = phi i64 [ %32, %31 ], [ 0, %.preheader.i ]
-  %40 = getelementptr inbounds nuw %"class.dropbox::oxygen::nn.96", ptr %39, i64 %.028.i
+  %40 = getelementptr inbounds nuw [16 x i8], ptr %39, i64 %.028.i
   %41 = load ptr, ptr %40, align 8, !tbaa !74
   %42 = load ptr, ptr %18, align 8, !tbaa !357
-  %43 = getelementptr inbounds nuw %"class.dropbox::oxygen::nn.96", ptr %42, i64 %.028.i
+  %43 = getelementptr inbounds nuw [16 x i8], ptr %42, i64 %.028.i
   %44 = load ptr, ptr %43, align 8, !tbaa !74
   %45 = icmp eq ptr %44, null
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 16
@@ -74440,10 +74440,10 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2io16AuthorityFactoryEEED2Ev.ex
 .lr.ph.i199:                                      ; preds = %.preheader.i, %161
   %169 = phi ptr [ %164, %161 ], [ %151, %.preheader.i ]
   %.028.i = phi i64 [ %162, %161 ], [ 0, %.preheader.i ]
-  %170 = getelementptr inbounds nuw %"class.dropbox::oxygen::nn.96", ptr %169, i64 %.028.i
+  %170 = getelementptr inbounds nuw [16 x i8], ptr %169, i64 %.028.i
   %171 = load ptr, ptr %170, align 8, !tbaa !74
   %172 = load ptr, ptr %148, align 8, !tbaa !357
-  %173 = getelementptr inbounds nuw %"class.dropbox::oxygen::nn.96", ptr %172, i64 %.028.i
+  %173 = getelementptr inbounds nuw [16 x i8], ptr %172, i64 %.028.i
   %174 = load ptr, ptr %173, align 8, !tbaa !74
   %175 = icmp eq ptr %174, null
   %176 = getelementptr inbounds nuw i8, ptr %174, i64 16
@@ -74835,10 +74835,10 @@ _ZN7dropbox6oxygen23nn_dynamic_pointer_castIN5osgeo4proj3crs11CompoundCRSENS3_6c
 .lr.ph.i216:                                      ; preds = %.preheader.i214, %330
   %338 = phi ptr [ %333, %330 ], [ %320, %.preheader.i214 ]
   %.028.i217 = phi i64 [ %331, %330 ], [ 0, %.preheader.i214 ]
-  %339 = getelementptr inbounds nuw %"class.dropbox::oxygen::nn.96", ptr %338, i64 %.028.i217
+  %339 = getelementptr inbounds nuw [16 x i8], ptr %338, i64 %.028.i217
   %340 = load ptr, ptr %339, align 8, !tbaa !74
   %341 = load ptr, ptr %317, align 8, !tbaa !357
-  %342 = getelementptr inbounds nuw %"class.dropbox::oxygen::nn.96", ptr %341, i64 %.028.i217
+  %342 = getelementptr inbounds nuw [16 x i8], ptr %341, i64 %.028.i217
   %343 = load ptr, ptr %342, align 8, !tbaa !74
   %344 = icmp eq ptr %343, null
   %345 = getelementptr inbounds nuw i8, ptr %343, i64 16
@@ -75945,10 +75945,10 @@ _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_ED2Ev.exit277:
 .lr.ph.i282:                                      ; preds = %.preheader.i280, %768
   %776 = phi ptr [ %771, %768 ], [ %758, %.preheader.i280 ]
   %.028.i283 = phi i64 [ %769, %768 ], [ 0, %.preheader.i280 ]
-  %777 = getelementptr inbounds nuw %"class.dropbox::oxygen::nn.96", ptr %776, i64 %.028.i283
+  %777 = getelementptr inbounds nuw [16 x i8], ptr %776, i64 %.028.i283
   %778 = load ptr, ptr %777, align 8, !tbaa !74
   %779 = load ptr, ptr %755, align 8, !tbaa !357
-  %780 = getelementptr inbounds nuw %"class.dropbox::oxygen::nn.96", ptr %779, i64 %.028.i283
+  %780 = getelementptr inbounds nuw [16 x i8], ptr %779, i64 %.028.i283
   %781 = load ptr, ptr %780, align 8, !tbaa !74
   %782 = icmp eq ptr %781, null
   %783 = getelementptr inbounds nuw i8, ptr %781, i64 16
@@ -101531,7 +101531,7 @@ _ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEESaIS9_EE
 _ZNSt12_Vector_baseIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEESaIS9_EE13_M_deallocateEPS9_m.exit: ; preds = %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit22, %40
   store ptr %20, ptr %0, align 8, !tbaa !357
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !354
-  %44 = getelementptr inbounds nuw %"class.dropbox::oxygen::nn.96", ptr %20, i64 %16
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %44, ptr %39, align 8, !tbaa !356
   ret void
 }
@@ -101738,7 +101738,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit25, %55
   store ptr %19, ptr %0, align 8, !tbaa !528
   store ptr %.0.lcssa.i.i.i24, ptr %3, align 8, !tbaa !466
-  %59 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %19, i64 %15
+  %59 = getelementptr inbounds nuw [32 x i8], ptr %19, i64 %15
   store ptr %59, ptr %54, align 8, !tbaa !464
   ret void
 }
@@ -101979,7 +101979,7 @@ _ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEESaIS9_EE
 _ZNSt12_Vector_baseIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEESaIS9_EE13_M_deallocateEPS9_m.exit: ; preds = %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit22, %48
   store ptr %20, ptr %0, align 8, !tbaa !357
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !354
-  %52 = getelementptr inbounds nuw %"class.dropbox::oxygen::nn.96", ptr %20, i64 %16
+  %52 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %52, ptr %47, align 8, !tbaa !356
   ret void
 }
@@ -103510,7 +103510,7 @@ _ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation14Transfor
 _ZNSt12_Vector_baseIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation14TransformationEEEESaIS9_EE13_M_deallocateEPS9_m.exit: ; preds = %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation14TransformationEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit22, %40
   store ptr %20, ptr %0, align 8, !tbaa !1019
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !427
-  %44 = getelementptr inbounds nuw %"class.dropbox::oxygen::nn.329", ptr %20, i64 %16
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %44, ptr %39, align 8, !tbaa !430
   ret void
 }

@@ -703,7 +703,7 @@ define internal i32 @dissect_pgsql_msg(ptr noundef %0, ptr noundef %1, ptr nound
 
 switch.lookup:                                    ; preds = %46
   %58 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_pgsql_msg, i64 %58
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_pgsql_msg, i64 %58
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %59
 
@@ -715,7 +715,7 @@ switch.lookup:                                    ; preds = %46
   %62 = select i1 %.b, ptr @.str.219, ptr @.str.218
   %63 = load ptr, ptr @g_ascii_table, align 8
   %64 = zext i8 %31 to i64
-  %65 = getelementptr i16, ptr %63, i64 %64
+  %65 = getelementptr [2 x i8], ptr %63, i64 %64
   %66 = load i16, ptr %65, align 2
   %67 = and i16 %66, 64
   %.not77 = icmp eq i16 %67, 0

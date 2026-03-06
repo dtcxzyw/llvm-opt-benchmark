@@ -5,9 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.lpFindArg = type { ptr, i32, i32, i64 }
 %struct.listpackInsertEntry = type { i32, i64, [9 x i8], [5 x i8], i64 }
-%struct.listpackEntry = type { ptr, i32, i64 }
-%struct.pick = type { i32, i32 }
-%struct.rand_pick = type { i32, i32 }
 
 @.str = private unnamed_addr constant [2 x i8] c"p\00", align 1
 @.str.1 = private unnamed_addr constant [11 x i8] c"listpack.c\00", align 1
@@ -319,7 +316,7 @@ lpCurrentEncodedSizeUnsafe.exit.i:                ; preds = %32, %23
 
 switch.lookup:                                    ; preds = %18
   %44 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.lpRandomPairs.5, i64 %44
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.lpRandomPairs.5, i64 %44
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %lpSkip.exit
 
@@ -446,7 +443,7 @@ lpCurrentEncodedSizeUnsafe.exit.i:                ; preds = %31, %22
 
 switch.lookup:                                    ; preds = %17
   %43 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.lpRandomPairs.5, i64 %43
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.lpRandomPairs.5, i64 %43
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %lpSkip.exit
 
@@ -1227,7 +1224,7 @@ lpCurrentEncodedSizeUnsafe.exit.i:                ; preds = %135, %126
 
 switch.lookup:                                    ; preds = %121
   %147 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.lpRandomPairs.5, i64 %147
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.lpRandomPairs.5, i64 %147
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %lpSkip.exit
 
@@ -1544,7 +1541,7 @@ lpCurrentEncodedSizeUnsafe.exit.i:                ; preds = %41, %32
 
 switch.lookup:                                    ; preds = %27
   %53 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.lpRandomPairs.5, i64 %53
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.lpRandomPairs.5, i64 %53
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %lpSkip.exit
 
@@ -1810,7 +1807,7 @@ lpCurrentEncodedSizeUnsafe.exit:                  ; preds = %174, %183
 
 switch.lookup211:                                 ; preds = %169
   %196 = zext nneg i8 %switch.tableidx210 to i64
-  %switch.gep212 = getelementptr inbounds nuw i32, ptr @switch.table.lpRandomPairs.5, i64 %196
+  %switch.gep212 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.lpRandomPairs.5, i64 %196
   %switch.load213 = load i32, ptr %switch.gep212, align 4
   br label %lpEncodeBacklenBytes.exit
 
@@ -2381,7 +2378,7 @@ lpCurrentEncodedSizeUnsafe.exit.i:                ; preds = %49, %40
 
 switch.lookup:                                    ; preds = %35
   %61 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.lpRandomPairs.5, i64 %61
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.lpRandomPairs.5, i64 %61
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %lpSkip.exit
 
@@ -2437,13 +2434,13 @@ lpSkip.exit:                                      ; preds = %switch.lookup, %23,
 92:                                               ; preds = %86, %lpEncodeBacklen.exit
   %indvars.iv = phi i64 [ 0, %86 ], [ %indvars.iv.next, %lpEncodeBacklen.exit ]
   %.0131148 = phi i64 [ 0, %86 ], [ %209, %lpEncodeBacklen.exit ]
-  %93 = getelementptr inbounds nuw %struct.listpackEntry, ptr %3, i64 %indvars.iv
+  %93 = getelementptr inbounds nuw [24 x i8], ptr %3, i64 %indvars.iv
   %94 = load ptr, ptr %93, align 8, !tbaa !29
   %.not146 = icmp eq ptr %94, null
   br i1 %.not146, label %95, label %137
 
 95:                                               ; preds = %92
-  %96 = getelementptr inbounds nuw %struct.listpackInsertEntry, ptr %.0132, i64 %indvars.iv
+  %96 = getelementptr inbounds nuw [40 x i8], ptr %.0132, i64 %indvars.iv
   store i32 0, ptr %96, align 8, !tbaa !31
   %97 = getelementptr inbounds nuw i8, ptr %93, i64 16
   %98 = load i64, ptr %97, align 8, !tbaa !33
@@ -2526,7 +2523,7 @@ lpSkip.exit:                                      ; preds = %switch.lookup, %23,
 .thread:                                          ; preds = %133, %131, %121, %115, %105, %101
   %.sink.i = phi i64 [ 5, %131 ], [ 1, %101 ], [ 3, %115 ], [ 4, %121 ], [ 2, %105 ], [ 9, %133 ]
   store i64 %.sink.i, ptr %100, align 8, !tbaa !10
-  %134 = getelementptr inbounds nuw %struct.listpackInsertEntry, ptr %.0132, i64 %indvars.iv
+  %134 = getelementptr inbounds nuw [40 x i8], ptr %.0132, i64 %indvars.iv
   %135 = add i64 %.sink.i, %.0131148
   %136 = getelementptr inbounds nuw i8, ptr %134, i64 25
   br label %148
@@ -2534,13 +2531,13 @@ lpSkip.exit:                                      ; preds = %switch.lookup, %23,
 137:                                              ; preds = %92
   %138 = getelementptr inbounds nuw i8, ptr %93, i64 8
   %139 = load i32, ptr %138, align 8, !tbaa !34
-  %140 = getelementptr inbounds nuw %struct.listpackInsertEntry, ptr %.0132, i64 %indvars.iv
+  %140 = getelementptr inbounds nuw [40 x i8], ptr %.0132, i64 %indvars.iv
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 16
   %142 = getelementptr inbounds nuw i8, ptr %140, i64 8
   %143 = call fastcc i32 @lpEncodeGetType(ptr noundef %94, i32 noundef %139, ptr noundef nonnull %141, ptr noundef nonnull %142)
   store i32 %143, ptr %140, align 8, !tbaa !31
   %.pre = load i64, ptr %142, align 8, !tbaa !35
-  %144 = getelementptr inbounds nuw %struct.listpackInsertEntry, ptr %.0132, i64 %indvars.iv
+  %144 = getelementptr inbounds nuw [40 x i8], ptr %.0132, i64 %indvars.iv
   %145 = add i64 %.pre, %.0131148
   %146 = getelementptr inbounds nuw i8, ptr %144, i64 25
   %147 = icmp ult i64 %.pre, 128
@@ -2680,13 +2677,13 @@ lpEncodeBacklen.exit:                             ; preds = %148, %156, %164, %1
 .split.us:                                        ; preds = %224, %255
   %indvars.iv161 = phi i64 [ %indvars.iv.next162, %255 ], [ 0, %224 ]
   %.1129149.us = phi ptr [ %261, %255 ], [ %.0128, %224 ]
-  %227 = getelementptr inbounds nuw %struct.listpackInsertEntry, ptr %.0132, i64 %indvars.iv161
+  %227 = getelementptr inbounds nuw [40 x i8], ptr %.0132, i64 %indvars.iv161
   %228 = load i32, ptr %227, align 8, !tbaa !31
   %229 = icmp eq i32 %228, 0
   br i1 %229, label %251, label %230
 
 230:                                              ; preds = %.split.us
-  %231 = getelementptr inbounds nuw %struct.listpackEntry, ptr %3, i64 %indvars.iv161
+  %231 = getelementptr inbounds nuw [24 x i8], ptr %3, i64 %indvars.iv161
   %232 = load ptr, ptr %231, align 8, !tbaa !29
   %233 = getelementptr inbounds nuw i8, ptr %231, i64 8
   %234 = load i32, ptr %233, align 8, !tbaa !34
@@ -2758,7 +2755,7 @@ lpEncodeString.exit.us:                           ; preds = %246, %240, %238
   %indvars.iv155 = phi i64 [ %indvars.iv.next156, %293 ], [ 0, %224 ]
   %.1129149 = phi ptr [ %299, %293 ], [ %.0128, %224 ]
   store ptr %.1129149, ptr %5, align 8, !tbaa !13
-  %265 = getelementptr inbounds nuw %struct.listpackInsertEntry, ptr %.0132, i64 %indvars.iv155
+  %265 = getelementptr inbounds nuw [40 x i8], ptr %.0132, i64 %indvars.iv155
   %266 = load i32, ptr %265, align 8, !tbaa !31
   %267 = icmp eq i32 %266, 0
   br i1 %267, label %268, label %272
@@ -2771,7 +2768,7 @@ lpEncodeString.exit.us:                           ; preds = %246, %240, %238
   br label %293
 
 272:                                              ; preds = %.split
-  %273 = getelementptr inbounds nuw %struct.listpackEntry, ptr %3, i64 %indvars.iv155
+  %273 = getelementptr inbounds nuw [24 x i8], ptr %3, i64 %indvars.iv155
   %274 = load ptr, ptr %273, align 8, !tbaa !29
   %275 = getelementptr inbounds nuw i8, ptr %273, i64 8
   %276 = load i32, ptr %275, align 8, !tbaa !34
@@ -3565,7 +3562,7 @@ lpCurrentEncodedSizeUnsafe.exit.i:                ; preds = %38, %29
 
 switch.lookup:                                    ; preds = %24
   %50 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.lpRandomPairs.5, i64 %50
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.lpRandomPairs.5, i64 %50
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %lpSkip.exit
 
@@ -3904,7 +3901,7 @@ define dso_local ptr @lpBatchDelete(ptr noundef %0, ptr noundef readonly capture
 23:                                               ; preds = %13, %82
   %.05872 = phi ptr [ %14, %13 ], [ %.1, %82 ]
   %.06071 = phi i64 [ 0, %13 ], [ %68, %82 ]
-  %24 = getelementptr inbounds nuw ptr, ptr %1, i64 %.06071
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.06071
   %25 = load ptr, ptr %24, align 8, !tbaa !13
   %.not67 = icmp eq ptr %25, null
   br i1 %.not67, label %.critedge, label %26, !prof !12
@@ -3989,7 +3986,7 @@ lpCurrentEncodedSizeUnsafe.exit.i:                ; preds = %53, %44
 
 switch.lookup:                                    ; preds = %39
   %64 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.lpRandomPairs.5, i64 %64
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.lpRandomPairs.5, i64 %64
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %lpSkip.exit
 
@@ -4004,7 +4001,7 @@ lpSkip.exit:                                      ; preds = %switch.lookup, %52,
   br i1 %69, label %70, label %74
 
 70:                                               ; preds = %lpSkip.exit
-  %71 = getelementptr inbounds nuw ptr, ptr %1, i64 %68
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %68
   %72 = load ptr, ptr %71, align 8, !tbaa !13
   %73 = icmp eq ptr %67, %72
   br i1 %73, label %82, label %74
@@ -4445,7 +4442,7 @@ lpCurrentEncodedSizeUnsafe.exit:                  ; preds = %41, %50
 
 switch.lookup:                                    ; preds = %36
   %61 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.lpRandomPairs.5, i64 %61
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.lpRandomPairs.5, i64 %61
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %lpEncodeBacklenBytes.exit
 
@@ -5218,7 +5215,7 @@ lpFirst.exit:                                     ; preds = %._crit_edge, %lpAss
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader51 ]
   %35 = tail call i32 @rand() #21
   %36 = urem i32 %35, %.016.in.i99
-  %37 = getelementptr inbounds nuw %struct.pick, ptr %9, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   store i32 %36, ptr %37, align 4, !tbaa !45
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 4
   %39 = trunc nuw i64 %indvars.iv to i32
@@ -5231,7 +5228,7 @@ lpFirst.exit:                                     ; preds = %._crit_edge, %lpAss
   %indvars.iv84 = phi i64 [ %indvars.iv.next85, %lpGetValue.exit ], [ 0, %lpFirst.exit ]
   %.03074 = phi ptr [ %.1.lcssa, %lpGetValue.exit ], [ %.0.i, %lpFirst.exit ]
   %.03272 = phi i32 [ %.133.lcssa, %lpGetValue.exit ], [ 0, %lpFirst.exit ]
-  %40 = getelementptr inbounds nuw %struct.pick, ptr %9, i64 %indvars.iv84
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv84
   %41 = load i32, ptr %40, align 4, !tbaa !45
   %42 = icmp ult i32 %.03272, %41
   br i1 %42, label %.lr.ph69.preheader, label %lpGetValue.exit
@@ -5332,7 +5329,7 @@ lpCurrentEncodedSizeUnsafe.exit.i.i:              ; preds = %71, %62
 
 switch.lookup:                                    ; preds = %57
   %83 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.lpRandomPairs.5, i64 %83
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.lpRandomPairs.5, i64 %83
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %lpSkip.exit.i
 
@@ -5453,7 +5450,7 @@ lpCurrentEncodedSizeUnsafe.exit.i:                ; preds = %132, %123
 
 switch.lookup107:                                 ; preds = %118
   %143 = zext nneg i8 %switch.tableidx106 to i64
-  %switch.gep108 = getelementptr inbounds nuw i32, ptr @switch.table.lpRandomPairs.5, i64 %143
+  %switch.gep108 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.lpRandomPairs.5, i64 %143
   %switch.load109 = load i32, ptr %switch.gep108, align 4
   br label %lpEncodeBacklenBytes.exit.i
 
@@ -5515,7 +5512,7 @@ lpGetValue.exit:                                  ; preds = %lpNext.exit, %.preh
   %spec.select49 = select i1 %.not.i40, i64 %161, i64 0
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %163 = sext i32 %159 to i64
-  %164 = getelementptr inbounds %struct.listpackEntry, ptr %2, i64 %163
+  %164 = getelementptr inbounds [24 x i8], ptr %2, i64 %163
   store ptr %160, ptr %164, align 8, !tbaa !29
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 8
   store i32 %spec.select, ptr %165, align 8, !tbaa !34
@@ -5636,7 +5633,7 @@ lpLength.exit:                                    ; preds = %9, %._crit_edge.i, 
   %39 = tail call i32 @rand() #21
   %40 = urem i32 %39, %29
   %41 = mul i32 %40, %4
-  %42 = getelementptr inbounds nuw %struct.rand_pick, ptr %12, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   store i32 %41, ptr %42, align 4, !tbaa !51
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 4
   %44 = trunc nuw i64 %indvars.iv to i32
@@ -5906,7 +5903,7 @@ lpGetValue.exit63:                                ; preds = %137, %127, %121, %1
 
 .lr.ph116.split.us:                               ; preds = %.lr.ph116, %187
   %indvars.iv148 = phi i64 [ %indvars.iv.next149, %187 ], [ %183, %.lr.ph116 ]
-  %184 = getelementptr inbounds nuw %struct.rand_pick, ptr %12, i64 %indvars.iv148
+  %184 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv148
   %185 = load i32, ptr %184, align 4, !tbaa !51
   %186 = icmp eq i32 %.052129, %185
   br i1 %186, label %187, label %.lr.ph123.preheader.loopexit.split.loop.exit
@@ -5915,7 +5912,7 @@ lpGetValue.exit63:                                ; preds = %137, %127, %121, %1
   %188 = getelementptr inbounds nuw i8, ptr %184, i64 4
   %189 = load i32, ptr %188, align 4, !tbaa !53
   %190 = sext i32 %189 to i64
-  %191 = getelementptr inbounds %struct.listpackEntry, ptr %2, i64 %190
+  %191 = getelementptr inbounds [24 x i8], ptr %2, i64 %190
   store ptr %.0.i.i97, ptr %191, align 8, !tbaa !29
   %192 = getelementptr inbounds nuw i8, ptr %191, i64 8
   store i32 %.190, ptr %192, align 8, !tbaa !34
@@ -5927,7 +5924,7 @@ lpGetValue.exit63:                                ; preds = %137, %127, %121, %1
 
 .lr.ph116.split:                                  ; preds = %.lr.ph116, %197
   %indvars.iv144 = phi i64 [ %indvars.iv.next145, %197 ], [ %183, %.lr.ph116 ]
-  %194 = getelementptr inbounds nuw %struct.rand_pick, ptr %12, i64 %indvars.iv144
+  %194 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv144
   %195 = load i32, ptr %194, align 4, !tbaa !51
   %196 = icmp eq i32 %.052129, %195
   br i1 %196, label %197, label %.lr.ph123.preheader.loopexit168.split.loop.exit
@@ -5936,13 +5933,13 @@ lpGetValue.exit63:                                ; preds = %137, %127, %121, %1
   %198 = getelementptr inbounds nuw i8, ptr %194, i64 4
   %199 = load i32, ptr %198, align 4, !tbaa !53
   %200 = sext i32 %199 to i64
-  %201 = getelementptr inbounds %struct.listpackEntry, ptr %2, i64 %200
+  %201 = getelementptr inbounds [24 x i8], ptr %2, i64 %200
   store ptr %.0.i.i97, ptr %201, align 8, !tbaa !29
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 8
   store i32 %.190, ptr %202, align 8, !tbaa !34
   %203 = getelementptr inbounds nuw i8, ptr %201, i64 16
   store i64 %.186, ptr %203, align 8, !tbaa !33
-  %204 = getelementptr inbounds %struct.listpackEntry, ptr %3, i64 %200
+  %204 = getelementptr inbounds [24 x i8], ptr %3, i64 %200
   store ptr %.0.i.i73103, ptr %204, align 8, !tbaa !29
   %205 = getelementptr inbounds nuw i8, ptr %204, i64 8
   store i32 %.188, ptr %205, align 8, !tbaa !34
@@ -6052,7 +6049,7 @@ lpCurrentEncodedSizeUnsafe.exit.i.i:              ; preds = %237, %228
 
 switch.lookup:                                    ; preds = %223
   %249 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.lpRandomPairs.5, i64 %249
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.lpRandomPairs.5, i64 %249
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %lpSkip.exit.i
 
@@ -6173,7 +6170,7 @@ lpCurrentEncodedSizeUnsafe.exit.i:                ; preds = %298, %289
 
 switch.lookup183:                                 ; preds = %284
   %309 = zext nneg i8 %switch.tableidx182 to i64
-  %switch.gep184 = getelementptr inbounds nuw i32, ptr @switch.table.lpRandomPairs.5, i64 %309
+  %switch.gep184 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.lpRandomPairs.5, i64 %309
   %switch.load185 = load i32, ptr %switch.gep184, align 4
   br label %lpEncodeBacklenBytes.exit.i
 
@@ -6453,7 +6450,7 @@ lpGetValue.exit:                                  ; preds = %62, %52, %46, %105
   %.0.i.i70 = phi ptr [ null, %105 ], [ %65, %62 ], [ %59, %52 ], [ %48, %46 ]
   %.262 = phi i32 [ %.06080, %105 ], [ %64, %62 ], [ %58, %52 ], [ %47, %46 ]
   %.2 = phi i64 [ %.062.i.i, %105 ], [ %.05981, %62 ], [ %.05981, %52 ], [ %.05981, %46 ]
-  %107 = getelementptr inbounds nuw %struct.listpackEntry, ptr %2, i64 %indvars.iv
+  %107 = getelementptr inbounds nuw [24 x i8], ptr %2, i64 %indvars.iv
   store ptr %.0.i.i70, ptr %107, align 8, !tbaa !29
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 8
   store i32 %.262, ptr %108, align 8, !tbaa !34
@@ -6587,7 +6584,7 @@ lpGetValue.exit43:                                ; preds = %135, %125, %119, %1
   %.0.i.i5276 = phi ptr [ null, %178 ], [ %138, %135 ], [ %132, %125 ], [ %121, %119 ]
   %.363 = phi i32 [ %.262, %178 ], [ %137, %135 ], [ %131, %125 ], [ %120, %119 ]
   %.3 = phi i64 [ %.062.i.i51, %178 ], [ %.2, %135 ], [ %.2, %125 ], [ %.2, %119 ]
-  %180 = getelementptr inbounds nuw %struct.listpackEntry, ptr %3, i64 %indvars.iv
+  %180 = getelementptr inbounds nuw [24 x i8], ptr %3, i64 %indvars.iv
   store ptr %.0.i.i5276, ptr %180, align 8, !tbaa !29
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 8
   store i32 %.363, ptr %181, align 8, !tbaa !34

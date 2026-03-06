@@ -260,7 +260,7 @@ define void @"_ZN67_$LT$wasmi_core..simd..I64x2$u20$as$u20$wasmi_core..simd..Lan
 define noundef i64 @"_ZN67_$LT$wasmi_core..simd..I64x2$u20$as$u20$wasmi_core..simd..Lanes$GT$12extract_lane17hd1e1ec1d9fa2dd88E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, i8 noundef %1) unnamed_addr #6 {
   %3 = and i8 %1, 1
   %4 = zext nneg i8 %3 to i64
-  %5 = getelementptr inbounds nuw i64, ptr %0, i64 %4
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %4
   %6 = load i64, ptr %5, align 8, !noundef !14
   ret i64 %6
 }
@@ -270,7 +270,7 @@ define void @"_ZN67_$LT$wasmi_core..simd..I64x2$u20$as$u20$wasmi_core..simd..Lan
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   %5 = and i8 %2, 1
   %6 = zext nneg i8 %5 to i64
-  %7 = getelementptr inbounds nuw i64, ptr %0, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %6
   store i64 %3, ptr %7, align 8
   ret void
 }
@@ -306,7 +306,7 @@ define void @"_ZN67_$LT$wasmi_core..simd..U64x2$u20$as$u20$wasmi_core..simd..Lan
 define noundef i64 @"_ZN67_$LT$wasmi_core..simd..U64x2$u20$as$u20$wasmi_core..simd..Lanes$GT$12extract_lane17h961f6b208ad68f0fE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, i8 noundef %1) unnamed_addr #6 {
   %3 = and i8 %1, 1
   %4 = zext nneg i8 %3 to i64
-  %5 = getelementptr inbounds nuw i64, ptr %0, i64 %4
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %4
   %6 = load i64, ptr %5, align 8, !noundef !14
   ret i64 %6
 }
@@ -316,7 +316,7 @@ define void @"_ZN67_$LT$wasmi_core..simd..U64x2$u20$as$u20$wasmi_core..simd..Lan
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   %5 = and i8 %2, 1
   %6 = zext nneg i8 %5 to i64
-  %7 = getelementptr inbounds nuw i64, ptr %0, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %6
   store i64 %3, ptr %7, align 8
   ret void
 }
@@ -347,7 +347,7 @@ define void @"_ZN67_$LT$wasmi_core..simd..I32x4$u20$as$u20$wasmi_core..simd..Lan
 
 4:                                                ; preds = %2, %4
   %5 = phi i64 [ 0, %2 ], [ %7, %4 ]
-  %6 = getelementptr inbounds nuw i32, ptr %3, i64 %5
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %5
   store i32 %1, ptr %6, align 4
   %7 = add nuw nsw i64 %5, 1
   %exitcond.not = icmp eq i64 %7, 4
@@ -363,7 +363,7 @@ define void @"_ZN67_$LT$wasmi_core..simd..I32x4$u20$as$u20$wasmi_core..simd..Lan
 define noundef i32 @"_ZN67_$LT$wasmi_core..simd..I32x4$u20$as$u20$wasmi_core..simd..Lanes$GT$12extract_lane17h5dea4d4dbfededffE"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %0, i8 noundef %1) unnamed_addr #6 {
   %3 = and i8 %1, 3
   %4 = zext nneg i8 %3 to i64
-  %5 = getelementptr inbounds nuw i32, ptr %0, i64 %4
+  %5 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %4
   %6 = load i32, ptr %5, align 4, !noundef !14
   ret i32 %6
 }
@@ -373,7 +373,7 @@ define void @"_ZN67_$LT$wasmi_core..simd..I32x4$u20$as$u20$wasmi_core..simd..Lan
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
   %5 = and i8 %2, 3
   %6 = zext nneg i8 %5 to i64
-  %7 = getelementptr inbounds nuw i32, ptr %0, i64 %6
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %6
   store i32 %3, ptr %7, align 4
   ret void
 }
@@ -404,7 +404,7 @@ define void @"_ZN67_$LT$wasmi_core..simd..U32x4$u20$as$u20$wasmi_core..simd..Lan
 
 4:                                                ; preds = %2, %4
   %5 = phi i64 [ 0, %2 ], [ %7, %4 ]
-  %6 = getelementptr inbounds nuw i32, ptr %3, i64 %5
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %5
   store i32 %1, ptr %6, align 4
   %7 = add nuw nsw i64 %5, 1
   %exitcond.not = icmp eq i64 %7, 4
@@ -420,7 +420,7 @@ define void @"_ZN67_$LT$wasmi_core..simd..U32x4$u20$as$u20$wasmi_core..simd..Lan
 define noundef i32 @"_ZN67_$LT$wasmi_core..simd..U32x4$u20$as$u20$wasmi_core..simd..Lanes$GT$12extract_lane17h8b4f6d02aef5626aE"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %0, i8 noundef %1) unnamed_addr #6 {
   %3 = and i8 %1, 3
   %4 = zext nneg i8 %3 to i64
-  %5 = getelementptr inbounds nuw i32, ptr %0, i64 %4
+  %5 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %4
   %6 = load i32, ptr %5, align 4, !noundef !14
   ret i32 %6
 }
@@ -430,7 +430,7 @@ define void @"_ZN67_$LT$wasmi_core..simd..U32x4$u20$as$u20$wasmi_core..simd..Lan
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
   %5 = and i8 %2, 3
   %6 = zext nneg i8 %5 to i64
-  %7 = getelementptr inbounds nuw i32, ptr %0, i64 %6
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %6
   store i32 %3, ptr %7, align 4
   ret void
 }
@@ -461,7 +461,7 @@ define void @"_ZN67_$LT$wasmi_core..simd..I16x8$u20$as$u20$wasmi_core..simd..Lan
 
 4:                                                ; preds = %2, %4
   %5 = phi i64 [ 0, %2 ], [ %7, %4 ]
-  %6 = getelementptr inbounds nuw i16, ptr %3, i64 %5
+  %6 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %5
   store i16 %1, ptr %6, align 2
   %7 = add nuw nsw i64 %5, 1
   %exitcond.not = icmp eq i64 %7, 8
@@ -477,7 +477,7 @@ define void @"_ZN67_$LT$wasmi_core..simd..I16x8$u20$as$u20$wasmi_core..simd..Lan
 define noundef i16 @"_ZN67_$LT$wasmi_core..simd..I16x8$u20$as$u20$wasmi_core..simd..Lanes$GT$12extract_lane17h0511044003bce8b0E"(ptr noalias noundef readonly align 2 captures(none) dereferenceable(16) %0, i8 noundef %1) unnamed_addr #6 {
   %3 = and i8 %1, 7
   %4 = zext nneg i8 %3 to i64
-  %5 = getelementptr inbounds nuw i16, ptr %0, i64 %4
+  %5 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %4
   %6 = load i16, ptr %5, align 2, !noundef !14
   ret i16 %6
 }
@@ -487,7 +487,7 @@ define void @"_ZN67_$LT$wasmi_core..simd..I16x8$u20$as$u20$wasmi_core..simd..Lan
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(16) %0, ptr noundef nonnull align 2 dereferenceable(16) %1, i64 16, i1 false)
   %5 = and i8 %2, 7
   %6 = zext nneg i8 %5 to i64
-  %7 = getelementptr inbounds nuw i16, ptr %0, i64 %6
+  %7 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %6
   store i16 %3, ptr %7, align 2
   ret void
 }
@@ -518,7 +518,7 @@ define void @"_ZN67_$LT$wasmi_core..simd..U16x8$u20$as$u20$wasmi_core..simd..Lan
 
 4:                                                ; preds = %2, %4
   %5 = phi i64 [ 0, %2 ], [ %7, %4 ]
-  %6 = getelementptr inbounds nuw i16, ptr %3, i64 %5
+  %6 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %5
   store i16 %1, ptr %6, align 2
   %7 = add nuw nsw i64 %5, 1
   %exitcond.not = icmp eq i64 %7, 8
@@ -534,7 +534,7 @@ define void @"_ZN67_$LT$wasmi_core..simd..U16x8$u20$as$u20$wasmi_core..simd..Lan
 define noundef i16 @"_ZN67_$LT$wasmi_core..simd..U16x8$u20$as$u20$wasmi_core..simd..Lanes$GT$12extract_lane17hb65487523d36ef35E"(ptr noalias noundef readonly align 2 captures(none) dereferenceable(16) %0, i8 noundef %1) unnamed_addr #6 {
   %3 = and i8 %1, 7
   %4 = zext nneg i8 %3 to i64
-  %5 = getelementptr inbounds nuw i16, ptr %0, i64 %4
+  %5 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %4
   %6 = load i16, ptr %5, align 2, !noundef !14
   ret i16 %6
 }
@@ -544,7 +544,7 @@ define void @"_ZN67_$LT$wasmi_core..simd..U16x8$u20$as$u20$wasmi_core..simd..Lan
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(16) %0, ptr noundef nonnull align 2 dereferenceable(16) %1, i64 16, i1 false)
   %5 = and i8 %2, 7
   %6 = zext nneg i8 %5 to i64
-  %7 = getelementptr inbounds nuw i16, ptr %0, i64 %6
+  %7 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %6
   store i16 %3, ptr %7, align 2
   ret void
 }
@@ -661,7 +661,7 @@ define void @"_ZN67_$LT$wasmi_core..simd..F32x4$u20$as$u20$wasmi_core..simd..Lan
 
 4:                                                ; preds = %2, %4
   %5 = phi i64 [ 0, %2 ], [ %7, %4 ]
-  %6 = getelementptr inbounds nuw float, ptr %3, i64 %5
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %5
   store float %1, ptr %6, align 4
   %7 = add nuw nsw i64 %5, 1
   %exitcond.not = icmp eq i64 %7, 4
@@ -677,7 +677,7 @@ define void @"_ZN67_$LT$wasmi_core..simd..F32x4$u20$as$u20$wasmi_core..simd..Lan
 define noundef float @"_ZN67_$LT$wasmi_core..simd..F32x4$u20$as$u20$wasmi_core..simd..Lanes$GT$12extract_lane17haba826c529b5233bE"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %0, i8 noundef %1) unnamed_addr #6 {
   %3 = and i8 %1, 3
   %4 = zext nneg i8 %3 to i64
-  %5 = getelementptr inbounds nuw float, ptr %0, i64 %4
+  %5 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %4
   %6 = load float, ptr %5, align 4, !noundef !14
   ret float %6
 }
@@ -687,7 +687,7 @@ define void @"_ZN67_$LT$wasmi_core..simd..F32x4$u20$as$u20$wasmi_core..simd..Lan
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
   %5 = and i8 %2, 3
   %6 = zext nneg i8 %5 to i64
-  %7 = getelementptr inbounds nuw float, ptr %0, i64 %6
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %6
   store float %3, ptr %7, align 4
   ret void
 }
@@ -723,7 +723,7 @@ define void @"_ZN67_$LT$wasmi_core..simd..F64x2$u20$as$u20$wasmi_core..simd..Lan
 define noundef double @"_ZN67_$LT$wasmi_core..simd..F64x2$u20$as$u20$wasmi_core..simd..Lanes$GT$12extract_lane17h9eea1e01dbe8cc2aE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, i8 noundef %1) unnamed_addr #6 {
   %3 = and i8 %1, 1
   %4 = zext nneg i8 %3 to i64
-  %5 = getelementptr inbounds nuw double, ptr %0, i64 %4
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %4
   %6 = load double, ptr %5, align 8, !noundef !14
   ret double %6
 }
@@ -733,7 +733,7 @@ define void @"_ZN67_$LT$wasmi_core..simd..F64x2$u20$as$u20$wasmi_core..simd..Lan
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   %5 = and i8 %2, 1
   %6 = zext nneg i8 %5 to i64
-  %7 = getelementptr inbounds nuw double, ptr %0, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %6
   store double %3, ptr %7, align 8
   ret void
 }
@@ -802,7 +802,7 @@ define void @_ZN10wasmi_core4simd11i32x4_splat17h07493a47b482a8e7E(ptr dead_on_u
 
 4:                                                ; preds = %4, %2
   %5 = phi i64 [ 0, %2 ], [ %7, %4 ]
-  %6 = getelementptr inbounds nuw i32, ptr %3, i64 %5
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %5
   store i32 %1, ptr %6, align 4
   %7 = add nuw nsw i64 %5, 1
   %exitcond.not.i = icmp eq i64 %7, 4
@@ -820,7 +820,7 @@ define void @_ZN10wasmi_core4simd11i16x8_splat17h67f70acd1ff756a2E(ptr dead_on_u
 
 4:                                                ; preds = %4, %2
   %5 = phi i64 [ 0, %2 ], [ %7, %4 ]
-  %6 = getelementptr inbounds nuw i16, ptr %3, i64 %5
+  %6 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %5
   store i16 %1, ptr %6, align 2
   %7 = add nuw nsw i64 %5, 1
   %exitcond.not.i = icmp eq i64 %7, 8
@@ -844,7 +844,7 @@ define void @_ZN10wasmi_core4simd11f32x4_splat17h82b5c246f18766d8E(ptr dead_on_u
 
 4:                                                ; preds = %4, %2
   %5 = phi i64 [ 0, %2 ], [ %7, %4 ]
-  %6 = getelementptr inbounds nuw float, ptr %3, i64 %5
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %5
   store float %1, ptr %6, align 4
   %7 = add nuw nsw i64 %5, 1
   %exitcond.not.i = icmp eq i64 %7, 4
@@ -2431,7 +2431,7 @@ define void @_ZN10wasmi_core4simd17v128_load16_splat17hc75e3876642cba9fE(ptr dea
 
 12:                                               ; preds = %12, %11
   %13 = phi i64 [ 0, %11 ], [ %15, %12 ]
-  %14 = getelementptr inbounds nuw i16, ptr %6, i64 %13
+  %14 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %13
   store i16 %.sroa.53.0.extract.trunc, ptr %14, align 2
   %15 = add nuw nsw i64 %13, 1
   %exitcond.not.i = icmp eq i64 %15, 8
@@ -2469,7 +2469,7 @@ define void @_ZN10wasmi_core4simd17v128_load32_splat17hb49b8af8a4baa4fcE(ptr dea
 
 12:                                               ; preds = %12, %11
   %13 = phi i64 [ 0, %11 ], [ %15, %12 ]
-  %14 = getelementptr inbounds nuw i32, ptr %6, i64 %13
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %13
   store i32 %.sroa.6.0.extract.trunc, ptr %14, align 4
   %15 = add nuw nsw i64 %13, 1
   %exitcond.not.i = icmp eq i64 %15, 4
@@ -2561,7 +2561,7 @@ define void @_ZN10wasmi_core4simd20v128_load16_splat_at17h826a0b6cecc72db8E(ptr 
 
 11:                                               ; preds = %11, %10
   %12 = phi i64 [ 0, %10 ], [ %14, %11 ]
-  %13 = getelementptr inbounds nuw i16, ptr %5, i64 %12
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %12
   store i16 %.sroa.53.0.extract.trunc, ptr %13, align 2
   %14 = add nuw nsw i64 %12, 1
   %exitcond.not.i = icmp eq i64 %14, 8
@@ -2599,7 +2599,7 @@ define void @_ZN10wasmi_core4simd20v128_load32_splat_at17h3ab039a11a86f722E(ptr 
 
 11:                                               ; preds = %11, %10
   %12 = phi i64 [ 0, %10 ], [ %14, %11 ]
-  %13 = getelementptr inbounds nuw i32, ptr %5, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %12
   store i32 %.sroa.6.0.extract.trunc, ptr %13, align 4
   %14 = add nuw nsw i64 %12, 1
   %exitcond.not.i = icmp eq i64 %14, 4
@@ -2883,7 +2883,7 @@ define i64 @"_ZN62_$LT$u64$u20$as$u20$wasmi_core..simd..SplitInto$LT$u16$GT$$GT$
   %.sroa.4.0.insert.shift.i.i.i.i.i = shl nuw i16 %.sroa.4.0.insert.ext.i.i.i.i.i, 8
   %.sroa.0.0.insert.ext.i.i.i.i.i = zext i8 %5 to i16
   %.sroa.0.0.insert.insert.i.i.i.i.i = or disjoint i16 %.sroa.4.0.insert.shift.i.i.i.i.i, %.sroa.0.0.insert.ext.i.i.i.i.i
-  %7 = getelementptr inbounds nuw i16, ptr %2, i64 %.sroa.6.05.i.i
+  %7 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %.sroa.6.05.i.i
   store i16 %.sroa.0.0.insert.insert.i.i.i.i.i, ptr %7, align 2, !alias.scope !52, !noalias !65
   %8 = add nuw nsw i64 %.sroa.6.05.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %8, 4
@@ -2919,7 +2919,7 @@ define i64 @"_ZN62_$LT$u64$u20$as$u20$wasmi_core..simd..SplitInto$LT$i16$GT$$GT$
   %.sroa.4.0.insert.shift.i.i.i.i.i = shl nuw i16 %.sroa.4.0.insert.ext.i.i.i.i.i, 8
   %.sroa.0.0.insert.ext.i.i.i.i.i = zext i8 %5 to i16
   %.sroa.0.0.insert.insert.i.i.i.i.i = or disjoint i16 %.sroa.4.0.insert.shift.i.i.i.i.i, %.sroa.0.0.insert.ext.i.i.i.i.i
-  %7 = getelementptr inbounds nuw i16, ptr %2, i64 %.sroa.6.05.i.i
+  %7 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %.sroa.6.05.i.i
   store i16 %.sroa.0.0.insert.insert.i.i.i.i.i, ptr %7, align 2, !alias.scope !71, !noalias !84
   %8 = add nuw nsw i64 %.sroa.6.05.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %8, 4

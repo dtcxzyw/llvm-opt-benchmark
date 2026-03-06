@@ -359,13 +359,13 @@ define internal void @_ZNK4ncnn13Scale_x86_fma15forward_inplaceERSt6vectorINS_3M
   %22 = add nsw i32 %20, %21
   %23 = load ptr, ptr %4, align 8, !tbaa !28
   %24 = sext i32 %22 to i64
-  %25 = getelementptr inbounds float, ptr %23, i64 %24
+  %25 = getelementptr inbounds [4 x i8], ptr %23, i64 %24
   %26 = load <8 x float>, ptr %25, align 1, !tbaa !47
   %27 = load ptr, ptr %5, align 8, !tbaa !28
-  %28 = getelementptr inbounds float, ptr %27, i64 %24
+  %28 = getelementptr inbounds [4 x i8], ptr %27, i64 %24
   %29 = load <8 x float>, ptr %28, align 1, !tbaa !47
   %30 = load ptr, ptr %6, align 8, !tbaa !28
-  %31 = getelementptr inbounds float, ptr %30, i64 %24
+  %31 = getelementptr inbounds [4 x i8], ptr %30, i64 %24
   %32 = load <8 x float>, ptr %31, align 1, !tbaa !47
   %33 = call fast noundef nofpclass(nan inf) <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %26, <8 x float> nofpclass(nan inf) %29, <8 x float> nofpclass(nan inf) %32)
   store <8 x float> %33, ptr %25, align 1, !tbaa !47
@@ -450,13 +450,13 @@ define internal void @_ZNK4ncnn13Scale_x86_fma15forward_inplaceERSt6vectorINS_3M
   %22 = add nsw i32 %20, %21
   %23 = load ptr, ptr %4, align 8, !tbaa !28
   %24 = sext i32 %22 to i64
-  %25 = getelementptr inbounds float, ptr %23, i64 %24
+  %25 = getelementptr inbounds [4 x i8], ptr %23, i64 %24
   %26 = load <4 x float>, ptr %25, align 16, !tbaa !47
   %27 = load ptr, ptr %5, align 8, !tbaa !28
-  %28 = getelementptr inbounds float, ptr %27, i64 %24
+  %28 = getelementptr inbounds [4 x i8], ptr %27, i64 %24
   %29 = load <4 x float>, ptr %28, align 16, !tbaa !47
   %30 = load ptr, ptr %6, align 8, !tbaa !28
-  %31 = getelementptr inbounds float, ptr %30, i64 %24
+  %31 = getelementptr inbounds [4 x i8], ptr %30, i64 %24
   %32 = load <4 x float>, ptr %31, align 1, !tbaa !47
   %33 = call fast noundef nofpclass(nan inf) <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %26, <4 x float> nofpclass(nan inf) %29, <4 x float> nofpclass(nan inf) %32)
   store <4 x float> %33, ptr %25, align 16, !tbaa !47
@@ -518,12 +518,12 @@ define internal void @_ZNK4ncnn13Scale_x86_fma15forward_inplaceERSt6vectorINS_3M
   %.023 = phi i32 [ %21, %.lr.ph ], [ %38, %27 ]
   %28 = add i32 %.023, %12
   %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds float, ptr %24, i64 %29
+  %30 = getelementptr inbounds [4 x i8], ptr %24, i64 %29
   %31 = load float, ptr %30, align 4, !tbaa !50
-  %32 = getelementptr inbounds float, ptr %25, i64 %29
+  %32 = getelementptr inbounds [4 x i8], ptr %25, i64 %29
   %33 = load float, ptr %32, align 4, !tbaa !50
   %34 = fmul fast float %33, %31
-  %35 = getelementptr inbounds float, ptr %26, i64 %29
+  %35 = getelementptr inbounds [4 x i8], ptr %26, i64 %29
   %36 = load float, ptr %35, align 4, !tbaa !50
   %37 = fadd fast float %36, %34
   store float %37, ptr %30, align 4, !tbaa !50
@@ -582,10 +582,10 @@ define internal void @_ZNK4ncnn13Scale_x86_fma15forward_inplaceERSt6vectorINS_3M
   %21 = add nsw i32 %19, %20
   %22 = load ptr, ptr %4, align 8, !tbaa !28
   %23 = sext i32 %21 to i64
-  %24 = getelementptr inbounds float, ptr %22, i64 %23
+  %24 = getelementptr inbounds [4 x i8], ptr %22, i64 %23
   %25 = load <8 x float>, ptr %24, align 1, !tbaa !47
   %26 = load ptr, ptr %5, align 8, !tbaa !28
-  %27 = getelementptr inbounds float, ptr %26, i64 %23
+  %27 = getelementptr inbounds [4 x i8], ptr %26, i64 %23
   %28 = load <8 x float>, ptr %27, align 1, !tbaa !47
   %29 = fmul fast <8 x float> %28, %25
   store <8 x float> %29, ptr %24, align 1, !tbaa !47
@@ -641,10 +641,10 @@ define internal void @_ZNK4ncnn13Scale_x86_fma15forward_inplaceERSt6vectorINS_3M
   %21 = add nsw i32 %19, %20
   %22 = load ptr, ptr %4, align 8, !tbaa !28
   %23 = sext i32 %21 to i64
-  %24 = getelementptr inbounds float, ptr %22, i64 %23
+  %24 = getelementptr inbounds [4 x i8], ptr %22, i64 %23
   %25 = load <4 x float>, ptr %24, align 16, !tbaa !47
   %26 = load ptr, ptr %5, align 8, !tbaa !28
-  %27 = getelementptr inbounds float, ptr %26, i64 %23
+  %27 = getelementptr inbounds [4 x i8], ptr %26, i64 %23
   %28 = load <4 x float>, ptr %27, align 16, !tbaa !47
   %29 = fmul fast <4 x float> %28, %25
   store <4 x float> %29, ptr %24, align 16, !tbaa !47
@@ -705,9 +705,9 @@ define internal void @_ZNK4ncnn13Scale_x86_fma15forward_inplaceERSt6vectorINS_3M
   %.021 = phi i32 [ %20, %.lr.ph ], [ %33, %25 ]
   %26 = add i32 %.021, %11
   %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds float, ptr %23, i64 %27
+  %28 = getelementptr inbounds [4 x i8], ptr %23, i64 %27
   %29 = load float, ptr %28, align 4, !tbaa !50
-  %30 = getelementptr inbounds float, ptr %24, i64 %27
+  %30 = getelementptr inbounds [4 x i8], ptr %24, i64 %27
   %31 = load float, ptr %30, align 4, !tbaa !50
   %32 = fmul fast float %31, %29
   store float %32, ptr %28, align 4, !tbaa !50
@@ -774,7 +774,7 @@ define internal void @_ZNK4ncnn13Scale_x86_fma15forward_inplaceERSt6vectorINS_3M
   %33 = mul i64 %31, %32
   %34 = getelementptr inbounds nuw i8, ptr %28, i64 %33
   %35 = load ptr, ptr %4, align 8, !tbaa !28
-  %36 = getelementptr inbounds float, ptr %35, i64 %indvars.iv
+  %36 = getelementptr inbounds [4 x i8], ptr %35, i64 %indvars.iv
   %37 = load float, ptr %36, align 4, !tbaa !50
   %38 = load i32, ptr %5, align 4, !tbaa !23
   %39 = icmp eq i32 %38, 4
@@ -788,7 +788,7 @@ define internal void @_ZNK4ncnn13Scale_x86_fma15forward_inplaceERSt6vectorINS_3M
 
 44:                                               ; preds = %27
   %45 = shl nsw i64 %indvars.iv, 2
-  %46 = getelementptr inbounds float, ptr %35, i64 %45
+  %46 = getelementptr inbounds [4 x i8], ptr %35, i64 %45
   %47 = load <4 x float>, ptr %46, align 1, !tbaa !47
   %48 = shufflevector <4 x float> %47, <4 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
   %49 = load i32, ptr %24, align 4, !tbaa !30
@@ -810,7 +810,7 @@ define internal void @_ZNK4ncnn13Scale_x86_fma15forward_inplaceERSt6vectorINS_3M
 
 .thread87:                                        ; preds = %.thread84
   %54 = load ptr, ptr %7, align 8, !tbaa !28
-  %55 = getelementptr inbounds float, ptr %54, i64 %indvars.iv
+  %55 = getelementptr inbounds [4 x i8], ptr %54, i64 %indvars.iv
   %56 = load float, ptr %55, align 4, !tbaa !50
   %57 = insertelement <4 x float> poison, float %56, i64 0
   %58 = shufflevector <4 x float> %57, <4 x float> poison, <4 x i32> zeroinitializer
@@ -818,7 +818,7 @@ define internal void @_ZNK4ncnn13Scale_x86_fma15forward_inplaceERSt6vectorINS_3M
 
 .thread80:                                        ; preds = %40
   %59 = shl nsw i64 %indvars.iv, 3
-  %60 = getelementptr inbounds float, ptr %35, i64 %59
+  %60 = getelementptr inbounds [4 x i8], ptr %35, i64 %59
   %61 = load <8 x float>, ptr %60, align 1, !tbaa !47
   %62 = load i32, ptr %24, align 4, !tbaa !30
   %.not6881 = icmp eq i32 %62, 0
@@ -826,19 +826,19 @@ define internal void @_ZNK4ncnn13Scale_x86_fma15forward_inplaceERSt6vectorINS_3M
 
 .thread83:                                        ; preds = %.thread80
   %63 = load ptr, ptr %7, align 8, !tbaa !28
-  %64 = getelementptr inbounds float, ptr %63, i64 %indvars.iv
+  %64 = getelementptr inbounds [4 x i8], ptr %63, i64 %indvars.iv
   %65 = load float, ptr %64, align 4, !tbaa !50
   %66 = insertelement <4 x float> poison, float %65, i64 0
   %67 = shufflevector <4 x float> %66, <4 x float> poison, <4 x i32> zeroinitializer
-  %68 = getelementptr inbounds float, ptr %63, i64 %59
+  %68 = getelementptr inbounds [4 x i8], ptr %63, i64 %59
   %69 = load <8 x float>, ptr %68, align 1, !tbaa !47
   br label %82
 
 70:                                               ; preds = %44
   %71 = load ptr, ptr %7, align 8, !tbaa !28
-  %72 = getelementptr inbounds float, ptr %71, i64 %indvars.iv
+  %72 = getelementptr inbounds [4 x i8], ptr %71, i64 %indvars.iv
   %73 = load float, ptr %72, align 4, !tbaa !50
-  %74 = getelementptr inbounds float, ptr %71, i64 %45
+  %74 = getelementptr inbounds [4 x i8], ptr %71, i64 %45
   %75 = load <4 x float>, ptr %74, align 1, !tbaa !47
   br label %76
 
@@ -1029,7 +1029,7 @@ define internal void @_ZNK4ncnn13Scale_x86_fma15forward_inplaceERSt6vectorINS_3M
   %31 = mul i64 %29, %30
   %32 = getelementptr inbounds nuw i8, ptr %27, i64 %31
   %33 = load ptr, ptr %4, align 8, !tbaa !28
-  %34 = getelementptr inbounds float, ptr %33, i64 %indvars.iv
+  %34 = getelementptr inbounds [4 x i8], ptr %33, i64 %indvars.iv
   %35 = load float, ptr %34, align 4, !tbaa !50
   %36 = load i32, ptr %5, align 4, !tbaa !23
   %37 = icmp eq i32 %36, 4
@@ -1043,7 +1043,7 @@ define internal void @_ZNK4ncnn13Scale_x86_fma15forward_inplaceERSt6vectorINS_3M
 
 42:                                               ; preds = %.noexc
   %43 = shl nsw i64 %indvars.iv, 2
-  %44 = getelementptr inbounds float, ptr %33, i64 %43
+  %44 = getelementptr inbounds [4 x i8], ptr %33, i64 %43
   %45 = load <4 x float>, ptr %44, align 1, !tbaa !47
   %46 = shufflevector <4 x float> %45, <4 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
   %47 = load i32, ptr %24, align 4, !tbaa !30
@@ -1065,7 +1065,7 @@ define internal void @_ZNK4ncnn13Scale_x86_fma15forward_inplaceERSt6vectorINS_3M
 
 .thread94:                                        ; preds = %.thread91
   %52 = load ptr, ptr %7, align 8, !tbaa !28
-  %53 = getelementptr inbounds float, ptr %52, i64 %indvars.iv
+  %53 = getelementptr inbounds [4 x i8], ptr %52, i64 %indvars.iv
   %54 = load float, ptr %53, align 4, !tbaa !50
   %55 = insertelement <4 x float> poison, float %54, i64 0
   %56 = shufflevector <4 x float> %55, <4 x float> poison, <4 x i32> zeroinitializer
@@ -1073,7 +1073,7 @@ define internal void @_ZNK4ncnn13Scale_x86_fma15forward_inplaceERSt6vectorINS_3M
 
 .thread87:                                        ; preds = %38
   %57 = shl nsw i64 %indvars.iv, 3
-  %58 = getelementptr inbounds float, ptr %33, i64 %57
+  %58 = getelementptr inbounds [4 x i8], ptr %33, i64 %57
   %59 = load <8 x float>, ptr %58, align 1, !tbaa !47
   %60 = load i32, ptr %24, align 4, !tbaa !30
   %.not6888 = icmp eq i32 %60, 0
@@ -1081,19 +1081,19 @@ define internal void @_ZNK4ncnn13Scale_x86_fma15forward_inplaceERSt6vectorINS_3M
 
 .thread90:                                        ; preds = %.thread87
   %61 = load ptr, ptr %7, align 8, !tbaa !28
-  %62 = getelementptr inbounds float, ptr %61, i64 %indvars.iv
+  %62 = getelementptr inbounds [4 x i8], ptr %61, i64 %indvars.iv
   %63 = load float, ptr %62, align 4, !tbaa !50
   %64 = insertelement <4 x float> poison, float %63, i64 0
   %65 = shufflevector <4 x float> %64, <4 x float> poison, <4 x i32> zeroinitializer
-  %66 = getelementptr inbounds float, ptr %61, i64 %57
+  %66 = getelementptr inbounds [4 x i8], ptr %61, i64 %57
   %67 = load <8 x float>, ptr %66, align 1, !tbaa !47
   br label %80
 
 68:                                               ; preds = %42
   %69 = load ptr, ptr %7, align 8, !tbaa !28
-  %70 = getelementptr inbounds float, ptr %69, i64 %indvars.iv
+  %70 = getelementptr inbounds [4 x i8], ptr %69, i64 %indvars.iv
   %71 = load float, ptr %70, align 4, !tbaa !50
-  %72 = getelementptr inbounds float, ptr %69, i64 %43
+  %72 = getelementptr inbounds [4 x i8], ptr %69, i64 %43
   %73 = load <4 x float>, ptr %72, align 1, !tbaa !47
   br label %74
 

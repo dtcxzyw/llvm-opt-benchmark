@@ -99,7 +99,7 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
-  %20 = getelementptr inbounds ptr, ptr %13, i64 %16
+  %20 = getelementptr inbounds [8 x i8], ptr %13, i64 %16
   store ptr %18, ptr %20, align 8, !noalias !17
   %21 = add i64 %16, 1
   %.not.i = icmp eq ptr %19, %10
@@ -148,7 +148,7 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   %36 = phi ptr [ %38, %.lr.ph.i23 ], [ %34, %30 ]
   %37 = load ptr, ptr %36, align 8, !noalias !23, !nonnull !3, !noundef !3
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  %39 = getelementptr inbounds ptr, ptr %.sroa.7.0.copyload, i64 %35
+  %39 = getelementptr inbounds [8 x i8], ptr %.sroa.7.0.copyload, i64 %35
   store ptr %37, ptr %39, align 8, !noalias !24
   %40 = add i64 %35, 1
   %.not.i25 = icmp eq ptr %38, %33
@@ -273,7 +273,7 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !47)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !48)
-  %22 = getelementptr inbounds { { { { ptr, i64 } }, {} }, {} }, ptr %13, i64 %16
+  %22 = getelementptr inbounds [16 x i8], ptr %13, i64 %16
   store ptr %18, ptr %22, align 8, !noalias !49
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i64 %20, ptr %23, align 8, !noalias !50
@@ -326,7 +326,7 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %42 = load i64, ptr %41, align 8, !noalias !56, !noundef !3
   %43 = getelementptr inbounds nuw i8, ptr %39, i64 16
-  %44 = getelementptr inbounds { { { { ptr, i64 } }, {} }, {} }, ptr %.sroa.7.0.copyload, i64 %38
+  %44 = getelementptr inbounds [16 x i8], ptr %.sroa.7.0.copyload, i64 %38
   store ptr %40, ptr %44, align 8, !noalias !57
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store i64 %42, ptr %45, align 8, !noalias !64
@@ -616,10 +616,10 @@ define hidden void @_ZN3std4path4Path4join17hb2b04108f9f91377E(ptr dead_on_unwin
 define hidden void @_ZN3std4path4Path4join17he37e492f4a501489E(ptr dead_on_unwind noalias noundef writable sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i8 noundef range(i8 0, 6) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
 switch.lookup:
   %4 = zext nneg i8 %3 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN3std4path4Path4join17he37e492f4a501489E, i64 %4
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN3std4path4Path4join17he37e492f4a501489E, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   %5 = zext nneg i8 %3 to i64
-  %switch.gep1 = getelementptr inbounds nuw i64, ptr @switch.table._ZN3std4path4Path4join17he37e492f4a501489E.11, i64 %5
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN3std4path4Path4join17he37e492f4a501489E.11, i64 %5
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   tail call void @_ZN3std4path4Path5_join17h8965b519821eba8eE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 %switch.load, i64 noundef %switch.load2)
   ret void

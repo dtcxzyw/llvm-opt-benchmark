@@ -13,7 +13,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Head_base" = type { i8 }
 %"struct.std::_Head_base.131" = type { i64 }
 %"struct.std::_Head_base.132" = type { i64 }
-%struct.tlb_entry_t = type { ptr, i64 }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -274,7 +273,7 @@ define noundef i64 @_Z19fast_rv64i_amocas_qP11processor_t6insn_tm(ptr noundef ca
 
 34:                                               ; preds = %32
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %36 = getelementptr inbounds nuw i64, ptr %35, i64 %14
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %14
   %37 = load i64, ptr %36, align 8, !tbaa !14
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %39 = load i64, ptr %38, align 8, !tbaa !14
@@ -288,7 +287,7 @@ define noundef i64 @_Z19fast_rv64i_amocas_qP11processor_t6insn_tm(ptr noundef ca
 
 42:                                               ; preds = %40
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %44 = getelementptr inbounds nuw i64, ptr %43, i64 %24
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %24
   %45 = load i64, ptr %44, align 8, !tbaa !14
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %47 = load i64, ptr %46, align 8, !tbaa !14
@@ -302,7 +301,7 @@ define noundef i64 @_Z19fast_rv64i_amocas_qP11processor_t6insn_tm(ptr noundef ca
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %52 = lshr i64 %1, 15
   %53 = and i64 %52, 31
-  %54 = getelementptr inbounds nuw i64, ptr %51, i64 %53
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %53
   %55 = load i64, ptr %54, align 8, !tbaa !14
   %56 = tail call noundef { i64, i64 } @_ZN5mmu_t20amo_compare_and_swapIoEET_mS1_S1_(ptr noundef nonnull align 8 dereferenceable(43168) %50, i64 noundef %55, i64 noundef %.044.off0, i64 noundef %.044.off64, i64 noundef %.045.off0, i64 noundef %.045.off64)
   br i1 %33, label %61, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit57
@@ -310,7 +309,7 @@ define noundef i64 @_Z19fast_rv64i_amocas_qP11processor_t6insn_tm(ptr noundef ca
 _ZN9regfile_tImLm32ELb1EE5writeEmm.exit57:        ; preds = %48
   %57 = extractvalue { i64, i64 } %56, 1
   %58 = extractvalue { i64, i64 } %56, 0
-  %59 = getelementptr inbounds nuw i64, ptr %51, i64 %14
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %14
   store i64 %58, ptr %59, align 8, !tbaa !14
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   store i64 %57, ptr %60, align 8, !tbaa !14
@@ -342,7 +341,7 @@ define linkonce_odr noundef { i64, i64 } @_ZN5mmu_t20amo_compare_and_swapIoEET_m
   %.not = icmp eq i64 %12, 0
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 39056
   %14 = and i64 %11, 255
-  %15 = getelementptr inbounds nuw i64, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %14
   %16 = load i64, ptr %15, align 8, !tbaa !14
   %17 = icmp eq i64 %16, %11
   %or.cond.i = select i1 %.not, i1 %17, i1 false, !prof !144
@@ -350,7 +349,7 @@ define linkonce_odr noundef { i64, i64 } @_ZN5mmu_t20amo_compare_and_swapIoEET_m
 
 18:                                               ; preds = %.noexc
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32912
-  %20 = getelementptr inbounds nuw %struct.tlb_entry_t, ptr %19, i64 %14
+  %20 = getelementptr inbounds nuw [16 x i8], ptr %19, i64 %14
   %21 = load ptr, ptr %20, align 8, !tbaa !145
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 %1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %9, ptr noundef nonnull align 16 dereferenceable(16) %22, i64 16, i1 false)
@@ -401,7 +400,7 @@ define linkonce_odr noundef { i64, i64 } @_ZN5mmu_t20amo_compare_and_swapIoEET_m
 
 35:                                               ; preds = %33
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 41104
-  %37 = getelementptr inbounds nuw i64, ptr %36, i64 %14
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %14
   %38 = load i64, ptr %37, align 8, !tbaa !14
   %39 = icmp eq i64 %38, %11
   %40 = select i1 %.not, i1 %39, i1 false, !prof !16
@@ -409,7 +408,7 @@ define linkonce_odr noundef { i64, i64 } @_ZN5mmu_t20amo_compare_and_swapIoEET_m
 
 .noexc75:                                         ; preds = %35
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 32912
-  %42 = getelementptr inbounds nuw %struct.tlb_entry_t, ptr %41, i64 %14
+  %42 = getelementptr inbounds nuw [16 x i8], ptr %41, i64 %14
   %43 = load ptr, ptr %42, align 8, !tbaa !145
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 %1
   store i64 %4, ptr %44, align 16
@@ -835,7 +834,7 @@ define noundef i64 @_Z21logged_rv64i_amocas_qP11processor_t6insn_tm(ptr noundef 
 
 36:                                               ; preds = %34
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %38 = getelementptr inbounds nuw i64, ptr %37, i64 %16
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %16
   %39 = load i64, ptr %38, align 8, !tbaa !14
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %41 = load i64, ptr %40, align 8, !tbaa !14
@@ -849,7 +848,7 @@ define noundef i64 @_Z21logged_rv64i_amocas_qP11processor_t6insn_tm(ptr noundef 
 
 44:                                               ; preds = %42
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %46 = getelementptr inbounds nuw i64, ptr %45, i64 %26
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %26
   %47 = load i64, ptr %46, align 8, !tbaa !14
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %49 = load i64, ptr %48, align 8, !tbaa !14
@@ -863,7 +862,7 @@ define noundef i64 @_Z21logged_rv64i_amocas_qP11processor_t6insn_tm(ptr noundef 
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %54 = lshr i64 %1, 15
   %55 = and i64 %54, 31
-  %56 = getelementptr inbounds nuw i64, ptr %53, i64 %55
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %55
   %57 = load i64, ptr %56, align 8, !tbaa !14
   %58 = tail call noundef { i64, i64 } @_ZN5mmu_t20amo_compare_and_swapIoEET_mS1_S1_(ptr noundef nonnull align 8 dereferenceable(43168) %52, i64 noundef %57, i64 noundef %.059.off0, i64 noundef %.059.off64, i64 noundef %.060.off0, i64 noundef %.060.off64)
   br i1 %35, label %68, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit72
@@ -880,7 +879,7 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit72:        ; preds = %50
   %.sroa.44.0..sroa_idx = getelementptr inbounds nuw i8, ptr %63, i64 8
   store i64 0, ptr %.sroa.44.0..sroa_idx, align 8, !tbaa !180
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %64 = getelementptr inbounds nuw i64, ptr %53, i64 %16
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %16
   store i64 %60, ptr %64, align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %65 = or disjoint i64 %62, 16
@@ -1079,7 +1078,7 @@ define noundef i64 @_Z19fast_rv64e_amocas_qP11processor_t6insn_tm(ptr noundef ca
 
 41:                                               ; preds = %34
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %43 = getelementptr inbounds nuw i64, ptr %42, i64 %14
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %14
   %44 = load i64, ptr %43, align 8, !tbaa !14
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %46 = load i64, ptr %45, align 8, !tbaa !14
@@ -1109,7 +1108,7 @@ define noundef i64 @_Z19fast_rv64e_amocas_qP11processor_t6insn_tm(ptr noundef ca
 
 56:                                               ; preds = %49
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %58 = getelementptr inbounds nuw i64, ptr %57, i64 %24
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %24
   %59 = load i64, ptr %58, align 8, !tbaa !14
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %61 = load i64, ptr %60, align 8, !tbaa !14
@@ -1139,7 +1138,7 @@ define noundef i64 @_Z19fast_rv64e_amocas_qP11processor_t6insn_tm(ptr noundef ca
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %73 = load ptr, ptr %72, align 8, !tbaa !17
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %75 = getelementptr inbounds nuw i64, ptr %74, i64 %64
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %64
   %76 = load i64, ptr %75, align 8, !tbaa !14
   %77 = tail call noundef { i64, i64 } @_ZN5mmu_t20amo_compare_and_swapIoEET_mS1_S1_(ptr noundef nonnull align 8 dereferenceable(43168) %73, i64 noundef %76, i64 noundef %.071.off0, i64 noundef %.071.off64, i64 noundef %.072.off0, i64 noundef %.072.off64)
   br i1 %33, label %83, label %78
@@ -1147,7 +1146,7 @@ define noundef i64 @_Z19fast_rv64e_amocas_qP11processor_t6insn_tm(ptr noundef ca
 78:                                               ; preds = %71
   %79 = extractvalue { i64, i64 } %77, 1
   %80 = extractvalue { i64, i64 } %77, 0
-  %81 = getelementptr inbounds nuw i64, ptr %74, i64 %14
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %14
   store i64 %80, ptr %81, align 8, !tbaa !14
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
   store i64 %79, ptr %82, align 8, !tbaa !14
@@ -1254,7 +1253,7 @@ define noundef i64 @_Z21logged_rv64e_amocas_qP11processor_t6insn_tm(ptr noundef 
 
 43:                                               ; preds = %36
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %45 = getelementptr inbounds nuw i64, ptr %44, i64 %16
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %16
   %46 = load i64, ptr %45, align 8, !tbaa !14
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %48 = load i64, ptr %47, align 8, !tbaa !14
@@ -1284,7 +1283,7 @@ define noundef i64 @_Z21logged_rv64e_amocas_qP11processor_t6insn_tm(ptr noundef 
 
 58:                                               ; preds = %51
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %60 = getelementptr inbounds nuw i64, ptr %59, i64 %26
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %26
   %61 = load i64, ptr %60, align 8, !tbaa !14
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %63 = load i64, ptr %62, align 8, !tbaa !14
@@ -1314,7 +1313,7 @@ define noundef i64 @_Z21logged_rv64e_amocas_qP11processor_t6insn_tm(ptr noundef 
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %75 = load ptr, ptr %74, align 8, !tbaa !17
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %77 = getelementptr inbounds nuw i64, ptr %76, i64 %66
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %66
   %78 = load i64, ptr %77, align 8, !tbaa !14
   %79 = tail call noundef { i64, i64 } @_ZN5mmu_t20amo_compare_and_swapIoEET_mS1_S1_(ptr noundef nonnull align 8 dereferenceable(43168) %75, i64 noundef %78, i64 noundef %.086.off0, i64 noundef %.086.off64, i64 noundef %.087.off0, i64 noundef %.087.off64)
   br i1 %35, label %90, label %80
@@ -1331,7 +1330,7 @@ define noundef i64 @_Z21logged_rv64e_amocas_qP11processor_t6insn_tm(ptr noundef 
   %.sroa.45.0..sroa_idx = getelementptr inbounds nuw i8, ptr %85, i64 8
   store i64 0, ptr %.sroa.45.0..sroa_idx, align 8, !tbaa !180
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %86 = getelementptr inbounds nuw i64, ptr %76, i64 %16
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %16
   store i64 %82, ptr %86, align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %87 = or disjoint i64 %84, 16
@@ -1586,7 +1585,7 @@ _ZNSt6vectorISt5tupleIJmmhEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22: ; preds
 _ZNSt12_Vector_baseISt5tupleIJmmhEESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorISt5tupleIJmmhEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22, %49
   store ptr %20, ptr %0, align 8, !tbaa !193
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !191
-  %53 = getelementptr inbounds nuw %"class.std::tuple", ptr %20, i64 %16
+  %53 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %53, ptr %48, align 8, !tbaa !192
   ret void
 }

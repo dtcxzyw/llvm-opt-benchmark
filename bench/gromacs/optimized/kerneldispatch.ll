@@ -35,42 +35,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.gmx::ArrayRefIter.7" = type { ptr }
 %"class.gmx::ArrayRef.143" = type { %"struct.gmx::ArrayRefIter.144", %"struct.gmx::ArrayRefIter.144" }
 %"struct.gmx::ArrayRefIter.144" = type { ptr }
-%"struct.gmx::nbnxn_atomdata_output_t" = type { %"class.std::vector.88", %"class.std::vector.88", %"class.std::vector.88", %"class.std::vector.88", %"class.std::unique_ptr.125", %"class.std::unique_ptr.133" }
-%"class.std::vector.88" = type { %"struct.std::_Vector_base.89" }
-%"struct.std::_Vector_base.89" = type { %"struct.std::_Vector_base<float, gmx::Allocator<float, gmx::HostAllocationPolicy>>::_Vector_impl" }
-%"struct.std::_Vector_base<float, gmx::Allocator<float, gmx::HostAllocationPolicy>>::_Vector_impl" = type { %"class.gmx::Allocator.base", %"struct.std::_Vector_base<float, gmx::Allocator<float, gmx::HostAllocationPolicy>>::_Vector_impl_data" }
-%"class.gmx::Allocator.base" = type { %"class.gmx::HostAllocationPolicy.base" }
-%"class.gmx::HostAllocationPolicy.base" = type <{ i32, i8 }>
-%"struct.std::_Vector_base<float, gmx::Allocator<float, gmx::HostAllocationPolicy>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::unique_ptr.125" = type { %"struct.std::__uniq_ptr_data.126" }
-%"struct.std::__uniq_ptr_data.126" = type { %"class.std::__uniq_ptr_impl.127" }
-%"class.std::__uniq_ptr_impl.127" = type { %"class.std::tuple.128" }
-%"class.std::tuple.128" = type { %"struct.std::_Tuple_impl.129" }
-%"struct.std::_Tuple_impl.129" = type { %"struct.std::_Head_base.132" }
-%"struct.std::_Head_base.132" = type { ptr }
-%"class.std::unique_ptr.133" = type { %"struct.std::__uniq_ptr_data.134" }
-%"struct.std::__uniq_ptr_data.134" = type { %"class.std::__uniq_ptr_impl.135" }
-%"class.std::__uniq_ptr_impl.135" = type { %"class.std::tuple.136" }
-%"class.std::tuple.136" = type { %"struct.std::_Tuple_impl.137" }
-%"struct.std::_Tuple_impl.137" = type { %"struct.std::_Head_base.140" }
-%"struct.std::_Head_base.140" = type { ptr }
-%"struct.gmx::NbnxnPairlistCpu" = type { %"struct.gmx::gmx_cache_protect_t", i32, i32, float, %"class.std::vector.146", %"class.std::vector.146", %"class.gmx::JClusterList", %"class.std::vector.151", i32, %"class.std::unique_ptr.157", %"struct.gmx::gmx_cache_protect_t" }
-%"class.std::vector.146" = type { %"struct.std::_Vector_base.147" }
-%"struct.std::_Vector_base.147" = type { %"struct.std::_Vector_base<gmx::nbnxn_ci_t, gmx::DefaultInitializationAllocator<gmx::nbnxn_ci_t>>::_Vector_impl" }
-%"struct.std::_Vector_base<gmx::nbnxn_ci_t, gmx::DefaultInitializationAllocator<gmx::nbnxn_ci_t>>::_Vector_impl" = type { %"struct.std::_Vector_base<gmx::nbnxn_ci_t, gmx::DefaultInitializationAllocator<gmx::nbnxn_ci_t>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<gmx::nbnxn_ci_t, gmx::DefaultInitializationAllocator<gmx::nbnxn_ci_t>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.gmx::JClusterList" = type { %"class.std::vector.151" }
-%"class.std::vector.151" = type { %"struct.std::_Vector_base.152" }
-%"struct.std::_Vector_base.152" = type { %"struct.std::_Vector_base<gmx::nbnxn_cj_t, gmx::DefaultInitializationAllocator<gmx::nbnxn_cj_t>>::_Vector_impl" }
-%"struct.std::_Vector_base<gmx::nbnxn_cj_t, gmx::DefaultInitializationAllocator<gmx::nbnxn_cj_t>>::_Vector_impl" = type { %"struct.std::_Vector_base<gmx::nbnxn_cj_t, gmx::DefaultInitializationAllocator<gmx::nbnxn_cj_t>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<gmx::nbnxn_cj_t, gmx::DefaultInitializationAllocator<gmx::nbnxn_cj_t>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::unique_ptr.157" = type { %"struct.std::__uniq_ptr_data.158" }
-%"struct.std::__uniq_ptr_data.158" = type { %"class.std::__uniq_ptr_impl.159" }
-%"class.std::__uniq_ptr_impl.159" = type { %"class.std::tuple.160" }
-%"class.std::tuple.160" = type { %"struct.std::_Tuple_impl.161" }
-%"struct.std::_Tuple_impl.161" = type { %"struct.std::_Head_base.164" }
-%"struct.std::_Head_base.164" = type { ptr }
-%"struct.gmx::gmx_cache_protect_t" = type { [16 x i32] }
 
 $_ZN3gmxlsINS_17InvalidInputErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3stdE12is_base_of_vINS_16GromacsExceptionET_EES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE = comdat any
 
@@ -1036,7 +1000,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.thread.i: ; preds = %120, %117, %114,
   %126 = getelementptr inbounds nuw i8, ptr %.0.i, i64 116
   %127 = load i32, ptr %126, align 4, !tbaa !177
   %128 = sitofp i32 %127 to double
-  %129 = getelementptr inbounds nuw double, ptr %8, i64 %spec.select.i16
+  %129 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %spec.select.i16
   %130 = load double, ptr %129, align 8, !tbaa !192
   %131 = fadd double %130, %128
   store double %131, ptr %129, align 8, !tbaa !192
@@ -1044,7 +1008,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.thread.i: ; preds = %120, %117, %114,
   %133 = load i32, ptr %132, align 8, !tbaa !193
   %134 = sitofp i32 %133 to double
   %135 = select i1 %124, i64 33, i64 32
-  %136 = getelementptr inbounds nuw double, ptr %8, i64 %135
+  %136 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %135
   %137 = load double, ptr %136, align 8, !tbaa !192
   %138 = fadd double %137, %134
   store double %138, ptr %136, align 8, !tbaa !192
@@ -1071,7 +1035,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.thread.i: ; preds = %120, %117, %114,
   %149 = add nsw i32 %133, %127
   %150 = sitofp i32 %149 to double
   %151 = zext i8 %148 to i64
-  %152 = getelementptr inbounds nuw double, ptr %8, i64 %151
+  %152 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %151
   %153 = load double, ptr %152, align 8, !tbaa !192
   %154 = fadd double %153, %150
   store double %154, ptr %152, align 8, !tbaa !192
@@ -1087,7 +1051,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.thread.i: ; preds = %120, %117, %114,
   %160 = add nsw i32 %133, %127
   %161 = sitofp i32 %160 to double
   %162 = zext i8 %159 to i64
-  %163 = getelementptr inbounds nuw double, ptr %8, i64 %162
+  %163 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %162
   %164 = load double, ptr %163, align 8, !tbaa !192
   %165 = fadd double %164, %161
   store double %165, ptr %163, align 8, !tbaa !192
@@ -1148,7 +1112,7 @@ define internal void @_ZN3gmxL16nbnxn_kernel_cpuERKNS_11PairlistSetERKNS_16Nbnxm
   %sext = shl i64 %.0105, 32
   %37 = ashr exact i64 %sext, 32
   %38 = load ptr, ptr %36, align 8, !tbaa !170
-  %39 = getelementptr inbounds nuw %"struct.gmx::nbnxn_atomdata_output_t", ptr %38, i64 %37
+  %39 = getelementptr inbounds nuw [144 x i8], ptr %38, i64 %37
   %40 = load i32, ptr %4, align 4, !tbaa !11
   %41 = icmp eq i32 %40, 1
   br i1 %41, label %42, label %47
@@ -1167,7 +1131,7 @@ define internal void @_ZN3gmxL16nbnxn_kernel_cpuERKNS_11PairlistSetERKNS_16Nbnxm
 47:                                               ; preds = %44, %34
   %48 = load i64, ptr %2, align 8
   %49 = inttoptr i64 %48 to ptr
-  %50 = getelementptr inbounds %"struct.gmx::NbnxnPairlistCpu", ptr %49, i64 %.0105
+  %50 = getelementptr inbounds [256 x i8], ptr %49, i64 %.0105
   %51 = load i8, ptr %32, align 1, !tbaa !162, !range !164, !noundef !165
   %52 = trunc nuw i8 %51 to i1
   br i1 %52, label %78, label %53
@@ -1184,14 +1148,14 @@ define internal void @_ZN3gmxL16nbnxn_kernel_cpuERKNS_11PairlistSetERKNS_16Nbnxm
 55:                                               ; preds = %53
   %56 = load i32, ptr %8, align 4, !tbaa !11
   %57 = sext i32 %56 to i64
-  %58 = getelementptr inbounds [7 x ptr], ptr @_ZN3gmxL27nbnxn_kernel_4x4_noener_refE, i64 %57
+  %58 = getelementptr inbounds [56 x i8], ptr @_ZN3gmxL27nbnxn_kernel_4x4_noener_refE, i64 %57
   br label %.invoke
 
 .invoke:                                          ; preds = %73, %69, %65, %55
   %.sink112 = phi ptr [ %76, %73 ], [ %72, %69 ], [ %68, %65 ], [ %58, %55 ]
   %59 = load i32, ptr %9, align 4, !tbaa !11
   %60 = sext i32 %59 to i64
-  %61 = getelementptr inbounds ptr, ptr %.sink112, i64 %60
+  %61 = getelementptr inbounds [8 x i8], ptr %.sink112, i64 %60
   %62 = load ptr, ptr %61, align 8, !tbaa !195
   %63 = load ptr, ptr %3, align 8, !tbaa !52
   %64 = load ptr, ptr %11, align 8, !tbaa !161
@@ -1201,19 +1165,19 @@ define internal void @_ZN3gmxL16nbnxn_kernel_cpuERKNS_11PairlistSetERKNS_16Nbnxm
 65:                                               ; preds = %53
   %66 = load i32, ptr %8, align 4, !tbaa !11
   %67 = sext i32 %66 to i64
-  %68 = getelementptr inbounds [6 x ptr], ptr @_ZN3gmxL25nbnxmKernelNoenerSimd2xmmE, i64 %67
+  %68 = getelementptr inbounds [48 x i8], ptr @_ZN3gmxL25nbnxmKernelNoenerSimd2xmmE, i64 %67
   br label %.invoke
 
 69:                                               ; preds = %53
   %70 = load i32, ptr %8, align 4, !tbaa !11
   %71 = sext i32 %70 to i64
-  %72 = getelementptr inbounds [6 x ptr], ptr @_ZN3gmxL24nbnxmKernelNoenerSimd4xmE, i64 %71
+  %72 = getelementptr inbounds [48 x i8], ptr @_ZN3gmxL24nbnxmKernelNoenerSimd4xmE, i64 %71
   br label %.invoke
 
 73:                                               ; preds = %53
   %74 = load i32, ptr %8, align 4, !tbaa !11
   %75 = sext i32 %74 to i64
-  %76 = getelementptr inbounds [7 x ptr], ptr @_ZN3gmxL27nbnxn_kernel_1x1_noener_refE, i64 %75
+  %76 = getelementptr inbounds [56 x i8], ptr @_ZN3gmxL27nbnxn_kernel_1x1_noener_refE, i64 %75
   br label %.invoke
 
 .invoke111:                                       ; preds = %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3gmx9AllocatorIfNS4_20HostAllocationPolicyEEEEEEfEvT_SA_RKT0_.exit92, %98, %53
@@ -1268,14 +1232,14 @@ define internal void @_ZN3gmxL16nbnxn_kernel_cpuERKNS_11PairlistSetERKNS_16Nbnxm
 100:                                              ; preds = %98
   %101 = load i32, ptr %8, align 4, !tbaa !11
   %102 = sext i32 %101 to i64
-  %103 = getelementptr inbounds [7 x ptr], ptr @_ZN3gmxL25nbnxn_kernel_4x4_ener_refE, i64 %102
+  %103 = getelementptr inbounds [56 x i8], ptr @_ZN3gmxL25nbnxn_kernel_4x4_ener_refE, i64 %102
   br label %.invoke109
 
 .invoke109:                                       ; preds = %118, %114, %110, %100
   %.sink114 = phi ptr [ %121, %118 ], [ %117, %114 ], [ %113, %110 ], [ %103, %100 ]
   %104 = load i32, ptr %9, align 4, !tbaa !11
   %105 = sext i32 %104 to i64
-  %106 = getelementptr inbounds ptr, ptr %.sink114, i64 %105
+  %106 = getelementptr inbounds [8 x i8], ptr %.sink114, i64 %105
   %107 = load ptr, ptr %106, align 8, !tbaa !195
   %108 = load ptr, ptr %3, align 8, !tbaa !52
   %109 = load ptr, ptr %11, align 8, !tbaa !161
@@ -1285,19 +1249,19 @@ define internal void @_ZN3gmxL16nbnxn_kernel_cpuERKNS_11PairlistSetERKNS_16Nbnxm
 110:                                              ; preds = %98
   %111 = load i32, ptr %8, align 4, !tbaa !11
   %112 = sext i32 %111 to i64
-  %113 = getelementptr inbounds [6 x ptr], ptr @_ZN3gmxL23nbnxmKernelEnerSimd2xmmE, i64 %112
+  %113 = getelementptr inbounds [48 x i8], ptr @_ZN3gmxL23nbnxmKernelEnerSimd2xmmE, i64 %112
   br label %.invoke109
 
 114:                                              ; preds = %98
   %115 = load i32, ptr %8, align 4, !tbaa !11
   %116 = sext i32 %115 to i64
-  %117 = getelementptr inbounds [6 x ptr], ptr @_ZN3gmxL22nbnxmKernelEnerSimd4xmE, i64 %116
+  %117 = getelementptr inbounds [48 x i8], ptr @_ZN3gmxL22nbnxmKernelEnerSimd4xmE, i64 %116
   br label %.invoke109
 
 118:                                              ; preds = %98
   %119 = load i32, ptr %8, align 4, !tbaa !11
   %120 = sext i32 %119 to i64
-  %121 = getelementptr inbounds [7 x ptr], ptr @_ZN3gmxL25nbnxn_kernel_1x1_ener_refE, i64 %120
+  %121 = getelementptr inbounds [56 x i8], ptr @_ZN3gmxL25nbnxn_kernel_1x1_ener_refE, i64 %120
   br label %.invoke109
 
 122:                                              ; preds = %.invoke109
@@ -1377,14 +1341,14 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3gmx9AllocatorIfNS4_20Hos
 163:                                              ; preds = %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3gmx9AllocatorIfNS4_20HostAllocationPolicyEEEEEEfEvT_SA_RKT0_.exit92
   %164 = load i32, ptr %8, align 4, !tbaa !11
   %165 = sext i32 %164 to i64
-  %166 = getelementptr inbounds [7 x ptr], ptr @_ZN3gmxL28nbnxn_kernel_4x4_energrp_refE, i64 %165
+  %166 = getelementptr inbounds [56 x i8], ptr @_ZN3gmxL28nbnxn_kernel_4x4_energrp_refE, i64 %165
   br label %.invoke110
 
 .invoke110:                                       ; preds = %181, %177, %173, %163
   %.sink116 = phi ptr [ %184, %181 ], [ %180, %177 ], [ %176, %173 ], [ %166, %163 ]
   %167 = load i32, ptr %9, align 4, !tbaa !11
   %168 = sext i32 %167 to i64
-  %169 = getelementptr inbounds ptr, ptr %.sink116, i64 %168
+  %169 = getelementptr inbounds [8 x i8], ptr %.sink116, i64 %168
   %170 = load ptr, ptr %169, align 8, !tbaa !195
   %171 = load ptr, ptr %3, align 8, !tbaa !52
   %172 = load ptr, ptr %11, align 8, !tbaa !161
@@ -1394,19 +1358,19 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3gmx9AllocatorIfNS4_20Hos
 173:                                              ; preds = %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3gmx9AllocatorIfNS4_20HostAllocationPolicyEEEEEEfEvT_SA_RKT0_.exit92
   %174 = load i32, ptr %8, align 4, !tbaa !11
   %175 = sext i32 %174 to i64
-  %176 = getelementptr inbounds [6 x ptr], ptr @_ZN3gmxL26nbnxmKernelEnergrpSimd2xmmE, i64 %175
+  %176 = getelementptr inbounds [48 x i8], ptr @_ZN3gmxL26nbnxmKernelEnergrpSimd2xmmE, i64 %175
   br label %.invoke110
 
 177:                                              ; preds = %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3gmx9AllocatorIfNS4_20HostAllocationPolicyEEEEEEfEvT_SA_RKT0_.exit92
   %178 = load i32, ptr %8, align 4, !tbaa !11
   %179 = sext i32 %178 to i64
-  %180 = getelementptr inbounds [6 x ptr], ptr @_ZN3gmxL25nbnxmKernelEnergrpSimd4xmE, i64 %179
+  %180 = getelementptr inbounds [48 x i8], ptr @_ZN3gmxL25nbnxmKernelEnergrpSimd4xmE, i64 %179
   br label %.invoke110
 
 181:                                              ; preds = %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3gmx9AllocatorIfNS4_20HostAllocationPolicyEEEEEEfEvT_SA_RKT0_.exit92
   %182 = load i32, ptr %8, align 4, !tbaa !11
   %183 = sext i32 %182 to i64
-  %184 = getelementptr inbounds [7 x ptr], ptr @_ZN3gmxL28nbnxn_kernel_1x1_energrp_refE, i64 %183
+  %184 = getelementptr inbounds [56 x i8], ptr @_ZN3gmxL28nbnxn_kernel_1x1_energrp_refE, i64 %183
   br label %.invoke110
 
 185:                                              ; preds = %.invoke110

@@ -4,9 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.dt_introspection_t = type { i32, i32, ptr, i64, ptr, i64, i64, ptr }
-%union.dt_introspection_field_t = type { %struct.dt_introspection_type_double_t }
-%struct.dt_introspection_type_double_t = type { %struct.dt_introspection_type_header_t, double, double, double }
-%struct.dt_introspection_type_header_t = type { i32, ptr, ptr, ptr, ptr, i64, i64, ptr }
 
 @.str = private unnamed_addr constant [6 x i8] c"bloom\00", align 1
 @.str.1 = private unnamed_addr constant [46 x i8] c"apply Orton effect for a dreamy ethereal look\00", align 1
@@ -156,7 +153,7 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %60 = fmul reassoc nsz arcp contract afn float %59, %51
   %61 = fcmp reassoc nsz arcp contract afn ogt float %60, %53
   %62 = select reassoc nsz arcp contract afn i1 %61, float %60, float 0.000000e+00
-  %63 = getelementptr inbounds nuw float, ptr %.pre, i64 %.06164
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %.pre, i64 %.06164
   store float %62, ptr %63, align 4, !tbaa !37
   %64 = add nuw i64 %.06164, 1
   %exitcond.not = icmp eq i64 %64, %25
@@ -169,31 +166,31 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
 .lr.ph67:                                         ; preds = %._crit_edge, %.lr.ph67
   %.065 = phi i64 [ %88, %.lr.ph67 ], [ 0, %._crit_edge ]
   %65 = shl i64 %.065, 2
-  %66 = getelementptr inbounds nuw float, ptr %2, i64 %65
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %65
   %67 = load float, ptr %66, align 16, !tbaa !37
-  %68 = getelementptr inbounds nuw float, ptr %.pre72, i64 %.065
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %.pre72, i64 %.065
   %69 = load float, ptr %68, align 4, !tbaa !37
   %70 = fsub reassoc nsz arcp contract afn float 1.000000e+02, %69
   %71 = fmul reassoc nsz arcp contract afn float %67, 0x3F847AE140000000
   %72 = fsub reassoc nsz arcp contract afn float 1.000000e+00, %71
   %73 = fmul reassoc nsz arcp contract afn float %72, %70
   %74 = fsub reassoc nsz arcp contract afn float 1.000000e+02, %73
-  %75 = getelementptr inbounds nuw float, ptr %3, i64 %65
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %65
   store float %74, ptr %75, align 16, !tbaa !37
   %76 = or disjoint i64 %65, 1
-  %77 = getelementptr inbounds nuw float, ptr %2, i64 %76
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %76
   %78 = load float, ptr %77, align 4, !tbaa !37
-  %79 = getelementptr inbounds nuw float, ptr %3, i64 %76
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %76
   store float %78, ptr %79, align 4, !tbaa !37
   %80 = or disjoint i64 %65, 2
-  %81 = getelementptr inbounds nuw float, ptr %2, i64 %80
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %80
   %82 = load float, ptr %81, align 8, !tbaa !37
-  %83 = getelementptr inbounds nuw float, ptr %3, i64 %80
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %80
   store float %82, ptr %83, align 8, !tbaa !37
   %84 = or disjoint i64 %65, 3
-  %85 = getelementptr inbounds nuw float, ptr %2, i64 %84
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %84
   %86 = load float, ptr %85, align 4, !tbaa !37
-  %87 = getelementptr inbounds nuw float, ptr %3, i64 %84
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %84
   store float %86, ptr %87, align 4, !tbaa !37
   %88 = add nuw i64 %.065, 1
   %exitcond71.not = icmp eq i64 %88, %25
@@ -389,7 +386,7 @@ define range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) l
 
 .preheader:                                       ; preds = %2, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %2 ]
-  %7 = getelementptr inbounds nuw %union.dt_introspection_field_t, ptr @introspection_linear, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [88 x i8], ptr @introspection_linear, i64 %indvars.iv
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store ptr %0, ptr %8, align 8, !tbaa !74
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

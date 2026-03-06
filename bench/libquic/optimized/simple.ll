@@ -1669,7 +1669,7 @@ define hidden range(i32 0, 2) i32 @ec_GFp_simple_points_make_affine(ptr noundef 
 .preheader207:                                    ; preds = %16, %19
   %.0130169 = phi i64 [ %20, %19 ], [ 0, %16 ]
   %21 = tail call ptr @BN_new() #4
-  %22 = getelementptr inbounds nuw ptr, ptr %calloc, i64 %.0130169
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %calloc, i64 %.0130169
   store ptr %21, ptr %22, align 8, !tbaa !25
   %23 = icmp eq ptr %21, null
   br i1 %23, label %.thread, label %19
@@ -1701,7 +1701,7 @@ define hidden range(i32 0, 2) i32 @ec_GFp_simple_points_make_affine(ptr noundef 
 
 .lr.ph:                                           ; preds = %37, %59
   %.1170 = phi i64 [ %60, %59 ], [ 1, %37 ]
-  %38 = getelementptr inbounds nuw ptr, ptr %2, i64 %.1170
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.1170
   %39 = load ptr, ptr %38, align 8, !tbaa !27
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 56
   %41 = tail call i32 @BN_is_zero(ptr noundef nonnull %40) #4
@@ -1712,7 +1712,7 @@ define hidden range(i32 0, 2) i32 @ec_GFp_simple_points_make_affine(ptr noundef 
   %43 = load ptr, ptr %0, align 8, !tbaa !17
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 56
   %45 = load ptr, ptr %44, align 8, !tbaa !21
-  %46 = getelementptr inbounds nuw ptr, ptr %calloc, i64 %.1170
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %calloc, i64 %.1170
   %47 = load ptr, ptr %46, align 8, !tbaa !25
   %48 = getelementptr i8, ptr %46, i64 -8
   %49 = load ptr, ptr %48, align 8, !tbaa !25
@@ -1723,7 +1723,7 @@ define hidden range(i32 0, 2) i32 @ec_GFp_simple_points_make_affine(ptr noundef 
   br i1 %.not161, label %.thread, label %59
 
 53:                                               ; preds = %.lr.ph
-  %54 = getelementptr inbounds nuw ptr, ptr %calloc, i64 %.1170
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %calloc, i64 %.1170
   %55 = load ptr, ptr %54, align 8, !tbaa !25
   %56 = getelementptr i8, ptr %54, i64 -8
   %57 = load ptr, ptr %56, align 8, !tbaa !25
@@ -1738,7 +1738,7 @@ define hidden range(i32 0, 2) i32 @ec_GFp_simple_points_make_affine(ptr noundef 
 
 ._crit_edge:                                      ; preds = %59, %37
   %61 = add i64 %1, -1
-  %62 = getelementptr inbounds nuw ptr, ptr %calloc, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %calloc, i64 %61
   %63 = load ptr, ptr %62, align 8, !tbaa !25
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %65 = tail call ptr @BN_mod_inverse(ptr noundef %12, ptr noundef %63, ptr noundef nonnull %64, ptr noundef nonnull %.0132) #4
@@ -1775,7 +1775,7 @@ define hidden range(i32 0, 2) i32 @ec_GFp_simple_points_make_affine(ptr noundef 
 
 .lr.ph174:                                        ; preds = %78, %102
   %.2172 = phi i64 [ %103, %102 ], [ %61, %78 ]
-  %79 = getelementptr inbounds nuw ptr, ptr %2, i64 %.2172
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.2172
   %80 = load ptr, ptr %79, align 8, !tbaa !27
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 56
   %82 = tail call i32 @BN_is_zero(ptr noundef nonnull %81) #4
@@ -1786,7 +1786,7 @@ define hidden range(i32 0, 2) i32 @ec_GFp_simple_points_make_affine(ptr noundef 
   %84 = load ptr, ptr %0, align 8, !tbaa !17
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 56
   %86 = load ptr, ptr %85, align 8, !tbaa !21
-  %87 = getelementptr ptr, ptr %calloc, i64 %.2172
+  %87 = getelementptr [8 x i8], ptr %calloc, i64 %.2172
   %88 = getelementptr i8, ptr %87, i64 -8
   %89 = load ptr, ptr %88, align 8, !tbaa !25
   %90 = tail call i32 %86(ptr noundef nonnull %0, ptr noundef %13, ptr noundef %89, ptr noundef %12, ptr noundef nonnull %.0132) #4
@@ -1835,7 +1835,7 @@ define hidden range(i32 0, 2) i32 @ec_GFp_simple_points_make_affine(ptr noundef 
 
 113:                                              ; preds = %111, %143
   %.3176 = phi i64 [ 0, %111 ], [ %144, %143 ]
-  %114 = getelementptr inbounds nuw ptr, ptr %2, i64 %.3176
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.3176
   %115 = load ptr, ptr %114, align 8, !tbaa !27
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 56
   %117 = tail call i32 @BN_is_zero(ptr noundef nonnull %116) #4
@@ -1896,7 +1896,7 @@ define hidden range(i32 0, 2) i32 @ec_GFp_simple_points_make_affine(ptr noundef 
 
 .preheader:                                       ; preds = %.thread, %148
   %.4177 = phi i64 [ %149, %148 ], [ 0, %.thread ]
-  %145 = getelementptr inbounds nuw ptr, ptr %.0131, i64 %.4177
+  %145 = getelementptr inbounds nuw [8 x i8], ptr %.0131, i64 %.4177
   %146 = load ptr, ptr %145, align 8, !tbaa !25
   %147 = icmp eq ptr %146, null
   br i1 %147, label %150, label %148

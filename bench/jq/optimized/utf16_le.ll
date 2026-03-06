@@ -23,7 +23,7 @@ define internal i32 @utf16le_mbc_enc_len(ptr noundef readonly captures(none) %0)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %3 = load i8, ptr %2, align 1, !tbaa !4
   %4 = zext i8 %3 to i64
-  %5 = getelementptr inbounds nuw i32, ptr @EncLen_UTF16, i64 %4
+  %5 = getelementptr inbounds nuw [4 x i8], ptr @EncLen_UTF16, i64 %4
   %6 = load i32, ptr %5, align 4, !tbaa !7
   ret i32 %6
 }
@@ -323,7 +323,7 @@ define internal range(i32 0, 2) i32 @is_valid_mbc_string(ptr noundef readonly ca
   %5 = getelementptr inbounds nuw i8, ptr %.01519, i64 1
   %6 = load i8, ptr %5, align 1, !tbaa !4
   %7 = zext i8 %6 to i64
-  %8 = getelementptr inbounds nuw i32, ptr @EncLen_UTF16, i64 %7
+  %8 = getelementptr inbounds nuw [4 x i8], ptr @EncLen_UTF16, i64 %7
   %9 = load i32, ptr %8, align 4, !tbaa !7
   %10 = and i64 %7, 252
   %11 = icmp eq i64 %10, 216

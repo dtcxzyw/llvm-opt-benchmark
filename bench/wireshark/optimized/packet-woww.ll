@@ -23494,7 +23494,7 @@ define internal fastcc void @add_update_mask(ptr noundef %0, ptr noundef %1) unn
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %2 ]
   %15 = load i32, ptr @hf_woww_update_mask, align 4
-  %16 = getelementptr i32, ptr %12, i64 %indvars.iv
+  %16 = getelementptr [4 x i8], ptr %12, i64 %indvars.iv
   %17 = call ptr @ptvcursor_add_ret_uint(ptr noundef %0, i32 noundef %15, i32 noundef 4, i32 noundef -2147483648, ptr noundef %16)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %18 = load i32, ptr %3, align 4
@@ -23505,7 +23505,7 @@ define internal fastcc void @add_update_mask(ptr noundef %0, ptr noundef %1) unn
 .preheader54:                                     ; preds = %.preheader54.preheader, %32
   %indvars.iv70 = phi i64 [ 0, %.preheader54.preheader ], [ %indvars.iv.next71, %32 ]
   %.04859 = phi i32 [ 0, %.preheader54.preheader ], [ %spec.select, %32 ]
-  %21 = getelementptr i32, ptr %12, i64 %indvars.iv70
+  %21 = getelementptr [4 x i8], ptr %12, i64 %indvars.iv70
   %22 = load i32, ptr %21, align 4
   br label %33
 
@@ -23545,7 +23545,7 @@ define internal fastcc void @add_update_mask(ptr noundef %0, ptr noundef %1) unn
 .preheader:                                       ; preds = %._crit_edge60, %40
   %indvars.iv75 = phi i64 [ %indvars.iv.next76, %40 ], [ 0, %._crit_edge60 ]
   %.04763 = phi i32 [ %.2, %40 ], [ 0, %._crit_edge60 ]
-  %37 = getelementptr i32, ptr %12, i64 %indvars.iv75
+  %37 = getelementptr [4 x i8], ptr %12, i64 %indvars.iv75
   %38 = trunc nuw i64 %indvars.iv75 to i32
   %39 = shl i32 %38, 5
   br label %44
@@ -23576,7 +23576,7 @@ define internal fastcc void @add_update_mask(ptr noundef %0, ptr noundef %1) unn
   %50 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %49, ptr noundef nonnull @.str.6422)
   %51 = add nuw nsw i32 %.04562, %39
   %52 = zext i32 %.161 to i64
-  %53 = getelementptr i32, ptr %26, i64 %52
+  %53 = getelementptr [4 x i8], ptr %26, i64 %52
   store i32 %51, ptr %53, align 4
   %54 = call ptr @ptvcursor_tree(ptr noundef %0)
   %55 = load i32, ptr @hf_woww_update_mask_index, align 4

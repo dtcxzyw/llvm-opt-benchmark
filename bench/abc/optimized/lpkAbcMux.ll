@@ -341,10 +341,10 @@ define ptr @Lpk_MuxSplit(ptr noundef readnone captures(none) %0, ptr noundef %1,
   %10 = tail call i32 @llvm.usub.sat.i32(i32 %9, i32 5)
   %11 = shl nuw nsw i32 1, %10
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr inbounds nuw i32, ptr %5, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %12
   %14 = shl nuw nsw i32 2, %10
   %15 = zext nneg i32 %14 to i64
-  %16 = getelementptr inbounds nuw i32, ptr %5, i64 %15
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %15
   tail call void @Kit_TruthCofactor0New(ptr noundef nonnull %13, ptr noundef nonnull %5, i32 noundef %9, i32 noundef %2) #4
   %17 = load i32, ptr %6, align 8
   %18 = lshr i32 %17, 7
@@ -401,14 +401,14 @@ Kit_WordFindFirstBit.exit:                        ; preds = %30, %.Kit_WordFindF
 
 .preheader.i:                                     ; preds = %Kit_WordFindFirstBit.exit
   %47 = sext i32 %.06.i to i64
-  %48 = getelementptr inbounds i32, ptr @__const.Kit_TruthIthVar.Masks, i64 %47
+  %48 = getelementptr inbounds [4 x i8], ptr @__const.Kit_TruthIthVar.Masks, i64 %47
   %49 = load i32, ptr %48, align 4, !tbaa !12
   %wide.trip.count29.i = zext nneg i32 %43 to i64
   br label %50
 
 50:                                               ; preds = %50, %.preheader.i
   %indvars.iv25.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next26.i, %50 ]
-  %51 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv25.i
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv25.i
   store i32 %49, ptr %51, align 4, !tbaa !12
   %indvars.iv.next26.i = add nuw nsw i64 %indvars.iv25.i, 1
   %exitcond30.not.i = icmp eq i64 %indvars.iv.next26.i, %wide.trip.count29.i
@@ -420,7 +420,7 @@ Kit_WordFindFirstBit.exit:                        ; preds = %30, %.Kit_WordFindF
   %54 = and i32 %46, %53
   %.not.i79 = icmp ne i32 %54, 0
   %spec.select.i = sext i1 %.not.i79 to i32
-  %55 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.i
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv.i
   store i32 %spec.select.i, ptr %55, align 4, !tbaa !12
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i80 = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -450,7 +450,7 @@ Kit_TruthIthVar.exit:                             ; preds = %52, %50
   %67 = load i32, ptr %66, align 8, !tbaa !13
   %68 = add i32 %67, -1
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 148
-  %70 = getelementptr inbounds i32, ptr %69, i64 %64
+  %70 = getelementptr inbounds [4 x i8], ptr %69, i64 %64
   store i32 %68, ptr %70, align 4, !tbaa !12
   %71 = load i32, ptr %6, align 8
   %72 = and i32 %71, -1073741825

@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 define internal i32 @mbc_enc_len(ptr noundef readonly captures(none) %0) #0 {
   %2 = load i8, ptr %0, align 1, !tbaa !4
   %3 = zext i8 %2 to i64
-  %4 = getelementptr inbounds nuw i32, ptr @EncLen_UTF8, i64 %3
+  %4 = getelementptr inbounds nuw [4 x i8], ptr @EncLen_UTF8, i64 %3
   %5 = load i32, ptr %4, align 4, !tbaa !7
   ret i32 %5
 }
@@ -23,7 +23,7 @@ declare i32 @onigenc_is_mbc_newline_0x0a(ptr noundef, ptr noundef) #1
 define internal i32 @mbc_to_code(ptr noundef %0, ptr noundef %1) #2 {
   %3 = load i8, ptr %0, align 1, !tbaa !4
   %4 = zext i8 %3 to i64
-  %5 = getelementptr inbounds nuw i32, ptr @EncLen_UTF8, i64 %4
+  %5 = getelementptr inbounds nuw [4 x i8], ptr @EncLen_UTF8, i64 %4
   %6 = load i32, ptr %5, align 4, !tbaa !7
   %7 = ptrtoint ptr %1 to i64
   %8 = ptrtoint ptr %0 to i64
@@ -250,7 +250,7 @@ define internal range(i32 0, 2) i32 @is_valid_mbc_string(ptr noundef readonly ca
 
 .lr.ph.preheader:                                 ; preds = %5
   %8 = zext i8 %4 to i64
-  %9 = getelementptr inbounds nuw i32, ptr @EncLen_UTF8, i64 %8
+  %9 = getelementptr inbounds nuw [4 x i8], ptr @EncLen_UTF8, i64 %8
   %10 = load i32, ptr %9, align 4, !tbaa !7
   %smax = tail call i32 @llvm.smax.i32(i32 %10, i32 2)
   br label %.lr.ph

@@ -68,13 +68,6 @@ module asm ".previous\09\09\09\09\09"
 %struct.optimistic_spin_queue = type { %struct.atomic_t }
 %struct.xarray = type { %struct.spinlock, i32, ptr }
 %struct.bvec_iter = type <{ i64, i32, i32, i32 }>
-%struct.bio_vec = type { ptr, i32, i32 }
-%struct.page = type { i64, %union.anon.14, %union.anon.22, %struct.atomic_t, [8 x i8] }
-%union.anon.14 = type { %struct.anon.15 }
-%struct.anon.15 = type { %union.anon.16, ptr, %union.anon.18, i64 }
-%union.anon.16 = type { %struct.list_head }
-%union.anon.18 = type { i64 }
-%union.anon.22 = type { %struct.atomic_t }
 %struct.folio_iter = type { ptr, i64, i64, ptr, i64, i32 }
 %struct.completion = type { i32, %struct.swait_queue_head }
 %struct.swait_queue_head = type { %struct.raw_spinlock, %struct.list_head }
@@ -677,7 +670,7 @@ define dso_local ptr @bio_alloc_bioset(ptr noundef %0, i16 noundef zeroext %1, i
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !21
   %25 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #18, !srcloc !22
   %26 = sext i32 %25 to i64
-  %27 = getelementptr i64, ptr @__per_cpu_offset, i64 %26
+  %27 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %26
   %28 = load i64, ptr %27, align 8
   %29 = add i64 %28, %24
   %30 = inttoptr i64 %29 to ptr
@@ -1273,14 +1266,14 @@ define dso_local void @zero_fill_bio_iter(ptr noundef readonly captures(none) %0
   %16 = phi i32 [ %4, %6 ], [ %58, %55 ]
   %17 = load ptr, ptr %11, align 8
   %18 = zext i32 %15 to i64
-  %19 = getelementptr %struct.bio_vec, ptr %17, i64 %18
+  %19 = getelementptr [16 x i8], ptr %17, i64 %18
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 12
   %22 = load i32, ptr %21, align 4
   %23 = add i32 %22, %14
   %24 = lshr i32 %23, 12
   %25 = zext nneg i32 %24 to i64
-  %26 = getelementptr %struct.page, ptr %20, i64 %25
+  %26 = getelementptr [64 x i8], ptr %20, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %28 = load i32, ptr %27, align 8
   %29 = sub i32 %28, %14
@@ -1310,7 +1303,7 @@ define dso_local void @zero_fill_bio_iter(ptr noundef readonly captures(none) %0
 46:                                               ; preds = %13
   %47 = load ptr, ptr %11, align 8
   %48 = add i32 %33, %14
-  %.split = getelementptr %struct.bio_vec, ptr %47, i64 %18
+  %.split = getelementptr [16 x i8], ptr %47, i64 %18
   %49 = getelementptr i8, ptr %.split, i64 8
   %50 = load i32, ptr %49, align 8
   %51 = icmp eq i32 %48, %50
@@ -1398,14 +1391,14 @@ define internal fastcc void @bio_truncate(ptr noundef captures(none) %0, i32 nou
   %23 = phi i32 [ %4, %11 ], [ %107, %104 ]
   %24 = load ptr, ptr %16, align 8
   %25 = zext i32 %22 to i64
-  %26 = getelementptr %struct.bio_vec, ptr %24, i64 %25
+  %26 = getelementptr [16 x i8], ptr %24, i64 %25
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 12
   %29 = load i32, ptr %28, align 4
   %30 = add i32 %29, %21
   %31 = lshr i32 %30, 12
   %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr %struct.page, ptr %27, i64 %32
+  %33 = getelementptr [64 x i8], ptr %27, i64 %32
   %34 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %35 = load i32, ptr %34, align 8
   %36 = sub i32 %35, %21
@@ -1506,7 +1499,7 @@ define internal fastcc void @bio_truncate(ptr noundef captures(none) %0, i32 nou
 95:                                               ; preds = %.loopexit
   %96 = load ptr, ptr %16, align 8
   %97 = add i32 %40, %21
-  %.split = getelementptr %struct.bio_vec, ptr %96, i64 %25
+  %.split = getelementptr [16 x i8], ptr %96, i64 %25
   %98 = getelementptr i8, ptr %.split, i64 8
   %99 = load i32, ptr %98, align 8
   %100 = icmp eq i32 %97, %99
@@ -1574,7 +1567,7 @@ define dso_local void @bio_put(ptr noundef %0) #0 align 16 {
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !49
   %27 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #18, !srcloc !50
   %28 = sext i32 %27 to i64
-  %29 = getelementptr i64, ptr @__per_cpu_offset, i64 %28
+  %29 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %28
   %30 = load i64, ptr %29, align 8
   %31 = add i64 %30, %26
   %32 = inttoptr i64 %31 to ptr
@@ -2008,9 +2001,9 @@ define dso_local noundef zeroext i1 @bvec_try_merge_hw_page(ptr noundef readonly
 46:                                               ; preds = %41
   %47 = load ptr, ptr %1, align 8
   %48 = lshr i64 %38, 12
-  %49 = getelementptr %struct.page, ptr %47, i64 %48
+  %49 = getelementptr [64 x i8], ptr %47, i64 %48
   %50 = lshr i64 %21, 12
-  %51 = getelementptr %struct.page, ptr %2, i64 %50
+  %51 = getelementptr [64 x i8], ptr %2, i64 %50
   %52 = icmp eq ptr %49, %51
   br i1 %52, label %53, label %56
 
@@ -2063,7 +2056,7 @@ define dso_local range(i32 0, -511) i32 @bio_add_hw_page(ptr noundef readonly ca
   %30 = load ptr, ptr %29, align 8
   %31 = add nuw nsw i64 %28, 4294967295
   %32 = and i64 %31, 4294967295
-  %33 = getelementptr %struct.bio_vec, ptr %30, i64 %32
+  %33 = getelementptr [16 x i8], ptr %30, i64 %32
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %35 = load i64, ptr %34, align 8
   %36 = load ptr, ptr %33, align 8
@@ -2113,9 +2106,9 @@ define dso_local range(i32 0, -511) i32 @bio_add_hw_page(ptr noundef readonly ca
 71:                                               ; preds = %66
   %72 = load ptr, ptr %33, align 8
   %73 = lshr i64 %63, 12
-  %74 = getelementptr %struct.page, ptr %72, i64 %73
+  %74 = getelementptr [64 x i8], ptr %72, i64 %73
   %75 = lshr i64 %48, 12
-  %76 = getelementptr %struct.page, ptr %2, i64 %75
+  %76 = getelementptr [64 x i8], ptr %2, i64 %75
   %77 = icmp eq ptr %74, %76
   br i1 %77, label %78, label %._crit_edge
 
@@ -2168,7 +2161,7 @@ define dso_local range(i32 0, -511) i32 @bio_add_hw_page(ptr noundef readonly ca
   %107 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %108 = load ptr, ptr %107, align 8
   %109 = zext i16 %106 to i64
-  %110 = getelementptr %struct.bio_vec, ptr %108, i64 %109
+  %110 = getelementptr [16 x i8], ptr %108, i64 %109
   store ptr %2, ptr %110, align 8
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 8
   store i32 %18, ptr %111, align 8
@@ -2263,7 +2256,7 @@ define dso_local void @__bio_add_page(ptr noundef captures(none) %0, ptr noundef
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %25 = load ptr, ptr %24, align 8
   %26 = zext i16 %23 to i64
-  %27 = getelementptr %struct.bio_vec, ptr %25, i64 %26
+  %27 = getelementptr [16 x i8], ptr %25, i64 %26
   store ptr %1, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store i32 %2, ptr %28, align 8
@@ -2312,7 +2305,7 @@ define dso_local noundef i32 @bio_add_page(ptr noundef captures(none) %0, ptr no
   %22 = load ptr, ptr %21, align 8
   %23 = add nuw nsw i64 %20, 4294967295
   %24 = and i64 %23, 4294967295
-  %25 = getelementptr %struct.bio_vec, ptr %22, i64 %24
+  %25 = getelementptr [16 x i8], ptr %22, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 12
   %27 = load i32, ptr %26, align 4
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 8
@@ -2341,9 +2334,9 @@ define dso_local noundef i32 @bio_add_page(ptr noundef captures(none) %0, ptr no
 
 48:                                               ; preds = %44
   %49 = lshr i64 %31, 12
-  %50 = getelementptr %struct.page, ptr %32, i64 %49
+  %50 = getelementptr [64 x i8], ptr %32, i64 %49
   %51 = lshr i64 %41, 12
-  %52 = getelementptr %struct.page, ptr %1, i64 %51
+  %52 = getelementptr [64 x i8], ptr %1, i64 %51
   %53 = icmp eq ptr %50, %52
   br i1 %53, label %54, label %58
 
@@ -2365,7 +2358,7 @@ define dso_local noundef i32 @bio_add_page(ptr noundef captures(none) %0, ptr no
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 104
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   %62 = zext i16 %17 to i64
-  %63 = getelementptr %struct.bio_vec, ptr %.pre, i64 %62
+  %63 = getelementptr [16 x i8], ptr %.pre, i64 %62
   store ptr %1, ptr %63, align 8
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store i32 %2, ptr %64, align 8
@@ -2447,7 +2440,7 @@ define dso_local void @bio_add_folio_nofail(ptr noundef captures(none) %0, ptr n
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %33 = load ptr, ptr %32, align 8
   %34 = zext i16 %30 to i64
-  %35 = getelementptr %struct.bio_vec, ptr %33, i64 %34
+  %35 = getelementptr [16 x i8], ptr %33, i64 %34
   store ptr %1, ptr %35, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store i32 %11, ptr %36, align 8
@@ -2603,7 +2596,7 @@ define dso_local void @__bio_release_pages(ptr noundef readonly captures(none) %
 
 80:                                               ; preds = %67, %76
   %81 = phi i64 [ %79, %76 ], [ 1, %67 ]
-  %82 = getelementptr %struct.page, ptr %47, i64 %81
+  %82 = getelementptr [64 x i8], ptr %47, i64 %81
   %83 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %82, ptr %83, align 8
   %84 = getelementptr inbounds nuw i8, ptr %3, i64 40
@@ -2632,7 +2625,7 @@ define dso_local void @__bio_release_pages(ptr noundef readonly captures(none) %
   tail call void @folio_unlock(ptr noundef nonnull %87) #17
   %95 = load i64, ptr %55, align 8
   %96 = lshr i64 %95, 12
-  %97 = getelementptr %struct.page, ptr %87, i64 %96
+  %97 = getelementptr [64 x i8], ptr %87, i64 %96
   %98 = load i64, ptr %72, align 8
   br label %99
 
@@ -2664,7 +2657,7 @@ define dso_local void @__bio_release_pages(ptr noundef readonly captures(none) %
   %113 = phi ptr [ %130, %129 ], [ %47, %86 ]
   %114 = load i64, ptr %55, align 8
   %115 = lshr i64 %114, 12
-  %116 = getelementptr %struct.page, ptr %113, i64 %115
+  %116 = getelementptr [64 x i8], ptr %113, i64 %115
   %117 = load i64, ptr %72, align 8
   br label %118
 
@@ -2749,7 +2742,7 @@ define internal fastcc void @bio_next_folio(ptr noundef captures(none) initializ
 
 31:                                               ; preds = %27, %20
   %32 = phi i64 [ %30, %27 ], [ 1, %20 ]
-  %33 = getelementptr %struct.page, ptr %11, i64 %32
+  %33 = getelementptr [64 x i8], ptr %11, i64 %32
   store ptr %33, ptr %10, align 8
   br label %119
 
@@ -2784,7 +2777,7 @@ define internal fastcc void @bio_next_folio(ptr noundef captures(none) initializ
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %51 = load ptr, ptr %50, align 8
   %52 = sext i32 %37 to i64
-  %53 = getelementptr %struct.bio_vec, ptr %51, i64 %52
+  %53 = getelementptr [16 x i8], ptr %51, i64 %52
   %54 = load ptr, ptr %53, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = load volatile i64, ptr %55, align 8
@@ -2877,7 +2870,7 @@ define internal fastcc void @bio_next_folio(ptr noundef captures(none) initializ
 
 115:                                              ; preds = %111, %103
   %116 = phi i64 [ %114, %111 ], [ 1, %103 ]
-  %117 = getelementptr %struct.page, ptr %83, i64 %116
+  %117 = getelementptr [64 x i8], ptr %83, i64 %116
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %117, ptr %118, align 8
   store i32 %37, ptr %35, align 8
@@ -3061,12 +3054,12 @@ define dso_local i32 @bio_iov_iter_get_pages(ptr noundef captures(none) %0, ptr 
   %72 = sub i16 %71, %70
   %73 = load ptr, ptr %65, align 8
   %74 = zext i16 %70 to i64
-  %75 = getelementptr %struct.bio_vec, ptr %73, i64 %74
+  %75 = getelementptr [16 x i8], ptr %73, i64 %74
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8, !annotation !23
   %76 = zext i16 %72 to i64
-  %77 = getelementptr ptr, ptr %75, i64 %76
+  %77 = getelementptr [8 x i8], ptr %75, i64 %76
   store ptr %77, ptr %4, align 8
   %78 = load ptr, ptr %66, align 8
   %79 = icmp eq ptr %78, null
@@ -3147,7 +3140,7 @@ define dso_local i32 @bio_iov_iter_get_pages(ptr noundef captures(none) %0, ptr 
   %129 = phi i64 [ %239, %237 ], [ %126, %.preheader.preheader ]
   %130 = load ptr, ptr %4, align 8
   %131 = zext i32 %128 to i64
-  %132 = getelementptr ptr, ptr %130, i64 %131
+  %132 = getelementptr [8 x i8], ptr %130, i64 %131
   %133 = load ptr, ptr %132, align 8
   %134 = sub i64 4096, %127
   %135 = call i64 @llvm.umin.i64(i64 %134, i64 %129)
@@ -3214,7 +3207,7 @@ define dso_local i32 @bio_iov_iter_get_pages(ptr noundef captures(none) %0, ptr 
   %170 = load ptr, ptr %65, align 8
   %171 = add nuw nsw i64 %169, 4294967295
   %172 = and i64 %171, 4294967295
-  %173 = getelementptr %struct.bio_vec, ptr %170, i64 %172
+  %173 = getelementptr [16 x i8], ptr %170, i64 %172
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 12
   %175 = load i32, ptr %174, align 4
   %176 = getelementptr inbounds nuw i8, ptr %173, i64 8
@@ -3243,9 +3236,9 @@ define dso_local i32 @bio_iov_iter_get_pages(ptr noundef captures(none) %0, ptr 
 
 196:                                              ; preds = %192
   %197 = lshr i64 %179, 12
-  %198 = getelementptr %struct.page, ptr %180, i64 %197
+  %198 = getelementptr [64 x i8], ptr %180, i64 %197
   %199 = lshr i64 %189, 12
-  %200 = getelementptr %struct.page, ptr %133, i64 %199
+  %200 = getelementptr [64 x i8], ptr %133, i64 %199
   %201 = icmp eq ptr %198, %200
   br i1 %201, label %202, label %.critedge
 
@@ -3307,7 +3300,7 @@ define dso_local i32 @bio_iov_iter_get_pages(ptr noundef captures(none) %0, ptr 
   %226 = phi i16 [ %.pre33, %224 ], [ %218, %221 ]
   %227 = load ptr, ptr %65, align 8
   %228 = zext i16 %226 to i64
-  %229 = getelementptr %struct.bio_vec, ptr %227, i64 %228
+  %229 = getelementptr [16 x i8], ptr %227, i64 %228
   store ptr %133, ptr %229, align 8
   %230 = getelementptr inbounds nuw i8, ptr %229, i64 8
   store i32 %136, ptr %230, align 8
@@ -3361,7 +3354,7 @@ define dso_local i32 @bio_iov_iter_get_pages(ptr noundef captures(none) %0, ptr 
 
 258:                                              ; preds = %252
   %259 = load ptr, ptr %4, align 8
-  %260 = getelementptr ptr, ptr %259, i64 %253
+  %260 = getelementptr [8 x i8], ptr %259, i64 %253
   %261 = load ptr, ptr %260, align 8
   call void @unpin_user_page(ptr noundef %261) #17
   br label %262
@@ -3516,7 +3509,7 @@ define dso_local void @__bio_advance(ptr noundef captures(none) %0, i32 noundef 
   %35 = phi i32 [ %42, %41 ], [ %33, %28 ]
   %36 = phi i32 [ %43, %41 ], [ %15, %28 ]
   %37 = zext i32 %36 to i64
-  %.split = getelementptr %struct.bio_vec, ptr %13, i64 %37
+  %.split = getelementptr [16 x i8], ptr %13, i64 %37
   %38 = getelementptr i8, ptr %.split, i64 8
   %39 = load i32, ptr %38, align 8
   %40 = icmp ult i32 %35, %39
@@ -3569,7 +3562,7 @@ define dso_local void @bio_copy_data_iter(ptr noundef readonly captures(none) %0
   %23 = load ptr, ptr %10, align 8
   %24 = load i32, ptr %11, align 1
   %25 = zext i32 %24 to i64
-  %26 = getelementptr %struct.bio_vec, ptr %23, i64 %25
+  %26 = getelementptr [16 x i8], ptr %23, i64 %25
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 12
   %29 = load i32, ptr %28, align 4
@@ -3577,7 +3570,7 @@ define dso_local void @bio_copy_data_iter(ptr noundef readonly captures(none) %0
   %31 = add i32 %30, %29
   %32 = lshr i32 %31, 12
   %33 = zext nneg i32 %32 to i64
-  %34 = getelementptr %struct.page, ptr %27, i64 %33
+  %34 = getelementptr [64 x i8], ptr %27, i64 %33
   %35 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %36 = load i32, ptr %35, align 8
   %37 = sub i32 %36, %30
@@ -3588,7 +3581,7 @@ define dso_local void @bio_copy_data_iter(ptr noundef readonly captures(none) %0
   %42 = load ptr, ptr %13, align 8
   %43 = load i32, ptr %14, align 1
   %44 = zext i32 %43 to i64
-  %45 = getelementptr %struct.bio_vec, ptr %42, i64 %44
+  %45 = getelementptr [16 x i8], ptr %42, i64 %44
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 12
   %48 = load i32, ptr %47, align 4
@@ -3596,7 +3589,7 @@ define dso_local void @bio_copy_data_iter(ptr noundef readonly captures(none) %0
   %50 = add i32 %49, %48
   %51 = lshr i32 %50, 12
   %52 = zext nneg i32 %51 to i64
-  %53 = getelementptr %struct.page, ptr %46, i64 %52
+  %53 = getelementptr [64 x i8], ptr %46, i64 %52
   %54 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %55 = load i32, ptr %54, align 8
   %56 = sub i32 %55, %49
@@ -3642,7 +3635,7 @@ define dso_local void @bio_copy_data_iter(ptr noundef readonly captures(none) %0
   %88 = add i32 %87, %61
   %89 = load i32, ptr %11, align 1
   %90 = zext i32 %89 to i64
-  %.split6 = getelementptr %struct.bio_vec, ptr %86, i64 %90
+  %.split6 = getelementptr [16 x i8], ptr %86, i64 %90
   %91 = getelementptr i8, ptr %.split6, i64 8
   %92 = load i32, ptr %91, align 8
   %93 = icmp eq i32 %88, %92
@@ -3679,7 +3672,7 @@ define dso_local void @bio_copy_data_iter(ptr noundef readonly captures(none) %0
   %108 = add i32 %107, %61
   %109 = load i32, ptr %14, align 1
   %110 = zext i32 %109 to i64
-  %.split7 = getelementptr %struct.bio_vec, ptr %106, i64 %110
+  %.split7 = getelementptr [16 x i8], ptr %106, i64 %110
   %111 = getelementptr i8, ptr %.split7, i64 8
   %112 = load i32, ptr %111, align 8
   %113 = icmp eq i32 %108, %112
@@ -3737,7 +3730,7 @@ define dso_local void @bio_free_pages(ptr noundef readonly captures(none) %0) #0
   %7 = phi ptr [ %24, %23 ], [ null, %1 ]
   %8 = load ptr, ptr %3, align 8
   %9 = zext nneg i32 %6 to i64
-  %10 = getelementptr %struct.bio_vec, ptr %8, i64 %9
+  %10 = getelementptr [16 x i8], ptr %8, i64 %9
   %11 = icmp eq i32 %5, 0
   br i1 %11, label %14, label %12
 
@@ -3751,7 +3744,7 @@ define dso_local void @bio_free_pages(ptr noundef readonly captures(none) %0) #0
   %17 = load i32, ptr %16, align 4
   %18 = lshr i32 %17, 12
   %19 = zext nneg i32 %18 to i64
-  %20 = getelementptr %struct.page, ptr %15, i64 %19
+  %20 = getelementptr [64 x i8], ptr %15, i64 %19
   %21 = and i32 %17, 4095
   %22 = sub nuw nsw i32 4096, %21
   br label %23
@@ -3901,7 +3894,7 @@ define dso_local void @bio_set_pages_dirty(ptr noundef readonly captures(none) %
 
 78:                                               ; preds = %65, %74
   %79 = phi i64 [ %77, %74 ], [ 1, %65 ]
-  %80 = getelementptr %struct.page, ptr %45, i64 %79
+  %80 = getelementptr [64 x i8], ptr %45, i64 %79
   %81 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %80, ptr %81, align 8
   %82 = getelementptr inbounds nuw i8, ptr %2, i64 40
@@ -4055,7 +4048,7 @@ define dso_local void @bio_check_pages_dirty(ptr noundef %0) #0 align 16 {
 
 78:                                               ; preds = %65, %74
   %79 = phi i64 [ %77, %74 ], [ 1, %65 ]
-  %80 = getelementptr %struct.page, ptr %45, i64 %79
+  %80 = getelementptr [64 x i8], ptr %45, i64 %79
   %81 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %80, ptr %81, align 8
   %82 = getelementptr inbounds nuw i8, ptr %2, i64 40
@@ -4516,7 +4509,7 @@ define dso_local void @bioset_exit(ptr noundef %0) #0 align 16 {
 20:                                               ; preds = %15
   %21 = ptrtoint ptr %19 to i64
   %22 = and i64 %16, 63
-  %23 = getelementptr i64, ptr @__per_cpu_offset, i64 %22
+  %23 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %22
   %24 = load i64, ptr %23, align 8
   %25 = add i64 %24, %21
   %26 = inttoptr i64 %25 to ptr
@@ -4818,7 +4811,7 @@ define internal noundef i32 @init_bio() #8 section ".init.text" align 16 {
 
 1:                                                ; preds = %1, %0
   %2 = phi i64 [ 0, %0 ], [ %10, %1 ]
-  %3 = getelementptr %struct.biovec_slab, ptr @bvec_slabs, i64 %2
+  %3 = getelementptr [24 x i8], ptr @bvec_slabs, i64 %2
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load i32, ptr %3, align 8
@@ -5085,7 +5078,7 @@ define internal noundef i32 @bio_cpu_dead(i32 noundef %0, ptr noundef readonly c
 9:                                                ; preds = %2
   %10 = ptrtoint ptr %7 to i64
   %11 = zext i32 %0 to i64
-  %12 = getelementptr i64, ptr @__per_cpu_offset, i64 %11
+  %12 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %11
   %13 = load i64, ptr %12, align 8
   %14 = add i64 %13, %10
   %15 = inttoptr i64 %14 to ptr

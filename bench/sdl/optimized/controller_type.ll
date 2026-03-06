@@ -163,7 +163,7 @@ GetControllerTypeOverride.exit.thread28:          ; preds = %10
 
 .preheader:                                       ; preds = %.preheader.preheader, %38
   %indvars.iv = phi i64 [ %indvars.iv.next, %38 ], [ 0, %.preheader.preheader ]
-  %39 = getelementptr inbounds nuw %struct.ControllerDescription_t, ptr @arrControllers, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [16 x i8], ptr @arrControllers, i64 %indvars.iv
   %40 = load i32, ptr %39, align 16
   %41 = icmp eq i32 %5, %40
   br i1 %41, label %42, label %38
@@ -193,7 +193,7 @@ define hidden ptr @GuessControllerName(i32 noundef %0, i32 noundef %1) local_unn
 
 6:                                                ; preds = %2, %5
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %5 ]
-  %7 = getelementptr inbounds nuw %struct.ControllerDescription_t, ptr @arrControllers, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [16 x i8], ptr @arrControllers, i64 %indvars.iv
   %8 = load i32, ptr %7, align 16
   %9 = icmp eq i32 %4, %8
   br i1 %9, label %10, label %5

@@ -16,16 +16,15 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.aclInfo = type { i64, i64, i64, i64 }
 %struct.redisTLSContextConfig = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32 }
 %struct.dictType = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8, ptr, ptr, ptr }
-%struct.zskiplistLevel = type { ptr, i64 }
 %struct.listpackEntry = type { ptr, i32, i64 }
 %struct.zrangespec = type { double, double, i32, i32 }
 %struct.zlexrangespec = type { ptr, ptr, i32, i32 }
 %struct.zsetopval = type { i32, [32 x i8], ptr, ptr, i32, i64, double }
+%struct.zrange_result_handler = type { i32, ptr, ptr, ptr, ptr, i32, i32, ptr, ptr, ptr, ptr }
 %struct.zsetopsrc = type { ptr, i32, i32, double, %union.anon }
 %union.anon = type { %union._iterset }
 %union._iterset = type { %struct.anon.1 }
 %struct.anon.1 = type { ptr, ptr, ptr }
-%struct.zrange_result_handler = type { i32, ptr, ptr, ptr, ptr, i32, i32, ptr, ptr, ptr, ptr }
 
 @.str = private unnamed_addr constant [14 x i8] c"!isnan(score)\00", align 1
 @.str.1 = private unnamed_addr constant [9 x i8] c"t_zset.c\00", align 1
@@ -237,16 +236,16 @@ define dso_local noundef ptr @zslInsert(ptr noundef captures(none) %0, double no
   br i1 %16, label %20, label %17
 
 17:                                               ; preds = %.lr.ph102
-  %18 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %19 = load i64, ptr %18, align 8, !tbaa !26
   br label %20
 
 20:                                               ; preds = %.lr.ph102, %17
   %21 = phi i64 [ %19, %17 ], [ 0, %.lr.ph102 ]
-  %22 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv.next
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.next
   store i64 %21, ptr %22, align 8, !tbaa !26
   %23 = getelementptr inbounds nuw i8, ptr %.0100, i64 24
-  %24 = getelementptr inbounds nuw %struct.zskiplistLevel, ptr %23, i64 %indvars.iv.next
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %23, i64 %indvars.iv.next
   %25 = load ptr, ptr %24, align 8, !tbaa !20
   %.not8792 = icmp eq ptr %25, null
   br i1 %.not8792, label %.critedge, label %.lr.ph
@@ -282,14 +281,14 @@ define dso_local noundef ptr @zslInsert(ptr noundef captures(none) %0, double no
   %41 = add i64 %26, %40
   store i64 %41, ptr %22, align 8, !tbaa !26
   %42 = getelementptr inbounds nuw i8, ptr %38, i64 24
-  %43 = getelementptr inbounds nuw %struct.zskiplistLevel, ptr %42, i64 %indvars.iv.next
+  %43 = getelementptr inbounds nuw [16 x i8], ptr %42, i64 %indvars.iv.next
   %44 = load ptr, ptr %43, align 8, !tbaa !20
   %.not87 = icmp eq ptr %44, null
   br i1 %.not87, label %.critedge, label %.lr.ph, !llvm.loop !28
 
 .critedge:                                        ; preds = %34, %32, %.critedge2, %20
   %.1.lcssa = phi ptr [ %.0100, %20 ], [ %38, %.critedge2 ], [ %.193, %32 ], [ %.193, %34 ]
-  %45 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.next
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.next
   store ptr %.1.lcssa, ptr %45, align 8, !tbaa !29
   %46 = icmp sgt i64 %indvars.iv, 1
   br i1 %46, label %.lr.ph102, label %.preheader91.preheader, !llvm.loop !30
@@ -330,9 +329,9 @@ zslRandomLevel.exit:                              ; preds = %.preheader91
 
 64:                                               ; preds = %.preheader90, %64
   %indvars.iv108 = phi i64 [ %56, %.preheader90 ], [ %indvars.iv.next109, %64 ]
-  %65 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv108
+  %65 = getelementptr inbounds [8 x i8], ptr %4, i64 %indvars.iv108
   store ptr %53, ptr %65, align 8, !tbaa !29
-  %66 = getelementptr %struct.zskiplistLevel, ptr %53, i64 %indvars.iv108
+  %66 = getelementptr [16 x i8], ptr %53, i64 %indvars.iv108
   %67 = getelementptr i8, ptr %66, i64 32
   store i64 %55, ptr %67, align 8, !tbaa !27
   %indvars.iv.next109 = add nsw i64 %indvars.iv108, 1
@@ -369,18 +368,18 @@ zslRandomLevel.exit:                              ; preds = %.preheader91
 
 81:                                               ; preds = %70, %81
   %indvars.iv111 = phi i64 [ 0, %70 ], [ %indvars.iv.next112, %81 ]
-  %82 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv111
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv111
   %83 = load ptr, ptr %82, align 8, !tbaa !29
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 24
-  %85 = getelementptr inbounds nuw %struct.zskiplistLevel, ptr %84, i64 %indvars.iv111
+  %85 = getelementptr inbounds nuw [16 x i8], ptr %84, i64 %indvars.iv111
   %86 = load ptr, ptr %85, align 8, !tbaa !20
-  %87 = getelementptr inbounds nuw %struct.zskiplistLevel, ptr %75, i64 %indvars.iv111
+  %87 = getelementptr inbounds nuw [16 x i8], ptr %75, i64 %indvars.iv111
   store ptr %86, ptr %87, align 8, !tbaa !20
   store ptr %73, ptr %85, align 8, !tbaa !20
-  %88 = getelementptr inbounds nuw %struct.zskiplistLevel, ptr %83, i64 %indvars.iv111
+  %88 = getelementptr inbounds nuw [16 x i8], ptr %83, i64 %indvars.iv111
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 32
   %90 = load i64, ptr %89, align 8, !tbaa !27
-  %91 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv111
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv111
   %92 = load i64, ptr %91, align 8, !tbaa !26
   %.neg = sub i64 %90, %76
   %93 = add i64 %.neg, %92
@@ -394,9 +393,9 @@ zslRandomLevel.exit:                              ; preds = %.preheader91
 
 .lr.ph106:                                        ; preds = %.lr.ph106.preheader, %.lr.ph106
   %indvars.iv118 = phi i64 [ %umin117, %.lr.ph106.preheader ], [ %indvars.iv.next119, %.lr.ph106 ]
-  %96 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv118
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv118
   %97 = load ptr, ptr %96, align 8, !tbaa !29
-  %98 = getelementptr %struct.zskiplistLevel, ptr %97, i64 %indvars.iv118
+  %98 = getelementptr [16 x i8], ptr %97, i64 %indvars.iv118
   %99 = getelementptr i8, ptr %98, i64 32
   %100 = load i64, ptr %99, align 8, !tbaa !27
   %101 = add i64 %100, 1
@@ -457,16 +456,16 @@ define dso_local void @zslDeleteNode(ptr noundef captures(none) %0, ptr noundef 
 
 8:                                                ; preds = %.lr.ph, %28
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %28 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !29
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %12 = getelementptr inbounds nuw %struct.zskiplistLevel, ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !20
   %14 = icmp eq ptr %13, %1
   br i1 %14, label %15, label %24
 
 15:                                               ; preds = %8
-  %16 = getelementptr inbounds nuw %struct.zskiplistLevel, ptr %7, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %indvars.iv
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load i64, ptr %17, align 8, !tbaa !27
   %19 = add i64 %18, -1
@@ -519,7 +518,7 @@ define dso_local void @zslDeleteNode(ptr noundef captures(none) %0, ptr noundef 
 40:                                               ; preds = %.lr.ph34, %47
   %41 = phi i32 [ %5, %.lr.ph34 ], [ %48, %47 ]
   %42 = zext nneg i32 %41 to i64
-  %43 = getelementptr %struct.zskiplistLevel, ptr %39, i64 %42
+  %43 = getelementptr [16 x i8], ptr %39, i64 %42
   %44 = getelementptr i8, ptr %43, i64 8
   %45 = load ptr, ptr %44, align 8, !tbaa !20
   %46 = icmp eq ptr %45, null
@@ -558,7 +557,7 @@ define dso_local range(i32 0, 2) i32 @zslDelete(ptr noundef captures(none) %0, d
   %.03352 = phi ptr [ %6, %.preheader.preheader ], [ %.1.lcssa, %.critedge ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %11 = getelementptr inbounds nuw i8, ptr %.03352, i64 24
-  %12 = getelementptr inbounds %struct.zskiplistLevel, ptr %11, i64 %indvars.iv.next
+  %12 = getelementptr inbounds [16 x i8], ptr %11, i64 %indvars.iv.next
   %13 = load ptr, ptr %12, align 8, !tbaa !20
   %.not4142 = icmp eq ptr %13, null
   br i1 %.not4142, label %.critedge, label %.lr.ph
@@ -589,14 +588,14 @@ define dso_local range(i32 0, 2) i32 @zslDelete(ptr noundef captures(none) %0, d
 .critedge2:                                       ; preds = %..critedge2_crit_edge, %.lr.ph
   %25 = phi ptr [ %.pre, %..critedge2_crit_edge ], [ %14, %.lr.ph ]
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  %27 = getelementptr inbounds %struct.zskiplistLevel, ptr %26, i64 %indvars.iv.next
+  %27 = getelementptr inbounds [16 x i8], ptr %26, i64 %indvars.iv.next
   %28 = load ptr, ptr %27, align 8, !tbaa !20
   %.not41 = icmp eq ptr %28, null
   br i1 %.not41, label %.critedge, label %.lr.ph, !llvm.loop !36
 
 .critedge:                                        ; preds = %21, %19, %.critedge2, %.preheader
   %.1.lcssa = phi ptr [ %.03352, %.preheader ], [ %25, %.critedge2 ], [ %.143, %19 ], [ %.143, %21 ]
-  %29 = getelementptr inbounds ptr, ptr %5, i64 %indvars.iv.next
+  %29 = getelementptr inbounds [8 x i8], ptr %5, i64 %indvars.iv.next
   store ptr %.1.lcssa, ptr %29, align 8, !tbaa !29
   %30 = icmp sgt i64 %indvars.iv, 1
   br i1 %30, label %.preheader, label %._crit_edge, !llvm.loop !37
@@ -632,16 +631,16 @@ define dso_local range(i32 0, 2) i32 @zslDelete(ptr noundef captures(none) %0, d
 
 45:                                               ; preds = %65, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %65 ]
-  %46 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv.i
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.i
   %47 = load ptr, ptr %46, align 8, !tbaa !29
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
-  %49 = getelementptr inbounds nuw %struct.zskiplistLevel, ptr %48, i64 %indvars.iv.i
+  %49 = getelementptr inbounds nuw [16 x i8], ptr %48, i64 %indvars.iv.i
   %50 = load ptr, ptr %49, align 8, !tbaa !20
   %51 = icmp eq ptr %50, %32
   br i1 %51, label %52, label %61
 
 52:                                               ; preds = %45
-  %53 = getelementptr inbounds nuw %struct.zskiplistLevel, ptr %44, i64 %indvars.iv.i
+  %53 = getelementptr inbounds nuw [16 x i8], ptr %44, i64 %indvars.iv.i
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %55 = load i64, ptr %54, align 8, !tbaa !27
   %56 = add i64 %55, -1
@@ -694,7 +693,7 @@ define dso_local range(i32 0, 2) i32 @zslDelete(ptr noundef captures(none) %0, d
 77:                                               ; preds = %84, %.lr.ph34.i
   %78 = phi i32 [ %42, %.lr.ph34.i ], [ %85, %84 ]
   %79 = zext nneg i32 %78 to i64
-  %80 = getelementptr %struct.zskiplistLevel, ptr %76, i64 %79
+  %80 = getelementptr [16 x i8], ptr %76, i64 %79
   %81 = getelementptr i8, ptr %80, i64 8
   %82 = load ptr, ptr %81, align 8, !tbaa !20
   %83 = icmp eq ptr %82, null
@@ -749,7 +748,7 @@ define dso_local ptr @zslUpdateScore(ptr noundef captures(none) %0, double nound
   %.04565 = phi ptr [ %6, %.preheader.preheader ], [ %.1.lcssa, %.critedge ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %11 = getelementptr inbounds nuw i8, ptr %.04565, i64 24
-  %12 = getelementptr inbounds %struct.zskiplistLevel, ptr %11, i64 %indvars.iv.next
+  %12 = getelementptr inbounds [16 x i8], ptr %11, i64 %indvars.iv.next
   %13 = load ptr, ptr %12, align 8, !tbaa !20
   %.not5255 = icmp eq ptr %13, null
   br i1 %.not5255, label %.critedge, label %.lr.ph
@@ -780,14 +779,14 @@ define dso_local ptr @zslUpdateScore(ptr noundef captures(none) %0, double nound
 .critedge2:                                       ; preds = %..critedge2_crit_edge, %.lr.ph
   %25 = phi ptr [ %.pre, %..critedge2_crit_edge ], [ %14, %.lr.ph ]
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  %27 = getelementptr inbounds %struct.zskiplistLevel, ptr %26, i64 %indvars.iv.next
+  %27 = getelementptr inbounds [16 x i8], ptr %26, i64 %indvars.iv.next
   %28 = load ptr, ptr %27, align 8, !tbaa !20
   %.not52 = icmp eq ptr %28, null
   br i1 %.not52, label %.critedge, label %.lr.ph, !llvm.loop !38
 
 .critedge:                                        ; preds = %21, %19, %.critedge2, %.preheader
   %.1.lcssa = phi ptr [ %.04565, %.preheader ], [ %25, %.critedge2 ], [ %.156, %19 ], [ %.156, %21 ]
-  %29 = getelementptr inbounds ptr, ptr %5, i64 %indvars.iv.next
+  %29 = getelementptr inbounds [8 x i8], ptr %5, i64 %indvars.iv.next
   store ptr %.1.lcssa, ptr %29, align 8, !tbaa !29
   %30 = icmp sgt i64 %indvars.iv, 1
   br i1 %30, label %.preheader, label %._crit_edge, !llvm.loop !39
@@ -856,16 +855,16 @@ define dso_local ptr @zslUpdateScore(ptr noundef captures(none) %0, double nound
 
 62:                                               ; preds = %82, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %82 ]
-  %63 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv.i
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.i
   %64 = load ptr, ptr %63, align 8, !tbaa !29
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 24
-  %66 = getelementptr inbounds nuw %struct.zskiplistLevel, ptr %65, i64 %indvars.iv.i
+  %66 = getelementptr inbounds nuw [16 x i8], ptr %65, i64 %indvars.iv.i
   %67 = load ptr, ptr %66, align 8, !tbaa !20
   %68 = icmp eq ptr %67, %32
   br i1 %68, label %69, label %78
 
 69:                                               ; preds = %62
-  %70 = getelementptr inbounds nuw %struct.zskiplistLevel, ptr %61, i64 %indvars.iv.i
+  %70 = getelementptr inbounds nuw [16 x i8], ptr %61, i64 %indvars.iv.i
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %72 = load i64, ptr %71, align 8, !tbaa !27
   %73 = add i64 %72, -1
@@ -921,7 +920,7 @@ define dso_local ptr @zslUpdateScore(ptr noundef captures(none) %0, double nound
 93:                                               ; preds = %100, %.lr.ph34.i
   %94 = phi i32 [ %59, %.lr.ph34.i ], [ %101, %100 ]
   %95 = zext nneg i32 %94 to i64
-  %96 = getelementptr %struct.zskiplistLevel, ptr %92, i64 %95
+  %96 = getelementptr [16 x i8], ptr %92, i64 %95
   %97 = getelementptr i8, ptr %96, i64 8
   %98 = load ptr, ptr %97, align 8, !tbaa !20
   %99 = icmp eq ptr %98, null
@@ -1106,7 +1105,7 @@ zslIsInRange.exit:                                ; preds = %27
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %40 = load i32, ptr %39, align 8, !tbaa !12
   %41 = sext i32 %40 to i64
-  %42 = getelementptr %struct.zskiplistLevel, ptr %28, i64 %41
+  %42 = getelementptr [16 x i8], ptr %28, i64 %41
   %43 = getelementptr i8, ptr %42, i64 8
   %44 = load ptr, ptr %43, align 8, !tbaa !20
   %.not97155 = icmp eq ptr %44, null
@@ -1124,11 +1123,11 @@ zslIsInRange.exit:                                ; preds = %27
   br i1 %.in.i, label %49, label %.critedge
 
 49:                                               ; preds = %.lr.ph
-  %50 = getelementptr %struct.zskiplistLevel, ptr %.085157, i64 %41
+  %50 = getelementptr [16 x i8], ptr %.085157, i64 %41
   %51 = getelementptr i8, ptr %50, i64 16
   %52 = load i64, ptr %51, align 8, !tbaa !27
   %53 = add i64 %52, %.0156
-  %54 = getelementptr %struct.zskiplistLevel, ptr %.085, i64 %41
+  %54 = getelementptr [16 x i8], ptr %.085, i64 %41
   %55 = getelementptr i8, ptr %54, i64 8
   %56 = load ptr, ptr %55, align 8, !tbaa !20
   %.not97 = icmp eq ptr %56, null
@@ -1158,7 +1157,7 @@ zslIsInRange.exit:                                ; preds = %27
   %.1194 = phi i64 [ %.0.lcssa153, %.preheader146.lr.ph ], [ %.2.lcssa, %.critedge2 ]
   %.186192 = phi ptr [ %.085.lcssa, %.preheader146.lr.ph ], [ %.287.lcssa, %.critedge2 ]
   %63 = getelementptr inbounds nuw i8, ptr %.186192, i64 24
-  %64 = getelementptr inbounds nuw %struct.zskiplistLevel, ptr %63, i64 %indvars.iv211
+  %64 = getelementptr inbounds nuw [16 x i8], ptr %63, i64 %indvars.iv211
   %65 = load ptr, ptr %64, align 8, !tbaa !20
   %.not107183 = icmp eq ptr %65, null
   br i1 %.not107183, label %.critedge2, label %.lr.ph186
@@ -1175,12 +1174,12 @@ zslIsInRange.exit:                                ; preds = %27
   br i1 %.in.i111, label %71, label %.critedge2
 
 71:                                               ; preds = %.lr.ph186
-  %72 = getelementptr inbounds nuw %struct.zskiplistLevel, ptr %.287184, i64 %indvars.iv211
+  %72 = getelementptr inbounds nuw [16 x i8], ptr %.287184, i64 %indvars.iv211
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 32
   %74 = load i64, ptr %73, align 8, !tbaa !27
   %75 = add i64 %74, %.2185
   %76 = getelementptr inbounds nuw i8, ptr %66, i64 24
-  %77 = getelementptr inbounds nuw %struct.zskiplistLevel, ptr %76, i64 %indvars.iv211
+  %77 = getelementptr inbounds nuw [16 x i8], ptr %76, i64 %indvars.iv211
   %78 = load ptr, ptr %77, align 8, !tbaa !20
   %.not107 = icmp eq ptr %78, null
   br i1 %.not107, label %.critedge2, label %.lr.ph186, !llvm.loop !47
@@ -1241,7 +1240,7 @@ zslIsInRange.exit:                                ; preds = %27
   %.120.i = phi ptr [ %99, %100 ], [ %.01925.i, %.preheader.i ]
   %.1.i = phi i64 [ %103, %100 ], [ %.01826.i, %.preheader.i ]
   %97 = getelementptr inbounds nuw i8, ptr %.120.i, i64 24
-  %98 = getelementptr inbounds nuw %struct.zskiplistLevel, ptr %97, i64 %indvars.iv.i
+  %98 = getelementptr inbounds nuw [16 x i8], ptr %97, i64 %indvars.iv.i
   %99 = load ptr, ptr %98, align 8, !tbaa !20
   %.not.i112 = icmp eq ptr %99, null
   br i1 %.not.i112, label %.critedge.i, label %100
@@ -1276,7 +1275,7 @@ zslGetElementByRankFromNode.exit.thread136:       ; preds = %.critedge.i, %zslGe
   %.6174 = phi ptr [ %.7.lcssa, %.critedge4 ], [ %.085.lcssa, %.preheader150 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %109 = getelementptr inbounds nuw i8, ptr %.6174, i64 24
-  %110 = getelementptr inbounds %struct.zskiplistLevel, ptr %109, i64 %indvars.iv.next
+  %110 = getelementptr inbounds [16 x i8], ptr %109, i64 %indvars.iv.next
   %111 = load ptr, ptr %110, align 8, !tbaa !20
   %.not101164 = icmp eq ptr %111, null
   br i1 %.not101164, label %.critedge4, label %.lr.ph167
@@ -1293,12 +1292,12 @@ zslGetElementByRankFromNode.exit.thread136:       ; preds = %.critedge.i, %zslGe
   br i1 %.in.i116, label %.critedge4, label %117
 
 117:                                              ; preds = %.lr.ph167
-  %118 = getelementptr %struct.zskiplistLevel, ptr %.7165, i64 %indvars.iv.next
+  %118 = getelementptr [16 x i8], ptr %.7165, i64 %indvars.iv.next
   %119 = getelementptr i8, ptr %118, i64 32
   %120 = load i64, ptr %119, align 8, !tbaa !27
   %121 = add i64 %120, %.4166
   %122 = getelementptr inbounds nuw i8, ptr %112, i64 24
-  %123 = getelementptr inbounds %struct.zskiplistLevel, ptr %122, i64 %indvars.iv.next
+  %123 = getelementptr inbounds [16 x i8], ptr %122, i64 %indvars.iv.next
   %124 = load ptr, ptr %123, align 8, !tbaa !20
   %.not101 = icmp eq ptr %124, null
   br i1 %.not101, label %.critedge4, label %.lr.ph167, !llvm.loop !52
@@ -1360,7 +1359,7 @@ zslGetElementByRankFromNode.exit.thread136:       ; preds = %.critedge.i, %zslGe
   %.120.i123 = phi ptr [ %144, %145 ], [ %.01925.i122, %.preheader.i119 ]
   %.1.i124 = phi i64 [ %148, %145 ], [ %.01826.i121, %.preheader.i119 ]
   %142 = getelementptr inbounds nuw i8, ptr %.120.i123, i64 24
-  %143 = getelementptr inbounds nuw %struct.zskiplistLevel, ptr %142, i64 %indvars.iv.i120
+  %143 = getelementptr inbounds nuw [16 x i8], ptr %142, i64 %indvars.iv.i120
   %144 = load ptr, ptr %143, align 8, !tbaa !20
   %.not.i125 = icmp eq ptr %144, null
   br i1 %.not.i125, label %.critedge.i127, label %145
@@ -1422,7 +1421,7 @@ define dso_local ptr @zslGetElementByRankFromNode(ptr noundef readonly captures(
   %.120 = phi ptr [ %11, %12 ], [ %.01925, %.preheader ]
   %.1 = phi i64 [ %15, %12 ], [ %.01826, %.preheader ]
   %9 = getelementptr inbounds nuw i8, ptr %.120, i64 24
-  %10 = getelementptr inbounds nuw %struct.zskiplistLevel, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !20
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %.critedge, label %12
@@ -1467,7 +1466,7 @@ define dso_local i64 @zslDeleteRangeByScore(ptr noundef captures(none) %0, ptr n
 11:                                               ; preds = %.preheader, %15
   %.1 = phi ptr [ %14, %15 ], [ %.037, %.preheader ]
   %12 = getelementptr inbounds nuw i8, ptr %.1, i64 24
-  %13 = getelementptr inbounds %struct.zskiplistLevel, ptr %12, i64 %indvars.iv.next
+  %13 = getelementptr inbounds [16 x i8], ptr %12, i64 %indvars.iv.next
   %14 = load ptr, ptr %13, align 8, !tbaa !20
   %.not31 = icmp eq ptr %14, null
   br i1 %.not31, label %.critedge, label %15
@@ -1484,7 +1483,7 @@ define dso_local i64 @zslDeleteRangeByScore(ptr noundef captures(none) %0, ptr n
   br i1 %.in.i, label %11, label %.critedge, !llvm.loop !55
 
 .critedge:                                        ; preds = %11, %15
-  %22 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv.next
+  %22 = getelementptr inbounds [8 x i8], ptr %4, i64 %indvars.iv.next
   store ptr %.1, ptr %22, align 8, !tbaa !29
   %23 = icmp sgt i64 %indvars.iv, 1
   br i1 %23, label %.preheader, label %._crit_edge, !llvm.loop !56
@@ -1529,16 +1528,16 @@ define dso_local i64 @zslDeleteRangeByScore(ptr noundef captures(none) %0, ptr n
 
 42:                                               ; preds = %62, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %62 ]
-  %43 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.i
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i
   %44 = load ptr, ptr %43, align 8, !tbaa !29
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 24
-  %46 = getelementptr inbounds nuw %struct.zskiplistLevel, ptr %45, i64 %indvars.iv.i
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %45, i64 %indvars.iv.i
   %47 = load ptr, ptr %46, align 8, !tbaa !20
   %48 = icmp eq ptr %47, %.241
   br i1 %48, label %49, label %58
 
 49:                                               ; preds = %42
-  %50 = getelementptr inbounds nuw %struct.zskiplistLevel, ptr %38, i64 %indvars.iv.i
+  %50 = getelementptr inbounds nuw [16 x i8], ptr %38, i64 %indvars.iv.i
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = load i64, ptr %51, align 8, !tbaa !27
   %53 = add i64 %52, -1
@@ -1593,7 +1592,7 @@ define dso_local i64 @zslDeleteRangeByScore(ptr noundef captures(none) %0, ptr n
 72:                                               ; preds = %79, %.lr.ph34.i
   %73 = phi i32 [ %40, %.lr.ph34.i ], [ %80, %79 ]
   %74 = zext nneg i32 %73 to i64
-  %75 = getelementptr %struct.zskiplistLevel, ptr %71, i64 %74
+  %75 = getelementptr [16 x i8], ptr %71, i64 %74
   %76 = getelementptr i8, ptr %75, i64 8
   %77 = load ptr, ptr %76, align 8, !tbaa !20
   %78 = icmp eq ptr %77, null
@@ -1646,7 +1645,7 @@ define dso_local i64 @zslDeleteRangeByLex(ptr noundef captures(none) %0, ptr nou
   %.063 = phi ptr [ %5, %.preheader.lr.ph ], [ %.1.lcssa, %.critedge ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %11 = getelementptr inbounds nuw i8, ptr %.063, i64 24
-  %12 = getelementptr inbounds %struct.zskiplistLevel, ptr %11, i64 %indvars.iv.next
+  %12 = getelementptr inbounds [16 x i8], ptr %11, i64 %indvars.iv.next
   %13 = load ptr, ptr %12, align 8, !tbaa !20
   %.not3148 = icmp eq ptr %13, null
   br i1 %.not3148, label %.critedge, label %.lr.ph
@@ -1713,14 +1712,14 @@ zslLexValueGteMin.exit.zslLexValueGteMin.exit.thread_crit_edge: ; preds = %zslLe
 zslLexValueGteMin.exit.thread:                    ; preds = %zslLexValueGteMin.exit.zslLexValueGteMin.exit.thread_crit_edge, %31, %24, %21, %20, %34
   %41 = phi ptr [ %.pre, %zslLexValueGteMin.exit.zslLexValueGteMin.exit.thread_crit_edge ], [ %14, %31 ], [ %14, %24 ], [ %14, %21 ], [ %14, %20 ], [ %14, %34 ]
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 24
-  %43 = getelementptr inbounds %struct.zskiplistLevel, ptr %42, i64 %indvars.iv.next
+  %43 = getelementptr inbounds [16 x i8], ptr %42, i64 %indvars.iv.next
   %44 = load ptr, ptr %43, align 8, !tbaa !20
   %.not31 = icmp eq ptr %44, null
   br i1 %.not31, label %.critedge, label %.lr.ph, !llvm.loop !65
 
 .critedge:                                        ; preds = %zslLexValueGteMin.exit, %zslLexValueGteMin.exit.thread, %27, %37, %30, %.preheader
   %.1.lcssa = phi ptr [ %.063, %.preheader ], [ %.149, %30 ], [ %.149, %37 ], [ %.149, %27 ], [ %41, %zslLexValueGteMin.exit.thread ], [ %.149, %zslLexValueGteMin.exit ]
-  %45 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv.next
+  %45 = getelementptr inbounds [8 x i8], ptr %4, i64 %indvars.iv.next
   store ptr %.1.lcssa, ptr %45, align 8, !tbaa !29
   %46 = icmp sgt i64 %indvars.iv, 1
   br i1 %46, label %.preheader, label %._crit_edge, !llvm.loop !66
@@ -1810,16 +1809,16 @@ zslLexValueLteMax.exit.thread:                    ; preds = %78, %72, %69, %68, 
 
 87:                                               ; preds = %107, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %107 ]
-  %88 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.i
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i
   %89 = load ptr, ptr %88, align 8, !tbaa !29
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 24
-  %91 = getelementptr inbounds nuw %struct.zskiplistLevel, ptr %90, i64 %indvars.iv.i
+  %91 = getelementptr inbounds nuw [16 x i8], ptr %90, i64 %indvars.iv.i
   %92 = load ptr, ptr %91, align 8, !tbaa !20
   %93 = icmp eq ptr %92, %.268
   br i1 %93, label %94, label %103
 
 94:                                               ; preds = %87
-  %95 = getelementptr inbounds nuw %struct.zskiplistLevel, ptr %83, i64 %indvars.iv.i
+  %95 = getelementptr inbounds nuw [16 x i8], ptr %83, i64 %indvars.iv.i
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %97 = load i64, ptr %96, align 8, !tbaa !27
   %98 = add i64 %97, -1
@@ -1874,7 +1873,7 @@ zslLexValueLteMax.exit.thread:                    ; preds = %78, %72, %69, %68, 
 117:                                              ; preds = %124, %.lr.ph34.i
   %118 = phi i32 [ %85, %.lr.ph34.i ], [ %125, %124 ]
   %119 = zext nneg i32 %118 to i64
-  %120 = getelementptr %struct.zskiplistLevel, ptr %116, i64 %119
+  %120 = getelementptr [16 x i8], ptr %116, i64 %119
   %121 = getelementptr i8, ptr %120, i64 8
   %122 = load ptr, ptr %121, align 8, !tbaa !20
   %123 = icmp eq ptr %122, null
@@ -2054,7 +2053,7 @@ define dso_local i64 @zslDeleteRangeByRank(ptr noundef captures(none) %0, i32 no
   %.134 = phi i64 [ %19, %16 ], [ %.03339, %.preheader ]
   %.1 = phi ptr [ %15, %16 ], [ %.040, %.preheader ]
   %13 = getelementptr inbounds nuw i8, ptr %.1, i64 24
-  %14 = getelementptr inbounds %struct.zskiplistLevel, ptr %13, i64 %indvars.iv.next
+  %14 = getelementptr inbounds [16 x i8], ptr %13, i64 %indvars.iv.next
   %15 = load ptr, ptr %14, align 8, !tbaa !20
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %.critedge, label %16
@@ -2067,7 +2066,7 @@ define dso_local i64 @zslDeleteRangeByRank(ptr noundef captures(none) %0, i32 no
   br i1 %20, label %12, label %.critedge, !llvm.loop !70
 
 .critedge:                                        ; preds = %12, %16
-  %21 = getelementptr inbounds ptr, ptr %5, i64 %indvars.iv.next
+  %21 = getelementptr inbounds [8 x i8], ptr %5, i64 %indvars.iv.next
   store ptr %.1, ptr %21, align 8, !tbaa !29
   %22 = icmp sgt i64 %indvars.iv, 1
   br i1 %22, label %.preheader, label %._crit_edge, !llvm.loop !71
@@ -2105,16 +2104,16 @@ define dso_local i64 @zslDeleteRangeByRank(ptr noundef captures(none) %0, i32 no
 
 36:                                               ; preds = %56, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %56 ]
-  %37 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv.i
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.i
   %38 = load ptr, ptr %37, align 8, !tbaa !29
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 24
-  %40 = getelementptr inbounds nuw %struct.zskiplistLevel, ptr %39, i64 %indvars.iv.i
+  %40 = getelementptr inbounds nuw [16 x i8], ptr %39, i64 %indvars.iv.i
   %41 = load ptr, ptr %40, align 8, !tbaa !20
   %42 = icmp eq ptr %41, %.245
   br i1 %42, label %43, label %52
 
 43:                                               ; preds = %36
-  %44 = getelementptr inbounds nuw %struct.zskiplistLevel, ptr %32, i64 %indvars.iv.i
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %32, i64 %indvars.iv.i
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %46 = load i64, ptr %45, align 8, !tbaa !27
   %47 = add i64 %46, -1
@@ -2169,7 +2168,7 @@ define dso_local i64 @zslDeleteRangeByRank(ptr noundef captures(none) %0, i32 no
 66:                                               ; preds = %73, %.lr.ph34.i
   %67 = phi i32 [ %34, %.lr.ph34.i ], [ %74, %73 ]
   %68 = zext nneg i32 %67 to i64
-  %69 = getelementptr %struct.zskiplistLevel, ptr %65, i64 %68
+  %69 = getelementptr [16 x i8], ptr %65, i64 %68
   %70 = getelementptr i8, ptr %69, i64 8
   %71 = load ptr, ptr %70, align 8, !tbaa !20
   %72 = icmp eq ptr %71, null
@@ -2220,7 +2219,7 @@ define dso_local i64 @zslGetRank(ptr noundef readonly captures(none) %0, double 
   %.02948 = phi ptr [ %7, %.preheader.preheader ], [ %.130.lcssa, %38 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %9 = getelementptr inbounds nuw i8, ptr %.02948, i64 24
-  %10 = getelementptr inbounds %struct.zskiplistLevel, ptr %9, i64 %indvars.iv.next
+  %10 = getelementptr inbounds [16 x i8], ptr %9, i64 %indvars.iv.next
   %11 = load ptr, ptr %10, align 8, !tbaa !20
   %.not37 = icmp eq ptr %11, null
   br i1 %.not37, label %.critedge, label %.lr.ph
@@ -2255,7 +2254,7 @@ define dso_local i64 @zslGetRank(ptr noundef readonly captures(none) %0, double 
   %25 = load i64, ptr %24, align 8, !tbaa !27
   %26 = add i64 %25, %.139
   %27 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  %28 = getelementptr inbounds %struct.zskiplistLevel, ptr %27, i64 %indvars.iv.next
+  %28 = getelementptr inbounds [16 x i8], ptr %27, i64 %indvars.iv.next
   %29 = load ptr, ptr %28, align 8, !tbaa !20
   %.not = icmp eq ptr %29, null
   br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !73
@@ -2315,7 +2314,7 @@ define dso_local ptr @zslGetElementByRank(ptr noundef readonly captures(none) %0
   %.120.i = phi ptr [ %14, %15 ], [ %.01925.i, %.preheader.i ]
   %.1.i = phi i64 [ %18, %15 ], [ %.01826.i, %.preheader.i ]
   %12 = getelementptr inbounds nuw i8, ptr %.120.i, i64 24
-  %13 = getelementptr inbounds nuw %struct.zskiplistLevel, ptr %12, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %indvars.iv.i
   %14 = load ptr, ptr %13, align 8, !tbaa !20
   %.not.i = icmp eq ptr %14, null
   br i1 %.not.i, label %.critedge.i, label %15
@@ -2840,7 +2839,7 @@ define dso_local noundef ptr @zslNthInLexRange(ptr noundef readonly captures(non
   %7 = load i32, ptr %6, align 8, !tbaa !12
   %8 = sext i32 %7 to i64
   %.085192 = load ptr, ptr %0, align 8, !tbaa !29
-  %9 = getelementptr %struct.zskiplistLevel, ptr %.085192, i64 %8
+  %9 = getelementptr [16 x i8], ptr %.085192, i64 %8
   %10 = getelementptr i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !20
   %.not97193 = icmp eq ptr %11, null
@@ -2912,11 +2911,11 @@ zslLexValueGteMin.exit.zslLexValueGteMin.exit.thread_crit_edge: ; preds = %zslLe
 
 zslLexValueGteMin.exit.thread:                    ; preds = %zslLexValueGteMin.exit.zslLexValueGteMin.exit.thread_crit_edge, %31, %24, %21, %20, %34
   %.085 = phi ptr [ %.085.pre, %zslLexValueGteMin.exit.zslLexValueGteMin.exit.thread_crit_edge ], [ %14, %31 ], [ %14, %24 ], [ %14, %21 ], [ %14, %20 ], [ %14, %34 ]
-  %41 = getelementptr %struct.zskiplistLevel, ptr %.085195, i64 %8
+  %41 = getelementptr [16 x i8], ptr %.085195, i64 %8
   %42 = getelementptr i8, ptr %41, i64 16
   %43 = load i64, ptr %42, align 8, !tbaa !27
   %44 = add i64 %43, %.0194
-  %45 = getelementptr %struct.zskiplistLevel, ptr %.085, i64 %8
+  %45 = getelementptr [16 x i8], ptr %.085, i64 %8
   %46 = getelementptr i8, ptr %45, i64 8
   %47 = load ptr, ptr %46, align 8, !tbaa !20
   %.not97 = icmp eq ptr %47, null
@@ -2944,7 +2943,7 @@ zslLexValueGteMin.exit.thread:                    ; preds = %zslLexValueGteMin.e
   %.1259 = phi i64 [ %.0.lcssa191, %.preheader185.lr.ph ], [ %.2.lcssa, %.critedge2 ]
   %.186257 = phi ptr [ %.085.lcssa, %.preheader185.lr.ph ], [ %.287.lcssa, %.critedge2 ]
   %55 = getelementptr inbounds nuw i8, ptr %.186257, i64 24
-  %56 = getelementptr inbounds nuw %struct.zskiplistLevel, ptr %55, i64 %indvars.iv277
+  %56 = getelementptr inbounds nuw [16 x i8], ptr %55, i64 %indvars.iv277
   %57 = load ptr, ptr %56, align 8, !tbaa !20
   %.not107240 = icmp eq ptr %57, null
   br i1 %.not107240, label %.critedge2, label %.lr.ph243
@@ -3015,7 +3014,7 @@ zslLexValueGteMin.exit115.thread:                 ; preds = %zslLexValueGteMin.e
   %87 = load i64, ptr %86, align 8, !tbaa !27
   %88 = add i64 %87, %.2242
   %89 = getelementptr inbounds nuw i8, ptr %85, i64 24
-  %90 = getelementptr inbounds nuw %struct.zskiplistLevel, ptr %89, i64 %indvars.iv277
+  %90 = getelementptr inbounds nuw [16 x i8], ptr %89, i64 %indvars.iv277
   %91 = load ptr, ptr %90, align 8, !tbaa !20
   %.not107 = icmp eq ptr %91, null
   br i1 %.not107, label %.critedge2, label %.lr.ph243, !llvm.loop !82
@@ -3077,7 +3076,7 @@ zslLexValueGteMin.exit115.thread:                 ; preds = %zslLexValueGteMin.e
   %.120.i = phi ptr [ %113, %114 ], [ %.01925.i, %.preheader.i ]
   %.1.i = phi i64 [ %117, %114 ], [ %.01826.i, %.preheader.i ]
   %111 = getelementptr inbounds nuw i8, ptr %.120.i, i64 24
-  %112 = getelementptr inbounds nuw %struct.zskiplistLevel, ptr %111, i64 %indvars.iv.i
+  %112 = getelementptr inbounds nuw [16 x i8], ptr %111, i64 %indvars.iv.i
   %113 = load ptr, ptr %112, align 8, !tbaa !20
   %.not.i116 = icmp eq ptr %113, null
   br i1 %.not.i116, label %.critedge.i, label %114
@@ -3172,7 +3171,7 @@ zslLexValueLteMax.exit:                           ; preds = %132
   %.6231 = phi ptr [ %.085.lcssa, %.preheader188.lr.ph ], [ %.7.lcssa, %.critedge4 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %155 = getelementptr inbounds nuw i8, ptr %.6231, i64 24
-  %156 = getelementptr inbounds %struct.zskiplistLevel, ptr %155, i64 %indvars.iv.next
+  %156 = getelementptr inbounds [16 x i8], ptr %155, i64 %indvars.iv.next
   %157 = load ptr, ptr %156, align 8, !tbaa !20
   %.not101213 = icmp eq ptr %157, null
   br i1 %.not101213, label %.critedge4, label %.lr.ph216
@@ -3247,7 +3246,7 @@ zslLexValueLteMax.exit123.thread:                 ; preds = %zslLexValueLteMax.e
   %191 = load i64, ptr %190, align 8, !tbaa !27
   %192 = add i64 %191, %.4215
   %193 = getelementptr inbounds nuw i8, ptr %189, i64 24
-  %194 = getelementptr inbounds %struct.zskiplistLevel, ptr %193, i64 %indvars.iv.next
+  %194 = getelementptr inbounds [16 x i8], ptr %193, i64 %indvars.iv.next
   %195 = load ptr, ptr %194, align 8, !tbaa !20
   %.not101 = icmp eq ptr %195, null
   br i1 %.not101, label %.critedge4, label %.lr.ph216, !llvm.loop !85
@@ -3311,7 +3310,7 @@ zslLexValueLteMax.exit123.thread:                 ; preds = %zslLexValueLteMax.e
   %.120.i130 = phi ptr [ %217, %218 ], [ %.01925.i129, %.preheader.i126 ]
   %.1.i131 = phi i64 [ %221, %218 ], [ %.01826.i128, %.preheader.i126 ]
   %215 = getelementptr inbounds nuw i8, ptr %.120.i130, i64 24
-  %216 = getelementptr inbounds nuw %struct.zskiplistLevel, ptr %215, i64 %indvars.iv.i127
+  %216 = getelementptr inbounds nuw [16 x i8], ptr %215, i64 %indvars.iv.i127
   %217 = load ptr, ptr %216, align 8, !tbaa !20
   %.not.i132 = icmp eq ptr %217, null
   br i1 %.not.i132, label %.critedge.i134, label %218
@@ -6007,7 +6006,7 @@ zzlGetScore.exit:                                 ; preds = %67, %72
   %.02948.i = phi ptr [ %93, %.preheader.preheader.i ], [ %.130.lcssa.i, %124 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %95 = getelementptr inbounds nuw i8, ptr %.02948.i, i64 24
-  %96 = getelementptr inbounds %struct.zskiplistLevel, ptr %95, i64 %indvars.iv.next.i
+  %96 = getelementptr inbounds [16 x i8], ptr %95, i64 %indvars.iv.next.i
   %97 = load ptr, ptr %96, align 8, !tbaa !20
   %.not37.i = icmp eq ptr %97, null
   br i1 %.not37.i, label %.critedge.i55, label %.lr.ph.i
@@ -6042,7 +6041,7 @@ zzlGetScore.exit:                                 ; preds = %67, %72
   %111 = load i64, ptr %110, align 8, !tbaa !27
   %112 = add i64 %111, %.139.i
   %113 = getelementptr inbounds nuw i8, ptr %109, i64 24
-  %114 = getelementptr inbounds %struct.zskiplistLevel, ptr %113, i64 %indvars.iv.next.i
+  %114 = getelementptr inbounds [16 x i8], ptr %113, i64 %indvars.iv.next.i
   %115 = load ptr, ptr %114, align 8, !tbaa !20
   %.not.i56 = icmp eq ptr %115, null
   br i1 %.not.i56, label %.critedge.i55, label %.lr.ph.i, !llvm.loop !73
@@ -6430,7 +6429,7 @@ define dso_local void @zaddGenericCommand(ptr noundef %0, i32 noundef %1) local_
   %indvars.iv = phi i64 [ 2, %.lr.ph.preheader ], [ %indvars.iv.next, %37 ]
   %.0209 = phi i32 [ %1, %.lr.ph.preheader ], [ %.2, %37 ]
   %.0129208 = phi i32 [ 0, %.lr.ph.preheader ], [ %.2131, %37 ]
-  %12 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !146
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !75
@@ -6576,9 +6575,9 @@ define dso_local void @zaddGenericCommand(ptr noundef %0, i32 noundef %1) local_
   %67 = load ptr, ptr %5, align 8, !tbaa !136
   %.idx = shl nuw nsw i64 %indvars.iv233, 4
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 %.idx
-  %69 = getelementptr inbounds nuw ptr, ptr %68, i64 %65
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %65
   %70 = load ptr, ptr %69, align 8, !tbaa !146
-  %71 = getelementptr inbounds nuw double, ptr %63, i64 %indvars.iv233
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %indvars.iv233
   %72 = tail call i32 @getDoubleFromObjectOrReply(ptr noundef nonnull %0, ptr noundef %70, ptr noundef %71, ptr noundef null) #19
   %.not166 = icmp eq i32 %72, 0
   br i1 %.not166, label %66, label %.loopexit
@@ -6601,7 +6600,7 @@ define dso_local void @zaddGenericCommand(ptr noundef %0, i32 noundef %1) local_
 80:                                               ; preds = %79
   %81 = load ptr, ptr %5, align 8, !tbaa !136
   %82 = zext nneg i32 %.0135.lcssa to i64
-  %83 = getelementptr ptr, ptr %81, i64 %82
+  %83 = getelementptr [8 x i8], ptr %81, i64 %82
   %84 = getelementptr i8, ptr %83, i64 8
   %85 = load ptr, ptr %84, align 8, !tbaa !146
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
@@ -6642,13 +6641,13 @@ zsetTypeMaybeConvert.exit:                        ; preds = %98, %92, %80
   %.2144221 = phi i32 [ 0, %.lr.ph224 ], [ %.4, %114 ]
   %.2148220 = phi i32 [ 0, %.lr.ph224 ], [ %spec.select, %114 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %103 = getelementptr inbounds nuw double, ptr %63, i64 %indvars.iv238
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %indvars.iv238
   %104 = load double, ptr %103, align 8, !tbaa !5
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %105 = load ptr, ptr %5, align 8, !tbaa !136
   %.idx246 = shl nuw nsw i64 %indvars.iv238, 4
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 %.idx246
-  %107 = getelementptr inbounds nuw ptr, ptr %106, i64 %101
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %101
   %108 = load ptr, ptr %107, align 8, !tbaa !146
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 8
   %110 = load ptr, ptr %109, align 8, !tbaa !75
@@ -6830,7 +6829,7 @@ define dso_local void @zremCommand(ptr noundef %0) local_unnamed_addr #0 {
   %indvars.iv = phi i64 [ 2, %.lr.ph ], [ %indvars.iv.next, %14 ]
   %.049 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %14 ]
   %18 = load ptr, ptr %2, align 8, !tbaa !136
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8, !tbaa !146
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !75
@@ -8444,7 +8443,7 @@ define dso_local void @zunionInterDiffGenericCommand(ptr noundef %0, ptr noundef
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %14 = load ptr, ptr %13, align 8, !tbaa !136
   %15 = sext i32 %2 to i64
-  %16 = getelementptr inbounds ptr, ptr %14, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !146
   %18 = call i32 @getLongFromObjectOrReply(ptr noundef %0, ptr noundef %17, ptr noundef nonnull %6, ptr noundef null) #19
   %.not = icmp eq i32 %18, 0
@@ -8502,7 +8501,7 @@ define dso_local void @zunionInterDiffGenericCommand(ptr noundef %0, ptr noundef
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %66 ]
   %46 = load ptr, ptr %42, align 8, !tbaa !150
   %47 = load ptr, ptr %13, align 8, !tbaa !136
-  %48 = getelementptr inbounds ptr, ptr %47, i64 %indvars.iv471
+  %48 = getelementptr inbounds [8 x i8], ptr %47, i64 %indvars.iv471
   %49 = load ptr, ptr %48, align 8, !tbaa !146
   %50 = call ptr @lookupKeyRead(ptr noundef %46, ptr noundef %49) #19
   %.not307 = icmp eq ptr %50, null
@@ -8521,7 +8520,7 @@ define dso_local void @zunionInterDiffGenericCommand(ptr noundef %0, ptr noundef
   br label %544
 
 55:                                               ; preds = %51
-  %56 = getelementptr inbounds nuw %struct.zsetopsrc, ptr %38, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw [48 x i8], ptr %38, i64 %indvars.iv
   store ptr %50, ptr %56, align 8, !tbaa !157
   %57 = load i32, ptr %50, align 8
   %58 = and i32 %57, 15
@@ -8535,12 +8534,12 @@ define dso_local void @zunionInterDiffGenericCommand(ptr noundef %0, ptr noundef
   br label %66
 
 64:                                               ; preds = %45
-  %65 = getelementptr inbounds nuw %struct.zsetopsrc, ptr %38, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw [48 x i8], ptr %38, i64 %indvars.iv
   store ptr null, ptr %65, align 8, !tbaa !157
   br label %66
 
 66:                                               ; preds = %64, %55
-  %67 = getelementptr inbounds nuw %struct.zsetopsrc, ptr %38, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw [48 x i8], ptr %38, i64 %indvars.iv
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 16
   store double 1.000000e+00, ptr %68, align 8, !tbaa !176
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -8593,7 +8592,7 @@ define dso_local void @zunionInterDiffGenericCommand(ptr noundef %0, ptr noundef
 85:                                               ; preds = %82
   %86 = load ptr, ptr %13, align 8, !tbaa !136
   %87 = sext i32 %.1240413 to i64
-  %88 = getelementptr inbounds ptr, ptr %86, i64 %87
+  %88 = getelementptr inbounds [8 x i8], ptr %86, i64 %87
   %89 = load ptr, ptr %88, align 8, !tbaa !146
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %91 = load ptr, ptr %90, align 8, !tbaa !75
@@ -8624,9 +8623,9 @@ define dso_local void @zunionInterDiffGenericCommand(ptr noundef %0, ptr noundef
   %indvars.iv476 = phi i64 [ %94, %.lr.ph404.preheader ], [ %indvars.iv.next477, %95 ]
   %.1248403 = phi i32 [ %.1248400, %.lr.ph404.preheader ], [ %.1248, %95 ]
   %98 = load ptr, ptr %13, align 8, !tbaa !136
-  %99 = getelementptr inbounds ptr, ptr %98, i64 %indvars.iv476
+  %99 = getelementptr inbounds [8 x i8], ptr %98, i64 %indvars.iv476
   %100 = load ptr, ptr %99, align 8, !tbaa !146
-  %101 = getelementptr inbounds nuw %struct.zsetopsrc, ptr %38, i64 %indvars.iv478
+  %101 = getelementptr inbounds nuw [48 x i8], ptr %38, i64 %indvars.iv478
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 16
   %103 = call i32 @getDoubleFromObjectOrReply(ptr noundef nonnull %0, ptr noundef %100, ptr noundef nonnull %102, ptr noundef nonnull @.str.43) #19
   %.not282 = icmp eq i32 %103, 0
@@ -8643,7 +8642,7 @@ define dso_local void @zunionInterDiffGenericCommand(ptr noundef %0, ptr noundef
 107:                                              ; preds = %105
   %108 = load ptr, ptr %13, align 8, !tbaa !136
   %109 = sext i32 %.1240413 to i64
-  %110 = getelementptr ptr, ptr %108, i64 %109
+  %110 = getelementptr [8 x i8], ptr %108, i64 %109
   %111 = load ptr, ptr %110, align 8, !tbaa !146
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 8
   %113 = load ptr, ptr %112, align 8, !tbaa !75
@@ -8691,7 +8690,7 @@ define dso_local void @zunionInterDiffGenericCommand(ptr noundef %0, ptr noundef
 132:                                              ; preds = %130
   %133 = load ptr, ptr %13, align 8, !tbaa !136
   %134 = sext i32 %.1240413 to i64
-  %135 = getelementptr inbounds ptr, ptr %133, i64 %134
+  %135 = getelementptr inbounds [8 x i8], ptr %133, i64 %134
   %136 = load ptr, ptr %135, align 8, !tbaa !146
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 8
   %138 = load ptr, ptr %137, align 8, !tbaa !75
@@ -8710,7 +8709,7 @@ define dso_local void @zunionInterDiffGenericCommand(ptr noundef %0, ptr noundef
 144:                                              ; preds = %143
   %145 = load ptr, ptr %13, align 8, !tbaa !136
   %146 = sext i32 %.1240413 to i64
-  %147 = getelementptr ptr, ptr %145, i64 %146
+  %147 = getelementptr [8 x i8], ptr %145, i64 %146
   %148 = load ptr, ptr %147, align 8, !tbaa !146
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 8
   %150 = load ptr, ptr %149, align 8, !tbaa !75
@@ -8822,7 +8821,7 @@ define dso_local void @zunionInterDiffGenericCommand(ptr noundef %0, ptr noundef
 .lr.ph434:                                        ; preds = %184, %zunionInterAggregate.exit
   %indvars.iv486 = phi i64 [ %indvars.iv.next487, %zunionInterAggregate.exit ], [ 1, %184 ]
   %.0352431 = phi double [ %.1353, %zunionInterAggregate.exit ], [ %spec.store.select, %184 ]
-  %191 = getelementptr inbounds nuw %struct.zsetopsrc, ptr %38, i64 %indvars.iv486
+  %191 = getelementptr inbounds nuw [48 x i8], ptr %38, i64 %indvars.iv486
   %192 = load ptr, ptr %191, align 8, !tbaa !157
   %193 = load ptr, ptr %38, align 8, !tbaa !157
   %194 = icmp eq ptr %192, %193
@@ -9107,7 +9106,7 @@ zuiDiscardDirtyValue.exit:                        ; preds = %295, %291, %287, %2
 
 304:                                              ; preds = %302
   %305 = load ptr, ptr %.0250, align 8, !tbaa !125
-  %306 = getelementptr %struct.zsetopsrc, ptr %38, i64 %303
+  %306 = getelementptr [48 x i8], ptr %38, i64 %303
   %307 = getelementptr i8, ptr %306, i64 -48
   %308 = call i64 @zuiLength(ptr noundef %307)
   %309 = call i32 @dictExpand(ptr noundef %305, i64 noundef %308) #19
@@ -9125,7 +9124,7 @@ zuiDiscardDirtyValue.exit:                        ; preds = %295, %291, %287, %2
 
 316:                                              ; preds = %.lr.ph425, %416
   %indvars.iv483 = phi i64 [ 0, %.lr.ph425 ], [ %indvars.iv.next484, %416 ]
-  %317 = getelementptr inbounds nuw %struct.zsetopsrc, ptr %38, i64 %indvars.iv483
+  %317 = getelementptr inbounds nuw [48 x i8], ptr %38, i64 %indvars.iv483
   %318 = call i64 @zuiLength(ptr noundef %317)
   %319 = icmp eq i64 %318, 0
   br i1 %319, label %416, label %320
@@ -9693,7 +9692,7 @@ define internal fastcc void @zdiff(ptr noundef nonnull %0, i64 noundef %1, ptr n
 
 13:                                               ; preds = %.lr.ph.i
   %14 = load ptr, ptr %0, align 8, !tbaa !157
-  %15 = getelementptr inbounds nuw %struct.zsetopsrc, ptr %0, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %indvars.iv.i
   %16 = load ptr, ptr %15, align 8, !tbaa !157
   %17 = icmp eq ptr %14, %16
   br i1 %17, label %zsetChooseDiffAlgorithm.exit, label %18
@@ -9701,7 +9700,7 @@ define internal fastcc void @zdiff(ptr noundef nonnull %0, i64 noundef %1, ptr n
 18:                                               ; preds = %13, %.lr.ph.i
   %19 = tail call i64 @zuiLength(ptr noundef nonnull readonly %0)
   %20 = add i64 %19, %.01523.i
-  %21 = getelementptr inbounds nuw %struct.zsetopsrc, ptr %0, i64 %indvars.iv.i
+  %21 = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %indvars.iv.i
   %22 = tail call i64 @zuiLength(ptr noundef nonnull readonly %21)
   %23 = add i64 %22, %.024.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -9745,7 +9744,7 @@ define internal fastcc void @zdiff(ptr noundef nonnull %0, i64 noundef %1, ptr n
 
 .lr.ph.i16:                                       ; preds = %36, %37
   %indvars.iv.i17 = phi i64 [ %indvars.iv.next.i18, %37 ], [ 1, %36 ]
-  %38 = getelementptr inbounds nuw %struct.zsetopsrc, ptr %0, i64 %indvars.iv.i17
+  %38 = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %indvars.iv.i17
   %39 = load ptr, ptr %38, align 8, !tbaa !157
   %40 = load ptr, ptr %0, align 8, !tbaa !157
   %41 = icmp eq ptr %39, %40
@@ -9965,7 +9964,7 @@ zdiffAlgorithm1.exit:                             ; preds = %.loopexit.i, %26
   %139 = phi i64 [ 0, %.lr.ph.i21 ], [ %297, %295 ]
   %.051.i = phi i32 [ 0, %.lr.ph.i21 ], [ %296, %295 ]
   %.02850.i = phi i32 [ 0, %.lr.ph.i21 ], [ %.1.i, %295 ]
-  %140 = getelementptr inbounds nuw %struct.zsetopsrc, ptr %0, i64 %139
+  %140 = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %139
   %141 = call i64 @zuiLength(ptr noundef nonnull %140)
   %142 = icmp eq i64 %141, 0
   br i1 %142, label %295, label %143
@@ -10101,7 +10100,7 @@ zuiSdsFromValue.exit.i:                           ; preds = %189, %173
   %.03352.i.i = phi ptr [ %200, %.preheader.preheader.i.i ], [ %.1.lcssa.i.i, %.critedge.i.i ]
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
   %205 = getelementptr inbounds nuw i8, ptr %.03352.i.i, i64 24
-  %206 = getelementptr inbounds %struct.zskiplistLevel, ptr %205, i64 %indvars.iv.next.i.i
+  %206 = getelementptr inbounds [16 x i8], ptr %205, i64 %indvars.iv.next.i.i
   %207 = load ptr, ptr %206, align 8, !tbaa !20
   %.not4142.i.i = icmp eq ptr %207, null
   br i1 %.not4142.i.i, label %.critedge.i.i, label %.lr.ph.i37.i
@@ -10132,14 +10131,14 @@ zuiSdsFromValue.exit.i:                           ; preds = %189, %173
 .critedge2.i.i:                                   ; preds = %..critedge2_crit_edge.i.i, %.lr.ph.i37.i
   %219 = phi ptr [ %.pre.i38.i, %..critedge2_crit_edge.i.i ], [ %208, %.lr.ph.i37.i ]
   %220 = getelementptr inbounds nuw i8, ptr %219, i64 24
-  %221 = getelementptr inbounds %struct.zskiplistLevel, ptr %220, i64 %indvars.iv.next.i.i
+  %221 = getelementptr inbounds [16 x i8], ptr %220, i64 %indvars.iv.next.i.i
   %222 = load ptr, ptr %221, align 8, !tbaa !20
   %.not41.i.i = icmp eq ptr %222, null
   br i1 %.not41.i.i, label %.critedge.i.i, label %.lr.ph.i37.i, !llvm.loop !36
 
 .critedge.i.i:                                    ; preds = %.critedge2.i.i, %215, %213, %.preheader.i.i
   %.1.lcssa.i.i = phi ptr [ %.03352.i.i, %.preheader.i.i ], [ %219, %.critedge2.i.i ], [ %.143.i.i, %213 ], [ %.143.i.i, %215 ]
-  %223 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv.next.i.i
+  %223 = getelementptr inbounds [8 x i8], ptr %6, i64 %indvars.iv.next.i.i
   store ptr %.1.lcssa.i.i, ptr %223, align 8, !tbaa !29
   %224 = icmp sgt i64 %indvars.iv.i.i, 1
   br i1 %224, label %.preheader.i.i, label %._crit_edge.i.i, !llvm.loop !37
@@ -10175,16 +10174,16 @@ zuiSdsFromValue.exit.i:                           ; preds = %189, %173
 
 239:                                              ; preds = %259, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %259 ]
-  %240 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv.i.i.i
+  %240 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv.i.i.i
   %241 = load ptr, ptr %240, align 8, !tbaa !29
   %242 = getelementptr inbounds nuw i8, ptr %241, i64 24
-  %243 = getelementptr inbounds nuw %struct.zskiplistLevel, ptr %242, i64 %indvars.iv.i.i.i
+  %243 = getelementptr inbounds nuw [16 x i8], ptr %242, i64 %indvars.iv.i.i.i
   %244 = load ptr, ptr %243, align 8, !tbaa !20
   %245 = icmp eq ptr %244, %226
   br i1 %245, label %246, label %255
 
 246:                                              ; preds = %239
-  %247 = getelementptr inbounds nuw %struct.zskiplistLevel, ptr %238, i64 %indvars.iv.i.i.i
+  %247 = getelementptr inbounds nuw [16 x i8], ptr %238, i64 %indvars.iv.i.i.i
   %248 = getelementptr inbounds nuw i8, ptr %247, i64 8
   %249 = load i64, ptr %248, align 8, !tbaa !27
   %250 = add i64 %249, -1
@@ -10237,7 +10236,7 @@ zuiSdsFromValue.exit.i:                           ; preds = %189, %173
 271:                                              ; preds = %278, %.lr.ph34.i.i.i
   %272 = phi i32 [ %236, %.lr.ph34.i.i.i ], [ %279, %278 ]
   %273 = zext nneg i32 %272 to i64
-  %274 = getelementptr %struct.zskiplistLevel, ptr %270, i64 %273
+  %274 = getelementptr [16 x i8], ptr %270, i64 %273
   %275 = getelementptr i8, ptr %274, i64 8
   %276 = load ptr, ptr %275, align 8, !tbaa !20
   %277 = icmp eq ptr %276, null
@@ -10777,7 +10776,7 @@ zzlPrev.exit:                                     ; preds = %96, %94, %91, %89
   %.120.i.i = phi ptr [ %121, %122 ], [ %.01925.i.i, %.preheader.i.i ]
   %.1.i.i = phi i64 [ %125, %122 ], [ %.01826.i.i, %.preheader.i.i ]
   %119 = getelementptr inbounds nuw i8, ptr %.120.i.i, i64 24
-  %120 = getelementptr inbounds nuw %struct.zskiplistLevel, ptr %119, i64 %indvars.iv.i.i
+  %120 = getelementptr inbounds nuw [16 x i8], ptr %119, i64 %indvars.iv.i.i
   %121 = load ptr, ptr %120, align 8, !tbaa !20
   %.not.i.i = icmp eq ptr %121, null
   br i1 %.not.i.i, label %.critedge.i.i, label %122
@@ -10827,7 +10826,7 @@ zzlPrev.exit:                                     ; preds = %96, %94, %91, %89
   %.120.i.i121 = phi ptr [ %143, %144 ], [ %.01925.i.i120, %.preheader.i.i117 ]
   %.1.i.i122 = phi i64 [ %147, %144 ], [ %.01826.i.i119, %.preheader.i.i117 ]
   %141 = getelementptr inbounds nuw i8, ptr %.120.i.i121, i64 24
-  %142 = getelementptr inbounds nuw %struct.zskiplistLevel, ptr %141, i64 %indvars.iv.i.i118
+  %142 = getelementptr inbounds nuw [16 x i8], ptr %141, i64 %indvars.iv.i.i118
   %143 = load ptr, ptr %142, align 8, !tbaa !20
   %.not.i.i123 = icmp eq ptr %143, null
   br i1 %.not.i.i123, label %.critedge.i.i125, label %144
@@ -10972,7 +10971,7 @@ define dso_local void @zrangeGenericCommand(ptr noundef %0, i32 noundef %1, i32 
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 96
   %15 = load ptr, ptr %14, align 8, !tbaa !136
   %16 = sext i32 %1 to i64
-  %17 = getelementptr inbounds ptr, ptr %15, i64 %16
+  %17 = getelementptr inbounds [8 x i8], ptr %15, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !146
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -11009,7 +11008,7 @@ define dso_local void @zrangeGenericCommand(ptr noundef %0, i32 noundef %1, i32 
   %.0114165 = phi i32 [ 0, %.lr.ph ], [ %.3117142, %.thread ]
   %.pre = load ptr, ptr %14, align 8, !tbaa !136
   %27 = sext i32 %.0111166 to i64
-  %28 = getelementptr inbounds ptr, ptr %.pre, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %.pre, i64 %27
   %29 = load ptr, ptr %28, align 8, !tbaa !146
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !75
@@ -11029,7 +11028,7 @@ define dso_local void @zrangeGenericCommand(ptr noundef %0, i32 noundef %1, i32 
   br i1 %or.cond, label %38, label %43
 
 38:                                               ; preds = %._crit_edge171
-  %39 = getelementptr inbounds ptr, ptr %.pre, i64 %27
+  %39 = getelementptr inbounds [8 x i8], ptr %.pre, i64 %27
   %40 = getelementptr i8, ptr %39, i64 8
   %41 = load ptr, ptr %40, align 8, !tbaa !146
   %42 = call i32 @getLongFromObjectOrReply(ptr noundef nonnull %13, ptr noundef %41, ptr noundef nonnull %10, ptr noundef null) #19
@@ -11068,7 +11067,7 @@ define dso_local void @zrangeGenericCommand(ptr noundef %0, i32 noundef %1, i32 
   %55 = load ptr, ptr %14, align 8, !tbaa !136
   %56 = add nsw i32 %.0111166, 2
   %57 = sext i32 %56 to i64
-  %58 = getelementptr inbounds ptr, ptr %55, i64 %57
+  %58 = getelementptr inbounds [8 x i8], ptr %55, i64 %57
   %59 = load ptr, ptr %58, align 8, !tbaa !146
   %60 = call i32 @getLongFromObjectOrReply(ptr noundef nonnull %13, ptr noundef %59, ptr noundef nonnull %11, ptr noundef null) #19
   %.not127 = icmp eq i32 %60, 0
@@ -11131,7 +11130,7 @@ define dso_local void @zrangeGenericCommand(ptr noundef %0, i32 noundef %1, i32 
 74:                                               ; preds = %70
   %75 = load ptr, ptr %14, align 8, !tbaa !136
   %76 = sext i32 %.0119 to i64
-  %77 = getelementptr inbounds ptr, ptr %75, i64 %76
+  %77 = getelementptr inbounds [8 x i8], ptr %75, i64 %76
   %78 = load ptr, ptr %77, align 8, !tbaa !146
   %79 = call i32 @getLongFromObjectOrReply(ptr noundef nonnull %13, ptr noundef %78, ptr noundef nonnull %8, ptr noundef null) #19
   %.not131 = icmp eq i32 %79, 0
@@ -11140,7 +11139,7 @@ define dso_local void @zrangeGenericCommand(ptr noundef %0, i32 noundef %1, i32 
 80:                                               ; preds = %74
   %81 = load ptr, ptr %14, align 8, !tbaa !136
   %82 = sext i32 %.0118 to i64
-  %83 = getelementptr inbounds ptr, ptr %81, i64 %82
+  %83 = getelementptr inbounds [8 x i8], ptr %81, i64 %82
   %84 = load ptr, ptr %83, align 8, !tbaa !146
   %85 = call i32 @getLongFromObjectOrReply(ptr noundef nonnull %13, ptr noundef %84, ptr noundef nonnull %9, ptr noundef null) #19
   %.not132 = icmp eq i32 %85, 0
@@ -11149,10 +11148,10 @@ define dso_local void @zrangeGenericCommand(ptr noundef %0, i32 noundef %1, i32 
 86:                                               ; preds = %70
   %87 = load ptr, ptr %14, align 8, !tbaa !136
   %88 = sext i32 %.0119 to i64
-  %89 = getelementptr inbounds ptr, ptr %87, i64 %88
+  %89 = getelementptr inbounds [8 x i8], ptr %87, i64 %88
   %90 = load ptr, ptr %89, align 8, !tbaa !146
   %91 = sext i32 %.0118 to i64
-  %92 = getelementptr inbounds ptr, ptr %87, i64 %91
+  %92 = getelementptr inbounds [8 x i8], ptr %87, i64 %91
   %93 = load ptr, ptr %92, align 8, !tbaa !146
   %94 = call fastcc i32 @zslParseRange(ptr noundef %90, ptr noundef %93, ptr noundef %6)
   %.not130 = icmp eq i32 %94, 0
@@ -11165,10 +11164,10 @@ define dso_local void @zrangeGenericCommand(ptr noundef %0, i32 noundef %1, i32 
 96:                                               ; preds = %70
   %97 = load ptr, ptr %14, align 8, !tbaa !136
   %98 = sext i32 %.0119 to i64
-  %99 = getelementptr inbounds ptr, ptr %97, i64 %98
+  %99 = getelementptr inbounds [8 x i8], ptr %97, i64 %98
   %100 = load ptr, ptr %99, align 8, !tbaa !146
   %101 = sext i32 %.0118 to i64
-  %102 = getelementptr inbounds ptr, ptr %97, i64 %101
+  %102 = getelementptr inbounds [8 x i8], ptr %97, i64 %101
   %103 = load ptr, ptr %102, align 8, !tbaa !146
   %104 = call i32 @zslParseLexRange(ptr noundef %100, ptr noundef %103, ptr noundef nonnull %7)
   %.not129 = icmp eq i32 %104, 0
@@ -12057,7 +12056,7 @@ zzlGetScore.exit57:                               ; preds = %57, %62
   %.02948.i = phi ptr [ %86, %.preheader.preheader.i ], [ %.130.lcssa.i, %117 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %88 = getelementptr inbounds nuw i8, ptr %.02948.i, i64 24
-  %89 = getelementptr inbounds %struct.zskiplistLevel, ptr %88, i64 %indvars.iv.next.i
+  %89 = getelementptr inbounds [16 x i8], ptr %88, i64 %indvars.iv.next.i
   %90 = load ptr, ptr %89, align 8, !tbaa !20
   %.not37.i = icmp eq ptr %90, null
   br i1 %.not37.i, label %.critedge.i62, label %.lr.ph.i
@@ -12092,7 +12091,7 @@ zzlGetScore.exit57:                               ; preds = %57, %62
   %104 = load i64, ptr %103, align 8, !tbaa !27
   %105 = add i64 %104, %.139.i
   %106 = getelementptr inbounds nuw i8, ptr %102, i64 24
-  %107 = getelementptr inbounds %struct.zskiplistLevel, ptr %106, i64 %indvars.iv.next.i
+  %107 = getelementptr inbounds [16 x i8], ptr %106, i64 %indvars.iv.next.i
   %108 = load ptr, ptr %107, align 8, !tbaa !20
   %.not.i63 = icmp eq ptr %108, null
   br i1 %.not.i63, label %.critedge.i62, label %.lr.ph.i, !llvm.loop !73
@@ -12311,7 +12310,7 @@ define dso_local void @zlexcountCommand(ptr noundef %0) local_unnamed_addr #0 {
   %.02948.i = phi ptr [ %64, %.preheader.preheader.i ], [ %.130.lcssa.i, %95 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %66 = getelementptr inbounds nuw i8, ptr %.02948.i, i64 24
-  %67 = getelementptr inbounds %struct.zskiplistLevel, ptr %66, i64 %indvars.iv.next.i
+  %67 = getelementptr inbounds [16 x i8], ptr %66, i64 %indvars.iv.next.i
   %68 = load ptr, ptr %67, align 8, !tbaa !20
   %.not37.i = icmp eq ptr %68, null
   br i1 %.not37.i, label %.critedge.i52, label %.lr.ph.i
@@ -12346,7 +12345,7 @@ define dso_local void @zlexcountCommand(ptr noundef %0) local_unnamed_addr #0 {
   %82 = load i64, ptr %81, align 8, !tbaa !27
   %83 = add i64 %82, %.139.i
   %84 = getelementptr inbounds nuw i8, ptr %80, i64 24
-  %85 = getelementptr inbounds %struct.zskiplistLevel, ptr %84, i64 %indvars.iv.next.i
+  %85 = getelementptr inbounds [16 x i8], ptr %84, i64 %indvars.iv.next.i
   %86 = load ptr, ptr %85, align 8, !tbaa !20
   %.not.i54 = icmp eq ptr %86, null
   br i1 %.not.i54, label %.critedge.i52, label %.lr.ph.i, !llvm.loop !73
@@ -13086,7 +13085,7 @@ define dso_local void @zscoreCommand(ptr noundef %0) local_unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %8 = load i32, ptr %7, align 4, !tbaa !185
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !146
   %12 = tail call ptr @lookupKeyReadOrReply(ptr noundef %0, ptr noundef %6, ptr noundef %11) #19
   %13 = icmp eq ptr %12, null
@@ -13195,7 +13194,7 @@ zsetScore.exit.thread.us:                         ; preds = %.lr.ph, %zsetScore.
 .lr.ph.split:                                     ; preds = %.lr.ph, %45
   %indvars.iv = phi i64 [ %indvars.iv.next, %45 ], [ 2, %.lr.ph ]
   %23 = load ptr, ptr %3, align 8, !tbaa !136
-  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8, !tbaa !146
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !75
@@ -13302,7 +13301,7 @@ define dso_local void @zrankGenericCommand(ptr noundef %0, i32 noundef %1) local
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %24 = load i32, ptr %23, align 4, !tbaa !185
   %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds ptr, ptr %.sink, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %.sink, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !146
   %28 = tail call ptr @lookupKeyReadOrReply(ptr noundef nonnull %0, ptr noundef %7, ptr noundef %27) #19
   %29 = icmp eq ptr %28, null
@@ -13448,7 +13447,7 @@ define dso_local void @genericZpopCommand(ptr noundef %0, ptr noundef readonly c
 
 19:                                               ; preds = %18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %20 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8, !tbaa !146
   %22 = load ptr, ptr %17, align 8, !tbaa !150
   %23 = tail call ptr @lookupKeyWrite(ptr noundef %22, ptr noundef %21) #19
@@ -13564,7 +13563,7 @@ zsetLength.exit:                                  ; preds = %39, %45
   %70 = icmp eq i32 %3, 1
   %71 = select i1 %70, i64 -2, i64 0
   %72 = sext i32 %3 to i64
-  %73 = getelementptr inbounds ptr, ptr @__const.genericZpopCommand.events, i64 %72
+  %73 = getelementptr inbounds [8 x i8], ptr @__const.genericZpopCommand.events, i64 %72
   br label %74
 
 74:                                               ; preds = %sdslen.exit, %68
@@ -14038,7 +14037,7 @@ define dso_local void @blockingGenericZpopCommand(ptr noundef %0, ptr noundef %1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %12 = load ptr, ptr %11, align 8, !tbaa !136
   %13 = sext i32 %4 to i64
-  %14 = getelementptr inbounds ptr, ptr %12, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !146
   %16 = call i32 @getTimeoutFromObjectOrReply(ptr noundef %0, ptr noundef %15, ptr noundef nonnull %10, i32 noundef 0) #19
   %.not = icmp eq i32 %16, 0
@@ -14055,7 +14054,7 @@ define dso_local void @blockingGenericZpopCommand(ptr noundef %0, ptr noundef %1
 
 19:                                               ; preds = %.lr.ph, %.critedge
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.critedge ]
-  %20 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8, !tbaa !146
   %22 = load ptr, ptr %18, align 8, !tbaa !150
   %23 = call ptr @lookupKeyWrite(ptr noundef %22, ptr noundef %21) #19
@@ -14901,7 +14900,7 @@ define internal fastcc void @zrandmemberReplyWithListpack(ptr noundef %0, i32 no
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %17
   %.031.us = phi i64 [ %18, %17 ], [ 0, %.lr.ph ]
-  %8 = getelementptr inbounds nuw %struct.listpackEntry, ptr %2, i64 %.031.us
+  %8 = getelementptr inbounds nuw [24 x i8], ptr %2, i64 %.031.us
   %9 = load ptr, ptr %8, align 8, !tbaa !132
   %.not29.us = icmp eq ptr %9, null
   br i1 %.not29.us, label %14, label %10
@@ -14938,7 +14937,7 @@ define internal fastcc void @zrandmemberReplyWithListpack(ptr noundef %0, i32 no
   br label %22
 
 22:                                               ; preds = %21, %.lr.ph.split
-  %23 = getelementptr inbounds nuw %struct.listpackEntry, ptr %2, i64 %.031
+  %23 = getelementptr inbounds nuw [24 x i8], ptr %2, i64 %.031
   %24 = load ptr, ptr %23, align 8, !tbaa !132
   %.not29 = icmp eq ptr %24, null
   br i1 %.not29, label %29, label %25
@@ -14957,7 +14956,7 @@ define internal fastcc void @zrandmemberReplyWithListpack(ptr noundef %0, i32 no
   br label %32
 
 32:                                               ; preds = %29, %25
-  %33 = getelementptr inbounds nuw %struct.listpackEntry, ptr %3, i64 %.031
+  %33 = getelementptr inbounds nuw [24 x i8], ptr %3, i64 %.031
   %34 = load ptr, ptr %33, align 8, !tbaa !132
   %.not30 = icmp eq ptr %34, null
   br i1 %.not30, label %41, label %35
@@ -15067,7 +15066,7 @@ define dso_local void @zrandmemberCommand(ptr noundef %0) local_unnamed_addr #0 
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %37 = load i32, ptr %36, align 4, !tbaa !185
   %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 %38
+  %39 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 %38
   %40 = load ptr, ptr %39, align 8, !tbaa !146
   %41 = tail call ptr @lookupKeyReadOrReply(ptr noundef nonnull %0, ptr noundef %35, ptr noundef %40) #19
   %42 = icmp eq ptr %41, null
@@ -15148,7 +15147,7 @@ define dso_local void @zmpopGenericCommand(ptr noundef %0, i32 noundef %1, i32 n
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %7 = load ptr, ptr %6, align 8, !tbaa !136
   %8 = sext i32 %1 to i64
-  %9 = getelementptr inbounds ptr, ptr %7, i64 %8
+  %9 = getelementptr inbounds [8 x i8], ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !146
   %11 = call i32 @getRangeLongFromObjectOrReply(ptr noundef %0, ptr noundef %10, i64 noundef 1, i64 noundef 9223372036854775807, ptr noundef nonnull %4, ptr noundef nonnull @.str.74) #19
   %.not = icmp eq i32 %11, 0
@@ -15171,7 +15170,7 @@ define dso_local void @zmpopGenericCommand(ptr noundef %0, i32 noundef %1, i32 n
 
 21:                                               ; preds = %12
   %22 = load ptr, ptr %6, align 8, !tbaa !136
-  %23 = getelementptr inbounds ptr, ptr %22, i64 %15
+  %23 = getelementptr inbounds [8 x i8], ptr %22, i64 %15
   %24 = load ptr, ptr %23, align 8, !tbaa !146
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8, !tbaa !75
@@ -15210,7 +15209,7 @@ define dso_local void @zmpopGenericCommand(ptr noundef %0, i32 noundef %1, i32 n
   %41 = load ptr, ptr %6, align 8, !tbaa !136
   %42 = trunc i64 %.0 to i32
   %.neg = add i32 %42, 1
-  %43 = getelementptr ptr, ptr %41, i64 %.0
+  %43 = getelementptr [8 x i8], ptr %41, i64 %.0
   %44 = load ptr, ptr %43, align 8, !tbaa !146
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %46 = load ptr, ptr %45, align 8, !tbaa !75
@@ -15243,7 +15242,7 @@ define dso_local void @zmpopGenericCommand(ptr noundef %0, i32 noundef %1, i32 n
   %58 = phi i64 [ 1, %56 ], [ %37, %55 ]
   %.not43 = icmp eq i32 %2, 0
   %59 = load ptr, ptr %6, align 8, !tbaa !136
-  %60 = getelementptr inbounds ptr, ptr %59, i64 %8
+  %60 = getelementptr inbounds [8 x i8], ptr %59, i64 %8
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %62 = load i64, ptr %4, align 8, !tbaa !26
   %63 = trunc i64 %62 to i32

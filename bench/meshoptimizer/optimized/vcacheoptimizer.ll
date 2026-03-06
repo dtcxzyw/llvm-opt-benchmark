@@ -75,7 +75,7 @@ define dso_local void @_Z32meshopt_optimizeVertexCacheTablePjPKjmmPKN7meshopt16V
   %31 = load i64, ptr %30, align 8, !tbaa !8
   %32 = add i64 %31, 1
   store i64 %32, ptr %30, align 8, !tbaa !8
-  %33 = getelementptr inbounds nuw ptr, ptr %6, i64 %31
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %31
   store ptr %28, ptr %33, align 8, !tbaa !4
   tail call void @llvm.memset.p0.i64(ptr align 1 %28, i8 0, i64 %24, i1 false)
   %34 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE8allocateE, align 8, !tbaa !4
@@ -88,7 +88,7 @@ define dso_local void @_Z32meshopt_optimizeVertexCacheTablePjPKjmmPKN7meshopt16V
 .lr.ph:                                           ; preds = %29
   %39 = add i64 %31, 2
   store i64 %39, ptr %30, align 8, !tbaa !8
-  %40 = getelementptr inbounds nuw ptr, ptr %6, i64 %32
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %32
   store ptr %38, ptr %40, align 8, !tbaa !4
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 68
   br label %55
@@ -103,7 +103,7 @@ define dso_local void @_Z32meshopt_optimizeVertexCacheTablePjPKjmmPKN7meshopt16V
 
 _ZN17meshopt_Allocator8allocateIfEEPT_m.exit200:  ; preds = %._crit_edge
   %47 = add i64 %31, 3
-  %48 = getelementptr inbounds nuw ptr, ptr %6, i64 %39
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %39
   store ptr %46, ptr %48, align 8, !tbaa !4
   %.not239 = icmp ult i64 %2, 3
   br i1 %.not239, label %._crit_edge208, label %.lr.ph207
@@ -125,15 +125,15 @@ _ZN17meshopt_Allocator8allocateIfEEPT_m.exit200:  ; preds = %._crit_edge
 
 55:                                               ; preds = %.lr.ph, %55
   %.0169205 = phi i64 [ 0, %.lr.ph ], [ %65, %55 ]
-  %56 = getelementptr inbounds nuw i32, ptr %26, i64 %.0169205
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %.0169205
   %57 = load i32, ptr %56, align 4, !tbaa !14
   %58 = tail call i32 @llvm.umin.i32(i32 %57, i32 8)
   %59 = load float, ptr %4, align 4, !tbaa !16
   %60 = zext nneg i32 %58 to i64
-  %61 = getelementptr inbounds nuw float, ptr %41, i64 %60
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %60
   %62 = load float, ptr %61, align 4, !tbaa !16
   %63 = fadd float %59, %62
-  %64 = getelementptr inbounds nuw float, ptr %38, i64 %.0169205
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %.0169205
   store float %63, ptr %64, align 4, !tbaa !16
   %65 = add nuw i64 %.0169205, 1
   %exitcond.not = icmp eq i64 %65, %3
@@ -164,17 +164,17 @@ _ZN17meshopt_Allocator8allocateIfEEPT_m.exit200:  ; preds = %._crit_edge
   %78 = getelementptr inbounds nuw i8, ptr %74, i64 8
   %79 = load i32, ptr %78, align 4, !tbaa !14
   %80 = zext i32 %75 to i64
-  %81 = getelementptr inbounds nuw float, ptr %38, i64 %80
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %80
   %82 = load float, ptr %81, align 4, !tbaa !16
   %83 = zext i32 %77 to i64
-  %84 = getelementptr inbounds nuw float, ptr %38, i64 %83
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %83
   %85 = load float, ptr %84, align 4, !tbaa !16
   %86 = fadd float %82, %85
   %87 = zext i32 %79 to i64
-  %88 = getelementptr inbounds nuw float, ptr %38, i64 %87
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %87
   %89 = load float, ptr %88, align 4, !tbaa !16
   %90 = fadd float %86, %89
-  %91 = getelementptr inbounds nuw float, ptr %46, i64 %.0170206
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %.0170206
   store float %90, ptr %91, align 4, !tbaa !16
   %92 = add nuw nsw i64 %.0170206, 1
   %exitcond247.not = icmp eq i64 %92, %24
@@ -189,33 +189,33 @@ _ZN17meshopt_Allocator8allocateIfEEPT_m.exit200:  ; preds = %._crit_edge
   %.0203232 = phi i32 [ 1, %._crit_edge208 ], [ %.1, %_ZN7meshoptL22getNextTriangleDeadEndERjPKhm.exit ]
   %94 = mul i32 %.0182234, 3
   %95 = zext i32 %94 to i64
-  %96 = getelementptr inbounds nuw i32, ptr %.0, i64 %95
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %.0, i64 %95
   %97 = load i32, ptr %96, align 4, !tbaa !14
   %98 = add i32 %94, 1
   %99 = zext i32 %98 to i64
-  %100 = getelementptr inbounds nuw i32, ptr %.0, i64 %99
+  %100 = getelementptr inbounds nuw [4 x i8], ptr %.0, i64 %99
   %101 = load i32, ptr %100, align 4, !tbaa !14
   %102 = add i32 %94, 2
   %103 = zext i32 %102 to i64
-  %104 = getelementptr inbounds nuw i32, ptr %.0, i64 %103
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %.0, i64 %103
   %105 = load i32, ptr %104, align 4, !tbaa !14
   %106 = mul i32 %.0184233, 3
   %107 = zext i32 %106 to i64
-  %108 = getelementptr inbounds nuw i32, ptr %0, i64 %107
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %107
   store i32 %97, ptr %108, align 4, !tbaa !14
   %109 = add i32 %106, 1
   %110 = zext i32 %109 to i64
-  %111 = getelementptr inbounds nuw i32, ptr %0, i64 %110
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %110
   store i32 %101, ptr %111, align 4, !tbaa !14
   %112 = add i32 %106, 2
   %113 = zext i32 %112 to i64
-  %114 = getelementptr inbounds nuw i32, ptr %0, i64 %113
+  %114 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %113
   store i32 %105, ptr %114, align 4, !tbaa !14
   %115 = add i32 %.0184233, 1
   %116 = zext i32 %.0182234 to i64
   %117 = getelementptr inbounds nuw i8, ptr %28, i64 %116
   store i8 1, ptr %117, align 1, !tbaa !23
-  %118 = getelementptr inbounds nuw float, ptr %46, i64 %116
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %116
   store float 0.000000e+00, ptr %118, align 4, !tbaa !16
   store i32 %97, ptr %.0172236, align 4, !tbaa !14
   %119 = getelementptr inbounds nuw i8, ptr %.0172236, i64 4
@@ -232,9 +232,9 @@ _ZN17meshopt_Allocator8allocateIfEEPT_m.exit200:  ; preds = %._crit_edge
 .lr.ph212:                                        ; preds = %93, %.lr.ph212
   %.0185210 = phi i64 [ %130, %.lr.ph212 ], [ 3, %93 ]
   %.0187209 = phi i64 [ %131, %.lr.ph212 ], [ 0, %93 ]
-  %121 = getelementptr inbounds nuw i32, ptr %.0171237, i64 %.0187209
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %.0171237, i64 %.0187209
   %122 = load i32, ptr %121, align 4, !tbaa !14
-  %123 = getelementptr inbounds nuw i32, ptr %.0172236, i64 %.0185210
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %.0172236, i64 %.0185210
   store i32 %122, ptr %123, align 4, !tbaa !14
   %124 = icmp ne i32 %122, %97
   %125 = icmp ne i32 %122, %101
@@ -259,14 +259,14 @@ _ZN17meshopt_Allocator8allocateIfEEPT_m.exit200:  ; preds = %._crit_edge
 
 135:                                              ; preds = %._crit_edge213, %.loopexit204
   %.0186217 = phi i64 [ 0, %._crit_edge213 ], [ %155, %.loopexit204 ]
-  %gep = getelementptr inbounds nuw i32, ptr %96, i64 %.0186217
+  %gep = getelementptr inbounds nuw [4 x i8], ptr %96, i64 %.0186217
   %136 = load i32, ptr %gep, align 4, !tbaa !14
   %137 = zext i32 %136 to i64
-  %138 = getelementptr inbounds nuw i32, ptr %70, i64 %137
+  %138 = getelementptr inbounds nuw [4 x i8], ptr %70, i64 %137
   %139 = load i32, ptr %138, align 4, !tbaa !14
   %140 = zext i32 %139 to i64
-  %141 = getelementptr inbounds nuw i32, ptr %68, i64 %140
-  %142 = getelementptr inbounds nuw i32, ptr %26, i64 %137
+  %141 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %140
+  %142 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %137
   %143 = load i32, ptr %142, align 4, !tbaa !14
   %144 = zext i32 %143 to i64
   %.not241 = icmp eq i32 %143, 0
@@ -274,14 +274,14 @@ _ZN17meshopt_Allocator8allocateIfEEPT_m.exit200:  ; preds = %._crit_edge
 
 .lr.ph216:                                        ; preds = %135, %.critedge
   %.0181214 = phi i64 [ %154, %.critedge ], [ 0, %135 ]
-  %145 = getelementptr inbounds nuw i32, ptr %141, i64 %.0181214
+  %145 = getelementptr inbounds nuw [4 x i8], ptr %141, i64 %.0181214
   %146 = load i32, ptr %145, align 4, !tbaa !14
   %.not199 = icmp eq i32 %146, %.0182234
   br i1 %.not199, label %147, label %.critedge
 
 147:                                              ; preds = %.lr.ph216
-  %148 = getelementptr inbounds nuw i32, ptr %141, i64 %.0181214
-  %149 = getelementptr i32, ptr %141, i64 %144
+  %148 = getelementptr inbounds nuw [4 x i8], ptr %141, i64 %.0181214
+  %149 = getelementptr [4 x i8], ptr %141, i64 %144
   %150 = getelementptr i8, ptr %149, i64 -4
   %151 = load i32, ptr %150, align 4, !tbaa !14
   store i32 %151, ptr %148, align 4, !tbaa !14
@@ -308,10 +308,10 @@ _ZN17meshopt_Allocator8allocateIfEEPT_m.exit200:  ; preds = %._crit_edge
   %.0173228 = phi i64 [ 0, %.lr.ph229 ], [ %193, %.loopexit ]
   %.0174227 = phi float [ 0.000000e+00, %.lr.ph229 ], [ %.1175, %.loopexit ]
   %.0177226 = phi i32 [ -1, %.lr.ph229 ], [ %.1178, %.loopexit ]
-  %158 = getelementptr inbounds nuw i32, ptr %.0172236, i64 %.0173228
+  %158 = getelementptr inbounds nuw [4 x i8], ptr %.0172236, i64 %.0173228
   %159 = load i32, ptr %158, align 4, !tbaa !14
   %160 = zext i32 %159 to i64
-  %161 = getelementptr inbounds nuw i32, ptr %26, i64 %160
+  %161 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %160
   %162 = load i32, ptr %161, align 4, !tbaa !14
   %163 = icmp eq i32 %162, 0
   br i1 %163, label %.loopexit, label %.lr.ph223.preheader
@@ -322,21 +322,21 @@ _ZN17meshopt_Allocator8allocateIfEEPT_m.exit200:  ; preds = %._crit_edge
   %sext = shl i64 %.0173228, 32
   %166 = ashr exact i64 %sext, 32
   %167 = select i1 %164, i64 -1, i64 %166
-  %168 = getelementptr float, ptr %4, i64 %167
+  %168 = getelementptr [4 x i8], ptr %4, i64 %167
   %169 = getelementptr i8, ptr %168, i64 4
   %170 = load float, ptr %169, align 4, !tbaa !16
   %171 = zext nneg i32 %165 to i64
-  %172 = getelementptr inbounds nuw float, ptr %71, i64 %171
+  %172 = getelementptr inbounds nuw [4 x i8], ptr %71, i64 %171
   %173 = load float, ptr %172, align 4, !tbaa !16
   %174 = fadd float %170, %173
-  %175 = getelementptr inbounds nuw float, ptr %38, i64 %160
+  %175 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %160
   %176 = load float, ptr %175, align 4, !tbaa !16
   %177 = fsub float %174, %176
   store float %174, ptr %175, align 4, !tbaa !16
-  %178 = getelementptr inbounds nuw i32, ptr %134, i64 %160
+  %178 = getelementptr inbounds nuw [4 x i8], ptr %134, i64 %160
   %179 = load i32, ptr %178, align 4, !tbaa !14
   %180 = zext i32 %179 to i64
-  %181 = getelementptr inbounds nuw i32, ptr %133, i64 %180
+  %181 = getelementptr inbounds nuw [4 x i8], ptr %133, i64 %180
   %182 = zext i32 %162 to i64
   %.idx243 = shl nuw nsw i64 %182, 2
   %183 = getelementptr inbounds nuw i8, ptr %181, i64 %.idx243
@@ -348,7 +348,7 @@ _ZN17meshopt_Allocator8allocateIfEEPT_m.exit200:  ; preds = %._crit_edge
   %.2179219 = phi i32 [ %190, %.lr.ph223 ], [ %.0177226, %.lr.ph223.preheader ]
   %184 = load i32, ptr %.0163221, align 4, !tbaa !14
   %185 = zext i32 %184 to i64
-  %186 = getelementptr inbounds nuw float, ptr %46, i64 %185
+  %186 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %185
   %187 = load float, ptr %186, align 4, !tbaa !16
   %188 = fadd float %177, %187
   %189 = fcmp olt float %.2176220, %188
@@ -400,7 +400,7 @@ _ZN7meshoptL22getNextTriangleDeadEndERjPKhm.exit.thread: ; preds = %._crit_edge2
 .lr.ph.i201:                                      ; preds = %_ZN7meshoptL22getNextTriangleDeadEndERjPKhm.exit.thread, %207
   %.04.i = phi i64 [ %208, %207 ], [ %47, %_ZN7meshoptL22getNextTriangleDeadEndERjPKhm.exit.thread ]
   %203 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE10deallocateE, align 8, !tbaa !4
-  %204 = getelementptr ptr, ptr %6, i64 %.04.i
+  %204 = getelementptr [8 x i8], ptr %6, i64 %.04.i
   %205 = getelementptr i8, ptr %204, i64 -8
   %206 = load ptr, ptr %205, align 8, !tbaa !4
   invoke void %203(ptr noundef %206)
@@ -453,7 +453,7 @@ define internal fastcc void @_ZN7meshoptL22buildTriangleAdjacencyERNS_17Triangle
   %12 = load i64, ptr %11, align 8, !tbaa !8
   %13 = add i64 %12, 1
   store i64 %13, ptr %11, align 8, !tbaa !8
-  %14 = getelementptr inbounds nuw ptr, ptr %4, i64 %12
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %12
   store ptr %10, ptr %14, align 8, !tbaa !4
   store ptr %10, ptr %0, align 8, !tbaa !11
   %15 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE8allocateE, align 8, !tbaa !4
@@ -461,7 +461,7 @@ define internal fastcc void @_ZN7meshoptL22buildTriangleAdjacencyERNS_17Triangle
   %17 = load i64, ptr %11, align 8, !tbaa !8
   %18 = add i64 %17, 1
   store i64 %18, ptr %11, align 8, !tbaa !8
-  %19 = getelementptr inbounds nuw ptr, ptr %4, i64 %17
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %17
   store ptr %16, ptr %19, align 8, !tbaa !4
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %16, ptr %20, align 8, !tbaa !21
@@ -473,7 +473,7 @@ define internal fastcc void @_ZN7meshoptL22buildTriangleAdjacencyERNS_17Triangle
   %26 = load i64, ptr %11, align 8, !tbaa !8
   %27 = add i64 %26, 1
   store i64 %27, ptr %11, align 8, !tbaa !8
-  %28 = getelementptr inbounds nuw ptr, ptr %4, i64 %26
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %26
   store ptr %25, ptr %28, align 8, !tbaa !4
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %25, ptr %29, align 8, !tbaa !20
@@ -488,10 +488,10 @@ define internal fastcc void @_ZN7meshoptL22buildTriangleAdjacencyERNS_17Triangle
 
 33:                                               ; preds = %5, %33
   %.05461 = phi i64 [ 0, %5 ], [ %40, %33 ]
-  %34 = getelementptr inbounds nuw i32, ptr %1, i64 %.05461
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %.05461
   %35 = load i32, ptr %34, align 4, !tbaa !14
   %36 = zext i32 %35 to i64
-  %37 = getelementptr inbounds nuw i32, ptr %31, i64 %36
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %36
   %38 = load i32, ptr %37, align 4, !tbaa !14
   %39 = add i32 %38, 1
   store i32 %39, ptr %37, align 4, !tbaa !14
@@ -514,9 +514,9 @@ define internal fastcc void @_ZN7meshoptL22buildTriangleAdjacencyERNS_17Triangle
 43:                                               ; preds = %.preheader60, %43
   %.05563 = phi i32 [ 0, %.preheader60 ], [ %47, %43 ]
   %.05662 = phi i64 [ 0, %.preheader60 ], [ %48, %43 ]
-  %44 = getelementptr inbounds nuw i32, ptr %32, i64 %.05662
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %.05662
   store i32 %.05563, ptr %44, align 4, !tbaa !14
-  %45 = getelementptr inbounds nuw i32, ptr %31, i64 %.05662
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %.05662
   %46 = load i32, ptr %45, align 4, !tbaa !14
   %47 = add i32 %46, %.05563
   %48 = add nuw i64 %.05662, 1
@@ -534,28 +534,28 @@ define internal fastcc void @_ZN7meshoptL22buildTriangleAdjacencyERNS_17Triangle
   %55 = load i32, ptr %54, align 4, !tbaa !14
   %56 = trunc i64 %.05764 to i32
   %57 = zext i32 %51 to i64
-  %58 = getelementptr inbounds nuw i32, ptr %32, i64 %57
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %57
   %59 = load i32, ptr %58, align 4, !tbaa !14
   %60 = add i32 %59, 1
   store i32 %60, ptr %58, align 4, !tbaa !14
   %61 = zext i32 %59 to i64
-  %62 = getelementptr inbounds nuw i32, ptr %42, i64 %61
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %61
   store i32 %56, ptr %62, align 4, !tbaa !14
   %63 = zext i32 %53 to i64
-  %64 = getelementptr inbounds nuw i32, ptr %32, i64 %63
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %63
   %65 = load i32, ptr %64, align 4, !tbaa !14
   %66 = add i32 %65, 1
   store i32 %66, ptr %64, align 4, !tbaa !14
   %67 = zext i32 %65 to i64
-  %68 = getelementptr inbounds nuw i32, ptr %42, i64 %67
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %67
   store i32 %56, ptr %68, align 4, !tbaa !14
   %69 = zext i32 %55 to i64
-  %70 = getelementptr inbounds nuw i32, ptr %32, i64 %69
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %69
   %71 = load i32, ptr %70, align 4, !tbaa !14
   %72 = add i32 %71, 1
   store i32 %72, ptr %70, align 4, !tbaa !14
   %73 = zext i32 %71 to i64
-  %74 = getelementptr inbounds nuw i32, ptr %42, i64 %73
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %73
   store i32 %56, ptr %74, align 4, !tbaa !14
   %75 = add nuw nsw i64 %.05764, 1
   %exitcond67.not = icmp eq i64 %75, %41
@@ -566,9 +566,9 @@ define internal fastcc void @_ZN7meshoptL22buildTriangleAdjacencyERNS_17Triangle
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %.065 = phi i64 [ %82, %.preheader ], [ 0, %.preheader.preheader ]
-  %77 = getelementptr inbounds nuw i32, ptr %31, i64 %.065
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %.065
   %78 = load i32, ptr %77, align 4, !tbaa !14
-  %79 = getelementptr inbounds nuw i32, ptr %32, i64 %.065
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %.065
   %80 = load i32, ptr %79, align 4, !tbaa !14
   %81 = sub i32 %80, %78
   store i32 %81, ptr %79, align 4, !tbaa !14
@@ -590,7 +590,7 @@ define linkonce_odr dso_local void @_ZN17meshopt_AllocatorD2Ev(ptr noundef nonnu
 .lr.ph:                                           ; preds = %1, %8
   %.04 = phi i64 [ %9, %8 ], [ %3, %1 ]
   %4 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE10deallocateE, align 8, !tbaa !4
-  %5 = getelementptr ptr, ptr %0, i64 %.04
+  %5 = getelementptr [8 x i8], ptr %0, i64 %.04
   %6 = getelementptr i8, ptr %5, i64 -8
   %7 = load ptr, ptr %6, align 8, !tbaa !4
   invoke void %4(ptr noundef %7)
@@ -677,7 +677,7 @@ define dso_local void @meshopt_optimizeVertexCacheFifo(ptr noundef writeonly cap
   %32 = load i64, ptr %31, align 8, !tbaa !8
   %33 = add i64 %32, 1
   store i64 %33, ptr %31, align 8, !tbaa !8
-  %34 = getelementptr inbounds nuw ptr, ptr %6, i64 %32
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %32
   store ptr %29, ptr %34, align 8, !tbaa !4
   %35 = load ptr, ptr %7, align 8, !tbaa !11
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %29, ptr align 4 %35, i64 %27, i1 false)
@@ -688,7 +688,7 @@ define dso_local void @meshopt_optimizeVertexCacheFifo(ptr noundef writeonly cap
 38:                                               ; preds = %30
   %39 = add i64 %32, 2
   store i64 %39, ptr %31, align 8, !tbaa !8
-  %40 = getelementptr inbounds nuw ptr, ptr %6, i64 %33
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %33
   store ptr %37, ptr %40, align 8, !tbaa !4
   tail call void @llvm.memset.p0.i64(ptr align 4 %37, i8 0, i64 %27, i1 false)
   %41 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE8allocateE, align 8, !tbaa !4
@@ -701,7 +701,7 @@ define dso_local void @meshopt_optimizeVertexCacheFifo(ptr noundef writeonly cap
 46:                                               ; preds = %38
   %47 = add i64 %32, 3
   store i64 %47, ptr %31, align 8, !tbaa !8
-  %48 = getelementptr inbounds nuw ptr, ptr %6, i64 %39
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %39
   store ptr %45, ptr %48, align 8, !tbaa !4
   %49 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE8allocateE, align 8, !tbaa !4
   %50 = invoke noundef ptr %49(i64 noundef %23)
@@ -709,7 +709,7 @@ define dso_local void @meshopt_optimizeVertexCacheFifo(ptr noundef writeonly cap
 
 51:                                               ; preds = %46
   %52 = add i64 %32, 4
-  %53 = getelementptr inbounds nuw ptr, ptr %6, i64 %47
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %47
   store ptr %50, ptr %53, align 8, !tbaa !4
   tail call void @llvm.memset.p0.i64(ptr align 1 %50, i8 0, i64 %23, i1 false)
   %54 = add i32 %4, 1
@@ -726,13 +726,13 @@ define dso_local void @meshopt_optimizeVertexCacheFifo(ptr noundef writeonly cap
   %.0144165 = phi i32 [ 1, %51 ], [ %.1, %_ZN7meshoptL20getNextVertexDeadEndEPKjRjS2_S1_m.exit ]
   %.0145164 = phi i32 [ 0, %51 ], [ %.3148, %_ZN7meshoptL20getNextVertexDeadEndEPKjRjS2_S1_m.exit ]
   %60 = zext i32 %.0145164 to i64
-  %61 = getelementptr inbounds nuw i32, ptr %45, i64 %60
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %60
   %62 = zext i32 %.0106168 to i64
-  %63 = getelementptr inbounds nuw i32, ptr %58, i64 %62
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %62
   %64 = load i32, ptr %63, align 4, !tbaa !14
   %65 = zext i32 %64 to i64
-  %66 = getelementptr inbounds nuw i32, ptr %56, i64 %65
-  %67 = getelementptr inbounds nuw i32, ptr %35, i64 %62
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %65
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %62
   %68 = load i32, ptr %67, align 4, !tbaa !14
   %69 = zext i32 %68 to i64
   %.idx = shl nuw nsw i64 %69, 2
@@ -749,7 +749,7 @@ define dso_local void @meshopt_optimizeVertexCacheFifo(ptr noundef writeonly cap
   %.1146.lcssa = phi i32 [ %.2147, %._crit_edge.loopexit ], [ %.0145164, %59 ]
   %.1115.lcssa = phi i32 [ %.2116, %._crit_edge.loopexit ], [ %.0114166, %59 ]
   %.1110.lcssa = phi i32 [ %.2111, %._crit_edge.loopexit ], [ %.0109167, %59 ]
-  %71 = getelementptr inbounds nuw i32, ptr %45, i64 %.pre-phi
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %.pre-phi
   %.not28.i = icmp eq i32 %.0145164, %.1146.lcssa
   br i1 %.not28.i, label %_ZN7meshoptL21getNextVertexNeighborEPKjS1_S1_S1_jj.exit.thread, label %.lr.ph.i
 
@@ -759,7 +759,7 @@ define dso_local void @meshopt_optimizeVertexCacheFifo(ptr noundef writeonly cap
   %.02229.i = phi i32 [ %.123.i, %84 ], [ -1, %._crit_edge ]
   %72 = load i32, ptr %.02130.i, align 4, !tbaa !14
   %73 = zext i32 %72 to i64
-  %74 = getelementptr inbounds nuw i32, ptr %29, i64 %73
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %73
   %75 = load i32, ptr %74, align 4, !tbaa !14
   %.not26.i = icmp eq i32 %75, 0
   br i1 %.not26.i, label %84, label %76
@@ -767,7 +767,7 @@ define dso_local void @meshopt_optimizeVertexCacheFifo(ptr noundef writeonly cap
 76:                                               ; preds = %.lr.ph.i
   %77 = shl i32 %75, 1
   %78 = add i32 %77, %.1110.lcssa
-  %79 = getelementptr inbounds nuw i32, ptr %37, i64 %73
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %73
   %80 = load i32, ptr %79, align 4, !tbaa !14
   %81 = sub i32 %78, %80
   %.not27.i = icmp ugt i32 %81, %4
@@ -829,57 +829,57 @@ _ZN7meshoptL21getNextVertexNeighborEPKjS1_S1_S1_jj.exit: ; preds = %84
 101:                                              ; preds = %.lr.ph
   %102 = mul i32 %97, 3
   %103 = zext i32 %102 to i64
-  %104 = getelementptr inbounds nuw i32, ptr %.0, i64 %103
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %.0, i64 %103
   %105 = load i32, ptr %104, align 4, !tbaa !14
   %106 = add i32 %102, 1
   %107 = zext i32 %106 to i64
-  %108 = getelementptr inbounds nuw i32, ptr %.0, i64 %107
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %.0, i64 %107
   %109 = load i32, ptr %108, align 4, !tbaa !14
   %110 = add i32 %102, 2
   %111 = zext i32 %110 to i64
-  %112 = getelementptr inbounds nuw i32, ptr %.0, i64 %111
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %.0, i64 %111
   %113 = load i32, ptr %112, align 4, !tbaa !14
   %114 = mul i32 %.1115155, 3
   %115 = zext i32 %114 to i64
-  %116 = getelementptr inbounds nuw i32, ptr %0, i64 %115
+  %116 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %115
   store i32 %105, ptr %116, align 4, !tbaa !14
   %117 = add i32 %114, 1
   %118 = zext i32 %117 to i64
-  %119 = getelementptr inbounds nuw i32, ptr %0, i64 %118
+  %119 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %118
   store i32 %109, ptr %119, align 4, !tbaa !14
   %120 = add i32 %114, 2
   %121 = zext i32 %120 to i64
-  %122 = getelementptr inbounds nuw i32, ptr %0, i64 %121
+  %122 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %121
   store i32 %113, ptr %122, align 4, !tbaa !14
   %123 = add i32 %.1115155, 1
   %124 = zext i32 %.1146154 to i64
-  %125 = getelementptr inbounds nuw i32, ptr %45, i64 %124
+  %125 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %124
   store i32 %105, ptr %125, align 4, !tbaa !14
   %126 = add i32 %.1146154, 1
   %127 = zext i32 %126 to i64
-  %128 = getelementptr inbounds nuw i32, ptr %45, i64 %127
+  %128 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %127
   store i32 %109, ptr %128, align 4, !tbaa !14
   %129 = add i32 %.1146154, 2
   %130 = zext i32 %129 to i64
-  %131 = getelementptr inbounds nuw i32, ptr %45, i64 %130
+  %131 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %130
   store i32 %113, ptr %131, align 4, !tbaa !14
   %132 = add i32 %.1146154, 3
   %133 = zext i32 %105 to i64
-  %134 = getelementptr inbounds nuw i32, ptr %29, i64 %133
+  %134 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %133
   %135 = load i32, ptr %134, align 4, !tbaa !14
   %136 = add i32 %135, -1
   store i32 %136, ptr %134, align 4, !tbaa !14
   %137 = zext i32 %109 to i64
-  %138 = getelementptr inbounds nuw i32, ptr %29, i64 %137
+  %138 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %137
   %139 = load i32, ptr %138, align 4, !tbaa !14
   %140 = add i32 %139, -1
   store i32 %140, ptr %138, align 4, !tbaa !14
   %141 = zext i32 %113 to i64
-  %142 = getelementptr inbounds nuw i32, ptr %29, i64 %141
+  %142 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %141
   %143 = load i32, ptr %142, align 4, !tbaa !14
   %144 = add i32 %143, -1
   store i32 %144, ptr %142, align 4, !tbaa !14
-  %145 = getelementptr inbounds nuw i32, ptr %37, i64 %133
+  %145 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %133
   %146 = load i32, ptr %145, align 4, !tbaa !14
   %147 = sub i32 %.1110156, %146
   %148 = icmp ugt i32 %147, %4
@@ -892,7 +892,7 @@ _ZN7meshoptL21getNextVertexNeighborEPKjS1_S1_S1_jj.exit: ; preds = %84
 
 151:                                              ; preds = %149, %101
   %.3112 = phi i32 [ %150, %149 ], [ %.1110156, %101 ]
-  %152 = getelementptr inbounds nuw i32, ptr %37, i64 %137
+  %152 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %137
   %153 = load i32, ptr %152, align 4, !tbaa !14
   %154 = sub i32 %.3112, %153
   %155 = icmp ugt i32 %154, %4
@@ -905,7 +905,7 @@ _ZN7meshoptL21getNextVertexNeighborEPKjS1_S1_S1_jj.exit: ; preds = %84
 
 158:                                              ; preds = %156, %151
   %.4113 = phi i32 [ %157, %156 ], [ %.3112, %151 ]
-  %159 = getelementptr inbounds nuw i32, ptr %37, i64 %141
+  %159 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %141
   %160 = load i32, ptr %159, align 4, !tbaa !14
   %161 = sub i32 %.4113, %160
   %162 = icmp ugt i32 %161, %4
@@ -946,10 +946,10 @@ _ZN7meshoptL21getNextVertexNeighborEPKjS1_S1_S1_jj.exit.thread: ; preds = %._cri
   %indvars.iv.i161 = phi i64 [ %indvars.iv.next.i, %168 ], [ %.pre-phi, %_ZN7meshoptL21getNextVertexNeighborEPKjS1_S1_S1_jj.exit.thread ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i161, -1
   %171 = and i64 %indvars.iv.next.i, 4294967295
-  %172 = getelementptr inbounds nuw i32, ptr %45, i64 %171
+  %172 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %171
   %173 = load i32, ptr %172, align 4, !tbaa !14
   %174 = zext i32 %173 to i64
-  %175 = getelementptr inbounds nuw i32, ptr %29, i64 %174
+  %175 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %174
   %176 = load i32, ptr %175, align 4, !tbaa !14
   %.not17.not.i = icmp eq i32 %176, 0
   br i1 %.not17.not.i, label %168, label %_ZN7meshoptL20getNextVertexDeadEndEPKjRjS2_S1_m.exit.loopexit169
@@ -957,7 +957,7 @@ _ZN7meshoptL21getNextVertexNeighborEPKjS1_S1_S1_jj.exit.thread: ; preds = %._cri
 .lr.ph.i134:                                      ; preds = %.preheader.i, %180
   %.2 = phi i32 [ %181, %180 ], [ %.0144165, %.preheader.i ]
   %177 = phi i64 [ %182, %180 ], [ %169, %.preheader.i ]
-  %178 = getelementptr inbounds nuw i32, ptr %29, i64 %177
+  %178 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %177
   %179 = load i32, ptr %178, align 4, !tbaa !14
   %.not16.i = icmp eq i32 %179, 0
   br i1 %.not16.i, label %180, label %_ZN7meshoptL20getNextVertexDeadEndEPKjRjS2_S1_m.exit
@@ -987,7 +987,7 @@ _ZN7meshoptL20getNextVertexDeadEndEPKjRjS2_S1_m.exit.thread: ; preds = %.prehead
 .lr.ph.i135:                                      ; preds = %_ZN7meshoptL20getNextVertexDeadEndEPKjRjS2_S1_m.exit.thread, %188
   %.04.i = phi i64 [ %189, %188 ], [ %52, %_ZN7meshoptL20getNextVertexDeadEndEPKjRjS2_S1_m.exit.thread ]
   %184 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE10deallocateE, align 8, !tbaa !4
-  %185 = getelementptr ptr, ptr %6, i64 %.04.i
+  %185 = getelementptr [8 x i8], ptr %6, i64 %.04.i
   %186 = getelementptr i8, ptr %185, i64 -8
   %187 = load ptr, ptr %186, align 8, !tbaa !4
   invoke void %184(ptr noundef %187)

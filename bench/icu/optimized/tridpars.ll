@@ -1136,7 +1136,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit.us.us:   ; preds = %46
   %49 = load ptr, ptr %25, align 8
   %50 = select i1 %.not.i.i.i.us.us, ptr %49, ptr %24
   %51 = sext i32 %73 to i64
-  %52 = getelementptr inbounds i16, ptr %50, i64 %51
+  %52 = getelementptr inbounds [2 x i8], ptr %50, i64 %51
   %53 = load i16, ptr %52, align 2, !tbaa !29
   switch i16 %53, label %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread.split.us.us [
     i16 45, label %62
@@ -1329,7 +1329,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %125
   %135 = load ptr, ptr %25, align 8
   %136 = select i1 %.not.i.i.i, ptr %135, ptr %24
   %137 = sext i32 %126 to i64
-  %138 = getelementptr inbounds i16, ptr %136, i64 %137
+  %138 = getelementptr inbounds [2 x i8], ptr %136, i64 %137
   %139 = load i16, ptr %138, align 2, !tbaa !29
   switch i16 %139, label %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread.split [
     i16 45, label %140

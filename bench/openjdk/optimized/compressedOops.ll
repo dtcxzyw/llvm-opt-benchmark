@@ -268,7 +268,7 @@ define hidden noundef nonnull ptr @_ZN14CompressedOops14mode_to_stringENS_4ModeE
 
 switch.lookup:                                    ; preds = %1
   %5 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN14CompressedOops14mode_to_stringENS_4ModeE, i64 %5
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN14CompressedOops14mode_to_stringENS_4ModeE, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -315,7 +315,7 @@ define hidden noundef zeroext i1 @_ZN14CompressedOops5is_inEPv(ptr noundef readn
   %2 = load ptr, ptr @_ZN14CompressedOops19_heap_address_rangeE, align 8
   %.not.i = icmp uge ptr %0, %2
   %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops19_heap_address_rangeE, i64 8), align 8
-  %4 = getelementptr inbounds ptr, ptr %2, i64 %3
+  %4 = getelementptr inbounds [8 x i8], ptr %2, i64 %3
   %5 = icmp ult ptr %0, %4
   %6 = select i1 %.not.i, i1 %5, i1 false
   ret i1 %6
@@ -326,8 +326,8 @@ define hidden noundef zeroext i1 @_ZN14CompressedOops5is_inE9MemRegion(ptr readn
   %3 = load ptr, ptr @_ZN14CompressedOops19_heap_address_rangeE, align 8
   %.not.i = icmp ule ptr %3, %0
   %4 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops19_heap_address_rangeE, i64 8), align 8
-  %5 = getelementptr inbounds ptr, ptr %3, i64 %4
-  %6 = getelementptr inbounds ptr, ptr %0, i64 %1
+  %5 = getelementptr inbounds [8 x i8], ptr %3, i64 %4
+  %6 = getelementptr inbounds [8 x i8], ptr %0, i64 %1
   %7 = icmp uge ptr %5, %6
   %8 = select i1 %.not.i, i1 %7, i1 false
   ret i1 %8

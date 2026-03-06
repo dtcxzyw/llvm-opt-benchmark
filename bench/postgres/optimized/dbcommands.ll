@@ -13,13 +13,10 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.createdb_failure_params = type { i32, i32, i32 }
 %struct.__jmp_buf_tag = type { [8 x i64], i32, %struct.__sigset_t }
 %struct.__sigset_t = type { [16 x i64] }
-%union.ListCell = type { ptr }
-%struct.ItemIdData = type { i32 }
 %struct.ScanKeyData = type { i32, i16, i16, i32, i32, %struct.FmgrInfo, i64 }
 %struct.FmgrInfo = type { ptr, i32, i16, i8, i8, i8, ptr, ptr, ptr }
 %struct.xl_dbase_drop_rec = type { i32, i32, [0 x i32] }
 %struct.movedb_failure_params = type { i32, i32 }
-%struct.CompactAttribute = type { i32, i16, i8, i8, i8, i8, i8, i8, i8 }
 %struct.xl_dbase_create_wal_log_rec = type { i32, i32 }
 
 @.str = private unnamed_addr constant [11 x i8] c"tablespace\00", align 1
@@ -292,7 +289,7 @@ define dso_local i32 @createdb(ptr noundef %0, ptr noundef readonly captures(non
   %.08572131 = phi i32 [ %.1, %160 ], [ 0, %.lr.ph ]
   %indvars.iv2130 = phi i64 [ %indvars.iv.next, %160 ], [ 0, %.lr.ph ]
   %41 = load ptr, ptr %38, align 8
-  %42 = getelementptr inbounds nuw %union.ListCell, ptr %41, i64 %indvars.iv2130
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv2130
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %45 = load ptr, ptr %44, align 8
@@ -1719,7 +1716,7 @@ get_database_name.exit.thread:                    ; preds = %587, %get_database_
   %699 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %700 = xor i32 %696, -1
   %701 = zext nneg i32 %700 to i64
-  %702 = getelementptr inbounds nuw ptr, ptr %699, i64 %701
+  %702 = getelementptr inbounds nuw [8 x i8], ptr %699, i64 %701
   %703 = load ptr, ptr %702, align 8
   br label %BufferGetPage.exit.i.i
 
@@ -1768,7 +1765,7 @@ BufferGetPage.exit.i.i:                           ; preds = %704, %698
   %.036.i.i.i = phi ptr [ %.03033.i.i, %.lr.ph.i.i.i ], [ %.1.i.i.i, %ScanSourceDatabasePgClassTuple.exit.thread.i.i.i ]
   %.02335.i.i.i = phi i16 [ 1, %.lr.ph.i.i.i ], [ %775, %ScanSourceDatabasePgClassTuple.exit.thread.i.i.i ]
   %727 = zext i16 %.02335.i.i.i to i64
-  %728 = getelementptr %struct.ItemIdData, ptr %722, i64 %727
+  %728 = getelementptr [4 x i8], ptr %722, i64 %727
   %729 = load i32, ptr %728, align 4
   %730 = and i32 %729, 98304
   %731 = icmp eq i32 %730, 32768
@@ -1898,7 +1895,7 @@ ScanSourceDatabasePgClass.exit.i:                 ; preds = %776, %678
 .lr.ph48.i:                                       ; preds = %.lr.ph.i, %.lr.ph48.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph48.i ], [ 0, %.lr.ph.i ]
   %784 = load ptr, ptr %781, align 8
-  %785 = getelementptr inbounds nuw %union.ListCell, ptr %784, i64 %indvars.iv.i
+  %785 = getelementptr inbounds nuw [8 x i8], ptr %784, i64 %indvars.iv.i
   %786 = load ptr, ptr %785, align 8
   %.sroa.016.0.copyload.i = load i64, ptr %786, align 4
   %.sroa.016.sroa.0.0.extract.trunc.i = trunc i64 %.sroa.016.0.copyload.i to i32
@@ -3093,10 +3090,10 @@ list_length.exit.thread:                          ; preds = %1, %._crit_edge, %l
 50:                                               ; preds = %.lr.ph46, %50
   %indvars.iv = phi i64 [ 0, %.lr.ph46 ], [ %indvars.iv.next, %50 ]
   %51 = load ptr, ptr %49, align 8
-  %52 = getelementptr inbounds nuw %union.ListCell, ptr %51, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %indvars.iv
   %53 = load i32, ptr %52, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %54 = getelementptr inbounds nuw i32, ptr %46, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %indvars.iv
   store i32 %53, ptr %54, align 4
   %55 = load i32, ptr %35, align 4
   %56 = sext i32 %55 to i64
@@ -3314,7 +3311,7 @@ define dso_local void @DropDatabase(ptr noundef %0, ptr noundef readonly capture
 
 11:                                               ; preds = %.lr.ph26, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph26 ], [ %indvars.iv.next, %10 ]
-  %12 = getelementptr inbounds nuw %union.ListCell, ptr %9, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
@@ -3381,7 +3378,7 @@ define dso_local i32 @AlterDatabase(ptr noundef %0, ptr noundef readonly capture
   %.085153184 = phi ptr [ null, %.lr.ph186 ], [ %.186, %43 ]
   %.083154183 = phi ptr [ null, %.lr.ph186 ], [ %.184, %43 ]
   %.082155182 = phi ptr [ null, %.lr.ph186 ], [ %.1, %43 ]
-  %16 = getelementptr inbounds nuw %union.ListCell, ptr %14, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
@@ -4191,7 +4188,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef nonnull %0, i32 noundef ran
 
 17:                                               ; preds = %14
   %18 = zext nneg i32 %1 to i64
-  %19 = getelementptr %struct.CompactAttribute, ptr %2, i64 %18
+  %19 = getelementptr [16 x i8], ptr %2, i64 %18
   %20 = getelementptr i8, ptr %19, i64 8
   %21 = load i32, ptr %20, align 4
   %22 = icmp sgt i32 %21, -1
@@ -4682,7 +4679,7 @@ define dso_local void @dbase_redo(ptr noundef readonly captures(none) %0) local_
 83:                                               ; preds = %.lr.ph, %93
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %93 ]
   %84 = load i32, ptr %67, align 4
-  %85 = getelementptr inbounds nuw i32, ptr %82, i64 %indvars.iv
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %82, i64 %indvars.iv
   %86 = load i32, ptr %85, align 4
   %87 = tail call ptr @GetDatabasePath(i32 noundef %84, i32 noundef %86) #19
   %88 = tail call zeroext i1 @rmtree(ptr noundef %87, i1 noundef zeroext true) #19

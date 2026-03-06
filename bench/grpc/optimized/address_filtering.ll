@@ -6,8 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::ios_base::Init" = type { i8 }
 %"struct.std::piecewise_construct_t" = type { i8 }
 %struct.grpc_arg_pointer_vtable = type { ptr, ptr, ptr }
-%"class.grpc_core::RefCountedStringValue" = type { %"class.grpc_core::RefCountedPtr" }
-%"class.grpc_core::RefCountedPtr" = type { ptr }
 %"class.absl::lts_20240722::StatusOr" = type { %"class.absl::lts_20240722::internal_statusor::StatusOrData" }
 %"class.absl::lts_20240722::internal_statusor::StatusOrData" = type { %union.anon, %union.anon.0 }
 %union.anon = type { %"class.absl::lts_20240722::Status" }
@@ -203,7 +201,7 @@ define noundef i32 @_ZN9grpc_core19HierarchicalPathArg18ChannelArgsCompareEPKS0_
   br i1 %22, label %.thread, label %23
 
 23:                                               ; preds = %21
-  %24 = getelementptr inbounds nuw %"class.grpc_core::RefCountedStringValue", ptr %6, i64 %.01537
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.01537
   %25 = load ptr, ptr %24, align 8, !tbaa !12
   %26 = icmp eq ptr %25, null
   br i1 %26, label %_ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit, label %27
@@ -217,7 +215,7 @@ define noundef i32 @_ZN9grpc_core19HierarchicalPathArg18ChannelArgsCompareEPKS0_
 _ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit: ; preds = %23, %27
   %.sroa.0.0.i = phi i64 [ %30, %27 ], [ 0, %23 ]
   %.sroa.3.0.i = phi ptr [ %28, %27 ], [ null, %23 ]
-  %31 = getelementptr inbounds nuw %"class.grpc_core::RefCountedStringValue", ptr %14, i64 %.01537
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.01537
   %32 = load ptr, ptr %31, align 8, !tbaa !12
   %33 = icmp eq ptr %32, null
   br i1 %33, label %_ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit23, label %34
@@ -2692,7 +2690,7 @@ define linkonce_odr noundef i32 @_ZZN9grpc_core20ChannelArgTypeTraitsINS_19Hiera
   br i1 %22, label %_ZZN9grpc_core20ChannelArgTypeTraitsINS_19HierarchicalPathArgEvE6VTableEvENKUlPvS3_E_clES3_S3_.exit, label %23
 
 23:                                               ; preds = %21
-  %24 = getelementptr inbounds nuw %"class.grpc_core::RefCountedStringValue", ptr %6, i64 %.01537.i.i
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.01537.i.i
   %25 = load ptr, ptr %24, align 8, !tbaa !12
   %26 = icmp eq ptr %25, null
   br i1 %26, label %_ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit.i.i, label %27
@@ -2706,7 +2704,7 @@ define linkonce_odr noundef i32 @_ZZN9grpc_core20ChannelArgTypeTraitsINS_19Hiera
 _ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit.i.i: ; preds = %27, %23
   %.sroa.0.0.i.i.i = phi i64 [ %30, %27 ], [ 0, %23 ]
   %.sroa.3.0.i.i.i = phi ptr [ %28, %27 ], [ null, %23 ]
-  %31 = getelementptr inbounds nuw %"class.grpc_core::RefCountedStringValue", ptr %14, i64 %.01537.i.i
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.01537.i.i
   %32 = load ptr, ptr %31, align 8, !tbaa !12
   %33 = icmp eq ptr %32, null
   br i1 %33, label %_ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit23.i.i, label %34

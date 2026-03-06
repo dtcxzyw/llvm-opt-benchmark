@@ -344,7 +344,7 @@ define hidden i64 @_ZN13logos_codegen3mir3Mir8priority17h1ab64aebcde8d421E(ptr r
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds { i64, [4 x i64] }, ptr %10, i64 %12
+  %13 = getelementptr inbounds [40 x i8], ptr %10, i64 %12
   %14 = tail call i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h25ab0e839ebefebfE"(ptr %10, ptr %13, i64 0)
   br label %33
 
@@ -353,7 +353,7 @@ define hidden i64 @_ZN13logos_codegen3mir3Mir8priority17h1ab64aebcde8d421E(ptr r
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load i64, ptr %18, align 8
-  %20 = getelementptr inbounds { i64, [4 x i64] }, ptr %17, i64 %19
+  %20 = getelementptr inbounds [40 x i8], ptr %17, i64 %19
   %21 = tail call { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator6reduce17hcdf529beaac5e7fdE(ptr %17, ptr %20)
   %22 = extractvalue { i64, i64 } %21, 0
   %23 = icmp eq i64 %22, 0

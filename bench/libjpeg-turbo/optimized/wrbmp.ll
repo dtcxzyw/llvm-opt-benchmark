@@ -561,13 +561,13 @@ define internal void @put_pixel_rows(ptr noundef %0, ptr noundef captures(none) 
 
 .lr.ph107:                                        ; preds = %85
   %88 = zext i32 %25 to i64
-  %89 = getelementptr inbounds nuw i32, ptr @rgb_pixelsize, i64 %88
+  %89 = getelementptr inbounds nuw [4 x i8], ptr @rgb_pixelsize, i64 %88
   %90 = load i32, ptr %89, align 4, !tbaa !82
-  %91 = getelementptr inbounds nuw i32, ptr @rgb_blue, i64 %88
+  %91 = getelementptr inbounds nuw [4 x i8], ptr @rgb_blue, i64 %88
   %92 = load i32, ptr %91, align 4, !tbaa !82
-  %93 = getelementptr inbounds nuw i32, ptr @rgb_green, i64 %88
+  %93 = getelementptr inbounds nuw [4 x i8], ptr @rgb_green, i64 %88
   %94 = load i32, ptr %93, align 4, !tbaa !82
-  %95 = getelementptr inbounds nuw i32, ptr @rgb_red, i64 %88
+  %95 = getelementptr inbounds nuw [4 x i8], ptr @rgb_red, i64 %88
   %96 = load i32, ptr %95, align 4, !tbaa !82
   %97 = sext i32 %92 to i64
   %98 = sext i32 %94 to i64

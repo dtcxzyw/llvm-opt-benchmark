@@ -3,27 +3,6 @@ source_filename = "bench/ffmpeg/original/ffmpeg_sched.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.SchDemux = type { ptr, ptr, i32, %struct.SchTask, %struct.SchWaiter, ptr, i32 }
-%struct.SchTask = type { ptr, %struct.SchedulerNode, ptr, ptr, i64, i32 }
-%struct.SchedulerNode = type { i32, i32, i32 }
-%struct.SchWaiter = type { %union.pthread_mutex_t, %union.pthread_cond_t, i32, i32, i32 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%union.pthread_cond_t = type { %struct.__pthread_cond_s }
-%struct.__pthread_cond_s = type { %union.__atomic_wide_counter, %union.__atomic_wide_counter, [2 x i32], [2 x i32], i32, i32, [2 x i32] }
-%union.__atomic_wide_counter = type { i64 }
-%struct.SchDemuxStream = type { ptr, ptr, i32 }
-%struct.SchMux = type { ptr, ptr, i32, i32, ptr, %struct.SchTask, i32, ptr, i32, ptr }
-%struct.SchMuxStream = type { %struct.SchedulerNode, %struct.SchedulerNode, ptr, i32, %struct.PreMuxQueue, i32, i64, i32 }
-%struct.PreMuxQueue = type { ptr, i32, i64, i64 }
-%struct.SchDec = type { ptr, %struct.SchedulerNode, ptr, i32, %struct.SchTask, ptr, ptr, i32, ptr }
-%struct.SchDecOutput = type { ptr, ptr, i32 }
-%struct.SchEnc = type { ptr, %struct.SchedulerNode, ptr, ptr, i32, [2 x i32], ptr, i32, %struct.SchTask, ptr, i32, ptr }
-%struct.SchSyncQueue = type { ptr, ptr, %union.pthread_mutex_t, ptr, i32 }
-%struct.SchFilterGraph = type { ptr, ptr, i32, i32, i32, ptr, i32, %struct.SchTask, ptr, %struct.SchWaiter, i32, i32 }
-%struct.SchFilterIn = type { %struct.SchedulerNode, %struct.SchedulerNode, i32, i32 }
-%struct.SchFilterOut = type { %struct.SchedulerNode }
 %struct.timespec = type { i64, i64 }
 %struct.Timestamp = type { i64, %struct.AVRational }
 %struct.AVRational = type { i32, i32 }
@@ -134,7 +113,7 @@ define void @sch_free(ptr noundef %0) local_unnamed_addr #0 {
 13:                                               ; preds = %.lr.ph102, %._crit_edge
   %indvars.iv145 = phi i64 [ 0, %.lr.ph102 ], [ %indvars.iv.next146, %._crit_edge ]
   %14 = load ptr, ptr %8, align 8, !tbaa !21
-  %15 = getelementptr inbounds nuw %struct.SchDemux, ptr %14, i64 %indvars.iv145
+  %15 = getelementptr inbounds nuw [200 x i8], ptr %14, i64 %indvars.iv145
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load i32, ptr %16, align 8, !tbaa !22
   %.not136 = icmp eq i32 %17, 0
@@ -162,7 +141,7 @@ define void @sch_free(ptr noundef %0) local_unnamed_addr #0 {
 28:                                               ; preds = %.lr.ph, %28
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %28 ]
   %29 = load ptr, ptr %18, align 8, !tbaa !32
-  %30 = getelementptr inbounds nuw %struct.SchDemuxStream, ptr %29, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [24 x i8], ptr %29, i64 %indvars.iv
   tail call void @av_freep(ptr noundef %30) #9
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   tail call void @av_freep(ptr noundef nonnull %31) #9
@@ -187,7 +166,7 @@ define void @sch_free(ptr noundef %0) local_unnamed_addr #0 {
 39:                                               ; preds = %.lr.ph113, %._crit_edge110
   %indvars.iv151 = phi i64 [ 0, %.lr.ph113 ], [ %indvars.iv.next152, %._crit_edge110 ]
   %40 = load ptr, ptr %12, align 8, !tbaa !35
-  %41 = getelementptr inbounds nuw %struct.SchMux, ptr %40, i64 %indvars.iv151
+  %41 = getelementptr inbounds nuw [120 x i8], ptr %40, i64 %indvars.iv151
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load i32, ptr %42, align 8, !tbaa !36
   %.not138 = icmp eq i32 %43, 0
@@ -213,7 +192,7 @@ define void @sch_free(ptr noundef %0) local_unnamed_addr #0 {
 51:                                               ; preds = %.lr.ph109, %62
   %indvars.iv148 = phi i64 [ 0, %.lr.ph109 ], [ %indvars.iv.next149, %62 ]
   %52 = load ptr, ptr %44, align 8, !tbaa !41
-  %53 = getelementptr inbounds nuw %struct.SchMuxStream, ptr %52, i64 %indvars.iv148
+  %53 = getelementptr inbounds nuw [96 x i8], ptr %52, i64 %indvars.iv148
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %55 = load ptr, ptr %54, align 8, !tbaa !42
   %.not98 = icmp eq ptr %55, null
@@ -261,7 +240,7 @@ define void @sch_free(ptr noundef %0) local_unnamed_addr #0 {
 71:                                               ; preds = %.lr.ph121, %._crit_edge118
   %indvars.iv157 = phi i64 [ 0, %.lr.ph121 ], [ %indvars.iv.next158, %._crit_edge118 ]
   %72 = load ptr, ptr %38, align 8, !tbaa !50
-  %73 = getelementptr inbounds nuw %struct.SchDec, ptr %72, i64 %indvars.iv157
+  %73 = getelementptr inbounds nuw [128 x i8], ptr %72, i64 %indvars.iv157
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 96
   call void @tq_free(ptr noundef nonnull %74) #9
   %75 = getelementptr inbounds nuw i8, ptr %73, i64 104
@@ -289,7 +268,7 @@ define void @sch_free(ptr noundef %0) local_unnamed_addr #0 {
 84:                                               ; preds = %.lr.ph117, %84
   %indvars.iv154 = phi i64 [ 0, %.lr.ph117 ], [ %indvars.iv.next155, %84 ]
   %85 = load ptr, ptr %78, align 8, !tbaa !57
-  %86 = getelementptr inbounds nuw %struct.SchDecOutput, ptr %85, i64 %indvars.iv154
+  %86 = getelementptr inbounds nuw [24 x i8], ptr %85, i64 %indvars.iv154
   call void @av_freep(ptr noundef %86) #9
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
   call void @av_freep(ptr noundef nonnull %87) #9
@@ -314,7 +293,7 @@ define void @sch_free(ptr noundef %0) local_unnamed_addr #0 {
 95:                                               ; preds = %.lr.ph125, %95
   %indvars.iv160 = phi i64 [ 0, %.lr.ph125 ], [ %indvars.iv.next161, %95 ]
   %96 = load ptr, ptr %70, align 8, !tbaa !60
-  %97 = getelementptr inbounds nuw %struct.SchEnc, ptr %96, i64 %indvars.iv160
+  %97 = getelementptr inbounds nuw [152 x i8], ptr %96, i64 %indvars.iv160
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 128
   call void @tq_free(ptr noundef nonnull %98) #9
   %99 = getelementptr inbounds nuw i8, ptr %97, i64 144
@@ -344,7 +323,7 @@ define void @sch_free(ptr noundef %0) local_unnamed_addr #0 {
 109:                                              ; preds = %.lr.ph129, %109
   %indvars.iv163 = phi i64 [ 0, %.lr.ph129 ], [ %indvars.iv.next164, %109 ]
   %110 = load ptr, ptr %94, align 8, !tbaa !63
-  %111 = getelementptr inbounds nuw %struct.SchSyncQueue, ptr %110, i64 %indvars.iv163
+  %111 = getelementptr inbounds nuw [72 x i8], ptr %110, i64 %indvars.iv163
   call void @sq_free(ptr noundef %111) #9
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 8
   call void @av_frame_free(ptr noundef nonnull %112) #9
@@ -377,7 +356,7 @@ define void @sch_free(ptr noundef %0) local_unnamed_addr #0 {
 129:                                              ; preds = %.lr.ph133, %129
   %indvars.iv166 = phi i64 [ 0, %.lr.ph133 ], [ %indvars.iv.next167, %129 ]
   %130 = load ptr, ptr %108, align 8, !tbaa !65
-  %131 = getelementptr inbounds nuw %struct.SchFilterGraph, ptr %130, i64 %indvars.iv166
+  %131 = getelementptr inbounds nuw [224 x i8], ptr %130, i64 %indvars.iv166
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 104
   call void @tq_free(ptr noundef nonnull %132) #9
   %133 = getelementptr inbounds nuw i8, ptr %131, i64 8
@@ -431,7 +410,7 @@ define range(i32 -2147483648, 1) i32 @sch_stop(ptr noundef %0, ptr noundef write
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %indvars.iv165 = phi i64 [ %indvars.iv.next166, %.lr.ph.split.us ], [ 0, %.lr.ph ]
   %15 = load ptr, ptr %13, align 8, !tbaa !65
-  %16 = getelementptr inbounds nuw %struct.SchFilterGraph, ptr %15, i64 %indvars.iv165
+  %16 = getelementptr inbounds nuw [224 x i8], ptr %15, i64 %indvars.iv165
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 112
   %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %17) #9
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 200
@@ -457,7 +436,7 @@ define range(i32 -2147483648, 1) i32 @sch_stop(ptr noundef %0, ptr noundef write
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
   %28 = load ptr, ptr %12, align 8, !tbaa !21
-  %29 = getelementptr inbounds nuw %struct.SchDemux, ptr %28, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [200 x i8], ptr %28, i64 %indvars.iv
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 80
   %31 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %30) #9
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 168
@@ -486,7 +465,7 @@ define range(i32 -2147483648, 1) i32 @sch_stop(ptr noundef %0, ptr noundef write
   %indvars.iv168 = phi i64 [ %indvars.iv.next169, %err_merge.exit ], [ 0, %.preheader122 ]
   %.067134 = phi i32 [ %.0.i77, %err_merge.exit ], [ 0, %.preheader122 ]
   %42 = load ptr, ptr %12, align 8, !tbaa !21
-  %43 = getelementptr inbounds nuw %struct.SchDemux, ptr %42, i64 %indvars.iv168
+  %43 = getelementptr inbounds nuw [200 x i8], ptr %42, i64 %indvars.iv168
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 72
   %45 = load i32, ptr %44, align 8, !tbaa !71
@@ -553,7 +532,7 @@ err_merge.exit:                                   ; preds = %task_stop.exit, %62
   %indvars.iv171 = phi i64 [ 0, %.lr.ph138 ], [ %indvars.iv.next172, %err_merge.exit87 ]
   %.1137 = phi i32 [ %.067.lcssa, %.lr.ph138 ], [ %.0.i86, %err_merge.exit87 ]
   %72 = load ptr, ptr %41, align 8, !tbaa !50
-  %73 = getelementptr inbounds nuw %struct.SchDec, ptr %72, i64 %indvars.iv171
+  %73 = getelementptr inbounds nuw [128 x i8], ptr %72, i64 %indvars.iv171
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 88
   %75 = load i32, ptr %74, align 8, !tbaa !71
@@ -624,7 +603,7 @@ err_merge.exit87:                                 ; preds = %task_stop.exit83, %
   %indvars.iv174 = phi i64 [ %indvars.iv.next175, %err_merge.exit97 ], [ 0, %.preheader120 ]
   %.2141 = phi i32 [ %.0.i96, %err_merge.exit97 ], [ %.1.lcssa, %.preheader120 ]
   %102 = load ptr, ptr %13, align 8, !tbaa !65
-  %103 = getelementptr inbounds nuw %struct.SchFilterGraph, ptr %102, i64 %indvars.iv174
+  %103 = getelementptr inbounds nuw [224 x i8], ptr %102, i64 %indvars.iv174
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 96
   %105 = load i32, ptr %104, align 8, !tbaa !71
@@ -695,7 +674,7 @@ err_merge.exit97:                                 ; preds = %task_stop.exit93, %
   %indvars.iv177 = phi i64 [ 0, %.lr.ph146 ], [ %indvars.iv.next178, %err_merge.exit107 ]
   %.3145 = phi i32 [ %.2.lcssa, %.lr.ph146 ], [ %.0.i106, %err_merge.exit107 ]
   %133 = load ptr, ptr %101, align 8, !tbaa !60
-  %134 = getelementptr inbounds nuw %struct.SchEnc, ptr %133, i64 %indvars.iv177
+  %134 = getelementptr inbounds nuw [152 x i8], ptr %133, i64 %indvars.iv177
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 120
   %136 = load i32, ptr %135, align 8, !tbaa !71
@@ -763,7 +742,7 @@ err_merge.exit107:                                ; preds = %task_stop.exit103, 
   %indvars.iv180 = phi i64 [ 0, %.lr.ph150 ], [ %indvars.iv.next181, %err_merge.exit117 ]
   %.4148 = phi i32 [ %.3.lcssa, %.lr.ph150 ], [ %.0.i116, %err_merge.exit117 ]
   %161 = load ptr, ptr %131, align 8, !tbaa !35
-  %162 = getelementptr inbounds nuw %struct.SchMux, ptr %161, i64 %indvars.iv180
+  %162 = getelementptr inbounds nuw [120 x i8], ptr %161, i64 %indvars.iv180
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 80
   %164 = load i32, ptr %163, align 8, !tbaa !71
@@ -832,7 +811,7 @@ err_merge.exit117:                                ; preds = %task_stop.exit113, 
 .lr.ph58.split.us.i:                              ; preds = %._crit_edge.split.us.us.i, %.lr.ph58.i
   %indvars.iv74.i = phi i64 [ %indvars.iv.next75.i, %._crit_edge.split.us.us.i ], [ 0, %.lr.ph58.i ]
   %.02755.us.i = phi i64 [ %.229.lcssa.us.i, %._crit_edge.split.us.us.i ], [ 9223372036854775807, %.lr.ph58.i ]
-  %191 = getelementptr inbounds nuw %struct.SchMux, ptr %190, i64 %indvars.iv74.i
+  %191 = getelementptr inbounds nuw [120 x i8], ptr %190, i64 %indvars.iv74.i
   %192 = getelementptr inbounds nuw i8, ptr %191, i64 16
   %193 = load i32, ptr %192, align 8, !tbaa !36
   %.not67.i = icmp eq i32 %193, 0
@@ -853,7 +832,7 @@ err_merge.exit117:                                ; preds = %task_stop.exit113, 
 196:                                              ; preds = %201, %.lr.ph.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %201 ], [ 0, %.lr.ph.us.i ]
   %.22949.us.us.i = phi i64 [ %..229.us.us.i, %201 ], [ %.02755.us.i, %.lr.ph.us.i ]
-  %197 = getelementptr inbounds nuw %struct.SchMuxStream, ptr %195, i64 %indvars.iv.i
+  %197 = getelementptr inbounds nuw [96 x i8], ptr %195, i64 %indvars.iv.i
   %198 = getelementptr inbounds nuw i8, ptr %197, i64 80
   %199 = load i64, ptr %198, align 8, !tbaa !80
   %200 = icmp eq i64 %199, -9223372036854775808
@@ -987,7 +966,7 @@ define i32 @sch_add_mux(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
 13:                                               ; preds = %6
   %14 = load ptr, ptr %9, align 8, !tbaa !35
   %15 = zext i32 %8 to i64
-  %16 = getelementptr inbounds nuw %struct.SchMux, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [120 x i8], ptr %14, i64 %15
   store ptr @sch_mux_class, ptr %16, align 8, !tbaa !86
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   store ptr %2, ptr %17, align 8, !tbaa !87
@@ -1032,7 +1011,7 @@ define i32 @sch_add_mux_stream(ptr noundef readonly captures(none) %0, i32 nound
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8, !tbaa !35
   %10 = zext i32 %1 to i64
-  %11 = getelementptr inbounds nuw %struct.SchMux, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [120 x i8], ptr %9, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %14 = load i32, ptr %13, align 8, !tbaa !36
@@ -1046,7 +1025,7 @@ define i32 @sch_add_mux_stream(ptr noundef readonly captures(none) %0, i32 nound
   %20 = add i32 %19, -1
   %21 = load ptr, ptr %12, align 8, !tbaa !41
   %22 = zext i32 %20 to i64
-  %23 = getelementptr inbounds nuw %struct.SchMuxStream, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [96 x i8], ptr %21, i64 %22
   %24 = tail call ptr @av_fifo_alloc2(i64 noundef 8, i64 noundef 8, i32 noundef 0) #9
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 40
   store ptr %24, ptr %25, align 8, !tbaa !42
@@ -1083,7 +1062,7 @@ define i32 @sch_add_demux(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_
 10:                                               ; preds = %3
   %11 = load ptr, ptr %6, align 8, !tbaa !21
   %12 = zext i32 %5 to i64
-  %13 = getelementptr inbounds nuw %struct.SchDemux, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [200 x i8], ptr %11, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store ptr %0, ptr %14, align 8, !tbaa !89
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 32
@@ -1144,7 +1123,7 @@ define i32 @sch_add_demux_stream(ptr noundef readonly captures(none) %0, i32 nou
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !21
   %10 = zext i32 %1 to i64
-  %11 = getelementptr inbounds nuw %struct.SchDemux, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [200 x i8], ptr %9, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %14 = load i32, ptr %13, align 8, !tbaa !22
@@ -1179,7 +1158,7 @@ define i32 @sch_add_dec_output(ptr noundef readonly captures(none) %0, i32 nound
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %9 = load ptr, ptr %8, align 8, !tbaa !50
   %10 = zext i32 %1 to i64
-  %11 = getelementptr inbounds nuw %struct.SchDec, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [128 x i8], ptr %9, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %14 = load i32, ptr %13, align 8, !tbaa !51
@@ -1211,7 +1190,7 @@ define i32 @sch_add_dec(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noun
 11:                                               ; preds = %4
   %12 = load ptr, ptr %7, align 8, !tbaa !50
   %13 = zext i32 %6 to i64
-  %14 = getelementptr inbounds nuw %struct.SchDec, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [128 x i8], ptr %12, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 40
   store ptr %0, ptr %15, align 8, !tbaa !89
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 48
@@ -1241,7 +1220,7 @@ define i32 @sch_add_dec(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noun
 
 26:                                               ; preds = %22
   %27 = load ptr, ptr %7, align 8, !tbaa !50
-  %28 = getelementptr inbounds nuw %struct.SchDec, ptr %27, i64 %13
+  %28 = getelementptr inbounds nuw [128 x i8], ptr %27, i64 %13
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %31 = load i32, ptr %30, align 8, !tbaa !51
@@ -1298,7 +1277,7 @@ define i32 @sch_add_enc(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
 11:                                               ; preds = %4
   %12 = load ptr, ptr %7, align 8, !tbaa !60
   %13 = zext i32 %6 to i64
-  %14 = getelementptr inbounds nuw %struct.SchEnc, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [152 x i8], ptr %12, i64 %13
   store ptr @sch_enc_class, ptr %14, align 8, !tbaa !100
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 56
   store ptr %3, ptr %15, align 8, !tbaa !103
@@ -1350,7 +1329,7 @@ define i32 @sch_add_filtergraph(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
 12:                                               ; preds = %5
   %13 = load ptr, ptr %8, align 8, !tbaa !65
   %14 = zext i32 %7 to i64
-  %15 = getelementptr inbounds nuw %struct.SchFilterGraph, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [224 x i8], ptr %13, i64 %14
   store ptr @sch_fg_class, ptr %15, align 8, !tbaa !105
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 48
   store ptr %0, ptr %16, align 8, !tbaa !89
@@ -1449,7 +1428,7 @@ define i32 @sch_add_sq_enc(ptr noundef %0, i64 noundef %1, ptr noundef %2) local
   %12 = load i32, ptr %5, align 8, !tbaa !59
   %13 = add i32 %12, -1
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %struct.SchSyncQueue, ptr %11, i64 %14
+  %15 = getelementptr inbounds nuw [72 x i8], ptr %11, i64 %14
   %16 = tail call ptr @sq_alloc(i32 noundef 1, i64 noundef %1, ptr noundef %2) #9
   store ptr %16, ptr %15, align 8, !tbaa !113
   %.not = icmp eq ptr %16, null
@@ -1504,7 +1483,7 @@ define range(i32 -2147483648, 1) i32 @sch_sq_add_enc(ptr noundef readonly captur
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %12 = load ptr, ptr %11, align 8, !tbaa !63
   %13 = zext i32 %1 to i64
-  %14 = getelementptr inbounds nuw %struct.SchSyncQueue, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [72 x i8], ptr %12, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %16 = load i32, ptr %15, align 8, !tbaa !49
   %17 = icmp ult i32 %2, %16
@@ -1519,7 +1498,7 @@ define range(i32 -2147483648, 1) i32 @sch_sq_add_enc(ptr noundef readonly captur
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %21 = load ptr, ptr %20, align 8, !tbaa !60
   %22 = zext i32 %2 to i64
-  %23 = getelementptr inbounds nuw %struct.SchEnc, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [152 x i8], ptr %21, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %25 = getelementptr inbounds nuw i8, ptr %14, i64 64
   %26 = load i32, ptr %25, align 8, !tbaa !117
@@ -1533,7 +1512,7 @@ define range(i32 -2147483648, 1) i32 @sch_sq_add_enc(ptr noundef readonly captur
   %32 = load i32, ptr %25, align 8, !tbaa !117
   %33 = add i32 %32, -1
   %34 = zext i32 %33 to i64
-  %35 = getelementptr inbounds nuw i32, ptr %31, i64 %34
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %34
   store i32 %2, ptr %35, align 4, !tbaa !68
   %36 = load ptr, ptr %14, align 8, !tbaa !113
   %37 = tail call i32 @sq_add_stream(ptr noundef %36, i32 noundef %3) #9
@@ -1586,7 +1565,7 @@ define range(i32 -2147483648, 1) i32 @sch_connect(ptr noundef readonly captures(
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !21
-  %13 = getelementptr inbounds nuw %struct.SchDemux, ptr %12, i64 %.sroa.0156.sroa.10.0.extract.shift
+  %13 = getelementptr inbounds nuw [200 x i8], ptr %12, i64 %.sroa.0156.sroa.10.0.extract.shift
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load i32, ptr %14, align 8, !tbaa !22
   %16 = icmp ult i32 %2, %15
@@ -1601,7 +1580,7 @@ define range(i32 -2147483648, 1) i32 @sch_connect(ptr noundef readonly captures(
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !32
   %21 = zext i32 %2 to i64
-  %22 = getelementptr inbounds nuw %struct.SchDemuxStream, ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load i32, ptr %23, align 8, !tbaa !119
   %25 = add i32 %24, 1
@@ -1614,7 +1593,7 @@ define range(i32 -2147483648, 1) i32 @sch_connect(ptr noundef readonly captures(
   %30 = load i32, ptr %23, align 8, !tbaa !119
   %31 = add i32 %30, -1
   %32 = zext i32 %31 to i64
-  %33 = getelementptr inbounds nuw %struct.SchedulerNode, ptr %29, i64 %32
+  %33 = getelementptr inbounds nuw [12 x i8], ptr %29, i64 %32
   store i64 %3, ptr %33, align 4
   %.sroa.29.0..sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 8
   store i32 %4, ptr %.sroa.29.0..sroa_idx, align 4, !tbaa !68
@@ -1637,7 +1616,7 @@ define range(i32 -2147483648, 1) i32 @sch_connect(ptr noundef readonly captures(
 39:                                               ; preds = %34
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %41 = load ptr, ptr %40, align 8, !tbaa !50
-  %42 = getelementptr inbounds nuw %struct.SchDec, ptr %41, i64 %.sroa.075.sroa.9.0.extract.shift
+  %42 = getelementptr inbounds nuw [128 x i8], ptr %41, i64 %.sroa.075.sroa.9.0.extract.shift
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load i32, ptr %43, align 8, !tbaa !122
   %.not265 = icmp eq i32 %44, 0
@@ -1665,7 +1644,7 @@ define range(i32 -2147483648, 1) i32 @sch_connect(ptr noundef readonly captures(
 51:                                               ; preds = %47
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %53 = load ptr, ptr %52, align 8, !tbaa !35
-  %54 = getelementptr inbounds nuw %struct.SchMux, ptr %53, i64 %.sroa.075.sroa.9.0.extract.shift
+  %54 = getelementptr inbounds nuw [120 x i8], ptr %53, i64 %.sroa.075.sroa.9.0.extract.shift
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %56 = load i32, ptr %55, align 8, !tbaa !36
   %57 = icmp ult i32 %4, %56
@@ -1680,7 +1659,7 @@ define range(i32 -2147483648, 1) i32 @sch_connect(ptr noundef readonly captures(
   %60 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %61 = load ptr, ptr %60, align 8, !tbaa !41
   %62 = zext i32 %4 to i64
-  %63 = getelementptr inbounds nuw %struct.SchMuxStream, ptr %61, i64 %62
+  %63 = getelementptr inbounds nuw [96 x i8], ptr %61, i64 %62
   %64 = load i32, ptr %63, align 8, !tbaa !123
   %.not264 = icmp eq i32 %64, 0
   br i1 %.not264, label %66, label %65
@@ -1717,7 +1696,7 @@ define range(i32 -2147483648, 1) i32 @sch_connect(ptr noundef readonly captures(
 73:                                               ; preds = %68
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %75 = load ptr, ptr %74, align 8, !tbaa !50
-  %76 = getelementptr inbounds nuw %struct.SchDec, ptr %75, i64 %.sroa.0156.sroa.10.0.extract.shift
+  %76 = getelementptr inbounds nuw [128 x i8], ptr %75, i64 %.sroa.0156.sroa.10.0.extract.shift
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 32
   %78 = load i32, ptr %77, align 8, !tbaa !51
   %79 = icmp ult i32 %2, %78
@@ -1732,7 +1711,7 @@ define range(i32 -2147483648, 1) i32 @sch_connect(ptr noundef readonly captures(
   %82 = getelementptr inbounds nuw i8, ptr %76, i64 24
   %83 = load ptr, ptr %82, align 8, !tbaa !57
   %84 = zext i32 %2 to i64
-  %85 = getelementptr inbounds nuw %struct.SchDecOutput, ptr %83, i64 %84
+  %85 = getelementptr inbounds nuw [24 x i8], ptr %83, i64 %84
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 16
   %87 = load i32, ptr %86, align 8, !tbaa !124
   %88 = add i32 %87, 1
@@ -1745,7 +1724,7 @@ define range(i32 -2147483648, 1) i32 @sch_connect(ptr noundef readonly captures(
   %93 = load i32, ptr %86, align 8, !tbaa !124
   %94 = add i32 %93, -1
   %95 = zext i32 %94 to i64
-  %96 = getelementptr inbounds nuw %struct.SchedulerNode, ptr %92, i64 %95
+  %96 = getelementptr inbounds nuw [12 x i8], ptr %92, i64 %95
   store i64 %3, ptr %96, align 4
   %.sroa.29.0..sroa_idx120 = getelementptr inbounds nuw i8, ptr %96, i64 8
   store i32 %4, ptr %.sroa.29.0..sroa_idx120, align 4, !tbaa !68
@@ -1763,7 +1742,7 @@ define range(i32 -2147483648, 1) i32 @sch_connect(ptr noundef readonly captures(
 101:                                              ; preds = %97
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %103 = load ptr, ptr %102, align 8, !tbaa !65
-  %104 = getelementptr inbounds nuw %struct.SchFilterGraph, ptr %103, i64 %.sroa.075.sroa.9.0.extract.shift
+  %104 = getelementptr inbounds nuw [224 x i8], ptr %103, i64 %.sroa.075.sroa.9.0.extract.shift
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 16
   %106 = load i32, ptr %105, align 8, !tbaa !110
   %107 = icmp ult i32 %4, %106
@@ -1778,7 +1757,7 @@ define range(i32 -2147483648, 1) i32 @sch_connect(ptr noundef readonly captures(
   %110 = getelementptr inbounds nuw i8, ptr %104, i64 8
   %111 = load ptr, ptr %110, align 8, !tbaa !109
   %112 = zext i32 %4 to i64
-  %113 = getelementptr inbounds nuw %struct.SchFilterIn, ptr %111, i64 %112
+  %113 = getelementptr inbounds nuw [32 x i8], ptr %111, i64 %112
   %114 = load i32, ptr %113, align 4, !tbaa !127
   %.not263 = icmp eq i32 %114, 0
   br i1 %.not263, label %116, label %115
@@ -1810,7 +1789,7 @@ define range(i32 -2147483648, 1) i32 @sch_connect(ptr noundef readonly captures(
 122:                                              ; preds = %117
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %124 = load ptr, ptr %123, align 8, !tbaa !60
-  %125 = getelementptr inbounds nuw %struct.SchEnc, ptr %124, i64 %.sroa.075.sroa.9.0.extract.shift
+  %125 = getelementptr inbounds nuw [152 x i8], ptr %124, i64 %.sroa.075.sroa.9.0.extract.shift
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 8
   %127 = load i32, ptr %126, align 8, !tbaa !129
   %.not262 = icmp eq i32 %127, 0
@@ -1843,7 +1822,7 @@ define range(i32 -2147483648, 1) i32 @sch_connect(ptr noundef readonly captures(
 135:                                              ; preds = %131
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %137 = load ptr, ptr %136, align 8, !tbaa !65
-  %138 = getelementptr inbounds nuw %struct.SchFilterGraph, ptr %137, i64 %.sroa.0156.sroa.10.0.extract.shift
+  %138 = getelementptr inbounds nuw [224 x i8], ptr %137, i64 %.sroa.0156.sroa.10.0.extract.shift
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 40
   %140 = load i32, ptr %139, align 8, !tbaa !112
   %141 = icmp ult i32 %2, %140
@@ -1858,7 +1837,7 @@ define range(i32 -2147483648, 1) i32 @sch_connect(ptr noundef readonly captures(
   %144 = getelementptr inbounds nuw i8, ptr %138, i64 32
   %145 = load ptr, ptr %144, align 8, !tbaa !111
   %146 = zext i32 %2 to i64
-  %147 = getelementptr inbounds nuw %struct.SchFilterOut, ptr %145, i64 %146
+  %147 = getelementptr inbounds nuw [12 x i8], ptr %145, i64 %146
   %148 = load i32, ptr %147, align 4, !tbaa !130
   %.not259 = icmp eq i32 %148, 0
   br i1 %.not259, label %150, label %149
@@ -1891,7 +1870,7 @@ define range(i32 -2147483648, 1) i32 @sch_connect(ptr noundef readonly captures(
 156:                                              ; preds = %151
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %158 = load ptr, ptr %157, align 8, !tbaa !60
-  %159 = getelementptr inbounds nuw %struct.SchEnc, ptr %158, i64 %.sroa.075.sroa.9.0.extract.shift
+  %159 = getelementptr inbounds nuw [152 x i8], ptr %158, i64 %.sroa.075.sroa.9.0.extract.shift
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 8
   %161 = load i32, ptr %160, align 8, !tbaa !129
   %.not261 = icmp eq i32 %161, 0
@@ -1917,7 +1896,7 @@ define range(i32 -2147483648, 1) i32 @sch_connect(ptr noundef readonly captures(
 
 167:                                              ; preds = %164
   %168 = load ptr, ptr %136, align 8, !tbaa !65
-  %169 = getelementptr inbounds nuw %struct.SchFilterGraph, ptr %168, i64 %.sroa.075.sroa.9.0.extract.shift
+  %169 = getelementptr inbounds nuw [224 x i8], ptr %168, i64 %.sroa.075.sroa.9.0.extract.shift
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 16
   %171 = load i32, ptr %170, align 8, !tbaa !110
   %172 = icmp ult i32 %4, %171
@@ -1932,7 +1911,7 @@ define range(i32 -2147483648, 1) i32 @sch_connect(ptr noundef readonly captures(
   %175 = getelementptr inbounds nuw i8, ptr %169, i64 8
   %176 = load ptr, ptr %175, align 8, !tbaa !109
   %177 = zext i32 %4 to i64
-  %178 = getelementptr inbounds nuw %struct.SchFilterIn, ptr %176, i64 %177
+  %178 = getelementptr inbounds nuw [32 x i8], ptr %176, i64 %177
   %179 = load i32, ptr %178, align 4, !tbaa !127
   %.not260 = icmp eq i32 %179, 0
   br i1 %.not260, label %181, label %180
@@ -1969,7 +1948,7 @@ define range(i32 -2147483648, 1) i32 @sch_connect(ptr noundef readonly captures(
 188:                                              ; preds = %183
   %189 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %190 = load ptr, ptr %189, align 8, !tbaa !60
-  %191 = getelementptr inbounds nuw %struct.SchEnc, ptr %190, i64 %.sroa.0156.sroa.10.0.extract.shift
+  %191 = getelementptr inbounds nuw [152 x i8], ptr %190, i64 %.sroa.0156.sroa.10.0.extract.shift
   %192 = getelementptr inbounds nuw i8, ptr %191, i64 24
   %193 = getelementptr inbounds nuw i8, ptr %191, i64 40
   %194 = load i32, ptr %193, align 8, !tbaa !132
@@ -1983,7 +1962,7 @@ define range(i32 -2147483648, 1) i32 @sch_connect(ptr noundef readonly captures(
   %200 = load i32, ptr %193, align 8, !tbaa !132
   %201 = add i32 %200, -1
   %202 = zext i32 %201 to i64
-  %203 = getelementptr inbounds nuw %struct.SchedulerNode, ptr %199, i64 %202
+  %203 = getelementptr inbounds nuw [12 x i8], ptr %199, i64 %202
   store i64 %3, ptr %203, align 4
   %.sroa.29.0..sroa_idx124 = getelementptr inbounds nuw i8, ptr %203, i64 8
   store i32 %4, ptr %.sroa.29.0..sroa_idx124, align 4, !tbaa !68
@@ -2001,7 +1980,7 @@ define range(i32 -2147483648, 1) i32 @sch_connect(ptr noundef readonly captures(
 208:                                              ; preds = %204
   %209 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %210 = load ptr, ptr %209, align 8, !tbaa !35
-  %211 = getelementptr inbounds nuw %struct.SchMux, ptr %210, i64 %.sroa.075.sroa.9.0.extract.shift
+  %211 = getelementptr inbounds nuw [120 x i8], ptr %210, i64 %.sroa.075.sroa.9.0.extract.shift
   %212 = getelementptr inbounds nuw i8, ptr %211, i64 16
   %213 = load i32, ptr %212, align 8, !tbaa !36
   %214 = icmp ult i32 %4, %213
@@ -2016,7 +1995,7 @@ define range(i32 -2147483648, 1) i32 @sch_connect(ptr noundef readonly captures(
   %217 = getelementptr inbounds nuw i8, ptr %211, i64 8
   %218 = load ptr, ptr %217, align 8, !tbaa !41
   %219 = zext i32 %4 to i64
-  %220 = getelementptr inbounds nuw %struct.SchMuxStream, ptr %218, i64 %219
+  %220 = getelementptr inbounds nuw [96 x i8], ptr %218, i64 %219
   %221 = load i32, ptr %220, align 8, !tbaa !123
   %.not258 = icmp eq i32 %221, 0
   br i1 %.not258, label %223, label %222
@@ -2048,7 +2027,7 @@ define range(i32 -2147483648, 1) i32 @sch_connect(ptr noundef readonly captures(
 229:                                              ; preds = %224
   %230 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %231 = load ptr, ptr %230, align 8, !tbaa !50
-  %232 = getelementptr inbounds nuw %struct.SchDec, ptr %231, i64 %.sroa.075.sroa.9.0.extract.shift
+  %232 = getelementptr inbounds nuw [128 x i8], ptr %231, i64 %.sroa.075.sroa.9.0.extract.shift
   %233 = getelementptr inbounds nuw i8, ptr %232, i64 8
   %234 = load i32, ptr %233, align 8, !tbaa !122
   %.not = icmp eq i32 %234, 0
@@ -2101,7 +2080,7 @@ define void @sch_mux_stream_buffering(ptr noundef readonly captures(none) %0, i3
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8, !tbaa !35
   %13 = zext i32 %1 to i64
-  %14 = getelementptr inbounds nuw %struct.SchMux, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [120 x i8], ptr %12, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load i32, ptr %15, align 8, !tbaa !36
   %17 = icmp ult i32 %2, %16
@@ -2116,7 +2095,7 @@ define void @sch_mux_stream_buffering(ptr noundef readonly captures(none) %0, i3
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !41
   %22 = zext i32 %2 to i64
-  %23 = getelementptr inbounds nuw %struct.SchMuxStream, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [96 x i8], ptr %21, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 48
   store i32 %4, ptr %24, align 8, !tbaa !134
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 64
@@ -2140,7 +2119,7 @@ define range(i32 -2147483648, 1) i32 @sch_mux_stream_ready(ptr noundef %0, i32 n
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8, !tbaa !35
   %11 = zext i32 %1 to i64
-  %12 = getelementptr inbounds nuw %struct.SchMux, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [120 x i8], ptr %10, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load i32, ptr %13, align 8, !tbaa !36
   %15 = icmp ult i32 %2, %14
@@ -2250,7 +2229,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @mux_init(ptr noundef %0, p
 31:                                               ; preds = %.lr.ph, %28
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %28 ]
   %32 = load ptr, ptr %26, align 8, !tbaa !35
-  %33 = getelementptr inbounds nuw %struct.SchMux, ptr %32, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [120 x i8], ptr %32, i64 %indvars.iv
   %34 = tail call fastcc i32 @mux_task_start(ptr noundef %33)
   %35 = icmp slt i32 %34, 0
   br i1 %35, label %.thread, label %28
@@ -2287,7 +2266,7 @@ define range(i32 -2147483648, 1) i32 @sch_mux_sub_heartbeat_add(ptr noundef read
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8, !tbaa !35
   %12 = zext i32 %1 to i64
-  %13 = getelementptr inbounds nuw %struct.SchMux, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [120 x i8], ptr %11, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load i32, ptr %14, align 8, !tbaa !36
   %16 = icmp ult i32 %2, %15
@@ -2302,7 +2281,7 @@ define range(i32 -2147483648, 1) i32 @sch_mux_sub_heartbeat_add(ptr noundef read
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !41
   %21 = zext i32 %2 to i64
-  %22 = getelementptr inbounds nuw %struct.SchMuxStream, ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [96 x i8], ptr %20, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %25 = load i32, ptr %24, align 8, !tbaa !140
@@ -2327,7 +2306,7 @@ define range(i32 -2147483648, 1) i32 @sch_mux_sub_heartbeat_add(ptr noundef read
   %36 = load i32, ptr %24, align 8, !tbaa !140
   %37 = add i32 %36, -1
   %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds nuw i32, ptr %35, i64 %38
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %38
   store i32 %3, ptr %39, align 4, !tbaa !68
   %40 = getelementptr inbounds nuw i8, ptr %13, i64 112
   %41 = load ptr, ptr %40, align 8, !tbaa !142
@@ -2365,7 +2344,7 @@ define range(i32 -2147483648, 1) i32 @sch_start(ptr noundef %0) local_unnamed_ad
   %8 = phi i32 [ %5, %.lr.ph350.i ], [ %27, %._crit_edge.i ]
   %indvars.iv442.i = phi i64 [ 0, %.lr.ph350.i ], [ %indvars.iv.next443.i, %._crit_edge.i ]
   %9 = load ptr, ptr %6, align 8, !tbaa !21
-  %10 = getelementptr inbounds nuw %struct.SchDemux, ptr %9, i64 %indvars.iv442.i
+  %10 = getelementptr inbounds nuw [200 x i8], ptr %9, i64 %indvars.iv442.i
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load i32, ptr %11, align 8, !tbaa !22
   %.not190342.not.i = icmp eq i32 %12, 0
@@ -2378,7 +2357,7 @@ define range(i32 -2147483648, 1) i32 @sch_start(ptr noundef %0) local_unnamed_ad
 14:                                               ; preds = %24, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %24 ]
   %15 = load ptr, ptr %13, align 8, !tbaa !32
-  %16 = getelementptr inbounds nuw %struct.SchDemuxStream, ptr %15, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw [24 x i8], ptr %15, i64 %indvars.iv.i
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load i32, ptr %17, align 8, !tbaa !119
   %.not.i = icmp eq i32 %18, 0
@@ -2429,7 +2408,7 @@ define range(i32 -2147483648, 1) i32 @sch_start(ptr noundef %0) local_unnamed_ad
   %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge357.i ], [ 0, %.lr.ph363.i ]
   %33 = phi i32 [ %54, %._crit_edge357.i ], [ %30, %.lr.ph363.i ]
   %34 = load ptr, ptr %31, align 8, !tbaa !50
-  %35 = getelementptr inbounds nuw %struct.SchDec, ptr %34, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [128 x i8], ptr %34, i64 %indvars.iv
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load i32, ptr %36, align 8, !tbaa !122
   %.not192.i = icmp eq i32 %37, 0
@@ -2452,7 +2431,7 @@ define range(i32 -2147483648, 1) i32 @sch_start(ptr noundef %0) local_unnamed_ad
 41:                                               ; preds = %51, %.lr.ph356.i
   %indvars.iv445.i = phi i64 [ 0, %.lr.ph356.i ], [ %indvars.iv.next446.i, %51 ]
   %42 = load ptr, ptr %40, align 8, !tbaa !57
-  %43 = getelementptr inbounds nuw %struct.SchDecOutput, ptr %42, i64 %indvars.iv445.i
+  %43 = getelementptr inbounds nuw [24 x i8], ptr %42, i64 %indvars.iv445.i
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %45 = load i32, ptr %44, align 8, !tbaa !124
   %.not193.i = icmp eq i32 %45, 0
@@ -2521,7 +2500,7 @@ define range(i32 -2147483648, 1) i32 @sch_start(ptr noundef %0) local_unnamed_ad
 67:                                               ; preds = %59, %.lr.ph369.i
   %indvars.iv448.i = phi i64 [ 0, %.lr.ph369.i ], [ %indvars.iv.next449.i, %59 ]
   %68 = load ptr, ptr %58, align 8, !tbaa !60
-  %69 = getelementptr inbounds nuw %struct.SchEnc, ptr %68, i64 %indvars.iv448.i
+  %69 = getelementptr inbounds nuw [152 x i8], ptr %68, i64 %indvars.iv448.i
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %71 = load i32, ptr %70, align 8, !tbaa !129
   %.not197.i = icmp eq i32 %71, 0
@@ -2552,7 +2531,7 @@ define range(i32 -2147483648, 1) i32 @sch_start(ptr noundef %0) local_unnamed_ad
 81:                                               ; preds = %127, %.lr.ph379.i
   %indvars.iv454.i = phi i64 [ 0, %.lr.ph379.i ], [ %indvars.iv.next455.i, %127 ]
   %82 = load ptr, ptr %64, align 8, !tbaa !35
-  %83 = getelementptr inbounds nuw %struct.SchMux, ptr %82, i64 %indvars.iv454.i
+  %83 = getelementptr inbounds nuw [120 x i8], ptr %82, i64 %indvars.iv454.i
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 16
   %85 = load i32, ptr %84, align 8, !tbaa !36
   %.not201371.not.i = icmp eq i32 %85, 0
@@ -2565,7 +2544,7 @@ define range(i32 -2147483648, 1) i32 @sch_start(ptr noundef %0) local_unnamed_ad
 87:                                               ; preds = %118, %.lr.ph374.i
   %indvars.iv451.i = phi i64 [ 0, %.lr.ph374.i ], [ %indvars.iv.next452.i, %118 ]
   %88 = load ptr, ptr %86, align 8, !tbaa !41
-  %89 = getelementptr inbounds nuw %struct.SchMuxStream, ptr %88, i64 %indvars.iv451.i
+  %89 = getelementptr inbounds nuw [96 x i8], ptr %88, i64 %indvars.iv451.i
   %90 = load i32, ptr %89, align 8, !tbaa !123
   switch i32 %90, label %.thread239.i [
     i32 4, label %91
@@ -2577,7 +2556,7 @@ define range(i32 -2147483648, 1) i32 @sch_start(ptr noundef %0) local_unnamed_ad
   %93 = getelementptr inbounds nuw i8, ptr %89, i64 4
   %94 = load i32, ptr %93, align 4, !tbaa !151
   %95 = zext i32 %94 to i64
-  %96 = getelementptr inbounds nuw %struct.SchEnc, ptr %92, i64 %95
+  %96 = getelementptr inbounds nuw [152 x i8], ptr %92, i64 %95
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
   %98 = load i32, ptr %97, align 8, !tbaa !129
   %99 = icmp eq i32 %98, 3
@@ -2589,7 +2568,7 @@ define range(i32 -2147483648, 1) i32 @sch_start(ptr noundef %0) local_unnamed_ad
   %103 = getelementptr inbounds nuw i8, ptr %96, i64 12
   %104 = load i32, ptr %103, align 4, !tbaa !152
   %105 = zext i32 %104 to i64
-  %106 = getelementptr inbounds nuw %struct.SchDec, ptr %102, i64 %105
+  %106 = getelementptr inbounds nuw [128 x i8], ptr %102, i64 %105
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %100, ptr noundef nonnull align 8 dereferenceable(12) %107, i64 12, i1 false), !tbaa.struct !153
   %108 = load i32, ptr %100, align 4, !tbaa !154
@@ -2669,7 +2648,7 @@ define range(i32 -2147483648, 1) i32 @sch_start(ptr noundef %0) local_unnamed_ad
 136:                                              ; preds = %._crit_edge392.i, %.lr.ph395.i
   %indvars.iv463.i = phi i64 [ 0, %.lr.ph395.i ], [ %indvars.iv.next464.i, %._crit_edge392.i ]
   %137 = load ptr, ptr %133, align 8, !tbaa !65
-  %138 = getelementptr inbounds nuw %struct.SchFilterGraph, ptr %137, i64 %indvars.iv463.i
+  %138 = getelementptr inbounds nuw [224 x i8], ptr %137, i64 %indvars.iv463.i
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 16
   %140 = load i32, ptr %139, align 8, !tbaa !110
   %.not204385.not.i = icmp eq i32 %140, 0
@@ -2694,7 +2673,7 @@ define range(i32 -2147483648, 1) i32 @sch_start(ptr noundef %0) local_unnamed_ad
 146:                                              ; preds = %173, %.lr.ph388.i
   %indvars.iv457.i = phi i64 [ 0, %.lr.ph388.i ], [ %indvars.iv.next458.i, %173 ]
   %147 = load ptr, ptr %141, align 8, !tbaa !109
-  %148 = getelementptr inbounds nuw %struct.SchFilterIn, ptr %147, i64 %indvars.iv457.i
+  %148 = getelementptr inbounds nuw [32 x i8], ptr %147, i64 %indvars.iv457.i
   %149 = load i32, ptr %148, align 4, !tbaa !127
   switch i32 %149, label %152 [
     i32 0, label %.thread251.i
@@ -2717,7 +2696,7 @@ define range(i32 -2147483648, 1) i32 @sch_start(ptr noundef %0) local_unnamed_ad
   %155 = getelementptr inbounds nuw i8, ptr %148, i64 4
   %156 = load i32, ptr %155, align 4, !tbaa !157
   %157 = zext i32 %156 to i64
-  %158 = getelementptr inbounds nuw %struct.SchDec, ptr %154, i64 %157
+  %158 = getelementptr inbounds nuw [128 x i8], ptr %154, i64 %157
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 8
   %160 = load i32, ptr %159, align 8, !tbaa !122
   switch i32 %160, label %171 [
@@ -2736,7 +2715,7 @@ define range(i32 -2147483648, 1) i32 @sch_start(ptr noundef %0) local_unnamed_ad
   %166 = getelementptr inbounds nuw i8, ptr %158, i64 12
   %167 = load i32, ptr %166, align 4, !tbaa !158
   %168 = zext i32 %167 to i64
-  %169 = getelementptr inbounds nuw %struct.SchEnc, ptr %165, i64 %168
+  %169 = getelementptr inbounds nuw [152 x i8], ptr %165, i64 %168
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %164, ptr noundef nonnull align 8 dereferenceable(12) %170, i64 12, i1 false), !tbaa.struct !153
   br label %173
@@ -2760,7 +2739,7 @@ define range(i32 -2147483648, 1) i32 @sch_start(ptr noundef %0) local_unnamed_ad
 
 176:                                              ; preds = %181, %.lr.ph391.i
   %indvars.iv460.i = phi i64 [ 0, %.lr.ph391.i ], [ %indvars.iv.next461.i, %181 ]
-  %177 = getelementptr inbounds nuw %struct.SchFilterOut, ptr %145, i64 %indvars.iv460.i
+  %177 = getelementptr inbounds nuw [12 x i8], ptr %145, i64 %indvars.iv460.i
   %178 = load i32, ptr %177, align 4, !tbaa !130
   %.not205.not.i = icmp eq i32 %178, 0
   br i1 %.not205.not.i, label %.thread253.i, label %181
@@ -2837,7 +2816,7 @@ check_acyclic.exit.thread.i:                      ; preds = %184
 195:                                              ; preds = %.outer, %201
   %.sroa.8.0.i.i.i = phi i32 [ %204, %201 ], [ %.sroa.8.0.i.i.i.ph, %.outer ]
   %196 = load ptr, ptr %133, align 8, !tbaa !65
-  %197 = getelementptr inbounds nuw %struct.SchFilterGraph, ptr %196, i64 %193
+  %197 = getelementptr inbounds nuw [224 x i8], ptr %196, i64 %193
   store i8 1, ptr %194, align 1, !tbaa !96
   %198 = getelementptr inbounds nuw i8, ptr %197, i64 16
   %199 = load i32, ptr %198, align 8, !tbaa !110
@@ -2849,7 +2828,7 @@ check_acyclic.exit.thread.i:                      ; preds = %184
   %203 = load ptr, ptr %202, align 8, !tbaa !109
   %204 = add nuw i32 %.sroa.8.0.i.i.i, 1
   %205 = zext i32 %.sroa.8.0.i.i.i to i64
-  %206 = getelementptr inbounds nuw %struct.SchFilterIn, ptr %203, i64 %205
+  %206 = getelementptr inbounds nuw [32 x i8], ptr %203, i64 %205
   %207 = getelementptr inbounds nuw i8, ptr %206, i64 12
   %208 = load i32, ptr %207, align 4, !tbaa !164
   switch i32 %208, label %209 [
@@ -2884,7 +2863,7 @@ check_acyclic.exit.thread.i:                      ; preds = %184
 221:                                              ; preds = %217
   %222 = add nuw i32 %.037.i.i.i.ph, 1
   %223 = zext i32 %.037.i.i.i.ph to i64
-  %224 = getelementptr inbounds nuw %struct.SchedulerNode, ptr %189, i64 %223
+  %224 = getelementptr inbounds nuw [12 x i8], ptr %189, i64 %223
   %.sroa.021.sroa.4.0.insert.shift.i.i.i = shl nuw i64 %193, 32
   %.sroa.021.sroa.0.0.insert.ext.i.i.i = and i64 %.sroa.021.sroa.0.0.i.i.i.ph, 4294967295
   %.sroa.021.sroa.0.0.insert.insert.i.i.i = or disjoint i64 %.sroa.021.sroa.4.0.insert.shift.i.i.i, %.sroa.021.sroa.0.0.insert.ext.i.i.i
@@ -2903,7 +2882,7 @@ check_acyclic.exit.thread.i:                      ; preds = %184
 228:                                              ; preds = %226
   %229 = add i32 %.037.i.i.i.ph, -1
   %230 = zext i32 %229 to i64
-  %231 = getelementptr inbounds nuw %struct.SchedulerNode, ptr %189, i64 %230
+  %231 = getelementptr inbounds nuw [12 x i8], ptr %189, i64 %230
   %.sroa.021.0.copyload22.i.i.i = load i64, ptr %231, align 4
   %.sroa.021.sroa.4.0.extract.shift32.i.i.i = lshr i64 %.sroa.021.0.copyload22.i.i.i, 32
   %.sroa.021.sroa.4.0.extract.trunc33.i.i.i = trunc nuw i64 %.sroa.021.sroa.4.0.extract.shift32.i.i.i to i32
@@ -2921,7 +2900,7 @@ check_acyclic.exit.thread.i:                      ; preds = %184
 232:                                              ; preds = %210
   %.sroa.22.0.insert.ext.le.i.i = zext i32 %.01729.i.i to i64
   %233 = load ptr, ptr %133, align 8, !tbaa !65
-  %234 = getelementptr inbounds nuw %struct.SchFilterGraph, ptr %233, i64 %.sroa.22.0.insert.ext.le.i.i
+  %234 = getelementptr inbounds nuw [224 x i8], ptr %233, i64 %.sroa.22.0.insert.ext.le.i.i
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %234, i32 noundef 16, ptr noundef nonnull @.str.58) #9
   br label %start_prepare.exit
 
@@ -2971,7 +2950,7 @@ start_prepare.exit:                               ; preds = %check_acyclic_for_o
   %250 = phi i32 [ %245, %.lr.ph ], [ %262, %261 ]
   %indvars.iv248 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next249, %261 ]
   %251 = load ptr, ptr %246, align 8, !tbaa !35
-  %252 = getelementptr inbounds nuw %struct.SchMux, ptr %251, i64 %indvars.iv248
+  %252 = getelementptr inbounds nuw [120 x i8], ptr %251, i64 %indvars.iv248
   %253 = getelementptr inbounds nuw i8, ptr %252, i64 20
   %254 = load i32, ptr %253, align 4, !tbaa !136
   %255 = getelementptr inbounds nuw i8, ptr %252, i64 16
@@ -3005,7 +2984,7 @@ start_prepare.exit:                               ; preds = %check_acyclic_for_o
 .lr.ph167:                                        ; preds = %.preheader115, %265
   %indvars.iv251 = phi i64 [ %indvars.iv.next252, %265 ], [ 0, %.preheader115 ]
   %268 = load ptr, ptr %247, align 8, !tbaa !60
-  %269 = getelementptr inbounds nuw %struct.SchEnc, ptr %268, i64 %indvars.iv251
+  %269 = getelementptr inbounds nuw [152 x i8], ptr %268, i64 %indvars.iv251
   %270 = getelementptr inbounds nuw i8, ptr %269, i64 72
   %271 = call fastcc i32 @task_start(ptr noundef nonnull %270)
   %272 = icmp slt i32 %271, 0
@@ -3027,7 +3006,7 @@ start_prepare.exit:                               ; preds = %check_acyclic_for_o
 .lr.ph175:                                        ; preds = %.preheader114, %275
   %indvars.iv254 = phi i64 [ %indvars.iv.next255, %275 ], [ 0, %.preheader114 ]
   %278 = load ptr, ptr %273, align 8, !tbaa !65
-  %279 = getelementptr inbounds nuw %struct.SchFilterGraph, ptr %278, i64 %indvars.iv254
+  %279 = getelementptr inbounds nuw [224 x i8], ptr %278, i64 %indvars.iv254
   %280 = getelementptr inbounds nuw i8, ptr %279, i64 48
   %281 = call fastcc i32 @task_start(ptr noundef nonnull %280)
   %282 = icmp slt i32 %281, 0
@@ -3049,7 +3028,7 @@ start_prepare.exit:                               ; preds = %check_acyclic_for_o
 .lr.ph185:                                        ; preds = %.preheader113, %285
   %indvars.iv257 = phi i64 [ %indvars.iv.next258, %285 ], [ 0, %.preheader113 ]
   %288 = load ptr, ptr %283, align 8, !tbaa !50
-  %289 = getelementptr inbounds nuw %struct.SchDec, ptr %288, i64 %indvars.iv257
+  %289 = getelementptr inbounds nuw [128 x i8], ptr %288, i64 %indvars.iv257
   %290 = getelementptr inbounds nuw i8, ptr %289, i64 40
   %291 = call fastcc i32 @task_start(ptr noundef nonnull %290)
   %292 = icmp slt i32 %291, 0
@@ -3068,7 +3047,7 @@ start_prepare.exit:                               ; preds = %check_acyclic_for_o
   %296 = phi i32 [ %293, %.lr.ph193 ], [ %306, %305 ]
   %indvars.iv260 = phi i64 [ 0, %.lr.ph193 ], [ %indvars.iv.next261, %305 ]
   %297 = load ptr, ptr %294, align 8, !tbaa !21
-  %298 = getelementptr inbounds nuw %struct.SchDemux, ptr %297, i64 %indvars.iv260
+  %298 = getelementptr inbounds nuw [200 x i8], ptr %297, i64 %indvars.iv260
   %299 = getelementptr inbounds nuw i8, ptr %298, i64 16
   %300 = load i32, ptr %299, align 8, !tbaa !22
   %.not = icmp eq i32 %300, 0
@@ -3167,7 +3146,7 @@ define internal fastcc void @schedule_update_locked(ptr noundef captures(none) %
 .lr.ph58.split.i:                                 ; preds = %._crit_edge.split.i, %.lr.ph58.i
   %indvars.iv84.i = phi i64 [ %indvars.iv.next85.i, %._crit_edge.split.i ], [ 0, %.lr.ph58.i ]
   %.02755.i = phi i64 [ %.229.lcssa.i, %._crit_edge.split.i ], [ 9223372036854775807, %.lr.ph58.i ]
-  %9 = getelementptr inbounds nuw %struct.SchMux, ptr %8, i64 %indvars.iv84.i
+  %9 = getelementptr inbounds nuw [120 x i8], ptr %8, i64 %indvars.iv84.i
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load i32, ptr %10, align 8, !tbaa !36
   %.not66.i = icmp eq i32 %11, 0
@@ -3182,7 +3161,7 @@ define internal fastcc void @schedule_update_locked(ptr noundef captures(none) %
 14:                                               ; preds = %24, %.lr.ph.i
   %indvars.iv79.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next80.i, %24 ]
   %.22949.i = phi i64 [ %.02755.i, %.lr.ph.i ], [ %.431.ph.i, %24 ]
-  %15 = getelementptr inbounds nuw %struct.SchMuxStream, ptr %13, i64 %indvars.iv79.i
+  %15 = getelementptr inbounds nuw [96 x i8], ptr %13, i64 %indvars.iv79.i
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 88
   %17 = load i32, ptr %16, align 8, !tbaa !172
   %18 = icmp eq i32 %17, 0
@@ -3237,7 +3216,7 @@ trailing_dts.exit:                                ; preds = %._crit_edge.split.i
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %indvars.iv164 = phi i64 [ %indvars.iv.next165, %.lr.ph.split.us ], [ 0, %.lr.ph ]
   %31 = load ptr, ptr %29, align 8, !tbaa !21
-  %32 = getelementptr inbounds nuw %struct.SchDemux, ptr %31, i64 %indvars.iv164
+  %32 = getelementptr inbounds nuw [200 x i8], ptr %31, i64 %indvars.iv164
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 168
   %34 = load atomic i32, ptr %33 seq_cst, align 8
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 172
@@ -3265,7 +3244,7 @@ trailing_dts.exit:                                ; preds = %._crit_edge.split.i
 .lr.ph125.split.us:                               ; preds = %.lr.ph125, %._crit_edge122.split.us.us
   %indvars.iv180 = phi i64 [ %indvars.iv.next181, %._crit_edge122.split.us.us ], [ 0, %.lr.ph125 ]
   %.0124.us = phi i32 [ %.1.lcssa.us, %._crit_edge122.split.us.us ], [ 0, %.lr.ph125 ]
-  %43 = getelementptr inbounds nuw %struct.SchMux, ptr %42, i64 %indvars.iv180
+  %43 = getelementptr inbounds nuw [120 x i8], ptr %42, i64 %indvars.iv180
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %45 = load i32, ptr %44, align 8, !tbaa !36
   %.not144 = icmp eq i32 %45, 0
@@ -3286,7 +3265,7 @@ trailing_dts.exit:                                ; preds = %._crit_edge.split.i
 48:                                               ; preds = %unchoke_for_stream.exit.us.us, %.lr.ph121.us
   %indvars.iv175 = phi i64 [ %indvars.iv.next176, %unchoke_for_stream.exit.us.us ], [ 0, %.lr.ph121.us ]
   %.1119.us.us = phi i32 [ %.2.us.us, %unchoke_for_stream.exit.us.us ], [ %.0124.us, %.lr.ph121.us ]
-  %49 = getelementptr inbounds nuw %struct.SchMuxStream, ptr %47, i64 %indvars.iv175
+  %49 = getelementptr inbounds nuw [96 x i8], ptr %47, i64 %indvars.iv175
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 88
   %51 = load i32, ptr %50, align 8, !tbaa !172
   %.not94.us.us = icmp eq i32 %51, 0
@@ -3311,7 +3290,7 @@ trailing_dts.exit:                                ; preds = %._crit_edge.split.i
 
 55:                                               ; preds = %.preheader149
   %56 = load ptr, ptr %28, align 8, !tbaa !65
-  %57 = getelementptr inbounds nuw %struct.SchFilterGraph, ptr %56, i64 %.sroa.07.sroa.4.0.in.i.us.us
+  %57 = getelementptr inbounds nuw [224 x i8], ptr %56, i64 %.sroa.07.sroa.4.0.in.i.us.us
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 216
   %59 = load i32, ptr %58, align 8, !tbaa !177
   %60 = getelementptr inbounds nuw i8, ptr %57, i64 16
@@ -3323,7 +3302,7 @@ trailing_dts.exit:                                ; preds = %._crit_edge.split.i
   %64 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %65 = load ptr, ptr %64, align 8, !tbaa !109
   %66 = zext i32 %59 to i64
-  %67 = getelementptr inbounds nuw %struct.SchFilterIn, ptr %65, i64 %66
+  %67 = getelementptr inbounds nuw [32 x i8], ptr %65, i64 %66
   br label %.preheader149
 
 68:                                               ; preds = %55
@@ -3333,7 +3312,7 @@ trailing_dts.exit:                                ; preds = %._crit_edge.split.i
 
 70:                                               ; preds = %.preheader149
   %71 = load ptr, ptr %29, align 8, !tbaa !21
-  %72 = getelementptr inbounds nuw %struct.SchDemux, ptr %71, i64 %.sroa.07.sroa.4.0.in.i.us.us
+  %72 = getelementptr inbounds nuw [200 x i8], ptr %71, i64 %.sroa.07.sroa.4.0.in.i.us.us
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 176
   store i32 0, ptr %73, align 8, !tbaa !179
   br label %unchoke_for_stream.exit.us.us
@@ -3350,7 +3329,7 @@ unchoke_for_stream.exit.us.us:                    ; preds = %70, %68, %52, %48
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
   %74 = load ptr, ptr %28, align 8, !tbaa !65
-  %75 = getelementptr inbounds nuw %struct.SchFilterGraph, ptr %74, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw [224 x i8], ptr %74, i64 %indvars.iv
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 200
   %77 = load atomic i32, ptr %76 seq_cst, align 8
   %78 = getelementptr inbounds nuw i8, ptr %75, i64 204
@@ -3374,7 +3353,7 @@ unchoke_for_stream.exit.us.us:                    ; preds = %70, %68, %52, %48
 .lr.ph125.split:                                  ; preds = %.lr.ph125, %._crit_edge122.split
   %indvars.iv170 = phi i64 [ %indvars.iv.next171, %._crit_edge122.split ], [ 0, %.lr.ph125 ]
   %.0124 = phi i32 [ %.1.lcssa, %._crit_edge122.split ], [ 0, %.lr.ph125 ]
-  %83 = getelementptr inbounds nuw %struct.SchMux, ptr %42, i64 %indvars.iv170
+  %83 = getelementptr inbounds nuw [120 x i8], ptr %42, i64 %indvars.iv170
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 16
   %85 = load i32, ptr %84, align 8, !tbaa !36
   %.not143 = icmp eq i32 %85, 0
@@ -3395,7 +3374,7 @@ unchoke_for_stream.exit.us.us:                    ; preds = %70, %68, %52, %48
 88:                                               ; preds = %.lr.ph121, %unchoke_for_stream.exit
   %indvars.iv167 = phi i64 [ 0, %.lr.ph121 ], [ %indvars.iv.next168, %unchoke_for_stream.exit ]
   %.1119 = phi i32 [ %.0124, %.lr.ph121 ], [ %.2, %unchoke_for_stream.exit ]
-  %89 = getelementptr inbounds nuw %struct.SchMuxStream, ptr %87, i64 %indvars.iv167
+  %89 = getelementptr inbounds nuw [96 x i8], ptr %87, i64 %indvars.iv167
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 88
   %91 = load i32, ptr %90, align 8, !tbaa !172
   %.not94 = icmp eq i32 %91, 0
@@ -3421,7 +3400,7 @@ unchoke_for_stream.exit.us.us:                    ; preds = %70, %68, %52, %48
 
 97:                                               ; preds = %.preheader150
   %98 = load ptr, ptr %29, align 8, !tbaa !21
-  %99 = getelementptr inbounds nuw %struct.SchDemux, ptr %98, i64 %.sroa.07.sroa.4.0.in.i
+  %99 = getelementptr inbounds nuw [200 x i8], ptr %98, i64 %.sroa.07.sroa.4.0.in.i
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 176
   store i32 0, ptr %100, align 8, !tbaa !179
   br label %unchoke_for_stream.exit
@@ -3433,7 +3412,7 @@ unchoke_for_stream.exit.us.us:                    ; preds = %70, %68, %52, %48
 
 101:                                              ; preds = %.preheader150
   %102 = load ptr, ptr %28, align 8, !tbaa !65
-  %103 = getelementptr inbounds nuw %struct.SchFilterGraph, ptr %102, i64 %.sroa.07.sroa.4.0.in.i
+  %103 = getelementptr inbounds nuw [224 x i8], ptr %102, i64 %.sroa.07.sroa.4.0.in.i
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 216
   %105 = load i32, ptr %104, align 8, !tbaa !177
   %106 = getelementptr inbounds nuw i8, ptr %103, i64 16
@@ -3450,7 +3429,7 @@ unchoke_for_stream.exit.us.us:                    ; preds = %70, %68, %52, %48
   %112 = getelementptr inbounds nuw i8, ptr %103, i64 8
   %113 = load ptr, ptr %112, align 8, !tbaa !109
   %114 = zext i32 %105 to i64
-  %115 = getelementptr inbounds nuw %struct.SchFilterIn, ptr %113, i64 %114
+  %115 = getelementptr inbounds nuw [32 x i8], ptr %113, i64 %114
   br label %.preheader150
 
 unchoke_for_stream.exit:                          ; preds = %109, %97, %92, %88
@@ -3478,7 +3457,7 @@ unchoke_for_stream.exit:                          ; preds = %109, %97, %92, %88
 
 118:                                              ; preds = %122, %.lr.ph129.split.us
   %indvars.iv190 = phi i64 [ %indvars.iv.next191, %122 ], [ 0, %.lr.ph129.split.us ]
-  %119 = getelementptr inbounds nuw %struct.SchDemux, ptr %117, i64 %indvars.iv190
+  %119 = getelementptr inbounds nuw [200 x i8], ptr %117, i64 %indvars.iv190
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 192
   %121 = load i32, ptr %120, align 4, !tbaa !68
   %.not93.not.us = icmp eq i32 %121, 0
@@ -3491,7 +3470,7 @@ unchoke_for_stream.exit:                          ; preds = %109, %97, %92, %88
 
 .thread100.split.us:                              ; preds = %118
   %123 = and i64 %indvars.iv190, 4294967295
-  %124 = getelementptr inbounds nuw %struct.SchDemux, ptr %117, i64 %123
+  %124 = getelementptr inbounds nuw [200 x i8], ptr %117, i64 %123
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 80
   br label %.loopexit105.thread
 
@@ -3506,7 +3485,7 @@ unchoke_for_stream.exit:                          ; preds = %109, %97, %92, %88
 
 128:                                              ; preds = %.lr.ph129.split, %127
   %indvars.iv185 = phi i64 [ 0, %.lr.ph129.split ], [ %indvars.iv.next186, %127 ]
-  %129 = getelementptr inbounds nuw %struct.SchFilterGraph, ptr %126, i64 %indvars.iv185
+  %129 = getelementptr inbounds nuw [224 x i8], ptr %126, i64 %indvars.iv185
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 220
   %131 = load i32, ptr %130, align 4, !tbaa !68
   %.not93.not = icmp eq i32 %131, 0
@@ -3514,7 +3493,7 @@ unchoke_for_stream.exit:                          ; preds = %109, %97, %92, %88
 
 .thread100.split:                                 ; preds = %128
   %132 = and i64 %indvars.iv185, 4294967295
-  %133 = getelementptr inbounds nuw %struct.SchFilterGraph, ptr %126, i64 %132
+  %133 = getelementptr inbounds nuw [224 x i8], ptr %126, i64 %132
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 112
   br label %.loopexit105.thread
 
@@ -3546,7 +3525,7 @@ unchoke_for_stream.exit:                          ; preds = %109, %97, %92, %88
   %138 = phi i32 [ %153, %152 ], [ %137, %.lr.ph138 ]
   %indvars.iv198 = phi i64 [ %indvars.iv.next199, %152 ], [ 0, %.lr.ph138 ]
   %139 = load ptr, ptr %29, align 8, !tbaa !21
-  %140 = getelementptr inbounds nuw %struct.SchDemux, ptr %139, i64 %indvars.iv198
+  %140 = getelementptr inbounds nuw [200 x i8], ptr %139, i64 %indvars.iv198
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 172
   %142 = load i32, ptr %141, align 4, !tbaa !173
   %143 = getelementptr inbounds nuw i8, ptr %140, i64 176
@@ -3579,7 +3558,7 @@ unchoke_for_stream.exit:                          ; preds = %109, %97, %92, %88
   %156 = phi i32 [ %171, %170 ], [ %137, %.lr.ph138 ]
   %indvars.iv195 = phi i64 [ %indvars.iv.next196, %170 ], [ 0, %.lr.ph138 ]
   %157 = load ptr, ptr %28, align 8, !tbaa !65
-  %158 = getelementptr inbounds nuw %struct.SchFilterGraph, ptr %157, i64 %indvars.iv195
+  %158 = getelementptr inbounds nuw [224 x i8], ptr %157, i64 %indvars.iv195
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 204
   %160 = load i32, ptr %159, align 4, !tbaa !173
   %161 = getelementptr inbounds nuw i8, ptr %158, i64 208
@@ -3681,7 +3660,7 @@ define range(i32 -2147483648, 1) i32 @sch_demux_send(ptr noundef %0, i32 noundef
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !21
   %13 = zext i32 %1 to i64
-  %14 = getelementptr inbounds nuw %struct.SchDemux, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [200 x i8], ptr %12, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 80
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 168
   %17 = load atomic i32, ptr %16 seq_cst, align 8
@@ -3762,7 +3741,7 @@ waiter_wait.exit.thread:                          ; preds = %10, %waiter_wait.ex
   %.sroa.7.0101.i = phi i64 [ 0, %.lr.ph102.i ], [ %.sroa.7.2.lcssa.i, %._crit_edge.i ]
   %.sroa.0.0100.i = phi i64 [ -9223372036854775808, %.lr.ph102.i ], [ %.sroa.0.2.lcssa.i, %._crit_edge.i ]
   %49 = load ptr, ptr %43, align 8, !tbaa !32
-  %50 = getelementptr inbounds nuw %struct.SchDemuxStream, ptr %49, i64 %indvars.iv109.i
+  %50 = getelementptr inbounds nuw [24 x i8], ptr %49, i64 %indvars.iv109.i
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %52 = load i32, ptr %51, align 8, !tbaa !119
   %.not105.i = icmp eq i32 %52, 0
@@ -3777,7 +3756,7 @@ waiter_wait.exit.thread:                          ; preds = %10, %waiter_wait.ex
   %.sroa.7.296.i = phi i64 [ %.sroa.7.0101.i, %.lr.ph.i22 ], [ %.sroa.7.4.ph.i, %88 ]
   %.sroa.0.294.i = phi i64 [ %.sroa.0.0100.i, %.lr.ph.i22 ], [ %.sroa.0.4.ph.i, %88 ]
   %55 = load ptr, ptr %50, align 8, !tbaa !121
-  %56 = getelementptr inbounds nuw %struct.SchedulerNode, ptr %55, i64 %indvars.iv.i
+  %56 = getelementptr inbounds nuw [12 x i8], ptr %55, i64 %indvars.iv.i
   %57 = load ptr, ptr %53, align 8, !tbaa !143
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 %indvars.iv.i
   %59 = load i8, ptr %58, align 1, !tbaa !96
@@ -3794,7 +3773,7 @@ waiter_wait.exit.thread:                          ; preds = %10, %waiter_wait.ex
   %64 = getelementptr inbounds nuw i8, ptr %56, i64 4
   %65 = load i32, ptr %64, align 4, !tbaa !201
   %66 = zext i32 %65 to i64
-  %67 = getelementptr inbounds nuw %struct.SchDec, ptr %63, i64 %66
+  %67 = getelementptr inbounds nuw [128 x i8], ptr %63, i64 %66
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 96
   %69 = load ptr, ptr %68, align 8, !tbaa !202
   %70 = call i32 @tq_send(ptr noundef %69, i32 noundef 0, ptr noundef nonnull %2) #9
@@ -3889,7 +3868,7 @@ select.unfold.i:                                  ; preds = %86, %82, %80
   %102 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %103 = load ptr, ptr %102, align 8, !tbaa !32
   %104 = sext i32 %31 to i64
-  %105 = getelementptr inbounds %struct.SchDemuxStream, ptr %103, i64 %104
+  %105 = getelementptr inbounds [24 x i8], ptr %103, i64 %104
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 16
   %107 = load i32, ptr %106, align 8, !tbaa !119
   %.not4569.not.i = icmp eq i32 %107, 0
@@ -3924,7 +3903,7 @@ select.unfold.i:                                  ; preds = %86, %82, %80
 124:                                              ; preds = %120, %113
   %.036.i = phi ptr [ %121, %120 ], [ %2, %113 ]
   %125 = load ptr, ptr %105, align 8, !tbaa !121
-  %126 = getelementptr inbounds nuw %struct.SchedulerNode, ptr %125, i64 %indvars.iv.i25
+  %126 = getelementptr inbounds nuw [12 x i8], ptr %125, i64 %indvars.iv.i25
   %.sroa.0.0.copyload.i = load i64, ptr %126, align 4
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %126, i64 8
   %.sroa.2.0.copyload.i = load i32, ptr %.sroa.2.0..sroa_idx.i, align 4
@@ -3953,13 +3932,13 @@ select.unfold.i:                                  ; preds = %86, %82, %80
 
 134:                                              ; preds = %133
   %135 = load ptr, ptr %111, align 8, !tbaa !35
-  %136 = getelementptr inbounds nuw %struct.SchMux, ptr %135, i64 %.sroa.4.0.extract.shift.i.i
+  %136 = getelementptr inbounds nuw [120 x i8], ptr %135, i64 %.sroa.4.0.extract.shift.i.i
   %137 = tail call fastcc i32 @send_to_mux(ptr noundef %0, ptr noundef %136, i32 noundef %.sroa.2.0.copyload.i, ptr noundef nonnull %.036.i)
   br label %144
 
 138:                                              ; preds = %133
   %139 = load ptr, ptr %112, align 8, !tbaa !50
-  %140 = getelementptr inbounds nuw %struct.SchDec, ptr %139, i64 %.sroa.4.0.extract.shift.i.i
+  %140 = getelementptr inbounds nuw [128 x i8], ptr %139, i64 %.sroa.4.0.extract.shift.i.i
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 96
   %142 = load ptr, ptr %141, align 8, !tbaa !202
   %143 = tail call i32 @tq_send(ptr noundef %142, i32 noundef 0, ptr noundef nonnull %.036.i) #9
@@ -3975,13 +3954,13 @@ select.unfold.i:                                  ; preds = %86, %82, %80
 
 148:                                              ; preds = %147, %.thread33.i.i
   %149 = load ptr, ptr %111, align 8, !tbaa !35
-  %150 = getelementptr inbounds nuw %struct.SchMux, ptr %149, i64 %.sroa.4.0.extract.shift.i.i
+  %150 = getelementptr inbounds nuw [120 x i8], ptr %149, i64 %.sroa.4.0.extract.shift.i.i
   %151 = tail call fastcc i32 @send_to_mux(ptr noundef %0, ptr noundef %150, i32 noundef %.sroa.2.0.copyload.i, ptr noundef null)
   br label %157
 
 152:                                              ; preds = %147
   %153 = load ptr, ptr %112, align 8, !tbaa !50
-  %154 = getelementptr inbounds nuw %struct.SchDec, ptr %153, i64 %.sroa.4.0.extract.shift.i.i
+  %154 = getelementptr inbounds nuw [128 x i8], ptr %153, i64 %.sroa.4.0.extract.shift.i.i
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 96
   %156 = load ptr, ptr %155, align 8, !tbaa !202
   tail call void @tq_send_finish(ptr noundef %156, i32 noundef 0) #9
@@ -4044,7 +4023,7 @@ define i32 @sch_mux_receive(ptr noundef readonly captures(none) %0, i32 noundef 
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8, !tbaa !35
   %12 = zext i32 %1 to i64
-  %13 = getelementptr inbounds nuw %struct.SchMux, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [120 x i8], ptr %11, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 96
   %15 = load ptr, ptr %14, align 8, !tbaa !210
   %16 = call i32 @tq_receive(ptr noundef %15, ptr noundef nonnull %4, ptr noundef %2) #9
@@ -4073,7 +4052,7 @@ define void @sch_mux_receive_finish(ptr noundef %0, i32 noundef %1, i32 noundef 
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8, !tbaa !35
   %11 = zext i32 %1 to i64
-  %12 = getelementptr inbounds nuw %struct.SchMux, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [120 x i8], ptr %10, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load i32, ptr %13, align 8, !tbaa !36
   %15 = icmp ult i32 %2, %14
@@ -4093,7 +4072,7 @@ define void @sch_mux_receive_finish(ptr noundef %0, i32 noundef %1, i32 noundef 
   %22 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %23 = load ptr, ptr %22, align 8, !tbaa !41
   %24 = zext i32 %2 to i64
-  %25 = getelementptr inbounds nuw %struct.SchMuxStream, ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw [96 x i8], ptr %23, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 88
   store i32 1, ptr %26, align 8, !tbaa !172
   tail call fastcc void @schedule_update_locked(ptr noundef nonnull %0)
@@ -4119,7 +4098,7 @@ define range(i32 -2147483648, 1) i32 @sch_mux_sub_heartbeat(ptr noundef readonly
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8, !tbaa !35
   %12 = zext i32 %1 to i64
-  %13 = getelementptr inbounds nuw %struct.SchMux, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [120 x i8], ptr %11, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load i32, ptr %14, align 8, !tbaa !36
   %16 = icmp ult i32 %2, %15
@@ -4134,7 +4113,7 @@ define range(i32 -2147483648, 1) i32 @sch_mux_sub_heartbeat(ptr noundef readonly
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !41
   %21 = zext i32 %2 to i64
-  %22 = getelementptr inbounds nuw %struct.SchMuxStream, ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [96 x i8], ptr %20, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %25 = load i32, ptr %24, align 8, !tbaa !140
@@ -4150,7 +4129,7 @@ define range(i32 -2147483648, 1) i32 @sch_mux_sub_heartbeat(ptr noundef readonly
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %36 ]
   %29 = load ptr, ptr %23, align 8, !tbaa !50
   %30 = load ptr, ptr %26, align 8, !tbaa !141
-  %31 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %indvars.iv
   %32 = load i32, ptr %31, align 4, !tbaa !68
   %33 = load ptr, ptr %27, align 8, !tbaa !142
   %34 = tail call i32 @av_packet_copy_props(ptr noundef %33, ptr noundef %3) #9
@@ -4159,7 +4138,7 @@ define range(i32 -2147483648, 1) i32 @sch_mux_sub_heartbeat(ptr noundef readonly
 
 36:                                               ; preds = %28
   %37 = zext i32 %32 to i64
-  %38 = getelementptr inbounds nuw %struct.SchDec, ptr %29, i64 %37
+  %38 = getelementptr inbounds nuw [128 x i8], ptr %29, i64 %37
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 96
   %40 = load ptr, ptr %39, align 8, !tbaa !202
   %41 = load ptr, ptr %27, align 8, !tbaa !142
@@ -4198,7 +4177,7 @@ define i32 @sch_dec_receive(ptr noundef readonly captures(none) %0, i32 noundef 
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %12 = load ptr, ptr %11, align 8, !tbaa !50
   %13 = zext i32 %1 to i64
-  %14 = getelementptr inbounds nuw %struct.SchDec, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [128 x i8], ptr %12, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 112
   %16 = load i32, ptr %15, align 8, !tbaa !212
   %.not = icmp eq i32 %16, 0
@@ -4291,7 +4270,7 @@ define range(i32 -2147483648, 1) i32 @sch_dec_send(ptr noundef %0, i32 noundef %
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %11 = load ptr, ptr %10, align 8, !tbaa !50
   %12 = zext i32 %1 to i64
-  %13 = getelementptr inbounds nuw %struct.SchDec, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [128 x i8], ptr %11, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %15 = load i32, ptr %14, align 8, !tbaa !51
   %16 = icmp ult i32 %2, %15
@@ -4306,7 +4285,7 @@ define range(i32 -2147483648, 1) i32 @sch_dec_send(ptr noundef %0, i32 noundef %
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %20 = load ptr, ptr %19, align 8, !tbaa !57
   %21 = zext i32 %2 to i64
-  %22 = getelementptr inbounds nuw %struct.SchDecOutput, ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load i32, ptr %23, align 8, !tbaa !124
   %.not5067.not = icmp eq i32 %24, 0
@@ -4353,7 +4332,7 @@ define range(i32 -2147483648, 1) i32 @sch_dec_send(ptr noundef %0, i32 noundef %
 47:                                               ; preds = %44, %30
   %.038 = phi ptr [ %38, %44 ], [ %3, %30 ]
   %48 = load ptr, ptr %22, align 8, !tbaa !126
-  %49 = getelementptr inbounds nuw %struct.SchedulerNode, ptr %48, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [12 x i8], ptr %48, i64 %indvars.iv
   %.sroa.0.0.copyload = load i64, ptr %49, align 4
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %49, i64 8
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 4
@@ -4373,7 +4352,7 @@ define range(i32 -2147483648, 1) i32 @sch_dec_send(ptr noundef %0, i32 noundef %
 
 send_to_filter.exit.i:                            ; preds = %52
   %54 = load ptr, ptr %29, align 8, !tbaa !65
-  %55 = getelementptr inbounds nuw %struct.SchFilterGraph, ptr %54, i64 %.sroa.3.0.extract.shift.i
+  %55 = getelementptr inbounds nuw [224 x i8], ptr %54, i64 %.sroa.3.0.extract.shift.i
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 104
   %57 = load ptr, ptr %56, align 8, !tbaa !214
   %58 = tail call i32 @tq_send(ptr noundef %57, i32 noundef %.sroa.2.0.copyload, ptr noundef nonnull %.038) #9
@@ -4381,7 +4360,7 @@ send_to_filter.exit.i:                            ; preds = %52
 
 59:                                               ; preds = %52
   %60 = load ptr, ptr %28, align 8, !tbaa !60
-  %61 = getelementptr inbounds nuw %struct.SchEnc, ptr %60, i64 %.sroa.3.0.extract.shift.i
+  %61 = getelementptr inbounds nuw [152 x i8], ptr %60, i64 %.sroa.3.0.extract.shift.i
   %62 = tail call fastcc i32 @send_to_enc(ptr noundef %0, ptr noundef %61, ptr noundef nonnull %.038)
   br label %63
 
@@ -4396,11 +4375,11 @@ send_to_filter.exit.i:                            ; preds = %52
 
 68:                                               ; preds = %66
   %69 = load ptr, ptr %29, align 8, !tbaa !65
-  %70 = getelementptr inbounds nuw %struct.SchFilterGraph, ptr %69, i64 %.sroa.3.0.extract.shift.i
+  %70 = getelementptr inbounds nuw [224 x i8], ptr %69, i64 %.sroa.3.0.extract.shift.i
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %72 = load ptr, ptr %71, align 8, !tbaa !109
   %73 = zext i32 %.sroa.2.0.copyload to i64
-  %74 = getelementptr inbounds nuw %struct.SchFilterIn, ptr %72, i64 %73
+  %74 = getelementptr inbounds nuw [32 x i8], ptr %72, i64 %73
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 24
   %76 = load i32, ptr %75, align 4, !tbaa !215
   %.not17.i24.i = icmp eq i32 %76, 0
@@ -4426,7 +4405,7 @@ send_to_filter.exit.i:                            ; preds = %52
 
 88:                                               ; preds = %66
   %89 = load ptr, ptr %28, align 8, !tbaa !60
-  %90 = getelementptr inbounds nuw %struct.SchEnc, ptr %89, i64 %.sroa.3.0.extract.shift.i
+  %90 = getelementptr inbounds nuw [152 x i8], ptr %89, i64 %.sroa.3.0.extract.shift.i
   %91 = tail call fastcc i32 @send_to_enc(ptr noundef %0, ptr noundef %90, ptr noundef null)
   br label %send_to_filter.exit26.i
 
@@ -4489,7 +4468,7 @@ define i32 @sch_enc_receive(ptr noundef readonly captures(none) %0, i32 noundef 
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %11 = load ptr, ptr %10, align 8, !tbaa !60
   %12 = zext i32 %1 to i64
-  %13 = getelementptr inbounds nuw %struct.SchEnc, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [152 x i8], ptr %11, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 128
   %15 = load ptr, ptr %14, align 8, !tbaa !217
   %16 = call i32 @tq_receive(ptr noundef %15, ptr noundef nonnull %4, ptr noundef %2) #9
@@ -4523,7 +4502,7 @@ define range(i32 -2147483648, 1) i32 @sch_enc_send(ptr noundef %0, i32 noundef %
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %10 = load ptr, ptr %9, align 8, !tbaa !60
   %11 = zext i32 %1 to i64
-  %12 = getelementptr inbounds nuw %struct.SchEnc, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [152 x i8], ptr %10, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %14 = load i32, ptr %13, align 8, !tbaa !132
   %.not43.not = icmp eq i32 %14, 0
@@ -4556,7 +4535,7 @@ define range(i32 -2147483648, 1) i32 @sch_enc_send(ptr noundef %0, i32 noundef %
 31:                                               ; preds = %27, %20
   %.028 = phi ptr [ %28, %27 ], [ %2, %20 ]
   %32 = load ptr, ptr %17, align 8, !tbaa !133
-  %33 = getelementptr inbounds nuw %struct.SchedulerNode, ptr %32, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [12 x i8], ptr %32, i64 %indvars.iv
   %.sroa.0.0.copyload = load i64, ptr %33, align 4
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 8
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 4
@@ -4576,13 +4555,13 @@ define range(i32 -2147483648, 1) i32 @sch_enc_send(ptr noundef %0, i32 noundef %
 
 38:                                               ; preds = %36
   %39 = load ptr, ptr %19, align 8, !tbaa !35
-  %40 = getelementptr inbounds nuw %struct.SchMux, ptr %39, i64 %.sroa.3.0.extract.shift.i
+  %40 = getelementptr inbounds nuw [120 x i8], ptr %39, i64 %.sroa.3.0.extract.shift.i
   %41 = tail call fastcc i32 @send_to_mux(ptr noundef %0, ptr noundef %40, i32 noundef %.sroa.2.0.copyload, ptr noundef nonnull %.028)
   br label %48
 
 42:                                               ; preds = %36
   %43 = load ptr, ptr %18, align 8, !tbaa !50
-  %44 = getelementptr inbounds nuw %struct.SchDec, ptr %43, i64 %.sroa.3.0.extract.shift.i
+  %44 = getelementptr inbounds nuw [128 x i8], ptr %43, i64 %.sroa.3.0.extract.shift.i
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 96
   %46 = load ptr, ptr %45, align 8, !tbaa !202
   %47 = tail call i32 @tq_send(ptr noundef %46, i32 noundef 0, ptr noundef nonnull %.028) #9
@@ -4599,13 +4578,13 @@ define range(i32 -2147483648, 1) i32 @sch_enc_send(ptr noundef %0, i32 noundef %
 
 53:                                               ; preds = %51
   %54 = load ptr, ptr %19, align 8, !tbaa !35
-  %55 = getelementptr inbounds nuw %struct.SchMux, ptr %54, i64 %.sroa.3.0.extract.shift.i
+  %55 = getelementptr inbounds nuw [120 x i8], ptr %54, i64 %.sroa.3.0.extract.shift.i
   %56 = tail call fastcc i32 @send_to_mux(ptr noundef %0, ptr noundef %55, i32 noundef %.sroa.2.0.copyload, ptr noundef null)
   br label %62
 
 57:                                               ; preds = %51
   %58 = load ptr, ptr %18, align 8, !tbaa !50
-  %59 = getelementptr inbounds nuw %struct.SchDec, ptr %58, i64 %.sroa.3.0.extract.shift.i
+  %59 = getelementptr inbounds nuw [128 x i8], ptr %58, i64 %.sroa.3.0.extract.shift.i
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 96
   %61 = load ptr, ptr %60, align 8, !tbaa !202
   tail call void @tq_send_finish(ptr noundef %61, i32 noundef 0) #9
@@ -4660,7 +4639,7 @@ define range(i32 -541478725, 1) i32 @sch_filter_receive(ptr noundef %0, i32 noun
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %12 = load ptr, ptr %11, align 8, !tbaa !65
   %13 = zext i32 %1 to i64
-  %14 = getelementptr inbounds nuw %struct.SchFilterGraph, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [224 x i8], ptr %12, i64 %13
   %15 = load i32, ptr %2, align 4, !tbaa !68
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %17 = load i32, ptr %16, align 8, !tbaa !110
@@ -4791,7 +4770,7 @@ define void @sch_filter_receive_finish(ptr noundef readonly captures(none) %0, i
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %10 = load ptr, ptr %9, align 8, !tbaa !65
   %11 = zext i32 %1 to i64
-  %12 = getelementptr inbounds nuw %struct.SchFilterGraph, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [224 x i8], ptr %10, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load i32, ptr %13, align 8, !tbaa !110
   %15 = icmp ult i32 %2, %14
@@ -4806,7 +4785,7 @@ define void @sch_filter_receive_finish(ptr noundef readonly captures(none) %0, i
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !109
   %20 = zext i32 %2 to i64
-  %21 = getelementptr inbounds nuw %struct.SchFilterIn, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [32 x i8], ptr %19, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 28
   %23 = load i32, ptr %22, align 4, !tbaa !219
   %.not = icmp eq i32 %23, 0
@@ -4850,7 +4829,7 @@ define i32 @sch_filter_send(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr 
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %11 = load ptr, ptr %10, align 8, !tbaa !65
   %12 = zext i32 %1 to i64
-  %13 = getelementptr inbounds nuw %struct.SchFilterGraph, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [224 x i8], ptr %11, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %15 = load i32, ptr %14, align 8, !tbaa !112
   %16 = icmp ult i32 %2, %15
@@ -4865,7 +4844,7 @@ define i32 @sch_filter_send(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr 
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %20 = load ptr, ptr %19, align 8, !tbaa !111
   %21 = zext i32 %2 to i64
-  %22 = getelementptr inbounds nuw %struct.SchFilterOut, ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [12 x i8], ptr %20, i64 %21
   %.sroa.0.0.copyload = load i32, ptr %22, align 4, !tbaa !68
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 4
   %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !68
@@ -4876,14 +4855,14 @@ define i32 @sch_filter_send(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr 
 25:                                               ; preds = %18
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %27 = load ptr, ptr %26, align 8, !tbaa !60
-  %28 = getelementptr inbounds nuw %struct.SchEnc, ptr %27, i64 %24
+  %28 = getelementptr inbounds nuw [152 x i8], ptr %27, i64 %24
   %29 = tail call fastcc i32 @send_to_enc(ptr noundef nonnull %0, ptr noundef %28, ptr noundef %3)
   br label %send_to_filter.exit
 
 30:                                               ; preds = %18
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 8
   %.sroa.6.0.copyload = load i32, ptr %.sroa.6.0..sroa_idx, align 4, !tbaa !68
-  %31 = getelementptr inbounds nuw %struct.SchFilterGraph, ptr %11, i64 %24
+  %31 = getelementptr inbounds nuw [224 x i8], ptr %11, i64 %24
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %36, label %32
 
@@ -4897,7 +4876,7 @@ define i32 @sch_filter_send(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr 
   %37 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %38 = load ptr, ptr %37, align 8, !tbaa !109
   %39 = zext i32 %.sroa.6.0.copyload to i64
-  %40 = getelementptr inbounds nuw %struct.SchFilterIn, ptr %38, i64 %39
+  %40 = getelementptr inbounds nuw [32 x i8], ptr %38, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %42 = load i32, ptr %41, align 4, !tbaa !215
   %.not17.i = icmp eq i32 %42, 0
@@ -4967,7 +4946,7 @@ define internal fastcc i32 @send_to_enc(ptr noundef %0, ptr noundef captures(non
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %24 = load ptr, ptr %23, align 8, !tbaa !63
   %25 = zext nneg i32 %19 to i64
-  %26 = getelementptr inbounds nuw %struct.SchSyncQueue, ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw [72 x i8], ptr %24, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %27) #9
   %29 = load ptr, ptr %26, align 8, !tbaa !113
@@ -4998,7 +4977,7 @@ enc_open.exit:                                    ; preds = %33, %8, %3
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %42 = load ptr, ptr %41, align 8, !tbaa !63
   %43 = zext nneg i32 %38 to i64
-  %44 = getelementptr inbounds nuw %struct.SchSyncQueue, ptr %42, i64 %43
+  %44 = getelementptr inbounds nuw [72 x i8], ptr %42, i64 %43
   %.not.i24 = icmp eq ptr %2, null
   br i1 %.not.i24, label %.preheader78.i, label %.loopexit79.i
 
@@ -5018,7 +4997,7 @@ enc_open.exit:                                    ; preds = %33, %8, %3
   %51 = phi i32 [ %46, %.lr.ph.i ], [ %71, %70 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %70 ]
   %52 = load ptr, ptr %47, align 8, !tbaa !133
-  %53 = getelementptr inbounds nuw %struct.SchedulerNode, ptr %52, i64 %indvars.iv.i
+  %53 = getelementptr inbounds nuw [12 x i8], ptr %52, i64 %indvars.iv.i
   %54 = load i32, ptr %53, align 4, !tbaa !200
   %.not63.i = icmp eq i32 %54, 2
   br i1 %.not63.i, label %55, label %70
@@ -5028,13 +5007,13 @@ enc_open.exit:                                    ; preds = %33, %8, %3
   %57 = getelementptr inbounds nuw i8, ptr %53, i64 4
   %58 = load i32, ptr %57, align 4, !tbaa !201
   %59 = zext i32 %58 to i64
-  %60 = getelementptr inbounds nuw %struct.SchMux, ptr %56, i64 %59
+  %60 = getelementptr inbounds nuw [120 x i8], ptr %56, i64 %59
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %62 = load ptr, ptr %61, align 8, !tbaa !41
   %63 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %64 = load i32, ptr %63, align 4, !tbaa !223
   %65 = zext i32 %64 to i64
-  %66 = getelementptr inbounds nuw %struct.SchMuxStream, ptr %62, i64 %65
+  %66 = getelementptr inbounds nuw [96 x i8], ptr %62, i64 %65
   %67 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %49) #9
   %68 = getelementptr inbounds nuw i8, ptr %66, i64 88
   store i32 1, ptr %68, align 8, !tbaa !172
@@ -5083,10 +5062,10 @@ enc_open.exit:                                    ; preds = %33, %8, %3
   %91 = load ptr, ptr %86, align 8, !tbaa !60
   %92 = load ptr, ptr %87, align 8, !tbaa !118
   %93 = zext nneg i32 %90 to i64
-  %94 = getelementptr inbounds nuw i32, ptr %92, i64 %93
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %92, i64 %93
   %95 = load i32, ptr %94, align 4, !tbaa !68
   %96 = zext i32 %95 to i64
-  %97 = getelementptr inbounds nuw %struct.SchEnc, ptr %91, i64 %96
+  %97 = getelementptr inbounds nuw [152 x i8], ptr %91, i64 %96
   %98 = load ptr, ptr %81, align 8, !tbaa !116
   %.not.i.i = icmp eq ptr %98, null
   br i1 %.not.i.i, label %99, label %102
@@ -5151,10 +5130,10 @@ send_to_enc_thread.exit.i:                        ; preds = %112, %105, %99
   %indvars.iv92.i = phi i64 [ 0, %.lr.ph86.i ], [ %indvars.iv.next93.i, %125 ]
   %126 = load ptr, ptr %123, align 8, !tbaa !60
   %127 = load ptr, ptr %124, align 8, !tbaa !118
-  %128 = getelementptr inbounds nuw i32, ptr %127, i64 %indvars.iv92.i
+  %128 = getelementptr inbounds nuw [4 x i8], ptr %127, i64 %indvars.iv92.i
   %129 = load i32, ptr %128, align 4, !tbaa !68
   %130 = zext i32 %129 to i64
-  %131 = getelementptr inbounds nuw %struct.SchEnc, ptr %126, i64 %130
+  %131 = getelementptr inbounds nuw [152 x i8], ptr %126, i64 %130
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 128
   %133 = load ptr, ptr %132, align 8, !tbaa !217
   tail call void @tq_send_finish(ptr noundef %133, i32 noundef 0) #9
@@ -5217,7 +5196,7 @@ define i32 @sch_filter_command(ptr noundef readonly captures(none) %0, i32 nound
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %10 = load ptr, ptr %9, align 8, !tbaa !65
   %11 = zext i32 %1 to i64
-  %12 = getelementptr inbounds nuw %struct.SchFilterGraph, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [224 x i8], ptr %10, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load i32, ptr %13, align 8, !tbaa !110
   %.not.i = icmp eq ptr %2, null
@@ -5233,7 +5212,7 @@ define i32 @sch_filter_command(ptr noundef readonly captures(none) %0, i32 nound
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !109
   %22 = zext i32 %14 to i64
-  %23 = getelementptr inbounds nuw %struct.SchFilterIn, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [32 x i8], ptr %21, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %25 = load i32, ptr %24, align 4, !tbaa !215
   %.not17.i = icmp eq i32 %25, 0
@@ -5288,7 +5267,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @mux_task_start(ptr noundef
   %.sroa.09.066 = phi i64 [ %.sroa.09.066.be, %.lr.ph.backedge ], [ -9223372036854775808, %.preheader ]
   %.sroa.6.065 = phi i64 [ %.sroa.6.065.be, %.lr.ph.backedge ], [ 0, %.preheader ]
   %10 = load ptr, ptr %7, align 8, !tbaa !41
-  %11 = getelementptr inbounds nuw %struct.SchMuxStream, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [96 x i8], ptr %10, i64 %indvars.iv
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %13 = load ptr, ptr %12, align 8, !tbaa !42
   %14 = call i32 @av_fifo_peek(ptr noundef %13, ptr noundef nonnull %2, i64 noundef 1, i64 noundef 0) #9
@@ -5356,7 +5335,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @mux_task_start(ptr noundef
 39:                                               ; preds = %._crit_edge
   %40 = load ptr, ptr %7, align 8, !tbaa !41
   %41 = zext nneg i32 %.136 to i64
-  %42 = getelementptr inbounds nuw %struct.SchMuxStream, ptr %40, i64 %41
+  %42 = getelementptr inbounds nuw [96 x i8], ptr %40, i64 %41
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 40
   %44 = load ptr, ptr %43, align 8, !tbaa !42
   %45 = call i32 @av_fifo_read(ptr noundef %44, ptr noundef nonnull %2, i64 noundef 1) #9
@@ -5518,7 +5497,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @task_cleanup(ptr noundef %
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !21
-  %6 = getelementptr inbounds nuw %struct.SchDemux, ptr %5, i64 %.sroa.26.0.extract.shift
+  %6 = getelementptr inbounds nuw [200 x i8], ptr %5, i64 %.sroa.26.0.extract.shift
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i32, ptr %7, align 8, !tbaa !22
   %.not23.i = icmp eq i32 %8, 0
@@ -5534,7 +5513,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @task_cleanup(ptr noundef %
   %13 = phi i32 [ %8, %.lr.ph.i ], [ %40, %demux_send_for_stream.exit.thread.i ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %demux_send_for_stream.exit.thread.i ]
   %14 = load ptr, ptr %9, align 8, !tbaa !32
-  %15 = getelementptr inbounds nuw %struct.SchDemuxStream, ptr %14, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw [24 x i8], ptr %14, i64 %indvars.iv.i
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load i32, ptr %16, align 8, !tbaa !119
   %.not4569.not.i.i = icmp eq i32 %17, 0
@@ -5550,7 +5529,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @task_cleanup(ptr noundef %
   %21 = load ptr, ptr %18, align 8, !tbaa !143
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 %indvars.iv.i.i
   %23 = load ptr, ptr %15, align 8, !tbaa !121
-  %24 = getelementptr inbounds nuw %struct.SchedulerNode, ptr %23, i64 %indvars.iv.i.i
+  %24 = getelementptr inbounds nuw [12 x i8], ptr %23, i64 %indvars.iv.i.i
   %.sroa.0.0.copyload.i.i = load i64, ptr %24, align 4
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %24, i64 8
   %.sroa.2.0.copyload.i.i = load i32, ptr %.sroa.2.0..sroa_idx.i.i, align 4
@@ -5566,13 +5545,13 @@ define internal fastcc range(i32 -2147483648, 1) i32 @task_cleanup(ptr noundef %
 
 28:                                               ; preds = %26
   %29 = load ptr, ptr %10, align 8, !tbaa !35
-  %30 = getelementptr inbounds nuw %struct.SchMux, ptr %29, i64 %.sroa.4.0.extract.shift.i.i.i
+  %30 = getelementptr inbounds nuw [120 x i8], ptr %29, i64 %.sroa.4.0.extract.shift.i.i.i
   %31 = tail call fastcc i32 @send_to_mux(ptr noundef %0, ptr noundef %30, i32 noundef %.sroa.2.0.copyload.i.i, ptr noundef null)
   br label %37
 
 32:                                               ; preds = %26
   %33 = load ptr, ptr %11, align 8, !tbaa !50
-  %34 = getelementptr inbounds nuw %struct.SchDec, ptr %33, i64 %.sroa.4.0.extract.shift.i.i.i
+  %34 = getelementptr inbounds nuw [128 x i8], ptr %33, i64 %.sroa.4.0.extract.shift.i.i.i
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 96
   %36 = load ptr, ptr %35, align 8, !tbaa !202
   tail call void @tq_send_finish(ptr noundef %36, i32 noundef 0) #9
@@ -5612,7 +5591,7 @@ demux_done.exit:                                  ; preds = %demux_send_for_stre
 46:                                               ; preds = %2
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %48 = load ptr, ptr %47, align 8, !tbaa !35
-  %49 = getelementptr inbounds nuw %struct.SchMux, ptr %48, i64 %.sroa.26.0.extract.shift
+  %49 = getelementptr inbounds nuw [120 x i8], ptr %48, i64 %.sroa.26.0.extract.shift
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %51 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %50) #9
   %52 = getelementptr inbounds nuw i8, ptr %49, i64 16
@@ -5643,7 +5622,7 @@ demux_done.exit:                                  ; preds = %demux_send_for_stre
   %66 = trunc nuw i64 %indvars.iv.i13 to i32
   tail call void @tq_receive_finish(ptr noundef %65, i32 noundef %66) #9
   %67 = load ptr, ptr %55, align 8, !tbaa !41
-  %68 = getelementptr inbounds nuw %struct.SchMuxStream, ptr %67, i64 %indvars.iv.i13
+  %68 = getelementptr inbounds nuw [96 x i8], ptr %67, i64 %indvars.iv.i13
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 88
   store i32 1, ptr %69, align 8, !tbaa !172
   %indvars.iv.next.i14 = add nuw nsw i64 %indvars.iv.i13, 1
@@ -5667,7 +5646,7 @@ mux_done.exit:                                    ; preds = %._crit_edge.i
 77:                                               ; preds = %2
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %79 = load ptr, ptr %78, align 8, !tbaa !50
-  %80 = getelementptr inbounds nuw %struct.SchDec, ptr %79, i64 %.sroa.26.0.extract.shift
+  %80 = getelementptr inbounds nuw [128 x i8], ptr %79, i64 %.sroa.26.0.extract.shift
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 96
   %82 = load ptr, ptr %81, align 8, !tbaa !202
   tail call void @tq_receive_finish(ptr noundef %82, i32 noundef 0) #9
@@ -5696,7 +5675,7 @@ mux_done.exit:                                    ; preds = %._crit_edge.i
   %93 = phi i32 [ %88, %.lr.ph30.i ], [ %99, %._crit_edge.i19 ]
   %indvars.iv35.i = phi i64 [ 0, %.lr.ph30.i ], [ %indvars.iv.next36.i, %._crit_edge.i19 ]
   %94 = load ptr, ptr %89, align 8, !tbaa !57
-  %95 = getelementptr inbounds nuw %struct.SchDecOutput, ptr %94, i64 %indvars.iv35.i
+  %95 = getelementptr inbounds nuw [24 x i8], ptr %94, i64 %indvars.iv35.i
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 16
   %97 = load i32, ptr %96, align 8, !tbaa !124
   %.not33.i = icmp eq i32 %97, 0
@@ -5721,7 +5700,7 @@ mux_done.exit:                                    ; preds = %._crit_edge.i
   %103 = phi i32 [ %97, %.lr.ph.i16 ], [ %136, %dec_send_to_dst.exit.i ]
   %indvars.iv.i17 = phi i64 [ 0, %.lr.ph.i16 ], [ %indvars.iv.next.i18, %dec_send_to_dst.exit.i ]
   %104 = load ptr, ptr %95, align 8, !tbaa !126
-  %105 = getelementptr inbounds nuw %struct.SchedulerNode, ptr %104, i64 %indvars.iv.i17
+  %105 = getelementptr inbounds nuw [12 x i8], ptr %104, i64 %indvars.iv.i17
   %106 = load ptr, ptr %98, align 8, !tbaa !146
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 %indvars.iv.i17
   %.sroa.0.0.copyload.i = load i64, ptr %105, align 4
@@ -5739,11 +5718,11 @@ mux_done.exit:                                    ; preds = %._crit_edge.i
 
 112:                                              ; preds = %109
   %113 = load ptr, ptr %91, align 8, !tbaa !65
-  %114 = getelementptr inbounds nuw %struct.SchFilterGraph, ptr %113, i64 %.sroa.3.0.extract.shift.i.i
+  %114 = getelementptr inbounds nuw [224 x i8], ptr %113, i64 %.sroa.3.0.extract.shift.i.i
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 8
   %116 = load ptr, ptr %115, align 8, !tbaa !109
   %117 = zext i32 %.sroa.2.0.copyload.i to i64
-  %118 = getelementptr inbounds nuw %struct.SchFilterIn, ptr %116, i64 %117
+  %118 = getelementptr inbounds nuw [32 x i8], ptr %116, i64 %117
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 24
   %120 = load i32, ptr %119, align 4, !tbaa !215
   %.not17.i24.i.i = icmp eq i32 %120, 0
@@ -5769,7 +5748,7 @@ mux_done.exit:                                    ; preds = %._crit_edge.i
 
 132:                                              ; preds = %109
   %133 = load ptr, ptr %90, align 8, !tbaa !60
-  %134 = getelementptr inbounds nuw %struct.SchEnc, ptr %133, i64 %.sroa.3.0.extract.shift.i.i
+  %134 = getelementptr inbounds nuw [152 x i8], ptr %133, i64 %.sroa.3.0.extract.shift.i.i
   %135 = tail call fastcc i32 @send_to_enc(ptr noundef %0, ptr noundef %134, ptr noundef null)
   br label %send_to_filter.exit26.i.i
 
@@ -5788,7 +5767,7 @@ dec_send_to_dst.exit.i:                           ; preds = %send_to_filter.exit
 139:                                              ; preds = %2
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %141 = load ptr, ptr %140, align 8, !tbaa !60
-  %142 = getelementptr inbounds nuw %struct.SchEnc, ptr %141, i64 %.sroa.26.0.extract.shift
+  %142 = getelementptr inbounds nuw [152 x i8], ptr %141, i64 %.sroa.26.0.extract.shift
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 128
   %144 = load ptr, ptr %143, align 8, !tbaa !217
   tail call void @tq_receive_finish(ptr noundef %144, i32 noundef 0) #9
@@ -5808,7 +5787,7 @@ dec_send_to_dst.exit.i:                           ; preds = %send_to_filter.exit
   %152 = phi i32 [ %146, %.lr.ph.i22 ], [ %171, %enc_send_to_dst.exit.i ]
   %indvars.iv.i23 = phi i64 [ 0, %.lr.ph.i22 ], [ %indvars.iv.next.i29, %enc_send_to_dst.exit.i ]
   %153 = load ptr, ptr %147, align 8, !tbaa !133
-  %154 = getelementptr inbounds nuw %struct.SchedulerNode, ptr %153, i64 %indvars.iv.i23
+  %154 = getelementptr inbounds nuw [12 x i8], ptr %153, i64 %indvars.iv.i23
   %155 = load ptr, ptr %148, align 8, !tbaa !150
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 %indvars.iv.i23
   %.sroa.0.0.copyload.i24 = load i64, ptr %154, align 4
@@ -5826,13 +5805,13 @@ dec_send_to_dst.exit.i:                           ; preds = %send_to_filter.exit
 
 161:                                              ; preds = %158
   %162 = load ptr, ptr %150, align 8, !tbaa !35
-  %163 = getelementptr inbounds nuw %struct.SchMux, ptr %162, i64 %.sroa.3.0.extract.shift.i.i27
+  %163 = getelementptr inbounds nuw [120 x i8], ptr %162, i64 %.sroa.3.0.extract.shift.i.i27
   %164 = tail call fastcc i32 @send_to_mux(ptr noundef %0, ptr noundef %163, i32 noundef %.sroa.2.0.copyload.i26, ptr noundef null)
   br label %170
 
 165:                                              ; preds = %158
   %166 = load ptr, ptr %149, align 8, !tbaa !50
-  %167 = getelementptr inbounds nuw %struct.SchDec, ptr %166, i64 %.sroa.3.0.extract.shift.i.i27
+  %167 = getelementptr inbounds nuw [128 x i8], ptr %166, i64 %.sroa.3.0.extract.shift.i.i27
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 96
   %169 = load ptr, ptr %168, align 8, !tbaa !202
   tail call void @tq_send_finish(ptr noundef %169, i32 noundef 0) #9
@@ -5853,7 +5832,7 @@ enc_send_to_dst.exit.i:                           ; preds = %170, %151
 174:                                              ; preds = %2
   %175 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %176 = load ptr, ptr %175, align 8, !tbaa !65
-  %177 = getelementptr inbounds nuw %struct.SchFilterGraph, ptr %176, i64 %.sroa.26.0.extract.shift
+  %177 = getelementptr inbounds nuw [224 x i8], ptr %176, i64 %.sroa.26.0.extract.shift
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 16
   %179 = getelementptr inbounds nuw i8, ptr %177, i64 104
   br label %184
@@ -5882,7 +5861,7 @@ enc_send_to_dst.exit.i:                           ; preds = %170, %151
   %indvars.iv.i35 = phi i64 [ 0, %.lr.ph.i34 ], [ %indvars.iv.next.i37, %err_merge.exit.i ]
   %.032.i = phi i32 [ 0, %.lr.ph.i34 ], [ %.1.i, %err_merge.exit.i ]
   %189 = load ptr, ptr %182, align 8, !tbaa !111
-  %190 = getelementptr inbounds nuw %struct.SchFilterOut, ptr %189, i64 %indvars.iv.i35
+  %190 = getelementptr inbounds nuw [12 x i8], ptr %189, i64 %indvars.iv.i35
   %.sroa.0.0.copyload.i36 = load i32, ptr %190, align 4, !tbaa !68
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %190, i64 4
   %.sroa.4.0.copyload.i = load i32, ptr %.sroa.4.0..sroa_idx.i, align 4, !tbaa !68
@@ -5894,11 +5873,11 @@ enc_send_to_dst.exit.i:                           ; preds = %170, %151
   %.sroa.6.0.copyload.i = load i32, ptr %.sroa.6.0..sroa_idx.i, align 4, !tbaa !68
   %193 = load ptr, ptr %175, align 8, !tbaa !65
   %194 = zext i32 %.sroa.4.0.copyload.i to i64
-  %195 = getelementptr inbounds nuw %struct.SchFilterGraph, ptr %193, i64 %194
+  %195 = getelementptr inbounds nuw [224 x i8], ptr %193, i64 %194
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 8
   %197 = load ptr, ptr %196, align 8, !tbaa !109
   %198 = zext i32 %.sroa.6.0.copyload.i to i64
-  %199 = getelementptr inbounds nuw %struct.SchFilterIn, ptr %197, i64 %198
+  %199 = getelementptr inbounds nuw [32 x i8], ptr %197, i64 %198
   %200 = getelementptr inbounds nuw i8, ptr %199, i64 24
   %201 = load i32, ptr %200, align 4, !tbaa !215
   %.not17.i.i = icmp eq i32 %201, 0
@@ -5925,7 +5904,7 @@ enc_send_to_dst.exit.i:                           ; preds = %170, %151
 send_to_filter.exit.i:                            ; preds = %188
   %213 = load ptr, ptr %183, align 8, !tbaa !60
   %214 = zext i32 %.sroa.4.0.copyload.i to i64
-  %215 = getelementptr inbounds nuw %struct.SchEnc, ptr %213, i64 %214
+  %215 = getelementptr inbounds nuw [152 x i8], ptr %213, i64 %214
   %216 = tail call fastcc i32 @send_to_enc(ptr noundef nonnull %0, ptr noundef %215, ptr noundef null)
   %217 = icmp slt i32 %216, 0
   %218 = icmp ne i32 %216, -541478725
@@ -5989,7 +5968,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @send_to_mux(ptr noundef %0
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !41
   %8 = zext i32 %2 to i64
-  %9 = getelementptr inbounds nuw %struct.SchMuxStream, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [96 x i8], ptr %7, i64 %8
   %10 = icmp ne ptr %3, null
   br i1 %10, label %11, label %21
 

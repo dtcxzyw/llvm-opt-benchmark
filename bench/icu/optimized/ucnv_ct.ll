@@ -126,7 +126,7 @@ define internal void @_ZL17_CompoundTextOpenP10UConverterP18UConverterLoadArgsP1
 
 .preheader.i:                                     ; preds = %52, %57
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %57 ], [ 0, %52 ]
-  %54 = getelementptr inbounds nuw ptr, ptr %53, i64 %indvars.iv.i
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %indvars.iv.i
   %55 = load ptr, ptr %54, align 8, !tbaa !12
   %.not11.i = icmp eq ptr %55, null
   br i1 %.not11.i, label %57, label %56
@@ -173,7 +173,7 @@ define internal void @_ZL18_CompoundTextCloseP10UConverter(ptr noundef captures(
 
 .preheader:                                       ; preds = %1, %7
   %indvars.iv = phi i64 [ %indvars.iv.next, %7 ], [ 0, %1 ]
-  %4 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 8, !tbaa !12
   %.not11 = icmp eq ptr %5, null
   br i1 %.not11, label %7, label %6
@@ -436,7 +436,7 @@ _ZL11findNextEscPKcS0_.exit:                      ; preds = %.lr.ph.i91, %98, %9
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 48
   %103 = load ptr, ptr %102, align 8, !tbaa !42
   %104 = sext i32 %.278 to i64
-  %105 = getelementptr inbounds ptr, ptr %13, i64 %104
+  %105 = getelementptr inbounds [8 x i8], ptr %13, i64 %104
   %106 = load ptr, ptr %105, align 8, !tbaa !12
   store ptr %106, ptr %102, align 8, !tbaa !42
   call void @ucnv_MBCSToUnicodeWithOffsets_77(ptr noundef nonnull %3, ptr noundef %1)
@@ -889,7 +889,7 @@ _ZL8getStatei.exit.thread:                        ; preds = %_ZL8getStatei.exit.
 
 .preheader158:                                    ; preds = %102, %131
   %indvars.iv201 = phi i64 [ %indvars.iv.next202, %131 ], [ 1, %102 ]
-  %111 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv201
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv201
   %112 = load ptr, ptr %111, align 8, !tbaa !12
   %113 = call i32 @ucnv_MBCSFromUChar32_77(ptr noundef %112, i32 noundef %.1129, ptr noundef nonnull %4, i8 noundef signext %16)
   %114 = icmp sgt i32 %113, 0
@@ -957,7 +957,7 @@ _ZL8getStatei.exit.thread:                        ; preds = %_ZL8getStatei.exit.
 
 137:                                              ; preds = %_ZL8getStatei.exit.thread
   %138 = zext nneg i32 %.0.i152 to i64
-  %139 = getelementptr inbounds nuw ptr, ptr %18, i64 %138
+  %139 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %138
   %140 = load ptr, ptr %139, align 8, !tbaa !12
   %141 = call i32 @ucnv_MBCSFromUChar32_77(ptr noundef %140, i32 noundef %.1129, ptr noundef nonnull %4, i8 noundef signext %16)
   %142 = icmp sgt i32 %141, 0
@@ -1083,7 +1083,7 @@ define internal void @_ZL27_CompoundText_GetUnicodeSetPK10UConverterPK9USetAdder
 
 7:                                                ; preds = %4, %7
   %indvars.iv = phi i64 [ 1, %4 ], [ %indvars.iv.next, %7 ]
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8, !tbaa !12
   tail call void @ucnv_MBCSGetUnicodeSetForUnicode_77(ptr noundef %9, ptr noundef %1, i32 noundef %2, ptr noundef %3)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

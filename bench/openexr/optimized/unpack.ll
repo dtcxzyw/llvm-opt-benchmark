@@ -3,9 +3,6 @@ source_filename = "bench/openexr/original/unpack.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.exr_coding_channel_info_t = type { ptr, i32, i32, i32, i32, i8, i8, i16, i16, i16, i32, i32, %union.anon }
-%union.anon = type { ptr }
-
 @internal_exr_match_decode.init_cpu_check = internal unnamed_addr global i32 1, align 4
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
@@ -205,7 +202,7 @@ define internal range(i32 0, 4) i32 @generic_unpack_deep_pointers(ptr noundef re
 .lr.ph305:                                        ; preds = %.preheader252
   %24 = load ptr, ptr %16, align 8, !tbaa !22
   %25 = icmp sge i64 %indvars.iv371, %20
-  %26 = getelementptr i32, ptr %.0172315, i64 %19
+  %26 = getelementptr [4 x i8], ptr %.0172315, i64 %19
   %27 = getelementptr i8, ptr %26, i64 -4
   %28 = sub nsw i64 %indvars.iv371, %20
   %.fr = freeze i1 %25
@@ -228,7 +225,7 @@ define internal range(i32 0, 4) i32 @generic_unpack_deep_pointers(ptr noundef re
 34:                                               ; preds = %34, %.lr.ph305.split.us.split.us
   %indvars.iv343 = phi i64 [ %indvars.iv.next344, %34 ], [ 0, %.lr.ph305.split.us.split.us ]
   %.1164304.us.us = phi ptr [ %40, %34 ], [ %.0163319, %.lr.ph305.split.us.split.us ]
-  %35 = getelementptr inbounds nuw %struct.exr_coding_channel_info_t, ptr %24, i64 %indvars.iv343
+  %35 = getelementptr inbounds nuw [48 x i8], ptr %24, i64 %indvars.iv343
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 25
   %37 = load i8, ptr %36, align 1, !tbaa !24
   %38 = sext i8 %37 to i64
@@ -249,7 +246,7 @@ define internal range(i32 0, 4) i32 @generic_unpack_deep_pointers(ptr noundef re
 .preheader250.us.us:                              ; preds = %.preheader250.us.us.preheader, %..loopexit251_crit_edge.us.us
   %indvars.iv338 = phi i64 [ 0, %.preheader250.us.us.preheader ], [ %indvars.iv.next339, %..loopexit251_crit_edge.us.us ]
   %.1164304.us.us308 = phi ptr [ %.0163319, %.preheader250.us.us.preheader ], [ %51, %..loopexit251_crit_edge.us.us ]
-  %41 = getelementptr inbounds nuw %struct.exr_coding_channel_info_t, ptr %24, i64 %indvars.iv338
+  %41 = getelementptr inbounds nuw [48 x i8], ptr %24, i64 %indvars.iv338
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 25
   %43 = load i8, ptr %42, align 1, !tbaa !24
   br label %44
@@ -257,7 +254,7 @@ define internal range(i32 0, 4) i32 @generic_unpack_deep_pointers(ptr noundef re
 44:                                               ; preds = %.preheader250.us.us, %44
   %indvars.iv = phi i64 [ 0, %.preheader250.us.us ], [ %indvars.iv.next, %44 ]
   %.0204257.us.us = phi i32 [ 0, %.preheader250.us.us ], [ %47, %44 ]
-  %45 = getelementptr inbounds nuw i32, ptr %.0172315, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %.0172315, i64 %indvars.iv
   %46 = load i32, ptr %45, align 4, !tbaa !23
   %47 = add nsw i32 %46, %.0204257.us.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -277,7 +274,7 @@ define internal range(i32 0, 4) i32 @generic_unpack_deep_pointers(ptr noundef re
   %52 = phi i16 [ %286, %.loopexit248 ], [ %21, %.lr.ph305 ]
   %indvars.iv368 = phi i64 [ %indvars.iv.next369, %.loopexit248 ], [ 0, %.lr.ph305 ]
   %.1164304 = phi ptr [ %.3166.ph, %.loopexit248 ], [ %.0163319, %.lr.ph305 ]
-  %53 = getelementptr inbounds nuw %struct.exr_coding_channel_info_t, ptr %24, i64 %indvars.iv368
+  %53 = getelementptr inbounds nuw [48 x i8], ptr %24, i64 %indvars.iv368
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 25
   %55 = load i8, ptr %54, align 1, !tbaa !24
   %56 = getelementptr inbounds nuw i8, ptr %53, i64 28
@@ -299,7 +296,7 @@ define internal range(i32 0, 4) i32 @generic_unpack_deep_pointers(ptr noundef re
 .lr.ph:                                           ; preds = %.preheader250, %.lr.ph
   %indvars.iv363 = phi i64 [ %indvars.iv.next364, %.lr.ph ], [ 0, %.preheader250 ]
   %.0204257 = phi i32 [ %65, %.lr.ph ], [ 0, %.preheader250 ]
-  %63 = getelementptr inbounds nuw i32, ptr %.0172315, i64 %indvars.iv363
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %.0172315, i64 %indvars.iv363
   %64 = load i32, ptr %63, align 4, !tbaa !23
   %65 = add nsw i32 %64, %.0204257
   %indvars.iv.next364 = add nuw nsw i64 %indvars.iv363, 1
@@ -331,7 +328,7 @@ define internal range(i32 0, 4) i32 @generic_unpack_deep_pointers(ptr noundef re
   %79 = sext i32 %78 to i64
   %80 = lshr i64 %79, 3
   %81 = mul i64 %80, %28
-  %82 = getelementptr inbounds nuw ptr, ptr %59, i64 %81
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %81
   %83 = getelementptr inbounds nuw i8, ptr %53, i64 26
   %84 = getelementptr inbounds nuw i8, ptr %53, i64 30
   %85 = sext i16 %57 to i64
@@ -344,7 +341,7 @@ define internal range(i32 0, 4) i32 @generic_unpack_deep_pointers(ptr noundef re
   %.0177297 = phi ptr [ %82, %.lr.ph300 ], [ %95, %.loopexit ]
   %.2206296 = phi i32 [ 0, %.lr.ph300 ], [ %spec.select, %.loopexit ]
   %88 = load ptr, ptr %.0177297, align 8, !tbaa !33
-  %89 = getelementptr inbounds nuw i32, ptr %.0172315, i64 %indvars.iv358
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %.0172315, i64 %indvars.iv358
   %90 = load i32, ptr %89, align 4, !tbaa !23
   %91 = load i16, ptr %17, align 2, !tbaa !6
   %92 = and i16 %91, 1
@@ -352,7 +349,7 @@ define internal range(i32 0, 4) i32 @generic_unpack_deep_pointers(ptr noundef re
   %spec.select = select i1 %93, i32 %90, i32 %.2206296
   %94 = select i1 %93, i32 %.2206296, i32 0
   %spec.select217 = sub i32 %90, %94
-  %95 = getelementptr inbounds nuw ptr, ptr %.0177297, i64 %76
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %.0177297, i64 %76
   %.not213 = icmp eq ptr %88, null
   br i1 %.not213, label %.loopexit, label %96
 
@@ -801,7 +798,7 @@ uint_to_half.exit:                                ; preds = %.lr.ph269, %238, %2
   %289 = phi i16 [ %22, %.preheader252 ], [ %22, %34 ], [ %22, %.lr.ph305.split.us.split ], [ %286, %.loopexit248 ], [ %22, %..loopexit251_crit_edge.us.us ]
   %290 = phi i16 [ %23, %.preheader252 ], [ %22, %34 ], [ %22, %.lr.ph305.split.us.split ], [ %286, %.loopexit248 ], [ %22, %..loopexit251_crit_edge.us.us ]
   %.1164.lcssa = phi ptr [ %.0163319, %.preheader252 ], [ %40, %34 ], [ %.0163319, %.lr.ph305.split.us.split ], [ %.3166.ph, %.loopexit248 ], [ %51, %..loopexit251_crit_edge.us.us ]
-  %291 = getelementptr inbounds i32, ptr %.0172315, i64 %19
+  %291 = getelementptr inbounds [4 x i8], ptr %.0172315, i64 %19
   %indvars.iv.next372 = add nuw nsw i64 %indvars.iv371, 1
   %exitcond375.not = icmp eq i64 %indvars.iv.next372, %wide.trip.count374
   br i1 %exitcond375.not, label %.loopexit249, label %.preheader252, !llvm.loop !51
@@ -859,7 +856,7 @@ define internal range(i32 0, 4) i32 @generic_unpack_deep(ptr noundef readonly ca
   %22 = phi i16 [ %20, %.preheader267.us ], [ %249, %..loopexit265_crit_edge.us.us ]
   %.1187.lcssa.us = phi i64 [ %.0186340.us, %.preheader267.us ], [ %.4190.ph.us.us, %..loopexit265_crit_edge.us.us ]
   %.1162.lcssa.us = phi ptr [ %.0161343.us, %.preheader267.us ], [ %.3164.ph.us.us, %..loopexit265_crit_edge.us.us ]
-  %23 = getelementptr inbounds nuw i32, ptr %.0170341.us, i64 %18
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %.0170341.us, i64 %18
   %24 = add nuw nsw i32 %.0197339.us, 1
   %exitcond467.not = icmp eq i32 %24, %12
   br i1 %exitcond467.not, label %.loopexit266, label %.preheader267.us, !llvm.loop !52
@@ -868,7 +865,7 @@ define internal range(i32 0, 4) i32 @generic_unpack_deep(ptr noundef readonly ca
   %25 = zext nneg i16 %20 to i64
   %26 = load ptr, ptr %16, align 8, !tbaa !22
   %.not.us = icmp sge i32 %.0197339.us, %14
-  %27 = getelementptr i32, ptr %.0170341.us, i64 %18
+  %27 = getelementptr [4 x i8], ptr %.0170341.us, i64 %18
   %28 = getelementptr i8, ptr %27, i64 -4
   br label %29
 
@@ -878,7 +875,7 @@ define internal range(i32 0, 4) i32 @generic_unpack_deep(ptr noundef readonly ca
   %31 = phi i64 [ %250, %..loopexit265_crit_edge.us.us ], [ %25, %.lr.ph334.us ]
   %.1162333.us.us = phi ptr [ %.3164.ph.us.us, %..loopexit265_crit_edge.us.us ], [ %.0161343.us, %.lr.ph334.us ]
   %.1187332.us.us = phi i64 [ %.4190.ph.us.us, %..loopexit265_crit_edge.us.us ], [ %.0186340.us, %.lr.ph334.us ]
-  %32 = getelementptr inbounds nuw %struct.exr_coding_channel_info_t, ptr %26, i64 %indvars.iv464
+  %32 = getelementptr inbounds nuw [48 x i8], ptr %26, i64 %indvars.iv464
   %indvars.iv.next465 = add nuw nsw i64 %indvars.iv464, 1
   %33 = and i64 %31, 4294967295
   %34 = icmp eq i64 %indvars.iv.next465, %33
@@ -907,7 +904,7 @@ define internal range(i32 0, 4) i32 @generic_unpack_deep(ptr noundef readonly ca
   %.0175320.us.us = phi ptr [ %.5180.us.us, %.loopexit.us.us ], [ %44, %.lr.ph323.us.us ]
   %.5191319.us.us = phi i64 [ %spec.select224.us.us, %.loopexit.us.us ], [ %.1187332.us.us, %.lr.ph323.us.us ]
   %.2213317.us.us = phi i32 [ %spec.select222.us.us, %.loopexit.us.us ], [ 0, %.lr.ph323.us.us ]
-  %49 = getelementptr inbounds nuw i32, ptr %.0170341.us, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %.0170341.us, i64 %indvars.iv
   %50 = load i32, ptr %49, align 4, !tbaa !23
   %51 = load i16, ptr %17, align 2, !tbaa !6
   %52 = and i16 %51, 1
@@ -1318,7 +1315,7 @@ half_to_float.exit.us.us:                         ; preds = %225, %223, %212, %2
 .lr.ph328.us.us:                                  ; preds = %236, %.lr.ph328.us.us
   %indvars.iv459 = phi i64 [ %indvars.iv.next460, %.lr.ph328.us.us ], [ 0, %236 ]
   %.0211326.us.us = phi i32 [ %241, %.lr.ph328.us.us ], [ 0, %236 ]
-  %239 = getelementptr inbounds nuw i32, ptr %.0170341.us, i64 %indvars.iv459
+  %239 = getelementptr inbounds nuw [4 x i8], ptr %.0170341.us, i64 %indvars.iv459
   %240 = load i32, ptr %239, align 4, !tbaa !23
   %241 = add nsw i32 %240, %.0211326.us.us
   %indvars.iv.next460 = add nuw nsw i64 %indvars.iv459, 1
@@ -1434,15 +1431,15 @@ define internal noundef i32 @unpack_half_to_float_4chan_interleave(ptr noundef r
   %.04160.us = phi i32 [ %130, %._crit_edge.us ], [ %12, %.lr.ph.us.preheader ]
   %.04259.us = phi ptr [ %128, %._crit_edge.us ], [ %27, %.lr.ph.us.preheader ]
   %.04358.us = phi ptr [ %129, %._crit_edge.us ], [ %22, %.lr.ph.us.preheader ]
-  %28 = getelementptr inbounds nuw i16, ptr %.04259.us, i64 %17
-  %29 = getelementptr inbounds nuw i16, ptr %28, i64 %17
-  %30 = getelementptr inbounds nuw i16, ptr %29, i64 %17
+  %28 = getelementptr inbounds nuw [2 x i8], ptr %.04259.us, i64 %17
+  %29 = getelementptr inbounds nuw [2 x i8], ptr %28, i64 %17
+  %30 = getelementptr inbounds nuw [2 x i8], ptr %29, i64 %17
   br label %31
 
 31:                                               ; preds = %.lr.ph.us, %half_to_float.exit55.us
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %half_to_float.exit55.us ]
   %.04056.us = phi ptr [ %.04358.us, %.lr.ph.us ], [ %127, %half_to_float.exit55.us ]
-  %32 = getelementptr inbounds nuw i16, ptr %.04259.us, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [2 x i8], ptr %.04259.us, i64 %indvars.iv
   %33 = load i16, ptr %32, align 2, !tbaa !36
   %34 = zext i16 %33 to i32
   %35 = shl nuw nsw i32 %34, 13
@@ -1482,7 +1479,7 @@ define internal noundef i32 @unpack_half_to_float_4chan_interleave(ptr noundef r
 half_to_float.exit.us:                            ; preds = %53, %51, %40, %39
   %.sroa.0.0.i.i.us = phi i32 [ %54, %53 ], [ %52, %51 ], [ %47, %40 ], [ %37, %39 ]
   store i32 %.sroa.0.0.i.i.us, ptr %.04056.us, align 4, !tbaa !39
-  %55 = getelementptr inbounds nuw i16, ptr %28, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [2 x i8], ptr %28, i64 %indvars.iv
   %56 = load i16, ptr %55, align 2, !tbaa !36
   %57 = zext i16 %56 to i32
   %58 = shl nuw nsw i32 %57, 13
@@ -1523,7 +1520,7 @@ half_to_float.exit47.us:                          ; preds = %76, %74, %63, %62
   %.sroa.0.0.i.i46.us = phi i32 [ %77, %76 ], [ %75, %74 ], [ %70, %63 ], [ %60, %62 ]
   %78 = getelementptr inbounds nuw i8, ptr %.04056.us, i64 4
   store i32 %.sroa.0.0.i.i46.us, ptr %78, align 4, !tbaa !39
-  %79 = getelementptr inbounds nuw i16, ptr %29, i64 %indvars.iv
+  %79 = getelementptr inbounds nuw [2 x i8], ptr %29, i64 %indvars.iv
   %80 = load i16, ptr %79, align 2, !tbaa !36
   %81 = zext i16 %80 to i32
   %82 = shl nuw nsw i32 %81, 13
@@ -1564,7 +1561,7 @@ half_to_float.exit51.us:                          ; preds = %100, %98, %87, %86
   %.sroa.0.0.i.i50.us = phi i32 [ %101, %100 ], [ %99, %98 ], [ %94, %87 ], [ %84, %86 ]
   %102 = getelementptr inbounds nuw i8, ptr %.04056.us, i64 8
   store i32 %.sroa.0.0.i.i50.us, ptr %102, align 4, !tbaa !39
-  %103 = getelementptr inbounds nuw i16, ptr %30, i64 %indvars.iv
+  %103 = getelementptr inbounds nuw [2 x i8], ptr %30, i64 %indvars.iv
   %104 = load i16, ptr %103, align 2, !tbaa !36
   %105 = zext i16 %104 to i32
   %106 = shl nuw nsw i32 %105, 13
@@ -1662,14 +1659,14 @@ define internal noundef i32 @unpack_half_to_float_3chan_interleave(ptr noundef r
   %.03651.us = phi i32 [ %105, %._crit_edge.us ], [ %12, %.lr.ph.us.preheader ]
   %.03750.us = phi ptr [ %103, %._crit_edge.us ], [ %27, %.lr.ph.us.preheader ]
   %.03849.us = phi ptr [ %104, %._crit_edge.us ], [ %22, %.lr.ph.us.preheader ]
-  %28 = getelementptr inbounds nuw i16, ptr %.03750.us, i64 %17
-  %29 = getelementptr inbounds nuw i16, ptr %28, i64 %17
+  %28 = getelementptr inbounds nuw [2 x i8], ptr %.03750.us, i64 %17
+  %29 = getelementptr inbounds nuw [2 x i8], ptr %28, i64 %17
   br label %30
 
 30:                                               ; preds = %.lr.ph.us, %half_to_float.exit46.us
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %half_to_float.exit46.us ]
   %.03547.us = phi ptr [ %.03849.us, %.lr.ph.us ], [ %102, %half_to_float.exit46.us ]
-  %31 = getelementptr inbounds nuw i16, ptr %.03750.us, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [2 x i8], ptr %.03750.us, i64 %indvars.iv
   %32 = load i16, ptr %31, align 2, !tbaa !36
   %33 = zext i16 %32 to i32
   %34 = shl nuw nsw i32 %33, 13
@@ -1709,7 +1706,7 @@ define internal noundef i32 @unpack_half_to_float_3chan_interleave(ptr noundef r
 half_to_float.exit.us:                            ; preds = %52, %50, %39, %38
   %.sroa.0.0.i.i.us = phi i32 [ %53, %52 ], [ %51, %50 ], [ %46, %39 ], [ %36, %38 ]
   store i32 %.sroa.0.0.i.i.us, ptr %.03547.us, align 4, !tbaa !39
-  %54 = getelementptr inbounds nuw i16, ptr %28, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [2 x i8], ptr %28, i64 %indvars.iv
   %55 = load i16, ptr %54, align 2, !tbaa !36
   %56 = zext i16 %55 to i32
   %57 = shl nuw nsw i32 %56, 13
@@ -1750,7 +1747,7 @@ half_to_float.exit42.us:                          ; preds = %75, %73, %62, %61
   %.sroa.0.0.i.i41.us = phi i32 [ %76, %75 ], [ %74, %73 ], [ %69, %62 ], [ %59, %61 ]
   %77 = getelementptr inbounds nuw i8, ptr %.03547.us, i64 4
   store i32 %.sroa.0.0.i.i41.us, ptr %77, align 4, !tbaa !39
-  %78 = getelementptr inbounds nuw i16, ptr %29, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw [2 x i8], ptr %29, i64 %indvars.iv
   %79 = load i16, ptr %78, align 2, !tbaa !36
   %80 = zext i16 %79 to i32
   %81 = shl nuw nsw i32 %80, 13
@@ -1848,15 +1845,15 @@ define internal noundef i32 @unpack_half_to_float_4chan_interleave_rev(ptr nound
   %.04160.us = phi i32 [ %130, %._crit_edge.us ], [ %12, %.lr.ph.us.preheader ]
   %.04259.us = phi ptr [ %128, %._crit_edge.us ], [ %27, %.lr.ph.us.preheader ]
   %.04358.us = phi ptr [ %129, %._crit_edge.us ], [ %22, %.lr.ph.us.preheader ]
-  %28 = getelementptr inbounds nuw i16, ptr %.04259.us, i64 %17
-  %29 = getelementptr inbounds nuw i16, ptr %28, i64 %17
-  %30 = getelementptr inbounds nuw i16, ptr %29, i64 %17
+  %28 = getelementptr inbounds nuw [2 x i8], ptr %.04259.us, i64 %17
+  %29 = getelementptr inbounds nuw [2 x i8], ptr %28, i64 %17
+  %30 = getelementptr inbounds nuw [2 x i8], ptr %29, i64 %17
   br label %31
 
 31:                                               ; preds = %.lr.ph.us, %half_to_float.exit55.us
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %half_to_float.exit55.us ]
   %.04056.us = phi ptr [ %.04358.us, %.lr.ph.us ], [ %127, %half_to_float.exit55.us ]
-  %32 = getelementptr inbounds nuw i16, ptr %30, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [2 x i8], ptr %30, i64 %indvars.iv
   %33 = load i16, ptr %32, align 2, !tbaa !36
   %34 = zext i16 %33 to i32
   %35 = shl nuw nsw i32 %34, 13
@@ -1896,7 +1893,7 @@ define internal noundef i32 @unpack_half_to_float_4chan_interleave_rev(ptr nound
 half_to_float.exit.us:                            ; preds = %53, %51, %40, %39
   %.sroa.0.0.i.i.us = phi i32 [ %54, %53 ], [ %52, %51 ], [ %47, %40 ], [ %37, %39 ]
   store i32 %.sroa.0.0.i.i.us, ptr %.04056.us, align 4, !tbaa !39
-  %55 = getelementptr inbounds nuw i16, ptr %29, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [2 x i8], ptr %29, i64 %indvars.iv
   %56 = load i16, ptr %55, align 2, !tbaa !36
   %57 = zext i16 %56 to i32
   %58 = shl nuw nsw i32 %57, 13
@@ -1937,7 +1934,7 @@ half_to_float.exit47.us:                          ; preds = %76, %74, %63, %62
   %.sroa.0.0.i.i46.us = phi i32 [ %77, %76 ], [ %75, %74 ], [ %70, %63 ], [ %60, %62 ]
   %78 = getelementptr inbounds nuw i8, ptr %.04056.us, i64 4
   store i32 %.sroa.0.0.i.i46.us, ptr %78, align 4, !tbaa !39
-  %79 = getelementptr inbounds nuw i16, ptr %28, i64 %indvars.iv
+  %79 = getelementptr inbounds nuw [2 x i8], ptr %28, i64 %indvars.iv
   %80 = load i16, ptr %79, align 2, !tbaa !36
   %81 = zext i16 %80 to i32
   %82 = shl nuw nsw i32 %81, 13
@@ -1978,7 +1975,7 @@ half_to_float.exit51.us:                          ; preds = %100, %98, %87, %86
   %.sroa.0.0.i.i50.us = phi i32 [ %101, %100 ], [ %99, %98 ], [ %94, %87 ], [ %84, %86 ]
   %102 = getelementptr inbounds nuw i8, ptr %.04056.us, i64 8
   store i32 %.sroa.0.0.i.i50.us, ptr %102, align 4, !tbaa !39
-  %103 = getelementptr inbounds nuw i16, ptr %.04259.us, i64 %indvars.iv
+  %103 = getelementptr inbounds nuw [2 x i8], ptr %.04259.us, i64 %indvars.iv
   %104 = load i16, ptr %103, align 2, !tbaa !36
   %105 = zext i16 %104 to i32
   %106 = shl nuw nsw i32 %105, 13
@@ -2076,14 +2073,14 @@ define internal noundef i32 @unpack_half_to_float_3chan_interleave_rev(ptr nound
   %.03651.us = phi i32 [ %105, %._crit_edge.us ], [ %12, %.lr.ph.us.preheader ]
   %.03750.us = phi ptr [ %103, %._crit_edge.us ], [ %27, %.lr.ph.us.preheader ]
   %.03849.us = phi ptr [ %104, %._crit_edge.us ], [ %22, %.lr.ph.us.preheader ]
-  %28 = getelementptr inbounds nuw i16, ptr %.03750.us, i64 %17
-  %29 = getelementptr inbounds nuw i16, ptr %28, i64 %17
+  %28 = getelementptr inbounds nuw [2 x i8], ptr %.03750.us, i64 %17
+  %29 = getelementptr inbounds nuw [2 x i8], ptr %28, i64 %17
   br label %30
 
 30:                                               ; preds = %.lr.ph.us, %half_to_float.exit46.us
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %half_to_float.exit46.us ]
   %.03547.us = phi ptr [ %.03849.us, %.lr.ph.us ], [ %102, %half_to_float.exit46.us ]
-  %31 = getelementptr inbounds nuw i16, ptr %29, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [2 x i8], ptr %29, i64 %indvars.iv
   %32 = load i16, ptr %31, align 2, !tbaa !36
   %33 = zext i16 %32 to i32
   %34 = shl nuw nsw i32 %33, 13
@@ -2123,7 +2120,7 @@ define internal noundef i32 @unpack_half_to_float_3chan_interleave_rev(ptr nound
 half_to_float.exit.us:                            ; preds = %52, %50, %39, %38
   %.sroa.0.0.i.i.us = phi i32 [ %53, %52 ], [ %51, %50 ], [ %46, %39 ], [ %36, %38 ]
   store i32 %.sroa.0.0.i.i.us, ptr %.03547.us, align 4, !tbaa !39
-  %54 = getelementptr inbounds nuw i16, ptr %28, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [2 x i8], ptr %28, i64 %indvars.iv
   %55 = load i16, ptr %54, align 2, !tbaa !36
   %56 = zext i16 %55 to i32
   %57 = shl nuw nsw i32 %56, 13
@@ -2164,7 +2161,7 @@ half_to_float.exit42.us:                          ; preds = %75, %73, %62, %61
   %.sroa.0.0.i.i41.us = phi i32 [ %76, %75 ], [ %74, %73 ], [ %69, %62 ], [ %59, %61 ]
   %77 = getelementptr inbounds nuw i8, ptr %.03547.us, i64 4
   store i32 %.sroa.0.0.i.i41.us, ptr %77, align 4, !tbaa !39
-  %78 = getelementptr inbounds nuw i16, ptr %.03750.us, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw [2 x i8], ptr %.03750.us, i64 %indvars.iv
   %79 = load i16, ptr %78, align 2, !tbaa !36
   %80 = zext i16 %79 to i32
   %81 = shl nuw nsw i32 %80, 13
@@ -2278,9 +2275,9 @@ define internal noundef i32 @unpack_half_to_float_4chan_planar(ptr noundef reado
   %.04954 = phi ptr [ %25, %.lr.ph ], [ %48, %42 ]
   %.05053 = phi ptr [ %23, %.lr.ph ], [ %49, %42 ]
   %.05152 = phi ptr [ %21, %.lr.ph ], [ %50, %42 ]
-  %43 = getelementptr inbounds i16, ptr %.04756, i64 %36
-  %44 = getelementptr inbounds i16, ptr %43, i64 %36
-  %45 = getelementptr inbounds i16, ptr %44, i64 %36
+  %43 = getelementptr inbounds [2 x i8], ptr %.04756, i64 %36
+  %44 = getelementptr inbounds [2 x i8], ptr %43, i64 %36
+  %45 = getelementptr inbounds [2 x i8], ptr %44, i64 %36
   %46 = getelementptr inbounds i8, ptr %.04756, i64 %37
   tail call fastcc void @half_to_float_buffer(ptr noundef %.04855, ptr noundef %.04756, i32 noundef %5)
   tail call fastcc void @half_to_float_buffer(ptr noundef %.04954, ptr noundef %43, i32 noundef %5)
@@ -2346,8 +2343,8 @@ define internal noundef i32 @unpack_half_to_float_3chan_planar(ptr noundef reado
   %.03944 = phi ptr [ %25, %.lr.ph ], [ %41, %37 ]
   %.04043 = phi ptr [ %23, %.lr.ph ], [ %42, %37 ]
   %.04142 = phi ptr [ %21, %.lr.ph ], [ %43, %37 ]
-  %38 = getelementptr inbounds i16, ptr %.03845, i64 %32
-  %39 = getelementptr inbounds i16, ptr %38, i64 %32
+  %38 = getelementptr inbounds [2 x i8], ptr %.03845, i64 %32
+  %39 = getelementptr inbounds [2 x i8], ptr %38, i64 %32
   %40 = getelementptr inbounds i8, ptr %.03845, i64 %33
   tail call fastcc void @half_to_float_buffer(ptr noundef %.03944, ptr noundef %.03845, i32 noundef %5)
   tail call fastcc void @half_to_float_buffer(ptr noundef %.04043, ptr noundef %38, i32 noundef %5)
@@ -2405,7 +2402,7 @@ define internal range(i32 0, 4) i32 @generic_unpack(ptr noundef readonly capture
   %27 = phi i16 [ %16, %.lr.ph251 ], [ %280, %279 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph251 ], [ %indvars.iv.next, %279 ]
   %.1150249 = phi ptr [ %.0149254, %.lr.ph251 ], [ %.3152, %279 ]
-  %28 = getelementptr inbounds nuw %struct.exr_coding_channel_info_t, ptr %22, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [48 x i8], ptr %22, i64 %indvars.iv
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 40
   %30 = load ptr, ptr %29, align 8, !tbaa !3
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 12
@@ -2994,20 +2991,20 @@ define internal noundef i32 @unpack_16bit_4chan_interleave(ptr noundef readonly 
   %.03743.us = phi ptr [ %41, %._crit_edge.us ], [ %27, %.lr.ph.us.preheader ]
   %.03842.us = phi i32 [ %43, %._crit_edge.us ], [ %12, %.lr.ph.us.preheader ]
   %.03941.us = phi ptr [ %42, %._crit_edge.us ], [ %22, %.lr.ph.us.preheader ]
-  %28 = getelementptr inbounds nuw i16, ptr %.03743.us, i64 %17
-  %29 = getelementptr inbounds nuw i16, ptr %28, i64 %17
-  %30 = getelementptr inbounds nuw i16, ptr %29, i64 %17
+  %28 = getelementptr inbounds nuw [2 x i8], ptr %.03743.us, i64 %17
+  %29 = getelementptr inbounds nuw [2 x i8], ptr %28, i64 %17
+  %30 = getelementptr inbounds nuw [2 x i8], ptr %29, i64 %17
   br label %31
 
 31:                                               ; preds = %.lr.ph.us, %31
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %31 ]
-  %32 = getelementptr inbounds nuw i16, ptr %.03743.us, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [2 x i8], ptr %.03743.us, i64 %indvars.iv
   %33 = load i16, ptr %32, align 2, !tbaa !36
-  %34 = getelementptr inbounds nuw i16, ptr %28, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [2 x i8], ptr %28, i64 %indvars.iv
   %35 = load i16, ptr %34, align 2, !tbaa !36
-  %36 = getelementptr inbounds nuw i16, ptr %29, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [2 x i8], ptr %29, i64 %indvars.iv
   %37 = load i16, ptr %36, align 2, !tbaa !36
-  %38 = getelementptr inbounds nuw i16, ptr %30, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [2 x i8], ptr %30, i64 %indvars.iv
   %39 = load i16, ptr %38, align 2, !tbaa !36
   %.sroa.6.0.insert.ext.us = zext i16 %39 to i64
   %.sroa.6.0.insert.shift.us = shl nuw i64 %.sroa.6.0.insert.ext.us, 48
@@ -3019,7 +3016,7 @@ define internal noundef i32 @unpack_16bit_4chan_interleave(ptr noundef readonly 
   %.sroa.5.0.insert.insert.us = or disjoint i64 %.sroa.4.0.insert.shift.us, %.sroa.0.0.insert.ext.us
   %.sroa.4.0.insert.insert.us = or disjoint i64 %.sroa.5.0.insert.insert.us, %.sroa.5.0.insert.shift.us
   %.sroa.0.0.insert.insert.us = or disjoint i64 %.sroa.4.0.insert.insert.us, %.sroa.6.0.insert.shift.us
-  %40 = getelementptr inbounds nuw i64, ptr %.03941.us, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %.03941.us, i64 %indvars.iv
   store i64 %.sroa.0.0.insert.insert.us, ptr %40, align 8, !tbaa !89
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -3077,21 +3074,21 @@ define internal noundef i32 @unpack_16bit_3chan_interleave(ptr noundef readonly 
   %.03643.us = phi i32 [ %42, %._crit_edge.us ], [ %12, %.lr.ph.us.preheader ]
   %.03742.us = phi ptr [ %40, %._crit_edge.us ], [ %27, %.lr.ph.us.preheader ]
   %.03841.us = phi ptr [ %41, %._crit_edge.us ], [ %22, %.lr.ph.us.preheader ]
-  %28 = getelementptr inbounds nuw i16, ptr %.03742.us, i64 %17
-  %29 = getelementptr inbounds nuw i16, ptr %28, i64 %17
+  %28 = getelementptr inbounds nuw [2 x i8], ptr %.03742.us, i64 %17
+  %29 = getelementptr inbounds nuw [2 x i8], ptr %28, i64 %17
   br label %30
 
 30:                                               ; preds = %.lr.ph.us, %30
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %30 ]
   %.03539.us = phi ptr [ %.03841.us, %.lr.ph.us ], [ %39, %30 ]
-  %31 = getelementptr inbounds nuw i16, ptr %.03742.us, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [2 x i8], ptr %.03742.us, i64 %indvars.iv
   %32 = load i16, ptr %31, align 2, !tbaa !36
   store i16 %32, ptr %.03539.us, align 2, !tbaa !36
-  %33 = getelementptr inbounds nuw i16, ptr %28, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [2 x i8], ptr %28, i64 %indvars.iv
   %34 = load i16, ptr %33, align 2, !tbaa !36
   %35 = getelementptr inbounds nuw i8, ptr %.03539.us, i64 2
   store i16 %34, ptr %35, align 2, !tbaa !36
-  %36 = getelementptr inbounds nuw i16, ptr %29, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [2 x i8], ptr %29, i64 %indvars.iv
   %37 = load i16, ptr %36, align 2, !tbaa !36
   %38 = getelementptr inbounds nuw i8, ptr %.03539.us, i64 4
   store i16 %37, ptr %38, align 2, !tbaa !36
@@ -3152,20 +3149,20 @@ define internal noundef i32 @unpack_16bit_4chan_interleave_rev(ptr noundef reado
   %.03743.us = phi ptr [ %41, %._crit_edge.us ], [ %27, %.lr.ph.us.preheader ]
   %.03842.us = phi i32 [ %43, %._crit_edge.us ], [ %12, %.lr.ph.us.preheader ]
   %.03941.us = phi ptr [ %42, %._crit_edge.us ], [ %22, %.lr.ph.us.preheader ]
-  %28 = getelementptr inbounds nuw i16, ptr %.03743.us, i64 %17
-  %29 = getelementptr inbounds nuw i16, ptr %28, i64 %17
-  %30 = getelementptr inbounds nuw i16, ptr %29, i64 %17
+  %28 = getelementptr inbounds nuw [2 x i8], ptr %.03743.us, i64 %17
+  %29 = getelementptr inbounds nuw [2 x i8], ptr %28, i64 %17
+  %30 = getelementptr inbounds nuw [2 x i8], ptr %29, i64 %17
   br label %31
 
 31:                                               ; preds = %.lr.ph.us, %31
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %31 ]
-  %32 = getelementptr inbounds nuw i16, ptr %.03743.us, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [2 x i8], ptr %.03743.us, i64 %indvars.iv
   %33 = load i16, ptr %32, align 2, !tbaa !36
-  %34 = getelementptr inbounds nuw i16, ptr %28, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [2 x i8], ptr %28, i64 %indvars.iv
   %35 = load i16, ptr %34, align 2, !tbaa !36
-  %36 = getelementptr inbounds nuw i16, ptr %29, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [2 x i8], ptr %29, i64 %indvars.iv
   %37 = load i16, ptr %36, align 2, !tbaa !36
-  %38 = getelementptr inbounds nuw i16, ptr %30, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [2 x i8], ptr %30, i64 %indvars.iv
   %39 = load i16, ptr %38, align 2, !tbaa !36
   %.sroa.6.0.insert.ext.us = zext i16 %33 to i64
   %.sroa.6.0.insert.shift.us = shl nuw i64 %.sroa.6.0.insert.ext.us, 48
@@ -3177,7 +3174,7 @@ define internal noundef i32 @unpack_16bit_4chan_interleave_rev(ptr noundef reado
   %.sroa.4.0.insert.insert.us = or disjoint i64 %.sroa.5.0.insert.insert.us, %.sroa.4.0.insert.shift.us
   %.sroa.0.0.insert.ext.us = zext i16 %39 to i64
   %.sroa.0.0.insert.insert.us = or disjoint i64 %.sroa.4.0.insert.insert.us, %.sroa.0.0.insert.ext.us
-  %40 = getelementptr inbounds nuw i64, ptr %.03941.us, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %.03941.us, i64 %indvars.iv
   store i64 %.sroa.0.0.insert.insert.us, ptr %40, align 8, !tbaa !89
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -3235,21 +3232,21 @@ define internal noundef i32 @unpack_16bit_3chan_interleave_rev(ptr noundef reado
   %.03643.us = phi i32 [ %42, %._crit_edge.us ], [ %12, %.lr.ph.us.preheader ]
   %.03742.us = phi ptr [ %40, %._crit_edge.us ], [ %27, %.lr.ph.us.preheader ]
   %.03841.us = phi ptr [ %41, %._crit_edge.us ], [ %22, %.lr.ph.us.preheader ]
-  %28 = getelementptr inbounds nuw i16, ptr %.03742.us, i64 %17
-  %29 = getelementptr inbounds nuw i16, ptr %28, i64 %17
+  %28 = getelementptr inbounds nuw [2 x i8], ptr %.03742.us, i64 %17
+  %29 = getelementptr inbounds nuw [2 x i8], ptr %28, i64 %17
   br label %30
 
 30:                                               ; preds = %.lr.ph.us, %30
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %30 ]
   %.03539.us = phi ptr [ %.03841.us, %.lr.ph.us ], [ %39, %30 ]
-  %31 = getelementptr inbounds nuw i16, ptr %29, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [2 x i8], ptr %29, i64 %indvars.iv
   %32 = load i16, ptr %31, align 2, !tbaa !36
   store i16 %32, ptr %.03539.us, align 2, !tbaa !36
-  %33 = getelementptr inbounds nuw i16, ptr %28, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [2 x i8], ptr %28, i64 %indvars.iv
   %34 = load i16, ptr %33, align 2, !tbaa !36
   %35 = getelementptr inbounds nuw i8, ptr %.03539.us, i64 2
   store i16 %34, ptr %35, align 2, !tbaa !36
-  %36 = getelementptr inbounds nuw i16, ptr %.03742.us, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [2 x i8], ptr %.03742.us, i64 %indvars.iv
   %37 = load i16, ptr %36, align 2, !tbaa !36
   %38 = getelementptr inbounds nuw i8, ptr %.03539.us, i64 4
   store i16 %37, ptr %38, align 2, !tbaa !36
@@ -3327,9 +3324,9 @@ define internal noundef i32 @unpack_16bit_4chan_planar(ptr noundef readonly capt
   %.04954 = phi ptr [ %25, %.lr.ph ], [ %49, %43 ]
   %.05053 = phi ptr [ %23, %.lr.ph ], [ %50, %43 ]
   %.05152 = phi ptr [ %21, %.lr.ph ], [ %51, %43 ]
-  %44 = getelementptr inbounds i16, ptr %.04756, i64 %36
-  %45 = getelementptr inbounds i16, ptr %44, i64 %36
-  %46 = getelementptr inbounds i16, ptr %45, i64 %36
+  %44 = getelementptr inbounds [2 x i8], ptr %.04756, i64 %36
+  %45 = getelementptr inbounds [2 x i8], ptr %44, i64 %36
+  %46 = getelementptr inbounds [2 x i8], ptr %45, i64 %36
   %47 = getelementptr inbounds i8, ptr %.04756, i64 %37
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.04855, ptr align 2 %.04756, i64 %38, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.04954, ptr align 2 %44, i64 %38, i1 false)
@@ -3396,8 +3393,8 @@ define internal noundef i32 @unpack_16bit_3chan_planar(ptr noundef readonly capt
   %.03944 = phi ptr [ %25, %.lr.ph ], [ %42, %38 ]
   %.04043 = phi ptr [ %23, %.lr.ph ], [ %43, %38 ]
   %.04142 = phi ptr [ %21, %.lr.ph ], [ %44, %38 ]
-  %39 = getelementptr inbounds i16, ptr %.03845, i64 %32
-  %40 = getelementptr inbounds i16, ptr %39, i64 %32
+  %39 = getelementptr inbounds [2 x i8], ptr %.03845, i64 %32
+  %40 = getelementptr inbounds [2 x i8], ptr %39, i64 %32
   %41 = getelementptr inbounds i8, ptr %.03845, i64 %33
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.03944, ptr align 2 %.03845, i64 %34, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.04043, ptr align 2 %39, i64 %34, i1 false)
@@ -3494,7 +3491,7 @@ define internal noundef i32 @unpack_16bit_4chan(ptr noundef readonly captures(no
 
 .lr.ph89.us:                                      ; preds = %.lr.ph87.us, %.lr.ph89.us
   %indvars.iv153 = phi i64 [ %indvars.iv.next154, %.lr.ph89.us ], [ 0, %.lr.ph87.us ]
-  %61 = getelementptr inbounds nuw i16, ptr %80, i64 %indvars.iv153
+  %61 = getelementptr inbounds nuw [2 x i8], ptr %80, i64 %indvars.iv153
   %62 = load i16, ptr %61, align 2, !tbaa !36
   %63 = mul nsw i64 %indvars.iv153, %54
   %64 = getelementptr inbounds i8, ptr %.07990.us, i64 %63
@@ -3505,7 +3502,7 @@ define internal noundef i32 @unpack_16bit_4chan(ptr noundef readonly captures(no
 
 .lr.ph87.us:                                      ; preds = %.lr.ph85.us, %.lr.ph87.us
   %indvars.iv148 = phi i64 [ %indvars.iv.next149, %.lr.ph87.us ], [ 0, %.lr.ph85.us ]
-  %65 = getelementptr inbounds nuw i16, ptr %79, i64 %indvars.iv148
+  %65 = getelementptr inbounds nuw [2 x i8], ptr %79, i64 %indvars.iv148
   %66 = load i16, ptr %65, align 2, !tbaa !36
   %67 = mul nsw i64 %indvars.iv148, %53
   %68 = getelementptr inbounds i8, ptr %.07891.us, i64 %67
@@ -3516,7 +3513,7 @@ define internal noundef i32 @unpack_16bit_4chan(ptr noundef readonly captures(no
 
 .lr.ph85.us:                                      ; preds = %.lr.ph85.us.preheader, %.lr.ph85.us
   %indvars.iv143 = phi i64 [ 0, %.lr.ph85.us.preheader ], [ %indvars.iv.next144, %.lr.ph85.us ]
-  %69 = getelementptr inbounds nuw i16, ptr %78, i64 %indvars.iv143
+  %69 = getelementptr inbounds nuw [2 x i8], ptr %78, i64 %indvars.iv143
   %70 = load i16, ptr %69, align 2, !tbaa !36
   %71 = mul nsw i64 %indvars.iv143, %52
   %72 = getelementptr inbounds i8, ptr %.07792.us, i64 %71
@@ -3527,7 +3524,7 @@ define internal noundef i32 @unpack_16bit_4chan(ptr noundef readonly captures(no
 
 73:                                               ; preds = %.lr.ph.us, %73
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %73 ]
-  %74 = getelementptr inbounds nuw i16, ptr %.07594.us, i64 %indvars.iv
+  %74 = getelementptr inbounds nuw [2 x i8], ptr %.07594.us, i64 %indvars.iv
   %75 = load i16, ptr %74, align 2, !tbaa !36
   %76 = mul nsw i64 %indvars.iv, %51
   %77 = getelementptr inbounds i8, ptr %.07693.us, i64 %76
@@ -3537,9 +3534,9 @@ define internal noundef i32 @unpack_16bit_4chan(ptr noundef readonly captures(no
   br i1 %exitcond.not, label %.lr.ph85.us.preheader, label %73, !llvm.loop !104
 
 .lr.ph85.us.preheader:                            ; preds = %73
-  %78 = getelementptr inbounds nuw i16, ptr %.07594.us, i64 %31
-  %79 = getelementptr inbounds nuw i16, ptr %78, i64 %31
-  %80 = getelementptr inbounds nuw i16, ptr %79, i64 %31
+  %78 = getelementptr inbounds nuw [2 x i8], ptr %.07594.us, i64 %31
+  %79 = getelementptr inbounds nuw [2 x i8], ptr %78, i64 %31
+  %80 = getelementptr inbounds nuw [2 x i8], ptr %79, i64 %31
   %81 = getelementptr inbounds nuw i8, ptr %.07594.us, i64 %32
   br label %.lr.ph85.us
 
@@ -3613,7 +3610,7 @@ define internal noundef i32 @unpack_16bit_3chan(ptr noundef readonly captures(no
 
 .preheader.us.us:                                 ; preds = %.lr.ph67.us.us, %.preheader.us.us
   %indvars.iv119 = phi i64 [ %indvars.iv.next120, %.preheader.us.us ], [ 0, %.lr.ph67.us.us ]
-  %47 = getelementptr inbounds nuw i16, ptr %61, i64 %indvars.iv119
+  %47 = getelementptr inbounds nuw [2 x i8], ptr %61, i64 %indvars.iv119
   %48 = load i16, ptr %47, align 2, !tbaa !36
   %49 = mul nsw i64 %indvars.iv119, %46
   %50 = getelementptr inbounds i8, ptr %.06270.us.us, i64 %49
@@ -3624,7 +3621,7 @@ define internal noundef i32 @unpack_16bit_3chan(ptr noundef readonly captures(no
 
 .lr.ph67.us.us:                                   ; preds = %.lr.ph67.us.us.preheader, %.lr.ph67.us.us
   %indvars.iv114 = phi i64 [ 0, %.lr.ph67.us.us.preheader ], [ %indvars.iv.next115, %.lr.ph67.us.us ]
-  %51 = getelementptr inbounds nuw i16, ptr %60, i64 %indvars.iv114
+  %51 = getelementptr inbounds nuw [2 x i8], ptr %60, i64 %indvars.iv114
   %52 = load i16, ptr %51, align 2, !tbaa !36
   %53 = mul nsw i64 %indvars.iv114, %45
   %54 = getelementptr inbounds i8, ptr %.06171.us.us, i64 %53
@@ -3635,7 +3632,7 @@ define internal noundef i32 @unpack_16bit_3chan(ptr noundef readonly captures(no
 
 55:                                               ; preds = %55, %.lr.ph.us.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %55 ], [ 0, %.lr.ph.us.us ]
-  %56 = getelementptr inbounds nuw i16, ptr %.05973.us.us, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw [2 x i8], ptr %.05973.us.us, i64 %indvars.iv
   %57 = load i16, ptr %56, align 2, !tbaa !36
   %58 = mul nsw i64 %indvars.iv, %44
   %59 = getelementptr inbounds i8, ptr %.06072.us.us, i64 %58
@@ -3645,8 +3642,8 @@ define internal noundef i32 @unpack_16bit_3chan(ptr noundef readonly captures(no
   br i1 %exitcond.not, label %.lr.ph67.us.us.preheader, label %55, !llvm.loop !107
 
 .lr.ph67.us.us.preheader:                         ; preds = %55
-  %60 = getelementptr inbounds nuw i16, ptr %.05973.us.us, i64 %27
-  %61 = getelementptr inbounds nuw i16, ptr %60, i64 %27
+  %60 = getelementptr inbounds nuw [2 x i8], ptr %.05973.us.us, i64 %27
+  %61 = getelementptr inbounds nuw [2 x i8], ptr %60, i64 %27
   %62 = getelementptr inbounds nuw i8, ptr %.05973.us.us, i64 %28
   br label %.lr.ph67.us.us
 
@@ -3705,7 +3702,7 @@ define internal noundef i32 @unpack_16bit(ptr noundef readonly captures(none) %0
 20:                                               ; preds = %.lr.ph, %20
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %20 ]
   %.04151 = phi ptr [ %3, %.lr.ph ], [ %25, %20 ]
-  %21 = getelementptr inbounds nuw %struct.exr_coding_channel_info_t, ptr %12, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [48 x i8], ptr %12, i64 %indvars.iv
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 12
   %23 = load i32, ptr %22, align 4, !tbaa !65
   %.reass = mul i32 %23, %factor.op.mul
@@ -3736,7 +3733,7 @@ define internal noundef i32 @unpack_16bit(ptr noundef readonly captures(none) %0
   %indvars.iv68 = phi i64 [ %indvars.iv.next69, %.loopexit ], [ 0, %.preheader49 ]
   %.257 = phi ptr [ %55, %.loopexit ], [ %.163, %.preheader49 ]
   %29 = load ptr, ptr %19, align 8, !tbaa !22
-  %30 = getelementptr inbounds nuw %struct.exr_coding_channel_info_t, ptr %29, i64 %indvars.iv68
+  %30 = getelementptr inbounds nuw [48 x i8], ptr %29, i64 %indvars.iv68
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 40
   %32 = load ptr, ptr %31, align 8, !tbaa !3
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 12
@@ -3834,7 +3831,7 @@ define internal noundef i32 @unpack_32bit(ptr noundef readonly captures(none) %0
   %indvars.iv70 = phi i64 [ 0, %.preheader50.us ], [ %indvars.iv.next71, %.loopexit.us ]
   %.258.us = phi ptr [ %.164.us, %.preheader50.us ], [ %47, %.loopexit.us ]
   %24 = load ptr, ptr %22, align 8, !tbaa !22
-  %25 = getelementptr inbounds nuw %struct.exr_coding_channel_info_t, ptr %24, i64 %indvars.iv70
+  %25 = getelementptr inbounds nuw [48 x i8], ptr %24, i64 %indvars.iv70
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 40
   %27 = load ptr, ptr %26, align 8, !tbaa !3
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 12
@@ -3887,7 +3884,7 @@ define internal noundef i32 @unpack_32bit(ptr noundef readonly captures(none) %0
 50:                                               ; preds = %.lr.ph, %50
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %50 ]
   %.04252 = phi ptr [ %13, %.lr.ph ], [ %55, %50 ]
-  %51 = getelementptr inbounds nuw %struct.exr_coding_channel_info_t, ptr %15, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [48 x i8], ptr %15, i64 %indvars.iv
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 12
   %53 = load i32, ptr %52, align 4, !tbaa !65
   %.reass = mul i32 %53, %factor.op.mul

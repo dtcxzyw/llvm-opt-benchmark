@@ -55,22 +55,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.absl::debian2::AlphaNum" = type { %"class.absl::debian2::string_view", [32 x i8] }
 %"class.absl::debian2::string_view" = type { ptr, i64 }
-%"union.absl::debian2::container_internal::map_slot_type" = type { %"struct.std::pair.81" }
-%"struct.std::pair.81" = type { %"class.std::__cxx11::basic_string", %"class.std::unique_ptr.83" }
-%"class.std::unique_ptr.83" = type { %"struct.std::__uniq_ptr_data.84" }
-%"struct.std::__uniq_ptr_data.84" = type { %"class.std::__uniq_ptr_impl.85" }
-%"class.std::__uniq_ptr_impl.85" = type { %"class.std::tuple.86" }
-%"class.std::tuple.86" = type { %"struct.std::_Tuple_impl.87" }
-%"struct.std::_Tuple_impl.87" = type { %"struct.std::_Head_base.90" }
-%"struct.std::_Head_base.90" = type { ptr }
-%"union.absl::debian2::container_internal::map_slot_type.106" = type { %"struct.std::pair.107" }
-%"struct.std::pair.107" = type { i64, %"class.absl::debian2::flat_hash_map.109" }
-%"class.absl::debian2::flat_hash_map.109" = type { %"class.absl::debian2::container_internal::raw_hash_map.110" }
-%"class.absl::debian2::container_internal::raw_hash_map.110" = type { %"class.absl::debian2::container_internal::raw_hash_set.111" }
-%"class.absl::debian2::container_internal::raw_hash_set.111" = type { ptr, ptr, i64, i64, %"class.absl::debian2::container_internal::CompressedTuple.112" }
-%"class.absl::debian2::container_internal::CompressedTuple.112" = type { %"struct.absl::debian2::container_internal::internal_compressed_tuple::CompressedTupleImpl.113" }
-%"struct.absl::debian2::container_internal::internal_compressed_tuple::CompressedTupleImpl.113" = type { %"struct.absl::debian2::container_internal::internal_compressed_tuple::Storage" }
-%"struct.absl::debian2::container_internal::internal_compressed_tuple::Storage" = type { i64 }
 %"class.std::__cxx11::basic_ostringstream" = type { %"class.std::basic_ostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_ostream.base" = type { ptr }
 %"class.std::__cxx11::basic_stringbuf" = type { %"class.std::basic_streambuf", i32, %"class.std::__cxx11::basic_string" }
@@ -1560,7 +1544,7 @@ _ZN10open_spiel10algorithms26TabularBestResponseMDPInfoD2Ev.exit.i32: ; preds = 
 
 491:                                              ; preds = %485
   %492 = load ptr, ptr %484, align 8
-  %493 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %492, i64 %.07.i.i.i.i.i.i.i.i
+  %493 = getelementptr inbounds [40 x i8], ptr %492, i64 %.07.i.i.i.i.i.i.i.i
   %494 = getelementptr inbounds nuw i8, ptr %493, i64 32
   %495 = load ptr, ptr %494, align 8
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %495, null
@@ -1590,7 +1574,7 @@ _ZN10open_spiel10algorithms26TabularBestResponseMDPInfoD2Ev.exit.i32: ; preds = 
 
 508:                                              ; preds = %502
   %509 = load ptr, ptr %501, align 8
-  %510 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type.106", ptr %509, i64 %.07.i.i.i.i.i.i.i
+  %510 = getelementptr inbounds [48 x i8], ptr %509, i64 %.07.i.i.i.i.i.i.i
   %511 = getelementptr inbounds nuw i8, ptr %510, i64 32
   %512 = load i64, ptr %511, align 8
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %512, 0
@@ -3353,7 +3337,7 @@ _ZN10open_spiel10algorithms26TabularBestResponseMDPInfoD2Ev.exit.i169: ; preds =
 
 1132:                                             ; preds = %1126
   %1133 = load ptr, ptr %1125, align 8
-  %1134 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %1133, i64 %.07.i.i.i.i.i.i.i.i171
+  %1134 = getelementptr inbounds [40 x i8], ptr %1133, i64 %.07.i.i.i.i.i.i.i.i171
   %1135 = getelementptr inbounds nuw i8, ptr %1134, i64 32
   %1136 = load ptr, ptr %1135, align 8
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i185 = icmp eq ptr %1136, null
@@ -3383,7 +3367,7 @@ _ZN10open_spiel10algorithms26TabularBestResponseMDPInfoD2Ev.exit.i169: ; preds =
 
 1149:                                             ; preds = %1143
   %1150 = load ptr, ptr %1142, align 8
-  %1151 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type.106", ptr %1150, i64 %.07.i.i.i.i.i.i.i187
+  %1151 = getelementptr inbounds [48 x i8], ptr %1150, i64 %.07.i.i.i.i.i.i.i187
   %1152 = getelementptr inbounds nuw i8, ptr %1151, i64 32
   %1153 = load i64, ptr %1152, align 8
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i194 = icmp eq i64 %1153, 0
@@ -3574,7 +3558,7 @@ _ZN10open_spiel10algorithms26TabularBestResponseMDPInfoD2Ev.exit65.i: ; preds = 
 
 1225:                                             ; preds = %1219
   %1226 = load ptr, ptr %1218, align 8
-  %1227 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %1226, i64 %.07.i.i.i.i.i.i.i97.i
+  %1227 = getelementptr inbounds [40 x i8], ptr %1226, i64 %.07.i.i.i.i.i.i.i97.i
   %1228 = getelementptr inbounds nuw i8, ptr %1227, i64 32
   %1229 = load ptr, ptr %1228, align 8
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i101.i = icmp eq ptr %1229, null
@@ -3604,7 +3588,7 @@ _ZN10open_spiel10algorithms26TabularBestResponseMDPInfoD2Ev.exit65.i: ; preds = 
 
 1242:                                             ; preds = %1236
   %1243 = load ptr, ptr %1235, align 8
-  %1244 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type.106", ptr %1243, i64 %.07.i.i.i.i.i.i108.i
+  %1244 = getelementptr inbounds [48 x i8], ptr %1243, i64 %.07.i.i.i.i.i.i108.i
   %1245 = getelementptr inbounds nuw i8, ptr %1244, i64 32
   %1246 = load i64, ptr %1245, align 8
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i113.i = icmp eq i64 %1246, 0
@@ -4628,7 +4612,7 @@ _ZN10open_spiel10algorithms26TabularBestResponseMDPInfoD2Ev.exit100.i: ; preds =
 
 1623:                                             ; preds = %1617
   %1624 = load ptr, ptr %1616, align 8
-  %1625 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %1624, i64 %.07.i.i.i.i.i.i.i.i255
+  %1625 = getelementptr inbounds [40 x i8], ptr %1624, i64 %.07.i.i.i.i.i.i.i.i255
   %1626 = getelementptr inbounds nuw i8, ptr %1625, i64 32
   %1627 = load ptr, ptr %1626, align 8
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i265 = icmp eq ptr %1627, null
@@ -4658,7 +4642,7 @@ _ZN10open_spiel10algorithms26TabularBestResponseMDPInfoD2Ev.exit100.i: ; preds =
 
 1640:                                             ; preds = %1634
   %1641 = load ptr, ptr %1633, align 8
-  %1642 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type.106", ptr %1641, i64 %.07.i.i.i.i.i.i.i267
+  %1642 = getelementptr inbounds [48 x i8], ptr %1641, i64 %.07.i.i.i.i.i.i.i267
   %1643 = getelementptr inbounds nuw i8, ptr %1642, i64 32
   %1644 = load i64, ptr %1643, align 8
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i274 = icmp eq i64 %1644, 0
@@ -4849,7 +4833,7 @@ _ZN10open_spiel10algorithms26TabularBestResponseMDPInfoD2Ev.exit124.i: ; preds =
 
 1716:                                             ; preds = %1710
   %1717 = load ptr, ptr %1709, align 8
-  %1718 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %1717, i64 %.07.i.i.i.i.i.i.i158.i
+  %1718 = getelementptr inbounds [40 x i8], ptr %1717, i64 %.07.i.i.i.i.i.i.i158.i
   %1719 = getelementptr inbounds nuw i8, ptr %1718, i64 32
   %1720 = load ptr, ptr %1719, align 8
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i162.i = icmp eq ptr %1720, null
@@ -4879,7 +4863,7 @@ _ZN10open_spiel10algorithms26TabularBestResponseMDPInfoD2Ev.exit124.i: ; preds =
 
 1733:                                             ; preds = %1727
   %1734 = load ptr, ptr %1726, align 8
-  %1735 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type.106", ptr %1734, i64 %.07.i.i.i.i.i.i169.i
+  %1735 = getelementptr inbounds [48 x i8], ptr %1734, i64 %.07.i.i.i.i.i.i169.i
   %1736 = getelementptr inbounds nuw i8, ptr %1735, i64 32
   %1737 = load i64, ptr %1736, align 8
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i174.i = icmp eq i64 %1737, 0
@@ -5937,7 +5921,7 @@ _ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i: ; preds = %50, %.noex
 _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJRKlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i: ; preds = %52, %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i
   store ptr %46, ptr %0, align 8
   store ptr %51, ptr %12, align 8
-  %53 = getelementptr inbounds nuw i64, ptr %46, i64 %44
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %44
   store ptr %53, ptr %13, align 8
   br label %_ZNSt6vectorIlSaIlEE9push_backERKl.exit
 
@@ -6001,7 +5985,7 @@ _ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit16.i.i: ; preds = %78, %.noex
 _ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i: ; preds = %80, %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit16.i.i
   store ptr %74, ptr %14, align 8
   store ptr %79, ptr %15, align 8
-  %81 = getelementptr inbounds nuw double, ptr %74, i64 %72
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %72
   store ptr %81, ptr %16, align 8
   br label %_ZNSt6vectorIdSaIdEE9push_backERKd.exit
 
@@ -6161,7 +6145,7 @@ _ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i: ; preds = %50, %.noex
 _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJRKlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i: ; preds = %52, %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i
   store ptr %46, ptr %0, align 8
   store ptr %51, ptr %12, align 8
-  %53 = getelementptr inbounds nuw i64, ptr %46, i64 %44
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %44
   store ptr %53, ptr %13, align 8
   br label %_ZNSt6vectorIlSaIlEE9push_backERKl.exit
 
@@ -6225,7 +6209,7 @@ _ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit16.i.i: ; preds = %78, %.noex
 _ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i: ; preds = %80, %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit16.i.i
   store ptr %74, ptr %14, align 8
   store ptr %79, ptr %15, align 8
-  %81 = getelementptr inbounds nuw double, ptr %74, i64 %72
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %72
   store ptr %81, ptr %16, align 8
   br label %_ZNSt6vectorIdSaIdEE9push_backERKd.exit
 
@@ -6326,7 +6310,7 @@ _ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit:        ; preds = %._crit_edge, %18
   %29 = load i64, ptr %6, align 8
   %30 = urem i64 %28, %29
   %31 = load ptr, ptr %0, align 8
-  %32 = getelementptr inbounds ptr, ptr %31, i64 %30
+  %32 = getelementptr inbounds [8 x i8], ptr %31, i64 %30
   %33 = load ptr, ptr %32, align 8
   %.not.i.i.i.i = icmp eq ptr %33, null
   br i1 %.not.i.i.i.i, label %.loopexit.i.i, label %34
@@ -6471,7 +6455,7 @@ _ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit:        ; preds = %._crit_edge, %18
   %29 = load i64, ptr %6, align 8
   %30 = urem i64 %28, %29
   %31 = load ptr, ptr %0, align 8
-  %32 = getelementptr inbounds ptr, ptr %31, i64 %30
+  %32 = getelementptr inbounds [8 x i8], ptr %31, i64 %30
   %33 = load ptr, ptr %32, align 8
   %.not.i.i.i.i = icmp eq ptr %33, null
   br i1 %.not.i.i.i.i, label %.loopexit.i.i, label %34
@@ -6851,7 +6835,7 @@ _ZNSt10_HashtableIlSt4pairIKldESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4
 31:                                               ; preds = %_ZNSt10_HashtableIlSt4pairIKldESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit, %5
   %.0 = phi i64 [ %30, %_ZNSt10_HashtableIlSt4pairIKldESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit ], [ %1, %5 ]
   %32 = load ptr, ptr %0, align 8
-  %33 = getelementptr inbounds ptr, ptr %32, i64 %.0
+  %33 = getelementptr inbounds [8 x i8], ptr %32, i64 %.0
   %34 = load ptr, ptr %33, align 8
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %40, label %35
@@ -6860,7 +6844,7 @@ _ZNSt10_HashtableIlSt4pairIKldESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4
   %36 = load ptr, ptr %34, align 8
   store ptr %36, ptr %3, align 8
   %37 = load ptr, ptr %0, align 8
-  %38 = getelementptr inbounds ptr, ptr %37, i64 %.0
+  %38 = getelementptr inbounds [8 x i8], ptr %37, i64 %.0
   %39 = load ptr, ptr %38, align 8
   store ptr %3, ptr %39, align 8
   br label %_ZNSt10_HashtableIlSt4pairIKldESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE22_M_insert_bucket_beginEmPNS4_10_Hash_nodeIS2_Lb0EEE.exit
@@ -6880,13 +6864,13 @@ _ZNSt10_HashtableIlSt4pairIKldESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4
   %47 = load i64, ptr %9, align 8
   %48 = load i64, ptr %46, align 8
   %49 = urem i64 %48, %47
-  %50 = getelementptr inbounds ptr, ptr %45, i64 %49
+  %50 = getelementptr inbounds [8 x i8], ptr %45, i64 %49
   store ptr %3, ptr %50, align 8
   br label %51
 
 51:                                               ; preds = %44, %40
   %52 = load ptr, ptr %0, align 8
-  %53 = getelementptr inbounds ptr, ptr %52, i64 %.0
+  %53 = getelementptr inbounds [8 x i8], ptr %52, i64 %.0
   store ptr %41, ptr %53, align 8
   br label %_ZNSt10_HashtableIlSt4pairIKldESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE22_M_insert_bucket_beginEmPNS4_10_Hash_nodeIS2_Lb0EEE.exit
 
@@ -6953,7 +6937,7 @@ _ZNSt10_HashtableIlSt4pairIKldESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
   %16 = load i64, ptr %15, align 8
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -6968,7 +6952,7 @@ _ZNSt10_HashtableIlSt4pairIKldESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8
   br label %28
 
@@ -7479,7 +7463,7 @@ define linkonce_odr dso_local void @_ZNSt10unique_ptrIN10open_spiel10algorithms3
 
 13:                                               ; preds = %7
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %14, i64 %.07.i.i.i.i.i.i
+  %15 = getelementptr inbounds [40 x i8], ptr %14, i64 %.07.i.i.i.i.i.i
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %17 = load ptr, ptr %16, align 8
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %17, null
@@ -7548,7 +7532,7 @@ define linkonce_odr dso_local void @_ZNKSt14default_deleteIN10open_spiel10algori
 
 16:                                               ; preds = %10
   %17 = load ptr, ptr %9, align 8
-  %18 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type.106", ptr %17, i64 %.07.i.i.i.i.i
+  %18 = getelementptr inbounds [48 x i8], ptr %17, i64 %.07.i.i.i.i.i
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %20 = load i64, ptr %19, align 8
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %20, 0

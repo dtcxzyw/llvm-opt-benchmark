@@ -7,8 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.anon.6 = type { i64, i64, i64, i64, i64 }
 %struct.XSetWindowAttributes = type { i64, i64, i64, i64, i32, i32, i32, i64, i64, i32, i64, i64, i32, i64, i64 }
 %struct.XVisualInfo = type { ptr, i64, i32, i32, i32, i64, i64, i64, i32, i32 }
-%struct.Screen = type { ptr, ptr, i64, i32, i32, i32, i32, i32, ptr, i32, ptr, ptr, i64, i64, i64, i32, i32, i32, i32, i64 }
-%struct.XColor = type { i64, i16, i16, i16, i8, i8 }
 %struct.SDL_Rect = type { i32, i32, i32, i32 }
 %struct.XTextProperty = type { ptr, i64, i32, i64 }
 %union._XEvent = type { [24 x i64] }
@@ -163,7 +161,7 @@ define hidden void @X11_SetNetWMState(ptr noundef readonly captures(none) %0, i6
 
 30:                                               ; preds = %28
   %31 = zext nneg i32 %.0 to i64
-  %32 = getelementptr inbounds nuw i64, ptr %4, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %31
   store i64 %21, ptr %32, align 8
   %33 = or disjoint i32 %.0, 2
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 8
@@ -179,7 +177,7 @@ define hidden void @X11_SetNetWMState(ptr noundef readonly captures(none) %0, i6
 37:                                               ; preds = %35
   %38 = add nuw nsw i32 %.1, 1
   %39 = zext nneg i32 %.1 to i64
-  %40 = getelementptr inbounds nuw i64, ptr %4, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %39
   store i64 %11, ptr %40, align 8
   br label %41
 
@@ -191,7 +189,7 @@ define hidden void @X11_SetNetWMState(ptr noundef readonly captures(none) %0, i6
 
 43:                                               ; preds = %41
   %44 = zext nneg i32 %.2 to i64
-  %45 = getelementptr inbounds nuw i64, ptr %4, i64 %44
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %44
   store i64 %13, ptr %45, align 8
   %46 = add nuw nsw i32 %.2, 2
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 8
@@ -207,7 +205,7 @@ define hidden void @X11_SetNetWMState(ptr noundef readonly captures(none) %0, i6
 50:                                               ; preds = %48
   %51 = add nuw nsw i32 %.3, 1
   %52 = zext nneg i32 %.3 to i64
-  %53 = getelementptr inbounds nuw i64, ptr %4, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %52
   store i64 %17, ptr %53, align 8
   br label %54
 
@@ -220,7 +218,7 @@ define hidden void @X11_SetNetWMState(ptr noundef readonly captures(none) %0, i6
 .thread:                                          ; preds = %54
   %56 = add nuw nsw i32 %.4, 1
   %57 = zext nneg i32 %.4 to i64
-  %58 = getelementptr inbounds nuw i64, ptr %4, i64 %57
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %57
   store i64 %25, ptr %58, align 8
   br label %60
 
@@ -289,7 +287,7 @@ define hidden range(i32 0, 1024) i32 @X11_GetNetWMState(ptr noundef readonly cap
   %.04657 = phi i32 [ %.147, %50 ], [ 0, %28 ]
   %.04856 = phi i64 [ %51, %50 ], [ 0, %28 ]
   %.15055 = phi i64 [ %.2, %50 ], [ 0, %28 ]
-  %31 = getelementptr inbounds nuw i64, ptr %29, i64 %.04856
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %.04856
   %32 = load i64, ptr %31, align 8
   %33 = icmp eq i64 %32, %16
   br i1 %33, label %34, label %36
@@ -609,7 +607,7 @@ SetupWindowInput.exit:                            ; preds = %26, %32, %35
   %128 = getelementptr inbounds nuw i8, ptr %65, i64 232
   %129 = load ptr, ptr %128, align 8
   %130 = sext i32 %66 to i64
-  %131 = getelementptr inbounds %struct.Screen, ptr %129, i64 %130
+  %131 = getelementptr inbounds [128 x i8], ptr %129, i64 %130
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 16
   %133 = load i64, ptr %132, align 8
   %134 = getelementptr inbounds nuw i8, ptr %7, i64 96
@@ -721,7 +719,7 @@ SetupWindowInput.exit:                            ; preds = %26, %32, %35
   %192 = shl i32 %188, %.0257.lcssa
   %193 = or i32 %191, %192
   %194 = zext i32 %193 to i64
-  %195 = getelementptr inbounds nuw %struct.XColor, ptr %144, i64 %indvars.iv
+  %195 = getelementptr inbounds nuw [16 x i8], ptr %144, i64 %indvars.iv
   store i64 %194, ptr %195, align 8
   %196 = trunc i32 %179 to i16
   %197 = getelementptr inbounds nuw i8, ptr %195, i64 8
@@ -788,7 +786,7 @@ SetupWindowInput.exit:                            ; preds = %26, %32, %35
   %229 = getelementptr inbounds nuw i8, ptr %65, i64 232
   %230 = load ptr, ptr %229, align 8
   %231 = sext i32 %66 to i64
-  %232 = getelementptr inbounds %struct.Screen, ptr %230, i64 %231
+  %232 = getelementptr inbounds [128 x i8], ptr %230, i64 %231
   %233 = getelementptr inbounds nuw i8, ptr %232, i64 16
   %234 = load i64, ptr %233, align 8
   %235 = load i32, ptr %10, align 4
@@ -839,7 +837,7 @@ SetupWindowInput.exit:                            ; preds = %26, %32, %35
 260:                                              ; preds = %248
   %261 = load ptr, ptr @X11_XSetTransientForHint, align 8
   %262 = load ptr, ptr %229, align 8
-  %263 = getelementptr inbounds %struct.Screen, ptr %262, i64 %231
+  %263 = getelementptr inbounds [128 x i8], ptr %262, i64 %231
   %264 = getelementptr inbounds nuw i8, ptr %263, i64 16
   %265 = load i64, ptr %264, align 8
   %266 = call i32 %261(ptr noundef nonnull %65, i64 noundef %241, i64 noundef %265) #12
@@ -1007,7 +1005,7 @@ SetWindowBordered.exit:                           ; preds = %260, %252, %244
   %356 = load i64, ptr %355, align 8
   %357 = add nuw nsw i32 %.0244, 1
   %358 = zext nneg i32 %.0244 to i64
-  %359 = getelementptr inbounds nuw i64, ptr %15, i64 %358
+  %359 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %358
   store i64 %356, ptr %359, align 8
   br label %360
 
@@ -1171,7 +1169,7 @@ SetupWindowInput.exit314:                         ; preds = %426, %431, %434
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %453 = load ptr, ptr @X11_XSelectInput, align 8
   %454 = load ptr, ptr %229, align 8
-  %455 = getelementptr inbounds %struct.Screen, ptr %454, i64 %231
+  %455 = getelementptr inbounds [128 x i8], ptr %454, i64 %231
   %456 = getelementptr inbounds nuw i8, ptr %455, i64 16
   %457 = load i64, ptr %456, align 8
   %458 = call i32 %453(ptr noundef nonnull %65, i64 noundef %457, i64 noundef 4194304) #12
@@ -1234,7 +1232,7 @@ define internal fastcc noundef zeroext i1 @SetupWindowData(ptr noundef readonly 
 
 22:                                               ; preds = %17
   %23 = sext i32 %11 to i64
-  %24 = getelementptr inbounds ptr, ptr %15, i64 %23
+  %24 = getelementptr inbounds [8 x i8], ptr %15, i64 %23
   store ptr %16, ptr %24, align 8
   %25 = load i32, ptr %10, align 8
   %26 = add nsw i32 %25, 1
@@ -1255,7 +1253,7 @@ define internal fastcc noundef zeroext i1 @SetupWindowData(ptr noundef readonly 
 
 32:                                               ; preds = %27
   %33 = sext i32 %11 to i64
-  %34 = getelementptr inbounds ptr, ptr %31, i64 %33
+  %34 = getelementptr inbounds [8 x i8], ptr %31, i64 %33
   store ptr %16, ptr %34, align 8
   %35 = load i32, ptr %10, align 8
   %36 = add nsw i32 %35, 1
@@ -2282,7 +2280,7 @@ define hidden noundef zeroext i1 @X11_SyncWindow(ptr noundef %0, ptr noundef %1)
   %55 = load ptr, ptr %36, align 8
   %56 = load i32, ptr %37, align 8
   %57 = sext i32 %56 to i64
-  %58 = getelementptr inbounds %struct.Screen, ptr %55, i64 %57
+  %58 = getelementptr inbounds [128 x i8], ptr %55, i64 %57
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
   %60 = load i64, ptr %59, align 8
   %61 = load i32, ptr %8, align 8
@@ -2587,7 +2585,7 @@ X11_SyncWindowTimeout.exit:                       ; preds = %.loopexit.i35, %211
 214:                                              ; preds = %.lr.ph, %214
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %214 ]
   %.02537 = phi i64 [ 0, %.lr.ph ], [ %.1, %214 ]
-  %215 = getelementptr inbounds nuw ptr, ptr %122, i64 %indvars.iv
+  %215 = getelementptr inbounds nuw [8 x i8], ptr %122, i64 %indvars.iv
   %216 = load ptr, ptr %215, align 8
   %217 = getelementptr inbounds nuw i8, ptr %216, i64 128
   %218 = load ptr, ptr %217, align 8
@@ -3003,7 +3001,7 @@ define hidden noundef zeroext i1 @X11_SetWindowModal(ptr noundef readonly captur
   %47 = load ptr, ptr %46, align 8
   %48 = load i32, ptr %10, align 8
   %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds %struct.Screen, ptr %47, i64 %49
+  %50 = getelementptr inbounds [128 x i8], ptr %47, i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %52 = load i64, ptr %51, align 8
   %53 = call i32 %45(ptr noundef %11, i64 noundef %52, i32 noundef 0, i64 noundef 1572864, ptr noundef nonnull %5) #12
@@ -3085,7 +3083,7 @@ define hidden void @X11_SetWindowBordered(ptr noundef %0, ptr noundef %1, i1 nou
   %40 = getelementptr inbounds nuw i8, ptr %16, i64 232
   %41 = load ptr, ptr %40, align 8
   %42 = sext i32 %26 to i64
-  %43 = getelementptr inbounds %struct.Screen, ptr %41, i64 %42
+  %43 = getelementptr inbounds [128 x i8], ptr %41, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %45 = load i64, ptr %44, align 8
   %46 = tail call i32 %39(ptr noundef %16, i64 noundef %28, i64 noundef %45) #12
@@ -3275,7 +3273,7 @@ define hidden void @X11_SetWindowAlwaysOnTop(ptr noundef readonly captures(none)
   %33 = load ptr, ptr %32, align 8
   %34 = load i32, ptr %8, align 8
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds %struct.Screen, ptr %33, i64 %35
+  %36 = getelementptr inbounds [128 x i8], ptr %33, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load i64, ptr %37, align 8
   %39 = call i32 %31(ptr noundef %11, i64 noundef %38, i32 noundef 0, i64 noundef 1572864, ptr noundef nonnull %5) #12
@@ -3805,7 +3803,7 @@ define internal fastcc void @X11_SetWindowActive(ptr noundef readonly captures(n
   %37 = load ptr, ptr %36, align 8
   %38 = load i32, ptr %13, align 8
   %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds %struct.Screen, ptr %37, i64 %39
+  %40 = getelementptr inbounds [128 x i8], ptr %37, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = load i64, ptr %41, align 8
   %43 = call i32 %35(ptr noundef %16, i64 noundef %42, i32 noundef 0, i64 noundef 1572864, ptr noundef nonnull %4) #12
@@ -4002,7 +4000,7 @@ define internal fastcc void @X11_SetWindowMaximized(ptr noundef readonly capture
   %88 = load ptr, ptr %87, align 8
   %89 = load i32, ptr %15, align 8
   %90 = sext i32 %89 to i64
-  %91 = getelementptr inbounds %struct.Screen, ptr %88, i64 %90
+  %91 = getelementptr inbounds [128 x i8], ptr %88, i64 %90
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 16
   %93 = load i64, ptr %92, align 8
   %94 = call i32 %86(ptr noundef %18, i64 noundef %93, i32 noundef 0, i64 noundef 1572864, ptr noundef nonnull %5) #12
@@ -4297,7 +4295,7 @@ define hidden range(i32 0, 3) i32 @X11_SetWindowFullscreen(ptr noundef %0, ptr n
   %81 = load ptr, ptr %80, align 8
   %82 = load i32, ptr %23, align 8
   %83 = sext i32 %82 to i64
-  %84 = getelementptr inbounds %struct.Screen, ptr %81, i64 %83
+  %84 = getelementptr inbounds [128 x i8], ptr %81, i64 %83
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 16
   %86 = load i64, ptr %85, align 8
   %87 = call i32 %79(ptr noundef %30, i64 noundef %86, i32 noundef 0, i64 noundef 1572864, ptr noundef nonnull %6) #12
@@ -4402,7 +4400,7 @@ define hidden range(i32 0, 3) i32 @X11_SetWindowFullscreen(ptr noundef %0, ptr n
   %148 = load ptr, ptr %80, align 8
   %149 = load i32, ptr %23, align 8
   %150 = sext i32 %149 to i64
-  %151 = getelementptr inbounds %struct.Screen, ptr %148, i64 %150
+  %151 = getelementptr inbounds [128 x i8], ptr %148, i64 %150
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 16
   %153 = load i64, ptr %152, align 8
   %154 = call i32 %147(ptr noundef nonnull %30, i64 noundef %153, i32 noundef 0, i64 noundef 1572864, ptr noundef nonnull %6) #12
@@ -4765,7 +4763,7 @@ define hidden zeroext i1 @X11_SetWindowKeyboardGrab(ptr noundef readonly capture
   %37 = getelementptr inbounds nuw i8, ptr %12, i64 224
   %38 = load i32, ptr %37, align 8
   %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds %struct.Screen, ptr %36, i64 %39
+  %40 = getelementptr inbounds [128 x i8], ptr %36, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = load i64, ptr %41, align 8
   %43 = call i32 %34(ptr noundef %12, i64 noundef %42, i32 noundef 0, i64 noundef 1572864, ptr noundef nonnull %4) #12
@@ -4822,7 +4820,7 @@ define hidden void @X11_DestroyWindow(ptr noundef %0, ptr noundef %1) local_unna
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %26
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %26 ]
-  %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
   %.not43 = icmp eq ptr %15, null
   br i1 %.not43, label %26, label %16
@@ -4833,8 +4831,8 @@ define hidden void @X11_DestroyWindow(ptr noundef %0, ptr noundef %1) local_unna
   br i1 %18, label %19, label %26
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
-  %21 = getelementptr ptr, ptr %12, i64 %wide.trip.count
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
+  %21 = getelementptr [8 x i8], ptr %12, i64 %wide.trip.count
   %22 = getelementptr i8, ptr %21, i64 -8
   %23 = load ptr, ptr %22, align 8
   store ptr %23, ptr %20, align 8
@@ -5036,7 +5034,7 @@ define hidden void @X11_ShowWindowSystemMenu(ptr noundef %0, i32 noundef %1, i32
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr %10, align 8
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds %struct.Screen, ptr %15, i64 %17
+  %18 = getelementptr inbounds [128 x i8], ptr %15, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load i64, ptr %19, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)

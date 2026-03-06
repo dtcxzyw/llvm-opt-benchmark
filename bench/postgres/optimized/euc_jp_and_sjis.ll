@@ -174,7 +174,7 @@ define range(i64 -2147483648, 2147483648) i64 @euc_jp_to_sjis(ptr noundef readon
 
 .preheader.i:                                     ; preds = %41, %59
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %59 ], [ 0, %41 ]
-  %63 = getelementptr inbounds nuw %struct.anon, ptr @ibmkanji, i64 %indvars.iv.i
+  %63 = getelementptr inbounds nuw [8 x i8], ptr @ibmkanji, i64 %indvars.iv.i
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 4
   %65 = load i32, ptr %64, align 4
   %66 = and i32 %65, 65535
@@ -351,7 +351,7 @@ define range(i64 -2147483648, 2147483648) i64 @sjis_to_euc_jp(ptr noundef readon
   %.1140.i = phi i32 [ %.2.i, %58 ], [ %46, %41 ]
   %.1109138.i = phi i32 [ %.2110.i, %58 ], [ %44, %41 ]
   %.1112137.i = phi i32 [ %.2113.i, %58 ], [ %21, %41 ]
-  %48 = getelementptr inbounds nuw %struct.anon, ptr @ibmkanji, i64 %indvars.iv.i
+  %48 = getelementptr inbounds nuw [8 x i8], ptr @ibmkanji, i64 %indvars.iv.i
   %49 = load i16, ptr %48, align 8
   %50 = zext i16 %49 to i32
   %51 = icmp eq i32 %.1140.i, %50
@@ -478,7 +478,7 @@ define range(i64 -2147483648, 2147483648) i64 @sjis_to_euc_jp(ptr noundef readon
   %indvars.iv155.i = phi i64 [ %indvars.iv.next156.i, %151 ], [ 0, %123 ]
   %.3143.i = phi i32 [ %.4.i, %151 ], [ %.0105.i, %123 ]
   %.2116141.i = phi ptr [ %.3117.i, %151 ], [ %.0114145.i, %123 ]
-  %125 = getelementptr inbounds nuw %struct.anon, ptr @ibmkanji, i64 %indvars.iv155.i
+  %125 = getelementptr inbounds nuw [8 x i8], ptr @ibmkanji, i64 %indvars.iv155.i
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 2
   %127 = load i16, ptr %126, align 2
   %128 = zext i16 %127 to i32
@@ -887,7 +887,7 @@ define range(i64 -2147483648, 2147483648) i64 @sjis_to_mic(ptr noundef readonly 
   %.1162.i = phi i32 [ %.2.i, %54 ], [ %42, %39 ]
   %.1122160.i = phi i32 [ %.2123.i, %54 ], [ %40, %39 ]
   %.1125159.i = phi i32 [ %.2126.i, %54 ], [ %21, %39 ]
-  %44 = getelementptr inbounds nuw %struct.anon, ptr @ibmkanji, i64 %indvars.iv.i
+  %44 = getelementptr inbounds nuw [8 x i8], ptr @ibmkanji, i64 %indvars.iv.i
   %45 = load i16, ptr %44, align 8
   %46 = zext i16 %45 to i32
   %47 = icmp eq i32 %.1162.i, %46
@@ -1020,7 +1020,7 @@ define range(i64 -2147483648, 2147483648) i64 @sjis_to_mic(ptr noundef readonly 
   %indvars.iv177.i = phi i64 [ %indvars.iv.next178.i, %140 ], [ 0, %122 ]
   %.3165.i = phi i32 [ %.4.i, %140 ], [ %.0.i, %122 ]
   %.3132163.i = phi ptr [ %.4133.i, %140 ], [ %.0129167.i, %122 ]
-  %124 = getelementptr inbounds nuw %struct.anon, ptr @ibmkanji, i64 %indvars.iv177.i
+  %124 = getelementptr inbounds nuw [8 x i8], ptr @ibmkanji, i64 %indvars.iv177.i
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 2
   %126 = load i16, ptr %125, align 2
   %127 = zext i16 %126 to i32
@@ -1255,7 +1255,7 @@ define range(i64 -2147483648, 2147483648) i64 @mic_to_sjis(ptr noundef readonly 
 
 .preheader.i:                                     ; preds = %66, %85
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %85 ], [ 0, %66 ]
-  %89 = getelementptr inbounds nuw %struct.anon, ptr @ibmkanji, i64 %indvars.iv.i
+  %89 = getelementptr inbounds nuw [8 x i8], ptr @ibmkanji, i64 %indvars.iv.i
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 4
   %91 = load i32, ptr %90, align 4
   %92 = and i32 %91, 65535

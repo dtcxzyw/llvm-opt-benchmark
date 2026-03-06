@@ -48,7 +48,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.WOLFSSL_BUFFER_INFO = type { ptr, i32 }
 %struct.WOLFSSL_ALERT_HISTORY = type { %struct.WOLFSSL_ALERT, %struct.WOLFSSL_ALERT }
 %struct.WOLFSSL_ALERT = type { i32, i32 }
-%struct.TEST_CASE = type { ptr, ptr, i8 }
 %struct.timeval = type { i64, i64 }
 %struct.wc_HashAlg = type { %union.wc_Hashes, i32, ptr }
 
@@ -4481,7 +4480,7 @@ define internal range(i32 0, 2) i32 @test_wc_Md5HmacSetKey() #0 {
 .backedge:                                        ; preds = %.backedge.backedge, %.backedge.preheader
   %indvars.iv = phi i64 [ 0, %.backedge.preheader ], [ %indvars.iv.be, %.backedge.backedge ]
   %16 = phi i1 [ %3, %.backedge.preheader ], [ %.be, %.backedge.backedge ]
-  %17 = getelementptr inbounds nuw ptr, ptr @__const.test_wc_Md5HmacSetKey.keys, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr @__const.test_wc_Md5HmacSetKey.keys, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8, !tbaa !83
   %19 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #32
   %20 = trunc i64 %19 to i32
@@ -4876,7 +4875,7 @@ define internal range(i32 0, 2) i32 @test_wc_ShaHmacSetKey() #0 {
   br i1 %16, label %17, label %36
 
 17:                                               ; preds = %.backedge
-  %18 = getelementptr inbounds nuw ptr, ptr @__const.test_wc_Sha384HmacSetKey.keys, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr @__const.test_wc_Sha384HmacSetKey.keys, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !83
   %20 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #32
   %21 = trunc i64 %20 to i32
@@ -5268,7 +5267,7 @@ define internal range(i32 0, 2) i32 @test_wc_Sha224HmacSetKey() #0 {
   br i1 %16, label %17, label %36
 
 17:                                               ; preds = %.backedge
-  %18 = getelementptr inbounds nuw ptr, ptr @__const.test_wc_Sha384HmacSetKey.keys, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr @__const.test_wc_Sha384HmacSetKey.keys, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !83
   %20 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #32
   %21 = trunc i64 %20 to i32
@@ -5660,7 +5659,7 @@ define internal range(i32 0, 2) i32 @test_wc_Sha256HmacSetKey() #0 {
   br i1 %16, label %17, label %36
 
 17:                                               ; preds = %.backedge
-  %18 = getelementptr inbounds nuw ptr, ptr @__const.test_wc_Sha384HmacSetKey.keys, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr @__const.test_wc_Sha384HmacSetKey.keys, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !83
   %20 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #32
   %21 = trunc i64 %20 to i32
@@ -6052,7 +6051,7 @@ define internal range(i32 0, 2) i32 @test_wc_Sha384HmacSetKey() #0 {
   br i1 %16, label %17, label %36
 
 17:                                               ; preds = %.backedge
-  %18 = getelementptr inbounds nuw ptr, ptr @__const.test_wc_Sha384HmacSetKey.keys, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr @__const.test_wc_Sha384HmacSetKey.keys, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !83
   %20 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #32
   %21 = trunc i64 %20 to i32
@@ -17339,7 +17338,7 @@ define internal range(i32 0, 2) i32 @test_wc_ParseCert_Error() #0 {
 22:                                               ; preds = %0, %.thread
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %.thread ]
   %.056 = phi i32 [ 3, %0 ], [ %.2, %.thread ]
-  %23 = getelementptr inbounds nuw %struct.testStruct, ptr %7, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 16, !tbaa !130
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %26 = load i32, ptr %25, align 8, !tbaa !132
@@ -25964,7 +25963,7 @@ define internal range(i32 0, 2) i32 @test_wolfSSL_CTX_load_system_CA_certs() #0 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %13 ]
-  %17 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8, !tbaa !83
   %19 = call i32 @wc_ReadDirFirst(ptr noundef nonnull %2, ptr noundef %18, ptr noundef null) #27
   %20 = icmp eq i32 %19, 0
@@ -28554,7 +28553,7 @@ define internal range(i32 0, 2) i32 @test_wolfSSL_SetMinVersion() #0 {
   %5 = phi i1 [ true, %0 ], [ false, %4 ]
   %indvars.iv = phi i64 [ 0, %0 ], [ 1, %4 ]
   %.089 = phi i32 [ 1, %0 ], [ %spec.select, %4 ]
-  %6 = getelementptr inbounds nuw i32, ptr @__const.test_wolfSSL_CTX_SetMinVersion.versions, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [4 x i8], ptr @__const.test_wolfSSL_CTX_SetMinVersion.versions, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4, !tbaa !67
   %8 = tail call i32 @wolfSSL_SetMinVersion(ptr noundef %3, i32 noundef %7) #27
   %.not = icmp eq i32 %8, 1
@@ -28577,7 +28576,7 @@ define internal range(i32 0, 2) i32 @test_wolfSSL_CTX_SetMinVersion() #0 {
   %4 = phi i1 [ true, %0 ], [ false, %3 ]
   %indvars.iv = phi i64 [ 0, %0 ], [ 1, %3 ]
   %.067 = phi i32 [ 1, %0 ], [ %spec.select, %3 ]
-  %5 = getelementptr inbounds nuw i32, ptr @__const.test_wolfSSL_CTX_SetMinVersion.versions, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [4 x i8], ptr @__const.test_wolfSSL_CTX_SetMinVersion.versions, i64 %indvars.iv
   %6 = load i32, ptr %5, align 4, !tbaa !67
   %7 = tail call i32 @wolfSSL_CTX_SetMinVersion(ptr noundef %2, i32 noundef %6) #27
   %.not = icmp eq i32 %7, 1
@@ -28873,7 +28872,7 @@ define internal noundef i32 @test_wolfSSL_UseSNI_connection() #8 {
   %.06 = phi i64 [ 0, %0 ], [ 1, %13 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %11, i8 0, i64 64, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %12, i8 0, i64 88, i1 false)
-  %15 = getelementptr inbounds nuw %struct.anon.2, ptr @__const.test_wolfSSL_UseSNI_connection.methods, i64 %.06
+  %15 = getelementptr inbounds nuw [16 x i8], ptr @__const.test_wolfSSL_UseSNI_connection.methods, i64 %.06
   %16 = load ptr, ptr %15, align 16, !tbaa !148
   store ptr %16, ptr %1, align 8, !tbaa !69
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -30070,7 +30069,7 @@ define internal range(i32 0, 2) i32 @test_short_session_id() #8 {
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %5, i8 0, i64 104, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6, i8 0, i64 104, i1 false)
   %9 = load ptr, ptr @stderr, align 8, !tbaa !22
-  %10 = getelementptr inbounds nuw %struct.anon.3, ptr @__const.test_short_session_id.params, i64 %.05062
+  %10 = getelementptr inbounds nuw [24 x i8], ptr @__const.test_short_session_id.params, i64 %.05062
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load ptr, ptr %11, align 8, !tbaa !159
   %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.2077, ptr noundef %12) #28
@@ -32336,7 +32335,7 @@ define internal range(i32 5, 4) i32 @test_wolfSSL_SendUserCanceled() #0 {
   store ptr null, ptr %4, align 8, !tbaa !145
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %9 = getelementptr inbounds nuw %struct.anon.4, ptr @__const.test_wolfSSL_SendUserCanceled.params, i64 %.0322548
+  %9 = getelementptr inbounds nuw [24 x i8], ptr @__const.test_wolfSSL_SendUserCanceled.params, i64 %.0322548
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8, !tbaa !159
   %12 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2136, ptr noundef %11)
@@ -32925,7 +32924,7 @@ define internal i32 @test_wolfSSL_inject() #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !145
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %10 = getelementptr inbounds nuw %struct.anon.5, ptr @__const.test_wolfSSL_inject.params, i64 %.0273409
+  %10 = getelementptr inbounds nuw [24 x i8], ptr @__const.test_wolfSSL_inject.params, i64 %.0273409
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load ptr, ptr %11, align 8, !tbaa !159
   %13 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2136, ptr noundef %12)
@@ -33356,7 +33355,7 @@ define dso_local void @ApiTest_PrintTestCases() local_unnamed_addr #7 {
 1:                                                ; preds = %0, %1
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %1 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %2 = getelementptr inbounds nuw %struct.TEST_CASE, ptr @testCases, i64 %indvars.iv
+  %2 = getelementptr inbounds nuw [24 x i8], ptr @testCases, i64 %indvars.iv
   %3 = load ptr, ptr %2, align 8, !tbaa !183
   %4 = trunc nuw nsw i64 %indvars.iv.next to i32
   %5 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.970, i32 noundef %4, ptr noundef %3)
@@ -33380,7 +33379,7 @@ define dso_local range(i32 -173, 1) i32 @ApiTest_RunIdx(i32 noundef %0) local_un
 5:                                                ; preds = %1
   store i32 0, ptr @testAll, align 4, !tbaa !67
   %6 = zext nneg i32 %0 to i64
-  %7 = getelementptr %struct.TEST_CASE, ptr @testCases, i64 %6
+  %7 = getelementptr [24 x i8], ptr @testCases, i64 %6
   %8 = getelementptr i8, ptr %7, i64 -8
   %9 = load i8, ptr %8, align 8
   %10 = or i8 %9, 1
@@ -33403,7 +33402,7 @@ define dso_local range(i32 -173, 1) i32 @ApiTest_RunName(ptr noundef %0) local_u
 
 3:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %4 = getelementptr inbounds nuw %struct.TEST_CASE, ptr @testCases, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [24 x i8], ptr @testCases, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 8, !tbaa !183
   %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %0) #32
   %7 = icmp eq i32 %6, 0
@@ -33463,7 +33462,7 @@ define dso_local range(i32 0, 2) i32 @ApiTest() local_unnamed_addr #0 {
   br i1 %.not59, label %13, label %18
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds nuw %struct.TEST_CASE, ptr @testCases, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [24 x i8], ptr @testCases, i64 %indvars.iv
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load i8, ptr %15, align 8
   %17 = and i8 %16, 1
@@ -33476,7 +33475,7 @@ define dso_local range(i32 0, 2) i32 @ApiTest() local_unnamed_addr #0 {
 
 18:                                               ; preds = %13, %11
   %19 = add nuw nsw i64 %indvars.iv, 1
-  %20 = getelementptr inbounds nuw %struct.TEST_CASE, ptr @testCases, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [24 x i8], ptr @testCases, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8, !tbaa !183
   %22 = trunc nuw nsw i64 %19 to i32
   %23 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.976, i32 noundef %22, ptr noundef %21)
@@ -33601,7 +33600,7 @@ gettime_secs.exit63:                              ; preds = %gettime_secs.exit
 
 88:                                               ; preds = %87, %._crit_edge
   %indvars.iv73 = phi i64 [ 0, %87 ], [ %.pre78, %._crit_edge ]
-  %89 = getelementptr inbounds nuw %struct.TEST_CASE, ptr @testCases, i64 %indvars.iv73
+  %89 = getelementptr inbounds nuw [24 x i8], ptr @testCases, i64 %indvars.iv73
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 16
   %91 = load i8, ptr %90, align 8
   %92 = and i8 %91, 2
@@ -35171,7 +35170,7 @@ define internal fastcc i32 @error_test() unnamed_addr #0 {
 
 2:                                                ; preds = %.preheader, %8
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %8 ]
-  %3 = getelementptr inbounds nuw %struct.anon.1, ptr @error_test.missing, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [8 x i8], ptr @error_test.missing, i64 %indvars.iv
   %4 = load i32, ptr %3, align 8, !tbaa !203
   %.not = icmp sgt i32 %.0143226, %4
   br i1 %.not, label %8, label %5
@@ -36384,7 +36383,7 @@ define internal range(i32 0, 2) i32 @test_tls_cert_store_unchanged_ctx_ready(ptr
   %5 = load i64, ptr @test_tls_cert_store_unchanged_before_hashes_idx, align 8, !tbaa !56
   %6 = add i64 %5, 1
   store i64 %6, ptr @test_tls_cert_store_unchanged_before_hashes_idx, align 8, !tbaa !56
-  %7 = getelementptr inbounds nuw i32, ptr @test_tls_cert_store_unchanged_before_hashes, i64 %5
+  %7 = getelementptr inbounds nuw [4 x i8], ptr @test_tls_cert_store_unchanged_before_hashes, i64 %5
   store i32 %4, ptr %7, align 4, !tbaa !67
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %8, label %20
@@ -36457,7 +36456,7 @@ define internal range(i32 0, 2) i32 @test_tls_cert_store_unchanged_ctx_cleanup(p
   %15 = load i64, ptr @test_tls_cert_store_unchanged_after_hashes_idx, align 8, !tbaa !56
   %16 = add i64 %15, 1
   store i64 %16, ptr @test_tls_cert_store_unchanged_after_hashes_idx, align 8, !tbaa !56
-  %17 = getelementptr inbounds nuw i32, ptr @test_tls_cert_store_unchanged_after_hashes, i64 %15
+  %17 = getelementptr inbounds nuw [4 x i8], ptr @test_tls_cert_store_unchanged_after_hashes, i64 %15
   store i32 %14, ptr %17, align 4, !tbaa !67
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %18, label %30
@@ -36524,7 +36523,7 @@ define internal range(i32 0, 2) i32 @test_tls_cert_store_unchanged_on_hs(ptr nou
   %27 = load i64, ptr @test_tls_cert_store_unchanged_after_hashes_idx, align 8, !tbaa !56
   %28 = add i64 %27, 1
   store i64 %28, ptr @test_tls_cert_store_unchanged_after_hashes_idx, align 8, !tbaa !56
-  %29 = getelementptr inbounds nuw i32, ptr @test_tls_cert_store_unchanged_after_hashes, i64 %27
+  %29 = getelementptr inbounds nuw [4 x i8], ptr @test_tls_cert_store_unchanged_after_hashes, i64 %27
   store i32 %26, ptr %29, align 4, !tbaa !67
   %.not = icmp eq i32 %26, 0
   br i1 %.not, label %30, label %.critedge
@@ -36578,7 +36577,7 @@ define internal fastcc i32 @test_tls_cert_store_unchanged_HashCaTable(ptr nounde
 
 .preheader:                                       ; preds = %1, %._crit_edge
   %.034 = phi i64 [ %35, %._crit_edge ], [ 0, %1 ]
-  %18 = getelementptr inbounds nuw ptr, ptr %0, i64 %.034
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.034
   %.02631 = load ptr, ptr %18, align 8, !tbaa !252
   %.not32 = icmp eq ptr %.02631, null
   br i1 %.not32, label %._crit_edge, label %.lr.ph

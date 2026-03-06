@@ -619,7 +619,7 @@ define internal i32 @dissect_pft(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %99 = load i32, ptr %98, align 4
   %100 = add nuw i32 %.1136172.i.i, 1
   %101 = zext i32 %.1136172.i.i to i64
-  %102 = getelementptr i32, ptr %93, i64 %101
+  %102 = getelementptr [4 x i8], ptr %93, i64 %101
   store i32 %99, ptr %102, align 4
   br label %103
 
@@ -657,7 +657,7 @@ define internal i32 @dissect_pft(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %indvars.iv.i = phi i64 [ 0, %.lr.ph183.i.preheader.i ], [ %indvars.iv.next.i, %._crit_edge.i.i ]
   %.0140180.i.i = phi i32 [ 0, %.lr.ph183.i.preheader.i ], [ %128, %._crit_edge.i.i ]
   %.0143179.i.i = phi ptr [ null, %.lr.ph183.i.preheader.i ], [ %.2145.lcssa.i.i, %._crit_edge.i.i ]
-  %114 = getelementptr i32, ptr %93, i64 %indvars.iv.i
+  %114 = getelementptr [4 x i8], ptr %93, i64 %indvars.iv.i
   %115 = load i32, ptr %114, align 4
   %116 = icmp ugt i32 %115, 262144
   br i1 %116, label %117, label %119

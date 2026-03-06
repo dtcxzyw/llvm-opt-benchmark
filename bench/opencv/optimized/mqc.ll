@@ -436,7 +436,7 @@ define hidden void @opj_mqc_reset_enc(ptr noundef writeonly captures(none) %0) l
 
 3:                                                ; preds = %3, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %3 ]
-  %4 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.i
+  %4 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.i
   store ptr @mqc_states, ptr %4, align 8, !tbaa !21
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 19
@@ -458,7 +458,7 @@ define hidden void @opj_mqc_resetstates(ptr noundef writeonly captures(none) %0)
 
 3:                                                ; preds = %1, %3
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %3 ]
-  %4 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   store ptr @mqc_states, ptr %4, align 8, !tbaa !21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 19
@@ -473,10 +473,10 @@ define hidden void @opj_mqc_setstate(ptr noundef writeonly captures(none) %0, i3
   %5 = shl i32 %3, 1
   %6 = add i32 %5, %2
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw %struct.opj_mqc_state, ptr @mqc_states, i64 %7
+  %8 = getelementptr inbounds nuw [24 x i8], ptr @mqc_states, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = zext i32 %1 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %10
   store ptr %8, ptr %11, align 8, !tbaa !21
   ret void
 }

@@ -32,8 +32,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__shared_count" = type { ptr }
 %"class.std::shared_ptr.10" = type { %"class.std::__shared_ptr.11" }
 %"class.std::__shared_ptr.11" = type { ptr, %"class.std::__shared_count" }
-%struct.GZ = type { %"class.Imath_3_2::half", float }
-%"class.Imath_3_2::half" = type { i16 }
 %"class.Imf_3_4::Array2D" = type { i64, i64, ptr }
 
 $_ZN7Imf_3_411FrameBufferD2Ev = comdat any
@@ -399,9 +397,9 @@ define dso_local void @_Z10readTiled1PKcRN7Imf_3_47Array2DI2GZEERiS6_(ptr nounde
   %44 = sub nsw i32 0, %17
   %45 = sext i32 %44 to i64
   %46 = mul nsw i64 %27, %45
-  %47 = getelementptr inbounds %struct.GZ, ptr %32, i64 %46
+  %47 = getelementptr inbounds [8 x i8], ptr %32, i64 %46
   %48 = sext i32 %15 to i64
-  %49 = getelementptr inbounds %struct.GZ, ptr %47, i64 %48
+  %49 = getelementptr inbounds [8 x i8], ptr %47, i64 %48
   %50 = shl nsw i64 %.pre-phi, 3
   invoke void @_ZN7Imf_3_45SliceC1ENS_9PixelTypeEPcmmiidbb(ptr noundef nonnull align 8 dereferenceable(50) %7, i32 noundef 1, ptr noundef nonnull %49, i64 noundef 8, i64 noundef %50, i32 noundef 1, i32 noundef 1, double noundef 0.000000e+00, i1 noundef zeroext false, i1 noundef zeroext false)
           to label %51 unwind label %126
@@ -416,8 +414,8 @@ define dso_local void @_Z10readTiled1PKcRN7Imf_3_47Array2DI2GZEERiS6_(ptr nounde
   %53 = load ptr, ptr %33, align 8, !tbaa !29
   %54 = load i64, ptr %38, align 8, !tbaa !37
   %55 = mul nsw i64 %54, %45
-  %56 = getelementptr inbounds %struct.GZ, ptr %53, i64 %55
-  %57 = getelementptr inbounds %struct.GZ, ptr %56, i64 %48
+  %56 = getelementptr inbounds [8 x i8], ptr %53, i64 %55
+  %57 = getelementptr inbounds [8 x i8], ptr %56, i64 %48
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 4
   %59 = load i32, ptr %2, align 4, !tbaa !35
   %60 = sext i32 %59 to i64

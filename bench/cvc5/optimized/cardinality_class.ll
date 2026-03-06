@@ -31,7 +31,7 @@ define hidden noundef nonnull ptr @_ZN4cvc58internal8toStringENS0_16CardinalityC
   br i1 %2, label %switch.lookup, label %3
 
 switch.lookup:                                    ; preds = %1
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4cvc58internallsERSoNS0_16CardinalityClassE, i64 %0
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4cvc58internallsERSoNS0_16CardinalityClassE, i64 %0
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %3
 
@@ -46,7 +46,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internall
   br i1 %3, label %switch.lookup, label %_ZN4cvc58internal8toStringENS0_16CardinalityClassE.exit
 
 switch.lookup:                                    ; preds = %2
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4cvc58internallsERSoNS0_16CardinalityClassE, i64 %1
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4cvc58internallsERSoNS0_16CardinalityClassE, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN4cvc58internal8toStringENS0_16CardinalityClassE.exit
 

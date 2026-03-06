@@ -437,7 +437,7 @@ _ZSt7advanceIPPKclEvRT_T0_.exit.i.i:              ; preds = %_ZSt7advanceIPPKclE
   %.017.i.i = phi ptr [ %.1.i.i, %_ZSt7advanceIPPKclEvRT_T0_.exit.i.i ], [ @_ZN5boost6locale4util12_GLOBAL__N_121simple_encoding_tableE, %1 ]
   %.01116.i.i = phi i64 [ %.112.i.i, %_ZSt7advanceIPPKclEvRT_T0_.exit.i.i ], [ 30, %1 ]
   %7 = lshr i64 %.01116.i.i, 1
-  %8 = getelementptr inbounds nuw ptr, ptr %.017.i.i, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %.017.i.i, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !15
   %10 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %9, ptr noundef nonnull readonly dereferenceable(1) %6) #22
   %11 = icmp slt i32 %10, 0
@@ -493,7 +493,7 @@ _ZSt7advanceIPPKclEvRT_T0_.exit.i.i.i:            ; preds = %_ZSt7advanceIPPKclE
   %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPPKclEvRT_T0_.exit.i.i.i ], [ @_ZN5boost6locale4util12_GLOBAL__N_121simple_encoding_tableE, %2 ]
   %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPPKclEvRT_T0_.exit.i.i.i ], [ 30, %2 ]
   %8 = lshr i64 %.01116.i.i.i, 1
-  %9 = getelementptr inbounds nuw ptr, ptr %.017.i.i.i, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %.017.i.i.i, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !15
   %11 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(1) %7) #22
   %12 = icmp slt i32 %11, 0
@@ -954,7 +954,7 @@ _ZSt7advanceIPPKclEvRT_T0_.exit.i.i.i:            ; preds = %_ZSt7advanceIPPKclE
   %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPPKclEvRT_T0_.exit.i.i.i ], [ @_ZN5boost6locale4util12_GLOBAL__N_121simple_encoding_tableE, %4 ]
   %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPPKclEvRT_T0_.exit.i.i.i ], [ 30, %4 ]
   %11 = lshr i64 %.01116.i.i.i, 1
-  %12 = getelementptr inbounds nuw ptr, ptr %.017.i.i.i, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %.017.i.i.i, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !15
   %14 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %13, ptr noundef nonnull readonly dereferenceable(1) %10) #22
   %15 = icmp slt i32 %14, 0
@@ -1639,7 +1639,7 @@ define linkonce_odr hidden void @_ZN5boost6locale4util21simple_converter_implC2E
 
 10:                                               ; preds = %2, %10
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %10 ]
-  %11 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %12 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %12, ptr %11, align 4, !tbaa !49
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1693,7 +1693,7 @@ _ZNK5boost6locale4conv11utf_encoderIwE7convertB5cxx11EPKcS5_.exit: ; preds = %14
 
 32:                                               ; preds = %29, %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit
   %.1 = phi i32 [ %.028, %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit ], [ -1, %29 ]
-  %33 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv51
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv51
   store i32 %.1, ptr %33, align 4, !tbaa !49
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
@@ -1762,7 +1762,7 @@ _ZN5boost6locale4conv11utf_encoderIwED2Ev.exit37: ; preds = %46, %_ZNKSt14defaul
 
 51:                                               ; preds = %.preheader39, %61
   %indvars.iv58 = phi i64 [ 1, %.preheader39 ], [ %indvars.iv.next59, %61 ]
-  %52 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv58
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv58
   %53 = load i32, ptr %52, align 4, !tbaa !49
   %.not = icmp eq i32 %53, -1
   br i1 %.not, label %61, label %.preheader
@@ -1827,7 +1827,7 @@ define linkonce_odr hidden noundef i32 @_ZN5boost6locale4util16simple_converter1
   store ptr %8, ptr %1, align 8, !tbaa !15
   %9 = load i8, ptr %4, align 1, !tbaa !18
   %10 = zext i8 %9 to i64
-  %11 = getelementptr inbounds nuw i32, ptr %7, i64 %10
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %10
   %12 = load i32, ptr %11, align 4, !tbaa !49
   br label %_ZNK5boost6locale4util21simple_converter_impl10to_unicodeERPKcS4_.exit
 
@@ -1868,7 +1868,7 @@ define linkonce_odr hidden noundef i32 @_ZN5boost6locale4util16simple_converter1
   %18 = phi i8 [ %17, %13 ], [ %12, %.preheader.i ]
   %.01320.i = phi i32 [ %.013.i, %13 ], [ %.01318.i, %.preheader.i ]
   %19 = zext i8 %18 to i64
-  %20 = getelementptr inbounds nuw i32, ptr %5, i64 %19
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %19
   %21 = load i32, ptr %20, align 4, !tbaa !49
   %.not16.i = icmp eq i32 %21, %1
   br i1 %.not16.i, label %.loopexit.sink.split.i, label %13
@@ -3498,7 +3498,7 @@ define linkonce_odr hidden noundef i32 @_ZNK5boost6locale15generic_codecvtIwNS0_
   %28 = phi i8 [ %27, %23 ], [ %22, %.preheader.i.i ]
   %.01320.i.i = phi i32 [ %.013.i.i, %23 ], [ %.01318.i.i, %.preheader.i.i ]
   %29 = zext i8 %28 to i64
-  %30 = getelementptr inbounds nuw i32, ptr %12, i64 %29
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %29
   %31 = load i32, ptr %30, align 4, !tbaa !49
   %.not16.i.i = icmp eq i32 %31, %15
   br i1 %.not16.i.i, label %.loopexit, label %23
@@ -3554,7 +3554,7 @@ _ZNK5boost6locale4util14simple_codecvtIwE10to_unicodeERNS3_10state_typeERPKcS7_.
   %.02744 = phi ptr [ %2, %_ZNK5boost6locale4util14simple_codecvtIwE10to_unicodeERNS3_10state_typeERPKcS7_.exit.lr.ph ], [ %18, %17 ]
   %13 = load i8, ptr %.02744, align 1, !tbaa !18
   %14 = zext i8 %13 to i64
-  %15 = getelementptr inbounds nuw i32, ptr %12, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !49
   switch i32 %16, label %17 [
     i32 -1, label %.thread.thread.loopexit
@@ -3616,7 +3616,7 @@ _ZNK5boost6locale4util14simple_codecvtIwE10to_unicodeERNS3_10state_typeERPKcS7_.
   %.01520 = phi ptr [ %15, %14 ], [ %2, %5 ]
   %10 = load i8, ptr %.01520, align 1, !tbaa !18
   %11 = zext i8 %10 to i64
-  %12 = getelementptr inbounds nuw i32, ptr %6, i64 %11
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !49
   %or.cond = icmp ugt i32 %13, -3
   br i1 %or.cond, label %.thread, label %14

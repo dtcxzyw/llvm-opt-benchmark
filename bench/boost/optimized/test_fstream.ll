@@ -1102,7 +1102,7 @@ define hidden void @_Z15get_narrow_nameRKNSt7__cxx1112basic_stringIwSt11char_tra
   %3 = load ptr, ptr %1, align 8, !tbaa !36, !noalias !33
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !39, !noalias !33
-  %6 = getelementptr inbounds nuw i32, ptr %3, i64 %5
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !40)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %7, ptr %0, align 8, !tbaa !10, !alias.scope !43

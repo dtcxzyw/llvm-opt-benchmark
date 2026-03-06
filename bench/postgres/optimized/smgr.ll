@@ -186,7 +186,7 @@ define dso_local void @smgrrelease(ptr noundef %0) local_unnamed_addr #0 {
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %5 ]
   %6 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void @mdclose(ptr noundef %0, i32 noundef %6) #10
-  %7 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   store i32 -1, ptr %7, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -202,7 +202,7 @@ define dso_local void @smgrclose(ptr noundef %0) local_unnamed_addr #0 {
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %3 ]
   %4 = trunc nuw nsw i64 %indvars.iv.i to i32
   tail call void @mdclose(ptr noundef %0, i32 noundef %4) #10
-  %5 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.i
+  %5 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv.i
   store i32 -1, ptr %5, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
@@ -285,7 +285,7 @@ define dso_local void @smgrreleaseall() local_unnamed_addr #0 {
   %indvars.iv.i = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next.i, %8 ]
   %9 = trunc nuw nsw i64 %indvars.iv.i to i32
   call void @mdclose(ptr noundef nonnull %6, i32 noundef %9) #10
-  %10 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv.i
   store i32 -1, ptr %10, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
@@ -330,7 +330,7 @@ define dso_local void @smgrreleaserellocator(i64 %0, i64 %1) local_unnamed_addr 
   %indvars.iv.i = phi i64 [ 0, %9 ], [ %indvars.iv.next.i, %11 ]
   %12 = trunc nuw nsw i64 %indvars.iv.i to i32
   call void @mdclose(ptr noundef nonnull %8, i32 noundef %12) #10
-  %13 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv.i
   store i32 -1, ptr %13, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
@@ -373,7 +373,7 @@ define dso_local void @smgrdosyncall(ptr noundef %0, i32 noundef %1) local_unnam
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %14
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %14 ]
-  %6 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   br label %7
 
 7:                                                ; preds = %.lr.ph, %12
@@ -426,9 +426,9 @@ define dso_local void @smgrdounlinkall(ptr noundef %0, i32 noundef %1, i1 nounde
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %16
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds nuw %struct.RelFileLocatorBackend, ptr %8, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %indvars.iv
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %11, i64 16, i1 false)
   br label %13
 
@@ -451,7 +451,7 @@ define dso_local void @smgrdounlinkall(ptr noundef %0, i32 noundef %1, i1 nounde
 
 .lr.ph43:                                         ; preds = %.lr.ph43.preheader, %.lr.ph43
   %indvars.iv49 = phi i64 [ 0, %.lr.ph43.preheader ], [ %indvars.iv.next50, %.lr.ph43 ]
-  %17 = getelementptr inbounds nuw %struct.RelFileLocatorBackend, ptr %8, i64 %indvars.iv49
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %indvars.iv49
   %18 = load i64, ptr %17, align 4
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %20 = load i64, ptr %19, align 4
@@ -462,7 +462,7 @@ define dso_local void @smgrdounlinkall(ptr noundef %0, i32 noundef %1, i1 nounde
 
 .lr.ph46:                                         ; preds = %.lr.ph46.preheader, %27
   %indvars.iv55 = phi i64 [ 0, %.lr.ph46.preheader ], [ %indvars.iv.next56, %27 ]
-  %21 = getelementptr inbounds nuw %struct.RelFileLocatorBackend, ptr %8, i64 %indvars.iv55
+  %21 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %indvars.iv55
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   br label %23
 
@@ -501,7 +501,7 @@ define dso_local void @smgrextend(ptr noundef %0, i32 noundef %1, i32 noundef %2
   tail call void @mdextend(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %4) #10
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %7 = sext i32 %1 to i64
-  %8 = getelementptr inbounds i32, ptr %6, i64 %7
+  %8 = getelementptr inbounds [4 x i8], ptr %6, i64 %7
   %9 = load i32, ptr %8, align 4
   %10 = icmp eq i32 %9, %2
   %11 = add i32 %2, 1
@@ -515,7 +515,7 @@ define dso_local void @smgrzeroextend(ptr noundef %0, i32 noundef %1, i32 nounde
   tail call void @mdzeroextend(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4) #10
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %7 = sext i32 %1 to i64
-  %8 = getelementptr inbounds i32, ptr %6, i64 %7
+  %8 = getelementptr inbounds [4 x i8], ptr %6, i64 %7
   %9 = load i32, ptr %8, align 4
   %10 = icmp eq i32 %9, %2
   %11 = add i32 %3, %2
@@ -567,7 +567,7 @@ define dso_local i32 @smgrnblocks(ptr noundef %0, i32 noundef %1) local_unnamed_
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %7 = sext i32 %1 to i64
-  %8 = getelementptr inbounds i32, ptr %6, i64 %7
+  %8 = getelementptr inbounds [4 x i8], ptr %6, i64 %7
   %9 = load i32, ptr %8, align 4
   %.not.i = icmp eq i32 %9, -1
   br i1 %.not.i, label %10, label %smgrnblocks_cached.exit
@@ -576,7 +576,7 @@ define dso_local i32 @smgrnblocks(ptr noundef %0, i32 noundef %1) local_unnamed_
   %.pre-phi = phi i64 [ %.pre, %._crit_edge ], [ %7, %5 ]
   %11 = tail call i32 @mdnblocks(ptr noundef %0, i32 noundef %1) #10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %13 = getelementptr inbounds i32, ptr %12, i64 %.pre-phi
+  %13 = getelementptr inbounds [4 x i8], ptr %12, i64 %.pre-phi
   store i32 %11, ptr %13, align 4
   br label %smgrnblocks_cached.exit
 
@@ -594,7 +594,7 @@ define dso_local i32 @smgrnblocks_cached(ptr noundef readonly captures(none) %0,
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %7 = sext i32 %1 to i64
-  %8 = getelementptr inbounds i32, ptr %6, i64 %7
+  %8 = getelementptr inbounds [4 x i8], ptr %6, i64 %7
   %9 = load i32, ptr %8, align 4
   %.not = icmp eq i32 %9, -1
   br i1 %.not, label %10, label %11
@@ -624,21 +624,21 @@ define dso_local void @smgrtruncate(ptr noundef %0, ptr noundef %1, i32 noundef 
 
 11:                                               ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
-  %12 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds i32, ptr %10, i64 %14
+  %15 = getelementptr inbounds [4 x i8], ptr %10, i64 %14
   store i32 -1, ptr %15, align 4
   %16 = load i32, ptr %12, align 4
-  %17 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %18 = load i32, ptr %17, align 4
-  %19 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   %20 = load i32, ptr %19, align 4
   tail call void @mdtruncate(ptr noundef nonnull %0, i32 noundef %16, i32 noundef %18, i32 noundef %20) #10
   %21 = load i32, ptr %19, align 4
   %22 = load i32, ptr %12, align 4
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds i32, ptr %10, i64 %23
+  %24 = getelementptr inbounds [4 x i8], ptr %10, i64 %23
   store i32 %21, ptr %24, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -691,7 +691,7 @@ define dso_local noundef zeroext i1 @ProcessBarrierSmgrRelease() local_unnamed_a
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i.i, %8 ]
   %9 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   call void @mdclose(ptr noundef nonnull %6, i32 noundef %9) #10
-  %10 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i.i
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv.i.i
   store i32 -1, ptr %10, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4

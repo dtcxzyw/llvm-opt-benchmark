@@ -130,7 +130,7 @@ define hidden noundef ptr @_ZN3std2io17default_write_fmt17hf627d1765eaa8bb5E(ptr
 ; Function Attrs: nonlazybind uwtable
 define internal { i64, ptr } @_ZN3std2io5Write14write_vectored17h2c207f61a1c48e25E(ptr noalias noundef align 8 dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 8 captures(address) %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5)
-  %4 = getelementptr inbounds nuw { { { ptr, i64 }, {} } }, ptr %1, i64 %2
+  %4 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %2
   br label %5
 
 5:                                                ; preds = %8, %3
@@ -214,7 +214,7 @@ define internal noundef ptr @_ZN3std2io5Write18write_all_vectored17h1e98830c133a
   br i1 %20, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hedda216625276ec7E.exit.thread.i", label %.lr.ph.i
 
 .lr.ph:                                           ; preds = %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h68d68ba7ce024e09E.exit.i"
-  %21 = getelementptr inbounds nuw { { { ptr, i64 }, {} } }, ptr %1, i64 %.sroa.0.0.lcssa.i
+  %21 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %.sroa.0.0.lcssa.i
   %22 = sub nuw i64 %2, %.sroa.0.0.lcssa.i
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br label %24
@@ -225,7 +225,7 @@ define internal noundef ptr @_ZN3std2io5Write18write_all_vectored17h1e98830c133a
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.experimental.noalias.scope.decl(metadata !23)
   call void @llvm.experimental.noalias.scope.decl(metadata !26)
-  %25 = getelementptr inbounds nuw { { { ptr, i64 }, {} } }, ptr %.sroa.0.02975, i64 %.sroa.8.074
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0.02975, i64 %.sroa.8.074
   br label %26
 
 26:                                               ; preds = %29, %24
@@ -314,7 +314,7 @@ default.unreachable:                              ; preds = %39
 
 "_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h68d68ba7ce024e09E.exit.i14": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hedda216625276ec7E.exit.thread.i11"
   %52 = sub nuw i64 %.sroa.8.074, %.sroa.0.0.lcssa.i13
-  %53 = getelementptr inbounds nuw { { { ptr, i64 }, {} } }, ptr %.sroa.0.02975, i64 %.sroa.0.0.lcssa.i13
+  %53 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0.02975, i64 %.sroa.0.0.lcssa.i13
   %54 = icmp eq i64 %.sroa.8.074, %.sroa.0.0.lcssa.i13
   br i1 %54, label %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h68d68ba7ce024e09E.exit.thread.i15", label %62
 

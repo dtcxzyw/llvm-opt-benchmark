@@ -3,9 +3,6 @@ source_filename = "bench/abseil-cpp/original/time_zone_info.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"struct.absl::time_internal::cctz::TransitionType" = type <{ i32, [4 x i8], %"class.absl::time_internal::cctz::detail::civil_time", %"class.absl::time_internal::cctz::detail::civil_time", i8, i8, [6 x i8] }>
-%"class.absl::time_internal::cctz::detail::civil_time" = type { %"struct.absl::time_internal::cctz::detail::fields" }
-%"struct.absl::time_internal::cctz::detail::fields" = type <{ i64, i8, i8, i8, i8, i8, [3 x i8] }>
 %"struct.absl::time_internal::cctz::PosixTimeZone" = type { %"class.std::__cxx11::basic_string", i64, %"class.std::__cxx11::basic_string", i64, %"struct.absl::time_internal::cctz::PosixTransition", %"struct.absl::time_internal::cctz::PosixTransition" }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
@@ -16,6 +13,8 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.absl::time_internal::cctz::PosixTransition::Date::NonLeapDay" = type { i64 }
 %"struct.absl::time_internal::cctz::PosixTransition::Time" = type { i64 }
 %"struct.absl::time_internal::cctz::time_zone::absolute_lookup" = type { %"class.absl::time_internal::cctz::detail::civil_time", i32, i8, ptr }
+%"class.absl::time_internal::cctz::detail::civil_time" = type { %"struct.absl::time_internal::cctz::detail::fields" }
+%"struct.absl::time_internal::cctz::detail::fields" = type <{ i64, i8, i8, i8, i8, i8, [3 x i8] }>
 %"struct.absl::time_internal::cctz::Transition" = type { i64, i8, [7 x i8], %"class.absl::time_internal::cctz::detail::civil_time", %"class.absl::time_internal::cctz::detail::civil_time" }
 %struct.tzhead = type { [4 x i8], [1 x i8], [15 x i8], [4 x i8], [4 x i8], [4 x i8], [4 x i8], [4 x i8], [4 x i8] }
 %"struct.absl::time_internal::cctz::(anonymous namespace)::Header" = type { i64, i64, i64, i64, i64, i64 }
@@ -182,7 +181,7 @@ define dso_local noundef zeroext i1 @_ZN4absl13time_internal4cctz12TimeZoneInfo1
   %14 = phi ptr [ %36, %33 ], [ %13, %5 ]
   %.03040 = phi i64 [ %34, %33 ], [ 0, %5 ]
   %.03139 = phi i64 [ %.2, %33 ], [ %9, %5 ]
-  %15 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::TransitionType", ptr %14, i64 %.03040
+  %15 = getelementptr inbounds nuw [48 x i8], ptr %14, i64 %.03040
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 41
   %17 = load i8, ptr %16, align 1, !tbaa !16
   %18 = zext i8 %17 to i64
@@ -318,9 +317,9 @@ define dso_local noundef zeroext i1 @_ZNK4absl13time_internal4cctz12TimeZoneInfo
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = zext i8 %1 to i64
   %8 = load ptr, ptr %6, align 8, !tbaa !15
-  %9 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::TransitionType", ptr %8, i64 %7
+  %9 = getelementptr inbounds nuw [48 x i8], ptr %8, i64 %7
   %10 = zext i8 %2 to i64
-  %11 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::TransitionType", ptr %8, i64 %10
+  %11 = getelementptr inbounds nuw [48 x i8], ptr %8, i64 %10
   %12 = load i32, ptr %9, align 8, !tbaa !23
   %13 = load i32, ptr %11, align 8, !tbaa !23
   %.not = icmp eq i32 %12, %13
@@ -421,9 +420,9 @@ define dso_local noundef zeroext i1 @_ZN4absl13time_internal4cctz12TimeZoneInfo1
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %43 = zext i8 %38 to i64
   %44 = load ptr, ptr %42, align 8, !tbaa !15
-  %45 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::TransitionType", ptr %44, i64 %43
+  %45 = getelementptr inbounds nuw [48 x i8], ptr %44, i64 %43
   %46 = zext i8 %39 to i64
-  %47 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::TransitionType", ptr %44, i64 %46
+  %47 = getelementptr inbounds nuw [48 x i8], ptr %44, i64 %46
   %48 = load i32, ptr %45, align 8, !tbaa !23
   %49 = load i32, ptr %47, align 8, !tbaa !23
   %.not.i = icmp eq i32 %48, %49
@@ -524,7 +523,7 @@ _ZN4absl13time_internal4cctz12_GLOBAL__N_110AllYearDSTERKNS1_13PosixTimeZoneE.ex
   %106 = load i8, ptr %105, align 8, !tbaa !55
   %107 = zext i8 %106 to i64
   %108 = load ptr, ptr %104, align 8, !tbaa !15
-  %109 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::TransitionType", ptr %108, i64 %107
+  %109 = getelementptr inbounds nuw [48 x i8], ptr %108, i64 %107
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZNK4absl13time_internal4cctz12TimeZoneInfo9LocalTimeElRKNS1_14TransitionTypeE(ptr dead_on_unwind nonnull writable sret(%"struct.absl::time_internal::cctz::time_zone::absolute_lookup") align 8 %5, ptr noundef nonnull align 8 dereferenceable(192) %0, i64 noundef %103, ptr noundef nonnull align 8 dereferenceable(42) %109)
   %110 = load i64, ptr %5, align 8, !tbaa !63
@@ -654,12 +653,12 @@ _ZN4absl13time_internal4cctz12_GLOBAL__N_16IsLeapEl.exit: ; preds = %100, %114, 
   %170 = load i8, ptr %155, align 1, !tbaa !33
   %171 = icmp eq i8 %170, 5
   %172 = zext nneg i8 %.035 to i64
-  %173 = getelementptr inbounds nuw [14 x i16], ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_113kMonthOffsetsE, i64 %172
+  %173 = getelementptr inbounds nuw [28 x i8], ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_113kMonthOffsetsE, i64 %172
   %174 = load i8, ptr %70, align 8, !tbaa !33
   %175 = sext i8 %174 to i64
   %176 = zext i1 %171 to i64
-  %177 = getelementptr i16, ptr %173, i64 %175
-  %178 = getelementptr i16, ptr %177, i64 %176
+  %177 = getelementptr [2 x i8], ptr %173, i64 %175
+  %178 = getelementptr [2 x i8], ptr %177, i64 %176
   %179 = load i16, ptr %178, align 2, !tbaa !69
   %180 = sext i16 %179 to i64
   %181 = sext i16 %179 to i32
@@ -722,12 +721,12 @@ _ZN4absl13time_internal4cctz12_GLOBAL__N_111TransOffsetEbiRKNS1_15PosixTransitio
   %211 = load i8, ptr %157, align 1, !tbaa !33
   %212 = icmp eq i8 %211, 5
   %213 = zext nneg i8 %.035 to i64
-  %214 = getelementptr inbounds nuw [14 x i16], ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_113kMonthOffsetsE, i64 %213
+  %214 = getelementptr inbounds nuw [28 x i8], ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_113kMonthOffsetsE, i64 %213
   %215 = load i8, ptr %76, align 8, !tbaa !33
   %216 = sext i8 %215 to i64
   %217 = zext i1 %212 to i64
-  %218 = getelementptr i16, ptr %214, i64 %216
-  %219 = getelementptr i16, ptr %218, i64 %217
+  %218 = getelementptr [2 x i8], ptr %214, i64 %216
+  %219 = getelementptr [2 x i8], ptr %218, i64 %217
   %220 = load i16, ptr %219, align 2, !tbaa !69
   %221 = sext i16 %220 to i64
   %222 = sext i16 %220 to i32
@@ -858,7 +857,7 @@ _ZNSt6vectorIN4absl13time_internal4cctz10TransitionESaIS3_EE11_S_relocateEPS3_S6
 _ZNSt6vectorIN4absl13time_internal4cctz10TransitionESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %281, %_ZNSt6vectorIN4absl13time_internal4cctz10TransitionESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i
   store ptr %276, ptr %91, align 8, !tbaa !61
   store ptr %280, ptr %92, align 8, !tbaa !60
-  %282 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::Transition", ptr %276, i64 %274
+  %282 = getelementptr inbounds nuw [48 x i8], ptr %276, i64 %274
   store ptr %282, ptr %159, align 8, !tbaa !72
   br label %_ZNSt6vectorIN4absl13time_internal4cctz10TransitionESaIS3_EE9push_backERKS3_.exit
 
@@ -941,7 +940,7 @@ _ZNSt6vectorIN4absl13time_internal4cctz10TransitionESaIS3_EE11_S_relocateEPS3_S6
 _ZNSt6vectorIN4absl13time_internal4cctz10TransitionESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i78: ; preds = %306, %_ZNSt6vectorIN4absl13time_internal4cctz10TransitionESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i75
   store ptr %301, ptr %91, align 8, !tbaa !61
   store ptr %305, ptr %92, align 8, !tbaa !60
-  %307 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::Transition", ptr %301, i64 %299
+  %307 = getelementptr inbounds nuw [48 x i8], ptr %301, i64 %299
   store ptr %307, ptr %159, align 8, !tbaa !72
   br label %_ZNSt6vectorIN4absl13time_internal4cctz10TransitionESaIS3_EE9push_backERKS3_.exit81
 
@@ -952,11 +951,11 @@ _ZNSt6vectorIN4absl13time_internal4cctz10TransitionESaIS3_EE9push_backERKS3_.exi
 
 309:                                              ; preds = %_ZNSt6vectorIN4absl13time_internal4cctz10TransitionESaIS3_EE9push_backERKS3_.exit81
   %310 = zext nneg i8 %.035 to i64
-  %311 = getelementptr inbounds nuw i32, ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_112kSecsPerYearE, i64 %310
+  %311 = getelementptr inbounds nuw [4 x i8], ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_112kSecsPerYearE, i64 %310
   %312 = load i32, ptr %311, align 4, !tbaa !84
   %313 = sext i32 %312 to i64
   %314 = add nsw i64 %.039, %313
-  %315 = getelementptr inbounds nuw i32, ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_112kDaysPerYearE, i64 %310
+  %315 = getelementptr inbounds nuw [4 x i8], ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_112kDaysPerYearE, i64 %310
   %316 = load i32, ptr %315, align 4, !tbaa !84
   %317 = add nsw i32 %316, %.037
   %318 = srem i32 %317, 7
@@ -1101,7 +1100,7 @@ _ZNSt12_Vector_baseIN4absl13time_internal4cctz10TransitionESaIS3_EE13_M_dealloca
   store ptr %19, ptr %0, align 8, !tbaa !61
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 %17
   store ptr %23, ptr %14, align 8, !tbaa !60
-  %24 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::Transition", ptr %19, i64 %1
+  %24 = getelementptr inbounds nuw [48 x i8], ptr %19, i64 %1
   store ptr %24, ptr %6, align 8, !tbaa !72
   br label %25
 
@@ -1211,7 +1210,7 @@ define linkonce_odr dso_local noundef i32 @_ZN4absl13time_internal4cctz6detail11
   %11 = udiv i16 %.lhs.trunc, 400
   %.zext10 = zext nneg i16 %11 to i64
   %12 = sext i8 %6 to i64
-  %13 = getelementptr inbounds i32, ptr @__const._ZN4absl13time_internal4cctz6detail11get_weekdayERKNS2_10civil_timeINS2_10second_tagEEE.k_weekday_offsets, i64 %12
+  %13 = getelementptr inbounds [4 x i8], ptr @__const._ZN4absl13time_internal4cctz6detail11get_weekdayERKNS2_10civil_timeINS2_10second_tagEEE.k_weekday_offsets, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !84
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %16 = load i8, ptr %15, align 1, !tbaa !95
@@ -1223,7 +1222,7 @@ define linkonce_odr dso_local noundef i32 @_ZN4absl13time_internal4cctz6detail11
   %22 = sub nsw i64 %21, %.zext
   %23 = add nsw i64 %22, %.zext10
   %24 = srem i64 %23, 7
-  %25 = getelementptr i32, ptr @__const._ZN4absl13time_internal4cctz6detail11get_weekdayERKNS2_10civil_timeINS2_10second_tagEEE.k_weekday_by_mon_off, i64 %24
+  %25 = getelementptr [4 x i8], ptr @__const._ZN4absl13time_internal4cctz6detail11get_weekdayERKNS2_10civil_timeINS2_10second_tagEEE.k_weekday_by_mon_off, i64 %24
   %26 = getelementptr i8, ptr %25, i64 24
   %27 = load i32, ptr %26, align 4, !tbaa !96
   ret i32 %27
@@ -1641,7 +1640,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN4absl13time_internal4cctz14Tra
   br i1 %14, label %15, label %_ZNSt6vectorIN4absl13time_internal4cctz14TransitionTypeESaIS3_EE15_M_erase_at_endEPS3_.exit
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::TransitionType", ptr %5, i64 %1
+  %16 = getelementptr inbounds nuw [48 x i8], ptr %5, i64 %1
   %.not.i = icmp eq ptr %4, %16
   br i1 %.not.i, label %_ZNSt6vectorIN4absl13time_internal4cctz14TransitionTypeESaIS3_EE15_M_erase_at_endEPS3_.exit, label %17
 
@@ -1704,7 +1703,7 @@ define linkonce_odr dso_local ptr @_ZNSt6vectorIN4absl13time_internal4cctz10Tran
   %29 = ptrtoint ptr %27 to i64
   %30 = sub i64 %29, %4
   %.neg.i.i.i.i.i.i.i = sdiv exact i64 %30, -48
-  %31 = getelementptr inbounds %"struct.absl::time_internal::cctz::Transition", ptr %25, i64 %.neg.i.i.i.i.i.i.i
+  %31 = getelementptr inbounds [48 x i8], ptr %25, i64 %.neg.i.i.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %31, ptr align 8 %23, i64 %30, i1 false)
   br label %32
 
@@ -2008,7 +2007,7 @@ _ZN4absl13time_internal4cctz12_GLOBAL__N_18Decode32EPKc.exit: ; preds = %.prehea
 
 _ZN4absl13time_internal4cctz12_GLOBAL__N_18Decode64EPKc.exit: ; preds = %.preheader243, %_ZN4absl13time_internal4cctz12_GLOBAL__N_18Decode32EPKc.exit
   %113 = phi i64 [ %.0.i, %_ZN4absl13time_internal4cctz12_GLOBAL__N_18Decode32EPKc.exit ], [ %111, %.preheader243 ]
-  %114 = getelementptr %"struct.absl::time_internal::cctz::Transition", ptr %96, i64 %.0133255
+  %114 = getelementptr [48 x i8], ptr %96, i64 %.0133255
   store i64 %113, ptr %114, align 8, !tbaa !62
   %115 = getelementptr inbounds nuw i8, ptr %.0127256, i64 %.0114
   %.not161 = icmp eq i64 %.0133255, 0
@@ -2030,7 +2029,7 @@ _ZN4absl13time_internal4cctz12_GLOBAL__N_18Decode64EPKc.exit: ; preds = %.prehea
   %.0136259 = phi i1 [ false, %.lr.ph261 ], [ %spec.select, %126 ]
   %.0138258 = phi i64 [ 0, %.lr.ph261 ], [ %129, %126 ]
   %.2129.val = load i8, ptr %.2129260, align 1, !tbaa !33
-  %123 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::Transition", ptr %97, i64 %.0138258
+  %123 = getelementptr inbounds nuw [48 x i8], ptr %97, i64 %.0138258
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 8
   store i8 %.2129.val, ptr %124, align 8, !tbaa !55
   %125 = zext i8 %.2129.val to i64
@@ -2085,7 +2084,7 @@ _ZN4absl13time_internal4cctz12_GLOBAL__N_18Decode64EPKc.exit: ; preds = %.prehea
   br i1 %.not.i205, label %142, label %136, !llvm.loop !125
 
 142:                                              ; preds = %136
-  %143 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::TransitionType", ptr %133, i64 %.0139264
+  %143 = getelementptr inbounds nuw [48 x i8], ptr %133, i64 %.0139264
   store i32 %140, ptr %143, align 8, !tbaa !23
   %144 = add i32 %140, -86400
   %or.cond232 = icmp ult i32 %144, -172799
@@ -2138,7 +2137,7 @@ _ZN4absl13time_internal4cctz12_GLOBAL__N_18Decode64EPKc.exit: ; preds = %.prehea
 
 .lr.ph269:                                        ; preds = %.lr.ph269.preheader, %172
   %indvars.iv = phi i64 [ %167, %.lr.ph269.preheader ], [ %indvars.iv.next, %172 ]
-  %168 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::TransitionType", ptr %133, i64 %indvars.iv
+  %168 = getelementptr inbounds nuw [48 x i8], ptr %133, i64 %indvars.iv
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 40
   %170 = load i8, ptr %169, align 8, !tbaa !24, !range !25, !noundef !26
   %171 = trunc nuw i8 %170 to i1
@@ -2163,7 +2162,7 @@ _ZN4absl13time_internal4cctz12_GLOBAL__N_18Decode64EPKc.exit: ; preds = %.prehea
 .lr.ph275:                                        ; preds = %.critedge, %181
   %176 = phi i64 [ %183, %181 ], [ %175, %.critedge ]
   %.2142274 = phi i8 [ %182, %181 ], [ %.0140, %.critedge ]
-  %177 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::TransitionType", ptr %133, i64 %176
+  %177 = getelementptr inbounds nuw [48 x i8], ptr %133, i64 %176
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 40
   %179 = load i8, ptr %178, align 8, !tbaa !24, !range !25, !noundef !26
   %180 = trunc nuw i8 %179 to i1
@@ -2384,7 +2383,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %230, 
   %273 = load ptr, ptr %130, align 8, !tbaa !15
   %274 = load i8, ptr %157, align 8, !tbaa !101
   %275 = zext i8 %274 to i64
-  %276 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::TransitionType", ptr %273, i64 %275
+  %276 = getelementptr inbounds nuw [48 x i8], ptr %273, i64 %275
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
   br label %277
 
@@ -2392,7 +2391,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %230, 
   %278 = phi ptr [ %272, %.lr.ph280 ], [ %299, %.critedge188 ]
   %.0134278 = phi i64 [ 0, %.lr.ph280 ], [ %297, %.critedge188 ]
   %.0135277 = phi ptr [ %276, %.lr.ph280 ], [ %289, %.critedge188 ]
-  %279 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::Transition", ptr %278, i64 %.0134278
+  %279 = getelementptr inbounds nuw [48 x i8], ptr %278, i64 %.0134278
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %280 = load i64, ptr %279, align 8, !tbaa !62
   call void @_ZNK4absl13time_internal4cctz12TimeZoneInfo9LocalTimeElRKNS1_14TransitionTypeE(ptr dead_on_unwind nonnull writable sret(%"struct.absl::time_internal::cctz::time_zone::absolute_lookup") align 8 %11, ptr noundef nonnull align 8 dereferenceable(192) %0, i64 noundef %280, ptr noundef nonnull align 8 dereferenceable(42) %.0135277)
@@ -2410,7 +2409,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %230, 
   %286 = load i8, ptr %285, align 8, !tbaa !55
   %287 = zext i8 %286 to i64
   %288 = load ptr, ptr %130, align 8, !tbaa !15
-  %289 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::TransitionType", ptr %288, i64 %287
+  %289 = getelementptr inbounds nuw [48 x i8], ptr %288, i64 %287
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %290 = load i64, ptr %279, align 8, !tbaa !62
   call void @_ZNK4absl13time_internal4cctz12TimeZoneInfo9LocalTimeElRKNS1_14TransitionTypeE(ptr dead_on_unwind nonnull writable sret(%"struct.absl::time_internal::cctz::time_zone::absolute_lookup") align 8 %12, ptr noundef nonnull align 8 dereferenceable(192) %0, i64 noundef %290, ptr noundef nonnull align 8 dereferenceable(42) %289)
@@ -2423,7 +2422,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %230, 
 292:                                              ; preds = %277
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %293 = load ptr, ptr %93, align 8, !tbaa !61
-  %294 = getelementptr %"struct.absl::time_internal::cctz::Transition", ptr %293, i64 %.0134278
+  %294 = getelementptr [48 x i8], ptr %293, i64 %.0134278
   %295 = getelementptr i8, ptr %294, i64 -48
   %296 = call noundef zeroext i1 @_ZNK4absl13time_internal4cctz10Transition11ByCivilTimeclERKS2_S5_(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 8 dereferenceable(48) %295, ptr noundef nonnull align 8 dereferenceable(48) %279)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -2757,7 +2756,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN4absl13time_internal4cctz10Tra
   br i1 %14, label %15, label %_ZNSt6vectorIN4absl13time_internal4cctz10TransitionESaIS3_EE15_M_erase_at_endEPS3_.exit
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::Transition", ptr %5, i64 %1
+  %16 = getelementptr inbounds nuw [48 x i8], ptr %5, i64 %1
   %.not.i = icmp eq ptr %4, %16
   br i1 %.not.i, label %_ZNSt6vectorIN4absl13time_internal4cctz10TransitionESaIS3_EE15_M_erase_at_endEPS3_.exit, label %17
 
@@ -2820,7 +2819,7 @@ _ZNSt12_Vector_baseIN4absl13time_internal4cctz14TransitionTypeESaIS3_EE13_M_deal
   store ptr %19, ptr %0, align 8, !tbaa !15
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 %17
   store ptr %23, ptr %14, align 8, !tbaa !12
-  %24 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::TransitionType", ptr %19, i64 %1
+  %24 = getelementptr inbounds nuw [48 x i8], ptr %19, i64 %1
   store ptr %24, ptr %6, align 8, !tbaa !29
   br label %25
 
@@ -3143,7 +3142,7 @@ define dso_local void @_ZNK4absl13time_internal4cctz12TimeZoneInfo9LocalTimeElRK
   %7 = load i8, ptr %6, align 8, !tbaa !55
   %8 = zext i8 %7 to i64
   %9 = load ptr, ptr %5, align 8, !tbaa !15
-  %10 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::TransitionType", ptr %9, i64 %8
+  %10 = getelementptr inbounds nuw [48 x i8], ptr %9, i64 %8
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.sroa.0.0.copyload = load i64, ptr %11, align 8, !tbaa !74
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -3262,7 +3261,7 @@ define dso_local void @_ZNK4absl13time_internal4cctz12TimeZoneInfo9BreakTimeERKN
   %18 = load i8, ptr %17, align 8, !tbaa !101
   %19 = zext i8 %18 to i64
   %20 = load ptr, ptr %16, align 8, !tbaa !15
-  %21 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::TransitionType", ptr %20, i64 %19
+  %21 = getelementptr inbounds nuw [48 x i8], ptr %20, i64 %19
   tail call void @llvm.experimental.noalias.scope.decl(metadata !157)
   %22 = sdiv i64 %.sroa.0.0.copyload.i.i1.i, 60
   %23 = srem i64 %.sroa.0.0.copyload.i.i1.i, 60
@@ -3369,7 +3368,7 @@ define dso_local void @_ZNK4absl13time_internal4cctz12TimeZoneInfo9BreakTimeERKN
   %93 = load i8, ptr %92, align 8, !tbaa !55, !noalias !160
   %94 = zext i8 %93 to i64
   %95 = load ptr, ptr %91, align 8, !tbaa !15, !noalias !160
-  %96 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::TransitionType", ptr %95, i64 %94
+  %96 = getelementptr inbounds nuw [48 x i8], ptr %95, i64 %94
   %97 = getelementptr i8, ptr %55, i64 -32
   %.sroa.0.0.copyload.i = load i64, ptr %97, align 8, !tbaa !74, !noalias !160
   %.sroa.2.0..sroa_idx.i = getelementptr i8, ptr %55, i64 -24
@@ -3422,7 +3421,7 @@ define dso_local void @_ZNK4absl13time_internal4cctz12TimeZoneInfo9BreakTimeERKN
   br i1 %or.cond, label %131, label %175
 
 131:                                              ; preds = %127
-  %132 = getelementptr %"struct.absl::time_internal::cctz::Transition", ptr %8, i64 %129
+  %132 = getelementptr [48 x i8], ptr %8, i64 %129
   %133 = getelementptr i8, ptr %132, i64 -48
   %134 = load i64, ptr %133, align 8, !tbaa !62
   %.not32 = icmp sgt i64 %134, %.sroa.0.0.copyload.i.i1.i
@@ -3440,7 +3439,7 @@ define dso_local void @_ZNK4absl13time_internal4cctz12TimeZoneInfo9BreakTimeERKN
   %141 = load i8, ptr %140, align 8, !tbaa !55, !noalias !163
   %142 = zext i8 %141 to i64
   %143 = load ptr, ptr %139, align 8, !tbaa !15, !noalias !163
-  %144 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::TransitionType", ptr %143, i64 %142
+  %144 = getelementptr inbounds nuw [48 x i8], ptr %143, i64 %142
   %145 = getelementptr i8, ptr %132, i64 -32
   %.sroa.0.0.copyload.i35 = load i64, ptr %145, align 8, !tbaa !74, !noalias !163
   %.sroa.2.0..sroa_idx.i36 = getelementptr i8, ptr %132, i64 -24
@@ -3496,7 +3495,7 @@ _ZSt7advanceIPKN4absl13time_internal4cctz10TransitionElEvRT_T0_.exit.i.i: ; pred
   %.017.i.i = phi ptr [ %8, %_ZSt7advanceIPKN4absl13time_internal4cctz10TransitionElEvRT_T0_.exit.lr.ph.i.i ], [ %.1.i.i, %_ZSt7advanceIPKN4absl13time_internal4cctz10TransitionElEvRT_T0_.exit.i.i ]
   %.01116.i.i = phi i64 [ %177, %_ZSt7advanceIPKN4absl13time_internal4cctz10TransitionElEvRT_T0_.exit.lr.ph.i.i ], [ %.112.i.i, %_ZSt7advanceIPKN4absl13time_internal4cctz10TransitionElEvRT_T0_.exit.i.i ]
   %178 = lshr i64 %.01116.i.i, 1
-  %179 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::Transition", ptr %.017.i.i, i64 %178
+  %179 = getelementptr inbounds nuw [48 x i8], ptr %.017.i.i, i64 %178
   %180 = load i64, ptr %179, align 8, !tbaa !62
   %181 = icmp slt i64 %.sroa.0.0.copyload.i.i1.i, %180
   %182 = getelementptr inbounds nuw i8, ptr %179, i64 48
@@ -3524,7 +3523,7 @@ _ZSt11upper_boundIPKN4absl13time_internal4cctz10TransitionES3_NS3_10ByUnixTimeEE
   %191 = load i8, ptr %190, align 8, !tbaa !55, !noalias !167
   %192 = zext i8 %191 to i64
   %193 = load ptr, ptr %189, align 8, !tbaa !15, !noalias !167
-  %194 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::TransitionType", ptr %193, i64 %192
+  %194 = getelementptr inbounds nuw [48 x i8], ptr %193, i64 %192
   %195 = getelementptr inbounds i8, ptr %.0.lcssa.i.i, i64 -32
   %.sroa.0.0.copyload.i41 = load i64, ptr %195, align 8, !tbaa !74, !noalias !167
   %.sroa.2.0..sroa_idx.i42 = getelementptr inbounds i8, ptr %.0.lcssa.i.i, i64 -24
@@ -3727,7 +3726,7 @@ _ZN4absl13time_internal4cctz6detailgeINS2_10second_tagES4_EEbRKNS2_10civil_timeI
   br i1 %or.cond, label %102, label %_ZN4absl13time_internal4cctz6detailleINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit.thread202
 
 102:                                              ; preds = %_ZN4absl13time_internal4cctz6detailgeINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit.thread200
-  %103 = getelementptr %"struct.absl::time_internal::cctz::Transition", ptr %9, i64 %100
+  %103 = getelementptr [48 x i8], ptr %9, i64 %100
   %104 = getelementptr i8, ptr %103, i64 -32
   %105 = load i64, ptr %104, align 8, !tbaa !63
   %106 = icmp slt i64 %16, %105
@@ -3882,7 +3881,7 @@ _ZSt7advanceIPKN4absl13time_internal4cctz10TransitionElEvRT_T0_.exit.i.i: ; pred
   %.026.i.i = phi ptr [ %9, %_ZSt7advanceIPKN4absl13time_internal4cctz10TransitionElEvRT_T0_.exit.lr.ph.i.i ], [ %231, %.thread.i.i ]
   %.01125.i.i = phi i64 [ %188, %_ZSt7advanceIPKN4absl13time_internal4cctz10TransitionElEvRT_T0_.exit.lr.ph.i.i ], [ %230, %.thread.i.i ]
   %189 = lshr i64 %.01125.i.i, 1
-  %190 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::Transition", ptr %.026.i.i, i64 %189
+  %190 = getelementptr inbounds nuw [48 x i8], ptr %.026.i.i, i64 %189
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 16
   %192 = load i64, ptr %191, align 8, !tbaa !63
   %193 = icmp slt i64 %16, %192
@@ -4051,7 +4050,7 @@ _ZN4absl13time_internal4cctz6detailgeINS2_10second_tagES4_EEbRKNS2_10civil_timeI
   %280 = load i8, ptr %279, align 8, !tbaa !101
   %281 = zext i8 %280 to i64
   %282 = load ptr, ptr %278, align 8, !tbaa !15
-  %283 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::TransitionType", ptr %282, i64 %281
+  %283 = getelementptr inbounds nuw [48 x i8], ptr %282, i64 %281
   %284 = getelementptr inbounds nuw i8, ptr %283, i64 24
   %285 = load i64, ptr %284, align 8, !tbaa !63
   %286 = icmp slt i64 %236, %285
@@ -4425,7 +4424,7 @@ _ZNK4absl13time_internal4cctz12TimeZoneInfo9TimeLocalERKNS1_6detail10civil_timeI
   %499 = load i8, ptr %498, align 8, !tbaa !55
   %500 = zext i8 %499 to i64
   %501 = load ptr, ptr %497, align 8, !tbaa !15
-  %502 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::TransitionType", ptr %501, i64 %500
+  %502 = getelementptr inbounds nuw [48 x i8], ptr %501, i64 %500
   %503 = getelementptr inbounds nuw i8, ptr %502, i64 8
   %504 = load i64, ptr %503, align 8, !tbaa !63
   %505 = icmp slt i64 %504, %405
@@ -5201,7 +5200,7 @@ _ZSt7advanceIPKN4absl13time_internal4cctz10TransitionElEvRT_T0_.exit.i.i: ; pred
   %.017.i.i = phi ptr [ %spec.select, %_ZSt7advanceIPKN4absl13time_internal4cctz10TransitionElEvRT_T0_.exit.lr.ph.i.i ], [ %.1.i.i, %_ZSt7advanceIPKN4absl13time_internal4cctz10TransitionElEvRT_T0_.exit.i.i ]
   %.01116.i.i = phi i64 [ %16, %_ZSt7advanceIPKN4absl13time_internal4cctz10TransitionElEvRT_T0_.exit.lr.ph.i.i ], [ %.112.i.i, %_ZSt7advanceIPKN4absl13time_internal4cctz10TransitionElEvRT_T0_.exit.i.i ]
   %17 = lshr i64 %.01116.i.i, 1
-  %18 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::Transition", ptr %.017.i.i, i64 %17
+  %18 = getelementptr inbounds nuw [48 x i8], ptr %.017.i.i, i64 %17
   %19 = load i64, ptr %18, align 8, !tbaa !62
   %20 = icmp slt i64 %.sroa.0.0.copyload.i.i1.i, %19
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 48
@@ -5236,9 +5235,9 @@ _ZSt11upper_boundIPKN4absl13time_internal4cctz10TransitionES3_NS3_10ByUnixTimeEE
 
 35:                                               ; preds = %28
   %36 = zext i8 %31 to i64
-  %37 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::TransitionType", ptr %27, i64 %36
+  %37 = getelementptr inbounds nuw [48 x i8], ptr %27, i64 %36
   %38 = zext i8 %33 to i64
-  %39 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::TransitionType", ptr %27, i64 %38
+  %39 = getelementptr inbounds nuw [48 x i8], ptr %27, i64 %38
   %40 = load i32, ptr %37, align 8, !tbaa !23
   %41 = load i32, ptr %39, align 8, !tbaa !23
   %.not.i = icmp eq i32 %40, %41
@@ -5332,7 +5331,7 @@ _ZSt7advanceIPKN4absl13time_internal4cctz10TransitionElEvRT_T0_.exit.i.i: ; pred
   %.017.i.i = phi ptr [ %spec.select, %_ZSt7advanceIPKN4absl13time_internal4cctz10TransitionElEvRT_T0_.exit.lr.ph.i.i ], [ %.1.i.i, %_ZSt7advanceIPKN4absl13time_internal4cctz10TransitionElEvRT_T0_.exit.i.i ]
   %.01116.i.i = phi i64 [ %16, %_ZSt7advanceIPKN4absl13time_internal4cctz10TransitionElEvRT_T0_.exit.lr.ph.i.i ], [ %.112.i.i, %_ZSt7advanceIPKN4absl13time_internal4cctz10TransitionElEvRT_T0_.exit.i.i ]
   %17 = lshr i64 %.01116.i.i, 1
-  %18 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::Transition", ptr %.017.i.i, i64 %17
+  %18 = getelementptr inbounds nuw [48 x i8], ptr %.017.i.i, i64 %17
   %19 = load i64, ptr %18, align 8, !tbaa !62
   %20 = icmp slt i64 %19, %.sroa.0.0.copyload.i.i1.i
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 48
@@ -5367,9 +5366,9 @@ _ZSt11lower_boundIPKN4absl13time_internal4cctz10TransitionES3_NS3_10ByUnixTimeEE
 
 36:                                               ; preds = %28
   %37 = zext i8 %32 to i64
-  %38 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::TransitionType", ptr %27, i64 %37
+  %38 = getelementptr inbounds nuw [48 x i8], ptr %27, i64 %37
   %39 = zext i8 %34 to i64
-  %40 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::TransitionType", ptr %27, i64 %39
+  %40 = getelementptr inbounds nuw [48 x i8], ptr %27, i64 %39
   %41 = load i32, ptr %38, align 8, !tbaa !23
   %42 = load i32, ptr %40, align 8, !tbaa !23
   %.not.i = icmp eq i32 %41, %42
@@ -5936,7 +5935,7 @@ _ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit122: ; preds = %.
   %.9 = phi i64 [ %109, %108 ], [ %.173, %.loopexit ]
   %.1 = phi i8 [ %spec.select116, %108 ], [ %1, %.loopexit ]
   %93 = sext i8 %.1 to i64
-  %94 = getelementptr inbounds i32, ptr @__const._ZN4absl13time_internal4cctz6detail4impl14days_per_monthEla.k_days_per_month, i64 %93
+  %94 = getelementptr inbounds [4 x i8], ptr @__const._ZN4absl13time_internal4cctz6detail4impl14days_per_monthEla.k_days_per_month, i64 %93
   %95 = load i32, ptr %94, align 4, !tbaa !84
   %96 = icmp eq i8 %.1, 2
   %97 = and i64 %.1091, 3
@@ -6196,7 +6195,7 @@ _ZNSt6vectorIN4absl13time_internal4cctz14TransitionTypeESaIS3_EE11_S_relocateEPS
 _ZNSt12_Vector_baseIN4absl13time_internal4cctz14TransitionTypeESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorIN4absl13time_internal4cctz14TransitionTypeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit21, %33
   store ptr %19, ptr %0, align 8, !tbaa !15
   store ptr %.0.lcssa.i.i.i20, ptr %3, align 8, !tbaa !12
-  %37 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::TransitionType", ptr %19, i64 %15
+  %37 = getelementptr inbounds nuw [48 x i8], ptr %19, i64 %15
   store ptr %37, ptr %32, align 8, !tbaa !29
   ret void
 }
@@ -6321,9 +6320,9 @@ _ZNSt6vectorIN4absl13time_internal4cctz14TransitionTypeESaIS3_EE11_S_relocateEPS
 
 _ZNSt12_Vector_baseIN4absl13time_internal4cctz14TransitionTypeESaIS3_EE13_M_deallocateEPS3_m.exit41: ; preds = %_ZNSt6vectorIN4absl13time_internal4cctz14TransitionTypeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %45
   store ptr %33, ptr %0, align 8, !tbaa !15
-  %47 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::TransitionType", ptr %34, i64 %1
+  %47 = getelementptr inbounds nuw [48 x i8], ptr %34, i64 %1
   store ptr %47, ptr %4, align 8, !tbaa !12
-  %48 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::TransitionType", ptr %33, i64 %31
+  %48 = getelementptr inbounds nuw [48 x i8], ptr %33, i64 %31
   store ptr %48, ptr %11, align 8, !tbaa !29
   br label %49
 
@@ -6418,7 +6417,7 @@ _ZNSt6vectorIN4absl13time_internal4cctz10TransitionESaIS3_EE11_S_relocateEPS3_S6
 _ZNSt12_Vector_baseIN4absl13time_internal4cctz10TransitionESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorIN4absl13time_internal4cctz10TransitionESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit21, %33
   store ptr %19, ptr %0, align 8, !tbaa !61
   store ptr %.0.lcssa.i.i.i20, ptr %3, align 8, !tbaa !60
-  %37 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::Transition", ptr %19, i64 %15
+  %37 = getelementptr inbounds nuw [48 x i8], ptr %19, i64 %15
   store ptr %37, ptr %32, align 8, !tbaa !72
   ret void
 }
@@ -6616,9 +6615,9 @@ _ZNSt6vectorIN4absl13time_internal4cctz10TransitionESaIS3_EE11_S_relocateEPS3_S6
 
 _ZNSt12_Vector_baseIN4absl13time_internal4cctz10TransitionESaIS3_EE13_M_deallocateEPS3_m.exit41: ; preds = %_ZNSt6vectorIN4absl13time_internal4cctz10TransitionESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %45
   store ptr %33, ptr %0, align 8, !tbaa !61
-  %47 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::Transition", ptr %34, i64 %1
+  %47 = getelementptr inbounds nuw [48 x i8], ptr %34, i64 %1
   store ptr %47, ptr %4, align 8, !tbaa !60
-  %48 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::Transition", ptr %33, i64 %31
+  %48 = getelementptr inbounds nuw [48 x i8], ptr %33, i64 %31
   store ptr %48, ptr %11, align 8, !tbaa !72
   br label %49
 

@@ -682,7 +682,7 @@ define internal i32 @dissect_bmp_pdu(ptr noundef %0, ptr noundef %1, ptr noundef
 
 switch.lookup:                                    ; preds = %4
   %34 = zext nneg i8 %26 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_bmp_pdu, i64 %34
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_bmp_pdu, i64 %34
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %35
 
@@ -1189,7 +1189,7 @@ dissect_bmp_stat_report.exit.i:                   ; preds = %255, %139
 
 switch.lookup65:                                  ; preds = %.lr.ph.i105.i
   %343 = zext nneg i32 %341 to i64
-  %switch.gep66 = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_bmp_pdu.3, i64 %343
+  %switch.gep66 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_bmp_pdu.3, i64 %343
   %switch.load67 = load ptr, ptr %switch.gep66, align 8
   %344 = load i32, ptr %switch.load67, align 4
   %345 = load i32, ptr %15, align 4

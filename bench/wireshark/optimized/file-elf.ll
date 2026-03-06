@@ -1142,7 +1142,7 @@ value_guard.exit1041:                             ; preds = %value_guard.exit
 
 174:                                              ; preds = %173
   %175 = zext nneg i32 %.0973 to i64
-  %176 = getelementptr %struct._segment_info_t, ptr %164, i64 %175
+  %176 = getelementptr [24 x i8], ptr %164, i64 %175
   store i64 %.0997, ptr %176, align 8
   %177 = zext i32 %153 to i64
   %178 = getelementptr inbounds nuw i8, ptr %176, i64 8
@@ -1399,7 +1399,7 @@ value_guard.exit1044:                             ; preds = %value_guard.exit104
   %316 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %.sink, i32 noundef %309, ptr noundef %0, i32 noundef %314, i32 noundef %315, ptr noundef null, ptr noundef nonnull @.str.14)
   %317 = add i64 %.0987, %.09811227
   %318 = zext i32 %.29751228 to i64
-  %319 = getelementptr %struct._segment_info_t, ptr %164, i64 %318
+  %319 = getelementptr [24 x i8], ptr %164, i64 %318
   store i64 %.0980, ptr %319, align 8
   %320 = getelementptr inbounds nuw i8, ptr %319, i64 8
   store i64 %.0987, ptr %320, align 8
@@ -1872,7 +1872,7 @@ value_guard.exit1056:                             ; preds = %433
 548:                                              ; preds = %544
   %549 = add i64 %514, %.29831257
   %550 = zext i32 %.49771258 to i64
-  %551 = getelementptr %struct._segment_info_t, ptr %164, i64 %550
+  %551 = getelementptr [24 x i8], ptr %164, i64 %550
   store i64 %.1990, ptr %551, align 8
   %552 = getelementptr inbounds nuw i8, ptr %551, i64 8
   store i64 %514, ptr %552, align 8
@@ -3133,7 +3133,7 @@ proto_item_set_generated.exit:                    ; preds = %value_guard.exit105
   %indvars.iv1317 = phi i64 [ 0, %.lr.ph1266.preheader ], [ %indvars.iv.next1318, %._crit_edge ]
   %indvars.iv1312 = phi i64 [ 1, %.lr.ph1266.preheader ], [ %indvars.iv.next1313, %._crit_edge ]
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
-  %1142 = getelementptr %struct._segment_info_t, ptr %164, i64 %indvars.iv1317
+  %1142 = getelementptr [24 x i8], ptr %164, i64 %indvars.iv1317
   %indvars.iv.next1318 = add nuw nsw i64 %indvars.iv1317, 1
   %1143 = icmp samesign ult i64 %indvars.iv.next1318, %1141
   br i1 %1143, label %.lr.ph1264, label %._crit_edge
@@ -3141,7 +3141,7 @@ proto_item_set_generated.exit:                    ; preds = %value_guard.exit105
 .lr.ph1264:                                       ; preds = %.lr.ph1266, %1148
   %indvars.iv1314 = phi i64 [ %indvars.iv.next1315, %1148 ], [ %indvars.iv1312, %.lr.ph1266 ]
   %1144 = load i64, ptr %1142, align 8
-  %1145 = getelementptr %struct._segment_info_t, ptr %164, i64 %indvars.iv1314
+  %1145 = getelementptr [24 x i8], ptr %164, i64 %indvars.iv1314
   %1146 = load i64, ptr %1145, align 8
   %.not1028 = icmp ugt i64 %1144, %1146
   br i1 %.not1028, label %1147, label %1148
@@ -3168,11 +3168,11 @@ proto_item_set_generated.exit:                    ; preds = %value_guard.exit105
   %1149 = phi i64 [ %.pre, %.lr.ph1269.preheader ], [ %1155, %1188 ]
   %indvars.iv1321 = phi i64 [ 1, %.lr.ph1269.preheader ], [ %indvars.iv.next1322, %1188 ]
   %.49851267 = phi i64 [ %.2983.lcssa, %.lr.ph1269.preheader ], [ %.5986, %1188 ]
-  %1150 = getelementptr %struct._segment_info_t, ptr %164, i64 %indvars.iv1321
+  %1150 = getelementptr [24 x i8], ptr %164, i64 %indvars.iv1321
   %1151 = getelementptr i8, ptr %1150, i64 -16
   %1152 = load i64, ptr %1151, align 8
   %1153 = add i64 %1152, %1149
-  %1154 = getelementptr %struct._segment_info_t, ptr %164, i64 %indvars.iv1321
+  %1154 = getelementptr [24 x i8], ptr %164, i64 %indvars.iv1321
   %1155 = load i64, ptr %1154, align 8
   %1156 = icmp ult i64 %1153, %1155
   br i1 %1156, label %1157, label %1171
@@ -3240,7 +3240,7 @@ value_guard.exit1086:                             ; preds = %1173
   %.4985.lcssa = phi i64 [ %.2983.lcssa, %.preheader ], [ %.2983.lcssa, %proto_item_set_generated.exit ], [ %.5986, %1188 ]
   %1189 = add i32 %.4977.lcssa, -1
   %1190 = zext i32 %1189 to i64
-  %1191 = getelementptr %struct._segment_info_t, ptr %164, i64 %1190
+  %1191 = getelementptr [24 x i8], ptr %164, i64 %1190
   %1192 = load i64, ptr %1191, align 8
   %1193 = getelementptr inbounds nuw i8, ptr %1191, i64 8
   %1194 = load i64, ptr %1193, align 8

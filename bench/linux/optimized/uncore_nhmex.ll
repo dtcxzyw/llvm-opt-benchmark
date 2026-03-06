@@ -20,10 +20,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.atomic_t = type { i32 }
 %union.anon.3 = type { i64 }
 %struct.extra_reg = type { i32, i32, i64, i64, i32, i8 }
-%struct.intel_uncore_extra_reg = type { %struct.raw_spinlock, i64, i64, i64, %struct.atomic_t }
-%struct.raw_spinlock = type { %struct.qspinlock }
-%struct.qspinlock = type { %union.anon.4 }
-%union.anon.4 = type { %struct.atomic_t }
 
 @boot_cpu_data = external dso_local local_unnamed_addr global %struct.cpuinfo_x86, align 8
 @uncore_nhmex = internal unnamed_addr global i1 false, align 1
@@ -256,7 +252,7 @@ define internal void @nhmex_uncore_msr_disable_box(ptr noundef readonly captures
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 336
   %15 = load i32, ptr %14, align 8
   %16 = sext i32 %15 to i64
-  %17 = getelementptr i64, ptr %11, i64 %16
+  %17 = getelementptr [8 x i8], ptr %11, i64 %16
   %18 = load i64, ptr %17, align 8
   %19 = trunc i64 %18 to i32
   br label %26
@@ -312,7 +308,7 @@ define internal void @nhmex_uncore_msr_disable_box(ptr noundef readonly captures
   %54 = getelementptr inbounds nuw i8, ptr %38, i64 336
   %55 = load i32, ptr %54, align 8
   %56 = sext i32 %55 to i64
-  %57 = getelementptr i64, ptr %51, i64 %56
+  %57 = getelementptr [8 x i8], ptr %51, i64 %56
   %58 = load i64, ptr %57, align 8
   %59 = trunc i64 %58 to i32
   br label %66
@@ -374,7 +370,7 @@ define internal void @nhmex_uncore_msr_enable_box(ptr noundef readonly captures(
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 336
   %15 = load i32, ptr %14, align 8
   %16 = sext i32 %15 to i64
-  %17 = getelementptr i64, ptr %11, i64 %16
+  %17 = getelementptr [8 x i8], ptr %11, i64 %16
   %18 = load i64, ptr %17, align 8
   %19 = trunc i64 %18 to i32
   br label %26
@@ -431,7 +427,7 @@ define internal void @nhmex_uncore_msr_enable_box(ptr noundef readonly captures(
   %55 = getelementptr inbounds nuw i8, ptr %38, i64 336
   %56 = load i32, ptr %55, align 8
   %57 = sext i32 %56 to i64
-  %58 = getelementptr i64, ptr %52, i64 %57
+  %58 = getelementptr [8 x i8], ptr %52, i64 %57
   %59 = load i64, ptr %58, align 8
   %60 = trunc i64 %59 to i32
   br label %67
@@ -868,7 +864,7 @@ define internal noundef ptr @nhmex_mbox_get_constraint(ptr noundef %0, ptr nound
 
 40:                                               ; preds = %35
   %41 = sext i32 %.pr74 to i64
-  %42 = getelementptr %struct.intel_uncore_extra_reg, ptr %17, i64 %41
+  %42 = getelementptr [40 x i8], ptr %17, i64 %41
   %43 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %42) #8
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 32
   %45 = load volatile i32, ptr %44, align 4
@@ -1002,7 +998,7 @@ nhmex_mbox_get_shared_reg.exit:                   ; preds = %82
 
 119:                                              ; preds = %116
   %120 = sext i32 %108 to i64
-  %121 = getelementptr %struct.intel_uncore_extra_reg, ptr %17, i64 %120
+  %121 = getelementptr [40 x i8], ptr %17, i64 %120
   %122 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %121) #8
   %123 = getelementptr inbounds nuw i8, ptr %121, i64 32
   %124 = load volatile i32, ptr %123, align 4
@@ -2123,7 +2119,7 @@ define internal noundef ptr @nhmex_rbox_get_constraint(ptr noundef %0, ptr nound
   %29 = mul nsw i32 %28, 5
   %30 = add i32 %27, %29
   %31 = sext i32 %30 to i64
-  %32 = getelementptr %struct.intel_uncore_extra_reg, ptr %17, i64 %31
+  %32 = getelementptr [40 x i8], ptr %17, i64 %31
   %33 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %32) #8
   %34 = icmp slt i32 %24, 2
   br i1 %34, label %35, label %48
@@ -2334,7 +2330,7 @@ define internal void @nhmex_rbox_put_constraint(ptr noundef %0, ptr noundef capt
   %18 = add nsw i32 %17, %14
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %20 = sext i32 %18 to i64
-  %21 = getelementptr %struct.intel_uncore_extra_reg, ptr %19, i64 %20
+  %21 = getelementptr [40 x i8], ptr %19, i64 %20
   %22 = and i32 %12, -2
   %23 = icmp eq i32 %22, 2
   br i1 %23, label %24, label %29

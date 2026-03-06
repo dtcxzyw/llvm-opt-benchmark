@@ -194,9 +194,9 @@ define hidden void @_ZN12pingora_http16case_header_name18titled_header_name17hb4
 switch.lookup:                                    ; preds = %10
   %15 = load i8, ptr %12, align 8, !range !16, !noalias !13, !noundef !3
   %16 = zext nneg i8 %15 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN12pingora_http16case_header_name18titled_header_name17hb47fb91d4b3e0f62E, i64 %16
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN12pingora_http16case_header_name18titled_header_name17hb47fb91d4b3e0f62E, i64 %16
   %17 = zext nneg i8 %15 to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN12pingora_http16case_header_name18titled_header_name17hb47fb91d4b3e0f62E.2, i64 %17
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN12pingora_http16case_header_name18titled_header_name17hb47fb91d4b3e0f62E.2, i64 %17
   br label %"_ZN12pingora_http16case_header_name18titled_header_name28_$u7b$$u7b$closure$u7d$$u7d$17h412fc4d1c747f322E.exit.i"
 
 "_ZN12pingora_http16case_header_name18titled_header_name28_$u7b$$u7b$closure$u7d$$u7d$17h412fc4d1c747f322E.exit.i": ; preds = %switch.lookup, %13

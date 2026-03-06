@@ -29,19 +29,19 @@ define void @dggsvp3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %29 = load i32, ptr %7, align 4, !tbaa !3
   %narrow540 = xor i32 %29, -1
   %30 = sext i32 %narrow540 to i64
-  %31 = getelementptr inbounds double, ptr %6, i64 %30
+  %31 = getelementptr inbounds [8 x i8], ptr %6, i64 %30
   %32 = load i32, ptr %9, align 4, !tbaa !3
   %narrow = xor i32 %32, -1
   %33 = sext i32 %narrow to i64
-  %34 = getelementptr inbounds double, ptr %8, i64 %33
+  %34 = getelementptr inbounds [8 x i8], ptr %8, i64 %33
   %35 = load i32, ptr %15, align 4, !tbaa !3
   %narrow555 = xor i32 %35, -1
   %36 = sext i32 %narrow555 to i64
-  %37 = getelementptr inbounds double, ptr %14, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr %14, i64 %36
   %38 = load i32, ptr %17, align 4, !tbaa !3
   %narrow544 = xor i32 %38, -1
   %39 = sext i32 %narrow544 to i64
-  %40 = getelementptr inbounds double, ptr %16, i64 %39
+  %40 = getelementptr inbounds [8 x i8], ptr %16, i64 %39
   %41 = tail call i32 @lsame_(ptr noundef %0, ptr noundef nonnull @.str) #5
   %42 = tail call i32 @lsame_(ptr noundef %1, ptr noundef nonnull @.str.1) #5
   %43 = tail call i32 @lsame_(ptr noundef %2, ptr noundef nonnull @.str.2) #5
@@ -214,7 +214,7 @@ define void @dggsvp3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %112 = trunc nuw nsw i64 %indvars.iv to i32
   %113 = mul i32 %107, %112
   %114 = sext i32 %113 to i64
-  %115 = getelementptr inbounds double, ptr %34, i64 %114
+  %115 = getelementptr inbounds [8 x i8], ptr %34, i64 %114
   %116 = load double, ptr %115, align 8, !tbaa !7
   %117 = call double @llvm.fabs.f64(double %116)
   %118 = fcmp ogt double %117, %108
@@ -245,10 +245,10 @@ define void @dggsvp3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %128 = add nsw i32 %125, -1
   store i32 %128, ptr %26, align 4, !tbaa !3
   %129 = sext i32 %32 to i64
-  %130 = getelementptr double, ptr %34, i64 %129
+  %130 = getelementptr [8 x i8], ptr %34, i64 %129
   %131 = getelementptr i8, ptr %130, i64 16
   %132 = sext i32 %38 to i64
-  %133 = getelementptr double, ptr %40, i64 %132
+  %133 = getelementptr [8 x i8], ptr %40, i64 %132
   %134 = getelementptr i8, ptr %133, i64 16
   call void @dlacpy_(ptr noundef nonnull @.str.6, ptr noundef nonnull %26, ptr noundef nonnull %5, ptr noundef %131, ptr noundef nonnull %9, ptr noundef %134, ptr noundef nonnull %17) #5
   %.pre726 = load i32, ptr %4, align 4, !tbaa !3
@@ -309,7 +309,7 @@ define void @dggsvp3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %159 = add i32 %32, 1
   %160 = add i32 %159, %139
   %161 = sext i32 %160 to i64
-  %162 = getelementptr inbounds double, ptr %34, i64 %161
+  %162 = getelementptr inbounds [8 x i8], ptr %34, i64 %161
   call void @dlaset_(ptr noundef nonnull @.str.5, ptr noundef nonnull %26, ptr noundef nonnull %5, ptr noundef nonnull @c_b14, ptr noundef nonnull @c_b14, ptr noundef %162, ptr noundef nonnull %9) #5
   br label %163
 
@@ -434,7 +434,7 @@ define void @dggsvp3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %211 = trunc nuw nsw i64 %indvars.iv688 to i32
   %212 = mul i32 %206, %211
   %213 = sext i32 %212 to i64
-  %214 = getelementptr inbounds double, ptr %31, i64 %213
+  %214 = getelementptr inbounds [8 x i8], ptr %31, i64 %213
   %215 = load double, ptr %214, align 8, !tbaa !7
   %216 = call double @llvm.fabs.f64(double %215)
   %217 = fcmp ogt double %216, %207
@@ -468,7 +468,7 @@ define void @dggsvp3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %223 = add nsw i32 %.pre-phi738, 1
   %224 = mul nsw i32 %223, %29
   %225 = sext i32 %224 to i64
-  %226 = getelementptr double, ptr %31, i64 %225
+  %226 = getelementptr [8 x i8], ptr %31, i64 %225
   %227 = getelementptr i8, ptr %226, i64 8
   call void @dorm2r_(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.8, ptr noundef nonnull %3, ptr noundef nonnull %13, ptr noundef nonnull %26, ptr noundef %6, ptr noundef nonnull %7, ptr noundef %21, ptr noundef %227, ptr noundef nonnull %7, ptr noundef nonnull %22, ptr noundef nonnull %24) #5
   br i1 %.not, label %228, label %248
@@ -487,10 +487,10 @@ define void @dggsvp3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %235 = sub nsw i32 %233, %234
   store i32 %235, ptr %27, align 4, !tbaa !3
   %236 = sext i32 %29 to i64
-  %237 = getelementptr double, ptr %31, i64 %236
+  %237 = getelementptr [8 x i8], ptr %31, i64 %236
   %238 = getelementptr i8, ptr %237, i64 16
   %239 = sext i32 %35 to i64
-  %240 = getelementptr double, ptr %37, i64 %239
+  %240 = getelementptr [8 x i8], ptr %37, i64 %239
   %241 = getelementptr i8, ptr %240, i64 16
   call void @dlacpy_(ptr noundef nonnull @.str.6, ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef %238, ptr noundef nonnull %7, ptr noundef %241, ptr noundef nonnull %15) #5
   %.pre734 = load i32, ptr %3, align 4, !tbaa !3
@@ -567,7 +567,7 @@ define void @dggsvp3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %277 = add i32 %29, 1
   %278 = add i32 %277, %254
   %279 = sext i32 %278 to i64
-  %280 = getelementptr inbounds double, ptr %31, i64 %279
+  %280 = getelementptr inbounds [8 x i8], ptr %31, i64 %279
   call void @dlaset_(ptr noundef nonnull @.str.5, ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef nonnull @c_b14, ptr noundef nonnull @c_b14, ptr noundef %280, ptr noundef nonnull %7) #5
   %.pre735 = load i32, ptr %12, align 4, !tbaa !3
   br label %281
@@ -666,7 +666,7 @@ define void @dggsvp3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %332 = mul nsw i32 %331, %29
   %333 = add nsw i32 %329, %332
   %334 = sext i32 %333 to i64
-  %335 = getelementptr inbounds double, ptr %31, i64 %334
+  %335 = getelementptr inbounds [8 x i8], ptr %31, i64 %334
   call void @dgeqr2_(ptr noundef nonnull %26, ptr noundef nonnull %13, ptr noundef %335, ptr noundef nonnull %7, ptr noundef %21, ptr noundef nonnull %22, ptr noundef nonnull %24) #5
   br i1 %.not, label %336, label %352
 
@@ -685,10 +685,10 @@ define void @dggsvp3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %344 = mul nsw i32 %343, %29
   %345 = add nsw i32 %344, %341
   %346 = sext i32 %345 to i64
-  %347 = getelementptr inbounds double, ptr %31, i64 %346
+  %347 = getelementptr inbounds [8 x i8], ptr %31, i64 %346
   %348 = mul nsw i32 %341, %35
   %349 = sext i32 %348 to i64
-  %350 = getelementptr double, ptr %37, i64 %349
+  %350 = getelementptr [8 x i8], ptr %37, i64 %349
   %351 = getelementptr i8, ptr %350, i64 8
   call void @dorm2r_(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.10, ptr noundef nonnull %3, ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef %347, ptr noundef nonnull %7, ptr noundef %21, ptr noundef %351, ptr noundef nonnull %15, ptr noundef nonnull %22, ptr noundef nonnull %24) #5
   br label %352

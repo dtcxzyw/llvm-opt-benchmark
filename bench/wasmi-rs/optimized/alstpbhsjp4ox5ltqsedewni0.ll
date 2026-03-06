@@ -53,7 +53,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h57c4855b1
 .preheader._crit_edge.i.i.i:                      ; preds = %.lr.ph.i.i.i, %.preheader.i.i.i
   %17 = phi i64 [ %12, %.preheader.i.i.i ], [ %26, %.lr.ph.i.i.i ]
   store i64 0, ptr %15, align 8, !alias.scope !18, !noalias !19
-  %18 = getelementptr inbounds nuw { i64, i64 }, ptr %14, i64 %17
+  %18 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %17
   store i64 %.pre.i.i.i, ptr %18, align 8, !noalias !23
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i64 %.pre13.i.i.i, ptr %19, align 8, !noalias !23
@@ -64,7 +64,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h57c4855b1
   %21 = phi i64 [ %26, %.lr.ph.i.i.i ], [ %12, %.preheader.i.i.i ]
   %22 = phi i64 [ %23, %.lr.ph.i.i.i ], [ %16, %.preheader.i.i.i ]
   %23 = add i64 %22, -1
-  %24 = getelementptr inbounds nuw { i64, i64 }, ptr %14, i64 %21
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %21
   store i64 %.pre.i.i.i, ptr %24, align 8, !noalias !30
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 %.pre13.i.i.i, ptr %25, align 8, !noalias !30
@@ -196,7 +196,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17hb6f4580267b547cbE"
   %18 = load ptr, ptr %17, align 8, !alias.scope !72, !nonnull !3, !noundef !3
   %19 = icmp ult i64 %16, 576460752303423488
   tail call void @llvm.assume(i1 %19)
-  %20 = getelementptr inbounds nuw { i64, i64 }, ptr %18, i64 %16
+  %20 = getelementptr inbounds nuw [16 x i8], ptr %18, i64 %16
   %21 = icmp ugt i64 %11, 1
   br i1 %21, label %.lr.ph.i, label %._crit_edge.i
 

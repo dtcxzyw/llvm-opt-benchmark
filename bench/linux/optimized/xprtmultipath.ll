@@ -163,7 +163,7 @@ define dso_local noundef ptr @xprt_switch_alloc(ptr noundef %0, i32 noundef %1) 
 
 9:                                                ; preds = %5, %2
   %10 = phi i64 [ 0, %2 ], [ %8, %5 ]
-  %.split = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %10
+  %.split = getelementptr [112 x i8], ptr @kmalloc_caches, i64 %10
   %11 = getelementptr i8, ptr %.split, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noalias align 8 dereferenceable_or_null(88) ptr @kmalloc_trace(ptr noundef %12, i32 noundef %1, i64 noundef 88) #11

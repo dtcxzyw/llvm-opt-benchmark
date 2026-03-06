@@ -472,7 +472,7 @@ _ZSt25__unguarded_linear_insertIPP10tactic_cmdN9__gnu_cxx5__ops14_Val_comp_iterI
   %71 = phi i32 [ %.pre2.i, %.noexc27 ], [ %64, %62 ]
   %72 = getelementptr inbounds i8, ptr %70, i64 -4
   %73 = zext i32 %71 to i64
-  %74 = getelementptr inbounds nuw ptr, ptr %70, i64 %73
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %73
   store ptr %60, ptr %74, align 8, !tbaa !13
   %75 = add i32 %71, 1
   store i32 %75, ptr %72, align 4, !tbaa !11
@@ -862,7 +862,7 @@ _ZSt25__unguarded_linear_insertIPP14simplifier_cmdN9__gnu_cxx5__ops14_Val_comp_i
   %71 = phi i32 [ %.pre2.i, %.noexc27 ], [ %64, %62 ]
   %72 = getelementptr inbounds i8, ptr %70, i64 -4
   %73 = zext i32 %71 to i64
-  %74 = getelementptr inbounds nuw ptr, ptr %70, i64 %73
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %73
   store ptr %60, ptr %74, align 8, !tbaa !43
   %75 = add i32 %71, 1
   store i32 %75, ptr %72, align 4, !tbaa !11
@@ -2008,7 +2008,7 @@ _ZSt25__unguarded_linear_insertIPP10probe_infoN9__gnu_cxx5__ops14_Val_comp_iterI
   %71 = phi i32 [ %.pre2.i, %.noexc27 ], [ %64, %62 ]
   %72 = getelementptr inbounds i8, ptr %70, i64 -4
   %73 = zext i32 %71 to i64
-  %74 = getelementptr inbounds nuw ptr, ptr %70, i64 %73
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %73
   store ptr %60, ptr %74, align 8, !tbaa !224
   %75 = add i32 %71, 1
   store i32 %75, ptr %72, align 4, !tbaa !11
@@ -2601,13 +2601,13 @@ define internal fastcc void @_ZSt16__introsort_loopIPP10tactic_cmdlN9__gnu_cxx5_
   %58 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %59 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %60 = or disjoint i64 %46, 1
-  %61 = getelementptr inbounds nuw ptr, ptr %0, i64 %60
-  %62 = getelementptr inbounds nuw ptr, ptr %0, i64 %47
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %60
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %47
   br label %63
 
 63:                                               ; preds = %_ZSt13__adjust_heapIPP10tactic_cmdlS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZ12help_tacticsvE3cmpEEEvT_T0_S9_T1_T2_.exit.i.i.i, %44
   %.014.i.i.i = phi i64 [ %47, %44 ], [ %132, %_ZSt13__adjust_heapIPP10tactic_cmdlS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZ12help_tacticsvE3cmpEEEvT_T0_S9_T1_T2_.exit.i.i.i ]
-  %64 = getelementptr inbounds nuw ptr, ptr %0, i64 %.014.i.i.i
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.014.i.i.i
   %65 = load ptr, ptr %64, align 8, !tbaa !13
   %66 = icmp slt i64 %.014.i.i.i, %49
   br i1 %66, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
@@ -2616,8 +2616,8 @@ define internal fastcc void @_ZSt16__introsort_loopIPP10tactic_cmdlN9__gnu_cxx5_
   %.030.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %_ZZ12help_tacticsvENK3cmpclEP10tactic_cmdS1_.exit35.i.i.i ], [ %.014.i.i.i, %63 ]
   %67 = shl i64 %.030.i.i.i.i, 1
   %68 = add i64 %67, 2
-  %69 = getelementptr inbounds nuw ptr, ptr %0, i64 %68
-  %70 = getelementptr inbounds nuw ptr, ptr %0, i64 %67
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %68
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %67
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %.val.i.i.i.i = load ptr, ptr %69, align 8, !tbaa !13
   %.val29.i.i.i.i = load ptr, ptr %71, align 8, !tbaa !13
@@ -2713,9 +2713,9 @@ _ZZ12help_tacticsvENK3cmpclEP10tactic_cmdS1_.exit35.i.i.i: ; preds = %_ZNSt7__cx
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %94 = or disjoint i64 %67, 1
   %spec.select.i.i.i.i = select i1 %93, i64 %94, i64 %68
-  %95 = getelementptr inbounds nuw ptr, ptr %0, i64 %spec.select.i.i.i.i
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %spec.select.i.i.i.i
   %96 = load ptr, ptr %95, align 8, !tbaa !13
-  %97 = getelementptr inbounds nuw ptr, ptr %0, i64 %.030.i.i.i.i
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.030.i.i.i.i
   store ptr %96, ptr %97, align 8, !tbaa !13
   %98 = icmp slt i64 %spec.select.i.i.i.i, %49
   br i1 %98, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !251
@@ -2740,7 +2740,7 @@ _ZZ12help_tacticsvENK3cmpclEP10tactic_cmdS1_.exit35.i.i.i: ; preds = %_ZNSt7__cx
   %.0133.i.i.i.i.i = phi i64 [ %.048.i.i.i.i.i, %127 ], [ %.128.i.i.i.i, %102 ]
   %.04.in.i.i.i.i.i = add nsw i64 %.0133.i.i.i.i.i, -1
   %.048.i.i.i.i.i = lshr i64 %.04.in.i.i.i.i.i, 1
-  %104 = getelementptr inbounds nuw ptr, ptr %0, i64 %.048.i.i.i.i.i
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.048.i.i.i.i.i
   %.val.i.i.i.i.i = load ptr, ptr %104, align 8, !tbaa !13
   %.val.val.i.i.i.i.i = load ptr, ptr %.val.i.i.i.i.i, align 8, !tbaa !15
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
@@ -2832,14 +2832,14 @@ _ZZ12help_tacticsvENK3cmpclEP10tactic_cmdS1_.exit.i.i.i: ; preds = %_ZNSt7__cxx1
 
 127:                                              ; preds = %_ZZ12help_tacticsvENK3cmpclEP10tactic_cmdS1_.exit.i.i.i
   %128 = load ptr, ptr %104, align 8, !tbaa !13
-  %129 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0133.i.i.i.i.i
+  %129 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.0133.i.i.i.i.i
   store ptr %128, ptr %129, align 8, !tbaa !13
   %130 = icmp samesign ugt i64 %.048.i.i.i.i.i, %.014.i.i.i
   br i1 %130, label %.lr.ph.i.i.i.i.i, label %_ZSt13__adjust_heapIPP10tactic_cmdlS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZ12help_tacticsvE3cmpEEEvT_T0_S9_T1_T2_.exit.i.i.i, !llvm.loop !252
 
 _ZSt13__adjust_heapIPP10tactic_cmdlS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZ12help_tacticsvE3cmpEEEvT_T0_S9_T1_T2_.exit.i.i.i: ; preds = %127, %_ZZ12help_tacticsvENK3cmpclEP10tactic_cmdS1_.exit.i.i.i, %102
   %.013.lcssa.i.i.i.i.i = phi i64 [ %.128.i.i.i.i, %102 ], [ %.0133.i.i.i.i.i, %_ZZ12help_tacticsvENK3cmpclEP10tactic_cmdS1_.exit.i.i.i ], [ %.048.i.i.i.i.i, %127 ]
-  %131 = getelementptr inbounds nuw ptr, ptr %0, i64 %.013.lcssa.i.i.i.i.i
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.013.lcssa.i.i.i.i.i
   store ptr %65, ptr %131, align 8, !tbaa !13
   %.not.i.i.i = icmp eq i64 %.014.i.i.i, 0
   %132 = add nsw i64 %.014.i.i.i, -1
@@ -2874,8 +2874,8 @@ _ZSt13__adjust_heapIPP10tactic_cmdlS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZ12help
   %.030.i.i.i44.i = phi i64 [ %spec.select.i.i.i48.i, %_ZZ12help_tacticsvENK3cmpclEP10tactic_cmdS1_.exit26.i.i ], [ 0, %141 ]
   %151 = shl i64 %.030.i.i.i44.i, 1
   %152 = add i64 %151, 2
-  %153 = getelementptr inbounds nuw ptr, ptr %0, i64 %152
-  %154 = getelementptr inbounds nuw ptr, ptr %0, i64 %151
+  %153 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %152
+  %154 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %151
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 8
   %.val.i.i.i45.i = load ptr, ptr %153, align 8, !tbaa !13
   %.val29.i.i.i46.i = load ptr, ptr %155, align 8, !tbaa !13
@@ -2967,9 +2967,9 @@ _ZZ12help_tacticsvENK3cmpclEP10tactic_cmdS1_.exit26.i.i: ; preds = %_ZNSt7__cxx1
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %178 = or disjoint i64 %151, 1
   %spec.select.i.i.i48.i = select i1 %177, i64 %178, i64 %152
-  %179 = getelementptr inbounds nuw ptr, ptr %0, i64 %spec.select.i.i.i48.i
+  %179 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %spec.select.i.i.i48.i
   %180 = load ptr, ptr %179, align 8, !tbaa !13
-  %181 = getelementptr inbounds nuw ptr, ptr %0, i64 %.030.i.i.i44.i
+  %181 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.030.i.i.i44.i
   store ptr %180, ptr %181, align 8, !tbaa !13
   %182 = icmp slt i64 %spec.select.i.i.i48.i, %149
   br i1 %182, label %.lr.ph.i.i.i43.i, label %._crit_edge.i.i.i6.i, !llvm.loop !251
@@ -2989,9 +2989,9 @@ _ZZ12help_tacticsvENK3cmpclEP10tactic_cmdS1_.exit26.i.i: ; preds = %_ZNSt7__cxx1
 .thread.i.i42.i:                                  ; preds = %185
   %189 = shl nuw nsw i64 %.0.lcssa.i.i.i7.i, 1
   %190 = or disjoint i64 %189, 1
-  %191 = getelementptr inbounds nuw ptr, ptr %0, i64 %190
+  %191 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %190
   %192 = load ptr, ptr %191, align 8, !tbaa !13
-  %193 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0.lcssa.i.i.i7.i
+  %193 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.0.lcssa.i.i.i7.i
   store ptr %192, ptr %193, align 8, !tbaa !13
   br label %.lr.ph.i.i.i.i11.i.preheader
 
@@ -3007,7 +3007,7 @@ _ZZ12help_tacticsvENK3cmpclEP10tactic_cmdS1_.exit26.i.i: ; preds = %_ZNSt7__cxx1
   %.0133.i.i.i.i12.i = phi i64 [ %.048.i.i.i.i14.i, %218 ], [ %.0133.i.i.i.i12.i.ph, %.lr.ph.i.i.i.i11.i.preheader ]
   %.04.in.i.i.i.i13.i = add nsw i64 %.0133.i.i.i.i12.i, -1
   %.048.i.i.i.i14.i = lshr i64 %.04.in.i.i.i.i13.i, 1
-  %195 = getelementptr inbounds nuw ptr, ptr %0, i64 %.048.i.i.i.i14.i
+  %195 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.048.i.i.i.i14.i
   %.val.i.i.i.i15.i = load ptr, ptr %195, align 8, !tbaa !13
   %.val.val.i.i.i.i16.i = load ptr, ptr %.val.i.i.i.i15.i, align 8, !tbaa !15
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
@@ -3099,14 +3099,14 @@ _ZZ12help_tacticsvENK3cmpclEP10tactic_cmdS1_.exit.i32.i: ; preds = %_ZNSt7__cxx1
 
 218:                                              ; preds = %_ZZ12help_tacticsvENK3cmpclEP10tactic_cmdS1_.exit.i32.i
   %219 = load ptr, ptr %195, align 8, !tbaa !13
-  %220 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0133.i.i.i.i12.i
+  %220 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.0133.i.i.i.i12.i
   store ptr %219, ptr %220, align 8, !tbaa !13
   %.not1.i.i35.i = icmp eq i64 %.048.i.i.i.i14.i, 0
   br i1 %.not1.i.i35.i, label %_ZSt10__pop_heapIPP10tactic_cmdN9__gnu_cxx5__ops15_Iter_comp_iterIZ12help_tacticsvE3cmpEEEvT_S8_S8_RT0_.exit.i33.i, label %.lr.ph.i.i.i.i11.i, !llvm.loop !252
 
 _ZSt10__pop_heapIPP10tactic_cmdN9__gnu_cxx5__ops15_Iter_comp_iterIZ12help_tacticsvE3cmpEEEvT_S8_S8_RT0_.exit.i33.i: ; preds = %218, %_ZZ12help_tacticsvENK3cmpclEP10tactic_cmdS1_.exit.i32.i, %194
   %.013.lcssa.i.i.i.i34.i = phi i64 [ 0, %194 ], [ %.0133.i.i.i.i12.i, %_ZZ12help_tacticsvENK3cmpclEP10tactic_cmdS1_.exit.i32.i ], [ 0, %218 ]
-  %221 = getelementptr inbounds nuw ptr, ptr %0, i64 %.013.lcssa.i.i.i.i34.i
+  %221 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.013.lcssa.i.i.i.i34.i
   store ptr %143, ptr %221, align 8, !tbaa !13
   %222 = icmp sgt i64 %146, 8
   br i1 %222, label %141, label %_ZSt14__partial_sortIPP10tactic_cmdN9__gnu_cxx5__ops15_Iter_comp_iterIZ12help_tacticsvE3cmpEEEvT_S8_S8_T0_.exit, !llvm.loop !254
@@ -3114,7 +3114,7 @@ _ZSt10__pop_heapIPP10tactic_cmdN9__gnu_cxx5__ops15_Iter_comp_iterIZ12help_tactic
 223:                                              ; preds = %41
   %224 = add nsw i64 %.01740, -1
   %225 = lshr i64 %42, 4
-  %226 = getelementptr inbounds nuw ptr, ptr %0, i64 %225
+  %226 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %225
   %227 = getelementptr inbounds i8, ptr %.041, i64 -8
   %.val29.i.i = load ptr, ptr %32, align 8, !tbaa !13
   %.val30.i.i = load ptr, ptr %226, align 8, !tbaa !13
@@ -3572,7 +3572,7 @@ define internal fastcc void @_ZSt16__insertion_sortIPP10tactic_cmdN9__gnu_cxx5__
   %19 = sub i64 %18, %12
   %20 = ashr exact i64 %19, 3
   %21 = sub nsw i64 0, %20
-  %22 = getelementptr inbounds ptr, ptr %17, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %17, i64 %21
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %22, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %19, i1 false)
   br label %_ZSt25__unguarded_linear_insertIPP10tactic_cmdN9__gnu_cxx5__ops14_Val_comp_iterIZ12help_tacticsvE3cmpEEEvT_T0_.exit
 
@@ -3763,13 +3763,13 @@ define internal fastcc void @_ZSt16__introsort_loopIPP14simplifier_cmdlN9__gnu_c
   %58 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %59 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %60 = or disjoint i64 %46, 1
-  %61 = getelementptr inbounds nuw ptr, ptr %0, i64 %60
-  %62 = getelementptr inbounds nuw ptr, ptr %0, i64 %47
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %60
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %47
   br label %63
 
 63:                                               ; preds = %_ZSt13__adjust_heapIPP14simplifier_cmdlS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZ16help_simplifiersvE3cmpEEEvT_T0_S9_T1_T2_.exit.i.i.i, %44
   %.014.i.i.i = phi i64 [ %47, %44 ], [ %132, %_ZSt13__adjust_heapIPP14simplifier_cmdlS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZ16help_simplifiersvE3cmpEEEvT_T0_S9_T1_T2_.exit.i.i.i ]
-  %64 = getelementptr inbounds nuw ptr, ptr %0, i64 %.014.i.i.i
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.014.i.i.i
   %65 = load ptr, ptr %64, align 8, !tbaa !43
   %66 = icmp slt i64 %.014.i.i.i, %49
   br i1 %66, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
@@ -3778,8 +3778,8 @@ define internal fastcc void @_ZSt16__introsort_loopIPP14simplifier_cmdlN9__gnu_c
   %.030.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %_ZZ16help_simplifiersvENK3cmpclEP14simplifier_cmdS1_.exit35.i.i.i ], [ %.014.i.i.i, %63 ]
   %67 = shl i64 %.030.i.i.i.i, 1
   %68 = add i64 %67, 2
-  %69 = getelementptr inbounds nuw ptr, ptr %0, i64 %68
-  %70 = getelementptr inbounds nuw ptr, ptr %0, i64 %67
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %68
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %67
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %.val.i.i.i.i = load ptr, ptr %69, align 8, !tbaa !43
   %.val29.i.i.i.i = load ptr, ptr %71, align 8, !tbaa !43
@@ -3875,9 +3875,9 @@ _ZZ16help_simplifiersvENK3cmpclEP14simplifier_cmdS1_.exit35.i.i.i: ; preds = %_Z
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %94 = or disjoint i64 %67, 1
   %spec.select.i.i.i.i = select i1 %93, i64 %94, i64 %68
-  %95 = getelementptr inbounds nuw ptr, ptr %0, i64 %spec.select.i.i.i.i
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %spec.select.i.i.i.i
   %96 = load ptr, ptr %95, align 8, !tbaa !43
-  %97 = getelementptr inbounds nuw ptr, ptr %0, i64 %.030.i.i.i.i
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.030.i.i.i.i
   store ptr %96, ptr %97, align 8, !tbaa !43
   %98 = icmp slt i64 %spec.select.i.i.i.i, %49
   br i1 %98, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !260
@@ -3902,7 +3902,7 @@ _ZZ16help_simplifiersvENK3cmpclEP14simplifier_cmdS1_.exit35.i.i.i: ; preds = %_Z
   %.0133.i.i.i.i.i = phi i64 [ %.048.i.i.i.i.i, %127 ], [ %.128.i.i.i.i, %102 ]
   %.04.in.i.i.i.i.i = add nsw i64 %.0133.i.i.i.i.i, -1
   %.048.i.i.i.i.i = lshr i64 %.04.in.i.i.i.i.i, 1
-  %104 = getelementptr inbounds nuw ptr, ptr %0, i64 %.048.i.i.i.i.i
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.048.i.i.i.i.i
   %.val.i.i.i.i.i = load ptr, ptr %104, align 8, !tbaa !43
   %.val.val.i.i.i.i.i = load ptr, ptr %.val.i.i.i.i.i, align 8, !tbaa !15
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
@@ -3994,14 +3994,14 @@ _ZZ16help_simplifiersvENK3cmpclEP14simplifier_cmdS1_.exit.i.i.i: ; preds = %_ZNS
 
 127:                                              ; preds = %_ZZ16help_simplifiersvENK3cmpclEP14simplifier_cmdS1_.exit.i.i.i
   %128 = load ptr, ptr %104, align 8, !tbaa !43
-  %129 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0133.i.i.i.i.i
+  %129 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.0133.i.i.i.i.i
   store ptr %128, ptr %129, align 8, !tbaa !43
   %130 = icmp samesign ugt i64 %.048.i.i.i.i.i, %.014.i.i.i
   br i1 %130, label %.lr.ph.i.i.i.i.i, label %_ZSt13__adjust_heapIPP14simplifier_cmdlS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZ16help_simplifiersvE3cmpEEEvT_T0_S9_T1_T2_.exit.i.i.i, !llvm.loop !261
 
 _ZSt13__adjust_heapIPP14simplifier_cmdlS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZ16help_simplifiersvE3cmpEEEvT_T0_S9_T1_T2_.exit.i.i.i: ; preds = %127, %_ZZ16help_simplifiersvENK3cmpclEP14simplifier_cmdS1_.exit.i.i.i, %102
   %.013.lcssa.i.i.i.i.i = phi i64 [ %.128.i.i.i.i, %102 ], [ %.0133.i.i.i.i.i, %_ZZ16help_simplifiersvENK3cmpclEP14simplifier_cmdS1_.exit.i.i.i ], [ %.048.i.i.i.i.i, %127 ]
-  %131 = getelementptr inbounds nuw ptr, ptr %0, i64 %.013.lcssa.i.i.i.i.i
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.013.lcssa.i.i.i.i.i
   store ptr %65, ptr %131, align 8, !tbaa !43
   %.not.i.i.i = icmp eq i64 %.014.i.i.i, 0
   %132 = add nsw i64 %.014.i.i.i, -1
@@ -4036,8 +4036,8 @@ _ZSt13__adjust_heapIPP14simplifier_cmdlS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZ16
   %.030.i.i.i44.i = phi i64 [ %spec.select.i.i.i48.i, %_ZZ16help_simplifiersvENK3cmpclEP14simplifier_cmdS1_.exit26.i.i ], [ 0, %141 ]
   %151 = shl i64 %.030.i.i.i44.i, 1
   %152 = add i64 %151, 2
-  %153 = getelementptr inbounds nuw ptr, ptr %0, i64 %152
-  %154 = getelementptr inbounds nuw ptr, ptr %0, i64 %151
+  %153 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %152
+  %154 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %151
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 8
   %.val.i.i.i45.i = load ptr, ptr %153, align 8, !tbaa !43
   %.val29.i.i.i46.i = load ptr, ptr %155, align 8, !tbaa !43
@@ -4129,9 +4129,9 @@ _ZZ16help_simplifiersvENK3cmpclEP14simplifier_cmdS1_.exit26.i.i: ; preds = %_ZNS
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %178 = or disjoint i64 %151, 1
   %spec.select.i.i.i48.i = select i1 %177, i64 %178, i64 %152
-  %179 = getelementptr inbounds nuw ptr, ptr %0, i64 %spec.select.i.i.i48.i
+  %179 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %spec.select.i.i.i48.i
   %180 = load ptr, ptr %179, align 8, !tbaa !43
-  %181 = getelementptr inbounds nuw ptr, ptr %0, i64 %.030.i.i.i44.i
+  %181 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.030.i.i.i44.i
   store ptr %180, ptr %181, align 8, !tbaa !43
   %182 = icmp slt i64 %spec.select.i.i.i48.i, %149
   br i1 %182, label %.lr.ph.i.i.i43.i, label %._crit_edge.i.i.i6.i, !llvm.loop !260
@@ -4151,9 +4151,9 @@ _ZZ16help_simplifiersvENK3cmpclEP14simplifier_cmdS1_.exit26.i.i: ; preds = %_ZNS
 .thread.i.i42.i:                                  ; preds = %185
   %189 = shl nuw nsw i64 %.0.lcssa.i.i.i7.i, 1
   %190 = or disjoint i64 %189, 1
-  %191 = getelementptr inbounds nuw ptr, ptr %0, i64 %190
+  %191 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %190
   %192 = load ptr, ptr %191, align 8, !tbaa !43
-  %193 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0.lcssa.i.i.i7.i
+  %193 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.0.lcssa.i.i.i7.i
   store ptr %192, ptr %193, align 8, !tbaa !43
   br label %.lr.ph.i.i.i.i11.i.preheader
 
@@ -4169,7 +4169,7 @@ _ZZ16help_simplifiersvENK3cmpclEP14simplifier_cmdS1_.exit26.i.i: ; preds = %_ZNS
   %.0133.i.i.i.i12.i = phi i64 [ %.048.i.i.i.i14.i, %218 ], [ %.0133.i.i.i.i12.i.ph, %.lr.ph.i.i.i.i11.i.preheader ]
   %.04.in.i.i.i.i13.i = add nsw i64 %.0133.i.i.i.i12.i, -1
   %.048.i.i.i.i14.i = lshr i64 %.04.in.i.i.i.i13.i, 1
-  %195 = getelementptr inbounds nuw ptr, ptr %0, i64 %.048.i.i.i.i14.i
+  %195 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.048.i.i.i.i14.i
   %.val.i.i.i.i15.i = load ptr, ptr %195, align 8, !tbaa !43
   %.val.val.i.i.i.i16.i = load ptr, ptr %.val.i.i.i.i15.i, align 8, !tbaa !15
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
@@ -4261,14 +4261,14 @@ _ZZ16help_simplifiersvENK3cmpclEP14simplifier_cmdS1_.exit.i32.i: ; preds = %_ZNS
 
 218:                                              ; preds = %_ZZ16help_simplifiersvENK3cmpclEP14simplifier_cmdS1_.exit.i32.i
   %219 = load ptr, ptr %195, align 8, !tbaa !43
-  %220 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0133.i.i.i.i12.i
+  %220 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.0133.i.i.i.i12.i
   store ptr %219, ptr %220, align 8, !tbaa !43
   %.not1.i.i35.i = icmp eq i64 %.048.i.i.i.i14.i, 0
   br i1 %.not1.i.i35.i, label %_ZSt10__pop_heapIPP14simplifier_cmdN9__gnu_cxx5__ops15_Iter_comp_iterIZ16help_simplifiersvE3cmpEEEvT_S8_S8_RT0_.exit.i33.i, label %.lr.ph.i.i.i.i11.i, !llvm.loop !261
 
 _ZSt10__pop_heapIPP14simplifier_cmdN9__gnu_cxx5__ops15_Iter_comp_iterIZ16help_simplifiersvE3cmpEEEvT_S8_S8_RT0_.exit.i33.i: ; preds = %218, %_ZZ16help_simplifiersvENK3cmpclEP14simplifier_cmdS1_.exit.i32.i, %194
   %.013.lcssa.i.i.i.i34.i = phi i64 [ 0, %194 ], [ %.0133.i.i.i.i12.i, %_ZZ16help_simplifiersvENK3cmpclEP14simplifier_cmdS1_.exit.i32.i ], [ 0, %218 ]
-  %221 = getelementptr inbounds nuw ptr, ptr %0, i64 %.013.lcssa.i.i.i.i34.i
+  %221 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.013.lcssa.i.i.i.i34.i
   store ptr %143, ptr %221, align 8, !tbaa !43
   %222 = icmp sgt i64 %146, 8
   br i1 %222, label %141, label %_ZSt14__partial_sortIPP14simplifier_cmdN9__gnu_cxx5__ops15_Iter_comp_iterIZ16help_simplifiersvE3cmpEEEvT_S8_S8_T0_.exit, !llvm.loop !263
@@ -4276,7 +4276,7 @@ _ZSt10__pop_heapIPP14simplifier_cmdN9__gnu_cxx5__ops15_Iter_comp_iterIZ16help_si
 223:                                              ; preds = %41
   %224 = add nsw i64 %.01740, -1
   %225 = lshr i64 %42, 4
-  %226 = getelementptr inbounds nuw ptr, ptr %0, i64 %225
+  %226 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %225
   %227 = getelementptr inbounds i8, ptr %.041, i64 -8
   %.val29.i.i = load ptr, ptr %32, align 8, !tbaa !43
   %.val30.i.i = load ptr, ptr %226, align 8, !tbaa !43
@@ -4708,7 +4708,7 @@ define internal fastcc void @_ZSt16__insertion_sortIPP14simplifier_cmdN9__gnu_cx
   %19 = sub i64 %18, %12
   %20 = ashr exact i64 %19, 3
   %21 = sub nsw i64 0, %20
-  %22 = getelementptr inbounds ptr, ptr %17, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %17, i64 %21
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %22, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %19, i1 false)
   br label %_ZSt25__unguarded_linear_insertIPP14simplifier_cmdN9__gnu_cxx5__ops14_Val_comp_iterIZ16help_simplifiersvE3cmpEEEvT_T0_.exit
 
@@ -5450,13 +5450,13 @@ define internal fastcc void @_ZSt16__introsort_loopIPP10probe_infolN9__gnu_cxx5_
   %58 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %59 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %60 = or disjoint i64 %46, 1
-  %61 = getelementptr inbounds nuw ptr, ptr %0, i64 %60
-  %62 = getelementptr inbounds nuw ptr, ptr %0, i64 %47
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %60
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %47
   br label %63
 
 63:                                               ; preds = %_ZSt13__adjust_heapIPP10probe_infolS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZ11help_probesvE3cmpEEEvT_T0_S9_T1_T2_.exit.i.i.i, %44
   %.014.i.i.i = phi i64 [ %47, %44 ], [ %132, %_ZSt13__adjust_heapIPP10probe_infolS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZ11help_probesvE3cmpEEEvT_T0_S9_T1_T2_.exit.i.i.i ]
-  %64 = getelementptr inbounds nuw ptr, ptr %0, i64 %.014.i.i.i
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.014.i.i.i
   %65 = load ptr, ptr %64, align 8, !tbaa !224
   %66 = icmp slt i64 %.014.i.i.i, %49
   br i1 %66, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
@@ -5465,8 +5465,8 @@ define internal fastcc void @_ZSt16__introsort_loopIPP10probe_infolN9__gnu_cxx5_
   %.030.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %_ZZ11help_probesvENK3cmpclEP10probe_infoS1_.exit35.i.i.i ], [ %.014.i.i.i, %63 ]
   %67 = shl i64 %.030.i.i.i.i, 1
   %68 = add i64 %67, 2
-  %69 = getelementptr inbounds nuw ptr, ptr %0, i64 %68
-  %70 = getelementptr inbounds nuw ptr, ptr %0, i64 %67
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %68
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %67
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %.val.i.i.i.i = load ptr, ptr %69, align 8, !tbaa !224
   %.val29.i.i.i.i = load ptr, ptr %71, align 8, !tbaa !224
@@ -5562,9 +5562,9 @@ _ZZ11help_probesvENK3cmpclEP10probe_infoS1_.exit35.i.i.i: ; preds = %_ZNSt7__cxx
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %94 = or disjoint i64 %67, 1
   %spec.select.i.i.i.i = select i1 %93, i64 %94, i64 %68
-  %95 = getelementptr inbounds nuw ptr, ptr %0, i64 %spec.select.i.i.i.i
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %spec.select.i.i.i.i
   %96 = load ptr, ptr %95, align 8, !tbaa !224
-  %97 = getelementptr inbounds nuw ptr, ptr %0, i64 %.030.i.i.i.i
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.030.i.i.i.i
   store ptr %96, ptr %97, align 8, !tbaa !224
   %98 = icmp slt i64 %spec.select.i.i.i.i, %49
   br i1 %98, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !271
@@ -5589,7 +5589,7 @@ _ZZ11help_probesvENK3cmpclEP10probe_infoS1_.exit35.i.i.i: ; preds = %_ZNSt7__cxx
   %.0133.i.i.i.i.i = phi i64 [ %.048.i.i.i.i.i, %127 ], [ %.128.i.i.i.i, %102 ]
   %.04.in.i.i.i.i.i = add nsw i64 %.0133.i.i.i.i.i, -1
   %.048.i.i.i.i.i = lshr i64 %.04.in.i.i.i.i.i, 1
-  %104 = getelementptr inbounds nuw ptr, ptr %0, i64 %.048.i.i.i.i.i
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.048.i.i.i.i.i
   %.val.i.i.i.i.i = load ptr, ptr %104, align 8, !tbaa !224
   %.val.val.i.i.i.i.i = load ptr, ptr %.val.i.i.i.i.i, align 8, !tbaa !15
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
@@ -5681,14 +5681,14 @@ _ZZ11help_probesvENK3cmpclEP10probe_infoS1_.exit.i.i.i: ; preds = %_ZNSt7__cxx11
 
 127:                                              ; preds = %_ZZ11help_probesvENK3cmpclEP10probe_infoS1_.exit.i.i.i
   %128 = load ptr, ptr %104, align 8, !tbaa !224
-  %129 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0133.i.i.i.i.i
+  %129 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.0133.i.i.i.i.i
   store ptr %128, ptr %129, align 8, !tbaa !224
   %130 = icmp samesign ugt i64 %.048.i.i.i.i.i, %.014.i.i.i
   br i1 %130, label %.lr.ph.i.i.i.i.i, label %_ZSt13__adjust_heapIPP10probe_infolS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZ11help_probesvE3cmpEEEvT_T0_S9_T1_T2_.exit.i.i.i, !llvm.loop !272
 
 _ZSt13__adjust_heapIPP10probe_infolS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZ11help_probesvE3cmpEEEvT_T0_S9_T1_T2_.exit.i.i.i: ; preds = %127, %_ZZ11help_probesvENK3cmpclEP10probe_infoS1_.exit.i.i.i, %102
   %.013.lcssa.i.i.i.i.i = phi i64 [ %.128.i.i.i.i, %102 ], [ %.0133.i.i.i.i.i, %_ZZ11help_probesvENK3cmpclEP10probe_infoS1_.exit.i.i.i ], [ %.048.i.i.i.i.i, %127 ]
-  %131 = getelementptr inbounds nuw ptr, ptr %0, i64 %.013.lcssa.i.i.i.i.i
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.013.lcssa.i.i.i.i.i
   store ptr %65, ptr %131, align 8, !tbaa !224
   %.not.i.i.i = icmp eq i64 %.014.i.i.i, 0
   %132 = add nsw i64 %.014.i.i.i, -1
@@ -5723,8 +5723,8 @@ _ZSt13__adjust_heapIPP10probe_infolS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZ11help
   %.030.i.i.i44.i = phi i64 [ %spec.select.i.i.i48.i, %_ZZ11help_probesvENK3cmpclEP10probe_infoS1_.exit26.i.i ], [ 0, %141 ]
   %151 = shl i64 %.030.i.i.i44.i, 1
   %152 = add i64 %151, 2
-  %153 = getelementptr inbounds nuw ptr, ptr %0, i64 %152
-  %154 = getelementptr inbounds nuw ptr, ptr %0, i64 %151
+  %153 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %152
+  %154 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %151
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 8
   %.val.i.i.i45.i = load ptr, ptr %153, align 8, !tbaa !224
   %.val29.i.i.i46.i = load ptr, ptr %155, align 8, !tbaa !224
@@ -5816,9 +5816,9 @@ _ZZ11help_probesvENK3cmpclEP10probe_infoS1_.exit26.i.i: ; preds = %_ZNSt7__cxx11
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %178 = or disjoint i64 %151, 1
   %spec.select.i.i.i48.i = select i1 %177, i64 %178, i64 %152
-  %179 = getelementptr inbounds nuw ptr, ptr %0, i64 %spec.select.i.i.i48.i
+  %179 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %spec.select.i.i.i48.i
   %180 = load ptr, ptr %179, align 8, !tbaa !224
-  %181 = getelementptr inbounds nuw ptr, ptr %0, i64 %.030.i.i.i44.i
+  %181 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.030.i.i.i44.i
   store ptr %180, ptr %181, align 8, !tbaa !224
   %182 = icmp slt i64 %spec.select.i.i.i48.i, %149
   br i1 %182, label %.lr.ph.i.i.i43.i, label %._crit_edge.i.i.i6.i, !llvm.loop !271
@@ -5838,9 +5838,9 @@ _ZZ11help_probesvENK3cmpclEP10probe_infoS1_.exit26.i.i: ; preds = %_ZNSt7__cxx11
 .thread.i.i42.i:                                  ; preds = %185
   %189 = shl nuw nsw i64 %.0.lcssa.i.i.i7.i, 1
   %190 = or disjoint i64 %189, 1
-  %191 = getelementptr inbounds nuw ptr, ptr %0, i64 %190
+  %191 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %190
   %192 = load ptr, ptr %191, align 8, !tbaa !224
-  %193 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0.lcssa.i.i.i7.i
+  %193 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.0.lcssa.i.i.i7.i
   store ptr %192, ptr %193, align 8, !tbaa !224
   br label %.lr.ph.i.i.i.i11.i.preheader
 
@@ -5856,7 +5856,7 @@ _ZZ11help_probesvENK3cmpclEP10probe_infoS1_.exit26.i.i: ; preds = %_ZNSt7__cxx11
   %.0133.i.i.i.i12.i = phi i64 [ %.048.i.i.i.i14.i, %218 ], [ %.0133.i.i.i.i12.i.ph, %.lr.ph.i.i.i.i11.i.preheader ]
   %.04.in.i.i.i.i13.i = add nsw i64 %.0133.i.i.i.i12.i, -1
   %.048.i.i.i.i14.i = lshr i64 %.04.in.i.i.i.i13.i, 1
-  %195 = getelementptr inbounds nuw ptr, ptr %0, i64 %.048.i.i.i.i14.i
+  %195 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.048.i.i.i.i14.i
   %.val.i.i.i.i15.i = load ptr, ptr %195, align 8, !tbaa !224
   %.val.val.i.i.i.i16.i = load ptr, ptr %.val.i.i.i.i15.i, align 8, !tbaa !15
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
@@ -5948,14 +5948,14 @@ _ZZ11help_probesvENK3cmpclEP10probe_infoS1_.exit.i32.i: ; preds = %_ZNSt7__cxx11
 
 218:                                              ; preds = %_ZZ11help_probesvENK3cmpclEP10probe_infoS1_.exit.i32.i
   %219 = load ptr, ptr %195, align 8, !tbaa !224
-  %220 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0133.i.i.i.i12.i
+  %220 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.0133.i.i.i.i12.i
   store ptr %219, ptr %220, align 8, !tbaa !224
   %.not1.i.i35.i = icmp eq i64 %.048.i.i.i.i14.i, 0
   br i1 %.not1.i.i35.i, label %_ZSt10__pop_heapIPP10probe_infoN9__gnu_cxx5__ops15_Iter_comp_iterIZ11help_probesvE3cmpEEEvT_S8_S8_RT0_.exit.i33.i, label %.lr.ph.i.i.i.i11.i, !llvm.loop !272
 
 _ZSt10__pop_heapIPP10probe_infoN9__gnu_cxx5__ops15_Iter_comp_iterIZ11help_probesvE3cmpEEEvT_S8_S8_RT0_.exit.i33.i: ; preds = %218, %_ZZ11help_probesvENK3cmpclEP10probe_infoS1_.exit.i32.i, %194
   %.013.lcssa.i.i.i.i34.i = phi i64 [ 0, %194 ], [ %.0133.i.i.i.i12.i, %_ZZ11help_probesvENK3cmpclEP10probe_infoS1_.exit.i32.i ], [ 0, %218 ]
-  %221 = getelementptr inbounds nuw ptr, ptr %0, i64 %.013.lcssa.i.i.i.i34.i
+  %221 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.013.lcssa.i.i.i.i34.i
   store ptr %143, ptr %221, align 8, !tbaa !224
   %222 = icmp sgt i64 %146, 8
   br i1 %222, label %141, label %_ZSt14__partial_sortIPP10probe_infoN9__gnu_cxx5__ops15_Iter_comp_iterIZ11help_probesvE3cmpEEEvT_S8_S8_T0_.exit, !llvm.loop !274
@@ -5963,7 +5963,7 @@ _ZSt10__pop_heapIPP10probe_infoN9__gnu_cxx5__ops15_Iter_comp_iterIZ11help_probes
 223:                                              ; preds = %41
   %224 = add nsw i64 %.01740, -1
   %225 = lshr i64 %42, 4
-  %226 = getelementptr inbounds nuw ptr, ptr %0, i64 %225
+  %226 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %225
   %227 = getelementptr inbounds i8, ptr %.041, i64 -8
   %.val29.i.i = load ptr, ptr %32, align 8, !tbaa !224
   %.val30.i.i = load ptr, ptr %226, align 8, !tbaa !224
@@ -6395,7 +6395,7 @@ define internal fastcc void @_ZSt16__insertion_sortIPP10probe_infoN9__gnu_cxx5__
   %19 = sub i64 %18, %12
   %20 = ashr exact i64 %19, 3
   %21 = sub nsw i64 0, %20
-  %22 = getelementptr inbounds ptr, ptr %17, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %17, i64 %21
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %22, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %19, i1 false)
   br label %_ZSt25__unguarded_linear_insertIPP10probe_infoN9__gnu_cxx5__ops14_Val_comp_iterIZ11help_probesvE3cmpEEEvT_T0_.exit
 

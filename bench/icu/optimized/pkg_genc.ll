@@ -565,7 +565,7 @@ define signext range(i8 0, 2) i8 @checkAssemblyHeaderName(ptr noundef readonly c
 
 2:                                                ; preds = %1, %12
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %12 ]
-  %3 = getelementptr inbounds nuw %struct.AssemblyType, ptr @_ZL14assemblyHeader, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [40 x i8], ptr @_ZL14assemblyHeader, i64 %indvars.iv
   %4 = load ptr, ptr %3, align 8, !tbaa !15
   %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %4) #24
   %6 = icmp eq i32 %5, 0
@@ -624,7 +624,7 @@ define void @printAssemblyHeadersToStdErr() local_unnamed_addr #12 {
 3:                                                ; preds = %0, %3
   %indvars.iv = phi i64 [ 1, %0 ], [ %indvars.iv.next, %3 ]
   %4 = load ptr, ptr @stderr, align 8, !tbaa !20
-  %5 = getelementptr inbounds nuw %struct.AssemblyType, ptr @_ZL14assemblyHeader, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [40 x i8], ptr @_ZL14assemblyHeader, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8, !tbaa !15
   %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.4, ptr noundef %6) #26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -661,7 +661,7 @@ define void @writeAssemblyCode(ptr noundef %0, ptr noundef %1, ptr noundef reado
 16:                                               ; preds = %6
   %17 = load i32, ptr @_ZL19assemblyHeaderIndex, align 4, !tbaa !12
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds %struct.AssemblyType, ptr @_ZL14assemblyHeader, i64 %18
+  %19 = getelementptr inbounds [40 x i8], ptr @_ZL14assemblyHeader, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !15
   %21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(5) @.str.8) #24
   %22 = icmp eq i32 %21, 0
@@ -741,7 +741,7 @@ define void @writeAssemblyCode(ptr noundef %0, ptr noundef %1, ptr noundef reado
 ._crit_edge:                                      ; preds = %48, %43
   %50 = load i32, ptr @_ZL19assemblyHeaderIndex, align 4, !tbaa !12
   %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds %struct.AssemblyType, ptr @_ZL14assemblyHeader, i64 %51
+  %52 = getelementptr inbounds [40 x i8], ptr @_ZL14assemblyHeader, i64 %51
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %54 = load ptr, ptr %53, align 8, !tbaa !25
   %55 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 4096, ptr noundef %54, ptr noundef nonnull %9, ptr noundef nonnull %9, ptr noundef nonnull %9, ptr noundef nonnull %9, ptr noundef nonnull %9, ptr noundef nonnull %9, ptr noundef nonnull %9, ptr noundef nonnull %9) #21
@@ -758,7 +758,7 @@ define void @writeAssemblyCode(ptr noundef %0, ptr noundef %1, ptr noundef reado
   %61 = call i32 @T_FileStream_writeLine(ptr noundef nonnull %27, ptr noundef nonnull %10)
   %62 = load i32, ptr @_ZL19assemblyHeaderIndex, align 4, !tbaa !12
   %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds %struct.AssemblyType, ptr @_ZL14assemblyHeader, i64 %63
+  %64 = getelementptr inbounds [40 x i8], ptr @_ZL14assemblyHeader, i64 %63
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %66 = load ptr, ptr %65, align 8, !tbaa !26
   %67 = call i32 @T_FileStream_writeLine(ptr noundef nonnull %27, ptr noundef %66)
@@ -789,7 +789,7 @@ define void @writeAssemblyCode(ptr noundef %0, ptr noundef %1, ptr noundef reado
 .lr.ph54:                                         ; preds = %.preheader, %_ZL7write32P11_FileStreamjj.exit
   %.153 = phi i64 [ %129, %_ZL7write32P11_FileStreamjj.exit ], [ 0, %.preheader ]
   %.14052 = phi i32 [ %.0.i, %_ZL7write32P11_FileStreamjj.exit ], [ %.03955, %.preheader ]
-  %75 = getelementptr inbounds nuw i32, ptr %10, i64 %.153
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %.153
   %76 = load i32, ptr %75, align 4, !tbaa !23
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 %76, ptr %7, align 4, !tbaa !12
@@ -810,7 +810,7 @@ define void @writeAssemblyCode(ptr noundef %0, ptr noundef %1, ptr noundef reado
   store i8 10, ptr %8, align 16, !tbaa !23
   %83 = load i32, ptr @_ZL19assemblyHeaderIndex, align 4, !tbaa !12
   %84 = sext i32 %83 to i64
-  %85 = getelementptr inbounds %struct.AssemblyType, ptr @_ZL14assemblyHeader, i64 %84
+  %85 = getelementptr inbounds [40 x i8], ptr @_ZL14assemblyHeader, i64 %84
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 16
   %87 = load ptr, ptr %86, align 8, !tbaa !26
   %88 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %70, ptr noundef nonnull dereferenceable(1) %87) #21
@@ -913,7 +913,7 @@ _ZL7write32P11_FileStreamjj.exit:                 ; preds = %93, %123, %126
   %130 = call i32 @T_FileStream_writeLine(ptr noundef nonnull %27, ptr noundef nonnull @.str.18)
   %131 = load i32, ptr @_ZL19assemblyHeaderIndex, align 4, !tbaa !12
   %132 = sext i32 %131 to i64
-  %133 = getelementptr inbounds %struct.AssemblyType, ptr @_ZL14assemblyHeader, i64 %132
+  %133 = getelementptr inbounds [40 x i8], ptr @_ZL14assemblyHeader, i64 %132
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 24
   %135 = load ptr, ptr %134, align 8, !tbaa !30
   %136 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 4096, ptr noundef %135, ptr noundef nonnull %9, ptr noundef nonnull %9, ptr noundef nonnull %9, ptr noundef nonnull %9, ptr noundef nonnull %9, ptr noundef nonnull %9, ptr noundef nonnull %9, ptr noundef nonnull %9) #21

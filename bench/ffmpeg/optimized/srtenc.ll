@@ -101,7 +101,7 @@ define internal fastcc range(i32 0, -1) i32 @encode_frame(ptr noundef %0, ptr no
 16:                                               ; preds = %.lr.ph, %33
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %33 ]
   %17 = load ptr, ptr %12, align 8, !tbaa !38
-  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !39
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 76
   %21 = load i32, ptr %20, align 4, !tbaa !41

@@ -30,10 +30,10 @@ Vec_IntFetch.exit.thread:                         ; preds = %4
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !14
   %18 = sext i32 %12 to i64
-  %19 = getelementptr inbounds i32, ptr %17, i64 %18
+  %19 = getelementptr inbounds [4 x i8], ptr %17, i64 %18
   %20 = sext i32 %.val to i64
   %21 = sub nsw i64 0, %20
-  %22 = getelementptr inbounds i32, ptr %19, i64 %21
+  %22 = getelementptr inbounds [4 x i8], ptr %19, i64 %21
   br label %Vec_IntFetch.exit
 
 Vec_IntFetch.exit:                                ; preds = %9, %15
@@ -51,13 +51,13 @@ Vec_IntFetch.exit:                                ; preds = %9, %15
 
 26:                                               ; preds = %.lr.ph, %26
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %26 ]
-  %27 = getelementptr inbounds nuw i32, ptr %.val11, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %.val11, i64 %indvars.iv
   %28 = load i32, ptr %27, align 4, !tbaa !15
   %29 = load i32, ptr %5, align 4, !tbaa !3
   %30 = add nsw i32 %29, 1
   store i32 %30, ptr %5, align 4, !tbaa !3
   %31 = sext i32 %29 to i64
-  %32 = getelementptr inbounds i32, ptr %.0.i.ph, i64 %31
+  %32 = getelementptr inbounds [4 x i8], ptr %.0.i.ph, i64 %31
   store i32 %28, ptr %32, align 4, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val10 = load i32, ptr %6, align 4, !tbaa !10
@@ -96,10 +96,10 @@ Vec_IntFetch.exit.thread:                         ; preds = %4
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !14
   %18 = sext i32 %12 to i64
-  %19 = getelementptr inbounds i32, ptr %17, i64 %18
+  %19 = getelementptr inbounds [4 x i8], ptr %17, i64 %18
   %20 = sext i32 %.val to i64
   %21 = sub nsw i64 0, %20
-  %22 = getelementptr inbounds i32, ptr %19, i64 %21
+  %22 = getelementptr inbounds [4 x i8], ptr %19, i64 %21
   br label %Vec_IntFetch.exit
 
 Vec_IntFetch.exit:                                ; preds = %9, %15
@@ -117,7 +117,7 @@ Vec_IntFetch.exit:                                ; preds = %9, %15
 
 26:                                               ; preds = %.lr.ph, %26
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %26 ]
-  %27 = getelementptr inbounds nuw i32, ptr %.val16, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %.val16, i64 %indvars.iv
   %28 = load i32, ptr %27, align 4, !tbaa !15
   %29 = lshr i32 %28, 1
   %30 = or i32 %29, %28
@@ -128,7 +128,7 @@ Vec_IntFetch.exit:                                ; preds = %9, %15
   %35 = add nsw i32 %34, 1
   store i32 %35, ptr %6, align 4, !tbaa !3
   %36 = sext i32 %34 to i64
-  %37 = getelementptr inbounds i32, ptr %.0.i, i64 %36
+  %37 = getelementptr inbounds [4 x i8], ptr %.0.i, i64 %36
   store i32 %33, ptr %37, align 4, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -165,10 +165,10 @@ Vec_IntFetch.exit.thread:                         ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !14
   %17 = sext i32 %11 to i64
-  %18 = getelementptr inbounds i32, ptr %16, i64 %17
+  %18 = getelementptr inbounds [4 x i8], ptr %16, i64 %17
   %19 = sext i32 %.val to i64
   %20 = sub nsw i64 0, %19
-  %21 = getelementptr inbounds i32, ptr %18, i64 %20
+  %21 = getelementptr inbounds [4 x i8], ptr %18, i64 %20
   br label %Vec_IntFetch.exit
 
 Vec_IntFetch.exit:                                ; preds = %8, %14
@@ -185,7 +185,7 @@ Vec_IntFetch.exit:                                ; preds = %8, %14
 
 25:                                               ; preds = %.lr.ph, %28
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %28 ]
-  %26 = getelementptr inbounds nuw i32, ptr %.val12, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %.val12, i64 %indvars.iv
   %27 = load i32, ptr %26, align 4, !tbaa !15
   %.not = icmp eq i32 %27, 0
   br i1 %.not, label %.critedge, label %28
@@ -195,7 +195,7 @@ Vec_IntFetch.exit:                                ; preds = %8, %14
   %30 = add nsw i32 %29, 1
   store i32 %30, ptr %4, align 4, !tbaa !3
   %31 = sext i32 %29 to i64
-  %32 = getelementptr inbounds i32, ptr %.0.i, i64 %31
+  %32 = getelementptr inbounds [4 x i8], ptr %.0.i, i64 %31
   store i32 %27, ptr %32, align 4, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val11 = load i32, ptr %5, align 4, !tbaa !3
@@ -225,7 +225,7 @@ define void @Kit_SopDivideByLiteralQuo(ptr noundef captures(none) %0, i32 nounde
   %.val23 = phi i32 [ %.val17, %.lr.ph ], [ %.val, %18 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %18 ]
   %.019 = phi i32 [ 0, %.lr.ph ], [ %.1, %18 ]
-  %9 = getelementptr inbounds nuw i32, ptr %.val15, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %.val15, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4, !tbaa !15
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %.critedge, label %11
@@ -239,7 +239,7 @@ define void @Kit_SopDivideByLiteralQuo(ptr noundef captures(none) %0, i32 nounde
   %14 = and i32 %10, %7
   %15 = add nsw i32 %.019, 1
   %16 = sext i32 %.019 to i64
-  %17 = getelementptr inbounds i32, ptr %.val15, i64 %16
+  %17 = getelementptr inbounds [4 x i8], ptr %.val15, i64 %16
   store i32 %14, ptr %17, align 4, !tbaa !15
   %.val.pre = load i32, ptr %3, align 4, !tbaa !3
   br label %18
@@ -283,10 +283,10 @@ define void @Kit_SopDivideByCube(ptr noundef readonly captures(none) %0, ptr nou
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !14
   %20 = sext i32 %14 to i64
-  %21 = getelementptr inbounds i32, ptr %19, i64 %20
+  %21 = getelementptr inbounds [4 x i8], ptr %19, i64 %20
   %22 = sext i32 %.val23 to i64
   %23 = sub nsw i64 0, %22
-  %24 = getelementptr inbounds i32, ptr %21, i64 %23
+  %24 = getelementptr inbounds [4 x i8], ptr %21, i64 %23
   br label %Vec_IntFetch.exit
 
 Vec_IntFetch.exit:                                ; preds = %5, %11, %17
@@ -317,10 +317,10 @@ Vec_IntFetch.exit27.thread:                       ; preds = %Vec_IntFetch.exit
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %37 = load ptr, ptr %36, align 8, !tbaa !14
   %38 = sext i32 %32 to i64
-  %39 = getelementptr inbounds i32, ptr %37, i64 %38
+  %39 = getelementptr inbounds [4 x i8], ptr %37, i64 %38
   %40 = sext i32 %.val22 to i64
   %41 = sub nsw i64 0, %40
-  %42 = getelementptr inbounds i32, ptr %39, i64 %41
+  %42 = getelementptr inbounds [4 x i8], ptr %39, i64 %41
   br label %Vec_IntFetch.exit27
 
 Vec_IntFetch.exit27:                              ; preds = %29, %35
@@ -338,7 +338,7 @@ Vec_IntFetch.exit27:                              ; preds = %29, %35
 
 47:                                               ; preds = %.lr.ph, %60
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %60 ]
-  %48 = getelementptr inbounds nuw i32, ptr %.val24, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %.val24, i64 %indvars.iv
   %49 = load i32, ptr %48, align 4, !tbaa !15
   %.not = icmp eq i32 %49, 0
   br i1 %.not, label %.critedge, label %50
@@ -367,7 +367,7 @@ Vec_IntFetch.exit27:                              ; preds = %29, %35
   %.sink37 = phi ptr [ %54, %52 ], [ %.0.i26, %57 ]
   %.sink = phi i32 [ %53, %52 ], [ %49, %57 ]
   %61 = sext i32 %.sink39 to i64
-  %62 = getelementptr inbounds i32, ptr %.sink37, i64 %61
+  %62 = getelementptr inbounds [4 x i8], ptr %.sink37, i64 %61
   store i32 %.sink, ptr %62, align 4, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val = load i32, ptr %9, align 4, !tbaa !3
@@ -410,10 +410,10 @@ define void @Kit_SopDivideInternal(ptr noundef readonly captures(none) %0, ptr n
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !14
   %23 = sext i32 %17 to i64
-  %24 = getelementptr inbounds i32, ptr %22, i64 %23
+  %24 = getelementptr inbounds [4 x i8], ptr %22, i64 %23
   %25 = sext i32 %.val23.i to i64
   %26 = sub nsw i64 0, %25
-  %27 = getelementptr inbounds i32, ptr %24, i64 %26
+  %27 = getelementptr inbounds [4 x i8], ptr %24, i64 %26
   br label %Vec_IntFetch.exit.i
 
 Vec_IntFetch.exit.i:                              ; preds = %20, %14, %8
@@ -444,10 +444,10 @@ Vec_IntFetch.exit27.thread.i:                     ; preds = %Vec_IntFetch.exit.i
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %40 = load ptr, ptr %39, align 8, !tbaa !14
   %41 = sext i32 %35 to i64
-  %42 = getelementptr inbounds i32, ptr %40, i64 %41
+  %42 = getelementptr inbounds [4 x i8], ptr %40, i64 %41
   %43 = sext i32 %.val22.i to i64
   %44 = sub nsw i64 0, %43
-  %45 = getelementptr inbounds i32, ptr %42, i64 %44
+  %45 = getelementptr inbounds [4 x i8], ptr %42, i64 %44
   br label %Vec_IntFetch.exit27.i
 
 Vec_IntFetch.exit27.i:                            ; preds = %38, %32
@@ -465,7 +465,7 @@ Vec_IntFetch.exit27.i:                            ; preds = %38, %32
 
 50:                                               ; preds = %63, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %63 ]
-  %51 = getelementptr inbounds nuw i32, ptr %.val24.i, i64 %indvars.iv.i
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %.val24.i, i64 %indvars.iv.i
   %52 = load i32, ptr %51, align 4, !tbaa !15
   %.not.i = icmp eq i32 %52, 0
   br i1 %.not.i, label %.critedge12, label %53
@@ -494,7 +494,7 @@ Vec_IntFetch.exit27.i:                            ; preds = %38, %32
   %.sink37.i = phi ptr [ %57, %55 ], [ %.0.i26.i, %60 ]
   %.sink.i = phi i32 [ %56, %55 ], [ %52, %60 ]
   %64 = sext i32 %.sink39.i to i64
-  %65 = getelementptr inbounds i32, ptr %.sink37.i, i64 %64
+  %65 = getelementptr inbounds [4 x i8], ptr %.sink37.i, i64 %64
   store i32 %.sink.i, ptr %65, align 4, !tbaa !15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.val.i = load i32, ptr %12, align 4, !tbaa !3
@@ -525,10 +525,10 @@ Vec_IntFetch.exit27.i:                            ; preds = %38, %32
   %80 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %81 = load ptr, ptr %80, align 8, !tbaa !14
   %82 = sext i32 %76 to i64
-  %83 = getelementptr inbounds i32, ptr %81, i64 %82
+  %83 = getelementptr inbounds [4 x i8], ptr %81, i64 %82
   %84 = sext i32 %71 to i64
   %85 = sub nsw i64 0, %84
-  %86 = getelementptr inbounds i32, ptr %83, i64 %85
+  %86 = getelementptr inbounds [4 x i8], ptr %83, i64 %85
   br label %Vec_IntFetch.exit
 
 Vec_IntFetch.exit:                                ; preds = %68, %73, %79
@@ -551,7 +551,7 @@ Vec_IntFetch.exit:                                ; preds = %68, %73, %79
   %.val149246 = phi i32 [ %.val151, %.lr.ph247 ], [ %.val149, %.critedge8 ]
   %.0112244 = phi i32 [ 0, %.lr.ph247 ], [ %.1113, %.critedge8 ]
   %.val149246.fr = freeze i32 %.val149246
-  %92 = getelementptr inbounds nuw i32, ptr %.val159, i64 %indvars.iv293
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %.val159, i64 %indvars.iv293
   %93 = load i32, ptr %92, align 4, !tbaa !15
   %.not = icmp eq i32 %93, 0
   br i1 %.not, label %.critedge.loopexit, label %94
@@ -571,7 +571,7 @@ Vec_IntFetch.exit:                                ; preds = %68, %73, %79
 
 96:                                               ; preds = %.lr.ph, %100
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %100 ]
-  %97 = getelementptr inbounds nuw i32, ptr %.val158, i64 %indvars.iv
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %.val158, i64 %indvars.iv
   %98 = load i32, ptr %97, align 4, !tbaa !15
   %99 = and i32 %98, %93
   %.not165 = icmp eq i32 %99, %98
@@ -607,7 +607,7 @@ Vec_IntFetch.exit:                                ; preds = %68, %73, %79
 .lr.ph195.split.us:                               ; preds = %.lr.ph195.split.us.preheader, %122
   %indvars.iv280 = phi i64 [ 0, %.lr.ph195.split.us.preheader ], [ %indvars.iv.next281, %122 ]
   %.2193.us = phi i32 [ %.0112244, %.lr.ph195.split.us.preheader ], [ %.4.us, %122 ]
-  %108 = getelementptr inbounds nuw i32, ptr %.val157, i64 %indvars.iv280
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %.val157, i64 %indvars.iv280
   %109 = load i32, ptr %108, align 4, !tbaa !15
   %.not129.us = icmp eq i32 %109, 0
   br i1 %.not129.us, label %.critedge4.loopexit346, label %110
@@ -618,7 +618,7 @@ Vec_IntFetch.exit:                                ; preds = %68, %73, %79
 
 112:                                              ; preds = %.preheader170.us, %119
   %indvars.iv275 = phi i64 [ 0, %.preheader170.us ], [ %indvars.iv.next276, %119 ]
-  %113 = getelementptr inbounds nuw i32, ptr %.val159, i64 %indvars.iv275
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %.val159, i64 %indvars.iv275
   %114 = load i32, ptr %113, align 4, !tbaa !15
   %.not130.us = icmp eq i32 %114, 0
   br i1 %.not130.us, label %.critedge6.us, label %115
@@ -670,7 +670,7 @@ Vec_IntFetch.exit:                                ; preds = %68, %73, %79
 
 .lr.ph195.split.split.us:                         ; preds = %.lr.ph195.split.split.us.preheader, %129
   %indvars.iv270 = phi i64 [ 0, %.lr.ph195.split.split.us.preheader ], [ %indvars.iv.next271, %129 ]
-  %126 = getelementptr inbounds nuw i32, ptr %.val157, i64 %indvars.iv270
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %.val157, i64 %indvars.iv270
   %127 = load i32, ptr %126, align 4, !tbaa !15
   %.not129.us209 = icmp ne i32 %127, 0
   %128 = icmp eq i64 %indvars.iv270, %125
@@ -682,7 +682,7 @@ Vec_IntFetch.exit:                                ; preds = %68, %73, %79
 
 .lr.ph195.split.split:                            ; preds = %.lr.ph195.split.split.preheader, %.preheader170
   %indvars.iv265 = phi i64 [ 0, %.lr.ph195.split.split.preheader ], [ %indvars.iv.next266, %.preheader170 ]
-  %130 = getelementptr inbounds nuw i32, ptr %.val157, i64 %indvars.iv265
+  %130 = getelementptr inbounds nuw [4 x i8], ptr %.val157, i64 %indvars.iv265
   %131 = load i32, ptr %130, align 4, !tbaa !15
   %.not129 = icmp eq i32 %131, 0
   br i1 %.not129, label %.critedge4.loopexit349, label %.preheader170
@@ -725,7 +725,7 @@ Vec_IntFetch.exit:                                ; preds = %68, %73, %79
   %137 = add nsw i32 %136, 1
   store i32 %137, ptr %69, align 4, !tbaa !3
   %138 = sext i32 %136 to i64
-  %139 = getelementptr inbounds i32, ptr %.0.i, i64 %138
+  %139 = getelementptr inbounds [4 x i8], ptr %.0.i, i64 %138
   store i32 %.1111327330340, ptr %139, align 4, !tbaa !15
   %140 = or disjoint i32 %93, -2147483648
   store i32 %140, ptr %92, align 4, !tbaa !15
@@ -742,7 +742,7 @@ Vec_IntFetch.exit:                                ; preds = %68, %73, %79
   %.val142303 = phi i32 [ %.val142236, %.lr.ph239 ], [ %.val142, %162 ]
   %indvars.iv290 = phi i64 [ 0, %.lr.ph239 ], [ %indvars.iv.next291, %162 ]
   %.7237 = phi i32 [ %.3341, %.lr.ph239 ], [ %.8, %162 ]
-  %144 = getelementptr inbounds nuw i32, ptr %.val155, i64 %indvars.iv290
+  %144 = getelementptr inbounds nuw [4 x i8], ptr %.val155, i64 %indvars.iv290
   %145 = load i32, ptr %144, align 4, !tbaa !15
   %.not134 = icmp eq i32 %145, 0
   br i1 %.not134, label %.critedge8, label %146
@@ -763,7 +763,7 @@ Vec_IntFetch.exit:                                ; preds = %68, %73, %79
 
 .lr.ph227:                                        ; preds = %.lr.ph227.preheader, %156
   %indvars.iv285 = phi i64 [ 0, %.lr.ph227.preheader ], [ %indvars.iv.next286, %156 ]
-  %150 = getelementptr inbounds nuw i32, ptr %.val159, i64 %indvars.iv285
+  %150 = getelementptr inbounds nuw [4 x i8], ptr %.val159, i64 %indvars.iv285
   %151 = load i32, ptr %150, align 4, !tbaa !15
   %.not135 = icmp eq i32 %151, 0
   br i1 %.not135, label %.critedge10.loopexit.split.loop.exit371, label %152
@@ -800,7 +800,7 @@ Vec_IntFetch.exit:                                ; preds = %68, %73, %79
   %.1107.lcssa = phi i64 [ 0, %.preheader ], [ %159, %.critedge10.loopexit ]
   %.10 = phi i32 [ %.7237, %.preheader ], [ %151, %.critedge10.loopexit ]
   %160 = or i32 %.10, -2147483648
-  %161 = getelementptr inbounds nuw i32, ptr %.val159, i64 %.1107.lcssa
+  %161 = getelementptr inbounds nuw [4 x i8], ptr %.val159, i64 %.1107.lcssa
   store i32 %160, ptr %161, align 4, !tbaa !15
   %.val142.pre = load i32, ptr %6, align 4, !tbaa !3
   br label %162
@@ -852,10 +852,10 @@ Vec_IntFetch.exit:                                ; preds = %68, %73, %79
   %178 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %179 = load ptr, ptr %178, align 8, !tbaa !14
   %180 = sext i32 %174 to i64
-  %181 = getelementptr inbounds i32, ptr %179, i64 %180
+  %181 = getelementptr inbounds [4 x i8], ptr %179, i64 %180
   %182 = sext i32 %168 to i64
   %183 = sub nsw i64 0, %182
-  %184 = getelementptr inbounds i32, ptr %181, i64 %183
+  %184 = getelementptr inbounds [4 x i8], ptr %181, i64 %183
   br label %Vec_IntFetch.exit164
 
 Vec_IntFetch.exit164:                             ; preds = %.critedge, %171, %177
@@ -873,7 +873,7 @@ Vec_IntFetch.exit164:                             ; preds = %.critedge, %171, %1
 
 188:                                              ; preds = %.lr.ph253, %199
   %indvars.iv296 = phi i64 [ 0, %.lr.ph253 ], [ %indvars.iv.next297, %199 ]
-  %189 = getelementptr inbounds nuw i32, ptr %.val153, i64 %indvars.iv296
+  %189 = getelementptr inbounds nuw [4 x i8], ptr %.val153, i64 %indvars.iv296
   %190 = load i32, ptr %189, align 4, !tbaa !15
   %.not124 = icmp eq i32 %190, 0
   br i1 %.not124, label %.critedge12, label %191
@@ -887,7 +887,7 @@ Vec_IntFetch.exit164:                             ; preds = %.critedge, %171, %1
   %194 = add nsw i32 %193, 1
   store i32 %194, ptr %169, align 4, !tbaa !3
   %195 = sext i32 %193 to i64
-  %196 = getelementptr inbounds i32, ptr %.0.i163, i64 %195
+  %196 = getelementptr inbounds [4 x i8], ptr %.0.i163, i64 %195
   store i32 %190, ptr %196, align 4, !tbaa !15
   br label %199
 
@@ -923,7 +923,7 @@ define void @Kit_SopMakeCubeFree(ptr noundef readonly captures(none) %0) local_u
 5:                                                ; preds = %8, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %8 ]
   %.0710.i = phi i32 [ -1, %.lr.ph.i ], [ %9, %8 ]
-  %6 = getelementptr inbounds nuw i32, ptr %.val9.i, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %.val9.i, i64 %indvars.iv.i
   %7 = load i32, ptr %6, align 4, !tbaa !15
   %.not.i = icmp eq i32 %7, 0
   br i1 %.not.i, label %Kit_SopCommonCube.exit, label %8
@@ -947,7 +947,7 @@ Kit_SopCommonCube.exit:                           ; preds = %5, %8
 
 13:                                               ; preds = %.lr.ph, %16
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %16 ]
-  %14 = getelementptr inbounds nuw i32, ptr %.val12, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %.val12, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4, !tbaa !15
   %.not = icmp eq i32 %15, 0
   br i1 %.not, label %.critedge, label %16
@@ -981,7 +981,7 @@ define range(i32 0, 2) i32 @Kit_SopIsCubeFree(ptr noundef readonly captures(none
 5:                                                ; preds = %8, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %8 ]
   %.0710.i = phi i32 [ -1, %.lr.ph.i ], [ %9, %8 ]
-  %6 = getelementptr inbounds nuw i32, ptr %.val9.i, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %.val9.i, i64 %indvars.iv.i
   %7 = load i32, ptr %6, align 4, !tbaa !15
   %.not.i = icmp eq i32 %7, 0
   br i1 %.not.i, label %Kit_SopCommonCube.exit.loopexit, label %8
@@ -1019,7 +1019,7 @@ define void @Kit_SopCommonCubeCover(ptr noundef writeonly captures(none) initial
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !14
   %12 = sext i32 %7 to i64
-  %13 = getelementptr inbounds i32, ptr %11, i64 %12
+  %13 = getelementptr inbounds [4 x i8], ptr %11, i64 %12
   %14 = getelementptr inbounds i8, ptr %13, i64 -4
   br label %Vec_IntFetch.exit
 
@@ -1041,7 +1041,7 @@ Vec_IntFetch.exit:                                ; preds = %3, %9
 19:                                               ; preds = %22, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %22 ]
   %.0710.i = phi i32 [ -1, %.lr.ph.i ], [ %23, %22 ]
-  %20 = getelementptr inbounds nuw i32, ptr %.val9.i, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %.val9.i, i64 %indvars.iv.i
   %21 = load i32, ptr %20, align 4, !tbaa !15
   %.not.i = icmp eq i32 %21, 0
   br i1 %.not.i, label %Kit_SopCommonCube.exit, label %22
@@ -1083,7 +1083,7 @@ define i32 @Kit_SopAnyLiteral(ptr noundef readonly captures(none) %0, i32 nounde
 7:                                                ; preds = %.preheader.us, %10
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %10 ]
   %.020.us = phi i32 [ 0, %.preheader.us ], [ %spec.select.us, %10 ]
-  %8 = getelementptr inbounds nuw i32, ptr %.val18.us, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %.val18.us, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4, !tbaa !15
   %.not.us = icmp eq i32 %9, 0
   br i1 %.not.us, label %.critedge.us, label %10
@@ -1137,7 +1137,7 @@ define i32 @Kit_SopWorstLiteral(ptr noundef readonly captures(none) %0, i32 noun
 7:                                                ; preds = %.preheader.us, %10
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %10 ]
   %.02334.us = phi i32 [ 0, %.preheader.us ], [ %spec.select.us, %10 ]
-  %8 = getelementptr inbounds nuw i32, ptr %.val32.us, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %.val32.us, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4, !tbaa !15
   %.not.us = icmp eq i32 %9, 0
   br i1 %.not.us, label %.critedge.us, label %10
@@ -1203,7 +1203,7 @@ define i32 @Kit_SopBestLiteral(ptr noundef readonly captures(none) %0, i32 nound
 11:                                               ; preds = %.lr.ph, %14
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %14 ]
   %.02539 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %14 ]
-  %12 = getelementptr inbounds nuw i32, ptr %.val37, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %.val37, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4, !tbaa !15
   %.not33 = icmp eq i32 %13, 0
   br i1 %.not33, label %.critedge, label %14
@@ -1272,7 +1272,7 @@ define void @Kit_SopDivisorZeroKernel_rec(ptr noundef captures(none) %0, i32 nou
 7:                                                ; preds = %10, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %10 ]
   %.02334.us.i = phi i32 [ 0, %.preheader.us.i ], [ %spec.select.us.i, %10 ]
-  %8 = getelementptr inbounds nuw i32, ptr %.val32.us.i, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %.val32.us.i, i64 %indvars.iv.i
   %9 = load i32, ptr %8, align 4, !tbaa !15
   %.not.us.i = icmp eq i32 %9, 0
   br i1 %.not.us.i, label %.critedge.us.i, label %10
@@ -1311,7 +1311,7 @@ define void @Kit_SopDivisorZeroKernel_rec(ptr noundef captures(none) %0, i32 nou
   %.val23.i = phi i32 [ %.val17.i31, %.lr.ph.i ], [ %.val.i8, %30 ]
   %indvars.iv.i7 = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i9, %30 ]
   %.019.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %30 ]
-  %21 = getelementptr inbounds nuw i32, ptr %.val32.us.i, i64 %indvars.iv.i7
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %.val32.us.i, i64 %indvars.iv.i7
   %22 = load i32, ptr %21, align 4, !tbaa !15
   %.not.i = icmp eq i32 %22, 0
   br i1 %.not.i, label %Kit_SopDivideByLiteralQuo.exit, label %23
@@ -1325,7 +1325,7 @@ define void @Kit_SopDivisorZeroKernel_rec(ptr noundef captures(none) %0, i32 nou
   %26 = and i32 %22, %19
   %27 = add nsw i32 %.019.i, 1
   %28 = sext i32 %.019.i to i64
-  %29 = getelementptr inbounds i32, ptr %.val32.us.i, i64 %28
+  %29 = getelementptr inbounds [4 x i8], ptr %.val32.us.i, i64 %28
   store i32 %26, ptr %29, align 4, !tbaa !15
   %.val.pre.i = load i32, ptr %3, align 4, !tbaa !3
   br label %30
@@ -1351,7 +1351,7 @@ Kit_SopDivideByLiteralQuo.exit:                   ; preds = %20, %30
 34:                                               ; preds = %37, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %37 ]
   %.0710.i.i = phi i32 [ -1, %.lr.ph.i.i ], [ %38, %37 ]
-  %35 = getelementptr inbounds nuw i32, ptr %.val32.us.i, i64 %indvars.iv.i.i
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %.val32.us.i, i64 %indvars.iv.i.i
   %36 = load i32, ptr %35, align 4, !tbaa !15
   %.not.i.i = icmp eq i32 %36, 0
   br i1 %.not.i.i, label %Kit_SopCommonCube.exit.i, label %37
@@ -1374,7 +1374,7 @@ Kit_SopCommonCube.exit.i:                         ; preds = %37, %34
   br i1 %.not.i1227, label %Kit_SopMakeCubeFree.exit, label %.lr.ph
 
 42:                                               ; preds = %.lr.ph
-  %43 = getelementptr inbounds nuw i32, ptr %.val32.us.i, i64 %indvars.iv.next.i13
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %.val32.us.i, i64 %indvars.iv.next.i13
   %44 = load i32, ptr %43, align 4, !tbaa !15
   %.not.i12 = icmp eq i32 %44, 0
   br i1 %.not.i12, label %Kit_SopMakeCubeFree.exit, label %.lr.ph, !llvm.loop !30
@@ -1382,7 +1382,7 @@ Kit_SopCommonCube.exit.i:                         ; preds = %37, %34
 .lr.ph:                                           ; preds = %.lr.ph.i10, %42
   %45 = phi i32 [ %44, %42 ], [ %41, %.lr.ph.i10 ]
   %indvars.iv.i1128 = phi i64 [ %indvars.iv.next.i13, %42 ], [ 0, %.lr.ph.i10 ]
-  %46 = getelementptr inbounds nuw i32, ptr %.val32.us.i, i64 %indvars.iv.i1128
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %.val32.us.i, i64 %indvars.iv.i1128
   %47 = and i32 %45, %40
   store i32 %47, ptr %46, align 4, !tbaa !15
   %indvars.iv.next.i13 = add nuw nsw i64 %indvars.iv.i1128, 1
@@ -1425,7 +1425,7 @@ define range(i32 0, 2) i32 @Kit_SopDivisor(ptr noundef captures(none) %0, ptr no
 9:                                                ; preds = %12, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %12 ]
   %.020.us.i = phi i32 [ 0, %.preheader.us.i ], [ %spec.select.us.i, %12 ]
-  %10 = getelementptr inbounds nuw i32, ptr %.val18.us.i, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %.val18.us.i, i64 %indvars.iv.i
   %11 = load i32, ptr %10, align 4, !tbaa !15
   %.not.us.i = icmp eq i32 %11, 0
   br i1 %.not.us.i, label %.critedge.us.i, label %12
@@ -1473,10 +1473,10 @@ Vec_IntFetch.exit.thread.i:                       ; preds = %Kit_SopAnyLiteral.e
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !14
   %30 = sext i32 %24 to i64
-  %31 = getelementptr inbounds i32, ptr %29, i64 %30
+  %31 = getelementptr inbounds [4 x i8], ptr %29, i64 %30
   %32 = sext i32 %.val.i8 to i64
   %33 = sub nsw i64 0, %32
-  %34 = getelementptr inbounds i32, ptr %31, i64 %33
+  %34 = getelementptr inbounds [4 x i8], ptr %31, i64 %33
   br label %Vec_IntFetch.exit.i
 
 Vec_IntFetch.exit.i:                              ; preds = %27, %21
@@ -1492,7 +1492,7 @@ Vec_IntFetch.exit.i:                              ; preds = %27, %21
 
 37:                                               ; preds = %40, %.lr.ph.i
   %indvars.iv.i9 = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i10, %40 ]
-  %38 = getelementptr inbounds nuw i32, ptr %.val12.i, i64 %indvars.iv.i9
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %.val12.i, i64 %indvars.iv.i9
   %39 = load i32, ptr %38, align 4, !tbaa !15
   %.not.i = icmp eq i32 %39, 0
   br i1 %.not.i, label %Kit_SopDup.exit, label %40
@@ -1502,7 +1502,7 @@ Vec_IntFetch.exit.i:                              ; preds = %27, %21
   %42 = add nsw i32 %41, 1
   store i32 %42, ptr %18, align 4, !tbaa !3
   %43 = sext i32 %41 to i64
-  %44 = getelementptr inbounds i32, ptr %.0.i.i, i64 %43
+  %44 = getelementptr inbounds [4 x i8], ptr %.0.i.i, i64 %43
   store i32 %39, ptr %44, align 4, !tbaa !15
   %indvars.iv.next.i10 = add nuw nsw i64 %indvars.iv.i9, 1
   %.val11.i = load i32, ptr %5, align 4, !tbaa !3
@@ -1551,7 +1551,7 @@ define void @Kit_SopBestLiteralCover(ptr noundef writeonly captures(none) %0, pt
 13:                                               ; preds = %16, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %16 ]
   %.02539.i = phi i32 [ 0, %.lr.ph.i ], [ %spec.select.i, %16 ]
-  %14 = getelementptr inbounds nuw i32, ptr %.val37.i, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %.val37.i, i64 %indvars.iv.i
   %15 = load i32, ptr %14, align 4, !tbaa !15
   %.not33.i = icmp eq i32 %15, 0
   br i1 %.not33.i, label %.critedge.i, label %16
@@ -1598,7 +1598,7 @@ Kit_SopBestLiteral.exit:                          ; preds = %5, %._crit_edge.loo
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !14
   %32 = sext i32 %28 to i64
-  %33 = getelementptr inbounds i32, ptr %31, i64 %32
+  %33 = getelementptr inbounds [4 x i8], ptr %31, i64 %32
   %34 = getelementptr inbounds i8, ptr %33, i64 -4
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %34, ptr %35, align 8, !tbaa !12

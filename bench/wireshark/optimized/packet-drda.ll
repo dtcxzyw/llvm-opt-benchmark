@@ -1751,7 +1751,7 @@ define internal i32 @dissect_drda_typdefnam(ptr noundef %0, ptr noundef readonly
 
 13:                                               ; preds = %4, %12
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %12 ]
-  %14 = getelementptr %struct.enum_val_t, ptr @typdefnam_vals, i64 %indvars.iv
+  %14 = getelementptr [24 x i8], ptr @typdefnam_vals, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
   %16 = call i32 @strcmp(ptr noundef %15, ptr noundef %11) #8
   %17 = icmp eq i32 %16, 0
@@ -1779,7 +1779,7 @@ define internal i32 @dissect_drda_typdefnam(ptr noundef %0, ptr noundef readonly
 
 28:                                               ; preds = %.loopexit23, %27
   %indvars.iv32 = phi i64 [ 0, %.loopexit23 ], [ %indvars.iv.next33, %27 ]
-  %29 = getelementptr %struct.enum_val_t, ptr @typdefnam_vals, i64 %indvars.iv32
+  %29 = getelementptr [24 x i8], ptr @typdefnam_vals, i64 %indvars.iv32
   %30 = load ptr, ptr %29, align 8
   %31 = call i32 @strcmp(ptr noundef %30, ptr noundef %26) #8
   %32 = icmp eq i32 %31, 0
@@ -2273,7 +2273,7 @@ define internal noundef i32 @dissect_drda_sqlcard(ptr noundef %0, ptr noundef %1
 
 switch.lookup:                                    ; preds = %18
   %21 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.dissect_drda_sqludtgrp, i64 %21
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_drda_sqludtgrp, i64 %21
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %dissect_fdoca_integer.exit
 
@@ -2319,7 +2319,7 @@ dissect_fdoca_integer.exit:                       ; preds = %18, %switch.lookup
 
 switch.lookup248:                                 ; preds = %42
   %45 = zext nneg i32 %switch.tableidx247 to i64
-  %switch.gep249 = getelementptr inbounds nuw i32, ptr @switch.table.dissect_drda_sqludtgrp, i64 %45
+  %switch.gep249 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_drda_sqludtgrp, i64 %45
   %switch.load250 = load i32, ptr %switch.gep249, align 4
   br label %dissect_fdoca_integer.exit214
 
@@ -2335,7 +2335,7 @@ dissect_fdoca_integer.exit214:                    ; preds = %42, %switch.lookup2
 
 switch.lookup252:                                 ; preds = %dissect_fdoca_integer.exit214
   %50 = zext nneg i32 %switch.tableidx251 to i64
-  %switch.gep253 = getelementptr inbounds nuw i32, ptr @switch.table.dissect_drda_sqludtgrp, i64 %50
+  %switch.gep253 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_drda_sqludtgrp, i64 %50
   %switch.load254 = load i32, ptr %switch.gep253, align 4
   br label %dissect_fdoca_integer.exit216
 
@@ -2351,7 +2351,7 @@ dissect_fdoca_integer.exit216:                    ; preds = %dissect_fdoca_integ
 
 switch.lookup256:                                 ; preds = %dissect_fdoca_integer.exit216
   %55 = zext nneg i32 %switch.tableidx255 to i64
-  %switch.gep257 = getelementptr inbounds nuw i32, ptr @switch.table.dissect_drda_sqludtgrp, i64 %55
+  %switch.gep257 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_drda_sqludtgrp, i64 %55
   %switch.load258 = load i32, ptr %switch.gep257, align 4
   br label %dissect_fdoca_integer.exit218
 
@@ -2367,7 +2367,7 @@ dissect_fdoca_integer.exit218:                    ; preds = %dissect_fdoca_integ
 
 switch.lookup260:                                 ; preds = %dissect_fdoca_integer.exit218
   %60 = zext nneg i32 %switch.tableidx259 to i64
-  %switch.gep261 = getelementptr inbounds nuw i32, ptr @switch.table.dissect_drda_sqludtgrp, i64 %60
+  %switch.gep261 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_drda_sqludtgrp, i64 %60
   %switch.load262 = load i32, ptr %switch.gep261, align 4
   br label %dissect_fdoca_integer.exit220
 
@@ -2383,7 +2383,7 @@ dissect_fdoca_integer.exit220:                    ; preds = %dissect_fdoca_integ
 
 switch.lookup264:                                 ; preds = %dissect_fdoca_integer.exit220
   %65 = zext nneg i32 %switch.tableidx263 to i64
-  %switch.gep265 = getelementptr inbounds nuw i32, ptr @switch.table.dissect_drda_sqludtgrp, i64 %65
+  %switch.gep265 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_drda_sqludtgrp, i64 %65
   %switch.load266 = load i32, ptr %switch.gep265, align 4
   br label %dissect_fdoca_integer.exit222
 
@@ -2399,7 +2399,7 @@ dissect_fdoca_integer.exit222:                    ; preds = %dissect_fdoca_integ
 
 switch.lookup268:                                 ; preds = %dissect_fdoca_integer.exit222
   %70 = zext nneg i32 %switch.tableidx267 to i64
-  %switch.gep269 = getelementptr inbounds nuw i32, ptr @switch.table.dissect_drda_sqludtgrp, i64 %70
+  %switch.gep269 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_drda_sqludtgrp, i64 %70
   %switch.load270 = load i32, ptr %switch.gep269, align 4
   br label %dissect_fdoca_integer.exit224
 
@@ -2684,7 +2684,7 @@ define internal noundef i32 @dissect_drda_sqldard(ptr noundef %0, ptr noundef %1
 
 switch.lookup:                                    ; preds = %50
   %54 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.dissect_drda_sqludtgrp, i64 %54
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_drda_sqludtgrp, i64 %54
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %dissect_fdoca_integer.exit.i
 
@@ -2699,7 +2699,7 @@ dissect_fdoca_integer.exit.i:                     ; preds = %50, %switch.lookup
 
 switch.lookup36:                                  ; preds = %dissect_fdoca_integer.exit.i
   %58 = zext nneg i32 %switch.tableidx35 to i64
-  %switch.gep37 = getelementptr inbounds nuw i32, ptr @switch.table.dissect_drda_sqludtgrp, i64 %58
+  %switch.gep37 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_drda_sqludtgrp, i64 %58
   %switch.load38 = load i32, ptr %switch.gep37, align 4
   br label %dissect_fdoca_integer.exit76.i
 
@@ -2714,7 +2714,7 @@ dissect_fdoca_integer.exit76.i:                   ; preds = %dissect_fdoca_integ
 
 switch.lookup40:                                  ; preds = %dissect_fdoca_integer.exit76.i
   %62 = zext nneg i32 %switch.tableidx39 to i64
-  %switch.gep41 = getelementptr inbounds nuw i32, ptr @switch.table.dissect_drda_sqludtgrp, i64 %62
+  %switch.gep41 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_drda_sqludtgrp, i64 %62
   %switch.load42 = load i32, ptr %switch.gep41, align 4
   br label %dissect_fdoca_integer.exit78.i
 
@@ -2729,7 +2729,7 @@ dissect_fdoca_integer.exit78.i:                   ; preds = %dissect_fdoca_integ
 
 switch.lookup44:                                  ; preds = %dissect_fdoca_integer.exit78.i
   %66 = zext nneg i32 %switch.tableidx43 to i64
-  %switch.gep45 = getelementptr inbounds nuw i32, ptr @switch.table.dissect_drda_sqludtgrp, i64 %66
+  %switch.gep45 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_drda_sqludtgrp, i64 %66
   %switch.load46 = load i32, ptr %switch.gep45, align 4
   br label %dissect_fdoca_integer.exit80.i
 
@@ -2744,7 +2744,7 @@ dissect_fdoca_integer.exit80.i:                   ; preds = %dissect_fdoca_integ
 
 switch.lookup48:                                  ; preds = %dissect_fdoca_integer.exit80.i
   %70 = zext nneg i32 %switch.tableidx47 to i64
-  %switch.gep49 = getelementptr inbounds nuw i32, ptr @switch.table.dissect_drda_sqludtgrp, i64 %70
+  %switch.gep49 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_drda_sqludtgrp, i64 %70
   %switch.load50 = load i32, ptr %switch.gep49, align 4
   br label %dissect_fdoca_integer.exit82.i
 
@@ -2759,7 +2759,7 @@ dissect_fdoca_integer.exit82.i:                   ; preds = %dissect_fdoca_integ
 
 switch.lookup52:                                  ; preds = %dissect_fdoca_integer.exit82.i
   %74 = zext nneg i32 %switch.tableidx51 to i64
-  %switch.gep53 = getelementptr inbounds nuw i32, ptr @switch.table.dissect_drda_sqludtgrp, i64 %74
+  %switch.gep53 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_drda_sqludtgrp, i64 %74
   %switch.load54 = load i32, ptr %switch.gep53, align 4
   br label %dissect_fdoca_integer.exit84.i
 
@@ -2779,7 +2779,7 @@ dissect_fdoca_integer.exit84.i:                   ; preds = %dissect_fdoca_integ
 
 switch.lookup56:                                  ; preds = %78
   %81 = zext nneg i32 %switch.tableidx55 to i64
-  %switch.gep57 = getelementptr inbounds nuw i32, ptr @switch.table.dissect_drda_sqludtgrp, i64 %81
+  %switch.gep57 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_drda_sqludtgrp, i64 %81
   %switch.load58 = load i32, ptr %switch.gep57, align 4
   br label %dissect_fdoca_integer.exit86.i
 
@@ -2872,7 +2872,7 @@ dissect_drda_sqldhgrp.exit:                       ; preds = %40, %83, %115
 
 switch.lookup60:                                  ; preds = %135
   %139 = zext nneg i32 %switch.tableidx59 to i64
-  %switch.gep61 = getelementptr inbounds nuw i32, ptr @switch.table.dissect_drda_sqludtgrp, i64 %139
+  %switch.gep61 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_drda_sqludtgrp, i64 %139
   %switch.load62 = load i32, ptr %switch.gep61, align 4
   br label %dissect_fdoca_integer.exit
 
@@ -2910,7 +2910,7 @@ dissect_fdoca_integer.exit:                       ; preds = %135, %switch.lookup
 
 switch.lookup64:                                  ; preds = %145
   %153 = zext nneg i32 %switch.tableidx63 to i64
-  %switch.gep65 = getelementptr inbounds nuw i32, ptr @switch.table.dissect_drda_sqludtgrp, i64 %153
+  %switch.gep65 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_drda_sqludtgrp, i64 %153
   %switch.load66 = load i32, ptr %switch.gep65, align 4
   br label %dissect_fdoca_integer.exit.i26
 
@@ -2925,7 +2925,7 @@ dissect_fdoca_integer.exit.i26:                   ; preds = %145, %switch.lookup
 
 switch.lookup68:                                  ; preds = %dissect_fdoca_integer.exit.i26
   %157 = zext nneg i32 %switch.tableidx67 to i64
-  %switch.gep69 = getelementptr inbounds nuw i32, ptr @switch.table.dissect_drda_sqludtgrp, i64 %157
+  %switch.gep69 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_drda_sqludtgrp, i64 %157
   %switch.load70 = load i32, ptr %switch.gep69, align 4
   br label %dissect_fdoca_integer.exit88.i
 
@@ -2945,7 +2945,7 @@ dissect_fdoca_integer.exit88.i:                   ; preds = %dissect_fdoca_integ
 
 switch.lookup72:                                  ; preds = %162
   %164 = zext nneg i32 %switch.tableidx71 to i64
-  %switch.gep73 = getelementptr inbounds nuw i32, ptr @switch.table.dissect_drda_sqludtgrp, i64 %164
+  %switch.gep73 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_drda_sqludtgrp, i64 %164
   %switch.load74 = load i32, ptr %switch.gep73, align 4
   br label %dissect_fdoca_integer64.exit.i
 
@@ -2960,7 +2960,7 @@ dissect_fdoca_integer64.exit.i:                   ; preds = %162, %switch.lookup
 
 switch.lookup76:                                  ; preds = %166
   %168 = zext nneg i32 %switch.tableidx71 to i64
-  %switch.gep77 = getelementptr inbounds nuw i32, ptr @switch.table.dissect_drda_sqludtgrp, i64 %168
+  %switch.gep77 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_drda_sqludtgrp, i64 %168
   %switch.load78 = load i32, ptr %switch.gep77, align 4
   br label %dissect_fdoca_integer.exit91.i
 
@@ -2979,7 +2979,7 @@ dissect_fdoca_integer.exit91.i:                   ; preds = %166, %switch.lookup
 
 switch.lookup80:                                  ; preds = %170
   %173 = zext nneg i32 %switch.tableidx79 to i64
-  %switch.gep81 = getelementptr inbounds nuw i32, ptr @switch.table.dissect_drda_sqludtgrp, i64 %173
+  %switch.gep81 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_drda_sqludtgrp, i64 %173
   %switch.load82 = load i32, ptr %switch.gep81, align 4
   br label %dissect_fdoca_integer.exit93.i
 
@@ -3003,7 +3003,7 @@ dissect_fdoca_integer.exit93.i:                   ; preds = %170, %switch.lookup
 
 switch.lookup84:                                  ; preds = %181
   %184 = zext nneg i32 %switch.tableidx83 to i64
-  %switch.gep85 = getelementptr inbounds nuw i32, ptr @switch.table.dissect_drda_sqludtgrp, i64 %184
+  %switch.gep85 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_drda_sqludtgrp, i64 %184
   %switch.load86 = load i32, ptr %switch.gep85, align 4
   br label %dissect_fdoca_integer64.exit95.i
 
@@ -3050,7 +3050,7 @@ dissect_fdoca_integer64.exit95.i:                 ; preds = %181, %switch.lookup
 
 switch.lookup88:                                  ; preds = %205
   %208 = zext nneg i32 %switch.tableidx87 to i64
-  %switch.gep89 = getelementptr inbounds nuw i32, ptr @switch.table.dissect_drda_sqludtgrp, i64 %208
+  %switch.gep89 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_drda_sqludtgrp, i64 %208
   %switch.load90 = load i32, ptr %switch.gep89, align 4
   br label %dissect_fdoca_integer.exit.i.i
 
@@ -3147,7 +3147,7 @@ dissect_fdoca_integer.exit.i.i:                   ; preds = %205, %switch.lookup
 
 switch.lookup92:                                  ; preds = %275
   %278 = zext nneg i32 %switch.tableidx91 to i64
-  %switch.gep93 = getelementptr inbounds nuw i32, ptr @switch.table.dissect_drda_sqludtgrp, i64 %278
+  %switch.gep93 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_drda_sqludtgrp, i64 %278
   %switch.load94 = load i32, ptr %switch.gep93, align 4
   br label %dissect_fdoca_integer.exit.i.i.i
 
@@ -3162,7 +3162,7 @@ dissect_fdoca_integer.exit.i.i.i:                 ; preds = %275, %switch.lookup
 
 switch.lookup96:                                  ; preds = %dissect_fdoca_integer.exit.i.i.i
   %282 = zext nneg i32 %switch.tableidx95 to i64
-  %switch.gep97 = getelementptr inbounds nuw i32, ptr @switch.table.dissect_drda_sqludtgrp, i64 %282
+  %switch.gep97 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_drda_sqludtgrp, i64 %282
   %switch.load98 = load i32, ptr %switch.gep97, align 4
   br label %dissect_fdoca_integer.exit88.i.i.i
 
@@ -3177,7 +3177,7 @@ dissect_fdoca_integer.exit88.i.i.i:               ; preds = %dissect_fdoca_integ
 
 switch.lookup100:                                 ; preds = %dissect_fdoca_integer.exit88.i.i.i
   %286 = zext nneg i32 %switch.tableidx99 to i64
-  %switch.gep101 = getelementptr inbounds nuw i32, ptr @switch.table.dissect_drda_sqludtgrp, i64 %286
+  %switch.gep101 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_drda_sqludtgrp, i64 %286
   %switch.load102 = load i32, ptr %switch.gep101, align 4
   br label %dissect_fdoca_integer.exit90.i.i.i
 
@@ -3192,7 +3192,7 @@ dissect_fdoca_integer.exit90.i.i.i:               ; preds = %dissect_fdoca_integ
 
 switch.lookup104:                                 ; preds = %dissect_fdoca_integer.exit90.i.i.i
   %290 = zext nneg i32 %switch.tableidx103 to i64
-  %switch.gep105 = getelementptr inbounds nuw i32, ptr @switch.table.dissect_drda_sqludtgrp, i64 %290
+  %switch.gep105 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_drda_sqludtgrp, i64 %290
   %switch.load106 = load i32, ptr %switch.gep105, align 4
   br label %dissect_fdoca_integer.exit92.i.i.i
 
@@ -3212,7 +3212,7 @@ dissect_fdoca_integer.exit92.i.i.i:               ; preds = %dissect_fdoca_integ
 
 switch.lookup108:                                 ; preds = %294
   %297 = zext nneg i32 %switch.tableidx107 to i64
-  %switch.gep109 = getelementptr inbounds nuw i32, ptr @switch.table.dissect_drda_sqludtgrp, i64 %297
+  %switch.gep109 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_drda_sqludtgrp, i64 %297
   %switch.load110 = load i32, ptr %switch.gep109, align 4
   br label %dissect_fdoca_integer.exit94.i.i.i
 
@@ -3227,7 +3227,7 @@ dissect_fdoca_integer.exit94.i.i.i:               ; preds = %294, %switch.lookup
 
 switch.lookup112:                                 ; preds = %dissect_fdoca_integer.exit94.i.i.i
   %301 = zext nneg i32 %switch.tableidx111 to i64
-  %switch.gep113 = getelementptr inbounds nuw i32, ptr @switch.table.dissect_drda_sqludtgrp, i64 %301
+  %switch.gep113 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_drda_sqludtgrp, i64 %301
   %switch.load114 = load i32, ptr %switch.gep113, align 4
   br label %dissect_fdoca_integer.exit96.i.i.i
 
@@ -4233,7 +4233,7 @@ define internal fastcc noundef i32 @dissect_drda_sqludtgrp(ptr noundef %0, ptr n
 
 switch.lookup:                                    ; preds = %23
   %27 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.dissect_drda_sqludtgrp, i64 %27
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_drda_sqludtgrp, i64 %27
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %dissect_fdoca_integer.exit
 

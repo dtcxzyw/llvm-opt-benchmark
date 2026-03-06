@@ -58,7 +58,7 @@ define dso_local i32 @sacctmgr_list_instance(i32 noundef %0, ptr noundef %1) loc
 17:                                               ; preds = %.lr.ph, %_set_cond.exit
   %storemerge166 = phi i32 [ 0, %.lr.ph ], [ %146, %_set_cond.exit ]
   %18 = sext i32 %storemerge166 to i64
-  %19 = getelementptr inbounds ptr, ptr %1, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %1, i64 %18
   %20 = load ptr, ptr %19, align 8
   %21 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %20) #11
   %22 = trunc i64 %21 to i32
@@ -91,7 +91,7 @@ define dso_local i32 @sacctmgr_list_instance(i32 noundef %0, ptr noundef %1) loc
 
 36:                                               ; preds = %145, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %35, %.lr.ph.i ], [ %indvars.iv.next.i, %145 ]
-  %37 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv.i
+  %37 = getelementptr inbounds [8 x i8], ptr %1, i64 %indvars.iv.i
   %38 = load ptr, ptr %37, align 8
   %39 = tail call i32 @parse_option_end(ptr noundef %38) #10
   %.not.i = icmp eq i32 %39, 0

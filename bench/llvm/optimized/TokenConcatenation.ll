@@ -636,7 +636,7 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit92.thread: ; preds = %_ZNK5clang5Token
 
 93:                                               ; preds = %66
   %94 = zext i8 %.0 to i64
-  %95 = getelementptr inbounds nuw i16, ptr @_ZN5clang8charinfo9InfoTableE, i64 %94
+  %95 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5clang8charinfo9InfoTableE, i64 %94
   %96 = load i16, ptr %95, align 2, !tbaa !263
   %97 = and i16 %96, 488
   %98 = icmp ne i16 %97, 0
@@ -656,7 +656,7 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit92.thread: ; preds = %_ZNK5clang5Token
 
 106:                                              ; preds = %101
   %107 = zext i8 %.0 to i64
-  %108 = getelementptr inbounds nuw i16, ptr @_ZN5clang8charinfo9InfoTableE, i64 %107
+  %108 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5clang8charinfo9InfoTableE, i64 %107
   %109 = load i16, ptr %108, align 2, !tbaa !263
   %110 = and i16 %109, 8
   %.not = icmp eq i16 %110, 0

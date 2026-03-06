@@ -769,7 +769,7 @@ define { i64, i8 } @_ZN3net17QuicHeadersStream16WritevStreamDataEjNS_12QuicIOVec
 26:                                               ; preds = %.lr.ph, %82
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %82 ]
   %.067 = phi i64 [ %16, %.lr.ph ], [ %63, %82 ]
-  %27 = getelementptr inbounds nuw %struct.iovec, ptr %17, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 %indvars.iv
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = icmp eq i64 %indvars.iv, %25
   %.pre = load i64, ptr %28, align 8, !tbaa !354

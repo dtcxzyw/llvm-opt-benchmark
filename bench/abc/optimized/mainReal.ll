@@ -1271,7 +1271,7 @@ Vec_StrPush.exit:                                 ; preds = %.Vec_StrGrow.exit10
 
 512:                                              ; preds = %509
   %513 = sext i32 %507 to i64
-  %514 = getelementptr inbounds ptr, ptr %1, i64 %513
+  %514 = getelementptr inbounds [8 x i8], ptr %1, i64 %513
   %515 = load ptr, ptr %514, align 8, !tbaa !12
   br label %518
 

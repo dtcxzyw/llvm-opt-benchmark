@@ -670,7 +670,7 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17hbfe95a96c38d7049E.exit.i
 
 113:                                              ; preds = %109
   %.val9.i.i.i.i.i.i = load ptr, ptr %103, align 8, !noalias !142, !nonnull !4, !noundef !4
-  %114 = getelementptr inbounds { { { { i32 } }, { { i8 } }, [3 x i8], { { { i64, ptr }, i64 } } }, [4 x i64] }, ptr %.val9.i.i.i.i.i.i, i64 %102
+  %114 = getelementptr inbounds [64 x i8], ptr %.val9.i.i.i.i.i.i, i64 %102
   invoke void @"_ZN3std4sync5mutex14Mutex$LT$T$GT$8try_lock17hcca577643f41b41aE"(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %4, ptr noundef nonnull align 8 %114)
           to label %115 unwind label %.thread.loopexit.i.i.i.i.i.i, !noalias !142
 
@@ -718,7 +718,7 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17hbfe95a96c38d7049E.exit.i
   %131 = phi i64 [ %.pre.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %122, %117 ]
   %132 = getelementptr inbounds nuw i8, ptr %118, i64 16
   %133 = load ptr, ptr %132, align 8, !alias.scope !146, !noalias !149, !nonnull !4, !noundef !4
-  %134 = getelementptr inbounds ptr, ptr %133, i64 %131
+  %134 = getelementptr inbounds [8 x i8], ptr %133, i64 %131
   store ptr %88, ptr %134, align 8, !noalias !149
   %135 = load i64, ptr %121, align 8, !alias.scope !146, !noalias !151, !noundef !4
   %136 = add i64 %135, 1
@@ -1684,7 +1684,7 @@ define hidden void @_ZN21tree_sitter_highlight22HighlightConfiguration9configure
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = extractvalue { ptr, i64 } %10, 0
   %13 = extractvalue { ptr, i64 } %10, 1
-  %14 = getelementptr inbounds { ptr, i64 }, ptr %12, i64 %13
+  %14 = getelementptr inbounds [16 x i8], ptr %12, i64 %13
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %12) ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -1983,7 +1983,7 @@ define internal fastcc void @_ZN21tree_sitter_highlight18HighlightIterLayer3new1
   %121 = icmp ult i64 %119, %120
   call void @llvm.assume(i1 %121)
   %122 = load ptr, ptr %59, align 8, !alias.scope !287, !nonnull !4, !noundef !4
-  %123 = getelementptr inbounds ptr, ptr %122, i64 %119
+  %123 = getelementptr inbounds [8 x i8], ptr %122, i64 %119
   %124 = load ptr, ptr %123, align 8, !noalias !287, !nonnull !4, !noundef !4
   br label %127
 
@@ -2330,7 +2330,7 @@ define internal fastcc void @_ZN21tree_sitter_highlight18HighlightIterLayer3new1
 206:                                              ; preds = %._crit_edge.i118, %197
   %207 = phi i64 [ %.pre.i, %._crit_edge.i118 ], [ %198, %197 ]
   %208 = load ptr, ptr %51, align 8, !alias.scope !322, !noalias !325, !nonnull !4, !noundef !4
-  %209 = getelementptr inbounds { ptr, i64, { { i64, ptr }, i64 } }, ptr %208, i64 %207
+  %209 = getelementptr inbounds [40 x i8], ptr %208, i64 %207
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %209, ptr noundef nonnull align 8 dereferenceable(40) %28, i64 40, i1 false)
   %210 = add i64 %207, 1
   store i64 %210, ptr %52, align 8, !alias.scope !322, !noalias !325
@@ -2379,7 +2379,7 @@ define internal fastcc void @_ZN21tree_sitter_highlight18HighlightIterLayer3new1
 
 222:                                              ; preds = %161
   %.val = load ptr, ptr %66, align 8, !nonnull !4, !noundef !4
-  %223 = getelementptr inbounds { { { i64, ptr }, i64 }, { ptr, i64 }, i8, [7 x i8] }, ptr %.val, i64 %162
+  %223 = getelementptr inbounds [48 x i8], ptr %.val, i64 %162
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
   invoke void @_ZN21tree_sitter_highlight19injection_for_match17he9a09c7c5997cc6bE(ptr noalias noundef nonnull sret({ { i64, [4 x i64] }, { ptr, i64 }, i8, [7 x i8] }) align 8 captures(none) dereferenceable(64) %32, ptr noalias noundef nonnull readonly align 8 dereferenceable(352) %.0, ptr noalias noundef readonly align 1 %3, i64 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %129, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %33, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
           to label %224 unwind label %.loopexit.split-lp.loopexit
@@ -2424,7 +2424,7 @@ define internal fastcc void @_ZN21tree_sitter_highlight18HighlightIterLayer3new1
   %239 = phi i64 [ %.pre.i124, %.noexc125 ], [ %235, %233 ]
   %240 = getelementptr inbounds nuw i8, ptr %223, i64 8
   %241 = load ptr, ptr %240, align 8, !alias.scope !336, !noalias !339, !nonnull !4, !noundef !4
-  %242 = getelementptr inbounds { { [4 x i32], ptr, ptr }, {} }, ptr %241, i64 %239
+  %242 = getelementptr inbounds [32 x i8], ptr %241, i64 %239
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %242, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.429, i64 32, i1 false)
   %243 = load i64, ptr %234, align 8, !alias.scope !336, !noalias !339, !noundef !4
   %244 = add i64 %243, 1
@@ -2549,7 +2549,7 @@ define internal fastcc void @_ZN21tree_sitter_highlight18HighlightIterLayer3new1
 272:                                              ; preds = %._crit_edge.i132, %262
   %273 = phi i64 [ %.pre.i133, %._crit_edge.i132 ], [ %264, %262 ]
   %274 = load ptr, ptr %49, align 8, !alias.scope !351, !noalias !354, !nonnull !4, !noundef !4
-  %275 = getelementptr inbounds { { { i64, [6 x i64] }, { { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, ptr, { ptr, i64 }, ptr, {} } }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, ptr, ptr, ptr, i64 }, ptr %274, i64 %273
+  %275 = getelementptr inbounds [240 x i8], ptr %274, i64 %273
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %275, ptr noundef nonnull align 8 dereferenceable(240) %25, i64 240, i1 false)
   %276 = add i64 %273, 1
   store i64 %276, ptr %50, align 8, !alias.scope !351, !noalias !354
@@ -2846,7 +2846,7 @@ define internal fastcc void @"_ZN21tree_sitter_highlight22HighlightIter$LT$F$GT$
   unreachable
 
 "_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h392593bb3c282ec2E.exit20": ; preds = %46
-  %49 = getelementptr inbounds { { { i64, [6 x i64] }, { { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, ptr, { ptr, i64 }, ptr, {} } }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, ptr, ptr, ptr, i64 }, ptr %.val16, i64 %47
+  %49 = getelementptr inbounds [240 x i8], ptr %.val16, i64 %47
   call void @_ZN21tree_sitter_highlight18HighlightIterLayer8sort_key17h73811d9c13cf48d9E(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull align 8 dereferenceable(240) %49)
   %50 = load i8, ptr %34, align 8, !range !155, !noundef !4
   %.not13 = icmp eq i8 %50, 2
@@ -2911,7 +2911,7 @@ define internal fastcc void @"_ZN21tree_sitter_highlight22HighlightIter$LT$F$GT$
 65:                                               ; preds = %._crit_edge.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17h69d1ae5ec3fd6558E.exit"
   %66 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %38, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17h69d1ae5ec3fd6558E.exit" ]
   %67 = load ptr, ptr %18, align 8, !alias.scope !393, !nonnull !4, !noundef !4
-  %68 = getelementptr inbounds ptr, ptr %67, i64 %66
+  %68 = getelementptr inbounds [8 x i8], ptr %67, i64 %66
   store ptr %37, ptr %68, align 8
   %69 = load i64, ptr %17, align 8, !alias.scope !393, !noundef !4
   %70 = add i64 %69, 1
@@ -3294,14 +3294,14 @@ define hidden noundef i8 @_ZN21tree_sitter_highlight12HtmlRenderer6render17h85f6
   %.not235.i = icmp eq i64 %142, 0
   %143 = getelementptr inbounds nuw i8, ptr %.val277.i, i64 144
   %144 = load ptr, ptr %143, align 8, !noalias !419, !nonnull !4
-  %145 = getelementptr i64, ptr %144, i64 %142
+  %145 = getelementptr [8 x i8], ptr %144, i64 %142
   %146 = getelementptr i8, ptr %145, i64 -8
   %.not236430.i = icmp eq ptr %146, null
   %.not236.i = select i1 %.not235.i, i1 true, i1 %.not236430.i
   br i1 %.not236.i, label %.critedge275.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h38bbbec033891b15E.exit329.i"
 
 147:                                              ; preds = %134
-  %148 = getelementptr inbounds { { { [4 x i32], ptr, ptr }, {} }, i32, [1 x i32] }, ptr %131, i64 %136
+  %148 = getelementptr inbounds [40 x i8], ptr %131, i64 %136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %55, ptr noundef nonnull align 8 dereferenceable(40) %148, i64 40, i1 false), !noalias !419
   %149 = invoke { i64, i64 } @_ZN11tree_sitter4Node10byte_range17h065e3b54adadfa7bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %55)
           to label %.noexc47 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -3317,7 +3317,7 @@ define hidden noundef i8 @_ZN21tree_sitter_highlight12HtmlRenderer6render17h85f6
 154:                                              ; preds = %.noexc47
   %155 = getelementptr inbounds nuw i8, ptr %.val277.i, i64 144
   %156 = load ptr, ptr %155, align 8, !noalias !419, !nonnull !4, !noundef !4
-  %157 = getelementptr i64, ptr %156, i64 %153
+  %157 = getelementptr [8 x i8], ptr %156, i64 %153
   %158 = getelementptr i8, ptr %157, i64 -8
   %.not238.i = icmp eq ptr %158, null
   br i1 %.not238.i, label %.thread396.i, label %159
@@ -3391,7 +3391,7 @@ define hidden noundef i8 @_ZN21tree_sitter_highlight12HtmlRenderer6render17h85f6
 
 178:                                              ; preds = %174
   %179 = load ptr, ptr %54, align 8, !noalias !427, !nonnull !4, !align !5, !noundef !4
-  %180 = getelementptr inbounds { { { [4 x i32], ptr, ptr }, {} }, i32, [1 x i32] }, ptr %179, i64 %175
+  %180 = getelementptr inbounds [40 x i8], ptr %179, i64 %175
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %53, ptr noundef nonnull align 8 dereferenceable(40) %180, i64 40, i1 false), !noalias !419
   %181 = load i64, ptr %68, align 8, !noalias !427, !noundef !4
   %182 = getelementptr inbounds nuw i8, ptr %.val277.i, i64 224
@@ -3442,7 +3442,7 @@ define hidden noundef i8 @_ZN21tree_sitter_highlight12HtmlRenderer6render17h85f6
 .lr.ph.i:                                         ; preds = %.preheader437.i, %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$tree_sitter_highlight..LocalScope$GT$$GT$17hc2dcc86661d5b413E.exit.i"
   %203 = phi i64 [ %233, %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$tree_sitter_highlight..LocalScope$GT$$GT$17hc2dcc86661d5b413E.exit.i" ], [ %190, %.preheader437.i ]
   %204 = load ptr, ptr %188, align 8, !noalias !419, !nonnull !4, !noundef !4
-  %205 = getelementptr { { { i64, ptr }, i64 }, { i64, i64 }, i8, [7 x i8] }, ptr %204, i64 %203
+  %205 = getelementptr [48 x i8], ptr %204, i64 %203
   %206 = getelementptr i8, ptr %205, i64 -48
   %207 = icmp eq ptr %206, null
   br i1 %207, label %.invoke2471, label %208
@@ -3478,7 +3478,7 @@ define hidden noundef i8 @_ZN21tree_sitter_highlight12HtmlRenderer6render17h85f6
   %224 = load i64, ptr %187, align 8, !alias.scope !440, !noalias !443, !noundef !4
   %225 = icmp ult i64 %223, %224
   call void @llvm.assume(i1 %225)
-  %226 = getelementptr inbounds { { { i64, ptr }, i64 }, { i64, i64 }, i8, [7 x i8] }, ptr %204, i64 %223
+  %226 = getelementptr inbounds [48 x i8], ptr %204, i64 %223
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %44, ptr noundef nonnull align 8 dereferenceable(48) %226, i64 48, i1 false), !noalias !445
   %.pr.i = load i64, ptr %44, align 8, !alias.scope !446, !noalias !427
   call void @llvm.experimental.noalias.scope.decl(metadata !446)
@@ -3669,7 +3669,7 @@ define hidden noundef i8 @_ZN21tree_sitter_highlight12HtmlRenderer6render17h85f6
 "_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hcfaf6cb123f2d224E.exit.i": ; preds = %.loopexit434.i
   %283 = getelementptr i8, ptr %278, i64 32
   %.val279.i = load ptr, ptr %283, align 8, !noalias !419, !nonnull !4, !noundef !4
-  %284 = getelementptr inbounds nuw { i64, i64 }, ptr %.val279.i, i64 %280
+  %284 = getelementptr inbounds nuw [16 x i8], ptr %.val279.i, i64 %280
   %285 = load i64, ptr %284, align 8, !range !110, !noalias !419, !noundef !4
   %286 = getelementptr inbounds nuw i8, ptr %284, i64 8
   %287 = load i64, ptr %286, align 8, !noalias !419
@@ -3677,7 +3677,7 @@ define hidden noundef i8 @_ZN21tree_sitter_highlight12HtmlRenderer6render17h85f6
   br i1 %.not243.i, label %319, label %317
 
 288:                                              ; preds = %274
-  %289 = getelementptr inbounds { { { [4 x i32], ptr, ptr }, {} }, i32, [1 x i32] }, ptr %261, i64 %275
+  %289 = getelementptr inbounds [40 x i8], ptr %261, i64 %275
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %38, ptr noundef nonnull align 8 dereferenceable(40) %289, i64 40, i1 false), !noalias !419
   %290 = invoke noundef zeroext i1 @"_ZN58_$LT$tree_sitter..Node$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea8e38061b3d831cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %38, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %53)
           to label %.noexc60 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -3851,7 +3851,7 @@ define hidden noundef i8 @_ZN21tree_sitter_highlight12HtmlRenderer6render17h85f6
   %331 = phi i64 [ %.pre.i.i, %.noexc66 ], [ %327, %321 ]
   %332 = getelementptr inbounds nuw i8, ptr %.val277.i, i64 144
   %333 = load ptr, ptr %332, align 8, !alias.scope !476, !noalias !419, !nonnull !4, !noundef !4
-  %334 = getelementptr inbounds i64, ptr %333, i64 %331
+  %334 = getelementptr inbounds [8 x i8], ptr %333, i64 %331
   store i64 %151, ptr %334, align 8, !noalias !419
   %335 = load i64, ptr %322, align 8, !alias.scope !476, !noalias !419, !noundef !4
   %336 = add i64 %335, 1
@@ -3983,7 +3983,7 @@ define hidden noundef i8 @_ZN21tree_sitter_highlight12HtmlRenderer6render17h85f6
   %371 = load i64, ptr %81, align 8, !noalias !427, !noundef !4
   %372 = load ptr, ptr %188, align 8, !noalias !419, !nonnull !4, !noundef !4
   %373 = load i64, ptr %189, align 8, !noalias !419, !noundef !4
-  %374 = getelementptr inbounds { { { i64, ptr }, i64 }, { i64, i64 }, i8, [7 x i8] }, ptr %372, i64 %373
+  %374 = getelementptr inbounds [48 x i8], ptr %372, i64 %373
   br label %375
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h0dafdb4322451ff8E.exit.thread.i": ; preds = %._crit_edge859.i, %375, %396, %.noexc71
@@ -4052,7 +4052,7 @@ define hidden noundef i8 @_ZN21tree_sitter_highlight12HtmlRenderer6render17h85f6
 
 403:                                              ; preds = %355
   %404 = load ptr, ptr %188, align 8, !noalias !419, !nonnull !4, !noundef !4
-  %405 = getelementptr { { { i64, ptr }, i64 }, { i64, i64 }, i8, [7 x i8] }, ptr %404, i64 %356
+  %405 = getelementptr [48 x i8], ptr %404, i64 %356
   %406 = getelementptr i8, ptr %405, i64 -48
   %407 = icmp eq ptr %406, null
   br i1 %407, label %.invoke2471, label %408
@@ -4125,7 +4125,7 @@ define hidden noundef i8 @_ZN21tree_sitter_highlight12HtmlRenderer6render17h85f6
   %435 = phi i64 [ %.pre.i303.i, %.noexc76 ], [ %431, %427 ]
   %436 = getelementptr i8, ptr %405, i64 -40
   %437 = load ptr, ptr %436, align 8, !alias.scope !505, !noalias !508, !nonnull !4, !noundef !4
-  %438 = getelementptr inbounds { { i64, i64 }, { ptr, i64 }, { i64, i64 } }, ptr %437, i64 %435
+  %438 = getelementptr inbounds [48 x i8], ptr %437, i64 %435
   store i64 0, ptr %438, align 8, !noalias !419
   %.sroa.4375.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %438, i64 16
   store ptr %428, ptr %.sroa.4375.0..sroa_idx.i, align 8, !noalias !419
@@ -4148,7 +4148,7 @@ define hidden noundef i8 @_ZN21tree_sitter_highlight12HtmlRenderer6render17h85f6
 
 442:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd71258b74fb417cdE.exit.i"
   %443 = load ptr, ptr %436, align 8, !noalias !419, !nonnull !4, !noundef !4
-  %444 = getelementptr { { i64, i64 }, { ptr, i64 }, { i64, i64 } }, ptr %443, i64 %440
+  %444 = getelementptr [48 x i8], ptr %443, i64 %440
   %445 = getelementptr i8, ptr %444, i64 -48
   br label %441
 
@@ -4312,7 +4312,7 @@ define hidden noundef i8 @_ZN21tree_sitter_highlight12HtmlRenderer6render17h85f6
 487:                                              ; preds = %._crit_edge.i.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h65b45891d316af6bE.exit.thread.i"
   %488 = phi i64 [ %.pre.i308.i, %._crit_edge.i.i ], [ %479, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h65b45891d316af6bE.exit.thread.i" ]
   %489 = load ptr, ptr %188, align 8, !alias.scope !523, !noalias !526, !nonnull !4, !noundef !4
-  %490 = getelementptr inbounds { { { i64, ptr }, i64 }, { i64, i64 }, i8, [7 x i8] }, ptr %489, i64 %488
+  %490 = getelementptr inbounds [48 x i8], ptr %489, i64 %488
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %490, ptr noundef nonnull align 8 dereferenceable(48) %43, i64 48, i1 false), !noalias !419
   %491 = load i64, ptr %189, align 8, !alias.scope !523, !noalias !526, !noundef !4
   %492 = add i64 %491, 1
@@ -4329,7 +4329,7 @@ define hidden noundef i8 @_ZN21tree_sitter_highlight12HtmlRenderer6render17h85f6
   br i1 %496, label %497, label %.invoke2465, !prof !145
 
 497:                                              ; preds = %493
-  %498 = getelementptr inbounds { { { [4 x i32], ptr, ptr }, {} }, i32, [1 x i32] }, ptr %460, i64 %494
+  %498 = getelementptr inbounds [40 x i8], ptr %460, i64 %494
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %39, ptr noundef nonnull align 8 dereferenceable(40) %498, i64 40, i1 false), !noalias !419
   %499 = invoke noundef zeroext i1 @"_ZN58_$LT$tree_sitter..Node$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea8e38061b3d831cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %39, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %53)
           to label %.noexc79 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -4676,7 +4676,7 @@ define hidden noundef i8 @_ZN21tree_sitter_highlight12HtmlRenderer6render17h85f6
   %591 = phi i64 [ %.pre.i.i.i, %._crit_edge.i.i.i ], [ %.pre1656, %._crit_edge.i320.i._crit_edge ]
   %592 = phi i64 [ %.pre.i.i.i, %._crit_edge.i.i.i ], [ %578, %._crit_edge.i320.i._crit_edge ]
   %593 = load ptr, ptr %65, align 8, !alias.scope !561, !noalias !564, !nonnull !4, !noundef !4
-  %594 = getelementptr inbounds { { { i64, [6 x i64] }, { { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, ptr, { ptr, i64 }, ptr, {} } }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, ptr, ptr, ptr, i64 }, ptr %593, i64 %592
+  %594 = getelementptr inbounds [240 x i8], ptr %593, i64 %592
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %594, ptr noundef nonnull align 8 dereferenceable(240) %30, i64 240, i1 false), !noalias !419
   %595 = add i64 %591, 1
   store i64 %595, ptr %64, align 8, !alias.scope !561, !noalias !564
@@ -4684,7 +4684,7 @@ define hidden noundef i8 @_ZN21tree_sitter_highlight12HtmlRenderer6render17h85f6
   br label %"_ZN21tree_sitter_highlight22HighlightIter$LT$F$GT$12insert_layer17h59cec8f62213efc3E.exit.sink.split.i"
 
 596:                                              ; preds = %586
-  %597 = getelementptr inbounds { { { i64, [6 x i64] }, { { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, ptr, { ptr, i64 }, ptr, {} } }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, ptr, ptr, ptr, i64 }, ptr %.val.i321.i, i64 %.043.i.i
+  %597 = getelementptr inbounds [240 x i8], ptr %.val.i321.i, i64 %.043.i.i
   invoke void @_ZN21tree_sitter_highlight18HighlightIterLayer8sort_key17h73811d9c13cf48d9E(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %33, ptr noalias noundef nonnull align 8 dereferenceable(240) %597)
           to label %598 unwind label %.loopexit.i.i, !noalias !557
 
@@ -4734,7 +4734,7 @@ define hidden noundef i8 @_ZN21tree_sitter_highlight12HtmlRenderer6render17h85f6
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h237b1e0e92776055E.llvm.23857589297000235.exit.i.i.i": ; preds = %616, %612
   %617 = load ptr, ptr %65, align 8, !alias.scope !567, !noalias !570, !nonnull !4, !noundef !4
-  %618 = getelementptr inbounds { { { i64, [6 x i64] }, { { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, ptr, { ptr, i64 }, ptr, {} } }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, ptr, ptr, ptr, i64 }, ptr %617, i64 %.043.i.i
+  %618 = getelementptr inbounds [240 x i8], ptr %617, i64 %.043.i.i
   %619 = icmp ult i64 %.043.i.i, %613
   br i1 %619, label %623, label %621
 
@@ -5128,7 +5128,7 @@ default.unreachable:                              ; preds = %669
   %690 = load i64, ptr %108, align 8, !noundef !4
   %.not42 = icmp eq i64 %690, 0
   %691 = load ptr, ptr %109, align 8, !nonnull !4
-  %692 = getelementptr i32, ptr %691, i64 %690
+  %692 = getelementptr [4 x i8], ptr %691, i64 %690
   %693 = getelementptr i8, ptr %692, i64 -4
   %694 = icmp eq ptr %693, null
   %695 = select i1 %.not42, i1 true, i1 %694
@@ -5350,7 +5350,7 @@ _ZN21tree_sitter_highlight12HtmlRenderer19add_carriage_return17h253e4701b75d690e
 
 "_ZN21tree_sitter_highlight5c_lib13TSHighlighter9highlight28_$u7b$$u7b$closure$u7d$$u7d$17h55c66078f223813cE.exit.i.i": ; preds = %769
   %.val.i.i.i = load ptr, ptr %102, align 8, !noalias !675, !nonnull !4, !noundef !4
-  %772 = getelementptr inbounds { ptr, i64 }, ptr %.val.i.i.i, i64 %770
+  %772 = getelementptr inbounds [16 x i8], ptr %.val.i.i.i, i64 %770
   %773 = load ptr, ptr %772, align 8, !noalias !676, !nonnull !4, !align !13, !noundef !4
   %774 = getelementptr inbounds nuw i8, ptr %772, i64 8
   %775 = load i64, ptr %774, align 8, !noalias !676, !noundef !4
@@ -5525,7 +5525,7 @@ _ZN21tree_sitter_highlight12HtmlRenderer19add_carriage_return17h253e4701b75d690e
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hdf63d8ee2d79b5a3E.exit.i": ; preds = %.noexc124, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h64d9d89c978f6eaeE.exit.i"
   %837 = phi i64 [ %.pre.i23.i, %.noexc124 ], [ %833, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h64d9d89c978f6eaeE.exit.i" ]
   %838 = load ptr, ptr %109, align 8, !alias.scope !708, !noalias !674, !nonnull !4, !noundef !4
-  %839 = getelementptr inbounds i32, ptr %838, i64 %837
+  %839 = getelementptr inbounds [4 x i8], ptr %838, i64 %837
   store i32 %832, ptr %839, align 4, !noalias !634
   %840 = load i64, ptr %108, align 8, !alias.scope !708, !noalias !674, !noundef !4
   %841 = add i64 %840, 1
@@ -5547,7 +5547,7 @@ _ZN21tree_sitter_highlight12HtmlRenderer19add_carriage_return17h253e4701b75d690e
 
 "_ZN21tree_sitter_highlight5c_lib13TSHighlighter9highlight28_$u7b$$u7b$closure$u7d$$u7d$17h55c66078f223813cE.exit.i32.i": ; preds = %842
   %.val.i.i33.i = load ptr, ptr %102, align 8, !noalias !718, !nonnull !4, !noundef !4
-  %845 = getelementptr inbounds { ptr, i64 }, ptr %.val.i.i33.i, i64 %.val4.i.i
+  %845 = getelementptr inbounds [16 x i8], ptr %.val.i.i33.i, i64 %.val4.i.i
   %846 = load ptr, ptr %845, align 8, !noalias !719, !nonnull !4, !align !13, !noundef !4
   %847 = getelementptr inbounds nuw i8, ptr %845, i64 8
   %848 = load i64, ptr %847, align 8, !noalias !719, !noundef !4
@@ -5746,7 +5746,7 @@ _ZN21tree_sitter_highlight12HtmlRenderer8add_text17hdeea79352d0aaa8eE.exit: ; pr
 920:                                              ; preds = %.noexc103, %722
   %921 = phi i64 [ %.pre.i102, %.noexc103 ], [ %723, %722 ]
   %922 = load ptr, ptr %58, align 8, !alias.scope !625, !nonnull !4, !noundef !4
-  %923 = getelementptr inbounds i64, ptr %922, i64 %921
+  %923 = getelementptr inbounds [8 x i8], ptr %922, i64 %921
   store i64 %.sroa.14.sroa.0.0.insert.insert, ptr %923, align 8
   %924 = load i64, ptr %59, align 8, !alias.scope !625, !noundef !4
   %925 = add i64 %924, 1
@@ -5768,7 +5768,7 @@ _ZN21tree_sitter_highlight12HtmlRenderer8add_text17hdeea79352d0aaa8eE.exit: ; pr
 
 "_ZN21tree_sitter_highlight5c_lib13TSHighlighter9highlight28_$u7b$$u7b$closure$u7d$$u7d$17h55c66078f223813cE.exit.i": ; preds = %920
   %.val.i.i = load ptr, ptr %102, align 8, !noalias !759, !nonnull !4, !noundef !4
-  %930 = getelementptr inbounds { ptr, i64 }, ptr %.val.i.i, i64 %.sroa.14.sroa.0.0.insert.insert
+  %930 = getelementptr inbounds [16 x i8], ptr %.val.i.i, i64 %.sroa.14.sroa.0.0.insert.insert
   %931 = load ptr, ptr %930, align 8, !noalias !759, !nonnull !4, !align !13, !noundef !4
   %932 = getelementptr inbounds nuw i8, ptr %930, i64 8
   %933 = load i64, ptr %932, align 8, !noalias !759, !noundef !4

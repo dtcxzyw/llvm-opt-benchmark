@@ -69,12 +69,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::RNSuccIterator" = type { ptr, %"class.llvm::SuccIterator" }
 %"class.llvm::SuccIterator" = type <{ ptr, i32, [4 x i8] }>
 %"class.std::allocator.2" = type { i8 }
-%"struct.std::pair.76" = type { ptr, %"class.std::optional.78" }
-%"class.std::optional.78" = type { %"struct.std::_Optional_base.79" }
-%"struct.std::_Optional_base.79" = type { %"struct.std::_Optional_payload.81" }
-%"struct.std::_Optional_payload.81" = type { %"struct.std::_Optional_payload_base.base", [7 x i8] }
-%"struct.std::_Optional_payload_base.base" = type <{ %"union.std::_Optional_payload_base<llvm::RNSuccIterator<llvm::FlatIt<llvm::RegionNode *>, llvm::BasicBlock, llvm::Region>>::_Storage", i8 }>
-%"union.std::_Optional_payload_base<llvm::RNSuccIterator<llvm::FlatIt<llvm::RegionNode *>, llvm::BasicBlock, llvm::Region>>::_Storage" = type { %"class.llvm::RNSuccIterator" }
 %"class.llvm::iterator_range.112" = type { %"class.llvm::RegionBase<llvm::RegionTraits<Function>>::block_iterator_wrapper", %"class.llvm::RegionBase<llvm::RegionTraits<Function>>::block_iterator_wrapper" }
 %"class.llvm::RegionBase<llvm::RegionTraits<Function>>::block_iterator_wrapper" = type { %"class.llvm::df_iterator.113" }
 %"class.llvm::df_iterator.113" = type { %"class.llvm::df_iterator_storage.114", %"class.std::vector.119" }
@@ -86,13 +80,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.120" = type { %"struct.std::_Vector_base<std::pair<const llvm::BasicBlock *, std::optional<llvm::SuccIterator<const llvm::Instruction, const llvm::BasicBlock>>>, std::allocator<std::pair<const llvm::BasicBlock *, std::optional<llvm::SuccIterator<const llvm::Instruction, const llvm::BasicBlock>>>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::pair<const llvm::BasicBlock *, std::optional<llvm::SuccIterator<const llvm::Instruction, const llvm::BasicBlock>>>, std::allocator<std::pair<const llvm::BasicBlock *, std::optional<llvm::SuccIterator<const llvm::Instruction, const llvm::BasicBlock>>>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::pair<const llvm::BasicBlock *, std::optional<llvm::SuccIterator<const llvm::Instruction, const llvm::BasicBlock>>>, std::allocator<std::pair<const llvm::BasicBlock *, std::optional<llvm::SuccIterator<const llvm::Instruction, const llvm::BasicBlock>>>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::pair<const llvm::BasicBlock *, std::optional<llvm::SuccIterator<const llvm::Instruction, const llvm::BasicBlock>>>, std::allocator<std::pair<const llvm::BasicBlock *, std::optional<llvm::SuccIterator<const llvm::Instruction, const llvm::BasicBlock>>>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.std::pair.128" = type { ptr, %"class.std::optional.130" }
-%"class.std::optional.130" = type { %"struct.std::_Optional_base.131" }
-%"struct.std::_Optional_base.131" = type { %"struct.std::_Optional_payload.133" }
-%"struct.std::_Optional_payload.133" = type { %"struct.std::_Optional_payload_base.base.138", [7 x i8] }
-%"struct.std::_Optional_payload_base.base.138" = type { %"union.std::_Optional_payload_base<llvm::SuccIterator<const llvm::Instruction, const llvm::BasicBlock>>::_Storage", i8 }
-%"union.std::_Optional_payload_base<llvm::SuccIterator<const llvm::Instruction, const llvm::BasicBlock>>::_Storage" = type { %"class.llvm::SuccIterator.135" }
-%"class.llvm::SuccIterator.135" = type <{ ptr, i32, [4 x i8] }>
 %"class.std::error_condition" = type { i32, ptr }
 %"struct.llvm::cl::desc" = type { %"class.llvm::StringRef" }
 %"struct.llvm::cl::initializer" = type { ptr }
@@ -367,7 +354,7 @@ _ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE.exit: ; preds 
   %27 = phi i32 [ %22, %5 ], [ %.pre.i.i, %24 ]
   %28 = load ptr, ptr %11, align 8, !tbaa !41
   %29 = zext i32 %27 to i64
-  %30 = getelementptr inbounds nuw ptr, ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %29
   %31 = ptrtoint ptr %21 to i64
   store i64 %31, ptr %30, align 1
   %32 = load i32, ptr %13, align 8, !tbaa !42
@@ -2477,7 +2464,7 @@ _ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
 
 31:                                               ; preds = %.thread
   %32 = load ptr, ptr %0, align 8, !tbaa !22
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %28
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %28
   %34 = load ptr, ptr %33, align 8, !tbaa !179
   %.not.i.i = icmp eq ptr %34, null
   %.pre56 = load ptr, ptr %1, align 8, !tbaa !15
@@ -2611,7 +2598,7 @@ _ZNSt8__detail12_NodeBuilderINS_9_IdentityEE8_S_buildIRKNSt7__cxx1112basic_strin
   %91 = getelementptr inbounds nuw i8, ptr %65, i64 40
   store i64 %25, ptr %91, align 8, !tbaa !180
   %92 = load ptr, ptr %0, align 8, !tbaa !22
-  %93 = getelementptr inbounds nuw ptr, ptr %92, i64 %.0.i17
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %92, i64 %.0.i17
   %94 = load ptr, ptr %93, align 8, !tbaa !179
   %.not.i.i18 = icmp eq ptr %94, null
   br i1 %.not.i.i18, label %98, label %95
@@ -2636,7 +2623,7 @@ _ZNSt8__detail12_NodeBuilderINS_9_IdentityEE8_S_buildIRKNSt7__cxx1112basic_strin
   %103 = getelementptr inbounds nuw i8, ptr %100, i64 40
   %104 = load i64, ptr %103, align 8, !tbaa !180
   %105 = urem i64 %104, %102
-  %106 = getelementptr inbounds nuw ptr, ptr %92, i64 %105
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %92, i64 %105
   store ptr %65, ptr %106, align 8, !tbaa !179
   br label %107
 
@@ -2715,7 +2702,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_E
   %17 = getelementptr inbounds nuw i8, ptr %.031, i64 40
   %18 = load i64, ptr %17, align 8, !tbaa !180
   %19 = urem i64 %18, %1
-  %20 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !179
   %.not27 = icmp eq ptr %21, null
   br i1 %.not27, label %22, label %27
@@ -2730,7 +2717,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_E
   br i1 %.not28, label %30, label %25
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %26, align 8, !tbaa !179
   br label %30
 
@@ -5305,7 +5292,7 @@ _ZNSt6vectorISt4pairIPN4llvm10RegionNodeESt8optionalINS1_14RNSuccIteratorINS1_6F
 _ZNSt6vectorISt4pairIPN4llvm10RegionNodeESt8optionalINS1_14RNSuccIteratorINS1_6FlatItIS3_EENS1_10BasicBlockENS1_6RegionEEEEESaISC_EE17_M_realloc_insertIJSC_EEEvN9__gnu_cxx17__normal_iteratorIPSC_SE_EEDpOT_.exit.i.i: ; preds = %114, %_ZNSt6vectorISt4pairIPN4llvm10RegionNodeESt8optionalINS1_14RNSuccIteratorINS1_6FlatItIS3_EENS1_10BasicBlockENS1_6RegionEEEEESaISC_EE11_S_relocateEPSC_SF_SF_RSD_.exit22.i.i.i
   store ptr %109, ptr %2, align 8, !tbaa !208
   store ptr %113, ptr %3, align 8, !tbaa !205
-  %115 = getelementptr inbounds nuw %"struct.std::pair.76", ptr %109, i64 %107
+  %115 = getelementptr inbounds nuw [40 x i8], ptr %109, i64 %107
   store ptr %115, ptr %91, align 8, !tbaa !209
   br label %.loopexit
 
@@ -6128,7 +6115,7 @@ _ZNSt6vectorISt4pairIPKN4llvm10BasicBlockESt8optionalINS1_12SuccIteratorIKNS1_11
 _ZNSt6vectorISt4pairIPKN4llvm10BasicBlockESt8optionalINS1_12SuccIteratorIKNS1_11InstructionES3_EEEESaISB_EE17_M_realloc_insertIJSB_EEEvN9__gnu_cxx17__normal_iteratorIPSB_SD_EEDpOT_.exit.i.i: ; preds = %78, %_ZNSt6vectorISt4pairIPKN4llvm10BasicBlockESt8optionalINS1_12SuccIteratorIKNS1_11InstructionES3_EEEESaISB_EE11_S_relocateEPSB_SE_SE_RSC_.exit22.i.i.i
   store ptr %73, ptr %2, align 8, !tbaa !341
   store ptr %77, ptr %3, align 8, !tbaa !338
-  %79 = getelementptr inbounds nuw %"struct.std::pair.128", ptr %73, i64 %71
+  %79 = getelementptr inbounds nuw [32 x i8], ptr %73, i64 %71
   store ptr %79, ptr %55, align 8, !tbaa !342
   br label %.loopexit
 

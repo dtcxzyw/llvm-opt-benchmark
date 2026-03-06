@@ -30,10 +30,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.cmsys::Directory" = type { ptr }
 %"struct.cmsys::SystemTools::CopyStatus" = type { %"class.cmsys::Status", i32 }
-%"struct.cmFileCopier::MatchRule" = type { %"class.cmsys::RegularExpression", %"struct.cmFileCopier::MatchProperties", %"class.std::__cxx11::basic_string" }
-%"class.cmsys::RegularExpression" = type { %"class.cmsys::RegularExpressionMatch", i8, i8, ptr, i64, ptr, i32, i32 }
-%"class.cmsys::RegularExpressionMatch" = type { [32 x ptr], [32 x ptr], ptr }
-%"struct.cmFileCopier::MatchProperties" = type { i8, i32 }
 
 $_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev = comdat any
 
@@ -1776,7 +1772,7 @@ define dso_local noundef zeroext i1 @_ZN12cmFileCopier5ParseERKSt6vectorINSt7__c
   %25 = phi ptr [ %19, %15 ], [ %10, %2 ]
   %26 = phi i64 [ %17, %15 ], [ 1, %2 ]
   %.01966 = phi i32 [ %16, %15 ], [ 1, %2 ]
-  %27 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [32 x i8], ptr %25, i64 %26
   %28 = load ptr, ptr %0, align 8, !tbaa !4
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 64
   %30 = load ptr, ptr %29, align 8
@@ -1785,7 +1781,7 @@ define dso_local noundef zeroext i1 @_ZN12cmFileCopier5ParseERKSt6vectorINSt7__c
 
 32:                                               ; preds = %.lr.ph
   %33 = load ptr, ptr %1, align 8, !tbaa !54
-  %34 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %33, i64 %26
+  %34 = getelementptr inbounds nuw [32 x i8], ptr %33, i64 %26
   %35 = load ptr, ptr %0, align 8, !tbaa !4
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 72
   %37 = load ptr, ptr %36, align 8
@@ -1800,7 +1796,7 @@ define dso_local noundef zeroext i1 @_ZN12cmFileCopier5ParseERKSt6vectorINSt7__c
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %39
   %41 = load ptr, ptr %1, align 8, !tbaa !54
-  %42 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %41, i64 %26
+  %42 = getelementptr inbounds nuw [32 x i8], ptr %41, i64 %26
   %43 = load ptr, ptr %42, align 8, !tbaa !56
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %45 = load i64, ptr %44, align 8, !tbaa !52
@@ -7509,7 +7505,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit36, %73
   store ptr %23, ptr %0, align 8, !tbaa !54
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8, !tbaa !55
-  %77 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %77, ptr %72, align 8, !tbaa !59
   ret void
 
@@ -7823,7 +7819,7 @@ _ZSt8_DestroyIPN12cmFileCopier9MatchRuleES1_EvT_S3_RSaIT0_E.exit: ; preds = %_ZS
 _ZNSt12_Vector_baseIN12cmFileCopier9MatchRuleESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZSt8_DestroyIPN12cmFileCopier9MatchRuleES1_EvT_S3_RSaIT0_E.exit, %68
   store ptr %23, ptr %0, align 8, !tbaa !60
   store ptr %55, ptr %5, align 8, !tbaa !61
-  %72 = getelementptr inbounds nuw %"struct.cmFileCopier::MatchRule", ptr %23, i64 %17
+  %72 = getelementptr inbounds nuw [600 x i8], ptr %23, i64 %17
   store ptr %72, ptr %67, align 8, !tbaa !66
   ret void
 
@@ -8192,7 +8188,7 @@ _ZSt8_DestroyIPN12cmFileCopier9MatchRuleES1_EvT_S3_RSaIT0_E.exit: ; preds = %_ZS
 _ZNSt12_Vector_baseIN12cmFileCopier9MatchRuleESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZSt8_DestroyIPN12cmFileCopier9MatchRuleES1_EvT_S3_RSaIT0_E.exit, %68
   store ptr %23, ptr %0, align 8, !tbaa !60
   store ptr %55, ptr %5, align 8, !tbaa !61
-  %72 = getelementptr inbounds nuw %"struct.cmFileCopier::MatchRule", ptr %23, i64 %17
+  %72 = getelementptr inbounds nuw [600 x i8], ptr %23, i64 %17
   store ptr %72, ptr %67, align 8, !tbaa !66
   ret void
 

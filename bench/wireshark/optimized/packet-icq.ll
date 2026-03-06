@@ -1196,7 +1196,7 @@ define internal fastcc void @icqv5_decode_msgType(ptr noundef %0, ptr noundef %1
 29:                                               ; preds = %.preheader, %26
   %.0192 = phi i32 [ %28, %26 ], [ %.1177243, %.preheader ]
   %.not215 = icmp eq i32 %.0192, 0
-  %30 = getelementptr ptr, ptr @icqv5_decode_msgType.url_field_descr, i64 %indvars.iv261
+  %30 = getelementptr [8 x i8], ptr @icqv5_decode_msgType.url_field_descr, i64 %indvars.iv261
   %31 = load ptr, ptr %30, align 8
   %32 = load i32, ptr %31, align 4
   br i1 %.not215, label %35, label %33
@@ -1230,7 +1230,7 @@ define internal fastcc void @icqv5_decode_msgType(ptr noundef %0, ptr noundef %1
 43:                                               ; preds = %.preheader219, %40
   %.1193 = phi i32 [ %42, %40 ], [ %.2178240, %.preheader219 ]
   %.not213 = icmp eq i32 %.1193, 0
-  %44 = getelementptr ptr, ptr @icqv5_decode_msgType.email_field_descr, i64 %indvars.iv257
+  %44 = getelementptr [8 x i8], ptr @icqv5_decode_msgType.email_field_descr, i64 %indvars.iv257
   %45 = load ptr, ptr %44, align 8
   %46 = load i32, ptr %45, align 4
   br i1 %.not213, label %49, label %47
@@ -1278,7 +1278,7 @@ define internal fastcc void @icqv5_decode_msgType(ptr noundef %0, ptr noundef %1
 66:                                               ; preds = %.preheader223, %63
   %.2194 = phi i32 [ %65, %63 ], [ %.3179231, %.preheader223 ]
   %.not211 = icmp eq i32 %.2194, 0
-  %67 = getelementptr ptr, ptr @icqv5_decode_msgType.auth_req_field_descr, i64 %indvars.iv253
+  %67 = getelementptr [8 x i8], ptr @icqv5_decode_msgType.auth_req_field_descr, i64 %indvars.iv253
   %68 = load ptr, ptr %67, align 8
   %69 = load i32, ptr %68, align 4
   br i1 %.not211, label %72, label %70
@@ -1314,7 +1314,7 @@ define internal fastcc void @icqv5_decode_msgType(ptr noundef %0, ptr noundef %1
 80:                                               ; preds = %.preheader225, %77
   %.3195 = phi i32 [ %79, %77 ], [ %.4180228, %.preheader225 ]
   %.not209 = icmp eq i32 %.3195, 0
-  %81 = getelementptr ptr, ptr @icqv5_decode_msgType.user_added_field_descr, i64 %indvars.iv
+  %81 = getelementptr [8 x i8], ptr @icqv5_decode_msgType.user_added_field_descr, i64 %indvars.iv
   %82 = load ptr, ptr %81, align 8
   %83 = load i32, ptr %82, align 4
   br i1 %.not209, label %86, label %84

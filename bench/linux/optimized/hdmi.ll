@@ -31,8 +31,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_hdmi_infofra
 module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_hdmi_drm_infoframe_unpack_only: ; .asciz \22\22 ; .asciz \22\22 ; .balign 8 ; .quad hdmi_drm_infoframe_unpack_only ; .previous"
 module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_hdmi_infoframe_unpack: ; .asciz \22\22 ; .asciz \22\22 ; .balign 8 ; .quad hdmi_infoframe_unpack ; .previous"
 
-%struct.anon = type { i16, i16 }
-
 @__UNIQUE_ID___addressable_hdmi_avi_infoframe_init311 = internal global ptr @hdmi_avi_infoframe_init, section ".discard.addressable", align 8
 @__UNIQUE_ID___addressable_hdmi_avi_infoframe_check312 = internal global ptr @hdmi_avi_infoframe_check, section ".discard.addressable", align 8
 @__UNIQUE_ID___addressable_hdmi_avi_infoframe_pack_only313 = internal global ptr @hdmi_avi_infoframe_pack_only, section ".discard.addressable", align 8
@@ -1395,7 +1393,7 @@ define dso_local range(i64 -28, 260) i64 @hdmi_drm_infoframe_pack_only(ptr nound
 28:                                               ; preds = %28, %9
   %29 = phi i64 [ 0, %9 ], [ %47, %28 ]
   %30 = phi ptr [ %26, %9 ], [ %46, %28 ]
-  %31 = getelementptr %struct.anon, ptr %27, i64 %29
+  %31 = getelementptr [4 x i8], ptr %27, i64 %29
   %32 = load i16, ptr %31, align 4
   %33 = trunc i16 %32 to i8
   %34 = getelementptr i8, ptr %30, i64 1
@@ -2878,7 +2876,7 @@ define dso_local void @hdmi_infoframe_log(ptr noundef %0, ptr noundef %1, ptr no
 
 300:                                              ; preds = %300, %286
   %301 = phi i64 [ 0, %286 ], [ %309, %300 ]
-  %302 = getelementptr %struct.anon, ptr %299, i64 %301
+  %302 = getelementptr [4 x i8], ptr %299, i64 %301
   %303 = load i16, ptr %302, align 4
   %304 = zext i16 %303 to i32
   %305 = trunc i64 %301 to i32
@@ -2955,7 +2953,7 @@ define dso_local noundef range(i32 -22, 1) i32 @hdmi_drm_infoframe_unpack_only(p
   %22 = phi ptr [ %18, %5 ], [ %27, %20 ]
   %23 = load i16, ptr %22, align 1
   %24 = getelementptr i8, ptr %22, i64 2
-  %25 = getelementptr %struct.anon, ptr %19, i64 %21
+  %25 = getelementptr [4 x i8], ptr %19, i64 %21
   store i16 %23, ptr %25, align 4
   %26 = load i16, ptr %24, align 1
   %27 = getelementptr i8, ptr %22, i64 4

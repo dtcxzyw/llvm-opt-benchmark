@@ -1125,7 +1125,7 @@ _ZL13getGTKWindowsv.exit.i:                       ; preds = %33, %31, %24
 38:                                               ; preds = %_ZNSt12__shared_ptrI8CvWindowLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.thread23.i, %.lr.ph.i
   %39 = phi ptr [ %36, %.lr.ph.i ], [ %88, %_ZNSt12__shared_ptrI8CvWindowLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.thread23.i ]
   %.0927.i = phi i64 [ 0, %.lr.ph.i ], [ %86, %_ZNSt12__shared_ptrI8CvWindowLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.thread23.i ]
-  %40 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %39, i64 %.0927.i
+  %40 = getelementptr inbounds nuw [16 x i8], ptr %39, i64 %.0927.i
   %41 = load ptr, ptr %40, align 8, !tbaa !47, !noalias !62
   store ptr %41, ptr %0, align 8, !tbaa !47, !alias.scope !62
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 8
@@ -5982,7 +5982,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %7, %_
 19:                                               ; preds = %.lr.ph, %_ZNSt12__shared_ptrI10CvTrackbarLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.thread12
   %20 = phi ptr [ %16, %.lr.ph ], [ %69, %_ZNSt12__shared_ptrI10CvTrackbarLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.thread12 ]
   %.01317 = phi i64 [ 0, %.lr.ph ], [ %67, %_ZNSt12__shared_ptrI10CvTrackbarLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.thread12 ]
-  %21 = getelementptr inbounds nuw %"class.std::shared_ptr.9", ptr %20, i64 %.01317
+  %21 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %.01317
   %22 = load ptr, ptr %21, align 8, !tbaa !135
   store ptr %22, ptr %0, align 8, !tbaa !135
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
@@ -7518,7 +7518,7 @@ _ZL13getGTKWindowsv.exit.i:                       ; preds = %19, %17, %_ZNSt10lo
 
 .lr.ph.i:                                         ; preds = %27, %.lr.ph.preheader.i
   %.01725.i = phi i64 [ %28, %27 ], [ 0, %.lr.ph.preheader.i ]
-  %29 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %22, i64 %.01725.i
+  %29 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %.01725.i
   %30 = load ptr, ptr %29, align 8, !tbaa !47
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load ptr, ptr %31, align 8, !tbaa !71
@@ -9523,7 +9523,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit160.i: ; preds = %
           to label %217 unwind label %222
 
 217:                                              ; preds = %215
-  %218 = getelementptr inbounds nuw ptr, ptr %9, i64 %.0199.i
+  %218 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.0199.i
   %219 = load ptr, ptr %218, align 8, !tbaa !206
   invoke void @gtk_file_chooser_add_filter(ptr noundef %216, ptr noundef %219)
           to label %220 unwind label %222
@@ -9970,7 +9970,7 @@ _Z22cvImageWidget_get_typev.exit:                 ; preds = %14, %16
   %switch.tableidx159.sink = phi i32 [ %switch.tableidx155, %50 ], [ %switch.tableidx, %46 ], [ %switch.tableidx159, %54 ]
   %switch.table._ZL10icvOnMouseP10_GtkWidgetP9_GdkEventPv.4.sink = phi ptr [ @switch.table._ZL10icvOnMouseP10_GtkWidgetP9_GdkEventPv.3, %50 ], [ @switch.table._ZL10icvOnMouseP10_GtkWidgetP9_GdkEventPv, %46 ], [ @switch.table._ZL10icvOnMouseP10_GtkWidgetP9_GdkEventPv.4, %54 ]
   %87 = zext nneg i32 %switch.tableidx159.sink to i64
-  %switch.gep161 = getelementptr inbounds nuw i32, ptr %switch.table._ZL10icvOnMouseP10_GtkWidgetP9_GdkEventPv.4.sink, i64 %87
+  %switch.gep161 = getelementptr inbounds nuw [4 x i8], ptr %switch.table._ZL10icvOnMouseP10_GtkWidgetP9_GdkEventPv.4.sink, i64 %87
   %switch.load162 = load i32, ptr %switch.gep161, align 4
   br label %.thread134
 
@@ -11239,7 +11239,7 @@ _ZNSt12_Vector_baseISt10shared_ptrI8CvWindowESaIS2_EE13_M_deallocateEPS2_m.exit:
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !69
   store ptr %.0.lcssa.i.i.i.i21, ptr %4, align 8, !tbaa !66
-  %49 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %20, i64 %16
+  %49 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %49, ptr %48, align 8, !tbaa !91
   ret void
 }
@@ -12048,7 +12048,7 @@ _ZNSt12_Vector_baseISt10shared_ptrI10CvTrackbarESaIS2_EE13_M_deallocateEPS2_m.ex
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !97
   store ptr %.0.lcssa.i.i.i.i21, ptr %4, align 8, !tbaa !98
-  %49 = getelementptr inbounds nuw %"class.std::shared_ptr.9", ptr %20, i64 %16
+  %49 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %49, ptr %48, align 8, !tbaa !145
   ret void
 }

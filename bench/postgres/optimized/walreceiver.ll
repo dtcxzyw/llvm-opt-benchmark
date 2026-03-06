@@ -8,18 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.WalRcvStreamOptions = type { i8, ptr, i64, %union.anon }
 %union.anon = type { %struct.anon.0 }
 %struct.anon.0 = type { i32, ptr, i8, ptr, i8, ptr }
-%struct.PGPROC = type { %struct.dlist_node, ptr, ptr, i32, %struct.Latch, i32, i32, i32, i32, %struct.anon.2, i32, i32, i32, i8, i8, i8, i8, %struct.proclist_node, %struct.proclist_node, ptr, ptr, i32, i32, %struct.pg_atomic_uint64, i32, i8, i64, i32, %struct.dlist_node, [16 x %struct.dlist_head], %struct.XidCacheStatus, %struct.XidCache, i8, %struct.pg_atomic_uint32, i32, i32, i8, %struct.pg_atomic_uint32, i32, i32, i64, i64, %struct.LWLock, ptr, ptr, i8, i32, ptr, %struct.dlist_head, %struct.dlist_node }
-%struct.Latch = type { i32, i32, i8, i32 }
-%struct.anon.2 = type { i32, i32 }
-%struct.proclist_node = type { i32, i32 }
-%struct.pg_atomic_uint64 = type { i64 }
-%struct.XidCacheStatus = type { i8, i8 }
-%struct.XidCache = type { [64 x i32] }
-%struct.pg_atomic_uint32 = type { i32 }
-%struct.LWLock = type { i16, %struct.pg_atomic_uint32, %struct.proclist_head }
-%struct.proclist_head = type { i32, i32 }
-%struct.dlist_head = type { %struct.dlist_node }
-%struct.dlist_node = type { ptr, ptr }
 
 @WalReceiverFunctions = dso_local local_unnamed_addr global ptr null, align 8
 @InterruptPending = external global i32, align 4
@@ -1325,7 +1313,7 @@ XLogWalRcvProcessMsg.exit:                        ; preds = %XLogWalRcvWrite.exi
 .critedge:                                        ; preds = %.critedge.preheader, %.critedge
   %indvars.iv = phi i64 [ %indvars.iv.next, %.critedge ], [ 0, %.critedge.preheader ]
   %.081194 = phi i64 [ %..081, %.critedge ], [ 9223372036854775807, %.critedge.preheader ]
-  %563 = getelementptr inbounds nuw i64, ptr @wakeup, i64 %indvars.iv
+  %563 = getelementptr inbounds nuw [8 x i8], ptr @wakeup, i64 %indvars.iv
   %564 = load i64, ptr %563, align 8
   %..081 = call i64 @llvm.smin.i64(i64 %564, i64 %.081194)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2314,7 +2302,7 @@ define dso_local void @WalRcvForceReply() local_unnamed_addr #0 {
   %15 = load ptr, ptr @ProcGlobal, align 8
   %16 = load ptr, ptr %15, align 8
   %17 = sext i32 %11 to i64
-  %18 = getelementptr inbounds %struct.PGPROC, ptr %16, i64 %17
+  %18 = getelementptr inbounds [832 x i8], ptr %16, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 36
   tail call void @SetLatch(ptr noundef nonnull %19) #15
   br label %20
@@ -2439,7 +2427,7 @@ define dso_local i64 @pg_stat_get_wal_receiver(ptr noundef %0) local_unnamed_add
 
 switch.lookup:                                    ; preds = %79
   %81 = zext nneg i32 %21 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.pg_stat_get_wal_receiver, i64 %81
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.pg_stat_get_wal_receiver, i64 %81
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %WalRcvGetStateString.exit
 

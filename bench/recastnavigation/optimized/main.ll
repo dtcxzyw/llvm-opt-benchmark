@@ -1611,7 +1611,7 @@ _ZN9rcContext8resetLogEv.exit:                    ; preds = %569, %572
 .backedge:                                        ; preds = %.backedge.backedge, %596
   %indvars.iv = phi i64 [ 0, %596 ], [ %indvars.iv.be, %.backedge.backedge ]
   %.03941014 = phi ptr [ null, %596 ], [ %.03941014.be, %.backedge.backedge ]
-  %597 = getelementptr inbounds nuw %struct.SampleItem, ptr @_ZL9g_samples, i64 %indvars.iv
+  %597 = getelementptr inbounds nuw [40 x i8], ptr @_ZL9g_samples, i64 %indvars.iv
   %598 = getelementptr inbounds nuw i8, ptr %597, i64 8
   %599 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %598) #22
   %600 = invoke noundef zeroext i1 @_Z9imguiItemPKcb(ptr noundef %599, i1 noundef zeroext true)
@@ -2103,7 +2103,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
 776:                                              ; preds = %775, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread738
   %indvars.iv1221 = phi i64 [ 0, %775 ], [ %indvars.iv.next1222, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread738 ]
   %.03881030 = phi ptr [ null, %775 ], [ %.1, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread738 ]
-  %777 = getelementptr inbounds nuw %struct.SampleItem, ptr @_ZL9g_samples, i64 %indvars.iv1221
+  %777 = getelementptr inbounds nuw [40 x i8], ptr @_ZL9g_samples, i64 %indvars.iv1221
   %778 = getelementptr inbounds nuw i8, ptr %777, i64 8
   %779 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %778) #22
   %780 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %.7) #22

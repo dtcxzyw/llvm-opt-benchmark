@@ -186,7 +186,7 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
 71:                                               ; preds = %.preheader, %91
   %exitcond.not = phi i1 [ false, %.preheader ], [ true, %91 ]
   %indvars.iv = phi i64 [ 1, %.preheader ], [ 2, %91 ]
-  %72 = getelementptr inbounds nuw ptr, ptr %.082, i64 %indvars.iv
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %.082, i64 %indvars.iv
   %73 = load ptr, ptr %72, align 8, !tbaa !52
   %.not98 = icmp eq ptr %73, null
   br i1 %.not98, label %91, label %74
@@ -195,7 +195,7 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
   %75 = load i8, ptr %69, align 2, !tbaa !56
   %76 = zext nneg i8 %75 to i32
   %77 = ashr i32 %50, %76
-  %78 = getelementptr inbounds nuw i32, ptr %53, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %indvars.iv
   %79 = load i32, ptr %78, align 4, !tbaa !51
   %80 = mul nsw i32 %77, %79
   %81 = sext i32 %80 to i64
@@ -203,7 +203,7 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
   %83 = load i8, ptr %70, align 1, !tbaa !57
   %84 = zext nneg i8 %83 to i32
   %85 = ashr i32 %46, %84
-  %86 = getelementptr inbounds nuw i32, ptr %59, i64 %indvars.iv
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %indvars.iv
   %87 = load i32, ptr %86, align 4, !tbaa !51
   %88 = mul nsw i32 %85, %87
   %89 = sext i32 %88 to i64

@@ -40,11 +40,9 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.llvm::AlignedCharArrayUnion.58" = type { [8 x i8] }
 %"struct.llvm::symbolize::SymbolizableObjectFile::SymbolDesc" = type <{ i64, i64, %"class.llvm::StringRef", i32, [4 x i8] }>
 %"class.llvm::StringRef" = type { ptr, i64 }
-%"struct.std::pair.47" = type { i32, %"class.llvm::StringRef" }
 %"class.llvm::iterator_range.40" = type { %"class.llvm::object::content_iterator.41", %"class.llvm::object::content_iterator.41" }
 %"class.llvm::object::content_iterator.41" = type { %"class.llvm::object::ExportDirectoryEntryRef" }
 %"class.llvm::object::ExportDirectoryEntryRef" = type { ptr, i32, ptr }
-%"struct.(anonymous namespace)::OffsetNamePair" = type { i32, %"class.llvm::StringRef" }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.64 }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon.64 = type { i64, [8 x i8] }
@@ -75,7 +73,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.80" = type { %"struct.std::_Vector_base<llvm::object::SectionedAddress, std::allocator<llvm::object::SectionedAddress>>::_Vector_impl" }
 %"struct.std::_Vector_base<llvm::object::SectionedAddress, std::allocator<llvm::object::SectionedAddress>>::_Vector_impl" = type { %"struct.std::_Vector_base<llvm::object::SectionedAddress, std::allocator<llvm::object::SectionedAddress>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<llvm::object::SectionedAddress, std::allocator<llvm::object::SectionedAddress>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.llvm::object::SectionedAddress" = type { i64, i64 }
 
 $_ZNSt6vectorIN4llvm9symbolize22SymbolizableObjectFile10SymbolDescESaIS3_EE9push_backEOS3_ = comdat any
 
@@ -719,7 +716,7 @@ _ZNSt6vectorISt4pairIjN4llvm9StringRefEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exi
 _ZNSt6vectorISt4pairIjN4llvm9StringRefEESaIS3_EE17_M_realloc_insertIJRjRS2_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %83, %_ZNSt6vectorISt4pairIjN4llvm9StringRefEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit23.i.i
   store ptr %77, ptr %56, align 8, !tbaa !94
   store ptr %82, ptr %57, align 8, !tbaa !88
-  %84 = getelementptr inbounds nuw %"struct.std::pair.47", ptr %77, i64 %75
+  %84 = getelementptr inbounds nuw [24 x i8], ptr %77, i64 %75
   store ptr %84, ptr %59, align 8, !tbaa !91
   br label %_ZN4llvm5ErrorD2Ev.exit
 
@@ -1124,7 +1121,7 @@ _ZNSt6vectorIN12_GLOBAL__N_114OffsetNamePairESaIS1_EE11_S_relocateEPS1_S4_S4_RS2
   br label %_ZNSt6vectorIN12_GLOBAL__N_114OffsetNamePairESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN12_GLOBAL__N_114OffsetNamePairESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %33, %_ZNSt6vectorIN12_GLOBAL__N_114OffsetNamePairESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26.i.i.i
-  %34 = getelementptr inbounds nuw %"struct.(anonymous namespace)::OffsetNamePair", ptr %29, i64 %27
+  %34 = getelementptr inbounds nuw [24 x i8], ptr %29, i64 %27
   br label %_ZNSt6vectorIN12_GLOBAL__N_114OffsetNamePairESaIS1_EE9push_backEOS1_.exit
 
 _ZNSt6vectorIN12_GLOBAL__N_114OffsetNamePairESaIS1_EE9push_backEOS1_.exit: ; preds = %15, %_ZNSt6vectorIN12_GLOBAL__N_114OffsetNamePairESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
@@ -1266,7 +1263,7 @@ _ZNSt6vectorIN4llvm9symbolize22SymbolizableObjectFile10SymbolDescESaIS3_EE11_S_r
 _ZNSt6vectorIN4llvm9symbolize22SymbolizableObjectFile10SymbolDescESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %76, %_ZNSt6vectorIN4llvm9symbolize22SymbolizableObjectFile10SymbolDescESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i
   store ptr %71, ptr %45, align 8, !tbaa !156
   store ptr %75, ptr %46, align 8, !tbaa !70
-  %77 = getelementptr inbounds nuw %"struct.llvm::symbolize::SymbolizableObjectFile::SymbolDesc", ptr %71, i64 %69
+  %77 = getelementptr inbounds nuw [40 x i8], ptr %71, i64 %69
   store ptr %77, ptr %47, align 8, !tbaa !154
   br label %_ZNSt6vectorIN4llvm9symbolize22SymbolizableObjectFile10SymbolDescESaIS3_EE9push_backEOS3_.exit
 
@@ -1385,7 +1382,7 @@ _ZNSt6vectorIN4llvm9symbolize22SymbolizableObjectFile10SymbolDescESaIS3_EE11_S_r
 _ZNSt6vectorIN4llvm9symbolize22SymbolizableObjectFile10SymbolDescESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %28, %_ZNSt6vectorIN4llvm9symbolize22SymbolizableObjectFile10SymbolDescESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i
   store ptr %23, ptr %0, align 8, !tbaa !156
   store ptr %27, ptr %3, align 8, !tbaa !70
-  %29 = getelementptr inbounds nuw %"struct.llvm::symbolize::SymbolizableObjectFile::SymbolDesc", ptr %23, i64 %21
+  %29 = getelementptr inbounds nuw [40 x i8], ptr %23, i64 %21
   store ptr %29, ptr %5, align 8, !tbaa !154
   br label %_ZNSt6vectorIN4llvm9symbolize22SymbolizableObjectFile10SymbolDescESaIS3_EE12emplace_backIJS3_EEERS3_DpOT_.exit
 
@@ -1490,7 +1487,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4llvm9symbolize22SymbolizableObje
   %.013.i.i.i = phi i64 [ %19, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4llvm9symbolize22SymbolizableObjectFile10SymbolDescESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.lr.ph.i.i.i ], [ %.1.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4llvm9symbolize22SymbolizableObjectFile10SymbolDescESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.i.i.i ]
   %.sroa.011.012.i.i.i = phi ptr [ %12, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4llvm9symbolize22SymbolizableObjectFile10SymbolDescESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.lr.ph.i.i.i ], [ %.sroa.011.1.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4llvm9symbolize22SymbolizableObjectFile10SymbolDescESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.i.i.i ]
   %20 = lshr i64 %.013.i.i.i, 1
-  %21 = getelementptr inbounds nuw %"struct.llvm::symbolize::SymbolizableObjectFile::SymbolDesc", ptr %.sroa.011.012.i.i.i, i64 %20
+  %21 = getelementptr inbounds nuw [40 x i8], ptr %.sroa.011.012.i.i.i, i64 %20
   %22 = load i64, ptr %21, align 8, !tbaa !67
   %23 = icmp ult i64 %1, %22
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 40
@@ -1702,7 +1699,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairIjN4llvm9StringRefEESt6vect
   %.018.i.i.i = phi i64 [ %107, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairIjN4llvm9StringRefEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.lr.ph.i.i.i ], [ %.1.i.i.i14, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKSt4pairIjN4llvm9StringRefEENS_17__normal_iteratorIPS7_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.thread.i.i.i ]
   %.sroa.011.017.i.i.i = phi ptr [ %100, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairIjN4llvm9StringRefEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.lr.ph.i.i.i ], [ %.sroa.011.1.i.i.i13, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKSt4pairIjN4llvm9StringRefEENS_17__normal_iteratorIPS7_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.thread.i.i.i ]
   %108 = lshr i64 %.018.i.i.i, 1
-  %109 = getelementptr inbounds nuw %"struct.std::pair.47", ptr %.sroa.011.017.i.i.i, i64 %108
+  %109 = getelementptr inbounds nuw [24 x i8], ptr %.sroa.011.017.i.i.i, i64 %108
   %110 = load i32, ptr %109, align 8, !tbaa !92
   %111 = icmp ult i32 %97, %110
   br i1 %111, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKSt4pairIjN4llvm9StringRefEENS_17__normal_iteratorIPS7_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.thread.i.i.i, label %112
@@ -2192,7 +2189,7 @@ define dso_local void @_ZNK4llvm9symbolize22SymbolizableObjectFile20symbolizeInl
 _ZN4llvm14DIInliningInfo8addFrameERKNS_10DILineInfoE.exit: ; preds = %25, %.critedge.i.i.i.i
   %48 = phi i64 [ 0, %25 ], [ %47, %.critedge.i.i.i.i ]
   %49 = load ptr, ptr %0, align 8, !tbaa !231
-  %50 = getelementptr inbounds nuw %"struct.llvm::DILineInfo", ptr %49, i64 %48
+  %50 = getelementptr inbounds nuw [184 x i8], ptr %49, i64 %48
   call void @_ZN4llvm10DILineInfoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(181) %50, ptr noundef nonnull align 8 dereferenceable(181) %8)
   %51 = load i32, ptr %22, align 8, !tbaa !212
   %52 = add i32 %51, 1
@@ -2269,7 +2266,7 @@ _ZNK4llvm9symbolize22SymbolizableObjectFile29shouldOverrideWithSymbolTableENS_10
   %79 = add i32 %78, -1
   %80 = zext i32 %79 to i64
   %81 = load ptr, ptr %0, align 8, !tbaa !231
-  %82 = getelementptr inbounds nuw %"struct.llvm::DILineInfo", ptr %81, i64 %80
+  %82 = getelementptr inbounds nuw [184 x i8], ptr %81, i64 %80
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %83, ptr noundef nonnull align 8 dereferenceable(32) %9) #21
   %84 = load i64, ptr %11, align 8, !tbaa !24
@@ -2556,7 +2553,7 @@ _ZNSt6vectorIN4llvm6object16SectionedAddressESaIS2_EE11_S_relocateEPS2_S5_S5_RS3
 
 _ZNSt6vectorIN4llvm6object16SectionedAddressESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %45, %_ZNSt6vectorIN4llvm6object16SectionedAddressESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i
   store ptr %44, ptr %10, align 8, !tbaa !234
-  %46 = getelementptr inbounds nuw %"struct.llvm::object::SectionedAddress", ptr %40, i64 %38
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %40, i64 %38
   store ptr %46, ptr %11, align 8, !tbaa !243
   br label %_ZNSt6vectorIN4llvm6object16SectionedAddressESaIS2_EE9push_backERKS2_.exit
 
@@ -3067,7 +3064,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm9symbolize22Symbolizab
   %21 = ptrtoint ptr %.sroa.0.018.i to i64
   %22 = sub i64 %21, %5
   %.neg.i.i.i.i.i.i = sdiv exact i64 %22, -40
-  %23 = getelementptr inbounds %"struct.llvm::symbolize::SymbolizableObjectFile::SymbolDesc", ptr %20, i64 %.neg.i.i.i.i.i.i
+  %23 = getelementptr inbounds [40 x i8], ptr %20, i64 %.neg.i.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %23, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %22, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef nonnull align 8 dereferenceable(36) %3, i64 36, i1 false), !tbaa.struct !64
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -3121,7 +3118,7 @@ common.ret19:                                     ; preds = %.preheader.i, %8, %
 38:                                               ; preds = %2
   %39 = udiv exact i64 %6, 40
   %40 = lshr i64 %39, 1
-  %41 = getelementptr inbounds nuw %"struct.llvm::symbolize::SymbolizableObjectFile::SymbolDesc", ptr %0, i64 %40
+  %41 = getelementptr inbounds nuw [40 x i8], ptr %0, i64 %40
   tail call void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPN4llvm9symbolize22SymbolizableObjectFile10SymbolDescESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_T0_(ptr %0, ptr %41)
   tail call void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPN4llvm9symbolize22SymbolizableObjectFile10SymbolDescESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_T0_(ptr %41, ptr %1)
   %42 = ptrtoint ptr %41 to i64
@@ -3139,7 +3136,7 @@ define linkonce_odr void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_ite
   %8 = sdiv exact i64 %7, 40
   %9 = add nsw i64 %8, 1
   %10 = sdiv i64 %9, 2
-  %11 = getelementptr inbounds %"struct.llvm::symbolize::SymbolizableObjectFile::SymbolDesc", ptr %0, i64 %10
+  %11 = getelementptr inbounds [40 x i8], ptr %0, i64 %10
   %12 = icmp sgt i64 %10, %3
   br i1 %12, label %13, label %14
 
@@ -3246,7 +3243,7 @@ define linkonce_odr void @_ZSt22__merge_without_bufferIN9__gnu_cxx17__normal_ite
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm9symbolize22SymbolizableObjectFile10SymbolDescESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit: ; preds = %27
   %30 = sdiv i64 %.tr7179, 2
-  %31 = getelementptr inbounds %"struct.llvm::symbolize::SymbolizableObjectFile::SymbolDesc", ptr %.tr77, i64 %30
+  %31 = getelementptr inbounds [40 x i8], ptr %.tr77, i64 %30
   %32 = sub i64 %12, %29
   %33 = icmp sgt i64 %32, 0
   br i1 %33, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm9symbolize22SymbolizableObjectFile10SymbolDescESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.lr.ph.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm9symbolize22SymbolizableObjectFile10SymbolDescESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_less_valEET_SD_SD_RKT0_T1_.exit
@@ -3262,7 +3259,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm9symbolize22SymbolizableObjec
   %.013.i = phi i64 [ %34, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm9symbolize22SymbolizableObjectFile10SymbolDescESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm9symbolize22SymbolizableObjectFile10SymbolDescESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.i ]
   %.sroa.011.012.i = phi ptr [ %.tr6978, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm9symbolize22SymbolizableObjectFile10SymbolDescESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.lr.ph.i ], [ %.sroa.011.1.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm9symbolize22SymbolizableObjectFile10SymbolDescESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.i ]
   %38 = lshr i64 %.013.i, 1
-  %39 = getelementptr inbounds nuw %"struct.llvm::symbolize::SymbolizableObjectFile::SymbolDesc", ptr %.sroa.011.012.i, i64 %38
+  %39 = getelementptr inbounds nuw [40 x i8], ptr %.sroa.011.012.i, i64 %38
   %40 = load i64, ptr %39, align 8, !tbaa !67
   %.not.i.i.i = icmp eq i64 %40, %35
   %41 = icmp ult i64 %40, %35
@@ -3291,7 +3288,7 @@ _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm9symbolize22Symbolizab
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm9symbolize22SymbolizableObjectFile10SymbolDescESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit49: ; preds = %27
   %52 = sdiv i64 %.tr7280, 2
-  %53 = getelementptr inbounds %"struct.llvm::symbolize::SymbolizableObjectFile::SymbolDesc", ptr %.tr6978, i64 %52
+  %53 = getelementptr inbounds [40 x i8], ptr %.tr6978, i64 %52
   %54 = ptrtoint ptr %.tr77 to i64
   %55 = sub i64 %29, %54
   %56 = icmp sgt i64 %55, 0
@@ -3308,7 +3305,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm9symbolize22SymbolizableObjec
   %.013.i53 = phi i64 [ %57, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm9symbolize22SymbolizableObjectFile10SymbolDescESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.lr.ph.i51 ], [ %.1.i59, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm9symbolize22SymbolizableObjectFile10SymbolDescESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.i52 ]
   %.sroa.011.012.i54 = phi ptr [ %.tr77, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm9symbolize22SymbolizableObjectFile10SymbolDescESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.lr.ph.i51 ], [ %.sroa.011.1.i58, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm9symbolize22SymbolizableObjectFile10SymbolDescESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.i52 ]
   %61 = lshr i64 %.013.i53, 1
-  %62 = getelementptr inbounds nuw %"struct.llvm::symbolize::SymbolizableObjectFile::SymbolDesc", ptr %.sroa.011.012.i54, i64 %61
+  %62 = getelementptr inbounds nuw [40 x i8], ptr %.sroa.011.012.i54, i64 %61
   %63 = load i64, ptr %62, align 8, !tbaa !67
   %.not.i.i.i57 = icmp eq i64 %58, %63
   %64 = icmp ult i64 %58, %63
@@ -3390,7 +3387,7 @@ _ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm9symbolize22Symbolizab
   br i1 %98, label %.lr.ph66.preheader.i.i, label %._crit_edge67.i.i
 
 .lr.ph66.preheader.i.i:                           ; preds = %97
-  %99 = getelementptr inbounds %"struct.llvm::symbolize::SymbolizableObjectFile::SymbolDesc", ptr %.sroa.026.0.i.i, i64 %.0.i.i
+  %99 = getelementptr inbounds [40 x i8], ptr %.sroa.026.0.i.i, i64 %.0.i.i
   br label %.lr.ph66.i.i
 
 ._crit_edge67.i.i:                                ; preds = %.lr.ph66.i.i, %97
@@ -3419,9 +3416,9 @@ _ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm9symbolize22Symbolizab
   br label %.backedge
 
 106:                                              ; preds = %94
-  %107 = getelementptr inbounds %"struct.llvm::symbolize::SymbolizableObjectFile::SymbolDesc", ptr %.sroa.026.0.i.i, i64 %.056.i.i
+  %107 = getelementptr inbounds [40 x i8], ptr %.sroa.026.0.i.i, i64 %.056.i.i
   %108 = sub i64 0, %95
-  %109 = getelementptr inbounds %"struct.llvm::symbolize::SymbolizableObjectFile::SymbolDesc", ptr %107, i64 %108
+  %109 = getelementptr inbounds [40 x i8], ptr %107, i64 %108
   %110 = icmp sgt i64 %.0.i.i, 0
   br i1 %110, label %.lr.ph.i.i, label %._crit_edge.i.i
 
@@ -3612,7 +3609,7 @@ _ZSt13move_backwardIPN4llvm9symbolize22SymbolizableObjectFile10SymbolDescEN9__gn
   %60 = ptrtoint ptr %5 to i64
   %61 = sub i64 %59, %60
   %.neg.i.i.i.i.i19.i = sdiv exact i64 %61, -40
-  %62 = getelementptr inbounds %"struct.llvm::symbolize::SymbolizableObjectFile::SymbolDesc", ptr %.lcssa.sink.i, i64 %.neg.i.i.i.i.i19.i
+  %62 = getelementptr inbounds [40 x i8], ptr %.lcssa.sink.i, i64 %.neg.i.i.i.i.i19.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %62, ptr align 8 %5, i64 %61, i1 false)
   br label %_ZSt21__move_merge_adaptiveIPN4llvm9symbolize22SymbolizableObjectFile10SymbolDescEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEESA_NS5_5__ops15_Iter_less_iterEEvT_SD_T0_SE_T1_T2_.exit
 
@@ -3622,7 +3619,7 @@ _ZSt13move_backwardIPN4llvm9symbolize22SymbolizableObjectFile10SymbolDescEN9__gn
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm9symbolize22SymbolizableObjectFile10SymbolDescESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit: ; preds = %63
   %65 = sdiv i64 %.tr99115, 2
-  %66 = getelementptr inbounds %"struct.llvm::symbolize::SymbolizableObjectFile::SymbolDesc", ptr %.tr113, i64 %65
+  %66 = getelementptr inbounds [40 x i8], ptr %.tr113, i64 %65
   %67 = sub i64 %8, %64
   %68 = icmp sgt i64 %67, 0
   br i1 %68, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm9symbolize22SymbolizableObjectFile10SymbolDescESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.lr.ph.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm9symbolize22SymbolizableObjectFile10SymbolDescESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_less_valEET_SD_SD_RKT0_T1_.exit
@@ -3638,7 +3635,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm9symbolize22SymbolizableObjec
   %.013.i = phi i64 [ %69, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm9symbolize22SymbolizableObjectFile10SymbolDescESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i75, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm9symbolize22SymbolizableObjectFile10SymbolDescESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.i ]
   %.sroa.011.012.i = phi ptr [ %.tr97114, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm9symbolize22SymbolizableObjectFile10SymbolDescESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.lr.ph.i ], [ %.sroa.011.1.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm9symbolize22SymbolizableObjectFile10SymbolDescESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.i ]
   %73 = lshr i64 %.013.i, 1
-  %74 = getelementptr inbounds nuw %"struct.llvm::symbolize::SymbolizableObjectFile::SymbolDesc", ptr %.sroa.011.012.i, i64 %73
+  %74 = getelementptr inbounds nuw [40 x i8], ptr %.sroa.011.012.i, i64 %73
   %75 = load i64, ptr %74, align 8, !tbaa !67
   %.not.i.i.i74 = icmp eq i64 %75, %70
   %76 = icmp ult i64 %75, %70
@@ -3667,7 +3664,7 @@ _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN4llvm9symbolize22Symbolizab
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm9symbolize22SymbolizableObjectFile10SymbolDescESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit79: ; preds = %63
   %87 = sdiv i64 %.tr100116, 2
-  %88 = getelementptr inbounds %"struct.llvm::symbolize::SymbolizableObjectFile::SymbolDesc", ptr %.tr97114, i64 %87
+  %88 = getelementptr inbounds [40 x i8], ptr %.tr97114, i64 %87
   %89 = ptrtoint ptr %.tr113 to i64
   %90 = sub i64 %64, %89
   %91 = icmp sgt i64 %90, 0
@@ -3684,7 +3681,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm9symbolize22SymbolizableObjec
   %.013.i83 = phi i64 [ %92, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm9symbolize22SymbolizableObjectFile10SymbolDescESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.lr.ph.i81 ], [ %.1.i89, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm9symbolize22SymbolizableObjectFile10SymbolDescESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.i82 ]
   %.sroa.011.012.i84 = phi ptr [ %.tr113, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm9symbolize22SymbolizableObjectFile10SymbolDescESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.lr.ph.i81 ], [ %.sroa.011.1.i88, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm9symbolize22SymbolizableObjectFile10SymbolDescESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.i82 ]
   %96 = lshr i64 %.013.i83, 1
-  %97 = getelementptr inbounds nuw %"struct.llvm::symbolize::SymbolizableObjectFile::SymbolDesc", ptr %.sroa.011.012.i84, i64 %96
+  %97 = getelementptr inbounds nuw [40 x i8], ptr %.sroa.011.012.i84, i64 %96
   %98 = load i64, ptr %97, align 8, !tbaa !67
   %.not.i.i.i87 = icmp eq i64 %93, %98
   %99 = icmp ult i64 %93, %98
@@ -3785,7 +3782,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm9symbolize22Symbolizab
   %27 = ptrtoint ptr %.sroa.0.018.i to i64
   %28 = sub i64 %27, %14
   %.neg.i.i.i.i.i.i = sdiv exact i64 %28, -40
-  %29 = getelementptr inbounds %"struct.llvm::symbolize::SymbolizableObjectFile::SymbolDesc", ptr %26, i64 %.neg.i.i.i.i.i.i
+  %29 = getelementptr inbounds [40 x i8], ptr %26, i64 %.neg.i.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %29, ptr noundef nonnull align 8 dereferenceable(1) %.sroa.030.034, i64 %28, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %.sroa.030.034, ptr noundef nonnull align 8 dereferenceable(36) %5, i64 36, i1 false), !tbaa.struct !64
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -3876,7 +3873,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm9symbolize22Symbolizab
   %59 = ptrtoint ptr %.sroa.0.018.i11 to i64
   %60 = sub i64 %59, %.lcssa
   %.neg.i.i.i.i.i.i28 = sdiv exact i64 %60, -40
-  %61 = getelementptr inbounds %"struct.llvm::symbolize::SymbolizableObjectFile::SymbolDesc", ptr %58, i64 %.neg.i.i.i.i.i.i28
+  %61 = getelementptr inbounds [40 x i8], ptr %58, i64 %.neg.i.i.i.i.i.i28
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %61, ptr noundef nonnull align 8 dereferenceable(1) %.sroa.030.0.lcssa, i64 %60, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %.sroa.030.0.lcssa, ptr noundef nonnull align 8 dereferenceable(36) %4, i64 36, i1 false), !tbaa.struct !64
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -4311,7 +4308,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm9symbolize22SymbolizableObjectFi
   %19 = ptrtoint ptr %0 to i64
   %20 = sub i64 %15, %19
   %.neg.i.i.i.i.i = sdiv exact i64 %20, -40
-  %21 = getelementptr inbounds %"struct.llvm::symbolize::SymbolizableObjectFile::SymbolDesc", ptr %2, i64 %.neg.i.i.i.i.i
+  %21 = getelementptr inbounds [40 x i8], ptr %2, i64 %.neg.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %21, ptr align 8 %0, i64 %20, i1 false)
   br label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm9symbolize22SymbolizableObjectFile10SymbolDescESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit
 
@@ -4360,13 +4357,13 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm9symbolize22SymbolizableObjectFi
 
 34:                                               ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm9symbolize22SymbolizableObjectFile10SymbolDescESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit
   %.neg.i.i.i.i.i43 = sdiv exact i64 %29, -40
-  %35 = getelementptr inbounds %"struct.llvm::symbolize::SymbolizableObjectFile::SymbolDesc", ptr %2, i64 %.neg.i.i.i.i.i43
+  %35 = getelementptr inbounds [40 x i8], ptr %2, i64 %.neg.i.i.i.i.i43
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %35, ptr align 8 %5, i64 %29, i1 false)
   br label %_ZSt13move_backwardIPN4llvm9symbolize22SymbolizableObjectFile10SymbolDescEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit
 
 _ZSt13move_backwardIPN4llvm9symbolize22SymbolizableObjectFile10SymbolDescEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm9symbolize22SymbolizableObjectFile10SymbolDescESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit, %34
   %.pre-phi.i.i.i.i.i44 = phi i64 [ %.neg.i.i.i.i.i43, %34 ], [ 0, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm9symbolize22SymbolizableObjectFile10SymbolDescESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit ]
-  %36 = getelementptr inbounds %"struct.llvm::symbolize::SymbolizableObjectFile::SymbolDesc", ptr %2, i64 %.pre-phi.i.i.i.i.i44
+  %36 = getelementptr inbounds [40 x i8], ptr %2, i64 %.pre-phi.i.i.i.i.i44
   br label %_ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPN4llvm9symbolize22SymbolizableObjectFile10SymbolDescESt6vectorIS6_SaIS6_EEEEEET_SC_SC_SC_.exit
 
 37:                                               ; preds = %24
@@ -4420,7 +4417,7 @@ _ZSt13move_backwardIPN4llvm9symbolize22SymbolizableObjectFile10SymbolDescEN9__gn
   br i1 %60, label %.lr.ph66.preheader.i.i, label %._crit_edge67.i.i
 
 .lr.ph66.preheader.i.i:                           ; preds = %59
-  %61 = getelementptr inbounds %"struct.llvm::symbolize::SymbolizableObjectFile::SymbolDesc", ptr %.sroa.026.0.i.i, i64 %.0.i.i
+  %61 = getelementptr inbounds [40 x i8], ptr %.sroa.026.0.i.i, i64 %.0.i.i
   br label %.lr.ph66.i.i
 
 ._crit_edge67.i.i:                                ; preds = %.lr.ph66.i.i, %59
@@ -4449,9 +4446,9 @@ _ZSt13move_backwardIPN4llvm9symbolize22SymbolizableObjectFile10SymbolDescEN9__gn
   br label %.backedge
 
 68:                                               ; preds = %56
-  %69 = getelementptr inbounds %"struct.llvm::symbolize::SymbolizableObjectFile::SymbolDesc", ptr %.sroa.026.0.i.i, i64 %.056.i.i
+  %69 = getelementptr inbounds [40 x i8], ptr %.sroa.026.0.i.i, i64 %.056.i.i
   %70 = sub i64 0, %57
-  %71 = getelementptr inbounds %"struct.llvm::symbolize::SymbolizableObjectFile::SymbolDesc", ptr %69, i64 %70
+  %71 = getelementptr inbounds [40 x i8], ptr %69, i64 %70
   %72 = icmp sgt i64 %.0.i.i, 0
   br i1 %72, label %.lr.ph.i.i, label %._crit_edge.i.i
 

@@ -389,7 +389,7 @@ sub_149:                                          ; preds = %.tail, %sub_1
 
 104:                                              ; preds = %101
   %105 = sext i32 %102 to i64
-  %106 = getelementptr inbounds ptr, ptr %1, i64 %105
+  %106 = getelementptr inbounds [8 x i8], ptr %1, i64 %105
   %107 = load ptr, ptr %106, align 8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.32, ptr noundef %107) #12
   %108 = load ptr, ptr @progname, align 8

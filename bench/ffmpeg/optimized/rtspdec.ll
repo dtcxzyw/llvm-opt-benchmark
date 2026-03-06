@@ -8,7 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.RTSPMessageHeader = type { i32, i32, i32, i64, i64, [8 x %struct.RTSPTransportField], i32, [512 x i8], [4096 x i8], [64 x i8], [64 x i8], i32, i32, [256 x i8], [64 x i8], [64 x i8] }
 %struct.RTSPTransportField = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, %struct.sockaddr_storage, [47 x i8], i32, i32 }
 %struct.sockaddr_storage = type { i16, [118 x i8], i64 }
-%struct.RTSPStatusMessage = type { i32, ptr }
 
 @.str = private unnamed_addr constant [17 x i8] c"Parsing[%d]: %s\0A\00", align 1
 @.str.1 = private unnamed_addr constant [26 x i8] c"RTSP: Unexpected Command\0A\00", align 1
@@ -563,7 +562,7 @@ define internal fastcc range(i32 -22, 1) i32 @rtsp_send_reply(ptr noundef %0, i3
 
 9:                                                ; preds = %4, %8
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %8 ]
-  %10 = getelementptr inbounds nuw %struct.RTSPStatusMessage, ptr @status_messages, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [16 x i8], ptr @status_messages, i64 %indvars.iv
   %11 = load i32, ptr %10, align 16, !tbaa !43
   %12 = icmp eq i32 %11, %1
   br i1 %12, label %13, label %8
@@ -765,7 +764,7 @@ define range(i32 -2147483648, 65536) i32 @ff_rtsp_tcp_read_packet(ptr noundef %0
 
 51:                                               ; preds = %.lr.ph62, %59
   %indvars.iv = phi i64 [ 0, %.lr.ph62 ], [ %indvars.iv.next, %59 ]
-  %52 = getelementptr inbounds nuw ptr, ptr %49, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %indvars.iv
   %53 = load ptr, ptr %52, align 8, !tbaa !53
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 20
   %55 = load i32, ptr %54, align 4, !tbaa !55
@@ -1168,7 +1167,7 @@ check_sessionid.exit.i.i:                         ; preds = %149
 
 167:                                              ; preds = %166, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %166 ]
-  %168 = getelementptr inbounds nuw %struct.RTSPTransportField, ptr %60, i64 %indvars.iv.i.i
+  %168 = getelementptr inbounds nuw [224 x i8], ptr %60, i64 %indvars.iv.i.i
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 36
   %170 = load i32, ptr %169, align 4, !tbaa !74
   %.not90.i.i = icmp eq i32 %170, 0
@@ -1206,7 +1205,7 @@ check_sessionid.exit.i.i:                         ; preds = %149
 
 181:                                              ; preds = %186, %.lr.ph99.i.i
   %indvars.iv110.i.i = phi i64 [ 0, %.lr.ph99.i.i ], [ %indvars.iv.next111.i.i, %186 ]
-  %182 = getelementptr inbounds nuw ptr, ptr %180, i64 %indvars.iv110.i.i
+  %182 = getelementptr inbounds nuw [8 x i8], ptr %180, i64 %indvars.iv110.i.i
   %183 = load ptr, ptr %182, align 8, !tbaa !53
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 28
   %185 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %184, ptr noundef nonnull readonly dereferenceable(1) %14) #12
@@ -1235,7 +1234,7 @@ check_sessionid.exit.i.i:                         ; preds = %149
   %190 = getelementptr inbounds nuw i8, ptr %157, i64 24
   %191 = load ptr, ptr %190, align 8, !tbaa !52
   %192 = zext nneg i32 %.0.lcssa.i.i to i64
-  %193 = getelementptr inbounds nuw ptr, ptr %191, i64 %192
+  %193 = getelementptr inbounds nuw [8 x i8], ptr %191, i64 %192
   %194 = load ptr, ptr %193, align 8, !tbaa !53
   %195 = getelementptr inbounds nuw i8, ptr %157, i64 8956
   %196 = load i32, ptr %195, align 4, !tbaa !78
@@ -1473,7 +1472,7 @@ rtsp_listen.exit:                                 ; preds = %148, %149
   %289 = phi i32 [ 0, %287 ], [ %.pre62, %283 ], [ 0, %.thread38 ]
   %290 = phi ptr [ null, %287 ], [ %285, %283 ], [ null, %.thread38 ]
   %291 = zext i32 %289 to i64
-  %292 = getelementptr inbounds nuw i32, ptr %290, i64 %291
+  %292 = getelementptr inbounds nuw [4 x i8], ptr %290, i64 %291
   %293 = getelementptr inbounds nuw i8, ptr %21, i64 3720
   store ptr %292, ptr %293, align 8, !tbaa !93
   %294 = getelementptr inbounds nuw i8, ptr %21, i64 8936
@@ -1563,11 +1562,11 @@ define internal i32 @rtsp_read_packet(ptr noundef %0, ptr noundef %1) #0 {
 
 33:                                               ; preds = %.lr.ph, %33
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %33 ]
-  %34 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv
   %35 = load ptr, ptr %34, align 8, !tbaa !96
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 68
   %37 = load i32, ptr %36, align 4, !tbaa !98
-  %38 = getelementptr inbounds nuw i32, ptr %.pre166.pre, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %.pre166.pre, i64 %indvars.iv
   store i32 %37, ptr %38, align 4, !tbaa !37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %39 = load i32, ptr %12, align 4, !tbaa !91
@@ -1642,7 +1641,7 @@ define internal i32 @rtsp_read_packet(ptr noundef %0, ptr noundef %1) #0 {
   %.188146 = phi i32 [ %.390, %81 ], [ %.087151, %.preheader ]
   %.091145 = phi i32 [ %.192, %81 ], [ 0, %.preheader ]
   %66 = load ptr, ptr %13, align 8, !tbaa !95
-  %67 = getelementptr inbounds nuw ptr, ptr %66, i64 %indvars.iv161
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %indvars.iv161
   %68 = load ptr, ptr %67, align 8, !tbaa !96
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 12
   %70 = load i32, ptr %69, align 4, !tbaa !107
@@ -1924,7 +1923,7 @@ define internal i32 @rtsp_read_seek(ptr noundef %0, i32 noundef %1, i64 noundef 
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %9 = load ptr, ptr %8, align 8, !tbaa !95
   %10 = sext i32 %1 to i64
-  %11 = getelementptr inbounds ptr, ptr %9, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %9, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !96
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %14 = load i64, ptr %13, align 8
@@ -2020,7 +2019,7 @@ define internal i32 @rtsp_read_play(ptr noundef %0) #0 {
   %18 = phi i32 [ %13, %.lr.ph ], [ %29, %28 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %28 ]
   %19 = load ptr, ptr %15, align 8, !tbaa !52
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8, !tbaa !53
   %22 = load ptr, ptr %21, align 8, !tbaa !80
   %.not66 = icmp eq ptr %22, null
@@ -2077,7 +2076,7 @@ define internal i32 @rtsp_read_play(ptr noundef %0) #0 {
   %47 = phi i32 [ %43, %.lr.ph73 ], [ %61, %60 ]
   %indvars.iv77 = phi i64 [ 0, %.lr.ph73 ], [ %indvars.iv.next78, %60 ]
   %48 = load ptr, ptr %45, align 8, !tbaa !52
-  %49 = getelementptr inbounds nuw ptr, ptr %48, i64 %indvars.iv77
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %indvars.iv77
   %50 = load ptr, ptr %49, align 8, !tbaa !53
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = load ptr, ptr %51, align 8, !tbaa !79
@@ -2164,7 +2163,7 @@ define internal i32 @rtsp_read_play(ptr noundef %0) #0 {
 
 93:                                               ; preds = %.lr.ph75, %111
   %indvars.iv80 = phi i64 [ 0, %.lr.ph75 ], [ %indvars.iv.next81, %111 ]
-  %94 = getelementptr inbounds nuw ptr, ptr %91, i64 %indvars.iv80
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %indvars.iv80
   %95 = load ptr, ptr %94, align 8, !tbaa !53
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %97 = load ptr, ptr %96, align 8, !tbaa !79
@@ -2180,7 +2179,7 @@ define internal i32 @rtsp_read_play(ptr noundef %0) #0 {
 102:                                              ; preds = %98
   %103 = load ptr, ptr %92, align 8, !tbaa !95
   %104 = zext nneg i32 %100 to i64
-  %105 = getelementptr inbounds nuw ptr, ptr %103, i64 %104
+  %105 = getelementptr inbounds nuw [8 x i8], ptr %103, i64 %104
   %106 = load ptr, ptr %105, align 8, !tbaa !96
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 32
   %108 = load i64, ptr %107, align 8

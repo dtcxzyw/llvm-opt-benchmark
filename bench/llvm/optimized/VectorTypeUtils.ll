@@ -52,7 +52,7 @@ _ZN4llvm15SmallVectorImplIPNS_4TypeEE7reserveEm.exit.i.i.i.i: ; preds = %5
 .lr.ph.i.i.i.i.i.i.i.i.preheader.i.i.i.i:         ; preds = %_ZN4llvm15SmallVectorImplIPNS_4TypeEE7reserveEm.exit.i.i.i.i.thread, %_ZN4llvm15SmallVectorImplIPNS_4TypeEE7reserveEm.exit.i.i.i.i
   %16 = phi ptr [ %.pre, %_ZN4llvm15SmallVectorImplIPNS_4TypeEE7reserveEm.exit.i.i.i.i.thread ], [ %12, %_ZN4llvm15SmallVectorImplIPNS_4TypeEE7reserveEm.exit.i.i.i.i ]
   %.pre-phi.i.i.i.i9 = phi i64 [ %.pre12.i.i.i.i, %_ZN4llvm15SmallVectorImplIPNS_4TypeEE7reserveEm.exit.i.i.i.i.thread ], [ 0, %_ZN4llvm15SmallVectorImplIPNS_4TypeEE7reserveEm.exit.i.i.i.i ]
-  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %.pre-phi.i.i.i.i9
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.pre-phi.i.i.i.i9
   br label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i:                   ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.preheader.i.i.i.i
@@ -134,7 +134,7 @@ _ZN4llvm15SmallVectorImplIPNS_4TypeEE7reserveEm.exit.i.i.i.i: ; preds = %1
   %13 = phi ptr [ %.pre, %_ZN4llvm15SmallVectorImplIPNS_4TypeEE7reserveEm.exit.i.i.i.i.thread ], [ %9, %_ZN4llvm15SmallVectorImplIPNS_4TypeEE7reserveEm.exit.i.i.i.i ]
   %14 = phi i32 [ %.pre.i.i.i.i, %_ZN4llvm15SmallVectorImplIPNS_4TypeEE7reserveEm.exit.i.i.i.i.thread ], [ 0, %_ZN4llvm15SmallVectorImplIPNS_4TypeEE7reserveEm.exit.i.i.i.i ]
   %.pre-phi.i.i.i.i6 = phi i64 [ %.pre19.i.i.i.i, %_ZN4llvm15SmallVectorImplIPNS_4TypeEE7reserveEm.exit.i.i.i.i.thread ], [ 0, %_ZN4llvm15SmallVectorImplIPNS_4TypeEE7reserveEm.exit.i.i.i.i ]
-  %15 = getelementptr inbounds nuw ptr, ptr %13, i64 %.pre-phi.i.i.i.i6
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.pre-phi.i.i.i.i6
   br label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i:                   ; preds = %"_ZNK4llvm15mapped_iteratorIPKPNS_4TypeEZNS_20toScalarizedStructTyEPNS_10StructTypeEE3$_0S2_EdeEv.exit.i.i.i.i.i.i.i.i.i.i.i.i", %.lr.ph.i.i.i.i.i.i.i.i.preheader.i.i.i.i
@@ -440,7 +440,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm20canVectorizeStructTyEPNS_10Struct
   br i1 %12, label %13, label %54
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds nuw ptr, ptr %3, i64 %6
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %6
   %15 = ptrtoint ptr %14 to i64
   %16 = lshr i64 %6, 2
   %.not.i = icmp eq i64 %16, 0

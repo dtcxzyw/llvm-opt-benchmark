@@ -62,7 +62,7 @@ define internal range(i32 -1094995529, 1) i32 @msrle_decode_init(ptr noundef %0)
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 %21
   %23 = load i32, ptr %22, align 1, !tbaa !37
   %24 = or i32 %23, -16777216
-  %25 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %indvars.iv
   store i32 %24, ptr %25, align 4, !tbaa !38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %26 = load i32, ptr %14, align 8, !tbaa !35

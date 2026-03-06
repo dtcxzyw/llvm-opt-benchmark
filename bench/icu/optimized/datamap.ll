@@ -746,7 +746,7 @@ define noundef ptr @_ZNK9RBDataMap14getStringArrayERiPKcR10UErrorCode(ptr nounde
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %29 = trunc nuw nsw i64 %indvars.iv to i32
   call void @_ZNK6icu_7714ResourceBundle11getStringExEiR10UErrorCode(ptr dead_on_unwind nonnull writable sret(%"class.icu_77::UnicodeString") align 8 %5, ptr noundef nonnull align 8 dereferenceable(24) %9, i32 noundef %29, ptr noundef nonnull align 4 dereferenceable(4) %3)
-  %30 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %26, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [64 x i8], ptr %26, i64 %indvars.iv
   %31 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSEOS0_(ptr noundef nonnull align 8 dereferenceable(64) %30, ptr noundef nonnull align 8 dereferenceable(64) %5) #16
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -840,7 +840,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit.i:    ; preds = %24
   %40 = call i64 @strtol(ptr noundef nonnull captures(none) %5, ptr noundef null, i32 noundef 10) #16
   %41 = trunc i64 %40 to i32
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %42 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %indvars.iv
   store i32 %41, ptr %42, align 4, !tbaa !25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %43 = load i32, ptr %1, align 4, !tbaa !25

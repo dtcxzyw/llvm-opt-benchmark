@@ -56,9 +56,9 @@ define ptr @TXT_DB_read(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %25 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv
   store ptr null, ptr %25, align 8, !tbaa !16
-  %26 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv
   store ptr null, ptr %26, align 8, !tbaa !18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -181,7 +181,7 @@ define ptr @TXT_DB_read(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
 
 79:                                               ; preds = %76
   %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
-  %80 = getelementptr inbounds nuw ptr, ptr %66, i64 %indvars.iv137
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %indvars.iv137
   store ptr %77, ptr %80, align 8, !tbaa !25
   br label %.outer
 
@@ -218,7 +218,7 @@ define ptr @TXT_DB_read(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   br label %.thread
 
 91:                                               ; preds = %87
-  %92 = getelementptr inbounds nuw ptr, ptr %66, i64 %33
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %33
   store ptr %86, ptr %92, align 8, !tbaa !25
   %93 = load ptr, ptr %14, align 8, !tbaa !13
   %94 = tail call i32 @OPENSSL_sk_push(ptr noundef %93, ptr noundef nonnull %66) #5
@@ -288,7 +288,7 @@ define ptr @TXT_DB_get_by_index(ptr noundef captures(none) initializes((32, 40))
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !14
   %8 = sext i32 %1 to i64
-  %9 = getelementptr inbounds ptr, ptr %7, i64 %8
+  %9 = getelementptr inbounds [8 x i8], ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !16
   %11 = icmp eq ptr %10, null
   br i1 %11, label %14, label %12
@@ -406,15 +406,15 @@ define range(i32 0, 2) i32 @TXT_DB_create_index(ptr noundef captures(none) %0, i
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %47 = load ptr, ptr %46, align 8, !tbaa !14
   %48 = sext i32 %1 to i64
-  %49 = getelementptr inbounds ptr, ptr %47, i64 %48
+  %49 = getelementptr inbounds [8 x i8], ptr %47, i64 %48
   %50 = load ptr, ptr %49, align 8, !tbaa !16
   tail call void @OPENSSL_LH_free(ptr noundef %50) #5
   %51 = load ptr, ptr %46, align 8, !tbaa !14
-  %52 = getelementptr inbounds ptr, ptr %51, i64 %48
+  %52 = getelementptr inbounds [8 x i8], ptr %51, i64 %48
   store ptr %10, ptr %52, align 8, !tbaa !16
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %54 = load ptr, ptr %53, align 8, !tbaa !15
-  %55 = getelementptr inbounds ptr, ptr %54, i64 %48
+  %55 = getelementptr inbounds [8 x i8], ptr %54, i64 %48
   store ptr %2, ptr %55, align 8, !tbaa !18
   br label %56
 
@@ -472,7 +472,7 @@ define i64 @TXT_DB_write(ptr noundef %0, ptr noundef readonly captures(none) %1)
 22:                                               ; preds = %.loopexit.us.us, %.lr.ph65.us.us
   %.04463.us.us = phi ptr [ %18, %.lr.ph65.us.us ], [ %32, %.loopexit.us.us ]
   %.14962.us.us = phi i64 [ 0, %.lr.ph65.us.us ], [ %33, %.loopexit.us.us ]
-  %23 = getelementptr inbounds nuw ptr, ptr %17, i64 %.14962.us.us
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %.14962.us.us
   %24 = load ptr, ptr %23, align 8, !tbaa !25
   %.not57.us.us = icmp eq ptr %24, null
   br i1 %.not57.us.us, label %.loopexit.us.us, label %.preheader.us.us
@@ -511,7 +511,7 @@ define i64 @TXT_DB_write(ptr noundef %0, ptr noundef readonly captures(none) %1)
 34:                                               ; preds = %.lr.ph.us.us, %40
   %.04661.us.us = phi i64 [ 0, %.lr.ph.us.us ], [ %.147.us.us, %40 ]
   %.04860.us.us = phi i64 [ 0, %.lr.ph.us.us ], [ %41, %40 ]
-  %35 = getelementptr inbounds nuw ptr, ptr %17, i64 %.04860.us.us
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %.04860.us.us
   %36 = load ptr, ptr %35, align 8, !tbaa !25
   %.not58.us.us = icmp eq ptr %36, null
   br i1 %.not58.us.us, label %40, label %37
@@ -609,14 +609,14 @@ define range(i32 0, 2) i32 @TXT_DB_insert(ptr noundef captures(none) %0, ptr nou
 10:                                               ; preds = %.lr.ph, %28
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %28 ]
   %11 = load ptr, ptr %5, align 8, !tbaa !14
-  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !16
   %.not58 = icmp eq ptr %13, null
   br i1 %.not58, label %28, label %14
 
 14:                                               ; preds = %10
   %15 = load ptr, ptr %6, align 8, !tbaa !15
-  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8, !tbaa !18
   %.not59 = icmp eq ptr %17, null
   br i1 %.not59, label %21, label %18
@@ -628,7 +628,7 @@ define range(i32 0, 2) i32 @TXT_DB_insert(ptr noundef captures(none) %0, ptr nou
 
 ._crit_edge81:                                    ; preds = %18
   %.pre = load ptr, ptr %5, align 8, !tbaa !14
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre, i64 %indvars.iv
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %indvars.iv
   %.pre82 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !16
   br label %21
 
@@ -657,14 +657,14 @@ define range(i32 0, 2) i32 @TXT_DB_insert(ptr noundef captures(none) %0, ptr nou
 32:                                               ; preds = %.lr.ph67, %51
   %indvars.iv75 = phi i64 [ 0, %.lr.ph67 ], [ %indvars.iv.next76, %51 ]
   %33 = load ptr, ptr %8, align 8, !tbaa !14
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %indvars.iv75
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv75
   %35 = load ptr, ptr %34, align 8, !tbaa !16
   %.not54 = icmp eq ptr %35, null
   br i1 %.not54, label %51, label %36
 
 36:                                               ; preds = %32
   %37 = load ptr, ptr %9, align 8, !tbaa !15
-  %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv75
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv75
   %39 = load ptr, ptr %38, align 8, !tbaa !18
   %.not55 = icmp eq ptr %39, null
   br i1 %.not55, label %43, label %40
@@ -676,7 +676,7 @@ define range(i32 0, 2) i32 @TXT_DB_insert(ptr noundef captures(none) %0, ptr nou
 
 ._crit_edge83:                                    ; preds = %40
   %.pre84 = load ptr, ptr %8, align 8, !tbaa !14
-  %.phi.trans.insert85 = getelementptr inbounds nuw ptr, ptr %.pre84, i64 %indvars.iv75
+  %.phi.trans.insert85 = getelementptr inbounds nuw [8 x i8], ptr %.pre84, i64 %indvars.iv75
   %.pre86 = load ptr, ptr %.phi.trans.insert85, align 8, !tbaa !16
   br label %43
 
@@ -684,7 +684,7 @@ define range(i32 0, 2) i32 @TXT_DB_insert(ptr noundef captures(none) %0, ptr nou
   %44 = phi ptr [ %.pre86, %._crit_edge83 ], [ %35, %36 ]
   %45 = tail call ptr @OPENSSL_LH_insert(ptr noundef %44, ptr noundef %1) #5
   %46 = load ptr, ptr %8, align 8, !tbaa !14
-  %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv75
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv75
   %48 = load ptr, ptr %47, align 8, !tbaa !16
   %49 = tail call ptr @OPENSSL_LH_retrieve(ptr noundef %48, ptr noundef %1) #5
   %50 = icmp eq ptr %49, null
@@ -730,14 +730,14 @@ define range(i32 0, 2) i32 @TXT_DB_insert(ptr noundef captures(none) %0, ptr nou
   %indvars.iv78 = phi i64 [ %63, %.lr.ph69 ], [ %indvars.iv.next79, %.backedge ]
   %indvars.iv.next79 = add nsw i64 %indvars.iv78, -1
   %65 = load ptr, ptr %61, align 8, !tbaa !14
-  %66 = getelementptr inbounds nuw ptr, ptr %65, i64 %indvars.iv.next79
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %indvars.iv.next79
   %67 = load ptr, ptr %66, align 8, !tbaa !16
   %.not56 = icmp eq ptr %67, null
   br i1 %.not56, label %.backedge, label %68
 
 68:                                               ; preds = %64
   %69 = load ptr, ptr %62, align 8, !tbaa !15
-  %70 = getelementptr inbounds nuw ptr, ptr %69, i64 %indvars.iv.next79
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %indvars.iv.next79
   %71 = load ptr, ptr %70, align 8, !tbaa !18
   %.not57 = icmp eq ptr %71, null
   br i1 %.not57, label %75, label %72
@@ -749,7 +749,7 @@ define range(i32 0, 2) i32 @TXT_DB_insert(ptr noundef captures(none) %0, ptr nou
 
 ._crit_edge87:                                    ; preds = %72
   %.pre88 = load ptr, ptr %61, align 8, !tbaa !14
-  %.phi.trans.insert89 = getelementptr inbounds nuw ptr, ptr %.pre88, i64 %indvars.iv.next79
+  %.phi.trans.insert89 = getelementptr inbounds nuw [8 x i8], ptr %.pre88, i64 %indvars.iv.next79
   %.pre90 = load ptr, ptr %.phi.trans.insert89, align 8, !tbaa !16
   br label %75
 
@@ -793,7 +793,7 @@ define void @TXT_DB_free(ptr noundef %0) local_unnamed_addr #0 {
   %indvars.iv = phi i64 [ %9, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %10 = load ptr, ptr %4, align 8, !tbaa !14
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv.next
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.next
   %12 = load ptr, ptr %11, align 8, !tbaa !16
   tail call void @OPENSSL_LH_free(ptr noundef %12) #5
   %13 = icmp samesign ugt i64 %indvars.iv, 1
@@ -829,7 +829,7 @@ define void @TXT_DB_free(ptr noundef %0) local_unnamed_addr #0 {
   %24 = tail call ptr @OPENSSL_sk_value(ptr noundef %23, i32 noundef %.152) #5
   %25 = load i32, ptr %0, align 8, !tbaa !3
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds ptr, ptr %24, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %24, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !25
   %29 = icmp eq ptr %28, null
   %30 = icmp sgt i32 %25, 0
@@ -843,7 +843,7 @@ define void @TXT_DB_free(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph50:                                         ; preds = %.preheader, %.lr.ph50
   %indvars.iv61 = phi i64 [ %indvars.iv.next62, %.lr.ph50 ], [ 0, %.preheader ]
-  %31 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv61
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv61
   %32 = load ptr, ptr %31, align 8, !tbaa !25
   tail call void @CRYPTO_free(ptr noundef %32, ptr noundef nonnull @.str, i32 noundef 302) #5
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
@@ -855,7 +855,7 @@ define void @TXT_DB_free(ptr noundef %0) local_unnamed_addr #0 {
 .lr.ph48:                                         ; preds = %.preheader44, %42
   %36 = phi i32 [ %43, %42 ], [ %25, %.preheader44 ]
   %indvars.iv58 = phi i64 [ %indvars.iv.next59, %42 ], [ 0, %.preheader44 ]
-  %37 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv58
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv58
   %38 = load ptr, ptr %37, align 8, !tbaa !25
   %39 = icmp ult ptr %38, %24
   %40 = icmp ugt ptr %38, %28

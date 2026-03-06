@@ -11,15 +11,8 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.LogOpts = type { ptr, i8, i8, ptr, ptr, ptr, ptr, i8 }
 %struct.UpgradeTaskReport = type { ptr, [1024 x i8] }
 %struct.PQExpBufferData = type { ptr, i64, i64 }
-%struct.DbInfo = type { i32, ptr, [1024 x i8], %struct.RelInfoArr, %struct.LogicalSlotInfoArr }
-%struct.RelInfoArr = type { ptr, i32 }
-%struct.LogicalSlotInfoArr = type { i32, ptr }
-%struct.LogicalSlotInfo = type { ptr, ptr, i8, i8, i8, i8 }
-%struct.DataTypesUsageChecks = type { ptr, ptr, ptr, ptr, i32, ptr }
-%struct.data_type_check_state = type { ptr, i8, ptr }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
-%struct.RelInfo = type { ptr, ptr, i32, i32, i32, i32, ptr, i8, i8 }
 
 @user_opts = external local_unnamed_addr global %struct.UserOpts, align 8
 @.str = private unnamed_addr constant [98 x i8] c"Performing Consistency Checks on Old Live Server\0A------------------------------------------------\00", align 1
@@ -403,7 +396,7 @@ check_for_isn_and_int8_passing_mismatch.exit:     ; preds = %59, %check_for_conn
   %indvars.iv34.i = phi i64 [ %indvars.iv.next35.i, %._crit_edge.i3 ], [ 0, %69 ]
   %.028.i = phi ptr [ %.1.lcssa.i, %._crit_edge.i3 ], [ null, %69 ]
   %75 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @old_cluster, i64 120), align 8
-  %76 = getelementptr inbounds nuw %struct.DbInfo, ptr %75, i64 %indvars.iv34.i
+  %76 = getelementptr inbounds nuw [1072 x i8], ptr %75, i64 %indvars.iv34.i
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 1056
   %78 = load i32, ptr %77, align 8
   %79 = icmp sgt i32 %78, 0
@@ -429,7 +422,7 @@ check_for_isn_and_int8_passing_mismatch.exit:     ; preds = %59, %check_for_conn
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i5 ], [ %indvars.iv.next.i, %115 ]
   %.126.i = phi ptr [ %.028.i, %.lr.ph.i5 ], [ %.3.i, %115 ]
   %85 = load ptr, ptr %80, align 8
-  %86 = getelementptr inbounds nuw %struct.LogicalSlotInfo, ptr %85, i64 %indvars.iv.i
+  %86 = getelementptr inbounds nuw [24 x i8], ptr %85, i64 %indvars.iv.i
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 18
   %88 = load i8, ptr %87, align 2, !range !4, !noundef !5
   %89 = trunc nuw i8 %88 to i1
@@ -612,7 +605,7 @@ check_old_cluster_subscription_state.exit:        ; preds = %._crit_edge.i7
 
 .lr.ph6.i:                                        ; preds = %179, %.lr.ph6.preheader.i
   %indvars.iv.i14 = phi i64 [ 0, %.lr.ph6.preheader.i ], [ %indvars.iv.next.i15, %179 ]
-  %160 = getelementptr inbounds nuw %struct.DataTypesUsageChecks, ptr @data_types_usage_checks, i64 %indvars.iv.i14
+  %160 = getelementptr inbounds nuw [48 x i8], ptr @data_types_usage_checks, i64 %indvars.iv.i14
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 32
   %162 = load i32, ptr %161, align 16
   switch i32 %162, label %167 [
@@ -636,9 +629,9 @@ check_old_cluster_subscription_state.exit:        ; preds = %._crit_edge.i7
   %172 = getelementptr inbounds nuw i8, ptr %160, i64 16
   %173 = load ptr, ptr %172, align 16
   %174 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.74, ptr noundef %173) #10
-  %175 = getelementptr inbounds nuw ptr, ptr %155, i64 %indvars.iv.i14
+  %175 = getelementptr inbounds nuw [8 x i8], ptr %155, i64 %indvars.iv.i14
   store ptr %174, ptr %175, align 8
-  %176 = getelementptr inbounds nuw %struct.data_type_check_state, ptr %157, i64 %indvars.iv.i14
+  %176 = getelementptr inbounds nuw [24 x i8], ptr %157, i64 %indvars.iv.i14
   store ptr %160, ptr %176, align 8
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 16
   store ptr %7, ptr %177, align 8
@@ -658,7 +651,7 @@ check_old_cluster_subscription_state.exit:        ; preds = %._crit_edge.i7
 
 .lr.ph9.i:                                        ; preds = %185, %.lr.ph9.preheader.i
   %indvars.iv12.i = phi i64 [ 0, %.lr.ph9.preheader.i ], [ %indvars.iv.next13.i, %185 ]
-  %182 = getelementptr inbounds nuw ptr, ptr %155, i64 %indvars.iv12.i
+  %182 = getelementptr inbounds nuw [8 x i8], ptr %155, i64 %indvars.iv12.i
   %183 = load ptr, ptr %182, align 8
   %.not46.i = icmp eq ptr %183, null
   br i1 %.not46.i, label %185, label %184
@@ -1025,7 +1018,7 @@ define dso_local void @check_new_cluster() local_unnamed_addr #0 {
 
 6:                                                ; preds = %._crit_edge.i, %.lr.ph18.i
   %indvars.iv26.i = phi i64 [ 0, %.lr.ph18.i ], [ %indvars.iv.next27.i, %._crit_edge.i ]
-  %7 = getelementptr inbounds nuw %struct.DbInfo, ptr %5, i64 %indvars.iv26.i
+  %7 = getelementptr inbounds nuw [1072 x i8], ptr %5, i64 %indvars.iv26.i
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 1048
   %9 = load i32, ptr %8, align 8
   %10 = icmp sgt i32 %9, 0
@@ -1044,7 +1037,7 @@ define dso_local void @check_new_cluster() local_unnamed_addr #0 {
 
 14:                                               ; preds = %13, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %13 ]
-  %15 = getelementptr inbounds nuw %struct.RelInfo, ptr %12, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw [48 x i8], ptr %12, i64 %indvars.iv.i
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(11) @.str.85) #11
   %.not.i = icmp eq i32 %17, 0
@@ -1097,7 +1090,7 @@ check_new_cluster_is_empty.exit:                  ; preds = %._crit_edge.i, %0
   %indvars.iv.i3 = phi i64 [ %indvars.iv.next.i5, %41 ], [ 0, %27 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @os_info, i64 24), align 8
-  %31 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv.i3
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv.i3
   %32 = load ptr, ptr %31, align 8
   %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @new_cluster, i64 256), align 8
   %34 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %1, i64 noundef 1024, ptr noundef nonnull @.str.88, ptr noundef %32, ptr noundef %33) #10
@@ -1460,7 +1453,7 @@ define dso_local void @create_script_for_old_cluster_deletion(ptr noundef captur
   %indvars.iv = phi i64 [ %indvars.iv.next, %.critedge ], [ 0, %.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @os_info, i64 24), align 8
-  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8
   %20 = call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %19, i64 noundef 1024) #10
   call void @canonicalize_path(ptr noundef nonnull %4) #10
@@ -1521,10 +1514,10 @@ define dso_local void @create_script_for_old_cluster_deletion(ptr noundef captur
 .lr.ph35:                                         ; preds = %42, %.lr.ph35
   %indvars.iv42 = phi i64 [ %indvars.iv.next43, %.lr.ph35 ], [ 0, %42 ]
   %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @os_info, i64 24), align 8
-  %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv45
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv45
   %48 = load ptr, ptr %47, align 8
   %49 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @old_cluster, i64 120), align 8
-  %50 = getelementptr inbounds nuw %struct.DbInfo, ptr %49, i64 %indvars.iv42
+  %50 = getelementptr inbounds nuw [1072 x i8], ptr %49, i64 %indvars.iv42
   %51 = load i32, ptr %50, align 8
   %52 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef nonnull %30, ptr noundef nonnull @.str.28, i32 noundef 39, ptr noundef %48, i32 noundef 47, i32 noundef %51, i32 noundef 39) #10
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
@@ -1536,7 +1529,7 @@ define dso_local void @create_script_for_old_cluster_deletion(ptr noundef captur
 56:                                               ; preds = %.lr.ph39
   %57 = call ptr @pg_strdup(ptr noundef nonnull %40) #10
   %58 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @os_info, i64 24), align 8
-  %59 = getelementptr inbounds nuw ptr, ptr %58, i64 %indvars.iv45
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %indvars.iv45
   %60 = load ptr, ptr %59, align 8
   %61 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef nonnull %30, ptr noundef nonnull @.str.29, i32 noundef 39, ptr noundef %60, ptr noundef %57, i32 noundef 39) #10
   call void @pfree(ptr noundef %57) #10

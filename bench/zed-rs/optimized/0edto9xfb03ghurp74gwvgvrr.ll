@@ -2094,7 +2094,7 @@ default.unreachable31:                            ; preds = %20, %3
 40:                                               ; preds = %34
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %42 = load ptr, ptr %41, align 8, !alias.scope !489, !noalias !490, !nonnull !5, !noundef !5
-  %43 = getelementptr inbounds { { i64, [2 x i64] }, { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }, { { ptr, [3 x i64] } }, i16, [3 x i16] }, ptr %42, i64 %36
+  %43 = getelementptr inbounds [104 x i8], ptr %42, i64 %36
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 24
   br label %58
 

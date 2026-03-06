@@ -244,7 +244,7 @@ _ZNSt3mapIN4cvc58internal8TypeNodeEmSt4lessIS2_ESaISt4pairIKS2_mEEE4findERS6_.ex
   %37 = load i64, ptr %36, align 8
   %38 = lshr i64 %37, 32
   %39 = and i64 %38, 67108863
-  %40 = getelementptr inbounds nuw ptr, ptr %35, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %39
   %.not23 = icmp eq ptr %spec.select.i.i13, %40
   br i1 %.not23, label %._crit_edge, label %.lr.ph
 

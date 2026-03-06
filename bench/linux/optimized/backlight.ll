@@ -772,7 +772,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @scale_show(ptr n
 
 8:                                                ; preds = %3
   %9 = zext nneg i32 %5 to i64
-  %10 = getelementptr ptr, ptr @backlight_scale_types, i64 %9
+  %10 = getelementptr [8 x i8], ptr @backlight_scale_types, i64 %9
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str.25, ptr noundef %11) #12
   %13 = sext i32 %12 to i64
@@ -788,7 +788,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @type_show(ptr no
   %4 = getelementptr i8, ptr %0, i64 -128
   %5 = load i32, ptr %4, align 8
   %6 = zext i32 %5 to i64
-  %7 = getelementptr ptr, ptr @backlight_types, i64 %6
+  %7 = getelementptr [8 x i8], ptr @backlight_types, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str.25, ptr noundef %8) #12
   %10 = sext i32 %9 to i64

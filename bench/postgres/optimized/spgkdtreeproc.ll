@@ -3,11 +3,8 @@ source_filename = "bench/postgres/original/spgkdtreeproc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.SortedPoint = type { ptr, i32 }
 %struct.BOX = type { %struct.Point, %struct.Point }
 %struct.Point = type { double, double }
-%struct.ScanKeyData = type { i32, i16, i16, i32, i32, %struct.FmgrInfo, i64 }
-%struct.FmgrInfo = type { ptr, i32, i16, i8, i8, i8, ptr, ptr, ptr }
 
 @.str = private unnamed_addr constant [42 x i8] c"allTheSame should not occur for k-d trees\00", align 1
 @.str.1 = private unnamed_addr constant [16 x i8] c"spgkdtreeproc.c\00", align 1
@@ -107,10 +104,10 @@ define dso_local noundef i64 @spg_kd_picksplit(ptr noundef readonly captures(non
 15:                                               ; preds = %.lr.ph, %15
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
   %16 = load ptr, ptr %14, align 8
-  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv
   %18 = load i64, ptr %17, align 8
   %19 = inttoptr i64 %18 to ptr
-  %20 = getelementptr inbounds nuw %struct.SortedPoint, ptr %11, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 %indvars.iv
   store ptr %19, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = trunc nuw nsw i64 %indvars.iv to i32
@@ -135,7 +132,7 @@ define dso_local noundef i64 @spg_kd_picksplit(ptr noundef readonly captures(non
   %33 = and i32 %32, 1
   %.not45 = icmp eq i32 %33, 0
   %34 = sext i32 %31 to i64
-  %35 = getelementptr inbounds %struct.SortedPoint, ptr %11, i64 %34
+  %35 = getelementptr inbounds [16 x i8], ptr %11, i64 %34
   %36 = load ptr, ptr %35, align 8
   %.in.idx = select i1 %.not45, i64 8, i64 0
   %.in = getelementptr inbounds nuw i8, ptr %36, i64 %.in.idx
@@ -169,7 +166,7 @@ define dso_local noundef i64 @spg_kd_picksplit(ptr noundef readonly captures(non
 
 .lr.ph49:                                         ; preds = %.lr.ph49.preheader, %.lr.ph49
   %indvars.iv53 = phi i64 [ 0, %.lr.ph49.preheader ], [ %indvars.iv.next54, %.lr.ph49 ]
-  %54 = getelementptr inbounds nuw %struct.SortedPoint, ptr %11, i64 %indvars.iv53
+  %54 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 %indvars.iv53
   %55 = load ptr, ptr %54, align 8
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %57 = load i32, ptr %56, align 8
@@ -177,11 +174,11 @@ define dso_local noundef i64 @spg_kd_picksplit(ptr noundef readonly captures(non
   %59 = zext i1 %58 to i32
   %60 = load ptr, ptr %45, align 8
   %61 = sext i32 %57 to i64
-  %62 = getelementptr inbounds i32, ptr %60, i64 %61
+  %62 = getelementptr inbounds [4 x i8], ptr %60, i64 %61
   store i32 %59, ptr %62, align 4
   %63 = ptrtoint ptr %55 to i64
   %64 = load ptr, ptr %50, align 8
-  %65 = getelementptr inbounds i64, ptr %64, i64 %61
+  %65 = getelementptr inbounds [8 x i8], ptr %64, i64 %61
   store i64 %63, ptr %65, align 8
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %66 = load i32, ptr %4, align 8
@@ -264,7 +261,7 @@ define dso_local noundef i64 @spg_kd_inner_consistent(ptr noundef readonly captu
 23:                                               ; preds = %.lr.ph, %.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.thread ]
   %.0105143 = phi i32 [ 6, %.lr.ph ], [ %.2131, %.thread ]
-  %24 = getelementptr inbounds nuw %struct.ScanKeyData, ptr %17, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [72 x i8], ptr %17, i64 %indvars.iv
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 64
   %26 = load i64, ptr %25, align 8
   %27 = inttoptr i64 %26 to ptr
@@ -414,7 +411,7 @@ define dso_local noundef i64 @spg_kd_inner_consistent(ptr noundef readonly captu
 112:                                              ; preds = %23
   %113 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   %114 = load ptr, ptr %5, align 8
-  %115 = getelementptr inbounds nuw %struct.ScanKeyData, ptr %114, i64 %indvars.iv
+  %115 = getelementptr inbounds nuw [72 x i8], ptr %114, i64 %indvars.iv
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 6
   %117 = load i16, ptr %116, align 2
   %118 = zext i16 %117 to i32
@@ -542,7 +539,7 @@ select.unfold:                                    ; preds = %71, %64, %95, %54, 
   %175 = load ptr, ptr %122, align 8
   %176 = load i32, ptr %8, align 8
   %177 = sext i32 %176 to i64
-  %178 = getelementptr inbounds i32, ptr %175, i64 %177
+  %178 = getelementptr inbounds [4 x i8], ptr %175, i64 %177
   %179 = trunc nuw nsw i64 %174 to i32
   store i32 %179, ptr %178, align 4
   %180 = load i32, ptr %123, align 4
@@ -553,13 +550,13 @@ select.unfold:                                    ; preds = %71, %64, %95, %54, 
   %183 = load ptr, ptr %165, align 8
   %184 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %183, ptr @CurrentMemoryContext, align 8
-  %185 = getelementptr inbounds nuw %struct.BOX, ptr %2, i64 %174
+  %185 = getelementptr inbounds nuw [32 x i8], ptr %2, i64 %174
   %186 = call ptr @box_copy(ptr noundef nonnull %185) #8
   store ptr %184, ptr @CurrentMemoryContext, align 8
   %187 = load ptr, ptr %166, align 8
   %188 = load i32, ptr %8, align 8
   %189 = sext i32 %188 to i64
-  %190 = getelementptr inbounds ptr, ptr %187, i64 %189
+  %190 = getelementptr inbounds [8 x i8], ptr %187, i64 %189
   store ptr %186, ptr %190, align 8
   %191 = ptrtoint ptr %186 to i64
   %192 = load ptr, ptr %167, align 8
@@ -568,7 +565,7 @@ select.unfold:                                    ; preds = %71, %64, %95, %54, 
   %195 = load ptr, ptr %168, align 8
   %196 = load i32, ptr %8, align 8
   %197 = sext i32 %196 to i64
-  %198 = getelementptr inbounds ptr, ptr %195, i64 %197
+  %198 = getelementptr inbounds [8 x i8], ptr %195, i64 %197
   store ptr %194, ptr %198, align 8
   br label %199
 

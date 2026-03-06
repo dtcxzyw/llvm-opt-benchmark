@@ -8,7 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.Curl_cwtype = type { ptr, ptr, ptr, ptr, ptr, i64 }
 %struct.Curl_handler = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32 }
 %struct.ws_collect = type { ptr, ptr, i64, i64, i32, i32, i64, i64, i8 }
-%struct.ws_frame_meta = type { i8, i32, ptr }
 %struct.ws_cw_dec_ctx = type { ptr, ptr, ptr, i32 }
 
 @.str = private unnamed_addr constant [9 x i8] c"Upgrade:\00", align 1
@@ -135,7 +134,7 @@ define hidden i32 @Curl_ws_request(ptr noundef %0, ptr noundef %1) local_unnamed
 
 22:                                               ; preds = %18, %30
   %indvars.iv = phi i64 [ 0, %18 ], [ %indvars.iv.next, %30 ]
-  %23 = getelementptr inbounds nuw %struct.wsfield, ptr %7, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 16, !tbaa !13
   %25 = call ptr @Curl_checkheaders(ptr noundef %0, ptr noundef %24, i64 noundef 7) #7
   %.not23 = icmp eq ptr %25, null
@@ -746,7 +745,7 @@ ws_frame_op2flags.exit.thread.i:                  ; preds = %39
 
 42:                                               ; preds = %39, %37
   %.08.i.i = phi i64 [ 0, %37 ], [ %40, %39 ]
-  %43 = getelementptr inbounds nuw %struct.ws_frame_meta, ptr @WS_FRAMES, i64 %.08.i.i
+  %43 = getelementptr inbounds nuw [16 x i8], ptr @WS_FRAMES, i64 %.08.i.i
   %44 = load i8, ptr %43, align 16, !tbaa !124
   %45 = icmp eq i8 %44, %38
   br i1 %45, label %ws_frame_op2flags.exit.i, label %39
@@ -1277,7 +1276,7 @@ define internal fastcc void @ws_dec_info(ptr noundef nonnull readonly captures(n
 
 27:                                               ; preds = %25, %21
   %.07.i = phi i64 [ 0, %21 ], [ %26, %25 ]
-  %28 = getelementptr inbounds nuw %struct.ws_frame_meta, ptr @WS_FRAMES, i64 %.07.i
+  %28 = getelementptr inbounds nuw [16 x i8], ptr @WS_FRAMES, i64 %.07.i
   %29 = load i8, ptr %28, align 16, !tbaa !124
   %30 = icmp eq i8 %29, %24
   br i1 %30, label %31, label %25
@@ -1344,7 +1343,7 @@ ws_frame_name_of_op.exit:                         ; preds = %25, %31
 
 60:                                               ; preds = %58, %54
   %.07.i52 = phi i64 [ 0, %54 ], [ %59, %58 ]
-  %61 = getelementptr inbounds nuw %struct.ws_frame_meta, ptr @WS_FRAMES, i64 %.07.i52
+  %61 = getelementptr inbounds nuw [16 x i8], ptr @WS_FRAMES, i64 %.07.i52
   %62 = load i8, ptr %61, align 16, !tbaa !124
   %63 = icmp eq i8 %62, %57
   br i1 %63, label %64, label %58
@@ -1404,7 +1403,7 @@ ws_frame_name_of_op.exit55:                       ; preds = %58, %64
 
 89:                                               ; preds = %87, %83
   %.07.i56 = phi i64 [ 0, %83 ], [ %88, %87 ]
-  %90 = getelementptr inbounds nuw %struct.ws_frame_meta, ptr @WS_FRAMES, i64 %.07.i56
+  %90 = getelementptr inbounds nuw [16 x i8], ptr @WS_FRAMES, i64 %.07.i56
   %91 = load i8, ptr %90, align 16, !tbaa !124
   %92 = icmp eq i8 %91, %86
   br i1 %92, label %93, label %87
@@ -1780,7 +1779,7 @@ define i32 @curl_ws_send(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr nou
 
 171:                                              ; preds = %169, %166
   %.07.i.i.i = phi i64 [ 0, %166 ], [ %170, %169 ]
-  %172 = getelementptr inbounds nuw %struct.ws_frame_meta, ptr @WS_FRAMES, i64 %.07.i.i.i
+  %172 = getelementptr inbounds nuw [16 x i8], ptr @WS_FRAMES, i64 %.07.i.i.i
   %173 = load i8, ptr %172, align 16, !tbaa !124
   %174 = icmp eq i8 %173, %168
   br i1 %174, label %175, label %169
@@ -2235,7 +2234,7 @@ define internal fastcc range(i64 -1, 15) i64 @ws_enc_write_head(ptr noundef %0, 
 
 19:                                               ; preds = %17, %15
   %.07.i = phi i64 [ 0, %15 ], [ %18, %17 ]
-  %20 = getelementptr inbounds nuw %struct.ws_frame_meta, ptr @WS_FRAMES, i64 %.07.i
+  %20 = getelementptr inbounds nuw [16 x i8], ptr @WS_FRAMES, i64 %.07.i
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %22 = load i32, ptr %21, align 4, !tbaa !126
   %23 = and i32 %16, %22
@@ -2378,7 +2377,7 @@ ws_frame_flags2op.exit.thread:                    ; preds = %17, %ws_frame_flags
 
 87:                                               ; preds = %85, %83
   %.07.i.i = phi i64 [ 0, %83 ], [ %86, %85 ]
-  %88 = getelementptr inbounds nuw %struct.ws_frame_meta, ptr @WS_FRAMES, i64 %.07.i.i
+  %88 = getelementptr inbounds nuw [16 x i8], ptr @WS_FRAMES, i64 %.07.i.i
   %89 = load i8, ptr %88, align 16, !tbaa !124
   %90 = icmp eq i8 %89, %84
   br i1 %90, label %91, label %85

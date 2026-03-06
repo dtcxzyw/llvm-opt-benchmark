@@ -8,12 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.clang::FileID" = type { i32 }
 %"struct.clang::edit::Commit::Edit" = type <{ i32, [4 x i8], %"class.llvm::StringRef", %"class.clang::SourceLocation", %"class.clang::edit::FileOffset", %"class.clang::edit::FileOffset", i32, i8, [7 x i8] }>
 %"class.llvm::StringRef" = type { ptr, i64 }
-%"class.clang::SrcMgr::SLocEntry" = type { i32, [4 x i8], %union.anon.120 }
-%union.anon.120 = type { %"class.clang::SrcMgr::FileInfo" }
-%"class.clang::SrcMgr::FileInfo" = type { %"class.clang::SourceLocation", i32, %"class.llvm::PointerIntPair.121" }
-%"class.llvm::PointerIntPair.121" = type { %"struct.llvm::detail::PunnedPointer.122" }
-%"struct.llvm::detail::PunnedPointer.122" = type { [8 x i8] }
-%"struct.std::pair.123" = type { ptr, i64 }
 
 $_ZNK5clang13SourceManager16getDecomposedLocENS_14SourceLocationE = comdat any
 
@@ -558,7 +552,7 @@ _ZNK4llvm9StringRef4copyINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096EL
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang4edit6Commit4EditELb1EE9push_backERKS4_.exit, label %37, !prof !82
 
 37:                                               ; preds = %_ZNK4llvm9StringRef4copyINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEEES0_RT_.exit
-  %38 = getelementptr inbounds nuw %"struct.clang::edit::Commit::Edit", ptr %.pre3.i, i64 %33
+  %38 = getelementptr inbounds nuw [56 x i8], ptr %.pre3.i, i64 %33
   %39 = icmp uge ptr %7, %.pre3.i
   %40 = icmp ult ptr %7, %38
   %spec.select.i.i.i.i.i = and i1 %39, %40
@@ -585,7 +579,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang4edit6Commit4EditELb1EE9push_backERKS4_
   %.016.i.i.i = phi ptr [ %7, %_ZNK4llvm9StringRef4copyINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEEES0_RT_.exit ], [ %47, %41 ], [ %7, %.critedge.i.i.i ]
   %50 = load i32, ptr %31, align 8, !tbaa !72
   %51 = zext i32 %50 to i64
-  %52 = getelementptr inbounds nuw %"struct.clang::edit::Commit::Edit", ptr %49, i64 %51
+  %52 = getelementptr inbounds nuw [56 x i8], ptr %49, i64 %51
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %52, ptr noundef nonnull align 8 dereferenceable(56) %.016.i.i.i, i64 56, i1 false)
   %53 = load i32, ptr %31, align 8, !tbaa !72
   %54 = add i32 %53, 1
@@ -693,7 +687,7 @@ define dso_local noundef zeroext i1 @_ZN5clang4edit6Commit15insertFromRangeENS_1
   br i1 %.not.i.i.not.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang4edit6Commit4EditELb1EE9push_backERKS4_.exit.i, label %49, !prof !82
 
 49:                                               ; preds = %34
-  %50 = getelementptr inbounds nuw %"struct.clang::edit::Commit::Edit", ptr %.pre3.i.i, i64 %45
+  %50 = getelementptr inbounds nuw [56 x i8], ptr %.pre3.i.i, i64 %45
   %51 = icmp uge ptr %7, %.pre3.i.i
   %52 = icmp ult ptr %7, %50
   %spec.select.i.i.i.i.i.i = and i1 %51, %52
@@ -720,7 +714,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang4edit6Commit4EditELb1EE9push_backERKS4_
   %.016.i.i.i.i = phi ptr [ %7, %34 ], [ %59, %53 ], [ %7, %.critedge.i.i.i.i ]
   %62 = load i32, ptr %43, align 8, !tbaa !72
   %63 = zext i32 %62 to i64
-  %64 = getelementptr inbounds nuw %"struct.clang::edit::Commit::Edit", ptr %61, i64 %63
+  %64 = getelementptr inbounds nuw [56 x i8], ptr %61, i64 %63
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %64, ptr noundef nonnull align 8 dereferenceable(56) %.016.i.i.i.i, i64 56, i1 false)
   %65 = load i32, ptr %43, align 8, !tbaa !72
   %66 = add i32 %65, 1
@@ -840,7 +834,7 @@ define dso_local void @_ZN5clang4edit6Commit18addInsertFromRangeENS_14SourceLoca
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang4edit6Commit4EditELb1EE9push_backERKS4_.exit, label %24, !prof !82
 
 24:                                               ; preds = %9
-  %25 = getelementptr inbounds nuw %"struct.clang::edit::Commit::Edit", ptr %.pre3.i, i64 %20
+  %25 = getelementptr inbounds nuw [56 x i8], ptr %.pre3.i, i64 %20
   %26 = icmp uge ptr %7, %.pre3.i
   %27 = icmp ult ptr %7, %25
   %spec.select.i.i.i.i.i = and i1 %26, %27
@@ -867,7 +861,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang4edit6Commit4EditELb1EE9push_backERKS4_
   %.016.i.i.i = phi ptr [ %7, %9 ], [ %34, %28 ], [ %7, %.critedge.i.i.i ]
   %37 = load i32, ptr %18, align 8, !tbaa !72
   %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds nuw %"struct.clang::edit::Commit::Edit", ptr %36, i64 %38
+  %39 = getelementptr inbounds nuw [56 x i8], ptr %36, i64 %38
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %39, ptr noundef nonnull align 8 dereferenceable(56) %.016.i.i.i, i64 56, i1 false)
   %40 = load i32, ptr %18, align 8, !tbaa !72
   %41 = add i32 %40, 1
@@ -927,7 +921,7 @@ define dso_local noundef zeroext i1 @_ZN5clang4edit6Commit6removeENS_15CharSourc
   br i1 %.not.i.i.not.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang4edit6Commit4EditELb1EE9push_backERKS4_.exit.i, label %26, !prof !82
 
 26:                                               ; preds = %14
-  %27 = getelementptr inbounds nuw %"struct.clang::edit::Commit::Edit", ptr %.pre3.i.i, i64 %22
+  %27 = getelementptr inbounds nuw [56 x i8], ptr %.pre3.i.i, i64 %22
   %28 = icmp uge ptr %4, %.pre3.i.i
   %29 = icmp ult ptr %4, %27
   %spec.select.i.i.i.i.i.i = and i1 %28, %29
@@ -954,7 +948,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang4edit6Commit4EditELb1EE9push_backERKS4_
   %.016.i.i.i.i = phi ptr [ %4, %14 ], [ %36, %30 ], [ %4, %.critedge.i.i.i.i ]
   %39 = load i32, ptr %20, align 8, !tbaa !72
   %40 = zext i32 %39 to i64
-  %41 = getelementptr inbounds nuw %"struct.clang::edit::Commit::Edit", ptr %38, i64 %40
+  %41 = getelementptr inbounds nuw [56 x i8], ptr %38, i64 %40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %41, ptr noundef nonnull align 8 dereferenceable(56) %.016.i.i.i.i, i64 56, i1 false)
   %42 = load i32, ptr %20, align 8, !tbaa !72
   %43 = add i32 %42, 1
@@ -997,7 +991,7 @@ define dso_local void @_ZN5clang4edit6Commit9addRemoveENS_14SourceLocationENS0_1
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang4edit6Commit4EditELb1EE9push_backERKS4_.exit, label %19, !prof !82
 
 19:                                               ; preds = %7
-  %20 = getelementptr inbounds nuw %"struct.clang::edit::Commit::Edit", ptr %.pre3.i, i64 %15
+  %20 = getelementptr inbounds nuw [56 x i8], ptr %.pre3.i, i64 %15
   %21 = icmp uge ptr %5, %.pre3.i
   %22 = icmp ult ptr %5, %20
   %spec.select.i.i.i.i.i = and i1 %21, %22
@@ -1024,7 +1018,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang4edit6Commit4EditELb1EE9push_backERKS4_
   %.016.i.i.i = phi ptr [ %5, %7 ], [ %29, %23 ], [ %5, %.critedge.i.i.i ]
   %32 = load i32, ptr %13, align 8, !tbaa !72
   %33 = zext i32 %32 to i64
-  %34 = getelementptr inbounds nuw %"struct.clang::edit::Commit::Edit", ptr %31, i64 %33
+  %34 = getelementptr inbounds nuw [56 x i8], ptr %31, i64 %33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %34, ptr noundef nonnull align 8 dereferenceable(56) %.016.i.i.i, i64 56, i1 false)
   %35 = load i32, ptr %13, align 8, !tbaa !72
   %36 = add i32 %35, 1
@@ -1204,7 +1198,7 @@ define dso_local noundef zeroext i1 @_ZN5clang4edit6Commit7replaceENS_15CharSour
   br i1 %.not.i.i.not.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang4edit6Commit4EditELb1EE9push_backERKS4_.exit.i, label %34, !prof !82
 
 34:                                               ; preds = %22
-  %35 = getelementptr inbounds nuw %"struct.clang::edit::Commit::Edit", ptr %.pre3.i.i, i64 %30
+  %35 = getelementptr inbounds nuw [56 x i8], ptr %.pre3.i.i, i64 %30
   %36 = icmp uge ptr %6, %.pre3.i.i
   %37 = icmp ult ptr %6, %35
   %spec.select.i.i.i.i.i.i = and i1 %36, %37
@@ -1231,7 +1225,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang4edit6Commit4EditELb1EE9push_backERKS4_
   %.016.i.i.i.i = phi ptr [ %6, %22 ], [ %44, %38 ], [ %6, %.critedge.i.i.i.i ]
   %47 = load i32, ptr %28, align 8, !tbaa !72
   %48 = zext i32 %47 to i64
-  %49 = getelementptr inbounds nuw %"struct.clang::edit::Commit::Edit", ptr %46, i64 %48
+  %49 = getelementptr inbounds nuw [56 x i8], ptr %46, i64 %48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %49, ptr noundef nonnull align 8 dereferenceable(56) %.016.i.i.i.i, i64 56, i1 false)
   %50 = load i32, ptr %28, align 8, !tbaa !72
   %51 = add i32 %50, 1
@@ -1441,7 +1435,7 @@ _ZN5clang4edit6Commit14canReplaceTextENS_14SourceLocationEN4llvm9StringRefERNS0_
   br i1 %.not.i.i.not.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang4edit6Commit4EditELb1EE9push_backERKS4_.exit.i, label %44, !prof !82
 
 44:                                               ; preds = %32
-  %45 = getelementptr inbounds nuw %"struct.clang::edit::Commit::Edit", ptr %.pre3.i.i, i64 %40
+  %45 = getelementptr inbounds nuw [56 x i8], ptr %.pre3.i.i, i64 %40
   %46 = icmp uge ptr %7, %.pre3.i.i
   %47 = icmp ult ptr %7, %45
   %spec.select.i.i.i.i.i.i = and i1 %46, %47
@@ -1468,7 +1462,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang4edit6Commit4EditELb1EE9push_backERKS4_
   %.016.i.i.i.i = phi ptr [ %7, %32 ], [ %54, %48 ], [ %7, %.critedge.i.i.i.i ]
   %57 = load i32, ptr %38, align 8, !tbaa !72
   %58 = zext i32 %57 to i64
-  %59 = getelementptr inbounds nuw %"struct.clang::edit::Commit::Edit", ptr %56, i64 %58
+  %59 = getelementptr inbounds nuw [56 x i8], ptr %56, i64 %58
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %59, ptr noundef nonnull align 8 dereferenceable(56) %.016.i.i.i.i, i64 56, i1 false)
   %60 = load i32, ptr %38, align 8, !tbaa !72
   %61 = add i32 %60, 1
@@ -1585,7 +1579,7 @@ _ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit: ; preds = %7, %8
   %16 = lshr i32 %14, 6
   %17 = zext nneg i32 %16 to i64
   %18 = load ptr, ptr %15, align 8, !tbaa !71
-  %19 = getelementptr inbounds nuw i64, ptr %18, i64 %17
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %17
   %20 = and i32 %14, 63
   %21 = load i64, ptr %19, align 8, !tbaa !84
   %22 = zext nneg i32 %20 to i64
@@ -1599,7 +1593,7 @@ _ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit: ; preds = %7, %8
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %28 = lshr i64 %26, 5
   %29 = load ptr, ptr %27, align 8, !tbaa !71
-  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %28
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %28
   %31 = load ptr, ptr %30, align 8, !tbaa !90
   %.not.i.i.i.i.i.i.i = icmp eq ptr %31, null
   br i1 %.not.i.i.i.i.i.i.i, label %32, label %_ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i.i.i, !prof !86
@@ -1631,7 +1625,7 @@ _ZSt31uninitialized_value_construct_nIPN5clang6SrcMgr9SLocEntryEmET_S4_T0_.exit.
 _ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i.i.i: ; preds = %_ZSt31uninitialized_value_construct_nIPN5clang6SrcMgr9SLocEntryEmET_S4_T0_.exit.loopexit.i.i.i.i.i.i.i, %25
   %40 = phi ptr [ %.pre.i.i.i.i.i.i.i, %_ZSt31uninitialized_value_construct_nIPN5clang6SrcMgr9SLocEntryEmET_S4_T0_.exit.loopexit.i.i.i.i.i.i.i ], [ %31, %25 ]
   %41 = and i64 %26, 31
-  %42 = getelementptr inbounds nuw %"class.clang::SrcMgr::SLocEntry", ptr %40, i64 %41
+  %42 = getelementptr inbounds nuw [24 x i8], ptr %40, i64 %41
   br label %_ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit
 
 43:                                               ; preds = %13
@@ -1648,7 +1642,7 @@ _ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread14: ; preds
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %48 = zext nneg i32 %.sroa.02.0.i.i to i64
   %49 = load ptr, ptr %47, align 8, !tbaa !71
-  %50 = getelementptr inbounds nuw %"class.clang::SrcMgr::SLocEntry", ptr %49, i64 %48
+  %50 = getelementptr inbounds nuw [24 x i8], ptr %49, i64 %48
   br label %_ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit
 
 _ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread: ; preds = %_ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit, %43
@@ -1801,7 +1795,7 @@ define linkonce_odr hidden noundef ptr @_ZN5clang13SourceManager19getSLocEntryFo
   %10 = lshr i32 %8, 6
   %11 = zext nneg i32 %10 to i64
   %12 = load ptr, ptr %9, align 8, !tbaa !71
-  %13 = getelementptr inbounds nuw i64, ptr %12, i64 %11
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %11
   %14 = and i32 %8, 63
   %15 = load i64, ptr %13, align 8, !tbaa !84
   %16 = zext nneg i32 %14 to i64
@@ -1815,7 +1809,7 @@ define linkonce_odr hidden noundef ptr @_ZN5clang13SourceManager19getSLocEntryFo
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %22 = lshr i64 %20, 5
   %23 = load ptr, ptr %21, align 8, !tbaa !71
-  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %22
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %22
   %25 = load ptr, ptr %24, align 8, !tbaa !90
   %.not.i.i.i.i.i.i = icmp eq ptr %25, null
   br i1 %.not.i.i.i.i.i.i, label %26, label %_ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i.i, !prof !86
@@ -1847,7 +1841,7 @@ _ZSt31uninitialized_value_construct_nIPN5clang6SrcMgr9SLocEntryEmET_S4_T0_.exit.
 _ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i.i: ; preds = %_ZSt31uninitialized_value_construct_nIPN5clang6SrcMgr9SLocEntryEmET_S4_T0_.exit.loopexit.i.i.i.i.i.i, %19
   %34 = phi ptr [ %.pre.i.i.i.i.i.i, %_ZSt31uninitialized_value_construct_nIPN5clang6SrcMgr9SLocEntryEmET_S4_T0_.exit.loopexit.i.i.i.i.i.i ], [ %25, %19 ]
   %35 = and i64 %20, 31
-  %36 = getelementptr inbounds nuw %"class.clang::SrcMgr::SLocEntry", ptr %34, i64 %35
+  %36 = getelementptr inbounds nuw [24 x i8], ptr %34, i64 %35
   br label %_ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit
 
 37:                                               ; preds = %7
@@ -1864,7 +1858,7 @@ _ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread9: ; preds =
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %42 = zext nneg i32 %1 to i64
   %43 = load ptr, ptr %41, align 8, !tbaa !71
-  %44 = getelementptr inbounds nuw %"class.clang::SrcMgr::SLocEntry", ptr %43, i64 %42
+  %44 = getelementptr inbounds nuw [24 x i8], ptr %43, i64 %42
   br label %_ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit
 
 _ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread: ; preds = %2, %37
@@ -1957,7 +1951,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit: ; preds 
   %21 = phi i32 [ %14, %10 ], [ %.pre.i, %17 ]
   %22 = load ptr, ptr %12, align 8, !tbaa !71
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw %"struct.std::pair.123", ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %23
   store ptr %11, ptr %24, align 1
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 %8, ptr %.sroa.2.0..sroa_idx.i, align 1
@@ -1998,7 +1992,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12Start
   %47 = phi i32 [ %40, %32 ], [ %.pre.i.i, %43 ]
   %48 = load ptr, ptr %33, align 8, !tbaa !71
   %49 = zext i32 %47 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %49
   %51 = ptrtoint ptr %39 to i64
   store i64 %51, ptr %50, align 1
   %52 = load i32, ptr %34, align 8, !tbaa !72
@@ -2049,7 +2043,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang13SourceManager16isOffs
   %13 = lshr i32 %11, 6
   %14 = zext nneg i32 %13 to i64
   %15 = load ptr, ptr %12, align 8, !tbaa !71
-  %16 = getelementptr inbounds nuw i64, ptr %15, i64 %14
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %14
   %17 = and i32 %11, 63
   %18 = load i64, ptr %16, align 8, !tbaa !84
   %19 = zext nneg i32 %17 to i64
@@ -2063,7 +2057,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang13SourceManager16isOffs
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %25 = lshr i64 %23, 5
   %26 = load ptr, ptr %24, align 8, !tbaa !71
-  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %25
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %25
   %28 = load ptr, ptr %27, align 8, !tbaa !90
   %.not.i.i.i.i.i.i = icmp eq ptr %28, null
   br i1 %.not.i.i.i.i.i.i, label %29, label %_ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i.i, !prof !86
@@ -2095,7 +2089,7 @@ _ZSt31uninitialized_value_construct_nIPN5clang6SrcMgr9SLocEntryEmET_S4_T0_.exit.
 _ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i.i: ; preds = %_ZSt31uninitialized_value_construct_nIPN5clang6SrcMgr9SLocEntryEmET_S4_T0_.exit.loopexit.i.i.i.i.i.i, %22
   %37 = phi ptr [ %.pre.i.i.i.i.i.i, %_ZSt31uninitialized_value_construct_nIPN5clang6SrcMgr9SLocEntryEmET_S4_T0_.exit.loopexit.i.i.i.i.i.i ], [ %28, %22 ]
   %38 = and i64 %23, 31
-  %39 = getelementptr inbounds nuw %"class.clang::SrcMgr::SLocEntry", ptr %37, i64 %38
+  %39 = getelementptr inbounds nuw [24 x i8], ptr %37, i64 %38
   br label %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit
 
 40:                                               ; preds = %10
@@ -2106,7 +2100,7 @@ _ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i.i: ; pre
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %44 = zext nneg i32 %1 to i64
   %45 = load ptr, ptr %43, align 8, !tbaa !71
-  %46 = getelementptr inbounds nuw %"class.clang::SrcMgr::SLocEntry", ptr %45, i64 %44
+  %46 = getelementptr inbounds nuw [24 x i8], ptr %45, i64 %44
   br label %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit
 
 _ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit: ; preds = %5, %_ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i.i, %40, %42
@@ -2143,7 +2137,7 @@ _ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit: ; preds = %5, %_ZNK4
   %66 = lshr i32 %64, 6
   %67 = zext nneg i32 %66 to i64
   %68 = load ptr, ptr %65, align 8, !tbaa !71
-  %69 = getelementptr inbounds nuw i64, ptr %68, i64 %67
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %67
   %70 = and i32 %64, 63
   %71 = load i64, ptr %69, align 8, !tbaa !84
   %72 = zext nneg i32 %70 to i64
@@ -2157,7 +2151,7 @@ _ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit: ; preds = %5, %_ZNK4
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %78 = lshr i64 %76, 5
   %79 = load ptr, ptr %77, align 8, !tbaa !71
-  %80 = getelementptr inbounds nuw ptr, ptr %79, i64 %78
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %79, i64 %78
   %81 = load ptr, ptr %80, align 8, !tbaa !90
   %.not.i.i.i.i.i13 = icmp eq ptr %81, null
   br i1 %.not.i.i.i.i.i13, label %82, label %_ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i, !prof !86
@@ -2189,7 +2183,7 @@ _ZSt31uninitialized_value_construct_nIPN5clang6SrcMgr9SLocEntryEmET_S4_T0_.exit.
 _ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i: ; preds = %_ZSt31uninitialized_value_construct_nIPN5clang6SrcMgr9SLocEntryEmET_S4_T0_.exit.loopexit.i.i.i.i.i, %75
   %90 = phi ptr [ %.pre.i.i.i.i.i, %_ZSt31uninitialized_value_construct_nIPN5clang6SrcMgr9SLocEntryEmET_S4_T0_.exit.loopexit.i.i.i.i.i ], [ %81, %75 ]
   %91 = and i64 %76, 31
-  %92 = getelementptr inbounds nuw %"class.clang::SrcMgr::SLocEntry", ptr %90, i64 %91
+  %92 = getelementptr inbounds nuw [24 x i8], ptr %90, i64 %91
   br label %_ZNK5clang13SourceManager16getSLocEntryByIDEiPb.exit
 
 93:                                               ; preds = %63
@@ -2199,7 +2193,7 @@ _ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i: ; preds
 95:                                               ; preds = %61
   %96 = zext nneg i32 %4 to i64
   %97 = load ptr, ptr %53, align 8, !tbaa !71
-  %98 = getelementptr inbounds nuw %"class.clang::SrcMgr::SLocEntry", ptr %97, i64 %96
+  %98 = getelementptr inbounds nuw [24 x i8], ptr %97, i64 %96
   br label %_ZNK5clang13SourceManager16getSLocEntryByIDEiPb.exit
 
 _ZNK5clang13SourceManager16getSLocEntryByIDEiPb.exit: ; preds = %_ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i, %93, %95

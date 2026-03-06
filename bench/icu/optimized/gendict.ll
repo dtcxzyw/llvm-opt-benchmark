@@ -578,7 +578,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %21 = load ptr, ptr @stderr, align 8, !tbaa !17
   %22 = sub nsw i32 0, %18
   %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr inbounds nuw ptr, ptr %1, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !16
   %26 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef nonnull @.str, ptr noundef %25) #22
   %27 = load ptr, ptr @stderr, align 8
@@ -907,7 +907,7 @@ thread-pre-split.i:                               ; preds = %.noexc240
 
 .lr.ph.i:                                         ; preds = %.critedge2.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ %178, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.critedge2.i ]
-  %179 = getelementptr i16, ptr %164, i64 %indvars.iv.i
+  %179 = getelementptr [2 x i8], ptr %164, i64 %indvars.iv.i
   %180 = getelementptr i8, ptr %179, i64 -2
   %181 = load i16, ptr %180, align 2, !tbaa !37
   switch i16 %181, label %.critedge.i.loopexit [
@@ -934,7 +934,7 @@ thread-pre-split.i:                               ; preds = %.noexc240
 .lr.ph29.i:                                       ; preds = %.critedge.i, %191
   %184 = phi i32 [ %192, %191 ], [ %.pr26.i, %.critedge.i ]
   %185 = zext nneg i32 %184 to i64
-  %186 = getelementptr i16, ptr %164, i64 %185
+  %186 = getelementptr [2 x i8], ptr %164, i64 %185
   %187 = getelementptr i8, ptr %186, i64 -2
   %188 = load i16, ptr %187, align 2, !tbaa !37
   %189 = zext i16 %188 to i32
@@ -1003,7 +1003,7 @@ _ZNK6icu_7713UnicodeStringixEi.exit:              ; preds = %.preheader289, %219
   %.not.i.i.i = icmp eq i16 %211, 0
   %212 = load ptr, ptr %160, align 8
   %213 = select i1 %.not.i.i.i, ptr %212, ptr %159
-  %214 = getelementptr inbounds nuw i16, ptr %213, i64 %indvars.iv
+  %214 = getelementptr inbounds nuw [2 x i8], ptr %213, i64 %indvars.iv
   %215 = load i16, ptr %214, align 2, !tbaa !37
   %216 = zext i16 %215 to i32
   %217 = invoke signext i8 @u_isspace_77(i32 noundef %216)
@@ -1073,7 +1073,7 @@ _ZNK6icu_7713UnicodeStringixEi.exit:              ; preds = %.preheader289, %219
   %.not.i.i.i245 = icmp eq i16 %248, 0
   %249 = load ptr, ptr %160, align 8
   %250 = select i1 %.not.i.i.i245, ptr %249, ptr %159
-  %251 = getelementptr inbounds nuw i16, ptr %250, i64 %indvars.iv493
+  %251 = getelementptr inbounds nuw [2 x i8], ptr %250, i64 %indvars.iv493
   %252 = load i16, ptr %251, align 2, !tbaa !37
   %253 = zext i16 %252 to i32
   br label %_ZNK6icu_7713UnicodeStringixEi.exit246

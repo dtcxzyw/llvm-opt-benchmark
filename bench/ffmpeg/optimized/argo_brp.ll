@@ -3,9 +3,6 @@ source_filename = "bench/ffmpeg/original/argo_brp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.ArgoBRPStreamHeader = type { i32, i32, i32, i32, i32, %union.anon }
-%union.anon = type { %struct.ArgoASFFileHeader }
-%struct.ArgoASFFileHeader = type { i32, i16, i16, i32, i32, [9 x i8] }
 %struct.ArgoASFChunkHeader = type { i32, i32, i32, i16, i16, i32 }
 
 @.str = private unnamed_addr constant [9 x i8] c"argo_brp\00", align 1
@@ -85,7 +82,7 @@ define internal i32 @argo_brp_read_header(ptr noundef %0) #1 {
 
 25:                                               ; preds = %.lr.ph, %123
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %123 ]
-  %26 = getelementptr inbounds nuw %struct.ArgoBRPStreamHeader, ptr %22, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [48 x i8], ptr %22, i64 %indvars.iv
   %27 = call ptr @avformat_new_stream(ptr noundef nonnull %0, ptr noundef null) #7
   %.not156 = icmp eq ptr %27, null
   br i1 %.not156, label %.thread180, label %28
@@ -300,10 +297,10 @@ read_extradata.exit:                              ; preds = %55, %64
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %129 = load ptr, ptr %128, align 8, !tbaa !71
   %130 = zext nneg i32 %.pre to i64
-  %131 = getelementptr inbounds nuw ptr, ptr %129, i64 %130
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %129, i64 %130
   %132 = load ptr, ptr %131, align 8, !tbaa !72
   %133 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  %134 = getelementptr inbounds nuw %struct.ArgoBRPStreamHeader, ptr %133, i64 %130
+  %134 = getelementptr inbounds nuw [48 x i8], ptr %133, i64 %130
   %135 = getelementptr inbounds nuw i8, ptr %132, i64 16
   %136 = load ptr, ptr %135, align 8, !tbaa !50
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 4
@@ -489,10 +486,10 @@ define internal range(i32 -2147483648, 1) i32 @argo_brp_read_packet(ptr noundef 
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %25 = load ptr, ptr %24, align 8, !tbaa !71
   %26 = zext nneg i32 %12 to i64
-  %27 = getelementptr inbounds nuw ptr, ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !72
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  %30 = getelementptr inbounds nuw %struct.ArgoBRPStreamHeader, ptr %29, i64 %26
+  %30 = getelementptr inbounds nuw [48 x i8], ptr %29, i64 %26
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 1548
   %32 = load i32, ptr %31, align 4, !tbaa !36
   %33 = icmp eq i32 %12, %32

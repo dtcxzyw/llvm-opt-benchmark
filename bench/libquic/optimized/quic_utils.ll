@@ -316,13 +316,13 @@ define noundef zeroext i1 @_ZN3net9QuicUtils13FindMutualTagERKSt6vectorIjSaIjEEP
 
 .preheader.us:                                    ; preds = %11, %..critedge_crit_edge.us
   %.03556.us = phi i64 [ %25, %..critedge_crit_edge.us ], [ 0, %11 ]
-  %17 = getelementptr inbounds nuw i32, ptr %.47, i64 %.03556.us
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %.47, i64 %.03556.us
   %18 = load i32, ptr %17, align 4, !tbaa !34
   br label %19
 
 19:                                               ; preds = %.preheader.us, %23
   %.054.us = phi i64 [ 0, %.preheader.us ], [ %24, %23 ]
-  %20 = getelementptr inbounds nuw i32, ptr %.48, i64 %.054.us
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %.48, i64 %.054.us
   %21 = load i32, ptr %20, align 4, !tbaa !34
   %22 = icmp eq i32 %18, %21
   br i1 %22, label %.split.us, label %23
@@ -374,7 +374,7 @@ define noundef nonnull ptr @_ZN3net9QuicUtils19StreamErrorToStringENS_22QuicRstS
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN3net9QuicUtils19StreamErrorToStringENS_22QuicRstStreamErrorCodeE, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN3net9QuicUtils19StreamErrorToStringENS_22QuicRstStreamErrorCodeE, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -390,7 +390,7 @@ define noundef nonnull ptr @_ZN3net9QuicUtils13ErrorToStringENS_13QuicErrorCodeE
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN3net9QuicUtils13ErrorToStringENS_13QuicErrorCodeE, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN3net9QuicUtils13ErrorToStringENS_13QuicErrorCodeE, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -406,7 +406,7 @@ define noundef nonnull ptr @_ZN3net9QuicUtils23EncryptionLevelToStringENS_15Encr
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN3net9QuicUtils23EncryptionLevelToStringENS_15EncryptionLevelE, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN3net9QuicUtils23EncryptionLevelToStringENS_15EncryptionLevelE, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -422,7 +422,7 @@ define noundef nonnull ptr @_ZN3net9QuicUtils24TransmissionTypeToStringENS_16Tra
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN3net9QuicUtils24TransmissionTypeToStringENS_16TransmissionTypeE, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN3net9QuicUtils24TransmissionTypeToStringENS_16TransmissionTypeE, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -615,7 +615,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i: ; preds = %39, %.noex
 
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i: ; preds = %41, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i
   store ptr %40, ptr %10, align 8, !tbaa !58
-  %42 = getelementptr inbounds nuw i32, ptr %36, i64 %34
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %34
   store ptr %42, ptr %11, align 8, !tbaa !60
   br label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit
 

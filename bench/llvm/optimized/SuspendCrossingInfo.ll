@@ -3,21 +3,19 @@ source_filename = "bench/llvm/original/SuspendCrossingInfo.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"struct.llvm::SuspendCrossingInfo::BlockData" = type { %"class.llvm::BitVector", %"class.llvm::BitVector", i8, i8, i8, i8, [4 x i8] }
-%"class.llvm::BitVector" = type <{ %"class.llvm::SmallVector.5", i32, [4 x i8] }>
-%"class.llvm::SmallVector.5" = type { %"class.llvm::SmallVectorImpl.6", %"struct.llvm::SmallVectorStorage.9" }
-%"class.llvm::SmallVectorImpl.6" = type { %"class.llvm::SmallVectorTemplateBase.7" }
-%"class.llvm::SmallVectorTemplateBase.7" = type { %"class.llvm::SmallVectorTemplateCommon.8" }
-%"class.llvm::SmallVectorTemplateCommon.8" = type { %"class.llvm::SmallVectorBase" }
-%"class.llvm::SmallVectorBase" = type { ptr, i32, i32 }
-%"struct.llvm::SmallVectorStorage.9" = type { [48 x i8] }
 %"class.llvm::ReversePostOrderTraversal" = type { %"class.llvm::SmallVector.26" }
 %"class.llvm::SmallVector.26" = type { %"class.llvm::SmallVectorImpl", %"struct.llvm::SmallVectorStorage.27" }
 %"class.llvm::SmallVectorImpl" = type { %"class.llvm::SmallVectorTemplateBase" }
 %"class.llvm::SmallVectorTemplateBase" = type { %"class.llvm::SmallVectorTemplateCommon" }
 %"class.llvm::SmallVectorTemplateCommon" = type { %"class.llvm::SmallVectorBase" }
+%"class.llvm::SmallVectorBase" = type { ptr, i32, i32 }
 %"struct.llvm::SmallVectorStorage.27" = type { [64 x i8] }
-%"class.llvm::Use" = type { ptr, ptr, ptr, ptr }
+%"class.llvm::BitVector" = type <{ %"class.llvm::SmallVector.5", i32, [4 x i8] }>
+%"class.llvm::SmallVector.5" = type { %"class.llvm::SmallVectorImpl.6", %"struct.llvm::SmallVectorStorage.9" }
+%"class.llvm::SmallVectorImpl.6" = type { %"class.llvm::SmallVectorTemplateBase.7" }
+%"class.llvm::SmallVectorTemplateBase.7" = type { %"class.llvm::SmallVectorTemplateCommon.8" }
+%"class.llvm::SmallVectorTemplateCommon.8" = type { %"class.llvm::SmallVectorBase" }
+%"struct.llvm::SmallVectorStorage.9" = type { [48 x i8] }
 %"class.llvm::po_iterator" = type { %"class.llvm::po_iterator_storage", %"class.llvm::SmallVector.38" }
 %"class.llvm::po_iterator_storage" = type { %"class.llvm::SmallPtrSet" }
 %"class.llvm::SmallPtrSet" = type { %"class.llvm::SmallPtrSetImpl.base", [8 x ptr] }
@@ -28,14 +26,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorTemplateBase.40" = type { %"class.llvm::SmallVectorTemplateCommon.41" }
 %"class.llvm::SmallVectorTemplateCommon.41" = type { %"class.llvm::SmallVectorBase" }
 %"struct.llvm::SmallVectorStorage.42" = type { [320 x i8] }
-%"class.std::tuple.43" = type { %"struct.std::_Tuple_impl.44" }
-%"struct.std::_Tuple_impl.44" = type { %"struct.std::_Tuple_impl.45", %"struct.std::_Head_base.49" }
-%"struct.std::_Tuple_impl.45" = type { %"struct.std::_Tuple_impl.46", %"struct.std::_Head_base.48" }
-%"struct.std::_Tuple_impl.46" = type { %"struct.std::_Head_base.47" }
-%"struct.std::_Head_base.47" = type { %"class.llvm::SuccIterator" }
 %"class.llvm::SuccIterator" = type <{ ptr, i32, [4 x i8] }>
-%"struct.std::_Head_base.48" = type { %"class.llvm::SuccIterator" }
-%"struct.std::_Head_base.49" = type { ptr }
 
 $_ZN4llvm19SuspendCrossingInfo16computeBlockDataILb1EEEbRKNS_25ReversePostOrderTraversalIPNS_8FunctionENS_11GraphTraitsIS4_EEEE = comdat any
 
@@ -94,7 +85,7 @@ _ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.i.i.i.i: ; preds = %_ZSt7advan
   %.017.i.i.i.i = phi ptr [ %4, %_ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.lr.ph.i.i.i.i ], [ %.1.i.i.i.i, %_ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.i.i.i.i ]
   %.01116.i.i.i.i = phi i64 [ %8, %_ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.lr.ph.i.i.i.i ], [ %.112.i.i.i.i, %_ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.i.i.i.i ]
   %9 = lshr i64 %.01116.i.i.i.i, 1
-  %10 = getelementptr inbounds nuw ptr, ptr %.017.i.i.i.i, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %.017.i.i.i.i, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !10
   %12 = icmp ult ptr %11, %1
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -109,7 +100,7 @@ _ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.i.i.i.i7: ; preds = %_ZSt7adva
   %.017.i.i.i.i8 = phi ptr [ %.1.i.i.i.i13, %_ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.i.i.i.i7 ], [ %4, %_ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.i.i.i.i ]
   %.01116.i.i.i.i9 = phi i64 [ %.112.i.i.i.i12, %_ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.i.i.i.i7 ], [ %8, %_ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.i.i.i.i ]
   %17 = lshr i64 %.01116.i.i.i.i9, 1
-  %18 = getelementptr inbounds nuw ptr, ptr %.017.i.i.i.i8, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.017.i.i.i.i8, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !10
   %20 = icmp ult ptr %19, %2
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 8
@@ -136,14 +127,14 @@ _ZNK4llvm19BlockToIndexMapping12blockToIndexEPKNS_10BasicBlockE.exit15: ; preds 
   %32 = ashr exact i64 %31, 3
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %34 = load ptr, ptr %33, align 8, !tbaa !3
-  %35 = getelementptr inbounds nuw %"struct.llvm::SuspendCrossingInfo::BlockData", ptr %34, i64 %32
+  %35 = getelementptr inbounds nuw [152 x i8], ptr %34, i64 %32
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 72
   %37 = and i64 %29, 63
   %38 = shl nuw i64 1, %37
   %39 = lshr i64 %29, 6
   %40 = and i64 %39, 67108863
   %41 = load ptr, ptr %36, align 8, !tbaa !3
-  %42 = getelementptr inbounds nuw i64, ptr %41, i64 %40
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %40
   %43 = load i64, ptr %42, align 8, !tbaa !14
   %44 = and i64 %43, %38
   %45 = icmp ne i64 %44, 0
@@ -170,7 +161,7 @@ _ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.i.i.i.i: ; preds = %_ZSt7advan
   %.017.i.i.i.i = phi ptr [ %4, %_ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.lr.ph.i.i.i.i ], [ %.1.i.i.i.i, %_ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.i.i.i.i ]
   %.01116.i.i.i.i = phi i64 [ %8, %_ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.lr.ph.i.i.i.i ], [ %.112.i.i.i.i, %_ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.i.i.i.i ]
   %9 = lshr i64 %.01116.i.i.i.i, 1
-  %10 = getelementptr inbounds nuw ptr, ptr %.017.i.i.i.i, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %.017.i.i.i.i, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !10
   %12 = icmp ult ptr %11, %1
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -185,7 +176,7 @@ _ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.i.i.i.i10: ; preds = %_ZSt7adv
   %.017.i.i.i.i11 = phi ptr [ %.1.i.i.i.i16, %_ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.i.i.i.i10 ], [ %4, %_ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.i.i.i.i ]
   %.01116.i.i.i.i12 = phi i64 [ %.112.i.i.i.i15, %_ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.i.i.i.i10 ], [ %8, %_ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.i.i.i.i ]
   %17 = lshr i64 %.01116.i.i.i.i12, 1
-  %18 = getelementptr inbounds nuw ptr, ptr %.017.i.i.i.i11, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.017.i.i.i.i11, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !10
   %20 = icmp ult ptr %19, %2
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 8
@@ -212,14 +203,14 @@ _ZNK4llvm19BlockToIndexMapping12blockToIndexEPKNS_10BasicBlockE.exit18: ; preds 
   %32 = ashr exact i64 %31, 3
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %34 = load ptr, ptr %33, align 8, !tbaa !3
-  %35 = getelementptr inbounds nuw %"struct.llvm::SuspendCrossingInfo::BlockData", ptr %34, i64 %32
+  %35 = getelementptr inbounds nuw [152 x i8], ptr %34, i64 %32
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 72
   %37 = and i64 %29, 63
   %38 = shl nuw i64 1, %37
   %39 = lshr i64 %29, 6
   %40 = and i64 %39, 67108863
   %41 = load ptr, ptr %36, align 8, !tbaa !3
-  %42 = getelementptr inbounds nuw i64, ptr %41, i64 %40
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %40
   %43 = load i64, ptr %42, align 8, !tbaa !14
   %44 = and i64 %43, %38
   %.not = icmp eq i64 %44, 0
@@ -286,7 +277,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_10BasicBlockELb1EE9push_backES2_.exit.i: ;
   %22 = phi i32 [ %16, %.lr.ph.i ], [ %.pre.i.i, %19 ]
   %23 = load ptr, ptr %0, align 8, !tbaa !3
   %24 = zext i32 %22 to i64
-  %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %24
   %26 = ptrtoint ptr %17 to i64
   store i64 %26, ptr %25, align 1
   %27 = load i32, ptr %8, align 8, !tbaa !9
@@ -339,7 +330,7 @@ _ZN4llvm19BlockToIndexMappingC2ERNS_8FunctionE.exit: ; preds = %4, %._crit_edge.
 49:                                               ; preds = %.lr.ph, %_ZN4llvm9BitVector6resizeEjb.exit66
   %.082 = phi i64 [ 0, %.lr.ph ], [ %150, %_ZN4llvm9BitVector6resizeEjb.exit66 ]
   %50 = load ptr, ptr %31, align 8, !tbaa !3
-  %51 = getelementptr inbounds nuw %"struct.llvm::SuspendCrossingInfo::BlockData", ptr %50, i64 %.082
+  %51 = getelementptr inbounds nuw [152 x i8], ptr %50, i64 %.082
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 64
   %53 = load i32, ptr %52, align 8, !tbaa !32
   %54 = and i32 %53, 63
@@ -360,7 +351,7 @@ _ZN4llvm19BlockToIndexMappingC2ERNS_8FunctionE.exit: ; preds = %4, %._crit_edge.
   %60 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %61 = load i32, ptr %60, align 8, !tbaa !9
   %62 = zext i32 %61 to i64
-  %63 = getelementptr inbounds nuw i64, ptr %59, i64 %62
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %62
   %64 = getelementptr inbounds i8, ptr %63, i64 -8
   %65 = load i64, ptr %64, align 8, !tbaa !14
   %66 = and i64 %65, %58
@@ -399,7 +390,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE28reserveForParamAndGetAddressERmm.exit.
   %.pre-phi.i.i = phi i64 [ %.pre-phi.i, %72 ], [ %.pre.i.i42, %76 ]
   %78 = phi i32 [ %67, %72 ], [ %.pre.i.i.i, %76 ]
   %79 = load ptr, ptr %51, align 8, !tbaa !3
-  %80 = getelementptr inbounds nuw i64, ptr %79, i64 %.pre-phi.i.i
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %79, i64 %.pre-phi.i.i
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %73, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %80, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !14
   %81 = trunc nuw nsw i64 %73 to i32
@@ -425,7 +416,7 @@ _ZN4llvm15SmallVectorImplImE6resizeEmm.exit.i:    ; preds = %.sink.split.i.i, %_
   %89 = xor i64 %88, -1
   %90 = load ptr, ptr %51, align 8, !tbaa !3
   %91 = zext i32 %83 to i64
-  %92 = getelementptr inbounds nuw i64, ptr %90, i64 %91
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %91
   %93 = getelementptr inbounds i8, ptr %92, i64 -8
   %94 = load i64, ptr %93, align 8, !tbaa !14
   %95 = and i64 %94, %89
@@ -454,7 +445,7 @@ _ZN4llvm9BitVector6resizeEjb.exit:                ; preds = %_ZN4llvm15SmallVect
   %105 = getelementptr inbounds nuw i8, ptr %51, i64 80
   %106 = load i32, ptr %105, align 8, !tbaa !9
   %107 = zext i32 %106 to i64
-  %108 = getelementptr inbounds nuw i64, ptr %104, i64 %107
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %104, i64 %107
   %109 = getelementptr inbounds i8, ptr %108, i64 -8
   %110 = load i64, ptr %109, align 8, !tbaa !14
   %111 = and i64 %110, %103
@@ -493,7 +484,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE28reserveForParamAndGetAddressERmm.exit.
   %.pre-phi.i.i48 = phi i64 [ %.pre-phi.i45, %117 ], [ %.pre.i.i61, %121 ]
   %123 = phi i32 [ %112, %117 ], [ %.pre.i.i.i60, %121 ]
   %124 = load ptr, ptr %96, align 8, !tbaa !3
-  %125 = getelementptr inbounds nuw i64, ptr %124, i64 %.pre-phi.i.i48
+  %125 = getelementptr inbounds nuw [8 x i8], ptr %124, i64 %.pre-phi.i.i48
   %.idx.i.i.i.i.i.i.i49 = shl nuw nsw i64 %118, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %125, i8 0, i64 %.idx.i.i.i.i.i.i.i49, i1 false), !tbaa !14
   %126 = trunc nuw nsw i64 %118 to i32
@@ -519,7 +510,7 @@ _ZN4llvm15SmallVectorImplImE6resizeEmm.exit.i58:  ; preds = %.sink.split.i.i55, 
   %134 = xor i64 %133, -1
   %135 = load ptr, ptr %96, align 8, !tbaa !3
   %136 = zext i32 %128 to i64
-  %137 = getelementptr inbounds nuw i64, ptr %135, i64 %136
+  %137 = getelementptr inbounds nuw [8 x i8], ptr %135, i64 %136
   %138 = getelementptr inbounds i8, ptr %137, i64 -8
   %139 = load i64, ptr %138, align 8, !tbaa !14
   %140 = and i64 %139, %134
@@ -532,7 +523,7 @@ _ZN4llvm9BitVector6resizeEjb.exit66:              ; preds = %_ZN4llvm15SmallVect
   %143 = lshr i64 %.082, 6
   %144 = and i64 %143, 67108863
   %145 = load ptr, ptr %51, align 8, !tbaa !3
-  %146 = getelementptr inbounds nuw i64, ptr %145, i64 %144
+  %146 = getelementptr inbounds nuw [8 x i8], ptr %145, i64 %144
   %147 = load i64, ptr %146, align 8, !tbaa !14
   %148 = or i64 %147, %142
   store i64 %148, ptr %146, align 8, !tbaa !14
@@ -563,7 +554,7 @@ _ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.i.i.i.i.i: ; preds = %156, %_Z
   %.017.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i, %_ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.i.i.i.i.i ], [ %44, %156 ]
   %.01116.i.i.i.i.i = phi i64 [ %.112.i.i.i.i.i, %_ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.i.i.i.i.i ], [ %46, %156 ]
   %160 = lshr i64 %.01116.i.i.i.i.i, 1
-  %161 = getelementptr inbounds nuw ptr, ptr %.017.i.i.i.i.i, i64 %160
+  %161 = getelementptr inbounds nuw [8 x i8], ptr %.017.i.i.i.i.i, i64 %160
   %162 = load ptr, ptr %161, align 8, !tbaa !10
   %163 = icmp ult ptr %162, %159
   %164 = getelementptr inbounds nuw i8, ptr %161, i64 8
@@ -582,7 +573,7 @@ _ZN4llvm19SuspendCrossingInfo12getBlockDataEPNS_10BasicBlockE.exit: ; preds = %_
   %.pre-phi = phi i64 [ %.pre97, %_ZN4llvm19SuspendCrossingInfo12getBlockDataEPNS_10BasicBlockE.exit.loopexit ], [ %47, %156 ]
   %168 = sub i64 %.pre-phi, %47
   %169 = ashr exact i64 %168, 3
-  %170 = getelementptr inbounds nuw %"struct.llvm::SuspendCrossingInfo::BlockData", ptr %48, i64 %169
+  %170 = getelementptr inbounds nuw [152 x i8], ptr %48, i64 %169
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 145
   store i8 1, ptr %171, align 1, !tbaa !40
   %172 = getelementptr inbounds nuw i8, ptr %.03384, i64 8
@@ -622,7 +613,7 @@ _ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.i.i.i.i.i.i: ; preds = %_ZSt7a
   %.017.i.i.i.i.i.i = phi ptr [ %179, %_ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.lr.ph.i.i.i.i.i.i ], [ %.1.i.i.i.i.i.i, %_ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.i.i.i.i.i.i ]
   %.01116.i.i.i.i.i.i = phi i64 [ %181, %_ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.lr.ph.i.i.i.i.i.i ], [ %.112.i.i.i.i.i.i, %_ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.i.i.i.i.i.i ]
   %182 = lshr i64 %.01116.i.i.i.i.i.i, 1
-  %183 = getelementptr inbounds nuw ptr, ptr %.017.i.i.i.i.i.i, i64 %182
+  %183 = getelementptr inbounds nuw [8 x i8], ptr %.017.i.i.i.i.i.i, i64 %182
   %184 = load ptr, ptr %183, align 8, !tbaa !10
   %185 = icmp ult ptr %184, %.val39
   %186 = getelementptr inbounds nuw i8, ptr %183, i64 8
@@ -640,7 +631,7 @@ _ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.i.i.i.i.i.i: ; preds = %_ZSt7a
   %192 = sub i64 %190, %191
   %193 = ashr exact i64 %192, 3
   %194 = load ptr, ptr %31, align 8, !tbaa !3
-  %195 = getelementptr inbounds nuw %"struct.llvm::SuspendCrossingInfo::BlockData", ptr %194, i64 %193
+  %195 = getelementptr inbounds nuw [152 x i8], ptr %194, i64 %193
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 144
   store i8 1, ptr %196, align 8, !tbaa !45
   %197 = getelementptr inbounds nuw i8, ptr %195, i64 72
@@ -658,7 +649,7 @@ _ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.i.i.i.i.i.i: ; preds = %_ZSt7a
   %206 = and i32 %205, 134217727
   %207 = zext nneg i32 %206 to i64
   %208 = sub nsw i64 0, %207
-  %209 = getelementptr inbounds %"class.llvm::Use", ptr %177, i64 %208
+  %209 = getelementptr inbounds [32 x i8], ptr %177, i64 %208
   %210 = load ptr, ptr %209, align 8, !tbaa !46
   %211 = load i8, ptr %210, align 8, !tbaa !60
   %212 = icmp eq i8 %211, 85
@@ -712,7 +703,7 @@ _ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.i.i.i.i.i.i71: ; preds = %_ZSt
   %.017.i.i.i.i.i.i72 = phi ptr [ %231, %_ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.lr.ph.i.i.i.i.i.i70 ], [ %.1.i.i.i.i.i.i77, %_ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.i.i.i.i.i.i71 ]
   %.01116.i.i.i.i.i.i73 = phi i64 [ %233, %_ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.lr.ph.i.i.i.i.i.i70 ], [ %.112.i.i.i.i.i.i76, %_ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.i.i.i.i.i.i71 ]
   %234 = lshr i64 %.01116.i.i.i.i.i.i73, 1
-  %235 = getelementptr inbounds nuw ptr, ptr %.017.i.i.i.i.i.i72, i64 %234
+  %235 = getelementptr inbounds nuw [8 x i8], ptr %.017.i.i.i.i.i.i72, i64 %234
   %236 = load ptr, ptr %235, align 8, !tbaa !10
   %237 = icmp ult ptr %236, %.val41
   %238 = getelementptr inbounds nuw i8, ptr %235, i64 8
@@ -730,7 +721,7 @@ _ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.i.i.i.i.i.i71: ; preds = %_ZSt
   %244 = sub i64 %242, %243
   %245 = ashr exact i64 %244, 3
   %246 = load ptr, ptr %31, align 8, !tbaa !3
-  %247 = getelementptr inbounds nuw %"struct.llvm::SuspendCrossingInfo::BlockData", ptr %246, i64 %245
+  %247 = getelementptr inbounds nuw [152 x i8], ptr %246, i64 %245
   %248 = getelementptr inbounds nuw i8, ptr %247, i64 144
   store i8 1, ptr %248, align 8, !tbaa !45
   %249 = getelementptr inbounds nuw i8, ptr %247, i64 72
@@ -806,7 +797,7 @@ _ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.i.i.i.i: ; preds = %_ZSt7advan
   %.017.i.i.i.i = phi ptr [ %23, %_ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.lr.ph.i.i.i.i ], [ %.1.i.i.i.i, %_ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.i.i.i.i ]
   %.01116.i.i.i.i = phi i64 [ %25, %_ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.lr.ph.i.i.i.i ], [ %.112.i.i.i.i, %_ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.i.i.i.i ]
   %26 = lshr i64 %.01116.i.i.i.i, 1
-  %27 = getelementptr inbounds nuw ptr, ptr %.017.i.i.i.i, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %.017.i.i.i.i, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !10
   %29 = icmp ult ptr %28, %22
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 8
@@ -824,7 +815,7 @@ _ZNK4llvm19BlockToIndexMapping12blockToIndexEPKNS_10BasicBlockE.exit: ; preds = 
   %36 = sub i64 %34, %35
   %37 = ashr exact i64 %36, 3
   %38 = load ptr, ptr %11, align 8, !tbaa !3
-  %39 = getelementptr inbounds nuw %"struct.llvm::SuspendCrossingInfo::BlockData", ptr %38, i64 %37
+  %39 = getelementptr inbounds nuw [152 x i8], ptr %38, i64 %37
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %12, ptr %3, align 8, !tbaa !3
   store i32 0, ptr %13, align 8, !tbaa !9
@@ -919,7 +910,7 @@ _ZN4llvm9BitVectorC2ERKS0_.exit40:                ; preds = %_ZN4llvm9BitVectorC
   %69 = sdiv exact i64 %68, 152
   %70 = and i64 %69, 4294967295
   %71 = load ptr, ptr %0, align 8, !tbaa !3
-  %72 = getelementptr inbounds nuw ptr, ptr %71, i64 %70
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %70
   %73 = load ptr, ptr %72, align 8, !tbaa !10
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
   %75 = load ptr, ptr %74, align 8, !tbaa !85
@@ -973,7 +964,7 @@ _ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.i.i.i.i44: ; preds = %_ZSt7adv
   %.017.i.i.i.i45 = phi ptr [ %96, %_ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.lr.ph.i.i.i.i43 ], [ %.1.i.i.i.i50, %_ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.i.i.i.i44 ]
   %.01116.i.i.i.i46 = phi i64 [ %98, %_ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.lr.ph.i.i.i.i43 ], [ %.112.i.i.i.i49, %_ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.i.i.i.i44 ]
   %99 = lshr i64 %.01116.i.i.i.i46, 1
-  %100 = getelementptr inbounds nuw ptr, ptr %.017.i.i.i.i45, i64 %99
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %.017.i.i.i.i45, i64 %99
   %101 = load ptr, ptr %100, align 8, !tbaa !10
   %102 = icmp ult ptr %101, %95
   %103 = getelementptr inbounds nuw i8, ptr %100, i64 8
@@ -991,7 +982,7 @@ _ZNK4llvm19BlockToIndexMapping12blockToIndexEPKNS_10BasicBlockE.exit52: ; preds 
   %109 = sub i64 %107, %108
   %110 = ashr exact i64 %109, 3
   %111 = load ptr, ptr %11, align 8, !tbaa !3
-  %112 = getelementptr inbounds nuw %"struct.llvm::SuspendCrossingInfo::BlockData", ptr %111, i64 %110
+  %112 = getelementptr inbounds nuw [152 x i8], ptr %111, i64 %110
   %113 = load i32, ptr %50, align 8, !tbaa !32
   %114 = getelementptr inbounds nuw i8, ptr %112, i64 64
   %115 = load i32, ptr %114, align 8, !tbaa !32
@@ -1015,7 +1006,7 @@ _ZNK4llvm19BlockToIndexMapping12blockToIndexEPKNS_10BasicBlockE.exit52: ; preds 
   %123 = load ptr, ptr %39, align 8, !tbaa !3
   %124 = load i32, ptr %40, align 8, !tbaa !9
   %125 = zext i32 %124 to i64
-  %126 = getelementptr inbounds nuw i64, ptr %123, i64 %125
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %123, i64 %125
   %127 = getelementptr inbounds i8, ptr %126, i64 -8
   %128 = load i64, ptr %127, align 8, !tbaa !14
   %129 = and i64 %128, %122
@@ -1054,7 +1045,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE28reserveForParamAndGetAddressERmm.exit.
   %.pre-phi.i.i.i = phi i64 [ %.pre-phi.i.i, %137 ], [ %.pre.i.i.i, %140 ]
   %141 = phi i32 [ %130, %137 ], [ %.pre.i.i.i.i, %140 ]
   %142 = load ptr, ptr %39, align 8, !tbaa !3
-  %143 = getelementptr inbounds nuw i64, ptr %142, i64 %.pre-phi.i.i.i
+  %143 = getelementptr inbounds nuw [8 x i8], ptr %142, i64 %.pre-phi.i.i.i
   %.idx.i.i.i.i.i.i.i.i = shl nuw nsw i64 %138, 3
   call void @llvm.memset.p0.i64(ptr align 8 %143, i8 0, i64 %.idx.i.i.i.i.i.i.i.i, i1 false), !tbaa !14
   %144 = trunc nuw nsw i64 %138 to i32
@@ -1080,7 +1071,7 @@ _ZN4llvm15SmallVectorImplImE6resizeEmm.exit.i.i:  ; preds = %.sink.split.i.i.i54
   %152 = xor i64 %151, -1
   %153 = load ptr, ptr %39, align 8, !tbaa !3
   %154 = zext i32 %146 to i64
-  %155 = getelementptr inbounds nuw i64, ptr %153, i64 %154
+  %155 = getelementptr inbounds nuw [8 x i8], ptr %153, i64 %154
   %156 = getelementptr inbounds i8, ptr %155, i64 -8
   %157 = load i64, ptr %156, align 8, !tbaa !14
   %158 = and i64 %157, %152
@@ -1101,9 +1092,9 @@ _ZN4llvm9BitVector6resizeEjb.exit.i:              ; preds = %149, %_ZN4llvm15Sma
 
 164:                                              ; preds = %164, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %164 ]
-  %165 = getelementptr inbounds nuw i64, ptr %161, i64 %indvars.iv.i
+  %165 = getelementptr inbounds nuw [8 x i8], ptr %161, i64 %indvars.iv.i
   %166 = load i64, ptr %165, align 8, !tbaa !14
-  %167 = getelementptr inbounds nuw i64, ptr %162, i64 %indvars.iv.i
+  %167 = getelementptr inbounds nuw [8 x i8], ptr %162, i64 %indvars.iv.i
   %168 = load i64, ptr %167, align 8, !tbaa !14
   %169 = or i64 %168, %166
   store i64 %169, ptr %167, align 8, !tbaa !14
@@ -1136,7 +1127,7 @@ _ZN4llvm9BitVectoroRERKS0_.exit:                  ; preds = %164, %_ZN4llvm9BitV
   %181 = load ptr, ptr %52, align 8, !tbaa !3
   %182 = load i32, ptr %53, align 8, !tbaa !9
   %183 = zext i32 %182 to i64
-  %184 = getelementptr inbounds nuw i64, ptr %181, i64 %183
+  %184 = getelementptr inbounds nuw [8 x i8], ptr %181, i64 %183
   %185 = getelementptr inbounds i8, ptr %184, i64 -8
   %186 = load i64, ptr %185, align 8, !tbaa !14
   %187 = and i64 %186, %180
@@ -1175,7 +1166,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE28reserveForParamAndGetAddressERmm.exit.
   %.pre-phi.i.i.i69 = phi i64 [ %.pre-phi.i.i65, %195 ], [ %.pre.i.i.i77, %198 ]
   %199 = phi i32 [ %188, %195 ], [ %.pre.i.i.i.i76, %198 ]
   %200 = load ptr, ptr %52, align 8, !tbaa !3
-  %201 = getelementptr inbounds nuw i64, ptr %200, i64 %.pre-phi.i.i.i69
+  %201 = getelementptr inbounds nuw [8 x i8], ptr %200, i64 %.pre-phi.i.i.i69
   %.idx.i.i.i.i.i.i.i.i70 = shl nuw nsw i64 %196, 3
   call void @llvm.memset.p0.i64(ptr align 8 %201, i8 0, i64 %.idx.i.i.i.i.i.i.i.i70, i1 false), !tbaa !14
   %202 = trunc nuw nsw i64 %196 to i32
@@ -1201,7 +1192,7 @@ _ZN4llvm15SmallVectorImplImE6resizeEmm.exit.i.i74: ; preds = %.sink.split.i.i.i7
   %210 = xor i64 %209, -1
   %211 = load ptr, ptr %52, align 8, !tbaa !3
   %212 = zext i32 %204 to i64
-  %213 = getelementptr inbounds nuw i64, ptr %211, i64 %212
+  %213 = getelementptr inbounds nuw [8 x i8], ptr %211, i64 %212
   %214 = getelementptr inbounds i8, ptr %213, i64 -8
   %215 = load i64, ptr %214, align 8, !tbaa !14
   %216 = and i64 %215, %210
@@ -1223,9 +1214,9 @@ _ZN4llvm9BitVector6resizeEjb.exit.i57:            ; preds = %207, %_ZN4llvm15Sma
 
 223:                                              ; preds = %223, %.lr.ph.i59
   %indvars.iv.i60 = phi i64 [ 0, %.lr.ph.i59 ], [ %indvars.iv.next.i61, %223 ]
-  %224 = getelementptr inbounds nuw i64, ptr %220, i64 %indvars.iv.i60
+  %224 = getelementptr inbounds nuw [8 x i8], ptr %220, i64 %indvars.iv.i60
   %225 = load i64, ptr %224, align 8, !tbaa !14
-  %226 = getelementptr inbounds nuw i64, ptr %221, i64 %indvars.iv.i60
+  %226 = getelementptr inbounds nuw [8 x i8], ptr %221, i64 %indvars.iv.i60
   %227 = load i64, ptr %226, align 8, !tbaa !14
   %228 = or i64 %227, %225
   store i64 %228, ptr %226, align 8, !tbaa !14
@@ -1261,7 +1252,7 @@ _ZN4llvm9BitVectoroRERKS0_.exit83:                ; preds = %223, %_ZN4llvm9BitV
   %241 = load ptr, ptr %52, align 8, !tbaa !3
   %242 = load i32, ptr %53, align 8, !tbaa !9
   %243 = zext i32 %242 to i64
-  %244 = getelementptr inbounds nuw i64, ptr %241, i64 %243
+  %244 = getelementptr inbounds nuw [8 x i8], ptr %241, i64 %243
   %245 = getelementptr inbounds i8, ptr %244, i64 -8
   %246 = load i64, ptr %245, align 8, !tbaa !14
   %247 = and i64 %246, %240
@@ -1300,7 +1291,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE28reserveForParamAndGetAddressERmm.exit.
   %.pre-phi.i.i.i96 = phi i64 [ %.pre-phi.i.i92, %255 ], [ %.pre.i.i.i104, %258 ]
   %259 = phi i32 [ %248, %255 ], [ %.pre.i.i.i.i103, %258 ]
   %260 = load ptr, ptr %52, align 8, !tbaa !3
-  %261 = getelementptr inbounds nuw i64, ptr %260, i64 %.pre-phi.i.i.i96
+  %261 = getelementptr inbounds nuw [8 x i8], ptr %260, i64 %.pre-phi.i.i.i96
   %.idx.i.i.i.i.i.i.i.i97 = shl nuw nsw i64 %256, 3
   call void @llvm.memset.p0.i64(ptr align 8 %261, i8 0, i64 %.idx.i.i.i.i.i.i.i.i97, i1 false), !tbaa !14
   %262 = trunc nuw nsw i64 %256 to i32
@@ -1326,7 +1317,7 @@ _ZN4llvm15SmallVectorImplImE6resizeEmm.exit.i.i101: ; preds = %.sink.split.i.i.i
   %270 = xor i64 %269, -1
   %271 = load ptr, ptr %52, align 8, !tbaa !3
   %272 = zext i32 %264 to i64
-  %273 = getelementptr inbounds nuw i64, ptr %271, i64 %272
+  %273 = getelementptr inbounds nuw [8 x i8], ptr %271, i64 %272
   %274 = getelementptr inbounds i8, ptr %273, i64 -8
   %275 = load i64, ptr %274, align 8, !tbaa !14
   %276 = and i64 %275, %270
@@ -1346,9 +1337,9 @@ _ZN4llvm9BitVector6resizeEjb.exit.i84:            ; preds = %267, %_ZN4llvm15Sma
 
 281:                                              ; preds = %281, %.lr.ph.i86
   %indvars.iv.i87 = phi i64 [ 0, %.lr.ph.i86 ], [ %indvars.iv.next.i88, %281 ]
-  %282 = getelementptr inbounds nuw i64, ptr %278, i64 %indvars.iv.i87
+  %282 = getelementptr inbounds nuw [8 x i8], ptr %278, i64 %indvars.iv.i87
   %283 = load i64, ptr %282, align 8, !tbaa !14
-  %284 = getelementptr inbounds nuw i64, ptr %279, i64 %indvars.iv.i87
+  %284 = getelementptr inbounds nuw [8 x i8], ptr %279, i64 %indvars.iv.i87
   %285 = load i64, ptr %284, align 8, !tbaa !14
   %286 = or i64 %285, %283
   store i64 %286, ptr %284, align 8, !tbaa !14
@@ -1403,7 +1394,7 @@ _ZN4llvm9BitVectoroRERKS0_.exit110:               ; preds = %281, %_ZN4llvm9BitV
   %309 = lshr i64 %37, 6
   %310 = and i64 %309, 67108863
   %311 = load ptr, ptr %52, align 8, !tbaa !3
-  %312 = getelementptr inbounds nuw i64, ptr %311, i64 %310
+  %312 = getelementptr inbounds nuw [8 x i8], ptr %311, i64 %310
   %313 = and i64 %37, 63
   %314 = load i64, ptr %312, align 8, !tbaa !14
   %315 = shl nuw i64 1, %313
@@ -1496,7 +1487,7 @@ _ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.i.i.i.i: ; preds = %_ZSt7advan
   %.017.i.i.i.i = phi ptr [ %24, %_ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.lr.ph.i.i.i.i ], [ %.1.i.i.i.i, %_ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.i.i.i.i ]
   %.01116.i.i.i.i = phi i64 [ %26, %_ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.lr.ph.i.i.i.i ], [ %.112.i.i.i.i, %_ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.i.i.i.i ]
   %27 = lshr i64 %.01116.i.i.i.i, 1
-  %28 = getelementptr inbounds nuw ptr, ptr %.017.i.i.i.i, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %.017.i.i.i.i, i64 %27
   %29 = load ptr, ptr %28, align 8, !tbaa !10
   %30 = icmp ult ptr %29, %23
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 8
@@ -1514,10 +1505,10 @@ _ZNK4llvm19BlockToIndexMapping12blockToIndexEPKNS_10BasicBlockE.exit: ; preds = 
   %37 = sub i64 %35, %36
   %38 = ashr exact i64 %37, 3
   %39 = load ptr, ptr %11, align 8, !tbaa !3
-  %40 = getelementptr inbounds nuw %"struct.llvm::SuspendCrossingInfo::BlockData", ptr %39, i64 %38
+  %40 = getelementptr inbounds nuw [152 x i8], ptr %39, i64 %38
   %41 = ptrtoint ptr %40 to i64
   %42 = and i64 %38, 4294967295
-  %43 = getelementptr inbounds nuw ptr, ptr %24, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %42
   %44 = load ptr, ptr %43, align 8, !tbaa !10
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load ptr, ptr %45, align 8, !tbaa !85
@@ -1554,7 +1545,7 @@ _ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds
   %.017.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i.i.i.i.i.i.i, %_ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.i.i.i.i.i.i.i.i.i.i.i ], [ %24, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i.i.i.i.i ]
   %.01116.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %.112.i.i.i.i.i.i.i.i.i.i.i, %_ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.i.i.i.i.i.i.i.i.i.i.i ], [ %56, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i.i.i.i.i ]
   %60 = lshr i64 %.01116.i.i.i.i.i.i.i.i.i.i.i, 1
-  %61 = getelementptr inbounds nuw ptr, ptr %.017.i.i.i.i.i.i.i.i.i.i.i, i64 %60
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %.017.i.i.i.i.i.i.i.i.i.i.i, i64 %60
   %62 = load ptr, ptr %61, align 8, !tbaa !10
   %63 = icmp ult ptr %62, %59
   %64 = getelementptr inbounds nuw i8, ptr %61, i64 8
@@ -1573,7 +1564,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm19SuspendCrossingInfo16computeBlockData
   %.pre-phi.i.i.i.i.i = phi i64 [ %.pre.i.i.i.i.i, %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm19SuspendCrossingInfo16computeBlockDataILb0EEEbRKNS2_25ReversePostOrderTraversalIPNS2_8FunctionENS2_11GraphTraitsIS7_EEEEEUlPNS2_10BasicBlockEE_EclINS2_12PredIteratorISD_NS2_5Value18user_iterator_implINS2_4UserEEEEEEEbT_.exit.loopexit.i.i.i.i.i ], [ %36, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i.i.i.i.i ]
   %68 = sub i64 %.pre-phi.i.i.i.i.i, %36
   %69 = ashr exact i64 %68, 3
-  %70 = getelementptr inbounds nuw %"struct.llvm::SuspendCrossingInfo::BlockData", ptr %39, i64 %69
+  %70 = getelementptr inbounds nuw [152 x i8], ptr %39, i64 %69
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 147
   %72 = load i8, ptr %71, align 1, !tbaa !34, !range !25, !noundef !26
   %73 = trunc nuw i8 %72 to i1
@@ -1699,7 +1690,7 @@ _ZN4llvm9BitVectorC2ERKS0_.exit51:                ; preds = %_ZN4llvm9BitVectorC
   %115 = sdiv exact i64 %114, 152
   %116 = and i64 %115, 4294967295
   %117 = load ptr, ptr %0, align 8, !tbaa !3
-  %118 = getelementptr inbounds nuw ptr, ptr %117, i64 %116
+  %118 = getelementptr inbounds nuw [8 x i8], ptr %117, i64 %116
   %119 = load ptr, ptr %118, align 8, !tbaa !10
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 16
   %121 = load ptr, ptr %120, align 8, !tbaa !85
@@ -1754,7 +1745,7 @@ _ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.i.i.i.i62: ; preds = %_ZSt7adv
   %.017.i.i.i.i63 = phi ptr [ %143, %_ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.lr.ph.i.i.i.i61 ], [ %.1.i.i.i.i68, %_ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.i.i.i.i62 ]
   %.01116.i.i.i.i64 = phi i64 [ %145, %_ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.lr.ph.i.i.i.i61 ], [ %.112.i.i.i.i67, %_ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.i.i.i.i62 ]
   %146 = lshr i64 %.01116.i.i.i.i64, 1
-  %147 = getelementptr inbounds nuw ptr, ptr %.017.i.i.i.i63, i64 %146
+  %147 = getelementptr inbounds nuw [8 x i8], ptr %.017.i.i.i.i63, i64 %146
   %148 = load ptr, ptr %147, align 8, !tbaa !10
   %149 = icmp ult ptr %148, %142
   %150 = getelementptr inbounds nuw i8, ptr %147, i64 8
@@ -1772,7 +1763,7 @@ _ZNK4llvm19BlockToIndexMapping12blockToIndexEPKNS_10BasicBlockE.exit70: ; preds 
   %156 = sub i64 %154, %155
   %157 = ashr exact i64 %156, 3
   %158 = load ptr, ptr %11, align 8, !tbaa !3
-  %159 = getelementptr inbounds nuw %"struct.llvm::SuspendCrossingInfo::BlockData", ptr %158, i64 %157
+  %159 = getelementptr inbounds nuw [152 x i8], ptr %158, i64 %157
   %160 = load i32, ptr %97, align 8, !tbaa !32
   %161 = getelementptr inbounds nuw i8, ptr %159, i64 64
   %162 = load i32, ptr %161, align 8, !tbaa !32
@@ -1796,7 +1787,7 @@ _ZNK4llvm19BlockToIndexMapping12blockToIndexEPKNS_10BasicBlockE.exit70: ; preds 
   %170 = load ptr, ptr %40, align 8, !tbaa !3
   %171 = load i32, ptr %87, align 8, !tbaa !9
   %172 = zext i32 %171 to i64
-  %173 = getelementptr inbounds nuw i64, ptr %170, i64 %172
+  %173 = getelementptr inbounds nuw [8 x i8], ptr %170, i64 %172
   %174 = getelementptr inbounds i8, ptr %173, i64 -8
   %175 = load i64, ptr %174, align 8, !tbaa !14
   %176 = and i64 %175, %169
@@ -1835,7 +1826,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE28reserveForParamAndGetAddressERmm.exit.
   %.pre-phi.i.i.i = phi i64 [ %.pre-phi.i.i, %184 ], [ %.pre.i.i.i, %187 ]
   %188 = phi i32 [ %177, %184 ], [ %.pre.i.i.i.i, %187 ]
   %189 = load ptr, ptr %40, align 8, !tbaa !3
-  %190 = getelementptr inbounds nuw i64, ptr %189, i64 %.pre-phi.i.i.i
+  %190 = getelementptr inbounds nuw [8 x i8], ptr %189, i64 %.pre-phi.i.i.i
   %.idx.i.i.i.i.i.i.i.i = shl nuw nsw i64 %185, 3
   call void @llvm.memset.p0.i64(ptr align 8 %190, i8 0, i64 %.idx.i.i.i.i.i.i.i.i, i1 false), !tbaa !14
   %191 = trunc nuw nsw i64 %185 to i32
@@ -1861,7 +1852,7 @@ _ZN4llvm15SmallVectorImplImE6resizeEmm.exit.i.i:  ; preds = %.sink.split.i.i.i72
   %199 = xor i64 %198, -1
   %200 = load ptr, ptr %40, align 8, !tbaa !3
   %201 = zext i32 %193 to i64
-  %202 = getelementptr inbounds nuw i64, ptr %200, i64 %201
+  %202 = getelementptr inbounds nuw [8 x i8], ptr %200, i64 %201
   %203 = getelementptr inbounds i8, ptr %202, i64 -8
   %204 = load i64, ptr %203, align 8, !tbaa !14
   %205 = and i64 %204, %199
@@ -1882,9 +1873,9 @@ _ZN4llvm9BitVector6resizeEjb.exit.i:              ; preds = %196, %_ZN4llvm15Sma
 
 211:                                              ; preds = %211, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %211 ]
-  %212 = getelementptr inbounds nuw i64, ptr %208, i64 %indvars.iv.i
+  %212 = getelementptr inbounds nuw [8 x i8], ptr %208, i64 %indvars.iv.i
   %213 = load i64, ptr %212, align 8, !tbaa !14
-  %214 = getelementptr inbounds nuw i64, ptr %209, i64 %indvars.iv.i
+  %214 = getelementptr inbounds nuw [8 x i8], ptr %209, i64 %indvars.iv.i
   %215 = load i64, ptr %214, align 8, !tbaa !14
   %216 = or i64 %215, %213
   store i64 %216, ptr %214, align 8, !tbaa !14
@@ -1917,7 +1908,7 @@ _ZN4llvm9BitVectoroRERKS0_.exit:                  ; preds = %211, %_ZN4llvm9BitV
   %228 = load ptr, ptr %99, align 8, !tbaa !3
   %229 = load i32, ptr %100, align 8, !tbaa !9
   %230 = zext i32 %229 to i64
-  %231 = getelementptr inbounds nuw i64, ptr %228, i64 %230
+  %231 = getelementptr inbounds nuw [8 x i8], ptr %228, i64 %230
   %232 = getelementptr inbounds i8, ptr %231, i64 -8
   %233 = load i64, ptr %232, align 8, !tbaa !14
   %234 = and i64 %233, %227
@@ -1956,7 +1947,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE28reserveForParamAndGetAddressERmm.exit.
   %.pre-phi.i.i.i87 = phi i64 [ %.pre-phi.i.i83, %242 ], [ %.pre.i.i.i95, %245 ]
   %246 = phi i32 [ %235, %242 ], [ %.pre.i.i.i.i94, %245 ]
   %247 = load ptr, ptr %99, align 8, !tbaa !3
-  %248 = getelementptr inbounds nuw i64, ptr %247, i64 %.pre-phi.i.i.i87
+  %248 = getelementptr inbounds nuw [8 x i8], ptr %247, i64 %.pre-phi.i.i.i87
   %.idx.i.i.i.i.i.i.i.i88 = shl nuw nsw i64 %243, 3
   call void @llvm.memset.p0.i64(ptr align 8 %248, i8 0, i64 %.idx.i.i.i.i.i.i.i.i88, i1 false), !tbaa !14
   %249 = trunc nuw nsw i64 %243 to i32
@@ -1982,7 +1973,7 @@ _ZN4llvm15SmallVectorImplImE6resizeEmm.exit.i.i92: ; preds = %.sink.split.i.i.i8
   %257 = xor i64 %256, -1
   %258 = load ptr, ptr %99, align 8, !tbaa !3
   %259 = zext i32 %251 to i64
-  %260 = getelementptr inbounds nuw i64, ptr %258, i64 %259
+  %260 = getelementptr inbounds nuw [8 x i8], ptr %258, i64 %259
   %261 = getelementptr inbounds i8, ptr %260, i64 -8
   %262 = load i64, ptr %261, align 8, !tbaa !14
   %263 = and i64 %262, %257
@@ -2004,9 +1995,9 @@ _ZN4llvm9BitVector6resizeEjb.exit.i75:            ; preds = %254, %_ZN4llvm15Sma
 
 270:                                              ; preds = %270, %.lr.ph.i77
   %indvars.iv.i78 = phi i64 [ 0, %.lr.ph.i77 ], [ %indvars.iv.next.i79, %270 ]
-  %271 = getelementptr inbounds nuw i64, ptr %267, i64 %indvars.iv.i78
+  %271 = getelementptr inbounds nuw [8 x i8], ptr %267, i64 %indvars.iv.i78
   %272 = load i64, ptr %271, align 8, !tbaa !14
-  %273 = getelementptr inbounds nuw i64, ptr %268, i64 %indvars.iv.i78
+  %273 = getelementptr inbounds nuw [8 x i8], ptr %268, i64 %indvars.iv.i78
   %274 = load i64, ptr %273, align 8, !tbaa !14
   %275 = or i64 %274, %272
   store i64 %275, ptr %273, align 8, !tbaa !14
@@ -2042,7 +2033,7 @@ _ZN4llvm9BitVectoroRERKS0_.exit101:               ; preds = %270, %_ZN4llvm9BitV
   %288 = load ptr, ptr %99, align 8, !tbaa !3
   %289 = load i32, ptr %100, align 8, !tbaa !9
   %290 = zext i32 %289 to i64
-  %291 = getelementptr inbounds nuw i64, ptr %288, i64 %290
+  %291 = getelementptr inbounds nuw [8 x i8], ptr %288, i64 %290
   %292 = getelementptr inbounds i8, ptr %291, i64 -8
   %293 = load i64, ptr %292, align 8, !tbaa !14
   %294 = and i64 %293, %287
@@ -2081,7 +2072,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE28reserveForParamAndGetAddressERmm.exit.
   %.pre-phi.i.i.i114 = phi i64 [ %.pre-phi.i.i110, %302 ], [ %.pre.i.i.i122, %305 ]
   %306 = phi i32 [ %295, %302 ], [ %.pre.i.i.i.i121, %305 ]
   %307 = load ptr, ptr %99, align 8, !tbaa !3
-  %308 = getelementptr inbounds nuw i64, ptr %307, i64 %.pre-phi.i.i.i114
+  %308 = getelementptr inbounds nuw [8 x i8], ptr %307, i64 %.pre-phi.i.i.i114
   %.idx.i.i.i.i.i.i.i.i115 = shl nuw nsw i64 %303, 3
   call void @llvm.memset.p0.i64(ptr align 8 %308, i8 0, i64 %.idx.i.i.i.i.i.i.i.i115, i1 false), !tbaa !14
   %309 = trunc nuw nsw i64 %303 to i32
@@ -2107,7 +2098,7 @@ _ZN4llvm15SmallVectorImplImE6resizeEmm.exit.i.i119: ; preds = %.sink.split.i.i.i
   %317 = xor i64 %316, -1
   %318 = load ptr, ptr %99, align 8, !tbaa !3
   %319 = zext i32 %311 to i64
-  %320 = getelementptr inbounds nuw i64, ptr %318, i64 %319
+  %320 = getelementptr inbounds nuw [8 x i8], ptr %318, i64 %319
   %321 = getelementptr inbounds i8, ptr %320, i64 -8
   %322 = load i64, ptr %321, align 8, !tbaa !14
   %323 = and i64 %322, %317
@@ -2128,9 +2119,9 @@ _ZN4llvm9BitVector6resizeEjb.exit.i102:           ; preds = %314, %_ZN4llvm15Sma
 
 329:                                              ; preds = %329, %.lr.ph.i104
   %indvars.iv.i105 = phi i64 [ 0, %.lr.ph.i104 ], [ %indvars.iv.next.i106, %329 ]
-  %330 = getelementptr inbounds nuw i64, ptr %326, i64 %indvars.iv.i105
+  %330 = getelementptr inbounds nuw [8 x i8], ptr %326, i64 %indvars.iv.i105
   %331 = load i64, ptr %330, align 8, !tbaa !14
-  %332 = getelementptr inbounds nuw i64, ptr %327, i64 %indvars.iv.i105
+  %332 = getelementptr inbounds nuw [8 x i8], ptr %327, i64 %indvars.iv.i105
   %333 = load i64, ptr %332, align 8, !tbaa !14
   %334 = or i64 %333, %331
   store i64 %334, ptr %332, align 8, !tbaa !14
@@ -2187,7 +2178,7 @@ _ZN4llvm9BitVectoroRERKS0_.exit128:               ; preds = %329, %_ZN4llvm9BitV
   %358 = lshr i64 %38, 6
   %359 = and i64 %358, 67108863
   %360 = load ptr, ptr %99, align 8, !tbaa !3
-  %361 = getelementptr inbounds nuw i64, ptr %360, i64 %359
+  %361 = getelementptr inbounds nuw [8 x i8], ptr %360, i64 %359
   %362 = and i64 %38, 63
   %363 = load i64, ptr %361, align 8, !tbaa !14
   %364 = shl nuw i64 1, %362
@@ -2324,7 +2315,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(68) ptr @_ZN4
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load i32, ptr %15, align 8, !tbaa !9
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw i64, ptr %14, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %17
   %19 = getelementptr inbounds i8, ptr %18, i64 -8
   %20 = load i64, ptr %19, align 8, !tbaa !14
   %21 = and i64 %20, %13
@@ -2366,7 +2357,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE28reserveForParamAndGetAddressERmm.exit.
   %.pre-phi.i.i = phi i64 [ %.pre-phi.i, %30 ], [ %.pre.i.i, %34 ]
   %36 = phi i32 [ %22, %30 ], [ %.pre.i.i.i, %34 ]
   %37 = load ptr, ptr %0, align 8, !tbaa !3
-  %38 = getelementptr inbounds nuw i64, ptr %37, i64 %.pre-phi.i.i
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %.pre-phi.i.i
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %31, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %38, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !14
   %39 = trunc nuw nsw i64 %31 to i32
@@ -2392,7 +2383,7 @@ _ZN4llvm15SmallVectorImplImE6resizeEmm.exit.i:    ; preds = %.sink.split.i.i, %_
   %47 = xor i64 %46, -1
   %48 = load ptr, ptr %0, align 8, !tbaa !3
   %49 = zext i32 %41 to i64
-  %50 = getelementptr inbounds nuw i64, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %49
   %51 = getelementptr inbounds i8, ptr %50, i64 -8
   %52 = load i64, ptr %51, align 8, !tbaa !14
   %53 = and i64 %52, %47
@@ -2416,9 +2407,9 @@ _ZN4llvm9BitVector6resizeEjb.exit:                ; preds = %44, %_ZN4llvm15Smal
 
 59:                                               ; preds = %.lr.ph, %59
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %59 ]
-  %60 = getelementptr inbounds nuw i64, ptr %56, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %indvars.iv
   %61 = load i64, ptr %60, align 8, !tbaa !14
-  %62 = getelementptr inbounds nuw i64, ptr %57, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %indvars.iv
   %63 = load i64, ptr %62, align 8, !tbaa !14
   %64 = or i64 %63, %61
   store i64 %64, ptr %62, align 8, !tbaa !14
@@ -2445,8 +2436,8 @@ define linkonce_odr hidden void @_ZN4llvm15SmallVectorImplINS_19SuspendCrossingI
 
 .lr.ph.i.preheader.i:                             ; preds = %8
   %10 = load ptr, ptr %0, align 8, !tbaa !3
-  %11 = getelementptr inbounds nuw %"struct.llvm::SuspendCrossingInfo::BlockData", ptr %10, i64 %1
-  %12 = getelementptr inbounds nuw %"struct.llvm::SuspendCrossingInfo::BlockData", ptr %10, i64 %6
+  %11 = getelementptr inbounds nuw [152 x i8], ptr %10, i64 %1
+  %12 = getelementptr inbounds nuw [152 x i8], ptr %10, i64 %6
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN4llvm19SuspendCrossingInfo9BlockDataD2Ev.exit.i.i, %.lr.ph.i.preheader.i
@@ -2513,12 +2504,12 @@ _ZN4llvm23SmallVectorTemplateBaseINS_19SuspendCrossingInfo9BlockDataELb0EE4growE
 _ZN4llvm15SmallVectorImplINS_19SuspendCrossingInfo9BlockDataEE7reserveEm.exit: ; preds = %._ZN4llvm15SmallVectorImplINS_19SuspendCrossingInfo9BlockDataEE7reserveEm.exit_crit_edge, %_ZN4llvm23SmallVectorTemplateBaseINS_19SuspendCrossingInfo9BlockDataELb0EE4growEm.exit.i
   %.pre-phi = phi i64 [ %6, %._ZN4llvm15SmallVectorImplINS_19SuspendCrossingInfo9BlockDataEE7reserveEm.exit_crit_edge ], [ %.pre14, %_ZN4llvm23SmallVectorTemplateBaseINS_19SuspendCrossingInfo9BlockDataELb0EE4growEm.exit.i ]
   %36 = phi ptr [ %.pre, %._ZN4llvm15SmallVectorImplINS_19SuspendCrossingInfo9BlockDataEE7reserveEm.exit_crit_edge ], [ %30, %_ZN4llvm23SmallVectorTemplateBaseINS_19SuspendCrossingInfo9BlockDataELb0EE4growEm.exit.i ]
-  %37 = getelementptr inbounds nuw %"struct.llvm::SuspendCrossingInfo::BlockData", ptr %36, i64 %1
+  %37 = getelementptr inbounds nuw [152 x i8], ptr %36, i64 %1
   %.not11 = icmp samesign eq i64 %1, %.pre-phi
   br i1 %.not11, label %.sink.split, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZN4llvm15SmallVectorImplINS_19SuspendCrossingInfo9BlockDataEE7reserveEm.exit
-  %38 = getelementptr inbounds nuw %"struct.llvm::SuspendCrossingInfo::BlockData", ptr %36, i64 %.pre-phi
+  %38 = getelementptr inbounds nuw [152 x i8], ptr %36, i64 %.pre-phi
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -2761,7 +2752,7 @@ _ZSt4moveIPmS0_ET0_T_S2_S1_.exit35:               ; preds = %37, %36, %34
   %.idx40 = shl nuw nsw i64 %.026, 3
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 %.idx40
   %44 = load ptr, ptr %0, align 8, !tbaa !3
-  %45 = getelementptr inbounds nuw i64, ptr %44, i64 %.026
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %.026
   %46 = sub nsw i64 %40, %.026
   %gepdiff = shl nsw i64 %46, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %45, ptr align 8 %43, i64 %gepdiff, i1 false)
@@ -3413,7 +3404,7 @@ _ZSteqIJPN4llvm10BasicBlockENS0_12SuccIteratorINS0_11InstructionES1_EES5_EJS2_S5
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt11__copy_moveILb0ELb0ESt20forward_iterator_tagE8__copy_mIN4llvm11po_iteratorIPNS3_8FunctionENS3_11SmallPtrSetIPNS3_10BasicBlockELj8EEELb0ENS3_11GraphTraitsIS6_EEEESt20back_insert_iteratorINS3_11SmallVectorIS9_Lj8EEEEEET0_T_SJ_SI_.exit, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !139
 
 .loopexit.i:                                      ; preds = %_ZSteqIJPN4llvm10BasicBlockENS0_12SuccIteratorINS0_11InstructionES1_EES5_EJS2_S5_S5_EEbRKSt5tupleIJDpT_EERKS6_IJDpT0_EE.exit.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i, %_ZN4llvm11po_iteratorIPNS_8FunctionENS_11SmallPtrSetIPNS_10BasicBlockELj8EEELb0ENS_11GraphTraitsIS2_EEEppEv.exit.i
-  %53 = getelementptr inbounds nuw %"class.std::tuple.43", ptr %.pre.i, i64 %31
+  %53 = getelementptr inbounds nuw [40 x i8], ptr %.pre.i, i64 %31
   %54 = getelementptr inbounds i8, ptr %53, i64 -8
   %55 = load ptr, ptr %54, align 8, !tbaa !10
   %56 = load i32, ptr %26, align 8, !tbaa !9
@@ -3432,7 +3423,7 @@ _ZNSt20back_insert_iteratorIN4llvm11SmallVectorIPNS0_10BasicBlockELj8EEEEaSERKS3
   %61 = phi i32 [ %56, %.loopexit.i ], [ %.pre.i.i.i, %58 ]
   %62 = load ptr, ptr %2, align 8, !tbaa !3
   %63 = zext i32 %61 to i64
-  %64 = getelementptr inbounds nuw ptr, ptr %62, i64 %63
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %63
   %65 = ptrtoint ptr %55 to i64
   store i64 %65, ptr %64, align 1
   %66 = load i32, ptr %26, align 8, !tbaa !9
@@ -3504,7 +3495,7 @@ define linkonce_odr hidden void @_ZN4llvm11po_iteratorIPNS_8FunctionENS_11SmallP
   %7 = load ptr, ptr %5, align 8, !tbaa !3
   %8 = load i32, ptr %6, align 8, !tbaa !9
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw %"class.std::tuple.43", ptr %7, i64 %9
+  %10 = getelementptr inbounds nuw [40 x i8], ptr %7, i64 %9
   %11 = getelementptr inbounds i8, ptr %10, i64 -16
   %12 = load i32, ptr %11, align 8, !tbaa !136
   %13 = getelementptr inbounds i8, ptr %10, i64 -32
@@ -3622,7 +3613,7 @@ _ZN4llvm11GraphTraitsIPNS_10BasicBlockEE9child_endES2_.exit: ; preds = %_ZN4llvm
 59:                                               ; preds = %_ZN4llvm11GraphTraitsIPNS_10BasicBlockEE9child_endES2_.exit
   %60 = zext i32 %55 to i64
   %61 = load ptr, ptr %5, align 8, !tbaa !3
-  %62 = getelementptr inbounds nuw %"class.std::tuple.43", ptr %61, i64 %60
+  %62 = getelementptr inbounds nuw [40 x i8], ptr %61, i64 %60
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %62, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %63, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
@@ -3643,7 +3634,7 @@ _ZN4llvm19po_iterator_storageINS_11SmallPtrSetIPNS_10BasicBlockELj8EEELb0EE10ins
   %67 = load ptr, ptr %5, align 8, !tbaa !3
   %68 = load i32, ptr %6, align 8, !tbaa !9
   %69 = zext i32 %68 to i64
-  %70 = getelementptr inbounds nuw %"class.std::tuple.43", ptr %67, i64 %69
+  %70 = getelementptr inbounds nuw [40 x i8], ptr %67, i64 %69
   %71 = getelementptr inbounds i8, ptr %70, i64 -16
   %72 = load i32, ptr %71, align 8, !tbaa !136
   %73 = getelementptr inbounds i8, ptr %70, i64 -32
@@ -3669,7 +3660,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i32, ptr %8, align 8, !tbaa !9
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw %"class.std::tuple.43", ptr %7, i64 %10
+  %11 = getelementptr inbounds nuw [40 x i8], ptr %7, i64 %10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
@@ -3723,7 +3714,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPNS_10BasicBlockENS_12SuccIteratorIN
   %33 = add i32 %32, 1
   store i32 %33, ptr %8, align 8, !tbaa !9
   %34 = zext i32 %33 to i64
-  %35 = getelementptr inbounds nuw %"class.std::tuple.43", ptr %7, i64 %34
+  %35 = getelementptr inbounds nuw [40 x i8], ptr %7, i64 %34
   %36 = getelementptr inbounds i8, ptr %35, i64 -40
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %36
@@ -3903,13 +3894,13 @@ _ZSt4moveIPSt5tupleIJPN4llvm10BasicBlockENS1_12SuccIteratorINS1_11InstructionES2
   %73 = load ptr, ptr %1, align 8, !tbaa !3
   %74 = load i32, ptr %22, align 8, !tbaa !9
   %75 = zext i32 %74 to i64
-  %76 = getelementptr inbounds nuw %"class.std::tuple.43", ptr %73, i64 %75
+  %76 = getelementptr inbounds nuw [40 x i8], ptr %73, i64 %75
   %.not7.i.i.i.i.i = icmp samesign eq i64 %.026, %75
   br i1 %.not7.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPNS_10BasicBlockENS_12SuccIteratorINS_11InstructionES2_EES6_EELb0EE18uninitialized_moveIPS7_SA_EEvT_SB_T0_.exit, label %.lr.ph.i.i.i.i.i41.preheader
 
 .lr.ph.i.i.i.i.i41.preheader:                     ; preds = %_ZSt4moveIPSt5tupleIJPN4llvm10BasicBlockENS1_12SuccIteratorINS1_11InstructionES2_EES6_EES8_ET0_T_SA_S9_.exit40
-  %77 = getelementptr inbounds nuw %"class.std::tuple.43", ptr %72, i64 %.026
-  %78 = getelementptr inbounds nuw %"class.std::tuple.43", ptr %73, i64 %.026
+  %77 = getelementptr inbounds nuw [40 x i8], ptr %72, i64 %.026
+  %78 = getelementptr inbounds nuw [40 x i8], ptr %73, i64 %.026
   br label %.lr.ph.i.i.i.i.i41
 
 .lr.ph.i.i.i.i.i41:                               ; preds = %.lr.ph.i.i.i.i.i41.preheader, %.lr.ph.i.i.i.i.i41
@@ -4075,13 +4066,13 @@ _ZSt4copyIPKSt5tupleIJPN4llvm10BasicBlockENS1_12SuccIteratorINS1_11InstructionES
   %59 = load ptr, ptr %1, align 8, !tbaa !3
   %60 = load i32, ptr %6, align 8, !tbaa !9
   %61 = zext i32 %60 to i64
-  %62 = getelementptr inbounds nuw %"class.std::tuple.43", ptr %59, i64 %61
+  %62 = getelementptr inbounds nuw [40 x i8], ptr %59, i64 %61
   %.not9.i.i.i.i = icmp samesign eq i64 %.022, %61
   br i1 %.not9.i.i.i.i, label %.sink.split, label %.lr.ph.i.i.i.i.preheader
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %_ZSt4copyIPKSt5tupleIJPN4llvm10BasicBlockENS1_12SuccIteratorINS1_11InstructionES2_EES6_EEPS7_ET0_T_SC_SB_.exit36
-  %63 = getelementptr inbounds nuw %"class.std::tuple.43", ptr %58, i64 %.022
-  %64 = getelementptr inbounds nuw %"class.std::tuple.43", ptr %59, i64 %.022
+  %63 = getelementptr inbounds nuw [40 x i8], ptr %58, i64 %.022
+  %64 = getelementptr inbounds nuw [40 x i8], ptr %59, i64 %.022
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %.lr.ph.i.i.i.i

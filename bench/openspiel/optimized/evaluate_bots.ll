@@ -67,7 +67,7 @@ define void @_ZN10open_spiel12EvaluateBotsEPNS_5StateERKSt6vectorIPNS_3BotESaIS4
 15:                                               ; preds = %15, %4
   %store_forwarded = phi i64 [ %14, %4 ], [ %21, %15 ]
   %.011.i.i = phi i64 [ 1, %4 ], [ %22, %15 ]
-  %16 = getelementptr i64, ptr %5, i64 %.011.i.i
+  %16 = getelementptr [8 x i8], ptr %5, i64 %.011.i.i
   %17 = lshr i64 %store_forwarded, 30
   %18 = xor i64 %17, %store_forwarded
   %19 = mul nuw nsw i64 %18, 1812433253
@@ -355,7 +355,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit67:                  ; preds = %125, %129
 
 134:                                              ; preds = %_ZNSt6vectorIlSaIlEED2Ev.exit67
   %135 = load ptr, ptr %2, align 8
-  %136 = getelementptr inbounds nuw ptr, ptr %135, i64 %indvars.iv118
+  %136 = getelementptr inbounds nuw [8 x i8], ptr %135, i64 %indvars.iv118
   %137 = load ptr, ptr %136, align 8
   %138 = load ptr, ptr %137, align 8
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 16
@@ -366,7 +366,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit67:                  ; preds = %125, %129
 142:                                              ; preds = %134, %_ZNSt6vectorIlSaIlEED2Ev.exit67
   %.sink = phi i64 [ -1, %_ZNSt6vectorIlSaIlEED2Ev.exit67 ], [ %141, %134 ]
   %143 = load ptr, ptr %6, align 8
-  %144 = getelementptr inbounds nuw i64, ptr %143, i64 %indvars.iv118
+  %144 = getelementptr inbounds nuw [8 x i8], ptr %143, i64 %indvars.iv118
   store i64 %.sink, ptr %144, align 8
   %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 1
   %exitcond122.not = icmp eq i64 %indvars.iv.next119, %wide.trip.count121
@@ -386,7 +386,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit67:                  ; preds = %125, %129
 150:                                              ; preds = %145
   %151 = sext i32 %149 to i64
   %152 = load ptr, ptr %2, align 8
-  %153 = getelementptr inbounds ptr, ptr %152, i64 %151
+  %153 = getelementptr inbounds [8 x i8], ptr %152, i64 %151
   %154 = load ptr, ptr %153, align 8
   %155 = load ptr, ptr %154, align 8
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 16
@@ -408,7 +408,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit67:                  ; preds = %125, %129
 
 160:                                              ; preds = %.lr.ph108
   %161 = load ptr, ptr %2, align 8
-  %162 = getelementptr inbounds nuw ptr, ptr %161, i64 %indvars.iv
+  %162 = getelementptr inbounds nuw [8 x i8], ptr %161, i64 %indvars.iv
   %163 = load ptr, ptr %162, align 8
   %164 = load ptr, ptr %163, align 8
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 32
@@ -511,7 +511,7 @@ _ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit.i: ; preds = %_ZNSt12_Vector
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %16, ptr %0, align 8
   store ptr %16, ptr %17, align 8
-  %18 = getelementptr inbounds nuw i64, ptr %16, i64 %10
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %10
   store ptr %18, ptr %14, align 8
   br label %_ZNSt6vectorIlSaIlEE7reserveEm.exit
 
@@ -592,7 +592,7 @@ _ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i: ; preds = %44, %.noex
 
 _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJRKlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i: ; preds = %46, %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i
   store ptr %45, ptr %19, align 8
-  %47 = getelementptr inbounds nuw i64, ptr %40, i64 %38
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %38
   br label %_ZNSt6vectorIlSaIlEE9push_backERKl.exit
 
 _ZNSt6vectorIlSaIlEE9push_backERKl.exit:          ; preds = %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJRKlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i, %25
@@ -715,7 +715,7 @@ define void @_ZN10open_spiel12EvaluateBotsERKNS_4GameERKSt6vectorIPNS_3BotESaIS5
 14:                                               ; preds = %14, %3
   %store_forwarded = phi i64 [ %13, %3 ], [ %20, %14 ]
   %.011.i.i = phi i64 [ 1, %3 ], [ %21, %14 ]
-  %15 = getelementptr i64, ptr %6, i64 %.011.i.i
+  %15 = getelementptr [8 x i8], ptr %6, i64 %.011.i.i
   %16 = lshr i64 %store_forwarded, 30
   %17 = xor i64 %16, %store_forwarded
   %18 = mul nuw nsw i64 %17, 1812433253
@@ -843,10 +843,10 @@ define linkonce_odr noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm39
 6:                                                ; preds = %6, %5
   %7 = phi i64 [ %.pre.i, %5 ], [ %12, %6 ]
   %.021.i = phi i64 [ 0, %5 ], [ %10, %6 ]
-  %8 = getelementptr inbounds nuw i64, ptr %0, i64 %.021.i
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.021.i
   %9 = and i64 %7, -2147483648
   %10 = add nuw nsw i64 %.021.i, 1
-  %11 = getelementptr inbounds nuw i64, ptr %0, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %10
   %12 = load i64, ptr %11, align 8
   %13 = and i64 %12, 2147483646
   %14 = or disjoint i64 %13, %9
@@ -870,10 +870,10 @@ define linkonce_odr noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm39
 .preheader.i:                                     ; preds = %.preheader.i, %.preheader.preheader.i
   %22 = phi i64 [ %27, %.preheader.i ], [ %.pre24.i, %.preheader.preheader.i ]
   %.01822.i = phi i64 [ %25, %.preheader.i ], [ 227, %.preheader.preheader.i ]
-  %23 = getelementptr inbounds nuw i64, ptr %0, i64 %.01822.i
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.01822.i
   %24 = and i64 %22, -2147483648
   %25 = add nuw nsw i64 %.01822.i, 1
-  %26 = getelementptr inbounds nuw i64, ptr %0, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %25
   %27 = load i64, ptr %26, align 8
   %28 = and i64 %27, 2147483646
   %29 = or disjoint i64 %28, %24
@@ -911,7 +911,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %51 = phi i64 [ 0, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit ], [ %3, %1 ]
   %52 = add nuw nsw i64 %51, 1
   store i64 %52, ptr %2, align 8
-  %53 = getelementptr inbounds nuw i64, ptr %0, i64 %51
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %51
   %54 = load i64, ptr %53, align 8
   %55 = lshr i64 %54, 11
   %56 = and i64 %55, 4294967295

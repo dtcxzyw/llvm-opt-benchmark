@@ -5,8 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %class.gim_array.0 = type { ptr, i32, i32 }
 %class.btVector3 = type { [4 x float] }
-%class.GIM_CONTACT = type { %class.btVector3, %class.btVector3, float, float, i32, i32 }
-%struct.GIM_RSORT_TOKEN = type { i32, i32 }
 
 $_Z13gim_heap_sortI15GIM_RSORT_TOKEN26GIM_RSORT_TOKEN_COMPARATOREvPT_jT0_ = comdat any
 
@@ -58,7 +56,7 @@ _ZN9gim_arrayI11GIM_CONTACTE5clearEv.exit:        ; preds = %3, %_ZN9gim_arrayI1
 _ZN9gim_arrayI11GIM_CONTACTE9push_backERKS0_.exit: ; preds = %._ZN9gim_arrayI11GIM_CONTACTE12growingCheckEv.exit_crit_edge.i, %16
   %19 = phi i64 [ 0, %._ZN9gim_arrayI11GIM_CONTACTE12growingCheckEv.exit_crit_edge.i ], [ %18, %16 ]
   %20 = phi ptr [ %.pre.i, %._ZN9gim_arrayI11GIM_CONTACTE12growingCheckEv.exit_crit_edge.i ], [ %17, %16 ]
-  %21 = getelementptr inbounds nuw %class.GIM_CONTACT, ptr %20, i64 %19
+  %21 = getelementptr inbounds nuw [48 x i8], ptr %20, i64 %19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %21, ptr noundef nonnull align 4 dereferenceable(48) %13, i64 48, i1 false), !tbaa.struct !13
   %22 = load i32, ptr %6, align 8, !tbaa !4
   %23 = add i32 %22, 1
@@ -119,7 +117,7 @@ _ZN9gim_arrayI15GIM_RSORT_TOKENE6resizeEjbRKS0_.exit: ; preds = %34
 
 40:                                               ; preds = %.lr.ph, %40
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %40 ]
-  %41 = getelementptr inbounds nuw %class.GIM_CONTACT, ptr %39, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [48 x i8], ptr %39, i64 %indvars.iv
   %42 = load float, ptr %41, align 4, !tbaa !15
   %43 = tail call float @llvm.fmuladd.f32(float %42, float 1.000000e+03, float 1.000000e+00)
   %44 = fptosi float %43 to i32
@@ -135,7 +133,7 @@ _ZN9gim_arrayI15GIM_RSORT_TOKENE6resizeEjbRKS0_.exit: ; preds = %34
   %54 = add i32 %53, %44
   %55 = shl i32 %52, 8
   %56 = add i32 %54, %55
-  %57 = getelementptr inbounds nuw %struct.GIM_RSORT_TOKEN, ptr %38, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv
   store i32 %56, ptr %57, align 4, !tbaa !23
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 4
   %59 = trunc nuw i64 %indvars.iv to i32
@@ -169,7 +167,7 @@ _ZN9gim_arrayI15GIM_RSORT_TOKENE6resizeEjbRKS0_.exit: ; preds = %34
   %71 = load i32, ptr %70, align 4, !tbaa !25
   %72 = zext i32 %71 to i64
   %73 = load ptr, ptr %1, align 8, !tbaa !11
-  %74 = getelementptr inbounds nuw %class.GIM_CONTACT, ptr %73, i64 %72
+  %74 = getelementptr inbounds nuw [48 x i8], ptr %73, i64 %72
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %76 = load i32, ptr %75, align 4, !tbaa !12
   %77 = load i32, ptr %6, align 8, !tbaa !4
@@ -226,7 +224,7 @@ _ZN9gim_arrayI15GIM_RSORT_TOKENE6resizeEjbRKS0_.exit: ; preds = %34
   %97 = phi i32 [ %77, %._ZN9gim_arrayI11GIM_CONTACTE12growingCheckEv.exit_crit_edge.i67 ], [ %.pre103, %.noexc70 ]
   %98 = phi ptr [ %.pre.i68, %._ZN9gim_arrayI11GIM_CONTACTE12growingCheckEv.exit_crit_edge.i67 ], [ %storemerge.i.i.i66, %.noexc70 ]
   %99 = zext i32 %97 to i64
-  %100 = getelementptr inbounds nuw %class.GIM_CONTACT, ptr %98, i64 %99
+  %100 = getelementptr inbounds nuw [48 x i8], ptr %98, i64 %99
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %100, ptr noundef nonnull align 4 dereferenceable(48) %74, i64 48, i1 false), !tbaa.struct !13
   %101 = load i32, ptr %6, align 8, !tbaa !4
   %102 = add i32 %101, 1
@@ -238,7 +236,7 @@ _ZN9gim_arrayI15GIM_RSORT_TOKENE6resizeEjbRKS0_.exit: ; preds = %34
 .lr.ph93.preheader:                               ; preds = %96
   %105 = load ptr, ptr %0, align 8, !tbaa !11
   %106 = zext i32 %101 to i64
-  %107 = getelementptr inbounds nuw %class.GIM_CONTACT, ptr %105, i64 %106
+  %107 = getelementptr inbounds nuw [48 x i8], ptr %105, i64 %106
   %108 = zext i32 %103 to i64
   br label %.lr.ph93
 
@@ -247,13 +245,13 @@ _ZN9gim_arrayI15GIM_RSORT_TOKENE6resizeEjbRKS0_.exit: ; preds = %34
   %.04291 = phi ptr [ %107, %.lr.ph93.preheader ], [ %.143, %197 ]
   %.04490 = phi i32 [ %69, %.lr.ph93.preheader ], [ %110, %197 ]
   %.04589 = phi i32 [ 0, %.lr.ph93.preheader ], [ %.146, %197 ]
-  %109 = getelementptr inbounds nuw %struct.GIM_RSORT_TOKEN, ptr %68, i64 %indvars.iv99
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %indvars.iv99
   %110 = load i32, ptr %109, align 4, !tbaa !23
   %111 = getelementptr inbounds nuw i8, ptr %109, i64 4
   %112 = load i32, ptr %111, align 4, !tbaa !25
   %113 = zext i32 %112 to i64
   %114 = load ptr, ptr %1, align 8, !tbaa !11
-  %115 = getelementptr inbounds nuw %class.GIM_CONTACT, ptr %114, i64 %113
+  %115 = getelementptr inbounds nuw [48 x i8], ptr %114, i64 %113
   %116 = icmp eq i32 %.04490, %110
   br i1 %116, label %117, label %138
 
@@ -299,7 +297,7 @@ _ZN9gim_arrayI15GIM_RSORT_TOKENE6resizeEjbRKS0_.exit: ; preds = %34
 133:                                              ; preds = %128
   %134 = getelementptr inbounds nuw i8, ptr %115, i64 16
   %135 = zext nneg i32 %.04589 to i64
-  %136 = getelementptr inbounds nuw %class.btVector3, ptr %5, i64 %135
+  %136 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %135
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %136, ptr noundef nonnull align 4 dereferenceable(16) %134, i64 16, i1 false), !tbaa.struct !32
   %137 = add nuw nsw i32 %.04589, 1
   br label %197
@@ -331,7 +329,7 @@ _ZN9gim_arrayI15GIM_RSORT_TOKENE6resizeEjbRKS0_.exit: ; preds = %34
   %.sroa.0.016.i = phi float [ %.sroa.0.0.copyload.i, %.lr.ph.preheader.i ], [ %147, %.lr.ph.i ]
   %.sroa.7.015.i = phi float [ %.sroa.7.0.copyload.i, %.lr.ph.preheader.i ], [ %150, %.lr.ph.i ]
   %.sroa.11.014.i = phi float [ %.sroa.11.0.copyload.i, %.lr.ph.preheader.i ], [ %153, %.lr.ph.i ]
-  %145 = getelementptr inbounds nuw %class.btVector3, ptr %5, i64 %indvars.iv.i
+  %145 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %indvars.iv.i
   %146 = load float, ptr %145, align 16, !tbaa !15
   %147 = fadd float %.sroa.0.016.i, %146
   %148 = getelementptr inbounds nuw i8, ptr %145, i64 4
@@ -421,14 +419,14 @@ _ZN11GIM_CONTACT19interpolate_normalsEP9btVector3j.exit: ; preds = %154, %._crit
   %188 = phi i32 [ %168, %._ZN9gim_arrayI11GIM_CONTACTE12growingCheckEv.exit_crit_edge.i76 ], [ %.pre104, %.noexc79 ]
   %189 = phi ptr [ %.pre.i77, %._ZN9gim_arrayI11GIM_CONTACTE12growingCheckEv.exit_crit_edge.i76 ], [ %storemerge.i.i.i75, %.noexc79 ]
   %190 = zext i32 %188 to i64
-  %191 = getelementptr inbounds nuw %class.GIM_CONTACT, ptr %189, i64 %190
+  %191 = getelementptr inbounds nuw [48 x i8], ptr %189, i64 %190
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %191, ptr noundef nonnull align 4 dereferenceable(48) %115, i64 48, i1 false), !tbaa.struct !13
   %192 = load i32, ptr %6, align 8, !tbaa !4
   %193 = add i32 %192, 1
   store i32 %193, ptr %6, align 8, !tbaa !4
   %194 = load ptr, ptr %0, align 8, !tbaa !11
   %195 = zext i32 %192 to i64
-  %196 = getelementptr inbounds nuw %class.GIM_CONTACT, ptr %194, i64 %195
+  %196 = getelementptr inbounds nuw [48 x i8], ptr %194, i64 %195
   br label %197
 
 197:                                              ; preds = %124, %128, %133, %127, %187
@@ -501,7 +499,7 @@ define linkonce_odr dso_local void @_Z13gim_heap_sortI15GIM_RSORT_TOKEN26GIM_RSO
 .lr.ph.i.preheader:                               ; preds = %.lr.ph.i.preheader.preheader, %.thread.loopexit.i
   %indvars.iv = phi i64 [ %5, %.lr.ph.i.preheader.preheader ], [ %8, %.thread.loopexit.i ]
   %8 = add nsw i64 %indvars.iv, -1
-  %9 = getelementptr inbounds nuw %struct.GIM_RSORT_TOKEN, ptr %0, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %8
   %10 = load i64, ptr %9, align 4
   %11 = trunc i64 %10 to i32
   %12 = trunc nuw i64 %indvars.iv to i32
@@ -515,7 +513,7 @@ define linkonce_odr dso_local void @_Z13gim_heap_sortI15GIM_RSORT_TOKEN26GIM_RSO
 
 15:                                               ; preds = %.lr.ph.i
   %16 = sext i32 %13 to i64
-  %17 = getelementptr %struct.GIM_RSORT_TOKEN, ptr %0, i64 %16
+  %17 = getelementptr [8 x i8], ptr %0, i64 %16
   %18 = getelementptr i8, ptr %17, i64 -8
   %19 = load i32, ptr %18, align 4, !tbaa !23
   %20 = load i32, ptr %17, align 4, !tbaa !23
@@ -527,7 +525,7 @@ define linkonce_odr dso_local void @_Z13gim_heap_sortI15GIM_RSORT_TOKEN26GIM_RSO
 23:                                               ; preds = %15, %.lr.ph.i
   %.021.i = phi i32 [ %13, %.lr.ph.i ], [ %spec.select.i, %15 ]
   %24 = sext i32 %.021.i to i64
-  %25 = getelementptr %struct.GIM_RSORT_TOKEN, ptr %0, i64 %24
+  %25 = getelementptr [8 x i8], ptr %0, i64 %24
   %26 = getelementptr i8, ptr %25, i64 -8
   %27 = load i32, ptr %26, align 4, !tbaa !23
   %28 = sub i32 %11, %27
@@ -537,7 +535,7 @@ define linkonce_odr dso_local void @_Z13gim_heap_sortI15GIM_RSORT_TOKEN26GIM_RSO
 30:                                               ; preds = %23
   %31 = add nsw i32 %.02229.i, -1
   %32 = zext i32 %31 to i64
-  %33 = getelementptr inbounds nuw %struct.GIM_RSORT_TOKEN, ptr %0, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %32
   %34 = load i64, ptr %26, align 4
   store i64 %34, ptr %33, align 4
   %.not.i = icmp ugt i32 %.021.i, %3
@@ -547,7 +545,7 @@ define linkonce_odr dso_local void @_Z13gim_heap_sortI15GIM_RSORT_TOKEN26GIM_RSO
   %.022.lcssa.ph.i = phi i32 [ %.021.i, %30 ], [ %.02229.i, %23 ]
   %.pre.i = add i32 %.022.lcssa.ph.i, -1
   %.pre32.i = zext i32 %.pre.i to i64
-  %35 = getelementptr inbounds nuw %struct.GIM_RSORT_TOKEN, ptr %0, i64 %.pre32.i
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.pre32.i
   store i64 %10, ptr %35, align 4
   %.not.wide = icmp eq i64 %8, 0
   br i1 %.not.wide, label %.preheader, label %.lr.ph.i.preheader, !llvm.loop !35
@@ -558,7 +556,7 @@ define linkonce_odr dso_local void @_Z13gim_heap_sortI15GIM_RSORT_TOKEN26GIM_RSO
   %indvars = trunc i64 %indvars.iv.next29 to i32
   %36 = and i64 %indvars.iv.next29, 4294967295
   %37 = load i64, ptr %0, align 4
-  %38 = getelementptr inbounds nuw %struct.GIM_RSORT_TOKEN, ptr %0, i64 %36
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %36
   %39 = load i64, ptr %38, align 4
   store i64 %39, ptr %0, align 4
   store i64 %37, ptr %38, align 4
@@ -576,7 +574,7 @@ define linkonce_odr dso_local void @_Z13gim_heap_sortI15GIM_RSORT_TOKEN26GIM_RSO
 
 45:                                               ; preds = %.lr.ph.i14
   %46 = sext i32 %43 to i64
-  %47 = getelementptr %struct.GIM_RSORT_TOKEN, ptr %0, i64 %46
+  %47 = getelementptr [8 x i8], ptr %0, i64 %46
   %48 = getelementptr i8, ptr %47, i64 -8
   %49 = load i32, ptr %48, align 4, !tbaa !23
   %50 = load i32, ptr %47, align 4, !tbaa !23
@@ -588,7 +586,7 @@ define linkonce_odr dso_local void @_Z13gim_heap_sortI15GIM_RSORT_TOKEN26GIM_RSO
 53:                                               ; preds = %45, %.lr.ph.i14
   %.021.i16 = phi i32 [ %43, %.lr.ph.i14 ], [ %spec.select.i23, %45 ]
   %54 = sext i32 %.021.i16 to i64
-  %55 = getelementptr %struct.GIM_RSORT_TOKEN, ptr %0, i64 %54
+  %55 = getelementptr [8 x i8], ptr %0, i64 %54
   %56 = getelementptr i8, ptr %55, i64 -8
   %57 = load i32, ptr %56, align 4, !tbaa !23
   %58 = sub i32 %41, %57
@@ -598,7 +596,7 @@ define linkonce_odr dso_local void @_Z13gim_heap_sortI15GIM_RSORT_TOKEN26GIM_RSO
 60:                                               ; preds = %53
   %61 = add nsw i32 %.02229.i15, -1
   %62 = zext i32 %61 to i64
-  %63 = getelementptr inbounds nuw %struct.GIM_RSORT_TOKEN, ptr %0, i64 %62
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %62
   %64 = load i64, ptr %56, align 4
   store i64 %64, ptr %63, align 4
   %.not.i22 = icmp ugt i32 %.021.i16, %42
@@ -612,7 +610,7 @@ define linkonce_odr dso_local void @_Z13gim_heap_sortI15GIM_RSORT_TOKEN26GIM_RSO
 
 _Z13gim_down_heapI15GIM_RSORT_TOKEN26GIM_RSORT_TOKEN_COMPARATOREvPT_jjT0_.exit24: ; preds = %.lr.ph, %.thread.loopexit.i17
   %.pre-phi33.i21 = phi i64 [ %.pre32.i20, %.thread.loopexit.i17 ], [ 0, %.lr.ph ]
-  %65 = getelementptr inbounds nuw %struct.GIM_RSORT_TOKEN, ptr %0, i64 %.pre-phi33.i21
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.pre-phi33.i21
   store i64 %40, ptr %65, align 4
   %66 = icmp ugt i32 %indvars, 1
   br i1 %66, label %.lr.ph, label %._crit_edge, !llvm.loop !36
@@ -701,7 +699,7 @@ _ZN9gim_arrayI11GIM_CONTACTE5clearEv.exit:        ; preds = %2, %_ZN9gim_arrayI1
 _ZN9gim_arrayI11GIM_CONTACTE9push_backERKS0_.exit: ; preds = %._ZN9gim_arrayI11GIM_CONTACTE12growingCheckEv.exit_crit_edge.i, %13
   %16 = phi i64 [ 0, %._ZN9gim_arrayI11GIM_CONTACTE12growingCheckEv.exit_crit_edge.i ], [ %15, %13 ]
   %17 = phi ptr [ %.pre.i, %._ZN9gim_arrayI11GIM_CONTACTE12growingCheckEv.exit_crit_edge.i ], [ %14, %13 ]
-  %18 = getelementptr inbounds nuw %class.GIM_CONTACT, ptr %17, i64 %16
+  %18 = getelementptr inbounds nuw [48 x i8], ptr %17, i64 %16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %18, ptr noundef nonnull align 4 dereferenceable(48) %10, i64 48, i1 false), !tbaa.struct !13
   %19 = load i32, ptr %3, align 8, !tbaa !4
   %20 = add i32 %19, 1

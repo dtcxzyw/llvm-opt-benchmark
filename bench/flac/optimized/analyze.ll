@@ -5,12 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.subframe_stats_t = type { [65535 x %struct.pair_t], i32, i32, i32, double, double, double, double, double }
 %struct.pair_t = type { i32, i32 }
-%struct.FLAC__Subframe = type { i32, %union.anon.0, i32 }
-%union.anon.0 = type { %struct.FLAC__Subframe_LPC }
-%struct.FLAC__Subframe_LPC = type { %struct.FLAC__EntropyCodingMethod, i32, i32, i32, [32 x i32], [32 x i64], ptr }
-%struct.FLAC__EntropyCodingMethod = type { i32, %union.anon.1 }
-%union.anon.1 = type { %struct.FLAC__EntropyCodingMethod_PartitionedRice }
-%struct.FLAC__EntropyCodingMethod_PartitionedRice = type { i32, ptr }
 
 @all_ = internal global %struct.subframe_stats_t zeroinitializer, align 8
 @.str = private unnamed_addr constant [92 x i8] c"frame=%u\09offset=%lu\09bits=%lu\09blocksize=%u\09sample_rate=%u\09channels=%u\09channel_assignment=%s\0A\00", align 1
@@ -78,7 +72,7 @@ define dso_local void @flac__analyze_frame(ptr noundef readonly captures(none) %
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %18 = load i32, ptr %17, align 4, !tbaa !19
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw ptr, ptr @FLAC__ChannelAssignmentString, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr @FLAC__ChannelAssignmentString, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !20
   %22 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %6, i32 noundef 1, ptr noundef nonnull @.str, i32 noundef %1, i64 noundef %3, i64 noundef %13, i32 noundef %14, i32 noundef %16, i32 noundef %11, ptr noundef %21) #10
   br label %33
@@ -90,7 +84,7 @@ define dso_local void @flac__analyze_frame(ptr noundef readonly captures(none) %
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %28 = load i32, ptr %27, align 4, !tbaa !19
   %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds nuw ptr, ptr @FLAC__ChannelAssignmentString, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr @FLAC__ChannelAssignmentString, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !20
   %32 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %6, i32 noundef 1, ptr noundef nonnull @.str.1, i32 noundef %1, i32 noundef %24, i32 noundef %26, i32 noundef %11, ptr noundef %31) #10
   br label %33
@@ -110,7 +104,7 @@ define dso_local void @flac__analyze_frame(ptr noundef readonly captures(none) %
 
 38:                                               ; preds = %.lr.ph195, %.loopexit168
   %indvars.iv287 = phi i64 [ 0, %.lr.ph195 ], [ %indvars.iv.next288, %.loopexit168 ]
-  %39 = getelementptr inbounds nuw %struct.FLAC__Subframe, ptr %34, i64 %indvars.iv287
+  %39 = getelementptr inbounds nuw [448 x i8], ptr %34, i64 %indvars.iv287
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load i32, ptr %40, align 8, !tbaa !23
   %42 = icmp eq i32 %41, 1
@@ -119,7 +113,7 @@ define dso_local void @flac__analyze_frame(ptr noundef readonly captures(none) %
   %45 = load i32, ptr %44, align 8, !tbaa !24
   %46 = load i32, ptr %39, align 8, !tbaa !26
   %47 = zext i32 %46 to i64
-  %48 = getelementptr inbounds nuw ptr, ptr @FLAC__SubframeTypeString, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr @FLAC__SubframeTypeString, i64 %47
   %49 = load ptr, ptr %48, align 8, !tbaa !20
   %50 = trunc nuw i64 %indvars.iv287 to i32
   %51 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %6, i32 noundef 1, ptr noundef nonnull @.str.2, i32 noundef %50, i32 noundef %45, ptr noundef %49) #10
@@ -153,7 +147,7 @@ define dso_local void @flac__analyze_frame(ptr noundef readonly captures(none) %
 
 65:                                               ; preds = %.lr.ph188, %65
   %indvars.iv281 = phi i64 [ 0, %.lr.ph188 ], [ %indvars.iv.next282, %65 ]
-  %66 = getelementptr inbounds nuw i64, ptr %64, i64 %indvars.iv281
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %indvars.iv281
   %67 = load i64, ptr %66, align 8, !tbaa !23
   %68 = trunc nuw i64 %indvars.iv281 to i32
   %69 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %6, i32 noundef 1, ptr noundef nonnull @.str.7, i32 noundef %68, i64 noundef %67) #10
@@ -173,7 +167,7 @@ define dso_local void @flac__analyze_frame(ptr noundef readonly captures(none) %
   %76 = load ptr, ptr %74, align 8, !tbaa !23
   %77 = load ptr, ptr %76, align 8, !tbaa !29
   %78 = zext i32 %.1190 to i64
-  %79 = getelementptr inbounds nuw i32, ptr %77, i64 %78
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %78
   %80 = load i32, ptr %79, align 4, !tbaa !32
   %81 = icmp eq i32 %80, %43
   br i1 %81, label %82, label %88
@@ -181,7 +175,7 @@ define dso_local void @flac__analyze_frame(ptr noundef readonly captures(none) %
 82:                                               ; preds = %75
   %83 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %84 = load ptr, ptr %83, align 8, !tbaa !33
-  %85 = getelementptr inbounds nuw i32, ptr %84, i64 %78
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %84, i64 %78
   %86 = load i32, ptr %85, align 4, !tbaa !32
   %87 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %6, i32 noundef 1, ptr noundef nonnull @.str.8, i32 noundef %.1190, i32 noundef %86) #10
   br label %90
@@ -212,7 +206,7 @@ define dso_local void @flac__analyze_frame(ptr noundef readonly captures(none) %
 97:                                               ; preds = %.lr.ph192, %97
   %indvars.iv284 = phi i64 [ 0, %.lr.ph192 ], [ %indvars.iv.next285, %97 ]
   %98 = load ptr, ptr %96, align 8, !tbaa !23
-  %99 = getelementptr inbounds nuw i32, ptr %98, i64 %indvars.iv284
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %98, i64 %indvars.iv284
   %100 = load i32, ptr %99, align 4, !tbaa !32
   %101 = trunc nuw i64 %indvars.iv284 to i32
   %102 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %6, i32 noundef 1, ptr noundef nonnull @.str.10, i32 noundef %101, i32 noundef %100) #10
@@ -253,7 +247,7 @@ define dso_local void @flac__analyze_frame(ptr noundef readonly captures(none) %
 
 123:                                              ; preds = %.lr.ph, %123
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %123 ]
-  %124 = getelementptr inbounds nuw i32, ptr %120, i64 %indvars.iv
+  %124 = getelementptr inbounds nuw [4 x i8], ptr %120, i64 %indvars.iv
   %125 = load i32, ptr %124, align 4, !tbaa !23
   %126 = trunc nuw i64 %indvars.iv to i32
   %127 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %6, i32 noundef 1, ptr noundef nonnull @.str.12, i32 noundef %126, i32 noundef %125) #10
@@ -265,7 +259,7 @@ define dso_local void @flac__analyze_frame(ptr noundef readonly captures(none) %
 
 131:                                              ; preds = %.lr.ph182, %131
   %indvars.iv275 = phi i64 [ 0, %.lr.ph182 ], [ %indvars.iv.next276, %131 ]
-  %132 = getelementptr inbounds nuw i64, ptr %122, i64 %indvars.iv275
+  %132 = getelementptr inbounds nuw [8 x i8], ptr %122, i64 %indvars.iv275
   %133 = load i64, ptr %132, align 8, !tbaa !23
   %134 = trunc nuw i64 %indvars.iv275 to i32
   %135 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %6, i32 noundef 1, ptr noundef nonnull @.str.7, i32 noundef %134, i64 noundef %133) #10
@@ -285,7 +279,7 @@ define dso_local void @flac__analyze_frame(ptr noundef readonly captures(none) %
   %142 = load ptr, ptr %140, align 8, !tbaa !23
   %143 = load ptr, ptr %142, align 8, !tbaa !29
   %144 = zext i32 %.5183 to i64
-  %145 = getelementptr inbounds nuw i32, ptr %143, i64 %144
+  %145 = getelementptr inbounds nuw [4 x i8], ptr %143, i64 %144
   %146 = load i32, ptr %145, align 4, !tbaa !32
   %147 = icmp eq i32 %146, %43
   br i1 %147, label %148, label %154
@@ -293,7 +287,7 @@ define dso_local void @flac__analyze_frame(ptr noundef readonly captures(none) %
 148:                                              ; preds = %141
   %149 = getelementptr inbounds nuw i8, ptr %142, i64 8
   %150 = load ptr, ptr %149, align 8, !tbaa !33
-  %151 = getelementptr inbounds nuw i32, ptr %150, i64 %144
+  %151 = getelementptr inbounds nuw [4 x i8], ptr %150, i64 %144
   %152 = load i32, ptr %151, align 4, !tbaa !32
   %153 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %6, i32 noundef 1, ptr noundef nonnull @.str.8, i32 noundef %.5183, i32 noundef %152) #10
   br label %156
@@ -324,7 +318,7 @@ define dso_local void @flac__analyze_frame(ptr noundef readonly captures(none) %
 163:                                              ; preds = %.lr.ph185, %163
   %indvars.iv278 = phi i64 [ 0, %.lr.ph185 ], [ %indvars.iv.next279, %163 ]
   %164 = load ptr, ptr %162, align 8, !tbaa !23
-  %165 = getelementptr inbounds nuw i32, ptr %164, i64 %indvars.iv278
+  %165 = getelementptr inbounds nuw [4 x i8], ptr %164, i64 %indvars.iv278
   %166 = load i32, ptr %165, align 4, !tbaa !32
   %167 = trunc nuw i64 %indvars.iv278 to i32
   %168 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %6, i32 noundef 1, ptr noundef nonnull @.str.10, i32 noundef %167, i32 noundef %166) #10
@@ -364,7 +358,7 @@ define dso_local void @flac__analyze_frame(ptr noundef readonly captures(none) %
 
 185:                                              ; preds = %.lr.ph247, %.thread323
   %indvars.iv305 = phi i64 [ 0, %.lr.ph247 ], [ %indvars.iv.next306, %.thread323 ]
-  %186 = getelementptr inbounds nuw %struct.FLAC__Subframe, ptr %176, i64 %indvars.iv305
+  %186 = getelementptr inbounds nuw [448 x i8], ptr %176, i64 %indvars.iv305
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %180, i8 0, i64 16, i1 false)
   %187 = load i32, ptr %186, align 8, !tbaa !26
   switch i32 %187, label %.thread323 [
@@ -392,7 +386,7 @@ define dso_local void @flac__analyze_frame(ptr noundef readonly captures(none) %
   %197 = phi double [ 0.000000e+00, %.lr.ph223 ], [ %203, %update_stats.exit ]
   %198 = phi i32 [ 0, %.lr.ph223 ], [ %219, %update_stats.exit ]
   %199 = phi i32 [ -1, %.lr.ph223 ], [ %232, %update_stats.exit ]
-  %200 = getelementptr inbounds nuw i32, ptr %194, i64 %indvars.iv295
+  %200 = getelementptr inbounds nuw [4 x i8], ptr %194, i64 %indvars.iv295
   %201 = load i32, ptr %200, align 4, !tbaa !32
   %202 = sitofp i32 %201 to double
   %203 = fadd double %197, %202
@@ -406,13 +400,13 @@ define dso_local void @flac__analyze_frame(ptr noundef readonly captures(none) %
 
 .lr.ph.i:                                         ; preds = %214, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %214 ]
-  %205 = getelementptr inbounds nuw %struct.pair_t, ptr %9, i64 %indvars.iv.i
+  %205 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i
   %206 = load i32, ptr %205, align 8, !tbaa !41
   %207 = icmp eq i32 %206, %201
   br i1 %207, label %208, label %214
 
 208:                                              ; preds = %.lr.ph.i
-  %209 = getelementptr inbounds nuw %struct.pair_t, ptr %9, i64 %indvars.iv.i
+  %209 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i
   %210 = trunc nuw i64 %indvars.iv.i to i32
   %211 = getelementptr inbounds nuw i8, ptr %209, i64 4
   %212 = load i32, ptr %211, align 4, !tbaa !43
@@ -427,7 +421,7 @@ define dso_local void @flac__analyze_frame(ptr noundef readonly captures(none) %
 
 ._crit_edge.i:                                    ; preds = %214, %195
   %.pre-phi.i = phi i64 [ 0, %195 ], [ %wide.trip.count.i, %214 ]
-  %215 = getelementptr inbounds nuw %struct.pair_t, ptr %9, i64 %.pre-phi.i
+  %215 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.pre-phi.i
   store i32 %201, ptr %215, align 8, !tbaa !41
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 4
   store i32 1, ptr %216, align 4, !tbaa !43
@@ -442,11 +436,11 @@ define dso_local void @flac__analyze_frame(ptr noundef readonly captures(none) %
 
 221:                                              ; preds = %218
   %222 = zext i32 %.1.i to i64
-  %223 = getelementptr inbounds nuw %struct.pair_t, ptr %9, i64 %222
+  %223 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %222
   %224 = getelementptr inbounds nuw i8, ptr %223, i64 4
   %225 = load i32, ptr %224, align 4, !tbaa !43
   %226 = zext nneg i32 %199 to i64
-  %227 = getelementptr inbounds nuw %struct.pair_t, ptr %9, i64 %226
+  %227 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %226
   %228 = getelementptr inbounds nuw i8, ptr %227, i64 4
   %229 = load i32, ptr %228, align 4, !tbaa !43
   %230 = icmp ugt i32 %225, %229
@@ -481,7 +475,7 @@ update_stats.exit:                                ; preds = %221, %231
   %242 = phi double [ 0.000000e+00, %.lr.ph206 ], [ %248, %update_stats.exit153 ]
   %243 = phi i32 [ 0, %.lr.ph206 ], [ %264, %update_stats.exit153 ]
   %244 = phi i32 [ -1, %.lr.ph206 ], [ %277, %update_stats.exit153 ]
-  %245 = getelementptr inbounds nuw i32, ptr %239, i64 %indvars.iv290
+  %245 = getelementptr inbounds nuw [4 x i8], ptr %239, i64 %indvars.iv290
   %246 = load i32, ptr %245, align 4, !tbaa !32
   %247 = sitofp i32 %246 to double
   %248 = fadd double %242, %247
@@ -495,13 +489,13 @@ update_stats.exit:                                ; preds = %221, %231
 
 .lr.ph.i146:                                      ; preds = %259, %.lr.ph.preheader.i144
   %indvars.iv.i147 = phi i64 [ 0, %.lr.ph.preheader.i144 ], [ %indvars.iv.next.i148, %259 ]
-  %250 = getelementptr inbounds nuw %struct.pair_t, ptr %9, i64 %indvars.iv.i147
+  %250 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i147
   %251 = load i32, ptr %250, align 8, !tbaa !41
   %252 = icmp eq i32 %251, %246
   br i1 %252, label %253, label %259
 
 253:                                              ; preds = %.lr.ph.i146
-  %254 = getelementptr inbounds nuw %struct.pair_t, ptr %9, i64 %indvars.iv.i147
+  %254 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i147
   %255 = trunc nuw i64 %indvars.iv.i147 to i32
   %256 = getelementptr inbounds nuw i8, ptr %254, i64 4
   %257 = load i32, ptr %256, align 4, !tbaa !43
@@ -516,7 +510,7 @@ update_stats.exit:                                ; preds = %221, %231
 
 ._crit_edge.i150:                                 ; preds = %259, %240
   %.pre-phi.i151 = phi i64 [ 0, %240 ], [ %wide.trip.count.i145, %259 ]
-  %260 = getelementptr inbounds nuw %struct.pair_t, ptr %9, i64 %.pre-phi.i151
+  %260 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.pre-phi.i151
   store i32 %246, ptr %260, align 8, !tbaa !41
   %261 = getelementptr inbounds nuw i8, ptr %260, i64 4
   store i32 1, ptr %261, align 4, !tbaa !43
@@ -531,11 +525,11 @@ update_stats.exit:                                ; preds = %221, %231
 
 266:                                              ; preds = %263
   %267 = zext i32 %.1.i152 to i64
-  %268 = getelementptr inbounds nuw %struct.pair_t, ptr %9, i64 %267
+  %268 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %267
   %269 = getelementptr inbounds nuw i8, ptr %268, i64 4
   %270 = load i32, ptr %269, align 4, !tbaa !43
   %271 = zext nneg i32 %244 to i64
-  %272 = getelementptr inbounds nuw %struct.pair_t, ptr %9, i64 %271
+  %272 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %271
   %273 = getelementptr inbounds nuw i8, ptr %272, i64 4
   %274 = load i32, ptr %273, align 4, !tbaa !43
   %275 = icmp ugt i32 %270, %274
@@ -588,7 +582,7 @@ update_stats.exit153:                             ; preds = %266, %276
   %281 = phi double [ %.promoted233, %.lr.ph241.preheader ], [ %292, %update_stats.exit164 ]
   %282 = phi i32 [ %.promoted234, %.lr.ph241.preheader ], [ %307, %update_stats.exit164 ]
   %.1.i163237238 = phi i32 [ %.promoted235, %.lr.ph241.preheader ], [ %.1.i163236, %update_stats.exit164 ]
-  %283 = getelementptr inbounds nuw %struct.pair_t, ptr %9, i64 %indvars.iv300
+  %283 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv300
   %284 = load i32, ptr %283, align 8, !tbaa !41
   %285 = getelementptr inbounds nuw i8, ptr %283, i64 4
   %286 = load i32, ptr %285, align 4, !tbaa !43
@@ -607,13 +601,13 @@ update_stats.exit153:                             ; preds = %266, %276
 
 .lr.ph.i157:                                      ; preds = %302, %.lr.ph.preheader.i155
   %indvars.iv.i158 = phi i64 [ 0, %.lr.ph.preheader.i155 ], [ %indvars.iv.next.i159, %302 ]
-  %293 = getelementptr inbounds nuw %struct.pair_t, ptr @all_, i64 %indvars.iv.i158
+  %293 = getelementptr inbounds nuw [8 x i8], ptr @all_, i64 %indvars.iv.i158
   %294 = load i32, ptr %293, align 8, !tbaa !41
   %295 = icmp eq i32 %294, %284
   br i1 %295, label %296, label %302
 
 296:                                              ; preds = %.lr.ph.i157
-  %297 = getelementptr inbounds nuw %struct.pair_t, ptr @all_, i64 %indvars.iv.i158
+  %297 = getelementptr inbounds nuw [8 x i8], ptr @all_, i64 %indvars.iv.i158
   %298 = trunc nuw i64 %indvars.iv.i158 to i32
   %299 = getelementptr inbounds nuw i8, ptr %297, i64 4
   %300 = load i32, ptr %299, align 4, !tbaa !43
@@ -628,7 +622,7 @@ update_stats.exit153:                             ; preds = %266, %276
 
 ._crit_edge.i161:                                 ; preds = %302, %.lr.ph241
   %.pre-phi.i162 = phi i64 [ 0, %.lr.ph241 ], [ %wide.trip.count.i156, %302 ]
-  %303 = getelementptr inbounds nuw %struct.pair_t, ptr @all_, i64 %.pre-phi.i162
+  %303 = getelementptr inbounds nuw [8 x i8], ptr @all_, i64 %.pre-phi.i162
   store i32 %284, ptr %303, align 8, !tbaa !41
   %304 = getelementptr inbounds nuw i8, ptr %303, i64 4
   store i32 %286, ptr %304, align 4, !tbaa !43
@@ -644,11 +638,11 @@ update_stats.exit153:                             ; preds = %266, %276
 
 309:                                              ; preds = %306
   %310 = zext i32 %.1.i163 to i64
-  %311 = getelementptr inbounds nuw %struct.pair_t, ptr @all_, i64 %310
+  %311 = getelementptr inbounds nuw [8 x i8], ptr @all_, i64 %310
   %312 = getelementptr inbounds nuw i8, ptr %311, i64 4
   %313 = load i32, ptr %312, align 4, !tbaa !43
   %314 = zext nneg i32 %.1.i163237238 to i64
-  %315 = getelementptr inbounds nuw %struct.pair_t, ptr @all_, i64 %314
+  %315 = getelementptr inbounds nuw [8 x i8], ptr @all_, i64 %314
   %316 = getelementptr inbounds nuw i8, ptr %315, i64 4
   %317 = load i32, ptr %316, align 4, !tbaa !43
   %318 = icmp ugt i32 %313, %317
@@ -719,7 +713,7 @@ define internal fastcc void @dump_stats(ptr noundef readonly captures(none) %0, 
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 524280
   %13 = load i32, ptr %12, align 8, !tbaa !4
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds %struct.pair_t, ptr %0, i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr %0, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %17 = load i32, ptr %16, align 4, !tbaa !43
   %18 = uitofp i32 %17 to double
@@ -744,7 +738,7 @@ define internal fastcc void @dump_stats(ptr noundef readonly captures(none) %0, 
 
 .lr.ph:                                           ; preds = %27, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %27 ]
-  %31 = getelementptr inbounds nuw %struct.pair_t, ptr %0, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %32 = load i32, ptr %31, align 8, !tbaa !41
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 4
   %34 = load i32, ptr %33, align 4, !tbaa !43

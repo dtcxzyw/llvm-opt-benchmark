@@ -83,7 +83,7 @@ define dso_local void @mempool_exit(ptr noundef captures(none) %0) #0 align 16 {
 
 16:                                               ; preds = %10
   %17 = zext nneg i32 %13 to i64
-  %18 = getelementptr ptr, ptr %12, i64 %17
+  %18 = getelementptr [8 x i8], ptr %12, i64 %17
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr %7, align 8
   %21 = icmp eq ptr %20, @mempool_alloc_slab
@@ -128,7 +128,7 @@ define internal fastcc ptr @remove_element(ptr noundef captures(none) %0) unname
 
 9:                                                ; preds = %1
   %10 = zext nneg i32 %6 to i64
-  %11 = getelementptr ptr, ptr %3, i64 %10
+  %11 = getelementptr [8 x i8], ptr %3, i64 %10
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load ptr, ptr %13, align 8
@@ -181,7 +181,7 @@ define dso_local void @mempool_destroy(ptr noundef %0) #0 align 16 {
 
 18:                                               ; preds = %12
   %19 = zext nneg i32 %15 to i64
-  %20 = getelementptr ptr, ptr %14, i64 %19
+  %20 = getelementptr [8 x i8], ptr %14, i64 %19
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr %9, align 8
   %23 = icmp eq ptr %22, @mempool_alloc_slab
@@ -276,7 +276,7 @@ define dso_local noundef range(i32 -12, 1) i32 @mempool_init_node(ptr noundef in
   %37 = add nsw i32 %31, 1
   store i32 %37, ptr %22, align 8
   %38 = sext i32 %31 to i64
-  %39 = getelementptr ptr, ptr %36, i64 %38
+  %39 = getelementptr [8 x i8], ptr %36, i64 %38
   store ptr %28, ptr %39, align 8
   %40 = load i32, ptr %22, align 8
   %41 = load i32, ptr %8, align 4
@@ -336,7 +336,7 @@ define dso_local noundef ptr @mempool_create_node(i32 noundef %0, ptr noundef %1
 13:                                               ; preds = %9, %6
   %14 = phi i64 [ 0, %6 ], [ %12, %9 ]
   %15 = or i32 %4, 256
-  %.split = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %14
+  %.split = getelementptr [112 x i8], ptr @kmalloc_caches, i64 %14
   %16 = getelementptr i8, ptr %.split, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = tail call noalias noundef align 8 dereferenceable_or_null(72) ptr @kmalloc_node_trace(ptr noundef %17, i32 noundef %15, i32 noundef %5, i64 noundef 72) #9
@@ -395,7 +395,7 @@ define dso_local noundef range(i32 -12, 1) i32 @mempool_resize(ptr noundef %0, i
   %24 = add nsw i32 %21, -1
   store i32 %24, ptr %12, align 8
   %25 = zext nneg i32 %24 to i64
-  %26 = getelementptr ptr, ptr %23, i64 %25
+  %26 = getelementptr [8 x i8], ptr %23, i64 %25
   %27 = load ptr, ptr %26, align 8
   %28 = load ptr, ptr %17, align 8
   %29 = icmp eq ptr %28, @mempool_alloc_slab
@@ -481,7 +481,7 @@ define dso_local noundef range(i32 -12, 1) i32 @mempool_resize(ptr noundef %0, i
   %75 = add nsw i32 %70, 1
   store i32 %75, ptr %53, align 8
   %76 = sext i32 %70 to i64
-  %77 = getelementptr ptr, ptr %74, i64 %76
+  %77 = getelementptr [8 x i8], ptr %74, i64 %76
   store ptr %66, ptr %77, align 8
   %78 = load i32, ptr %53, align 8
   %79 = load i32, ptr %8, align 4
@@ -642,7 +642,7 @@ define dso_local noalias ptr @mempool_alloc_preallocated(ptr noundef %0) #0 alig
 
 12:                                               ; preds = %6
   %13 = zext nneg i32 %9 to i64
-  %14 = getelementptr ptr, ptr %8, i64 %13
+  %14 = getelementptr [8 x i8], ptr %8, i64 %13
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = load ptr, ptr %16, align 8
@@ -696,7 +696,7 @@ define dso_local void @mempool_free(ptr noundef %0, ptr noundef %1) #0 align 16 
   %18 = add nsw i32 %12, 1
   store i32 %18, ptr %5, align 8
   %19 = sext i32 %12 to i64
-  %20 = getelementptr ptr, ptr %17, i64 %19
+  %20 = getelementptr [8 x i8], ptr %17, i64 %19
   store ptr %0, ptr %20, align 8
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %1, i64 noundef %11) #7
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 48

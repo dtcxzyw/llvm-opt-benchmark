@@ -29,7 +29,7 @@ define range(i32 -1094995529, 1) i32 @ff_huffyuv_generate_bits_table(ptr noundef
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %9 = load i8, ptr %8, align 1, !tbaa !8
   %10 = zext i8 %9 to i64
-  %11 = getelementptr inbounds nuw i32, ptr %4, i64 %10
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %10
   %12 = load i32, ptr %11, align 4, !tbaa !4
   %13 = add nsw i32 %12, 1
   store i32 %13, ptr %11, align 4, !tbaa !4
@@ -47,9 +47,9 @@ define range(i32 -1094995529, 1) i32 @ff_huffyuv_generate_bits_table(ptr noundef
 14:                                               ; preds = %._crit_edge, %23
   %.02330 = phi i32 [ 32, %._crit_edge ], [ %26, %23 ]
   %15 = zext nneg i32 %.02330 to i64
-  %16 = getelementptr inbounds nuw i32, ptr %4, i64 %15
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %15
   %17 = load i32, ptr %16, align 4, !tbaa !4
-  %18 = getelementptr inbounds nuw i32, ptr %5, i64 %15
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %15
   %19 = load i32, ptr %18, align 4, !tbaa !4
   %20 = add i32 %19, %17
   %21 = and i32 %20, 1
@@ -77,11 +77,11 @@ define range(i32 -1094995529, 1) i32 @ff_huffyuv_generate_bits_table(ptr noundef
 
 30:                                               ; preds = %.lr.ph32
   %31 = zext i8 %29 to i64
-  %32 = getelementptr inbounds nuw i32, ptr %5, i64 %31
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %31
   %33 = load i32, ptr %32, align 4, !tbaa !4
   %34 = add i32 %33, 1
   store i32 %34, ptr %32, align 4, !tbaa !4
-  %35 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv34
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv34
   store i32 %33, ptr %35, align 4, !tbaa !4
   br label %.critedge
 

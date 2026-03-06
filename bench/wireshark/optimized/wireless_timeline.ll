@@ -2154,7 +2154,7 @@ define void @_ZN16WirelessTimeline10paintEventEP11QPaintEvent(ptr noundef align 
 
 35:                                               ; preds = %35, %30
   %indvars.iv.i = phi i64 [ 0, %30 ], [ %indvars.iv.next.i, %35 ]
-  %36 = getelementptr [3 x float], ptr %9, i64 %indvars.iv.i
+  %36 = getelementptr [12 x i8], ptr %9, i64 %indvars.iv.i
   %37 = getelementptr i8, ptr %36, i64 8
   store float 1.000000e+00, ptr %37, align 4
   %38 = getelementptr i8, ptr %36, i64 4
@@ -2930,7 +2930,7 @@ _ZN16WirelessTimeline14get_wlan_radioEj.exit221:  ; preds = %338
 
 .lr.ph.i223:                                      ; preds = %.lr.ph.i223, %.lr.ph.preheader.i
   %indvars.iv.i224 = phi i64 [ %470, %.lr.ph.preheader.i ], [ %indvars.iv.next.i225, %.lr.ph.i223 ]
-  %472 = getelementptr [3 x float], ptr %9, i64 %indvars.iv.i224
+  %472 = getelementptr [12 x i8], ptr %9, i64 %indvars.iv.i224
   %473 = load float, ptr %472, align 4
   %474 = fsub float %473, %386
   %475 = call float @llvm.fmuladd.f32(float %386, float %.0163, float %474)
@@ -2966,7 +2966,7 @@ _ZN16WirelessTimeline14get_wlan_radioEj.exit221:  ; preds = %338
 
 .lr.ph.i230:                                      ; preds = %.lr.ph.i230, %.lr.ph.preheader.i228
   %indvars.iv.i231 = phi i64 [ %491, %.lr.ph.preheader.i228 ], [ %indvars.iv.next.i232, %.lr.ph.i230 ]
-  %493 = getelementptr [3 x float], ptr %9, i64 %indvars.iv.i231
+  %493 = getelementptr [12 x i8], ptr %9, i64 %indvars.iv.i231
   %494 = load float, ptr %493, align 4
   %495 = fsub float %494, %486
   %496 = call float @llvm.fmuladd.f32(float %486, float %.0163, float %495)
@@ -3075,7 +3075,7 @@ _ZL14accumulate_rgbPA3_fiiffff.exit234:           ; preds = %.lr.ph.i230
 
 .lr.ph.i239:                                      ; preds = %.lr.ph.i239, %.lr.ph.preheader.i237
   %indvars.iv.i240 = phi i64 [ %491, %.lr.ph.preheader.i237 ], [ %indvars.iv.next.i241, %.lr.ph.i239 ]
-  %555 = getelementptr [3 x float], ptr %9, i64 %indvars.iv.i240
+  %555 = getelementptr [12 x i8], ptr %9, i64 %indvars.iv.i240
   %556 = load float, ptr %555, align 4
   %557 = fsub float %556, %.0164
   %558 = call float @llvm.fmuladd.f32(float %.0164, float %.0163, float %557)
@@ -3220,12 +3220,12 @@ define internal fastcc void @_ZL13render_pixelsR8QPainteriiPA3_ff(ptr noundef al
   %.03637 = phi i32 [ 0, %4 ], [ %.1, %73 ]
   %.not = icmp eq i64 %indvars.iv, 64
   %.phi.trans.insert = zext i32 %.03637 to i64
-  %.phi.trans.insert40 = getelementptr [3 x float], ptr %2, i64 %.phi.trans.insert
+  %.phi.trans.insert40 = getelementptr [12 x i8], ptr %2, i64 %.phi.trans.insert
   %.pre = load float, ptr %.phi.trans.insert40, align 4
   br i1 %.not, label %._crit_edge, label %21
 
 21:                                               ; preds = %20
-  %22 = getelementptr [3 x float], ptr %2, i64 %indvars.iv
+  %22 = getelementptr [12 x i8], ptr %2, i64 %indvars.iv
   %23 = load float, ptr %22, align 4
   %24 = fcmp oeq float %.pre, %23
   br i1 %24, label %25, label %._crit_edge
@@ -3247,7 +3247,7 @@ define internal fastcc void @_ZL13render_pixelsR8QPainteriiPA3_ff(ptr noundef al
   br i1 %36, label %73, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %20, %31, %25, %21
-  %37 = getelementptr [3 x float], ptr %2, i64 %.phi.trans.insert
+  %37 = getelementptr [12 x i8], ptr %2, i64 %.phi.trans.insert
   %38 = fcmp une float %.pre, 1.000000e+00
   %39 = trunc nuw nsw i64 %indvars.iv to i32
   %.phi.trans.insert42 = getelementptr i8, ptr %37, i64 4
@@ -3317,7 +3317,7 @@ define internal fastcc void @_ZL13render_pixelsR8QPainteriiPA3_ff(ptr noundef al
 
 .preheader:                                       ; preds = %73, %.preheader
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader ], [ 0, %73 ]
-  %74 = getelementptr [3 x float], ptr %2, i64 %indvars.iv.i
+  %74 = getelementptr [12 x i8], ptr %2, i64 %indvars.iv.i
   %75 = getelementptr i8, ptr %74, i64 8
   store float 1.000000e+00, ptr %75, align 4
   %76 = getelementptr i8, ptr %74, i64 4

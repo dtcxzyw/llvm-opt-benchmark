@@ -223,7 +223,7 @@ define internal noundef i64 @_ZL2c0P11processor_t6insn_tm(ptr noundef nonnull %0
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %9 = lshr i64 %1, 15
   %10 = and i64 %9, 31
-  %11 = getelementptr inbounds nuw i64, ptr %8, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %10
   %12 = load i64, ptr %11, align 8, !tbaa !3
   br label %13
 
@@ -237,7 +237,7 @@ define internal noundef i64 @_ZL2c0P11processor_t6insn_tm(ptr noundef nonnull %0
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %18 = lshr i64 %1, 20
   %19 = and i64 %18, 31
-  %20 = getelementptr inbounds nuw i64, ptr %17, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %19
   %21 = load i64, ptr %20, align 8, !tbaa !3
   br label %22
 
@@ -268,7 +268,7 @@ define internal noundef i64 @_ZL2c0P11processor_t6insn_tm(ptr noundef nonnull %0
 
 35:                                               ; preds = %29
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %37 = getelementptr inbounds nuw i64, ptr %36, i64 %32
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %32
   store i64 %27, ptr %37, align 8, !tbaa !3
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
@@ -292,7 +292,7 @@ define internal noundef i64 @_ZL2c1P11processor_t6insn_tm(ptr noundef nonnull %0
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %9 = lshr i64 %1, 15
   %10 = and i64 %9, 31
-  %11 = getelementptr inbounds nuw i64, ptr %8, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %10
   %12 = load i64, ptr %11, align 8, !tbaa !3
   br label %13
 
@@ -306,7 +306,7 @@ define internal noundef i64 @_ZL2c1P11processor_t6insn_tm(ptr noundef nonnull %0
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %18 = lshr i64 %1, 20
   %19 = and i64 %18, 31
-  %20 = getelementptr inbounds nuw i64, ptr %17, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %19
   %21 = load i64, ptr %20, align 8, !tbaa !3
   br label %22
 
@@ -337,7 +337,7 @@ define internal noundef i64 @_ZL2c1P11processor_t6insn_tm(ptr noundef nonnull %0
 
 35:                                               ; preds = %29
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %37 = getelementptr inbounds nuw i64, ptr %36, i64 %32
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %32
   store i64 %27, ptr %37, align 8, !tbaa !3
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
@@ -359,7 +359,7 @@ define internal noundef i64 @_ZL2c2P11processor_t6insn_tm(ptr noundef nonnull %0
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %9 = lshr i64 %1, 15
   %10 = and i64 %9, 31
-  %11 = getelementptr inbounds nuw i64, ptr %8, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %10
   %12 = load i64, ptr %11, align 8, !tbaa !3
   br label %13
 
@@ -373,7 +373,7 @@ define internal noundef i64 @_ZL2c2P11processor_t6insn_tm(ptr noundef nonnull %0
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %18 = lshr i64 %1, 20
   %19 = and i64 %18, 31
-  %20 = getelementptr inbounds nuw i64, ptr %17, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %19
   %21 = load i64, ptr %20, align 8, !tbaa !3
   br label %22
 
@@ -404,7 +404,7 @@ define internal noundef i64 @_ZL2c2P11processor_t6insn_tm(ptr noundef nonnull %0
 
 35:                                               ; preds = %29
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %37 = getelementptr inbounds nuw i64, ptr %36, i64 %32
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %32
   store i64 %27, ptr %37, align 8, !tbaa !3
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
@@ -426,7 +426,7 @@ define internal noundef i64 @_ZL2c3P11processor_t6insn_tm(ptr noundef nonnull %0
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %9 = lshr i64 %1, 15
   %10 = and i64 %9, 31
-  %11 = getelementptr inbounds nuw i64, ptr %8, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %10
   %12 = load i64, ptr %11, align 8, !tbaa !3
   br label %13
 
@@ -440,7 +440,7 @@ define internal noundef i64 @_ZL2c3P11processor_t6insn_tm(ptr noundef nonnull %0
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %18 = lshr i64 %1, 20
   %19 = and i64 %18, 31
-  %20 = getelementptr inbounds nuw i64, ptr %17, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %19
   %21 = load i64, ptr %20, align 8, !tbaa !3
   br label %22
 
@@ -471,7 +471,7 @@ define internal noundef i64 @_ZL2c3P11processor_t6insn_tm(ptr noundef nonnull %0
 
 35:                                               ; preds = %29
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %37 = getelementptr inbounds nuw i64, ptr %36, i64 %32
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %32
   store i64 %27, ptr %37, align 8, !tbaa !3
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 

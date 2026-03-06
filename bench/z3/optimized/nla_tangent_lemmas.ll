@@ -13,7 +13,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.vector.19 = type { ptr }
 %"class.nla::tangent_imp" = type <{ %"struct.nla::point", %"struct.nla::point", %"struct.nla::point", %class.rational, i8, [7 x i8], %class.rational, i32, [4 x i8], ptr, ptr, ptr, i32, i32, ptr, i8, [7 x i8] }>
 %"struct.nla::point" = type { %class.rational, %class.rational }
-%"struct.lp::numeric_pair" = type { %class.rational, %class.rational }
 %"class.nla::new_lemma" = type { ptr, ptr }
 %"class.nla::ineq" = type { i32, [4 x i8], %"class.lp::lar_term", %class.rational }
 %"class.lp::lar_term" = type { %class.u_map, i32, [4 x i8] }
@@ -22,8 +21,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.table2map.214 = type { %class.core_hashtable.215 }
 %class.core_hashtable.215 = type <{ ptr, i32, i32, i32, [4 x i8] }>
 %struct._key_data = type { i32, %class.rational }
-%class.default_map_entry = type { %class.default_hash_entry }
-%class.default_hash_entry = type { i32, i32, %struct._key_data }
 
 $_ZN3nla5pointC2ERK8rationalS3_ = comdat any
 
@@ -205,7 +202,7 @@ _ZNK17smt_params_helper17arith_nl_tangentsEv.exit: ; preds = %1
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 536
   %30 = load ptr, ptr %29, align 8, !tbaa !188
   %31 = zext i32 %19 to i64
-  %32 = getelementptr inbounds nuw %"struct.lp::numeric_pair", ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw [64 x i8], ptr %30, i64 %31
   %33 = load ptr, ptr %3, align 8, !tbaa !8
   invoke void @_ZN3nla11tangent_impC2ENS_5pointERK8rationalRKNS_5monicERKNS_13factorizationERNS_8tangentsE(ptr noundef nonnull align 8 dereferenceable(313) %4, ptr noundef nonnull %5, ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull align 8 dereferenceable(34) %33, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(184) %0)
           to label %34 unwind label %65
@@ -1530,7 +1527,7 @@ define linkonce_odr hidden void @_ZN3nla11tangent_imp14generate_line1Ev(ptr noun
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 536
   %19 = load ptr, ptr %18, align 8, !tbaa !188
   %20 = zext i32 %13 to i64
-  %21 = getelementptr inbounds nuw %"struct.lp::numeric_pair", ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [64 x i8], ptr %19, i64 %20
   invoke void @_ZN3nla4ineqC2EjN2lp16lconstraint_kindERK8rational(ptr noundef nonnull align 8 dereferenceable(72) %3, i32 noundef %13, i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(32) %21)
           to label %22 unwind label %154
 
@@ -1985,7 +1982,7 @@ define linkonce_odr hidden void @_ZN3nla11tangent_imp14generate_line2Ev(ptr noun
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 536
   %19 = load ptr, ptr %18, align 8, !tbaa !188
   %20 = zext i32 %13 to i64
-  %21 = getelementptr inbounds nuw %"struct.lp::numeric_pair", ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [64 x i8], ptr %19, i64 %20
   invoke void @_ZN3nla4ineqC2EjN2lp16lconstraint_kindERK8rational(ptr noundef nonnull align 8 dereferenceable(72) %3, i32 noundef %13, i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(32) %21)
           to label %22 unwind label %154
 
@@ -6336,7 +6333,7 @@ define linkonce_odr hidden noundef ptr @_ZNK9table2mapI17default_map_entryIj8rat
   %.idx.i = mul nuw nsw i64 %13, 48
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx.i
   %15 = zext i32 %9 to i64
-  %16 = getelementptr inbounds nuw %class.default_map_entry, ptr %12, i64 %15
+  %16 = getelementptr inbounds nuw [48 x i8], ptr %12, i64 %15
   %.not30.i = icmp eq i32 %11, %9
   br i1 %.not30.i, label %.preheader.i, label %.lr.ph.i
 
@@ -6532,7 +6529,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableI17default_map_entryIj8ratio
   %.idx = mul nuw nsw i64 %20, 48
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %22 = zext i32 %15 to i64
-  %23 = getelementptr inbounds nuw %class.default_map_entry, ptr %19, i64 %22
+  %23 = getelementptr inbounds nuw [48 x i8], ptr %19, i64 %22
   %.not63 = icmp eq i32 %18, %15
   br i1 %.not63, label %.preheader, label %.lr.ph
 
@@ -7038,7 +7035,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableI17default_map_entryIj8ratio
   %.idx = mul nuw nsw i64 %6, 48
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   %8 = zext i32 %3 to i64
-  %9 = getelementptr inbounds nuw %class.default_map_entry, ptr %2, i64 %8
+  %9 = getelementptr inbounds nuw [48 x i8], ptr %2, i64 %8
   %.not38 = icmp eq i32 %1, 0
   br i1 %.not38, label %._crit_edge43, label %.lr.ph42
 
@@ -7270,7 +7267,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableI17default_map_entryIj8ratio
   %.idx = mul nuw nsw i64 %9, 48
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx
   %11 = zext i32 %5 to i64
-  %12 = getelementptr inbounds nuw %class.default_map_entry, ptr %8, i64 %11
+  %12 = getelementptr inbounds nuw [48 x i8], ptr %8, i64 %11
   %.not39 = icmp eq i32 %7, %5
   br i1 %.not39, label %.preheader, label %.lr.ph
 
@@ -7533,7 +7530,7 @@ _ZN5u_mapI8rationalEC2Ev.exit:                    ; preds = %.lr.ph.i.i.i.i.i.i.
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i, %29, %_ZN5u_mapI8rationalEC2Ev.exit
   %.sroa.0.1.i.i.i = phi ptr [ %21, %_ZN5u_mapI8rationalEC2Ev.exit ], [ %.sroa.0.0.i.i.i, %.lr.ph.i.i.i.i.i ], [ %25, %29 ]
-  %31 = getelementptr inbounds nuw %class.default_map_entry, ptr %21, i64 %24
+  %31 = getelementptr inbounds nuw [48 x i8], ptr %21, i64 %24
   %.not23 = icmp eq ptr %.sroa.0.1.i.i.i, %31
   br i1 %.not23, label %._crit_edge, label %.lr.ph
 

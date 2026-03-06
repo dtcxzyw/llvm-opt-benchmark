@@ -33,30 +33,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base.16" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" }
 %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.google::protobuf::internal::TailCallTableInfo::AuxEntry" = type { i32, %union.anon }
-%union.anon = type { ptr }
-%"struct.google::protobuf::internal::TailCallTableInfo::FieldEntryInfo" = type { ptr, i32, i32, i16, i16 }
-%"class.google::protobuf::FieldDescriptor" = type { %"class.google::protobuf::internal::SymbolBase", i8, i8, i8, i32, ptr, ptr, ptr, ptr, %union.anon.31, %union.anon.32, ptr, ptr, ptr, %union.anon.33 }
-%"class.google::protobuf::internal::SymbolBase" = type { i8 }
-%union.anon.31 = type { ptr }
-%union.anon.32 = type { ptr }
-%union.anon.33 = type { i64 }
-%"struct.google::protobuf::internal::TailCallTableInfo::FastFieldInfo" = type { %"class.std::variant" }
-%"class.std::variant" = type { %"struct.std::__detail::__variant::_Variant_base.base", [7 x i8] }
-%"struct.std::__detail::__variant::_Variant_base.base" = type { %"struct.std::__detail::__variant::_Move_assign_base.base" }
-%"struct.std::__detail::__variant::_Move_assign_base.base" = type { %"struct.std::__detail::__variant::_Copy_assign_base.base" }
-%"struct.std::__detail::__variant::_Copy_assign_base.base" = type { %"struct.std::__detail::__variant::_Move_ctor_base.base" }
-%"struct.std::__detail::__variant::_Move_ctor_base.base" = type { %"struct.std::__detail::__variant::_Copy_ctor_base.base" }
-%"struct.std::__detail::__variant::_Copy_ctor_base.base" = type { %"struct.std::__detail::__variant::_Variant_storage.base" }
-%"struct.std::__detail::__variant::_Variant_storage.base" = type <{ %"union.std::__detail::__variant::_Variadic_union", i8 }>
-%"union.std::__detail::__variant::_Variadic_union" = type { %"union.std::__detail::__variant::_Variadic_union.41" }
-%"union.std::__detail::__variant::_Variadic_union.41" = type { %"struct.std::__detail::__variant::_Uninitialized.42" }
-%"struct.std::__detail::__variant::_Uninitialized.42" = type { %"struct.google::protobuf::internal::TailCallTableInfo::FastFieldInfo::Field" }
-%"struct.google::protobuf::internal::TailCallTableInfo::FastFieldInfo::Field" = type { i8, i16, ptr, i8, i8 }
-%"struct.google::protobuf::internal::TailCallTableInfo::SkipEntry16" = type { i16, i16 }
-%"class.google::protobuf::EnumValueDescriptor" = type { %"class.google::protobuf::internal::SymbolBaseN", %"class.google::protobuf::internal::SymbolBaseN.51", i32, ptr, ptr, ptr, ptr, ptr }
-%"class.google::protobuf::internal::SymbolBaseN" = type { %"class.google::protobuf::internal::SymbolBase" }
-%"class.google::protobuf::internal::SymbolBaseN.51" = type { %"class.google::protobuf::internal::SymbolBase" }
 %"struct.__gnu_cxx::__ops::_Iter_less_iter" = type { i8 }
 
 $_ZN6google8protobuf8internal17TailCallTableInfo15NumToEntryTableD2Ev = comdat any
@@ -542,7 +518,7 @@ if.else.i146:                                     ; preds = %if.end44
   br i1 %cmp4.i147, label %if.then5.i148, label %invoke.cont52
 
 if.then5.i148:                                    ; preds = %if.else.i146
-  %add.ptr.i149 = getelementptr inbounds %"struct.google::protobuf::internal::TailCallTableInfo::AuxEntry", ptr %45, i64 %add
+  %add.ptr.i149 = getelementptr inbounds [16 x i8], ptr %45, i64 %add
   %tobool.not.i.i150 = icmp eq ptr %44, %add.ptr.i149
   br i1 %tobool.not.i.i150, label %invoke.cont52, label %invoke.cont.i.i151
 
@@ -701,7 +677,7 @@ if.then.i18.i.i.i:                                ; preds = %_ZNSt6vectorIN6goog
 _ZNSt6vectorIN6google8protobuf8internal17TailCallTableInfo14FieldEntryInfoESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i: ; preds = %if.then.i18.i.i.i, %_ZNSt6vectorIN6google8protobuf8internal17TailCallTableInfo14FieldEntryInfoESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit17.i.i.i
   store ptr %call5.i.i.i.i.i.i166, ptr %field_entries, align 8
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i160, align 8
-  %add.ptr19.i.i.i = getelementptr inbounds nuw %"struct.google::protobuf::internal::TailCallTableInfo::FieldEntryInfo", ptr %call5.i.i.i.i.i.i166, i64 %cond.i.i.i.i
+  %add.ptr19.i.i.i = getelementptr inbounds nuw [24 x i8], ptr %call5.i.i.i.i.i.i166, i64 %cond.i.i.i.i
   store ptr %add.ptr19.i.i.i, ptr %_M_end_of_storage.i.i, align 8
   br label %invoke.cont78
 
@@ -1731,7 +1707,7 @@ if.then.i18.i.i.i319:                             ; preds = %_ZNSt6vectorIN6goog
 _ZNSt6vectorIN6google8protobuf8internal17TailCallTableInfo8AuxEntryESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i: ; preds = %if.then.i18.i.i.i319, %_ZNSt6vectorIN6google8protobuf8internal17TailCallTableInfo8AuxEntryESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit17.i.i.i
   store ptr %call5.i.i.i.i.i.i325, ptr %aux_entries, align 8
   store ptr %incdec.ptr.i.i.i317, ptr %_M_finish.i129, align 8
-  %add.ptr19.i.i.i320 = getelementptr inbounds nuw %"struct.google::protobuf::internal::TailCallTableInfo::AuxEntry", ptr %call5.i.i.i.i.i.i325, i64 %cond.i.i.i.i312
+  %add.ptr19.i.i.i320 = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i.i.i.i325, i64 %cond.i.i.i.i312
   store ptr %add.ptr19.i.i.i320, ptr %_M_end_of_storage.i.i604, align 8
   br label %invoke.cont103
 
@@ -1816,7 +1792,7 @@ if.then.i18.i.i.i349:                             ; preds = %_ZNSt6vectorIN6goog
 _ZNSt6vectorIN6google8protobuf8internal17TailCallTableInfo8AuxEntryESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i350: ; preds = %if.then.i18.i.i.i349, %_ZNSt6vectorIN6google8protobuf8internal17TailCallTableInfo8AuxEntryESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit17.i.i.i346
   store ptr %call5.i.i.i.i.i.i356, ptr %aux_entries, align 8
   store ptr %incdec.ptr.i.i.i347, ptr %_M_finish.i129, align 8
-  %add.ptr19.i.i.i351 = getelementptr inbounds nuw %"struct.google::protobuf::internal::TailCallTableInfo::AuxEntry", ptr %call5.i.i.i.i.i.i356, i64 %cond.i.i.i.i341
+  %add.ptr19.i.i.i351 = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i.i.i.i356, i64 %cond.i.i.i.i341
   store ptr %add.ptr19.i.i.i351, ptr %_M_end_of_storage.i.i604, align 8
   br label %invoke.cont117
 
@@ -1936,7 +1912,7 @@ if.then.i18.i.i.i400:                             ; preds = %_ZNSt6vectorIN6goog
 _ZNSt6vectorIN6google8protobuf8internal17TailCallTableInfo8AuxEntryESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i401: ; preds = %if.then.i18.i.i.i400, %_ZNSt6vectorIN6google8protobuf8internal17TailCallTableInfo8AuxEntryESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit17.i.i.i397
   store ptr %call5.i.i.i.i.i.i407, ptr %aux_entries, align 8
   store ptr %incdec.ptr.i.i.i398, ptr %_M_finish.i129, align 8
-  %add.ptr19.i.i.i402 = getelementptr inbounds nuw %"struct.google::protobuf::internal::TailCallTableInfo::AuxEntry", ptr %call5.i.i.i.i.i.i407, i64 %cond.i.i.i.i392
+  %add.ptr19.i.i.i402 = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i.i.i.i407, i64 %cond.i.i.i.i392
   store ptr %add.ptr19.i.i.i402, ptr %_M_end_of_storage.i.i604, align 8
   br label %for.inc283
 
@@ -2066,7 +2042,7 @@ if.then.i18.i.i.i462:                             ; preds = %_ZNSt6vectorIN6goog
 _ZNSt6vectorIN6google8protobuf8internal17TailCallTableInfo8AuxEntryESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i463: ; preds = %if.then.i18.i.i.i462, %_ZNSt6vectorIN6google8protobuf8internal17TailCallTableInfo8AuxEntryESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit17.i.i.i459
   store ptr %call5.i.i.i.i.i.i469, ptr %aux_entries, align 8
   store ptr %incdec.ptr.i.i.i460, ptr %_M_finish.i129, align 8
-  %add.ptr19.i.i.i464 = getelementptr inbounds nuw %"struct.google::protobuf::internal::TailCallTableInfo::AuxEntry", ptr %call5.i.i.i.i.i.i469, i64 %cond.i.i.i.i454
+  %add.ptr19.i.i.i464 = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i.i.i.i469, i64 %cond.i.i.i.i454
   store ptr %add.ptr19.i.i.i464, ptr %_M_end_of_storage.i.i604, align 8
   br label %invoke.cont149
 
@@ -2134,7 +2110,7 @@ if.then.i18.i.i.i494:                             ; preds = %_ZNSt6vectorIN6goog
 _ZNSt6vectorIN6google8protobuf8internal17TailCallTableInfo8AuxEntryESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i495: ; preds = %if.then.i18.i.i.i494, %_ZNSt6vectorIN6google8protobuf8internal17TailCallTableInfo8AuxEntryESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit17.i.i.i491
   store ptr %call5.i.i.i.i.i.i501, ptr %aux_entries, align 8
   store ptr %incdec.ptr.i.i.i492, ptr %_M_finish.i129, align 8
-  %add.ptr19.i.i.i496 = getelementptr inbounds nuw %"struct.google::protobuf::internal::TailCallTableInfo::AuxEntry", ptr %call5.i.i.i.i.i.i501, i64 %cond.i.i.i.i486
+  %add.ptr19.i.i.i496 = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i.i.i.i501, i64 %cond.i.i.i.i486
   store ptr %add.ptr19.i.i.i496, ptr %_M_end_of_storage.i.i604, align 8
   br label %for.inc283
 
@@ -2195,7 +2171,7 @@ if.then.i18.i.i.i526:                             ; preds = %_ZNSt6vectorIN6goog
 _ZNSt6vectorIN6google8protobuf8internal17TailCallTableInfo8AuxEntryESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i527: ; preds = %if.then.i18.i.i.i526, %_ZNSt6vectorIN6google8protobuf8internal17TailCallTableInfo8AuxEntryESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit17.i.i.i523
   store ptr %call5.i.i.i.i.i.i533, ptr %aux_entries, align 8
   store ptr %incdec.ptr.i.i.i524, ptr %_M_finish.i129, align 8
-  %add.ptr19.i.i.i528 = getelementptr inbounds nuw %"struct.google::protobuf::internal::TailCallTableInfo::AuxEntry", ptr %call5.i.i.i.i.i.i533, i64 %cond.i.i.i.i518
+  %add.ptr19.i.i.i528 = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i.i.i.i533, i64 %cond.i.i.i.i518
   store ptr %add.ptr19.i.i.i528, ptr %_M_end_of_storage.i.i604, align 8
   br label %for.inc283
 
@@ -2226,7 +2202,7 @@ land.lhs.true181:                                 ; preds = %if.else168
 
 if.then185:                                       ; preds = %land.lhs.true181
   %236 = load ptr, ptr %aux_entries, align 8
-  %add.ptr.i539 = getelementptr inbounds %"struct.google::protobuf::internal::TailCallTableInfo::AuxEntry", ptr %236, i64 %subtable_aux_idx.01179
+  %add.ptr.i539 = getelementptr inbounds [16 x i8], ptr %236, i64 %subtable_aux_idx.01179
   store i32 5, ptr %add.ptr.i539, align 8
   %ref.tmp186.sroa.224.0.call189.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i539, i64 8
   store ptr %48, ptr %ref.tmp186.sroa.224.0.call189.sroa_idx, align 8
@@ -2307,7 +2283,7 @@ if.then.i18.i.i.i572:                             ; preds = %_ZNSt6vectorIN6goog
 _ZNSt6vectorIN6google8protobuf8internal17TailCallTableInfo8AuxEntryESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i573: ; preds = %if.then.i18.i.i.i572, %_ZNSt6vectorIN6google8protobuf8internal17TailCallTableInfo8AuxEntryESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit17.i.i.i569
   store ptr %call5.i.i.i.i.i.i579, ptr %aux_entries, align 8
   store ptr %incdec.ptr.i.i.i570, ptr %_M_finish.i129, align 8
-  %add.ptr19.i.i.i574 = getelementptr inbounds nuw %"struct.google::protobuf::internal::TailCallTableInfo::AuxEntry", ptr %call5.i.i.i.i.i.i579, i64 %cond.i.i.i.i564
+  %add.ptr19.i.i.i574 = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i.i.i.i579, i64 %cond.i.i.i.i564
   store ptr %add.ptr19.i.i.i574, ptr %_M_end_of_storage.i.i604, align 8
   br label %for.inc283
 
@@ -2427,7 +2403,7 @@ if.then.i18.i.i.i626:                             ; preds = %_ZNSt6vectorIN6goog
 _ZNSt6vectorIN6google8protobuf8internal17TailCallTableInfo8AuxEntryESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i627: ; preds = %if.then.i18.i.i.i626, %_ZNSt6vectorIN6google8protobuf8internal17TailCallTableInfo8AuxEntryESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit17.i.i.i623
   store ptr %call5.i.i.i.i.i.i633, ptr %aux_entries, align 8
   store ptr %incdec.ptr.i.i.i624, ptr %_M_finish.i129, align 8
-  %add.ptr19.i.i.i628 = getelementptr inbounds nuw %"struct.google::protobuf::internal::TailCallTableInfo::AuxEntry", ptr %call5.i.i.i.i.i.i633, i64 %cond.i.i.i.i618
+  %add.ptr19.i.i.i628 = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i.i.i.i633, i64 %cond.i.i.i.i618
   store ptr %add.ptr19.i.i.i628, ptr %_M_end_of_storage.i.i604, align 8
   br label %invoke.cont224
 
@@ -2665,7 +2641,7 @@ if.then.i18.i.i.i723:                             ; preds = %_ZNSt6vectorIN6goog
 _ZNSt6vectorIN6google8protobuf8internal17TailCallTableInfo8AuxEntryESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i724: ; preds = %if.then.i18.i.i.i723, %_ZNSt6vectorIN6google8protobuf8internal17TailCallTableInfo8AuxEntryESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit17.i.i.i720
   store ptr %call5.i.i.i.i.i.i730, ptr %aux_entries, align 8
   store ptr %incdec.ptr.i.i.i721, ptr %_M_finish.i129, align 8
-  %add.ptr19.i.i.i725 = getelementptr inbounds nuw %"struct.google::protobuf::internal::TailCallTableInfo::AuxEntry", ptr %call5.i.i.i.i.i.i730, i64 %cond.i.i.i.i715
+  %add.ptr19.i.i.i725 = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i.i.i.i730, i64 %cond.i.i.i.i715
   store ptr %add.ptr19.i.i.i725, ptr %_M_end_of_storage.i.i604, align 8
   br label %invoke.cont276
 
@@ -2725,7 +2701,7 @@ for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.inc.i ]
   %293 = load ptr, ptr %fields_.i.i, align 8
-  %add.ptr.i.i742 = getelementptr inbounds nuw %"class.google::protobuf::FieldDescriptor", ptr %293, i64 %indvars.iv.i
+  %add.ptr.i.i742 = getelementptr inbounds nuw [88 x i8], ptr %293, i64 %indvars.iv.i
   %type_once_.i.i743 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i742, i64 24
   %294 = load ptr, ptr %type_once_.i.i743, align 8
   %tobool.not.i.i744 = icmp eq ptr %294, null
@@ -2833,7 +2809,7 @@ _ZNSt6vectorIN6google8protobuf8internal17TailCallTableInfo13FastFieldInfoESaIS4_
           to label %call5.i.i.i.i2.i.i22.i.noexc unwind label %lpad.loopexit
 
 call5.i.i.i.i2.i.i22.i.noexc:                     ; preds = %_ZNSt6vectorIN6google8protobuf8internal17TailCallTableInfo13FastFieldInfoESaIS4_EE17_S_check_init_lenEmRKS5_.exit.i.i
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw %"struct.google::protobuf::internal::TailCallTableInfo::FastFieldInfo", ptr %call5.i.i.i.i2.i.i22.i801, i64 %conv.i764
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [32 x i8], ptr %call5.i.i.i.i2.i.i22.i801, i64 %conv.i764
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %call5.i.i.i.i2.i.i22.i801, i8 0, i64 %mul.i.i.i.i.i.i.i, i1 false), !noalias !6
   %scevgep.i.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i22.i801, i64 %mul.i.i.i.i.i.i.i
   %conv2.i = add nsw i32 %shl, -1
@@ -2842,7 +2818,7 @@ call5.i.i.i.i2.i.i22.i.noexc:                     ; preds = %_ZNSt6vectorIN6goog
 if.then.i793:                                     ; preds = %call5.i.i.i.i2.i.i22.i.noexc
   %and.i23.i = and i32 %conv2.i, %shr.i.i
   %conv11.i = zext nneg i32 %and.i23.i to i64
-  %add.ptr.i.i795 = getelementptr inbounds nuw %"struct.google::protobuf::internal::TailCallTableInfo::FastFieldInfo", ptr %call5.i.i.i.i2.i.i22.i801, i64 %conv11.i
+  %add.ptr.i.i795 = getelementptr inbounds nuw [32 x i8], ptr %call5.i.i.i.i2.i.i22.i801, i64 %conv11.i
   %_M_index.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i795, i64 24
   %308 = load i8, ptr %_M_index.i.i.i, align 8, !noalias !6
   %cmp.i.i797 = icmp eq i8 %308, 2
@@ -3344,7 +3320,7 @@ _ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i60.i: ; preds = %if.then5.i
   %type_.i.i.i61.i = getelementptr inbounds nuw i8, ptr %365, i64 2
   %374 = load i8, ptr %type_.i.i.i61.i, align 2, !noalias !6
   %idxprom.i.i.i.i.i = zext i8 %374 to i64
-  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf8internal14WireFormatLite21kWireTypeForFieldTypeE, i64 %idxprom.i.i.i.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf8internal14WireFormatLite21kWireTypeForFieldTypeE, i64 %idxprom.i.i.i.i.i
   %375 = load i32, ptr %arrayidx.i.i.i.i.i, align 4, !noalias !6
   br label %invoke.cont35.i
 
@@ -3360,7 +3336,7 @@ invoke.cont35.i:                                  ; preds = %_ZNK6google8protobu
   %shr.i75.i = lshr i32 %tag.addr.0.i74.i, 3
   %and.i76.i = and i32 %shr.i75.i, %conv2.i
   %conv43.i = zext nneg i32 %and.i76.i to i64
-  %add.ptr.i77.i = getelementptr inbounds nuw %"struct.google::protobuf::internal::TailCallTableInfo::FastFieldInfo", ptr %call5.i.i.i.i2.i.i22.i801, i64 %conv43.i
+  %add.ptr.i77.i = getelementptr inbounds nuw [32 x i8], ptr %call5.i.i.i.i2.i.i22.i801, i64 %conv43.i
   %_M_index.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i77.i, i64 24
   %376 = load i8, ptr %_M_index.i.i.i.i.i, align 8, !noalias !6
   switch i8 %376, label %if.end63.i [
@@ -4508,7 +4484,7 @@ for.body.i842.preheader:                          ; preds = %for.end396
 for.body.i842:                                    ; preds = %for.body.i842.preheader, %if.end.i845
   %indvars.iv = phi i64 [ 0, %for.body.i842.preheader ], [ %indvars.iv.next, %if.end.i845 ]
   %493 = phi i32 [ -1, %for.body.i842.preheader ], [ %sub9.i, %if.end.i845 ]
-  %add.ptr.i.i843 = getelementptr inbounds nuw ptr, ptr %490, i64 %indvars.iv
+  %add.ptr.i.i843 = getelementptr inbounds nuw [8 x i8], ptr %490, i64 %indvars.iv
   %494 = load ptr, ptr %add.ptr.i.i843, align 8
   %number_.i.i844 = getelementptr inbounds nuw i8, ptr %494, i64 4
   %495 = load i32, ptr %number_.i.i844, align 4
@@ -4545,7 +4521,7 @@ for.body19.i:                                     ; preds = %while.end64.i, %for
   %last_skip_entry_start.092.i = phi i32 [ 0, %for.body19.lr.ph.i ], [ %sub73.i, %while.end64.i ]
   %conv21.i = zext i16 %field_entry_index.196.i to i64
   %497 = load ptr, ptr %ordered_fields, align 8, !noalias !14
-  %add.ptr.i30.i = getelementptr inbounds nuw ptr, ptr %497, i64 %conv21.i
+  %add.ptr.i30.i = getelementptr inbounds nuw [8 x i8], ptr %497, i64 %conv21.i
   %498 = load ptr, ptr %add.ptr.i30.i, align 8
   %number_.i31.i = getelementptr inbounds nuw i8, ptr %498, i64 4
   %499 = load i32, ptr %number_.i31.i, align 4
@@ -4722,7 +4698,7 @@ if.then.i18.i.i.i.i:                              ; preds = %_ZNSt6vectorIN6goog
 _ZNSt6vectorIN6google8protobuf8internal17TailCallTableInfo11SkipEntry16ESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i.i: ; preds = %if.then.i18.i.i.i.i, %_ZNSt6vectorIN6google8protobuf8internal17TailCallTableInfo11SkipEntry16ESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit17.i.i.i.i
   store ptr %call5.i.i.i.i.i.i52.i, ptr %entries57.i, align 8
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_finish.i38.i, align 8
-  %add.ptr19.i.i.i.i = getelementptr inbounds nuw %"struct.google::protobuf::internal::TailCallTableInfo::SkipEntry16", ptr %call5.i.i.i.i.i.i52.i, i64 %add.i.i.i.i.i
+  %add.ptr19.i.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i.i.i52.i, i64 %add.i.i.i.i.i
   store ptr %add.ptr19.i.i.i.i, ptr %_M_end_of_storage.i.i44.i, align 8
   br label %_ZNSt6vectorIN6google8protobuf8internal17TailCallTableInfo11SkipEntry16ESaIS4_EE9push_backEOS4_.exit.i
 
@@ -4739,7 +4715,7 @@ _ZNSt6vectorIN6google8protobuf8internal17TailCallTableInfo11SkipEntry16ESaIS4_EE
 while.end64.i:                                    ; preds = %_ZNSt6vectorIN6google8protobuf8internal17TailCallTableInfo11SkipEntry16ESaIS4_EE9push_backEOS4_.exit.i, %if.end50.i
   %.lcssa.i = phi ptr [ %513, %if.end50.i ], [ %518, %_ZNSt6vectorIN6google8protobuf8internal17TailCallTableInfo11SkipEntry16ESaIS4_EE9push_backEOS4_.exit.i ]
   %shl65.neg.i = shl nsw i32 -1, %rem.i
-  %add.ptr.i53.i = getelementptr inbounds nuw %"struct.google::protobuf::internal::TailCallTableInfo::SkipEntry16", ptr %.lcssa.i, i64 %conv56.i
+  %add.ptr.i53.i = getelementptr inbounds nuw [4 x i8], ptr %.lcssa.i, i64 %conv56.i
   %520 = load i16, ptr %add.ptr.i53.i, align 2
   %521 = trunc nsw i32 %shl65.neg.i to i16
   %conv72.i = add i16 %520, %521
@@ -4975,7 +4951,7 @@ if.then.i20.i.i.i.i:                              ; preds = %_ZNSt6vectorISt17ba
   br label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i
 
 _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i: ; preds = %if.then.i20.i.i.i.i, %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i.i.i.i
-  %add.ptr19.i.i.i.i933 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %call5.i.i.i.i.i.i13.i, i64 %cond.i.i.i.i.i
+  %add.ptr19.i.i.i.i933 = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i.i.i.i13.i, i64 %cond.i.i.i.i.i
   %.pre.i934 = load i64, ptr %__cur.0.lcssa.i.i.i.i.i.i.i, align 8, !noalias !20
   br label %invoke.cont7.i
 
@@ -5497,7 +5473,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %enum_values.sroa.14.074 = phi ptr [ null, %for.body.lr.ph ], [ %enum_values.sroa.14.1, %for.inc ]
   %enum_values.sroa.26.073 = phi ptr [ null, %for.body.lr.ph ], [ %enum_values.sroa.26.1, %for.inc ]
   %5 = load ptr, ptr %values_.i, align 8
-  %add.ptr.i = getelementptr inbounds nuw %"class.google::protobuf::EnumValueDescriptor", ptr %5, i64 %indvars.iv
+  %add.ptr.i = getelementptr inbounds nuw [48 x i8], ptr %5, i64 %indvars.iv
   %number_.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 4
   %6 = load i32, ptr %number_.i, align 4
   %cmp.not.i.i = icmp eq ptr %enum_values.sroa.14.074, %enum_values.sroa.26.073
@@ -5553,7 +5529,7 @@ if.then.i18.i.i.i:                                ; preds = %_ZNSt6vectorIiSaIiE
   br label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i: ; preds = %if.then.i18.i.i.i, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i.i
-  %add.ptr19.i.i.i = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i.i.i8, i64 %cond.i.i.i.i
+  %add.ptr19.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i.i.i8, i64 %cond.i.i.i.i
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i, %if.then.i.i
@@ -5876,7 +5852,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T
   %sub.ptr.sub.i.i.i.i.i.i33.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i32.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i.i.i.i.i.i34.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i33.i, 2
   %idx.neg.i.i.i.i.i.i35.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i34.i
-  %add.ptr.i.i.i.i.i.i36.i = getelementptr inbounds i32, ptr %add.ptr.i3.i31.i, i64 %idx.neg.i.i.i.i.i.i35.i
+  %add.ptr.i.i.i.i.i.i36.i = getelementptr inbounds [4 x i8], ptr %add.ptr.i3.i31.i, i64 %idx.neg.i.i.i.i.i.i35.i
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %add.ptr.i.i.i.i.i.i36.i, ptr noundef nonnull align 4 dereferenceable(1) %__first.coerce, i64 %sub.ptr.sub.i.i.i.i.i.i33.i, i1 false)
   br label %for.inc.i21.i
 
@@ -5952,16 +5928,16 @@ while.body.i.i.i.i:                               ; preds = %while.body.i.i, %wh
   %__holeIndex.addr.029.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %while.body.i.i.i.i ], [ 0, %while.body.i.i ]
   %add.i.i.i.i = shl i64 %__holeIndex.addr.029.i.i.i.i, 1
   %mul.i.i.i.i = add i64 %add.i.i.i.i, 2
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i32, ptr %__first.coerce, i64 %mul.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds [4 x i8], ptr %__first.coerce, i64 %mul.i.i.i.i
   %sub3.i.i.i.i = or disjoint i64 %add.i.i.i.i, 1
-  %add.ptr.i17.i.i.i.i = getelementptr inbounds i32, ptr %__first.coerce, i64 %sub3.i.i.i.i
+  %add.ptr.i17.i.i.i.i = getelementptr inbounds [4 x i8], ptr %__first.coerce, i64 %sub3.i.i.i.i
   %2 = load i32, ptr %add.ptr.i.i.i.i.i, align 4
   %3 = load i32, ptr %add.ptr.i17.i.i.i.i, align 4
   %cmp.i.i.i.i.i = icmp slt i32 %2, %3
   %spec.select.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 %sub3.i.i.i.i, i64 %mul.i.i.i.i
-  %add.ptr.i18.i.i.i.i = getelementptr inbounds i32, ptr %__first.coerce, i64 %spec.select.i.i.i.i
+  %add.ptr.i18.i.i.i.i = getelementptr inbounds [4 x i8], ptr %__first.coerce, i64 %spec.select.i.i.i.i
   %4 = load i32, ptr %add.ptr.i18.i.i.i.i, align 4
-  %add.ptr.i19.i.i.i.i = getelementptr inbounds i32, ptr %__first.coerce, i64 %__holeIndex.addr.029.i.i.i.i
+  %add.ptr.i19.i.i.i.i = getelementptr inbounds [4 x i8], ptr %__first.coerce, i64 %__holeIndex.addr.029.i.i.i.i
   store i32 %4, ptr %add.ptr.i19.i.i.i.i, align 4
   %cmp.i.i.i.i = icmp slt i64 %spec.select.i.i.i.i, %div.i.i.i.i
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %while.end.i.i.i.i, !llvm.loop !35
@@ -5981,9 +5957,9 @@ land.lhs.true.i.i.i.i:                            ; preds = %while.end.i.i.i.i
 if.end33.i.thread.i.i.i:                          ; preds = %land.lhs.true.i.i.i.i
   %add21.i.i.i.i = shl nuw nsw i64 %__holeIndex.addr.0.lcssa.i.i.i.i, 1
   %sub24.i.i.i.i = or disjoint i64 %add21.i.i.i.i, 1
-  %add.ptr.i20.i.i.i.i = getelementptr inbounds nuw i32, ptr %__first.coerce, i64 %sub24.i.i.i.i
+  %add.ptr.i20.i.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %__first.coerce, i64 %sub24.i.i.i.i
   %6 = load i32, ptr %add.ptr.i20.i.i.i.i, align 4
-  %add.ptr.i21.i.i.i.i = getelementptr inbounds i32, ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i.i.i.i
+  %add.ptr.i21.i.i.i.i = getelementptr inbounds [4 x i8], ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i.i.i.i
   store i32 %6, ptr %add.ptr.i21.i.i.i.i, align 4
   br label %land.rhs.i.i.i.i.i.preheader
 
@@ -5999,20 +5975,20 @@ land.rhs.i.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i.i.
   %__holeIndex.addr.017.i.i.i.i.i = phi i64 [ %__parent.018.i.i34.i.i.i, %while.body.i.i.i.i.i ], [ %__holeIndex.addr.017.i.i.i.i.i.ph, %land.rhs.i.i.i.i.i.preheader ]
   %__parent.018.in.i.i.i.i.i = add nsw i64 %__holeIndex.addr.017.i.i.i.i.i, -1
   %__parent.018.i.i34.i.i.i = lshr i64 %__parent.018.in.i.i.i.i.i, 1
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i32, ptr %__first.coerce, i64 %__parent.018.i.i34.i.i.i
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %__first.coerce, i64 %__parent.018.i.i34.i.i.i
   %7 = load i32, ptr %add.ptr.i.i.i.i.i.i, align 4
   %cmp.i.i.i.i.i.i = icmp slt i32 %7, %0
   br i1 %cmp.i.i.i.i.i.i, label %while.body.i.i.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_less_iterEEvT_S9_S9_RT0_.exit.i.i
 
 while.body.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i
-  %add.ptr.i8.i.i.i.i.i = getelementptr inbounds i32, ptr %__first.coerce, i64 %__holeIndex.addr.017.i.i.i.i.i
+  %add.ptr.i8.i.i.i.i.i = getelementptr inbounds [4 x i8], ptr %__first.coerce, i64 %__holeIndex.addr.017.i.i.i.i.i
   store i32 %7, ptr %add.ptr.i8.i.i.i.i.i, align 4
   %cmp.i22.i.not.i.i.i = icmp eq i64 %__parent.018.i.i34.i.i.i, 0
   br i1 %cmp.i22.i.not.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_less_iterEEvT_S9_S9_RT0_.exit.i.i, label %land.rhs.i.i.i.i.i, !llvm.loop !36
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_less_iterEEvT_S9_S9_RT0_.exit.i.i: ; preds = %while.body.i.i.i.i.i, %land.rhs.i.i.i.i.i, %if.end33.i.i.i.i
   %__holeIndex.addr.0.lcssa.i.i.i.i.i = phi i64 [ 0, %if.end33.i.i.i.i ], [ %__holeIndex.addr.017.i.i.i.i.i, %land.rhs.i.i.i.i.i ], [ 0, %while.body.i.i.i.i.i ]
-  %add.ptr.i9.i.i.i.i.i = getelementptr inbounds i32, ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i.i.i.i.i
+  %add.ptr.i9.i.i.i.i.i = getelementptr inbounds [4 x i8], ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i.i.i.i.i
   store i32 %0, ptr %add.ptr.i9.i.i.i.i.i, align 4
   %cmp.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i, 4
   br i1 %cmp.i.i, label %while.body.i.i, label %while.end, !llvm.loop !37
@@ -6020,7 +5996,7 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops1
 if.end:                                           ; preds = %while.body
   %dec = add nsw i64 %__depth_limit.addr.018, -1
   %div.i78 = lshr i64 %sub.ptr.div.i19, 1
-  %add.ptr.i.i = getelementptr inbounds nuw i32, ptr %__first.coerce, i64 %div.i78
+  %add.ptr.i.i = getelementptr inbounds nuw [4 x i8], ptr %__first.coerce, i64 %div.i78
   %add.ptr.i2.i = getelementptr inbounds i8, ptr %storemerge17, i64 -4
   %8 = load i32, ptr %add.ptr.i1.i, align 4
   %9 = load i32, ptr %add.ptr.i.i, align 4
@@ -6145,13 +6121,13 @@ if.end:                                           ; preds = %entry
 
 while.body.preheader:                             ; preds = %if.end
   %sub24.i = or disjoint i64 %sub, 1
-  %add.ptr.i20.i = getelementptr inbounds nuw i32, ptr %__first.coerce, i64 %sub24.i
-  %add.ptr.i21.i = getelementptr inbounds nuw i32, ptr %__first.coerce, i64 %div18.i
+  %add.ptr.i20.i = getelementptr inbounds nuw [4 x i8], ptr %__first.coerce, i64 %sub24.i
+  %add.ptr.i21.i = getelementptr inbounds nuw [4 x i8], ptr %__first.coerce, i64 %div18.i
   br label %while.body
 
 while.body.us:                                    ; preds = %if.end, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit.us
   %__parent.0.us = phi i64 [ %dec.us, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit.us ], [ %div1617, %if.end ]
-  %phi.call.us = getelementptr inbounds i32, ptr %__first.coerce, i64 %__parent.0.us
+  %phi.call.us = getelementptr inbounds [4 x i8], ptr %__first.coerce, i64 %__parent.0.us
   %1 = load i32, ptr %phi.call.us, align 4
   %cmp28.i.us = icmp slt i64 %__parent.0.us, %div.i20
   br i1 %cmp28.i.us, label %while.body.i.us, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit.us
@@ -6160,16 +6136,16 @@ while.body.i.us:                                  ; preds = %while.body.us, %whi
   %__holeIndex.addr.029.i.us = phi i64 [ %spec.select.i.us, %while.body.i.us ], [ %__parent.0.us, %while.body.us ]
   %add.i.us = shl i64 %__holeIndex.addr.029.i.us, 1
   %mul.i.us = add i64 %add.i.us, 2
-  %add.ptr.i.i.us = getelementptr inbounds i32, ptr %__first.coerce, i64 %mul.i.us
+  %add.ptr.i.i.us = getelementptr inbounds [4 x i8], ptr %__first.coerce, i64 %mul.i.us
   %sub3.i.us = or disjoint i64 %add.i.us, 1
-  %add.ptr.i17.i.us = getelementptr inbounds i32, ptr %__first.coerce, i64 %sub3.i.us
+  %add.ptr.i17.i.us = getelementptr inbounds [4 x i8], ptr %__first.coerce, i64 %sub3.i.us
   %2 = load i32, ptr %add.ptr.i.i.us, align 4
   %3 = load i32, ptr %add.ptr.i17.i.us, align 4
   %cmp.i.i.us = icmp slt i32 %2, %3
   %spec.select.i.us = select i1 %cmp.i.i.us, i64 %sub3.i.us, i64 %mul.i.us
-  %add.ptr.i18.i.us = getelementptr inbounds i32, ptr %__first.coerce, i64 %spec.select.i.us
+  %add.ptr.i18.i.us = getelementptr inbounds [4 x i8], ptr %__first.coerce, i64 %spec.select.i.us
   %4 = load i32, ptr %add.ptr.i18.i.us, align 4
-  %add.ptr.i19.i.us = getelementptr inbounds i32, ptr %__first.coerce, i64 %__holeIndex.addr.029.i.us
+  %add.ptr.i19.i.us = getelementptr inbounds [4 x i8], ptr %__first.coerce, i64 %__holeIndex.addr.029.i.us
   store i32 %4, ptr %add.ptr.i19.i.us, align 4
   %cmp.i.us = icmp slt i64 %spec.select.i.us, %div.i20
   br i1 %cmp.i.us, label %while.body.i.us, label %while.end.i.us, !llvm.loop !35
@@ -6182,20 +6158,20 @@ land.rhs.i.i.us:                                  ; preds = %while.end.i.us, %wh
   %__holeIndex.addr.017.i.i.us = phi i64 [ %__parent.018.i.i.us, %while.body.i.i.us ], [ %spec.select.i.us, %while.end.i.us ]
   %__parent.018.in.i.i.us = add nsw i64 %__holeIndex.addr.017.i.i.us, -1
   %__parent.018.i.i.us = sdiv i64 %__parent.018.in.i.i.us, 2
-  %add.ptr.i.i.i.us = getelementptr inbounds nuw i32, ptr %__first.coerce, i64 %__parent.018.i.i.us
+  %add.ptr.i.i.i.us = getelementptr inbounds nuw [4 x i8], ptr %__first.coerce, i64 %__parent.018.i.i.us
   %5 = load i32, ptr %add.ptr.i.i.i.us, align 4
   %cmp.i.i.i.us = icmp slt i32 %5, %1
   br i1 %cmp.i.i.i.us, label %while.body.i.i.us, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit.us
 
 while.body.i.i.us:                                ; preds = %land.rhs.i.i.us
-  %add.ptr.i8.i.i.us = getelementptr inbounds nuw i32, ptr %__first.coerce, i64 %__holeIndex.addr.017.i.i.us
+  %add.ptr.i8.i.i.us = getelementptr inbounds nuw [4 x i8], ptr %__first.coerce, i64 %__holeIndex.addr.017.i.i.us
   store i32 %5, ptr %add.ptr.i8.i.i.us, align 4
   %cmp.i22.i.us = icmp sgt i64 %__parent.018.i.i.us, %__parent.0.us
   br i1 %cmp.i22.i.us, label %land.rhs.i.i.us, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit.us, !llvm.loop !36
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit.us: ; preds = %land.rhs.i.i.us, %while.body.i.i.us, %while.body.us, %while.end.i.us
   %__holeIndex.addr.0.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %while.end.i.us ], [ %__parent.0.us, %while.body.us ], [ %__holeIndex.addr.017.i.i.us, %land.rhs.i.i.us ], [ %__parent.018.i.i.us, %while.body.i.i.us ]
-  %add.ptr.i9.i.i.us = getelementptr inbounds nuw i32, ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i.i.us
+  %add.ptr.i9.i.i.us = getelementptr inbounds nuw [4 x i8], ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i.i.us
   store i32 %1, ptr %add.ptr.i9.i.i.us, align 4
   %cmp8.us = icmp eq i64 %__parent.0.us, 0
   %dec.us = add nsw i64 %__parent.0.us, -1
@@ -6203,7 +6179,7 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5_
 
 while.body:                                       ; preds = %while.body.preheader, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit
   %__parent.0 = phi i64 [ %dec, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit ], [ %div1617, %while.body.preheader ]
-  %phi.call = getelementptr inbounds i32, ptr %__first.coerce, i64 %__parent.0
+  %phi.call = getelementptr inbounds [4 x i8], ptr %__first.coerce, i64 %__parent.0
   %6 = load i32, ptr %phi.call, align 4
   %cmp28.i = icmp slt i64 %__parent.0, %div.i20
   br i1 %cmp28.i, label %while.body.i, label %while.end.i
@@ -6212,16 +6188,16 @@ while.body.i:                                     ; preds = %while.body, %while.
   %__holeIndex.addr.029.i = phi i64 [ %spec.select.i, %while.body.i ], [ %__parent.0, %while.body ]
   %add.i = shl i64 %__holeIndex.addr.029.i, 1
   %mul.i = add i64 %add.i, 2
-  %add.ptr.i.i = getelementptr inbounds i32, ptr %__first.coerce, i64 %mul.i
+  %add.ptr.i.i = getelementptr inbounds [4 x i8], ptr %__first.coerce, i64 %mul.i
   %sub3.i = or disjoint i64 %add.i, 1
-  %add.ptr.i17.i = getelementptr inbounds i32, ptr %__first.coerce, i64 %sub3.i
+  %add.ptr.i17.i = getelementptr inbounds [4 x i8], ptr %__first.coerce, i64 %sub3.i
   %7 = load i32, ptr %add.ptr.i.i, align 4
   %8 = load i32, ptr %add.ptr.i17.i, align 4
   %cmp.i.i = icmp slt i32 %7, %8
   %spec.select.i = select i1 %cmp.i.i, i64 %sub3.i, i64 %mul.i
-  %add.ptr.i18.i = getelementptr inbounds i32, ptr %__first.coerce, i64 %spec.select.i
+  %add.ptr.i18.i = getelementptr inbounds [4 x i8], ptr %__first.coerce, i64 %spec.select.i
   %9 = load i32, ptr %add.ptr.i18.i, align 4
-  %add.ptr.i19.i = getelementptr inbounds i32, ptr %__first.coerce, i64 %__holeIndex.addr.029.i
+  %add.ptr.i19.i = getelementptr inbounds [4 x i8], ptr %__first.coerce, i64 %__holeIndex.addr.029.i
   store i32 %9, ptr %add.ptr.i19.i, align 4
   %cmp.i = icmp slt i64 %spec.select.i, %div.i20
   br i1 %cmp.i, label %while.body.i, label %while.end.i, !llvm.loop !35
@@ -6245,20 +6221,20 @@ land.rhs.i.i:                                     ; preds = %if.end33.i, %while.
   %__holeIndex.addr.017.i.i = phi i64 [ %__parent.018.i.i, %while.body.i.i ], [ %__holeIndex.addr.1.i, %if.end33.i ]
   %__parent.018.in.i.i = add nsw i64 %__holeIndex.addr.017.i.i, -1
   %__parent.018.i.i = sdiv i64 %__parent.018.in.i.i, 2
-  %add.ptr.i.i.i = getelementptr inbounds nuw i32, ptr %__first.coerce, i64 %__parent.018.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %__first.coerce, i64 %__parent.018.i.i
   %11 = load i32, ptr %add.ptr.i.i.i, align 4
   %cmp.i.i.i = icmp slt i32 %11, %6
   br i1 %cmp.i.i.i, label %while.body.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit
 
 while.body.i.i:                                   ; preds = %land.rhs.i.i
-  %add.ptr.i8.i.i = getelementptr inbounds nuw i32, ptr %__first.coerce, i64 %__holeIndex.addr.017.i.i
+  %add.ptr.i8.i.i = getelementptr inbounds nuw [4 x i8], ptr %__first.coerce, i64 %__holeIndex.addr.017.i.i
   store i32 %11, ptr %add.ptr.i8.i.i, align 4
   %cmp.i22.i = icmp sgt i64 %__parent.018.i.i, %__parent.0
   br i1 %cmp.i22.i, label %land.rhs.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit, !llvm.loop !36
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit: ; preds = %land.rhs.i.i, %while.body.i.i, %if.end33.i
   %__holeIndex.addr.0.lcssa.i.i = phi i64 [ %__holeIndex.addr.1.i, %if.end33.i ], [ %__parent.018.i.i, %while.body.i.i ], [ %__holeIndex.addr.017.i.i, %land.rhs.i.i ]
-  %add.ptr.i9.i.i = getelementptr inbounds nuw i32, ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i.i
+  %add.ptr.i9.i.i = getelementptr inbounds nuw [4 x i8], ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i.i
   store i32 %6, ptr %add.ptr.i9.i.i, align 4
   %cmp8 = icmp eq i64 %__parent.0, 0
   %dec = add nsw i64 %__parent.0, -1
@@ -6395,7 +6371,7 @@ _ZNSt12_Vector_baseIN6google8protobuf8internal17TailCallTableInfo14SkipEntryBloc
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call5.i.i.i, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i24, ptr %_M_finish.i.i, align 8
-  %add.ptr19 = getelementptr inbounds nuw %"struct.google::protobuf::internal::TailCallTableInfo::SkipEntryBlock", ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr19 = getelementptr inbounds nuw [32 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr19, ptr %_M_end_of_storage, align 8
   ret void
 }
@@ -6908,9 +6884,9 @@ if.then.i38:                                      ; preds = %_ZNSt6vectorIN6goog
 
 _ZNSt12_Vector_baseIN6google8protobuf8internal17TailCallTableInfo8AuxEntryESaIS4_EE13_M_deallocateEPS4_m.exit39: ; preds = %_ZNSt6vectorIN6google8protobuf8internal17TailCallTableInfo8AuxEntryESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit, %if.then.i38
   store ptr %call5.i.i.i, ptr %this, align 8
-  %add.ptr37 = getelementptr inbounds nuw %"struct.google::protobuf::internal::TailCallTableInfo::AuxEntry", ptr %add.ptr, i64 %__n
+  %add.ptr37 = getelementptr inbounds nuw [16 x i8], ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8
-  %add.ptr40 = getelementptr inbounds nuw %"struct.google::protobuf::internal::TailCallTableInfo::AuxEntry", ptr %call5.i.i.i, i64 %3
+  %add.ptr40 = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i, i64 %3
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8
   br label %if.end44
 

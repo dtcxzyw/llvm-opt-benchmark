@@ -116,7 +116,7 @@ define dso_local range(i32 -1, 1) i32 @set_disambiguate_hint_config(ptr noundef 
 
 .preheader:                                       ; preds = %2, %5
   %indvars.iv = phi i64 [ %indvars.iv.next, %5 ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw %struct.anon, ptr @set_disambiguate_hint_config.hints, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [16 x i8], ptr @set_disambiguate_hint_config.hints, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 16, !tbaa !6
   %8 = tail call i32 @strcasecmp(ptr noundef nonnull %1, ptr noundef %7) #21
   %.not12 = icmp eq i32 %8, 0
@@ -318,7 +318,7 @@ define dso_local i32 @repo_for_each_abbrev(ptr noundef %0, ptr noundef readonly 
 
 .preheader.i:                                     ; preds = %._crit_edge.i, %43
   %.0811.i.i = phi i64 [ %44, %43 ], [ 0, %._crit_edge.i ]
-  %42 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i
+  %42 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %.0811.i.i
   %.not.i.i = icmp eq ptr %2, %42
   br i1 %.not.i.i, label %.split.loop.exit9.i.i, label %43
 
@@ -413,7 +413,7 @@ define internal fastcc void @find_short_packed_object(ptr noundef nonnull %0) un
 
 8:                                                ; preds = %1
   %9 = sext i32 %7 to i64
-  %10 = getelementptr inbounds %struct.git_hash_algo, ptr @hash_algos, i64 %9
+  %10 = getelementptr inbounds [112 x i8], ptr @hash_algos, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %12 = load ptr, ptr %11, align 8, !tbaa !22
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 400
@@ -799,7 +799,7 @@ define dso_local i32 @repo_find_unique_abbrev_r(ptr noundef %0, ptr noundef %1, 
 
 13:                                               ; preds = %4
   %14 = sext i32 %12 to i64
-  %15 = getelementptr inbounds %struct.git_hash_algo, ptr @hash_algos, i64 %14
+  %15 = getelementptr inbounds [112 x i8], ptr @hash_algos, i64 %14
   br label %19
 
 16:                                               ; preds = %4
@@ -1324,7 +1324,7 @@ find_abbrev_len_packed.exit:                      ; preds = %find_abbrev_len_for
 
 .preheader.i:                                     ; preds = %._crit_edge.i28, %258
   %.0811.i.i = phi i64 [ %259, %258 ], [ 0, %._crit_edge.i28 ]
-  %257 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i
+  %257 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %.0811.i.i
   %.not.i.i30 = icmp eq ptr %20, %257
   br i1 %.not.i.i30, label %.split.loop.exit9.i.i, label %258
 
@@ -1919,7 +1919,7 @@ interpret_empty_at.exit.thread:                   ; preds = %.critedge.i, %41, %
 .backedge:                                        ; preds = %.backedge.backedge, %interpret_empty_at.exit.thread
   %exitcond.not.i.i = phi i1 [ false, %interpret_empty_at.exit.thread ], [ true, %.backedge.backedge ]
   %indvars.iv.i.i = phi i64 [ 0, %interpret_empty_at.exit.thread ], [ 1, %.backedge.backedge ]
-  %59 = getelementptr inbounds nuw ptr, ptr @__const.upstream_mark.suffix, i64 %indvars.iv.i.i
+  %59 = getelementptr inbounds nuw [8 x i8], ptr @__const.upstream_mark.suffix, i64 %indvars.iv.i.i
   %60 = load ptr, ptr %59, align 8, !tbaa !94
   %61 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %60) #21
   %62 = trunc i64 %61 to i32
@@ -2602,7 +2602,7 @@ define internal fastcc i32 @get_oid_with_context_1(ptr noundef %0, ptr noundef %
 
 80:                                               ; preds = %.lr.ph202, %79
   %indvars.iv = phi i64 [ %78, %.lr.ph202 ], [ %indvars.iv.next, %79 ]
-  %81 = getelementptr inbounds nuw ptr, ptr %76, i64 %indvars.iv
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %indvars.iv
   %82 = load ptr, ptr %81, align 8, !tbaa !121
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 64
   %84 = load i32, ptr %83, align 8, !tbaa !14
@@ -3515,7 +3515,7 @@ _.exit.i:                                         ; preds = %181, %178
 .backedge.i:                                      ; preds = %.backedge.i.backedge, %210
   %exitcond.not.i.i.i = phi i1 [ false, %210 ], [ true, %.backedge.i.backedge ]
   %indvars.iv.i.i.i = phi i64 [ 0, %210 ], [ 1, %.backedge.i.backedge ]
-  %214 = getelementptr inbounds nuw ptr, ptr @__const.upstream_mark.suffix, i64 %indvars.iv.i.i.i
+  %214 = getelementptr inbounds nuw [8 x i8], ptr @__const.upstream_mark.suffix, i64 %indvars.iv.i.i.i
   %215 = load ptr, ptr %214, align 8, !tbaa !94
   %216 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %215) #21
   %217 = trunc i64 %216 to i32
@@ -4268,7 +4268,7 @@ define internal fastcc void @diagnose_invalid_index_path(ptr noundef %0, i32 nou
 14:                                               ; preds = %4
   %15 = load ptr, ptr %7, align 8, !tbaa !108
   %16 = zext nneg i32 %spec.select to i64
-  %17 = getelementptr inbounds nuw ptr, ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !121
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 52
   %20 = load i32, ptr %19, align 4, !tbaa !14
@@ -4317,7 +4317,7 @@ define internal fastcc void @diagnose_invalid_index_path(ptr noundef %0, i32 nou
 46:                                               ; preds = %35
   %47 = load ptr, ptr %7, align 8, !tbaa !108
   %48 = zext nneg i32 %spec.select52 to i64
-  %49 = getelementptr inbounds nuw ptr, ptr %47, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %48
   %50 = load ptr, ptr %49, align 8, !tbaa !121
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 52
   %52 = load i32, ptr %51, align 4, !tbaa !14
@@ -4517,7 +4517,7 @@ define internal fastcc range(i32 -2, 1) i32 @get_short_oid(ptr noundef %0, ptr n
 
 .preheader.i:                                     ; preds = %._crit_edge.i, %46
   %.0811.i.i = phi i64 [ %47, %46 ], [ 0, %._crit_edge.i ]
-  %45 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i
+  %45 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %.0811.i.i
   %.not.i.i = icmp eq ptr %spec.store.select, %45
   br i1 %.not.i.i, label %.split.loop.exit9.i.i, label %46
 

@@ -3,28 +3,16 @@ source_filename = "bench/box2d/original/sensor.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.b2SensorTaskContext = type { %struct.b2BitSet }
-%struct.b2BitSet = type { ptr, i32, i32 }
-%struct.b2Sensor = type { %struct.b2ShapeRefArray, %struct.b2ShapeRefArray, i32 }
 %struct.b2ShapeRefArray = type { ptr, i32, i32 }
-%struct.b2Shape = type { i32, i32, i32, i32, i32, i32, float, float, float, float, float, i32, %struct.b2AABB, %struct.b2AABB, %struct.b2Vec2, i32, %struct.b2Filter, ptr, i32, %union.anon.0, i16, i8, i8, i8, i8 }
-%struct.b2AABB = type { %struct.b2Vec2, %struct.b2Vec2 }
-%struct.b2Vec2 = type { float, float }
-%struct.b2Filter = type { i64, i64, i32 }
-%union.anon.0 = type { %struct.b2Polygon }
-%struct.b2Polygon = type { [8 x %struct.b2Vec2], [8 x %struct.b2Vec2], %struct.b2Vec2, float, i32 }
-%struct.b2ShapeRef = type { i32, i16 }
-%struct.b2SensorEndTouchEventArray = type { ptr, i32, i32 }
-%struct.b2SensorEndTouchEvent = type { %struct.b2ShapeId, %struct.b2ShapeId }
-%struct.b2ShapeId = type { i32, i16, i16 }
-%struct.b2SensorBeginTouchEvent = type { %struct.b2ShapeId, %struct.b2ShapeId }
 %struct.b2SensorQueryContext = type { ptr, ptr, ptr, ptr, %struct.b2Transform }
 %struct.b2Transform = type { %struct.b2Vec2, %struct.b2Rot }
+%struct.b2Vec2 = type { float, float }
 %struct.b2Rot = type { float, float }
 %struct.b2DistanceInput = type { %struct.b2ShapeProxy, %struct.b2ShapeProxy, %struct.b2Transform, %struct.b2Transform, i8 }
 %struct.b2ShapeProxy = type { [8 x %struct.b2Vec2], i32, float }
 %struct.b2SimplexCache = type { i16, [3 x i8], [3 x i8] }
 %struct.b2DistanceOutput = type { %struct.b2Vec2, %struct.b2Vec2, float, i32, i32 }
+%struct.b2Filter = type { i64, i64, i32 }
 
 ; Function Attrs: nounwind uwtable
 define hidden { ptr, i64 } @b2ShapeRefArray_Create(i32 noundef %0) local_unnamed_addr #0 {
@@ -222,7 +210,7 @@ define hidden void @b2OverlapSensors(ptr noundef %0) local_unnamed_addr #0 {
 18:                                               ; preds = %.lr.ph, %18
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %18 ]
   %19 = load ptr, ptr %9, align 8, !tbaa !71
-  %20 = getelementptr inbounds nuw %struct.b2SensorTaskContext, ptr %19, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [16 x i8], ptr %19, i64 %indvars.iv
   tail call void @b2SetBitCountAndClear(ptr noundef %20, i32 noundef %4) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %21 = load i32, ptr %6, align 8, !tbaa !67
@@ -265,7 +253,7 @@ define hidden void @b2OverlapSensors(ptr noundef %0) local_unnamed_addr #0 {
 .lr.ph226:                                        ; preds = %28, %.lr.ph226
   %indvars.iv248 = phi i64 [ %indvars.iv.next249, %.lr.ph226 ], [ 1, %28 ]
   %43 = load ptr, ptr %29, align 8, !tbaa !71
-  %44 = getelementptr inbounds nuw %struct.b2SensorTaskContext, ptr %43, i64 %indvars.iv248
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %43, i64 %indvars.iv248
   tail call void @b2InPlaceUnion(ptr noundef %30, ptr noundef nonnull %44) #9
   %indvars.iv.next249 = add nuw nsw i64 %indvars.iv248, 1
   %45 = load i32, ptr %6, align 8, !tbaa !67
@@ -275,7 +263,7 @@ define hidden void @b2OverlapSensors(ptr noundef %0) local_unnamed_addr #0 {
 
 48:                                               ; preds = %.lr.ph245, %._crit_edge242
   %indvars.iv259 = phi i64 [ 0, %.lr.ph245 ], [ %indvars.iv.next260, %._crit_edge242 ]
-  %49 = getelementptr inbounds nuw i64, ptr %33, i64 %indvars.iv259
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv259
   %50 = load i64, ptr %49, align 8, !tbaa !78
   %.not205238 = icmp eq i64 %50, 0
   br i1 %.not205238, label %._crit_edge242, label %.lr.ph241
@@ -292,12 +280,12 @@ define hidden void @b2OverlapSensors(ptr noundef %0) local_unnamed_addr #0 {
   %56 = or disjoint i32 %52, %55
   %.val = load ptr, ptr %2, align 8, !tbaa !14
   %57 = sext i32 %56 to i64
-  %58 = getelementptr inbounds %struct.b2Sensor, ptr %.val, i64 %57
+  %58 = getelementptr inbounds [40 x i8], ptr %.val, i64 %57
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 32
   %60 = load i32, ptr %59, align 8, !tbaa !79
   %.val206 = load ptr, ptr %36, align 8, !tbaa !81
   %61 = sext i32 %60 to i64
-  %62 = getelementptr inbounds %struct.b2Shape, ptr %.val206, i64 %61
+  %62 = getelementptr inbounds [288 x i8], ptr %.val206, i64 %61
   %63 = add nsw i32 %60, 1
   %64 = load i16, ptr %37, align 4, !tbaa !82
   %65 = getelementptr inbounds nuw i8, ptr %62, i64 276
@@ -345,9 +333,9 @@ define hidden void @b2OverlapSensors(ptr noundef %0) local_unnamed_addr #0 {
   %.0193229 = phi i32 [ 0, %.lr.ph231 ], [ %.1, %187 ]
   %.0194228 = phi i32 [ 0, %.lr.ph231 ], [ %.1195, %187 ]
   %80 = sext i32 %.0193229 to i64
-  %81 = getelementptr inbounds %struct.b2ShapeRef, ptr %72, i64 %80
+  %81 = getelementptr inbounds [8 x i8], ptr %72, i64 %80
   %82 = sext i32 %.0194228 to i64
-  %83 = getelementptr inbounds %struct.b2ShapeRef, ptr %73, i64 %82
+  %83 = getelementptr inbounds [8 x i8], ptr %73, i64 %82
   %84 = load i32, ptr %81, align 4, !tbaa !91
   %85 = load i32, ptr %83, align 4, !tbaa !91
   %86 = icmp eq i32 %84, %85
@@ -373,7 +361,7 @@ define hidden void @b2OverlapSensors(ptr noundef %0) local_unnamed_addr #0 {
   %.sroa.028.0.insert.insert = or disjoint i64 %.sroa.429.0.insert.insert, %.sroa.429.0.insert.shift
   %96 = load i32, ptr %42, align 8, !tbaa !94
   %97 = sext i32 %96 to i64
-  %98 = getelementptr inbounds %struct.b2SensorEndTouchEventArray, ptr %41, i64 %97
+  %98 = getelementptr inbounds [16 x i8], ptr %41, i64 %97
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
   %100 = load i32, ptr %99, align 8, !tbaa !95
   %101 = getelementptr inbounds nuw i8, ptr %98, i64 12
@@ -394,7 +382,7 @@ b2SensorEndTouchEventArray_Push.exit:             ; preds = %93, %104
   %109 = phi i32 [ %.pre.i, %104 ], [ %100, %93 ]
   %110 = load ptr, ptr %98, align 8, !tbaa !99
   %111 = sext i32 %109 to i64
-  %112 = getelementptr inbounds %struct.b2SensorEndTouchEvent, ptr %110, i64 %111
+  %112 = getelementptr inbounds [16 x i8], ptr %110, i64 %111
   store i64 %.sroa.070.0.insert.insert76, ptr %112, align 4
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %112, i64 8
   store i64 %.sroa.028.0.insert.insert, ptr %.sroa.2.0..sroa_idx.i, align 4
@@ -436,7 +424,7 @@ b2SensorBeginTouchEventArray_Push.exit:           ; preds = %118, %124
   %129 = phi i32 [ %.pre.i208, %124 ], [ %121, %118 ]
   %130 = load ptr, ptr %38, align 8, !tbaa !102
   %131 = sext i32 %129 to i64
-  %132 = getelementptr inbounds %struct.b2SensorBeginTouchEvent, ptr %130, i64 %131
+  %132 = getelementptr inbounds [16 x i8], ptr %130, i64 %131
   store i64 %.sroa.070.0.insert.insert76, ptr %132, align 4
   %.sroa.2.0..sroa_idx.i207 = getelementptr inbounds nuw i8, ptr %132, i64 8
   store i64 %.sroa.023.0.insert.insert, ptr %.sroa.2.0..sroa_idx.i207, align 4
@@ -469,7 +457,7 @@ b2SensorBeginTouchEventArray_Push.exit:           ; preds = %118, %124
   %.sroa.018.0.insert.insert = or disjoint i64 %146, %.sroa.419.0.insert.shift
   %147 = load i32, ptr %42, align 8, !tbaa !94
   %148 = sext i32 %147 to i64
-  %149 = getelementptr inbounds %struct.b2SensorEndTouchEventArray, ptr %41, i64 %148
+  %149 = getelementptr inbounds [16 x i8], ptr %41, i64 %148
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 8
   %151 = load i32, ptr %150, align 8, !tbaa !95
   %152 = getelementptr inbounds nuw i8, ptr %149, i64 12
@@ -490,7 +478,7 @@ b2SensorEndTouchEventArray_Push.exit211:          ; preds = %142, %155
   %160 = phi i32 [ %.pre.i210, %155 ], [ %151, %142 ]
   %161 = load ptr, ptr %149, align 8, !tbaa !99
   %162 = sext i32 %160 to i64
-  %163 = getelementptr inbounds %struct.b2SensorEndTouchEvent, ptr %161, i64 %162
+  %163 = getelementptr inbounds [16 x i8], ptr %161, i64 %162
   store i64 %.sroa.070.0.insert.insert76, ptr %163, align 4
   %.sroa.2.0..sroa_idx.i209 = getelementptr inbounds nuw i8, ptr %163, i64 8
   store i64 %.sroa.018.0.insert.insert, ptr %.sroa.2.0..sroa_idx.i209, align 4
@@ -527,7 +515,7 @@ b2SensorBeginTouchEventArray_Push.exit214:        ; preds = %167, %175
   %180 = phi i32 [ %.pre.i213, %175 ], [ %172, %167 ]
   %181 = load ptr, ptr %38, align 8, !tbaa !102
   %182 = sext i32 %180 to i64
-  %183 = getelementptr inbounds %struct.b2SensorBeginTouchEvent, ptr %181, i64 %182
+  %183 = getelementptr inbounds [16 x i8], ptr %181, i64 %182
   store i64 %.sroa.070.0.insert.insert76, ptr %183, align 4
   %.sroa.2.0..sroa_idx.i212 = getelementptr inbounds nuw i8, ptr %183, i64 8
   store i64 %.sroa.013.0.insert.insert, ptr %.sroa.2.0..sroa_idx.i212, align 4
@@ -563,7 +551,7 @@ b2SensorBeginTouchEventArray_Push.exit214:        ; preds = %167, %175
 
 193:                                              ; preds = %.lr.ph234, %b2SensorEndTouchEventArray_Push.exit217
   %indvars.iv251 = phi i64 [ %78, %.lr.ph234 ], [ %indvars.iv.next252, %b2SensorEndTouchEventArray_Push.exit217 ]
-  %194 = getelementptr inbounds %struct.b2ShapeRef, ptr %72, i64 %indvars.iv251
+  %194 = getelementptr inbounds [8 x i8], ptr %72, i64 %indvars.iv251
   %195 = load i32, ptr %194, align 4, !tbaa !91
   %196 = add nsw i32 %195, 1
   %197 = load i16, ptr %37, align 4, !tbaa !82
@@ -578,7 +566,7 @@ b2SensorBeginTouchEventArray_Push.exit214:        ; preds = %167, %175
   %.sroa.06.0.insert.insert = or disjoint i64 %.sroa.47.0.insert.insert, %.sroa.58.0.insert.shift
   %200 = load i32, ptr %42, align 8, !tbaa !94
   %201 = sext i32 %200 to i64
-  %202 = getelementptr inbounds %struct.b2SensorEndTouchEventArray, ptr %41, i64 %201
+  %202 = getelementptr inbounds [16 x i8], ptr %41, i64 %201
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 8
   %204 = load i32, ptr %203, align 8, !tbaa !95
   %205 = getelementptr inbounds nuw i8, ptr %202, i64 12
@@ -599,7 +587,7 @@ b2SensorEndTouchEventArray_Push.exit217:          ; preds = %193, %208
   %213 = phi i32 [ %.pre.i216, %208 ], [ %204, %193 ]
   %214 = load ptr, ptr %202, align 8, !tbaa !99
   %215 = sext i32 %213 to i64
-  %216 = getelementptr inbounds %struct.b2SensorEndTouchEvent, ptr %214, i64 %215
+  %216 = getelementptr inbounds [16 x i8], ptr %214, i64 %215
   store i64 %.sroa.070.0.insert.insert73, ptr %216, align 4
   %.sroa.2.0..sroa_idx.i215 = getelementptr inbounds nuw i8, ptr %216, i64 8
   store i64 %.sroa.06.0.insert.insert, ptr %.sroa.2.0..sroa_idx.i215, align 4
@@ -614,7 +602,7 @@ b2SensorEndTouchEventArray_Push.exit217:          ; preds = %193, %208
 219:                                              ; preds = %.lr.ph236, %b2SensorBeginTouchEventArray_Push.exit220
   %220 = phi i32 [ %.pre, %.lr.ph236 ], [ %239, %b2SensorBeginTouchEventArray_Push.exit220 ]
   %indvars.iv254 = phi i64 [ %192, %.lr.ph236 ], [ %indvars.iv.next255, %b2SensorBeginTouchEventArray_Push.exit220 ]
-  %221 = getelementptr inbounds %struct.b2ShapeRef, ptr %73, i64 %indvars.iv254
+  %221 = getelementptr inbounds [8 x i8], ptr %73, i64 %indvars.iv254
   %222 = load i32, ptr %221, align 4, !tbaa !91
   %223 = add nsw i32 %222, 1
   %224 = load i16, ptr %37, align 4, !tbaa !82
@@ -644,7 +632,7 @@ b2SensorBeginTouchEventArray_Push.exit220:        ; preds = %219, %229
   %234 = phi i32 [ %.pre.i219, %229 ], [ %220, %219 ]
   %235 = load ptr, ptr %38, align 8, !tbaa !102
   %236 = sext i32 %234 to i64
-  %237 = getelementptr inbounds %struct.b2SensorBeginTouchEvent, ptr %235, i64 %236
+  %237 = getelementptr inbounds [16 x i8], ptr %235, i64 %236
   store i64 %.sroa.070.0.insert.insert, ptr %237, align 4
   %.sroa.2.0..sroa_idx.i218 = getelementptr inbounds nuw i8, ptr %237, i64 8
   store i64 %.sroa.01.0.insert.insert, ptr %.sroa.2.0..sroa_idx.i218, align 4
@@ -680,7 +668,7 @@ define internal void @b2SensorTask(i32 noundef %0, i32 noundef %1, i32 noundef %
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 1320
   %8 = load ptr, ptr %7, align 8, !tbaa !71
   %9 = zext i32 %2 to i64
-  %10 = getelementptr inbounds nuw %struct.b2SensorTaskContext, ptr %8, i64 %9
+  %10 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %12 = icmp slt i32 %0, %1
   br i1 %12, label %.lr.ph70, label %._crit_edge
@@ -704,12 +692,12 @@ define internal void @b2SensorTask(i32 noundef %0, i32 noundef %1, i32 noundef %
 22:                                               ; preds = %.lr.ph70, %.loopexit
   %indvars.iv72 = phi i64 [ %21, %.lr.ph70 ], [ %indvars.iv.next73, %.loopexit ]
   %.val = load ptr, ptr %13, align 8, !tbaa !14
-  %23 = getelementptr inbounds %struct.b2Sensor, ptr %.val, i64 %indvars.iv72
+  %23 = getelementptr inbounds [40 x i8], ptr %.val, i64 %indvars.iv72
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %25 = load i32, ptr %24, align 8, !tbaa !79
   %.val64 = load ptr, ptr %14, align 8, !tbaa !81
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds %struct.b2Shape, ptr %.val64, i64 %26
+  %27 = getelementptr inbounds [288 x i8], ptr %.val64, i64 %26
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %23, i64 16, i1 false), !tbaa.struct !108
   %28 = getelementptr inbounds nuw i8, ptr %23, i64 16
@@ -767,8 +755,8 @@ define internal void @b2SensorTask(i32 noundef %0, i32 noundef %1, i32 noundef %
 
 53:                                               ; preds = %.lr.ph, %52
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %52 ]
-  %54 = getelementptr inbounds nuw %struct.b2ShapeRef, ptr %50, i64 %indvars.iv
-  %55 = getelementptr inbounds nuw %struct.b2ShapeRef, ptr %51, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %indvars.iv
   %56 = load i32, ptr %54, align 4, !tbaa !91
   %57 = load i32, ptr %55, align 4, !tbaa !91
   %.not62 = icmp eq i32 %56, %57
@@ -788,7 +776,7 @@ define internal void @b2SensorTask(i32 noundef %0, i32 noundef %1, i32 noundef %
   %64 = and i64 %indvars.iv72, 63
   %65 = shl nuw i64 1, %64
   %66 = and i64 %63, 67108863
-  %67 = getelementptr inbounds nuw i64, ptr %.val66, i64 %66
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %.val66, i64 %66
   %68 = load i64, ptr %67, align 8, !tbaa !78
   %69 = or i64 %68, %65
   store i64 %69, ptr %67, align 8, !tbaa !78
@@ -815,7 +803,7 @@ define hidden void @b2DestroySensor(ptr noundef %0, ptr noundef readonly capture
   %5 = load i32, ptr %4, align 8, !tbaa !124
   %.val25 = load ptr, ptr %3, align 8, !tbaa !14
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds %struct.b2Sensor, ptr %.val25, i64 %6
+  %7 = getelementptr inbounds [40 x i8], ptr %.val25, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %10 = load i32, ptr %9, align 8, !tbaa !88
@@ -856,9 +844,9 @@ b2SensorArray_RemoveSwap.exit.thread:             ; preds = %._crit_edge
 b2SensorArray_RemoveSwap.exit:                    ; preds = %._crit_edge
   %28 = load ptr, ptr %3, align 8, !tbaa !14
   %29 = sext i32 %24 to i64
-  %30 = getelementptr inbounds %struct.b2Sensor, ptr %28, i64 %29
+  %30 = getelementptr inbounds [40 x i8], ptr %28, i64 %29
   %31 = sext i32 %27 to i64
-  %32 = getelementptr inbounds %struct.b2Sensor, ptr %28, i64 %31
+  %32 = getelementptr inbounds [40 x i8], ptr %28, i64 %31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %30, ptr noundef nonnull align 8 dereferenceable(40) %32, i64 40, i1 false), !tbaa.struct !126
   %.pre.i = load i32, ptr %25, align 8, !tbaa !125
   %.pre10.i = add nsw i32 %.pre.i, -1
@@ -869,7 +857,7 @@ b2SensorArray_RemoveSwap.exit:                    ; preds = %._crit_edge
 33:                                               ; preds = %.lr.ph, %b2SensorEndTouchEventArray_Push.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %b2SensorEndTouchEventArray_Push.exit ]
   %34 = load ptr, ptr %8, align 8, !tbaa !90
-  %35 = getelementptr inbounds nuw %struct.b2ShapeRef, ptr %34, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv
   %36 = load i32, ptr %1, align 8, !tbaa !127
   %37 = add nsw i32 %36, 1
   %.sroa.0.0.insert.ext = zext i32 %37 to i64
@@ -892,7 +880,7 @@ b2SensorArray_RemoveSwap.exit:                    ; preds = %._crit_edge
   %.sroa.6.14.insert.insert = or disjoint i64 %45, %.sroa.0.4.insert.shift
   %46 = load i32, ptr %15, align 8, !tbaa !94
   %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds %struct.b2SensorEndTouchEventArray, ptr %14, i64 %47
+  %48 = getelementptr inbounds [16 x i8], ptr %14, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load i32, ptr %49, align 8, !tbaa !95
   %51 = getelementptr inbounds nuw i8, ptr %48, i64 12
@@ -913,7 +901,7 @@ b2SensorEndTouchEventArray_Push.exit:             ; preds = %33, %54
   %59 = phi i32 [ %.pre.i27, %54 ], [ %50, %33 ]
   %60 = load ptr, ptr %48, align 8, !tbaa !99
   %61 = sext i32 %59 to i64
-  %62 = getelementptr inbounds %struct.b2SensorEndTouchEvent, ptr %60, i64 %61
+  %62 = getelementptr inbounds [16 x i8], ptr %60, i64 %61
   store i64 %.sroa.0.6.insert.insert, ptr %62, align 4
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %62, i64 8
   store i64 %.sroa.6.14.insert.insert, ptr %.sroa.2.0..sroa_idx.i, align 4
@@ -930,13 +918,13 @@ b2SensorEndTouchEventArray_Push.exit:             ; preds = %33, %54
   %69 = load i32, ptr %4, align 8, !tbaa !124
   %.val = load ptr, ptr %3, align 8, !tbaa !14
   %70 = sext i32 %69 to i64
-  %71 = getelementptr inbounds %struct.b2Sensor, ptr %.val, i64 %70
+  %71 = getelementptr inbounds [40 x i8], ptr %.val, i64 %70
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 1256
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 32
   %74 = load i32, ptr %73, align 8, !tbaa !79
   %.val26 = load ptr, ptr %72, align 8, !tbaa !81
   %75 = sext i32 %74 to i64
-  %76 = getelementptr inbounds %struct.b2Shape, ptr %.val26, i64 %75
+  %76 = getelementptr inbounds [288 x i8], ptr %.val26, i64 %75
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 16
   store i32 %69, ptr %77, align 8, !tbaa !124
   br label %78
@@ -966,7 +954,7 @@ define internal noundef zeroext i1 @b2SensorQueryCallback(i32 %0, i32 noundef %1
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 1256
   %.val = load ptr, ptr %14, align 8, !tbaa !81
   %15 = sext i32 %1 to i64
-  %16 = getelementptr inbounds %struct.b2Shape, ptr %.val, i64 %15
+  %16 = getelementptr inbounds [288 x i8], ptr %.val, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load i32, ptr %17, align 8, !tbaa !124
   %.not = icmp eq i32 %18, -1
@@ -1048,7 +1036,7 @@ b2ShapeRefArray_Add.exit:                         ; preds = %.b2ShapeRefArray_Re
   %57 = add nsw i32 %56, 1
   store i32 %57, ptr %41, align 8, !tbaa !111
   %58 = sext i32 %56 to i64
-  %59 = getelementptr inbounds %struct.b2ShapeRef, ptr %55, i64 %58
+  %59 = getelementptr inbounds [8 x i8], ptr %55, i64 %58
   store i32 %1, ptr %59, align 4, !tbaa !91
   %60 = getelementptr inbounds nuw i8, ptr %16, i64 276
   %61 = load i16, ptr %60, align 4, !tbaa !83

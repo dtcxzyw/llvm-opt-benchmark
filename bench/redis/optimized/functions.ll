@@ -692,7 +692,7 @@ define dso_local void @functionStatsCommand(ptr noundef %0) local_unnamed_addr #
 20:                                               ; preds = %.lr.ph, %sdslen.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %sdslen.exit ]
   %21 = load ptr, ptr %18, align 8, !tbaa !97
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8, !tbaa !98
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !99
@@ -832,7 +832,7 @@ define dso_local void @functionListCommand(ptr noundef %0) local_unnamed_addr #1
   %.071126 = phi ptr [ null, %.lr.ph ], [ %.273.ph, %34 ]
   %.074125 = phi i32 [ 2, %.lr.ph ], [ %35, %34 ]
   %8 = sext i32 %.074125 to i64
-  %9 = getelementptr inbounds ptr, ptr %5, i64 %8
+  %9 = getelementptr inbounds [8 x i8], ptr %5, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !98
   %.not = icmp eq i32 %.0127, 0
   br i1 %.not, label %11, label %15
@@ -866,7 +866,7 @@ define dso_local void @functionListCommand(ptr noundef %0) local_unnamed_addr #1
 22:                                               ; preds = %20
   %23 = add nsw i32 %.074125, 1
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds ptr, ptr %5, i64 %24
+  %25 = getelementptr inbounds [8 x i8], ptr %5, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !98
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load ptr, ptr %27, align 8, !tbaa !99
@@ -1720,7 +1720,7 @@ define internal fastcc void @fcallCommandGeneric(ptr noundef %0, i32 noundef ran
   %65 = load ptr, ptr %10, align 8, !tbaa !97
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 24
   %67 = load i64, ptr %3, align 8, !tbaa !125
-  %68 = getelementptr inbounds ptr, ptr %66, i64 %67
+  %68 = getelementptr inbounds [8 x i8], ptr %66, i64 %67
   %69 = load i32, ptr %12, align 8, !tbaa !96
   %70 = add nsw i32 %69, -3
   %71 = sext i32 %70 to i64
@@ -2348,7 +2348,7 @@ sub_0:
 .lr.ph:                                           ; preds = %26, %38
   %indvars.iv = phi i64 [ %indvars.iv.next, %38 ], [ 1, %26 ]
   %.04772 = phi ptr [ %39, %38 ], [ null, %26 ]
-  %31 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv
   %32 = load ptr, ptr %31, align 8, !tbaa !51
   %33 = call i32 @strncasecmp(ptr noundef %32, ptr noundef nonnull @.str.74, i64 noundef 5) #15
   %34 = icmp eq i32 %33, 0
@@ -2938,7 +2938,7 @@ define dso_local void @functionLoadCommand(ptr noundef %0) local_unnamed_addr #1
 
 11:                                               ; preds = %.lr.ph, %10
   %indvars.iv = phi i64 [ 2, %.lr.ph ], [ %indvars.iv.next, %10 ]
-  %12 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !98
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !99
@@ -2967,7 +2967,7 @@ define dso_local void @functionLoadCommand(ptr noundef %0) local_unnamed_addr #1
   %.021.lcssa41 = phi i64 [ 2, %._crit_edge ], [ %18, %._crit_edge.thread.loopexit ]
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %20 = load ptr, ptr %19, align 8, !tbaa !97
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %.021.lcssa41
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %.021.lcssa41
   %22 = load ptr, ptr %21, align 8, !tbaa !98
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !51

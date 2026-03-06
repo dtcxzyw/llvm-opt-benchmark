@@ -20,12 +20,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"class.std::unique_ptr.80" = type { %"struct.std::__uniq_ptr_data.81" }
-%"struct.std::__uniq_ptr_data.81" = type { %"class.std::__uniq_ptr_impl.82" }
-%"class.std::__uniq_ptr_impl.82" = type { %"class.std::tuple.83" }
-%"class.std::tuple.83" = type { %"struct.std::_Tuple_impl.84" }
-%"struct.std::_Tuple_impl.84" = type { %"struct.std::_Head_base.87" }
-%"struct.std::_Head_base.87" = type { ptr }
 %"class.std::allocator.26" = type { i8 }
 %"struct.std::_Rb_tree<int, std::pair<const int, draco::Options>, std::_Select1st<std::pair<const int, draco::Options>>, std::less<int>>::_Reuse_or_alloc_node" = type { ptr, ptr, ptr }
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node" = type { ptr }
@@ -556,7 +550,7 @@ _ZNSt10unique_ptrIN5draco17PointCloudEncoderESt14default_deleteIS1_EE5resetEPS1_
   %52 = phi ptr [ %40, %.lr.ph ], [ %77, %.thread141 ]
   %storemerge165 = phi i32 [ 0, %.lr.ph ], [ %79, %.thread141 ]
   %53 = sext i32 %storemerge165 to i64
-  %54 = getelementptr inbounds nuw %"class.std::unique_ptr.80", ptr %51, i64 %53
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %53
   %55 = load ptr, ptr %54, align 8, !tbaa !49
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 28
   %57 = load i32, ptr %56, align 4, !tbaa !51
@@ -1819,7 +1813,7 @@ define void @_ZN5draco13ExpertEncoder28SetAttributePredictionSchemeEii(ptr dead_
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = sext i32 %2 to i64
   %12 = load ptr, ptr %10, align 8, !tbaa !48
-  %13 = getelementptr inbounds nuw %"class.std::unique_ptr.80", ptr %12, i64 %11
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %11
   %14 = load ptr, ptr %13, align 8, !tbaa !49
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %16 = load i32, ptr %15, align 8, !tbaa !93
@@ -4920,7 +4914,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i: ; preds
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i, %13
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %19 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %20 = load float, ptr %19, align 4, !tbaa !133
   %21 = fpext float %20 to double
   invoke void (ptr, ptr, i64, ptr, ...) @_ZN9__gnu_cxx12__to_xstringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEET_PFiPT0_mPKS8_P13__va_list_tagEmSB_z(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull @vsnprintf, i64 noundef 58, ptr noundef nonnull @.str.15, double noundef %21)

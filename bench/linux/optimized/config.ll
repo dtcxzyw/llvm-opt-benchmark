@@ -3,16 +3,6 @@ source_filename = "bench/linux/original/config.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.usb_host_interface = type { %struct.usb_interface_descriptor, i32, ptr, ptr, ptr }
-%struct.usb_interface_descriptor = type { i8, i8, i8, i8, i8, i8, i8, i8, i8 }
-%struct.usb_host_config = type { %struct.usb_config_descriptor, ptr, [16 x ptr], [32 x ptr], [32 x ptr], ptr, i32 }
-%struct.usb_config_descriptor = type <{ i8, i8, i16, i8, i8, i8, i8, i8 }>
-%struct.usb_host_endpoint = type <{ %struct.usb_endpoint_descriptor, %struct.usb_ss_ep_comp_descriptor, %struct.usb_ssp_isoc_ep_comp_descriptor, i8, %struct.list_head, ptr, ptr, ptr, i32, i32, i32, [4 x i8] }>
-%struct.usb_endpoint_descriptor = type <{ i8, i8, i8, i8, i16, i8, i8, i8 }>
-%struct.usb_ss_ep_comp_descriptor = type { i8, i8, i8, i8, i16 }
-%struct.usb_ssp_isoc_ep_comp_descriptor = type { i8, i8, i16, i32 }
-%struct.list_head = type { ptr, ptr }
-
 @.str = private unnamed_addr constant [56 x i8] c"too many configurations: %d, using maximum allowed: %d\0A\00", align 1
 @.str.1 = private unnamed_addr constant [19 x i8] c"no configurations\0A\00", align 1
 @.str.2 = private unnamed_addr constant [50 x i8] c"unable to read config index %d descriptor/%s: %d\0A\00", align 1
@@ -86,7 +76,7 @@ define dso_local void @usb_release_interface_cache(ptr noundef %0) local_unnamed
 7:                                                ; preds = %7, %5
   %8 = phi i32 [ 0, %5 ], [ %15, %7 ]
   %9 = sext i32 %8 to i64
-  %10 = getelementptr %struct.usb_host_interface, ptr %6, i64 %9
+  %10 = getelementptr [40 x i8], ptr %6, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %12 = load ptr, ptr %11, align 8
   tail call void @kfree(ptr noundef %12) #10
@@ -128,7 +118,7 @@ define dso_local void @usb_destroy_configuration(ptr noundef captures(none) %0) 
 .preheader6:                                      ; preds = %9, %.preheader6
   %13 = phi i64 [ %17, %.preheader6 ], [ 0, %9 ]
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr ptr, ptr %14, i64 %13
+  %15 = getelementptr [8 x i8], ptr %14, i64 %13
   %16 = load ptr, ptr %15, align 8
   tail call void @kfree(ptr noundef %16) #10
   %17 = add nuw nsw i64 %13, 1
@@ -156,7 +146,7 @@ define dso_local void @usb_destroy_configuration(ptr noundef captures(none) %0) 
 .preheader:                                       ; preds = %22, %.loopexit4
   %26 = phi i64 [ %68, %.loopexit4 ], [ 0, %22 ]
   %27 = load ptr, ptr %2, align 8
-  %28 = getelementptr %struct.usb_host_config, ptr %27, i64 %26
+  %28 = getelementptr [680 x i8], ptr %27, i64 %26
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load ptr, ptr %29, align 8
   tail call void @kfree(ptr noundef %30) #10
@@ -171,7 +161,7 @@ define dso_local void @usb_destroy_configuration(ptr noundef captures(none) %0) 
 
 36:                                               ; preds = %.thread, %34
   %37 = phi i64 [ 0, %34 ], [ %64, %.thread ]
-  %38 = getelementptr ptr, ptr %35, i64 %37
+  %38 = getelementptr [8 x i8], ptr %35, i64 %37
   %39 = load ptr, ptr %38, align 8
   %40 = icmp eq ptr %39, null
   br i1 %40, label %.thread, label %41
@@ -203,7 +193,7 @@ define dso_local void @usb_destroy_configuration(ptr noundef captures(none) %0) 
 53:                                               ; preds = %53, %51
   %54 = phi i32 [ 0, %51 ], [ %61, %53 ]
   %55 = sext i32 %54 to i64
-  %56 = getelementptr %struct.usb_host_interface, ptr %52, i64 %55
+  %56 = getelementptr [40 x i8], ptr %52, i64 %55
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 24
   %58 = load ptr, ptr %57, align 8
   tail call void @kfree(ptr noundef %58) #10
@@ -368,10 +358,10 @@ define dso_local range(i32 -2147483648, 1) i32 @usb_get_configuration(ptr nounde
 68:                                               ; preds = %66, %64
   %69 = phi i32 [ %60, %66 ], [ %50, %64 ]
   %70 = load ptr, ptr %23, align 8
-  %71 = getelementptr ptr, ptr %70, i64 %35
+  %71 = getelementptr [8 x i8], ptr %70, i64 %35
   store ptr %52, ptr %71, align 8
   %72 = load ptr, ptr %17, align 8
-  %73 = getelementptr %struct.usb_host_config, ptr %72, i64 %35
+  %73 = getelementptr [680 x i8], ptr %72, i64 %35
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %2, i8 0, i64 32, i1 false), !annotation !14
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -573,7 +563,7 @@ split:                                            ; preds = %82, %._crit_edge322
 
 170:                                              ; preds = %167
   %171 = zext i32 %104 to i64
-  %172 = getelementptr ptr, ptr %101, i64 %171
+  %172 = getelementptr [8 x i8], ptr %101, i64 %171
   store ptr %106, ptr %172, align 8
   %173 = add i32 %104, 1
   br label %176
@@ -713,7 +703,7 @@ split:                                            ; preds = %82, %._crit_edge322
   %251 = add nuw nsw i32 %250, 8
   %252 = zext nneg i32 %251 to i64
   %253 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %252, i32 noundef 3520) #12
-  %254 = getelementptr ptr, ptr %224, i64 %239
+  %254 = getelementptr [8 x i8], ptr %224, i64 %239
   store ptr %253, ptr %254, align 8
   %255 = icmp eq ptr %253, null
   br i1 %255, label %.thread99, label %256
@@ -814,7 +804,7 @@ split:                                            ; preds = %82, %._crit_edge322
   br i1 %317, label %.thread95, label %310, !llvm.loop !21
 
 318:                                              ; preds = %310
-  %319 = getelementptr ptr, ptr %289, i64 %311
+  %319 = getelementptr [8 x i8], ptr %289, i64 %311
   %320 = load ptr, ptr %319, align 8
   %321 = icmp eq ptr %320, null
   br i1 %321, label %.thread95, label %322
@@ -988,7 +978,7 @@ split:                                            ; preds = %82, %._crit_edge322
 426:                                              ; preds = %.loopexit109, %423
   %427 = phi i64 [ 0, %423 ], [ %478, %.loopexit109 ]
   %428 = phi i1 [ true, %423 ], [ %479, %.loopexit109 ]
-  %429 = getelementptr ptr, ptr %289, i64 %427
+  %429 = getelementptr [8 x i8], ptr %289, i64 %427
   %430 = load ptr, ptr %429, align 8
   %431 = load i32, ptr %430, align 8
   %432 = icmp eq i32 %431, 0
@@ -1001,7 +991,7 @@ split:                                            ; preds = %82, %._crit_edge322
 435:                                              ; preds = %.loopexit108, %433
   %436 = phi i32 [ 0, %433 ], [ %476, %.loopexit108 ]
   %437 = sext i32 %436 to i64
-  %438 = getelementptr %struct.usb_host_interface, ptr %434, i64 %437
+  %438 = getelementptr [40 x i8], ptr %434, i64 %437
   %439 = getelementptr inbounds nuw i8, ptr %438, i64 2
   %440 = load i8, ptr %439, align 2
   %441 = icmp eq i8 %440, %304
@@ -1027,7 +1017,7 @@ split:                                            ; preds = %82, %._crit_edge322
 
 454:                                              ; preds = %473, %450
   %455 = phi i64 [ 0, %450 ], [ %474, %473 ]
-  %456 = getelementptr %struct.usb_host_endpoint, ptr %452, i64 %455
+  %456 = getelementptr [80 x i8], ptr %452, i64 %455
   %457 = getelementptr inbounds nuw i8, ptr %456, i64 2
   %458 = load i8, ptr %457, align 1
   %459 = icmp eq i8 %458, %411
@@ -1100,7 +1090,7 @@ split:                                            ; preds = %82, %._crit_edge322
   %492 = phi i8 [ %.pre, %._crit_edge ], [ %418, %.critedge ]
   %493 = load ptr, ptr %389, align 8
   %494 = zext i8 %492 to i64
-  %495 = getelementptr %struct.usb_host_endpoint, ptr %493, i64 %494
+  %495 = getelementptr [80 x i8], ptr %493, i64 %494
   %496 = add i8 %492, 1
   store i8 %496, ptr %372, align 4
   %497 = zext nneg i32 %409 to i64
@@ -1278,7 +1268,7 @@ split:                                            ; preds = %82, %._crit_edge322
   %599 = load i8, ptr %598, align 1
   %600 = and i8 %599, 3
   %601 = zext nneg i8 %600 to i64
-  %602 = getelementptr i16, ptr %597, i64 %601
+  %602 = getelementptr [2 x i8], ptr %597, i64 %601
   %603 = load i16, ptr %602, align 2
   %604 = zext i16 %603 to i32
   %605 = icmp samesign ugt i32 %596, %604
@@ -1684,7 +1674,7 @@ thread-pre-split.thread:                          ; preds = %614, %639, %631, %t
 
 847:                                              ; preds = %.loopexit117, %290
   %848 = phi i64 [ 0, %290 ], [ %879, %.loopexit117 ]
-  %849 = getelementptr ptr, ptr %291, i64 %848
+  %849 = getelementptr [8 x i8], ptr %291, i64 %848
   %850 = load ptr, ptr %849, align 8
   %851 = load i32, ptr %850, align 8
   %852 = icmp eq i32 %851, 0

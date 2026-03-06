@@ -19,10 +19,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<std::vector<double>, std::allocator<std::vector<double>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"struct.cv::dpm::DPMDetector::ObjectDetection" = type { %"class.cv::Rect_", float, i32 }
 %"class.cv::Rect_" = type { i32, i32, i32, i32 }
-%"class.std::vector.21" = type { %"struct.std::_Vector_base.22" }
-%"struct.std::_Vector_base.22" = type { %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl" }
-%"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl" = type { %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 
 $_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev = comdat any
 
@@ -243,7 +239,7 @@ define hidden void @_ZN2cv3dpm15DPMDetectorImplC2ERKSt6vectorINSt7__cxx1112basic
   %33 = phi ptr [ %16, %.lr.ph ], [ %190, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62 ]
   %.023100 = phi i64 [ 0, %.lr.ph ], [ %188, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %34 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %33, i64 %.023100
+  %34 = getelementptr inbounds nuw [32 x i8], ptr %33, i64 %.023100
   store ptr %17, ptr %7, align 8, !tbaa !34
   %35 = load ptr, ptr %34, align 8, !tbaa !37
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 8
@@ -582,7 +578,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit55: ; preds = %137
   br label %196
 
 141:                                              ; preds = %_ZNSt6vectorIN2cv3PtrINS0_3dpm10DPMCascadeEEESaIS4_EE9push_backERKS4_.exit
-  %142 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %105, i64 %.023100
+  %142 = getelementptr inbounds nuw [32 x i8], ptr %105, i64 %.023100
   %143 = load ptr, ptr %28, align 8, !tbaa !30
   %144 = load ptr, ptr %29, align 8, !tbaa !60
   %.not.i56 = icmp eq ptr %143, %144
@@ -1145,7 +1141,7 @@ _ZNSt6vectorIN2cv3dpm11DPMDetector15ObjectDetectionESaIS3_EE5clearEv.exit: ; pre
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %24 = getelementptr inbounds nuw %"struct.cv::Ptr.12", ptr %23, i64 %.057
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %23, i64 %.057
   %25 = load ptr, ptr %24, align 8, !tbaa !52
   invoke void @_ZN2cv3dpm10DPMCascade6detectERNS_3MatE(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.26") align 8 %5, ptr noundef nonnull align 8 dereferenceable(921) %25, ptr noundef nonnull align 8 dereferenceable(96) %1)
           to label %_ZNSt6vectorIS_IdSaIdEESaIS1_EED2Ev.exit unwind label %45
@@ -1218,7 +1214,7 @@ _ZNSt6vectorIS_IdSaIdEESaIS1_EED2Ev.exit41:       ; preds = %_ZSt8_DestroyIPSt6v
           to label %49 unwind label %103
 
 49:                                               ; preds = %47
-  %50 = getelementptr inbounds nuw %"class.std::vector.21", ptr %26, i64 %48
+  %50 = getelementptr inbounds nuw [24 x i8], ptr %26, i64 %48
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = load ptr, ptr %51, align 8, !tbaa !85
   %53 = load ptr, ptr %50, align 8, !tbaa !80
@@ -1320,7 +1316,7 @@ _ZNSt6vectorIN2cv3dpm11DPMDetector15ObjectDetectionESaIS3_EE11_S_relocateEPS3_S6
 _ZNSt6vectorIN2cv3dpm11DPMDetector15ObjectDetectionESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %98, %_ZNSt6vectorIN2cv3dpm11DPMDetector15ObjectDetectionESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i
   store ptr %93, ptr %2, align 8, !tbaa !71
   store ptr %97, ptr %8, align 8, !tbaa !74
-  %99 = getelementptr inbounds nuw %"struct.cv::dpm::DPMDetector::ObjectDetection", ptr %93, i64 %91
+  %99 = getelementptr inbounds nuw [24 x i8], ptr %93, i64 %91
   store ptr %99, ptr %21, align 8, !tbaa !88
   br label %_ZNSt6vectorIN2cv3dpm11DPMDetector15ObjectDetectionESaIS3_EE9push_backERKS3_.exit
 
@@ -2551,7 +2547,7 @@ _ZNSt12_Vector_baseIN2cv3PtrINS0_3dpm10DPMCascadeEEESaIS4_EE13_M_deallocateEPS4_
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !68
   store ptr %.0.lcssa.i.i.i.i21, ptr %4, align 8, !tbaa !55
-  %49 = getelementptr inbounds nuw %"struct.cv::Ptr.12", ptr %20, i64 %16
+  %49 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %49, ptr %48, align 8, !tbaa !58
   ret void
 }
@@ -2732,7 +2728,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %22, ptr %0, align 8, !tbaa !33
   store ptr %.0.lcssa.i.i.i.i25, ptr %4, align 8, !tbaa !30
-  %70 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %70 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %70, ptr %69, align 8, !tbaa !60
   ret void
 }
@@ -2923,7 +2919,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %23, ptr %0, align 8, !tbaa !33
   store ptr %.0.lcssa.i.i.i.i35, ptr %5, align 8, !tbaa !30
-  %74 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %74 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %74, ptr %73, align 8, !tbaa !60
   ret void
 

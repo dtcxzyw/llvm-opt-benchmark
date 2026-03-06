@@ -136,7 +136,7 @@ define noundef zeroext i1 @_ZN8uv_types6traits10BuildStack8contains17hd10e135838
   %22 = add i64 %.sroa.01.0.i.i.i, %21
   %23 = and i64 %22, %13
   %24 = sub nsw i64 0, %23
-  %25 = getelementptr inbounds { { i64, [10 x i64] }, {} }, ptr %14, i64 %24
+  %25 = getelementptr inbounds [88 x i8], ptr %14, i64 %24
   %26 = getelementptr inbounds i8, ptr %25, i64 -88
   %27 = call noundef zeroext i1 @"_ZN82_$LT$uv_distribution_types..id..DistributionId$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc57cc9c7b061ce04E.llvm.16539403835048581065"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %26), !noalias !32
   br i1 %27, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17hb803bf9817d5d995E.exit", label %31, !prof !35

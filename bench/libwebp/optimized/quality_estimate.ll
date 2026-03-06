@@ -186,7 +186,7 @@ GetBit.exit154:                                   ; preds = %.preheader.i149.pre
 GetBit.exit168:                                   ; preds = %.preheader.i163, %79
   %.22 = phi i64 [ -9223372036854775808, %79 ], [ %80, %.preheader.i163 ]
   %.1.i167 = phi i32 [ 0, %79 ], [ %95, %.preheader.i163 ]
-  %96 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv527
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv527
   store i32 %.1.i167, ptr %96, align 4, !tbaa !13
   %97 = add nuw i64 %.22, 1
   %.not.i169.not = icmp ult i64 %.22, %30

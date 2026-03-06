@@ -1375,7 +1375,7 @@ define hidden void @_ZN9itertools9Itertools4join17h4c11c7a8a7c51478E(ptr dead_on
   %30 = load ptr, ptr %29, align 8, !alias.scope !337, !noalias !344, !nonnull !3, !noundef !3
   %31 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %32 = load i64, ptr %31, align 8, !alias.scope !337, !noalias !344, !noundef !3
-  %33 = getelementptr inbounds { { { { i64, ptr, {} }, {} }, i64 } }, ptr %30, i64 %32
+  %33 = getelementptr inbounds [24 x i8], ptr %30, i64 %32
   store ptr %30, ptr %15, align 8, !alias.scope !322, !noalias !323
   store ptr %33, ptr %16, align 8, !alias.scope !322, !noalias !323
   br label %.split.us.i.i.i
@@ -1593,7 +1593,7 @@ _ZN4core3ops8function6FnOnce9call_once17hb1daa9429203ef48E.exit.i9.i.i.i: ; pred
   %.val5.us.i.i.i.i.i.i.i.i = load ptr, ptr %92, align 8, !alias.scope !436, !noalias !439, !nonnull !3, !noundef !3
   %93 = getelementptr i8, ptr %.promoted.i.i.i.i.i.i.i.i, i64 16
   %.val6.us.i.i.i.i.i.i.i.i = load i64, ptr %93, align 8, !alias.scope !436, !noalias !439, !noundef !3
-  %94 = getelementptr inbounds { { { { i64, ptr, {} }, {} }, i64 } }, ptr %.val5.us.i.i.i.i.i.i.i.i, i64 %.val6.us.i.i.i.i.i.i.i.i
+  %94 = getelementptr inbounds [24 x i8], ptr %.val5.us.i.i.i.i.i.i.i.i, i64 %.val6.us.i.i.i.i.i.i.i.i
   store ptr %.val5.us.i.i.i.i.i.i.i.i, ptr %15, align 8, !alias.scope !440, !noalias !443
   store ptr %94, ptr %16, align 8, !alias.scope !440, !noalias !443
   invoke fastcc void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h6f8a5c5e3df22891E"(ptr nonnull align 8 dereferenceable(24) %10, ptr nonnull readonly align 8 dereferenceable(16) %13, ptr noalias noundef nonnull align 8 dereferenceable(16) %15)

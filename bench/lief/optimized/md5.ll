@@ -892,7 +892,7 @@ define hidden range(i32 0, 2) i32 @mbedtls_md5_self_test(i32 noundef %0) local_u
 .split.us:                                        ; preds = %1, %8
   %indvars.iv26 = phi i64 [ %indvars.iv.next27, %8 ], [ 0, %1 ]
   %3 = getelementptr inbounds nuw [81 x i8], ptr @md5_test_buf, i64 %indvars.iv26
-  %4 = getelementptr inbounds nuw i64, ptr @md5_test_buflen, i64 %indvars.iv26
+  %4 = getelementptr inbounds nuw [8 x i8], ptr @md5_test_buflen, i64 %indvars.iv26
   %5 = load i64, ptr %4, align 8, !tbaa !16
   %6 = call i32 @mbedtls_md5(ptr noundef nonnull %3, i64 noundef %5, ptr noundef nonnull %2)
   %7 = getelementptr inbounds nuw [16 x i8], ptr @md5_test_sum, i64 %indvars.iv26
@@ -911,7 +911,7 @@ define hidden range(i32 0, 2) i32 @mbedtls_md5_self_test(i32 noundef %0) local_u
   %9 = trunc nuw nsw i64 %indvars.iv.next to i32
   %10 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %9)
   %11 = getelementptr inbounds nuw [81 x i8], ptr @md5_test_buf, i64 %indvars.iv
-  %12 = getelementptr inbounds nuw i64, ptr @md5_test_buflen, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr @md5_test_buflen, i64 %indvars.iv
   %13 = load i64, ptr %12, align 8, !tbaa !16
   %14 = call i32 @mbedtls_md5(ptr noundef nonnull %11, i64 noundef %13, ptr noundef nonnull %2)
   %15 = getelementptr inbounds nuw [16 x i8], ptr @md5_test_sum, i64 %indvars.iv

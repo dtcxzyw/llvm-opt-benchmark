@@ -137,7 +137,7 @@ define range(i32 0, 3) i32 @very_real_unpack(ptr noundef %0, i32 noundef %1, i32
 .preheader570:                                    ; preds = %9, %.preheader570
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader570 ], [ %20, %9 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %23 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv.next
+  %23 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv.next
   store i16 1024, ptr %23, align 2, !tbaa !12
   %.not = icmp eq i64 %indvars.iv.next, 0
   br i1 %.not, label %24, label %.preheader570
@@ -222,7 +222,7 @@ get_byte.exit.thread:                             ; preds = %34
   %57 = shl i32 %.0280637, 4
   %58 = add i32 %57, %56
   %59 = zext i32 %58 to i64
-  %60 = getelementptr inbounds nuw i16, ptr %0, i64 %59
+  %60 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %59
   %61 = load i32, ptr %33, align 4, !tbaa !21
   %62 = zext i32 %61 to i64
   %switch.i = icmp ult i32 %61, 2
@@ -379,14 +379,14 @@ getbit_from_table.exit:                           ; preds = %get_byte.exit.i, %8
   %139 = or disjoint i32 %136, %138
   %140 = add i32 %118, 1846
   %141 = zext i32 %140 to i64
-  %142 = getelementptr inbounds nuw i16, ptr %0, i64 %141
+  %142 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %141
   %143 = call i32 @get_100_bits_from_tablesize(ptr noundef nonnull %142, ptr noundef nonnull %10, i32 noundef %139)
   br label %207
 
 144:                                              ; preds = %126
   %145 = add i32 %118, 1846
   %146 = zext i32 %145 to i64
-  %147 = getelementptr inbounds nuw i16, ptr %0, i64 %146
+  %147 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %146
   %.promoted585 = load ptr, ptr %10, align 8
   %148 = load ptr, ptr %31, align 8
   br label %149
@@ -398,7 +398,7 @@ getbit_from_table.exit:                           ; preds = %get_byte.exit.i, %8
   %.05.i = phi i32 [ 1, %144 ], [ %203, %getbit_from_table.exit478 ]
   %153 = shl nuw nsw i32 %.05.i, 1
   %154 = zext nneg i32 %.05.i to i64
-  %155 = getelementptr inbounds nuw i16, ptr %147, i64 %154
+  %155 = getelementptr inbounds nuw [2 x i8], ptr %147, i64 %154
   %.not52.i467 = icmp ult ptr %155, %64
   br i1 %.not52.i467, label %161, label %156
 
@@ -536,7 +536,7 @@ getbit_from_table.exit478:                        ; preds = %161, %168, %get_byt
 .thread525:                                       ; preds = %97, %get_byte.exit57.i, %.thread527
   %.pn.in = add i32 %.0280637, 192
   %.pn = zext i32 %.pn.in to i64
-  %217 = getelementptr inbounds nuw i16, ptr %0, i64 %.pn
+  %217 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %.pn
   %.not52.i388 = icmp ult ptr %217, %64
   br i1 %.not52.i388, label %.thread533, label %218
 
@@ -642,7 +642,7 @@ get_byte.exit57.i394:                             ; preds = %261, %260
 .thread531:                                       ; preds = %250, %get_byte.exit57.i394, %.thread533
   %.pn563.in = add i32 %.0280637, 204
   %.pn563 = zext i32 %.pn563.in to i64
-  %267 = getelementptr inbounds nuw i16, ptr %0, i64 %.pn563
+  %267 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %.pn563
   %.not52.i401 = icmp ult ptr %267, %64
   br i1 %.not52.i401, label %.thread541, label %268
 
@@ -747,7 +747,7 @@ get_byte.exit57.i407:                             ; preds = %311, %310
   %320 = add nuw i32 %56, 240
   %321 = add i32 %320, %57
   %322 = zext i32 %321 to i64
-  %323 = getelementptr inbounds nuw i16, ptr %0, i64 %322
+  %323 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %322
   %.not52.i414 = icmp ult ptr %323, %64
   br i1 %.not52.i414, label %329, label %324
 
@@ -891,7 +891,7 @@ getbit_from_table.exit425:                        ; preds = %get_byte.exit.i423,
 .thread539:                                       ; preds = %300, %get_byte.exit57.i407, %.thread541
   %.pn564.in = add i32 %.0280637, 216
   %.pn564 = zext i32 %.pn564.in to i64
-  %391 = getelementptr inbounds nuw i16, ptr %0, i64 %.pn564
+  %391 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %.pn564
   %.not52.i427 = icmp ult ptr %391, %64
   br i1 %.not52.i427, label %.thread547, label %392
 
@@ -997,7 +997,7 @@ get_byte.exit57.i433:                             ; preds = %435, %434
 .thread545:                                       ; preds = %424, %get_byte.exit57.i433, %.thread547
   %.pn565.in = add i32 %.0280637, 228
   %.pn565 = zext i32 %.pn565.in to i64
-  %441 = getelementptr inbounds nuw i16, ptr %0, i64 %.pn565
+  %441 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %.pn565
   %.not52.i440 = icmp ult ptr %441, %64
   br i1 %.not52.i440, label %449, label %442
 
@@ -1117,7 +1117,7 @@ getbit_from_table.exit399:                        ; preds = %get_byte.exit.i397,
   %499 = shl i32 %498, 6
   %500 = add i32 %499, 432
   %501 = zext i32 %500 to i64
-  %502 = getelementptr inbounds nuw i16, ptr %0, i64 %501
+  %502 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %501
   %503 = load i32, ptr %33, align 4, !tbaa !21
   %504 = zext i32 %503 to i64
   %switch.i479 = icmp ult i32 %503, 2
@@ -1143,7 +1143,7 @@ getbit_from_table.exit399:                        ; preds = %get_byte.exit.i397,
   %512 = add nsw i32 %.010.i, -1
   %513 = shl i32 %.079.i, 1
   %514 = zext i32 %.079.i to i64
-  %515 = getelementptr inbounds nuw i16, ptr %502, i64 %514
+  %515 = getelementptr inbounds nuw [2 x i8], ptr %502, i64 %514
   %.not52.i480 = icmp ult ptr %515, %505
   br i1 %.not52.i480, label %521, label %516
 
@@ -1268,7 +1268,7 @@ get_n_bits_from_table.exit:                       ; preds = %getbit_from_table.e
   %reass.sub = sub i32 %572, %563
   %575 = add i32 %reass.sub, 751
   %576 = zext i32 %575 to i64
-  %577 = getelementptr inbounds nuw i16, ptr %0, i64 %576
+  %577 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %576
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %574, %getbit_from_table.exit504
@@ -1279,7 +1279,7 @@ get_n_bits_from_table.exit:                       ; preds = %getbit_from_table.e
   %.01418.i = phi i32 [ %633, %getbit_from_table.exit504 ], [ 0, %574 ]
   %.01517.i = phi i32 [ %631, %getbit_from_table.exit504 ], [ 1, %574 ]
   %581 = zext i32 %.01517.i to i64
-  %582 = getelementptr inbounds nuw i16, ptr %577, i64 %581
+  %582 = getelementptr inbounds nuw [2 x i8], ptr %577, i64 %581
   %.not52.i493 = icmp ult ptr %582, %505
   br i1 %.not52.i493, label %588, label %583
 
@@ -1467,7 +1467,7 @@ get_byte.exit.i457:                               ; preds = %656, %655
   %.01418.i461 = phi i32 [ %718, %getbit_from_table.exit517 ], [ 0, %662 ]
   %.01517.i462 = phi i32 [ %716, %getbit_from_table.exit517 ], [ 1, %662 ]
   %666 = zext i32 %.01517.i462 to i64
-  %667 = getelementptr inbounds nuw i16, ptr %53, i64 %666
+  %667 = getelementptr inbounds nuw [2 x i8], ptr %53, i64 %666
   %.not52.i506 = icmp ult ptr %667, %505
   %or.cond665 = select i1 %switch.i479, i1 true, i1 %.not52.i506
   br i1 %or.cond665, label %673, label %668
@@ -1856,7 +1856,7 @@ define range(i32 0, 256) i32 @get_100_bits_from_tablesize(ptr noundef %0, ptr no
   %16 = add nuw nsw i32 %15, 256
   %17 = or disjoint i32 %16, %.02326
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds nuw i16, ptr %0, i64 %18
+  %19 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %18
   %20 = tail call i32 @getbit_from_table(ptr noundef nonnull %19, ptr noundef %1)
   %21 = shl nuw nsw i32 %.02326, 1
   %22 = or i32 %20, %21
@@ -1892,7 +1892,7 @@ getbit_from_table.exit.us:                        ; preds = %getbit_from_table.e
   %.2 = phi i32 [ %84, %getbit_from_table.exit ], [ %22, %.preheader.split ]
   %33 = shl i32 %.2, 1
   %34 = zext i32 %.2 to i64
-  %35 = getelementptr inbounds nuw i16, ptr %0, i64 %34
+  %35 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %34
   %.not52.i = icmp ult ptr %35, %29
   br i1 %.not52.i, label %41, label %36
 
@@ -2017,7 +2017,7 @@ define range(i32 0, 256) i32 @get_100_bits_from_table(ptr noundef %0, ptr nounde
   %.05 = phi i32 [ 1, %2 ], [ %8, %3 ]
   %4 = shl nuw nsw i32 %.05, 1
   %5 = zext nneg i32 %.05 to i64
-  %6 = getelementptr inbounds nuw i16, ptr %0, i64 %5
+  %6 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %5
   %7 = tail call i32 @getbit_from_table(ptr noundef %6, ptr noundef %1)
   %8 = or i32 %7, %4
   %9 = icmp samesign ult i32 %.05, 128
@@ -2038,7 +2038,7 @@ define i32 @get_n_bits_from_tablesize(ptr noundef %0, ptr noundef captures(none)
   %6 = shl i32 %2, 3
   %7 = or disjoint i32 %6, 2
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw i16, ptr %0, i64 %8
+  %9 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %8
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %5
@@ -2047,7 +2047,7 @@ define i32 @get_n_bits_from_tablesize(ptr noundef %0, ptr noundef captures(none)
   %10 = add nsw i32 %.010.i, -1
   %11 = shl i32 %.079.i, 1
   %12 = zext i32 %.079.i to i64
-  %13 = getelementptr inbounds nuw i16, ptr %9, i64 %12
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %12
   %14 = tail call i32 @getbit_from_table(ptr noundef nonnull %13, ptr noundef %1)
   %15 = add i32 %14, %11
   %.not.i = icmp eq i32 %10, 0
@@ -2067,7 +2067,7 @@ get_n_bits_from_table.exit:                       ; preds = %.lr.ph.i
   %21 = shl i32 %2, 3
   %22 = add i32 %21, 130
   %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds nuw i16, ptr %0, i64 %23
+  %24 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %23
   br label %.lr.ph.i13
 
 .lr.ph.i13:                                       ; preds = %.lr.ph.i13, %20
@@ -2076,7 +2076,7 @@ get_n_bits_from_table.exit:                       ; preds = %.lr.ph.i
   %25 = add nsw i32 %.010.i14, -1
   %26 = shl i32 %.079.i15, 1
   %27 = zext i32 %.079.i15 to i64
-  %28 = getelementptr inbounds nuw i16, ptr %24, i64 %27
+  %28 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %27
   %29 = tail call i32 @getbit_from_table(ptr noundef nonnull %28, ptr noundef %1)
   %30 = add i32 %29, %26
   %.not.i16 = icmp eq i32 %25, 0
@@ -2092,7 +2092,7 @@ get_n_bits_from_table.exit:                       ; preds = %.lr.ph.i
   %33 = add nsw i32 %.010.i19, -1
   %34 = shl i32 %.079.i20, 1
   %35 = zext i32 %.079.i20 to i64
-  %36 = getelementptr inbounds nuw i16, ptr %32, i64 %35
+  %36 = getelementptr inbounds nuw [2 x i8], ptr %32, i64 %35
   %37 = tail call i32 @getbit_from_table(ptr noundef nonnull %36, ptr noundef %1)
   %38 = add i32 %37, %34
   %.not.i21 = icmp eq i32 %33, 0
@@ -2118,7 +2118,7 @@ define i32 @get_n_bits_from_table(ptr noundef %0, i32 noundef %1, ptr noundef ca
   %4 = add i32 %.010, -1
   %5 = shl i32 %.079, 1
   %6 = zext i32 %.079 to i64
-  %7 = getelementptr inbounds nuw i16, ptr %0, i64 %6
+  %7 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %6
   %8 = tail call i32 @getbit_from_table(ptr noundef %7, ptr noundef %2)
   %9 = add i32 %8, %5
   %.not = icmp eq i32 %4, 0
@@ -2142,7 +2142,7 @@ define i32 @get_bb(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) %2
   %.01418 = phi i32 [ %11, %.preheader ], [ 0, %3 ]
   %.01517 = phi i32 [ %9, %.preheader ], [ 1, %3 ]
   %5 = zext i32 %.01517 to i64
-  %6 = getelementptr inbounds nuw i16, ptr %0, i64 %5
+  %6 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %5
   %7 = tail call i32 @getbit_from_table(ptr noundef %6, ptr noundef %2)
   %8 = shl i32 %.01517, 1
   %9 = add i32 %7, %8

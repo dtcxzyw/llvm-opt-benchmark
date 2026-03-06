@@ -137,7 +137,7 @@ read_id3.exit:                                    ; preds = %17, %27
   %44 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %45 = load ptr, ptr %44, align 8, !tbaa !33
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 128
-  %47 = getelementptr inbounds nuw %struct.AVChannelLayout, ptr @dsf_channel_layout, i64 %43
+  %47 = getelementptr inbounds nuw [24 x i8], ptr @dsf_channel_layout, i64 %43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(24) %47, i64 24, i1 false), !tbaa.struct !40
   br label %48
 

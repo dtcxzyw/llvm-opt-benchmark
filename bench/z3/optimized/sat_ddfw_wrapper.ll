@@ -4,10 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"struct.sat::ddfw::var_info" = type { i8, double, double, i32, i32, %class.ema }
-%class.ema = type { double, double, double, i32, i32 }
 %"class.sat::literal" = type { i32 }
-%class.vector.68 = type { ptr }
 
 $_ZN3sat12ddfw_wrapperD2Ev = comdat any
 
@@ -190,7 +187,7 @@ _ZNK6vectorIbLb0EjE4sizeEv.exit:                  ; preds = %_ZNK6vectorIbLb0EjE
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNK6vectorIbLb0EjE4sizeEv.exit ], [ 0, %_ZNK6vectorIbLb0EjE4sizeEv.exit.lr.ph ]
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv
   %16 = load i8, ptr %15, align 1, !tbaa !75, !range !76, !noundef !77
-  %17 = getelementptr inbounds nuw %"struct.sat::ddfw::var_info", ptr %12, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [64 x i8], ptr %12, i64 %indvars.iv
   store i8 %16, ptr %17, align 1, !tbaa !75
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store double 0.000000e+00, ptr %18, align 8, !tbaa !78
@@ -365,7 +362,7 @@ _ZNK6vectorIS_IN3sat7watchedELb1EjELb1EjE4sizeEv.exit: ; preds = %._crit_edge
 58:                                               ; preds = %.lr.ph, %58
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %58 ]
   %59 = load ptr, ptr %51, align 8, !tbaa !96
-  %60 = getelementptr inbounds nuw %"class.sat::literal", ptr %59, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %indvars.iv
   tail call void @_ZN3sat4ddfw3addEjPKNS_7literalE(ptr noundef nonnull align 8 dereferenceable(434) %4, i32 noundef 1, ptr noundef %60)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -391,7 +388,7 @@ _ZNK6vectorIPN3sat6clauseELb0EjE3endEv.exit:      ; preds = %._crit_edge56
   %70 = trunc nuw i64 %indvars.iv64 to i32
   %71 = xor i32 %70, 1
   %72 = load ptr, ptr %52, align 8, !tbaa !217
-  %73 = getelementptr inbounds nuw %class.vector.68, ptr %72, i64 %indvars.iv64
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %indvars.iv64
   %74 = load ptr, ptr %73, align 8, !tbaa !220
   %75 = icmp eq ptr %74, null
   br i1 %75, label %._crit_edge53, label %_ZNK6vectorIN3sat7watchedELb1EjE3endEv.exit
@@ -514,7 +511,7 @@ define linkonce_odr hidden noundef double @_ZNK3sat12ddfw_wrapper12get_priorityE
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = load ptr, ptr %3, align 8, !tbaa !231
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds nuw double, ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %5
   %7 = load double, ptr %6, align 8, !tbaa !232
   ret double %7
 }
@@ -524,7 +521,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3sat12ddfw_wrapper9get_valueE
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = load ptr, ptr %3, align 8, !tbaa !233
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds nuw %"struct.sat::ddfw::var_info", ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %5
   %7 = load i8, ptr %6, align 8, !tbaa !234, !range !76, !noundef !77
   %8 = trunc nuw i8 %7 to i1
   ret i1 %8

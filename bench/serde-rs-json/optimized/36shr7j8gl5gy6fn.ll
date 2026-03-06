@@ -474,7 +474,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZN10serde_json3map5Entr
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 360
   %10 = icmp ult i64 %8, 11
   tail call void @llvm.assume(i1 %10)
-  %11 = getelementptr inbounds nuw { [3 x i64] }, ptr %9, i64 %8
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %9, i64 %8
   br label %12
 
 12:                                               ; preds = %1, %4
@@ -509,7 +509,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN10serde_json3map5Entr
   %.sroa.01.sroa.0.0.copyload = load ptr, ptr %11, align 8, !nonnull !10, !noundef !10
   %.sroa.01.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.01.sroa.3.0.copyload = load i64, ptr %.sroa.01.sroa.3.0..sroa_idx, align 8
-  %12 = getelementptr inbounds { [4 x i64] }, ptr %.sroa.01.sroa.0.0.copyload, i64 %.sroa.01.sroa.3.0.copyload
+  %12 = getelementptr inbounds [32 x i8], ptr %.sroa.01.sroa.0.0.copyload, i64 %.sroa.01.sroa.3.0.copyload
   tail call void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17h2104f8452adb367aE.llvm.12841644863924027351"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
   br label %9
 }

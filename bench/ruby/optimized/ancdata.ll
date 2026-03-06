@@ -226,7 +226,7 @@ rb_array_const_ptr.exit:                          ; preds = %48, %50
 
 58:                                               ; preds = %.lr.ph, %ruby_nonempty_memcpy.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %ruby_nonempty_memcpy.exit ]
-  %59 = getelementptr inbounds nuw i64, ptr %.0.i78, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %.0.i78, i64 %indvars.iv
   %60 = load i64, ptr %59, align 8, !tbaa !6
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %61 = call i64 @rb_check_convert_type(i64 noundef %60, i32 noundef 7, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #11
@@ -2652,7 +2652,7 @@ define internal i64 @ancillary_s_unix_rights(i32 noundef %0, ptr noundef readonl
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %22
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %22 ]
-  %11 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %12 = load i64, ptr %11, align 8, !tbaa !6
   %13 = icmp eq i64 %12, 0
   %14 = and i64 %12, 7
@@ -2701,7 +2701,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %.lr.ph, %rbimpl_RB_
 
 RARRAY_AREF.exit:                                 ; preds = %30, %33
   %.0.i.i = phi ptr [ %34, %33 ], [ %28, %30 ]
-  %35 = getelementptr inbounds nuw i64, ptr %.0.i.i, i64 %indvars.iv29
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i, i64 %indvars.iv29
   %36 = load i64, ptr %35, align 8, !tbaa !6
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %37 = call i64 @rb_io_taint_check(i64 noundef %36) #11
@@ -2996,7 +2996,7 @@ define internal i64 @ancillary_s_ip_pktinfo(i32 noundef %0, ptr noundef readonly
   %exitcond.not = phi i1 [ true, %.preheader9 ], [ false, %3 ]
   %indvars.iv.sroa.phi.sroa.speculated = phi ptr [ %6, %.preheader9 ], [ %5, %3 ]
   %indvars.iv = phi i64 [ 1, %.preheader9 ], [ 0, %3 ]
-  %10 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %11 = load i64, ptr %10, align 8, !tbaa !6
   store i64 %11, ptr %indvars.iv.sroa.phi.sroa.speculated, align 8, !tbaa !6
   br i1 %exitcond.not, label %.preheader, label %.preheader9, !llvm.loop !122

@@ -110,11 +110,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon.72 = type { %"class.std::unique_ptr.45" }
 %"class.grpc_core::promise_detail::OncePromiseFactory.260" = type { %class.anon.261 }
 %class.anon.261 = type { %"struct.grpc_core::CallArgs", %"class.std::function" }
-%"struct.grpc_core::LbCostBinMetadata::ValueType" = type { double, %"class.std::__cxx11::basic_string" }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.136 }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon.136 = type { i64, [8 x i8] }
-%struct.grpc_auth_property = type { ptr, ptr, i64 }
 %"class.absl::lts_20240722::log_internal::LogMessageFatal" = type { %"class.absl::lts_20240722::log_internal::LogMessage" }
 %"class.absl::lts_20240722::log_internal::LogMessage" = type { %"class.absl::lts_20240722::base_internal::ErrnoSaver", %"class.std::unique_ptr.215" }
 %"class.absl::lts_20240722::base_internal::ErrnoSaver" = type { i32 }
@@ -126,6 +121,9 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Head_base.222" = type { ptr }
 %"class.grpc_core::Waker" = type { %"struct.grpc_core::Waker::WakeableAndArg" }
 %"struct.grpc_core::Waker::WakeableAndArg" = type { ptr, i16 }
+%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.136 }
+%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
+%union.anon.136 = type { i64, [8 x i8] }
 %"class.grpc_core::Poll" = type { i8, %union.anon.230 }
 %union.anon.230 = type { %"class.absl::lts_20240722::StatusOr.53" }
 %"class.grpc_core::Poll.231" = type { i8, %union.anon.232 }
@@ -623,7 +621,7 @@ define void @_ZN9grpc_core16ClientAuthFilter12GetCallCredsEv(ptr dead_on_unwind 
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %11 = load i16, ptr @_ZN9grpc_core12arena_detail18ArenaContextTraitsINS_15SecurityContextEE3id_E, align 2, !tbaa !25
   %12 = zext i16 %11 to i64
-  %13 = getelementptr inbounds nuw ptr, ptr %10, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !27
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !20
@@ -1047,7 +1045,7 @@ define void @_ZN9grpc_core16ClientAuthFilter14InstallContextEv(ptr noundef nonnu
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %5 = load i16, ptr @_ZN9grpc_core12arena_detail18ArenaContextTraitsINS_15SecurityContextEE3id_E, align 2, !tbaa !25
   %6 = zext i16 %5 to i64
-  %7 = getelementptr inbounds nuw ptr, ptr %4, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !27
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %21
@@ -1058,7 +1056,7 @@ define void @_ZN9grpc_core16ClientAuthFilter14InstallContextEv(ptr noundef nonnu
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 56
   %14 = load i16, ptr @_ZN9grpc_core12arena_detail18ArenaContextTraitsINS_15SecurityContextEE3id_E, align 2, !tbaa !25
   %15 = zext i16 %14 to i64
-  %16 = getelementptr inbounds nuw ptr, ptr %13, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !27
   %.not.i = icmp eq ptr %17, null
   br i1 %.not.i, label %_ZN9grpc_core5Arena10SetContextINS_15SecurityContextEEEvPT_.exit, label %18
@@ -1380,7 +1378,7 @@ define void @_ZN9grpc_core22LegacyClientAuthFilter20GetCallCredsMetadataENS_8Cal
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 56
   %21 = load i16, ptr @_ZN9grpc_core12arena_detail18ArenaContextTraitsINS_15SecurityContextEE3id_E, align 2, !tbaa !25
   %22 = zext i16 %21 to i64
-  %23 = getelementptr inbounds nuw ptr, ptr %20, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !27
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !tbaa !20
@@ -2329,7 +2327,7 @@ define void @_ZN9grpc_core22LegacyClientAuthFilter15MakeCallPromiseENS_8CallArgs
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 56
   %13 = load i16, ptr @_ZN9grpc_core12arena_detail18ArenaContextTraitsINS_15SecurityContextEE3id_E, align 2, !tbaa !25
   %14 = zext i16 %13 to i64
-  %15 = getelementptr inbounds nuw ptr, ptr %12, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !27
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %29
@@ -2340,7 +2338,7 @@ define void @_ZN9grpc_core22LegacyClientAuthFilter15MakeCallPromiseENS_8CallArgs
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 56
   %22 = load i16, ptr @_ZN9grpc_core12arena_detail18ArenaContextTraitsINS_15SecurityContextEE3id_E, align 2, !tbaa !25
   %23 = zext i16 %22 to i64
-  %24 = getelementptr inbounds nuw ptr, ptr %21, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !27
   %.not.i = icmp eq ptr %25, null
   br i1 %.not.i, label %_ZN9grpc_core5Arena10SetContextINS_15SecurityContextEEEvPT_.exit, label %26
@@ -3454,7 +3452,7 @@ _ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds = %2
 _ZNSt6vectorIPFvPvESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %30, %_ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %25, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, align 8, !tbaa !179
   store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 8), align 8, !tbaa !176
-  %31 = getelementptr inbounds nuw ptr, ptr %25, i64 %23
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %23
   store ptr %31, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 16), align 8, !tbaa !180
   br label %_ZNSt6vectorIPFvPvESaIS2_EE9push_backERKS2_.exit
 
@@ -4712,7 +4710,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072223inlined_vector_internal7Storag
 .lr.ph.i:                                         ; preds = %1, %_ZNSt16allocator_traitsISaIN9grpc_core17LbCostBinMetadata9ValueTypeEEE7destroyIS2_EEvRS3_PT_.exit.i
   %.06.i = phi i64 [ %8, %_ZNSt16allocator_traitsISaIN9grpc_core17LbCostBinMetadata9ValueTypeEEE7destroyIS2_EEvRS3_PT_.exit.i ], [ %7, %1 ]
   %8 = add nsw i64 %.06.i, -1
-  %9 = getelementptr inbounds nuw %"struct.grpc_core::LbCostBinMetadata::ValueType", ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw [40 x i8], ptr %6, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !213
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 24
@@ -4764,7 +4762,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072223inlined_vector_internal7Storag
 .lr.ph.i:                                         ; preds = %1, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7destroyIS5_EEvRS6_PT_.exit.i
   %.06.i = phi i64 [ %8, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7destroyIS5_EEvRS6_PT_.exit.i ], [ %7, %1 ]
   %8 = add nsw i64 %.06.i, -1
-  %9 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !213
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %12 = icmp eq ptr %10, %11
@@ -4843,7 +4841,7 @@ _ZN9grpc_core13RefCountedPtrI17grpc_auth_contextE5resetERKNS_13DebugLocationEPKc
 .lr.ph:                                           ; preds = %.preheader, %15
   %.06 = phi i64 [ %16, %15 ], [ 0, %.preheader ]
   %13 = load ptr, ptr %8, align 8, !tbaa !218
-  %14 = getelementptr inbounds nuw %struct.grpc_auth_property, ptr %13, i64 %.06
+  %14 = getelementptr inbounds nuw [24 x i8], ptr %13, i64 %.06
   invoke void @_Z24grpc_auth_property_resetP18grpc_auth_property(ptr noundef %14)
           to label %15 unwind label %.loopexit
 
@@ -7295,7 +7293,7 @@ define linkonce_odr void @_ZN9grpc_core16ClientAuthFilter4Call23OnClientInitialM
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %9 = load i16, ptr @_ZN9grpc_core12arena_detail18ArenaContextTraitsINS_15SecurityContextEE3id_E, align 2, !tbaa !25
   %10 = zext i16 %9 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr %8, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !27
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %25
@@ -7306,7 +7304,7 @@ define linkonce_odr void @_ZN9grpc_core16ClientAuthFilter4Call23OnClientInitialM
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 56
   %18 = load i16, ptr @_ZN9grpc_core12arena_detail18ArenaContextTraitsINS_15SecurityContextEE3id_E, align 2, !tbaa !25
   %19 = zext i16 %18 to i64
-  %20 = getelementptr inbounds nuw ptr, ptr %17, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !27
   %.not.i.i = icmp eq ptr %21, null
   br i1 %.not.i.i, label %_ZN9grpc_core5Arena10SetContextINS_15SecurityContextEEEvPT_.exit.i, label %22

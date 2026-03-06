@@ -29,7 +29,7 @@ $_ZN4llvm12PatternMatch14cstval_pred_tyINS0_11is_all_onesENS_11ConstantIntELb1EE
 define dso_local noundef range(i32 1, 7) i32 @_ZN4llvm11getICmpCodeENS_7CmpInst9PredicateE(i32 noundef %0) local_unnamed_addr #0 {
 switch.lookup:
   %1 = sext i32 %0 to i64
-  %2 = getelementptr i32, ptr @switch.table._ZN4llvm11getICmpCodeENS_7CmpInst9PredicateE, i64 %1
+  %2 = getelementptr [4 x i8], ptr @switch.table._ZN4llvm11getICmpCodeENS_7CmpInst9PredicateE, i64 %1
   %switch.gep = getelementptr i8, ptr %2, i64 -128
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
@@ -357,7 +357,7 @@ _ZN4llvm5APIntC2ERKS0_.exit:                      ; preds = %47, %49
   %66 = load ptr, ptr %7, align 8
   %67 = lshr i32 %62, 6
   %68 = zext nneg i32 %67 to i64
-  %69 = getelementptr inbounds nuw i64, ptr %66, i64 %68
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %68
   %70 = load i64, ptr %69, align 8, !tbaa !27
   %71 = and i64 %70, %65
   %.not.i = icmp eq i64 %71, 0
@@ -467,7 +467,7 @@ _ZN4llvm5APIntC2Ejmbb.exit._crit_edge.i.i:        ; preds = %_ZN4llvm5APIntC2Ejm
   %120 = load ptr, ptr %9, align 8, !tbaa !27, !alias.scope !33
   %121 = lshr i32 %110, 6
   %122 = zext nneg i32 %121 to i64
-  %123 = getelementptr inbounds nuw i64, ptr %120, i64 %122
+  %123 = getelementptr inbounds nuw [8 x i8], ptr %120, i64 %122
   %124 = load i64, ptr %123, align 8, !tbaa !35
   %125 = or i64 %124, %113
   store i64 %125, ptr %123, align 8, !tbaa !35
@@ -577,7 +577,7 @@ _ZN4llvm5APIntC2Ejmbb.exit._crit_edge.i.i25:      ; preds = %_ZN4llvm5APIntC2Ejm
   %168 = load ptr, ptr %12, align 8, !tbaa !27, !alias.scope !48
   %169 = lshr i32 %155, 6
   %170 = zext nneg i32 %169 to i64
-  %171 = getelementptr inbounds nuw i64, ptr %168, i64 %170
+  %171 = getelementptr inbounds nuw [8 x i8], ptr %168, i64 %170
   %172 = load i64, ptr %171, align 8, !tbaa !35
   %173 = or i64 %172, %158
   store i64 %173, ptr %171, align 8, !tbaa !35
@@ -727,7 +727,7 @@ _ZN4llvm5APIntC2Ejmbb.exit._crit_edge.i.i38:      ; preds = %_ZN4llvm5APIntC2Ejm
   %235 = load ptr, ptr %14, align 8, !tbaa !27, !alias.scope !57
   %236 = lshr i32 %225, 6
   %237 = zext nneg i32 %236 to i64
-  %238 = getelementptr inbounds nuw i64, ptr %235, i64 %237
+  %238 = getelementptr inbounds nuw [8 x i8], ptr %235, i64 %237
   %239 = load i64, ptr %238, align 8, !tbaa !35
   %240 = or i64 %239, %228
   store i64 %240, ptr %238, align 8, !tbaa !35
@@ -769,7 +769,7 @@ _ZNK4llvm5APInt10isPowerOf2Ev.exit.thread:        ; preds = %180, %thread-pre-sp
   %254 = shl nuw i64 1, %253
   %255 = lshr i32 %251, 6
   %256 = zext nneg i32 %255 to i64
-  %257 = getelementptr inbounds nuw i64, ptr %250, i64 %256
+  %257 = getelementptr inbounds nuw [8 x i8], ptr %250, i64 %256
   %.in.i.i.i.i.i = select i1 %179, ptr %11, ptr %257
   %258 = load i64, ptr %.in.i.i.i.i.i, align 8, !tbaa !27
   %259 = and i64 %258, %254
@@ -977,7 +977,7 @@ _ZNK4llvm5APInt10isPowerOf2Ev.exit48.thread:      ; preds = %._ZNK4llvm5APInt10i
   %343 = shl nuw i64 1, %342
   %344 = lshr i32 %340, 6
   %345 = zext nneg i32 %344 to i64
-  %346 = getelementptr inbounds nuw i64, ptr %339, i64 %345
+  %346 = getelementptr inbounds nuw [8 x i8], ptr %339, i64 %345
   %.in.i.i.i.i.i59 = select i1 %286, ptr %346, ptr %7
   %347 = load i64, ptr %.in.i.i.i.i.i59, align 8, !tbaa !27
   %348 = and i64 %347, %343

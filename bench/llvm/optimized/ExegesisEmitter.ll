@@ -480,7 +480,7 @@ _ZNK4llvm8SmallSetINS_9StringRefELj16ESt4lessIS1_EE5vfindERKS1_.exit.thread.i.i.
 _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit.i.i.i: ; preds = %132, %.thread.i.i.i
   %.pre-phi.i.i.i = phi i64 [ %126, %.thread.i.i.i ], [ %.pre44.i.i.i, %132 ]
   %134 = phi ptr [ %124, %.thread.i.i.i ], [ %.pre.i.i.i, %132 ]
-  %135 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %134, i64 %.pre-phi.i.i.i
+  %135 = getelementptr inbounds nuw [16 x i8], ptr %134, i64 %.pre-phi.i.i.i
   store ptr %76, ptr %135, align 1, !noalias !48
   %.sroa.2.0..sroa_idx.i20.i.i.i = getelementptr inbounds nuw i8, ptr %135, i64 8
   store i64 %77, ptr %.sroa.2.0..sroa_idx.i20.i.i.i, align 1, !noalias !48
@@ -2210,7 +2210,7 @@ _ZNSt6vectorIPKN4llvm6RecordESaIS3_EED2Ev.exit63.i.i.i: ; preds = %763, %_ZNSt6v
 _ZNSt6vectorIN12_GLOBAL__N_121ValidationCounterInfoESaIS1_EE7reserveEm.exit.i.i.i: ; preds = %767
   %770 = shl nuw nsw i64 %761, 2
   %771 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %770) #22
-  %772 = getelementptr inbounds nuw %"struct.(anonymous namespace)::ValidationCounterInfo", ptr %771, i64 %762
+  %772 = getelementptr inbounds nuw [32 x i8], ptr %771, i64 %762
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZNK4llvm6Record20getValueAsListOfDefsENS_9StringRefE(ptr dead_on_unwind nonnull writable sret(%"class.std::vector") align 8 %8, ptr noundef nonnull align 8 dereferenceable(192) %738, ptr nonnull @.str.10, i64 18) #18
   %773 = load ptr, ptr %8, align 8, !tbaa !34
@@ -2358,7 +2358,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationC
   %811 = sub i64 %810, %783
   %812 = ashr exact i64 %811, 5
   %813 = sub nsw i64 0, %812
-  %814 = getelementptr inbounds %"struct.(anonymous namespace)::ValidationCounterInfo", ptr %809, i64 %813
+  %814 = getelementptr inbounds [32 x i8], ptr %809, i64 %813
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %814, ptr noundef nonnull align 8 dereferenceable(1) %.sroa.0198.0.lcssa.i.i.i, i64 %811, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %.sroa.0198.0.lcssa.i.i.i, ptr noundef nonnull align 8 dereferenceable(28) %4, i64 28, i1 false), !tbaa.struct !121
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -2636,7 +2636,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_121ValidationCounterInfoESaIS1_EE12_M_check_lenEmPKc
 _ZNSt6vectorIN12_GLOBAL__N_121ValidationCounterInfoESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %_ZNKSt6vectorIN12_GLOBAL__N_121ValidationCounterInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i
   %.0.lcssa.i.i.i.i.i.i.i.i.i = phi ptr [ %907, %_ZNKSt6vectorIN12_GLOBAL__N_121ValidationCounterInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i ], [ %910, %.lr.ph.i.i.i.i.i.i.i.i.i ]
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.0198.0227.i.i.i, i64 noundef %897) #19
-  %911 = getelementptr inbounds nuw %"struct.(anonymous namespace)::ValidationCounterInfo", ptr %907, i64 %905
+  %911 = getelementptr inbounds nuw [32 x i8], ptr %907, i64 %905
   br label %_ZNSt6vectorIN12_GLOBAL__N_121ValidationCounterInfoESaIS1_EE9push_backEOS1_.exit.i.i.i
 
 _ZNSt6vectorIN12_GLOBAL__N_121ValidationCounterInfoESaIS1_EE9push_backEOS1_.exit.i.i.i: ; preds = %_ZNSt6vectorIN12_GLOBAL__N_121ValidationCounterInfoESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i.i.i, %893
@@ -4424,13 +4424,13 @@ define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iterat
   %30 = and i64 %.fr.i24.lcssa, 32
   %31 = icmp eq i64 %30, 0
   %32 = or disjoint i64 %26, 1
-  %33 = getelementptr inbounds nuw %"struct.(anonymous namespace)::ValidationCounterInfo", ptr %.fr25, i64 %32
-  %34 = getelementptr inbounds nuw %"struct.(anonymous namespace)::ValidationCounterInfo", ptr %.fr25, i64 %27
+  %33 = getelementptr inbounds nuw [32 x i8], ptr %.fr25, i64 %32
+  %34 = getelementptr inbounds nuw [32 x i8], ptr %.fr25, i64 %27
   br label %35
 
 35:                                               ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCounterInfoESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_T0_SH_T1_T2_.exit.i.i.i, %._crit_edge
   %.08.i.i.i = phi i64 [ %27, %._crit_edge ], [ %57, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCounterInfoESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_T0_SH_T1_T2_.exit.i.i.i ]
-  %36 = getelementptr inbounds %"struct.(anonymous namespace)::ValidationCounterInfo", ptr %.fr25, i64 %.08.i.i.i
+  %36 = getelementptr inbounds [32 x i8], ptr %.fr25, i64 %.08.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %36, i64 32, i1 false)
   %37 = icmp slt i64 %.08.i.i.i, %29
@@ -4440,13 +4440,13 @@ define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iterat
   %.042.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.08.i.i.i, %35 ]
   %38 = shl i64 %.042.i.i.i.i, 1
   %39 = add i64 %38, 2
-  %40 = getelementptr inbounds %"struct.(anonymous namespace)::ValidationCounterInfo", ptr %.fr25, i64 %39
+  %40 = getelementptr inbounds [32 x i8], ptr %.fr25, i64 %39
   %41 = or disjoint i64 %38, 1
-  %42 = getelementptr inbounds %"struct.(anonymous namespace)::ValidationCounterInfo", ptr %.fr25, i64 %41
+  %42 = getelementptr inbounds [32 x i8], ptr %.fr25, i64 %41
   %43 = call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(28) %40, ptr noundef nonnull align 8 dereferenceable(28) %42) #18
   %spec.select.i.i.i.i = select i1 %43, i64 %41, i64 %39
-  %44 = getelementptr inbounds %"struct.(anonymous namespace)::ValidationCounterInfo", ptr %.fr25, i64 %spec.select.i.i.i.i
-  %45 = getelementptr inbounds %"struct.(anonymous namespace)::ValidationCounterInfo", ptr %.fr25, i64 %.042.i.i.i.i
+  %44 = getelementptr inbounds [32 x i8], ptr %.fr25, i64 %spec.select.i.i.i.i
+  %45 = getelementptr inbounds [32 x i8], ptr %.fr25, i64 %.042.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %45, ptr noundef nonnull align 8 dereferenceable(28) %44, i64 28, i1 false), !tbaa.struct !121
   %46 = icmp slt i64 %spec.select.i.i.i.i, %29
   br i1 %46, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !149
@@ -4472,19 +4472,19 @@ define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iterat
   %.06.i.i.i.i.i = phi i64 [ %.097.i.i.i.i.i, %53 ], [ %.1.i.i.i.i, %49 ]
   %.097.in.i.i.i.i.i = add nsw i64 %.06.i.i.i.i.i, -1
   %.097.i.i.i.i.i = sdiv i64 %.097.in.i.i.i.i.i, 2
-  %51 = getelementptr inbounds nuw %"struct.(anonymous namespace)::ValidationCounterInfo", ptr %.fr25, i64 %.097.i.i.i.i.i
+  %51 = getelementptr inbounds nuw [32 x i8], ptr %.fr25, i64 %.097.i.i.i.i.i
   %52 = call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(28) %51, ptr noundef nonnull align 8 dereferenceable(28) %14) #18
   br i1 %52, label %53, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCounterInfoESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_T0_SH_T1_T2_.exit.i.i.i
 
 53:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %54 = getelementptr inbounds nuw %"struct.(anonymous namespace)::ValidationCounterInfo", ptr %.fr25, i64 %.06.i.i.i.i.i
+  %54 = getelementptr inbounds nuw [32 x i8], ptr %.fr25, i64 %.06.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %54, ptr noundef nonnull align 8 dereferenceable(28) %51, i64 28, i1 false), !tbaa.struct !121
   %55 = icmp sgt i64 %.097.i.i.i.i.i, %.08.i.i.i
   br i1 %55, label %.lr.ph.i.i.i.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCounterInfoESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_T0_SH_T1_T2_.exit.i.i.i, !llvm.loop !150
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCounterInfoESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_T0_SH_T1_T2_.exit.i.i.i: ; preds = %53, %.lr.ph.i.i.i.i.i, %49
   %.0.lcssa.i.i.i.i.i = phi i64 [ %.1.i.i.i.i, %49 ], [ %.06.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.097.i.i.i.i.i, %53 ]
-  %56 = getelementptr inbounds nuw %"struct.(anonymous namespace)::ValidationCounterInfo", ptr %.fr25, i64 %.0.lcssa.i.i.i.i.i
+  %56 = getelementptr inbounds nuw [32 x i8], ptr %.fr25, i64 %.0.lcssa.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %56, ptr noundef nonnull align 8 dereferenceable(28) %14, i64 28, i1 false), !tbaa.struct !121
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
@@ -4514,13 +4514,13 @@ _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCou
   %.042.i.i.i24.i = phi i64 [ %spec.select.i.i.i25.i, %.lr.ph.i.i.i23.i ], [ 0, %.lr.ph.i9.i ]
   %66 = shl i64 %.042.i.i.i24.i, 1
   %67 = add i64 %66, 2
-  %68 = getelementptr inbounds %"struct.(anonymous namespace)::ValidationCounterInfo", ptr %.fr25, i64 %67
+  %68 = getelementptr inbounds [32 x i8], ptr %.fr25, i64 %67
   %69 = or disjoint i64 %66, 1
-  %70 = getelementptr inbounds %"struct.(anonymous namespace)::ValidationCounterInfo", ptr %.fr25, i64 %69
+  %70 = getelementptr inbounds [32 x i8], ptr %.fr25, i64 %69
   %71 = call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(28) %68, ptr noundef nonnull align 8 dereferenceable(28) %70) #18
   %spec.select.i.i.i25.i = select i1 %71, i64 %69, i64 %67
-  %72 = getelementptr inbounds %"struct.(anonymous namespace)::ValidationCounterInfo", ptr %.fr25, i64 %spec.select.i.i.i25.i
-  %73 = getelementptr inbounds %"struct.(anonymous namespace)::ValidationCounterInfo", ptr %.fr25, i64 %.042.i.i.i24.i
+  %72 = getelementptr inbounds [32 x i8], ptr %.fr25, i64 %spec.select.i.i.i25.i
+  %73 = getelementptr inbounds [32 x i8], ptr %.fr25, i64 %.042.i.i.i24.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %73, ptr noundef nonnull align 8 dereferenceable(28) %72, i64 28, i1 false), !tbaa.struct !121
   %74 = icmp slt i64 %spec.select.i.i.i25.i, %64
   br i1 %74, label %.lr.ph.i.i.i23.i, label %._crit_edge.i.i.i10.i, !llvm.loop !149
@@ -4540,8 +4540,8 @@ _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCou
 .thread.i.i22.i:                                  ; preds = %77
   %81 = shl nuw nsw i64 %.0.lcssa.i.i.i11.i, 1
   %82 = or disjoint i64 %81, 1
-  %83 = getelementptr inbounds nuw %"struct.(anonymous namespace)::ValidationCounterInfo", ptr %.fr25, i64 %82
-  %84 = getelementptr inbounds %"struct.(anonymous namespace)::ValidationCounterInfo", ptr %.fr25, i64 %.0.lcssa.i.i.i11.i
+  %83 = getelementptr inbounds nuw [32 x i8], ptr %.fr25, i64 %82
+  %84 = getelementptr inbounds [32 x i8], ptr %.fr25, i64 %.0.lcssa.i.i.i11.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %84, ptr noundef nonnull align 8 dereferenceable(28) %83, i64 28, i1 false), !tbaa.struct !121
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull readonly align 8 dereferenceable(32) %13, i64 32, i1 false)
@@ -4561,19 +4561,19 @@ _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCou
   %.06.i.i.i.i16.i = phi i64 [ %.097.i.i89.i.i18.i, %88 ], [ %.06.i.i.i.i16.i.ph, %.lr.ph.i.i.i.i15.i.preheader ]
   %.097.in.i.i.i.i17.i = add nsw i64 %.06.i.i.i.i16.i, -1
   %.097.i.i89.i.i18.i = lshr i64 %.097.in.i.i.i.i17.i, 1
-  %86 = getelementptr inbounds nuw %"struct.(anonymous namespace)::ValidationCounterInfo", ptr %.fr25, i64 %.097.i.i89.i.i18.i
+  %86 = getelementptr inbounds nuw [32 x i8], ptr %.fr25, i64 %.097.i.i89.i.i18.i
   %87 = call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(28) %86, ptr noundef nonnull align 8 dereferenceable(28) %12) #18
   br i1 %87, label %88, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCounterInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_RT0_.exit.i19.i
 
 88:                                               ; preds = %.lr.ph.i.i.i.i15.i
-  %89 = getelementptr inbounds %"struct.(anonymous namespace)::ValidationCounterInfo", ptr %.fr25, i64 %.06.i.i.i.i16.i
+  %89 = getelementptr inbounds [32 x i8], ptr %.fr25, i64 %.06.i.i.i.i16.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %89, ptr noundef nonnull align 8 dereferenceable(28) %86, i64 28, i1 false), !tbaa.struct !121
   %.not10.i.i21.i = icmp eq i64 %.097.i.i89.i.i18.i, 0
   br i1 %.not10.i.i21.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCounterInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_RT0_.exit.i19.i, label %.lr.ph.i.i.i.i15.i, !llvm.loop !150
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCounterInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_RT0_.exit.i19.i: ; preds = %88, %.lr.ph.i.i.i.i15.i, %85
   %.0.lcssa.i.i.i.i20.i = phi i64 [ 0, %85 ], [ %.06.i.i.i.i16.i, %.lr.ph.i.i.i.i15.i ], [ 0, %88 ]
-  %90 = getelementptr inbounds %"struct.(anonymous namespace)::ValidationCounterInfo", ptr %.fr25, i64 %.0.lcssa.i.i.i.i20.i
+  %90 = getelementptr inbounds [32 x i8], ptr %.fr25, i64 %.0.lcssa.i.i.i.i20.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %90, ptr noundef nonnull align 8 dereferenceable(28) %12, i64 28, i1 false), !tbaa.struct !121
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -4586,7 +4586,7 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCoun
   %92 = phi i64 [ %121, %23 ], [ %19, %.lr.ph ]
   %93 = add nsw i64 %.02339, -1
   %94 = lshr i64 %92, 1
-  %95 = getelementptr inbounds nuw %"struct.(anonymous namespace)::ValidationCounterInfo", ptr %.fr25, i64 %94
+  %95 = getelementptr inbounds nuw [32 x i8], ptr %.fr25, i64 %94
   %96 = getelementptr inbounds i8, ptr %storemerge2240, i64 -32
   %97 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(28) %21, ptr noundef nonnull align 8 dereferenceable(28) %95) #18
   br i1 %97, label %98, label %105
@@ -4732,7 +4732,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 
 16:                                               ; preds = %16, %13
   %.09.i.i.i = phi i64 [ %15, %13 ], [ %19, %16 ]
-  %17 = getelementptr inbounds ptr, ptr %0, i64 %.09.i.i.i
+  %17 = getelementptr inbounds [8 x i8], ptr %0, i64 %.09.i.i.i
   %18 = load ptr, ptr %17, align 8, !tbaa !27
   tail call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN4llvm6RecordESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterIZNK12_GLOBAL__N_115ExegesisEmitter26emitPfmCountersLookupTableERNS2_11raw_ostreamEE3$_0EEEvT_T0_SK_T1_T2_"(ptr %0, i64 noundef %.09.i.i.i, i64 noundef %11, ptr noundef %18)
   %.not.i.i.i = icmp eq i64 %.09.i.i.i, 0
@@ -4755,7 +4755,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 27:                                               ; preds = %10
   %28 = add nsw i64 %.023, -1
   %29 = lshr i64 %11, 1
-  %30 = getelementptr inbounds nuw ptr, ptr %0, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %29
   %31 = getelementptr inbounds i8, ptr %storemerge22, i64 -8
   %32 = load ptr, ptr %9, align 8, !tbaa !27
   %33 = load ptr, ptr %30, align 8, !tbaa !27
@@ -5012,9 +5012,9 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   %.039 = phi i64 [ %25, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK12_GLOBAL__N_115ExegesisEmitter26emitPfmCountersLookupTableERN4llvm11raw_ostreamEE3$_0EclINS_17__normal_iteratorIPPKNS4_6RecordESt6vectorISD_SaISD_EEEESI_EEbT_T0_.exit.thread" ], [ %1, %4 ]
   %8 = shl i64 %.039, 1
   %9 = add i64 %8, 2
-  %10 = getelementptr inbounds ptr, ptr %0, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %0, i64 %9
   %11 = or disjoint i64 %8, 1
-  %12 = getelementptr inbounds ptr, ptr %0, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %0, i64 %11
   %13 = load ptr, ptr %10, align 8, !tbaa !27
   %14 = load ptr, ptr %12, align 8, !tbaa !27
   %15 = tail call { ptr, i64 } @_ZNK4llvm6Record16getValueAsStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %13, ptr nonnull @.str.56, i64 7) #18
@@ -5046,9 +5046,9 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i: ; preds = %.lr.ph
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK12_GLOBAL__N_115ExegesisEmitter26emitPfmCountersLookupTableERN4llvm11raw_ostreamEE3$_0EclINS_17__normal_iteratorIPPKNS4_6RecordESt6vectorISD_SaISD_EEEESI_EEbT_T0_.exit.thread": ; preds = %.thread.i.i.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK12_GLOBAL__N_115ExegesisEmitter26emitPfmCountersLookupTableERN4llvm11raw_ostreamEE3$_0EclINS_17__normal_iteratorIPPKNS4_6RecordESt6vectorISD_SaISD_EEEESI_EEbT_T0_.exit", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK12_GLOBAL__N_115ExegesisEmitter26emitPfmCountersLookupTableERN4llvm11raw_ostreamEE3$_0EclINS_17__normal_iteratorIPPKNS4_6RecordESt6vectorISD_SaISD_EEEESI_EEbT_T0_.exit.thread36"
   %25 = phi i64 [ %11, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK12_GLOBAL__N_115ExegesisEmitter26emitPfmCountersLookupTableERN4llvm11raw_ostreamEE3$_0EclINS_17__normal_iteratorIPPKNS4_6RecordESt6vectorISD_SaISD_EEEESI_EEbT_T0_.exit.thread36" ], [ %9, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK12_GLOBAL__N_115ExegesisEmitter26emitPfmCountersLookupTableERN4llvm11raw_ostreamEE3$_0EclINS_17__normal_iteratorIPPKNS4_6RecordESt6vectorISD_SaISD_EEEESI_EEbT_T0_.exit" ], [ %9, %.thread.i.i.i.i ]
-  %26 = getelementptr inbounds ptr, ptr %0, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %0, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !27
-  %28 = getelementptr inbounds ptr, ptr %0, i64 %.039
+  %28 = getelementptr inbounds [8 x i8], ptr %0, i64 %.039
   store ptr %27, ptr %28, align 8, !tbaa !27
   %29 = icmp slt i64 %25, %6
   br i1 %29, label %.lr.ph, label %._crit_edge, !llvm.loop !162
@@ -5068,9 +5068,9 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i: ; preds = %.lr.ph
 36:                                               ; preds = %32
   %37 = shl nsw i64 %.0.lcssa, 1
   %38 = or disjoint i64 %37, 1
-  %39 = getelementptr inbounds ptr, ptr %0, i64 %38
+  %39 = getelementptr inbounds [8 x i8], ptr %0, i64 %38
   %40 = load ptr, ptr %39, align 8, !tbaa !27
-  %41 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa
+  %41 = getelementptr inbounds [8 x i8], ptr %0, i64 %.0.lcssa
   store ptr %40, ptr %41, align 8, !tbaa !27
   br label %42
 
@@ -5083,7 +5083,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i: ; preds = %.lr.ph
   %.012.i = phi i64 [ %.0913.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK12_GLOBAL__N_115ExegesisEmitter26emitPfmCountersLookupTableERN4llvm11raw_ostreamEE3$_0EclINS_17__normal_iteratorIPPKNS4_6RecordESt6vectorISD_SaISD_EEEESD_EEbT_RT0_.exit.thread8.i" ], [ %.1, %42 ]
   %.0913.in.i = add nsw i64 %.012.i, -1
   %.0913.i = sdiv i64 %.0913.in.i, 2
-  %44 = getelementptr inbounds ptr, ptr %0, i64 %.0913.i
+  %44 = getelementptr inbounds [8 x i8], ptr %0, i64 %.0913.i
   %45 = load ptr, ptr %44, align 8, !tbaa !27
   %46 = tail call { ptr, i64 } @_ZNK4llvm6Record16getValueAsStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %45, ptr nonnull @.str.56, i64 7) #18
   %47 = extractvalue { ptr, i64 } %46, 1
@@ -5111,14 +5111,14 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i: ; preds = %.lr.ph.i
 
 "_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK12_GLOBAL__N_115ExegesisEmitter26emitPfmCountersLookupTableERN4llvm11raw_ostreamEE3$_0EclINS_17__normal_iteratorIPPKNS4_6RecordESt6vectorISD_SaISD_EEEESD_EEbT_RT0_.exit.thread8.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK12_GLOBAL__N_115ExegesisEmitter26emitPfmCountersLookupTableERN4llvm11raw_ostreamEE3$_0EclINS_17__normal_iteratorIPPKNS4_6RecordESt6vectorISD_SaISD_EEEESD_EEbT_RT0_.exit.i", %.thread.i.i.i.i.i
   %56 = load ptr, ptr %44, align 8, !tbaa !27
-  %57 = getelementptr inbounds ptr, ptr %0, i64 %.012.i
+  %57 = getelementptr inbounds [8 x i8], ptr %0, i64 %.012.i
   store ptr %56, ptr %57, align 8, !tbaa !27
   %58 = icmp sgt i64 %.0913.i, %1
   br i1 %58, label %.lr.ph.i, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPPKN4llvm6RecordESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops14_Iter_comp_valIZNK12_GLOBAL__N_115ExegesisEmitter26emitPfmCountersLookupTableERNS2_11raw_ostreamEE3$_0EEEvT_T0_SK_T1_RT2_.exit", !llvm.loop !163
 
 "_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPPKN4llvm6RecordESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops14_Iter_comp_valIZNK12_GLOBAL__N_115ExegesisEmitter26emitPfmCountersLookupTableERNS2_11raw_ostreamEE3$_0EEEvT_T0_SK_T1_RT2_.exit": ; preds = %.thread.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK12_GLOBAL__N_115ExegesisEmitter26emitPfmCountersLookupTableERN4llvm11raw_ostreamEE3$_0EclINS_17__normal_iteratorIPPKNS4_6RecordESt6vectorISD_SaISD_EEEESD_EEbT_RT0_.exit.i", %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK12_GLOBAL__N_115ExegesisEmitter26emitPfmCountersLookupTableERN4llvm11raw_ostreamEE3$_0EclINS_17__normal_iteratorIPPKNS4_6RecordESt6vectorISD_SaISD_EEEESD_EEbT_RT0_.exit.thread8.i", %42
   %.0.lcssa.i = phi i64 [ %.1, %42 ], [ %.012.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK12_GLOBAL__N_115ExegesisEmitter26emitPfmCountersLookupTableERN4llvm11raw_ostreamEE3$_0EclINS_17__normal_iteratorIPPKNS4_6RecordESt6vectorISD_SaISD_EEEESD_EEbT_RT0_.exit.i" ], [ %.0913.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK12_GLOBAL__N_115ExegesisEmitter26emitPfmCountersLookupTableERN4llvm11raw_ostreamEE3$_0EclINS_17__normal_iteratorIPPKNS4_6RecordESt6vectorISD_SaISD_EEEESD_EEbT_RT0_.exit.thread8.i" ], [ %.012.i, %.thread.i.i.i.i.i ]
-  %59 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa.i
+  %59 = getelementptr inbounds [8 x i8], ptr %0, i64 %.0.lcssa.i
   store ptr %3, ptr %59, align 8, !tbaa !27
   ret void
 }
@@ -5173,7 +5173,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN4llvm6RecordESt6vectorIS5
   %21 = sub i64 %20, %4
   %22 = ashr exact i64 %21, 3
   %23 = sub nsw i64 0, %22
-  %24 = getelementptr inbounds ptr, ptr %19, i64 %23
+  %24 = getelementptr inbounds [8 x i8], ptr %19, i64 %23
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %24, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %21, i1 false)
   store ptr %18, ptr %0, align 8, !tbaa !27
   br label %39

@@ -142,7 +142,7 @@ define dso_local ptr @intel_uncore_forcewake_domain_to_str(i32 noundef %0) local
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr ptr, ptr @forcewake_domain_names, i64 %4
+  %5 = getelementptr [8 x i8], ptr @forcewake_domain_names, i64 %4
   %6 = load ptr, ptr %5, align 8
   br label %8
 
@@ -209,7 +209,7 @@ define internal fastcc i32 @intel_uncore_forcewake_reset(ptr noundef %0) unnamed
   %15 = xor i32 %14, -1
   %16 = and i32 %10, %15
   %17 = sext i32 %11 to i64
-  %18 = getelementptr ptr, ptr %3, i64 %17
+  %18 = getelementptr [8 x i8], ptr %3, i64 %17
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
   br i1 %20, label %intel_uncore_fw_release_timer.exit, label %21
@@ -293,7 +293,7 @@ define internal fastcc i32 @intel_uncore_forcewake_reset(ptr noundef %0) unnamed
   %71 = xor i32 %70, -1
   %72 = and i32 %66, %71
   %73 = sext i32 %67 to i64
-  %74 = getelementptr ptr, ptr %64, i64 %73
+  %74 = getelementptr [8 x i8], ptr %64, i64 %73
   %75 = load ptr, ptr %74, align 8
   %76 = icmp eq ptr %75, null
   br i1 %76, label %80, label %77
@@ -340,7 +340,7 @@ intel_uncore_fw_release_timer.exit:               ; preds = %86, %.thread.i, %21
   %97 = xor i32 %96, -1
   %98 = and i32 %92, %97
   %99 = sext i32 %93 to i64
-  %100 = getelementptr ptr, ptr %3, i64 %99
+  %100 = getelementptr [8 x i8], ptr %3, i64 %99
   %101 = load ptr, ptr %100, align 8
   %102 = icmp eq ptr %101, null
   br i1 %102, label %110, label %103
@@ -429,7 +429,7 @@ intel_uncore_fw_release_timer.exit:               ; preds = %86, %.thread.i, %21
   %149 = xor i32 %148, -1
   %150 = and i32 %144, %149
   %151 = sext i32 %145 to i64
-  %152 = getelementptr ptr, ptr %3, i64 %151
+  %152 = getelementptr [8 x i8], ptr %3, i64 %151
   %153 = load ptr, ptr %152, align 8
   %154 = icmp eq ptr %153, null
   br i1 %154, label %158, label %155
@@ -465,7 +465,7 @@ intel_uncore_fw_release_timer.exit:               ; preds = %86, %.thread.i, %21
   %172 = xor i32 %171, -1
   %173 = and i32 %167, %172
   %174 = sext i32 %168 to i64
-  %175 = getelementptr ptr, ptr %3, i64 %174
+  %175 = getelementptr [8 x i8], ptr %3, i64 %174
   %176 = load ptr, ptr %175, align 8
   %177 = icmp eq ptr %176, null
   br i1 %177, label %189, label %178
@@ -715,7 +715,7 @@ define dso_local void @intel_uncore_forcewake_get(ptr noundef %0, i32 noundef %1
   %24 = xor i32 %23, -1
   %25 = and i32 %19, %24
   %26 = sext i32 %20 to i64
-  %27 = getelementptr ptr, ptr %16, i64 %26
+  %27 = getelementptr [8 x i8], ptr %16, i64 %26
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, null
   br i1 %29, label %41, label %30
@@ -867,7 +867,7 @@ define dso_local void @intel_uncore_forcewake_user_get(ptr noundef %0) local_unn
   %25 = xor i32 %24, -1
   %26 = and i32 %20, %25
   %27 = sext i32 %21 to i64
-  %28 = getelementptr ptr, ptr %17, i64 %27
+  %28 = getelementptr [8 x i8], ptr %17, i64 %27
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, null
   br i1 %30, label %42, label %31
@@ -969,7 +969,7 @@ define dso_local void @intel_uncore_forcewake_get__locked(ptr noundef %0, i32 no
   %20 = xor i32 %19, -1
   %21 = and i32 %15, %20
   %22 = sext i32 %16 to i64
-  %23 = getelementptr ptr, ptr %12, i64 %22
+  %23 = getelementptr [8 x i8], ptr %12, i64 %22
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, null
   br i1 %25, label %37, label %26
@@ -1097,7 +1097,7 @@ define dso_local void @intel_uncore_forcewake_user_put(ptr noundef %0) local_unn
   %53 = xor i32 %52, -1
   %54 = and i32 %48, %53
   %55 = sext i32 %49 to i64
-  %56 = getelementptr ptr, ptr %45, i64 %55
+  %56 = getelementptr [8 x i8], ptr %45, i64 %55
   %57 = load ptr, ptr %56, align 8
   %58 = icmp eq ptr %57, null
   br i1 %58, label %66, label %59
@@ -1134,7 +1134,7 @@ define dso_local void @intel_uncore_forcewake_user_put(ptr noundef %0) local_unn
   %77 = xor i32 %76, -1
   %78 = and i32 %72, %77
   %79 = sext i32 %73 to i64
-  %80 = getelementptr ptr, ptr %45, i64 %79
+  %80 = getelementptr [8 x i8], ptr %45, i64 %79
   %81 = load ptr, ptr %80, align 8
   %82 = icmp eq ptr %81, null
   br i1 %82, label %86, label %83
@@ -1189,7 +1189,7 @@ define dso_local void @intel_uncore_forcewake_put__locked(ptr noundef captures(n
   %20 = xor i32 %19, -1
   %21 = and i32 %15, %20
   %22 = sext i32 %16 to i64
-  %23 = getelementptr ptr, ptr %12, i64 %22
+  %23 = getelementptr [8 x i8], ptr %12, i64 %22
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, null
   br i1 %25, label %33, label %26
@@ -1226,7 +1226,7 @@ define dso_local void @intel_uncore_forcewake_put__locked(ptr noundef captures(n
   %44 = xor i32 %43, -1
   %45 = and i32 %39, %44
   %46 = sext i32 %40 to i64
-  %47 = getelementptr ptr, ptr %12, i64 %46
+  %47 = getelementptr [8 x i8], ptr %12, i64 %46
   %48 = load ptr, ptr %47, align 8
   %49 = icmp eq ptr %48, null
   br i1 %49, label %53, label %50
@@ -1282,7 +1282,7 @@ define dso_local void @intel_uncore_forcewake_put(ptr noundef %0, i32 noundef %1
   %22 = xor i32 %21, -1
   %23 = and i32 %17, %22
   %24 = sext i32 %18 to i64
-  %25 = getelementptr ptr, ptr %14, i64 %24
+  %25 = getelementptr [8 x i8], ptr %14, i64 %24
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %35, label %28
@@ -1319,7 +1319,7 @@ define dso_local void @intel_uncore_forcewake_put(ptr noundef %0, i32 noundef %1
   %46 = xor i32 %45, -1
   %47 = and i32 %41, %46
   %48 = sext i32 %42 to i64
-  %49 = getelementptr ptr, ptr %14, i64 %48
+  %49 = getelementptr [8 x i8], ptr %14, i64 %48
   %50 = load ptr, ptr %49, align 8
   %51 = icmp eq ptr %50, null
   br i1 %51, label %55, label %52
@@ -1379,7 +1379,7 @@ define dso_local void @intel_uncore_forcewake_put_delayed(ptr noundef %0, i32 no
   %22 = xor i32 %21, -1
   %23 = and i32 %17, %22
   %24 = sext i32 %18 to i64
-  %25 = getelementptr ptr, ptr %14, i64 %24
+  %25 = getelementptr [8 x i8], ptr %14, i64 %24
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %35, label %28
@@ -1434,7 +1434,7 @@ define dso_local void @intel_uncore_forcewake_put_delayed(ptr noundef %0, i32 no
   %57 = xor i32 %56, -1
   %58 = and i32 %52, %57
   %59 = sext i32 %53 to i64
-  %60 = getelementptr ptr, ptr %14, i64 %59
+  %60 = getelementptr [8 x i8], ptr %14, i64 %59
   %61 = load ptr, ptr %60, align 8
   %62 = icmp eq ptr %61, null
   br i1 %62, label %66, label %63
@@ -1491,7 +1491,7 @@ define dso_local void @intel_uncore_forcewake_flush(ptr noundef readonly capture
   %19 = xor i32 %18, -1
   %20 = and i32 %14, %19
   %21 = sext i32 %15 to i64
-  %22 = getelementptr ptr, ptr %12, i64 %21
+  %22 = getelementptr [8 x i8], ptr %12, i64 %21
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %32, label %25
@@ -1593,7 +1593,7 @@ define internal noundef range(i32 0, 2) i32 @intel_uncore_fw_release_timer(ptr n
   %47 = xor i32 %46, -1
   %48 = and i32 %42, %47
   %49 = sext i32 %43 to i64
-  %50 = getelementptr ptr, ptr %40, i64 %49
+  %50 = getelementptr [8 x i8], ptr %40, i64 %49
   %51 = load ptr, ptr %50, align 8
   %52 = icmp eq ptr %51, null
   br i1 %52, label %56, label %53
@@ -2618,7 +2618,7 @@ define dso_local range(i32 -19, 1) i32 @intel_uncore_init_mmio(ptr noundef %0) l
 527:                                              ; preds = %536, %518
   %528 = tail call i32 asm "bsfl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 1, i32 -1) #13, !srcloc !9
   %529 = sext i32 %528 to i64
-  %530 = getelementptr ptr, ptr %526, i64 %529
+  %530 = getelementptr [8 x i8], ptr %526, i64 %529
   %531 = load ptr, ptr %530, align 8
   %532 = icmp eq ptr %531, null
   br i1 %532, label %536, label %533
@@ -2739,7 +2739,7 @@ fw_domains_put.exit:                              ; preds = %536
   %587 = xor i32 %586, -1
   %588 = and i32 %582, %587
   %589 = sext i32 %583 to i64
-  %590 = getelementptr ptr, ptr %580, i64 %589
+  %590 = getelementptr [8 x i8], ptr %580, i64 %589
   %591 = load ptr, ptr %590, align 8
   %592 = icmp eq ptr %591, null
   br i1 %592, label %596, label %593
@@ -3131,7 +3131,7 @@ define dso_local void @intel_uncore_prune_engine_fw_domains(ptr noundef captures
 define internal fastcc void @fw_domain_fini(ptr noundef captures(none) %0, i32 noundef %1) unnamed_addr #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %4 = zext i32 %1 to i64
-  %5 = getelementptr ptr, ptr %3, i64 %4
+  %5 = getelementptr [8 x i8], ptr %3, i64 %4
   %6 = load ptr, ptr %5, align 8
   store ptr null, ptr %5, align 8
   %7 = icmp eq ptr %6, null
@@ -3251,7 +3251,7 @@ define dso_local void @intel_uncore_fini_mmio(ptr noundef readnone captures(none
   %22 = xor i32 %21, -1
   %23 = and i32 %17, %22
   %24 = sext i32 %18 to i64
-  %25 = getelementptr ptr, ptr %15, i64 %24
+  %25 = getelementptr [8 x i8], ptr %15, i64 %24
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %31, label %28
@@ -3700,7 +3700,7 @@ define dso_local range(i32 -110, 1) i32 @__intel_wait_for_register(ptr noundef %
   %62 = xor i32 %61, -1
   %63 = and i32 %57, %62
   %64 = sext i32 %58 to i64
-  %65 = getelementptr ptr, ptr %54, i64 %64
+  %65 = getelementptr [8 x i8], ptr %54, i64 %64
   %66 = load ptr, ptr %65, align 8
   %67 = icmp eq ptr %66, null
   br i1 %67, label %79, label %68
@@ -3764,7 +3764,7 @@ define dso_local range(i32 -110, 1) i32 @__intel_wait_for_register(ptr noundef %
   %104 = xor i32 %103, -1
   %105 = and i32 %99, %104
   %106 = sext i32 %100 to i64
-  %107 = getelementptr ptr, ptr %96, i64 %106
+  %107 = getelementptr [8 x i8], ptr %96, i64 %106
   %108 = load ptr, ptr %107, align 8
   %109 = icmp eq ptr %108, null
   br i1 %109, label %117, label %110
@@ -3801,7 +3801,7 @@ define dso_local range(i32 -110, 1) i32 @__intel_wait_for_register(ptr noundef %
   %128 = xor i32 %127, -1
   %129 = and i32 %123, %128
   %130 = sext i32 %124 to i64
-  %131 = getelementptr ptr, ptr %96, i64 %130
+  %131 = getelementptr [8 x i8], ptr %96, i64 %130
   %132 = load ptr, ptr %131, align 8
   %133 = icmp eq ptr %132, null
   br i1 %133, label %137, label %134
@@ -5734,7 +5734,7 @@ define internal zeroext i8 @fwtable_read8(ptr noundef %0, i32 %1, i1 noundef zer
   %42 = xor i32 %41, -1
   %43 = and i32 %37, %42
   %44 = sext i32 %38 to i64
-  %45 = getelementptr ptr, ptr %35, i64 %44
+  %45 = getelementptr [8 x i8], ptr %35, i64 %44
   %46 = load ptr, ptr %45, align 8
   %47 = icmp eq ptr %46, null
   br i1 %47, label %59, label %48
@@ -5933,7 +5933,7 @@ define internal zeroext i16 @fwtable_read16(ptr noundef %0, i32 %1, i1 noundef z
   %42 = xor i32 %41, -1
   %43 = and i32 %37, %42
   %44 = sext i32 %38 to i64
-  %45 = getelementptr ptr, ptr %35, i64 %44
+  %45 = getelementptr [8 x i8], ptr %35, i64 %44
   %46 = load ptr, ptr %45, align 8
   %47 = icmp eq ptr %46, null
   br i1 %47, label %59, label %48
@@ -6132,7 +6132,7 @@ define internal i32 @fwtable_read32(ptr noundef %0, i32 %1, i1 noundef zeroext %
   %42 = xor i32 %41, -1
   %43 = and i32 %37, %42
   %44 = sext i32 %38 to i64
-  %45 = getelementptr ptr, ptr %35, i64 %44
+  %45 = getelementptr [8 x i8], ptr %35, i64 %44
   %46 = load ptr, ptr %45, align 8
   %47 = icmp eq ptr %46, null
   br i1 %47, label %59, label %48
@@ -6331,7 +6331,7 @@ define internal i64 @fwtable_read64(ptr noundef %0, i32 %1, i1 noundef zeroext %
   %42 = xor i32 %41, -1
   %43 = and i32 %37, %42
   %44 = sext i32 %38 to i64
-  %45 = getelementptr ptr, ptr %35, i64 %44
+  %45 = getelementptr [8 x i8], ptr %35, i64 %44
   %46 = load ptr, ptr %45, align 8
   %47 = icmp eq ptr %46, null
   br i1 %47, label %59, label %48
@@ -6590,7 +6590,7 @@ define internal void @fwtable_write8(ptr noundef %0, i32 %1, i8 noundef zeroext 
   %68 = xor i32 %67, -1
   %69 = and i32 %63, %68
   %70 = sext i32 %64 to i64
-  %71 = getelementptr ptr, ptr %61, i64 %70
+  %71 = getelementptr [8 x i8], ptr %61, i64 %70
   %72 = load ptr, ptr %71, align 8
   %73 = icmp eq ptr %72, null
   br i1 %73, label %85, label %74
@@ -6793,7 +6793,7 @@ define internal void @fwtable_write16(ptr noundef %0, i32 %1, i16 noundef zeroex
   %68 = xor i32 %67, -1
   %69 = and i32 %63, %68
   %70 = sext i32 %64 to i64
-  %71 = getelementptr ptr, ptr %61, i64 %70
+  %71 = getelementptr [8 x i8], ptr %61, i64 %70
   %72 = load ptr, ptr %71, align 8
   %73 = icmp eq ptr %72, null
   br i1 %73, label %85, label %74
@@ -6996,7 +6996,7 @@ define internal void @fwtable_write32(ptr noundef %0, i32 %1, i32 noundef %2, i1
   %68 = xor i32 %67, -1
   %69 = and i32 %63, %68
   %70 = sext i32 %64 to i64
-  %71 = getelementptr ptr, ptr %61, i64 %70
+  %71 = getelementptr [8 x i8], ptr %61, i64 %70
   %72 = load ptr, ptr %71, align 8
   %73 = icmp eq ptr %72, null
   br i1 %73, label %85, label %74
@@ -7650,7 +7650,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__fw_domain_init(ptr nound
 
 59:                                               ; preds = %58, %57
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %61 = getelementptr ptr, ptr %60, i64 %41
+  %61 = getelementptr [8 x i8], ptr %60, i64 %41
   store ptr %6, ptr %61, align 8
   br label %62
 
@@ -7744,7 +7744,7 @@ define internal void @fw_domains_get_with_fallback(ptr noundef captures(none) %0
   %12 = xor i32 %11, -1
   %13 = and i32 %7, %12
   %14 = sext i32 %8 to i64
-  %15 = getelementptr ptr, ptr %5, i64 %14
+  %15 = getelementptr [8 x i8], ptr %5, i64 %14
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %41, label %18
@@ -7804,7 +7804,7 @@ define internal void @fw_domains_get_with_fallback(ptr noundef captures(none) %0
   %48 = xor i32 %47, -1
   %49 = and i32 %43, %48
   %50 = sext i32 %44 to i64
-  %51 = getelementptr ptr, ptr %5, i64 %50
+  %51 = getelementptr [8 x i8], ptr %5, i64 %50
   %52 = load ptr, ptr %51, align 8
   %53 = icmp eq ptr %52, null
   br i1 %53, label %.thread10, label %54
@@ -7962,7 +7962,7 @@ define internal fastcc range(i32 -110, 1) i32 @fw_domain_wait_ack_with_fallback(
 
 68:                                               ; preds = %63
   %69 = zext nneg i32 %66 to i64
-  %70 = getelementptr ptr, ptr @forcewake_domain_names, i64 %69
+  %70 = getelementptr [8 x i8], ptr @forcewake_domain_names, i64 %69
   %71 = load ptr, ptr %70, align 8
   br label %73
 
@@ -8037,7 +8037,7 @@ define internal fastcc void @fw_domain_wait_ack_clear(ptr noundef nonnull readon
 
 35:                                               ; preds = %30
   %36 = zext nneg i32 %33 to i64
-  %37 = getelementptr ptr, ptr @forcewake_domain_names, i64 %36
+  %37 = getelementptr [8 x i8], ptr @forcewake_domain_names, i64 %36
   %38 = load ptr, ptr %37, align 8
   br label %40
 
@@ -8069,7 +8069,7 @@ define internal fastcc void @fw_domain_wait_ack_clear(ptr noundef nonnull readon
 
 51:                                               ; preds = %46
   %52 = zext nneg i32 %49 to i64
-  %53 = getelementptr ptr, ptr @forcewake_domain_names, i64 %52
+  %53 = getelementptr [8 x i8], ptr @forcewake_domain_names, i64 %52
   %54 = load ptr, ptr %53, align 8
   br label %56
 
@@ -8150,7 +8150,7 @@ define internal fastcc void @fw_domain_wait_ack_set(ptr noundef nonnull readonly
 
 31:                                               ; preds = %26
   %32 = zext nneg i32 %29 to i64
-  %33 = getelementptr ptr, ptr @forcewake_domain_names, i64 %32
+  %33 = getelementptr [8 x i8], ptr @forcewake_domain_names, i64 %32
   %34 = load ptr, ptr %33, align 8
   br label %36
 
@@ -8197,7 +8197,7 @@ define internal void @fw_domains_get_normal(ptr noundef captures(none) %0, i32 n
   %12 = xor i32 %11, -1
   %13 = and i32 %7, %12
   %14 = sext i32 %8 to i64
-  %15 = getelementptr ptr, ptr %5, i64 %14
+  %15 = getelementptr [8 x i8], ptr %5, i64 %14
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %21, label %18
@@ -8222,7 +8222,7 @@ define internal void @fw_domains_get_normal(ptr noundef captures(none) %0, i32 n
   %28 = xor i32 %27, -1
   %29 = and i32 %23, %28
   %30 = sext i32 %24 to i64
-  %31 = getelementptr ptr, ptr %5, i64 %30
+  %31 = getelementptr [8 x i8], ptr %5, i64 %30
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %32, null
   br i1 %33, label %.thread7, label %34
@@ -8275,7 +8275,7 @@ define internal void @fw_domains_get_normal(ptr noundef captures(none) %0, i32 n
 
 64:                                               ; preds = %59
   %65 = zext nneg i32 %62 to i64
-  %66 = getelementptr ptr, ptr @forcewake_domain_names, i64 %65
+  %66 = getelementptr [8 x i8], ptr @forcewake_domain_names, i64 %65
   %67 = load ptr, ptr %66, align 8
   br label %69
 
@@ -8336,7 +8336,7 @@ define internal fastcc i32 @find_fw_domain(ptr noundef readonly captures(none) %
   %18 = lshr i32 %17, 1
   %19 = add i32 %18, %16
   %20 = zext i32 %19 to i64
-  %21 = getelementptr %struct.intel_forcewake_range, ptr %13, i64 %20
+  %21 = getelementptr [12 x i8], ptr %13, i64 %20
   %22 = load i32, ptr %21, align 4
   %23 = icmp ugt i32 %22, %9
   br i1 %23, label %.thread, label %24
@@ -8498,7 +8498,7 @@ define internal fastcc noundef zeroext i1 @is_shadowed(ptr noundef readonly capt
   %35 = lshr i32 %34, 1
   %36 = add i32 %35, %33
   %37 = zext i32 %36 to i64
-  %38 = getelementptr %struct.i915_range, ptr %4, i64 %37
+  %38 = getelementptr [8 x i8], ptr %4, i64 %37
   %39 = load i32, ptr %38, align 4
   %40 = icmp ugt i32 %39, %29
   br i1 %40, label %.thread, label %41

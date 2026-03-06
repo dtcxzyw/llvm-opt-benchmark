@@ -256,7 +256,7 @@ define internal fastcc void @_ZN20wasmtime_wit_bindgen5types5Types14type_info_fu
   %27 = load ptr, ptr %26, align 8, !nonnull !4, !noundef !4
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %29 = load i64, ptr %28, align 8, !noundef !4
-  %30 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] } }, ptr %27, i64 %29
+  %30 = getelementptr inbounds [48 x i8], ptr %27, i64 %29
   store ptr %27, ptr %21, align 8
   %31 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %30, ptr %31, align 8
@@ -671,7 +671,7 @@ default.unreachable542:                           ; preds = %12
   %22 = load ptr, ptr %21, align 8, !nonnull !4, !noundef !4
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %24 = load i64, ptr %23, align 8, !noundef !4
-  %25 = getelementptr inbounds { { i64, [2 x i64] }, { { { i64, ptr, {} }, i64 } }, { { i64, [2 x i64] } } }, ptr %22, i64 %24
+  %25 = getelementptr inbounds [72 x i8], ptr %22, i64 %24
   store ptr %22, ptr %7, align 8
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %25, ptr %26, align 8
@@ -772,7 +772,7 @@ default.unreachable542:                           ; preds = %12
   %40 = load ptr, ptr %39, align 8, !nonnull !4, !noundef !4
   %41 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %42 = load i64, ptr %41, align 8, !noundef !4
-  %43 = getelementptr inbounds { i64, [2 x i64] }, ptr %40, i64 %42
+  %43 = getelementptr inbounds [24 x i8], ptr %40, i64 %42
   store ptr %40, ptr %6, align 8
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %43, ptr %44, align 8
@@ -798,7 +798,7 @@ default.unreachable542:                           ; preds = %12
   %50 = load ptr, ptr %49, align 8, !nonnull !4, !noundef !4
   %51 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %52 = load i64, ptr %51, align 8, !noundef !4
-  %53 = getelementptr inbounds { { i64, [2 x i64] }, { { { i64, ptr, {} }, i64 } }, { { i64, [2 x i64] } } }, ptr %50, i64 %52
+  %53 = getelementptr inbounds [72 x i8], ptr %50, i64 %52
   store ptr %50, ptr %5, align 8
   %54 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %53, ptr %54, align 8

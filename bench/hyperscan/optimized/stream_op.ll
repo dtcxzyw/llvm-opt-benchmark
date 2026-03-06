@@ -2836,7 +2836,7 @@ _ZNSt6vectorI11MatchRecordSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i.i.i: ; p
 _ZNSt6vectorI11MatchRecordSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i: ; preds = %33, %_ZNSt6vectorI11MatchRecordSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i.i.i
   store ptr %28, ptr %6, align 8
   store ptr %32, ptr %8, align 8
-  %34 = getelementptr inbounds nuw %struct.MatchRecord, ptr %28, i64 %26
+  %34 = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %26
   store ptr %34, ptr %10, align 8
   br label %_ZNSt6vectorI11MatchRecordSaIS0_EE9push_backEOS0_.exit
 

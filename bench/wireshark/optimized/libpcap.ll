@@ -538,7 +538,7 @@ define internal fastcc noundef zeroext i1 @libpcap_try_variants(ptr noundef read
 
 21:                                               ; preds = %5, %206
   %.03394 = phi i64 [ 0, %5 ], [ %207, %206 ]
-  %22 = getelementptr i32, ptr %1, i64 %.03394
+  %22 = getelementptr [4 x i8], ptr %1, i64 %.03394
   %23 = load i32, ptr %22, align 4
   %24 = icmp eq i32 %23, 4
   br label %25
@@ -909,7 +909,7 @@ switch.early.test.i.i:                            ; preds = %thread-pre-split147
 
 libpcap_try_variant.exit:                         ; preds = %189, %.thread47.sink.split.i
   %192 = phi i32 [ %.ph.i, %.thread47.sink.split.i ], [ %.7.i, %189 ]
-  %193 = getelementptr i32, ptr %11, i64 %.03394
+  %193 = getelementptr [4 x i8], ptr %11, i64 %.03394
   store i32 %192, ptr %193, align 4
   switch i32 %192, label %202 [
     i32 -1, label %.loopexit
@@ -923,7 +923,7 @@ libpcap_try_variant.exit:                         ; preds = %189, %.thread47.sin
   br i1 %197, label %.loopexit, label %198
 
 198:                                              ; preds = %194
-  %199 = getelementptr i32, ptr %1, i64 %.03394
+  %199 = getelementptr [4 x i8], ptr %1, i64 %.03394
   %200 = load i32, ptr %199, align 4
   %201 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i32 %200, ptr %201, align 4
@@ -947,13 +947,13 @@ libpcap_try_variant.exit:                         ; preds = %189, %.thread47.sin
 209:                                              ; preds = %.preheader, %216
   %.097 = phi i64 [ 0, %.preheader ], [ %217, %216 ]
   %.03596 = phi i32 [ 2147483647, %.preheader ], [ %.136, %216 ]
-  %210 = getelementptr i32, ptr %11, i64 %.097
+  %210 = getelementptr [4 x i8], ptr %11, i64 %.097
   %211 = load i32, ptr %210, align 4
   %212 = icmp slt i32 %211, %.03596
   br i1 %212, label %213, label %216
 
 213:                                              ; preds = %209
-  %214 = getelementptr i32, ptr %1, i64 %.097
+  %214 = getelementptr [4 x i8], ptr %1, i64 %.097
   %215 = load i32, ptr %214, align 4
   store i32 %215, ptr %208, align 4
   br label %216
@@ -1060,7 +1060,7 @@ define internal fastcc noundef zeroext i1 @libpcap_read_packet(ptr noundef %0, p
 
 switch.lookup:                                    ; preds = %5
   %13 = zext nneg i32 %10 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.libpcap_read_packet, i64 %13
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.libpcap_read_packet, i64 %13
   %switch.load = load i32, ptr %switch.gep, align 4
   %14 = call zeroext i1 @wtap_read_bytes_or_eof(ptr noundef %1, ptr noundef nonnull %6, i32 noundef %switch.load, ptr noundef %3, ptr noundef %4)
   br i1 %14, label %15, label %.critedge

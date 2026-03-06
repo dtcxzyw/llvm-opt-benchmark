@@ -3713,7 +3713,7 @@ invoke.cont40:                                    ; preds = %invoke.cont40.lr.ph
   %vega.0979 = phi double [ 0.000000e+00, %invoke.cont40.lr.ph ], [ %vega.1, %if.end167 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %paymentDate)
   %24 = load ptr, ptr %endDates, align 8, !tbaa !120
-  %add.ptr.i = getelementptr inbounds nuw %"class.QuantLib::Date", ptr %24, i64 %i.0980
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %i.0980
   %25 = load i64, ptr %add.ptr.i, align 8, !tbaa !30
   store i64 %25, ptr %paymentDate, align 8, !tbaa !30
   %cmp.i = icmp sgt i64 %25, %14
@@ -3746,26 +3746,26 @@ call.i.noexc:                                     ; preds = %invoke.cont46
           to label %invoke.cont64 unwind label %lpad43
 
 invoke.cont64:                                    ; preds = %call.i.noexc
-  %add.ptr.i180 = getelementptr inbounds nuw double, ptr %discountFactors.sroa.0.0, i64 %i.0980
+  %add.ptr.i180 = getelementptr inbounds nuw [8 x i8], ptr %discountFactors.sroa.0.0, i64 %i.0980
   store double %call2.i179, ptr %add.ptr.i180, align 8, !tbaa !121
   %28 = load ptr, ptr %nominals, align 8, !tbaa !126
-  %add.ptr.i181 = getelementptr inbounds nuw double, ptr %28, i64 %i.0980
+  %add.ptr.i181 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %i.0980
   %29 = load double, ptr %add.ptr.i181, align 8, !tbaa !121
   %30 = load ptr, ptr %gearings, align 8, !tbaa !126
-  %add.ptr.i182 = getelementptr inbounds nuw double, ptr %30, i64 %i.0980
+  %add.ptr.i182 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %i.0980
   %31 = load double, ptr %add.ptr.i182, align 8, !tbaa !121
   %mul = fmul double %29, %31
   %32 = load ptr, ptr %accrualTimes, align 8, !tbaa !126
-  %add.ptr.i183 = getelementptr inbounds nuw double, ptr %32, i64 %i.0980
+  %add.ptr.i183 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %i.0980
   %33 = load double, ptr %add.ptr.i183, align 8, !tbaa !121
   %mul57 = fmul double %mul, %33
   %mul58 = fmul double %call2.i179, %mul57
   %34 = load ptr, ptr %forwards, align 8, !tbaa !126
-  %add.ptr.i184 = getelementptr inbounds nuw double, ptr %34, i64 %i.0980
+  %add.ptr.i184 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %i.0980
   %35 = load double, ptr %add.ptr.i184, align 8, !tbaa !121
   call void @llvm.lifetime.start.p0(ptr nonnull %fixingDate)
   %36 = load ptr, ptr %fixingDates, align 8, !tbaa !120
-  %add.ptr.i185 = getelementptr inbounds nuw %"class.QuantLib::Date", ptr %36, i64 %i.0980
+  %add.ptr.i185 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %i.0980
   %37 = load i64, ptr %add.ptr.i185, align 8, !tbaa !30
   store i64 %37, ptr %fixingDate, align 8, !tbaa !30
   %cmp.i186 = icmp sgt i64 %37, %10
@@ -3812,13 +3812,13 @@ if.end.thread:                                    ; preds = %invoke.cont64
 
 if.then77.thread:                                 ; preds = %if.end.thread
   %42 = load ptr, ptr %capRates885, align 8, !tbaa !126
-  %add.ptr.i192886 = getelementptr inbounds nuw double, ptr %42, i64 %i.0980
+  %add.ptr.i192886 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %i.0980
   %43 = load double, ptr %add.ptr.i192886, align 8, !tbaa !121
   br label %if.end102
 
 if.then77:                                        ; preds = %if.end
   %44 = load ptr, ptr %capRates885, align 8, !tbaa !126
-  %add.ptr.i192 = getelementptr inbounds nuw double, ptr %44, i64 %i.0980
+  %add.ptr.i192 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %i.0980
   %45 = load double, ptr %add.ptr.i192, align 8, !tbaa !121
   %cmp80 = fcmp ogt double %call74, 0.000000e+00
   br i1 %cmp80, label %if.then81, label %if.end102
@@ -3864,7 +3864,7 @@ invoke.cont88:                                    ; preds = %call.i.i198.noexc
   %mul.i = fmul double %call.i.i198201, %call.i.i198201
   %mul3.i = fmul double %mul.i, %call2.i202
   %call90 = call double @sqrt(double noundef %mul3.i) #25, !tbaa !127
-  %add.ptr.i203 = getelementptr inbounds nuw double, ptr %stdDevs.sroa.0.0875, i64 %i.0980
+  %add.ptr.i203 = getelementptr inbounds nuw [8 x i8], ptr %stdDevs.sroa.0.0875, i64 %i.0980
   store double %call90, ptr %add.ptr.i203, align 8, !tbaa !121
   %49 = load double, ptr %displacement_, align 8, !tbaa !64
   %call94 = invoke noundef double @_ZN8QuantLib28blackFormulaStdDevDerivativeEddddd(double noundef %45, double noundef %35, double noundef %call90, double noundef %mul58, double noundef %49)
@@ -3872,7 +3872,7 @@ invoke.cont88:                                    ; preds = %call.i.i198.noexc
 
 invoke.cont93:                                    ; preds = %invoke.cont88
   %mul95 = fmul double %call74, %call94
-  %add.ptr.i205 = getelementptr inbounds nuw double, ptr %vegas.sroa.0.0807826, i64 %i.0980
+  %add.ptr.i205 = getelementptr inbounds nuw [8 x i8], ptr %vegas.sroa.0.0807826, i64 %i.0980
   store double %mul95, ptr %add.ptr.i205, align 8, !tbaa !121
   %50 = load double, ptr %add.ptr.i203, align 8, !tbaa !121
   %51 = load double, ptr %displacement_, align 8, !tbaa !64
@@ -3880,7 +3880,7 @@ invoke.cont93:                                    ; preds = %invoke.cont88
           to label %invoke.cont99 unwind label %lpad83
 
 invoke.cont99:                                    ; preds = %invoke.cont93
-  %add.ptr.i207 = getelementptr inbounds nuw double, ptr %deltas.sroa.0.0746762860, i64 %i.0980
+  %add.ptr.i207 = getelementptr inbounds nuw [8 x i8], ptr %deltas.sroa.0.0746762860, i64 %i.0980
   store double %call100, ptr %add.ptr.i207, align 8, !tbaa !121
   br label %if.end102
 
@@ -3892,14 +3892,14 @@ lpad83:                                           ; preds = %call.i.i198.noexc, 
 if.end102:                                        ; preds = %if.then77.thread, %invoke.cont99, %if.then77
   %53 = phi double [ %43, %if.then77.thread ], [ %45, %invoke.cont99 ], [ %45, %if.then77 ]
   %sqrtTime.0882888 = phi double [ 0.000000e+00, %if.then77.thread ], [ %call74, %invoke.cont99 ], [ %call74, %if.then77 ]
-  %add.ptr.i208 = getelementptr inbounds nuw double, ptr %stdDevs.sroa.0.0875, i64 %i.0980
+  %add.ptr.i208 = getelementptr inbounds nuw [8 x i8], ptr %stdDevs.sroa.0.0875, i64 %i.0980
   %54 = load double, ptr %add.ptr.i208, align 8, !tbaa !121
   %55 = load double, ptr %displacement_, align 8, !tbaa !64
   %call106 = invoke noundef double @_ZN8QuantLib12blackFormulaENS_6Option4TypeEddddd(i32 noundef 1, double noundef %53, double noundef %35, double noundef %54, double noundef %mul58, double noundef %55)
           to label %invoke.cont105 unwind label %lpad83
 
 invoke.cont105:                                   ; preds = %if.end102
-  %add.ptr.i209 = getelementptr inbounds nuw double, ptr %values.sroa.0.0692705790854, i64 %i.0980
+  %add.ptr.i209 = getelementptr inbounds nuw [8 x i8], ptr %values.sroa.0.0692705790854, i64 %i.0980
   store double %call106, ptr %add.ptr.i209, align 8, !tbaa !121
   br label %if.end108
 
@@ -3912,13 +3912,13 @@ if.end108.thread:                                 ; preds = %if.end.thread
 
 if.then112.thread:                                ; preds = %if.end108.thread
   %56 = load ptr, ptr %floorRates896, align 8, !tbaa !126
-  %add.ptr.i210897 = getelementptr inbounds nuw double, ptr %56, i64 %i.0980
+  %add.ptr.i210897 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %i.0980
   %57 = load double, ptr %add.ptr.i210897, align 8, !tbaa !121
   br label %if.end138
 
 if.then112:                                       ; preds = %if.end108
   %58 = load ptr, ptr %floorRates896, align 8, !tbaa !126
-  %add.ptr.i210 = getelementptr inbounds nuw double, ptr %58, i64 %i.0980
+  %add.ptr.i210 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %i.0980
   %59 = load double, ptr %add.ptr.i210, align 8, !tbaa !121
   %cmp116 = fcmp ogt double %sqrtTime.0883, 0.000000e+00
   br i1 %cmp116, label %if.then117, label %if.end138
@@ -3964,7 +3964,7 @@ invoke.cont124:                                   ; preds = %call.i.i218.noexc
   %mul.i219 = fmul double %call.i.i218223, %call.i.i218223
   %mul3.i220 = fmul double %mul.i219, %call2.i224
   %call126 = call double @sqrt(double noundef %mul3.i220) #25, !tbaa !127
-  %add.ptr.i226 = getelementptr inbounds nuw double, ptr %stdDevs.sroa.0.0875, i64 %i.0980
+  %add.ptr.i226 = getelementptr inbounds nuw [8 x i8], ptr %stdDevs.sroa.0.0875, i64 %i.0980
   store double %call126, ptr %add.ptr.i226, align 8, !tbaa !121
   %63 = load double, ptr %displacement_, align 8, !tbaa !64
   %call131 = invoke noundef double @_ZN8QuantLib28blackFormulaStdDevDerivativeEddddd(double noundef %59, double noundef %35, double noundef %call126, double noundef %mul58, double noundef %63)
@@ -3990,21 +3990,21 @@ if.end138:                                        ; preds = %if.then112.thread, 
   %67 = phi double [ %59, %invoke.cont135 ], [ %59, %if.then112 ], [ %57, %if.then112.thread ]
   %floorletVega.0 = phi double [ %mul132, %invoke.cont135 ], [ 0.000000e+00, %if.then112 ], [ 0.000000e+00, %if.then112.thread ]
   %floorletDelta.0 = phi double [ %mul137, %invoke.cont135 ], [ 0.000000e+00, %if.then112 ], [ 0.000000e+00, %if.then112.thread ]
-  %add.ptr.i229 = getelementptr inbounds nuw double, ptr %stdDevs.sroa.0.0875, i64 %i.0980
+  %add.ptr.i229 = getelementptr inbounds nuw [8 x i8], ptr %stdDevs.sroa.0.0875, i64 %i.0980
   %68 = load double, ptr %add.ptr.i229, align 8, !tbaa !121
   %69 = load double, ptr %displacement_, align 8, !tbaa !64
   %call143 = invoke noundef double @_ZN8QuantLib12blackFormulaENS_6Option4TypeEddddd(i32 noundef -1, double noundef %67, double noundef %35, double noundef %68, double noundef %mul58, double noundef %69)
           to label %invoke.cont142 unwind label %lpad141
 
 invoke.cont142:                                   ; preds = %if.end138
-  %add.ptr.i230 = getelementptr inbounds nuw double, ptr %values.sroa.0.0692705790854, i64 %i.0980
+  %add.ptr.i230 = getelementptr inbounds nuw [8 x i8], ptr %values.sroa.0.0692705790854, i64 %i.0980
   br i1 %cmp109893899, label %if.then145, label %if.else
 
 if.then145:                                       ; preds = %invoke.cont142
   store double %call143, ptr %add.ptr.i230, align 8, !tbaa !121
-  %add.ptr.i231 = getelementptr inbounds nuw double, ptr %vegas.sroa.0.0807826, i64 %i.0980
+  %add.ptr.i231 = getelementptr inbounds nuw [8 x i8], ptr %vegas.sroa.0.0807826, i64 %i.0980
   store double %floorletVega.0, ptr %add.ptr.i231, align 8, !tbaa !121
-  %add.ptr.i232 = getelementptr inbounds nuw double, ptr %deltas.sroa.0.0746762860, i64 %i.0980
+  %add.ptr.i232 = getelementptr inbounds nuw [8 x i8], ptr %deltas.sroa.0.0746762860, i64 %i.0980
   store double %floorletDelta.0, ptr %add.ptr.i232, align 8, !tbaa !121
   br label %if.end157
 
@@ -4017,21 +4017,21 @@ if.else:                                          ; preds = %invoke.cont142
   %71 = load double, ptr %add.ptr.i230, align 8, !tbaa !121
   %sub = fsub double %71, %call143
   store double %sub, ptr %add.ptr.i230, align 8, !tbaa !121
-  %add.ptr.i234 = getelementptr inbounds nuw double, ptr %vegas.sroa.0.0807826, i64 %i.0980
+  %add.ptr.i234 = getelementptr inbounds nuw [8 x i8], ptr %vegas.sroa.0.0807826, i64 %i.0980
   %72 = load double, ptr %add.ptr.i234, align 8, !tbaa !121
   %sub151 = fsub double %72, %floorletVega.0
   store double %sub151, ptr %add.ptr.i234, align 8, !tbaa !121
-  %add.ptr.i235 = getelementptr inbounds nuw double, ptr %deltas.sroa.0.0746762860, i64 %i.0980
+  %add.ptr.i235 = getelementptr inbounds nuw [8 x i8], ptr %deltas.sroa.0.0746762860, i64 %i.0980
   %73 = load double, ptr %add.ptr.i235, align 8, !tbaa !121
   %sub153 = fsub double %73, %floorletDelta.0
   store double %sub153, ptr %add.ptr.i235, align 8, !tbaa !121
   br label %if.end157
 
 if.end157:                                        ; preds = %if.end108.thread, %if.then145, %if.else, %if.end108
-  %add.ptr.i236 = getelementptr inbounds nuw double, ptr %values.sroa.0.0692705790854, i64 %i.0980
+  %add.ptr.i236 = getelementptr inbounds nuw [8 x i8], ptr %values.sroa.0.0692705790854, i64 %i.0980
   %74 = load double, ptr %add.ptr.i236, align 8, !tbaa !121
   %add = fadd double %value.0985, %74
-  %add.ptr.i237 = getelementptr inbounds nuw double, ptr %vegas.sroa.0.0807826, i64 %i.0980
+  %add.ptr.i237 = getelementptr inbounds nuw [8 x i8], ptr %vegas.sroa.0.0807826, i64 %i.0980
   %75 = load double, ptr %add.ptr.i237, align 8, !tbaa !121
   %add160 = fadd double %vega.0979, %75
   call void @llvm.lifetime.end.p0(ptr nonnull %fixingDate)

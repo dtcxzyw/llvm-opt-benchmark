@@ -565,12 +565,12 @@ get_interleaved_ue_golomb.exit:                   ; preds = %16, %.loopexit.i
   br i1 %.not, label %74, label %71
 
 71:                                               ; preds = %67
-  %72 = getelementptr inbounds nuw i32, ptr @rv30_decode_mb_info.rv30_p_types, i64 %70
+  %72 = getelementptr inbounds nuw [4 x i8], ptr @rv30_decode_mb_info.rv30_p_types, i64 %70
   %73 = load i32, ptr %72, align 4, !tbaa !87
   br label %77
 
 74:                                               ; preds = %67
-  %75 = getelementptr inbounds nuw i32, ptr @rv30_decode_mb_info.rv30_b_types, i64 %70
+  %75 = getelementptr inbounds nuw [4 x i8], ptr @rv30_decode_mb_info.rv30_b_types, i64 %70
   %76 = load i32, ptr %75, align 4, !tbaa !87
   br label %77
 
@@ -601,7 +601,7 @@ define internal void @rv30_loop_filter(ptr noundef readonly captures(none) %0, i
   %indvars.iv = phi i64 [ %12, %.lr.ph ], [ %indvars.iv.next, %.thread ]
   %.0182303 = phi i32 [ 0, %.lr.ph ], [ %27, %.thread ]
   %15 = load ptr, ptr %9, align 8, !tbaa !90
-  %16 = getelementptr inbounds i32, ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds [4 x i8], ptr %15, i64 %indvars.iv
   %17 = load i32, ptr %16, align 4, !tbaa !87
   %18 = and i32 %17, 16777223
   %or.cond = icmp eq i32 %18, 0
@@ -611,7 +611,7 @@ define internal void @rv30_loop_filter(ptr noundef readonly captures(none) %0, i
   %20 = and i32 %17, 7
   %.not228 = icmp eq i32 %20, 0
   %21 = load ptr, ptr %10, align 8, !tbaa !91
-  %22 = getelementptr inbounds i16, ptr %21, i64 %indvars.iv
+  %22 = getelementptr inbounds [2 x i8], ptr %21, i64 %indvars.iv
   store i16 -1, ptr %22, align 2, !tbaa !92
   br i1 %.not228, label %.thread, label %23
 
@@ -702,7 +702,7 @@ define internal void @rv30_loop_filter(ptr noundef readonly captures(none) %0, i
   %.0195305 = phi ptr [ %71, %64 ], [ %122, %rv30_weak_loop_filter.exit ]
   %75 = or disjoint i32 %.0185306, %72
   %76 = load ptr, ptr %36, align 8, !tbaa !91
-  %77 = getelementptr inbounds i16, ptr %76, i64 %indvars.iv341
+  %77 = getelementptr inbounds [2 x i8], ptr %76, i64 %indvars.iv341
   %78 = load i16, ptr %77, align 2, !tbaa !92
   %79 = zext i16 %78 to i32
   %80 = shl nuw nsw i32 1, %75
@@ -812,7 +812,7 @@ rv30_weak_loop_filter.exit:                       ; preds = %95, %.critedge, %83
 
 140:                                              ; preds = %134, %125
   %.0192 = phi i32 [ %139, %134 ], [ 0, %125 ]
-  %141 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv338
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv338
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 8
   br label %143
 
@@ -997,7 +997,7 @@ rv30_weak_loop_filter.exit251.thread:             ; preds = %.critedge231, %rv30
   %.1196318 = phi ptr [ %244, %238 ], [ %302, %rv30_weak_loop_filter.exit259 ]
   %247 = or disjoint i32 %.2187319, %245
   %248 = load ptr, ptr %209, align 8, !tbaa !91
-  %249 = getelementptr inbounds i16, ptr %248, i64 %indvars.iv358
+  %249 = getelementptr inbounds [2 x i8], ptr %248, i64 %indvars.iv358
   %250 = load i16, ptr %249, align 2, !tbaa !92
   %251 = zext i16 %250 to i32
   %252 = shl nuw nsw i32 1, %247
@@ -1012,7 +1012,7 @@ rv30_weak_loop_filter.exit251.thread:             ; preds = %.critedge231, %rv30
   %256 = load i32, ptr %3, align 4, !tbaa !89
   %257 = sext i32 %256 to i64
   %258 = sub nsw i64 %indvars.iv358, %257
-  %259 = getelementptr inbounds i16, ptr %248, i64 %258
+  %259 = getelementptr inbounds [2 x i8], ptr %248, i64 %258
   %260 = load i16, ptr %259, align 2, !tbaa !92
   %261 = zext i16 %260 to i32
   %262 = shl nuw nsw i32 4096, %.2187319
@@ -1119,7 +1119,7 @@ rv30_weak_loop_filter.exit259:                    ; preds = %273, %.critedge236,
 
 323:                                              ; preds = %314, %305
   %.0181 = phi i32 [ %322, %314 ], [ 0, %305 ]
-  %324 = getelementptr inbounds nuw ptr, ptr %205, i64 %indvars.iv355
+  %324 = getelementptr inbounds nuw [8 x i8], ptr %205, i64 %indvars.iv355
   %325 = getelementptr inbounds nuw i8, ptr %324, i64 8
   br label %326
 

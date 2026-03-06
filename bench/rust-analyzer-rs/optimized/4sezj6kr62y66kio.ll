@@ -363,7 +363,7 @@ select.unfold:                                    ; preds = %"_ZN4core3str4iter2
   %108 = icmp eq <16 x i8> %.0.copyload.i.i.i.i.i.i.i, splat (i8 65)
   %109 = icmp eq <16 x i8> %.0.copyload2.i.i.i.i.i.i.i, splat (i8 58)
   %110 = and <16 x i1> %108, %109
-  %111 = getelementptr inbounds nuw i16, ptr %5, i64 %.sroa.022.042.i.i.i.i.i.i
+  %111 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %.sroa.022.042.i.i.i.i.i.i
   store <16 x i1> %110, ptr %111, align 2, !noalias !52
   %exitcond.not.i.i.i.i.i.i = icmp eq i64 %104, 4
   br i1 %exitcond.not.i.i.i.i.i.i, label %.preheader41.i.i.i.i.i.i, label %103
@@ -381,7 +381,7 @@ select.unfold:                                    ; preds = %"_ZN4core3str4iter2
   %.sroa.028.044.i.i.i.i.i.i = phi i64 [ %117, %121 ], [ 0, %103 ]
   %.243.i.i.i.i.i.i = phi i8 [ %.3.i.i.i.i.i.i, %121 ], [ 0, %103 ]
   %117 = add nuw nsw i64 %.sroa.028.044.i.i.i.i.i.i, 1
-  %118 = getelementptr inbounds nuw i16, ptr %5, i64 %.sroa.028.044.i.i.i.i.i.i
+  %118 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %.sroa.028.044.i.i.i.i.i.i
   %119 = load i16, ptr %118, align 2, !noalias !52, !noundef !4
   %120 = icmp eq i16 %119, 0
   br i1 %120, label %121, label %122

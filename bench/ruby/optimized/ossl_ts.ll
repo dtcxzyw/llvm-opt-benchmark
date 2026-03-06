@@ -720,7 +720,7 @@ define internal noundef i64 @ossl_ts_resp_verify(i32 noundef %0, ptr noundef rea
   %exitcond.not = phi i1 [ true, %.preheader48 ], [ false, %3 ]
   %indvars.iv.sroa.phi.sroa.speculated = phi ptr [ %5, %.preheader48 ], [ %4, %3 ]
   %indvars.iv = phi i64 [ 1, %.preheader48 ], [ 0, %3 ]
-  %8 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %9 = load i64, ptr %8, align 8, !tbaa !6
   store i64 %9, ptr %indvars.iv.sroa.phi.sroa.speculated, align 8, !tbaa !6
   br i1 %exitcond.not, label %.preheader47, label %.preheader48, !llvm.loop !41

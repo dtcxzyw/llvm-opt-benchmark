@@ -889,7 +889,7 @@ define void @"_ZN368_$LT$statrs..distribution..multinomial..Multinomial$u20$as$u
   %10 = load ptr, ptr %9, align 8, !nonnull !4, !noundef !4
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i64, ptr %11, align 8, !noundef !4
-  %13 = getelementptr inbounds double, ptr %10, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %10, i64 %12
   store ptr %10, ptr %6, align 8
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %13, ptr %14, align 8
@@ -902,7 +902,7 @@ define void @"_ZN368_$LT$statrs..distribution..multinomial..Multinomial$u20$as$u
   %.sroa.0.0.copyload.i = load i64, ptr %7, align 8, !alias.scope !40, !noalias !43
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !40, !noalias !43, !nonnull !4, !noundef !4
-  %18 = getelementptr inbounds double, ptr %.sroa.4.0.copyload.i, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %.sroa.4.0.copyload.i, i64 %17
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !45
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !49
   store ptr %.sroa.4.0.copyload.i, ptr %3, align 8, !alias.scope !56, !noalias !60
@@ -997,7 +997,7 @@ define void @"_ZN338_$LT$statrs..distribution..multinomial..Multinomial$u20$as$u
   %14 = load ptr, ptr %13, align 8, !nonnull !4, !noundef !4
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %16 = load i64, ptr %15, align 8, !noundef !4
-  %17 = getelementptr inbounds double, ptr %14, i64 %16
+  %17 = getelementptr inbounds [8 x i8], ptr %14, i64 %16
   store ptr %14, ptr %10, align 8
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %17, ptr %18, align 8
@@ -1012,7 +1012,7 @@ define void @"_ZN338_$LT$statrs..distribution..multinomial..Multinomial$u20$as$u
   %.sroa.0.0.copyload.i = load i64, ptr %11, align 8, !alias.scope !71, !noalias !68
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 8
   %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !71, !noalias !68, !nonnull !4, !noundef !4
-  %22 = getelementptr inbounds double, ptr %.sroa.4.0.copyload.i, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %.sroa.4.0.copyload.i, i64 %21
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !73
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !77
   store ptr %.sroa.4.0.copyload.i, ptr %6, align 8, !alias.scope !84, !noalias !88
@@ -1163,11 +1163,11 @@ common.resume:                                    ; preds = %.body, %31, %38
 64:                                               ; preds = %64, %.lr.ph.i
   %.sroa.02.01.i = phi i64 [ 0, %.lr.ph.i ], [ %65, %64 ]
   %65 = add nuw i64 %.sroa.02.01.i, 1
-  %66 = getelementptr double, ptr %.val, i64 %.sroa.02.01.i
+  %66 = getelementptr [8 x i8], ptr %.val, i64 %.sroa.02.01.i
   %67 = load double, ptr %66, align 8, !alias.scope !110, !noalias !109, !noundef !4
   %68 = mul i64 %.sroa.02.01.i, %21
-  %69 = getelementptr double, ptr %.sroa.4.0.copyload4.i, i64 %68
-  %70 = getelementptr double, ptr %69, i64 %.sroa.02.01.i
+  %69 = getelementptr [8 x i8], ptr %.sroa.4.0.copyload4.i, i64 %68
+  %70 = getelementptr [8 x i8], ptr %69, i64 %.sroa.02.01.i
   store double %67, ptr %70, align 8, !noalias !109
   %exitcond.not.i = icmp eq i64 %65, %21
   br i1 %exitcond.not.i, label %"_ZN8nalgebra4base12construction200_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$D$C$D$C$$LT$nalgebra..base..default_allocator..DefaultAllocator$u20$as$u20$nalgebra..base..allocator..Allocator$LT$T$C$D$C$D$GT$$GT$..Buffer$GT$$GT$13from_diagonal17h34b81d67fd78135cE.exit", label %64
@@ -1240,7 +1240,7 @@ define noundef double @"_ZN128_$LT$statrs..distribution..multinomial..Multinomia
 .preheader:                                       ; preds = %8, %.preheader
   %.sroa.07.0.i = phi i64 [ %12, %.preheader ], [ 0, %8 ]
   %.sroa.09.0.i = phi i64 [ %13, %.preheader ], [ 0, %8 ]
-  %11 = getelementptr inbounds i64, ptr %1, i64 %.sroa.09.0.i
+  %11 = getelementptr inbounds [8 x i8], ptr %1, i64 %.sroa.09.0.i
   %.val.i = load i64, ptr %11, align 8, !noundef !4
   %12 = add i64 %.val.i, %.sroa.07.0.i
   %13 = add nuw i64 %.sroa.09.0.i, 1
@@ -1262,7 +1262,7 @@ define noundef double @"_ZN128_$LT$statrs..distribution..multinomial..Multinomia
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !124
   store i64 %.sroa.04.0.i, ptr %4, align 8, !noalias !124
   %19 = icmp ult i64 %.sroa.04.0.i, 171
-  %20 = getelementptr inbounds double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %.sroa.04.0.i
+  %20 = getelementptr inbounds [8 x i8], ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %.sroa.04.0.i
   %.sroa.0.0.i.i.i.i = select i1 %19, ptr %20, ptr null
   %21 = call noundef double @"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309"(ptr noalias noundef readonly align 8 dereferenceable_or_null(8) %.sroa.0.0.i.i.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4), !noalias !124
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !124
@@ -1298,8 +1298,8 @@ _ZN6statrs8function9factorial11multinomial17hf31164cf5f4b81f6E.exit: ; preds = %
   %.sroa.0.018.i = phi double [ %36, %.lr.ph.i ], [ 1.000000e+00, %_ZN6statrs8function9factorial11multinomial17hf31164cf5f4b81f6E.exit ]
   %.sroa.03.017.i = phi i64 [ %31, %.lr.ph.i ], [ 0, %_ZN6statrs8function9factorial11multinomial17hf31164cf5f4b81f6E.exit ]
   %31 = add nuw i64 %.sroa.03.017.i, 1
-  %32 = getelementptr inbounds double, ptr %30, i64 %.sroa.03.017.i
-  %33 = getelementptr inbounds i64, ptr %1, i64 %.sroa.03.017.i
+  %32 = getelementptr inbounds [8 x i8], ptr %30, i64 %.sroa.03.017.i
+  %33 = getelementptr inbounds [8 x i8], ptr %1, i64 %.sroa.03.017.i
   %.val15.i = load double, ptr %32, align 8, !noalias !137, !noundef !4
   %.val16.i = load i64, ptr %33, align 8, !noalias !137, !noundef !4
   %34 = uitofp i64 %.val16.i to double
@@ -1335,7 +1335,7 @@ define noundef double @"_ZN128_$LT$statrs..distribution..multinomial..Multinomia
 .preheader:                                       ; preds = %8, %.preheader
   %.sroa.07.0.i = phi i64 [ %12, %.preheader ], [ 0, %8 ]
   %.sroa.09.0.i = phi i64 [ %13, %.preheader ], [ 0, %8 ]
-  %11 = getelementptr inbounds i64, ptr %1, i64 %.sroa.09.0.i
+  %11 = getelementptr inbounds [8 x i8], ptr %1, i64 %.sroa.09.0.i
   %.val.i = load i64, ptr %11, align 8, !noundef !4
   %12 = add i64 %.val.i, %.sroa.07.0.i
   %13 = add nuw i64 %.sroa.09.0.i, 1
@@ -1357,7 +1357,7 @@ define noundef double @"_ZN128_$LT$statrs..distribution..multinomial..Multinomia
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !140
   store i64 %.sroa.04.0.i, ptr %4, align 8, !noalias !140
   %19 = icmp ult i64 %.sroa.04.0.i, 171
-  %20 = getelementptr inbounds double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %.sroa.04.0.i
+  %20 = getelementptr inbounds [8 x i8], ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %.sroa.04.0.i
   %.sroa.0.0.i.i.i.i = select i1 %19, ptr %20, ptr null
   %21 = call noundef double @"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309"(ptr noalias noundef readonly align 8 dereferenceable_or_null(8) %.sroa.0.0.i.i.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4), !noalias !140
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !140
@@ -1394,8 +1394,8 @@ _ZN6statrs8function9factorial11multinomial17hf31164cf5f4b81f6E.exit: ; preds = %
   %.sroa.0.018.i = phi double [ %38, %.lr.ph.i ], [ 0.000000e+00, %_ZN6statrs8function9factorial11multinomial17hf31164cf5f4b81f6E.exit ]
   %.sroa.03.017.i = phi i64 [ %32, %.lr.ph.i ], [ 0, %_ZN6statrs8function9factorial11multinomial17hf31164cf5f4b81f6E.exit ]
   %32 = add nuw i64 %.sroa.03.017.i, 1
-  %33 = getelementptr inbounds double, ptr %31, i64 %.sroa.03.017.i
-  %34 = getelementptr inbounds i64, ptr %1, i64 %.sroa.03.017.i
+  %33 = getelementptr inbounds [8 x i8], ptr %31, i64 %.sroa.03.017.i
+  %34 = getelementptr inbounds [8 x i8], ptr %1, i64 %.sroa.03.017.i
   %.val15.i = load double, ptr %33, align 8, !noalias !153, !noundef !4
   %.val16.i = load i64, ptr %34, align 8, !noalias !153, !noundef !4
   %35 = uitofp i64 %.val16.i to double

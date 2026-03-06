@@ -719,7 +719,7 @@ define void @_ZN6icu_7719CollationRuleParser5parseERKNS_13UnicodeStringER10UErro
   %31 = load ptr, ptr %30, align 8
   %32 = select i1 %.not.i.i.i, ptr %31, ptr %29
   %33 = sext i32 %25 to i64
-  %34 = getelementptr inbounds i16, ptr %32, i64 %33
+  %34 = getelementptr inbounds [2 x i8], ptr %32, i64 %33
   %35 = load i16, ptr %34, align 2, !tbaa !31
   br label %_ZNK6icu_7713UnicodeString6charAtEi.exit
 
@@ -863,7 +863,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %13
   %29 = load ptr, ptr %28, align 8
   %30 = select i1 %.not.i.i.i, ptr %29, ptr %27
   %31 = sext i32 %14 to i64
-  %32 = getelementptr inbounds i16, ptr %30, i64 %31
+  %32 = getelementptr inbounds [2 x i8], ptr %30, i64 %31
   %33 = load i16, ptr %32, align 2, !tbaa !31
   %34 = icmp eq i16 %33, 35
   br i1 %34, label %35, label %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread
@@ -1086,7 +1086,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %_ZN6icu_7719Collati
   %94 = load ptr, ptr %93, align 8
   %95 = select i1 %.not.i.i.i, ptr %94, ptr %92
   %96 = sext i32 %65 to i64
-  %97 = getelementptr inbounds i16, ptr %95, i64 %96
+  %97 = getelementptr inbounds [2 x i8], ptr %95, i64 %96
   %98 = load i16, ptr %97, align 2, !tbaa !31
   switch i16 %98, label %_ZNK6icu_7713UnicodeString6charAtEi.exit364.thread [
     i16 93, label %99
@@ -2991,7 +2991,7 @@ define noundef i32 @_ZNK6icu_7719CollationRuleParser11skipCommentEi(ptr noundef 
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit.us:      ; preds = %.lr.ph.split.us
   %21 = load ptr, ptr %16, align 8
-  %22 = getelementptr inbounds i16, ptr %21, i64 %indvars.iv49
+  %22 = getelementptr inbounds [2 x i8], ptr %21, i64 %indvars.iv49
   %23 = load i16, ptr %22, align 2, !tbaa !31
   switch i16 %23, label %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread.us [
     i16 8233, label %.thread
@@ -3015,7 +3015,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit.thread.us: ; preds = %_ZNK6icu_7713Unic
   br i1 %25, label %_ZNK6icu_7713UnicodeString6charAtEi.exit, label %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %.lr.ph.split
-  %27 = getelementptr inbounds i16, ptr %15, i64 %indvars.iv
+  %27 = getelementptr inbounds [2 x i8], ptr %15, i64 %indvars.iv
   %28 = load i16, ptr %27, align 2, !tbaa !31
   switch i16 %28, label %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread [
     i16 8233, label %.thread
@@ -3105,7 +3105,7 @@ define noundef range(i32 -1, 16) i32 @_ZN6icu_7719CollationRuleParser21parseRese
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %31 = load ptr, ptr %30, align 8
   %32 = select i1 %.not.i.i.i.i, ptr %31, ptr %29
-  %33 = getelementptr inbounds i16, ptr %32, i64 %indvars.iv.i
+  %33 = getelementptr inbounds [2 x i8], ptr %32, i64 %indvars.iv.i
   %34 = load i16, ptr %33, align 2, !tbaa !31
   %35 = zext i16 %34 to i32
   br label %_ZNK6icu_7713UnicodeString6charAtEi.exit.i
@@ -3165,7 +3165,7 @@ _ZNK6icu_7719CollationRuleParser14skipWhiteSpaceEi.exit: ; preds = %_ZNK6icu_771
   %69 = load ptr, ptr %68, align 8
   %70 = select i1 %.not.i.i.i, ptr %69, ptr %67
   %71 = sext i32 %53 to i64
-  %72 = getelementptr inbounds i16, ptr %70, i64 %71
+  %72 = getelementptr inbounds [2 x i8], ptr %70, i64 %71
   %73 = load i16, ptr %72, align 2, !tbaa !31
   %74 = zext i16 %73 to i32
   br label %_ZNK6icu_7713UnicodeString6charAtEi.exit
@@ -3211,7 +3211,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %63, %65
   %96 = getelementptr inbounds nuw i8, ptr %90, i64 24
   %97 = load ptr, ptr %96, align 8
   %98 = select i1 %.not.i.i.i.i45, ptr %97, ptr %95
-  %99 = getelementptr inbounds i16, ptr %98, i64 %indvars.iv.i39
+  %99 = getelementptr inbounds [2 x i8], ptr %98, i64 %indvars.iv.i39
   %100 = load i16, ptr %99, align 2, !tbaa !31
   %101 = zext i16 %100 to i32
   br label %_ZNK6icu_7713UnicodeString6charAtEi.exit.i41
@@ -3269,7 +3269,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit49:       ; preds = %_ZNK6icu_7719Collat
   %126 = load ptr, ptr %125, align 8
   %127 = select i1 %.not.i.i.i48, ptr %126, ptr %124
   %128 = sext i32 %.0.lcssa.i36 to i64
-  %129 = getelementptr inbounds i16, ptr %127, i64 %128
+  %129 = getelementptr inbounds [2 x i8], ptr %127, i64 %128
   %130 = load i16, ptr %129, align 2, !tbaa !31
   %131 = zext i16 %130 to i32
   %132 = add i16 %130, -49
@@ -3280,7 +3280,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit49:       ; preds = %_ZNK6icu_7719Collat
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit52:       ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit49
   %134 = sext i32 %118 to i64
-  %135 = getelementptr inbounds i16, ptr %127, i64 %134
+  %135 = getelementptr inbounds [2 x i8], ptr %127, i64 %134
   %136 = load i16, ptr %135, align 2, !tbaa !31
   %137 = icmp eq i16 %136, 93
   br i1 %137, label %138, label %_ZNK6icu_7713UnicodeString6charAtEi.exit49.thread
@@ -3346,7 +3346,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit55:       ; preds = %159
   %170 = load ptr, ptr %169, align 8
   %171 = select i1 %.not.i.i.i54, ptr %170, ptr %168
   %172 = sext i32 %.027 to i64
-  %173 = getelementptr inbounds i16, ptr %171, i64 %172
+  %173 = getelementptr inbounds [2 x i8], ptr %171, i64 %172
   %174 = load i16, ptr %173, align 2, !tbaa !31
   %175 = icmp eq i16 %174, 91
   br i1 %175, label %176, label %_ZNK6icu_7713UnicodeString6charAtEi.exit55.thread
@@ -3440,7 +3440,7 @@ define noundef range(i32 -1, -224) i32 @_ZN6icu_7719CollationRuleParser21parseRe
   %28 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %29 = load ptr, ptr %28, align 8
   %30 = select i1 %.not.i.i.i.i, ptr %29, ptr %27
-  %31 = getelementptr inbounds i16, ptr %30, i64 %indvars.iv.i
+  %31 = getelementptr inbounds [2 x i8], ptr %30, i64 %indvars.iv.i
   %32 = load i16, ptr %31, align 2, !tbaa !31
   %33 = zext i16 %32 to i32
   br label %_ZNK6icu_7713UnicodeString6charAtEi.exit.i
@@ -3495,7 +3495,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %56
   %62 = load ptr, ptr %61, align 8
   %63 = select i1 %.not.i.i.i, ptr %62, ptr %60
   %64 = sext i32 %.0.lcssa.i to i64
-  %65 = getelementptr inbounds i16, ptr %63, i64 %64
+  %65 = getelementptr inbounds [2 x i8], ptr %63, i64 %64
   %66 = load i16, ptr %65, align 2, !tbaa !31
   switch i16 %66, label %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread [
     i16 60, label %67
@@ -3512,7 +3512,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %56
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit37:       ; preds = %67
   %70 = sext i32 %57 to i64
-  %71 = getelementptr inbounds i16, ptr %63, i64 %70
+  %71 = getelementptr inbounds [2 x i8], ptr %63, i64 %70
   %72 = load i16, ptr %71, align 2, !tbaa !31
   %73 = icmp eq i16 %72, 60
   br i1 %73, label %74, label %_ZNK6icu_7713UnicodeString6charAtEi.exit37.thread
@@ -3526,7 +3526,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit37:       ; preds = %67
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit40:       ; preds = %74
   %78 = sext i32 %75 to i64
-  %79 = getelementptr inbounds i16, ptr %63, i64 %78
+  %79 = getelementptr inbounds [2 x i8], ptr %63, i64 %78
   %80 = load i16, ptr %79, align 2, !tbaa !31
   %81 = icmp eq i16 %80, 60
   br i1 %81, label %82, label %_ZNK6icu_7713UnicodeString6charAtEi.exit37.thread
@@ -3540,7 +3540,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit40:       ; preds = %74
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit43:       ; preds = %82
   %86 = sext i32 %83 to i64
-  %87 = getelementptr inbounds i16, ptr %63, i64 %86
+  %87 = getelementptr inbounds [2 x i8], ptr %63, i64 %86
   %88 = load i16, ptr %87, align 2, !tbaa !31
   %.fr82 = freeze i16 %88
   %89 = icmp eq i16 %.fr82, 60
@@ -3559,7 +3559,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit37.thread: ; preds = %_ZNK6icu_7713Unico
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit46:       ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit37.thread
   %93 = sext i32 %.023 to i64
-  %94 = getelementptr inbounds i16, ptr %63, i64 %93
+  %94 = getelementptr inbounds [2 x i8], ptr %63, i64 %93
   %95 = load i16, ptr %94, align 2, !tbaa !31
   %96 = icmp eq i16 %95, 42
   br i1 %96, label %97, label %_ZNK6icu_7713UnicodeString6charAtEi.exit46.thread
@@ -3580,7 +3580,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit46:       ; preds = %_ZNK6icu_7713Unicod
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit49:       ; preds = %101
   %104 = sext i32 %57 to i64
-  %105 = getelementptr inbounds i16, ptr %63, i64 %104
+  %105 = getelementptr inbounds [2 x i8], ptr %63, i64 %104
   %106 = load i16, ptr %105, align 2, !tbaa !31
   %.fr = freeze i16 %106
   %107 = icmp eq i16 %.fr, 42
@@ -3656,7 +3656,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %17
   %33 = load ptr, ptr %32, align 8
   %34 = select i1 %.not.i.i.i, ptr %33, ptr %31
   %35 = sext i32 %11 to i64
-  %36 = getelementptr inbounds i16, ptr %34, i64 %35
+  %36 = getelementptr inbounds [2 x i8], ptr %34, i64 %35
   %37 = load i16, ptr %36, align 2, !tbaa !31
   %38 = icmp eq i16 %37, 124
   br i1 %38, label %39, label %_ZNK6icu_7713UnicodeString6charAtEi.exit48
@@ -3703,7 +3703,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %17
   %65 = load ptr, ptr %64, align 8
   %66 = select i1 %.not.i.i.i47, ptr %65, ptr %63
   %67 = sext i32 %43 to i64
-  %68 = getelementptr inbounds i16, ptr %66, i64 %67
+  %68 = getelementptr inbounds [2 x i8], ptr %66, i64 %67
   %69 = load i16, ptr %68, align 2, !tbaa !31
   br label %_ZNK6icu_7713UnicodeString6charAtEi.exit48
 
@@ -3877,7 +3877,7 @@ define void @_ZN6icu_7719CollationRuleParser22parseStarredCharactersEiiR10UError
   %31 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %32 = load ptr, ptr %31, align 8
   %33 = select i1 %.not.i.i.i.i, ptr %32, ptr %30
-  %34 = getelementptr inbounds i16, ptr %33, i64 %indvars.iv.i
+  %34 = getelementptr inbounds [2 x i8], ptr %33, i64 %indvars.iv.i
   %35 = load i16, ptr %34, align 2, !tbaa !31
   %36 = zext i16 %35 to i32
   br label %_ZNK6icu_7713UnicodeString6charAtEi.exit.i
@@ -4092,7 +4092,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %._crit_edge
   %127 = load ptr, ptr %126, align 8
   %128 = select i1 %.not.i.i.i, ptr %127, ptr %125
   %129 = sext i32 %.0 to i64
-  %130 = getelementptr inbounds i16, ptr %128, i64 %129
+  %130 = getelementptr inbounds [2 x i8], ptr %128, i64 %129
   %131 = load i16, ptr %130, align 2, !tbaa !31
   %.not73 = icmp eq i16 %131, 45
   br i1 %.not73, label %132, label %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread
@@ -4370,7 +4370,7 @@ define noundef i32 @_ZNK6icu_7719CollationRuleParser14skipWhiteSpaceEi(ptr nound
   %23 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %24 = load ptr, ptr %23, align 8
   %25 = select i1 %.not.i.i.i, ptr %24, ptr %22
-  %26 = getelementptr inbounds i16, ptr %25, i64 %indvars.iv
+  %26 = getelementptr inbounds [2 x i8], ptr %25, i64 %indvars.iv
   %27 = load i16, ptr %26, align 2, !tbaa !31
   %28 = zext i16 %27 to i32
   br label %_ZNK6icu_7713UnicodeString6charAtEi.exit
@@ -4452,7 +4452,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %22
   %37 = load ptr, ptr %36, align 8
   %38 = select i1 %.not.i.i.i, ptr %37, ptr %35
   %39 = sext i32 %19 to i64
-  %40 = getelementptr inbounds i16, ptr %38, i64 %39
+  %40 = getelementptr inbounds [2 x i8], ptr %38, i64 %39
   %41 = load i16, ptr %40, align 2, !tbaa !31
   %42 = icmp eq i16 %41, 93
   %43 = load i16, ptr %17, align 8
@@ -4477,7 +4477,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %22
 54:                                               ; preds = %45, %95
   %indvars.iv = phi i64 [ 0, %45 ], [ %indvars.iv.next, %95 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %55 = getelementptr inbounds nuw ptr, ptr @_ZN6icu_7712_GLOBAL__N_19positionsE, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6icu_7712_GLOBAL__N_19positionsE, i64 %indvars.iv
   %56 = load ptr, ptr %55, align 8, !tbaa !62
   invoke void @_ZN6icu_7713UnicodeStringC1EPKciNS0_10EInvariantE(ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef %56, i32 noundef -1, i32 noundef 0)
           to label %57 unwind label %88
@@ -4743,7 +4743,7 @@ define noundef i32 @_ZN6icu_7719CollationRuleParser20parseTailoringStringEiRNS_1
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %26 = load ptr, ptr %25, align 8
   %27 = select i1 %.not.i.i.i.i, ptr %26, ptr %24
-  %28 = getelementptr inbounds i16, ptr %27, i64 %indvars.iv.i
+  %28 = getelementptr inbounds [2 x i8], ptr %27, i64 %indvars.iv.i
   %29 = load i16, ptr %28, align 2, !tbaa !31
   %30 = zext i16 %29 to i32
   br label %_ZNK6icu_7713UnicodeString6charAtEi.exit.i
@@ -4828,7 +4828,7 @@ _ZN6icu_7719CollationRuleParser13setParseErrorEPKcR10UErrorCode.exit: ; preds = 
   %75 = getelementptr inbounds nuw i8, ptr %69, i64 24
   %76 = load ptr, ptr %75, align 8
   %77 = select i1 %.not.i.i.i.i17, ptr %76, ptr %74
-  %78 = getelementptr inbounds i16, ptr %77, i64 %indvars.iv.i11
+  %78 = getelementptr inbounds [2 x i8], ptr %77, i64 %indvars.iv.i11
   %79 = load i16, ptr %78, align 2, !tbaa !31
   %80 = zext i16 %79 to i32
   br label %_ZNK6icu_7713UnicodeString6charAtEi.exit.i13
@@ -4899,7 +4899,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %10
   %23 = load ptr, ptr %22, align 8
   %24 = select i1 %.not.i.i.i, ptr %23, ptr %21
   %25 = zext nneg i32 %9 to i64
-  %26 = getelementptr inbounds nuw i16, ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %25
   %27 = load i16, ptr %26, align 2, !tbaa !31
   %.fr38 = freeze i16 %27
   %28 = and i16 %.fr38, -1024
@@ -4921,7 +4921,7 @@ _ZNK6icu_7713UnicodeString7extractEiiNS_9Char16PtrEi.exit: ; preds = %_ZNK6icu_7
   %34 = load ptr, ptr %2, align 8, !tbaa !27
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = sext i32 %31 to i64
-  %37 = getelementptr inbounds i16, ptr %35, i64 %36
+  %37 = getelementptr inbounds [2 x i8], ptr %35, i64 %36
   store i16 0, ptr %37, align 2, !tbaa !31
   %38 = load ptr, ptr %33, align 8, !tbaa !17
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
@@ -4950,7 +4950,7 @@ _ZNK6icu_7713UnicodeString7extractEiiNS_9Char16PtrEi.exit: ; preds = %_ZNK6icu_7
   %57 = load ptr, ptr %56, align 8
   %58 = select i1 %.not.i.i.i24, ptr %57, ptr %55
   %59 = sext i32 %51 to i64
-  %60 = getelementptr inbounds i16, ptr %58, i64 %59
+  %60 = getelementptr inbounds [2 x i8], ptr %58, i64 %59
   %61 = load i16, ptr %60, align 2, !tbaa !31
   %62 = and i16 %61, -1024
   %63 = icmp eq i16 %62, -10240
@@ -4974,7 +4974,7 @@ _ZNK6icu_7713UnicodeString7extractEiiNS_9Char16PtrEi.exit26: ; preds = %_ZNK6icu
   %68 = load ptr, ptr %2, align 8, !tbaa !27
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 40
   %70 = sext i32 %.016 to i64
-  %71 = getelementptr inbounds i16, ptr %69, i64 %70
+  %71 = getelementptr inbounds [2 x i8], ptr %69, i64 %70
   store i16 0, ptr %71, align 2, !tbaa !31
   br label %72
 
@@ -5047,7 +5047,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %.lr.ph127
   %35 = load ptr, ptr %34, align 8
   %36 = select i1 %.not.i.i.i, ptr %35, ptr %33
   %37 = sext i32 %.059125 to i64
-  %38 = getelementptr inbounds i16, ptr %36, i64 %37
+  %38 = getelementptr inbounds [2 x i8], ptr %36, i64 %37
   %39 = load i16, ptr %38, align 2, !tbaa !31
   %40 = add i16 %39, -33
   %or.cond.i = icmp ult i16 %40, 94
@@ -5090,7 +5090,7 @@ _ZN6icu_7719CollationRuleParser12isSyntaxCharEi.exit.thread95: ; preds = %41, %_
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit75:       ; preds = %44
   %47 = sext i32 %30 to i64
-  %48 = getelementptr inbounds i16, ptr %36, i64 %47
+  %48 = getelementptr inbounds [2 x i8], ptr %36, i64 %47
   %49 = load i16, ptr %48, align 2, !tbaa !31
   %50 = icmp eq i16 %49, 39
   br i1 %50, label %51, label %_ZNK6icu_7713UnicodeString6charAtEi.exit75.thread
@@ -5143,7 +5143,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit78:       ; preds = %.lr.ph
   %73 = load ptr, ptr %72, align 8
   %74 = select i1 %.not.i.i.i77, ptr %73, ptr %71
   %75 = sext i32 %.362123 to i64
-  %76 = getelementptr inbounds i16, ptr %74, i64 %75
+  %76 = getelementptr inbounds [2 x i8], ptr %74, i64 %75
   %77 = load i16, ptr %76, align 2, !tbaa !31
   %78 = icmp eq i16 %77, 39
   br i1 %78, label %79, label %_ZNK6icu_7713UnicodeString6charAtEi.exit78.thread
@@ -5156,7 +5156,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit78:       ; preds = %.lr.ph
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit81:       ; preds = %79
   %82 = sext i32 %68 to i64
-  %83 = getelementptr inbounds i16, ptr %74, i64 %82
+  %83 = getelementptr inbounds [2 x i8], ptr %74, i64 %82
   %84 = load i16, ptr %83, align 2, !tbaa !31
   %85 = icmp eq i16 %84, 39
   br i1 %85, label %86, label %_ZN6icu_7719CollationRuleParser13setParseErrorEPKcR10UErrorCode.exit
@@ -5404,7 +5404,7 @@ define noundef i32 @_ZNK6icu_7719CollationRuleParser9readWordsEiRNS_13UnicodeStr
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %31 = load ptr, ptr %30, align 8
   %32 = select i1 %.not.i.i.i.i, ptr %31, ptr %29
-  %33 = getelementptr inbounds i16, ptr %32, i64 %indvars.iv.i
+  %33 = getelementptr inbounds [2 x i8], ptr %32, i64 %indvars.iv.i
   %34 = load i16, ptr %33, align 2, !tbaa !31
   %35 = zext i16 %34 to i32
   br label %_ZNK6icu_7713UnicodeString6charAtEi.exit.i
@@ -5470,7 +5470,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %64
   %71 = getelementptr inbounds nuw i8, ptr %67, i64 24
   %72 = load ptr, ptr %71, align 8
   %73 = select i1 %.not.i.i.i, ptr %72, ptr %70
-  %74 = getelementptr inbounds i16, ptr %73, i64 %63
+  %74 = getelementptr inbounds [2 x i8], ptr %73, i64 %63
   %75 = load i16, ptr %74, align 2, !tbaa !31
   %76 = add i16 %75, -33
   %or.cond.i = icmp ult i16 %76, 94
@@ -5637,7 +5637,7 @@ _ZN6icu_7719CollationRuleParser12isSyntaxCharEi.exit.thread66: ; preds = %64, %_
   %148 = getelementptr inbounds nuw i8, ptr %142, i64 24
   %149 = load ptr, ptr %148, align 8
   %150 = select i1 %.not.i.i.i.i46, ptr %149, ptr %147
-  %151 = getelementptr inbounds i16, ptr %150, i64 %indvars.iv.i40
+  %151 = getelementptr inbounds [2 x i8], ptr %150, i64 %indvars.iv.i40
   %152 = load i16, ptr %151, align 2, !tbaa !31
   %153 = zext i16 %152 to i32
   br label %_ZNK6icu_7713UnicodeString6charAtEi.exit.i42
@@ -5908,7 +5908,7 @@ _ZNK6icu_7713UnicodeString20tempSubStringBetweenEii.exit: ; preds = %57
 
 71:                                               ; preds = %76, %69
   %indvars.iv.i = phi i64 [ 0, %69 ], [ %indvars.iv.next.i, %76 ]
-  %72 = getelementptr inbounds nuw ptr, ptr @_ZN6icu_77L20gSpecialReorderCodesE, i64 %indvars.iv.i
+  %72 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6icu_77L20gSpecialReorderCodesE, i64 %indvars.iv.i
   %73 = load ptr, ptr %72, align 8, !tbaa !62
   %74 = invoke i32 @uprv_stricmp_77(ptr noundef %70, ptr noundef %73)
           to label %.noexc unwind label %.loopexit
@@ -6002,7 +6002,7 @@ _ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread.i: ; preds = %_Z
   %97 = phi i32 [ %.pre.i50, %_ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i ], [ %92, %_ZN6icu_7719CollationRuleParser14getReorderCodeEPKc.exit.thread ]
   %98 = load ptr, ptr %30, align 8, !tbaa !71
   %99 = sext i32 %97 to i64
-  %100 = getelementptr inbounds i32, ptr %98, i64 %99
+  %100 = getelementptr inbounds [4 x i8], ptr %98, i64 %99
   store i32 %.1.i53, ptr %100, align 4, !tbaa !12
   %101 = load i32, ptr %28, align 8, !tbaa !69
   %102 = add nsw i32 %101, 1
@@ -6298,7 +6298,7 @@ define noundef i32 @_ZN6icu_7719CollationRuleParser15parseUnicodeSetEiRNS_10Unic
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit.us:      ; preds = %.lr.ph.split.us
   %23 = load ptr, ptr %19, align 8
-  %24 = getelementptr inbounds i16, ptr %23, i64 %indvars.iv64
+  %24 = getelementptr inbounds [2 x i8], ptr %23, i64 %indvars.iv64
   %25 = load i16, ptr %24, align 2, !tbaa !31
   switch i16 %25, label %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread.us [
     i16 91, label %29
@@ -6348,7 +6348,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit.thread.us: ; preds = %_ZNK6icu_7713Unic
   br i1 %41, label %_ZNK6icu_7713UnicodeString6charAtEi.exit, label %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %.lr.ph.split
-  %42 = getelementptr inbounds i16, ptr %18, i64 %indvars.iv
+  %42 = getelementptr inbounds [2 x i8], ptr %18, i64 %indvars.iv
   %43 = load i16, ptr %42, align 2, !tbaa !31
   switch i16 %43, label %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread [
     i16 91, label %44
@@ -6441,7 +6441,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit.thread:  ; preds = %.lr.ph.split, %46, 
   %83 = getelementptr inbounds nuw i8, ptr %77, i64 24
   %84 = load ptr, ptr %83, align 8
   %85 = select i1 %.not.i.i.i.i, ptr %84, ptr %82
-  %86 = getelementptr inbounds i16, ptr %85, i64 %indvars.iv.i
+  %86 = getelementptr inbounds [2 x i8], ptr %85, i64 %indvars.iv.i
   %87 = load i16, ptr %86, align 2, !tbaa !31
   %88 = zext i16 %87 to i32
   br label %_ZNK6icu_7713UnicodeString6charAtEi.exit.i
@@ -6496,7 +6496,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit40:       ; preds = %_ZNK6icu_7719Collat
   %111 = load ptr, ptr %110, align 8
   %112 = select i1 %.not.i.i.i39, ptr %111, ptr %109
   %113 = sext i32 %.0.lcssa.i to i64
-  %114 = getelementptr inbounds i16, ptr %112, i64 %113
+  %114 = getelementptr inbounds [2 x i8], ptr %112, i64 %113
   %115 = load i16, ptr %114, align 2, !tbaa !31
   %.not34 = icmp eq i16 %115, 93
   br i1 %.not34, label %123, label %_ZNK6icu_7713UnicodeString6charAtEi.exit40.thread
@@ -6541,7 +6541,7 @@ define noundef range(i32 -1, -2147483648) i32 @_ZN6icu_7719CollationRuleParser14
 
 2:                                                ; preds = %1, %7
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %7 ]
-  %3 = getelementptr inbounds nuw ptr, ptr @_ZN6icu_77L20gSpecialReorderCodesE, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6icu_77L20gSpecialReorderCodesE, i64 %indvars.iv
   %4 = load ptr, ptr %3, align 8, !tbaa !62
   %5 = tail call i32 @uprv_stricmp_77(ptr noundef %0, ptr noundef %4)
   %6 = icmp eq i32 %5, 0

@@ -26,36 +26,15 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.hpa_shard_opts_s = type { i64, i64, i32, i8, i64, i64, i8 }
 %struct.sec_opts_s = type { i64, i64, i64, i64, i64 }
 %struct.div_info_s = type { i32 }
-%struct.atomic_u_t = type { i32 }
-%struct.arena_stats_large_s = type { %struct.locked_u64_s, %struct.locked_u64_s, %struct.locked_u64_s, %struct.locked_u64_s, %struct.locked_u64_s, i64 }
-%struct.locked_u64_s = type { %struct.atomic_u64_t }
-%struct.atomic_u64_t = type { i64 }
-%struct.cache_bin_s = type { ptr, %struct.cache_bin_stats_s, i16, i16, i16, %struct.cache_bin_info_s }
-%struct.cache_bin_stats_s = type { i64 }
-%struct.cache_bin_info_s = type { i16 }
-%struct.bin_stats_data_s = type { %struct.bin_stats_s, %struct.mutex_prof_data_t }
-%struct.bin_stats_s = type { i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64 }
-%struct.bin_with_batch_s = type { %struct.bin_s, %struct.batcher_s, [16 x %struct.bin_remote_free_data_s] }
-%struct.bin_s = type { %struct.malloc_mutex_s, %struct.bin_stats_s, ptr, %struct.edata_heap_t, %struct.edata_list_active_t }
-%struct.edata_heap_t = type { %struct.ph_s }
-%struct.ph_s = type { ptr, i64 }
-%struct.edata_list_active_t = type { %struct.anon.3 }
-%struct.anon.3 = type { ptr }
-%struct.batcher_s = type { %struct.atomic_zu_t, i64, i64, %struct.malloc_mutex_s }
-%struct.atomic_zu_t = type { i64 }
-%struct.bin_remote_free_data_s = type { ptr, ptr }
-%struct.background_thread_info_s = type { i64, %union.pthread_cond_t, %struct.malloc_mutex_s, i32, %struct.atomic_b_t, %struct.nstime_t, i64, i64, %struct.nstime_t }
-%union.pthread_cond_t = type { %struct.__pthread_cond_s }
-%struct.__pthread_cond_s = type { %union.__atomic_wide_counter, %union.__atomic_wide_counter, [2 x i32], [2 x i32], i32, i32, [2 x i32] }
-%union.__atomic_wide_counter = type { i64 }
 %struct.rtree_ctx_s = type { [16 x %struct.rtree_ctx_cache_elm_s], [8 x %struct.rtree_ctx_cache_elm_s] }
 %struct.rtree_ctx_cache_elm_s = type { i64, ptr }
-%struct.rtree_leaf_elm_s = type { %struct.atomic_p_t }
+%struct.bin_remote_free_data_s = type { ptr, ptr }
 %struct.arena_bin_flush_batch_state_s = type { %struct.arena_dalloc_bin_locked_info_s, [8 x ptr], i32, %struct.edata_list_active_t }
 %struct.arena_dalloc_bin_locked_info_s = type { %struct.div_info_s, i32, i64 }
+%struct.edata_list_active_t = type { %struct.anon.3 }
+%struct.anon.3 = type { ptr }
 %struct.rtree_contents_s = type { ptr, %struct.rtree_metadata_s }
 %struct.rtree_metadata_s = type { i32, i32, i8, i8 }
-%struct.sc_s = type { i32, i32, i32, i32, i8, i8, i32, i32 }
 
 @.str = private unnamed_addr constant [7 x i8] c"percpu\00", align 1
 @.str.1 = private unnamed_addr constant [7 x i8] c"phycpu\00", align 1
@@ -118,7 +97,7 @@ define void @duckdb_je_arena_basic_stats_merge(ptr noundef readnone captures(non
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 10536
   %14 = load atomic i32, ptr %13 acquire, align 4
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw ptr, ptr @duckdb_je_dss_prec_names, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr @duckdb_je_dss_prec_names, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !7
   store ptr %17, ptr %3, align 8, !tbaa !7
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 10664
@@ -134,7 +113,7 @@ define void @duckdb_je_arena_basic_stats_merge(ptr noundef readnone captures(non
 define i32 @duckdb_je_arena_nthreads_get(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1) local_unnamed_addr #1 {
 atomic_load_u.exit:
   %2 = zext i1 %1 to i64
-  %3 = getelementptr inbounds nuw %struct.atomic_u_t, ptr %0, i64 %2
+  %3 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %2
   %4 = load atomic i32, ptr %3 monotonic, align 4
   ret i32 %4
 }
@@ -172,7 +151,7 @@ atomic_store_zu.exit:
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 10536
   %25 = load atomic i32, ptr %24 acquire, align 4
   %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds nuw ptr, ptr @duckdb_je_dss_prec_names, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr @duckdb_je_dss_prec_names, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !7
   store ptr %28, ptr %3, align 8, !tbaa !7
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 10664
@@ -283,10 +262,10 @@ malloc_mutex_lock.exit:                           ; preds = %82, %88
 
 94:                                               ; preds = %atomic_store_zu.exit, %94
   %indvars.iv = phi i64 [ 0, %atomic_store_zu.exit ], [ %indvars.iv.next, %94 ]
-  %95 = getelementptr inbounds nuw %struct.arena_stats_large_s, ptr %66, i64 %indvars.iv
+  %95 = getelementptr inbounds nuw [48 x i8], ptr %66, i64 %indvars.iv
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %97 = load atomic i64, ptr %96 monotonic, align 8
-  %98 = getelementptr inbounds nuw %struct.arena_stats_large_s, ptr %11, i64 %indvars.iv
+  %98 = getelementptr inbounds nuw [48 x i8], ptr %11, i64 %indvars.iv
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
   %100 = load atomic i64, ptr %99 monotonic, align 8
   %101 = add i64 %100, %97
@@ -332,7 +311,7 @@ malloc_mutex_lock.exit:                           ; preds = %82, %88
   %131 = load i64, ptr %130, align 8, !tbaa !82
   %132 = add i64 %131, %129
   store i64 %132, ptr %130, align 8, !tbaa !82
-  %133 = getelementptr inbounds nuw i64, ptr @duckdb_je_sz_index2size_tab, i64 %indvars.iv
+  %133 = getelementptr inbounds nuw [8 x i8], ptr @duckdb_je_sz_index2size_tab, i64 %indvars.iv
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 288
   %135 = load i64, ptr %134, align 8, !tbaa !10
   %136 = mul i64 %135, %129
@@ -358,7 +337,7 @@ select.unfold:                                    ; preds = %172
 
 142:                                              ; preds = %.preheader154, %172
   %indvars.iv163 = phi i64 [ 0, %.preheader154 ], [ %indvars.iv.next164, %172 ]
-  %143 = getelementptr inbounds nuw %struct.cache_bin_s, ptr %140, i64 %indvars.iv163
+  %143 = getelementptr inbounds nuw [24 x i8], ptr %140, i64 %indvars.iv163
   %.val144 = load ptr, ptr %143, align 8, !tbaa !90
   %144 = icmp eq ptr %.val144, @duckdb_je_disabled_bin
   br i1 %144, label %172, label %145
@@ -381,7 +360,7 @@ select.unfold:                                    ; preds = %172
   %159 = sub nsw i64 %157, %158
   %160 = lshr i64 %159, 3
   %161 = zext nneg i16 %151 to i64
-  %162 = getelementptr inbounds nuw i64, ptr @duckdb_je_sz_index2size_tab, i64 %indvars.iv163
+  %162 = getelementptr inbounds nuw [8 x i8], ptr @duckdb_je_sz_index2size_tab, i64 %indvars.iv163
   %163 = load i64, ptr %162, align 8, !tbaa !10
   %164 = mul i64 %163, %161
   %165 = load i64, ptr %75, align 8, !tbaa !98
@@ -500,15 +479,15 @@ malloc_mutex_lock.exit150:                        ; preds = %202, %208
 
 .preheader:                                       ; preds = %malloc_mutex_lock.exit150, %._crit_edge
   %indvars.iv170 = phi i64 [ 0, %malloc_mutex_lock.exit150 ], [ %indvars.iv.next171, %._crit_edge ]
-  %223 = getelementptr inbounds nuw %struct.bin_info_s, ptr @duckdb_je_bin_infos, i64 %indvars.iv170
+  %223 = getelementptr inbounds nuw [40 x i8], ptr @duckdb_je_bin_infos, i64 %indvars.iv170
   %224 = getelementptr inbounds nuw i8, ptr %223, i64 20
   %225 = load i32, ptr %224, align 4, !tbaa !103
   %.not161 = icmp eq i32 %225, 0
   br i1 %.not161, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %226 = getelementptr inbounds nuw %struct.bin_stats_data_s, ptr %10, i64 %indvars.iv170
-  %227 = getelementptr inbounds nuw i32, ptr @duckdb_je_arena_bin_offsets, i64 %indvars.iv170
+  %226 = getelementptr inbounds nuw [176 x i8], ptr %10, i64 %indvars.iv170
+  %227 = getelementptr inbounds nuw [4 x i8], ptr @duckdb_je_arena_bin_offsets, i64 %indvars.iv170
   %228 = getelementptr inbounds nuw i8, ptr %226, i64 112
   %229 = getelementptr inbounds nuw i8, ptr %226, i64 120
   %230 = getelementptr inbounds nuw i8, ptr %226, i64 128
@@ -553,8 +532,8 @@ malloc_mutex_lock.exit150:                        ; preds = %202, %208
   %253 = load i32, ptr @duckdb_je_bin_info_nbatched_sizes, align 4, !tbaa !3
   %254 = zext i32 %253 to i64
   %255 = icmp samesign ult i64 %indvars.iv170, %254
-  %256 = getelementptr inbounds nuw %struct.bin_with_batch_s, ptr %252, i64 %indvars.iv167
-  %257 = getelementptr inbounds nuw %struct.bin_s, ptr %252, i64 %indvars.iv167
+  %256 = getelementptr inbounds nuw [648 x i8], ptr %252, i64 %indvars.iv167
+  %257 = getelementptr inbounds nuw [256 x i8], ptr %252, i64 %indvars.iv167
   %.0.i151 = select i1 %255, ptr %256, ptr %257
   %258 = getelementptr inbounds nuw i8, ptr %.0.i151, i64 72
   %259 = call i32 @pthread_mutex_trylock(ptr noundef nonnull %258) #18
@@ -775,7 +754,7 @@ arena_decay_impl.exit:                            ; preds = %14, %20
   %33 = zext i32 %.val.i to i64
   %34 = load i64, ptr @duckdb_je_max_background_threads, align 8, !tbaa !10
   %35 = urem i64 %33, %34
-  %36 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %32, i64 %35
+  %36 = getelementptr inbounds nuw [208 x i8], ptr %32, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 172
   %38 = load atomic i8, ptr %37 acquire, align 1
   %39 = trunc i8 %38 to i1
@@ -946,7 +925,7 @@ arena_cache_oblivious_randomize.exit:             ; preds = %80, %61
   %.val34 = load ptr, ptr %90, align 8, !tbaa !145
   %91 = lshr i64 %.val, 20
   %92 = and i64 %91, 255
-  %93 = getelementptr inbounds nuw i64, ptr @duckdb_je_sz_index2size_tab, i64 %92
+  %93 = getelementptr inbounds nuw [8 x i8], ptr @duckdb_je_sz_index2size_tab, i64 %92
   %94 = load i64, ptr %93, align 8, !tbaa !10
   call void @llvm.memset.p0.i64(ptr align 1 %.val34, i8 0, i64 %94, i1 false)
   br label %95
@@ -1004,7 +983,7 @@ sz_size2index.exit:                               ; preds = %10
 26:                                               ; preds = %sz_size2index.exit.thread, %sz_size2index.exit
   %.0.i15 = phi i32 [ %9, %sz_size2index.exit.thread ], [ %24, %sz_size2index.exit ]
   %27 = zext nneg i32 %.0.i15 to i64
-  %28 = getelementptr inbounds nuw i32, ptr @duckdb_je_arena_bin_offsets, i64 %27
+  %28 = getelementptr inbounds nuw [4 x i8], ptr @duckdb_je_arena_bin_offsets, i64 %27
   %29 = load i32, ptr %28, align 4, !tbaa !3
   %30 = zext i32 %29 to i64
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 %30
@@ -1052,7 +1031,7 @@ sz_size2index.exit.thread16:                      ; preds = %10, %sz_size2index.
   %51 = add nsw i32 %.0.i18, -36
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 992
   %53 = zext i32 %51 to i64
-  %54 = getelementptr inbounds nuw %struct.arena_stats_large_s, ptr %52, i64 %53
+  %54 = getelementptr inbounds nuw [48 x i8], ptr %52, i64 %53
   %55 = atomicrmw add ptr %54, i64 1 monotonic, align 8
   br label %56
 
@@ -1068,7 +1047,7 @@ define void @duckdb_je_arena_extent_dalloc_large_prep(ptr noundef %0, ptr nounde
   %.val = load i64, ptr %2, align 8, !tbaa !147
   %4 = lshr i64 %.val, 20
   %5 = and i64 %4, 255
-  %6 = getelementptr inbounds nuw i64, ptr @duckdb_je_sz_index2size_tab, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr @duckdb_je_sz_index2size_tab, i64 %5
   %7 = load i64, ptr %6, align 8, !tbaa !10
   tail call fastcc void @arena_large_dalloc_stats_update(ptr noundef %0, ptr noundef %1, i64 noundef %7)
   ret void
@@ -1112,7 +1091,7 @@ sz_size2index.exit:                               ; preds = %10
 26:                                               ; preds = %sz_size2index.exit.thread, %sz_size2index.exit
   %.0.i15 = phi i32 [ %9, %sz_size2index.exit.thread ], [ %24, %sz_size2index.exit ]
   %27 = zext nneg i32 %.0.i15 to i64
-  %28 = getelementptr inbounds nuw i32, ptr @duckdb_je_arena_bin_offsets, i64 %27
+  %28 = getelementptr inbounds nuw [4 x i8], ptr @duckdb_je_arena_bin_offsets, i64 %27
   %29 = load i32, ptr %28, align 4, !tbaa !3
   %30 = zext i32 %29 to i64
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 %30
@@ -1159,7 +1138,7 @@ sz_size2index.exit.thread16:                      ; preds = %10, %sz_size2index.
   %.0.i18 = phi i32 [ %24, %sz_size2index.exit ], [ 232, %10 ]
   %51 = add nsw i32 %.0.i18, -36
   %52 = zext i32 %51 to i64
-  %53 = getelementptr inbounds nuw %struct.arena_stats_large_s, ptr %1, i64 %52
+  %53 = getelementptr inbounds nuw [48 x i8], ptr %1, i64 %52
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 1000
   %55 = atomicrmw add ptr %54, i64 1 monotonic, align 8
   br label %56
@@ -1173,7 +1152,7 @@ define void @duckdb_je_arena_extent_ralloc_large_shrink(ptr noundef %0, ptr noun
   %.val = load i64, ptr %2, align 8, !tbaa !147
   %5 = lshr i64 %.val, 20
   %6 = and i64 %5, 255
-  %7 = getelementptr inbounds nuw i64, ptr @duckdb_je_sz_index2size_tab, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr @duckdb_je_sz_index2size_tab, i64 %6
   %8 = load i64, ptr %7, align 8, !tbaa !10
   tail call fastcc void @arena_large_malloc_stats_update(ptr noundef %0, ptr noundef %1, i64 noundef %8)
   tail call fastcc void @arena_large_dalloc_stats_update(ptr noundef %0, ptr noundef %1, i64 noundef %3)
@@ -1185,7 +1164,7 @@ define void @duckdb_je_arena_extent_ralloc_large_expand(ptr noundef %0, ptr noun
   %.val = load i64, ptr %2, align 8, !tbaa !147
   %5 = lshr i64 %.val, 20
   %6 = and i64 %5, 255
-  %7 = getelementptr inbounds nuw i64, ptr @duckdb_je_sz_index2size_tab, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr @duckdb_je_sz_index2size_tab, i64 %6
   %8 = load i64, ptr %7, align 8, !tbaa !10
   tail call fastcc void @arena_large_malloc_stats_update(ptr noundef %0, ptr noundef %1, i64 noundef %8)
   tail call fastcc void @arena_large_dalloc_stats_update(ptr noundef %0, ptr noundef %1, i64 noundef %3)
@@ -1484,7 +1463,7 @@ tsdn_rtree_ctx.exit:                              ; preds = %41, %48
   %50 = lshr i64 %49, 30
   %51 = and i64 %50, 15
   %52 = and i64 %49, -1073741824
-  %53 = getelementptr inbounds nuw %struct.rtree_ctx_cache_elm_s, ptr %.0.i, i64 %51
+  %53 = getelementptr inbounds nuw [16 x i8], ptr %.0.i, i64 %51
   %54 = load i64, ptr %53, align 8, !tbaa !154
   %55 = icmp eq i64 %54, %52
   br i1 %55, label %56, label %62, !prof !142
@@ -1494,7 +1473,7 @@ tsdn_rtree_ctx.exit:                              ; preds = %41, %48
   %58 = load ptr, ptr %57, align 8, !tbaa !157
   %59 = lshr i64 %49, 12
   %60 = and i64 %59, 262143
-  %61 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %58, i64 %60
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %60
   br label %rtree_metadata_read.exit
 
 62:                                               ; preds = %tsdn_rtree_ctx.exit
@@ -1514,7 +1493,7 @@ tsdn_rtree_ctx.exit:                              ; preds = %41, %48
   store ptr %68, ptr %69, align 8, !tbaa !157
   %71 = lshr i64 %49, 12
   %72 = and i64 %71, 262143
-  %73 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %68, i64 %72
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %72
   br label %rtree_metadata_read.exit
 
 74:                                               ; preds = %.preheader.i
@@ -1524,7 +1503,7 @@ tsdn_rtree_ctx.exit:                              ; preds = %41, %48
 
 .preheader.i:                                     ; preds = %62, %74
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %74 ], [ 1, %62 ]
-  %75 = getelementptr inbounds nuw %struct.rtree_ctx_cache_elm_s, ptr %63, i64 %indvars.iv.i
+  %75 = getelementptr inbounds nuw [16 x i8], ptr %63, i64 %indvars.iv.i
   %76 = load i64, ptr %75, align 8, !tbaa !154
   %77 = icmp eq i64 %76, %52
   br i1 %77, label %78, label %74, !prof !142
@@ -1546,7 +1525,7 @@ tsdn_rtree_ctx.exit:                              ; preds = %41, %48
   store ptr %80, ptr %85, align 8, !tbaa !157
   %87 = lshr i64 %49, 12
   %88 = and i64 %87, 262143
-  %89 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %80, i64 %88
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %88
   br label %rtree_metadata_read.exit
 
 90:                                               ; preds = %74
@@ -1589,14 +1568,14 @@ malloc_mutex_lock.exit34:                         ; preds = %95, %99
 
 .preheader:                                       ; preds = %._crit_edge, %._crit_edge58
   %indvars.iv63 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next64, %._crit_edge58 ]
-  %102 = getelementptr inbounds nuw %struct.bin_info_s, ptr @duckdb_je_bin_infos, i64 %indvars.iv63
+  %102 = getelementptr inbounds nuw [40 x i8], ptr @duckdb_je_bin_infos, i64 %indvars.iv63
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 20
   %104 = load i32, ptr %103, align 4, !tbaa !103
   %.not60 = icmp eq i32 %104, 0
   br i1 %.not60, label %._crit_edge58, label %.lr.ph57
 
 .lr.ph57:                                         ; preds = %.preheader
-  %105 = getelementptr inbounds nuw i32, ptr @duckdb_je_arena_bin_offsets, i64 %indvars.iv63
+  %105 = getelementptr inbounds nuw [4 x i8], ptr @duckdb_je_arena_bin_offsets, i64 %indvars.iv63
   br label %107
 
 106:                                              ; preds = %._crit_edge58
@@ -1616,8 +1595,8 @@ malloc_mutex_lock.exit34:                         ; preds = %95, %99
   %111 = load i32, ptr @duckdb_je_bin_info_nbatched_sizes, align 4, !tbaa !3
   %112 = zext i32 %111 to i64
   %113 = icmp samesign ult i64 %indvars.iv63, %112
-  %114 = getelementptr inbounds nuw %struct.bin_with_batch_s, ptr %110, i64 %indvars.iv
-  %115 = getelementptr inbounds nuw %struct.bin_s, ptr %110, i64 %indvars.iv
+  %114 = getelementptr inbounds nuw [648 x i8], ptr %110, i64 %indvars.iv
+  %115 = getelementptr inbounds nuw [256 x i8], ptr %110, i64 %indvars.iv
   %.0.i35 = select i1 %113, ptr %114, ptr %115
   %116 = getelementptr inbounds nuw i8, ptr %.0.i35, i64 72
   %117 = call i32 @pthread_mutex_trylock(ptr noundef nonnull %116) #18
@@ -1725,7 +1704,7 @@ arena_decay_impl.exit.i50:                        ; preds = %154, %150
   %163 = zext i32 %.val.i.i46 to i64
   %164 = load i64, ptr @duckdb_je_max_background_threads, align 8, !tbaa !10
   %165 = urem i64 %163, %164
-  %166 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %162, i64 %165
+  %166 = getelementptr inbounds nuw [208 x i8], ptr %162, i64 %165
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 172
   %168 = load atomic i8, ptr %167 acquire, align 1
   %169 = trunc i8 %168 to i1
@@ -1833,7 +1812,7 @@ arena_decay_impl.exit.i44:                        ; preds = %201, %197
   %210 = zext i32 %.val.i.i40 to i64
   %211 = load i64, ptr @duckdb_je_max_background_threads, align 8, !tbaa !10
   %212 = urem i64 %210, %211
-  %213 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %209, i64 %212
+  %213 = getelementptr inbounds nuw [208 x i8], ptr %209, i64 %212
   %214 = getelementptr inbounds nuw i8, ptr %213, i64 172
   %215 = load atomic i8, ptr %214 acquire, align 1
   %216 = trunc i8 %215 to i1
@@ -1986,7 +1965,7 @@ arena_decay_impl.exit.i:                          ; preds = %268, %264
   %277 = zext i32 %.val.i.i to i64
   %278 = load i64, ptr @duckdb_je_max_background_threads, align 8, !tbaa !10
   %279 = urem i64 %277, %278
-  %280 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %276, i64 %279
+  %280 = getelementptr inbounds nuw [208 x i8], ptr %276, i64 %279
   %281 = getelementptr inbounds nuw i8, ptr %280, i64 172
   %282 = load atomic i8, ptr %281 acquire, align 1
   %283 = trunc i8 %282 to i1
@@ -2087,7 +2066,7 @@ define void @duckdb_je_arena_destroy(ptr noundef %0, ptr noundef %1) local_unnam
 
 .lr.ph.i.i:                                       ; preds = %malloc_mutex_lock.exit.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %malloc_mutex_lock.exit.i.i ]
-  %14 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.i.i
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.i.i
   %15 = load ptr, ptr %14, align 8, !tbaa !165
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 72
   %17 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %16) #18
@@ -2137,7 +2116,7 @@ arena_prepare_base_deletion_sync_finish.exit.i:   ; preds = %malloc_mutex_lock.e
   br i1 %32, label %arena_get.exit.thread.i, label %33
 
 33:                                               ; preds = %.lr.ph.i
-  %34 = getelementptr inbounds nuw %struct.atomic_p_t, ptr @duckdb_je_arenas, i64 %indvars.iv.i
+  %34 = getelementptr inbounds nuw [8 x i8], ptr @duckdb_je_arenas, i64 %indvars.iv.i
   %35 = load atomic i64, ptr %34 acquire, align 8
   %36 = icmp eq i64 %35, 0
   br i1 %36, label %arena_get.exit.thread.i, label %37, !prof !166
@@ -2199,15 +2178,15 @@ define ptr @duckdb_je_arena_bin_choose(ptr noundef readonly captures(address_is_
 
 18:                                               ; preds = %17, %16
   %19 = zext i32 %2 to i64
-  %20 = getelementptr inbounds nuw i32, ptr @duckdb_je_arena_bin_offsets, i64 %19
+  %20 = getelementptr inbounds nuw [4 x i8], ptr @duckdb_je_arena_bin_offsets, i64 %19
   %21 = load i32, ptr %20, align 4, !tbaa !3
   %22 = zext i32 %21 to i64
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 %22
   %24 = load i32, ptr @duckdb_je_bin_info_nbatched_sizes, align 4, !tbaa !3
   %25 = icmp ult i32 %2, %24
   %26 = zext nneg i32 %.0 to i64
-  %27 = getelementptr inbounds nuw %struct.bin_with_batch_s, ptr %23, i64 %26
-  %28 = getelementptr inbounds nuw %struct.bin_s, ptr %23, i64 %26
+  %27 = getelementptr inbounds nuw [648 x i8], ptr %23, i64 %26
+  %28 = getelementptr inbounds nuw [256 x i8], ptr %23, i64 %26
   %.0.i = select i1 %25, ptr %27, ptr %28
   ret ptr %.0.i
 }
@@ -2222,7 +2201,7 @@ define void @duckdb_je_arena_cache_bin_fill_small(ptr noundef %0, ptr noundef %1
   %11 = alloca [16 x %struct.bin_remote_free_data_s], align 16
   %12 = alloca %struct.arena_bin_flush_batch_state_s, align 8
   %13 = zext i32 %3 to i64
-  %14 = getelementptr inbounds nuw %struct.bin_info_s, ptr @duckdb_je_bin_infos, i64 %13
+  %14 = getelementptr inbounds nuw [40 x i8], ptr @duckdb_je_bin_infos, i64 %13
   %.val100 = load ptr, ptr %2, align 8, !tbaa !90
   %15 = getelementptr i8, ptr %2, i64 20
   %.val101 = load i16, ptr %15, align 4, !tbaa !95
@@ -2233,7 +2212,7 @@ define void @duckdb_je_arena_cache_bin_fill_small(ptr noundef %0, ptr noundef %1
   %20 = getelementptr inbounds nuw i8, ptr %.val100, i64 %19
   %21 = zext i16 %4 to i64
   %22 = sub nsw i64 0, %21
-  %23 = getelementptr inbounds ptr, ptr %20, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr %20, i64 %22
   %24 = icmp eq ptr %0, null
   br i1 %24, label %duckdb_je_arena_bin_choose.exit, label %25
 
@@ -2252,15 +2231,15 @@ define void @duckdb_je_arena_cache_bin_fill_small(ptr noundef %0, ptr noundef %1
 
 duckdb_je_arena_bin_choose.exit:                  ; preds = %5, %25, %29
   %.0.i111 = phi i32 [ %33, %29 ], [ 0, %25 ], [ 0, %5 ]
-  %34 = getelementptr inbounds nuw i32, ptr @duckdb_je_arena_bin_offsets, i64 %13
+  %34 = getelementptr inbounds nuw [4 x i8], ptr @duckdb_je_arena_bin_offsets, i64 %13
   %35 = load i32, ptr %34, align 4, !tbaa !3
   %36 = zext i32 %35 to i64
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 %36
   %38 = load i32, ptr @duckdb_je_bin_info_nbatched_sizes, align 4, !tbaa !3
   %39 = icmp ult i32 %3, %38
   %40 = zext nneg i32 %.0.i111 to i64
-  %41 = getelementptr inbounds nuw %struct.bin_with_batch_s, ptr %37, i64 %40
-  %42 = getelementptr inbounds nuw %struct.bin_s, ptr %37, i64 %40
+  %41 = getelementptr inbounds nuw [648 x i8], ptr %37, i64 %40
+  %42 = getelementptr inbounds nuw [256 x i8], ptr %37, i64 %40
   %.0.i.i = select i1 %39, ptr %41, ptr %42
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %43 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 72
@@ -2268,7 +2247,7 @@ duckdb_je_arena_bin_choose.exit:                  ; preds = %5, %25, %29
   %45 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 56
   %46 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 48
   %47 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 40
-  %48 = getelementptr inbounds nuw %struct.div_info_s, ptr @duckdb_je_arena_binind_div_info, i64 %13
+  %48 = getelementptr inbounds nuw [4 x i8], ptr @duckdb_je_arena_binind_div_info, i64 %13
   %49 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %50 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %51 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -2373,7 +2352,7 @@ malloc_mutex_lock.exit:                           ; preds = %74, %78
 .lr.ph167:                                        ; preds = %.lr.ph167.preheader, %arena_dalloc_bin_locked_step.exit
   %.0.i96165 = phi i64 [ %222, %arena_dalloc_bin_locked_step.exit ], [ 0, %.lr.ph167.preheader ]
   %96 = phi i32 [ %221, %arena_dalloc_bin_locked_step.exit ], [ 0, %.lr.ph167.preheader ]
-  %97 = getelementptr inbounds nuw %struct.bin_remote_free_data_s, ptr %11, i64 %.0.i96165
+  %97 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 %.0.i96165
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 8
   %99 = load ptr, ptr %98, align 8, !tbaa !177
   %100 = load ptr, ptr %97, align 16, !tbaa !179
@@ -2388,7 +2367,7 @@ malloc_mutex_lock.exit:                           ; preds = %74, %78
   %107 = lshr i64 %106, 32
   %108 = getelementptr inbounds nuw i8, ptr %99, i64 64
   %109 = lshr i64 %106, 38
-  %110 = getelementptr inbounds nuw i64, ptr %108, i64 %109
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %108, i64 %109
   %111 = load i64, ptr %110, align 8, !tbaa !10
   %112 = and i64 %107, 63
   %113 = shl nuw i64 1, %112
@@ -2416,7 +2395,7 @@ malloc_mutex_lock.exit:                           ; preds = %74, %78
 126:                                              ; preds = %122
   %127 = lshr i64 %115, 20
   %128 = and i64 %127, 255
-  %129 = getelementptr inbounds nuw %struct.bin_info_s, ptr @duckdb_je_bin_infos, i64 %128
+  %129 = getelementptr inbounds nuw [40 x i8], ptr @duckdb_je_bin_infos, i64 %128
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 16
   %131 = load i32, ptr %130, align 8, !tbaa !169
   %132 = icmp eq i32 %131, 1
@@ -2486,7 +2465,7 @@ duckdb_je_arena_dalloc_bin_locked_handle_newly_empty.exit: ; preds = %125, %133,
 
 168:                                              ; preds = %duckdb_je_arena_dalloc_bin_locked_handle_newly_empty.exit
   %169 = zext nneg i32 %96 to i64
-  %170 = getelementptr inbounds nuw ptr, ptr %54, i64 %169
+  %170 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %169
   store ptr %99, ptr %170, align 8, !tbaa !181
   %171 = add nuw nsw i32 %96, 1
   br label %arena_dalloc_bin_locked_step.exit
@@ -2615,7 +2594,7 @@ arena_bin_flush_batch_after_lock.exit:            ; preds = %._crit_edge168, %82
   %230 = sub nsw i32 %66, %224
   %231 = call i32 @llvm.umin.i32(i32 %230, i32 %229)
   %232 = zext i16 %.182170 to i64
-  %233 = getelementptr inbounds nuw ptr, ptr %23, i64 %232
+  %233 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %232
   %234 = getelementptr inbounds nuw i8, ptr %225, i64 64
   %235 = load i64, ptr %234, align 8, !tbaa !10
   %236 = getelementptr i8, ptr %225, i64 8
@@ -2632,7 +2611,7 @@ arena_bin_flush_batch_after_lock.exit:            ; preds = %._crit_edge168, %82
   %.139.i = phi i32 [ %238, %.lr.ph.i ], [ %.052.i, %.preheader.i ]
   %238 = add i32 %.139.i, 1
   %239 = zext i32 %238 to i64
-  %240 = getelementptr inbounds nuw i64, ptr %234, i64 %239
+  %240 = getelementptr inbounds nuw [8 x i8], ptr %234, i64 %239
   %241 = load i64, ptr %240, align 8, !tbaa !10
   %242 = icmp eq i64 %241, 0
   br i1 %242, label %.lr.ph.i, label %._crit_edge.i
@@ -2650,7 +2629,7 @@ arena_bin_flush_batch_after_lock.exit:            ; preds = %._crit_edge168, %82
 
 ._crit_edge47.thread.i:                           ; preds = %._crit_edge.i
   %247 = zext i32 %.1.lcssa.i to i64
-  %248 = getelementptr inbounds nuw i64, ptr %234, i64 %247
+  %248 = getelementptr inbounds nuw [8 x i8], ptr %234, i64 %247
   store i64 %.138.lcssa.i, ptr %248, align 8, !tbaa !10
   br label %arena_slab_reg_alloc_batch.exit
 
@@ -2677,7 +2656,7 @@ arena_bin_flush_batch_after_lock.exit:            ; preds = %._crit_edge168, %82
   %259 = add i64 %258, %245
   %260 = inttoptr i64 %259 to ptr
   %261 = zext i32 %.12844.i to i64
-  %262 = getelementptr inbounds nuw ptr, ptr %233, i64 %261
+  %262 = getelementptr inbounds nuw [8 x i8], ptr %233, i64 %261
   store ptr %260, ptr %262, align 8, !tbaa !102
   %263 = add i32 %.12844.i, 1
   %.not.i115 = icmp eq i64 %252, 0
@@ -2685,7 +2664,7 @@ arena_bin_flush_batch_after_lock.exit:            ; preds = %._crit_edge168, %82
 
 ._crit_edge47.i:                                  ; preds = %.lr.ph46.i
   %264 = zext i32 %.1.lcssa.i to i64
-  %265 = getelementptr inbounds nuw i64, ptr %234, i64 %264
+  %265 = getelementptr inbounds nuw [8 x i8], ptr %234, i64 %264
   store i64 %256, ptr %265, align 8, !tbaa !10
   %266 = icmp ult i32 %263, %231
   br i1 %266, label %.preheader.i, label %arena_slab_reg_alloc_batch.exit
@@ -2839,11 +2818,11 @@ arena_bin_flush_batch_before_unlock.exit93:       ; preds = %.thread144.thread, 
 
 335:                                              ; preds = %.lr.ph189, %duckdb_je_arena_slab_dalloc.exit
   %indvars.iv205 = phi i64 [ 0, %.lr.ph189 ], [ %indvars.iv.next206, %duckdb_je_arena_slab_dalloc.exit ]
-  %336 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv205
+  %336 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %indvars.iv205
   %337 = load ptr, ptr %336, align 8, !tbaa !181
   %.val.i118 = load i64, ptr %337, align 8, !tbaa !147
   %338 = and i64 %.val.i118, 4095
-  %339 = getelementptr inbounds nuw %struct.atomic_p_t, ptr @duckdb_je_arenas, i64 %338
+  %339 = getelementptr inbounds nuw [8 x i8], ptr @duckdb_je_arenas, i64 %338
   %340 = load atomic i64, ptr %339 monotonic, align 8
   %.0.i.i119 = inttoptr i64 %340 to ptr
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -2904,7 +2883,7 @@ edata_list_active_remove.exit:                    ; preds = %.thread.i, %364
   %.val106 = phi ptr [ %346, %.thread.i ], [ null, %364 ]
   %.val.i120 = load i64, ptr %.val106191, align 8, !tbaa !147
   %365 = and i64 %.val.i120, 4095
-  %366 = getelementptr inbounds nuw %struct.atomic_p_t, ptr @duckdb_je_arenas, i64 %365
+  %366 = getelementptr inbounds nuw [8 x i8], ptr @duckdb_je_arenas, i64 %365
   %367 = load atomic i64, ptr %366 monotonic, align 8
   %.0.i.i121 = inttoptr i64 %367 to ptr
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -2962,11 +2941,11 @@ arena_bin_flush_batch_before_unlock.exit:         ; preds = %.critedge, %374
 
 .lr.ph183:                                        ; preds = %383, %duckdb_je_arena_slab_dalloc.exit125
   %indvars.iv = phi i64 [ %indvars.iv.next, %duckdb_je_arena_slab_dalloc.exit125 ], [ 0, %383 ]
-  %386 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv
+  %386 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %indvars.iv
   %387 = load ptr, ptr %386, align 8, !tbaa !181
   %.val.i123 = load i64, ptr %387, align 8, !tbaa !147
   %388 = and i64 %.val.i123, 4095
-  %389 = getelementptr inbounds nuw %struct.atomic_p_t, ptr @duckdb_je_arenas, i64 %388
+  %389 = getelementptr inbounds nuw [8 x i8], ptr @duckdb_je_arenas, i64 %388
   %390 = load atomic i64, ptr %389 monotonic, align 8
   %.0.i.i124 = inttoptr i64 %390 to ptr
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -3037,7 +3016,7 @@ arena_decay_impl.exit.i:                          ; preds = %413, %407
   %426 = zext i32 %.val.i.i136 to i64
   %427 = load i64, ptr @duckdb_je_max_background_threads, align 8, !tbaa !10
   %428 = urem i64 %426, %427
-  %429 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %425, i64 %428
+  %429 = getelementptr inbounds nuw [208 x i8], ptr %425, i64 %428
   %430 = getelementptr inbounds nuw i8, ptr %429, i64 172
   %431 = load atomic i8, ptr %430 acquire, align 1
   %432 = trunc i8 %431 to i1
@@ -3095,7 +3074,7 @@ duckdb_je_arena_slab_dalloc.exit125:              ; preds = %433, %423, %420, %.
 edata_list_active_remove.exit127:                 ; preds = %.thread.i126, %456
   %.val.i128 = load i64, ptr %.val108185, align 8, !tbaa !147
   %457 = and i64 %.val.i128, 4095
-  %458 = getelementptr inbounds nuw %struct.atomic_p_t, ptr @duckdb_je_arenas, i64 %457
+  %458 = getelementptr inbounds nuw [8 x i8], ptr @duckdb_je_arenas, i64 %457
   %459 = load atomic i64, ptr %458 monotonic, align 8
   %.0.i.i129 = inttoptr i64 %459 to ptr
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -3166,7 +3145,7 @@ arena_decay_impl.exit.i141:                       ; preds = %482, %476
   %495 = zext i32 %.val.i.i137 to i64
   %496 = load i64, ptr @duckdb_je_max_background_threads, align 8, !tbaa !10
   %497 = urem i64 %495, %496
-  %498 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %494, i64 %497
+  %498 = getelementptr inbounds nuw [208 x i8], ptr %494, i64 %497
   %499 = getelementptr inbounds nuw i8, ptr %498, i64 172
   %500 = load atomic i8, ptr %499 acquire, align 1
   %501 = trunc i8 %500 to i1
@@ -3217,14 +3196,14 @@ duckdb_je_arena_slab_dalloc.exit131:              ; preds = %505, %509
   br i1 %516, label %518, label %cache_bin_finish_fill.exit
 
 518:                                              ; preds = %510
-  %519 = getelementptr inbounds ptr, ptr %515, i64 %517
-  %520 = getelementptr inbounds ptr, ptr %515, i64 %22
+  %519 = getelementptr inbounds [8 x i8], ptr %515, i64 %517
+  %520 = getelementptr inbounds [8 x i8], ptr %515, i64 %22
   %521 = shl nuw nsw i64 %309, 3
   call void @llvm.memmove.p0.p0.i64(ptr align 8 %519, ptr nonnull align 8 %520, i64 %521, i1 false)
   br label %cache_bin_finish_fill.exit
 
 cache_bin_finish_fill.exit:                       ; preds = %510, %518
-  %522 = getelementptr inbounds ptr, ptr %515, i64 %517
+  %522 = getelementptr inbounds [8 x i8], ptr %515, i64 %517
   store ptr %522, ptr %2, align 8, !tbaa !90
   br i1 %24, label %arena_decay_ticks.exit, label %523, !prof !144
 
@@ -3345,7 +3324,7 @@ san_slab_extent_decide_guard.exit:                ; preds = %tsdn_witness_tsdp_g
 ; Function Attrs: nounwind uwtable
 define i64 @duckdb_je_arena_fill_small_fresh(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(none) %3, i64 noundef %4, i1 noundef zeroext %5) local_unnamed_addr #0 {
   %7 = zext i32 %2 to i64
-  %8 = getelementptr inbounds nuw %struct.bin_info_s, ptr @duckdb_je_bin_infos, i64 %7
+  %8 = getelementptr inbounds nuw [40 x i8], ptr @duckdb_je_bin_infos, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load i32, ptr %9, align 8, !tbaa !169
   %11 = zext i32 %10 to i64
@@ -3372,15 +3351,15 @@ define i64 @duckdb_je_arena_fill_small_fresh(ptr noundef %0, ptr noundef %1, i32
 
 duckdb_je_arena_bin_choose.exit:                  ; preds = %6, %17, %21
   %.0.i = phi i32 [ %25, %21 ], [ 0, %17 ], [ 0, %6 ]
-  %26 = getelementptr inbounds nuw i32, ptr @duckdb_je_arena_bin_offsets, i64 %7
+  %26 = getelementptr inbounds nuw [4 x i8], ptr @duckdb_je_arena_bin_offsets, i64 %7
   %27 = load i32, ptr %26, align 4, !tbaa !3
   %28 = zext i32 %27 to i64
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 %28
   %30 = load i32, ptr @duckdb_je_bin_info_nbatched_sizes, align 4, !tbaa !3
   %31 = icmp ult i32 %2, %30
   %32 = zext nneg i32 %.0.i to i64
-  %33 = getelementptr inbounds nuw %struct.bin_with_batch_s, ptr %29, i64 %32
-  %34 = getelementptr inbounds nuw %struct.bin_s, ptr %29, i64 %32
+  %33 = getelementptr inbounds nuw [648 x i8], ptr %29, i64 %32
+  %34 = getelementptr inbounds nuw [256 x i8], ptr %29, i64 %32
   %.0.i.i = select i1 %31, ptr %33, ptr %34
   %.not98 = icmp eq i64 %4, 0
   br i1 %.not98, label %.critedge, label %.lr.ph
@@ -3398,7 +3377,7 @@ duckdb_je_arena_bin_choose.exit:                  ; preds = %6, %17, %21
   %38 = sub i64 %4, %.05989
   %spec.select = tail call i64 @llvm.umin.i64(i64 %38, i64 %11)
   %39 = trunc nuw i64 %spec.select to i32
-  %40 = getelementptr inbounds nuw ptr, ptr %3, i64 %.05989
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.05989
   %41 = getelementptr inbounds nuw i8, ptr %35, i64 64
   %.not54.i = icmp eq i64 %spec.select, 0
   br i1 %.not54.i, label %arena_slab_reg_alloc_batch.exit, label %.preheader.lr.ph.i
@@ -3419,7 +3398,7 @@ duckdb_je_arena_bin_choose.exit:                  ; preds = %6, %17, %21
   %.139.i = phi i32 [ %45, %.lr.ph.i ], [ %.052.i, %.preheader.i ]
   %45 = add i32 %.139.i, 1
   %46 = zext i32 %45 to i64
-  %47 = getelementptr inbounds nuw i64, ptr %41, i64 %46
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %46
   %48 = load i64, ptr %47, align 8, !tbaa !10
   %49 = icmp eq i64 %48, 0
   br i1 %49, label %.lr.ph.i, label %._crit_edge.i
@@ -3437,7 +3416,7 @@ duckdb_je_arena_bin_choose.exit:                  ; preds = %6, %17, %21
 
 ._crit_edge47.thread.i:                           ; preds = %._crit_edge.i
   %54 = zext i32 %.1.lcssa.i to i64
-  %55 = getelementptr inbounds nuw i64, ptr %41, i64 %54
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %54
   store i64 %.138.lcssa.i, ptr %55, align 8, !tbaa !10
   br label %arena_slab_reg_alloc_batch.exit
 
@@ -3464,7 +3443,7 @@ duckdb_je_arena_bin_choose.exit:                  ; preds = %6, %17, %21
   %66 = add i64 %65, %52
   %67 = inttoptr i64 %66 to ptr
   %68 = zext i32 %.12844.i to i64
-  %69 = getelementptr inbounds nuw ptr, ptr %40, i64 %68
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %68
   store ptr %67, ptr %69, align 8, !tbaa !102
   %70 = add i32 %.12844.i, 1
   %.not.i = icmp eq i64 %59, 0
@@ -3472,7 +3451,7 @@ duckdb_je_arena_bin_choose.exit:                  ; preds = %6, %17, %21
 
 ._crit_edge47.i:                                  ; preds = %.lr.ph46.i
   %71 = zext i32 %.1.lcssa.i to i64
-  %72 = getelementptr inbounds nuw i64, ptr %41, i64 %71
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %71
   store i64 %63, ptr %72, align 8, !tbaa !10
   %73 = icmp ult i32 %70, %39
   br i1 %73, label %.preheader.i, label %arena_slab_reg_alloc_batch.exit
@@ -3872,13 +3851,13 @@ arena_choose_maybe_huge.exit:                     ; preds = %41, %6
 
 .thread25:                                        ; preds = %.thread
   %45 = zext i32 %3 to i64
-  %46 = getelementptr inbounds nuw i64, ptr @duckdb_je_sz_index2size_tab, i64 %45
+  %46 = getelementptr inbounds nuw [8 x i8], ptr @duckdb_je_sz_index2size_tab, i64 %45
   %47 = load i64, ptr %46, align 8, !tbaa !10
   br label %52
 
 48:                                               ; preds = %44
   %49 = zext i32 %3 to i64
-  %50 = getelementptr inbounds nuw i64, ptr @duckdb_je_sz_index2size_tab, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr @duckdb_je_sz_index2size_tab, i64 %49
   %51 = load i64, ptr %50, align 8, !tbaa !10
   br i1 %8, label %duckdb_je_arena_bin_choose.exit.i, label %52
 
@@ -3903,15 +3882,15 @@ duckdb_je_arena_bin_choose.exit.i:                ; preds = %58, %52, %48
   %64 = phi i64 [ %54, %58 ], [ %54, %52 ], [ %49, %48 ]
   %.014212428 = phi ptr [ %.014212427, %58 ], [ %.014212427, %52 ], [ %.014, %48 ]
   %.0.i.i17 = phi i32 [ %62, %58 ], [ 0, %52 ], [ 0, %48 ]
-  %65 = getelementptr inbounds nuw i32, ptr @duckdb_je_arena_bin_offsets, i64 %64
+  %65 = getelementptr inbounds nuw [4 x i8], ptr @duckdb_je_arena_bin_offsets, i64 %64
   %66 = load i32, ptr %65, align 4, !tbaa !3
   %67 = zext i32 %66 to i64
   %68 = getelementptr inbounds nuw i8, ptr %.014212428, i64 %67
   %69 = load i32, ptr @duckdb_je_bin_info_nbatched_sizes, align 4, !tbaa !3
   %70 = icmp ult i32 %3, %69
   %71 = zext nneg i32 %.0.i.i17 to i64
-  %72 = getelementptr inbounds nuw %struct.bin_with_batch_s, ptr %68, i64 %71
-  %73 = getelementptr inbounds nuw %struct.bin_s, ptr %68, i64 %71
+  %72 = getelementptr inbounds nuw [648 x i8], ptr %68, i64 %71
+  %73 = getelementptr inbounds nuw [256 x i8], ptr %68, i64 %71
   %.0.i.i.i = select i1 %70, ptr %72, ptr %73
   %74 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 72
   %75 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %74) #18
@@ -3948,7 +3927,7 @@ malloc_mutex_lock.exit.i:                         ; preds = %84, %78
   br i1 %89, label %90, label %142
 
 90:                                               ; preds = %malloc_mutex_lock.exit.i
-  %91 = getelementptr inbounds nuw %struct.bin_info_s, ptr @duckdb_je_bin_infos, i64 %64
+  %91 = getelementptr inbounds nuw [40 x i8], ptr @duckdb_je_bin_infos, i64 %64
   %92 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   store atomic i8 0, ptr %92 monotonic, align 1
   %93 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %74) #18
@@ -4012,7 +3991,7 @@ malloc_mutex_lock.exit55.i:                       ; preds = %101, %97
   %.02.i.i.i.i = phi i32 [ %121, %.lr.ph.i.i.i.i ], [ 0, %111 ]
   %121 = add i32 %.02.i.i.i.i, 1
   %122 = zext i32 %121 to i64
-  %123 = getelementptr inbounds nuw i64, ptr %119, i64 %122
+  %123 = getelementptr inbounds nuw [8 x i8], ptr %119, i64 %122
   %.010.i.i.i.i = load i64, ptr %123, align 8, !tbaa !10
   %124 = icmp eq i64 %.010.i.i.i.i, 0
   br i1 %124, label %.lr.ph.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i
@@ -4029,7 +4008,7 @@ arena_bin_malloc_with_fresh_slab.exit.i:          ; preds = %._crit_edge.loopexi
   %128 = or disjoint i32 %.0.lcssa.i.i.i.i, %127
   %129 = zext i32 %128 to i64
   %130 = lshr i64 %129, 6
-  %131 = getelementptr inbounds nuw i64, ptr %119, i64 %130
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %119, i64 %130
   %132 = load i64, ptr %131, align 8, !tbaa !10
   %133 = and i64 %129, 63
   %134 = shl nuw i64 1, %133
@@ -4134,7 +4113,7 @@ ticker_geom_ticks.exit.i:                         ; preds = %170
 186:                                              ; preds = %.thread, %44
   %.0142123 = phi ptr [ %.014.ph, %.thread ], [ %.014, %44 ]
   %187 = zext i32 %3 to i64
-  %188 = getelementptr inbounds nuw i64, ptr @duckdb_je_sz_index2size_tab, i64 %187
+  %188 = getelementptr inbounds nuw [8 x i8], ptr @duckdb_je_sz_index2size_tab, i64 %187
   %189 = load i64, ptr %188, align 8, !tbaa !10
   %190 = tail call ptr @duckdb_je_large_malloc(ptr noundef %0, ptr noundef nonnull %.0142123, i64 noundef %189, i1 noundef zeroext %4) #18
   br label %arena_malloc_small.exit
@@ -4192,7 +4171,7 @@ sz_size2index.exit:                               ; preds = %19, %17, %11
 33:                                               ; preds = %sz_size2index.exit
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %35 = zext nneg i32 %.0.i to i64
-  %36 = getelementptr inbounds nuw %struct.cache_bin_s, ptr %34, i64 %35
+  %36 = getelementptr inbounds nuw [24 x i8], ptr %34, i64 %35
   %37 = load ptr, ptr %36, align 8, !tbaa !90
   %38 = load ptr, ptr %37, align 8, !tbaa !102
   %39 = ptrtoint ptr %37 to i64
@@ -4253,7 +4232,7 @@ cache_bin_alloc_impl.exit.thread:                 ; preds = %48, %44, %57
   br i1 %4, label %60, label %63, !prof !144
 
 60:                                               ; preds = %cache_bin_alloc_impl.exit.thread
-  %61 = getelementptr inbounds nuw i64, ptr @duckdb_je_sz_index2size_tab, i64 %35
+  %61 = getelementptr inbounds nuw [8 x i8], ptr @duckdb_je_sz_index2size_tab, i64 %35
   %62 = load i64, ptr %61, align 8, !tbaa !10
   call void @llvm.memset.p0.i64(ptr align 1 %.132.i, i8 0, i64 %62, i1 false)
   br label %63
@@ -4303,7 +4282,7 @@ define void @duckdb_je_arena_dalloc_bin_locked_handle_newly_empty(ptr noundef re
   %.val.i = load i64, ptr %2, align 8, !tbaa !147
   %10 = lshr i64 %.val.i, 20
   %11 = and i64 %10, 255
-  %12 = getelementptr inbounds nuw %struct.bin_info_s, ptr @duckdb_je_bin_infos, i64 %11
+  %12 = getelementptr inbounds nuw [40 x i8], ptr @duckdb_je_bin_infos, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load i32, ptr %13, align 8, !tbaa !169
   %15 = icmp eq i32 %14, 1
@@ -4454,7 +4433,7 @@ tsdn_rtree_ctx.exit:                              ; preds = %6, %7
   %10 = lshr i64 %9, 30
   %11 = and i64 %10, 15
   %12 = and i64 %9, -1073741824
-  %13 = getelementptr inbounds nuw %struct.rtree_ctx_cache_elm_s, ptr %.0.i, i64 %11
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %.0.i, i64 %11
   %14 = load i64, ptr %13, align 8, !tbaa !154, !noalias !195
   %15 = icmp eq i64 %14, %12
   br i1 %15, label %16, label %22, !prof !142
@@ -4464,7 +4443,7 @@ tsdn_rtree_ctx.exit:                              ; preds = %6, %7
   %18 = load ptr, ptr %17, align 8, !tbaa !157, !noalias !195
   %19 = lshr i64 %9, 12
   %20 = and i64 %19, 262143
-  %21 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %18, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %20
   br label %rtree_read.exit
 
 22:                                               ; preds = %tsdn_rtree_ctx.exit
@@ -4484,7 +4463,7 @@ tsdn_rtree_ctx.exit:                              ; preds = %6, %7
   store ptr %28, ptr %29, align 8, !tbaa !157, !noalias !195
   %31 = lshr i64 %9, 12
   %32 = and i64 %31, 262143
-  %33 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %28, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %32
   br label %rtree_read.exit
 
 34:                                               ; preds = %.preheader.i
@@ -4494,7 +4473,7 @@ tsdn_rtree_ctx.exit:                              ; preds = %6, %7
 
 .preheader.i:                                     ; preds = %22, %34
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %34 ], [ 1, %22 ]
-  %35 = getelementptr inbounds nuw %struct.rtree_ctx_cache_elm_s, ptr %23, i64 %indvars.iv.i
+  %35 = getelementptr inbounds nuw [16 x i8], ptr %23, i64 %indvars.iv.i
   %36 = load i64, ptr %35, align 8, !tbaa !154, !noalias !195
   %37 = icmp eq i64 %36, %12
   br i1 %37, label %38, label %34, !prof !142
@@ -4516,7 +4495,7 @@ tsdn_rtree_ctx.exit:                              ; preds = %6, %7
   store ptr %40, ptr %45, align 8, !tbaa !157, !noalias !195
   %47 = lshr i64 %9, 12
   %48 = and i64 %47, 262143
-  %49 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %40, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %48
   br label %rtree_read.exit
 
 50:                                               ; preds = %34
@@ -4533,7 +4512,7 @@ rtree_read.exit:                                  ; preds = %16, %26, %38, %50
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.val.i = load i64, ptr %56, align 128, !tbaa !147
   %57 = and i64 %.val.i, 4095
-  %58 = getelementptr inbounds nuw %struct.atomic_p_t, ptr @duckdb_je_arenas, i64 %57
+  %58 = getelementptr inbounds nuw [8 x i8], ptr @duckdb_je_arenas, i64 %57
   %59 = load atomic i64, ptr %58 monotonic, align 8
   %.0.i.i9 = inttoptr i64 %59 to ptr
   %60 = trunc i64 %.val.i to i32
@@ -4542,14 +4521,14 @@ rtree_read.exit:                                  ; preds = %16, %26, %38, %50
   %63 = lshr i64 %.val.i, 38
   %64 = and i64 %63, 63
   %65 = zext nneg i32 %62 to i64
-  %66 = getelementptr inbounds nuw i32, ptr @duckdb_je_arena_bin_offsets, i64 %65
+  %66 = getelementptr inbounds nuw [4 x i8], ptr @duckdb_je_arena_bin_offsets, i64 %65
   %67 = load i32, ptr %66, align 4, !tbaa !3
   %68 = zext i32 %67 to i64
   %69 = getelementptr inbounds nuw i8, ptr %.0.i.i9, i64 %68
   %70 = load i32, ptr @duckdb_je_bin_info_nbatched_sizes, align 4, !tbaa !3
   %71 = icmp ult i32 %62, %70
-  %72 = getelementptr inbounds nuw %struct.bin_with_batch_s, ptr %69, i64 %64
-  %73 = getelementptr inbounds nuw %struct.bin_s, ptr %69, i64 %64
+  %72 = getelementptr inbounds nuw [648 x i8], ptr %69, i64 %64
+  %73 = getelementptr inbounds nuw [256 x i8], ptr %69, i64 %64
   %.0.i.i10 = select i1 %71, ptr %72, ptr %73
   %74 = getelementptr inbounds nuw i8, ptr %.0.i.i10, i64 72
   %75 = call i32 @pthread_mutex_trylock(ptr noundef nonnull %74) #18
@@ -4581,9 +4560,9 @@ rtree_read.exit:                                  ; preds = %16, %26, %38, %50
   br label %malloc_mutex_lock.exit.i
 
 malloc_mutex_lock.exit.i:                         ; preds = %84, %78
-  %88 = getelementptr inbounds nuw %struct.div_info_s, ptr @duckdb_je_arena_binind_div_info, i64 %65
+  %88 = getelementptr inbounds nuw [4 x i8], ptr @duckdb_je_arena_binind_div_info, i64 %65
   %89 = load i32, ptr %88, align 4, !tbaa !3
-  %90 = getelementptr inbounds nuw %struct.bin_info_s, ptr @duckdb_je_bin_infos, i64 %65
+  %90 = getelementptr inbounds nuw [40 x i8], ptr @duckdb_je_bin_infos, i64 %65
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 16
   %92 = getelementptr i8, ptr %56, i64 8
   %.val.i11 = load ptr, ptr %92, align 8, !tbaa !145
@@ -4594,7 +4573,7 @@ malloc_mutex_lock.exit.i:                         ; preds = %84, %78
   %97 = lshr i64 %96, 32
   %98 = getelementptr inbounds nuw i8, ptr %56, i64 64
   %99 = lshr i64 %96, 38
-  %100 = getelementptr inbounds nuw i64, ptr %98, i64 %99
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %99
   %101 = load i64, ptr %100, align 8, !tbaa !10
   %102 = and i64 %97, 63
   %103 = shl nuw i64 1, %102
@@ -4623,7 +4602,7 @@ malloc_mutex_lock.exit.i:                         ; preds = %84, %78
 116:                                              ; preds = %111
   %117 = lshr i64 %105, 20
   %118 = and i64 %117, 255
-  %119 = getelementptr inbounds nuw %struct.bin_info_s, ptr @duckdb_je_bin_infos, i64 %118
+  %119 = getelementptr inbounds nuw [40 x i8], ptr @duckdb_je_bin_infos, i64 %118
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 16
   %121 = load i32, ptr %120, align 8, !tbaa !169
   %122 = icmp eq i32 %121, 1
@@ -4856,7 +4835,7 @@ tsdn_rtree_ctx.exit:                              ; preds = %10, %11
   %14 = lshr i64 %13, 30
   %15 = and i64 %14, 15
   %16 = and i64 %13, -1073741824
-  %17 = getelementptr inbounds nuw %struct.rtree_ctx_cache_elm_s, ptr %.0.i37, i64 %15
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %.0.i37, i64 %15
   %18 = load i64, ptr %17, align 8, !tbaa !154, !noalias !201
   %19 = icmp eq i64 %18, %16
   br i1 %19, label %20, label %26, !prof !142
@@ -4866,7 +4845,7 @@ tsdn_rtree_ctx.exit:                              ; preds = %10, %11
   %22 = load ptr, ptr %21, align 8, !tbaa !157, !noalias !201
   %23 = lshr i64 %13, 12
   %24 = and i64 %23, 262143
-  %25 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %22, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %24
   br label %rtree_read.exit
 
 26:                                               ; preds = %tsdn_rtree_ctx.exit
@@ -4886,7 +4865,7 @@ tsdn_rtree_ctx.exit:                              ; preds = %10, %11
   store ptr %32, ptr %33, align 8, !tbaa !157, !noalias !201
   %35 = lshr i64 %13, 12
   %36 = and i64 %35, 262143
-  %37 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %32, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %36
   br label %rtree_read.exit
 
 38:                                               ; preds = %.preheader.i
@@ -4896,7 +4875,7 @@ tsdn_rtree_ctx.exit:                              ; preds = %10, %11
 
 .preheader.i:                                     ; preds = %26, %38
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %38 ], [ 1, %26 ]
-  %39 = getelementptr inbounds nuw %struct.rtree_ctx_cache_elm_s, ptr %27, i64 %indvars.iv.i
+  %39 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %indvars.iv.i
   %40 = load i64, ptr %39, align 8, !tbaa !154, !noalias !201
   %41 = icmp eq i64 %40, %16
   br i1 %41, label %42, label %38, !prof !142
@@ -4918,7 +4897,7 @@ tsdn_rtree_ctx.exit:                              ; preds = %10, %11
   store ptr %44, ptr %49, align 8, !tbaa !157, !noalias !201
   %51 = lshr i64 %13, 12
   %52 = and i64 %51, 262143
-  %53 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %44, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %52
   br label %rtree_read.exit
 
 54:                                               ; preds = %38
@@ -4946,7 +4925,7 @@ rtree_read.exit:                                  ; preds = %20, %30, %42, %54
   %67 = getelementptr inbounds nuw i8, ptr @duckdb_je_sz_size2index_tab, i64 %66
   %68 = load i8, ptr %67, align 1, !tbaa !143
   %69 = zext i8 %68 to i64
-  %70 = getelementptr inbounds nuw i64, ptr @duckdb_je_sz_index2size_tab, i64 %69
+  %70 = getelementptr inbounds nuw [8 x i8], ptr @duckdb_je_sz_index2size_tab, i64 %69
   %71 = load i64, ptr %70, align 8, !tbaa !10
   br label %sz_s2u.exit
 
@@ -4973,7 +4952,7 @@ sz_s2u.exit:                                      ; preds = %64, %sz_s2u_compute
   %84 = getelementptr inbounds nuw i8, ptr @duckdb_je_sz_size2index_tab, i64 %83
   %85 = load i8, ptr %84, align 1, !tbaa !143
   %86 = zext i8 %85 to i64
-  %87 = getelementptr inbounds nuw i64, ptr @duckdb_je_sz_index2size_tab, i64 %86
+  %87 = getelementptr inbounds nuw [8 x i8], ptr @duckdb_je_sz_index2size_tab, i64 %86
   %88 = load i64, ptr %87, align 8, !tbaa !10
   br label %sz_s2u.exit36
 
@@ -5085,7 +5064,7 @@ sz_size2index.exit:                               ; preds = %128, %sz_size2index
 150:                                              ; preds = %147, %sz_size2index.exit
   %.val.i = load i64, ptr %60, align 128, !tbaa !147
   %151 = and i64 %.val.i, 4095
-  %152 = getelementptr inbounds nuw %struct.atomic_p_t, ptr @duckdb_je_arenas, i64 %151
+  %152 = getelementptr inbounds nuw [8 x i8], ptr @duckdb_je_arenas, i64 %151
   %153 = load atomic i64, ptr %152 monotonic, align 8
   %.0.i.i46 = inttoptr i64 %153 to ptr
   br i1 %9, label %arena_decay_ticks.exit, label %154, !prof !144
@@ -5143,7 +5122,7 @@ arena_decay_ticks.exit:                           ; preds = %154, %sz_s2u.exit36
   %.val = load i64, ptr %60, align 128, !tbaa !147
   %183 = lshr i64 %.val, 20
   %184 = and i64 %183, 255
-  %185 = getelementptr inbounds nuw i64, ptr @duckdb_je_sz_index2size_tab, i64 %184
+  %185 = getelementptr inbounds nuw [8 x i8], ptr @duckdb_je_sz_index2size_tab, i64 %184
   %186 = load i64, ptr %185, align 8, !tbaa !10
   store i64 %186, ptr %6, align 8, !tbaa !10
   ret i1 %.0
@@ -5170,7 +5149,7 @@ define ptr @duckdb_je_arena_ralloc(ptr noundef %0, ptr noundef %1, ptr noundef %
   %21 = getelementptr inbounds nuw i8, ptr @duckdb_je_sz_size2index_tab, i64 %20
   %22 = load i8, ptr %21, align 1, !tbaa !143
   %23 = zext i8 %22 to i64
-  %24 = getelementptr inbounds nuw i64, ptr @duckdb_je_sz_index2size_tab, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr @duckdb_je_sz_index2size_tab, i64 %23
   %25 = load i64, ptr %24, align 8, !tbaa !10
   br label %sz_s2u.exit
 
@@ -5209,7 +5188,7 @@ define ptr @duckdb_je_arena_ralloc(ptr noundef %0, ptr noundef %1, ptr noundef %
   %48 = getelementptr inbounds nuw i8, ptr @duckdb_je_sz_size2index_tab, i64 %47
   %49 = load i8, ptr %48, align 1, !tbaa !143
   %50 = zext i8 %49 to i64
-  %51 = getelementptr inbounds nuw i64, ptr @duckdb_je_sz_index2size_tab, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr @duckdb_je_sz_index2size_tab, i64 %50
   %52 = load i64, ptr %51, align 8, !tbaa !10
   br label %sz_s2u.exit25.i
 
@@ -5355,7 +5334,7 @@ sz_size2index.exit.i85:                           ; preds = %111, %109, %103
 126:                                              ; preds = %125
   %127 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %128 = zext nneg i32 %.0.i.i to i64
-  %129 = getelementptr inbounds nuw %struct.cache_bin_s, ptr %127, i64 %128
+  %129 = getelementptr inbounds nuw [24 x i8], ptr %127, i64 %128
   %130 = load ptr, ptr %129, align 8, !tbaa !90
   %131 = load ptr, ptr %130, align 8, !tbaa !102
   %132 = ptrtoint ptr %130 to i64
@@ -5416,7 +5395,7 @@ cache_bin_alloc_impl.exit.thread.i:               ; preds = %150, %141, %137
   br i1 %6, label %153, label %156, !prof !144
 
 153:                                              ; preds = %cache_bin_alloc_impl.exit.thread.i
-  %154 = getelementptr inbounds nuw i64, ptr @duckdb_je_sz_index2size_tab, i64 %128
+  %154 = getelementptr inbounds nuw [8 x i8], ptr @duckdb_je_sz_index2size_tab, i64 %128
   %155 = load i64, ptr %154, align 8, !tbaa !10
   call void @llvm.memset.p0.i64(ptr align 1 %.132.i.i, i8 0, i64 %155, i1 false)
   br label %156
@@ -5438,7 +5417,7 @@ cache_bin_alloc_impl.exit.thread.i:               ; preds = %150, %141, %137
 164:                                              ; preds = %160
   %165 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %166 = zext nneg i32 %.0.i.i to i64
-  %167 = getelementptr inbounds nuw %struct.cache_bin_s, ptr %165, i64 %166
+  %167 = getelementptr inbounds nuw [24 x i8], ptr %165, i64 %166
   %.val39.i = load ptr, ptr %167, align 8, !tbaa !90
   %.not.i = icmp eq ptr %.val39.i, @duckdb_je_disabled_bin
   br i1 %.not.i, label %.critedge.i.i, label %168, !prof !144
@@ -5485,7 +5464,7 @@ cache_bin_alloc_impl.exit30.i:                    ; preds = %176
   %188 = getelementptr inbounds nuw i8, ptr @duckdb_je_sz_size2index_tab, i64 %187
   %189 = load i8, ptr %188, align 1, !tbaa !143
   %190 = zext i8 %189 to i64
-  %191 = getelementptr inbounds nuw i64, ptr @duckdb_je_sz_index2size_tab, i64 %190
+  %191 = getelementptr inbounds nuw [8 x i8], ptr @duckdb_je_sz_index2size_tab, i64 %190
   %192 = load i64, ptr %191, align 8, !tbaa !10
   br label %sz_s2u.exit.i.i
 
@@ -5513,7 +5492,7 @@ sz_s2u.exit.i.i:                                  ; preds = %195, %193, %185
   br i1 %6, label %205, label %208, !prof !144
 
 205:                                              ; preds = %204
-  %206 = getelementptr inbounds nuw i64, ptr @duckdb_je_sz_index2size_tab, i64 %166
+  %206 = getelementptr inbounds nuw [8 x i8], ptr @duckdb_je_sz_index2size_tab, i64 %166
   %207 = load i64, ptr %206, align 8, !tbaa !10
   tail call void @llvm.memset.p0.i64(ptr align 1 %169, i8 0, i64 %207, i1 false)
   br label %208
@@ -5549,7 +5528,7 @@ sz_s2u.exit.i.i:                                  ; preds = %195, %193, %185
   %225 = getelementptr inbounds nuw i8, ptr @duckdb_je_sz_size2index_tab, i64 %224
   %226 = load i8, ptr %225, align 1, !tbaa !143
   %227 = zext i8 %226 to i64
-  %228 = getelementptr inbounds nuw i64, ptr @duckdb_je_sz_index2size_tab, i64 %227
+  %228 = getelementptr inbounds nuw [8 x i8], ptr @duckdb_je_sz_index2size_tab, i64 %227
   %229 = load i64, ptr %228, align 8, !tbaa !10
   br label %sz_s2u.exit25.i.i
 
@@ -5678,7 +5657,7 @@ sz_size2index.exit.i:                             ; preds = %283, %275
 298:                                              ; preds = %sz_size2index.exit.i
   %299 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %300 = zext nneg i32 %.0.i.i70 to i64
-  %301 = getelementptr inbounds nuw %struct.cache_bin_s, ptr %299, i64 %300
+  %301 = getelementptr inbounds nuw [24 x i8], ptr %299, i64 %300
   %302 = load ptr, ptr %301, align 8, !tbaa !90
   %303 = ptrtoint ptr %302 to i64
   %304 = getelementptr inbounds nuw i8, ptr %301, i64 18
@@ -5732,7 +5711,7 @@ sz_size2index.exit.i.thread:                      ; preds = %281, %sz_size2index
 326:                                              ; preds = %sz_size2index.exit.i.thread
   %327 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %328 = zext nneg i32 %.0.i.i7091 to i64
-  %329 = getelementptr inbounds nuw %struct.cache_bin_s, ptr %327, i64 %328
+  %329 = getelementptr inbounds nuw [24 x i8], ptr %327, i64 %328
   %.val = load ptr, ptr %329, align 8, !tbaa !90
   %330 = icmp eq ptr %.val, @duckdb_je_disabled_bin
   %331 = getelementptr i8, ptr %329, i64 22
@@ -5820,7 +5799,7 @@ define ptr @duckdb_je_arena_set_extent_hooks(ptr noundef %0, ptr noundef %1, ptr
   %6 = zext i32 %.val to i64
   %7 = load i64, ptr @duckdb_je_max_background_threads, align 8, !tbaa !10
   %8 = urem i64 %6, %7
-  %9 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %5, i64 %8
+  %9 = getelementptr inbounds nuw [208 x i8], ptr %5, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 128
   %11 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %10) #18
   %.not.i = icmp eq i32 %11, 0
@@ -5959,7 +5938,7 @@ declare zeroext i1 @duckdb_je_pac_retain_grow_limit_get_set(ptr noundef, ptr nou
 define void @duckdb_je_arena_nthreads_inc(ptr noundef captures(none) %0, i1 noundef zeroext %1) local_unnamed_addr #1 {
 atomic_fetch_add_u.exit:
   %2 = zext i1 %1 to i64
-  %3 = getelementptr inbounds nuw %struct.atomic_u_t, ptr %0, i64 %2
+  %3 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %2
   %4 = atomicrmw add ptr %3, i32 1 monotonic, align 4
   ret void
 }
@@ -5968,7 +5947,7 @@ atomic_fetch_add_u.exit:
 define void @duckdb_je_arena_nthreads_dec(ptr noundef captures(none) %0, i1 noundef zeroext %1) local_unnamed_addr #1 {
 atomic_fetch_sub_u.exit:
   %2 = zext i1 %1 to i64
-  %3 = getelementptr inbounds nuw %struct.atomic_u_t, ptr %0, i64 %2
+  %3 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %2
   %4 = atomicrmw sub ptr %3, i32 1 monotonic, align 4
   ret void
 }
@@ -6046,14 +6025,14 @@ atomic_store_u.exit:                              ; preds = %37
 
 .preheader:                                       ; preds = %atomic_store_u.exit, %._crit_edge
   %indvars.iv95 = phi i64 [ 0, %atomic_store_u.exit ], [ %indvars.iv.next96, %._crit_edge ]
-  %45 = getelementptr inbounds nuw %struct.bin_info_s, ptr @duckdb_je_bin_infos, i64 %indvars.iv95
+  %45 = getelementptr inbounds nuw [40 x i8], ptr @duckdb_je_bin_infos, i64 %indvars.iv95
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 20
   %47 = load i32, ptr %46, align 4, !tbaa !103
   %.not = icmp eq i32 %47, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %48 = getelementptr inbounds nuw i32, ptr @duckdb_je_arena_bin_offsets, i64 %indvars.iv95
+  %48 = getelementptr inbounds nuw [4 x i8], ptr @duckdb_je_arena_bin_offsets, i64 %indvars.iv95
   %49 = trunc nuw nsw i64 %indvars.iv95 to i32
   br label %54
 
@@ -6072,8 +6051,8 @@ atomic_store_u.exit:                              ; preds = %37
   %58 = load i32, ptr @duckdb_je_bin_info_nbatched_sizes, align 4, !tbaa !3
   %59 = zext i32 %58 to i64
   %60 = icmp samesign ult i64 %indvars.iv95, %59
-  %61 = getelementptr inbounds nuw %struct.bin_with_batch_s, ptr %57, i64 %indvars.iv
-  %62 = getelementptr inbounds nuw %struct.bin_s, ptr %57, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [648 x i8], ptr %57, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw [256 x i8], ptr %57, i64 %indvars.iv
   %.0.i = select i1 %60, ptr %61, ptr %62
   %63 = call zeroext i1 @duckdb_je_bin_init(ptr noundef nonnull %.0.i, i32 noundef %49) #18
   br i1 %63, label %.loopexit, label %50
@@ -6195,7 +6174,7 @@ declare zeroext i1 @duckdb_je_pa_shard_enable_hpa(ptr noundef, ptr noundef, ptr 
 define ptr @duckdb_je_arena_choose_huge(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load i32, ptr @huge_arena_ind, align 4, !tbaa !3
   %3 = zext i32 %2 to i64
-  %4 = getelementptr inbounds nuw %struct.atomic_p_t, ptr @duckdb_je_arenas, i64 %3
+  %4 = getelementptr inbounds nuw [8 x i8], ptr @duckdb_je_arenas, i64 %3
   %5 = load atomic i64, ptr %4 acquire, align 8
   %.0.i.i = inttoptr i64 %5 to ptr
   %6 = icmp eq i64 %5, 0
@@ -6204,7 +6183,7 @@ define ptr @duckdb_je_arena_choose_huge(ptr noundef %0) local_unnamed_addr #0 {
 arena_get.exit.thread:                            ; preds = %1
   %7 = load i32, ptr @huge_arena_ind, align 4, !tbaa !3
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw %struct.atomic_p_t, ptr @duckdb_je_arenas, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr @duckdb_je_arenas, i64 %8
   %10 = load atomic i64, ptr %9 acquire, align 8
   %.0.i.i.i = inttoptr i64 %10 to ptr
   %11 = icmp eq i64 %10, 0
@@ -6321,8 +6300,8 @@ duckdb_je_arena_muzzy_decay_ms_default_set.exit:  ; preds = %duckdb_je_arena_dir
 
 11:                                               ; preds = %duckdb_je_arena_muzzy_decay_ms_default_set.exit, %11
   %indvars.iv = phi i64 [ 0, %duckdb_je_arena_muzzy_decay_ms_default_set.exit ], [ %indvars.iv.next, %11 ]
-  %12 = getelementptr inbounds nuw %struct.sc_s, ptr %8, i64 %indvars.iv
-  %13 = getelementptr inbounds nuw %struct.div_info_s, ptr @duckdb_je_arena_binind_div_info, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [28 x i8], ptr %8, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [4 x i8], ptr @duckdb_je_arena_binind_div_info, i64 %indvars.iv
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %15 = load i32, ptr %14, align 4, !tbaa !226
   %16 = shl nuw i32 1, %15
@@ -6345,11 +6324,11 @@ duckdb_je_arena_muzzy_decay_ms_default_set.exit:  ; preds = %duckdb_je_arena_dir
 26:                                               ; preds = %.preheader, %26
   %indvars.iv27 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next28, %26 ]
   %.01824 = phi i32 [ 79040, %.preheader ], [ %34, %26 ]
-  %27 = getelementptr inbounds nuw i32, ptr @duckdb_je_arena_bin_offsets, i64 %indvars.iv27
+  %27 = getelementptr inbounds nuw [4 x i8], ptr @duckdb_je_arena_bin_offsets, i64 %indvars.iv27
   store i32 %.01824, ptr %27, align 4, !tbaa !3
   %28 = icmp samesign ult i64 %indvars.iv27, %10
   %29 = select i1 %28, i32 648, i32 256
-  %30 = getelementptr inbounds nuw %struct.bin_info_s, ptr @duckdb_je_bin_infos, i64 %indvars.iv27
+  %30 = getelementptr inbounds nuw [40 x i8], ptr @duckdb_je_bin_infos, i64 %indvars.iv27
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 20
   %32 = load i32, ptr %31, align 4, !tbaa !103
   %33 = mul i32 %29, %32
@@ -6440,14 +6419,14 @@ define void @duckdb_je_arena_prefork8(ptr noundef %0, ptr noundef %1) local_unna
 
 .preheader:                                       ; preds = %2, %._crit_edge
   %indvars.iv15 = phi i64 [ 0, %2 ], [ %indvars.iv.next16, %._crit_edge ]
-  %3 = getelementptr inbounds nuw %struct.bin_info_s, ptr @duckdb_je_bin_infos, i64 %indvars.iv15
+  %3 = getelementptr inbounds nuw [40 x i8], ptr @duckdb_je_bin_infos, i64 %indvars.iv15
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %5 = load i32, ptr %4, align 4, !tbaa !103
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %6 = getelementptr inbounds nuw i32, ptr @duckdb_je_arena_bin_offsets, i64 %indvars.iv15
+  %6 = getelementptr inbounds nuw [4 x i8], ptr @duckdb_je_arena_bin_offsets, i64 %indvars.iv15
   br label %8
 
 7:                                                ; preds = %._crit_edge
@@ -6466,8 +6445,8 @@ define void @duckdb_je_arena_prefork8(ptr noundef %0, ptr noundef %1) local_unna
   %12 = load i32, ptr @duckdb_je_bin_info_nbatched_sizes, align 4, !tbaa !3
   %13 = zext i32 %12 to i64
   %14 = icmp samesign ult i64 %indvars.iv15, %13
-  %15 = getelementptr inbounds nuw %struct.bin_with_batch_s, ptr %11, i64 %indvars.iv
-  %16 = getelementptr inbounds nuw %struct.bin_s, ptr %11, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [648 x i8], ptr %11, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [256 x i8], ptr %11, i64 %indvars.iv
   %.0.i = select i1 %14, ptr %15, ptr %16
   tail call void @duckdb_je_bin_prefork(ptr noundef %0, ptr noundef %.0.i, i1 noundef zeroext %14) #18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -6485,14 +6464,14 @@ define void @duckdb_je_arena_postfork_parent(ptr noundef %0, ptr noundef %1) loc
 
 .preheader:                                       ; preds = %2, %._crit_edge
   %indvars.iv23 = phi i64 [ 0, %2 ], [ %indvars.iv.next24, %._crit_edge ]
-  %3 = getelementptr inbounds nuw %struct.bin_info_s, ptr @duckdb_je_bin_infos, i64 %indvars.iv23
+  %3 = getelementptr inbounds nuw [40 x i8], ptr @duckdb_je_bin_infos, i64 %indvars.iv23
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %5 = load i32, ptr %4, align 4, !tbaa !103
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %6 = getelementptr inbounds nuw i32, ptr @duckdb_je_arena_bin_offsets, i64 %indvars.iv23
+  %6 = getelementptr inbounds nuw [4 x i8], ptr @duckdb_je_arena_bin_offsets, i64 %indvars.iv23
   br label %13
 
 7:                                                ; preds = %._crit_edge
@@ -6520,8 +6499,8 @@ define void @duckdb_je_arena_postfork_parent(ptr noundef %0, ptr noundef %1) loc
   %17 = load i32, ptr @duckdb_je_bin_info_nbatched_sizes, align 4, !tbaa !3
   %18 = zext i32 %17 to i64
   %19 = icmp samesign ult i64 %indvars.iv23, %18
-  %20 = getelementptr inbounds nuw %struct.bin_with_batch_s, ptr %16, i64 %indvars.iv
-  %21 = getelementptr inbounds nuw %struct.bin_s, ptr %16, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [648 x i8], ptr %16, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [256 x i8], ptr %16, i64 %indvars.iv
   %.0.i = select i1 %19, ptr %20, ptr %21
   tail call void @duckdb_je_bin_postfork_parent(ptr noundef %0, ptr noundef %.0.i, i1 noundef zeroext %19) #18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -6601,14 +6580,14 @@ atomic_store_u.exit:
 
 .preheader:                                       ; preds = %.preheader.preheader, %._crit_edge
   %indvars.iv81 = phi i64 [ %indvars.iv.next82, %._crit_edge ], [ 0, %.preheader.preheader ]
-  %32 = getelementptr inbounds nuw %struct.bin_info_s, ptr @duckdb_je_bin_infos, i64 %indvars.iv81
+  %32 = getelementptr inbounds nuw [40 x i8], ptr @duckdb_je_bin_infos, i64 %indvars.iv81
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 20
   %34 = load i32, ptr %33, align 4, !tbaa !103
   %.not = icmp eq i32 %34, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %35 = getelementptr inbounds nuw i32, ptr @duckdb_je_arena_bin_offsets, i64 %indvars.iv81
+  %35 = getelementptr inbounds nuw [4 x i8], ptr @duckdb_je_arena_bin_offsets, i64 %indvars.iv81
   br label %42
 
 36:                                               ; preds = %._crit_edge
@@ -6636,8 +6615,8 @@ atomic_store_u.exit:
   %46 = load i32, ptr @duckdb_je_bin_info_nbatched_sizes, align 4, !tbaa !3
   %47 = zext i32 %46 to i64
   %48 = icmp samesign ult i64 %indvars.iv81, %47
-  %49 = getelementptr inbounds nuw %struct.bin_with_batch_s, ptr %45, i64 %indvars.iv
-  %50 = getelementptr inbounds nuw %struct.bin_s, ptr %45, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [648 x i8], ptr %45, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [256 x i8], ptr %45, i64 %indvars.iv
   %.0.i75 = select i1 %48, ptr %49, ptr %50
   tail call void @duckdb_je_bin_postfork_child(ptr noundef nonnull %0, ptr noundef nonnull %.0.i75, i1 noundef zeroext %48) #18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -6674,7 +6653,7 @@ define internal fastcc void @arena_maybe_do_deferred_work(ptr noundef %0, i32 %.
   %6 = zext i32 %.78952.val to i64
   %7 = load i64, ptr @duckdb_je_max_background_threads, align 8, !tbaa !10
   %8 = urem i64 %6, %7
-  %9 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %5, i64 %8
+  %9 = getelementptr inbounds nuw [208 x i8], ptr %5, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 128
   %11 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %10) #18
   %.not = icmp eq i32 %11, 0
@@ -6935,7 +6914,7 @@ define internal fastcc void @rtree_read(ptr dead_on_unwind noalias nonnull writa
   %5 = lshr i64 %3, 30
   %6 = and i64 %5, 15
   %7 = and i64 %3, -1073741824
-  %8 = getelementptr inbounds nuw %struct.rtree_ctx_cache_elm_s, ptr %2, i64 %6
+  %8 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %6
   %9 = load i64, ptr %8, align 8, !tbaa !154
   %10 = icmp eq i64 %9, %7
   br i1 %10, label %11, label %17, !prof !142
@@ -6945,7 +6924,7 @@ define internal fastcc void @rtree_read(ptr dead_on_unwind noalias nonnull writa
   %13 = load ptr, ptr %12, align 8, !tbaa !157
   %14 = lshr i64 %3, 12
   %15 = and i64 %14, 262143
-  %16 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %13, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %15
   br label %rtree_leaf_elm_lookup.exit
 
 17:                                               ; preds = %4
@@ -6965,7 +6944,7 @@ define internal fastcc void @rtree_read(ptr dead_on_unwind noalias nonnull writa
   store ptr %23, ptr %24, align 8, !tbaa !157
   %26 = lshr i64 %3, 12
   %27 = and i64 %26, 262143
-  %28 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %23, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %27
   br label %rtree_leaf_elm_lookup.exit
 
 29:                                               ; preds = %.preheader
@@ -6975,7 +6954,7 @@ define internal fastcc void @rtree_read(ptr dead_on_unwind noalias nonnull writa
 
 .preheader:                                       ; preds = %17, %29
   %indvars.iv = phi i64 [ %indvars.iv.next, %29 ], [ 1, %17 ]
-  %30 = getelementptr inbounds nuw %struct.rtree_ctx_cache_elm_s, ptr %18, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [16 x i8], ptr %18, i64 %indvars.iv
   %31 = load i64, ptr %30, align 8, !tbaa !154
   %32 = icmp eq i64 %31, %7
   br i1 %32, label %33, label %29, !prof !142
@@ -6997,7 +6976,7 @@ define internal fastcc void @rtree_read(ptr dead_on_unwind noalias nonnull writa
   store ptr %35, ptr %40, align 8, !tbaa !157
   %42 = lshr i64 %3, 12
   %43 = and i64 %42, 262143
-  %44 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %35, i64 %43
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %43
   br label %rtree_leaf_elm_lookup.exit
 
 45:                                               ; preds = %29
@@ -7077,14 +7056,14 @@ malloc_mutex_trylock.exit:                        ; preds = %4
   %20 = load i32, ptr %3, align 4, !tbaa !3
   %21 = add i32 %20, 1
   %22 = zext i32 %20 to i64
-  %23 = getelementptr inbounds nuw ptr, ptr %2, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %22
   store ptr %1, ptr %23, align 8, !tbaa !165
   %24 = icmp eq i32 %21, 32
   br i1 %24, label %.lr.ph.i, label %arena_prepare_base_deletion_sync_finish.exit
 
 .lr.ph.i:                                         ; preds = %malloc_mutex_trylock.exit, %malloc_mutex_lock.exit.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %malloc_mutex_lock.exit.i ], [ 0, %malloc_mutex_trylock.exit ]
-  %25 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.i
   %26 = load ptr, ptr %25, align 8, !tbaa !165
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 72
   %28 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %27) #18
@@ -7297,7 +7276,7 @@ arena_bin_refill_slabcur_no_fresh_slab.exit:      ; preds = %arena_bin_slabs_ful
 44:                                               ; preds = %arena_bin_refill_slabcur_no_fresh_slab.exit, %7
   %45 = phi ptr [ %36, %arena_bin_refill_slabcur_no_fresh_slab.exit ], [ %5, %7 ]
   %46 = zext i32 %2 to i64
-  %47 = getelementptr inbounds nuw %struct.bin_info_s, ptr @duckdb_je_bin_infos, i64 %46
+  %47 = getelementptr inbounds nuw [40 x i8], ptr @duckdb_je_bin_infos, i64 %46
   %48 = getelementptr inbounds nuw i8, ptr %45, i64 64
   %.0101.i.i = load i64, ptr %48, align 8, !tbaa !10
   %49 = icmp eq i64 %.0101.i.i, 0
@@ -7307,7 +7286,7 @@ arena_bin_refill_slabcur_no_fresh_slab.exit:      ; preds = %arena_bin_slabs_ful
   %.02.i.i = phi i32 [ %50, %.lr.ph.i.i ], [ 0, %44 ]
   %50 = add i32 %.02.i.i, 1
   %51 = zext i32 %50 to i64
-  %52 = getelementptr inbounds nuw i64, ptr %48, i64 %51
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %51
   %.010.i.i = load i64, ptr %52, align 8, !tbaa !10
   %53 = icmp eq i64 %.010.i.i, 0
   br i1 %53, label %.lr.ph.i.i, label %._crit_edge.loopexit.i.i
@@ -7324,7 +7303,7 @@ arena_slab_reg_alloc.exit:                        ; preds = %44, %._crit_edge.lo
   %57 = or disjoint i32 %.0.lcssa.i.i, %56
   %58 = zext i32 %57 to i64
   %59 = lshr i64 %58, 6
-  %60 = getelementptr inbounds nuw i64, ptr %48, i64 %59
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %59
   %61 = load i64, ptr %60, align 8, !tbaa !10
   %62 = and i64 %58, 63
   %63 = shl nuw i64 1, %62
@@ -7425,7 +7404,7 @@ tsdn_rtree_ctx.exit:                              ; preds = %5, %6
   %9 = lshr i64 %8, 30
   %10 = and i64 %9, 15
   %11 = and i64 %8, -1073741824
-  %12 = getelementptr inbounds nuw %struct.rtree_ctx_cache_elm_s, ptr %.0.i, i64 %10
+  %12 = getelementptr inbounds nuw [16 x i8], ptr %.0.i, i64 %10
   %13 = load i64, ptr %12, align 8, !tbaa !154, !noalias !247
   %14 = icmp eq i64 %13, %11
   br i1 %14, label %15, label %21, !prof !142
@@ -7435,7 +7414,7 @@ tsdn_rtree_ctx.exit:                              ; preds = %5, %6
   %17 = load ptr, ptr %16, align 8, !tbaa !157, !noalias !247
   %18 = lshr i64 %8, 12
   %19 = and i64 %18, 262143
-  %20 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %17, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %19
   br label %rtree_read.exit
 
 21:                                               ; preds = %tsdn_rtree_ctx.exit
@@ -7455,7 +7434,7 @@ tsdn_rtree_ctx.exit:                              ; preds = %5, %6
   store ptr %27, ptr %28, align 8, !tbaa !157, !noalias !247
   %30 = lshr i64 %8, 12
   %31 = and i64 %30, 262143
-  %32 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %27, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %31
   br label %rtree_read.exit
 
 33:                                               ; preds = %.preheader.i
@@ -7465,7 +7444,7 @@ tsdn_rtree_ctx.exit:                              ; preds = %5, %6
 
 .preheader.i:                                     ; preds = %21, %33
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %33 ], [ 1, %21 ]
-  %34 = getelementptr inbounds nuw %struct.rtree_ctx_cache_elm_s, ptr %22, i64 %indvars.iv.i
+  %34 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %indvars.iv.i
   %35 = load i64, ptr %34, align 8, !tbaa !154, !noalias !247
   %36 = icmp eq i64 %35, %11
   br i1 %36, label %37, label %33, !prof !142
@@ -7487,7 +7466,7 @@ tsdn_rtree_ctx.exit:                              ; preds = %5, %6
   store ptr %39, ptr %44, align 8, !tbaa !157, !noalias !247
   %46 = lshr i64 %8, 12
   %47 = and i64 %46, 262143
-  %48 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %39, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %47
   br label %rtree_read.exit
 
 49:                                               ; preds = %33

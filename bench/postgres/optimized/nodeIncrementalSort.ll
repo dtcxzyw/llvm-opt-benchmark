@@ -5,10 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.TupleTableSlotOps = type { i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.TuplesortInstrumentation = type { i32, i32, i64 }
-%struct.PresortedKeyData = type { %struct.FmgrInfo, ptr, i16 }
-%struct.FmgrInfo = type { ptr, i32, i16, i8, i8, i8, ptr, ptr, ptr }
-%struct.IncrementalSortInfo = type { %struct.IncrementalSortGroupInfo, %struct.IncrementalSortGroupInfo }
-%struct.IncrementalSortGroupInfo = type { i64, i64, i64, i64, i64, i32 }
 
 @TTSOpsMinimalTuple = external constant %struct.TupleTableSlotOps, align 8
 @InterruptPending = external global i32, align 4
@@ -179,14 +175,14 @@ define internal noundef ptr @ExecIncrementalSort(ptr noundef %0) #0 {
 62:                                               ; preds = %84, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %84 ]
   %63 = load ptr, ptr %56, align 8
-  %64 = getelementptr inbounds nuw %struct.PresortedKeyData, ptr %63, i64 %indvars.iv.i
+  %64 = getelementptr inbounds nuw [64 x i8], ptr %63, i64 %indvars.iv.i
   %65 = load ptr, ptr %59, align 8
-  %66 = getelementptr inbounds nuw i16, ptr %65, i64 %indvars.iv.i
+  %66 = getelementptr inbounds nuw [2 x i8], ptr %65, i64 %indvars.iv.i
   %67 = load i16, ptr %66, align 2
   %68 = getelementptr inbounds nuw i8, ptr %64, i64 56
   store i16 %67, ptr %68, align 8
   %69 = load ptr, ptr %60, align 8
-  %70 = getelementptr inbounds nuw i32, ptr %69, i64 %indvars.iv.i
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %69, i64 %indvars.iv.i
   %71 = load i32, ptr %70, align 4
   %72 = tail call i32 @get_equality_op_for_ordering_op(i32 noundef %71, ptr noundef null) #7
   %.not.i = icmp eq i32 %72, 0
@@ -195,7 +191,7 @@ define internal noundef ptr @ExecIncrementalSort(ptr noundef %0) #0 {
 73:                                               ; preds = %62
   %74 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   %75 = load ptr, ptr %60, align 8
-  %76 = getelementptr inbounds nuw i32, ptr %75, i64 %indvars.iv.i
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %75, i64 %indvars.iv.i
   %77 = load i32, ptr %76, align 4
   %78 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %77) #7
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 186, ptr noundef nonnull @__func__.preparePresortedCols) #7
@@ -226,7 +222,7 @@ define internal noundef ptr @ExecIncrementalSort(ptr noundef %0) #0 {
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 16
   store ptr null, ptr %91, align 8
   %92 = load ptr, ptr %61, align 8
-  %93 = getelementptr inbounds nuw i32, ptr %92, i64 %indvars.iv.i
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %92, i64 %indvars.iv.i
   %94 = load i32, ptr %93, align 4
   %95 = load ptr, ptr %87, align 8
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 24
@@ -379,7 +375,7 @@ ExecProcNode.exit:                                ; preds = %157, %159
   %179 = getelementptr inbounds nuw i8, ptr %173, i64 8
   %180 = load i32, ptr @ParallelWorkerNumber, align 4
   %181 = sext i32 %180 to i64
-  %182 = getelementptr inbounds %struct.IncrementalSortInfo, ptr %179, i64 %181
+  %182 = getelementptr inbounds [96 x i8], ptr %179, i64 %181
   %183 = load ptr, ptr %15, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %184 = load i64, ptr %182, align 8
@@ -571,7 +567,7 @@ instrumentSortedGroup.exit194:                    ; preds = %212, %219, %228, %2
   %284 = getelementptr inbounds nuw i8, ptr %278, i64 8
   %285 = load i32, ptr @ParallelWorkerNumber, align 4
   %286 = sext i32 %285 to i64
-  %287 = getelementptr inbounds %struct.IncrementalSortInfo, ptr %284, i64 %286
+  %287 = getelementptr inbounds [96 x i8], ptr %284, i64 %286
   br label %.sink.split
 
 288:                                              ; preds = %279, %276
@@ -627,7 +623,7 @@ instrumentSortedGroup.exit194:                    ; preds = %212, %219, %228, %2
   %312 = getelementptr inbounds nuw i8, ptr %306, i64 8
   %313 = load i32, ptr @ParallelWorkerNumber, align 4
   %314 = sext i32 %313 to i64
-  %315 = getelementptr inbounds %struct.IncrementalSortInfo, ptr %312, i64 %314
+  %315 = getelementptr inbounds [96 x i8], ptr %312, i64 %314
   br label %.sink.split261
 
 316:                                              ; preds = %307, %304
@@ -747,7 +743,7 @@ ExecProcNode.exit196:                             ; preds = %338, %340
 373:                                              ; preds = %369
   %374 = load i32, ptr @ParallelWorkerNumber, align 4
   %375 = sext i32 %374 to i64
-  %376 = getelementptr %struct.IncrementalSortInfo, ptr %368, i64 %375
+  %376 = getelementptr [96 x i8], ptr %368, i64 %375
   %377 = getelementptr i8, ptr %376, i64 56
   %378 = load ptr, ptr %337, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -1200,13 +1196,13 @@ define internal fastcc void @switchToPresortedPrefixMode(ptr noundef captures(no
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 112
   %23 = load ptr, ptr %22, align 8
   %24 = sext i32 %18 to i64
-  %25 = getelementptr inbounds i16, ptr %23, i64 %24
+  %25 = getelementptr inbounds [2 x i8], ptr %23, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 120
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i32, ptr %27, i64 %24
+  %28 = getelementptr inbounds [4 x i8], ptr %27, i64 %24
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 128
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i32, ptr %30, i64 %24
+  %31 = getelementptr inbounds [4 x i8], ptr %30, i64 %24
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 136
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 %24
@@ -1382,7 +1378,7 @@ define internal fastcc void @switchToPresortedPrefixMode(ptr noundef captures(no
 137:                                              ; preds = %133
   %138 = load i32, ptr @ParallelWorkerNumber, align 4
   %139 = sext i32 %138 to i64
-  %140 = getelementptr %struct.IncrementalSortInfo, ptr %132, i64 %139
+  %140 = getelementptr [96 x i8], ptr %132, i64 %139
   %141 = getelementptr i8, ptr %140, i64 56
   %142 = load ptr, ptr %13, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -1607,7 +1603,7 @@ define internal fastcc noundef zeroext i1 @isCurrentGroup(ptr noundef readonly c
 17:                                               ; preds = %.lr.ph, %select.unfold
   %indvars.iv = phi i64 [ %16, %.lr.ph ], [ %indvars.iv.next, %select.unfold ]
   %18 = load ptr, ptr %9, align 8
-  %19 = getelementptr inbounds nuw %struct.PresortedKeyData, ptr %18, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [64 x i8], ptr %18, i64 %indvars.iv
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 56
   %21 = load i16, ptr %20, align 8
   %22 = sext i16 %21 to i32
@@ -1626,7 +1622,7 @@ slot_getattr.exit:                                ; preds = %17, %slot_getsomeat
   %28 = getelementptr inbounds i8, ptr %25, i64 %27
   %29 = load i8, ptr %28, align 1, !range !5, !noundef !6
   %30 = load ptr, ptr %12, align 8
-  %31 = getelementptr inbounds i64, ptr %30, i64 %27
+  %31 = getelementptr inbounds [8 x i8], ptr %30, i64 %27
   %32 = load i64, ptr %31, align 8
   %33 = load i16, ptr %13, align 2
   %34 = icmp sgt i16 %21, %33
@@ -1650,10 +1646,10 @@ slot_getattr.exit30:                              ; preds = %slot_getattr.exit, 
 
 41:                                               ; preds = %slot_getattr.exit30
   %42 = load ptr, ptr %15, align 8
-  %43 = getelementptr inbounds i64, ptr %42, i64 %27
+  %43 = getelementptr inbounds [8 x i8], ptr %42, i64 %27
   %44 = load i64, ptr %43, align 8
   %45 = load ptr, ptr %9, align 8
-  %46 = getelementptr inbounds nuw %struct.PresortedKeyData, ptr %45, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [64 x i8], ptr %45, i64 %indvars.iv
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 48
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 32

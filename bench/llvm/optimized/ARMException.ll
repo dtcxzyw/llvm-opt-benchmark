@@ -529,7 +529,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit.us:               ; preds = %.lr.ph, %_ZN4llvmpl
   %117 = add i32 %107, -1
   %118 = zext i32 %117 to i64
   %119 = load ptr, ptr %12, align 8, !tbaa !271
-  %120 = getelementptr inbounds nuw ptr, ptr %119, i64 %118
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %119, i64 %118
   %121 = load ptr, ptr %120, align 8, !tbaa !292
   br label %.thread.us
 
@@ -559,7 +559,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit.us:               ; preds = %.lr.ph, %_ZN4llvmpl
   %133 = add i32 %129, -1
   %134 = zext i32 %133 to i64
   %135 = load ptr, ptr %12, align 8, !tbaa !271
-  %136 = getelementptr inbounds nuw ptr, ptr %135, i64 %134
+  %136 = getelementptr inbounds nuw [8 x i8], ptr %135, i64 %134
   %137 = load ptr, ptr %136, align 8, !tbaa !292
   br label %138
 

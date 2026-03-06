@@ -213,7 +213,7 @@ _ZNSt6vectorIPN10ODDLParser7DDLNodeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.
 _ZNSt6vectorIPN10ODDLParser7DDLNodeESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %70, %_ZNSt6vectorIPN10ODDLParser7DDLNodeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
   store ptr %65, ptr %44, align 8
   store ptr %69, ptr %45, align 8
-  %71 = getelementptr inbounds nuw ptr, ptr %65, i64 %63
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %63
   store ptr %71, ptr %47, align 8
   br label %_ZNSt6vectorIPN10ODDLParser7DDLNodeESaIS2_EE9push_backEOS2_.exit
 
@@ -323,7 +323,7 @@ _ZN10ODDLParserL22releaseReferencedNamesEPNS_9ReferenceE.exit: ; preds = %11, %1
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %22 = load i64, ptr %21, align 8
   %23 = load ptr, ptr @_ZN10ODDLParser7DDLNode16s_allocatedNodesE, align 8
-  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %22
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %22
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, %0
   br i1 %26, label %27, label %28
@@ -387,7 +387,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit9: ; preds = %_ZNS
   %50 = phi ptr [ %57, %56 ], [ %32, %28 ]
   %51 = phi ptr [ %58, %56 ], [ %31, %28 ]
   %.011 = phi i64 [ %59, %56 ], [ 0, %28 ]
-  %52 = getelementptr inbounds nuw ptr, ptr %50, i64 %.011
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %.011
   %53 = load ptr, ptr %52, align 8
   %54 = icmp eq ptr %53, null
   br i1 %54, label %56, label %55
@@ -495,7 +495,7 @@ _ZNSt6vectorIPN10ODDLParser7DDLNodeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.
 _ZNSt6vectorIPN10ODDLParser7DDLNodeESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %34, %_ZNSt6vectorIPN10ODDLParser7DDLNodeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
   store ptr %29, ptr %8, align 8
   store ptr %33, ptr %9, align 8
-  %35 = getelementptr inbounds nuw ptr, ptr %29, i64 %27
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %27
   store ptr %35, ptr %11, align 8
   br label %_ZNSt6vectorIPN10ODDLParser7DDLNodeESaIS2_EE9push_backEOS2_.exit
 
@@ -1073,7 +1073,7 @@ _ZNSt6vectorIPN10ODDLParser7DDLNodeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.
 _ZNSt6vectorIPN10ODDLParser7DDLNodeESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %35, %_ZNSt6vectorIPN10ODDLParser7DDLNodeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %30, ptr @_ZN10ODDLParser7DDLNode16s_allocatedNodesE, align 8
   store ptr %34, ptr getelementptr inbounds nuw (i8, ptr @_ZN10ODDLParser7DDLNode16s_allocatedNodesE, i64 8), align 8
-  %36 = getelementptr inbounds nuw ptr, ptr %30, i64 %28
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %28
   store ptr %36, ptr getelementptr inbounds nuw (i8, ptr @_ZN10ODDLParser7DDLNode16s_allocatedNodesE, i64 16), align 8
   br label %_ZNSt6vectorIPN10ODDLParser7DDLNodeESaIS2_EE9push_backERKS2_.exit
 

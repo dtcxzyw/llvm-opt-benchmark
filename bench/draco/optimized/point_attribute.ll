@@ -1069,7 +1069,7 @@ _ZNSt13unordered_mapISt5arrayIjLm1EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
 49:                                               ; preds = %41, %36
   %.sink = phi i32 [ %.sroa.054.066, %41 ], [ %38, %36 ]
   %.sroa.054.1 = phi i32 [ %48, %41 ], [ %.sroa.054.066, %36 ]
-  %50 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %15, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv
   store i32 %.sink, ptr %50, align 4, !tbaa !68
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %51 = load i32, ptr %11, align 8, !tbaa !21
@@ -1133,7 +1133,7 @@ _ZNSt13unordered_mapISt5arrayIjLm1EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
   br i1 %83, label %84, label %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit
 
 84:                                               ; preds = %82
-  %85 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %74, i64 %70
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %74, i64 %70
   %.not.i.i.i.i = icmp eq ptr %73, %85
   br i1 %.not.i.i.i.i, label %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit, label %86
 
@@ -1153,9 +1153,9 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
 
 89:                                               ; preds = %.lr.ph71, %89
   %indvars.iv80 = phi i64 [ 0, %.lr.ph71 ], [ %indvars.iv.next81, %89 ]
-  %90 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %15, i64 %indvars.iv80
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv80
   %.sroa.02.0.copyload = load i32, ptr %90, align 4, !tbaa !21
-  %91 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %88, i64 %indvars.iv80
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %88, i64 %indvars.iv80
   store i32 %.sroa.02.0.copyload, ptr %91, align 4, !tbaa !68
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %exitcond84.not = icmp eq i64 %indvars.iv.next81, %wide.trip.count83
@@ -1163,10 +1163,10 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
 
 .lr.ph69:                                         ; preds = %.lr.ph69.preheader, %.lr.ph69
   %indvars.iv77 = phi i64 [ 0, %.lr.ph69.preheader ], [ %indvars.iv.next78, %.lr.ph69 ]
-  %92 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %63, i64 %indvars.iv77
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %indvars.iv77
   %93 = load i32, ptr %92, align 4, !tbaa !68
   %94 = zext i32 %93 to i64
-  %95 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %15, i64 %94
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %94
   %.sroa.0.0.copyload = load i32, ptr %95, align 4, !tbaa !21
   store i32 %.sroa.0.0.copyload, ptr %92, align 4, !tbaa !68
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
@@ -1328,7 +1328,7 @@ _ZNSt13unordered_mapISt5arrayIjLm2EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
 49:                                               ; preds = %41, %36
   %.sink = phi i32 [ %.sroa.054.066, %41 ], [ %38, %36 ]
   %.sroa.054.1 = phi i32 [ %48, %41 ], [ %.sroa.054.066, %36 ]
-  %50 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %15, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv
   store i32 %.sink, ptr %50, align 4, !tbaa !68
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %51 = load i32, ptr %11, align 8, !tbaa !21
@@ -1387,7 +1387,7 @@ _ZNSt13unordered_mapISt5arrayIjLm2EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
   br i1 %81, label %82, label %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit
 
 82:                                               ; preds = %80
-  %83 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %72, i64 %68
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %68
   %.not.i.i.i.i = icmp eq ptr %71, %83
   br i1 %.not.i.i.i.i, label %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit, label %84
 
@@ -1412,9 +1412,9 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
 
 89:                                               ; preds = %.lr.ph71, %89
   %indvars.iv80 = phi i64 [ 0, %.lr.ph71 ], [ %indvars.iv.next81, %89 ]
-  %90 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %15, i64 %indvars.iv80
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv80
   %.sroa.02.0.copyload = load i32, ptr %90, align 4, !tbaa !21
-  %91 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %86, i64 %indvars.iv80
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %86, i64 %indvars.iv80
   store i32 %.sroa.02.0.copyload, ptr %91, align 4, !tbaa !68
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %exitcond84.not = icmp eq i64 %indvars.iv.next81, %wide.trip.count83
@@ -1422,10 +1422,10 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
 
 .lr.ph69:                                         ; preds = %.lr.ph69.preheader, %.lr.ph69
   %indvars.iv77 = phi i64 [ 0, %.lr.ph69.preheader ], [ %indvars.iv.next78, %.lr.ph69 ]
-  %92 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %61, i64 %indvars.iv77
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %indvars.iv77
   %93 = load i32, ptr %92, align 4, !tbaa !68
   %94 = zext i32 %93 to i64
-  %95 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %15, i64 %94
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %94
   %.sroa.0.0.copyload = load i32, ptr %95, align 4, !tbaa !21
   store i32 %.sroa.0.0.copyload, ptr %92, align 4, !tbaa !68
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
@@ -1591,7 +1591,7 @@ _ZNSt13unordered_mapISt5arrayIjLm3EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
 49:                                               ; preds = %41, %36
   %.sink = phi i32 [ %.sroa.059.071, %41 ], [ %38, %36 ]
   %.sroa.059.1 = phi i32 [ %48, %41 ], [ %.sroa.059.071, %36 ]
-  %50 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %15, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv
   store i32 %.sink, ptr %50, align 4, !tbaa !68
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %51 = load i32, ptr %11, align 8, !tbaa !21
@@ -1650,7 +1650,7 @@ _ZNSt13unordered_mapISt5arrayIjLm3EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
   br i1 %81, label %82, label %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit
 
 82:                                               ; preds = %80
-  %83 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %72, i64 %68
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %68
   %.not.i.i.i.i = icmp eq ptr %71, %83
   br i1 %.not.i.i.i.i, label %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit, label %84
 
@@ -1675,9 +1675,9 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
 
 89:                                               ; preds = %.lr.ph76, %89
   %indvars.iv85 = phi i64 [ 0, %.lr.ph76 ], [ %indvars.iv.next86, %89 ]
-  %90 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %15, i64 %indvars.iv85
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv85
   %.sroa.02.0.copyload = load i32, ptr %90, align 4, !tbaa !21
-  %91 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %86, i64 %indvars.iv85
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %86, i64 %indvars.iv85
   store i32 %.sroa.02.0.copyload, ptr %91, align 4, !tbaa !68
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
   %exitcond89.not = icmp eq i64 %indvars.iv.next86, %wide.trip.count88
@@ -1685,10 +1685,10 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
 
 .lr.ph74:                                         ; preds = %.lr.ph74.preheader, %.lr.ph74
   %indvars.iv82 = phi i64 [ 0, %.lr.ph74.preheader ], [ %indvars.iv.next83, %.lr.ph74 ]
-  %92 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %61, i64 %indvars.iv82
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %indvars.iv82
   %93 = load i32, ptr %92, align 4, !tbaa !68
   %94 = zext i32 %93 to i64
-  %95 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %15, i64 %94
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %94
   %.sroa.0.0.copyload = load i32, ptr %95, align 4, !tbaa !21
   store i32 %.sroa.0.0.copyload, ptr %92, align 4, !tbaa !68
   %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
@@ -1854,7 +1854,7 @@ _ZNSt13unordered_mapISt5arrayIjLm4EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
 49:                                               ; preds = %41, %36
   %.sink = phi i32 [ %.sroa.055.067, %41 ], [ %38, %36 ]
   %.sroa.055.1 = phi i32 [ %48, %41 ], [ %.sroa.055.067, %36 ]
-  %50 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %15, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv
   store i32 %.sink, ptr %50, align 4, !tbaa !68
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %51 = load i32, ptr %11, align 8, !tbaa !21
@@ -1913,7 +1913,7 @@ _ZNSt13unordered_mapISt5arrayIjLm4EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
   br i1 %81, label %82, label %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit
 
 82:                                               ; preds = %80
-  %83 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %72, i64 %68
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %68
   %.not.i.i.i.i = icmp eq ptr %71, %83
   br i1 %.not.i.i.i.i, label %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit, label %84
 
@@ -1938,9 +1938,9 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
 
 89:                                               ; preds = %.lr.ph72, %89
   %indvars.iv81 = phi i64 [ 0, %.lr.ph72 ], [ %indvars.iv.next82, %89 ]
-  %90 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %15, i64 %indvars.iv81
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv81
   %.sroa.02.0.copyload = load i32, ptr %90, align 4, !tbaa !21
-  %91 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %86, i64 %indvars.iv81
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %86, i64 %indvars.iv81
   store i32 %.sroa.02.0.copyload, ptr %91, align 4, !tbaa !68
   %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
   %exitcond85.not = icmp eq i64 %indvars.iv.next82, %wide.trip.count84
@@ -1948,10 +1948,10 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
 
 .lr.ph70:                                         ; preds = %.lr.ph70.preheader, %.lr.ph70
   %indvars.iv78 = phi i64 [ 0, %.lr.ph70.preheader ], [ %indvars.iv.next79, %.lr.ph70 ]
-  %92 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %61, i64 %indvars.iv78
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %indvars.iv78
   %93 = load i32, ptr %92, align 4, !tbaa !68
   %94 = zext i32 %93 to i64
-  %95 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %15, i64 %94
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %94
   %.sroa.0.0.copyload = load i32, ptr %95, align 4, !tbaa !21
   store i32 %.sroa.0.0.copyload, ptr %92, align 4, !tbaa !68
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
@@ -2079,7 +2079,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableISt5arrayIjLm1EESt4pairIKS1_N5
   %16 = load i64, ptr %15, align 8, !tbaa !81
   %17 = urem i64 %14, %16
   %18 = load ptr, ptr %0, align 8, !tbaa !74
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %17
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %17
   %20 = load ptr, ptr %19, align 8, !tbaa !116
   %.not.i.i = icmp eq ptr %20, null
   br i1 %.not.i.i, label %.critedge27, label %34
@@ -2227,7 +2227,7 @@ _ZNSt10_HashtableISt5arrayIjLm1EESt4pairIKS1_N5draco9IndexTypeIjNS4_29AttributeV
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %2, ptr %32, align 8, !tbaa !118
   %33 = load ptr, ptr %0, align 8, !tbaa !74
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %.0
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.0
   %35 = load ptr, ptr %34, align 8, !tbaa !116
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %39, label %36
@@ -2253,7 +2253,7 @@ _ZNSt10_HashtableISt5arrayIjLm1EESt4pairIKS1_N5draco9IndexTypeIjNS4_29AttributeV
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %46 = load i64, ptr %45, align 8, !tbaa !118
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %33, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !116
   br label %49
 
@@ -2317,7 +2317,7 @@ _ZNSt10_HashtableISt5arrayIjLm1EESt4pairIKS1_N5draco9IndexTypeIjNS4_29AttributeV
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 16
   %16 = load i64, ptr %15, align 8, !tbaa !118
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !116
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -2332,7 +2332,7 @@ _ZNSt10_HashtableISt5arrayIjLm1EESt4pairIKS1_N5draco9IndexTypeIjNS4_29AttributeV
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8, !tbaa !116
   br label %28
 
@@ -2410,7 +2410,7 @@ define linkonce_odr void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_29AttributeValueIn
   br i1 %.not.i.i.i.i.i, label %_ZSt22__uninitialized_move_aIPN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEES4_SaIS3_EET0_T_S7_S6_RT1_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !124
 
 _ZSt22__uninitialized_move_aIPN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEES4_SaIS3_EET0_T_S7_S6_RT1_.exit: ; preds = %.lr.ph.i.i.i.i.i, %20
-  %25 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %9, i64 %2
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %2
   store ptr %25, ptr %8, align 8, !tbaa !49
   %26 = ptrtoint ptr %21 to i64
   %27 = sub i64 %26, %16
@@ -2548,7 +2548,7 @@ _ZSt24__uninitialized_fill_n_aIPN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEES4_SaIS3_EET0_T_S7_S6_RT1_.exit: ; preds = %.lr.ph.i.i.i.i.i93, %_ZSt24__uninitialized_fill_n_aIPN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEEmS3_S3_ET_S5_T0_RKT1_RSaIT2_E.exit91
   %.0.lcssa.i.i.i.i.i97 = phi ptr [ %64, %_ZSt24__uninitialized_fill_n_aIPN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEEmS3_S3_ET_S5_T0_RKT1_RSaIT2_E.exit91 ], [ %70, %.lr.ph.i.i.i.i.i93 ]
-  %71 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %.0.lcssa.i.i.i.i.i97, i64 %2
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %.0.lcssa.i.i.i.i.i97, i64 %2
   %.not11.i.i.i.i.i98 = icmp eq ptr %1, %9
   br i1 %.not11.i.i.i.i.i98, label %_ZSt34__uninitialized_move_if_noexcept_aIPN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEES4_SaIS3_EET0_T_S7_S6_RT1_.exit104, label %.lr.ph.i.i.i.i.i99
 
@@ -2575,7 +2575,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN5draco9IndexTypeIjNS0_29AttributeValu
 _ZNSt12_Vector_baseIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEES4_SaIS3_EET0_T_S7_S6_RT1_.exit104, %75
   store ptr %64, ptr %0, align 8, !tbaa !48
   store ptr %.0.lcssa.i.i.i.i.i103, ptr %8, align 8, !tbaa !49
-  %77 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %64, i64 %58
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %58
   store ptr %77, ptr %6, align 8, !tbaa !67
   br label %_ZSt4fillIPN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEES3_EvT_S5_RKT0_.exit
 
@@ -2658,7 +2658,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableISt5arrayIjLm2EESt4pairIKS1_N5
   %16 = phi i1 [ false, %.critedge ], [ true, %.critedge.preheader ]
   %indvars.iv.i.i = phi i64 [ 1, %.critedge ], [ 0, %.critedge.preheader ]
   %.068.i.i = phi i64 [ %23, %.critedge ], [ 79, %.critedge.preheader ]
-  %17 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i.i
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i.i
   %18 = load i32, ptr %17, align 4, !tbaa !21
   %19 = zext i32 %18 to i64
   %20 = add i64 %.068.i.i, 1013
@@ -2675,7 +2675,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableISt5arrayIjLm2EESt4pairIKS1_N5
 
 28:                                               ; preds = %24
   %29 = load ptr, ptr %0, align 8, !tbaa !91
-  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %27
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %27
   %31 = load ptr, ptr %30, align 8, !tbaa !116
   %.not.i.i = icmp eq ptr %31, null
   br i1 %.not.i.i, label %.critedge27, label %32
@@ -2790,7 +2790,7 @@ _ZNSt10_HashtableISt5arrayIjLm2EESt4pairIKS1_N5draco9IndexTypeIjNS4_29AttributeV
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %2, ptr %32, align 8, !tbaa !118
   %33 = load ptr, ptr %0, align 8, !tbaa !91
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %.0
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.0
   %35 = load ptr, ptr %34, align 8, !tbaa !116
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %39, label %36
@@ -2816,7 +2816,7 @@ _ZNSt10_HashtableISt5arrayIjLm2EESt4pairIKS1_N5draco9IndexTypeIjNS4_29AttributeV
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 24
   %46 = load i64, ptr %45, align 8, !tbaa !118
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %33, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !116
   br label %49
 
@@ -2878,7 +2878,7 @@ _ZNSt10_HashtableISt5arrayIjLm2EESt4pairIKS1_N5draco9IndexTypeIjNS4_29AttributeV
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 24
   %16 = load i64, ptr %15, align 8, !tbaa !118
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !116
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -2893,7 +2893,7 @@ _ZNSt10_HashtableISt5arrayIjLm2EESt4pairIKS1_N5draco9IndexTypeIjNS4_29AttributeV
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8, !tbaa !116
   br label %28
 
@@ -3002,7 +3002,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableISt5arrayIjLm3EESt4pairIKS1_N5
 .critedge:                                        ; preds = %.critedge.preheader, %.critedge
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.critedge ], [ 0, %.critedge.preheader ]
   %.068.i.i = phi i64 [ %21, %.critedge ], [ 79, %.critedge.preheader ]
-  %15 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i.i
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i.i
   %16 = load i32, ptr %15, align 4, !tbaa !21
   %17 = zext i32 %16 to i64
   %18 = add i64 %.068.i.i, 1013
@@ -3021,7 +3021,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableISt5arrayIjLm3EESt4pairIKS1_N5
 
 26:                                               ; preds = %22
   %27 = load ptr, ptr %0, align 8, !tbaa !99
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %25
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %25
   %29 = load ptr, ptr %28, align 8, !tbaa !116
   %.not.i.i = icmp eq ptr %29, null
   br i1 %.not.i.i, label %.critedge27, label %30
@@ -3136,7 +3136,7 @@ _ZNSt10_HashtableISt5arrayIjLm3EESt4pairIKS1_N5draco9IndexTypeIjNS4_29AttributeV
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %2, ptr %32, align 8, !tbaa !118
   %33 = load ptr, ptr %0, align 8, !tbaa !99
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %.0
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.0
   %35 = load ptr, ptr %34, align 8, !tbaa !116
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %39, label %36
@@ -3162,7 +3162,7 @@ _ZNSt10_HashtableISt5arrayIjLm3EESt4pairIKS1_N5draco9IndexTypeIjNS4_29AttributeV
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 24
   %46 = load i64, ptr %45, align 8, !tbaa !118
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %33, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !116
   br label %49
 
@@ -3224,7 +3224,7 @@ _ZNSt10_HashtableISt5arrayIjLm3EESt4pairIKS1_N5draco9IndexTypeIjNS4_29AttributeV
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 24
   %16 = load i64, ptr %15, align 8, !tbaa !118
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !116
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -3239,7 +3239,7 @@ _ZNSt10_HashtableISt5arrayIjLm3EESt4pairIKS1_N5draco9IndexTypeIjNS4_29AttributeV
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8, !tbaa !116
   br label %28
 
@@ -3348,7 +3348,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableISt5arrayIjLm4EESt4pairIKS1_N5
 .critedge:                                        ; preds = %.critedge.preheader, %.critedge
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.critedge ], [ 0, %.critedge.preheader ]
   %.068.i.i = phi i64 [ %21, %.critedge ], [ 79, %.critedge.preheader ]
-  %15 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i.i
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i.i
   %16 = load i32, ptr %15, align 4, !tbaa !21
   %17 = zext i32 %16 to i64
   %18 = add i64 %.068.i.i, 1013
@@ -3367,7 +3367,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableISt5arrayIjLm4EESt4pairIKS1_N5
 
 26:                                               ; preds = %22
   %27 = load ptr, ptr %0, align 8, !tbaa !107
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %25
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %25
   %29 = load ptr, ptr %28, align 8, !tbaa !116
   %.not.i.i = icmp eq ptr %29, null
   br i1 %.not.i.i, label %.critedge27, label %30
@@ -3482,7 +3482,7 @@ _ZNSt10_HashtableISt5arrayIjLm4EESt4pairIKS1_N5draco9IndexTypeIjNS4_29AttributeV
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i64 %2, ptr %32, align 8, !tbaa !118
   %33 = load ptr, ptr %0, align 8, !tbaa !107
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %.0
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.0
   %35 = load ptr, ptr %34, align 8, !tbaa !116
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %39, label %36
@@ -3508,7 +3508,7 @@ _ZNSt10_HashtableISt5arrayIjLm4EESt4pairIKS1_N5draco9IndexTypeIjNS4_29AttributeV
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 32
   %46 = load i64, ptr %45, align 8, !tbaa !118
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %33, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !116
   br label %49
 
@@ -3570,7 +3570,7 @@ _ZNSt10_HashtableISt5arrayIjLm4EESt4pairIKS1_N5draco9IndexTypeIjNS4_29AttributeV
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 32
   %16 = load i64, ptr %15, align 8, !tbaa !118
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !116
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -3585,7 +3585,7 @@ _ZNSt10_HashtableISt5arrayIjLm4EESt4pairIKS1_N5draco9IndexTypeIjNS4_29AttributeV
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8, !tbaa !116
   br label %28
 
@@ -3719,7 +3719,7 @@ _ZNSt13unordered_mapISt5arrayIhLm1EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
 49:                                               ; preds = %41, %36
   %.sink = phi i32 [ %.sroa.054.066, %41 ], [ %38, %36 ]
   %.sroa.054.1 = phi i32 [ %48, %41 ], [ %.sroa.054.066, %36 ]
-  %50 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %15, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv
   store i32 %.sink, ptr %50, align 4, !tbaa !68
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %51 = load i32, ptr %11, align 8, !tbaa !21
@@ -3778,7 +3778,7 @@ _ZNSt13unordered_mapISt5arrayIhLm1EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
   br i1 %81, label %82, label %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit
 
 82:                                               ; preds = %80
-  %83 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %72, i64 %68
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %68
   %.not.i.i.i.i = icmp eq ptr %71, %83
   br i1 %.not.i.i.i.i, label %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit, label %84
 
@@ -3803,9 +3803,9 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
 
 89:                                               ; preds = %.lr.ph71, %89
   %indvars.iv80 = phi i64 [ 0, %.lr.ph71 ], [ %indvars.iv.next81, %89 ]
-  %90 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %15, i64 %indvars.iv80
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv80
   %.sroa.02.0.copyload = load i32, ptr %90, align 4, !tbaa !21
-  %91 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %86, i64 %indvars.iv80
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %86, i64 %indvars.iv80
   store i32 %.sroa.02.0.copyload, ptr %91, align 4, !tbaa !68
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %exitcond84.not = icmp eq i64 %indvars.iv.next81, %wide.trip.count83
@@ -3813,10 +3813,10 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
 
 .lr.ph69:                                         ; preds = %.lr.ph69.preheader, %.lr.ph69
   %indvars.iv77 = phi i64 [ 0, %.lr.ph69.preheader ], [ %indvars.iv.next78, %.lr.ph69 ]
-  %92 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %61, i64 %indvars.iv77
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %indvars.iv77
   %93 = load i32, ptr %92, align 4, !tbaa !68
   %94 = zext i32 %93 to i64
-  %95 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %15, i64 %94
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %94
   %.sroa.0.0.copyload = load i32, ptr %95, align 4, !tbaa !21
   store i32 %.sroa.0.0.copyload, ptr %92, align 4, !tbaa !68
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
@@ -3978,7 +3978,7 @@ _ZNSt13unordered_mapISt5arrayIhLm2EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
 49:                                               ; preds = %41, %36
   %.sink = phi i32 [ %.sroa.054.066, %41 ], [ %38, %36 ]
   %.sroa.054.1 = phi i32 [ %48, %41 ], [ %.sroa.054.066, %36 ]
-  %50 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %15, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv
   store i32 %.sink, ptr %50, align 4, !tbaa !68
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %51 = load i32, ptr %11, align 8, !tbaa !21
@@ -4037,7 +4037,7 @@ _ZNSt13unordered_mapISt5arrayIhLm2EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
   br i1 %81, label %82, label %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit
 
 82:                                               ; preds = %80
-  %83 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %72, i64 %68
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %68
   %.not.i.i.i.i = icmp eq ptr %71, %83
   br i1 %.not.i.i.i.i, label %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit, label %84
 
@@ -4062,9 +4062,9 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
 
 89:                                               ; preds = %.lr.ph71, %89
   %indvars.iv80 = phi i64 [ 0, %.lr.ph71 ], [ %indvars.iv.next81, %89 ]
-  %90 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %15, i64 %indvars.iv80
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv80
   %.sroa.02.0.copyload = load i32, ptr %90, align 4, !tbaa !21
-  %91 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %86, i64 %indvars.iv80
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %86, i64 %indvars.iv80
   store i32 %.sroa.02.0.copyload, ptr %91, align 4, !tbaa !68
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %exitcond84.not = icmp eq i64 %indvars.iv.next81, %wide.trip.count83
@@ -4072,10 +4072,10 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
 
 .lr.ph69:                                         ; preds = %.lr.ph69.preheader, %.lr.ph69
   %indvars.iv77 = phi i64 [ 0, %.lr.ph69.preheader ], [ %indvars.iv.next78, %.lr.ph69 ]
-  %92 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %61, i64 %indvars.iv77
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %indvars.iv77
   %93 = load i32, ptr %92, align 4, !tbaa !68
   %94 = zext i32 %93 to i64
-  %95 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %15, i64 %94
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %94
   %.sroa.0.0.copyload = load i32, ptr %95, align 4, !tbaa !21
   store i32 %.sroa.0.0.copyload, ptr %92, align 4, !tbaa !68
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
@@ -4237,7 +4237,7 @@ _ZNSt13unordered_mapISt5arrayIhLm3EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
 49:                                               ; preds = %41, %36
   %.sink = phi i32 [ %.sroa.054.066, %41 ], [ %38, %36 ]
   %.sroa.054.1 = phi i32 [ %48, %41 ], [ %.sroa.054.066, %36 ]
-  %50 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %15, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv
   store i32 %.sink, ptr %50, align 4, !tbaa !68
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %51 = load i32, ptr %11, align 8, !tbaa !21
@@ -4296,7 +4296,7 @@ _ZNSt13unordered_mapISt5arrayIhLm3EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
   br i1 %81, label %82, label %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit
 
 82:                                               ; preds = %80
-  %83 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %72, i64 %68
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %68
   %.not.i.i.i.i = icmp eq ptr %71, %83
   br i1 %.not.i.i.i.i, label %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit, label %84
 
@@ -4321,9 +4321,9 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
 
 89:                                               ; preds = %.lr.ph71, %89
   %indvars.iv80 = phi i64 [ 0, %.lr.ph71 ], [ %indvars.iv.next81, %89 ]
-  %90 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %15, i64 %indvars.iv80
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv80
   %.sroa.02.0.copyload = load i32, ptr %90, align 4, !tbaa !21
-  %91 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %86, i64 %indvars.iv80
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %86, i64 %indvars.iv80
   store i32 %.sroa.02.0.copyload, ptr %91, align 4, !tbaa !68
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %exitcond84.not = icmp eq i64 %indvars.iv.next81, %wide.trip.count83
@@ -4331,10 +4331,10 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
 
 .lr.ph69:                                         ; preds = %.lr.ph69.preheader, %.lr.ph69
   %indvars.iv77 = phi i64 [ 0, %.lr.ph69.preheader ], [ %indvars.iv.next78, %.lr.ph69 ]
-  %92 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %61, i64 %indvars.iv77
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %indvars.iv77
   %93 = load i32, ptr %92, align 4, !tbaa !68
   %94 = zext i32 %93 to i64
-  %95 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %15, i64 %94
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %94
   %.sroa.0.0.copyload = load i32, ptr %95, align 4, !tbaa !21
   store i32 %.sroa.0.0.copyload, ptr %92, align 4, !tbaa !68
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
@@ -4496,7 +4496,7 @@ _ZNSt13unordered_mapISt5arrayIhLm4EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
 49:                                               ; preds = %41, %36
   %.sink = phi i32 [ %.sroa.054.066, %41 ], [ %38, %36 ]
   %.sroa.054.1 = phi i32 [ %48, %41 ], [ %.sroa.054.066, %36 ]
-  %50 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %15, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv
   store i32 %.sink, ptr %50, align 4, !tbaa !68
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %51 = load i32, ptr %11, align 8, !tbaa !21
@@ -4555,7 +4555,7 @@ _ZNSt13unordered_mapISt5arrayIhLm4EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
   br i1 %81, label %82, label %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit
 
 82:                                               ; preds = %80
-  %83 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %72, i64 %68
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %68
   %.not.i.i.i.i = icmp eq ptr %71, %83
   br i1 %.not.i.i.i.i, label %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit, label %84
 
@@ -4580,9 +4580,9 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
 
 89:                                               ; preds = %.lr.ph71, %89
   %indvars.iv80 = phi i64 [ 0, %.lr.ph71 ], [ %indvars.iv.next81, %89 ]
-  %90 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %15, i64 %indvars.iv80
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv80
   %.sroa.02.0.copyload = load i32, ptr %90, align 4, !tbaa !21
-  %91 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %86, i64 %indvars.iv80
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %86, i64 %indvars.iv80
   store i32 %.sroa.02.0.copyload, ptr %91, align 4, !tbaa !68
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %exitcond84.not = icmp eq i64 %indvars.iv.next81, %wide.trip.count83
@@ -4590,10 +4590,10 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
 
 .lr.ph69:                                         ; preds = %.lr.ph69.preheader, %.lr.ph69
   %indvars.iv77 = phi i64 [ 0, %.lr.ph69.preheader ], [ %indvars.iv.next78, %.lr.ph69 ]
-  %92 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %61, i64 %indvars.iv77
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %indvars.iv77
   %93 = load i32, ptr %92, align 4, !tbaa !68
   %94 = zext i32 %93 to i64
-  %95 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %15, i64 %94
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %94
   %.sroa.0.0.copyload = load i32, ptr %95, align 4, !tbaa !21
   store i32 %.sroa.0.0.copyload, ptr %92, align 4, !tbaa !68
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
@@ -4718,7 +4718,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableISt5arrayIhLm1EESt4pairIKS1_N5
   %16 = load i64, ptr %15, align 8, !tbaa !150
   %17 = urem i64 %14, %16
   %18 = load ptr, ptr %0, align 8, !tbaa !148
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %17
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %17
   %20 = load ptr, ptr %19, align 8, !tbaa !116
   %.not.i.i = icmp eq ptr %20, null
   br i1 %.not.i.i, label %.critedge27, label %34
@@ -4866,7 +4866,7 @@ _ZNSt10_HashtableISt5arrayIhLm1EESt4pairIKS1_N5draco9IndexTypeIjNS4_29AttributeV
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %2, ptr %32, align 8, !tbaa !118
   %33 = load ptr, ptr %0, align 8, !tbaa !148
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %.0
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.0
   %35 = load ptr, ptr %34, align 8, !tbaa !116
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %39, label %36
@@ -4892,7 +4892,7 @@ _ZNSt10_HashtableISt5arrayIhLm1EESt4pairIKS1_N5draco9IndexTypeIjNS4_29AttributeV
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %46 = load i64, ptr %45, align 8, !tbaa !118
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %33, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !116
   br label %49
 
@@ -4954,7 +4954,7 @@ _ZNSt10_HashtableISt5arrayIhLm1EESt4pairIKS1_N5draco9IndexTypeIjNS4_29AttributeV
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 16
   %16 = load i64, ptr %15, align 8, !tbaa !118
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !116
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -4969,7 +4969,7 @@ _ZNSt10_HashtableISt5arrayIhLm1EESt4pairIKS1_N5draco9IndexTypeIjNS4_29AttributeV
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8, !tbaa !116
   br label %28
 
@@ -5097,7 +5097,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableISt5arrayIhLm2EESt4pairIKS1_N5
 
 28:                                               ; preds = %24
   %29 = load ptr, ptr %0, align 8, !tbaa !156
-  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %27
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %27
   %31 = load ptr, ptr %30, align 8, !tbaa !116
   %.not.i.i = icmp eq ptr %31, null
   br i1 %.not.i.i, label %.critedge27, label %32
@@ -5212,7 +5212,7 @@ _ZNSt10_HashtableISt5arrayIhLm2EESt4pairIKS1_N5draco9IndexTypeIjNS4_29AttributeV
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %2, ptr %32, align 8, !tbaa !118
   %33 = load ptr, ptr %0, align 8, !tbaa !156
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %.0
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.0
   %35 = load ptr, ptr %34, align 8, !tbaa !116
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %39, label %36
@@ -5238,7 +5238,7 @@ _ZNSt10_HashtableISt5arrayIhLm2EESt4pairIKS1_N5draco9IndexTypeIjNS4_29AttributeV
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %46 = load i64, ptr %45, align 8, !tbaa !118
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %33, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !116
   br label %49
 
@@ -5300,7 +5300,7 @@ _ZNSt10_HashtableISt5arrayIhLm2EESt4pairIKS1_N5draco9IndexTypeIjNS4_29AttributeV
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 16
   %16 = load i64, ptr %15, align 8, !tbaa !118
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !116
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -5315,7 +5315,7 @@ _ZNSt10_HashtableISt5arrayIhLm2EESt4pairIKS1_N5draco9IndexTypeIjNS4_29AttributeV
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8, !tbaa !116
   br label %28
 
@@ -5443,7 +5443,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableISt5arrayIhLm3EESt4pairIKS1_N5
 
 26:                                               ; preds = %22
   %27 = load ptr, ptr %0, align 8, !tbaa !164
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %25
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %25
   %29 = load ptr, ptr %28, align 8, !tbaa !116
   %.not.i.i = icmp eq ptr %29, null
   br i1 %.not.i.i, label %.critedge27, label %30
@@ -5558,7 +5558,7 @@ _ZNSt10_HashtableISt5arrayIhLm3EESt4pairIKS1_N5draco9IndexTypeIjNS4_29AttributeV
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %2, ptr %32, align 8, !tbaa !118
   %33 = load ptr, ptr %0, align 8, !tbaa !164
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %.0
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.0
   %35 = load ptr, ptr %34, align 8, !tbaa !116
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %39, label %36
@@ -5584,7 +5584,7 @@ _ZNSt10_HashtableISt5arrayIhLm3EESt4pairIKS1_N5draco9IndexTypeIjNS4_29AttributeV
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %46 = load i64, ptr %45, align 8, !tbaa !118
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %33, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !116
   br label %49
 
@@ -5646,7 +5646,7 @@ _ZNSt10_HashtableISt5arrayIhLm3EESt4pairIKS1_N5draco9IndexTypeIjNS4_29AttributeV
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 16
   %16 = load i64, ptr %15, align 8, !tbaa !118
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !116
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -5661,7 +5661,7 @@ _ZNSt10_HashtableISt5arrayIhLm3EESt4pairIKS1_N5draco9IndexTypeIjNS4_29AttributeV
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8, !tbaa !116
   br label %28
 
@@ -5790,7 +5790,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableISt5arrayIhLm4EESt4pairIKS1_N5
 
 27:                                               ; preds = %23
   %28 = load ptr, ptr %0, align 8, !tbaa !172
-  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %26
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %26
   %30 = load ptr, ptr %29, align 8, !tbaa !116
   %.not.i.i = icmp eq ptr %30, null
   br i1 %.not.i.i, label %.critedge27, label %31
@@ -5905,7 +5905,7 @@ _ZNSt10_HashtableISt5arrayIhLm4EESt4pairIKS1_N5draco9IndexTypeIjNS4_29AttributeV
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %2, ptr %32, align 8, !tbaa !118
   %33 = load ptr, ptr %0, align 8, !tbaa !172
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %.0
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.0
   %35 = load ptr, ptr %34, align 8, !tbaa !116
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %39, label %36
@@ -5931,7 +5931,7 @@ _ZNSt10_HashtableISt5arrayIhLm4EESt4pairIKS1_N5draco9IndexTypeIjNS4_29AttributeV
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %46 = load i64, ptr %45, align 8, !tbaa !118
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %33, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !116
   br label %49
 
@@ -5993,7 +5993,7 @@ _ZNSt10_HashtableISt5arrayIhLm4EESt4pairIKS1_N5draco9IndexTypeIjNS4_29AttributeV
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 16
   %16 = load i64, ptr %15, align 8, !tbaa !118
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !116
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -6008,7 +6008,7 @@ _ZNSt10_HashtableISt5arrayIhLm4EESt4pairIKS1_N5draco9IndexTypeIjNS4_29AttributeV
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8, !tbaa !116
   br label %28
 
@@ -6142,7 +6142,7 @@ _ZNSt13unordered_mapISt5arrayIhLm1EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
 49:                                               ; preds = %41, %36
   %.sink = phi i32 [ %.sroa.054.066, %41 ], [ %38, %36 ]
   %.sroa.054.1 = phi i32 [ %48, %41 ], [ %.sroa.054.066, %36 ]
-  %50 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %15, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv
   store i32 %.sink, ptr %50, align 4, !tbaa !68
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %51 = load i32, ptr %11, align 8, !tbaa !21
@@ -6201,7 +6201,7 @@ _ZNSt13unordered_mapISt5arrayIhLm1EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
   br i1 %81, label %82, label %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit
 
 82:                                               ; preds = %80
-  %83 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %72, i64 %68
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %68
   %.not.i.i.i.i = icmp eq ptr %71, %83
   br i1 %.not.i.i.i.i, label %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit, label %84
 
@@ -6226,9 +6226,9 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
 
 89:                                               ; preds = %.lr.ph71, %89
   %indvars.iv80 = phi i64 [ 0, %.lr.ph71 ], [ %indvars.iv.next81, %89 ]
-  %90 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %15, i64 %indvars.iv80
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv80
   %.sroa.02.0.copyload = load i32, ptr %90, align 4, !tbaa !21
-  %91 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %86, i64 %indvars.iv80
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %86, i64 %indvars.iv80
   store i32 %.sroa.02.0.copyload, ptr %91, align 4, !tbaa !68
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %exitcond84.not = icmp eq i64 %indvars.iv.next81, %wide.trip.count83
@@ -6236,10 +6236,10 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
 
 .lr.ph69:                                         ; preds = %.lr.ph69.preheader, %.lr.ph69
   %indvars.iv77 = phi i64 [ 0, %.lr.ph69.preheader ], [ %indvars.iv.next78, %.lr.ph69 ]
-  %92 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %61, i64 %indvars.iv77
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %indvars.iv77
   %93 = load i32, ptr %92, align 4, !tbaa !68
   %94 = zext i32 %93 to i64
-  %95 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %15, i64 %94
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %94
   %.sroa.0.0.copyload = load i32, ptr %95, align 4, !tbaa !21
   store i32 %.sroa.0.0.copyload, ptr %92, align 4, !tbaa !68
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
@@ -6401,7 +6401,7 @@ _ZNSt13unordered_mapISt5arrayIhLm2EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
 49:                                               ; preds = %41, %36
   %.sink = phi i32 [ %.sroa.054.066, %41 ], [ %38, %36 ]
   %.sroa.054.1 = phi i32 [ %48, %41 ], [ %.sroa.054.066, %36 ]
-  %50 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %15, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv
   store i32 %.sink, ptr %50, align 4, !tbaa !68
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %51 = load i32, ptr %11, align 8, !tbaa !21
@@ -6460,7 +6460,7 @@ _ZNSt13unordered_mapISt5arrayIhLm2EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
   br i1 %81, label %82, label %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit
 
 82:                                               ; preds = %80
-  %83 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %72, i64 %68
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %68
   %.not.i.i.i.i = icmp eq ptr %71, %83
   br i1 %.not.i.i.i.i, label %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit, label %84
 
@@ -6485,9 +6485,9 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
 
 89:                                               ; preds = %.lr.ph71, %89
   %indvars.iv80 = phi i64 [ 0, %.lr.ph71 ], [ %indvars.iv.next81, %89 ]
-  %90 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %15, i64 %indvars.iv80
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv80
   %.sroa.02.0.copyload = load i32, ptr %90, align 4, !tbaa !21
-  %91 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %86, i64 %indvars.iv80
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %86, i64 %indvars.iv80
   store i32 %.sroa.02.0.copyload, ptr %91, align 4, !tbaa !68
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %exitcond84.not = icmp eq i64 %indvars.iv.next81, %wide.trip.count83
@@ -6495,10 +6495,10 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
 
 .lr.ph69:                                         ; preds = %.lr.ph69.preheader, %.lr.ph69
   %indvars.iv77 = phi i64 [ 0, %.lr.ph69.preheader ], [ %indvars.iv.next78, %.lr.ph69 ]
-  %92 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %61, i64 %indvars.iv77
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %indvars.iv77
   %93 = load i32, ptr %92, align 4, !tbaa !68
   %94 = zext i32 %93 to i64
-  %95 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %15, i64 %94
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %94
   %.sroa.0.0.copyload = load i32, ptr %95, align 4, !tbaa !21
   store i32 %.sroa.0.0.copyload, ptr %92, align 4, !tbaa !68
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
@@ -6660,7 +6660,7 @@ _ZNSt13unordered_mapISt5arrayIhLm3EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
 49:                                               ; preds = %41, %36
   %.sink = phi i32 [ %.sroa.054.066, %41 ], [ %38, %36 ]
   %.sroa.054.1 = phi i32 [ %48, %41 ], [ %.sroa.054.066, %36 ]
-  %50 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %15, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv
   store i32 %.sink, ptr %50, align 4, !tbaa !68
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %51 = load i32, ptr %11, align 8, !tbaa !21
@@ -6719,7 +6719,7 @@ _ZNSt13unordered_mapISt5arrayIhLm3EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
   br i1 %81, label %82, label %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit
 
 82:                                               ; preds = %80
-  %83 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %72, i64 %68
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %68
   %.not.i.i.i.i = icmp eq ptr %71, %83
   br i1 %.not.i.i.i.i, label %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit, label %84
 
@@ -6744,9 +6744,9 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
 
 89:                                               ; preds = %.lr.ph71, %89
   %indvars.iv80 = phi i64 [ 0, %.lr.ph71 ], [ %indvars.iv.next81, %89 ]
-  %90 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %15, i64 %indvars.iv80
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv80
   %.sroa.02.0.copyload = load i32, ptr %90, align 4, !tbaa !21
-  %91 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %86, i64 %indvars.iv80
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %86, i64 %indvars.iv80
   store i32 %.sroa.02.0.copyload, ptr %91, align 4, !tbaa !68
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %exitcond84.not = icmp eq i64 %indvars.iv.next81, %wide.trip.count83
@@ -6754,10 +6754,10 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
 
 .lr.ph69:                                         ; preds = %.lr.ph69.preheader, %.lr.ph69
   %indvars.iv77 = phi i64 [ 0, %.lr.ph69.preheader ], [ %indvars.iv.next78, %.lr.ph69 ]
-  %92 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %61, i64 %indvars.iv77
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %indvars.iv77
   %93 = load i32, ptr %92, align 4, !tbaa !68
   %94 = zext i32 %93 to i64
-  %95 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %15, i64 %94
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %94
   %.sroa.0.0.copyload = load i32, ptr %95, align 4, !tbaa !21
   store i32 %.sroa.0.0.copyload, ptr %92, align 4, !tbaa !68
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
@@ -6919,7 +6919,7 @@ _ZNSt13unordered_mapISt5arrayIhLm4EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
 49:                                               ; preds = %41, %36
   %.sink = phi i32 [ %.sroa.054.066, %41 ], [ %38, %36 ]
   %.sroa.054.1 = phi i32 [ %48, %41 ], [ %.sroa.054.066, %36 ]
-  %50 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %15, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv
   store i32 %.sink, ptr %50, align 4, !tbaa !68
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %51 = load i32, ptr %11, align 8, !tbaa !21
@@ -6978,7 +6978,7 @@ _ZNSt13unordered_mapISt5arrayIhLm4EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
   br i1 %81, label %82, label %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit
 
 82:                                               ; preds = %80
-  %83 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %72, i64 %68
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %68
   %.not.i.i.i.i = icmp eq ptr %71, %83
   br i1 %.not.i.i.i.i, label %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit, label %84
 
@@ -7003,9 +7003,9 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
 
 89:                                               ; preds = %.lr.ph71, %89
   %indvars.iv80 = phi i64 [ 0, %.lr.ph71 ], [ %indvars.iv.next81, %89 ]
-  %90 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %15, i64 %indvars.iv80
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv80
   %.sroa.02.0.copyload = load i32, ptr %90, align 4, !tbaa !21
-  %91 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %86, i64 %indvars.iv80
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %86, i64 %indvars.iv80
   store i32 %.sroa.02.0.copyload, ptr %91, align 4, !tbaa !68
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %exitcond84.not = icmp eq i64 %indvars.iv.next81, %wide.trip.count83
@@ -7013,10 +7013,10 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
 
 .lr.ph69:                                         ; preds = %.lr.ph69.preheader, %.lr.ph69
   %indvars.iv77 = phi i64 [ 0, %.lr.ph69.preheader ], [ %indvars.iv.next78, %.lr.ph69 ]
-  %92 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %61, i64 %indvars.iv77
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %indvars.iv77
   %93 = load i32, ptr %92, align 4, !tbaa !68
   %94 = zext i32 %93 to i64
-  %95 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %15, i64 %94
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %94
   %.sroa.0.0.copyload = load i32, ptr %95, align 4, !tbaa !21
   store i32 %.sroa.0.0.copyload, ptr %92, align 4, !tbaa !68
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
@@ -7178,7 +7178,7 @@ _ZNSt13unordered_mapISt5arrayItLm1EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
 49:                                               ; preds = %41, %36
   %.sink = phi i32 [ %.sroa.054.066, %41 ], [ %38, %36 ]
   %.sroa.054.1 = phi i32 [ %48, %41 ], [ %.sroa.054.066, %36 ]
-  %50 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %15, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv
   store i32 %.sink, ptr %50, align 4, !tbaa !68
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %51 = load i32, ptr %11, align 8, !tbaa !21
@@ -7237,7 +7237,7 @@ _ZNSt13unordered_mapISt5arrayItLm1EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
   br i1 %81, label %82, label %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit
 
 82:                                               ; preds = %80
-  %83 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %72, i64 %68
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %68
   %.not.i.i.i.i = icmp eq ptr %71, %83
   br i1 %.not.i.i.i.i, label %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit, label %84
 
@@ -7262,9 +7262,9 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
 
 89:                                               ; preds = %.lr.ph71, %89
   %indvars.iv80 = phi i64 [ 0, %.lr.ph71 ], [ %indvars.iv.next81, %89 ]
-  %90 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %15, i64 %indvars.iv80
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv80
   %.sroa.02.0.copyload = load i32, ptr %90, align 4, !tbaa !21
-  %91 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %86, i64 %indvars.iv80
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %86, i64 %indvars.iv80
   store i32 %.sroa.02.0.copyload, ptr %91, align 4, !tbaa !68
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %exitcond84.not = icmp eq i64 %indvars.iv.next81, %wide.trip.count83
@@ -7272,10 +7272,10 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
 
 .lr.ph69:                                         ; preds = %.lr.ph69.preheader, %.lr.ph69
   %indvars.iv77 = phi i64 [ 0, %.lr.ph69.preheader ], [ %indvars.iv.next78, %.lr.ph69 ]
-  %92 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %61, i64 %indvars.iv77
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %indvars.iv77
   %93 = load i32, ptr %92, align 4, !tbaa !68
   %94 = zext i32 %93 to i64
-  %95 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %15, i64 %94
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %94
   %.sroa.0.0.copyload = load i32, ptr %95, align 4, !tbaa !21
   store i32 %.sroa.0.0.copyload, ptr %92, align 4, !tbaa !68
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
@@ -7437,7 +7437,7 @@ _ZNSt13unordered_mapISt5arrayItLm2EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
 49:                                               ; preds = %41, %36
   %.sink = phi i32 [ %.sroa.054.066, %41 ], [ %38, %36 ]
   %.sroa.054.1 = phi i32 [ %48, %41 ], [ %.sroa.054.066, %36 ]
-  %50 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %15, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv
   store i32 %.sink, ptr %50, align 4, !tbaa !68
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %51 = load i32, ptr %11, align 8, !tbaa !21
@@ -7496,7 +7496,7 @@ _ZNSt13unordered_mapISt5arrayItLm2EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
   br i1 %81, label %82, label %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit
 
 82:                                               ; preds = %80
-  %83 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %72, i64 %68
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %68
   %.not.i.i.i.i = icmp eq ptr %71, %83
   br i1 %.not.i.i.i.i, label %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit, label %84
 
@@ -7521,9 +7521,9 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
 
 89:                                               ; preds = %.lr.ph71, %89
   %indvars.iv80 = phi i64 [ 0, %.lr.ph71 ], [ %indvars.iv.next81, %89 ]
-  %90 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %15, i64 %indvars.iv80
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv80
   %.sroa.02.0.copyload = load i32, ptr %90, align 4, !tbaa !21
-  %91 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %86, i64 %indvars.iv80
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %86, i64 %indvars.iv80
   store i32 %.sroa.02.0.copyload, ptr %91, align 4, !tbaa !68
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %exitcond84.not = icmp eq i64 %indvars.iv.next81, %wide.trip.count83
@@ -7531,10 +7531,10 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
 
 .lr.ph69:                                         ; preds = %.lr.ph69.preheader, %.lr.ph69
   %indvars.iv77 = phi i64 [ 0, %.lr.ph69.preheader ], [ %indvars.iv.next78, %.lr.ph69 ]
-  %92 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %61, i64 %indvars.iv77
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %indvars.iv77
   %93 = load i32, ptr %92, align 4, !tbaa !68
   %94 = zext i32 %93 to i64
-  %95 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %15, i64 %94
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %94
   %.sroa.0.0.copyload = load i32, ptr %95, align 4, !tbaa !21
   store i32 %.sroa.0.0.copyload, ptr %92, align 4, !tbaa !68
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
@@ -7696,7 +7696,7 @@ _ZNSt13unordered_mapISt5arrayItLm3EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
 49:                                               ; preds = %41, %36
   %.sink = phi i32 [ %.sroa.054.066, %41 ], [ %38, %36 ]
   %.sroa.054.1 = phi i32 [ %48, %41 ], [ %.sroa.054.066, %36 ]
-  %50 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %15, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv
   store i32 %.sink, ptr %50, align 4, !tbaa !68
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %51 = load i32, ptr %11, align 8, !tbaa !21
@@ -7755,7 +7755,7 @@ _ZNSt13unordered_mapISt5arrayItLm3EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
   br i1 %81, label %82, label %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit
 
 82:                                               ; preds = %80
-  %83 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %72, i64 %68
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %68
   %.not.i.i.i.i = icmp eq ptr %71, %83
   br i1 %.not.i.i.i.i, label %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit, label %84
 
@@ -7780,9 +7780,9 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
 
 89:                                               ; preds = %.lr.ph71, %89
   %indvars.iv80 = phi i64 [ 0, %.lr.ph71 ], [ %indvars.iv.next81, %89 ]
-  %90 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %15, i64 %indvars.iv80
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv80
   %.sroa.02.0.copyload = load i32, ptr %90, align 4, !tbaa !21
-  %91 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %86, i64 %indvars.iv80
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %86, i64 %indvars.iv80
   store i32 %.sroa.02.0.copyload, ptr %91, align 4, !tbaa !68
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %exitcond84.not = icmp eq i64 %indvars.iv.next81, %wide.trip.count83
@@ -7790,10 +7790,10 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
 
 .lr.ph69:                                         ; preds = %.lr.ph69.preheader, %.lr.ph69
   %indvars.iv77 = phi i64 [ 0, %.lr.ph69.preheader ], [ %indvars.iv.next78, %.lr.ph69 ]
-  %92 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %61, i64 %indvars.iv77
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %indvars.iv77
   %93 = load i32, ptr %92, align 4, !tbaa !68
   %94 = zext i32 %93 to i64
-  %95 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %15, i64 %94
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %94
   %.sroa.0.0.copyload = load i32, ptr %95, align 4, !tbaa !21
   store i32 %.sroa.0.0.copyload, ptr %92, align 4, !tbaa !68
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
@@ -7955,7 +7955,7 @@ _ZNSt13unordered_mapISt5arrayItLm4EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
 49:                                               ; preds = %41, %36
   %.sink = phi i32 [ %.sroa.054.066, %41 ], [ %38, %36 ]
   %.sroa.054.1 = phi i32 [ %48, %41 ], [ %.sroa.054.066, %36 ]
-  %50 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %15, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv
   store i32 %.sink, ptr %50, align 4, !tbaa !68
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %51 = load i32, ptr %11, align 8, !tbaa !21
@@ -8014,7 +8014,7 @@ _ZNSt13unordered_mapISt5arrayItLm4EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
   br i1 %81, label %82, label %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit
 
 82:                                               ; preds = %80
-  %83 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %72, i64 %68
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %68
   %.not.i.i.i.i = icmp eq ptr %71, %83
   br i1 %.not.i.i.i.i, label %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit, label %84
 
@@ -8039,9 +8039,9 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
 
 89:                                               ; preds = %.lr.ph71, %89
   %indvars.iv80 = phi i64 [ 0, %.lr.ph71 ], [ %indvars.iv.next81, %89 ]
-  %90 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %15, i64 %indvars.iv80
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv80
   %.sroa.02.0.copyload = load i32, ptr %90, align 4, !tbaa !21
-  %91 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %86, i64 %indvars.iv80
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %86, i64 %indvars.iv80
   store i32 %.sroa.02.0.copyload, ptr %91, align 4, !tbaa !68
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %exitcond84.not = icmp eq i64 %indvars.iv.next81, %wide.trip.count83
@@ -8049,10 +8049,10 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
 
 .lr.ph69:                                         ; preds = %.lr.ph69.preheader, %.lr.ph69
   %indvars.iv77 = phi i64 [ 0, %.lr.ph69.preheader ], [ %indvars.iv.next78, %.lr.ph69 ]
-  %92 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %61, i64 %indvars.iv77
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %indvars.iv77
   %93 = load i32, ptr %92, align 4, !tbaa !68
   %94 = zext i32 %93 to i64
-  %95 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %15, i64 %94
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %94
   %.sroa.0.0.copyload = load i32, ptr %95, align 4, !tbaa !21
   store i32 %.sroa.0.0.copyload, ptr %92, align 4, !tbaa !68
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
@@ -8177,7 +8177,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableISt5arrayItLm1EESt4pairIKS1_N5
   %16 = load i64, ptr %15, align 8, !tbaa !218
   %17 = urem i64 %14, %16
   %18 = load ptr, ptr %0, align 8, !tbaa !216
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %17
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %17
   %20 = load ptr, ptr %19, align 8, !tbaa !116
   %.not.i.i = icmp eq ptr %20, null
   br i1 %.not.i.i, label %.critedge27, label %34
@@ -8325,7 +8325,7 @@ _ZNSt10_HashtableISt5arrayItLm1EESt4pairIKS1_N5draco9IndexTypeIjNS4_29AttributeV
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %2, ptr %32, align 8, !tbaa !118
   %33 = load ptr, ptr %0, align 8, !tbaa !216
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %.0
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.0
   %35 = load ptr, ptr %34, align 8, !tbaa !116
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %39, label %36
@@ -8351,7 +8351,7 @@ _ZNSt10_HashtableISt5arrayItLm1EESt4pairIKS1_N5draco9IndexTypeIjNS4_29AttributeV
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %46 = load i64, ptr %45, align 8, !tbaa !118
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %33, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !116
   br label %49
 
@@ -8413,7 +8413,7 @@ _ZNSt10_HashtableISt5arrayItLm1EESt4pairIKS1_N5draco9IndexTypeIjNS4_29AttributeV
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 16
   %16 = load i64, ptr %15, align 8, !tbaa !118
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !116
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -8428,7 +8428,7 @@ _ZNSt10_HashtableISt5arrayItLm1EESt4pairIKS1_N5draco9IndexTypeIjNS4_29AttributeV
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8, !tbaa !116
   br label %28
 
@@ -8539,7 +8539,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableISt5arrayItLm2EESt4pairIKS1_N5
   %16 = phi i1 [ false, %.critedge ], [ true, %.critedge.preheader ]
   %indvars.iv.i.i = phi i64 [ 1, %.critedge ], [ 0, %.critedge.preheader ]
   %.068.i.i = phi i64 [ %23, %.critedge ], [ 79, %.critedge.preheader ]
-  %17 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv.i.i
+  %17 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %indvars.iv.i.i
   %18 = load i16, ptr %17, align 2, !tbaa !255
   %19 = zext i16 %18 to i64
   %20 = add i64 %.068.i.i, 1013
@@ -8556,7 +8556,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableISt5arrayItLm2EESt4pairIKS1_N5
 
 28:                                               ; preds = %24
   %29 = load ptr, ptr %0, align 8, !tbaa !224
-  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %27
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %27
   %31 = load ptr, ptr %30, align 8, !tbaa !116
   %.not.i.i = icmp eq ptr %31, null
   br i1 %.not.i.i, label %.critedge27, label %32
@@ -8671,7 +8671,7 @@ _ZNSt10_HashtableISt5arrayItLm2EESt4pairIKS1_N5draco9IndexTypeIjNS4_29AttributeV
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %2, ptr %32, align 8, !tbaa !118
   %33 = load ptr, ptr %0, align 8, !tbaa !224
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %.0
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.0
   %35 = load ptr, ptr %34, align 8, !tbaa !116
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %39, label %36
@@ -8697,7 +8697,7 @@ _ZNSt10_HashtableISt5arrayItLm2EESt4pairIKS1_N5draco9IndexTypeIjNS4_29AttributeV
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %46 = load i64, ptr %45, align 8, !tbaa !118
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %33, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !116
   br label %49
 
@@ -8759,7 +8759,7 @@ _ZNSt10_HashtableISt5arrayItLm2EESt4pairIKS1_N5draco9IndexTypeIjNS4_29AttributeV
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 16
   %16 = load i64, ptr %15, align 8, !tbaa !118
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !116
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -8774,7 +8774,7 @@ _ZNSt10_HashtableISt5arrayItLm2EESt4pairIKS1_N5draco9IndexTypeIjNS4_29AttributeV
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8, !tbaa !116
   br label %28
 
@@ -8883,7 +8883,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableISt5arrayItLm3EESt4pairIKS1_N5
 .critedge:                                        ; preds = %.critedge.preheader, %.critedge
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.critedge ], [ 0, %.critedge.preheader ]
   %.068.i.i = phi i64 [ %21, %.critedge ], [ 79, %.critedge.preheader ]
-  %15 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv.i.i
+  %15 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %indvars.iv.i.i
   %16 = load i16, ptr %15, align 2, !tbaa !255
   %17 = zext i16 %16 to i64
   %18 = add i64 %.068.i.i, 1013
@@ -8902,7 +8902,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableISt5arrayItLm3EESt4pairIKS1_N5
 
 26:                                               ; preds = %22
   %27 = load ptr, ptr %0, align 8, !tbaa !232
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %25
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %25
   %29 = load ptr, ptr %28, align 8, !tbaa !116
   %.not.i.i = icmp eq ptr %29, null
   br i1 %.not.i.i, label %.critedge27, label %30
@@ -9017,7 +9017,7 @@ _ZNSt10_HashtableISt5arrayItLm3EESt4pairIKS1_N5draco9IndexTypeIjNS4_29AttributeV
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %2, ptr %32, align 8, !tbaa !118
   %33 = load ptr, ptr %0, align 8, !tbaa !232
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %.0
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.0
   %35 = load ptr, ptr %34, align 8, !tbaa !116
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %39, label %36
@@ -9043,7 +9043,7 @@ _ZNSt10_HashtableISt5arrayItLm3EESt4pairIKS1_N5draco9IndexTypeIjNS4_29AttributeV
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 24
   %46 = load i64, ptr %45, align 8, !tbaa !118
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %33, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !116
   br label %49
 
@@ -9105,7 +9105,7 @@ _ZNSt10_HashtableISt5arrayItLm3EESt4pairIKS1_N5draco9IndexTypeIjNS4_29AttributeV
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 24
   %16 = load i64, ptr %15, align 8, !tbaa !118
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !116
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -9120,7 +9120,7 @@ _ZNSt10_HashtableISt5arrayItLm3EESt4pairIKS1_N5draco9IndexTypeIjNS4_29AttributeV
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8, !tbaa !116
   br label %28
 
@@ -9230,7 +9230,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableISt5arrayItLm4EESt4pairIKS1_N5
 .critedge:                                        ; preds = %.critedge.preheader, %.critedge
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.critedge ], [ 0, %.critedge.preheader ]
   %.068.i.i = phi i64 [ %22, %.critedge ], [ 79, %.critedge.preheader ]
-  %16 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv.i.i
+  %16 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %indvars.iv.i.i
   %17 = load i16, ptr %16, align 2, !tbaa !255
   %18 = zext i16 %17 to i64
   %19 = add i64 %.068.i.i, 1013
@@ -9249,7 +9249,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableISt5arrayItLm4EESt4pairIKS1_N5
 
 27:                                               ; preds = %23
   %28 = load ptr, ptr %0, align 8, !tbaa !240
-  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %26
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %26
   %30 = load ptr, ptr %29, align 8, !tbaa !116
   %.not.i.i = icmp eq ptr %30, null
   br i1 %.not.i.i, label %.critedge27, label %31
@@ -9364,7 +9364,7 @@ _ZNSt10_HashtableISt5arrayItLm4EESt4pairIKS1_N5draco9IndexTypeIjNS4_29AttributeV
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %2, ptr %32, align 8, !tbaa !118
   %33 = load ptr, ptr %0, align 8, !tbaa !240
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %.0
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.0
   %35 = load ptr, ptr %34, align 8, !tbaa !116
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %39, label %36
@@ -9390,7 +9390,7 @@ _ZNSt10_HashtableISt5arrayItLm4EESt4pairIKS1_N5draco9IndexTypeIjNS4_29AttributeV
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 24
   %46 = load i64, ptr %45, align 8, !tbaa !118
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %33, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !116
   br label %49
 
@@ -9452,7 +9452,7 @@ _ZNSt10_HashtableISt5arrayItLm4EESt4pairIKS1_N5draco9IndexTypeIjNS4_29AttributeV
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 24
   %16 = load i64, ptr %15, align 8, !tbaa !118
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !116
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -9467,7 +9467,7 @@ _ZNSt10_HashtableISt5arrayItLm4EESt4pairIKS1_N5draco9IndexTypeIjNS4_29AttributeV
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8, !tbaa !116
   br label %28
 
@@ -9601,7 +9601,7 @@ _ZNSt13unordered_mapISt5arrayItLm1EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
 49:                                               ; preds = %41, %36
   %.sink = phi i32 [ %.sroa.054.066, %41 ], [ %38, %36 ]
   %.sroa.054.1 = phi i32 [ %48, %41 ], [ %.sroa.054.066, %36 ]
-  %50 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %15, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv
   store i32 %.sink, ptr %50, align 4, !tbaa !68
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %51 = load i32, ptr %11, align 8, !tbaa !21
@@ -9660,7 +9660,7 @@ _ZNSt13unordered_mapISt5arrayItLm1EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
   br i1 %81, label %82, label %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit
 
 82:                                               ; preds = %80
-  %83 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %72, i64 %68
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %68
   %.not.i.i.i.i = icmp eq ptr %71, %83
   br i1 %.not.i.i.i.i, label %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit, label %84
 
@@ -9685,9 +9685,9 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
 
 89:                                               ; preds = %.lr.ph71, %89
   %indvars.iv80 = phi i64 [ 0, %.lr.ph71 ], [ %indvars.iv.next81, %89 ]
-  %90 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %15, i64 %indvars.iv80
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv80
   %.sroa.02.0.copyload = load i32, ptr %90, align 4, !tbaa !21
-  %91 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %86, i64 %indvars.iv80
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %86, i64 %indvars.iv80
   store i32 %.sroa.02.0.copyload, ptr %91, align 4, !tbaa !68
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %exitcond84.not = icmp eq i64 %indvars.iv.next81, %wide.trip.count83
@@ -9695,10 +9695,10 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
 
 .lr.ph69:                                         ; preds = %.lr.ph69.preheader, %.lr.ph69
   %indvars.iv77 = phi i64 [ 0, %.lr.ph69.preheader ], [ %indvars.iv.next78, %.lr.ph69 ]
-  %92 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %61, i64 %indvars.iv77
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %indvars.iv77
   %93 = load i32, ptr %92, align 4, !tbaa !68
   %94 = zext i32 %93 to i64
-  %95 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %15, i64 %94
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %94
   %.sroa.0.0.copyload = load i32, ptr %95, align 4, !tbaa !21
   store i32 %.sroa.0.0.copyload, ptr %92, align 4, !tbaa !68
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
@@ -9860,7 +9860,7 @@ _ZNSt13unordered_mapISt5arrayItLm2EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
 49:                                               ; preds = %41, %36
   %.sink = phi i32 [ %.sroa.054.066, %41 ], [ %38, %36 ]
   %.sroa.054.1 = phi i32 [ %48, %41 ], [ %.sroa.054.066, %36 ]
-  %50 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %15, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv
   store i32 %.sink, ptr %50, align 4, !tbaa !68
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %51 = load i32, ptr %11, align 8, !tbaa !21
@@ -9919,7 +9919,7 @@ _ZNSt13unordered_mapISt5arrayItLm2EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
   br i1 %81, label %82, label %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit
 
 82:                                               ; preds = %80
-  %83 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %72, i64 %68
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %68
   %.not.i.i.i.i = icmp eq ptr %71, %83
   br i1 %.not.i.i.i.i, label %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit, label %84
 
@@ -9944,9 +9944,9 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
 
 89:                                               ; preds = %.lr.ph71, %89
   %indvars.iv80 = phi i64 [ 0, %.lr.ph71 ], [ %indvars.iv.next81, %89 ]
-  %90 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %15, i64 %indvars.iv80
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv80
   %.sroa.02.0.copyload = load i32, ptr %90, align 4, !tbaa !21
-  %91 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %86, i64 %indvars.iv80
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %86, i64 %indvars.iv80
   store i32 %.sroa.02.0.copyload, ptr %91, align 4, !tbaa !68
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %exitcond84.not = icmp eq i64 %indvars.iv.next81, %wide.trip.count83
@@ -9954,10 +9954,10 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
 
 .lr.ph69:                                         ; preds = %.lr.ph69.preheader, %.lr.ph69
   %indvars.iv77 = phi i64 [ 0, %.lr.ph69.preheader ], [ %indvars.iv.next78, %.lr.ph69 ]
-  %92 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %61, i64 %indvars.iv77
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %indvars.iv77
   %93 = load i32, ptr %92, align 4, !tbaa !68
   %94 = zext i32 %93 to i64
-  %95 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %15, i64 %94
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %94
   %.sroa.0.0.copyload = load i32, ptr %95, align 4, !tbaa !21
   store i32 %.sroa.0.0.copyload, ptr %92, align 4, !tbaa !68
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
@@ -10119,7 +10119,7 @@ _ZNSt13unordered_mapISt5arrayItLm3EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
 49:                                               ; preds = %41, %36
   %.sink = phi i32 [ %.sroa.054.066, %41 ], [ %38, %36 ]
   %.sroa.054.1 = phi i32 [ %48, %41 ], [ %.sroa.054.066, %36 ]
-  %50 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %15, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv
   store i32 %.sink, ptr %50, align 4, !tbaa !68
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %51 = load i32, ptr %11, align 8, !tbaa !21
@@ -10178,7 +10178,7 @@ _ZNSt13unordered_mapISt5arrayItLm3EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
   br i1 %81, label %82, label %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit
 
 82:                                               ; preds = %80
-  %83 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %72, i64 %68
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %68
   %.not.i.i.i.i = icmp eq ptr %71, %83
   br i1 %.not.i.i.i.i, label %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit, label %84
 
@@ -10203,9 +10203,9 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
 
 89:                                               ; preds = %.lr.ph71, %89
   %indvars.iv80 = phi i64 [ 0, %.lr.ph71 ], [ %indvars.iv.next81, %89 ]
-  %90 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %15, i64 %indvars.iv80
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv80
   %.sroa.02.0.copyload = load i32, ptr %90, align 4, !tbaa !21
-  %91 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %86, i64 %indvars.iv80
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %86, i64 %indvars.iv80
   store i32 %.sroa.02.0.copyload, ptr %91, align 4, !tbaa !68
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %exitcond84.not = icmp eq i64 %indvars.iv.next81, %wide.trip.count83
@@ -10213,10 +10213,10 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
 
 .lr.ph69:                                         ; preds = %.lr.ph69.preheader, %.lr.ph69
   %indvars.iv77 = phi i64 [ 0, %.lr.ph69.preheader ], [ %indvars.iv.next78, %.lr.ph69 ]
-  %92 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %61, i64 %indvars.iv77
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %indvars.iv77
   %93 = load i32, ptr %92, align 4, !tbaa !68
   %94 = zext i32 %93 to i64
-  %95 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %15, i64 %94
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %94
   %.sroa.0.0.copyload = load i32, ptr %95, align 4, !tbaa !21
   store i32 %.sroa.0.0.copyload, ptr %92, align 4, !tbaa !68
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
@@ -10378,7 +10378,7 @@ _ZNSt13unordered_mapISt5arrayItLm4EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
 49:                                               ; preds = %41, %36
   %.sink = phi i32 [ %.sroa.054.066, %41 ], [ %38, %36 ]
   %.sroa.054.1 = phi i32 [ %48, %41 ], [ %.sroa.054.066, %36 ]
-  %50 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %15, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv
   store i32 %.sink, ptr %50, align 4, !tbaa !68
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %51 = load i32, ptr %11, align 8, !tbaa !21
@@ -10437,7 +10437,7 @@ _ZNSt13unordered_mapISt5arrayItLm4EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
   br i1 %81, label %82, label %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit
 
 82:                                               ; preds = %80
-  %83 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %72, i64 %68
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %68
   %.not.i.i.i.i = icmp eq ptr %71, %83
   br i1 %.not.i.i.i.i, label %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit, label %84
 
@@ -10462,9 +10462,9 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
 
 89:                                               ; preds = %.lr.ph71, %89
   %indvars.iv80 = phi i64 [ 0, %.lr.ph71 ], [ %indvars.iv.next81, %89 ]
-  %90 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %15, i64 %indvars.iv80
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv80
   %.sroa.02.0.copyload = load i32, ptr %90, align 4, !tbaa !21
-  %91 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %86, i64 %indvars.iv80
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %86, i64 %indvars.iv80
   store i32 %.sroa.02.0.copyload, ptr %91, align 4, !tbaa !68
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %exitcond84.not = icmp eq i64 %indvars.iv.next81, %wide.trip.count83
@@ -10472,10 +10472,10 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
 
 .lr.ph69:                                         ; preds = %.lr.ph69.preheader, %.lr.ph69
   %indvars.iv77 = phi i64 [ 0, %.lr.ph69.preheader ], [ %indvars.iv.next78, %.lr.ph69 ]
-  %92 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %61, i64 %indvars.iv77
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %indvars.iv77
   %93 = load i32, ptr %92, align 4, !tbaa !68
   %94 = zext i32 %93 to i64
-  %95 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %15, i64 %94
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %94
   %.sroa.0.0.copyload = load i32, ptr %95, align 4, !tbaa !21
   store i32 %.sroa.0.0.copyload, ptr %92, align 4, !tbaa !68
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
@@ -10637,7 +10637,7 @@ _ZNSt13unordered_mapISt5arrayIjLm1EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
 49:                                               ; preds = %41, %36
   %.sink = phi i32 [ %.sroa.054.066, %41 ], [ %38, %36 ]
   %.sroa.054.1 = phi i32 [ %48, %41 ], [ %.sroa.054.066, %36 ]
-  %50 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %15, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv
   store i32 %.sink, ptr %50, align 4, !tbaa !68
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %51 = load i32, ptr %11, align 8, !tbaa !21
@@ -10696,7 +10696,7 @@ _ZNSt13unordered_mapISt5arrayIjLm1EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
   br i1 %81, label %82, label %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit
 
 82:                                               ; preds = %80
-  %83 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %72, i64 %68
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %68
   %.not.i.i.i.i = icmp eq ptr %71, %83
   br i1 %.not.i.i.i.i, label %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit, label %84
 
@@ -10721,9 +10721,9 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
 
 89:                                               ; preds = %.lr.ph71, %89
   %indvars.iv80 = phi i64 [ 0, %.lr.ph71 ], [ %indvars.iv.next81, %89 ]
-  %90 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %15, i64 %indvars.iv80
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv80
   %.sroa.02.0.copyload = load i32, ptr %90, align 4, !tbaa !21
-  %91 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %86, i64 %indvars.iv80
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %86, i64 %indvars.iv80
   store i32 %.sroa.02.0.copyload, ptr %91, align 4, !tbaa !68
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %exitcond84.not = icmp eq i64 %indvars.iv.next81, %wide.trip.count83
@@ -10731,10 +10731,10 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
 
 .lr.ph69:                                         ; preds = %.lr.ph69.preheader, %.lr.ph69
   %indvars.iv77 = phi i64 [ 0, %.lr.ph69.preheader ], [ %indvars.iv.next78, %.lr.ph69 ]
-  %92 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %61, i64 %indvars.iv77
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %indvars.iv77
   %93 = load i32, ptr %92, align 4, !tbaa !68
   %94 = zext i32 %93 to i64
-  %95 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %15, i64 %94
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %94
   %.sroa.0.0.copyload = load i32, ptr %95, align 4, !tbaa !21
   store i32 %.sroa.0.0.copyload, ptr %92, align 4, !tbaa !68
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
@@ -10896,7 +10896,7 @@ _ZNSt13unordered_mapISt5arrayIjLm2EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
 49:                                               ; preds = %41, %36
   %.sink = phi i32 [ %.sroa.054.066, %41 ], [ %38, %36 ]
   %.sroa.054.1 = phi i32 [ %48, %41 ], [ %.sroa.054.066, %36 ]
-  %50 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %15, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv
   store i32 %.sink, ptr %50, align 4, !tbaa !68
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %51 = load i32, ptr %11, align 8, !tbaa !21
@@ -10955,7 +10955,7 @@ _ZNSt13unordered_mapISt5arrayIjLm2EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
   br i1 %81, label %82, label %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit
 
 82:                                               ; preds = %80
-  %83 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %72, i64 %68
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %68
   %.not.i.i.i.i = icmp eq ptr %71, %83
   br i1 %.not.i.i.i.i, label %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit, label %84
 
@@ -10980,9 +10980,9 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
 
 89:                                               ; preds = %.lr.ph71, %89
   %indvars.iv80 = phi i64 [ 0, %.lr.ph71 ], [ %indvars.iv.next81, %89 ]
-  %90 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %15, i64 %indvars.iv80
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv80
   %.sroa.02.0.copyload = load i32, ptr %90, align 4, !tbaa !21
-  %91 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %86, i64 %indvars.iv80
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %86, i64 %indvars.iv80
   store i32 %.sroa.02.0.copyload, ptr %91, align 4, !tbaa !68
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %exitcond84.not = icmp eq i64 %indvars.iv.next81, %wide.trip.count83
@@ -10990,10 +10990,10 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
 
 .lr.ph69:                                         ; preds = %.lr.ph69.preheader, %.lr.ph69
   %indvars.iv77 = phi i64 [ 0, %.lr.ph69.preheader ], [ %indvars.iv.next78, %.lr.ph69 ]
-  %92 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %61, i64 %indvars.iv77
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %indvars.iv77
   %93 = load i32, ptr %92, align 4, !tbaa !68
   %94 = zext i32 %93 to i64
-  %95 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %15, i64 %94
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %94
   %.sroa.0.0.copyload = load i32, ptr %95, align 4, !tbaa !21
   store i32 %.sroa.0.0.copyload, ptr %92, align 4, !tbaa !68
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
@@ -11159,7 +11159,7 @@ _ZNSt13unordered_mapISt5arrayIjLm3EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
 49:                                               ; preds = %41, %36
   %.sink = phi i32 [ %.sroa.059.071, %41 ], [ %38, %36 ]
   %.sroa.059.1 = phi i32 [ %48, %41 ], [ %.sroa.059.071, %36 ]
-  %50 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %15, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv
   store i32 %.sink, ptr %50, align 4, !tbaa !68
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %51 = load i32, ptr %11, align 8, !tbaa !21
@@ -11218,7 +11218,7 @@ _ZNSt13unordered_mapISt5arrayIjLm3EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
   br i1 %81, label %82, label %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit
 
 82:                                               ; preds = %80
-  %83 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %72, i64 %68
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %68
   %.not.i.i.i.i = icmp eq ptr %71, %83
   br i1 %.not.i.i.i.i, label %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit, label %84
 
@@ -11243,9 +11243,9 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
 
 89:                                               ; preds = %.lr.ph76, %89
   %indvars.iv85 = phi i64 [ 0, %.lr.ph76 ], [ %indvars.iv.next86, %89 ]
-  %90 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %15, i64 %indvars.iv85
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv85
   %.sroa.02.0.copyload = load i32, ptr %90, align 4, !tbaa !21
-  %91 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %86, i64 %indvars.iv85
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %86, i64 %indvars.iv85
   store i32 %.sroa.02.0.copyload, ptr %91, align 4, !tbaa !68
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
   %exitcond89.not = icmp eq i64 %indvars.iv.next86, %wide.trip.count88
@@ -11253,10 +11253,10 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
 
 .lr.ph74:                                         ; preds = %.lr.ph74.preheader, %.lr.ph74
   %indvars.iv82 = phi i64 [ 0, %.lr.ph74.preheader ], [ %indvars.iv.next83, %.lr.ph74 ]
-  %92 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %61, i64 %indvars.iv82
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %indvars.iv82
   %93 = load i32, ptr %92, align 4, !tbaa !68
   %94 = zext i32 %93 to i64
-  %95 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %15, i64 %94
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %94
   %.sroa.0.0.copyload = load i32, ptr %95, align 4, !tbaa !21
   store i32 %.sroa.0.0.copyload, ptr %92, align 4, !tbaa !68
   %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
@@ -11422,7 +11422,7 @@ _ZNSt13unordered_mapISt5arrayIjLm4EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
 49:                                               ; preds = %41, %36
   %.sink = phi i32 [ %.sroa.055.067, %41 ], [ %38, %36 ]
   %.sroa.055.1 = phi i32 [ %48, %41 ], [ %.sroa.055.067, %36 ]
-  %50 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %15, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv
   store i32 %.sink, ptr %50, align 4, !tbaa !68
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %51 = load i32, ptr %11, align 8, !tbaa !21
@@ -11481,7 +11481,7 @@ _ZNSt13unordered_mapISt5arrayIjLm4EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
   br i1 %81, label %82, label %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit
 
 82:                                               ; preds = %80
-  %83 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %72, i64 %68
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %68
   %.not.i.i.i.i = icmp eq ptr %71, %83
   br i1 %.not.i.i.i.i, label %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit, label %84
 
@@ -11506,9 +11506,9 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
 
 89:                                               ; preds = %.lr.ph72, %89
   %indvars.iv81 = phi i64 [ 0, %.lr.ph72 ], [ %indvars.iv.next82, %89 ]
-  %90 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %15, i64 %indvars.iv81
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv81
   %.sroa.02.0.copyload = load i32, ptr %90, align 4, !tbaa !21
-  %91 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %86, i64 %indvars.iv81
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %86, i64 %indvars.iv81
   store i32 %.sroa.02.0.copyload, ptr %91, align 4, !tbaa !68
   %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
   %exitcond85.not = icmp eq i64 %indvars.iv.next82, %wide.trip.count84
@@ -11516,10 +11516,10 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
 
 .lr.ph70:                                         ; preds = %.lr.ph70.preheader, %.lr.ph70
   %indvars.iv78 = phi i64 [ 0, %.lr.ph70.preheader ], [ %indvars.iv.next79, %.lr.ph70 ]
-  %92 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %61, i64 %indvars.iv78
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %indvars.iv78
   %93 = load i32, ptr %92, align 4, !tbaa !68
   %94 = zext i32 %93 to i64
-  %95 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %15, i64 %94
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %94
   %.sroa.0.0.copyload = load i32, ptr %95, align 4, !tbaa !21
   store i32 %.sroa.0.0.copyload, ptr %92, align 4, !tbaa !68
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
@@ -11681,7 +11681,7 @@ _ZNSt13unordered_mapISt5arrayIjLm1EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
 49:                                               ; preds = %41, %36
   %.sink = phi i32 [ %.sroa.054.066, %41 ], [ %38, %36 ]
   %.sroa.054.1 = phi i32 [ %48, %41 ], [ %.sroa.054.066, %36 ]
-  %50 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %15, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv
   store i32 %.sink, ptr %50, align 4, !tbaa !68
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %51 = load i32, ptr %11, align 8, !tbaa !21
@@ -11740,7 +11740,7 @@ _ZNSt13unordered_mapISt5arrayIjLm1EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
   br i1 %81, label %82, label %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit
 
 82:                                               ; preds = %80
-  %83 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %72, i64 %68
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %68
   %.not.i.i.i.i = icmp eq ptr %71, %83
   br i1 %.not.i.i.i.i, label %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit, label %84
 
@@ -11765,9 +11765,9 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
 
 89:                                               ; preds = %.lr.ph71, %89
   %indvars.iv80 = phi i64 [ 0, %.lr.ph71 ], [ %indvars.iv.next81, %89 ]
-  %90 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %15, i64 %indvars.iv80
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv80
   %.sroa.02.0.copyload = load i32, ptr %90, align 4, !tbaa !21
-  %91 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %86, i64 %indvars.iv80
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %86, i64 %indvars.iv80
   store i32 %.sroa.02.0.copyload, ptr %91, align 4, !tbaa !68
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %exitcond84.not = icmp eq i64 %indvars.iv.next81, %wide.trip.count83
@@ -11775,10 +11775,10 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
 
 .lr.ph69:                                         ; preds = %.lr.ph69.preheader, %.lr.ph69
   %indvars.iv77 = phi i64 [ 0, %.lr.ph69.preheader ], [ %indvars.iv.next78, %.lr.ph69 ]
-  %92 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %61, i64 %indvars.iv77
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %indvars.iv77
   %93 = load i32, ptr %92, align 4, !tbaa !68
   %94 = zext i32 %93 to i64
-  %95 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %15, i64 %94
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %94
   %.sroa.0.0.copyload = load i32, ptr %95, align 4, !tbaa !21
   store i32 %.sroa.0.0.copyload, ptr %92, align 4, !tbaa !68
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
@@ -11940,7 +11940,7 @@ _ZNSt13unordered_mapISt5arrayIjLm2EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
 49:                                               ; preds = %41, %36
   %.sink = phi i32 [ %.sroa.054.066, %41 ], [ %38, %36 ]
   %.sroa.054.1 = phi i32 [ %48, %41 ], [ %.sroa.054.066, %36 ]
-  %50 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %15, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv
   store i32 %.sink, ptr %50, align 4, !tbaa !68
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %51 = load i32, ptr %11, align 8, !tbaa !21
@@ -11999,7 +11999,7 @@ _ZNSt13unordered_mapISt5arrayIjLm2EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
   br i1 %81, label %82, label %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit
 
 82:                                               ; preds = %80
-  %83 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %72, i64 %68
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %68
   %.not.i.i.i.i = icmp eq ptr %71, %83
   br i1 %.not.i.i.i.i, label %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit, label %84
 
@@ -12024,9 +12024,9 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
 
 89:                                               ; preds = %.lr.ph71, %89
   %indvars.iv80 = phi i64 [ 0, %.lr.ph71 ], [ %indvars.iv.next81, %89 ]
-  %90 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %15, i64 %indvars.iv80
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv80
   %.sroa.02.0.copyload = load i32, ptr %90, align 4, !tbaa !21
-  %91 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %86, i64 %indvars.iv80
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %86, i64 %indvars.iv80
   store i32 %.sroa.02.0.copyload, ptr %91, align 4, !tbaa !68
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %exitcond84.not = icmp eq i64 %indvars.iv.next81, %wide.trip.count83
@@ -12034,10 +12034,10 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
 
 .lr.ph69:                                         ; preds = %.lr.ph69.preheader, %.lr.ph69
   %indvars.iv77 = phi i64 [ 0, %.lr.ph69.preheader ], [ %indvars.iv.next78, %.lr.ph69 ]
-  %92 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %61, i64 %indvars.iv77
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %indvars.iv77
   %93 = load i32, ptr %92, align 4, !tbaa !68
   %94 = zext i32 %93 to i64
-  %95 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %15, i64 %94
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %94
   %.sroa.0.0.copyload = load i32, ptr %95, align 4, !tbaa !21
   store i32 %.sroa.0.0.copyload, ptr %92, align 4, !tbaa !68
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
@@ -12203,7 +12203,7 @@ _ZNSt13unordered_mapISt5arrayIjLm3EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
 49:                                               ; preds = %41, %36
   %.sink = phi i32 [ %.sroa.059.071, %41 ], [ %38, %36 ]
   %.sroa.059.1 = phi i32 [ %48, %41 ], [ %.sroa.059.071, %36 ]
-  %50 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %15, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv
   store i32 %.sink, ptr %50, align 4, !tbaa !68
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %51 = load i32, ptr %11, align 8, !tbaa !21
@@ -12262,7 +12262,7 @@ _ZNSt13unordered_mapISt5arrayIjLm3EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
   br i1 %81, label %82, label %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit
 
 82:                                               ; preds = %80
-  %83 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %72, i64 %68
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %68
   %.not.i.i.i.i = icmp eq ptr %71, %83
   br i1 %.not.i.i.i.i, label %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit, label %84
 
@@ -12287,9 +12287,9 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
 
 89:                                               ; preds = %.lr.ph76, %89
   %indvars.iv85 = phi i64 [ 0, %.lr.ph76 ], [ %indvars.iv.next86, %89 ]
-  %90 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %15, i64 %indvars.iv85
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv85
   %.sroa.02.0.copyload = load i32, ptr %90, align 4, !tbaa !21
-  %91 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %86, i64 %indvars.iv85
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %86, i64 %indvars.iv85
   store i32 %.sroa.02.0.copyload, ptr %91, align 4, !tbaa !68
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
   %exitcond89.not = icmp eq i64 %indvars.iv.next86, %wide.trip.count88
@@ -12297,10 +12297,10 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
 
 .lr.ph74:                                         ; preds = %.lr.ph74.preheader, %.lr.ph74
   %indvars.iv82 = phi i64 [ 0, %.lr.ph74.preheader ], [ %indvars.iv.next83, %.lr.ph74 ]
-  %92 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %61, i64 %indvars.iv82
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %indvars.iv82
   %93 = load i32, ptr %92, align 4, !tbaa !68
   %94 = zext i32 %93 to i64
-  %95 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %15, i64 %94
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %94
   %.sroa.0.0.copyload = load i32, ptr %95, align 4, !tbaa !21
   store i32 %.sroa.0.0.copyload, ptr %92, align 4, !tbaa !68
   %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
@@ -12466,7 +12466,7 @@ _ZNSt13unordered_mapISt5arrayIjLm4EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
 49:                                               ; preds = %41, %36
   %.sink = phi i32 [ %.sroa.055.067, %41 ], [ %38, %36 ]
   %.sroa.055.1 = phi i32 [ %48, %41 ], [ %.sroa.055.067, %36 ]
-  %50 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %15, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv
   store i32 %.sink, ptr %50, align 4, !tbaa !68
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %51 = load i32, ptr %11, align 8, !tbaa !21
@@ -12525,7 +12525,7 @@ _ZNSt13unordered_mapISt5arrayIjLm4EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
   br i1 %81, label %82, label %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit
 
 82:                                               ; preds = %80
-  %83 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %72, i64 %68
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %68
   %.not.i.i.i.i = icmp eq ptr %71, %83
   br i1 %.not.i.i.i.i, label %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit, label %84
 
@@ -12550,9 +12550,9 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
 
 89:                                               ; preds = %.lr.ph72, %89
   %indvars.iv81 = phi i64 [ 0, %.lr.ph72 ], [ %indvars.iv.next82, %89 ]
-  %90 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %15, i64 %indvars.iv81
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv81
   %.sroa.02.0.copyload = load i32, ptr %90, align 4, !tbaa !21
-  %91 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %86, i64 %indvars.iv81
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %86, i64 %indvars.iv81
   store i32 %.sroa.02.0.copyload, ptr %91, align 4, !tbaa !68
   %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
   %exitcond85.not = icmp eq i64 %indvars.iv.next82, %wide.trip.count84
@@ -12560,10 +12560,10 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
 
 .lr.ph70:                                         ; preds = %.lr.ph70.preheader, %.lr.ph70
   %indvars.iv78 = phi i64 [ 0, %.lr.ph70.preheader ], [ %indvars.iv.next79, %.lr.ph70 ]
-  %92 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %61, i64 %indvars.iv78
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %indvars.iv78
   %93 = load i32, ptr %92, align 4, !tbaa !68
   %94 = zext i32 %93 to i64
-  %95 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %15, i64 %94
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %94
   %.sroa.0.0.copyload = load i32, ptr %95, align 4, !tbaa !21
   store i32 %.sroa.0.0.copyload, ptr %92, align 4, !tbaa !68
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1

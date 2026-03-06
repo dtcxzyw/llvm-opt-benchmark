@@ -5,8 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.git_hash_algo = type { ptr, i32, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.option = type { i32, i32, ptr, ptr, ptr, ptr, i32, ptr, i64, ptr, i64, ptr }
-%struct.anon = type { %struct.object_id, i32, i32 }
-%struct.object_id = type { [32 x i8], i32 }
 
 @cmd_show_index.top_index = internal global [256 x i32] zeroinitializer, align 16
 @.str = private unnamed_addr constant [14 x i8] c"object-format\00", align 1
@@ -144,7 +142,7 @@ git_bswap32.exit85.preheader:                     ; preds = %39, %43
 git_bswap32.exit85:                               ; preds = %git_bswap32.exit85.preheader, %47
   %indvars.iv = phi i64 [ %indvars.iv.next, %47 ], [ 0, %git_bswap32.exit85.preheader ]
   %.064107 = phi i32 [ %50, %47 ], [ 0, %git_bswap32.exit85.preheader ]
-  %48 = getelementptr inbounds nuw i32, ptr @cmd_show_index.top_index, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [4 x i8], ptr @cmd_show_index.top_index, i64 %indvars.iv
   %49 = load i32, ptr %48, align 4, !tbaa !42
   %50 = call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %49) #11, !srcloc !43
   %51 = icmp ult i32 %50, %.064107
@@ -202,7 +200,7 @@ git_bswap32.exit87:                               ; preds = %57
 
 71:                                               ; preds = %.lr.ph111, %hash_algo_by_ptr.exit
   %indvars.iv135 = phi i64 [ 0, %.lr.ph111 ], [ %indvars.iv.next136, %hash_algo_by_ptr.exit ]
-  %72 = getelementptr inbounds nuw %struct.anon, ptr %69, i64 %indvars.iv135
+  %72 = getelementptr inbounds nuw [44 x i8], ptr %69, i64 %indvars.iv135
   %73 = load ptr, ptr @stdin, align 8, !tbaa !40
   %74 = call i64 @fread(ptr noundef %72, i64 noundef %70, i64 noundef 1, ptr noundef %73)
   %.not82 = icmp eq i64 %74, 1
@@ -221,7 +219,7 @@ git_bswap32.exit87:                               ; preds = %57
 
 81:                                               ; preds = %83, %77
   %.0811.i = phi i64 [ 0, %77 ], [ %84, %83 ]
-  %82 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i
+  %82 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %.0811.i
   %.not.i = icmp eq ptr %80, %82
   br i1 %.not.i, label %.split.loop.exit9.i, label %83
 
@@ -244,7 +242,7 @@ hash_algo_by_ptr.exit:                            ; preds = %83, %.split.loop.ex
 
 .lr.ph113:                                        ; preds = %hash_algo_by_ptr.exit, %93
   %indvars.iv140 = phi i64 [ %indvars.iv.next141, %93 ], [ 0, %hash_algo_by_ptr.exit ]
-  %87 = getelementptr inbounds nuw %struct.anon, ptr %69, i64 %indvars.iv140
+  %87 = getelementptr inbounds nuw [44 x i8], ptr %69, i64 %indvars.iv140
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 36
   %89 = load ptr, ptr @stdin, align 8, !tbaa !40
   %90 = call i64 @fread(ptr noundef nonnull %88, i64 noundef 4, i64 noundef 1, ptr noundef %89)
@@ -267,7 +265,7 @@ hash_algo_by_ptr.exit:                            ; preds = %83, %.split.loop.ex
 
 .lr.ph115:                                        ; preds = %93, %101
   %indvars.iv146 = phi i64 [ %indvars.iv.next147, %101 ], [ 0, %93 ]
-  %95 = getelementptr inbounds nuw %struct.anon, ptr %69, i64 %indvars.iv146
+  %95 = getelementptr inbounds nuw [44 x i8], ptr %69, i64 %indvars.iv146
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 40
   %97 = load ptr, ptr @stdin, align 8, !tbaa !40
   %98 = call i64 @fread(ptr noundef nonnull %96, i64 noundef 4, i64 noundef 1, ptr noundef %97)
@@ -287,7 +285,7 @@ hash_algo_by_ptr.exit:                            ; preds = %83, %.split.loop.ex
 git_bswap32.exit89:                               ; preds = %.lr.ph118, %git_bswap32.exit95
   %indvars.iv152 = phi i64 [ 0, %.lr.ph118 ], [ %indvars.iv.next153, %git_bswap32.exit95 ]
   %.065116 = phi i32 [ 0, %.lr.ph118 ], [ %.166, %git_bswap32.exit95 ]
-  %102 = getelementptr inbounds nuw %struct.anon, ptr %69, i64 %indvars.iv152
+  %102 = getelementptr inbounds nuw [44 x i8], ptr %69, i64 %indvars.iv152
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 40
   %104 = load i32, ptr %103, align 4, !tbaa !54
   %105 = call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %104) #11, !srcloc !43

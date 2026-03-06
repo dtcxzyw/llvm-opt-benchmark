@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.app_verify_arg = type { ptr, i32 }
-%struct.protocol_versions = type { ptr, i32 }
 
 @.str = private unnamed_addr constant [23 x i8] c"Test Callback Argument\00", align 1
 @__const.main.app_verify_arg = private unnamed_addr constant { ptr, i32, [4 x i8] } { ptr @.str, i32 0, [4 x i8] zeroinitializer }, align 8
@@ -3503,7 +3502,7 @@ define internal fastcc i32 @set_protocol_version(ptr noundef %0, ptr noundef non
 
 .preheader:                                       ; preds = %3, %4
   %.067.i = phi i64 [ %5, %4 ], [ 0, %3 ]
-  %6 = getelementptr inbounds nuw %struct.protocol_versions, ptr @protocol_from_string.versions, i64 %.067.i
+  %6 = getelementptr inbounds nuw [16 x i8], ptr @protocol_from_string.versions, i64 %.067.i
   %7 = load ptr, ptr %6, align 16, !tbaa !38
   %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull readonly dereferenceable(1) %0) #25
   %9 = icmp eq i32 %8, 0
@@ -4970,7 +4969,7 @@ define internal fastcc i32 @protocol_from_string(ptr noundef nonnull readonly ca
 
 4:                                                ; preds = %1, %2
   %.067 = phi i64 [ 0, %1 ], [ %3, %2 ]
-  %5 = getelementptr inbounds nuw %struct.protocol_versions, ptr @protocol_from_string.versions, i64 %.067
+  %5 = getelementptr inbounds nuw [16 x i8], ptr @protocol_from_string.versions, i64 %.067
   %6 = load ptr, ptr %5, align 16, !tbaa !38
   %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %0) #25
   %8 = icmp eq i32 %7, 0

@@ -27,11 +27,11 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::__cow_string" = type { %union.anon.10 }
 %union.anon.10 = type { ptr }
 %"class.std::error_code" = type { i32, ptr }
+%"struct.std::_Deque_iterator" = type { ptr, ptr, ptr, ptr }
 %"class.std::function" = type { %"class.std::_Function_base", ptr }
 %"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
 %"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
 %"union.std::_Nocopy_types" = type { { i64, i64 } }
-%"struct.std::_Deque_iterator" = type { ptr, ptr, ptr, ptr }
 %"class.folly::Function" = type { %"union.folly::detail::function::Data", ptr, ptr }
 %"union.folly::detail::function::Data" = type { %"struct.folly::detail::function::Data::BigTrivialLayout", [24 x i8] }
 %"struct.folly::detail::function::Data::BigTrivialLayout" = type { ptr, i64, i64 }
@@ -368,7 +368,7 @@ define linkonce_odr noundef ptr @_ZN6google17MakeCheckOpStringISt6atomicIN5folly
 
 switch.lookup:                                    ; preds = %3
   %8 = zext nneg i32 %6 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN6google17MakeCheckOpStringIN5folly11AsyncBaseOp5StateES3_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.12, i64 %8
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN6google17MakeCheckOpStringIN5folly11AsyncBaseOp5StateES3_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.12, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN5follylsERSoNS_11AsyncBaseOp5StateE.exit.i
 
@@ -389,7 +389,7 @@ _ZN6google22MakeCheckOpValueStringISt6atomicIN5folly11AsyncBaseOp5StateEEEEvPSoR
 
 switch.lookup6:                                   ; preds = %12
   %15 = zext nneg i32 %13 to i64
-  %switch.gep7 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN6google17MakeCheckOpStringIN5folly11AsyncBaseOp5StateES3_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.12, i64 %15
+  %switch.gep7 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN6google17MakeCheckOpStringIN5folly11AsyncBaseOp5StateES3_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.12, i64 %15
   %switch.load8 = load ptr, ptr %switch.gep7, align 8
   br label %_ZN5follylsERSoNS_11AsyncBaseOp5StateE.exit.i4
 
@@ -432,7 +432,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN5follylsERSoNS_11Async
 
 switch.lookup:                                    ; preds = %2
   %4 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN6google17MakeCheckOpStringIN5folly11AsyncBaseOp5StateES3_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.12, i64 %4
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN6google17MakeCheckOpStringIN5folly11AsyncBaseOp5StateES3_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.12, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN5folly12_GLOBAL__N_122asyncIoOpStateToStringENS_11AsyncBaseOp5StateE.exit
 
@@ -674,7 +674,7 @@ define void @_ZN5folly11AsyncBaseOp7fd2nameB5cxx11Ei(ptr dead_on_unwind noalias 
 
 13:                                               ; preds = %17, %2
   %.08.i4.i.i.i.i.i.i = phi i64 [ 0, %2 ], [ %18, %17 ]
-  %14 = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i4.i.i.i.i.i.i
+  %14 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i4.i.i.i.i.i.i
   %15 = load i64, ptr %14, align 8, !tbaa !40, !noalias !32
   %16 = icmp ugt i64 %15, %12
   br i1 %16, label %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i.i.i.i.i, label %17, !prof !24
@@ -1277,7 +1277,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit: ; preds 
 
 25:                                               ; preds = %29, %22
   %.08.i.i4.i.i.i = phi i64 [ 0, %22 ], [ %30, %29 ]
-  %26 = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i.i4.i.i.i
+  %26 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i.i4.i.i.i
   %27 = load i64, ptr %26, align 8, !tbaa !40
   %28 = icmp ugt i64 %27, %24
   br i1 %28, label %.loopexit.i.i.i, label %29, !prof !24
@@ -1302,7 +1302,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit: ; preds 
   %34 = add i64 %.014.i5.i.i.i, -2
   %35 = udiv i64 %.0.i6.i.i.i, 100
   %36 = urem i64 %.0.i6.i.i.i, 100
-  %37 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %36
+  %37 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %36
   %38 = load i16, ptr %37, align 2, !tbaa !54
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 %34
   store i16 %38, ptr %39, align 1
@@ -1313,7 +1313,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit: ; preds 
   %41 = phi i64 [ %31, %.loopexit.i.i.i ], [ %33, %.lr.ph.i.i.i ]
   %.014.i.lcssa.i.i.i = phi i64 [ %31, %.loopexit.i.i.i ], [ %34, %.lr.ph.i.i.i ]
   %.0.i.lcssa.i.i.i = phi i64 [ %24, %.loopexit.i.i.i ], [ %35, %.lr.ph.i.i.i ]
-  %42 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %.0.i.lcssa.i.i.i
+  %42 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %.0.i.lcssa.i.i.i
   %43 = load i16, ptr %42, align 2, !tbaa !54
   %44 = icmp eq i64 %.014.i.lcssa.i.i.i, 2
   br i1 %44, label %45, label %46, !prof !24
@@ -1455,7 +1455,7 @@ _ZNSt12_Vector_baseIPN5folly11AsyncBaseOpESaIS2_EE13_M_deallocateEPS2_m.exit.i: 
   store ptr %35, ptr %13, align 8, !tbaa !79
   %39 = getelementptr inbounds nuw i8, ptr %35, i64 %33
   store ptr %39, ptr %30, align 8, !tbaa !80
-  %40 = getelementptr inbounds nuw ptr, ptr %35, i64 %18
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %18
   store ptr %40, ptr %22, align 8, !tbaa !78
   br label %_ZNSt6vectorIPN5folly11AsyncBaseOpESaIS2_EE7reserveEm.exit
 
@@ -1939,7 +1939,7 @@ define linkonce_odr noundef ptr @_ZN6google17MakeCheckOpStringIN5folly11AsyncBas
 
 switch.lookup:                                    ; preds = %3
   %8 = zext nneg i32 %6 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN6google17MakeCheckOpStringIN5folly11AsyncBaseOp5StateES3_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.12, i64 %8
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN6google17MakeCheckOpStringIN5folly11AsyncBaseOp5StateES3_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.12, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN5follylsERSoNS_11AsyncBaseOp5StateE.exit.i
 
@@ -1960,7 +1960,7 @@ _ZN6google22MakeCheckOpValueStringIN5folly11AsyncBaseOp5StateEEEvPSoRKT_.exit: ;
 
 switch.lookup7:                                   ; preds = %12
   %15 = zext nneg i32 %13 to i64
-  %switch.gep8 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN6google17MakeCheckOpStringIN5folly11AsyncBaseOp5StateES3_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.12, i64 %15
+  %switch.gep8 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN6google17MakeCheckOpStringIN5folly11AsyncBaseOp5StateES3_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.12, i64 %15
   %switch.load9 = load ptr, ptr %switch.gep8, align 8
   br label %_ZN5follylsERSoNS_11AsyncBaseOp5StateE.exit.i4
 
@@ -2327,7 +2327,7 @@ _ZN6google12Check_EQImplIN5folly11AsyncBaseOp5StateES3_EEPNSt7__cxx1112basic_str
 
 .lr.ph37:                                         ; preds = %50, %.lr.ph37
   %.035 = phi i64 [ %59, %.lr.ph37 ], [ %51, %50 ]
-  %55 = getelementptr inbounds nuw ptr, ptr %1, i64 %.035
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.035
   %56 = load ptr, ptr %55, align 8, !tbaa !93
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 80
   store atomic i32 1, ptr %57 seq_cst, align 4
@@ -2685,7 +2685,7 @@ _ZNSt11_Deque_baseISt8functionIFPN5folly11AsyncBaseOpEvEESaIS5_EE15_M_allocate_m
   store ptr %9, ptr %0, align 8, !tbaa !107
   %10 = sub nsw i64 %.sroa.speculated, %7
   %11 = lshr i64 %10, 1
-  %12 = getelementptr inbounds nuw ptr, ptr %9, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %11
   %.idx = shl nuw nsw i64 %7, 3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx
   br label %.lr.ph.i
@@ -2779,7 +2779,7 @@ _ZNSt11_Deque_baseISt8functionIFPN5folly11AsyncBaseOpEvEESaIS5_EE15_M_create_nod
   store ptr %50, ptr %51, align 8, !tbaa !113
   store ptr %41, ptr %39, align 8, !tbaa !114
   %52 = and i64 %1, 15
-  %53 = getelementptr inbounds nuw %"class.std::function", ptr %48, i64 %52
+  %53 = getelementptr inbounds nuw [32 x i8], ptr %48, i64 %52
   store ptr %53, ptr %45, align 8, !tbaa !115
   ret void
 
@@ -3708,9 +3708,9 @@ define linkonce_odr void @_ZNSt5dequeISt8functionIFPN5folly11AsyncBaseOpEvEESaIS
   %19 = load ptr, ptr %0, align 8, !tbaa !107
   %20 = sub i64 %15, %13
   %21 = lshr i64 %20, 1
-  %22 = getelementptr inbounds nuw ptr, ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %21
   %23 = select i1 %2, i64 %1, i64 0
-  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %23
   %25 = icmp ult ptr %24, %7
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %26, %7
@@ -3729,12 +3729,12 @@ define linkonce_odr void @_ZNSt5dequeISt8functionIFPN5folly11AsyncBaseOpEvEESaIS
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIPPSt8functionIFPN5folly11AsyncBaseOpEvEES7_ET0_T_S9_S8_.exit, label %32
 
 32:                                               ; preds = %31
-  %33 = getelementptr inbounds nuw ptr, ptr %24, i64 %12
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %12
   %34 = ptrtoint ptr %26 to i64
   %35 = sub i64 %34, %9
   %36 = ashr exact i64 %35, 3
   %37 = sub nsw i64 0, %36
-  %38 = getelementptr inbounds ptr, ptr %33, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %33, i64 %37
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %38, ptr align 8 %7, i64 %35, i1 false)
   br label %_ZSt4copyIPPSt8functionIFPN5folly11AsyncBaseOpEvEES7_ET0_T_S9_S8_.exit
 
@@ -3762,9 +3762,9 @@ _ZNSt11_Deque_baseISt8functionIFPN5folly11AsyncBaseOpEvEESaIS5_EE15_M_allocate_m
   %46 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %45) #33
   %47 = sub i64 %41, %13
   %48 = lshr i64 %47, 1
-  %49 = getelementptr inbounds nuw ptr, ptr %46, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %48
   %50 = select i1 %2, i64 %1, i64 0
-  %51 = getelementptr inbounds nuw ptr, ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i25 = icmp eq ptr %52, %7
   br i1 %.not.i.i.i.i.i25, label %_ZSt4copyIPPSt8functionIFPN5folly11AsyncBaseOpEvEES7_ET0_T_S9_S8_.exit26, label %53
@@ -3792,7 +3792,7 @@ _ZSt4copyIPPSt8functionIFPN5folly11AsyncBaseOpEvEES7_ET0_T_S9_S8_.exit: ; preds 
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 512
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %60, ptr %61, align 8, !tbaa !113
-  %62 = getelementptr inbounds nuw ptr, ptr %.0, i64 %12
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %.0, i64 %12
   %63 = getelementptr inbounds i8, ptr %62, i64 -8
   store ptr %63, ptr %4, align 8, !tbaa !111
   %64 = load ptr, ptr %63, align 8, !tbaa !108

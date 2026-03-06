@@ -70,7 +70,7 @@ define ptr @Llb_ManConstructOutBdd(ptr noundef %0, ptr noundef %1, ptr noundef %
   %.val4867 = phi i32 [ %.val4858, %.lr.ph ], [ %.val48, %54 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %54 ]
   %.val50 = load ptr, ptr %23, align 8, !tbaa !39
-  %25 = getelementptr inbounds nuw ptr, ptr %.val50, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %.val50, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8, !tbaa !40
   %27 = getelementptr i8, ptr %26, i64 24
   %.val52 = load i64, ptr %27, align 8
@@ -129,7 +129,7 @@ define ptr @Llb_ManConstructOutBdd(ptr noundef %0, ptr noundef %1, ptr noundef %
   %.val4969 = phi i32 [ %.val49, %69 ], [ %.val4960, %.critedge ]
   %indvars.iv64 = phi i64 [ %indvars.iv.next65, %69 ], [ 0, %.critedge ]
   %.val51 = load ptr, ptr %23, align 8, !tbaa !39
-  %60 = getelementptr inbounds nuw ptr, ptr %.val51, i64 %indvars.iv64
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %.val51, i64 %indvars.iv64
   %61 = load ptr, ptr %60, align 8, !tbaa !40
   %62 = getelementptr i8, ptr %61, i64 24
   %.val53 = load i64, ptr %62, align 8
@@ -239,7 +239,7 @@ define ptr @Llb_ManConstructGroupBdd(ptr noundef readonly captures(none) %0, ptr
   %20 = phi ptr [ %11, %.lr.ph ], [ %33, %19 ]
   %21 = getelementptr i8, ptr %20, i64 8
   %.val116 = load ptr, ptr %21, align 8, !tbaa !39
-  %22 = getelementptr inbounds nuw ptr, ptr %.val116, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %.val116, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8, !tbaa !40
   %24 = load ptr, ptr %3, align 8, !tbaa !46
   %25 = load ptr, ptr %14, align 8, !tbaa !57
@@ -248,7 +248,7 @@ define ptr @Llb_ManConstructGroupBdd(ptr noundef readonly captures(none) %0, ptr
   %27 = getelementptr i8, ptr %25, i64 8
   %.val122 = load ptr, ptr %27, align 8, !tbaa !59
   %28 = sext i32 %.val120 to i64
-  %29 = getelementptr inbounds i32, ptr %.val122, i64 %28
+  %29 = getelementptr inbounds [4 x i8], ptr %.val122, i64 %28
   %30 = load i32, ptr %29, align 4, !tbaa !61
   %31 = tail call ptr @Cudd_bddIthVar(ptr noundef %24, i32 noundef %30) #13
   %32 = getelementptr inbounds nuw i8, ptr %23, i64 40
@@ -267,7 +267,7 @@ define ptr @Llb_ManConstructGroupBdd(ptr noundef readonly captures(none) %0, ptr
   %37 = phi ptr [ %74, %.critedge ], [ %16, %.critedge.preheader ]
   %38 = getelementptr i8, ptr %37, i64 8
   %.val115 = load ptr, ptr %38, align 8, !tbaa !39
-  %39 = getelementptr inbounds nuw ptr, ptr %.val115, i64 %indvars.iv157
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %.val115, i64 %indvars.iv157
   %40 = load ptr, ptr %39, align 8, !tbaa !40
   %41 = getelementptr i8, ptr %40, i64 8
   %.val103 = load ptr, ptr %41, align 8, !tbaa !8
@@ -311,7 +311,7 @@ define ptr @Llb_ManConstructGroupBdd(ptr noundef readonly captures(none) %0, ptr
   %65 = load ptr, ptr %15, align 8, !tbaa !56
   %66 = getelementptr i8, ptr %65, i64 8
   %.val114 = load ptr, ptr %66, align 8, !tbaa !39
-  %67 = getelementptr inbounds nuw ptr, ptr %.val114, i64 %indvars.iv172
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %.val114, i64 %indvars.iv172
   %68 = load ptr, ptr %67, align 8, !tbaa !40
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 40
   %70 = load ptr, ptr %69, align 8, !tbaa !41
@@ -369,7 +369,7 @@ define ptr @Llb_ManConstructGroupBdd(ptr noundef readonly captures(none) %0, ptr
   %.095136 = phi ptr [ %79, %.lr.ph138 ], [ %124, %138 ]
   %90 = getelementptr i8, ptr %89, i64 8
   %.val113 = load ptr, ptr %90, align 8, !tbaa !39
-  %91 = getelementptr inbounds nuw ptr, ptr %.val113, i64 %indvars.iv160
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %.val113, i64 %indvars.iv160
   %92 = load ptr, ptr %91, align 8, !tbaa !40
   %93 = getelementptr i8, ptr %92, i64 24
   %.val119 = load i64, ptr %93, align 8
@@ -405,7 +405,7 @@ define ptr @Llb_ManConstructGroupBdd(ptr noundef readonly captures(none) %0, ptr
   %113 = getelementptr i8, ptr %111, i64 8
   %.val123 = load ptr, ptr %113, align 8, !tbaa !59
   %114 = sext i32 %.val121 to i64
-  %115 = getelementptr inbounds i32, ptr %.val123, i64 %114
+  %115 = getelementptr inbounds [4 x i8], ptr %.val123, i64 %114
   %116 = load i32, ptr %115, align 4, !tbaa !61
   %117 = tail call ptr @Cudd_bddIthVar(ptr noundef %110, i32 noundef %116) #13
   %118 = load ptr, ptr %3, align 8, !tbaa !46
@@ -436,7 +436,7 @@ define ptr @Llb_ManConstructGroupBdd(ptr noundef readonly captures(none) %0, ptr
   %129 = load ptr, ptr %15, align 8, !tbaa !56
   %130 = getelementptr i8, ptr %129, i64 8
   %.val112 = load ptr, ptr %130, align 8, !tbaa !39
-  %131 = getelementptr inbounds nuw ptr, ptr %.val112, i64 %indvars.iv166
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %.val112, i64 %indvars.iv166
   %132 = load ptr, ptr %131, align 8, !tbaa !40
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 40
   %134 = load ptr, ptr %133, align 8, !tbaa !41
@@ -473,7 +473,7 @@ define ptr @Llb_ManConstructGroupBdd(ptr noundef readonly captures(none) %0, ptr
   %145 = phi ptr [ %152, %.critedge6 ], [ %85, %.critedge6.preheader ]
   %146 = getelementptr i8, ptr %145, i64 8
   %.val111 = load ptr, ptr %146, align 8, !tbaa !39
-  %147 = getelementptr inbounds nuw ptr, ptr %.val111, i64 %indvars.iv163
+  %147 = getelementptr inbounds nuw [8 x i8], ptr %.val111, i64 %indvars.iv163
   %148 = load ptr, ptr %147, align 8, !tbaa !40
   %149 = load ptr, ptr %3, align 8, !tbaa !46
   %150 = getelementptr inbounds nuw i8, ptr %148, i64 40
@@ -530,7 +530,7 @@ Saig_ObjIsPi.exit.thread.us:                      ; preds = %.lr.ph, %43
   %.05585.us = phi ptr [ %.156.us, %43 ], [ %9, %.lr.ph ]
   %19 = getelementptr i8, ptr %18, i64 8
   %.val62.us = load ptr, ptr %19, align 8, !tbaa !39
-  %20 = getelementptr inbounds nuw ptr, ptr %.val62.us, i64 %indvars.iv96
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %.val62.us, i64 %indvars.iv96
   %21 = load ptr, ptr %20, align 8, !tbaa !40
   %22 = load ptr, ptr %15, align 8, !tbaa !69
   %23 = getelementptr i8, ptr %21, i64 36
@@ -538,12 +538,12 @@ Saig_ObjIsPi.exit.thread.us:                      ; preds = %.lr.ph, %43
   %24 = getelementptr i8, ptr %22, i64 8
   %.val74.us = load ptr, ptr %24, align 8, !tbaa !59
   %25 = sext i32 %.val68.us to i64
-  %26 = getelementptr inbounds i32, ptr %.val74.us, i64 %25
+  %26 = getelementptr inbounds [4 x i8], ptr %.val74.us, i64 %25
   %27 = load i32, ptr %26, align 4, !tbaa !61
   %28 = load ptr, ptr %16, align 8, !tbaa !70
   %29 = getelementptr i8, ptr %28, i64 8
   %.val73.us = load ptr, ptr %29, align 8, !tbaa !59
-  %30 = getelementptr inbounds i32, ptr %.val73.us, i64 %25
+  %30 = getelementptr inbounds [4 x i8], ptr %.val73.us, i64 %25
   %31 = load i32, ptr %30, align 4, !tbaa !61
   %32 = icmp slt i32 %27, %31
   br i1 %32, label %43, label %33
@@ -553,7 +553,7 @@ Saig_ObjIsPi.exit.thread.us:                      ; preds = %.lr.ph, %43
   %35 = load ptr, ptr %17, align 8, !tbaa !57
   %36 = getelementptr i8, ptr %35, i64 8
   %.val72.us = load ptr, ptr %36, align 8, !tbaa !59
-  %37 = getelementptr inbounds i32, ptr %.val72.us, i64 %25
+  %37 = getelementptr inbounds [4 x i8], ptr %.val72.us, i64 %25
   %38 = load i32, ptr %37, align 4, !tbaa !61
   %39 = tail call ptr @Cudd_bddIthVar(ptr noundef %34, i32 noundef %38) #13
   %40 = load ptr, ptr %5, align 8, !tbaa !46
@@ -597,7 +597,7 @@ Saig_ObjIsPi.exit79.thread.us:                    ; preds = %.lr.ph90, %.critedg
   %.288.us = phi ptr [ %.3.us, %.critedge.us ], [ %.055.lcssa, %.lr.ph90 ]
   %57 = getelementptr i8, ptr %56, i64 8
   %.val61.us = load ptr, ptr %57, align 8, !tbaa !39
-  %58 = getelementptr inbounds nuw ptr, ptr %.val61.us, i64 %indvars.iv102
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %.val61.us, i64 %indvars.iv102
   %59 = load ptr, ptr %58, align 8, !tbaa !40
   %60 = load ptr, ptr %53, align 8, !tbaa !69
   %61 = getelementptr i8, ptr %59, i64 36
@@ -605,12 +605,12 @@ Saig_ObjIsPi.exit79.thread.us:                    ; preds = %.lr.ph90, %.critedg
   %62 = getelementptr i8, ptr %60, i64 8
   %.val71.us = load ptr, ptr %62, align 8, !tbaa !59
   %63 = sext i32 %.val65.us to i64
-  %64 = getelementptr inbounds i32, ptr %.val71.us, i64 %63
+  %64 = getelementptr inbounds [4 x i8], ptr %.val71.us, i64 %63
   %65 = load i32, ptr %64, align 4, !tbaa !61
   %66 = load ptr, ptr %54, align 8, !tbaa !70
   %67 = getelementptr i8, ptr %66, i64 8
   %.val70.us = load ptr, ptr %67, align 8, !tbaa !59
-  %68 = getelementptr inbounds i32, ptr %.val70.us, i64 %63
+  %68 = getelementptr inbounds [4 x i8], ptr %.val70.us, i64 %63
   %69 = load i32, ptr %68, align 4, !tbaa !61
   %70 = icmp slt i32 %65, %69
   br i1 %70, label %.critedge.us, label %71
@@ -620,7 +620,7 @@ Saig_ObjIsPi.exit79.thread.us:                    ; preds = %.lr.ph90, %.critedg
   %73 = load ptr, ptr %55, align 8, !tbaa !57
   %74 = getelementptr i8, ptr %73, i64 8
   %.val69.us = load ptr, ptr %74, align 8, !tbaa !59
-  %75 = getelementptr inbounds i32, ptr %.val69.us, i64 %63
+  %75 = getelementptr inbounds [4 x i8], ptr %.val69.us, i64 %63
   %76 = load i32, ptr %75, align 4, !tbaa !61
   %77 = tail call ptr @Cudd_bddIthVar(ptr noundef %72, i32 noundef %76) #13
   %78 = load ptr, ptr %5, align 8, !tbaa !46
@@ -647,7 +647,7 @@ Saig_ObjIsPi.exit79.thread.us:                    ; preds = %.lr.ph90, %.critedg
   %.05585 = phi ptr [ %.156, %114 ], [ %9, %.lr.ph ]
   %86 = getelementptr i8, ptr %85, i64 8
   %.val62 = load ptr, ptr %86, align 8, !tbaa !39
-  %87 = getelementptr inbounds nuw ptr, ptr %.val62, i64 %indvars.iv
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %.val62, i64 %indvars.iv
   %88 = load ptr, ptr %87, align 8, !tbaa !40
   %89 = getelementptr i8, ptr %88, i64 24
   %.val.i = load i64, ptr %89, align 8
@@ -670,12 +670,12 @@ Saig_ObjIsPi.exit.thread:                         ; preds = %.lr.ph.split, %Saig
   %95 = getelementptr i8, ptr %93, i64 8
   %.val74 = load ptr, ptr %95, align 8, !tbaa !59
   %96 = sext i32 %.val68 to i64
-  %97 = getelementptr inbounds i32, ptr %.val74, i64 %96
+  %97 = getelementptr inbounds [4 x i8], ptr %.val74, i64 %96
   %98 = load i32, ptr %97, align 4, !tbaa !61
   %99 = load ptr, ptr %16, align 8, !tbaa !70
   %100 = getelementptr i8, ptr %99, i64 8
   %.val73 = load ptr, ptr %100, align 8, !tbaa !59
-  %101 = getelementptr inbounds i32, ptr %.val73, i64 %96
+  %101 = getelementptr inbounds [4 x i8], ptr %.val73, i64 %96
   %102 = load i32, ptr %101, align 4, !tbaa !61
   %103 = icmp slt i32 %98, %102
   br i1 %103, label %114, label %104
@@ -685,7 +685,7 @@ Saig_ObjIsPi.exit.thread:                         ; preds = %.lr.ph.split, %Saig
   %106 = load ptr, ptr %17, align 8, !tbaa !57
   %107 = getelementptr i8, ptr %106, i64 8
   %.val72 = load ptr, ptr %107, align 8, !tbaa !59
-  %108 = getelementptr inbounds i32, ptr %.val72, i64 %96
+  %108 = getelementptr inbounds [4 x i8], ptr %.val72, i64 %96
   %109 = load i32, ptr %108, align 4, !tbaa !61
   %110 = tail call ptr @Cudd_bddIthVar(ptr noundef %105, i32 noundef %109) #13
   %111 = load ptr, ptr %5, align 8, !tbaa !46
@@ -712,7 +712,7 @@ Saig_ObjIsPi.exit.thread:                         ; preds = %.lr.ph.split, %Saig
   %.288 = phi ptr [ %.3, %.critedge ], [ %.055.lcssa, %.lr.ph90 ]
   %120 = getelementptr i8, ptr %119, i64 8
   %.val61 = load ptr, ptr %120, align 8, !tbaa !39
-  %121 = getelementptr inbounds nuw ptr, ptr %.val61, i64 %indvars.iv99
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %.val61, i64 %indvars.iv99
   %122 = load ptr, ptr %121, align 8, !tbaa !40
   %123 = getelementptr i8, ptr %122, i64 24
   %.val.i75 = load i64, ptr %123, align 8
@@ -735,12 +735,12 @@ Saig_ObjIsPi.exit79.thread:                       ; preds = %.lr.ph90.split, %Sa
   %129 = getelementptr i8, ptr %127, i64 8
   %.val71 = load ptr, ptr %129, align 8, !tbaa !59
   %130 = sext i32 %.val65 to i64
-  %131 = getelementptr inbounds i32, ptr %.val71, i64 %130
+  %131 = getelementptr inbounds [4 x i8], ptr %.val71, i64 %130
   %132 = load i32, ptr %131, align 4, !tbaa !61
   %133 = load ptr, ptr %54, align 8, !tbaa !70
   %134 = getelementptr i8, ptr %133, i64 8
   %.val70 = load ptr, ptr %134, align 8, !tbaa !59
-  %135 = getelementptr inbounds i32, ptr %.val70, i64 %130
+  %135 = getelementptr inbounds [4 x i8], ptr %.val70, i64 %130
   %136 = load i32, ptr %135, align 4, !tbaa !61
   %137 = icmp slt i32 %132, %136
   br i1 %137, label %.critedge, label %138
@@ -750,7 +750,7 @@ Saig_ObjIsPi.exit79.thread:                       ; preds = %.lr.ph90.split, %Sa
   %140 = load ptr, ptr %55, align 8, !tbaa !57
   %141 = getelementptr i8, ptr %140, i64 8
   %.val69 = load ptr, ptr %141, align 8, !tbaa !59
-  %142 = getelementptr inbounds i32, ptr %.val69, i64 %130
+  %142 = getelementptr inbounds [4 x i8], ptr %.val69, i64 %130
   %143 = load i32, ptr %142, align 4, !tbaa !61
   %144 = tail call ptr @Cudd_bddIthVar(ptr noundef %139, i32 noundef %143) #13
   %145 = load ptr, ptr %5, align 8, !tbaa !46
@@ -821,7 +821,7 @@ define noundef ptr @Llb_ManConstructQuantCubeFwd(ptr noundef readonly captures(n
   %.04559 = phi ptr [ %8, %.lr.ph ], [ %.146, %43 ]
   %23 = getelementptr i8, ptr %22, i64 8
   %.val49 = load ptr, ptr %23, align 8, !tbaa !39
-  %24 = getelementptr inbounds nuw ptr, ptr %.val49, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.val49, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8, !tbaa !40
   %26 = load ptr, ptr %13, align 8, !tbaa !70
   %27 = getelementptr i8, ptr %25, i64 36
@@ -829,7 +829,7 @@ define noundef ptr @Llb_ManConstructQuantCubeFwd(ptr noundef readonly captures(n
   %28 = getelementptr i8, ptr %26, i64 8
   %.val57 = load ptr, ptr %28, align 8, !tbaa !59
   %29 = sext i32 %.val53 to i64
-  %30 = getelementptr inbounds i32, ptr %.val57, i64 %29
+  %30 = getelementptr inbounds [4 x i8], ptr %.val57, i64 %29
   %31 = load i32, ptr %30, align 4, !tbaa !61
   %32 = icmp sgt i32 %31, %2
   br i1 %32, label %43, label %33
@@ -839,7 +839,7 @@ define noundef ptr @Llb_ManConstructQuantCubeFwd(ptr noundef readonly captures(n
   %35 = load ptr, ptr %14, align 8, !tbaa !57
   %36 = getelementptr i8, ptr %35, i64 8
   %.val56 = load ptr, ptr %36, align 8, !tbaa !59
-  %37 = getelementptr inbounds i32, ptr %.val56, i64 %29
+  %37 = getelementptr inbounds [4 x i8], ptr %.val56, i64 %29
   %38 = load i32, ptr %37, align 4, !tbaa !61
   %39 = tail call ptr @Cudd_bddIthVar(ptr noundef %34, i32 noundef %38) #13
   %40 = load ptr, ptr %4, align 8, !tbaa !46
@@ -866,7 +866,7 @@ define noundef ptr @Llb_ManConstructQuantCubeFwd(ptr noundef readonly captures(n
   %.262 = phi ptr [ %.045.lcssa, %.lr.ph64 ], [ %.3, %.critedge ]
   %50 = getelementptr i8, ptr %49, i64 8
   %.val48 = load ptr, ptr %50, align 8, !tbaa !39
-  %51 = getelementptr inbounds nuw ptr, ptr %.val48, i64 %indvars.iv67
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %.val48, i64 %indvars.iv67
   %52 = load ptr, ptr %51, align 8, !tbaa !40
   %53 = load ptr, ptr %19, align 8, !tbaa !70
   %54 = getelementptr i8, ptr %52, i64 36
@@ -874,7 +874,7 @@ define noundef ptr @Llb_ManConstructQuantCubeFwd(ptr noundef readonly captures(n
   %55 = getelementptr i8, ptr %53, i64 8
   %.val55 = load ptr, ptr %55, align 8, !tbaa !59
   %56 = sext i32 %.val51 to i64
-  %57 = getelementptr inbounds i32, ptr %.val55, i64 %56
+  %57 = getelementptr inbounds [4 x i8], ptr %.val55, i64 %56
   %58 = load i32, ptr %57, align 4, !tbaa !61
   %59 = icmp sgt i32 %58, %2
   br i1 %59, label %.critedge, label %60
@@ -884,7 +884,7 @@ define noundef ptr @Llb_ManConstructQuantCubeFwd(ptr noundef readonly captures(n
   %62 = load ptr, ptr %20, align 8, !tbaa !57
   %63 = getelementptr i8, ptr %62, i64 8
   %.val54 = load ptr, ptr %63, align 8, !tbaa !59
-  %64 = getelementptr inbounds i32, ptr %.val54, i64 %56
+  %64 = getelementptr inbounds [4 x i8], ptr %.val54, i64 %56
   %65 = load i32, ptr %64, align 4, !tbaa !61
   %66 = tail call ptr @Cudd_bddIthVar(ptr noundef %61, i32 noundef %65) #13
   %67 = load ptr, ptr %4, align 8, !tbaa !46
@@ -957,7 +957,7 @@ define noundef ptr @Llb_ManConstructQuantCubeBwd(ptr noundef readonly captures(n
   %.04972 = phi ptr [ %8, %.lr.ph ], [ %.150, %49 ]
   %25 = getelementptr i8, ptr %24, i64 8
   %.val54 = load ptr, ptr %25, align 8, !tbaa !39
-  %26 = getelementptr inbounds nuw ptr, ptr %.val54, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %.val54, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8, !tbaa !40
   %28 = getelementptr i8, ptr %27, i64 24
   %.val.i = load i64, ptr %28, align 8
@@ -980,7 +980,7 @@ Saig_ObjIsPi.exit.thread:                         ; preds = %23, %Saig_ObjIsPi.e
   %34 = getelementptr i8, ptr %32, i64 8
   %.val62 = load ptr, ptr %34, align 8, !tbaa !59
   %35 = sext i32 %.val58 to i64
-  %36 = getelementptr inbounds i32, ptr %.val62, i64 %35
+  %36 = getelementptr inbounds [4 x i8], ptr %.val62, i64 %35
   %37 = load i32, ptr %36, align 4, !tbaa !61
   %38 = icmp slt i32 %37, %2
   br i1 %38, label %49, label %39
@@ -990,7 +990,7 @@ Saig_ObjIsPi.exit.thread:                         ; preds = %23, %Saig_ObjIsPi.e
   %41 = load ptr, ptr %15, align 8, !tbaa !57
   %42 = getelementptr i8, ptr %41, i64 8
   %.val61 = load ptr, ptr %42, align 8, !tbaa !59
-  %43 = getelementptr inbounds i32, ptr %.val61, i64 %35
+  %43 = getelementptr inbounds [4 x i8], ptr %.val61, i64 %35
   %44 = load i32, ptr %43, align 4, !tbaa !61
   %45 = tail call ptr @Cudd_bddIthVar(ptr noundef %40, i32 noundef %44) #13
   %46 = load ptr, ptr %4, align 8, !tbaa !46
@@ -1017,7 +1017,7 @@ Saig_ObjIsPi.exit.thread:                         ; preds = %23, %Saig_ObjIsPi.e
   %.275 = phi ptr [ %.049.lcssa, %.lr.ph77 ], [ %.3, %.critedge ]
   %56 = getelementptr i8, ptr %55, i64 8
   %.val53 = load ptr, ptr %56, align 8, !tbaa !39
-  %57 = getelementptr inbounds nuw ptr, ptr %.val53, i64 %indvars.iv80
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %.val53, i64 %indvars.iv80
   %58 = load ptr, ptr %57, align 8, !tbaa !40
   %59 = getelementptr i8, ptr %58, i64 24
   %.val.i63 = load i64, ptr %59, align 8
@@ -1040,7 +1040,7 @@ Saig_ObjIsPi.exit67.thread:                       ; preds = %54, %Saig_ObjIsPi.e
   %65 = getelementptr i8, ptr %63, i64 8
   %.val60 = load ptr, ptr %65, align 8, !tbaa !59
   %66 = sext i32 %.val56 to i64
-  %67 = getelementptr inbounds i32, ptr %.val60, i64 %66
+  %67 = getelementptr inbounds [4 x i8], ptr %.val60, i64 %66
   %68 = load i32, ptr %67, align 4, !tbaa !61
   %69 = icmp slt i32 %68, %2
   br i1 %69, label %.critedge, label %70
@@ -1050,7 +1050,7 @@ Saig_ObjIsPi.exit67.thread:                       ; preds = %54, %Saig_ObjIsPi.e
   %72 = load ptr, ptr %22, align 8, !tbaa !57
   %73 = getelementptr i8, ptr %72, i64 8
   %.val59 = load ptr, ptr %73, align 8, !tbaa !59
-  %74 = getelementptr inbounds i32, ptr %.val59, i64 %66
+  %74 = getelementptr inbounds [4 x i8], ptr %.val59, i64 %66
   %75 = load i32, ptr %74, align 4, !tbaa !61
   %76 = tail call ptr @Cudd_bddIthVar(ptr noundef %71, i32 noundef %75) #13
   %77 = load ptr, ptr %4, align 8, !tbaa !46
@@ -1116,7 +1116,7 @@ define noundef ptr @Llb_ManComputeInitState(ptr noundef readonly captures(none) 
   %.val29 = load i32, ptr %20, align 4, !tbaa !73
   %21 = add nsw i32 %.val29, %.02632
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds ptr, ptr %.val, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr %.val, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !40
   %25 = load ptr, ptr %11, align 8, !tbaa !57
   %26 = getelementptr i8, ptr %24, i64 36
@@ -1124,7 +1124,7 @@ define noundef ptr @Llb_ManComputeInitState(ptr noundef readonly captures(none) 
   %27 = getelementptr i8, ptr %25, i64 8
   %.val28 = load ptr, ptr %27, align 8, !tbaa !59
   %28 = sext i32 %.val27 to i64
-  %29 = getelementptr inbounds i32, ptr %.val28, i64 %28
+  %29 = getelementptr inbounds [4 x i8], ptr %.val28, i64 %28
   %30 = load i32, ptr %29, align 4, !tbaa !61
   br label %31
 
@@ -1177,7 +1177,7 @@ define noundef ptr @Llb_ManComputeImage(ptr noundef readonly captures(none) %0, 
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %16 = load ptr, ptr %15, align 8, !tbaa !87
   %17 = zext nneg i32 %.082 to i64
-  %18 = getelementptr inbounds nuw ptr, ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !88
   %20 = tail call ptr @Llb_ManConstructGroupBdd(ptr noundef nonnull %0, ptr noundef %19)
   %21 = icmp eq ptr %20, null
@@ -1328,7 +1328,7 @@ define ptr @Llb_ManCreateConstraints(ptr noundef readonly captures(none) %0, ptr
   %32 = getelementptr i8, ptr %29, i64 8
   %.val85.us = load ptr, ptr %32, align 8, !tbaa !39
   %33 = sext i32 %31 to i64
-  %34 = getelementptr inbounds ptr, ptr %.val85.us, i64 %33
+  %34 = getelementptr inbounds [8 x i8], ptr %.val85.us, i64 %33
   %35 = load ptr, ptr %34, align 8, !tbaa !40
   %36 = load ptr, ptr %26, align 8, !tbaa !57
   %37 = getelementptr i8, ptr %35, i64 36
@@ -1336,7 +1336,7 @@ define ptr @Llb_ManCreateConstraints(ptr noundef readonly captures(none) %0, ptr
   %38 = getelementptr i8, ptr %36, i64 8
   %.val91.us = load ptr, ptr %38, align 8, !tbaa !59
   %39 = sext i32 %.val87.us to i64
-  %40 = getelementptr inbounds i32, ptr %.val91.us, i64 %39
+  %40 = getelementptr inbounds [4 x i8], ptr %.val91.us, i64 %39
   %.077.us = load i32, ptr %40, align 4, !tbaa !61
   %41 = load ptr, ptr %5, align 8, !tbaa !46
   %42 = tail call ptr @Cudd_bddIthVar(ptr noundef %41, i32 noundef %.077.us) #13
@@ -1356,7 +1356,7 @@ define ptr @Llb_ManCreateConstraints(ptr noundef readonly captures(none) %0, ptr
   %51 = load ptr, ptr %50, align 8, !tbaa !80
   %52 = getelementptr i8, ptr %51, i64 8
   %.val86 = load ptr, ptr %52, align 8, !tbaa !39
-  %53 = getelementptr inbounds nuw ptr, ptr %.val86, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %.val86, i64 %indvars.iv
   %54 = load ptr, ptr %53, align 8, !tbaa !40
   %55 = load ptr, ptr %5, align 8, !tbaa !46
   %56 = load ptr, ptr %22, align 8, !tbaa !57
@@ -1365,7 +1365,7 @@ define ptr @Llb_ManCreateConstraints(ptr noundef readonly captures(none) %0, ptr
   %58 = getelementptr i8, ptr %56, i64 8
   %.val93 = load ptr, ptr %58, align 8, !tbaa !59
   %59 = sext i32 %.val89 to i64
-  %60 = getelementptr inbounds i32, ptr %.val93, i64 %59
+  %60 = getelementptr inbounds [4 x i8], ptr %.val93, i64 %59
   %61 = load i32, ptr %60, align 4, !tbaa !61
   %62 = tail call ptr @Cudd_bddIthVar(ptr noundef %55, i32 noundef %61) #13
   %63 = getelementptr inbounds nuw i8, ptr %54, i64 40
@@ -1389,7 +1389,7 @@ define ptr @Llb_ManCreateConstraints(ptr noundef readonly captures(none) %0, ptr
   %73 = getelementptr i8, ptr %70, i64 8
   %.val85 = load ptr, ptr %73, align 8, !tbaa !39
   %74 = sext i32 %72 to i64
-  %75 = getelementptr inbounds ptr, ptr %.val85, i64 %74
+  %75 = getelementptr inbounds [8 x i8], ptr %.val85, i64 %74
   %76 = load ptr, ptr %75, align 8, !tbaa !40
   %77 = load ptr, ptr %26, align 8, !tbaa !57
   %.val97 = load i32, ptr %76, align 8, !tbaa !41
@@ -1402,14 +1402,14 @@ define ptr @Llb_ManCreateConstraints(ptr noundef readonly captures(none) %0, ptr
   %83 = getelementptr i8, ptr %79, i64 8
   %.val.i = load ptr, ptr %83, align 8, !tbaa !39
   %84 = sext i32 %82 to i64
-  %85 = getelementptr inbounds ptr, ptr %.val.i, i64 %84
+  %85 = getelementptr inbounds [8 x i8], ptr %.val.i, i64 %84
   %86 = load ptr, ptr %85, align 8, !tbaa !40
   %87 = getelementptr i8, ptr %86, i64 36
   %.val88 = load i32, ptr %87, align 4, !tbaa !58
   %88 = getelementptr i8, ptr %77, i64 8
   %.val92 = load ptr, ptr %88, align 8, !tbaa !59
   %89 = sext i32 %.val88 to i64
-  %90 = getelementptr inbounds i32, ptr %.val92, i64 %89
+  %90 = getelementptr inbounds [4 x i8], ptr %.val92, i64 %89
   %.077 = load i32, ptr %90, align 4, !tbaa !61
   %91 = load ptr, ptr %5, align 8, !tbaa !46
   %92 = tail call ptr @Cudd_bddIthVar(ptr noundef %91, i32 noundef %.077) #13
@@ -1446,14 +1446,14 @@ define ptr @Llb_ManCreateConstraints(ptr noundef readonly captures(none) %0, ptr
   %110 = phi ptr [ %124, %.lr.ph109 ], [ %107, %.critedge2 ]
   %111 = getelementptr i8, ptr %110, i64 8
   %.val84 = load ptr, ptr %111, align 8, !tbaa !39
-  %112 = getelementptr inbounds nuw ptr, ptr %.val84, i64 %indvars.iv117
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %.val84, i64 %indvars.iv117
   %113 = load ptr, ptr %112, align 8, !tbaa !40
   %114 = load ptr, ptr %12, align 8, !tbaa !51
   %115 = getelementptr i8, ptr %114, i64 16
   %.val98 = load ptr, ptr %115, align 8, !tbaa !80
   %116 = getelementptr i8, ptr %.val98, i64 8
   %.val98.val = load ptr, ptr %116, align 8, !tbaa !39
-  %117 = getelementptr inbounds nuw ptr, ptr %.val98.val, i64 %indvars.iv117
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %.val98.val, i64 %indvars.iv117
   %118 = load ptr, ptr %117, align 8, !tbaa !40
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 40
   %120 = load ptr, ptr %119, align 8, !tbaa !41
@@ -1487,7 +1487,7 @@ define ptr @Llb_ManCreateConstraints(ptr noundef readonly captures(none) %0, ptr
   %indvars.iv120 = phi i64 [ 0, %.lr.ph113 ], [ %indvars.iv.next121, %154 ]
   %.079111 = phi ptr [ %129, %.lr.ph113 ], [ %.180, %154 ]
   %.val90 = load ptr, ptr %132, align 8, !tbaa !59
-  %134 = getelementptr inbounds nuw i32, ptr %.val90, i64 %indvars.iv120
+  %134 = getelementptr inbounds nuw [4 x i8], ptr %.val90, i64 %indvars.iv120
   %135 = load i32, ptr %134, align 4, !tbaa !61
   %or.cond = icmp ugt i32 %135, 1
   br i1 %or.cond, label %154, label %136
@@ -1502,7 +1502,7 @@ define ptr @Llb_ManCreateConstraints(ptr noundef readonly captures(none) %0, ptr
 139:                                              ; preds = %136
   %140 = getelementptr i8, ptr %.val100, i64 8
   %.val.i101 = load ptr, ptr %140, align 8, !tbaa !39
-  %141 = getelementptr inbounds nuw ptr, ptr %.val.i101, i64 %indvars.iv120
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %.val.i101, i64 %indvars.iv120
   %142 = load ptr, ptr %141, align 8, !tbaa !40
   br label %Aig_ManObj.exit
 
@@ -1584,7 +1584,7 @@ define noundef ptr @Llb_ManReachDeriveCex(ptr noundef readonly captures(none) %0
   %25 = getelementptr i8, ptr %20, i64 8
   %.val131 = load ptr, ptr %25, align 8, !tbaa !39
   %26 = sext i32 %.val113 to i64
-  %27 = getelementptr ptr, ptr %.val131, i64 %26
+  %27 = getelementptr [8 x i8], ptr %.val131, i64 %26
   %28 = getelementptr i8, ptr %27, i64 -8
   %29 = load ptr, ptr %28, align 8, !tbaa !40
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 736
@@ -1630,7 +1630,7 @@ define noundef ptr @Llb_ManReachDeriveCex(ptr noundef readonly captures(none) %0
   %55 = shl nuw i32 1, %54
   %56 = ashr i32 %53, 5
   %57 = sext i32 %56 to i64
-  %58 = getelementptr inbounds i32, ptr %45, i64 %57
+  %58 = getelementptr inbounds [4 x i8], ptr %45, i64 %57
   %59 = load i32, ptr %58, align 4, !tbaa !61
   %60 = or i32 %59, %55
   store i32 %60, ptr %58, align 4, !tbaa !61
@@ -1691,7 +1691,7 @@ define noundef ptr @Llb_ManReachDeriveCex(ptr noundef readonly captures(none) %0
 81:                                               ; preds = %76
   %82 = getelementptr i8, ptr %77, i64 8
   %.val117 = load ptr, ptr %82, align 8, !tbaa !39
-  %83 = getelementptr inbounds nuw ptr, ptr %.val117, i64 %indvars.iv.next
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %.val117, i64 %indvars.iv.next
   %84 = load ptr, ptr %83, align 8, !tbaa !40
   %85 = tail call ptr @Llb_ManComputeImage(ptr noundef nonnull %0, ptr noundef %.1107140, i32 noundef 1)
   tail call void @Cudd_Ref(ptr noundef %85) #13
@@ -1743,7 +1743,7 @@ define noundef ptr @Llb_ManReachDeriveCex(ptr noundef readonly captures(none) %0
   %113 = shl nuw i32 1, %112
   %114 = ashr i32 %111, 5
   %115 = sext i32 %114 to i64
-  %116 = getelementptr inbounds i32, ptr %73, i64 %115
+  %116 = getelementptr inbounds [4 x i8], ptr %73, i64 %115
   %117 = load i32, ptr %116, align 4, !tbaa !61
   %118 = or i32 %117, %113
   store i32 %118, ptr %116, align 4, !tbaa !61
@@ -2211,7 +2211,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %214 = add nsw i32 %213, 1
   store i32 %214, ptr %186, align 4, !tbaa !37
   %215 = sext i32 %213 to i64
-  %216 = getelementptr inbounds ptr, ptr %212, i64 %215
+  %216 = getelementptr inbounds [8 x i8], ptr %212, i64 %215
   store ptr %166, ptr %216, align 8, !tbaa !40
   %217 = load ptr, ptr %0, align 8, !tbaa !115
   %218 = getelementptr inbounds nuw i8, ptr %217, i64 80

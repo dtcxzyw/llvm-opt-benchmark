@@ -110,7 +110,7 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
   %65 = getelementptr inbounds i8, ptr %50, i64 %64
   %66 = and i32 %.057128, 1
   %67 = zext nneg i32 %66 to i64
-  %68 = getelementptr inbounds nuw [2 x i32], ptr @encode_frame.ordered_dither, i64 %67
+  %68 = getelementptr inbounds nuw [8 x i8], ptr @encode_frame.ordered_dither, i64 %67
   br label %69
 
 69:                                               ; preds = %.lr.ph, %put_bits.exit80
@@ -141,7 +141,7 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
   %77 = lshr exact i32 %.058117, 2
   %78 = and i32 %77, 1
   %79 = zext nneg i32 %78 to i64
-  %80 = getelementptr inbounds nuw i32, ptr %68, i64 %79
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %79
   %81 = load i32, ptr %80, align 4, !tbaa !35
   br label %82
 

@@ -408,7 +408,7 @@ define internal fastcc range(i32 0, 2) i32 @do_passwd(i32 noundef range(i32 0, 2
 
 switch.lookup:                                    ; preds = %16
   %18 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.do_passwd, i64 %18
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.do_passwd, i64 %18
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %19
 

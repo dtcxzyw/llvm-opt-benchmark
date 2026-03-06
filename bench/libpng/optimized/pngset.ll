@@ -5,9 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.png_XYZ = type { i32, i32, i32, i32, i32, i32, i32, i32, i32 }
 %struct.png_xy = type { i32, i32, i32, i32, i32, i32, i32, i32 }
-%struct.png_text_struct = type { i32, ptr, ptr, i64, i64, ptr, ptr }
-%struct.png_sPLT_struct = type { ptr, i8, ptr, i32 }
-%struct.png_unknown_chunk_t = type { [5 x i8], ptr, i64, i8 }
 
 @.str = private unnamed_addr constant [17 x i8] c"invalid cHRM XYZ\00", align 1
 @.str.1 = private unnamed_addr constant [13 x i8] c"cHRM White X\00", align 1
@@ -846,7 +843,7 @@ define void @png_set_pCAL(ptr noalias noundef %0, ptr noalias noundef captures(a
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %23
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %23 ]
-  %24 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8, !tbaa !111
   %26 = icmp eq ptr %25, null
   br i1 %26, label %30, label %27
@@ -925,12 +922,12 @@ define void @png_set_pCAL(ptr noalias noundef %0, ptr noalias noundef captures(a
 
 .lr.ph98:                                         ; preds = %.lr.ph98.preheader, %68
   %indvars.iv103 = phi i64 [ 0, %.lr.ph98.preheader ], [ %indvars.iv.next104, %68 ]
-  %60 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv103
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv103
   %61 = load ptr, ptr %60, align 8, !tbaa !111
   %62 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %61) #13
   %63 = add i64 %62, 1
   %64 = tail call noalias ptr @png_malloc_warn(ptr noundef %0, i64 noundef %63) #12
-  %65 = getelementptr inbounds nuw ptr, ptr %55, i64 %indvars.iv103
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %indvars.iv103
   store ptr %64, ptr %65, align 8, !tbaa !111
   %66 = icmp eq ptr %64, null
   br i1 %66, label %67, label %68
@@ -1485,8 +1482,8 @@ define range(i32 0, 2) i32 @png_set_text_2(ptr noalias noundef %0, ptr noalias n
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %106 ]
   %34 = phi i32 [ %13, %.lr.ph ], [ %107, %106 ]
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds %struct.png_text_struct, ptr %32, i64 %35
-  %37 = getelementptr inbounds nuw %struct.png_text_struct, ptr %2, i64 %indvars.iv
+  %36 = getelementptr inbounds [56 x i8], ptr %32, i64 %35
+  %37 = getelementptr inbounds nuw [56 x i8], ptr %2, i64 %indvars.iv
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load ptr, ptr %38, align 8, !tbaa !153
   %40 = icmp eq ptr %39, null
@@ -1869,7 +1866,7 @@ define void @png_set_sPLT(ptr noalias noundef %0, ptr noalias noundef captures(a
   %19 = or i32 %18, 32
   store i32 %19, ptr %17, align 4, !tbaa !87
   %20 = sext i32 %13 to i64
-  %21 = getelementptr inbounds %struct.png_sPLT_struct, ptr %14, i64 %20
+  %21 = getelementptr inbounds [32 x i8], ptr %14, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %23
 
@@ -1989,7 +1986,7 @@ define void @png_set_unknown_chunks(ptr noalias noundef %0, ptr noalias noundef 
   %19 = or i32 %18, 512
   store i32 %19, ptr %17, align 4, !tbaa !87
   %20 = sext i32 %13 to i64
-  %21 = getelementptr inbounds %struct.png_unknown_chunk_t, ptr %14, i64 %20
+  %21 = getelementptr inbounds [32 x i8], ptr %14, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 300
   br label %23
 
@@ -2156,7 +2153,7 @@ check_location.exit:                              ; preds = %.preheader.i
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 256
   %34 = load ptr, ptr %33, align 8, !tbaa !183
   %35 = zext nneg i32 %2 to i64
-  %36 = getelementptr inbounds nuw %struct.png_unknown_chunk_t, ptr %34, i64 %35
+  %36 = getelementptr inbounds nuw [32 x i8], ptr %34, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
   store i8 %32, ptr %37, align 8, !tbaa !185
   br label %38

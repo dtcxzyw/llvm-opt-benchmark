@@ -141,7 +141,6 @@ module asm ".previous\09\09\09\09\09"
 %struct.proto = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i8, ptr, i32, i32, i32, i32, i32, ptr, ptr, ptr, %union.anon.88, ptr, [32 x i8], %struct.list_head, ptr }
 %union.anon.88 = type { ptr }
 %struct.compat_sock_fprog = type { i16, i32 }
-%struct.sock_filter = type { i16, i8, i8, i32 }
 %struct.flowi6 = type { %struct.flowi_common, %struct.in6_addr, %struct.in6_addr, i32, %union.flowi_uli, i32 }
 %struct.flowi_common = type { i32, i32, i32, i32, i8, i8, i8, i8, i32, %struct.kuid_t, i32, %struct.flowi_tunnel }
 %struct.kuid_t = type { i32 }
@@ -149,10 +148,10 @@ module asm ".previous\09\09\09\09\09"
 %union.flowi_uli = type { i32 }
 %struct.flowi4 = type { %struct.flowi_common, i32, i32, %union.flowi_uli }
 %struct.scatterlist = type { i64, i32, i32, i64, i32, i32 }
-%struct.bio_vec = type { ptr, i32, i32 }
 %struct.vlan_hdr = type { i16, i16 }
 %struct.sk_reuseport_kern = type { ptr, ptr, ptr, ptr, ptr, i32, i32, i8 }
 %struct.bpf_insn = type { i8, i8, i16, i32 }
+%struct.sock_filter = type { i16, i8, i8, i32 }
 %struct.sockptr_t = type { %union.anon, i8 }
 %union.anon = type { ptr }
 %struct.fib_result = type { i32, i8, i8, i8, i8, i32, ptr, ptr, ptr, ptr }
@@ -1283,7 +1282,7 @@ define internal fastcc ptr @bpf_prepare_filter(ptr noundef nonnull initializes((
 .preheader:                                       ; preds = %2, %63
   %14 = phi i32 [ %64, %63 ], [ 0, %2 ]
   %15 = sext i32 %14 to i64
-  %16 = getelementptr %struct.sock_filter, ptr %10, i64 %15
+  %16 = getelementptr [8 x i8], ptr %10, i64 %15
   %17 = load i16, ptr %16, align 4
   %18 = icmp ugt i16 %17, 177
   br i1 %18, label %.thread13, label %19
@@ -1381,7 +1380,7 @@ define internal fastcc ptr @bpf_prepare_filter(ptr noundef nonnull initializes((
 .loopexit16:                                      ; preds = %63, %2
   %66 = add i32 %12, -1
   %67 = zext i32 %66 to i64
-  %68 = getelementptr %struct.sock_filter, ptr %10, i64 %67
+  %68 = getelementptr [8 x i8], ptr %10, i64 %67
   %69 = load i16, ptr %68, align 4
   switch i16 %69, label %.thread13 [
     i16 6, label %70
@@ -1410,11 +1409,11 @@ define internal fastcc ptr @bpf_prepare_filter(ptr noundef nonnull initializes((
 80:                                               ; preds = %132, %78
   %81 = phi i64 [ 0, %78 ], [ %134, %132 ]
   %82 = phi i32 [ 0, %78 ], [ %133, %132 ]
-  %83 = getelementptr i16, ptr %75, i64 %81
+  %83 = getelementptr [2 x i8], ptr %75, i64 %81
   %84 = load i16, ptr %83, align 2
   %85 = zext i16 %84 to i32
   %86 = and i32 %82, %85
-  %87 = getelementptr %struct.sock_filter, ptr %10, i64 %81
+  %87 = getelementptr [8 x i8], ptr %10, i64 %81
   %88 = load i16, ptr %87, align 4
   switch i16 %88, label %132 [
     i16 2, label %89
@@ -1454,7 +1453,7 @@ define internal fastcc ptr @bpf_prepare_filter(ptr noundef nonnull initializes((
   %104 = add i32 %103, 1
   %105 = add i32 %104, %102
   %106 = zext i32 %105 to i64
-  %107 = getelementptr i16, ptr %75, i64 %106
+  %107 = getelementptr [2 x i8], ptr %75, i64 %106
   %108 = load i16, ptr %107, align 2
   %109 = trunc nuw i32 %86 to i16
   %110 = and i16 %108, %109
@@ -2923,10 +2922,10 @@ define dso_local range(i64 -22, 4294967296) i64 @bpf_csum_diff(i64 noundef %0, i
 
 29:                                               ; preds = %29, %21
   %30 = phi i64 [ 0, %21 ], [ %35, %29 ]
-  %31 = getelementptr i32, ptr %6, i64 %30
+  %31 = getelementptr [4 x i8], ptr %6, i64 %30
   %32 = load i32, ptr %31, align 4
   %33 = xor i32 %32, -1
-  %34 = getelementptr i32, ptr %12, i64 %30
+  %34 = getelementptr [4 x i8], ptr %12, i64 %30
   store i32 %33, ptr %34, align 4
   %35 = add nuw nsw i64 %30, 1
   %36 = icmp eq i64 %35, %23
@@ -2935,9 +2934,9 @@ define dso_local range(i64 -22, 4294967296) i64 @bpf_csum_diff(i64 noundef %0, i
 37:                                               ; preds = %37, %26
   %38 = phi i64 [ 0, %26 ], [ %43, %37 ]
   %39 = phi i64 [ %24, %26 ], [ %44, %37 ]
-  %40 = getelementptr i32, ptr %8, i64 %38
+  %40 = getelementptr [4 x i8], ptr %8, i64 %38
   %41 = load i32, ptr %40, align 4
-  %42 = getelementptr i32, ptr %12, i64 %39
+  %42 = getelementptr [4 x i8], ptr %12, i64 %39
   store i32 %41, ptr %42, align 4
   %43 = add nuw nsw i64 %38, 1
   %44 = add nuw nsw i64 %39, 1
@@ -3479,7 +3478,7 @@ define dso_local i32 @skb_do_redirect(ptr noundef %0) local_unnamed_addr #0 alig
   %222 = lshr i32 %218, %221
   %223 = load ptr, ptr %210, align 8
   %224 = zext i32 %222 to i64
-  %225 = getelementptr ptr, ptr %223, i64 %224
+  %225 = getelementptr [8 x i8], ptr %223, i64 %224
   %226 = load volatile ptr, ptr %225, align 8
   %227 = icmp eq ptr %226, null
   br i1 %227, label %.loopexit37, label %.preheader
@@ -3575,7 +3574,7 @@ define dso_local i32 @skb_do_redirect(ptr noundef %0) local_unnamed_addr #0 alig
   %293 = lshr i32 %289, %292
   %294 = load ptr, ptr %262, align 8
   %295 = zext i32 %293 to i64
-  %296 = getelementptr ptr, ptr %294, i64 %295
+  %296 = getelementptr [8 x i8], ptr %294, i64 %295
   %297 = load volatile ptr, ptr %296, align 8
   %298 = icmp eq ptr %297, null
   br i1 %298, label %.loopexit40, label %.preheader38
@@ -3639,7 +3638,7 @@ define dso_local i32 @skb_do_redirect(ptr noundef %0) local_unnamed_addr #0 alig
   %343 = lshr i32 %339, %342
   %344 = load ptr, ptr %331, align 8
   %345 = zext i32 %343 to i64
-  %346 = getelementptr ptr, ptr %344, i64 %345
+  %346 = getelementptr [8 x i8], ptr %344, i64 %345
   %347 = load volatile ptr, ptr %346, align 8
   %348 = icmp eq ptr %347, null
   br i1 %348, label %.loopexit43, label %.preheader41
@@ -3959,7 +3958,7 @@ define dso_local i32 @skb_do_redirect(ptr noundef %0) local_unnamed_addr #0 alig
   %550 = lshr i32 %546, %549
   %551 = load ptr, ptr %519, align 8
   %552 = zext i32 %550 to i64
-  %553 = getelementptr ptr, ptr %551, i64 %552
+  %553 = getelementptr [8 x i8], ptr %551, i64 %552
   %554 = load volatile ptr, ptr %553, align 8
   %555 = icmp eq ptr %554, null
   br i1 %555, label %.loopexit46, label %.preheader44
@@ -4620,7 +4619,7 @@ define dso_local noundef range(i64 -22, 1) i64 @bpf_msg_pull_data(i64 noundef %0
   %74 = phi i32 [ 0, %65 ], [ %95, %129 ]
   %75 = phi i32 [ %19, %65 ], [ %132, %129 ]
   %76 = sext i32 %75 to i64
-  %77 = getelementptr %struct.scatterlist, ptr %15, i64 %76
+  %77 = getelementptr [32 x i8], ptr %15, i64 %76
   %78 = load i64, ptr %77, align 8
   %79 = and i64 %78, 288230376151711740
   %80 = load i64, ptr @vmemmap_base, align 8
@@ -4713,7 +4712,7 @@ define dso_local noundef range(i64 -22, 1) i64 @bpf_msg_pull_data(i64 noundef %0
   unreachable
 
 138:                                              ; preds = %134
-  %139 = getelementptr %struct.scatterlist, ptr %15, i64 %37
+  %139 = getelementptr [32 x i8], ptr %15, i64 %37
   %140 = load i64, ptr %139, align 8
   %141 = and i64 %140, 3
   %142 = or disjoint i64 %141, %67
@@ -4757,9 +4756,9 @@ define dso_local noundef range(i64 -22, 1) i64 @bpf_msg_pull_data(i64 noundef %0
   %164 = phi i32 [ %176, %.lr.ph ], [ %161, %154 ]
   %165 = phi i32 [ %172, %.lr.ph ], [ %157, %154 ]
   %166 = zext i32 %165 to i64
-  %167 = getelementptr %struct.scatterlist, ptr %15, i64 %166
+  %167 = getelementptr [32 x i8], ptr %15, i64 %166
   %168 = zext i32 %164 to i64
-  %169 = getelementptr %struct.scatterlist, ptr %15, i64 %168
+  %169 = getelementptr [32 x i8], ptr %15, i64 %168
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(32) %167, ptr noundef align 8 dereferenceable(32) %169, i64 32, i1 false)
   %170 = add i32 %165, 1
   %171 = icmp eq i32 %170, 18
@@ -4811,7 +4810,7 @@ define dso_local noundef range(i64 -22, 1) i64 @bpf_msg_pull_data(i64 noundef %0
   store i32 %196, ptr %202, align 4
   %203 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 0, ptr %203, align 8
-  %204 = getelementptr %struct.scatterlist, ptr %15, i64 %37
+  %204 = getelementptr [32 x i8], ptr %15, i64 %37
   %205 = load i64, ptr %204, align 8
   %206 = and i64 %205, 288230376151711740
   %207 = load i64, ptr @vmemmap_base, align 8
@@ -4938,7 +4937,7 @@ define dso_local noundef range(i64 -22, 1) i64 @bpf_msg_push_data(i64 noundef %0
   %67 = load i64, ptr @page_offset_base, align 8
   %68 = add i64 %66, %67
   %69 = inttoptr i64 %68 to ptr
-  %70 = getelementptr %struct.scatterlist, ptr %18, i64 %25
+  %70 = getelementptr [32 x i8], ptr %18, i64 %25
   %71 = sub i32 %11, %24
   %72 = getelementptr inbounds nuw i8, ptr %70, i64 12
   %73 = load i32, ptr %72, align 4
@@ -5037,7 +5036,7 @@ define dso_local noundef range(i64 -22, 1) i64 @bpf_msg_push_data(i64 noundef %0
 
 133:                                              ; preds = %131
   %134 = sub i32 %11, %24
-  %135 = getelementptr %struct.scatterlist, ptr %18, i64 %25
+  %135 = getelementptr [32 x i8], ptr %18, i64 %25
   %136 = load i64, ptr %135, align 8
   %137 = getelementptr inbounds nuw i8, ptr %135, i64 8
   %138 = load i32, ptr %137, align 8
@@ -5067,7 +5066,7 @@ define dso_local noundef range(i64 -22, 1) i64 @bpf_msg_push_data(i64 noundef %0
   %.ph14 = phi i32 [ %143, %133 ], [ 0, %131 ]
   %.ph15 = phi i32 [ %142, %133 ], [ 0, %131 ]
   %.ph16 = phi i32 [ %146, %133 ], [ %21, %131 ]
-  %153 = getelementptr %struct.scatterlist, ptr %18, i64 %.pre-phi
+  %153 = getelementptr [32 x i8], ptr %18, i64 %.pre-phi
   %154 = load i64, ptr %153, align 8
   %155 = getelementptr inbounds nuw i8, ptr %153, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %155, i64 24, i1 false)
@@ -5080,7 +5079,7 @@ define dso_local noundef range(i64 -22, 1) i64 @bpf_msg_push_data(i64 noundef %0
   %162 = select i1 %161, i32 0, i32 %160
   store i32 %162, ptr %19, align 8
   %163 = sext i32 %158 to i64
-  %164 = getelementptr %struct.scatterlist, ptr %18, i64 %163
+  %164 = getelementptr [32 x i8], ptr %18, i64 %163
   %165 = load i64, ptr %164, align 8
   %166 = getelementptr inbounds nuw i8, ptr %164, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %166, i64 24, i1 false)
@@ -5096,7 +5095,7 @@ define dso_local noundef range(i64 -22, 1) i64 @bpf_msg_push_data(i64 noundef %0
   %171 = icmp eq i32 %170, 18
   %172 = select i1 %171, i32 0, i32 %170
   %173 = sext i32 %172 to i64
-  %174 = getelementptr %struct.scatterlist, ptr %18, i64 %173
+  %174 = getelementptr [32 x i8], ptr %18, i64 %173
   %175 = load i64, ptr %174, align 8
   %176 = getelementptr inbounds nuw i8, ptr %174, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %176, i64 24, i1 false)
@@ -5108,7 +5107,7 @@ define dso_local noundef range(i64 -22, 1) i64 @bpf_msg_push_data(i64 noundef %0
   %179 = phi i64 [ %189, %.preheader.split.us ], [ %165, %168 ]
   %180 = phi i64 [ %179, %.preheader.split.us ], [ %159, %168 ]
   %181 = zext i32 %178 to i64
-  %182 = getelementptr %struct.scatterlist, ptr %18, i64 %181
+  %182 = getelementptr [32 x i8], ptr %18, i64 %181
   store i64 %180, ptr %182, align 8
   %183 = getelementptr inbounds nuw i8, ptr %182, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %183, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
@@ -5117,7 +5116,7 @@ define dso_local noundef range(i64 -22, 1) i64 @bpf_msg_push_data(i64 noundef %0
   %185 = icmp eq i32 %184, 18
   %186 = select i1 %185, i32 0, i32 %184
   %187 = sext i32 %186 to i64
-  %188 = getelementptr %struct.scatterlist, ptr %18, i64 %187
+  %188 = getelementptr [32 x i8], ptr %18, i64 %187
   %189 = load i64, ptr %188, align 8
   %.idx12.us = shl nsw i64 %187, 5
   %190 = getelementptr i8, ptr %18, i64 %.idx12.us
@@ -5132,7 +5131,7 @@ define dso_local noundef range(i64 -22, 1) i64 @bpf_msg_push_data(i64 noundef %0
   %195 = phi i64 [ %194, %.preheader.split ], [ %165, %.thread ]
   %196 = phi i64 [ %195, %.preheader.split ], [ %159, %.thread ]
   %197 = zext i32 %193 to i64
-  %198 = getelementptr %struct.scatterlist, ptr %18, i64 %197
+  %198 = getelementptr [32 x i8], ptr %18, i64 %197
   store i64 %196, ptr %198, align 8
   %199 = getelementptr inbounds nuw i8, ptr %198, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %199, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
@@ -5142,7 +5141,7 @@ define dso_local noundef range(i64 -22, 1) i64 @bpf_msg_push_data(i64 noundef %0
   %202 = select i1 %201, i32 0, i32 %200
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   %203 = sext i32 %202 to i64
-  %204 = getelementptr %struct.scatterlist, ptr %18, i64 %203
+  %204 = getelementptr [32 x i8], ptr %18, i64 %203
   %205 = load i64, ptr %204, align 8
   %.idx12 = shl nsw i64 %203, 5
   %206 = getelementptr i8, ptr %18, i64 %.idx12
@@ -5191,7 +5190,7 @@ define dso_local noundef range(i64 -22, 1) i64 @bpf_msg_push_data(i64 noundef %0
   unreachable
 
 234:                                              ; preds = %224
-  %235 = getelementptr %struct.scatterlist, ptr %18, i64 %228
+  %235 = getelementptr [32 x i8], ptr %18, i64 %228
   %236 = load i64, ptr %235, align 8
   %237 = and i64 %236, 3
   %238 = or disjoint i64 %237, %230
@@ -5252,7 +5251,7 @@ define dso_local noundef range(i64 -22, 1) i64 @bpf_msg_push_data(i64 noundef %0
   %272 = icmp eq i32 %271, 18
   %273 = select i1 %272, i32 0, i32 %271
   %274 = zext i32 %273 to i64
-  %275 = getelementptr %struct.scatterlist, ptr %18, i64 %274
+  %275 = getelementptr [32 x i8], ptr %18, i64 %274
   store i64 %212, ptr %275, align 8
   %276 = getelementptr inbounds nuw i8, ptr %275, i64 8
   store i32 %211, ptr %276, align 8
@@ -5306,7 +5305,7 @@ define dso_local noundef range(i64 -22, 1) i64 @bpf_msg_push_data(i64 noundef %0
 
 306:                                              ; preds = %297
   %307 = sext i32 %280 to i64
-  %308 = getelementptr %struct.scatterlist, ptr %18, i64 %307
+  %308 = getelementptr [32 x i8], ptr %18, i64 %307
   %309 = load i64, ptr %308, align 8
   %310 = and i64 %309, 288230376151711740
   %311 = load i64, ptr @vmemmap_base, align 8
@@ -5393,7 +5392,7 @@ define dso_local noundef range(i64 -22, 1) i64 @bpf_msg_pop_data(i64 noundef %0,
   br i1 %44, label %193, label %45
 
 45:                                               ; preds = %38
-  %46 = getelementptr %struct.scatterlist, ptr %15, i64 %22
+  %46 = getelementptr [32 x i8], ptr %15, i64 %22
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 12
   %48 = sub i32 %25, %10
   %49 = sub i32 %48, %9
@@ -5417,13 +5416,13 @@ define dso_local noundef range(i64 -22, 1) i64 @bpf_msg_pop_data(i64 noundef %0,
   %60 = select i1 %59, i32 0, i32 %58
   store i32 %60, ptr %16, align 8
   %61 = sext i32 %52 to i64
-  %62 = getelementptr %struct.scatterlist, ptr %15, i64 %61
+  %62 = getelementptr [32 x i8], ptr %15, i64 %61
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef align 8 dereferenceable(32) %62, i64 32, i1 false)
   %63 = add i32 %52, 1
   %64 = icmp eq i32 %63, 18
   %65 = select i1 %64, i32 0, i32 %63
   %66 = sext i32 %65 to i64
-  %67 = getelementptr %struct.scatterlist, ptr %15, i64 %66
+  %67 = getelementptr [32 x i8], ptr %15, i64 %66
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef align 8 dereferenceable(32) %67, i64 32, i1 false)
   %68 = icmp eq i32 %65, %60
   br i1 %68, label %.loopexit, label %.preheader22
@@ -5431,14 +5430,14 @@ define dso_local noundef range(i64 -22, 1) i64 @bpf_msg_pop_data(i64 noundef %0,
 .preheader22:                                     ; preds = %57, %.preheader22
   %69 = phi i32 [ %74, %.preheader22 ], [ %65, %57 ]
   %70 = sext i32 %69 to i64
-  %71 = getelementptr %struct.scatterlist, ptr %15, i64 %70
+  %71 = getelementptr [32 x i8], ptr %15, i64 %70
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(32) %71, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
   %72 = add i32 %69, 1
   %73 = icmp eq i32 %72, 18
   %74 = select i1 %73, i32 0, i32 %72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
   %75 = sext i32 %74 to i64
-  %76 = getelementptr %struct.scatterlist, ptr %15, i64 %75
+  %76 = getelementptr [32 x i8], ptr %15, i64 %75
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef align 8 dereferenceable(32) %76, i64 32, i1 false)
   %77 = load i32, ptr %16, align 8
   %78 = icmp eq i32 %74, %77
@@ -5630,7 +5629,7 @@ define dso_local noundef range(i64 -22, 1) i64 @bpf_msg_pop_data(i64 noundef %0,
   %197 = phi i32 [ %220, %219 ], [ %195, %193 ]
   %198 = phi i32 [ %226, %219 ], [ %194, %193 ]
   %199 = sext i32 %198 to i64
-  %200 = getelementptr %struct.scatterlist, ptr %15, i64 %199
+  %200 = getelementptr [32 x i8], ptr %15, i64 %199
   %201 = getelementptr inbounds nuw i8, ptr %200, i64 12
   %202 = load i32, ptr %201, align 4
   %203 = icmp ult i32 %197, %202
@@ -5652,9 +5651,9 @@ define dso_local noundef range(i64 -22, 1) i64 @bpf_msg_pop_data(i64 noundef %0,
   %211 = icmp eq i32 %210, 18
   %212 = select i1 %211, i32 0, i32 %210
   %213 = sext i32 %209 to i64
-  %214 = getelementptr %struct.scatterlist, ptr %15, i64 %213
+  %214 = getelementptr [32 x i8], ptr %15, i64 %213
   %215 = sext i32 %212 to i64
-  %216 = getelementptr %struct.scatterlist, ptr %15, i64 %215
+  %216 = getelementptr [32 x i8], ptr %15, i64 %215
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(32) %214, ptr noundef align 8 dereferenceable(32) %216, i64 32, i1 false)
   %217 = load i32, ptr %16, align 8
   %218 = icmp eq i32 %212, %217
@@ -5764,7 +5763,7 @@ define dso_local noundef range(i64 -22, 1) i64 @bpf_msg_pop_data(i64 noundef %0,
 
 287:                                              ; preds = %277
   %288 = sext i32 %261 to i64
-  %289 = getelementptr %struct.scatterlist, ptr %15, i64 %288
+  %289 = getelementptr [32 x i8], ptr %15, i64 %288
   %290 = load i64, ptr %289, align 8
   %291 = and i64 %290, 288230376151711740
   %292 = load i64, ptr @vmemmap_base, align 8
@@ -7544,7 +7543,7 @@ define dso_local void @bpf_xdp_copy_buf(ptr noundef readonly captures(none) %0, 
   %26 = getelementptr i8, ptr %24, i64 -318
   %27 = load i8, ptr %26, align 2
   %28 = zext i8 %27 to i64
-  %29 = getelementptr %struct.bio_vec, ptr %25, i64 %28
+  %29 = getelementptr [16 x i8], ptr %25, i64 %28
   br i1 %4, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %18, %54
@@ -7718,7 +7717,7 @@ define dso_local ptr @bpf_xdp_pointer(ptr noundef readonly captures(none) %0, i3
 50:                                               ; preds = %67, %45
   %51 = phi i64 [ 0, %45 ], [ %69, %67 ]
   %52 = phi i32 [ %41, %45 ], [ %68, %67 ]
-  %53 = getelementptr %struct.bio_vec, ptr %46, i64 %51
+  %53 = getelementptr [16 x i8], ptr %46, i64 %51
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %55 = load i32, ptr %54, align 8
   %56 = icmp ult i32 %52, %55
@@ -7828,7 +7827,7 @@ define dso_local i64 @bpf_xdp_load_bytes(i64 noundef %0, i64 noundef %1, i64 nou
 56:                                               ; preds = %73, %51
   %57 = phi i64 [ 0, %51 ], [ %75, %73 ]
   %58 = phi i32 [ %47, %51 ], [ %74, %73 ]
-  %59 = getelementptr %struct.bio_vec, ptr %52, i64 %57
+  %59 = getelementptr [16 x i8], ptr %52, i64 %57
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %61 = load i32, ptr %60, align 8
   %62 = icmp ult i32 %58, %61
@@ -7899,7 +7898,7 @@ define dso_local i64 @bpf_xdp_load_bytes(i64 noundef %0, i64 noundef %1, i64 nou
   %104 = getelementptr i8, ptr %102, i64 -318
   %105 = load i8, ptr %104, align 2
   %106 = zext i8 %105 to i64
-  %107 = getelementptr %struct.bio_vec, ptr %103, i64 %106
+  %107 = getelementptr [16 x i8], ptr %103, i64 %106
   br label %108
 
 108:                                              ; preds = %133, %96
@@ -8028,7 +8027,7 @@ define dso_local i32 @__bpf_xdp_load_bytes(ptr noundef readonly captures(none) %
 51:                                               ; preds = %68, %46
   %52 = phi i64 [ 0, %46 ], [ %70, %68 ]
   %53 = phi i32 [ %42, %46 ], [ %69, %68 ]
-  %54 = getelementptr %struct.bio_vec, ptr %47, i64 %52
+  %54 = getelementptr [16 x i8], ptr %47, i64 %52
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = load i32, ptr %55, align 8
   %57 = icmp ult i32 %53, %56
@@ -8100,7 +8099,7 @@ define dso_local i32 @__bpf_xdp_load_bytes(ptr noundef readonly captures(none) %
   %100 = getelementptr i8, ptr %98, i64 -318
   %101 = load i8, ptr %100, align 2
   %102 = zext i8 %101 to i64
-  %103 = getelementptr %struct.bio_vec, ptr %99, i64 %102
+  %103 = getelementptr [16 x i8], ptr %99, i64 %102
   br label %104
 
 104:                                              ; preds = %129, %92
@@ -8233,7 +8232,7 @@ define dso_local i64 @bpf_xdp_store_bytes(i64 noundef %0, i64 noundef %1, i64 no
 56:                                               ; preds = %73, %51
   %57 = phi i64 [ 0, %51 ], [ %75, %73 ]
   %58 = phi i32 [ %47, %51 ], [ %74, %73 ]
-  %59 = getelementptr %struct.bio_vec, ptr %52, i64 %57
+  %59 = getelementptr [16 x i8], ptr %52, i64 %57
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %61 = load i32, ptr %60, align 8
   %62 = icmp ult i32 %58, %61
@@ -8304,7 +8303,7 @@ define dso_local i64 @bpf_xdp_store_bytes(i64 noundef %0, i64 noundef %1, i64 no
   %104 = getelementptr i8, ptr %102, i64 -318
   %105 = load i8, ptr %104, align 2
   %106 = zext i8 %105 to i64
-  %107 = getelementptr %struct.bio_vec, ptr %103, i64 %106
+  %107 = getelementptr [16 x i8], ptr %103, i64 %106
   br label %108
 
 108:                                              ; preds = %133, %96
@@ -8433,7 +8432,7 @@ define dso_local i32 @__bpf_xdp_store_bytes(ptr noundef readonly captures(none) 
 51:                                               ; preds = %68, %46
   %52 = phi i64 [ 0, %46 ], [ %70, %68 ]
   %53 = phi i32 [ %42, %46 ], [ %69, %68 ]
-  %54 = getelementptr %struct.bio_vec, ptr %47, i64 %52
+  %54 = getelementptr [16 x i8], ptr %47, i64 %52
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = load i32, ptr %55, align 8
   %57 = icmp ult i32 %53, %56
@@ -8505,7 +8504,7 @@ define dso_local i32 @__bpf_xdp_store_bytes(ptr noundef readonly captures(none) 
   %100 = getelementptr i8, ptr %98, i64 -318
   %101 = load i8, ptr %100, align 2
   %102 = zext i8 %101 to i64
-  %103 = getelementptr %struct.bio_vec, ptr %99, i64 %102
+  %103 = getelementptr [16 x i8], ptr %99, i64 %102
   br label %104
 
 104:                                              ; preds = %129, %92
@@ -8697,7 +8696,7 @@ define dso_local void @bpf_clear_redirect_map(ptr noundef %0) local_unnamed_addr
 
 12:                                               ; preds = %8
   %13 = and i64 %9, 63
-  %14 = getelementptr i64, ptr @__per_cpu_offset, i64 %13
+  %14 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %13
   %15 = load i64, ptr %14, align 8
   %16 = add i64 %15, ptrtoint (ptr @bpf_redirect_info to i64)
   %17 = inttoptr i64 %16 to ptr
@@ -10038,7 +10037,7 @@ define dso_local range(i64 -11, 2) i64 @bpf_skb_under_cgroup(i64 noundef %0, i64
 31:                                               ; preds = %27
   %32 = getelementptr inbounds nuw i8, ptr %7, i64 272
   %33 = and i64 %2, 4294967295
-  %34 = getelementptr ptr, ptr %32, i64 %33
+  %34 = getelementptr [8 x i8], ptr %32, i64 %33
   %35 = load volatile ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, null
   br i1 %36, label %.thread, label %37, !prof !14
@@ -10064,7 +10063,7 @@ define dso_local range(i64 -11, 2) i64 @bpf_skb_under_cgroup(i64 noundef %0, i64
 51:                                               ; preds = %45
   %52 = getelementptr inbounds nuw i8, ptr %39, i64 1048
   %53 = sext i32 %49 to i64
-  %54 = getelementptr ptr, ptr %52, i64 %53
+  %54 = getelementptr [8 x i8], ptr %52, i64 %53
   %55 = load ptr, ptr %54, align 8
   %56 = icmp eq ptr %55, %35
   %57 = zext i1 %56 to i64
@@ -10165,7 +10164,7 @@ define dso_local i64 @bpf_skb_ancestor_cgroup_id(i64 noundef %0, i64 noundef %1,
 34:                                               ; preds = %30
   %35 = getelementptr inbounds nuw i8, ptr %28, i64 1048
   %36 = and i64 %1, 2147483647
-  %37 = getelementptr ptr, ptr %35, i64 %36
+  %37 = getelementptr [8 x i8], ptr %35, i64 %36
   %38 = load ptr, ptr %37, align 8
   %39 = icmp eq ptr %38, null
   br i1 %39, label %.thread, label %40
@@ -10274,7 +10273,7 @@ define dso_local i64 @bpf_sk_ancestor_cgroup_id(i64 noundef %0, i64 noundef %1, 
 34:                                               ; preds = %30
   %35 = getelementptr inbounds nuw i8, ptr %28, i64 1048
   %36 = and i64 %1, 2147483647
-  %37 = getelementptr ptr, ptr %35, i64 %36
+  %37 = getelementptr [8 x i8], ptr %35, i64 %36
   %38 = load ptr, ptr %37, align 8
   %39 = icmp eq ptr %38, null
   br i1 %39, label %.thread, label %40
@@ -10938,7 +10937,7 @@ define dso_local noundef range(i64 -22, 1) i64 @bpf_skb_get_xfrm_state(i64 nound
 30:                                               ; preds = %22
   %31 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %32 = and i64 %1, 4294967295
-  %33 = getelementptr ptr, ptr %31, i64 %32
+  %33 = getelementptr [8 x i8], ptr %31, i64 %32
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 216
   %36 = load i32, ptr %35, align 8
@@ -24430,7 +24429,7 @@ define internal fastcc range(i32 -22, 1) i32 @bpf_convert_filter(ptr noundef non
   %69 = sub i64 %68, %51
   %70 = lshr exact i64 %69, 3
   %71 = trunc i64 %70 to i32
-  %72 = getelementptr i32, ptr %20, i64 %64
+  %72 = getelementptr [4 x i8], ptr %20, i64 %64
   store i32 %71, ptr %72, align 4
   br label %73
 
@@ -24895,9 +24894,9 @@ thread-pre-split:                                 ; preds = %206
 
 245:                                              ; preds = %244
   %246 = zext nneg i32 %241 to i64
-  %247 = getelementptr i32, ptr %20, i64 %246
+  %247 = getelementptr [4 x i8], ptr %20, i64 %246
   %248 = load i32, ptr %247, align 4
-  %249 = getelementptr i32, ptr %20, i64 %64
+  %249 = getelementptr [4 x i8], ptr %20, i64 %64
   %250 = load i32, ptr %249, align 4
   %251 = xor i32 %250, -1
   %252 = add i32 %248, %251
@@ -24997,9 +24996,9 @@ thread-pre-split:                                 ; preds = %206
 
 311:                                              ; preds = %310
   %312 = zext nneg i32 %308 to i64
-  %313 = getelementptr i32, ptr %20, i64 %312
+  %313 = getelementptr [4 x i8], ptr %20, i64 %312
   %314 = load i32, ptr %313, align 4
-  %315 = getelementptr i32, ptr %20, i64 %64
+  %315 = getelementptr [4 x i8], ptr %20, i64 %64
   %316 = load i32, ptr %315, align 4
   %317 = xor i32 %316, -1
   %318 = add i32 %314, %317
@@ -25061,9 +25060,9 @@ thread-pre-split:                                 ; preds = %206
 
 349:                                              ; preds = %348
   %350 = zext nneg i32 %346 to i64
-  %351 = getelementptr i32, ptr %20, i64 %350
+  %351 = getelementptr [4 x i8], ptr %20, i64 %350
   %352 = load i32, ptr %351, align 4
-  %353 = getelementptr i32, ptr %20, i64 %64
+  %353 = getelementptr [4 x i8], ptr %20, i64 %64
   %354 = load i32, ptr %353, align 4
   %355 = xor i32 %354, -1
   %356 = add i32 %352, %355
@@ -25103,9 +25102,9 @@ thread-pre-split:                                 ; preds = %206
 
 378:                                              ; preds = %377
   %379 = zext nneg i32 %373 to i64
-  %380 = getelementptr i32, ptr %20, i64 %379
+  %380 = getelementptr [4 x i8], ptr %20, i64 %379
   %381 = load i32, ptr %380, align 4
-  %382 = getelementptr i32, ptr %20, i64 %64
+  %382 = getelementptr [4 x i8], ptr %20, i64 %64
   %383 = load i32, ptr %382, align 4
   %384 = xor i32 %383, -1
   %385 = add i32 %381, %384
@@ -25140,9 +25139,9 @@ thread-pre-split:                                 ; preds = %206
 
 404:                                              ; preds = %403
   %405 = zext nneg i32 %401 to i64
-  %406 = getelementptr i32, ptr %20, i64 %405
+  %406 = getelementptr [4 x i8], ptr %20, i64 %405
   %407 = load i32, ptr %406, align 4
-  %408 = getelementptr i32, ptr %20, i64 %64
+  %408 = getelementptr [4 x i8], ptr %20, i64 %64
   %409 = load i32, ptr %408, align 4
   %410 = xor i32 %409, -1
   %411 = add i32 %407, %410
@@ -25851,7 +25850,7 @@ define internal fastcc ptr @ip_neigh_gw6(ptr noundef %0, ptr noundef %1) unnamed
   %38 = lshr i32 %34, %37
   %39 = load ptr, ptr %7, align 8
   %40 = zext i32 %38 to i64
-  %41 = getelementptr ptr, ptr %39, i64 %40
+  %41 = getelementptr [8 x i8], ptr %39, i64 %40
   %42 = load volatile ptr, ptr %41, align 8
   %43 = icmp eq ptr %42, null
   br i1 %43, label %.loopexit3, label %.preheader
@@ -25919,7 +25918,7 @@ define internal fastcc ptr @ip_neigh_gw4(ptr noundef %0, i32 noundef %1) unnamed
   %21 = lshr i32 %17, %20
   %22 = load ptr, ptr %9, align 8
   %23 = zext i32 %21 to i64
-  %24 = getelementptr ptr, ptr %22, i64 %23
+  %24 = getelementptr [8 x i8], ptr %22, i64 %23
   %25 = load volatile ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
   br i1 %26, label %.loopexit3, label %.preheader
@@ -26116,7 +26115,7 @@ define internal fastcc ptr @__ipv6_neigh_lookup_noref_stub(ptr noundef %0, ptr n
   %38 = lshr i32 %34, %37
   %39 = load ptr, ptr %7, align 8
   %40 = zext i32 %38 to i64
-  %41 = getelementptr ptr, ptr %39, i64 %40
+  %41 = getelementptr [8 x i8], ptr %39, i64 %40
   %42 = load volatile ptr, ptr %41, align 8
   %43 = icmp eq ptr %42, null
   br i1 %43, label %.loopexit, label %.preheader
@@ -26181,7 +26180,7 @@ define internal fastcc ptr @__ipv4_neigh_lookup_noref(ptr noundef %0, i32 nounde
   %20 = lshr i32 %16, %19
   %21 = load ptr, ptr %8, align 8
   %22 = zext i32 %20 to i64
-  %23 = getelementptr ptr, ptr %21, i64 %22
+  %23 = getelementptr [8 x i8], ptr %21, i64 %22
   %24 = load volatile ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, null
   br i1 %25, label %.loopexit, label %.preheader
@@ -26641,7 +26640,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @bpf_xdp_frags_shrink_tail(
   %38 = phi i32 [ %45, %73 ], [ 0, %.lr.ph.preheader ]
   %39 = phi i8 [ %74, %73 ], [ 0, %.lr.ph.preheader ]
   %40 = add nsw i64 %.in, -1
-  %41 = getelementptr %struct.bio_vec, ptr %31, i64 %40
+  %41 = getelementptr [16 x i8], ptr %31, i64 %40
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = load i32, ptr %42, align 8
   %44 = tail call i32 @llvm.smin.i32(i32 %37, i32 %43)
@@ -26743,7 +26742,7 @@ define internal fastcc noundef range(i32 -95, 1) i32 @bpf_xdp_frags_increase_tai
   %10 = load i8, ptr %9, align 2
   %11 = zext i8 %10 to i64
   %12 = getelementptr i8, ptr %8, i64 -288
-  %13 = getelementptr %struct.bio_vec, ptr %12, i64 %11
+  %13 = getelementptr [16 x i8], ptr %12, i64 %11
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 28
@@ -26906,7 +26905,7 @@ define internal noundef i64 @bpf_xdp_copy(ptr noundef writeonly captures(none) %
   %23 = getelementptr i8, ptr %21, i64 -318
   %24 = load i8, ptr %23, align 2
   %25 = zext i8 %24 to i64
-  %26 = getelementptr %struct.bio_vec, ptr %22, i64 %25
+  %26 = getelementptr [16 x i8], ptr %22, i64 %25
   br label %27
 
 27:                                               ; preds = %52, %15

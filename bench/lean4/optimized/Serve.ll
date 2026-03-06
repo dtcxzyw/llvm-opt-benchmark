@@ -44,7 +44,7 @@ define ptr @l_Array_mapMUnsafe_map___at___private_Lake_CLI_Serve_0__Lake_mkLeanP
   %.02040 = phi i64 [ %47, %63 ], [ %1, %3 ]
   %.02239 = phi ptr [ %.0.i.i30, %63 ], [ %2, %3 ]
   %4 = getelementptr inbounds nuw i8, ptr %.02239, i64 24
-  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %.02040
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.02040
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = ptrtoint ptr %6 to i64
   %8 = trunc i64 %7 to i1
@@ -80,7 +80,7 @@ lean_array_uget.exit:                             ; preds = %.lr.ph, %11, %13, %
 lean_ensure_exclusive_array.exit.i:               ; preds = %16, %lean_array_uget.exit
   %.0.i.i = phi ptr [ %17, %16 ], [ %.02239, %lean_array_uget.exit ]
   %18 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %.02040
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %.02040
   %20 = load ptr, ptr %19, align 8, !tbaa !4
   %21 = ptrtoint ptr %20 to i64
   %22 = trunc i64 %21 to i1
@@ -164,7 +164,7 @@ lean_dec.exit:                                    ; preds = %46, %45, %43, %lean
 lean_ensure_exclusive_array.exit.i29:             ; preds = %49, %lean_dec.exit
   %.0.i.i30 = phi ptr [ %50, %49 ], [ %.0.i.i, %lean_dec.exit ]
   %51 = getelementptr inbounds nuw i8, ptr %.0.i.i30, i64 24
-  %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %.02040
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %.02040
   %53 = load ptr, ptr %52, align 8, !tbaa !4
   %54 = ptrtoint ptr %53 to i64
   %55 = trunc i64 %54 to i1
@@ -2508,7 +2508,7 @@ declare ptr @l_Lake_Job_renew___rarg(ptr noundef) local_unnamed_addr #1
 define internal fastcc void @lean_ctor_release(ptr noundef captures(none) %0, i32 noundef range(i32 0, 3) %1) unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = zext nneg i32 %1 to i64
-  %5 = getelementptr inbounds nuw ptr, ptr %3, i64 %4
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = ptrtoint ptr %6 to i64
   %8 = trunc i64 %7 to i1
@@ -2549,7 +2549,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lake_setupFile___spec__3(ptr noundef 
 6:                                                ; preds = %.lr.ph, %44
   %.02036 = phi i64 [ %1, %.lr.ph ], [ %46, %44 ]
   %.02235 = phi ptr [ %3, %.lr.ph ], [ %45, %44 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %.02036
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.02036
   %8 = load ptr, ptr %7, align 8, !tbaa !4
   %9 = ptrtoint ptr %8 to i64
   %10 = trunc i64 %9 to i1
@@ -17417,7 +17417,7 @@ define noalias nonnull ptr @l_Array_foldlMUnsafe_fold___at_Lake_serve___spec__1(
   br label %lean_dec.exit37
 
 lean_dec.exit37:                                  ; preds = %16, %15, %13, %7
-  %17 = getelementptr inbounds nuw ptr, ptr %6, i64 %.02955
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.02955
   %18 = load ptr, ptr %17, align 8, !tbaa !4
   %19 = ptrtoint ptr %18 to i64
   %20 = trunc i64 %19 to i1

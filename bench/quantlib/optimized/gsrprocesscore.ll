@@ -169,12 +169,12 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i3.i:                                     ; preds = %if.then.i.i
   %div1.i.i.i = lshr i64 %sub.i.i.i.i, 6
-  %add.ptr.i.i = getelementptr inbounds nuw i64, ptr %call5.i.i.i.i1.i, i64 %div1.i.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i1.i, i64 %div1.i.i.i
   store ptr %add.ptr.i.i, ptr %_M_end_of_storage.i.i.i.i, align 8, !tbaa !46
   store ptr %call5.i.i.i.i1.i, ptr %revZero_, align 8
   store i32 0, ptr %_M_offset.i.i.i.i.i.i, align 8
   %div.i.i.i.i.i = sdiv i64 %6, 64
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i64, ptr %call5.i.i.i.i1.i, i64 %div.i.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %call5.i.i.i.i1.i, i64 %div.i.i.i.i.i
   %8 = and i64 %6, -9223372036854775745
   %cmp.i.i.i.i.i = icmp ugt i64 %8, -9223372036854775808
   %storemerge.idx.i.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 -8, i64 0
@@ -554,10 +554,10 @@ for.cond.cleanup:                                 ; preds = %for.cond
   ret void
 
 do.body121:                                       ; preds = %for.cond
-  %arrayidx.i = getelementptr inbounds nuw double, ptr %35, i64 %indvars.iv
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv
   %58 = load double, ptr %arrayidx.i, align 8, !tbaa !52
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %arrayidx.i129 = getelementptr inbounds nuw double, ptr %35, i64 %indvars.iv.next
+  %arrayidx.i129 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv.next
   %59 = load double, ptr %arrayidx.i129, align 8, !tbaa !52
   %cmp128 = fcmp olt double %58, %59
   br i1 %cmp128, label %for.cond, label %if.then129, !llvm.loop !53
@@ -575,7 +575,7 @@ invoke.cont132:                                   ; preds = %if.then129
 
 invoke.cont134:                                   ; preds = %invoke.cont132
   %62 = load ptr, ptr %times, align 8, !tbaa !3
-  %arrayidx.i133 = getelementptr inbounds nuw double, ptr %62, i64 %indvars.iv
+  %arrayidx.i133 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %indvars.iv
   %63 = load double, ptr %arrayidx.i133, align 8, !tbaa !52
   %call.i134 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %_ql_msg_stream130, double noundef %63)
           to label %invoke.cont139 unwind label %lpad133
@@ -594,7 +594,7 @@ invoke.cont143:                                   ; preds = %invoke.cont141
 
 invoke.cont145:                                   ; preds = %invoke.cont143
   %64 = load ptr, ptr %times, align 8, !tbaa !3
-  %arrayidx.i141 = getelementptr inbounds nuw double, ptr %64, i64 %indvars.iv.next
+  %arrayidx.i141 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %indvars.iv.next
   %65 = load double, ptr %arrayidx.i141, align 8, !tbaa !52
   %call.i142 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %call144, double noundef %65)
           to label %invoke.cont151 unwind label %lpad133
@@ -1047,13 +1047,13 @@ _ZNSt3mapISt4pairIddEdSt4lessIS1_ESaIS0_IKS1_dEEE5clearEv.exit38: ; preds = %_ZN
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx.i = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %22 = load double, ptr %arrayidx.i, align 8, !tbaa !52
   %23 = tail call double @llvm.fabs.f64(double %22)
   %cmp5 = fcmp olt double %23, 1.000000e-04
   %div.i.i.i.i.i495054 = lshr i64 %indvars.iv, 6
   %div.i.i.i.i.i49.zext = and i64 %div.i.i.i.i.i495054, 67108863
-  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %3, i64 %div.i.i.i.i.i49.zext
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %div.i.i.i.i.i49.zext
   %conv4.i.i.i.i.i = and i64 %indvars.iv, 63
   %shl.i.i.i = shl nuw i64 1, %conv4.i.i.i.i.i
   br i1 %cmp5, label %if.then, label %if.else
@@ -1095,7 +1095,7 @@ if.then.i:                                        ; preds = %entry
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %idx.neg.i = sub nsw i64 0, %sub.ptr.div.i
-  %add.ptr.i = getelementptr inbounds i64, ptr %1, i64 %idx.neg.i
+  %add.ptr.i = getelementptr inbounds [8 x i8], ptr %1, i64 %idx.neg.i
   tail call void @_ZdlPvm(ptr noundef %add.ptr.i, i64 noundef %sub.ptr.sub.i) #23
   store ptr null, ptr %this, align 8
   %ref.tmp.sroa.4.0.this.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -1230,7 +1230,7 @@ while.body.i.i.i6:                                ; preds = %if.end, %while.body
   %__first.addr.013.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i6 ], [ %7, %if.end ]
   %__len.012.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i6 ], [ %8, %if.end ]
   %shr.i.i.i = lshr i64 %__len.012.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw double, ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
   %9 = load double, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !52
   %cmp.i.i.i.i8 = fcmp olt double %w, %9
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i, i64 8
@@ -1271,7 +1271,7 @@ while.body.i.i.i17:                               ; preds = %if.end.i, %while.bo
   %__first.addr.013.i.i.i18 = phi ptr [ %__first.addr.1.i.i.i30, %while.body.i.i.i17 ], [ %7, %if.end.i ]
   %__len.012.i.i.i19 = phi i64 [ %__len.1.i.i.i29, %while.body.i.i.i17 ], [ %8, %if.end.i ]
   %shr.i.i.i20 = lshr i64 %__len.012.i.i.i19, 1
-  %add.ptr.i.i.i.i.i24 = getelementptr inbounds nuw double, ptr %__first.addr.013.i.i.i18, i64 %shr.i.i.i20
+  %add.ptr.i.i.i.i.i24 = getelementptr inbounds nuw [8 x i8], ptr %__first.addr.013.i.i.i18, i64 %shr.i.i.i20
   %15 = load double, ptr %add.ptr.i.i.i.i.i24, align 8, !tbaa !52
   %cmp.i.i.i.i26 = fcmp olt double %sub.i, %15
   %incdec.ptr.i.i.i27 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i24, i64 8
@@ -1370,9 +1370,9 @@ for.body:                                         ; preds = %_ZNK8QuantLib6detai
   %22 = load i64, ptr %n_.i.i35, align 8, !tbaa !36
   %cmp.not.i = icmp ugt i64 %22, %indvars.iv
   %23 = load ptr, ptr %11, align 8, !tbaa !3
-  %24 = getelementptr double, ptr %23, i64 %22
+  %24 = getelementptr [8 x i8], ptr %23, i64 %22
   %arrayidx.i.i = getelementptr i8, ptr %24, i64 -8
-  %arrayidx.i3.i = getelementptr inbounds nuw double, ptr %23, i64 %indvars.iv
+  %arrayidx.i3.i = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv
   %retval.0.in.i = select i1 %cmp.not.i, ptr %arrayidx.i3.i, ptr %arrayidx.i.i
   %retval.0.i36 = load double, ptr %retval.0.in.i, align 8, !tbaa !52
   %fneg = fneg double %retval.0.i36
@@ -1388,7 +1388,7 @@ if.end.i.i:                                       ; preds = %cond.true.i
   br i1 %cmp2.i.i, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i, label %if.end4.i.i
 
 if.end4.i.i:                                      ; preds = %if.end.i.i
-  %25 = getelementptr double, ptr %7, i64 %indvars.iv.next
+  %25 = getelementptr [8 x i8], ptr %7, i64 %indvars.iv.next
   %arrayidx.i.i.i = getelementptr i8, ptr %25, i64 -8
   %26 = load double, ptr %arrayidx.i.i.i, align 8, !tbaa !52
   br label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i
@@ -1407,7 +1407,7 @@ if.end.i4.i:                                      ; preds = %cond.false.i
   br i1 %cmp2.i6.i, label %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit, label %if.end4.i7.i
 
 if.end4.i7.i:                                     ; preds = %if.end.i4.i
-  %27 = getelementptr double, ptr %7, i64 %indvars.iv.next
+  %27 = getelementptr [8 x i8], ptr %7, i64 %indvars.iv.next
   %arrayidx.i.i8.i = getelementptr i8, ptr %27, i64 -8
   %28 = load double, ptr %arrayidx.i.i8.i, align 8, !tbaa !52
   br label %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit
@@ -1425,7 +1425,7 @@ if.end.i.i51:                                     ; preds = %cond.true.i50
   br i1 %cmp2.i.i53, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i56, label %if.end4.i.i54
 
 if.end4.i.i54:                                    ; preds = %if.end.i.i51
-  %30 = getelementptr double, ptr %7, i64 %indvars.iv
+  %30 = getelementptr [8 x i8], ptr %7, i64 %indvars.iv
   %arrayidx.i.i.i55 = getelementptr i8, ptr %30, i64 -8
   %31 = load double, ptr %arrayidx.i.i.i55, align 8, !tbaa !52
   br label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i56
@@ -1444,7 +1444,7 @@ if.end.i4.i42:                                    ; preds = %cond.false.i41
   br i1 %cmp2.i6.i44, label %_ZNK8QuantLib6detail14GsrProcessCore11flooredTimeEmd.exit, label %if.end4.i7.i45
 
 if.end4.i7.i45:                                   ; preds = %if.end.i4.i42
-  %32 = getelementptr double, ptr %7, i64 %indvars.iv
+  %32 = getelementptr [8 x i8], ptr %7, i64 %indvars.iv
   %arrayidx.i.i8.i46 = getelementptr i8, ptr %32, i64 -8
   %33 = load double, ptr %arrayidx.i.i8.i46, align 8, !tbaa !52
   br label %_ZNK8QuantLib6detail14GsrProcessCore11flooredTimeEmd.exit
@@ -1477,7 +1477,7 @@ while.body.i.i:                                   ; preds = %entry, %while.body.
   %__first.addr.013.i.i = phi ptr [ %__first.addr.1.i.i, %while.body.i.i ], [ %1, %entry ]
   %__len.012.i.i = phi i64 [ %__len.1.i.i, %while.body.i.i ], [ %2, %entry ]
   %shr.i.i = lshr i64 %__len.012.i.i, 1
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw double, ptr %__first.addr.013.i.i, i64 %shr.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %__first.addr.013.i.i, i64 %shr.i.i
   %3 = load double, ptr %add.ptr.i.i.i.i, align 8, !tbaa !52
   %cmp.i.i.i = fcmp olt double %t, %3
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i, i64 8
@@ -1518,7 +1518,7 @@ while.body.i.i:                                   ; preds = %if.end, %while.body
   %__first.addr.013.i.i = phi ptr [ %__first.addr.1.i.i, %while.body.i.i ], [ %1, %if.end ]
   %__len.012.i.i = phi i64 [ %__len.1.i.i, %while.body.i.i ], [ %2, %if.end ]
   %shr.i.i = lshr i64 %__len.012.i.i, 1
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw double, ptr %__first.addr.013.i.i, i64 %shr.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %__first.addr.013.i.i, i64 %shr.i.i
   %3 = load double, ptr %add.ptr.i.i.i.i, align 8, !tbaa !52
   %cmp.i.i.i = fcmp olt double %sub, %3
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i, i64 8
@@ -1558,9 +1558,9 @@ entry:
   %1 = load i64, ptr %n_.i, align 8, !tbaa !36
   %cmp.not = icmp ult i64 %index, %1
   %2 = load ptr, ptr %0, align 8, !tbaa !3
-  %3 = getelementptr double, ptr %2, i64 %1
+  %3 = getelementptr [8 x i8], ptr %2, i64 %1
   %arrayidx.i = getelementptr i8, ptr %3, i64 -8
-  %arrayidx.i3 = getelementptr inbounds nuw double, ptr %2, i64 %index
+  %arrayidx.i3 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %index
   %retval.0.in = select i1 %cmp.not, ptr %arrayidx.i3, ptr %arrayidx.i
   %retval.0 = load double, ptr %retval.0.in, align 8, !tbaa !52
   ret double %retval.0
@@ -1590,7 +1590,7 @@ if.then3.i:                                       ; preds = %if.end.i
 
 if.end4.i:                                        ; preds = %if.end.i
   %3 = load ptr, ptr %0, align 8, !tbaa !3
-  %4 = getelementptr double, ptr %3, i64 %index
+  %4 = getelementptr [8 x i8], ptr %3, i64 %index
   %arrayidx.i.i = getelementptr i8, ptr %4, i64 -8
   %5 = load double, ptr %arrayidx.i.i, align 8, !tbaa !52
   br label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit
@@ -1618,7 +1618,7 @@ if.then3.i10:                                     ; preds = %if.end.i4
 
 if.end4.i7:                                       ; preds = %if.end.i4
   %9 = load ptr, ptr %6, align 8, !tbaa !3
-  %10 = getelementptr double, ptr %9, i64 %index
+  %10 = getelementptr [8 x i8], ptr %9, i64 %index
   %arrayidx.i.i8 = getelementptr i8, ptr %10, i64 -8
   %11 = load double, ptr %arrayidx.i.i8, align 8, !tbaa !52
   br label %cond.end
@@ -1652,7 +1652,7 @@ if.then3.i:                                       ; preds = %if.end.i
 
 if.end4.i:                                        ; preds = %if.end.i
   %3 = load ptr, ptr %0, align 8, !tbaa !3
-  %4 = getelementptr double, ptr %3, i64 %index
+  %4 = getelementptr [8 x i8], ptr %3, i64 %index
   %arrayidx.i.i = getelementptr i8, ptr %4, i64 -8
   %5 = load double, ptr %arrayidx.i.i, align 8, !tbaa !52
   br label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit
@@ -1680,7 +1680,7 @@ if.then3.i10:                                     ; preds = %if.end.i4
 
 if.end4.i7:                                       ; preds = %if.end.i4
   %9 = load ptr, ptr %6, align 8, !tbaa !3
-  %10 = getelementptr double, ptr %9, i64 %index
+  %10 = getelementptr [8 x i8], ptr %9, i64 %index
   %arrayidx.i.i8 = getelementptr i8, ptr %10, i64 -8
   %11 = load double, ptr %arrayidx.i.i8, align 8, !tbaa !52
   br label %cond.end
@@ -1768,7 +1768,7 @@ while.body.i.i.i75:                               ; preds = %if.end, %while.body
   %__first.addr.013.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i75 ], [ %7, %if.end ]
   %__len.012.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i75 ], [ %8, %if.end ]
   %shr.i.i.i = lshr i64 %__len.012.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw double, ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
   %9 = load double, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !52
   %cmp.i.i.i.i77 = fcmp olt double %w, %9
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i, i64 8
@@ -1829,7 +1829,7 @@ while.body.i.i.i86:                               ; preds = %if.end.i, %while.bo
   %__first.addr.013.i.i.i87 = phi ptr [ %__first.addr.1.i.i.i99, %while.body.i.i.i86 ], [ %7, %if.end.i ]
   %__len.012.i.i.i88 = phi i64 [ %__len.1.i.i.i98, %while.body.i.i.i86 ], [ %8, %if.end.i ]
   %shr.i.i.i89 = lshr i64 %__len.012.i.i.i88, 1
-  %add.ptr.i.i.i.i.i93 = getelementptr inbounds nuw double, ptr %__first.addr.013.i.i.i87, i64 %shr.i.i.i89
+  %add.ptr.i.i.i.i.i93 = getelementptr inbounds nuw [8 x i8], ptr %__first.addr.013.i.i.i87, i64 %shr.i.i.i89
   %19 = load double, ptr %add.ptr.i.i.i.i.i93, align 8, !tbaa !52
   %cmp.i.i.i.i95 = fcmp olt double %sub.i, %19
   %incdec.ptr.i.i.i96 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i93, i64 8
@@ -1863,14 +1863,14 @@ for.cond13.preheader:                             ; preds = %_ZNK8QuantLib6detai
 
 for.body17.lr.ph:                                 ; preds = %for.cond13.preheader
   %cmp2.i301 = icmp ult i64 %8, %indvars.iv1067
-  %22 = getelementptr double, ptr %7, i64 %indvars.iv1067
+  %22 = getelementptr [8 x i8], ptr %7, i64 %indvars.iv1067
   %arrayidx.i.i303 = getelementptr i8, ptr %22, i64 -8
   %retval.0.i304.in = select i1 %cmp2.i301, ptr %T_.i, ptr %arrayidx.i.i303
   %cmp2.i6.i336.not = icmp ugt i64 %8, %indvars.iv1067
-  %23 = getelementptr double, ptr %7, i64 %indvars.iv1067
+  %23 = getelementptr [8 x i8], ptr %7, i64 %indvars.iv1067
   %24 = load i64, ptr %n_.i.i127, align 8, !tbaa !36
   %25 = load ptr, ptr %13, align 8, !tbaa !3
-  %26 = getelementptr double, ptr %25, i64 %24
+  %26 = getelementptr [8 x i8], ptr %25, i64 %24
   %arrayidx.i.i155 = getelementptr i8, ptr %26, i64 -8
   br label %for.body17
 
@@ -1951,7 +1951,7 @@ for.cond.cleanup16:                               ; preds = %cond.end140, %for.c
   %index.sink13.i = select i1 %cmp.not.i, i64 %indvars.iv1067, i64 %add.i.i.i.i.i.i
   %.sink.i = select i1 %cmp.not.i, ptr %12, ptr %11
   %div.i.i.i.i.i3.i = sdiv i64 %index.sink13.i, 64
-  %add.ptr.i.i.i.i.i4.i = getelementptr inbounds i64, ptr %.sink.i, i64 %div.i.i.i.i.i3.i
+  %add.ptr.i.i.i.i.i4.i = getelementptr inbounds [8 x i8], ptr %.sink.i, i64 %div.i.i.i.i.i3.i
   %32 = and i64 %index.sink13.i, -9223372036854775745
   %cmp.i.i.i.i.i5.i = icmp ugt i64 %32, -9223372036854775808
   %storemerge.idx.i.i.i.i.i6.i = select i1 %cmp.i.i.i.i.i5.i, i64 -8, i64 0
@@ -1964,9 +1964,9 @@ for.cond.cleanup16:                               ; preds = %cond.end140, %for.c
   %34 = load i64, ptr %n_.i.i127, align 8, !tbaa !36
   %cmp.not.i658 = icmp ugt i64 %34, %indvars.iv1067
   %35 = load ptr, ptr %13, align 8, !tbaa !3
-  %36 = getelementptr double, ptr %35, i64 %34
+  %36 = getelementptr [8 x i8], ptr %35, i64 %34
   %arrayidx.i.i659 = getelementptr i8, ptr %36, i64 -8
-  %arrayidx.i3.i660 = getelementptr inbounds nuw double, ptr %35, i64 %indvars.iv1067
+  %arrayidx.i3.i660 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv1067
   %retval.0.in.i661 = select i1 %cmp.not.i658, ptr %arrayidx.i3.i660, ptr %arrayidx.i.i659
   %retval.0.i662 = load double, ptr %retval.0.in.i661, align 8, !tbaa !52
   %mul190 = fmul double %retval.0.i662, %retval.0.i662
@@ -1984,7 +1984,7 @@ for.body17:                                       ; preds = %for.body17.lr.ph, %
   %index.sink13.i116 = select i1 %cmp.not.i114, i64 %indvars.iv1057, i64 %add.i.i.i.i.i.i115
   %.sink.i117 = select i1 %cmp.not.i114, ptr %12, ptr %11
   %div.i.i.i.i.i3.i118 = sdiv i64 %index.sink13.i116, 64
-  %add.ptr.i.i.i.i.i4.i119 = getelementptr inbounds i64, ptr %.sink.i117, i64 %div.i.i.i.i.i3.i118
+  %add.ptr.i.i.i.i.i4.i119 = getelementptr inbounds [8 x i8], ptr %.sink.i117, i64 %div.i.i.i.i.i3.i118
   %38 = and i64 %index.sink13.i116, -9223372036854775745
   %cmp.i.i.i.i.i5.i120 = icmp ugt i64 %38, -9223372036854775808
   %storemerge.idx.i.i.i.i.i6.i121 = select i1 %cmp.i.i.i.i.i5.i120, i64 -8, i64 0
@@ -1995,7 +1995,7 @@ for.body17:                                       ; preds = %for.body17.lr.ph, %
   %and.i10.i125 = and i64 %shl.i.i.i.i124, %39
   %retval.0.i126.not = icmp eq i64 %and.i10.i125, 0
   %cmp.not.i154 = icmp ugt i64 %24, %indvars.iv1057
-  %arrayidx.i3.i156 = getelementptr inbounds nuw double, ptr %25, i64 %indvars.iv1057
+  %arrayidx.i3.i156 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv1057
   %retval.0.in.i157 = select i1 %cmp.not.i154, ptr %arrayidx.i3.i156, ptr %arrayidx.i.i155
   %retval.0.i158 = load double, ptr %retval.0.in.i157, align 8, !tbaa !52
   %mul34 = fmul double %retval.0.i158, %retval.0.i158
@@ -2003,7 +2003,7 @@ for.body17:                                       ; preds = %for.body17.lr.ph, %
 
 cond.true:                                        ; preds = %for.body17
   %cmp2.i.not = icmp ugt i64 %8, %indvars.iv1057
-  %40 = getelementptr double, ptr %7, i64 %indvars.iv1057
+  %40 = getelementptr [8 x i8], ptr %7, i64 %indvars.iv1057
   %retval.0.i141.in = select i1 %cmp2.i.not, ptr %40, ptr %T_.i
   %retval.0.i141 = load double, ptr %retval.0.i141.in, align 8, !tbaa !52
   %cmp.i142 = icmp eq i64 %indvars.iv1057, 0
@@ -2014,7 +2014,7 @@ if.end.i143:                                      ; preds = %cond.true
   br i1 %cmp2.i145, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit151, label %if.end4.i146
 
 if.end4.i146:                                     ; preds = %if.end.i143
-  %41 = getelementptr double, ptr %7, i64 %indvars.iv1057
+  %41 = getelementptr [8 x i8], ptr %7, i64 %indvars.iv1057
   %arrayidx.i.i147 = getelementptr i8, ptr %41, i64 -8
   %42 = load double, ptr %arrayidx.i.i147, align 8, !tbaa !52
   br label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit151
@@ -2029,16 +2029,16 @@ cond.false:                                       ; preds = %for.body17
   %43 = load i64, ptr %n_.i.i166, align 8, !tbaa !36
   %cmp.not.i167 = icmp ugt i64 %43, %indvars.iv1057
   %44 = load ptr, ptr %15, align 8, !tbaa !3
-  %45 = getelementptr double, ptr %44, i64 %43
+  %45 = getelementptr [8 x i8], ptr %44, i64 %43
   %arrayidx.i.i168 = getelementptr i8, ptr %45, i64 -8
-  %arrayidx.i3.i169 = getelementptr inbounds nuw double, ptr %44, i64 %indvars.iv1057
+  %arrayidx.i3.i169 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %indvars.iv1057
   %retval.0.in.i170 = select i1 %cmp.not.i167, ptr %arrayidx.i3.i169, ptr %arrayidx.i.i168
   %retval.0.i171 = load double, ptr %retval.0.in.i170, align 8, !tbaa !52
   %mul37 = fmul double %retval.0.i171, 2.000000e+00
   %div = fdiv double %mul34, %mul37
   %mul40 = fmul double %retval.0.i171, -2.000000e+00
   %cmp2.i182.not = icmp ugt i64 %8, %indvars.iv1057
-  %46 = getelementptr double, ptr %7, i64 %indvars.iv1057
+  %46 = getelementptr [8 x i8], ptr %7, i64 %indvars.iv1057
   %retval.0.i185.in = select i1 %cmp2.i182.not, ptr %46, ptr %T_.i
   %retval.0.i185 = load double, ptr %retval.0.i185.in, align 8, !tbaa !52
   %cmp.i189 = icmp eq i64 %indvars.iv1057, 0
@@ -2049,7 +2049,7 @@ if.end.i190:                                      ; preds = %cond.false
   br i1 %cmp2.i192, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit198, label %if.end4.i193
 
 if.end4.i193:                                     ; preds = %if.end.i190
-  %47 = getelementptr double, ptr %7, i64 %indvars.iv1057
+  %47 = getelementptr [8 x i8], ptr %7, i64 %indvars.iv1057
   %arrayidx.i.i194 = getelementptr i8, ptr %47, i64 -8
   %48 = load double, ptr %arrayidx.i.i194, align 8, !tbaa !52
   br label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit198
@@ -2076,7 +2076,7 @@ while.body.i.i.i212:                              ; preds = %if.end.i200, %while
   %__first.addr.013.i.i.i213 = phi ptr [ %__first.addr.1.i.i.i225, %while.body.i.i.i212 ], [ %7, %if.end.i200 ]
   %__len.012.i.i.i214 = phi i64 [ %__len.1.i.i.i224, %while.body.i.i.i212 ], [ %8, %if.end.i200 ]
   %shr.i.i.i215 = lshr i64 %__len.012.i.i.i214, 1
-  %add.ptr.i.i.i.i.i219 = getelementptr inbounds nuw double, ptr %__first.addr.013.i.i.i213, i64 %shr.i.i.i215
+  %add.ptr.i.i.i.i.i219 = getelementptr inbounds nuw [8 x i8], ptr %__first.addr.013.i.i.i213, i64 %shr.i.i.i215
   %49 = load double, ptr %add.ptr.i.i.i.i.i219, align 8, !tbaa !52
   %cmp.i.i.i.i221 = fcmp olt double %sub.i, %49
   %incdec.ptr.i.i.i222 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i219, i64 8
@@ -2109,7 +2109,7 @@ for.cond.cleanup57:                               ; preds = %_ZNK8QuantLib6detai
 for.body75.lr.ph:                                 ; preds = %for.cond.cleanup57
   %52 = load i64, ptr %n_.i.i166, align 8, !tbaa !36
   %53 = load ptr, ptr %15, align 8, !tbaa !3
-  %54 = getelementptr double, ptr %53, i64 %52
+  %54 = getelementptr [8 x i8], ptr %53, i64 %52
   %arrayidx.i.i274 = getelementptr i8, ptr %54, i64 -8
   br label %for.body75
 
@@ -2117,9 +2117,9 @@ for.body58:                                       ; preds = %_ZNK8QuantLib6detai
   %55 = load i64, ptr %n_.i.i166, align 8, !tbaa !36
   %cmp.not.i232 = icmp ugt i64 %55, %indvars.iv10491102
   %56 = load ptr, ptr %15, align 8, !tbaa !3
-  %57 = getelementptr double, ptr %56, i64 %55
+  %57 = getelementptr [8 x i8], ptr %56, i64 %55
   %arrayidx.i.i233 = getelementptr i8, ptr %57, i64 -8
-  %arrayidx.i3.i234 = getelementptr inbounds nuw double, ptr %56, i64 %indvars.iv10491102
+  %arrayidx.i3.i234 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %indvars.iv10491102
   %retval.0.in.i235 = select i1 %cmp.not.i232, ptr %arrayidx.i3.i234, ptr %arrayidx.i.i233
   %retval.0.i236 = load double, ptr %retval.0.in.i235, align 8, !tbaa !52
   %fneg = fneg double %retval.0.i236
@@ -2131,7 +2131,7 @@ if.end.i.i:                                       ; preds = %for.body58
   br i1 %cmp2.i.i.not, label %if.end4.i.i, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i
 
 if.end4.i.i:                                      ; preds = %if.end.i.i
-  %58 = getelementptr double, ptr %7, i64 %indvars.iv.next1050
+  %58 = getelementptr [8 x i8], ptr %7, i64 %indvars.iv.next1050
   %arrayidx.i.i.i = getelementptr i8, ptr %58, i64 -8
   %59 = load double, ptr %arrayidx.i.i.i, align 8, !tbaa !52
   br label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i
@@ -2146,7 +2146,7 @@ if.end.i4.i:                                      ; preds = %for.body58
   br i1 %cmp2.i.i.not, label %if.end4.i7.i, label %if.end.i240
 
 if.end4.i7.i:                                     ; preds = %if.end.i4.i
-  %60 = getelementptr double, ptr %7, i64 %indvars.iv.next1050
+  %60 = getelementptr [8 x i8], ptr %7, i64 %indvars.iv.next1050
   %arrayidx.i.i8.i = getelementptr i8, ptr %60, i64 -8
   %61 = load double, ptr %arrayidx.i.i8.i, align 8, !tbaa !52
   br label %if.end.i240
@@ -2157,7 +2157,7 @@ if.end.i240:                                      ; preds = %if.end4.i7.i, %_ZNK
   br i1 %cmp2.i242, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit248, label %if.end4.i243
 
 if.end4.i243:                                     ; preds = %if.end.i240
-  %62 = getelementptr double, ptr %7, i64 %indvars.iv10491102
+  %62 = getelementptr [8 x i8], ptr %7, i64 %indvars.iv10491102
   %arrayidx.i.i244 = getelementptr i8, ptr %62, i64 -8
   %63 = load double, ptr %arrayidx.i.i244, align 8, !tbaa !52
   br label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit248
@@ -2180,7 +2180,7 @@ for.cond.cleanup74:                               ; preds = %for.body75, %for.co
   %index.sink13.i260 = select i1 %cmp.not.i258, i64 %indvars.iv1067, i64 %add.i.i.i.i.i.i259
   %.sink.i261 = select i1 %cmp.not.i258, ptr %12, ptr %11
   %div.i.i.i.i.i3.i262 = sdiv i64 %index.sink13.i260, 64
-  %add.ptr.i.i.i.i.i4.i263 = getelementptr inbounds nuw i64, ptr %.sink.i261, i64 %div.i.i.i.i.i3.i262
+  %add.ptr.i.i.i.i.i4.i263 = getelementptr inbounds nuw [8 x i8], ptr %.sink.i261, i64 %div.i.i.i.i.i3.i262
   %65 = and i64 %index.sink13.i260, -9223372036854775745
   %cmp.i.i.i.i.i5.i264 = icmp ugt i64 %65, -9223372036854775808
   %storemerge.idx.i.i.i.i.i6.i265 = select i1 %cmp.i.i.i.i.i5.i264, i64 -8, i64 0
@@ -2196,18 +2196,18 @@ for.body75:                                       ; preds = %for.body75.lr.ph, %
   %indvars.iv1054 = phi i64 [ %indvars.iv1052, %for.body75.lr.ph ], [ %indvars.iv.next1055, %for.body75 ]
   %res2.11029 = phi double [ %res2.0.lcssa, %for.body75.lr.ph ], [ %mul87, %for.body75 ]
   %cmp.not.i273 = icmp ugt i64 %52, %indvars.iv1054
-  %arrayidx.i3.i275 = getelementptr inbounds nuw double, ptr %53, i64 %indvars.iv1054
+  %arrayidx.i3.i275 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %indvars.iv1054
   %retval.0.in.i276 = select i1 %cmp.not.i273, ptr %arrayidx.i3.i275, ptr %arrayidx.i.i274
   %retval.0.i277 = load double, ptr %retval.0.in.i276, align 8, !tbaa !52
   %mul78 = fmul double %retval.0.i277, -2.000000e+00
   %indvars.iv.next1055 = add nuw nsw i64 %indvars.iv1054, 1
   %cmp2.i281.not = icmp ugt i64 %8, %indvars.iv1054
-  %67 = getelementptr double, ptr %7, i64 %indvars.iv.next1055
+  %67 = getelementptr [8 x i8], ptr %7, i64 %indvars.iv.next1055
   %arrayidx.i.i283 = getelementptr i8, ptr %67, i64 -8
   %retval.0.i284.in = select i1 %cmp2.i281.not, ptr %arrayidx.i.i283, ptr %T_.i
   %retval.0.i284 = load double, ptr %retval.0.i284.in, align 8, !tbaa !52
   %cmp2.i291 = icmp ult i64 %8, %indvars.iv1054
-  %68 = getelementptr double, ptr %7, i64 %indvars.iv1054
+  %68 = getelementptr [8 x i8], ptr %7, i64 %indvars.iv1054
   %arrayidx.i.i293 = getelementptr i8, ptr %68, i64 -8
   %retval.0.i294.in = select i1 %cmp2.i291, ptr %T_.i, ptr %arrayidx.i.i293
   %retval.0.i294 = load double, ptr %retval.0.i294.in, align 8, !tbaa !52
@@ -2311,9 +2311,9 @@ cond.false110:                                    ; preds = %for.cond.cleanup74
   %78 = load i64, ptr %n_.i.i166, align 8, !tbaa !36
   %cmp.not.i391 = icmp ugt i64 %78, %indvars.iv1067
   %79 = load ptr, ptr %15, align 8, !tbaa !3
-  %80 = getelementptr double, ptr %79, i64 %78
+  %80 = getelementptr [8 x i8], ptr %79, i64 %78
   %arrayidx.i.i392 = getelementptr i8, ptr %80, i64 -8
-  %arrayidx.i3.i393 = getelementptr inbounds nuw double, ptr %79, i64 %indvars.iv1067
+  %arrayidx.i3.i393 = getelementptr inbounds nuw [8 x i8], ptr %79, i64 %indvars.iv1067
   %retval.0.in.i394 = select i1 %cmp.not.i391, ptr %arrayidx.i3.i393, ptr %arrayidx.i.i392
   %retval.0.i395 = load double, ptr %retval.0.in.i394, align 8, !tbaa !52
   %retval.0.i402 = load double, ptr %retval.0.i304.in, align 8, !tbaa !52
@@ -2432,7 +2432,7 @@ if.end.i.i528:                                    ; preds = %cond.true.i527
   br i1 %cmp2.i.i530, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i533, label %if.end4.i.i531
 
 if.end4.i.i531:                                   ; preds = %if.end.i.i528
-  %90 = getelementptr double, ptr %7, i64 %89
+  %90 = getelementptr [8 x i8], ptr %7, i64 %89
   %arrayidx.i.i.i532 = getelementptr i8, ptr %90, i64 -8
   %91 = load double, ptr %arrayidx.i.i.i532, align 8, !tbaa !52
   br label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i533
@@ -2451,7 +2451,7 @@ if.end.i4.i519:                                   ; preds = %cond.false.i518
   br i1 %cmp2.i6.i521, label %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit539, label %if.end4.i7.i522
 
 if.end4.i7.i522:                                  ; preds = %if.end.i4.i519
-  %92 = getelementptr double, ptr %7, i64 %89
+  %92 = getelementptr [8 x i8], ptr %7, i64 %89
   %arrayidx.i.i8.i523 = getelementptr i8, ptr %92, i64 -8
   %93 = load double, ptr %arrayidx.i.i8.i523, align 8, !tbaa !52
   br label %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit539
@@ -2464,7 +2464,7 @@ _ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit539: ; preds = %if.end.i
 if.end.i541:                                      ; preds = %cond.false.i518, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit539
   %cond.i5241091 = phi double [ %cond.i524, %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit539 ], [ 0.000000e+00, %cond.false.i518 ]
   %cmp2.i543 = icmp ult i64 %8, %indvars.iv1067
-  %95 = getelementptr double, ptr %7, i64 %indvars.iv1067
+  %95 = getelementptr [8 x i8], ptr %7, i64 %indvars.iv1067
   %arrayidx.i.i545 = getelementptr i8, ptr %95, i64 -8
   %retval.0.i546.in = select i1 %cmp2.i543, ptr %T_.i, ptr %arrayidx.i.i545
   %retval.0.i546 = load double, ptr %retval.0.i546.in, align 8, !tbaa !52
@@ -2513,7 +2513,7 @@ if.end.i.i596:                                    ; preds = %cond.true.i595
   br i1 %cmp2.i.i598, label %cond.true.i619, label %if.end4.i.i599
 
 if.end4.i.i599:                                   ; preds = %if.end.i.i596
-  %100 = getelementptr double, ptr %7, i64 %89
+  %100 = getelementptr [8 x i8], ptr %7, i64 %89
   %arrayidx.i.i.i600 = getelementptr i8, ptr %100, i64 -8
   %101 = load double, ptr %arrayidx.i.i.i600, align 8, !tbaa !52
   br label %cond.true.i619
@@ -2523,7 +2523,7 @@ cond.false.i586:                                  ; preds = %_ZNK8QuantLib6detai
 
 if.end.i4.i587:                                   ; preds = %cond.false.i586
   %cmp2.i6.i589 = icmp ult i64 %8, %89
-  %102 = getelementptr double, ptr %7, i64 %89
+  %102 = getelementptr [8 x i8], ptr %7, i64 %89
   %arrayidx.i.i8.i591 = getelementptr i8, ptr %102, i64 -8
   %cond.i592.ph.ph.in = select i1 %cmp2.i6.i589, ptr %T_.i, ptr %arrayidx.i.i8.i591
   %cond.i592.ph.ph = load double, ptr %cond.i592.ph.ph.in, align 8, !tbaa !52
@@ -2544,7 +2544,7 @@ if.end.i.i620:                                    ; preds = %cond.true.i619
   br i1 %cmp2.i.i622, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i625, label %if.end4.i.i623
 
 if.end4.i.i623:                                   ; preds = %if.end.i.i620
-  %103 = getelementptr double, ptr %7, i64 %89
+  %103 = getelementptr [8 x i8], ptr %7, i64 %89
   %arrayidx.i.i.i624 = getelementptr i8, ptr %103, i64 -8
   %104 = load double, ptr %arrayidx.i.i.i624, align 8, !tbaa !52
   br label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i625
@@ -2577,7 +2577,7 @@ if.end.i.i644:                                    ; preds = %cond.true.i643
   br i1 %cmp2.i.i646, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i649, label %if.end4.i.i647
 
 if.end4.i.i647:                                   ; preds = %if.end.i.i644
-  %106 = getelementptr double, ptr %7, i64 %indvars.iv1067
+  %106 = getelementptr [8 x i8], ptr %7, i64 %indvars.iv1067
   %arrayidx.i.i.i648 = getelementptr i8, ptr %106, i64 -8
   %107 = load double, ptr %arrayidx.i.i.i648, align 8, !tbaa !52
   br label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i649
@@ -2596,7 +2596,7 @@ if.end.i4.i635:                                   ; preds = %cond.false.i634
   br i1 %cmp2.i6.i637, label %_ZNK8QuantLib6detail14GsrProcessCore11flooredTimeEmd.exit655, label %if.end4.i7.i638
 
 if.end4.i7.i638:                                  ; preds = %if.end.i4.i635
-  %108 = getelementptr double, ptr %7, i64 %indvars.iv1067
+  %108 = getelementptr [8 x i8], ptr %7, i64 %indvars.iv1067
   %arrayidx.i.i8.i639 = getelementptr i8, ptr %108, i64 -8
   %109 = load double, ptr %arrayidx.i.i8.i639, align 8, !tbaa !52
   br label %_ZNK8QuantLib6detail14GsrProcessCore11flooredTimeEmd.exit655
@@ -2615,9 +2615,9 @@ cond.false185:                                    ; preds = %for.cond.cleanup16
   %111 = load i64, ptr %n_.i.i166, align 8, !tbaa !36
   %cmp.not.i672 = icmp ugt i64 %111, %indvars.iv1067
   %112 = load ptr, ptr %15, align 8, !tbaa !3
-  %113 = getelementptr double, ptr %112, i64 %111
+  %113 = getelementptr [8 x i8], ptr %112, i64 %111
   %arrayidx.i.i673 = getelementptr i8, ptr %113, i64 -8
-  %arrayidx.i3.i674 = getelementptr inbounds nuw double, ptr %112, i64 %indvars.iv1067
+  %arrayidx.i3.i674 = getelementptr inbounds nuw [8 x i8], ptr %112, i64 %indvars.iv1067
   %retval.0.in.i675 = select i1 %cmp.not.i672, ptr %arrayidx.i3.i674, ptr %arrayidx.i.i673
   %retval.0.i676 = load double, ptr %retval.0.in.i675, align 8, !tbaa !52
   %mul193 = fmul double %retval.0.i676, 2.000000e+00
@@ -2636,7 +2636,7 @@ if.end.i.i703:                                    ; preds = %cond.true.i702
   br i1 %cmp2.i.i705, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i708, label %if.end4.i.i706
 
 if.end4.i.i706:                                   ; preds = %if.end.i.i703
-  %115 = getelementptr double, ptr %7, i64 %114
+  %115 = getelementptr [8 x i8], ptr %7, i64 %114
   %arrayidx.i.i.i707 = getelementptr i8, ptr %115, i64 -8
   %116 = load double, ptr %arrayidx.i.i.i707, align 8, !tbaa !52
   br label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i708
@@ -2655,7 +2655,7 @@ if.end.i4.i694:                                   ; preds = %cond.false.i693
   br i1 %cmp2.i6.i696, label %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit714, label %if.end4.i7.i697
 
 if.end4.i7.i697:                                  ; preds = %if.end.i4.i694
-  %117 = getelementptr double, ptr %7, i64 %114
+  %117 = getelementptr [8 x i8], ptr %7, i64 %114
   %arrayidx.i.i8.i698 = getelementptr i8, ptr %117, i64 -8
   %118 = load double, ptr %arrayidx.i.i8.i698, align 8, !tbaa !52
   br label %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit714
@@ -2671,7 +2671,7 @@ if.end.i716:                                      ; preds = %cond.false.i693, %_
   br i1 %cmp2.i718, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit724, label %if.end4.i719
 
 if.end4.i719:                                     ; preds = %if.end.i716
-  %120 = getelementptr double, ptr %7, i64 %indvars.iv1067
+  %120 = getelementptr [8 x i8], ptr %7, i64 %indvars.iv1067
   %arrayidx.i.i720 = getelementptr i8, ptr %120, i64 -8
   %121 = load double, ptr %arrayidx.i.i720, align 8, !tbaa !52
   br label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit724
@@ -2692,7 +2692,7 @@ cond.true.i743:                                   ; preds = %_ZNK8QuantLib6detai
 
 if.end.i.i744:                                    ; preds = %cond.true.i743
   %cmp2.i.i746 = icmp ult i64 %8, %indvars.iv1067
-  %123 = getelementptr double, ptr %7, i64 %indvars.iv1067
+  %123 = getelementptr [8 x i8], ptr %7, i64 %indvars.iv1067
   %arrayidx.i.i.i748 = getelementptr i8, ptr %123, i64 -8
   %retval.0.i.i750.ph.in = select i1 %cmp2.i.i746, ptr %T_.i, ptr %arrayidx.i.i.i748
   %retval.0.i.i750.ph = load double, ptr %retval.0.i.i750.ph.in, align 8, !tbaa !52
@@ -2708,7 +2708,7 @@ if.end.i4.i735:                                   ; preds = %cond.false.i734
   br i1 %cmp2.i6.i737, label %if.end.i757, label %if.end4.i7.i738
 
 if.end4.i7.i738:                                  ; preds = %if.end.i4.i735
-  %124 = getelementptr double, ptr %7, i64 %indvars.iv1067
+  %124 = getelementptr [8 x i8], ptr %7, i64 %indvars.iv1067
   %arrayidx.i.i8.i739 = getelementptr i8, ptr %124, i64 -8
   %125 = load double, ptr %arrayidx.i.i8.i739, align 8, !tbaa !52
   br label %if.end.i757
@@ -2719,7 +2719,7 @@ if.end.i757:                                      ; preds = %if.end.i4.i735, %if
   br i1 %cmp2.i759, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit765, label %if.end4.i760
 
 if.end4.i760:                                     ; preds = %if.end.i757
-  %126 = getelementptr double, ptr %7, i64 %indvars.iv1067
+  %126 = getelementptr [8 x i8], ptr %7, i64 %indvars.iv1067
   %arrayidx.i.i761 = getelementptr i8, ptr %126, i64 -8
   %127 = load double, ptr %arrayidx.i.i761, align 8, !tbaa !52
   br label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit765
@@ -2738,7 +2738,7 @@ if.end.i.i778:                                    ; preds = %cond.true.i777
   br i1 %cmp2.i.i780, label %cond.true.i808, label %if.end4.i.i781
 
 if.end4.i.i781:                                   ; preds = %if.end.i.i778
-  %129 = getelementptr double, ptr %7, i64 %114
+  %129 = getelementptr [8 x i8], ptr %7, i64 %114
   %arrayidx.i.i.i782 = getelementptr i8, ptr %129, i64 -8
   %130 = load double, ptr %arrayidx.i.i.i782, align 8, !tbaa !52
   br label %cond.true.i808
@@ -2748,7 +2748,7 @@ cond.false.i768:                                  ; preds = %_ZNK8QuantLib6detai
 
 if.end.i4.i769:                                   ; preds = %cond.false.i768
   %cmp2.i6.i771 = icmp ult i64 %8, %114
-  %131 = getelementptr double, ptr %7, i64 %114
+  %131 = getelementptr [8 x i8], ptr %7, i64 %114
   %arrayidx.i.i8.i773 = getelementptr i8, ptr %131, i64 -8
   %cond.i774.ph.ph.in = select i1 %cmp2.i6.i771, ptr %T_.i, ptr %arrayidx.i.i8.i773
   %cond.i774.ph.ph = load double, ptr %cond.i774.ph.ph.in, align 8, !tbaa !52
@@ -2771,7 +2771,7 @@ if.end.i.i809:                                    ; preds = %cond.true.i808
   br i1 %cmp2.i.i811, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i814, label %if.end4.i.i812
 
 if.end4.i.i812:                                   ; preds = %if.end.i.i809
-  %132 = getelementptr double, ptr %7, i64 %114
+  %132 = getelementptr [8 x i8], ptr %7, i64 %114
   %arrayidx.i.i.i813 = getelementptr i8, ptr %132, i64 -8
   %133 = load double, ptr %arrayidx.i.i.i813, align 8, !tbaa !52
   br label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i814
@@ -2805,7 +2805,7 @@ if.end.i.i833:                                    ; preds = %cond.true.i832
   br i1 %cmp2.i.i835, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i838, label %if.end4.i.i836
 
 if.end4.i.i836:                                   ; preds = %if.end.i.i833
-  %135 = getelementptr double, ptr %7, i64 %indvars.iv1067
+  %135 = getelementptr [8 x i8], ptr %7, i64 %indvars.iv1067
   %arrayidx.i.i.i837 = getelementptr i8, ptr %135, i64 -8
   %136 = load double, ptr %arrayidx.i.i.i837, align 8, !tbaa !52
   br label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i838
@@ -2824,7 +2824,7 @@ if.end.i4.i824:                                   ; preds = %cond.false.i823
   br i1 %cmp2.i6.i826, label %_ZNK8QuantLib6detail14GsrProcessCore11flooredTimeEmd.exit844, label %if.end4.i7.i827
 
 if.end4.i7.i827:                                  ; preds = %if.end.i4.i824
-  %137 = getelementptr double, ptr %7, i64 %indvars.iv1067
+  %137 = getelementptr [8 x i8], ptr %7, i64 %indvars.iv1067
   %arrayidx.i.i8.i828 = getelementptr i8, ptr %137, i64 -8
   %138 = load double, ptr %arrayidx.i.i8.i828, align 8, !tbaa !52
   br label %_ZNK8QuantLib6detail14GsrProcessCore11flooredTimeEmd.exit844
@@ -2855,7 +2855,7 @@ while.body.i.i.i858:                              ; preds = %if.end.i846, %while
   %__first.addr.013.i.i.i859 = phi ptr [ %__first.addr.1.i.i.i871, %while.body.i.i.i858 ], [ %7, %if.end.i846 ]
   %__len.012.i.i.i860 = phi i64 [ %__len.1.i.i.i870, %while.body.i.i.i858 ], [ %8, %if.end.i846 ]
   %shr.i.i.i861 = lshr i64 %__len.012.i.i.i860, 1
-  %add.ptr.i.i.i.i.i865 = getelementptr inbounds nuw double, ptr %__first.addr.013.i.i.i859, i64 %shr.i.i.i861
+  %add.ptr.i.i.i.i.i865 = getelementptr inbounds nuw [8 x i8], ptr %__first.addr.013.i.i.i859, i64 %shr.i.i.i861
   %139 = load double, ptr %add.ptr.i.i.i.i.i865, align 8, !tbaa !52
   %cmp.i.i.i.i867 = fcmp olt double %sub.i, %139
   %incdec.ptr.i.i.i868 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i865, i64 8
@@ -2892,9 +2892,9 @@ for.body248:                                      ; preds = %_ZNK8QuantLib6detai
   %142 = load i64, ptr %n_.i.i166, align 8, !tbaa !36
   %cmp.not.i878 = icmp ugt i64 %142, %indvars.iv1064
   %143 = load ptr, ptr %15, align 8, !tbaa !3
-  %144 = getelementptr double, ptr %143, i64 %142
+  %144 = getelementptr [8 x i8], ptr %143, i64 %142
   %arrayidx.i.i879 = getelementptr i8, ptr %144, i64 -8
-  %arrayidx.i3.i880 = getelementptr inbounds nuw double, ptr %143, i64 %indvars.iv1064
+  %arrayidx.i3.i880 = getelementptr inbounds nuw [8 x i8], ptr %143, i64 %indvars.iv1064
   %retval.0.in.i881 = select i1 %cmp.not.i878, ptr %arrayidx.i3.i880, ptr %arrayidx.i.i879
   %retval.0.i882 = load double, ptr %retval.0.in.i881, align 8, !tbaa !52
   %fneg251 = fneg double %retval.0.i882
@@ -2910,7 +2910,7 @@ if.end.i.i895:                                    ; preds = %cond.true.i894
   br i1 %cmp2.i.i897, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i900, label %if.end4.i.i898
 
 if.end4.i.i898:                                   ; preds = %if.end.i.i895
-  %145 = getelementptr double, ptr %7, i64 %indvars.iv.next1065
+  %145 = getelementptr [8 x i8], ptr %7, i64 %indvars.iv.next1065
   %arrayidx.i.i.i899 = getelementptr i8, ptr %145, i64 -8
   %146 = load double, ptr %arrayidx.i.i.i899, align 8, !tbaa !52
   br label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i900
@@ -2929,7 +2929,7 @@ if.end.i4.i886:                                   ; preds = %cond.false.i885
   br i1 %cmp2.i6.i888, label %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit906, label %if.end4.i7.i889
 
 if.end4.i7.i889:                                  ; preds = %if.end.i4.i886
-  %147 = getelementptr double, ptr %7, i64 %indvars.iv.next1065
+  %147 = getelementptr [8 x i8], ptr %7, i64 %indvars.iv.next1065
   %arrayidx.i.i8.i890 = getelementptr i8, ptr %147, i64 -8
   %148 = load double, ptr %arrayidx.i.i8.i890, align 8, !tbaa !52
   br label %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit906
@@ -2945,7 +2945,7 @@ if.end.i908:                                      ; preds = %cond.false.i885, %_
   br i1 %cmp2.i910, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit916, label %if.end4.i911
 
 if.end4.i911:                                     ; preds = %if.end.i908
-  %150 = getelementptr double, ptr %7, i64 %indvars.iv1064
+  %150 = getelementptr [8 x i8], ptr %7, i64 %indvars.iv1064
   %arrayidx.i.i912 = getelementptr i8, ptr %150, i64 -8
   %151 = load double, ptr %arrayidx.i.i912, align 8, !tbaa !52
   br label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit916
@@ -2984,7 +2984,7 @@ entry:
   %index.sink13 = select i1 %cmp.not, i64 %index, i64 %add.i.i.i.i.i
   %.sink = select i1 %cmp.not, ptr %2, ptr %0
   %div.i.i.i.i.i3 = sdiv i64 %index.sink13, 64
-  %add.ptr.i.i.i.i.i4 = getelementptr inbounds i64, ptr %.sink, i64 %div.i.i.i.i.i3
+  %add.ptr.i.i.i.i.i4 = getelementptr inbounds [8 x i8], ptr %.sink, i64 %div.i.i.i.i.i3
   %3 = and i64 %index.sink13, -9223372036854775745
   %cmp.i.i.i.i.i5 = icmp ugt i64 %3, -9223372036854775808
   %storemerge.idx.i.i.i.i.i6 = select i1 %cmp.i.i.i.i.i5, i64 -8, i64 0
@@ -3006,9 +3006,9 @@ entry:
   %1 = load i64, ptr %n_.i, align 8, !tbaa !36
   %cmp.not = icmp ult i64 %index, %1
   %2 = load ptr, ptr %0, align 8, !tbaa !3
-  %3 = getelementptr double, ptr %2, i64 %1
+  %3 = getelementptr [8 x i8], ptr %2, i64 %1
   %arrayidx.i = getelementptr i8, ptr %3, i64 -8
-  %arrayidx.i3 = getelementptr inbounds nuw double, ptr %2, i64 %index
+  %arrayidx.i3 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %index
   %retval.0.in = select i1 %cmp.not, ptr %arrayidx.i3, ptr %arrayidx.i
   %retval.0 = load double, ptr %retval.0.in, align 8, !tbaa !52
   ret double %retval.0
@@ -3034,7 +3034,7 @@ if.then3:                                         ; preds = %if.end
 
 if.end4:                                          ; preds = %if.end
   %3 = load ptr, ptr %0, align 8, !tbaa !3
-  %4 = getelementptr double, ptr %3, i64 %index
+  %4 = getelementptr [8 x i8], ptr %3, i64 %index
   %arrayidx.i = getelementptr i8, ptr %4, i64 -8
   %5 = load double, ptr %arrayidx.i, align 8, !tbaa !52
   br label %return
@@ -3128,7 +3128,7 @@ while.body.i.i.i71:                               ; preds = %if.end, %while.body
   %__first.addr.013.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i71 ], [ %7, %if.end ]
   %__len.012.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i71 ], [ %8, %if.end ]
   %shr.i.i.i = lshr i64 %__len.012.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw double, ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
   %9 = load double, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !52
   %cmp.i.i.i.i73 = fcmp olt double %w, %9
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i, i64 8
@@ -3197,7 +3197,7 @@ while.body.i.i.i82:                               ; preds = %if.end.i, %while.bo
   %__first.addr.013.i.i.i83 = phi ptr [ %__first.addr.1.i.i.i95, %while.body.i.i.i82 ], [ %7, %if.end.i ]
   %__len.012.i.i.i84 = phi i64 [ %__len.1.i.i.i94, %while.body.i.i.i82 ], [ %8, %if.end.i ]
   %shr.i.i.i85 = lshr i64 %__len.012.i.i.i84, 1
-  %add.ptr.i.i.i.i.i89 = getelementptr inbounds nuw double, ptr %__first.addr.013.i.i.i83, i64 %shr.i.i.i85
+  %add.ptr.i.i.i.i.i89 = getelementptr inbounds nuw [8 x i8], ptr %__first.addr.013.i.i.i83, i64 %shr.i.i.i85
   %18 = load double, ptr %add.ptr.i.i.i.i.i89, align 8, !tbaa !52
   %cmp.i.i.i.i91 = fcmp olt double %sub.i, %18
   %incdec.ptr.i.i.i92 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i89, i64 8
@@ -3296,11 +3296,11 @@ for.body:                                         ; preds = %_ZNK8QuantLib6detai
   %indvars.iv.next1148 = add nsw i64 %indvars.iv1147, 1
   %cmp.i.i327 = icmp eq i64 %indvars.iv.next1148, 0
   %cmp2.i6.i331 = icmp ult i64 %8, %indvars.iv.next1148
-  %25 = getelementptr double, ptr %7, i64 %indvars.iv.next1148
+  %25 = getelementptr [8 x i8], ptr %7, i64 %indvars.iv.next1148
   %arrayidx.i.i8.i333 = getelementptr i8, ptr %25, i64 -8
   %26 = icmp eq i64 %indvars.iv1147, 0
   %cmp2.i6.i365 = icmp ult i64 %8, %indvars.iv1147
-  %27 = getelementptr double, ptr %7, i64 %indvars.iv1147
+  %27 = getelementptr [8 x i8], ptr %7, i64 %indvars.iv1147
   %arrayidx.i.i8.i367 = getelementptr i8, ptr %27, i64 -8
   %brmerge1127 = or i1 %26, %cmp2.i6.i365
   %.mux1128 = select i1 %26, double 0.000000e+00, double %11
@@ -3332,7 +3332,7 @@ while.body.i.i.i113:                              ; preds = %if.end.i101, %while
   %__first.addr.013.i.i.i114 = phi ptr [ %__first.addr.1.i.i.i126, %while.body.i.i.i113 ], [ %7, %if.end.i101 ]
   %__len.012.i.i.i115 = phi i64 [ %__len.1.i.i.i125, %while.body.i.i.i113 ], [ %8, %if.end.i101 ]
   %shr.i.i.i116 = lshr i64 %__len.012.i.i.i115, 1
-  %add.ptr.i.i.i.i.i120 = getelementptr inbounds nuw double, ptr %__first.addr.013.i.i.i114, i64 %shr.i.i.i116
+  %add.ptr.i.i.i.i.i120 = getelementptr inbounds nuw [8 x i8], ptr %__first.addr.013.i.i.i114, i64 %shr.i.i.i116
   %28 = load double, ptr %add.ptr.i.i.i.i.i120, align 8, !tbaa !52
   %cmp.i.i.i.i122 = fcmp olt double %sub.i103, %28
   %incdec.ptr.i.i.i123 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i120, i64 8
@@ -3369,7 +3369,7 @@ for.cond.cleanup18:                               ; preds = %_ZNK8QuantLib6detai
   %index.sink13.i = select i1 %cmp.not.i, i64 %indvars.iv1147, i64 %add.i.i.i.i.i.i142
   %.sink.i = select i1 %cmp.not.i, ptr %13, ptr %12
   %div.i.i.i.i.i3.i = sdiv i64 %index.sink13.i, 64
-  %add.ptr.i.i.i.i.i4.i = getelementptr inbounds i64, ptr %.sink.i, i64 %div.i.i.i.i.i3.i
+  %add.ptr.i.i.i.i.i4.i = getelementptr inbounds [8 x i8], ptr %.sink.i, i64 %div.i.i.i.i.i3.i
   %32 = and i64 %index.sink13.i, -9223372036854775745
   %cmp.i.i.i.i.i5.i = icmp ugt i64 %32, -9223372036854775808
   %storemerge.idx.i.i.i.i.i6.i = select i1 %cmp.i.i.i.i.i5.i, i64 -8, i64 0
@@ -3386,7 +3386,7 @@ for.body19:                                       ; preds = %_ZNK8QuantLib6detai
   %index.sink13.i143 = select i1 %cmp.not.i141, i64 %indvars.iv1139, i64 %add.i.i.i.i.i.i142
   %.sink.i144 = select i1 %cmp.not.i141, ptr %13, ptr %12
   %div.i.i.i.i.i3.i145 = sdiv i64 %index.sink13.i143, 64
-  %add.ptr.i.i.i.i.i4.i146 = getelementptr inbounds i64, ptr %.sink.i144, i64 %div.i.i.i.i.i3.i145
+  %add.ptr.i.i.i.i.i4.i146 = getelementptr inbounds [8 x i8], ptr %.sink.i144, i64 %div.i.i.i.i.i3.i145
   %34 = and i64 %index.sink13.i143, -9223372036854775745
   %cmp.i.i.i.i.i5.i147 = icmp ugt i64 %34, -9223372036854775808
   %storemerge.idx.i.i.i.i.i6.i148 = select i1 %cmp.i.i.i.i.i5.i147, i64 -8, i64 0
@@ -3411,7 +3411,7 @@ if.end.i.i:                                       ; preds = %cond.true.i
   br i1 %cmp2.i.i, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i, label %if.end4.i.i
 
 if.end4.i.i:                                      ; preds = %if.end.i.i
-  %37 = getelementptr double, ptr %7, i64 %36
+  %37 = getelementptr [8 x i8], ptr %7, i64 %36
   %arrayidx.i.i.i = getelementptr i8, ptr %37, i64 -8
   %38 = load double, ptr %arrayidx.i.i.i, align 8, !tbaa !52
   br label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i
@@ -3430,7 +3430,7 @@ if.end.i4.i:                                      ; preds = %cond.false.i
   br i1 %cmp2.i6.i, label %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit, label %if.end4.i7.i
 
 if.end4.i7.i:                                     ; preds = %if.end.i4.i
-  %39 = getelementptr double, ptr %7, i64 %36
+  %39 = getelementptr [8 x i8], ptr %7, i64 %36
   %arrayidx.i.i8.i = getelementptr i8, ptr %39, i64 -8
   %40 = load double, ptr %arrayidx.i.i8.i, align 8, !tbaa !52
   br label %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit
@@ -3446,7 +3446,7 @@ if.end.i157:                                      ; preds = %cond.false.i, %_ZNK
   br i1 %cmp2.i, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit, label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.end.i157
-  %42 = getelementptr double, ptr %7, i64 %indvars.iv1139
+  %42 = getelementptr [8 x i8], ptr %7, i64 %indvars.iv1139
   %arrayidx.i.i = getelementptr i8, ptr %42, i64 -8
   %43 = load double, ptr %arrayidx.i.i, align 8, !tbaa !52
   br label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit
@@ -3461,9 +3461,9 @@ cond.false:                                       ; preds = %for.body19
   %44 = load i64, ptr %n_.i.i160, align 8, !tbaa !36
   %cmp.not.i161 = icmp ugt i64 %44, %indvars.iv1139
   %45 = load ptr, ptr %14, align 8, !tbaa !3
-  %46 = getelementptr double, ptr %45, i64 %44
+  %46 = getelementptr [8 x i8], ptr %45, i64 %44
   %arrayidx.i.i162 = getelementptr i8, ptr %46, i64 -8
-  %arrayidx.i3.i = getelementptr inbounds nuw double, ptr %45, i64 %indvars.iv1139
+  %arrayidx.i3.i = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv1139
   %retval.0.in.i = select i1 %cmp.not.i161, ptr %arrayidx.i3.i, ptr %arrayidx.i.i162
   %retval.0.i163 = load double, ptr %retval.0.in.i, align 8, !tbaa !52
   %fneg = fneg double %retval.0.i163
@@ -3479,7 +3479,7 @@ if.end.i.i176:                                    ; preds = %cond.true.i175
   br i1 %cmp2.i.i178, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i181, label %if.end4.i.i179
 
 if.end4.i.i179:                                   ; preds = %if.end.i.i176
-  %48 = getelementptr double, ptr %7, i64 %47
+  %48 = getelementptr [8 x i8], ptr %7, i64 %47
   %arrayidx.i.i.i180 = getelementptr i8, ptr %48, i64 -8
   %49 = load double, ptr %arrayidx.i.i.i180, align 8, !tbaa !52
   br label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i181
@@ -3498,7 +3498,7 @@ if.end.i4.i167:                                   ; preds = %cond.false.i166
   br i1 %cmp2.i6.i169, label %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit187, label %if.end4.i7.i170
 
 if.end4.i7.i170:                                  ; preds = %if.end.i4.i167
-  %50 = getelementptr double, ptr %7, i64 %47
+  %50 = getelementptr [8 x i8], ptr %7, i64 %47
   %arrayidx.i.i8.i171 = getelementptr i8, ptr %50, i64 -8
   %51 = load double, ptr %arrayidx.i.i8.i171, align 8, !tbaa !52
   br label %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit187
@@ -3514,7 +3514,7 @@ if.end.i189:                                      ; preds = %cond.false.i166, %_
   br i1 %cmp2.i191, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit197, label %if.end4.i192
 
 if.end4.i192:                                     ; preds = %if.end.i189
-  %53 = getelementptr double, ptr %7, i64 %indvars.iv1139
+  %53 = getelementptr [8 x i8], ptr %7, i64 %indvars.iv1139
   %arrayidx.i.i193 = getelementptr i8, ptr %53, i64 -8
   %54 = load double, ptr %arrayidx.i.i193, align 8, !tbaa !52
   br label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit197
@@ -3545,7 +3545,7 @@ while.body.i.i.i218:                              ; preds = %if.end.i206, %while
   %__first.addr.013.i.i.i219 = phi ptr [ %__first.addr.1.i.i.i231, %while.body.i.i.i218 ], [ %7, %if.end.i206 ]
   %__len.012.i.i.i220 = phi i64 [ %__len.1.i.i.i230, %while.body.i.i.i218 ], [ %8, %if.end.i206 ]
   %shr.i.i.i221 = lshr i64 %__len.012.i.i.i220, 1
-  %add.ptr.i.i.i.i.i225 = getelementptr inbounds nuw double, ptr %__first.addr.013.i.i.i219, i64 %shr.i.i.i221
+  %add.ptr.i.i.i.i.i225 = getelementptr inbounds nuw [8 x i8], ptr %__first.addr.013.i.i.i219, i64 %shr.i.i.i221
   %55 = load double, ptr %add.ptr.i.i.i.i.i225, align 8, !tbaa !52
   %cmp.i.i.i.i227 = fcmp olt double %sub.i, %55
   %incdec.ptr.i.i.i228 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i225, i64 8
@@ -3580,7 +3580,7 @@ for.cond62.preheader:                             ; preds = %_ZNK8QuantLib6detai
 for.body66.lr.ph:                                 ; preds = %for.cond62.preheader
   %58 = load i64, ptr %n_.i.i160, align 8, !tbaa !36
   %59 = load ptr, ptr %14, align 8, !tbaa !3
-  %60 = getelementptr double, ptr %59, i64 %58
+  %60 = getelementptr [8 x i8], ptr %59, i64 %58
   %arrayidx.i.i302 = getelementptr i8, ptr %60, i64 -8
   %61 = trunc nsw i64 %indvars.iv1139 to i32
   br label %for.body66
@@ -3589,9 +3589,9 @@ for.body48:                                       ; preds = %_ZNK8QuantLib6detai
   %62 = load i64, ptr %n_.i.i160, align 8, !tbaa !36
   %cmp.not.i238 = icmp ugt i64 %62, %indvars.iv1133
   %63 = load ptr, ptr %14, align 8, !tbaa !3
-  %64 = getelementptr double, ptr %63, i64 %62
+  %64 = getelementptr [8 x i8], ptr %63, i64 %62
   %arrayidx.i.i239 = getelementptr i8, ptr %64, i64 -8
-  %arrayidx.i3.i240 = getelementptr inbounds nuw double, ptr %63, i64 %indvars.iv1133
+  %arrayidx.i3.i240 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %indvars.iv1133
   %retval.0.in.i241 = select i1 %cmp.not.i238, ptr %arrayidx.i3.i240, ptr %arrayidx.i.i239
   %retval.0.i242 = load double, ptr %retval.0.in.i241, align 8, !tbaa !52
   %fneg51 = fneg double %retval.0.i242
@@ -3607,7 +3607,7 @@ if.end.i.i255:                                    ; preds = %cond.true.i254
   br i1 %cmp2.i.i257, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i260, label %if.end4.i.i258
 
 if.end4.i.i258:                                   ; preds = %if.end.i.i255
-  %65 = getelementptr double, ptr %7, i64 %indvars.iv.next1134
+  %65 = getelementptr [8 x i8], ptr %7, i64 %indvars.iv.next1134
   %arrayidx.i.i.i259 = getelementptr i8, ptr %65, i64 -8
   %66 = load double, ptr %arrayidx.i.i.i259, align 8, !tbaa !52
   br label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i260
@@ -3626,7 +3626,7 @@ if.end.i4.i246:                                   ; preds = %cond.false.i245
   br i1 %cmp2.i6.i248, label %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit266, label %if.end4.i7.i249
 
 if.end4.i7.i249:                                  ; preds = %if.end.i4.i246
-  %67 = getelementptr double, ptr %7, i64 %indvars.iv.next1134
+  %67 = getelementptr [8 x i8], ptr %7, i64 %indvars.iv.next1134
   %arrayidx.i.i8.i250 = getelementptr i8, ptr %67, i64 -8
   %68 = load double, ptr %arrayidx.i.i8.i250, align 8, !tbaa !52
   br label %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit266
@@ -3642,7 +3642,7 @@ if.end.i268:                                      ; preds = %cond.false.i245, %_
   br i1 %cmp2.i270, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit276, label %if.end4.i271
 
 if.end4.i271:                                     ; preds = %if.end.i268
-  %70 = getelementptr double, ptr %7, i64 %indvars.iv1133
+  %70 = getelementptr [8 x i8], ptr %7, i64 %indvars.iv1133
   %arrayidx.i.i272 = getelementptr i8, ptr %70, i64 -8
   %71 = load double, ptr %arrayidx.i.i272, align 8, !tbaa !52
   br label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit276
@@ -3666,7 +3666,7 @@ for.cond.cleanup65:                               ; preds = %_ZNK8QuantLib6detai
   %index.sink13.i288 = select i1 %cmp.not.i286, i64 %indvars.iv1147, i64 %add.i.i.i.i.i.i287
   %.sink.i289 = select i1 %cmp.not.i286, ptr %13, ptr %12
   %div.i.i.i.i.i3.i290 = sdiv i64 %index.sink13.i288, 64
-  %add.ptr.i.i.i.i.i4.i291 = getelementptr inbounds i64, ptr %.sink.i289, i64 %div.i.i.i.i.i3.i290
+  %add.ptr.i.i.i.i.i4.i291 = getelementptr inbounds [8 x i8], ptr %.sink.i289, i64 %div.i.i.i.i.i3.i290
   %73 = and i64 %index.sink13.i288, -9223372036854775745
   %cmp.i.i.i.i.i5.i292 = icmp ugt i64 %73, -9223372036854775808
   %storemerge.idx.i.i.i.i.i6.i293 = select i1 %cmp.i.i.i.i.i5.i292, i64 -8, i64 0
@@ -3682,7 +3682,7 @@ for.body66:                                       ; preds = %for.body66.lr.ph, %
   %indvars.iv1136 = phi i64 [ %17, %for.body66.lr.ph ], [ %indvars.iv.next1137, %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit325 ]
   %res3.11125 = phi double [ %res3.0, %for.body66.lr.ph ], [ %mul78, %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit325 ]
   %cmp.not.i301 = icmp ugt i64 %58, %indvars.iv1136
-  %arrayidx.i3.i303 = getelementptr inbounds nuw double, ptr %59, i64 %indvars.iv1136
+  %arrayidx.i3.i303 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %indvars.iv1136
   %retval.0.in.i304 = select i1 %cmp.not.i301, ptr %arrayidx.i3.i303, ptr %arrayidx.i.i302
   %retval.0.i305 = load double, ptr %retval.0.in.i304, align 8, !tbaa !52
   %fneg69 = fneg double %retval.0.i305
@@ -3696,7 +3696,7 @@ if.end.i307:                                      ; preds = %for.body66
   br i1 %cmp2.i309, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit315, label %if.end4.i310
 
 if.end4.i310:                                     ; preds = %if.end.i307
-  %76 = getelementptr double, ptr %7, i64 %indvars.iv.next1137
+  %76 = getelementptr [8 x i8], ptr %7, i64 %indvars.iv.next1137
   %arrayidx.i.i311 = getelementptr i8, ptr %76, i64 -8
   %77 = load double, ptr %arrayidx.i.i311, align 8, !tbaa !52
   br label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit315
@@ -3711,7 +3711,7 @@ if.end.i317:                                      ; preds = %_ZNK8QuantLib6detai
   br i1 %cmp2.i319, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit325, label %if.end4.i320
 
 if.end4.i320:                                     ; preds = %if.end.i317
-  %79 = getelementptr double, ptr %7, i64 %indvars.iv1136
+  %79 = getelementptr [8 x i8], ptr %7, i64 %indvars.iv1136
   %arrayidx.i.i321 = getelementptr i8, ptr %79, i64 -8
   %80 = load double, ptr %arrayidx.i.i321, align 8, !tbaa !52
   br label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit325
@@ -3835,9 +3835,9 @@ cond.false104:                                    ; preds = %for.cond.cleanup65
   %93 = load i64, ptr %n_.i.i160, align 8, !tbaa !36
   %cmp.not.i419 = icmp ugt i64 %93, %indvars.iv1147
   %94 = load ptr, ptr %14, align 8, !tbaa !3
-  %95 = getelementptr double, ptr %94, i64 %93
+  %95 = getelementptr [8 x i8], ptr %94, i64 %93
   %arrayidx.i.i420 = getelementptr i8, ptr %95, i64 -8
-  %arrayidx.i3.i421 = getelementptr inbounds nuw double, ptr %94, i64 %indvars.iv1147
+  %arrayidx.i3.i421 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %indvars.iv1147
   %retval.0.in.i422 = select i1 %cmp.not.i419, ptr %arrayidx.i3.i421, ptr %arrayidx.i.i420
   %retval.0.i423 = load double, ptr %retval.0.in.i422, align 8, !tbaa !52
   br i1 %cmp.i243, label %cond.true.i435, label %cond.false.i426
@@ -4188,9 +4188,9 @@ cond.false180:                                    ; preds = %for.cond.cleanup18
   %127 = load i64, ptr %n_.i.i160, align 8, !tbaa !36
   %cmp.not.i700 = icmp ugt i64 %127, %indvars.iv1147
   %128 = load ptr, ptr %14, align 8, !tbaa !3
-  %129 = getelementptr double, ptr %128, i64 %127
+  %129 = getelementptr [8 x i8], ptr %128, i64 %127
   %arrayidx.i.i701 = getelementptr i8, ptr %129, i64 -8
-  %arrayidx.i3.i702 = getelementptr inbounds nuw double, ptr %128, i64 %indvars.iv1147
+  %arrayidx.i3.i702 = getelementptr inbounds nuw [8 x i8], ptr %128, i64 %indvars.iv1147
   %retval.0.in.i703 = select i1 %cmp.not.i700, ptr %arrayidx.i3.i702, ptr %arrayidx.i.i701
   %retval.0.i704 = load double, ptr %retval.0.in.i703, align 8, !tbaa !52
   br i1 %cmp.i243, label %cond.true.i716, label %cond.false.i707
@@ -4435,7 +4435,7 @@ while.body.i.i.i914:                              ; preds = %if.end.i902, %while
   %__first.addr.013.i.i.i915 = phi ptr [ %__first.addr.1.i.i.i927, %while.body.i.i.i914 ], [ %7, %if.end.i902 ]
   %__len.012.i.i.i916 = phi i64 [ %__len.1.i.i.i926, %while.body.i.i.i914 ], [ %8, %if.end.i902 ]
   %shr.i.i.i917 = lshr i64 %__len.012.i.i.i916, 1
-  %add.ptr.i.i.i.i.i921 = getelementptr inbounds nuw double, ptr %__first.addr.013.i.i.i915, i64 %shr.i.i.i917
+  %add.ptr.i.i.i.i.i921 = getelementptr inbounds nuw [8 x i8], ptr %__first.addr.013.i.i.i915, i64 %shr.i.i.i917
   %148 = load double, ptr %add.ptr.i.i.i.i.i921, align 8, !tbaa !52
   %cmp.i.i.i.i923 = fcmp olt double %sub.i, %148
   %incdec.ptr.i.i.i924 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i921, i64 8
@@ -4468,9 +4468,9 @@ for.cond.cleanup240:                              ; preds = %_ZNK8QuantLib6detai
   %151 = load i64, ptr %n_.i.i932, align 8, !tbaa !36
   %cmp.not.i933 = icmp ugt i64 %151, %indvars.iv1147
   %152 = load ptr, ptr %15, align 8, !tbaa !3
-  %153 = getelementptr double, ptr %152, i64 %151
+  %153 = getelementptr [8 x i8], ptr %152, i64 %151
   %arrayidx.i.i934 = getelementptr i8, ptr %153, i64 -8
-  %arrayidx.i3.i935 = getelementptr inbounds nuw double, ptr %152, i64 %indvars.iv1147
+  %arrayidx.i3.i935 = getelementptr inbounds nuw [8 x i8], ptr %152, i64 %indvars.iv1147
   %retval.0.in.i936 = select i1 %cmp.not.i933, ptr %arrayidx.i3.i935, ptr %arrayidx.i.i934
   %retval.0.i937 = load double, ptr %retval.0.in.i936, align 8, !tbaa !52
   %fneg260 = fneg double %retval.0.i937
@@ -4482,9 +4482,9 @@ for.body241:                                      ; preds = %_ZNK8QuantLib6detai
   %155 = load i64, ptr %n_.i.i160, align 8, !tbaa !36
   %cmp.not.i947 = icmp ugt i64 %155, %indvars.iv1144
   %156 = load ptr, ptr %14, align 8, !tbaa !3
-  %157 = getelementptr double, ptr %156, i64 %155
+  %157 = getelementptr [8 x i8], ptr %156, i64 %155
   %arrayidx.i.i948 = getelementptr i8, ptr %157, i64 -8
-  %arrayidx.i3.i949 = getelementptr inbounds nuw double, ptr %156, i64 %indvars.iv1144
+  %arrayidx.i3.i949 = getelementptr inbounds nuw [8 x i8], ptr %156, i64 %indvars.iv1144
   %retval.0.in.i950 = select i1 %cmp.not.i947, ptr %arrayidx.i3.i949, ptr %arrayidx.i.i948
   %retval.0.i951 = load double, ptr %retval.0.in.i950, align 8, !tbaa !52
   %fneg244 = fneg double %retval.0.i951
@@ -4500,7 +4500,7 @@ if.end.i.i964:                                    ; preds = %cond.true.i963
   br i1 %cmp2.i.i966, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i969, label %if.end4.i.i967
 
 if.end4.i.i967:                                   ; preds = %if.end.i.i964
-  %158 = getelementptr double, ptr %7, i64 %indvars.iv.next1145
+  %158 = getelementptr [8 x i8], ptr %7, i64 %indvars.iv.next1145
   %arrayidx.i.i.i968 = getelementptr i8, ptr %158, i64 -8
   %159 = load double, ptr %arrayidx.i.i.i968, align 8, !tbaa !52
   br label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i969
@@ -4519,7 +4519,7 @@ if.end.i4.i955:                                   ; preds = %cond.false.i954
   br i1 %cmp2.i6.i957, label %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit975, label %if.end4.i7.i958
 
 if.end4.i7.i958:                                  ; preds = %if.end.i4.i955
-  %160 = getelementptr double, ptr %7, i64 %indvars.iv.next1145
+  %160 = getelementptr [8 x i8], ptr %7, i64 %indvars.iv.next1145
   %arrayidx.i.i8.i959 = getelementptr i8, ptr %160, i64 -8
   %161 = load double, ptr %arrayidx.i.i8.i959, align 8, !tbaa !52
   br label %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit975
@@ -4535,7 +4535,7 @@ if.end.i977:                                      ; preds = %cond.false.i954, %_
   br i1 %cmp2.i979, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit985, label %if.end4.i980
 
 if.end4.i980:                                     ; preds = %if.end.i977
-  %163 = getelementptr double, ptr %7, i64 %indvars.iv1144
+  %163 = getelementptr [8 x i8], ptr %7, i64 %indvars.iv1144
   %arrayidx.i.i981 = getelementptr i8, ptr %163, i64 -8
   %164 = load double, ptr %arrayidx.i.i981, align 8, !tbaa !52
   br label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit985
@@ -4632,7 +4632,7 @@ while.body.i.i.i18:                               ; preds = %if.end, %while.body
   %__first.addr.013.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i18 ], [ %7, %if.end ]
   %__len.012.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i18 ], [ %8, %if.end ]
   %shr.i.i.i = lshr i64 %__len.012.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw double, ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
   %9 = load double, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !52
   %cmp.i.i.i.i20 = fcmp olt double %w, %9
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i, i64 8
@@ -4690,7 +4690,7 @@ while.body.i.i.i29:                               ; preds = %if.end.i, %while.bo
   %__first.addr.013.i.i.i30 = phi ptr [ %__first.addr.1.i.i.i42, %while.body.i.i.i29 ], [ %7, %if.end.i ]
   %__len.012.i.i.i31 = phi i64 [ %__len.1.i.i.i41, %while.body.i.i.i29 ], [ %8, %if.end.i ]
   %shr.i.i.i32 = lshr i64 %__len.012.i.i.i31, 1
-  %add.ptr.i.i.i.i.i36 = getelementptr inbounds nuw double, ptr %__first.addr.013.i.i.i30, i64 %shr.i.i.i32
+  %add.ptr.i.i.i.i.i36 = getelementptr inbounds nuw [8 x i8], ptr %__first.addr.013.i.i.i30, i64 %shr.i.i.i32
   %18 = load double, ptr %add.ptr.i.i.i.i.i36, align 8, !tbaa !52
   %cmp.i.i.i.i38 = fcmp olt double %sub.i, %18
   %incdec.ptr.i.i.i39 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i36, i64 8
@@ -4789,9 +4789,9 @@ for.body:                                         ; preds = %_ZNK8QuantLib6detai
   %25 = load i64, ptr %n_.i.i47, align 8, !tbaa !36
   %cmp.not.i = icmp ugt i64 %25, %indvars.iv227
   %26 = load ptr, ptr %11, align 8, !tbaa !3
-  %27 = getelementptr double, ptr %26, i64 %25
+  %27 = getelementptr [8 x i8], ptr %26, i64 %25
   %arrayidx.i.i = getelementptr i8, ptr %27, i64 -8
-  %arrayidx.i3.i = getelementptr inbounds nuw double, ptr %26, i64 %indvars.iv227
+  %arrayidx.i3.i = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv227
   %retval.0.in.i = select i1 %cmp.not.i, ptr %arrayidx.i3.i, ptr %arrayidx.i.i
   %retval.0.i48 = load double, ptr %retval.0.in.i, align 8, !tbaa !52
   %mul = fmul double %retval.0.i48, %retval.0.i48
@@ -4803,7 +4803,7 @@ for.body:                                         ; preds = %_ZNK8QuantLib6detai
   %index.sink13.i = select i1 %cmp.not.i56, i64 %indvars.iv227, i64 %add.i.i.i.i.i.i
   %.sink.i = select i1 %cmp.not.i56, ptr %13, ptr %12
   %div.i.i.i.i.i3.i = sdiv i64 %index.sink13.i, 64
-  %add.ptr.i.i.i.i.i4.i = getelementptr inbounds i64, ptr %.sink.i, i64 %div.i.i.i.i.i3.i
+  %add.ptr.i.i.i.i.i4.i = getelementptr inbounds [8 x i8], ptr %.sink.i, i64 %div.i.i.i.i.i3.i
   %29 = and i64 %index.sink13.i, -9223372036854775745
   %cmp.i.i.i.i.i5.i = icmp ugt i64 %29, -9223372036854775808
   %storemerge.idx.i.i.i.i.i6.i = select i1 %cmp.i.i.i.i.i5.i, i64 -8, i64 0
@@ -4827,7 +4827,7 @@ if.end.i.i:                                       ; preds = %cond.true.i
   br i1 %cmp2.i.i, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i, label %if.end4.i.i
 
 if.end4.i.i:                                      ; preds = %if.end.i.i
-  %32 = getelementptr double, ptr %7, i64 %indvars.iv227
+  %32 = getelementptr [8 x i8], ptr %7, i64 %indvars.iv227
   %arrayidx.i.i.i = getelementptr i8, ptr %32, i64 -8
   %33 = load double, ptr %arrayidx.i.i.i, align 8, !tbaa !52
   br label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i
@@ -4846,7 +4846,7 @@ if.end.i4.i:                                      ; preds = %cond.false.i
   br i1 %cmp2.i6.i, label %_ZNK8QuantLib6detail14GsrProcessCore11flooredTimeEmd.exit, label %if.end4.i7.i
 
 if.end4.i7.i:                                     ; preds = %if.end.i4.i
-  %34 = getelementptr double, ptr %7, i64 %indvars.iv227
+  %34 = getelementptr [8 x i8], ptr %7, i64 %indvars.iv227
   %arrayidx.i.i8.i = getelementptr i8, ptr %34, i64 -8
   %35 = load double, ptr %arrayidx.i.i8.i, align 8, !tbaa !52
   br label %_ZNK8QuantLib6detail14GsrProcessCore11flooredTimeEmd.exit
@@ -4865,7 +4865,7 @@ if.end.i.i72:                                     ; preds = %cond.true.i71
   br i1 %cmp2.i.i74, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i77, label %if.end4.i.i75
 
 if.end4.i.i75:                                    ; preds = %if.end.i.i72
-  %37 = getelementptr double, ptr %7, i64 %36
+  %37 = getelementptr [8 x i8], ptr %7, i64 %36
   %arrayidx.i.i.i76 = getelementptr i8, ptr %37, i64 -8
   %38 = load double, ptr %arrayidx.i.i.i76, align 8, !tbaa !52
   br label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i77
@@ -4884,7 +4884,7 @@ if.end.i4.i63:                                    ; preds = %cond.false.i62
   br i1 %cmp2.i6.i65, label %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit, label %if.end4.i7.i66
 
 if.end4.i7.i66:                                   ; preds = %if.end.i4.i63
-  %39 = getelementptr double, ptr %7, i64 %36
+  %39 = getelementptr [8 x i8], ptr %7, i64 %36
   %arrayidx.i.i8.i67 = getelementptr i8, ptr %39, i64 -8
   %40 = load double, ptr %arrayidx.i.i8.i67, align 8, !tbaa !52
   br label %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit
@@ -4899,9 +4899,9 @@ cond.false:                                       ; preds = %for.body
   %41 = load i64, ptr %n_.i.i83, align 8, !tbaa !36
   %cmp.not.i84 = icmp ugt i64 %41, %indvars.iv227
   %42 = load ptr, ptr %15, align 8, !tbaa !3
-  %43 = getelementptr double, ptr %42, i64 %41
+  %43 = getelementptr [8 x i8], ptr %42, i64 %41
   %arrayidx.i.i85 = getelementptr i8, ptr %43, i64 -8
-  %arrayidx.i3.i86 = getelementptr inbounds nuw double, ptr %42, i64 %indvars.iv227
+  %arrayidx.i3.i86 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv227
   %retval.0.in.i87 = select i1 %cmp.not.i84, ptr %arrayidx.i3.i86, ptr %arrayidx.i.i85
   %retval.0.i88 = load double, ptr %retval.0.in.i87, align 8, !tbaa !52
   %mul26 = fmul double %retval.0.i88, 2.000000e+00
@@ -4916,7 +4916,7 @@ if.end.i.i101:                                    ; preds = %cond.true.i100
   br i1 %cmp2.i.i103, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i106, label %if.end4.i.i104
 
 if.end4.i.i104:                                   ; preds = %if.end.i.i101
-  %45 = getelementptr double, ptr %7, i64 %indvars.iv227
+  %45 = getelementptr [8 x i8], ptr %7, i64 %indvars.iv227
   %arrayidx.i.i.i105 = getelementptr i8, ptr %45, i64 -8
   %46 = load double, ptr %arrayidx.i.i.i105, align 8, !tbaa !52
   br label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i106
@@ -4935,7 +4935,7 @@ if.end.i4.i92:                                    ; preds = %cond.false.i91
   br i1 %cmp2.i6.i94, label %_ZNK8QuantLib6detail14GsrProcessCore11flooredTimeEmd.exit112, label %if.end4.i7.i95
 
 if.end4.i7.i95:                                   ; preds = %if.end.i4.i92
-  %47 = getelementptr double, ptr %7, i64 %indvars.iv227
+  %47 = getelementptr [8 x i8], ptr %7, i64 %indvars.iv227
   %arrayidx.i.i8.i96 = getelementptr i8, ptr %47, i64 -8
   %48 = load double, ptr %arrayidx.i.i8.i96, align 8, !tbaa !52
   br label %_ZNK8QuantLib6detail14GsrProcessCore11flooredTimeEmd.exit112
@@ -4954,7 +4954,7 @@ if.end.i.i125:                                    ; preds = %cond.true.i124
   br i1 %cmp2.i.i127, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i130, label %if.end4.i.i128
 
 if.end4.i.i128:                                   ; preds = %if.end.i.i125
-  %50 = getelementptr double, ptr %7, i64 %49
+  %50 = getelementptr [8 x i8], ptr %7, i64 %49
   %arrayidx.i.i.i129 = getelementptr i8, ptr %50, i64 -8
   %51 = load double, ptr %arrayidx.i.i.i129, align 8, !tbaa !52
   br label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i130
@@ -4973,7 +4973,7 @@ if.end.i4.i116:                                   ; preds = %cond.false.i115
   br i1 %cmp2.i6.i118, label %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit136, label %if.end4.i7.i119
 
 if.end4.i7.i119:                                  ; preds = %if.end.i4.i116
-  %52 = getelementptr double, ptr %7, i64 %49
+  %52 = getelementptr [8 x i8], ptr %7, i64 %49
   %arrayidx.i.i8.i120 = getelementptr i8, ptr %52, i64 -8
   %53 = load double, ptr %arrayidx.i.i8.i120, align 8, !tbaa !52
   br label %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit136
@@ -5004,7 +5004,7 @@ while.body.i.i.i157:                              ; preds = %if.end.i145, %while
   %__first.addr.013.i.i.i158 = phi ptr [ %__first.addr.1.i.i.i170, %while.body.i.i.i157 ], [ %7, %if.end.i145 ]
   %__len.012.i.i.i159 = phi i64 [ %__len.1.i.i.i169, %while.body.i.i.i157 ], [ %8, %if.end.i145 ]
   %shr.i.i.i160 = lshr i64 %__len.012.i.i.i159, 1
-  %add.ptr.i.i.i.i.i164 = getelementptr inbounds nuw double, ptr %__first.addr.013.i.i.i158, i64 %shr.i.i.i160
+  %add.ptr.i.i.i.i.i164 = getelementptr inbounds nuw [8 x i8], ptr %__first.addr.013.i.i.i158, i64 %shr.i.i.i160
   %54 = load double, ptr %add.ptr.i.i.i.i.i164, align 8, !tbaa !52
   %cmp.i.i.i.i166 = fcmp olt double %sub.i, %54
   %incdec.ptr.i.i.i167 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i164, i64 8
@@ -5041,9 +5041,9 @@ for.body46:                                       ; preds = %_ZNK8QuantLib6detai
   %57 = load i64, ptr %n_.i.i83, align 8, !tbaa !36
   %cmp.not.i177 = icmp ugt i64 %57, %indvars.iv224
   %58 = load ptr, ptr %15, align 8, !tbaa !3
-  %59 = getelementptr double, ptr %58, i64 %57
+  %59 = getelementptr [8 x i8], ptr %58, i64 %57
   %arrayidx.i.i178 = getelementptr i8, ptr %59, i64 -8
-  %arrayidx.i3.i179 = getelementptr inbounds nuw double, ptr %58, i64 %indvars.iv224
+  %arrayidx.i3.i179 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %indvars.iv224
   %retval.0.in.i180 = select i1 %cmp.not.i177, ptr %arrayidx.i3.i179, ptr %arrayidx.i.i178
   %retval.0.i181 = load double, ptr %retval.0.in.i180, align 8, !tbaa !52
   %mul49 = fmul double %retval.0.i181, -2.000000e+00
@@ -5059,7 +5059,7 @@ if.end.i.i194:                                    ; preds = %cond.true.i193
   br i1 %cmp2.i.i196, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i199, label %if.end4.i.i197
 
 if.end4.i.i197:                                   ; preds = %if.end.i.i194
-  %60 = getelementptr double, ptr %7, i64 %indvars.iv.next225
+  %60 = getelementptr [8 x i8], ptr %7, i64 %indvars.iv.next225
   %arrayidx.i.i.i198 = getelementptr i8, ptr %60, i64 -8
   %61 = load double, ptr %arrayidx.i.i.i198, align 8, !tbaa !52
   br label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i199
@@ -5078,7 +5078,7 @@ if.end.i4.i185:                                   ; preds = %cond.false.i184
   br i1 %cmp2.i6.i187, label %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit205, label %if.end4.i7.i188
 
 if.end4.i7.i188:                                  ; preds = %if.end.i4.i185
-  %62 = getelementptr double, ptr %7, i64 %indvars.iv.next225
+  %62 = getelementptr [8 x i8], ptr %7, i64 %indvars.iv.next225
   %arrayidx.i.i8.i189 = getelementptr i8, ptr %62, i64 -8
   %63 = load double, ptr %arrayidx.i.i8.i189, align 8, !tbaa !52
   br label %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit205
@@ -5094,7 +5094,7 @@ if.end.i207:                                      ; preds = %cond.false.i184, %_
   br i1 %cmp2.i, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit, label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.end.i207
-  %65 = getelementptr double, ptr %7, i64 %indvars.iv224
+  %65 = getelementptr [8 x i8], ptr %7, i64 %indvars.iv224
   %arrayidx.i.i209 = getelementptr i8, ptr %65, i64 -8
   %66 = load double, ptr %arrayidx.i.i209, align 8, !tbaa !52
   br label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit
@@ -5195,7 +5195,7 @@ while.body.i.i.i26:                               ; preds = %if.end.i, %while.bo
   %__first.addr.013.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i26 ], [ %5, %if.end.i ]
   %__len.012.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i26 ], [ %6, %if.end.i ]
   %shr.i.i.i = lshr i64 %__len.012.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw double, ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
   %12 = load double, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !52
   %cmp.i.i.i.i27 = fcmp olt double %sub.i, %12
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i, i64 8
@@ -5306,7 +5306,7 @@ while.body.i.i.i45:                               ; preds = %if.end.i33, %while.
   %__first.addr.013.i.i.i46 = phi ptr [ %__first.addr.1.i.i.i58, %while.body.i.i.i45 ], [ %5, %if.end.i33 ]
   %__len.012.i.i.i47 = phi i64 [ %__len.1.i.i.i57, %while.body.i.i.i45 ], [ %6, %if.end.i33 ]
   %shr.i.i.i48 = lshr i64 %__len.012.i.i.i47, 1
-  %add.ptr.i.i.i.i.i52 = getelementptr inbounds nuw double, ptr %__first.addr.013.i.i.i46, i64 %shr.i.i.i48
+  %add.ptr.i.i.i.i.i52 = getelementptr inbounds nuw [8 x i8], ptr %__first.addr.013.i.i.i46, i64 %shr.i.i.i48
   %24 = load double, ptr %add.ptr.i.i.i.i.i52, align 8, !tbaa !52
   %cmp.i.i.i.i54 = fcmp olt double %sub.i, %24
   %incdec.ptr.i.i.i55 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i52, i64 8
@@ -5339,7 +5339,7 @@ for.cond.cleanup12:                               ; preds = %_ZSt11upper_boundIP
   %index.sink13.i = select i1 %cmp.not.i, i64 %indvars.iv203, i64 %add.i.i.i.i.i.i
   %.sink.i = select i1 %cmp.not.i, ptr %10, ptr %9
   %div.i.i.i.i.i3.i = sdiv i64 %index.sink13.i, 64
-  %add.ptr.i.i.i.i.i4.i = getelementptr inbounds i64, ptr %.sink.i, i64 %div.i.i.i.i.i3.i
+  %add.ptr.i.i.i.i.i4.i = getelementptr inbounds [8 x i8], ptr %.sink.i, i64 %div.i.i.i.i.i3.i
   %28 = and i64 %index.sink13.i, -9223372036854775745
   %cmp.i.i.i.i.i5.i = icmp ugt i64 %28, -9223372036854775808
   %storemerge.idx.i.i.i.i.i6.i = select i1 %cmp.i.i.i.i.i5.i, i64 -8, i64 0
@@ -5352,9 +5352,9 @@ for.cond.cleanup12:                               ; preds = %_ZSt11upper_boundIP
   %30 = load i64, ptr %n_.i.i74, align 8, !tbaa !36
   %cmp.not.i121 = icmp ugt i64 %30, %indvars.iv203
   %31 = load ptr, ptr %11, align 8, !tbaa !3
-  %32 = getelementptr double, ptr %31, i64 %30
+  %32 = getelementptr [8 x i8], ptr %31, i64 %30
   %arrayidx.i.i122 = getelementptr i8, ptr %32, i64 -8
-  %arrayidx.i3.i123 = getelementptr inbounds nuw double, ptr %31, i64 %indvars.iv203
+  %arrayidx.i3.i123 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv203
   %retval.0.in.i124 = select i1 %cmp.not.i121, ptr %arrayidx.i3.i123, ptr %arrayidx.i.i122
   %retval.0.i125 = load double, ptr %retval.0.in.i124, align 8, !tbaa !52
   %mul42 = fmul double %retval.0.i125, %retval.0.i125
@@ -5364,9 +5364,9 @@ for.body13:                                       ; preds = %_ZSt11upper_boundIP
   %33 = load i64, ptr %n_.i.i64, align 8, !tbaa !36
   %cmp.not.i65 = icmp ugt i64 %33, %indvars.iv200
   %34 = load ptr, ptr %7, align 8, !tbaa !3
-  %35 = getelementptr double, ptr %34, i64 %33
+  %35 = getelementptr [8 x i8], ptr %34, i64 %33
   %arrayidx.i.i = getelementptr i8, ptr %35, i64 -8
-  %arrayidx.i3.i = getelementptr inbounds nuw double, ptr %34, i64 %indvars.iv200
+  %arrayidx.i3.i = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv200
   %retval.0.in.i = select i1 %cmp.not.i65, ptr %arrayidx.i3.i, ptr %arrayidx.i.i
   %retval.0.i66 = load double, ptr %retval.0.in.i, align 8, !tbaa !52
   %mul = fmul double %retval.0.i66, -2.000000e+00
@@ -5375,7 +5375,7 @@ for.body13:                                       ; preds = %_ZSt11upper_boundIP
   br i1 %cmp.i67, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %for.body13
-  %36 = getelementptr double, ptr %5, i64 %indvars.iv.next201
+  %36 = getelementptr [8 x i8], ptr %5, i64 %indvars.iv.next201
   %arrayidx.i.i.i = getelementptr i8, ptr %36, i64 -8
   %retval.0.i.i.in = select i1 %cmp2.i.i.not, ptr %arrayidx.i.i.i, ptr %T_.i11.i
   %retval.0.i.i = load double, ptr %retval.0.i.i.in, align 8, !tbaa !52
@@ -5387,7 +5387,7 @@ cond.false.i:                                     ; preds = %for.body13
   br i1 %cmp2.i.i.not, label %if.end4.i7.i, label %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit
 
 if.end4.i7.i:                                     ; preds = %cond.false.i
-  %37 = getelementptr double, ptr %5, i64 %indvars.iv.next201
+  %37 = getelementptr [8 x i8], ptr %5, i64 %indvars.iv.next201
   %arrayidx.i.i8.i = getelementptr i8, ptr %37, i64 -8
   %38 = load double, ptr %arrayidx.i.i8.i, align 8, !tbaa !52
   br label %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit
@@ -5395,7 +5395,7 @@ if.end4.i7.i:                                     ; preds = %cond.false.i
 _ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit: ; preds = %cond.false.i, %cond.true.i, %if.end4.i7.i
   %cond.i = phi double [ %.sroa.speculated.i, %cond.true.i ], [ %38, %if.end4.i7.i ], [ %8, %cond.false.i ]
   %cmp2.i = icmp ult i64 %6, %indvars.iv200
-  %39 = getelementptr double, ptr %5, i64 %indvars.iv200
+  %39 = getelementptr [8 x i8], ptr %5, i64 %indvars.iv200
   %arrayidx.i.i72 = getelementptr i8, ptr %39, i64 -8
   %retval.0.i73.in = select i1 %cmp2.i, ptr %T_.i11.i, ptr %arrayidx.i.i72
   %retval.0.i73 = load double, ptr %retval.0.i73.in, align 8, !tbaa !52
@@ -5410,7 +5410,7 @@ cond.true:                                        ; preds = %for.cond.cleanup12
   br i1 %cmp.i67, label %cond.true.i97, label %cond.false.i89
 
 cond.true.i97:                                    ; preds = %cond.true
-  %40 = getelementptr double, ptr %5, i64 %indvars.iv.next204
+  %40 = getelementptr [8 x i8], ptr %5, i64 %indvars.iv.next204
   %arrayidx.i.i.i101 = getelementptr i8, ptr %40, i64 -8
   %retval.0.i.i103.in = select i1 %cmp2.i.i99.not, ptr %arrayidx.i.i.i101, ptr %T_.i11.i
   %retval.0.i.i103 = load double, ptr %retval.0.i.i103.in, align 8, !tbaa !52
@@ -5422,7 +5422,7 @@ cond.false.i89:                                   ; preds = %cond.true
   br i1 %cmp2.i.i99.not, label %if.end4.i7.i92, label %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit108
 
 if.end4.i7.i92:                                   ; preds = %cond.false.i89
-  %41 = getelementptr double, ptr %5, i64 %indvars.iv.next204
+  %41 = getelementptr [8 x i8], ptr %5, i64 %indvars.iv.next204
   %arrayidx.i.i8.i93 = getelementptr i8, ptr %41, i64 -8
   %42 = load double, ptr %arrayidx.i.i8.i93, align 8, !tbaa !52
   br label %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit108
@@ -5437,7 +5437,7 @@ if.end.i110:                                      ; preds = %_ZNK8QuantLib6detai
   br i1 %cmp2.i112, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit118, label %if.end4.i113
 
 if.end4.i113:                                     ; preds = %if.end.i110
-  %43 = getelementptr double, ptr %5, i64 %indvars.iv203
+  %43 = getelementptr [8 x i8], ptr %5, i64 %indvars.iv203
   %arrayidx.i.i114 = getelementptr i8, ptr %43, i64 -8
   %44 = load double, ptr %arrayidx.i.i114, align 8, !tbaa !52
   br label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit118
@@ -5452,9 +5452,9 @@ cond.false:                                       ; preds = %for.cond.cleanup12
   %45 = load i64, ptr %n_.i.i64, align 8, !tbaa !36
   %cmp.not.i135 = icmp ugt i64 %45, %indvars.iv203
   %46 = load ptr, ptr %7, align 8, !tbaa !3
-  %47 = getelementptr double, ptr %46, i64 %45
+  %47 = getelementptr [8 x i8], ptr %46, i64 %45
   %arrayidx.i.i136 = getelementptr i8, ptr %47, i64 -8
-  %arrayidx.i3.i137 = getelementptr inbounds nuw double, ptr %46, i64 %indvars.iv203
+  %arrayidx.i3.i137 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv203
   %retval.0.in.i138 = select i1 %cmp.not.i135, ptr %arrayidx.i3.i137, ptr %arrayidx.i.i136
   %retval.0.i139 = load double, ptr %retval.0.in.i138, align 8, !tbaa !52
   %mul45 = fmul double %retval.0.i139, 2.000000e+00
@@ -5464,7 +5464,7 @@ cond.false:                                       ; preds = %for.cond.cleanup12
   br i1 %cmp.i67, label %cond.true.i157, label %cond.false.i149
 
 cond.true.i157:                                   ; preds = %cond.false
-  %48 = getelementptr double, ptr %5, i64 %indvars.iv.next204
+  %48 = getelementptr [8 x i8], ptr %5, i64 %indvars.iv.next204
   %arrayidx.i.i.i161 = getelementptr i8, ptr %48, i64 -8
   %retval.0.i.i163.in = select i1 %cmp2.i.i159.not, ptr %arrayidx.i.i.i161, ptr %T_.i11.i
   %retval.0.i.i163 = load double, ptr %retval.0.i.i163.in, align 8, !tbaa !52
@@ -5476,7 +5476,7 @@ cond.false.i149:                                  ; preds = %cond.false
   br i1 %cmp2.i.i159.not, label %if.end4.i7.i152, label %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit168
 
 if.end4.i7.i152:                                  ; preds = %cond.false.i149
-  %49 = getelementptr double, ptr %5, i64 %indvars.iv.next204
+  %49 = getelementptr [8 x i8], ptr %5, i64 %indvars.iv.next204
   %arrayidx.i.i8.i153 = getelementptr i8, ptr %49, i64 -8
   %50 = load double, ptr %arrayidx.i.i8.i153, align 8, !tbaa !52
   br label %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit168
@@ -5491,7 +5491,7 @@ if.end.i170:                                      ; preds = %_ZNK8QuantLib6detai
   br i1 %cmp2.i172, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit178, label %if.end4.i173
 
 if.end4.i173:                                     ; preds = %if.end.i170
-  %51 = getelementptr double, ptr %5, i64 %indvars.iv203
+  %51 = getelementptr [8 x i8], ptr %5, i64 %indvars.iv203
   %arrayidx.i.i174 = getelementptr i8, ptr %51, i64 -8
   %52 = load double, ptr %arrayidx.i.i174, align 8, !tbaa !52
   br label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit178
@@ -5594,7 +5594,7 @@ while.body.i.i.i16:                               ; preds = %if.end, %while.body
   %__first.addr.013.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i16 ], [ %7, %if.end ]
   %__len.012.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i16 ], [ %8, %if.end ]
   %shr.i.i.i = lshr i64 %__len.012.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw double, ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
   %9 = load double, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !52
   %cmp.i.i.i.i18 = fcmp olt double %t, %9
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i, i64 8
@@ -5644,7 +5644,7 @@ while.body.i.i.i27:                               ; preds = %if.end.i, %while.bo
   %__first.addr.013.i.i.i28 = phi ptr [ %__first.addr.1.i.i.i40, %while.body.i.i.i27 ], [ %7, %if.end.i ]
   %__len.012.i.i.i29 = phi i64 [ %__len.1.i.i.i39, %while.body.i.i.i27 ], [ %8, %if.end.i ]
   %shr.i.i.i30 = lshr i64 %__len.012.i.i.i29, 1
-  %add.ptr.i.i.i.i.i34 = getelementptr inbounds nuw double, ptr %__first.addr.013.i.i.i28, i64 %shr.i.i.i30
+  %add.ptr.i.i.i.i.i34 = getelementptr inbounds nuw [8 x i8], ptr %__first.addr.013.i.i.i28, i64 %shr.i.i.i30
   %17 = load double, ptr %add.ptr.i.i.i.i.i34, align 8, !tbaa !52
   %cmp.i.i.i.i36 = fcmp olt double %sub.i, %17
   %incdec.ptr.i.i.i37 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i34, i64 8
@@ -5746,7 +5746,7 @@ while.body.i.i.i54:                               ; preds = %for.body, %while.bo
   %__first.addr.013.i.i.i55 = phi ptr [ %__first.addr.1.i.i.i67, %while.body.i.i.i54 ], [ %7, %for.body ]
   %__len.012.i.i.i56 = phi i64 [ %__len.1.i.i.i66, %while.body.i.i.i54 ], [ %8, %for.body ]
   %shr.i.i.i57 = lshr i64 %__len.012.i.i.i56, 1
-  %add.ptr.i.i.i.i.i61 = getelementptr inbounds nuw double, ptr %__first.addr.013.i.i.i55, i64 %shr.i.i.i57
+  %add.ptr.i.i.i.i.i61 = getelementptr inbounds nuw [8 x i8], ptr %__first.addr.013.i.i.i55, i64 %shr.i.i.i57
   %24 = load double, ptr %add.ptr.i.i.i.i.i61, align 8, !tbaa !52
   %cmp.i.i.i.i63 = fcmp olt double %t, %24
   %incdec.ptr.i.i.i64 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i61, i64 8
@@ -5772,7 +5772,7 @@ _ZNK8QuantLib6detail14GsrProcessCore10lowerIndexEd.exit69: ; preds = %_ZNK8Quant
 for.body17.lr.ph:                                 ; preds = %_ZNK8QuantLib6detail14GsrProcessCore10lowerIndexEd.exit69
   %27 = load i64, ptr %n_.i.i71, align 8, !tbaa !36
   %28 = load ptr, ptr %11, align 8, !tbaa !3
-  %29 = getelementptr double, ptr %28, i64 %27
+  %29 = getelementptr [8 x i8], ptr %28, i64 %27
   %arrayidx.i.i = getelementptr i8, ptr %29, i64 -8
   br label %for.body17
 
@@ -5786,7 +5786,7 @@ for.cond.cleanup16:                               ; preds = %_ZNK8QuantLib6detai
   %index.sink13.i = select i1 %cmp.not.i, i64 %indvars.iv207, i64 %add.i.i.i.i.i.i
   %.sink.i = select i1 %cmp.not.i, ptr %14, ptr %13
   %div.i.i.i.i.i3.i = sdiv i64 %index.sink13.i, 64
-  %add.ptr.i.i.i.i.i4.i = getelementptr inbounds i64, ptr %.sink.i, i64 %div.i.i.i.i.i3.i
+  %add.ptr.i.i.i.i.i4.i = getelementptr inbounds [8 x i8], ptr %.sink.i, i64 %div.i.i.i.i.i3.i
   %31 = and i64 %index.sink13.i, -9223372036854775745
   %cmp.i.i.i.i.i5.i = icmp ugt i64 %31, -9223372036854775808
   %storemerge.idx.i.i.i.i.i6.i = select i1 %cmp.i.i.i.i.i5.i, i64 -8, i64 0
@@ -5802,7 +5802,7 @@ for.body17:                                       ; preds = %for.body17.lr.ph, %
   %indvars.iv = phi i64 [ %26, %for.body17.lr.ph ], [ %indvars.iv.next, %_ZNK8QuantLib6detail14GsrProcessCore11flooredTimeEmd.exit ]
   %res2.0204 = phi double [ 1.000000e+00, %for.body17.lr.ph ], [ %mul25, %_ZNK8QuantLib6detail14GsrProcessCore11flooredTimeEmd.exit ]
   %cmp.not.i72 = icmp ugt i64 %27, %indvars.iv
-  %arrayidx.i3.i = getelementptr inbounds nuw double, ptr %28, i64 %indvars.iv
+  %arrayidx.i3.i = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv
   %retval.0.in.i = select i1 %cmp.not.i72, ptr %arrayidx.i3.i, ptr %arrayidx.i.i
   %retval.0.i73 = load double, ptr %retval.0.in.i, align 8, !tbaa !52
   %fneg = fneg double %retval.0.i73
@@ -5815,7 +5815,7 @@ if.end.i75:                                       ; preds = %for.body17
   br i1 %cmp2.i, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit, label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.end.i75
-  %34 = getelementptr double, ptr %7, i64 %indvars.iv.next
+  %34 = getelementptr [8 x i8], ptr %7, i64 %indvars.iv.next
   %arrayidx.i.i77 = getelementptr i8, ptr %34, i64 -8
   %35 = load double, ptr %arrayidx.i.i77, align 8, !tbaa !52
   br label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit
@@ -5833,7 +5833,7 @@ if.end.i.i:                                       ; preds = %cond.true.i
   br i1 %cmp2.i.i, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i, label %if.end4.i.i
 
 if.end4.i.i:                                      ; preds = %if.end.i.i
-  %37 = getelementptr double, ptr %7, i64 %indvars.iv
+  %37 = getelementptr [8 x i8], ptr %7, i64 %indvars.iv
   %arrayidx.i.i.i = getelementptr i8, ptr %37, i64 -8
   %38 = load double, ptr %arrayidx.i.i.i, align 8, !tbaa !52
   br label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i
@@ -5852,7 +5852,7 @@ if.end.i4.i:                                      ; preds = %cond.false.i
   br i1 %cmp2.i6.i, label %_ZNK8QuantLib6detail14GsrProcessCore11flooredTimeEmd.exit, label %if.end4.i7.i
 
 if.end4.i7.i:                                     ; preds = %if.end.i4.i
-  %39 = getelementptr double, ptr %7, i64 %indvars.iv
+  %39 = getelementptr [8 x i8], ptr %7, i64 %indvars.iv
   %arrayidx.i.i8.i = getelementptr i8, ptr %39, i64 -8
   %40 = load double, ptr %arrayidx.i.i8.i, align 8, !tbaa !52
   br label %_ZNK8QuantLib6detail14GsrProcessCore11flooredTimeEmd.exit
@@ -5879,7 +5879,7 @@ if.end.i.i93:                                     ; preds = %cond.true.i92
   br i1 %cmp2.i.i95, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i98, label %if.end4.i.i96
 
 if.end4.i.i96:                                    ; preds = %if.end.i.i93
-  %42 = getelementptr double, ptr %7, i64 %41
+  %42 = getelementptr [8 x i8], ptr %7, i64 %41
   %arrayidx.i.i.i97 = getelementptr i8, ptr %42, i64 -8
   %43 = load double, ptr %arrayidx.i.i.i97, align 8, !tbaa !52
   br label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i98
@@ -5898,7 +5898,7 @@ if.end.i4.i84:                                    ; preds = %cond.false.i83
   br i1 %cmp2.i6.i86, label %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit, label %if.end4.i7.i87
 
 if.end4.i7.i87:                                   ; preds = %if.end.i4.i84
-  %44 = getelementptr double, ptr %7, i64 %41
+  %44 = getelementptr [8 x i8], ptr %7, i64 %41
   %arrayidx.i.i8.i88 = getelementptr i8, ptr %44, i64 -8
   %45 = load double, ptr %arrayidx.i.i8.i88, align 8, !tbaa !52
   br label %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit
@@ -5916,7 +5916,7 @@ if.end.i.i116:                                    ; preds = %cond.true.i115
   br i1 %cmp2.i.i118, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i121, label %if.end4.i.i119
 
 if.end4.i.i119:                                   ; preds = %if.end.i.i116
-  %47 = getelementptr double, ptr %7, i64 %indvars.iv207
+  %47 = getelementptr [8 x i8], ptr %7, i64 %indvars.iv207
   %arrayidx.i.i.i120 = getelementptr i8, ptr %47, i64 -8
   %48 = load double, ptr %arrayidx.i.i.i120, align 8, !tbaa !52
   br label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i121
@@ -5935,7 +5935,7 @@ if.end.i4.i107:                                   ; preds = %cond.false.i106
   br i1 %cmp2.i6.i109, label %_ZNK8QuantLib6detail14GsrProcessCore11flooredTimeEmd.exit127, label %if.end4.i7.i110
 
 if.end4.i7.i110:                                  ; preds = %if.end.i4.i107
-  %49 = getelementptr double, ptr %7, i64 %indvars.iv207
+  %49 = getelementptr [8 x i8], ptr %7, i64 %indvars.iv207
   %arrayidx.i.i8.i111 = getelementptr i8, ptr %49, i64 -8
   %50 = load double, ptr %arrayidx.i.i8.i111, align 8, !tbaa !52
   br label %_ZNK8QuantLib6detail14GsrProcessCore11flooredTimeEmd.exit127
@@ -5949,9 +5949,9 @@ cond.false:                                       ; preds = %for.cond.cleanup16
   %51 = load i64, ptr %n_.i.i71, align 8, !tbaa !36
   %cmp.not.i130 = icmp ugt i64 %51, %indvars.iv207
   %52 = load ptr, ptr %11, align 8, !tbaa !3
-  %53 = getelementptr double, ptr %52, i64 %51
+  %53 = getelementptr [8 x i8], ptr %52, i64 %51
   %arrayidx.i.i131 = getelementptr i8, ptr %53, i64 -8
-  %arrayidx.i3.i132 = getelementptr inbounds nuw double, ptr %52, i64 %indvars.iv207
+  %arrayidx.i3.i132 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %indvars.iv207
   %retval.0.in.i133 = select i1 %cmp.not.i130, ptr %arrayidx.i3.i132, ptr %arrayidx.i.i131
   %retval.0.i134 = load double, ptr %retval.0.in.i133, align 8, !tbaa !52
   %fneg36 = fneg double %retval.0.i134
@@ -5967,7 +5967,7 @@ if.end.i.i147:                                    ; preds = %cond.true.i146
   br i1 %cmp2.i.i149, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i152, label %if.end4.i.i150
 
 if.end4.i.i150:                                   ; preds = %if.end.i.i147
-  %55 = getelementptr double, ptr %7, i64 %54
+  %55 = getelementptr [8 x i8], ptr %7, i64 %54
   %arrayidx.i.i.i151 = getelementptr i8, ptr %55, i64 -8
   %56 = load double, ptr %arrayidx.i.i.i151, align 8, !tbaa !52
   br label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i152
@@ -5986,7 +5986,7 @@ if.end.i4.i138:                                   ; preds = %cond.false.i137
   br i1 %cmp2.i6.i140, label %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit158, label %if.end4.i7.i141
 
 if.end4.i7.i141:                                  ; preds = %if.end.i4.i138
-  %57 = getelementptr double, ptr %7, i64 %54
+  %57 = getelementptr [8 x i8], ptr %7, i64 %54
   %arrayidx.i.i8.i142 = getelementptr i8, ptr %57, i64 -8
   %58 = load double, ptr %arrayidx.i.i8.i142, align 8, !tbaa !52
   br label %_ZNK8QuantLib6detail14GsrProcessCore10cappedTimeEmd.exit158
@@ -6004,7 +6004,7 @@ if.end.i.i171:                                    ; preds = %cond.true.i170
   br i1 %cmp2.i.i173, label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i176, label %if.end4.i.i174
 
 if.end4.i.i174:                                   ; preds = %if.end.i.i171
-  %60 = getelementptr double, ptr %7, i64 %indvars.iv207
+  %60 = getelementptr [8 x i8], ptr %7, i64 %indvars.iv207
   %arrayidx.i.i.i175 = getelementptr i8, ptr %60, i64 -8
   %61 = load double, ptr %arrayidx.i.i.i175, align 8, !tbaa !52
   br label %_ZNK8QuantLib6detail14GsrProcessCore5time2Em.exit.i176
@@ -6023,7 +6023,7 @@ if.end.i4.i162:                                   ; preds = %cond.false.i161
   br i1 %cmp2.i6.i164, label %_ZNK8QuantLib6detail14GsrProcessCore11flooredTimeEmd.exit182, label %if.end4.i7.i165
 
 if.end4.i7.i165:                                  ; preds = %if.end.i4.i162
-  %62 = getelementptr double, ptr %7, i64 %indvars.iv207
+  %62 = getelementptr [8 x i8], ptr %7, i64 %indvars.iv207
   %arrayidx.i.i8.i166 = getelementptr i8, ptr %62, i64 -8
   %63 = load double, ptr %arrayidx.i.i8.i166, align 8, !tbaa !52
   br label %_ZNK8QuantLib6detail14GsrProcessCore11flooredTimeEmd.exit182

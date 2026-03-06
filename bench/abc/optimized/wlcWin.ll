@@ -3,9 +3,6 @@ source_filename = "bench/abc/original/wlcWin.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.Wlc_Obj_t_ = type { i16, i32, i32, i32, %union.anon }
-%union.anon = type { [1 x ptr] }
-
 @.str = private unnamed_addr constant [34 x i8] c"Arithmetic cone of node %d (%s):\0A\00", align 1
 @.str.2 = private unnamed_addr constant [40 x i8] c"Finished printing %d arithmetic cones.\0A\00", align 1
 
@@ -73,10 +70,10 @@ define i32 @Wlc_ManCountArithmReal(ptr noundef readonly captures(none) %0, ptr n
 7:                                                ; preds = %.lr.ph, %Wlc_ObjIsArithmReal.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Wlc_ObjIsArithmReal.exit ]
   %.012 = phi i32 [ 0, %.lr.ph ], [ %18, %Wlc_ObjIsArithmReal.exit ]
-  %8 = getelementptr inbounds nuw i32, ptr %.val9, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %.val9, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4, !tbaa !20
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val10, i64 %10
+  %11 = getelementptr inbounds [24 x i8], ptr %.val10, i64 %10
   %12 = load i16, ptr %11, align 8
   %13 = and i16 %12, 63
   switch i16 %13, label %14 [
@@ -141,7 +138,7 @@ Wlc_ObjFanin0.exit:                               ; preds = %6, %Wlc_ObjHasArray
   %13 = load i32, ptr %12, align 4, !tbaa !20
   %.val.i = load ptr, ptr %3, align 8, !tbaa !11
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i, i64 %14
+  %15 = getelementptr inbounds [24 x i8], ptr %.val.i, i64 %14
   br label %tailrecurse
 
 16:                                               ; preds = %tailrecurse
@@ -178,14 +175,14 @@ define range(i32 0, 2) i32 @Wlc_ObjHasArithmFanins(ptr noundef readonly captures
 
 Wlc_ObjHasArray.exit.thread.i.i.us:               ; preds = %Wlc_ObjHasArithm_rec.exit.thread.us, %.lr.ph.split.us
   %indvars.iv41 = phi i64 [ %indvars.iv.next42, %Wlc_ObjHasArithm_rec.exit.thread.us ], [ 0, %.lr.ph.split.us ]
-  %9 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv41
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv41
   br label %tailrecurse.i.us
 
 tailrecurse.i.us:                                 ; preds = %tailrecurse.i.us.backedge, %Wlc_ObjHasArray.exit.thread.i.i.us
   %.pn.in.in.us = phi ptr [ %9, %Wlc_ObjHasArray.exit.thread.i.i.us ], [ %.pn.in.in.us.be, %tailrecurse.i.us.backedge ]
   %.pn.in.us = load i32, ptr %.pn.in.in.us, align 4, !tbaa !20
   %.pn.us = sext i32 %.pn.in.us to i64
-  %.tr13.i.us = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val, i64 %.pn.us
+  %.tr13.i.us = getelementptr inbounds [24 x i8], ptr %.val, i64 %.pn.us
   %10 = load i16, ptr %.tr13.i.us, align 8
   %11 = and i16 %10, 63
   switch i16 %11, label %Wlc_ObjHasArithm_rec.exit.thread.us [
@@ -240,14 +237,14 @@ Wlc_ObjFaninId.exit.preheader:                    ; preds = %.lr.ph.split
 
 Wlc_ObjHasArray.exit.thread.i.i.us18:             ; preds = %Wlc_ObjHasArithm_rec.exit.thread.us29, %.lr.ph.split.split.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %Wlc_ObjHasArithm_rec.exit.thread.us29 ], [ 0, %.lr.ph.split.split.us ]
-  %21 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv
   br label %tailrecurse.i.us20
 
 tailrecurse.i.us20:                               ; preds = %tailrecurse.i.us20.backedge, %Wlc_ObjHasArray.exit.thread.i.i.us18
   %.pn.in.in.us21 = phi ptr [ %21, %Wlc_ObjHasArray.exit.thread.i.i.us18 ], [ %.pn.in.in.us21.be, %tailrecurse.i.us20.backedge ]
   %.pn.in.us22 = load i32, ptr %.pn.in.in.us21, align 4, !tbaa !20
   %.pn.us23 = sext i32 %.pn.in.us22 to i64
-  %.tr13.i.us24 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val, i64 %.pn.us23
+  %.tr13.i.us24 = getelementptr inbounds [24 x i8], ptr %.val, i64 %.pn.us23
   %22 = load i16, ptr %.tr13.i.us24, align 8
   %23 = and i16 %22, 63
   switch i16 %23, label %Wlc_ObjHasArithm_rec.exit.thread.us29 [
@@ -285,14 +282,14 @@ Wlc_ObjHasArithm_rec.exit.thread.us29:            ; preds = %tailrecurse.i.us20
 
 Wlc_ObjFaninId.exit:                              ; preds = %Wlc_ObjFaninId.exit.preheader, %Wlc_ObjHasArithm_rec.exit.thread
   %indvars.iv36 = phi i64 [ 0, %Wlc_ObjFaninId.exit.preheader ], [ %indvars.iv.next37, %Wlc_ObjHasArithm_rec.exit.thread ]
-  %30 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv36
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv36
   br label %tailrecurse.i
 
 tailrecurse.i:                                    ; preds = %tailrecurse.i.backedge, %Wlc_ObjFaninId.exit
   %.pn.in.in = phi ptr [ %30, %Wlc_ObjFaninId.exit ], [ %.pn.in.in.be, %tailrecurse.i.backedge ]
   %.pn.in = load i32, ptr %.pn.in.in, align 4, !tbaa !20
   %.pn = sext i32 %.pn.in to i64
-  %.tr13.i = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val, i64 %.pn
+  %.tr13.i = getelementptr inbounds [24 x i8], ptr %.val, i64 %.pn
   %31 = load i16, ptr %.tr13.i, align 8
   %32 = and i16 %31, 63
   switch i16 %32, label %Wlc_ObjHasArithm_rec.exit.thread [
@@ -458,11 +455,11 @@ Wlc_ObjHasArray.exit.thread.i.i:                  ; preds = %49, %49, %47
 
 Wlc_ObjFaninId.exit:                              ; preds = %49, %Wlc_ObjHasArray.exit.thread.i.i
   %53 = phi ptr [ %52, %Wlc_ObjHasArray.exit.thread.i.i ], [ %45, %49 ]
-  %54 = getelementptr inbounds nuw i32, ptr %53, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %indvars.iv
   %55 = load i32, ptr %54, align 4, !tbaa !20
   %.val = load ptr, ptr %46, align 8, !tbaa !11
   %56 = sext i32 %55 to i64
-  %57 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val, i64 %56
+  %57 = getelementptr inbounds [24 x i8], ptr %.val, i64 %56
   tail call void @Wlc_WinCompute_rec(ptr noundef %0, ptr noundef %57, ptr noundef %2, ptr noundef %3)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val19 = load i32, ptr %43, align 4, !tbaa !23
@@ -548,7 +545,7 @@ Vec_IntPush.exit28:                               ; preds = %.Vec_IntGrow.exit10
   %.sink.in = sdiv exact i64 %.sink.in.in, 24
   %.sink = trunc i64 %.sink.in to i32
   %93 = sext i32 %.sink42 to i64
-  %94 = getelementptr inbounds i32, ptr %.sink40, i64 %93
+  %94 = getelementptr inbounds [4 x i8], ptr %.sink40, i64 %93
   store i32 %.sink, ptr %94, align 4, !tbaa !20
   br label %95
 
@@ -596,11 +593,11 @@ Wlc_ObjHasArray.exit.thread.i.i:                  ; preds = %13, %13, %11
 
 Wlc_ObjFaninId.exit:                              ; preds = %13, %Wlc_ObjHasArray.exit.thread.i.i
   %17 = phi ptr [ %16, %Wlc_ObjHasArray.exit.thread.i.i ], [ %9, %13 ]
-  %18 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %indvars.iv
   %19 = load i32, ptr %18, align 4, !tbaa !20
   %.val = load ptr, ptr %10, align 8, !tbaa !11
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val, i64 %20
+  %21 = getelementptr inbounds [24 x i8], ptr %.val, i64 %20
   tail call void @Wlc_WinCleanMark_rec(ptr noundef %0, ptr noundef %21)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val9 = load i32, ptr %7, align 4, !tbaa !23
@@ -654,7 +651,7 @@ Wlc_ObjFanin0.exit.i:                             ; preds = %Wlc_ObjHasArray.exi
   %17 = load i32, ptr %16, align 4, !tbaa !20
   %.val.i.i = load ptr, ptr %7, align 8, !tbaa !11
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i.i, i64 %18
+  %19 = getelementptr inbounds [24 x i8], ptr %.val.i.i, i64 %18
   br label %tailrecurse.i
 
 Wlc_ObjHasArithm_rec.exit.thread65:               ; preds = %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i
@@ -705,11 +702,11 @@ Wlc_ObjHasArray.exit.thread.i.i:                  ; preds = %28, %28, %26
 
 Wlc_ObjFaninId.exit:                              ; preds = %28, %Wlc_ObjHasArray.exit.thread.i.i
   %32 = phi ptr [ %31, %Wlc_ObjHasArray.exit.thread.i.i ], [ %23, %28 ]
-  %33 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %indvars.iv
   %34 = load i32, ptr %33, align 4, !tbaa !20
   %.val38 = load ptr, ptr %7, align 8, !tbaa !11
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val38, i64 %35
+  %36 = getelementptr inbounds [24 x i8], ptr %.val38, i64 %35
   br label %tailrecurse.i41
 
 tailrecurse.i41:                                  ; preds = %Wlc_ObjFanin0.exit.i46, %Wlc_ObjFaninId.exit
@@ -744,7 +741,7 @@ Wlc_ObjFanin0.exit.i46:                           ; preds = %Wlc_ObjHasArray.exi
   %45 = phi ptr [ %44, %Wlc_ObjHasArray.exit.thread.i.i.i.i48 ], [ %43, %39 ]
   %46 = load i32, ptr %45, align 4, !tbaa !20
   %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val38, i64 %47
+  %48 = getelementptr inbounds [24 x i8], ptr %.val38, i64 %47
   br label %tailrecurse.i41
 
 Wlc_ObjHasArithm_rec.exit50.thread70:             ; preds = %tailrecurse.i41, %tailrecurse.i41, %tailrecurse.i41, %tailrecurse.i41
@@ -779,11 +776,11 @@ Wlc_ObjHasArray.exit.thread.i.i51:                ; preds = %53, %53, %51
 
 Wlc_ObjFaninId.exit52:                            ; preds = %53, %Wlc_ObjHasArray.exit.thread.i.i51
   %57 = phi ptr [ %56, %Wlc_ObjHasArray.exit.thread.i.i51 ], [ %25, %53 ]
-  %58 = getelementptr inbounds nuw i32, ptr %57, i64 %indvars.iv88
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %indvars.iv88
   %59 = load i32, ptr %58, align 4, !tbaa !20
   %.val = load ptr, ptr %7, align 8, !tbaa !11
   %60 = sext i32 %59 to i64
-  %61 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val, i64 %60
+  %61 = getelementptr inbounds [24 x i8], ptr %.val, i64 %60
   br label %tailrecurse.i53
 
 tailrecurse.i53:                                  ; preds = %Wlc_ObjFanin0.exit.i58, %Wlc_ObjFaninId.exit52
@@ -818,7 +815,7 @@ Wlc_ObjFanin0.exit.i58:                           ; preds = %Wlc_ObjHasArray.exi
   %70 = phi ptr [ %69, %Wlc_ObjHasArray.exit.thread.i.i.i.i60 ], [ %68, %64 ]
   %71 = load i32, ptr %70, align 4, !tbaa !20
   %72 = sext i32 %71 to i64
-  %73 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val, i64 %72
+  %73 = getelementptr inbounds [24 x i8], ptr %.val, i64 %72
   br label %tailrecurse.i53
 
 Wlc_ObjHasArithm_rec.exit62.thread75:             ; preds = %tailrecurse.i53, %tailrecurse.i53, %tailrecurse.i53, %tailrecurse.i53
@@ -873,7 +870,7 @@ define void @Wlc_WinProfileArith(ptr noundef %0) local_unnamed_addr #4 {
 15:                                               ; preds = %.lr.ph, %15
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %15 ]
   %.val49 = load ptr, ptr %12, align 8, !tbaa !11
-  %16 = getelementptr inbounds nuw %struct.Wlc_Obj_t_, ptr %.val49, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [24 x i8], ptr %.val49, i64 %indvars.iv
   %17 = load i16, ptr %16, align 8
   %18 = and i16 %17, -129
   store i16 %18, ptr %16, align 8
@@ -894,7 +891,7 @@ define void @Wlc_WinProfileArith(ptr noundef %0) local_unnamed_addr #4 {
   %indvars.iv78 = phi i64 [ 1, %.lr.ph74 ], [ %indvars.iv.next79, %Wlc_ManCountArithmReal.exit.thread ]
   %.073 = phi i32 [ 0, %.lr.ph74 ], [ %.1, %Wlc_ManCountArithmReal.exit.thread ]
   %.val48 = load ptr, ptr %14, align 8, !tbaa !11
-  %24 = getelementptr inbounds nuw %struct.Wlc_Obj_t_, ptr %.val48, i64 %indvars.iv78
+  %24 = getelementptr inbounds nuw [24 x i8], ptr %.val48, i64 %indvars.iv78
   br label %tailrecurse.i
 
 tailrecurse.i:                                    ; preds = %Wlc_ObjFanin0.exit.i, %23
@@ -929,7 +926,7 @@ Wlc_ObjFanin0.exit.i:                             ; preds = %Wlc_ObjHasArray.exi
   %33 = phi ptr [ %32, %Wlc_ObjHasArray.exit.thread.i.i.i.i ], [ %31, %27 ]
   %34 = load i32, ptr %33, align 4, !tbaa !20
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val48, i64 %35
+  %36 = getelementptr inbounds [24 x i8], ptr %.val48, i64 %35
   br label %tailrecurse.i
 
 Wlc_ObjHasArithm_rec.exit.thread63:               ; preds = %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i
@@ -958,10 +955,10 @@ Wlc_ObjHasArithm_rec.exit.thread:                 ; preds = %tailrecurse.i
 41:                                               ; preds = %Wlc_ObjIsArithmReal.exit.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %Wlc_ObjIsArithmReal.exit.i ]
   %.012.i = phi i32 [ 0, %.lr.ph.i ], [ %52, %Wlc_ObjIsArithmReal.exit.i ]
-  %42 = getelementptr inbounds nuw i32, ptr %.val9.i, i64 %indvars.iv.i
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %.val9.i, i64 %indvars.iv.i
   %43 = load i32, ptr %42, align 4, !tbaa !20
   %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val10.i, i64 %44
+  %45 = getelementptr inbounds [24 x i8], ptr %.val10.i, i64 %44
   %46 = load i16, ptr %45, align 8
   %47 = and i16 %46, 63
   switch i16 %47, label %48 [
@@ -1007,19 +1004,19 @@ Wlc_ManCountArithmReal.exit:                      ; preds = %Wlc_ObjIsArithmReal
 65:                                               ; preds = %65, %.lr.ph.i56
   %indvars.iv.i57 = phi i64 [ 0, %.lr.ph.i56 ], [ %indvars.iv.next.i58, %65 ]
   %66 = phi i32 [ %62, %.lr.ph.i56 ], [ %79, %65 ]
-  %67 = getelementptr inbounds nuw i32, ptr %64, i64 %indvars.iv.i57
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %indvars.iv.i57
   %68 = load i32, ptr %67, align 4, !tbaa !20
   %69 = trunc nuw nsw i64 %indvars.iv.i57 to i32
   %70 = xor i32 %69, -1
   %71 = add i32 %66, %70
   %72 = sext i32 %71 to i64
-  %73 = getelementptr inbounds i32, ptr %64, i64 %72
+  %73 = getelementptr inbounds [4 x i8], ptr %64, i64 %72
   %74 = load i32, ptr %73, align 4, !tbaa !20
   store i32 %74, ptr %67, align 4, !tbaa !20
   %75 = load i32, ptr %7, align 4, !tbaa !3
   %76 = add i32 %75, %70
   %77 = sext i32 %76 to i64
-  %78 = getelementptr inbounds i32, ptr %64, i64 %77
+  %78 = getelementptr inbounds [4 x i8], ptr %64, i64 %77
   store i32 %68, ptr %78, align 4, !tbaa !20
   %indvars.iv.next.i58 = add nuw nsw i64 %indvars.iv.i57, 1
   %79 = load i32, ptr %7, align 4, !tbaa !3

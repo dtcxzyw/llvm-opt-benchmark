@@ -718,7 +718,7 @@ _ZN4core4iter6traits8iterator8Iterator3zip17hce2a3577b9dbf7e1E.exit: ; preds = %
   %36 = add nuw nsw i64 %.sroa.12.038, 1
   %37 = shl nuw nsw i64 %.sroa.12.038, 2
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 %37
-  %39 = getelementptr inbounds nuw i32, ptr %0, i64 %.sroa.12.038
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.sroa.12.038
   %40 = load i32, ptr %39, align 4, !noundef !9
   %41 = call i32 @llvm.bswap.i32(i32 %40)
   store i32 %41, ptr %38, align 1, !alias.scope !33, !noalias !37
@@ -820,7 +820,7 @@ _ZN4core4iter6traits8iterator8Iterator3zip17h8dfcd4729cc8ef19E.exit: ; preds = %
   %37 = add nuw nsw i64 %.sroa.12.038, 1
   %38 = shl nuw nsw i64 %.sroa.12.038, 3
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 %38
-  %40 = getelementptr inbounds nuw i64, ptr %0, i64 %.sroa.12.038
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.sroa.12.038
   %41 = load i64, ptr %40, align 8, !noundef !9
   %42 = call i64 @llvm.bswap.i64(i64 %41)
   store i64 %42, ptr %39, align 1, !alias.scope !62, !noalias !66
@@ -1379,7 +1379,7 @@ common.resume.i:                                  ; preds = %41, %22
   %48 = add nuw nsw i64 %.sroa.12.025.i.i.i, 1
   %49 = shl nuw nsw i64 %.sroa.12.025.i.i.i, 2
   %50 = getelementptr inbounds nuw i8, ptr %14, i64 %49
-  %51 = getelementptr inbounds nuw i32, ptr %9, i64 %.sroa.12.025.i.i.i
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %.sroa.12.025.i.i.i
   %52 = load i32, ptr %51, align 4, !noalias !196, !noundef !9
   %53 = call i32 @llvm.bswap.i32(i32 %52)
   store i32 %53, ptr %50, align 1, !alias.scope !225, !noalias !229
@@ -1508,7 +1508,7 @@ define void @"_ZN76_$LT$uucore..features..sum..CRC$u20$as$u20$uucore..features..
   %17 = xor i32 %15, %16
   %18 = zext nneg i32 %17 to i64
   %19 = shl i32 %12, 8
-  %20 = getelementptr inbounds nuw i32, ptr %0, i64 %18
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %18
   %21 = load i32, ptr %20, align 4, !alias.scope !250, !noundef !9
   %22 = xor i32 %19, %21
   %23 = icmp eq ptr %13, %4
@@ -1551,7 +1551,7 @@ define void @"_ZN76_$LT$uucore..features..sum..CRC$u20$as$u20$uucore..features..
   %15 = xor i32 %13, %14
   %16 = zext nneg i32 %15 to i64
   %17 = shl i32 %11, 8
-  %18 = getelementptr inbounds nuw i32, ptr %0, i64 %16
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %16
   %19 = load i32, ptr %18, align 4, !alias.scope !261, !noundef !9
   %20 = xor i32 %17, %19
   %21 = lshr i64 %.03, 8
@@ -1593,7 +1593,7 @@ define void @"_ZN76_$LT$uucore..features..sum..CRC$u20$as$u20$uucore..features..
   %19 = xor i32 %18, %17
   %20 = zext nneg i32 %19 to i64
   %21 = shl i32 %15, 8
-  %22 = getelementptr inbounds nuw i32, ptr %1, i64 %20
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %20
   %23 = load i32, ptr %22, align 4, !alias.scope !272, !noalias !270, !noundef !9
   %24 = xor i32 %23, %21
   %25 = lshr i64 %.03.i, 8
@@ -2571,7 +2571,7 @@ _ZN4core4iter6traits8iterator8Iterator3zip17hce2a3577b9dbf7e1E.exit.i: ; preds =
   %41 = add nuw nsw i64 %.sroa.12.035.i, 1
   %42 = shl nuw nsw i64 %.sroa.12.035.i, 2
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 %42
-  %44 = getelementptr inbounds nuw i32, ptr %9, i64 %.sroa.12.035.i
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %.sroa.12.035.i
   %45 = load i32, ptr %44, align 4, !noalias !543, !noundef !9
   %46 = call i32 @llvm.bswap.i32(i32 %45)
   store i32 %46, ptr %43, align 1, !alias.scope !570, !noalias !574
@@ -3755,7 +3755,7 @@ define void @"_ZN81_$LT$uucore..features..sum..Sha3_224$u20$as$u20$uucore..featu
   %.sroa.12.041.i.i.i.i.i = phi i64 [ 0, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hf7ef897b93aca66dE.exit.i.i.i" ], [ %21, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha82f067669153a3cE.exit.i.i.i.i.i.i" ]
   %18 = shl nuw nsw i64 %.sroa.12.041.i.i.i.i.i, 3
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 %18
-  %20 = getelementptr inbounds nuw i64, ptr %0, i64 %.sroa.12.041.i.i.i.i.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.sroa.12.041.i.i.i.i.i
   %21 = add nuw nsw i64 %.sroa.12.041.i.i.i.i.i, 1
   %.val.i9.i.i.i.i.i = load i64, ptr %19, align 8, !alias.scope !949, !noalias !952
   %22 = load i64, ptr %20, align 8, !alias.scope !954, !noalias !955, !noundef !9
@@ -3787,7 +3787,7 @@ _ZN4core4iter6traits8iterator8Iterator3zip17h55434ef22182c012E.exit.i.i40.i.i.i:
   %.sroa.12.041.i.i43.i.i.i = phi i64 [ 0, %_ZN4core4iter6traits8iterator8Iterator3zip17h55434ef22182c012E.exit.i.i40.i.i.i ], [ %33, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha82f067669153a3cE.exit.i.i.i42.i.i.i" ]
   %30 = shl nuw nsw i64 %.sroa.12.041.i.i43.i.i.i, 3
   %31 = getelementptr inbounds nuw i8, ptr %.sroa.0.042.i.i41.i.i.i, i64 %30
-  %32 = getelementptr inbounds nuw i64, ptr %0, i64 %.sroa.12.041.i.i43.i.i.i
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.sroa.12.041.i.i43.i.i.i
   %33 = add nuw nsw i64 %.sroa.12.041.i.i43.i.i.i, 1
   %.val.i9.i.i44.i.i.i = load i64, ptr %31, align 1, !alias.scope !969, !noalias !972
   %34 = load i64, ptr %32, align 8, !alias.scope !974, !noalias !975, !noundef !9
@@ -3857,7 +3857,7 @@ define void @"_ZN81_$LT$uucore..features..sum..Sha3_224$u20$as$u20$uucore..featu
   %.sroa.12.076.i = phi i64 [ 0, %9 ], [ %22, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha82f067669153a3cE.exit.i.i" ]
   %19 = shl nuw nsw i64 %.sroa.12.076.i, 3
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 %19
-  %21 = getelementptr inbounds nuw i64, ptr %0, i64 %.sroa.12.076.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.sroa.12.076.i
   %22 = add nuw nsw i64 %.sroa.12.076.i, 1
   %.val.i20.i = load i64, ptr %20, align 8, !alias.scope !1006, !noalias !1009
   %23 = load i64, ptr %21, align 8, !alias.scope !993, !noalias !1011, !noundef !9
@@ -3892,7 +3892,7 @@ _ZN4sha35state9Sha3State12absorb_block17hca215b1bb0a5a690E.exit.i: ; preds = %"_
   %30 = sub nuw nsw i64 28, %29
   %.0.sroa.speculated.i.i.i23.i = call noundef i64 @llvm.umin.i64(i64 %30, i64 8)
   %31 = getelementptr inbounds i8, ptr %1, i64 %29
-  %32 = getelementptr inbounds nuw i64, ptr %0, i64 %.sroa.1160.077.i
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.sroa.1160.077.i
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i)
   %33 = load i64, ptr %32, align 8, !alias.scope !993, !noalias !1011, !noundef !9
   store i64 %33, ptr %.sroa.0.i, align 8, !noalias !1029
@@ -4068,7 +4068,7 @@ define void @"_ZN81_$LT$uucore..features..sum..Sha3_256$u20$as$u20$uucore..featu
   %.sroa.12.041.i.i.i.i.i = phi i64 [ 0, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hf7ef897b93aca66dE.exit.i.i.i" ], [ %21, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha82f067669153a3cE.exit.i.i.i.i.i.i" ]
   %18 = shl nuw nsw i64 %.sroa.12.041.i.i.i.i.i, 3
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 %18
-  %20 = getelementptr inbounds nuw i64, ptr %0, i64 %.sroa.12.041.i.i.i.i.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.sroa.12.041.i.i.i.i.i
   %21 = add nuw nsw i64 %.sroa.12.041.i.i.i.i.i, 1
   %.val.i9.i.i.i.i.i = load i64, ptr %19, align 8, !alias.scope !1083, !noalias !1086
   %22 = load i64, ptr %20, align 8, !alias.scope !1088, !noalias !1089, !noundef !9
@@ -4100,7 +4100,7 @@ _ZN4core4iter6traits8iterator8Iterator3zip17h55434ef22182c012E.exit.i.i40.i.i.i:
   %.sroa.12.041.i.i43.i.i.i = phi i64 [ 0, %_ZN4core4iter6traits8iterator8Iterator3zip17h55434ef22182c012E.exit.i.i40.i.i.i ], [ %33, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha82f067669153a3cE.exit.i.i.i42.i.i.i" ]
   %30 = shl nuw nsw i64 %.sroa.12.041.i.i43.i.i.i, 3
   %31 = getelementptr inbounds nuw i8, ptr %.sroa.0.042.i.i41.i.i.i, i64 %30
-  %32 = getelementptr inbounds nuw i64, ptr %0, i64 %.sroa.12.041.i.i43.i.i.i
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.sroa.12.041.i.i43.i.i.i
   %33 = add nuw nsw i64 %.sroa.12.041.i.i43.i.i.i, 1
   %.val.i9.i.i44.i.i.i = load i64, ptr %31, align 1, !alias.scope !1103, !noalias !1106
   %34 = load i64, ptr %32, align 8, !alias.scope !1108, !noalias !1109, !noundef !9
@@ -4170,7 +4170,7 @@ define void @"_ZN81_$LT$uucore..features..sum..Sha3_256$u20$as$u20$uucore..featu
   %.sroa.12.076.i = phi i64 [ 0, %9 ], [ %22, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha82f067669153a3cE.exit.i.i" ]
   %19 = shl nuw nsw i64 %.sroa.12.076.i, 3
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 %19
-  %21 = getelementptr inbounds nuw i64, ptr %0, i64 %.sroa.12.076.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.sroa.12.076.i
   %22 = add nuw nsw i64 %.sroa.12.076.i, 1
   %.val.i20.i = load i64, ptr %20, align 8, !alias.scope !1140, !noalias !1143
   %23 = load i64, ptr %21, align 8, !alias.scope !1127, !noalias !1145, !noundef !9
@@ -4205,7 +4205,7 @@ _ZN4sha35state9Sha3State12absorb_block17hca215b1bb0a5a690E.exit.i: ; preds = %"_
   %30 = sub nuw nsw i64 32, %29
   %.0.sroa.speculated.i.i.i23.i = call noundef i64 @llvm.umin.i64(i64 %30, i64 8)
   %31 = getelementptr inbounds i8, ptr %1, i64 %29
-  %32 = getelementptr inbounds nuw i64, ptr %0, i64 %.sroa.1160.077.i
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.sroa.1160.077.i
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i)
   %33 = load i64, ptr %32, align 8, !alias.scope !1127, !noalias !1145, !noundef !9
   store i64 %33, ptr %.sroa.0.i, align 8, !noalias !1163
@@ -4381,7 +4381,7 @@ define void @"_ZN81_$LT$uucore..features..sum..Sha3_384$u20$as$u20$uucore..featu
   %.sroa.12.041.i.i.i.i.i = phi i64 [ 0, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hf7ef897b93aca66dE.exit.i.i.i" ], [ %21, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha82f067669153a3cE.exit.i.i.i.i.i.i" ]
   %18 = shl nuw nsw i64 %.sroa.12.041.i.i.i.i.i, 3
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 %18
-  %20 = getelementptr inbounds nuw i64, ptr %0, i64 %.sroa.12.041.i.i.i.i.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.sroa.12.041.i.i.i.i.i
   %21 = add nuw nsw i64 %.sroa.12.041.i.i.i.i.i, 1
   %.val.i9.i.i.i.i.i = load i64, ptr %19, align 8, !alias.scope !1217, !noalias !1220
   %22 = load i64, ptr %20, align 8, !alias.scope !1222, !noalias !1223, !noundef !9
@@ -4413,7 +4413,7 @@ _ZN4core4iter6traits8iterator8Iterator3zip17h55434ef22182c012E.exit.i.i40.i.i.i:
   %.sroa.12.041.i.i43.i.i.i = phi i64 [ 0, %_ZN4core4iter6traits8iterator8Iterator3zip17h55434ef22182c012E.exit.i.i40.i.i.i ], [ %33, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha82f067669153a3cE.exit.i.i.i42.i.i.i" ]
   %30 = shl nuw nsw i64 %.sroa.12.041.i.i43.i.i.i, 3
   %31 = getelementptr inbounds nuw i8, ptr %.sroa.0.042.i.i41.i.i.i, i64 %30
-  %32 = getelementptr inbounds nuw i64, ptr %0, i64 %.sroa.12.041.i.i43.i.i.i
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.sroa.12.041.i.i43.i.i.i
   %33 = add nuw nsw i64 %.sroa.12.041.i.i43.i.i.i, 1
   %.val.i9.i.i44.i.i.i = load i64, ptr %31, align 1, !alias.scope !1237, !noalias !1240
   %34 = load i64, ptr %32, align 8, !alias.scope !1242, !noalias !1243, !noundef !9
@@ -4483,7 +4483,7 @@ define void @"_ZN81_$LT$uucore..features..sum..Sha3_384$u20$as$u20$uucore..featu
   %.sroa.12.076.i = phi i64 [ 0, %9 ], [ %22, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha82f067669153a3cE.exit.i.i" ]
   %19 = shl nuw nsw i64 %.sroa.12.076.i, 3
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 %19
-  %21 = getelementptr inbounds nuw i64, ptr %0, i64 %.sroa.12.076.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.sroa.12.076.i
   %22 = add nuw nsw i64 %.sroa.12.076.i, 1
   %.val.i20.i = load i64, ptr %20, align 8, !alias.scope !1274, !noalias !1277
   %23 = load i64, ptr %21, align 8, !alias.scope !1261, !noalias !1279, !noundef !9
@@ -4518,7 +4518,7 @@ _ZN4sha35state9Sha3State12absorb_block17hca215b1bb0a5a690E.exit.i: ; preds = %"_
   %30 = sub nuw nsw i64 48, %29
   %.0.sroa.speculated.i.i.i23.i = call noundef i64 @llvm.umin.i64(i64 %30, i64 8)
   %31 = getelementptr inbounds i8, ptr %1, i64 %29
-  %32 = getelementptr inbounds nuw i64, ptr %0, i64 %.sroa.1160.077.i
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.sroa.1160.077.i
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i)
   %33 = load i64, ptr %32, align 8, !alias.scope !1261, !noalias !1279, !noundef !9
   store i64 %33, ptr %.sroa.0.i, align 8, !noalias !1297
@@ -4694,7 +4694,7 @@ define void @"_ZN81_$LT$uucore..features..sum..Sha3_512$u20$as$u20$uucore..featu
   %.sroa.12.041.i.i.i.i.i = phi i64 [ 0, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hf7ef897b93aca66dE.exit.i.i.i" ], [ %21, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha82f067669153a3cE.exit.i.i.i.i.i.i" ]
   %18 = shl nuw nsw i64 %.sroa.12.041.i.i.i.i.i, 3
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 %18
-  %20 = getelementptr inbounds nuw i64, ptr %0, i64 %.sroa.12.041.i.i.i.i.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.sroa.12.041.i.i.i.i.i
   %21 = add nuw nsw i64 %.sroa.12.041.i.i.i.i.i, 1
   %.val.i9.i.i.i.i.i = load i64, ptr %19, align 8, !alias.scope !1351, !noalias !1354
   %22 = load i64, ptr %20, align 8, !alias.scope !1356, !noalias !1357, !noundef !9
@@ -4726,7 +4726,7 @@ _ZN4core4iter6traits8iterator8Iterator3zip17h55434ef22182c012E.exit.i.i40.i.i.i:
   %.sroa.12.041.i.i43.i.i.i = phi i64 [ 0, %_ZN4core4iter6traits8iterator8Iterator3zip17h55434ef22182c012E.exit.i.i40.i.i.i ], [ %33, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha82f067669153a3cE.exit.i.i.i42.i.i.i" ]
   %30 = shl nuw nsw i64 %.sroa.12.041.i.i43.i.i.i, 3
   %31 = getelementptr inbounds nuw i8, ptr %.sroa.0.042.i.i41.i.i.i, i64 %30
-  %32 = getelementptr inbounds nuw i64, ptr %0, i64 %.sroa.12.041.i.i43.i.i.i
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.sroa.12.041.i.i43.i.i.i
   %33 = add nuw nsw i64 %.sroa.12.041.i.i43.i.i.i, 1
   %.val.i9.i.i44.i.i.i = load i64, ptr %31, align 1, !alias.scope !1371, !noalias !1374
   %34 = load i64, ptr %32, align 8, !alias.scope !1376, !noalias !1377, !noundef !9
@@ -4796,7 +4796,7 @@ define void @"_ZN81_$LT$uucore..features..sum..Sha3_512$u20$as$u20$uucore..featu
   %.sroa.12.076.i = phi i64 [ 0, %9 ], [ %22, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha82f067669153a3cE.exit.i.i" ]
   %19 = shl nuw nsw i64 %.sroa.12.076.i, 3
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 %19
-  %21 = getelementptr inbounds nuw i64, ptr %0, i64 %.sroa.12.076.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.sroa.12.076.i
   %22 = add nuw nsw i64 %.sroa.12.076.i, 1
   %.val.i20.i = load i64, ptr %20, align 8, !alias.scope !1408, !noalias !1411
   %23 = load i64, ptr %21, align 8, !alias.scope !1395, !noalias !1413, !noundef !9
@@ -4831,7 +4831,7 @@ _ZN4sha35state9Sha3State12absorb_block17hca215b1bb0a5a690E.exit.i: ; preds = %"_
   %30 = sub nuw nsw i64 64, %29
   %.0.sroa.speculated.i.i.i23.i = call noundef i64 @llvm.umin.i64(i64 %30, i64 8)
   %31 = getelementptr inbounds i8, ptr %1, i64 %29
-  %32 = getelementptr inbounds nuw i64, ptr %0, i64 %.sroa.1160.077.i
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.sroa.1160.077.i
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i)
   %33 = load i64, ptr %32, align 8, !alias.scope !1395, !noalias !1413, !noundef !9
   store i64 %33, ptr %.sroa.0.i, align 8, !noalias !1431
@@ -5003,7 +5003,7 @@ define void @"_ZN81_$LT$uucore..features..sum..Shake128$u20$as$u20$uucore..featu
   %.sroa.12.041.i.i.i = phi i64 [ 0, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hf7ef897b93aca66dE.exit.i" ], [ %21, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha82f067669153a3cE.exit.i.i.i.i" ]
   %18 = shl nuw nsw i64 %.sroa.12.041.i.i.i, 3
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 %18
-  %20 = getelementptr inbounds nuw i64, ptr %0, i64 %.sroa.12.041.i.i.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.sroa.12.041.i.i.i
   %21 = add nuw nsw i64 %.sroa.12.041.i.i.i, 1
   %.val.i9.i.i.i = load i64, ptr %19, align 8, !alias.scope !1474, !noalias !1477
   %22 = load i64, ptr %20, align 8, !alias.scope !1469, !noalias !1479, !noundef !9
@@ -5035,7 +5035,7 @@ _ZN4core4iter6traits8iterator8Iterator3zip17h55434ef22182c012E.exit.i.i40.i: ; p
   %.sroa.12.041.i.i43.i = phi i64 [ 0, %_ZN4core4iter6traits8iterator8Iterator3zip17h55434ef22182c012E.exit.i.i40.i ], [ %33, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha82f067669153a3cE.exit.i.i.i42.i" ]
   %30 = shl nuw nsw i64 %.sroa.12.041.i.i43.i, 3
   %31 = getelementptr inbounds nuw i8, ptr %.sroa.0.042.i.i41.i, i64 %30
-  %32 = getelementptr inbounds nuw i64, ptr %0, i64 %.sroa.12.041.i.i43.i
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.sroa.12.041.i.i43.i
   %33 = add nuw nsw i64 %.sroa.12.041.i.i43.i, 1
   %.val.i9.i.i44.i = load i64, ptr %31, align 1, !alias.scope !1493, !noalias !1496
   %34 = load i64, ptr %32, align 8, !alias.scope !1488, !noalias !1498, !noundef !9
@@ -5224,7 +5224,7 @@ define void @"_ZN81_$LT$uucore..features..sum..Shake256$u20$as$u20$uucore..featu
   %.sroa.12.041.i.i.i = phi i64 [ 0, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hf7ef897b93aca66dE.exit.i" ], [ %21, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha82f067669153a3cE.exit.i.i.i.i" ]
   %18 = shl nuw nsw i64 %.sroa.12.041.i.i.i, 3
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 %18
-  %20 = getelementptr inbounds nuw i64, ptr %0, i64 %.sroa.12.041.i.i.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.sroa.12.041.i.i.i
   %21 = add nuw nsw i64 %.sroa.12.041.i.i.i, 1
   %.val.i9.i.i.i = load i64, ptr %19, align 8, !alias.scope !1549, !noalias !1552
   %22 = load i64, ptr %20, align 8, !alias.scope !1544, !noalias !1554, !noundef !9
@@ -5256,7 +5256,7 @@ _ZN4core4iter6traits8iterator8Iterator3zip17h55434ef22182c012E.exit.i.i40.i: ; p
   %.sroa.12.041.i.i43.i = phi i64 [ 0, %_ZN4core4iter6traits8iterator8Iterator3zip17h55434ef22182c012E.exit.i.i40.i ], [ %33, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha82f067669153a3cE.exit.i.i.i42.i" ]
   %30 = shl nuw nsw i64 %.sroa.12.041.i.i43.i, 3
   %31 = getelementptr inbounds nuw i8, ptr %.sroa.0.042.i.i41.i, i64 %30
-  %32 = getelementptr inbounds nuw i64, ptr %0, i64 %.sroa.12.041.i.i43.i
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.sroa.12.041.i.i43.i
   %33 = add nuw nsw i64 %.sroa.12.041.i.i43.i, 1
   %.val.i9.i.i44.i = load i64, ptr %31, align 1, !alias.scope !1568, !noalias !1571
   %34 = load i64, ptr %32, align 8, !alias.scope !1563, !noalias !1573, !noundef !9

@@ -30,10 +30,10 @@ _ZN4LIEF12ref_iteratorIRSt6vectorIPNS_5MachO14SegmentCommandESaIS4_EES4_N9__gnu_
 
 _ZN4LIEF12ref_iteratorIRSt6vectorIPNS_5MachO14SegmentCommandESaIS4_EES4_N9__gnu_cxx17__normal_iteratorIPS4_S6_EEEixEm.exit: ; preds = %_ZN4LIEF12ref_iteratorIRSt6vectorIPNS_5MachO14SegmentCommandESaIS4_EES4_N9__gnu_cxx17__normal_iteratorIPS4_S6_EEEixEm.exit.lr.ph, %_ZSt4copyIPKhPhET0_T_S4_S3_.exit
   %.050 = phi i64 [ 0, %_ZN4LIEF12ref_iteratorIRSt6vectorIPNS_5MachO14SegmentCommandESaIS4_EES4_N9__gnu_cxx17__normal_iteratorIPS4_S6_EEEixEm.exit.lr.ph ], [ %57, %_ZSt4copyIPKhPhET0_T_S4_S3_.exit ]
-  %15 = getelementptr inbounds ptr, ptr %4, i64 %.050
+  %15 = getelementptr inbounds [8 x i8], ptr %4, i64 %.050
   %16 = load ptr, ptr %15, align 8, !tbaa !27
   %17 = tail call noalias dereferenceable_or_null(80) ptr @malloc(i64 noundef 80) #5
-  %18 = getelementptr inbounds nuw ptr, ptr %11, i64 %.050
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.050
   store ptr %17, ptr %18, align 8, !tbaa !25
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 144
   %20 = load ptr, ptr %19, align 8, !tbaa !29
@@ -120,14 +120,14 @@ define hidden void @_ZN4LIEF5MachO16destroy_segmentsEP14Macho_Binary_t(ptr nound
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %6 = phi ptr [ %13, %.lr.ph ], [ %4, %1 ]
   %.010 = phi i64 [ %11, %.lr.ph ], [ 0, %1 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %3, i64 %.010
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.010
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %9 = load ptr, ptr %8, align 8, !tbaa !71
   tail call void @free(ptr noundef %9) #6
   %10 = load ptr, ptr %7, align 8, !tbaa !25
   tail call void @free(ptr noundef %10) #6
   %11 = add i64 %.010, 1
-  %12 = getelementptr inbounds nuw ptr, ptr %3, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !25
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !76

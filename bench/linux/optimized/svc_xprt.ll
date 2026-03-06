@@ -51,10 +51,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_svc_pool_sta
 %struct.sockaddr_in6 = type { i16, i16, i32, %struct.in6_addr, i32 }
 %struct.in6_addr = type { %union.anon.8 }
 %union.anon.8 = type { [4 x i32] }
-%struct.svc_pool = type { i32, %struct.lwq, %struct.atomic_t, %struct.list_head, %struct.llist_head, %struct.percpu_counter, %struct.percpu_counter, %struct.percpu_counter, i64 }
-%struct.lwq = type { %struct.spinlock, ptr, %struct.llist_head }
-%struct.llist_head = type { ptr }
-%struct.percpu_counter = type { %struct.raw_spinlock, i64, %struct.list_head, ptr }
 
 @__param_str_svc_rpc_per_connection_limit = internal constant [36 x i8] c"sunrpc.svc_rpc_per_connection_limit\00", align 16
 @param_ops_uint = external dso_local constant %struct.kernel_param_ops, align 8
@@ -1178,7 +1174,7 @@ define dso_local void @svc_recv(ptr noundef %0) #0 align 16 {
   br i1 %.not, label %22, label %71, !llvm.loop !59
 
 71:                                               ; preds = %70
-  %72 = getelementptr ptr, ptr %19, i64 %18
+  %72 = getelementptr [8 x i8], ptr %19, i64 %18
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 2832
   store ptr %72, ptr %73, align 8
   store ptr null, ptr %72, align 8
@@ -2634,7 +2630,7 @@ define dso_local void @svc_xprt_destroy_all(ptr noundef %0, ptr noundef readnone
   %49 = load ptr, ptr %8, align 8
   %50 = sext i32 %48 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %.split = getelementptr %struct.svc_pool, ptr %49, i64 %50
+  %.split = getelementptr [192 x i8], ptr %49, i64 %50
   %51 = getelementptr i8, ptr %.split, i64 8
   %52 = tail call ptr @lwq_dequeue_all(ptr noundef %51) #18
   store ptr %52, ptr %3, align 8
@@ -3615,7 +3611,7 @@ define internal ptr @svc_pool_stats_start(ptr noundef readonly captures(none) %0
   %19 = load ptr, ptr %18, align 8
   %20 = add i64 %3, 4294967295
   %21 = and i64 %20, 4294967295
-  %22 = getelementptr %struct.svc_pool, ptr %19, i64 %21
+  %22 = getelementptr [192 x i8], ptr %19, i64 %21
   br label %23
 
 23:                                               ; preds = %17, %13, %10, %2
@@ -3659,7 +3655,7 @@ define internal ptr @svc_pool_stats_next(ptr noundef readonly captures(none) %0,
   %21 = icmp ugt i32 %20, %17
   %22 = add nsw i64 %16, 1
   %23 = and i64 %22, 4294967295
-  %24 = getelementptr %struct.svc_pool, ptr %11, i64 %23
+  %24 = getelementptr [192 x i8], ptr %11, i64 %23
   %25 = select i1 %21, ptr %24, ptr null
   br label %26
 

@@ -103,7 +103,7 @@ define hidden noundef i64 @_ZN11str_indices5utf1621count_surrogates_impl17he841a
   %.sroa.028.079 = phi ptr [ %28, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.llvm.12620698079031950665.exit.thread" ], [ %10, %.preheader ]
   %.sroa.529.078 = phi i64 [ %29, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.llvm.12620698079031950665.exit.thread" ], [ %12, %.preheader ]
   %.sroa.0.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %.sroa.529.078, i64 255)
-  %28 = getelementptr inbounds nuw <2 x i64>, ptr %.sroa.028.079, i64 %.sroa.0.0.sroa.speculated.i.i
+  %28 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.028.079, i64 %.sroa.0.0.sroa.speculated.i.i
   %29 = sub i64 %.sroa.529.078, %.sroa.0.0.sroa.speculated.i.i
   %.idx = shl nuw nsw i64 %.sroa.0.0.sroa.speculated.i.i, 4
   %30 = getelementptr inbounds nuw i8, ptr %.sroa.028.079, i64 %.idx
@@ -439,7 +439,7 @@ define hidden { ptr, i64 } @"_ZN93_$LT$core..slice..iter..Chunks$LT$T$GT$$u20$as
   %10 = load i64, ptr %9, align 8, !noundef !4
   %.sroa.0.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %3, i64 %10)
   %11 = load ptr, ptr %0, align 8, !nonnull !4, !align !6, !noundef !4
-  %12 = getelementptr inbounds <2 x i64>, ptr %11, i64 %.sroa.0.0.sroa.speculated.i
+  %12 = getelementptr inbounds [16 x i8], ptr %11, i64 %.sroa.0.0.sroa.speculated.i
   %13 = sub i64 %3, %.sroa.0.0.sroa.speculated.i
   store ptr %12, ptr %0, align 8
   store i64 %13, ptr %2, align 8
@@ -538,7 +538,7 @@ define noundef i64 @_ZN5ropey9str_utils27byte_to_utf16_surrogate_idx17h1e1aeb5c0
   %.sroa.010.065 = phi ptr [ %43, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.llvm.12620698079031950665.exit.thread" ], [ %25, %.preheader ]
   %.sroa.511.064 = phi i64 [ %44, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.llvm.12620698079031950665.exit.thread" ], [ %27, %.preheader ]
   %.sroa.0.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %.sroa.511.064, i64 255)
-  %43 = getelementptr inbounds nuw <2 x i64>, ptr %.sroa.010.065, i64 %.sroa.0.0.sroa.speculated.i.i
+  %43 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.010.065, i64 %.sroa.0.0.sroa.speculated.i.i
   %44 = sub i64 %.sroa.511.064, %.sroa.0.0.sroa.speculated.i.i
   %.idx = shl nuw nsw i64 %.sroa.0.0.sroa.speculated.i.i, 4
   %45 = getelementptr inbounds nuw i8, ptr %.sroa.010.065, i64 %.idx
@@ -833,7 +833,7 @@ _ZN11str_indices5utf1616to_byte_idx_impl17hc61dbf244c402ddbE.exit: ; preds = %"_
 
 ._crit_edge.i:                                    ; preds = %.lr.ph171.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h24209575856ef6e2E.exit.i"
   %.sroa.011.0.i.lcssa.i = phi i64 [ %.sroa.04.0.i.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h24209575856ef6e2E.exit.i" ], [ %167, %.lr.ph171.i ]
-  %122 = getelementptr inbounds <2 x i64>, ptr %98, i64 %112
+  %122 = getelementptr inbounds [16 x i8], ptr %98, i64 %112
   %123 = shl i64 %100, 4
   %.idx.i = and i64 %123, 48
   %124 = getelementptr inbounds nuw i8, ptr %122, i64 %.idx.i

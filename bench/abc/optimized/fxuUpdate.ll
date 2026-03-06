@@ -703,7 +703,7 @@ Vec_PtrPush.exit.i:                               ; preds = %33, %Vec_PtrGrow.ex
   %37 = add nsw i32 %36, 1
   store i32 %37, ptr %9, align 4, !tbaa !74
   %38 = sext i32 %36 to i64
-  %39 = getelementptr inbounds ptr, ptr %35, i64 %38
+  %39 = getelementptr inbounds [8 x i8], ptr %35, i64 %38
   store ptr %.012.i, ptr %39, align 8, !tbaa !79
   %40 = getelementptr inbounds nuw i8, ptr %.012.i, i64 56
   %.0.i = load ptr, ptr %40, align 8, !tbaa !76
@@ -743,7 +743,7 @@ Fxu_UpdatePairsSort.exit:                         ; preds = %._crit_edge.i, %42
   %52 = phi ptr [ %47, %.lr.ph ], [ %168, %167 ]
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %54 = load ptr, ptr %53, align 8, !tbaa !78
-  %55 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %indvars.iv
   %56 = load ptr, ptr %55, align 8, !tbaa !79
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 40
   %58 = load i32, ptr %57, align 8, !tbaa !81
@@ -1092,9 +1092,9 @@ define internal fastcc void @Fxu_UpdateCleanOldDoubles(ptr noundef %0, ptr nound
   %16 = load ptr, ptr %15, align 8, !tbaa !41
   %17 = load i32, ptr %2, align 8, !tbaa !45
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds ptr, ptr %16, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %16, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !88
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8, !tbaa !76
   %23 = icmp eq ptr %22, null
   br i1 %23, label %47, label %24

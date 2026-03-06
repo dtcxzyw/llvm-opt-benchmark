@@ -1340,7 +1340,7 @@ define dso_local void @_ZN4Luau11LintOptions11setDefaultsEv(ptr noundef nonnull 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef ptr @_ZN4Luau11LintWarning7getNameENS0_4CodeE(i32 noundef %0) local_unnamed_addr #3 align 2 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr inbounds nuw ptr, ptr @_ZN4LuauL13kWarningNamesE, i64 %2
+  %3 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4LuauL13kWarningNamesE, i64 %2
   %4 = load ptr, ptr %3, align 8, !tbaa !11
   ret ptr %4
 }
@@ -1351,7 +1351,7 @@ define dso_local noundef range(i32 0, 30) i32 @_ZN4Luau11LintWarning9parseNameEP
 
 2:                                                ; preds = %1, %7
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %7 ]
-  %3 = getelementptr inbounds nuw ptr, ptr @_ZN4LuauL13kWarningNamesE, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4LuauL13kWarningNamesE, i64 %indvars.iv
   %4 = load ptr, ptr %3, align 8, !tbaa !11
   %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %4) #9
   %6 = icmp eq i32 %5, 0
@@ -1409,7 +1409,7 @@ define dso_local noundef i64 @_ZN4Luau11LintWarning9parseMaskERKSt6vectorINS_10H
 
 15:                                               ; preds = %20, %12
   %indvars.iv.i = phi i64 [ 0, %12 ], [ %indvars.iv.next.i, %20 ]
-  %16 = getelementptr inbounds nuw ptr, ptr @_ZN4LuauL13kWarningNamesE, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4LuauL13kWarningNamesE, i64 %indvars.iv.i
   %17 = load ptr, ptr %16, align 8, !tbaa !11
   %18 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %14, ptr noundef nonnull dereferenceable(1) %17) #9
   %19 = icmp eq i32 %18, 0

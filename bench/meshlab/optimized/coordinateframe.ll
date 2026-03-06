@@ -1340,12 +1340,12 @@ define void @_ZN3vcg22MovableCoordinateFrame6RenderEP9QGLWidgetP8QPainter(ptr no
   %indvars.iv15.i.i.i = phi i64 [ 1, %3 ], [ %indvars.iv.next16.i.i.i, %59 ]
   %.idx.i.i.i = shl nuw nsw i64 %indvars.iv15.i.i.i, 4
   %invariant.gep.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i.i.i
-  %invariant.gep20.i.i.i = getelementptr float, ptr %4, i64 %indvars.iv15.i.i.i
+  %invariant.gep20.i.i.i = getelementptr [4 x i8], ptr %4, i64 %indvars.iv15.i.i.i
   br label %56
 
 56:                                               ; preds = %56, %.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %56 ]
-  %gep.i.i.i = getelementptr inbounds nuw float, ptr %invariant.gep.i.i.i, i64 %indvars.iv.i.i.i
+  %gep.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep.i.i.i, i64 %indvars.iv.i.i.i
   %.idx19.i.i.i = shl i64 %indvars.iv.i.i.i, 4
   %gep21.i.i.i = getelementptr i8, ptr %invariant.gep20.i.i.i, i64 %.idx19.i.i.i
   %57 = load float, ptr %gep.i.i.i, align 4, !alias.scope !36
@@ -1519,19 +1519,19 @@ define void @_ZN3vcg22MovableCoordinateFrame12GetTransformERNS_8Matrix44IfEE(ptr
 .preheader19.i:                                   ; preds = %61, %2
   %indvars.iv29.i = phi i64 [ 0, %2 ], [ %indvars.iv.next30.i, %61 ]
   %55 = shl nuw nsw i64 %indvars.iv29.i, 2
-  %invariant.gep.i = getelementptr inbounds nuw float, ptr %5, i64 %55
-  %invariant.gep35.i = getelementptr inbounds nuw float, ptr %4, i64 %55
+  %invariant.gep.i = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %55
+  %invariant.gep35.i = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %55
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %60, %.preheader19.i
   %indvars.iv25.i = phi i64 [ 0, %.preheader19.i ], [ %indvars.iv.next26.i, %60 ]
-  %invariant.gep33.i = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv25.i
+  %invariant.gep33.i = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv25.i
   br label %56
 
 56:                                               ; preds = %56, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %56 ]
   %.01620.i = phi float [ 0.000000e+00, %.preheader.i ], [ %59, %56 ]
-  %gep.i = getelementptr inbounds nuw float, ptr %invariant.gep.i, i64 %indvars.iv.i
+  %gep.i = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep.i, i64 %indvars.iv.i
   %57 = load float, ptr %gep.i, align 4, !noalias !41
   %.idx.i = shl nuw nsw i64 %indvars.iv.i, 4
   %gep34.i = getelementptr inbounds nuw i8, ptr %invariant.gep33.i, i64 %.idx.i
@@ -1542,7 +1542,7 @@ define void @_ZN3vcg22MovableCoordinateFrame12GetTransformERNS_8Matrix44IfEE(ptr
   br i1 %exitcond.not.i, label %60, label %56, !llvm.loop !44
 
 60:                                               ; preds = %56
-  %gep36.i = getelementptr inbounds nuw float, ptr %invariant.gep35.i, i64 %indvars.iv25.i
+  %gep36.i = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep35.i, i64 %indvars.iv25.i
   store float %59, ptr %gep36.i, align 4, !alias.scope !41
   %indvars.iv.next26.i = add nuw nsw i64 %indvars.iv25.i, 1
   %exitcond28.not.i = icmp eq i64 %indvars.iv.next26.i, 4
@@ -1582,19 +1582,19 @@ define void @_ZN3vcg22MovableCoordinateFrame12GetTransformERNS_8Matrix44IfEE(ptr
 .preheader19.i9:                                  ; preds = %82, %62
   %indvars.iv29.i10 = phi i64 [ 0, %62 ], [ %indvars.iv.next30.i26, %82 ]
   %76 = shl nuw nsw i64 %indvars.iv29.i10, 2
-  %invariant.gep.i11 = getelementptr inbounds nuw float, ptr %6, i64 %76
-  %invariant.gep35.i12 = getelementptr inbounds nuw float, ptr %7, i64 %76
+  %invariant.gep.i11 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %76
+  %invariant.gep35.i12 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %76
   br label %.preheader.i13
 
 .preheader.i13:                                   ; preds = %81, %.preheader19.i9
   %indvars.iv25.i14 = phi i64 [ 0, %.preheader19.i9 ], [ %indvars.iv.next26.i24, %81 ]
-  %invariant.gep33.i15 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv25.i14
+  %invariant.gep33.i15 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv25.i14
   br label %77
 
 77:                                               ; preds = %77, %.preheader.i13
   %indvars.iv.i16 = phi i64 [ 0, %.preheader.i13 ], [ %indvars.iv.next.i21, %77 ]
   %.01620.i17 = phi float [ 0.000000e+00, %.preheader.i13 ], [ %80, %77 ]
-  %gep.i18 = getelementptr inbounds nuw float, ptr %invariant.gep.i11, i64 %indvars.iv.i16
+  %gep.i18 = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep.i11, i64 %indvars.iv.i16
   %78 = load float, ptr %gep.i18, align 4, !noalias !47
   %.idx.i19 = shl nuw nsw i64 %indvars.iv.i16, 4
   %gep34.i20 = getelementptr inbounds nuw i8, ptr %invariant.gep33.i15, i64 %.idx.i19
@@ -1605,7 +1605,7 @@ define void @_ZN3vcg22MovableCoordinateFrame12GetTransformERNS_8Matrix44IfEE(ptr
   br i1 %exitcond.not.i22, label %81, label %77, !llvm.loop !44
 
 81:                                               ; preds = %77
-  %gep36.i23 = getelementptr inbounds nuw float, ptr %invariant.gep35.i12, i64 %indvars.iv25.i14
+  %gep36.i23 = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep35.i12, i64 %indvars.iv25.i14
   store float %80, ptr %gep36.i23, align 4, !alias.scope !47
   %indvars.iv.next26.i24 = add nuw nsw i64 %indvars.iv25.i14, 1
   %exitcond28.not.i25 = icmp eq i64 %indvars.iv.next26.i24, 4
@@ -3308,12 +3308,12 @@ define linkonce_odr void @_ZN3vcg7InverseIfEENS_8Matrix44IT_EERKS3_(ptr dead_on_
   %indvars.iv13.i = phi i64 [ 0, %2 ], [ %indvars.iv.next14.i, %12 ]
   %.idx.i = shl nuw nsw i64 %indvars.iv13.i, 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx.i
-  %6 = getelementptr double, ptr %3, i64 %indvars.iv13.i
+  %6 = getelementptr [8 x i8], ptr %3, i64 %indvars.iv13.i
   br label %7
 
 7:                                                ; preds = %7, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %7 ]
-  %8 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv.i
   %9 = load float, ptr %8, align 4
   %10 = fpext float %9 to double
   %.idx.i.i.i.i = shl nuw nsw i64 %indvars.iv.i, 5
@@ -3491,7 +3491,7 @@ _ZNK3vcg8Matrix44IfE13ToEigenMatrixIN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEEEEvRT_
 
 .preheader.i3:                                    ; preds = %154, %_ZNK3vcg8Matrix44IfE13ToEigenMatrixIN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEEEEvRT_.exit
   %indvars.iv13.i4 = phi i64 [ 0, %_ZNK3vcg8Matrix44IfE13ToEigenMatrixIN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEEEEvRT_.exit ], [ %indvars.iv.next14.i9, %154 ]
-  %148 = getelementptr double, ptr %4, i64 %indvars.iv13.i4
+  %148 = getelementptr [8 x i8], ptr %4, i64 %indvars.iv13.i4
   %.idx.i5 = shl nuw nsw i64 %indvars.iv13.i4, 4
   %invariant.gep.i = getelementptr inbounds nuw i8, ptr %0, i64 %.idx.i5
   br label %149
@@ -3502,7 +3502,7 @@ _ZNK3vcg8Matrix44IfE13ToEigenMatrixIN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEEEEvRT_
   %151 = getelementptr i8, ptr %148, i64 %150
   %152 = load double, ptr %151, align 8
   %153 = fptrunc double %152 to float
-  %gep.i = getelementptr inbounds nuw float, ptr %invariant.gep.i, i64 %indvars.iv.i6
+  %gep.i = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep.i, i64 %indvars.iv.i6
   store float %153, ptr %gep.i, align 4
   %indvars.iv.next.i7 = add nuw nsw i64 %indvars.iv.i6, 1
   %exitcond.not.i8 = icmp eq i64 %indvars.iv.next.i7, 4

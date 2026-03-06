@@ -431,7 +431,7 @@ define internal fastcc void @SetInitialProfile(ptr noundef readonly captures(non
   %13 = fmul double %11, %12
   %14 = mul nuw nsw i64 %.04956.us, %5
   %15 = fsub double 1.000000e+00, %13
-  %16 = getelementptr double, ptr %6, i64 %14
+  %16 = getelementptr [8 x i8], ptr %6, i64 %14
   br label %17
 
 17:                                               ; preds = %.lr.ph.us, %17
@@ -444,7 +444,7 @@ define internal fastcc void @SetInitialProfile(ptr noundef readonly captures(non
   %23 = fmul double %21, %22
   %24 = fmul double %13, %23
   %25 = fmul double %15, %24
-  %26 = getelementptr double, ptr %16, i64 %.055.us
+  %26 = getelementptr [8 x i8], ptr %16, i64 %.055.us
   store double %25, ptr %26, align 8, !tbaa !20
   %27 = add nuw nsw i64 %.055.us, 1
   %exitcond.not = icmp eq i64 %27, %5
@@ -480,7 +480,7 @@ define internal fastcc void @SetInitialProfile(ptr noundef readonly captures(non
 39:                                               ; preds = %39, %.lr.ph.us.i
   %.038.us.i = phi i64 [ 1, %.lr.ph.us.i ], [ %61, %39 ]
   %40 = add nuw nsw i64 %.038.us.i, %38
-  %41 = getelementptr double, ptr %29, i64 %40
+  %41 = getelementptr [8 x i8], ptr %29, i64 %40
   %42 = getelementptr i8, ptr %41, i64 -8
   %43 = load double, ptr %42, align 8, !tbaa !20
   %44 = getelementptr i8, ptr %41, i64 8
@@ -489,17 +489,17 @@ define internal fastcc void @SetInitialProfile(ptr noundef readonly captures(non
   %47 = load double, ptr %41, align 8, !tbaa !20
   %48 = tail call double @llvm.fmuladd.f64(double %47, double -2.000000e+00, double %46)
   %49 = sub nsw i64 %40, %34
-  %50 = getelementptr inbounds double, ptr %29, i64 %49
+  %50 = getelementptr inbounds [8 x i8], ptr %29, i64 %49
   %51 = load double, ptr %50, align 8, !tbaa !20
-  %52 = getelementptr double, ptr %41, i64 %34
+  %52 = getelementptr [8 x i8], ptr %41, i64 %34
   %53 = load double, ptr %52, align 8, !tbaa !20
   %54 = fadd double %51, %53
   %55 = tail call double @llvm.fmuladd.f64(double %47, double -2.000000e+00, double %54)
-  %56 = getelementptr inbounds nuw double, ptr %30, i64 %40
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %40
   %57 = load double, ptr %56, align 8, !tbaa !20
   %58 = fadd double %48, %55
   %59 = tail call double @llvm.fmuladd.f64(double %36, double %58, double %57)
-  %60 = getelementptr inbounds nuw double, ptr %31, i64 %40
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %40
   store double %59, ptr %60, align 8, !tbaa !20
   %61 = add nuw nsw i64 %.038.us.i, 1
   %exitcond.not.i = icmp eq i64 %.038.us.i, %37
@@ -524,7 +524,7 @@ resHeat.exit:                                     ; preds = %._crit_edge.us.i, %
   %scevgep76 = getelementptr i8, ptr %7, i64 %64
   %65 = mul nuw nsw i64 %.15062.us, %5
   %66 = icmp eq i64 %.15062.us, 0
-  %67 = getelementptr double, ptr %7, i64 %65
+  %67 = getelementptr [8 x i8], ptr %7, i64 %65
   br i1 %66, label %._crit_edge.us69.sink.split, label %.lr.ph.split.us68
 
 .lr.ph.split.split.us70:                          ; preds = %.lr.ph.split.us68, %72
@@ -535,7 +535,7 @@ resHeat.exit:                                     ; preds = %._crit_edge.us.i, %
   br i1 %or.cond54.us, label %70, label %72
 
 70:                                               ; preds = %.lr.ph.split.split.us70
-  %71 = getelementptr double, ptr %67, i64 %.160.us65
+  %71 = getelementptr [8 x i8], ptr %67, i64 %.160.us65
   store double 0.000000e+00, ptr %71, align 8, !tbaa !20
   br label %72
 
@@ -599,7 +599,7 @@ define dso_local noundef i32 @resHeat(double %0, ptr noundef %1, ptr noundef %2,
 16:                                               ; preds = %.lr.ph.us, %16
   %.038.us = phi i64 [ 1, %.lr.ph.us ], [ %38, %16 ]
   %17 = add nuw nsw i64 %.038.us, %15
-  %18 = getelementptr double, ptr %6, i64 %17
+  %18 = getelementptr [8 x i8], ptr %6, i64 %17
   %19 = getelementptr i8, ptr %18, i64 -8
   %20 = load double, ptr %19, align 8, !tbaa !20
   %21 = getelementptr i8, ptr %18, i64 8
@@ -608,17 +608,17 @@ define dso_local noundef i32 @resHeat(double %0, ptr noundef %1, ptr noundef %2,
   %24 = load double, ptr %18, align 8, !tbaa !20
   %25 = tail call double @llvm.fmuladd.f64(double %24, double -2.000000e+00, double %23)
   %26 = sub nsw i64 %17, %11
-  %27 = getelementptr inbounds double, ptr %6, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %6, i64 %26
   %28 = load double, ptr %27, align 8, !tbaa !20
-  %29 = getelementptr double, ptr %18, i64 %11
+  %29 = getelementptr [8 x i8], ptr %18, i64 %11
   %30 = load double, ptr %29, align 8, !tbaa !20
   %31 = fadd double %28, %30
   %32 = tail call double @llvm.fmuladd.f64(double %24, double -2.000000e+00, double %31)
-  %33 = getelementptr inbounds nuw double, ptr %7, i64 %17
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %17
   %34 = load double, ptr %33, align 8, !tbaa !20
   %35 = fadd double %25, %32
   %36 = tail call double @llvm.fmuladd.f64(double %13, double %35, double %34)
-  %37 = getelementptr inbounds nuw double, ptr %8, i64 %17
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %17
   store double %36, ptr %37, align 8, !tbaa !20
   %38 = add nuw nsw i64 %.038.us, 1
   %exitcond.not = icmp eq i64 %.038.us, %14
@@ -662,12 +662,12 @@ define dso_local noundef i32 @PsetupHeat(double %0, ptr readnone captures(none) 
 .lr.ph.us:                                        ; preds = %6, %._crit_edge.us
   %.01821.us = phi i64 [ %23, %._crit_edge.us ], [ 1, %6 ]
   %18 = mul nuw nsw i64 %.01821.us, %10
-  %19 = getelementptr double, ptr %9, i64 %18
+  %19 = getelementptr [8 x i8], ptr %9, i64 %18
   br label %20
 
 20:                                               ; preds = %.lr.ph.us, %20
   %.020.us = phi i64 [ 1, %.lr.ph.us ], [ %22, %20 ]
-  %21 = getelementptr double, ptr %19, i64 %.020.us
+  %21 = getelementptr [8 x i8], ptr %19, i64 %.020.us
   store double %15, ptr %21, align 8, !tbaa !20
   %22 = add nuw nsw i64 %.020.us, 1
   %exitcond.not = icmp eq i64 %22, %16

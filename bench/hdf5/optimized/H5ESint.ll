@@ -665,7 +665,7 @@ define internal range(i32 -1, 2) i32 @H5ES__get_requests_cb(ptr noundef readonly
   %15 = load ptr, ptr %1, align 8, !tbaa !35
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %17 = load i64, ptr %16, align 8, !tbaa !40
-  %18 = getelementptr inbounds nuw i64, ptr %15, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %17
   store i64 %14, ptr %18, align 8, !tbaa !10
   %19 = icmp slt i64 %14, 0
   br i1 %19, label %20, label %24
@@ -693,7 +693,7 @@ define internal range(i32 -1, 2) i32 @H5ES__get_requests_cb(ptr noundef readonly
   %30 = load ptr, ptr %25, align 8, !tbaa !38
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %32 = load i64, ptr %31, align 8, !tbaa !40
-  %33 = getelementptr inbounds nuw ptr, ptr %30, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %32
   store ptr %29, ptr %33, align 8, !tbaa !42
   br label %34
 

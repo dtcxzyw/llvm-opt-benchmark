@@ -112,13 +112,11 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Head_base.245" = type { ptr }
 %class.anon.233 = type { %"struct.xgboost::InitNewThread", ptr }
 %"struct.std::__basic_future<std::shared_ptr<xgboost::GHistIndexMatrix>>::_Reset" = type { ptr }
+%"class.std::unique_lock" = type <{ ptr, i8, [7 x i8] }>
 %"class.std::function" = type { %"class.std::_Function_base", ptr }
 %"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
 %"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
 %"union.std::_Nocopy_types" = type { { i64, i64 } }
-%"class.std::thread" = type { %"class.std::thread::id" }
-%"class.std::thread::id" = type { i64 }
-%"class.std::unique_lock" = type <{ ptr, i8, [7 x i8] }>
 %"struct.std::_Deque_iterator" = type { ptr, ptr, ptr, ptr }
 %"class.std::__exception_ptr::exception_ptr" = type { ptr }
 %"struct.std::__basic_future<std::shared_ptr<xgboost::SparsePage>>::_Reset" = type { ptr }
@@ -2769,7 +2767,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i: ; preds = %498, %.n
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i: ; preds = %500, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i
   store ptr %495, ptr %68, align 8, !tbaa !110
   store ptr %499, ptr %71, align 8, !tbaa !112
-  %501 = getelementptr inbounds nuw i64, ptr %495, i64 %493
+  %501 = getelementptr inbounds nuw [8 x i8], ptr %495, i64 %493
   store ptr %501, ptr %70, align 8, !tbaa !111
   br label %_ZNSt6vectorImSaImEE9push_backEOm.exit
 
@@ -2839,7 +2837,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i118: ; preds = %524, 
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i120: ; preds = %526, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i118
   store ptr %521, ptr %320, align 8, !tbaa !110
   store ptr %525, ptr %321, align 8, !tbaa !112
-  %527 = getelementptr inbounds nuw i64, ptr %521, i64 %519
+  %527 = getelementptr inbounds nuw [8 x i8], ptr %521, i64 %519
   store ptr %527, ptr %322, align 8, !tbaa !111
   br label %_ZNSt6vectorImSaImEE9push_backEOm.exit123
 
@@ -15307,7 +15305,7 @@ _ZNSt6vectorIPvSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i: ; preds = %3
           to label %.noexc27 unwind label %22
 
 .noexc27:                                         ; preds = %8
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %2
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %2
   store ptr null, ptr %10, align 8, !tbaa !172
   %12 = add nsw i64 %2, -1
   %13 = icmp eq i64 %12, 0
@@ -15363,7 +15361,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %20, %17
 32:                                               ; preds = %.lr.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %indvars.iv = phi i64 [ %31, %.lr.ph ], [ %indvars.iv.next, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %33 = getelementptr inbounds ptr, ptr %26, i64 %indvars.iv
+  %33 = getelementptr inbounds [8 x i8], ptr %26, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8, !tbaa !483
   invoke void @_ZN4dmlc8DemangleB5cxx11EPKc(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef %34)
           to label %35 unwind label %48
@@ -18836,7 +18834,7 @@ _ZNSt11_Deque_baseISt8functionIFvvEESaIS2_EE15_M_allocate_mapEm.exit: ; preds = 
   store ptr %9, ptr %0, align 8, !tbaa !595
   %10 = sub nsw i64 %.sroa.speculated, %7
   %11 = lshr i64 %10, 1
-  %12 = getelementptr inbounds nuw ptr, ptr %9, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %11
   %.idx = shl nuw nsw i64 %7, 3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx
   br label %.lr.ph.i
@@ -18930,7 +18928,7 @@ _ZNSt11_Deque_baseISt8functionIFvvEESaIS2_EE15_M_create_nodesEPPS2_S6_.exit: ; p
   store ptr %50, ptr %51, align 8, !tbaa !601
   store ptr %41, ptr %39, align 8, !tbaa !602
   %52 = and i64 %1, 15
-  %53 = getelementptr inbounds nuw %"class.std::function", ptr %48, i64 %52
+  %53 = getelementptr inbounds nuw [32 x i8], ptr %48, i64 %52
   store ptr %53, ptr %45, align 8, !tbaa !603
   ret void
 
@@ -19067,7 +19065,7 @@ _ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit32: ; preds = %.l
 _ZNSt12_Vector_baseISt6threadSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %_ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit32, %45
   store ptr %21, ptr %0, align 8, !tbaa !577
   store ptr %.0.lcssa.i.i.i31, ptr %5, align 8, !tbaa !558
-  %49 = getelementptr inbounds nuw %"class.std::thread", ptr %21, i64 %17
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %17
   store ptr %49, ptr %44, align 8, !tbaa !559
   ret void
 
@@ -21262,7 +21260,7 @@ _ZN4dmlc11LogCheck_EQIliEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_tra
   unreachable
 
 _ZNSt6vectorISt6futureISt10shared_ptrIN7xgboost10SparsePageEEESaIS5_EE2atEm.exit: ; preds = %153
-  %167 = getelementptr inbounds nuw %"class.std::future.305", ptr %161, i64 %157
+  %167 = getelementptr inbounds nuw [16 x i8], ptr %161, i64 %157
   %168 = load ptr, ptr %167, align 8, !tbaa !581
   %.not206 = icmp eq ptr %168, null
   br i1 %.not206, label %169, label %267
@@ -21407,7 +21405,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   unreachable
 
 216:                                              ; preds = %204
-  %217 = getelementptr inbounds nuw %"class.std::future.305", ptr %210, i64 %207
+  %217 = getelementptr inbounds nuw [16 x i8], ptr %210, i64 %207
   %218 = load ptr, ptr %16, align 8, !tbaa !581
   %219 = load ptr, ptr %142, align 8, !tbaa !131
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
@@ -21802,7 +21800,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit118: ; preds = %_Z
   %381 = load i32, ptr %109, align 8, !tbaa !525
   %382 = zext i32 %381 to i64
   %383 = load ptr, ptr %380, align 8, !tbaa !687
-  %384 = getelementptr inbounds nuw %"class.std::future.305", ptr %383, i64 %382
+  %384 = getelementptr inbounds nuw [16 x i8], ptr %383, i64 %382
   %385 = load ptr, ptr %384, align 8, !tbaa !581
   %.not205 = icmp eq ptr %385, null
   br i1 %.not205, label %386, label %406, !prof !126
@@ -21879,7 +21877,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit130: ; preds = %_Z
 406:                                              ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit124, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit118
   %.pre-phi = phi i64 [ %.pre260, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit124 ], [ %382, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit118 ]
   %407 = phi ptr [ %.pre259, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit124 ], [ %383, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit118 ]
-  %408 = getelementptr inbounds nuw %"class.std::future.305", ptr %407, i64 %.pre-phi
+  %408 = getelementptr inbounds nuw [16 x i8], ptr %407, i64 %.pre-phi
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !702
   store ptr %408, ptr %2, align 8, !tbaa !705, !noalias !702
   %409 = invoke noundef nonnull align 8 dereferenceable(33) ptr @_ZNKSt14__basic_futureISt10shared_ptrIN7xgboost10SparsePageEEE13_M_get_resultEv(ptr noundef nonnull align 8 dereferenceable(16) %408)
@@ -23648,7 +23646,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i: ; preds = %144, %.n
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i: ; preds = %146, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i
   store ptr %141, ptr %121, align 8, !tbaa !110
   store ptr %145, ptr %122, align 8, !tbaa !112
-  %147 = getelementptr inbounds nuw i64, ptr %141, i64 %139
+  %147 = getelementptr inbounds nuw [8 x i8], ptr %141, i64 %139
   store ptr %147, ptr %124, align 8, !tbaa !111
   br label %_ZNSt10unique_ptrIN7xgboost6common22AlignedFileWriteStreamESt14default_deleteIS2_EED2Ev.exit
 
@@ -23859,7 +23857,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i: ; preds = %31, %.
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i: ; preds = %33, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i
   store ptr %28, ptr %6, align 8, !tbaa !110
   store ptr %32, ptr %8, align 8, !tbaa !112
-  %34 = getelementptr inbounds nuw i64, ptr %28, i64 %26
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %26
   store ptr %34, ptr %12, align 8, !tbaa !111
   br label %_ZNSt6vectorImSaImEE9push_backEOm.exit.i
 
@@ -24486,9 +24484,9 @@ _ZNSt6vectorISt6futureISt10shared_ptrIN7xgboost10SparsePageEEESaIS5_EE11_S_reloc
 
 _ZNSt12_Vector_baseISt6futureISt10shared_ptrIN7xgboost10SparsePageEEESaIS5_EE13_M_deallocateEPS5_m.exit37: ; preds = %_ZNSt6vectorISt6futureISt10shared_ptrIN7xgboost10SparsePageEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %35
   store ptr %26, ptr %0, align 8, !tbaa !687
-  %37 = getelementptr inbounds nuw %"class.std::future.305", ptr %27, i64 %1
+  %37 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %1
   store ptr %37, ptr %4, align 8, !tbaa !685
-  %38 = getelementptr inbounds nuw %"class.std::future.305", ptr %26, i64 %24
+  %38 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %24
   store ptr %38, ptr %11, align 8, !tbaa !777
   br label %39
 
@@ -26159,9 +26157,9 @@ _ZNKSt6vectorImSaImEE2atEm.exit.i:                ; preds = %25
   unreachable
 
 43:                                               ; preds = %_ZNKSt6vectorImSaImEE2atEm.exit.i
-  %44 = getelementptr inbounds nuw i64, ptr %36, i64 %32
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %32
   %45 = load i64, ptr %44, align 8, !tbaa !102
-  %46 = getelementptr inbounds nuw i64, ptr %36, i64 %41
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %41
   %47 = load i64, ptr %46, align 8, !tbaa !102
   %48 = sub i64 %47, %45
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -26958,9 +26956,9 @@ define linkonce_odr void @_ZNSt5dequeISt8functionIFvvEESaIS2_EE17_M_reallocate_m
   %19 = load ptr, ptr %0, align 8, !tbaa !595
   %20 = sub i64 %15, %13
   %21 = lshr i64 %20, 1
-  %22 = getelementptr inbounds nuw ptr, ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %21
   %23 = select i1 %2, i64 %1, i64 0
-  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %23
   %25 = icmp ult ptr %24, %7
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %26, %7
@@ -26979,12 +26977,12 @@ define linkonce_odr void @_ZNSt5dequeISt8functionIFvvEESaIS2_EE17_M_reallocate_m
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIPPSt8functionIFvvEES4_ET0_T_S6_S5_.exit, label %32
 
 32:                                               ; preds = %31
-  %33 = getelementptr inbounds nuw ptr, ptr %24, i64 %12
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %12
   %34 = ptrtoint ptr %26 to i64
   %35 = sub i64 %34, %9
   %36 = ashr exact i64 %35, 3
   %37 = sub nsw i64 0, %36
-  %38 = getelementptr inbounds ptr, ptr %33, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %33, i64 %37
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %38, ptr align 8 %7, i64 %35, i1 false)
   br label %_ZSt4copyIPPSt8functionIFvvEES4_ET0_T_S6_S5_.exit
 
@@ -27012,9 +27010,9 @@ _ZNSt11_Deque_baseISt8functionIFvvEESaIS2_EE15_M_allocate_mapEm.exit: ; preds = 
   %46 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %45) #35
   %47 = sub i64 %41, %13
   %48 = lshr i64 %47, 1
-  %49 = getelementptr inbounds nuw ptr, ptr %46, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %48
   %50 = select i1 %2, i64 %1, i64 0
-  %51 = getelementptr inbounds nuw ptr, ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i25 = icmp eq ptr %52, %7
   br i1 %.not.i.i.i.i.i25, label %_ZSt4copyIPPSt8functionIFvvEES4_ET0_T_S6_S5_.exit26, label %53
@@ -27042,7 +27040,7 @@ _ZSt4copyIPPSt8functionIFvvEES4_ET0_T_S6_S5_.exit: ; preds = %32, %31, %28, %27,
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 512
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %60, ptr %61, align 8, !tbaa !601
-  %62 = getelementptr inbounds nuw ptr, ptr %.0, i64 %12
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %.0, i64 %12
   %63 = getelementptr inbounds i8, ptr %62, i64 -8
   store ptr %63, ptr %4, align 8, !tbaa !599
   %64 = load ptr, ptr %63, align 8, !tbaa !596
@@ -32546,7 +32544,7 @@ _ZN4dmlc11LogCheck_EQIliEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_tra
   unreachable
 
 _ZNSt6vectorISt6futureISt10shared_ptrIN7xgboost7CSCPageEEESaIS5_EE2atEm.exit: ; preds = %153
-  %167 = getelementptr inbounds nuw %"class.std::future.485", ptr %161, i64 %157
+  %167 = getelementptr inbounds nuw [16 x i8], ptr %161, i64 %157
   %168 = load ptr, ptr %167, align 8, !tbaa !581
   %.not206 = icmp eq ptr %168, null
   br i1 %.not206, label %169, label %267
@@ -32691,7 +32689,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   unreachable
 
 216:                                              ; preds = %204
-  %217 = getelementptr inbounds nuw %"class.std::future.485", ptr %210, i64 %207
+  %217 = getelementptr inbounds nuw [16 x i8], ptr %210, i64 %207
   %218 = load ptr, ptr %16, align 8, !tbaa !581
   %219 = load ptr, ptr %142, align 8, !tbaa !131
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
@@ -33086,7 +33084,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit118: ; preds = %_Z
   %381 = load i32, ptr %109, align 8, !tbaa !950
   %382 = zext i32 %381 to i64
   %383 = load ptr, ptr %380, align 8, !tbaa !977
-  %384 = getelementptr inbounds nuw %"class.std::future.485", ptr %383, i64 %382
+  %384 = getelementptr inbounds nuw [16 x i8], ptr %383, i64 %382
   %385 = load ptr, ptr %384, align 8, !tbaa !581
   %.not205 = icmp eq ptr %385, null
   br i1 %.not205, label %386, label %406, !prof !126
@@ -33163,7 +33161,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit130: ; preds = %_Z
 406:                                              ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit124, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit118
   %.pre-phi = phi i64 [ %.pre260, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit124 ], [ %382, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit118 ]
   %407 = phi ptr [ %.pre259, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit124 ], [ %383, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit118 ]
-  %408 = getelementptr inbounds nuw %"class.std::future.485", ptr %407, i64 %.pre-phi
+  %408 = getelementptr inbounds nuw [16 x i8], ptr %407, i64 %.pre-phi
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !1005
   store ptr %408, ptr %2, align 8, !tbaa !971, !noalias !1005
   %409 = invoke noundef nonnull align 8 dereferenceable(33) ptr @_ZNKSt14__basic_futureISt10shared_ptrIN7xgboost7CSCPageEEE13_M_get_resultEv(ptr noundef nonnull align 8 dereferenceable(16) %408)
@@ -34013,7 +34011,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i: ; preds = %144, %.n
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i: ; preds = %146, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i
   store ptr %141, ptr %121, align 8, !tbaa !110
   store ptr %145, ptr %122, align 8, !tbaa !112
-  %147 = getelementptr inbounds nuw i64, ptr %141, i64 %139
+  %147 = getelementptr inbounds nuw [8 x i8], ptr %141, i64 %139
   store ptr %147, ptr %124, align 8, !tbaa !111
   br label %_ZNSt10unique_ptrIN7xgboost6common22AlignedFileWriteStreamESt14default_deleteIS2_EED2Ev.exit
 
@@ -34553,9 +34551,9 @@ _ZNSt6vectorISt6futureISt10shared_ptrIN7xgboost7CSCPageEEESaIS5_EE11_S_relocateE
 
 _ZNSt12_Vector_baseISt6futureISt10shared_ptrIN7xgboost7CSCPageEEESaIS5_EE13_M_deallocateEPS5_m.exit37: ; preds = %_ZNSt6vectorISt6futureISt10shared_ptrIN7xgboost7CSCPageEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %35
   store ptr %26, ptr %0, align 8, !tbaa !977
-  %37 = getelementptr inbounds nuw %"class.std::future.485", ptr %27, i64 %1
+  %37 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %1
   store ptr %37, ptr %4, align 8, !tbaa !979
-  %38 = getelementptr inbounds nuw %"class.std::future.485", ptr %26, i64 %24
+  %38 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %24
   store ptr %38, ptr %11, align 8, !tbaa !981
   br label %39
 
@@ -35701,9 +35699,9 @@ _ZNKSt6vectorImSaImEE2atEm.exit.i:                ; preds = %25
   unreachable
 
 43:                                               ; preds = %_ZNKSt6vectorImSaImEE2atEm.exit.i
-  %44 = getelementptr inbounds nuw i64, ptr %36, i64 %32
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %32
   %45 = load i64, ptr %44, align 8, !tbaa !102
-  %46 = getelementptr inbounds nuw i64, ptr %36, i64 %41
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %41
   %47 = load i64, ptr %46, align 8, !tbaa !102
   %48 = sub i64 %47, %45
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -39290,7 +39288,7 @@ _ZN4dmlc11LogCheck_EQIliEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_tra
   unreachable
 
 _ZNSt6vectorISt6futureISt10shared_ptrIN7xgboost13SortedCSCPageEEESaIS5_EE2atEm.exit: ; preds = %153
-  %167 = getelementptr inbounds nuw %"class.std::future.576", ptr %161, i64 %157
+  %167 = getelementptr inbounds nuw [16 x i8], ptr %161, i64 %157
   %168 = load ptr, ptr %167, align 8, !tbaa !581
   %.not206 = icmp eq ptr %168, null
   br i1 %.not206, label %169, label %267
@@ -39435,7 +39433,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   unreachable
 
 216:                                              ; preds = %204
-  %217 = getelementptr inbounds nuw %"class.std::future.576", ptr %210, i64 %207
+  %217 = getelementptr inbounds nuw [16 x i8], ptr %210, i64 %207
   %218 = load ptr, ptr %16, align 8, !tbaa !581
   %219 = load ptr, ptr %142, align 8, !tbaa !131
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
@@ -39830,7 +39828,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit118: ; preds = %_Z
   %381 = load i32, ptr %109, align 8, !tbaa !1108
   %382 = zext i32 %381 to i64
   %383 = load ptr, ptr %380, align 8, !tbaa !1135
-  %384 = getelementptr inbounds nuw %"class.std::future.576", ptr %383, i64 %382
+  %384 = getelementptr inbounds nuw [16 x i8], ptr %383, i64 %382
   %385 = load ptr, ptr %384, align 8, !tbaa !581
   %.not205 = icmp eq ptr %385, null
   br i1 %.not205, label %386, label %406, !prof !126
@@ -39907,7 +39905,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit130: ; preds = %_Z
 406:                                              ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit124, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit118
   %.pre-phi = phi i64 [ %.pre260, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit124 ], [ %382, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit118 ]
   %407 = phi ptr [ %.pre259, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit124 ], [ %383, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit118 ]
-  %408 = getelementptr inbounds nuw %"class.std::future.576", ptr %407, i64 %.pre-phi
+  %408 = getelementptr inbounds nuw [16 x i8], ptr %407, i64 %.pre-phi
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !1163
   store ptr %408, ptr %2, align 8, !tbaa !1129, !noalias !1163
   %409 = invoke noundef nonnull align 8 dereferenceable(33) ptr @_ZNKSt14__basic_futureISt10shared_ptrIN7xgboost13SortedCSCPageEEE13_M_get_resultEv(ptr noundef nonnull align 8 dereferenceable(16) %408)
@@ -40755,7 +40753,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i: ; preds = %144, %.n
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i: ; preds = %146, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i
   store ptr %141, ptr %121, align 8, !tbaa !110
   store ptr %145, ptr %122, align 8, !tbaa !112
-  %147 = getelementptr inbounds nuw i64, ptr %141, i64 %139
+  %147 = getelementptr inbounds nuw [8 x i8], ptr %141, i64 %139
   store ptr %147, ptr %124, align 8, !tbaa !111
   br label %_ZNSt10unique_ptrIN7xgboost6common22AlignedFileWriteStreamESt14default_deleteIS2_EED2Ev.exit
 
@@ -41240,9 +41238,9 @@ _ZNSt6vectorISt6futureISt10shared_ptrIN7xgboost13SortedCSCPageEEESaIS5_EE11_S_re
 
 _ZNSt12_Vector_baseISt6futureISt10shared_ptrIN7xgboost13SortedCSCPageEEESaIS5_EE13_M_deallocateEPS5_m.exit37: ; preds = %_ZNSt6vectorISt6futureISt10shared_ptrIN7xgboost13SortedCSCPageEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %35
   store ptr %26, ptr %0, align 8, !tbaa !1135
-  %37 = getelementptr inbounds nuw %"class.std::future.576", ptr %27, i64 %1
+  %37 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %1
   store ptr %37, ptr %4, align 8, !tbaa !1137
-  %38 = getelementptr inbounds nuw %"class.std::future.576", ptr %26, i64 %24
+  %38 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %24
   store ptr %38, ptr %11, align 8, !tbaa !1139
   br label %39
 
@@ -42388,9 +42386,9 @@ _ZNKSt6vectorImSaImEE2atEm.exit.i:                ; preds = %25
   unreachable
 
 43:                                               ; preds = %_ZNKSt6vectorImSaImEE2atEm.exit.i
-  %44 = getelementptr inbounds nuw i64, ptr %36, i64 %32
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %32
   %45 = load i64, ptr %44, align 8, !tbaa !102
-  %46 = getelementptr inbounds nuw i64, ptr %36, i64 %41
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %41
   %47 = load i64, ptr %46, align 8, !tbaa !102
   %48 = sub i64 %47, %45
   call void @llvm.lifetime.start.p0(ptr nonnull %4)

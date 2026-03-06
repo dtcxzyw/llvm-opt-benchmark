@@ -49,7 +49,7 @@ define dso_local void @improve_antibandwidth_by_swapping(ptr noundef readonly ca
 .lr.ph154:                                        ; preds = %.preheader, %156
   %indvars.iv163 = phi i64 [ %indvars.iv.next164, %156 ], [ 0, %.preheader ]
   %.1153 = phi i1 [ %.3, %156 ], [ false, %.preheader ]
-  %17 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv163
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv163
   %18 = load i32, ptr %17, align 4, !tbaa !18
   %19 = getelementptr i8, ptr %17, i64 4
   %20 = load i32, ptr %19, align 4, !tbaa !18
@@ -57,7 +57,7 @@ define dso_local void @improve_antibandwidth_by_swapping(ptr noundef readonly ca
   br i1 %21, label %.lr.ph.i, label %.lr.ph
 
 .lr.ph.i:                                         ; preds = %.lr.ph154
-  %22 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv163
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv163
   %23 = sext i32 %18 to i64
   %wide.trip.count.i = sext i32 %20 to i64
   br label %24
@@ -66,7 +66,7 @@ define dso_local void @improve_antibandwidth_by_swapping(ptr noundef readonly ca
   %.sroa.0137.2 = phi double [ %16, %.lr.ph.i ], [ %.sroa.0137.3, %39 ]
   %25 = phi double [ %16, %.lr.ph.i ], [ %40, %39 ]
   %indvars.iv.i = phi i64 [ %23, %.lr.ph.i ], [ %indvars.iv.next.i, %39 ]
-  %26 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv.i
+  %26 = getelementptr inbounds [4 x i8], ptr %7, i64 %indvars.iv.i
   %27 = load i32, ptr %26, align 4, !tbaa !18
   %28 = zext i32 %27 to i64
   %29 = icmp eq i64 %indvars.iv163, %28
@@ -75,7 +75,7 @@ define dso_local void @improve_antibandwidth_by_swapping(ptr noundef readonly ca
 30:                                               ; preds = %24
   %31 = load i32, ptr %22, align 4, !tbaa !18
   %32 = sext i32 %27 to i64
-  %33 = getelementptr inbounds i32, ptr %1, i64 %32
+  %33 = getelementptr inbounds [4 x i8], ptr %1, i64 %32
   %34 = load i32, ptr %33, align 4, !tbaa !18
   %35 = sub nsw i32 %31, %34
   %36 = tail call i32 @llvm.abs.i32(i32 %35, i1 true)
@@ -92,7 +92,7 @@ define dso_local void @improve_antibandwidth_by_swapping(ptr noundef readonly ca
 
 .lr.ph:                                           ; preds = %39, %.lr.ph154
   %.sroa.0137.4 = phi double [ %16, %.lr.ph154 ], [ %.sroa.0137.3, %39 ]
-  %41 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv163
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv163
   br label %42
 
 42:                                               ; preds = %.lr.ph, %117
@@ -103,7 +103,7 @@ define dso_local void @improve_antibandwidth_by_swapping(ptr noundef readonly ca
   br i1 %43, label %117, label %44
 
 44:                                               ; preds = %42
-  %45 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   %46 = load i32, ptr %45, align 4, !tbaa !18
   %47 = getelementptr i8, ptr %45, i64 4
   %48 = load i32, ptr %47, align 4, !tbaa !18
@@ -111,7 +111,7 @@ define dso_local void @improve_antibandwidth_by_swapping(ptr noundef readonly ca
   br i1 %49, label %.lr.ph.i74, label %get_local_12_norm.exit82
 
 .lr.ph.i74:                                       ; preds = %44
-  %50 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %51 = sext i32 %46 to i64
   %wide.trip.count.i75 = sext i32 %48 to i64
   br label %52
@@ -120,7 +120,7 @@ define dso_local void @improve_antibandwidth_by_swapping(ptr noundef readonly ca
   %.sroa.0134.0 = phi double [ %16, %.lr.ph.i74 ], [ %.sroa.0134.1, %67 ]
   %53 = phi double [ %16, %.lr.ph.i74 ], [ %68, %67 ]
   %indvars.iv.i76 = phi i64 [ %51, %.lr.ph.i74 ], [ %indvars.iv.next.i79, %67 ]
-  %54 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv.i76
+  %54 = getelementptr inbounds [4 x i8], ptr %7, i64 %indvars.iv.i76
   %55 = load i32, ptr %54, align 4, !tbaa !18
   %56 = zext i32 %55 to i64
   %57 = icmp eq i64 %indvars.iv, %56
@@ -129,7 +129,7 @@ define dso_local void @improve_antibandwidth_by_swapping(ptr noundef readonly ca
 58:                                               ; preds = %52
   %59 = load i32, ptr %50, align 4, !tbaa !18
   %60 = sext i32 %55 to i64
-  %61 = getelementptr inbounds i32, ptr %1, i64 %60
+  %61 = getelementptr inbounds [4 x i8], ptr %1, i64 %60
   %62 = load i32, ptr %61, align 4, !tbaa !18
   %63 = sub nsw i32 %59, %62
   %64 = tail call i32 @llvm.abs.i32(i32 %63, i1 true)
@@ -147,7 +147,7 @@ define dso_local void @improve_antibandwidth_by_swapping(ptr noundef readonly ca
 get_local_12_norm.exit82:                         ; preds = %67, %44
   %.sroa.0134.2 = phi double [ %16, %44 ], [ %.sroa.0134.1, %67 ]
   %69 = load i32, ptr %41, align 4, !tbaa !18
-  %70 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %71 = load i32, ptr %70, align 4, !tbaa !18
   store i32 %71, ptr %41, align 4, !tbaa !18
   store i32 %69, ptr %70, align 4, !tbaa !18
@@ -165,7 +165,7 @@ get_local_12_norm.exit82:                         ; preds = %67, %44
   %.sroa.0132.0 = phi double [ %16, %.lr.ph.i83 ], [ %.sroa.0132.1, %91 ]
   %77 = phi double [ %16, %.lr.ph.i83 ], [ %92, %91 ]
   %indvars.iv.i85 = phi i64 [ %75, %.lr.ph.i83 ], [ %indvars.iv.next.i88, %91 ]
-  %78 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv.i85
+  %78 = getelementptr inbounds [4 x i8], ptr %7, i64 %indvars.iv.i85
   %79 = load i32, ptr %78, align 4, !tbaa !18
   %80 = zext i32 %79 to i64
   %81 = icmp eq i64 %indvars.iv163, %80
@@ -174,7 +174,7 @@ get_local_12_norm.exit82:                         ; preds = %67, %44
 82:                                               ; preds = %76
   %83 = load i32, ptr %41, align 4, !tbaa !18
   %84 = sext i32 %79 to i64
-  %85 = getelementptr inbounds i32, ptr %1, i64 %84
+  %85 = getelementptr inbounds [4 x i8], ptr %1, i64 %84
   %86 = load i32, ptr %85, align 4, !tbaa !18
   %87 = sub nsw i32 %83, %86
   %88 = tail call i32 @llvm.abs.i32(i32 %87, i1 true)
@@ -205,7 +205,7 @@ get_local_12_norm.exit91:                         ; preds = %91, %get_local_12_n
   %.sroa.0.0 = phi double [ %16, %.lr.ph.i92 ], [ %.sroa.0.1, %111 ]
   %98 = phi double [ %16, %.lr.ph.i92 ], [ %112, %111 ]
   %indvars.iv.i94 = phi i64 [ %96, %.lr.ph.i92 ], [ %indvars.iv.next.i97, %111 ]
-  %99 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv.i94
+  %99 = getelementptr inbounds [4 x i8], ptr %7, i64 %indvars.iv.i94
   %100 = load i32, ptr %99, align 4, !tbaa !18
   %101 = zext i32 %100 to i64
   %102 = icmp eq i64 %indvars.iv, %101
@@ -213,7 +213,7 @@ get_local_12_norm.exit91:                         ; preds = %91, %get_local_12_n
 
 103:                                              ; preds = %97
   %104 = sext i32 %100 to i64
-  %105 = getelementptr inbounds i32, ptr %1, i64 %104
+  %105 = getelementptr inbounds [4 x i8], ptr %1, i64 %104
   %106 = load i32, ptr %105, align 4, !tbaa !18
   %107 = sub nsw i32 %69, %106
   %108 = tail call i32 @llvm.abs.i32(i32 %107, i1 true)
@@ -267,13 +267,13 @@ get_local_12_norm.exit100:                        ; preds = %111, %get_local_12_
   %indvars.iv63.i = phi i64 [ 0, %.lr.ph57.preheader.i ], [ %indvars.iv.next64.i, %._crit_edge.i101 ]
   %storemerge53.i = phi double [ 0.000000e+00, %.lr.ph57.preheader.i ], [ %149, %._crit_edge.i101 ]
   %indvars.iv.next64.i = add nuw nsw i64 %indvars.iv63.i, 1
-  %125 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.next64.i
+  %125 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv.next64.i
   %126 = load i32, ptr %125, align 4, !tbaa !18
   %127 = icmp slt i32 %124, %126
   br i1 %127, label %.lr.ph.i102, label %._crit_edge.i101
 
 .lr.ph.i102:                                      ; preds = %.lr.ph57.i
-  %128 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv63.i
+  %128 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv63.i
   %129 = sext i32 %124 to i64
   %wide.trip.count.i103 = sext i32 %126 to i64
   br label %130
@@ -283,7 +283,7 @@ get_local_12_norm.exit100:                        ; preds = %111, %get_local_12_
   %131 = phi double [ %123, %.lr.ph.i102 ], [ %147, %146 ]
   %indvars.iv.i104 = phi i64 [ %129, %.lr.ph.i102 ], [ %indvars.iv.next.i106, %146 ]
   %.049.i = phi double [ %16, %.lr.ph.i102 ], [ %.1.i105, %146 ]
-  %132 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv.i104
+  %132 = getelementptr inbounds [4 x i8], ptr %7, i64 %indvars.iv.i104
   %133 = load i32, ptr %132, align 4, !tbaa !18
   %134 = zext i32 %133 to i64
   %135 = icmp eq i64 %indvars.iv63.i, %134
@@ -292,7 +292,7 @@ get_local_12_norm.exit100:                        ; preds = %111, %get_local_12_
 136:                                              ; preds = %130
   %137 = load i32, ptr %128, align 4, !tbaa !18
   %138 = sext i32 %133 to i64
-  %139 = getelementptr inbounds i32, ptr %1, i64 %138
+  %139 = getelementptr inbounds [4 x i8], ptr %1, i64 %138
   %140 = load i32, ptr %139, align 4, !tbaa !18
   %141 = sub nsw i32 %137, %140
   %142 = tail call i32 @llvm.abs.i32(i32 %141, i1 true)
@@ -352,13 +352,13 @@ get_12_norm.exit.loopexit:                        ; preds = %._crit_edge.i101
   %indvars.iv63.i113 = phi i64 [ 0, %.lr.ph57.preheader.i109 ], [ %indvars.iv.next64.i116, %._crit_edge.i117 ]
   %storemerge53.i115 = phi double [ 0.000000e+00, %.lr.ph57.preheader.i109 ], [ %185, %._crit_edge.i117 ]
   %indvars.iv.next64.i116 = add nuw nsw i64 %indvars.iv63.i113, 1
-  %161 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.next64.i116
+  %161 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv.next64.i116
   %162 = load i32, ptr %161, align 4, !tbaa !18
   %163 = icmp slt i32 %160, %162
   br i1 %163, label %.lr.ph.i122, label %._crit_edge.i117
 
 .lr.ph.i122:                                      ; preds = %.lr.ph57.i112
-  %164 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv63.i113
+  %164 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv63.i113
   %165 = sext i32 %160 to i64
   %wide.trip.count.i123 = sext i32 %162 to i64
   br label %166
@@ -368,7 +368,7 @@ get_12_norm.exit.loopexit:                        ; preds = %._crit_edge.i101
   %167 = phi double [ %159, %.lr.ph.i122 ], [ %183, %182 ]
   %indvars.iv.i124 = phi i64 [ %165, %.lr.ph.i122 ], [ %indvars.iv.next.i129, %182 ]
   %.049.i125 = phi double [ %16, %.lr.ph.i122 ], [ %.1.i128, %182 ]
-  %168 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv.i124
+  %168 = getelementptr inbounds [4 x i8], ptr %7, i64 %indvars.iv.i124
   %169 = load i32, ptr %168, align 4, !tbaa !18
   %170 = zext i32 %169 to i64
   %171 = icmp eq i64 %indvars.iv63.i113, %170
@@ -377,7 +377,7 @@ get_12_norm.exit.loopexit:                        ; preds = %._crit_edge.i101
 172:                                              ; preds = %166
   %173 = load i32, ptr %164, align 4, !tbaa !18
   %174 = sext i32 %169 to i64
-  %175 = getelementptr inbounds i32, ptr %1, i64 %174
+  %175 = getelementptr inbounds [4 x i8], ptr %1, i64 %174
   %176 = load i32, ptr %175, align 4, !tbaa !18
   %177 = sub nsw i32 %173, %176
   %178 = tail call i32 @llvm.abs.i32(i32 %177, i1 true)
@@ -481,10 +481,10 @@ define dso_local void @country_graph_coloring(i32 noundef %0, ptr noundef %1, pt
   %indvars.iv70 = phi i64 [ 0, %.lr.ph64.preheader ], [ %indvars.iv.next71, %._crit_edge ]
   %.04961 = phi ptr [ %13, %.lr.ph64.preheader ], [ %35, %._crit_edge ]
   store double 0.000000e+00, ptr %5, align 8, !tbaa !26
-  %15 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv70
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv70
   %16 = load i32, ptr %15, align 4, !tbaa !18
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
-  %17 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv.next71
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv.next71
   %18 = load i32, ptr %17, align 4, !tbaa !18
   %19 = icmp slt i32 %16, %18
   br i1 %19, label %.lr.ph.preheader, label %._crit_edge
@@ -498,7 +498,7 @@ define dso_local void @country_graph_coloring(i32 noundef %0, ptr noundef %1, pt
   %22 = phi i32 [ %18, %.lr.ph.preheader ], [ %31, %30 ]
   %indvars.iv = phi i64 [ %20, %.lr.ph.preheader ], [ %indvars.iv.next, %30 ]
   %.158 = phi ptr [ %.04961, %.lr.ph.preheader ], [ %.2, %30 ]
-  %23 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv
+  %23 = getelementptr inbounds [4 x i8], ptr %12, i64 %indvars.iv
   %24 = load i32, ptr %23, align 4, !tbaa !18
   %25 = zext i32 %24 to i64
   %.not55 = icmp eq i64 %indvars.iv70, %25

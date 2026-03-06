@@ -20,7 +20,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.hostent = type { ptr, ptr, i32, i32, ptr }
 %struct.Py_buffer = type { ptr, ptr, i64, i64, i32, i32, ptr, ptr, ptr, ptr, ptr }
 %struct.addrinfo = type { i32, i32, i32, i32, i32, ptr, ptr, ptr }
-%struct.if_nameindex = type { i32, ptr }
 %struct.sockaddr_in6 = type { i16, i16, i32, %struct.in6_addr, i32 }
 %struct.in6_addr = type { %union.anon.0 }
 %union.anon.0 = type { [4 x i32] }
@@ -36,7 +35,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.iovec = type { ptr, i64 }
 %struct.msghdr = type { ptr, i32, ptr, i64, ptr, i64, i32 }
 %struct.sock_sendmsg = type { ptr, i32, i64 }
-%struct.cmsginfo = type { i32, i32, %struct.Py_buffer }
 %struct.pollfd = type { i32, i16, i16 }
 %struct.maybe_idna = type { ptr, ptr }
 %struct.sock_recvmsg = type { ptr, i32, i64 }
@@ -2758,7 +2756,7 @@ define internal ptr @socket_if_nameindex(ptr readnone captures(none) %0, ptr rea
 .lr.ph:                                           ; preds = %.preheader, %Py_DECREF.exit31
   %indvars.iv = phi i64 [ %indvars.iv.next, %Py_DECREF.exit31 ], [ 0, %.preheader ]
   %17 = phi i32 [ %42, %Py_DECREF.exit31 ], [ %8, %.preheader ]
-  %18 = getelementptr %struct.if_nameindex, ptr %6, i64 %indvars.iv
+  %18 = getelementptr [16 x i8], ptr %6, i64 %indvars.iv
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !70
   %21 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.117, i32 noundef %17, ptr noundef nonnull @PyUnicode_DecodeFSDefault, ptr noundef %20) #13
@@ -2819,7 +2817,7 @@ Py_DECREF.exit29:                                 ; preds = %.critedge, %32, %35
 
 Py_DECREF.exit31:                                 ; preds = %36, %37, %40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %41 = getelementptr %struct.if_nameindex, ptr %6, i64 %indvars.iv.next
+  %41 = getelementptr [16 x i8], ptr %6, i64 %indvars.iv.next
   %42 = load i32, ptr %41, align 8, !tbaa !68
   %43 = icmp ne i32 %42, 0
   %44 = icmp ne i64 %indvars.iv.next, 2147483647
@@ -8744,16 +8742,16 @@ define internal ptr @sock_recvmsg_into(ptr noundef %0, ptr noundef %1) #0 {
 
 35:                                               ; preds = %30, %33
   %.pn = phi ptr [ %34, %33 ], [ %29, %30 ]
-  %.in = getelementptr ptr, ptr %.pn, i64 %.14463
+  %.in = getelementptr [8 x i8], ptr %.pn, i64 %.14463
   %36 = load ptr, ptr %.in, align 8, !tbaa !19
-  %37 = getelementptr %struct.Py_buffer, ptr %25, i64 %.14463
+  %37 = getelementptr [80 x i8], ptr %25, i64 %.14463
   %38 = call i32 (ptr, ptr, ...) @PyArg_Parse(ptr noundef %36, ptr noundef nonnull @.str.638, ptr noundef %37) #13
   %.not55 = icmp eq i32 %38, 0
   br i1 %.not55, label %.loopexit, label %39
 
 39:                                               ; preds = %35
   %40 = load ptr, ptr %37, align 8, !tbaa !27
-  %41 = getelementptr %struct.iovec, ptr %21, i64 %.14463
+  %41 = getelementptr [16 x i8], ptr %21, i64 %.14463
   store ptr %40, ptr %41, align 8, !tbaa !164
   %42 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %43 = load i64, ptr %42, align 8, !tbaa !31
@@ -8783,7 +8781,7 @@ define internal ptr @sock_recvmsg_into(ptr noundef %0, ptr noundef %1) #0 {
 
 .lr.ph66:                                         ; preds = %.loopexit, %.lr.ph66
   %.04764 = phi i64 [ %51, %.lr.ph66 ], [ 0, %.loopexit ]
-  %50 = getelementptr %struct.Py_buffer, ptr %.042, i64 %.04764
+  %50 = getelementptr [80 x i8], ptr %.042, i64 %.04764
   call void @PyBuffer_Release(ptr noundef %50) #13
   %51 = add nuw nsw i64 %.04764, 1
   %exitcond70.not = icmp eq i64 %51, %.043
@@ -8944,9 +8942,9 @@ define internal ptr @sock_sendmsg(ptr noundef %0, ptr noundef %1) #0 {
 
 57:                                               ; preds = %52, %55
   %.pn = phi ptr [ %56, %55 ], [ %50, %52 ]
-  %.in = getelementptr ptr, ptr %.pn, i64 %.1101
+  %.in = getelementptr [8 x i8], ptr %.pn, i64 %.1101
   %58 = load ptr, ptr %.in, align 8, !tbaa !19
-  %59 = getelementptr %struct.cmsginfo, ptr %.199, i64 %.1101
+  %59 = getelementptr [88 x i8], ptr %.199, i64 %.1101
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 4
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %62 = call i32 (ptr, ptr, ...) @PyArg_Parse(ptr noundef %58, ptr noundef nonnull @.str.642, ptr noundef %59, ptr noundef nonnull %60, ptr noundef nonnull %61) #13
@@ -9006,7 +9004,7 @@ get_CMSG_SPACE.exit:                              ; preds = %68
 88:                                               ; preds = %85, %143
   %.083199 = phi ptr [ null, %85 ], [ %118, %143 ]
   %.084198 = phi i64 [ 0, %85 ], [ %150, %143 ]
-  %89 = getelementptr %struct.cmsginfo, ptr %.199, i64 %.084198
+  %89 = getelementptr [88 x i8], ptr %.199, i64 %.084198
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %91 = getelementptr inbounds nuw i8, ptr %89, i64 24
   %92 = load i64, ptr %91, align 8, !tbaa !177
@@ -9149,7 +9147,7 @@ cmsg_min_space.exit:                              ; preds = %127
 
 .lr.ph:                                           ; preds = %.thread158, %.lr.ph
   %.185200 = phi i64 [ %164, %.lr.ph ], [ 0, %.thread158 ]
-  %162 = getelementptr %struct.cmsginfo, ptr %.199, i64 %.185200
+  %162 = getelementptr [88 x i8], ptr %.199, i64 %.185200
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 8
   call void @PyBuffer_Release(ptr noundef nonnull %163) #13
   %164 = add nuw nsw i64 %.185200, 1
@@ -9190,7 +9188,7 @@ Py_XDECREF.exit:                                  ; preds = %._crit_edge, %165, 
 
 .lr.ph202:                                        ; preds = %Py_XDECREF.exit, %.lr.ph202
   %.2201 = phi i64 [ %176, %.lr.ph202 ], [ 0, %Py_XDECREF.exit ]
-  %175 = getelementptr %struct.Py_buffer, ptr %.pre, i64 %.2201
+  %175 = getelementptr [80 x i8], ptr %.pre, i64 %.2201
   call void @PyBuffer_Release(ptr noundef %175) #13
   %176 = add nuw nsw i64 %.2201, 1
   %exitcond218.not = icmp eq i64 %176, %173
@@ -9480,7 +9478,7 @@ __cmsg_nxthdr.exit73.thread:                      ; preds = %99, %90, %.thread10
 
 .lr.ph:                                           ; preds = %123, %.lr.ph
   %.05180 = phi i64 [ %129, %.lr.ph ], [ 0, %123 ]
-  %128 = getelementptr %struct.Py_buffer, ptr %.pre83, i64 %.05180
+  %128 = getelementptr [80 x i8], ptr %.pre83, i64 %.05180
   call void @PyBuffer_Release(ptr noundef %128) #13
   %129 = add nuw nsw i64 %.05180, 1
   %exitcond.not = icmp eq i64 %129, %126
@@ -12189,16 +12187,16 @@ define internal fastcc range(i32 -1, 1) i32 @sock_sendmsg_iovec(ptr noundef %0, 
 
 35:                                               ; preds = %30, %33
   %.pn = phi ptr [ %34, %33 ], [ %29, %30 ]
-  %.in = getelementptr ptr, ptr %.pn, i64 %.1437
+  %.in = getelementptr [8 x i8], ptr %.pn, i64 %.1437
   %36 = load ptr, ptr %.in, align 8, !tbaa !19
-  %37 = getelementptr %struct.Py_buffer, ptr %25, i64 %.1437
+  %37 = getelementptr [80 x i8], ptr %25, i64 %.1437
   %38 = tail call i32 (ptr, ptr, ...) @PyArg_Parse(ptr noundef %36, ptr noundef nonnull @.str.652, ptr noundef %37) #13
   %.not50 = icmp eq i32 %38, 0
   br i1 %.not50, label %.loopexit, label %39
 
 39:                                               ; preds = %35
   %40 = load ptr, ptr %37, align 8, !tbaa !27
-  %41 = getelementptr %struct.iovec, ptr %18, i64 %.1437
+  %41 = getelementptr [16 x i8], ptr %18, i64 %.1437
   store ptr %40, ptr %41, align 8, !tbaa !164
   %42 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %43 = load i64, ptr %42, align 8, !tbaa !31

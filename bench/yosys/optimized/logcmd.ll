@@ -151,7 +151,7 @@ define internal void @_ZN12_GLOBAL__N_17LogPass7executeESt6vectorINSt7__cxx1112b
   %.04069 = phi i1 [ %.141, %52 ], [ true, %3 ]
   %.04268 = phi i1 [ %.143, %52 ], [ false, %3 ]
   %.04467 = phi i1 [ %.145, %52 ], [ false, %3 ]
-  %17 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %16, i64 %.074
+  %17 = getelementptr inbounds nuw [32 x i8], ptr %16, i64 %.074
   %18 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull @.str.27) #13
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %52, label %22
@@ -163,42 +163,42 @@ define internal void @_ZN12_GLOBAL__N_17LogPass7executeESt6vectorINSt7__cxx1112b
 
 22:                                               ; preds = %.lr.ph
   %23 = load ptr, ptr %1, align 8, !tbaa !19
-  %24 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %.074
+  %24 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %.074
   %25 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull @.str.28) #13
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %52, label %27
 
 27:                                               ; preds = %22
   %28 = load ptr, ptr %1, align 8, !tbaa !19
-  %29 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %28, i64 %.074
+  %29 = getelementptr inbounds nuw [32 x i8], ptr %28, i64 %.074
   %30 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull @.str.29) #13
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %52, label %32
 
 32:                                               ; preds = %27
   %33 = load ptr, ptr %1, align 8, !tbaa !19
-  %34 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %33, i64 %.074
+  %34 = getelementptr inbounds nuw [32 x i8], ptr %33, i64 %.074
   %35 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull @.str.30) #13
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %52, label %37
 
 37:                                               ; preds = %32
   %38 = load ptr, ptr %1, align 8, !tbaa !19
-  %39 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %38, i64 %.074
+  %39 = getelementptr inbounds nuw [32 x i8], ptr %38, i64 %.074
   %40 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %39, ptr noundef nonnull @.str.31) #13
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %52, label %42
 
 42:                                               ; preds = %37
   %43 = load ptr, ptr %1, align 8, !tbaa !19
-  %44 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %43, i64 %.074
+  %44 = getelementptr inbounds nuw [32 x i8], ptr %43, i64 %.074
   %45 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull @.str.32) #13
   %46 = icmp eq i32 %45, 0
   br i1 %46, label %52, label %47
 
 47:                                               ; preds = %42
   %48 = load ptr, ptr %1, align 8, !tbaa !19
-  %49 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %48, i64 %.074
+  %49 = getelementptr inbounds nuw [32 x i8], ptr %48, i64 %.074
   %50 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %49, ptr noundef nonnull @.str.33) #13
   %51 = icmp eq i32 %50, 0
   br i1 %51, label %52, label %._crit_edge.loopexit
@@ -294,7 +294,7 @@ define internal void @_ZN12_GLOBAL__N_17LogPass7executeESt6vectorINSt7__cxx1112b
   %83 = phi ptr [ %73, %.lr.ph92 ], [ %119, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   %.191 = phi i64 [ %.0.lcssa, %.lr.ph92 ], [ %117, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %84 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %83, i64 %.191
+  %84 = getelementptr inbounds nuw [32 x i8], ptr %83, i64 %.191
   call void @llvm.experimental.noalias.scope.decl(metadata !22)
   store ptr %79, ptr %6, align 8, !tbaa !6, !alias.scope !22
   %85 = load ptr, ptr %84, align 8, !tbaa !25, !noalias !22

@@ -16447,8 +16447,8 @@ select.unfold:                                    ; preds = %415, %.noexc1295
 
 581:                                              ; preds = %581, %579
   %.05.i.i = phi i64 [ 0, %579 ], [ %586, %581 ]
-  %582 = getelementptr inbounds nuw i64, ptr %546, i64 %.05.i.i
-  %583 = getelementptr inbounds nuw i64, ptr %580, i64 %.05.i.i
+  %582 = getelementptr inbounds nuw [8 x i8], ptr %546, i64 %.05.i.i
+  %583 = getelementptr inbounds nuw [8 x i8], ptr %580, i64 %.05.i.i
   %584 = load i64, ptr %582, align 8, !alias.scope !2057, !noalias !2060
   %585 = load i64, ptr %583, align 8, !alias.scope !2060, !noalias !2057
   store i64 %585, ptr %582, align 8, !alias.scope !2057, !noalias !2060
@@ -17738,7 +17738,7 @@ common.ret:                                       ; preds = %2769, %2008, %704, 
   %988 = select i1 %.not.i.i.i.i.i, i64 0, i64 %987
   %.03.i.i.i.i.i = sub nuw i64 %986, %988
   %989 = load ptr, ptr %972, align 8, !alias.scope !2266, !noalias !2259, !nonnull !5, !noundef !5
-  %990 = getelementptr inbounds { ptr, ptr, i64, { ptr } }, ptr %989, i64 %.03.i.i.i.i.i
+  %990 = getelementptr inbounds [32 x i8], ptr %989, i64 %.03.i.i.i.i.i
   %991 = getelementptr inbounds nuw i8, ptr %990, i64 16
   %992 = load i64, ptr %991, align 8, !noalias !2269, !noundef !5
   %.not4.i.i.i.i = icmp eq i64 %992, 0

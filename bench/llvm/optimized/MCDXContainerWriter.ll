@@ -183,7 +183,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit: ; preds = %61, %64
   %67 = phi i32 [ %62, %61 ], [ %.pre.i, %64 ]
   %68 = load ptr, ptr %12, align 8, !tbaa !3
   %69 = zext i32 %67 to i64
-  %70 = getelementptr inbounds nuw i64, ptr %68, i64 %69
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %69
   store i64 %.0175, ptr %70, align 1
   %71 = load i32, ptr %16, align 8, !tbaa !9
   %72 = add i32 %71, 1

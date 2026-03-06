@@ -3,8 +3,6 @@ source_filename = "bench/graphviz/original/flat.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.rank_t = type { i32, ptr, i32, ptr, double, double, double, double, i8, i8, i64, ptr }
-
 @stderr = external local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [58 x i8] c"integer overflow when trying to allocate %zu * %zu bytes\0A\00", align 1
 @.str.1 = private unnamed_addr constant [49 x i8] c"out of memory when trying to allocate %zu bytes\0A\00", align 1
@@ -69,7 +67,7 @@ define range(i32 0, 2) i32 @flat_edges(ptr noundef %0) local_unnamed_addr #0 {
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 360
   %37 = load i32, ptr %36, align 8, !tbaa !46
   %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds %struct.rank_t, ptr %34, i64 %38
+  %39 = getelementptr inbounds [88 x i8], ptr %34, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load ptr, ptr %40, align 8, !tbaa !47
   %42 = sext i32 %.02735.i to i64
@@ -77,7 +75,7 @@ define range(i32 0, 2) i32 @flat_edges(ptr noundef %0) local_unnamed_addr #0 {
 
 43:                                               ; preds = %.backedge.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %42, %.lr.ph.i ], [ %indvars.iv.next.i, %.backedge.i ]
-  %44 = getelementptr inbounds ptr, ptr %41, i64 %indvars.iv.i
+  %44 = getelementptr inbounds [8 x i8], ptr %41, i64 %indvars.iv.i
   %45 = load ptr, ptr %44, align 8, !tbaa !12
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %47 = load ptr, ptr %46, align 8, !tbaa !3
@@ -128,7 +126,7 @@ checkFlatAdjacent.exit:                           ; preds = %.preheader.i, %._cr
   %61 = load ptr, ptr %5, align 8, !tbaa !3
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 288
   %63 = load ptr, ptr %62, align 8, !tbaa !14
-  %64 = getelementptr inbounds nuw ptr, ptr %63, i64 %60
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %60
   %65 = load ptr, ptr %64, align 8, !tbaa !29
   %.not121 = icmp eq ptr %65, null
   br i1 %.not121, label %.loopexit151, label %.lr.ph, !llvm.loop !62
@@ -152,7 +150,7 @@ checkFlatAdjacent.exit:                           ; preds = %.preheader.i, %._cr
   %.088161 = phi i64 [ %130, %checkFlatAdjacent.exit139 ], [ 0, %.loopexit151 ]
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 320
   %72 = load ptr, ptr %71, align 8, !tbaa !65
-  %73 = getelementptr inbounds nuw ptr, ptr %72, i64 %.088161
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %.088161
   %74 = load ptr, ptr %73, align 8, !tbaa !29
   %75 = load i32, ptr %74, align 8
   %76 = and i32 %75, 3
@@ -196,7 +194,7 @@ checkFlatAdjacent.exit:                           ; preds = %.preheader.i, %._cr
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 360
   %107 = load i32, ptr %106, align 8, !tbaa !46
   %108 = sext i32 %107 to i64
-  %109 = getelementptr inbounds %struct.rank_t, ptr %104, i64 %108
+  %109 = getelementptr inbounds [88 x i8], ptr %104, i64 %108
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 8
   %111 = load ptr, ptr %110, align 8, !tbaa !47
   %112 = sext i32 %.02735.i124 to i64
@@ -204,7 +202,7 @@ checkFlatAdjacent.exit:                           ; preds = %.preheader.i, %._cr
 
 113:                                              ; preds = %.backedge.i135, %.lr.ph.i131
   %indvars.iv.i132 = phi i64 [ %112, %.lr.ph.i131 ], [ %indvars.iv.next.i136, %.backedge.i135 ]
-  %114 = getelementptr inbounds ptr, ptr %111, i64 %indvars.iv.i132
+  %114 = getelementptr inbounds [8 x i8], ptr %111, i64 %indvars.iv.i132
   %115 = load ptr, ptr %114, align 8, !tbaa !12
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 16
   %117 = load ptr, ptr %116, align 8, !tbaa !3
@@ -378,7 +376,7 @@ gv_recalloc.exit.i:                               ; preds = %185, %183, %176
   %195 = load ptr, ptr %2, align 8, !tbaa !3
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 264
   %197 = load ptr, ptr %196, align 8, !tbaa !35
-  %198 = getelementptr inbounds nuw %struct.rank_t, ptr %197, i64 %indvars.iv.i142
+  %198 = getelementptr inbounds nuw [88 x i8], ptr %197, i64 %indvars.iv.i142
   %199 = getelementptr i8, ptr %198, i64 -88
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %198, ptr noundef nonnull align 8 dereferenceable(88) %199, i64 88, i1 false), !tbaa.struct !74
   %indvars.iv.next.i143 = add nsw i64 %indvars.iv.i142, -1
@@ -396,7 +394,7 @@ gv_recalloc.exit.i:                               ; preds = %185, %183, %176
   %201 = phi ptr [ %189, %gv_recalloc.exit.i ], [ %.pre.i, %._crit_edge.loopexit.i144 ]
   %.0.lcssa.i = phi i32 [ %192, %gv_recalloc.exit.i ], [ -1, %._crit_edge.loopexit.i144 ]
   %202 = sext i32 %.0.lcssa.i to i64
-  %203 = getelementptr inbounds %struct.rank_t, ptr %200, i64 %202
+  %203 = getelementptr inbounds [88 x i8], ptr %200, i64 %202
   %204 = getelementptr inbounds nuw i8, ptr %203, i64 16
   store i32 0, ptr %204, align 8, !tbaa !82
   store i32 0, ptr %203, align 8, !tbaa !83
@@ -433,14 +431,14 @@ gv_recalloc.exit.i:                               ; preds = %185, %183, %176
 
 220:                                              ; preds = %.lr.ph171, %159
   %221 = add i64 %.086170, 1
-  %222 = getelementptr inbounds nuw ptr, ptr %152, i64 %221
+  %222 = getelementptr inbounds nuw [8 x i8], ptr %152, i64 %221
   %223 = load ptr, ptr %222, align 8, !tbaa !29
   %.not106 = icmp eq ptr %223, null
   br i1 %.not106, label %._crit_edge172, label %.lr.ph171, !llvm.loop !90
 
 ._crit_edge172:                                   ; preds = %220, %.preheader148
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %224 = getelementptr inbounds nuw ptr, ptr %146, i64 %indvars.iv.next
+  %224 = getelementptr inbounds nuw [8 x i8], ptr %146, i64 %indvars.iv.next
   %225 = load ptr, ptr %224, align 8, !tbaa !12
   %.not105 = icmp eq ptr %225, null
   br i1 %.not105, label %.loopexit149, label %.preheader148, !llvm.loop !91
@@ -526,7 +524,7 @@ gv_recalloc.exit.i:                               ; preds = %185, %183, %176
   %indvars.iv.next199 = add nuw nsw i64 %indvars.iv198, 1
   %260 = getelementptr inbounds nuw i8, ptr %259, i64 288
   %261 = load ptr, ptr %260, align 8, !tbaa !14
-  %262 = getelementptr inbounds nuw ptr, ptr %261, i64 %indvars.iv.next199
+  %262 = getelementptr inbounds nuw [8 x i8], ptr %261, i64 %indvars.iv.next199
   %263 = load ptr, ptr %262, align 8, !tbaa !29
   %.not111 = icmp eq ptr %263, null
   br i1 %.not111, label %.preheader146, label %.lr.ph178, !llvm.loop !97
@@ -537,7 +535,7 @@ gv_recalloc.exit.i:                               ; preds = %185, %183, %176
   %.3180 = phi i8 [ %.4, %311 ], [ %.193.lcssa, %.preheader146 ]
   %265 = getelementptr inbounds nuw i8, ptr %264, i64 320
   %266 = load ptr, ptr %265, align 8, !tbaa !65
-  %267 = getelementptr inbounds nuw ptr, ptr %266, i64 %.085181
+  %267 = getelementptr inbounds nuw [8 x i8], ptr %266, i64 %.085181
   %268 = load ptr, ptr %267, align 8, !tbaa !29
   %269 = load i32, ptr %268, align 8
   %270 = and i32 %269, 3
@@ -683,7 +681,7 @@ define internal fastcc void @flat_node(ptr noundef %0) unnamed_addr #0 {
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 360
   %35 = load i32, ptr %34, align 8, !tbaa !46
   %36 = sext i32 %35 to i64
-  %37 = getelementptr %struct.rank_t, ptr %.val.val, i64 %36
+  %37 = getelementptr [88 x i8], ptr %.val.val, i64 %36
   %38 = getelementptr i8, ptr %37, i64 -88
   %39 = getelementptr i8, ptr %37, i64 -80
   %40 = load ptr, ptr %39, align 8, !tbaa !47
@@ -723,7 +721,7 @@ define internal fastcc void @flat_node(ptr noundef %0) unnamed_addr #0 {
   %indvars.iv.next.i82.in = phi i64 [ %indvars.iv.next.i82, %53 ], [ %52, %.lr.ph.preheader ]
   %indvars.iv4.i81 = phi i64 [ %indvars.iv.next5.i, %53 ], [ 0, %.lr.ph.preheader ]
   %indvars.iv.next.i82 = add nsw i64 %indvars.iv.next.i82.in, -1
-  %54 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv4.i81
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv4.i81
   %55 = load ptr, ptr %54, align 8, !tbaa !12
   %56 = getelementptr i8, ptr %55, i64 16
   %.val31.i = load ptr, ptr %56, align 8, !tbaa !3
@@ -733,7 +731,7 @@ define internal fastcc void @flat_node(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not.i, label %62, label %58
 
 58:                                               ; preds = %.lr.ph
-  %59 = getelementptr inbounds ptr, ptr %40, i64 %indvars.iv.next.i82
+  %59 = getelementptr inbounds [8 x i8], ptr %40, i64 %indvars.iv.next.i82
   %60 = load ptr, ptr %59, align 8, !tbaa !12
   %61 = getelementptr i8, ptr %60, i64 16
   %.val32.i = load ptr, ptr %61, align 8, !tbaa !3
@@ -764,7 +762,7 @@ flat_limits.exit:                                 ; preds = %53, %.flat_limits.e
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %73 = add nsw i32 %26, -1
   %74 = sext i32 %73 to i64
-  %75 = getelementptr inbounds %struct.rank_t, ptr %.val.val, i64 %74
+  %75 = getelementptr inbounds [88 x i8], ptr %.val.val, i64 %74
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %77 = load ptr, ptr %76, align 8, !tbaa !47
   %78 = load ptr, ptr %77, align 8, !tbaa !12
@@ -783,7 +781,7 @@ flat_limits.exit:                                 ; preds = %53, %.flat_limits.e
 
 87:                                               ; preds = %flat_limits.exit
   %88 = sext i32 %26 to i64
-  %89 = getelementptr inbounds %struct.rank_t, ptr %.val.val, i64 %88
+  %89 = getelementptr inbounds [88 x i8], ptr %.val.val, i64 %88
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %91 = load ptr, ptr %90, align 8, !tbaa !47
   %92 = load ptr, ptr %91, align 8, !tbaa !12
@@ -852,7 +850,7 @@ gv_recalloc.exit.i:                               ; preds = %126, %124, %117
   %129 = load ptr, ptr %27, align 8, !tbaa !3
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 264
   %131 = load ptr, ptr %130, align 8, !tbaa !35
-  %132 = getelementptr inbounds %struct.rank_t, ptr %131, i64 %74
+  %132 = getelementptr inbounds [88 x i8], ptr %131, i64 %74
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 8
   store ptr %.0.i.i.i, ptr %133, align 8, !tbaa !47
   %134 = load i32, ptr %132, align 8, !tbaa !83
@@ -870,7 +868,7 @@ gv_recalloc.exit.._crit_edge_crit_edge.i:         ; preds = %gv_recalloc.exit.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i77 = phi i64 [ %136, %.lr.ph.preheader.i ], [ %indvars.iv.next.i78, %.lr.ph.i ]
-  %138 = getelementptr ptr, ptr %.0.i.i.i, i64 %indvars.iv.i77
+  %138 = getelementptr [8 x i8], ptr %.0.i.i.i, i64 %indvars.iv.i77
   %139 = getelementptr i8, ptr %138, i64 -8
   %140 = load ptr, ptr %139, align 8, !tbaa !12
   store ptr %140, ptr %138, align 8, !tbaa !12
@@ -887,7 +885,7 @@ gv_recalloc.exit.._crit_edge_crit_edge.i:         ; preds = %gv_recalloc.exit.i
 make_vn_slot.exit:                                ; preds = %.lr.ph.i, %gv_recalloc.exit.._crit_edge_crit_edge.i
   %.pre-phi.i = phi i64 [ %.pre.i, %gv_recalloc.exit.._crit_edge_crit_edge.i ], [ %137, %.lr.ph.i ]
   %147 = tail call ptr @virtual_node(ptr noundef nonnull %16) #13
-  %148 = getelementptr inbounds ptr, ptr %.0.i.i.i, i64 %.pre-phi.i
+  %148 = getelementptr inbounds [8 x i8], ptr %.0.i.i.i, i64 %.pre-phi.i
   store ptr %147, ptr %148, align 8, !tbaa !12
   %149 = getelementptr inbounds nuw i8, ptr %147, i64 16
   %150 = load ptr, ptr %149, align 8, !tbaa !3
@@ -898,12 +896,12 @@ make_vn_slot.exit:                                ; preds = %.lr.ph.i, %gv_recal
   %153 = load ptr, ptr %27, align 8, !tbaa !3
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 264
   %155 = load ptr, ptr %154, align 8, !tbaa !35
-  %156 = getelementptr inbounds %struct.rank_t, ptr %155, i64 %74
+  %156 = getelementptr inbounds [88 x i8], ptr %155, i64 %74
   %157 = load i32, ptr %156, align 8, !tbaa !83
   %158 = add nsw i32 %157, 1
   store i32 %158, ptr %156, align 8, !tbaa !83
   %159 = sext i32 %158 to i64
-  %160 = getelementptr inbounds ptr, ptr %.0.i.i.i, i64 %159
+  %160 = getelementptr inbounds [8 x i8], ptr %.0.i.i.i, i64 %159
   store ptr null, ptr %160, align 8, !tbaa !12
   %161 = load ptr, ptr %148, align 8, !tbaa !12
   %162 = load ptr, ptr %3, align 8, !tbaa !3
@@ -995,7 +993,7 @@ make_vn_slot.exit:                                ; preds = %.lr.ph.i, %gv_recal
   %231 = load ptr, ptr %27, align 8, !tbaa !3
   %232 = getelementptr inbounds nuw i8, ptr %231, i64 264
   %233 = load ptr, ptr %232, align 8, !tbaa !35
-  %234 = getelementptr inbounds %struct.rank_t, ptr %233, i64 %74
+  %234 = getelementptr inbounds [88 x i8], ptr %233, i64 %74
   %235 = getelementptr inbounds nuw i8, ptr %234, i64 32
   %236 = load double, ptr %235, align 8, !tbaa !86
   %237 = fcmp olt double %236, %172
@@ -1182,7 +1180,7 @@ define internal fastcc void @setbounds(ptr readonly captures(none) %.16.val, ptr
   %67 = and i1 %.not63, %.not64
   %.1 = select i1 %67, i1 true, i1 %.011
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %68 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv.next
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv.next
   %69 = load ptr, ptr %68, align 8, !tbaa !29
   %.not62 = icmp eq ptr %69, null
   br i1 %.not62, label %._crit_edge, label %.lr.ph, !llvm.loop !114

@@ -357,7 +357,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ou
   %144 = load i8, ptr %143, align 1, !tbaa !18
   %145 = lshr i8 %144, 5
   %146 = zext nneg i8 %145 to i64
-  %147 = getelementptr inbounds nuw i32, ptr @php_json_escape_string.charmap, i64 %146
+  %147 = getelementptr inbounds nuw [4 x i8], ptr @php_json_escape_string.charmap, i64 %146
   %148 = load i32, ptr %147, align 4, !tbaa !32
   %149 = and i8 %144, 31
   %150 = zext nneg i8 %149 to i32
@@ -2383,7 +2383,7 @@ smart_str_appendc_ex.exit:                        ; preds = %128, %134
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %222 ]
   %.0224581 = phi i32 [ 0, %.lr.ph ], [ %.2226, %222 ]
   %150 = load ptr, ptr %144, align 8, !tbaa !96
-  %151 = getelementptr inbounds nuw ptr, ptr %150, i64 %indvars.iv
+  %151 = getelementptr inbounds nuw [8 x i8], ptr %150, i64 %indvars.iv
   %152 = load ptr, ptr %151, align 8, !tbaa !97
   %.not260 = icmp eq ptr %152, null
   br i1 %.not260, label %222, label %153

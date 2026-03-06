@@ -55,7 +55,7 @@ define i32 @AllocateCover(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_
 25:                                               ; preds = %.lr.ph, %25
   %store_forwarded = phi ptr [ %load_initial, %.lr.ph ], [ %27, %25 ]
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %26 = getelementptr ptr, ptr %10, i64 %indvars.iv
+  %26 = getelementptr [8 x i8], ptr %10, i64 %indvars.iv
   %27 = getelementptr inbounds i8, ptr %store_forwarded, i64 %23
   store ptr %27, ptr %26, align 8, !tbaa !3
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 40
@@ -72,7 +72,7 @@ define i32 @AllocateCover(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_
   %32 = phi ptr [ %.pre60.pre, %.lr.ph53.preheader ], [ %34, %.lr.ph53 ]
   %indvars.iv55 = phi i64 [ 0, %.lr.ph53.preheader ], [ %indvars.iv.next56, %.lr.ph53 ]
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
-  %33 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv.next56
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.next56
   %34 = load ptr, ptr %33, align 8, !tbaa !3
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 32
   store ptr %34, ptr %35, align 8, !tbaa !15

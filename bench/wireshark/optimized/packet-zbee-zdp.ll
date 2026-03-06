@@ -972,7 +972,7 @@ define hidden void @zdp_parse_node_desc(ptr noundef %0, ptr noundef readonly cap
 
 switch.lookup:                                    ; preds = %17
   %26 = zext nneg i16 %19 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.zdp_parse_node_desc, i64 %26
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.zdp_parse_node_desc, i64 %26
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %.sink.split
 
@@ -1313,7 +1313,7 @@ define hidden void @zdp_parse_complex_desc(ptr noundef readonly captures(none) %
 
 46:                                               ; preds = %37
   %47 = zext nneg i8 %14 to i64
-  %48 = getelementptr ptr, ptr @zdp_parse_complex_desc.tag_name, i64 %47
+  %48 = getelementptr [8 x i8], ptr @zdp_parse_complex_desc.tag_name, i64 %47
   %49 = load ptr, ptr %48, align 8
   %50 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %45, ptr noundef nonnull @.str.143, ptr noundef %49, ptr noundef %43, ptr noundef %49)
   br label %53

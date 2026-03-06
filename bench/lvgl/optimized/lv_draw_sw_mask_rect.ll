@@ -7,7 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._lv_draw_sw_mask_radius_param_t = type { %struct._lv_draw_sw_mask_common_dsc_t, %struct.anon, ptr }
 %struct._lv_draw_sw_mask_common_dsc_t = type { ptr, i32 }
 %struct.anon = type { %struct.lv_area_t, i32, i8 }
-%struct.lv_color32_t = type { i8, i8, i8, i8 }
 
 ; Function Attrs: nounwind uwtable
 define void @lv_draw_sw_mask_rect(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -132,7 +131,7 @@ define void @lv_draw_sw_mask_rect(ptr noundef %0, ptr noundef %1) local_unnamed_
 
 81:                                               ; preds = %.preheader.us
   %82 = zext i8 %80 to i16
-  %83 = getelementptr inbounds nuw %struct.lv_color32_t, ptr %77, i64 %indvars.iv
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %indvars.iv
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 3
   %85 = load i8, ptr %84, align 1, !tbaa !35
   %86 = zext i8 %85 to i16

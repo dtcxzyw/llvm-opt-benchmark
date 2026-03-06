@@ -76,8 +76,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"union.std::_Nocopy_types" = type { { i64, i64 } }
 %"class.testing::internal::DummyMatchResultListener" = type { %"class.testing::MatchResultListener" }
 %"class.testing::MatchResultListener" = type { ptr, ptr }
-%"class.std::shared_ptr.43" = type { %"class.std::__shared_ptr.44" }
-%"class.std::__shared_ptr.44" = type { ptr, %"class.std::__shared_count" }
 %"class.testing::StringMatchResultListener" = type { %"class.testing::MatchResultListener", %"class.std::__cxx11::basic_stringstream" }
 %"class.std::__cxx11::basic_stringstream" = type { %"class.std::basic_iostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_iostream.base" = type { %"class.std::basic_istream.base", %"class.std::basic_ostream.base" }
@@ -98,6 +96,8 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Head_base.33" = type { ptr }
 %"struct.std::_Head_base.34" = type { ptr }
 %"struct.std::_Head_base.35" = type { i32 }
+%"class.std::shared_ptr.43" = type { %"class.std::__shared_ptr.44" }
+%"class.std::__shared_ptr.44" = type { ptr, %"class.std::__shared_count" }
 %"class.testing::Expectation" = type { %"class.std::shared_ptr.43" }
 %"struct.testing::internal::CodeLocation" = type <{ %"class.std::__cxx11::basic_string", i32, [4 x i8] }>
 
@@ -5440,7 +5440,7 @@ define linkonce_odr hidden void @_ZNK7testing8internal14FunctionMockerIFvN6googl
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us
   %.021.us = phi i64 [ %42, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us ], [ 0, %.lr.ph ]
   %21 = load ptr, ptr %4, align 8, !tbaa !210
-  %22 = getelementptr inbounds nuw %"class.std::shared_ptr.43", ptr %21, i64 %.021.us
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %.021.us
   %23 = load ptr, ptr %22, align 8, !tbaa !147
   %24 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.30, i64 noundef 1)
   tail call void @_ZNK7testing8internal15ExpectationBase18DescribeLocationToEPSo(ptr noundef nonnull align 8 dereferenceable(232) %23, ptr noundef nonnull %2)
@@ -7714,7 +7714,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54: ; preds = %117
 133:                                              ; preds = %132
   %134 = load ptr, ptr %24, align 8, !tbaa !122
   %135 = sext i32 %8 to i64
-  %136 = getelementptr ptr, ptr %134, i64 %135
+  %136 = getelementptr [8 x i8], ptr %134, i64 %135
   %137 = getelementptr i8, ptr %136, i64 -8
   %138 = load ptr, ptr %137, align 8, !tbaa !125
   br label %141
@@ -9119,7 +9119,7 @@ _ZNSt6vectorISt10shared_ptrIN7testing8internal15ExpectationBaseEESaIS4_EE11_S_re
 _ZNSt12_Vector_baseISt10shared_ptrIN7testing8internal15ExpectationBaseEESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZNSt6vectorISt10shared_ptrIN7testing8internal15ExpectationBaseEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22, %48
   store ptr %20, ptr %0, align 8, !tbaa !210
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !209
-  %52 = getelementptr inbounds nuw %"class.std::shared_ptr.43", ptr %20, i64 %16
+  %52 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %52, ptr %47, align 8, !tbaa !295
   ret void
 }
@@ -11281,7 +11281,7 @@ _ZNSt6vectorIPKvSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ; preds = %69
 _ZNSt6vectorIPKvSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %71, %_ZNSt6vectorIPKvSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
   store ptr %66, ptr %26, align 8, !tbaa !122
   store ptr %70, ptr %46, align 8, !tbaa !123
-  %72 = getelementptr inbounds nuw ptr, ptr %66, i64 %64
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %64
   store ptr %72, ptr %48, align 8, !tbaa !124
   br label %_ZNSt6vectorIPKvSaIS1_EE9push_backEOS1_.exit
 

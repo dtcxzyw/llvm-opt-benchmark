@@ -3,9 +3,6 @@ source_filename = "bench/openjdk/original/Flag.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.jmmVMGlobal = type { ptr, %union.jvalue, i32, i32, i32, ptr, ptr }
-%union.jvalue = type { i64 }
-
 @jmm_interface_management_ext = external local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [8 x i8] c"DEFAULT\00", align 1
 @default_origin = internal unnamed_addr global ptr null, align 8
@@ -159,7 +156,7 @@ define i32 @Java_com_sun_management_internal_Flag_getFlags(ptr noundef %0, ptr n
 .lr.ph:                                           ; preds = %16, %70
   %indvars.iv = phi i64 [ %indvars.iv.next, %70 ], [ 0, %16 ]
   %.07079 = phi i32 [ %.1, %70 ], [ 0, %16 ]
-  %23 = getelementptr inbounds nuw %struct.jmmVMGlobal, ptr %calloc, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [48 x i8], ptr %calloc, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, null
   br i1 %25, label %70, label %26
@@ -222,7 +219,7 @@ define i32 @Java_com_sun_management_internal_Flag_getFlags(ptr noundef %0, ptr n
 
 switch.lookup:                                    ; preds = %50
   %54 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.Java_com_sun_management_internal_Flag_getFlags, i64 %54
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.Java_com_sun_management_internal_Flag_getFlags, i64 %54
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %55
 

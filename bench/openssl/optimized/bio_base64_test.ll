@@ -76,13 +76,13 @@ define internal range(i32 0, 2) i32 @test_bio_base64_generated(i32 noundef %0) #
   %.neg = mul nsw i32 %3, -6
   %20 = add nsw i32 %.neg, %0
   %21 = zext nneg i32 %6 to i64
-  %22 = getelementptr inbounds nuw ptr, ptr @prefixes, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr @prefixes, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !15
   store ptr %23, ptr %2, align 8, !tbaa !16
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr null, ptr %24, align 8, !tbaa !17
   %25 = sext i32 %20 to i64
-  %26 = getelementptr inbounds i32, ptr @lengths, i64 %25
+  %26 = getelementptr inbounds [4 x i8], ptr @lengths, i64 %25
   %27 = load i32, ptr %26, align 4, !tbaa !18
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 %27, ptr %28, align 8, !tbaa !19
@@ -105,14 +105,14 @@ define internal range(i32 0, 2) i32 @test_bio_base64_generated(i32 noundef %0) #
 .thread:                                          ; preds = %34
   %36 = add nsw i32 %7, -2
   store i32 %36, ptr %29, align 4, !tbaa !20
-  %37 = getelementptr inbounds nuw ptr, ptr @suffixes, i64 %21
+  %37 = getelementptr inbounds nuw [8 x i8], ptr @suffixes, i64 %21
   %38 = load ptr, ptr %37, align 8, !tbaa !15
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %38, ptr %39, align 8, !tbaa !21
   br label %44
 
 40:                                               ; preds = %34, %32
-  %41 = getelementptr inbounds nuw ptr, ptr @suffixes, i64 %21
+  %41 = getelementptr inbounds nuw [8 x i8], ptr @suffixes, i64 %21
   %42 = load ptr, ptr %41, align 8, !tbaa !15
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %42, ptr %43, align 8, !tbaa !21

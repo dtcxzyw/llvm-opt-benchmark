@@ -196,9 +196,9 @@ define internal i32 @blurdetect_filter_frame(ptr noundef readonly captures(none)
 
 76:                                               ; preds = %65
   %77 = add i32 %.097113, 1
-  %78 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %79 = load ptr, ptr %78, align 8, !tbaa !56
-  %80 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %indvars.iv
   %81 = load i32, ptr %80, align 4, !tbaa !57
   tail call void @ff_gaussian_blur_8(i32 noundef %69, i32 noundef %71, ptr noundef %15, i32 noundef %69, ptr noundef %79, i32 noundef %81, i32 noundef 1) #9
   tail call void @ff_sobel_8(i32 noundef %69, i32 noundef %71, ptr noundef %17, i32 noundef %69, ptr noundef %19, i32 noundef %69, ptr noundef %15, i32 noundef %69, i32 noundef 1) #9
@@ -258,7 +258,7 @@ define internal i32 @blurdetect_filter_frame(ptr noundef readonly captures(none)
   %112 = fdiv nsz double %.3196.us.us.us.us.us.us.i, %111
   %113 = fptrunc nsz double %112 to float
   %114 = sext i32 %.1198289.us.us.us.us.us.i to i64
-  %115 = getelementptr inbounds float, ptr %86, i64 %114
+  %115 = getelementptr inbounds [4 x i8], ptr %86, i64 %114
   store float %113, ptr %115, align 4, !tbaa !62
   %116 = add nsw i32 %.1198289.us.us.us.us.us.i, 1
   br label %117
@@ -300,10 +300,10 @@ define internal i32 @blurdetect_filter_frame(ptr noundef readonly captures(none)
 
 switch.lookup:                                    ; preds = %128
   %132 = zext nneg i8 %130 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.blurdetect_filter_frame, i64 %132
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.blurdetect_filter_frame, i64 %132
   %switch.load = load i32, ptr %switch.gep, align 4
   %133 = zext nneg i8 %130 to i64
-  %switch.gep179 = getelementptr inbounds nuw i32, ptr @switch.table.blurdetect_filter_frame.4, i64 %133
+  %switch.gep179 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.blurdetect_filter_frame.4, i64 %133
   %switch.load180 = load i32, ptr %switch.gep179, align 4
   br label %134
 
@@ -474,7 +474,7 @@ edge_width.exit.us.us.us.us.us.us.i:              ; preds = %159, %.lr.ph.i.us.u
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %86, ptr %3, align 16, !tbaa !72
   %217 = sext i32 %.0197.lcssa.i to i64
-  %218 = getelementptr inbounds float, ptr %86, i64 %217
+  %218 = getelementptr inbounds [4 x i8], ptr %86, i64 %217
   %219 = getelementptr inbounds i8, ptr %218, i64 -4
   store ptr %219, ptr %42, align 8, !tbaa !72
   br label %220
@@ -483,7 +483,7 @@ edge_width.exit.us.us.us.us.us.us.i:              ; preds = %159, %.lr.ph.i.us.u
   %.0219327.i = phi i32 [ 1, %._crit_edge298.i ], [ %.1220270.i, %.thread.i ]
   %221 = add nsw i32 %.0219327.i, -1
   %222 = sext i32 %221 to i64
-  %223 = getelementptr inbounds [2 x ptr], ptr %3, i64 %222
+  %223 = getelementptr inbounds [16 x i8], ptr %3, i64 %222
   %224 = load ptr, ptr %223, align 16, !tbaa !72
   %225 = getelementptr inbounds nuw i8, ptr %223, i64 8
   %226 = load ptr, ptr %225, align 8, !tbaa !72
@@ -510,7 +510,7 @@ edge_width.exit.us.us.us.us.us.us.i:              ; preds = %159, %.lr.ph.i.us.u
   %236 = ptrtoint ptr %.0216319.i to i64
   %237 = sub i64 %235, %236
   %238 = ashr i64 %237, 3
-  %239 = getelementptr inbounds float, ptr %.0216319.i, i64 %238
+  %239 = getelementptr inbounds [4 x i8], ptr %.0216319.i, i64 %238
   %.0216.val.i = load float, ptr %.0216319.i, align 4, !tbaa !62
   %.0213.val.i = load float, ptr %.0213320.i, align 4, !tbaa !62
   %240 = fcmp nsz ogt float %.0216.val.i, %.0213.val.i
@@ -661,7 +661,7 @@ edge_width.exit.us.us.us.us.us.us.i:              ; preds = %159, %.lr.ph.i.us.u
   br i1 %281, label %282, label %286
 
 282:                                              ; preds = %277
-  %283 = getelementptr inbounds [2 x ptr], ptr %3, i64 %indvars.iv358.i
+  %283 = getelementptr inbounds [16 x i8], ptr %3, i64 %indvars.iv358.i
   store ptr %.0216319.i, ptr %283, align 16, !tbaa !72
   %284 = getelementptr inbounds nuw i8, ptr %283, i64 8
   store ptr %.0208.lcssa.i, ptr %284, align 8, !tbaa !72
@@ -670,7 +670,7 @@ edge_width.exit.us.us.us.us.us.us.i:              ; preds = %159, %.lr.ph.i.us.u
 
 286:                                              ; preds = %277
   %287 = getelementptr inbounds nuw i8, ptr %.0205.lcssa.i, i64 4
-  %288 = getelementptr inbounds [2 x ptr], ptr %3, i64 %indvars.iv358.i
+  %288 = getelementptr inbounds [16 x i8], ptr %3, i64 %indvars.iv358.i
   store ptr %287, ptr %288, align 16, !tbaa !72
   %289 = getelementptr inbounds nuw i8, ptr %288, i64 8
   store ptr %.0213320.i, ptr %289, align 8, !tbaa !72
@@ -721,7 +721,7 @@ edge_width.exit.us.us.us.us.us.us.i:              ; preds = %159, %.lr.ph.i.us.u
 .lr.ph331.i:                                      ; preds = %.lr.ph331.i, %.lr.ph331.preheader.i
   %indvars.iv361.i = phi i64 [ 0, %.lr.ph331.preheader.i ], [ %indvars.iv.next362.i, %.lr.ph331.i ]
   %.0191328.i = phi float [ 0.000000e+00, %.lr.ph331.preheader.i ], [ %304, %.lr.ph331.i ]
-  %302 = getelementptr inbounds nuw float, ptr %86, i64 %indvars.iv361.i
+  %302 = getelementptr inbounds nuw [4 x i8], ptr %86, i64 %indvars.iv361.i
   %303 = load float, ptr %302, align 4, !tbaa !62
   %304 = fadd nsz float %.0191328.i, %303
   %indvars.iv.next362.i = add nuw nsw i64 %indvars.iv361.i, 1

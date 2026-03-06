@@ -23,7 +23,7 @@ define weak_odr dso_local void @_ZN3igl13increment_ulpIN5Eigen6MatrixIfLi1ELin1E
 
 .lr.ph.split.i.i.i.i.i.i.i:                       ; preds = %2, %_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIfLi1ELin1ELi1ELi1ELin1EEEEENS2_INS_12CwiseUnaryOpIZN3igl13increment_ulpIS4_EEvRNS_10MatrixBaseIT_EEiEUlfE_KS4_EEEENS0_9assign_opIffEELi0EE11assignCoeffEl.exit.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i = phi i64 [ %13, %_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIfLi1ELin1ELi1ELi1ELin1EEEEENS2_INS_12CwiseUnaryOpIZN3igl13increment_ulpIS4_EEvRNS_10MatrixBaseIT_EEiEUlfE_KS4_EEEENS0_9assign_opIffEELi0EE11assignCoeffEl.exit.i.i.i.i.i.i.i ], [ 0, %2 ]
-  %8 = getelementptr inbounds nuw float, ptr %3, i64 %.05.i.i.i.i.i.i.i
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.05.i.i.i.i.i.i.i
   %9 = load float, ptr %8, align 4, !tbaa !12
   br label %.lr.ph.i.i.i.i.i.i.i.i.i.i
 

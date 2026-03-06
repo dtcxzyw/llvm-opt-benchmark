@@ -96,8 +96,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Head_base.260" = type { ptr }
 %"class.std::shared_ptr.44" = type { %"class.std::__shared_ptr.45" }
 %"class.std::__shared_ptr.45" = type { ptr, %"class.std::__shared_count" }
-%"class.std::shared_ptr.39" = type { %"class.std::__shared_ptr.40" }
-%"class.std::__shared_ptr.40" = type { ptr, %"class.std::__shared_count" }
 
 $_ZN5arrow18TypedChunkLocationIiEC5Eii = comdat any
 
@@ -1309,7 +1307,7 @@ define void @_ZN5arrow11PrettyPrintERKNS_12ChunkedArrayERKNS_18PrettyPrintOption
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %69 = zext nneg i32 %.06285 to i64
   %70 = load ptr, ptr %1, align 8, !tbaa !132
-  %71 = getelementptr inbounds nuw %"class.std::shared_ptr.27", ptr %70, i64 %69
+  %71 = getelementptr inbounds nuw [16 x i8], ptr %70, i64 %69
   %72 = load ptr, ptr %71, align 8, !tbaa !85
   invoke fastcc void @_ZN5arrow12_GLOBAL__N_112ArrayPrinter5PrintERKNS_5ArrayE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(32) %72)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %75
@@ -4913,7 +4911,7 @@ _ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit43.i.i.i.i.i279
 
 _ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit46.i.i.i.i.i306: ; preds = %.noexc25.i305, %1007
   %.val39.val.i.i.i.i.i307 = load ptr, ptr %912, align 8, !tbaa !346, !noalias !337
-  %1019 = getelementptr inbounds i16, ptr %.val39.val.i.i.i.i.i307, i64 %.0294.i.i.i.i.i
+  %1019 = getelementptr inbounds [2 x i8], ptr %.val39.val.i.i.i.i.i307, i64 %.0294.i.i.i.i.i
   %1020 = load i16, ptr %1019, align 2, !tbaa !349, !noalias !350
   call void @llvm.lifetime.start.p0(ptr nonnull %99), !noalias !350
   %1021 = call noundef i16 @llvm.abs.i16(i16 %1020, i1 false)
@@ -5461,7 +5459,7 @@ _ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit43.i.i.i.i.i372
 
 _ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit46.i.i.i.i.i400: ; preds = %.noexc25.i399, %1260
   %.val39.val.i.i.i.i.i401 = load ptr, ptr %1165, align 8, !tbaa !370, !noalias !361
-  %1272 = getelementptr inbounds i16, ptr %.val39.val.i.i.i.i.i401, i64 %.0294.i.i.i.i.i359
+  %1272 = getelementptr inbounds [2 x i8], ptr %.val39.val.i.i.i.i.i401, i64 %.0294.i.i.i.i.i359
   %1273 = load i16, ptr %1272, align 2, !tbaa !349, !noalias !372
   call void @llvm.lifetime.start.p0(ptr nonnull %97), !noalias !372
   %1274 = icmp ugt i16 %1273, 99
@@ -5998,7 +5996,7 @@ _ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit43.i.i.i.i.i472
 
 _ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit46.i.i.i.i.i500: ; preds = %.noexc25.i499, %1509
   %.val39.val.i.i.i.i.i501 = load ptr, ptr %1414, align 8, !tbaa !391, !noalias !382
-  %1521 = getelementptr inbounds i32, ptr %.val39.val.i.i.i.i.i501, i64 %.0294.i.i.i.i.i459
+  %1521 = getelementptr inbounds [4 x i8], ptr %.val39.val.i.i.i.i.i501, i64 %.0294.i.i.i.i.i459
   %1522 = load i32, ptr %1521, align 4, !tbaa !73, !noalias !394
   call void @llvm.lifetime.start.p0(ptr nonnull %95), !noalias !394
   %1523 = call noundef i32 @llvm.abs.i32(i32 %1522, i1 false)
@@ -6546,7 +6544,7 @@ _ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit43.i.i.i.i.i572
 
 _ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit46.i.i.i.i.i600: ; preds = %.noexc25.i599, %1762
   %.val39.val.i.i.i.i.i601 = load ptr, ptr %1667, align 8, !tbaa !414, !noalias !405
-  %1774 = getelementptr inbounds i32, ptr %.val39.val.i.i.i.i.i601, i64 %.0294.i.i.i.i.i559
+  %1774 = getelementptr inbounds [4 x i8], ptr %.val39.val.i.i.i.i.i601, i64 %.0294.i.i.i.i.i559
   %1775 = load i32, ptr %1774, align 4, !tbaa !73, !noalias !416
   call void @llvm.lifetime.start.p0(ptr nonnull %93), !noalias !416
   %1776 = icmp ugt i32 %1775, 99
@@ -7083,7 +7081,7 @@ _ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit43.i.i.i.i.i672
 
 _ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit46.i.i.i.i.i700: ; preds = %.noexc25.i699, %2011
   %.val39.val.i.i.i.i.i701 = load ptr, ptr %1916, align 8, !tbaa !435, !noalias !426
-  %2023 = getelementptr inbounds i64, ptr %.val39.val.i.i.i.i.i701, i64 %.0294.i.i.i.i.i659
+  %2023 = getelementptr inbounds [8 x i8], ptr %.val39.val.i.i.i.i.i701, i64 %.0294.i.i.i.i.i659
   %2024 = load i64, ptr %2023, align 8, !tbaa !163, !noalias !438
   call void @llvm.lifetime.start.p0(ptr nonnull %91), !noalias !438
   %2025 = call noundef i64 @llvm.abs.i64(i64 %2024, i1 false)
@@ -7629,7 +7627,7 @@ _ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit43.i.i.i.i.i773
 
 _ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit46.i.i.i.i.i801: ; preds = %.noexc25.i800, %2262
   %.val39.val.i.i.i.i.i802 = load ptr, ptr %2167, align 8, !tbaa !458, !noalias !449
-  %2274 = getelementptr inbounds i64, ptr %.val39.val.i.i.i.i.i802, i64 %.0294.i.i.i.i.i760
+  %2274 = getelementptr inbounds [8 x i8], ptr %.val39.val.i.i.i.i.i802, i64 %.0294.i.i.i.i.i760
   %2275 = load i64, ptr %2274, align 8, !tbaa !163, !noalias !460
   call void @llvm.lifetime.start.p0(ptr nonnull %89), !noalias !460
   %2276 = icmp ugt i64 %2275, 99
@@ -8164,7 +8162,7 @@ _ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit43.i.i.i.i: ; p
 
 _ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit46.i.i.i.i: ; preds = %.noexc25.i878, %2509
   %.val39.val.i.i.i.i = load ptr, ptr %2414, align 8, !tbaa !477, !noalias !470
-  %2521 = getelementptr inbounds i16, ptr %.val39.val.i.i.i.i, i64 %.0294.i.i.i.i
+  %2521 = getelementptr inbounds [2 x i8], ptr %.val39.val.i.i.i.i, i64 %.0294.i.i.i.i
   %2522 = load i16, ptr %2521, align 2, !tbaa !349, !noalias !479
   call void @llvm.lifetime.start.p0(ptr nonnull %87), !noalias !479
   %2523 = call noundef i16 @llvm.abs.i16(i16 %2522, i1 false)
@@ -8720,7 +8718,7 @@ _ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit41.i.i.i.i.i: ;
 
 _ZN5arrow6StatusD2Ev.exit46.i.i.i.i.i:            ; preds = %.noexc12.i.i.i, %2764
   %2776 = load ptr, ptr %2671, align 8, !tbaa !499, !noalias !502
-  %2777 = getelementptr inbounds float, ptr %2776, i64 %.02949.i.i.i.i.i
+  %2777 = getelementptr inbounds [4 x i8], ptr %2776, i64 %.02949.i.i.i.i.i
   %2778 = load float, ptr %2777, align 4, !tbaa !505, !noalias !502
   call void @llvm.lifetime.start.p0(ptr nonnull %84), !noalias !502
   %2779 = invoke noundef i32 @_ZN5arrow8internal22FloatToStringFormatter11FormatFloatEfPci(ptr noundef nonnull align 8 dereferenceable(8) %85, float noundef %2778, ptr noundef nonnull %84, i32 noundef 50)
@@ -9237,7 +9235,7 @@ _ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit41.i.i.i.i.i993
 
 _ZN5arrow6StatusD2Ev.exit46.i.i.i.i.i1011:        ; preds = %.noexc12.i.i.i1010, %2994
   %3006 = load ptr, ptr %2901, align 8, !tbaa !524, !noalias !527
-  %3007 = getelementptr inbounds double, ptr %3006, i64 %.02949.i.i.i.i.i978
+  %3007 = getelementptr inbounds [8 x i8], ptr %3006, i64 %.02949.i.i.i.i.i978
   %3008 = load double, ptr %3007, align 8, !tbaa !530, !noalias !527
   call void @llvm.lifetime.start.p0(ptr nonnull %81), !noalias !527
   %3009 = invoke noundef i32 @_ZN5arrow8internal22FloatToStringFormatter11FormatFloatEdPci(ptr noundef nonnull align 8 dereferenceable(8) %82, double noundef %3008, ptr noundef nonnull %81, i32 noundef 50)
@@ -9750,7 +9748,7 @@ _ZN5arrow6StatusD2Ev.exit46.i.i.i:                ; preds = %.noexc26.i1063, %32
 
 .noexc27.i1064:                                   ; preds = %_ZN5arrow6StatusD2Ev.exit46.i.i.i
   %3235 = load ptr, ptr %3127, align 8, !tbaa !547, !noalias !544
-  %3236 = getelementptr inbounds i32, ptr %3235, i64 %.0293.i.i.i
+  %3236 = getelementptr inbounds [4 x i8], ptr %3235, i64 %.0293.i.i.i
   %3237 = load i32, ptr %3236, align 4, !tbaa !73, !noalias !544
   %3238 = load ptr, ptr %3128, align 8, !tbaa !549, !noalias !544
   %3239 = sext i32 %3237 to i64
@@ -10742,7 +10740,7 @@ _ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit47.i.i.i: ; pre
   %.val40.val.i.i.i = load ptr, ptr %3582, align 8, !tbaa !547, !noalias !572
   %.val40.val41.i.i.i = load ptr, ptr %3583, align 8, !tbaa !549, !noalias !572
   call void @llvm.lifetime.start.p0(ptr nonnull %77), !noalias !577
-  %3690 = getelementptr inbounds i32, ptr %.val40.val.i.i.i, i64 %.0293.i.i.i1172
+  %3690 = getelementptr inbounds [4 x i8], ptr %.val40.val.i.i.i, i64 %.0293.i.i.i1172
   %3691 = load i32, ptr %3690, align 4, !tbaa !73, !noalias !577
   %3692 = sext i32 %3691 to i64
   %3693 = getelementptr inbounds i8, ptr %.val40.val41.i.i.i, i64 %3692
@@ -11794,7 +11792,7 @@ _ZN5arrow6StatusD2Ev.exit46.i.i.i1365:            ; preds = %.noexc26.i1364, %41
 
 .noexc27.i1366:                                   ; preds = %_ZN5arrow6StatusD2Ev.exit46.i.i.i1365
   %4165 = load ptr, ptr %4057, align 8, !tbaa !610, !noalias !607
-  %4166 = getelementptr inbounds i64, ptr %4165, i64 %.0293.i.i.i1324
+  %4166 = getelementptr inbounds [8 x i8], ptr %4165, i64 %.0293.i.i.i1324
   %4167 = load i64, ptr %4166, align 8, !tbaa !163, !noalias !607
   %4168 = load ptr, ptr %4058, align 8, !tbaa !612, !noalias !607
   %4169 = getelementptr inbounds i8, ptr %4168, i64 %4167
@@ -12291,7 +12289,7 @@ _ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit47.i.i.i1456: ;
   %.val40.val.i.i.i1458 = load ptr, ptr %4287, align 8, !tbaa !610, !noalias !620
   %.val40.val41.i.i.i1459 = load ptr, ptr %4288, align 8, !tbaa !612, !noalias !620
   call void @llvm.lifetime.start.p0(ptr nonnull %72), !noalias !625
-  %4395 = getelementptr inbounds i64, ptr %.val40.val.i.i.i1458, i64 %.0293.i.i.i1415
+  %4395 = getelementptr inbounds [8 x i8], ptr %.val40.val.i.i.i1458, i64 %.0293.i.i.i1415
   %4396 = load i64, ptr %4395, align 8, !tbaa !163, !noalias !625
   %4397 = getelementptr inbounds i8, ptr %.val40.val41.i.i.i1459, i64 %4396
   %4398 = getelementptr i8, ptr %4395, i64 8
@@ -13338,7 +13336,7 @@ _ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit43.i.i.i.i.i162
 
 _ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit46.i.i.i.i.i1654: ; preds = %.noexc25.i1653, %4857
   %.val39.val.i.i.i.i.i1655 = load ptr, ptr %4762, align 8, !tbaa !662, !noalias !653
-  %4869 = getelementptr inbounds i64, ptr %.val39.val.i.i.i.i.i1655, i64 %.0294.i.i.i.i.i1613
+  %4869 = getelementptr inbounds [8 x i8], ptr %.val39.val.i.i.i.i.i1655, i64 %.0294.i.i.i.i.i1613
   %4870 = load i64, ptr %4869, align 8, !tbaa !163, !noalias !664
   call void @llvm.lifetime.start.p0(ptr nonnull %68), !noalias !664
   %4871 = call noundef i64 @llvm.abs.i64(i64 %4870, i1 false)
@@ -13897,7 +13895,7 @@ _ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit43.i.i.i.i.i172
 
 _ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit46.i.i.i.i.i1754: ; preds = %.noexc25.i1753, %5119
   %.val39.val.i.i.i.i.i1755 = load ptr, ptr %5013, align 8, !tbaa !687, !noalias !684
-  %5131 = getelementptr inbounds i32, ptr %.val39.val.i.i.i.i.i1755, i64 %.0296.i.i.i.i.i
+  %5131 = getelementptr inbounds [4 x i8], ptr %.val39.val.i.i.i.i.i1755, i64 %.0296.i.i.i.i.i
   %5132 = load i32, ptr %5131, align 4, !tbaa !73, !noalias !689
   %5133 = add i32 %5132, 12687428
   %spec.select.i.i.i.i.i.i.i.i = icmp ult i32 %5133, 23936166
@@ -14513,7 +14511,7 @@ _ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit43.i.i.i.i.i181
 
 _ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit46.i.i.i.i.i1843: ; preds = %.noexc25.i1842, %5426
   %.val39.val.i.i.i.i.i1844 = load ptr, ptr %5320, align 8, !tbaa !711, !noalias !708
-  %5438 = getelementptr inbounds i64, ptr %.val39.val.i.i.i.i.i1844, i64 %.0296.i.i.i.i.i1802
+  %5438 = getelementptr inbounds [8 x i8], ptr %.val39.val.i.i.i.i.i1844, i64 %.0296.i.i.i.i.i1802
   %5439 = load i64, ptr %5438, align 8, !tbaa !163, !noalias !713
   %5440 = add i64 %5439, 1096193779200000
   %spec.select.i.i.i.i.i.i.i.i1845 = icmp ult i64 %5440, 2068084742400000
@@ -15190,7 +15188,7 @@ _ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit41.i.i.i.i.i192
 
 _ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit44.i.i.i.i.i1945: ; preds = %.noexc12.i.i.i1944, %5756
   %5768 = load ptr, ptr %5663, align 8, !tbaa !743, !noalias !745
-  %5769 = getelementptr inbounds i64, ptr %5768, i64 %.02970.i.i.i.i.i
+  %5769 = getelementptr inbounds [8 x i8], ptr %5768, i64 %.02970.i.i.i.i.i
   %5770 = load i64, ptr %5769, align 8, !tbaa !163, !noalias !745
   %.val.i.i.i.i.i.i = load i32, ptr %60, align 8, !tbaa !733, !noalias !745
   %.val1.i.i.i.i.i.i = load i64, ptr %5637, align 8, !noalias !745
@@ -16760,7 +16758,7 @@ _ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit41.i.i.i.i.i199
 
 _ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit44.i.i.i.i.i2010: ; preds = %.noexc25.i2009, %6602
   %6614 = load ptr, ptr %6509, align 8, !tbaa !771, !noalias !773
-  %6615 = getelementptr inbounds i32, ptr %6614, i64 %.02951.i.i.i.i.i
+  %6615 = getelementptr inbounds [4 x i8], ptr %6614, i64 %.02951.i.i.i.i.i
   %6616 = load i32, ptr %6615, align 4, !tbaa !73, !noalias !773
   switch i32 %6482, label %6793 [
     i32 3, label %6741
@@ -17691,7 +17689,7 @@ _ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit41.i.i.i.i.i209
 
 _ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit44.i.i.i.i.i2124: ; preds = %.noexc25.i2123, %7042
   %7054 = load ptr, ptr %6949, align 8, !tbaa !796, !noalias !798
-  %7055 = getelementptr inbounds i64, ptr %7054, i64 %.02951.i.i.i.i.i2083
+  %7055 = getelementptr inbounds [8 x i8], ptr %7054, i64 %.02951.i.i.i.i.i2083
   %7056 = load i64, ptr %7055, align 8, !tbaa !163, !noalias !798
   switch i32 %6922, label %7249 [
     i32 3, label %7185
@@ -19305,7 +19303,7 @@ _ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit43.i.i.i.i.i233
 
 _ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit46.i.i.i.i.i2367: ; preds = %.noexc25.i2366, %7803
   %.val39.val.i.i.i.i.i2368 = load ptr, ptr %7707, align 8, !tbaa !836, !noalias !827
-  %7815 = getelementptr inbounds i32, ptr %.val39.val.i.i.i.i.i2368, i64 %.0294.i.i.i.i.i2326
+  %7815 = getelementptr inbounds [4 x i8], ptr %.val39.val.i.i.i.i.i2368, i64 %.0294.i.i.i.i.i2326
   %7816 = load i32, ptr %7815, align 4, !tbaa !73, !noalias !838
   call void @llvm.lifetime.start.p0(ptr nonnull %38), !noalias !838
   store i8 77, ptr %7708, align 1, !tbaa !44, !noalias !838
@@ -23023,7 +23021,7 @@ _ZNSt6vectorIPKN5arrow5ArrayESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i: ; 
 _ZNSt6vectorIPKN5arrow5ArrayESaIS3_EE17_M_realloc_insertIJPS1_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %9399, %_ZNSt6vectorIPKN5arrow5ArrayESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
   store ptr %9394, ptr %15, align 8, !tbaa !973
   store ptr %9398, ptr %9369, align 8, !tbaa !968
-  %9400 = getelementptr inbounds nuw ptr, ptr %9394, i64 %9392
+  %9400 = getelementptr inbounds nuw [8 x i8], ptr %9394, i64 %9392
   store ptr %9400, ptr %9370, align 8, !tbaa !971
   br label %_ZNSt6vectorIPKN5arrow5ArrayESaIS3_EE12emplace_backIJPS1_EEERS3_DpOT_.exit
 
@@ -23938,7 +23936,7 @@ _ZNSt12_Vector_baseIPKN5arrow5ArrayESaIS3_EE13_M_deallocateEPS3_m.exit.i: ; pred
   %.pre.pre = load ptr, ptr %176, align 8, !tbaa !966
   store ptr %188, ptr %14, align 8, !tbaa !973
   store ptr %188, ptr %189, align 8, !tbaa !968
-  %190 = getelementptr inbounds nuw ptr, ptr %188, i64 %182
+  %190 = getelementptr inbounds nuw [8 x i8], ptr %188, i64 %182
   store ptr %190, ptr %186, align 8, !tbaa !971
   %.pre123 = ptrtoint ptr %.pre.pre to i64
   %.pre124 = ptrtoint ptr %.pre120.pre to i64
@@ -24035,7 +24033,7 @@ _ZNSt6vectorIPKN5arrow5ArrayESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i: ; 
 _ZNSt6vectorIPKN5arrow5ArrayESaIS3_EE17_M_realloc_insertIJPS1_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %223, %_ZNSt6vectorIPKN5arrow5ArrayESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
   store ptr %218, ptr %14, align 8, !tbaa !973
   store ptr %222, ptr %194, align 8, !tbaa !968
-  %224 = getelementptr inbounds nuw ptr, ptr %218, i64 %216
+  %224 = getelementptr inbounds nuw [8 x i8], ptr %218, i64 %216
   store ptr %224, ptr %186, align 8, !tbaa !971
   br label %_ZNSt6vectorIPKN5arrow5ArrayESaIS3_EE12emplace_backIJPS1_EEERS3_DpOT_.exit
 
@@ -26405,7 +26403,7 @@ _ZNSt10shared_ptrIN5arrow5ArrayEEC2ERKS2_.exit:   ; preds = %3, %17, %20
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !1085
   %139 = load ptr, ptr %6, align 8, !tbaa !85, !noalias !1085
   %140 = load ptr, ptr %43, align 8, !tbaa !1088, !noalias !1085
-  %141 = getelementptr inbounds i32, ptr %140, i64 %.029.i55
+  %141 = getelementptr inbounds [4 x i8], ptr %140, i64 %.029.i55
   %142 = load i32, ptr %141, align 4, !tbaa !73, !noalias !1085
   %143 = sext i32 %142 to i64
   %144 = getelementptr i8, ptr %141, i64 4
@@ -26860,7 +26858,7 @@ _ZNSt10shared_ptrIN5arrow5ArrayEEC2ERKS2_.exit:   ; preds = %3, %17, %20
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !1105
   %139 = load ptr, ptr %6, align 8, !tbaa !85, !noalias !1105
   %140 = load ptr, ptr %43, align 8, !tbaa !1108, !noalias !1105
-  %141 = getelementptr inbounds i64, ptr %140, i64 %.029.i55
+  %141 = getelementptr inbounds [8 x i8], ptr %140, i64 %.029.i55
   %142 = load i64, ptr %141, align 8, !tbaa !163, !noalias !1105
   %143 = getelementptr i8, ptr %141, i64 8
   %144 = load i64, ptr %143, align 8, !tbaa !163, !noalias !1105
@@ -27312,11 +27310,11 @@ _ZNSt10shared_ptrIN5arrow5ArrayEEC2ERKS2_.exit:   ; preds = %3, %17, %20
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !1124
   %140 = load ptr, ptr %6, align 8, !tbaa !85, !noalias !1124
   %141 = load ptr, ptr %43, align 8, !tbaa !1127, !noalias !1124
-  %142 = getelementptr inbounds i32, ptr %141, i64 %.029.i55
+  %142 = getelementptr inbounds [4 x i8], ptr %141, i64 %.029.i55
   %143 = load i32, ptr %142, align 4, !tbaa !73, !noalias !1124
   %144 = sext i32 %143 to i64
   %145 = load ptr, ptr %44, align 8, !tbaa !1130, !noalias !1124
-  %146 = getelementptr inbounds i32, ptr %145, i64 %.029.i55
+  %146 = getelementptr inbounds [4 x i8], ptr %145, i64 %.029.i55
   %147 = load i32, ptr %146, align 4, !tbaa !73, !noalias !1124
   %148 = sext i32 %147 to i64
   invoke void @_ZNK5arrow5Array5SliceEll(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.27") align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %140, i64 noundef %144, i64 noundef %148)
@@ -27766,10 +27764,10 @@ _ZNSt10shared_ptrIN5arrow5ArrayEEC2ERKS2_.exit:   ; preds = %3, %17, %20
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !1145
   %140 = load ptr, ptr %6, align 8, !tbaa !85, !noalias !1145
   %141 = load ptr, ptr %43, align 8, !tbaa !1148, !noalias !1145
-  %142 = getelementptr inbounds i64, ptr %141, i64 %.029.i55
+  %142 = getelementptr inbounds [8 x i8], ptr %141, i64 %.029.i55
   %143 = load i64, ptr %142, align 8, !tbaa !163, !noalias !1145
   %144 = load ptr, ptr %44, align 8, !tbaa !1151, !noalias !1145
-  %145 = getelementptr inbounds i64, ptr %144, i64 %.029.i55
+  %145 = getelementptr inbounds [8 x i8], ptr %144, i64 %.029.i55
   %146 = load i64, ptr %145, align 8, !tbaa !163, !noalias !1145
   invoke void @_ZNK5arrow5Array5SliceEll(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.27") align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %140, i64 noundef %143, i64 noundef %146)
           to label %.noexc26 unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -28288,7 +28286,7 @@ _ZN5arrow12_GLOBAL__N_113PrettyPrinter7NewlineEv.exit.i: ; preds = %171, %.noexc
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !1166
   %173 = load ptr, ptr %8, align 8, !tbaa !85
   %174 = load ptr, ptr %59, align 8, !tbaa !1088
-  %175 = getelementptr inbounds i32, ptr %174, i64 %.029.i92
+  %175 = getelementptr inbounds [4 x i8], ptr %174, i64 %.029.i92
   %176 = load i32, ptr %175, align 4, !tbaa !73
   %177 = sext i32 %176 to i64
   %178 = getelementptr i8, ptr %175, i64 4
@@ -28424,7 +28422,7 @@ _ZN5arrow12_GLOBAL__N_113PrettyPrinter7NewlineEv.exit27.i: ; preds = %226, %.noe
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !1166
   %228 = load ptr, ptr %9, align 8, !tbaa !85
   %229 = load ptr, ptr %59, align 8, !tbaa !1088
-  %230 = getelementptr inbounds i32, ptr %229, i64 %.029.i92
+  %230 = getelementptr inbounds [4 x i8], ptr %229, i64 %.029.i92
   %231 = load i32, ptr %230, align 4, !tbaa !73
   %232 = sext i32 %231 to i64
   %233 = getelementptr i8, ptr %230, i64 4
@@ -29427,7 +29425,7 @@ _ZNSt12_Vector_baseIPKN5arrow5ArrayESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds 
   store ptr %19, ptr %0, align 8, !tbaa !973
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 %17
   store ptr %23, ptr %14, align 8, !tbaa !968
-  %24 = getelementptr inbounds nuw ptr, ptr %19, i64 %1
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %1
   store ptr %24, ptr %6, align 8, !tbaa !971
   br label %25
 
@@ -29514,7 +29512,7 @@ _ZNSolsEm.exit:                                   ; preds = %_ZStlsISt11char_tra
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit46: ; preds = %_ZNSolsEm.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %51 = load ptr, ptr %2, align 8, !tbaa !973
-  %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %.02486
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %.02486
   %53 = load ptr, ptr %52, align 8, !tbaa !972
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %55 = load ptr, ptr %54, align 8, !tbaa !62
@@ -29603,7 +29601,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i48
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit50: ; preds = %_ZN5arrow12_GLOBAL__N_113PrettyPrinter5WriteESt17basic_string_viewIcSt11char_traitsIcEE.exit, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i48
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %90 = load ptr, ptr %2, align 8, !tbaa !973
-  %91 = getelementptr inbounds nuw ptr, ptr %90, i64 %.02486
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %.02486
   %92 = load ptr, ptr %91, align 8, !tbaa !972
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -30782,7 +30780,7 @@ _ZN5arrow14PrimitiveArray7SetDataERKSt10shared_ptrINS_9ArrayDataEE.exit.i: ; pre
   %131 = load ptr, ptr %11, align 8, !tbaa !62
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 32
   %133 = load i64, ptr %132, align 8, !tbaa !281
-  %134 = getelementptr inbounds i32, ptr %129, i64 %133
+  %134 = getelementptr inbounds [4 x i8], ptr %129, i64 %133
   br label %135
 
 135:                                              ; preds = %130, %_ZN5arrow14PrimitiveArray7SetDataERKSt10shared_ptrINS_9ArrayDataEE.exit.i, %_ZN5arrow14PrimitiveArray7SetDataERKSt10shared_ptrINS_9ArrayDataEE.exit.thread.i
@@ -31956,7 +31954,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43: ; preds = %_ZN
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1263
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !1263
   %125 = load ptr, ptr %45, align 8, !tbaa !1267
-  %126 = getelementptr inbounds nuw %"class.std::shared_ptr.39", ptr %125, i64 %indvars.iv
+  %126 = getelementptr inbounds nuw [16 x i8], ptr %125, i64 %indvars.iv
   %127 = load ptr, ptr %126, align 8, !tbaa !201
   invoke fastcc void @_ZN5arrow12_GLOBAL__N_113SchemaPrinter10PrintFieldERKNS_5FieldE(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(96) %127)
           to label %_ZN5arrow6StatusD2Ev.exit40 unwind label %137

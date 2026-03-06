@@ -3,8 +3,6 @@ source_filename = "bench/libquic/original/ssl_ecdh.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.ssl_ecdh_method_st = type { i32, i16, [8 x i8], ptr, ptr, ptr }
-
 @.str = private unnamed_addr constant [118 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/ssl/ssl_ecdh.c\00", align 1
 @kMethods = internal constant [4 x { i32, i16, [8 x i8], [2 x i8], ptr, ptr, ptr }] [{ i32, i16, [8 x i8], [2 x i8], ptr, ptr, ptr } { i32 415, i16 23, [8 x i8] c"P-256\00\00\00", [2 x i8] zeroinitializer, ptr @ssl_ec_point_cleanup, ptr @ssl_ec_point_generate_keypair, ptr @ssl_ec_point_compute_secret }, { i32, i16, [8 x i8], [2 x i8], ptr, ptr, ptr } { i32 715, i16 24, [8 x i8] c"P-384\00\00\00", [2 x i8] zeroinitializer, ptr @ssl_ec_point_cleanup, ptr @ssl_ec_point_generate_keypair, ptr @ssl_ec_point_compute_secret }, { i32, i16, [8 x i8], [2 x i8], ptr, ptr, ptr } { i32 716, i16 25, [8 x i8] c"P-521\00\00\00", [2 x i8] zeroinitializer, ptr @ssl_ec_point_cleanup, ptr @ssl_ec_point_generate_keypair, ptr @ssl_ec_point_compute_secret }, { i32, i16, [8 x i8], [2 x i8], ptr, ptr, ptr } { i32 948, i16 29, [8 x i8] c"X25519\00\00", [2 x i8] zeroinitializer, ptr @ssl_x25519_cleanup, ptr @ssl_x25519_generate_keypair, ptr @ssl_x25519_compute_secret }], align 16
 @kDHEMethod = internal constant { i32, i16, [8 x i8], [2 x i8], ptr, ptr, ptr } { i32 0, i16 0, [8 x i8] zeroinitializer, [2 x i8] zeroinitializer, ptr @ssl_dhe_cleanup, ptr @ssl_dhe_generate_keypair, ptr @ssl_dhe_compute_secret }, align 8
@@ -20,7 +18,7 @@ define hidden ptr @SSL_get_curve_name(i16 noundef zeroext %0) local_unnamed_addr
 
 4:                                                ; preds = %2, %1
   %.06.i = phi i64 [ 0, %1 ], [ %3, %2 ]
-  %5 = getelementptr inbounds nuw %struct.ssl_ecdh_method_st, ptr @kMethods, i64 %.06.i
+  %5 = getelementptr inbounds nuw [40 x i8], ptr @kMethods, i64 %.06.i
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %7 = load i16, ptr %6, align 4, !tbaa !8
   %8 = icmp eq i16 %7, %0
@@ -45,7 +43,7 @@ define hidden range(i32 0, 2) i32 @ssl_nid_to_curve_id(ptr noundef writeonly cap
 
 5:                                                ; preds = %3, %2
   %.06.i = phi i64 [ 0, %2 ], [ %4, %3 ]
-  %6 = getelementptr inbounds nuw %struct.ssl_ecdh_method_st, ptr @kMethods, i64 %.06.i
+  %6 = getelementptr inbounds nuw [40 x i8], ptr @kMethods, i64 %.06.i
   %7 = load i32, ptr %6, align 8, !tbaa !16
   %8 = icmp eq i32 %7, %1
   br i1 %8, label %method_from_nid.exit, label %3
@@ -84,7 +82,7 @@ SSL_ECDH_CTX_cleanup.exit.preheader:              ; preds = %2, %5
 
 SSL_ECDH_CTX_cleanup.exit:                        ; preds = %SSL_ECDH_CTX_cleanup.exit.preheader, %8
   %.06.i = phi i64 [ %9, %8 ], [ 0, %SSL_ECDH_CTX_cleanup.exit.preheader ]
-  %10 = getelementptr inbounds nuw %struct.ssl_ecdh_method_st, ptr @kMethods, i64 %.06.i
+  %10 = getelementptr inbounds nuw [40 x i8], ptr @kMethods, i64 %.06.i
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %12 = load i16, ptr %11, align 4, !tbaa !8
   %13 = icmp eq i16 %12, %1

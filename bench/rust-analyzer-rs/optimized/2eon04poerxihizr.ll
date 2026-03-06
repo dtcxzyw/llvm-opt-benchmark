@@ -363,7 +363,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17ha2
   %36 = add i64 %.sroa.0.025.i.i, %33
   %37 = and i64 %36, %.val4.i
   %38 = sub nsw i64 0, %37
-  %39 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, ptr %.val.i, i64 %38
+  %39 = getelementptr inbounds [48 x i8], ptr %.val.i, i64 %38
   %40 = getelementptr i8, ptr %39, i64 -32
   %.val5.i.i.i = load i64, ptr %40, align 8, !alias.scope !87, !noalias !94, !noundef !7
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %24, %.val5.i.i.i
@@ -449,7 +449,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17ha2
   %81 = add i64 %80, 1
   store i64 %81, ptr %79, align 8, !alias.scope !123, !noalias !124
   %82 = sub nsw i64 0, %.sroa.4.0.ph
-  %83 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, ptr %.val.i, i64 %82
+  %83 = getelementptr inbounds [48 x i8], ptr %.val.i, i64 %82
   %84 = getelementptr inbounds i8, ptr %83, i64 -48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %84, ptr noundef nonnull readonly align 8 dereferenceable(48) %7, i64 48, i1 false), !noalias !123
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

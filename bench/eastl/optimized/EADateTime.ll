@@ -284,12 +284,12 @@ lor.rhs.i:                                        ; preds = %sw.bb15
 
 _ZN2EA4StdC10IsLeapYearEj.exit:                   ; preds = %sw.bb15, %lor.rhs.i
   %mul = phi i64 [ 13, %sw.bb15 ], [ %2, %lor.rhs.i ]
-  %invariant.gep = getelementptr inbounds nuw i32, ptr @_ZN2EA4StdCL11kDaysInYearE, i64 %mul
+  %invariant.gep = getelementptr inbounds nuw [4 x i8], ptr @_ZN2EA4StdCL11kDaysInYearE, i64 %mul
   br label %for.body
 
 for.body:                                         ; preds = %_ZN2EA4StdC10IsLeapYearEj.exit, %for.inc
   %indvars.iv = phi i64 [ 1, %_ZN2EA4StdC10IsLeapYearEj.exit ], [ %indvars.iv.next, %for.inc ]
-  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep, i64 %indvars.iv
   %3 = load i32, ptr %gep, align 4
   %cmp20.not = icmp ugt i32 %call16, %3
   br i1 %cmp20.not, label %for.inc, label %common.ret.loopexit.split.loop.exit80
@@ -372,7 +372,7 @@ _ZN2EA4StdC10IsLeapYearEj.exit48.thread:          ; preds = %sw.bb48, %_ZN2EA4St
   %sub5675 = add i32 %call52, -1
   %add58 = add i32 %sub5675, %8
   %idxprom59 = zext i32 %add58 to i64
-  %arrayidx60 = getelementptr inbounds nuw i32, ptr @_ZN2EA4StdCL11kDaysInYearE, i64 %idxprom59
+  %arrayidx60 = getelementptr inbounds nuw [4 x i8], ptr @_ZN2EA4StdCL11kDaysInYearE, i64 %idxprom59
   %9 = load i32, ptr %arrayidx60, align 4
   %sub61 = sub i32 %spec.store.select1.i, %9
   br label %common.ret85
@@ -712,7 +712,7 @@ _ZN2EA4StdC10IsLeapYearEj.exit.thread:            ; preds = %if.end33, %_ZN2EA4S
   %nNanosecond.addr.0 = select i1 %cmp26, i32 %7, i32 %nNanosecond
   %add47 = add nsw i32 %sub4526, %8
   %idxprom = zext i32 %add47 to i64
-  %arrayidx = getelementptr inbounds nuw i32, ptr @_ZN2EA4StdCL11kDaysInYearE, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [4 x i8], ptr @_ZN2EA4StdCL11kDaysInYearE, i64 %idxprom
   %9 = load i32, ptr %arrayidx, align 4
   %add49 = add i32 %9, %nDayOfMonth.addr.0
   %conv50 = zext i32 %add49 to i64
@@ -1128,7 +1128,7 @@ if.then3:                                         ; preds = %if.then
 
 if.end5:                                          ; preds = %if.then3, %if.then
   %1 = zext nneg i32 %nMonth to i64
-  %2 = getelementptr i32, ptr @_ZN2EA4StdCL12kDaysInMonthE, i64 %1
+  %2 = getelementptr [4 x i8], ptr @_ZN2EA4StdCL12kDaysInMonthE, i64 %1
   %arrayidx8 = getelementptr i8, ptr %2, i64 -4
   %3 = load i32, ptr %arrayidx8, align 4
   br label %return
@@ -1183,11 +1183,11 @@ entry:
 
 if.then:                                          ; preds = %entry
   %idxprom = zext i32 %srcEpoch to i64
-  %arrayidx = getelementptr inbounds nuw i64, ptr @_ZN2EA4StdCL13kEpochSecondsE, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [8 x i8], ptr @_ZN2EA4StdCL13kEpochSecondsE, i64 %idxprom
   %0 = load i64, ptr %arrayidx, align 8
   %add = add nsw i64 %0, %srcSeconds
   %idxprom2 = zext i32 %destEpoch to i64
-  %arrayidx3 = getelementptr inbounds nuw i64, ptr @_ZN2EA4StdCL13kEpochSecondsE, i64 %idxprom2
+  %arrayidx3 = getelementptr inbounds nuw [8 x i8], ptr @_ZN2EA4StdCL13kEpochSecondsE, i64 %idxprom2
   %1 = load i64, ptr %arrayidx3, align 8
   %sub = sub i64 %add, %1
   br label %return
@@ -1263,7 +1263,7 @@ declare noundef i64 @mktime(ptr noundef captures(none)) local_unnamed_addr #12
 define dso_local noundef zeroext i1 @_ZN2EA4StdC15GetTimeZoneNameEPcb(ptr noundef %pName, i1 noundef zeroext %bDaylightSavingsName) local_unnamed_addr #0 {
 entry:
   %idxprom = zext i1 %bDaylightSavingsName to i64
-  %arrayidx = getelementptr inbounds nuw ptr, ptr @tzname, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [8 x i8], ptr @tzname, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 8
   %call = tail call noundef ptr @_ZN2EA4StdC7StrncpyEPcPKcm(ptr noundef %pName, ptr noundef %0, i64 noundef 64)
   %arrayidx1 = getelementptr inbounds nuw i8, ptr %pName, i64 7
@@ -1834,7 +1834,7 @@ sw.bb16:                                          ; preds = %if.end12
 
 if.end22:                                         ; preds = %sw.bb16
   %idxprom = zext nneg i32 %20 to i64
-  %arrayidx = getelementptr inbounds nuw ptr, ptr %spec.store.select, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [8 x i8], ptr %spec.store.select, i64 %idxprom
   %21 = load ptr, ptr %arrayidx, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !8)
   %tobool.not3.not.i = icmp eq i64 %capacity.0, 0
@@ -1863,7 +1863,7 @@ sw.bb26:                                          ; preds = %if.end12
 
 if.end33:                                         ; preds = %sw.bb26
   %idxprom35 = zext nneg i32 %23 to i64
-  %arrayidx36 = getelementptr inbounds nuw ptr, ptr %mDay, i64 %idxprom35
+  %arrayidx36 = getelementptr inbounds nuw [8 x i8], ptr %mDay, i64 %idxprom35
   %24 = load ptr, ptr %arrayidx36, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !12)
   %tobool.not3.not.i146 = icmp eq i64 %capacity.0, 0
@@ -1892,7 +1892,7 @@ sw.bb40:                                          ; preds = %if.end12, %if.end12
 
 if.end46:                                         ; preds = %sw.bb40
   %idxprom48 = zext nneg i32 %26 to i64
-  %arrayidx49 = getelementptr inbounds nuw ptr, ptr %mAbbrevMonth, i64 %idxprom48
+  %arrayidx49 = getelementptr inbounds nuw [8 x i8], ptr %mAbbrevMonth, i64 %idxprom48
   %27 = load ptr, ptr %arrayidx49, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !15)
   %tobool.not3.not.i158 = icmp eq i64 %capacity.0, 0
@@ -1921,7 +1921,7 @@ sw.bb53:                                          ; preds = %if.end12
 
 if.end60:                                         ; preds = %sw.bb53
   %idxprom62 = zext nneg i32 %29 to i64
-  %arrayidx63 = getelementptr inbounds nuw ptr, ptr %mMonth, i64 %idxprom62
+  %arrayidx63 = getelementptr inbounds nuw [8 x i8], ptr %mMonth, i64 %idxprom62
   %30 = load ptr, ptr %arrayidx63, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !18)
   %tobool.not3.not.i170 = icmp eq i64 %capacity.0, 0
@@ -2874,7 +2874,7 @@ sw.bb167:                                         ; preds = %if.end12
   %128 = load i32, ptr %tm_hour168, align 8
   %cmp169 = icmp sgt i32 %128, 11
   %idxprom170 = zext i1 %cmp169 to i64
-  %arrayidx171 = getelementptr inbounds nuw ptr, ptr %mAmPm, i64 %idxprom170
+  %arrayidx171 = getelementptr inbounds nuw [8 x i8], ptr %mAmPm, i64 %idxprom170
   %129 = load ptr, ptr %arrayidx171, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !54)
   %tobool.not3.not.i562 = icmp eq i64 %capacity.0, 0
@@ -4036,7 +4036,7 @@ if.then419:                                       ; preds = %if.end12
   %246 = load i32, ptr %tm_isdst, align 8
   %cmp421 = icmp ne i32 %246, 0
   %idxprom.i = zext i1 %cmp421 to i64
-  %arrayidx.i1120 = getelementptr inbounds nuw ptr, ptr @tzname, i64 %idxprom.i
+  %arrayidx.i1120 = getelementptr inbounds nuw [8 x i8], ptr @tzname, i64 %idxprom.i
   %247 = load ptr, ptr %arrayidx.i1120, align 8
   %call.i1121 = call noundef ptr @_ZN2EA4StdC7StrncpyEPcPKcm(ptr noundef nonnull %buffer, ptr noundef %247, i64 noundef 64)
   store i8 0, ptr %arrayidx1.i, align 1
@@ -4234,7 +4234,7 @@ sw.bb:                                            ; preds = %FormatBegin
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %indvars.iv612 = phi i64 [ %indvars.iv.next613, %for.inc ], [ 0, %for.body.preheader ]
-  %arrayidx = getelementptr inbounds nuw ptr, ptr %mDay, i64 %indvars.iv612
+  %arrayidx = getelementptr inbounds nuw [8 x i8], ptr %mDay, i64 %indvars.iv612
   %12 = load ptr, ptr %arrayidx, align 8
   %call31 = tail call noundef i64 @_ZN2EA4StdC6StrlenEPKc(ptr noundef %12)
   %call35 = tail call noundef i32 @_ZN2EA4StdC8StrnicmpEPKcS2_m(ptr noundef %12, ptr noundef %p.0512, i64 noundef %call31)
@@ -4242,7 +4242,7 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %cmp36, label %if.end51, label %if.end38
 
 if.end38:                                         ; preds = %for.body
-  %arrayidx40 = getelementptr inbounds nuw ptr, ptr %spec.store.select, i64 %indvars.iv612
+  %arrayidx40 = getelementptr inbounds nuw [8 x i8], ptr %spec.store.select, i64 %indvars.iv612
   %13 = load ptr, ptr %arrayidx40, align 8
   %call41 = tail call noundef i64 @_ZN2EA4StdC6StrlenEPKc(ptr noundef %13)
   %call45 = tail call noundef i32 @_ZN2EA4StdC8StrnicmpEPKcS2_m(ptr noundef %13, ptr noundef %p.0512, i64 noundef %call41)
@@ -4263,7 +4263,7 @@ if.end51:                                         ; preds = %for.body, %if.end38
 
 for.body55:                                       ; preds = %for.body55.preheader, %for.inc76
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc76 ], [ 0, %for.body55.preheader ]
-  %arrayidx57 = getelementptr inbounds nuw ptr, ptr %mMonth, i64 %indvars.iv
+  %arrayidx57 = getelementptr inbounds nuw [8 x i8], ptr %mMonth, i64 %indvars.iv
   %15 = load ptr, ptr %arrayidx57, align 8
   %call58 = tail call noundef i64 @_ZN2EA4StdC6StrlenEPKc(ptr noundef %15)
   %call62 = tail call noundef i32 @_ZN2EA4StdC8StrnicmpEPKcS2_m(ptr noundef %15, ptr noundef %p.0512, i64 noundef %call58)
@@ -4271,7 +4271,7 @@ for.body55:                                       ; preds = %for.body55.preheade
   br i1 %cmp63, label %if.end81, label %if.end65
 
 if.end65:                                         ; preds = %for.body55
-  %arrayidx67 = getelementptr inbounds nuw ptr, ptr %mAbbrevMonth, i64 %indvars.iv
+  %arrayidx67 = getelementptr inbounds nuw [8 x i8], ptr %mAbbrevMonth, i64 %indvars.iv
   %16 = load ptr, ptr %arrayidx67, align 8
   %call68 = tail call noundef i64 @_ZN2EA4StdC6StrlenEPKc(ptr noundef %16)
   %call72 = tail call noundef i32 @_ZN2EA4StdC8StrnicmpEPKcS2_m(ptr noundef %16, ptr noundef %p.0512, i64 noundef %call68)

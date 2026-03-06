@@ -677,7 +677,7 @@ Abc_Clock.exit36:                                 ; preds = %42, %45
 .lr.ph:                                           ; preds = %53, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %53 ]
   %.val = load ptr, ptr %21, align 8, !tbaa !36
-  %55 = getelementptr inbounds nuw ptr, ptr %.val, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %indvars.iv
   %56 = load ptr, ptr %55, align 8, !tbaa !37
   call void @Aig_ManStop(ptr noundef %56) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1029,7 +1029,7 @@ define range(i32 0, 2) i32 @Dar_NewChoiceSynthesisGuard(ptr noundef readonly cap
 7:                                                ; preds = %.lr.ph, %20
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %20 ]
   %.017 = phi i32 [ 0, %.lr.ph ], [ %.1, %20 ]
-  %8 = getelementptr inbounds nuw ptr, ptr %.val, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8, !tbaa !37
   %10 = icmp eq ptr %9, null
   br i1 %10, label %20, label %11
@@ -1088,7 +1088,7 @@ define ptr @Dar_NewChoiceSynthesis(ptr noundef %0, i32 noundef %1, i32 noundef %
 13:                                               ; preds = %26, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %26 ]
   %.017.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %26 ]
-  %14 = getelementptr inbounds nuw ptr, ptr %.val.i, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %.val.i, i64 %indvars.iv.i
   %15 = load ptr, ptr %14, align 8, !tbaa !37
   %16 = icmp eq ptr %15, null
   br i1 %16, label %26, label %17
@@ -1159,7 +1159,7 @@ Vec_PtrPush.exit64:                               ; preds = %6, %Dar_NewChoiceSy
 .lr.ph:                                           ; preds = %Vec_PtrPush.exit64, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %Vec_PtrPush.exit64 ]
   %.val = load ptr, ptr %33, align 8, !tbaa !36
-  %45 = getelementptr inbounds nuw ptr, ptr %.val, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %indvars.iv
   %46 = load ptr, ptr %45, align 8, !tbaa !37
   tail call void @Gia_ManStop(ptr noundef %46) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1260,7 +1260,7 @@ Vec_PtrPush.exit:                                 ; preds = %26, %Abc_Clock.exit
 .lr.ph:                                           ; preds = %Vec_PtrPush.exit, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %Vec_PtrPush.exit ]
   %.val = load ptr, ptr %18, align 8, !tbaa !36
-  %39 = getelementptr inbounds nuw ptr, ptr %.val, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %indvars.iv
   %40 = load ptr, ptr %39, align 8, !tbaa !37
   call void @Aig_ManStop(ptr noundef %40) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

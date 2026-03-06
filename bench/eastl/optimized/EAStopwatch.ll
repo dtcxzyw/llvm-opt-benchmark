@@ -194,7 +194,7 @@ entry:
 
 switch.lookup:                                    ; preds = %entry
   %1 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK2EA4StdC9Stopwatch14GetElapsedTimeEv, i64 %1
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK2EA4StdC9Stopwatch14GetElapsedTimeEv, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %2 = load float, ptr %switch.load, align 4
   store float %2, ptr %mfStopwatchCyclesToUnitsCoefficient, align 4
@@ -265,7 +265,7 @@ entry:
 
 switch.lookup:                                    ; preds = %entry
   %1 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK2EA4StdC9Stopwatch14GetElapsedTimeEv, i64 %1
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK2EA4StdC9Stopwatch14GetElapsedTimeEv, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %2 = load float, ptr %switch.load, align 4
   store float %2, ptr %mfStopwatchCyclesToUnitsCoefficient, align 4
@@ -416,7 +416,7 @@ if.then13:                                        ; preds = %if.end11
 
 switch.lookup:                                    ; preds = %if.then13
   %11 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK2EA4StdC9Stopwatch14GetElapsedTimeEv, i64 %11
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK2EA4StdC9Stopwatch14GetElapsedTimeEv, i64 %11
   %switch.load = load ptr, ptr %switch.gep, align 8
   %12 = load float, ptr %switch.load, align 4
   store float %12, ptr %mfStopwatchCyclesToUnitsCoefficient, align 4

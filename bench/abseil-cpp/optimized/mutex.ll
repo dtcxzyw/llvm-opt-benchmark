@@ -179,7 +179,7 @@ define dso_local noundef range(i32 -2147483647, -2147483648) i32 @_ZN4absl24sync
 
 _ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit:   ; preds = %2, %5
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 8), i64 %6
+  %7 = getelementptr inbounds [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 8), i64 %6
   %8 = load i32, ptr %7, align 4, !tbaa !20
   %9 = load atomic i32, ptr @_ZN4absl12_GLOBAL__N_17globalsE acquire, align 64
   %.not.i.i15 = icmp eq i32 %9, 221
@@ -433,7 +433,7 @@ _ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit.i: ; 
   br i1 %.not14.i, label %.loopexit45, label %.lr.ph.i
 
 .loopexit45:                                      ; preds = %33, %.loopexit46
-  %36 = getelementptr inbounds nuw ptr, ptr @_ZN4abslL11synch_eventE, i64 %6
+  %36 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4abslL11synch_eventE, i64 %6
   %.152 = load ptr, ptr %36, align 8, !tbaa !47
   %.not3953 = icmp eq ptr %.152, null
   br i1 %.not3953, label %.loopexit, label %.lr.ph56
@@ -466,7 +466,7 @@ _ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit.i: ; 
   %49 = getelementptr inbounds nuw i8, ptr %45, i64 41
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %48, i8 0, i64 17, i1 false)
   %50 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(1) %spec.store.select) #27
-  %51 = getelementptr inbounds nuw ptr, ptr @_ZN4abslL11synch_eventE, i64 %6
+  %51 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4abslL11synch_eventE, i64 %6
   %52 = load ptr, ptr %51, align 8, !tbaa !47
   %53 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store ptr %52, ptr %53, align 8, !tbaa !48
@@ -2484,7 +2484,7 @@ _ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.thread.i.i: ; preds = %_ZN4
   br label %_ZN4absl13base_internal8SpinLock4LockEv.exit.i
 
 _ZN4absl13base_internal8SpinLock4LockEv.exit.i:   ; preds = %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.thread.i.i, %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i
-  %13 = getelementptr inbounds nuw ptr, ptr @_ZN4abslL11synch_eventE, i64 %6
+  %13 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4abslL11synch_eventE, i64 %6
   %.012.i = load ptr, ptr %13, align 8, !tbaa !47
   %.not13.i = icmp eq ptr %.012.i, null
   br i1 %.not13.i, label %.critedge9.i, label %.lr.ph.i
@@ -2549,7 +2549,7 @@ _ZN4abslL13GetSynchEventEPKv.exit:                ; preds = %.critedge9.i, %24
   %33 = zext nneg i32 %.054 to i64
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 %33
   %35 = sub nsw i64 960, %33
-  %36 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %37 = load ptr, ptr %36, align 8, !tbaa !108
   %38 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %34, i64 noundef %35, ptr noundef nonnull @.str.51, ptr noundef %37) #27
   %39 = icmp sgt i32 %38, -1
@@ -2566,7 +2566,7 @@ _ZN4abslL13GetSynchEventEPKv.exit:                ; preds = %.critedge9.i, %24
 
 ._crit_edge:                                      ; preds = %.lr.ph, %41, %30
   %43 = zext nneg i32 %1 to i64
-  %44 = getelementptr inbounds nuw %struct.anon, ptr @_ZN4abslL16event_propertiesE, i64 %43
+  %44 = getelementptr inbounds nuw [16 x i8], ptr @_ZN4abslL16event_propertiesE, i64 %43
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %46 = load ptr, ptr %45, align 8, !tbaa !110
   %47 = getelementptr inbounds nuw i8, ptr %.011.i, i64 41
@@ -3655,7 +3655,7 @@ _ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.thread.i: ; preds = %_ZN4ab
   br label %_ZN4absl13base_internal8SpinLock4LockEv.exit
 
 _ZN4absl13base_internal8SpinLock4LockEv.exit:     ; preds = %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i, %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.thread.i
-  %10 = getelementptr inbounds nuw ptr, ptr @_ZN4abslL11synch_eventE, i64 %3
+  %10 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4abslL11synch_eventE, i64 %3
   %.012 = load ptr, ptr %10, align 8, !tbaa !47
   %.not13 = icmp eq ptr %.012, null
   br i1 %.not13, label %.critedge9, label %.lr.ph

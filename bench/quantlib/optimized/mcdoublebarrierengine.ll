@@ -884,7 +884,7 @@ do.end:                                           ; preds = %init.end
   %n_.i.i = getelementptr inbounds nuw i8, ptr %path, i64 80
   %22 = load i64, ptr %n_.i.i, align 8, !tbaa !41
   %23 = load ptr, ptr %values_.i, align 8, !tbaa !49
-  %24 = getelementptr double, ptr %23, i64 %22
+  %24 = getelementptr [8 x i8], ptr %23, i64 %22
   %arrayidx.i.i = getelementptr i8, ptr %24, i64 -8
   %25 = load double, ptr %arrayidx.i.i, align 8, !tbaa !50
   %barrierType_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -917,7 +917,7 @@ for.cond:                                         ; preds = %for.cond.preheader,
 
 for.body:                                         ; preds = %for.cond
   %add = add i64 %i.0, 1
-  %arrayidx.i.i52 = getelementptr inbounds nuw double, ptr %23, i64 %add
+  %arrayidx.i.i52 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %add
   %31 = load double, ptr %arrayidx.i.i52, align 8, !tbaa !50
   %cmp33 = fcmp ult double %31, %29
   %cmp34 = fcmp ugt double %31, %30
@@ -931,7 +931,7 @@ for.cond42:                                       ; preds = %for.cond42.preheade
 
 for.body45:                                       ; preds = %for.cond42
   %add46 = add i64 %i.1, 1
-  %arrayidx.i.i54 = getelementptr inbounds nuw double, ptr %23, i64 %add46
+  %arrayidx.i.i54 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %add46
   %32 = load double, ptr %arrayidx.i.i54, align 8, !tbaa !50
   %cmp49 = fcmp ult double %32, %27
   %cmp52 = fcmp ugt double %32, %28
@@ -1091,7 +1091,7 @@ sw.bb104:                                         ; preds = %if.else
   %52 = load double, ptr %rebate_, align 8, !tbaa !34
   %discounts_105 = getelementptr inbounds nuw i8, ptr %this, i64 64
   %53 = load ptr, ptr %discounts_105, align 8, !tbaa !37
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %53, i64 %knockNode.0
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %knockNode.0
   %54 = load double, ptr %add.ptr.i, align 8, !tbaa !50
   %mul107 = fmul double %52, %54
   br label %cleanup

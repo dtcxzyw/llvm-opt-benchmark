@@ -1104,7 +1104,7 @@ define internal noundef range(i32 0, 14) i32 @_ZL39gsec_aes_gcm_aead_crypter_enc
 
 .lr.ph:                                           ; preds = %.preheader, %.thread
   %.092148 = phi i64 [ %69, %.thread ], [ 0, %.preheader ]
-  %56 = getelementptr inbounds nuw %struct.iovec, ptr %3, i64 %.092148
+  %56 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %.092148
   %57 = load ptr, ptr %56, align 8, !tbaa !53
   %58 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %59 = load i64, ptr %58, align 8, !tbaa !55
@@ -1162,7 +1162,7 @@ define internal noundef range(i32 0, 14) i32 @_ZL39gsec_aes_gcm_aead_crypter_enc
   %.086151 = phi i64 [ %.187132, %.thread126 ], [ %75, %74 ]
   %.089150 = phi ptr [ %.190131, %.thread126 ], [ %70, %74 ]
   %.193149 = phi i64 [ %98, %.thread126 ], [ 0, %74 ]
-  %76 = getelementptr inbounds nuw %struct.iovec, ptr %5, i64 %.193149
+  %76 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %.193149
   %77 = load ptr, ptr %76, align 8, !tbaa !53
   %78 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %79 = load i64, ptr %78, align 8, !tbaa !55
@@ -1331,7 +1331,7 @@ define internal noundef range(i32 0, 14) i32 @_ZL39gsec_aes_gcm_aead_crypter_dec
 .lr.ph:                                           ; preds = %.preheader198, %.lr.ph
   %.0142224 = phi i64 [ %32, %.lr.ph ], [ 0, %.preheader198 ]
   %.0146223 = phi i64 [ %31, %.lr.ph ], [ 0, %.preheader198 ]
-  %28 = getelementptr inbounds nuw %struct.iovec, ptr %5, i64 %.0142224
+  %28 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %.0142224
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load i64, ptr %29, align 8, !tbaa !55
   %31 = add i64 %30, %.0146223
@@ -1413,7 +1413,7 @@ define internal noundef range(i32 0, 14) i32 @_ZL39gsec_aes_gcm_aead_crypter_dec
 
 .lr.ph226:                                        ; preds = %.preheader197, %.thread
   %.1143225 = phi i64 [ %77, %.thread ], [ 0, %.preheader197 ]
-  %64 = getelementptr inbounds nuw %struct.iovec, ptr %3, i64 %.1143225
+  %64 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %.1143225
   %65 = load ptr, ptr %64, align 8, !tbaa !53
   %66 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %67 = load i64, ptr %66, align 8, !tbaa !55
@@ -1475,7 +1475,7 @@ define internal noundef range(i32 0, 14) i32 @_ZL39gsec_aes_gcm_aead_crypter_dec
   %.0132230 = phi ptr [ %.1133, %119 ], [ %78, %.preheader ]
   %.2144229 = phi i64 [ %120, %119 ], [ 0, %.preheader ]
   %.1147228 = phi i64 [ %.2148, %119 ], [ %31, %.preheader ]
-  %86 = getelementptr inbounds nuw %struct.iovec, ptr %5, i64 %.2144229
+  %86 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %.2144229
   %87 = load ptr, ptr %86, align 8, !tbaa !53
   %88 = getelementptr inbounds nuw i8, ptr %86, i64 8
   %89 = load i64, ptr %88, align 8, !tbaa !55
@@ -1594,7 +1594,7 @@ define internal noundef range(i32 0, 14) i32 @_ZL39gsec_aes_gcm_aead_crypter_dec
 .lr.ph244:                                        ; preds = %130, %144
   %.1242 = phi ptr [ %.2, %144 ], [ %.0, %130 ]
   %.3145241 = phi i64 [ %145, %144 ], [ %.2144.lcssa274285, %130 ]
-  %132 = getelementptr inbounds nuw %struct.iovec, ptr %5, i64 %.3145241
+  %132 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %.3145241
   %133 = load ptr, ptr %132, align 8, !tbaa !53
   %134 = getelementptr inbounds nuw i8, ptr %132, i64 8
   %135 = load i64, ptr %134, align 8, !tbaa !55

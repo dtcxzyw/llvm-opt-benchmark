@@ -239,9 +239,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple.658" = type { %"struct.std::_Tuple_impl.659" }
 %"struct.std::_Tuple_impl.659" = type { %"struct.std::_Head_base.662" }
 %"struct.std::_Head_base.662" = type { ptr }
-%"struct.duckdb::string_t" = type { %union.anon }
-%union.anon = type { %struct.anon }
-%struct.anon = type { i32, [4 x i8], ptr }
 %"class.duckdb::unique_ptr.569" = type { %"class.std::unique_ptr.570" }
 %"class.std::unique_ptr.570" = type { %"struct.std::__uniq_ptr_data.571" }
 %"struct.std::__uniq_ptr_data.571" = type { %"class.std::__uniq_ptr_impl.572" }
@@ -256,7 +253,9 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple.582" = type { %"struct.std::_Tuple_impl.583" }
 %"struct.std::_Tuple_impl.583" = type { %"struct.std::_Head_base.586" }
 %"struct.std::_Head_base.586" = type { ptr }
-%"struct.duckdb::PrimitiveDictionary<duckdb::string_t, duckdb::string_t, duckdb::ParquetStringOperator>::primitive_dictionary_entry_t" = type <{ %"struct.duckdb::string_t", i32, [4 x i8] }>
+%"struct.duckdb::string_t" = type { %union.anon }
+%union.anon = type { %struct.anon }
+%struct.anon = type { i32, [4 x i8], ptr }
 %"class.std::function.783" = type { %"class.std::_Function_base", ptr }
 %"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
 %"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
@@ -275,7 +274,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple.591" = type { %"struct.std::_Tuple_impl.592" }
 %"struct.std::_Tuple_impl.592" = type { %"struct.std::_Head_base.595" }
 %"struct.std::_Head_base.595" = type { ptr }
-%"struct.duckdb::PrimitiveDictionary<duckdb::string_t, duckdb::string_t, duckdb::ParquetCastOperator>::primitive_dictionary_entry_t" = type <{ %"struct.duckdb::string_t", i32, [4 x i8] }>
 %"class.duckdb::unique_ptr.787" = type { %"class.std::unique_ptr.788" }
 %"class.std::unique_ptr.788" = type { %"struct.std::__uniq_ptr_data.789" }
 %"struct.std::__uniq_ptr_data.789" = type { %"class.std::__uniq_ptr_impl.790" }
@@ -283,7 +281,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple.791" = type { %"struct.std::_Tuple_impl.792" }
 %"struct.std::_Tuple_impl.792" = type { %"struct.std::_Head_base.795" }
 %"struct.std::_Head_base.795" = type { ptr }
-%"struct.duckdb::PrimitiveDictionary<signed char, int, duckdb::ParquetCastOperator>::primitive_dictionary_entry_t" = type { i8, i32 }
 %"class.std::function.825" = type { %"class.std::_Function_base", ptr }
 %"class.duckdb::unique_ptr.829" = type { %"class.std::unique_ptr.830" }
 %"class.std::unique_ptr.830" = type { %"struct.std::__uniq_ptr_data.831" }
@@ -292,7 +289,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple.833" = type { %"struct.std::_Tuple_impl.834" }
 %"struct.std::_Tuple_impl.834" = type { %"struct.std::_Head_base.837" }
 %"struct.std::_Head_base.837" = type { ptr }
-%"struct.duckdb::PrimitiveDictionary<short, int, duckdb::ParquetCastOperator>::primitive_dictionary_entry_t" = type { i16, i32 }
 %"class.std::function.868" = type { %"class.std::_Function_base", ptr }
 %"class.duckdb::unique_ptr.872" = type { %"class.std::unique_ptr.873" }
 %"class.std::unique_ptr.873" = type { %"struct.std::__uniq_ptr_data.874" }
@@ -301,7 +297,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple.876" = type { %"struct.std::_Tuple_impl.877" }
 %"struct.std::_Tuple_impl.877" = type { %"struct.std::_Head_base.880" }
 %"struct.std::_Head_base.880" = type { ptr }
-%"struct.duckdb::PrimitiveDictionary<int, int, duckdb::ParquetCastOperator>::primitive_dictionary_entry_t" = type { i32, i32 }
 %"class.std::function.911" = type { %"class.std::_Function_base", ptr }
 %"class.duckdb::unique_ptr.915" = type { %"class.std::unique_ptr.916" }
 %"class.std::unique_ptr.916" = type { %"struct.std::__uniq_ptr_data.917" }
@@ -310,7 +305,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple.919" = type { %"struct.std::_Tuple_impl.920" }
 %"struct.std::_Tuple_impl.920" = type { %"struct.std::_Head_base.923" }
 %"struct.std::_Head_base.923" = type { ptr }
-%"struct.duckdb::PrimitiveDictionary<long, long, duckdb::ParquetCastOperator>::primitive_dictionary_entry_t" = type { i64, i32 }
 %"class.std::function.954" = type { %"class.std::_Function_base", ptr }
 %"class.duckdb::unique_ptr.958" = type { %"class.std::unique_ptr.959" }
 %"class.std::unique_ptr.959" = type { %"struct.std::__uniq_ptr_data.960" }
@@ -319,8 +313,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple.962" = type { %"struct.std::_Tuple_impl.963" }
 %"struct.std::_Tuple_impl.963" = type { %"struct.std::_Head_base.966" }
 %"struct.std::_Head_base.966" = type { ptr }
-%"struct.duckdb::dtime_tz_t" = type { i64 }
-%"struct.duckdb::PrimitiveDictionary<duckdb::dtime_tz_t, long, duckdb::ParquetTimeTZOperator>::primitive_dictionary_entry_t" = type <{ %"struct.duckdb::dtime_tz_t", i32, [4 x i8] }>
 %"class.std::function.985" = type { %"class.std::_Function_base", ptr }
 %"class.duckdb::unique_ptr.989" = type { %"class.std::unique_ptr.990" }
 %"class.std::unique_ptr.990" = type { %"struct.std::__uniq_ptr_data.991" }
@@ -329,9 +321,8 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple.993" = type { %"struct.std::_Tuple_impl.994" }
 %"struct.std::_Tuple_impl.994" = type { %"struct.std::_Head_base.997" }
 %"struct.std::_Head_base.997" = type { ptr }
-%"struct.duckdb::hugeint_t" = type { i64, i64 }
-%"struct.duckdb::PrimitiveDictionary<duckdb::hugeint_t, double, duckdb::ParquetHugeintOperator>::primitive_dictionary_entry_t" = type <{ %"struct.duckdb::hugeint_t", i32, [4 x i8] }>
 %"class.std::function.1016" = type { %"class.std::_Function_base", ptr }
+%"struct.duckdb::hugeint_t" = type { i64, i64 }
 %"class.duckdb::unique_ptr.1020" = type { %"class.std::unique_ptr.1021" }
 %"class.std::unique_ptr.1021" = type { %"struct.std::__uniq_ptr_data.1022" }
 %"struct.std::__uniq_ptr_data.1022" = type { %"class.std::__uniq_ptr_impl.1023" }
@@ -339,9 +330,8 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple.1024" = type { %"struct.std::_Tuple_impl.1025" }
 %"struct.std::_Tuple_impl.1025" = type { %"struct.std::_Head_base.1028" }
 %"struct.std::_Head_base.1028" = type { ptr }
-%"struct.duckdb::uhugeint_t" = type { i64, i64 }
-%"struct.duckdb::PrimitiveDictionary<duckdb::uhugeint_t, double, duckdb::ParquetUhugeintOperator>::primitive_dictionary_entry_t" = type <{ %"struct.duckdb::uhugeint_t", i32, [4 x i8] }>
 %"class.std::function.1047" = type { %"class.std::_Function_base", ptr }
+%"struct.duckdb::uhugeint_t" = type { i64, i64 }
 %"class.duckdb::unique_ptr.1051" = type { %"class.std::unique_ptr.1052" }
 %"class.std::unique_ptr.1052" = type { %"struct.std::__uniq_ptr_data.1053" }
 %"struct.std::__uniq_ptr_data.1053" = type { %"class.std::__uniq_ptr_impl.1054" }
@@ -349,7 +339,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple.1055" = type { %"struct.std::_Tuple_impl.1056" }
 %"struct.std::_Tuple_impl.1056" = type { %"struct.std::_Head_base.1059" }
 %"struct.std::_Head_base.1059" = type { ptr }
-%"struct.duckdb::PrimitiveDictionary<long, long, duckdb::ParquetTimestampNSOperator>::primitive_dictionary_entry_t" = type { i64, i32 }
 %"class.duckdb::unique_ptr.1079" = type { %"class.std::unique_ptr.1080" }
 %"class.std::unique_ptr.1080" = type { %"struct.std::__uniq_ptr_data.1081" }
 %"struct.std::__uniq_ptr_data.1081" = type { %"class.std::__uniq_ptr_impl.1082" }
@@ -357,7 +346,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple.1083" = type { %"struct.std::_Tuple_impl.1084" }
 %"struct.std::_Tuple_impl.1084" = type { %"struct.std::_Head_base.1087" }
 %"struct.std::_Head_base.1087" = type { ptr }
-%"struct.duckdb::PrimitiveDictionary<long, long, duckdb::ParquetTimestampSOperator>::primitive_dictionary_entry_t" = type { i64, i32 }
 %"class.duckdb::unique_ptr.1107" = type { %"class.std::unique_ptr.1108" }
 %"class.std::unique_ptr.1108" = type { %"struct.std::__uniq_ptr_data.1109" }
 %"struct.std::__uniq_ptr_data.1109" = type { %"class.std::__uniq_ptr_impl.1110" }
@@ -365,7 +353,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple.1111" = type { %"struct.std::_Tuple_impl.1112" }
 %"struct.std::_Tuple_impl.1112" = type { %"struct.std::_Head_base.1115" }
 %"struct.std::_Head_base.1115" = type { ptr }
-%"struct.duckdb::PrimitiveDictionary<unsigned char, int, duckdb::ParquetCastOperator>::primitive_dictionary_entry_t" = type { i8, i32 }
 %"class.std::function.1146" = type { %"class.std::_Function_base", ptr }
 %"class.duckdb::unique_ptr.1150" = type { %"class.std::unique_ptr.1151" }
 %"class.std::unique_ptr.1151" = type { %"struct.std::__uniq_ptr_data.1152" }
@@ -374,7 +361,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple.1154" = type { %"struct.std::_Tuple_impl.1155" }
 %"struct.std::_Tuple_impl.1155" = type { %"struct.std::_Head_base.1158" }
 %"struct.std::_Head_base.1158" = type { ptr }
-%"struct.duckdb::PrimitiveDictionary<unsigned short, int, duckdb::ParquetCastOperator>::primitive_dictionary_entry_t" = type { i16, i32 }
 %"class.std::function.1189" = type { %"class.std::_Function_base", ptr }
 %"class.duckdb::unique_ptr.1193" = type { %"class.std::unique_ptr.1194" }
 %"class.std::unique_ptr.1194" = type { %"struct.std::__uniq_ptr_data.1195" }
@@ -383,7 +369,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple.1197" = type { %"struct.std::_Tuple_impl.1198" }
 %"struct.std::_Tuple_impl.1198" = type { %"struct.std::_Head_base.1201" }
 %"struct.std::_Head_base.1201" = type { ptr }
-%"struct.duckdb::PrimitiveDictionary<unsigned int, unsigned int, duckdb::ParquetCastOperator>::primitive_dictionary_entry_t" = type { i32, i32 }
 %"class.std::function.1232" = type { %"class.std::_Function_base", ptr }
 %"class.duckdb::unique_ptr.1236" = type { %"class.std::unique_ptr.1237" }
 %"class.std::unique_ptr.1237" = type { %"struct.std::__uniq_ptr_data.1238" }
@@ -392,7 +377,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple.1240" = type { %"struct.std::_Tuple_impl.1241" }
 %"struct.std::_Tuple_impl.1241" = type { %"struct.std::_Head_base.1244" }
 %"struct.std::_Head_base.1244" = type { ptr }
-%"struct.duckdb::PrimitiveDictionary<unsigned long, unsigned long, duckdb::ParquetCastOperator>::primitive_dictionary_entry_t" = type { i64, i32 }
 %"class.std::function.1275" = type { %"class.std::_Function_base", ptr }
 %"class.duckdb::unique_ptr.1279" = type { %"class.std::unique_ptr.1280" }
 %"class.std::unique_ptr.1280" = type { %"struct.std::__uniq_ptr_data.1281" }
@@ -401,8 +385,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple.1283" = type { %"struct.std::_Tuple_impl.1284" }
 %"struct.std::_Tuple_impl.1284" = type { %"struct.std::_Head_base.1287" }
 %"struct.std::_Head_base.1287" = type { ptr }
-%"struct.duckdb::float_na_equal" = type { float }
-%"struct.duckdb::PrimitiveDictionary<duckdb::float_na_equal, float, duckdb::ParquetCastOperator>::primitive_dictionary_entry_t" = type { %"struct.duckdb::float_na_equal", i32 }
 %"class.std::function.1318" = type { %"class.std::_Function_base", ptr }
 %"class.duckdb::unique_ptr.1322" = type { %"class.std::unique_ptr.1323" }
 %"class.std::unique_ptr.1323" = type { %"struct.std::__uniq_ptr_data.1324" }
@@ -411,8 +393,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple.1326" = type { %"struct.std::_Tuple_impl.1327" }
 %"struct.std::_Tuple_impl.1327" = type { %"struct.std::_Head_base.1330" }
 %"struct.std::_Head_base.1330" = type { ptr }
-%"struct.duckdb::double_na_equal" = type { double }
-%"struct.duckdb::PrimitiveDictionary<duckdb::double_na_equal, double, duckdb::ParquetCastOperator>::primitive_dictionary_entry_t" = type <{ %"struct.duckdb::double_na_equal", i32, [4 x i8] }>
 %"class.std::function.1361" = type { %"class.std::_Function_base", ptr }
 %"class.duckdb::unique_ptr.1365" = type { %"class.std::unique_ptr.1366" }
 %"class.std::unique_ptr.1366" = type { %"struct.std::__uniq_ptr_data.1367" }
@@ -421,7 +401,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple.1369" = type { %"struct.std::_Tuple_impl.1370" }
 %"struct.std::_Tuple_impl.1370" = type { %"struct.std::_Head_base.1373" }
 %"struct.std::_Head_base.1373" = type { ptr }
-%"struct.duckdb::PrimitiveDictionary<duckdb::hugeint_t, duckdb::ParquetUUIDTargetType, duckdb::ParquetUUIDOperator>::primitive_dictionary_entry_t" = type <{ %"struct.duckdb::hugeint_t", i32, [4 x i8] }>
 %"class.std::function.1392" = type { %"class.std::_Function_base", ptr }
 %"class.duckdb::unique_ptr.1396" = type { %"class.std::unique_ptr.1397" }
 %"class.std::unique_ptr.1397" = type { %"struct.std::__uniq_ptr_data.1398" }
@@ -430,9 +409,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple.1400" = type { %"struct.std::_Tuple_impl.1401" }
 %"struct.std::_Tuple_impl.1401" = type { %"struct.std::_Head_base.1404" }
 %"struct.std::_Head_base.1404" = type { ptr }
-%"struct.duckdb::interval_t" = type { i32, i32, i64 }
 %"class.std::function.1423" = type { %"class.std::_Function_base", ptr }
-%"struct.duckdb::PrimitiveDictionary<duckdb::interval_t, duckdb::ParquetIntervalTargetType, duckdb::ParquetIntervalOperator>::primitive_dictionary_entry_t" = type { %"struct.duckdb::interval_t", i32 }
 
 $_ZN6duckdb10DbpEncoder10BeginWriteERNS_11WriteStreamERKl = comdat any
 
@@ -2743,7 +2720,7 @@ define void @_ZN6duckdb11dbp_encoder10WriteValueIlEEvRNS_10DbpEncoderERNS_11Writ
   %13 = load i64, ptr %12, align 8, !tbaa !28
   %14 = add i64 %13, 1
   store i64 %14, ptr %12, align 8, !tbaa !28
-  %15 = getelementptr inbounds nuw i64, ptr %11, i64 %13
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %13
   store i64 %7, ptr %15, align 8, !tbaa !24
   %16 = load i64, ptr %12, align 8, !tbaa !28
   %17 = icmp eq i64 %16, 2048
@@ -2774,7 +2751,7 @@ define void @_ZN6duckdb11dbp_encoder10WriteValueIiEEvRNS_10DbpEncoderERNS_11Writ
   %14 = load i64, ptr %13, align 8, !tbaa !28
   %15 = add i64 %14, 1
   store i64 %15, ptr %13, align 8, !tbaa !28
-  %16 = getelementptr inbounds nuw i64, ptr %12, i64 %14
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %14
   store i64 %8, ptr %16, align 8, !tbaa !24
   %17 = load i64, ptr %13, align 8, !tbaa !28
   %18 = icmp eq i64 %17, 2048
@@ -2804,7 +2781,7 @@ define void @_ZN6duckdb11dbp_encoder10WriteValueImEEvRNS_10DbpEncoderERNS_11Writ
   %13 = load i64, ptr %12, align 8, !tbaa !28
   %14 = add i64 %13, 1
   store i64 %14, ptr %12, align 8, !tbaa !28
-  %15 = getelementptr inbounds nuw i64, ptr %11, i64 %13
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %13
   store i64 %7, ptr %15, align 8, !tbaa !24
   %16 = load i64, ptr %12, align 8, !tbaa !28
   %17 = icmp eq i64 %16, 2048
@@ -2835,7 +2812,7 @@ define void @_ZN6duckdb11dbp_encoder10WriteValueIjEEvRNS_10DbpEncoderERNS_11Writ
   %14 = load i64, ptr %13, align 8, !tbaa !28
   %15 = add i64 %14, 1
   store i64 %15, ptr %13, align 8, !tbaa !28
-  %16 = getelementptr inbounds nuw i64, ptr %12, i64 %14
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %14
   store i64 %8, ptr %16, align 8, !tbaa !24
   %17 = load i64, ptr %13, align 8, !tbaa !28
   %18 = icmp eq i64 %17, 2048
@@ -2890,7 +2867,7 @@ define void @_ZN6duckdb12dlba_encoder10WriteValueINS_8string_tEEEvRNS_11DlbaEnco
   %14 = load i64, ptr %13, align 8, !tbaa !28
   %15 = add i64 %14, 1
   store i64 %15, ptr %13, align 8, !tbaa !28
-  %16 = getelementptr inbounds nuw i64, ptr %12, i64 %14
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %14
   store i64 %8, ptr %16, align 8, !tbaa !24
   %17 = load i64, ptr %13, align 8, !tbaa !28
   %18 = icmp eq i64 %17, 2048
@@ -3066,7 +3043,7 @@ define void @_ZN6duckdb17ColumnWriterStateD2Ev(ptr noundef nonnull align 8 captu
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 3
   %11 = sub nsw i64 0, %10
-  %12 = getelementptr inbounds i64, ptr %6, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %6, i64 %11
   tail call void @_ZdlPv(ptr noundef %12) #28
   store ptr null, ptr %2, align 8
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -3762,7 +3739,7 @@ _ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit16.i.i: ; preds = %45, %_ZNKS
 _ZNSt6vectorItSaItEE17_M_realloc_insertIJRKtEEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEDpOT_.exit.i: ; preds = %47, %_ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit16.i.i
   store ptr %41, ptr %6, align 8, !tbaa !62
   store ptr %46, ptr %7, align 8, !tbaa !195
-  %48 = getelementptr inbounds nuw i16, ptr %41, i64 %39
+  %48 = getelementptr inbounds nuw [2 x i8], ptr %41, i64 %39
   store ptr %48, ptr %21, align 8, !tbaa !196
   %.pre6 = load ptr, ptr %8, align 8, !tbaa !62
   br label %_ZNSt6vectorItSaItEE9push_backERKt.exit
@@ -3888,7 +3865,7 @@ _ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit16.i.i: ; preds = %59, %_ZNKS
 _ZNSt6vectorItSaItEE17_M_realloc_insertIJRKtEEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEDpOT_.exit.i: ; preds = %61, %_ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit16.i.i
   store ptr %55, ptr %13, align 8, !tbaa !62
   store ptr %60, ptr %14, align 8, !tbaa !195
-  %62 = getelementptr inbounds nuw i16, ptr %55, i64 %53
+  %62 = getelementptr inbounds nuw [2 x i8], ptr %55, i64 %53
   store ptr %62, ptr %28, align 8, !tbaa !196
   br label %_ZNSt6vectorItSaItEE9push_backERKt.exit
 
@@ -3905,7 +3882,7 @@ _ZNSt6vectorItSaItEE9push_backERKt.exit:          ; preds = %45, %_ZNSt6vectorIt
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit: ; preds = %65
   %67 = lshr i64 %.037107, 6
-  %68 = getelementptr inbounds nuw i64, ptr %66, i64 %67
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %67
   %69 = load i64, ptr %68, align 8, !tbaa !24
   %70 = and i64 %.037107, 63
   %71 = shl nuw i64 1, %70
@@ -3963,7 +3940,7 @@ _ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit16.i.i60: ; preds = %87, %_ZN
 _ZNSt6vectorItSaItEE17_M_realloc_insertIJRKtEEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEDpOT_.exit.i62: ; preds = %89, %_ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit16.i.i60
   store ptr %84, ptr %13, align 8, !tbaa !62
   store ptr %88, ptr %14, align 8, !tbaa !195
-  %90 = getelementptr inbounds nuw i16, ptr %84, i64 %82
+  %90 = getelementptr inbounds nuw [2 x i8], ptr %84, i64 %82
   store ptr %90, ptr %28, align 8, !tbaa !196
   br label %_ZNSt6vectorItSaItEE9push_backERKt.exit63
 
@@ -4067,7 +4044,7 @@ _ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit16.i.i68: ; preds = %121, %_Z
 _ZNSt6vectorItSaItEE17_M_realloc_insertIJRKtEEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEDpOT_.exit.i70: ; preds = %123, %_ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit16.i.i68
   store ptr %118, ptr %13, align 8, !tbaa !62
   store ptr %122, ptr %14, align 8, !tbaa !195
-  %124 = getelementptr inbounds nuw i16, ptr %118, i64 %116
+  %124 = getelementptr inbounds nuw [2 x i8], ptr %118, i64 %116
   store ptr %124, ptr %28, align 8, !tbaa !196
   br label %_ZNSt6vectorItSaItEE9push_backERKt.exit63
 
@@ -4144,7 +4121,7 @@ _ZNSt6vectorItSaItEE9push_backERKt.exit63:        ; preds = %_ZNSt6vectorItSaItE
 
 _ZNK6duckdb21TemplatedValidityMaskImE16RowIsValidUnsafeEm.exit.i74: ; preds = %165
   %167 = lshr i64 %.039109, 6
-  %168 = getelementptr inbounds nuw i64, ptr %166, i64 %167
+  %168 = getelementptr inbounds nuw [8 x i8], ptr %166, i64 %167
   %169 = load i64, ptr %168, align 8, !tbaa !24
   %170 = and i64 %.039109, 63
   %171 = shl nuw i64 1, %170
@@ -4212,7 +4189,7 @@ _ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit16.i.i81: ; preds = %195, %_Z
 _ZNSt6vectorItSaItEE17_M_realloc_insertIJRKtEEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEDpOT_.exit.i83: ; preds = %197, %_ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit16.i.i81
   store ptr %192, ptr %152, align 8, !tbaa !62
   store ptr %196, ptr %153, align 8, !tbaa !195
-  %198 = getelementptr inbounds nuw i16, ptr %192, i64 %190
+  %198 = getelementptr inbounds nuw [2 x i8], ptr %192, i64 %190
   store ptr %198, ptr %154, align 8, !tbaa !196
   br label %_ZNSt6vectorItSaItEE12emplace_backIJRKtEEEvDpOT_.exit
 
@@ -4416,7 +4393,7 @@ define void @_ZN6duckdb12ColumnWriter21CreateWriterRecursiveERNS_13ClientContext
   %98 = load i64, ptr %97, align 8, !tbaa !241
   %99 = urem i64 %96, %98
   %100 = load ptr, ptr %86, align 8, !tbaa !242
-  %101 = getelementptr inbounds nuw ptr, ptr %100, i64 %99
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %100, i64 %99
   %102 = load ptr, ptr %101, align 8, !tbaa !243
   %.not.i.i.i.i = icmp eq ptr %102, null
   br i1 %.not.i.i.i.i, label %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb7FieldIDENS6_33CaseInsensitiveStringHashFunctionENS6_29CaseInsensitiveStringEqualityESaISt4pairIKS5_S7_EEE4findERSB_.exit, label %103
@@ -4660,7 +4637,7 @@ _ZNSt12_Vector_baseIN6duckdb10unique_ptrINS0_12ColumnWriterESt14default_deleteIS
   %.pre.pre = load ptr, ptr %128, align 8, !tbaa !293
   store ptr %202, ptr %23, align 8, !tbaa !294
   store ptr %202, ptr %203, align 8, !tbaa !295
-  %204 = getelementptr inbounds nuw %"class.duckdb::unique_ptr.183", ptr %202, i64 %196
+  %204 = getelementptr inbounds nuw [8 x i8], ptr %202, i64 %196
   store ptr %204, ptr %200, align 8, !tbaa !296
   br label %_ZNSt6vectorIN6duckdb10unique_ptrINS0_12ColumnWriterESt14default_deleteIS2_ELb1EEESaIS5_EE7reserveEm.exit
 
@@ -4819,7 +4796,7 @@ _ZNSt6vectorIN6duckdb10unique_ptrINS0_12ColumnWriterESt14default_deleteIS2_ELb1E
 _ZNSt6vectorIN6duckdb10unique_ptrINS0_12ColumnWriterESt14default_deleteIS2_ELb1EEESaIS5_EE9push_backEOS5_.exit: ; preds = %_ZNSt6vectorIN6duckdb10unique_ptrINS0_12ColumnWriterESt14default_deleteIS2_ELb1EEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i, %262
   store ptr %255, ptr %23, align 8, !tbaa !294
   store ptr %261, ptr %211, align 8, !tbaa !295
-  %263 = getelementptr inbounds nuw %"class.duckdb::unique_ptr.183", ptr %255, i64 %253
+  %263 = getelementptr inbounds nuw [8 x i8], ptr %255, i64 %253
   store ptr %263, ptr %200, align 8, !tbaa !296
   br label %_ZNSt10unique_ptrIN6duckdb12ColumnWriterESt14default_deleteIS1_EED2Ev.exit
 
@@ -6110,7 +6087,7 @@ _ZNSt6vectorIN6duckdb10unique_ptrINS0_12ColumnWriterESt14default_deleteIS2_ELb1E
   call void @_ZdlPv(ptr noundef nonnull %658) #28
   store ptr %710, ptr %38, align 8, !tbaa !294
   store ptr %716, ptr %620, align 8, !tbaa !295
-  %717 = getelementptr inbounds nuw %"class.duckdb::unique_ptr.183", ptr %710, i64 %708
+  %717 = getelementptr inbounds nuw [8 x i8], ptr %710, i64 %708
   store ptr %717, ptr %619, align 8, !tbaa !296
   %.pr535 = load ptr, ptr %39, align 8, !tbaa !298
   %.not.i375 = icmp eq ptr %.pr535, null
@@ -7451,7 +7428,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %1
   unreachable
 
 _ZN6duckdb6vectorINS_11LogicalTypeELb1EE3getILb1EEERS1_m.exit: ; preds = %2
-  %25 = getelementptr inbounds nuw %"struct.duckdb::LogicalType", ptr %7, i64 %1
+  %25 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %1
   ret ptr %25
 }
 
@@ -7524,7 +7501,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %1
   unreachable
 
 _ZN6duckdb6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1EE3getILb1EEERS6_m.exit: ; preds = %2
-  %25 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %7, i64 %1
+  %25 = getelementptr inbounds nuw [32 x i8], ptr %7, i64 %1
   ret ptr %25
 }
 
@@ -9696,7 +9673,7 @@ define linkonce_odr void @_ZN6duckdb10DbpEncoder10WriteBlockERNS_11WriteStreamE(
 16:                                               ; preds = %.preheader40, %24
   %.03341 = phi i64 [ 0, %.preheader40 ], [ %25, %24 ]
   %17 = add nuw nsw i64 %.03341, %11
-  %18 = getelementptr inbounds nuw i64, ptr %8, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %17
   %19 = load i64, ptr %4, align 8, !tbaa !28
   %20 = icmp ult i64 %17, %19
   br i1 %20, label %21, label %24
@@ -9774,7 +9751,7 @@ _ZN6duckdb18ParquetDecodeUtils12VarintEncodeImEEvT_RNS_11WriteStreamE.exit: ; pr
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %44
   %.014.i.i = phi i64 [ %54, %.lr.ph.i.i ], [ 1, %44 ]
   %.01113.i.i = phi i64 [ %spec.select.i.i, %.lr.ph.i.i ], [ %46, %44 ]
-  %52 = getelementptr inbounds nuw i64, ptr %45, i64 %.014.i.i
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %.014.i.i
   %53 = load i64, ptr %52, align 8, !tbaa !24
   %spec.select.i.i = tail call i64 @llvm.umax.i64(i64 %53, i64 %.01113.i.i)
   %54 = add nuw nsw i64 %.014.i.i, 1
@@ -9814,7 +9791,7 @@ _ZN6duckdb20BitpackingPrimitives15MinimumBitWidthImLb0EEEhPT_m.exit: ; preds = %
   %67 = mul nuw nsw i64 %.08.i.i, %64
   %68 = lshr exact i64 %67, 3
   %69 = getelementptr inbounds nuw i8, ptr %40, i64 %68
-  %70 = getelementptr inbounds nuw i64, ptr %61, i64 %.08.i.i
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %.08.i.i
   call void @_ZN18duckdb_fastpforlib8fastpackEPKmPjj(ptr noundef nonnull %70, ptr noundef nonnull %69, i32 noundef %65)
   %71 = add nuw nsw i64 %.08.i.i, 32
   %72 = icmp samesign ult i64 %.08.i.i, 224
@@ -11149,7 +11126,7 @@ _ZNSt12_Vector_baseIN6duckdb20ExceptionFormatValueESaIS1_EE13_M_deallocateEPS1_m
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !190
   store ptr %.0.lcssa.i.i.i.i25, ptr %4, align 8, !tbaa !193
-  %74 = getelementptr inbounds nuw %"struct.duckdb::ExceptionFormatValue", ptr %20, i64 %16
+  %74 = getelementptr inbounds nuw [56 x i8], ptr %20, i64 %16
   store ptr %74, ptr %73, align 8, !tbaa !398
   ret void
 }
@@ -11233,7 +11210,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %21
 
 _ZN6duckdb6vectorIbLb1EE19AssertIndexInBoundsEmm.exit: ; preds = %2
   %29 = sdiv i64 %1, 64
-  %30 = getelementptr inbounds i64, ptr %9, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %9, i64 %29
   %31 = and i64 %1, -9223372036854775745
   %32 = icmp ugt i64 %31, -9223372036854775808
   %storemerge.idx.i.i.i.i.i = select i1 %32, i64 -8, i64 0
@@ -11469,7 +11446,7 @@ define linkonce_odr void @_ZNSt6vectorItSaItEE14_M_fill_insertEN9__gnu_cxx17__no
 
 _ZSt22__uninitialized_move_aIPtS0_SaItEET0_T_S3_S2_RT1_.exit: ; preds = %23, %20
   %24 = phi ptr [ %.pre, %23 ], [ %9, %20 ]
-  %25 = getelementptr inbounds nuw i16, ptr %24, i64 %2
+  %25 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %2
   store ptr %25, ptr %8, align 8, !tbaa !195
   %.not.i.i.i.i.i = icmp eq ptr %21, %1
   br i1 %.not.i.i.i.i.i, label %_ZSt13move_backwardIPtS0_ET0_T_S2_S1_.exit, label %26
@@ -11478,7 +11455,7 @@ _ZSt22__uninitialized_move_aIPtS0_SaItEET0_T_S3_S2_RT1_.exit: ; preds = %23, %20
   %27 = sub i64 %22, %16
   %28 = ashr exact i64 %27, 1
   %29 = sub nsw i64 0, %28
-  %30 = getelementptr inbounds i16, ptr %9, i64 %29
+  %30 = getelementptr inbounds [2 x i8], ptr %9, i64 %29
   tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %30, ptr align 2 %1, i64 %27, i1 false)
   br label %_ZSt13move_backwardIPtS0_ET0_T_S2_S1_.exit
 
@@ -11589,7 +11566,7 @@ _ZSt24__uninitialized_fill_n_aIPtmttET_S1_T0_RKT1_RSaIT2_E.exit80: ; preds = %.l
   br label %_ZSt34__uninitialized_move_if_noexcept_aIPtS0_SaItEET0_T_S3_S2_RT1_.exit
 
 _ZSt34__uninitialized_move_if_noexcept_aIPtS0_SaItEET0_T_S3_S2_RT1_.exit: ; preds = %67, %_ZSt24__uninitialized_fill_n_aIPtmttET_S1_T0_RKT1_RSaIT2_E.exit80
-  %68 = getelementptr inbounds nuw i16, ptr %63, i64 %2
+  %68 = getelementptr inbounds nuw [2 x i8], ptr %63, i64 %2
   %69 = sub i64 %11, %56
   %.not.i.i.i.i.i.i.i.i.i82 = icmp eq ptr %9, %1
   br i1 %.not.i.i.i.i.i.i.i.i.i82, label %71, label %70
@@ -11610,7 +11587,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPtS0_SaItEET0_T_S3_S2_RT1_.exit: ; pred
 _ZNSt12_Vector_baseItSaItEE13_M_deallocateEPtm.exit: ; preds = %71, %73
   store ptr %62, ptr %0, align 8, !tbaa !62
   store ptr %72, ptr %8, align 8, !tbaa !195
-  %74 = getelementptr inbounds nuw i16, ptr %62, i64 %55
+  %74 = getelementptr inbounds nuw [2 x i8], ptr %62, i64 %55
   store ptr %74, ptr %6, align 8, !tbaa !196
   br label %_ZSt4fillIPttEvT_S1_RKT0_.exit
 
@@ -11925,7 +11902,7 @@ _ZNSt12_Vector_baseIN14duckdb_parquet13SchemaElementESaIS1_EE13_M_deallocateEPS1
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !225
   store ptr %.0.lcssa.i.i.i.i.i39, ptr %4, align 8, !tbaa !224
-  %56 = getelementptr inbounds nuw %"class.duckdb_parquet::SchemaElement", ptr %20, i64 %16
+  %56 = getelementptr inbounds nuw [328 x i8], ptr %20, i64 %16
   store ptr %56, ptr %55, align 8, !tbaa !292
   ret void
 
@@ -12172,7 +12149,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %23, ptr %0, align 8, !tbaa !48
   store ptr %.0.lcssa.i.i.i.i35, ptr %5, align 8, !tbaa !49
-  %74 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %74 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %74, ptr %73, align 8, !tbaa !50
   ret void
 
@@ -12401,7 +12378,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %23, ptr %0, align 8, !tbaa !48
   store ptr %.0.lcssa.i.i.i.i36, ptr %5, align 8, !tbaa !49
-  %75 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %75 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %75, ptr %74, align 8, !tbaa !50
   ret void
 
@@ -12618,7 +12595,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %23, ptr %0, align 8, !tbaa !48
   store ptr %.0.lcssa.i.i.i.i35, ptr %5, align 8, !tbaa !49
-  %72 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %72 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %72, ptr %71, align 8, !tbaa !50
   ret void
 
@@ -12951,7 +12928,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_8string_tES1_NS_21
 
 30:                                               ; preds = %.lr.ph57, %30
   %.056 = phi i64 [ 0, %.lr.ph57 ], [ %37, %30 ]
-  %31 = getelementptr inbounds nuw %"struct.duckdb::string_t", ptr %7, i64 %.056
+  %31 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %.056
   %.sroa.04.0.copyload = load i64, ptr %31, align 8
   %.sroa.25.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 8
   %.sroa.25.0.copyload = load ptr, ptr %.sroa.25.0..sroa_idx, align 8, !tbaa !3
@@ -13018,7 +12995,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_8string_tES1_NS_21
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.us: ; preds = %.critedge.us
   %63 = lshr i64 %.155.us, 6
-  %64 = getelementptr inbounds nuw i64, ptr %62, i64 %63
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %63
   %65 = load i64, ptr %64, align 8, !tbaa !24
   %66 = and i64 %.155.us, 63
   %67 = shl nuw i64 1, %66
@@ -13027,7 +13004,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.us: ; preds = %.critedg
   br i1 %.not51.us, label %75, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.us
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.us: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.us, %.critedge.us
-  %69 = getelementptr inbounds nuw %"struct.duckdb::string_t", ptr %7, i64 %.155.us
+  %69 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %.155.us
   %.sroa.0.0.copyload.us = load i64, ptr %69, align 8
   %.sroa.2.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %69, i64 8
   %.sroa.2.0.copyload.us = load ptr, ptr %.sroa.2.0..sroa_idx.us, align 8, !tbaa !3
@@ -13060,7 +13037,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.us: ; preds = %_
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit: ; preds = %.critedge
   %80 = lshr i64 %.155, 6
-  %81 = getelementptr inbounds nuw i64, ptr %79, i64 %80
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %79, i64 %80
   %82 = load i64, ptr %81, align 8, !tbaa !24
   %83 = and i64 %.155, 63
   %84 = shl nuw i64 1, %83
@@ -13069,7 +13046,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit: ; preds = %.critedge
   br i1 %.not51, label %92, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %.critedge, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit
-  %86 = getelementptr inbounds nuw %"struct.duckdb::string_t", ptr %7, i64 %.155
+  %86 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %.155
   %.sroa.0.0.copyload = load i64, ptr %86, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %86, i64 8
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !3
@@ -13462,7 +13439,7 @@ define linkonce_odr noundef i64 @_ZNK6duckdb20StandardColumnWriterINS_8string_tE
 13:                                               ; preds = %4
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %15 = load ptr, ptr %14, align 8, !tbaa !504
-  %16 = getelementptr inbounds nuw %"struct.duckdb::string_t", ptr %15, i64 %2
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %2
   %17 = load i32, ptr %16, align 8, !tbaa !3
   br label %18
 
@@ -13535,7 +13512,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_8string_tES1_NS_21
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit: ; preds = %.lr.ph211, %57
   %.1120210 = phi i64 [ %58, %57 ], [ %5, %.lr.ph211 ]
   %44 = lshr i64 %.1120210, 6
-  %45 = getelementptr inbounds nuw i64, ptr %43, i64 %44
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %44
   %46 = load i64, ptr %45, align 8, !tbaa !24
   %47 = and i64 %.1120210, 63
   %48 = shl nuw i64 1, %47
@@ -13584,7 +13561,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %_ZNK
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133: ; preds = %62
   %64 = lshr i64 %.2214, 6
-  %65 = getelementptr inbounds nuw i64, ptr %63, i64 %64
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %64
   %66 = load i64, ptr %65, align 8, !tbaa !24
   %67 = and i64 %.2214, 63
   %68 = shl nuw i64 1, %67
@@ -13593,7 +13570,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133: ; preds = %62
   br i1 %.not185, label %101, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133.thread
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133.thread: ; preds = %62, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133
-  %70 = getelementptr inbounds nuw %"struct.duckdb::string_t", ptr %31, i64 %.2214
+  %70 = getelementptr inbounds nuw [16 x i8], ptr %31, i64 %.2214
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %71 = load ptr, ptr %60, align 8, !tbaa !566
   %.sroa.0.0.copyload.i.i = load i64, ptr %70, align 8
@@ -13605,7 +13582,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133.thread: ; preds = %6
   %75 = getelementptr inbounds nuw i8, ptr %71, i64 136
   %76 = load ptr, ptr %75, align 8, !tbaa !568
   %.07.i.i = and i64 %74, %72
-  %77 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<duckdb::string_t, duckdb::string_t, duckdb::ParquetStringOperator>::primitive_dictionary_entry_t", ptr %76, i64 %.07.i.i
+  %77 = getelementptr inbounds nuw [24 x i8], ptr %76, i64 %.07.i.i
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 16
   %79 = load i32, ptr %78, align 8, !tbaa !569
   %80 = icmp eq i32 %79, -1
@@ -13645,7 +13622,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133.thread: ; preds = %6
 94:                                               ; preds = %92, %90, %83
   %95 = add i64 %.08.i.i, 1
   %.0.i.i = and i64 %95, %74
-  %96 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<duckdb::string_t, duckdb::string_t, duckdb::ParquetStringOperator>::primitive_dictionary_entry_t", ptr %76, i64 %.0.i.i
+  %96 = getelementptr inbounds nuw [24 x i8], ptr %76, i64 %.0.i.i
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 16
   %98 = load i32, ptr %97, align 8, !tbaa !569
   %99 = icmp eq i32 %98, -1
@@ -13685,7 +13662,7 @@ _ZNK6duckdb19PrimitiveDictionaryINS_8string_tES1_NS_21ParquetStringOperatorEE8Ge
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit137: ; preds = %.lr.ph205, %120
   %.1122204 = phi i64 [ %121, %120 ], [ %5, %.lr.ph205 ]
   %109 = lshr i64 %.1122204, 6
-  %110 = getelementptr inbounds nuw i64, ptr %108, i64 %109
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %108, i64 %109
   %111 = load i64, ptr %110, align 8, !tbaa !24
   %112 = and i64 %.1122204, 63
   %113 = shl nuw i64 1, %112
@@ -13696,7 +13673,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit137: ; preds = %.lr.ph20
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit137.thread: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit137, %.lr.ph205
   %.us-phi207 = phi i64 [ %5, %.lr.ph205 ], [ %.1122204, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit137 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
-  %115 = getelementptr inbounds nuw %"struct.duckdb::string_t", ptr %31, i64 %.us-phi207
+  %115 = getelementptr inbounds nuw [16 x i8], ptr %31, i64 %.us-phi207
   %.sroa.031.0.copyload = load i64, ptr %115, align 8
   %.sroa.232.0..sroa_idx = getelementptr inbounds nuw i8, ptr %115, i64 8
   %.sroa.232.0.copyload = load ptr, ptr %.sroa.232.0..sroa_idx, align 8, !tbaa !3
@@ -13740,7 +13717,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit137.thread: ; preds = %_
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit141: ; preds = %126
   %128 = lshr i64 %.2123208, 6
-  %129 = getelementptr inbounds nuw i64, ptr %127, i64 %128
+  %129 = getelementptr inbounds nuw [8 x i8], ptr %127, i64 %128
   %130 = load i64, ptr %129, align 8, !tbaa !24
   %131 = and i64 %.2123208, 63
   %132 = shl nuw i64 1, %131
@@ -13750,7 +13727,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit141: ; preds = %126
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit141.thread: ; preds = %126, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit141
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
-  %134 = getelementptr inbounds nuw %"struct.duckdb::string_t", ptr %31, i64 %.2123208
+  %134 = getelementptr inbounds nuw [16 x i8], ptr %31, i64 %.2123208
   %.sroa.027.0.copyload = load i64, ptr %134, align 8
   %.sroa.228.0..sroa_idx = getelementptr inbounds nuw i8, ptr %134, i64 8
   %.sroa.228.0.copyload = load ptr, ptr %.sroa.228.0..sroa_idx, align 8, !tbaa !3
@@ -13786,7 +13763,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit141.thread: ; preds = %1
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit147: ; preds = %.lr.ph201, %163
   %.1125200 = phi i64 [ %164, %163 ], [ %5, %.lr.ph201 ]
   %143 = lshr i64 %.1125200, 6
-  %144 = getelementptr inbounds nuw i64, ptr %142, i64 %143
+  %144 = getelementptr inbounds nuw [8 x i8], ptr %142, i64 %143
   %145 = load i64, ptr %144, align 8, !tbaa !24
   %146 = and i64 %.1125200, 63
   %147 = shl nuw i64 1, %146
@@ -13797,7 +13774,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit147: ; preds = %.lr.ph20
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit147.thread: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit147, %.lr.ph201
   %.us-phi = phi i64 [ %5, %.lr.ph201 ], [ %.1125200, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit147 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
-  %149 = getelementptr inbounds nuw %"struct.duckdb::string_t", ptr %31, i64 %.us-phi
+  %149 = getelementptr inbounds nuw [16 x i8], ptr %31, i64 %.us-phi
   %.sroa.014.0.copyload = load i64, ptr %149, align 8
   %.sroa.215.0..sroa_idx = getelementptr inbounds nuw i8, ptr %149, i64 8
   %.sroa.215.0.copyload = load ptr, ptr %.sroa.215.0..sroa_idx, align 8, !tbaa !3
@@ -13860,7 +13837,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit147.thread: ; preds = %_
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit153: ; preds = %175
   %177 = lshr i64 %.2126202, 6
-  %178 = getelementptr inbounds nuw i64, ptr %176, i64 %177
+  %178 = getelementptr inbounds nuw [8 x i8], ptr %176, i64 %177
   %179 = load i64, ptr %178, align 8, !tbaa !24
   %180 = and i64 %.2126202, 63
   %181 = shl nuw i64 1, %180
@@ -13870,7 +13847,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit153: ; preds = %175
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit153.thread: ; preds = %175, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit153
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
-  %183 = getelementptr inbounds nuw %"struct.duckdb::string_t", ptr %31, i64 %.2126202
+  %183 = getelementptr inbounds nuw [16 x i8], ptr %31, i64 %.2126202
   %.sroa.010.0.copyload = load i64, ptr %183, align 8
   %.sroa.211.0..sroa_idx = getelementptr inbounds nuw i8, ptr %183, i64 8
   %.sroa.211.0.copyload = load ptr, ptr %.sroa.211.0..sroa_idx, align 8, !tbaa !3
@@ -13892,7 +13869,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit153.thread: ; preds = %1
   %190 = load i64, ptr %171, align 8, !tbaa !28
   %191 = add i64 %190, 1
   store i64 %191, ptr %171, align 8, !tbaa !28
-  %192 = getelementptr inbounds nuw i64, ptr %170, i64 %190
+  %192 = getelementptr inbounds nuw [8 x i8], ptr %170, i64 %190
   store i64 %187, ptr %192, align 8, !tbaa !24
   %193 = load i64, ptr %171, align 8, !tbaa !28
   %194 = icmp eq i64 %193, 2048
@@ -13930,7 +13907,7 @@ _ZN6duckdb12dlba_encoder10WriteValueINS_8string_tEEEvRNS_11DlbaEncoderERNS_11Wri
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit159: ; preds = %205
   %207 = lshr i64 %.0127199, 6
-  %208 = getelementptr inbounds nuw i64, ptr %206, i64 %207
+  %208 = getelementptr inbounds nuw [8 x i8], ptr %206, i64 %207
   %209 = load i64, ptr %208, align 8, !tbaa !24
   %210 = and i64 %.0127199, 63
   %211 = shl nuw i64 1, %210
@@ -13940,7 +13917,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit159: ; preds = %205
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit159.thread: ; preds = %205, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit159
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
-  %213 = getelementptr inbounds nuw %"struct.duckdb::string_t", ptr %31, i64 %.0127199
+  %213 = getelementptr inbounds nuw [16 x i8], ptr %31, i64 %.0127199
   %.sroa.02.0.copyload = load i64, ptr %213, align 8
   %.sroa.23.0..sroa_idx = getelementptr inbounds nuw i8, ptr %213, i64 8
   %.sroa.23.0.copyload = load ptr, ptr %.sroa.23.0..sroa_idx, align 8, !tbaa !3
@@ -13978,7 +13955,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit159.thread: ; preds = %2
 223:                                              ; preds = %223, %.lr.ph.i
   %.01.i = phi i64 [ %5, %.lr.ph.i ], [ %235, %223 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %224 = getelementptr inbounds nuw %"struct.duckdb::string_t", ptr %31, i64 %.01.i
+  %224 = getelementptr inbounds nuw [16 x i8], ptr %31, i64 %.01.i
   %.sroa.01.0.copyload.i = load i64, ptr %224, align 8
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %224, i64 8
   %.sroa.22.0.copyload.i = load ptr, ptr %.sroa.22.0..sroa_idx.i, align 8, !tbaa !3
@@ -14026,7 +14003,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit159.thread: ; preds = %2
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i: ; preds = %240
   %242 = lshr i64 %.02.i, 6
-  %243 = getelementptr inbounds nuw i64, ptr %241, i64 %242
+  %243 = getelementptr inbounds nuw [8 x i8], ptr %241, i64 %242
   %244 = load i64, ptr %243, align 8, !tbaa !24
   %245 = and i64 %.02.i, 63
   %246 = shl nuw i64 1, %245
@@ -14036,7 +14013,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i: ; preds = %240
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i, %240
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %248 = getelementptr inbounds nuw %"struct.duckdb::string_t", ptr %31, i64 %.02.i
+  %248 = getelementptr inbounds nuw [16 x i8], ptr %31, i64 %.02.i
   %.sroa.01.0.copyload.i165 = load i64, ptr %248, align 8
   %.sroa.22.0..sroa_idx.i166 = getelementptr inbounds nuw i8, ptr %248, i64 8
   %.sroa.22.0.copyload.i167 = load ptr, ptr %.sroa.22.0..sroa_idx.i166, align 8, !tbaa !3
@@ -14214,7 +14191,7 @@ _ZNSt10unique_ptrIN6duckdb18ParquetBloomFilterESt14default_deleteIS1_EED2Ev.exit
   %28 = phi i64 [ %25, %.lr.ph.i ], [ %39, %38 ]
   %.07.i = phi i64 [ 0, %.lr.ph.i ], [ %40, %38 ]
   %29 = load ptr, ptr %26, align 8, !tbaa !568
-  %30 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<duckdb::string_t, duckdb::string_t, duckdb::ParquetStringOperator>::primitive_dictionary_entry_t", ptr %29, i64 %.07.i
+  %30 = getelementptr inbounds nuw [24 x i8], ptr %29, i64 %.07.i
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %32 = load i32, ptr %31, align 8, !tbaa !569
   %33 = icmp eq i32 %32, -1
@@ -14674,7 +14651,7 @@ _ZN6duckdb9Allocator8AllocateEm.exit:             ; preds = %.noexc
 
 .lr.ph:                                           ; preds = %23, %.lr.ph
   %.013 = phi i64 [ %35, %.lr.ph ], [ 0, %23 ]
-  %33 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<duckdb::string_t, duckdb::string_t, duckdb::ParquetStringOperator>::primitive_dictionary_entry_t", ptr %26, i64 %.013
+  %33 = getelementptr inbounds nuw [24 x i8], ptr %26, i64 %.013
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   store i32 -1, ptr %34, align 8, !tbaa !569
   %35 = add nuw i64 %.013, 1
@@ -14923,7 +14900,7 @@ _ZNSt6vectorIN6duckdb15PageInformationESaIS1_EED2Ev.exit: ; preds = %_ZNSt6vecto
   %40 = sub i64 %38, %39
   %41 = ashr exact i64 %40, 3
   %42 = sub nsw i64 0, %41
-  %43 = getelementptr inbounds i64, ptr %37, i64 %42
+  %43 = getelementptr inbounds [8 x i8], ptr %37, i64 %42
   tail call void @_ZdlPv(ptr noundef %43) #28
   store ptr null, ptr %33, align 8
   %.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -15286,7 +15263,7 @@ _ZN6duckdb9Allocator8AllocateEm.exit:             ; preds = %.noexc
 
 .lr.ph:                                           ; preds = %23, %.lr.ph
   %.013 = phi i64 [ %35, %.lr.ph ], [ 0, %23 ]
-  %33 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<duckdb::string_t, duckdb::string_t, duckdb::ParquetCastOperator>::primitive_dictionary_entry_t", ptr %26, i64 %.013
+  %33 = getelementptr inbounds nuw [24 x i8], ptr %26, i64 %.013
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   store i32 -1, ptr %34, align 8, !tbaa !642
   %35 = add nuw i64 %.013, 1
@@ -15537,7 +15514,7 @@ define linkonce_odr void @_ZN6duckdb19PrimitiveDictionaryINS_8string_tES1_NS_21P
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %17 = load ptr, ptr %16, align 8, !tbaa !568
   %.07.i = and i64 %15, %13
-  %18 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<duckdb::string_t, duckdb::string_t, duckdb::ParquetStringOperator>::primitive_dictionary_entry_t", ptr %17, i64 %.07.i
+  %18 = getelementptr inbounds nuw [24 x i8], ptr %17, i64 %.07.i
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load i32, ptr %19, align 8, !tbaa !569
   %21 = icmp eq i32 %20, -1
@@ -15574,7 +15551,7 @@ define linkonce_odr void @_ZN6duckdb19PrimitiveDictionaryINS_8string_tES1_NS_21P
 34:                                               ; preds = %32, %30, %23
   %35 = add i64 %.08.i, 1
   %.0.i = and i64 %35, %15
-  %36 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<duckdb::string_t, duckdb::string_t, duckdb::ParquetStringOperator>::primitive_dictionary_entry_t", ptr %17, i64 %.0.i
+  %36 = getelementptr inbounds nuw [24 x i8], ptr %17, i64 %.0.i
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load i32, ptr %37, align 8, !tbaa !569
   %39 = icmp eq i32 %38, -1
@@ -15791,7 +15768,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %1
   unreachable
 
 _ZN6duckdb6vectorIN14duckdb_parquet13SchemaElementELb1EE3getILb1EEERS2_m.exit: ; preds = %2
-  %25 = getelementptr inbounds nuw %"class.duckdb_parquet::SchemaElement", ptr %7, i64 %1
+  %25 = getelementptr inbounds nuw [328 x i8], ptr %7, i64 %1
   ret ptr %25
 }
 
@@ -16720,7 +16697,7 @@ define linkonce_odr void @_ZN6duckdb12RleBpEncoder10WriteValueERNS_11WriteStream
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = add i64 %6, 1
   store i64 %10, ptr %5, align 8, !tbaa !561
-  %11 = getelementptr inbounds nuw i32, ptr %9, i64 %6
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %6
   store i32 %8, ptr %11, align 4, !tbaa !29
   %12 = icmp eq i64 %10, 32
   br i1 %12, label %13, label %_ZN6duckdb12RleBpEncoder8WriteRunERNS_11WriteStreamE.exit
@@ -16799,7 +16776,7 @@ _ZN6duckdb12RleBpEncoder8WriteRunERNS_11WriteStreamE.exit12: ; preds = %42
   %47 = load i32, ptr %2, align 4, !tbaa !29
   %48 = add i64 %51, 2
   store i64 %48, ptr %5, align 8, !tbaa !561
-  %49 = getelementptr inbounds nuw i32, ptr %44, i64 %52
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %52
   store i32 %47, ptr %49, align 4, !tbaa !29
   store i64 0, ptr %29, align 8, !tbaa !559
   br label %_ZN6duckdb12RleBpEncoder8WriteRunERNS_11WriteStreamE.exit
@@ -16808,7 +16785,7 @@ _ZN6duckdb12RleBpEncoder8WriteRunERNS_11WriteStreamE.exit12: ; preds = %42
   %.013 = phi i64 [ 0, %.preheader ], [ %54, %50 ]
   %51 = phi i64 [ 0, %.preheader ], [ %52, %50 ]
   %52 = add i64 %51, 1
-  %53 = getelementptr inbounds nuw i32, ptr %44, i64 %51
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %51
   store i32 %37, ptr %53, align 4, !tbaa !29
   %54 = add nuw i64 %.013, 1
   %exitcond.not = icmp eq i64 %54, %30
@@ -18064,7 +18041,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIaiNS_19ParquetCastOpe
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.us: ; preds = %.critedge.us
   %58 = lshr i64 %.152.us, 6
-  %59 = getelementptr inbounds nuw i64, ptr %57, i64 %58
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %58
   %60 = load i64, ptr %59, align 8, !tbaa !24
   %61 = and i64 %.152.us, 63
   %62 = shl nuw i64 1, %61
@@ -18099,7 +18076,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.us: ; preds = %_
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit: ; preds = %.critedge
   %73 = lshr i64 %.152, 6
-  %74 = getelementptr inbounds nuw i64, ptr %72, i64 %73
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %73
   %75 = load i64, ptr %74, align 8, !tbaa !24
   %76 = and i64 %.152, 63
   %77 = shl nuw i64 1, %76
@@ -18512,7 +18489,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIaiNS_19ParquetCastOpe
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit: ; preds = %.lr.ph191, %46
   %.1108190 = phi i64 [ %47, %46 ], [ %5, %.lr.ph191 ]
   %33 = lshr i64 %.1108190, 6
-  %34 = getelementptr inbounds nuw i64, ptr %32, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %33
   %35 = load i64, ptr %34, align 8, !tbaa !24
   %36 = and i64 %.1108190, 63
   %37 = shl nuw i64 1, %36
@@ -18561,7 +18538,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %_ZNK
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115: ; preds = %51
   %53 = lshr i64 %.2109199, 6
-  %54 = getelementptr inbounds nuw i64, ptr %52, i64 %53
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %53
   %55 = load i64, ptr %54, align 8, !tbaa !24
   %56 = and i64 %.2109199, 63
   %57 = shl nuw i64 1, %56
@@ -18587,7 +18564,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115.thread: ; preds = %5
   %72 = getelementptr inbounds nuw i8, ptr %60, i64 136
   %73 = load ptr, ptr %72, align 8, !tbaa !729
   %.07.i.i = and i64 %69, %71
-  %74 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<signed char, int, duckdb::ParquetCastOperator>::primitive_dictionary_entry_t", ptr %73, i64 %.07.i.i
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %.07.i.i
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 4
   %76 = load i32, ptr %75, align 4, !tbaa !730
   %77 = icmp eq i32 %76, -1
@@ -18602,7 +18579,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115.thread: ; preds = %5
   %.08.i.i195 = phi i64 [ %.0.i.i, %.lr.ph.i.i ], [ %.07.i.i, %.lr.ph.i.i.preheader ]
   %79 = add i64 %.08.i.i195, 1
   %.0.i.i = and i64 %79, %71
-  %80 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<signed char, int, duckdb::ParquetCastOperator>::primitive_dictionary_entry_t", ptr %73, i64 %.0.i.i
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %.0.i.i
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 4
   %82 = load i32, ptr %81, align 4, !tbaa !730
   %83 = icmp eq i32 %82, -1
@@ -18644,7 +18621,7 @@ _ZNK6duckdb19PrimitiveDictionaryIaiNS_19ParquetCastOperatorEE8GetIndexERKa.exit:
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119: ; preds = %.lr.ph185, %115
   %.1105184 = phi i64 [ %116, %115 ], [ %5, %.lr.ph185 ]
   %94 = lshr i64 %.1105184, 6
-  %95 = getelementptr inbounds nuw i64, ptr %93, i64 %94
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %94
   %96 = load i64, ptr %95, align 8, !tbaa !24
   %97 = and i64 %.1105184, 63
   %98 = shl nuw i64 1, %97
@@ -18715,7 +18692,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIaiEEvPNS_22ColumnWriterStatisticsET
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123: ; preds = %125
   %127 = lshr i64 %.2106188, 6
-  %128 = getelementptr inbounds nuw i64, ptr %126, i64 %127
+  %128 = getelementptr inbounds nuw [8 x i8], ptr %126, i64 %127
   %129 = load i64, ptr %128, align 8, !tbaa !24
   %130 = and i64 %.2106188, 63
   %131 = shl nuw i64 1, %130
@@ -18755,7 +18732,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIaiEEvPNS_22ColumnWriterStatisticsET
   %148 = load i64, ptr %123, align 8, !tbaa !28
   %149 = add i64 %148, 1
   store i64 %149, ptr %123, align 8, !tbaa !28
-  %150 = getelementptr inbounds nuw i64, ptr %122, i64 %148
+  %150 = getelementptr inbounds nuw [8 x i8], ptr %122, i64 %148
   store i64 %145, ptr %150, align 8, !tbaa !24
   %151 = load i64, ptr %123, align 8, !tbaa !28
   %152 = icmp eq i64 %151, 2048
@@ -18786,7 +18763,7 @@ _ZN6duckdb11dbp_encoder10WriteValueIiEEvRNS_10DbpEncoderERNS_11WriteStreamERKT_.
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128: ; preds = %.lr.ph181, %181
   %.1103180 = phi i64 [ %182, %181 ], [ %5, %.lr.ph181 ]
   %161 = lshr i64 %.1103180, 6
-  %162 = getelementptr inbounds nuw i64, ptr %160, i64 %161
+  %162 = getelementptr inbounds nuw [8 x i8], ptr %160, i64 %161
   %163 = load i64, ptr %162, align 8, !tbaa !24
   %164 = and i64 %.1103180, 63
   %165 = shl nuw i64 1, %164
@@ -18852,7 +18829,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIaiEEvPNS_22ColumnWriterStatisticsET
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133: ; preds = %187
   %189 = lshr i64 %.2182, 6
-  %190 = getelementptr inbounds nuw i64, ptr %188, i64 %189
+  %190 = getelementptr inbounds nuw [8 x i8], ptr %188, i64 %189
   %191 = load i64, ptr %190, align 8, !tbaa !24
   %192 = and i64 %.2182, 63
   %193 = shl nuw i64 1, %192
@@ -18901,7 +18878,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIaiEEvPNS_22ColumnWriterStatisticsET
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit138: ; preds = %207
   %209 = lshr i64 %.0101179, 6
-  %210 = getelementptr inbounds nuw i64, ptr %208, i64 %209
+  %210 = getelementptr inbounds nuw [8 x i8], ptr %208, i64 %209
   %211 = load i64, ptr %210, align 8, !tbaa !24
   %212 = and i64 %.0101179, 63
   %213 = shl nuw i64 1, %212
@@ -18986,7 +18963,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIaiEEvPNS_22ColumnWriterStatisticsET
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsIaiEEvPNS_22ColumnWriterStatisticsET0_.exit.i: ; preds = %244, %241
   %245 = add i64 %.02.i, 1
-  %246 = getelementptr inbounds nuw i32, ptr %9, i64 %.02.i
+  %246 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %.02.i
   store i32 %237, ptr %246, align 4, !tbaa !29
   %247 = icmp eq i64 %245, 2048
   br i1 %247, label %248, label %251
@@ -19033,7 +19010,7 @@ _ZN6duckdbL19TemplatedWritePlainIaiNS_19ParquetCastOperatorELb1EEEvRNS_6VectorEP
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i: ; preds = %259
   %261 = lshr i64 %.0172.i, 6
-  %262 = getelementptr inbounds nuw i64, ptr %260, i64 %261
+  %262 = getelementptr inbounds nuw [8 x i8], ptr %260, i64 %261
   %263 = load i64, ptr %262, align 8, !tbaa !24
   %264 = and i64 %.0172.i, 63
   %265 = shl nuw i64 1, %264
@@ -19064,7 +19041,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i: ; preds = %_Z
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsIaiEEvPNS_22ColumnWriterStatisticsET0_.exit.i145: ; preds = %276, %273
   %277 = add i64 %.03.i, 1
-  %278 = getelementptr inbounds nuw i32, ptr %8, i64 %.03.i
+  %278 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %.03.i
   store i32 %269, ptr %278, align 4, !tbaa !29
   %279 = icmp eq i64 %277, 2048
   br i1 %279, label %280, label %283
@@ -19235,7 +19212,7 @@ _ZNSt10unique_ptrIN6duckdb18ParquetBloomFilterESt14default_deleteIS1_EED2Ev.exit
   %30 = phi i64 [ %27, %.lr.ph.i ], [ %43, %42 ]
   %.08.i = phi i64 [ 0, %.lr.ph.i ], [ %44, %42 ]
   %31 = load ptr, ptr %28, align 8, !tbaa !729
-  %32 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<signed char, int, duckdb::ParquetCastOperator>::primitive_dictionary_entry_t", ptr %31, i64 %.08.i
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %.08.i
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %34 = load i32, ptr %33, align 4, !tbaa !730
   %35 = icmp eq i32 %34, -1
@@ -19255,7 +19232,7 @@ _ZNSt10unique_ptrIN6duckdb18ParquetBloomFilterESt14default_deleteIS1_EED2Ev.exit
 
 _ZNKSt8functionIFvRKaRKiEEclES1_S3_.exit.i:       ; preds = %36
   %39 = zext i32 %34 to i64
-  %40 = getelementptr inbounds nuw i32, ptr %25, i64 %39
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %39
   %41 = load ptr, ptr %23, align 8, !tbaa !745
   invoke void %41(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 1 dereferenceable(1) %32, ptr noundef nonnull align 4 dereferenceable(4) %40)
           to label %.noexc13 unwind label %.loopexit
@@ -19485,7 +19462,7 @@ _ZN6duckdb9Allocator8AllocateEm.exit:             ; preds = %.noexc
 
 .lr.ph:                                           ; preds = %24, %.lr.ph
   %.013 = phi i64 [ %36, %.lr.ph ], [ 0, %24 ]
-  %34 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<signed char, int, duckdb::ParquetCastOperator>::primitive_dictionary_entry_t", ptr %27, i64 %.013
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %.013
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 4
   store i32 -1, ptr %35, align 4, !tbaa !730
   %36 = add nuw i64 %.013, 1
@@ -19547,7 +19524,7 @@ define linkonce_odr void @_ZN6duckdb19PrimitiveDictionaryIaiNS_19ParquetCastOper
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %19 = load ptr, ptr %18, align 8, !tbaa !729
   %.07.i = and i64 %17, %15
-  %20 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<signed char, int, duckdb::ParquetCastOperator>::primitive_dictionary_entry_t", ptr %19, i64 %.07.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.07.i
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %22 = load i32, ptr %21, align 4, !tbaa !730
   %23 = icmp eq i32 %22, -1
@@ -19556,7 +19533,7 @@ define linkonce_odr void @_ZN6duckdb19PrimitiveDictionaryIaiNS_19ParquetCastOper
 24:                                               ; preds = %.lr.ph.i
   %25 = add i64 %.08.i, 1
   %.0.i = and i64 %25, %17
-  %26 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<signed char, int, duckdb::ParquetCastOperator>::primitive_dictionary_entry_t", ptr %19, i64 %.0.i
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.0.i
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 4
   %28 = load i32, ptr %27, align 4, !tbaa !730
   %29 = icmp eq i32 %28, -1
@@ -20357,7 +20334,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIsiNS_19ParquetCastOpe
 
 29:                                               ; preds = %.lr.ph54, %29
   %.053 = phi i64 [ 0, %.lr.ph54 ], [ %34, %29 ]
-  %30 = getelementptr inbounds nuw i16, ptr %7, i64 %.053
+  %30 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %.053
   %31 = load i16, ptr %30, align 2, !tbaa !197
   tail call void @_ZN6duckdb19PrimitiveDictionaryIsiNS_19ParquetCastOperatorEE6InsertEs(ptr noundef nonnull align 8 dereferenceable(145) %27, i16 noundef signext %31)
   %32 = load i64, ptr %28, align 8, !tbaa !772
@@ -20415,7 +20392,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIsiNS_19ParquetCastOpe
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.us: ; preds = %.critedge.us
   %58 = lshr i64 %.152.us, 6
-  %59 = getelementptr inbounds nuw i64, ptr %57, i64 %58
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %58
   %60 = load i64, ptr %59, align 8, !tbaa !24
   %61 = and i64 %.152.us, 63
   %62 = shl nuw i64 1, %61
@@ -20424,7 +20401,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.us: ; preds = %.critedg
   br i1 %.not48.us, label %68, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.us
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.us: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.us, %.critedge.us
-  %64 = getelementptr inbounds nuw i16, ptr %7, i64 %.152.us
+  %64 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %.152.us
   %65 = load i16, ptr %64, align 2, !tbaa !197
   tail call void @_ZN6duckdb19PrimitiveDictionaryIsiNS_19ParquetCastOperatorEE6InsertEs(ptr noundef nonnull align 8 dereferenceable(145) %49, i16 noundef signext %65)
   %66 = load i64, ptr %50, align 8, !tbaa !772
@@ -20450,7 +20427,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.us: ; preds = %_
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit: ; preds = %.critedge
   %73 = lshr i64 %.152, 6
-  %74 = getelementptr inbounds nuw i64, ptr %72, i64 %73
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %73
   %75 = load i64, ptr %74, align 8, !tbaa !24
   %76 = and i64 %.152, 63
   %77 = shl nuw i64 1, %76
@@ -20459,7 +20436,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit: ; preds = %.critedge
   br i1 %.not48, label %83, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %.critedge, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit
-  %79 = getelementptr inbounds nuw i16, ptr %7, i64 %.152
+  %79 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %.152
   %80 = load i16, ptr %79, align 2, !tbaa !197
   tail call void @_ZN6duckdb19PrimitiveDictionaryIsiNS_19ParquetCastOperatorEE6InsertEs(ptr noundef nonnull align 8 dereferenceable(145) %46, i16 noundef signext %80)
   %81 = load i64, ptr %47, align 8, !tbaa !772
@@ -20863,7 +20840,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIsiNS_19ParquetCastOpe
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit: ; preds = %.lr.ph191, %46
   %.1108190 = phi i64 [ %47, %46 ], [ %5, %.lr.ph191 ]
   %33 = lshr i64 %.1108190, 6
-  %34 = getelementptr inbounds nuw i64, ptr %32, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %33
   %35 = load i64, ptr %34, align 8, !tbaa !24
   %36 = and i64 %.1108190, 63
   %37 = shl nuw i64 1, %36
@@ -20912,7 +20889,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %_ZNK
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115: ; preds = %51
   %53 = lshr i64 %.2109199, 6
-  %54 = getelementptr inbounds nuw i64, ptr %52, i64 %53
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %53
   %55 = load i64, ptr %54, align 8, !tbaa !24
   %56 = and i64 %.2109199, 63
   %57 = shl nuw i64 1, %56
@@ -20921,7 +20898,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115: ; preds = %51
   br i1 %.not166, label %86, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115.thread
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115.thread: ; preds = %51, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115
-  %59 = getelementptr inbounds nuw i16, ptr %20, i64 %.2109199
+  %59 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %.2109199
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %60 = load ptr, ptr %49, align 8, !tbaa !798
   %61 = load i16, ptr %59, align 2, !tbaa !197
@@ -20938,7 +20915,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115.thread: ; preds = %5
   %72 = getelementptr inbounds nuw i8, ptr %60, i64 136
   %73 = load ptr, ptr %72, align 8, !tbaa !800
   %.07.i.i = and i64 %69, %71
-  %74 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<short, int, duckdb::ParquetCastOperator>::primitive_dictionary_entry_t", ptr %73, i64 %.07.i.i
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %.07.i.i
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 4
   %76 = load i32, ptr %75, align 4, !tbaa !801
   %77 = icmp eq i32 %76, -1
@@ -20953,7 +20930,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115.thread: ; preds = %5
   %.08.i.i195 = phi i64 [ %.0.i.i, %.lr.ph.i.i ], [ %.07.i.i, %.lr.ph.i.i.preheader ]
   %79 = add i64 %.08.i.i195, 1
   %.0.i.i = and i64 %79, %71
-  %80 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<short, int, duckdb::ParquetCastOperator>::primitive_dictionary_entry_t", ptr %73, i64 %.0.i.i
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %.0.i.i
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 4
   %82 = load i32, ptr %81, align 4, !tbaa !801
   %83 = icmp eq i32 %82, -1
@@ -20995,7 +20972,7 @@ _ZNK6duckdb19PrimitiveDictionaryIsiNS_19ParquetCastOperatorEE8GetIndexERKs.exit:
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119: ; preds = %.lr.ph185, %115
   %.1105184 = phi i64 [ %116, %115 ], [ %5, %.lr.ph185 ]
   %94 = lshr i64 %.1105184, 6
-  %95 = getelementptr inbounds nuw i64, ptr %93, i64 %94
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %94
   %96 = load i64, ptr %95, align 8, !tbaa !24
   %97 = and i64 %.1105184, 63
   %98 = shl nuw i64 1, %97
@@ -21005,7 +20982,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119: ; preds = %.lr.ph18
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119.thread: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119, %.lr.ph185
   %.us-phi187 = phi i64 [ %5, %.lr.ph185 ], [ %.1105184, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119 ]
-  %100 = getelementptr inbounds nuw i16, ptr %20, i64 %.us-phi187
+  %100 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %.us-phi187
   %101 = load i16, ptr %100, align 2, !tbaa !197
   %102 = sext i16 %101 to i32
   %103 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -21066,7 +21043,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIsiEEvPNS_22ColumnWriterStatisticsET
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123: ; preds = %125
   %127 = lshr i64 %.2106188, 6
-  %128 = getelementptr inbounds nuw i64, ptr %126, i64 %127
+  %128 = getelementptr inbounds nuw [8 x i8], ptr %126, i64 %127
   %129 = load i64, ptr %128, align 8, !tbaa !24
   %130 = and i64 %.2106188, 63
   %131 = shl nuw i64 1, %130
@@ -21075,7 +21052,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123: ; preds = %125
   br i1 %.not164, label %_ZN6duckdb11dbp_encoder10WriteValueIiEEvRNS_10DbpEncoderERNS_11WriteStreamERKT_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123.thread
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123.thread: ; preds = %125, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123
-  %133 = getelementptr inbounds nuw i16, ptr %20, i64 %.2106188
+  %133 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %.2106188
   %134 = load i16, ptr %133, align 2, !tbaa !197
   %135 = sext i16 %134 to i32
   %136 = load i32, ptr %118, align 4, !tbaa !29
@@ -21106,7 +21083,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIsiEEvPNS_22ColumnWriterStatisticsET
   %148 = load i64, ptr %123, align 8, !tbaa !28
   %149 = add i64 %148, 1
   store i64 %149, ptr %123, align 8, !tbaa !28
-  %150 = getelementptr inbounds nuw i64, ptr %122, i64 %148
+  %150 = getelementptr inbounds nuw [8 x i8], ptr %122, i64 %148
   store i64 %145, ptr %150, align 8, !tbaa !24
   %151 = load i64, ptr %123, align 8, !tbaa !28
   %152 = icmp eq i64 %151, 2048
@@ -21137,7 +21114,7 @@ _ZN6duckdb11dbp_encoder10WriteValueIiEEvRNS_10DbpEncoderERNS_11WriteStreamERKT_.
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128: ; preds = %.lr.ph181, %181
   %.1103180 = phi i64 [ %182, %181 ], [ %5, %.lr.ph181 ]
   %161 = lshr i64 %.1103180, 6
-  %162 = getelementptr inbounds nuw i64, ptr %160, i64 %161
+  %162 = getelementptr inbounds nuw [8 x i8], ptr %160, i64 %161
   %163 = load i64, ptr %162, align 8, !tbaa !24
   %164 = and i64 %.1103180, 63
   %165 = shl nuw i64 1, %164
@@ -21148,7 +21125,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128: ; preds = %.lr.ph18
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128.thread: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128, %.lr.ph181
   %.us-phi = phi i64 [ %5, %.lr.ph181 ], [ %.1103180, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %167 = getelementptr inbounds nuw i16, ptr %20, i64 %.us-phi
+  %167 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %.us-phi
   %168 = load i16, ptr %167, align 2, !tbaa !197
   %169 = sext i16 %168 to i32
   store i32 %169, ptr %13, align 4, !tbaa !29
@@ -21203,7 +21180,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIsiEEvPNS_22ColumnWriterStatisticsET
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133: ; preds = %187
   %189 = lshr i64 %.2182, 6
-  %190 = getelementptr inbounds nuw i64, ptr %188, i64 %189
+  %190 = getelementptr inbounds nuw [8 x i8], ptr %188, i64 %189
   %191 = load i64, ptr %190, align 8, !tbaa !24
   %192 = and i64 %.2182, 63
   %193 = shl nuw i64 1, %192
@@ -21213,7 +21190,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133: ; preds = %187
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133.thread: ; preds = %187, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %195 = getelementptr inbounds nuw i16, ptr %20, i64 %.2182
+  %195 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %.2182
   %196 = load i16, ptr %195, align 2, !tbaa !197
   %197 = sext i16 %196 to i32
   store i32 %197, ptr %14, align 4, !tbaa !29
@@ -21252,7 +21229,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIsiEEvPNS_22ColumnWriterStatisticsET
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit138: ; preds = %207
   %209 = lshr i64 %.0101179, 6
-  %210 = getelementptr inbounds nuw i64, ptr %208, i64 %209
+  %210 = getelementptr inbounds nuw [8 x i8], ptr %208, i64 %209
   %211 = load i64, ptr %210, align 8, !tbaa !24
   %212 = and i64 %.0101179, 63
   %213 = shl nuw i64 1, %212
@@ -21262,7 +21239,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit138: ; preds = %207
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit138.thread: ; preds = %207, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit138
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  %215 = getelementptr inbounds nuw i16, ptr %20, i64 %.0101179
+  %215 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %.0101179
   %216 = load i16, ptr %215, align 2, !tbaa !197
   %217 = sext i16 %216 to i32
   store i32 %217, ptr %15, align 4, !tbaa !29
@@ -21315,7 +21292,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIsiEEvPNS_22ColumnWriterStatisticsET
 234:                                              ; preds = %251, %.lr.ph.i
   %.02.i = phi i64 [ 0, %.lr.ph.i ], [ %.1.i, %251 ]
   %.0151.i = phi i64 [ %5, %.lr.ph.i ], [ %252, %251 ]
-  %235 = getelementptr inbounds nuw i16, ptr %20, i64 %.0151.i
+  %235 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %.0151.i
   %236 = load i16, ptr %235, align 2, !tbaa !197
   %237 = sext i16 %236 to i32
   %238 = load i32, ptr %231, align 4, !tbaa !29
@@ -21337,7 +21314,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIsiEEvPNS_22ColumnWriterStatisticsET
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsIsiEEvPNS_22ColumnWriterStatisticsET0_.exit.i: ; preds = %244, %241
   %245 = add i64 %.02.i, 1
-  %246 = getelementptr inbounds nuw i32, ptr %9, i64 %.02.i
+  %246 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %.02.i
   store i32 %237, ptr %246, align 4, !tbaa !29
   %247 = icmp eq i64 %245, 2048
   br i1 %247, label %248, label %251
@@ -21384,7 +21361,7 @@ _ZN6duckdbL19TemplatedWritePlainIsiNS_19ParquetCastOperatorELb1EEEvRNS_6VectorEP
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i: ; preds = %259
   %261 = lshr i64 %.0172.i, 6
-  %262 = getelementptr inbounds nuw i64, ptr %260, i64 %261
+  %262 = getelementptr inbounds nuw [8 x i8], ptr %260, i64 %261
   %263 = load i64, ptr %262, align 8, !tbaa !24
   %264 = and i64 %.0172.i, 63
   %265 = shl nuw i64 1, %264
@@ -21393,7 +21370,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i: ; preds = %259
   br i1 %.not.i144, label %283, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i, %259
-  %267 = getelementptr inbounds nuw i16, ptr %20, i64 %.0172.i
+  %267 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %.0172.i
   %268 = load i16, ptr %267, align 2, !tbaa !197
   %269 = sext i16 %268 to i32
   %270 = load i32, ptr %256, align 4, !tbaa !29
@@ -21415,7 +21392,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i: ; preds = %_Z
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsIsiEEvPNS_22ColumnWriterStatisticsET0_.exit.i145: ; preds = %276, %273
   %277 = add i64 %.03.i, 1
-  %278 = getelementptr inbounds nuw i32, ptr %8, i64 %.03.i
+  %278 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %.03.i
   store i32 %269, ptr %278, align 4, !tbaa !29
   %279 = icmp eq i64 %277, 2048
   br i1 %279, label %280, label %283
@@ -21586,7 +21563,7 @@ _ZNSt10unique_ptrIN6duckdb18ParquetBloomFilterESt14default_deleteIS1_EED2Ev.exit
   %30 = phi i64 [ %27, %.lr.ph.i ], [ %43, %42 ]
   %.08.i = phi i64 [ 0, %.lr.ph.i ], [ %44, %42 ]
   %31 = load ptr, ptr %28, align 8, !tbaa !800
-  %32 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<short, int, duckdb::ParquetCastOperator>::primitive_dictionary_entry_t", ptr %31, i64 %.08.i
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %.08.i
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %34 = load i32, ptr %33, align 4, !tbaa !801
   %35 = icmp eq i32 %34, -1
@@ -21606,7 +21583,7 @@ _ZNSt10unique_ptrIN6duckdb18ParquetBloomFilterESt14default_deleteIS1_EED2Ev.exit
 
 _ZNKSt8functionIFvRKsRKiEEclES1_S3_.exit.i:       ; preds = %36
   %39 = zext i32 %34 to i64
-  %40 = getelementptr inbounds nuw i32, ptr %25, i64 %39
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %39
   %41 = load ptr, ptr %23, align 8, !tbaa !816
   invoke void %41(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 2 dereferenceable(2) %32, ptr noundef nonnull align 4 dereferenceable(4) %40)
           to label %.noexc13 unwind label %.loopexit
@@ -21836,7 +21813,7 @@ _ZN6duckdb9Allocator8AllocateEm.exit:             ; preds = %.noexc
 
 .lr.ph:                                           ; preds = %24, %.lr.ph
   %.013 = phi i64 [ %36, %.lr.ph ], [ 0, %24 ]
-  %34 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<short, int, duckdb::ParquetCastOperator>::primitive_dictionary_entry_t", ptr %27, i64 %.013
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %.013
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 4
   store i32 -1, ptr %35, align 4, !tbaa !801
   %36 = add nuw i64 %.013, 1
@@ -21898,7 +21875,7 @@ define linkonce_odr void @_ZN6duckdb19PrimitiveDictionaryIsiNS_19ParquetCastOper
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %19 = load ptr, ptr %18, align 8, !tbaa !800
   %.07.i = and i64 %17, %15
-  %20 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<short, int, duckdb::ParquetCastOperator>::primitive_dictionary_entry_t", ptr %19, i64 %.07.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.07.i
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %22 = load i32, ptr %21, align 4, !tbaa !801
   %23 = icmp eq i32 %22, -1
@@ -21907,7 +21884,7 @@ define linkonce_odr void @_ZN6duckdb19PrimitiveDictionaryIsiNS_19ParquetCastOper
 24:                                               ; preds = %.lr.ph.i
   %25 = add i64 %.08.i, 1
   %.0.i = and i64 %25, %17
-  %26 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<short, int, duckdb::ParquetCastOperator>::primitive_dictionary_entry_t", ptr %19, i64 %.0.i
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.0.i
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 4
   %28 = load i32, ptr %27, align 4, !tbaa !801
   %29 = icmp eq i32 %28, -1
@@ -22507,7 +22484,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIiiNS_19ParquetCastOpe
 
 29:                                               ; preds = %.lr.ph54, %29
   %.053 = phi i64 [ 0, %.lr.ph54 ], [ %34, %29 ]
-  %30 = getelementptr inbounds nuw i32, ptr %7, i64 %.053
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.053
   %31 = load i32, ptr %30, align 4, !tbaa !29
   tail call void @_ZN6duckdb19PrimitiveDictionaryIiiNS_19ParquetCastOperatorEE6InsertEi(ptr noundef nonnull align 8 dereferenceable(145) %27, i32 noundef %31)
   %32 = load i64, ptr %28, align 8, !tbaa !843
@@ -22565,7 +22542,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIiiNS_19ParquetCastOpe
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.us: ; preds = %.critedge.us
   %58 = lshr i64 %.152.us, 6
-  %59 = getelementptr inbounds nuw i64, ptr %57, i64 %58
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %58
   %60 = load i64, ptr %59, align 8, !tbaa !24
   %61 = and i64 %.152.us, 63
   %62 = shl nuw i64 1, %61
@@ -22574,7 +22551,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.us: ; preds = %.critedg
   br i1 %.not48.us, label %68, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.us
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.us: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.us, %.critedge.us
-  %64 = getelementptr inbounds nuw i32, ptr %7, i64 %.152.us
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.152.us
   %65 = load i32, ptr %64, align 4, !tbaa !29
   tail call void @_ZN6duckdb19PrimitiveDictionaryIiiNS_19ParquetCastOperatorEE6InsertEi(ptr noundef nonnull align 8 dereferenceable(145) %49, i32 noundef %65)
   %66 = load i64, ptr %50, align 8, !tbaa !843
@@ -22600,7 +22577,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.us: ; preds = %_
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit: ; preds = %.critedge
   %73 = lshr i64 %.152, 6
-  %74 = getelementptr inbounds nuw i64, ptr %72, i64 %73
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %73
   %75 = load i64, ptr %74, align 8, !tbaa !24
   %76 = and i64 %.152, 63
   %77 = shl nuw i64 1, %76
@@ -22609,7 +22586,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit: ; preds = %.critedge
   br i1 %.not48, label %83, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %.critedge, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit
-  %79 = getelementptr inbounds nuw i32, ptr %7, i64 %.152
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.152
   %80 = load i32, ptr %79, align 4, !tbaa !29
   tail call void @_ZN6duckdb19PrimitiveDictionaryIiiNS_19ParquetCastOperatorEE6InsertEi(ptr noundef nonnull align 8 dereferenceable(145) %46, i32 noundef %80)
   %81 = load i64, ptr %47, align 8, !tbaa !843
@@ -23012,7 +22989,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIiiNS_19ParquetCastOpe
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit: ; preds = %.lr.ph188, %45
   %.1108187 = phi i64 [ %46, %45 ], [ %5, %.lr.ph188 ]
   %32 = lshr i64 %.1108187, 6
-  %33 = getelementptr inbounds nuw i64, ptr %31, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %32
   %34 = load i64, ptr %33, align 8, !tbaa !24
   %35 = and i64 %.1108187, 63
   %36 = shl nuw i64 1, %35
@@ -23061,7 +23038,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %_ZNK
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115: ; preds = %50
   %52 = lshr i64 %.2109196, 6
-  %53 = getelementptr inbounds nuw i64, ptr %51, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %52
   %54 = load i64, ptr %53, align 8, !tbaa !24
   %55 = and i64 %.2109196, 63
   %56 = shl nuw i64 1, %55
@@ -23070,7 +23047,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115: ; preds = %50
   br i1 %.not163, label %84, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115.thread
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115.thread: ; preds = %50, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115
-  %58 = getelementptr inbounds nuw i32, ptr %19, i64 %.2109196
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %.2109196
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %59 = load ptr, ptr %48, align 8, !tbaa !869
   %60 = load i32, ptr %58, align 4, !tbaa !29
@@ -23086,7 +23063,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115.thread: ; preds = %5
   %70 = getelementptr inbounds nuw i8, ptr %59, i64 136
   %71 = load ptr, ptr %70, align 8, !tbaa !871
   %.07.i.i = and i64 %67, %69
-  %72 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<int, int, duckdb::ParquetCastOperator>::primitive_dictionary_entry_t", ptr %71, i64 %.07.i.i
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %.07.i.i
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 4
   %74 = load i32, ptr %73, align 4, !tbaa !872
   %75 = icmp eq i32 %74, -1
@@ -23101,7 +23078,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115.thread: ; preds = %5
   %.08.i.i192 = phi i64 [ %.0.i.i, %.lr.ph.i.i ], [ %.07.i.i, %.lr.ph.i.i.preheader ]
   %77 = add i64 %.08.i.i192, 1
   %.0.i.i = and i64 %77, %69
-  %78 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<int, int, duckdb::ParquetCastOperator>::primitive_dictionary_entry_t", ptr %71, i64 %.0.i.i
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %.0.i.i
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 4
   %80 = load i32, ptr %79, align 4, !tbaa !872
   %81 = icmp eq i32 %80, -1
@@ -23143,7 +23120,7 @@ _ZNK6duckdb19PrimitiveDictionaryIiiNS_19ParquetCastOperatorEE8GetIndexERKi.exit:
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119: ; preds = %.lr.ph182, %112
   %.1105181 = phi i64 [ %113, %112 ], [ %5, %.lr.ph182 ]
   %92 = lshr i64 %.1105181, 6
-  %93 = getelementptr inbounds nuw i64, ptr %91, i64 %92
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %92
   %94 = load i64, ptr %93, align 8, !tbaa !24
   %95 = and i64 %.1105181, 63
   %96 = shl nuw i64 1, %95
@@ -23153,7 +23130,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119: ; preds = %.lr.ph18
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119.thread: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119, %.lr.ph182
   %.us-phi184 = phi i64 [ %5, %.lr.ph182 ], [ %.1105181, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119 ]
-  %98 = getelementptr inbounds nuw i32, ptr %19, i64 %.us-phi184
+  %98 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %.us-phi184
   %99 = load i32, ptr %98, align 4, !tbaa !29
   %100 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %101 = load i32, ptr %100, align 4, !tbaa !29
@@ -23213,7 +23190,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIiiEEvPNS_22ColumnWriterStatisticsET
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123: ; preds = %122
   %124 = lshr i64 %.2106185, 6
-  %125 = getelementptr inbounds nuw i64, ptr %123, i64 %124
+  %125 = getelementptr inbounds nuw [8 x i8], ptr %123, i64 %124
   %126 = load i64, ptr %125, align 8, !tbaa !24
   %127 = and i64 %.2106185, 63
   %128 = shl nuw i64 1, %127
@@ -23222,7 +23199,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123: ; preds = %122
   br i1 %.not161, label %_ZN6duckdb11dbp_encoder10WriteValueIiEEvRNS_10DbpEncoderERNS_11WriteStreamERKT_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123.thread
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123.thread: ; preds = %122, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123
-  %130 = getelementptr inbounds nuw i32, ptr %19, i64 %.2106185
+  %130 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %.2106185
   %131 = load i32, ptr %130, align 4, !tbaa !29
   %132 = load i32, ptr %115, align 4, !tbaa !29
   %133 = icmp sgt i32 %132, %131
@@ -23252,7 +23229,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIiiEEvPNS_22ColumnWriterStatisticsET
   %144 = load i64, ptr %120, align 8, !tbaa !28
   %145 = add i64 %144, 1
   store i64 %145, ptr %120, align 8, !tbaa !28
-  %146 = getelementptr inbounds nuw i64, ptr %119, i64 %144
+  %146 = getelementptr inbounds nuw [8 x i8], ptr %119, i64 %144
   store i64 %141, ptr %146, align 8, !tbaa !24
   %147 = load i64, ptr %120, align 8, !tbaa !28
   %148 = icmp eq i64 %147, 2048
@@ -23283,7 +23260,7 @@ _ZN6duckdb11dbp_encoder10WriteValueIiEEvRNS_10DbpEncoderERNS_11WriteStreamERKT_.
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128: ; preds = %.lr.ph178, %176
   %.1103177 = phi i64 [ %177, %176 ], [ %5, %.lr.ph178 ]
   %157 = lshr i64 %.1103177, 6
-  %158 = getelementptr inbounds nuw i64, ptr %156, i64 %157
+  %158 = getelementptr inbounds nuw [8 x i8], ptr %156, i64 %157
   %159 = load i64, ptr %158, align 8, !tbaa !24
   %160 = and i64 %.1103177, 63
   %161 = shl nuw i64 1, %160
@@ -23294,7 +23271,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128: ; preds = %.lr.ph17
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128.thread: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128, %.lr.ph178
   %.us-phi = phi i64 [ %5, %.lr.ph178 ], [ %.1103177, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %163 = getelementptr inbounds nuw i32, ptr %19, i64 %.us-phi
+  %163 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %.us-phi
   %164 = load i32, ptr %163, align 4, !tbaa !29
   store i32 %164, ptr %12, align 4, !tbaa !29
   %165 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -23348,7 +23325,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIiiEEvPNS_22ColumnWriterStatisticsET
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133: ; preds = %182
   %184 = lshr i64 %.2179, 6
-  %185 = getelementptr inbounds nuw i64, ptr %183, i64 %184
+  %185 = getelementptr inbounds nuw [8 x i8], ptr %183, i64 %184
   %186 = load i64, ptr %185, align 8, !tbaa !24
   %187 = and i64 %.2179, 63
   %188 = shl nuw i64 1, %187
@@ -23358,7 +23335,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133: ; preds = %182
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133.thread: ; preds = %182, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %190 = getelementptr inbounds nuw i32, ptr %19, i64 %.2179
+  %190 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %.2179
   %191 = load i32, ptr %190, align 4, !tbaa !29
   store i32 %191, ptr %13, align 4, !tbaa !29
   %192 = load i32, ptr %179, align 4, !tbaa !29
@@ -23396,7 +23373,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIiiEEvPNS_22ColumnWriterStatisticsET
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit138: ; preds = %201
   %203 = lshr i64 %.0101176, 6
-  %204 = getelementptr inbounds nuw i64, ptr %202, i64 %203
+  %204 = getelementptr inbounds nuw [8 x i8], ptr %202, i64 %203
   %205 = load i64, ptr %204, align 8, !tbaa !24
   %206 = and i64 %.0101176, 63
   %207 = shl nuw i64 1, %206
@@ -23406,7 +23383,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit138: ; preds = %201
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit138.thread: ; preds = %201, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit138
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %209 = getelementptr inbounds nuw i32, ptr %19, i64 %.0101176
+  %209 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %.0101176
   %210 = load i32, ptr %209, align 4, !tbaa !29
   store i32 %210, ptr %14, align 4, !tbaa !29
   %211 = load i32, ptr %23, align 4, !tbaa !29
@@ -23456,7 +23433,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIiiEEvPNS_22ColumnWriterStatisticsET
   %227 = phi i32 [ %.promoted2.i, %.lr.ph.i ], [ %237, %_ZN6duckdb19ParquetCastOperator11HandleStatsIiiEEvPNS_22ColumnWriterStatisticsET0_.exit.i ]
   %228 = phi i32 [ %.promoted.i, %.lr.ph.i ], [ %234, %_ZN6duckdb19ParquetCastOperator11HandleStatsIiiEEvPNS_22ColumnWriterStatisticsET0_.exit.i ]
   %.01.i = phi i64 [ %5, %.lr.ph.i ], [ %238, %_ZN6duckdb19ParquetCastOperator11HandleStatsIiiEEvPNS_22ColumnWriterStatisticsET0_.exit.i ]
-  %229 = getelementptr inbounds nuw i32, ptr %19, i64 %.01.i
+  %229 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %.01.i
   %230 = load i32, ptr %229, align 4, !tbaa !29
   %231 = icmp sgt i32 %228, %230
   br i1 %231, label %232, label %233
@@ -23481,7 +23458,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIiiEEvPNS_22ColumnWriterStatisticsET
   br i1 %exitcond.not.i, label %_ZN6duckdbL19TemplatedWritePlainIiiNS_19ParquetCastOperatorELb1EEEvRNS_6VectorEPNS_22ColumnWriterStatisticsEmmRKNS_12ValidityMaskERNS_11WriteStreamE.exit, label %226, !llvm.loop !882
 
 _ZN6duckdbL19TemplatedWritePlainIiiNS_19ParquetCastOperatorELb1EEEvRNS_6VectorEPNS_22ColumnWriterStatisticsEmmRKNS_12ValidityMaskERNS_11WriteStreamE.exit: ; preds = %_ZN6duckdb19ParquetCastOperator11HandleStatsIiiEEvPNS_22ColumnWriterStatisticsET0_.exit.i, %222
-  %239 = getelementptr inbounds nuw i32, ptr %19, i64 %5
+  %239 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %5
   %240 = sub i64 %6, %5
   %241 = shl i64 %240, 2
   %242 = load ptr, ptr %1, align 8, !tbaa !19
@@ -23512,7 +23489,7 @@ _ZN6duckdbL19TemplatedWritePlainIiiNS_19ParquetCastOperatorELb1EEEvRNS_6VectorEP
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i: ; preds = %249
   %251 = lshr i64 %.0172.i, 6
-  %252 = getelementptr inbounds nuw i64, ptr %250, i64 %251
+  %252 = getelementptr inbounds nuw [8 x i8], ptr %250, i64 %251
   %253 = load i64, ptr %252, align 8, !tbaa !24
   %254 = and i64 %.0172.i, 63
   %255 = shl nuw i64 1, %254
@@ -23521,7 +23498,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i: ; preds = %249
   br i1 %.not.i143, label %272, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i, %249
-  %257 = getelementptr inbounds nuw i32, ptr %19, i64 %.0172.i
+  %257 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %.0172.i
   %258 = load i32, ptr %257, align 4, !tbaa !29
   %259 = load i32, ptr %246, align 4, !tbaa !29
   %260 = icmp sgt i32 %259, %258
@@ -23542,7 +23519,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i: ; preds = %_Z
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsIiiEEvPNS_22ColumnWriterStatisticsET0_.exit.i144: ; preds = %265, %262
   %266 = add i64 %.03.i, 1
-  %267 = getelementptr inbounds nuw i32, ptr %8, i64 %.03.i
+  %267 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %.03.i
   store i32 %258, ptr %267, align 4, !tbaa !29
   %268 = icmp eq i64 %266, 2048
   br i1 %268, label %269, label %272
@@ -23713,7 +23690,7 @@ _ZNSt10unique_ptrIN6duckdb18ParquetBloomFilterESt14default_deleteIS1_EED2Ev.exit
   %30 = phi i64 [ %27, %.lr.ph.i ], [ %43, %42 ]
   %.08.i = phi i64 [ 0, %.lr.ph.i ], [ %44, %42 ]
   %31 = load ptr, ptr %28, align 8, !tbaa !871
-  %32 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<int, int, duckdb::ParquetCastOperator>::primitive_dictionary_entry_t", ptr %31, i64 %.08.i
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %.08.i
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %34 = load i32, ptr %33, align 4, !tbaa !872
   %35 = icmp eq i32 %34, -1
@@ -23733,7 +23710,7 @@ _ZNSt10unique_ptrIN6duckdb18ParquetBloomFilterESt14default_deleteIS1_EED2Ev.exit
 
 _ZNKSt8functionIFvRKiS1_EEclES1_S1_.exit.i:       ; preds = %36
   %39 = zext i32 %34 to i64
-  %40 = getelementptr inbounds nuw i32, ptr %25, i64 %39
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %39
   %41 = load ptr, ptr %23, align 8, !tbaa !887
   invoke void %41(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 4 dereferenceable(4) %32, ptr noundef nonnull align 4 dereferenceable(4) %40)
           to label %.noexc13 unwind label %.loopexit
@@ -23963,7 +23940,7 @@ _ZN6duckdb9Allocator8AllocateEm.exit:             ; preds = %.noexc
 
 .lr.ph:                                           ; preds = %24, %.lr.ph
   %.013 = phi i64 [ %36, %.lr.ph ], [ 0, %24 ]
-  %34 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<int, int, duckdb::ParquetCastOperator>::primitive_dictionary_entry_t", ptr %27, i64 %.013
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %.013
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 4
   store i32 -1, ptr %35, align 4, !tbaa !872
   %36 = add nuw i64 %.013, 1
@@ -24024,7 +24001,7 @@ define linkonce_odr void @_ZN6duckdb19PrimitiveDictionaryIiiNS_19ParquetCastOper
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %18 = load ptr, ptr %17, align 8, !tbaa !871
   %.07.i = and i64 %16, %14
-  %19 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<int, int, duckdb::ParquetCastOperator>::primitive_dictionary_entry_t", ptr %18, i64 %.07.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %.07.i
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %21 = load i32, ptr %20, align 4, !tbaa !872
   %22 = icmp eq i32 %21, -1
@@ -24033,7 +24010,7 @@ define linkonce_odr void @_ZN6duckdb19PrimitiveDictionaryIiiNS_19ParquetCastOper
 23:                                               ; preds = %.lr.ph.i
   %24 = add i64 %.08.i, 1
   %.0.i = and i64 %24, %16
-  %25 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<int, int, duckdb::ParquetCastOperator>::primitive_dictionary_entry_t", ptr %18, i64 %.0.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %.0.i
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %27 = load i32, ptr %26, align 4, !tbaa !872
   %28 = icmp eq i32 %27, -1
@@ -24632,7 +24609,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIllNS_19ParquetCastOpe
 
 29:                                               ; preds = %.lr.ph54, %29
   %.053 = phi i64 [ 0, %.lr.ph54 ], [ %34, %29 ]
-  %30 = getelementptr inbounds nuw i64, ptr %7, i64 %.053
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.053
   %31 = load i64, ptr %30, align 8, !tbaa !24
   tail call void @_ZN6duckdb19PrimitiveDictionaryIllNS_19ParquetCastOperatorEE6InsertEl(ptr noundef nonnull align 8 dereferenceable(145) %27, i64 noundef %31)
   %32 = load i64, ptr %28, align 8, !tbaa !914
@@ -24690,7 +24667,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIllNS_19ParquetCastOpe
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.us: ; preds = %.critedge.us
   %58 = lshr i64 %.152.us, 6
-  %59 = getelementptr inbounds nuw i64, ptr %57, i64 %58
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %58
   %60 = load i64, ptr %59, align 8, !tbaa !24
   %61 = and i64 %.152.us, 63
   %62 = shl nuw i64 1, %61
@@ -24699,7 +24676,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.us: ; preds = %.critedg
   br i1 %.not48.us, label %68, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.us
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.us: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.us, %.critedge.us
-  %64 = getelementptr inbounds nuw i64, ptr %7, i64 %.152.us
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.152.us
   %65 = load i64, ptr %64, align 8, !tbaa !24
   tail call void @_ZN6duckdb19PrimitiveDictionaryIllNS_19ParquetCastOperatorEE6InsertEl(ptr noundef nonnull align 8 dereferenceable(145) %49, i64 noundef %65)
   %66 = load i64, ptr %50, align 8, !tbaa !914
@@ -24725,7 +24702,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.us: ; preds = %_
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit: ; preds = %.critedge
   %73 = lshr i64 %.152, 6
-  %74 = getelementptr inbounds nuw i64, ptr %72, i64 %73
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %73
   %75 = load i64, ptr %74, align 8, !tbaa !24
   %76 = and i64 %.152, 63
   %77 = shl nuw i64 1, %76
@@ -24734,7 +24711,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit: ; preds = %.critedge
   br i1 %.not48, label %83, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %.critedge, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit
-  %79 = getelementptr inbounds nuw i64, ptr %7, i64 %.152
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.152
   %80 = load i64, ptr %79, align 8, !tbaa !24
   tail call void @_ZN6duckdb19PrimitiveDictionaryIllNS_19ParquetCastOperatorEE6InsertEl(ptr noundef nonnull align 8 dereferenceable(145) %46, i64 noundef %80)
   %81 = load i64, ptr %47, align 8, !tbaa !914
@@ -25137,7 +25114,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIllNS_19ParquetCastOpe
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit: ; preds = %.lr.ph187, %45
   %.1108186 = phi i64 [ %46, %45 ], [ %5, %.lr.ph187 ]
   %32 = lshr i64 %.1108186, 6
-  %33 = getelementptr inbounds nuw i64, ptr %31, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %32
   %34 = load i64, ptr %33, align 8, !tbaa !24
   %35 = and i64 %.1108186, 63
   %36 = shl nuw i64 1, %35
@@ -25186,7 +25163,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %_ZNK
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115: ; preds = %50
   %52 = lshr i64 %.2109196, 6
-  %53 = getelementptr inbounds nuw i64, ptr %51, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %52
   %54 = load i64, ptr %53, align 8, !tbaa !24
   %55 = and i64 %.2109196, 63
   %56 = shl nuw i64 1, %55
@@ -25195,7 +25172,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115: ; preds = %50
   br i1 %.not162, label %80, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115.thread
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115.thread: ; preds = %50, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115
-  %58 = getelementptr inbounds nuw i64, ptr %19, i64 %.2109196
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.2109196
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %59 = load ptr, ptr %48, align 8, !tbaa !940
   %60 = load i64, ptr %58, align 8, !tbaa !24
@@ -25205,7 +25182,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115.thread: ; preds = %5
   %64 = getelementptr inbounds nuw i8, ptr %59, i64 136
   %65 = load ptr, ptr %64, align 8, !tbaa !942
   %.07.i.i = and i64 %63, %61
-  %66 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<long, long, duckdb::ParquetCastOperator>::primitive_dictionary_entry_t", ptr %65, i64 %.07.i.i
+  %66 = getelementptr inbounds nuw [16 x i8], ptr %65, i64 %.07.i.i
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %68 = load i32, ptr %67, align 8, !tbaa !943
   %69 = icmp eq i32 %68, -1
@@ -25221,7 +25198,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115.thread: ; preds = %5
   %.08.i.i191 = phi i64 [ %.0.i.i, %77 ], [ %.07.i.i, %.lr.ph.i.i ]
   %72 = add i64 %.08.i.i191, 1
   %.0.i.i = and i64 %72, %63
-  %73 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<long, long, duckdb::ParquetCastOperator>::primitive_dictionary_entry_t", ptr %65, i64 %.0.i.i
+  %73 = getelementptr inbounds nuw [16 x i8], ptr %65, i64 %.0.i.i
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %75 = load i32, ptr %74, align 8, !tbaa !943
   %76 = icmp eq i32 %75, -1
@@ -25263,7 +25240,7 @@ _ZNK6duckdb19PrimitiveDictionaryIllNS_19ParquetCastOperatorEE8GetIndexERKl.exit:
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119: ; preds = %.lr.ph181, %107
   %.1105180 = phi i64 [ %108, %107 ], [ %5, %.lr.ph181 ]
   %88 = lshr i64 %.1105180, 6
-  %89 = getelementptr inbounds nuw i64, ptr %87, i64 %88
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %87, i64 %88
   %90 = load i64, ptr %89, align 8, !tbaa !24
   %91 = and i64 %.1105180, 63
   %92 = shl nuw i64 1, %91
@@ -25274,7 +25251,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119: ; preds = %.lr.ph18
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119.thread: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119, %.lr.ph181
   %.us-phi183 = phi i64 [ %5, %.lr.ph181 ], [ %.1105180, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %94 = getelementptr inbounds nuw i64, ptr %19, i64 %.us-phi183
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.us-phi183
   %95 = load i64, ptr %94, align 8, !tbaa !24
   store i64 %95, ptr %11, align 8, !tbaa !24
   %96 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -25332,7 +25309,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123: ; preds = %117
   %119 = lshr i64 %.2106184, 6
-  %120 = getelementptr inbounds nuw i64, ptr %118, i64 %119
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %118, i64 %119
   %121 = load i64, ptr %120, align 8, !tbaa !24
   %122 = and i64 %.2106184, 63
   %123 = shl nuw i64 1, %122
@@ -25341,7 +25318,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123: ; preds = %117
   br i1 %.not160, label %_ZN6duckdb11dbp_encoder10WriteValueIlEEvRNS_10DbpEncoderERNS_11WriteStreamERKT_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123.thread
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123.thread: ; preds = %117, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123
-  %125 = getelementptr inbounds nuw i64, ptr %19, i64 %.2106184
+  %125 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.2106184
   %126 = load i64, ptr %125, align 8, !tbaa !24
   %127 = load i64, ptr %110, align 8, !tbaa !24
   %128 = icmp sgt i64 %127, %126
@@ -25370,7 +25347,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET
   %138 = load i64, ptr %115, align 8, !tbaa !28
   %139 = add i64 %138, 1
   store i64 %139, ptr %115, align 8, !tbaa !28
-  %140 = getelementptr inbounds nuw i64, ptr %114, i64 %138
+  %140 = getelementptr inbounds nuw [8 x i8], ptr %114, i64 %138
   store i64 %135, ptr %140, align 8, !tbaa !24
   %141 = load i64, ptr %115, align 8, !tbaa !28
   %142 = icmp eq i64 %141, 2048
@@ -25401,7 +25378,7 @@ _ZN6duckdb11dbp_encoder10WriteValueIlEEvRNS_10DbpEncoderERNS_11WriteStreamERKT_.
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128: ; preds = %.lr.ph177, %170
   %.1103176 = phi i64 [ %171, %170 ], [ %5, %.lr.ph177 ]
   %151 = lshr i64 %.1103176, 6
-  %152 = getelementptr inbounds nuw i64, ptr %150, i64 %151
+  %152 = getelementptr inbounds nuw [8 x i8], ptr %150, i64 %151
   %153 = load i64, ptr %152, align 8, !tbaa !24
   %154 = and i64 %.1103176, 63
   %155 = shl nuw i64 1, %154
@@ -25412,7 +25389,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128: ; preds = %.lr.ph17
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128.thread: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128, %.lr.ph177
   %.us-phi = phi i64 [ %5, %.lr.ph177 ], [ %.1103176, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %157 = getelementptr inbounds nuw i64, ptr %19, i64 %.us-phi
+  %157 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.us-phi
   %158 = load i64, ptr %157, align 8, !tbaa !24
   store i64 %158, ptr %12, align 8, !tbaa !24
   %159 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -25466,7 +25443,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133: ; preds = %176
   %178 = lshr i64 %.2178, 6
-  %179 = getelementptr inbounds nuw i64, ptr %177, i64 %178
+  %179 = getelementptr inbounds nuw [8 x i8], ptr %177, i64 %178
   %180 = load i64, ptr %179, align 8, !tbaa !24
   %181 = and i64 %.2178, 63
   %182 = shl nuw i64 1, %181
@@ -25476,7 +25453,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133: ; preds = %176
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133.thread: ; preds = %176, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %184 = getelementptr inbounds nuw i64, ptr %19, i64 %.2178
+  %184 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.2178
   %185 = load i64, ptr %184, align 8, !tbaa !24
   store i64 %185, ptr %13, align 8, !tbaa !24
   %186 = load i64, ptr %173, align 8, !tbaa !24
@@ -25514,7 +25491,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit138: ; preds = %195
   %197 = lshr i64 %.0101175, 6
-  %198 = getelementptr inbounds nuw i64, ptr %196, i64 %197
+  %198 = getelementptr inbounds nuw [8 x i8], ptr %196, i64 %197
   %199 = load i64, ptr %198, align 8, !tbaa !24
   %200 = and i64 %.0101175, 63
   %201 = shl nuw i64 1, %200
@@ -25524,7 +25501,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit138: ; preds = %195
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit138.thread: ; preds = %195, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit138
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %203 = getelementptr inbounds nuw i64, ptr %19, i64 %.0101175
+  %203 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.0101175
   %204 = load i64, ptr %203, align 8, !tbaa !24
   store i64 %204, ptr %14, align 8, !tbaa !24
   %205 = load i64, ptr %23, align 8, !tbaa !24
@@ -25574,7 +25551,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET
   %221 = phi i64 [ %.promoted2.i, %.lr.ph.i ], [ %231, %_ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit.i ]
   %222 = phi i64 [ %.promoted.i, %.lr.ph.i ], [ %228, %_ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit.i ]
   %.01.i = phi i64 [ %5, %.lr.ph.i ], [ %232, %_ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit.i ]
-  %223 = getelementptr inbounds nuw i64, ptr %19, i64 %.01.i
+  %223 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.01.i
   %224 = load i64, ptr %223, align 8, !tbaa !24
   %225 = icmp sgt i64 %222, %224
   br i1 %225, label %226, label %227
@@ -25599,7 +25576,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET
   br i1 %exitcond.not.i, label %_ZN6duckdbL19TemplatedWritePlainIllNS_19ParquetCastOperatorELb1EEEvRNS_6VectorEPNS_22ColumnWriterStatisticsEmmRKNS_12ValidityMaskERNS_11WriteStreamE.exit, label %220, !llvm.loop !953
 
 _ZN6duckdbL19TemplatedWritePlainIllNS_19ParquetCastOperatorELb1EEEvRNS_6VectorEPNS_22ColumnWriterStatisticsEmmRKNS_12ValidityMaskERNS_11WriteStreamE.exit: ; preds = %_ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit.i, %216
-  %233 = getelementptr inbounds nuw i64, ptr %19, i64 %5
+  %233 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %5
   %234 = sub i64 %6, %5
   %235 = shl i64 %234, 3
   %236 = load ptr, ptr %1, align 8, !tbaa !19
@@ -25630,7 +25607,7 @@ _ZN6duckdbL19TemplatedWritePlainIllNS_19ParquetCastOperatorELb1EEEvRNS_6VectorEP
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i: ; preds = %243
   %245 = lshr i64 %.0172.i, 6
-  %246 = getelementptr inbounds nuw i64, ptr %244, i64 %245
+  %246 = getelementptr inbounds nuw [8 x i8], ptr %244, i64 %245
   %247 = load i64, ptr %246, align 8, !tbaa !24
   %248 = and i64 %.0172.i, 63
   %249 = shl nuw i64 1, %248
@@ -25639,7 +25616,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i: ; preds = %243
   br i1 %.not.i143, label %266, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i, %243
-  %251 = getelementptr inbounds nuw i64, ptr %19, i64 %.0172.i
+  %251 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.0172.i
   %252 = load i64, ptr %251, align 8, !tbaa !24
   %253 = load i64, ptr %240, align 8, !tbaa !24
   %254 = icmp sgt i64 %253, %252
@@ -25660,7 +25637,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i: ; preds = %_Z
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit.i144: ; preds = %259, %256
   %260 = add i64 %.03.i, 1
-  %261 = getelementptr inbounds nuw i64, ptr %8, i64 %.03.i
+  %261 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.03.i
   store i64 %252, ptr %261, align 8, !tbaa !24
   %262 = icmp eq i64 %260, 2048
   br i1 %262, label %263, label %266
@@ -25831,7 +25808,7 @@ _ZNSt10unique_ptrIN6duckdb18ParquetBloomFilterESt14default_deleteIS1_EED2Ev.exit
   %30 = phi i64 [ %27, %.lr.ph.i ], [ %43, %42 ]
   %.08.i = phi i64 [ 0, %.lr.ph.i ], [ %44, %42 ]
   %31 = load ptr, ptr %28, align 8, !tbaa !942
-  %32 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<long, long, duckdb::ParquetCastOperator>::primitive_dictionary_entry_t", ptr %31, i64 %.08.i
+  %32 = getelementptr inbounds nuw [16 x i8], ptr %31, i64 %.08.i
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = load i32, ptr %33, align 8, !tbaa !943
   %35 = icmp eq i32 %34, -1
@@ -25851,7 +25828,7 @@ _ZNSt10unique_ptrIN6duckdb18ParquetBloomFilterESt14default_deleteIS1_EED2Ev.exit
 
 _ZNKSt8functionIFvRKlS1_EEclES1_S1_.exit.i:       ; preds = %36
   %39 = zext i32 %34 to i64
-  %40 = getelementptr inbounds nuw i64, ptr %25, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %39
   %41 = load ptr, ptr %23, align 8, !tbaa !958
   invoke void %41(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull align 8 dereferenceable(8) %40)
           to label %.noexc13 unwind label %.loopexit
@@ -26081,7 +26058,7 @@ _ZN6duckdb9Allocator8AllocateEm.exit:             ; preds = %.noexc
 
 .lr.ph:                                           ; preds = %24, %.lr.ph
   %.013 = phi i64 [ %36, %.lr.ph ], [ 0, %24 ]
-  %34 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<long, long, duckdb::ParquetCastOperator>::primitive_dictionary_entry_t", ptr %27, i64 %.013
+  %34 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %.013
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i32 -1, ptr %35, align 8, !tbaa !943
   %36 = add nuw i64 %.013, 1
@@ -26136,7 +26113,7 @@ define linkonce_odr void @_ZN6duckdb19PrimitiveDictionaryIllNS_19ParquetCastOper
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %12 = load ptr, ptr %11, align 8, !tbaa !942
   %.07.i = and i64 %10, %8
-  %13 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<long, long, duckdb::ParquetCastOperator>::primitive_dictionary_entry_t", ptr %12, i64 %.07.i
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %.07.i
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load i32, ptr %14, align 8, !tbaa !943
   %16 = icmp eq i32 %15, -1
@@ -26145,7 +26122,7 @@ define linkonce_odr void @_ZN6duckdb19PrimitiveDictionaryIllNS_19ParquetCastOper
 17:                                               ; preds = %.lr.ph.i
   %18 = add i64 %.08.i, 1
   %.0.i = and i64 %18, %10
-  %19 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<long, long, duckdb::ParquetCastOperator>::primitive_dictionary_entry_t", ptr %12, i64 %.0.i
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %.0.i
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load i32, ptr %20, align 8, !tbaa !943
   %22 = icmp eq i32 %21, -1
@@ -26947,7 +26924,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_10dtime_tz_tElNS_2
 
 29:                                               ; preds = %.lr.ph55, %29
   %.054 = phi i64 [ 0, %.lr.ph55 ], [ %33, %29 ]
-  %30 = getelementptr inbounds nuw %"struct.duckdb::dtime_tz_t", ptr %7, i64 %.054
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.054
   %.sroa.04.0.copyload = load i64, ptr %30, align 8, !tbaa !24
   tail call void @_ZN6duckdb19PrimitiveDictionaryINS_10dtime_tz_tElNS_21ParquetTimeTZOperatorEE6InsertES1_(ptr noundef nonnull align 8 dereferenceable(145) %27, i64 %.sroa.04.0.copyload)
   %31 = load i64, ptr %28, align 8, !tbaa !985
@@ -27005,7 +26982,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_10dtime_tz_tElNS_2
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.us: ; preds = %.critedge.us
   %57 = lshr i64 %.153.us, 6
-  %58 = getelementptr inbounds nuw i64, ptr %56, i64 %57
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %57
   %59 = load i64, ptr %58, align 8, !tbaa !24
   %60 = and i64 %.153.us, 63
   %61 = shl nuw i64 1, %60
@@ -27014,7 +26991,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.us: ; preds = %.critedg
   br i1 %.not49.us, label %66, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.us
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.us: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.us, %.critedge.us
-  %63 = getelementptr inbounds nuw %"struct.duckdb::dtime_tz_t", ptr %7, i64 %.153.us
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.153.us
   %.sroa.0.0.copyload.us = load i64, ptr %63, align 8, !tbaa !24
   tail call void @_ZN6duckdb19PrimitiveDictionaryINS_10dtime_tz_tElNS_21ParquetTimeTZOperatorEE6InsertES1_(ptr noundef nonnull align 8 dereferenceable(145) %48, i64 %.sroa.0.0.copyload.us)
   %64 = load i64, ptr %49, align 8, !tbaa !985
@@ -27040,7 +27017,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.us: ; preds = %_
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit: ; preds = %.critedge
   %71 = lshr i64 %.153, 6
-  %72 = getelementptr inbounds nuw i64, ptr %70, i64 %71
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %71
   %73 = load i64, ptr %72, align 8, !tbaa !24
   %74 = and i64 %.153, 63
   %75 = shl nuw i64 1, %74
@@ -27049,7 +27026,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit: ; preds = %.critedge
   br i1 %.not49, label %80, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %.critedge, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit
-  %77 = getelementptr inbounds nuw %"struct.duckdb::dtime_tz_t", ptr %7, i64 %.153
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.153
   %.sroa.0.0.copyload = load i64, ptr %77, align 8, !tbaa !24
   tail call void @_ZN6duckdb19PrimitiveDictionaryINS_10dtime_tz_tElNS_21ParquetTimeTZOperatorEE6InsertES1_(ptr noundef nonnull align 8 dereferenceable(145) %45, i64 %.sroa.0.0.copyload)
   %78 = load i64, ptr %46, align 8, !tbaa !985
@@ -27444,7 +27421,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_10dtime_tz_tElNS_2
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit: ; preds = %.lr.ph190, %44
   %.1106189 = phi i64 [ %45, %44 ], [ %5, %.lr.ph190 ]
   %31 = lshr i64 %.1106189, 6
-  %32 = getelementptr inbounds nuw i64, ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %31
   %33 = load i64, ptr %32, align 8, !tbaa !24
   %34 = and i64 %.1106189, 63
   %35 = shl nuw i64 1, %34
@@ -27493,7 +27470,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %_ZNK
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119: ; preds = %49
   %51 = lshr i64 %.2199, 6
-  %52 = getelementptr inbounds nuw i64, ptr %50, i64 %51
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %51
   %53 = load i64, ptr %52, align 8, !tbaa !24
   %54 = and i64 %.2199, 63
   %55 = shl nuw i64 1, %54
@@ -27502,7 +27479,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119: ; preds = %49
   br i1 %.not165, label %78, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119.thread
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119.thread: ; preds = %49, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119
-  %57 = getelementptr inbounds nuw %"struct.duckdb::dtime_tz_t", ptr %20, i64 %.2199
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %.2199
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %58 = load ptr, ptr %47, align 8, !tbaa !1005
   %.sroa.0.0.copyload.i.i = load i64, ptr %57, align 8, !tbaa !24
@@ -27512,7 +27489,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119.thread: ; preds = %4
   %62 = getelementptr inbounds nuw i8, ptr %58, i64 136
   %63 = load ptr, ptr %62, align 8, !tbaa !1007
   %.07.i.i = and i64 %61, %59
-  %64 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<duckdb::dtime_tz_t, long, duckdb::ParquetTimeTZOperator>::primitive_dictionary_entry_t", ptr %63, i64 %.07.i.i
+  %64 = getelementptr inbounds nuw [16 x i8], ptr %63, i64 %.07.i.i
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %66 = load i32, ptr %65, align 8, !tbaa !1008
   %67 = icmp eq i32 %66, -1
@@ -27528,7 +27505,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119.thread: ; preds = %4
   %.08.i.i194 = phi i64 [ %.0.i.i, %75 ], [ %.07.i.i, %.lr.ph.i.i ]
   %70 = add i64 %.08.i.i194, 1
   %.0.i.i = and i64 %70, %61
-  %71 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<duckdb::dtime_tz_t, long, duckdb::ParquetTimeTZOperator>::primitive_dictionary_entry_t", ptr %63, i64 %.0.i.i
+  %71 = getelementptr inbounds nuw [16 x i8], ptr %63, i64 %.0.i.i
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %73 = load i32, ptr %72, align 8, !tbaa !1008
   %74 = icmp eq i32 %73, -1
@@ -27570,7 +27547,7 @@ _ZNK6duckdb19PrimitiveDictionaryINS_10dtime_tz_tElNS_21ParquetTimeTZOperatorEE8G
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123: ; preds = %.lr.ph184, %96
   %.1109183 = phi i64 [ %97, %96 ], [ %5, %.lr.ph184 ]
   %86 = lshr i64 %.1109183, 6
-  %87 = getelementptr inbounds nuw i64, ptr %85, i64 %86
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %86
   %88 = load i64, ptr %87, align 8, !tbaa !24
   %89 = and i64 %.1109183, 63
   %90 = shl nuw i64 1, %89
@@ -27581,7 +27558,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123: ; preds = %.lr.ph18
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123.thread: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123, %.lr.ph184
   %.us-phi186 = phi i64 [ %5, %.lr.ph184 ], [ %.1109183, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %92 = getelementptr inbounds nuw %"struct.duckdb::dtime_tz_t", ptr %20, i64 %.us-phi186
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %.us-phi186
   %.sroa.018.0.copyload = load i64, ptr %92, align 8, !tbaa !24
   %93 = lshr i64 %.sroa.018.0.copyload, 24
   store i64 %93, ptr %12, align 8, !tbaa !24
@@ -27618,7 +27595,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123.thread: ; preds = %_
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit127: ; preds = %104
   %106 = lshr i64 %.2110187, 6
-  %107 = getelementptr inbounds nuw i64, ptr %105, i64 %106
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %105, i64 %106
   %108 = load i64, ptr %107, align 8, !tbaa !24
   %109 = and i64 %.2110187, 63
   %110 = shl nuw i64 1, %109
@@ -27627,7 +27604,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit127: ; preds = %104
   br i1 %.not163, label %_ZN6duckdb11dbp_encoder10WriteValueIlEEvRNS_10DbpEncoderERNS_11WriteStreamERKT_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit127.thread
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit127.thread: ; preds = %104, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit127
-  %112 = getelementptr inbounds nuw %"struct.duckdb::dtime_tz_t", ptr %20, i64 %.2110187
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %.2110187
   %.sroa.017.0.copyload = load i64, ptr %112, align 8, !tbaa !24
   %113 = lshr i64 %.sroa.017.0.copyload, 24
   %114 = load i64, ptr %99, align 8, !tbaa !26
@@ -27639,7 +27616,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit127.thread: ; preds = %1
   %118 = load i64, ptr %102, align 8, !tbaa !28
   %119 = add i64 %118, 1
   store i64 %119, ptr %102, align 8, !tbaa !28
-  %120 = getelementptr inbounds nuw i64, ptr %101, i64 %118
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %101, i64 %118
   store i64 %115, ptr %120, align 8, !tbaa !24
   %121 = load i64, ptr %102, align 8, !tbaa !28
   %122 = icmp eq i64 %121, 2048
@@ -27670,7 +27647,7 @@ _ZN6duckdb11dbp_encoder10WriteValueIlEEvRNS_10DbpEncoderERNS_11WriteStreamERKT_.
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit131: ; preds = %.lr.ph180, %141
   %.1112179 = phi i64 [ %142, %141 ], [ %5, %.lr.ph180 ]
   %131 = lshr i64 %.1112179, 6
-  %132 = getelementptr inbounds nuw i64, ptr %130, i64 %131
+  %132 = getelementptr inbounds nuw [8 x i8], ptr %130, i64 %131
   %133 = load i64, ptr %132, align 8, !tbaa !24
   %134 = and i64 %.1112179, 63
   %135 = shl nuw i64 1, %134
@@ -27681,7 +27658,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit131: ; preds = %.lr.ph18
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit131.thread: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit131, %.lr.ph180
   %.us-phi = phi i64 [ %5, %.lr.ph180 ], [ %.1112179, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit131 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %137 = getelementptr inbounds nuw %"struct.duckdb::dtime_tz_t", ptr %20, i64 %.us-phi
+  %137 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %.us-phi
   %.sroa.07.0.copyload = load i64, ptr %137, align 8, !tbaa !24
   %138 = lshr i64 %.sroa.07.0.copyload, 24
   store i64 %138, ptr %13, align 8, !tbaa !24
@@ -27714,7 +27691,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit131.thread: ; preds = %_
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit135: ; preds = %145
   %147 = lshr i64 %.2113181, 6
-  %148 = getelementptr inbounds nuw i64, ptr %146, i64 %147
+  %148 = getelementptr inbounds nuw [8 x i8], ptr %146, i64 %147
   %149 = load i64, ptr %148, align 8, !tbaa !24
   %150 = and i64 %.2113181, 63
   %151 = shl nuw i64 1, %150
@@ -27724,7 +27701,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit135: ; preds = %145
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit135.thread: ; preds = %145, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit135
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %153 = getelementptr inbounds nuw %"struct.duckdb::dtime_tz_t", ptr %20, i64 %.2113181
+  %153 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %.2113181
   %.sroa.06.0.copyload = load i64, ptr %153, align 8, !tbaa !24
   %154 = lshr i64 %.sroa.06.0.copyload, 24
   store i64 %154, ptr %14, align 8, !tbaa !24
@@ -27745,7 +27722,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit135.thread: ; preds = %1
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit139: ; preds = %157
   %159 = lshr i64 %.0107178, 6
-  %160 = getelementptr inbounds nuw i64, ptr %158, i64 %159
+  %160 = getelementptr inbounds nuw [8 x i8], ptr %158, i64 %159
   %161 = load i64, ptr %160, align 8, !tbaa !24
   %162 = and i64 %.0107178, 63
   %163 = shl nuw i64 1, %162
@@ -27755,7 +27732,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit139: ; preds = %157
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit139.thread: ; preds = %157, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit139
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  %165 = getelementptr inbounds nuw %"struct.duckdb::dtime_tz_t", ptr %20, i64 %.0107178
+  %165 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %.0107178
   %.sroa.0.0.copyload = load i64, ptr %165, align 8, !tbaa !24
   %166 = lshr i64 %.sroa.0.0.copyload, 24
   store i64 %166, ptr %15, align 8, !tbaa !24
@@ -27785,11 +27762,11 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit139.thread: ; preds = %1
 .lr.ph.i:                                         ; preds = %172, %182
   %.02.i = phi i64 [ %.1.i, %182 ], [ 0, %172 ]
   %.0151.i = phi i64 [ %183, %182 ], [ %5, %172 ]
-  %174 = getelementptr inbounds nuw %"struct.duckdb::dtime_tz_t", ptr %20, i64 %.0151.i
+  %174 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %.0151.i
   %.sroa.0.0.copyload.i = load i64, ptr %174, align 8, !tbaa !24
   %175 = lshr i64 %.sroa.0.0.copyload.i, 24
   %176 = add i64 %.02.i, 1
-  %177 = getelementptr inbounds nuw i64, ptr %9, i64 %.02.i
+  %177 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.02.i
   store i64 %175, ptr %177, align 8, !tbaa !24
   %178 = icmp eq i64 %176, 2048
   br i1 %178, label %179, label %182
@@ -27835,7 +27812,7 @@ _ZN6duckdbL19TemplatedWritePlainINS_10dtime_tz_tElNS_21ParquetTimeTZOperatorELb1
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i: ; preds = %.lr.ph.i142
   %189 = lshr i64 %.0172.i, 6
-  %190 = getelementptr inbounds nuw i64, ptr %188, i64 %189
+  %190 = getelementptr inbounds nuw [8 x i8], ptr %188, i64 %189
   %191 = load i64, ptr %190, align 8, !tbaa !24
   %192 = and i64 %.0172.i, 63
   %193 = shl nuw i64 1, %192
@@ -27844,11 +27821,11 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i: ; preds = %.lr.ph.i1
   br i1 %.not.i144, label %203, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i, %.lr.ph.i142
-  %195 = getelementptr inbounds nuw %"struct.duckdb::dtime_tz_t", ptr %20, i64 %.0172.i
+  %195 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %.0172.i
   %.sroa.0.0.copyload.i145 = load i64, ptr %195, align 8, !tbaa !24
   %196 = lshr i64 %.sroa.0.0.copyload.i145, 24
   %197 = add i64 %.03.i, 1
-  %198 = getelementptr inbounds nuw i64, ptr %8, i64 %.03.i
+  %198 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.03.i
   store i64 %196, ptr %198, align 8, !tbaa !24
   %199 = icmp eq i64 %197, 2048
   br i1 %199, label %200, label %203
@@ -28019,7 +27996,7 @@ _ZNSt10unique_ptrIN6duckdb18ParquetBloomFilterESt14default_deleteIS1_EED2Ev.exit
   %30 = phi i64 [ %27, %.lr.ph.i ], [ %43, %42 ]
   %.08.i = phi i64 [ 0, %.lr.ph.i ], [ %44, %42 ]
   %31 = load ptr, ptr %28, align 8, !tbaa !1007
-  %32 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<duckdb::dtime_tz_t, long, duckdb::ParquetTimeTZOperator>::primitive_dictionary_entry_t", ptr %31, i64 %.08.i
+  %32 = getelementptr inbounds nuw [16 x i8], ptr %31, i64 %.08.i
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = load i32, ptr %33, align 8, !tbaa !1008
   %35 = icmp eq i32 %34, -1
@@ -28039,7 +28016,7 @@ _ZNSt10unique_ptrIN6duckdb18ParquetBloomFilterESt14default_deleteIS1_EED2Ev.exit
 
 _ZNKSt8functionIFvRKN6duckdb10dtime_tz_tERKlEEclES3_S5_.exit.i: ; preds = %36
   %39 = zext i32 %34 to i64
-  %40 = getelementptr inbounds nuw i64, ptr %25, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %39
   %41 = load ptr, ptr %23, align 8, !tbaa !1024
   invoke void %41(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull align 8 dereferenceable(8) %40)
           to label %.noexc13 unwind label %.loopexit
@@ -28269,7 +28246,7 @@ _ZN6duckdb9Allocator8AllocateEm.exit:             ; preds = %.noexc
 
 .lr.ph:                                           ; preds = %24, %.lr.ph
   %.013 = phi i64 [ %36, %.lr.ph ], [ 0, %24 ]
-  %34 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<duckdb::dtime_tz_t, long, duckdb::ParquetTimeTZOperator>::primitive_dictionary_entry_t", ptr %27, i64 %.013
+  %34 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %.013
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i32 -1, ptr %35, align 8, !tbaa !1008
   %36 = add nuw i64 %.013, 1
@@ -28324,7 +28301,7 @@ define linkonce_odr void @_ZN6duckdb19PrimitiveDictionaryINS_10dtime_tz_tElNS_21
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %12 = load ptr, ptr %11, align 8, !tbaa !1007
   %.07.i = and i64 %10, %8
-  %13 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<duckdb::dtime_tz_t, long, duckdb::ParquetTimeTZOperator>::primitive_dictionary_entry_t", ptr %12, i64 %.07.i
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %.07.i
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load i32, ptr %14, align 8, !tbaa !1008
   %16 = icmp eq i32 %15, -1
@@ -28333,7 +28310,7 @@ define linkonce_odr void @_ZN6duckdb19PrimitiveDictionaryINS_10dtime_tz_tElNS_21
 17:                                               ; preds = %.lr.ph.i
   %18 = add i64 %.08.i, 1
   %.0.i = and i64 %18, %10
-  %19 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<duckdb::dtime_tz_t, long, duckdb::ParquetTimeTZOperator>::primitive_dictionary_entry_t", ptr %12, i64 %.0.i
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %.0.i
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load i32, ptr %20, align 8, !tbaa !1008
   %22 = icmp eq i32 %21, -1
@@ -28816,7 +28793,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_9hugeint_tEdNS_22P
 
 29:                                               ; preds = %.lr.ph56, %29
   %.055 = phi i64 [ 0, %.lr.ph56 ], [ %33, %29 ]
-  %30 = getelementptr inbounds nuw %"struct.duckdb::hugeint_t", ptr %7, i64 %.055
+  %30 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %.055
   %.sroa.04.0.copyload = load i64, ptr %30, align 8, !tbaa !24
   %.sroa.25.0..sroa_idx = getelementptr inbounds nuw i8, ptr %30, i64 8
   %.sroa.25.0.copyload = load i64, ptr %.sroa.25.0..sroa_idx, align 8, !tbaa !24
@@ -28876,7 +28853,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_9hugeint_tEdNS_22P
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.us: ; preds = %.critedge.us
   %57 = lshr i64 %.154.us, 6
-  %58 = getelementptr inbounds nuw i64, ptr %56, i64 %57
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %57
   %59 = load i64, ptr %58, align 8, !tbaa !24
   %60 = and i64 %.154.us, 63
   %61 = shl nuw i64 1, %60
@@ -28885,7 +28862,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.us: ; preds = %.critedg
   br i1 %.not50.us, label %66, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.us
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.us: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.us, %.critedge.us
-  %63 = getelementptr inbounds nuw %"struct.duckdb::hugeint_t", ptr %7, i64 %.154.us
+  %63 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %.154.us
   %.sroa.0.0.copyload.us = load i64, ptr %63, align 8, !tbaa !24
   %.sroa.2.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %63, i64 8
   %.sroa.2.0.copyload.us = load i64, ptr %.sroa.2.0..sroa_idx.us, align 8, !tbaa !24
@@ -28913,7 +28890,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.us: ; preds = %_
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit: ; preds = %.critedge
   %71 = lshr i64 %.154, 6
-  %72 = getelementptr inbounds nuw i64, ptr %70, i64 %71
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %71
   %73 = load i64, ptr %72, align 8, !tbaa !24
   %74 = and i64 %.154, 63
   %75 = shl nuw i64 1, %74
@@ -28922,7 +28899,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit: ; preds = %.critedge
   br i1 %.not50, label %80, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %.critedge, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit
-  %77 = getelementptr inbounds nuw %"struct.duckdb::hugeint_t", ptr %7, i64 %.154
+  %77 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %.154
   %.sroa.0.0.copyload = load i64, ptr %77, align 8, !tbaa !24
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %77, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !24
@@ -29333,7 +29310,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_9hugeint_tEdNS_22P
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit: ; preds = %.lr.ph197, %54
   %.1110196 = phi i64 [ %55, %54 ], [ %5, %.lr.ph197 ]
   %41 = lshr i64 %.1110196, 6
-  %42 = getelementptr inbounds nuw i64, ptr %40, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %41
   %43 = load i64, ptr %42, align 8, !tbaa !24
   %44 = and i64 %.1110196, 63
   %45 = shl nuw i64 1, %44
@@ -29382,7 +29359,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %_ZNK
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123: ; preds = %59
   %61 = lshr i64 %.2200, 6
-  %62 = getelementptr inbounds nuw i64, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   %63 = load i64, ptr %62, align 8, !tbaa !24
   %64 = and i64 %.2200, 63
   %65 = shl nuw i64 1, %64
@@ -29391,7 +29368,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123: ; preds = %59
   br i1 %.not170, label %90, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123.thread
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123.thread: ; preds = %59, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123
-  %67 = getelementptr inbounds nuw %"struct.duckdb::hugeint_t", ptr %28, i64 %.2200
+  %67 = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %.2200
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %68 = load ptr, ptr %57, align 8, !tbaa !1074
   %.sroa.0.0.copyload.i.i = load i64, ptr %67, align 8, !tbaa !24
@@ -29403,7 +29380,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123.thread: ; preds = %5
   %72 = and i64 %71, %69
   %73 = getelementptr inbounds nuw i8, ptr %68, i64 136
   %74 = load ptr, ptr %73, align 8, !tbaa !1076
-  %75 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<duckdb::hugeint_t, double, duckdb::ParquetHugeintOperator>::primitive_dictionary_entry_t", ptr %74, i64 %72
+  %75 = getelementptr inbounds nuw [24 x i8], ptr %74, i64 %72
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 16
   %77 = load i32, ptr %76, align 8, !tbaa !1077
   %78 = icmp eq i32 %77, -1
@@ -29417,7 +29394,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123.thread: ; preds = %5
   br i1 %80, label %81, label %.lr.ph.i._ZNK6duckdb19PrimitiveDictionaryINS_9hugeint_tEdNS_22ParquetHugeintOperatorEE6LookupERKS1_.exit.loopexit_crit_edge.i
 
 .lr.ph.i._ZNK6duckdb19PrimitiveDictionaryINS_9hugeint_tEdNS_22ParquetHugeintOperatorEE6LookupERKS1_.exit.loopexit_crit_edge.i: ; preds = %.lr.ph.i.i
-  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<duckdb::hugeint_t, double, duckdb::ParquetHugeintOperator>::primitive_dictionary_entry_t", ptr %.pre.pre.i.i, i64 %.07.i.i
+  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds nuw [24 x i8], ptr %.pre.pre.i.i, i64 %.07.i.i
   %.phi.trans.insert3.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.phi.trans.insert.phi.trans.insert.i, i64 16
   %.pre.pre.i = load i32, ptr %.phi.trans.insert3.phi.trans.insert.i, align 8, !tbaa !1077
   br label %_ZNK6duckdb19PrimitiveDictionaryINS_9hugeint_tEdNS_22ParquetHugeintOperatorEE8GetIndexERKS1_.exit
@@ -29426,7 +29403,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123.thread: ; preds = %5
   %82 = load i64, ptr %70, align 8, !tbaa !1075
   %83 = add i64 %.07.i.i, 1
   %84 = and i64 %82, %83
-  %85 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<duckdb::hugeint_t, double, duckdb::ParquetHugeintOperator>::primitive_dictionary_entry_t", ptr %.pre.pre.i.i, i64 %84
+  %85 = getelementptr inbounds nuw [24 x i8], ptr %.pre.pre.i.i, i64 %84
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 16
   %87 = load i32, ptr %86, align 8, !tbaa !1077
   %88 = icmp eq i32 %87, -1
@@ -29460,7 +29437,7 @@ _ZNK6duckdb19PrimitiveDictionaryINS_9hugeint_tEdNS_22ParquetHugeintOperatorEE8Ge
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit127: ; preds = %.lr.ph191, %109
   %.1112190 = phi i64 [ %110, %109 ], [ %5, %.lr.ph191 ]
   %98 = lshr i64 %.1112190, 6
-  %99 = getelementptr inbounds nuw i64, ptr %97, i64 %98
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %97, i64 %98
   %100 = load i64, ptr %99, align 8, !tbaa !24
   %101 = and i64 %.1112190, 63
   %102 = shl nuw i64 1, %101
@@ -29471,7 +29448,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit127: ; preds = %.lr.ph19
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit127.thread: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit127, %.lr.ph191
   %.us-phi193 = phi i64 [ %5, %.lr.ph191 ], [ %.1112190, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit127 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
-  %104 = getelementptr inbounds nuw %"struct.duckdb::hugeint_t", ptr %28, i64 %.us-phi193
+  %104 = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %.us-phi193
   %.sroa.021.0.copyload = load i64, ptr %104, align 8, !tbaa !24
   %.sroa.222.0..sroa_idx = getelementptr inbounds nuw i8, ptr %104, i64 8
   %.sroa.222.0.copyload = load i64, ptr %.sroa.222.0..sroa_idx, align 8, !tbaa !24
@@ -29510,7 +29487,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit127.thread: ; preds = %_
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit131: ; preds = %113
   %115 = lshr i64 %.2113194, 6
-  %116 = getelementptr inbounds nuw i64, ptr %114, i64 %115
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %114, i64 %115
   %117 = load i64, ptr %116, align 8, !tbaa !24
   %118 = and i64 %.2113194, 63
   %119 = shl nuw i64 1, %118
@@ -29520,7 +29497,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit131: ; preds = %113
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit131.thread: ; preds = %113, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit131
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
-  %121 = getelementptr inbounds nuw %"struct.duckdb::hugeint_t", ptr %28, i64 %.2113194
+  %121 = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %.2113194
   %.sroa.019.0.copyload = load i64, ptr %121, align 8, !tbaa !24
   %.sroa.220.0..sroa_idx = getelementptr inbounds nuw i8, ptr %121, i64 8
   %.sroa.220.0.copyload = load i64, ptr %.sroa.220.0..sroa_idx, align 8, !tbaa !24
@@ -29555,7 +29532,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit131.thread: ; preds = %1
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit135: ; preds = %.lr.ph187, %143
   %.1116186 = phi i64 [ %144, %143 ], [ %5, %.lr.ph187 ]
   %132 = lshr i64 %.1116186, 6
-  %133 = getelementptr inbounds nuw i64, ptr %131, i64 %132
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %131, i64 %132
   %134 = load i64, ptr %133, align 8, !tbaa !24
   %135 = and i64 %.1116186, 63
   %136 = shl nuw i64 1, %135
@@ -29566,7 +29543,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit135: ; preds = %.lr.ph18
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit135.thread: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit135, %.lr.ph187
   %.us-phi = phi i64 [ %5, %.lr.ph187 ], [ %.1116186, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit135 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
-  %138 = getelementptr inbounds nuw %"struct.duckdb::hugeint_t", ptr %28, i64 %.us-phi
+  %138 = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %.us-phi
   %.sroa.08.0.copyload = load i64, ptr %138, align 8, !tbaa !24
   %.sroa.29.0..sroa_idx = getelementptr inbounds nuw i8, ptr %138, i64 8
   %.sroa.29.0.copyload = load i64, ptr %.sroa.29.0..sroa_idx, align 8, !tbaa !24
@@ -29605,7 +29582,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit135.thread: ; preds = %_
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit139: ; preds = %147
   %149 = lshr i64 %.2117188, 6
-  %150 = getelementptr inbounds nuw i64, ptr %148, i64 %149
+  %150 = getelementptr inbounds nuw [8 x i8], ptr %148, i64 %149
   %151 = load i64, ptr %150, align 8, !tbaa !24
   %152 = and i64 %.2117188, 63
   %153 = shl nuw i64 1, %152
@@ -29615,7 +29592,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit139: ; preds = %147
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit139.thread: ; preds = %147, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit139
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
-  %155 = getelementptr inbounds nuw %"struct.duckdb::hugeint_t", ptr %28, i64 %.2117188
+  %155 = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %.2117188
   %.sroa.06.0.copyload = load i64, ptr %155, align 8, !tbaa !24
   %.sroa.27.0..sroa_idx = getelementptr inbounds nuw i8, ptr %155, i64 8
   %.sroa.27.0.copyload = load i64, ptr %.sroa.27.0..sroa_idx, align 8, !tbaa !24
@@ -29642,7 +29619,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit139.thread: ; preds = %1
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit143: ; preds = %160
   %162 = lshr i64 %.0114185, 6
-  %163 = getelementptr inbounds nuw i64, ptr %161, i64 %162
+  %163 = getelementptr inbounds nuw [8 x i8], ptr %161, i64 %162
   %164 = load i64, ptr %163, align 8, !tbaa !24
   %165 = and i64 %.0114185, 63
   %166 = shl nuw i64 1, %165
@@ -29652,7 +29629,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit143: ; preds = %160
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit143.thread: ; preds = %160, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit143
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
-  %168 = getelementptr inbounds nuw %"struct.duckdb::hugeint_t", ptr %28, i64 %.0114185
+  %168 = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %.0114185
   %.sroa.0.0.copyload = load i64, ptr %168, align 8, !tbaa !24
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %168, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !24
@@ -29708,7 +29685,7 @@ _ZN6duckdb11bss_encoder10WriteValueIdEEvRNS_10BssEncoderERKT_.exit: ; preds = %1
 .lr.ph.i:                                         ; preds = %188, %199
   %.02.i = phi i64 [ %.1.i, %199 ], [ 0, %188 ]
   %.0151.i = phi i64 [ %200, %199 ], [ %5, %188 ]
-  %190 = getelementptr inbounds nuw %"struct.duckdb::hugeint_t", ptr %28, i64 %.0151.i
+  %190 = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %.0151.i
   %.sroa.0.0.copyload.i = load i64, ptr %190, align 8, !tbaa !24
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %190, i64 8
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !24
@@ -29718,7 +29695,7 @@ _ZN6duckdb11bss_encoder10WriteValueIdEEvRNS_10BssEncoderERKT_.exit: ; preds = %1
   %192 = load double, ptr %10, align 8, !tbaa !1082
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %193 = add i64 %.02.i, 1
-  %194 = getelementptr inbounds nuw double, ptr %11, i64 %.02.i
+  %194 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.02.i
   store double %192, ptr %194, align 8, !tbaa !1082
   %195 = icmp eq i64 %193, 2048
   br i1 %195, label %196, label %199
@@ -29764,7 +29741,7 @@ _ZN6duckdbL19TemplatedWritePlainINS_9hugeint_tEdNS_22ParquetHugeintOperatorELb1E
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i: ; preds = %.lr.ph.i146
   %206 = lshr i64 %.0172.i, 6
-  %207 = getelementptr inbounds nuw i64, ptr %205, i64 %206
+  %207 = getelementptr inbounds nuw [8 x i8], ptr %205, i64 %206
   %208 = load i64, ptr %207, align 8, !tbaa !24
   %209 = and i64 %.0172.i, 63
   %210 = shl nuw i64 1, %209
@@ -29773,7 +29750,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i: ; preds = %.lr.ph.i1
   br i1 %.not.i147, label %221, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i, %.lr.ph.i146
-  %212 = getelementptr inbounds nuw %"struct.duckdb::hugeint_t", ptr %28, i64 %.0172.i
+  %212 = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %.0172.i
   %.sroa.0.0.copyload.i148 = load i64, ptr %212, align 8, !tbaa !24
   %.sroa.2.0..sroa_idx.i149 = getelementptr inbounds nuw i8, ptr %212, i64 8
   %.sroa.2.0.copyload.i150 = load i64, ptr %.sroa.2.0..sroa_idx.i149, align 8, !tbaa !24
@@ -29783,7 +29760,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i: ; preds = %_Z
   %214 = load double, ptr %8, align 8, !tbaa !1082
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %215 = add i64 %.03.i, 1
-  %216 = getelementptr inbounds nuw double, ptr %9, i64 %.03.i
+  %216 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.03.i
   store double %214, ptr %216, align 8, !tbaa !1082
   %217 = icmp eq i64 %215, 2048
   br i1 %217, label %218, label %221
@@ -29954,7 +29931,7 @@ _ZNSt10unique_ptrIN6duckdb18ParquetBloomFilterESt14default_deleteIS1_EED2Ev.exit
   %30 = phi i64 [ %27, %.lr.ph.i ], [ %43, %42 ]
   %.08.i = phi i64 [ 0, %.lr.ph.i ], [ %44, %42 ]
   %31 = load ptr, ptr %28, align 8, !tbaa !1076
-  %32 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<duckdb::hugeint_t, double, duckdb::ParquetHugeintOperator>::primitive_dictionary_entry_t", ptr %31, i64 %.08.i
+  %32 = getelementptr inbounds nuw [24 x i8], ptr %31, i64 %.08.i
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %34 = load i32, ptr %33, align 8, !tbaa !1077
   %35 = icmp eq i32 %34, -1
@@ -29974,7 +29951,7 @@ _ZNSt10unique_ptrIN6duckdb18ParquetBloomFilterESt14default_deleteIS1_EED2Ev.exit
 
 _ZNKSt8functionIFvRKN6duckdb9hugeint_tERKdEEclES3_S5_.exit.i: ; preds = %36
   %39 = zext i32 %34 to i64
-  %40 = getelementptr inbounds nuw double, ptr %25, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %39
   %41 = load ptr, ptr %23, align 8, !tbaa !1093
   invoke void %41(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull align 8 dereferenceable(8) %40)
           to label %.noexc13 unwind label %.loopexit
@@ -30204,7 +30181,7 @@ _ZN6duckdb9Allocator8AllocateEm.exit:             ; preds = %.noexc
 
 .lr.ph:                                           ; preds = %24, %.lr.ph
   %.013 = phi i64 [ %36, %.lr.ph ], [ 0, %24 ]
-  %34 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<duckdb::hugeint_t, double, duckdb::ParquetHugeintOperator>::primitive_dictionary_entry_t", ptr %27, i64 %.013
+  %34 = getelementptr inbounds nuw [24 x i8], ptr %27, i64 %.013
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   store i32 -1, ptr %35, align 8, !tbaa !1077
   %36 = add nuw i64 %.013, 1
@@ -30264,7 +30241,7 @@ define linkonce_odr void @_ZN6duckdb19PrimitiveDictionaryINS_9hugeint_tEdNS_22Pa
   %15 = and i64 %14, %12
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %17 = load ptr, ptr %16, align 8, !tbaa !1076
-  %18 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<duckdb::hugeint_t, double, duckdb::ParquetHugeintOperator>::primitive_dictionary_entry_t", ptr %17, i64 %15
+  %18 = getelementptr inbounds nuw [24 x i8], ptr %17, i64 %15
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load i32, ptr %19, align 8, !tbaa !1077
   %21 = icmp eq i32 %20, -1
@@ -30281,7 +30258,7 @@ define linkonce_odr void @_ZN6duckdb19PrimitiveDictionaryINS_9hugeint_tEdNS_22Pa
   %25 = load i64, ptr %13, align 8, !tbaa !1075
   %26 = add i64 %.07.i, 1
   %27 = and i64 %25, %26
-  %28 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<duckdb::hugeint_t, double, duckdb::ParquetHugeintOperator>::primitive_dictionary_entry_t", ptr %.pre.pre.i, i64 %27
+  %28 = getelementptr inbounds nuw [24 x i8], ptr %.pre.pre.i, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load i32, ptr %29, align 8, !tbaa !1077
   %31 = icmp eq i32 %30, -1
@@ -30290,15 +30267,15 @@ define linkonce_odr void @_ZN6duckdb19PrimitiveDictionaryINS_9hugeint_tEdNS_22Pa
 _ZNK6duckdb19PrimitiveDictionaryINS_9hugeint_tEdNS_22ParquetHugeintOperatorEE6LookupERKS1_.exit.thread: ; preds = %24, %11
   %.ph = phi ptr [ %17, %11 ], [ %.pre.pre.i, %24 ]
   %.0.lcssa.i.ph = phi i64 [ %15, %11 ], [ %27, %24 ]
-  %32 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<duckdb::hugeint_t, double, duckdb::ParquetHugeintOperator>::primitive_dictionary_entry_t", ptr %.ph, i64 %.0.lcssa.i.ph
+  %32 = getelementptr inbounds nuw [24 x i8], ptr %.ph, i64 %.0.lcssa.i.ph
   br label %35
 
 _ZNK6duckdb19PrimitiveDictionaryINS_9hugeint_tEdNS_22ParquetHugeintOperatorEE6LookupERKS1_.exit: ; preds = %.lr.ph.i
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<duckdb::hugeint_t, double, duckdb::ParquetHugeintOperator>::primitive_dictionary_entry_t", ptr %.pre.pre.i, i64 %.07.i
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw [24 x i8], ptr %.pre.pre.i, i64 %.07.i
   %.phi.trans.insert7.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.phi.trans.insert.phi.trans.insert, i64 16
   %.pre.pre = load i32, ptr %.phi.trans.insert7.phi.trans.insert, align 8, !tbaa !1077
   %33 = icmp eq i32 %.pre.pre, -1
-  %34 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<duckdb::hugeint_t, double, duckdb::ParquetHugeintOperator>::primitive_dictionary_entry_t", ptr %.pre.pre.i, i64 %.07.i
+  %34 = getelementptr inbounds nuw [24 x i8], ptr %.pre.pre.i, i64 %.07.i
   br i1 %33, label %35, label %57
 
 35:                                               ; preds = %_ZNK6duckdb19PrimitiveDictionaryINS_9hugeint_tEdNS_22ParquetHugeintOperatorEE6LookupERKS1_.exit.thread, %_ZNK6duckdb19PrimitiveDictionaryINS_9hugeint_tEdNS_22ParquetHugeintOperatorEE6LookupERKS1_.exit
@@ -31049,7 +31026,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_10uhugeint_tEdNS_2
 
 29:                                               ; preds = %.lr.ph56, %29
   %.055 = phi i64 [ 0, %.lr.ph56 ], [ %33, %29 ]
-  %30 = getelementptr inbounds nuw %"struct.duckdb::uhugeint_t", ptr %7, i64 %.055
+  %30 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %.055
   %.sroa.04.0.copyload = load i64, ptr %30, align 8, !tbaa !24
   %.sroa.25.0..sroa_idx = getelementptr inbounds nuw i8, ptr %30, i64 8
   %.sroa.25.0.copyload = load i64, ptr %.sroa.25.0..sroa_idx, align 8, !tbaa !24
@@ -31109,7 +31086,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_10uhugeint_tEdNS_2
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.us: ; preds = %.critedge.us
   %57 = lshr i64 %.154.us, 6
-  %58 = getelementptr inbounds nuw i64, ptr %56, i64 %57
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %57
   %59 = load i64, ptr %58, align 8, !tbaa !24
   %60 = and i64 %.154.us, 63
   %61 = shl nuw i64 1, %60
@@ -31118,7 +31095,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.us: ; preds = %.critedg
   br i1 %.not50.us, label %66, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.us
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.us: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.us, %.critedge.us
-  %63 = getelementptr inbounds nuw %"struct.duckdb::uhugeint_t", ptr %7, i64 %.154.us
+  %63 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %.154.us
   %.sroa.0.0.copyload.us = load i64, ptr %63, align 8, !tbaa !24
   %.sroa.2.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %63, i64 8
   %.sroa.2.0.copyload.us = load i64, ptr %.sroa.2.0..sroa_idx.us, align 8, !tbaa !24
@@ -31146,7 +31123,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.us: ; preds = %_
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit: ; preds = %.critedge
   %71 = lshr i64 %.154, 6
-  %72 = getelementptr inbounds nuw i64, ptr %70, i64 %71
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %71
   %73 = load i64, ptr %72, align 8, !tbaa !24
   %74 = and i64 %.154, 63
   %75 = shl nuw i64 1, %74
@@ -31155,7 +31132,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit: ; preds = %.critedge
   br i1 %.not50, label %80, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %.critedge, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit
-  %77 = getelementptr inbounds nuw %"struct.duckdb::uhugeint_t", ptr %7, i64 %.154
+  %77 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %.154
   %.sroa.0.0.copyload = load i64, ptr %77, align 8, !tbaa !24
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %77, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !24
@@ -31566,7 +31543,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_10uhugeint_tEdNS_2
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit: ; preds = %.lr.ph197, %54
   %.1110196 = phi i64 [ %55, %54 ], [ %5, %.lr.ph197 ]
   %41 = lshr i64 %.1110196, 6
-  %42 = getelementptr inbounds nuw i64, ptr %40, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %41
   %43 = load i64, ptr %42, align 8, !tbaa !24
   %44 = and i64 %.1110196, 63
   %45 = shl nuw i64 1, %44
@@ -31615,7 +31592,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %_ZNK
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123: ; preds = %59
   %61 = lshr i64 %.2200, 6
-  %62 = getelementptr inbounds nuw i64, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   %63 = load i64, ptr %62, align 8, !tbaa !24
   %64 = and i64 %.2200, 63
   %65 = shl nuw i64 1, %64
@@ -31624,7 +31601,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123: ; preds = %59
   br i1 %.not170, label %90, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123.thread
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123.thread: ; preds = %59, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123
-  %67 = getelementptr inbounds nuw %"struct.duckdb::uhugeint_t", ptr %28, i64 %.2200
+  %67 = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %.2200
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %68 = load ptr, ptr %57, align 8, !tbaa !1144
   %.sroa.0.0.copyload.i.i = load i64, ptr %67, align 8, !tbaa !24
@@ -31636,7 +31613,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123.thread: ; preds = %5
   %72 = and i64 %71, %69
   %73 = getelementptr inbounds nuw i8, ptr %68, i64 136
   %74 = load ptr, ptr %73, align 8, !tbaa !1146
-  %75 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<duckdb::uhugeint_t, double, duckdb::ParquetUhugeintOperator>::primitive_dictionary_entry_t", ptr %74, i64 %72
+  %75 = getelementptr inbounds nuw [24 x i8], ptr %74, i64 %72
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 16
   %77 = load i32, ptr %76, align 8, !tbaa !1147
   %78 = icmp eq i32 %77, -1
@@ -31650,7 +31627,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123.thread: ; preds = %5
   br i1 %80, label %81, label %.lr.ph.i._ZNK6duckdb19PrimitiveDictionaryINS_10uhugeint_tEdNS_23ParquetUhugeintOperatorEE6LookupERKS1_.exit.loopexit_crit_edge.i
 
 .lr.ph.i._ZNK6duckdb19PrimitiveDictionaryINS_10uhugeint_tEdNS_23ParquetUhugeintOperatorEE6LookupERKS1_.exit.loopexit_crit_edge.i: ; preds = %.lr.ph.i.i
-  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<duckdb::uhugeint_t, double, duckdb::ParquetUhugeintOperator>::primitive_dictionary_entry_t", ptr %.pre.pre.i.i, i64 %.07.i.i
+  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds nuw [24 x i8], ptr %.pre.pre.i.i, i64 %.07.i.i
   %.phi.trans.insert3.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.phi.trans.insert.phi.trans.insert.i, i64 16
   %.pre.pre.i = load i32, ptr %.phi.trans.insert3.phi.trans.insert.i, align 8, !tbaa !1147
   br label %_ZNK6duckdb19PrimitiveDictionaryINS_10uhugeint_tEdNS_23ParquetUhugeintOperatorEE8GetIndexERKS1_.exit
@@ -31659,7 +31636,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123.thread: ; preds = %5
   %82 = load i64, ptr %70, align 8, !tbaa !1145
   %83 = add i64 %.07.i.i, 1
   %84 = and i64 %82, %83
-  %85 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<duckdb::uhugeint_t, double, duckdb::ParquetUhugeintOperator>::primitive_dictionary_entry_t", ptr %.pre.pre.i.i, i64 %84
+  %85 = getelementptr inbounds nuw [24 x i8], ptr %.pre.pre.i.i, i64 %84
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 16
   %87 = load i32, ptr %86, align 8, !tbaa !1147
   %88 = icmp eq i32 %87, -1
@@ -31693,7 +31670,7 @@ _ZNK6duckdb19PrimitiveDictionaryINS_10uhugeint_tEdNS_23ParquetUhugeintOperatorEE
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit127: ; preds = %.lr.ph191, %109
   %.1112190 = phi i64 [ %110, %109 ], [ %5, %.lr.ph191 ]
   %98 = lshr i64 %.1112190, 6
-  %99 = getelementptr inbounds nuw i64, ptr %97, i64 %98
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %97, i64 %98
   %100 = load i64, ptr %99, align 8, !tbaa !24
   %101 = and i64 %.1112190, 63
   %102 = shl nuw i64 1, %101
@@ -31704,7 +31681,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit127: ; preds = %.lr.ph19
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit127.thread: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit127, %.lr.ph191
   %.us-phi193 = phi i64 [ %5, %.lr.ph191 ], [ %.1112190, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit127 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
-  %104 = getelementptr inbounds nuw %"struct.duckdb::uhugeint_t", ptr %28, i64 %.us-phi193
+  %104 = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %.us-phi193
   %.sroa.021.0.copyload = load i64, ptr %104, align 8, !tbaa !24
   %.sroa.222.0..sroa_idx = getelementptr inbounds nuw i8, ptr %104, i64 8
   %.sroa.222.0.copyload = load i64, ptr %.sroa.222.0..sroa_idx, align 8, !tbaa !24
@@ -31743,7 +31720,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit127.thread: ; preds = %_
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit131: ; preds = %113
   %115 = lshr i64 %.2113194, 6
-  %116 = getelementptr inbounds nuw i64, ptr %114, i64 %115
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %114, i64 %115
   %117 = load i64, ptr %116, align 8, !tbaa !24
   %118 = and i64 %.2113194, 63
   %119 = shl nuw i64 1, %118
@@ -31753,7 +31730,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit131: ; preds = %113
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit131.thread: ; preds = %113, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit131
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
-  %121 = getelementptr inbounds nuw %"struct.duckdb::uhugeint_t", ptr %28, i64 %.2113194
+  %121 = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %.2113194
   %.sroa.019.0.copyload = load i64, ptr %121, align 8, !tbaa !24
   %.sroa.220.0..sroa_idx = getelementptr inbounds nuw i8, ptr %121, i64 8
   %.sroa.220.0.copyload = load i64, ptr %.sroa.220.0..sroa_idx, align 8, !tbaa !24
@@ -31788,7 +31765,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit131.thread: ; preds = %1
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit135: ; preds = %.lr.ph187, %143
   %.1116186 = phi i64 [ %144, %143 ], [ %5, %.lr.ph187 ]
   %132 = lshr i64 %.1116186, 6
-  %133 = getelementptr inbounds nuw i64, ptr %131, i64 %132
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %131, i64 %132
   %134 = load i64, ptr %133, align 8, !tbaa !24
   %135 = and i64 %.1116186, 63
   %136 = shl nuw i64 1, %135
@@ -31799,7 +31776,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit135: ; preds = %.lr.ph18
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit135.thread: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit135, %.lr.ph187
   %.us-phi = phi i64 [ %5, %.lr.ph187 ], [ %.1116186, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit135 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
-  %138 = getelementptr inbounds nuw %"struct.duckdb::uhugeint_t", ptr %28, i64 %.us-phi
+  %138 = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %.us-phi
   %.sroa.08.0.copyload = load i64, ptr %138, align 8, !tbaa !24
   %.sroa.29.0..sroa_idx = getelementptr inbounds nuw i8, ptr %138, i64 8
   %.sroa.29.0.copyload = load i64, ptr %.sroa.29.0..sroa_idx, align 8, !tbaa !24
@@ -31838,7 +31815,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit135.thread: ; preds = %_
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit139: ; preds = %147
   %149 = lshr i64 %.2117188, 6
-  %150 = getelementptr inbounds nuw i64, ptr %148, i64 %149
+  %150 = getelementptr inbounds nuw [8 x i8], ptr %148, i64 %149
   %151 = load i64, ptr %150, align 8, !tbaa !24
   %152 = and i64 %.2117188, 63
   %153 = shl nuw i64 1, %152
@@ -31848,7 +31825,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit139: ; preds = %147
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit139.thread: ; preds = %147, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit139
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
-  %155 = getelementptr inbounds nuw %"struct.duckdb::uhugeint_t", ptr %28, i64 %.2117188
+  %155 = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %.2117188
   %.sroa.06.0.copyload = load i64, ptr %155, align 8, !tbaa !24
   %.sroa.27.0..sroa_idx = getelementptr inbounds nuw i8, ptr %155, i64 8
   %.sroa.27.0.copyload = load i64, ptr %.sroa.27.0..sroa_idx, align 8, !tbaa !24
@@ -31875,7 +31852,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit139.thread: ; preds = %1
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit143: ; preds = %160
   %162 = lshr i64 %.0114185, 6
-  %163 = getelementptr inbounds nuw i64, ptr %161, i64 %162
+  %163 = getelementptr inbounds nuw [8 x i8], ptr %161, i64 %162
   %164 = load i64, ptr %163, align 8, !tbaa !24
   %165 = and i64 %.0114185, 63
   %166 = shl nuw i64 1, %165
@@ -31885,7 +31862,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit143: ; preds = %160
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit143.thread: ; preds = %160, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit143
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
-  %168 = getelementptr inbounds nuw %"struct.duckdb::uhugeint_t", ptr %28, i64 %.0114185
+  %168 = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %.0114185
   %.sroa.0.0.copyload = load i64, ptr %168, align 8, !tbaa !24
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %168, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !24
@@ -31941,7 +31918,7 @@ _ZN6duckdb11bss_encoder10WriteValueIdEEvRNS_10BssEncoderERKT_.exit: ; preds = %1
 .lr.ph.i:                                         ; preds = %188, %199
   %.02.i = phi i64 [ %.1.i, %199 ], [ 0, %188 ]
   %.0151.i = phi i64 [ %200, %199 ], [ %5, %188 ]
-  %190 = getelementptr inbounds nuw %"struct.duckdb::uhugeint_t", ptr %28, i64 %.0151.i
+  %190 = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %.0151.i
   %.sroa.0.0.copyload.i = load i64, ptr %190, align 8, !tbaa !24
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %190, i64 8
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !24
@@ -31951,7 +31928,7 @@ _ZN6duckdb11bss_encoder10WriteValueIdEEvRNS_10BssEncoderERKT_.exit: ; preds = %1
   %192 = load double, ptr %10, align 8, !tbaa !1082
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %193 = add i64 %.02.i, 1
-  %194 = getelementptr inbounds nuw double, ptr %11, i64 %.02.i
+  %194 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.02.i
   store double %192, ptr %194, align 8, !tbaa !1082
   %195 = icmp eq i64 %193, 2048
   br i1 %195, label %196, label %199
@@ -31997,7 +31974,7 @@ _ZN6duckdbL19TemplatedWritePlainINS_10uhugeint_tEdNS_23ParquetUhugeintOperatorEL
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i: ; preds = %.lr.ph.i146
   %206 = lshr i64 %.0172.i, 6
-  %207 = getelementptr inbounds nuw i64, ptr %205, i64 %206
+  %207 = getelementptr inbounds nuw [8 x i8], ptr %205, i64 %206
   %208 = load i64, ptr %207, align 8, !tbaa !24
   %209 = and i64 %.0172.i, 63
   %210 = shl nuw i64 1, %209
@@ -32006,7 +31983,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i: ; preds = %.lr.ph.i1
   br i1 %.not.i147, label %221, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i, %.lr.ph.i146
-  %212 = getelementptr inbounds nuw %"struct.duckdb::uhugeint_t", ptr %28, i64 %.0172.i
+  %212 = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %.0172.i
   %.sroa.0.0.copyload.i148 = load i64, ptr %212, align 8, !tbaa !24
   %.sroa.2.0..sroa_idx.i149 = getelementptr inbounds nuw i8, ptr %212, i64 8
   %.sroa.2.0.copyload.i150 = load i64, ptr %.sroa.2.0..sroa_idx.i149, align 8, !tbaa !24
@@ -32016,7 +31993,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i: ; preds = %_Z
   %214 = load double, ptr %8, align 8, !tbaa !1082
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %215 = add i64 %.03.i, 1
-  %216 = getelementptr inbounds nuw double, ptr %9, i64 %.03.i
+  %216 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.03.i
   store double %214, ptr %216, align 8, !tbaa !1082
   %217 = icmp eq i64 %215, 2048
   br i1 %217, label %218, label %221
@@ -32187,7 +32164,7 @@ _ZNSt10unique_ptrIN6duckdb18ParquetBloomFilterESt14default_deleteIS1_EED2Ev.exit
   %30 = phi i64 [ %27, %.lr.ph.i ], [ %43, %42 ]
   %.08.i = phi i64 [ 0, %.lr.ph.i ], [ %44, %42 ]
   %31 = load ptr, ptr %28, align 8, !tbaa !1146
-  %32 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<duckdb::uhugeint_t, double, duckdb::ParquetUhugeintOperator>::primitive_dictionary_entry_t", ptr %31, i64 %.08.i
+  %32 = getelementptr inbounds nuw [24 x i8], ptr %31, i64 %.08.i
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %34 = load i32, ptr %33, align 8, !tbaa !1147
   %35 = icmp eq i32 %34, -1
@@ -32207,7 +32184,7 @@ _ZNSt10unique_ptrIN6duckdb18ParquetBloomFilterESt14default_deleteIS1_EED2Ev.exit
 
 _ZNKSt8functionIFvRKN6duckdb10uhugeint_tERKdEEclES3_S5_.exit.i: ; preds = %36
   %39 = zext i32 %34 to i64
-  %40 = getelementptr inbounds nuw double, ptr %25, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %39
   %41 = load ptr, ptr %23, align 8, !tbaa !1162
   invoke void %41(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull align 8 dereferenceable(8) %40)
           to label %.noexc13 unwind label %.loopexit
@@ -32437,7 +32414,7 @@ _ZN6duckdb9Allocator8AllocateEm.exit:             ; preds = %.noexc
 
 .lr.ph:                                           ; preds = %24, %.lr.ph
   %.013 = phi i64 [ %36, %.lr.ph ], [ 0, %24 ]
-  %34 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<duckdb::uhugeint_t, double, duckdb::ParquetUhugeintOperator>::primitive_dictionary_entry_t", ptr %27, i64 %.013
+  %34 = getelementptr inbounds nuw [24 x i8], ptr %27, i64 %.013
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   store i32 -1, ptr %35, align 8, !tbaa !1147
   %36 = add nuw i64 %.013, 1
@@ -32497,7 +32474,7 @@ define linkonce_odr void @_ZN6duckdb19PrimitiveDictionaryINS_10uhugeint_tEdNS_23
   %15 = and i64 %14, %12
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %17 = load ptr, ptr %16, align 8, !tbaa !1146
-  %18 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<duckdb::uhugeint_t, double, duckdb::ParquetUhugeintOperator>::primitive_dictionary_entry_t", ptr %17, i64 %15
+  %18 = getelementptr inbounds nuw [24 x i8], ptr %17, i64 %15
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load i32, ptr %19, align 8, !tbaa !1147
   %21 = icmp eq i32 %20, -1
@@ -32514,7 +32491,7 @@ define linkonce_odr void @_ZN6duckdb19PrimitiveDictionaryINS_10uhugeint_tEdNS_23
   %25 = load i64, ptr %13, align 8, !tbaa !1145
   %26 = add i64 %.07.i, 1
   %27 = and i64 %25, %26
-  %28 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<duckdb::uhugeint_t, double, duckdb::ParquetUhugeintOperator>::primitive_dictionary_entry_t", ptr %.pre.pre.i, i64 %27
+  %28 = getelementptr inbounds nuw [24 x i8], ptr %.pre.pre.i, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load i32, ptr %29, align 8, !tbaa !1147
   %31 = icmp eq i32 %30, -1
@@ -32523,15 +32500,15 @@ define linkonce_odr void @_ZN6duckdb19PrimitiveDictionaryINS_10uhugeint_tEdNS_23
 _ZNK6duckdb19PrimitiveDictionaryINS_10uhugeint_tEdNS_23ParquetUhugeintOperatorEE6LookupERKS1_.exit.thread: ; preds = %24, %11
   %.ph = phi ptr [ %17, %11 ], [ %.pre.pre.i, %24 ]
   %.0.lcssa.i.ph = phi i64 [ %15, %11 ], [ %27, %24 ]
-  %32 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<duckdb::uhugeint_t, double, duckdb::ParquetUhugeintOperator>::primitive_dictionary_entry_t", ptr %.ph, i64 %.0.lcssa.i.ph
+  %32 = getelementptr inbounds nuw [24 x i8], ptr %.ph, i64 %.0.lcssa.i.ph
   br label %35
 
 _ZNK6duckdb19PrimitiveDictionaryINS_10uhugeint_tEdNS_23ParquetUhugeintOperatorEE6LookupERKS1_.exit: ; preds = %.lr.ph.i
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<duckdb::uhugeint_t, double, duckdb::ParquetUhugeintOperator>::primitive_dictionary_entry_t", ptr %.pre.pre.i, i64 %.07.i
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw [24 x i8], ptr %.pre.pre.i, i64 %.07.i
   %.phi.trans.insert7.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.phi.trans.insert.phi.trans.insert, i64 16
   %.pre.pre = load i32, ptr %.phi.trans.insert7.phi.trans.insert, align 8, !tbaa !1147
   %33 = icmp eq i32 %.pre.pre, -1
-  %34 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<duckdb::uhugeint_t, double, duckdb::ParquetUhugeintOperator>::primitive_dictionary_entry_t", ptr %.pre.pre.i, i64 %.07.i
+  %34 = getelementptr inbounds nuw [24 x i8], ptr %.pre.pre.i, i64 %.07.i
   br i1 %33, label %35, label %57
 
 35:                                               ; preds = %_ZNK6duckdb19PrimitiveDictionaryINS_10uhugeint_tEdNS_23ParquetUhugeintOperatorEE6LookupERKS1_.exit.thread, %_ZNK6duckdb19PrimitiveDictionaryINS_10uhugeint_tEdNS_23ParquetUhugeintOperatorEE6LookupERKS1_.exit
@@ -33014,7 +32991,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIllNS_26ParquetTimesta
 
 29:                                               ; preds = %.lr.ph54, %29
   %.053 = phi i64 [ 0, %.lr.ph54 ], [ %34, %29 ]
-  %30 = getelementptr inbounds nuw i64, ptr %7, i64 %.053
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.053
   %31 = load i64, ptr %30, align 8, !tbaa !24
   tail call void @_ZN6duckdb19PrimitiveDictionaryIllNS_26ParquetTimestampNSOperatorEE6InsertEl(ptr noundef nonnull align 8 dereferenceable(145) %27, i64 noundef %31)
   %32 = load i64, ptr %28, align 8, !tbaa !1188
@@ -33072,7 +33049,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIllNS_26ParquetTimesta
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.us: ; preds = %.critedge.us
   %58 = lshr i64 %.152.us, 6
-  %59 = getelementptr inbounds nuw i64, ptr %57, i64 %58
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %58
   %60 = load i64, ptr %59, align 8, !tbaa !24
   %61 = and i64 %.152.us, 63
   %62 = shl nuw i64 1, %61
@@ -33081,7 +33058,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.us: ; preds = %.critedg
   br i1 %.not48.us, label %68, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.us
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.us: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.us, %.critedge.us
-  %64 = getelementptr inbounds nuw i64, ptr %7, i64 %.152.us
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.152.us
   %65 = load i64, ptr %64, align 8, !tbaa !24
   tail call void @_ZN6duckdb19PrimitiveDictionaryIllNS_26ParquetTimestampNSOperatorEE6InsertEl(ptr noundef nonnull align 8 dereferenceable(145) %49, i64 noundef %65)
   %66 = load i64, ptr %50, align 8, !tbaa !1188
@@ -33107,7 +33084,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.us: ; preds = %_
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit: ; preds = %.critedge
   %73 = lshr i64 %.152, 6
-  %74 = getelementptr inbounds nuw i64, ptr %72, i64 %73
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %73
   %75 = load i64, ptr %74, align 8, !tbaa !24
   %76 = and i64 %.152, 63
   %77 = shl nuw i64 1, %76
@@ -33116,7 +33093,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit: ; preds = %.critedge
   br i1 %.not48, label %83, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %.critedge, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit
-  %79 = getelementptr inbounds nuw i64, ptr %7, i64 %.152
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.152
   %80 = load i64, ptr %79, align 8, !tbaa !24
   tail call void @_ZN6duckdb19PrimitiveDictionaryIllNS_26ParquetTimestampNSOperatorEE6InsertEl(ptr noundef nonnull align 8 dereferenceable(145) %46, i64 noundef %80)
   %81 = load i64, ptr %47, align 8, !tbaa !1188
@@ -33519,7 +33496,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIllNS_26ParquetTimesta
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit: ; preds = %.lr.ph187, %45
   %.1108186 = phi i64 [ %46, %45 ], [ %5, %.lr.ph187 ]
   %32 = lshr i64 %.1108186, 6
-  %33 = getelementptr inbounds nuw i64, ptr %31, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %32
   %34 = load i64, ptr %33, align 8, !tbaa !24
   %35 = and i64 %.1108186, 63
   %36 = shl nuw i64 1, %35
@@ -33568,7 +33545,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %_ZNK
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115: ; preds = %50
   %52 = lshr i64 %.2109196, 6
-  %53 = getelementptr inbounds nuw i64, ptr %51, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %52
   %54 = load i64, ptr %53, align 8, !tbaa !24
   %55 = and i64 %.2109196, 63
   %56 = shl nuw i64 1, %55
@@ -33577,7 +33554,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115: ; preds = %50
   br i1 %.not162, label %80, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115.thread
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115.thread: ; preds = %50, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115
-  %58 = getelementptr inbounds nuw i64, ptr %19, i64 %.2109196
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.2109196
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %59 = load ptr, ptr %48, align 8, !tbaa !1211
   %60 = load i64, ptr %58, align 8, !tbaa !24
@@ -33587,7 +33564,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115.thread: ; preds = %5
   %64 = getelementptr inbounds nuw i8, ptr %59, i64 136
   %65 = load ptr, ptr %64, align 8, !tbaa !1213
   %.07.i.i = and i64 %63, %61
-  %66 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<long, long, duckdb::ParquetTimestampNSOperator>::primitive_dictionary_entry_t", ptr %65, i64 %.07.i.i
+  %66 = getelementptr inbounds nuw [16 x i8], ptr %65, i64 %.07.i.i
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %68 = load i32, ptr %67, align 8, !tbaa !1214
   %69 = icmp eq i32 %68, -1
@@ -33603,7 +33580,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115.thread: ; preds = %5
   %.08.i.i191 = phi i64 [ %.0.i.i, %77 ], [ %.07.i.i, %.lr.ph.i.i ]
   %72 = add i64 %.08.i.i191, 1
   %.0.i.i = and i64 %72, %63
-  %73 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<long, long, duckdb::ParquetTimestampNSOperator>::primitive_dictionary_entry_t", ptr %65, i64 %.0.i.i
+  %73 = getelementptr inbounds nuw [16 x i8], ptr %65, i64 %.0.i.i
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %75 = load i32, ptr %74, align 8, !tbaa !1214
   %76 = icmp eq i32 %75, -1
@@ -33645,7 +33622,7 @@ _ZNK6duckdb19PrimitiveDictionaryIllNS_26ParquetTimestampNSOperatorEE8GetIndexERK
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119: ; preds = %.lr.ph181, %107
   %.1105180 = phi i64 [ %108, %107 ], [ %5, %.lr.ph181 ]
   %88 = lshr i64 %.1105180, 6
-  %89 = getelementptr inbounds nuw i64, ptr %87, i64 %88
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %87, i64 %88
   %90 = load i64, ptr %89, align 8, !tbaa !24
   %91 = and i64 %.1105180, 63
   %92 = shl nuw i64 1, %91
@@ -33656,7 +33633,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119: ; preds = %.lr.ph18
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119.thread: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119, %.lr.ph181
   %.us-phi183 = phi i64 [ %5, %.lr.ph181 ], [ %.1105180, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %94 = getelementptr inbounds nuw i64, ptr %19, i64 %.us-phi183
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.us-phi183
   %95 = load i64, ptr %94, align 8, !tbaa !24
   store i64 %95, ptr %11, align 8, !tbaa !24
   %96 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -33714,7 +33691,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123: ; preds = %117
   %119 = lshr i64 %.2106184, 6
-  %120 = getelementptr inbounds nuw i64, ptr %118, i64 %119
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %118, i64 %119
   %121 = load i64, ptr %120, align 8, !tbaa !24
   %122 = and i64 %.2106184, 63
   %123 = shl nuw i64 1, %122
@@ -33723,7 +33700,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123: ; preds = %117
   br i1 %.not160, label %_ZN6duckdb11dbp_encoder10WriteValueIlEEvRNS_10DbpEncoderERNS_11WriteStreamERKT_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123.thread
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123.thread: ; preds = %117, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123
-  %125 = getelementptr inbounds nuw i64, ptr %19, i64 %.2106184
+  %125 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.2106184
   %126 = load i64, ptr %125, align 8, !tbaa !24
   %127 = load i64, ptr %110, align 8, !tbaa !24
   %128 = icmp sgt i64 %127, %126
@@ -33752,7 +33729,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET
   %138 = load i64, ptr %115, align 8, !tbaa !28
   %139 = add i64 %138, 1
   store i64 %139, ptr %115, align 8, !tbaa !28
-  %140 = getelementptr inbounds nuw i64, ptr %114, i64 %138
+  %140 = getelementptr inbounds nuw [8 x i8], ptr %114, i64 %138
   store i64 %135, ptr %140, align 8, !tbaa !24
   %141 = load i64, ptr %115, align 8, !tbaa !28
   %142 = icmp eq i64 %141, 2048
@@ -33783,7 +33760,7 @@ _ZN6duckdb11dbp_encoder10WriteValueIlEEvRNS_10DbpEncoderERNS_11WriteStreamERKT_.
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128: ; preds = %.lr.ph177, %170
   %.1103176 = phi i64 [ %171, %170 ], [ %5, %.lr.ph177 ]
   %151 = lshr i64 %.1103176, 6
-  %152 = getelementptr inbounds nuw i64, ptr %150, i64 %151
+  %152 = getelementptr inbounds nuw [8 x i8], ptr %150, i64 %151
   %153 = load i64, ptr %152, align 8, !tbaa !24
   %154 = and i64 %.1103176, 63
   %155 = shl nuw i64 1, %154
@@ -33794,7 +33771,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128: ; preds = %.lr.ph17
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128.thread: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128, %.lr.ph177
   %.us-phi = phi i64 [ %5, %.lr.ph177 ], [ %.1103176, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %157 = getelementptr inbounds nuw i64, ptr %19, i64 %.us-phi
+  %157 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.us-phi
   %158 = load i64, ptr %157, align 8, !tbaa !24
   store i64 %158, ptr %12, align 8, !tbaa !24
   %159 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -33848,7 +33825,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133: ; preds = %176
   %178 = lshr i64 %.2178, 6
-  %179 = getelementptr inbounds nuw i64, ptr %177, i64 %178
+  %179 = getelementptr inbounds nuw [8 x i8], ptr %177, i64 %178
   %180 = load i64, ptr %179, align 8, !tbaa !24
   %181 = and i64 %.2178, 63
   %182 = shl nuw i64 1, %181
@@ -33858,7 +33835,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133: ; preds = %176
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133.thread: ; preds = %176, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %184 = getelementptr inbounds nuw i64, ptr %19, i64 %.2178
+  %184 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.2178
   %185 = load i64, ptr %184, align 8, !tbaa !24
   store i64 %185, ptr %13, align 8, !tbaa !24
   %186 = load i64, ptr %173, align 8, !tbaa !24
@@ -33896,7 +33873,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit138: ; preds = %195
   %197 = lshr i64 %.0101175, 6
-  %198 = getelementptr inbounds nuw i64, ptr %196, i64 %197
+  %198 = getelementptr inbounds nuw [8 x i8], ptr %196, i64 %197
   %199 = load i64, ptr %198, align 8, !tbaa !24
   %200 = and i64 %.0101175, 63
   %201 = shl nuw i64 1, %200
@@ -33906,7 +33883,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit138: ; preds = %195
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit138.thread: ; preds = %195, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit138
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %203 = getelementptr inbounds nuw i64, ptr %19, i64 %.0101175
+  %203 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.0101175
   %204 = load i64, ptr %203, align 8, !tbaa !24
   store i64 %204, ptr %14, align 8, !tbaa !24
   %205 = load i64, ptr %23, align 8, !tbaa !24
@@ -33956,7 +33933,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET
   %221 = phi i64 [ %.promoted2.i, %.lr.ph.i ], [ %231, %_ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit.i ]
   %222 = phi i64 [ %.promoted.i, %.lr.ph.i ], [ %228, %_ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit.i ]
   %.01.i = phi i64 [ %5, %.lr.ph.i ], [ %232, %_ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit.i ]
-  %223 = getelementptr inbounds nuw i64, ptr %19, i64 %.01.i
+  %223 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.01.i
   %224 = load i64, ptr %223, align 8, !tbaa !24
   %225 = icmp sgt i64 %222, %224
   br i1 %225, label %226, label %227
@@ -33981,7 +33958,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET
   br i1 %exitcond.not.i, label %_ZN6duckdbL19TemplatedWritePlainIllNS_26ParquetTimestampNSOperatorELb1EEEvRNS_6VectorEPNS_22ColumnWriterStatisticsEmmRKNS_12ValidityMaskERNS_11WriteStreamE.exit, label %220, !llvm.loop !1224
 
 _ZN6duckdbL19TemplatedWritePlainIllNS_26ParquetTimestampNSOperatorELb1EEEvRNS_6VectorEPNS_22ColumnWriterStatisticsEmmRKNS_12ValidityMaskERNS_11WriteStreamE.exit: ; preds = %_ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit.i, %216
-  %233 = getelementptr inbounds nuw i64, ptr %19, i64 %5
+  %233 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %5
   %234 = sub i64 %6, %5
   %235 = shl i64 %234, 3
   %236 = load ptr, ptr %1, align 8, !tbaa !19
@@ -34012,7 +33989,7 @@ _ZN6duckdbL19TemplatedWritePlainIllNS_26ParquetTimestampNSOperatorELb1EEEvRNS_6V
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i: ; preds = %243
   %245 = lshr i64 %.0172.i, 6
-  %246 = getelementptr inbounds nuw i64, ptr %244, i64 %245
+  %246 = getelementptr inbounds nuw [8 x i8], ptr %244, i64 %245
   %247 = load i64, ptr %246, align 8, !tbaa !24
   %248 = and i64 %.0172.i, 63
   %249 = shl nuw i64 1, %248
@@ -34021,7 +33998,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i: ; preds = %243
   br i1 %.not.i143, label %266, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i, %243
-  %251 = getelementptr inbounds nuw i64, ptr %19, i64 %.0172.i
+  %251 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.0172.i
   %252 = load i64, ptr %251, align 8, !tbaa !24
   %253 = load i64, ptr %240, align 8, !tbaa !24
   %254 = icmp sgt i64 %253, %252
@@ -34042,7 +34019,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i: ; preds = %_Z
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit.i144: ; preds = %259, %256
   %260 = add i64 %.03.i, 1
-  %261 = getelementptr inbounds nuw i64, ptr %8, i64 %.03.i
+  %261 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.03.i
   store i64 %252, ptr %261, align 8, !tbaa !24
   %262 = icmp eq i64 %260, 2048
   br i1 %262, label %263, label %266
@@ -34213,7 +34190,7 @@ _ZNSt10unique_ptrIN6duckdb18ParquetBloomFilterESt14default_deleteIS1_EED2Ev.exit
   %30 = phi i64 [ %27, %.lr.ph.i ], [ %43, %42 ]
   %.08.i = phi i64 [ 0, %.lr.ph.i ], [ %44, %42 ]
   %31 = load ptr, ptr %28, align 8, !tbaa !1213
-  %32 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<long, long, duckdb::ParquetTimestampNSOperator>::primitive_dictionary_entry_t", ptr %31, i64 %.08.i
+  %32 = getelementptr inbounds nuw [16 x i8], ptr %31, i64 %.08.i
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = load i32, ptr %33, align 8, !tbaa !1214
   %35 = icmp eq i32 %34, -1
@@ -34233,7 +34210,7 @@ _ZNSt10unique_ptrIN6duckdb18ParquetBloomFilterESt14default_deleteIS1_EED2Ev.exit
 
 _ZNKSt8functionIFvRKlS1_EEclES1_S1_.exit.i:       ; preds = %36
   %39 = zext i32 %34 to i64
-  %40 = getelementptr inbounds nuw i64, ptr %25, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %39
   %41 = load ptr, ptr %23, align 8, !tbaa !958
   invoke void %41(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull align 8 dereferenceable(8) %40)
           to label %.noexc13 unwind label %.loopexit
@@ -34463,7 +34440,7 @@ _ZN6duckdb9Allocator8AllocateEm.exit:             ; preds = %.noexc
 
 .lr.ph:                                           ; preds = %24, %.lr.ph
   %.013 = phi i64 [ %36, %.lr.ph ], [ 0, %24 ]
-  %34 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<long, long, duckdb::ParquetTimestampNSOperator>::primitive_dictionary_entry_t", ptr %27, i64 %.013
+  %34 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %.013
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i32 -1, ptr %35, align 8, !tbaa !1214
   %36 = add nuw i64 %.013, 1
@@ -34518,7 +34495,7 @@ define linkonce_odr void @_ZN6duckdb19PrimitiveDictionaryIllNS_26ParquetTimestam
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %12 = load ptr, ptr %11, align 8, !tbaa !1213
   %.07.i = and i64 %10, %8
-  %13 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<long, long, duckdb::ParquetTimestampNSOperator>::primitive_dictionary_entry_t", ptr %12, i64 %.07.i
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %.07.i
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load i32, ptr %14, align 8, !tbaa !1214
   %16 = icmp eq i32 %15, -1
@@ -34527,7 +34504,7 @@ define linkonce_odr void @_ZN6duckdb19PrimitiveDictionaryIllNS_26ParquetTimestam
 17:                                               ; preds = %.lr.ph.i
   %18 = add i64 %.08.i, 1
   %.0.i = and i64 %18, %10
-  %19 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<long, long, duckdb::ParquetTimestampNSOperator>::primitive_dictionary_entry_t", ptr %12, i64 %.0.i
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %.0.i
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load i32, ptr %20, align 8, !tbaa !1214
   %22 = icmp eq i32 %21, -1
@@ -35030,7 +35007,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIllNS_25ParquetTimesta
 
 29:                                               ; preds = %.lr.ph54, %29
   %.053 = phi i64 [ 0, %.lr.ph54 ], [ %34, %29 ]
-  %30 = getelementptr inbounds nuw i64, ptr %7, i64 %.053
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.053
   %31 = load i64, ptr %30, align 8, !tbaa !24
   tail call void @_ZN6duckdb19PrimitiveDictionaryIllNS_25ParquetTimestampSOperatorEE6InsertEl(ptr noundef nonnull align 8 dereferenceable(145) %27, i64 noundef %31)
   %32 = load i64, ptr %28, align 8, !tbaa !1254
@@ -35088,7 +35065,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIllNS_25ParquetTimesta
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.us: ; preds = %.critedge.us
   %58 = lshr i64 %.152.us, 6
-  %59 = getelementptr inbounds nuw i64, ptr %57, i64 %58
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %58
   %60 = load i64, ptr %59, align 8, !tbaa !24
   %61 = and i64 %.152.us, 63
   %62 = shl nuw i64 1, %61
@@ -35097,7 +35074,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.us: ; preds = %.critedg
   br i1 %.not48.us, label %68, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.us
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.us: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.us, %.critedge.us
-  %64 = getelementptr inbounds nuw i64, ptr %7, i64 %.152.us
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.152.us
   %65 = load i64, ptr %64, align 8, !tbaa !24
   tail call void @_ZN6duckdb19PrimitiveDictionaryIllNS_25ParquetTimestampSOperatorEE6InsertEl(ptr noundef nonnull align 8 dereferenceable(145) %49, i64 noundef %65)
   %66 = load i64, ptr %50, align 8, !tbaa !1254
@@ -35123,7 +35100,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.us: ; preds = %_
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit: ; preds = %.critedge
   %73 = lshr i64 %.152, 6
-  %74 = getelementptr inbounds nuw i64, ptr %72, i64 %73
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %73
   %75 = load i64, ptr %74, align 8, !tbaa !24
   %76 = and i64 %.152, 63
   %77 = shl nuw i64 1, %76
@@ -35132,7 +35109,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit: ; preds = %.critedge
   br i1 %.not48, label %83, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %.critedge, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit
-  %79 = getelementptr inbounds nuw i64, ptr %7, i64 %.152
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.152
   %80 = load i64, ptr %79, align 8, !tbaa !24
   tail call void @_ZN6duckdb19PrimitiveDictionaryIllNS_25ParquetTimestampSOperatorEE6InsertEl(ptr noundef nonnull align 8 dereferenceable(145) %46, i64 noundef %80)
   %81 = load i64, ptr %47, align 8, !tbaa !1254
@@ -35535,7 +35512,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIllNS_25ParquetTimesta
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit: ; preds = %.lr.ph187, %45
   %.1108186 = phi i64 [ %46, %45 ], [ %5, %.lr.ph187 ]
   %32 = lshr i64 %.1108186, 6
-  %33 = getelementptr inbounds nuw i64, ptr %31, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %32
   %34 = load i64, ptr %33, align 8, !tbaa !24
   %35 = and i64 %.1108186, 63
   %36 = shl nuw i64 1, %35
@@ -35584,7 +35561,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %_ZNK
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115: ; preds = %50
   %52 = lshr i64 %.2109196, 6
-  %53 = getelementptr inbounds nuw i64, ptr %51, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %52
   %54 = load i64, ptr %53, align 8, !tbaa !24
   %55 = and i64 %.2109196, 63
   %56 = shl nuw i64 1, %55
@@ -35593,7 +35570,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115: ; preds = %50
   br i1 %.not162, label %80, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115.thread
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115.thread: ; preds = %50, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115
-  %58 = getelementptr inbounds nuw i64, ptr %19, i64 %.2109196
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.2109196
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %59 = load ptr, ptr %48, align 8, !tbaa !1277
   %60 = load i64, ptr %58, align 8, !tbaa !24
@@ -35603,7 +35580,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115.thread: ; preds = %5
   %64 = getelementptr inbounds nuw i8, ptr %59, i64 136
   %65 = load ptr, ptr %64, align 8, !tbaa !1279
   %.07.i.i = and i64 %63, %61
-  %66 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<long, long, duckdb::ParquetTimestampSOperator>::primitive_dictionary_entry_t", ptr %65, i64 %.07.i.i
+  %66 = getelementptr inbounds nuw [16 x i8], ptr %65, i64 %.07.i.i
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %68 = load i32, ptr %67, align 8, !tbaa !1280
   %69 = icmp eq i32 %68, -1
@@ -35619,7 +35596,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115.thread: ; preds = %5
   %.08.i.i191 = phi i64 [ %.0.i.i, %77 ], [ %.07.i.i, %.lr.ph.i.i ]
   %72 = add i64 %.08.i.i191, 1
   %.0.i.i = and i64 %72, %63
-  %73 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<long, long, duckdb::ParquetTimestampSOperator>::primitive_dictionary_entry_t", ptr %65, i64 %.0.i.i
+  %73 = getelementptr inbounds nuw [16 x i8], ptr %65, i64 %.0.i.i
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %75 = load i32, ptr %74, align 8, !tbaa !1280
   %76 = icmp eq i32 %75, -1
@@ -35661,7 +35638,7 @@ _ZNK6duckdb19PrimitiveDictionaryIllNS_25ParquetTimestampSOperatorEE8GetIndexERKl
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119: ; preds = %.lr.ph181, %108
   %.1105180 = phi i64 [ %109, %108 ], [ %5, %.lr.ph181 ]
   %88 = lshr i64 %.1105180, 6
-  %89 = getelementptr inbounds nuw i64, ptr %87, i64 %88
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %87, i64 %88
   %90 = load i64, ptr %89, align 8, !tbaa !24
   %91 = and i64 %.1105180, 63
   %92 = shl nuw i64 1, %91
@@ -35672,7 +35649,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119: ; preds = %.lr.ph18
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119.thread: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119, %.lr.ph181
   %.us-phi183 = phi i64 [ %5, %.lr.ph181 ], [ %.1105180, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %94 = getelementptr inbounds nuw i64, ptr %19, i64 %.us-phi183
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.us-phi183
   %95 = load i64, ptr %94, align 8, !tbaa !24
   %96 = tail call noundef i64 @_ZN6duckdb9Timestamp32FromEpochSecondsPossiblyInfiniteEl(i64 noundef %95)
   store i64 %96, ptr %11, align 8, !tbaa !24
@@ -35731,7 +35708,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123: ; preds = %118
   %120 = lshr i64 %.2106184, 6
-  %121 = getelementptr inbounds nuw i64, ptr %119, i64 %120
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %119, i64 %120
   %122 = load i64, ptr %121, align 8, !tbaa !24
   %123 = and i64 %.2106184, 63
   %124 = shl nuw i64 1, %123
@@ -35740,7 +35717,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123: ; preds = %118
   br i1 %.not160, label %_ZN6duckdb11dbp_encoder10WriteValueIlEEvRNS_10DbpEncoderERNS_11WriteStreamERKT_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123.thread
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123.thread: ; preds = %118, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123
-  %126 = getelementptr inbounds nuw i64, ptr %19, i64 %.2106184
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.2106184
   %127 = load i64, ptr %126, align 8, !tbaa !24
   %128 = call noundef i64 @_ZN6duckdb9Timestamp32FromEpochSecondsPossiblyInfiniteEl(i64 noundef %127)
   %129 = load i64, ptr %111, align 8, !tbaa !24
@@ -35770,7 +35747,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET
   %140 = load i64, ptr %116, align 8, !tbaa !28
   %141 = add i64 %140, 1
   store i64 %141, ptr %116, align 8, !tbaa !28
-  %142 = getelementptr inbounds nuw i64, ptr %115, i64 %140
+  %142 = getelementptr inbounds nuw [8 x i8], ptr %115, i64 %140
   store i64 %137, ptr %142, align 8, !tbaa !24
   %143 = load i64, ptr %116, align 8, !tbaa !28
   %144 = icmp eq i64 %143, 2048
@@ -35801,7 +35778,7 @@ _ZN6duckdb11dbp_encoder10WriteValueIlEEvRNS_10DbpEncoderERNS_11WriteStreamERKT_.
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128: ; preds = %.lr.ph177, %173
   %.1103176 = phi i64 [ %174, %173 ], [ %5, %.lr.ph177 ]
   %153 = lshr i64 %.1103176, 6
-  %154 = getelementptr inbounds nuw i64, ptr %152, i64 %153
+  %154 = getelementptr inbounds nuw [8 x i8], ptr %152, i64 %153
   %155 = load i64, ptr %154, align 8, !tbaa !24
   %156 = and i64 %.1103176, 63
   %157 = shl nuw i64 1, %156
@@ -35812,7 +35789,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128: ; preds = %.lr.ph17
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128.thread: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128, %.lr.ph177
   %.us-phi = phi i64 [ %5, %.lr.ph177 ], [ %.1103176, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %159 = getelementptr inbounds nuw i64, ptr %19, i64 %.us-phi
+  %159 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.us-phi
   %160 = load i64, ptr %159, align 8, !tbaa !24
   %161 = tail call noundef i64 @_ZN6duckdb9Timestamp32FromEpochSecondsPossiblyInfiniteEl(i64 noundef %160)
   store i64 %161, ptr %12, align 8, !tbaa !24
@@ -35867,7 +35844,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133: ; preds = %179
   %181 = lshr i64 %.2178, 6
-  %182 = getelementptr inbounds nuw i64, ptr %180, i64 %181
+  %182 = getelementptr inbounds nuw [8 x i8], ptr %180, i64 %181
   %183 = load i64, ptr %182, align 8, !tbaa !24
   %184 = and i64 %.2178, 63
   %185 = shl nuw i64 1, %184
@@ -35877,7 +35854,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133: ; preds = %179
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133.thread: ; preds = %179, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %187 = getelementptr inbounds nuw i64, ptr %19, i64 %.2178
+  %187 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.2178
   %188 = load i64, ptr %187, align 8, !tbaa !24
   %189 = call noundef i64 @_ZN6duckdb9Timestamp32FromEpochSecondsPossiblyInfiniteEl(i64 noundef %188)
   store i64 %189, ptr %13, align 8, !tbaa !24
@@ -35916,7 +35893,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit138: ; preds = %199
   %201 = lshr i64 %.0101175, 6
-  %202 = getelementptr inbounds nuw i64, ptr %200, i64 %201
+  %202 = getelementptr inbounds nuw [8 x i8], ptr %200, i64 %201
   %203 = load i64, ptr %202, align 8, !tbaa !24
   %204 = and i64 %.0101175, 63
   %205 = shl nuw i64 1, %204
@@ -35926,7 +35903,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit138: ; preds = %199
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit138.thread: ; preds = %199, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit138
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %207 = getelementptr inbounds nuw i64, ptr %19, i64 %.0101175
+  %207 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.0101175
   %208 = load i64, ptr %207, align 8, !tbaa !24
   %209 = call noundef i64 @_ZN6duckdb9Timestamp32FromEpochSecondsPossiblyInfiniteEl(i64 noundef %208)
   store i64 %209, ptr %14, align 8, !tbaa !24
@@ -35973,7 +35950,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET
 
 225:                                              ; preds = %_ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit.i, %.lr.ph.i
   %.01.i = phi i64 [ %5, %.lr.ph.i ], [ %236, %_ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit.i ]
-  %226 = getelementptr inbounds nuw i64, ptr %19, i64 %.01.i
+  %226 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.01.i
   %227 = load i64, ptr %226, align 8, !tbaa !24
   %228 = tail call noundef i64 @_ZN6duckdb9Timestamp32FromEpochSecondsPossiblyInfiniteEl(i64 noundef %227)
   %229 = load i64, ptr %223, align 8, !tbaa !24
@@ -35999,7 +35976,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET
   br i1 %exitcond.not.i, label %_ZN6duckdbL19TemplatedWritePlainIllNS_25ParquetTimestampSOperatorELb1EEEvRNS_6VectorEPNS_22ColumnWriterStatisticsEmmRKNS_12ValidityMaskERNS_11WriteStreamE.exit, label %225, !llvm.loop !1290
 
 _ZN6duckdbL19TemplatedWritePlainIllNS_25ParquetTimestampSOperatorELb1EEEvRNS_6VectorEPNS_22ColumnWriterStatisticsEmmRKNS_12ValidityMaskERNS_11WriteStreamE.exit: ; preds = %_ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit.i, %221
-  %237 = getelementptr inbounds nuw i64, ptr %19, i64 %5
+  %237 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %5
   %238 = sub i64 %6, %5
   %239 = shl i64 %238, 3
   %240 = load ptr, ptr %1, align 8, !tbaa !19
@@ -36030,7 +36007,7 @@ _ZN6duckdbL19TemplatedWritePlainIllNS_25ParquetTimestampSOperatorELb1EEEvRNS_6Ve
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i: ; preds = %247
   %249 = lshr i64 %.0172.i, 6
-  %250 = getelementptr inbounds nuw i64, ptr %248, i64 %249
+  %250 = getelementptr inbounds nuw [8 x i8], ptr %248, i64 %249
   %251 = load i64, ptr %250, align 8, !tbaa !24
   %252 = and i64 %.0172.i, 63
   %253 = shl nuw i64 1, %252
@@ -36039,7 +36016,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i: ; preds = %247
   br i1 %.not.i143, label %271, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i, %247
-  %255 = getelementptr inbounds nuw i64, ptr %19, i64 %.0172.i
+  %255 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.0172.i
   %256 = load i64, ptr %255, align 8, !tbaa !24
   %257 = call noundef i64 @_ZN6duckdb9Timestamp32FromEpochSecondsPossiblyInfiniteEl(i64 noundef %256)
   %258 = load i64, ptr %244, align 8, !tbaa !24
@@ -36061,7 +36038,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i: ; preds = %_Z
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit.i144: ; preds = %264, %261
   %265 = add i64 %.03.i, 1
-  %266 = getelementptr inbounds nuw i64, ptr %8, i64 %.03.i
+  %266 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.03.i
   store i64 %257, ptr %266, align 8, !tbaa !24
   %267 = icmp eq i64 %265, 2048
   br i1 %267, label %268, label %271
@@ -36232,7 +36209,7 @@ _ZNSt10unique_ptrIN6duckdb18ParquetBloomFilterESt14default_deleteIS1_EED2Ev.exit
   %30 = phi i64 [ %27, %.lr.ph.i ], [ %43, %42 ]
   %.08.i = phi i64 [ 0, %.lr.ph.i ], [ %44, %42 ]
   %31 = load ptr, ptr %28, align 8, !tbaa !1279
-  %32 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<long, long, duckdb::ParquetTimestampSOperator>::primitive_dictionary_entry_t", ptr %31, i64 %.08.i
+  %32 = getelementptr inbounds nuw [16 x i8], ptr %31, i64 %.08.i
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = load i32, ptr %33, align 8, !tbaa !1280
   %35 = icmp eq i32 %34, -1
@@ -36252,7 +36229,7 @@ _ZNSt10unique_ptrIN6duckdb18ParquetBloomFilterESt14default_deleteIS1_EED2Ev.exit
 
 _ZNKSt8functionIFvRKlS1_EEclES1_S1_.exit.i:       ; preds = %36
   %39 = zext i32 %34 to i64
-  %40 = getelementptr inbounds nuw i64, ptr %25, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %39
   %41 = load ptr, ptr %23, align 8, !tbaa !958
   invoke void %41(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull align 8 dereferenceable(8) %40)
           to label %.noexc13 unwind label %.loopexit
@@ -36482,7 +36459,7 @@ _ZN6duckdb9Allocator8AllocateEm.exit:             ; preds = %.noexc
 
 .lr.ph:                                           ; preds = %24, %.lr.ph
   %.013 = phi i64 [ %36, %.lr.ph ], [ 0, %24 ]
-  %34 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<long, long, duckdb::ParquetTimestampSOperator>::primitive_dictionary_entry_t", ptr %27, i64 %.013
+  %34 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %.013
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i32 -1, ptr %35, align 8, !tbaa !1280
   %36 = add nuw i64 %.013, 1
@@ -36537,7 +36514,7 @@ define linkonce_odr void @_ZN6duckdb19PrimitiveDictionaryIllNS_25ParquetTimestam
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %12 = load ptr, ptr %11, align 8, !tbaa !1279
   %.07.i = and i64 %10, %8
-  %13 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<long, long, duckdb::ParquetTimestampSOperator>::primitive_dictionary_entry_t", ptr %12, i64 %.07.i
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %.07.i
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load i32, ptr %14, align 8, !tbaa !1280
   %16 = icmp eq i32 %15, -1
@@ -36546,7 +36523,7 @@ define linkonce_odr void @_ZN6duckdb19PrimitiveDictionaryIllNS_25ParquetTimestam
 17:                                               ; preds = %.lr.ph.i
   %18 = add i64 %.08.i, 1
   %.0.i = and i64 %18, %10
-  %19 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<long, long, duckdb::ParquetTimestampSOperator>::primitive_dictionary_entry_t", ptr %12, i64 %.0.i
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %.0.i
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load i32, ptr %20, align 8, !tbaa !1280
   %22 = icmp eq i32 %21, -1
@@ -37110,7 +37087,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIhiNS_19ParquetCastOpe
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.us: ; preds = %.critedge.us
   %58 = lshr i64 %.152.us, 6
-  %59 = getelementptr inbounds nuw i64, ptr %57, i64 %58
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %58
   %60 = load i64, ptr %59, align 8, !tbaa !24
   %61 = and i64 %.152.us, 63
   %62 = shl nuw i64 1, %61
@@ -37145,7 +37122,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.us: ; preds = %_
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit: ; preds = %.critedge
   %73 = lshr i64 %.152, 6
-  %74 = getelementptr inbounds nuw i64, ptr %72, i64 %73
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %73
   %75 = load i64, ptr %74, align 8, !tbaa !24
   %76 = and i64 %.152, 63
   %77 = shl nuw i64 1, %76
@@ -37558,7 +37535,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIhiNS_19ParquetCastOpe
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit: ; preds = %.lr.ph191, %46
   %.1108190 = phi i64 [ %47, %46 ], [ %5, %.lr.ph191 ]
   %33 = lshr i64 %.1108190, 6
-  %34 = getelementptr inbounds nuw i64, ptr %32, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %33
   %35 = load i64, ptr %34, align 8, !tbaa !24
   %36 = and i64 %.1108190, 63
   %37 = shl nuw i64 1, %36
@@ -37607,7 +37584,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %_ZNK
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115: ; preds = %51
   %53 = lshr i64 %.2109199, 6
-  %54 = getelementptr inbounds nuw i64, ptr %52, i64 %53
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %53
   %55 = load i64, ptr %54, align 8, !tbaa !24
   %56 = and i64 %.2109199, 63
   %57 = shl nuw i64 1, %56
@@ -37632,7 +37609,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115.thread: ; preds = %5
   %71 = getelementptr inbounds nuw i8, ptr %60, i64 136
   %72 = load ptr, ptr %71, align 8, !tbaa !1348
   %.07.i.i = and i64 %68, %70
-  %73 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<unsigned char, int, duckdb::ParquetCastOperator>::primitive_dictionary_entry_t", ptr %72, i64 %.07.i.i
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %.07.i.i
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 4
   %75 = load i32, ptr %74, align 4, !tbaa !1349
   %76 = icmp eq i32 %75, -1
@@ -37647,7 +37624,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115.thread: ; preds = %5
   %.08.i.i195 = phi i64 [ %.0.i.i, %.lr.ph.i.i ], [ %.07.i.i, %.lr.ph.i.i.preheader ]
   %78 = add i64 %.08.i.i195, 1
   %.0.i.i = and i64 %78, %70
-  %79 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<unsigned char, int, duckdb::ParquetCastOperator>::primitive_dictionary_entry_t", ptr %72, i64 %.0.i.i
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %.0.i.i
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 4
   %81 = load i32, ptr %80, align 4, !tbaa !1349
   %82 = icmp eq i32 %81, -1
@@ -37689,7 +37666,7 @@ _ZNK6duckdb19PrimitiveDictionaryIhiNS_19ParquetCastOperatorEE8GetIndexERKh.exit:
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119: ; preds = %.lr.ph185, %114
   %.1105184 = phi i64 [ %115, %114 ], [ %5, %.lr.ph185 ]
   %93 = lshr i64 %.1105184, 6
-  %94 = getelementptr inbounds nuw i64, ptr %92, i64 %93
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %92, i64 %93
   %95 = load i64, ptr %94, align 8, !tbaa !24
   %96 = and i64 %.1105184, 63
   %97 = shl nuw i64 1, %96
@@ -37760,7 +37737,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIhiEEvPNS_22ColumnWriterStatisticsET
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123: ; preds = %124
   %126 = lshr i64 %.2106188, 6
-  %127 = getelementptr inbounds nuw i64, ptr %125, i64 %126
+  %127 = getelementptr inbounds nuw [8 x i8], ptr %125, i64 %126
   %128 = load i64, ptr %127, align 8, !tbaa !24
   %129 = and i64 %.2106188, 63
   %130 = shl nuw i64 1, %129
@@ -37800,7 +37777,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIhiEEvPNS_22ColumnWriterStatisticsET
   %147 = load i64, ptr %122, align 8, !tbaa !28
   %148 = add i64 %147, 1
   store i64 %148, ptr %122, align 8, !tbaa !28
-  %149 = getelementptr inbounds nuw i64, ptr %121, i64 %147
+  %149 = getelementptr inbounds nuw [8 x i8], ptr %121, i64 %147
   store i64 %144, ptr %149, align 8, !tbaa !24
   %150 = load i64, ptr %122, align 8, !tbaa !28
   %151 = icmp eq i64 %150, 2048
@@ -37831,7 +37808,7 @@ _ZN6duckdb11dbp_encoder10WriteValueIiEEvRNS_10DbpEncoderERNS_11WriteStreamERKT_.
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128: ; preds = %.lr.ph181, %180
   %.1103180 = phi i64 [ %181, %180 ], [ %5, %.lr.ph181 ]
   %160 = lshr i64 %.1103180, 6
-  %161 = getelementptr inbounds nuw i64, ptr %159, i64 %160
+  %161 = getelementptr inbounds nuw [8 x i8], ptr %159, i64 %160
   %162 = load i64, ptr %161, align 8, !tbaa !24
   %163 = and i64 %.1103180, 63
   %164 = shl nuw i64 1, %163
@@ -37897,7 +37874,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIhiEEvPNS_22ColumnWriterStatisticsET
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133: ; preds = %186
   %188 = lshr i64 %.2182, 6
-  %189 = getelementptr inbounds nuw i64, ptr %187, i64 %188
+  %189 = getelementptr inbounds nuw [8 x i8], ptr %187, i64 %188
   %190 = load i64, ptr %189, align 8, !tbaa !24
   %191 = and i64 %.2182, 63
   %192 = shl nuw i64 1, %191
@@ -37946,7 +37923,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIhiEEvPNS_22ColumnWriterStatisticsET
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit138: ; preds = %206
   %208 = lshr i64 %.0101179, 6
-  %209 = getelementptr inbounds nuw i64, ptr %207, i64 %208
+  %209 = getelementptr inbounds nuw [8 x i8], ptr %207, i64 %208
   %210 = load i64, ptr %209, align 8, !tbaa !24
   %211 = and i64 %.0101179, 63
   %212 = shl nuw i64 1, %211
@@ -38031,7 +38008,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIhiEEvPNS_22ColumnWriterStatisticsET
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsIhiEEvPNS_22ColumnWriterStatisticsET0_.exit.i: ; preds = %243, %240
   %244 = add i64 %.02.i, 1
-  %245 = getelementptr inbounds nuw i32, ptr %9, i64 %.02.i
+  %245 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %.02.i
   store i32 %236, ptr %245, align 4, !tbaa !29
   %246 = icmp eq i64 %244, 2048
   br i1 %246, label %247, label %250
@@ -38078,7 +38055,7 @@ _ZN6duckdbL19TemplatedWritePlainIhiNS_19ParquetCastOperatorELb1EEEvRNS_6VectorEP
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i: ; preds = %258
   %260 = lshr i64 %.0172.i, 6
-  %261 = getelementptr inbounds nuw i64, ptr %259, i64 %260
+  %261 = getelementptr inbounds nuw [8 x i8], ptr %259, i64 %260
   %262 = load i64, ptr %261, align 8, !tbaa !24
   %263 = and i64 %.0172.i, 63
   %264 = shl nuw i64 1, %263
@@ -38109,7 +38086,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i: ; preds = %_Z
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsIhiEEvPNS_22ColumnWriterStatisticsET0_.exit.i145: ; preds = %275, %272
   %276 = add i64 %.03.i, 1
-  %277 = getelementptr inbounds nuw i32, ptr %8, i64 %.03.i
+  %277 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %.03.i
   store i32 %268, ptr %277, align 4, !tbaa !29
   %278 = icmp eq i64 %276, 2048
   br i1 %278, label %279, label %282
@@ -38280,7 +38257,7 @@ _ZNSt10unique_ptrIN6duckdb18ParquetBloomFilterESt14default_deleteIS1_EED2Ev.exit
   %30 = phi i64 [ %27, %.lr.ph.i ], [ %43, %42 ]
   %.08.i = phi i64 [ 0, %.lr.ph.i ], [ %44, %42 ]
   %31 = load ptr, ptr %28, align 8, !tbaa !1348
-  %32 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<unsigned char, int, duckdb::ParquetCastOperator>::primitive_dictionary_entry_t", ptr %31, i64 %.08.i
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %.08.i
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %34 = load i32, ptr %33, align 4, !tbaa !1349
   %35 = icmp eq i32 %34, -1
@@ -38300,7 +38277,7 @@ _ZNSt10unique_ptrIN6duckdb18ParquetBloomFilterESt14default_deleteIS1_EED2Ev.exit
 
 _ZNKSt8functionIFvRKhRKiEEclES1_S3_.exit.i:       ; preds = %36
   %39 = zext i32 %34 to i64
-  %40 = getelementptr inbounds nuw i32, ptr %25, i64 %39
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %39
   %41 = load ptr, ptr %23, align 8, !tbaa !1364
   invoke void %41(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 1 dereferenceable(1) %32, ptr noundef nonnull align 4 dereferenceable(4) %40)
           to label %.noexc13 unwind label %.loopexit
@@ -38530,7 +38507,7 @@ _ZN6duckdb9Allocator8AllocateEm.exit:             ; preds = %.noexc
 
 .lr.ph:                                           ; preds = %24, %.lr.ph
   %.013 = phi i64 [ %36, %.lr.ph ], [ 0, %24 ]
-  %34 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<unsigned char, int, duckdb::ParquetCastOperator>::primitive_dictionary_entry_t", ptr %27, i64 %.013
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %.013
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 4
   store i32 -1, ptr %35, align 4, !tbaa !1349
   %36 = add nuw i64 %.013, 1
@@ -38591,7 +38568,7 @@ define linkonce_odr void @_ZN6duckdb19PrimitiveDictionaryIhiNS_19ParquetCastOper
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %18 = load ptr, ptr %17, align 8, !tbaa !1348
   %.07.i = and i64 %16, %14
-  %19 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<unsigned char, int, duckdb::ParquetCastOperator>::primitive_dictionary_entry_t", ptr %18, i64 %.07.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %.07.i
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %21 = load i32, ptr %20, align 4, !tbaa !1349
   %22 = icmp eq i32 %21, -1
@@ -38600,7 +38577,7 @@ define linkonce_odr void @_ZN6duckdb19PrimitiveDictionaryIhiNS_19ParquetCastOper
 23:                                               ; preds = %.lr.ph.i
   %24 = add i64 %.08.i, 1
   %.0.i = and i64 %24, %16
-  %25 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<unsigned char, int, duckdb::ParquetCastOperator>::primitive_dictionary_entry_t", ptr %18, i64 %.0.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %.0.i
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %27 = load i32, ptr %26, align 4, !tbaa !1349
   %28 = icmp eq i32 %27, -1
@@ -39202,7 +39179,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterItiNS_19ParquetCastOpe
 
 29:                                               ; preds = %.lr.ph54, %29
   %.053 = phi i64 [ 0, %.lr.ph54 ], [ %34, %29 ]
-  %30 = getelementptr inbounds nuw i16, ptr %7, i64 %.053
+  %30 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %.053
   %31 = load i16, ptr %30, align 2, !tbaa !197
   tail call void @_ZN6duckdb19PrimitiveDictionaryItiNS_19ParquetCastOperatorEE6InsertEt(ptr noundef nonnull align 8 dereferenceable(145) %27, i16 noundef zeroext %31)
   %32 = load i64, ptr %28, align 8, !tbaa !1391
@@ -39260,7 +39237,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterItiNS_19ParquetCastOpe
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.us: ; preds = %.critedge.us
   %58 = lshr i64 %.152.us, 6
-  %59 = getelementptr inbounds nuw i64, ptr %57, i64 %58
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %58
   %60 = load i64, ptr %59, align 8, !tbaa !24
   %61 = and i64 %.152.us, 63
   %62 = shl nuw i64 1, %61
@@ -39269,7 +39246,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.us: ; preds = %.critedg
   br i1 %.not48.us, label %68, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.us
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.us: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.us, %.critedge.us
-  %64 = getelementptr inbounds nuw i16, ptr %7, i64 %.152.us
+  %64 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %.152.us
   %65 = load i16, ptr %64, align 2, !tbaa !197
   tail call void @_ZN6duckdb19PrimitiveDictionaryItiNS_19ParquetCastOperatorEE6InsertEt(ptr noundef nonnull align 8 dereferenceable(145) %49, i16 noundef zeroext %65)
   %66 = load i64, ptr %50, align 8, !tbaa !1391
@@ -39295,7 +39272,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.us: ; preds = %_
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit: ; preds = %.critedge
   %73 = lshr i64 %.152, 6
-  %74 = getelementptr inbounds nuw i64, ptr %72, i64 %73
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %73
   %75 = load i64, ptr %74, align 8, !tbaa !24
   %76 = and i64 %.152, 63
   %77 = shl nuw i64 1, %76
@@ -39304,7 +39281,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit: ; preds = %.critedge
   br i1 %.not48, label %83, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %.critedge, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit
-  %79 = getelementptr inbounds nuw i16, ptr %7, i64 %.152
+  %79 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %.152
   %80 = load i16, ptr %79, align 2, !tbaa !197
   tail call void @_ZN6duckdb19PrimitiveDictionaryItiNS_19ParquetCastOperatorEE6InsertEt(ptr noundef nonnull align 8 dereferenceable(145) %46, i16 noundef zeroext %80)
   %81 = load i64, ptr %47, align 8, !tbaa !1391
@@ -39708,7 +39685,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterItiNS_19ParquetCastOpe
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit: ; preds = %.lr.ph191, %46
   %.1108190 = phi i64 [ %47, %46 ], [ %5, %.lr.ph191 ]
   %33 = lshr i64 %.1108190, 6
-  %34 = getelementptr inbounds nuw i64, ptr %32, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %33
   %35 = load i64, ptr %34, align 8, !tbaa !24
   %36 = and i64 %.1108190, 63
   %37 = shl nuw i64 1, %36
@@ -39757,7 +39734,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %_ZNK
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115: ; preds = %51
   %53 = lshr i64 %.2109199, 6
-  %54 = getelementptr inbounds nuw i64, ptr %52, i64 %53
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %53
   %55 = load i64, ptr %54, align 8, !tbaa !24
   %56 = and i64 %.2109199, 63
   %57 = shl nuw i64 1, %56
@@ -39766,7 +39743,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115: ; preds = %51
   br i1 %.not166, label %85, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115.thread
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115.thread: ; preds = %51, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115
-  %59 = getelementptr inbounds nuw i16, ptr %20, i64 %.2109199
+  %59 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %.2109199
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %60 = load ptr, ptr %49, align 8, !tbaa !1417
   %61 = load i16, ptr %59, align 2, !tbaa !197
@@ -39782,7 +39759,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115.thread: ; preds = %5
   %71 = getelementptr inbounds nuw i8, ptr %60, i64 136
   %72 = load ptr, ptr %71, align 8, !tbaa !1419
   %.07.i.i = and i64 %68, %70
-  %73 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<unsigned short, int, duckdb::ParquetCastOperator>::primitive_dictionary_entry_t", ptr %72, i64 %.07.i.i
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %.07.i.i
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 4
   %75 = load i32, ptr %74, align 4, !tbaa !1420
   %76 = icmp eq i32 %75, -1
@@ -39797,7 +39774,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115.thread: ; preds = %5
   %.08.i.i195 = phi i64 [ %.0.i.i, %.lr.ph.i.i ], [ %.07.i.i, %.lr.ph.i.i.preheader ]
   %78 = add i64 %.08.i.i195, 1
   %.0.i.i = and i64 %78, %70
-  %79 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<unsigned short, int, duckdb::ParquetCastOperator>::primitive_dictionary_entry_t", ptr %72, i64 %.0.i.i
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %.0.i.i
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 4
   %81 = load i32, ptr %80, align 4, !tbaa !1420
   %82 = icmp eq i32 %81, -1
@@ -39839,7 +39816,7 @@ _ZNK6duckdb19PrimitiveDictionaryItiNS_19ParquetCastOperatorEE8GetIndexERKt.exit:
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119: ; preds = %.lr.ph185, %114
   %.1105184 = phi i64 [ %115, %114 ], [ %5, %.lr.ph185 ]
   %93 = lshr i64 %.1105184, 6
-  %94 = getelementptr inbounds nuw i64, ptr %92, i64 %93
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %92, i64 %93
   %95 = load i64, ptr %94, align 8, !tbaa !24
   %96 = and i64 %.1105184, 63
   %97 = shl nuw i64 1, %96
@@ -39849,7 +39826,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119: ; preds = %.lr.ph18
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119.thread: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119, %.lr.ph185
   %.us-phi187 = phi i64 [ %5, %.lr.ph185 ], [ %.1105184, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119 ]
-  %99 = getelementptr inbounds nuw i16, ptr %20, i64 %.us-phi187
+  %99 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %.us-phi187
   %100 = load i16, ptr %99, align 2, !tbaa !197
   %101 = zext i16 %100 to i32
   %102 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -39910,7 +39887,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsItiEEvPNS_22ColumnWriterStatisticsET
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123: ; preds = %124
   %126 = lshr i64 %.2106188, 6
-  %127 = getelementptr inbounds nuw i64, ptr %125, i64 %126
+  %127 = getelementptr inbounds nuw [8 x i8], ptr %125, i64 %126
   %128 = load i64, ptr %127, align 8, !tbaa !24
   %129 = and i64 %.2106188, 63
   %130 = shl nuw i64 1, %129
@@ -39919,7 +39896,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123: ; preds = %124
   br i1 %.not164, label %_ZN6duckdb11dbp_encoder10WriteValueIiEEvRNS_10DbpEncoderERNS_11WriteStreamERKT_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123.thread
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123.thread: ; preds = %124, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123
-  %132 = getelementptr inbounds nuw i16, ptr %20, i64 %.2106188
+  %132 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %.2106188
   %133 = load i16, ptr %132, align 2, !tbaa !197
   %134 = zext i16 %133 to i32
   %135 = load i32, ptr %117, align 4, !tbaa !29
@@ -39950,7 +39927,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsItiEEvPNS_22ColumnWriterStatisticsET
   %147 = load i64, ptr %122, align 8, !tbaa !28
   %148 = add i64 %147, 1
   store i64 %148, ptr %122, align 8, !tbaa !28
-  %149 = getelementptr inbounds nuw i64, ptr %121, i64 %147
+  %149 = getelementptr inbounds nuw [8 x i8], ptr %121, i64 %147
   store i64 %144, ptr %149, align 8, !tbaa !24
   %150 = load i64, ptr %122, align 8, !tbaa !28
   %151 = icmp eq i64 %150, 2048
@@ -39981,7 +39958,7 @@ _ZN6duckdb11dbp_encoder10WriteValueIiEEvRNS_10DbpEncoderERNS_11WriteStreamERKT_.
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128: ; preds = %.lr.ph181, %180
   %.1103180 = phi i64 [ %181, %180 ], [ %5, %.lr.ph181 ]
   %160 = lshr i64 %.1103180, 6
-  %161 = getelementptr inbounds nuw i64, ptr %159, i64 %160
+  %161 = getelementptr inbounds nuw [8 x i8], ptr %159, i64 %160
   %162 = load i64, ptr %161, align 8, !tbaa !24
   %163 = and i64 %.1103180, 63
   %164 = shl nuw i64 1, %163
@@ -39992,7 +39969,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128: ; preds = %.lr.ph18
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128.thread: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128, %.lr.ph181
   %.us-phi = phi i64 [ %5, %.lr.ph181 ], [ %.1103180, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %166 = getelementptr inbounds nuw i16, ptr %20, i64 %.us-phi
+  %166 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %.us-phi
   %167 = load i16, ptr %166, align 2, !tbaa !197
   %168 = zext i16 %167 to i32
   store i32 %168, ptr %13, align 4, !tbaa !29
@@ -40047,7 +40024,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsItiEEvPNS_22ColumnWriterStatisticsET
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133: ; preds = %186
   %188 = lshr i64 %.2182, 6
-  %189 = getelementptr inbounds nuw i64, ptr %187, i64 %188
+  %189 = getelementptr inbounds nuw [8 x i8], ptr %187, i64 %188
   %190 = load i64, ptr %189, align 8, !tbaa !24
   %191 = and i64 %.2182, 63
   %192 = shl nuw i64 1, %191
@@ -40057,7 +40034,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133: ; preds = %186
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133.thread: ; preds = %186, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %194 = getelementptr inbounds nuw i16, ptr %20, i64 %.2182
+  %194 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %.2182
   %195 = load i16, ptr %194, align 2, !tbaa !197
   %196 = zext i16 %195 to i32
   store i32 %196, ptr %14, align 4, !tbaa !29
@@ -40096,7 +40073,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsItiEEvPNS_22ColumnWriterStatisticsET
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit138: ; preds = %206
   %208 = lshr i64 %.0101179, 6
-  %209 = getelementptr inbounds nuw i64, ptr %207, i64 %208
+  %209 = getelementptr inbounds nuw [8 x i8], ptr %207, i64 %208
   %210 = load i64, ptr %209, align 8, !tbaa !24
   %211 = and i64 %.0101179, 63
   %212 = shl nuw i64 1, %211
@@ -40106,7 +40083,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit138: ; preds = %206
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit138.thread: ; preds = %206, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit138
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  %214 = getelementptr inbounds nuw i16, ptr %20, i64 %.0101179
+  %214 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %.0101179
   %215 = load i16, ptr %214, align 2, !tbaa !197
   %216 = zext i16 %215 to i32
   store i32 %216, ptr %15, align 4, !tbaa !29
@@ -40159,7 +40136,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsItiEEvPNS_22ColumnWriterStatisticsET
 233:                                              ; preds = %250, %.lr.ph.i
   %.02.i = phi i64 [ 0, %.lr.ph.i ], [ %.1.i, %250 ]
   %.0151.i = phi i64 [ %5, %.lr.ph.i ], [ %251, %250 ]
-  %234 = getelementptr inbounds nuw i16, ptr %20, i64 %.0151.i
+  %234 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %.0151.i
   %235 = load i16, ptr %234, align 2, !tbaa !197
   %236 = zext i16 %235 to i32
   %237 = load i32, ptr %230, align 4, !tbaa !29
@@ -40181,7 +40158,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsItiEEvPNS_22ColumnWriterStatisticsET
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsItiEEvPNS_22ColumnWriterStatisticsET0_.exit.i: ; preds = %243, %240
   %244 = add i64 %.02.i, 1
-  %245 = getelementptr inbounds nuw i32, ptr %9, i64 %.02.i
+  %245 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %.02.i
   store i32 %236, ptr %245, align 4, !tbaa !29
   %246 = icmp eq i64 %244, 2048
   br i1 %246, label %247, label %250
@@ -40228,7 +40205,7 @@ _ZN6duckdbL19TemplatedWritePlainItiNS_19ParquetCastOperatorELb1EEEvRNS_6VectorEP
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i: ; preds = %258
   %260 = lshr i64 %.0172.i, 6
-  %261 = getelementptr inbounds nuw i64, ptr %259, i64 %260
+  %261 = getelementptr inbounds nuw [8 x i8], ptr %259, i64 %260
   %262 = load i64, ptr %261, align 8, !tbaa !24
   %263 = and i64 %.0172.i, 63
   %264 = shl nuw i64 1, %263
@@ -40237,7 +40214,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i: ; preds = %258
   br i1 %.not.i144, label %282, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i, %258
-  %266 = getelementptr inbounds nuw i16, ptr %20, i64 %.0172.i
+  %266 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %.0172.i
   %267 = load i16, ptr %266, align 2, !tbaa !197
   %268 = zext i16 %267 to i32
   %269 = load i32, ptr %255, align 4, !tbaa !29
@@ -40259,7 +40236,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i: ; preds = %_Z
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsItiEEvPNS_22ColumnWriterStatisticsET0_.exit.i145: ; preds = %275, %272
   %276 = add i64 %.03.i, 1
-  %277 = getelementptr inbounds nuw i32, ptr %8, i64 %.03.i
+  %277 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %.03.i
   store i32 %268, ptr %277, align 4, !tbaa !29
   %278 = icmp eq i64 %276, 2048
   br i1 %278, label %279, label %282
@@ -40430,7 +40407,7 @@ _ZNSt10unique_ptrIN6duckdb18ParquetBloomFilterESt14default_deleteIS1_EED2Ev.exit
   %30 = phi i64 [ %27, %.lr.ph.i ], [ %43, %42 ]
   %.08.i = phi i64 [ 0, %.lr.ph.i ], [ %44, %42 ]
   %31 = load ptr, ptr %28, align 8, !tbaa !1419
-  %32 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<unsigned short, int, duckdb::ParquetCastOperator>::primitive_dictionary_entry_t", ptr %31, i64 %.08.i
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %.08.i
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %34 = load i32, ptr %33, align 4, !tbaa !1420
   %35 = icmp eq i32 %34, -1
@@ -40450,7 +40427,7 @@ _ZNSt10unique_ptrIN6duckdb18ParquetBloomFilterESt14default_deleteIS1_EED2Ev.exit
 
 _ZNKSt8functionIFvRKtRKiEEclES1_S3_.exit.i:       ; preds = %36
   %39 = zext i32 %34 to i64
-  %40 = getelementptr inbounds nuw i32, ptr %25, i64 %39
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %39
   %41 = load ptr, ptr %23, align 8, !tbaa !1435
   invoke void %41(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 2 dereferenceable(2) %32, ptr noundef nonnull align 4 dereferenceable(4) %40)
           to label %.noexc13 unwind label %.loopexit
@@ -40680,7 +40657,7 @@ _ZN6duckdb9Allocator8AllocateEm.exit:             ; preds = %.noexc
 
 .lr.ph:                                           ; preds = %24, %.lr.ph
   %.013 = phi i64 [ %36, %.lr.ph ], [ 0, %24 ]
-  %34 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<unsigned short, int, duckdb::ParquetCastOperator>::primitive_dictionary_entry_t", ptr %27, i64 %.013
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %.013
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 4
   store i32 -1, ptr %35, align 4, !tbaa !1420
   %36 = add nuw i64 %.013, 1
@@ -40741,7 +40718,7 @@ define linkonce_odr void @_ZN6duckdb19PrimitiveDictionaryItiNS_19ParquetCastOper
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %18 = load ptr, ptr %17, align 8, !tbaa !1419
   %.07.i = and i64 %16, %14
-  %19 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<unsigned short, int, duckdb::ParquetCastOperator>::primitive_dictionary_entry_t", ptr %18, i64 %.07.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %.07.i
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %21 = load i32, ptr %20, align 4, !tbaa !1420
   %22 = icmp eq i32 %21, -1
@@ -40750,7 +40727,7 @@ define linkonce_odr void @_ZN6duckdb19PrimitiveDictionaryItiNS_19ParquetCastOper
 23:                                               ; preds = %.lr.ph.i
   %24 = add i64 %.08.i, 1
   %.0.i = and i64 %24, %16
-  %25 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<unsigned short, int, duckdb::ParquetCastOperator>::primitive_dictionary_entry_t", ptr %18, i64 %.0.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %.0.i
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %27 = load i32, ptr %26, align 4, !tbaa !1420
   %28 = icmp eq i32 %27, -1
@@ -41352,7 +41329,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIjjNS_19ParquetCastOpe
 
 29:                                               ; preds = %.lr.ph54, %29
   %.053 = phi i64 [ 0, %.lr.ph54 ], [ %34, %29 ]
-  %30 = getelementptr inbounds nuw i32, ptr %7, i64 %.053
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.053
   %31 = load i32, ptr %30, align 4, !tbaa !29
   tail call void @_ZN6duckdb19PrimitiveDictionaryIjjNS_19ParquetCastOperatorEE6InsertEj(ptr noundef nonnull align 8 dereferenceable(145) %27, i32 noundef %31)
   %32 = load i64, ptr %28, align 8, !tbaa !1462
@@ -41410,7 +41387,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIjjNS_19ParquetCastOpe
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.us: ; preds = %.critedge.us
   %58 = lshr i64 %.152.us, 6
-  %59 = getelementptr inbounds nuw i64, ptr %57, i64 %58
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %58
   %60 = load i64, ptr %59, align 8, !tbaa !24
   %61 = and i64 %.152.us, 63
   %62 = shl nuw i64 1, %61
@@ -41419,7 +41396,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.us: ; preds = %.critedg
   br i1 %.not48.us, label %68, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.us
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.us: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.us, %.critedge.us
-  %64 = getelementptr inbounds nuw i32, ptr %7, i64 %.152.us
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.152.us
   %65 = load i32, ptr %64, align 4, !tbaa !29
   tail call void @_ZN6duckdb19PrimitiveDictionaryIjjNS_19ParquetCastOperatorEE6InsertEj(ptr noundef nonnull align 8 dereferenceable(145) %49, i32 noundef %65)
   %66 = load i64, ptr %50, align 8, !tbaa !1462
@@ -41445,7 +41422,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.us: ; preds = %_
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit: ; preds = %.critedge
   %73 = lshr i64 %.152, 6
-  %74 = getelementptr inbounds nuw i64, ptr %72, i64 %73
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %73
   %75 = load i64, ptr %74, align 8, !tbaa !24
   %76 = and i64 %.152, 63
   %77 = shl nuw i64 1, %76
@@ -41454,7 +41431,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit: ; preds = %.critedge
   br i1 %.not48, label %83, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %.critedge, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit
-  %79 = getelementptr inbounds nuw i32, ptr %7, i64 %.152
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.152
   %80 = load i32, ptr %79, align 4, !tbaa !29
   tail call void @_ZN6duckdb19PrimitiveDictionaryIjjNS_19ParquetCastOperatorEE6InsertEj(ptr noundef nonnull align 8 dereferenceable(145) %46, i32 noundef %80)
   %81 = load i64, ptr %47, align 8, !tbaa !1462
@@ -41857,7 +41834,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIjjNS_19ParquetCastOpe
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit: ; preds = %.lr.ph188, %45
   %.1108187 = phi i64 [ %46, %45 ], [ %5, %.lr.ph188 ]
   %32 = lshr i64 %.1108187, 6
-  %33 = getelementptr inbounds nuw i64, ptr %31, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %32
   %34 = load i64, ptr %33, align 8, !tbaa !24
   %35 = and i64 %.1108187, 63
   %36 = shl nuw i64 1, %35
@@ -41906,7 +41883,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %_ZNK
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115: ; preds = %50
   %52 = lshr i64 %.2109196, 6
-  %53 = getelementptr inbounds nuw i64, ptr %51, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %52
   %54 = load i64, ptr %53, align 8, !tbaa !24
   %55 = and i64 %.2109196, 63
   %56 = shl nuw i64 1, %55
@@ -41915,7 +41892,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115: ; preds = %50
   br i1 %.not163, label %84, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115.thread
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115.thread: ; preds = %50, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115
-  %58 = getelementptr inbounds nuw i32, ptr %19, i64 %.2109196
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %.2109196
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %59 = load ptr, ptr %48, align 8, !tbaa !1488
   %60 = load i32, ptr %58, align 4, !tbaa !29
@@ -41931,7 +41908,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115.thread: ; preds = %5
   %70 = getelementptr inbounds nuw i8, ptr %59, i64 136
   %71 = load ptr, ptr %70, align 8, !tbaa !1490
   %.07.i.i = and i64 %67, %69
-  %72 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<unsigned int, unsigned int, duckdb::ParquetCastOperator>::primitive_dictionary_entry_t", ptr %71, i64 %.07.i.i
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %.07.i.i
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 4
   %74 = load i32, ptr %73, align 4, !tbaa !1491
   %75 = icmp eq i32 %74, -1
@@ -41946,7 +41923,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115.thread: ; preds = %5
   %.08.i.i192 = phi i64 [ %.0.i.i, %.lr.ph.i.i ], [ %.07.i.i, %.lr.ph.i.i.preheader ]
   %77 = add i64 %.08.i.i192, 1
   %.0.i.i = and i64 %77, %69
-  %78 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<unsigned int, unsigned int, duckdb::ParquetCastOperator>::primitive_dictionary_entry_t", ptr %71, i64 %.0.i.i
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %.0.i.i
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 4
   %80 = load i32, ptr %79, align 4, !tbaa !1491
   %81 = icmp eq i32 %80, -1
@@ -41988,7 +41965,7 @@ _ZNK6duckdb19PrimitiveDictionaryIjjNS_19ParquetCastOperatorEE8GetIndexERKj.exit:
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119: ; preds = %.lr.ph182, %112
   %.1105181 = phi i64 [ %113, %112 ], [ %5, %.lr.ph182 ]
   %92 = lshr i64 %.1105181, 6
-  %93 = getelementptr inbounds nuw i64, ptr %91, i64 %92
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %92
   %94 = load i64, ptr %93, align 8, !tbaa !24
   %95 = and i64 %.1105181, 63
   %96 = shl nuw i64 1, %95
@@ -41998,7 +41975,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119: ; preds = %.lr.ph18
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119.thread: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119, %.lr.ph182
   %.us-phi184 = phi i64 [ %5, %.lr.ph182 ], [ %.1105181, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119 ]
-  %98 = getelementptr inbounds nuw i32, ptr %19, i64 %.us-phi184
+  %98 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %.us-phi184
   %99 = load i32, ptr %98, align 4, !tbaa !29
   %100 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %101 = load i32, ptr %100, align 4, !tbaa !29
@@ -42058,7 +42035,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIjjEEvPNS_22ColumnWriterStatisticsET
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123: ; preds = %122
   %124 = lshr i64 %.2106185, 6
-  %125 = getelementptr inbounds nuw i64, ptr %123, i64 %124
+  %125 = getelementptr inbounds nuw [8 x i8], ptr %123, i64 %124
   %126 = load i64, ptr %125, align 8, !tbaa !24
   %127 = and i64 %.2106185, 63
   %128 = shl nuw i64 1, %127
@@ -42067,7 +42044,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123: ; preds = %122
   br i1 %.not161, label %_ZN6duckdb11dbp_encoder10WriteValueIjEEvRNS_10DbpEncoderERNS_11WriteStreamERKT_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123.thread
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123.thread: ; preds = %122, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123
-  %130 = getelementptr inbounds nuw i32, ptr %19, i64 %.2106185
+  %130 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %.2106185
   %131 = load i32, ptr %130, align 4, !tbaa !29
   %132 = load i32, ptr %115, align 4, !tbaa !29
   %133 = icmp ugt i32 %132, %131
@@ -42097,7 +42074,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIjjEEvPNS_22ColumnWriterStatisticsET
   %144 = load i64, ptr %120, align 8, !tbaa !28
   %145 = add i64 %144, 1
   store i64 %145, ptr %120, align 8, !tbaa !28
-  %146 = getelementptr inbounds nuw i64, ptr %119, i64 %144
+  %146 = getelementptr inbounds nuw [8 x i8], ptr %119, i64 %144
   store i64 %141, ptr %146, align 8, !tbaa !24
   %147 = load i64, ptr %120, align 8, !tbaa !28
   %148 = icmp eq i64 %147, 2048
@@ -42128,7 +42105,7 @@ _ZN6duckdb11dbp_encoder10WriteValueIjEEvRNS_10DbpEncoderERNS_11WriteStreamERKT_.
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128: ; preds = %.lr.ph178, %176
   %.1103177 = phi i64 [ %177, %176 ], [ %5, %.lr.ph178 ]
   %157 = lshr i64 %.1103177, 6
-  %158 = getelementptr inbounds nuw i64, ptr %156, i64 %157
+  %158 = getelementptr inbounds nuw [8 x i8], ptr %156, i64 %157
   %159 = load i64, ptr %158, align 8, !tbaa !24
   %160 = and i64 %.1103177, 63
   %161 = shl nuw i64 1, %160
@@ -42139,7 +42116,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128: ; preds = %.lr.ph17
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128.thread: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128, %.lr.ph178
   %.us-phi = phi i64 [ %5, %.lr.ph178 ], [ %.1103177, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %163 = getelementptr inbounds nuw i32, ptr %19, i64 %.us-phi
+  %163 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %.us-phi
   %164 = load i32, ptr %163, align 4, !tbaa !29
   store i32 %164, ptr %12, align 4, !tbaa !29
   %165 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -42193,7 +42170,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIjjEEvPNS_22ColumnWriterStatisticsET
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133: ; preds = %182
   %184 = lshr i64 %.2179, 6
-  %185 = getelementptr inbounds nuw i64, ptr %183, i64 %184
+  %185 = getelementptr inbounds nuw [8 x i8], ptr %183, i64 %184
   %186 = load i64, ptr %185, align 8, !tbaa !24
   %187 = and i64 %.2179, 63
   %188 = shl nuw i64 1, %187
@@ -42203,7 +42180,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133: ; preds = %182
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133.thread: ; preds = %182, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %190 = getelementptr inbounds nuw i32, ptr %19, i64 %.2179
+  %190 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %.2179
   %191 = load i32, ptr %190, align 4, !tbaa !29
   store i32 %191, ptr %13, align 4, !tbaa !29
   %192 = load i32, ptr %179, align 4, !tbaa !29
@@ -42241,7 +42218,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIjjEEvPNS_22ColumnWriterStatisticsET
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit138: ; preds = %201
   %203 = lshr i64 %.0101176, 6
-  %204 = getelementptr inbounds nuw i64, ptr %202, i64 %203
+  %204 = getelementptr inbounds nuw [8 x i8], ptr %202, i64 %203
   %205 = load i64, ptr %204, align 8, !tbaa !24
   %206 = and i64 %.0101176, 63
   %207 = shl nuw i64 1, %206
@@ -42251,7 +42228,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit138: ; preds = %201
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit138.thread: ; preds = %201, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit138
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %209 = getelementptr inbounds nuw i32, ptr %19, i64 %.0101176
+  %209 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %.0101176
   %210 = load i32, ptr %209, align 4, !tbaa !29
   store i32 %210, ptr %14, align 4, !tbaa !29
   %211 = load i32, ptr %23, align 4, !tbaa !29
@@ -42301,7 +42278,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIjjEEvPNS_22ColumnWriterStatisticsET
   %227 = phi i32 [ %.promoted2.i, %.lr.ph.i ], [ %237, %_ZN6duckdb19ParquetCastOperator11HandleStatsIjjEEvPNS_22ColumnWriterStatisticsET0_.exit.i ]
   %228 = phi i32 [ %.promoted.i, %.lr.ph.i ], [ %234, %_ZN6duckdb19ParquetCastOperator11HandleStatsIjjEEvPNS_22ColumnWriterStatisticsET0_.exit.i ]
   %.01.i = phi i64 [ %5, %.lr.ph.i ], [ %238, %_ZN6duckdb19ParquetCastOperator11HandleStatsIjjEEvPNS_22ColumnWriterStatisticsET0_.exit.i ]
-  %229 = getelementptr inbounds nuw i32, ptr %19, i64 %.01.i
+  %229 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %.01.i
   %230 = load i32, ptr %229, align 4, !tbaa !29
   %231 = icmp ugt i32 %228, %230
   br i1 %231, label %232, label %233
@@ -42326,7 +42303,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIjjEEvPNS_22ColumnWriterStatisticsET
   br i1 %exitcond.not.i, label %_ZN6duckdbL19TemplatedWritePlainIjjNS_19ParquetCastOperatorELb1EEEvRNS_6VectorEPNS_22ColumnWriterStatisticsEmmRKNS_12ValidityMaskERNS_11WriteStreamE.exit, label %226, !llvm.loop !1501
 
 _ZN6duckdbL19TemplatedWritePlainIjjNS_19ParquetCastOperatorELb1EEEvRNS_6VectorEPNS_22ColumnWriterStatisticsEmmRKNS_12ValidityMaskERNS_11WriteStreamE.exit: ; preds = %_ZN6duckdb19ParquetCastOperator11HandleStatsIjjEEvPNS_22ColumnWriterStatisticsET0_.exit.i, %222
-  %239 = getelementptr inbounds nuw i32, ptr %19, i64 %5
+  %239 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %5
   %240 = sub i64 %6, %5
   %241 = shl i64 %240, 2
   %242 = load ptr, ptr %1, align 8, !tbaa !19
@@ -42357,7 +42334,7 @@ _ZN6duckdbL19TemplatedWritePlainIjjNS_19ParquetCastOperatorELb1EEEvRNS_6VectorEP
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i: ; preds = %249
   %251 = lshr i64 %.0172.i, 6
-  %252 = getelementptr inbounds nuw i64, ptr %250, i64 %251
+  %252 = getelementptr inbounds nuw [8 x i8], ptr %250, i64 %251
   %253 = load i64, ptr %252, align 8, !tbaa !24
   %254 = and i64 %.0172.i, 63
   %255 = shl nuw i64 1, %254
@@ -42366,7 +42343,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i: ; preds = %249
   br i1 %.not.i143, label %272, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i, %249
-  %257 = getelementptr inbounds nuw i32, ptr %19, i64 %.0172.i
+  %257 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %.0172.i
   %258 = load i32, ptr %257, align 4, !tbaa !29
   %259 = load i32, ptr %246, align 4, !tbaa !29
   %260 = icmp ugt i32 %259, %258
@@ -42387,7 +42364,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i: ; preds = %_Z
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsIjjEEvPNS_22ColumnWriterStatisticsET0_.exit.i144: ; preds = %265, %262
   %266 = add i64 %.03.i, 1
-  %267 = getelementptr inbounds nuw i32, ptr %8, i64 %.03.i
+  %267 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %.03.i
   store i32 %258, ptr %267, align 4, !tbaa !29
   %268 = icmp eq i64 %266, 2048
   br i1 %268, label %269, label %272
@@ -42558,7 +42535,7 @@ _ZNSt10unique_ptrIN6duckdb18ParquetBloomFilterESt14default_deleteIS1_EED2Ev.exit
   %30 = phi i64 [ %27, %.lr.ph.i ], [ %43, %42 ]
   %.08.i = phi i64 [ 0, %.lr.ph.i ], [ %44, %42 ]
   %31 = load ptr, ptr %28, align 8, !tbaa !1490
-  %32 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<unsigned int, unsigned int, duckdb::ParquetCastOperator>::primitive_dictionary_entry_t", ptr %31, i64 %.08.i
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %.08.i
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %34 = load i32, ptr %33, align 4, !tbaa !1491
   %35 = icmp eq i32 %34, -1
@@ -42578,7 +42555,7 @@ _ZNSt10unique_ptrIN6duckdb18ParquetBloomFilterESt14default_deleteIS1_EED2Ev.exit
 
 _ZNKSt8functionIFvRKjS1_EEclES1_S1_.exit.i:       ; preds = %36
   %39 = zext i32 %34 to i64
-  %40 = getelementptr inbounds nuw i32, ptr %25, i64 %39
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %39
   %41 = load ptr, ptr %23, align 8, !tbaa !1506
   invoke void %41(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 4 dereferenceable(4) %32, ptr noundef nonnull align 4 dereferenceable(4) %40)
           to label %.noexc13 unwind label %.loopexit
@@ -42808,7 +42785,7 @@ _ZN6duckdb9Allocator8AllocateEm.exit:             ; preds = %.noexc
 
 .lr.ph:                                           ; preds = %24, %.lr.ph
   %.013 = phi i64 [ %36, %.lr.ph ], [ 0, %24 ]
-  %34 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<unsigned int, unsigned int, duckdb::ParquetCastOperator>::primitive_dictionary_entry_t", ptr %27, i64 %.013
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %.013
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 4
   store i32 -1, ptr %35, align 4, !tbaa !1491
   %36 = add nuw i64 %.013, 1
@@ -42869,7 +42846,7 @@ define linkonce_odr void @_ZN6duckdb19PrimitiveDictionaryIjjNS_19ParquetCastOper
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %18 = load ptr, ptr %17, align 8, !tbaa !1490
   %.07.i = and i64 %16, %14
-  %19 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<unsigned int, unsigned int, duckdb::ParquetCastOperator>::primitive_dictionary_entry_t", ptr %18, i64 %.07.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %.07.i
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %21 = load i32, ptr %20, align 4, !tbaa !1491
   %22 = icmp eq i32 %21, -1
@@ -42878,7 +42855,7 @@ define linkonce_odr void @_ZN6duckdb19PrimitiveDictionaryIjjNS_19ParquetCastOper
 23:                                               ; preds = %.lr.ph.i
   %24 = add i64 %.08.i, 1
   %.0.i = and i64 %24, %16
-  %25 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<unsigned int, unsigned int, duckdb::ParquetCastOperator>::primitive_dictionary_entry_t", ptr %18, i64 %.0.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %.0.i
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %27 = load i32, ptr %26, align 4, !tbaa !1491
   %28 = icmp eq i32 %27, -1
@@ -43680,7 +43657,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterImmNS_19ParquetCastOpe
 
 29:                                               ; preds = %.lr.ph54, %29
   %.053 = phi i64 [ 0, %.lr.ph54 ], [ %34, %29 ]
-  %30 = getelementptr inbounds nuw i64, ptr %7, i64 %.053
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.053
   %31 = load i64, ptr %30, align 8, !tbaa !24
   tail call void @_ZN6duckdb19PrimitiveDictionaryImmNS_19ParquetCastOperatorEE6InsertEm(ptr noundef nonnull align 8 dereferenceable(145) %27, i64 noundef %31)
   %32 = load i64, ptr %28, align 8, !tbaa !1533
@@ -43738,7 +43715,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterImmNS_19ParquetCastOpe
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.us: ; preds = %.critedge.us
   %58 = lshr i64 %.152.us, 6
-  %59 = getelementptr inbounds nuw i64, ptr %57, i64 %58
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %58
   %60 = load i64, ptr %59, align 8, !tbaa !24
   %61 = and i64 %.152.us, 63
   %62 = shl nuw i64 1, %61
@@ -43747,7 +43724,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.us: ; preds = %.critedg
   br i1 %.not48.us, label %68, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.us
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.us: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.us, %.critedge.us
-  %64 = getelementptr inbounds nuw i64, ptr %7, i64 %.152.us
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.152.us
   %65 = load i64, ptr %64, align 8, !tbaa !24
   tail call void @_ZN6duckdb19PrimitiveDictionaryImmNS_19ParquetCastOperatorEE6InsertEm(ptr noundef nonnull align 8 dereferenceable(145) %49, i64 noundef %65)
   %66 = load i64, ptr %50, align 8, !tbaa !1533
@@ -43773,7 +43750,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.us: ; preds = %_
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit: ; preds = %.critedge
   %73 = lshr i64 %.152, 6
-  %74 = getelementptr inbounds nuw i64, ptr %72, i64 %73
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %73
   %75 = load i64, ptr %74, align 8, !tbaa !24
   %76 = and i64 %.152, 63
   %77 = shl nuw i64 1, %76
@@ -43782,7 +43759,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit: ; preds = %.critedge
   br i1 %.not48, label %83, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %.critedge, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit
-  %79 = getelementptr inbounds nuw i64, ptr %7, i64 %.152
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.152
   %80 = load i64, ptr %79, align 8, !tbaa !24
   tail call void @_ZN6duckdb19PrimitiveDictionaryImmNS_19ParquetCastOperatorEE6InsertEm(ptr noundef nonnull align 8 dereferenceable(145) %46, i64 noundef %80)
   %81 = load i64, ptr %47, align 8, !tbaa !1533
@@ -44185,7 +44162,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterImmNS_19ParquetCastOpe
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit: ; preds = %.lr.ph188, %45
   %.1108187 = phi i64 [ %46, %45 ], [ %5, %.lr.ph188 ]
   %32 = lshr i64 %.1108187, 6
-  %33 = getelementptr inbounds nuw i64, ptr %31, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %32
   %34 = load i64, ptr %33, align 8, !tbaa !24
   %35 = and i64 %.1108187, 63
   %36 = shl nuw i64 1, %35
@@ -44234,7 +44211,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %_ZNK
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115: ; preds = %50
   %52 = lshr i64 %.2109197, 6
-  %53 = getelementptr inbounds nuw i64, ptr %51, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %52
   %54 = load i64, ptr %53, align 8, !tbaa !24
   %55 = and i64 %.2109197, 63
   %56 = shl nuw i64 1, %55
@@ -44243,7 +44220,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115: ; preds = %50
   br i1 %.not163, label %80, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115.thread
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115.thread: ; preds = %50, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115
-  %58 = getelementptr inbounds nuw i64, ptr %19, i64 %.2109197
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.2109197
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %59 = load ptr, ptr %48, align 8, !tbaa !1559
   %60 = load i64, ptr %58, align 8, !tbaa !24
@@ -44253,7 +44230,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115.thread: ; preds = %5
   %64 = getelementptr inbounds nuw i8, ptr %59, i64 136
   %65 = load ptr, ptr %64, align 8, !tbaa !1561
   %.07.i.i = and i64 %63, %61
-  %66 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<unsigned long, unsigned long, duckdb::ParquetCastOperator>::primitive_dictionary_entry_t", ptr %65, i64 %.07.i.i
+  %66 = getelementptr inbounds nuw [16 x i8], ptr %65, i64 %.07.i.i
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %68 = load i32, ptr %67, align 8, !tbaa !1562
   %69 = icmp eq i32 %68, -1
@@ -44269,7 +44246,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115.thread: ; preds = %5
   %.08.i.i192 = phi i64 [ %.0.i.i, %77 ], [ %.07.i.i, %.lr.ph.i.i ]
   %72 = add i64 %.08.i.i192, 1
   %.0.i.i = and i64 %72, %63
-  %73 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<unsigned long, unsigned long, duckdb::ParquetCastOperator>::primitive_dictionary_entry_t", ptr %65, i64 %.0.i.i
+  %73 = getelementptr inbounds nuw [16 x i8], ptr %65, i64 %.0.i.i
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %75 = load i32, ptr %74, align 8, !tbaa !1562
   %76 = icmp eq i32 %75, -1
@@ -44311,7 +44288,7 @@ _ZNK6duckdb19PrimitiveDictionaryImmNS_19ParquetCastOperatorEE8GetIndexERKm.exit:
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119: ; preds = %.lr.ph182, %107
   %.1105181 = phi i64 [ %108, %107 ], [ %5, %.lr.ph182 ]
   %88 = lshr i64 %.1105181, 6
-  %89 = getelementptr inbounds nuw i64, ptr %87, i64 %88
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %87, i64 %88
   %90 = load i64, ptr %89, align 8, !tbaa !24
   %91 = and i64 %.1105181, 63
   %92 = shl nuw i64 1, %91
@@ -44321,7 +44298,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119: ; preds = %.lr.ph18
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119.thread: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119, %.lr.ph182
   %.us-phi184 = phi i64 [ %5, %.lr.ph182 ], [ %.1105181, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119 ]
-  %94 = getelementptr inbounds nuw i64, ptr %19, i64 %.us-phi184
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.us-phi184
   %95 = load i64, ptr %94, align 8, !tbaa !24
   %96 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %97 = load i64, ptr %96, align 8, !tbaa !24
@@ -44380,7 +44357,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsImmEEvPNS_22ColumnWriterStatisticsET
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123: ; preds = %117
   %119 = lshr i64 %.2106185, 6
-  %120 = getelementptr inbounds nuw i64, ptr %118, i64 %119
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %118, i64 %119
   %121 = load i64, ptr %120, align 8, !tbaa !24
   %122 = and i64 %.2106185, 63
   %123 = shl nuw i64 1, %122
@@ -44389,7 +44366,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123: ; preds = %117
   br i1 %.not161, label %_ZN6duckdb11dbp_encoder10WriteValueImEEvRNS_10DbpEncoderERNS_11WriteStreamERKT_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123.thread
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123.thread: ; preds = %117, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123
-  %125 = getelementptr inbounds nuw i64, ptr %19, i64 %.2106185
+  %125 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.2106185
   %126 = load i64, ptr %125, align 8, !tbaa !24
   %127 = load i64, ptr %110, align 8, !tbaa !24
   %128 = icmp ugt i64 %127, %126
@@ -44418,7 +44395,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsImmEEvPNS_22ColumnWriterStatisticsET
   %138 = load i64, ptr %115, align 8, !tbaa !28
   %139 = add i64 %138, 1
   store i64 %139, ptr %115, align 8, !tbaa !28
-  %140 = getelementptr inbounds nuw i64, ptr %114, i64 %138
+  %140 = getelementptr inbounds nuw [8 x i8], ptr %114, i64 %138
   store i64 %135, ptr %140, align 8, !tbaa !24
   %141 = load i64, ptr %115, align 8, !tbaa !28
   %142 = icmp eq i64 %141, 2048
@@ -44449,7 +44426,7 @@ _ZN6duckdb11dbp_encoder10WriteValueImEEvRNS_10DbpEncoderERNS_11WriteStreamERKT_.
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128: ; preds = %.lr.ph178, %170
   %.1103177 = phi i64 [ %171, %170 ], [ %5, %.lr.ph178 ]
   %151 = lshr i64 %.1103177, 6
-  %152 = getelementptr inbounds nuw i64, ptr %150, i64 %151
+  %152 = getelementptr inbounds nuw [8 x i8], ptr %150, i64 %151
   %153 = load i64, ptr %152, align 8, !tbaa !24
   %154 = and i64 %.1103177, 63
   %155 = shl nuw i64 1, %154
@@ -44460,7 +44437,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128: ; preds = %.lr.ph17
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128.thread: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128, %.lr.ph178
   %.us-phi = phi i64 [ %5, %.lr.ph178 ], [ %.1103177, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %157 = getelementptr inbounds nuw i64, ptr %19, i64 %.us-phi
+  %157 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.us-phi
   %158 = load i64, ptr %157, align 8, !tbaa !24
   store i64 %158, ptr %12, align 8, !tbaa !24
   %159 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -44514,7 +44491,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsImmEEvPNS_22ColumnWriterStatisticsET
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133: ; preds = %176
   %178 = lshr i64 %.2179, 6
-  %179 = getelementptr inbounds nuw i64, ptr %177, i64 %178
+  %179 = getelementptr inbounds nuw [8 x i8], ptr %177, i64 %178
   %180 = load i64, ptr %179, align 8, !tbaa !24
   %181 = and i64 %.2179, 63
   %182 = shl nuw i64 1, %181
@@ -44524,7 +44501,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133: ; preds = %176
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133.thread: ; preds = %176, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %184 = getelementptr inbounds nuw i64, ptr %19, i64 %.2179
+  %184 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.2179
   %185 = load i64, ptr %184, align 8, !tbaa !24
   store i64 %185, ptr %13, align 8, !tbaa !24
   %186 = load i64, ptr %173, align 8, !tbaa !24
@@ -44562,7 +44539,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsImmEEvPNS_22ColumnWriterStatisticsET
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit138: ; preds = %195
   %197 = lshr i64 %.0101176, 6
-  %198 = getelementptr inbounds nuw i64, ptr %196, i64 %197
+  %198 = getelementptr inbounds nuw [8 x i8], ptr %196, i64 %197
   %199 = load i64, ptr %198, align 8, !tbaa !24
   %200 = and i64 %.0101176, 63
   %201 = shl nuw i64 1, %200
@@ -44572,7 +44549,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit138: ; preds = %195
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit138.thread: ; preds = %195, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit138
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %203 = getelementptr inbounds nuw i64, ptr %19, i64 %.0101176
+  %203 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.0101176
   %204 = load i64, ptr %203, align 8, !tbaa !24
   store i64 %204, ptr %14, align 8, !tbaa !24
   %205 = load i64, ptr %23, align 8, !tbaa !24
@@ -44622,7 +44599,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsImmEEvPNS_22ColumnWriterStatisticsET
   %221 = phi i64 [ %.promoted2.i, %.lr.ph.i ], [ %231, %_ZN6duckdb19ParquetCastOperator11HandleStatsImmEEvPNS_22ColumnWriterStatisticsET0_.exit.i ]
   %222 = phi i64 [ %.promoted.i, %.lr.ph.i ], [ %228, %_ZN6duckdb19ParquetCastOperator11HandleStatsImmEEvPNS_22ColumnWriterStatisticsET0_.exit.i ]
   %.01.i = phi i64 [ %5, %.lr.ph.i ], [ %232, %_ZN6duckdb19ParquetCastOperator11HandleStatsImmEEvPNS_22ColumnWriterStatisticsET0_.exit.i ]
-  %223 = getelementptr inbounds nuw i64, ptr %19, i64 %.01.i
+  %223 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.01.i
   %224 = load i64, ptr %223, align 8, !tbaa !24
   %225 = icmp ugt i64 %222, %224
   br i1 %225, label %226, label %227
@@ -44647,7 +44624,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsImmEEvPNS_22ColumnWriterStatisticsET
   br i1 %exitcond.not.i, label %_ZN6duckdbL19TemplatedWritePlainImmNS_19ParquetCastOperatorELb1EEEvRNS_6VectorEPNS_22ColumnWriterStatisticsEmmRKNS_12ValidityMaskERNS_11WriteStreamE.exit, label %220, !llvm.loop !1572
 
 _ZN6duckdbL19TemplatedWritePlainImmNS_19ParquetCastOperatorELb1EEEvRNS_6VectorEPNS_22ColumnWriterStatisticsEmmRKNS_12ValidityMaskERNS_11WriteStreamE.exit: ; preds = %_ZN6duckdb19ParquetCastOperator11HandleStatsImmEEvPNS_22ColumnWriterStatisticsET0_.exit.i, %216
-  %233 = getelementptr inbounds nuw i64, ptr %19, i64 %5
+  %233 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %5
   %234 = sub i64 %6, %5
   %235 = shl i64 %234, 3
   %236 = load ptr, ptr %1, align 8, !tbaa !19
@@ -44678,7 +44655,7 @@ _ZN6duckdbL19TemplatedWritePlainImmNS_19ParquetCastOperatorELb1EEEvRNS_6VectorEP
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i: ; preds = %243
   %245 = lshr i64 %.0172.i, 6
-  %246 = getelementptr inbounds nuw i64, ptr %244, i64 %245
+  %246 = getelementptr inbounds nuw [8 x i8], ptr %244, i64 %245
   %247 = load i64, ptr %246, align 8, !tbaa !24
   %248 = and i64 %.0172.i, 63
   %249 = shl nuw i64 1, %248
@@ -44687,7 +44664,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i: ; preds = %243
   br i1 %.not.i143, label %266, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i, %243
-  %251 = getelementptr inbounds nuw i64, ptr %19, i64 %.0172.i
+  %251 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.0172.i
   %252 = load i64, ptr %251, align 8, !tbaa !24
   %253 = load i64, ptr %240, align 8, !tbaa !24
   %254 = icmp ugt i64 %253, %252
@@ -44708,7 +44685,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i: ; preds = %_Z
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsImmEEvPNS_22ColumnWriterStatisticsET0_.exit.i144: ; preds = %259, %256
   %260 = add i64 %.03.i, 1
-  %261 = getelementptr inbounds nuw i64, ptr %8, i64 %.03.i
+  %261 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.03.i
   store i64 %252, ptr %261, align 8, !tbaa !24
   %262 = icmp eq i64 %260, 2048
   br i1 %262, label %263, label %266
@@ -44879,7 +44856,7 @@ _ZNSt10unique_ptrIN6duckdb18ParquetBloomFilterESt14default_deleteIS1_EED2Ev.exit
   %30 = phi i64 [ %27, %.lr.ph.i ], [ %43, %42 ]
   %.08.i = phi i64 [ 0, %.lr.ph.i ], [ %44, %42 ]
   %31 = load ptr, ptr %28, align 8, !tbaa !1561
-  %32 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<unsigned long, unsigned long, duckdb::ParquetCastOperator>::primitive_dictionary_entry_t", ptr %31, i64 %.08.i
+  %32 = getelementptr inbounds nuw [16 x i8], ptr %31, i64 %.08.i
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = load i32, ptr %33, align 8, !tbaa !1562
   %35 = icmp eq i32 %34, -1
@@ -44899,7 +44876,7 @@ _ZNSt10unique_ptrIN6duckdb18ParquetBloomFilterESt14default_deleteIS1_EED2Ev.exit
 
 _ZNKSt8functionIFvRKmS1_EEclES1_S1_.exit.i:       ; preds = %36
   %39 = zext i32 %34 to i64
-  %40 = getelementptr inbounds nuw i64, ptr %25, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %39
   %41 = load ptr, ptr %23, align 8, !tbaa !1577
   invoke void %41(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull align 8 dereferenceable(8) %40)
           to label %.noexc13 unwind label %.loopexit
@@ -45129,7 +45106,7 @@ _ZN6duckdb9Allocator8AllocateEm.exit:             ; preds = %.noexc
 
 .lr.ph:                                           ; preds = %24, %.lr.ph
   %.013 = phi i64 [ %36, %.lr.ph ], [ 0, %24 ]
-  %34 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<unsigned long, unsigned long, duckdb::ParquetCastOperator>::primitive_dictionary_entry_t", ptr %27, i64 %.013
+  %34 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %.013
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i32 -1, ptr %35, align 8, !tbaa !1562
   %36 = add nuw i64 %.013, 1
@@ -45184,7 +45161,7 @@ define linkonce_odr void @_ZN6duckdb19PrimitiveDictionaryImmNS_19ParquetCastOper
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %12 = load ptr, ptr %11, align 8, !tbaa !1561
   %.07.i = and i64 %10, %8
-  %13 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<unsigned long, unsigned long, duckdb::ParquetCastOperator>::primitive_dictionary_entry_t", ptr %12, i64 %.07.i
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %.07.i
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load i32, ptr %14, align 8, !tbaa !1562
   %16 = icmp eq i32 %15, -1
@@ -45193,7 +45170,7 @@ define linkonce_odr void @_ZN6duckdb19PrimitiveDictionaryImmNS_19ParquetCastOper
 17:                                               ; preds = %.lr.ph.i
   %18 = add i64 %.08.i, 1
   %.0.i = and i64 %18, %10
-  %19 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<unsigned long, unsigned long, duckdb::ParquetCastOperator>::primitive_dictionary_entry_t", ptr %12, i64 %.0.i
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %.0.i
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load i32, ptr %20, align 8, !tbaa !1562
   %22 = icmp eq i32 %21, -1
@@ -45997,7 +45974,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_14float_na_equalEf
 
 29:                                               ; preds = %.lr.ph55, %29
   %.054 = phi i64 [ 0, %.lr.ph55 ], [ %33, %29 ]
-  %30 = getelementptr inbounds nuw %"struct.duckdb::float_na_equal", ptr %7, i64 %.054
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.054
   %.sroa.04.0.copyload = load float, ptr %30, align 4, !tbaa !1604
   tail call void @_ZN6duckdb19PrimitiveDictionaryINS_14float_na_equalEfNS_19ParquetCastOperatorEE6InsertES1_(ptr noundef nonnull align 8 dereferenceable(145) %27, float %.sroa.04.0.copyload)
   %31 = load i64, ptr %28, align 8, !tbaa !1605
@@ -46055,7 +46032,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_14float_na_equalEf
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.us: ; preds = %.critedge.us
   %57 = lshr i64 %.153.us, 6
-  %58 = getelementptr inbounds nuw i64, ptr %56, i64 %57
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %57
   %59 = load i64, ptr %58, align 8, !tbaa !24
   %60 = and i64 %.153.us, 63
   %61 = shl nuw i64 1, %60
@@ -46064,7 +46041,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.us: ; preds = %.critedg
   br i1 %.not49.us, label %66, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.us
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.us: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.us, %.critedge.us
-  %63 = getelementptr inbounds nuw %"struct.duckdb::float_na_equal", ptr %7, i64 %.153.us
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.153.us
   %.sroa.0.0.copyload.us = load float, ptr %63, align 4, !tbaa !1604
   tail call void @_ZN6duckdb19PrimitiveDictionaryINS_14float_na_equalEfNS_19ParquetCastOperatorEE6InsertES1_(ptr noundef nonnull align 8 dereferenceable(145) %48, float %.sroa.0.0.copyload.us)
   %64 = load i64, ptr %49, align 8, !tbaa !1605
@@ -46090,7 +46067,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.us: ; preds = %_
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit: ; preds = %.critedge
   %71 = lshr i64 %.153, 6
-  %72 = getelementptr inbounds nuw i64, ptr %70, i64 %71
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %71
   %73 = load i64, ptr %72, align 8, !tbaa !24
   %74 = and i64 %.153, 63
   %75 = shl nuw i64 1, %74
@@ -46099,7 +46076,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit: ; preds = %.critedge
   br i1 %.not49, label %80, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %.critedge, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit
-  %77 = getelementptr inbounds nuw %"struct.duckdb::float_na_equal", ptr %7, i64 %.153
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.153
   %.sroa.0.0.copyload = load float, ptr %77, align 4, !tbaa !1604
   tail call void @_ZN6duckdb19PrimitiveDictionaryINS_14float_na_equalEfNS_19ParquetCastOperatorEE6InsertES1_(ptr noundef nonnull align 8 dereferenceable(145) %45, float %.sroa.0.0.copyload)
   %78 = load i64, ptr %46, align 8, !tbaa !1605
@@ -46513,7 +46490,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_14float_na_equalEf
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit: ; preds = %.lr.ph194, %56
   %.1106193 = phi i64 [ %57, %56 ], [ %5, %.lr.ph194 ]
   %43 = lshr i64 %.1106193, 6
-  %44 = getelementptr inbounds nuw i64, ptr %42, i64 %43
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %43
   %45 = load i64, ptr %44, align 8, !tbaa !24
   %46 = and i64 %.1106193, 63
   %47 = shl nuw i64 1, %46
@@ -46562,7 +46539,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %_ZNK
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119: ; preds = %61
   %63 = lshr i64 %.2204, 6
-  %64 = getelementptr inbounds nuw i64, ptr %62, i64 %63
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %63
   %65 = load i64, ptr %64, align 8, !tbaa !24
   %66 = and i64 %.2204, 63
   %67 = shl nuw i64 1, %66
@@ -46571,7 +46548,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119: ; preds = %61
   br i1 %.not169, label %96, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119.thread
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119.thread: ; preds = %61, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119
-  %69 = getelementptr inbounds nuw %"struct.duckdb::float_na_equal", ptr %28, i64 %.2204
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %.2204
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %70 = load ptr, ptr %59, align 8, !tbaa !1631
   %.sroa.0.0.copyload.i.i = load float, ptr %69, align 4, !tbaa !1604
@@ -46583,7 +46560,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119.thread: ; preds = %6
   %75 = getelementptr inbounds nuw i8, ptr %70, i64 136
   %76 = load ptr, ptr %75, align 8, !tbaa !1633
   %.07.i.i = and i64 %74, %72
-  %77 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<duckdb::float_na_equal, float, duckdb::ParquetCastOperator>::primitive_dictionary_entry_t", ptr %76, i64 %.07.i.i
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %.07.i.i
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 4
   %79 = load i32, ptr %78, align 4, !tbaa !1634
   %80 = icmp eq i32 %79, -1
@@ -46603,7 +46580,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119.thread: ; preds = %6
   %.08.i.i199 = phi i64 [ %.0.i.i, %91 ], [ %.07.i.i, %.lr.ph.i.i ]
   %86 = add i64 %.08.i.i199, 1
   %.0.i.i = and i64 %86, %74
-  %87 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<duckdb::float_na_equal, float, duckdb::ParquetCastOperator>::primitive_dictionary_entry_t", ptr %76, i64 %.0.i.i
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %.0.i.i
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 4
   %89 = load i32, ptr %88, align 4, !tbaa !1634
   %90 = icmp eq i32 %89, -1
@@ -46648,7 +46625,7 @@ _ZNK6duckdb19PrimitiveDictionaryINS_14float_na_equalEfNS_19ParquetCastOperatorEE
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123: ; preds = %.lr.ph188, %122
   %.1109187 = phi i64 [ %123, %122 ], [ %5, %.lr.ph188 ]
   %104 = lshr i64 %.1109187, 6
-  %105 = getelementptr inbounds nuw i64, ptr %103, i64 %104
+  %105 = getelementptr inbounds nuw [8 x i8], ptr %103, i64 %104
   %106 = load i64, ptr %105, align 8, !tbaa !24
   %107 = and i64 %.1109187, 63
   %108 = shl nuw i64 1, %107
@@ -46659,7 +46636,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123: ; preds = %.lr.ph18
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123.thread: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123, %.lr.ph188
   %.us-phi190 = phi i64 [ %5, %.lr.ph188 ], [ %.1109187, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
-  %110 = getelementptr inbounds nuw %"struct.duckdb::float_na_equal", ptr %28, i64 %.us-phi190
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %.us-phi190
   %.sroa.018.0.copyload = load float, ptr %110, align 4, !tbaa !1604
   store float %.sroa.018.0.copyload, ptr %19, align 4, !tbaa !1604
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
@@ -46716,7 +46693,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsINS_14float_na_equalEfEEvPNS_22Colum
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit127: ; preds = %128
   %130 = lshr i64 %.2110191, 6
-  %131 = getelementptr inbounds nuw i64, ptr %129, i64 %130
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %129, i64 %130
   %132 = load i64, ptr %131, align 8, !tbaa !24
   %133 = and i64 %.2110191, 63
   %134 = shl nuw i64 1, %133
@@ -46726,7 +46703,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit127: ; preds = %128
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit127.thread: ; preds = %128, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit127
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
-  %136 = getelementptr inbounds nuw %"struct.duckdb::float_na_equal", ptr %28, i64 %.2110191
+  %136 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %.2110191
   %.sroa.017.0.copyload = load float, ptr %136, align 4, !tbaa !1604
   store float %.sroa.017.0.copyload, ptr %20, align 4, !tbaa !1604
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
@@ -46775,7 +46752,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsINS_14float_na_equalEfEEvPNS_22Colum
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit132: ; preds = %.lr.ph184, %170
   %.1112183 = phi i64 [ %171, %170 ], [ %5, %.lr.ph184 ]
   %152 = lshr i64 %.1112183, 6
-  %153 = getelementptr inbounds nuw i64, ptr %151, i64 %152
+  %153 = getelementptr inbounds nuw [8 x i8], ptr %151, i64 %152
   %154 = load i64, ptr %153, align 8, !tbaa !24
   %155 = and i64 %.1112183, 63
   %156 = shl nuw i64 1, %155
@@ -46786,7 +46763,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit132: ; preds = %.lr.ph18
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit132.thread: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit132, %.lr.ph184
   %.us-phi = phi i64 [ %5, %.lr.ph184 ], [ %.1112183, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit132 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
-  %158 = getelementptr inbounds nuw %"struct.duckdb::float_na_equal", ptr %28, i64 %.us-phi
+  %158 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %.us-phi
   %.sroa.07.0.copyload = load float, ptr %158, align 4, !tbaa !1604
   store float %.sroa.07.0.copyload, ptr %21, align 4, !tbaa !1604
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
@@ -46843,7 +46820,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsINS_14float_na_equalEfEEvPNS_22Colum
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit137: ; preds = %176
   %178 = lshr i64 %.2113185, 6
-  %179 = getelementptr inbounds nuw i64, ptr %177, i64 %178
+  %179 = getelementptr inbounds nuw [8 x i8], ptr %177, i64 %178
   %180 = load i64, ptr %179, align 8, !tbaa !24
   %181 = and i64 %.2113185, 63
   %182 = shl nuw i64 1, %181
@@ -46853,7 +46830,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit137: ; preds = %176
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit137.thread: ; preds = %176, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit137
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
-  %184 = getelementptr inbounds nuw %"struct.duckdb::float_na_equal", ptr %28, i64 %.2113185
+  %184 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %.2113185
   %.sroa.06.0.copyload = load float, ptr %184, align 4, !tbaa !1604
   store float %.sroa.06.0.copyload, ptr %22, align 4, !tbaa !1604
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
@@ -46894,7 +46871,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsINS_14float_na_equalEfEEvPNS_22Colum
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit142: ; preds = %194
   %196 = lshr i64 %.0107182, 6
-  %197 = getelementptr inbounds nuw i64, ptr %195, i64 %196
+  %197 = getelementptr inbounds nuw [8 x i8], ptr %195, i64 %196
   %198 = load i64, ptr %197, align 8, !tbaa !24
   %199 = and i64 %.0107182, 63
   %200 = shl nuw i64 1, %199
@@ -46904,7 +46881,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit142: ; preds = %194
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit142.thread: ; preds = %194, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit142
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
-  %202 = getelementptr inbounds nuw %"struct.duckdb::float_na_equal", ptr %28, i64 %.0107182
+  %202 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %.0107182
   %.sroa.0.0.copyload = load float, ptr %202, align 4, !tbaa !1604
   store float %.sroa.0.0.copyload, ptr %23, align 4, !tbaa !1604
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -46979,7 +46956,7 @@ _ZN6duckdb11bss_encoder10WriteValueIfEEvRNS_10BssEncoderERKT_.exit: ; preds = %2
 231:                                              ; preds = %246, %.lr.ph.i
   %.02.i = phi i64 [ 0, %.lr.ph.i ], [ %.1.i, %246 ]
   %.0151.i = phi i64 [ %5, %.lr.ph.i ], [ %247, %246 ]
-  %232 = getelementptr inbounds nuw %"struct.duckdb::float_na_equal", ptr %28, i64 %.0151.i
+  %232 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %.0151.i
   %.sroa.0.0.copyload.i = load float, ptr %232, align 4, !tbaa !1604
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store float %.sroa.0.0.copyload.i, ptr %10, align 4, !tbaa !1604
@@ -47003,7 +46980,7 @@ _ZN6duckdb11bss_encoder10WriteValueIfEEvRNS_10BssEncoderERKT_.exit: ; preds = %2
 _ZN6duckdb19ParquetCastOperator11HandleStatsINS_14float_na_equalEfEEvPNS_22ColumnWriterStatisticsET0_.exit.i: ; preds = %238, %236
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %240 = add i64 %.02.i, 1
-  %241 = getelementptr inbounds nuw float, ptr %11, i64 %.02.i
+  %241 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %.02.i
   store float %.sroa.0.0.copyload.i, ptr %241, align 4, !tbaa !1604
   %242 = icmp eq i64 %240, 2048
   br i1 %242, label %243, label %246
@@ -47050,7 +47027,7 @@ _ZN6duckdbL19TemplatedWritePlainINS_14float_na_equalEfNS_19ParquetCastOperatorEL
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i: ; preds = %254
   %256 = lshr i64 %.0172.i, 6
-  %257 = getelementptr inbounds nuw i64, ptr %255, i64 %256
+  %257 = getelementptr inbounds nuw [8 x i8], ptr %255, i64 %256
   %258 = load i64, ptr %257, align 8, !tbaa !24
   %259 = and i64 %.0172.i, 63
   %260 = shl nuw i64 1, %259
@@ -47059,7 +47036,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i: ; preds = %254
   br i1 %.not.i147, label %276, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i, %254
-  %262 = getelementptr inbounds nuw %"struct.duckdb::float_na_equal", ptr %28, i64 %.0172.i
+  %262 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %.0172.i
   %.sroa.0.0.copyload.i148 = load float, ptr %262, align 4, !tbaa !1604
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store float %.sroa.0.0.copyload.i148, ptr %8, align 4, !tbaa !1604
@@ -47083,7 +47060,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i: ; preds = %_Z
 _ZN6duckdb19ParquetCastOperator11HandleStatsINS_14float_na_equalEfEEvPNS_22ColumnWriterStatisticsET0_.exit.i149: ; preds = %268, %266
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %270 = add i64 %.03.i, 1
-  %271 = getelementptr inbounds nuw float, ptr %9, i64 %.03.i
+  %271 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %.03.i
   store float %.sroa.0.0.copyload.i148, ptr %271, align 4, !tbaa !1604
   %272 = icmp eq i64 %270, 2048
   br i1 %272, label %273, label %276
@@ -47254,7 +47231,7 @@ _ZNSt10unique_ptrIN6duckdb18ParquetBloomFilterESt14default_deleteIS1_EED2Ev.exit
   %30 = phi i64 [ %27, %.lr.ph.i ], [ %43, %42 ]
   %.08.i = phi i64 [ 0, %.lr.ph.i ], [ %44, %42 ]
   %31 = load ptr, ptr %28, align 8, !tbaa !1633
-  %32 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<duckdb::float_na_equal, float, duckdb::ParquetCastOperator>::primitive_dictionary_entry_t", ptr %31, i64 %.08.i
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %.08.i
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %34 = load i32, ptr %33, align 4, !tbaa !1634
   %35 = icmp eq i32 %34, -1
@@ -47274,7 +47251,7 @@ _ZNSt10unique_ptrIN6duckdb18ParquetBloomFilterESt14default_deleteIS1_EED2Ev.exit
 
 _ZNKSt8functionIFvRKN6duckdb14float_na_equalERKfEEclES3_S5_.exit.i: ; preds = %36
   %39 = zext i32 %34 to i64
-  %40 = getelementptr inbounds nuw float, ptr %25, i64 %39
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %39
   %41 = load ptr, ptr %23, align 8, !tbaa !1650
   invoke void %41(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 4 dereferenceable(4) %32, ptr noundef nonnull align 4 dereferenceable(4) %40)
           to label %.noexc13 unwind label %.loopexit
@@ -47504,7 +47481,7 @@ _ZN6duckdb9Allocator8AllocateEm.exit:             ; preds = %.noexc
 
 .lr.ph:                                           ; preds = %24, %.lr.ph
   %.013 = phi i64 [ %36, %.lr.ph ], [ 0, %24 ]
-  %34 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<duckdb::float_na_equal, float, duckdb::ParquetCastOperator>::primitive_dictionary_entry_t", ptr %27, i64 %.013
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %.013
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 4
   store i32 -1, ptr %35, align 4, !tbaa !1634
   %36 = add nuw i64 %.013, 1
@@ -47561,7 +47538,7 @@ define linkonce_odr void @_ZN6duckdb19PrimitiveDictionaryINS_14float_na_equalEfN
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %13 = load ptr, ptr %12, align 8, !tbaa !1633
   %.07.i = and i64 %11, %9
-  %14 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<duckdb::float_na_equal, float, duckdb::ParquetCastOperator>::primitive_dictionary_entry_t", ptr %13, i64 %.07.i
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.07.i
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %16 = load i32, ptr %15, align 4, !tbaa !1634
   %17 = icmp eq i32 %16, -1
@@ -47574,7 +47551,7 @@ define linkonce_odr void @_ZN6duckdb19PrimitiveDictionaryINS_14float_na_equalEfN
 19:                                               ; preds = %25
   %20 = add i64 %.08.i, 1
   %.0.i = and i64 %20, %11
-  %21 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<duckdb::float_na_equal, float, duckdb::ParquetCastOperator>::primitive_dictionary_entry_t", ptr %13, i64 %.0.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.0.i
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %23 = load i32, ptr %22, align 4, !tbaa !1634
   %24 = icmp eq i32 %23, -1
@@ -48450,7 +48427,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_15double_na_equalE
 
 29:                                               ; preds = %.lr.ph55, %29
   %.054 = phi i64 [ 0, %.lr.ph55 ], [ %33, %29 ]
-  %30 = getelementptr inbounds nuw %"struct.duckdb::double_na_equal", ptr %7, i64 %.054
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.054
   %.sroa.04.0.copyload = load double, ptr %30, align 8, !tbaa !1082
   tail call void @_ZN6duckdb19PrimitiveDictionaryINS_15double_na_equalEdNS_19ParquetCastOperatorEE6InsertES1_(ptr noundef nonnull align 8 dereferenceable(145) %27, double %.sroa.04.0.copyload)
   %31 = load i64, ptr %28, align 8, !tbaa !1677
@@ -48508,7 +48485,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_15double_na_equalE
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.us: ; preds = %.critedge.us
   %57 = lshr i64 %.153.us, 6
-  %58 = getelementptr inbounds nuw i64, ptr %56, i64 %57
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %57
   %59 = load i64, ptr %58, align 8, !tbaa !24
   %60 = and i64 %.153.us, 63
   %61 = shl nuw i64 1, %60
@@ -48517,7 +48494,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.us: ; preds = %.critedg
   br i1 %.not49.us, label %66, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.us
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.us: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.us, %.critedge.us
-  %63 = getelementptr inbounds nuw %"struct.duckdb::double_na_equal", ptr %7, i64 %.153.us
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.153.us
   %.sroa.0.0.copyload.us = load double, ptr %63, align 8, !tbaa !1082
   tail call void @_ZN6duckdb19PrimitiveDictionaryINS_15double_na_equalEdNS_19ParquetCastOperatorEE6InsertES1_(ptr noundef nonnull align 8 dereferenceable(145) %48, double %.sroa.0.0.copyload.us)
   %64 = load i64, ptr %49, align 8, !tbaa !1677
@@ -48543,7 +48520,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.us: ; preds = %_
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit: ; preds = %.critedge
   %71 = lshr i64 %.153, 6
-  %72 = getelementptr inbounds nuw i64, ptr %70, i64 %71
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %71
   %73 = load i64, ptr %72, align 8, !tbaa !24
   %74 = and i64 %.153, 63
   %75 = shl nuw i64 1, %74
@@ -48552,7 +48529,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit: ; preds = %.critedge
   br i1 %.not49, label %80, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %.critedge, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit
-  %77 = getelementptr inbounds nuw %"struct.duckdb::double_na_equal", ptr %7, i64 %.153
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.153
   %.sroa.0.0.copyload = load double, ptr %77, align 8, !tbaa !1082
   tail call void @_ZN6duckdb19PrimitiveDictionaryINS_15double_na_equalEdNS_19ParquetCastOperatorEE6InsertES1_(ptr noundef nonnull align 8 dereferenceable(145) %45, double %.sroa.0.0.copyload)
   %78 = load i64, ptr %46, align 8, !tbaa !1677
@@ -48966,7 +48943,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_15double_na_equalE
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit: ; preds = %.lr.ph194, %56
   %.1106193 = phi i64 [ %57, %56 ], [ %5, %.lr.ph194 ]
   %43 = lshr i64 %.1106193, 6
-  %44 = getelementptr inbounds nuw i64, ptr %42, i64 %43
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %43
   %45 = load i64, ptr %44, align 8, !tbaa !24
   %46 = and i64 %.1106193, 63
   %47 = shl nuw i64 1, %46
@@ -49015,7 +48992,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %_ZNK
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119: ; preds = %61
   %63 = lshr i64 %.2204, 6
-  %64 = getelementptr inbounds nuw i64, ptr %62, i64 %63
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %63
   %65 = load i64, ptr %64, align 8, !tbaa !24
   %66 = and i64 %.2204, 63
   %67 = shl nuw i64 1, %66
@@ -49024,7 +49001,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119: ; preds = %61
   br i1 %.not169, label %96, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119.thread
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119.thread: ; preds = %61, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119
-  %69 = getelementptr inbounds nuw %"struct.duckdb::double_na_equal", ptr %28, i64 %.2204
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %.2204
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %70 = load ptr, ptr %59, align 8, !tbaa !1703
   %.sroa.0.0.copyload.i.i = load double, ptr %69, align 8, !tbaa !1082
@@ -49036,7 +49013,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119.thread: ; preds = %6
   %75 = getelementptr inbounds nuw i8, ptr %70, i64 136
   %76 = load ptr, ptr %75, align 8, !tbaa !1705
   %.07.i.i = and i64 %74, %72
-  %77 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<duckdb::double_na_equal, double, duckdb::ParquetCastOperator>::primitive_dictionary_entry_t", ptr %76, i64 %.07.i.i
+  %77 = getelementptr inbounds nuw [16 x i8], ptr %76, i64 %.07.i.i
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %79 = load i32, ptr %78, align 8, !tbaa !1706
   %80 = icmp eq i32 %79, -1
@@ -49056,7 +49033,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119.thread: ; preds = %6
   %.08.i.i199 = phi i64 [ %.0.i.i, %91 ], [ %.07.i.i, %.lr.ph.i.i ]
   %86 = add i64 %.08.i.i199, 1
   %.0.i.i = and i64 %86, %74
-  %87 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<duckdb::double_na_equal, double, duckdb::ParquetCastOperator>::primitive_dictionary_entry_t", ptr %76, i64 %.0.i.i
+  %87 = getelementptr inbounds nuw [16 x i8], ptr %76, i64 %.0.i.i
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %89 = load i32, ptr %88, align 8, !tbaa !1706
   %90 = icmp eq i32 %89, -1
@@ -49101,7 +49078,7 @@ _ZNK6duckdb19PrimitiveDictionaryINS_15double_na_equalEdNS_19ParquetCastOperatorE
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123: ; preds = %.lr.ph188, %122
   %.1109187 = phi i64 [ %123, %122 ], [ %5, %.lr.ph188 ]
   %104 = lshr i64 %.1109187, 6
-  %105 = getelementptr inbounds nuw i64, ptr %103, i64 %104
+  %105 = getelementptr inbounds nuw [8 x i8], ptr %103, i64 %104
   %106 = load i64, ptr %105, align 8, !tbaa !24
   %107 = and i64 %.1109187, 63
   %108 = shl nuw i64 1, %107
@@ -49112,7 +49089,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123: ; preds = %.lr.ph18
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123.thread: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123, %.lr.ph188
   %.us-phi190 = phi i64 [ %5, %.lr.ph188 ], [ %.1109187, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
-  %110 = getelementptr inbounds nuw %"struct.duckdb::double_na_equal", ptr %28, i64 %.us-phi190
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %.us-phi190
   %.sroa.018.0.copyload = load double, ptr %110, align 8, !tbaa !1082
   store double %.sroa.018.0.copyload, ptr %19, align 8, !tbaa !1082
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
@@ -49169,7 +49146,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsINS_15double_na_equalEdEEvPNS_22Colu
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit127: ; preds = %128
   %130 = lshr i64 %.2110191, 6
-  %131 = getelementptr inbounds nuw i64, ptr %129, i64 %130
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %129, i64 %130
   %132 = load i64, ptr %131, align 8, !tbaa !24
   %133 = and i64 %.2110191, 63
   %134 = shl nuw i64 1, %133
@@ -49179,7 +49156,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit127: ; preds = %128
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit127.thread: ; preds = %128, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit127
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
-  %136 = getelementptr inbounds nuw %"struct.duckdb::double_na_equal", ptr %28, i64 %.2110191
+  %136 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %.2110191
   %.sroa.017.0.copyload = load double, ptr %136, align 8, !tbaa !1082
   store double %.sroa.017.0.copyload, ptr %20, align 8, !tbaa !1082
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
@@ -49228,7 +49205,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsINS_15double_na_equalEdEEvPNS_22Colu
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit132: ; preds = %.lr.ph184, %170
   %.1112183 = phi i64 [ %171, %170 ], [ %5, %.lr.ph184 ]
   %152 = lshr i64 %.1112183, 6
-  %153 = getelementptr inbounds nuw i64, ptr %151, i64 %152
+  %153 = getelementptr inbounds nuw [8 x i8], ptr %151, i64 %152
   %154 = load i64, ptr %153, align 8, !tbaa !24
   %155 = and i64 %.1112183, 63
   %156 = shl nuw i64 1, %155
@@ -49239,7 +49216,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit132: ; preds = %.lr.ph18
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit132.thread: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit132, %.lr.ph184
   %.us-phi = phi i64 [ %5, %.lr.ph184 ], [ %.1112183, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit132 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
-  %158 = getelementptr inbounds nuw %"struct.duckdb::double_na_equal", ptr %28, i64 %.us-phi
+  %158 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %.us-phi
   %.sroa.07.0.copyload = load double, ptr %158, align 8, !tbaa !1082
   store double %.sroa.07.0.copyload, ptr %21, align 8, !tbaa !1082
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
@@ -49296,7 +49273,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsINS_15double_na_equalEdEEvPNS_22Colu
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit137: ; preds = %176
   %178 = lshr i64 %.2113185, 6
-  %179 = getelementptr inbounds nuw i64, ptr %177, i64 %178
+  %179 = getelementptr inbounds nuw [8 x i8], ptr %177, i64 %178
   %180 = load i64, ptr %179, align 8, !tbaa !24
   %181 = and i64 %.2113185, 63
   %182 = shl nuw i64 1, %181
@@ -49306,7 +49283,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit137: ; preds = %176
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit137.thread: ; preds = %176, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit137
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
-  %184 = getelementptr inbounds nuw %"struct.duckdb::double_na_equal", ptr %28, i64 %.2113185
+  %184 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %.2113185
   %.sroa.06.0.copyload = load double, ptr %184, align 8, !tbaa !1082
   store double %.sroa.06.0.copyload, ptr %22, align 8, !tbaa !1082
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
@@ -49347,7 +49324,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsINS_15double_na_equalEdEEvPNS_22Colu
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit142: ; preds = %194
   %196 = lshr i64 %.0107182, 6
-  %197 = getelementptr inbounds nuw i64, ptr %195, i64 %196
+  %197 = getelementptr inbounds nuw [8 x i8], ptr %195, i64 %196
   %198 = load i64, ptr %197, align 8, !tbaa !24
   %199 = and i64 %.0107182, 63
   %200 = shl nuw i64 1, %199
@@ -49357,7 +49334,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit142: ; preds = %194
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit142.thread: ; preds = %194, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit142
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
-  %202 = getelementptr inbounds nuw %"struct.duckdb::double_na_equal", ptr %28, i64 %.0107182
+  %202 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %.0107182
   %.sroa.0.0.copyload = load double, ptr %202, align 8, !tbaa !1082
   store double %.sroa.0.0.copyload, ptr %23, align 8, !tbaa !1082
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -49432,7 +49409,7 @@ _ZN6duckdb11bss_encoder10WriteValueIdEEvRNS_10BssEncoderERKT_.exit: ; preds = %2
 231:                                              ; preds = %246, %.lr.ph.i
   %.02.i = phi i64 [ 0, %.lr.ph.i ], [ %.1.i, %246 ]
   %.0151.i = phi i64 [ %5, %.lr.ph.i ], [ %247, %246 ]
-  %232 = getelementptr inbounds nuw %"struct.duckdb::double_na_equal", ptr %28, i64 %.0151.i
+  %232 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %.0151.i
   %.sroa.0.0.copyload.i = load double, ptr %232, align 8, !tbaa !1082
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store double %.sroa.0.0.copyload.i, ptr %10, align 8, !tbaa !1082
@@ -49456,7 +49433,7 @@ _ZN6duckdb11bss_encoder10WriteValueIdEEvRNS_10BssEncoderERKT_.exit: ; preds = %2
 _ZN6duckdb19ParquetCastOperator11HandleStatsINS_15double_na_equalEdEEvPNS_22ColumnWriterStatisticsET0_.exit.i: ; preds = %238, %236
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %240 = add i64 %.02.i, 1
-  %241 = getelementptr inbounds nuw double, ptr %11, i64 %.02.i
+  %241 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.02.i
   store double %.sroa.0.0.copyload.i, ptr %241, align 8, !tbaa !1082
   %242 = icmp eq i64 %240, 2048
   br i1 %242, label %243, label %246
@@ -49503,7 +49480,7 @@ _ZN6duckdbL19TemplatedWritePlainINS_15double_na_equalEdNS_19ParquetCastOperatorE
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i: ; preds = %254
   %256 = lshr i64 %.0172.i, 6
-  %257 = getelementptr inbounds nuw i64, ptr %255, i64 %256
+  %257 = getelementptr inbounds nuw [8 x i8], ptr %255, i64 %256
   %258 = load i64, ptr %257, align 8, !tbaa !24
   %259 = and i64 %.0172.i, 63
   %260 = shl nuw i64 1, %259
@@ -49512,7 +49489,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i: ; preds = %254
   br i1 %.not.i147, label %276, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i, %254
-  %262 = getelementptr inbounds nuw %"struct.duckdb::double_na_equal", ptr %28, i64 %.0172.i
+  %262 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %.0172.i
   %.sroa.0.0.copyload.i148 = load double, ptr %262, align 8, !tbaa !1082
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store double %.sroa.0.0.copyload.i148, ptr %8, align 8, !tbaa !1082
@@ -49536,7 +49513,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i: ; preds = %_Z
 _ZN6duckdb19ParquetCastOperator11HandleStatsINS_15double_na_equalEdEEvPNS_22ColumnWriterStatisticsET0_.exit.i149: ; preds = %268, %266
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %270 = add i64 %.03.i, 1
-  %271 = getelementptr inbounds nuw double, ptr %9, i64 %.03.i
+  %271 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.03.i
   store double %.sroa.0.0.copyload.i148, ptr %271, align 8, !tbaa !1082
   %272 = icmp eq i64 %270, 2048
   br i1 %272, label %273, label %276
@@ -49707,7 +49684,7 @@ _ZNSt10unique_ptrIN6duckdb18ParquetBloomFilterESt14default_deleteIS1_EED2Ev.exit
   %30 = phi i64 [ %27, %.lr.ph.i ], [ %43, %42 ]
   %.08.i = phi i64 [ 0, %.lr.ph.i ], [ %44, %42 ]
   %31 = load ptr, ptr %28, align 8, !tbaa !1705
-  %32 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<duckdb::double_na_equal, double, duckdb::ParquetCastOperator>::primitive_dictionary_entry_t", ptr %31, i64 %.08.i
+  %32 = getelementptr inbounds nuw [16 x i8], ptr %31, i64 %.08.i
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = load i32, ptr %33, align 8, !tbaa !1706
   %35 = icmp eq i32 %34, -1
@@ -49727,7 +49704,7 @@ _ZNSt10unique_ptrIN6duckdb18ParquetBloomFilterESt14default_deleteIS1_EED2Ev.exit
 
 _ZNKSt8functionIFvRKN6duckdb15double_na_equalERKdEEclES3_S5_.exit.i: ; preds = %36
   %39 = zext i32 %34 to i64
-  %40 = getelementptr inbounds nuw double, ptr %25, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %39
   %41 = load ptr, ptr %23, align 8, !tbaa !1722
   invoke void %41(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull align 8 dereferenceable(8) %40)
           to label %.noexc13 unwind label %.loopexit
@@ -49957,7 +49934,7 @@ _ZN6duckdb9Allocator8AllocateEm.exit:             ; preds = %.noexc
 
 .lr.ph:                                           ; preds = %24, %.lr.ph
   %.013 = phi i64 [ %36, %.lr.ph ], [ 0, %24 ]
-  %34 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<duckdb::double_na_equal, double, duckdb::ParquetCastOperator>::primitive_dictionary_entry_t", ptr %27, i64 %.013
+  %34 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %.013
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i32 -1, ptr %35, align 8, !tbaa !1706
   %36 = add nuw i64 %.013, 1
@@ -50014,7 +49991,7 @@ define linkonce_odr void @_ZN6duckdb19PrimitiveDictionaryINS_15double_na_equalEd
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %13 = load ptr, ptr %12, align 8, !tbaa !1705
   %.07.i = and i64 %11, %9
-  %14 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<duckdb::double_na_equal, double, duckdb::ParquetCastOperator>::primitive_dictionary_entry_t", ptr %13, i64 %.07.i
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %.07.i
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load i32, ptr %15, align 8, !tbaa !1706
   %17 = icmp eq i32 %16, -1
@@ -50027,7 +50004,7 @@ define linkonce_odr void @_ZN6duckdb19PrimitiveDictionaryINS_15double_na_equalEd
 19:                                               ; preds = %25
   %20 = add i64 %.08.i, 1
   %.0.i = and i64 %20, %11
-  %21 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<duckdb::double_na_equal, double, duckdb::ParquetCastOperator>::primitive_dictionary_entry_t", ptr %13, i64 %.0.i
+  %21 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %.0.i
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load i32, ptr %22, align 8, !tbaa !1706
   %24 = icmp eq i32 %23, -1
@@ -50642,7 +50619,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_9hugeint_tENS_21Pa
 
 29:                                               ; preds = %.lr.ph56, %29
   %.055 = phi i64 [ 0, %.lr.ph56 ], [ %33, %29 ]
-  %30 = getelementptr inbounds nuw %"struct.duckdb::hugeint_t", ptr %7, i64 %.055
+  %30 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %.055
   %.sroa.04.0.copyload = load i64, ptr %30, align 8, !tbaa !24
   %.sroa.25.0..sroa_idx = getelementptr inbounds nuw i8, ptr %30, i64 8
   %.sroa.25.0.copyload = load i64, ptr %.sroa.25.0..sroa_idx, align 8, !tbaa !24
@@ -50702,7 +50679,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_9hugeint_tENS_21Pa
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.us: ; preds = %.critedge.us
   %57 = lshr i64 %.154.us, 6
-  %58 = getelementptr inbounds nuw i64, ptr %56, i64 %57
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %57
   %59 = load i64, ptr %58, align 8, !tbaa !24
   %60 = and i64 %.154.us, 63
   %61 = shl nuw i64 1, %60
@@ -50711,7 +50688,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.us: ; preds = %.critedg
   br i1 %.not50.us, label %66, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.us
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.us: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.us, %.critedge.us
-  %63 = getelementptr inbounds nuw %"struct.duckdb::hugeint_t", ptr %7, i64 %.154.us
+  %63 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %.154.us
   %.sroa.0.0.copyload.us = load i64, ptr %63, align 8, !tbaa !24
   %.sroa.2.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %63, i64 8
   %.sroa.2.0.copyload.us = load i64, ptr %.sroa.2.0..sroa_idx.us, align 8, !tbaa !24
@@ -50739,7 +50716,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.us: ; preds = %_
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit: ; preds = %.critedge
   %71 = lshr i64 %.154, 6
-  %72 = getelementptr inbounds nuw i64, ptr %70, i64 %71
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %71
   %73 = load i64, ptr %72, align 8, !tbaa !24
   %74 = and i64 %.154, 63
   %75 = shl nuw i64 1, %74
@@ -50748,7 +50725,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit: ; preds = %.critedge
   br i1 %.not50, label %80, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %.critedge, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit
-  %77 = getelementptr inbounds nuw %"struct.duckdb::hugeint_t", ptr %7, i64 %.154
+  %77 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %.154
   %.sroa.0.0.copyload = load i64, ptr %77, align 8, !tbaa !24
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %77, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !24
@@ -51155,7 +51132,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_9hugeint_tENS_21Pa
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit: ; preds = %.lr.ph259, %53
   %.1120258 = phi i64 [ %54, %53 ], [ %5, %.lr.ph259 ]
   %40 = lshr i64 %.1120258, 6
-  %41 = getelementptr inbounds nuw i64, ptr %39, i64 %40
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %40
   %42 = load i64, ptr %41, align 8, !tbaa !24
   %43 = and i64 %.1120258, 63
   %44 = shl nuw i64 1, %43
@@ -51204,7 +51181,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %_ZNK
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133: ; preds = %58
   %60 = lshr i64 %.2262, 6
-  %61 = getelementptr inbounds nuw i64, ptr %59, i64 %60
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %60
   %62 = load i64, ptr %61, align 8, !tbaa !24
   %63 = and i64 %.2262, 63
   %64 = shl nuw i64 1, %63
@@ -51213,7 +51190,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133: ; preds = %58
   br i1 %.not231, label %89, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133.thread
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133.thread: ; preds = %58, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133
-  %66 = getelementptr inbounds nuw %"struct.duckdb::hugeint_t", ptr %28, i64 %.2262
+  %66 = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %.2262
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %67 = load ptr, ptr %56, align 8, !tbaa !1769
   %.sroa.0.0.copyload.i.i = load i64, ptr %66, align 8, !tbaa !24
@@ -51225,7 +51202,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133.thread: ; preds = %5
   %71 = and i64 %70, %68
   %72 = getelementptr inbounds nuw i8, ptr %67, i64 136
   %73 = load ptr, ptr %72, align 8, !tbaa !1771
-  %74 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<duckdb::hugeint_t, duckdb::ParquetUUIDTargetType, duckdb::ParquetUUIDOperator>::primitive_dictionary_entry_t", ptr %73, i64 %71
+  %74 = getelementptr inbounds nuw [24 x i8], ptr %73, i64 %71
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 16
   %76 = load i32, ptr %75, align 8, !tbaa !1772
   %77 = icmp eq i32 %76, -1
@@ -51239,7 +51216,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133.thread: ; preds = %5
   br i1 %79, label %80, label %.lr.ph.i._ZNK6duckdb19PrimitiveDictionaryINS_9hugeint_tENS_21ParquetUUIDTargetTypeENS_19ParquetUUIDOperatorEE6LookupERKS1_.exit.loopexit_crit_edge.i
 
 .lr.ph.i._ZNK6duckdb19PrimitiveDictionaryINS_9hugeint_tENS_21ParquetUUIDTargetTypeENS_19ParquetUUIDOperatorEE6LookupERKS1_.exit.loopexit_crit_edge.i: ; preds = %.lr.ph.i.i
-  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<duckdb::hugeint_t, duckdb::ParquetUUIDTargetType, duckdb::ParquetUUIDOperator>::primitive_dictionary_entry_t", ptr %.pre.pre.i.i, i64 %.07.i.i
+  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds nuw [24 x i8], ptr %.pre.pre.i.i, i64 %.07.i.i
   %.phi.trans.insert3.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.phi.trans.insert.phi.trans.insert.i, i64 16
   %.pre.pre.i = load i32, ptr %.phi.trans.insert3.phi.trans.insert.i, align 8, !tbaa !1772
   br label %_ZNK6duckdb19PrimitiveDictionaryINS_9hugeint_tENS_21ParquetUUIDTargetTypeENS_19ParquetUUIDOperatorEE8GetIndexERKS1_.exit
@@ -51248,7 +51225,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133.thread: ; preds = %5
   %81 = load i64, ptr %69, align 8, !tbaa !1770
   %82 = add i64 %.07.i.i, 1
   %83 = and i64 %81, %82
-  %84 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<duckdb::hugeint_t, duckdb::ParquetUUIDTargetType, duckdb::ParquetUUIDOperator>::primitive_dictionary_entry_t", ptr %.pre.pre.i.i, i64 %83
+  %84 = getelementptr inbounds nuw [24 x i8], ptr %.pre.pre.i.i, i64 %83
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 16
   %86 = load i32, ptr %85, align 8, !tbaa !1772
   %87 = icmp eq i32 %86, -1
@@ -51282,7 +51259,7 @@ _ZNK6duckdb19PrimitiveDictionaryINS_9hugeint_tENS_21ParquetUUIDTargetTypeENS_19P
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit137: ; preds = %.lr.ph253, %122
   %.1122252 = phi i64 [ %123, %122 ], [ %5, %.lr.ph253 ]
   %97 = lshr i64 %.1122252, 6
-  %98 = getelementptr inbounds nuw i64, ptr %96, i64 %97
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %96, i64 %97
   %99 = load i64, ptr %98, align 8, !tbaa !24
   %100 = and i64 %.1122252, 63
   %101 = shl nuw i64 1, %100
@@ -51293,7 +51270,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit137: ; preds = %.lr.ph25
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit137.thread: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit137, %.lr.ph253
   %.us-phi255 = phi i64 [ %5, %.lr.ph253 ], [ %.1122252, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit137 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
-  %103 = getelementptr inbounds nuw %"struct.duckdb::hugeint_t", ptr %28, i64 %.us-phi255
+  %103 = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %.us-phi255
   %.sroa.031.0.copyload = load i64, ptr %103, align 8, !tbaa !24
   %.sroa.232.0..sroa_idx = getelementptr inbounds nuw i8, ptr %103, i64 8
   %.sroa.232.0.copyload = load i64, ptr %.sroa.232.0..sroa_idx, align 8, !tbaa !24
@@ -51365,7 +51342,7 @@ _ZN6duckdb19ParquetUUIDOperator9OperationINS_9hugeint_tENS_21ParquetUUIDTargetTy
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit141: ; preds = %127
   %129 = lshr i64 %.2123256, 6
-  %130 = getelementptr inbounds nuw i64, ptr %128, i64 %129
+  %130 = getelementptr inbounds nuw [8 x i8], ptr %128, i64 %129
   %131 = load i64, ptr %130, align 8, !tbaa !24
   %132 = and i64 %.2123256, 63
   %133 = shl nuw i64 1, %132
@@ -51375,7 +51352,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit141: ; preds = %127
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit141.thread: ; preds = %127, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit141
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
-  %135 = getelementptr inbounds nuw %"struct.duckdb::hugeint_t", ptr %28, i64 %.2123256
+  %135 = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %.2123256
   %.sroa.027.0.copyload = load i64, ptr %135, align 8, !tbaa !24
   %.sroa.228.0..sroa_idx = getelementptr inbounds nuw i8, ptr %135, i64 8
   %.sroa.228.0.copyload = load i64, ptr %.sroa.228.0..sroa_idx, align 8, !tbaa !24
@@ -51439,7 +51416,7 @@ _ZN6duckdb19ParquetUUIDOperator9OperationINS_9hugeint_tENS_21ParquetUUIDTargetTy
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit156: ; preds = %.lr.ph249, %184
   %.1125248 = phi i64 [ %185, %184 ], [ %5, %.lr.ph249 ]
   %159 = lshr i64 %.1125248, 6
-  %160 = getelementptr inbounds nuw i64, ptr %158, i64 %159
+  %160 = getelementptr inbounds nuw [8 x i8], ptr %158, i64 %159
   %161 = load i64, ptr %160, align 8, !tbaa !24
   %162 = and i64 %.1125248, 63
   %163 = shl nuw i64 1, %162
@@ -51450,7 +51427,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit156: ; preds = %.lr.ph24
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit156.thread: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit156, %.lr.ph249
   %.us-phi = phi i64 [ %5, %.lr.ph249 ], [ %.1125248, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit156 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
-  %165 = getelementptr inbounds nuw %"struct.duckdb::hugeint_t", ptr %28, i64 %.us-phi
+  %165 = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %.us-phi
   %.sroa.014.0.copyload = load i64, ptr %165, align 8, !tbaa !24
   %.sroa.215.0..sroa_idx = getelementptr inbounds nuw i8, ptr %165, i64 8
   %.sroa.215.0.copyload = load i64, ptr %.sroa.215.0..sroa_idx, align 8, !tbaa !24
@@ -51522,7 +51499,7 @@ _ZN6duckdb19ParquetUUIDOperator9OperationINS_9hugeint_tENS_21ParquetUUIDTargetTy
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit171: ; preds = %189
   %191 = lshr i64 %.2126250, 6
-  %192 = getelementptr inbounds nuw i64, ptr %190, i64 %191
+  %192 = getelementptr inbounds nuw [8 x i8], ptr %190, i64 %191
   %193 = load i64, ptr %192, align 8, !tbaa !24
   %194 = and i64 %.2126250, 63
   %195 = shl nuw i64 1, %194
@@ -51532,7 +51509,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit171: ; preds = %189
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit171.thread: ; preds = %189, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit171
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
-  %197 = getelementptr inbounds nuw %"struct.duckdb::hugeint_t", ptr %28, i64 %.2126250
+  %197 = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %.2126250
   %.sroa.010.0.copyload = load i64, ptr %197, align 8, !tbaa !24
   %.sroa.211.0..sroa_idx = getelementptr inbounds nuw i8, ptr %197, i64 8
   %.sroa.211.0.copyload = load i64, ptr %.sroa.211.0..sroa_idx, align 8, !tbaa !24
@@ -51588,7 +51565,7 @@ _ZN6duckdb19ParquetUUIDOperator9OperationINS_9hugeint_tENS_21ParquetUUIDTargetTy
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit186: ; preds = %215
   %217 = lshr i64 %.0127247, 6
-  %218 = getelementptr inbounds nuw i64, ptr %216, i64 %217
+  %218 = getelementptr inbounds nuw [8 x i8], ptr %216, i64 %217
   %219 = load i64, ptr %218, align 8, !tbaa !24
   %220 = and i64 %.0127247, 63
   %221 = shl nuw i64 1, %220
@@ -51598,7 +51575,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit186: ; preds = %215
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit186.thread: ; preds = %215, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit186
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
-  %223 = getelementptr inbounds nuw %"struct.duckdb::hugeint_t", ptr %28, i64 %.0127247
+  %223 = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %.0127247
   %.sroa.02.0.copyload = load i64, ptr %223, align 8, !tbaa !24
   %.sroa.23.0..sroa_idx = getelementptr inbounds nuw i8, ptr %223, i64 8
   %.sroa.23.0.copyload = load i64, ptr %.sroa.23.0..sroa_idx, align 8, !tbaa !24
@@ -51663,7 +51640,7 @@ _ZN6duckdb19ParquetUUIDOperator9OperationINS_9hugeint_tENS_21ParquetUUIDTargetTy
 246:                                              ; preds = %_ZN6duckdb19ParquetUUIDOperator9OperationINS_9hugeint_tENS_21ParquetUUIDTargetTypeEEET0_T_.exit.i, %.lr.ph.i
   %.01.i = phi i64 [ %5, %.lr.ph.i ], [ %265, %_ZN6duckdb19ParquetUUIDOperator9OperationINS_9hugeint_tENS_21ParquetUUIDTargetTypeEEET0_T_.exit.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %247 = getelementptr inbounds nuw %"struct.duckdb::hugeint_t", ptr %28, i64 %.01.i
+  %247 = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %.01.i
   %.sroa.01.0.copyload.i = load i64, ptr %247, align 8, !tbaa !24
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %247, i64 8
   %.sroa.22.0.copyload.i = load i64, ptr %.sroa.22.0..sroa_idx.i, align 8, !tbaa !24
@@ -51726,7 +51703,7 @@ _ZN6duckdb19ParquetUUIDOperator9OperationINS_9hugeint_tENS_21ParquetUUIDTargetTy
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i: ; preds = %268
   %270 = lshr i64 %.02.i, 6
-  %271 = getelementptr inbounds nuw i64, ptr %269, i64 %270
+  %271 = getelementptr inbounds nuw [8 x i8], ptr %269, i64 %270
   %272 = load i64, ptr %271, align 8, !tbaa !24
   %273 = and i64 %.02.i, 63
   %274 = shl nuw i64 1, %273
@@ -51736,7 +51713,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i: ; preds = %268
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i, %268
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %276 = getelementptr inbounds nuw %"struct.duckdb::hugeint_t", ptr %28, i64 %.02.i
+  %276 = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %.02.i
   %.sroa.01.0.copyload.i203 = load i64, ptr %276, align 8, !tbaa !24
   %.sroa.22.0..sroa_idx.i204 = getelementptr inbounds nuw i8, ptr %276, i64 8
   %.sroa.22.0.copyload.i205 = load i64, ptr %.sroa.22.0..sroa_idx.i204, align 8, !tbaa !24
@@ -51932,7 +51909,7 @@ _ZNSt10unique_ptrIN6duckdb18ParquetBloomFilterESt14default_deleteIS1_EED2Ev.exit
   %30 = phi i64 [ %27, %.lr.ph.i ], [ %43, %42 ]
   %.08.i = phi i64 [ 0, %.lr.ph.i ], [ %44, %42 ]
   %31 = load ptr, ptr %28, align 8, !tbaa !1771
-  %32 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<duckdb::hugeint_t, duckdb::ParquetUUIDTargetType, duckdb::ParquetUUIDOperator>::primitive_dictionary_entry_t", ptr %31, i64 %.08.i
+  %32 = getelementptr inbounds nuw [24 x i8], ptr %31, i64 %.08.i
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %34 = load i32, ptr %33, align 8, !tbaa !1772
   %35 = icmp eq i32 %34, -1
@@ -51952,7 +51929,7 @@ _ZNSt10unique_ptrIN6duckdb18ParquetBloomFilterESt14default_deleteIS1_EED2Ev.exit
 
 _ZNKSt8functionIFvRKN6duckdb9hugeint_tERKNS0_21ParquetUUIDTargetTypeEEEclES3_S6_.exit.i: ; preds = %36
   %39 = zext i32 %34 to i64
-  %40 = getelementptr inbounds nuw %"struct.duckdb::ParquetUUIDTargetType", ptr %25, i64 %39
+  %40 = getelementptr inbounds nuw [16 x i8], ptr %25, i64 %39
   %41 = load ptr, ptr %23, align 8, !tbaa !1788
   invoke void %41(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull align 1 dereferenceable(16) %40)
           to label %.noexc13 unwind label %.loopexit
@@ -52182,7 +52159,7 @@ _ZN6duckdb9Allocator8AllocateEm.exit:             ; preds = %.noexc
 
 .lr.ph:                                           ; preds = %24, %.lr.ph
   %.013 = phi i64 [ %36, %.lr.ph ], [ 0, %24 ]
-  %34 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<duckdb::hugeint_t, duckdb::ParquetUUIDTargetType, duckdb::ParquetUUIDOperator>::primitive_dictionary_entry_t", ptr %27, i64 %.013
+  %34 = getelementptr inbounds nuw [24 x i8], ptr %27, i64 %.013
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   store i32 -1, ptr %35, align 8, !tbaa !1772
   %36 = add nuw i64 %.013, 1
@@ -52242,7 +52219,7 @@ define linkonce_odr void @_ZN6duckdb19PrimitiveDictionaryINS_9hugeint_tENS_21Par
   %15 = and i64 %14, %12
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %17 = load ptr, ptr %16, align 8, !tbaa !1771
-  %18 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<duckdb::hugeint_t, duckdb::ParquetUUIDTargetType, duckdb::ParquetUUIDOperator>::primitive_dictionary_entry_t", ptr %17, i64 %15
+  %18 = getelementptr inbounds nuw [24 x i8], ptr %17, i64 %15
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load i32, ptr %19, align 8, !tbaa !1772
   %21 = icmp eq i32 %20, -1
@@ -52259,7 +52236,7 @@ define linkonce_odr void @_ZN6duckdb19PrimitiveDictionaryINS_9hugeint_tENS_21Par
   %25 = load i64, ptr %13, align 8, !tbaa !1770
   %26 = add i64 %.07.i, 1
   %27 = and i64 %25, %26
-  %28 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<duckdb::hugeint_t, duckdb::ParquetUUIDTargetType, duckdb::ParquetUUIDOperator>::primitive_dictionary_entry_t", ptr %.pre.pre.i, i64 %27
+  %28 = getelementptr inbounds nuw [24 x i8], ptr %.pre.pre.i, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load i32, ptr %29, align 8, !tbaa !1772
   %31 = icmp eq i32 %30, -1
@@ -52268,15 +52245,15 @@ define linkonce_odr void @_ZN6duckdb19PrimitiveDictionaryINS_9hugeint_tENS_21Par
 _ZNK6duckdb19PrimitiveDictionaryINS_9hugeint_tENS_21ParquetUUIDTargetTypeENS_19ParquetUUIDOperatorEE6LookupERKS1_.exit.thread: ; preds = %24, %11
   %.ph = phi ptr [ %17, %11 ], [ %.pre.pre.i, %24 ]
   %.0.lcssa.i.ph = phi i64 [ %15, %11 ], [ %27, %24 ]
-  %32 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<duckdb::hugeint_t, duckdb::ParquetUUIDTargetType, duckdb::ParquetUUIDOperator>::primitive_dictionary_entry_t", ptr %.ph, i64 %.0.lcssa.i.ph
+  %32 = getelementptr inbounds nuw [24 x i8], ptr %.ph, i64 %.0.lcssa.i.ph
   br label %35
 
 _ZNK6duckdb19PrimitiveDictionaryINS_9hugeint_tENS_21ParquetUUIDTargetTypeENS_19ParquetUUIDOperatorEE6LookupERKS1_.exit: ; preds = %.lr.ph.i
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<duckdb::hugeint_t, duckdb::ParquetUUIDTargetType, duckdb::ParquetUUIDOperator>::primitive_dictionary_entry_t", ptr %.pre.pre.i, i64 %.07.i
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw [24 x i8], ptr %.pre.pre.i, i64 %.07.i
   %.phi.trans.insert7.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.phi.trans.insert.phi.trans.insert, i64 16
   %.pre.pre = load i32, ptr %.phi.trans.insert7.phi.trans.insert, align 8, !tbaa !1772
   %33 = icmp eq i32 %.pre.pre, -1
-  %34 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<duckdb::hugeint_t, duckdb::ParquetUUIDTargetType, duckdb::ParquetUUIDOperator>::primitive_dictionary_entry_t", ptr %.pre.pre.i, i64 %.07.i
+  %34 = getelementptr inbounds nuw [24 x i8], ptr %.pre.pre.i, i64 %.07.i
   br i1 %33, label %35, label %71
 
 35:                                               ; preds = %_ZNK6duckdb19PrimitiveDictionaryINS_9hugeint_tENS_21ParquetUUIDTargetTypeENS_19ParquetUUIDOperatorEE6LookupERKS1_.exit.thread, %_ZNK6duckdb19PrimitiveDictionaryINS_9hugeint_tENS_21ParquetUUIDTargetTypeENS_19ParquetUUIDOperatorEE6LookupERKS1_.exit
@@ -53162,7 +53139,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_10interval_tENS_25
 
 29:                                               ; preds = %.lr.ph56, %29
   %.055 = phi i64 [ 0, %.lr.ph56 ], [ %33, %29 ]
-  %30 = getelementptr inbounds nuw %"struct.duckdb::interval_t", ptr %7, i64 %.055
+  %30 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %.055
   %.sroa.04.0.copyload = load i64, ptr %30, align 8
   %.sroa.25.0..sroa_idx = getelementptr inbounds nuw i8, ptr %30, i64 8
   %.sroa.25.0.copyload = load i64, ptr %.sroa.25.0..sroa_idx, align 8, !tbaa !24
@@ -53222,7 +53199,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_10interval_tENS_25
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.us: ; preds = %.critedge.us
   %57 = lshr i64 %.154.us, 6
-  %58 = getelementptr inbounds nuw i64, ptr %56, i64 %57
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %57
   %59 = load i64, ptr %58, align 8, !tbaa !24
   %60 = and i64 %.154.us, 63
   %61 = shl nuw i64 1, %60
@@ -53231,7 +53208,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.us: ; preds = %.critedg
   br i1 %.not50.us, label %66, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.us
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.us: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.us, %.critedge.us
-  %63 = getelementptr inbounds nuw %"struct.duckdb::interval_t", ptr %7, i64 %.154.us
+  %63 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %.154.us
   %.sroa.0.0.copyload.us = load i64, ptr %63, align 8
   %.sroa.2.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %63, i64 8
   %.sroa.2.0.copyload.us = load i64, ptr %.sroa.2.0..sroa_idx.us, align 8, !tbaa !24
@@ -53259,7 +53236,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.us: ; preds = %_
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit: ; preds = %.critedge
   %71 = lshr i64 %.154, 6
-  %72 = getelementptr inbounds nuw i64, ptr %70, i64 %71
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %71
   %73 = load i64, ptr %72, align 8, !tbaa !24
   %74 = and i64 %.154, 63
   %75 = shl nuw i64 1, %74
@@ -53268,7 +53245,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit: ; preds = %.critedge
   br i1 %.not50, label %80, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %.critedge, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit
-  %77 = getelementptr inbounds nuw %"struct.duckdb::interval_t", ptr %7, i64 %.154
+  %77 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %.154
   %.sroa.0.0.copyload = load i64, ptr %77, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %77, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !24
@@ -53667,7 +53644,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_10interval_tENS_25
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit: ; preds = %.lr.ph234, %45
   %.1148233 = phi i64 [ %46, %45 ], [ %5, %.lr.ph234 ]
   %32 = lshr i64 %.1148233, 6
-  %33 = getelementptr inbounds nuw i64, ptr %31, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %32
   %34 = load i64, ptr %33, align 8, !tbaa !24
   %35 = and i64 %.1148233, 63
   %36 = shl nuw i64 1, %35
@@ -53716,7 +53693,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %_ZNK
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit161: ; preds = %50
   %52 = lshr i64 %.2237, 6
-  %53 = getelementptr inbounds nuw i64, ptr %51, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %52
   %54 = load i64, ptr %53, align 8, !tbaa !24
   %55 = and i64 %.2237, 63
   %56 = shl nuw i64 1, %55
@@ -53725,7 +53702,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit161: ; preds = %50
   br i1 %.not208, label %61, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit161.thread
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit161.thread: ; preds = %50, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit161
-  %58 = getelementptr inbounds nuw %"struct.duckdb::interval_t", ptr %21, i64 %.2237
+  %58 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %.2237
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %59 = load ptr, ptr %48, align 8, !tbaa !1834
   %60 = call noundef i32 @_ZNK6duckdb19PrimitiveDictionaryINS_10interval_tENS_25ParquetIntervalTargetTypeENS_23ParquetIntervalOperatorEE8GetIndexERKS1_(ptr noundef nonnull align 8 dereferenceable(145) %59, ptr noundef nonnull align 8 dereferenceable(16) %58)
@@ -53755,7 +53732,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit161.thread: ; preds = %5
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit165: ; preds = %.lr.ph228, %79
   %.1150227 = phi i64 [ %80, %79 ], [ %5, %.lr.ph228 ]
   %69 = lshr i64 %.1150227, 6
-  %70 = getelementptr inbounds nuw i64, ptr %68, i64 %69
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %69
   %71 = load i64, ptr %70, align 8, !tbaa !24
   %72 = and i64 %.1150227, 63
   %73 = shl nuw i64 1, %72
@@ -53766,7 +53743,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit165: ; preds = %.lr.ph22
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit165.thread: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit165, %.lr.ph228
   %.us-phi230 = phi i64 [ %5, %.lr.ph228 ], [ %.1150227, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit165 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %75 = getelementptr inbounds nuw %"struct.duckdb::interval_t", ptr %21, i64 %.us-phi230
+  %75 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %.us-phi230
   %.sroa.059.0.copyload = load i64, ptr %75, align 8
   %.sroa.260.0..sroa_idx = getelementptr inbounds nuw i8, ptr %75, i64 8
   %.sroa.260.0.copyload = load i64, ptr %.sroa.260.0..sroa_idx, align 8, !tbaa !24
@@ -53806,7 +53783,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit165.thread: ; preds = %_
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit169: ; preds = %83
   %85 = lshr i64 %.2151231, 6
-  %86 = getelementptr inbounds nuw i64, ptr %84, i64 %85
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %85
   %87 = load i64, ptr %86, align 8, !tbaa !24
   %88 = and i64 %.2151231, 63
   %89 = shl nuw i64 1, %88
@@ -53816,7 +53793,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit169: ; preds = %83
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit169.thread: ; preds = %83, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit169
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %91 = getelementptr inbounds nuw %"struct.duckdb::interval_t", ptr %21, i64 %.2151231
+  %91 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %.2151231
   %.sroa.049.0.copyload = load i64, ptr %91, align 8
   %.sroa.250.0..sroa_idx = getelementptr inbounds nuw i8, ptr %91, i64 8
   %.sroa.250.0.copyload = load i64, ptr %.sroa.250.0..sroa_idx, align 8, !tbaa !24
@@ -53850,7 +53827,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit169.thread: ; preds = %8
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit173: ; preds = %.lr.ph224, %111
   %.1153223 = phi i64 [ %112, %111 ], [ %5, %.lr.ph224 ]
   %101 = lshr i64 %.1153223, 6
-  %102 = getelementptr inbounds nuw i64, ptr %100, i64 %101
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %100, i64 %101
   %103 = load i64, ptr %102, align 8, !tbaa !24
   %104 = and i64 %.1153223, 63
   %105 = shl nuw i64 1, %104
@@ -53861,7 +53838,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit173: ; preds = %.lr.ph22
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit173.thread: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit173, %.lr.ph224
   %.us-phi = phi i64 [ %5, %.lr.ph224 ], [ %.1153223, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit173 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %107 = getelementptr inbounds nuw %"struct.duckdb::interval_t", ptr %21, i64 %.us-phi
+  %107 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %.us-phi
   %.sroa.030.0.copyload = load i64, ptr %107, align 8
   %.sroa.231.0..sroa_idx = getelementptr inbounds nuw i8, ptr %107, i64 8
   %.sroa.231.0.copyload = load i64, ptr %.sroa.231.0..sroa_idx, align 8, !tbaa !24
@@ -53901,7 +53878,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit173.thread: ; preds = %_
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit177: ; preds = %115
   %117 = lshr i64 %.2154225, 6
-  %118 = getelementptr inbounds nuw i64, ptr %116, i64 %117
+  %118 = getelementptr inbounds nuw [8 x i8], ptr %116, i64 %117
   %119 = load i64, ptr %118, align 8, !tbaa !24
   %120 = and i64 %.2154225, 63
   %121 = shl nuw i64 1, %120
@@ -53911,7 +53888,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit177: ; preds = %115
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit177.thread: ; preds = %115, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit177
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  %123 = getelementptr inbounds nuw %"struct.duckdb::interval_t", ptr %21, i64 %.2154225
+  %123 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %.2154225
   %.sroa.020.0.copyload = load i64, ptr %123, align 8
   %.sroa.221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %123, i64 8
   %.sroa.221.0.copyload = load i64, ptr %.sroa.221.0..sroa_idx, align 8, !tbaa !24
@@ -53937,7 +53914,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit177.thread: ; preds = %1
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit181: ; preds = %127
   %129 = lshr i64 %.0155222, 6
-  %130 = getelementptr inbounds nuw i64, ptr %128, i64 %129
+  %130 = getelementptr inbounds nuw [8 x i8], ptr %128, i64 %129
   %131 = load i64, ptr %130, align 8, !tbaa !24
   %132 = and i64 %.0155222, 63
   %133 = shl nuw i64 1, %132
@@ -53947,7 +53924,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit181: ; preds = %127
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit181.thread: ; preds = %127, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit181
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
-  %135 = getelementptr inbounds nuw %"struct.duckdb::interval_t", ptr %21, i64 %.0155222
+  %135 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %.0155222
   %.sroa.06.0.copyload = load i64, ptr %135, align 8
   %.sroa.27.0..sroa_idx = getelementptr inbounds nuw i8, ptr %135, i64 8
   %.sroa.27.0.copyload = load i64, ptr %.sroa.27.0..sroa_idx, align 8, !tbaa !24
@@ -53981,7 +53958,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit181.thread: ; preds = %1
 143:                                              ; preds = %143, %.lr.ph.i
   %.01.i = phi i64 [ %5, %.lr.ph.i ], [ %148, %143 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %144 = getelementptr inbounds nuw %"struct.duckdb::interval_t", ptr %21, i64 %.01.i
+  %144 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %.01.i
   %.sroa.05.0.copyload.i = load i64, ptr %144, align 8
   %.sroa.26.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %144, i64 8
   %.sroa.26.0.copyload.i = load i64, ptr %.sroa.26.0..sroa_idx.i, align 8, !tbaa !24
@@ -54013,7 +53990,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit181.thread: ; preds = %1
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i: ; preds = %150
   %152 = lshr i64 %.02.i, 6
-  %153 = getelementptr inbounds nuw i64, ptr %151, i64 %152
+  %153 = getelementptr inbounds nuw [8 x i8], ptr %151, i64 %152
   %154 = load i64, ptr %153, align 8, !tbaa !24
   %155 = and i64 %.02.i, 63
   %156 = shl nuw i64 1, %155
@@ -54023,7 +54000,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i: ; preds = %150
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i, %150
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %158 = getelementptr inbounds nuw %"struct.duckdb::interval_t", ptr %21, i64 %.02.i
+  %158 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %.02.i
   %.sroa.05.0.copyload.i186 = load i64, ptr %158, align 8
   %.sroa.26.0..sroa_idx.i187 = getelementptr inbounds nuw i8, ptr %158, i64 8
   %.sroa.26.0.copyload.i188 = load i64, ptr %.sroa.26.0..sroa_idx.i187, align 8, !tbaa !24
@@ -54189,7 +54166,7 @@ _ZNSt10unique_ptrIN6duckdb18ParquetBloomFilterESt14default_deleteIS1_EED2Ev.exit
   %30 = phi i64 [ %27, %.lr.ph.i ], [ %43, %42 ]
   %.08.i = phi i64 [ 0, %.lr.ph.i ], [ %44, %42 ]
   %31 = load ptr, ptr %28, align 8, !tbaa !1849
-  %32 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<duckdb::interval_t, duckdb::ParquetIntervalTargetType, duckdb::ParquetIntervalOperator>::primitive_dictionary_entry_t", ptr %31, i64 %.08.i
+  %32 = getelementptr inbounds nuw [24 x i8], ptr %31, i64 %.08.i
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %34 = load i32, ptr %33, align 8, !tbaa !1850
   %35 = icmp eq i32 %34, -1
@@ -54209,7 +54186,7 @@ _ZNSt10unique_ptrIN6duckdb18ParquetBloomFilterESt14default_deleteIS1_EED2Ev.exit
 
 _ZNKSt8functionIFvRKN6duckdb10interval_tERKNS0_25ParquetIntervalTargetTypeEEEclES3_S6_.exit.i: ; preds = %36
   %39 = zext i32 %34 to i64
-  %40 = getelementptr inbounds nuw %"struct.duckdb::ParquetIntervalTargetType", ptr %25, i64 %39
+  %40 = getelementptr inbounds nuw [12 x i8], ptr %25, i64 %39
   %41 = load ptr, ptr %23, align 8, !tbaa !1846
   invoke void %41(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull align 1 dereferenceable(12) %40)
           to label %.noexc13 unwind label %.loopexit
@@ -54439,7 +54416,7 @@ _ZN6duckdb9Allocator8AllocateEm.exit:             ; preds = %.noexc
 
 .lr.ph:                                           ; preds = %24, %.lr.ph
   %.013 = phi i64 [ %36, %.lr.ph ], [ 0, %24 ]
-  %34 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<duckdb::interval_t, duckdb::ParquetIntervalTargetType, duckdb::ParquetIntervalOperator>::primitive_dictionary_entry_t", ptr %27, i64 %.013
+  %34 = getelementptr inbounds nuw [24 x i8], ptr %27, i64 %.013
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   store i32 -1, ptr %35, align 8, !tbaa !1850
   %36 = add nuw i64 %.013, 1
@@ -54497,7 +54474,7 @@ define linkonce_odr void @_ZN6duckdb19PrimitiveDictionaryINS_10interval_tENS_25P
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %13 = load ptr, ptr %12, align 8, !tbaa !1849
   %.010.i = and i64 %11, %9
-  %14 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<duckdb::interval_t, duckdb::ParquetIntervalTargetType, duckdb::ParquetIntervalOperator>::primitive_dictionary_entry_t", ptr %13, i64 %.010.i
+  %14 = getelementptr inbounds nuw [24 x i8], ptr %13, i64 %.010.i
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load i32, ptr %15, align 8, !tbaa !1850
   %17 = icmp eq i32 %16, -1
@@ -54555,7 +54532,7 @@ _ZNK6duckdb10interval_tneERKS0_.exit.i:           ; preds = %._crit_edge.i.i.i
 _ZNK6duckdb10interval_tneERKS0_.exit.thread.i:    ; preds = %_ZNK6duckdb10interval_tneERKS0_.exit.i, %._crit_edge.i.i.i
   %46 = add i64 %.011.i, 1
   %.0.i = and i64 %46, %11
-  %47 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<duckdb::interval_t, duckdb::ParquetIntervalTargetType, duckdb::ParquetIntervalOperator>::primitive_dictionary_entry_t", ptr %13, i64 %.0.i
+  %47 = getelementptr inbounds nuw [24 x i8], ptr %13, i64 %.0.i
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %49 = load i32, ptr %48, align 8, !tbaa !1850
   %50 = icmp eq i32 %49, -1
@@ -54849,7 +54826,7 @@ define linkonce_odr noundef i32 @_ZNK6duckdb19PrimitiveDictionaryINS_10interval_
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %7 = load ptr, ptr %6, align 8, !tbaa !1849
   %.010.i = and i64 %5, %3
-  %8 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<duckdb::interval_t, duckdb::ParquetIntervalTargetType, duckdb::ParquetIntervalOperator>::primitive_dictionary_entry_t", ptr %7, i64 %.010.i
+  %8 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %.010.i
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load i32, ptr %9, align 8, !tbaa !1850
   %11 = icmp eq i32 %10, -1
@@ -54910,7 +54887,7 @@ _ZNK6duckdb10interval_tneERKS0_.exit.i:           ; preds = %._crit_edge.i.i.i
 _ZNK6duckdb10interval_tneERKS0_.exit.thread.i:    ; preds = %_ZNK6duckdb10interval_tneERKS0_.exit.i, %._crit_edge.i.i.i
   %44 = add i64 %.011.i, 1
   %.0.i = and i64 %44, %5
-  %45 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveDictionary<duckdb::interval_t, duckdb::ParquetIntervalTargetType, duckdb::ParquetIntervalOperator>::primitive_dictionary_entry_t", ptr %7, i64 %.0.i
+  %45 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %.0.i
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %47 = load i32, ptr %46, align 8, !tbaa !1850
   %48 = icmp eq i32 %47, -1

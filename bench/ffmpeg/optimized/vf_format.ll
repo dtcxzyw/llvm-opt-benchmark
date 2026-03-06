@@ -340,7 +340,7 @@ define internal fastcc range(i32 -12, 1) i32 @invert_formats(ptr noundef %0, ptr
 .lr.ph:                                           ; preds = %.preheader
   %12 = load ptr, ptr %7, align 8, !tbaa !43
   %13 = sext i32 %.01523 to i64
-  %14 = getelementptr inbounds i32, ptr %12, i64 %13
+  %14 = getelementptr inbounds [4 x i8], ptr %12, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !44
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !43
@@ -363,7 +363,7 @@ define internal fastcc range(i32 -12, 1) i32 @invert_formats(ptr noundef %0, ptr
 
 20:                                               ; preds = %.lr.ph, %18
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %18 ]
-  %21 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %indvars.iv
   %22 = load i32, ptr %21, align 4, !tbaa !44
   %23 = icmp eq i32 %15, %22
   br i1 %23, label %24, label %18
@@ -371,7 +371,7 @@ define internal fastcc range(i32 -12, 1) i32 @invert_formats(ptr noundef %0, ptr
 24:                                               ; preds = %20
   %25 = add nsw i32 %.01523, 1
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds i32, ptr %12, i64 %26
+  %27 = getelementptr inbounds [4 x i8], ptr %12, i64 %26
   %28 = sub i32 %9, %25
   %29 = zext i32 %28 to i64
   %30 = shl nuw nsw i64 %29, 2

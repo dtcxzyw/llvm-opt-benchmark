@@ -1524,12 +1524,12 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i:                  ; preds = %71, %_ZNSt6vectorIi
 
 82:                                               ; preds = %82, %.lr.ph.i
   %.09.i = phi i64 [ 0, %.lr.ph.i ], [ %89, %82 ]
-  %83 = getelementptr inbounds nuw i32, ptr %75, i64 %.09.i
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %75, i64 %.09.i
   %84 = load i32, ptr %83, align 4, !tbaa !80
   %85 = sext i32 %84 to i64
-  %86 = getelementptr inbounds nuw i32, ptr %80, i64 %85
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %80, i64 %85
   %87 = load i32, ptr %86, align 4, !tbaa !80
-  %88 = getelementptr inbounds nuw i32, ptr %81, i64 %.09.i
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %81, i64 %.09.i
   store i32 %87, ptr %88, align 4, !tbaa !80
   %89 = add nuw i64 %.09.i, 1
   %exitcond.not.i = icmp eq i64 %89, %79
@@ -2323,14 +2323,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %46, %
 55:                                               ; preds = %51
   %56 = zext nneg i32 %54 to i64
   %57 = load ptr, ptr %52, align 8, !tbaa !98
-  %58 = getelementptr inbounds nuw i64, ptr %57, i64 %56
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %56
   %59 = load i64, ptr %58, align 8, !tbaa !70
   br label %98
 
 60:                                               ; preds = %51
   %61 = zext nneg i32 %54 to i64
   %62 = load ptr, ptr %52, align 8, !tbaa !100
-  %63 = getelementptr inbounds nuw double, ptr %62, i64 %61
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %61
   %64 = load double, ptr %63, align 8, !tbaa !103
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %65 = call double @modf(double noundef %64, ptr noundef nonnull %7) #23
@@ -2382,7 +2382,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35: ; preds = %72,
 79:                                               ; preds = %51
   %80 = zext nneg i32 %54 to i64
   %81 = load ptr, ptr %52, align 8, !tbaa !105
-  %82 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %81, i64 %80
+  %82 = getelementptr inbounds nuw [32 x i8], ptr %81, i64 %80
   %83 = load ptr, ptr %82, align 8, !tbaa !48
   %84 = tail call i64 @strtol(ptr noundef nonnull captures(none) %83, ptr noundef null, i32 noundef 10) #23
   %sext = shl i64 %84, 32
@@ -2554,7 +2554,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit17: ; preds = %42,
   %49 = phi i32 [ %2, %31 ], [ 0, %23 ]
   %50 = zext nneg i32 %49 to i64
   %51 = load ptr, ptr %48, align 8, !tbaa !105
-  %52 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %51, i64 %50
+  %52 = getelementptr inbounds nuw [32 x i8], ptr %51, i64 %50
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %53, ptr %0, align 8, !tbaa !38
   %54 = load ptr, ptr %52, align 8, !tbaa !48
@@ -2884,7 +2884,7 @@ _ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EED2Ev.exit.i: ; preds = %_ZNSt12_Vec
   resume { ptr, i32 } %18
 
 _ZNSt6vectorIS_IiSaIiEESaIS1_EEC2EmRKS1_RKS2_.exit: ; preds = %_ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EEC2EmRKS3_.exit.i
-  %19 = getelementptr inbounds nuw %"class.std::vector.22", ptr %16, i64 %1
+  %19 = getelementptr inbounds nuw [24 x i8], ptr %16, i64 %1
   %20 = load ptr, ptr %0, align 8, !tbaa !94
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !91
@@ -3828,12 +3828,12 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i:                  ; preds = %50, %_ZNSt6vectorIi
 
 61:                                               ; preds = %61, %.lr.ph.i
   %.09.i = phi i64 [ 0, %.lr.ph.i ], [ %68, %61 ]
-  %62 = getelementptr inbounds nuw i32, ptr %54, i64 %.09.i
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %.09.i
   %63 = load i32, ptr %62, align 4, !tbaa !80
   %64 = sext i32 %63 to i64
-  %65 = getelementptr inbounds nuw i32, ptr %59, i64 %64
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %64
   %66 = load i32, ptr %65, align 4, !tbaa !80
-  %67 = getelementptr inbounds nuw i32, ptr %60, i64 %.09.i
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %.09.i
   store i32 %66, ptr %67, align 4, !tbaa !80
   %68 = add nuw i64 %.09.i, 1
   %exitcond.not.i = icmp eq i64 %68, %58

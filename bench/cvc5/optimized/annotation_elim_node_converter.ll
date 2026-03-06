@@ -99,7 +99,7 @@ define hidden void @_ZN4cvc58internal27AnnotationElimNodeConverter11postConvertE
   %41 = icmp eq i32 %40, 2
   %42 = getelementptr inbounds nuw i8, ptr %33, i64 24
   %43 = zext i1 %41 to i64
-  %44 = getelementptr inbounds nuw ptr, ptr %42, i64 %43
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %43
   %45 = load ptr, ptr %44, align 8, !tbaa !14, !noalias !11
   store ptr %45, ptr %7, align 8, !tbaa !6, !alias.scope !11
   %46 = load i64, ptr %45, align 8, !noalias !11
@@ -145,7 +145,7 @@ _ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit:  ; preds = %51, %57, %59
   %69 = icmp eq i32 %68, 2
   %spec.select.i.i = select i1 %69, i64 2, i64 1
   %70 = getelementptr inbounds nuw i8, ptr %61, i64 24
-  %71 = getelementptr inbounds nuw ptr, ptr %70, i64 %spec.select.i.i
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %spec.select.i.i
   %72 = load ptr, ptr %71, align 8, !tbaa !14, !noalias !17
   store ptr %72, ptr %8, align 8, !tbaa !6, !alias.scope !17
   %73 = load i64, ptr %72, align 8, !noalias !17

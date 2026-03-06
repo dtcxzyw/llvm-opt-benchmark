@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %union.anon = type { ptr }
-%struct.roq_cell = type { [4 x i8], i8, i8 }
-%struct.roq_qcell = type { [4 x i32] }
 
 @.str = private unnamed_addr constant [9 x i8] c"roqvideo\00", align 1
 @.str.1 = private unnamed_addr constant [13 x i8] c"id RoQ video\00", align 1
@@ -218,7 +216,7 @@ bytestream2_get_byte.exit.i:                      ; preds = %64, %69
   %.pre-phi96 = phi i64 [ %32, %64 ], [ %.pre95, %69 ]
   %.sroa.0.18 = phi ptr [ %31, %64 ], [ %70, %69 ]
   %.0.i226.i = phi i8 [ 0, %64 ], [ %71, %69 ]
-  %72 = getelementptr inbounds nuw %struct.roq_cell, ptr %35, i64 %indvars.iv.i
+  %72 = getelementptr inbounds nuw [6 x i8], ptr %35, i64 %indvars.iv.i
   store i8 %.0.i226.i, ptr %72, align 2, !tbaa !42
   %73 = sub i64 %32, %.pre-phi96
   %74 = icmp slt i64 %73, 1
@@ -305,7 +303,7 @@ bytestream2_get_byte.exit236.i:                   ; preds = %bytestream2_get_byt
 .preheader275.i:                                  ; preds = %115, %.preheader275.lr.ph.i
   %indvars.iv340.i = phi i64 [ 0, %.preheader275.lr.ph.i ], [ %indvars.iv.next341.i, %115 ]
   %.promoted308.i = phi ptr [ %.sroa.0.22, %.preheader275.lr.ph.i ], [ %.sroa.0.23, %115 ]
-  %104 = getelementptr inbounds nuw %struct.roq_qcell, ptr %36, i64 %indvars.iv340.i
+  %104 = getelementptr inbounds nuw [16 x i8], ptr %36, i64 %indvars.iv340.i
   br label %105
 
 105:                                              ; preds = %bytestream2_get_byte.exit238.i, %.preheader275.i
@@ -325,7 +323,7 @@ bytestream2_get_byte.exit236.i:                   ; preds = %bytestream2_get_byt
 bytestream2_get_byte.exit238.i:                   ; preds = %105, %110
   %.sroa.0.23 = phi ptr [ %111, %110 ], [ %31, %105 ]
   %.0.i237.i = phi i32 [ %113, %110 ], [ 0, %105 ]
-  %114 = getelementptr inbounds nuw i32, ptr %104, i64 %indvars.iv336.i
+  %114 = getelementptr inbounds nuw [4 x i8], ptr %104, i64 %indvars.iv336.i
   store i32 %.0.i237.i, ptr %114, align 4, !tbaa !48
   %indvars.iv.next337.i = add nuw nsw i64 %indvars.iv336.i, 1
   %exitcond339.not.i = icmp eq i64 %indvars.iv.next337.i, 4
@@ -494,26 +492,26 @@ bytestream2_get_byte.exit240.i:                   ; preds = %164, %168
 bytestream2_get_byte.exit242.i:                   ; preds = %178, %182
   %.sroa.0.6 = phi ptr [ %183, %182 ], [ %31, %178 ]
   %.0.i241.i = phi i64 [ %185, %182 ], [ 0, %178 ]
-  %186 = getelementptr inbounds nuw %struct.roq_qcell, ptr %132, i64 %.0.i241.i
+  %186 = getelementptr inbounds nuw [16 x i8], ptr %132, i64 %.0.i241.i
   %187 = load i32, ptr %186, align 4, !tbaa !48
   %188 = sext i32 %187 to i64
-  %189 = getelementptr inbounds %struct.roq_cell, ptr %133, i64 %188
+  %189 = getelementptr inbounds [6 x i8], ptr %133, i64 %188
   tail call void @ff_apply_vector_4x4(ptr noundef %10, i32 noundef %.0180323.i, i32 noundef %.0179326.i, ptr noundef nonnull %189) #4
   %190 = add nsw i32 %.0180323.i, 4
   %191 = getelementptr inbounds nuw i8, ptr %186, i64 4
   %192 = load i32, ptr %191, align 4, !tbaa !48
   %193 = sext i32 %192 to i64
-  %194 = getelementptr inbounds %struct.roq_cell, ptr %133, i64 %193
+  %194 = getelementptr inbounds [6 x i8], ptr %133, i64 %193
   tail call void @ff_apply_vector_4x4(ptr noundef %10, i32 noundef %190, i32 noundef %.0179326.i, ptr noundef nonnull %194) #4
   %195 = getelementptr inbounds nuw i8, ptr %186, i64 8
   %196 = load i32, ptr %195, align 4, !tbaa !48
   %197 = sext i32 %196 to i64
-  %198 = getelementptr inbounds %struct.roq_cell, ptr %133, i64 %197
+  %198 = getelementptr inbounds [6 x i8], ptr %133, i64 %197
   tail call void @ff_apply_vector_4x4(ptr noundef %10, i32 noundef %.0180323.i, i32 noundef %146, ptr noundef nonnull %198) #4
   %199 = getelementptr inbounds nuw i8, ptr %186, i64 12
   %200 = load i32, ptr %199, align 4, !tbaa !48
   %201 = sext i32 %200 to i64
-  %202 = getelementptr inbounds %struct.roq_cell, ptr %133, i64 %201
+  %202 = getelementptr inbounds [6 x i8], ptr %133, i64 %201
   tail call void @ff_apply_vector_4x4(ptr noundef %10, i32 noundef %190, i32 noundef %146, ptr noundef nonnull %202) #4
   br label %.loopexit.i
 
@@ -604,27 +602,27 @@ bytestream2_get_byte.exit244.i:                   ; preds = %223, %227
 bytestream2_get_byte.exit246.i:                   ; preds = %237, %241
   %.sroa.0.11 = phi ptr [ %242, %241 ], [ %31, %237 ]
   %.0.i245.i = phi i64 [ %244, %241 ], [ 0, %237 ]
-  %245 = getelementptr inbounds nuw %struct.roq_qcell, ptr %132, i64 %.0.i245.i
+  %245 = getelementptr inbounds nuw [16 x i8], ptr %132, i64 %.0.i245.i
   %246 = load i32, ptr %245, align 4, !tbaa !48
   %247 = sext i32 %246 to i64
-  %248 = getelementptr inbounds %struct.roq_cell, ptr %133, i64 %247
+  %248 = getelementptr inbounds [6 x i8], ptr %133, i64 %247
   tail call void @ff_apply_vector_2x2(ptr noundef %10, i32 noundef %spec.select215.i, i32 noundef %.0177.i, ptr noundef nonnull %248) #4
   %249 = add nsw i32 %spec.select215.i, 2
   %250 = getelementptr inbounds nuw i8, ptr %245, i64 4
   %251 = load i32, ptr %250, align 4, !tbaa !48
   %252 = sext i32 %251 to i64
-  %253 = getelementptr inbounds %struct.roq_cell, ptr %133, i64 %252
+  %253 = getelementptr inbounds [6 x i8], ptr %133, i64 %252
   tail call void @ff_apply_vector_2x2(ptr noundef %10, i32 noundef %249, i32 noundef %.0177.i, ptr noundef nonnull %253) #4
   %254 = add nsw i32 %.0177.i, 2
   %255 = getelementptr inbounds nuw i8, ptr %245, i64 8
   %256 = load i32, ptr %255, align 4, !tbaa !48
   %257 = sext i32 %256 to i64
-  %258 = getelementptr inbounds %struct.roq_cell, ptr %133, i64 %257
+  %258 = getelementptr inbounds [6 x i8], ptr %133, i64 %257
   tail call void @ff_apply_vector_2x2(ptr noundef %10, i32 noundef %spec.select215.i, i32 noundef %254, ptr noundef nonnull %258) #4
   %259 = getelementptr inbounds nuw i8, ptr %245, i64 12
   %260 = load i32, ptr %259, align 4, !tbaa !48
   %261 = sext i32 %260 to i64
-  %262 = getelementptr inbounds %struct.roq_cell, ptr %133, i64 %261
+  %262 = getelementptr inbounds [6 x i8], ptr %133, i64 %261
   tail call void @ff_apply_vector_2x2(ptr noundef %10, i32 noundef %249, i32 noundef %254, ptr noundef nonnull %262) #4
   br label %295
 
@@ -645,7 +643,7 @@ bytestream2_get_byte.exit248.i:                   ; preds = %263, %267
   %.pre-phi90 = phi i64 [ %32, %263 ], [ %.pre89, %267 ]
   %.sroa.0.13 = phi ptr [ %31, %263 ], [ %268, %267 ]
   %.0.i247.i = phi i64 [ 0, %263 ], [ %270, %267 ]
-  %271 = getelementptr inbounds nuw %struct.roq_cell, ptr %133, i64 %.0.i247.i
+  %271 = getelementptr inbounds nuw [6 x i8], ptr %133, i64 %.0.i247.i
   tail call void @ff_apply_vector_2x2(ptr noundef %10, i32 noundef %spec.select215.i, i32 noundef %.0177.i, ptr noundef nonnull %271) #4
   %272 = add nsw i32 %spec.select215.i, 2
   %273 = sub i64 %32, %.pre-phi90
@@ -663,7 +661,7 @@ bytestream2_get_byte.exit250.i:                   ; preds = %bytestream2_get_byt
   %.pre-phi92 = phi i64 [ %32, %bytestream2_get_byte.exit248.i ], [ %.pre91, %275 ]
   %.sroa.0.14 = phi ptr [ %31, %bytestream2_get_byte.exit248.i ], [ %276, %275 ]
   %.0.i249.i = phi i64 [ 0, %bytestream2_get_byte.exit248.i ], [ %278, %275 ]
-  %279 = getelementptr inbounds nuw %struct.roq_cell, ptr %133, i64 %.0.i249.i
+  %279 = getelementptr inbounds nuw [6 x i8], ptr %133, i64 %.0.i249.i
   tail call void @ff_apply_vector_2x2(ptr noundef nonnull %10, i32 noundef %272, i32 noundef %.0177.i, ptr noundef nonnull %279) #4
   %280 = add nsw i32 %.0177.i, 2
   %281 = sub i64 %32, %.pre-phi92
@@ -681,7 +679,7 @@ bytestream2_get_byte.exit252.i:                   ; preds = %bytestream2_get_byt
   %.pre-phi94 = phi i64 [ %32, %bytestream2_get_byte.exit250.i ], [ %.pre93, %283 ]
   %.sroa.0.15 = phi ptr [ %31, %bytestream2_get_byte.exit250.i ], [ %284, %283 ]
   %.0.i251.i = phi i64 [ 0, %bytestream2_get_byte.exit250.i ], [ %286, %283 ]
-  %287 = getelementptr inbounds nuw %struct.roq_cell, ptr %133, i64 %.0.i251.i
+  %287 = getelementptr inbounds nuw [6 x i8], ptr %133, i64 %.0.i251.i
   tail call void @ff_apply_vector_2x2(ptr noundef nonnull %10, i32 noundef %spec.select215.i, i32 noundef %280, ptr noundef nonnull %287) #4
   %288 = sub i64 %32, %.pre-phi94
   %289 = icmp slt i64 %288, 1
@@ -696,7 +694,7 @@ bytestream2_get_byte.exit252.i:                   ; preds = %bytestream2_get_byt
 bytestream2_get_byte.exit254.i:                   ; preds = %bytestream2_get_byte.exit252.i, %290
   %.sroa.0.16 = phi ptr [ %291, %290 ], [ %31, %bytestream2_get_byte.exit252.i ]
   %.0.i253.i = phi i64 [ %293, %290 ], [ 0, %bytestream2_get_byte.exit252.i ]
-  %294 = getelementptr inbounds nuw %struct.roq_cell, ptr %133, i64 %.0.i253.i
+  %294 = getelementptr inbounds nuw [6 x i8], ptr %133, i64 %.0.i253.i
   tail call void @ff_apply_vector_2x2(ptr noundef nonnull %10, i32 noundef %272, i32 noundef %280, ptr noundef nonnull %294) #4
   br label %295
 

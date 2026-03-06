@@ -8,16 +8,11 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._cms_typehandler_struct = type { i32, ptr, ptr, ptr, ptr, ptr, i32 }
 %struct._cmsTagPluginChunkType = type { ptr }
 %struct.cmsDateTimeNumber = type { i16, i16, i16, i16, i16, i16 }
-%struct._cmsMLUentry = type { i16, i16, i32, i32 }
-%struct.cmsPSEQDESC = type { i32, i32, i64, i32, %union.cmsProfileID, ptr, ptr, ptr }
-%union.cmsProfileID = type { [4 x i32] }
 %struct.cmsICCMeasurementConditions = type { i32, %struct.cmsCIEXYZ, i32, double, i32 }
 %struct.cmsCIEXYZ = type { double, double, double }
-%struct.cmsScreeningChannel = type { double, double, i32 }
 %struct._cmsDICarray = type { %struct._cmsDICelem, %struct._cmsDICelem, %struct._cmsDICelem, %struct._cmsDICelem }
 %struct._cmsDICelem = type { ptr, ptr, ptr }
 %struct._cmsVCGTGAMMA = type { double, double, double }
-%struct.cmsCurveSegment = type { float, float, i32, [10 x double], i32, ptr }
 
 @_cmsMPETypePluginChunk = hidden local_unnamed_addr global %struct._cmsTagTypePluginChunkType zeroinitializer, align 8
 @_cmsTagTypePluginChunk = hidden local_unnamed_addr global %struct._cmsTagTypePluginChunkType zeroinitializer, align 8
@@ -95,8 +90,8 @@ define hidden range(i32 0, 2) i32 @IsIdentity(ptr noundef readonly captures(none
 
 .preheader:                                       ; preds = %1, %19
   %indvars.iv16 = phi i64 [ 0, %1 ], [ %indvars.iv.next17, %19 ]
-  %8 = getelementptr inbounds nuw [4 x double], ptr %0, i64 %indvars.iv16
-  %9 = getelementptr inbounds nuw [4 x double], ptr %2, i64 %indvars.iv16
+  %8 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %indvars.iv16
+  %9 = getelementptr inbounds nuw [32 x i8], ptr %2, i64 %indvars.iv16
   br label %11
 
 10:                                               ; preds = %11
@@ -106,9 +101,9 @@ define hidden range(i32 0, 2) i32 @IsIdentity(ptr noundef readonly captures(none
 
 11:                                               ; preds = %.preheader, %10
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %10 ]
-  %12 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %13 = load double, ptr %12, align 8
-  %14 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %15 = load double, ptr %14, align 8
   %16 = fsub double %15, %13
   %17 = tail call double @llvm.fabs.f64(double %16)
@@ -961,7 +956,7 @@ define internal ptr @Type_S15Fixed16_Read(ptr noundef readonly captures(none) %0
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %10 ]
-  %11 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %12 = tail call i32 @_cmsRead15Fixed16Number(ptr noundef %1, ptr noundef nonnull %11) #14
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %13, label %10
@@ -996,7 +991,7 @@ define internal range(i32 0, 2) i32 @Type_S15Fixed16_Write(ptr readnone captures
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %5
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %5 ]
-  %6 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %7 = load double, ptr %6, align 8
   %8 = tail call i32 @_cmsWrite15Fixed16Number(ptr noundef %1, double noundef %7) #14
   %.not = icmp eq i32 %8, 0
@@ -1058,7 +1053,7 @@ define internal ptr @Type_U16Fixed16_Read(ptr noundef readonly captures(none) %0
   %15 = load i32, ptr %5, align 4
   %16 = uitofp i32 %15 to double
   %17 = fmul nnan double %16, 0x3EF0000000000000
-  %18 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   store double %17, ptr %18, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1089,7 +1084,7 @@ define internal range(i32 0, 2) i32 @Type_U16Fixed16_Write(ptr readnone captures
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %5
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %5 ]
-  %6 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %7 = load double, ptr %6, align 8
   %8 = tail call double @llvm.fmuladd.f64(double %7, double 6.553600e+04, double 5.000000e-01)
   %9 = tail call double @llvm.floor.f64(double %8)
@@ -1322,7 +1317,7 @@ define internal ptr @Type_Text_Description_Read(ptr noundef readonly captures(no
 67:                                               ; preds = %62
   %68 = load i32, ptr %7, align 4
   %69 = zext i32 %68 to i64
-  %70 = getelementptr inbounds nuw i32, ptr %60, i64 %69
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %69
   store i32 0, ptr %70, align 4
   %71 = call i32 @cmsMLUsetWide(ptr noundef nonnull %21, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.1, ptr noundef nonnull %60) #14
   %.not71 = icmp eq i32 %71, 0
@@ -1464,7 +1459,7 @@ _cmsWriteWCharArray.exit.thread72.thread:         ; preds = %17
 
 .lr.ph.i:                                         ; preds = %47, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %47 ]
-  %48 = getelementptr inbounds nuw i32, ptr %.050, i64 %indvars.iv.i
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %.050, i64 %indvars.iv.i
   %49 = load i32, ptr %48, align 4
   %50 = trunc i32 %49 to i16
   %51 = tail call i32 @_cmsWriteUInt16Number(ptr noundef nonnull %1, i16 noundef zeroext %50) #14
@@ -1704,7 +1699,7 @@ define internal ptr @Type_ParametricCurve_Read(ptr noundef readonly captures(non
 .lr.ph.preheader:                                 ; preds = %10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %5, i8 0, i64 80, i1 false)
   %17 = zext nneg i16 %11 to i64
-  %18 = getelementptr inbounds nuw i32, ptr @Type_ParametricCurve_Read.ParamsByType, i64 %17
+  %18 = getelementptr inbounds nuw [4 x i8], ptr @Type_ParametricCurve_Read.ParamsByType, i64 %17
   %19 = load i32, ptr %18, align 4
   %smax = call i32 @llvm.smax.i32(i32 %19, i32 1)
   %wide.trip.count = zext nneg i32 %smax to i64
@@ -1717,7 +1712,7 @@ define internal ptr @Type_ParametricCurve_Read(ptr noundef readonly captures(non
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %20
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %20 ]
-  %21 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %22 = call i32 @_cmsRead15Fixed16Number(ptr noundef %1, ptr noundef nonnull %21) #14
   %.not14 = icmp eq i32 %22, 0
   br i1 %.not14, label %.loopexit, label %20
@@ -1756,7 +1751,7 @@ define internal range(i32 0, 2) i32 @Type_ParametricCurve_Write(ptr noundef read
 
 15:                                               ; preds = %13
   %16 = zext nneg i32 %8 to i64
-  %17 = getelementptr inbounds nuw i32, ptr @Type_ParametricCurve_Write.ParamsByType, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr @Type_ParametricCurve_Write.ParamsByType, i64 %16
   %18 = load i32, ptr %17, align 4
   %19 = trunc nuw nsw i32 %8 to i16
   %20 = add nsw i16 %19, -1
@@ -1783,7 +1778,7 @@ define internal range(i32 0, 2) i32 @Type_ParametricCurve_Write(ptr noundef read
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %24 ]
   %25 = load ptr, ptr %5, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  %27 = getelementptr inbounds nuw double, ptr %26, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv
   %28 = load double, ptr %27, align 8
   %29 = tail call i32 @_cmsWrite15Fixed16Number(ptr noundef %1, double noundef %28) #14
   %.not21 = icmp eq i32 %29, 0
@@ -2261,7 +2256,7 @@ define internal range(i32 0, 2) i32 @Type_LUT8_Write(ptr noundef readonly captur
   %indvars.iv = phi i64 [ %indvars.iv.next, %57 ], [ 1, %50 ]
   %61 = load ptr, ptr %51, align 8
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 20
-  %63 = getelementptr inbounds nuw i32, ptr %62, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %indvars.iv
   %64 = load i32, ptr %63, align 4
   %.not92 = icmp eq i32 %64, %54
   br i1 %.not92, label %57, label %65
@@ -2314,7 +2309,7 @@ define internal range(i32 0, 2) i32 @Type_LUT8_Write(ptr noundef readonly captur
 .preheader185:                                    ; preds = %80, %81
   %indvars.iv195 = phi i64 [ %indvars.iv.next196, %81 ], [ 0, %80 ]
   %82 = load ptr, ptr %.077116122139159181, align 8
-  %83 = getelementptr inbounds nuw double, ptr %82, i64 %indvars.iv195
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %82, i64 %indvars.iv195
   %84 = load double, ptr %83, align 8
   %85 = tail call i32 @_cmsWrite15Fixed16Number(ptr noundef %1, double noundef %84) #14
   %.not110 = icmp eq i32 %85, 0
@@ -2427,7 +2422,7 @@ define internal range(i32 0, 2) i32 @Type_LUT8_Write(ptr noundef readonly captur
 .preheader:                                       ; preds = %.preheader.preheader, %122
   %indvars.iv198 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next199, %122 ]
   %123 = load ptr, ptr %.076140158182, align 8
-  %124 = getelementptr inbounds nuw i16, ptr %123, i64 %indvars.iv198
+  %124 = getelementptr inbounds nuw [2 x i8], ptr %123, i64 %indvars.iv198
   %125 = load i16, ptr %124, align 2
   %126 = zext i16 %125 to i32
   %127 = mul nuw i32 %126, 65281
@@ -2843,7 +2838,7 @@ define internal range(i32 0, 2) i32 @Type_LUT16_Write(ptr noundef readonly captu
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %54
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %54 ]
-  %55 = getelementptr inbounds nuw i32, ptr %51, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %indvars.iv
   %56 = load i32, ptr %55, align 4
   %.not110 = icmp eq i32 %56, %52
   br i1 %.not110, label %54, label %57
@@ -2890,7 +2885,7 @@ define internal range(i32 0, 2) i32 @Type_LUT16_Write(ptr noundef readonly captu
 .preheader213:                                    ; preds = %70, %71
   %indvars.iv231 = phi i64 [ %indvars.iv.next232, %71 ], [ 0, %70 ]
   %72 = load ptr, ptr %.098142154172192, align 8
-  %73 = getelementptr inbounds nuw double, ptr %72, i64 %indvars.iv231
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %indvars.iv231
   %74 = load double, ptr %73, align 8
   %75 = tail call i32 @_cmsWrite15Fixed16Number(ptr noundef %1, double noundef %74) #14
   %.not138 = icmp eq i32 %75, 0
@@ -3510,14 +3505,14 @@ define internal ptr @Type_MLU_Read(ptr noundef readonly captures(none) %0, ptr n
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %49 ]
   %.075 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %49 ]
   %29 = load ptr, ptr %25, align 8
-  %30 = getelementptr inbounds nuw %struct._cmsMLUentry, ptr %29, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [12 x i8], ptr %29, i64 %indvars.iv
   %31 = call i32 @_cmsReadUInt16Number(ptr noundef %1, ptr noundef %30) #14
   %.not64 = icmp eq i32 %31, 0
   br i1 %.not64, label %.loopexit, label %32
 
 32:                                               ; preds = %28
   %33 = load ptr, ptr %25, align 8
-  %34 = getelementptr inbounds nuw %struct._cmsMLUentry, ptr %33, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [12 x i8], ptr %33, i64 %indvars.iv
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 2
   %36 = call i32 @_cmsReadUInt16Number(ptr noundef %1, ptr noundef nonnull %35) #14
   %.not65 = icmp eq i32 %36, 0
@@ -3553,12 +3548,12 @@ define internal ptr @Type_MLU_Read(ptr noundef readonly captures(none) %0, ptr n
   %50 = add i32 %reass.sub, -16
   %51 = shl i32 %45, 1
   %52 = load ptr, ptr %25, align 8
-  %53 = getelementptr inbounds nuw %struct._cmsMLUentry, ptr %52, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [12 x i8], ptr %52, i64 %indvars.iv
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   store i32 %51, ptr %54, align 4
   %55 = shl i32 %50, 1
   %56 = load ptr, ptr %25, align 8
-  %57 = getelementptr inbounds nuw %struct._cmsMLUentry, ptr %56, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [12 x i8], ptr %56, i64 %indvars.iv
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 4
   store i32 %55, ptr %58, align 4
   %59 = load i32, ptr %7, align 4
@@ -3662,7 +3657,7 @@ define internal range(i32 0, 2) i32 @Type_MLU_Write(ptr readnone captures(none) 
 25:                                               ; preds = %.lr.ph, %21
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
   %26 = load ptr, ptr %19, align 8
-  %27 = getelementptr inbounds nuw %struct._cmsMLUentry, ptr %26, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [12 x i8], ptr %26, i64 %indvars.iv
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load i32, ptr %28, align 4
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 4
@@ -3677,7 +3672,7 @@ define internal range(i32 0, 2) i32 @Type_MLU_Write(ptr readnone captures(none) 
 
 37:                                               ; preds = %25
   %38 = load ptr, ptr %19, align 8
-  %39 = getelementptr inbounds nuw %struct._cmsMLUentry, ptr %38, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [12 x i8], ptr %38, i64 %indvars.iv
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 2
   %41 = load i16, ptr %40, align 2
   %42 = tail call i32 @_cmsWriteUInt16Number(ptr noundef %1, i16 noundef zeroext %41) #14
@@ -3714,7 +3709,7 @@ define internal range(i32 0, 2) i32 @Type_MLU_Write(ptr readnone captures(none) 
 
 .lr.ph.i:                                         ; preds = %52, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %52 ]
-  %53 = getelementptr inbounds nuw i32, ptr %51, i64 %indvars.iv.i
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %indvars.iv.i
   %54 = load i32, ptr %53, align 4
   %55 = trunc i32 %54 to i16
   %56 = tail call i32 @_cmsWriteUInt16Number(ptr noundef %1, i16 noundef zeroext %55) #14
@@ -3778,7 +3773,7 @@ define internal ptr @Type_ProfileSequenceDesc_Read(ptr noundef readonly captures
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %18 ]
   %.05060 = phi i32 [ %16, %.lr.ph ], [ %46, %18 ]
   %23 = load ptr, ptr %17, align 8
-  %24 = getelementptr inbounds nuw %struct.cmsPSEQDESC, ptr %23, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [64 x i8], ptr %23, i64 %indvars.iv
   %25 = call i32 @_cmsReadUInt32Number(ptr noundef %1, ptr noundef %24) #14
   %26 = icmp eq i32 %25, 0
   %27 = icmp ult i32 %.05060, 4
@@ -3864,7 +3859,7 @@ define internal range(i32 0, 2) i32 @Type_ProfileSequenceDesc_Write(ptr noundef 
 14:                                               ; preds = %.lr.ph, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
   %15 = load ptr, ptr %7, align 8
-  %16 = getelementptr inbounds nuw %struct.cmsPSEQDESC, ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [64 x i8], ptr %15, i64 %indvars.iv
   %17 = load i32, ptr %16, align 8
   %18 = tail call i32 @_cmsWriteUInt32Number(ptr noundef %1, i32 noundef %17) #14
   %.not23 = icmp eq i32 %18, 0
@@ -5598,7 +5593,7 @@ define internal range(i32 0, 2) i32 @Type_MPE_Write(ptr noundef %0, ptr noundef 
   %43 = tail call i32 %42(ptr noundef nonnull %1) #14
   %reass.sub = sub i32 %43, %12
   %44 = add i32 %reass.sub, 8
-  %45 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %indvars.iv
   store i32 %44, ptr %45, align 4
   %46 = getelementptr inbounds nuw i8, ptr %.087128, i64 8
   %47 = load i32, ptr %46, align 8
@@ -5668,7 +5663,7 @@ GetHandler.exit:                                  ; preds = %56
   %72 = load ptr, ptr %10, align 8
   %73 = tail call i32 %72(ptr noundef nonnull %1) #14
   %74 = sub i32 %73, %65
-  %75 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %indvars.iv
   store i32 %74, ptr %75, align 4
   %76 = getelementptr inbounds nuw i8, ptr %.087128, i64 56
   %77 = load ptr, ptr %76, align 8
@@ -5699,14 +5694,14 @@ GetHandler.exit:                                  ; preds = %56
 
 .lr.ph132:                                        ; preds = %.lr.ph132.preheader, %83
   %indvars.iv146 = phi i64 [ 0, %.lr.ph132.preheader ], [ %indvars.iv.next147, %83 ]
-  %84 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv146
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %indvars.iv146
   %85 = load i32, ptr %84, align 4
   %86 = tail call i32 @_cmsWriteUInt32Number(ptr noundef nonnull %1, i32 noundef %85) #14
   %.not99 = icmp eq i32 %86, 0
   br i1 %.not99, label %.thread.thread, label %87
 
 87:                                               ; preds = %.lr.ph132
-  %88 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv146
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %indvars.iv146
   %89 = load i32, ptr %88, align 4
   %90 = tail call i32 @_cmsWriteUInt32Number(ptr noundef nonnull %1, i32 noundef %89) #14
   %.not100 = icmp eq i32 %90, 0
@@ -5795,7 +5790,7 @@ define internal ptr @Type_Screening_Read(ptr noundef readonly captures(none) %0,
 
 23:                                               ; preds = %.lr.ph, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %19 ]
-  %24 = getelementptr inbounds nuw %struct.cmsScreeningChannel, ptr %18, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [24 x i8], ptr %18, i64 %indvars.iv
   %25 = tail call i32 @_cmsRead15Fixed16Number(ptr noundef %1, ptr noundef nonnull %24) #14
   %.not29 = icmp eq i32 %25, 0
   br i1 %.not29, label %.loopexit, label %26
@@ -5855,7 +5850,7 @@ define internal range(i32 0, 2) i32 @Type_Screening_Write(ptr readnone captures(
 
 .lr.ph:                                           ; preds = %.preheader, %13
   %indvars.iv = phi i64 [ %indvars.iv.next, %13 ], [ 0, %.preheader ]
-  %17 = getelementptr inbounds nuw %struct.cmsScreeningChannel, ptr %11, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [24 x i8], ptr %11, i64 %indvars.iv
   %18 = load double, ptr %17, align 8
   %19 = tail call i32 @_cmsWrite15Fixed16Number(ptr noundef %1, double noundef %18) #14
   %.not19 = icmp eq i32 %19, 0
@@ -6208,13 +6203,13 @@ define internal ptr @Type_Dictionary_Read(ptr noundef readonly captures(none) %0
   br i1 %63, label %.thread99, label %64
 
 64:                                               ; preds = %.lr.ph.split.us.i
-  %65 = getelementptr inbounds nuw i32, ptr %55, i64 %indvars.iv67.i
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %indvars.iv67.i
   %66 = call i32 @_cmsReadUInt32Number(ptr noundef nonnull %1, ptr noundef %65) #14
   %.not.i.us.i = icmp eq i32 %66, 0
   br i1 %.not.i.us.i, label %.thread99, label %67
 
 67:                                               ; preds = %64
-  %68 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv67.i
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %indvars.iv67.i
   %69 = call i32 @_cmsReadUInt32Number(ptr noundef nonnull %1, ptr noundef %68) #14
   %.not12.i.us.i = icmp eq i32 %69, 0
   br i1 %.not12.i.us.i, label %.thread99, label %70
@@ -6230,13 +6225,13 @@ define internal ptr @Type_Dictionary_Read(ptr noundef readonly captures(none) %0
   br label %ReadOneElem.exit.us.i
 
 ReadOneElem.exit.us.i:                            ; preds = %72, %70
-  %74 = getelementptr inbounds nuw i32, ptr %57, i64 %indvars.iv67.i
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %indvars.iv67.i
   %75 = call i32 @_cmsReadUInt32Number(ptr noundef nonnull %1, ptr noundef %74) #14
   %.not.i36.us.i = icmp eq i32 %75, 0
   br i1 %.not.i36.us.i, label %.thread99, label %76
 
 76:                                               ; preds = %ReadOneElem.exit.us.i
-  %77 = getelementptr inbounds nuw i32, ptr %58, i64 %indvars.iv67.i
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %indvars.iv67.i
   %78 = call i32 @_cmsReadUInt32Number(ptr noundef nonnull %1, ptr noundef %77) #14
   %.not12.i37.us.i = icmp eq i32 %78, 0
   br i1 %.not12.i37.us.i, label %.thread99, label %79
@@ -6257,13 +6252,13 @@ ReadOneElem.exit40.us.i:                          ; preds = %81, %79
 
 84:                                               ; preds = %ReadOneElem.exit40.us.i
   %85 = add nsw i32 %.063.us.i, -24
-  %86 = getelementptr inbounds nuw i32, ptr %59, i64 %indvars.iv67.i
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %indvars.iv67.i
   %87 = call i32 @_cmsReadUInt32Number(ptr noundef nonnull %1, ptr noundef %86) #14
   %.not.i41.us.i = icmp eq i32 %87, 0
   br i1 %.not.i41.us.i, label %.thread99, label %88
 
 88:                                               ; preds = %84
-  %89 = getelementptr inbounds nuw i32, ptr %60, i64 %indvars.iv67.i
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %indvars.iv67.i
   %90 = call i32 @_cmsReadUInt32Number(ptr noundef nonnull %1, ptr noundef %89) #14
   %.not12.i42.us.i = icmp eq i32 %90, 0
   br i1 %.not12.i42.us.i, label %.thread99, label %91
@@ -6287,13 +6282,13 @@ ReadOneElem.exit45.us.i:                          ; preds = %93, %91
 
 97:                                               ; preds = %95
   %98 = add nsw i32 %.063.us.i, -32
-  %99 = getelementptr inbounds nuw i32, ptr %61, i64 %indvars.iv67.i
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %indvars.iv67.i
   %100 = call i32 @_cmsReadUInt32Number(ptr noundef nonnull %1, ptr noundef %99) #14
   %.not.i46.us.i = icmp eq i32 %100, 0
   br i1 %.not.i46.us.i, label %.thread99, label %101
 
 101:                                              ; preds = %97
-  %102 = getelementptr inbounds nuw i32, ptr %62, i64 %indvars.iv67.i
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %indvars.iv67.i
   %103 = call i32 @_cmsReadUInt32Number(ptr noundef nonnull %1, ptr noundef %102) #14
   %.not12.i47.us.i = icmp eq i32 %103, 0
   br i1 %.not12.i47.us.i, label %.thread99, label %104
@@ -6322,13 +6317,13 @@ ReadOneElem.exit50.us.i:                          ; preds = %106, %104, %ReadOne
 
 109:                                              ; preds = %.lr.ph.split.i
   %110 = add nsw i32 %.063.i, -16
-  %111 = getelementptr inbounds nuw i32, ptr %47, i64 %indvars.iv.i
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %indvars.iv.i
   %112 = call i32 @_cmsReadUInt32Number(ptr noundef nonnull %1, ptr noundef %111) #14
   %.not.i.i = icmp eq i32 %112, 0
   br i1 %.not.i.i, label %.thread99, label %113
 
 113:                                              ; preds = %109
-  %114 = getelementptr inbounds nuw i32, ptr %48, i64 %indvars.iv.i
+  %114 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %indvars.iv.i
   %115 = call i32 @_cmsReadUInt32Number(ptr noundef nonnull %1, ptr noundef %114) #14
   %.not12.i.i = icmp eq i32 %115, 0
   br i1 %.not12.i.i, label %.thread99, label %116
@@ -6344,13 +6339,13 @@ ReadOneElem.exit50.us.i:                          ; preds = %106, %104, %ReadOne
   br label %ReadOneElem.exit.i
 
 ReadOneElem.exit.i:                               ; preds = %118, %116
-  %120 = getelementptr inbounds nuw i32, ptr %49, i64 %indvars.iv.i
+  %120 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %indvars.iv.i
   %121 = call i32 @_cmsReadUInt32Number(ptr noundef nonnull %1, ptr noundef %120) #14
   %.not.i36.i = icmp eq i32 %121, 0
   br i1 %.not.i36.i, label %.thread99, label %122
 
 122:                                              ; preds = %ReadOneElem.exit.i
-  %123 = getelementptr inbounds nuw i32, ptr %50, i64 %indvars.iv.i
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %indvars.iv.i
   %124 = call i32 @_cmsReadUInt32Number(ptr noundef nonnull %1, ptr noundef %123) #14
   %.not12.i37.i = icmp eq i32 %124, 0
   br i1 %.not12.i37.i, label %.thread99, label %125
@@ -6414,13 +6409,13 @@ ReadOffsetArray.exit:                             ; preds = %ReadOneElem.exit40.
   %.val = load ptr, ptr %130, align 8
   %.val62 = load ptr, ptr %131, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %148 = getelementptr inbounds nuw i32, ptr %.val, i64 %indvars.iv
+  %148 = getelementptr inbounds nuw [4 x i8], ptr %.val, i64 %indvars.iv
   %149 = load i32, ptr %148, align 4
   %150 = icmp eq i32 %149, 0
   br i1 %150, label %ReadOneMLUC.exit.thread, label %151
 
 151:                                              ; preds = %147
-  %152 = getelementptr inbounds nuw i32, ptr %.val62, i64 %indvars.iv
+  %152 = getelementptr inbounds nuw [4 x i8], ptr %.val62, i64 %indvars.iv
   %153 = load i32, ptr %152, align 4
   %154 = icmp eq i32 %153, 0
   br i1 %154, label %ReadOneMLUC.exit.thread, label %155
@@ -6460,13 +6455,13 @@ ReadOneMLUC.exit._crit_edge:                      ; preds = %ReadOneMLUC.exit
   %.val63 = load ptr, ptr %133, align 8
   %.val64 = load ptr, ptr %134, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %163 = getelementptr inbounds nuw i32, ptr %.val63, i64 %indvars.iv
+  %163 = getelementptr inbounds nuw [4 x i8], ptr %.val63, i64 %indvars.iv
   %164 = load i32, ptr %163, align 4
   %165 = icmp eq i32 %164, 0
   br i1 %165, label %ReadOneMLUC.exit68.thread, label %166
 
 166:                                              ; preds = %162
-  %167 = getelementptr inbounds nuw i32, ptr %.val64, i64 %indvars.iv
+  %167 = getelementptr inbounds nuw [4 x i8], ptr %.val64, i64 %indvars.iv
   %168 = load i32, ptr %167, align 4
   %169 = icmp eq i32 %168, 0
   br i1 %169, label %ReadOneMLUC.exit68.thread, label %170
@@ -6677,13 +6672,13 @@ define internal range(i32 0, 2) i32 @Type_Dictionary_Write(ptr noundef readonly 
   %52 = load ptr, ptr %8, align 8
   %53 = tail call i32 %52(ptr noundef nonnull %1) #14
   %54 = sub i32 %53, %11
-  %55 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %indvars.iv
   store i32 %54, ptr %55, align 4
   %56 = icmp eq ptr %51, null
   br i1 %56, label %57, label %59
 
 57:                                               ; preds = %49
-  %58 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %indvars.iv
   store i32 0, ptr %58, align 4
   br label %69
 
@@ -6700,7 +6695,7 @@ define internal range(i32 0, 2) i32 @Type_Dictionary_Write(ptr noundef readonly 
 
 .lr.ph.i.i:                                       ; preds = %59, %61
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %61 ], [ 0, %59 ]
-  %62 = getelementptr inbounds nuw i32, ptr %51, i64 %indvars.iv.i.i
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %indvars.iv.i.i
   %63 = load i32, ptr %62, align 4
   %64 = trunc i32 %63 to i16
   %65 = tail call i32 @_cmsWriteUInt16Number(ptr noundef nonnull %1, i16 noundef zeroext %64) #14
@@ -6717,20 +6712,20 @@ define internal range(i32 0, 2) i32 @Type_Dictionary_Write(ptr noundef readonly 
   %.sink26.in.i = phi ptr [ %39, %.loopexit.i ], [ %37, %57 ]
   %.sink.i = phi i32 [ %68, %.loopexit.i ], [ 0, %57 ]
   %.sink26.i = load ptr, ptr %.sink26.in.i, align 8
-  %70 = getelementptr inbounds nuw i32, ptr %.sink26.i, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %.sink26.i, i64 %indvars.iv
   store i32 %.sink.i, ptr %70, align 4
   %71 = getelementptr inbounds nuw i8, ptr %.1133, i64 32
   %72 = load ptr, ptr %71, align 8
   %73 = load ptr, ptr %8, align 8
   %74 = tail call i32 %73(ptr noundef nonnull %1) #14
   %75 = sub i32 %74, %11
-  %76 = getelementptr inbounds nuw i32, ptr %42, i64 %indvars.iv
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %indvars.iv
   store i32 %75, ptr %76, align 4
   %77 = icmp eq ptr %72, null
   br i1 %77, label %78, label %80
 
 78:                                               ; preds = %69
-  %79 = getelementptr inbounds nuw i32, ptr %44, i64 %indvars.iv
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %indvars.iv
   store i32 0, ptr %79, align 4
   br label %90
 
@@ -6747,7 +6742,7 @@ define internal range(i32 0, 2) i32 @Type_Dictionary_Write(ptr noundef readonly 
 
 .lr.ph.i.i97:                                     ; preds = %80, %82
   %indvars.iv.i.i98 = phi i64 [ %indvars.iv.next.i.i100, %82 ], [ 0, %80 ]
-  %83 = getelementptr inbounds nuw i32, ptr %72, i64 %indvars.iv.i.i98
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %indvars.iv.i.i98
   %84 = load i32, ptr %83, align 4
   %85 = trunc i32 %84 to i16
   %86 = tail call i32 @_cmsWriteUInt16Number(ptr noundef nonnull %1, i16 noundef zeroext %85) #14
@@ -6764,7 +6759,7 @@ define internal range(i32 0, 2) i32 @Type_Dictionary_Write(ptr noundef readonly 
   %.sink26.in.i104 = phi ptr [ %43, %.loopexit.i102 ], [ %41, %78 ]
   %.sink.i105 = phi i32 [ %89, %.loopexit.i102 ], [ 0, %78 ]
   %.sink26.i106 = load ptr, ptr %.sink26.in.i104, align 8
-  %91 = getelementptr inbounds nuw i32, ptr %.sink26.i106, i64 %indvars.iv
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %.sink26.i106, i64 %indvars.iv
   store i32 %.sink.i105, ptr %91, align 4
   %92 = getelementptr inbounds nuw i8, ptr %.1133, i64 8
   %93 = load ptr, ptr %92, align 8
@@ -6778,7 +6773,7 @@ define internal range(i32 0, 2) i32 @Type_Dictionary_Write(ptr noundef readonly 
 
 97:                                               ; preds = %94
   %98 = sub i32 %96, %11
-  %99 = getelementptr inbounds nuw i32, ptr %.val, i64 %indvars.iv
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %.val, i64 %indvars.iv
   store i32 %98, ptr %99, align 4
   br label %100
 
@@ -6794,7 +6789,7 @@ define internal range(i32 0, 2) i32 @Type_Dictionary_Write(ptr noundef readonly 
   %104 = load ptr, ptr %8, align 8
   %105 = tail call i32 %104(ptr noundef nonnull %1) #14
   %106 = sub i32 %105, %96
-  %107 = getelementptr inbounds nuw i32, ptr %.val92, i64 %indvars.iv
+  %107 = getelementptr inbounds nuw [4 x i8], ptr %.val92, i64 %indvars.iv
   store i32 %106, ptr %107, align 4
   br label %WriteOneMLUC.exit.thread
 
@@ -6811,7 +6806,7 @@ WriteOneMLUC.exit.thread:                         ; preds = %102, %103, %90
 
 113:                                              ; preds = %110
   %114 = sub i32 %112, %11
-  %115 = getelementptr inbounds nuw i32, ptr %.val93, i64 %indvars.iv
+  %115 = getelementptr inbounds nuw [4 x i8], ptr %.val93, i64 %indvars.iv
   store i32 %114, ptr %115, align 4
   br label %116
 
@@ -6827,7 +6822,7 @@ WriteOneMLUC.exit.thread:                         ; preds = %102, %103, %90
   %120 = load ptr, ptr %8, align 8
   %121 = tail call i32 %120(ptr noundef nonnull %1) #14
   %122 = sub i32 %121, %112
-  %123 = getelementptr inbounds nuw i32, ptr %.val94, i64 %indvars.iv
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %.val94, i64 %indvars.iv
   store i32 %122, ptr %123, align 4
   br label %WriteOneMLUC.exit114.thread
 
@@ -7067,7 +7062,7 @@ define internal ptr @Type_vcgt_Read(ptr noundef readonly captures(none) %0, ptr 
   %44 = load i16, ptr %7, align 2
   %45 = zext i16 %44 to i32
   %46 = call ptr @cmsBuildTabulatedToneCurve16(ptr noundef %43, i32 noundef %45, ptr noundef null) #14
-  %47 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv88
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv88
   store ptr %46, ptr %47, align 8
   %48 = icmp eq ptr %46, null
   br i1 %48, label %.loopexit68, label %49
@@ -7098,7 +7093,7 @@ define internal ptr @Type_vcgt_Read(ptr noundef readonly captures(none) %0, ptr 
   %58 = load ptr, ptr %47, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 48
   %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds nuw i16, ptr %60, i64 %indvars.iv85
+  %61 = getelementptr inbounds nuw [2 x i8], ptr %60, i64 %indvars.iv85
   store i16 %57, ptr %61, align 2
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
   %62 = load i16, ptr %7, align 2
@@ -7134,7 +7129,7 @@ define internal ptr @Type_vcgt_Read(ptr noundef readonly captures(none) %0, ptr 
 
 76:                                               ; preds = %.preheader71, %75
   %indvars.iv = phi i64 [ 0, %.preheader71 ], [ %indvars.iv.next, %75 ]
-  %77 = getelementptr inbounds nuw %struct._cmsVCGTGAMMA, ptr %10, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw [24 x i8], ptr %10, i64 %indvars.iv
   %78 = call i32 @_cmsRead15Fixed16Number(ptr noundef %1, ptr noundef nonnull %77) #14
   %.not59 = icmp eq i32 %78, 0
   br i1 %.not59, label %.loopexit68, label %79
@@ -7165,7 +7160,7 @@ define internal ptr @Type_vcgt_Read(ptr noundef readonly captures(none) %0, ptr 
   store double 0.000000e+00, ptr %23, align 16
   %92 = load ptr, ptr %14, align 8
   %93 = call ptr @cmsBuildParametricToneCurve(ptr noundef %92, i32 noundef 5, ptr noundef nonnull %11) #14
-  %94 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv
   store ptr %93, ptr %94, align 8
   %95 = icmp eq ptr %93, null
   br i1 %95, label %.loopexit68, label %75
@@ -7223,7 +7218,7 @@ define internal range(i32 0, 2) i32 @Type_vcgt_Write(ptr readnone captures(none)
 
 .preheader:                                       ; preds = %18, %20
   %indvars.iv53 = phi i64 [ %indvars.iv.next54, %20 ], [ 0, %18 ]
-  %21 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv53
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv53
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load ptr, ptr %23, align 8
@@ -7271,7 +7266,7 @@ define internal range(i32 0, 2) i32 @Type_vcgt_Write(ptr readnone captures(none)
 
 .preheader42:                                     ; preds = %44, %68
   %indvars.iv = phi i64 [ %indvars.iv.next, %68 ], [ 0, %44 ]
-  %46 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   br label %49
 
 47:                                               ; preds = %_cmsQuickSaturateWord.exit
@@ -7618,8 +7613,8 @@ define internal range(i32 0, 2) i32 @Type_MHC2_Write(ptr readnone captures(none)
 
 .preheader.i:                                     ; preds = %50, %32
   %indvars.iv16.i = phi i64 [ 0, %32 ], [ %indvars.iv.next17.i, %50 ]
-  %39 = getelementptr inbounds nuw [4 x double], ptr %33, i64 %indvars.iv16.i
-  %40 = getelementptr inbounds nuw [4 x double], ptr %5, i64 %indvars.iv16.i
+  %39 = getelementptr inbounds nuw [32 x i8], ptr %33, i64 %indvars.iv16.i
+  %40 = getelementptr inbounds nuw [32 x i8], ptr %5, i64 %indvars.iv16.i
   br label %42
 
 41:                                               ; preds = %42
@@ -7629,9 +7624,9 @@ define internal range(i32 0, 2) i32 @Type_MHC2_Write(ptr readnone captures(none)
 
 42:                                               ; preds = %41, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %41 ]
-  %43 = getelementptr inbounds nuw double, ptr %39, i64 %indvars.iv.i
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %indvars.iv.i
   %44 = load double, ptr %43, align 8
-  %45 = getelementptr inbounds nuw double, ptr %40, i64 %indvars.iv.i
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv.i
   %46 = load double, ptr %45, align 8
   %47 = fsub double %46, %44
   %48 = tail call double @llvm.fabs.f64(double %47)
@@ -7958,7 +7953,7 @@ define internal fastcc range(i32 0, 2) i32 @Read8bitTables(ptr noundef %0, ptr n
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %10 ]
   %12 = tail call ptr @cmsBuildTabulatedToneCurve16(ptr noundef %0, i32 noundef 256, ptr noundef null) #14
-  %13 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   store ptr %12, ptr %13, align 8
   %14 = icmp eq ptr %12, null
   br i1 %14, label %.lr.ph63.preheader, label %10
@@ -7971,7 +7966,7 @@ define internal fastcc range(i32 0, 2) i32 @Read8bitTables(ptr noundef %0, ptr n
   br i1 %.not47, label %.preheader50, label %.lr.ph63.preheader
 
 .preheader50:                                     ; preds = %15
-  %18 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv75
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv75
   %.pre = load ptr, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %.pre, i64 48
   br label %20
@@ -7984,7 +7979,7 @@ define internal fastcc range(i32 0, 2) i32 @Read8bitTables(ptr noundef %0, ptr n
   %24 = shl nuw i16 %23, 8
   %25 = or disjoint i16 %24, %23
   %26 = load ptr, ptr %19, align 8
-  %27 = getelementptr inbounds nuw i16, ptr %26, i64 %indvars.iv71
+  %27 = getelementptr inbounds nuw [2 x i8], ptr %26, i64 %indvars.iv71
   store i16 %25, ptr %27, align 2
   %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
   %exitcond74.not = icmp eq i64 %indvars.iv.next72, 256
@@ -8008,7 +8003,7 @@ define internal fastcc range(i32 0, 2) i32 @Read8bitTables(ptr noundef %0, ptr n
 
 .lr.ph60:                                         ; preds = %.lr.ph60.preheader, %.lr.ph60
   %indvars.iv80 = phi i64 [ 0, %.lr.ph60.preheader ], [ %indvars.iv.next81, %.lr.ph60 ]
-  %31 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv80
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv80
   %32 = load ptr, ptr %31, align 8
   call void @cmsFreeToneCurve(ptr noundef %32) #14
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
@@ -8022,7 +8017,7 @@ define internal fastcc range(i32 0, 2) i32 @Read8bitTables(ptr noundef %0, ptr n
 
 .lr.ph63:                                         ; preds = %.lr.ph63.preheader, %36
   %indvars.iv85 = phi i64 [ 0, %.lr.ph63.preheader ], [ %indvars.iv.next86, %36 ]
-  %33 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv85
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv85
   %34 = load ptr, ptr %33, align 8
   %.not49 = icmp eq ptr %34, null
   br i1 %.not49, label %36, label %35
@@ -8076,7 +8071,7 @@ define internal fastcc range(i32 0, 2) i32 @Write8bitTables(ptr noundef %0, ptr 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %.loopexit
   %indvars.iv46 = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next47, %.loopexit ]
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv46
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv46
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %10 = load i32, ptr %9, align 8
@@ -8122,11 +8117,11 @@ define internal fastcc range(i32 0, 2) i32 @Write8bitTables(ptr noundef %0, ptr 
 .preheader32:                                     ; preds = %.lr.ph.split, %24
   %indvars.iv = phi i64 [ %indvars.iv.next, %24 ], [ 0, %.lr.ph.split ]
   %25 = load ptr, ptr %5, align 8
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv46
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv46
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 48
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds nuw i16, ptr %29, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [2 x i8], ptr %29, i64 %indvars.iv
   %31 = load i16, ptr %30, align 2
   %32 = zext i16 %31 to i32
   %33 = mul nuw i32 %32, 65281
@@ -8182,7 +8177,7 @@ define internal fastcc range(i32 0, 2) i32 @Read16bitTables(ptr noundef %0, ptr 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %11 ]
   %12 = tail call ptr @cmsBuildTabulatedToneCurve16(ptr noundef %0, i32 noundef %4, ptr noundef null) #14
-  %13 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   store ptr %12, ptr %13, align 8
   %14 = icmp eq ptr %12, null
   br i1 %14, label %.loopexit33, label %15
@@ -8209,7 +8204,7 @@ define internal fastcc range(i32 0, 2) i32 @Read16bitTables(ptr noundef %0, ptr 
 
 .lr.ph36:                                         ; preds = %.lr.ph36.preheader, %.lr.ph36
   %indvars.iv45 = phi i64 [ 0, %.lr.ph36.preheader ], [ %indvars.iv.next46, %.lr.ph36 ]
-  %21 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv45
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv45
   %22 = load ptr, ptr %21, align 8
   call void @cmsFreeToneCurve(ptr noundef %22) #14
   %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
@@ -8225,7 +8220,7 @@ define internal fastcc range(i32 0, 2) i32 @Read16bitTables(ptr noundef %0, ptr 
 
 .lr.ph39:                                         ; preds = %.lr.ph39.preheader, %26
   %indvars.iv50 = phi i64 [ 0, %.lr.ph39.preheader ], [ %indvars.iv.next51, %26 ]
-  %23 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv50
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv50
   %24 = load ptr, ptr %23, align 8
   %.not31 = icmp eq ptr %24, null
   br i1 %.not31, label %26, label %25
@@ -8258,7 +8253,7 @@ define internal fastcc range(i32 0, 2) i32 @Write16bitTables(ptr noundef %0, ptr
   %6 = phi i32 [ %3, %.lr.ph5 ], [ %21, %._crit_edge ]
   %indvars.iv10 = phi i64 [ 0, %.lr.ph5 ], [ %indvars.iv.next11, %._crit_edge ]
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv10
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv10
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %11 = load i32, ptr %10, align 8
@@ -8277,11 +8272,11 @@ define internal fastcc range(i32 0, 2) i32 @Write16bitTables(ptr noundef %0, ptr
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %12 ]
   %13 = load ptr, ptr %4, align 8
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv10
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv10
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 48
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds nuw i16, ptr %17, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [2 x i8], ptr %17, i64 %indvars.iv
   %19 = load i16, ptr %18, align 2
   %20 = tail call i32 @_cmsWriteUInt16Number(ptr noundef %0, i16 noundef zeroext %19) #14
   %.not = icmp eq i32 %20, 0
@@ -8446,7 +8441,7 @@ ReadEmbeddedCurve.exit.thread:                    ; preds = %.lr.ph35
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %22 = and i64 %indvars.iv, 4294967295
-  %23 = getelementptr inbounds nuw ptr, ptr %7, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %22
   store ptr null, ptr %23, align 8
   br label %.loopexit28
 
@@ -8454,7 +8449,7 @@ ReadEmbeddedCurve.exit:                           ; preds = %16, %18
   %.0.i = phi ptr [ %19, %18 ], [ %17, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %24 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   store ptr %.0.i, ptr %24, align 8
   %25 = icmp eq ptr %.0.i, null
   br i1 %25, label %.loopexit28, label %26
@@ -8485,7 +8480,7 @@ ReadEmbeddedCurve.exit:                           ; preds = %16, %18
 
 .lr.ph38:                                         ; preds = %.lr.ph38.preheader, %.lr.ph38
   %indvars.iv48 = phi i64 [ 0, %.lr.ph38.preheader ], [ %indvars.iv.next49, %.lr.ph38 ]
-  %32 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv48
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv48
   %33 = load ptr, ptr %32, align 8
   call void @cmsFreeToneCurve(ptr noundef %33) #14
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
@@ -8525,7 +8520,7 @@ define internal fastcc ptr @ReadCLUT(ptr noundef readonly captures(none) %0, ptr
 
 20:                                               ; preds = %.preheader45
   %21 = zext i8 %18 to i32
-  %22 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv
   store i32 %21, ptr %22, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
@@ -8590,7 +8585,7 @@ define internal fastcc ptr @ReadCLUT(ptr noundef readonly captures(none) %0, ptr
   %48 = shl nuw i16 %47, 8
   %49 = or disjoint i16 %48, %47
   %50 = load ptr, ptr %38, align 8
-  %51 = getelementptr inbounds nuw i16, ptr %50, i64 %indvars.iv52
+  %51 = getelementptr inbounds nuw [2 x i8], ptr %50, i64 %indvars.iv52
   store i16 %49, ptr %51, align 2
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
   %52 = load i32, ptr %40, align 8
@@ -8742,7 +8737,7 @@ define internal fastcc range(i32 0, 2) i32 @WriteSetOfCurves(ptr noundef readonl
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %6 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load i32, ptr %9, align 8
@@ -8846,7 +8841,7 @@ Type_Curve_Write.exit:                            ; preds = %42, %48
 
 64:                                               ; preds = %62
   %65 = zext nneg i32 %57 to i64
-  %66 = getelementptr inbounds nuw i32, ptr @Type_ParametricCurve_Write.ParamsByType, i64 %65
+  %66 = getelementptr inbounds nuw [4 x i8], ptr @Type_ParametricCurve_Write.ParamsByType, i64 %65
   %67 = load i32, ptr %66, align 4
   %68 = trunc nuw nsw i32 %57 to i16
   %69 = add nsw i16 %68, -1
@@ -8873,7 +8868,7 @@ Type_Curve_Write.exit:                            ; preds = %42, %48
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %73 ]
   %74 = load ptr, ptr %54, align 8
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 16
-  %76 = getelementptr inbounds nuw double, ptr %75, i64 %indvars.iv.i
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %indvars.iv.i
   %77 = load double, ptr %76, align 8
   %78 = tail call i32 @_cmsWrite15Fixed16Number(ptr noundef %1, double noundef %77) #14
   %.not21.i = icmp eq i32 %78, 0
@@ -8926,7 +8921,7 @@ define internal fastcc range(i32 0, 2) i32 @WriteCLUT(ptr noundef readonly captu
 
 17:                                               ; preds = %.lr.ph, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
-  %18 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv
   %19 = load i32, ptr %18, align 4
   %20 = trunc i32 %19 to i8
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv
@@ -8982,7 +8977,7 @@ define internal fastcc range(i32 0, 2) i32 @WriteCLUT(ptr noundef readonly captu
 .lr.ph4:                                          ; preds = %.preheader, %38
   %indvars.iv8 = phi i64 [ %indvars.iv.next9, %38 ], [ 0, %.preheader ]
   %42 = load ptr, ptr %.48.val, align 8
-  %43 = getelementptr inbounds nuw i16, ptr %42, i64 %indvars.iv8
+  %43 = getelementptr inbounds nuw [2 x i8], ptr %42, i64 %indvars.iv8
   %44 = load i16, ptr %43, align 2
   %45 = zext i16 %44 to i32
   %46 = mul nuw i32 %45, 65281
@@ -9034,7 +9029,7 @@ define internal fastcc range(i32 0, 2) i32 @WriteMatrix(ptr noundef %0, ptr noun
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %10 ]
   %11 = load ptr, ptr %4, align 8
-  %12 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %13 = load double, ptr %12, align 8
   %14 = tail call i32 @_cmsWrite15Fixed16Number(ptr noundef %0, double noundef %13) #14
   %.not23 = icmp eq i32 %14, 0
@@ -9064,7 +9059,7 @@ define internal fastcc range(i32 0, 2) i32 @WriteMatrix(ptr noundef %0, ptr noun
 .lr.ph7:                                          ; preds = %.preheader1, %18
   %indvars.iv22 = phi i64 [ %indvars.iv.next23, %18 ], [ 0, %.preheader1 ]
   %22 = load ptr, ptr %15, align 8
-  %23 = getelementptr inbounds nuw double, ptr %22, i64 %indvars.iv22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv22
   %24 = load double, ptr %23, align 8
   %25 = tail call i32 @_cmsWrite15Fixed16Number(ptr noundef %0, double noundef %24) #14
   %.not22 = icmp eq i32 %25, 0
@@ -9199,13 +9194,13 @@ define internal fastcc range(i32 0, 2) i32 @ReadPositionTable(ptr noundef %0, pt
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %30
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %30 ]
-  %25 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv
   %26 = tail call i32 @_cmsReadUInt32Number(ptr noundef %1, ptr noundef nonnull %25) #14
   %.not57 = icmp eq i32 %26, 0
   br i1 %.not57, label %.thread64.sink.split.sink.split, label %27
 
 27:                                               ; preds = %.lr.ph
-  %28 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv
   %29 = tail call i32 @_cmsReadUInt32Number(ptr noundef %1, ptr noundef nonnull %28) #14
   %.not58 = icmp eq i32 %29, 0
   br i1 %.not58, label %.thread64.sink.split.sink.split, label %30
@@ -9226,14 +9221,14 @@ define internal fastcc range(i32 0, 2) i32 @ReadPositionTable(ptr noundef %0, pt
 34:                                               ; preds = %.lr.ph79, %33
   %indvars.iv84 = phi i64 [ 0, %.lr.ph79 ], [ %indvars.iv.next85, %33 ]
   %35 = load ptr, ptr %24, align 8
-  %36 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv84
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv84
   %37 = load i32, ptr %36, align 4
   %38 = tail call i32 %35(ptr noundef %1, i32 noundef %37) #14
   %.not = icmp eq i32 %38, 0
   br i1 %.not, label %.thread64.sink.split.sink.split, label %39
 
 39:                                               ; preds = %34
-  %40 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv84
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv84
   %41 = load i32, ptr %40, align 4
   %42 = trunc nuw i64 %indvars.iv84 to i32
   %43 = tail call i32 %5(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %4, i32 noundef %42, i32 noundef %41) #14, !callees !83
@@ -9390,7 +9385,7 @@ define internal ptr @Type_MPEcurve_Read(ptr noundef %0, ptr noundef %1, ptr noun
 .lr.ph:                                           ; preds = %32, %38
   %34 = phi i16 [ %39, %38 ], [ %33, %32 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %38 ], [ 0, %32 ]
-  %35 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv
   %36 = load ptr, ptr %35, align 8
   %.not33 = icmp eq ptr %36, null
   br i1 %.not33, label %38, label %37
@@ -9540,7 +9535,7 @@ define internal ptr @Type_MPEmatrix_Read(ptr noundef readonly captures(none) %0,
 37:                                               ; preds = %.lr.ph
   %38 = load float, ptr %7, align 4
   %39 = fpext float %38 to double
-  %40 = getelementptr inbounds nuw double, ptr %22, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv
   store double %39, ptr %40, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -9562,7 +9557,7 @@ define internal ptr @Type_MPEmatrix_Read(ptr noundef readonly captures(none) %0,
 45:                                               ; preds = %.lr.ph50
   %46 = load float, ptr %8, align 4
   %47 = fpext float %46 to double
-  %48 = getelementptr inbounds nuw double, ptr %28, i64 %indvars.iv55
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv55
   store double %47, ptr %48, align 8
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
   %49 = load i16, ptr %6, align 2
@@ -9643,7 +9638,7 @@ define internal range(i32 0, 2) i32 @Type_MPEmatrix_Write(ptr readnone captures(
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %20
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %20 ]
   %23 = load ptr, ptr %6, align 8
-  %24 = getelementptr inbounds nuw double, ptr %23, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv
   %25 = load double, ptr %24, align 8
   %26 = fptrunc double %25 to float
   %27 = tail call i32 @_cmsWriteFloat32Number(ptr noundef %1, float noundef %26) #14
@@ -9662,7 +9657,7 @@ define internal range(i32 0, 2) i32 @Type_MPEmatrix_Write(ptr readnone captures(
   br i1 %.not26, label %.loopexit, label %38
 
 33:                                               ; preds = %28
-  %34 = getelementptr inbounds nuw double, ptr %29, i64 %indvars.iv40
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv40
   %35 = load double, ptr %34, align 8
   %36 = fptrunc double %35 to float
   %37 = tail call i32 @_cmsWriteFloat32Number(ptr noundef %1, float noundef %36) #14
@@ -9734,7 +9729,7 @@ define internal ptr @Type_MPEclut_Read(ptr noundef readonly captures(none) %0, p
 
 28:                                               ; preds = %.lr.ph
   %29 = zext i8 %26 to i32
-  %30 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   store i32 %29, ptr %30, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -9768,7 +9763,7 @@ define internal ptr @Type_MPEclut_Read(ptr noundef readonly captures(none) %0, p
 .lr.ph43:                                         ; preds = %38, %43
   %indvars.iv48 = phi i64 [ %indvars.iv.next49, %43 ], [ 0, %38 ]
   %47 = load ptr, ptr %40, align 8
-  %48 = getelementptr inbounds nuw float, ptr %47, i64 %indvars.iv48
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %indvars.iv48
   %49 = call i32 @_cmsReadFloat32Number(ptr noundef %1, ptr noundef %48) #14
   %.not36 = icmp eq i32 %49, 0
   br i1 %.not36, label %50, label %43
@@ -9836,7 +9831,7 @@ define internal range(i32 0, 2) i32 @Type_MPEclut_Write(ptr readnone captures(no
 
 27:                                               ; preds = %.lr.ph, %27
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %27 ]
-  %28 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv
   %29 = load i32, ptr %28, align 4
   %30 = trunc i32 %29 to i8
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
@@ -9868,7 +9863,7 @@ define internal range(i32 0, 2) i32 @Type_MPEclut_Write(ptr readnone captures(no
 .lr.ph29:                                         ; preds = %.preheader, %37
   %indvars.iv35 = phi i64 [ %indvars.iv.next36, %37 ], [ 0, %.preheader ]
   %41 = load ptr, ptr %7, align 8
-  %42 = getelementptr inbounds nuw float, ptr %41, i64 %indvars.iv35
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %indvars.iv35
   %43 = load float, ptr %42, align 4
   %44 = call i32 @_cmsWriteFloat32Number(ptr noundef %1, float noundef %43) #14
   %.not26 = icmp eq i32 %44, 0
@@ -9942,7 +9937,7 @@ define internal range(i32 0, 2) i32 @ReadMPECurve(ptr noundef readonly captures(
 .lr.ph.i:                                         ; preds = %.preheader111.i, %35
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %35 ], [ 0, %.preheader111.i ]
   %.0126.i = phi float [ %36, %35 ], [ 0xC480F0CF00000000, %.preheader111.i ]
-  %32 = getelementptr inbounds nuw %struct.cmsCurveSegment, ptr %27, i64 %indvars.iv.i
+  %32 = getelementptr inbounds nuw [112 x i8], ptr %27, i64 %indvars.iv.i
   store float %.0126.i, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %34 = call i32 @_cmsReadFloat32Number(ptr noundef %1, ptr noundef nonnull %33) #14
@@ -9961,10 +9956,10 @@ define internal range(i32 0, 2) i32 @ReadMPECurve(ptr noundef readonly captures(
 
 ._crit_edge.i:                                    ; preds = %35
   %42 = sext i32 %39 to i64
-  %43 = getelementptr inbounds %struct.cmsCurveSegment, ptr %27, i64 %42
+  %43 = getelementptr inbounds [112 x i8], ptr %27, i64 %42
   store float %36, ptr %43, align 8
   %44 = zext i16 %37 to i64
-  %45 = getelementptr %struct.cmsCurveSegment, ptr %27, i64 %44
+  %45 = getelementptr [112 x i8], ptr %27, i64 %44
   %46 = getelementptr i8, ptr %45, i64 -108
   store float 0x4480F0CF00000000, ptr %46, align 4
   %.not151.i = icmp eq i16 %37, 0
@@ -10005,7 +10000,7 @@ define internal range(i32 0, 2) i32 @ReadMPECurve(ptr noundef readonly captures(
   %57 = load i16, ptr %8, align 2
   %58 = zext i16 %57 to i32
   %59 = add nuw nsw i32 %58, 6
-  %60 = getelementptr inbounds nuw %struct.cmsCurveSegment, ptr %27, i64 %indvars.iv175.i
+  %60 = getelementptr inbounds nuw [112 x i8], ptr %27, i64 %indvars.iv175.i
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
   store i32 %59, ptr %61, align 8
   %62 = icmp ugt i16 %57, 2
@@ -10024,12 +10019,12 @@ define internal range(i32 0, 2) i32 @ReadMPECurve(ptr noundef readonly captures(
 66:                                               ; preds = %64
   %67 = load float, ptr %9, align 4
   %68 = fpext float %67 to double
-  %69 = getelementptr inbounds nuw double, ptr %63, i64 %indvars.iv172.i
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %indvars.iv172.i
   store double %68, ptr %69, align 8
   %indvars.iv.next173.i = add nuw nsw i64 %indvars.iv172.i, 1
   %70 = load i16, ptr %8, align 2
   %71 = zext i16 %70 to i64
-  %72 = getelementptr inbounds nuw i32, ptr @__const.WriteSegmentedCurve.ParamsByType, i64 %71
+  %72 = getelementptr inbounds nuw [4 x i8], ptr @__const.WriteSegmentedCurve.ParamsByType, i64 %71
   %73 = load i32, ptr %72, align 4
   %74 = zext i32 %73 to i64
   %75 = icmp samesign ult i64 %indvars.iv.next173.i, %74
@@ -10044,7 +10039,7 @@ define internal range(i32 0, 2) i32 @ReadMPECurve(ptr noundef readonly captures(
   %79 = load i32, ptr %10, align 4
   %80 = add i32 %79, 1
   store i32 %80, ptr %10, align 4
-  %81 = getelementptr inbounds nuw %struct.cmsCurveSegment, ptr %27, i64 %indvars.iv175.i
+  %81 = getelementptr inbounds nuw [112 x i8], ptr %27, i64 %indvars.iv175.i
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 96
   store i32 %80, ptr %82, align 8
   %83 = load ptr, ptr %25, align 8
@@ -10071,7 +10066,7 @@ define internal range(i32 0, 2) i32 @ReadMPECurve(ptr noundef readonly captures(
 .lr.ph131.i:                                      ; preds = %88, %91
   %indvars.iv169.i = phi i64 [ %indvars.iv.next170.i, %91 ], [ 1, %88 ]
   %95 = load ptr, ptr %86, align 8
-  %96 = getelementptr inbounds nuw float, ptr %95, i64 %indvars.iv169.i
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %95, i64 %indvars.iv169.i
   %97 = call i32 @_cmsReadFloat32Number(ptr noundef %1, ptr noundef nonnull %96) #14
   %.not100.i = icmp eq i32 %97, 0
   br i1 %.not100.i, label %.loopexit107.i, label %91
@@ -10104,7 +10099,7 @@ define internal range(i32 0, 2) i32 @ReadMPECurve(ptr noundef readonly captures(
 .lr.ph141.i:                                      ; preds = %._crit_edge137.i, %113
   %107 = phi i16 [ %114, %113 ], [ %106, %._crit_edge137.i ]
   %indvars.iv181.i = phi i64 [ %indvars.iv.next182.i, %113 ], [ 0, %._crit_edge137.i ]
-  %108 = getelementptr inbounds nuw %struct.cmsCurveSegment, ptr %27, i64 %indvars.iv181.i
+  %108 = getelementptr inbounds nuw [112 x i8], ptr %27, i64 %indvars.iv181.i
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 104
   %110 = load ptr, ptr %109, align 8
   %.not96.i = icmp eq ptr %110, null
@@ -10138,7 +10133,7 @@ define internal range(i32 0, 2) i32 @ReadMPECurve(ptr noundef readonly captures(
   %121 = phi i16 [ %118, %.lr.ph145.i ], [ %135, %134 ]
   %indvars.iv184.i = phi i64 [ 0, %.lr.ph145.i ], [ %indvars.iv.next185.i, %134 ]
   %122 = load ptr, ptr %119, align 8
-  %123 = getelementptr inbounds nuw %struct.cmsCurveSegment, ptr %122, i64 %indvars.iv184.i
+  %123 = getelementptr inbounds nuw [112 x i8], ptr %122, i64 %indvars.iv184.i
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 8
   %125 = load i32, ptr %124, align 8
   %126 = icmp eq i32 %125, 0
@@ -10148,7 +10143,7 @@ define internal range(i32 0, 2) i32 @ReadMPECurve(ptr noundef readonly captures(
   %128 = load float, ptr %123, align 8
   %129 = call float @cmsEvalToneCurveFloat(ptr noundef nonnull %105, float noundef %128) #14
   %130 = load ptr, ptr %119, align 8
-  %131 = getelementptr inbounds nuw %struct.cmsCurveSegment, ptr %130, i64 %indvars.iv184.i
+  %131 = getelementptr inbounds nuw [112 x i8], ptr %130, i64 %indvars.iv184.i
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 104
   %133 = load ptr, ptr %132, align 8
   store float %129, ptr %133, align 4
@@ -10170,7 +10165,7 @@ define internal range(i32 0, 2) i32 @ReadMPECurve(ptr noundef readonly captures(
 .lr.ph148.i:                                      ; preds = %.loopexit107.i, %145
   %139 = phi i16 [ %146, %145 ], [ %138, %.loopexit107.i ]
   %indvars.iv178.i = phi i64 [ %indvars.iv.next179.i, %145 ], [ 0, %.loopexit107.i ]
-  %140 = getelementptr inbounds nuw %struct.cmsCurveSegment, ptr %27, i64 %indvars.iv178.i
+  %140 = getelementptr inbounds nuw [112 x i8], ptr %27, i64 %indvars.iv178.i
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 104
   %142 = load ptr, ptr %141, align 8
   %.not105.i = icmp eq ptr %142, null
@@ -10203,7 +10198,7 @@ ReadSegmentedCurve.exit:                          ; preds = %134, %5, %14, %16, 
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %150 = zext i32 %3 to i64
-  %151 = getelementptr inbounds nuw ptr, ptr %2, i64 %150
+  %151 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %150
   store ptr %.081.i, ptr %151, align 8
   %152 = icmp ne ptr %.081.i, null
   %153 = zext i1 %152 to i32
@@ -10262,7 +10257,7 @@ define internal fastcc range(i32 0, 2) i32 @WritePositionTable(ptr noundef %0, p
   %24 = load ptr, ptr %16, align 8
   %25 = tail call i32 %24(ptr noundef nonnull %1) #14
   %26 = sub i32 %25, %3
-  %27 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv
   store i32 %26, ptr %27, align 4
   %28 = trunc nuw i64 %indvars.iv to i32
   %29 = tail call i32 %5(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %4, i32 noundef %28, i32 noundef 0) #14, !callees !101
@@ -10273,7 +10268,7 @@ define internal fastcc range(i32 0, 2) i32 @WritePositionTable(ptr noundef %0, p
   %31 = load ptr, ptr %16, align 8
   %32 = tail call i32 %31(ptr noundef nonnull %1) #14
   %33 = sub i32 %32, %25
-  %34 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv
   store i32 %33, ptr %34, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond100.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -10302,14 +10297,14 @@ define internal fastcc range(i32 0, 2) i32 @WritePositionTable(ptr noundef %0, p
 
 .lr.ph92:                                         ; preds = %.lr.ph92.preheader, %40
   %indvars.iv101 = phi i64 [ 0, %.lr.ph92.preheader ], [ %indvars.iv.next102, %40 ]
-  %41 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv101
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv101
   %42 = load i32, ptr %41, align 4
   %43 = tail call i32 @_cmsWriteUInt32Number(ptr noundef nonnull %1, i32 noundef %42) #14
   %.not70 = icmp eq i32 %43, 0
   br i1 %.not70, label %.thread.thread, label %44
 
 44:                                               ; preds = %.lr.ph92
-  %45 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv101
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv101
   %46 = load i32, ptr %45, align 4
   %47 = tail call i32 @_cmsWriteUInt32Number(ptr noundef nonnull %1, i32 noundef %46) #14
   %.not71 = icmp eq i32 %47, 0
@@ -10347,7 +10342,7 @@ define internal range(i32 0, 2) i32 @WriteMPECurve(ptr readnone captures(none) %
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = zext i32 %3 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load ptr, ptr %11, align 8
@@ -10394,7 +10389,7 @@ define internal range(i32 0, 2) i32 @WriteMPECurve(ptr readnone captures(none) %
 
 .lr.ph.i:                                         ; preds = %24, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %24 ]
-  %26 = getelementptr inbounds nuw %struct.cmsCurveSegment, ptr %12, i64 %indvars.iv.i
+  %26 = getelementptr inbounds nuw [112 x i8], ptr %12, i64 %indvars.iv.i
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 4
   %28 = load float, ptr %27, align 4
   %29 = tail call i32 @_cmsWriteFloat32Number(ptr noundef %1, float noundef %28) #14
@@ -10403,7 +10398,7 @@ define internal range(i32 0, 2) i32 @WriteMPECurve(ptr readnone captures(none) %
 
 .lr.ph76.i:                                       ; preds = %.preheader66.i, %.loopexit.i
   %indvars.iv109.i = phi i64 [ %indvars.iv.next110.i, %.loopexit.i ], [ 0, %.preheader66.i ]
-  %30 = getelementptr inbounds nuw %struct.cmsCurveSegment, ptr %12, i64 %indvars.iv109.i
+  %30 = getelementptr inbounds nuw [112 x i8], ptr %12, i64 %indvars.iv109.i
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load i32, ptr %31, align 8
   %33 = icmp eq i32 %32, 0
@@ -10429,7 +10424,7 @@ define internal range(i32 0, 2) i32 @WriteMPECurve(ptr readnone captures(none) %
 
 .preheader.i:                                     ; preds = %38
   %43 = load ptr, ptr %11, align 8
-  %44 = getelementptr inbounds nuw %struct.cmsCurveSegment, ptr %43, i64 %indvars.iv109.i
+  %44 = getelementptr inbounds nuw [112 x i8], ptr %43, i64 %indvars.iv109.i
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 96
   %46 = load i32, ptr %45, align 8
   %47 = icmp ugt i32 %46, 1
@@ -10442,7 +10437,7 @@ define internal range(i32 0, 2) i32 @WriteMPECurve(ptr readnone captures(none) %
 49:                                               ; preds = %56
   %indvars.iv.next107.i = add nuw nsw i64 %indvars.iv106.i, 1
   %50 = load ptr, ptr %11, align 8
-  %51 = getelementptr inbounds nuw %struct.cmsCurveSegment, ptr %50, i64 %indvars.iv109.i
+  %51 = getelementptr inbounds nuw [112 x i8], ptr %50, i64 %indvars.iv109.i
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 96
   %53 = load i32, ptr %52, align 8
   %54 = zext i32 %53 to i64
@@ -10452,7 +10447,7 @@ define internal range(i32 0, 2) i32 @WriteMPECurve(ptr readnone captures(none) %
 56:                                               ; preds = %49, %.lr.ph74.i
   %indvars.iv106.i = phi i64 [ 1, %.lr.ph74.i ], [ %indvars.iv.next107.i, %49 ]
   %57 = load ptr, ptr %48, align 8
-  %58 = getelementptr inbounds nuw float, ptr %57, i64 %indvars.iv106.i
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %indvars.iv106.i
   %59 = load float, ptr %58, align 4
   %60 = tail call i32 @_cmsWriteFloat32Number(ptr noundef %1, float noundef %59) #14
   %.not60.i = icmp eq i32 %60, 0
@@ -10488,7 +10483,7 @@ define internal range(i32 0, 2) i32 @WriteMPECurve(ptr readnone captures(none) %
 
 .lr.ph72.i:                                       ; preds = %72
   %74 = zext nneg i32 %67 to i64
-  %75 = getelementptr inbounds nuw i32, ptr @__const.WriteSegmentedCurve.ParamsByType, i64 %74
+  %75 = getelementptr inbounds nuw [4 x i8], ptr @__const.WriteSegmentedCurve.ParamsByType, i64 %74
   %76 = load i32, ptr %75, align 4
   %77 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %umax.i = tail call i32 @llvm.umax.i32(i32 %76, i32 1)
@@ -10502,7 +10497,7 @@ define internal range(i32 0, 2) i32 @WriteMPECurve(ptr readnone captures(none) %
 
 79:                                               ; preds = %78, %.lr.ph72.i
   %indvars.iv101.i = phi i64 [ 0, %.lr.ph72.i ], [ %indvars.iv.next102.i, %78 ]
-  %80 = getelementptr inbounds nuw double, ptr %77, i64 %indvars.iv101.i
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %indvars.iv101.i
   %81 = load double, ptr %80, align 8
   %82 = fptrunc double %81 to float
   %83 = tail call i32 @_cmsWriteFloat32Number(ptr noundef %1, float noundef %82) #14
@@ -10534,7 +10529,7 @@ define internal range(i32 0, 2) i32 @ReadSeqID(ptr noundef readonly captures(non
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = zext i32 %3 to i64
-  %9 = getelementptr inbounds nuw %struct.cmsPSEQDESC, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 20
@@ -10559,7 +10554,7 @@ define internal range(i32 0, 2) i32 @WriteSeqID(ptr noundef readonly captures(no
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = zext i32 %3 to i64
-  %11 = getelementptr inbounds nuw %struct.cmsPSEQDESC, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [64 x i8], ptr %9, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 20
   %13 = tail call i32 %7(ptr noundef %1, i32 noundef 16, ptr noundef nonnull %12) #14
   %.not = icmp eq i32 %13, 0
@@ -10567,7 +10562,7 @@ define internal range(i32 0, 2) i32 @WriteSeqID(ptr noundef readonly captures(no
 
 14:                                               ; preds = %5
   %15 = load ptr, ptr %8, align 8
-  %16 = getelementptr inbounds nuw %struct.cmsPSEQDESC, ptr %15, i64 %10
+  %16 = getelementptr inbounds nuw [64 x i8], ptr %15, i64 %10
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 56
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -10707,7 +10702,7 @@ define internal fastcc range(i32 0, 2) i32 @ReadOneWChar(ptr noundef %0, ptr nou
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = zext i32 %2 to i64
-  %10 = getelementptr inbounds nuw i32, ptr %8, i64 %9
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %9
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %14
@@ -10726,7 +10721,7 @@ define internal fastcc range(i32 0, 2) i32 @ReadOneWChar(ptr noundef %0, ptr nou
 18:                                               ; preds = %14
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds nuw i32, ptr %20, i64 %9
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %9
   %22 = load i32, ptr %21, align 4
   %23 = lshr i32 %22, 1
   %24 = load ptr, ptr %1, align 8
@@ -10812,7 +10807,7 @@ define internal fastcc range(i32 0, 2) i32 @ReadOneWChar(ptr noundef %0, ptr nou
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %58 = zext nneg i32 %23 to i64
-  %59 = getelementptr inbounds nuw i32, ptr %57, i64 %58
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %58
   store i32 0, ptr %59, align 4
   br label %60
 
@@ -10958,7 +10953,7 @@ define internal fastcc range(i32 0, 2) i32 @WriteOffsetArray(ptr noundef %0, ptr
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %.thread.us.us
   %indvars.iv85 = phi i64 [ %indvars.iv.next86, %.thread.us.us ], [ 0, %.lr.ph.split.us ]
   %15 = load ptr, ptr %5, align 8
-  %16 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv85
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv85
   %17 = load i32, ptr %16, align 4
   %18 = tail call i32 @_cmsWriteUInt32Number(ptr noundef %0, i32 noundef %17) #14
   %.not.i.us.us = icmp eq i32 %18, 0
@@ -10966,7 +10961,7 @@ define internal fastcc range(i32 0, 2) i32 @WriteOffsetArray(ptr noundef %0, ptr
 
 WriteOneElem.exit.us.us:                          ; preds = %.lr.ph.split.us.split.us
   %19 = load ptr, ptr %6, align 8
-  %20 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv85
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %indvars.iv85
   %21 = load i32, ptr %20, align 4
   %22 = tail call i32 @_cmsWriteUInt32Number(ptr noundef %0, i32 noundef %21) #14
   %.not6.i.not.us.us = icmp eq i32 %22, 0
@@ -10974,7 +10969,7 @@ WriteOneElem.exit.us.us:                          ; preds = %.lr.ph.split.us.spl
 
 23:                                               ; preds = %WriteOneElem.exit.us.us
   %24 = load ptr, ptr %7, align 8
-  %25 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv85
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %indvars.iv85
   %26 = load i32, ptr %25, align 4
   %27 = tail call i32 @_cmsWriteUInt32Number(ptr noundef %0, i32 noundef %26) #14
   %.not.i21.us.us = icmp eq i32 %27, 0
@@ -10982,7 +10977,7 @@ WriteOneElem.exit.us.us:                          ; preds = %.lr.ph.split.us.spl
 
 WriteOneElem.exit25.us.us:                        ; preds = %23
   %28 = load ptr, ptr %8, align 8
-  %29 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv85
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %indvars.iv85
   %30 = load i32, ptr %29, align 4
   %31 = tail call i32 @_cmsWriteUInt32Number(ptr noundef %0, i32 noundef %30) #14
   %.not6.i22.not.us.us = icmp eq i32 %31, 0
@@ -10990,7 +10985,7 @@ WriteOneElem.exit25.us.us:                        ; preds = %23
 
 32:                                               ; preds = %WriteOneElem.exit25.us.us
   %33 = load ptr, ptr %9, align 8
-  %34 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv85
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %indvars.iv85
   %35 = load i32, ptr %34, align 4
   %36 = tail call i32 @_cmsWriteUInt32Number(ptr noundef %0, i32 noundef %35) #14
   %.not.i26.us.us = icmp eq i32 %36, 0
@@ -10998,7 +10993,7 @@ WriteOneElem.exit25.us.us:                        ; preds = %23
 
 WriteOneElem.exit30.us.us:                        ; preds = %32
   %37 = load ptr, ptr %10, align 8
-  %38 = getelementptr inbounds nuw i32, ptr %37, i64 %indvars.iv85
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %indvars.iv85
   %39 = load i32, ptr %38, align 4
   %40 = tail call i32 @_cmsWriteUInt32Number(ptr noundef %0, i32 noundef %39) #14
   %.not6.i27.not.us.us = icmp eq i32 %40, 0
@@ -11006,7 +11001,7 @@ WriteOneElem.exit30.us.us:                        ; preds = %32
 
 41:                                               ; preds = %WriteOneElem.exit30.us.us
   %42 = load ptr, ptr %11, align 8
-  %43 = getelementptr inbounds nuw i32, ptr %42, i64 %indvars.iv85
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %indvars.iv85
   %44 = load i32, ptr %43, align 4
   %45 = tail call i32 @_cmsWriteUInt32Number(ptr noundef %0, i32 noundef %44) #14
   %.not.i31.us.us = icmp eq i32 %45, 0
@@ -11014,7 +11009,7 @@ WriteOneElem.exit30.us.us:                        ; preds = %32
 
 WriteOneElem.exit35.us.us:                        ; preds = %41
   %46 = load ptr, ptr %12, align 8
-  %47 = getelementptr inbounds nuw i32, ptr %46, i64 %indvars.iv85
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %indvars.iv85
   %48 = load i32, ptr %47, align 4
   %49 = tail call i32 @_cmsWriteUInt32Number(ptr noundef %0, i32 noundef %48) #14
   %.not6.i32.not.us.us = icmp eq i32 %49, 0
@@ -11028,7 +11023,7 @@ WriteOneElem.exit35.us.us:                        ; preds = %41
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %.thread.us
   %indvars.iv80 = phi i64 [ %indvars.iv.next81, %.thread.us ], [ 0, %.lr.ph.split.us ]
   %50 = load ptr, ptr %5, align 8
-  %51 = getelementptr inbounds nuw i32, ptr %50, i64 %indvars.iv80
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %indvars.iv80
   %52 = load i32, ptr %51, align 4
   %53 = tail call i32 @_cmsWriteUInt32Number(ptr noundef %0, i32 noundef %52) #14
   %.not.i.us = icmp eq i32 %53, 0
@@ -11036,7 +11031,7 @@ WriteOneElem.exit35.us.us:                        ; preds = %41
 
 WriteOneElem.exit.us:                             ; preds = %.lr.ph.split.us.split
   %54 = load ptr, ptr %6, align 8
-  %55 = getelementptr inbounds nuw i32, ptr %54, i64 %indvars.iv80
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %indvars.iv80
   %56 = load i32, ptr %55, align 4
   %57 = tail call i32 @_cmsWriteUInt32Number(ptr noundef %0, i32 noundef %56) #14
   %.not6.i.not.us = icmp eq i32 %57, 0
@@ -11044,7 +11039,7 @@ WriteOneElem.exit.us:                             ; preds = %.lr.ph.split.us.spl
 
 58:                                               ; preds = %WriteOneElem.exit.us
   %59 = load ptr, ptr %7, align 8
-  %60 = getelementptr inbounds nuw i32, ptr %59, i64 %indvars.iv80
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %indvars.iv80
   %61 = load i32, ptr %60, align 4
   %62 = tail call i32 @_cmsWriteUInt32Number(ptr noundef %0, i32 noundef %61) #14
   %.not.i21.us = icmp eq i32 %62, 0
@@ -11052,7 +11047,7 @@ WriteOneElem.exit.us:                             ; preds = %.lr.ph.split.us.spl
 
 WriteOneElem.exit25.us:                           ; preds = %58
   %63 = load ptr, ptr %8, align 8
-  %64 = getelementptr inbounds nuw i32, ptr %63, i64 %indvars.iv80
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %indvars.iv80
   %65 = load i32, ptr %64, align 4
   %66 = tail call i32 @_cmsWriteUInt32Number(ptr noundef %0, i32 noundef %65) #14
   %.not6.i22.not.us = icmp eq i32 %66, 0
@@ -11060,7 +11055,7 @@ WriteOneElem.exit25.us:                           ; preds = %58
 
 67:                                               ; preds = %WriteOneElem.exit25.us
   %68 = load ptr, ptr %9, align 8
-  %69 = getelementptr inbounds nuw i32, ptr %68, i64 %indvars.iv80
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %indvars.iv80
   %70 = load i32, ptr %69, align 4
   %71 = tail call i32 @_cmsWriteUInt32Number(ptr noundef %0, i32 noundef %70) #14
   %.not.i26.us = icmp eq i32 %71, 0
@@ -11068,7 +11063,7 @@ WriteOneElem.exit25.us:                           ; preds = %58
 
 WriteOneElem.exit30.us:                           ; preds = %67
   %72 = load ptr, ptr %10, align 8
-  %73 = getelementptr inbounds nuw i32, ptr %72, i64 %indvars.iv80
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %indvars.iv80
   %74 = load i32, ptr %73, align 4
   %75 = tail call i32 @_cmsWriteUInt32Number(ptr noundef %0, i32 noundef %74) #14
   %.not6.i27.not.us = icmp eq i32 %75, 0
@@ -11082,7 +11077,7 @@ WriteOneElem.exit30.us:                           ; preds = %67
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %.thread ]
   %76 = load ptr, ptr %5, align 8
-  %77 = getelementptr inbounds nuw i32, ptr %76, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %indvars.iv
   %78 = load i32, ptr %77, align 4
   %79 = tail call i32 @_cmsWriteUInt32Number(ptr noundef %0, i32 noundef %78) #14
   %.not.i = icmp eq i32 %79, 0
@@ -11090,7 +11085,7 @@ WriteOneElem.exit30.us:                           ; preds = %67
 
 WriteOneElem.exit:                                ; preds = %.lr.ph.split
   %80 = load ptr, ptr %6, align 8
-  %81 = getelementptr inbounds nuw i32, ptr %80, i64 %indvars.iv
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %80, i64 %indvars.iv
   %82 = load i32, ptr %81, align 4
   %83 = tail call i32 @_cmsWriteUInt32Number(ptr noundef %0, i32 noundef %82) #14
   %.not6.i.not = icmp eq i32 %83, 0
@@ -11098,7 +11093,7 @@ WriteOneElem.exit:                                ; preds = %.lr.ph.split
 
 84:                                               ; preds = %WriteOneElem.exit
   %85 = load ptr, ptr %7, align 8
-  %86 = getelementptr inbounds nuw i32, ptr %85, i64 %indvars.iv
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %85, i64 %indvars.iv
   %87 = load i32, ptr %86, align 4
   %88 = tail call i32 @_cmsWriteUInt32Number(ptr noundef %0, i32 noundef %87) #14
   %.not.i21 = icmp eq i32 %88, 0
@@ -11106,7 +11101,7 @@ WriteOneElem.exit:                                ; preds = %.lr.ph.split
 
 WriteOneElem.exit25:                              ; preds = %84
   %89 = load ptr, ptr %8, align 8
-  %90 = getelementptr inbounds nuw i32, ptr %89, i64 %indvars.iv
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %indvars.iv
   %91 = load i32, ptr %90, align 4
   %92 = tail call i32 @_cmsWriteUInt32Number(ptr noundef %0, i32 noundef %91) #14
   %.not6.i22.not = icmp eq i32 %92, 0

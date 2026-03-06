@@ -1157,7 +1157,7 @@ default.unreachable:                              ; preds = %184
   %81 = load ptr, ptr %80, align 8, !nonnull !4, !noundef !4
   %82 = getelementptr inbounds nuw i8, ptr %74, i64 24
   %83 = load i64, ptr %82, align 8, !noundef !4
-  %84 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %81, i64 %83
+  %84 = getelementptr inbounds [24 x i8], ptr %81, i64 %83
   store ptr %81, ptr %23, align 8, !noalias !97
   store ptr %84, ptr %44, align 8, !noalias !97
   store ptr %28, ptr %45, align 8, !noalias !97
@@ -1678,7 +1678,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6Str
   %266 = load ptr, ptr %265, align 8, !nonnull !4, !noundef !4
   %267 = getelementptr inbounds nuw i8, ptr %74, i64 32
   %268 = load i64, ptr %267, align 8, !noundef !4
-  %269 = getelementptr inbounds { { i64, [5 x i64] }, {} }, ptr %266, i64 %268
+  %269 = getelementptr inbounds [48 x i8], ptr %266, i64 %268
   invoke void @_RINvNtCseG2FYMysgNb_3wax6encode6encodeuRINtNtB4_5token5TokenuEINtNtNtCs1LoaDTb72WA_4core5slice4iter4IterBC_EEB4_(i1 noundef zeroext true, i8 noundef %spec.select.i, ptr noalias noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull %266, ptr noundef nonnull %269)
           to label %270 unwind label %251
 
@@ -2456,7 +2456,7 @@ default.unreachable127:                           ; preds = %310, %200
   %66 = load ptr, ptr %65, align 8, !nonnull !4, !noundef !4
   %67 = getelementptr inbounds nuw i8, ptr %.sroa.02.018.i132, i64 24
   %68 = load i64, ptr %67, align 8, !noundef !4
-  %69 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %66, i64 %68
+  %69 = getelementptr inbounds [24 x i8], ptr %66, i64 %68
   store ptr %66, ptr %25, align 8
   store ptr %69, ptr %41, align 8
   store ptr %29, ptr %42, align 8
@@ -3007,7 +3007,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6Str
   %269 = load ptr, ptr %268, align 8, !nonnull !4, !noundef !4
   %270 = getelementptr inbounds nuw i8, ptr %.sroa.02.018.i132, i64 32
   %271 = load i64, ptr %270, align 8, !noundef !4
-  %272 = getelementptr inbounds { { i64, [5 x i64] }, { i64, i64 } }, ptr %269, i64 %271
+  %272 = getelementptr inbounds [64 x i8], ptr %269, i64 %271
   invoke void @_RINvNtCseG2FYMysgNb_3wax6encode6encodeTjjERNtNtB4_5token5TokenINtNtNtCs1LoaDTb72WA_4core5slice4iter4IterBF_EEB4_(i1 noundef zeroext true, i8 noundef %spec.select, ptr noalias noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull %269, ptr noundef nonnull %272)
           to label %273 unwind label %254
 
@@ -3520,7 +3520,7 @@ default.unreachable111:                           ; preds = %197
   %63 = load ptr, ptr %62, align 8, !nonnull !4, !noundef !4
   %64 = getelementptr inbounds nuw i8, ptr %56, i64 24
   %65 = load i64, ptr %64, align 8, !noundef !4
-  %66 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %63, i64 %65
+  %66 = getelementptr inbounds [24 x i8], ptr %63, i64 %65
   store ptr %63, ptr %25, align 8
   store ptr %66, ptr %45, align 8
   store ptr %30, ptr %46, align 8
@@ -4068,7 +4068,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6Str
   %266 = load ptr, ptr %265, align 8, !nonnull !4, !noundef !4
   %267 = getelementptr inbounds nuw i8, ptr %56, i64 32
   %268 = load i64, ptr %267, align 8, !noundef !4
-  %269 = getelementptr inbounds { { i64, [5 x i64] }, { i64, i64 } }, ptr %266, i64 %268
+  %269 = getelementptr inbounds [64 x i8], ptr %266, i64 %268
   invoke void @_RINvNtCseG2FYMysgNb_3wax6encode6encodeTjjERNtNtB4_5token5TokenINtNtNtCs1LoaDTb72WA_4core5slice4iter4IterBF_EEB4_(i1 noundef zeroext true, i8 noundef %spec.select, ptr noalias noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull %266, ptr noundef nonnull %269)
           to label %270 unwind label %251
 
@@ -4497,7 +4497,7 @@ define hidden void @_RINvNtCseG2FYMysgNb_3wax6encode6encodeTjjERNtNtB4_5token5To
   %31 = zext i1 %0 to i8
   store i8 %31, ptr %30, align 1
   store i8 %1, ptr %29, align 1
-  %32 = getelementptr inbounds { { i64, [5 x i64] }, { i64, i64 } }, ptr %3, i64 %4
+  %32 = getelementptr inbounds [64 x i8], ptr %3, i64 %4
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 8
@@ -4607,7 +4607,7 @@ default.unreachable127:                           ; preds = %314, %204
   %70 = load ptr, ptr %69, align 8, !nonnull !4, !noundef !4
   %71 = getelementptr inbounds nuw i8, ptr %.sroa.02.018.i132, i64 24
   %72 = load i64, ptr %71, align 8, !noundef !4
-  %73 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %70, i64 %72
+  %73 = getelementptr inbounds [24 x i8], ptr %70, i64 %72
   store ptr %70, ptr %25, align 8
   store ptr %73, ptr %42, align 8
   store ptr %29, ptr %43, align 8
@@ -5158,7 +5158,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6Str
   %273 = load ptr, ptr %272, align 8, !nonnull !4, !noundef !4
   %274 = getelementptr inbounds nuw i8, ptr %.sroa.02.018.i132, i64 32
   %275 = load i64, ptr %274, align 8, !noundef !4
-  %276 = getelementptr inbounds { { i64, [5 x i64] }, { i64, i64 } }, ptr %273, i64 %275
+  %276 = getelementptr inbounds [64 x i8], ptr %273, i64 %275
   invoke void @_RINvNtCseG2FYMysgNb_3wax6encode6encodeTjjERNtNtB4_5token5TokenINtNtNtCs1LoaDTb72WA_4core5slice4iter4IterBF_EEB4_(i1 noundef zeroext true, i8 noundef %spec.select, ptr noalias noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull %273, ptr noundef nonnull %276)
           to label %277 unwind label %258
 
@@ -5690,7 +5690,7 @@ default.unreachable127:                           ; preds = %310, %200
   %66 = load ptr, ptr %65, align 8, !nonnull !4, !noundef !4
   %67 = getelementptr inbounds nuw i8, ptr %.sroa.02.018.i132, i64 24
   %68 = load i64, ptr %67, align 8, !noundef !4
-  %69 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %66, i64 %68
+  %69 = getelementptr inbounds [24 x i8], ptr %66, i64 %68
   store ptr %66, ptr %25, align 8
   store ptr %69, ptr %41, align 8
   store ptr %29, ptr %42, align 8
@@ -6241,7 +6241,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6Str
   %269 = load ptr, ptr %268, align 8, !nonnull !4, !noundef !4
   %270 = getelementptr inbounds nuw i8, ptr %.sroa.02.018.i132, i64 32
   %271 = load i64, ptr %270, align 8, !noundef !4
-  %272 = getelementptr inbounds { { i64, [5 x i64] }, {} }, ptr %269, i64 %271
+  %272 = getelementptr inbounds [48 x i8], ptr %269, i64 %271
   invoke void @_RINvNtCseG2FYMysgNb_3wax6encode6encodeuRINtNtB4_5token5TokenuEINtNtNtCs1LoaDTb72WA_4core5slice4iter4IterBC_EEB4_(i1 noundef zeroext true, i8 noundef %spec.select, ptr noalias noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull %269, ptr noundef nonnull %272)
           to label %273 unwind label %254
 

@@ -3,11 +3,6 @@ source_filename = "bench/hdf5/original/H5PLplugin_cache.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.H5PL_plugin_t = type { i32, %union.H5PL_key_t, ptr }
-%union.H5PL_key_t = type { %struct.H5PL_vol_key_t }
-%struct.H5PL_vol_key_t = type { i32, %union.anon }
-%union.anon = type { ptr }
-
 @H5PL_init_g = external local_unnamed_addr global i8, align 1
 @H5_libterm_g = external local_unnamed_addr global i8, align 1
 @H5PL_num_plugins_g = internal unnamed_addr global i32 0, align 4
@@ -99,7 +94,7 @@ define noundef i32 @H5PL__close_plugin_cache(ptr noundef writeonly captures(none
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %11 = load ptr, ptr @H5PL_cache_g, align 8, !tbaa !12
-  %12 = getelementptr inbounds nuw %struct.H5PL_plugin_t, ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [32 x i8], ptr %11, i64 %indvars.iv
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %14 = load ptr, ptr %13, align 8, !tbaa !17
   %15 = tail call i32 @H5PL__close(ptr noundef %14) #8
@@ -166,7 +161,7 @@ define range(i32 -1, 1) i32 @H5PL__add_plugin(i32 noundef %0, ptr noundef readon
 H5PL__expand_cache.exit:                          ; preds = %13
   %19 = load i32, ptr @H5PL_num_plugins_g, align 4, !tbaa !10
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds nuw %struct.H5PL_plugin_t, ptr %17, i64 %20
+  %21 = getelementptr inbounds nuw [32 x i8], ptr %17, i64 %20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %21, i8 0, i64 512, i1 false)
   br label %31
 
@@ -186,7 +181,7 @@ H5PL__expand_cache.exit:                          ; preds = %13
   %.pre-phi = phi i64 [ %.pre5, %._crit_edge ], [ %20, %H5PL__expand_cache.exit ]
   %32 = phi i32 [ %11, %._crit_edge ], [ %19, %H5PL__expand_cache.exit ]
   %33 = phi ptr [ %.pre, %._crit_edge ], [ %17, %H5PL__expand_cache.exit ]
-  %34 = getelementptr inbounds nuw %struct.H5PL_plugin_t, ptr %33, i64 %.pre-phi
+  %34 = getelementptr inbounds nuw [32 x i8], ptr %33, i64 %.pre-phi
   store i32 %0, ptr %34, align 8, !tbaa !21
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !22
@@ -235,7 +230,7 @@ define range(i32 -1, 1) i32 @H5PL__find_plugin_in_cache(ptr noundef readonly cap
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %23
   %indvars.iv84 = phi i64 [ %indvars.iv.next85, %23 ], [ 0, %.lr.ph ]
-  %15 = getelementptr inbounds nuw %struct.H5PL_plugin_t, ptr %13, i64 %indvars.iv84
+  %15 = getelementptr inbounds nuw [32 x i8], ptr %13, i64 %indvars.iv84
   %16 = load i32, ptr %15, align 8, !tbaa !21
   %.not.us = icmp eq i32 %16, 0
   br i1 %.not.us, label %17, label %23
@@ -255,7 +250,7 @@ define range(i32 -1, 1) i32 @H5PL__find_plugin_in_cache(ptr noundef readonly cap
 
 .lr.ph.split.us57:                                ; preds = %.lr.ph, %46
   %indvars.iv79 = phi i64 [ %indvars.iv.next80, %46 ], [ 0, %.lr.ph ]
-  %24 = getelementptr inbounds nuw %struct.H5PL_plugin_t, ptr %13, i64 %indvars.iv79
+  %24 = getelementptr inbounds nuw [32 x i8], ptr %13, i64 %indvars.iv79
   %25 = load i32, ptr %24, align 8, !tbaa !21
   %.not.us59 = icmp eq i32 %25, 1
   br i1 %.not.us59, label %26, label %46
@@ -300,7 +295,7 @@ define range(i32 -1, 1) i32 @H5PL__find_plugin_in_cache(ptr noundef readonly cap
 
 .lr.ph.split.us62:                                ; preds = %.lr.ph, %69
   %indvars.iv = phi i64 [ %indvars.iv.next, %69 ], [ 0, %.lr.ph ]
-  %47 = getelementptr inbounds nuw %struct.H5PL_plugin_t, ptr %13, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [32 x i8], ptr %13, i64 %indvars.iv
   %48 = load i32, ptr %47, align 8, !tbaa !21
   %.not.us64 = icmp eq i32 %48, 2
   br i1 %.not.us64, label %49, label %69
@@ -345,7 +340,7 @@ define range(i32 -1, 1) i32 @H5PL__find_plugin_in_cache(ptr noundef readonly cap
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %92
   %indvars.iv89 = phi i64 [ %indvars.iv.next90, %92 ], [ 0, %.lr.ph ]
-  %70 = getelementptr inbounds nuw %struct.H5PL_plugin_t, ptr %13, i64 %indvars.iv89
+  %70 = getelementptr inbounds nuw [32 x i8], ptr %13, i64 %indvars.iv89
   %71 = load i32, ptr %70, align 8, !tbaa !21
   %.not = icmp eq i32 %.fr, %71
   br i1 %.not, label %72, label %92

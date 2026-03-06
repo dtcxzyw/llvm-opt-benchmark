@@ -15,10 +15,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.casadi::MX" = type { %"class.casadi::SharedObject" }
 %"class.casadi::SharedObject" = type { %"class.casadi::GenericShared" }
 %"class.casadi::GenericShared" = type { ptr }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<casadi::MX, std::allocator<casadi::MX>>::_Vector_impl" }
-%"struct.std::_Vector_base<casadi::MX, std::allocator<casadi::MX>>::_Vector_impl" = type { %"struct.std::_Vector_base<casadi::MX, std::allocator<casadi::MX>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<casadi::MX, std::allocator<casadi::MX>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::__cxx11::basic_stringstream" = type { %"class.std::basic_iostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_iostream.base" = type { %"class.std::basic_istream.base", %"class.std::basic_ostream.base" }
 %"class.std::basic_istream.base" = type { ptr, i64 }
@@ -50,6 +46,10 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.82" = type { %"struct.std::_Vector_base<long long, std::allocator<long long>>::_Vector_impl" }
 %"struct.std::_Vector_base<long long, std::allocator<long long>>::_Vector_impl" = type { %"struct.std::_Vector_base<long long, std::allocator<long long>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<long long, std::allocator<long long>>::_Vector_impl_data" = type { ptr, ptr, ptr }
+%"class.std::vector" = type { %"struct.std::_Vector_base" }
+%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<casadi::MX, std::allocator<casadi::MX>>::_Vector_impl" }
+%"struct.std::_Vector_base<casadi::MX, std::allocator<casadi::MX>>::_Vector_impl" = type { %"struct.std::_Vector_base<casadi::MX, std::allocator<casadi::MX>>::_Vector_impl_data" }
+%"struct.std::_Vector_base<casadi::MX, std::allocator<casadi::MX>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 
 $_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_ = comdat any
 
@@ -1684,9 +1684,9 @@ define void @_ZNK6casadi9Assertion10ad_forwardERKSt6vectorIS1_INS_2MXESaIS2_EESa
   %7 = phi ptr [ %16, %.lr.ph ], [ %6, %3 ]
   %.06 = phi i64 [ %14, %.lr.ph ], [ 0, %3 ]
   %8 = load ptr, ptr %1, align 8, !tbaa !43
-  %9 = getelementptr inbounds nuw %"class.std::vector", ptr %8, i64 %.06
+  %9 = getelementptr inbounds nuw [24 x i8], ptr %8, i64 %.06
   %10 = load ptr, ptr %9, align 8, !tbaa !37
-  %11 = getelementptr inbounds nuw %"class.std::vector", ptr %7, i64 %.06
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %.06
   %12 = load ptr, ptr %11, align 8, !tbaa !37
   %13 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %10)
   %14 = add nuw nsw i64 %.06, 1
@@ -1715,10 +1715,10 @@ define void @_ZNK6casadi9Assertion10ad_reverseERKSt6vectorIS1_INS_2MXESaIS2_EESa
 .lr.ph:                                           ; preds = %3, %_ZN6casadi17GenericExpressionINS_2MXEEpLERKS1_.exit
   %8 = phi ptr [ %19, %_ZN6casadi17GenericExpressionINS_2MXEEpLERKS1_.exit ], [ %7, %3 ]
   %.06 = phi i64 [ %17, %_ZN6casadi17GenericExpressionINS_2MXEEpLERKS1_.exit ], [ 0, %3 ]
-  %9 = getelementptr inbounds nuw %"class.std::vector", ptr %8, i64 %.06
+  %9 = getelementptr inbounds nuw [24 x i8], ptr %8, i64 %.06
   %10 = load ptr, ptr %9, align 8, !tbaa !37
   %11 = load ptr, ptr %2, align 8, !tbaa !43
-  %12 = getelementptr inbounds nuw %"class.std::vector", ptr %11, i64 %.06
+  %12 = getelementptr inbounds nuw [24 x i8], ptr %11, i64 %.06
   %13 = load ptr, ptr %12, align 8, !tbaa !37
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN6casadi2MX6binaryExRKS0_S2_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::MX") align 8 %4, i64 noundef 1, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %10)

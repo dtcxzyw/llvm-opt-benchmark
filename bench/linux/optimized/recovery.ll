@@ -1430,7 +1430,7 @@ define internal fastcc i32 @jread(ptr noundef writeonly captures(none) initializ
 84:                                               ; preds = %80
   %85 = add i32 %61, 1
   %86 = zext i32 %61 to i64
-  %87 = getelementptr ptr, ptr %5, i64 %86
+  %87 = getelementptr [8 x i8], ptr %5, i64 %86
   store ptr %74, ptr %87, align 8
   %88 = icmp eq i32 %85, 8
   br i1 %88, label %89, label %.loopexit
@@ -1441,7 +1441,7 @@ define internal fastcc i32 @jread(ptr noundef writeonly captures(none) initializ
 
 90:                                               ; preds = %96, %89
   %91 = phi i64 [ 7, %89 ], [ %97, %96 ]
-  %92 = getelementptr ptr, ptr %5, i64 %91
+  %92 = getelementptr [8 x i8], ptr %5, i64 %91
   %93 = load ptr, ptr %92, align 8
   %94 = icmp eq ptr %93, null
   br i1 %94, label %96, label %95
@@ -1502,7 +1502,7 @@ define internal fastcc i32 @jread(ptr noundef writeonly captures(none) initializ
 
 117:                                              ; preds = %123, %115
   %118 = phi i64 [ %116, %115 ], [ %124, %123 ]
-  %119 = getelementptr ptr, ptr %5, i64 %118
+  %119 = getelementptr [8 x i8], ptr %5, i64 %118
   %120 = load ptr, ptr %119, align 8
   %121 = icmp eq ptr %120, null
   br i1 %121, label %123, label %122

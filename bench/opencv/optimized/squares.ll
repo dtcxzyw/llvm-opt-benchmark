@@ -36,7 +36,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.9" = type { %"struct.std::_Vector_base<cv::Point_<int>, std::allocator<cv::Point_<int>>>::_Vector_impl" }
 %"struct.std::_Vector_base<cv::Point_<int>, std::allocator<cv::Point_<int>>>::_Vector_impl" = type { %"struct.std::_Vector_base<cv::Point_<int>, std::allocator<cv::Point_<int>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<cv::Point_<int>, std::allocator<cv::Point_<int>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.cv::Point_" = type { i32, i32 }
 
 $_ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EED2Ev = comdat any
 
@@ -998,7 +997,7 @@ _ZNSolsEPFRSoS_E.exit171:                         ; preds = %.noexc271
   %336 = phi ptr [ %330, %.lr.ph.i.i ], [ %349, %346 ]
   %.01012.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %347, %346 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !63
-  %337 = getelementptr inbounds nuw %"class.std::vector.8", ptr %336, i64 %.01012.i.i
+  %337 = getelementptr inbounds nuw [24 x i8], ptr %336, i64 %.01012.i.i
   %338 = load ptr, ptr %337, align 8, !tbaa !72
   store ptr %338, ptr %4, align 8, !tbaa !75, !noalias !63
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !63
@@ -1843,7 +1842,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit:    ; preds = %161, %._crit_edge, 
   %170 = phi ptr [ %250, %_ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EE9push_backERKS4_.exit ], [ %163, %161 ]
   %.073140 = phi i64 [ %248, %_ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EE9push_backERKS4_.exit ], [ 0, %161 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
-  %171 = getelementptr inbounds nuw %"class.std::vector.8", ptr %170, i64 %.073140
+  %171 = getelementptr inbounds nuw [24 x i8], ptr %170, i64 %.073140
   store i32 0, ptr %103, align 8, !tbaa !81
   store i32 0, ptr %104, align 4, !tbaa !82
   store i32 -2130509812, ptr %29, align 8, !tbaa !49
@@ -1945,9 +1944,9 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit:    ; preds = %161, %._crit_edge, 
   %indvars.iv = phi i64 [ 2, %.preheader ], [ %indvars.iv.next, %199 ]
   %.068138 = phi double [ 0.000000e+00, %.preheader ], [ %224, %199 ]
   %200 = and i64 %indvars.iv, 3
-  %201 = getelementptr inbounds nuw %"class.cv::Point_", ptr %189, i64 %200
+  %201 = getelementptr inbounds nuw [8 x i8], ptr %189, i64 %200
   %.sroa.02.0.copyload = load i64, ptr %201, align 4
-  %202 = getelementptr %"class.cv::Point_", ptr %189, i64 %indvars.iv
+  %202 = getelementptr [8 x i8], ptr %189, i64 %indvars.iv
   %203 = getelementptr i8, ptr %202, i64 -16
   %.sroa.01.0.copyload = load i64, ptr %203, align 4
   %204 = getelementptr i8, ptr %202, i64 -8
@@ -2400,7 +2399,7 @@ _ZNSt12_Vector_baseISt6vectorIN2cv6Point_IiEESaIS3_EESaIS5_EE13_M_deallocateEPS5
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !71
   store ptr %.0.lcssa.i.i.i.i32, ptr %4, align 8, !tbaa !68
-  %62 = getelementptr inbounds nuw %"class.std::vector.8", ptr %20, i64 %16
+  %62 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %62, ptr %61, align 8, !tbaa !95
   ret void
 

@@ -98,7 +98,7 @@ switch.early.test:                                ; preds = %2
 
 13:                                               ; preds = %10, %.critedge
   %14 = sext i32 %1 to i64
-  %15 = getelementptr inbounds i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7592), i64 %14
+  %15 = getelementptr inbounds [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @server, i64 7592), i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !56
   %17 = add i32 %16, 1
   store i32 %17, ptr %15, align 4, !tbaa !56
@@ -411,7 +411,7 @@ unblockClientWaitingData.exit:                    ; preds = %._crit_edge.i, %5, 
 56:                                               ; preds = %53, %50
   %57 = load i32, ptr %3, align 8, !tbaa !5
   %58 = zext i32 %57 to i64
-  %59 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7592), i64 %58
+  %59 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @server, i64 7592), i64 %58
   %60 = load i32, ptr %59, align 4, !tbaa !56
   %61 = add i32 %60, -1
   store i32 %61, ptr %59, align 4, !tbaa !56
@@ -834,7 +834,7 @@ define dso_local void @handleClientsBlockedOnKeys() local_unnamed_addr #0 {
 
 switch.lookup:                                    ; preds = %40
   %46 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.handleClientsBlockedOnKeys, i64 %46
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.handleClientsBlockedOnKeys, i64 %46
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %getBlockedTypeByType.exit.i
 
@@ -1079,7 +1079,7 @@ define dso_local void @blockForKeys(ptr noundef %0, i32 noundef %1, ptr noundef 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %42
   %indvars.iv59 = phi i64 [ %indvars.iv.next60, %42 ], [ 0, %.lr.ph ]
   %17 = load ptr, ptr %15, align 8, !tbaa !29
-  %18 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv59
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv59
   %19 = load ptr, ptr %18, align 8, !tbaa !102
   %20 = call ptr @dictAddRaw(ptr noundef %17, ptr noundef %19, ptr noundef null) #5
   %.not46.us = icmp eq ptr %20, null
@@ -1128,7 +1128,7 @@ define dso_local void @blockForKeys(ptr noundef %0, i32 noundef %1, ptr noundef 
 .lr.ph.split:                                     ; preds = %.lr.ph, %78
   %indvars.iv = phi i64 [ %indvars.iv.next, %78 ], [ 0, %.lr.ph ]
   %43 = load ptr, ptr %15, align 8, !tbaa !29
-  %44 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %45 = load ptr, ptr %44, align 8, !tbaa !102
   %46 = call ptr @dictAddRaw(ptr noundef %43, ptr noundef %45, ptr noundef null) #5
   %.not46 = icmp eq ptr %46, null
@@ -1255,7 +1255,7 @@ switch.early.test.i52:                            ; preds = %.split40
 
 blockClient.exit55:                               ; preds = %.critedge.i53, %95
   %98 = sext i32 %1 to i64
-  %99 = getelementptr inbounds i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7592), i64 %98
+  %99 = getelementptr inbounds [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @server, i64 7592), i64 %98
   %100 = load i32, ptr %99, align 4, !tbaa !56
   %101 = add i32 %100, 1
   store i32 %101, ptr %99, align 4, !tbaa !56
@@ -1298,9 +1298,9 @@ define internal fastcc void @signalKeyAsReadyLogic(ptr noundef %0, ptr noundef %
 
 switch.lookup:                                    ; preds = %4
   %7 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.signalKeyAsReadyLogic, i64 %7
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.signalKeyAsReadyLogic, i64 %7
   %switch.load = load i64, ptr %switch.gep, align 8
-  %8 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7592), i64 %switch.load
+  %8 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @server, i64 7592), i64 %switch.load
   %9 = load i32, ptr %8, align 4, !tbaa !56
   %10 = icmp ne i32 %9, 0
   %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7608), align 8

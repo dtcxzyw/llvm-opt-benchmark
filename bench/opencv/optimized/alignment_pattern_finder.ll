@@ -287,7 +287,7 @@ define hidden void @_ZN5zxing6qrcode22AlignmentPatternFinder4findERNS_12ErrorHan
 
 69:                                               ; preds = %69, %66
   %indvars.iv.i = phi i64 [ 0, %66 ], [ %indvars.iv.next.i, %69 ]
-  %70 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv.i
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv.i
   %71 = load i32, ptr %70, align 4, !tbaa !27
   %72 = sitofp i32 %71 to float
   %73 = fsub float %67, %72
@@ -320,7 +320,7 @@ _ZN5zxing3RefINS_6qrcode16AlignmentPatternEED2Ev.exit75: ; preds = %77, %_ZN5zxi
 80:                                               ; preds = %62
   %81 = add nuw nsw i32 %.041100, 1
   %82 = zext nneg i32 %81 to i64
-  %83 = getelementptr inbounds nuw i32, ptr %13, i64 %82
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %82
   %84 = load i32, ptr %83, align 4, !tbaa !27
   %85 = add nsw i32 %84, 1
   store i32 %85, ptr %83, align 4, !tbaa !27
@@ -330,7 +330,7 @@ _ZN5zxing3RefINS_6qrcode16AlignmentPatternEED2Ev.exit75: ; preds = %77, %_ZN5zxi
   %87 = icmp eq i32 %.041100, 1
   %spec.select = select i1 %87, i32 2, i32 %.041100
   %88 = zext nneg i32 %spec.select to i64
-  %89 = getelementptr inbounds nuw i32, ptr %13, i64 %88
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %88
   %90 = load i32, ptr %89, align 4, !tbaa !27
   %91 = add nsw i32 %90, 1
   store i32 %91, ptr %89, align 4, !tbaa !27
@@ -349,7 +349,7 @@ _ZN5zxing3RefINS_6qrcode16AlignmentPatternEED2Ev.exit75: ; preds = %77, %_ZN5zxi
 
 96:                                               ; preds = %96, %._crit_edge
   %indvars.iv.i76 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next.i77, %96 ]
-  %97 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv.i76
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv.i76
   %98 = load i32, ptr %97, align 4, !tbaa !27
   %99 = sitofp i32 %98 to float
   %100 = fsub float %94, %99
@@ -477,7 +477,7 @@ define hidden noundef zeroext i1 @_ZN5zxing6qrcode22AlignmentPatternFinder17foun
 
 7:                                                ; preds = %7, %2
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %7 ]
-  %8 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4, !tbaa !27
   %10 = sitofp i32 %9 to float
   %11 = fsub float %4, %10
@@ -545,7 +545,7 @@ define hidden void @_ZN5zxing6qrcode22AlignmentPatternFinder20handlePossibleCent
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN5zxing3RefINS_6qrcode16AlignmentPatternEED2Ev.exit45 ]
   %44 = load ptr, ptr %34, align 8, !tbaa !14
   %45 = load ptr, ptr %44, align 8, !tbaa !65
-  %46 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv
   %47 = load ptr, ptr %46, align 8, !tbaa !66
   %.not.i.i = icmp eq ptr %47, null
   br i1 %.not.i.i, label %_ZN5zxing3RefINS_6qrcode16AlignmentPatternEEC2EPS2_.exit, label %48
@@ -700,7 +700,7 @@ _ZNSt6vectorIPN5zxing6qrcode16AlignmentPatternESaIS3_EE11_S_relocateEPS3_S6_S6_R
 _ZNSt6vectorIPN5zxing6qrcode16AlignmentPatternESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %111, %_ZNSt6vectorIPN5zxing6qrcode16AlignmentPatternESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
   store ptr %106, ptr %86, align 8, !tbaa !65
   store ptr %110, ptr %87, align 8, !tbaa !61
-  %112 = getelementptr inbounds nuw ptr, ptr %106, i64 %104
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %104
   store ptr %112, ptr %89, align 8, !tbaa !74
   br label %_ZNSt6vectorIPN5zxing6qrcode16AlignmentPatternESaIS3_EE9push_backERKS3_.exit
 
@@ -908,7 +908,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %16
 
 76:                                               ; preds = %76, %72
   %indvars.iv.i = phi i64 [ 0, %72 ], [ %indvars.iv.next.i, %76 ]
-  %77 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv.i
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv.i
   %78 = load i32, ptr %77, align 4, !tbaa !27
   %79 = sitofp i32 %78 to float
   %80 = fsub float %74, %79
@@ -970,7 +970,7 @@ define hidden void @_ZN5zxing6qrcode22AlignmentPatternFinderD2Ev(ptr noundef non
   %13 = phi ptr [ %25, %_ZN5zxing7Counted7releaseEv.exit ], [ %6, %1 ]
   %14 = phi ptr [ %26, %_ZN5zxing7Counted7releaseEv.exit ], [ %3, %1 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5zxing7Counted7releaseEv.exit ], [ 0, %1 ]
-  %15 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8, !tbaa !66
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load i32, ptr %17, align 8, !tbaa !3
@@ -992,7 +992,7 @@ define hidden void @_ZN5zxing6qrcode22AlignmentPatternFinderD2Ev(ptr noundef non
 _ZN5zxing7Counted7releaseEv.exit:                 ; preds = %.lr.ph, %21
   %25 = phi ptr [ %13, %.lr.ph ], [ %.pre11, %21 ]
   %26 = phi ptr [ %14, %.lr.ph ], [ %.pre, %21 ]
-  %27 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv
   store ptr null, ptr %27, align 8, !tbaa !66
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 8

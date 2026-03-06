@@ -2432,7 +2432,7 @@ define hidden noundef ptr @tcapsrt_razinfo() local_unnamed_addr #2 {
   store i32 %spec.store.select, ptr @tcapsrt_global_current, align 4
   %4 = sext i32 %spec.store.select to i64
   %.idx = shl nsw i64 %4, 4
-  %5 = getelementptr %struct.tcapsrt_info_t, ptr @tcapsrt_global_info, i64 %4
+  %5 = getelementptr [16 x i8], ptr @tcapsrt_global_info, i64 %4
   %6 = tail call i64 @llvm.usub.sat.i64(i64 160, i64 %.idx)
   %7 = tail call ptr @__memset_chk(ptr noundef %5, i32 noundef 0, i64 noundef 16, i64 noundef %6) #15
   ret ptr %5
@@ -2852,7 +2852,7 @@ define internal i32 @dissect_tcap(ptr noundef %0, ptr noundef %1, ptr noundef %2
   store i32 %spec.store.select.i, ptr @tcapsrt_global_current, align 4
   %35 = sext i32 %spec.store.select.i to i64
   %.idx.i = shl nsw i64 %35, 4
-  %36 = getelementptr %struct.tcapsrt_info_t, ptr @tcapsrt_global_info, i64 %35
+  %36 = getelementptr [16 x i8], ptr @tcapsrt_global_info, i64 %35
   %37 = call i64 @llvm.usub.sat.i64(i64 160, i64 %.idx.i)
   %38 = call ptr @__memset_chk(ptr noundef %36, i32 noundef 0, i64 noundef 16, i64 noundef %37) #15
   store ptr %36, ptr @gp_tcapsrt_info, align 8

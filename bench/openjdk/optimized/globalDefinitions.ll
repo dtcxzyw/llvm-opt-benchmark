@@ -173,7 +173,7 @@ define hidden noundef ptr @_Z9type2name9BasicType(i8 noundef zeroext %0) local_u
 
 3:                                                ; preds = %1
   %4 = zext nneg i8 %0 to i64
-  %5 = getelementptr inbounds nuw ptr, ptr @type2name_tab, i64 %4
+  %5 = getelementptr inbounds nuw [8 x i8], ptr @type2name_tab, i64 %4
   %6 = load ptr, ptr %5, align 8
   br label %12
 
@@ -202,7 +202,7 @@ define hidden noundef zeroext range(i8 0, 100) i8 @_Z9name2typePKc(ptr noundef r
 
 2:                                                ; preds = %1, %8
   %indvars.iv = phi i64 [ 4, %1 ], [ %indvars.iv.next, %8 ]
-  %3 = getelementptr inbounds nuw ptr, ptr @type2name_tab, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [8 x i8], ptr @type2name_tab, i64 %indvars.iv
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %8, label %5

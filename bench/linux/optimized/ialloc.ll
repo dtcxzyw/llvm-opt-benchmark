@@ -13,12 +13,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.static_call_key = type { ptr, %union.anon.18 }
 %union.anon.18 = type { i64 }
 %struct.cpumask = type { [1 x i64] }
-%struct.bgl_lock = type { %struct.spinlock, [60 x i8] }
-%struct.spinlock = type { %union.anon.0 }
-%union.anon.0 = type { %struct.raw_spinlock }
-%struct.raw_spinlock = type { %struct.qspinlock }
-%struct.qspinlock = type { %union.anon.1 }
-%union.anon.1 = type { %struct.atomic_t }
 %struct.dx_hash_info = type { i32, i32, i32, ptr }
 %struct.anon.46 = type { %struct.shash_desc, [4 x i8] }
 %struct.shash_desc = type { ptr, [0 x ptr] }
@@ -356,7 +350,7 @@ define dso_local void @ext4_free_inode(ptr noundef %0, ptr noundef %1) local_unn
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 424
   %129 = load ptr, ptr %128, align 8
   %130 = and i64 %69, 127
-  %131 = getelementptr %struct.bgl_lock, ptr %129, i64 %130
+  %131 = getelementptr [64 x i8], ptr %129, i64 %130
   call void @_raw_spin_unlock(ptr noundef %131) #10
   %132 = getelementptr inbounds nuw i8, ptr %26, i64 296
   %133 = load ptr, ptr %132, align 8
@@ -382,7 +376,7 @@ define dso_local void @ext4_free_inode(ptr noundef %0, ptr noundef %1) local_unn
   %145 = load i32, ptr %139, align 4
   %146 = lshr i32 %70, %145
   %147 = zext i32 %146 to i64
-  %148 = getelementptr ptr, ptr %144, i64 %147
+  %148 = getelementptr [8 x i8], ptr %144, i64 %147
   %149 = load ptr, ptr %148, align 8
   call void @__rcu_read_unlock() #10
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 8
@@ -404,7 +398,7 @@ define dso_local void @ext4_free_inode(ptr noundef %0, ptr noundef %1) local_unn
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 424
   %158 = load ptr, ptr %157, align 8
   %159 = and i64 %69, 127
-  %160 = getelementptr %struct.bgl_lock, ptr %158, i64 %159
+  %160 = getelementptr [64 x i8], ptr %158, i64 %159
   call void @_raw_spin_unlock(ptr noundef %160) #10
   br i1 %106, label %161, label %166
 
@@ -573,7 +567,7 @@ define internal fastcc ptr @ext4_read_inode_bitmap(ptr noundef %0, i32 noundef %
   %73 = load ptr, ptr %72, align 8
   %74 = and i32 %1, 127
   %75 = zext nneg i32 %74 to i64
-  %76 = getelementptr %struct.bgl_lock, ptr %73, i64 %75
+  %76 = getelementptr [64 x i8], ptr %73, i64 %75
   %77 = tail call i32 @_raw_spin_trylock(ptr noundef %76) #10
   %78 = icmp eq i32 %77, 0
   %79 = load ptr, ptr %3, align 8
@@ -726,7 +720,7 @@ define internal fastcc ptr @ext4_read_inode_bitmap(ptr noundef %0, i32 noundef %
   %157 = load ptr, ptr %3, align 8
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 424
   %159 = load ptr, ptr %158, align 8
-  %160 = getelementptr %struct.bgl_lock, ptr %159, i64 %75
+  %160 = getelementptr [64 x i8], ptr %159, i64 %75
   tail call void @_raw_spin_unlock(ptr noundef %160) #10
   tail call void @unlock_buffer(ptr noundef nonnull %47) #10
   br label %.thread19
@@ -735,7 +729,7 @@ define internal fastcc ptr @ext4_read_inode_bitmap(ptr noundef %0, i32 noundef %
   %161 = phi ptr [ %.pre, %116 ], [ %121, %.critedge15 ], [ %118, %.thread48 ], [ %102, %109 ]
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 424
   %163 = load ptr, ptr %162, align 8
-  %164 = getelementptr %struct.bgl_lock, ptr %163, i64 %75
+  %164 = getelementptr [64 x i8], ptr %163, i64 %75
   tail call void @_raw_spin_unlock(ptr noundef %164) #10
   %165 = tail call i8 asm sideeffect "testb $2,$1\0A\09/* output condition code nz*/\0A", "={@ccnz},*m,i,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %47, i32 1) #10, !srcloc !25
   %166 = icmp ult i8 %165, 2
@@ -800,7 +794,7 @@ define internal fastcc ptr @ext4_read_inode_bitmap(ptr noundef %0, i32 noundef %
   %199 = load ptr, ptr %198, align 8
   %200 = and i32 %1, 127
   %201 = zext nneg i32 %200 to i64
-  %202 = getelementptr %struct.bgl_lock, ptr %199, i64 %201
+  %202 = getelementptr [64 x i8], ptr %199, i64 %201
   %203 = tail call i32 @_raw_spin_trylock(ptr noundef %202) #10
   %204 = icmp eq i32 %203, 0
   %205 = load ptr, ptr %3, align 8
@@ -882,7 +876,7 @@ define internal fastcc ptr @ext4_read_inode_bitmap(ptr noundef %0, i32 noundef %
   %247 = load ptr, ptr %3, align 8
   %248 = getelementptr inbounds nuw i8, ptr %247, i64 424
   %249 = load ptr, ptr %248, align 8
-  %250 = getelementptr %struct.bgl_lock, ptr %249, i64 %201
+  %250 = getelementptr [64 x i8], ptr %249, i64 %201
   tail call void @_raw_spin_unlock(ptr noundef %250) #10
   tail call void (ptr, ptr, i32, i1, i32, i64, ptr, ...) @__ext4_error(ptr noundef %0, ptr noundef nonnull @__func__.ext4_validate_inode_bitmap, i32 noundef 106, i1 noundef zeroext false, i32 noundef 0, i64 noundef 0, ptr noundef nonnull @.str.22, i32 noundef %1, i64 noundef %232) #10
   tail call void @ext4_mark_group_bitmap_corrupted(ptr noundef %0, i32 noundef %1, i32 noundef 8) #10
@@ -892,7 +886,7 @@ define internal fastcc ptr @ext4_read_inode_bitmap(ptr noundef %0, i32 noundef %
   %252 = load ptr, ptr %3, align 8
   %253 = getelementptr inbounds nuw i8, ptr %252, i64 424
   %254 = load ptr, ptr %253, align 8
-  %255 = getelementptr %struct.bgl_lock, ptr %254, i64 %201
+  %255 = getelementptr [64 x i8], ptr %254, i64 %201
   tail call void @_raw_spin_unlock(ptr noundef %255) #10
   br label %.thread19
 
@@ -925,7 +919,7 @@ define internal fastcc void @ext4_lock_group(ptr noundef readonly captures(none)
   %6 = load ptr, ptr %5, align 8
   %7 = and i32 %1, 127
   %8 = zext nneg i32 %7 to i64
-  %9 = getelementptr %struct.bgl_lock, ptr %6, i64 %8
+  %9 = getelementptr [64 x i8], ptr %6, i64 %8
   %10 = tail call i32 @_raw_spin_trylock(ptr noundef %9) #10
   %11 = icmp eq i32 %10, 0
   %12 = load ptr, ptr %3, align 8
@@ -1132,7 +1126,7 @@ define dso_local i32 @ext4_mark_inode_used(ptr noundef %0, i32 noundef %1) local
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 424
   %82 = load ptr, ptr %81, align 8
   %83 = and i64 %21, 127
-  %84 = getelementptr %struct.bgl_lock, ptr %82, i64 %83
+  %84 = getelementptr [64 x i8], ptr %82, i64 %83
   call void @_raw_spin_unlock(ptr noundef %84) #10
   %85 = icmp eq ptr %62, null
   br i1 %85, label %87, label %86
@@ -1211,7 +1205,7 @@ define dso_local i32 @ext4_mark_inode_used(ptr noundef %0, i32 noundef %1) local
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 424
   %130 = load ptr, ptr %129, align 8
   %131 = and i64 %21, 127
-  %132 = getelementptr %struct.bgl_lock, ptr %130, i64 %131
+  %132 = getelementptr [64 x i8], ptr %130, i64 %131
   call void @_raw_spin_unlock(ptr noundef %132) #10
   %133 = load ptr, ptr %3, align 8
   %134 = call i32 @__ext4_handle_dirty_metadata(ptr noundef nonnull @__func__.ext4_mark_inode_used, i32 noundef 860, ptr noundef null, ptr noundef null, ptr noundef %133) #10
@@ -1858,7 +1852,7 @@ define dso_local ptr @__ext4_new_inode(ptr noundef %0, ptr noundef %1, ptr nound
   %346 = load ptr, ptr %345, align 8
   %347 = and i32 %343, 127
   %348 = zext nneg i32 %347 to i64
-  %349 = getelementptr %struct.bgl_lock, ptr %346, i64 %348
+  %349 = getelementptr [64 x i8], ptr %346, i64 %348
   %350 = call i32 @_raw_spin_trylock(ptr noundef %349) #10
   %351 = icmp eq i32 %350, 0
   %352 = load ptr, ptr %25, align 8
@@ -1936,7 +1930,7 @@ define dso_local ptr @__ext4_new_inode(ptr noundef %0, ptr noundef %1, ptr nound
   %391 = load ptr, ptr %25, align 8
   %392 = getelementptr inbounds nuw i8, ptr %391, i64 424
   %393 = load ptr, ptr %392, align 8
-  %394 = getelementptr %struct.bgl_lock, ptr %393, i64 %348
+  %394 = getelementptr [64 x i8], ptr %393, i64 %348
   call void @_raw_spin_unlock(ptr noundef %394) #10
   %395 = load i64, ptr %14, align 8
   %396 = add i64 %395, 1
@@ -1966,7 +1960,7 @@ define dso_local ptr @__ext4_new_inode(ptr noundef %0, ptr noundef %1, ptr nound
   %411 = load ptr, ptr %25, align 8
   %412 = getelementptr inbounds nuw i8, ptr %411, i64 424
   %413 = load ptr, ptr %412, align 8
-  %414 = getelementptr %struct.bgl_lock, ptr %413, i64 %348
+  %414 = getelementptr [64 x i8], ptr %413, i64 %348
   call void @_raw_spin_unlock(ptr noundef %414) #10
   %415 = add i64 %410, 1
   store i64 %415, ptr %14, align 8
@@ -2057,7 +2051,7 @@ define dso_local ptr @__ext4_new_inode(ptr noundef %0, ptr noundef %1, ptr nound
   %461 = load ptr, ptr %460, align 8
   %462 = and i32 %448, 127
   %463 = zext nneg i32 %462 to i64
-  %464 = getelementptr %struct.bgl_lock, ptr %461, i64 %463
+  %464 = getelementptr [64 x i8], ptr %461, i64 %463
   call void @_raw_spin_unlock(ptr noundef %464) #10
   %465 = icmp eq ptr %434, null
   br i1 %465, label %467, label %466
@@ -2172,7 +2166,7 @@ define dso_local ptr @__ext4_new_inode(ptr noundef %0, ptr noundef %1, ptr nound
   %528 = getelementptr inbounds nuw i8, ptr %26, i64 1184
   %529 = load volatile ptr, ptr %528, align 32
   %530 = zext nneg i32 %527 to i64
-  %531 = getelementptr ptr, ptr %529, i64 %530
+  %531 = getelementptr [8 x i8], ptr %529, i64 %530
   %532 = load ptr, ptr %531, align 8
   call void @__rcu_read_unlock() #10
   %533 = getelementptr inbounds nuw i8, ptr %532, i64 12
@@ -2206,7 +2200,7 @@ define dso_local ptr @__ext4_new_inode(ptr noundef %0, ptr noundef %1, ptr nound
   %548 = load ptr, ptr %547, align 8
   %549 = and i32 %545, 127
   %550 = zext nneg i32 %549 to i64
-  %551 = getelementptr %struct.bgl_lock, ptr %548, i64 %550
+  %551 = getelementptr [64 x i8], ptr %548, i64 %550
   call void @_raw_spin_unlock(ptr noundef %551) #10
   %552 = load ptr, ptr %12, align 8
   %553 = call i32 @__ext4_handle_dirty_metadata(ptr noundef nonnull @__func__.__ext4_new_inode, i32 noundef 1234, ptr noundef %338, ptr noundef null, ptr noundef %552) #10
@@ -2242,7 +2236,7 @@ define dso_local ptr @__ext4_new_inode(ptr noundef %0, ptr noundef %1, ptr nound
   %568 = getelementptr inbounds nuw i8, ptr %26, i64 1184
   %569 = load volatile ptr, ptr %568, align 32
   %570 = zext nneg i32 %567 to i64
-  %571 = getelementptr ptr, ptr %569, i64 %570
+  %571 = getelementptr [8 x i8], ptr %569, i64 %570
   %572 = load ptr, ptr %571, align 8
   call void @__rcu_read_unlock() #10
   %573 = getelementptr inbounds nuw i8, ptr %572, i64 8
@@ -2691,7 +2685,7 @@ get_orlov_stats.exit.us.us:                       ; preds = %get_orlov_stats.exi
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 1184
   %76 = load volatile ptr, ptr %75, align 32
   %77 = zext i32 %73 to i64
-  %78 = getelementptr ptr, ptr %76, i64 %77
+  %78 = getelementptr [8 x i8], ptr %76, i64 %77
   %79 = load ptr, ptr %78, align 8
   call void @__rcu_read_unlock() #10
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
@@ -2831,7 +2825,7 @@ get_orlov_stats.exit12.us:                        ; preds = %136, %get_orlov_sta
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 1184
   %162 = load volatile ptr, ptr %161, align 32
   %163 = zext i32 %159 to i64
-  %164 = getelementptr ptr, ptr %162, i64 %163
+  %164 = getelementptr [8 x i8], ptr %162, i64 %163
   %165 = load ptr, ptr %164, align 8
   tail call void @__rcu_read_unlock() #10
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 8
@@ -3585,7 +3579,7 @@ define dso_local i32 @ext4_init_inode_table(ptr noundef %0, i32 noundef %1, i32 
   %105 = load ptr, ptr %104, align 8
   %106 = and i32 %1, 127
   %107 = zext nneg i32 %106 to i64
-  %108 = getelementptr %struct.bgl_lock, ptr %105, i64 %107
+  %108 = getelementptr [64 x i8], ptr %105, i64 %107
   call void @_raw_spin_unlock(ptr noundef %108) #10
   %109 = load ptr, ptr %4, align 8
   %110 = call i32 @__ext4_handle_dirty_metadata(ptr noundef nonnull @__func__.ext4_init_inode_table, i32 noundef 1616, ptr noundef %22, ptr noundef null, ptr noundef %109) #10

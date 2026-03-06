@@ -132,7 +132,7 @@ define hidden noundef align 16 dereferenceable_or_null(112) ptr @"_ZN12clap_buil
 20:                                               ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %22 = load ptr, ptr %21, align 8, !nonnull !20, !noundef !20
-  %23 = getelementptr inbounds nuw { { i128, [2 x i64] }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, i8, i8, [6 x i8] }, ptr %22, i64 %.sroa.8.025
+  %23 = getelementptr inbounds nuw [112 x i8], ptr %22, i64 %.sroa.8.025
   br label %.loopexit
 
 24:                                               ; preds = %16
@@ -173,7 +173,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN12clap_builde
 19:                                               ; preds = %15
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %21 = load ptr, ptr %20, align 8, !alias.scope !31, !nonnull !20, !noundef !20
-  %22 = getelementptr inbounds { i8, [31 x i8] }, ptr %21, i64 %.sroa.8.0.i
+  %22 = getelementptr inbounds [32 x i8], ptr %21, i64 %.sroa.8.0.i
   br label %"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$3get17h0ae601c28065b662E.exit"
 
 23:                                               ; preds = %15

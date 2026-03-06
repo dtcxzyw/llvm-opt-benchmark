@@ -8,7 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.zxing::Ref.9" = type { ptr }
 %"class.zxing::ArrayRef.10" = type { %"class.zxing::Counted.base", ptr }
 %"class.zxing::Counted.base" = type <{ ptr, i32 }>
-%"struct.zxing::BINARIZER_BLOCK" = type { i32, i32, i32, i32 }
 %"class.zxing::Ref.16" = type { ptr }
 
 $_ZN5zxing8ArrayRefINS_15BINARIZER_BLOCKEED2Ev = comdat any
@@ -775,7 +774,7 @@ _ZNSt6vectorIN5zxing15BINARIZER_BLOCKESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.
 
 .noexc11:                                         ; preds = %.noexc3.i
   store ptr %10, ptr %6, align 8, !tbaa !31
-  %11 = getelementptr inbounds nuw %"struct.zxing::BINARIZER_BLOCK", ptr %10, i64 %7
+  %11 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %7
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %11, ptr %12, align 8, !tbaa !34
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %10, i8 0, i64 %9, i1 false)
@@ -813,7 +812,7 @@ _ZNSt6vectorIN5zxing15BINARIZER_BLOCKESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %26 = getelementptr inbounds nuw %"struct.zxing::BINARIZER_BLOCK", ptr %14, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %indvars.iv
   store i32 0, ptr %26, align 4, !tbaa !39
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 4
   store i32 255, ptr %27, align 4, !tbaa !41

@@ -35,7 +35,7 @@ define dso_local noundef i64 @macaddr8_in(ptr noundef readonly captures(none) %0
   %11 = phi i8 [ %7, %.lr.ph ], [ %18, %16 ]
   %.087152 = phi ptr [ %4, %.lr.ph ], [ %17, %16 ]
   %12 = zext i8 %11 to i64
-  %13 = getelementptr inbounds nuw i16, ptr %9, i64 %12
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %12
   %14 = load i16, ptr %13, align 2
   %15 = and i16 %14, 8192
   %.not94 = icmp eq i16 %15, 0
@@ -340,7 +340,7 @@ hex2_to_uchar.exit:                               ; preds = %39, %56, %73, %90, 
   %171 = load ptr, ptr %170, align 8
   %172 = load i8, ptr %.289, align 1
   %173 = zext i8 %172 to i64
-  %174 = getelementptr inbounds nuw i16, ptr %171, i64 %173
+  %174 = getelementptr inbounds nuw [2 x i8], ptr %171, i64 %173
   %175 = load i16, ptr %174, align 2
   %176 = and i16 %175, 8192
   %.not99 = icmp eq i16 %176, 0
@@ -355,7 +355,7 @@ hex2_to_uchar.exit:                               ; preds = %39, %56, %73, %90, 
 
 179:                                              ; preds = %.preheader
   %180 = zext i8 %178 to i64
-  %181 = getelementptr inbounds nuw i16, ptr %171, i64 %180
+  %181 = getelementptr inbounds nuw [2 x i8], ptr %171, i64 %180
   %182 = load i16, ptr %181, align 2
   %183 = and i16 %182, 8192
   %.not101 = icmp eq i16 %183, 0

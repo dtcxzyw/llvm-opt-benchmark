@@ -643,7 +643,7 @@ dissect_gmr1_rach_kls1.exit:                      ; preds = %38, %48, %56, %60
   %indvars.iv.i.i = phi i64 [ 0, %80 ], [ %indvars.iv.next.i.i, %188 ]
   %.0106122.i.i = phi i32 [ 0, %80 ], [ %.2.i.i, %188 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %125 = getelementptr i16, ptr %5, i64 %indvars.iv.next.i.i
+  %125 = getelementptr [2 x i8], ptr %5, i64 %indvars.iv.next.i.i
   %126 = load i16, ptr %125, align 2
   %127 = icmp ult i16 %126, 1000
   br i1 %127, label %188, label %128
@@ -666,7 +666,7 @@ dissect_gmr1_rach_kls1.exit:                      ; preds = %38, %48, %56, %60
   %137 = icmp ne i64 %136, -1
   call void @llvm.assume(i1 %137)
   %138 = and i64 %indvars.iv.i.i, 4294967295
-  %139 = getelementptr i16, ptr %5, i64 %138
+  %139 = getelementptr [2 x i8], ptr %5, i64 %138
   %140 = load i16, ptr %139, align 2
   %141 = zext i16 %140 to i32
   %142 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %131, i64 noundef %133, i32 noundef 2, i64 noundef %136, ptr noundef nonnull @.str.152, i32 noundef %141)
@@ -683,7 +683,7 @@ dissect_gmr1_rach_kls1.exit:                      ; preds = %38, %48, %56, %60
   %151 = icmp ne i64 %150, -1
   call void @llvm.assume(i1 %151)
   %152 = and i64 %indvars.iv.i.i, 4294967295
-  %153 = getelementptr i16, ptr %5, i64 %152
+  %153 = getelementptr [2 x i8], ptr %5, i64 %152
   %154 = load i16, ptr %153, align 2
   %155 = udiv i16 %154, 10
   %156 = zext nneg i16 %155 to i32
@@ -701,7 +701,7 @@ dissect_gmr1_rach_kls1.exit:                      ; preds = %38, %48, %56, %60
   %166 = icmp ne i64 %165, -1
   call void @llvm.assume(i1 %166)
   %167 = and i64 %indvars.iv.i.i, 4294967295
-  %168 = getelementptr i16, ptr %5, i64 %167
+  %168 = getelementptr [2 x i8], ptr %5, i64 %167
   %169 = load i16, ptr %168, align 2
   %170 = udiv i16 %169, 100
   %171 = zext nneg i16 %170 to i32
@@ -743,7 +743,7 @@ dissect_gmr1_rach_kls1.exit:                      ; preds = %38, %48, %56, %60
   %195 = select i1 %194, i64 0, i64 %193
   %196 = icmp ne i64 %195, -1
   call void @llvm.assume(i1 %196)
-  %197 = getelementptr i16, ptr %5, i64 %indvars.iv.i.i
+  %197 = getelementptr [2 x i8], ptr %5, i64 %indvars.iv.i.i
   %198 = load i16, ptr %197, align 2
   %199 = zext i16 %198 to i32
   %200 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %190, i64 noundef %192, i32 noundef 2, i64 noundef %195, ptr noundef nonnull @.str.152, i32 noundef %199)

@@ -1744,7 +1744,7 @@ lean_dec.exit146:                                 ; preds = %85, %84, %82, %lean
   tail call void @lean_free_object(ptr noundef nonnull %38) #3
   %87 = lshr i64 %66, 1
   %88 = getelementptr inbounds nuw i8, ptr %46, i64 24
-  %89 = getelementptr inbounds nuw ptr, ptr %88, i64 %87
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %87
   %90 = load ptr, ptr %89, align 8, !tbaa !9
   %91 = ptrtoint ptr %90 to i64
   %92 = trunc i64 %91 to i1
@@ -2252,7 +2252,7 @@ lean_alloc_ctor.exit228:                          ; preds = %lean_dec.exit135
 282:                                              ; preds = %258, %lean_dec.exit137
   %283 = lshr i64 %220, 1
   %284 = getelementptr inbounds nuw i8, ptr %238, i64 24
-  %285 = getelementptr inbounds nuw ptr, ptr %284, i64 %283
+  %285 = getelementptr inbounds nuw [8 x i8], ptr %284, i64 %283
   %286 = load ptr, ptr %285, align 8, !tbaa !9
   %287 = ptrtoint ptr %286 to i64
   %288 = trunc i64 %287 to i1
@@ -4188,7 +4188,7 @@ define ptr @l_Array_foldrMUnsafe_fold___at_Lean_Meta_removeUnused___spec__2(ptr 
   %.05241489 = phi ptr [ %3, %.lr.ph ], [ %.4528, %1756 ]
   %.05291488 = phi ptr [ %8, %.lr.ph ], [ %.12541, %1756 ]
   %20 = add i64 %.05111490, -1
-  %21 = getelementptr inbounds nuw ptr, ptr %10, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !9
   %23 = ptrtoint ptr %22 to i64
   %24 = trunc i64 %23 to i1

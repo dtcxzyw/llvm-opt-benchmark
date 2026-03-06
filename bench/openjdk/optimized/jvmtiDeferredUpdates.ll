@@ -43,7 +43,7 @@ define hidden void @_ZN20JvmtiDeferredUpdatesD2Ev(ptr noundef nonnull align 8 ca
   %8 = add nsw i32 %6, -1
   store i32 %8, ptr %2, align 8
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds ptr, ptr %7, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %7, i64 %9
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %14, label %13
@@ -194,7 +194,7 @@ define hidden void @_ZN20JvmtiDeferredUpdates24delete_updates_for_frameEP10JavaT
   %.0 = phi i32 [ 0, %5 ], [ %.1, %29 ]
   %9 = load ptr, ptr %7, align 8
   %10 = sext i32 %.0 to i64
-  %11 = getelementptr inbounds ptr, ptr %9, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %9, i64 %10
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
@@ -215,9 +215,9 @@ define hidden void @_ZN20JvmtiDeferredUpdates24delete_updates_for_frameEP10JavaT
   %indvars.iv10.i = phi i64 [ %10, %.lr.ph.i ], [ %indvars.iv.next11.i, %20 ]
   %indvars.iv.i = phi i64 [ %19, %.lr.ph.i ], [ %indvars.iv.next.i, %20 ]
   %21 = load ptr, ptr %7, align 8
-  %22 = getelementptr inbounds ptr, ptr %21, i64 %indvars.iv.i
+  %22 = getelementptr inbounds [8 x i8], ptr %21, i64 %indvars.iv.i
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds ptr, ptr %21, i64 %indvars.iv10.i
+  %24 = getelementptr inbounds [8 x i8], ptr %21, i64 %indvars.iv10.i
   store ptr %23, ptr %24, align 8
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %25 = load i32, ptr %6, align 8
@@ -259,7 +259,7 @@ _ZN17GrowableArrayViewIP29jvmtiDeferredLocalVariableSetE9remove_atEi.exit: ; pre
   %40 = add nsw i32 %38, -1
   store i32 %40, ptr %6, align 8
   %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds ptr, ptr %39, i64 %41
+  %42 = getelementptr inbounds [8 x i8], ptr %39, i64 %41
   %43 = load ptr, ptr %42, align 8
   %44 = icmp eq ptr %43, null
   br i1 %44, label %46, label %45

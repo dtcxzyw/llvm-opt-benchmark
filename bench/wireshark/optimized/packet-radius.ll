@@ -16,7 +16,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._radius_vsa_buffer_key = type { i32, i32 }
 %struct._radius_call_info_key = type { i32, i32, ptr, %struct.nstime_t }
 %struct.hfett_t = type { ptr, ptr, ptr }
-%struct._rtd_timestat = type { i32, ptr, i32, i32, i32, i32 }
 %struct._value_string = type { i32, ptr }
 
 @.str = private unnamed_addr constant [4 x i8] c"%lu\00", align 1
@@ -4030,7 +4029,7 @@ define internal range(i32 0, 2) i32 @radiusstat_packet(ptr noundef readonly capt
 
 switch.lookup:                                    ; preds = %5
   %9 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.radiusstat_packet, i64 %9
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.radiusstat_packet, i64 %9
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %10
 
@@ -4069,7 +4068,7 @@ switch.lookup:                                    ; preds = %5
   %20 = add i32 %19, 1
   store i32 %20, ptr %18, align 8
   %21 = load ptr, ptr %15, align 8
-  %22 = getelementptr %struct._rtd_timestat, ptr %21, i64 %.030
+  %22 = getelementptr [32 x i8], ptr %21, i64 %.030
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %24 = load i32, ptr %23, align 8
   %25 = add i32 %24, 1
@@ -4082,7 +4081,7 @@ switch.lookup:                                    ; preds = %5
   %29 = add i32 %28, 1
   store i32 %29, ptr %27, align 8
   %30 = load ptr, ptr %15, align 8
-  %31 = getelementptr %struct._rtd_timestat, ptr %30, i64 %.030
+  %31 = getelementptr [32 x i8], ptr %30, i64 %.030
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %33 = load i32, ptr %32, align 8
   %34 = add i32 %33, 1
@@ -4103,7 +4102,7 @@ switch.lookup:                                    ; preds = %5
   %44 = add i32 %43, 1
   store i32 %44, ptr %42, align 4
   %45 = load ptr, ptr %40, align 8
-  %46 = getelementptr %struct._rtd_timestat, ptr %45, i64 %.030
+  %46 = getelementptr [32 x i8], ptr %45, i64 %.030
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 28
   %48 = load i32, ptr %47, align 4
   %49 = add i32 %48, 1
@@ -4124,7 +4123,7 @@ switch.lookup:                                    ; preds = %5
   %59 = add i32 %58, 1
   store i32 %59, ptr %57, align 4
   %60 = load ptr, ptr %54, align 8
-  %61 = getelementptr %struct._rtd_timestat, ptr %60, i64 %.030
+  %61 = getelementptr [32 x i8], ptr %60, i64 %.030
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 20
   %63 = load i32, ptr %62, align 4
   %64 = add i32 %63, 1
@@ -4137,7 +4136,7 @@ switch.lookup:                                    ; preds = %5
   %68 = add i32 %67, -1
   store i32 %68, ptr %66, align 8
   %69 = load ptr, ptr %54, align 8
-  %70 = getelementptr %struct._rtd_timestat, ptr %69, i64 %.030
+  %70 = getelementptr [32 x i8], ptr %69, i64 %.030
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %72 = load i32, ptr %71, align 8
   %73 = add i32 %72, -1
@@ -4150,7 +4149,7 @@ switch.lookup:                                    ; preds = %5
   %78 = load ptr, ptr %77, align 8
   call void @time_stat_update(ptr noundef %78, ptr noundef nonnull %6, ptr noundef %1)
   %79 = load ptr, ptr %54, align 8
-  %80 = getelementptr %struct._rtd_timestat, ptr %79, i64 %.030
+  %80 = getelementptr [32 x i8], ptr %79, i64 %.030
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
   %82 = load ptr, ptr %81, align 8
   call void @time_stat_update(ptr noundef %82, ptr noundef nonnull %6, ptr noundef %1)
@@ -4705,7 +4704,7 @@ define internal void @register_attrs(ptr readnone captures(none) %0, ptr noundef
 133:                                              ; preds = %129
   %134 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %135 = zext nneg i32 %.075 to i64
-  %136 = getelementptr %struct.hf_register_info, ptr %5, i64 %135
+  %136 = getelementptr [80 x i8], ptr %5, i64 %135
   store ptr %134, ptr %136, align 16
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 8
   store ptr @.str.276, ptr %137, align 8
@@ -4735,7 +4734,7 @@ define internal void @register_attrs(ptr readnone captures(none) %0, ptr noundef
 151:                                              ; preds = %148
   %152 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %153 = zext nneg i32 %.1 to i64
-  %154 = getelementptr %struct.hf_register_info, ptr %5, i64 %153
+  %154 = getelementptr [80 x i8], ptr %5, i64 %153
   store ptr %152, ptr %154, align 16
   %155 = tail call ptr @wmem_epan_scope()
   %156 = load ptr, ptr %1, align 8

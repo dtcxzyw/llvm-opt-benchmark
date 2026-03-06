@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %union.anon = type { ptr }
-%struct.Tile = type { i32, i32, i32, i32 }
 
 @.str = private unnamed_addr constant [5 x i8] c"rscc\00", align 1
 @.str.1 = private unnamed_addr constant [39 x i8] c"innoHeim/Rsupport Screen Capture Codec\00", align 1
@@ -374,7 +373,7 @@ bytestream2_get_le16.exit236:                     ; preds = %94, %99
   %.pre-phi = phi i64 [ %.pre319, %99 ], [ %93, %94 ]
   %103 = phi ptr [ %100, %99 ], [ %.pre, %94 ]
   %.0.i235 = phi i32 [ %102, %99 ], [ 0, %94 ]
-  %104 = getelementptr inbounds nuw %struct.Tile, ptr %87, i64 %indvars.iv
+  %104 = getelementptr inbounds nuw [16 x i8], ptr %87, i64 %indvars.iv
   store i32 %.0.i235, ptr %104, align 4, !tbaa !52
   %105 = sub i64 %93, %.pre-phi
   %106 = icmp slt i64 %105, 2
@@ -650,7 +649,7 @@ bytestream2_get_byte.exit247.thread.thread:       ; preds = %bytestream2_get_byt
   %241 = getelementptr inbounds nuw i8, ptr %239, i64 64
   %242 = load i32, ptr %241, align 8, !tbaa !59
   %243 = load i32, ptr %92, align 4, !tbaa !28
-  %244 = getelementptr inbounds nuw %struct.Tile, ptr %238, i64 %indvars.iv308
+  %244 = getelementptr inbounds nuw [16 x i8], ptr %238, i64 %indvars.iv308
   %245 = getelementptr inbounds nuw i8, ptr %244, i64 4
   %246 = load i32, ptr %245, align 4, !tbaa !55
   %247 = xor i32 %246, -1
@@ -670,7 +669,7 @@ bytestream2_get_byte.exit247.thread.thread:       ; preds = %bytestream2_get_byt
   %261 = load i32, ptr %260, align 4, !tbaa !56
   call void @av_image_copy_plane(ptr noundef %255, i32 noundef %256, ptr noundef %.0209288, i32 noundef %259, i32 noundef %259, i32 noundef %261) #7
   %262 = load ptr, ptr %28, align 8, !tbaa !50
-  %263 = getelementptr inbounds nuw %struct.Tile, ptr %262, i64 %indvars.iv308
+  %263 = getelementptr inbounds nuw [16 x i8], ptr %262, i64 %indvars.iv308
   %264 = getelementptr inbounds nuw i8, ptr %263, i64 8
   %265 = load i32, ptr %264, align 4, !tbaa !54
   %266 = load i32, ptr %88, align 4, !tbaa !39

@@ -101,12 +101,12 @@ sw.bb2:                                           ; preds = %entry
   %lowerDiagonal_.i = getelementptr inbounds nuw i8, ptr %L, i64 24
   %3 = load i64, ptr %L, align 8, !tbaa !16
   %4 = load ptr, ptr %lowerDiagonal_.i, align 8, !tbaa !13
-  %5 = getelementptr double, ptr %4, i64 %3
+  %5 = getelementptr [8 x i8], ptr %4, i64 %3
   %arrayidx.i.i = getelementptr i8, ptr %5, i64 -16
   store double -1.000000e+00, ptr %arrayidx.i.i, align 8, !tbaa !15
   %diagonal_.i6 = getelementptr inbounds nuw i8, ptr %L, i64 8
   %6 = load ptr, ptr %diagonal_.i6, align 8, !tbaa !13
-  %7 = getelementptr double, ptr %6, i64 %3
+  %7 = getelementptr [8 x i8], ptr %6, i64 %3
   %arrayidx.i1.i = getelementptr i8, ptr %7, i64 -8
   store double 1.000000e+00, ptr %arrayidx.i1.i, align 8, !tbaa !15
   br label %sw.epilog
@@ -400,7 +400,7 @@ sw.bb3:                                           ; preds = %entry
   %n_.i = getelementptr inbounds nuw i8, ptr %u, i64 8
   %4 = load i64, ptr %n_.i, align 8, !tbaa !36
   %5 = load ptr, ptr %u, align 8, !tbaa !13
-  %6 = getelementptr double, ptr %5, i64 %4
+  %6 = getelementptr [8 x i8], ptr %5, i64 %4
   %arrayidx.i11 = getelementptr i8, ptr %6, i64 -16
   %7 = load double, ptr %arrayidx.i11, align 8, !tbaa !15
   %value_7 = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -581,12 +581,12 @@ sw.bb2:                                           ; preds = %entry
   %lowerDiagonal_.i = getelementptr inbounds nuw i8, ptr %L, i64 24
   %5 = load i64, ptr %L, align 8, !tbaa !16
   %6 = load ptr, ptr %lowerDiagonal_.i, align 8, !tbaa !13
-  %7 = getelementptr double, ptr %6, i64 %5
+  %7 = getelementptr [8 x i8], ptr %6, i64 %5
   %arrayidx.i.i = getelementptr i8, ptr %7, i64 -16
   store double -1.000000e+00, ptr %arrayidx.i.i, align 8, !tbaa !15
   %diagonal_.i8 = getelementptr inbounds nuw i8, ptr %L, i64 8
   %8 = load ptr, ptr %diagonal_.i8, align 8, !tbaa !13
-  %9 = getelementptr double, ptr %8, i64 %5
+  %9 = getelementptr [8 x i8], ptr %8, i64 %5
   %arrayidx.i1.i = getelementptr i8, ptr %9, i64 -8
   store double 1.000000e+00, ptr %arrayidx.i1.i, align 8, !tbaa !15
   %value_3 = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -594,7 +594,7 @@ sw.bb2:                                           ; preds = %entry
   %n_.i = getelementptr inbounds nuw i8, ptr %rhs, i64 8
   %11 = load i64, ptr %n_.i, align 8, !tbaa !36
   %12 = load ptr, ptr %rhs, align 8, !tbaa !13
-  %13 = getelementptr double, ptr %12, i64 %11
+  %13 = getelementptr [8 x i8], ptr %12, i64 %11
   %arrayidx.i = getelementptr i8, ptr %13, i64 -8
   store double %10, ptr %arrayidx.i, align 8, !tbaa !15
   br label %sw.epilog
@@ -783,12 +783,12 @@ sw.bb2:                                           ; preds = %entry
   %lowerDiagonal_.i = getelementptr inbounds nuw i8, ptr %L, i64 24
   %3 = load i64, ptr %L, align 8, !tbaa !16
   %4 = load ptr, ptr %lowerDiagonal_.i, align 8, !tbaa !13
-  %5 = getelementptr double, ptr %4, i64 %3
+  %5 = getelementptr [8 x i8], ptr %4, i64 %3
   %arrayidx.i.i = getelementptr i8, ptr %5, i64 -16
   store double 0.000000e+00, ptr %arrayidx.i.i, align 8, !tbaa !15
   %diagonal_.i6 = getelementptr inbounds nuw i8, ptr %L, i64 8
   %6 = load ptr, ptr %diagonal_.i6, align 8, !tbaa !13
-  %7 = getelementptr double, ptr %6, i64 %3
+  %7 = getelementptr [8 x i8], ptr %6, i64 %3
   %arrayidx.i1.i = getelementptr i8, ptr %7, i64 -8
   store double 1.000000e+00, ptr %arrayidx.i1.i, align 8, !tbaa !15
   br label %sw.epilog
@@ -960,7 +960,7 @@ sw.bb2:                                           ; preds = %entry
   %n_.i = getelementptr inbounds nuw i8, ptr %u, i64 8
   %4 = load i64, ptr %n_.i, align 8, !tbaa !36
   %5 = load ptr, ptr %u, align 8, !tbaa !13
-  %6 = getelementptr double, ptr %5, i64 %4
+  %6 = getelementptr [8 x i8], ptr %5, i64 %4
   %arrayidx.i = getelementptr i8, ptr %6, i64 -8
   store double %3, ptr %arrayidx.i, align 8, !tbaa !15
   br label %sw.epilog
@@ -1136,12 +1136,12 @@ sw.bb2:                                           ; preds = %entry
   %lowerDiagonal_.i = getelementptr inbounds nuw i8, ptr %L, i64 24
   %5 = load i64, ptr %L, align 8, !tbaa !16
   %6 = load ptr, ptr %lowerDiagonal_.i, align 8, !tbaa !13
-  %7 = getelementptr double, ptr %6, i64 %5
+  %7 = getelementptr [8 x i8], ptr %6, i64 %5
   %arrayidx.i.i = getelementptr i8, ptr %7, i64 -16
   store double 0.000000e+00, ptr %arrayidx.i.i, align 8, !tbaa !15
   %diagonal_.i8 = getelementptr inbounds nuw i8, ptr %L, i64 8
   %8 = load ptr, ptr %diagonal_.i8, align 8, !tbaa !13
-  %9 = getelementptr double, ptr %8, i64 %5
+  %9 = getelementptr [8 x i8], ptr %8, i64 %5
   %arrayidx.i1.i = getelementptr i8, ptr %9, i64 -8
   store double 1.000000e+00, ptr %arrayidx.i1.i, align 8, !tbaa !15
   %value_3 = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -1149,7 +1149,7 @@ sw.bb2:                                           ; preds = %entry
   %n_.i = getelementptr inbounds nuw i8, ptr %rhs, i64 8
   %11 = load i64, ptr %n_.i, align 8, !tbaa !36
   %12 = load ptr, ptr %rhs, align 8, !tbaa !13
-  %13 = getelementptr double, ptr %12, i64 %11
+  %13 = getelementptr [8 x i8], ptr %12, i64 %11
   %arrayidx.i = getelementptr i8, ptr %13, i64 -8
   store double %10, ptr %arrayidx.i, align 8, !tbaa !15
   br label %sw.epilog

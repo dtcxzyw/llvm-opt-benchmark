@@ -26,7 +26,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.llvh::SmallVectorTemplateCommon.5" = type { %"class.llvh::SmallVectorBase" }
 %"struct.llvh::SmallVectorStorage.6" = type { [16 x %"struct.llvh::AlignedCharArrayUnion.7"] }
 %"struct.llvh::AlignedCharArrayUnion.7" = type { %"struct.llvh::AlignedCharArray.1" }
-%"struct.hermes::regex::CapturedRange" = type { i32, i32 }
 %"struct.hermes::regex::Context.23" = type { %"class.llvh::ArrayRef", i32, %"class.hermes::regex::SyntaxFlags", ptr, ptr, i32, i32, %"struct.hermes::regex::ASCIIRegexTraits", i32 }
 %"struct.hermes::regex::ASCIIRegexTraits" = type { i8 }
 %"struct.hermes::regex::State.24" = type { %"class.hermes::regex::Cursor.21", i32, %"class.llvh::SmallVector", %"class.llvh::SmallVector.2" }
@@ -38,17 +37,12 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.llvh::SmallVectorStorage.12" = type { [64 x %"struct.llvh::AlignedCharArrayUnion.13"] }
 %"struct.llvh::AlignedCharArrayUnion.13" = type { %"struct.llvh::AlignedCharArray.14" }
 %"struct.llvh::AlignedCharArray.14" = type { [24 x i8] }
-%"union.hermes::regex::Context<hermes::regex::UTF16RegexTraits>::BacktrackInsn" = type { %struct.anon.18 }
-%struct.anon.18 = type { i8, i32, %"struct.hermes::regex::LoopData", ptr }
-%"struct.hermes::regex::LoopData" = type { i32, i32 }
 %"class.llvh::SmallVector.26" = type { %"class.llvh::SmallVectorImpl.27", %"struct.llvh::SmallVectorStorage.30" }
 %"class.llvh::SmallVectorImpl.27" = type { %"class.llvh::SmallVectorTemplateBase.28" }
 %"class.llvh::SmallVectorTemplateBase.28" = type { %"class.llvh::SmallVectorTemplateCommon.29" }
 %"class.llvh::SmallVectorTemplateCommon.29" = type { %"class.llvh::SmallVectorBase" }
 %"struct.llvh::SmallVectorStorage.30" = type { [64 x %"struct.llvh::AlignedCharArrayUnion.31"] }
 %"struct.llvh::AlignedCharArrayUnion.31" = type { %"struct.llvh::AlignedCharArray.14" }
-%"union.hermes::regex::Context<hermes::regex::ASCIIRegexTraits>::BacktrackInsn" = type { %struct.anon.35 }
-%struct.anon.35 = type { i8, i32, %"struct.hermes::regex::LoopData", ptr }
 
 $_ZN6hermes5regex22searchWithBytecodeImplIDsNS0_16UTF16RegexTraitsEEENS0_18MatchRuntimeResultEN4llvh8ArrayRefIhEEPKT_jjPSt6vectorINS0_13CapturedRangeESaISB_EENS0_9constants13MatchFlagTypeE = comdat any
 
@@ -92,7 +86,7 @@ entry:
   %add.ptr.idx = shl nuw nsw i64 %idx.ext, 1
   %add.ptr = getelementptr inbounds nuw i8, ptr %first, i64 %add.ptr.idx
   %idx.ext1 = zext i32 %length to i64
-  %add.ptr2 = getelementptr inbounds nuw i16, ptr %first, i64 %idx.ext1
+  %add.ptr2 = getelementptr inbounds nuw [2 x i8], ptr %first, i64 %idx.ext1
   %constraints = getelementptr inbounds nuw i8, ptr %bytecode.coerce0, i64 5
   %0 = load i8, ptr %constraints, align 1
   %conv.i = zext i8 %0 to i32
@@ -323,7 +317,7 @@ if.then.i18.i.i.i:                                ; preds = %_ZNSt6vectorIN6herm
 _ZNSt6vectorIN6hermes5regex13CapturedRangeESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %if.then.i18.i.i.i, %_ZNSt6vectorIN6hermes5regex13CapturedRangeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i
   store ptr %call5.i.i.i.i.i.i, ptr %m, align 8
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i, align 8
-  %add.ptr19.i.i.i = getelementptr inbounds nuw %"struct.hermes::regex::CapturedRange", ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
+  %add.ptr19.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
   store ptr %add.ptr19.i.i.i, ptr %_M_end_of_storage.i.i, align 8
   br label %_ZNSt6vectorIN6hermes5regex13CapturedRangeESaIS2_EE9push_backEOS2_.exit
 
@@ -397,7 +391,7 @@ if.then.i18.i.i.i.i.i.i.i.i.i.i:                  ; preds = %_ZNSt6vectorIN6herm
 _ZNSt6vectorIN6hermes5regex13CapturedRangeESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i.i.i.i.i.i.i: ; preds = %if.then.i18.i.i.i.i.i.i.i.i.i.i, %_ZNSt6vectorIN6hermes5regex13CapturedRangeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i.i.i.i.i.i.i.i
   store ptr %call5.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %m, align 8
   store ptr %incdec.ptr.i.i.i.i.i.i.i.i.i.i, ptr %_M_finish.i.i, align 8
-  %add.ptr19.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw %"struct.hermes::regex::CapturedRange", ptr %call5.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 %cond.i.i.i.i.i.i.i.i.i.i.i
+  %add.ptr19.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 %cond.i.i.i.i.i.i.i.i.i.i.i
   store ptr %add.ptr19.i.i.i.i.i.i.i.i.i.i, ptr %_M_end_of_storage.i.i, align 8
   br label %_ZNSt20back_insert_iteratorISt6vectorIN6hermes5regex13CapturedRangeESaIS3_EEEaSERKS3_.exit.i.i.i.i.i.i.i
 
@@ -675,7 +669,7 @@ if.then.i18.i.i.i:                                ; preds = %_ZNSt6vectorIN6herm
 _ZNSt6vectorIN6hermes5regex13CapturedRangeESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %if.then.i18.i.i.i, %_ZNSt6vectorIN6hermes5regex13CapturedRangeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i
   store ptr %call5.i.i.i.i.i.i, ptr %m, align 8
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i, align 8
-  %add.ptr19.i.i.i = getelementptr inbounds nuw %"struct.hermes::regex::CapturedRange", ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
+  %add.ptr19.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
   store ptr %add.ptr19.i.i.i, ptr %_M_end_of_storage.i.i, align 8
   br label %_ZNSt6vectorIN6hermes5regex13CapturedRangeESaIS2_EE9push_backEOS2_.exit
 
@@ -749,7 +743,7 @@ if.then.i18.i.i.i.i.i.i.i.i.i.i:                  ; preds = %_ZNSt6vectorIN6herm
 _ZNSt6vectorIN6hermes5regex13CapturedRangeESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i.i.i.i.i.i.i: ; preds = %if.then.i18.i.i.i.i.i.i.i.i.i.i, %_ZNSt6vectorIN6hermes5regex13CapturedRangeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i.i.i.i.i.i.i.i
   store ptr %call5.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %m, align 8
   store ptr %incdec.ptr.i.i.i.i.i.i.i.i.i.i, ptr %_M_finish.i.i, align 8
-  %add.ptr19.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw %"struct.hermes::regex::CapturedRange", ptr %call5.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 %cond.i.i.i.i.i.i.i.i.i.i.i
+  %add.ptr19.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 %cond.i.i.i.i.i.i.i.i.i.i.i
   store ptr %add.ptr19.i.i.i.i.i.i.i.i.i.i, ptr %_M_end_of_storage.i.i, align 8
   br label %_ZNSt20back_insert_iteratorISt6vectorIN6hermes5regex13CapturedRangeESaIS3_EEEaSERKS3_.exit.i.i.i.i.i.i.i
 
@@ -839,7 +833,7 @@ entry:
 
 for.body:                                         ; preds = %entry, %_ZNK6hermes5regex7ContextINS0_16UTF16RegexTraitsEE18advanceStringIndexEPKDsmm.exit
   %locIndex.01209 = phi i64 [ 0, %entry ], [ %retval.0.i1049, %_ZNK6hermes5regex7ContextINS0_16UTF16RegexTraitsEE18advanceStringIndexEPKDsmm.exit ]
-  %add.ptr = getelementptr inbounds i16, ptr %2, i64 %locIndex.01209
+  %add.ptr = getelementptr inbounds [2 x i8], ptr %2, i64 %locIndex.01209
   store ptr %add.ptr, ptr %current_.i, align 8
   store i32 %1, ptr %ip_, align 8
   br label %for.cond5
@@ -986,7 +980,7 @@ if.end66:                                         ; preds = %sw.bb46
   %20 = load i8, ptr %forwards_.i863, align 8
   %tobool.i = trunc i8 %20 to i1
   %idx.ext.i = select i1 %tobool.i, i64 1, i64 -1
-  %add.ptr.i = getelementptr inbounds i16, ptr %17, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds [2 x i8], ptr %17, i64 %idx.ext.i
   store ptr %add.ptr.i, ptr %current_.i, align 8
   %add69 = add i32 %4, 1
   store i32 %add69, ptr %ip_, align 8
@@ -1045,7 +1039,7 @@ if.end25.i:                                       ; preds = %land.lhs.true.i264,
 
 _ZN6hermes5regex6CursorINS0_16UTF16RegexTraitsEE12consumeUTF16Ev.exit: ; preds = %land.lhs.true.i264, %if.end25.i
   %cond13.in.v.i.pn = phi i64 [ %idx.ext.i.i, %if.end25.i ], [ %cond13.in.v.i, %land.lhs.true.i264 ]
-  %storemerge = getelementptr inbounds i16, ptr %21, i64 %cond13.in.v.i.pn
+  %storemerge = getelementptr inbounds [2 x i8], ptr %21, i64 %cond13.in.v.i.pn
   store ptr %storemerge, ptr %current_.i, align 8
   %add93 = add i32 %4, 1
   store i32 %add93, ptr %ip_, align 8
@@ -1061,12 +1055,12 @@ lor.lhs.false97:                                  ; preds = %sw.bb95
   %34 = load i8, ptr %forwards_.i863, align 8
   %35 = and i8 %34, 1
   %conv.i.i271 = zext nneg i8 %35 to i64
-  %36 = getelementptr i16, ptr %32, i64 %conv.i.i271
+  %36 = getelementptr [2 x i8], ptr %32, i64 %conv.i.i271
   %arrayidx.i.i272 = getelementptr i8, ptr %36, i64 -2
   %37 = load i16, ptr %arrayidx.i.i272, align 2
   %tobool.i273 = trunc i8 %34 to i1
   %idx.ext.i274 = select i1 %tobool.i273, i64 1, i64 -1
-  %add.ptr.i275 = getelementptr inbounds i16, ptr %32, i64 %idx.ext.i274
+  %add.ptr.i275 = getelementptr inbounds [2 x i8], ptr %32, i64 %idx.ext.i274
   store ptr %add.ptr.i275, ptr %current_.i, align 8
   switch i16 %37, label %if.end116 [
     i16 8232, label %do.body101
@@ -1130,7 +1124,7 @@ land.lhs.true.i304:                               ; preds = %if.then.i292
   br i1 %48, label %if.then17.i309, label %if.end25.i297
 
 if.then17.i309:                                   ; preds = %land.lhs.true.i304
-  %add.ptr.i310 = getelementptr inbounds i16, ptr %39, i64 %cond13.in.v.i305
+  %add.ptr.i310 = getelementptr inbounds [2 x i8], ptr %39, i64 %cond13.in.v.i305
   store ptr %add.ptr.i310, ptr %current_.i, align 8
   %sub.i.i311 = shl nuw nsw i32 %conv.i296, 10
   %sub1.i.i312 = add nsw i32 %sub.i.i311, -56613888
@@ -1140,11 +1134,11 @@ if.then17.i309:                                   ; preds = %land.lhs.true.i304
 if.end25.i297:                                    ; preds = %land.lhs.true.i304, %if.then.i292, %lor.lhs.false123
   %49 = and i8 %41, 1
   %conv.i.i.i298 = zext nneg i8 %49 to i64
-  %50 = getelementptr i16, ptr %39, i64 %conv.i.i.i298
+  %50 = getelementptr [2 x i8], ptr %39, i64 %conv.i.i.i298
   %arrayidx.i.i.i299 = getelementptr i8, ptr %50, i64 -2
   %51 = load i16, ptr %arrayidx.i.i.i299, align 2
   %idx.ext.i.i300 = select i1 %tobool.i.i283, i64 1, i64 -1
-  %add.ptr.i.i301 = getelementptr inbounds i16, ptr %39, i64 %idx.ext.i.i300
+  %add.ptr.i.i301 = getelementptr inbounds [2 x i8], ptr %39, i64 %idx.ext.i.i300
   store ptr %add.ptr.i.i301, ptr %current_.i, align 8
   %conv27.i302 = zext i16 %51 to i32
   br label %_ZN6hermes5regex6CursorINS0_16UTF16RegexTraitsEE12consumeUTF16Ev.exit314
@@ -1184,12 +1178,12 @@ lor.lhs.false149:                                 ; preds = %sw.bb147
   %55 = load i8, ptr %forwards_.i863, align 8
   %56 = and i8 %55, 1
   %conv.i.i322 = zext nneg i8 %56 to i64
-  %57 = getelementptr i16, ptr %53, i64 %conv.i.i322
+  %57 = getelementptr [2 x i8], ptr %53, i64 %conv.i.i322
   %arrayidx.i.i323 = getelementptr i8, ptr %57, i64 -2
   %58 = load i16, ptr %arrayidx.i.i323, align 2
   %tobool.i324 = trunc i8 %55 to i1
   %idx.ext.i325 = select i1 %tobool.i324, i64 1, i64 -1
-  %add.ptr.i326 = getelementptr inbounds i16, ptr %53, i64 %idx.ext.i325
+  %add.ptr.i326 = getelementptr inbounds [2 x i8], ptr %53, i64 %idx.ext.i325
   store ptr %add.ptr.i326, ptr %current_.i, align 8
   %conv.i327 = zext i16 %58 to i32
   %c2.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 1
@@ -1224,12 +1218,12 @@ lor.lhs.false175:                                 ; preds = %sw.bb173
   %63 = load i8, ptr %forwards_.i863, align 8
   %64 = and i8 %63, 1
   %conv.i.i336 = zext nneg i8 %64 to i64
-  %65 = getelementptr i16, ptr %61, i64 %conv.i.i336
+  %65 = getelementptr [2 x i8], ptr %61, i64 %conv.i.i336
   %arrayidx.i.i337 = getelementptr i8, ptr %65, i64 -2
   %66 = load i16, ptr %arrayidx.i.i337, align 2
   %tobool.i338 = trunc i8 %63 to i1
   %idx.ext.i339 = select i1 %tobool.i338, i64 1, i64 -1
-  %add.ptr.i340 = getelementptr inbounds i16, ptr %61, i64 %idx.ext.i339
+  %add.ptr.i340 = getelementptr inbounds [2 x i8], ptr %61, i64 %idx.ext.i339
   store ptr %add.ptr.i340, ptr %current_.i, align 8
   %c2.i341 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 1
   %67 = load i16, ptr %c2.i341, align 1
@@ -1291,7 +1285,7 @@ land.lhs.true.i370:                               ; preds = %if.then.i358
   br i1 %78, label %if.then17.i375, label %if.end25.i363
 
 if.then17.i375:                                   ; preds = %land.lhs.true.i370
-  %add.ptr.i376 = getelementptr inbounds i16, ptr %69, i64 %cond13.in.v.i371
+  %add.ptr.i376 = getelementptr inbounds [2 x i8], ptr %69, i64 %cond13.in.v.i371
   store ptr %add.ptr.i376, ptr %current_.i, align 8
   %sub.i.i377 = shl nuw nsw i32 %conv.i362, 10
   %sub1.i.i378 = add nsw i32 %sub.i.i377, -56613888
@@ -1301,11 +1295,11 @@ if.then17.i375:                                   ; preds = %land.lhs.true.i370
 if.end25.i363:                                    ; preds = %land.lhs.true.i370, %if.then.i358, %lor.lhs.false202
   %79 = and i8 %71, 1
   %conv.i.i.i364 = zext nneg i8 %79 to i64
-  %80 = getelementptr i16, ptr %69, i64 %conv.i.i.i364
+  %80 = getelementptr [2 x i8], ptr %69, i64 %conv.i.i.i364
   %arrayidx.i.i.i365 = getelementptr i8, ptr %80, i64 -2
   %81 = load i16, ptr %arrayidx.i.i.i365, align 2
   %idx.ext.i.i366 = select i1 %tobool.i.i349, i64 1, i64 -1
-  %add.ptr.i.i367 = getelementptr inbounds i16, ptr %69, i64 %idx.ext.i.i366
+  %add.ptr.i.i367 = getelementptr inbounds [2 x i8], ptr %69, i64 %idx.ext.i.i366
   store ptr %add.ptr.i.i367, ptr %current_.i, align 8
   %conv27.i368 = zext i16 %81 to i32
   br label %_ZN6hermes5regex6CursorINS0_16UTF16RegexTraitsEE12consumeUTF16Ev.exit380
@@ -1343,12 +1337,12 @@ lor.lhs.false229:                                 ; preds = %sw.bb227
   %86 = load i8, ptr %forwards_.i863, align 8
   %87 = and i8 %86, 1
   %conv.i.i388 = zext nneg i8 %87 to i64
-  %88 = getelementptr i16, ptr %84, i64 %conv.i.i388
+  %88 = getelementptr [2 x i8], ptr %84, i64 %conv.i.i388
   %arrayidx.i.i389 = getelementptr i8, ptr %88, i64 -2
   %89 = load i16, ptr %arrayidx.i.i389, align 2
   %tobool.i390 = trunc i8 %86 to i1
   %idx.ext.i391 = select i1 %tobool.i390, i64 1, i64 -1
-  %add.ptr.i392 = getelementptr inbounds i16, ptr %84, i64 %idx.ext.i391
+  %add.ptr.i392 = getelementptr inbounds [2 x i8], ptr %84, i64 %idx.ext.i391
   store ptr %add.ptr.i392, ptr %current_.i, align 8
   %conv.i393 = zext i16 %89 to i32
   %c2.i394 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 1
@@ -1416,12 +1410,12 @@ lor.lhs.false255:                                 ; preds = %sw.bb253
   %98 = load i8, ptr %forwards_.i863, align 8
   %99 = and i8 %98, 1
   %conv.i.i409 = zext nneg i8 %99 to i64
-  %100 = getelementptr i16, ptr %96, i64 %conv.i.i409
+  %100 = getelementptr [2 x i8], ptr %96, i64 %conv.i.i409
   %arrayidx.i.i410 = getelementptr i8, ptr %100, i64 -2
   %101 = load i16, ptr %arrayidx.i.i410, align 2
   %tobool.i411 = trunc i8 %98 to i1
   %idx.ext.i412 = select i1 %tobool.i411, i64 1, i64 -1
-  %add.ptr.i413 = getelementptr inbounds i16, ptr %96, i64 %idx.ext.i412
+  %add.ptr.i413 = getelementptr inbounds [2 x i8], ptr %96, i64 %idx.ext.i412
   store ptr %add.ptr.i413, ptr %current_.i, align 8
   %c2.i414 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 1
   %102 = load i16, ptr %c2.i414, align 1
@@ -1517,7 +1511,7 @@ land.lhs.true.i460:                               ; preds = %if.then.i448
   br i1 %118, label %if.then17.i465, label %if.end25.i453
 
 if.then17.i465:                                   ; preds = %land.lhs.true.i460
-  %add.ptr.i466 = getelementptr inbounds i16, ptr %109, i64 %cond13.in.v.i461
+  %add.ptr.i466 = getelementptr inbounds [2 x i8], ptr %109, i64 %cond13.in.v.i461
   store ptr %add.ptr.i466, ptr %current_.i, align 8
   %sub.i.i467 = shl nuw nsw i32 %conv.i452, 10
   %sub1.i.i468 = add nsw i32 %sub.i.i467, -56613888
@@ -1527,11 +1521,11 @@ if.then17.i465:                                   ; preds = %land.lhs.true.i460
 if.end25.i453:                                    ; preds = %land.lhs.true.i460, %if.then.i448, %if.then283
   %119 = and i8 %111, 1
   %conv.i.i.i454 = zext nneg i8 %119 to i64
-  %120 = getelementptr i16, ptr %109, i64 %conv.i.i.i454
+  %120 = getelementptr [2 x i8], ptr %109, i64 %conv.i.i.i454
   %arrayidx.i.i.i455 = getelementptr i8, ptr %120, i64 -2
   %121 = load i16, ptr %arrayidx.i.i.i455, align 2
   %idx.ext.i.i456 = select i1 %tobool.i.i439, i64 1, i64 -1
-  %add.ptr.i.i457 = getelementptr inbounds i16, ptr %109, i64 %idx.ext.i.i456
+  %add.ptr.i.i457 = getelementptr inbounds [2 x i8], ptr %109, i64 %idx.ext.i.i456
   store ptr %add.ptr.i.i457, ptr %current_.i, align 8
   %conv27.i458 = zext i16 %121 to i32
   br label %_ZN6hermes5regex6CursorINS0_16UTF16RegexTraitsEE12consumeUTF16Ev.exit470
@@ -1626,10 +1620,10 @@ for.cond.i:                                       ; preds = %for.body.i
 for.body.i:                                       ; preds = %for.cond.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.cond.i ]
   %add.ptr.i46.i = phi ptr [ %129, %for.body.lr.ph.i ], [ %add.ptr.i.i485, %for.cond.i ]
-  %134 = getelementptr i16, ptr %add.ptr.i46.i, i64 %conv.i.i.i481
+  %134 = getelementptr [2 x i8], ptr %add.ptr.i46.i, i64 %conv.i.i.i481
   %arrayidx.i.i.i484 = getelementptr i8, ptr %134, i64 -2
   %135 = load i16, ptr %arrayidx.i.i.i484, align 2
-  %add.ptr.i.i485 = getelementptr inbounds i16, ptr %add.ptr.i46.i, i64 %idx.ext.i.i483
+  %add.ptr.i.i485 = getelementptr inbounds [2 x i8], ptr %add.ptr.i46.i, i64 %idx.ext.i.i483
   store ptr %add.ptr.i.i485, ptr %current_.i, align 8
   %conv2.i = zext i16 %135 to i32
   %arrayidx.i486 = getelementptr inbounds nuw i8, ptr %add.ptr.i480, i64 %indvars.iv.i
@@ -1699,12 +1693,12 @@ for.body.i511:                                    ; preds = %for.inc.i, %for.bod
   %146 = load i8, ptr %forwards_.i863, align 8
   %147 = and i8 %146, 1
   %conv.i.i.i513 = zext nneg i8 %147 to i64
-  %148 = getelementptr i16, ptr %145, i64 %conv.i.i.i513
+  %148 = getelementptr [2 x i8], ptr %145, i64 %conv.i.i.i513
   %arrayidx.i.i.i514 = getelementptr i8, ptr %148, i64 -2
   %149 = load i16, ptr %arrayidx.i.i.i514, align 2
   %tobool.i.i515 = trunc i8 %146 to i1
   %idx.ext.i.i516 = select i1 %tobool.i.i515, i64 1, i64 -1
-  %add.ptr.i.i517 = getelementptr inbounds i16, ptr %145, i64 %idx.ext.i.i516
+  %add.ptr.i.i517 = getelementptr inbounds [2 x i8], ptr %145, i64 %idx.ext.i.i516
   store ptr %add.ptr.i.i517, ptr %current_.i, align 8
   %arrayidx.i518 = getelementptr inbounds nuw i8, ptr %add.ptr.i502, i64 %indvars.iv.i512
   %150 = load i8, ptr %arrayidx.i518, align 1
@@ -1834,7 +1828,7 @@ _ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex7ContextINS2_16UTF16RegexTraitsE
   %168 = phi i32 [ %.pre.i.i, %if.then.i.i561 ], [ %166, %if.then380 ]
   %169 = load ptr, ptr %backtrackStack, align 8
   %conv.i3.i.i = zext i32 %168 to i64
-  %add.ptr.i.i.i = getelementptr inbounds nuw %"union.hermes::regex::Context<hermes::regex::UTF16RegexTraits>::BacktrackInsn", ptr %169, i64 %conv.i3.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [24 x i8], ptr %169, i64 %conv.i3.i.i
   store i8 2, ptr %add.ptr.i.i.i, align 1
   %agg.tmp560.sroa.5.0.add.ptr.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 4
   store i32 %164, ptr %agg.tmp560.sroa.5.0.add.ptr.i.i.i.sroa_idx, align 1
@@ -1897,12 +1891,12 @@ lor.lhs.false425:                                 ; preds = %sw.bb423
   %177 = load i8, ptr %forwards_.i863, align 8
   %178 = and i8 %177, 1
   %conv.i.i573 = zext nneg i8 %178 to i64
-  %179 = getelementptr i16, ptr %175, i64 %conv.i.i573
+  %179 = getelementptr [2 x i8], ptr %175, i64 %conv.i.i573
   %arrayidx.i.i574 = getelementptr i8, ptr %179, i64 -2
   %180 = load i16, ptr %arrayidx.i.i574, align 2
   %tobool.i575 = trunc i8 %177 to i1
   %idx.ext.i576 = select i1 %tobool.i575, i64 1, i64 -1
-  %add.ptr.i577 = getelementptr inbounds i16, ptr %175, i64 %idx.ext.i576
+  %add.ptr.i577 = getelementptr inbounds [2 x i8], ptr %175, i64 %idx.ext.i576
   store ptr %add.ptr.i577, ptr %current_.i, align 8
   %add.ptr.i578 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 6
   %conv.i579 = zext i16 %180 to i32
@@ -1970,7 +1964,7 @@ land.lhs.true.i608:                               ; preds = %if.then.i596
   br i1 %193, label %if.then17.i613, label %if.end25.i601
 
 if.then17.i613:                                   ; preds = %land.lhs.true.i608
-  %add.ptr.i614 = getelementptr inbounds i16, ptr %184, i64 %cond13.in.v.i609
+  %add.ptr.i614 = getelementptr inbounds [2 x i8], ptr %184, i64 %cond13.in.v.i609
   store ptr %add.ptr.i614, ptr %current_.i, align 8
   %sub.i.i615 = shl nuw nsw i32 %conv.i600, 10
   %sub1.i.i616 = add nsw i32 %sub.i.i615, -56613888
@@ -1980,11 +1974,11 @@ if.then17.i613:                                   ; preds = %land.lhs.true.i608
 if.end25.i601:                                    ; preds = %land.lhs.true.i608, %if.then.i596, %lor.lhs.false454
   %194 = and i8 %186, 1
   %conv.i.i.i602 = zext nneg i8 %194 to i64
-  %195 = getelementptr i16, ptr %184, i64 %conv.i.i.i602
+  %195 = getelementptr [2 x i8], ptr %184, i64 %conv.i.i.i602
   %arrayidx.i.i.i603 = getelementptr i8, ptr %195, i64 -2
   %196 = load i16, ptr %arrayidx.i.i.i603, align 2
   %idx.ext.i.i604 = select i1 %tobool.i.i587, i64 1, i64 -1
-  %add.ptr.i.i605 = getelementptr inbounds i16, ptr %184, i64 %idx.ext.i.i604
+  %add.ptr.i.i605 = getelementptr inbounds [2 x i8], ptr %184, i64 %idx.ext.i.i604
   store ptr %add.ptr.i.i605, ptr %current_.i, align 8
   %conv27.i606 = zext i16 %196 to i32
   br label %_ZN6hermes5regex6CursorINS0_16UTF16RegexTraitsEE12consumeUTF16Ev.exit618
@@ -2096,7 +2090,7 @@ _ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex7ContextINS2_16UTF16RegexTraitsE
   %220 = phi i32 [ %.pre.i.i645, %if.then.i.i643 ], [ %218, %sw.bb530 ]
   %221 = load ptr, ptr %backtrackStack, align 8
   %conv.i3.i.i647 = zext i32 %220 to i64
-  %add.ptr.i.i.i648 = getelementptr inbounds nuw %"union.hermes::regex::Context<hermes::regex::UTF16RegexTraits>::BacktrackInsn", ptr %221, i64 %conv.i3.i.i647
+  %add.ptr.i.i.i648 = getelementptr inbounds nuw [24 x i8], ptr %221, i64 %conv.i3.i.i647
   store i8 0, ptr %add.ptr.i.i.i648, align 1
   %agg.tmp534639.sroa.5.0.add.ptr.i.i.i648.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i648, i64 2
   store i16 %217, ptr %agg.tmp534639.sroa.5.0.add.ptr.i.i.i648.sroa_idx, align 1
@@ -2119,7 +2113,7 @@ if.end539:                                        ; preds = %lor.lhs.false.i651
   %224 = load i16, ptr %mexp, align 1
   %conv.i658 = zext i16 %224 to i64
   %225 = load ptr, ptr %capturedRanges_3.i, align 8
-  %arrayidx.i.i659 = getelementptr inbounds nuw %"struct.hermes::regex::CapturedRange", ptr %225, i64 %conv.i658
+  %arrayidx.i.i659 = getelementptr inbounds nuw [8 x i8], ptr %225, i64 %conv.i658
   %226 = load i8, ptr %forwards_.i863, align 8
   %tobool.i661 = trunc i8 %226 to i1
   %227 = load ptr, ptr %current_.i, align 8
@@ -2151,7 +2145,7 @@ sw.bb555:                                         ; preds = %for.cond5
   %230 = load i16, ptr %mexp559, align 1
   %conv.i675 = zext i16 %230 to i64
   %231 = load ptr, ptr %capturedRanges_3.i, align 8
-  %arrayidx.i.i676 = getelementptr inbounds nuw %"struct.hermes::regex::CapturedRange", ptr %231, i64 %conv.i675
+  %arrayidx.i.i676 = getelementptr inbounds nuw [8 x i8], ptr %231, i64 %conv.i675
   %232 = load i8, ptr %forwards_.i863, align 8
   %tobool.i678 = trunc i8 %232 to i1
   %233 = load ptr, ptr %current_.i, align 8
@@ -2183,7 +2177,7 @@ sw.bb574:                                         ; preds = %for.cond5
   %236 = load i16, ptr %mexp577, align 1
   %conv.i692 = zext i16 %236 to i64
   %237 = load ptr, ptr %capturedRanges_3.i, align 8
-  %arrayidx.i.i693 = getelementptr inbounds nuw %"struct.hermes::regex::CapturedRange", ptr %237, i64 %conv.i692
+  %arrayidx.i.i693 = getelementptr inbounds nuw [8 x i8], ptr %237, i64 %conv.i692
   %cr.sroa.0.0.copyload = load i32, ptr %arrayidx.i.i693, align 4
   %cr.sroa.3.0.call579.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i.i693, i64 4
   %cr.sroa.3.0.copyload = load i32, ptr %cr.sroa.3.0.call579.sroa_idx, align 4
@@ -2204,9 +2198,9 @@ if.end590:                                        ; preds = %sw.bb574
   %tobool591.not = icmp eq i8 %bf.clear, 0
   %238 = load ptr, ptr %first_, align 8
   %idx.ext = zext i32 %cr.sroa.0.0.copyload to i64
-  %add.ptr599 = getelementptr inbounds nuw i16, ptr %238, i64 %idx.ext
+  %add.ptr599 = getelementptr inbounds nuw [2 x i8], ptr %238, i64 %idx.ext
   %idx.ext602 = zext i32 %cr.sroa.3.0.copyload to i64
-  %add.ptr603 = getelementptr inbounds nuw i16, ptr %238, i64 %idx.ext602
+  %add.ptr603 = getelementptr inbounds nuw [2 x i8], ptr %238, i64 %idx.ext602
   %239 = load i8, ptr %forwards_.i863, align 8
   %tobool.i695 = trunc i8 %239 to i1
   %cond608 = select i1 %tobool.i695, ptr %add.ptr599, ptr %add.ptr603
@@ -2233,14 +2227,14 @@ while.body.us:                                    ; preds = %land.rhs.us
   br i1 %cmp.i708.us, label %do.body664, label %if.end661.us
 
 if.end661.us:                                     ; preds = %while.body.us
-  %240 = getelementptr i16, ptr %cursor1.sroa.3.01194.us, i64 %conv.i.i.i771
+  %240 = getelementptr [2 x i8], ptr %cursor1.sroa.3.01194.us, i64 %conv.i.i.i771
   %arrayidx.i.i712.us = getelementptr i8, ptr %240, i64 -2
   %241 = load i16, ptr %arrayidx.i.i712.us, align 2
-  %add.ptr.i715.us = getelementptr inbounds i16, ptr %cursor1.sroa.3.01194.us, i64 %idx.ext.i.i773
-  %242 = getelementptr i16, ptr %cursor2.sroa.4.01195.us, i64 %conv.i.i.i771
+  %add.ptr.i715.us = getelementptr inbounds [2 x i8], ptr %cursor1.sroa.3.01194.us, i64 %idx.ext.i.i773
+  %242 = getelementptr [2 x i8], ptr %cursor2.sroa.4.01195.us, i64 %conv.i.i.i771
   %arrayidx.i.i719.us = getelementptr i8, ptr %242, i64 -2
   %243 = load i16, ptr %arrayidx.i.i719.us, align 2
-  %add.ptr.i722.us = getelementptr inbounds i16, ptr %cursor2.sroa.4.01195.us, i64 %idx.ext.i.i773
+  %add.ptr.i722.us = getelementptr inbounds [2 x i8], ptr %cursor2.sroa.4.01195.us, i64 %idx.ext.i.i773
   %cmp623.us = icmp eq i16 %241, %243
   br i1 %cmp623.us, label %land.rhs.us, label %do.body664, !llvm.loop !10
 
@@ -2263,14 +2257,14 @@ while.body.us1200:                                ; preds = %land.rhs.us1196.pre
   br i1 %cmp.i708.us1201, label %do.body664, label %if.else616.us1202
 
 if.else616.us1202:                                ; preds = %while.body.us1200
-  %245 = getelementptr i16, ptr %cursor1.sroa.3.01194.us11981324, i64 %conv.i.i.i771
+  %245 = getelementptr [2 x i8], ptr %cursor1.sroa.3.01194.us11981324, i64 %conv.i.i.i771
   %arrayidx.i.i726.us = getelementptr i8, ptr %245, i64 -2
   %246 = load i16, ptr %arrayidx.i.i726.us, align 2
-  %add.ptr.i729.us = getelementptr inbounds i16, ptr %cursor1.sroa.3.01194.us11981324, i64 %idx.ext.i.i773
-  %247 = getelementptr i16, ptr %cursor2.sroa.4.01195.us11971323, i64 %conv.i.i.i771
+  %add.ptr.i729.us = getelementptr inbounds [2 x i8], ptr %cursor1.sroa.3.01194.us11981324, i64 %idx.ext.i.i773
+  %247 = getelementptr [2 x i8], ptr %cursor2.sroa.4.01195.us11971323, i64 %conv.i.i.i771
   %arrayidx.i.i733.us = getelementptr i8, ptr %247, i64 -2
   %248 = load i16, ptr %arrayidx.i.i733.us, align 2
-  %add.ptr.i736.us = getelementptr inbounds i16, ptr %cursor2.sroa.4.01195.us11971323, i64 %idx.ext.i.i773
+  %add.ptr.i736.us = getelementptr inbounds [2 x i8], ptr %cursor2.sroa.4.01195.us11971323, i64 %idx.ext.i.i773
   %cmp632.us = icmp eq i16 %246, %248
   br i1 %cmp632.us, label %land.rhs.us1196.backedge, label %lor.rhs633.us
 
@@ -2355,7 +2349,7 @@ if.then17.i782:                                   ; preds = %land.lhs.true.i777
   br label %_ZN6hermes5regex6CursorINS0_16UTF16RegexTraitsEE12consumeUTF16Ev.exit787
 
 if.end25.i770:                                    ; preds = %land.lhs.true.i777, %if.then.i765, %if.else616
-  %258 = getelementptr i16, ptr %cursor1.sroa.3.011941321, i64 %conv.i.i.i771
+  %258 = getelementptr [2 x i8], ptr %cursor1.sroa.3.011941321, i64 %conv.i.i.i771
   %arrayidx.i.i.i772 = getelementptr i8, ptr %258, i64 -2
   %259 = load i16, ptr %arrayidx.i.i.i772, align 2
   %conv27.i775 = zext i16 %259 to i32
@@ -2364,7 +2358,7 @@ if.end25.i770:                                    ; preds = %land.lhs.true.i777,
 _ZN6hermes5regex6CursorINS0_16UTF16RegexTraitsEE12consumeUTF16Ev.exit787: ; preds = %if.then17.i782, %if.end25.i770
   %idx.ext.i.i773.pn = phi i64 [ %idx.ext.i.i773, %if.end25.i770 ], [ %cond13.in.v.i778, %if.then17.i782 ]
   %retval.0.i776 = phi i32 [ %conv27.i775, %if.end25.i770 ], [ %add2.i.i786, %if.then17.i782 ]
-  %cursor1.sroa.3.2 = getelementptr inbounds i16, ptr %cursor1.sroa.3.011941321, i64 %idx.ext.i.i773.pn
+  %cursor1.sroa.3.2 = getelementptr inbounds [2 x i8], ptr %cursor1.sroa.3.011941321, i64 %idx.ext.i.i773.pn
   %.sink1.i.i792 = select i1 %tobool.i695, ptr %add.ptr603, ptr %cursor2.sroa.4.011951320
   %.sink.i.i793 = select i1 %tobool.i695, ptr %cursor2.sroa.4.011951320, ptr %add.ptr599
   %sub.ptr.lhs.cast3.i.i794 = ptrtoint ptr %.sink1.i.i792 to i64
@@ -2397,7 +2391,7 @@ if.then17.i815:                                   ; preds = %land.lhs.true.i810
   br label %_ZN6hermes5regex6CursorINS0_16UTF16RegexTraitsEE12consumeUTF16Ev.exit820
 
 if.end25.i803:                                    ; preds = %land.lhs.true.i810, %if.then.i798, %_ZN6hermes5regex6CursorINS0_16UTF16RegexTraitsEE12consumeUTF16Ev.exit787
-  %265 = getelementptr i16, ptr %cursor2.sroa.4.011951320, i64 %conv.i.i.i771
+  %265 = getelementptr [2 x i8], ptr %cursor2.sroa.4.011951320, i64 %conv.i.i.i771
   %arrayidx.i.i.i805 = getelementptr i8, ptr %265, i64 -2
   %266 = load i16, ptr %arrayidx.i.i.i805, align 2
   %conv27.i808 = zext i16 %266 to i32
@@ -2406,7 +2400,7 @@ if.end25.i803:                                    ; preds = %land.lhs.true.i810,
 _ZN6hermes5regex6CursorINS0_16UTF16RegexTraitsEE12consumeUTF16Ev.exit820: ; preds = %if.then17.i815, %if.end25.i803
   %idx.ext.i.i806.pn = phi i64 [ %idx.ext.i.i773, %if.end25.i803 ], [ %cond13.in.v.i778, %if.then17.i815 ]
   %retval.0.i809 = phi i32 [ %conv27.i808, %if.end25.i803 ], [ %add2.i.i819, %if.then17.i815 ]
-  %cursor2.sroa.4.2 = getelementptr inbounds i16, ptr %cursor2.sroa.4.011951320, i64 %idx.ext.i.i806.pn
+  %cursor2.sroa.4.2 = getelementptr inbounds [2 x i8], ptr %cursor2.sroa.4.011951320, i64 %idx.ext.i.i806.pn
   %cmp648 = icmp eq i32 %retval.0.i776, %retval.0.i809
   br i1 %cmp648, label %land.rhs.backedge, label %lor.rhs649
 
@@ -2630,7 +2624,7 @@ for.body717:                                      ; preds = %for.body717.prehead
   %298 = phi i32 [ %.pre1224, %for.body717.preheader ], [ %add.i.i895, %for.inc ]
   %indvars.iv = phi i64 [ %297, %for.body717.preheader ], [ %indvars.iv.next, %for.inc ]
   %299 = load ptr, ptr %capturedRanges_.i858, align 8
-  %arrayidx.i.i882 = getelementptr inbounds nuw %"struct.hermes::regex::CapturedRange", ptr %299, i64 %indvars.iv
+  %arrayidx.i.i882 = getelementptr inbounds nuw [8 x i8], ptr %299, i64 %indvars.iv
   %cr718.sroa.0.0.copyload = load i64, ptr %arrayidx.i.i882, align 4
   %conv722 = trunc i64 %indvars.iv to i16
   %300 = load i32, ptr %Capacity2.i.i.i.i.i, align 4
@@ -2646,7 +2640,7 @@ _ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex7ContextINS2_16UTF16RegexTraitsE
   %301 = phi i32 [ %.pre.i.i891, %if.then.i.i889 ], [ %298, %for.body717 ]
   %302 = load ptr, ptr %backtrackStack, align 8
   %conv.i3.i.i893 = zext i32 %301 to i64
-  %add.ptr.i.i.i894 = getelementptr inbounds nuw %"union.hermes::regex::Context<hermes::regex::UTF16RegexTraits>::BacktrackInsn", ptr %302, i64 %conv.i3.i.i893
+  %add.ptr.i.i.i894 = getelementptr inbounds nuw [24 x i8], ptr %302, i64 %conv.i3.i.i893
   store i8 0, ptr %add.ptr.i.i.i894, align 1
   %agg.tmp721885.sroa.5.0.add.ptr.i.i.i894.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i894, i64 2
   store i16 %conv722, ptr %agg.tmp721885.sroa.5.0.add.ptr.i.i.i894.sroa_idx, align 1
@@ -2772,7 +2766,7 @@ if.then.i.i.i1102:                                ; preds = %if.end37.i1098
   %add.ptr39.idx.i1103 = shl nuw nsw i64 %CurSize.0.i1099, 3
   %add.ptr39.i1104 = getelementptr inbounds nuw i8, ptr %318, i64 %add.ptr39.idx.i1103
   %319 = load ptr, ptr %capturedRanges_3.i, align 8
-  %add.ptr42.i1105 = getelementptr inbounds nuw %"struct.hermes::regex::CapturedRange", ptr %319, i64 %CurSize.0.i1099
+  %add.ptr42.i1105 = getelementptr inbounds nuw [8 x i8], ptr %319, i64 %CurSize.0.i1099
   %320 = sub nsw i64 %conv.i51.i1100, %CurSize.0.i1099
   %gepdiff.i1106 = shl nsw i64 %320, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr42.i1105, ptr align 4 %add.ptr39.i1104, i64 %gepdiff.i1106, i1 false)
@@ -2863,7 +2857,7 @@ if.then.i.i.i1064:                                ; preds = %if.end37.i
   %add.ptr39.idx.i = shl nuw nsw i64 %CurSize.0.i, 3
   %add.ptr39.i = getelementptr inbounds nuw i8, ptr %332, i64 %add.ptr39.idx.i
   %333 = load ptr, ptr %loopDatas_.i924, align 8
-  %add.ptr42.i = getelementptr inbounds nuw %"struct.hermes::regex::LoopData", ptr %333, i64 %CurSize.0.i
+  %add.ptr42.i = getelementptr inbounds nuw [8 x i8], ptr %333, i64 %CurSize.0.i
   %334 = sub nsw i64 %conv.i51.i, %CurSize.0.i
   %gepdiff.i = shl nsw i64 %334, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr42.i, ptr align 4 %add.ptr39.i, i64 %gepdiff.i, i1 false)
@@ -2924,7 +2918,7 @@ sw.bb758:                                         ; preds = %for.cond5
   %342 = load i32, ptr %loopId, align 1
   %conv.i925 = zext i32 %342 to i64
   %343 = load ptr, ptr %loopDatas_.i924, align 8
-  %arrayidx.i.i926 = getelementptr inbounds nuw %"struct.hermes::regex::LoopData", ptr %343, i64 %conv.i925
+  %arrayidx.i.i926 = getelementptr inbounds nuw [8 x i8], ptr %343, i64 %conv.i925
   store i32 0, ptr %arrayidx.i.i926, align 4
   %344 = load i32, ptr %flags_870, align 8
   %loopeeConstraints = getelementptr inbounds nuw i8, ptr %arrayidx, i64 18
@@ -2985,7 +2979,7 @@ runLoop:                                          ; preds = %land.lhs.true6.i937
   %352 = load i32, ptr %loopId794, align 1
   %conv.i945 = zext i32 %352 to i64
   %353 = load ptr, ptr %loopDatas_.i924, align 8
-  %arrayidx.i.i946 = getelementptr inbounds nuw %"struct.hermes::regex::LoopData", ptr %353, i64 %conv.i945
+  %arrayidx.i.i946 = getelementptr inbounds nuw [8 x i8], ptr %353, i64 %conv.i945
   %354 = load i32, ptr %arrayidx.i.i946, align 4
   %355 = load i32, ptr %ip_, align 8
   %add799 = add i32 %355, 23
@@ -3074,7 +3068,7 @@ _ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex7ContextINS2_16UTF16RegexTraitsE
   %368 = phi i32 [ %.pre.i.i967, %if.then.i.i965 ], [ %366, %if.then839 ]
   %369 = load ptr, ptr %backtrackStack, align 8
   %conv.i3.i.i969 = zext i32 %368 to i64
-  %add.ptr.i.i.i970 = getelementptr inbounds nuw %"union.hermes::regex::Context<hermes::regex::UTF16RegexTraits>::BacktrackInsn", ptr %369, i64 %conv.i3.i.i969
+  %add.ptr.i.i.i970 = getelementptr inbounds nuw [24 x i8], ptr %369, i64 %conv.i3.i.i969
   store i8 3, ptr %add.ptr.i.i.i970, align 1
   %agg.tmp843961.sroa.5.0.add.ptr.i.i.i970.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i970, i64 4
   store i32 %add799, ptr %agg.tmp843961.sroa.5.0.add.ptr.i.i.i970.sroa_idx, align 1
@@ -3119,7 +3113,7 @@ _ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex7ContextINS2_16UTF16RegexTraitsE
   %377 = phi i32 [ %.pre.i.i989, %if.then.i.i987 ], [ %375, %if.else851 ]
   %378 = load ptr, ptr %backtrackStack, align 8
   %conv.i3.i.i991 = zext i32 %377 to i64
-  %add.ptr.i.i.i992 = getelementptr inbounds nuw %"union.hermes::regex::Context<hermes::regex::UTF16RegexTraits>::BacktrackInsn", ptr %378, i64 %conv.i3.i.i991
+  %add.ptr.i.i.i992 = getelementptr inbounds nuw [24 x i8], ptr %378, i64 %conv.i3.i.i991
   store i8 2, ptr %add.ptr.i.i.i992, align 1
   %agg.tmp852983.sroa.5.0.add.ptr.i.i.i992.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i992, i64 4
   store i32 %373, ptr %agg.tmp852983.sroa.5.0.add.ptr.i.i.i992.sroa_idx, align 1
@@ -3204,7 +3198,7 @@ _ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex7ContextINS2_16UTF16RegexTraitsE
   %390 = phi i32 [ %.pre.i.i1026, %if.then.i.i1024 ], [ %388, %runSimpleLoop ]
   %391 = load ptr, ptr %backtrackStack, align 8
   %conv.i3.i.i1028 = zext i32 %390 to i64
-  %add.ptr.i.i.i1029 = getelementptr inbounds nuw %"union.hermes::regex::Context<hermes::regex::UTF16RegexTraits>::BacktrackInsn", ptr %391, i64 %conv.i3.i.i1028
+  %add.ptr.i.i.i1029 = getelementptr inbounds nuw [24 x i8], ptr %391, i64 %conv.i3.i.i1028
   store i8 2, ptr %add.ptr.i.i.i1029, align 1
   %agg.tmp8871020.sroa.5.0.add.ptr.i.i.i1029.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i1029, i64 4
   store i32 %387, ptr %agg.tmp8871020.sroa.5.0.add.ptr.i.i.i1029.sroa_idx, align 1
@@ -3267,7 +3261,7 @@ if.end.i1050:                                     ; preds = %for.inc927
   br i1 %400, label %lor.lhs.false7.i, label %_ZNK6hermes5regex7ContextINS0_16UTF16RegexTraitsEE18advanceStringIndexEPKDsmm.exit
 
 lor.lhs.false7.i:                                 ; preds = %if.end.i1050
-  %arrayidx4.i = getelementptr inbounds nuw i16, ptr %2, i64 %.pre.i1046
+  %arrayidx4.i = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %.pre.i1046
   %401 = load i16, ptr %arrayidx4.i, align 2
   %402 = and i16 %401, -1024
   %403 = icmp eq i16 %402, -9216
@@ -3320,7 +3314,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %1 = phi i32 [ %0, %while.body.lr.ph ], [ %25, %sw.epilog ]
   %2 = load ptr, ptr %bts, align 8
   %conv.i.i = zext i32 %1 to i64
-  %add.ptr.i.i = getelementptr inbounds nuw %"union.hermes::regex::Context<hermes::regex::UTF16RegexTraits>::BacktrackInsn", ptr %2, i64 %conv.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw [24 x i8], ptr %2, i64 %conv.i.i
   %arrayidx.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 -24
   %3 = load i8, ptr %arrayidx.i, align 8
   switch i8 %3, label %sw.epilog [
@@ -3338,7 +3332,7 @@ sw.bb:                                            ; preds = %while.body
   %4 = load i16, ptr %mexp, align 2
   %conv.i = zext i16 %4 to i64
   %5 = load ptr, ptr %capturedRanges_.i, align 8
-  %arrayidx.i.i = getelementptr inbounds nuw %"struct.hermes::regex::CapturedRange", ptr %5, i64 %conv.i
+  %arrayidx.i.i = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %conv.i
   %6 = load i64, ptr %range, align 4
   store i64 %6, ptr %arrayidx.i.i, align 4
   %7 = load i32, ptr %Size.i, align 8
@@ -3350,7 +3344,7 @@ sw.bb4:                                           ; preds = %while.body
   %8 = load i16, ptr %loopId, align 2
   %conv.i35 = zext i16 %8 to i64
   %9 = load ptr, ptr %loopDatas_.i, align 8
-  %arrayidx.i.i36 = getelementptr inbounds nuw %"struct.hermes::regex::LoopData", ptr %9, i64 %conv.i35
+  %arrayidx.i.i36 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %conv.i35
   %10 = load i64, ptr %loopData, align 4
   store i64 %10, ptr %arrayidx.i.i36, align 4
   %11 = load i32, ptr %Size.i, align 8
@@ -3384,13 +3378,13 @@ sw.bb8:                                           ; preds = %while.body
   %15 = load i32, ptr %loopId.i, align 1
   %conv.i.i43 = zext i32 %15 to i64
   %16 = load ptr, ptr %loopDatas_.i, align 8
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"struct.hermes::regex::LoopData", ptr %16, i64 %conv.i.i43
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %conv.i.i43
   store i64 %fields.sroa.2.0.copyload, ptr %arrayidx.i.i.i, align 4
   %ip_.i = getelementptr inbounds nuw i8, ptr %s, i64 40
   store i32 %fields.sroa.1.0.copyload, ptr %ip_.i, align 8
   %first_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %17 = load ptr, ptr %first_.i, align 8
-  %add.ptr.i = getelementptr inbounds nuw i16, ptr %17, i64 %loopData.sroa.2.0.extract.shift.i
+  %add.ptr.i = getelementptr inbounds nuw [2 x i8], ptr %17, i64 %loopData.sroa.2.0.extract.shift.i
   %current_.i.i = getelementptr inbounds nuw i8, ptr %s, i64 16
   store ptr %add.ptr.i, ptr %current_.i.i, align 8
   %call2.i = tail call noundef zeroext i8 @_ZN6hermes5regex7ContextINS0_16UTF16RegexTraitsEE22prepareToEnterLoopBodyEPNS0_5StateIS2_EEPKNS0_13BeginLoopInsnERN4llvh11SmallVectorINS3_13BacktrackInsnELj64EEE(ptr noundef nonnull align 8 dereferenceable(188) %this, ptr noundef nonnull %s, ptr noundef %fields.sroa.3.0.copyload, ptr noundef nonnull align 8 dereferenceable(1552) %bts)
@@ -3415,14 +3409,14 @@ if.end17:                                         ; preds = %sw.bb12
 if.then19:                                        ; preds = %if.end17
   %max.le = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 -8
   %idx.ext = select i1 %tobool.i.le, i64 -1, i64 1
-  %add.ptr = getelementptr inbounds i16, ptr %21, i64 %idx.ext
+  %add.ptr = getelementptr inbounds [2 x i8], ptr %21, i64 %idx.ext
   store ptr %add.ptr, ptr %max.le, align 8
   br label %if.end30
 
 if.else:                                          ; preds = %if.end17
   %min.le = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 -16
   %idx.ext26 = select i1 %tobool.i.le, i64 1, i64 -1
-  %add.ptr27 = getelementptr inbounds i16, ptr %20, i64 %idx.ext26
+  %add.ptr27 = getelementptr inbounds [2 x i8], ptr %20, i64 %idx.ext26
   store ptr %add.ptr27, ptr %min.le, align 8
   br label %if.end30
 
@@ -3639,7 +3633,7 @@ entry:
   %loopDatas_.i = getelementptr inbounds nuw i8, ptr %s, i64 192
   %conv.i = zext i32 %0 to i64
   %1 = load ptr, ptr %loopDatas_.i, align 8
-  %arrayidx.i.i = getelementptr inbounds nuw %"struct.hermes::regex::LoopData", ptr %1, i64 %conv.i
+  %arrayidx.i.i = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %conv.i
   %conv = trunc i32 %0 to i16
   %agg.tmp3.sroa.0.0.copyload = load i64, ptr %arrayidx.i.i, align 4
   %Size.i.i.i = getelementptr inbounds nuw i8, ptr %bts, i64 8
@@ -3659,7 +3653,7 @@ _ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex7ContextINS2_16UTF16RegexTraitsE
   %4 = phi i32 [ %.pre.i.i, %if.then.i.i ], [ %2, %entry ]
   %5 = load ptr, ptr %bts, align 8
   %conv.i3.i.i = zext i32 %4 to i64
-  %add.ptr.i.i.i = getelementptr inbounds nuw %"union.hermes::regex::Context<hermes::regex::UTF16RegexTraits>::BacktrackInsn", ptr %5, i64 %conv.i3.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %conv.i3.i.i
   store i8 1, ptr %add.ptr.i.i.i, align 1
   %agg.tmp16.sroa.5.0.add.ptr.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 2
   store i16 %conv, ptr %agg.tmp16.sroa.5.0.add.ptr.i.i.i.sroa_idx, align 1
@@ -3710,7 +3704,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   %mexp.047 = phi i32 [ %conv6, %for.body.lr.ph ], [ %inc17, %if.end16 ]
   %conv.i18 = zext i32 %mexp.047 to i64
   %13 = load ptr, ptr %capturedRanges_.i, align 8
-  %arrayidx.i.i19 = getelementptr inbounds nuw %"struct.hermes::regex::CapturedRange", ptr %13, i64 %conv.i18
+  %arrayidx.i.i19 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %conv.i18
   %conv11 = trunc i32 %mexp.047 to i16
   %agg.tmp12.sroa.0.0.copyload = load i64, ptr %arrayidx.i.i19, align 4
   %14 = load i32, ptr %Size.i.i.i, align 8
@@ -3727,7 +3721,7 @@ _ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex7ContextINS2_16UTF16RegexTraitsE
   %16 = phi i32 [ %.pre.i.i26, %if.then.i.i24 ], [ %14, %for.body ]
   %17 = load ptr, ptr %bts, align 8
   %conv.i3.i.i28 = zext i32 %16 to i64
-  %add.ptr.i.i.i29 = getelementptr inbounds nuw %"union.hermes::regex::Context<hermes::regex::UTF16RegexTraits>::BacktrackInsn", ptr %17, i64 %conv.i3.i.i28
+  %add.ptr.i.i.i29 = getelementptr inbounds nuw [24 x i8], ptr %17, i64 %conv.i3.i.i28
   store i8 0, ptr %add.ptr.i.i.i29, align 1
   %agg.tmp1020.sroa.5.0.add.ptr.i.i.i29.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i29, i64 2
   store i16 %conv11, ptr %agg.tmp1020.sroa.5.0.add.ptr.i.i.i29.sroa_idx, align 1
@@ -3812,7 +3806,7 @@ for.body.lr.ph.i:                                 ; preds = %sw.bb
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
   %iters.07.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %inc.i, %for.inc.i ]
   %add.ptr.i36.i = phi ptr [ %c.sroa.10.0.copyload, %for.body.lr.ph.i ], [ %add.ptr.i.i, %for.inc.i ]
-  %5 = getelementptr i16, ptr %add.ptr.i36.i, i64 %conv.i.i.i
+  %5 = getelementptr [2 x i8], ptr %add.ptr.i36.i, i64 %conv.i.i.i
   %arrayidx.i.i.i = getelementptr i8, ptr %5, i64 -2
   %6 = load i16, ptr %arrayidx.i.i.i, align 2
   %conv.i.i = zext i16 %6 to i32
@@ -3820,7 +3814,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   br i1 %cmp.i.i, label %for.inc.i, label %sw.epilog
 
 for.inc.i:                                        ; preds = %for.body.i
-  %add.ptr.i.i = getelementptr inbounds i16, ptr %add.ptr.i36.i, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds [2 x i8], ptr %add.ptr.i36.i, i64 %idx.ext.i.i
   %inc.i = add nuw i32 %iters.07.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, %.sroa.speculated
   br i1 %exitcond.not.i, label %sw.epilog, label %for.body.i, !llvm.loop !15
@@ -3840,14 +3834,14 @@ for.body.lr.ph.i34:                               ; preds = %sw.bb4
 for.body.i42:                                     ; preds = %for.inc.i48, %for.body.lr.ph.i34
   %iters.07.i43 = phi i32 [ 0, %for.body.lr.ph.i34 ], [ %inc.i50, %for.inc.i48 ]
   %add.ptr.i36.i44 = phi ptr [ %c.sroa.10.0.copyload, %for.body.lr.ph.i34 ], [ %add.ptr.i.i49, %for.inc.i48 ]
-  %9 = getelementptr i16, ptr %add.ptr.i36.i44, i64 %conv.i.i.i38
+  %9 = getelementptr [2 x i8], ptr %add.ptr.i36.i44, i64 %conv.i.i.i38
   %arrayidx.i.i.i45 = getelementptr i8, ptr %9, i64 -2
   %10 = load i16, ptr %arrayidx.i.i.i45, align 2
   %cmp.i.i46 = icmp eq i16 %10, %8
   br i1 %cmp.i.i46, label %for.inc.i48, label %sw.epilog
 
 for.inc.i48:                                      ; preds = %for.body.i42
-  %add.ptr.i.i49 = getelementptr inbounds i16, ptr %add.ptr.i36.i44, i64 %idx.ext.i.i40
+  %add.ptr.i.i49 = getelementptr inbounds [2 x i8], ptr %add.ptr.i36.i44, i64 %idx.ext.i.i40
   %inc.i50 = add nuw i32 %iters.07.i43, 1
   %exitcond.not.i51 = icmp eq i32 %inc.i50, %.sroa.speculated
   br i1 %exitcond.not.i51, label %sw.epilog, label %for.body.i42, !llvm.loop !16
@@ -3869,10 +3863,10 @@ for.body.i61:                                     ; preds = %for.inc.i68, %for.b
   %12 = phi i8 [ %.pre.i, %for.body.lr.ph.i53 ], [ %19, %for.inc.i68 ]
   %add.ptr.i7.i = phi ptr [ %c.sroa.10.0.copyload, %for.body.lr.ph.i53 ], [ %add.ptr.i.i63, %for.inc.i68 ]
   %iters.05.i = phi i32 [ 0, %for.body.lr.ph.i53 ], [ %inc.i69, %for.inc.i68 ]
-  %13 = getelementptr i16, ptr %add.ptr.i7.i, i64 %conv.i.i.i56
+  %13 = getelementptr [2 x i8], ptr %add.ptr.i7.i, i64 %conv.i.i.i56
   %arrayidx.i.i.i62 = getelementptr i8, ptr %13, i64 -2
   %14 = load i16, ptr %arrayidx.i.i.i62, align 2
-  %add.ptr.i.i63 = getelementptr inbounds i16, ptr %add.ptr.i7.i, i64 %idx.ext.i.i58
+  %add.ptr.i.i63 = getelementptr inbounds [2 x i8], ptr %add.ptr.i7.i, i64 %idx.ext.i.i58
   %conv.i.i64 = zext i16 %14 to i32
   %conv3.i.i65 = sext i8 %12 to i32
   %cmp.i.i66 = icmp eq i32 %conv.i.i64, %conv3.i.i65
@@ -3930,10 +3924,10 @@ for.body.i83:                                     ; preds = %for.inc.i100, %for.
   %21 = phi i16 [ %.pre.i82, %for.body.lr.ph.i73 ], [ %28, %for.inc.i100 ]
   %add.ptr.i7.i84 = phi ptr [ %c.sroa.10.0.copyload, %for.body.lr.ph.i73 ], [ %add.ptr.i.i87, %for.inc.i100 ]
   %iters.05.i85 = phi i32 [ 0, %for.body.lr.ph.i73 ], [ %inc.i101, %for.inc.i100 ]
-  %22 = getelementptr i16, ptr %add.ptr.i7.i84, i64 %conv.i.i.i76
+  %22 = getelementptr [2 x i8], ptr %add.ptr.i7.i84, i64 %conv.i.i.i76
   %arrayidx.i.i.i86 = getelementptr i8, ptr %22, i64 -2
   %23 = load i16, ptr %arrayidx.i.i.i86, align 2
-  %add.ptr.i.i87 = getelementptr inbounds i16, ptr %add.ptr.i7.i84, i64 %idx.ext.i.i78
+  %add.ptr.i.i87 = getelementptr inbounds [2 x i8], ptr %add.ptr.i7.i84, i64 %idx.ext.i.i78
   %cmp.i.i88 = icmp eq i16 %23, %21
   br i1 %cmp.i.i88, label %for.inc.i100, label %lor.rhs.i.i89
 
@@ -3988,7 +3982,7 @@ for.body.lr.ph.i111:                              ; preds = %sw.bb16
 for.body.i118:                                    ; preds = %for.inc.i122, %for.body.lr.ph.i111
   %add.ptr.i13.i = phi ptr [ %c.sroa.10.0.copyload, %for.body.lr.ph.i111 ], [ %add.ptr.i.i123, %for.inc.i122 ]
   %iters.05.i119 = phi i32 [ 0, %for.body.lr.ph.i111 ], [ %inc.i124, %for.inc.i122 ]
-  %30 = getelementptr i16, ptr %add.ptr.i13.i, i64 %conv.i.i.i114
+  %30 = getelementptr [2 x i8], ptr %add.ptr.i13.i, i64 %conv.i.i.i114
   %arrayidx.i.i.i120 = getelementptr i8, ptr %30, i64 -2
   %31 = load i16, ptr %arrayidx.i.i.i120, align 2
   switch i16 %31, label %for.inc.i122 [
@@ -3999,7 +3993,7 @@ for.body.i118:                                    ; preds = %for.inc.i122, %for.
   ]
 
 for.inc.i122:                                     ; preds = %for.body.i118
-  %add.ptr.i.i123 = getelementptr inbounds i16, ptr %add.ptr.i13.i, i64 %idx.ext.i.i116
+  %add.ptr.i.i123 = getelementptr inbounds [2 x i8], ptr %add.ptr.i13.i, i64 %idx.ext.i.i116
   %inc.i124 = add nuw i32 %iters.05.i119, 1
   %exitcond.not.i125 = icmp eq i32 %inc.i124, %.sroa.speculated
   br i1 %exitcond.not.i125, label %sw.epilog, label %for.body.i118, !llvm.loop !19
@@ -4018,7 +4012,7 @@ for.body.lr.ph.i128:                              ; preds = %sw.bb19
 for.body.i135:                                    ; preds = %for.inc.i141, %for.body.lr.ph.i128
   %add.ptr.i7.i136 = phi ptr [ %c.sroa.10.0.copyload, %for.body.lr.ph.i128 ], [ %add.ptr.i.i142, %for.inc.i141 ]
   %iters.05.i137 = phi i32 [ 0, %for.body.lr.ph.i128 ], [ %inc.i143, %for.inc.i141 ]
-  %33 = getelementptr i16, ptr %add.ptr.i7.i136, i64 %conv.i.i.i131
+  %33 = getelementptr [2 x i8], ptr %add.ptr.i7.i136, i64 %conv.i.i.i131
   %arrayidx.i.i.i138 = getelementptr i8, ptr %33, i64 -2
   %34 = load i16, ptr %arrayidx.i.i.i138, align 2
   %conv.i.i139 = zext i16 %34 to i32
@@ -4026,7 +4020,7 @@ for.body.i135:                                    ; preds = %for.inc.i141, %for.
   br i1 %call2.i.i, label %for.inc.i141, label %sw.epilog
 
 for.inc.i141:                                     ; preds = %for.body.i135
-  %add.ptr.i.i142 = getelementptr inbounds i16, ptr %add.ptr.i7.i136, i64 %idx.ext.i.i133
+  %add.ptr.i.i142 = getelementptr inbounds [2 x i8], ptr %add.ptr.i7.i136, i64 %idx.ext.i.i133
   %inc.i143 = add nuw i32 %iters.05.i137, 1
   %exitcond.not.i144 = icmp eq i32 %inc.i143, %.sroa.speculated
   br i1 %exitcond.not.i144, label %sw.epilog, label %for.body.i135, !llvm.loop !20
@@ -4043,11 +4037,11 @@ if.end:                                           ; preds = %sw.epilog
   %idx.ext = zext i32 %0 to i64
   %idx.neg = sub nsw i64 0, %idx.ext
   %idx.ext.pn = select i1 %tobool.i146, i64 %idx.ext, i64 %idx.neg
-  %cond = getelementptr inbounds i16, ptr %36, i64 %idx.ext.pn
+  %cond = getelementptr inbounds [2 x i8], ptr %36, i64 %idx.ext.pn
   %idx.ext31 = zext i32 %matched.0 to i64
   %idx.neg35 = sub nsw i64 0, %idx.ext31
   %idx.ext31.pn = select i1 %tobool.i146, i64 %idx.ext31, i64 %idx.neg35
-  %cond38 = getelementptr inbounds i16, ptr %36, i64 %idx.ext31.pn
+  %cond38 = getelementptr inbounds [2 x i8], ptr %36, i64 %idx.ext31.pn
   %cmp39 = icmp ult i32 %0, %matched.0
   br i1 %cmp39, label %if.then40, label %if.end50
 
@@ -4075,7 +4069,7 @@ _ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex7ContextINS2_16UTF16RegexTraitsE
   %42 = phi i32 [ %.pre.i.i148, %if.then.i.i ], [ %40, %if.then40 ]
   %43 = load ptr, ptr %bts, align 8
   %conv.i3.i.i = zext i32 %42 to i64
-  %add.ptr.i.i.i = getelementptr inbounds nuw %"union.hermes::regex::Context<hermes::regex::UTF16RegexTraits>::BacktrackInsn", ptr %43, i64 %conv.i3.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [24 x i8], ptr %43, i64 %conv.i3.i.i
   store i8 %cond42, ptr %add.ptr.i.i.i, align 1
   %agg.tmp45147.sroa.5.0.add.ptr.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 4
   store i32 %39, ptr %agg.tmp45147.sroa.5.0.add.ptr.i.i.i.sroa_idx, align 1
@@ -4932,7 +4926,7 @@ _ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex7ContextINS2_16ASCIIRegexTraitsE
   %135 = phi i32 [ %.pre.i.i, %if.then.i.i ], [ %133, %if.then389 ]
   %136 = load ptr, ptr %backtrackStack, align 8
   %conv.i3.i.i = zext i32 %135 to i64
-  %add.ptr.i.i.i = getelementptr inbounds nuw %"union.hermes::regex::Context<hermes::regex::ASCIIRegexTraits>::BacktrackInsn", ptr %136, i64 %conv.i3.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [24 x i8], ptr %136, i64 %conv.i3.i.i
   store i8 2, ptr %add.ptr.i.i.i, align 1
   %agg.tmp458.sroa.5.0.add.ptr.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 4
   store i32 %131, ptr %agg.tmp458.sroa.5.0.add.ptr.i.i.i.sroa_idx, align 1
@@ -5150,7 +5144,7 @@ _ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex7ContextINS2_16ASCIIRegexTraitsE
   %180 = phi i32 [ %.pre.i.i516, %if.then.i.i514 ], [ %178, %sw.bb537 ]
   %181 = load ptr, ptr %backtrackStack, align 8
   %conv.i3.i.i518 = zext i32 %180 to i64
-  %add.ptr.i.i.i519 = getelementptr inbounds nuw %"union.hermes::regex::Context<hermes::regex::ASCIIRegexTraits>::BacktrackInsn", ptr %181, i64 %conv.i3.i.i518
+  %add.ptr.i.i.i519 = getelementptr inbounds nuw [24 x i8], ptr %181, i64 %conv.i3.i.i518
   store i8 0, ptr %add.ptr.i.i.i519, align 1
   %agg.tmp541510.sroa.5.0.add.ptr.i.i.i519.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i519, i64 2
   store i16 %177, ptr %agg.tmp541510.sroa.5.0.add.ptr.i.i.i519.sroa_idx, align 1
@@ -5173,7 +5167,7 @@ if.end546:                                        ; preds = %lor.lhs.false.i522
   %184 = load i16, ptr %mexp, align 1
   %conv.i529 = zext i16 %184 to i64
   %185 = load ptr, ptr %capturedRanges_3.i, align 8
-  %arrayidx.i.i530 = getelementptr inbounds nuw %"struct.hermes::regex::CapturedRange", ptr %185, i64 %conv.i529
+  %arrayidx.i.i530 = getelementptr inbounds nuw [8 x i8], ptr %185, i64 %conv.i529
   %186 = load i8, ptr %forwards_.i653, align 8
   %tobool.i532 = trunc i8 %186 to i1
   %187 = load ptr, ptr %current_.i, align 8
@@ -5204,7 +5198,7 @@ sw.bb562:                                         ; preds = %for.cond5
   %190 = load i16, ptr %mexp566, align 1
   %conv.i544 = zext i16 %190 to i64
   %191 = load ptr, ptr %capturedRanges_3.i, align 8
-  %arrayidx.i.i545 = getelementptr inbounds nuw %"struct.hermes::regex::CapturedRange", ptr %191, i64 %conv.i544
+  %arrayidx.i.i545 = getelementptr inbounds nuw [8 x i8], ptr %191, i64 %conv.i544
   %192 = load i8, ptr %forwards_.i653, align 8
   %tobool.i547 = trunc i8 %192 to i1
   %193 = load ptr, ptr %current_.i, align 8
@@ -5235,7 +5229,7 @@ sw.bb581:                                         ; preds = %for.cond5
   %196 = load i16, ptr %mexp584, align 1
   %conv.i559 = zext i16 %196 to i64
   %197 = load ptr, ptr %capturedRanges_3.i, align 8
-  %arrayidx.i.i560 = getelementptr inbounds nuw %"struct.hermes::regex::CapturedRange", ptr %197, i64 %conv.i559
+  %arrayidx.i.i560 = getelementptr inbounds nuw [8 x i8], ptr %197, i64 %conv.i559
   %cr.sroa.0.0.copyload = load i32, ptr %arrayidx.i.i560, align 4
   %cr.sroa.3.0.call586.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i.i560, i64 4
   %cr.sroa.3.0.copyload = load i32, ptr %cr.sroa.3.0.call586.sroa_idx, align 4
@@ -5551,7 +5545,7 @@ for.body728:                                      ; preds = %for.body728.prehead
   %247 = phi i32 [ %.pre1042, %for.body728.preheader ], [ %add.i.i683, %for.inc ]
   %indvars.iv = phi i64 [ %246, %for.body728.preheader ], [ %indvars.iv.next, %for.inc ]
   %248 = load ptr, ptr %capturedRanges_.i648, align 8
-  %arrayidx.i.i670 = getelementptr inbounds nuw %"struct.hermes::regex::CapturedRange", ptr %248, i64 %indvars.iv
+  %arrayidx.i.i670 = getelementptr inbounds nuw [8 x i8], ptr %248, i64 %indvars.iv
   %cr729.sroa.0.0.copyload = load i64, ptr %arrayidx.i.i670, align 4
   %conv733 = trunc i64 %indvars.iv to i16
   %249 = load i32, ptr %Capacity2.i.i.i.i.i, align 4
@@ -5567,7 +5561,7 @@ _ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex7ContextINS2_16ASCIIRegexTraitsE
   %250 = phi i32 [ %.pre.i.i679, %if.then.i.i677 ], [ %247, %for.body728 ]
   %251 = load ptr, ptr %backtrackStack, align 8
   %conv.i3.i.i681 = zext i32 %250 to i64
-  %add.ptr.i.i.i682 = getelementptr inbounds nuw %"union.hermes::regex::Context<hermes::regex::ASCIIRegexTraits>::BacktrackInsn", ptr %251, i64 %conv.i3.i.i681
+  %add.ptr.i.i.i682 = getelementptr inbounds nuw [24 x i8], ptr %251, i64 %conv.i3.i.i681
   store i8 0, ptr %add.ptr.i.i.i682, align 1
   %agg.tmp732673.sroa.5.0.add.ptr.i.i.i682.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i682, i64 2
   store i16 %conv733, ptr %agg.tmp732673.sroa.5.0.add.ptr.i.i.i682.sroa_idx, align 1
@@ -5693,7 +5687,7 @@ if.then.i.i.i878:                                 ; preds = %if.end37.i874
   %add.ptr39.idx.i879 = shl nuw nsw i64 %CurSize.0.i875, 3
   %add.ptr39.i880 = getelementptr inbounds nuw i8, ptr %267, i64 %add.ptr39.idx.i879
   %268 = load ptr, ptr %capturedRanges_3.i, align 8
-  %add.ptr42.i881 = getelementptr inbounds nuw %"struct.hermes::regex::CapturedRange", ptr %268, i64 %CurSize.0.i875
+  %add.ptr42.i881 = getelementptr inbounds nuw [8 x i8], ptr %268, i64 %CurSize.0.i875
   %269 = sub nsw i64 %conv.i51.i876, %CurSize.0.i875
   %gepdiff.i882 = shl nsw i64 %269, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr42.i881, ptr align 4 %add.ptr39.i880, i64 %gepdiff.i882, i1 false)
@@ -5784,7 +5778,7 @@ if.then.i.i.i840:                                 ; preds = %if.end37.i
   %add.ptr39.idx.i = shl nuw nsw i64 %CurSize.0.i, 3
   %add.ptr39.i = getelementptr inbounds nuw i8, ptr %281, i64 %add.ptr39.idx.i
   %282 = load ptr, ptr %loopDatas_.i711, align 8
-  %add.ptr42.i = getelementptr inbounds nuw %"struct.hermes::regex::LoopData", ptr %282, i64 %CurSize.0.i
+  %add.ptr42.i = getelementptr inbounds nuw [8 x i8], ptr %282, i64 %CurSize.0.i
   %283 = sub nsw i64 %conv.i51.i, %CurSize.0.i
   %gepdiff.i = shl nsw i64 %283, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr42.i, ptr align 4 %add.ptr39.i, i64 %gepdiff.i, i1 false)
@@ -5845,7 +5839,7 @@ sw.bb769:                                         ; preds = %for.cond5
   %291 = load i32, ptr %loopId, align 1
   %conv.i712 = zext i32 %291 to i64
   %292 = load ptr, ptr %loopDatas_.i711, align 8
-  %arrayidx.i.i713 = getelementptr inbounds nuw %"struct.hermes::regex::LoopData", ptr %292, i64 %conv.i712
+  %arrayidx.i.i713 = getelementptr inbounds nuw [8 x i8], ptr %292, i64 %conv.i712
   store i32 0, ptr %arrayidx.i.i713, align 4
   %293 = load i32, ptr %flags_881, align 8
   %loopeeConstraints = getelementptr inbounds nuw i8, ptr %arrayidx, i64 18
@@ -5906,7 +5900,7 @@ runLoop:                                          ; preds = %land.lhs.true6.i724
   %301 = load i32, ptr %loopId805, align 1
   %conv.i732 = zext i32 %301 to i64
   %302 = load ptr, ptr %loopDatas_.i711, align 8
-  %arrayidx.i.i733 = getelementptr inbounds nuw %"struct.hermes::regex::LoopData", ptr %302, i64 %conv.i732
+  %arrayidx.i.i733 = getelementptr inbounds nuw [8 x i8], ptr %302, i64 %conv.i732
   %303 = load i32, ptr %arrayidx.i.i733, align 4
   %304 = load i32, ptr %ip_, align 8
   %add810 = add i32 %304, 23
@@ -5993,7 +5987,7 @@ _ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex7ContextINS2_16ASCIIRegexTraitsE
   %317 = phi i32 [ %.pre.i.i752, %if.then.i.i750 ], [ %315, %if.then850 ]
   %318 = load ptr, ptr %backtrackStack, align 8
   %conv.i3.i.i754 = zext i32 %317 to i64
-  %add.ptr.i.i.i755 = getelementptr inbounds nuw %"union.hermes::regex::Context<hermes::regex::ASCIIRegexTraits>::BacktrackInsn", ptr %318, i64 %conv.i3.i.i754
+  %add.ptr.i.i.i755 = getelementptr inbounds nuw [24 x i8], ptr %318, i64 %conv.i3.i.i754
   store i8 3, ptr %add.ptr.i.i.i755, align 1
   %agg.tmp854746.sroa.5.0.add.ptr.i.i.i755.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i755, i64 4
   store i32 %add810, ptr %agg.tmp854746.sroa.5.0.add.ptr.i.i.i755.sroa_idx, align 1
@@ -6038,7 +6032,7 @@ _ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex7ContextINS2_16ASCIIRegexTraitsE
   %326 = phi i32 [ %.pre.i.i774, %if.then.i.i772 ], [ %324, %if.else862 ]
   %327 = load ptr, ptr %backtrackStack, align 8
   %conv.i3.i.i776 = zext i32 %326 to i64
-  %add.ptr.i.i.i777 = getelementptr inbounds nuw %"union.hermes::regex::Context<hermes::regex::ASCIIRegexTraits>::BacktrackInsn", ptr %327, i64 %conv.i3.i.i776
+  %add.ptr.i.i.i777 = getelementptr inbounds nuw [24 x i8], ptr %327, i64 %conv.i3.i.i776
   store i8 2, ptr %add.ptr.i.i.i777, align 1
   %agg.tmp863768.sroa.5.0.add.ptr.i.i.i777.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i777, i64 4
   store i32 %322, ptr %agg.tmp863768.sroa.5.0.add.ptr.i.i.i777.sroa_idx, align 1
@@ -6123,7 +6117,7 @@ _ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex7ContextINS2_16ASCIIRegexTraitsE
   %339 = phi i32 [ %.pre.i.i811, %if.then.i.i809 ], [ %337, %runSimpleLoop ]
   %340 = load ptr, ptr %backtrackStack, align 8
   %conv.i3.i.i813 = zext i32 %339 to i64
-  %add.ptr.i.i.i814 = getelementptr inbounds nuw %"union.hermes::regex::Context<hermes::regex::ASCIIRegexTraits>::BacktrackInsn", ptr %340, i64 %conv.i3.i.i813
+  %add.ptr.i.i.i814 = getelementptr inbounds nuw [24 x i8], ptr %340, i64 %conv.i3.i.i813
   store i8 2, ptr %add.ptr.i.i.i814, align 1
   %agg.tmp898805.sroa.5.0.add.ptr.i.i.i814.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i814, i64 4
   store i32 %336, ptr %agg.tmp898805.sroa.5.0.add.ptr.i.i.i814.sroa_idx, align 1
@@ -6214,7 +6208,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %1 = phi i32 [ %0, %while.body.lr.ph ], [ %25, %sw.epilog ]
   %2 = load ptr, ptr %bts, align 8
   %conv.i.i = zext i32 %1 to i64
-  %add.ptr.i.i = getelementptr inbounds nuw %"union.hermes::regex::Context<hermes::regex::ASCIIRegexTraits>::BacktrackInsn", ptr %2, i64 %conv.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw [24 x i8], ptr %2, i64 %conv.i.i
   %arrayidx.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 -24
   %3 = load i8, ptr %arrayidx.i, align 8
   switch i8 %3, label %sw.epilog [
@@ -6232,7 +6226,7 @@ sw.bb:                                            ; preds = %while.body
   %4 = load i16, ptr %mexp, align 2
   %conv.i = zext i16 %4 to i64
   %5 = load ptr, ptr %capturedRanges_.i, align 8
-  %arrayidx.i.i = getelementptr inbounds nuw %"struct.hermes::regex::CapturedRange", ptr %5, i64 %conv.i
+  %arrayidx.i.i = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %conv.i
   %6 = load i64, ptr %range, align 4
   store i64 %6, ptr %arrayidx.i.i, align 4
   %7 = load i32, ptr %Size.i, align 8
@@ -6244,7 +6238,7 @@ sw.bb4:                                           ; preds = %while.body
   %8 = load i16, ptr %loopId, align 2
   %conv.i35 = zext i16 %8 to i64
   %9 = load ptr, ptr %loopDatas_.i, align 8
-  %arrayidx.i.i36 = getelementptr inbounds nuw %"struct.hermes::regex::LoopData", ptr %9, i64 %conv.i35
+  %arrayidx.i.i36 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %conv.i35
   %10 = load i64, ptr %loopData, align 4
   store i64 %10, ptr %arrayidx.i.i36, align 4
   %11 = load i32, ptr %Size.i, align 8
@@ -6278,7 +6272,7 @@ sw.bb8:                                           ; preds = %while.body
   %15 = load i32, ptr %loopId.i, align 1
   %conv.i.i43 = zext i32 %15 to i64
   %16 = load ptr, ptr %loopDatas_.i, align 8
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"struct.hermes::regex::LoopData", ptr %16, i64 %conv.i.i43
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %conv.i.i43
   store i64 %fields.sroa.2.0.copyload, ptr %arrayidx.i.i.i, align 4
   %ip_.i = getelementptr inbounds nuw i8, ptr %s, i64 40
   store i32 %fields.sroa.1.0.copyload, ptr %ip_.i, align 8
@@ -6570,7 +6564,7 @@ entry:
   %loopDatas_.i = getelementptr inbounds nuw i8, ptr %s, i64 192
   %conv.i = zext i32 %0 to i64
   %1 = load ptr, ptr %loopDatas_.i, align 8
-  %arrayidx.i.i = getelementptr inbounds nuw %"struct.hermes::regex::LoopData", ptr %1, i64 %conv.i
+  %arrayidx.i.i = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %conv.i
   %conv = trunc i32 %0 to i16
   %agg.tmp3.sroa.0.0.copyload = load i64, ptr %arrayidx.i.i, align 4
   %Size.i.i.i = getelementptr inbounds nuw i8, ptr %bts, i64 8
@@ -6590,7 +6584,7 @@ _ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex7ContextINS2_16ASCIIRegexTraitsE
   %4 = phi i32 [ %.pre.i.i, %if.then.i.i ], [ %2, %entry ]
   %5 = load ptr, ptr %bts, align 8
   %conv.i3.i.i = zext i32 %4 to i64
-  %add.ptr.i.i.i = getelementptr inbounds nuw %"union.hermes::regex::Context<hermes::regex::ASCIIRegexTraits>::BacktrackInsn", ptr %5, i64 %conv.i3.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %conv.i3.i.i
   store i8 1, ptr %add.ptr.i.i.i, align 1
   %agg.tmp16.sroa.5.0.add.ptr.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 2
   store i16 %conv, ptr %agg.tmp16.sroa.5.0.add.ptr.i.i.i.sroa_idx, align 1
@@ -6640,7 +6634,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   %mexp.047 = phi i32 [ %conv6, %for.body.lr.ph ], [ %inc17, %if.end16 ]
   %conv.i18 = zext i32 %mexp.047 to i64
   %13 = load ptr, ptr %capturedRanges_.i, align 8
-  %arrayidx.i.i19 = getelementptr inbounds nuw %"struct.hermes::regex::CapturedRange", ptr %13, i64 %conv.i18
+  %arrayidx.i.i19 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %conv.i18
   %conv11 = trunc i32 %mexp.047 to i16
   %agg.tmp12.sroa.0.0.copyload = load i64, ptr %arrayidx.i.i19, align 4
   %14 = load i32, ptr %Size.i.i.i, align 8
@@ -6657,7 +6651,7 @@ _ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex7ContextINS2_16ASCIIRegexTraitsE
   %16 = phi i32 [ %.pre.i.i26, %if.then.i.i24 ], [ %14, %for.body ]
   %17 = load ptr, ptr %bts, align 8
   %conv.i3.i.i28 = zext i32 %16 to i64
-  %add.ptr.i.i.i29 = getelementptr inbounds nuw %"union.hermes::regex::Context<hermes::regex::ASCIIRegexTraits>::BacktrackInsn", ptr %17, i64 %conv.i3.i.i28
+  %add.ptr.i.i.i29 = getelementptr inbounds nuw [24 x i8], ptr %17, i64 %conv.i3.i.i28
   store i8 0, ptr %add.ptr.i.i.i29, align 1
   %agg.tmp1020.sroa.5.0.add.ptr.i.i.i29.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i29, i64 2
   store i16 %conv11, ptr %agg.tmp1020.sroa.5.0.add.ptr.i.i.i29.sroa_idx, align 1
@@ -6966,7 +6960,7 @@ _ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex7ContextINS2_16ASCIIRegexTraitsE
   %39 = phi i32 [ %.pre.i.i, %if.then.i.i ], [ %37, %if.then40 ]
   %40 = load ptr, ptr %bts, align 8
   %conv.i3.i.i = zext i32 %39 to i64
-  %add.ptr.i.i.i = getelementptr inbounds nuw %"union.hermes::regex::Context<hermes::regex::ASCIIRegexTraits>::BacktrackInsn", ptr %40, i64 %conv.i3.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [24 x i8], ptr %40, i64 %conv.i3.i.i
   store i8 %cond42, ptr %add.ptr.i.i.i, align 1
   %agg.tmp45135.sroa.5.0.add.ptr.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 4
   store i32 %36, ptr %agg.tmp45135.sroa.5.0.add.ptr.i.i.i.sroa_idx, align 1

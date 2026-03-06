@@ -10,7 +10,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.jfrNativeEventSetting = type { i64, i64, i8, i8, i8, [5 x i8] }
 %class.EventStringFlagChanged = type { %class.JfrEvent.base.30, ptr, ptr, ptr, i64 }
 %class.JfrEvent.base.30 = type <{ i64, i64, i8, i8, i8 }>
-%class.JVMFlag = type { ptr, ptr, i32, i32 }
 %class.JVMTypedFlagLimit = type { %class.JVMFlagLimit, i64, i64 }
 %class.JVMFlagLimit = type { i16, i8, i8 }
 %class.EventBooleanFlagChanged = type { %class.JfrEvent.base, ptr, i8, i8, i64 }
@@ -350,7 +349,7 @@ _ZN13JVMFlagAccess9set_ccstrEP7JVMFlagPPKc13JVMFlagOrigin.exit: ; preds = %21, %
 
 29:                                               ; preds = %3
   %30 = sext i32 %6 to i64
-  %31 = getelementptr inbounds ptr, ptr @_ZL12flag_accesss, i64 %30
+  %31 = getelementptr inbounds [8 x i8], ptr @_ZL12flag_accesss, i64 %30
   %32 = load ptr, ptr %31, align 8
   %33 = load ptr, ptr %32, align 8
   %34 = load ptr, ptr %33, align 8
@@ -438,7 +437,7 @@ declare void @_ZN7JVMFlag10set_originE13JVMFlagOrigin(ptr noundef nonnull align 
 define hidden noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = load ptr, ptr @_ZN7JVMFlag5flagsE, align 8
   %6 = sext i32 %0 to i64
-  %7 = getelementptr inbounds %class.JVMFlag, ptr %5, i64 %6
+  %7 = getelementptr inbounds [24 x i8], ptr %5, i64 %6
   %8 = and i32 %1, -2
   %or.cond = icmp eq i32 %8, 8
   br i1 %or.cond, label %9, label %11
@@ -461,7 +460,7 @@ define hidden noundef i32 @_ZN13JVMFlagAccess11check_rangeEPK7JVMFlagb(ptr nound
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4
   %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds ptr, ptr @_ZL12flag_accesss, i64 %5
+  %6 = getelementptr inbounds [8 x i8], ptr @_ZL12flag_accesss, i64 %5
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -486,7 +485,7 @@ define hidden noundef i32 @_ZN13JVMFlagAccess16check_constraintEPK7JVMFlagPvb(pt
 
 11:                                               ; preds = %3
   %12 = sext i32 %5 to i64
-  %13 = getelementptr inbounds ptr, ptr @_ZL12flag_accesss, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr @_ZL12flag_accesss, i64 %12
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
@@ -504,7 +503,7 @@ define hidden void @_ZN13JVMFlagAccess11print_rangeEP12outputStreamPK7JVMFlagPK1
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %5 = load i32, ptr %4, align 4
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds ptr, ptr @_ZL12flag_accesss, i64 %6
+  %7 = getelementptr inbounds [8 x i8], ptr @_ZL12flag_accesss, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -543,7 +542,7 @@ define hidden void @_ZN13JVMFlagAccess11print_rangeEP12outputStreamPK7JVMFlag(pt
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %21 = load i32, ptr %20, align 4
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds ptr, ptr @_ZL12flag_accesss, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr @_ZL12flag_accesss, i64 %22
   %24 = load ptr, ptr %23, align 8
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
@@ -576,7 +575,7 @@ define hidden void @_ZN13JVMFlagAccess11print_rangeEP12outputStreamPK7JVMFlag(pt
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %40 = load i32, ptr %39, align 4
   %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds ptr, ptr @_ZL12flag_accesss, i64 %41
+  %42 = getelementptr inbounds [8 x i8], ptr @_ZL12flag_accesss, i64 %41
   %43 = load ptr, ptr %42, align 8
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
@@ -602,7 +601,7 @@ define hidden void @_ZN13JVMFlagAccess11print_rangeEP12outputStreamPK7JVMFlag(pt
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %56 = load i32, ptr %55, align 4
   %57 = sext i32 %56 to i64
-  %58 = getelementptr inbounds ptr, ptr @_ZL12flag_accesss, i64 %57
+  %58 = getelementptr inbounds [8 x i8], ptr @_ZL12flag_accesss, i64 %57
   %59 = load ptr, ptr %58, align 8
   %60 = load ptr, ptr %59, align 8
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 16
@@ -614,7 +613,7 @@ define hidden void @_ZN13JVMFlagAccess11print_rangeEP12outputStreamPK7JVMFlag(pt
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %65 = load i32, ptr %64, align 4
   %66 = sext i32 %65 to i64
-  %67 = getelementptr inbounds ptr, ptr @_ZL12flag_accesss, i64 %66
+  %67 = getelementptr inbounds [8 x i8], ptr @_ZL12flag_accesss, i64 %66
   %68 = load ptr, ptr %67, align 8
   %69 = load ptr, ptr %68, align 8
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 24

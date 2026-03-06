@@ -41,53 +41,8 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Tuple_impl.18" = type { %"struct.std::_Head_base.11" }
 %"struct.duckdb::string_t" = type { %union.anon.8 }
 %union.anon.8 = type { %struct.anon }
-%"struct.duckdb::ParquetColumnSchema" = type { i32, %"class.std::__cxx11::basic_string", %"struct.duckdb::LogicalType", i64, i64, i64, i64, %"class.duckdb::optional_idx", i32, i32, i32, i32, %"class.duckdb::vector" }
-%"class.duckdb::optional_idx" = type { i64 }
-%"class.duckdb::vector" = type { %"class.std::vector" }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<duckdb::ParquetColumnSchema, std::allocator<duckdb::ParquetColumnSchema>>::_Vector_impl" }
-%"struct.std::_Vector_base<duckdb::ParquetColumnSchema, std::allocator<duckdb::ParquetColumnSchema>>::_Vector_impl" = type { %"struct.std::_Vector_base<duckdb::ParquetColumnSchema, std::allocator<duckdb::ParquetColumnSchema>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<duckdb::ParquetColumnSchema, std::allocator<duckdb::ParquetColumnSchema>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.duckdb_parquet::ColumnChunk" = type <{ %"class.duckdb_apache::thrift::TBase", %"class.std::__cxx11::basic_string", i64, %"class.duckdb_parquet::ColumnMetaData", i64, i32, [4 x i8], i64, i32, [4 x i8], %"class.duckdb_parquet::ColumnCryptoMetaData", %"class.std::__cxx11::basic_string", %"struct.duckdb_parquet::_ColumnChunk__isset", [7 x i8] }>
-%"class.duckdb_apache::thrift::TBase" = type { ptr }
-%"class.duckdb_parquet::ColumnMetaData" = type <{ %"class.duckdb_apache::thrift::TBase", i32, [4 x i8], %"class.duckdb::vector.27", %"class.duckdb::vector.33", i32, [4 x i8], i64, i64, i64, %"class.duckdb::vector.39", i64, i64, i64, %"class.duckdb_parquet::Statistics", %"class.duckdb::vector.45", i64, i32, [4 x i8], %"class.duckdb_parquet::SizeStatistics", %"struct.duckdb_parquet::_ColumnMetaData__isset", [7 x i8] }>
-%"class.duckdb::vector.27" = type { %"class.std::vector.28" }
-%"class.std::vector.28" = type { %"struct.std::_Vector_base.29" }
-%"struct.std::_Vector_base.29" = type { %"struct.std::_Vector_base<duckdb_parquet::Encoding::type, std::allocator<duckdb_parquet::Encoding::type>>::_Vector_impl" }
-%"struct.std::_Vector_base<duckdb_parquet::Encoding::type, std::allocator<duckdb_parquet::Encoding::type>>::_Vector_impl" = type { %"struct.std::_Vector_base<duckdb_parquet::Encoding::type, std::allocator<duckdb_parquet::Encoding::type>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<duckdb_parquet::Encoding::type, std::allocator<duckdb_parquet::Encoding::type>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.duckdb::vector.33" = type { %"class.std::vector.34" }
-%"class.std::vector.34" = type { %"struct.std::_Vector_base.35" }
-%"struct.std::_Vector_base.35" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.duckdb::vector.39" = type { %"class.std::vector.40" }
-%"class.std::vector.40" = type { %"struct.std::_Vector_base.41" }
-%"struct.std::_Vector_base.41" = type { %"struct.std::_Vector_base<duckdb_parquet::KeyValue, std::allocator<duckdb_parquet::KeyValue>>::_Vector_impl" }
-%"struct.std::_Vector_base<duckdb_parquet::KeyValue, std::allocator<duckdb_parquet::KeyValue>>::_Vector_impl" = type { %"struct.std::_Vector_base<duckdb_parquet::KeyValue, std::allocator<duckdb_parquet::KeyValue>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<duckdb_parquet::KeyValue, std::allocator<duckdb_parquet::KeyValue>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.duckdb_parquet::Statistics" = type <{ %"class.duckdb_apache::thrift::TBase", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i64, i64, %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i8, i8, %"struct.duckdb_parquet::_Statistics__isset", [5 x i8] }>
-%"struct.duckdb_parquet::_Statistics__isset" = type { i8 }
-%"class.duckdb::vector.45" = type { %"class.std::vector.46" }
-%"class.std::vector.46" = type { %"struct.std::_Vector_base.47" }
-%"struct.std::_Vector_base.47" = type { %"struct.std::_Vector_base<duckdb_parquet::PageEncodingStats, std::allocator<duckdb_parquet::PageEncodingStats>>::_Vector_impl" }
-%"struct.std::_Vector_base<duckdb_parquet::PageEncodingStats, std::allocator<duckdb_parquet::PageEncodingStats>>::_Vector_impl" = type { %"struct.std::_Vector_base<duckdb_parquet::PageEncodingStats, std::allocator<duckdb_parquet::PageEncodingStats>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<duckdb_parquet::PageEncodingStats, std::allocator<duckdb_parquet::PageEncodingStats>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.duckdb_parquet::SizeStatistics" = type <{ %"class.duckdb_apache::thrift::TBase", i64, %"class.duckdb::vector.51", %"class.duckdb::vector.51", %"struct.duckdb_parquet::_SizeStatistics__isset", [7 x i8] }>
-%"class.duckdb::vector.51" = type { %"class.std::vector.52" }
-%"class.std::vector.52" = type { %"struct.std::_Vector_base.53" }
-%"struct.std::_Vector_base.53" = type { %"struct.std::_Vector_base<long, std::allocator<long>>::_Vector_impl" }
-%"struct.std::_Vector_base<long, std::allocator<long>>::_Vector_impl" = type { %"struct.std::_Vector_base<long, std::allocator<long>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<long, std::allocator<long>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.duckdb_parquet::_SizeStatistics__isset" = type { i8 }
-%"struct.duckdb_parquet::_ColumnMetaData__isset" = type { i8 }
-%"class.duckdb_parquet::ColumnCryptoMetaData" = type <{ %"class.duckdb_apache::thrift::TBase", %"class.duckdb_parquet::EncryptionWithFooterKey", %"class.duckdb_parquet::EncryptionWithColumnKey", %"struct.duckdb_parquet::_ColumnCryptoMetaData__isset", [7 x i8] }>
-%"class.duckdb_parquet::EncryptionWithFooterKey" = type { %"class.duckdb_apache::thrift::TBase" }
-%"class.duckdb_parquet::EncryptionWithColumnKey" = type <{ %"class.duckdb_apache::thrift::TBase", %"class.duckdb::vector.33", %"class.std::__cxx11::basic_string", %"struct.duckdb_parquet::_EncryptionWithColumnKey__isset", [7 x i8] }>
-%"struct.duckdb_parquet::_EncryptionWithColumnKey__isset" = type { i8 }
-%"struct.duckdb_parquet::_ColumnCryptoMetaData__isset" = type { i8 }
-%"struct.duckdb_parquet::_ColumnChunk__isset" = type { i8 }
 %"class.duckdb_parquet::BloomFilterHeader" = type { %"class.duckdb_apache::thrift::TBase", i32, [4 x i8], %"class.duckdb_parquet::BloomFilterAlgorithm", %"class.duckdb_parquet::BloomFilterHash", %"class.duckdb_parquet::BloomFilterCompression" }
+%"class.duckdb_apache::thrift::TBase" = type { ptr }
 %"class.duckdb_parquet::BloomFilterAlgorithm" = type <{ %"class.duckdb_apache::thrift::TBase", %"class.duckdb_parquet::SplitBlockAlgorithm", %"struct.duckdb_parquet::_BloomFilterAlgorithm__isset", [7 x i8] }>
 %"class.duckdb_parquet::SplitBlockAlgorithm" = type { %"class.duckdb_apache::thrift::TBase" }
 %"struct.duckdb_parquet::_BloomFilterAlgorithm__isset" = type { i8 }
@@ -108,7 +63,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.duckdb::AllocatedData" = type { %"class.duckdb::optional_ptr", ptr, i64 }
 %"class.duckdb::optional_ptr" = type { ptr }
 %"struct.duckdb::ParquetBloomBlock::ParquetBloomMaskResult" = type { [8 x i8] }
-%"struct.duckdb::ParquetBloomBlock" = type { [8 x i32] }
 %"struct.duckdb::ReadHead" = type <{ i64, i64, %"class.duckdb::AllocatedData", i8, [7 x i8] }>
 %"class.std::vector.108" = type { %"struct.std::_Vector_base.109" }
 %"struct.std::_Vector_base.109" = type { %"struct.std::_Vector_base<duckdb::ExceptionFormatValue, std::allocator<duckdb::ExceptionFormatValue>>::_Vector_impl" }
@@ -3552,7 +3506,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %1
   unreachable
 
 _ZNK6duckdb6vectorINS_19ParquetColumnSchemaELb1EE3getILb1EEERKS1_m.exit: ; preds = %2
-  %25 = getelementptr inbounds nuw %"struct.duckdb::ParquetColumnSchema", ptr %7, i64 %1
+  %25 = getelementptr inbounds nuw [144 x i8], ptr %7, i64 %1
   ret ptr %25
 }
 
@@ -3716,7 +3670,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %1
   unreachable
 
 _ZNK6duckdb6vectorIN14duckdb_parquet11ColumnChunkELb1EE3getILb1EEERKS2_m.exit: ; preds = %2
-  %25 = getelementptr inbounds nuw %"class.duckdb_parquet::ColumnChunk", ptr %7, i64 %1
+  %25 = getelementptr inbounds nuw [640 x i8], ptr %7, i64 %1
   ret ptr %25
 }
 
@@ -4808,7 +4762,7 @@ _ZN6duckdbL10ValueXXH64ERKNS_5ValueE.exit:        ; preds = %25, %28, %31, %34, 
 
 75:                                               ; preds = %75, %69
   %.05.i.i.i = phi i64 [ 0, %69 ], [ %82, %75 ]
-  %76 = getelementptr inbounds nuw i32, ptr @_ZZN6duckdb17ParquetBloomBlock4MaskEjE18parquet_bloom_salt, i64 %.05.i.i.i
+  %76 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN6duckdb17ParquetBloomBlock4MaskEjE18parquet_bloom_salt, i64 %.05.i.i.i
   %77 = load i32, ptr %76, align 4, !tbaa !39
   %78 = mul i32 %77, %74
   %79 = lshr i32 %78, 27
@@ -4823,12 +4777,12 @@ _ZN6duckdb17ParquetBloomBlock4MaskEj.exit.i.preheader.i: ; preds = %75
   %83 = lshr i64 %.0.i, 32
   %84 = mul i64 %73, %83
   %85 = lshr i64 %84, 32
-  %86 = getelementptr inbounds nuw %"struct.duckdb::ParquetBloomBlock", ptr %71, i64 %85
+  %86 = getelementptr inbounds nuw [32 x i8], ptr %71, i64 %85
   br label %_ZN6duckdb17ParquetBloomBlock4MaskEj.exit.i.i
 
 _ZN6duckdb17ParquetBloomBlock4MaskEj.exit.i.i:    ; preds = %_ZN6duckdb17ParquetBloomBlock4MaskEj.exit.i.i, %_ZN6duckdb17ParquetBloomBlock4MaskEj.exit.i.preheader.i
   %.079.i.i = phi i64 [ %94, %_ZN6duckdb17ParquetBloomBlock4MaskEj.exit.i.i ], [ 0, %_ZN6duckdb17ParquetBloomBlock4MaskEj.exit.i.preheader.i ]
-  %87 = getelementptr inbounds nuw i32, ptr %86, i64 %.079.i.i
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %86, i64 %.079.i.i
   %88 = getelementptr inbounds nuw i8, ptr %3, i64 %.079.i.i
   %89 = load i8, ptr %88, align 1
   %90 = load i32, ptr %87, align 4, !tbaa !39
@@ -5056,7 +5010,7 @@ define void @_ZN6duckdb18ParquetBloomFilter12FilterInsertEm(ptr noundef nonnull 
 
 9:                                                ; preds = %9, %2
   %.05.i.i = phi i64 [ 0, %2 ], [ %16, %9 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZZN6duckdb17ParquetBloomBlock4MaskEjE18parquet_bloom_salt, i64 %.05.i.i
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN6duckdb17ParquetBloomBlock4MaskEjE18parquet_bloom_salt, i64 %.05.i.i
   %11 = load i32, ptr %10, align 4, !tbaa !39
   %12 = mul i32 %11, %8
   %13 = lshr i32 %12, 27
@@ -5071,12 +5025,12 @@ _ZN6duckdb17ParquetBloomBlock4MaskEj.exit.i.preheader: ; preds = %9
   %17 = lshr i64 %1, 32
   %18 = mul i64 %7, %17
   %19 = lshr i64 %18, 32
-  %20 = getelementptr inbounds nuw %"struct.duckdb::ParquetBloomBlock", ptr %5, i64 %19
+  %20 = getelementptr inbounds nuw [32 x i8], ptr %5, i64 %19
   br label %_ZN6duckdb17ParquetBloomBlock4MaskEj.exit.i
 
 _ZN6duckdb17ParquetBloomBlock4MaskEj.exit.i:      ; preds = %_ZN6duckdb17ParquetBloomBlock4MaskEj.exit.i.preheader, %_ZN6duckdb17ParquetBloomBlock4MaskEj.exit.i
   %.05.i = phi i64 [ %28, %_ZN6duckdb17ParquetBloomBlock4MaskEj.exit.i ], [ 0, %_ZN6duckdb17ParquetBloomBlock4MaskEj.exit.i.preheader ]
-  %21 = getelementptr inbounds nuw i32, ptr %20, i64 %.05.i
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %.05.i
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 %.05.i
   %23 = load i8, ptr %22, align 1
   %24 = zext nneg i8 %23 to i32
@@ -5107,7 +5061,7 @@ define noundef zeroext i1 @_ZN6duckdb18ParquetBloomFilter11FilterCheckEm(ptr nou
 
 9:                                                ; preds = %9, %2
   %.05.i.i = phi i64 [ 0, %2 ], [ %16, %9 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZZN6duckdb17ParquetBloomBlock4MaskEjE18parquet_bloom_salt, i64 %.05.i.i
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN6duckdb17ParquetBloomBlock4MaskEjE18parquet_bloom_salt, i64 %.05.i.i
   %11 = load i32, ptr %10, align 4, !tbaa !39
   %12 = mul i32 %11, %8
   %13 = lshr i32 %12, 27
@@ -5122,12 +5076,12 @@ _ZN6duckdb17ParquetBloomBlock4MaskEj.exit.i.preheader: ; preds = %9
   %17 = lshr i64 %1, 32
   %18 = mul i64 %7, %17
   %19 = lshr i64 %18, 32
-  %20 = getelementptr inbounds nuw %"struct.duckdb::ParquetBloomBlock", ptr %5, i64 %19
+  %20 = getelementptr inbounds nuw [32 x i8], ptr %5, i64 %19
   br label %_ZN6duckdb17ParquetBloomBlock4MaskEj.exit.i
 
 _ZN6duckdb17ParquetBloomBlock4MaskEj.exit.i:      ; preds = %_ZN6duckdb17ParquetBloomBlock4MaskEj.exit.i.preheader, %_ZN6duckdb17ParquetBloomBlock4MaskEj.exit.i
   %.079.i = phi i64 [ %28, %_ZN6duckdb17ParquetBloomBlock4MaskEj.exit.i ], [ 0, %_ZN6duckdb17ParquetBloomBlock4MaskEj.exit.i.preheader ]
-  %21 = getelementptr inbounds nuw i32, ptr %20, i64 %.079.i
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %.079.i
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 %.079.i
   %23 = load i8, ptr %22, align 1
   %24 = load i32, ptr %21, align 4, !tbaa !39
@@ -5171,7 +5125,7 @@ define noundef double @_ZN6duckdb18ParquetBloomFilter8OneRatioEv(ptr noundef non
 .lr.ph:                                           ; preds = %1, %_ZN6duckdbL8PopCnt64Em.exit
   %.08 = phi i64 [ %21, %_ZN6duckdbL8PopCnt64Em.exit ], [ 0, %1 ]
   %.067 = phi i64 [ %20, %_ZN6duckdbL8PopCnt64Em.exit ], [ 0, %1 ]
-  %14 = getelementptr inbounds nuw i64, ptr %3, i64 %.08
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.08
   %15 = load i64, ptr %14, align 8, !tbaa !38
   %.not6.i = icmp eq i64 %15, 0
   br i1 %.not6.i, label %_ZN6duckdbL8PopCnt64Em.exit, label %.lr.ph.i
@@ -7149,7 +7103,7 @@ _ZNSt12_Vector_baseIN6duckdb20ExceptionFormatValueESaIS1_EE13_M_deallocateEPS1_m
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !235
   store ptr %.0.lcssa.i.i.i.i25, ptr %4, align 8, !tbaa !238
-  %74 = getelementptr inbounds nuw %"struct.duckdb::ExceptionFormatValue", ptr %20, i64 %16
+  %74 = getelementptr inbounds nuw [56 x i8], ptr %20, i64 %16
   store ptr %74, ptr %73, align 8, !tbaa !240
   ret void
 }

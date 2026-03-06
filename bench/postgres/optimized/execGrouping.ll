@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.TupleTableSlotOps = type { i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.TupleHashEntryData = type { ptr, ptr, i32, i32 }
-%struct.FmgrInfo = type { ptr, i32, i16, i8, i8, i8, ptr, ptr, ptr }
 
 @.str = private unnamed_addr constant [144 x i8] c"size: %lu, members: %u, filled: %f, total chain: %u, max chain: %u, avg chain: %f, total_collisions: %u, max_collisions: %u, avg_collisions: %f\00", align 1
 @.str.1 = private unnamed_addr constant [38 x i8] c"../../../src/include/lib/simplehash.h\00", align 1
@@ -176,7 +174,7 @@ tuplehash_update_parameters.exit:                 ; preds = %tuplehash_compute_s
 .lr.ph:                                           ; preds = %tuplehash_update_parameters.exit, %45
   %37 = phi i64 [ %47, %45 ], [ 0, %tuplehash_update_parameters.exit ]
   %.063 = phi i32 [ %46, %45 ], [ 0, %tuplehash_update_parameters.exit ]
-  %38 = getelementptr inbounds nuw %struct.TupleHashEntryData, ptr %5, i64 %37
+  %38 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %37
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %40 = load i32, ptr %39, align 8
   %.not = icmp eq i32 %40, 1
@@ -203,7 +201,7 @@ tuplehash_update_parameters.exit:                 ; preds = %tuplehash_compute_s
   %.169 = phi i32 [ %67, %64 ], [ 0, %.lr.ph70.preheader ]
   %.05168 = phi i32 [ %spec.store.select, %64 ], [ %.05168.ph, %.lr.ph70.preheader ]
   %49 = zext i32 %.05168 to i64
-  %50 = getelementptr inbounds nuw %struct.TupleHashEntryData, ptr %5, i64 %49
+  %50 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %52 = load i32, ptr %51, align 8
   %53 = icmp eq i32 %52, 1
@@ -219,7 +217,7 @@ tuplehash_update_parameters.exit:                 ; preds = %tuplehash_compute_s
   %.val57.pn = phi i32 [ %.val57, %54 ], [ %62, %56 ]
   %.048 = and i32 %.val57.pn, %.val59
   %57 = zext i32 %.048 to i64
-  %58 = getelementptr inbounds nuw %struct.TupleHashEntryData, ptr %18, i64 %57
+  %58 = getelementptr inbounds nuw [24 x i8], ptr %18, i64 %57
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
   %60 = load i32, ptr %59, align 8
   %61 = icmp eq i32 %60, 0
@@ -336,7 +334,7 @@ define internal fastcc ptr @tuplehash_insert_hash_internal(ptr noundef captures(
   %.val97 = load i32, ptr %9, align 4
   %23 = and i32 %.val97, %2
   %24 = zext i32 %23 to i64
-  %25 = getelementptr inbounds nuw %struct.TupleHashEntryData, ptr %22, i64 %24
+  %25 = getelementptr inbounds nuw [24 x i8], ptr %22, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load i32, ptr %26, align 8
   %28 = icmp eq i32 %27, 0
@@ -434,7 +432,7 @@ tuplehash_distance.exit:                          ; preds = %60, %62
 
 .preheader116.preheader:                          ; preds = %tuplehash_distance.exit
   %69 = zext i32 %68 to i64
-  %70 = getelementptr inbounds nuw %struct.TupleHashEntryData, ptr %22, i64 %69
+  %70 = getelementptr inbounds nuw [24 x i8], ptr %22, i64 %69
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %72 = load i32, ptr %71, align 8
   %.not115253 = icmp eq i32 %72, 0
@@ -460,7 +458,7 @@ tuplehash_distance.exit:                          ; preds = %60, %62
   %83 = add i32 %73, 1
   %84 = and i32 %83, %.val96
   %85 = zext i32 %84 to i64
-  %86 = getelementptr inbounds nuw %struct.TupleHashEntryData, ptr %22, i64 %85
+  %86 = getelementptr inbounds nuw [24 x i8], ptr %22, i64 %85
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 16
   %88 = load i32, ptr %87, align 8
   %.not115 = icmp eq i32 %88, 0
@@ -480,7 +478,7 @@ tuplehash_distance.exit:                          ; preds = %60, %62
   %90 = add i32 %.082155, -1
   %91 = and i32 %.val101, %90
   %92 = zext i32 %91 to i64
-  %93 = getelementptr inbounds nuw %struct.TupleHashEntryData, ptr %22, i64 %92
+  %93 = getelementptr inbounds nuw [24 x i8], ptr %22, i64 %92
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.286154, ptr noundef nonnull align 8 dereferenceable(24) %93, i64 24, i1 false)
   %.not95 = icmp eq i32 %91, %.078247
   br i1 %.not95, label %._crit_edge, label %.lr.ph, !llvm.loop !9
@@ -510,7 +508,7 @@ tuplehash_distance.exit:                          ; preds = %60, %62
 
 106:                                              ; preds = %96, %99
   %107 = zext i32 %68 to i64
-  %108 = getelementptr inbounds nuw %struct.TupleHashEntryData, ptr %22, i64 %107
+  %108 = getelementptr inbounds nuw [24 x i8], ptr %22, i64 %107
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 16
   %110 = load i32, ptr %109, align 8
   %111 = icmp eq i32 %110, 0
@@ -579,7 +577,7 @@ TupleHashTableHash_internal.exit:                 ; preds = %10, %13
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %34 = load ptr, ptr %33, align 8
   %35 = zext i32 %32 to i64
-  %36 = getelementptr inbounds nuw %struct.TupleHashEntryData, ptr %34, i64 %35
+  %36 = getelementptr inbounds nuw [24 x i8], ptr %34, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load i32, ptr %37, align 8
   %39 = icmp eq i32 %38, 0
@@ -648,7 +646,7 @@ TupleHashTableMatch.exit._crit_edge.i:            ; preds = %TupleHashTableMatch
   %70 = add i32 %.0178.i, 1
   %71 = and i32 %.val19.i, %70
   %72 = zext i32 %71 to i64
-  %73 = getelementptr inbounds nuw %struct.TupleHashEntryData, ptr %69, i64 %72
+  %73 = getelementptr inbounds nuw [24 x i8], ptr %69, i64 %72
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
   %75 = load i32, ptr %74, align 8
   %76 = icmp eq i32 %75, 0
@@ -668,7 +666,7 @@ define dso_local ptr @tuplehash_lookup_hash(ptr noundef readonly captures(none) 
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = zext i32 %6 to i64
-  %10 = getelementptr inbounds nuw %struct.TupleHashEntryData, ptr %8, i64 %9
+  %10 = getelementptr inbounds nuw [24 x i8], ptr %8, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load i32, ptr %11, align 8
   %13 = icmp eq i32 %12, 0
@@ -741,7 +739,7 @@ TupleHashTableMatch.exit._crit_edge.i:            ; preds = %TupleHashTableMatch
   %46 = add i32 %.0178.i, 1
   %47 = and i32 %.val19.i, %46
   %48 = zext i32 %47 to i64
-  %49 = getelementptr inbounds nuw %struct.TupleHashEntryData, ptr %45, i64 %48
+  %49 = getelementptr inbounds nuw [24 x i8], ptr %45, i64 %48
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %51 = load i32, ptr %50, align 8
   %52 = icmp eq i32 %51, 0
@@ -807,7 +805,7 @@ TupleHashTableHash_internal.exit:                 ; preds = %10, %13
   %.038 = phi i32 [ %32, %TupleHashTableHash_internal.exit ], [ %92, %90 ]
   %35 = load ptr, ptr %33, align 8
   %36 = zext i32 %.038 to i64
-  %37 = getelementptr inbounds nuw %struct.TupleHashEntryData, ptr %35, i64 %36
+  %37 = getelementptr inbounds nuw [24 x i8], ptr %35, i64 %36
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %39 = load i32, ptr %38, align 8
   switch i32 %39, label %90 [
@@ -877,7 +875,7 @@ TupleHashTableMatch.exit._crit_edge:              ; preds = %TupleHashTableMatch
   %71 = and i32 %70, %.val4872
   %72 = load ptr, ptr %33, align 8
   %73 = zext i32 %71 to i64
-  %74 = getelementptr inbounds nuw %struct.TupleHashEntryData, ptr %72, i64 %73
+  %74 = getelementptr inbounds nuw [24 x i8], ptr %72, i64 %73
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 16
   %76 = load i32, ptr %75, align 8
   %.not73 = icmp eq i32 %76, 1
@@ -901,7 +899,7 @@ TupleHashTableMatch.exit._crit_edge:              ; preds = %TupleHashTableMatch
   %84 = and i32 %83, %.val48
   %85 = load ptr, ptr %33, align 8
   %86 = zext i32 %84 to i64
-  %87 = getelementptr inbounds nuw %struct.TupleHashEntryData, ptr %85, i64 %86
+  %87 = getelementptr inbounds nuw [24 x i8], ptr %85, i64 %86
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 16
   %89 = load i32, ptr %88, align 8
   %.not = icmp eq i32 %89, 1
@@ -942,7 +940,7 @@ define dso_local void @tuplehash_delete_item(ptr noundef captures(none) %0, ptr 
   %14 = add i32 %10, 1
   %15 = and i32 %.val3034, %14
   %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds nuw %struct.TupleHashEntryData, ptr %5, i64 %16
+  %17 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load i32, ptr %18, align 8
   %.not35 = icmp eq i32 %19, 1
@@ -966,7 +964,7 @@ define dso_local void @tuplehash_delete_item(ptr noundef captures(none) %0, ptr 
   %27 = and i32 %.val30, %26
   %28 = load ptr, ptr %4, align 8
   %29 = zext i32 %27 to i64
-  %30 = getelementptr inbounds nuw %struct.TupleHashEntryData, ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [24 x i8], ptr %28, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %32 = load i32, ptr %31, align 8
   %.not = icmp eq i32 %32, 1
@@ -993,7 +991,7 @@ define dso_local void @tuplehash_start_iterate(ptr noundef readonly captures(non
 6:                                                ; preds = %.lr.ph, %11
   %7 = phi i64 [ 0, %.lr.ph ], [ %13, %11 ]
   %.01315 = phi i32 [ 0, %.lr.ph ], [ %12, %11 ]
-  %8 = getelementptr inbounds nuw %struct.TupleHashEntryData, ptr %5, i64 %7
+  %8 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load i32, ptr %9, align 8
   %.not = icmp eq i32 %10, 1
@@ -1046,7 +1044,7 @@ define dso_local ptr @tuplehash_iterate(ptr noundef readonly captures(none) %0, 
   %11 = load ptr, ptr %4, align 8
   %12 = load i32, ptr %1, align 4
   %13 = zext i32 %12 to i64
-  %14 = getelementptr inbounds nuw %struct.TupleHashEntryData, ptr %11, i64 %13
+  %14 = getelementptr inbounds nuw [24 x i8], ptr %11, i64 %13
   %15 = add i32 %12, -1
   %16 = load i32, ptr %5, align 4
   %17 = and i32 %15, %16
@@ -1099,7 +1097,7 @@ define dso_local void @tuplehash_stat(ptr noundef readonly captures(none) %0) lo
   %.04971 = phi i32 [ 0, %.lr.ph ], [ %.150, %24 ]
   %.05970 = phi i32 [ 0, %.lr.ph ], [ %26, %24 ]
   %11 = load ptr, ptr %6, align 8
-  %12 = getelementptr inbounds nuw %struct.TupleHashEntryData, ptr %11, i64 %10
+  %12 = getelementptr inbounds nuw [24 x i8], ptr %11, i64 %10
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load i32, ptr %13, align 8
   %.not67 = icmp eq i32 %14, 1
@@ -1118,7 +1116,7 @@ tuplehash_distance.exit:                          ; preds = %8
   %spec.select = tail call i32 @llvm.umax.i32(i32 %.0.i, i32 %.072)
   %19 = add i32 %.0.i, %.04971
   %20 = zext i32 %16 to i64
-  %21 = getelementptr inbounds nuw i32, ptr %4, i64 %20
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %20
   %22 = load i32, ptr %21, align 4
   %23 = add i32 %22, 1
   store i32 %23, ptr %21, align 4
@@ -1139,7 +1137,7 @@ tuplehash_distance.exit:                          ; preds = %8
   %.05477 = phi i32 [ %.155, %.lr.ph78 ], [ 0, %.preheader ]
   %.05776 = phi i32 [ %.158, %.lr.ph78 ], [ 0, %.preheader ]
   %.16075 = phi i32 [ %35, %.lr.ph78 ], [ 0, %.preheader ]
-  %30 = getelementptr inbounds nuw i32, ptr %4, i64 %29
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %29
   %31 = load i32, ptr %30, align 4
   %32 = icmp eq i32 %31, 0
   %33 = add i32 %31, -1
@@ -1221,10 +1219,10 @@ define dso_local ptr @execTuplesMatchPrepare(ptr noundef %0, i32 noundef %1, ptr
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %13 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4
   %15 = tail call i32 @get_opcode(i32 noundef %14) #14
-  %16 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   store i32 %15, ptr %16, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1265,7 +1263,7 @@ define dso_local void @execTuplesHashPrepare(i32 noundef %0, ptr noundef readonl
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %20
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %20 ]
-  %13 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -1281,11 +1279,11 @@ define dso_local void @execTuplesHashPrepare(i32 noundef %0, ptr noundef readonl
 
 20:                                               ; preds = %.lr.ph
   %21 = load ptr, ptr %2, align 8
-  %22 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %indvars.iv
   store i32 %15, ptr %22, align 4
   %23 = load i32, ptr %6, align 4
   %24 = load ptr, ptr %3, align 8
-  %25 = getelementptr inbounds nuw %struct.FmgrInfo, ptr %24, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [48 x i8], ptr %24, i64 %indvars.iv
   call void @fmgr_info(i32 noundef %23, ptr noundef %25) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

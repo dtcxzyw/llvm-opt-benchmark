@@ -14,13 +14,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %"class.std::allocator.11" = type { i8 }
-%"class.duckdb::unique_ptr.2" = type { %"class.std::unique_ptr.3" }
-%"class.std::unique_ptr.3" = type { %"struct.std::__uniq_ptr_data.4" }
-%"struct.std::__uniq_ptr_data.4" = type { %"class.std::__uniq_ptr_impl.5" }
-%"class.std::__uniq_ptr_impl.5" = type { %"class.std::tuple.6" }
-%"class.std::tuple.6" = type { %"struct.std::_Tuple_impl.7" }
-%"struct.std::_Tuple_impl.7" = type { %"struct.std::_Head_base.10" }
-%"struct.std::_Head_base.10" = type { ptr }
 %"struct.duckdb::LogicalType" = type { i8, i8, %"class.duckdb::shared_ptr" }
 %"class.duckdb::shared_ptr" = type { %"class.std::shared_ptr" }
 %"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
@@ -58,15 +51,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<duckdb::ExceptionFormatValue, std::allocator<duckdb::ExceptionFormatValue>>::_Vector_impl" = type { %"struct.std::_Vector_base<duckdb::ExceptionFormatValue, std::allocator<duckdb::ExceptionFormatValue>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<duckdb::ExceptionFormatValue, std::allocator<duckdb::ExceptionFormatValue>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"struct.duckdb::ExceptionFormatValue" = type { i8, double, i64, %"class.std::__cxx11::basic_string" }
-%"class.duckdb::Vector" = type { i8, %"struct.duckdb::LogicalType", ptr, %"struct.duckdb::ValidityMask", %"class.duckdb::shared_ptr.50", %"class.duckdb::shared_ptr.50" }
-%"struct.duckdb::ValidityMask" = type { %"struct.duckdb::TemplatedValidityMask" }
-%"struct.duckdb::TemplatedValidityMask" = type { ptr, %"class.duckdb::shared_ptr.46", i64 }
-%"class.duckdb::shared_ptr.46" = type { %"class.std::shared_ptr.47" }
-%"class.std::shared_ptr.47" = type { %"class.std::__shared_ptr.48" }
-%"class.std::__shared_ptr.48" = type { ptr, %"class.std::__shared_count" }
-%"class.duckdb::shared_ptr.50" = type { %"class.std::shared_ptr.51" }
-%"class.std::shared_ptr.51" = type { %"class.std::__shared_ptr.52" }
-%"class.std::__shared_ptr.52" = type { ptr, %"class.std::__shared_count" }
 
 $_ZN6duckdb6vectorINS_10unique_ptrINS_10ExpressionESt14default_deleteIS2_ELb1EEELb1EEixEm = comdat any
 
@@ -312,7 +296,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %1
   unreachable
 
 _ZN6duckdb6vectorINS_10unique_ptrINS_10ExpressionESt14default_deleteIS2_ELb1EEELb1EE3getILb1EEERS5_m.exit: ; preds = %2
-  %25 = getelementptr inbounds nuw %"class.duckdb::unique_ptr.2", ptr %7, i64 %1
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %1
   ret ptr %25
 }
 
@@ -3012,7 +2996,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %1
   unreachable
 
 _ZN6duckdb6vectorINS_11LogicalTypeELb1EE3getILb1EEERS1_m.exit: ; preds = %2
-  %25 = getelementptr inbounds nuw %"struct.duckdb::LogicalType", ptr %7, i64 %1
+  %25 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %1
   ret ptr %25
 }
 
@@ -3517,7 +3501,7 @@ _ZNSt12_Vector_baseIN6duckdb20ExceptionFormatValueESaIS1_EE13_M_deallocateEPS1_m
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !83
   store ptr %.0.lcssa.i.i.i.i25, ptr %4, align 8, !tbaa !86
-  %74 = getelementptr inbounds nuw %"struct.duckdb::ExceptionFormatValue", ptr %20, i64 %16
+  %74 = getelementptr inbounds nuw [56 x i8], ptr %20, i64 %16
   store ptr %74, ptr %73, align 8, !tbaa !88
   ret void
 }
@@ -3602,7 +3586,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %1
   unreachable
 
 _ZN6duckdb6vectorINS_6VectorELb1EE3getILb1EEERS1_m.exit: ; preds = %2
-  %25 = getelementptr inbounds nuw %"class.duckdb::Vector", ptr %7, i64 %1
+  %25 = getelementptr inbounds nuw [104 x i8], ptr %7, i64 %1
   ret ptr %25
 }
 
@@ -3712,7 +3696,7 @@ _ZNSt12_Vector_baseIN6duckdb5ValueESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds =
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !67
   store ptr %.0.lcssa.i.i.i.i21, ptr %4, align 8, !tbaa !62
-  %29 = getelementptr inbounds nuw %"class.duckdb::Value", ptr %20, i64 %16
+  %29 = getelementptr inbounds nuw [64 x i8], ptr %20, i64 %16
   store ptr %29, ptr %28, align 8, !tbaa !65
   ret void
 }

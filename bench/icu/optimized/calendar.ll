@@ -2769,7 +2769,7 @@ define internal fastcc noundef i32 @_ZN6icu_77L24getCalendarTypeForLocaleEPKc(pt
 
 17:                                               ; preds = %22, %15
   %indvars.iv.i = phi i64 [ 0, %15 ], [ %indvars.iv.next.i, %22 ]
-  %18 = getelementptr inbounds nuw ptr, ptr @_ZL9gCalTypes, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw [8 x i8], ptr @_ZL9gCalTypes, i64 %indvars.iv.i
   %19 = load ptr, ptr %18, align 8, !tbaa !58
   %20 = invoke i32 @uprv_stricmp_77(ptr noundef %16, ptr noundef %19)
           to label %.noexc unwind label %26
@@ -2878,7 +2878,7 @@ _ZN6icu_77L15getCalendarTypeEPKc.exit.thread:     ; preds = %22, %12
 
 64:                                               ; preds = %69, %62
   %indvars.iv.i42 = phi i64 [ 0, %62 ], [ %indvars.iv.next.i43, %69 ]
-  %65 = getelementptr inbounds nuw ptr, ptr @_ZL9gCalTypes, i64 %indvars.iv.i42
+  %65 = getelementptr inbounds nuw [8 x i8], ptr @_ZL9gCalTypes, i64 %indvars.iv.i42
   %66 = load ptr, ptr %65, align 8, !tbaa !58
   %67 = invoke i32 @uprv_stricmp_77(ptr noundef %63, ptr noundef %66)
           to label %.noexc46 unwind label %.loopexit
@@ -3904,7 +3904,7 @@ _ZN6icu_778Calendar8completeER10UErrorCode.exit:  ; preds = %25
 _ZN6icu_778Calendar8completeER10UErrorCode.exit.thread18: ; preds = %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit._crit_edge.i, %_ZN6icu_778Calendar8completeER10UErrorCode.exit
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = zext nneg i32 %1 to i64
-  %36 = getelementptr inbounds nuw i32, ptr %34, i64 %35
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %35
   %37 = load i32, ptr %36, align 4, !tbaa !12
   br label %_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread
 
@@ -4001,7 +4001,7 @@ define void @_ZN6icu_778Calendar3setE19UCalendarDateFieldsi(ptr noundef nonnull 
 13:                                               ; preds = %9, %5
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = zext nneg i32 %1 to i64
-  %16 = getelementptr inbounds nuw i32, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %15
   store i32 %2, ptr %16, align 4, !tbaa !12
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %18 = load i8, ptr %17, align 8, !tbaa !40
@@ -5272,7 +5272,7 @@ define void @_ZN6icu_778Calendar5clearE19UCalendarDateFields(ptr noundef nonnull
 12:                                               ; preds = %8, %4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = zext nneg i32 %1 to i64
-  %15 = getelementptr inbounds nuw i32, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %14
   store i32 0, ptr %15, align 4, !tbaa !12
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 %14
@@ -5387,7 +5387,7 @@ define void @_ZN6icu_778Calendar8pinFieldE19UCalendarDateFieldsR10UErrorCode(ptr
   %18 = tail call noundef i32 %17(ptr noundef nonnull align 8 dereferenceable(192) %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = zext nneg i32 %1 to i64
-  %21 = getelementptr inbounds nuw i32, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %20
   %22 = load i32, ptr %21, align 4, !tbaa !12
   %23 = icmp sgt i32 %22, %14
   br i1 %23, label %24, label %61
@@ -6166,7 +6166,7 @@ _ZN6icu_778Calendar8completeER10UErrorCode.exit.thread261: ; preds = %_ZN6icu_77
   %50 = add i32 %reass.sub242, 1
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %52 = zext nneg i32 %1 to i64
-  %53 = getelementptr inbounds nuw i32, ptr %51, i64 %52
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %52
   %54 = load i32, ptr %53, align 4, !tbaa !12
   %55 = sext i32 %54 to i64
   %56 = sext i32 %2 to i64
@@ -6187,7 +6187,7 @@ _ZN6icu_778Calendar8completeER10UErrorCode.exit.thread261: ; preds = %_ZN6icu_77
   %67 = tail call noundef double @_ZNK6icu_778Calendar15getTimeInMillisER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 4 dereferenceable(4) %3)
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %69 = zext nneg i32 %1 to i64
-  %70 = getelementptr inbounds nuw i32, ptr %68, i64 %69
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %69
   %71 = load i32, ptr %70, align 4, !tbaa !12
   %72 = sext i32 %71 to i64
   %73 = load ptr, ptr %0, align 8, !tbaa !15
@@ -6265,7 +6265,7 @@ _ZN6icu_778Calendar8completeER10UErrorCode.exit.thread261: ; preds = %_ZN6icu_77
   %122 = phi i32 [ %.pre243, %._crit_edge ], [ %2, %113 ], [ %2, %109 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %123 = zext nneg i32 %1 to i64
-  %124 = getelementptr inbounds nuw i32, ptr %110, i64 %123
+  %124 = getelementptr inbounds nuw [4 x i8], ptr %110, i64 %123
   %125 = load i32, ptr %124, align 4, !tbaa !12
   %126 = call signext i8 @uprv_add32_overflow_77(i32 noundef %122, i32 noundef %125, ptr noundef nonnull %6)
   %.not224 = icmp eq i8 %126, 0
@@ -6543,7 +6543,7 @@ _ZN6icu_778Calendar8completeER10UErrorCode.exit.thread261: ; preds = %_ZN6icu_77
   %301 = fmul nnan double %300, 8.640000e+07
   %302 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %303 = zext nneg i32 %1 to i64
-  %304 = getelementptr inbounds nuw i32, ptr %302, i64 %303
+  %304 = getelementptr inbounds nuw [4 x i8], ptr %302, i64 %303
   %305 = load i32, ptr %304, align 4, !tbaa !12
   %306 = icmp eq i32 %1, 7
   %307 = getelementptr inbounds nuw i8, ptr %0, i64 153
@@ -6802,7 +6802,7 @@ _ZN6icu_778Calendar8completeER10UErrorCode.exit.i: ; preds = %62
 71:                                               ; preds = %_ZN6icu_778Calendar8completeER10UErrorCode.exit.i, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit._crit_edge.i.i
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %73 = zext nneg i32 %1 to i64
-  %74 = getelementptr inbounds nuw i32, ptr %72, i64 %73
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %73
   %75 = load i32, ptr %74, align 4, !tbaa !12
   store i32 %75, ptr %7, align 4, !tbaa !12
   %76 = load i32, ptr %5, align 4, !tbaa !12
@@ -8539,9 +8539,9 @@ define noundef i32 @_ZNK6icu_778Calendar8getLimitE19UCalendarDateFieldsNS0_10ELi
 
 4:                                                ; preds = %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3
   %5 = zext nneg i32 %1 to i64
-  %6 = getelementptr inbounds nuw [4 x i32], ptr @_ZN6icu_77L15kCalendarLimitsE, i64 %5
+  %6 = getelementptr inbounds nuw [16 x i8], ptr @_ZN6icu_77L15kCalendarLimitsE, i64 %5
   %7 = zext i32 %2 to i64
-  %8 = getelementptr inbounds nuw i32, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %7
   %9 = load i32, ptr %8, align 4, !tbaa !12
   br label %30
 
@@ -8631,7 +8631,7 @@ define noundef i32 @_ZNK6icu_778Calendar16getActualMinimumE19UCalendarDateFields
   store i8 %29, ptr %27, align 8
   %30 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %31 = zext nneg i32 %1 to i64
-  %32 = getelementptr inbounds nuw i32, ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %23, i64 128
   %34 = getelementptr inbounds nuw i8, ptr %23, i64 104
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 %31
@@ -8946,7 +8946,7 @@ _ZN6icu_778Calendar8completeER10UErrorCode.exit.i: ; preds = %22
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %33 = load i32, ptr %32, align 8, !tbaa !12
   %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds ptr, ptr @_ZN6icu_77L19gTemporalMonthCodesE, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr @_ZN6icu_77L19gTemporalMonthCodesE, i64 %34
   %36 = load ptr, ptr %35, align 8, !tbaa !58
   br label %_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit.thread
 
@@ -8975,7 +8975,7 @@ define void @_ZN6icu_778Calendar20setTemporalMonthCodeEPKcR10UErrorCode(ptr noun
 
 .preheader:                                       ; preds = %11, %83
   %indvars.iv = phi i64 [ %indvars.iv.next, %83 ], [ 0, %11 ]
-  %14 = getelementptr inbounds nuw ptr, ptr @_ZN6icu_77L19gTemporalMonthCodesE, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6icu_77L19gTemporalMonthCodesE, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !58
   %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %15) #28
   %17 = icmp eq i32 %16, 0
@@ -9302,7 +9302,7 @@ define void @_ZN6icu_778Calendar13validateFieldE19UCalendarDateFieldsR10UErrorCo
 80:                                               ; preds = %69
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %82 = zext nneg i32 %1 to i64
-  %83 = getelementptr inbounds nuw i32, ptr %81, i64 %82
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %81, i64 %82
   %84 = load i32, ptr %83, align 4, !tbaa !12
   %85 = icmp slt i32 %84, %73
   %86 = icmp sgt i32 %84, %77
@@ -9330,7 +9330,7 @@ define void @_ZN6icu_778Calendar13validateFieldE19UCalendarDateFieldsiiR10UError
 9:                                                ; preds = %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = zext nneg i32 %1 to i64
-  %12 = getelementptr inbounds nuw i32, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !12
   %14 = icmp slt i32 %13, %2
   %15 = icmp sgt i32 %13, %3
@@ -9383,12 +9383,12 @@ define noundef range(i32 -2147483648, 32) i32 @_ZNK6icu_778Calendar13resolveFiel
 .lr.ph74.us.preheader:                            ; preds = %.preheader.lr.ph, %._crit_edge75.split.us.us
   %10 = phi i32 [ %13, %._crit_edge75.split.us.us ], [ %3, %.preheader.lr.ph ]
   %indvars.iv99 = phi i64 [ %indvars.iv.next100, %._crit_edge75.split.us.us ], [ 0, %.preheader.lr.ph ]
-  %11 = getelementptr inbounds nuw [12 x [8 x i32]], ptr %1, i64 %indvars.iv99
+  %11 = getelementptr inbounds nuw [384 x i8], ptr %1, i64 %indvars.iv99
   br label %.lr.ph74.us
 
 ._crit_edge75.split.us.us:                        ; preds = %.thread.us.us
   %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
-  %12 = getelementptr inbounds nuw [12 x [8 x i32]], ptr %1, i64 %indvars.iv.next100
+  %12 = getelementptr inbounds nuw [384 x i8], ptr %1, i64 %indvars.iv.next100
   %13 = load i32, ptr %12, align 4, !tbaa !12
   %14 = icmp ne i32 %13, -1
   %15 = icmp eq i32 %.2.us.us, 24
@@ -9400,10 +9400,10 @@ define noundef range(i32 -2147483648, 32) i32 @_ZNK6icu_778Calendar13resolveFiel
   %17 = phi i32 [ %10, %.lr.ph74.us.preheader ], [ %35, %.thread.us.us ]
   %.173.us.us = phi i32 [ 24, %.lr.ph74.us.preheader ], [ %.2.us.us, %.thread.us.us ]
   %.04771.us.us = phi i32 [ 0, %.lr.ph74.us.preheader ], [ %.148.us.us, %.thread.us.us ]
-  %18 = getelementptr inbounds nuw [8 x i32], ptr %11, i64 %indvars.iv96
+  %18 = getelementptr inbounds nuw [32 x i8], ptr %11, i64 %indvars.iv96
   %19 = icmp sgt i32 %17, 31
   %20 = zext i1 %19 to i64
-  %21 = getelementptr inbounds nuw i32, ptr %18, i64 %20
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %20
   %22 = load i32, ptr %21, align 4, !tbaa !12
   %.not5967.us.us = icmp eq i32 %22, -1
   br i1 %.not5967.us.us, label %._crit_edge.us.us, label %.lr.ph.us.us
@@ -9422,7 +9422,7 @@ define noundef range(i32 -2147483648, 32) i32 @_ZNK6icu_778Calendar13resolveFiel
   %28 = sext i8 %26 to i32
   %spec.select.us.us = tail call i32 @llvm.smax.i32(i32 %.04268.us.us, i32 %28)
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
-  %29 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv.next94
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv.next94
   %30 = load i32, ptr %29, align 4, !tbaa !12
   %.not59.us.us = icmp eq i32 %30, -1
   br i1 %.not59.us.us, label %._crit_edge.us.us, label %.lr.ph.us.us, !llvm.loop !83
@@ -9441,7 +9441,7 @@ define noundef range(i32 -2147483648, 32) i32 @_ZNK6icu_778Calendar13resolveFiel
   %.148.us.us = phi i32 [ %.04771.us.us, %._crit_edge.us.us ], [ %.042.lcssa.us.us, %32 ], [ %.04771.us.us, %.lr.ph.us.us ]
   %.2.us.us = phi i32 [ %.173.us.us, %._crit_edge.us.us ], [ %spec.select81, %32 ], [ %.173.us.us, %.lr.ph.us.us ]
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
-  %34 = getelementptr inbounds nuw [8 x i32], ptr %11, i64 %indvars.iv.next97
+  %34 = getelementptr inbounds nuw [32 x i8], ptr %11, i64 %indvars.iv.next97
   %35 = load i32, ptr %34, align 4, !tbaa !12
   %.not.us.us = icmp eq i32 %35, -1
   br i1 %.not.us.us, label %._crit_edge75.split.us.us, label %.lr.ph74.us, !llvm.loop !84
@@ -9449,7 +9449,7 @@ define noundef range(i32 -2147483648, 32) i32 @_ZNK6icu_778Calendar13resolveFiel
 .lr.ph74.preheader:                               ; preds = %.preheader.lr.ph, %._crit_edge75.split
   %36 = phi i32 [ %39, %._crit_edge75.split ], [ %3, %.preheader.lr.ph ]
   %indvars.iv90 = phi i64 [ %indvars.iv.next91, %._crit_edge75.split ], [ 0, %.preheader.lr.ph ]
-  %37 = getelementptr inbounds nuw [12 x [8 x i32]], ptr %1, i64 %indvars.iv90
+  %37 = getelementptr inbounds nuw [384 x i8], ptr %1, i64 %indvars.iv90
   br label %.lr.ph74
 
 ._crit_edge78:                                    ; preds = %._crit_edge75.split, %._crit_edge75.split.us.us, %2
@@ -9458,7 +9458,7 @@ define noundef range(i32 -2147483648, 32) i32 @_ZNK6icu_778Calendar13resolveFiel
 
 ._crit_edge75.split:                              ; preds = %.thread
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
-  %38 = getelementptr inbounds nuw [12 x [8 x i32]], ptr %1, i64 %indvars.iv.next91
+  %38 = getelementptr inbounds nuw [384 x i8], ptr %1, i64 %indvars.iv.next91
   %39 = load i32, ptr %38, align 4, !tbaa !12
   %40 = icmp ne i32 %39, -1
   %41 = icmp eq i32 %.2, 24
@@ -9470,10 +9470,10 @@ define noundef range(i32 -2147483648, 32) i32 @_ZNK6icu_778Calendar13resolveFiel
   %43 = phi i32 [ %36, %.lr.ph74.preheader ], [ %62, %.thread ]
   %.173 = phi i32 [ 24, %.lr.ph74.preheader ], [ %.2, %.thread ]
   %.04771 = phi i32 [ 0, %.lr.ph74.preheader ], [ %.148, %.thread ]
-  %44 = getelementptr inbounds nuw [8 x i32], ptr %37, i64 %indvars.iv87
+  %44 = getelementptr inbounds nuw [32 x i8], ptr %37, i64 %indvars.iv87
   %45 = icmp sgt i32 %43, 31
   %46 = zext i1 %45 to i64
-  %47 = getelementptr inbounds nuw i32, ptr %44, i64 %46
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %46
   %48 = load i32, ptr %47, align 4, !tbaa !12
   %.not5967 = icmp eq i32 %48, -1
   br i1 %.not5967, label %._crit_edge, label %.lr.ph
@@ -9492,7 +9492,7 @@ define noundef range(i32 -2147483648, 32) i32 @_ZNK6icu_778Calendar13resolveFiel
   %54 = sext i8 %52 to i32
   %spec.select = tail call i32 @llvm.smax.i32(i32 %.04268, i32 %54)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %55 = getelementptr inbounds nuw i32, ptr %44, i64 %indvars.iv.next
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %indvars.iv.next
   %56 = load i32, ptr %55, align 4, !tbaa !12
   %.not59 = icmp eq i32 %56, -1
   br i1 %.not59, label %._crit_edge, label %.lr.ph, !llvm.loop !83
@@ -9516,7 +9516,7 @@ define noundef range(i32 -2147483648, 32) i32 @_ZNK6icu_778Calendar13resolveFiel
   %.148 = phi i32 [ %.04771, %._crit_edge ], [ %spec.select62, %58 ], [ %.04771, %.lr.ph ]
   %.2 = phi i32 [ %.173, %._crit_edge ], [ %.3, %58 ], [ %.173, %.lr.ph ]
   %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
-  %61 = getelementptr inbounds nuw [8 x i32], ptr %37, i64 %indvars.iv.next88
+  %61 = getelementptr inbounds nuw [32 x i8], ptr %37, i64 %indvars.iv.next88
   %62 = load i32, ptr %61, align 4, !tbaa !12
   %.not = icmp eq i32 %62, -1
   br i1 %.not, label %._crit_edge75.split, label %.lr.ph74, !llvm.loop !84
@@ -10634,7 +10634,7 @@ _ZNK6icu_778Calendar5isSetE19UCalendarDateFields.exit196.thread: ; preds = %171
 273:                                              ; preds = %270, %263
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %274 = zext i32 %1 to i64
-  %275 = getelementptr inbounds nuw i32, ptr %37, i64 %274
+  %275 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %274
   %276 = load i32, ptr %275, align 4, !tbaa !12
   store i32 %276, ptr %13, align 4, !tbaa !12
   %277 = call signext i8 @uprv_add32_overflow_77(i32 noundef %276, i32 noundef -1, ptr noundef nonnull %13)
@@ -11264,7 +11264,7 @@ _ZN6icu_778Calendar10updateTimeER10UErrorCode.exit._crit_edge.i: ; preds = %_ZN6
 64:                                               ; preds = %60, %50
   %65 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %66 = zext nneg i32 %1 to i64
-  %67 = getelementptr inbounds nuw i32, ptr %65, i64 %66
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %66
   store i32 %2, ptr %67, align 4, !tbaa !12
   %68 = getelementptr inbounds nuw i8, ptr %19, i64 128
   %69 = load i8, ptr %68, align 8, !tbaa !40
@@ -12156,7 +12156,7 @@ _ZN6icu_778Calendar3setE19UCalendarDateFieldsi.exit113: ; preds = %261, %_ZN6icu
 
 298:                                              ; preds = %294, %287
   %299 = zext nneg i32 %1 to i64
-  %300 = getelementptr inbounds nuw i32, ptr %24, i64 %299
+  %300 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %299
   store i32 %291, ptr %300, align 4, !tbaa !12
   %301 = load i8, ptr %26, align 8, !tbaa !40
   %302 = icmp eq i8 %301, 127
@@ -12306,7 +12306,7 @@ declare noundef ptr @_ZN6icu_7711LocaleBased11getLocaleIDEPKNS_10CharStringES3_1
 define void @_ZN6icu_778Calendar11internalSetENS0_11EDateFieldsEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(192) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #22 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds nuw i32, ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %5
   store i32 %2, ptr %6, align 4, !tbaa !12
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 %5
@@ -12426,7 +12426,7 @@ define linkonce_odr noundef ptr @_ZNK6icu_7720BasicCalendarFactory6createERKNS_1
 
 .preheader.i:                                     ; preds = %24, %.noexc
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.noexc ], [ 0, %24 ]
-  %26 = getelementptr inbounds nuw ptr, ptr @_ZL9gCalTypes, i64 %indvars.iv.i.i
+  %26 = getelementptr inbounds nuw [8 x i8], ptr @_ZL9gCalTypes, i64 %indvars.iv.i.i
   %27 = load ptr, ptr %26, align 8, !tbaa !58
   %28 = invoke i32 @uprv_stricmp_77(ptr noundef nonnull %7, ptr noundef %27)
           to label %.noexc unwind label %.loopexit.split-lp.loopexit
@@ -12473,7 +12473,7 @@ _ZN6icu_77L26isStandardSupportedKeywordEPKcR10UErrorCode.exit: ; preds = %.noexc
 
 .preheader:                                       ; preds = %_ZN6icu_77L26isStandardSupportedKeywordEPKcR10UErrorCode.exit, %38
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %38 ], [ 0, %_ZN6icu_77L26isStandardSupportedKeywordEPKcR10UErrorCode.exit ]
-  %34 = getelementptr inbounds nuw ptr, ptr @_ZL9gCalTypes, i64 %indvars.iv.i
+  %34 = getelementptr inbounds nuw [8 x i8], ptr @_ZL9gCalTypes, i64 %indvars.iv.i
   %35 = load ptr, ptr %34, align 8, !tbaa !58
   %36 = invoke i32 @uprv_stricmp_77(ptr noundef nonnull %7, ptr noundef %35)
           to label %.noexc16 unwind label %.loopexit
@@ -12541,7 +12541,7 @@ define linkonce_odr void @_ZNK6icu_7720BasicCalendarFactory16updateVisibleIDsERN
 
 14:                                               ; preds = %.preheader, %_ZN6icu_779Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %_ZN6icu_779Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit ]
-  %15 = getelementptr inbounds nuw ptr, ptr @_ZL9gCalTypes, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr @_ZL9gCalTypes, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN6icu_7713UnicodeStringC1EDs(ptr noundef nonnull align 8 dereferenceable(64) %4, i16 noundef zeroext 64)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -12743,7 +12743,7 @@ _ZN6icu_7713UnicodeString6appendERKS0_.exit:      ; preds = %28
 
 42:                                               ; preds = %_ZN6icu_7713UnicodeString6appendERKS0_.exit
   %43 = sext i32 %41 to i64
-  %44 = getelementptr inbounds ptr, ptr @_ZL9gCalTypes, i64 %43
+  %44 = getelementptr inbounds [8 x i8], ptr @_ZL9gCalTypes, i64 %43
   %45 = load ptr, ptr %44, align 8, !tbaa !58
   invoke void @_ZN6icu_7713UnicodeStringC1EPKciNS0_10EInvariantE(ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef %45, i32 noundef -1, i32 noundef 0)
           to label %46 unwind label %64

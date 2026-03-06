@@ -2248,7 +2248,7 @@ _ZNSt16allocator_traitsISaINSt10filesystem7__cxx114pathEEE9constructIS2_JNSt7__c
 _ZNSt12_Vector_baseINSt10filesystem7__cxx114pathESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt16allocator_traitsISaINSt10filesystem7__cxx114pathEEE9constructIS2_JNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvRS3_PT_DpOT0_.exit, %54
   store ptr %22, ptr %0, align 8, !tbaa !69
   store ptr %52, ptr %4, align 8, !tbaa !64
-  %58 = getelementptr inbounds nuw %"class.std::filesystem::__cxx11::path", ptr %22, i64 %16
+  %58 = getelementptr inbounds nuw [40 x i8], ptr %22, i64 %16
   store ptr %58, ptr %53, align 8, !tbaa !67
   ret void
 

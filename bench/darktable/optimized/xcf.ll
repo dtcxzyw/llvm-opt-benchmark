@@ -314,7 +314,7 @@ define range(i32 0, 2) i32 @write_image(ptr noundef readonly captures(none) %0, 
 
 .lr.ph260:                                        ; preds = %.preheader, %156
   %.0168259 = phi i64 [ %159, %156 ], [ 0, %.preheader ]
-  %147 = getelementptr inbounds nuw float, ptr %123, i64 %.0168259
+  %147 = getelementptr inbounds nuw [4 x i8], ptr %123, i64 %.0168259
   %148 = load float, ptr %147, align 4, !tbaa !53
   %149 = fcmp reassoc nsz arcp contract afn ult float %148, 0.000000e+00
   br i1 %149, label %156, label %150
@@ -355,7 +355,7 @@ define range(i32 0, 2) i32 @write_image(ptr noundef readonly captures(none) %0, 
 
 .lr.ph258:                                        ; preds = %.preheader251, %178
   %.0257 = phi i64 [ %181, %178 ], [ 0, %.preheader251 ]
-  %169 = getelementptr inbounds nuw float, ptr %123, i64 %.0257
+  %169 = getelementptr inbounds nuw [4 x i8], ptr %123, i64 %.0257
   %170 = load float, ptr %169, align 4, !tbaa !53
   %171 = fcmp reassoc nsz arcp contract afn ult float %170, 0.000000e+00
   br i1 %171, label %178, label %172
@@ -372,7 +372,7 @@ define range(i32 0, 2) i32 @write_image(ptr noundef readonly captures(none) %0, 
 
 178:                                              ; preds = %.lr.ph258, %174, %172
   %179 = phi i16 [ -1, %172 ], [ %177, %174 ], [ 0, %.lr.ph258 ]
-  %180 = getelementptr inbounds nuw i16, ptr %167, i64 %.0257
+  %180 = getelementptr inbounds nuw [2 x i8], ptr %167, i64 %.0257
   store i16 %179, ptr %180, align 2, !tbaa !55
   %181 = add nuw i64 %.0257, 1
   %exitcond.not = icmp eq i64 %181, %168

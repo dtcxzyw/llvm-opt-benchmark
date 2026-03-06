@@ -8,7 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon = type { double }
 %struct.acct_gather_profile_dataset_t = type { ptr, i32 }
 %struct.conf_file_options = type { ptr, i32, ptr, ptr, ptr, ptr, ptr }
-%struct.acct_gather_data = type { i64, i64, i64, i64, i64 }
 
 @plugin_name = dso_local local_unnamed_addr constant [36 x i8] c"AcctGatherInterconnect sysfs plugin\00", align 16
 @plugin_type = dso_local constant [31 x i8] c"acct_gather_interconnect/sysfs\00", align 16
@@ -468,7 +467,7 @@ define dso_local noundef i32 @acct_gather_interconnect_p_get_data(ptr noundef %0
 
 9:                                                ; preds = %1
   %10 = sext i32 %2 to i64
-  %11 = getelementptr inbounds %struct.acct_gather_data, ptr %0, i64 %10
+  %11 = getelementptr inbounds [40 x i8], ptr %0, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, i8 0, i64 32, i1 false)
   %13 = load ptr, ptr @interfaces, align 8

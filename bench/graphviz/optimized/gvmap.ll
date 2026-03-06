@@ -380,7 +380,7 @@ init.exit:                                        ; preds = %openFile.exit.i
   %155 = load i32, ptr @optind, align 4, !tbaa !9
   %.not82.i = icmp eq i32 %0, %155
   %156 = sext i32 %155 to i64
-  %157 = getelementptr inbounds ptr, ptr %1, i64 %156
+  %157 = getelementptr inbounds [8 x i8], ptr %1, i64 %156
   %.sroa.3.0 = select i1 %.not82.i, ptr null, ptr %157
   %.not83.i = icmp eq ptr %.sroa.6.0, null
   %158 = load ptr, ptr @stdout, align 8
@@ -469,7 +469,7 @@ init.exit:                                        ; preds = %openFile.exit.i
 
 .lr.ph.i.i.i:                                     ; preds = %180, %.lr.ph.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %180 ]
-  %181 = getelementptr inbounds nuw i32, ptr %172, i64 %indvars.iv.i.i.i
+  %181 = getelementptr inbounds nuw [4 x i8], ptr %172, i64 %indvars.iv.i.i.i
   %182 = load i32, ptr %181, align 4, !tbaa !9
   %183 = icmp eq i32 %182, %.sroa.7123.0
   br i1 %183, label %validateCluster.exit.i.i, label %180

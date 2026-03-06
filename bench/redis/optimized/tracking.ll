@@ -195,7 +195,7 @@ define dso_local i32 @checkPrefixCollisionsOrReply(ptr noundef %0, ptr noundef r
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @raxStart(ptr noundef nonnull %4, ptr noundef nonnull %9) #9
   %11 = call i32 @raxSeek(ptr noundef nonnull %4, ptr noundef nonnull @.str, ptr noundef null, i64 noundef 0) #9
-  %12 = getelementptr inbounds nuw ptr, ptr %1, i64 %.04068
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.04068
   br label %13
 
 13:                                               ; preds = %sdslen.exit, %10
@@ -278,7 +278,7 @@ sdslen.exit:                                      ; preds = %15, %25, %28, %32, 
   br i1 %.not4566, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %49
-  %51 = getelementptr inbounds nuw ptr, ptr %1, i64 %.04068
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.04068
   %52 = load ptr, ptr %51, align 8, !tbaa !64
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %54 = load ptr, ptr %53, align 8, !tbaa !65
@@ -333,7 +333,7 @@ sdslen.exit:                                      ; preds = %15, %25, %28, %32, 
 
 sdslen.exit47:                                    ; preds = %67, %68, %69, %72, %75, %78
   %.0.i46 = phi i64 [ %79, %78 ], [ %64, %68 ], [ %71, %69 ], [ %74, %72 ], [ %77, %75 ], [ 0, %67 ]
-  %80 = getelementptr inbounds nuw ptr, ptr %1, i64 %.067
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.067
   %81 = load ptr, ptr %80, align 8, !tbaa !64
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %83 = load ptr, ptr %82, align 8, !tbaa !65
@@ -518,7 +518,7 @@ define dso_local void @enableTracking(ptr noundef initializes((672, 680)) %0, i6
 
 .lr.ph:                                           ; preds = %24, %sdslen.exit
   %.019 = phi i64 [ %54, %sdslen.exit ], [ 0, %24 ]
-  %28 = getelementptr inbounds nuw ptr, ptr %3, i64 %.019
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.019
   %29 = load ptr, ptr %28, align 8, !tbaa !64
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !65
@@ -627,11 +627,11 @@ define dso_local void @trackingRememberKeys(ptr noundef %0, ptr noundef readonly
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %93
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %93 ]
-  %27 = getelementptr inbounds nuw %struct.keyReference, ptr %25, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv
   %28 = load i32, ptr %27, align 4, !tbaa !87
   %29 = load ptr, ptr %13, align 8, !tbaa !77
   %30 = sext i32 %28 to i64
-  %31 = getelementptr inbounds ptr, ptr %29, i64 %30
+  %31 = getelementptr inbounds [8 x i8], ptr %29, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !64
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !65
@@ -1321,7 +1321,7 @@ define dso_local void @trackingHandlePendingKeyInvalidations() local_unnamed_add
   %41 = getelementptr inbounds nuw i8, ptr %13, i64 28
   %42 = load i32, ptr %41, align 4, !tbaa !91
   %43 = sext i32 %42 to i64
-  %44 = getelementptr inbounds ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 %43
+  %44 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 %43
   %45 = load ptr, ptr %44, align 8, !tbaa !64
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load ptr, ptr %46, align 8, !tbaa !65
@@ -1453,7 +1453,7 @@ define dso_local void @trackingInvalidateKeysOnFlush(i32 noundef %0) local_unnam
   %20 = getelementptr inbounds nuw i8, ptr %9, i64 28
   %21 = load i32, ptr %20, align 4, !tbaa !91
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !64
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8, !tbaa !65

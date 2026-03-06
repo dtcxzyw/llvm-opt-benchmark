@@ -7,8 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon = type { ptr }
 %union.anon.0 = type { ptr }
 %union.anon.2 = type { i64 }
-%struct.EqualizatorFilter = type { i32, i32, i32, double, double, double, [2 x %struct.FoSection] }
-%struct.FoSection = type { double, double, double, double, double, double, double, double, double, double, [4 x double], [4 x double] }
 
 @.str = private unnamed_addr constant [12 x i8] c"anequalizer\00", align 1
 @.str.1 = private unnamed_addr constant [56 x i8] c"Apply high-order audio parametric multi band equalizer.\00", align 1
@@ -180,7 +178,7 @@ define internal range(i32 -38, 1) i32 @process_command(ptr noundef %0, ptr nound
   %35 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %36 = load ptr, ptr %35, align 8, !tbaa !43
   %37 = zext nneg i32 %20 to i64
-  %38 = getelementptr inbounds nuw %struct.EqualizatorFilter, ptr %36, i64 %37
+  %38 = getelementptr inbounds nuw [328 x i8], ptr %36, i64 %37
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   store double %26, ptr %39, align 8, !tbaa !44
   %40 = load double, ptr %8, align 8, !tbaa !33
@@ -333,7 +331,7 @@ define internal range(i32 -22, 1) i32 @config_input(ptr noundef readonly capture
   %27 = load ptr, ptr %17, align 8, !tbaa !43
   %28 = load i32, ptr %18, align 4, !tbaa !28
   %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds %struct.EqualizatorFilter, ptr %27, i64 %29
+  %30 = getelementptr inbounds [328 x i8], ptr %27, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i32 0, ptr %31, align 8, !tbaa !61
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 4
@@ -348,7 +346,7 @@ define internal range(i32 -22, 1) i32 @config_input(ptr noundef readonly capture
   %38 = load ptr, ptr %17, align 8, !tbaa !43
   %39 = load i32, ptr %18, align 4, !tbaa !28
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds %struct.EqualizatorFilter, ptr %38, i64 %40
+  %41 = getelementptr inbounds [328 x i8], ptr %38, i64 %40
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 32
@@ -365,7 +363,7 @@ define internal range(i32 -22, 1) i32 @config_input(ptr noundef readonly capture
   %48 = load ptr, ptr %17, align 8, !tbaa !43
   %49 = load i32, ptr %18, align 4, !tbaa !28
   %50 = sext i32 %49 to i64
-  %51 = getelementptr inbounds %struct.EqualizatorFilter, ptr %48, i64 %50
+  %51 = getelementptr inbounds [328 x i8], ptr %48, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %53 = load double, ptr %52, align 8, !tbaa !44
   %54 = fcmp nsz olt double %53, 0.000000e+00
@@ -484,7 +482,7 @@ define internal noundef i32 @filter_channels(ptr noundef readonly captures(none)
 
 21:                                               ; preds = %.lr.ph35, %.loopexit
   %indvars.iv37 = phi i64 [ 0, %.lr.ph35 ], [ %indvars.iv.next38, %.loopexit ]
-  %22 = getelementptr inbounds nuw %struct.EqualizatorFilter, ptr %18, i64 %indvars.iv37
+  %22 = getelementptr inbounds nuw [328 x i8], ptr %18, i64 %indvars.iv37
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %24 = load double, ptr %23, align 8, !tbaa !47
   %25 = fcmp nsz oeq double %24, 0.000000e+00
@@ -506,7 +504,7 @@ define internal noundef i32 @filter_channels(ptr noundef readonly captures(none)
 32:                                               ; preds = %28
   %33 = load ptr, ptr %19, align 8, !tbaa !65
   %34 = sext i32 %30 to i64
-  %35 = getelementptr inbounds ptr, ptr %33, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %33, i64 %34
   %36 = load ptr, ptr %35, align 8, !tbaa !20
   %37 = load i32, ptr %20, align 8, !tbaa !59
   %38 = icmp sgt i32 %37, 0
@@ -519,7 +517,7 @@ define internal noundef i32 @filter_channels(ptr noundef readonly captures(none)
 
 40:                                               ; preds = %.lr.ph, %process_sample.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %process_sample.exit ]
-  %41 = getelementptr inbounds nuw double, ptr %36, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv
   %42 = load double, ptr %41, align 8, !tbaa !33
   br label %43
 
@@ -527,7 +525,7 @@ define internal noundef i32 @filter_channels(ptr noundef readonly captures(none)
   %44 = phi i1 [ true, %40 ], [ false, %43 ]
   %indvars.iv.i = phi i64 [ 0, %40 ], [ 1, %43 ]
   %.089.i = phi double [ %42, %40 ], [ %96, %43 ]
-  %45 = getelementptr inbounds nuw %struct.FoSection, ptr %39, i64 %indvars.iv.i
+  %45 = getelementptr inbounds nuw [144 x i8], ptr %39, i64 %indvars.iv.i
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %47 = load double, ptr %46, align 8, !tbaa !66
   %48 = fmul nsz double %.089.i, %47
@@ -730,7 +728,7 @@ butterworth_fo_section.exit.us.i:                 ; preds = %28, %butterworth_fo
   %75 = fmul nsz double %45, %74
   %76 = tail call nsz double @llvm.fmuladd.f64(double %45, double %45, double %75)
   %77 = fadd nsz double %76, 1.000000e+00
-  %78 = getelementptr %struct.FoSection, ptr %0, i64 %indvars.iv49.i
+  %78 = getelementptr [144 x i8], ptr %0, i64 %indvars.iv49.i
   %79 = getelementptr i8, ptr %78, i64 -104
   %80 = fmul nsz double %51, %73
   %81 = fmul nsz double %45, %80
@@ -780,7 +778,7 @@ butterworth_fo_section.exit.i:                    ; preds = %28, %butterworth_fo
   %110 = fmul nsz double %45, %109
   %111 = tail call nsz double @llvm.fmuladd.f64(double %45, double %45, double %110)
   %112 = fadd nsz double %111, 1.000000e+00
-  %113 = getelementptr %struct.FoSection, ptr %0, i64 %indvars.iv.i
+  %113 = getelementptr [144 x i8], ptr %0, i64 %indvars.iv.i
   %114 = getelementptr i8, ptr %113, i64 -104
   %115 = fmul nsz double %51, %108
   %116 = fmul nsz double %45, %115
@@ -928,7 +926,7 @@ chebyshev1_fo_section.exit.us.i:                  ; preds = %168, %chebyshev1_fo
   %221 = fmul nsz double %198, %220
   %222 = tail call nsz double @llvm.fmuladd.f64(double %219, double %198, double %221)
   %223 = fadd nsz double %222, 1.000000e+00
-  %224 = getelementptr %struct.FoSection, ptr %0, i64 %indvars.iv69.i
+  %224 = getelementptr [144 x i8], ptr %0, i64 %indvars.iv69.i
   %225 = getelementptr i8, ptr %224, i64 -104
   %226 = fmul nsz double %203, %216
   %227 = fmul nsz double %198, %226
@@ -987,7 +985,7 @@ chebyshev1_fo_section.exit.i:                     ; preds = %168, %chebyshev1_fo
   %265 = fmul nsz double %198, %264
   %266 = tail call nsz double @llvm.fmuladd.f64(double %263, double %198, double %265)
   %267 = fadd nsz double %266, 1.000000e+00
-  %268 = getelementptr %struct.FoSection, ptr %0, i64 %indvars.iv.i26
+  %268 = getelementptr [144 x i8], ptr %0, i64 %indvars.iv.i26
   %269 = getelementptr i8, ptr %268, i64 -104
   %270 = fmul nsz double %203, %260
   %271 = fmul nsz double %198, %270
@@ -1150,7 +1148,7 @@ chebyshev2_fo_section.exit.us.i:                  ; preds = %329, %chebyshev2_fo
   %393 = tail call nsz double @llvm.fmuladd.f64(double %358, double %358, double %392)
   %394 = tail call nsz double @llvm.fmuladd.f64(double %352, double %352, double %393)
   %395 = tail call nsz double @llvm.fmuladd.f64(double %389, double %389, double %394)
-  %396 = getelementptr %struct.FoSection, ptr %0, i64 %indvars.iv69.i35
+  %396 = getelementptr [144 x i8], ptr %0, i64 %indvars.iv69.i35
   %397 = getelementptr i8, ptr %396, i64 -104
   %398 = fmul nsz double %353, %389
   %399 = getelementptr i8, ptr %396, i64 -64
@@ -1211,7 +1209,7 @@ chebyshev2_fo_section.exit.i:                     ; preds = %329, %chebyshev2_fo
   %439 = tail call nsz double @llvm.fmuladd.f64(double %358, double %358, double %438)
   %440 = tail call nsz double @llvm.fmuladd.f64(double %352, double %352, double %439)
   %441 = tail call nsz double @llvm.fmuladd.f64(double %435, double %435, double %440)
-  %442 = getelementptr %struct.FoSection, ptr %0, i64 %indvars.iv.i32
+  %442 = getelementptr [144 x i8], ptr %0, i64 %indvars.iv.i32
   %443 = getelementptr i8, ptr %442, i64 -104
   %444 = fmul nsz double %353, %435
   %445 = getelementptr i8, ptr %442, i64 -64
@@ -1467,7 +1465,7 @@ define internal fastcc void @draw_curves(ptr noundef %0, ptr noundef readonly ca
 61:                                               ; preds = %.lr.ph, %.loopexit
   %indvars.iv159 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next160, %.loopexit ]
   %.0121144 = phi double [ 1.000000e+00, %.lr.ph ], [ %.1122, %.loopexit ]
-  %62 = getelementptr inbounds nuw %struct.EqualizatorFilter, ptr %53, i64 %indvars.iv159
+  %62 = getelementptr inbounds nuw [328 x i8], ptr %53, i64 %indvars.iv159
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 4
   %64 = load i32, ptr %63, align 4, !tbaa !63
   %.not136 = icmp eq i32 %64, %.0153
@@ -1486,7 +1484,7 @@ define internal fastcc void @draw_curves(ptr noundef %0, ptr noundef readonly ca
   %69 = phi i1 [ true, %.preheader ], [ false, %68 ]
   %indvars.iv = phi i64 [ 0, %.preheader ], [ 1, %68 ]
   %.2142 = phi double [ %.0121144, %.preheader ], [ %113, %68 ]
-  %70 = getelementptr inbounds nuw %struct.FoSection, ptr %67, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw [144 x i8], ptr %67, i64 %indvars.iv
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 72
   %72 = load double, ptr %71, align 8, !tbaa !74
   %73 = getelementptr inbounds nuw i8, ptr %70, i64 56

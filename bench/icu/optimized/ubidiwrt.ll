@@ -3,8 +3,6 @@ source_filename = "bench/icu/original/ubidiwrt.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.Run = type { i32, i32, i32 }
-
 ; Function Attrs: mustprogress uwtable
 define i32 @ubidi_writeReverse_77(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = icmp eq ptr %5, null
@@ -39,7 +37,7 @@ define i32 @ubidi_writeReverse_77(ptr noundef %0, i32 noundef %1, ptr noundef %2
 20:                                               ; preds = %19
   %.not46 = icmp uge ptr %0, %2
   %21 = zext nneg i32 %3 to i64
-  %22 = getelementptr inbounds nuw i16, ptr %2, i64 %21
+  %22 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %21
   %23 = icmp ult ptr %0, %22
   %or.cond50 = select i1 %.not46, i1 %23, i1 false
   br i1 %or.cond50, label %28, label %24
@@ -47,7 +45,7 @@ define i32 @ubidi_writeReverse_77(ptr noundef %0, i32 noundef %1, ptr noundef %2
 24:                                               ; preds = %20
   %.not47 = icmp uge ptr %2, %0
   %25 = sext i32 %1 to i64
-  %26 = getelementptr inbounds i16, ptr %0, i64 %25
+  %26 = getelementptr inbounds [2 x i8], ptr %0, i64 %25
   %27 = icmp ult ptr %2, %26
   %or.cond53 = select i1 %.not47, i1 %27, i1 false
   br i1 %or.cond53, label %28, label %29
@@ -103,7 +101,7 @@ define internal fastcc noundef i32 @_ZL14doWriteReversePKDsiPDsitP10UErrorCode(p
   %.0118 = phi i32 [ %.1119, %33 ], [ %1, %9 ]
   %11 = add nsw i32 %.0118, -1
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds i16, ptr %0, i64 %12
+  %13 = getelementptr inbounds [2 x i8], ptr %0, i64 %12
   %14 = load i16, ptr %13, align 2, !tbaa !7
   %15 = and i16 %14, -1024
   %16 = icmp eq i16 %15, -9216
@@ -113,7 +111,7 @@ define internal fastcc noundef i32 @_ZL14doWriteReversePKDsiPDsitP10UErrorCode(p
 
 18:                                               ; preds = %.preheader188
   %19 = zext nneg i32 %.0118 to i64
-  %20 = getelementptr i16, ptr %0, i64 %19
+  %20 = getelementptr [2 x i8], ptr %0, i64 %19
   %21 = getelementptr i8, ptr %20, i64 -4
   %22 = load i16, ptr %21, align 2, !tbaa !7
   %23 = and i16 %22, -1024
@@ -133,7 +131,7 @@ define internal fastcc noundef i32 @_ZL14doWriteReversePKDsiPDsitP10UErrorCode(p
   %indvars.iv202 = phi i64 [ %indvars.iv.next203, %28 ], [ %.pre-phi, %26 ]
   %.1122 = phi ptr [ %31, %28 ], [ %.0121, %26 ]
   %indvars.iv.next203 = add nsw i64 %indvars.iv202, 1
-  %29 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv202
+  %29 = getelementptr inbounds [2 x i8], ptr %0, i64 %indvars.iv202
   %30 = load i16, ptr %29, align 2, !tbaa !7
   %31 = getelementptr inbounds nuw i8, ptr %.1122, i64 2
   store i16 %30, ptr %.1122, align 2, !tbaa !7
@@ -157,7 +155,7 @@ define internal fastcc noundef i32 @_ZL14doWriteReversePKDsiPDsitP10UErrorCode(p
   %.3 = phi i32 [ %.2, %.preheader190 ], [ %.5176, %.thread ]
   %38 = add nsw i32 %.3, -1
   %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds i16, ptr %0, i64 %39
+  %40 = getelementptr inbounds [2 x i8], ptr %0, i64 %39
   %41 = load i16, ptr %40, align 2, !tbaa !7
   %42 = zext i16 %41 to i32
   %43 = and i32 %42, 64512
@@ -168,7 +166,7 @@ define internal fastcc noundef i32 @_ZL14doWriteReversePKDsiPDsitP10UErrorCode(p
 
 46:                                               ; preds = %37
   %47 = zext nneg i32 %.3 to i64
-  %48 = getelementptr i16, ptr %0, i64 %47
+  %48 = getelementptr [2 x i8], ptr %0, i64 %47
   %49 = getelementptr i8, ptr %48, i64 -4
   %50 = load i16, ptr %49, align 2, !tbaa !7
   %51 = zext i16 %50 to i32
@@ -211,7 +209,7 @@ define internal fastcc noundef i32 @_ZL14doWriteReversePKDsiPDsitP10UErrorCode(p
   %indvars.iv = phi i64 [ %indvars.iv.next, %69 ], [ %67, %.critedge ]
   %.3124 = phi ptr [ %72, %69 ], [ %.2123, %.critedge ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %70 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv
+  %70 = getelementptr inbounds [2 x i8], ptr %0, i64 %indvars.iv
   %71 = load i16, ptr %70, align 2, !tbaa !7
   %72 = getelementptr inbounds nuw i8, ptr %.3124, i64 2
   store i16 %71, ptr %.3124, align 2, !tbaa !7
@@ -249,7 +247,7 @@ define internal fastcc noundef i32 @_ZL14doWriteReversePKDsiPDsitP10UErrorCode(p
 88:                                               ; preds = %.preheader187
   %89 = sext i32 %1 to i64
   %90 = sub nsw i64 0, %89
-  %91 = getelementptr inbounds i16, ptr %77, i64 %90
+  %91 = getelementptr inbounds [2 x i8], ptr %77, i64 %90
   br label %92
 
 92:                                               ; preds = %75, %88
@@ -269,7 +267,7 @@ define internal fastcc noundef i32 @_ZL14doWriteReversePKDsiPDsitP10UErrorCode(p
   %.6 = phi i32 [ %.9, %.loopexit ], [ %1, %.preheader185 ]
   %97 = add nsw i32 %.6, -1
   %98 = sext i32 %97 to i64
-  %99 = getelementptr inbounds i16, ptr %.0117, i64 %98
+  %99 = getelementptr inbounds [2 x i8], ptr %.0117, i64 %98
   %100 = load i16, ptr %99, align 2, !tbaa !7
   %101 = zext i16 %100 to i32
   %102 = and i32 %101, 64512
@@ -280,7 +278,7 @@ define internal fastcc noundef i32 @_ZL14doWriteReversePKDsiPDsitP10UErrorCode(p
 
 105:                                              ; preds = %96
   %106 = zext nneg i32 %.6 to i64
-  %107 = getelementptr i16, ptr %.0117, i64 %106
+  %107 = getelementptr [2 x i8], ptr %.0117, i64 %106
   %108 = getelementptr i8, ptr %107, i64 -4
   %109 = load i16, ptr %108, align 2, !tbaa !7
   %110 = zext i16 %109 to i32
@@ -316,7 +314,7 @@ define internal fastcc noundef i32 @_ZL14doWriteReversePKDsiPDsitP10UErrorCode(p
 125:                                              ; preds = %.preheader
   %126 = add nsw i32 %.10, -1
   %127 = zext nneg i32 %126 to i64
-  %128 = getelementptr inbounds nuw i16, ptr %.0117, i64 %127
+  %128 = getelementptr inbounds nuw [2 x i8], ptr %.0117, i64 %127
   %129 = load i16, ptr %128, align 2, !tbaa !7
   %130 = zext i16 %129 to i32
   %131 = and i32 %130, 64512
@@ -329,7 +327,7 @@ define internal fastcc noundef i32 @_ZL14doWriteReversePKDsiPDsitP10UErrorCode(p
 
 135:                                              ; preds = %133
   %136 = zext nneg i32 %.10 to i64
-  %137 = getelementptr i16, ptr %.0117, i64 %136
+  %137 = getelementptr [2 x i8], ptr %.0117, i64 %136
   %138 = getelementptr i8, ptr %137, i64 -4
   %139 = load i16, ptr %138, align 2, !tbaa !7
   %140 = zext i16 %139 to i32
@@ -402,7 +400,7 @@ switch.early.test:                                ; preds = %149
   %.0 = phi i32 [ 1, %156 ], [ 2, %158 ]
   store i16 %.sink, ptr %.4125, align 2, !tbaa !7
   %167 = zext nneg i32 %.0 to i64
-  %168 = getelementptr inbounds nuw i16, ptr %.4125, i64 %167
+  %168 = getelementptr inbounds nuw [2 x i8], ptr %.4125, i64 %167
   %169 = add nsw i32 %.0, %.9
   br label %170
 
@@ -421,7 +419,7 @@ switch.early.test:                                ; preds = %149
   %indvars.iv205 = phi i64 [ %172, %.lr.ph.preheader ], [ %indvars.iv.next206, %.lr.ph ]
   %.7128195 = phi ptr [ %.6127, %.lr.ph.preheader ], [ %175, %.lr.ph ]
   %indvars.iv.next206 = add nsw i64 %indvars.iv205, 1
-  %173 = getelementptr inbounds i16, ptr %.0117, i64 %indvars.iv205
+  %173 = getelementptr inbounds [2 x i8], ptr %.0117, i64 %indvars.iv205
   %174 = load i16, ptr %173, align 2, !tbaa !7
   %175 = getelementptr inbounds nuw i8, ptr %.7128195, i64 2
   store i16 %174, ptr %.7128195, align 2, !tbaa !7
@@ -492,7 +490,7 @@ define i32 @ubidi_writeReordered_77(ptr noundef %0, ptr noundef %1, i32 noundef 
 27:                                               ; preds = %26
   %.not234 = icmp uge ptr %16, %1
   %28 = zext nneg i32 %2 to i64
-  %29 = getelementptr inbounds nuw i16, ptr %1, i64 %28
+  %29 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %28
   %30 = icmp ult ptr %16, %29
   %or.cond = select i1 %.not234, i1 %30, i1 false
   br i1 %or.cond, label %38, label %31
@@ -505,7 +503,7 @@ define i32 @ubidi_writeReordered_77(ptr noundef %0, ptr noundef %1, i32 noundef 
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %34 = load i32, ptr %33, align 8, !tbaa !35
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds i16, ptr %16, i64 %35
+  %36 = getelementptr inbounds [2 x i8], ptr %16, i64 %35
   %37 = icmp ult ptr %1, %36
   br i1 %37, label %38, label %39
 
@@ -571,7 +569,7 @@ define i32 @ubidi_writeReordered_77(ptr noundef %0, ptr noundef %1, i32 noundef 
   %66 = icmp eq i32 %65, 0
   %67 = load i32, ptr %6, align 4, !tbaa !38
   %68 = sext i32 %67 to i64
-  %69 = getelementptr inbounds i16, ptr %16, i64 %68
+  %69 = getelementptr inbounds [2 x i8], ptr %16, i64 %68
   %70 = load i32, ptr %7, align 4, !tbaa !38
   br i1 %66, label %71, label %73
 
@@ -588,7 +586,7 @@ define i32 @ubidi_writeReordered_77(ptr noundef %0, ptr noundef %1, i32 noundef 
   store i32 %storemerge, ptr %7, align 4, !tbaa !38
   %.not245 = icmp eq ptr %.0195321, null
   %76 = sext i32 %storemerge to i64
-  %77 = getelementptr inbounds i16, ptr %.0195321, i64 %76
+  %77 = getelementptr inbounds [2 x i8], ptr %.0195321, i64 %76
   %.1 = select i1 %.not245, ptr null, ptr %77
   %78 = sub nsw i32 %.0196320, %storemerge
   %79 = add nuw nsw i32 %.0218319, 1
@@ -616,9 +614,9 @@ define i32 @ubidi_writeReordered_77(ptr noundef %0, ptr noundef %1, i32 noundef 
   %89 = call i32 @ubidi_getVisualRun_77(ptr noundef nonnull %0, i32 noundef %88, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %90 = load i32, ptr %6, align 4, !tbaa !38
   %91 = sext i32 %90 to i64
-  %92 = getelementptr inbounds i16, ptr %16, i64 %91
+  %92 = getelementptr inbounds [2 x i8], ptr %16, i64 %91
   %93 = load ptr, ptr %84, align 8, !tbaa !41
-  %94 = getelementptr inbounds nuw %struct.Run, ptr %93, i64 %indvars.iv
+  %94 = getelementptr inbounds nuw [12 x i8], ptr %93, i64 %indvars.iv
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %96 = load i32, ptr %95, align 4, !tbaa !42
   %spec.store.select = call i32 @llvm.smax.i32(i32 %96, i32 0)
@@ -672,7 +670,7 @@ define i32 @ubidi_writeReordered_77(ptr noundef %0, ptr noundef %1, i32 noundef 
   store i32 %115, ptr %7, align 4, !tbaa !38
   %.not262 = icmp eq ptr %.3, null
   %116 = sext i32 %115 to i64
-  %117 = getelementptr inbounds i16, ptr %.3, i64 %116
+  %117 = getelementptr inbounds [2 x i8], ptr %.3, i64 %116
   %.5 = select i1 %.not262, ptr null, ptr %117
   %118 = sub nsw i32 %.2198, %115
   %119 = load i8, ptr %85, align 8, !tbaa !44
@@ -771,7 +769,7 @@ define i32 @ubidi_writeReordered_77(ptr noundef %0, ptr noundef %1, i32 noundef 
   store i32 %162, ptr %7, align 4, !tbaa !38
   %.not251 = icmp eq ptr %.7, null
   %163 = sext i32 %162 to i64
-  %164 = getelementptr inbounds i16, ptr %.7, i64 %163
+  %164 = getelementptr inbounds [2 x i8], ptr %.7, i64 %163
   %.9 = select i1 %.not251, ptr null, ptr %164
   %165 = sub nsw i32 %.3199, %162
   %166 = load i8, ptr %85, align 8, !tbaa !44
@@ -844,7 +842,7 @@ define i32 @ubidi_writeReordered_77(ptr noundef %0, ptr noundef %1, i32 noundef 
   %192 = icmp eq i32 %191, 0
   %193 = load i32, ptr %6, align 4, !tbaa !38
   %194 = sext i32 %193 to i64
-  %195 = getelementptr inbounds i16, ptr %16, i64 %194
+  %195 = getelementptr inbounds [2 x i8], ptr %16, i64 %194
   %196 = load i32, ptr %7, align 4, !tbaa !38
   br i1 %192, label %197, label %199
 
@@ -861,7 +859,7 @@ define i32 @ubidi_writeReordered_77(ptr noundef %0, ptr noundef %1, i32 noundef 
   store i32 %storemerge268, ptr %7, align 4, !tbaa !38
   %.not269 = icmp eq ptr %.12311, null
   %202 = sext i32 %storemerge268 to i64
-  %203 = getelementptr inbounds i16, ptr %.12311, i64 %202
+  %203 = getelementptr inbounds [2 x i8], ptr %.12311, i64 %202
   %.13 = select i1 %.not269, ptr null, ptr %203
   %204 = sub nsw i32 %.6202310, %storemerge268
   %205 = icmp samesign ugt i32 %.in324, 1
@@ -885,7 +883,7 @@ define i32 @ubidi_writeReordered_77(ptr noundef %0, ptr noundef %1, i32 noundef 
   %213 = call i32 @ubidi_getVisualRun_77(ptr noundef nonnull %0, i32 noundef %212, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %214 = load i32, ptr %6, align 4, !tbaa !38
   %215 = sext i32 %214 to i64
-  %216 = getelementptr inbounds i16, ptr %16, i64 %215
+  %216 = getelementptr inbounds [2 x i8], ptr %16, i64 %215
   %217 = icmp eq i32 %213, 0
   br i1 %217, label %218, label %246
 
@@ -920,7 +918,7 @@ define i32 @ubidi_writeReordered_77(ptr noundef %0, ptr noundef %1, i32 noundef 
   store i32 %232, ptr %7, align 4, !tbaa !38
   %.not274 = icmp eq ptr %.15, null
   %233 = sext i32 %232 to i64
-  %234 = getelementptr inbounds i16, ptr %.15, i64 %233
+  %234 = getelementptr inbounds [2 x i8], ptr %.15, i64 %233
   %.17 = select i1 %.not274, ptr null, ptr %234
   %235 = sub nsw i32 %.8204, %232
   %236 = load i32, ptr %6, align 4, !tbaa !38
@@ -975,7 +973,7 @@ define i32 @ubidi_writeReordered_77(ptr noundef %0, ptr noundef %1, i32 noundef 
   store i32 %260, ptr %7, align 4, !tbaa !38
   %.not271 = icmp eq ptr %.20, null
   %261 = sext i32 %260 to i64
-  %262 = getelementptr inbounds i16, ptr %.20, i64 %261
+  %262 = getelementptr inbounds [2 x i8], ptr %.20, i64 %261
   %.22 = select i1 %.not271, ptr null, ptr %262
   %263 = sub nsw i32 %.10206, %260
   %264 = icmp sgt i32 %260, 0
@@ -1075,7 +1073,7 @@ define internal fastcc noundef i32 @_ZL14doWriteForwardPKDsiPDsitP10UErrorCode(p
   %.0123 = phi i32 [ %.1124, %58 ], [ 0, %17 ]
   %20 = add nsw i32 %.0125, 1
   %21 = sext i32 %.0125 to i64
-  %22 = getelementptr inbounds i16, ptr %0, i64 %21
+  %22 = getelementptr inbounds [2 x i8], ptr %0, i64 %21
   %23 = load i16, ptr %22, align 2, !tbaa !7
   %24 = zext i16 %23 to i32
   %25 = and i32 %24, 64512
@@ -1086,7 +1084,7 @@ define internal fastcc noundef i32 @_ZL14doWriteForwardPKDsiPDsitP10UErrorCode(p
 
 27:                                               ; preds = %.preheader176
   %28 = sext i32 %20 to i64
-  %29 = getelementptr inbounds i16, ptr %0, i64 %28
+  %29 = getelementptr inbounds [2 x i8], ptr %0, i64 %28
   %30 = load i16, ptr %29, align 2, !tbaa !7
   %31 = zext i16 %30 to i32
   %32 = and i32 %31, 64512
@@ -1111,7 +1109,7 @@ define internal fastcc noundef i32 @_ZL14doWriteForwardPKDsiPDsitP10UErrorCode(p
   %43 = trunc nuw i32 %40 to i16
   %44 = add nsw i32 %.0123, 1
   %45 = sext i32 %.0123 to i64
-  %46 = getelementptr inbounds i16, ptr %2, i64 %45
+  %46 = getelementptr inbounds [2 x i8], ptr %2, i64 %45
   store i16 %43, ptr %46, align 2, !tbaa !7
   br label %58
 
@@ -1120,7 +1118,7 @@ define internal fastcc noundef i32 @_ZL14doWriteForwardPKDsiPDsitP10UErrorCode(p
   %49 = trunc i32 %48 to i16
   %50 = add i16 %49, -10304
   %51 = sext i32 %.0123 to i64
-  %52 = getelementptr inbounds i16, ptr %2, i64 %51
+  %52 = getelementptr inbounds [2 x i8], ptr %2, i64 %51
   store i16 %50, ptr %52, align 2, !tbaa !7
   %53 = trunc i32 %40 to i16
   %54 = and i16 %53, 1023
@@ -1242,7 +1240,7 @@ switch.early.test:                                ; preds = %.preheader179
   %.1103 = phi i32 [ %86, %.preheader181 ], [ %98, %95 ], [ %86, %89 ]
   %.1103.fr = freeze i32 %.1103
   %100 = zext nneg i32 %.1107 to i64
-  %101 = getelementptr inbounds nuw i16, ptr %.3119, i64 %100
+  %101 = getelementptr inbounds nuw [2 x i8], ptr %.3119, i64 %100
   %102 = sub nsw i32 %.2131, %.1107
   %103 = and i32 %.1103.fr, -4
   %104 = icmp eq i32 %103, 8204
@@ -1305,7 +1303,7 @@ switch.early.test166:                             ; preds = %99
   %126 = trunc nuw i32 %123 to i16
   %127 = add nsw i32 %.0104, 1
   %128 = sext i32 %.0104 to i64
-  %129 = getelementptr inbounds i16, ptr %2, i64 %128
+  %129 = getelementptr inbounds [2 x i8], ptr %2, i64 %128
   store i16 %126, ptr %129, align 2, !tbaa !7
   br label %141
 
@@ -1314,7 +1312,7 @@ switch.early.test166:                             ; preds = %99
   %132 = trunc i32 %131 to i16
   %133 = add i16 %132, -10304
   %134 = sext i32 %.0104 to i64
-  %135 = getelementptr inbounds i16, ptr %2, i64 %134
+  %135 = getelementptr inbounds [2 x i8], ptr %2, i64 %134
   store i16 %133, ptr %135, align 2, !tbaa !7
   %136 = trunc i32 %123 to i16
   %137 = and i16 %136, 1023

@@ -106,25 +106,10 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<grpc_core::EndpointAddresses, std::allocator<grpc_core::EndpointAddresses>>::_Vector_impl" = type { %"struct.std::_Vector_base<grpc_core::EndpointAddresses, std::allocator<grpc_core::EndpointAddresses>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<grpc_core::EndpointAddresses, std::allocator<grpc_core::EndpointAddresses>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.absl::lts_20240722::AlphaNum" = type { %"class.std::basic_string_view", [32 x i8] }
-%"struct.grpc_core::GlobalStatsCollector::Data" = type { %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"class.grpc_core::HistogramCollector_65536_26", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_80_10", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_80_10", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_65536_26", %"class.grpc_core::HistogramCollector_1800000_40", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_100000_20", %"class.grpc_core::HistogramCollector_100000_20", %"class.grpc_core::HistogramCollector_10000_20", %"class.grpc_core::HistogramCollector_10000_20", %"class.grpc_core::HistogramCollector_100000_20", %"class.grpc_core::HistogramCollector_100000_20", %"class.grpc_core::HistogramCollector_100000_20", %"class.grpc_core::HistogramCollector_10000_20", %"class.grpc_core::HistogramCollector_100_20", %"class.grpc_core::HistogramCollector_100_20", %"class.grpc_core::HistogramCollector_100_20", %"class.grpc_core::HistogramCollector_100_20", %"class.grpc_core::HistogramCollector_100_20", %"class.grpc_core::HistogramCollector_100_20", %"class.grpc_core::HistogramCollector_100_20", %"class.grpc_core::HistogramCollector_100_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20" }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i64 }
-%"class.grpc_core::HistogramCollector_80_10" = type { [10 x %"struct.std::atomic"] }
-%"class.grpc_core::HistogramCollector_65536_26" = type { [26 x %"struct.std::atomic"] }
-%"class.grpc_core::HistogramCollector_1800000_40" = type { [40 x %"struct.std::atomic"] }
-%"class.grpc_core::HistogramCollector_100000_20" = type { [20 x %"struct.std::atomic"] }
-%"class.grpc_core::HistogramCollector_10000_20" = type { [20 x %"struct.std::atomic"] }
-%"class.grpc_core::HistogramCollector_100_20" = type { [20 x %"struct.std::atomic"] }
-%"class.grpc_core::HistogramCollector_16777216_20" = type { [20 x %"struct.std::atomic"] }
 %"class.grpc_core::EndpointAddressSet" = type { %"class.std::set" }
 %"class.std::set" = type { %"class.std::_Rb_tree.189" }
 %"class.std::_Rb_tree.189" = type { %"struct.std::_Rb_tree<grpc_resolved_address, grpc_resolved_address, std::_Identity<grpc_resolved_address>, grpc_core::ResolvedAddressLessThan>::_Rb_tree_impl" }
 %"struct.std::_Rb_tree<grpc_resolved_address, grpc_resolved_address, std::_Identity<grpc_resolved_address>, grpc_core::ResolvedAddressLessThan>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
-%"class.grpc_core::EndpointAddresses" = type { %"class.std::vector.235", %"class.grpc_core::ChannelArgs" }
-%"class.std::vector.235" = type { %"struct.std::_Vector_base.236" }
-%"struct.std::_Vector_base.236" = type { %"struct.std::_Vector_base<grpc_resolved_address, std::allocator<grpc_resolved_address>>::_Vector_impl" }
-%"struct.std::_Vector_base<grpc_resolved_address, std::allocator<grpc_resolved_address>>::_Vector_impl" = type { %"struct.std::_Vector_base<grpc_resolved_address, std::allocator<grpc_resolved_address>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<grpc_resolved_address, std::allocator<grpc_resolved_address>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::unique_ptr.203" = type { %"struct.std::__uniq_ptr_data.204" }
 %"struct.std::__uniq_ptr_data.204" = type { %"class.std::__uniq_ptr_impl.205" }
 %"class.std::__uniq_ptr_impl.205" = type { %"class.std::tuple.206" }
@@ -137,8 +122,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.absl::lts_20240722::uniform_int_distribution<unsigned long>::param_type" = type { i64, i64 }
 %"class.grpc_core::RefCountedPtr.219" = type { ptr }
 %"class.grpc_core::RefCountedPtr.295" = type { ptr }
-%"struct.grpc_core::(anonymous namespace)::WeightedRoundRobin::Picker::EndpointInfo" = type { %"class.grpc_core::RefCountedPtr.219", %"class.grpc_core::RefCountedPtr.279" }
-%"class.grpc_core::RefCountedPtr.279" = type { ptr }
 %"class.grpc_core::RefCountedPtr.280" = type { ptr }
 %"class.std::unique_ptr.453" = type { %"struct.std::__uniq_ptr_data.454" }
 %"struct.std::__uniq_ptr_data.454" = type { %"class.std::__uniq_ptr_impl.455" }
@@ -224,12 +207,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"union.std::_Optional_payload_base<grpc_core::Timestamp>::_Storage" = type { %"class.grpc_core::Timestamp" }
 %"struct.grpc_core::LoadBalancingPolicy::SubchannelCallTrackerInterface::FinishArgs" = type { %"class.std::basic_string_view", %"class.absl::lts_20240722::Status", ptr, ptr }
 %class.anon.447 = type { i8 }
-%"struct.std::pair.450" = type { %"class.std::basic_string_view", %"class.grpc_event_engine::experimental::Slice" }
-%"class.grpc_event_engine::experimental::Slice" = type { %"class.grpc_event_engine::experimental::slice_detail::BaseSlice" }
-%"class.grpc_event_engine::experimental::slice_detail::BaseSlice" = type { %struct.grpc_slice }
-%struct.grpc_slice = type { ptr, %"union.grpc_slice::grpc_slice_data" }
-%"union.grpc_slice::grpc_slice_data" = type { %"struct.grpc_slice::grpc_slice_data::grpc_slice_refcounted", [8 x i8] }
-%"struct.grpc_slice::grpc_slice_data::grpc_slice_refcounted" = type { i64, ptr }
 %"class.grpc_core::GlobalInstrumentsRegistry::RegistrationBuilder.4" = type { %"class.std::basic_string_view", %"class.std::basic_string_view", %"class.std::basic_string_view", i8, %"struct.std::array", %"struct.std::array" }
 %"class.grpc_core::GlobalInstrumentsRegistry::RegistrationBuilder" = type { %"class.std::basic_string_view", %"class.std::basic_string_view", %"class.std::basic_string_view", i8, %"struct.std::array", %"struct.std::array" }
 
@@ -948,7 +925,7 @@ _ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds = %2
 _ZNSt6vectorIPFvPvESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %30, %_ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %25, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, align 8, !tbaa !21
   store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 8), align 8, !tbaa !18
-  %31 = getelementptr inbounds nuw ptr, ptr %25, i64 %23
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %23
   store ptr %31, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 16), align 8, !tbaa !22
   br label %_ZNSt6vectorIPFvPvESaIS2_EE9push_backERKS2_.exit
 
@@ -1592,7 +1569,7 @@ _ZNOSt8optionalISt17basic_string_viewIcSt11char_traitsIcEEE8value_orIRA1_KcEES3_
   %86 = load i64, ptr %74, align 8, !tbaa !137, !noalias !69
   %87 = add i64 %86, 1
   store i64 %87, ptr %74, align 8, !tbaa !137, !noalias !69
-  %88 = getelementptr inbounds nuw i64, ptr %73, i64 %86
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %86
   %89 = load i64, ptr %88, align 8, !tbaa !46, !noalias !69
   %.0.i.i.i.i.i.i.i.i = trunc i64 %89 to i32
   %90 = getelementptr inbounds nuw i8, ptr %11, i64 448
@@ -3888,9 +3865,9 @@ define linkonce_odr void @_ZN4absl12lts_2024072215random_internal13randen_engine
   %.022.i.i = phi i64 [ 60, %2 ], [ %26, %9 ]
   %10 = add nsw i64 %.022.i.i, -4
   %11 = lshr exact i64 %10, 1
-  %12 = getelementptr i32, ptr %3, i64 %.022.i.i
+  %12 = getelementptr [4 x i8], ptr %3, i64 %.022.i.i
   %13 = getelementptr i8, ptr %12, i64 -20
-  %14 = getelementptr i32, ptr %3, i64 %11
+  %14 = getelementptr [4 x i8], ptr %3, i64 %11
   %15 = getelementptr i8, ptr %14, i64 -4
   %16 = load i32, ptr %13, align 4, !tbaa !84
   %17 = load i32, ptr %15, align 4, !tbaa !84
@@ -3909,7 +3886,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072215random_internal13randen_engine
   store i32 %25, ptr %22, align 4, !tbaa !84
   store i32 %24, ptr %23, align 4, !tbaa !84
   %26 = add nsw i64 %.022.i.i, -8
-  %27 = getelementptr inbounds nuw i32, ptr %3, i64 %26
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %26
   %28 = getelementptr i8, ptr %14, i64 -16
   %29 = load i32, ptr %27, align 16, !tbaa !84
   %30 = load i32, ptr %28, align 8, !tbaa !84
@@ -4383,7 +4360,7 @@ _ZN9grpc_core20PerCpuShardingHelper15GetShardingBitsEv.exit: ; preds = %_ZTWN9gr
   %22 = load i64, ptr %21, align 8, !tbaa !24
   %23 = urem i64 %20, %22
   %24 = load ptr, ptr %18, align 8, !tbaa !35
-  %25 = getelementptr inbounds nuw %"struct.grpc_core::GlobalStatsCollector::Data", ptr %24, i64 %23
+  %25 = getelementptr inbounds nuw [6632 x i8], ptr %24, i64 %23
   ret ptr %25
 }
 
@@ -4972,7 +4949,7 @@ _ZNSt12_Vector_baseIN9grpc_core17EndpointAddressesESaIS1_EE11_M_allocateEm.exit:
   %9 = shl nuw nsw i64 %6, 5
   %10 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #38
   store ptr %10, ptr %0, align 8, !tbaa !192
-  %11 = getelementptr inbounds nuw %"class.grpc_core::EndpointAddresses", ptr %10, i64 %6
+  %11 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 %6
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %11, ptr %12, align 8, !tbaa !195
   br label %.lr.ph.i.i.i.i
@@ -7696,7 +7673,7 @@ _ZNSt6vectorIN9grpc_core12_GLOBAL__N_118WeightedRoundRobin6Picker12EndpointInfoE
 _ZNSt6vectorIN9grpc_core12_GLOBAL__N_118WeightedRoundRobin6Picker12EndpointInfoESaIS4_EE17_M_realloc_insertIJNS0_13RefCountedPtrINS0_19LoadBalancingPolicy16SubchannelPickerEEENS8_INS2_14EndpointWeightEEEEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i.i.i: ; preds = %348, %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_118WeightedRoundRobin6Picker12EndpointInfoESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit37.i.i.i.i.i
   store ptr %338, ptr %284, align 8, !tbaa !381, !noalias !359
   store ptr %347, ptr %297, align 8, !tbaa !377, !noalias !359
-  %349 = getelementptr inbounds nuw %"struct.grpc_core::(anonymous namespace)::WeightedRoundRobin::Picker::EndpointInfo", ptr %338, i64 %336
+  %349 = getelementptr inbounds nuw [16 x i8], ptr %338, i64 %336
   store ptr %349, ptr %298, align 8, !tbaa !380, !noalias !359
   br label %_ZN9grpc_core13RefCountedPtrINS_19LoadBalancingPolicy16SubchannelPickerEED2Ev.exit.i.i.i
 
@@ -7749,7 +7726,7 @@ _ZN9grpc_core13RefCountedPtrINS_19LoadBalancingPolicy16SubchannelPickerEED2Ev.ex
 362:                                              ; preds = %.noexc53.i.i.i
   %363 = getelementptr inbounds nuw i8, ptr %355, i64 3432
   %364 = sext i32 %361 to i64
-  %365 = getelementptr inbounds %"struct.std::atomic", ptr %363, i64 %364
+  %365 = getelementptr inbounds [8 x i8], ptr %363, i64 %364
   %366 = atomicrmw add ptr %365, i64 1 monotonic, align 8, !noalias !359
   %.val42.i.i.i = load ptr, ptr %284, align 8, !tbaa !381, !noalias !359
   %367 = getelementptr inbounds nuw i8, ptr %274, i64 40
@@ -7769,7 +7746,7 @@ _ZN9grpc_core13RefCountedPtrINS_19LoadBalancingPolicy16SubchannelPickerEED2Ev.ex
 375:                                              ; preds = %.noexc55.i.i.i
   %376 = getelementptr inbounds nuw i8, ptr %368, i64 3592
   %377 = sext i32 %374 to i64
-  %378 = getelementptr inbounds %"struct.std::atomic", ptr %376, i64 %377
+  %378 = getelementptr inbounds [8 x i8], ptr %376, i64 %377
   %379 = atomicrmw add ptr %378, i64 1 monotonic, align 8, !noalias !359
   %380 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN9grpc_core29weighted_round_robin_lb_traceE, i64 16) monotonic, align 8, !noalias !359
   %381 = trunc i8 %380 to i1
@@ -9138,7 +9115,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %69
   store ptr %22, ptr %0, align 8, !tbaa !161
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !162
-  %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %73, ptr %68, align 8, !tbaa !165
   ret void
 }
@@ -9719,7 +9696,7 @@ _ZN9grpc_core9Timestamp3NowEv.exit:               ; preds = %1, %46
 .lr.ph:                                           ; preds = %59
   %60 = ashr exact i64 %56, 2
   %61 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %60) #38
-  %62 = getelementptr inbounds nuw float, ptr %61, i64 %57
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %57
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %64 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %65 = getelementptr inbounds nuw i8, ptr %23, i64 16
@@ -10354,7 +10331,7 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i: ; preds = %273, %.noe
   br label %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i
 
 _ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i: ; preds = %274, %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i
-  %275 = getelementptr inbounds nuw float, ptr %270, i64 %268
+  %275 = getelementptr inbounds nuw [4 x i8], ptr %270, i64 %268
   br label %_ZNSt6vectorIfSaIfEE9push_backERKf.exit
 
 _ZNSt6vectorIfSaIfEE9push_backERKf.exit:          ; preds = %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i, %257
@@ -12071,7 +12048,7 @@ _ZN9grpc_core12_GLOBAL__N_118WeightedRoundRobin6Picker9PickIndexEv.exit: ; preds
   unreachable
 
 .critedge:                                        ; preds = %_ZN9grpc_core12_GLOBAL__N_118WeightedRoundRobin6Picker9PickIndexEv.exit
-  %93 = getelementptr inbounds nuw %"struct.grpc_core::(anonymous namespace)::WeightedRoundRobin::Picker::EndpointInfo", ptr %.val41, i64 %.04.i
+  %93 = getelementptr inbounds nuw [16 x i8], ptr %.val41, i64 %.04.i
   %94 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN9grpc_core29weighted_round_robin_lb_traceE, i64 16) monotonic, align 8
   %95 = trunc i8 %94 to i1
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -12253,7 +12230,7 @@ _ZN4absl12lts_2024072215random_internal15FastUniformBitsImEclINS1_17NonsecureURB
   %18 = load i64, ptr %7, align 8, !tbaa !137
   %19 = add i64 %18, 1
   store i64 %19, ptr %7, align 8, !tbaa !137
-  %20 = getelementptr inbounds nuw i64, ptr %6, i64 %18
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %18
   %21 = load i64, ptr %20, align 8, !tbaa !46
   %22 = add i64 %.sroa.2.0.copyload.i, 1
   %23 = and i64 %22, %.sroa.2.0.copyload.i
@@ -12331,7 +12308,7 @@ _ZN4absl12lts_2024072215random_internal15FastUniformBitsImE8GenerateINS1_17Nonse
   %17 = load i64, ptr %6, align 8, !tbaa !137
   %18 = add i64 %17, 1
   store i64 %18, ptr %6, align 8, !tbaa !137
-  %19 = getelementptr inbounds nuw i64, ptr %5, i64 %17
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %17
   %20 = load i64, ptr %19, align 8, !tbaa !46
   ret i64 %20
 }
@@ -14244,7 +14221,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072223inlined_vector_internal7Storag
 .lr.ph.i:                                         ; preds = %1, %.lr.ph.i
   %.06.i = phi i64 [ %8, %.lr.ph.i ], [ %7, %1 ]
   %8 = add nsw i64 %.06.i, -1
-  %9 = getelementptr inbounds nuw %"struct.std::pair.450", ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw [48 x i8], ptr %6, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   tail call void @_ZN17grpc_event_engine12experimental5SliceD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #39
   %.not.i = icmp eq i64 %8, 0

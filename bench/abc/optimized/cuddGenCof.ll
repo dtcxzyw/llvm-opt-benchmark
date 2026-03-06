@@ -71,13 +71,13 @@ define ptr @cuddBddConstrainRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %33 = load ptr, ptr %32, align 8, !tbaa !28
   %34 = load i32, ptr %.0113, align 8, !tbaa !27
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds nuw i32, ptr %33, i64 %35
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %35
   %37 = load i32, ptr %36, align 4, !tbaa !29
   %38 = and i64 %21, -2
   %39 = inttoptr i64 %38 to ptr
   %40 = load i32, ptr %39, align 8, !tbaa !27
   %41 = zext i32 %40 to i64
-  %42 = getelementptr inbounds nuw i32, ptr %33, i64 %41
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %41
   %43 = load i32, ptr %42, align 4, !tbaa !29
   %.not138 = icmp ugt i32 %37, %43
   br i1 %.not138, label %49, label %44
@@ -469,13 +469,13 @@ define ptr @cuddBddRestrictRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %33 = load ptr, ptr %32, align 8, !tbaa !28
   %34 = load i32, ptr %.0139, align 8, !tbaa !27
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds nuw i32, ptr %33, i64 %35
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %35
   %37 = load i32, ptr %36, align 4, !tbaa !29
   %38 = and i64 %21, -2
   %39 = inttoptr i64 %38 to ptr
   %40 = load i32, ptr %39, align 8, !tbaa !27
   %41 = zext i32 %40 to i64
-  %42 = getelementptr inbounds nuw i32, ptr %33, i64 %41
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %41
   %43 = load i32, ptr %42, align 4, !tbaa !29
   %44 = icmp ult i32 %43, %37
   br i1 %44, label %45, label %89
@@ -799,11 +799,11 @@ define ptr @cuddBddNPAndRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
   %35 = load ptr, ptr %34, align 8, !tbaa !28
   %36 = load i32, ptr %8, align 8, !tbaa !27
   %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds nuw i32, ptr %35, i64 %37
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %37
   %39 = load i32, ptr %38, align 4, !tbaa !29
   %40 = load i32, ptr %11, align 8, !tbaa !27
   %41 = zext i32 %40 to i64
-  %42 = getelementptr inbounds nuw i32, ptr %35, i64 %41
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %41
   %43 = load i32, ptr %42, align 4, !tbaa !29
   %44 = icmp ult i32 %43, %39
   br i1 %44, label %45, label %87
@@ -1059,11 +1059,11 @@ tailrecurse:                                      ; preds = %54, %3
   %23 = load ptr, ptr %6, align 8, !tbaa !28
   %24 = load i32, ptr %.tr102, align 8, !tbaa !27
   %25 = zext i32 %24 to i64
-  %26 = getelementptr inbounds nuw i32, ptr %23, i64 %25
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %25
   %27 = load i32, ptr %26, align 4, !tbaa !29
   %28 = load i32, ptr %.tr103, align 8, !tbaa !27
   %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds nuw i32, ptr %23, i64 %29
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %29
   %31 = load i32, ptr %30, align 4, !tbaa !29
   %.not100 = icmp ugt i32 %27, %31
   br i1 %.not100, label %37, label %32
@@ -1224,7 +1224,7 @@ define noalias noundef ptr @Cudd_bddConstrainDecomp(ptr noundef %0, ptr noundef 
 .lr.ph44:                                         ; preds = %15, %22
   %18 = phi i32 [ %23, %22 ], [ %16, %15 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %22 ], [ 0, %15 ]
-  %19 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8, !tbaa !32
   %.not = icmp eq ptr %20, null
   br i1 %.not, label %22, label %21
@@ -1268,7 +1268,7 @@ define noalias noundef ptr @Cudd_bddConstrainDecomp(ptr noundef %0, ptr noundef 
 
 35:                                               ; preds = %.lr.ph46, %47
   %indvars.iv49 = phi i64 [ 0, %.lr.ph46 ], [ %indvars.iv.next50, %47 ]
-  %36 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv49
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv49
   %37 = load ptr, ptr %36, align 8, !tbaa !32
   %38 = icmp eq ptr %37, null
   br i1 %38, label %39, label %47
@@ -1354,7 +1354,7 @@ define internal fastcc range(i32 0, 2) i32 @cuddBddConstrainDecomp(ptr noundef %
   store i32 %43, ptr %41, align 4, !tbaa !31
   %44 = load i32, ptr %6, align 8, !tbaa !27
   %45 = zext i32 %44 to i64
-  %46 = getelementptr inbounds nuw ptr, ptr %2, i64 %45
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %45
   store ptr %35, ptr %46, align 8, !tbaa !32
   br label %.sink.split
 
@@ -1505,11 +1505,11 @@ tailrecurse:                                      ; preds = %81, %3
   %23 = load ptr, ptr %6, align 8, !tbaa !28
   %24 = load i32, ptr %.tr121, align 8, !tbaa !27
   %25 = zext i32 %24 to i64
-  %26 = getelementptr inbounds nuw i32, ptr %23, i64 %25
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %25
   %27 = load i32, ptr %26, align 4, !tbaa !29
   %28 = load i32, ptr %.tr122, align 8, !tbaa !27
   %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds nuw i32, ptr %23, i64 %29
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %29
   %31 = load i32, ptr %30, align 4, !tbaa !29
   %32 = icmp ult i32 %31, %27
   br i1 %32, label %33, label %59
@@ -1707,10 +1707,10 @@ define noalias noundef ptr @Cudd_bddCharToVect(ptr noundef %0, ptr noundef %1) l
   %indvars.iv54 = phi i32 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next55, %37 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %37 ]
   %23 = load ptr, ptr %17, align 8, !tbaa !44
-  %24 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv
   %25 = load i32, ptr %24, align 4, !tbaa !29
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds ptr, ptr %23, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %23, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !32
   %29 = tail call ptr @cuddBddCharToVect(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %28)
   %30 = icmp eq ptr %29, null
@@ -1727,10 +1727,10 @@ define noalias noundef ptr @Cudd_bddCharToVect(ptr noundef %0, ptr noundef %1) l
 .lr.ph47:                                         ; preds = %.lr.ph47.preheader, %.lr.ph47
   %indvars.iv51 = phi i64 [ 0, %.lr.ph47.preheader ], [ %indvars.iv.next52, %.lr.ph47 ]
   %31 = load ptr, ptr %18, align 8, !tbaa !43
-  %32 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv51
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv51
   %33 = load i32, ptr %32, align 4, !tbaa !29
   %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds ptr, ptr %14, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %14, i64 %34
   %36 = load ptr, ptr %35, align 8, !tbaa !32
   tail call void @Cudd_IterDerefBdd(ptr noundef nonnull %0, ptr noundef %36) #9
   %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
@@ -1746,10 +1746,10 @@ define noalias noundef ptr @Cudd_bddCharToVect(ptr noundef %0, ptr noundef %1) l
   %43 = add i32 %42, 1
   store i32 %43, ptr %41, align 4, !tbaa !31
   %44 = load ptr, ptr %18, align 8, !tbaa !43
-  %45 = getelementptr inbounds nuw i32, ptr %44, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %indvars.iv
   %46 = load i32, ptr %45, align 4, !tbaa !29
   %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds ptr, ptr %14, i64 %47
+  %48 = getelementptr inbounds [8 x i8], ptr %14, i64 %47
   store ptr %29, ptr %48, align 8, !tbaa !32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %49 = load i32, ptr %10, align 8, !tbaa !37
@@ -1814,7 +1814,7 @@ define internal ptr @cuddBddCharToVect(ptr noundef %0, ptr noundef %1, ptr nound
 
 13:                                               ; preds = %7
   %14 = zext i32 %11 to i64
-  %15 = getelementptr inbounds nuw i32, ptr %.pre, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %.pre, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !29
   br label %17
 
@@ -1822,7 +1822,7 @@ define internal ptr @cuddBddCharToVect(ptr noundef %0, ptr noundef %1, ptr nound
   %18 = phi i32 [ %16, %13 ], [ 2147483647, %7 ]
   %19 = load i32, ptr %2, align 8, !tbaa !27
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds nuw i32, ptr %.pre, i64 %20
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %.pre, i64 %20
   %22 = load i32, ptr %21, align 4, !tbaa !29
   %23 = icmp ugt i32 %18, %22
   br i1 %23, label %.loopexit, label %24
@@ -1903,7 +1903,7 @@ tailrecurse.backedge:                             ; preds = %46, %49
   %72 = load ptr, ptr %71, align 8, !tbaa !44
   %73 = load i32, ptr %10, align 8, !tbaa !27
   %74 = zext i32 %73 to i64
-  %75 = getelementptr inbounds nuw ptr, ptr %72, i64 %74
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %74
   %76 = load ptr, ptr %75, align 8, !tbaa !32
   %77 = tail call ptr @cuddBddIteRecur(ptr noundef nonnull %0, ptr noundef %76, ptr noundef nonnull %52, ptr noundef nonnull %61) #9
   %78 = icmp eq ptr %77, null
@@ -2099,14 +2099,14 @@ define internal fastcc ptr @cuddBddSqueeze(ptr noundef %0, ptr noundef %1, ptr n
   %28 = load ptr, ptr %27, align 8, !tbaa !28
   %29 = load i32, ptr %.0198, align 8, !tbaa !27
   %30 = zext i32 %29 to i64
-  %31 = getelementptr inbounds nuw i32, ptr %28, i64 %30
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %30
   %32 = load i32, ptr %31, align 4, !tbaa !29
   %33 = ptrtoint ptr %.0197 to i64
   %34 = and i64 %33, -2
   %35 = inttoptr i64 %34 to ptr
   %36 = load i32, ptr %35, align 8, !tbaa !27
   %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds nuw i32, ptr %28, i64 %37
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %37
   %39 = load i32, ptr %38, align 4, !tbaa !29
   %.not227 = icmp ugt i32 %32, %39
   br i1 %.not227, label %45, label %40
@@ -2741,7 +2741,7 @@ define internal fastcc i32 @cuddBddLICMarkEdges(ptr noundef %0, ptr noundef %1, 
   %37 = load ptr, ptr %36, align 8, !tbaa !28
   %38 = load i32, ptr %23, align 8, !tbaa !27
   %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds nuw i32, ptr %37, i64 %39
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %39
   %41 = load i32, ptr %40, align 4, !tbaa !29
   %42 = ptrtoint ptr %2 to i64
   %43 = and i64 %42, -2
@@ -2752,7 +2752,7 @@ define internal fastcc i32 @cuddBddLICMarkEdges(ptr noundef %0, ptr noundef %1, 
 
 47:                                               ; preds = %35
   %48 = zext i32 %45 to i64
-  %49 = getelementptr inbounds nuw i32, ptr %37, i64 %48
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %48
   %50 = load i32, ptr %49, align 4, !tbaa !29
   br label %51
 

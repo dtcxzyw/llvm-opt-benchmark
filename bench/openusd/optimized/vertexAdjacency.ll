@@ -224,7 +224,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %40
 .noexc80:                                         ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
   %44 = shl nuw nsw i64 %42, 2
   %45 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %44) #10
-  %46 = getelementptr inbounds nuw i32, ptr %45, i64 %42
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %42
   store i32 0, ptr %45, align 4
   %47 = add nsw i64 %42, -1
   %48 = icmp eq i64 %47, 0
@@ -252,7 +252,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %indvars.iv137 = phi i64 [ 0, %.lr.ph119.preheader ], [ %indvars.iv.next138, %._crit_edge ]
   %.0118 = phi i64 [ %51, %.lr.ph119.preheader ], [ %79, %._crit_edge ]
   %.066117 = phi i32 [ 0, %.lr.ph119.preheader ], [ %.1.lcssa, %._crit_edge ]
-  %53 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv137
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv137
   %54 = load i32, ptr %53, align 4
   %55 = icmp sgt i32 %54, 0
   br i1 %55, label %.lr.ph.preheader, label %._crit_edge
@@ -264,7 +264,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %70
   %indvars.iv = phi i64 [ %56, %.lr.ph.preheader ], [ %indvars.iv.next, %70 ]
   %.072114 = phi i32 [ 0, %.lr.ph.preheader ], [ %75, %70 ]
-  %57 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv
+  %57 = getelementptr inbounds [4 x i8], ptr %8, i64 %indvars.iv
   %58 = load i32, ptr %57, align 4
   %or.cond79 = icmp ult i32 %58, %41
   br i1 %or.cond79, label %70, label %59
@@ -318,7 +318,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
 70:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %71 = zext nneg i32 %58 to i64
-  %72 = getelementptr inbounds nuw i32, ptr %.sroa.0.0, i64 %71
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0.0, i64 %71
   %73 = load i32, ptr %72, align 4
   %74 = add nsw i32 %73, 1
   store i32 %74, ptr %72, align 4
@@ -480,7 +480,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_28HdPerfTokens_StaticTok
 
 128:                                              ; preds = %.lr.ph125
   store i32 %.071122, ptr %127, align 4
-  %129 = getelementptr inbounds nuw i32, ptr %.sroa.0.0, i64 %indvars.iv141
+  %129 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0.0, i64 %indvars.iv141
   %130 = load i32, ptr %129, align 4
   %131 = shl nsw i32 %130, 1
   %132 = add nsw i32 %131, %.071122
@@ -493,7 +493,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_28HdPerfTokens_StaticTok
 .lr.ph132:                                        ; preds = %.lr.ph132.preheader, %._crit_edge129
   %indvars.iv149 = phi i64 [ 0, %.lr.ph132.preheader ], [ %indvars.iv.next150, %._crit_edge129 ]
   %.2131 = phi i32 [ 0, %.lr.ph132.preheader ], [ %177, %._crit_edge129 ]
-  %136 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv149
+  %136 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv149
   %137 = load i32, ptr %136, align 4
   %138 = icmp sgt i32 %137, 0
   br i1 %138, label %.lr.ph128, label %._crit_edge129
@@ -502,7 +502,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_28HdPerfTokens_StaticTok
   %139 = add nsw i32 %137, -1
   %140 = sext i32 %.2131 to i64
   %141 = zext nneg i32 %137 to i64
-  %invariant.gep = getelementptr i32, ptr %8, i64 %140
+  %invariant.gep = getelementptr [4 x i8], ptr %8, i64 %140
   br label %142
 
 142:                                              ; preds = %.lr.ph128, %176
@@ -512,9 +512,9 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_28HdPerfTokens_StaticTok
   %145 = srem i32 %144, %137
   %146 = add nsw i32 %145, %.2131
   %147 = sext i32 %146 to i64
-  %148 = getelementptr inbounds i32, ptr %8, i64 %147
+  %148 = getelementptr inbounds [4 x i8], ptr %8, i64 %147
   %149 = load i32, ptr %148, align 4
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv144
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %indvars.iv144
   %150 = load i32, ptr %gep, align 4
   %indvars.iv.next145 = add nuw nsw i64 %indvars.iv144, 1
   %151 = icmp eq i64 %indvars.iv.next145, %141
@@ -522,7 +522,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_28HdPerfTokens_StaticTok
   %iv.rem = select i1 %151, i32 0, i32 %152
   %153 = add nsw i32 %iv.rem, %.2131
   %154 = sext i32 %153 to i64
-  %155 = getelementptr inbounds i32, ptr %8, i64 %154
+  %155 = getelementptr inbounds [4 x i8], ptr %8, i64 %154
   %156 = load i32, ptr %155, align 4
   %spec.select = select i1 %31, i32 %156, i32 %149
   %spec.select107 = select i1 %31, i32 %149, i32 %156

@@ -101,7 +101,7 @@ define internal fastcc noundef i32 @_ZL16fastlz1_compressPKviPv(ptr noundef %0, 
   %42 = xor i32 %41, %34
   %43 = and i32 %42, 8191
   %44 = zext nneg i32 %43 to i64
-  %45 = getelementptr inbounds nuw ptr, ptr %4, i64 %44
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %44
   %46 = load ptr, ptr %45, align 8, !tbaa !12
   %47 = ptrtoint ptr %.1160202 to i64
   %48 = ptrtoint ptr %46 to i64
@@ -335,7 +335,7 @@ define internal fastcc noundef i32 @_ZL16fastlz1_compressPKviPv(ptr noundef %0, 
   %175 = xor i32 %174, %167
   %176 = and i32 %175, 8191
   %177 = zext nneg i32 %176 to i64
-  %178 = getelementptr inbounds nuw ptr, ptr %4, i64 %177
+  %178 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %177
   store ptr %128, ptr %178, align 8, !tbaa !12
   %179 = load i8, ptr %163, align 1, !tbaa !7
   %180 = zext i8 %179 to i32
@@ -352,7 +352,7 @@ define internal fastcc noundef i32 @_ZL16fastlz1_compressPKviPv(ptr noundef %0, 
   %191 = xor i32 %190, %184
   %192 = and i32 %191, 8191
   %193 = zext nneg i32 %192 to i64
-  %194 = getelementptr inbounds nuw ptr, ptr %4, i64 %193
+  %194 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %193
   store ptr %163, ptr %194, align 8, !tbaa !12
   %195 = getelementptr inbounds nuw i8, ptr %.5, i64 1
   store i8 31, ptr %.5, align 1, !tbaa !7
@@ -550,7 +550,7 @@ define internal fastcc noundef i32 @_ZL16fastlz2_compressPKviPv(ptr noundef %0, 
   %56 = xor i32 %55, %49
   %57 = and i32 %56, 8191
   %58 = zext nneg i32 %57 to i64
-  %59 = getelementptr inbounds nuw ptr, ptr %4, i64 %58
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %58
   %60 = load ptr, ptr %59, align 8, !tbaa !12
   %61 = ptrtoint ptr %.1196264 to i64
   %62 = ptrtoint ptr %60 to i64
@@ -884,7 +884,7 @@ define internal fastcc noundef i32 @_ZL16fastlz2_compressPKviPv(ptr noundef %0, 
   %243 = xor i32 %242, %235
   %244 = and i32 %243, 8191
   %245 = zext nneg i32 %244 to i64
-  %246 = getelementptr inbounds nuw ptr, ptr %4, i64 %245
+  %246 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %245
   store ptr %163, ptr %246, align 8, !tbaa !12
   %247 = load i8, ptr %231, align 1, !tbaa !7
   %248 = zext i8 %247 to i32
@@ -901,7 +901,7 @@ define internal fastcc noundef i32 @_ZL16fastlz2_compressPKviPv(ptr noundef %0, 
   %259 = xor i32 %258, %252
   %260 = and i32 %259, 8191
   %261 = zext nneg i32 %260 to i64
-  %262 = getelementptr inbounds nuw ptr, ptr %4, i64 %261
+  %262 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %261
   store ptr %231, ptr %262, align 8, !tbaa !12
   %263 = getelementptr inbounds nuw i8, ptr %.4194, i64 1
   store i8 31, ptr %.4194, align 1, !tbaa !7

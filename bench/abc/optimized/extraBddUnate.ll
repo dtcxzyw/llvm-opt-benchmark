@@ -3,8 +3,6 @@ source_filename = "bench/abc/original/extraBddUnate.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.Extra_UnateVar_t_ = type { i32 }
-
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @Extra_UnateComputeFast(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @Cudd_Support(ptr noundef %0, ptr noundef %1) #9
@@ -73,7 +71,7 @@ define noalias noundef ptr @Extra_UnateInfoCreateFromZdd(ptr noundef %0, ptr nou
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %3 ]
   %.054 = phi ptr [ %26, %.lr.ph ], [ %2, %3 ]
   %15 = load i32, ptr %.054, align 8, !tbaa !33
-  %16 = getelementptr inbounds nuw %struct.Extra_UnateVar_t_, ptr %calloc7.i, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %calloc7.i, i64 %indvars.iv
   %17 = load i32, ptr %16, align 4
   %18 = and i32 %15, 1073741823
   %19 = and i32 %17, -1073741824
@@ -81,7 +79,7 @@ define noalias noundef ptr @Extra_UnateInfoCreateFromZdd(ptr noundef %0, ptr nou
   store i32 %20, ptr %16, align 4
   %21 = load i32, ptr %.054, align 8, !tbaa !33
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds nuw i32, ptr %calloc, i64 %22
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %calloc, i64 %22
   %24 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %24, ptr %23, align 4, !tbaa !34
   %25 = getelementptr inbounds nuw i8, ptr %.054, i64 16
@@ -111,10 +109,10 @@ define noalias noundef ptr @Extra_UnateInfoCreateFromZdd(ptr noundef %0, ptr nou
   %.not51 = icmp eq i32 %34, 0
   %35 = lshr i32 %33, 1
   %36 = zext nneg i32 %35 to i64
-  %37 = getelementptr inbounds nuw i32, ptr %calloc, i64 %36
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %calloc, i64 %36
   %38 = load i32, ptr %37, align 4, !tbaa !34
   %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds %struct.Extra_UnateVar_t_, ptr %calloc7.i, i64 %39
+  %40 = getelementptr inbounds [4 x i8], ptr %calloc7.i, i64 %39
   %41 = load i32, ptr %40, align 4
   %. = select i1 %.not51, i32 1073741824, i32 -2147483648
   %42 = or i32 %41, %.
@@ -183,11 +181,11 @@ define ptr @extraZddUnateInfoCompute(ptr noundef %0, ptr noundef %1, ptr noundef
   %21 = load ptr, ptr %20, align 8, !tbaa !40
   %22 = load i32, ptr %6, align 8, !tbaa !33
   %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds nuw i32, ptr %21, i64 %23
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %23
   %25 = load i32, ptr %24, align 4, !tbaa !34
   %26 = load i32, ptr %2, align 8, !tbaa !33
   %27 = zext i32 %26 to i64
-  %28 = getelementptr inbounds nuw i32, ptr %21, i64 %27
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %27
   %29 = load i32, ptr %28, align 4, !tbaa !34
   %30 = icmp sgt i32 %25, %29
   br i1 %30, label %.lr.ph, label %._crit_edge
@@ -198,7 +196,7 @@ define ptr @extraZddUnateInfoCompute(ptr noundef %0, ptr noundef %1, ptr noundef
   %32 = load ptr, ptr %31, align 8, !tbaa !35
   %33 = load i32, ptr %32, align 8, !tbaa !33
   %34 = zext i32 %33 to i64
-  %35 = getelementptr inbounds nuw i32, ptr %21, i64 %34
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %34
   %36 = load i32, ptr %35, align 4, !tbaa !34
   %37 = icmp sgt i32 %25, %36
   br i1 %37, label %.lr.ph, label %._crit_edge, !llvm.loop !41
@@ -347,7 +345,7 @@ define ptr @extraZddUnateInfoCompute(ptr noundef %0, ptr noundef %1, ptr noundef
   %119 = load ptr, ptr %20, align 8, !tbaa !40
   %120 = load i32, ptr %2, align 8, !tbaa !33
   %121 = zext i32 %120 to i64
-  %122 = getelementptr inbounds nuw i32, ptr %119, i64 %121
+  %122 = getelementptr inbounds nuw [4 x i8], ptr %119, i64 %121
   %123 = load i32, ptr %122, align 4, !tbaa !34
   %124 = icmp sgt i32 %25, %123
   br i1 %124, label %.lr.ph177, label %.._crit_edge178_crit_edge
@@ -449,7 +447,7 @@ define ptr @extraZddUnateInfoCompute(ptr noundef %0, ptr noundef %1, ptr noundef
   %178 = load ptr, ptr %20, align 8, !tbaa !40
   %179 = load i32, ptr %177, align 8, !tbaa !33
   %180 = zext i32 %179 to i64
-  %181 = getelementptr inbounds nuw i32, ptr %178, i64 %180
+  %181 = getelementptr inbounds nuw [4 x i8], ptr %178, i64 %180
   %182 = load i32, ptr %181, align 4, !tbaa !34
   %183 = icmp sgt i32 %25, %182
   br i1 %183, label %126, label %._crit_edge178, !llvm.loop !43
@@ -663,7 +661,7 @@ define void @Extra_UnateInfoPrint(ptr noundef readonly captures(none) %0) local_
 
 13:                                               ; preds = %.lr.ph, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
-  %14 = getelementptr inbounds nuw %struct.Extra_UnateVar_t_, ptr %12, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4
   %.not = icmp sgt i32 %15, -1
   %.not24 = icmp samesign ult i32 %15, 1073741824
@@ -721,7 +719,7 @@ define noalias noundef ptr @Extra_UnateComputeSlow(ptr noundef %0, ptr noundef %
   %16 = load i32, ptr %.033, align 8, !tbaa !33
   %17 = tail call i32 @Extra_bddCheckUnateNaive(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %16)
   %18 = load i32, ptr %.033, align 8, !tbaa !33
-  %19 = getelementptr inbounds nuw %struct.Extra_UnateVar_t_, ptr %calloc7.i, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %calloc7.i, i64 %indvars.iv
   %20 = load i32, ptr %19, align 4
   %21 = and i32 %18, 1073741823
   %22 = and i32 %20, -1073741824

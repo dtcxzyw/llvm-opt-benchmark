@@ -2232,7 +2232,7 @@ _has_prefix.exit655:                              ; preds = %35
   %406 = tail call fastcc ptr @_variables_get_longitude(ptr noundef nonnull %0)
   %407 = add nuw nsw i32 %.0402, 1
   %408 = zext nneg i32 %.0402 to i64
-  %409 = getelementptr inbounds nuw ptr, ptr %5, i64 %408
+  %409 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %408
   store ptr %406, ptr %409, align 8, !tbaa !6
   %.pre670 = load ptr, ptr %14, align 8, !tbaa !11
   br label %410
@@ -2249,7 +2249,7 @@ _has_prefix.exit655:                              ; preds = %35
   %415 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.98, double noundef %413) #16
   %416 = add nuw nsw i32 %.1, 1
   %417 = zext nneg i32 %.1 to i64
-  %418 = getelementptr inbounds nuw ptr, ptr %5, i64 %417
+  %418 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %417
   store ptr %415, ptr %418, align 8, !tbaa !6
   %419 = call noalias ptr @g_strjoinv(ptr noundef nonnull @.str.112, ptr noundef nonnull %5) #16
   store ptr %419, ptr %3, align 8, !tbaa !6
@@ -2272,7 +2272,7 @@ _has_prefix.exit655:                              ; preds = %35
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %422 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %422 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %423 = load ptr, ptr %422, align 8, !tbaa !6
   call void @g_free(ptr noundef %423) #16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2709,7 +2709,7 @@ _has_prefix.exit655:                              ; preds = %35
   %635 = load ptr, ptr %1, align 8, !tbaa !6
   %636 = load i8, ptr %635, align 1, !tbaa !105
   %637 = zext i8 %636 to i64
-  %638 = getelementptr inbounds nuw i16, ptr %634, i64 %637
+  %638 = getelementptr inbounds nuw [2 x i8], ptr %634, i64 %637
   %639 = load i16, ptr %638, align 2, !tbaa !145
   %640 = and i16 %639, 8
   %.not627 = icmp eq i16 %640, 0
@@ -3381,7 +3381,7 @@ _has_prefix.exit655:                              ; preds = %35
   %950 = load ptr, ptr %1, align 8, !tbaa !6
   %951 = load i8, ptr %950, align 1, !tbaa !105
   %952 = zext i8 %951 to i64
-  %953 = getelementptr inbounds nuw i16, ptr %949, i64 %952
+  %953 = getelementptr inbounds nuw [2 x i8], ptr %949, i64 %952
   %954 = load i16, ptr %953, align 2, !tbaa !145
   %955 = and i16 %954, 8
   %.not614 = icmp eq i16 %955, 0
@@ -3446,7 +3446,7 @@ _has_prefix.exit655:                              ; preds = %35
 985:                                              ; preds = %980
   %986 = load i8, ptr %981, align 1, !tbaa !105
   %987 = zext i8 %986 to i64
-  %988 = getelementptr inbounds nuw i16, ptr %949, i64 %987
+  %988 = getelementptr inbounds nuw [2 x i8], ptr %949, i64 %987
   %989 = load i16, ptr %988, align 2, !tbaa !145
   %990 = and i16 %989, 8
   %.not615 = icmp eq i16 %990, 0
@@ -3594,7 +3594,7 @@ _has_prefix.exit655:                              ; preds = %35
   %.promoted = load ptr, ptr %1, align 8, !tbaa !6
   %1058 = load i8, ptr %.promoted, align 1, !tbaa !105
   %1059 = zext i8 %1058 to i64
-  %1060 = getelementptr inbounds nuw i16, ptr %1057, i64 %1059
+  %1060 = getelementptr inbounds nuw [2 x i8], ptr %1057, i64 %1059
   %1061 = load i16, ptr %1060, align 2, !tbaa !145
   %1062 = and i16 %1061, 2
   %.not611667 = icmp eq i16 %1062, 0
@@ -3611,7 +3611,7 @@ _has_prefix.exit655:                              ; preds = %35
   store ptr %1066, ptr %1, align 8, !tbaa !6
   %1067 = load i8, ptr %1066, align 1, !tbaa !105
   %1068 = zext i8 %1067 to i64
-  %1069 = getelementptr inbounds nuw i16, ptr %1057, i64 %1068
+  %1069 = getelementptr inbounds nuw [2 x i8], ptr %1057, i64 %1068
   %1070 = load i16, ptr %1069, align 2, !tbaa !145
   %1071 = and i16 %1070, 2
   %.not611 = icmp eq i16 %1071, 0

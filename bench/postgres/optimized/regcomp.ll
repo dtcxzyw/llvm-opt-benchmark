@@ -5,12 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.fns = type { ptr, ptr }
 %struct.vars = type { ptr, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, ptr, i64, [10 x ptr], ptr, ptr, i16, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, i32, i64 }
-%struct.subre = type { i8, i8, i8, i32, i32, i32, i16, i16, ptr, ptr, ptr, ptr, %struct.cnfa, ptr }
-%struct.cnfa = type { i32, i32, i32, i32, i32, [2 x i16], [2 x i16], ptr, ptr, ptr, i32, i32 }
-%struct.colordesc = type { i32, i32, i16, ptr, i32, i32 }
-%struct.arc = type { i32, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.state = type { i32, i8, i32, i32, ptr, ptr, ptr, ptr, ptr }
-%struct.colormaprange = type { i32, i32, i32 }
 
 @functions = internal constant %struct.fns { ptr @rfree, ptr @rstacktoodeep }, align 8
 @.str = private unnamed_addr constant [66 x i8] c"could not determine which collation to use for regular expression\00", align 1
@@ -162,7 +156,7 @@ define dso_local i32 @pg_regcomp(ptr noundef %0, ptr noundef %1, i64 noundef %2,
   store ptr %0, ptr %6, align 8
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %1, ptr %13, align 8
-  %14 = getelementptr inbounds nuw i32, ptr %1, i64 %2
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %2
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %14, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -181,7 +175,7 @@ define dso_local i32 @pg_regcomp(ptr noundef %0, ptr noundef %1, i64 noundef %2,
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.0155190 = phi i64 [ %24, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %22 = load ptr, ptr %20, align 8
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %.0155190
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %.0155190
   store ptr null, ptr %23, align 8
   %24 = add nuw i64 %.0155190, 1
   %25 = load i64, ptr %21, align 8
@@ -412,7 +406,7 @@ initcm.exit:                                      ; preds = %58, %74, %80
 .lr.ph192:                                        ; preds = %.preheader, %.lr.ph192
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph192 ], [ 1, %.preheader ]
   %137 = load ptr, ptr %33, align 8
-  %138 = getelementptr inbounds nuw %struct.subre, ptr %137, i64 %indvars.iv
+  %138 = getelementptr inbounds nuw [128 x i8], ptr %137, i64 %indvars.iv
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 2
   %140 = load i8, ptr %139, align 2
   %141 = and i8 %140, 2
@@ -1619,7 +1613,7 @@ define internal fastcc void @lexstart(ptr noundef nonnull %0) unnamed_addr #0 {
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 104
   %99 = load ptr, ptr %98, align 8
   %100 = zext nneg i32 %74 to i64
-  %101 = getelementptr inbounds nuw i16, ptr %99, i64 %100
+  %101 = getelementptr inbounds nuw [2 x i8], ptr %99, i64 %100
   %102 = load i16, ptr %101, align 2
   %103 = lshr i16 %102, 10
   %.lobit.i.i = and i16 %103, 1
@@ -1701,7 +1695,7 @@ pg_wc_isalpha.exit.i:                             ; preds = %105, %94, %87, %84,
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 104
   %141 = load ptr, ptr %140, align 8
   %142 = zext nneg i32 %116 to i64
-  %143 = getelementptr inbounds nuw i16, ptr %141, i64 %142
+  %143 = getelementptr inbounds nuw [2 x i8], ptr %141, i64 %142
   %144 = load i16, ptr %143, align 2
   %145 = lshr i16 %144, 10
   %.lobit.i87.i = and i16 %145, 1
@@ -1901,12 +1895,12 @@ define internal fastcc signext i16 @subcolor(ptr noundef captures(address) %0, i
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds nuw i16, ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %5
   %7 = load i16, ptr %6, align 2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load ptr, ptr %8, align 8
   %10 = sext i16 %7 to i64
-  %11 = getelementptr inbounds %struct.colordesc, ptr %9, i64 %10
+  %11 = getelementptr inbounds [32 x i8], ptr %9, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load i16, ptr %12, align 8
   %14 = icmp eq i16 %13, -1
@@ -1927,12 +1921,12 @@ define internal fastcc signext i16 @subcolor(ptr noundef captures(address) %0, i
 
 24:                                               ; preds = %21
   %25 = load ptr, ptr %8, align 8
-  %26 = getelementptr inbounds %struct.colordesc, ptr %25, i64 %10
+  %26 = getelementptr inbounds [32 x i8], ptr %25, i64 %10
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store i16 %22, ptr %27, align 8
   %28 = load ptr, ptr %8, align 8
   %29 = sext i16 %22 to i64
-  %30 = getelementptr inbounds %struct.colordesc, ptr %28, i64 %29
+  %30 = getelementptr inbounds [32 x i8], ptr %28, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i16 %22, ptr %31, align 8
   br label %newsub.exit
@@ -1952,13 +1946,13 @@ newsub.exit:                                      ; preds = %2, %15, %21, %24
 
 38:                                               ; preds = %36
   %39 = load ptr, ptr %8, align 8
-  %40 = getelementptr inbounds %struct.colordesc, ptr %39, i64 %10
+  %40 = getelementptr inbounds [32 x i8], ptr %39, i64 %10
   %41 = load i32, ptr %40, align 8
   %42 = add i32 %41, -1
   store i32 %42, ptr %40, align 8
   %43 = load ptr, ptr %8, align 8
   %44 = sext i16 %.017.i to i64
-  %45 = getelementptr inbounds %struct.colordesc, ptr %43, i64 %44
+  %45 = getelementptr inbounds [32 x i8], ptr %43, i64 %44
   %46 = load i32, ptr %45, align 8
   %47 = icmp eq i32 %46, 0
   br i1 %47, label %48, label %50
@@ -1967,18 +1961,18 @@ newsub.exit:                                      ; preds = %2, %15, %21, %24
   %49 = getelementptr inbounds nuw i8, ptr %45, i64 24
   store i32 %1, ptr %49, align 8
   %.pre = load ptr, ptr %8, align 8
-  %.phi.trans.insert = getelementptr inbounds %struct.colordesc, ptr %.pre, i64 %44
+  %.phi.trans.insert = getelementptr inbounds [32 x i8], ptr %.pre, i64 %44
   %.pre21 = load i32, ptr %.phi.trans.insert, align 8
   br label %50
 
 50:                                               ; preds = %48, %38
   %51 = phi i32 [ %.pre21, %48 ], [ %46, %38 ]
   %52 = phi ptr [ %.pre, %48 ], [ %43, %38 ]
-  %53 = getelementptr inbounds %struct.colordesc, ptr %52, i64 %44
+  %53 = getelementptr inbounds [32 x i8], ptr %52, i64 %44
   %54 = add i32 %51, 1
   store i32 %54, ptr %53, align 8
   %55 = load ptr, ptr %3, align 8
-  %56 = getelementptr inbounds nuw i16, ptr %55, i64 %5
+  %56 = getelementptr inbounds nuw [2 x i8], ptr %55, i64 %5
   store i16 %.017.i, ptr %56, align 2
   br label %57
 
@@ -1993,7 +1987,7 @@ define internal fastcc void @okcolors(ptr noundef captures(none) %0, ptr noundef
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr %struct.colordesc, ptr %4, i64 %6
+  %7 = getelementptr [32 x i8], ptr %4, i64 %6
   %8 = getelementptr i8, ptr %7, i64 32
   %9 = icmp ult ptr %4, %8
   br i1 %9, label %.lr.ph64, label %._crit_edge65
@@ -2037,7 +2031,7 @@ define internal fastcc void @okcolors(ptr noundef captures(none) %0, ptr noundef
   store i16 -1, ptr %18, align 8
   %33 = load ptr, ptr %3, align 8
   %34 = sext i16 %19 to i64
-  %35 = getelementptr inbounds %struct.colordesc, ptr %33, i64 %34
+  %35 = getelementptr inbounds [32 x i8], ptr %33, i64 %34
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store i16 -1, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %.062, i64 16
@@ -2057,7 +2051,7 @@ define internal fastcc void @okcolors(ptr noundef captures(none) %0, ptr noundef
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 4
   %46 = load i16, ptr %45, align 4
   %47 = sext i16 %46 to i64
-  %48 = getelementptr inbounds %struct.colordesc, ptr %44, i64 %47
+  %48 = getelementptr inbounds [32 x i8], ptr %44, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %39, i64 56
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds nuw i8, ptr %48, i64 16
@@ -2087,7 +2081,7 @@ uncolorchain.exit:                                ; preds = %56, %58
   %61 = getelementptr inbounds nuw i8, ptr %39, i64 4
   store i16 %19, ptr %61, align 4
   %.val = load ptr, ptr %3, align 8
-  %62 = getelementptr inbounds %struct.colordesc, ptr %.val, i64 %34
+  %62 = getelementptr inbounds [32 x i8], ptr %.val, i64 %34
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %64 = load ptr, ptr %63, align 8
   %.not.i46 = icmp eq ptr %64, null
@@ -2111,7 +2105,7 @@ colorchain.exit:                                  ; preds = %uncolorchain.exit, 
 ._crit_edge:                                      ; preds = %colorchain.exit, %32
   %69 = load ptr, ptr %3, align 8
   %70 = sext i16 %.04060 to i64
-  %71 = getelementptr inbounds %struct.colordesc, ptr %69, i64 %70
+  %71 = getelementptr inbounds [32 x i8], ptr %69, i64 %70
   %72 = icmp eq i16 %.04060, 0
   br i1 %72, label %freecolor.exit, label %73
 
@@ -2128,7 +2122,7 @@ colorchain.exit:                                  ; preds = %uncolorchain.exit, 
 
 78:                                               ; preds = %84, %.lr.ph.i
   %79 = phi i64 [ %70, %.lr.ph.i ], [ %85, %84 ]
-  %80 = getelementptr inbounds nuw %struct.colordesc, ptr %77, i64 %79
+  %80 = getelementptr inbounds nuw [32 x i8], ptr %77, i64 %79
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 28
   %82 = load i32, ptr %81, align 4
   %83 = and i32 %82, 1
@@ -2150,7 +2144,7 @@ colorchain.exit:                                  ; preds = %uncolorchain.exit, 
 
 .lr.ph47.i:                                       ; preds = %.critedge.i, %.lr.ph47.i
   %88 = phi i64 [ %92, %.lr.ph47.i ], [ %86, %.critedge.i ]
-  %89 = getelementptr inbounds %struct.colordesc, ptr %77, i64 %88
+  %89 = getelementptr inbounds [32 x i8], ptr %77, i64 %88
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %91 = load i16, ptr %90, align 8
   store i16 %91, ptr %16, align 8
@@ -2165,7 +2159,7 @@ colorchain.exit:                                  ; preds = %uncolorchain.exit, 
   br i1 %94, label %95, label %freecolor.exit
 
 95:                                               ; preds = %._crit_edge.i
-  %96 = getelementptr inbounds nuw %struct.colordesc, ptr %77, i64 %.lcssa.i
+  %96 = getelementptr inbounds nuw [32 x i8], ptr %77, i64 %.lcssa.i
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
   %98 = load i16, ptr %97, align 8
   %99 = icmp sgt i16 %98, 0
@@ -2178,14 +2172,14 @@ colorchain.exit:                                  ; preds = %uncolorchain.exit, 
   %101 = load i64, ptr %5, align 8
   %102 = icmp ult i64 %101, %100
   %103 = load ptr, ptr %3, align 8
-  %104 = getelementptr inbounds nuw %struct.colordesc, ptr %103, i64 %100
+  %104 = getelementptr inbounds nuw [32 x i8], ptr %103, i64 %100
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 8
   %106 = load i16, ptr %105, align 8
   br i1 %102, label %107, label %111
 
 107:                                              ; preds = %.lr.ph53.i
   %108 = zext nneg i16 %.03450.i to i64
-  %109 = getelementptr inbounds nuw %struct.colordesc, ptr %103, i64 %108
+  %109 = getelementptr inbounds nuw [32 x i8], ptr %103, i64 %108
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 8
   store i16 %106, ptr %110, align 8
   br label %111
@@ -2212,7 +2206,7 @@ colorchain.exit:                                  ; preds = %uncolorchain.exit, 
   store i16 -1, ptr %18, align 8
   %123 = load ptr, ptr %3, align 8
   %124 = sext i16 %19 to i64
-  %125 = getelementptr inbounds %struct.colordesc, ptr %123, i64 %124
+  %125 = getelementptr inbounds [32 x i8], ptr %123, i64 %124
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 8
   store i16 -1, ptr %126, align 8
   %127 = getelementptr inbounds nuw i8, ptr %.062, i64 16
@@ -2330,7 +2324,7 @@ colorchain.exit:                                  ; preds = %uncolorchain.exit, 
   %177 = getelementptr inbounds nuw i8, ptr %170, i64 16
   %178 = add nuw i64 %172, 1
   store i64 %178, ptr %12, align 8
-  %179 = getelementptr inbounds nuw %struct.arc, ptr %177, i64 %172
+  %179 = getelementptr inbounds nuw [72 x i8], ptr %177, i64 %172
   br label %allocarc.exit.i
 
 180:                                              ; preds = %169
@@ -2476,7 +2470,7 @@ allocarc.exit.i:                                  ; preds = %209, %204, %189, %1
   %252 = getelementptr i8, ptr %251, i64 40
   %.val.i = load ptr, ptr %252, align 8
   %253 = zext nneg i16 %243 to i64
-  %254 = getelementptr inbounds nuw %struct.colordesc, ptr %.val.i, i64 %253
+  %254 = getelementptr inbounds nuw [32 x i8], ptr %.val.i, i64 %253
   %255 = getelementptr inbounds nuw i8, ptr %254, i64 16
   %256 = load ptr, ptr %255, align 8
   %.not.i38.i = icmp eq ptr %256, null
@@ -2936,7 +2930,7 @@ define internal fastcc void @specialcolors(ptr noundef captures(none) initialize
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %15 = load ptr, ptr %14, align 8
   %16 = sext i16 %8 to i64
-  %17 = getelementptr inbounds %struct.colordesc, ptr %15, i64 %16
+  %17 = getelementptr inbounds [32 x i8], ptr %15, i64 %16
   store i32 0, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 4
   store i32 1, ptr %18, align 4
@@ -2967,7 +2961,7 @@ pseudocolor.exit:                                 ; preds = %5, %13
   %31 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %32 = load ptr, ptr %31, align 8
   %33 = sext i16 %25 to i64
-  %34 = getelementptr inbounds %struct.colordesc, ptr %32, i64 %33
+  %34 = getelementptr inbounds [32 x i8], ptr %32, i64 %33
   store i32 0, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 4
   store i32 1, ptr %35, align 4
@@ -2998,7 +2992,7 @@ pseudocolor.exit19:                               ; preds = %pseudocolor.exit, %
   %48 = getelementptr inbounds nuw i8, ptr %41, i64 40
   %49 = load ptr, ptr %48, align 8
   %50 = sext i16 %42 to i64
-  %51 = getelementptr inbounds %struct.colordesc, ptr %49, i64 %50
+  %51 = getelementptr inbounds [32 x i8], ptr %49, i64 %50
   store i32 0, ptr %51, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 4
   store i32 1, ptr %52, align 4
@@ -3029,7 +3023,7 @@ pseudocolor.exit22:                               ; preds = %pseudocolor.exit19,
   %65 = getelementptr inbounds nuw i8, ptr %58, i64 40
   %66 = load ptr, ptr %65, align 8
   %67 = sext i16 %59 to i64
-  %68 = getelementptr inbounds %struct.colordesc, ptr %66, i64 %67
+  %68 = getelementptr inbounds [32 x i8], ptr %66, i64 %67
   store i32 0, ptr %68, align 8
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 4
   store i32 1, ptr %69, align 4
@@ -3641,7 +3635,7 @@ removecantmatch.exit:                             ; preds = %.critedge.loopexit.
   %115 = load ptr, ptr %114, align 8
   %116 = load i32, ptr %.216.i, align 8
   %117 = sext i32 %116 to i64
-  %118 = getelementptr inbounds ptr, ptr %106, i64 %117
+  %118 = getelementptr inbounds [8 x i8], ptr %106, i64 %117
   store ptr %115, ptr %118, align 8
   %119 = getelementptr inbounds nuw i8, ptr %.216.i, i64 8
   %120 = load i32, ptr %119, align 8
@@ -3723,7 +3717,7 @@ hasnonemptyout.exit.i:                            ; preds = %139, %136
   %.012327.i = phi ptr [ %156, %._crit_edge24.i ], [ %141, %hasnonemptyout.exit.i ]
   %145 = load i32, ptr %.012327.i, align 8
   %146 = sext i32 %145 to i64
-  %147 = getelementptr inbounds ptr, ptr %106, i64 %146
+  %147 = getelementptr inbounds [8 x i8], ptr %106, i64 %146
   %.012518.i = load ptr, ptr %147, align 8
   %.not15019.i = icmp eq ptr %.012518.i, null
   br i1 %.not15019.i, label %._crit_edge24.i, label %.lr.ph23.i
@@ -3738,7 +3732,7 @@ hasnonemptyout.exit.i:                            ; preds = %139, %136
 149:                                              ; preds = %.lr.ph23.i
   %150 = add i32 %.112120.i, 1
   %151 = sext i32 %.112120.i to i64
-  %152 = getelementptr inbounds ptr, ptr %125, i64 %151
+  %152 = getelementptr inbounds [8 x i8], ptr %125, i64 %151
   store ptr %.012521.i, ptr %152, align 8
   br label %153
 
@@ -3792,8 +3786,8 @@ hasnonemptyout.exit.i:                            ; preds = %139, %136
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %sortins_cmp.exit.i.i ], [ 1, %168 ]
   %.057.i.i = phi i32 [ %.1.i.i, %sortins_cmp.exit.i.i ], [ 0, %168 ]
   %170 = sext i32 %.057.i.i to i64
-  %171 = getelementptr inbounds ptr, ptr %125, i64 %170
-  %172 = getelementptr inbounds nuw ptr, ptr %125, i64 %indvars.iv.i.i
+  %171 = getelementptr inbounds [8 x i8], ptr %125, i64 %170
+  %172 = getelementptr inbounds nuw [8 x i8], ptr %125, i64 %indvars.iv.i.i
   %173 = load ptr, ptr %171, align 8
   %174 = load ptr, ptr %172, align 8
   %175 = getelementptr inbounds nuw i8, ptr %173, i64 8
@@ -3830,7 +3824,7 @@ hasnonemptyout.exit.i:                            ; preds = %139, %136
 196:                                              ; preds = %192, %184, %.lr.ph.i.i
   %197 = add i32 %.057.i.i, 1
   %198 = sext i32 %197 to i64
-  %199 = getelementptr inbounds ptr, ptr %125, i64 %198
+  %199 = getelementptr inbounds [8 x i8], ptr %125, i64 %198
   store ptr %174, ptr %199, align 8
   br label %sortins_cmp.exit.i.i
 
@@ -3863,7 +3857,7 @@ sortins_cmp.exit.i.i:                             ; preds = %196, %192, %190, %1
   %.13759.i.i = phi i32 [ %.2.i.i, %242 ], [ 0, %._crit_edge.i.i ]
   %.04858.i.i = phi ptr [ %.149.i.i, %242 ], [ %202, %._crit_edge.i.i ]
   %208 = sext i32 %.13759.i.i to i64
-  %209 = getelementptr inbounds ptr, ptr %125, i64 %208
+  %209 = getelementptr inbounds [8 x i8], ptr %125, i64 %208
   %210 = load ptr, ptr %209, align 8
   %211 = getelementptr inbounds nuw i8, ptr %210, i64 8
   %212 = load ptr, ptr %211, align 8
@@ -3933,7 +3927,7 @@ sortins_cmp.exit42.thread54.i.i:                  ; preds = %sortins_cmp.exit42.
 
 .lr.ph64.i.i:                                     ; preds = %.lr.ph64.i.i, %.lr.ph64.preheader.i.i
   %indvars.iv67.i.i = phi i64 [ %207, %.lr.ph64.preheader.i.i ], [ %indvars.iv.next68.i.i, %.lr.ph64.i.i ]
-  %246 = getelementptr inbounds ptr, ptr %125, i64 %indvars.iv67.i.i
+  %246 = getelementptr inbounds [8 x i8], ptr %125, i64 %indvars.iv67.i.i
   %247 = load ptr, ptr %246, align 8
   %248 = load i32, ptr %247, align 8
   %249 = getelementptr inbounds nuw i8, ptr %247, i64 4
@@ -3969,7 +3963,7 @@ mergeins.exit.i:                                  ; preds = %.lr.ph64.i.i, %.pre
   %.1126.lcssa.i = phi ptr [ %.112632.i, %mergeins.exit.i ], [ %.1126.i, %.lr.ph35.i ]
   %262 = load i32, ptr %.340.i, align 8
   %263 = sext i32 %262 to i64
-  %264 = getelementptr inbounds ptr, ptr %106, i64 %263
+  %264 = getelementptr inbounds [8 x i8], ptr %106, i64 %263
   store ptr %.1126.lcssa.i, ptr %264, align 8
   br label %hasnonemptyout.exit.thread.i
 
@@ -4204,7 +4198,7 @@ isconstraintarc.exit.i:                           ; preds = %339, %339, %339, %3
   %361 = getelementptr inbounds nuw i8, ptr %360, i64 40
   %362 = load ptr, ptr %361, align 8
   %363 = zext nneg i16 %349 to i64
-  %364 = getelementptr inbounds nuw %struct.colordesc, ptr %362, i64 %363
+  %364 = getelementptr inbounds nuw [32 x i8], ptr %362, i64 %363
   %365 = getelementptr inbounds nuw i8, ptr %.0485.i, i64 56
   %366 = load ptr, ptr %365, align 8
   %367 = getelementptr inbounds nuw i8, ptr %364, i64 16
@@ -4526,7 +4520,7 @@ fixconstraintloops.exit:                          ; preds = %fixconstraintloops.
   %503 = getelementptr inbounds nuw i8, ptr %502, i64 40
   %504 = load ptr, ptr %503, align 8
   %505 = zext nneg i16 %491 to i64
-  %506 = getelementptr inbounds nuw %struct.colordesc, ptr %504, i64 %505
+  %506 = getelementptr inbounds nuw [32 x i8], ptr %504, i64 %505
   %507 = getelementptr inbounds nuw i8, ptr %.04433.i, i64 56
   %508 = load ptr, ptr %507, align 8
   %509 = getelementptr inbounds nuw i8, ptr %506, i64 16
@@ -4656,7 +4650,7 @@ freearc.exit.i.i:                                 ; preds = %541, %540
   %567 = getelementptr inbounds nuw i8, ptr %560, i64 16
   %568 = add nuw i64 %562, 1
   store i64 %568, ptr %454, align 8
-  %569 = getelementptr inbounds nuw %struct.state, ptr %567, i64 %562
+  %569 = getelementptr inbounds nuw [56 x i8], ptr %567, i64 %562
   br label %606
 
 570:                                              ; preds = %559
@@ -4817,7 +4811,7 @@ newstate.exit166.i:                               ; preds = %618, %594, %579
   %648 = getelementptr inbounds nuw i8, ptr %641, i64 16
   %649 = add nuw i64 %643, 1
   store i64 %649, ptr %459, align 8
-  %650 = getelementptr inbounds nuw %struct.arc, ptr %648, i64 %643
+  %650 = getelementptr inbounds nuw [72 x i8], ptr %648, i64 %643
   br label %allocarc.exit.i135.i
 
 651:                                              ; preds = %640
@@ -4963,7 +4957,7 @@ allocarc.exit.i135.i:                             ; preds = %680, %675, %660, %6
   %723 = getelementptr i8, ptr %722, i64 40
   %.val.i140.i = load ptr, ptr %723, align 8
   %724 = zext nneg i16 %714 to i64
-  %725 = getelementptr inbounds nuw %struct.colordesc, ptr %.val.i140.i, i64 %724
+  %725 = getelementptr inbounds nuw [32 x i8], ptr %.val.i140.i, i64 %724
   %726 = getelementptr inbounds nuw i8, ptr %725, i64 16
   %727 = load ptr, ptr %726, align 8
   %.not.i38.i141.i = icmp eq ptr %727, null
@@ -5097,7 +5091,7 @@ copyins.exit.i.i:                                 ; preds = %createarc.exit151.i
   %781 = getelementptr inbounds nuw i8, ptr %774, i64 16
   %782 = add nuw i64 %776, 1
   store i64 %782, ptr %459, align 8
-  %783 = getelementptr inbounds nuw %struct.arc, ptr %781, i64 %776
+  %783 = getelementptr inbounds nuw [72 x i8], ptr %781, i64 %776
   br label %allocarc.exit.i117.i
 
 784:                                              ; preds = %773
@@ -5243,7 +5237,7 @@ allocarc.exit.i117.i:                             ; preds = %813, %808, %793, %7
   %856 = getelementptr i8, ptr %855, i64 40
   %.val.i122.i = load ptr, ptr %856, align 8
   %857 = zext nneg i16 %847 to i64
-  %858 = getelementptr inbounds nuw %struct.colordesc, ptr %.val.i122.i, i64 %857
+  %858 = getelementptr inbounds nuw [32 x i8], ptr %.val.i122.i, i64 %857
   %859 = getelementptr inbounds nuw i8, ptr %858, i64 16
   %860 = load ptr, ptr %859, align 8
   %.not.i38.i123.i = icmp eq ptr %860, null
@@ -5295,7 +5289,7 @@ cparc.exit.i.i:                                   ; preds = %751, %764, %colorch
   %881 = getelementptr inbounds nuw i8, ptr %880, i64 40
   %882 = load ptr, ptr %881, align 8
   %883 = zext nneg i16 %868 to i64
-  %884 = getelementptr inbounds nuw %struct.colordesc, ptr %882, i64 %883
+  %884 = getelementptr inbounds nuw [32 x i8], ptr %882, i64 %883
   %885 = getelementptr inbounds nuw i8, ptr %.04433.i, i64 56
   %886 = load ptr, ptr %885, align 8
   %887 = getelementptr inbounds nuw i8, ptr %884, i64 16
@@ -5464,7 +5458,7 @@ freearc.exit84.i.i:                               ; preds = %919, %918
   %957 = getelementptr inbounds nuw i8, ptr %956, i64 40
   %958 = load ptr, ptr %957, align 8
   %959 = sext i16 %951 to i64
-  %960 = getelementptr inbounds %struct.colordesc, ptr %958, i64 %959
+  %960 = getelementptr inbounds [32 x i8], ptr %958, i64 %959
   %961 = getelementptr inbounds nuw i8, ptr %960, i64 28
   %962 = load i32, ptr %961, align 4
   %963 = and i32 %962, 2
@@ -5480,7 +5474,7 @@ freearc.exit84.i.i:                               ; preds = %919, %918
   %968 = getelementptr inbounds nuw i8, ptr %967, i64 40
   %969 = load ptr, ptr %968, align 8
   %970 = sext i16 %949 to i64
-  %971 = getelementptr inbounds %struct.colordesc, ptr %969, i64 %970
+  %971 = getelementptr inbounds [32 x i8], ptr %969, i64 %970
   %972 = getelementptr inbounds nuw i8, ptr %971, i64 28
   %973 = load i32, ptr %972, align 4
   %974 = and i32 %973, 2
@@ -5510,7 +5504,7 @@ freearc.exit84.i.i:                               ; preds = %919, %918
   %989 = getelementptr inbounds nuw i8, ptr %988, i64 40
   %990 = load ptr, ptr %989, align 8
   %991 = sext i16 %983 to i64
-  %992 = getelementptr inbounds %struct.colordesc, ptr %990, i64 %991
+  %992 = getelementptr inbounds [32 x i8], ptr %990, i64 %991
   %993 = getelementptr inbounds nuw i8, ptr %992, i64 28
   %994 = load i32, ptr %993, align 4
   %995 = and i32 %994, 2
@@ -5526,7 +5520,7 @@ freearc.exit84.i.i:                               ; preds = %919, %918
   %1000 = getelementptr inbounds nuw i8, ptr %999, i64 40
   %1001 = load ptr, ptr %1000, align 8
   %1002 = sext i16 %981 to i64
-  %1003 = getelementptr inbounds %struct.colordesc, ptr %1001, i64 %1002
+  %1003 = getelementptr inbounds [32 x i8], ptr %1001, i64 %1002
   %1004 = getelementptr inbounds nuw i8, ptr %1003, i64 28
   %1005 = load i32, ptr %1004, align 4
   %1006 = and i32 %1005, 2
@@ -5581,7 +5575,7 @@ freearc.exit84.i.i:                               ; preds = %919, %918
   %1030 = getelementptr inbounds nuw i8, ptr %1029, i64 40
   %1031 = load ptr, ptr %1030, align 8
   %1032 = zext nneg i16 %1014 to i64
-  %1033 = getelementptr inbounds nuw %struct.colordesc, ptr %1031, i64 %1032
+  %1033 = getelementptr inbounds nuw [32 x i8], ptr %1031, i64 %1032
   %1034 = getelementptr inbounds nuw i8, ptr %.068164.i.i, i64 56
   %1035 = load ptr, ptr %1034, align 8
   %1036 = getelementptr inbounds nuw i8, ptr %1033, i64 16
@@ -5730,7 +5724,7 @@ freearc.exit90.i.i:                               ; preds = %1071, %1070
   %1106 = getelementptr inbounds nuw i8, ptr %1099, i64 16
   %1107 = add nuw i64 %1101, 1
   store i64 %1107, ptr %454, align 8
-  %1108 = getelementptr inbounds nuw %struct.state, ptr %1106, i64 %1101
+  %1108 = getelementptr inbounds nuw [56 x i8], ptr %1106, i64 %1101
   br label %1145
 
 1109:                                             ; preds = %1098
@@ -5960,7 +5954,7 @@ newstate.exit.i:                                  ; preds = %1157, %1133, %1118
   %1213 = getelementptr inbounds nuw i8, ptr %1206, i64 16
   %1214 = add nuw i64 %1208, 1
   store i64 %1214, ptr %459, align 8
-  %1215 = getelementptr inbounds nuw %struct.arc, ptr %1213, i64 %1208
+  %1215 = getelementptr inbounds nuw [72 x i8], ptr %1213, i64 %1208
   br label %allocarc.exit.i89.i
 
 1216:                                             ; preds = %1205
@@ -6106,7 +6100,7 @@ allocarc.exit.i89.i:                              ; preds = %1245, %1240, %1225,
   %1288 = getelementptr i8, ptr %1287, i64 40
   %.val.i94.i = load ptr, ptr %1288, align 8
   %1289 = zext nneg i16 %1279 to i64
-  %1290 = getelementptr inbounds nuw %struct.colordesc, ptr %.val.i94.i, i64 %1289
+  %1290 = getelementptr inbounds nuw [32 x i8], ptr %.val.i94.i, i64 %1289
   %1291 = getelementptr inbounds nuw i8, ptr %1290, i64 16
   %1292 = load ptr, ptr %1291, align 8
   %.not.i38.i95.i = icmp eq ptr %1292, null
@@ -6232,7 +6226,7 @@ cparc.exit109.i.i:                                ; preds = %1183, %1196, %color
   %1343 = getelementptr inbounds nuw i8, ptr %1336, i64 16
   %1344 = add nuw i64 %1338, 1
   store i64 %1344, ptr %459, align 8
-  %1345 = getelementptr inbounds nuw %struct.arc, ptr %1343, i64 %1338
+  %1345 = getelementptr inbounds nuw [72 x i8], ptr %1343, i64 %1338
   br label %allocarc.exit.i71.i
 
 1346:                                             ; preds = %1335
@@ -6377,7 +6371,7 @@ allocarc.exit.i71.i:                              ; preds = %1375, %1370, %1355,
   %1417 = getelementptr i8, ptr %1416, i64 40
   %.val.i76.i = load ptr, ptr %1417, align 8
   %1418 = zext nneg i16 %1408 to i64
-  %1419 = getelementptr inbounds nuw %struct.colordesc, ptr %.val.i76.i, i64 %1418
+  %1419 = getelementptr inbounds nuw [32 x i8], ptr %.val.i76.i, i64 %1418
   %1420 = getelementptr inbounds nuw i8, ptr %1419, i64 16
   %1421 = load ptr, ptr %1420, align 8
   %.not.i38.i77.i = icmp eq ptr %1421, null
@@ -6430,7 +6424,7 @@ cparc.exit128.i.i:                                ; preds = %1314, %1326, %color
   %1443 = getelementptr inbounds nuw i8, ptr %1442, i64 40
   %1444 = load ptr, ptr %1443, align 8
   %1445 = zext nneg i16 %1430 to i64
-  %1446 = getelementptr inbounds nuw %struct.colordesc, ptr %1444, i64 %1445
+  %1446 = getelementptr inbounds nuw [32 x i8], ptr %1444, i64 %1445
   %1447 = getelementptr inbounds nuw i8, ptr %.068164.i.i, i64 56
   %1448 = load ptr, ptr %1447, align 8
   %1449 = getelementptr inbounds nuw i8, ptr %1446, i64 16
@@ -6622,7 +6616,7 @@ select.unfold.i:                                  ; preds = %998, %966
   %1532 = getelementptr inbounds nuw i8, ptr %1525, i64 16
   %1533 = add nuw i64 %1527, 1
   store i64 %1533, ptr %459, align 8
-  %1534 = getelementptr inbounds nuw %struct.arc, ptr %1532, i64 %1527
+  %1534 = getelementptr inbounds nuw [72 x i8], ptr %1532, i64 %1527
   br label %allocarc.exit.i.i
 
 1535:                                             ; preds = %1524
@@ -6767,7 +6761,7 @@ allocarc.exit.i.i:                                ; preds = %1564, %1559, %1544,
   %1606 = getelementptr i8, ptr %1605, i64 40
   %.val.i.i = load ptr, ptr %1606, align 8
   %1607 = zext nneg i16 %1597 to i64
-  %1608 = getelementptr inbounds nuw %struct.colordesc, ptr %.val.i.i, i64 %1607
+  %1608 = getelementptr inbounds nuw [32 x i8], ptr %.val.i.i, i64 %1607
   %1609 = getelementptr inbounds nuw i8, ptr %1608, i64 16
   %1610 = load ptr, ptr %1609, align 8
   %.not.i38.i.i = icmp eq ptr %1610, null
@@ -6821,7 +6815,7 @@ newarc.exit.i.i:                                  ; preds = %1503, %1515, %color
   %1633 = getelementptr inbounds nuw i8, ptr %1632, i64 40
   %1634 = load ptr, ptr %1633, align 8
   %1635 = zext nneg i16 %1620 to i64
-  %1636 = getelementptr inbounds nuw %struct.colordesc, ptr %1634, i64 %1635
+  %1636 = getelementptr inbounds nuw [32 x i8], ptr %1634, i64 %1635
   %1637 = getelementptr inbounds nuw i8, ptr %.068164.i.i, i64 56
   %1638 = load ptr, ptr %1637, align 8
   %1639 = getelementptr inbounds nuw i8, ptr %1636, i64 16
@@ -6954,7 +6948,7 @@ combine.exit.thread9.i:                           ; preds = %.sink.split.i.i, %9
   %1695 = getelementptr inbounds nuw i8, ptr %1694, i64 40
   %1696 = load ptr, ptr %1695, align 8
   %1697 = zext nneg i16 %1682 to i64
-  %1698 = getelementptr inbounds nuw %struct.colordesc, ptr %1696, i64 %1697
+  %1698 = getelementptr inbounds nuw [32 x i8], ptr %1696, i64 %1697
   %1699 = getelementptr inbounds nuw i8, ptr %.069.i.i, i64 56
   %1700 = load ptr, ptr %1699, align 8
   %1701 = getelementptr inbounds nuw i8, ptr %1698, i64 16
@@ -7152,7 +7146,7 @@ pull.exit.i:                                      ; preds = %newstate.exit.i, %p
   %1783 = getelementptr inbounds nuw i8, ptr %.14551.i, i64 4
   %1784 = load i16, ptr %1783, align 4
   %1785 = sext i16 %1784 to i64
-  %1786 = getelementptr inbounds i16, ptr %1776, i64 %1785
+  %1786 = getelementptr inbounds [2 x i8], ptr %1776, i64 %1785
   %1787 = load i16, ptr %1786, align 2
   %1788 = getelementptr inbounds nuw i8, ptr %.14551.i, i64 8
   %1789 = load ptr, ptr %1788, align 8
@@ -7269,7 +7263,7 @@ newarc.exit.i:                                    ; preds = %1806, %1819, %.loop
   %1839 = getelementptr inbounds nuw i8, ptr %1838, i64 40
   %1840 = load ptr, ptr %1839, align 8
   %1841 = zext nneg i16 %1826 to i64
-  %1842 = getelementptr inbounds nuw %struct.colordesc, ptr %1840, i64 %1841
+  %1842 = getelementptr inbounds nuw [32 x i8], ptr %1840, i64 %1841
   %1843 = getelementptr inbounds nuw i8, ptr %.14551.i, i64 56
   %1844 = load ptr, ptr %1843, align 8
   %1845 = getelementptr inbounds nuw i8, ptr %1842, i64 16
@@ -7447,7 +7441,7 @@ pullback.exit:                                    ; preds = %1883, %.critedge5.i
   %1925 = getelementptr inbounds nuw i8, ptr %1924, i64 40
   %1926 = load ptr, ptr %1925, align 8
   %1927 = zext nneg i16 %1914 to i64
-  %1928 = getelementptr inbounds nuw %struct.colordesc, ptr %1926, i64 %1927
+  %1928 = getelementptr inbounds nuw [32 x i8], ptr %1926, i64 %1927
   %1929 = getelementptr inbounds nuw i8, ptr %.04424.i, i64 56
   %1930 = load ptr, ptr %1929, align 8
   %1931 = getelementptr inbounds nuw i8, ptr %1928, i64 16
@@ -7576,7 +7570,7 @@ freearc.exit.i.i204:                              ; preds = %1963, %1962
   %1989 = getelementptr inbounds nuw i8, ptr %1982, i64 16
   %1990 = add nuw i64 %1984, 1
   store i64 %1990, ptr %1766, align 8
-  %1991 = getelementptr inbounds nuw %struct.state, ptr %1989, i64 %1984
+  %1991 = getelementptr inbounds nuw [56 x i8], ptr %1989, i64 %1984
   br label %2028
 
 1992:                                             ; preds = %1981
@@ -7737,7 +7731,7 @@ newstate.exit142.i:                               ; preds = %2040, %2016, %2001
   %2068 = getelementptr inbounds nuw i8, ptr %2061, i64 16
   %2069 = add nuw i64 %2063, 1
   store i64 %2069, ptr %1761, align 8
-  %2070 = getelementptr inbounds nuw %struct.arc, ptr %2068, i64 %2063
+  %2070 = getelementptr inbounds nuw [72 x i8], ptr %2068, i64 %2063
   br label %allocarc.exit.i111.i
 
 2071:                                             ; preds = %2060
@@ -7883,7 +7877,7 @@ allocarc.exit.i111.i:                             ; preds = %2100, %2095, %2080,
   %2143 = getelementptr i8, ptr %2142, i64 40
   %.val.i116.i = load ptr, ptr %2143, align 8
   %2144 = zext nneg i16 %2134 to i64
-  %2145 = getelementptr inbounds nuw %struct.colordesc, ptr %.val.i116.i, i64 %2144
+  %2145 = getelementptr inbounds nuw [32 x i8], ptr %.val.i116.i, i64 %2144
   %2146 = getelementptr inbounds nuw i8, ptr %2145, i64 16
   %2147 = load ptr, ptr %2146, align 8
   %.not.i38.i117.i = icmp eq ptr %2147, null
@@ -8017,7 +8011,7 @@ copyouts.exit.i.i:                                ; preds = %createarc.exit127.i
   %2200 = getelementptr inbounds nuw i8, ptr %2193, i64 16
   %2201 = add nuw i64 %2195, 1
   store i64 %2201, ptr %1761, align 8
-  %2202 = getelementptr inbounds nuw %struct.arc, ptr %2200, i64 %2195
+  %2202 = getelementptr inbounds nuw [72 x i8], ptr %2200, i64 %2195
   br label %allocarc.exit.i93.i
 
 2203:                                             ; preds = %2192
@@ -8163,7 +8157,7 @@ allocarc.exit.i93.i:                              ; preds = %2232, %2227, %2212,
   %2275 = getelementptr i8, ptr %2274, i64 40
   %.val.i98.i = load ptr, ptr %2275, align 8
   %2276 = zext nneg i16 %2266 to i64
-  %2277 = getelementptr inbounds nuw %struct.colordesc, ptr %.val.i98.i, i64 %2276
+  %2277 = getelementptr inbounds nuw [32 x i8], ptr %.val.i98.i, i64 %2276
   %2278 = getelementptr inbounds nuw i8, ptr %2277, i64 16
   %2279 = load ptr, ptr %2278, align 8
   %.not.i38.i99.i = icmp eq ptr %2279, null
@@ -8215,7 +8209,7 @@ cparc.exit.i.i180:                                ; preds = %2170, %2183, %color
   %2300 = getelementptr inbounds nuw i8, ptr %2299, i64 40
   %2301 = load ptr, ptr %2300, align 8
   %2302 = zext nneg i16 %2287 to i64
-  %2303 = getelementptr inbounds nuw %struct.colordesc, ptr %2301, i64 %2302
+  %2303 = getelementptr inbounds nuw [32 x i8], ptr %2301, i64 %2302
   %2304 = getelementptr inbounds nuw i8, ptr %.04424.i, i64 56
   %2305 = load ptr, ptr %2304, align 8
   %2306 = getelementptr inbounds nuw i8, ptr %2303, i64 16
@@ -8384,7 +8378,7 @@ freearc.exit84.i.i184:                            ; preds = %2338, %2337
   %2375 = getelementptr inbounds nuw i8, ptr %2374, i64 40
   %2376 = load ptr, ptr %2375, align 8
   %2377 = sext i16 %2369 to i64
-  %2378 = getelementptr inbounds %struct.colordesc, ptr %2376, i64 %2377
+  %2378 = getelementptr inbounds [32 x i8], ptr %2376, i64 %2377
   %2379 = getelementptr inbounds nuw i8, ptr %2378, i64 28
   %2380 = load i32, ptr %2379, align 4
   %2381 = and i32 %2380, 2
@@ -8400,7 +8394,7 @@ freearc.exit84.i.i184:                            ; preds = %2338, %2337
   %2386 = getelementptr inbounds nuw i8, ptr %2385, i64 40
   %2387 = load ptr, ptr %2386, align 8
   %2388 = sext i16 %2367 to i64
-  %2389 = getelementptr inbounds %struct.colordesc, ptr %2387, i64 %2388
+  %2389 = getelementptr inbounds [32 x i8], ptr %2387, i64 %2388
   %2390 = getelementptr inbounds nuw i8, ptr %2389, i64 28
   %2391 = load i32, ptr %2390, align 4
   %2392 = and i32 %2391, 2
@@ -8430,7 +8424,7 @@ freearc.exit84.i.i184:                            ; preds = %2338, %2337
   %2407 = getelementptr inbounds nuw i8, ptr %2406, i64 40
   %2408 = load ptr, ptr %2407, align 8
   %2409 = sext i16 %2401 to i64
-  %2410 = getelementptr inbounds %struct.colordesc, ptr %2408, i64 %2409
+  %2410 = getelementptr inbounds [32 x i8], ptr %2408, i64 %2409
   %2411 = getelementptr inbounds nuw i8, ptr %2410, i64 28
   %2412 = load i32, ptr %2411, align 4
   %2413 = and i32 %2412, 2
@@ -8446,7 +8440,7 @@ freearc.exit84.i.i184:                            ; preds = %2338, %2337
   %2418 = getelementptr inbounds nuw i8, ptr %2417, i64 40
   %2419 = load ptr, ptr %2418, align 8
   %2420 = sext i16 %2399 to i64
-  %2421 = getelementptr inbounds %struct.colordesc, ptr %2419, i64 %2420
+  %2421 = getelementptr inbounds [32 x i8], ptr %2419, i64 %2420
   %2422 = getelementptr inbounds nuw i8, ptr %2421, i64 28
   %2423 = load i32, ptr %2422, align 4
   %2424 = and i32 %2423, 2
@@ -8500,7 +8494,7 @@ combine.exit.i.i:                                 ; preds = %2359, %2359, %2359,
   %2447 = getelementptr inbounds nuw i8, ptr %2446, i64 40
   %2448 = load ptr, ptr %2447, align 8
   %2449 = zext nneg i16 %2431 to i64
-  %2450 = getelementptr inbounds nuw %struct.colordesc, ptr %2448, i64 %2449
+  %2450 = getelementptr inbounds nuw [32 x i8], ptr %2448, i64 %2449
   %2451 = getelementptr inbounds nuw i8, ptr %.068181.i.i, i64 56
   %2452 = load ptr, ptr %2451, align 8
   %2453 = getelementptr inbounds nuw i8, ptr %2450, i64 16
@@ -8635,7 +8629,7 @@ uncolorchain.exit.i92.i.i:                        ; preds = %2460, %2458
   %2518 = getelementptr inbounds nuw i8, ptr %2511, i64 16
   %2519 = add nuw i64 %2513, 1
   store i64 %2519, ptr %1766, align 8
-  %2520 = getelementptr inbounds nuw %struct.state, ptr %2518, i64 %2513
+  %2520 = getelementptr inbounds nuw [56 x i8], ptr %2518, i64 %2513
   br label %2557
 
 2521:                                             ; preds = %2510
@@ -8865,7 +8859,7 @@ newstate.exit.i119:                               ; preds = %2569, %2545, %2530
   %2625 = getelementptr inbounds nuw i8, ptr %2618, i64 16
   %2626 = add nuw i64 %2620, 1
   store i64 %2626, ptr %1761, align 8
-  %2627 = getelementptr inbounds nuw %struct.arc, ptr %2625, i64 %2620
+  %2627 = getelementptr inbounds nuw [72 x i8], ptr %2625, i64 %2620
   br label %allocarc.exit.i70.i
 
 2628:                                             ; preds = %2617
@@ -9011,7 +9005,7 @@ allocarc.exit.i70.i:                              ; preds = %2657, %2652, %2637,
   %2700 = getelementptr i8, ptr %2699, i64 40
   %.val.i75.i = load ptr, ptr %2700, align 8
   %2701 = zext nneg i16 %2691 to i64
-  %2702 = getelementptr inbounds nuw %struct.colordesc, ptr %.val.i75.i, i64 %2701
+  %2702 = getelementptr inbounds nuw [32 x i8], ptr %.val.i75.i, i64 %2701
   %2703 = getelementptr inbounds nuw i8, ptr %2702, i64 16
   %2704 = load ptr, ptr %2703, align 8
   %.not.i38.i76.i = icmp eq ptr %2704, null
@@ -9137,7 +9131,7 @@ cparc.exit112.i.i:                                ; preds = %2595, %2608, %color
   %2756 = getelementptr inbounds nuw i8, ptr %2749, i64 16
   %2757 = add nuw i64 %2751, 1
   store i64 %2757, ptr %1761, align 8
-  %2758 = getelementptr inbounds nuw %struct.arc, ptr %2756, i64 %2751
+  %2758 = getelementptr inbounds nuw [72 x i8], ptr %2756, i64 %2751
   br label %allocarc.exit.i.i127
 
 2759:                                             ; preds = %2748
@@ -9282,7 +9276,7 @@ allocarc.exit.i.i127:                             ; preds = %2788, %2783, %2768,
   %2830 = getelementptr i8, ptr %2829, i64 40
   %.val.i.i134 = load ptr, ptr %2830, align 8
   %2831 = zext nneg i16 %2821 to i64
-  %2832 = getelementptr inbounds nuw %struct.colordesc, ptr %.val.i.i134, i64 %2831
+  %2832 = getelementptr inbounds nuw [32 x i8], ptr %.val.i.i134, i64 %2831
   %2833 = getelementptr inbounds nuw i8, ptr %2832, i64 16
   %2834 = load ptr, ptr %2833, align 8
   %.not.i38.i.i135 = icmp eq ptr %2834, null
@@ -9335,7 +9329,7 @@ cparc.exit131.i.i:                                ; preds = %2726, %2739, %color
   %2856 = getelementptr inbounds nuw i8, ptr %2855, i64 40
   %2857 = load ptr, ptr %2856, align 8
   %2858 = zext nneg i16 %2843 to i64
-  %2859 = getelementptr inbounds nuw %struct.colordesc, ptr %2857, i64 %2858
+  %2859 = getelementptr inbounds nuw [32 x i8], ptr %2857, i64 %2858
   %2860 = getelementptr inbounds nuw i8, ptr %.068181.i.i, i64 56
   %2861 = load ptr, ptr %2860, align 8
   %2862 = getelementptr inbounds nuw i8, ptr %2859, i64 16
@@ -9521,7 +9515,7 @@ newarc.exit.i.i158:                               ; preds = %2910, %2923, %.loop
   %2945 = getelementptr inbounds nuw i8, ptr %2944, i64 40
   %2946 = load ptr, ptr %2945, align 8
   %2947 = zext nneg i16 %2932 to i64
-  %2948 = getelementptr inbounds nuw %struct.colordesc, ptr %2946, i64 %2947
+  %2948 = getelementptr inbounds nuw [32 x i8], ptr %2946, i64 %2947
   %2949 = getelementptr inbounds nuw i8, ptr %.068181.i.i, i64 56
   %2950 = load ptr, ptr %2949, align 8
   %2951 = getelementptr inbounds nuw i8, ptr %2948, i64 16
@@ -9658,7 +9652,7 @@ combine.exit.thread162.i.i:                       ; preds = %combine.exit.thread
   %3006 = getelementptr inbounds nuw i8, ptr %3005, i64 40
   %3007 = load ptr, ptr %3006, align 8
   %3008 = zext nneg i16 %2993 to i64
-  %3009 = getelementptr inbounds nuw %struct.colordesc, ptr %3007, i64 %3008
+  %3009 = getelementptr inbounds nuw [32 x i8], ptr %3007, i64 %3008
   %3010 = getelementptr inbounds nuw i8, ptr %.070.i.i106, i64 56
   %3011 = load ptr, ptr %3010, align 8
   %3012 = getelementptr inbounds nuw i8, ptr %3009, i64 16
@@ -9847,7 +9841,7 @@ push.exit.i:                                      ; preds = %newstate.exit.i119,
   %3085 = getelementptr inbounds nuw i8, ptr %.14542.i, i64 4
   %3086 = load i16, ptr %3085, align 4
   %3087 = sext i16 %3086 to i64
-  %3088 = getelementptr inbounds i16, ptr %3078, i64 %3087
+  %3088 = getelementptr inbounds [2 x i8], ptr %3078, i64 %3087
   %3089 = load i16, ptr %3088, align 2
   %3090 = getelementptr inbounds nuw i8, ptr %.14542.i, i64 8
   %3091 = load ptr, ptr %3090, align 8
@@ -9964,7 +9958,7 @@ newarc.exit.i82:                                  ; preds = %3108, %3121, %.loop
   %3141 = getelementptr inbounds nuw i8, ptr %3140, i64 40
   %3142 = load ptr, ptr %3141, align 8
   %3143 = zext nneg i16 %3128 to i64
-  %3144 = getelementptr inbounds nuw %struct.colordesc, ptr %3142, i64 %3143
+  %3144 = getelementptr inbounds nuw [32 x i8], ptr %3142, i64 %3143
   %3145 = getelementptr inbounds nuw i8, ptr %.14542.i, i64 56
   %3146 = load ptr, ptr %3145, align 8
   %3147 = getelementptr inbounds nuw i8, ptr %3144, i64 16
@@ -10124,7 +10118,7 @@ pushfwd.exit:                                     ; preds = %3185, %.critedge5.i
   %3209 = getelementptr inbounds nuw i8, ptr %3208, i64 40
   %3210 = load ptr, ptr %3209, align 8
   %3211 = sext i16 %3206 to i64
-  %3212 = getelementptr inbounds %struct.colordesc, ptr %3210, i64 %3211
+  %3212 = getelementptr inbounds [32 x i8], ptr %3210, i64 %3211
   %3213 = getelementptr inbounds nuw i8, ptr %3212, i64 28
   %3214 = load i32, ptr %3213, align 4
   %3215 = and i32 %3214, 2
@@ -10181,7 +10175,7 @@ pushfwd.exit:                                     ; preds = %3185, %.critedge5.i
   %3240 = getelementptr inbounds nuw i8, ptr %3239, i64 40
   %3241 = load ptr, ptr %3240, align 8
   %3242 = sext i16 %3237 to i64
-  %3243 = getelementptr inbounds %struct.colordesc, ptr %3241, i64 %3242
+  %3243 = getelementptr inbounds [32 x i8], ptr %3241, i64 %3242
   %3244 = getelementptr inbounds nuw i8, ptr %3243, i64 28
   %3245 = load i32, ptr %3244, align 4
   %3246 = and i32 %3245, 2
@@ -10617,7 +10611,7 @@ check_in_colors_match.exit167.thread.i.i:         ; preds = %check_in_colors_mat
   %3410 = load ptr, ptr %0, align 8
   %3411 = load i32, ptr %3410, align 8
   %3412 = sext i32 %3411 to i64
-  %3413 = getelementptr inbounds ptr, ptr %3401, i64 %3412
+  %3413 = getelementptr inbounds [8 x i8], ptr %3401, i64 %3412
   %3414 = load ptr, ptr %3413, align 8
   br label %3415
 
@@ -10700,7 +10694,7 @@ split.i.i:                                        ; preds = %3422, %._crit_edge1
 .lr.ph184.i.i:                                    ; preds = %.thread.i.i226, %3446
   %3442 = phi i32 [ %3447, %3446 ], [ %3440, %.thread.i.i226 ]
   %indvars.iv196.i.i = phi i64 [ %indvars.iv.next197.i.i, %3446 ], [ 0, %.thread.i.i226 ]
-  %3443 = getelementptr inbounds nuw ptr, ptr %3401, i64 %indvars.iv196.i.i
+  %3443 = getelementptr inbounds nuw [8 x i8], ptr %3401, i64 %indvars.iv196.i.i
   %3444 = load ptr, ptr %3443, align 8
   %.not80.i.i = icmp eq ptr %3444, null
   br i1 %.not80.i.i, label %3446, label %3445
@@ -11162,7 +11156,7 @@ select.unfold.preheader:                          ; preds = %.critedge85
   %161 = getelementptr inbounds nuw i8, ptr %154, i64 16
   %162 = add nuw i64 %156, 1
   store i64 %162, ptr %118, align 8
-  %163 = getelementptr inbounds nuw %struct.arc, ptr %161, i64 %156
+  %163 = getelementptr inbounds nuw [72 x i8], ptr %161, i64 %156
   br label %allocarc.exit.i
 
 164:                                              ; preds = %153
@@ -11308,7 +11302,7 @@ allocarc.exit.i:                                  ; preds = %193, %188, %173, %1
   %236 = getelementptr i8, ptr %235, i64 40
   %.val.i = load ptr, ptr %236, align 8
   %237 = zext nneg i16 %227 to i64
-  %238 = getelementptr inbounds nuw %struct.colordesc, ptr %.val.i, i64 %237
+  %238 = getelementptr inbounds nuw [32 x i8], ptr %.val.i, i64 %237
   %239 = getelementptr inbounds nuw i8, ptr %238, i64 16
   %240 = load ptr, ptr %239, align 8
   %.not.i38.i = icmp eq ptr %240, null
@@ -11465,7 +11459,7 @@ copyouts.exit.thread:                             ; preds = %.preheader.i106, %1
   %302 = getelementptr inbounds nuw i8, ptr %295, i64 16
   %303 = add nuw i64 %297, 1
   store i64 %303, ptr %118, align 8
-  %304 = getelementptr inbounds nuw %struct.arc, ptr %302, i64 %297
+  %304 = getelementptr inbounds nuw [72 x i8], ptr %302, i64 %297
   br label %allocarc.exit.i135
 
 305:                                              ; preds = %294
@@ -11610,7 +11604,7 @@ allocarc.exit.i135:                               ; preds = %334, %329, %314, %3
   %376 = getelementptr i8, ptr %375, i64 40
   %.val.i140 = load ptr, ptr %376, align 8
   %377 = zext nneg i16 %367 to i64
-  %378 = getelementptr inbounds nuw %struct.colordesc, ptr %.val.i140, i64 %377
+  %378 = getelementptr inbounds nuw [32 x i8], ptr %.val.i140, i64 %377
   %379 = getelementptr inbounds nuw i8, ptr %378, i64 16
   %380 = load ptr, ptr %379, align 8
   %.not.i38.i141 = icmp eq ptr %380, null
@@ -11663,7 +11657,7 @@ cparc.exit:                                       ; preds = %273, %285, %colorch
   %402 = getelementptr inbounds nuw i8, ptr %401, i64 40
   %403 = load ptr, ptr %402, align 8
   %404 = zext nneg i16 %389 to i64
-  %405 = getelementptr inbounds nuw %struct.colordesc, ptr %403, i64 %404
+  %405 = getelementptr inbounds nuw [32 x i8], ptr %403, i64 %404
   %406 = getelementptr inbounds nuw i8, ptr %.2174, i64 56
   %407 = load ptr, ptr %406, align 8
   %408 = getelementptr inbounds nuw i8, ptr %405, i64 16
@@ -11929,7 +11923,7 @@ maxcolor.exit:                                    ; preds = %38, %65
   %85 = load ptr, ptr %16, align 8
   %86 = load i32, ptr %.1128, align 8
   %87 = sext i32 %86 to i64
-  %88 = getelementptr inbounds ptr, ptr %85, i64 %87
+  %88 = getelementptr inbounds [8 x i8], ptr %85, i64 %87
   store ptr %.089127, ptr %88, align 8
   %.093.in116 = getelementptr inbounds nuw i8, ptr %.1128, i64 24
   %.093117 = load ptr, ptr %.093.in116, align 8
@@ -12110,7 +12104,7 @@ define internal range(i32 0, 2) i32 @casecmp(ptr noundef readonly captures(none)
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 112
   %28 = load ptr, ptr %27, align 8
   %29 = zext nneg i32 %4 to i64
-  %30 = getelementptr inbounds nuw i32, ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %29
   %31 = load i32, ptr %30, align 4
   br label %pg_wc_tolower.exit
 
@@ -12169,7 +12163,7 @@ pg_wc_tolower.exit.thread20:                      ; preds = %21, %pg_wc_tolower.
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 112
   %55 = load ptr, ptr %54, align 8
   %56 = zext nneg i32 %48 to i64
-  %57 = getelementptr inbounds nuw i32, ptr %55, i64 %56
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %56
   %58 = load i32, ptr %57, align 4
   br label %pg_wc_tolower.exit16
 
@@ -12224,7 +12218,7 @@ define dso_local signext i16 @pg_reg_getcolor(ptr noundef readonly captures(none
   %10 = sdiv i32 %9, 2
   %11 = add i32 %10, %.03038
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds %struct.colormaprange, ptr %7, i64 %12
+  %13 = getelementptr inbounds [12 x i8], ptr %7, i64 %12
   %14 = load i32, ptr %13, align 4
   %15 = icmp ult i32 %1, %14
   br i1 %15, label %24, label %16
@@ -12303,7 +12297,7 @@ define dso_local signext i16 @pg_reg_getcolor(ptr noundef readonly captures(none
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 104
   %53 = load ptr, ptr %52, align 8
   %54 = zext nneg i32 %1 to i64
-  %55 = getelementptr inbounds nuw i16, ptr %53, i64 %54
+  %55 = getelementptr inbounds nuw [2 x i8], ptr %53, i64 %54
   %56 = load i16, ptr %55, align 2
   %57 = lshr i16 %56, 14
   %.lobit.i.i = and i16 %57, 1
@@ -12384,7 +12378,7 @@ pg_wc_isprint.exit.thread.i:                      ; preds = %62, %pg_wc_isprint.
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 104
   %96 = load ptr, ptr %95, align 8
   %97 = zext nneg i32 %1 to i64
-  %98 = getelementptr inbounds nuw i16, ptr %96, i64 %97
+  %98 = getelementptr inbounds nuw [2 x i8], ptr %96, i64 %97
   %99 = load i16, ptr %98, align 2
   %100 = lshr i16 %99, 3
   %.lobit.i60.i = and i16 %100, 1
@@ -12462,7 +12456,7 @@ pg_wc_isalnum.exit.thread.i:                      ; preds = %105, %pg_wc_isalnum
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 104
   %135 = load ptr, ptr %134, align 8
   %136 = zext nneg i32 %1 to i64
-  %137 = getelementptr inbounds nuw i16, ptr %135, i64 %136
+  %137 = getelementptr inbounds nuw [2 x i8], ptr %135, i64 %136
   %138 = load i16, ptr %137, align 2
   %139 = lshr i16 %138, 10
   %.lobit.i63.i = and i16 %139, 1
@@ -12549,7 +12543,7 @@ pg_wc_isalpha.exit.thread.i:                      ; preds = %144, %pg_wc_isalpha
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 104
   %182 = load ptr, ptr %181, align 8
   %183 = zext nneg i32 %1 to i64
-  %184 = getelementptr inbounds nuw i16, ptr %182, i64 %183
+  %184 = getelementptr inbounds nuw [2 x i8], ptr %182, i64 %183
   %185 = load i16, ptr %184, align 2
   %186 = lshr i16 %185, 3
   %.lobit.i.i.i = and i16 %186, 1
@@ -12635,7 +12629,7 @@ pg_wc_isword.exit.thread.i:                       ; preds = %pg_wc_isword.exit.t
   %224 = getelementptr inbounds nuw i8, ptr %223, i64 104
   %225 = load ptr, ptr %224, align 8
   %226 = zext nneg i32 %1 to i64
-  %227 = getelementptr inbounds nuw i16, ptr %225, i64 %226
+  %227 = getelementptr inbounds nuw [2 x i8], ptr %225, i64 %226
   %228 = load i16, ptr %227, align 2
   %229 = lshr i16 %228, 11
   %.lobit.i67.i = and i16 %229, 1
@@ -12718,7 +12712,7 @@ pg_wc_isdigit.exit.thread.i:                      ; preds = %234, %pg_wc_isdigit
   %268 = getelementptr inbounds nuw i8, ptr %267, i64 104
   %269 = load ptr, ptr %268, align 8
   %270 = zext nneg i32 %1 to i64
-  %271 = getelementptr inbounds nuw i16, ptr %269, i64 %270
+  %271 = getelementptr inbounds nuw [2 x i8], ptr %269, i64 %270
   %272 = load i16, ptr %271, align 2
   %273 = lshr i16 %272, 2
   %.lobit.i70.i = and i16 %273, 1
@@ -12795,7 +12789,7 @@ pg_wc_ispunct.exit.thread.i:                      ; preds = %278, %pg_wc_ispunct
   %306 = getelementptr inbounds nuw i8, ptr %305, i64 104
   %307 = load ptr, ptr %306, align 8
   %308 = zext nneg i32 %1 to i64
-  %309 = getelementptr inbounds nuw i16, ptr %307, i64 %308
+  %309 = getelementptr inbounds nuw [2 x i8], ptr %307, i64 %308
   %310 = load i16, ptr %309, align 2
   %311 = lshr i16 %310, 13
   %.lobit.i74.i = and i16 %311, 1
@@ -12866,7 +12860,7 @@ pg_wc_isspace.exit.thread.i:                      ; preds = %316, %pg_wc_isspace
   %340 = getelementptr inbounds nuw i8, ptr %339, i64 104
   %341 = load ptr, ptr %340, align 8
   %342 = zext nneg i32 %1 to i64
-  %343 = getelementptr inbounds nuw i16, ptr %341, i64 %342
+  %343 = getelementptr inbounds nuw [2 x i8], ptr %341, i64 %342
   %344 = load i16, ptr %343, align 2
   %345 = lshr i16 %344, 9
   %.lobit.i78.i = and i16 %345, 1
@@ -12937,7 +12931,7 @@ pg_wc_islower.exit.thread.i:                      ; preds = %350, %pg_wc_islower
   %374 = getelementptr inbounds nuw i8, ptr %373, i64 104
   %375 = load ptr, ptr %374, align 8
   %376 = zext nneg i32 %1 to i64
-  %377 = getelementptr inbounds nuw i16, ptr %375, i64 %376
+  %377 = getelementptr inbounds nuw [2 x i8], ptr %375, i64 %376
   %378 = load i16, ptr %377, align 2
   %379 = lshr i16 %378, 8
   %.lobit.i82.i = and i16 %379, 1
@@ -13008,7 +13002,7 @@ pg_wc_isupper.exit.thread.i:                      ; preds = %384, %pg_wc_isupper
   %408 = getelementptr inbounds nuw i8, ptr %407, i64 104
   %409 = load ptr, ptr %408, align 8
   %410 = zext nneg i32 %1 to i64
-  %411 = getelementptr inbounds nuw i16, ptr %409, i64 %410
+  %411 = getelementptr inbounds nuw [2 x i8], ptr %409, i64 %410
   %412 = load i16, ptr %411, align 2
   %.lobit.i86.i = lshr i16 %412, 15
   %413 = zext nneg i16 %.lobit.i86.i to i32
@@ -13044,7 +13038,7 @@ cclass_column_index.exit:                         ; preds = %pg_wc_isupper.exit.
   %.sink.in = getelementptr inbounds nuw i8, ptr %0, i64 128
   %.sink = load ptr, ptr %.sink.in, align 8
   %424 = sext i32 %.1.sink to i64
-  %425 = getelementptr inbounds i16, ptr %.sink, i64 %424
+  %425 = getelementptr inbounds [2 x i8], ptr %.sink, i64 %424
   %.025 = load i16, ptr %425, align 2
   ret i16 %.025
 }
@@ -13343,7 +13337,7 @@ define internal fastcc void @rainbow(ptr noundef captures(none) %0, ptr noundef 
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr %struct.colordesc, ptr %7, i64 %9
+  %10 = getelementptr [32 x i8], ptr %7, i64 %9
   %11 = getelementptr i8, ptr %10, i64 32
   %12 = icmp eq i16 %2, -1
   br i1 %12, label %18, label %.preheader
@@ -13681,7 +13675,7 @@ define internal fastcc noundef ptr @newstate(ptr noundef captures(none) %0) unna
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %21 = add nuw i64 %15, 1
   store i64 %21, ptr %14, align 8
-  %22 = getelementptr inbounds nuw %struct.state, ptr %20, i64 %15
+  %22 = getelementptr inbounds nuw [56 x i8], ptr %20, i64 %15
   br label %64
 
 23:                                               ; preds = %10
@@ -13831,7 +13825,7 @@ define internal fastcc void @createarc(ptr noundef captures(none) %0, i32 nounde
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %22 = add nuw i64 %16, 1
   store i64 %22, ptr %15, align 8
-  %23 = getelementptr inbounds nuw %struct.arc, ptr %21, i64 %16
+  %23 = getelementptr inbounds nuw [72 x i8], ptr %21, i64 %16
   br label %allocarc.exit
 
 24:                                               ; preds = %11
@@ -13987,7 +13981,7 @@ allocarc.exit:                                    ; preds = %8, %20, %35, %52, %
   %106 = getelementptr i8, ptr %105, i64 40
   %.val = load ptr, ptr %106, align 8
   %107 = zext nneg i16 %95 to i64
-  %108 = getelementptr inbounds nuw %struct.colordesc, ptr %.val, i64 %107
+  %108 = getelementptr inbounds nuw [32 x i8], ptr %.val, i64 %107
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 16
   %110 = load ptr, ptr %109, align 8
   %.not.i38 = icmp eq ptr %110, null
@@ -15500,7 +15494,7 @@ newarc.exit86.i:                                  ; preds = %506, %518, %.loopex
   %569 = add i32 %.024.i.i, 1
   store i32 %569, ptr %62, align 8
   %570 = sext i32 %.024.i.i to i64
-  %571 = getelementptr inbounds %struct.subre, ptr %.023.i106.i, i64 %570
+  %571 = getelementptr inbounds [128 x i8], ptr %.023.i106.i, i64 %570
   %572 = getelementptr inbounds nuw i8, ptr %571, i64 40
   store ptr %372, ptr %572, align 8
   %573 = getelementptr inbounds nuw i8, ptr %571, i64 48
@@ -15923,7 +15917,7 @@ charclass.exit:                                   ; preds = %702, %712
   br i1 %.not2733.i, label %moresubs.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %754
-  %756 = getelementptr inbounds nuw ptr, ptr %.032.i, i64 %755
+  %756 = getelementptr inbounds nuw [8 x i8], ptr %.032.i, i64 %755
   br label %.lr.ph.i149
 
 .lr.ph.i149:                                      ; preds = %.lr.ph.i149, %.lr.ph.preheader.i
@@ -16158,7 +16152,7 @@ newarc.exit129:                                   ; preds = %814, %826, %.loopex
   %.1631.i = phi ptr [ %833, %844 ], [ %847, %849 ]
   %853 = load ptr, ptr %51, align 8
   %854 = sext i32 %.1628.i to i64
-  %855 = getelementptr inbounds ptr, ptr %853, i64 %854
+  %855 = getelementptr inbounds [8 x i8], ptr %853, i64 %854
   store ptr %.1631.i, ptr %855, align 8
   br label %942
 
@@ -16195,7 +16189,7 @@ newarc.exit129:                                   ; preds = %814, %826, %.loopex
 
 866:                                              ; preds = %865
   %867 = load ptr, ptr %51, align 8
-  %868 = getelementptr inbounds ptr, ptr %867, i64 %861
+  %868 = getelementptr inbounds [8 x i8], ptr %867, i64 %861
   %869 = load ptr, ptr %868, align 8
   %.not666.i = icmp eq ptr %869, null
   br i1 %.not666.i, label %.thread317, label %870
@@ -16286,7 +16280,7 @@ subre.exit566:                                    ; preds = %881, %889
 903:                                              ; preds = %subre.exit566
   store i32 %860, ptr %896, align 4
   %904 = load ptr, ptr %51, align 8
-  %905 = getelementptr inbounds ptr, ptr %904, i64 %861
+  %905 = getelementptr inbounds [8 x i8], ptr %904, i64 %861
   %906 = load ptr, ptr %905, align 8
   %907 = getelementptr inbounds nuw i8, ptr %906, i64 1
   %908 = load i8, ptr %907, align 1
@@ -17159,7 +17153,7 @@ delsub.exit:                                      ; preds = %1265, %1275
   %1277 = load ptr, ptr %48, align 8
   %1278 = load ptr, ptr %51, align 8
   %1279 = sext i32 %.0627.i to i64
-  %1280 = getelementptr inbounds ptr, ptr %1278, i64 %1279
+  %1280 = getelementptr inbounds [8 x i8], ptr %1278, i64 %1279
   %1281 = load ptr, ptr %1280, align 8
   %1282 = getelementptr inbounds nuw i8, ptr %1281, i64 40
   %1283 = load ptr, ptr %1282, align 8
@@ -19292,7 +19286,7 @@ define internal fastcc void @moveins(ptr noundef captures(none) %0, ptr noundef 
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 40
   %36 = load ptr, ptr %35, align 8
   %37 = zext nneg i16 %22 to i64
-  %38 = getelementptr inbounds nuw %struct.colordesc, ptr %36, i64 %37
+  %38 = getelementptr inbounds nuw [32 x i8], ptr %36, i64 %37
   %39 = getelementptr inbounds nuw i8, ptr %13, i64 56
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 16
@@ -19525,7 +19519,7 @@ cparc.exit:                                       ; preds = %115, %127, %.loopex
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 40
   %149 = load ptr, ptr %148, align 8
   %150 = zext nneg i16 %135 to i64
-  %151 = getelementptr inbounds nuw %struct.colordesc, ptr %149, i64 %150
+  %151 = getelementptr inbounds nuw [32 x i8], ptr %149, i64 %150
   %152 = getelementptr inbounds nuw i8, ptr %96, i64 56
   %153 = load ptr, ptr %152, align 8
   %154 = getelementptr inbounds nuw i8, ptr %151, i64 16
@@ -19781,7 +19775,7 @@ changearctarget.exit:                             ; preds = %250, %256
   %278 = getelementptr inbounds nuw i8, ptr %277, i64 40
   %279 = load ptr, ptr %278, align 8
   %280 = zext nneg i16 %225 to i64
-  %281 = getelementptr inbounds nuw %struct.colordesc, ptr %279, i64 %280
+  %281 = getelementptr inbounds nuw [32 x i8], ptr %279, i64 %280
   %282 = getelementptr inbounds nuw i8, ptr %.06778, i64 56
   %283 = load ptr, ptr %282, align 8
   %284 = getelementptr inbounds nuw i8, ptr %281, i64 16
@@ -19979,7 +19973,7 @@ define internal fastcc void @sortins(ptr noundef readonly captures(none) %0, ptr
   %.046 = phi i32 [ %20, %.lr.ph ], [ 0, %18 ]
   %20 = add i32 %.046, 1
   %21 = sext i32 %.046 to i64
-  %22 = getelementptr inbounds ptr, ptr %9, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %9, i64 %21
   store ptr %.03947, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %.03947, i64 40
   %.039 = load ptr, ptr %23, align 8
@@ -20006,10 +20000,10 @@ define internal fastcc void @sortins(ptr noundef readonly captures(none) %0, ptr
 
 .lr.ph50:                                         ; preds = %.lr.ph50.preheader, %.lr.ph50
   %indvars.iv = phi i64 [ 1, %.lr.ph50.preheader ], [ %indvars.iv.next, %.lr.ph50 ]
-  %29 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %31 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv.next
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.next
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 40
   store ptr %32, ptr %33, align 8
@@ -20026,7 +20020,7 @@ define internal fastcc void @sortins(ptr noundef readonly captures(none) %0, ptr
 
 ._crit_edge51:                                    ; preds = %._crit_edge, %._crit_edge51.loopexit
   %.1.lcssa = phi i64 [ %37, %._crit_edge51.loopexit ], [ 1, %._crit_edge ]
-  %38 = getelementptr inbounds nuw ptr, ptr %9, i64 %.1.lcssa
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.1.lcssa
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 40
   store ptr null, ptr %40, align 8
@@ -20640,14 +20634,14 @@ getcvec.exit.i:                                   ; preds = %142, %newcvec.exit.
   %147 = add i32 %146, 1
   store i32 %147, ptr %.0.i.i41, align 8
   %148 = sext i32 %146 to i64
-  %149 = getelementptr inbounds i32, ptr %145, i64 %148
+  %149 = getelementptr inbounds [4 x i8], ptr %145, i64 %148
   store i32 120, ptr %149, align 4
   %150 = load ptr, ptr %144, align 8
   %151 = load i32, ptr %.0.i.i41, align 8
   %152 = add i32 %151, 1
   store i32 %152, ptr %.0.i.i41, align 8
   %153 = sext i32 %151 to i64
-  %154 = getelementptr inbounds i32, ptr %150, i64 %153
+  %154 = getelementptr inbounds [4 x i8], ptr %150, i64 %153
   store i32 121, ptr %154, align 4
   %.not17.i = icmp eq i32 %115, 0
   br i1 %.not17.i, label %eclass.exit, label %155
@@ -20658,14 +20652,14 @@ getcvec.exit.i:                                   ; preds = %142, %newcvec.exit.
   %158 = add i32 %157, 1
   store i32 %158, ptr %.0.i.i41, align 8
   %159 = sext i32 %157 to i64
-  %160 = getelementptr inbounds i32, ptr %156, i64 %159
+  %160 = getelementptr inbounds [4 x i8], ptr %156, i64 %159
   store i32 88, ptr %160, align 4
   %161 = load ptr, ptr %144, align 8
   %162 = load i32, ptr %.0.i.i41, align 8
   %163 = add i32 %162, 1
   store i32 %163, ptr %.0.i.i41, align 8
   %164 = sext i32 %162 to i64
-  %165 = getelementptr inbounds i32, ptr %161, i64 %164
+  %165 = getelementptr inbounds [4 x i8], ptr %161, i64 %164
   store i32 89, ptr %165, align 4
   br label %eclass.exit
 
@@ -20736,7 +20730,7 @@ getcvec.exit25.i:                                 ; preds = %newcvec.exit.i22.i,
   %193 = add i32 %190, 1
   store i32 %193, ptr %.0.i21.i, align 8
   %194 = sext i32 %190 to i64
-  %195 = getelementptr inbounds i32, ptr %192, i64 %194
+  %195 = getelementptr inbounds [4 x i8], ptr %192, i64 %194
   store i32 %.0.i152.ph202.i, ptr %195, align 4
   br label %eclass.exit
 
@@ -21076,7 +21070,7 @@ element.exit:                                     ; preds = %298
   %337 = load ptr, ptr %336, align 8
   %338 = getelementptr inbounds nuw i8, ptr %335, i64 24
   %339 = load i64, ptr %338, align 8
-  %340 = getelementptr %struct.colordesc, ptr %337, i64 %339
+  %340 = getelementptr [32 x i8], ptr %337, i64 %339
   %341 = getelementptr i8, ptr %340, i64 32
   %342 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.02232.i = load ptr, ptr %342, align 8
@@ -21091,7 +21085,7 @@ element.exit:                                     ; preds = %298
   %346 = getelementptr inbounds nuw i8, ptr %.02234.i, i64 4
   %347 = load i16, ptr %346, align 4
   %348 = sext i16 %347 to i64
-  %349 = getelementptr inbounds %struct.colordesc, ptr %345, i64 %348
+  %349 = getelementptr inbounds [32 x i8], ptr %345, i64 %348
   %350 = getelementptr inbounds nuw i8, ptr %349, i64 28
   %351 = load i32, ptr %350, align 4
   %352 = or i32 %351, 4
@@ -21184,7 +21178,7 @@ element.exit:                                     ; preds = %298
   %389 = getelementptr inbounds nuw i8, ptr %388, i64 40
   %390 = load ptr, ptr %389, align 8
   %391 = zext nneg i16 %374 to i64
-  %392 = getelementptr inbounds nuw %struct.colordesc, ptr %390, i64 %391
+  %392 = getelementptr inbounds nuw [32 x i8], ptr %390, i64 %391
   %393 = getelementptr inbounds nuw i8, ptr %367, i64 56
   %394 = load ptr, ptr %393, align 8
   %395 = getelementptr inbounds nuw i8, ptr %392, i64 16
@@ -22339,7 +22333,7 @@ define internal fastcc void @moveouts(ptr noundef captures(none) %0, ptr noundef
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 40
   %36 = load ptr, ptr %35, align 8
   %37 = zext nneg i16 %22 to i64
-  %38 = getelementptr inbounds nuw %struct.colordesc, ptr %36, i64 %37
+  %38 = getelementptr inbounds nuw [32 x i8], ptr %36, i64 %37
   %39 = getelementptr inbounds nuw i8, ptr %13, i64 56
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 16
@@ -22572,7 +22566,7 @@ cparc.exit:                                       ; preds = %114, %127, %.loopex
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 40
   %149 = load ptr, ptr %148, align 8
   %150 = zext nneg i16 %135 to i64
-  %151 = getelementptr inbounds nuw %struct.colordesc, ptr %149, i64 %150
+  %151 = getelementptr inbounds nuw [32 x i8], ptr %149, i64 %150
   %152 = getelementptr inbounds nuw i8, ptr %95, i64 56
   %153 = load ptr, ptr %152, align 8
   %154 = getelementptr inbounds nuw i8, ptr %151, i64 16
@@ -22818,7 +22812,7 @@ changearcsource.exit:                             ; preds = %246, %252
   %274 = getelementptr inbounds nuw i8, ptr %273, i64 40
   %275 = load ptr, ptr %274, align 8
   %276 = zext nneg i16 %225 to i64
-  %277 = getelementptr inbounds nuw %struct.colordesc, ptr %275, i64 %276
+  %277 = getelementptr inbounds nuw [32 x i8], ptr %275, i64 %276
   %278 = getelementptr inbounds nuw i8, ptr %.06980, i64 56
   %279 = load ptr, ptr %278, align 8
   %280 = getelementptr inbounds nuw i8, ptr %277, i64 16
@@ -23174,13 +23168,13 @@ getcvec.exit:                                     ; preds = %28
   %42 = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 24
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 16
-  %45 = getelementptr inbounds i32, ptr %43, i64 %41
+  %45 = getelementptr inbounds [4 x i8], ptr %43, i64 %41
   store i32 0, ptr %45, align 4
   %46 = load ptr, ptr %42, align 8
   %47 = load i32, ptr %44, align 8
   %48 = shl i32 %47, 1
   %49 = sext i32 %48 to i64
-  %50 = getelementptr i32, ptr %46, i64 %49
+  %50 = getelementptr [4 x i8], ptr %46, i64 %49
   %51 = getelementptr i8, ptr %50, i64 4
   store i32 127, ptr %51, align 4
   %52 = load i32, ptr %44, align 8
@@ -23248,14 +23242,14 @@ getcvec.exit49:                                   ; preds = %63, %newcvec.exit.i
   %79 = add i32 %76, 1
   store i32 %79, ptr %.0.i45, align 8
   %80 = sext i32 %76 to i64
-  %81 = getelementptr inbounds i32, ptr %78, i64 %80
+  %81 = getelementptr inbounds [4 x i8], ptr %78, i64 %80
   store i32 9, ptr %81, align 4
   %82 = load ptr, ptr %77, align 8
   %83 = load i32, ptr %.0.i45, align 8
   %84 = add i32 %83, 1
   store i32 %84, ptr %.0.i45, align 8
   %85 = sext i32 %83 to i64
-  %86 = getelementptr inbounds i32, ptr %82, i64 %85
+  %86 = getelementptr inbounds [4 x i8], ptr %82, i64 %85
   store i32 32, ptr %86, align 4
   br label %.thread
 
@@ -23318,13 +23312,13 @@ getcvec.exit57:                                   ; preds = %96, %newcvec.exit.i
   %111 = getelementptr inbounds nuw i8, ptr %.0.i53, i64 24
   %112 = load ptr, ptr %111, align 8
   %113 = getelementptr inbounds nuw i8, ptr %.0.i53, i64 16
-  %114 = getelementptr inbounds i32, ptr %112, i64 %110
+  %114 = getelementptr inbounds [4 x i8], ptr %112, i64 %110
   store i32 0, ptr %114, align 4
   %115 = load ptr, ptr %111, align 8
   %116 = load i32, ptr %113, align 8
   %117 = shl i32 %116, 1
   %118 = sext i32 %117 to i64
-  %119 = getelementptr i32, ptr %115, i64 %118
+  %119 = getelementptr [4 x i8], ptr %115, i64 %118
   %120 = getelementptr i8, ptr %119, i64 4
   store i32 31, ptr %120, align 4
   %121 = load i32, ptr %113, align 8
@@ -23333,13 +23327,13 @@ getcvec.exit57:                                   ; preds = %96, %newcvec.exit.i
   %123 = load ptr, ptr %111, align 8
   %124 = shl i32 %122, 1
   %125 = sext i32 %124 to i64
-  %126 = getelementptr inbounds i32, ptr %123, i64 %125
+  %126 = getelementptr inbounds [4 x i8], ptr %123, i64 %125
   store i32 127, ptr %126, align 4
   %127 = load ptr, ptr %111, align 8
   %128 = load i32, ptr %113, align 8
   %129 = shl i32 %128, 1
   %130 = sext i32 %129 to i64
-  %131 = getelementptr i32, ptr %127, i64 %130
+  %131 = getelementptr [4 x i8], ptr %127, i64 %130
   %132 = getelementptr i8, ptr %131, i64 4
   store i32 159, ptr %132, align 4
   %133 = load i32, ptr %113, align 8
@@ -23421,13 +23415,13 @@ getcvec.exit65:                                   ; preds = %152
   %166 = getelementptr inbounds nuw i8, ptr %.0.i61.ph, i64 24
   %167 = load ptr, ptr %166, align 8
   %168 = getelementptr inbounds nuw i8, ptr %.0.i61.ph, i64 16
-  %169 = getelementptr inbounds i32, ptr %167, i64 %165
+  %169 = getelementptr inbounds [4 x i8], ptr %167, i64 %165
   store i32 48, ptr %169, align 4
   %170 = load ptr, ptr %166, align 8
   %171 = load i32, ptr %168, align 8
   %172 = shl i32 %171, 1
   %173 = sext i32 %172 to i64
-  %174 = getelementptr i32, ptr %170, i64 %173
+  %174 = getelementptr [4 x i8], ptr %170, i64 %173
   %175 = getelementptr i8, ptr %174, i64 4
   store i32 57, ptr %175, align 4
   %176 = load i32, ptr %168, align 8
@@ -23436,13 +23430,13 @@ getcvec.exit65:                                   ; preds = %152
   %178 = load ptr, ptr %166, align 8
   %179 = shl i32 %177, 1
   %180 = sext i32 %179 to i64
-  %181 = getelementptr inbounds i32, ptr %178, i64 %180
+  %181 = getelementptr inbounds [4 x i8], ptr %178, i64 %180
   store i32 97, ptr %181, align 4
   %182 = load ptr, ptr %166, align 8
   %183 = load i32, ptr %168, align 8
   %184 = shl i32 %183, 1
   %185 = sext i32 %184 to i64
-  %186 = getelementptr i32, ptr %182, i64 %185
+  %186 = getelementptr [4 x i8], ptr %182, i64 %185
   %187 = getelementptr i8, ptr %186, i64 4
   store i32 102, ptr %187, align 4
   %188 = load i32, ptr %168, align 8
@@ -23451,13 +23445,13 @@ getcvec.exit65:                                   ; preds = %152
   %190 = load ptr, ptr %166, align 8
   %191 = shl i32 %189, 1
   %192 = sext i32 %191 to i64
-  %193 = getelementptr inbounds i32, ptr %190, i64 %192
+  %193 = getelementptr inbounds [4 x i8], ptr %190, i64 %192
   store i32 65, ptr %193, align 4
   %194 = load ptr, ptr %166, align 8
   %195 = load i32, ptr %168, align 8
   %196 = shl i32 %195, 1
   %197 = sext i32 %196 to i64
-  %198 = getelementptr i32, ptr %194, i64 %197
+  %198 = getelementptr [4 x i8], ptr %194, i64 %197
   %199 = getelementptr i8, ptr %198, i64 4
   store i32 70, ptr %199, align 4
   %200 = load i32, ptr %168, align 8
@@ -23585,11 +23579,11 @@ define internal fastcc void @subcolorcvec(ptr noundef nonnull readonly captures(
   %indvars.iv = phi i64 [ %40, %.lr.ph183.preheader ], [ %indvars.iv.next, %127 ]
   %.0.i176179 = phi i16 [ %.promoted, %.lr.ph183.preheader ], [ %.0.i175, %127 ]
   %42 = load ptr, ptr %25, align 8
-  %43 = getelementptr inbounds nuw i16, ptr %42, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [2 x i8], ptr %42, i64 %indvars.iv
   %44 = load i16, ptr %43, align 2
   %45 = load ptr, ptr %26, align 8
   %46 = sext i16 %44 to i64
-  %47 = getelementptr inbounds %struct.colordesc, ptr %45, i64 %46
+  %47 = getelementptr inbounds [32 x i8], ptr %45, i64 %46
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %49 = load i16, ptr %48, align 8
   %50 = icmp eq i16 %49, -1
@@ -23610,12 +23604,12 @@ define internal fastcc void @subcolorcvec(ptr noundef nonnull readonly captures(
 
 60:                                               ; preds = %57
   %61 = load ptr, ptr %26, align 8
-  %62 = getelementptr inbounds %struct.colordesc, ptr %61, i64 %46
+  %62 = getelementptr inbounds [32 x i8], ptr %61, i64 %46
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   store i16 %58, ptr %63, align 8
   %64 = load ptr, ptr %26, align 8
   %65 = sext i16 %58 to i64
-  %66 = getelementptr inbounds %struct.colordesc, ptr %64, i64 %65
+  %66 = getelementptr inbounds [32 x i8], ptr %64, i64 %65
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
   store i16 %58, ptr %67, align 8
   br label %newsub.exit.i
@@ -23634,13 +23628,13 @@ newsub.exit.i:                                    ; preds = %60, %57, %51, %.lr.
 
 73:                                               ; preds = %71
   %74 = load ptr, ptr %26, align 8
-  %75 = getelementptr inbounds %struct.colordesc, ptr %74, i64 %46
+  %75 = getelementptr inbounds [32 x i8], ptr %74, i64 %46
   %76 = load i32, ptr %75, align 8
   %77 = add i32 %76, -1
   store i32 %77, ptr %75, align 8
   %78 = load ptr, ptr %26, align 8
   %79 = sext i16 %.017.i.i to i64
-  %80 = getelementptr inbounds %struct.colordesc, ptr %78, i64 %79
+  %80 = getelementptr inbounds [32 x i8], ptr %78, i64 %79
   %81 = load i32, ptr %80, align 8
   %82 = icmp eq i32 %81, 0
   br i1 %82, label %83, label %86
@@ -23650,18 +23644,18 @@ newsub.exit.i:                                    ; preds = %60, %57, %51, %.lr.
   %85 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %85, ptr %84, align 8
   %.pre.i = load ptr, ptr %26, align 8
-  %.phi.trans.insert.i = getelementptr inbounds %struct.colordesc, ptr %.pre.i, i64 %79
+  %.phi.trans.insert.i = getelementptr inbounds [32 x i8], ptr %.pre.i, i64 %79
   %.pre21.i = load i32, ptr %.phi.trans.insert.i, align 8
   br label %86
 
 86:                                               ; preds = %83, %73
   %87 = phi i32 [ %.pre21.i, %83 ], [ %81, %73 ]
   %88 = phi ptr [ %.pre.i, %83 ], [ %78, %73 ]
-  %89 = getelementptr inbounds %struct.colordesc, ptr %88, i64 %79
+  %89 = getelementptr inbounds [32 x i8], ptr %88, i64 %79
   %90 = add i32 %87, 1
   store i32 %90, ptr %89, align 8
   %91 = load ptr, ptr %25, align 8
-  %92 = getelementptr inbounds nuw i16, ptr %91, i64 %indvars.iv
+  %92 = getelementptr inbounds nuw [2 x i8], ptr %91, i64 %indvars.iv
   store i16 %.017.i.i, ptr %92, align 2
   br label %subcolor.exit
 
@@ -23828,7 +23822,7 @@ newarc.exit:                                      ; preds = %109, %121, %.loopex
   %indvars.iv.i186 = phi i64 [ %indvars.iv.next.i, %.lr.ph.i117 ], [ 0, %.lr.ph.i117.preheader ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i186, 1
   %indvars183.i = trunc i64 %indvars.iv.next.i to i32
-  %156 = getelementptr inbounds nuw %struct.colormaprange, ptr %138, i64 %indvars.iv.i186
+  %156 = getelementptr inbounds nuw [12 x i8], ptr %138, i64 %indvars.iv.i186
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %156, ptr noundef nonnull align 4 dereferenceable(12) %.0128152.i187, i64 12, i1 false)
   %157 = getelementptr inbounds nuw i8, ptr %.0128152.i187, i64 12
   %158 = load i32, ptr %132, align 8
@@ -23868,7 +23862,7 @@ newarc.exit:                                      ; preds = %109, %121, %.loopex
 
 .thread.i:                                        ; preds = %.lr.ph199
   %169 = sext i32 %.1132161.i197 to i64
-  %170 = getelementptr inbounds %struct.colormaprange, ptr %138, i64 %169
+  %170 = getelementptr inbounds [12 x i8], ptr %138, i64 %169
   store i32 %.0134160.i198, ptr %170, align 4
   %171 = load i32, ptr %.1129162.i194, align 4
   %172 = add i32 %171, -1
@@ -23897,7 +23891,7 @@ newarc.exit:                                      ; preds = %109, %121, %.loopex
 182:                                              ; preds = %179
   %183 = add i32 %.2133205.i, 1
   %184 = sext i32 %.2133205.i to i64
-  %185 = getelementptr inbounds %struct.colormaprange, ptr %138, i64 %184
+  %185 = getelementptr inbounds [12 x i8], ptr %138, i64 %184
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %185, ptr noundef nonnull align 4 dereferenceable(12) %.1129162.i194, i64 12, i1 false)
   %186 = getelementptr inbounds nuw i8, ptr %.1129162.i194, i64 8
   %187 = load i32, ptr %186, align 4
@@ -23905,7 +23899,7 @@ newarc.exit:                                      ; preds = %109, %121, %.loopex
 
 188:                                              ; preds = %178
   %189 = sext i32 %.1132161.i197 to i64
-  %190 = getelementptr inbounds %struct.colormaprange, ptr %138, i64 %189
+  %190 = getelementptr inbounds [12 x i8], ptr %138, i64 %189
   store i32 %167, ptr %190, align 4
   %191 = add i32 %.0134160.i198, -1
   %192 = getelementptr inbounds nuw i8, ptr %190, i64 4
@@ -23921,7 +23915,7 @@ newarc.exit:                                      ; preds = %109, %121, %.loopex
   %.1135203.i = phi i32 [ %.0134160.i198, %188 ], [ %.1135204.i, %179 ]
   %.4.i = phi i32 [ %196, %188 ], [ %.2133205.i, %179 ]
   %198 = sext i32 %.4.i to i64
-  %199 = getelementptr inbounds %struct.colormaprange, ptr %138, i64 %198
+  %199 = getelementptr inbounds [12 x i8], ptr %138, i64 %198
   store i32 %.1135203.i, ptr %199, align 4
   %200 = getelementptr inbounds nuw i8, ptr %.1129162.i194, i64 4
   %201 = load i32, ptr %200, align 4
@@ -23940,7 +23934,7 @@ newarc.exit:                                      ; preds = %109, %121, %.loopex
 
 210:                                              ; preds = %197
   %211 = sext i32 %207 to i64
-  %212 = getelementptr inbounds %struct.colormaprange, ptr %138, i64 %211
+  %212 = getelementptr inbounds [12 x i8], ptr %138, i64 %211
   store i32 %163, ptr %212, align 4
   %213 = load i32, ptr %200, align 4
   %214 = getelementptr inbounds nuw i8, ptr %212, i64 4
@@ -23988,7 +23982,7 @@ newarc.exit:                                      ; preds = %109, %121, %.loopex
 
 230:                                              ; preds = %.critedge.i
   %231 = sext i32 %.1132.lcssa.i to i64
-  %232 = getelementptr inbounds %struct.colormaprange, ptr %138, i64 %231
+  %232 = getelementptr inbounds [12 x i8], ptr %138, i64 %231
   store i32 %.0134.lcssa.i, ptr %232, align 4
   %233 = getelementptr inbounds nuw i8, ptr %232, i64 4
   store i32 %36, ptr %233, align 4
@@ -24012,7 +24006,7 @@ newarc.exit:                                      ; preds = %109, %121, %.loopex
   %.7175.i = phi i32 [ %240, %.lr.ph179.i ], [ %.6.i, %237 ]
   %240 = add i32 %.7175.i, 1
   %241 = sext i32 %.7175.i to i64
-  %242 = getelementptr inbounds %struct.colormaprange, ptr %138, i64 %241
+  %242 = getelementptr inbounds [12 x i8], ptr %138, i64 %241
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %242, ptr noundef nonnull align 4 dereferenceable(12) %.2130176.i, i64 12, i1 false)
   %243 = getelementptr inbounds nuw i8, ptr %.2130176.i, i64 12
   %244 = add nuw nsw i32 %.2177.i, 1
@@ -24063,7 +24057,7 @@ subcoloronerange.exit:                            ; preds = %249, %140, %250, %2
 261:                                              ; preds = %._crit_edge215
   %262 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %263 = zext nneg i32 %259 to i64
-  %264 = getelementptr inbounds nuw i32, ptr %262, i64 %263
+  %264 = getelementptr inbounds nuw [4 x i8], ptr %262, i64 %263
   %265 = load i32, ptr %264, align 4
   %266 = icmp eq i32 %265, 0
   br i1 %266, label %267, label %332
@@ -24141,26 +24135,26 @@ subcoloronerange.exit:                            ; preds = %249, %140, %250, %2
   %.049.i = phi i32 [ %.0.i124, %.loopexit.i123 ], [ %.048.i, %.lr.ph50.i ]
   %306 = mul i32 %.049.i, %305
   %307 = sext i32 %306 to i64
-  %308 = getelementptr inbounds i16, ptr %288, i64 %307
+  %308 = getelementptr inbounds [2 x i8], ptr %288, i64 %307
   %309 = shl i32 %306, 1
   %310 = sext i32 %309 to i64
-  %311 = getelementptr inbounds i16, ptr %288, i64 %310
+  %311 = getelementptr inbounds [2 x i8], ptr %288, i64 %310
   %312 = sext i32 %305 to i64
-  %313 = getelementptr inbounds i16, ptr %311, i64 %312
+  %313 = getelementptr inbounds [2 x i8], ptr %311, i64 %312
   %314 = icmp sgt i32 %305, 0
   br i1 %314, label %.lr.ph.i125, label %.loopexit.i123
 
 .lr.ph.i125:                                      ; preds = %.lr.ph50.split.i, %.lr.ph.i125
   %indvars.iv.i126 = phi i64 [ %indvars.iv.next.i127, %.lr.ph.i125 ], [ 0, %.lr.ph50.split.i ]
-  %315 = getelementptr inbounds nuw i16, ptr %308, i64 %indvars.iv.i126
+  %315 = getelementptr inbounds nuw [2 x i8], ptr %308, i64 %indvars.iv.i126
   %316 = load i16, ptr %315, align 2
-  %317 = getelementptr inbounds nuw i16, ptr %313, i64 %indvars.iv.i126
+  %317 = getelementptr inbounds nuw [2 x i8], ptr %313, i64 %indvars.iv.i126
   store i16 %316, ptr %317, align 2
-  %318 = getelementptr inbounds nuw i16, ptr %311, i64 %indvars.iv.i126
+  %318 = getelementptr inbounds nuw [2 x i8], ptr %311, i64 %indvars.iv.i126
   store i16 %316, ptr %318, align 2
   %319 = load ptr, ptr %301, align 8
   %320 = sext i16 %316 to i64
-  %321 = getelementptr inbounds %struct.colordesc, ptr %319, i64 %320
+  %321 = getelementptr inbounds [32 x i8], ptr %319, i64 %320
   %322 = getelementptr inbounds nuw i8, ptr %321, i64 4
   %323 = load i32, ptr %322, align 4
   %324 = add i32 %323, 1
@@ -24190,7 +24184,7 @@ newhicolorcols.exit._crit_edge:                   ; preds = %newhicolorcols.exit
 332:                                              ; preds = %newhicolorcols.exit._crit_edge, %261
   %333 = phi i32 [ %.pre, %newhicolorcols.exit._crit_edge ], [ %259, %261 ]
   %334 = sext i32 %333 to i64
-  %335 = getelementptr inbounds i32, ptr %262, i64 %334
+  %335 = getelementptr inbounds [4 x i8], ptr %262, i64 %334
   %336 = load i32, ptr %335, align 4
   %337 = getelementptr inbounds nuw i8, ptr %7, i64 140
   %338 = load i32, ptr %337, align 4
@@ -24235,7 +24229,7 @@ newhicolorcols.exit._crit_edge:                   ; preds = %newhicolorcols.exit
   %357 = load i16, ptr %.188216, align 2
   %358 = load ptr, ptr %341, align 8
   %359 = sext i16 %357 to i64
-  %360 = getelementptr inbounds %struct.colordesc, ptr %358, i64 %359
+  %360 = getelementptr inbounds [32 x i8], ptr %358, i64 %359
   %361 = getelementptr inbounds nuw i8, ptr %360, i64 8
   %362 = load i16, ptr %361, align 8
   %363 = icmp eq i16 %362, -1
@@ -24256,12 +24250,12 @@ newhicolorcols.exit._crit_edge:                   ; preds = %newhicolorcols.exit
 
 373:                                              ; preds = %370
   %374 = load ptr, ptr %341, align 8
-  %375 = getelementptr inbounds %struct.colordesc, ptr %374, i64 %359
+  %375 = getelementptr inbounds [32 x i8], ptr %374, i64 %359
   %376 = getelementptr inbounds nuw i8, ptr %375, i64 8
   store i16 %371, ptr %376, align 8
   %377 = load ptr, ptr %341, align 8
   %378 = sext i16 %371 to i64
-  %379 = getelementptr inbounds %struct.colordesc, ptr %377, i64 %378
+  %379 = getelementptr inbounds [32 x i8], ptr %377, i64 %378
   %380 = getelementptr inbounds nuw i8, ptr %379, i64 8
   store i16 %371, ptr %380, align 8
   br label %newsub.exit.i128
@@ -24280,14 +24274,14 @@ newsub.exit.i128:                                 ; preds = %373, %370, %364, %3
 
 386:                                              ; preds = %384
   %387 = load ptr, ptr %341, align 8
-  %388 = getelementptr inbounds %struct.colordesc, ptr %387, i64 %359
+  %388 = getelementptr inbounds [32 x i8], ptr %387, i64 %359
   %389 = getelementptr inbounds nuw i8, ptr %388, i64 4
   %390 = load i32, ptr %389, align 4
   %391 = add i32 %390, -1
   store i32 %391, ptr %389, align 4
   %392 = load ptr, ptr %341, align 8
   %393 = sext i16 %.017.i.i129 to i64
-  %394 = getelementptr inbounds %struct.colordesc, ptr %392, i64 %393
+  %394 = getelementptr inbounds [32 x i8], ptr %392, i64 %393
   %395 = getelementptr inbounds nuw i8, ptr %394, i64 4
   %396 = load i32, ptr %395, align 4
   %397 = add i32 %396, 1
@@ -24670,7 +24664,7 @@ define internal i32 @pg_wc_isprint(i32 noundef %0) #0 {
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 104
   %21 = load ptr, ptr %20, align 8
   %22 = zext nneg i32 %0 to i64
-  %23 = getelementptr inbounds nuw i16, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [2 x i8], ptr %21, i64 %22
   %24 = load i16, ptr %23, align 2
   %25 = lshr i16 %24, 14
   %.lobit = and i16 %25, 1
@@ -24742,7 +24736,7 @@ define internal i32 @pg_wc_isalnum(i32 noundef %0) #0 {
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 104
   %32 = load ptr, ptr %31, align 8
   %33 = zext nneg i32 %0 to i64
-  %34 = getelementptr inbounds nuw i16, ptr %32, i64 %33
+  %34 = getelementptr inbounds nuw [2 x i8], ptr %32, i64 %33
   %35 = load i16, ptr %34, align 2
   %36 = lshr i16 %35, 3
   %.lobit = and i16 %36, 1
@@ -24809,7 +24803,7 @@ define internal i32 @pg_wc_isalpha(i32 noundef %0) #0 {
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 104
   %26 = load ptr, ptr %25, align 8
   %27 = zext nneg i32 %0 to i64
-  %28 = getelementptr inbounds nuw i16, ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw [2 x i8], ptr %26, i64 %27
   %29 = load i16, ptr %28, align 2
   %30 = lshr i16 %29, 10
   %.lobit = and i16 %30, 1
@@ -24885,7 +24879,7 @@ define internal i32 @pg_wc_isword(i32 noundef %0) #0 {
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 104
   %34 = load ptr, ptr %33, align 8
   %35 = zext nneg i32 %0 to i64
-  %36 = getelementptr inbounds nuw i16, ptr %34, i64 %35
+  %36 = getelementptr inbounds nuw [2 x i8], ptr %34, i64 %35
   %37 = load i16, ptr %36, align 2
   %38 = lshr i16 %37, 3
   %.lobit.i = and i16 %38, 1
@@ -24956,7 +24950,7 @@ define internal i32 @pg_wc_isdigit(i32 noundef %0) #0 {
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 104
   %31 = load ptr, ptr %30, align 8
   %32 = zext nneg i32 %0 to i64
-  %33 = getelementptr inbounds nuw i16, ptr %31, i64 %32
+  %33 = getelementptr inbounds nuw [2 x i8], ptr %31, i64 %32
   %34 = load i16, ptr %33, align 2
   %35 = lshr i16 %34, 11
   %.lobit = and i16 %35, 1
@@ -25028,7 +25022,7 @@ define internal i32 @pg_wc_ispunct(i32 noundef %0) #0 {
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 104
   %31 = load ptr, ptr %30, align 8
   %32 = zext nneg i32 %0 to i64
-  %33 = getelementptr inbounds nuw i16, ptr %31, i64 %32
+  %33 = getelementptr inbounds nuw [2 x i8], ptr %31, i64 %32
   %34 = load i16, ptr %33, align 2
   %35 = lshr i16 %34, 2
   %.lobit = and i16 %35, 1
@@ -25094,7 +25088,7 @@ define internal i32 @pg_wc_isspace(i32 noundef %0) #0 {
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 104
   %25 = load ptr, ptr %24, align 8
   %26 = zext nneg i32 %0 to i64
-  %27 = getelementptr inbounds nuw i16, ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [2 x i8], ptr %25, i64 %26
   %28 = load i16, ptr %27, align 2
   %29 = lshr i16 %28, 13
   %.lobit = and i16 %29, 1
@@ -25154,7 +25148,7 @@ define internal i32 @pg_wc_islower(i32 noundef %0) #0 {
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 104
   %21 = load ptr, ptr %20, align 8
   %22 = zext nneg i32 %0 to i64
-  %23 = getelementptr inbounds nuw i16, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [2 x i8], ptr %21, i64 %22
   %24 = load i16, ptr %23, align 2
   %25 = lshr i16 %24, 9
   %.lobit = and i16 %25, 1
@@ -25214,7 +25208,7 @@ define internal i32 @pg_wc_isupper(i32 noundef %0) #0 {
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 104
   %21 = load ptr, ptr %20, align 8
   %22 = zext nneg i32 %0 to i64
-  %23 = getelementptr inbounds nuw i16, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [2 x i8], ptr %21, i64 %22
   %24 = load i16, ptr %23, align 2
   %25 = lshr i16 %24, 8
   %.lobit = and i16 %25, 1
@@ -25274,7 +25268,7 @@ define internal i32 @pg_wc_isgraph(i32 noundef %0) #0 {
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 104
   %21 = load ptr, ptr %20, align 8
   %22 = zext nneg i32 %0 to i64
-  %23 = getelementptr inbounds nuw i16, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [2 x i8], ptr %21, i64 %22
   %24 = load i16, ptr %23, align 2
   %.lobit = lshr i16 %24, 15
   %25 = zext nneg i16 %.lobit to i32
@@ -25336,7 +25330,7 @@ define internal fastcc noundef zeroext i1 @store_match(ptr noundef nonnull captu
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %23 = shl i32 %20, 1
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds i32, ptr %21, i64 %24
+  %25 = getelementptr inbounds [4 x i8], ptr %21, i64 %24
   store i32 %1, ptr %25, align 4
   %26 = add i32 %1, -1
   %27 = add i32 %26, %2
@@ -25344,7 +25338,7 @@ define internal fastcc noundef zeroext i1 @store_match(ptr noundef nonnull captu
   %29 = load i32, ptr %6, align 8
   %30 = shl i32 %29, 1
   %31 = sext i32 %30 to i64
-  %32 = getelementptr i32, ptr %28, i64 %31
+  %32 = getelementptr [4 x i8], ptr %28, i64 %31
   %33 = getelementptr i8, ptr %32, i64 4
   store i32 %27, ptr %33, align 4
   %34 = load i32, ptr %6, align 8
@@ -25387,7 +25381,7 @@ define internal fastcc noundef zeroext i1 @store_match(ptr noundef nonnull captu
   %53 = add i32 %51, 1
   store i32 %53, ptr %37, align 8
   %54 = sext i32 %51 to i64
-  %55 = getelementptr inbounds i32, ptr %52, i64 %54
+  %55 = getelementptr inbounds [4 x i8], ptr %52, i64 %54
   store i32 %1, ptr %55, align 4
   br label %56
 
@@ -25476,12 +25470,12 @@ define internal fastcc void @subcoloronechr(ptr noundef nonnull readonly capture
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %11 = load ptr, ptr %10, align 8
   %12 = zext nneg i32 %1 to i64
-  %13 = getelementptr inbounds nuw i16, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %11, i64 %12
   %14 = load i16, ptr %13, align 2
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %16 = load ptr, ptr %15, align 8
   %17 = sext i16 %14 to i64
-  %18 = getelementptr inbounds %struct.colordesc, ptr %16, i64 %17
+  %18 = getelementptr inbounds [32 x i8], ptr %16, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load i16, ptr %19, align 8
   %21 = icmp eq i16 %20, -1
@@ -25502,12 +25496,12 @@ define internal fastcc void @subcoloronechr(ptr noundef nonnull readonly capture
 
 31:                                               ; preds = %28
   %32 = load ptr, ptr %15, align 8
-  %33 = getelementptr inbounds %struct.colordesc, ptr %32, i64 %17
+  %33 = getelementptr inbounds [32 x i8], ptr %32, i64 %17
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store i16 %29, ptr %34, align 8
   %35 = load ptr, ptr %15, align 8
   %36 = sext i16 %29 to i64
-  %37 = getelementptr inbounds %struct.colordesc, ptr %35, i64 %36
+  %37 = getelementptr inbounds [32 x i8], ptr %35, i64 %36
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store i16 %29, ptr %38, align 8
   br label %newsub.exit.i
@@ -25527,13 +25521,13 @@ newsub.exit.i:                                    ; preds = %31, %28, %22, %9
 
 45:                                               ; preds = %43
   %46 = load ptr, ptr %15, align 8
-  %47 = getelementptr inbounds %struct.colordesc, ptr %46, i64 %17
+  %47 = getelementptr inbounds [32 x i8], ptr %46, i64 %17
   %48 = load i32, ptr %47, align 8
   %49 = add i32 %48, -1
   store i32 %49, ptr %47, align 8
   %50 = load ptr, ptr %15, align 8
   %51 = sext i16 %.017.i.i to i64
-  %52 = getelementptr inbounds %struct.colordesc, ptr %50, i64 %51
+  %52 = getelementptr inbounds [32 x i8], ptr %50, i64 %51
   %53 = load i32, ptr %52, align 8
   %54 = icmp eq i32 %53, 0
   br i1 %54, label %55, label %57
@@ -25542,18 +25536,18 @@ newsub.exit.i:                                    ; preds = %31, %28, %22, %9
   %56 = getelementptr inbounds nuw i8, ptr %52, i64 24
   store i32 %1, ptr %56, align 8
   %.pre.i = load ptr, ptr %15, align 8
-  %.phi.trans.insert.i = getelementptr inbounds %struct.colordesc, ptr %.pre.i, i64 %51
+  %.phi.trans.insert.i = getelementptr inbounds [32 x i8], ptr %.pre.i, i64 %51
   %.pre21.i = load i32, ptr %.phi.trans.insert.i, align 8
   br label %57
 
 57:                                               ; preds = %55, %45
   %58 = phi i32 [ %.pre21.i, %55 ], [ %53, %45 ]
   %59 = phi ptr [ %.pre.i, %55 ], [ %50, %45 ]
-  %60 = getelementptr inbounds %struct.colordesc, ptr %59, i64 %51
+  %60 = getelementptr inbounds [32 x i8], ptr %59, i64 %51
   %61 = add i32 %58, 1
   store i32 %61, ptr %60, align 8
   %62 = load ptr, ptr %10, align 8
-  %63 = getelementptr inbounds nuw i16, ptr %62, i64 %12
+  %63 = getelementptr inbounds nuw [2 x i8], ptr %62, i64 %12
   store i16 %.017.i.i, ptr %63, align 2
   br label %subcolor.exit
 
@@ -25697,7 +25691,7 @@ newarc.exit:                                      ; preds = %85, %98, %.loopexit
 125:                                              ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %indvars156 = trunc i64 %indvars.iv.next to i32
-  %126 = getelementptr inbounds nuw %struct.colormaprange, ptr %109, i64 %indvars.iv
+  %126 = getelementptr inbounds nuw [12 x i8], ptr %109, i64 %indvars.iv
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %126, ptr noundef nonnull align 4 dereferenceable(12) %.0113137, i64 12, i1 false)
   %127 = getelementptr inbounds nuw i8, ptr %.0113137, i64 12
   %128 = load i32, ptr %104, align 8
@@ -25715,7 +25709,7 @@ newarc.exit:                                      ; preds = %85, %98, %.loopexit
   %.0113136 = phi ptr [ %.0113137, %130 ], [ %120, %118 ], [ %127, %125 ]
   %.0110134 = phi i32 [ %indvars157.le, %130 ], [ 0, %118 ], [ %indvars156, %125 ]
   %134 = sext i32 %.0110134 to i64
-  %135 = getelementptr inbounds %struct.colormaprange, ptr %109, i64 %134
+  %135 = getelementptr inbounds [12 x i8], ptr %109, i64 %134
   store i32 %1, ptr %135, align 4
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 4
   store i32 %1, ptr %136, align 4
@@ -25733,7 +25727,7 @@ newarc.exit:                                      ; preds = %85, %98, %.loopexit
   %143 = add i32 %indvars157.le, 1
   %sext167 = shl i64 %indvars.iv, 32
   %144 = ashr exact i64 %sext167, 32
-  %145 = getelementptr inbounds %struct.colormaprange, ptr %109, i64 %144
+  %145 = getelementptr inbounds [12 x i8], ptr %109, i64 %144
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %145, ptr noundef nonnull align 4 dereferenceable(12) %.0113137, i64 12, i1 false)
   %146 = getelementptr inbounds nuw i8, ptr %.0113137, i64 8
   %147 = load i32, ptr %146, align 4
@@ -25747,7 +25741,7 @@ newarc.exit:                                      ; preds = %85, %98, %.loopexit
 151:                                              ; preds = %149
   %sext = shl i64 %indvars.iv, 32
   %152 = ashr exact i64 %sext, 32
-  %153 = getelementptr inbounds %struct.colormaprange, ptr %109, i64 %152
+  %153 = getelementptr inbounds [12 x i8], ptr %109, i64 %152
   store i32 %132, ptr %153, align 4
   %154 = add i32 %1, -1
   %155 = getelementptr inbounds nuw i8, ptr %153, i64 4
@@ -25762,7 +25756,7 @@ newarc.exit:                                      ; preds = %85, %98, %.loopexit
 160:                                              ; preds = %151, %149
   %.2 = phi i32 [ %159, %151 ], [ %indvars157.le, %149 ]
   %161 = sext i32 %.2 to i64
-  %162 = getelementptr inbounds %struct.colormaprange, ptr %109, i64 %161
+  %162 = getelementptr inbounds [12 x i8], ptr %109, i64 %161
   store i32 %1, ptr %162, align 4
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 4
   store i32 %1, ptr %163, align 4
@@ -25779,7 +25773,7 @@ newarc.exit:                                      ; preds = %85, %98, %.loopexit
 171:                                              ; preds = %160
   %172 = add nuw i32 %1, 1
   %173 = sext i32 %168 to i64
-  %174 = getelementptr inbounds %struct.colormaprange, ptr %109, i64 %173
+  %174 = getelementptr inbounds [12 x i8], ptr %109, i64 %173
   store i32 %172, ptr %174, align 4
   %175 = load i32, ptr %131, align 4
   %176 = getelementptr inbounds nuw i8, ptr %174, i64 4
@@ -25822,7 +25816,7 @@ newarc.exit:                                      ; preds = %85, %98, %.loopexit
   %.2115142 = phi ptr [ %195, %.lr.ph145 ], [ %.1114, %189 ]
   %192 = add i32 %.4144, 1
   %193 = sext i32 %.4144 to i64
-  %194 = getelementptr inbounds %struct.colormaprange, ptr %109, i64 %193
+  %194 = getelementptr inbounds [12 x i8], ptr %109, i64 %193
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %194, ptr noundef nonnull align 4 dereferenceable(12) %.2115142, i64 12, i1 false)
   %195 = getelementptr inbounds nuw i8, ptr %.2115142, i64 12
   %196 = add nuw nsw i32 %.2112143, 1
@@ -25902,10 +25896,10 @@ define internal fastcc i32 @newhicolorrow(ptr noundef captures(none) %0, i32 nou
   %29 = load i32, ptr %28, align 8
   %30 = mul i32 %29, %4
   %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds i16, ptr %25, i64 %31
+  %32 = getelementptr inbounds [2 x i8], ptr %25, i64 %31
   %33 = mul i32 %29, %1
   %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds i16, ptr %25, i64 %34
+  %35 = getelementptr inbounds [2 x i8], ptr %25, i64 %34
   %36 = sext i32 %29 to i64
   %37 = shl nsw i64 %36, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %32, ptr align 2 %35, i64 %37, i1 false)
@@ -25920,10 +25914,10 @@ define internal fastcc i32 @newhicolorrow(ptr noundef captures(none) %0, i32 nou
 41:                                               ; preds = %.lr.ph, %41
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %41 ]
   %42 = load ptr, ptr %40, align 8
-  %43 = getelementptr inbounds nuw i16, ptr %32, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [2 x i8], ptr %32, i64 %indvars.iv
   %44 = load i16, ptr %43, align 2
   %45 = sext i16 %44 to i64
-  %46 = getelementptr inbounds %struct.colordesc, ptr %42, i64 %45
+  %46 = getelementptr inbounds [32 x i8], ptr %42, i64 %45
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 4
   %48 = load i32, ptr %47, align 4
   %49 = add i32 %48, 1
@@ -25966,7 +25960,7 @@ define internal fastcc void @subcoloronerow(ptr noundef nonnull readonly capture
   %12 = load ptr, ptr %11, align 8
   %13 = mul i32 %9, %1
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds i16, ptr %12, i64 %14
+  %15 = getelementptr inbounds [2 x i8], ptr %12, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -25983,7 +25977,7 @@ define internal fastcc void @subcoloronerow(ptr noundef nonnull readonly capture
   %24 = load i16, ptr %.02029, align 2
   %25 = load ptr, ptr %16, align 8
   %26 = sext i16 %24 to i64
-  %27 = getelementptr inbounds %struct.colordesc, ptr %25, i64 %26
+  %27 = getelementptr inbounds [32 x i8], ptr %25, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load i16, ptr %28, align 8
   %30 = icmp eq i16 %29, -1
@@ -26004,12 +25998,12 @@ define internal fastcc void @subcoloronerow(ptr noundef nonnull readonly capture
 
 40:                                               ; preds = %37
   %41 = load ptr, ptr %16, align 8
-  %42 = getelementptr inbounds %struct.colordesc, ptr %41, i64 %26
+  %42 = getelementptr inbounds [32 x i8], ptr %41, i64 %26
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store i16 %38, ptr %43, align 8
   %44 = load ptr, ptr %16, align 8
   %45 = sext i16 %38 to i64
-  %46 = getelementptr inbounds %struct.colordesc, ptr %44, i64 %45
+  %46 = getelementptr inbounds [32 x i8], ptr %44, i64 %45
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   store i16 %38, ptr %47, align 8
   br label %newsub.exit.i
@@ -26028,14 +26022,14 @@ newsub.exit.i:                                    ; preds = %40, %37, %31, %23
 
 53:                                               ; preds = %51
   %54 = load ptr, ptr %16, align 8
-  %55 = getelementptr inbounds %struct.colordesc, ptr %54, i64 %26
+  %55 = getelementptr inbounds [32 x i8], ptr %54, i64 %26
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 4
   %57 = load i32, ptr %56, align 4
   %58 = add i32 %57, -1
   store i32 %58, ptr %56, align 4
   %59 = load ptr, ptr %16, align 8
   %60 = sext i16 %.017.i.i to i64
-  %61 = getelementptr inbounds %struct.colordesc, ptr %59, i64 %60
+  %61 = getelementptr inbounds [32 x i8], ptr %59, i64 %60
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 4
   %63 = load i32, ptr %62, align 4
   %64 = add i32 %63, 1
@@ -26173,7 +26167,7 @@ define internal fastcc signext i16 @newcolor(ptr noundef captures(address) %0) u
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load ptr, ptr %10, align 8
   %12 = sext i16 %8 to i64
-  %13 = getelementptr inbounds %struct.colordesc, ptr %11, i64 %12
+  %13 = getelementptr inbounds [32 x i8], ptr %11, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load i16, ptr %14, align 8
   store i16 %15, ptr %7, align 8
@@ -26193,7 +26187,7 @@ define internal fastcc signext i16 @newcolor(ptr noundef captures(address) %0) u
   store i64 %24, ptr %17, align 8
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds nuw %struct.colordesc, ptr %26, i64 %24
+  %27 = getelementptr inbounds nuw [32 x i8], ptr %26, i64 %24
   br label %58
 
 28:                                               ; preds = %16
@@ -26256,7 +26250,7 @@ define internal fastcc signext i16 @newcolor(ptr noundef captures(address) %0) u
   %55 = load i64, ptr %17, align 8
   %56 = add i64 %55, 1
   store i64 %56, ptr %17, align 8
-  %57 = getelementptr inbounds nuw %struct.colordesc, ptr %.068, i64 %56
+  %57 = getelementptr inbounds nuw [32 x i8], ptr %.068, i64 %56
   br label %58
 
 58:                                               ; preds = %54, %23, %9
@@ -26288,7 +26282,7 @@ define internal fastcc void @colorcomplement(ptr noundef captures(none) %0, ptr 
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr %struct.colordesc, ptr %8, i64 %10
+  %11 = getelementptr [32 x i8], ptr %8, i64 %10
   %12 = getelementptr i8, ptr %11, i64 32
   %.0.in9.i = getelementptr inbounds nuw i8, ptr %3, i64 24
   %.010.i = load ptr, ptr %.0.in9.i, align 8
@@ -26412,7 +26406,7 @@ newarc.exit:                                      ; preds = %35, %48, %.loopexit
   %60 = getelementptr inbounds nuw i8, ptr %.067, i64 4
   %61 = load i16, ptr %60, align 4
   %62 = sext i16 %61 to i64
-  %63 = getelementptr inbounds %struct.colordesc, ptr %59, i64 %62
+  %63 = getelementptr inbounds [32 x i8], ptr %59, i64 %62
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 28
   %65 = load i32, ptr %64, align 4
   %66 = or i32 %65, 4
@@ -26702,7 +26696,7 @@ define internal fastcc noundef ptr @allcases(ptr noundef nonnull captures(none) 
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 112
   %24 = load ptr, ptr %23, align 8
   %25 = zext nneg i32 %1 to i64
-  %26 = getelementptr inbounds nuw i32, ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %25
   %27 = load i32, ptr %26, align 4
   br label %pg_wc_tolower.exit
 
@@ -26756,7 +26750,7 @@ pg_wc_tolower.exit:                               ; preds = %6, %10, %12, %19, %
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 120
   %50 = load ptr, ptr %49, align 8
   %51 = zext nneg i32 %1 to i64
-  %52 = getelementptr inbounds nuw i32, ptr %50, i64 %51
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %51
   %53 = load i32, ptr %52, align 4
   br label %pg_wc_toupper.exit
 
@@ -26842,7 +26836,7 @@ getcvec.exit:                                     ; preds = %64, %newcvec.exit.i
   %86 = add i32 %85, 1
   store i32 %86, ptr %.0.i11, align 8
   %87 = sext i32 %85 to i64
-  %88 = getelementptr inbounds i32, ptr %84, i64 %87
+  %88 = getelementptr inbounds [4 x i8], ptr %84, i64 %87
   store i32 %.0.i13, ptr %88, align 4
   %.not = icmp eq i32 %.0.i13, %.0.i9
   br i1 %.not, label %95, label %89
@@ -26853,7 +26847,7 @@ getcvec.exit:                                     ; preds = %64, %newcvec.exit.i
   %92 = add i32 %91, 1
   store i32 %92, ptr %.0.i11, align 8
   %93 = sext i32 %91 to i64
-  %94 = getelementptr inbounds i32, ptr %90, i64 %93
+  %94 = getelementptr inbounds [4 x i8], ptr %90, i64 %93
   store i32 %.0.i9, ptr %94, align 4
   br label %95
 
@@ -26979,13 +26973,13 @@ getcvec.exit:                                     ; preds = %19, %newcvec.exit.i
   %43 = load i32, ptr %42, align 8
   %44 = shl i32 %43, 1
   %45 = sext i32 %44 to i64
-  %46 = getelementptr inbounds i32, ptr %41, i64 %45
+  %46 = getelementptr inbounds [4 x i8], ptr %41, i64 %45
   store i32 %1, ptr %46, align 4
   %47 = load ptr, ptr %40, align 8
   %48 = load i32, ptr %42, align 8
   %49 = shl i32 %48, 1
   %50 = sext i32 %49 to i64
-  %51 = getelementptr i32, ptr %47, i64 %50
+  %51 = getelementptr [4 x i8], ptr %47, i64 %50
   %52 = getelementptr i8, ptr %51, i64 4
   store i32 %2, ptr %52, align 4
   %53 = load i32, ptr %42, align 8
@@ -27040,7 +27034,7 @@ newcvec.exit.i92:                                 ; preds = %70
   %77 = getelementptr inbounds nuw i8, ptr %74, i64 40
   %78 = getelementptr inbounds nuw i8, ptr %74, i64 8
   store ptr %77, ptr %78, align 8
-  %79 = getelementptr inbounds nuw i32, ptr %77, i64 %71
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %71
   %80 = getelementptr inbounds nuw i8, ptr %74, i64 24
   store ptr %79, ptr %80, align 8
   %81 = getelementptr inbounds nuw i8, ptr %74, i64 20
@@ -27078,13 +27072,13 @@ getcvec.exit95:                                   ; preds = %66, %newcvec.exit.i
   %93 = load i32, ptr %92, align 8
   %94 = shl i32 %93, 1
   %95 = sext i32 %94 to i64
-  %96 = getelementptr inbounds i32, ptr %91, i64 %95
+  %96 = getelementptr inbounds [4 x i8], ptr %91, i64 %95
   store i32 %1, ptr %96, align 4
   %97 = load ptr, ptr %90, align 8
   %98 = load i32, ptr %92, align 8
   %99 = shl i32 %98, 1
   %100 = sext i32 %99 to i64
-  %101 = getelementptr i32, ptr %97, i64 %100
+  %101 = getelementptr [4 x i8], ptr %97, i64 %100
   %102 = getelementptr i8, ptr %101, i64 4
   store i32 %2, ptr %102, align 4
   %103 = load i32, ptr %92, align 8
@@ -27137,7 +27131,7 @@ getcvec.exit95:                                   ; preds = %66, %newcvec.exit.i
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 112
   %129 = load ptr, ptr %128, align 8
   %130 = zext nneg i32 %.0117 to i64
-  %131 = getelementptr inbounds nuw i32, ptr %129, i64 %130
+  %131 = getelementptr inbounds nuw [4 x i8], ptr %129, i64 %130
   %132 = load i32, ptr %131, align 4
   br label %pg_wc_tolower.exit
 
@@ -27179,7 +27173,7 @@ pg_wc_tolower.exit:                               ; preds = %111, %115, %117, %1
   %144 = add nsw i32 %137, 1
   store i32 %144, ptr %.0.i91, align 8
   %145 = sext i32 %137 to i64
-  %146 = getelementptr inbounds i32, ptr %143, i64 %145
+  %146 = getelementptr inbounds [4 x i8], ptr %143, i64 %145
   store i32 %.0.i96, ptr %146, align 4
   br label %pg_wc_tolower.exit.thread
 
@@ -27225,7 +27219,7 @@ pg_wc_tolower.exit.thread:                        ; preds = %135, %142, %pg_wc_t
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 120
   %167 = load ptr, ptr %166, align 8
   %168 = zext nneg i32 %.0117 to i64
-  %169 = getelementptr inbounds nuw i32, ptr %167, i64 %168
+  %169 = getelementptr inbounds nuw [4 x i8], ptr %167, i64 %168
   %170 = load i32, ptr %169, align 4
   br label %pg_wc_toupper.exit
 
@@ -27267,7 +27261,7 @@ pg_wc_toupper.exit:                               ; preds = %149, %153, %155, %1
   %182 = add nsw i32 %175, 1
   store i32 %182, ptr %.0.i91, align 8
   %183 = sext i32 %175 to i64
-  %184 = getelementptr inbounds i32, ptr %181, i64 %183
+  %184 = getelementptr inbounds [4 x i8], ptr %181, i64 %183
   store i32 %.0.i99, ptr %184, align 4
   br label %pg_wc_toupper.exit.thread
 
@@ -27355,7 +27349,7 @@ define internal fastcc void @dropstate(ptr noundef captures(none) %0, ptr nounde
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 40
   %34 = load ptr, ptr %33, align 8
   %35 = zext nneg i16 %20 to i64
-  %36 = getelementptr inbounds nuw %struct.colordesc, ptr %34, i64 %35
+  %36 = getelementptr inbounds nuw [32 x i8], ptr %34, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 16
@@ -27481,7 +27475,7 @@ freearc.exit:                                     ; preds = %71, %72
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 40
   %100 = load ptr, ptr %99, align 8
   %101 = zext nneg i16 %86 to i64
-  %102 = getelementptr inbounds nuw %struct.colordesc, ptr %100, i64 %101
+  %102 = getelementptr inbounds nuw [32 x i8], ptr %100, i64 %101
   %103 = getelementptr inbounds nuw i8, ptr %80, i64 56
   %104 = load ptr, ptr %103, align 8
   %105 = getelementptr inbounds nuw i8, ptr %102, i64 16
@@ -27692,7 +27686,7 @@ define internal fastcc void @deltraverse(ptr noundef captures(none) %0, ptr noun
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 40
   %57 = load ptr, ptr %56, align 8
   %58 = zext nneg i16 %43 to i64
-  %59 = getelementptr inbounds nuw %struct.colordesc, ptr %57, i64 %58
+  %59 = getelementptr inbounds nuw [32 x i8], ptr %57, i64 %58
   %60 = getelementptr inbounds nuw i8, ptr %32, i64 56
   %61 = load ptr, ptr %60, align 8
   %62 = getelementptr inbounds nuw i8, ptr %59, i64 16
@@ -27864,7 +27858,7 @@ define internal fastcc void @sortouts(ptr noundef readonly captures(none) %0, pt
   %.046 = phi i32 [ %20, %.lr.ph ], [ 0, %18 ]
   %20 = add i32 %.046, 1
   %21 = sext i32 %.046 to i64
-  %22 = getelementptr inbounds ptr, ptr %9, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %9, i64 %21
   store ptr %.03947, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %.03947, i64 24
   %.039 = load ptr, ptr %23, align 8
@@ -27891,10 +27885,10 @@ define internal fastcc void @sortouts(ptr noundef readonly captures(none) %0, pt
 
 .lr.ph50:                                         ; preds = %.lr.ph50.preheader, %.lr.ph50
   %indvars.iv = phi i64 [ 1, %.lr.ph50.preheader ], [ %indvars.iv.next, %.lr.ph50 ]
-  %29 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %31 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv.next
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.next
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 24
   store ptr %32, ptr %33, align 8
@@ -27911,7 +27905,7 @@ define internal fastcc void @sortouts(ptr noundef readonly captures(none) %0, pt
 
 ._crit_edge51:                                    ; preds = %._crit_edge, %._crit_edge51.loopexit
   %.1.lcssa = phi i64 [ %37, %._crit_edge51.loopexit ], [ 1, %._crit_edge ]
-  %38 = getelementptr inbounds nuw ptr, ptr %9, i64 %.1.lcssa
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.1.lcssa
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 24
   store ptr null, ptr %40, align 8
@@ -28381,7 +28375,7 @@ newarc.exit:                                      ; preds = %56, %69, %.loopexit
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 40
   %92 = load ptr, ptr %91, align 8
   %93 = zext nneg i16 %78 to i64
-  %94 = getelementptr inbounds nuw %struct.colordesc, ptr %92, i64 %93
+  %94 = getelementptr inbounds nuw [32 x i8], ptr %92, i64 %93
   %95 = getelementptr inbounds nuw i8, ptr %.039, i64 56
   %96 = load ptr, ptr %95, align 8
   %97 = getelementptr inbounds nuw i8, ptr %94, i64 16
@@ -28554,7 +28548,7 @@ define internal fastcc void @skip(ptr noundef nonnull captures(none) %0) unnamed
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 104
   %30 = load ptr, ptr %29, align 8
   %31 = zext nneg i32 %6 to i64
-  %32 = getelementptr inbounds nuw i16, ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw [2 x i8], ptr %30, i64 %31
   %33 = load i16, ptr %32, align 2
   %34 = lshr i16 %33, 13
   %.lobit.i = and i16 %34, 1
@@ -29186,7 +29180,7 @@ define internal fastcc i32 @lexdigits(ptr noundef nonnull captures(none) %0, i32
 
 switch.lookup:                                    ; preds = %10
   %14 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.lexdigits, i64 %14
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.lexdigits, i64 %14
   %switch.load = load i32, ptr %switch.gep, align 4
   %.not26 = icmp samesign ult i32 %switch.load, %1
   br i1 %.not26, label %15, label %.critedge.sink.split
@@ -29435,7 +29429,7 @@ define internal fastcc ptr @emptyreachable(ptr noundef readonly captures(none) %
   store ptr %2, ptr %20, align 8
   %21 = load i32, ptr %1, align 8
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds ptr, ptr %3, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr %3, i64 %22
   %.026 = load ptr, ptr %23, align 8
   %.not2427 = icmp eq ptr %.026, null
   br i1 %.not2427, label %.loopexit, label %.lr.ph
@@ -29806,7 +29800,7 @@ cparc.exit.i:                                     ; preds = %92, %104, %.loopexi
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 40
   %127 = load ptr, ptr %126, align 8
   %128 = zext nneg i16 %113 to i64
-  %129 = getelementptr inbounds nuw %struct.colordesc, ptr %127, i64 %128
+  %129 = getelementptr inbounds nuw [32 x i8], ptr %127, i64 %128
   %130 = getelementptr inbounds nuw i8, ptr %.15397.i, i64 56
   %131 = load ptr, ptr %130, align 8
   %132 = getelementptr inbounds nuw i8, ptr %129, i64 16
@@ -30530,7 +30524,7 @@ define internal fastcc zeroext i1 @checkmatchall_recurse(ptr noundef readonly ca
 36:                                               ; preds = %33
   %37 = load i32, ptr %27, align 8
   %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds ptr, ptr %2, i64 %38
+  %39 = getelementptr inbounds [8 x i8], ptr %2, i64 %38
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, null
   br i1 %41, label %42, label %44
@@ -30543,7 +30537,7 @@ define internal fastcc zeroext i1 @checkmatchall_recurse(ptr noundef readonly ca
   %.pre = load ptr, ptr %26, align 8
   %.pre98 = load i32, ptr %.pre, align 8
   %.phi.trans.insert = sext i32 %.pre98 to i64
-  %.phi.trans.insert99 = getelementptr inbounds ptr, ptr %2, i64 %.phi.trans.insert
+  %.phi.trans.insert99 = getelementptr inbounds [8 x i8], ptr %2, i64 %.phi.trans.insert
   %.pre100 = load ptr, ptr %.phi.trans.insert99, align 8
   br label %44
 
@@ -30614,7 +30608,7 @@ define internal fastcc zeroext i1 @checkmatchall_recurse(ptr noundef readonly ca
   %67 = phi i1 [ %.2, %._crit_edge ], [ true, %64 ], [ true, %.lr.ph87.preheader ], [ false, %18 ], [ true, %63 ], [ false, %33 ], [ false, %42 ], [ false, %44 ]
   %68 = load i32, ptr %1, align 8
   %69 = sext i32 %68 to i64
-  %70 = getelementptr inbounds ptr, ptr %2, i64 %69
+  %70 = getelementptr inbounds [8 x i8], ptr %2, i64 %69
   store ptr %16, ptr %70, align 8
   store ptr null, ptr %19, align 8
   br label %71

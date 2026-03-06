@@ -29,7 +29,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorTemplateBase.130" = type { %"class.llvm::SmallVectorTemplateCommon.131" }
 %"class.llvm::SmallVectorTemplateCommon.131" = type { %"class.llvm::SmallVectorBase" }
 %"struct.llvm::SmallVectorStorage.132" = type { [48 x i8] }
-%"class.llvm::MDOperand" = type { ptr }
 %"class.llvm::PreservedAnalyses" = type { %"class.llvm::SmallPtrSet", %"class.llvm::SmallPtrSet.83" }
 %"class.llvm::SmallPtrSet" = type { %"class.llvm::SmallPtrSetImpl.base", [2 x ptr] }
 %"class.llvm::SmallPtrSetImpl.base" = type { %"class.llvm::SmallPtrSetImplBase.base" }
@@ -676,7 +675,7 @@ define internal fastcc void @_ZL19collectMetadataInfoRN4llvm6ModuleE(ptr dead_on
   %45 = lshr i64 %39, 2
   %46 = and i64 %45, 15
   %47 = sub nsw i64 0, %46
-  %48 = getelementptr inbounds %"class.llvm::MDOperand", ptr %38, i64 %47
+  %48 = getelementptr inbounds [8 x i8], ptr %38, i64 %47
   br label %_ZNK4llvm6MDNode10getOperandEj.exit25
 
 _ZNK4llvm6MDNode10getOperandEj.exit25:            ; preds = %41, %44
@@ -893,7 +892,7 @@ _ZN4llvm11SmallVectorINS_9StringRefELj3EED2Ev.exit: ; preds = %_ZN4llvm10to_inte
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_4dxil15EntryPropertiesELb1EE9push_backERKS2_.exit, label %137, !prof !73
 
 137:                                              ; preds = %132
-  %138 = getelementptr inbounds nuw %"struct.llvm::dxil::EntryProperties", ptr %.pre3.i, i64 %134
+  %138 = getelementptr inbounds nuw [24 x i8], ptr %.pre3.i, i64 %134
   %139 = icmp uge ptr %8, %.pre3.i
   %140 = icmp ult ptr %8, %138
   %spec.select.i.i.i.i.i = and i1 %139, %140
@@ -917,7 +916,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_4dxil15EntryPropertiesELb1EE9push_backERKS2
   %.016.i.i.i = phi ptr [ %8, %132 ], [ %145, %141 ], [ %8, %.critedge.i.i.i ]
   %147 = load i32, ptr %20, align 8, !tbaa !31
   %148 = zext i32 %147 to i64
-  %149 = getelementptr inbounds nuw %"struct.llvm::dxil::EntryProperties", ptr %146, i64 %148
+  %149 = getelementptr inbounds nuw [24 x i8], ptr %146, i64 %148
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %149, ptr noundef nonnull align 8 dereferenceable(24) %.016.i.i.i, i64 24, i1 false)
   %150 = load i32, ptr %20, align 8, !tbaa !31
   %151 = add i32 %150, 1

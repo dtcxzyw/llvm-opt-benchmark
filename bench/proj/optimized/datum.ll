@@ -72,10 +72,8 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<osgeo::proj::io::AuthorityFactory::ObjectType, std::allocator<osgeo::proj::io::AuthorityFactory::ObjectType>>::_Vector_impl" = type { %"struct.std::_Vector_base<osgeo::proj::io::AuthorityFactory::ObjectType, std::allocator<osgeo::proj::io::AuthorityFactory::ObjectType>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<osgeo::proj::io::AuthorityFactory::ObjectType, std::allocator<osgeo::proj::io::AuthorityFactory::ObjectType>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"struct.osgeo::proj::io::JSONFormatter::ObjectContext" = type { ptr }
-%struct.PJ_PRIME_MERIDIANS = type { ptr, ptr }
 %"class.osgeo::proj::common::Length" = type { %"class.osgeo::proj::common::Measure" }
 %"class.osgeo::proj::common::Scale" = type { %"class.osgeo::proj::common::Measure" }
-%struct.PJ_ELLPS = type { ptr, ptr, ptr, ptr }
 %"struct.osgeo::proj::util::BaseObjectNNPtr" = type { %"class.dropbox::oxygen::nn.168" }
 %"class.dropbox::oxygen::nn.168" = type { %"class.std::shared_ptr.169" }
 %"class.std::shared_ptr.169" = type { %"class.std::__shared_ptr.170" }
@@ -3725,7 +3723,7 @@ define hidden void @_ZN5osgeo4proj5datum13PrimeMeridian26getPROJStringWellKnownN
 
 10:                                               ; preds = %.critedge
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %11 = getelementptr inbounds nuw %struct.PJ_PRIME_MERIDIANS, ptr %8, i64 %indvars.iv.next
+  %11 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %indvars.iv.next
   %12 = load ptr, ptr %11, align 8, !tbaa !121
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit, label %.lr.ph, !llvm.loop !123
@@ -3742,7 +3740,7 @@ define hidden void @_ZN5osgeo4proj5datum13PrimeMeridian26getPROJStringWellKnownN
 
 .lr.ph:                                           ; preds = %.preheader, %10
   %indvars.iv = phi i64 [ %indvars.iv.next, %10 ], [ 0, %.preheader ]
-  %17 = getelementptr inbounds nuw %struct.PJ_PRIME_MERIDIANS, ptr %8, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %indvars.iv
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !124
   %20 = invoke noundef double @_Z10dmstor_ctxP6pj_ctxPKcPPc(ptr noundef %6, ptr noundef %19, ptr noundef null)
@@ -6581,7 +6579,7 @@ _ZNK5osgeo4proj5datum9Ellipsoid25computedInverseFlatteningEv.exit: ; preds = %37
 
 60:                                               ; preds = %.lr.ph, %.critedge
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.critedge ]
-  %61 = getelementptr inbounds nuw %struct.PJ_ELLPS, ptr %52, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [32 x i8], ptr %52, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %63 = load ptr, ptr %62, align 8, !tbaa !164
@@ -6906,7 +6904,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit97: ; preds = %190
 
 .critedge:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit91, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit77, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %196 = getelementptr inbounds nuw %struct.PJ_ELLPS, ptr %52, i64 %indvars.iv.next
+  %196 = getelementptr inbounds nuw [32 x i8], ptr %52, i64 %indvars.iv.next
   %197 = load ptr, ptr %196, align 8, !tbaa !162
   %.not.not = icmp eq ptr %197, null
   br i1 %.not.not, label %.critedge70, label %60, !llvm.loop !167
@@ -14720,7 +14718,7 @@ define void @_ZN5osgeo4proj5datum13DatumEnsemble6createERKNS0_4util11PropertyMap
 38:                                               ; preds = %.lr.ph, %29
   %39 = phi ptr [ %9, %.lr.ph ], [ %32, %29 ]
   %.02657 = phi i64 [ 1, %.lr.ph ], [ %30, %29 ]
-  %40 = getelementptr inbounds nuw %"class.dropbox::oxygen::nn.224", ptr %39, i64 %.02657
+  %40 = getelementptr inbounds nuw [16 x i8], ptr %39, i64 %.02657
   %41 = load ptr, ptr %40, align 8, !tbaa !233
   %42 = icmp eq ptr %41, null
   br i1 %42, label %.thread52, label %43
@@ -14960,7 +14958,7 @@ _ZNSt12__shared_ptrIN5osgeo4proj2io15DatabaseContextELN9__gnu_cxx12_Lock_policyE
 
 .lr.ph59:                                         ; preds = %137, %139
   %.058 = phi i64 [ %140, %139 ], [ 1, %137 ]
-  %141 = getelementptr inbounds nuw %"class.dropbox::oxygen::nn.224", ptr %9, i64 %.058
+  %141 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %.058
   %142 = load ptr, ptr %141, align 8, !tbaa !233
   %143 = icmp eq ptr %142, null
   br i1 %143, label %.critedge44, label %144

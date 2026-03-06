@@ -1653,7 +1653,7 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN14V3OptionParser5parseEiiPPc(pt
 
 13:                                               ; preds = %4
   %14 = sext i32 %1 to i64
-  %15 = getelementptr inbounds ptr, ptr %3, i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr %3, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !57
   %17 = load i8, ptr %16, align 1, !tbaa !16
   %18 = icmp eq i8 %17, 45
@@ -1686,7 +1686,7 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN14V3OptionParser5parseEiiPPc(pt
 
 33:                                               ; preds = %30
   %34 = sext i32 %31 to i64
-  %35 = getelementptr inbounds ptr, ptr %3, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %3, i64 %34
   %36 = load ptr, ptr %35, align 8, !tbaa !57
   br label %.sink.split
 
@@ -7716,7 +7716,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit36, %73
   store ptr %23, ptr %0, align 8, !tbaa !71
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8, !tbaa !70
-  %77 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %77, ptr %72, align 8, !tbaa !72
   ret void
 

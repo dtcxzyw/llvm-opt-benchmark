@@ -600,7 +600,7 @@ proto_item_set_hidden.exit298:                    ; preds = %proto_item_set_hidd
 
 switch.lookup:                                    ; preds = %156
   %162 = zext nneg i32 %159 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.dissect_exported_pdu, i64 %162
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_exported_pdu, i64 %162
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr %33, align 8
   br label %thread-pre-split

@@ -11,7 +11,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon = type { %struct.anon }
 %struct.anon = type { ptr, %union.anon.0 }
 %union.anon.0 = type { i64 }
-%struct.rb_id_item = type { i32, i32, i64 }
 
 @ruby_global_symbols = hidden local_unnamed_addr global { i32, [4 x i8], ptr, i64, i64 } { i32 246, [4 x i8] zeroinitializer, ptr null, i64 0, i64 0 }, align 8
 @symhash = internal constant %struct.st_hash_type { ptr @rb_str_hash_cmp, ptr @rb_str_hash }, align 8
@@ -183,7 +182,7 @@ define hidden void @Init_sym() local_unnamed_addr #0 {
 
 .preheader.i:                                     ; preds = %18, %.preheader.i
   %indvars.iv17.i = phi i64 [ %indvars.iv.next18.i, %.preheader.i ], [ 0, %18 ]
-  %19 = getelementptr %struct.anon.16, ptr @op_tbl, i64 %indvars.iv17.i
+  %19 = getelementptr [6 x i8], ptr @op_tbl, i64 %indvars.iv17.i
   %20 = load i16, ptr %19, align 2, !tbaa !20
   %21 = zext i16 %20 to i64
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 2
@@ -935,7 +934,7 @@ is_global_name_punct.exit.i.i:                    ; preds = %15
   %19 = add nsw i32 %17, -32
   %20 = lshr i32 %19, 5
   %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr i32, ptr @ruby_global_name_punct_bits, i64 %21
+  %22 = getelementptr [4 x i8], ptr @ruby_global_name_punct_bits, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !44
   %24 = and i32 %17, 31
   %25 = shl nuw i32 1, %24
@@ -2927,7 +2926,7 @@ define hidden range(i32 0, 2) i32 @rb_id_table_lookup(ptr noundef readonly captu
   %11 = load ptr, ptr %10, align 8, !tbaa !85
   %.01418.i = and i32 %9, %.0.i.i
   %12 = zext nneg i32 %.01418.i to i64
-  %13 = getelementptr %struct.rb_id_item, ptr %11, i64 %12
+  %13 = getelementptr [16 x i8], ptr %11, i64 %12
   %14 = load i32, ptr %13, align 8, !tbaa !88
   %.not19.i = icmp eq i32 %14, %.0.i.i
   br i1 %.not19.i, label %hash_table_index.exit.thread9, label %.lr.ph.i
@@ -2936,7 +2935,7 @@ define hidden range(i32 0, 2) i32 @rb_id_table_lookup(ptr noundef readonly captu
   %15 = phi i64 [ %22, %19 ], [ %12, %8 ]
   %.01421.i = phi i32 [ %.014.i, %19 ], [ %.01418.i, %8 ]
   %.020.i = phi i32 [ %21, %19 ], [ 1, %8 ]
-  %16 = getelementptr %struct.rb_id_item, ptr %11, i64 %15
+  %16 = getelementptr [16 x i8], ptr %11, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %18 = load i32, ptr %17, align 4, !tbaa !90
   %.not17.i = icmp eq i32 %18, 0
@@ -2947,14 +2946,14 @@ define hidden range(i32 0, 2) i32 @rb_id_table_lookup(ptr noundef readonly captu
   %21 = add i32 %.020.i, 1
   %.014.i = and i32 %20, %9
   %22 = zext nneg i32 %.014.i to i64
-  %23 = getelementptr %struct.rb_id_item, ptr %11, i64 %22
+  %23 = getelementptr [16 x i8], ptr %11, i64 %22
   %24 = load i32, ptr %23, align 8, !tbaa !88
   %.not.i = icmp eq i32 %24, %.0.i.i
   br i1 %.not.i, label %hash_table_index.exit.thread9, label %.lr.ph.i, !llvm.loop !91
 
 hash_table_index.exit.thread9:                    ; preds = %19, %8
   %.pre-phi = phi i64 [ %12, %8 ], [ %22, %19 ]
-  %25 = getelementptr %struct.rb_id_item, ptr %11, i64 %.pre-phi
+  %25 = getelementptr [16 x i8], ptr %11, i64 %.pre-phi
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load i64, ptr %26, align 8, !tbaa !92
   store i64 %27, ptr %2, align 8, !tbaa !32
@@ -2981,7 +2980,7 @@ define hidden noundef i32 @rb_id_table_insert(ptr noundef captures(none) %0, i64
   %11 = load ptr, ptr %10, align 8, !tbaa !85
   %.01418.i.i = and i32 %9, %.0.i.i
   %12 = zext nneg i32 %.01418.i.i to i64
-  %13 = getelementptr %struct.rb_id_item, ptr %11, i64 %12
+  %13 = getelementptr [16 x i8], ptr %11, i64 %12
   %14 = load i32, ptr %13, align 8, !tbaa !88
   %.not19.i.i = icmp eq i32 %14, %.0.i.i
   br i1 %.not19.i.i, label %hash_table_index.exit.thread16.i, label %.lr.ph.i.i
@@ -2990,7 +2989,7 @@ define hidden noundef i32 @rb_id_table_insert(ptr noundef captures(none) %0, i64
   %15 = phi i64 [ %22, %19 ], [ %12, %8 ]
   %.01421.i.i = phi i32 [ %.014.i.i, %19 ], [ %.01418.i.i, %8 ]
   %.020.i.i = phi i32 [ %21, %19 ], [ 1, %8 ]
-  %16 = getelementptr %struct.rb_id_item, ptr %11, i64 %15
+  %16 = getelementptr [16 x i8], ptr %11, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %18 = load i32, ptr %17, align 4, !tbaa !90
   %.not17.i.i = icmp eq i32 %18, 0
@@ -3001,14 +3000,14 @@ define hidden noundef i32 @rb_id_table_insert(ptr noundef captures(none) %0, i64
   %21 = add i32 %.020.i.i, 1
   %.014.i.i = and i32 %20, %9
   %22 = zext nneg i32 %.014.i.i to i64
-  %23 = getelementptr %struct.rb_id_item, ptr %11, i64 %22
+  %23 = getelementptr [16 x i8], ptr %11, i64 %22
   %24 = load i32, ptr %23, align 8, !tbaa !88
   %.not.i.i = icmp eq i32 %24, %.0.i.i
   br i1 %.not.i.i, label %hash_table_index.exit.thread16.i, label %.lr.ph.i.i, !llvm.loop !91
 
 hash_table_index.exit.thread16.i:                 ; preds = %19, %8
   %.pre-phi.i = phi i64 [ %12, %8 ], [ %22, %19 ]
-  %25 = getelementptr %struct.rb_id_item, ptr %11, i64 %.pre-phi.i
+  %25 = getelementptr [16 x i8], ptr %11, i64 %.pre-phi.i
   br label %rb_id_table_insert_key.exit
 
 hash_table_index.exit.thread.i:                   ; preds = %.lr.ph.i.i, %3
@@ -3075,7 +3074,7 @@ hash_table_index.exit.thread.i:                   ; preds = %.lr.ph.i.i, %3
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i10.i ], [ %indvars.iv.next.i.i, %93 ]
   %.sroa.8.031.i.i = phi i32 [ 0, %.lr.ph.i10.i ], [ %.sroa.8.1.i.i, %93 ]
   %.sroa.6.030.i.i = phi i32 [ 0, %.lr.ph.i10.i ], [ %.sroa.6.1.i.i, %93 ]
-  %72 = getelementptr %struct.rb_id_item, ptr %69, i64 %indvars.iv.i.i
+  %72 = getelementptr [16 x i8], ptr %69, i64 %indvars.iv.i.i
   %73 = load i32, ptr %72, align 8, !tbaa !88
   %.not25.i.i = icmp eq i32 %73, 0
   br i1 %.not25.i.i, label %93, label %74
@@ -3085,7 +3084,7 @@ hash_table_index.exit.thread.i:                   ; preds = %.lr.ph.i.i, %3
   %76 = load i64, ptr %75, align 8, !tbaa !92
   %.02022.i.i.i = and i32 %73, %70
   %77 = sext i32 %.02022.i.i.i to i64
-  %78 = getelementptr %struct.rb_id_item, ptr %65, i64 %77
+  %78 = getelementptr [16 x i8], ptr %65, i64 %77
   %79 = load i32, ptr %78, align 8, !tbaa !88
   %.not23.i.i.i = icmp eq i32 %79, 0
   br i1 %.not23.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
@@ -3094,14 +3093,14 @@ hash_table_index.exit.thread.i:                   ; preds = %.lr.ph.i.i, %3
   %80 = phi i64 [ %85, %.lr.ph.i.i.i ], [ %77, %74 ]
   %.02025.i.i.i = phi i32 [ %.020.i.i.i, %.lr.ph.i.i.i ], [ %.02022.i.i.i, %74 ]
   %.024.i.i.i = phi i32 [ %84, %.lr.ph.i.i.i ], [ 1, %74 ]
-  %81 = getelementptr %struct.rb_id_item, ptr %65, i64 %80
+  %81 = getelementptr [16 x i8], ptr %65, i64 %80
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 4
   store i32 1, ptr %82, align 4, !tbaa !90
   %83 = add i32 %.024.i.i.i, %.02025.i.i.i
   %84 = add i32 %.024.i.i.i, 1
   %.020.i.i.i = and i32 %83, %70
   %85 = sext i32 %.020.i.i.i to i64
-  %86 = getelementptr %struct.rb_id_item, ptr %65, i64 %85
+  %86 = getelementptr [16 x i8], ptr %65, i64 %85
   %87 = load i32, ptr %86, align 8, !tbaa !88
   %.not.i.i.i = icmp eq i32 %87, 0
   br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !93
@@ -3146,7 +3145,7 @@ hash_table_extend.exit.i:                         ; preds = %._crit_edge.i.i, %h
   %97 = load ptr, ptr %96, align 8, !tbaa !85
   %.02022.i.i = and i32 %95, %.0.i.i
   %98 = sext i32 %.02022.i.i to i64
-  %99 = getelementptr %struct.rb_id_item, ptr %97, i64 %98
+  %99 = getelementptr [16 x i8], ptr %97, i64 %98
   %100 = load i32, ptr %99, align 8, !tbaa !88
   %.not23.i.i = icmp eq i32 %100, 0
   br i1 %.not23.i.i, label %._crit_edge.i14.i, label %.lr.ph.i11.i
@@ -3155,14 +3154,14 @@ hash_table_extend.exit.i:                         ; preds = %._crit_edge.i.i, %h
   %101 = phi i64 [ %106, %.lr.ph.i11.i ], [ %98, %hash_table_extend.exit.i ]
   %.02025.i.i = phi i32 [ %.020.i12.i, %.lr.ph.i11.i ], [ %.02022.i.i, %hash_table_extend.exit.i ]
   %.024.i.i = phi i32 [ %105, %.lr.ph.i11.i ], [ 1, %hash_table_extend.exit.i ]
-  %102 = getelementptr %struct.rb_id_item, ptr %97, i64 %101
+  %102 = getelementptr [16 x i8], ptr %97, i64 %101
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 4
   store i32 1, ptr %103, align 4, !tbaa !90
   %104 = add i32 %.024.i.i, %.02025.i.i
   %105 = add i32 %.024.i.i, 1
   %.020.i12.i = and i32 %104, %95
   %106 = sext i32 %.020.i12.i to i64
-  %107 = getelementptr %struct.rb_id_item, ptr %97, i64 %106
+  %107 = getelementptr [16 x i8], ptr %97, i64 %106
   %108 = load i32, ptr %107, align 8, !tbaa !88
   %.not.i13.i = icmp eq i32 %108, 0
   br i1 %.not.i13.i, label %._crit_edge.i14.i, label %.lr.ph.i11.i, !llvm.loop !93
@@ -3211,7 +3210,7 @@ define hidden range(i32 0, 2) i32 @rb_id_table_delete(ptr noundef captures(none)
   %10 = load ptr, ptr %9, align 8, !tbaa !85
   %.01418.i = and i32 %8, %.0.i.i
   %11 = zext nneg i32 %.01418.i to i64
-  %12 = getelementptr %struct.rb_id_item, ptr %10, i64 %11
+  %12 = getelementptr [16 x i8], ptr %10, i64 %11
   %13 = load i32, ptr %12, align 8, !tbaa !88
   %.not19.i = icmp eq i32 %13, %.0.i.i
   br i1 %.not19.i, label %hash_table_index.exit.thread6, label %.lr.ph.i
@@ -3220,7 +3219,7 @@ define hidden range(i32 0, 2) i32 @rb_id_table_delete(ptr noundef captures(none)
   %14 = phi i64 [ %21, %18 ], [ %11, %7 ]
   %.01421.i = phi i32 [ %.014.i, %18 ], [ %.01418.i, %7 ]
   %.020.i = phi i32 [ %20, %18 ], [ 1, %7 ]
-  %15 = getelementptr %struct.rb_id_item, ptr %10, i64 %14
+  %15 = getelementptr [16 x i8], ptr %10, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %17 = load i32, ptr %16, align 4, !tbaa !90
   %.not17.i = icmp eq i32 %17, 0
@@ -3231,14 +3230,14 @@ define hidden range(i32 0, 2) i32 @rb_id_table_delete(ptr noundef captures(none)
   %20 = add i32 %.020.i, 1
   %.014.i = and i32 %19, %8
   %21 = zext nneg i32 %.014.i to i64
-  %22 = getelementptr %struct.rb_id_item, ptr %10, i64 %21
+  %22 = getelementptr [16 x i8], ptr %10, i64 %21
   %23 = load i32, ptr %22, align 8, !tbaa !88
   %.not.i = icmp eq i32 %23, %.0.i.i
   br i1 %.not.i, label %hash_table_index.exit.thread6, label %.lr.ph.i, !llvm.loop !91
 
 hash_table_index.exit.thread6:                    ; preds = %18, %7
   %.pre-phi = phi i64 [ %11, %7 ], [ %21, %18 ]
-  %24 = getelementptr %struct.rb_id_item, ptr %10, i64 %.pre-phi
+  %24 = getelementptr [16 x i8], ptr %10, i64 %.pre-phi
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %26 = load i32, ptr %25, align 4, !tbaa !90
   %.not.i4 = icmp eq i32 %26, 0
@@ -3282,7 +3281,7 @@ define hidden void @rb_id_table_foreach(ptr noundef captures(none) %0, ptr nound
 9:                                                ; preds = %.lr.ph, %.critedge
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.critedge ]
   %10 = load ptr, ptr %6, align 8, !tbaa !85
-  %11 = getelementptr %struct.rb_id_item, ptr %10, i64 %indvars.iv
+  %11 = getelementptr [16 x i8], ptr %10, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8, !tbaa !88
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %.critedge, label %13
@@ -3309,7 +3308,7 @@ define hidden void @rb_id_table_foreach(ptr noundef captures(none) %0, ptr nound
 key2id.exit:                                      ; preds = %13, %18, %20
   %.1.i.i = phi i64 [ %22, %20 ], [ %19, %18 ], [ %14, %13 ]
   %23 = load ptr, ptr %6, align 8, !tbaa !85
-  %24 = getelementptr %struct.rb_id_item, ptr %23, i64 %indvars.iv
+  %24 = getelementptr [16 x i8], ptr %23, i64 %indvars.iv
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load i64, ptr %25, align 8, !tbaa !92
   %27 = tail call i32 %1(i64 noundef %.1.i.i, i64 noundef %26, ptr noundef %2) #19
@@ -3320,7 +3319,7 @@ key2id.exit:                                      ; preds = %13, %18, %20
 
 28:                                               ; preds = %key2id.exit
   %29 = load ptr, ptr %6, align 8, !tbaa !85
-  %30 = getelementptr %struct.rb_id_item, ptr %29, i64 %indvars.iv
+  %30 = getelementptr [16 x i8], ptr %29, i64 %indvars.iv
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %32 = load i32, ptr %31, align 4, !tbaa !90
   %.not.i = icmp eq i32 %32, 0
@@ -3366,7 +3365,7 @@ define hidden void @rb_id_table_foreach_values(ptr noundef captures(none) %0, pt
 9:                                                ; preds = %.lr.ph, %.critedge
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.critedge ]
   %10 = load ptr, ptr %6, align 8, !tbaa !85
-  %11 = getelementptr %struct.rb_id_item, ptr %10, i64 %indvars.iv
+  %11 = getelementptr [16 x i8], ptr %10, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8, !tbaa !88
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %.critedge, label %13
@@ -3382,7 +3381,7 @@ define hidden void @rb_id_table_foreach_values(ptr noundef captures(none) %0, pt
 
 17:                                               ; preds = %13
   %18 = load ptr, ptr %6, align 8, !tbaa !85
-  %19 = getelementptr %struct.rb_id_item, ptr %18, i64 %indvars.iv
+  %19 = getelementptr [16 x i8], ptr %18, i64 %indvars.iv
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %21 = load i32, ptr %20, align 4, !tbaa !90
   %.not.i = icmp eq i32 %21, 0
@@ -3427,7 +3426,7 @@ define hidden void @rb_id_table_foreach_values_with_replace(ptr noundef readonly
   %.01922 = phi i32 [ 0, %.lr.ph ], [ %.01922.be, %.backedge.backedge ]
   %9 = load ptr, ptr %8, align 8, !tbaa !85
   %10 = zext nneg i32 %.01922 to i64
-  %11 = getelementptr %struct.rb_id_item, ptr %9, i64 %10
+  %11 = getelementptr [16 x i8], ptr %9, i64 %10
   %12 = load i32, ptr %11, align 8, !tbaa !88
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %31, label %13
@@ -3442,14 +3441,14 @@ define hidden void @rb_id_table_foreach_values_with_replace(ptr noundef readonly
 18:                                               ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %19 = load ptr, ptr %8, align 8, !tbaa !85
-  %20 = getelementptr %struct.rb_id_item, ptr %19, i64 %10
+  %20 = getelementptr [16 x i8], ptr %19, i64 %10
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load i64, ptr %21, align 8, !tbaa !92
   store i64 %22, ptr %5, align 8, !tbaa !32
   %23 = call i32 %2(ptr noundef nonnull %5, ptr noundef %3, i32 noundef 1) #19
   %24 = load i64, ptr %5, align 8, !tbaa !32
   %25 = load ptr, ptr %8, align 8, !tbaa !85
-  %26 = getelementptr %struct.rb_id_item, ptr %25, i64 %10
+  %26 = getelementptr [16 x i8], ptr %25, i64 %10
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store i64 %24, ptr %27, align 8, !tbaa !92
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

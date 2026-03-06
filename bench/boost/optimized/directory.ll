@@ -2148,7 +2148,7 @@ _ZNSt6vectorIN5boost10filesystem18directory_iteratorESaIS2_EE11_S_relocateEPS2_S
 .noexc:                                           ; preds = %116, %_ZNSt6vectorIN5boost10filesystem18directory_iteratorESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i
   store ptr %109, ptr %88, align 8, !tbaa !95
   store ptr %115, ptr %89, align 8, !tbaa !96
-  %117 = getelementptr inbounds nuw %"class.boost::filesystem::directory_iterator", ptr %109, i64 %107
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %109, i64 %107
   store ptr %117, ptr %91, align 8, !tbaa !98
   br label %thread-pre-split
 
@@ -3601,7 +3601,7 @@ _ZNSt6vectorIN5boost10filesystem18directory_iteratorESaIS2_EE11_S_relocateEPS2_S
 .noexc:                                           ; preds = %327, %_ZNSt6vectorIN5boost10filesystem18directory_iteratorESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i
   store ptr %321, ptr %119, align 8, !tbaa !95
   store ptr %326, ptr %120, align 8, !tbaa !96
-  %328 = getelementptr inbounds nuw %"class.boost::filesystem::directory_iterator", ptr %321, i64 %319
+  %328 = getelementptr inbounds nuw [8 x i8], ptr %321, i64 %319
   store ptr %328, ptr %305, align 8, !tbaa !98
   br label %_ZNK5boost6system10error_codecvbEv.exit139.thread.i
 

@@ -10,8 +10,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.timespec = type { i64, i64 }
 %struct.checkout = type { ptr, ptr, i32, ptr, ptr, %struct.checkout_metadata, i8 }
 %struct.option = type { i32, i32, ptr, ptr, ptr, ptr, i32, ptr, i64, ptr, i64, ptr }
-%struct.parallel_checkout_item = type { ptr, %struct.conv_attrs, i64, ptr, i32, %struct.stat }
-%struct.conv_attrs = type { ptr, i32, i32, i32, ptr }
 
 @.str = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 @__const.cmd_checkout__worker.state = private unnamed_addr constant { ptr, ptr, i32, [4 x i8], ptr, ptr, %struct.checkout_metadata, i8, [7 x i8] } { ptr null, ptr @.str, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, %struct.checkout_metadata zeroinitializer, i8 0, [7 x i8] zeroinitializer }, align 8
@@ -116,7 +114,7 @@ st_mult.exit.i:                                   ; preds = %33
 41:                                               ; preds = %st_mult.exit.i, %30
   %.3.i = phi i64 [ %..i, %st_mult.exit.i ], [ %.025.i18, %30 ]
   %.2.i = phi ptr [ %40, %st_mult.exit.i ], [ %.0.i19, %30 ]
-  %42 = getelementptr inbounds nuw %struct.parallel_checkout_item, ptr %.2.i, i64 %.028.i17
+  %42 = getelementptr inbounds nuw [208 x i8], ptr %.2.i, i64 %.028.i17
   %43 = icmp samesign ult i32 %29, 72
   br i1 %43, label %44, label %45
 
@@ -196,7 +194,7 @@ st_mult.exit.i:                                   ; preds = %33
 
 82:                                               ; preds = %report_result.exit.i, %.lr.ph.i
   %.02438.i = phi i64 [ 0, %.lr.ph.i ], [ %94, %report_result.exit.i ]
-  %83 = getelementptr inbounds nuw %struct.parallel_checkout_item, ptr %.0.i19, i64 %.02438.i
+  %83 = getelementptr inbounds nuw [208 x i8], ptr %.0.i19, i64 %.02438.i
   call void @write_pc_item(ptr noundef %83, ptr noundef nonnull %6) #9
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %80, i8 0, i64 152, i1 false)

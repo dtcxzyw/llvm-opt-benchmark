@@ -28,12 +28,12 @@ define hidden void @"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u2
 10:                                               ; preds = %10, %5
   %11 = phi i64 [ %.sroa.5.0.copyload, %5 ], [ %15, %10 ]
   %.0.i = phi i64 [ 0, %5 ], [ %16, %10 ]
-  %12 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr %0, i64 %.0.i
+  %12 = getelementptr inbounds [32 x i8], ptr %0, i64 %.0.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   %.sroa.0.0.copyload.i.i = load ptr, ptr %12, align 8, !alias.scope !4, !noalias !7, !nonnull !11, !noundef !11
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.sroa.4.0.copyload.i.i = load i64, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !4, !noalias !7
-  %13 = getelementptr inbounds { ptr, i64 }, ptr %.sroa.8.0.copyload, i64 %11
+  %13 = getelementptr inbounds [16 x i8], ptr %.sroa.8.0.copyload, i64 %11
   store ptr %.sroa.0.0.copyload.i.i, ptr %13, align 8, !noalias !12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i64 %.sroa.4.0.copyload.i.i, ptr %14, align 8, !noalias !22
@@ -290,7 +290,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
 15:                                               ; preds = %5, %15
   %16 = phi i64 [ %.promoted, %5 ], [ %20, %15 ]
   %.0 = phi i64 [ 0, %5 ], [ %21, %15 ]
-  %17 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr %0, i64 %.0
+  %17 = getelementptr inbounds [32 x i8], ptr %0, i64 %.0
   tail call void @llvm.experimental.noalias.scope.decl(metadata !121)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !122)
   %.sroa.0.0.copyload.i = load ptr, ptr %17, align 8, !alias.scope !122, !noalias !121, !nonnull !11, !noundef !11
@@ -299,7 +299,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   tail call void @llvm.experimental.noalias.scope.decl(metadata !123)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !124)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !125)
-  %18 = getelementptr inbounds { ptr, i64 }, ptr %11, i64 %16
+  %18 = getelementptr inbounds [16 x i8], ptr %11, i64 %16
   store ptr %.sroa.0.0.copyload.i, ptr %18, align 8, !noalias !126
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i64 %.sroa.4.0.copyload.i, ptr %19, align 8, !noalias !127

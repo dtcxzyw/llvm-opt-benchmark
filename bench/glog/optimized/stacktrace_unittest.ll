@@ -1499,9 +1499,9 @@ _ZN6google7logging8internal13CheckOpStringD2Ev.exit58: ; preds = %_ZNSt10unique_
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %82 = getelementptr inbounds nuw ptr, ptr %68, i64 %indvars.iv
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %indvars.iv
   %83 = load ptr, ptr %82, align 8, !tbaa !62
-  %84 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   %85 = load ptr, ptr %84, align 8, !tbaa !54
   %86 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, ptr noundef %83, ptr noundef %85)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1510,11 +1510,11 @@ _ZN6google7logging8internal13CheckOpStringD2Ev.exit58: ; preds = %_ZNSt10unique_
 
 87:                                               ; preds = %._crit_edge, %_ZL24CheckRetAddrIsInFunctionPvRK12AddressRange.exit
   %indvars.iv67 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next68, %_ZL24CheckRetAddrIsInFunctionPvRK12AddressRange.exit ]
-  %88 = getelementptr inbounds nuw %struct.AddressRange, ptr @expected_range, i64 %indvars.iv67
+  %88 = getelementptr inbounds nuw [16 x i8], ptr @expected_range, i64 %indvars.iv67
   %89 = load ptr, ptr %88, align 16, !tbaa !40
   %90 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %91 = load ptr, ptr %90, align 8, !tbaa !42
-  %92 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv67
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv67
   %93 = load ptr, ptr %92, align 8, !tbaa !54
   %94 = trunc nuw nsw i64 %indvars.iv67 to i32
   %95 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.19, i32 noundef %94, ptr noundef %89, ptr noundef %91, ptr noundef %93)

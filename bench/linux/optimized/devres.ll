@@ -438,7 +438,7 @@ define internal void @pcim_iomap_release(ptr noundef %0, ptr noundef readonly ca
 
 4:                                                ; preds = %10, %2
   %5 = phi i64 [ 0, %2 ], [ %11, %10 ]
-  %6 = getelementptr ptr, ptr %1, i64 %5
+  %6 = getelementptr [8 x i8], ptr %1, i64 %5
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %10, label %9
@@ -490,7 +490,7 @@ define dso_local ptr @pcim_iomap(ptr noundef %0, i32 noundef %1, i64 noundef %2)
 .thread4:                                         ; preds = %6, %15
   %18 = phi ptr [ %16, %15 ], [ %8, %6 ]
   %19 = sext i32 %1 to i64
-  %20 = getelementptr ptr, ptr %18, i64 %19
+  %20 = getelementptr [8 x i8], ptr %18, i64 %19
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
   br i1 %22, label %23, label %.thread
@@ -544,13 +544,13 @@ define dso_local void @pcim_iounmap(ptr noundef %0, ptr noundef %1) #0 align 16 
 
 .preheader:                                       ; preds = %.preheader.preheader, %15
   %18 = phi i64 [ %16, %15 ], [ 0, %.preheader.preheader ]
-  %19 = getelementptr ptr, ptr %14, i64 %18
+  %19 = getelementptr [8 x i8], ptr %14, i64 %18
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, %1
   br i1 %21, label %22, label %15
 
 22:                                               ; preds = %.preheader
-  %23 = getelementptr ptr, ptr %14, i64 %18
+  %23 = getelementptr [8 x i8], ptr %14, i64 %18
   store ptr null, ptr %23, align 8
   br label %25
 
@@ -600,7 +600,7 @@ define dso_local i32 @pcim_iomap_regions(ptr noundef %0, i32 noundef %1, ptr nou
   br i1 %22, label %38, label %23
 
 23:                                               ; preds = %17
-  %24 = getelementptr %struct.resource, ptr %16, i64 %18
+  %24 = getelementptr [64 x i8], ptr %16, i64 %18
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load i64, ptr %25, align 8
   %27 = icmp eq i64 %26, 0
@@ -650,7 +650,7 @@ define dso_local i32 @pcim_iomap_regions(ptr noundef %0, i32 noundef %1, ptr nou
   br i1 %51, label %55, label %52
 
 52:                                               ; preds = %46
-  %53 = getelementptr ptr, ptr %15, i64 %47
+  %53 = getelementptr [8 x i8], ptr %15, i64 %47
   %54 = load ptr, ptr %53, align 8
   tail call void @pcim_iounmap(ptr noundef %0, ptr noundef %54)
   tail call void @pci_release_region(ptr noundef %0, i32 noundef %48) #5
@@ -732,7 +732,7 @@ define dso_local void @pcim_iounmap_regions(ptr noundef %0, i32 noundef %1) #0 a
   br i1 %19, label %23, label %20
 
 20:                                               ; preds = %.preheader
-  %21 = getelementptr ptr, ptr %14, i64 %15
+  %21 = getelementptr [8 x i8], ptr %14, i64 %15
   %22 = load ptr, ptr %21, align 8
   tail call void @pcim_iounmap(ptr noundef %0, ptr noundef %22)
   tail call void @pci_release_region(ptr noundef %0, i32 noundef %16) #5

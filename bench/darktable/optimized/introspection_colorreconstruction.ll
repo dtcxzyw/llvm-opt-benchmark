@@ -4,10 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.dt_introspection_t = type { i32, i32, ptr, i64, ptr, i64, i64, ptr }
-%struct.dt_iop_colorreconstruct_Lab_t = type { float, float, float, float }
-%union.dt_introspection_field_t = type { %struct.dt_introspection_type_double_t }
-%struct.dt_introspection_type_double_t = type { %struct.dt_introspection_type_header_t, double, double, double }
-%struct.dt_introspection_type_header_t = type { i32, ptr, ptr, ptr, ptr, i64, i64, ptr }
 
 @.str = private unnamed_addr constant [21 x i8] c"color reconstruction\00", align 1
 @.str.1 = private unnamed_addr constant [61 x i8] c"recover clipped highlights by propagating surrounding colors\00", align 1
@@ -250,18 +246,18 @@ hsl2rgb.exit.i:                                   ; preds = %52, %50, %hue2rgb.e
 
 56:                                               ; preds = %56, %hsl2rgb.exit.i
   %.01.i.i.i = phi i64 [ 0, %hsl2rgb.exit.i ], [ %69, %56 ]
-  %57 = getelementptr inbounds nuw float, ptr @sRGB_to_xyz_transposed, i64 %.01.i.i.i
+  %57 = getelementptr inbounds nuw [4 x i8], ptr @sRGB_to_xyz_transposed, i64 %.01.i.i.i
   %58 = load float, ptr %57, align 4, !tbaa !61
   %59 = fmul reassoc nsz arcp contract afn float %58, %.0.i.i.i
-  %60 = getelementptr inbounds nuw float, ptr getelementptr inbounds nuw (i8, ptr @sRGB_to_xyz_transposed, i64 16), i64 %.01.i.i.i
+  %60 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @sRGB_to_xyz_transposed, i64 16), i64 %.01.i.i.i
   %61 = load float, ptr %60, align 4, !tbaa !61
   %62 = fmul reassoc nsz arcp contract afn float %61, %.0.i35.i.i
   %63 = fadd reassoc nsz arcp contract afn float %62, %59
-  %64 = getelementptr inbounds nuw float, ptr getelementptr inbounds nuw (i8, ptr @sRGB_to_xyz_transposed, i64 32), i64 %.01.i.i.i
+  %64 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @sRGB_to_xyz_transposed, i64 32), i64 %.01.i.i.i
   %65 = load float, ptr %64, align 4, !tbaa !61
   %66 = fmul reassoc nsz arcp contract afn float %65, %.0.i37.i.i
   %67 = fadd reassoc nsz arcp contract afn float %63, %66
-  %68 = getelementptr inbounds nuw float, ptr %10, i64 %.01.i.i.i
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %.01.i.i.i
   store float %67, ptr %68, align 4, !tbaa !61
   %69 = add nuw nsw i64 %.01.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %69, 4
@@ -299,9 +295,9 @@ dt_Rec709_to_XYZ_D50.exit.i:                      ; preds = %56
 
 84:                                               ; preds = %lab_f.exit.i.i, %dt_Rec709_to_XYZ_D50.exit.i
   %.01314.i.i = phi i64 [ 0, %dt_Rec709_to_XYZ_D50.exit.i ], [ %107, %lab_f.exit.i.i ]
-  %85 = getelementptr inbounds nuw float, ptr %10, i64 %.01314.i.i
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %.01314.i.i
   %86 = load float, ptr %85, align 4, !tbaa !61
-  %87 = getelementptr inbounds nuw float, ptr @d50_inv, i64 %.01314.i.i
+  %87 = getelementptr inbounds nuw [4 x i8], ptr @d50_inv, i64 %.01314.i.i
   %88 = load float, ptr %87, align 4, !tbaa !61
   %89 = fmul reassoc nsz arcp contract afn float %88, %86
   %90 = fcmp reassoc nsz arcp contract afn ogt float %89, 0x3F822354E0000000
@@ -329,7 +325,7 @@ dt_Rec709_to_XYZ_D50.exit.i:                      ; preds = %56
 
 lab_f.exit.i.i:                                   ; preds = %102, %91
   %105 = phi reassoc nsz arcp contract afn float [ %101, %91 ], [ %104, %102 ]
-  %106 = getelementptr inbounds nuw float, ptr %7, i64 %.01314.i.i
+  %106 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.01314.i.i
   store float %105, ptr %106, align 4, !tbaa !61
   %107 = add nuw nsw i64 %.01314.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %107, 4
@@ -337,18 +333,18 @@ lab_f.exit.i.i:                                   ; preds = %102, %91
 
 108:                                              ; preds = %108, %70
   %.015.i.i = phi i64 [ 0, %70 ], [ %121, %108 ]
-  %109 = getelementptr inbounds nuw float, ptr @dt_XYZ_to_Lab.coeff, i64 %.015.i.i
+  %109 = getelementptr inbounds nuw [4 x i8], ptr @dt_XYZ_to_Lab.coeff, i64 %.015.i.i
   %110 = load float, ptr %109, align 4, !tbaa !61
-  %111 = getelementptr inbounds nuw float, ptr %8, i64 %.015.i.i
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %.015.i.i
   %112 = load float, ptr %111, align 4, !tbaa !61
-  %113 = getelementptr inbounds nuw float, ptr %9, i64 %.015.i.i
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %.015.i.i
   %114 = load float, ptr %113, align 4, !tbaa !61
   %115 = fsub reassoc nsz arcp contract afn float %112, %114
   %116 = fmul reassoc nsz arcp contract afn float %115, %110
-  %117 = getelementptr inbounds nuw float, ptr @dt_XYZ_to_Lab.offset, i64 %.015.i.i
+  %117 = getelementptr inbounds nuw [4 x i8], ptr @dt_XYZ_to_Lab.offset, i64 %.015.i.i
   %118 = load float, ptr %117, align 4, !tbaa !61
   %119 = fsub reassoc nsz arcp contract afn float %116, %118
-  %120 = getelementptr inbounds nuw float, ptr %11, i64 %.015.i.i
+  %120 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %.015.i.i
   store float %119, ptr %120, align 4, !tbaa !61
   %121 = add nuw nsw i64 %.015.i.i, 1
   %exitcond16.not.i.i = icmp eq i64 %121, 4
@@ -632,7 +628,7 @@ dt_iop_colorreconstruct_bilateral_free.exit.i71:  ; preds = %203
 287:                                              ; preds = %362, %.lr.ph.us.i
   %.0637.us.i = phi i64 [ %.reass.us.i, %.lr.ph.us.i ], [ %364, %362 ]
   %.0646.us.i = phi i32 [ 0, %.lr.ph.us.i ], [ %363, %362 ]
-  %288 = getelementptr inbounds nuw float, ptr %2, i64 %.0637.us.i
+  %288 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.0637.us.i
   %289 = load float, ptr %288, align 4, !tbaa !61
   %290 = getelementptr inbounds nuw i8, ptr %288, i64 4
   %291 = load float, ptr %290, align 4, !tbaa !61
@@ -728,8 +724,8 @@ image_to_grid.exit.us.i:                          ; preds = %330, %326
   %344 = add nuw nsw i64 %343, %286
   %345 = mul i64 %344, %219
   %346 = fmul reassoc nsz arcp contract afn float %.065.us.i, %289
-  %347 = getelementptr %struct.dt_iop_colorreconstruct_Lab_t, ptr %256, i64 %345
-  %348 = getelementptr %struct.dt_iop_colorreconstruct_Lab_t, ptr %347, i64 %337
+  %347 = getelementptr [16 x i8], ptr %256, i64 %345
+  %348 = getelementptr [16 x i8], ptr %347, i64 %337
   %349 = load float, ptr %348, align 16, !tbaa !132
   %350 = fadd reassoc nsz arcp contract afn float %349, %346
   store float %350, ptr %348, align 16, !tbaa !132
@@ -825,24 +821,24 @@ dt_iop_colorreconstruct_bilateral_thaw.exit:      ; preds = %199, %.loopexit
 402:                                              ; preds = %.thread.us.i, %.lr.ph.us.i77
   %.0272334.us.i = phi i64 [ %.reass.us.i79, %.lr.ph.us.i77 ], [ %612, %.thread.us.i ]
   %.0273333.us.i = phi i32 [ 0, %.lr.ph.us.i77 ], [ %611, %.thread.us.i ]
-  %403 = getelementptr inbounds nuw float, ptr %2, i64 %.0272334.us.i
+  %403 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.0272334.us.i
   %404 = load float, ptr %403, align 4, !tbaa !61
-  %405 = getelementptr inbounds nuw float, ptr %3, i64 %.0272334.us.i
+  %405 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.0272334.us.i
   store float %404, ptr %405, align 4, !tbaa !61
   %406 = or disjoint i64 %.0272334.us.i, 1
-  %407 = getelementptr inbounds nuw float, ptr %2, i64 %406
+  %407 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %406
   %408 = load float, ptr %407, align 4, !tbaa !61
-  %409 = getelementptr inbounds nuw float, ptr %3, i64 %406
+  %409 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %406
   store float %408, ptr %409, align 4, !tbaa !61
   %410 = or disjoint i64 %.0272334.us.i, 2
-  %411 = getelementptr inbounds nuw float, ptr %2, i64 %410
+  %411 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %410
   %412 = load float, ptr %411, align 4, !tbaa !61
-  %413 = getelementptr inbounds nuw float, ptr %3, i64 %410
+  %413 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %410
   store float %412, ptr %413, align 4, !tbaa !61
   %414 = or disjoint i64 %.0272334.us.i, 3
-  %415 = getelementptr inbounds nuw float, ptr %2, i64 %414
+  %415 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %414
   %416 = load float, ptr %415, align 4, !tbaa !61
-  %417 = getelementptr inbounds nuw float, ptr %3, i64 %414
+  %417 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %414
   store float %416, ptr %417, align 4, !tbaa !61
   %418 = fmul reassoc nsz arcp contract afn float %404, 2.000000e+01
   %419 = fmul reassoc nsz arcp contract afn float %418, %400
@@ -912,18 +908,18 @@ dt_iop_colorreconstruct_bilateral_thaw.exit:      ; preds = %199, %.loopexit
   %472 = add i64 %471, %469
   %473 = mul i64 %472, %367
   %474 = load ptr, ptr %397, align 8, !tbaa !124
-  %475 = getelementptr %struct.dt_iop_colorreconstruct_Lab_t, ptr %474, i64 %473
-  %476 = getelementptr %struct.dt_iop_colorreconstruct_Lab_t, ptr %475, i64 %468
+  %475 = getelementptr [16 x i8], ptr %474, i64 %473
+  %476 = getelementptr [16 x i8], ptr %475, i64 %468
   %477 = fsub reassoc nsz arcp contract afn float 1.000000e+00, %463
   %478 = fsub reassoc nsz arcp contract afn float 1.000000e+00, %465
   %479 = fsub reassoc nsz arcp contract afn float 1.000000e+00, %467
   %480 = getelementptr i8, ptr %476, i64 16
-  %481 = getelementptr %struct.dt_iop_colorreconstruct_Lab_t, ptr %476, i64 %398
-  %482 = getelementptr %struct.dt_iop_colorreconstruct_Lab_t, ptr %480, i64 %398
-  %483 = getelementptr %struct.dt_iop_colorreconstruct_Lab_t, ptr %476, i64 %399
-  %484 = getelementptr %struct.dt_iop_colorreconstruct_Lab_t, ptr %480, i64 %399
-  %485 = getelementptr %struct.dt_iop_colorreconstruct_Lab_t, ptr %481, i64 %399
-  %486 = getelementptr %struct.dt_iop_colorreconstruct_Lab_t, ptr %482, i64 %399
+  %481 = getelementptr [16 x i8], ptr %476, i64 %398
+  %482 = getelementptr [16 x i8], ptr %480, i64 %398
+  %483 = getelementptr [16 x i8], ptr %476, i64 %399
+  %484 = getelementptr [16 x i8], ptr %480, i64 %399
+  %485 = getelementptr [16 x i8], ptr %481, i64 %399
+  %486 = getelementptr [16 x i8], ptr %482, i64 %399
   %487 = getelementptr inbounds nuw i8, ptr %476, i64 12
   %488 = load float, ptr %487, align 4, !tbaa !136
   %489 = fmul reassoc nsz arcp contract afn float %477, %488
@@ -1657,7 +1653,7 @@ define range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) l
 
 .preheader:                                       ; preds = %2, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %2 ]
-  %7 = getelementptr inbounds nuw %union.dt_introspection_field_t, ptr @introspection_linear, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [88 x i8], ptr @introspection_linear, i64 %indvars.iv
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store ptr %0, ptr %8, align 8, !tbaa !167
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1815,7 +1811,7 @@ define internal fastcc void @blur_line(ptr noundef %0, i32 noundef %1, i32 nound
 21:                                               ; preds = %.lr.ph259.us, %._crit_edge.us
   %.0234257.us = phi i64 [ %20, %.lr.ph259.us ], [ %159, %._crit_edge.us ]
   %.0235256.us = phi i32 [ 0, %.lr.ph259.us ], [ %160, %._crit_edge.us ]
-  %22 = getelementptr inbounds nuw %struct.dt_iop_colorreconstruct_Lab_t, ptr %0, i64 %.0234257.us
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %.0234257.us
   %.sroa.029.0.copyload.us = load float, ptr %22, align 4, !tbaa !61
   %.sroa.7.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %22, i64 4
   %.sroa.7.0.copyload.us = load float, ptr %.sroa.7.0..sroa_idx.us, align 4, !tbaa !61
@@ -1825,11 +1821,11 @@ define internal fastcc void @blur_line(ptr noundef %0, i32 noundef %1, i32 nound
   %.sroa.15.0.copyload.us = load float, ptr %.sroa.15.0..sroa_idx.us, align 4, !tbaa !61
   %23 = fmul reassoc nsz arcp contract afn float %.sroa.029.0.copyload.us, 3.750000e-01
   %24 = add i64 %.0234257.us, %11
-  %25 = getelementptr inbounds nuw %struct.dt_iop_colorreconstruct_Lab_t, ptr %0, i64 %24
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %24
   %26 = load float, ptr %25, align 4, !tbaa !132
   %27 = fmul reassoc nsz arcp contract afn float %26, 2.500000e-01
   %28 = fadd reassoc nsz arcp contract afn float %27, %23
-  %29 = getelementptr %struct.dt_iop_colorreconstruct_Lab_t, ptr %22, i64 %13
+  %29 = getelementptr [16 x i8], ptr %22, i64 %13
   %30 = load float, ptr %29, align 4, !tbaa !132
   %31 = fmul reassoc nsz arcp contract afn float %30, 6.250000e-02
   %32 = fadd reassoc nsz arcp contract afn float %28, %31
@@ -1870,12 +1866,12 @@ define internal fastcc void @blur_line(ptr noundef %0, i32 noundef %1, i32 nound
   %.sroa.14.0.copyload.us = load float, ptr %52, align 4, !tbaa !61
   %60 = fmul reassoc nsz arcp contract afn float %.sroa.02.0.copyload.us, 3.750000e-01
   %61 = add i64 %24, %11
-  %62 = getelementptr inbounds nuw %struct.dt_iop_colorreconstruct_Lab_t, ptr %0, i64 %61
+  %62 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %61
   %63 = load float, ptr %62, align 4, !tbaa !132
   %64 = fadd reassoc nsz arcp contract afn float %63, %.sroa.029.0.copyload.us
   %65 = fmul reassoc nsz arcp contract afn float %64, 2.500000e-01
   %66 = fadd reassoc nsz arcp contract afn float %65, %60
-  %67 = getelementptr %struct.dt_iop_colorreconstruct_Lab_t, ptr %25, i64 %13
+  %67 = getelementptr [16 x i8], ptr %25, i64 %13
   %68 = load float, ptr %67, align 4, !tbaa !132
   %69 = fmul reassoc nsz arcp contract afn float %68, 6.250000e-02
   %70 = fadd reassoc nsz arcp contract afn float %66, %69
@@ -1925,7 +1921,7 @@ define internal fastcc void @blur_line(ptr noundef %0, i32 noundef %1, i32 nound
   %.sroa.8.0.lcssa.us = phi float [ %.sroa.8.0.copyload.us, %21 ], [ %.sroa.426.0.copyload.us, %.lr.ph.us ]
   %.sroa.02.0.lcssa.us = phi float [ %.sroa.02.0.copyload.us, %21 ], [ %.sroa.025.0.copyload.us, %.lr.ph.us ]
   %.1.lcssa.us = phi i64 [ %61, %21 ], [ %163, %.lr.ph.us ]
-  %101 = getelementptr inbounds nuw %struct.dt_iop_colorreconstruct_Lab_t, ptr %0, i64 %.1.lcssa.us
+  %101 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %.1.lcssa.us
   %.sroa.0.0.copyload.us = load float, ptr %101, align 4, !tbaa !61
   %.sroa.4.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %101, i64 4
   %.sroa.4.0.copyload.us = load float, ptr %.sroa.4.0..sroa_idx.us, align 4, !tbaa !61
@@ -1935,7 +1931,7 @@ define internal fastcc void @blur_line(ptr noundef %0, i32 noundef %1, i32 nound
   %.sroa.6.0.copyload.us = load float, ptr %.sroa.6.0..sroa_idx.us, align 4, !tbaa !61
   %102 = fmul reassoc nsz arcp contract afn float %.sroa.0.0.copyload.us, 3.750000e-01
   %103 = add i64 %.1.lcssa.us, %11
-  %104 = getelementptr inbounds nuw %struct.dt_iop_colorreconstruct_Lab_t, ptr %0, i64 %103
+  %104 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %103
   %105 = load float, ptr %104, align 4, !tbaa !132
   %106 = fadd reassoc nsz arcp contract afn float %105, %.sroa.02.0.lcssa.us
   %107 = fmul reassoc nsz arcp contract afn float %106, 2.500000e-01
@@ -2014,7 +2010,7 @@ define internal fastcc void @blur_line(ptr noundef %0, i32 noundef %1, i32 nound
   %.sroa.1134.0240.us = phi float [ %.sroa.11.0243.us, %.lr.ph.us ], [ %.sroa.1134.0.copyload.us, %21 ]
   %.sroa.7.0239.us = phi float [ %.sroa.8.0244.us, %.lr.ph.us ], [ %.sroa.7.0.copyload.us, %21 ]
   %.sroa.029.0238.us = phi float [ %.sroa.02.0245.us, %.lr.ph.us ], [ %.sroa.029.0.copyload.us, %21 ]
-  %161 = getelementptr inbounds nuw %struct.dt_iop_colorreconstruct_Lab_t, ptr %0, i64 %.1247.us
+  %161 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %.1247.us
   %.sroa.025.0.copyload.us = load float, ptr %161, align 4, !tbaa !61
   %.sroa.426.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %161, i64 4
   %.sroa.426.0.copyload.us = load float, ptr %.sroa.426.0..sroa_idx.us, align 4, !tbaa !61
@@ -2024,12 +2020,12 @@ define internal fastcc void @blur_line(ptr noundef %0, i32 noundef %1, i32 nound
   %.sroa.628.0.copyload.us = load float, ptr %.sroa.628.0..sroa_idx.us, align 4, !tbaa !61
   %162 = fmul reassoc nsz arcp contract afn float %.sroa.025.0.copyload.us, 3.750000e-01
   %163 = add i64 %.1247.us, %11
-  %164 = getelementptr inbounds nuw %struct.dt_iop_colorreconstruct_Lab_t, ptr %0, i64 %163
+  %164 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %163
   %165 = load float, ptr %164, align 4, !tbaa !132
   %166 = fadd reassoc nsz arcp contract afn float %165, %.sroa.02.0245.us
   %167 = fmul reassoc nsz arcp contract afn float %166, 2.500000e-01
   %168 = fadd reassoc nsz arcp contract afn float %167, %162
-  %169 = getelementptr %struct.dt_iop_colorreconstruct_Lab_t, ptr %161, i64 %13
+  %169 = getelementptr [16 x i8], ptr %161, i64 %13
   %170 = load float, ptr %169, align 4, !tbaa !132
   %171 = fadd reassoc nsz arcp contract afn float %170, %.sroa.029.0238.us
   %172 = fmul reassoc nsz arcp contract afn float %171, 6.250000e-02

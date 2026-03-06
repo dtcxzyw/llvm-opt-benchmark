@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
 %struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
 %struct.__pthread_internal_list = type { ptr, ptr }
-%"struct.(anonymous namespace)::heap_node" = type { i16, i16 }
 
 @_ZN12_GLOBAL__N_110heap_mutexE = internal global %union.pthread_mutex_t zeroinitializer, align 8
 @_ZN12_GLOBAL__N_18freelistE = internal unnamed_addr global ptr null, align 8
@@ -99,7 +98,7 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_115fallback_mallocEm(i64 nou
   %33 = sub i16 %22, %32
   store i16 %33, ptr %31, align 2, !tbaa !13
   %34 = zext i16 %33 to i64
-  %35 = getelementptr inbounds nuw %"struct.(anonymous namespace)::heap_node", ptr %.04273, i64 %34
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %.04273, i64 %34
   store i16 0, ptr %35, align 2, !tbaa !10
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 2
   store i16 %32, ptr %36, align 2, !tbaa !13
@@ -217,7 +216,7 @@ define hidden void @_ZN10__cxxabiv128__aligned_free_with_fallbackEPv(ptr noundef
   %14 = getelementptr inbounds nuw i8, ptr %.02332.i, i64 2
   %15 = load i16, ptr %14, align 2, !tbaa !13
   %16 = zext i16 %15 to i64
-  %17 = getelementptr inbounds nuw %"struct.(anonymous namespace)::heap_node", ptr %.02332.i, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %.02332.i, i64 %16
   %18 = icmp eq ptr %17, %6
   br i1 %18, label %19, label %23
 
@@ -231,7 +230,7 @@ define hidden void @_ZN10__cxxabiv128__aligned_free_with_fallbackEPv(ptr noundef
 23:                                               ; preds = %13
   %24 = load i16, ptr %12, align 2, !tbaa !13
   %25 = zext i16 %24 to i64
-  %26 = getelementptr inbounds nuw %"struct.(anonymous namespace)::heap_node", ptr %6, i64 %25
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %25
   %27 = icmp eq ptr %26, %.02332.i
   br i1 %27, label %28, label %38
 
@@ -310,7 +309,7 @@ define hidden void @_ZN10__cxxabiv120__free_with_fallbackEPv(ptr noundef %0) loc
   %14 = getelementptr inbounds nuw i8, ptr %.02332.i, i64 2
   %15 = load i16, ptr %14, align 2, !tbaa !13
   %16 = zext i16 %15 to i64
-  %17 = getelementptr inbounds nuw %"struct.(anonymous namespace)::heap_node", ptr %.02332.i, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %.02332.i, i64 %16
   %18 = icmp eq ptr %17, %6
   br i1 %18, label %19, label %23
 
@@ -324,7 +323,7 @@ define hidden void @_ZN10__cxxabiv120__free_with_fallbackEPv(ptr noundef %0) loc
 23:                                               ; preds = %13
   %24 = load i16, ptr %12, align 2, !tbaa !13
   %25 = zext i16 %24 to i64
-  %26 = getelementptr inbounds nuw %"struct.(anonymous namespace)::heap_node", ptr %6, i64 %25
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %25
   %27 = icmp eq ptr %26, %.02332.i
   br i1 %27, label %28, label %38
 

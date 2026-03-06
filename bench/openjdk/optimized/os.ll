@@ -587,7 +587,7 @@ define hidden noundef i32 @_ZN2os12set_priorityEP6Thread14ThreadPriority(ptr nou
 
 11:                                               ; preds = %2, %6
   %12 = zext nneg i32 %1 to i64
-  %13 = getelementptr inbounds nuw i32, ptr @_ZN2os19java_to_os_priorityE, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr @_ZN2os19java_to_os_priorityE, i64 %12
   %14 = load i32, ptr %13, align 4
   %15 = tail call noundef i32 @_ZN2os19set_native_priorityEP6Threadi(ptr noundef %0, i32 noundef %14) #29
   br label %16
@@ -616,7 +616,7 @@ define hidden noundef i32 @_ZN2os12get_priorityEPK6ThreadR14ThreadPriority(ptr n
 .preheader:                                       ; preds = %5, %14
   %.01318 = phi i32 [ %15, %14 ], [ 10, %5 ]
   %10 = zext nneg i32 %.01318 to i64
-  %11 = getelementptr inbounds nuw i32, ptr @_ZN2os19java_to_os_priorityE, i64 %10
+  %11 = getelementptr inbounds nuw [4 x i8], ptr @_ZN2os19java_to_os_priorityE, i64 %10
   %12 = load i32, ptr %11, align 4
   %13 = icmp sgt i32 %12, %9
   br i1 %13, label %14, label %.critedge
@@ -629,7 +629,7 @@ define hidden noundef i32 @_ZN2os12get_priorityEPK6ThreadR14ThreadPriority(ptr n
 .preheader15:                                     ; preds = %5, %21
   %.217 = phi i32 [ %22, %21 ], [ 10, %5 ]
   %17 = zext nneg i32 %.217 to i64
-  %18 = getelementptr inbounds nuw i32, ptr @_ZN2os19java_to_os_priorityE, i64 %17
+  %18 = getelementptr inbounds nuw [4 x i8], ptr @_ZN2os19java_to_os_priorityE, i64 %17
   %19 = load i32, ptr %18, align 4
   %20 = icmp slt i32 %19, %9
   br i1 %20, label %21, label %.critedge
@@ -738,7 +738,7 @@ _ZL24conc_path_file_and_checkPcS_mPKccS1_.exit:   ; preds = %30, %33
 
 .lr.ph:                                           ; preds = %.preheader, %.thread67
   %.05171 = phi i64 [ %64, %.thread67 ], [ 0, %.preheader ]
-  %44 = getelementptr inbounds ptr, ptr %42, i64 %.05171
+  %44 = getelementptr inbounds [8 x i8], ptr %42, i64 %.05171
   %45 = load ptr, ptr %44, align 8
   %46 = icmp eq ptr %45, null
   br i1 %46, label %.thread67, label %47
@@ -790,7 +790,7 @@ _ZL24conc_path_file_and_checkPcS_mPKccS1_.exit62: ; preds = %59
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %69
   %.09.i = phi i64 [ %65, %69 ], [ %43, %.lr.ph.i.preheader ]
   %65 = add i64 %.09.i, -1
-  %66 = getelementptr inbounds ptr, ptr %42, i64 %65
+  %66 = getelementptr inbounds [8 x i8], ptr %42, i64 %65
   %67 = load ptr, ptr %66, align 8
   %.not7.i = icmp eq ptr %67, null
   br i1 %.not7.i, label %69, label %68
@@ -922,7 +922,7 @@ define hidden noundef ptr @_ZN2os10split_pathEPKcPmm(ptr noundef readonly captur
 .lr.ph.i:                                         ; preds = %28, %34
   %.09.i = phi i64 [ %30, %34 ], [ %.04150, %28 ]
   %30 = add i64 %.09.i, -1
-  %31 = getelementptr inbounds ptr, ptr %23, i64 %30
+  %31 = getelementptr inbounds [8 x i8], ptr %23, i64 %30
   %32 = load ptr, ptr %31, align 8
   %.not7.i = icmp eq ptr %32, null
   br i1 %.not7.i, label %34, label %33
@@ -947,7 +947,7 @@ _ZL25free_array_of_char_arraysPPcm.exit:          ; preds = %34, %28
   %38 = tail call ptr @strncpy(ptr noundef %37, ptr noundef %.14349, i64 noundef %25) #29
   %39 = getelementptr inbounds i8, ptr %37, i64 %25
   store i8 0, ptr %39, align 1
-  %40 = getelementptr inbounds ptr, ptr %23, i64 %.1
+  %40 = getelementptr inbounds [8 x i8], ptr %23, i64 %.1
   store ptr %37, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %.14349, i64 %36
   %42 = add i64 %.1, 1
@@ -1352,7 +1352,7 @@ define hidden noundef ptr @_ZN2os19find_agent_functionEP10JvmtiAgentbPPKcm(ptr n
 
 .lr.ph:                                           ; preds = %10, %12
   %.020 = phi i64 [ %13, %12 ], [ 0, %10 ]
-  %14 = getelementptr inbounds ptr, ptr %2, i64 %.020
+  %14 = getelementptr inbounds [8 x i8], ptr %2, i64 %.020
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noundef zeroext i1 @_ZNK10JvmtiAgent16is_absolute_pathEv(ptr noundef nonnull align 8 dereferenceable(86) %0) #29
   %17 = tail call noundef ptr @_ZN2os25build_agent_function_nameEPKcS1_b(ptr noundef %15, ptr noundef %11, i1 noundef zeroext %16) #29
@@ -1404,7 +1404,7 @@ define hidden noundef zeroext i1 @_ZN2os18find_builtin_agentEP10JvmtiAgentPPKcm(
 
 .lr.ph.i:                                         ; preds = %6, %11
   %.020.i = phi i64 [ %12, %11 ], [ 0, %6 ]
-  %13 = getelementptr inbounds ptr, ptr %1, i64 %.020.i
+  %13 = getelementptr inbounds [8 x i8], ptr %1, i64 %.020.i
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noundef zeroext i1 @_ZNK10JvmtiAgent16is_absolute_pathEv(ptr noundef nonnull align 8 dereferenceable(86) %0) #29
   %16 = tail call noundef ptr @_ZN2os25build_agent_function_nameEPKcS1_b(ptr noundef %14, ptr noundef %10, i1 noundef zeroext %15) #29
@@ -1544,7 +1544,7 @@ define hidden noundef ptr @_ZN2os6mallocEm8MEMFLAGSRK15NativeCallStack(i64 nound
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
   %16 = urem i64 %15, 8191
-  %17 = getelementptr inbounds nuw ptr, ptr %12, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %16
   %18 = load ptr, ptr %17, align 8
   store ptr %18, ptr %7, align 8
   store ptr %7, ptr %17, align 8
@@ -1580,13 +1580,13 @@ _ZN10NMTPreInit13handle_mallocEPPvm.exit:         ; preds = %3
 
 37:                                               ; preds = %25
   %38 = zext i8 %1 to i64
-  %39 = getelementptr inbounds nuw %struct.malloclimit, ptr getelementptr inbounds nuw (i8, ptr @_ZN18MallocLimitHandler7_limitsE, i64 16), i64 %38
+  %39 = getelementptr inbounds nuw [16 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZN18MallocLimitHandler7_limitsE, i64 16), i64 %38
   %40 = load i64, ptr %39, align 8
   %.not19.i.i.i = icmp eq i64 %40, 0
   br i1 %.not19.i.i.i, label %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.threadthread-pre-split, label %41
 
 41:                                               ; preds = %37
-  %42 = getelementptr inbounds nuw %class.MallocMemory, ptr @_ZN19MallocMemorySummary9_snapshotE, i64 %38
+  %42 = getelementptr inbounds nuw [64 x i8], ptr @_ZN19MallocMemorySummary9_snapshotE, i64 %38
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load volatile i64, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 40
@@ -1728,13 +1728,13 @@ define hidden noundef ptr @_ZN2os7reallocEPvm8MEMFLAGSRK15NativeCallStack(ptr no
 
 40:                                               ; preds = %28
   %41 = zext i8 %2 to i64
-  %42 = getelementptr inbounds nuw %struct.malloclimit, ptr getelementptr inbounds nuw (i8, ptr @_ZN18MallocLimitHandler7_limitsE, i64 16), i64 %41
+  %42 = getelementptr inbounds nuw [16 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZN18MallocLimitHandler7_limitsE, i64 16), i64 %41
   %43 = load i64, ptr %42, align 8
   %.not19.i.i.i = icmp eq i64 %43, 0
   br i1 %.not19.i.i.i, label %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.thread, label %44
 
 44:                                               ; preds = %40
-  %45 = getelementptr inbounds nuw %class.MallocMemory, ptr @_ZN19MallocMemorySummary9_snapshotE, i64 %41
+  %45 = getelementptr inbounds nuw [64 x i8], ptr @_ZN19MallocMemorySummary9_snapshotE, i64 %41
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load volatile i64, ptr %46, align 8
   %48 = getelementptr inbounds nuw i8, ptr %45, i64 40
@@ -1834,7 +1834,7 @@ _ZN10NMTPreInit10add_to_mapEP20NMTPreInitAllocation.exit.i: ; preds = %13, %8
   %16 = load ptr, ptr %15, align 8
   %17 = ptrtoint ptr %16 to i64
   %18 = urem i64 %17, 8191
-  %19 = getelementptr inbounds nuw ptr, ptr %14, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %18
   %20 = load ptr, ptr %19, align 8
   store ptr %20, ptr %10, align 8
   store ptr %10, ptr %19, align 8
@@ -1857,7 +1857,7 @@ _ZN10NMTPreInit10add_to_mapEP20NMTPreInitAllocation.exit.i: ; preds = %13, %8
   %28 = load ptr, ptr @_ZN10NMTPreInit6_tableE, align 8
   %29 = ptrtoint ptr %1 to i64
   %30 = urem i64 %29, 8191
-  %31 = getelementptr inbounds nuw ptr, ptr %28, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %30
   br label %32
 
 32:                                               ; preds = %34, %27
@@ -1891,7 +1891,7 @@ _ZN10NMTPreInit10add_to_mapEP20NMTPreInitAllocation.exit: ; preds = %_ZN10NMTPre
   %44 = load ptr, ptr %43, align 8
   %45 = ptrtoint ptr %44 to i64
   %46 = urem i64 %45, 8191
-  %47 = getelementptr inbounds nuw ptr, ptr %42, i64 %46
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %46
   %48 = load ptr, ptr %47, align 8
   store ptr %48, ptr %38, align 8
   store ptr %38, ptr %47, align 8
@@ -1906,7 +1906,7 @@ _ZN10NMTPreInit10add_to_mapEP20NMTPreInitAllocation.exit: ; preds = %_ZN10NMTPre
   %53 = load ptr, ptr @_ZN10NMTPreInit6_tableE, align 8
   %54 = ptrtoint ptr %1 to i64
   %55 = urem i64 %54, 8191
-  %56 = getelementptr inbounds nuw ptr, ptr %53, i64 %55
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %55
   br label %57
 
 57:                                               ; preds = %59, %52
@@ -1956,7 +1956,7 @@ define hidden void @_ZN2os4freeEPv(ptr noundef %0) local_unnamed_addr #3 align 2
   %6 = load ptr, ptr @_ZN10NMTPreInit6_tableE, align 8
   %7 = ptrtoint ptr %0 to i64
   %8 = urem i64 %7, 8191
-  %9 = getelementptr inbounds nuw ptr, ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %8
   br label %10
 
 10:                                               ; preds = %12, %5
@@ -1984,7 +1984,7 @@ _ZN10NMTPreInit22find_and_remove_in_mapEPv.exit.i: ; preds = %12, %10
   %19 = load ptr, ptr @_ZN10NMTPreInit6_tableE, align 8
   %20 = ptrtoint ptr %0 to i64
   %21 = urem i64 %20, 8191
-  %22 = getelementptr inbounds nuw ptr, ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %21
   br label %23
 
 23:                                               ; preds = %25, %18
@@ -2478,7 +2478,7 @@ define hidden void @_ZN2os27print_environment_variablesEP12outputStreamPPKc(ptr 
 
 8:                                                ; preds = %.lr.ph, %7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %9 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.next
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.next
   %10 = load ptr, ptr %9, align 8
   %.not17 = icmp eq ptr %10, null
   br i1 %.not17, label %.loopexit, label %.lr.ph, !llvm.loop !20
@@ -2785,7 +2785,7 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit:    ; preds = %41
   store i32 %44, ptr %36, align 8
   %45 = load ptr, ptr %40, align 8
   %46 = zext i32 %42 to i64
-  %47 = getelementptr inbounds nuw ptr, ptr %45, i64 %46
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %46
   %48 = load ptr, ptr %47, align 8
   %.not81 = icmp eq ptr %48, null
   br i1 %.not81, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread, label %49
@@ -3699,7 +3699,7 @@ define hidden noundef ptr @_ZN2os8strerrorEi(i32 noundef %0) local_unnamed_addr 
 
 3:                                                ; preds = %2, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %2 ]
-  %4 = getelementptr inbounds nuw %struct.anon.9, ptr @_ZZL15errno_to_stringibE5table, i64 %indvars.iv.i
+  %4 = getelementptr inbounds nuw [24 x i8], ptr @_ZZL15errno_to_stringibE5table, i64 %indvars.iv.i
   %5 = load i32, ptr %4, align 8
   %.not8.i = icmp eq i32 %5, %0
   br i1 %.not8.i, label %_ZL15errno_to_stringib.exit, label %2
@@ -3722,7 +3722,7 @@ define hidden noundef ptr @_ZN2os10errno_nameEi(i32 noundef %0) local_unnamed_ad
 
 3:                                                ; preds = %2, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %2 ]
-  %4 = getelementptr inbounds nuw %struct.anon.9, ptr @_ZZL15errno_to_stringibE5table, i64 %indvars.iv.i
+  %4 = getelementptr inbounds nuw [24 x i8], ptr @_ZZL15errno_to_stringibE5table, i64 %indvars.iv.i
   %5 = load i32, ptr %4, align 8
   %.not8.i = icmp eq i32 %5, %0
   br i1 %.not8.i, label %_ZL15errno_to_stringib.exit, label %2
@@ -4372,7 +4372,7 @@ define hidden noundef ptr @_ZN2os30attempt_reserve_memory_betweenEPcS0_mmb(ptr n
   %72 = trunc nuw nsw i64 %indvars.iv109 to i32
   %73 = mul i32 %53, %72
   %74 = add i32 %71, %73
-  %75 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv109
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv109
   store i32 %74, ptr %75, align 4
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
   %76 = icmp samesign ult i64 %indvars.iv.next110, %55
@@ -4380,7 +4380,7 @@ define hidden noundef ptr @_ZN2os30attempt_reserve_memory_betweenEPcS0_mmb(ptr n
 
 .split:                                           ; preds = %52, %.split
   %indvars.iv106 = phi i64 [ %indvars.iv.next107, %.split ], [ 0, %52 ]
-  %77 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv106
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv106
   %78 = trunc nuw nsw i64 %indvars.iv106 to i32
   %79 = mul nuw nsw i32 %53, %78
   store i32 %79, ptr %77, align 4
@@ -4411,7 +4411,7 @@ define hidden noundef ptr @_ZN2os30attempt_reserve_memory_betweenEPcS0_mmb(ptr n
   %indvars.iv = phi i64 [ 0, %84 ], [ %indvars.iv.next, %87 ]
   %88 = trunc nuw nsw i64 %indvars.iv to i32
   %89 = mul i32 %85, %88
-  %90 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv
   store i32 %89, ptr %90, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %91 = icmp samesign ult i64 %indvars.iv.next, %86
@@ -4431,7 +4431,7 @@ define hidden noundef ptr @_ZN2os30attempt_reserve_memory_betweenEPcS0_mmb(ptr n
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %105
   %indvars.iv112 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next113, %105 ]
-  %95 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv112
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv112
   %96 = load i32, ptr %95, align 4
   %97 = zext i32 %96 to i64
   %98 = mul i64 %19, %97
@@ -4553,9 +4553,9 @@ define internal fastcc void @_ZL20shuffle_fisher_yatesIjEvPT_jR10FastRandom(ptr 
   store i32 %.1.i.i, ptr %2, align 4
   %21 = trunc nuw i64 %indvars.iv to i32
   %22 = urem i32 %.1.i.i, %21
-  %23 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %24 = zext i32 %22 to i64
-  %25 = getelementptr inbounds nuw i32, ptr %0, i64 %24
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %24
   %26 = load i32, ptr %23, align 4
   %27 = load i32, ptr %25, align 4
   store i32 %27, ptr %23, align 4
@@ -4590,9 +4590,9 @@ define internal fastcc void @_ZL10hemi_splitIjEvPT_j(ptr noundef nonnull capture
   %10 = add i32 %1, %9
   %.pn.in = select i1 %7, i32 %10, i32 %8
   %.pn = zext i32 %.pn.in to i64
-  %.in = getelementptr inbounds nuw i32, ptr %5, i64 %.pn
+  %.in = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.pn
   %11 = load i32, ptr %.in, align 4
-  %12 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   store i32 %11, ptr %12, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %3

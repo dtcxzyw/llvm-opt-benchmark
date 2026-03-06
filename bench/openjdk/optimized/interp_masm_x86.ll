@@ -2838,7 +2838,7 @@ define hidden void @_ZN25InterpreterMacroAssembler15dispatch_epilogE8TosStatei(p
   %.sroa.0.0.copyload.i = load i32, ptr %10, align 4
   call void @_ZN14MacroAssembler10incrementqE8Registeri(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 %.sroa.0.0.copyload.i, i32 noundef %2) #8
   %20 = zext i32 %1 to i64
-  %21 = getelementptr inbounds nuw [256 x ptr], ptr @_ZN19TemplateInterpreter13_active_tableE, i64 %20
+  %21 = getelementptr inbounds nuw [2048 x i8], ptr @_ZN19TemplateInterpreter13_active_tableE, i64 %20
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -2922,7 +2922,7 @@ define hidden void @_ZN25InterpreterMacroAssembler13dispatch_nextE8TosStateib(pt
   %.sroa.0.0.copyload = load i32, ptr %6, align 4
   call void @_ZN14MacroAssembler10incrementqE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %.sroa.0.0.copyload, i32 noundef %2) #8
   %16 = zext i32 %1 to i64
-  %17 = getelementptr inbounds nuw [256 x ptr], ptr @_ZN19TemplateInterpreter13_active_tableE, i64 %16
+  %17 = getelementptr inbounds nuw [2048 x i8], ptr @_ZN19TemplateInterpreter13_active_tableE, i64 %16
   call void @_ZN25InterpreterMacroAssembler13dispatch_baseE8TosStatePPhbb(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %1, ptr noundef nonnull %17, i1 zeroext poison, i1 noundef zeroext %3)
   ret void
 }
@@ -2938,7 +2938,7 @@ define hidden void @_ZN25InterpreterMacroAssembler13dispatch_baseE8TosStatePPhbb
   %12 = alloca %class.ExternalAddress, align 8
   %13 = alloca %class.Address, align 8
   %14 = zext i32 %1 to i64
-  %15 = getelementptr inbounds nuw [256 x ptr], ptr @_ZN19TemplateInterpreter13_safept_tableE, i64 %14
+  %15 = getelementptr inbounds nuw [2048 x i8], ptr @_ZN19TemplateInterpreter13_safept_tableE, i64 %14
   store i32 -1, ptr %6, align 8
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i32 0, ptr %16, align 4
@@ -3036,7 +3036,7 @@ declare void @_ZN14MacroAssembler3leaE8Register14AddressLiteral(ptr noundef nonn
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN25InterpreterMacroAssembler13dispatch_onlyE8TosStateb(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   %4 = zext i32 %1 to i64
-  %5 = getelementptr inbounds nuw [256 x ptr], ptr @_ZN19TemplateInterpreter13_active_tableE, i64 %4
+  %5 = getelementptr inbounds nuw [2048 x i8], ptr @_ZN19TemplateInterpreter13_active_tableE, i64 %4
   tail call void @_ZN25InterpreterMacroAssembler13dispatch_baseE8TosStatePPhbb(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %1, ptr noundef nonnull %5, i1 zeroext poison, i1 noundef zeroext %2)
   ret void
 }
@@ -3049,7 +3049,7 @@ define hidden void @_ZN25InterpreterMacroAssembler20dispatch_only_normalE8TosSta
   %6 = alloca %class.ExternalAddress, align 8
   %7 = alloca %class.Address, align 8
   %8 = zext i32 %1 to i64
-  %9 = getelementptr inbounds nuw [256 x ptr], ptr @_ZN19TemplateInterpreter13_normal_tableE, i64 %8
+  %9 = getelementptr inbounds nuw [2048 x i8], ptr @_ZN19TemplateInterpreter13_normal_tableE, i64 %8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -3114,7 +3114,7 @@ define hidden void @_ZN25InterpreterMacroAssembler22dispatch_only_noverifyE8TosS
   %6 = alloca %class.ExternalAddress, align 8
   %7 = alloca %class.Address, align 8
   %8 = zext i32 %1 to i64
-  %9 = getelementptr inbounds nuw [256 x ptr], ptr @_ZN19TemplateInterpreter13_normal_tableE, i64 %8
+  %9 = getelementptr inbounds nuw [2048 x i8], ptr @_ZN19TemplateInterpreter13_normal_tableE, i64 %8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)

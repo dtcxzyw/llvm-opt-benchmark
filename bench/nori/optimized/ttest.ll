@@ -474,7 +474,7 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i.i: ; preds = %78, %.no
 _ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i: ; preds = %80, %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i.i
   store ptr %75, ptr %29, align 8
   store ptr %79, ptr %51, align 8
-  %81 = getelementptr inbounds nuw float, ptr %75, i64 %73
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %75, i64 %73
   store ptr %81, ptr %52, align 8
   br label %_ZNSt6vectorIfSaIfEE9push_backEOf.exit
 
@@ -724,7 +724,7 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i.i78: ; preds = %142, %
 _ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i80: ; preds = %144, %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i.i78
   store ptr %139, ptr %30, align 8
   store ptr %143, ptr %115, align 8
-  %145 = getelementptr inbounds nuw float, ptr %139, i64 %137
+  %145 = getelementptr inbounds nuw [4 x i8], ptr %139, i64 %137
   store ptr %145, ptr %116, align 8
   br label %_ZNSt6vectorIfSaIfEE9push_backEOf.exit83
 
@@ -1278,7 +1278,7 @@ _ZNSt6vectorIPN4nori4BSDFESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i: ; p
 _ZNSt6vectorIPN4nori4BSDFESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %35, %_ZNSt6vectorIPN4nori4BSDFESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
   store ptr %30, ptr %9, align 8
   store ptr %34, ptr %10, align 8
-  %36 = getelementptr inbounds nuw ptr, ptr %30, i64 %28
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %28
   store ptr %36, ptr %12, align 8
   br label %_ZNSt6vectorIPN4nori4BSDFESaIS2_EE9push_backEOS2_.exit
 
@@ -1342,7 +1342,7 @@ _ZNSt6vectorIPN4nori5SceneESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i: ; 
 _ZNSt6vectorIPN4nori5SceneESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %64, %_ZNSt6vectorIPN4nori5SceneESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
   store ptr %59, ptr %38, align 8
   store ptr %63, ptr %39, align 8
-  %65 = getelementptr inbounds nuw ptr, ptr %59, i64 %57
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %57
   store ptr %65, ptr %41, align 8
   br label %_ZNSt6vectorIPN4nori4BSDFESaIS2_EE9push_backEOS2_.exit
 
@@ -1526,10 +1526,10 @@ define linkonce_odr hidden void @_ZN4nori13StudentsTTest8activateEv(ptr noundef 
   %.076135 = phi i64 [ 0, %.lr.ph140.preheader ], [ %165, %164 ]
   %.sroa.0102.1134 = phi i64 [ %.sroa.0102.0148, %.lr.ph140.preheader ], [ %.sroa.0102.2.lcssa, %164 ]
   %77 = load ptr, ptr %38, align 8
-  %78 = getelementptr inbounds float, ptr %77, i64 %.076135
+  %78 = getelementptr inbounds [4 x i8], ptr %77, i64 %.076135
   %79 = load float, ptr %78, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %80 = getelementptr inbounds float, ptr %76, i64 %indvars.iv
+  %80 = getelementptr inbounds [4 x i8], ptr %76, i64 %indvars.iv
   %81 = load float, ptr %80, align 4
   %82 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.21)
   %83 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %82, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
@@ -1791,7 +1791,7 @@ _ZN4nori12PropertyListD2Ev.exit:                  ; preds = %203
   %226 = load ptr, ptr %225, align 8
   %indvars.iv.next193 = add nuw nsw i64 %indvars.iv192, 1
   %227 = load ptr, ptr %24, align 8
-  %228 = getelementptr inbounds nuw float, ptr %227, i64 %indvars.iv192
+  %228 = getelementptr inbounds nuw [4 x i8], ptr %227, i64 %indvars.iv192
   %229 = load float, ptr %228, align 4
   %230 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.21)
   %231 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %230, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
@@ -2544,7 +2544,7 @@ _ZN10tinyformat6detail24printFormatStringLiteralERSoPKc.exit: ; preds = %28, %23
 
 39:                                               ; preds = %_ZN10tinyformat6detail24printFormatStringLiteralERSoPKc.exit
   %40 = sext i32 %38 to i64
-  %41 = getelementptr inbounds %"class.tinyformat::detail::FormatArg", ptr %2, i64 %40
+  %41 = getelementptr inbounds [24 x i8], ptr %2, i64 %40
   %42 = load i8, ptr %6, align 1
   %43 = trunc i8 %42 to i1
   br i1 %43, label %49, label %44
@@ -2908,7 +2908,7 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit: ; preds = %.lr.ph.i
   %115 = add nsw i32 %112, 1
   store i32 %115, ptr %5, align 4
   %116 = sext i32 %112 to i64
-  %117 = getelementptr inbounds %"class.tinyformat::detail::FormatArg", ptr %4, i64 %116
+  %117 = getelementptr inbounds [24 x i8], ptr %4, i64 %116
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 16
   %119 = load ptr, ptr %118, align 8
   %120 = load ptr, ptr %117, align 8
@@ -2970,7 +2970,7 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit: ; preds = %.lr.ph.i
   %157 = add nsw i32 %154, 1
   store i32 %157, ptr %5, align 4
   %158 = sext i32 %154 to i64
-  %159 = getelementptr inbounds %"class.tinyformat::detail::FormatArg", ptr %4, i64 %158
+  %159 = getelementptr inbounds [24 x i8], ptr %4, i64 %158
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 16
   %161 = load ptr, ptr %160, align 8
   %162 = load ptr, ptr %159, align 8

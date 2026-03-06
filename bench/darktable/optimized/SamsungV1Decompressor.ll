@@ -11,7 +11,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.rawspeed::Buffer.base" = type <{ ptr, i32 }>
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 %"struct.std::array.54" = type { [2 x i32] }
-%"struct.rawspeed::SamsungV1Decompressor::encTableItem" = type { i8, i8 }
 
 $_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz = comdat any
 
@@ -346,7 +345,7 @@ _ZNSt6vectorIN8rawspeed21SamsungV1Decompressor12encTableItemESaIS2_EEC2EmRKS3_.e
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.138174 = phi i32 [ %46, %.lr.ph ], [ %.037176, %.lr.ph.preheader ]
   %44 = zext i32 %.138174 to i64
-  %45 = getelementptr inbounds nuw %"struct.rawspeed::SamsungV1Decompressor::encTableItem", ptr %2, i64 %44
+  %45 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %44
   store i16 %40, ptr %45, align 1
   %46 = add i32 %.138174, 1
   %exitcond.not = icmp eq i32 %46, %43
@@ -397,7 +396,7 @@ _ZN8rawspeed14BitStreamerMSBCI2NS_11BitStreamerIS0_NS_39BitStreamerForwardSequen
   %61 = icmp samesign ult i64 %60, %54
   tail call void @llvm.assume(i1 %61)
   %62 = mul nuw nsw i64 %60, %55
-  %63 = getelementptr inbounds nuw i16, ptr %7, i64 %62
+  %63 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %62
   %64 = load i16, ptr %63, align 2, !tbaa !112
   %65 = getelementptr inbounds nuw i8, ptr %63, i64 2
   %66 = zext i16 %64 to i32
@@ -409,7 +408,7 @@ _ZN8rawspeed14BitStreamerMSBCI2NS_11BitStreamerIS0_NS_39BitStreamerForwardSequen
 
 .lr.ph182.us:                                     ; preds = %59, %.lr.ph191.split.us
   %69 = mul nuw nsw i64 %indvars.iv203, %56
-  %70 = getelementptr inbounds nuw i16, ptr %7, i64 %69
+  %70 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %69
   br label %71
 
 71:                                               ; preds = %.lr.ph182.us, %127
@@ -469,7 +468,7 @@ _ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialR
   %94 = phi i64 [ %93, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i.us ], [ %.sroa.068.1177.us, %71 ]
   %95 = phi i32 [ %89, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i.us ], [ %.sroa.8.1178.us, %71 ]
   %96 = lshr i64 %94, 54
-  %97 = getelementptr inbounds nuw %"struct.rawspeed::SamsungV1Decompressor::encTableItem", ptr %2, i64 %96
+  %97 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %96
   %98 = load i8, ptr %97, align 1, !tbaa !114
   %99 = zext nneg i8 %98 to i32
   %100 = icmp ult i8 %98, 33
@@ -511,7 +510,7 @@ _ZN8rawspeed21SamsungV1Decompressor11samsungDiffERNS_14BitStreamerMSBERKSt6vecto
   %.sroa.8.2.us = phi i32 [ %102, %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i.us ], [ %117, %108 ]
   %.0.i.us = phi i32 [ 0, %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i.us ], [ %.0.i.i.us, %108 ]
   %122 = and i64 %indvars.iv, 1
-  %123 = getelementptr inbounds nuw i32, ptr %1, i64 %122
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %122
   %124 = load i32, ptr %123, align 4, !tbaa !16
   %125 = add nsw i32 %124, %.0.i.us
   store i32 %125, ptr %123, align 4, !tbaa !16
@@ -519,7 +518,7 @@ _ZN8rawspeed21SamsungV1Decompressor11samsungDiffERNS_14BitStreamerMSBERKSt6vecto
   br i1 %126, label %127, label %.split193.us
 
 127:                                              ; preds = %_ZN8rawspeed21SamsungV1Decompressor11samsungDiffERNS_14BitStreamerMSBERKSt6vectorINS0_12encTableItemESaIS4_EE.exit.us
-  %128 = getelementptr inbounds nuw i16, ptr %70, i64 %indvars.iv
+  %128 = getelementptr inbounds nuw [2 x i8], ptr %70, i64 %indvars.iv
   %129 = trunc nuw nsw i32 %125 to i16
   store i16 %129, ptr %128, align 2, !tbaa !112
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

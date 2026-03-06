@@ -6,18 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.file_operations = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.debugfs_reg32 = type { ptr, i64 }
 %struct.xhci_file_map = type { ptr, ptr }
-%struct.xhci_port = type { ptr, i32, i32, ptr, ptr, i8, i64, i8, %struct.completion, %struct.completion }
-%struct.completion = type { i32, %struct.swait_queue_head }
-%struct.swait_queue_head = type { %struct.raw_spinlock, %struct.list_head }
-%struct.raw_spinlock = type { %struct.qspinlock }
-%struct.qspinlock = type { %union.anon.0 }
-%union.anon.0 = type { %struct.atomic_t }
-%struct.atomic_t = type { i32 }
-%struct.list_head = type { ptr, ptr }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
-%union.xhci_trb = type { %struct.xhci_link_trb }
-%struct.xhci_link_trb = type { i64, i32, i32 }
-%struct.xhci_stream_ctx = type { i64, [2 x i32] }
 
 @.str = private unnamed_addr constant [7 x i8] c"ep%02d\00", align 1
 @.str.1 = private unnamed_addr constant [10 x i8] c"stream_id\00", align 1
@@ -292,7 +281,7 @@ define dso_local void @xhci_debugfs_create_endpoint(ptr noundef readnone capture
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %9 = sext i32 %2 to i64
-  %10 = getelementptr ptr, ptr %8, i64 %9
+  %10 = getelementptr [8 x i8], ptr %8, i64 %9
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %35
@@ -318,7 +307,7 @@ define dso_local void @xhci_debugfs_create_endpoint(ptr noundef readnone capture
 
 26:                                               ; preds = %26, %17
   %27 = phi i64 [ %31, %26 ], [ 0, %17 ]
-  %28 = getelementptr %struct.xhci_file_map, ptr @ring_files, i64 %27
+  %28 = getelementptr [16 x i8], ptr @ring_files, i64 %27
   %29 = load ptr, ptr %28, align 16
   %30 = tail call ptr @debugfs_create_file(ptr noundef %29, i16 noundef zeroext 292, ptr noundef %25, ptr noundef nonnull %21, ptr noundef nonnull @xhci_ring_fops) #14
   %31 = add nuw nsw i64 %27, 1
@@ -348,7 +337,7 @@ define dso_local void @xhci_debugfs_remove_endpoint(ptr noundef readnone capture
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %9 = sext i32 %2 to i64
-  %10 = getelementptr ptr, ptr %8, i64 %9
+  %10 = getelementptr [8 x i8], ptr %8, i64 %9
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %16, label %13
@@ -381,7 +370,7 @@ define dso_local void @xhci_debugfs_create_stream_files(ptr noundef readnone cap
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %9 = sext i32 %2 to i64
-  %10 = getelementptr ptr, ptr %8, i64 %9
+  %10 = getelementptr [8 x i8], ptr %8, i64 %9
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %30, label %13
@@ -422,7 +411,7 @@ declare dso_local ptr @debugfs_create_file(ptr noundef, i16 noundef zeroext, ptr
 define dso_local void @xhci_debugfs_create_slot(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %4 = sext i32 %1 to i64
-  %5 = getelementptr ptr, ptr %3, i64 %4
+  %5 = getelementptr [8 x i8], ptr %3, i64 %4
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 72), align 8
   %8 = tail call noalias align 8 dereferenceable_or_null(296) ptr @kmalloc_trace(ptr noundef %7, i32 noundef 3520, i64 noundef 296) #13
@@ -446,7 +435,7 @@ define dso_local void @xhci_debugfs_create_slot(ptr noundef readonly captures(no
 
 20:                                               ; preds = %20, %10
   %21 = phi i64 [ %25, %20 ], [ 0, %10 ]
-  %22 = getelementptr %struct.xhci_file_map, ptr @ring_files, i64 %21
+  %22 = getelementptr [16 x i8], ptr @ring_files, i64 %21
   %23 = load ptr, ptr %22, align 16
   %24 = tail call ptr @debugfs_create_file(ptr noundef %23, i16 noundef zeroext 292, ptr noundef %19, ptr noundef nonnull %18, ptr noundef nonnull @xhci_ring_fops) #14
   %25 = add nuw nsw i64 %21, 1
@@ -462,7 +451,7 @@ define dso_local void @xhci_debugfs_create_slot(ptr noundef readonly captures(no
 
 32:                                               ; preds = %32, %27
   %33 = phi i64 [ %37, %32 ], [ 0, %27 ]
-  %34 = getelementptr %struct.xhci_file_map, ptr @context_files, i64 %33
+  %34 = getelementptr [16 x i8], ptr @context_files, i64 %33
   %35 = load ptr, ptr %34, align 16
   %36 = tail call ptr @debugfs_create_file(ptr noundef %35, i16 noundef zeroext 292, ptr noundef %28, ptr noundef %31, ptr noundef nonnull @xhci_context_fops) #14
   %37 = add nuw nsw i64 %33, 1
@@ -480,7 +469,7 @@ declare dso_local ptr @debugfs_create_dir(ptr noundef, ptr noundef) local_unname
 define dso_local void @xhci_debugfs_remove_slot(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %4 = sext i32 %1 to i64
-  %5 = getelementptr ptr, ptr %3, i64 %4
+  %5 = getelementptr [8 x i8], ptr %3, i64 %4
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %23, label %8
@@ -500,7 +489,7 @@ define dso_local void @xhci_debugfs_remove_slot(ptr noundef readonly captures(no
 
 16:                                               ; preds = %16, %12
   %17 = phi i64 [ 0, %12 ], [ %20, %16 ]
-  %18 = getelementptr ptr, ptr %15, i64 %17
+  %18 = getelementptr [8 x i8], ptr %15, i64 %17
   %19 = load ptr, ptr %18, align 8
   tail call void @kfree(ptr noundef %19) #14
   %20 = add nuw nsw i64 %17, 1
@@ -563,7 +552,7 @@ define dso_local void @xhci_debugfs_init(ptr noundef initializes((2744, 2752)) %
 
 30:                                               ; preds = %30, %10
   %31 = phi i64 [ %35, %30 ], [ 0, %10 ]
-  %32 = getelementptr %struct.xhci_file_map, ptr @ring_files, i64 %31
+  %32 = getelementptr [16 x i8], ptr @ring_files, i64 %31
   %33 = load ptr, ptr %32, align 16
   %34 = tail call ptr @debugfs_create_file(ptr noundef %33, i16 noundef zeroext 292, ptr noundef %29, ptr noundef nonnull %27, ptr noundef nonnull @xhci_ring_fops) #14
   %35 = add nuw nsw i64 %31, 1
@@ -580,7 +569,7 @@ define dso_local void @xhci_debugfs_init(ptr noundef initializes((2744, 2752)) %
 
 43:                                               ; preds = %43, %37
   %44 = phi i64 [ %48, %43 ], [ 0, %37 ]
-  %45 = getelementptr %struct.xhci_file_map, ptr @ring_files, i64 %44
+  %45 = getelementptr [16 x i8], ptr @ring_files, i64 %44
   %46 = load ptr, ptr %45, align 16
   %47 = tail call ptr @debugfs_create_file(ptr noundef %46, i16 noundef zeroext 292, ptr noundef %42, ptr noundef %40, ptr noundef nonnull @xhci_ring_fops) #14
   %48 = add nuw nsw i64 %44, 1
@@ -616,7 +605,7 @@ define dso_local void @xhci_debugfs_init(ptr noundef initializes((2744, 2752)) %
   %69 = call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef nonnull %2, i64 noundef 8, ptr noundef nonnull @.str.208, i32 noundef %68) #14
   %70 = call ptr @debugfs_create_dir(ptr noundef nonnull %2, ptr noundef %57) #14
   %71 = load ptr, ptr %62, align 8
-  %72 = getelementptr %struct.xhci_port, ptr %71, i64 %67
+  %72 = getelementptr [120 x i8], ptr %71, i64 %67
   %73 = call ptr @debugfs_create_file(ptr noundef nonnull @.str.209, i16 noundef zeroext 420, ptr noundef %70, ptr noundef %72, ptr noundef nonnull @port_fops) #14
   %74 = icmp eq i64 %67, 0
   br i1 %74, label %.loopexit, label %65, !llvm.loop !11
@@ -963,7 +952,7 @@ define internal noundef i32 @xhci_ring_trb_show(ptr noundef %0, ptr readnone cap
 16:                                               ; preds = %323, %.preheader
   %17 = phi i64 [ 0, %.preheader ], [ %324, %323 ]
   %18 = load ptr, ptr %13, align 8
-  %19 = getelementptr %union.xhci_trb, ptr %18, i64 %17
+  %19 = getelementptr [16 x i8], ptr %18, i64 %17
   %20 = load i64, ptr %14, align 8
   %21 = shl nuw nsw i64 %17, 4
   %22 = add i64 %20, %21
@@ -1718,7 +1707,7 @@ define internal i32 @xhci_ring_open(ptr noundef readonly captures(none) %0, ptr 
 
 22:                                               ; preds = %19, %16
   %23 = phi i64 [ 0, %16 ], [ %20, %19 ]
-  %24 = getelementptr %struct.xhci_file_map, ptr @ring_files, i64 %23
+  %24 = getelementptr [16 x i8], ptr @ring_files, i64 %23
   %25 = load ptr, ptr %24, align 16
   %26 = tail call i32 @strcmp(ptr noundef %25, ptr noundef nonnull dereferenceable(1) %18) #14
   %27 = icmp eq i32 %26, 0
@@ -1784,7 +1773,7 @@ define internal i64 @xhci_stream_id_write(ptr noundef readonly captures(none) %0
   store i32 %20, ptr %28, align 8
   %29 = load ptr, ptr %23, align 8
   %30 = zext i16 %19 to i64
-  %31 = getelementptr ptr, ptr %29, i64 %30
+  %31 = getelementptr [8 x i8], ptr %29, i64 %30
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %9, i64 48
   store ptr %32, ptr %33, align 8
@@ -1867,7 +1856,7 @@ define internal noundef range(i32 -1, 1) i32 @xhci_stream_context_array_show(ptr
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %21 = load ptr, ptr %20, align 8
   %22 = sext i32 %19 to i64
-  %23 = getelementptr %struct.xhci_stream_ctx, ptr %21, i64 %22
+  %23 = getelementptr [16 x i8], ptr %21, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %25 = load i64, ptr %24, align 8
   %26 = shl i32 %19, 4
@@ -2251,7 +2240,7 @@ define internal i32 @xhci_context_open(ptr noundef readonly captures(none) %0, p
 
 22:                                               ; preds = %19, %16
   %23 = phi i64 [ 0, %16 ], [ %20, %19 ]
-  %24 = getelementptr %struct.xhci_file_map, ptr @context_files, i64 %23
+  %24 = getelementptr [16 x i8], ptr @context_files, i64 %23
   %25 = load ptr, ptr %24, align 16
   %26 = tail call i32 @strcmp(ptr noundef %25, ptr noundef nonnull dereferenceable(1) %18) #14
   %27 = icmp eq i32 %26, 0

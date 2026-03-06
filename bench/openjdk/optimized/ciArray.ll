@@ -243,7 +243,7 @@ _ZN5ciEnv10get_objectEP7oopDesc.exit:             ; preds = %48, %50
   %63 = add nsw i64 %62, %61
   %64 = inttoptr i64 %63 to ptr
   %65 = zext nneg i32 %3 to i64
-  %66 = getelementptr inbounds nuw i64, ptr %64, i64 %65
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %65
   %67 = load i32, ptr %66, align 8
   %.sroa_idx = getelementptr inbounds nuw i8, ptr %66, i64 4
   %68 = load i32, ptr %.sroa_idx, align 4
@@ -255,7 +255,7 @@ _ZN5ciEnv10get_objectEP7oopDesc.exit:             ; preds = %48, %50
   %72 = add nsw i64 %71, %70
   %73 = inttoptr i64 %72 to ptr
   %74 = zext nneg i32 %3 to i64
-  %75 = getelementptr inbounds nuw float, ptr %73, i64 %74
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %73, i64 %74
   %76 = load i32, ptr %75, align 4
   br label %130
 
@@ -265,7 +265,7 @@ _ZN5ciEnv10get_objectEP7oopDesc.exit:             ; preds = %48, %50
   %80 = add nsw i64 %79, %78
   %81 = inttoptr i64 %80 to ptr
   %82 = zext nneg i32 %3 to i64
-  %83 = getelementptr inbounds nuw double, ptr %81, i64 %82
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %82
   %84 = load i64, ptr %83, align 8
   %.sroa.10.sroa.0.0.extract.trunc40 = trunc i64 %84 to i32
   %.sroa.10.sroa.10.0.extract.shift41 = lshr i64 %84, 32
@@ -301,7 +301,7 @@ _ZN5ciEnv10get_objectEP7oopDesc.exit:             ; preds = %48, %50
   %107 = add nsw i64 %106, %105
   %108 = inttoptr i64 %107 to ptr
   %109 = zext nneg i32 %3 to i64
-  %110 = getelementptr inbounds nuw i16, ptr %108, i64 %109
+  %110 = getelementptr inbounds nuw [2 x i8], ptr %108, i64 %109
   %111 = load i16, ptr %110, align 2
   %112 = sext i16 %111 to i32
   br label %130
@@ -312,7 +312,7 @@ _ZN5ciEnv10get_objectEP7oopDesc.exit:             ; preds = %48, %50
   %116 = add nsw i64 %115, %114
   %117 = inttoptr i64 %116 to ptr
   %118 = zext nneg i32 %3 to i64
-  %119 = getelementptr inbounds nuw i16, ptr %117, i64 %118
+  %119 = getelementptr inbounds nuw [2 x i8], ptr %117, i64 %118
   %120 = load i16, ptr %119, align 2
   %121 = zext i16 %120 to i32
   br label %130
@@ -323,7 +323,7 @@ _ZN5ciEnv10get_objectEP7oopDesc.exit:             ; preds = %48, %50
   %125 = add nsw i64 %124, %123
   %126 = inttoptr i64 %125 to ptr
   %127 = zext nneg i32 %3 to i64
-  %128 = getelementptr inbounds nuw i32, ptr %126, i64 %127
+  %128 = getelementptr inbounds nuw [4 x i8], ptr %126, i64 %127
   %129 = load i32, ptr %128, align 4
   br label %130
 
@@ -460,7 +460,7 @@ define hidden { i8, i64 } @_ZN7ciArray23element_value_by_offsetEl(ptr noundef no
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load i8, ptr %5, align 8
   %7 = zext i8 %6 to i64
-  %8 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %7
+  %8 = getelementptr inbounds nuw [4 x i8], ptr @_type2aelembytes, i64 %7
   %9 = load i32, ptr %8, align 4
   %10 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %9, i1 true)
   %11 = zext nneg i32 %10 to i64
@@ -735,7 +735,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal15RuntimeDispatchILm2
 _ZN14AccessInternal15BarrierResolverILm2383942EPFP7oopDescS2_lELNS_11BarrierTypeE3EE15resolve_barrierEv.exit: ; preds = %12, %9
   %switch.table._ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE12load_at_initES2_l.1.sink = phi ptr [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE12load_at_initES2_l, %9 ], [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE12load_at_initES2_l.1, %12 ]
   %15 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep5 = getelementptr inbounds nuw ptr, ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE12load_at_initES2_l.1.sink, i64 %15
+  %switch.gep5 = getelementptr inbounds nuw [8 x i8], ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE12load_at_initES2_l.1.sink, i64 %15
   %switch.load6 = load ptr, ptr %switch.gep5, align 8
   store ptr %switch.load6, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
   %16 = tail call noundef ptr %switch.load6(ptr noundef %0, i64 noundef %1) #6
@@ -1046,7 +1046,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier35load_barrier_on_oop_field_
 5:                                                ; preds = %2
   %6 = lshr i64 %1, 12
   %7 = and i64 %6, 15
-  %8 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %7
+  %8 = getelementptr inbounds nuw [4 x i8], ptr @_ZL22ZPointerLoadShiftTable, i64 %7
   %9 = load i32, ptr %8, align 4
   %10 = zext nneg i32 %9 to i64
   %11 = lshr i64 %1, %10
@@ -1060,7 +1060,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier35load_barrier_on_oop_field_
 15:                                               ; preds = %12
   %16 = lshr i64 %1, 12
   %17 = and i64 %16, 15
-  %18 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %17
+  %18 = getelementptr inbounds nuw [4 x i8], ptr @_ZL22ZPointerLoadShiftTable, i64 %17
   %19 = load i32, ptr %18, align 4
   %20 = zext nneg i32 %19 to i64
   %21 = lshr i64 %1, %20
@@ -1100,7 +1100,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier35load_barrier_on_oop_field_
   %41 = lshr i64 %40, 21
   %42 = getelementptr inbounds nuw i8, ptr %38, i64 40
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds nuw ptr, ptr %43, i64 %41
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %41
   %45 = load volatile ptr, ptr %44, align 8
   %.not.i6.i.i = icmp eq ptr %45, null
   %46 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
@@ -1126,7 +1126,7 @@ _Z15color_load_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %50 = load i64, ptr @ZPointerLoadGoodMask, align 8
   %51 = lshr i64 %50, 12
   %52 = and i64 %51, 15
-  %53 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %52
+  %53 = getelementptr inbounds nuw [4 x i8], ptr @_ZL22ZPointerLoadShiftTable, i64 %52
   %54 = load i32, ptr %53, align 4
   %55 = zext nneg i32 %54 to i64
   %56 = shl i64 %47, %55

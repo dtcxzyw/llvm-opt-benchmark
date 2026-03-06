@@ -561,7 +561,7 @@ define internal i32 @oabd_sys_write(ptr noundef captures(none) %0, ptr noundef %
   %.06.tr.i = trunc i32 %.068.i to i8
   %.narrow.i = xor i8 %17, %.06.tr.i
   %18 = zext i8 %.narrow.i to i64
-  %19 = getelementptr inbounds nuw i32, ptr @crc32_table, i64 %18
+  %19 = getelementptr inbounds nuw [4 x i8], ptr @crc32_table, i64 %18
   %20 = load i32, ptr %19, align 4, !tbaa !32
   %21 = lshr i32 %.068.i, 8
   %22 = xor i32 %20, %21

@@ -154,7 +154,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %call5.i.i.i.i2.i.i13 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #16
   store ptr %call5.i.i.i.i2.i.i13, ptr %names, align 8
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %names, i64 8
-  %add.ptr.i.i.i = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %call5.i.i.i.i2.i.i13, i64 %sub.ptr.div.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [32 x i8], ptr %call5.i.i.i.i2.i.i13, i64 %sub.ptr.div.i
   %_M_end_of_storage.i.i.i = getelementptr inbounds nuw i8, ptr %names, i64 16
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
   br label %for.body.i.i.i.i.i
@@ -193,9 +193,9 @@ for.body.preheader:                               ; preds = %for.body.preheader.
 for.body:                                         ; preds = %for.body.preheader, %invoke.cont14
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %invoke.cont14 ]
   %3 = load ptr, ptr %argTypes, align 8
-  %add.ptr.i = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %3, i64 %indvars.iv
+  %add.ptr.i = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %indvars.iv
   %4 = load ptr, ptr %types, align 8
-  %add.ptr.i24 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %4, i64 %indvars.iv
+  %add.ptr.i24 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %indvars.iv
   %5 = load ptr, ptr %add.ptr.i, align 8
   store ptr %5, ptr %add.ptr.i24, align 8
   %_M_refcount.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i24, i64 8
@@ -314,7 +314,7 @@ call2.i.noexc:                                    ; preds = %if.end9.i.i.i, %for
 
 invoke.cont14:                                    ; preds = %call2.i.noexc
   %22 = load ptr, ptr %names, align 8
-  %add.ptr.i26 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %indvars.iv
+  %add.ptr.i26 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %indvars.iv
   %call17 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i26, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp10) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp10) #17
   %exitcond.not = icmp eq i64 %indvars.iv.next, %sub.ptr.div.i
@@ -1232,7 +1232,7 @@ declare noundef i64 @_ZSt11_Hash_bytesPKvmm(ptr noundef, i64 noundef, i64 nounde
 define linkonce_odr noundef ptr @_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N8facebook5velox4exec19VectorFunctionEntryEESaISC_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_find_before_nodeEmRS7_m(ptr noundef nonnull align 8 dereferenceable(56) %this, i64 noundef %__bkt, ptr noundef nonnull align 8 dereferenceable(32) %__k, i64 noundef %__code) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %0, i64 %__bkt
+  %arrayidx = getelementptr inbounds [8 x i8], ptr %0, i64 %__bkt
   %1 = load ptr, ptr %arrayidx, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %return, label %if.end

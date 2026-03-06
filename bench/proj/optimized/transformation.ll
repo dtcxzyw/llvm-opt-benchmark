@@ -57,12 +57,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.dropbox::oxygen::nn.192" = type { %"class.std::shared_ptr.193" }
 %"class.std::shared_ptr.193" = type { %"class.std::__shared_ptr.194" }
 %"class.std::__shared_ptr.194" = type { ptr, %"class.std::__shared_count" }
-%"class.dropbox::oxygen::nn.121" = type { %"class.std::shared_ptr.122" }
-%"class.std::shared_ptr.122" = type { %"class.std::__shared_ptr.123" }
-%"class.std::__shared_ptr.123" = type { ptr, %"class.std::__shared_count" }
-%"class.dropbox::oxygen::nn.141" = type { %"class.std::shared_ptr.142" }
-%"class.std::shared_ptr.142" = type { %"class.std::__shared_ptr.143" }
-%"class.std::__shared_ptr.143" = type { ptr, %"class.std::__shared_count" }
 %"class.osgeo::proj::util::PropertyMap" = type { %"class.std::unique_ptr.174" }
 %"class.std::unique_ptr.174" = type { %"struct.std::__uniq_ptr_data.175" }
 %"struct.std::__uniq_ptr_data.175" = type { %"class.std::__uniq_ptr_impl.176" }
@@ -75,6 +69,9 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.183" = type { %"struct.std::_Vector_base<dropbox::oxygen::nn<std::shared_ptr<osgeo::proj::operation::OperationParameter>>, std::allocator<dropbox::oxygen::nn<std::shared_ptr<osgeo::proj::operation::OperationParameter>>>>::_Vector_impl" }
 %"struct.std::_Vector_base<dropbox::oxygen::nn<std::shared_ptr<osgeo::proj::operation::OperationParameter>>, std::allocator<dropbox::oxygen::nn<std::shared_ptr<osgeo::proj::operation::OperationParameter>>>>::_Vector_impl" = type { %"struct.std::_Vector_base<dropbox::oxygen::nn<std::shared_ptr<osgeo::proj::operation::OperationParameter>>, std::allocator<dropbox::oxygen::nn<std::shared_ptr<osgeo::proj::operation::OperationParameter>>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<dropbox::oxygen::nn<std::shared_ptr<osgeo::proj::operation::OperationParameter>>, std::allocator<dropbox::oxygen::nn<std::shared_ptr<osgeo::proj::operation::OperationParameter>>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
+%"class.dropbox::oxygen::nn.121" = type { %"class.std::shared_ptr.122" }
+%"class.std::shared_ptr.122" = type { %"class.std::__shared_ptr.123" }
+%"class.std::__shared_ptr.123" = type { ptr, %"class.std::__shared_count" }
 %"struct.osgeo::proj::operation::VectorOfValues" = type { %"class.std::vector.187" }
 %"class.std::vector.187" = type { %"struct.std::_Vector_base.188" }
 %"struct.std::_Vector_base.188" = type { %"struct.std::_Vector_base<dropbox::oxygen::nn<std::shared_ptr<osgeo::proj::operation::ParameterValue>>, std::allocator<dropbox::oxygen::nn<std::shared_ptr<osgeo::proj::operation::ParameterValue>>>>::_Vector_impl" }
@@ -94,6 +91,9 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.47" = type { %"struct.std::_Vector_base<dropbox::oxygen::nn<std::shared_ptr<osgeo::proj::metadata::PositionalAccuracy>>, std::allocator<dropbox::oxygen::nn<std::shared_ptr<osgeo::proj::metadata::PositionalAccuracy>>>>::_Vector_impl" }
 %"struct.std::_Vector_base<dropbox::oxygen::nn<std::shared_ptr<osgeo::proj::metadata::PositionalAccuracy>>, std::allocator<dropbox::oxygen::nn<std::shared_ptr<osgeo::proj::metadata::PositionalAccuracy>>>>::_Vector_impl" = type { %"struct.std::_Vector_base<dropbox::oxygen::nn<std::shared_ptr<osgeo::proj::metadata::PositionalAccuracy>>, std::allocator<dropbox::oxygen::nn<std::shared_ptr<osgeo::proj::metadata::PositionalAccuracy>>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<dropbox::oxygen::nn<std::shared_ptr<osgeo::proj::metadata::PositionalAccuracy>>, std::allocator<dropbox::oxygen::nn<std::shared_ptr<osgeo::proj::metadata::PositionalAccuracy>>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
+%"class.dropbox::oxygen::nn.141" = type { %"class.std::shared_ptr.142" }
+%"class.std::shared_ptr.142" = type { %"class.std::__shared_ptr.143" }
+%"class.std::__shared_ptr.143" = type { ptr, %"class.std::__shared_count" }
 %"class.dropbox::oxygen::nn.241" = type { %"class.std::shared_ptr.242" }
 %"class.std::shared_ptr.242" = type { %"class.std::__shared_ptr.243" }
 %"class.std::__shared_ptr.243" = type { ptr, %"class.std::__shared_count" }
@@ -2703,8 +2703,8 @@ _ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation21GeneralP
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %48 = load ptr, ptr %6, align 8, !tbaa !94
-  %49 = getelementptr inbounds nuw %"class.dropbox::oxygen::nn.121", ptr %48, i64 %.042
-  %50 = getelementptr inbounds nuw %"class.dropbox::oxygen::nn.141", ptr %47, i64 %.042
+  %49 = getelementptr inbounds nuw [16 x i8], ptr %48, i64 %.042
+  %50 = getelementptr inbounds nuw [16 x i8], ptr %47, i64 %.042
   invoke void @_ZN5osgeo4proj9operation23OperationParameterValue6createERKN7dropbox6oxygen2nnISt10shared_ptrINS1_18OperationParameterEEEERKNS5_IS6_INS1_14ParameterValueEEEE(ptr dead_on_unwind nonnull writable sret(%"class.dropbox::oxygen::nn.192") align 8 %13, ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef nonnull align 8 dereferenceable(16) %50)
           to label %51 unwind label %113
 
@@ -15186,7 +15186,7 @@ _ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation21GeneralP
 _ZNSt12_Vector_baseIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation21GeneralParameterValueEEEESaIS9_EE13_M_deallocateEPS9_m.exit: ; preds = %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation21GeneralParameterValueEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit22, %40
   store ptr %20, ptr %0, align 8, !tbaa !67
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !64
-  %44 = getelementptr inbounds nuw %"class.dropbox::oxygen::nn.101", ptr %20, i64 %16
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %44, ptr %39, align 8, !tbaa !99
   ret void
 }

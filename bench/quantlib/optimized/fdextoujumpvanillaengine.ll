@@ -56,7 +56,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
 %"class.std::allocator.6" = type { i8 }
-%"struct.std::pair.85" = type { double, double }
 %"class.boost::shared_ptr.20" = type { ptr, %"class.boost::detail::shared_count" }
 %"class.boost::shared_ptr" = type { ptr, %"class.boost::detail::shared_count" }
 
@@ -5512,7 +5511,7 @@ while.body.i.i:                                   ; preds = %_ZNK5boost10shared_
   %__len.010.i.i = phi i64 [ %__len.1.i.i, %if.end.i.i ], [ %sub.ptr.div.i.i.i.i.i, %_ZNK5boost10shared_ptrISt6vectorISt4pairIddESaIS3_EEEptEv.exit12 ]
   %__first.sroa.0.09.i.i = phi ptr [ %__first.sroa.0.1.i.i, %if.end.i.i ], [ %7, %_ZNK5boost10shared_ptrISt6vectorISt4pairIddESaIS3_EEEptEv.exit12 ]
   %shr.i.i = lshr i64 %__len.010.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw %"struct.std::pair.85", ptr %__first.sroa.0.09.i.i, i64 %shr.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %__first.sroa.0.09.i.i, i64 %shr.i.i
   %8 = load double, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !161
   %cmp.i.i5.i.i = fcmp olt double %8, %sub
   br i1 %cmp.i.i5.i.i, label %if.then.i.i, label %lor.rhs.i.i.i.i

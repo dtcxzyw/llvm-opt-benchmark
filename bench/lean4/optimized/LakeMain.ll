@@ -266,7 +266,7 @@ lean_alloc_ctor.exit:                             ; preds = %.lr.ph
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 4
   store i32 1, ptr %15, align 4, !tbaa !4
   store i32 16908312, ptr %18, align 4
-  %19 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.next
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.next
   %20 = load ptr, ptr %19, align 8, !tbaa !12
   %21 = tail call ptr @lean_mk_string(ptr noundef %20) #3
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 8

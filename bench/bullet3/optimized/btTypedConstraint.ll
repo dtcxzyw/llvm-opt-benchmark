@@ -319,7 +319,7 @@ define dso_local noundef nonnull ptr @_ZNK17btTypedConstraint9serializeEPvP12btS
 
 73:                                               ; preds = %.lr.ph, %78
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %78 ]
-  %74 = getelementptr inbounds nuw ptr, ptr %66, i64 %indvars.iv
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %indvars.iv
   %75 = load ptr, ptr %74, align 8, !tbaa !53
   %76 = icmp eq ptr %75, %0
   br i1 %76, label %77, label %78
@@ -335,7 +335,7 @@ define dso_local noundef nonnull ptr @_ZNK17btTypedConstraint9serializeEPvP12btS
 
 79:                                               ; preds = %.lr.ph32, %84
   %indvars.iv34 = phi i64 [ 0, %.lr.ph32 ], [ %indvars.iv.next35, %84 ]
-  %80 = getelementptr inbounds nuw ptr, ptr %72, i64 %indvars.iv34
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %indvars.iv34
   %81 = load ptr, ptr %80, align 8, !tbaa !53
   %82 = icmp eq ptr %81, %0
   br i1 %82, label %83, label %84

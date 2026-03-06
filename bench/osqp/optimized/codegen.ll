@@ -294,7 +294,7 @@ define i64 @codegen_inc(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.02933 = phi i64 [ 0, %.lr.ph ], [ %32, %25 ]
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 %.02933
   %28 = sext i8 %26 to i64
-  %29 = getelementptr inbounds i32, ptr %.pre, i64 %28
+  %29 = getelementptr inbounds [4 x i8], ptr %.pre, i64 %28
   %30 = load i32, ptr %29, align 4, !tbaa !9
   %31 = trunc i32 %30 to i8
   store i8 %31, ptr %27, align 1, !tbaa !3
@@ -723,7 +723,7 @@ write_data.exit.i:                                ; preds = %193, %185, %177, %1
 
 .lr.ph.i.i.i:                                     ; preds = %234, %.lr.ph.i.i.i
   %.016.i.i.i = phi i64 [ %240, %.lr.ph.i.i.i ], [ 0, %234 ]
-  %237 = getelementptr inbounds nuw double, ptr %230, i64 %.016.i.i.i
+  %237 = getelementptr inbounds nuw [8 x i8], ptr %230, i64 %.016.i.i.i
   %238 = load double, ptr %237, align 8, !tbaa !73
   %239 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.65, double noundef %238) #8
   %240 = add nuw nsw i64 %.016.i.i.i, 1
@@ -753,7 +753,7 @@ write_vecf.exit.i.i:                              ; preds = %242, %._crit_edge.i
 
 .lr.ph.i178.i.i:                                  ; preds = %248, %.lr.ph.i178.i.i
   %.016.i179.i.i = phi i64 [ %254, %.lr.ph.i178.i.i ], [ 0, %248 ]
-  %251 = getelementptr inbounds nuw i64, ptr %246, i64 %.016.i179.i.i
+  %251 = getelementptr inbounds nuw [8 x i8], ptr %246, i64 %.016.i179.i.i
   %252 = load i64, ptr %251, align 8, !tbaa !76
   %253 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.64, i64 noundef %252) #8
   %254 = add nuw nsw i64 %.016.i179.i.i, 1
@@ -791,7 +791,7 @@ write_veci.exit.i.i:                              ; preds = %256, %._crit_edge.i
 
 .lr.ph.i183.i.i:                                  ; preds = %267, %.lr.ph.i183.i.i
   %.016.i184.i.i = phi i64 [ %273, %.lr.ph.i183.i.i ], [ 0, %267 ]
-  %270 = getelementptr inbounds nuw double, ptr %264, i64 %.016.i184.i.i
+  %270 = getelementptr inbounds nuw [8 x i8], ptr %264, i64 %.016.i184.i.i
   %271 = load double, ptr %270, align 8, !tbaa !73
   %272 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.65, double noundef %271) #8
   %273 = add nuw nsw i64 %.016.i184.i.i, 1
@@ -832,7 +832,7 @@ write_vecf.exit186.i.i:                           ; preds = %275, %._crit_edge.i
   %292 = load ptr, ptr %291, align 8, !tbaa !81
   %293 = getelementptr inbounds nuw i8, ptr %292, i64 16
   %294 = load ptr, ptr %293, align 8, !tbaa !83
-  %295 = getelementptr inbounds i64, ptr %294, i64 %216
+  %295 = getelementptr inbounds [8 x i8], ptr %294, i64 %216
   %296 = load i64, ptr %295, align 8, !tbaa !76
   %297 = icmp ne i64 %296, 0
   %298 = icmp ne ptr %289, null
@@ -846,7 +846,7 @@ write_vecf.exit186.i.i:                           ; preds = %275, %._crit_edge.i
 
 .lr.ph.i189.i.i:                                  ; preds = %299, %.lr.ph.i189.i.i
   %.016.i190.i.i = phi i64 [ %305, %.lr.ph.i189.i.i ], [ 0, %299 ]
-  %302 = getelementptr inbounds nuw i64, ptr %289, i64 %.016.i190.i.i
+  %302 = getelementptr inbounds nuw [8 x i8], ptr %289, i64 %.016.i190.i.i
   %303 = load i64, ptr %302, align 8, !tbaa !76
   %304 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.64, i64 noundef %303) #8
   %305 = add nuw nsw i64 %.016.i190.i.i, 1
@@ -870,7 +870,7 @@ write_veci.exit192.i.i:                           ; preds = %307, %._crit_edge.i
   %314 = load ptr, ptr %313, align 8, !tbaa !81
   %315 = getelementptr inbounds nuw i8, ptr %314, i64 16
   %316 = load ptr, ptr %315, align 8, !tbaa !83
-  %317 = getelementptr inbounds i64, ptr %316, i64 %216
+  %317 = getelementptr inbounds [8 x i8], ptr %316, i64 %216
   %318 = load i64, ptr %317, align 8, !tbaa !76
   %319 = icmp ne i64 %318, 0
   %320 = icmp ne ptr %311, null
@@ -884,7 +884,7 @@ write_veci.exit192.i.i:                           ; preds = %307, %._crit_edge.i
 
 .lr.ph.i195.i.i:                                  ; preds = %321, %.lr.ph.i195.i.i
   %.016.i196.i.i = phi i64 [ %327, %.lr.ph.i195.i.i ], [ 0, %321 ]
-  %324 = getelementptr inbounds nuw i64, ptr %311, i64 %.016.i196.i.i
+  %324 = getelementptr inbounds nuw [8 x i8], ptr %311, i64 %.016.i196.i.i
   %325 = load i64, ptr %324, align 8, !tbaa !76
   %326 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.64, i64 noundef %325) #8
   %327 = add nuw nsw i64 %.016.i196.i.i, 1
@@ -915,7 +915,7 @@ write_veci.exit198.i.i:                           ; preds = %329, %._crit_edge.i
 
 .lr.ph.i201.i.i:                                  ; preds = %336, %.lr.ph.i201.i.i
   %.016.i202.i.i = phi i64 [ %342, %.lr.ph.i201.i.i ], [ 0, %336 ]
-  %339 = getelementptr inbounds nuw i64, ptr %333, i64 %.016.i202.i.i
+  %339 = getelementptr inbounds nuw [8 x i8], ptr %333, i64 %.016.i202.i.i
   %340 = load i64, ptr %339, align 8, !tbaa !76
   %341 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.64, i64 noundef %340) #8
   %342 = add nuw nsw i64 %.016.i202.i.i, 1
@@ -945,7 +945,7 @@ write_veci.exit204.i.i:                           ; preds = %344, %._crit_edge.i
 
 .lr.ph.i207.i.i:                                  ; preds = %350, %.lr.ph.i207.i.i
   %.016.i208.i.i = phi i64 [ %356, %.lr.ph.i207.i.i ], [ 0, %350 ]
-  %353 = getelementptr inbounds nuw double, ptr %348, i64 %.016.i208.i.i
+  %353 = getelementptr inbounds nuw [8 x i8], ptr %348, i64 %.016.i208.i.i
   %354 = load double, ptr %353, align 8, !tbaa !73
   %355 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.65, double noundef %354) #8
   %356 = add nuw nsw i64 %.016.i208.i.i, 1
@@ -975,7 +975,7 @@ write_vecf.exit210.i.i:                           ; preds = %358, %._crit_edge.i
 
 .lr.ph.i213.i.i:                                  ; preds = %364, %.lr.ph.i213.i.i
   %.016.i214.i.i = phi i64 [ %370, %.lr.ph.i213.i.i ], [ 0, %364 ]
-  %367 = getelementptr inbounds nuw i64, ptr %362, i64 %.016.i214.i.i
+  %367 = getelementptr inbounds nuw [8 x i8], ptr %362, i64 %.016.i214.i.i
   %368 = load i64, ptr %367, align 8, !tbaa !76
   %369 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.64, i64 noundef %368) #8
   %370 = add nuw nsw i64 %.016.i214.i.i, 1
@@ -1005,7 +1005,7 @@ write_veci.exit216.i.i:                           ; preds = %372, %._crit_edge.i
 
 .lr.ph.i219.i.i:                                  ; preds = %378, %.lr.ph.i219.i.i
   %.016.i220.i.i = phi i64 [ %384, %.lr.ph.i219.i.i ], [ 0, %378 ]
-  %381 = getelementptr inbounds nuw i64, ptr %376, i64 %.016.i220.i.i
+  %381 = getelementptr inbounds nuw [8 x i8], ptr %376, i64 %.016.i220.i.i
   %382 = load i64, ptr %381, align 8, !tbaa !76
   %383 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.64, i64 noundef %382) #8
   %384 = add nuw nsw i64 %.016.i220.i.i, 1
@@ -1569,7 +1569,7 @@ define internal fastcc range(i64 0, 11) i64 @write_OSQPVectorf(ptr noundef nonnu
 
 .lr.ph.i:                                         ; preds = %12, %.lr.ph.i
   %.016.i = phi i64 [ %18, %.lr.ph.i ], [ 0, %12 ]
-  %15 = getelementptr inbounds nuw double, ptr %7, i64 %.016.i
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.016.i
   %16 = load double, ptr %15, align 8, !tbaa !73
   %17 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.65, double noundef %16) #8
   %18 = add nuw nsw i64 %.016.i, 1
@@ -1621,7 +1621,7 @@ define internal fastcc range(i64 0, 11) i64 @write_OSQPVectori(ptr noundef nonnu
 
 .lr.ph.i:                                         ; preds = %12, %.lr.ph.i
   %.016.i = phi i64 [ %18, %.lr.ph.i ], [ 0, %12 ]
-  %15 = getelementptr inbounds nuw i64, ptr %7, i64 %.016.i
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.016.i
   %16 = load i64, ptr %15, align 8, !tbaa !76
   %17 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.64, i64 noundef %16) #8
   %18 = add nuw nsw i64 %.016.i, 1
@@ -1786,7 +1786,7 @@ define internal fastcc range(i64 0, 11) i64 @write_csc(ptr noundef nonnull captu
 
 .lr.ph.i:                                         ; preds = %14, %.lr.ph.i
   %.016.i = phi i64 [ %20, %.lr.ph.i ], [ 0, %14 ]
-  %17 = getelementptr inbounds nuw i64, ptr %8, i64 %.016.i
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.016.i
   %18 = load i64, ptr %17, align 8, !tbaa !76
   %19 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.64, i64 noundef %18) #8
   %20 = add nuw nsw i64 %.016.i, 1
@@ -1819,7 +1819,7 @@ write_veci.exit:                                  ; preds = %._crit_edge.i, %22
 
 .lr.ph.i43:                                       ; preds = %31, %.lr.ph.i43
   %.016.i44 = phi i64 [ %37, %.lr.ph.i43 ], [ 0, %31 ]
-  %34 = getelementptr inbounds nuw i64, ptr %26, i64 %.016.i44
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %.016.i44
   %35 = load i64, ptr %34, align 8, !tbaa !76
   %36 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.64, i64 noundef %35) #8
   %37 = add nuw nsw i64 %.016.i44, 1
@@ -1851,7 +1851,7 @@ write_veci.exit46:                                ; preds = %._crit_edge.i42, %3
 
 .lr.ph.i49:                                       ; preds = %47, %.lr.ph.i49
   %.016.i50 = phi i64 [ %53, %.lr.ph.i49 ], [ 0, %47 ]
-  %50 = getelementptr inbounds nuw double, ptr %43, i64 %.016.i50
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %.016.i50
   %51 = load double, ptr %50, align 8, !tbaa !73
   %52 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.65, double noundef %51) #8
   %53 = add nuw nsw i64 %.016.i50, 1

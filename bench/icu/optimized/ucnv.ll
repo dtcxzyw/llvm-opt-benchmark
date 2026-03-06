@@ -934,7 +934,7 @@ ucnv_resetFromUnicode_77.exit:                    ; preds = %34, %47
 
 53:                                               ; preds = %51
   %54 = zext nneg i32 %.040 to i64
-  %55 = getelementptr inbounds nuw i16, ptr %3, i64 %54
+  %55 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %54
   %56 = icmp eq i32 %2, 0
   %.pre = ptrtoint ptr %1 to i64
   br i1 %56, label %_Z11pinCapacityIcEiPT_i.exit, label %57
@@ -1717,7 +1717,7 @@ define internal fastcc void @_ZL24_fromUnicodeWithCallbackP25UConverterFromUnico
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr nonnull align 4 %33, i64 %34, i1 false)
   store ptr %3, ptr %6, align 8, !tbaa !77
   %35 = sub nsw i64 0, %28
-  %36 = getelementptr inbounds nuw i16, ptr %3, i64 %35
+  %36 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %35
   store ptr %36, ptr %29, align 8, !tbaa !78
   store i8 0, ptr %31, align 2, !tbaa !75
   store i8 0, ptr %24, align 1, !tbaa !59
@@ -1846,7 +1846,7 @@ define internal fastcc void @_ZL24_fromUnicodeWithCallbackP25UConverterFromUnico
 
 _ZL14_updateOffsetsPiiii.exit:                    ; preds = %88, %69, %.lr.ph.preheader.i
   %91 = and i64 %66, 2147483647
-  %92 = getelementptr inbounds nuw i32, ptr %.1130, i64 %91
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %.1130, i64 %91
   store ptr %92, ptr %10, align 8, !tbaa !76
   br label %93
 
@@ -1886,7 +1886,7 @@ _ZL14_updateOffsetsPiiii.exit:                    ; preds = %88, %69, %.lr.ph.pr
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr nonnull align 4 %41, i64 %113, i1 false)
   store ptr %3, ptr %6, align 8, !tbaa !77
   %114 = sub nsw i64 0, %105
-  %115 = getelementptr inbounds nuw i16, ptr %3, i64 %114
+  %115 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %114
   store ptr %115, ptr %39, align 8, !tbaa !78
   store i8 0, ptr %38, align 2, !tbaa !75
   %116 = sext i8 %104 to i32
@@ -2185,10 +2185,10 @@ define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL28ucnv_outputOverfl
   %indvars.iv60 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next61, %16 ]
   %indvars.iv58 = phi i64 [ %indvars.iv, %.preheader ], [ %indvars.iv.next59, %16 ]
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
-  %17 = getelementptr inbounds nuw i16, ptr %10, i64 %indvars.iv58
+  %17 = getelementptr inbounds nuw [2 x i8], ptr %10, i64 %indvars.iv58
   %18 = load i16, ptr %17, align 2, !tbaa !88
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
-  %19 = getelementptr inbounds nuw i16, ptr %10, i64 %indvars.iv60
+  %19 = getelementptr inbounds nuw [2 x i8], ptr %10, i64 %indvars.iv60
   store i16 %18, ptr %19, align 2, !tbaa !88
   %20 = icmp samesign ult i64 %indvars.iv.next59, %15
   br i1 %20, label %16, label %21, !llvm.loop !97
@@ -2210,7 +2210,7 @@ define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL28ucnv_outputOverfl
 
 25:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %26 = getelementptr inbounds nuw i16, ptr %10, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [2 x i8], ptr %10, i64 %indvars.iv
   %27 = load i16, ptr %26, align 2, !tbaa !88
   %28 = getelementptr inbounds nuw i8, ptr %.03648, i64 2
   store i16 %27, ptr %.03648, align 2, !tbaa !88
@@ -2425,7 +2425,7 @@ define internal fastcc void @_ZL22_toUnicodeWithCallbackP23UConverterToUnicodeAr
 
 _ZL14_updateOffsetsPiiii.exit:                    ; preds = %90, %71, %.lr.ph.preheader.i
   %93 = and i64 %68, 2147483647
-  %94 = getelementptr inbounds nuw i32, ptr %.1155, i64 %93
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %.1155, i64 %93
   store ptr %94, ptr %10, align 8, !tbaa !91
   br label %95
 
@@ -2760,7 +2760,7 @@ ucnv_resetToUnicode_77.exit:                      ; preds = %35, %50
 _Z11pinCapacityIDsEiPT_i.exit:                    ; preds = %57, %61
   %.0.i = phi i32 [ %67, %61 ], [ 0, %57 ]
   %68 = sext i32 %.0.i to i64
-  %69 = getelementptr inbounds i16, ptr %1, i64 %68
+  %69 = getelementptr inbounds [2 x i8], ptr %1, i64 %68
   call void @ucnv_toUnicode_77(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef %69, ptr noundef nonnull %10, ptr noundef nonnull %59, ptr noundef null, i8 noundef signext 1, ptr noundef nonnull %5)
   %70 = load ptr, ptr %9, align 8, !tbaa !53
   %71 = ptrtoint ptr %70 to i64
@@ -2900,7 +2900,7 @@ define range(i32 0, -2147483648) i32 @ucnv_getNextUChar_77(ptr noundef %0, ptr n
 
 51:                                               ; preds = %47
   %52 = zext nneg i32 %.1108 to i64
-  %53 = getelementptr inbounds nuw i16, ptr %32, i64 %52
+  %53 = getelementptr inbounds nuw [2 x i8], ptr %32, i64 %52
   %54 = shl nuw i8 %49, 1
   %55 = zext i8 %54 to i64
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %32, ptr nonnull align 2 %53, i64 %55, i1 false)
@@ -3114,7 +3114,7 @@ define range(i32 0, -2147483648) i32 @ucnv_getNextUChar_77(ptr noundef %0, ptr n
 168:                                              ; preds = %.thread139
   %169 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %170 = zext nneg i32 %165 to i64
-  %171 = getelementptr inbounds nuw i16, ptr %169, i64 %170
+  %171 = getelementptr inbounds nuw [2 x i8], ptr %169, i64 %170
   %172 = shl nuw i8 %166, 1
   %173 = zext i8 %172 to i64
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 2 %171, ptr nonnull align 8 %169, i64 %173, i1 false)
@@ -3125,7 +3125,7 @@ define range(i32 0, -2147483648) i32 @ucnv_getNextUChar_77(ptr noundef %0, ptr n
   %176 = add i8 %166, %175
   store i8 %176, ptr %27, align 1, !tbaa !67
   %177 = zext nneg i32 %.3110143 to i64
-  %178 = getelementptr inbounds nuw i16, ptr %6, i64 %177
+  %178 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %177
   %179 = load i16, ptr %178, align 2, !tbaa !88
   %180 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i16 %179, ptr %180, align 8, !tbaa !88
@@ -4037,7 +4037,7 @@ ucnv_getName_77.exit.i:                           ; preds = %16, %14
 
 22:                                               ; preds = %21, %ucnv_getName_77.exit.i
   %indvars.iv.i = phi i64 [ 0, %ucnv_getName_77.exit.i ], [ %indvars.iv.next.i, %21 ]
-  %23 = getelementptr inbounds nuw %struct.UAmbiguousConverter, ptr @_ZL19ambiguousConverters, i64 %indvars.iv.i
+  %23 = getelementptr inbounds nuw [16 x i8], ptr @_ZL19ambiguousConverters, i64 %indvars.iv.i
   %24 = load ptr, ptr %23, align 16, !tbaa !112
   %25 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.08.i.i, ptr noundef nonnull dereferenceable(1) %24) #18
   %26 = icmp eq i32 %25, 0
@@ -4051,7 +4051,7 @@ ucnv_getName_77.exit.i:                           ; preds = %16, %14
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %33
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %33 ]
-  %29 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv
   %30 = load i16, ptr %29, align 2, !tbaa !88
   %31 = icmp eq i16 %30, %28
   br i1 %31, label %32, label %33
@@ -4111,7 +4111,7 @@ ucnv_getName_77.exit.i:                           ; preds = %12, %10
 
 18:                                               ; preds = %17, %ucnv_getName_77.exit.i
   %indvars.iv.i = phi i64 [ 0, %ucnv_getName_77.exit.i ], [ %indvars.iv.next.i, %17 ]
-  %19 = getelementptr inbounds nuw %struct.UAmbiguousConverter, ptr @_ZL19ambiguousConverters, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw [16 x i8], ptr @_ZL19ambiguousConverters, i64 %indvars.iv.i
   %20 = load ptr, ptr %19, align 16, !tbaa !112
   %21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.08.i.i, ptr noundef nonnull dereferenceable(1) %20) #18
   %22 = icmp eq i32 %21, 0

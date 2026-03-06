@@ -9776,7 +9776,7 @@ common.ret:                                       ; preds = %86, %13
   %.sroa.549.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 %.sroa.1137.0.copyload39, ptr %.sroa.549.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %97 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { { ptr, i64 }, i64 } }, { { ptr, i64 }, i64 } }, ptr %92, i64 %.sroa.1137.0.copyload39
+  %97 = getelementptr inbounds [72 x i8], ptr %92, i64 %.sroa.1137.0.copyload39
   invoke void @_ZN4core4iter8adapters11try_process17heedd53285a4f3b10E(ptr noalias noundef nonnull sret({ ptr, [2 x i64] }) align 8 captures(none) dereferenceable(24) %7, ptr noundef nonnull %92, ptr noundef nonnull %97)
           to label %_ZN4core4iter6traits8iterator8Iterator7collect17hc5208e85cca632c0E.exit unwind label %98
 
@@ -12563,7 +12563,7 @@ common.ret:                                       ; preds = %87, %15
   store ptr %96, ptr %.sroa.450.0..sroa_idx, align 8
   %.sroa.551.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i64 %.sroa.1139.0.copyload41, ptr %.sroa.551.0..sroa_idx, align 8
-  %98 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 } }, ptr %93, i64 %.sroa.1139.0.copyload41
+  %98 = getelementptr inbounds [48 x i8], ptr %93, i64 %.sroa.1139.0.copyload41
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !2013
   store ptr null, ptr %6, align 8, !noalias !2013
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !2013

@@ -374,7 +374,7 @@ define ptr @cli_ole2_get_property_name2(ptr noundef readonly captures(none) %0, 
   %26 = tail call ptr @__ctype_b_loc() #24
   %27 = load ptr, ptr %26, align 8, !tbaa !15
   %28 = zext nneg i8 %24 to i64
-  %29 = getelementptr inbounds nuw i16, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [2 x i8], ptr %27, i64 %28
   %30 = load i16, ptr %29, align 2, !tbaa !17
   %31 = and i16 %30, 16384
   %.not65 = icmp eq i16 %31, 0
@@ -389,7 +389,7 @@ define ptr @cli_ole2_get_property_name2(ptr noundef readonly captures(none) %0, 
 36:                                               ; preds = %32
   %37 = tail call ptr @__ctype_tolower_loc() #24
   %38 = load ptr, ptr %37, align 8, !tbaa !19
-  %39 = getelementptr inbounds nuw i32, ptr %38, i64 %28
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %28
   %40 = load i32, ptr %39, align 4, !tbaa !21
   %41 = trunc i32 %40 to i8
   br label %71
@@ -1068,7 +1068,7 @@ key_length_valid_aes_bits.exit:                   ; preds = %35
   br label %77
 
 61:                                               ; preds = %.preheader
-  %62 = getelementptr inbounds nuw i16, ptr %53, i64 %.0
+  %62 = getelementptr inbounds nuw [2 x i8], ptr %53, i64 %.0
   %63 = load i16, ptr %62, align 2, !tbaa !17
   %64 = icmp eq i16 %63, 0
   br i1 %64, label %65, label %.preheader
@@ -1432,7 +1432,7 @@ ole2_list_pop.exit:                               ; preds = %45
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %13, ptr nonnull align 1 %93, i64 %.029.i, i1 false)
   %95 = and i32 %54, 3
   %96 = zext nneg i32 %95 to i64
-  %97 = getelementptr inbounds nuw %struct.property_tag, ptr %13, i64 %96
+  %97 = getelementptr inbounds nuw [128 x i8], ptr %13, i64 %96
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 66
   %99 = load i8, ptr %98, align 2, !tbaa !106
   %100 = icmp eq i8 %99, 0
@@ -2476,7 +2476,7 @@ define internal range(i32 0, 21) i32 @handler_enum(ptr noundef captures(none) %0
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %6, ptr nonnull align 1 %238, i64 %.029.i.i.i, i1 false)
   %240 = and i32 %.065129.i, 127
   %241 = zext nneg i32 %240 to i64
-  %242 = getelementptr inbounds nuw i32, ptr %6, i64 %241
+  %242 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %241
   %243 = load i32, ptr %242, align 4, !tbaa !21
   br label %ole2_get_next_sbat_block.exit.i
 
@@ -2861,7 +2861,7 @@ define internal range(i32 0, 23) i32 @handler_writefile(ptr noundef readonly cap
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %6, ptr nonnull align 1 %136, i64 %.029.i.i, i1 false)
   %138 = and i32 %.088171, 127
   %139 = zext nneg i32 %138 to i64
-  %140 = getelementptr inbounds nuw i32, ptr %6, i64 %139
+  %140 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %139
   %141 = load i32, ptr %140, align 4, !tbaa !21
   br label %ole2_get_next_sbat_block.exit
 
@@ -3257,7 +3257,7 @@ define internal range(i32 0, 23) i32 @handler_otf_encrypted(ptr noundef readonly
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %6, ptr nonnull align 1 %136, i64 %.029.i.i, i1 false)
   %138 = and i32 %.0193388, 127
   %139 = zext nneg i32 %138 to i64
-  %140 = getelementptr inbounds nuw i32, ptr %6, i64 %139
+  %140 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %139
   %141 = load i32, ptr %140, align 4, !tbaa !21
   br label %ole2_get_next_sbat_block.exit
 
@@ -3808,7 +3808,7 @@ define internal range(i32 0, 23) i32 @handler_otf(ptr noundef readonly captures(
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %6, ptr nonnull align 1 %115, i64 %.029.i.i, i1 false)
   %117 = and i32 %.0117242, 127
   %118 = zext nneg i32 %117 to i64
-  %119 = getelementptr inbounds nuw i32, ptr %6, i64 %118
+  %119 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %118
   %120 = load i32, ptr %119, align 4, !tbaa !21
   br label %ole2_get_next_sbat_block.exit
 
@@ -4479,7 +4479,7 @@ ole2_read_block.exit.i:                           ; preds = %41
 
 ._crit_edge.i:                                    ; preds = %78, %ole2_read_block.exit.i
   %81 = zext nneg i32 %13 to i64
-  %82 = getelementptr inbounds nuw i32, ptr %4, i64 %81
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %81
   %83 = load i32, ptr %82, align 4, !tbaa !21
   %84 = icmp slt i32 %83, 0
   br i1 %84, label %ole2_get_next_xbat_block.exit, label %85
@@ -4535,7 +4535,7 @@ ole2_read_block.exit.i:                           ; preds = %41
 111:                                              ; preds = %106
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr nonnull align 1 %110, i64 %.029.i33.i, i1 false)
   %112 = zext nneg i32 %14 to i64
-  %113 = getelementptr inbounds nuw i32, ptr %5, i64 %112
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %112
   %114 = load i32, ptr %113, align 4, !tbaa !21
   br label %ole2_get_next_xbat_block.exit
 
@@ -4560,7 +4560,7 @@ ole2_get_next_xbat_block.exit:                    ; preds = %49, %60, %.thread.i
 121:                                              ; preds = %115
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %123 = zext nneg i32 %116 to i64
-  %124 = getelementptr inbounds nuw i32, ptr %122, i64 %123
+  %124 = getelementptr inbounds nuw [4 x i8], ptr %122, i64 %123
   %125 = load i32, ptr %124, align 4, !tbaa !21
   %126 = icmp slt i32 %125, 0
   br i1 %126, label %ole2_get_next_bat_block.exit, label %127
@@ -4620,7 +4620,7 @@ ole2_get_next_xbat_block.exit:                    ; preds = %49, %60, %.thread.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr nonnull align 1 %155, i64 %.029.i.i14, i1 false)
   %157 = and i32 %1, 127
   %158 = zext nneg i32 %157 to i64
-  %159 = getelementptr inbounds nuw i32, ptr %3, i64 %158
+  %159 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %158
   %160 = load i32, ptr %159, align 4, !tbaa !21
   br label %ole2_get_next_bat_block.exit
 
@@ -5067,7 +5067,7 @@ get_property_name.exit:                           ; preds = %8, %16, %.thread.i,
 
 switch.lookup:                                    ; preds = %43
   %49 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.print_ole2_property, i64 %49
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.print_ole2_property, i64 %49
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %50
 

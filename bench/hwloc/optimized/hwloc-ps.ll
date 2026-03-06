@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.sockaddr_in = type { i16, i16, %struct.in_addr, [8 x i8] }
 %struct.in_addr = type { i32 }
 %struct.hwloc_ps_process = type { i64, [64 x i8], [1024 x i8], ptr, i64, i32, i32, i32, ptr }
-%struct.hwloc_ps_thread = type { i64, ptr, i32, [16 x i8] }
 
 @.str = private unnamed_addr constant [27 x i8] c"Usage: %s [ options ] ...\0A\00", align 1
 @.str.1 = private unnamed_addr constant [10 x i8] c"Options:\0A\00", align 1
@@ -664,7 +663,7 @@ hwloc_utils_check_api_version.exit:               ; preds = %.tail159.thread.thr
   %.0 = phi i32 [ 1, %176 ], [ 1, %171 ], [ 2, %160 ], [ 1, %153 ], [ 1, %114 ], [ 2, %124 ], [ 1, %.tail159 ], [ 2, %113 ], [ 2, %97 ], [ 2, %87 ], [ 2, %77 ], [ 1, %70 ], [ 1, %67 ], [ 1, %25 ], [ 1, %52 ], [ 1, %43 ], [ 1, %34 ], [ 1, %.tail159.thread ], [ 1, %116 ], [ 2, %142 ], [ 1, %.thread301 ], [ 1, %.tail159.thread.thread ]
   %194 = sub nsw i32 %.094234, %.0
   %195 = zext nneg i32 %.0 to i64
-  %196 = getelementptr inbounds nuw ptr, ptr %.095232, i64 %195
+  %196 = getelementptr inbounds nuw [8 x i8], ptr %.095232, i64 %195
   %197 = icmp sgt i32 %194, 0
   br i1 %197, label %sub_0, label %hwloc_utils_check_api_version.exit._crit_edge.loopexit, !llvm.loop !15
 
@@ -1100,7 +1099,7 @@ define internal fastcc void @run(ptr noundef %0, ptr noundef %1, i64 noundef ran
   %44 = phi i32 [ %53, %52 ], [ %43, %35 ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %52 ], [ 0, %35 ]
   %45 = load ptr, ptr %24, align 8, !tbaa !44
-  %46 = getelementptr inbounds nuw %struct.hwloc_ps_thread, ptr %45, i64 %indvars.iv.i
+  %46 = getelementptr inbounds nuw [40 x i8], ptr %45, i64 %indvars.iv.i
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %48 = load ptr, ptr %47, align 8, !tbaa !45
   %.not19.i = icmp eq ptr %48, null
@@ -1248,7 +1247,7 @@ define internal void @foreach_process_cb(ptr noundef %0, ptr noundef %1, ptr nou
   %40 = phi i32 [ %37, %.lr.ph.i ], [ %49, %48 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %48 ]
   %41 = load ptr, ptr %38, align 8, !tbaa !44
-  %42 = getelementptr inbounds nuw %struct.hwloc_ps_thread, ptr %41, i64 %indvars.iv.i
+  %42 = getelementptr inbounds nuw [40 x i8], ptr %41, i64 %indvars.iv.i
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load ptr, ptr %43, align 8, !tbaa !45
   %.not19.i = icmp eq ptr %44, null
@@ -1393,7 +1392,7 @@ hwloc_get_obj_covering_cpuset.exit:               ; preds = %hwloc_get_obj_cover
   %52 = phi i32 [ %49, %.lr.ph ], [ %93, %92 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %92 ]
   %53 = load ptr, ptr %50, align 8, !tbaa !44
-  %54 = getelementptr inbounds nuw %struct.hwloc_ps_thread, ptr %53, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [40 x i8], ptr %53, i64 %indvars.iv
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = load ptr, ptr %55, align 8, !tbaa !45
   %.not40 = icmp eq ptr %56, null
@@ -1543,7 +1542,7 @@ define internal fastcc void @print_process_lstopo_misc(ptr noundef %0) unnamed_a
   %24 = phi i32 [ %21, %.lr.ph ], [ %48, %47 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %47 ]
   %25 = load ptr, ptr %22, align 8, !tbaa !44
-  %26 = getelementptr inbounds nuw %struct.hwloc_ps_thread, ptr %25, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [40 x i8], ptr %25, i64 %indvars.iv
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load ptr, ptr %27, align 8, !tbaa !45
   %.not21 = icmp eq ptr %28, null
@@ -1567,7 +1566,7 @@ define internal fastcc void @print_process_lstopo_misc(ptr noundef %0) unnamed_a
 
 37:                                               ; preds = %35, %33
   %38 = load ptr, ptr %22, align 8, !tbaa !44
-  %39 = getelementptr inbounds nuw %struct.hwloc_ps_thread, ptr %38, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [40 x i8], ptr %38, i64 %indvars.iv
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load ptr, ptr %40, align 8, !tbaa !45
   %42 = call i32 @hwloc_bitmap_asprintf(ptr noundef nonnull %3, ptr noundef %41) #15

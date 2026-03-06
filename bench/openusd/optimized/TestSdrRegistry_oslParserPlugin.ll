@@ -57,12 +57,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.pxrInternal_v0_24__pxrReserved__::VtArray" = type { %"class.pxrInternal_v0_24__pxrReserved__::Vt_ArrayBase", ptr }
 %"class.pxrInternal_v0_24__pxrReserved__::Vt_ArrayBase" = type { %"struct.pxrInternal_v0_24__pxrReserved__::Vt_ShapeData", ptr }
 %"struct.pxrInternal_v0_24__pxrReserved__::Vt_ShapeData" = type { i64, [3 x i32] }
-%"class.std::unique_ptr.48" = type { %"struct.std::__uniq_ptr_data.49" }
-%"struct.std::__uniq_ptr_data.49" = type { %"class.std::__uniq_ptr_impl.50" }
-%"class.std::__uniq_ptr_impl.50" = type { %"class.std::tuple.51" }
-%"class.std::tuple.51" = type { %"struct.std::_Tuple_impl.52" }
-%"struct.std::_Tuple_impl.52" = type { %"struct.std::_Head_base.55" }
-%"struct.std::_Head_base.55" = type { ptr }
 %"class.std::allocator.0" = type { i8 }
 %struct._Guard = type { ptr }
 %"struct.std::__detail::_AllocNode" = type { ptr }
@@ -1039,7 +1033,7 @@ _ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__11NdrPropertyESt1
 .noexc243:                                        ; preds = %196, %_ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__11NdrPropertyESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i
   store ptr %190, ptr %4, align 8
   store ptr %195, ptr %170, align 8
-  %200 = getelementptr inbounds nuw %"class.std::unique_ptr.48", ptr %190, i64 %188
+  %200 = getelementptr inbounds nuw [8 x i8], ptr %190, i64 %188
   store ptr %200, ptr %172, align 8
   br label %_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__17SdrShaderPropertyESt14default_deleteIS1_EED2Ev.exit
 
@@ -1396,7 +1390,7 @@ _ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__11NdrPropertyESt1
 .noexc269:                                        ; preds = %345, %_ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__11NdrPropertyESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i1184
   store ptr %339, ptr %4, align 8
   store ptr %344, ptr %170, align 8
-  %349 = getelementptr inbounds nuw %"class.std::unique_ptr.48", ptr %339, i64 %337
+  %349 = getelementptr inbounds nuw [8 x i8], ptr %339, i64 %337
   store ptr %349, ptr %172, align 8
   br label %_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__17SdrShaderPropertyESt14default_deleteIS1_EED2Ev.exit273
 
@@ -1738,7 +1732,7 @@ _ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__11NdrPropertyESt1
 .noexc316:                                        ; preds = %491, %_ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__11NdrPropertyESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i1205
   store ptr %485, ptr %4, align 8
   store ptr %490, ptr %170, align 8
-  %495 = getelementptr inbounds nuw %"class.std::unique_ptr.48", ptr %485, i64 %483
+  %495 = getelementptr inbounds nuw [8 x i8], ptr %485, i64 %483
   store ptr %495, ptr %172, align 8
   br label %_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__17SdrShaderPropertyESt14default_deleteIS1_EED2Ev.exit320
 
@@ -2091,7 +2085,7 @@ _ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__11NdrPropertyESt1
 .noexc364:                                        ; preds = %640, %_ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__11NdrPropertyESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i1226
   store ptr %634, ptr %4, align 8
   store ptr %639, ptr %170, align 8
-  %644 = getelementptr inbounds nuw %"class.std::unique_ptr.48", ptr %634, i64 %632
+  %644 = getelementptr inbounds nuw [8 x i8], ptr %634, i64 %632
   store ptr %644, ptr %172, align 8
   br label %_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__17SdrShaderPropertyESt14default_deleteIS1_EED2Ev.exit368
 
@@ -2442,7 +2436,7 @@ _ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__11NdrPropertyESt1
 .noexc413:                                        ; preds = %787, %_ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__11NdrPropertyESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i1247
   store ptr %781, ptr %4, align 8
   store ptr %786, ptr %170, align 8
-  %791 = getelementptr inbounds nuw %"class.std::unique_ptr.48", ptr %781, i64 %779
+  %791 = getelementptr inbounds nuw [8 x i8], ptr %781, i64 %779
   store ptr %791, ptr %172, align 8
   br label %_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__17SdrShaderPropertyESt14default_deleteIS1_EED2Ev.exit417
 
@@ -2793,7 +2787,7 @@ _ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__11NdrPropertyESt1
 .noexc462:                                        ; preds = %934, %_ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__11NdrPropertyESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i1268
   store ptr %928, ptr %4, align 8
   store ptr %933, ptr %170, align 8
-  %938 = getelementptr inbounds nuw %"class.std::unique_ptr.48", ptr %928, i64 %926
+  %938 = getelementptr inbounds nuw [8 x i8], ptr %928, i64 %926
   store ptr %938, ptr %172, align 8
   br label %_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__17SdrShaderPropertyESt14default_deleteIS1_EED2Ev.exit466
 
@@ -3144,7 +3138,7 @@ _ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__11NdrPropertyESt1
 .noexc511:                                        ; preds = %1081, %_ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__11NdrPropertyESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i1289
   store ptr %1075, ptr %4, align 8
   store ptr %1080, ptr %170, align 8
-  %1085 = getelementptr inbounds nuw %"class.std::unique_ptr.48", ptr %1075, i64 %1073
+  %1085 = getelementptr inbounds nuw [8 x i8], ptr %1075, i64 %1073
   store ptr %1085, ptr %172, align 8
   br label %_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__17SdrShaderPropertyESt14default_deleteIS1_EED2Ev.exit515
 
@@ -3497,7 +3491,7 @@ _ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__11NdrPropertyESt1
 .noexc560:                                        ; preds = %1231, %_ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__11NdrPropertyESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i1310
   store ptr %1225, ptr %4, align 8
   store ptr %1230, ptr %170, align 8
-  %1235 = getelementptr inbounds nuw %"class.std::unique_ptr.48", ptr %1225, i64 %1223
+  %1235 = getelementptr inbounds nuw [8 x i8], ptr %1225, i64 %1223
   store ptr %1235, ptr %172, align 8
   br label %_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__17SdrShaderPropertyESt14default_deleteIS1_EED2Ev.exit564
 
@@ -3835,7 +3829,7 @@ _ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__11NdrPropertyESt1
 .noexc607:                                        ; preds = %1374, %_ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__11NdrPropertyESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i1331
   store ptr %1368, ptr %4, align 8
   store ptr %1373, ptr %170, align 8
-  %1378 = getelementptr inbounds nuw %"class.std::unique_ptr.48", ptr %1368, i64 %1366
+  %1378 = getelementptr inbounds nuw [8 x i8], ptr %1368, i64 %1366
   store ptr %1378, ptr %172, align 8
   br label %_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__17SdrShaderPropertyESt14default_deleteIS1_EED2Ev.exit611
 
@@ -4173,7 +4167,7 @@ _ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__11NdrPropertyESt1
 .noexc654:                                        ; preds = %1517, %_ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__11NdrPropertyESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i1352
   store ptr %1511, ptr %4, align 8
   store ptr %1516, ptr %170, align 8
-  %1521 = getelementptr inbounds nuw %"class.std::unique_ptr.48", ptr %1511, i64 %1509
+  %1521 = getelementptr inbounds nuw [8 x i8], ptr %1511, i64 %1509
   store ptr %1521, ptr %172, align 8
   br label %_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__17SdrShaderPropertyESt14default_deleteIS1_EED2Ev.exit658
 
@@ -4511,7 +4505,7 @@ _ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__11NdrPropertyESt1
 .noexc701:                                        ; preds = %1660, %_ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__11NdrPropertyESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i1373
   store ptr %1654, ptr %4, align 8
   store ptr %1659, ptr %170, align 8
-  %1664 = getelementptr inbounds nuw %"class.std::unique_ptr.48", ptr %1654, i64 %1652
+  %1664 = getelementptr inbounds nuw [8 x i8], ptr %1654, i64 %1652
   store ptr %1664, ptr %172, align 8
   br label %_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__17SdrShaderPropertyESt14default_deleteIS1_EED2Ev.exit705
 
@@ -4837,7 +4831,7 @@ _ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__11NdrPropertyESt1
 .noexc748:                                        ; preds = %1797, %_ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__11NdrPropertyESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i1394
   store ptr %1791, ptr %4, align 8
   store ptr %1796, ptr %170, align 8
-  %1801 = getelementptr inbounds nuw %"class.std::unique_ptr.48", ptr %1791, i64 %1789
+  %1801 = getelementptr inbounds nuw [8 x i8], ptr %1791, i64 %1789
   store ptr %1801, ptr %172, align 8
   br label %_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__17SdrShaderPropertyESt14default_deleteIS1_EED2Ev.exit752
 
@@ -5224,7 +5218,7 @@ _ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__11NdrPropertyESt1
 .noexc804:                                        ; preds = %1957, %_ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__11NdrPropertyESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i1415
   store ptr %1951, ptr %4, align 8
   store ptr %1956, ptr %170, align 8
-  %1961 = getelementptr inbounds nuw %"class.std::unique_ptr.48", ptr %1951, i64 %1949
+  %1961 = getelementptr inbounds nuw [8 x i8], ptr %1951, i64 %1949
   store ptr %1961, ptr %172, align 8
   br label %_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__17SdrShaderPropertyESt14default_deleteIS1_EED2Ev.exit808
 
@@ -5543,7 +5537,7 @@ _ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__11NdrPropertyESt1
 .noexc846:                                        ; preds = %2089, %_ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__11NdrPropertyESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i1436
   store ptr %2083, ptr %4, align 8
   store ptr %2088, ptr %170, align 8
-  %2093 = getelementptr inbounds nuw %"class.std::unique_ptr.48", ptr %2083, i64 %2081
+  %2093 = getelementptr inbounds nuw [8 x i8], ptr %2083, i64 %2081
   store ptr %2093, ptr %172, align 8
   br label %_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__17SdrShaderPropertyESt14default_deleteIS1_EED2Ev.exit850
 
@@ -5908,7 +5902,7 @@ _ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__11NdrPropertyESt1
 .noexc897:                                        ; preds = %2241, %_ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__11NdrPropertyESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i1457
   store ptr %2235, ptr %4, align 8
   store ptr %2240, ptr %170, align 8
-  %2245 = getelementptr inbounds nuw %"class.std::unique_ptr.48", ptr %2235, i64 %2233
+  %2245 = getelementptr inbounds nuw [8 x i8], ptr %2235, i64 %2233
   store ptr %2245, ptr %172, align 8
   br label %_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__17SdrShaderPropertyESt14default_deleteIS1_EED2Ev.exit901
 
@@ -6269,7 +6263,7 @@ _ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__11NdrPropertyESt1
 .noexc948:                                        ; preds = %2391, %_ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__11NdrPropertyESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i1478
   store ptr %2385, ptr %4, align 8
   store ptr %2390, ptr %170, align 8
-  %2395 = getelementptr inbounds nuw %"class.std::unique_ptr.48", ptr %2385, i64 %2383
+  %2395 = getelementptr inbounds nuw [8 x i8], ptr %2385, i64 %2383
   store ptr %2395, ptr %172, align 8
   br label %_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__17SdrShaderPropertyESt14default_deleteIS1_EED2Ev.exit952
 
@@ -6695,7 +6689,7 @@ _ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__11NdrPropertyESt1
 .noexc1010:                                       ; preds = %2570, %_ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__11NdrPropertyESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i1499
   store ptr %2564, ptr %4, align 8
   store ptr %2569, ptr %170, align 8
-  %2574 = getelementptr inbounds nuw %"class.std::unique_ptr.48", ptr %2564, i64 %2562
+  %2574 = getelementptr inbounds nuw [8 x i8], ptr %2564, i64 %2562
   store ptr %2574, ptr %172, align 8
   br label %_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__17SdrShaderPropertyESt14default_deleteIS1_EED2Ev.exit1014
 
@@ -8804,7 +8798,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrRese
   %12 = load i64, ptr %11, align 8
   %13 = urem i64 %10, %12
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds ptr, ptr %14, i64 %13
+  %15 = getelementptr inbounds [8 x i8], ptr %14, i64 %13
   %16 = load ptr, ptr %15, align 8
   %.not.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i, label %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISA_ENSt8__detail10_Select1stESt8equal_toIS1_ENS1_11HashFunctorENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE15_M_find_node_trIS1_EEPNSC_10_Hash_nodeISA_Lb1EEEmRKT_m.exit.thread, label %33
@@ -8959,7 +8953,7 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS1_NSt7__
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i64 %2, ptr %32, align 8
   %33 = load ptr, ptr %0, align 8
-  %34 = getelementptr inbounds ptr, ptr %33, i64 %.0
+  %34 = getelementptr inbounds [8 x i8], ptr %33, i64 %.0
   %35 = load ptr, ptr %34, align 8
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %41, label %36
@@ -8968,7 +8962,7 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS1_NSt7__
   %37 = load ptr, ptr %35, align 8
   store ptr %37, ptr %3, align 8
   %38 = load ptr, ptr %0, align 8
-  %39 = getelementptr inbounds ptr, ptr %38, i64 %.0
+  %39 = getelementptr inbounds [8 x i8], ptr %38, i64 %.0
   %40 = load ptr, ptr %39, align 8
   store ptr %3, ptr %40, align 8
   br label %_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISA_ENSt8__detail10_Select1stESt8equal_toIS1_ENS1_11HashFunctorENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE22_M_insert_bucket_beginEmPNSC_10_Hash_nodeISA_Lb1EEE.exit
@@ -8988,13 +8982,13 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS1_NSt7__
   %48 = getelementptr inbounds nuw i8, ptr %44, i64 48
   %49 = load i64, ptr %48, align 8
   %50 = urem i64 %49, %47
-  %51 = getelementptr inbounds ptr, ptr %46, i64 %50
+  %51 = getelementptr inbounds [8 x i8], ptr %46, i64 %50
   store ptr %3, ptr %51, align 8
   br label %52
 
 52:                                               ; preds = %45, %41
   %53 = load ptr, ptr %0, align 8
-  %54 = getelementptr inbounds ptr, ptr %53, i64 %.0
+  %54 = getelementptr inbounds [8 x i8], ptr %53, i64 %.0
   store ptr %42, ptr %54, align 8
   br label %_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISA_ENSt8__detail10_Select1stESt8equal_toIS1_ENS1_11HashFunctorENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE22_M_insert_bucket_beginEmPNSC_10_Hash_nodeISA_Lb1EEE.exit
 
@@ -9163,7 +9157,7 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS1_NSt7__
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 48
   %16 = load i64, ptr %15, align 8
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -9178,7 +9172,7 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS1_NSt7__
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8
   br label %28
 

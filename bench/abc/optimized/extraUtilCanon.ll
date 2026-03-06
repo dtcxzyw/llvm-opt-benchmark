@@ -52,7 +52,7 @@ define internal fastcc i32 @Extra_TruthCanonN_rec(i32 noundef %0, ptr noundef %1
 11:                                               ; preds = %5
   %12 = load i8, ptr %1, align 1, !tbaa !10
   %13 = zext i8 %12 to i64
-  %14 = getelementptr inbounds nuw i32, ptr @s_Truths3, i64 %13
+  %14 = getelementptr inbounds nuw [4 x i8], ptr @s_Truths3, i64 %13
   store ptr %14, ptr %2, align 8, !tbaa !3
   %15 = load i8, ptr %1, align 1, !tbaa !10
   %16 = zext i8 %15 to i64
@@ -132,10 +132,10 @@ define internal fastcc i32 @Extra_TruthCanonN_rec(i32 noundef %0, ptr noundef %1
   %.0177 = phi i32 [ %47, %31 ], [ %72, %50 ], [ %75, %73 ]
   %.0170 = phi i32 [ %39, %31 ], [ %61, %50 ], [ %74, %73 ]
   %77 = sext i32 %0 to i64
-  %78 = getelementptr inbounds [2 x [2 x i32]], ptr @Extra_TruthCanonN_rec.uTruthStore, i64 %77
+  %78 = getelementptr inbounds [16 x i8], ptr @Extra_TruthCanonN_rec.uTruthStore, i64 %77
   %79 = zext nneg i32 %4 to i64
-  %80 = getelementptr inbounds nuw [2 x i32], ptr %78, i64 %79
-  %81 = getelementptr inbounds [2 x [64 x i8]], ptr @Extra_TruthCanonN_rec.uPhaseStore, i64 %77
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %79
+  %81 = getelementptr inbounds [128 x i8], ptr @Extra_TruthCanonN_rec.uPhaseStore, i64 %77
   %82 = getelementptr inbounds nuw [64 x i8], ptr %81, i64 %79
   %83 = icmp eq i32 %.0177, 0
   br i1 %83, label %84, label %94
@@ -484,7 +484,7 @@ define void @Map_Var3Print() local_unnamed_addr #0 {
 8:                                                ; preds = %7, %4
   %9 = load ptr, ptr @stdout, align 8, !tbaa !22
   %10 = load ptr, ptr %1, align 8, !tbaa !3
-  %11 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv
   call void @Extra_PrintHex(ptr noundef %9, ptr noundef %11, i32 noundef 5) #6
   %12 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -514,7 +514,7 @@ define void @Map_Var3Print() local_unnamed_addr #0 {
   %.not = icmp eq i64 %indvars.iv21, 0
   %25 = select i1 %.not, ptr @.str.4, ptr @.str.1
   %26 = load ptr, ptr %2, align 8, !tbaa !25
-  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv24
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv24
   %28 = load ptr, ptr %27, align 8, !tbaa !11
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 %indvars.iv21
   %30 = load i8, ptr %29, align 1, !tbaa !10

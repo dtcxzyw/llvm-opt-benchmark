@@ -446,7 +446,7 @@ define weak_odr dso_local void @_ZNK3ozz9animation8internal5TrackIfE4SaveERNS_2i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %.lr.ph.i.i
   %.0.i5.i.i = phi i64 [ %49, %.lr.ph.i.i ], [ 0, %.preheader.i.i ]
-  %37 = getelementptr inbounds nuw float, ptr %.sroa.03.0.copyload, i64 %.0.i5.i.i
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.03.0.copyload, i64 %.0.i5.i.i
   %38 = load float, ptr %37, align 4, !tbaa !34
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %39 = load i8, ptr %13, align 8, !tbaa !25, !range !29, !noundef !30
@@ -490,7 +490,7 @@ _ZN3ozz2io8OArchivelsINS0_8internal5ArrayIfEEEEvRKT_.exit: ; preds = %.lr.ph.i.i
 
 .lr.ph.i.i23:                                     ; preds = %.preheader.i.i21, %.lr.ph.i.i23
   %.0.i5.i.i24 = phi i64 [ %72, %.lr.ph.i.i23 ], [ 0, %.preheader.i.i21 ]
-  %60 = getelementptr inbounds nuw float, ptr %.sroa.01.0.copyload, i64 %.0.i5.i.i24
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.01.0.copyload, i64 %.0.i5.i.i24
   %61 = load float, ptr %60, align 4, !tbaa !34
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %62 = load i8, ptr %13, align 8, !tbaa !25, !range !29, !noundef !30
@@ -1174,7 +1174,7 @@ define weak_odr dso_local void @_ZNK3ozz9animation8internal5TrackINS_4math6Float
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %.lr.ph.i.i
   %.0.i5.i.i = phi i64 [ %48, %.lr.ph.i.i ], [ 0, %.preheader.i.i ]
-  %36 = getelementptr inbounds nuw float, ptr %.sroa.03.0.copyload, i64 %.0.i5.i.i
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.03.0.copyload, i64 %.0.i5.i.i
   %37 = load float, ptr %36, align 4, !tbaa !34
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %38 = load i8, ptr %12, align 8, !tbaa !25, !range !29, !noundef !30
@@ -1825,7 +1825,7 @@ define weak_odr dso_local void @_ZNK3ozz9animation8internal5TrackINS_4math6Float
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %.lr.ph.i.i
   %.0.i5.i.i = phi i64 [ %48, %.lr.ph.i.i ], [ 0, %.preheader.i.i ]
-  %36 = getelementptr inbounds nuw float, ptr %.sroa.03.0.copyload, i64 %.0.i5.i.i
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.03.0.copyload, i64 %.0.i5.i.i
   %37 = load float, ptr %36, align 4, !tbaa !34
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %38 = load i8, ptr %12, align 8, !tbaa !25, !range !29, !noundef !30
@@ -2476,7 +2476,7 @@ define weak_odr dso_local void @_ZNK3ozz9animation8internal5TrackINS_4math6Float
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %.lr.ph.i.i
   %.0.i5.i.i = phi i64 [ %48, %.lr.ph.i.i ], [ 0, %.preheader.i.i ]
-  %36 = getelementptr inbounds nuw float, ptr %.sroa.03.0.copyload, i64 %.0.i5.i.i
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.03.0.copyload, i64 %.0.i5.i.i
   %37 = load float, ptr %36, align 4, !tbaa !34
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %38 = load i8, ptr %12, align 8, !tbaa !25, !range !29, !noundef !30
@@ -3127,7 +3127,7 @@ define weak_odr dso_local void @_ZNK3ozz9animation8internal5TrackINS_4math10Quat
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %.lr.ph.i.i
   %.0.i5.i.i = phi i64 [ %48, %.lr.ph.i.i ], [ 0, %.preheader.i.i ]
-  %36 = getelementptr inbounds nuw float, ptr %.sroa.03.0.copyload, i64 %.0.i5.i.i
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.03.0.copyload, i64 %.0.i5.i.i
   %37 = load float, ptr %36, align 4, !tbaa !34
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %38 = load i8, ptr %12, align 8, !tbaa !25, !range !29, !noundef !30

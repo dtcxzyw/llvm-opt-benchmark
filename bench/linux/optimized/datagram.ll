@@ -32,16 +32,9 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_datagram_pol
 %struct.static_key_false = type { %struct.static_key }
 %struct.wait_queue_entry = type { i32, ptr, ptr, %struct.list_head }
 %struct.list_head = type { ptr, ptr }
-%struct.bio_vec = type { ptr, i32, i32 }
 %struct.scatterlist = type { i64, i32, i32, i64, i32, i32 }
 %struct.csum_state = type { i32, i64 }
 %struct.xa_state = type { ptr, i64, i8, i8, i8, i8, ptr, ptr, ptr, ptr }
-%struct.page = type { i64, %union.anon.67, %union.anon.75, %struct.atomic_t, [8 x i8] }
-%union.anon.67 = type { %struct.anon.68 }
-%struct.anon.68 = type { %union.anon.69, ptr, %union.anon.71, i64 }
-%union.anon.69 = type { %struct.list_head }
-%union.anon.71 = type { i64 }
-%union.anon.75 = type { %struct.atomic_t }
 
 @__UNIQUE_ID___addressable___skb_wait_for_more_packets916 = internal global ptr @__skb_wait_for_more_packets, section ".discard.addressable", align 8
 @__UNIQUE_ID___addressable___skb_try_recv_datagram918 = internal global ptr @__skb_try_recv_datagram, section ".discard.addressable", align 8
@@ -857,7 +850,7 @@ define internal fastcc noundef range(i32 -14, 1) i32 @__skb_datagram_iter(ptr no
   %55 = phi i32 [ %102, %.thread.us ], [ %39, %50 ]
   %56 = phi i32 [ %65, %.thread.us ], [ %12, %50 ]
   %57 = getelementptr inbounds nuw i8, ptr %53, i64 48
-  %58 = getelementptr %struct.bio_vec, ptr %57, i64 %52
+  %58 = getelementptr [16 x i8], ptr %57, i64 %52
   %59 = add i32 %55, %54
   %60 = icmp sgt i32 %56, %59
   br i1 %60, label %61, label %62, !prof !14
@@ -943,7 +936,7 @@ define internal fastcc noundef range(i32 -14, 1) i32 @__skb_datagram_iter(ptr no
   %115 = phi i32 [ %157, %.thread ], [ %39, %50 ]
   %116 = phi i32 [ %125, %.thread ], [ %12, %50 ]
   %117 = getelementptr inbounds nuw i8, ptr %113, i64 48
-  %118 = getelementptr %struct.bio_vec, ptr %117, i64 %112
+  %118 = getelementptr [16 x i8], ptr %117, i64 %112
   %119 = add i32 %115, %114
   %120 = icmp sgt i32 %116, %119
   br i1 %120, label %121, label %122, !prof !14
@@ -1253,7 +1246,7 @@ define dso_local noundef range(i32 -14, 1) i32 @skb_copy_datagram_from_iter(ptr 
   %43 = phi i32 [ %.ph, %72 ], [ %29, %28 ]
   %44 = phi i32 [ %53, %72 ], [ %9, %28 ]
   %45 = getelementptr inbounds nuw i8, ptr %41, i64 48
-  %46 = getelementptr %struct.bio_vec, ptr %45, i64 %40
+  %46 = getelementptr [16 x i8], ptr %45, i64 %40
   %47 = add i32 %43, %42
   %48 = icmp sgt i32 %44, %47
   br i1 %48, label %49, label %50, !prof !14
@@ -1611,7 +1604,7 @@ define dso_local i32 @__zerocopy_sg_from_iter(ptr noundef readonly captures(addr
   %147 = trunc i64 %141 to i32
   %148 = call i32 @llvm.smin.i32(i32 %140, i32 %147)
   %149 = sext i32 %142 to i64
-  %150 = getelementptr ptr, ptr %6, i64 %149
+  %150 = getelementptr [8 x i8], ptr %6, i64 %149
   %151 = load ptr, ptr %150, align 8
   %152 = ptrtoint ptr %151 to i64
   %153 = ptrtoint ptr %146 to i64
@@ -1697,7 +1690,7 @@ define dso_local i32 @__zerocopy_sg_from_iter(ptr noundef readonly captures(addr
   %209 = zext i32 %208 to i64
   %210 = getelementptr i8, ptr %207, i64 %209
   %211 = getelementptr inbounds nuw i8, ptr %210, i64 48
-  %212 = getelementptr %struct.bio_vec, ptr %211, i64 %139
+  %212 = getelementptr [16 x i8], ptr %211, i64 %139
   %213 = load ptr, ptr %212, align 8
   %214 = icmp eq ptr %194, %213
   br i1 %214, label %215, label %.thread
@@ -1740,7 +1733,7 @@ define dso_local i32 @__zerocopy_sg_from_iter(ptr noundef readonly captures(addr
   %236 = getelementptr i8, ptr %233, i64 %235
   %237 = getelementptr inbounds nuw i8, ptr %236, i64 48
   %238 = sext i32 %.ph34 to i64
-  %239 = getelementptr %struct.bio_vec, ptr %237, i64 %238
+  %239 = getelementptr [16 x i8], ptr %237, i64 %238
   store ptr %194, ptr %239, align 8
   %240 = getelementptr inbounds nuw i8, ptr %239, i64 12
   store i32 %232, ptr %240, align 4
@@ -2297,7 +2290,7 @@ define internal i64 @csum_and_copy_to_iter(ptr noundef %0, i64 noundef %1, ptr n
   %123 = add i64 %116, %122
   %124 = load ptr, ptr %118, align 8
   %125 = lshr i64 %123, 12
-  %126 = getelementptr %struct.page, ptr %124, i64 %125
+  %126 = getelementptr [64 x i8], ptr %124, i64 %125
   %127 = load i64, ptr @vmemmap_base, align 8
   %128 = ptrtoint ptr %126 to i64
   %129 = sub i64 %128, %127
@@ -2646,7 +2639,7 @@ define internal fastcc ptr @xas_next_entry(ptr noundef %0) unnamed_addr #4 align
 
 26:                                               ; preds = %21
   %27 = zext i8 %22 to i64
-  %28 = getelementptr ptr, ptr %20, i64 %27
+  %28 = getelementptr [8 x i8], ptr %20, i64 %27
   %29 = load volatile ptr, ptr %28, align 8
   %30 = ptrtoint ptr %29 to i64
   %31 = and i64 %30, 3

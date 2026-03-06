@@ -61,12 +61,6 @@ module asm "\09.popsection"
 %union.anon.1 = type { i32 }
 %union.anon.2 = type { %struct.insn_field }
 %union.anon.3 = type { %struct.insn_field }
-%struct.page = type { i64, %union.anon.8, %union.anon.16, %struct.atomic_t, [8 x i8] }
-%union.anon.8 = type { %struct.anon.9 }
-%struct.anon.9 = type { %union.anon.10, ptr, %union.anon.12, i64 }
-%union.anon.10 = type { %struct.list_head }
-%union.anon.12 = type { i64 }
-%union.anon.16 = type { %struct.atomic_t }
 
 @alternatives_patched = dso_local global i32 0, section ".data..read_mostly", align 4
 @__UNIQUE_ID___addressable_alternatives_patched437 = internal global ptr @alternatives_patched, section ".discard.addressable", align 8
@@ -2354,7 +2348,7 @@ define internal fastcc noundef ptr @__text_poke(ptr noundef readonly captures(ad
   %34 = select i1 %30, i64 %31, i64 %33
   %35 = add i64 %29, %34
   %36 = lshr i64 %35, 12
-  %37 = getelementptr %struct.page, ptr %28, i64 %36
+  %37 = getelementptr [64 x i8], ptr %28, i64 %36
   %38 = load volatile i64, ptr %37, align 8
   %39 = and i64 %38, 16384
   %40 = icmp eq i64 %39, 0
@@ -2382,7 +2376,7 @@ define internal fastcc noundef ptr @__text_poke(ptr noundef readonly captures(ad
   %53 = select i1 %49, i64 %50, i64 %52
   %54 = add i64 %48, %53
   %55 = lshr i64 %54, 12
-  %56 = getelementptr %struct.page, ptr %45, i64 %55
+  %56 = getelementptr [64 x i8], ptr %45, i64 %55
   br label %57
 
 57:                                               ; preds = %43, %42, %23, %21
@@ -2896,7 +2890,7 @@ define dso_local noundef range(i32 0, 2) i32 @poke_int3_handler(ptr noundef capt
 96:                                               ; preds = %84
   %97 = lshr i32 %90, 1
   %98 = zext nneg i32 %97 to i64
-  %99 = getelementptr i64, ptr @int3_emulate_jcc.jcc_mask, i64 %98
+  %99 = getelementptr [8 x i8], ptr @int3_emulate_jcc.jcc_mask, i64 %98
   %100 = load i64, ptr %99, align 8
   %101 = and i64 %100, %95
   %102 = icmp ne i64 %101, 0
@@ -2977,7 +2971,7 @@ define dso_local void @text_poke_queue(ptr noundef %0, ptr noundef %1, i64 nound
 8:                                                ; preds = %6
   %9 = add i32 %5, -1
   %10 = sext i32 %9 to i64
-  %11 = getelementptr %struct.text_poke_loc, ptr @tp_vec, i64 %10
+  %11 = getelementptr [16 x i8], ptr @tp_vec, i64 %10
   %12 = load i32, ptr %11, align 16
   %13 = sext i32 %12 to i64
   %14 = getelementptr i8, ptr @_stext, i64 %13
@@ -2993,7 +2987,7 @@ define dso_local void @text_poke_queue(ptr noundef %0, ptr noundef %1, i64 nound
   %19 = add i32 %18, 1
   store i32 %19, ptr @tp_vec_nr, align 4
   %20 = sext i32 %18 to i64
-  %21 = getelementptr %struct.text_poke_loc, ptr @tp_vec, i64 %20
+  %21 = getelementptr [16 x i8], ptr @tp_vec, i64 %20
   tail call fastcc void @text_poke_loc_init(ptr noundef %21, ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3)
   ret void
 }
@@ -3205,7 +3199,7 @@ define internal fastcc void @text_poke_bp_batch(ptr noundef %0, i32 noundef %1) 
 
 11:                                               ; preds = %11, %9
   %12 = phi i64 [ 0, %9 ], [ %20, %11 ]
-  %13 = getelementptr %struct.text_poke_loc, ptr %0, i64 %12
+  %13 = getelementptr [16 x i8], ptr %0, i64 %12
   %14 = load i32, ptr %13, align 4
   %15 = sext i32 %14 to i64
   %16 = getelementptr i8, ptr @_stext, i64 %15
@@ -3227,7 +3221,7 @@ define internal fastcc void @text_poke_bp_batch(ptr noundef %0, i32 noundef %1) 
   %26 = phi i64 [ 0, %22 ], [ %54, %._crit_edge ]
   %27 = phi i32 [ 0, %22 ], [ %50, %._crit_edge ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %28 = getelementptr %struct.text_poke_loc, ptr %0, i64 %26
+  %28 = getelementptr [16 x i8], ptr %0, i64 %26
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 15
   %30 = load i8, ptr %29, align 1
   store i8 %30, ptr %4, align 1
@@ -3291,7 +3285,7 @@ define internal fastcc void @text_poke_bp_batch(ptr noundef %0, i32 noundef %1) 
   %60 = phi i64 [ %78, %76 ], [ 0, %.preheader13 ]
   %61 = phi i32 [ %77, %76 ], [ 0, %.preheader13 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %62 = getelementptr %struct.text_poke_loc, ptr %0, i64 %60
+  %62 = getelementptr [16 x i8], ptr %0, i64 %60
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 10
   %64 = load i8, ptr %63, align 2
   %65 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -3488,7 +3482,7 @@ define internal fastcc noundef zeroext i1 @__optimize_nops(ptr noundef %0, i64 n
   br i1 %79, label %80, label %83
 
 80:                                               ; preds = %78
-  %81 = getelementptr ptr, ptr @x86_nops, i64 %75
+  %81 = getelementptr [8 x i8], ptr @x86_nops, i64 %75
   %82 = load ptr, ptr %81, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %72, ptr align 1 %82, i64 %75, i1 false)
   br label %111

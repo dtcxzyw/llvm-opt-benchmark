@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.WiiButtonData = type { [2 x i8], [3 x i8], [21 x i8], i8, i8, i8 }
-%struct.StickCalibrationData = type { i16, i16, i16, i16 }
 
 @.str = private unnamed_addr constant [24 x i8] c"SDL_JOYSTICK_HIDAPI_WII\00", align 1
 @SDL_HIDAPI_DriverWii = hidden local_unnamed_addr global { ptr, i8, [7 x i8], ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr } { ptr @.str, i8 1, [7 x i8] zeroinitializer, ptr @HIDAPI_DriverWii_RegisterHints, ptr @HIDAPI_DriverWii_UnregisterHints, ptr @HIDAPI_DriverWii_IsEnabled, ptr @HIDAPI_DriverWii_IsSupportedDevice, ptr @HIDAPI_DriverWii_InitDevice, ptr @HIDAPI_DriverWii_GetDevicePlayerIndex, ptr @HIDAPI_DriverWii_SetDevicePlayerIndex, ptr @HIDAPI_DriverWii_UpdateDevice, ptr @HIDAPI_DriverWii_OpenJoystick, ptr @HIDAPI_DriverWii_RumbleJoystick, ptr @HIDAPI_DriverWii_RumbleJoystickTriggers, ptr @HIDAPI_DriverWii_GetJoystickCapabilities, ptr @HIDAPI_DriverWii_SetJoystickLED, ptr @HIDAPI_DriverWii_SendJoystickEffect, ptr @HIDAPI_DriverWii_SetJoystickSensorsEnabled, ptr @HIDAPI_DriverWii_CloseJoystick, ptr @HIDAPI_DriverWii_FreeDevice }, align 8
@@ -163,7 +162,7 @@ ReadExtensionControllerType.exit:                 ; preds = %29, %GetExtensionTy
 
 switch.lookup:                                    ; preds = %ReadExtensionControllerType.exit
   %36 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.HIDAPI_DriverWii_InitDevice, i64 %36
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.HIDAPI_DriverWii_InitDevice, i64 %36
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %UpdateDeviceIdentity.exit
 
@@ -984,7 +983,7 @@ define internal noundef zeroext i1 @HIDAPI_DriverWii_OpenJoystick(ptr noundef re
 
 21:                                               ; preds = %21, %.preheader.i.i
   %indvars.iv46.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next47.i.i, %21 ]
-  %22 = getelementptr inbounds nuw %struct.StickCalibrationData, ptr %20, i64 %indvars.iv46.i.i
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv46.i.i
   store i16 1000, ptr %22, align 2
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 2
   store i16 3000, ptr %23, align 2
@@ -1000,7 +999,7 @@ define internal noundef zeroext i1 @HIDAPI_DriverWii_OpenJoystick(ptr noundef re
   %indvars.iv43.i.i = phi i64 [ 0, %.preheader33.i.i ], [ %indvars.iv.next44.i.i, %26 ]
   %27 = icmp samesign ult i64 %indvars.iv43.i.i, 2
   %28 = select i1 %27, i16 9, i16 5
-  %29 = getelementptr inbounds nuw %struct.StickCalibrationData, ptr %19, i64 %indvars.iv43.i.i
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv43.i.i
   store i16 %28, ptr %29, align 2
   %30 = select i1 %27, i16 54, i16 26
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 2
@@ -1809,7 +1808,7 @@ PostPackedButtonData.exit.i:                      ; preds = %30
   %42 = getelementptr inbounds nuw i8, ptr %31, i64 %41
   %43 = load i16, ptr %42, align 1
   %44 = load i64, ptr %15, align 8
-  %45 = getelementptr inbounds nuw %struct.StickCalibrationData, ptr %39, i64 %indvars.iv.i
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %indvars.iv.i
   %46 = getelementptr inbounds nuw i8, ptr @HandleWiiUProButtonData.axes, i64 %indvars.iv.i
   %47 = load i8, ptr %46, align 1
   %48 = getelementptr inbounds nuw i8, ptr %45, i64 4

@@ -143,7 +143,7 @@ define hidden void @_ZN27JfrCompilerQueueUtilization11send_eventsEv() local_unna
 29:                                               ; preds = %16, %74
   %30 = phi i1 [ true, %16 ], [ false, %74 ]
   %indvars.iv = phi i64 [ 0, %16 ], [ 1, %74 ]
-  %31 = getelementptr inbounds nuw %struct.CompilerQueueEntry, ptr @_ZZN27JfrCompilerQueueUtilization11send_eventsEvE20compilerQueueEntries, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [40 x i8], ptr @_ZZN27JfrCompilerQueueUtilization11send_eventsEvE20compilerQueueEntries, i64 %indvars.iv
   %32 = load ptr, ptr %31, align 8
   %.not27 = icmp eq ptr %32, null
   br i1 %.not27, label %74, label %33

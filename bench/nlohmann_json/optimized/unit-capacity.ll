@@ -21672,7 +21672,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
 
 switch.lookup:                                    ; preds = %7079
   %7082 = zext nneg i8 %7080 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZL19DOCTEST_ANON_FUNC_2v.12, i64 %7082
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZL19DOCTEST_ANON_FUNC_2v.12, i64 %7082
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %7083
 
@@ -21711,7 +21711,7 @@ switch.lookup:                                    ; preds = %7079
 
 switch.lookup6503:                                ; preds = %7089
   %7092 = zext nneg i8 %7090 to i64
-  %switch.gep6504 = getelementptr inbounds nuw i64, ptr @switch.table._ZL19DOCTEST_ANON_FUNC_2v.12, i64 %7092
+  %switch.gep6504 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZL19DOCTEST_ANON_FUNC_2v.12, i64 %7092
   %switch.load6505 = load i64, ptr %switch.gep6504, align 8
   br label %7093
 
@@ -21980,7 +21980,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
 
 switch.lookup6506:                                ; preds = %7162
   %7165 = zext nneg i8 %7163 to i64
-  %switch.gep6507 = getelementptr inbounds nuw i64, ptr @switch.table._ZL19DOCTEST_ANON_FUNC_2v.12, i64 %7165
+  %switch.gep6507 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZL19DOCTEST_ANON_FUNC_2v.12, i64 %7165
   %switch.load6508 = load i64, ptr %switch.gep6507, align 8
   br label %7166
 
@@ -22019,7 +22019,7 @@ switch.lookup6506:                                ; preds = %7162
 
 switch.lookup6509:                                ; preds = %7172
   %7175 = zext nneg i8 %7173 to i64
-  %switch.gep6510 = getelementptr inbounds nuw i64, ptr @switch.table._ZL19DOCTEST_ANON_FUNC_2v.12, i64 %7175
+  %switch.gep6510 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZL19DOCTEST_ANON_FUNC_2v.12, i64 %7175
   %switch.load6511 = load i64, ptr %switch.gep6510, align 8
   br label %7176
 
@@ -24486,7 +24486,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
 
 switch.lookup6512:                                ; preds = %7954
   %7957 = zext nneg i8 %7955 to i64
-  %switch.gep6513 = getelementptr inbounds nuw i64, ptr @switch.table._ZL19DOCTEST_ANON_FUNC_2v.12, i64 %7957
+  %switch.gep6513 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZL19DOCTEST_ANON_FUNC_2v.12, i64 %7957
   %switch.load6514 = load i64, ptr %switch.gep6513, align 8
   br label %7958
 
@@ -24525,7 +24525,7 @@ switch.lookup6512:                                ; preds = %7954
 
 switch.lookup6515:                                ; preds = %7964
   %7967 = zext nneg i8 %7965 to i64
-  %switch.gep6516 = getelementptr inbounds nuw i64, ptr @switch.table._ZL19DOCTEST_ANON_FUNC_2v.12, i64 %7967
+  %switch.gep6516 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZL19DOCTEST_ANON_FUNC_2v.12, i64 %7967
   %switch.load6517 = load i64, ptr %switch.gep6516, align 8
   br label %7968
 
@@ -24768,7 +24768,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
 
 switch.lookup6518:                                ; preds = %8030
   %8033 = zext nneg i8 %8031 to i64
-  %switch.gep6519 = getelementptr inbounds nuw i64, ptr @switch.table._ZL19DOCTEST_ANON_FUNC_2v.12, i64 %8033
+  %switch.gep6519 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZL19DOCTEST_ANON_FUNC_2v.12, i64 %8033
   %switch.load6520 = load i64, ptr %switch.gep6519, align 8
   br label %8034
 
@@ -24807,7 +24807,7 @@ switch.lookup6518:                                ; preds = %8030
 
 switch.lookup6521:                                ; preds = %8040
   %8043 = zext nneg i8 %8041 to i64
-  %switch.gep6522 = getelementptr inbounds nuw i64, ptr @switch.table._ZL19DOCTEST_ANON_FUNC_2v.12, i64 %8043
+  %switch.gep6522 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZL19DOCTEST_ANON_FUNC_2v.12, i64 %8043
   %switch.load6523 = load i64, ptr %switch.gep6522, align 8
   br label %8044
 
@@ -25050,7 +25050,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
 
 switch.lookup6524:                                ; preds = %8106
   %8109 = zext nneg i8 %8107 to i64
-  %switch.gep6525 = getelementptr inbounds nuw i64, ptr @switch.table._ZL19DOCTEST_ANON_FUNC_2v.12, i64 %8109
+  %switch.gep6525 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZL19DOCTEST_ANON_FUNC_2v.12, i64 %8109
   %switch.load6526 = load i64, ptr %switch.gep6525, align 8
   br label %8110
 
@@ -25089,7 +25089,7 @@ switch.lookup6524:                                ; preds = %8106
 
 switch.lookup6527:                                ; preds = %8116
   %8119 = zext nneg i8 %8117 to i64
-  %switch.gep6528 = getelementptr inbounds nuw i64, ptr @switch.table._ZL19DOCTEST_ANON_FUNC_2v.12, i64 %8119
+  %switch.gep6528 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZL19DOCTEST_ANON_FUNC_2v.12, i64 %8119
   %switch.load6529 = load i64, ptr %switch.gep6528, align 8
   br label %8120
 
@@ -25330,7 +25330,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
 
 switch.lookup6530:                                ; preds = %8183
   %8186 = zext nneg i8 %8184 to i64
-  %switch.gep6531 = getelementptr inbounds nuw i64, ptr @switch.table._ZL19DOCTEST_ANON_FUNC_2v.12, i64 %8186
+  %switch.gep6531 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZL19DOCTEST_ANON_FUNC_2v.12, i64 %8186
   %switch.load6532 = load i64, ptr %switch.gep6531, align 8
   br label %8187
 
@@ -25369,7 +25369,7 @@ switch.lookup6530:                                ; preds = %8183
 
 switch.lookup6533:                                ; preds = %8193
   %8196 = zext nneg i8 %8194 to i64
-  %switch.gep6534 = getelementptr inbounds nuw i64, ptr @switch.table._ZL19DOCTEST_ANON_FUNC_2v.12, i64 %8196
+  %switch.gep6534 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZL19DOCTEST_ANON_FUNC_2v.12, i64 %8196
   %switch.load6535 = load i64, ptr %switch.gep6534, align 8
   br label %8197
 
@@ -26498,7 +26498,7 @@ _ZSt14__relocate_a_1IPN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNS
 
 .noexc130:                                        ; preds = %59, %_ZSt14__relocate_a_1IPN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES4_IhSaIhEEvEESF_SaISE_EET0_T_SI_SH_RT1_.exit21.i
   store ptr %.0.i1931.i, ptr %33, align 8, !tbaa !539
-  %60 = getelementptr inbounds nuw %"class.nlohmann::json_abi_v3_11_3::basic_json", ptr %53, i64 %51
+  %60 = getelementptr inbounds nuw [16 x i8], ptr %53, i64 %51
   store ptr %60, ptr %27, align 8, !tbaa !1136
   br label %_ZNSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaISD_EE9push_backEOSD_.exit.i.i
 
@@ -26542,7 +26542,7 @@ _ZNSt12_Vector_baseIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7
   %75 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %74, ptr %3, align 8, !tbaa !541
   store ptr %74, ptr %75, align 8, !tbaa !539
-  %76 = getelementptr inbounds nuw %"class.nlohmann::json_abi_v3_11_3::basic_json", ptr %74, i64 %69
+  %76 = getelementptr inbounds nuw [16 x i8], ptr %74, i64 %69
   store ptr %76, ptr %72, align 8, !tbaa !1136
   br label %_ZNSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaISD_EE7reserveEm.exit146
 
@@ -26638,7 +26638,7 @@ _ZSt14__relocate_a_1IPN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNS
 
 _ZNSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaISD_EE17_M_realloc_insertIJSD_EEEvN9__gnu_cxx17__normal_iteratorIPSD_SF_EEDpOT_.exit178: ; preds = %_ZSt14__relocate_a_1IPN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES4_IhSaIhEEvEESF_SaISE_EET0_T_SI_SH_RT1_.exit21.i172, %108
   store ptr %.0.i1931.i165, ptr %81, align 8, !tbaa !539
-  %109 = getelementptr inbounds nuw %"class.nlohmann::json_abi_v3_11_3::basic_json", ptr %102, i64 %100
+  %109 = getelementptr inbounds nuw [16 x i8], ptr %102, i64 %100
   store ptr %109, ptr %72, align 8, !tbaa !1136
   br label %_ZNSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaISD_EE9push_backEOSD_.exit
 
@@ -26796,7 +26796,7 @@ _ZSt14__relocate_a_1IPN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNS
 _ZNSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaISD_EE17_M_realloc_insertIJSD_EEEvN9__gnu_cxx17__normal_iteratorIPSD_SF_EEDpOT_.exit202: ; preds = %_ZSt14__relocate_a_1IPN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES4_IhSaIhEEvEESF_SaISE_EET0_T_SI_SH_RT1_.exit21.i196, %166
   store ptr %160, ptr %3, align 8, !tbaa !541
   store ptr %.0.i1931.i189, ptr %115, align 8, !tbaa !539
-  %167 = getelementptr inbounds nuw %"class.nlohmann::json_abi_v3_11_3::basic_json", ptr %160, i64 %158
+  %167 = getelementptr inbounds nuw [16 x i8], ptr %160, i64 %158
   store ptr %167, ptr %118, align 8, !tbaa !1136
   br label %.noexc45
 
@@ -26974,7 +26974,7 @@ _ZSt14__relocate_a_1IPN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNS
 _ZNSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaISD_EE17_M_realloc_insertIJSD_EEEvN9__gnu_cxx17__normal_iteratorIPSD_SF_EEDpOT_.exit226: ; preds = %_ZSt14__relocate_a_1IPN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES4_IhSaIhEEvEESF_SaISE_EET0_T_SI_SH_RT1_.exit21.i220, %225
   store ptr %219, ptr %3, align 8, !tbaa !541
   store ptr %.0.i1931.i213, ptr %115, align 8, !tbaa !539
-  %226 = getelementptr inbounds nuw %"class.nlohmann::json_abi_v3_11_3::basic_json", ptr %219, i64 %217
+  %226 = getelementptr inbounds nuw [16 x i8], ptr %219, i64 %217
   store ptr %226, ptr %118, align 8, !tbaa !1136
   br label %_ZNSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaISD_EE9push_backEOSD_.exit38
 
@@ -28704,7 +28704,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !10
   %10 = load ptr, ptr %9, align 8, !tbaa !541
-  %11 = getelementptr inbounds nuw %"class.nlohmann::json_abi_v3_11_3::basic_json", ptr %10, i64 %1
+  %11 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %1
   ret ptr %11
 
 12:                                               ; preds = %2
@@ -29041,7 +29041,7 @@ define linkonce_odr dso_local noundef nonnull ptr @_ZNK8nlohmann16json_abi_v3_11
 
 switch.lookup:                                    ; preds = %1
   %4 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE9type_nameEv, i64 %4
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE9type_nameEv, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %5
 
@@ -29983,7 +29983,7 @@ _ZNSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic
 
 _ZNSt12_Vector_baseIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES4_IhSaIhEEvEESaISE_EE11_M_allocateEm.exit.thread: ; preds = %_ZNSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaISD_EE17_S_check_init_lenEmRKSE_.exit
   store ptr null, ptr %0, align 8, !tbaa !541
-  %11 = getelementptr inbounds nuw %"class.nlohmann::json_abi_v3_11_3::basic_json", ptr null, i64 %8
+  %11 = getelementptr inbounds nuw [16 x i8], ptr null, i64 %8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %11, ptr %12, align 8, !tbaa !1136
   br label %_ZSt22__uninitialized_copy_aIPKN8nlohmann16json_abi_v3_11_36detail8json_refINS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEEPSG_SG_ET0_T_SM_SL_RSaIT1_E.exit
@@ -29992,7 +29992,7 @@ _ZNSt12_Vector_baseIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7
   %13 = shl nuw nsw i64 %8, 4
   %14 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %13) #28
   store ptr %14, ptr %0, align 8, !tbaa !541
-  %15 = getelementptr inbounds nuw %"class.nlohmann::json_abi_v3_11_3::basic_json", ptr %14, i64 %8
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %15, ptr %16, align 8, !tbaa !1136
   br label %.lr.ph.i.i.i.i

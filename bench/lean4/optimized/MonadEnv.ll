@@ -12540,7 +12540,7 @@ lean_dec.exit13:                                  ; preds = %22, %21, %19, %lean
 
 lean_dec.exit.i:                                  ; preds = %40, %39, %37, %31
   %41 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  %42 = getelementptr inbounds nuw ptr, ptr %41, i64 %28
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %28
   %43 = load ptr, ptr %42, align 8, !tbaa !10
   %44 = ptrtoint ptr %43 to i64
   %45 = trunc i64 %44 to i1

@@ -23,16 +23,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.list_head = type { ptr, ptr }
 %struct.tracepoint = type { ptr, %struct.static_key, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.mmu_notifier_range = type { ptr, i64, i64, i32, i32, ptr }
-%struct.pgd_t = type { i64 }
-%struct.p4d_t = type { i64 }
-%struct.pud_t = type { i64 }
-%struct.pmd_t = type { i64 }
-%struct.page = type { i64, %union.anon.22, %union.anon.30, %struct.atomic_t, [8 x i8] }
-%union.anon.22 = type { %struct.anon.23 }
-%struct.anon.23 = type { %union.anon.24, ptr, %union.anon.26, i64 }
-%union.anon.24 = type { %struct.list_head }
-%union.anon.26 = type { i64 }
-%union.anon.30 = type { %struct.atomic_t }
 %struct.pgprot = type { i64 }
 %struct.mmu_gather = type { ptr, ptr, i64, i64, i16, i32, ptr, %struct.mmu_gather_batch, [8 x ptr] }
 %struct.mmu_gather_batch = type { ptr, i32, i32, [0 x ptr] }
@@ -214,7 +204,7 @@ define dso_local i64 @change_protection(ptr noundef captures(none) %0, ptr nound
   %38 = zext nneg i32 %37 to i64
   %39 = lshr i64 %2, %38
   %40 = and i64 %39, 511
-  %41 = getelementptr %struct.pgd_t, ptr %36, i64 %40
+  %41 = getelementptr [8 x i8], ptr %36, i64 %40
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %43 = load i16, ptr %42, align 8
   %44 = and i16 %43, 1
@@ -305,7 +295,7 @@ define dso_local i64 @change_protection(ptr noundef captures(none) %0, ptr nound
   %104 = add i32 %103, -1
   %105 = zext i32 %104 to i64
   %106 = and i64 %102, %105
-  %107 = getelementptr %struct.p4d_t, ptr %101, i64 %106
+  %107 = getelementptr [8 x i8], ptr %101, i64 %106
   br label %108
 
 108:                                              ; preds = %96, %95
@@ -343,7 +333,7 @@ define dso_local i64 @change_protection(ptr noundef captures(none) %0, ptr nound
   %131 = inttoptr i64 %130 to ptr
   %132 = lshr i64 %114, 30
   %133 = and i64 %132, 511
-  %134 = getelementptr %struct.pud_t, ptr %131, i64 %133
+  %134 = getelementptr [8 x i8], ptr %131, i64 %133
   %135 = add i64 %119, -1
   br label %136
 
@@ -386,7 +376,7 @@ define dso_local i64 @change_protection(ptr noundef captures(none) %0, ptr nound
   %163 = inttoptr i64 %162 to ptr
   %164 = lshr i64 %139, 21
   %165 = and i64 %164, 511
-  %166 = getelementptr %struct.pmd_t, ptr %163, i64 %165
+  %166 = getelementptr [8 x i8], ptr %163, i64 %165
   %167 = add i64 %144, -1
   br label %168
 
@@ -737,7 +727,7 @@ can_change_pte_writable.exit:                     ; preds = %319
 372:                                              ; preds = %371, %368, %368
   %373 = phi i64 [ 17179869183, %371 ], [ 1099511627775, %368 ], [ 1099511627775, %368 ]
   %374 = and i64 %373, %365
-  %375 = getelementptr %struct.page, ptr %370, i64 %374
+  %375 = getelementptr [64 x i8], ptr %370, i64 %374
   %376 = getelementptr inbounds nuw i8, ptr %375, i64 8
   %377 = load volatile i64, ptr %376, align 8
   %378 = and i64 %377, 1

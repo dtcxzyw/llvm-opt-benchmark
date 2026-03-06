@@ -107,7 +107,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv.exit.i: ; pr
 .lr.ph.i:                                         ; preds = %.preheader.i, %296
   %.043142.i = phi i64 [ %297, %296 ], [ 0, %.preheader.i ]
   %23 = load ptr, ptr %2, align 8, !tbaa !21, !noalias !3
-  %24 = getelementptr inbounds nuw i32, ptr %23, i64 %.043142.i
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %.043142.i
   %25 = load i32, ptr %24, align 4, !tbaa !22
   %.fr137.i = freeze i32 %25
   %26 = icmp eq i32 %.fr137.i, 0
@@ -866,12 +866,12 @@ _ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit:            ; preds = %317
   %326 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %327 = add nuw nsw i64 %318, 37
   %328 = lshr i64 %320, 6
-  %329 = getelementptr inbounds nuw i64, ptr %323, i64 %328
+  %329 = getelementptr inbounds nuw [8 x i8], ptr %323, i64 %328
   store ptr %329, ptr %319, align 8, !tbaa !26
   store ptr %323, ptr %10, align 8
   store i32 0, ptr %326, align 8
   %.zext137 = lshr i64 %327, 6
-  %330 = getelementptr inbounds nuw i64, ptr %323, i64 %.zext137
+  %330 = getelementptr inbounds nuw [8 x i8], ptr %323, i64 %.zext137
   %331 = trunc nuw nsw i64 %327 to i32
   %332 = and i32 %331, 63
   store ptr %330, ptr %325, align 8
@@ -894,7 +894,7 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit134:          ; preds = %317
   %.not.i49 = icmp eq i32 %338, 0
   %339 = sdiv i32 %335, 64
   %.sext.i = sext i32 %339 to i64
-  %340 = getelementptr inbounds i64, ptr %323, i64 %.sext.i
+  %340 = getelementptr inbounds [8 x i8], ptr %323, i64 %.sext.i
   %341 = shl nuw i64 1, %indvars.iv.i
   br i1 %.not.i49, label %345, label %342
 
@@ -959,7 +959,7 @@ _ZN5ZXing4OneDL13AppendPatternERSt6vectorIbSaIbEEii.exit.preheader: ; preds = %_
   %368 = sub i32 %367, ptrtoint (ptr @_ZN5ZXing4OneDL8ALPHABETE to i32)
   %369 = sext i32 %368 to i64
   %370 = select i1 %.not.i56, i64 -1, i64 %369
-  %371 = getelementptr inbounds i32, ptr @_ZN5ZXing4OneDL19CHARACTER_ENCODINGSE, i64 %370
+  %371 = getelementptr inbounds [4 x i8], ptr @_ZN5ZXing4OneDL19CHARACTER_ENCODINGSE, i64 %370
   %372 = load i32, ptr %371, align 4, !tbaa !35
   br label %373
 
@@ -974,7 +974,7 @@ _ZN5ZXing4OneDL13AppendPatternERSt6vectorIbSaIbEEii.exit.preheader: ; preds = %_
   %379 = trunc nsw i64 %378 to i32
   %380 = sdiv i32 %379, 64
   %.sext.i59 = sext i32 %380 to i64
-  %381 = getelementptr inbounds i64, ptr %323, i64 %.sext.i59
+  %381 = getelementptr inbounds [8 x i8], ptr %323, i64 %.sext.i59
   %382 = and i64 %378, 63
   %383 = shl nuw i64 1, %382
   br i1 %.not.i58, label %387, label %384
@@ -1006,7 +1006,7 @@ _ZN5ZXing4OneDL13AppendPatternERSt6vectorIbSaIbEEii.exit66: ; preds = %_ZNSt14_B
 _ZN5ZXing4OneDL20ComputeChecksumIndexERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit: ; preds = %.lr.ph.i51
   %392 = srem i32 %359, 47
   %393 = sext i32 %392 to i64
-  %394 = getelementptr inbounds i32, ptr @_ZN5ZXing4OneDL19CHARACTER_ENCODINGSE, i64 %393
+  %394 = getelementptr inbounds [4 x i8], ptr @_ZN5ZXing4OneDL19CHARACTER_ENCODINGSE, i64 %393
   %395 = load i32, ptr %394, align 4, !tbaa !35
   %396 = and i64 %indvars.iv.next, 4294967295
   br label %397
@@ -1022,7 +1022,7 @@ _ZN5ZXing4OneDL20ComputeChecksumIndexERKNSt7__cxx1112basic_stringIcSt11char_trai
   %403 = trunc nsw i64 %402 to i32
   %404 = sdiv i32 %403, 64
   %.sext.i69 = sext i32 %404 to i64
-  %405 = getelementptr inbounds i64, ptr %323, i64 %.sext.i69
+  %405 = getelementptr inbounds [8 x i8], ptr %323, i64 %.sext.i69
   %406 = and i64 %402, 63
   %407 = shl nuw i64 1, %406
   br i1 %.not.i68, label %411, label %408
@@ -1119,7 +1119,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i77: ; 
 
 _ZN5ZXing4OneDL20ComputeChecksumIndexERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit91: ; preds = %._crit_edge.loopexit.i90, %425
   %.011.lcssa.i79 = phi i64 [ 0, %425 ], [ %434, %._crit_edge.loopexit.i90 ]
-  %446 = getelementptr inbounds i32, ptr @_ZN5ZXing4OneDL19CHARACTER_ENCODINGSE, i64 %.011.lcssa.i79
+  %446 = getelementptr inbounds [4 x i8], ptr @_ZN5ZXing4OneDL19CHARACTER_ENCODINGSE, i64 %.011.lcssa.i79
   %447 = load i32, ptr %446, align 4, !tbaa !35
   %448 = and i64 %415, 4294967295
   br label %449
@@ -1135,7 +1135,7 @@ _ZN5ZXing4OneDL20ComputeChecksumIndexERKNSt7__cxx1112basic_stringIcSt11char_trai
   %455 = trunc nsw i64 %454 to i32
   %456 = sdiv i32 %455, 64
   %.sext.i94 = sext i32 %456 to i64
-  %457 = getelementptr inbounds i64, ptr %323, i64 %.sext.i94
+  %457 = getelementptr inbounds [8 x i8], ptr %323, i64 %.sext.i94
   %458 = and i64 %454, 63
   %459 = shl nuw i64 1, %458
   br i1 %.not.i93, label %463, label %460
@@ -1174,7 +1174,7 @@ _ZN5ZXing4OneDL13AppendPatternERSt6vectorIbSaIbEEii.exit101: ; preds = %_ZNSt14_
   %475 = trunc nsw i64 %474 to i32
   %476 = sdiv i32 %475, 64
   %.sext.i104 = sext i32 %476 to i64
-  %477 = getelementptr inbounds i64, ptr %323, i64 %.sext.i104
+  %477 = getelementptr inbounds [8 x i8], ptr %323, i64 %.sext.i104
   %478 = and i64 %474, 63
   %479 = shl nuw i64 1, %478
   br i1 %.not.i103, label %483, label %480
@@ -1201,7 +1201,7 @@ _ZNSt14_Bit_referenceaSEb.exit.i107:              ; preds = %483, %480
   %488 = add nuw nsw i32 %350, 36
   %489 = lshr i32 %488, 6
   %.zext = zext nneg i32 %489 to i64
-  %490 = getelementptr inbounds nuw i64, ptr %323, i64 %.zext
+  %490 = getelementptr inbounds nuw [8 x i8], ptr %323, i64 %.zext
   %491 = and i32 %488, 63
   %492 = zext nneg i32 %491 to i64
   %493 = shl nuw i64 1, %492
@@ -1226,7 +1226,7 @@ _ZNSt14_Bit_referenceaSEb.exit.i107:              ; preds = %483, %480
   %504 = sub i64 %502, %503
   %505 = ashr exact i64 %504, 3
   %506 = sub nsw i64 0, %505
-  %507 = getelementptr inbounds i64, ptr %501, i64 %506
+  %507 = getelementptr inbounds [8 x i8], ptr %501, i64 %506
   call void @_ZdlPvm(ptr noundef %507, i64 noundef %504) #19
   br label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit
 
@@ -1267,7 +1267,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt
   %520 = sub i64 %518, %519
   %521 = ashr exact i64 %520, 3
   %522 = sub nsw i64 0, %521
-  %523 = getelementptr inbounds i64, ptr %517, i64 %522
+  %523 = getelementptr inbounds [8 x i8], ptr %517, i64 %522
   call void @_ZdlPvm(ptr noundef %523, i64 noundef %520) #19
   br label %.body
 

@@ -4,11 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %class.libraw_static_table_t = type <{ ptr, i32, [4 x i8] }>
-%struct.libraw_custom_camera_t = type { i32, i16, i16, i8, i8, i8, i8, i16, i8, i8, i8, [10 x i8], [20 x i8], i16 }
-%struct.tiff_ifd_t = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32, ptr, i32, i32, i32, i32, i32, i32, i32, float, i64, i64, i32, [2 x %struct.libraw_dng_color_t], %struct.libraw_dng_levels_t, i32 }
-%struct.libraw_dng_color_t = type { i32, i16, [4 x [4 x float]], [4 x [3 x float]], [3 x [4 x float]] }
-%struct.libraw_dng_levels_t = type { i32, [4104 x i32], i32, [4104 x float], float, [4 x i32], [4 x i16], [4 x float], i32, [4 x float], [4 x float], float, float }
-%struct.libraw_raw_inset_crop_t = type { i16, i16, i16, i16 }
 
 $_ZTI17LibRaw_exceptions = comdat any
 
@@ -185,7 +180,7 @@ define noundef i32 @_ZN6LibRaw20parse_custom_camerasEjP22libraw_custom_camera_tP
   %.080109 = phi i32 [ 0, %.lr.ph ], [ %.181, %102 ]
   %.082108 = phi i32 [ 0, %.lr.ph ], [ %103, %102 ]
   %9 = zext i32 %.082108 to i64
-  %10 = getelementptr inbounds nuw ptr, ptr %3, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !11
   %.not88 = icmp eq ptr %11, null
   br i1 %.not88, label %.loopexit, label %12
@@ -215,7 +210,7 @@ define noundef i32 @_ZN6LibRaw20parse_custom_camerasEjP22libraw_custom_camera_tP
 
 23:                                               ; preds = %22, %.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %22 ]
-  %24 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv.i.i.i
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv.i.i.i
   %25 = load ptr, ptr %24, align 8, !tbaa !19
   %.not10.i.i.i = icmp eq ptr %25, null
   br i1 %.not10.i.i.i, label %_ZN6LibRaw6mallocEm.exit, label %22
@@ -243,12 +238,12 @@ _ZN13libraw_memmgr6mallocEm.exit.thread.i:        ; preds = %15
   unreachable
 
 _ZN6LibRaw6mallocEm.exit:                         ; preds = %23
-  %33 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv.i.i.i
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv.i.i.i
   store ptr %20, ptr %33, align 8, !tbaa !19
   %34 = load ptr, ptr %10, align 8, !tbaa !11
   %35 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(1) %34) #31
   %36 = zext i32 %.080109 to i64
-  %37 = getelementptr inbounds nuw %struct.libraw_custom_camera_t, ptr %2, i64 %36
+  %37 = getelementptr inbounds nuw [52 x i8], ptr %2, i64 %36
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %37, i8 0, i64 52, i1 false)
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 48
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 27
@@ -276,13 +271,13 @@ _ZN6LibRaw6mallocEm.exit:                         ; preds = %23
 
 53:                                               ; preds = %52, %.preheader.i.i.i94
   %indvars.iv.i.i.i95 = phi i64 [ 0, %.preheader.i.i.i94 ], [ %indvars.iv.next.i.i.i96, %52 ]
-  %54 = getelementptr inbounds nuw ptr, ptr %51, i64 %indvars.iv.i.i.i95
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %indvars.iv.i.i.i95
   %55 = load ptr, ptr %54, align 8, !tbaa !19
   %56 = icmp eq ptr %55, %20
   br i1 %56, label %57, label %52
 
 57:                                               ; preds = %53
-  %58 = getelementptr inbounds nuw ptr, ptr %51, i64 %indvars.iv.i.i.i95
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %indvars.iv.i.i.i95
   store ptr null, ptr %58, align 8, !tbaa !19
   br label %_ZN6LibRaw4freeEPv.exit
 
@@ -449,7 +444,7 @@ define noundef nonnull ptr @_ZN6LibRaw6mallocEm(ptr noundef nonnull readonly ali
 
 11:                                               ; preds = %10, %.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next.i.i, %10 ]
-  %12 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv.i.i
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i.i
   %13 = load ptr, ptr %12, align 8, !tbaa !19
   %.not10.i.i = icmp eq ptr %13, null
   br i1 %.not10.i.i, label %_ZN13libraw_memmgr6mallocEm.exit, label %10
@@ -471,7 +466,7 @@ define noundef nonnull ptr @_ZN6LibRaw6mallocEm(ptr noundef nonnull readonly ali
   unreachable
 
 _ZN13libraw_memmgr6mallocEm.exit:                 ; preds = %11
-  %20 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv.i.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i.i
   store ptr %7, ptr %20, align 8, !tbaa !19
   ret ptr %7
 
@@ -517,13 +512,13 @@ define void @_ZN6LibRaw4freeEPv(ptr noundef nonnull readonly align 8 captures(no
 
 6:                                                ; preds = %5, %.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next.i.i, %5 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.i.i
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i.i
   %8 = load ptr, ptr %7, align 8, !tbaa !19
   %9 = icmp eq ptr %8, %1
   br i1 %9, label %10, label %5
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.i.i
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i.i
   store ptr null, ptr %11, align 8, !tbaa !19
   br label %_ZN13libraw_memmgr4freeEPv.exit
 
@@ -801,13 +796,13 @@ define noundef nonnull ptr @_ZN6LibRaw7reallocEPvm(ptr noundef nonnull readonly 
 
 12:                                               ; preds = %11, %.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next.i.i, %11 ]
-  %13 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv.i.i
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i.i
   %14 = load ptr, ptr %13, align 8, !tbaa !19
   %15 = icmp eq ptr %14, %1
   br i1 %15, label %16, label %11
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv.i.i
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i.i
   store ptr null, ptr %17, align 8, !tbaa !19
   br label %_ZN13libraw_memmgr10forget_ptrEPv.exit.i
 
@@ -826,7 +821,7 @@ _ZN13libraw_memmgr10forget_ptrEPv.exit.i:         ; preds = %11, %16, %3
 
 20:                                               ; preds = %19, %.preheader.i6.i
   %indvars.iv.i7.i = phi i64 [ 0, %.preheader.i6.i ], [ %indvars.iv.next.i8.i, %19 ]
-  %21 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv.i7.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv.i7.i
   %22 = load ptr, ptr %21, align 8, !tbaa !19
   %.not10.i.i = icmp eq ptr %22, null
   br i1 %.not10.i.i, label %_ZN13libraw_memmgr7reallocEPvm.exit, label %19
@@ -848,7 +843,7 @@ _ZN13libraw_memmgr10forget_ptrEPv.exit.i:         ; preds = %11, %16, %3
   unreachable
 
 _ZN13libraw_memmgr7reallocEPvm.exit:              ; preds = %20
-  %29 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv.i7.i
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv.i7.i
   store ptr %9, ptr %29, align 8, !tbaa !19
   ret ptr %9
 
@@ -885,7 +880,7 @@ define noundef nonnull ptr @_ZN6LibRaw6callocEmm(ptr noundef nonnull readonly al
 
 16:                                               ; preds = %15, %.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next.i.i, %15 ]
-  %17 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv.i.i
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv.i.i
   %18 = load ptr, ptr %17, align 8, !tbaa !19
   %.not10.i.i = icmp eq ptr %18, null
   br i1 %.not10.i.i, label %_ZN13libraw_memmgr6callocEmm.exit, label %15
@@ -907,7 +902,7 @@ define noundef nonnull ptr @_ZN6LibRaw6callocEmm(ptr noundef nonnull readonly al
   unreachable
 
 _ZN13libraw_memmgr6callocEmm.exit:                ; preds = %16
-  %25 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv.i.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv.i.i
   store ptr %12, ptr %25, align 8, !tbaa !19
   ret ptr %12
 
@@ -985,7 +980,7 @@ define noundef range(i32 0, 2) i32 @_ZN6LibRaw15is_curve_linearEv(ptr noundef no
 
 4:                                                ; preds = %1, %3
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %3 ]
-  %5 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv
   %6 = load i16, ptr %5, align 2, !tbaa !107
   %7 = zext i16 %6 to i64
   %.not = icmp eq i64 %indvars.iv, %7
@@ -1015,13 +1010,13 @@ define void @_ZN6LibRaw10free_imageEv(ptr noundef nonnull align 8 captures(none)
 
 7:                                                ; preds = %6, %.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %6 ]
-  %8 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv.i.i.i
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.i.i.i
   %9 = load ptr, ptr %8, align 8, !tbaa !19
   %10 = icmp eq ptr %9, %3
   br i1 %10, label %11, label %6
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv.i.i.i
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.i.i.i
   store ptr null, ptr %12, align 8, !tbaa !19
   br label %_ZN6LibRaw4freeEPv.exit
 
@@ -1339,7 +1334,7 @@ define void @_ZN6LibRaw9adjust_blEv(ptr noundef nonnull align 8 captures(none) d
 
 12:                                               ; preds = %.outer, %16
   %indvars.iv = phi i64 [ %indvars.iv.next, %16 ], [ %indvars.iv.ph, %.outer ]
-  %13 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4, !tbaa !122
   %15 = icmp sgt i32 %14, -1000000
   br i1 %15, label %.thread141, label %16
@@ -1350,7 +1345,7 @@ define void @_ZN6LibRaw9adjust_blEv(ptr noundef nonnull align 8 captures(none) d
   br i1 %exitcond.not, label %11, label %12, !llvm.loop !123
 
 .thread141:                                       ; preds = %12
-  %17 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv
   store i32 %14, ptr %17, align 4, !tbaa !122
   %indvars.iv.next143 = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not144 = icmp eq i64 %indvars.iv.next143, 4
@@ -1406,7 +1401,7 @@ define void @_ZN6LibRaw9adjust_blEv(ptr noundef nonnull align 8 captures(none) d
   %39 = shl i32 %indvars.iv107.tr, 1
   %40 = lshr i32 %22, %39
   %41 = and i32 %40, 3
-  %42 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv107
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv107
   store i32 %41, ptr %42, align 4, !tbaa !122
   %43 = icmp eq i32 %41, 1
   %44 = trunc nuw nsw i64 %indvars.iv107 to i32
@@ -1419,7 +1414,7 @@ define void @_ZN6LibRaw9adjust_blEv(ptr noundef nonnull align 8 captures(none) d
 
 46:                                               ; preds = %35
   %47 = zext nneg i32 %spec.select to i64
-  %48 = getelementptr inbounds nuw i32, ptr %2, i64 %47
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %47
   store i32 3, ptr %48, align 4, !tbaa !122
   br label %.preheader161
 
@@ -1442,12 +1437,12 @@ define void @_ZN6LibRaw9adjust_blEv(ptr noundef nonnull align 8 captures(none) d
   %59 = urem i32 %58, %55
   %60 = add i32 %57, %59
   %61 = zext i32 %60 to i64
-  %62 = getelementptr inbounds nuw i32, ptr %10, i64 %61
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %61
   %63 = load i32, ptr %62, align 4, !tbaa !122
-  %64 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv111
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv111
   %65 = load i32, ptr %64, align 4, !tbaa !122
   %66 = sext i32 %65 to i64
-  %67 = getelementptr inbounds i32, ptr %10, i64 %66
+  %67 = getelementptr inbounds [4 x i8], ptr %10, i64 %66
   %68 = load i32, ptr %67, align 4, !tbaa !122
   %69 = add i32 %68, %63
   store i32 %69, ptr %67, align 4, !tbaa !122
@@ -1477,7 +1472,7 @@ define void @_ZN6LibRaw9adjust_blEv(ptr noundef nonnull align 8 captures(none) d
 78:                                               ; preds = %.preheader83, %78
   %indvars.iv103 = phi i64 [ 0, %.preheader83 ], [ %indvars.iv.next104, %78 ]
   %79 = load i32, ptr %76, align 8, !tbaa !122
-  %80 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv103
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv103
   %81 = load i32, ptr %80, align 4, !tbaa !122
   %82 = add i32 %81, %79
   store i32 %82, ptr %80, align 4, !tbaa !122
@@ -1493,7 +1488,7 @@ define void @_ZN6LibRaw9adjust_blEv(ptr noundef nonnull align 8 captures(none) d
 85:                                               ; preds = %.thread, %85
   %indvars.iv115 = phi i64 [ 0, %.thread ], [ %indvars.iv.next116, %85 ]
   %.05491 = phi i32 [ %84, %.thread ], [ %spec.select79, %85 ]
-  %86 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv115
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv115
   %87 = load i32, ptr %86, align 4, !tbaa !122
   %spec.select79 = tail call i32 @llvm.smin.i32(i32 %.05491, i32 %87)
   %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
@@ -1502,7 +1497,7 @@ define void @_ZN6LibRaw9adjust_blEv(ptr noundef nonnull align 8 captures(none) d
 
 .preheader82:                                     ; preds = %85, %.preheader82
   %indvars.iv119 = phi i64 [ %indvars.iv.next120, %.preheader82 ], [ 0, %85 ]
-  %88 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv119
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv119
   %89 = load i32, ptr %88, align 4, !tbaa !122
   %90 = sub i32 %89, %spec.select79
   store i32 %90, ptr %88, align 4, !tbaa !122
@@ -1554,7 +1549,7 @@ define void @_ZN6LibRaw9adjust_blEv(ptr noundef nonnull align 8 captures(none) d
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv123 = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next124, %.lr.ph ]
   %.25694 = phi i32 [ %102, %.lr.ph.preheader ], [ %spec.select80, %.lr.ph ]
-  %107 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv123
+  %107 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv123
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 24
   %109 = load i32, ptr %108, align 4, !tbaa !122
   %spec.select80 = tail call i32 @llvm.smin.i32(i32 %.25694, i32 %109)
@@ -1565,7 +1560,7 @@ define void @_ZN6LibRaw9adjust_blEv(ptr noundef nonnull align 8 captures(none) d
 .lr.ph99:                                         ; preds = %.lr.ph99.preheader, %.lr.ph99
   %indvars.iv127 = phi i64 [ 0, %.lr.ph99.preheader ], [ %indvars.iv.next128, %.lr.ph99 ]
   %.098 = phi i32 [ 0, %.lr.ph99.preheader ], [ %spec.select81, %.lr.ph99 ]
-  %110 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv127
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv127
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 24
   %112 = load i32, ptr %111, align 4, !tbaa !122
   %113 = sub i32 %112, %.256.lcssa150
@@ -1595,7 +1590,7 @@ define void @_ZN6LibRaw9adjust_blEv(ptr noundef nonnull align 8 captures(none) d
 118:                                              ; preds = %.preheader160, %118
   %indvars.iv132 = phi i64 [ %indvars.iv.next133, %118 ], [ 0, %.preheader160 ]
   %119 = load i32, ptr %92, align 8, !tbaa !121
-  %120 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv132
+  %120 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv132
   %121 = load i32, ptr %120, align 4, !tbaa !122
   %122 = add i32 %121, %119
   store i32 %122, ptr %120, align 4, !tbaa !122
@@ -1636,7 +1631,7 @@ define noundef i32 @_ZN6LibRaw8getwordsEPcPS0_ii(ptr noundef %0, ptr noundef wri
   br i1 %15, label %.split.loop.exit30, label %16
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   store ptr %.1, ptr %17, align 8, !tbaa !11
   br label %18
 
@@ -1707,7 +1702,7 @@ define noundef range(i32 -1, 10) i32 @_ZN6LibRaw18find_ifd_by_offsetEi(ptr nound
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %9 ]
-  %5 = getelementptr inbounds nuw %struct.tiff_ifd_t, ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [33408 x i8], ptr %0, i64 %indvars.iv
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 433356
   %7 = load i32, ptr %6, align 4, !tbaa !137
   %8 = icmp eq i32 %7, %1
@@ -1760,7 +1755,7 @@ define noundef signext range(i16 -2, 1) i16 @_ZN6LibRaw9tiff_sgetEjPhjPxPjS2_S1_
 30:                                               ; preds = %16
   %31 = load ptr, ptr @_ZN6LibRaw22tagtype_dataunit_bytesE, align 8, !tbaa !143
   %32 = zext i32 %spec.select to i64
-  %33 = getelementptr inbounds nuw i32, ptr %31, i64 %32
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %32
   %34 = load i32, ptr %33, align 4, !tbaa !122
   br label %_ZNK21libraw_static_table_tixEj.exit
 
@@ -1847,7 +1842,7 @@ define noundef range(i32 0, 3) i32 @_ZN6LibRaw24adjust_to_raw_inset_cropEjf(ptr 
   br i1 %.not, label %43, label %25
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds nuw %struct.libraw_raw_inset_crop_t, ptr %15, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 2
   %28 = load i16, ptr %27, align 8, !tbaa !146
   %29 = zext i16 %28 to i32
@@ -1887,7 +1882,7 @@ define noundef range(i32 0, 3) i32 @_ZN6LibRaw24adjust_to_raw_inset_cropEjf(ptr 
 
 44:                                               ; preds = %38
   %45 = and i64 %indvars.iv, 4294967295
-  %46 = getelementptr inbounds nuw %struct.libraw_raw_inset_crop_t, ptr %15, i64 %45
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %45
   %47 = load i16, ptr %46, align 2, !tbaa !148
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 26
   store i16 %47, ptr %48, align 2, !tbaa !152
@@ -1963,7 +1958,7 @@ define noundef nonnull ptr @_ZN6LibRaw18malloc_omp_buffersEim(ptr noundef nonnul
 
 16:                                               ; preds = %15, %.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %15 ]
-  %17 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv.i.i.i
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv.i.i.i
   %18 = load ptr, ptr %17, align 8, !tbaa !19
   %.not10.i.i.i = icmp eq ptr %18, null
   br i1 %.not10.i.i.i, label %_ZN6LibRaw6callocEmm.exit, label %15
@@ -1991,9 +1986,9 @@ _ZN13libraw_memmgr6callocEmm.exit.thread.i:       ; preds = %12
   unreachable
 
 _ZN6LibRaw6callocEmm.exit:                        ; preds = %16
-  %26 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv.i.i.i
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv.i.i.i
   store ptr %13, ptr %26, align 8, !tbaa !19
-  %27 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   store ptr %13, ptr %27, align 8, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2026,13 +2021,13 @@ define void @_ZN6LibRaw16free_omp_buffersEPPci(ptr noundef nonnull readonly alig
 
 9:                                                ; preds = %8, %.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %8 ]
-  %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.i.i.i
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv.i.i.i
   %11 = load ptr, ptr %10, align 8, !tbaa !19
   %12 = icmp eq ptr %11, %1
   br i1 %12, label %13, label %8
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.i.i.i
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv.i.i.i
   store ptr null, ptr %14, align 8, !tbaa !19
   br label %_ZN6LibRaw4freeEPv.exit
 
@@ -2042,7 +2037,7 @@ _ZN6LibRaw4freeEPv.exit:                          ; preds = %8, %._crit_edge, %1
 
 15:                                               ; preds = %.lr.ph, %26
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %26 ]
-  %16 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8, !tbaa !11
   %.not = icmp eq ptr %17, null
   br i1 %.not, label %26, label %.preheader.i.i.i10
@@ -2058,13 +2053,13 @@ _ZN6LibRaw4freeEPv.exit:                          ; preds = %8, %._crit_edge, %1
 
 20:                                               ; preds = %19, %.preheader.i.i.i10
   %indvars.iv.i.i.i11 = phi i64 [ 0, %.preheader.i.i.i10 ], [ %indvars.iv.next.i.i.i12, %19 ]
-  %21 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv.i.i.i11
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv.i.i.i11
   %22 = load ptr, ptr %21, align 8, !tbaa !19
   %23 = icmp eq ptr %22, %17
   br i1 %23, label %24, label %19
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv.i.i.i11
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv.i.i.i11
   store ptr null, ptr %25, align 8, !tbaa !19
   br label %_ZN6LibRaw4freeEPv.exit14
 

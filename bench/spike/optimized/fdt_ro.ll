@@ -3,8 +3,6 @@ source_filename = "bench/spike/original/fdt_ro.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.fdt_reserve_entry = type { i64, i64 }
-
 @.str = private unnamed_addr constant [8 x i8] c"phandle\00", align 1
 @.str.1 = private unnamed_addr constant [14 x i8] c"linux,phandle\00", align 1
 @.str.2 = private unnamed_addr constant [9 x i8] c"/aliases\00", align 1
@@ -514,7 +512,7 @@ define range(i32 -2147483648, 1) i32 @fdt_get_mem_rsv(ptr noundef %0, i32 nounde
   %61 = zext i8 %24 to i64
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 %61
   %63 = sext i32 %1 to i64
-  %64 = getelementptr inbounds %struct.fdt_reserve_entry, ptr %62, i64 %63
+  %64 = getelementptr inbounds [16 x i8], ptr %62, i64 %63
   %65 = load i8, ptr %64, align 1, !tbaa !3
   %66 = zext i8 %65 to i64
   %67 = shl nuw i64 %66, 56
@@ -660,7 +658,7 @@ define i32 @fdt_num_mem_rsv(ptr noundef readonly captures(none) %0) local_unname
   br i1 %51, label %fdt_mem_rsv.exit.thread.split, label %52
 
 52:                                               ; preds = %.split
-  %53 = getelementptr inbounds nuw %struct.fdt_reserve_entry, ptr %48, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [16 x i8], ptr %48, i64 %indvars.iv
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %55 = load i8, ptr %54, align 1, !tbaa !3
   %56 = getelementptr inbounds nuw i8, ptr %53, i64 9
@@ -3204,7 +3202,7 @@ define i32 @fdt_check_full(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0
   br i1 %62, label %fdt_num_mem_rsv.exit.thread, label %63
 
 63:                                               ; preds = %.split.i
-  %64 = getelementptr inbounds nuw %struct.fdt_reserve_entry, ptr %59, i64 %indvars.iv.i
+  %64 = getelementptr inbounds nuw [16 x i8], ptr %59, i64 %indvars.iv.i
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %66 = load i8, ptr %65, align 1, !tbaa !3
   %67 = getelementptr inbounds nuw i8, ptr %64, i64 9

@@ -643,7 +643,7 @@ define internal void @eeepc_acpi_notify(ptr noundef %0, i32 noundef %1) #3 align
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 14
   %8 = zext nneg i32 %1 to i64
-  %9 = getelementptr i16, ptr %7, i64 %8
+  %9 = getelementptr [2 x i8], ptr %7, i64 %8
   %10 = load i16, ptr %9, align 2
   %11 = add i16 %10, 1
   store i16 %11, ptr %9, align 2
@@ -1863,7 +1863,7 @@ define internal fastcc i32 @eeepc_new_rfkill(ptr noundef nonnull readonly captur
   %7 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = zext nneg i32 %4 to i64
-  %9 = getelementptr ptr, ptr @cm_setv, i64 %8
+  %9 = getelementptr [8 x i8], ptr @cm_setv, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = shl nuw nsw i64 1, %8
   %12 = and i64 %11, 59173100
@@ -1900,7 +1900,7 @@ define internal fastcc i32 @eeepc_new_rfkill(ptr noundef nonnull readonly captur
   br i1 %32, label %.thread, label %33
 
 33:                                               ; preds = %26
-  %34 = getelementptr ptr, ptr @cm_getv, i64 %8
+  %34 = getelementptr [8 x i8], ptr @cm_getv, i64 %8
   %35 = load ptr, ptr %34, align 8
   %36 = and i64 %11, 1280
   %37 = icmp eq i64 %36, 0

@@ -14,7 +14,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.zmq::atomic_counter_t" = type { %"struct.std::atomic", [4 x i8] }
 %"struct.std::atomic" = type { %"struct.std::__atomic_base" }
 %"struct.std::__atomic_base" = type { i32 }
-%"class.std::chrono::duration" = type { i64 }
 
 $_Z16benchmark_lookupIN3zmq6trie_tEEvRT_RSt6vectorIPhSaIS5_EE = comdat any
 
@@ -122,7 +121,7 @@ _ZNKSt6vectorIPhSaIS0_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %16
 
 _ZNSt6vectorIPhSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i: ; preds = %31, %.noexc38
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.063.1102) #14
-  %32 = getelementptr inbounds nuw ptr, ptr %28, i64 %26
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %26
   br label %_ZNSt6vectorIPhSaIS0_EE12emplace_backIJRS0_EEEvDpOT_.exit
 
 .loopexit83:                                      ; preds = %11, %_ZNKSt6vectorIPhSaIS0_EE12_M_check_lenEmPKc.exit.i.i
@@ -179,7 +178,7 @@ _ZNSt6vectorIPhSaIS0_EE12emplace_backIJRS0_EEEvDpOT_.exit: ; preds = %_ZNSt6vect
   %.lhs.trunc76 = trunc nuw nsw i64 %48 to i32
   %49 = urem i32 %.lhs.trunc76, 10000
   %.zext77 = zext nneg i32 %49 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr %.sroa.063.4, i64 %.zext77
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.063.4, i64 %.zext77
   %.not.i39 = icmp eq ptr %44, %45
   br i1 %.not.i39, label %53, label %51
 
@@ -231,7 +230,7 @@ _ZNKSt6vectorIPhSaIS0_EE12_M_check_lenEmPKc.exit.i.i40: ; preds = %53
 
 _ZNSt6vectorIPhSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i: ; preds = %69, %.noexc46
   tail call void @_ZdlPv(ptr noundef nonnull %46) #14
-  %70 = getelementptr inbounds nuw ptr, ptr %65, i64 %63
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %63
   br label %_ZNSt6vectorIPhSaIS0_EE9push_backERKS0_.exit
 
 _ZNSt6vectorIPhSaIS0_EE9push_backERKS0_.exit:     ; preds = %_ZNSt6vectorIPhSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i, %51
@@ -550,7 +549,7 @@ _ZNKSt6vectorINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEESaIS4_EE12_M_che
 
 _ZNSt6vectorINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i: ; preds = %51, %.noexc32
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.054.195) #14
-  %52 = getelementptr inbounds nuw %"class.std::chrono::duration", ptr %48, i64 %46
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %46
   br label %_ZNSt6vectorINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEESaIS4_EE9push_backEOS4_.exit
 
 _ZNSt6vectorINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEESaIS4_EE9push_backEOS4_.exit: ; preds = %_ZNSt6vectorINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i, %35
@@ -736,7 +735,7 @@ _ZNKSt6vectorINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEESaIS4_EE12_M_che
 
 _ZNSt6vectorINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i: ; preds = %51, %.noexc32
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.054.195) #14
-  %52 = getelementptr inbounds nuw %"class.std::chrono::duration", ptr %48, i64 %46
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %46
   br label %_ZNSt6vectorINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEESaIS4_EE9push_backEOS4_.exit
 
 _ZNSt6vectorINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEESaIS4_EE9push_backEOS4_.exit: ; preds = %_ZNSt6vectorINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i, %35

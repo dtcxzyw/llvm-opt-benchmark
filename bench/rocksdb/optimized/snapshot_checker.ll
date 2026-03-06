@@ -443,7 +443,7 @@ _ZNKSt3setImSt4lessImESaImEE4findERKm.exit:       ; preds = %_ZNKSt8_Rb_treeImmS
   %80 = load i64, ptr %28, align 8, !tbaa !154
   %81 = urem i64 %53, %80
   %82 = load ptr, ptr %27, align 8, !tbaa !155
-  %83 = getelementptr inbounds nuw ptr, ptr %82, i64 %81
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %82, i64 %81
   %84 = load ptr, ptr %83, align 8, !tbaa !156
   %.not.i.i.i.i = icmp eq ptr %84, null
   br i1 %.not.i.i.i.i, label %_ZNKSt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEE4findERS5_.exit.thread, label %85
@@ -817,7 +817,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEElEvRT_T0_.exit
   %.013.i = phi i64 [ %7, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEElEvRT_T0_.exit.i ]
   %.sroa.011.012.i = phi ptr [ %0, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEElEvRT_T0_.exit.lr.ph.i ], [ %.sroa.011.1.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEElEvRT_T0_.exit.i ]
   %10 = lshr i64 %.013.i, 1
-  %11 = getelementptr inbounds nuw i64, ptr %.sroa.011.012.i, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.011.012.i, i64 %10
   %12 = load i64, ptr %11, align 8, !tbaa !27
   %13 = icmp ult i64 %12, %9
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 8

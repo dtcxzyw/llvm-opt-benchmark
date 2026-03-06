@@ -179,7 +179,7 @@ truemotion2rt_decode_header.exit.thread:          ; preds = %11, %19, %21, %._cr
 
 .preheader230.lr.ph:                              ; preds = %76
   %85 = sext i32 %82 to i64
-  %86 = getelementptr inbounds ptr, ptr @delta_tabs, i64 %85
+  %86 = getelementptr inbounds [8 x i8], ptr @delta_tabs, i64 %85
   %87 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %88 = load i32, ptr %43, align 8, !tbaa !38
   %89 = icmp sgt i32 %88, 0
@@ -221,7 +221,7 @@ truemotion2rt_decode_header.exit.thread:          ; preds = %11, %19, %21, %._cr
   %108 = tail call i32 @llvm.umin.i32(i32 %96, i32 %107)
   store i32 %108, ptr %72, align 8, !tbaa !44
   %109 = zext i32 %106 to i64
-  %110 = getelementptr inbounds nuw i16, ptr %93, i64 %109
+  %110 = getelementptr inbounds nuw [2 x i8], ptr %93, i64 %109
   %111 = load i16, ptr %110, align 2, !tbaa !47
   %112 = sext i16 %111 to i32
   %113 = add nsw i32 %.0177232.us, %112
@@ -259,7 +259,7 @@ truemotion2rt_decode_header.exit.thread:          ; preds = %11, %19, %21, %._cr
   %136 = tail call i32 @llvm.umin.i32(i32 %124, i32 %135)
   store i32 %136, ptr %72, align 8, !tbaa !44
   %137 = zext i32 %134 to i64
-  %138 = getelementptr inbounds nuw i16, ptr %93, i64 %137
+  %138 = getelementptr inbounds nuw [2 x i8], ptr %93, i64 %137
   %139 = load i16, ptr %138, align 2, !tbaa !47
   %140 = sext i16 %139 to i32
   %141 = add nsw i32 %.0177232, %140
@@ -426,7 +426,7 @@ truemotion2rt_decode_header.exit.thread:          ; preds = %11, %19, %21, %._cr
 .preheader226.lr.ph:                              ; preds = %._crit_edge247
   %222 = load ptr, ptr %220, align 8, !tbaa !45
   %223 = sext i32 %82 to i64
-  %224 = getelementptr inbounds ptr, ptr @delta_tabs, i64 %223
+  %224 = getelementptr inbounds [8 x i8], ptr @delta_tabs, i64 %223
   %225 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %.pre300 = load i32, ptr %43, align 8, !tbaa !38
   br label %.preheader226
@@ -463,7 +463,7 @@ truemotion2rt_decode_header.exit.thread:          ; preds = %11, %19, %21, %._cr
   %243 = tail call i32 @llvm.umin.i32(i32 %231, i32 %242)
   store i32 %243, ptr %72, align 8, !tbaa !44
   %244 = zext i32 %241 to i64
-  %245 = getelementptr inbounds nuw i16, ptr %228, i64 %244
+  %245 = getelementptr inbounds nuw [2 x i8], ptr %228, i64 %244
   %246 = load i16, ptr %245, align 2, !tbaa !47
   %247 = sext i16 %246 to i32
   %248 = add nsw i32 %.0176249.us, %247
@@ -503,7 +503,7 @@ truemotion2rt_decode_header.exit.thread:          ; preds = %11, %19, %21, %._cr
   %273 = tail call i32 @llvm.umin.i32(i32 %261, i32 %272)
   store i32 %273, ptr %72, align 8, !tbaa !44
   %274 = zext i32 %271 to i64
-  %275 = getelementptr inbounds nuw i16, ptr %228, i64 %274
+  %275 = getelementptr inbounds nuw [2 x i8], ptr %228, i64 %274
   %276 = load i16, ptr %275, align 2, !tbaa !47
   %277 = sext i16 %276 to i32
   %278 = add nsw i32 %.0176249, %277
@@ -656,7 +656,7 @@ truemotion2rt_decode_header.exit.thread:          ; preds = %11, %19, %21, %._cr
 .preheader222.lr.ph:                              ; preds = %._crit_edge266
   %357 = load ptr, ptr %355, align 8, !tbaa !45
   %358 = sext i32 %82 to i64
-  %359 = getelementptr inbounds ptr, ptr @delta_tabs, i64 %358
+  %359 = getelementptr inbounds [8 x i8], ptr @delta_tabs, i64 %358
   %360 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %.pre305 = load i32, ptr %43, align 8, !tbaa !38
   br label %.preheader222
@@ -693,7 +693,7 @@ truemotion2rt_decode_header.exit.thread:          ; preds = %11, %19, %21, %._cr
   %378 = tail call i32 @llvm.umin.i32(i32 %366, i32 %377)
   store i32 %378, ptr %72, align 8, !tbaa !44
   %379 = zext i32 %376 to i64
-  %380 = getelementptr inbounds nuw i16, ptr %363, i64 %379
+  %380 = getelementptr inbounds nuw [2 x i8], ptr %363, i64 %379
   %381 = load i16, ptr %380, align 2, !tbaa !47
   %382 = sext i16 %381 to i32
   %383 = add nsw i32 %.0268.us, %382
@@ -733,7 +733,7 @@ truemotion2rt_decode_header.exit.thread:          ; preds = %11, %19, %21, %._cr
   %408 = tail call i32 @llvm.umin.i32(i32 %396, i32 %407)
   store i32 %408, ptr %72, align 8, !tbaa !44
   %409 = zext i32 %406 to i64
-  %410 = getelementptr inbounds nuw i16, ptr %363, i64 %409
+  %410 = getelementptr inbounds nuw [2 x i8], ptr %363, i64 %409
   %411 = load i16, ptr %410, align 2, !tbaa !47
   %412 = sext i16 %411 to i32
   %413 = add nsw i32 %.0268, %412

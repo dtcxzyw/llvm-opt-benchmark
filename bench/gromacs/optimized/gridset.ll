@@ -4,39 +4,12 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.ident_t = type { i32, i32, i32, i32, ptr }
-%"struct.gmx::GridWork" = type { %"class.std::vector.7", %"class.std::vector.7" }
-%"class.std::vector.7" = type { %"struct.std::_Vector_base.8" }
-%"struct.std::_Vector_base.8" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" }
-%"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.gmx::Grid" = type <{ %"struct.gmx::Grid::Geometry", i32, %"struct.gmx::GridDimensions", i32, i32, i32, i32, i32, [4 x i8], %"class.std::vector.0", %"class.std::vector.0", %"class.std::vector.7", %"class.std::vector.13", %"class.std::vector.18", %"class.std::vector.18", %"class.gmx::ArrayRef", %"class.std::vector.21", ptr, %"class.std::vector.7", %"class.std::vector.24", i32, [4 x i8] }>
-%"struct.gmx::Grid::Geometry" = type { i8, i32, i32, i32, i32, i32 }
-%"struct.gmx::GridDimensions" = type { %"class.gmx::BasicVector.12", %"class.gmx::BasicVector.12", %"class.gmx::BasicVector.12", float, float, [2 x float], [2 x float], [2 x i32] }
-%"class.gmx::BasicVector.12" = type { [3 x float] }
 %"class.std::vector.0" = type { %"struct.std::_Vector_base.1" }
 %"struct.std::_Vector_base.1" = type { %"struct.std::_Vector_base<int, gmx::Allocator<int, gmx::HostAllocationPolicy>>::_Vector_impl" }
 %"struct.std::_Vector_base<int, gmx::Allocator<int, gmx::HostAllocationPolicy>>::_Vector_impl" = type { %"class.gmx::Allocator.base", %"struct.std::_Vector_base<int, gmx::Allocator<int, gmx::HostAllocationPolicy>>::_Vector_impl_data" }
 %"class.gmx::Allocator.base" = type { %"class.gmx::HostAllocationPolicy.base" }
 %"class.gmx::HostAllocationPolicy.base" = type <{ i32, i8 }>
 %"struct.std::_Vector_base<int, gmx::Allocator<int, gmx::HostAllocationPolicy>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.13" = type { %"struct.std::_Vector_base.14" }
-%"struct.std::_Vector_base.14" = type { %"struct.std::_Vector_base<gmx::BoundingBox1D, std::allocator<gmx::BoundingBox1D>>::_Vector_impl" }
-%"struct.std::_Vector_base<gmx::BoundingBox1D, std::allocator<gmx::BoundingBox1D>>::_Vector_impl" = type { %"struct.std::_Vector_base<gmx::BoundingBox1D, std::allocator<gmx::BoundingBox1D>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<gmx::BoundingBox1D, std::allocator<gmx::BoundingBox1D>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.18" = type { %"struct.std::_Vector_base.19" }
-%"struct.std::_Vector_base.19" = type { %"struct.std::_Vector_base<gmx::BoundingBox, gmx::Allocator<gmx::BoundingBox, gmx::AlignedAllocationPolicy>>::_Vector_impl" }
-%"struct.std::_Vector_base<gmx::BoundingBox, gmx::Allocator<gmx::BoundingBox, gmx::AlignedAllocationPolicy>>::_Vector_impl" = type { %"struct.std::_Vector_base<gmx::BoundingBox, gmx::Allocator<gmx::BoundingBox, gmx::AlignedAllocationPolicy>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<gmx::BoundingBox, gmx::Allocator<gmx::BoundingBox, gmx::AlignedAllocationPolicy>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.gmx::ArrayRef" = type { %"struct.gmx::ArrayRefIter", %"struct.gmx::ArrayRefIter" }
-%"struct.gmx::ArrayRefIter" = type { ptr }
-%"class.std::vector.21" = type { %"struct.std::_Vector_base.22" }
-%"struct.std::_Vector_base.22" = type { %"struct.std::_Vector_base<float, gmx::Allocator<float, gmx::AlignedAllocationPolicy>>::_Vector_impl" }
-%"struct.std::_Vector_base<float, gmx::Allocator<float, gmx::AlignedAllocationPolicy>>::_Vector_impl" = type { %"struct.std::_Vector_base<float, gmx::Allocator<float, gmx::AlignedAllocationPolicy>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<float, gmx::Allocator<float, gmx::AlignedAllocationPolicy>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.24" = type { %"struct.std::_Vector_base.25" }
-%"struct.std::_Vector_base.25" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.gmx::Allocator" = type { %"class.gmx::HostAllocationPolicy.base", [3 x i8] }
 %"class.gmx::HostAllocationPolicy" = type <{ i32, i8, [3 x i8] }>
 %"class.gmx::ArrayRef.32" = type { %"struct.gmx::ArrayRefIter.33", %"struct.gmx::ArrayRefIter.33" }
@@ -126,7 +99,7 @@ define void @_ZN3gmx7GridSet11DomainSetupC2E7PbcTypebPKNS_11BasicVectorIiEEPKNS_
 
 .split:                                           ; preds = %.split.preheader, %.split
   %indvars.iv = phi i64 [ 0, %.split.preheader ], [ %indvars.iv.next, %.split ]
-  %22 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %23 = load i32, ptr %22, align 4, !tbaa !14
   %24 = icmp sgt i32 %23, 1
   %25 = zext i1 %24 to i8
@@ -211,7 +184,7 @@ _ZNSt12_Vector_baseIN3gmx8GridWorkESaIS1_EEC2EmRKS2_.exit.thread.i: ; preds = %_
 
 .noexc18:                                         ; preds = %.lr.ph.preheader.i.i.i.i.i
   store ptr %35, ptr %30, align 8, !tbaa !53
-  %36 = getelementptr inbounds nuw %"struct.gmx::GridWork", ptr %35, i64 %31
+  %36 = getelementptr inbounds nuw [48 x i8], ptr %35, i64 %31
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %35, i8 0, i64 %34, i1 false)
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %35, i64 %34
   br label %37
@@ -302,7 +275,7 @@ _ZNSt12_Vector_baseIN3gmx4GridESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %
   store ptr %66, ptr %14, align 8, !tbaa !59
   %74 = getelementptr inbounds nuw i8, ptr %66, i64 %64
   store ptr %74, ptr %61, align 8, !tbaa !60
-  %75 = getelementptr inbounds nuw %"class.gmx::Grid", ptr %66, i64 %52
+  %75 = getelementptr inbounds nuw [384 x i8], ptr %66, i64 %52
   store ptr %75, ptr %53, align 8, !tbaa !58
   br label %_ZNSt6vectorIN3gmx4GridESaIS1_EE7reserveEm.exit
 
@@ -1132,7 +1105,7 @@ _ZNSt16allocator_traitsISaIN3gmx4GridEEE9constructIS1_JRKNS0_12PairlistTypeERiRb
 _ZNSt12_Vector_baseIN3gmx4GridESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt16allocator_traitsISaIN3gmx4GridEEE9constructIS1_JRKNS0_12PairlistTypeERiRbRNS0_13PinningPolicyEEEEvRS2_PT_DpOT0_.exit, %32
   store ptr %23, ptr %0, align 8, !tbaa !59
   store ptr %30, ptr %7, align 8, !tbaa !60
-  %36 = getelementptr inbounds nuw %"class.gmx::Grid", ptr %23, i64 %19
+  %36 = getelementptr inbounds nuw [384 x i8], ptr %23, i64 %19
   store ptr %36, ptr %31, align 8, !tbaa !58
   ret void
 
@@ -1228,7 +1201,7 @@ define void @_ZN3gmx7GridSet17setLocalAtomOrderEv(ptr noundef nonnull align 8 de
   br i1 %44, label %45, label %_ZNSt6vectorIiN3gmx9AllocatorIiNS0_20HostAllocationPolicyEEEE6resizeEm.exit
 
 45:                                               ; preds = %43
-  %46 = getelementptr inbounds nuw i32, ptr %34, i64 %30
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %30
   %.not.i.i = icmp eq ptr %33, %46
   br i1 %.not.i.i, label %_ZNSt6vectorIiN3gmx9AllocatorIiNS0_20HostAllocationPolicyEEEE6resizeEm.exit, label %47
 
@@ -1246,14 +1219,14 @@ _ZNSt6vectorIiN3gmx9AllocatorIiNS0_20HostAllocationPolicyEEEE6resizeEm.exit: ; p
   %50 = phi i32 [ %10, %.lr.ph29 ], [ %62, %._crit_edge ]
   %indvars.iv35 = phi i64 [ 0, %.lr.ph29 ], [ %indvars.iv.next36, %._crit_edge ]
   %.02228 = phi i32 [ 0, %.lr.ph29 ], [ %.1.lcssa, %._crit_edge ]
-  %51 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv35
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv35
   %52 = load i32, ptr %51, align 4, !tbaa !14
   %53 = icmp sgt i32 %52, 0
   br i1 %53, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %48
   %54 = load i32, ptr %18, align 4, !tbaa !127
-  %55 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv35
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %indvars.iv35
   %56 = load i32, ptr %55, align 4, !tbaa !14
   %57 = mul i32 %54, %56
   %58 = sext i32 %57 to i64
@@ -1280,10 +1253,10 @@ _ZNSt6vectorIiN3gmx9AllocatorIiNS0_20HostAllocationPolicyEEEE6resizeEm.exit: ; p
   %indvars.iv30 = phi i64 [ %59, %.lr.ph.preheader ], [ %indvars.iv.next31, %.lr.ph ]
   %indvars.iv = phi i64 [ %58, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.026 = phi i32 [ 0, %.lr.ph.preheader ], [ %70, %.lr.ph ]
-  %66 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv
   %67 = trunc nsw i64 %indvars.iv30 to i32
   store i32 %67, ptr %66, align 4, !tbaa !14
-  %68 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv30
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv30
   %69 = trunc nsw i64 %indvars.iv to i32
   store i32 %69, ptr %68, align 4, !tbaa !14
   %indvars.iv.next31 = add nsw i64 %indvars.iv30, 1
@@ -1341,10 +1314,10 @@ define internal void @_ZN3gmx7GridSet17setLocalAtomOrderEv.omp_outlined(ptr noal
 
 26:                                               ; preds = %.lr.ph, %26
   %indvars.iv = phi i64 [ %25, %.lr.ph ], [ %indvars.iv.next, %26 ]
-  %27 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv
   %28 = trunc nsw i64 %indvars.iv to i32
   store i32 %28, ptr %27, align 4, !tbaa !14
-  %29 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %indvars.iv
   store i32 %28, ptr %29, align 4, !tbaa !14
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %30 = load i32, ptr %6, align 4, !tbaa !14
@@ -1465,9 +1438,9 @@ _ZNSt6vectorIiN3gmx9AllocatorIiNS0_20HostAllocationPolicyEEEE11_S_relocateEPiS5_
 
 _ZNSt12_Vector_baseIiN3gmx9AllocatorIiNS0_20HostAllocationPolicyEEEE13_M_deallocateEPim.exit: ; preds = %_ZNSt6vectorIiN3gmx9AllocatorIiNS0_20HostAllocationPolicyEEEE11_S_relocateEPiS5_S5_RS3_.exit, %36
   store ptr %27, ptr %4, align 8, !tbaa !25
-  %37 = getelementptr inbounds nuw i32, ptr %31, i64 %1
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %1
   store ptr %37, ptr %5, align 8, !tbaa !66
-  %38 = getelementptr inbounds nuw i32, ptr %27, i64 %25
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %25
   store ptr %38, ptr %12, align 8, !tbaa !67
   br label %39
 
@@ -1519,7 +1492,7 @@ define void @_ZN3gmx7GridSet9putOnGridEPA3_KfiPS1_S4_PKNS_15UpdateGroupsCogENS_5
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %34 = sext i32 %2 to i64
   %35 = load ptr, ptr %33, align 8, !tbaa !59
-  %36 = getelementptr %"class.gmx::Grid", ptr %35, i64 %34
+  %36 = getelementptr [384 x i8], ptr %35, i64 %34
   br i1 %21, label %37, label %76
 
 37:                                               ; preds = %31
@@ -1714,7 +1687,7 @@ define void @_ZN3gmx7GridSet9putOnGridEPA3_KfiPS1_S4_PKNS_15UpdateGroupsCogENS_5
 150:                                              ; preds = %.lr.ph, %150
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %150 ]
   %.094100 = phi i32 [ 0, %.lr.ph ], [ %.sroa.speculated, %150 ]
-  %151 = getelementptr inbounds nuw %"class.gmx::Grid", ptr %148, i64 %indvars.iv
+  %151 = getelementptr inbounds nuw [384 x i8], ptr %148, i64 %indvars.iv
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 88
   %153 = load i32, ptr %152, align 4, !tbaa !14
   %154 = getelementptr inbounds nuw i8, ptr %151, i64 92
@@ -1782,7 +1755,7 @@ define { ptr, ptr } @_ZNK3gmx7GridSet29getLocalGridNumAtomsPerColumnEv(ptr nound
   br i1 %26, label %27, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds nuw i32, ptr %17, i64 %14
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %14
   %.not.i.i = icmp eq ptr %16, %28
   br i1 %.not.i.i, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit, label %29
 
@@ -1804,14 +1777,14 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %23, %25, %27, %29
 
 34:                                               ; preds = %.lr.ph, %34
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %34 ]
-  %35 = getelementptr i32, ptr %32, i64 %indvars.iv
+  %35 = getelementptr [4 x i8], ptr %32, i64 %indvars.iv
   %36 = getelementptr i8, ptr %35, i64 4
   %37 = load i32, ptr %36, align 4, !tbaa !14
   %38 = load i32, ptr %35, align 4, !tbaa !14
   %39 = sub nsw i32 %37, %38
   %40 = load i32, ptr %33, align 4, !tbaa !126
   %41 = mul nsw i32 %39, %40
-  %42 = getelementptr inbounds nuw i32, ptr %.pre12, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %.pre12, i64 %indvars.iv
   store i32 %41, ptr %42, align 4, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %43 = load i32, ptr %9, align 4, !tbaa !14
@@ -1929,9 +1902,9 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit36: ; preds = %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !63
-  %39 = getelementptr inbounds nuw i32, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !81
-  %40 = getelementptr inbounds nuw i32, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !64
   br label %41
 

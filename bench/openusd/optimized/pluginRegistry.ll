@@ -4,28 +4,27 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext" = type <{ ptr, ptr, i64, ptr, i8, [7 x i8] }>
-%"struct.pxrInternal_v0_24__pxrReserved__::HfPluginDesc" = type <{ %"class.pxrInternal_v0_24__pxrReserved__::TfToken", %"class.std::__cxx11::basic_string", i32, [4 x i8] }>
-%"class.pxrInternal_v0_24__pxrReserved__::TfToken" = type { %"class.pxrInternal_v0_24__pxrReserved__::TfPointerAndBits" }
-%"class.pxrInternal_v0_24__pxrReserved__::TfPointerAndBits" = type { ptr }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
-%"class.pxrInternal_v0_24__pxrReserved__::Hf_PluginEntry" = type <{ %"class.pxrInternal_v0_24__pxrReserved__::TfType", %"class.std::__cxx11::basic_string", i32, [4 x i8], ptr, i32, [4 x i8] }>
-%"class.pxrInternal_v0_24__pxrReserved__::TfType" = type { ptr }
 %"class.std::set" = type { %"class.std::_Rb_tree.24" }
 %"class.std::_Rb_tree.24" = type { %"struct.std::_Rb_tree<pxrInternal_v0_24__pxrReserved__::TfType, pxrInternal_v0_24__pxrReserved__::TfType, std::_Identity<pxrInternal_v0_24__pxrReserved__::TfType>, std::less<pxrInternal_v0_24__pxrReserved__::TfType>>::_Rb_tree_impl" }
 %"struct.std::_Rb_tree<pxrInternal_v0_24__pxrReserved__::TfType, pxrInternal_v0_24__pxrReserved__::TfType, std::_Identity<pxrInternal_v0_24__pxrReserved__::TfType>, std::less<pxrInternal_v0_24__pxrReserved__::TfType>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
 %"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
 %"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
+%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
+%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
+%union.anon = type { i64, [8 x i8] }
 %"class.std::allocator.8" = type { i8 }
 %"class.pxrInternal_v0_24__pxrReserved__::JsValue" = type { %"class.std::shared_ptr" }
 %"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
 %"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
 %"class.std::__shared_count" = type { ptr }
+%"class.pxrInternal_v0_24__pxrReserved__::TfToken" = type { %"class.pxrInternal_v0_24__pxrReserved__::TfPointerAndBits" }
+%"class.pxrInternal_v0_24__pxrReserved__::TfPointerAndBits" = type { ptr }
+%"class.pxrInternal_v0_24__pxrReserved__::TfType" = type { ptr }
 %"class.pxrInternal_v0_24__pxrReserved__::TfWeakPtr" = type { ptr, %"class.pxrInternal_v0_24__pxrReserved__::TfRefPtr" }
 %"class.pxrInternal_v0_24__pxrReserved__::TfRefPtr" = type { ptr }
 %struct._Guard = type { ptr }
 %"struct.__gnu_cxx::__ops::_Iter_less_iter" = type { i8 }
+%"class.pxrInternal_v0_24__pxrReserved__::Hf_PluginEntry" = type <{ %"class.pxrInternal_v0_24__pxrReserved__::TfType", %"class.std::__cxx11::basic_string", i32, [4 x i8], ptr, i32, [4 x i8] }>
 %"struct.std::_Rb_tree<pxrInternal_v0_24__pxrReserved__::TfToken, std::pair<const pxrInternal_v0_24__pxrReserved__::TfToken, unsigned long>, std::_Select1st<std::pair<const pxrInternal_v0_24__pxrReserved__::TfToken, unsigned long>>, std::less<pxrInternal_v0_24__pxrReserved__::TfToken>>::_Auto_node" = type { ptr, ptr }
 
 $_ZN32pxrInternal_v0_24__pxrReserved__7JsValueD2Ev = comdat any
@@ -288,7 +287,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__12HfPluginDescES1_EvT_S3_RSaIT
   br i1 %46, label %47, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12HfPluginDescESaIS1_EE6resizeEm.exit
 
 47:                                               ; preds = %45
-  %48 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::HfPluginDesc", ptr %28, i64 %37
+  %48 = getelementptr inbounds [48 x i8], ptr %28, i64 %37
   %.not.i.i10 = icmp eq ptr %29, %48
   br i1 %.not.i.i10, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12HfPluginDescESaIS1_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i11
 
@@ -326,9 +325,9 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12HfPluginDescESaIS1_EE6resizeEm
 .lr.ph:                                           ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12HfPluginDescESaIS1_EE6resizeEm.exit, %.lr.ph
   %60 = phi ptr [ %66, %.lr.ph ], [ %59, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12HfPluginDescESaIS1_EE6resizeEm.exit ]
   %.017 = phi i64 [ %64, %.lr.ph ], [ 0, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12HfPluginDescESaIS1_EE6resizeEm.exit ]
-  %61 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::Hf_PluginEntry", ptr %60, i64 %.017
+  %61 = getelementptr inbounds [64 x i8], ptr %60, i64 %.017
   %62 = load ptr, ptr %1, align 8
-  %63 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::HfPluginDesc", ptr %62, i64 %.017
+  %63 = getelementptr inbounds [48 x i8], ptr %62, i64 %.017
   call void @_ZNK32pxrInternal_v0_24__pxrReserved__14Hf_PluginEntry7GetDescEPNS_12HfPluginDescE(ptr noundef nonnull align 8 dereferenceable(64) %61, ptr noundef nonnull %63)
   %64 = add nuw i64 %.017, 1
   %65 = load ptr, ptr %31, align 8
@@ -459,7 +458,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__14Hf_PluginEntryESaIS1_EE
   store ptr %50, ptr %14, align 8
   %60 = getelementptr inbounds i8, ptr %50, i64 %49
   store ptr %60, ptr %16, align 8
-  %61 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::Hf_PluginEntry", ptr %50, i64 %34
+  %61 = getelementptr inbounds nuw [64 x i8], ptr %50, i64 %34
   store ptr %61, ptr %38, align 8
   br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__14Hf_PluginEntryESaIS1_EE7reserveEm.exit
 
@@ -763,7 +762,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__14H
 159:                                              ; preds = %.lr.ph52, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit
   %160 = phi ptr [ %.pre56, %.lr.ph52 ], [ %175, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit ]
   %storemerge51 = phi i64 [ 0, %.lr.ph52 ], [ %173, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit ]
-  %161 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::Hf_PluginEntry", ptr %160, i64 %storemerge51
+  %161 = getelementptr inbounds [64 x i8], ptr %160, i64 %storemerge51
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__14Hf_PluginEntry5GetIdEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfToken") align 8 %13, ptr noundef nonnull align 8 dereferenceable(64) %161)
           to label %162 unwind label %.loopexit
 
@@ -862,7 +861,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__16HfPluginRegist
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %16 = load i64, ptr %15, align 8
   %17 = load ptr, ptr %14, align 8
-  %18 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::Hf_PluginEntry", ptr %17, i64 %16
+  %18 = getelementptr inbounds [64 x i8], ptr %17, i64 %16
   tail call void @_ZNK32pxrInternal_v0_24__pxrReserved__14Hf_PluginEntry7GetDescEPNS_12HfPluginDescE(ptr noundef nonnull align 8 dereferenceable(64) %18, ptr noundef %2)
   br label %19
 
@@ -979,7 +978,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %34, %39
   %44 = getelementptr inbounds nuw i8, ptr %25, i64 40
   %45 = load i64, ptr %44, align 8
   %46 = load ptr, ptr %43, align 8
-  %47 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::Hf_PluginEntry", ptr %46, i64 %45
+  %47 = getelementptr inbounds [64 x i8], ptr %46, i64 %45
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 48
   %49 = load ptr, ptr %48, align 8
   %50 = icmp eq ptr %49, %1
@@ -1090,7 +1089,7 @@ define noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__16HfPluginRegistry9GetP
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %18 = load i64, ptr %17, align 8
   %19 = load ptr, ptr %16, align 8
-  %20 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::Hf_PluginEntry", ptr %19, i64 %18
+  %20 = getelementptr inbounds [64 x i8], ptr %19, i64 %18
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 48
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
@@ -1839,9 +1838,9 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12HfPluginDescESaIS1_EE11_S_relo
 
 _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__12HfPluginDescESaIS1_EE13_M_deallocateEPS1_m.exit41: ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12HfPluginDescESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %48
   store ptr %28, ptr %0, align 8
-  %52 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::HfPluginDesc", ptr %29, i64 %1
+  %52 = getelementptr inbounds nuw [48 x i8], ptr %29, i64 %1
   store ptr %52, ptr %4, align 8
-  %53 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::HfPluginDesc", ptr %28, i64 %26
+  %53 = getelementptr inbounds nuw [48 x i8], ptr %28, i64 %26
   store ptr %53, ptr %11, align 8
   br label %54
 
@@ -2305,7 +2304,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__14Hf_PluginEntryES1_EvT_S3_RSa
 _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__14Hf_PluginEntryESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__14Hf_PluginEntryES1_EvT_S3_RSaIT0_E.exit, %52
   store ptr %22, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i.i41, ptr %6, align 8
-  %56 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::Hf_PluginEntry", ptr %22, i64 %18
+  %56 = getelementptr inbounds nuw [64 x i8], ptr %22, i64 %18
   store ptr %56, ptr %51, align 8
   ret void
 
@@ -2407,7 +2406,7 @@ _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrRe
 20:                                               ; preds = %12
   %21 = add nsw i64 %.014, -1
   %22 = lshr i64 %13, 1
-  %23 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::Hf_PluginEntry", ptr %0, i64 %22
+  %23 = getelementptr inbounds nuw [64 x i8], ptr %0, i64 %22
   %24 = getelementptr inbounds i8, ptr %storemerge13, i64 -64
   tail call void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__14Hf_PluginEntryESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_SB_SB_T0_(ptr %0, ptr nonnull %11, ptr %23, ptr nonnull %24)
   %25 = tail call ptr @_ZSt21__unguarded_partitionIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__14Hf_PluginEntryESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEET_SB_SB_SB_T0_(ptr nonnull %11, ptr %storemerge13, ptr %0)
@@ -2508,7 +2507,7 @@ define linkonce_odr void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN32p
 
 14:                                               ; preds = %17, %11
   %.010 = phi i64 [ %13, %11 ], [ %18, %17 ]
-  %15 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::Hf_PluginEntry", ptr %0, i64 %.010
+  %15 = getelementptr inbounds [64 x i8], ptr %0, i64 %.010
   call void @_ZN32pxrInternal_v0_24__pxrReserved__14Hf_PluginEntryC1EOS0_(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %15)
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14Hf_PluginEntryC1EOS0_(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(64) %4)
           to label %16 unwind label %19
@@ -2598,13 +2597,13 @@ define linkonce_odr void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3
   %.036 = phi i64 [ %spec.select, %.lr.ph ], [ %1, %4 ]
   %9 = shl i64 %.036, 1
   %10 = add i64 %9, 2
-  %11 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::Hf_PluginEntry", ptr %0, i64 %10
+  %11 = getelementptr inbounds [64 x i8], ptr %0, i64 %10
   %12 = or disjoint i64 %9, 1
-  %13 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::Hf_PluginEntry", ptr %0, i64 %12
+  %13 = getelementptr inbounds [64 x i8], ptr %0, i64 %12
   %14 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__14Hf_PluginEntryltERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(64) %13)
   %spec.select = select i1 %14, i64 %12, i64 %10
-  %15 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::Hf_PluginEntry", ptr %0, i64 %spec.select
-  %16 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::Hf_PluginEntry", ptr %0, i64 %.036
+  %15 = getelementptr inbounds [64 x i8], ptr %0, i64 %spec.select
+  %16 = getelementptr inbounds [64 x i8], ptr %0, i64 %.036
   %17 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN32pxrInternal_v0_24__pxrReserved__14Hf_PluginEntryaSEOS0_(ptr noundef nonnull align 8 dereferenceable(64) %16, ptr noundef nonnull align 8 dereferenceable(64) %15)
   %18 = icmp slt i64 %spec.select, %7
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !25
@@ -2624,8 +2623,8 @@ define linkonce_odr void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3
 25:                                               ; preds = %21
   %26 = shl nsw i64 %.0.lcssa, 1
   %27 = or disjoint i64 %26, 1
-  %28 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::Hf_PluginEntry", ptr %0, i64 %27
-  %29 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::Hf_PluginEntry", ptr %0, i64 %.0.lcssa
+  %28 = getelementptr inbounds [64 x i8], ptr %0, i64 %27
+  %29 = getelementptr inbounds [64 x i8], ptr %0, i64 %.0.lcssa
   %30 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN32pxrInternal_v0_24__pxrReserved__14Hf_PluginEntryaSEOS0_(ptr noundef nonnull align 8 dereferenceable(64) %29, ptr noundef nonnull align 8 dereferenceable(64) %28)
   br label %31
 
@@ -2639,7 +2638,7 @@ define linkonce_odr void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3
   %.018.i = phi i64 [ %.0919.i, %.noexc25 ], [ %.1, %31 ]
   %.0919.in.i = add nsw i64 %.018.i, -1
   %.0919.i = sdiv i64 %.0919.in.i, 2
-  %33 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::Hf_PluginEntry", ptr %0, i64 %.0919.i
+  %33 = getelementptr inbounds [64 x i8], ptr %0, i64 %.0919.i
   %34 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__14Hf_PluginEntryltERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %33, ptr noundef nonnull align 8 dereferenceable(64) %5)
           to label %.noexc unwind label %.loopexit
 
@@ -2647,7 +2646,7 @@ define linkonce_odr void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3
   br i1 %34, label %35, label %.critedge.i
 
 35:                                               ; preds = %.noexc
-  %36 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::Hf_PluginEntry", ptr %0, i64 %.018.i
+  %36 = getelementptr inbounds [64 x i8], ptr %0, i64 %.018.i
   %37 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN32pxrInternal_v0_24__pxrReserved__14Hf_PluginEntryaSEOS0_(ptr noundef nonnull align 8 dereferenceable(64) %36, ptr noundef nonnull align 8 dereferenceable(64) %33)
           to label %.noexc25 unwind label %.loopexit
 
@@ -2657,7 +2656,7 @@ define linkonce_odr void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3
 
 .critedge.i:                                      ; preds = %.noexc25, %.noexc, %31
   %.0.lcssa.i = phi i64 [ %.1, %31 ], [ %.018.i, %.noexc ], [ %.0919.i, %.noexc25 ]
-  %39 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::Hf_PluginEntry", ptr %0, i64 %.0.lcssa.i
+  %39 = getelementptr inbounds [64 x i8], ptr %0, i64 %.0.lcssa.i
   %40 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN32pxrInternal_v0_24__pxrReserved__14Hf_PluginEntryaSEOS0_(ptr noundef nonnull align 8 dereferenceable(64) %39, ptr noundef nonnull align 8 dereferenceable(64) %5)
           to label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__14Hf_PluginEntryESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_less_valEEvT_T0_SC_T1_RT2_.exit unwind label %.loopexit.split-lp
 

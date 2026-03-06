@@ -311,7 +311,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit84: ; preds = %82,
 
 100:                                              ; preds = %.preheader93, %100
   %indvars.iv = phi i64 [ 0, %.preheader93 ], [ %indvars.iv.next, %100 ]
-  %gep = getelementptr inbounds nuw double, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep, i64 %indvars.iv
   %101 = load double, ptr %gep, align 8, !tbaa !36
   %102 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, double noundef %101)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -337,7 +337,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit84: ; preds = %82,
 
 106:                                              ; preds = %.preheader, %106
   %indvars.iv104 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next105, %106 ]
-  %gep129 = getelementptr inbounds nuw double, ptr %invariant.gep128, i64 %indvars.iv104
+  %gep129 = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep128, i64 %indvars.iv104
   %107 = load double, ptr %gep129, align 8, !tbaa !36
   %108 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, double noundef %107)
   %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
@@ -401,7 +401,7 @@ _ZNSt12__shared_ptrIN2cv8datasets14MSM_middleburyELN9__gnu_cxx12_Lock_policyE2EE
 
 133:                                              ; preds = %103, %133
   %indvars.iv112 = phi i64 [ 0, %103 ], [ %indvars.iv.next113, %133 ]
-  %134 = getelementptr inbounds nuw double, ptr %104, i64 %indvars.iv112
+  %134 = getelementptr inbounds nuw [8 x i8], ptr %104, i64 %indvars.iv112
   %135 = load double, ptr %134, align 8, !tbaa !36
   %136 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, double noundef %135)
   %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1

@@ -8980,7 +8980,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit.i: ; preds = %
   %383 = sub i64 %381, %382
   %384 = ashr exact i64 %383, 3
   %385 = sub nsw i64 0, %384
-  %386 = getelementptr inbounds i64, ptr %380, i64 %385
+  %386 = getelementptr inbounds [8 x i8], ptr %380, i64 %385
   call void @_ZdlPvm(ptr noundef %386, i64 noundef %383) #20
   store ptr null, ptr %376, align 8
   %.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -9215,7 +9215,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit.i285: ; preds 
   %465 = sub i64 %463, %464
   %466 = ashr exact i64 %465, 3
   %467 = sub nsw i64 0, %466
-  %468 = getelementptr inbounds i64, ptr %462, i64 %467
+  %468 = getelementptr inbounds [8 x i8], ptr %462, i64 %467
   call void @_ZdlPvm(ptr noundef %468, i64 noundef %465) #20
   store ptr null, ptr %458, align 8
   %.sroa.4.0..sroa_idx.i.i.i.i287 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -9583,7 +9583,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit.i344: ; preds 
   %603 = sub i64 %601, %602
   %604 = ashr exact i64 %603, 3
   %605 = sub nsw i64 0, %604
-  %606 = getelementptr inbounds i64, ptr %600, i64 %605
+  %606 = getelementptr inbounds [8 x i8], ptr %600, i64 %605
   call void @_ZdlPvm(ptr noundef %606, i64 noundef %603) #20
   store ptr null, ptr %596, align 8
   %.sroa.4.0..sroa_idx.i.i.i.i346 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -9898,7 +9898,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit.i400: ; preds 
   %726 = sub i64 %724, %725
   %727 = ashr exact i64 %726, 3
   %728 = sub nsw i64 0, %727
-  %729 = getelementptr inbounds i64, ptr %723, i64 %728
+  %729 = getelementptr inbounds [8 x i8], ptr %723, i64 %728
   call void @_ZdlPvm(ptr noundef %729, i64 noundef %726) #20
   store ptr null, ptr %719, align 8
   %.sroa.4.0..sroa_idx.i.i.i.i402 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -10054,7 +10054,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit.i428: ; preds 
   %786 = sub i64 %784, %785
   %787 = ashr exact i64 %786, 3
   %788 = sub nsw i64 0, %787
-  %789 = getelementptr inbounds i64, ptr %783, i64 %788
+  %789 = getelementptr inbounds [8 x i8], ptr %783, i64 %788
   call void @_ZdlPvm(ptr noundef %789, i64 noundef %786) #20
   store ptr null, ptr %779, align 8
   %.sroa.4.0..sroa_idx.i.i.i.i430 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -10236,7 +10236,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit.i456: ; preds 
   %862 = sub i64 %860, %861
   %863 = ashr exact i64 %862, 3
   %864 = sub nsw i64 0, %863
-  %865 = getelementptr inbounds i64, ptr %859, i64 %864
+  %865 = getelementptr inbounds [8 x i8], ptr %859, i64 %864
   call void @_ZdlPvm(ptr noundef %865, i64 noundef %862) #20
   store ptr null, ptr %855, align 8
   %.sroa.4.0..sroa_idx.i.i.i.i458 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -20889,7 +20889,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal9LogicInfoD2Ev(ptr noundef non
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 3
   %11 = sub nsw i64 0, %10
-  %12 = getelementptr inbounds i64, ptr %6, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %6, i64 %11
   tail call void @_ZdlPvm(ptr noundef %12, i64 noundef %9) #20
   store ptr null, ptr %2, align 8
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -21169,7 +21169,7 @@ _ZNSolsEPFRSoS_E.exit41:                          ; preds = %.noexc101
   %80 = sub i64 %78, %79
   %81 = ashr exact i64 %80, 3
   %82 = sub nsw i64 0, %81
-  %83 = getelementptr inbounds i64, ptr %77, i64 %82
+  %83 = getelementptr inbounds [8 x i8], ptr %77, i64 %82
   call void @_ZdlPvm(ptr noundef %83, i64 noundef %80) #20
   store ptr null, ptr %68, align 8
   %.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -21239,7 +21239,7 @@ _ZN4cvc58internal9LogicInfo17enableQuantifiersEv.exit: ; preds = %95
   %109 = sub i64 %107, %108
   %110 = ashr exact i64 %109, 3
   %111 = sub nsw i64 0, %110
-  %112 = getelementptr inbounds i64, ptr %106, i64 %111
+  %112 = getelementptr inbounds [8 x i8], ptr %106, i64 %111
   call void @_ZdlPvm(ptr noundef %112, i64 noundef %109) #20
   store ptr null, ptr %97, align 8
   %.sroa.4.0..sroa_idx.i.i.i.i48 = getelementptr inbounds nuw i8, ptr %5, i64 40
@@ -21489,7 +21489,7 @@ _ZNSolsEPFRSoS_E.exit60:                          ; preds = %.noexc118, %178
   %221 = sub i64 %219, %220
   %222 = ashr exact i64 %221, 3
   %223 = sub nsw i64 0, %222
-  %224 = getelementptr inbounds i64, ptr %218, i64 %223
+  %224 = getelementptr inbounds [8 x i8], ptr %218, i64 %223
   call void @_ZdlPvm(ptr noundef %224, i64 noundef %221) #20
   store ptr null, ptr %209, align 8
   %.sroa.4.0..sroa_idx.i.i.i.i65 = getelementptr inbounds nuw i8, ptr %6, i64 40
@@ -21619,7 +21619,7 @@ _ZNSolsEPFRSoS_E.exit75:                          ; preds = %.noexc129
   %275 = sub i64 %273, %274
   %276 = ashr exact i64 %275, 3
   %277 = sub nsw i64 0, %276
-  %278 = getelementptr inbounds i64, ptr %272, i64 %277
+  %278 = getelementptr inbounds [8 x i8], ptr %272, i64 %277
   call void @_ZdlPvm(ptr noundef %278, i64 noundef %275) #20
   store ptr null, ptr %263, align 8
   %.sroa.4.0..sroa_idx.i.i.i.i80 = getelementptr inbounds nuw i8, ptr %7, i64 40
@@ -35103,7 +35103,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZNS
 _ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit: ; preds = %24
   %25 = ashr exact i64 %21, 3
   %26 = sub nsw i64 0, %25
-  %27 = getelementptr inbounds i64, ptr %17, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %17, i64 %26
   tail call void @_ZdlPvm(ptr noundef %27, i64 noundef %21) #20
   store ptr null, ptr %0, align 8
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -35132,13 +35132,13 @@ _ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit.thread: ; preds = %24, %_ZNSt1
   %30 = and i64 %29, 2305843009213693944
   %31 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %30) #23
   %32 = lshr i64 %28, 6
-  %33 = getelementptr inbounds nuw i64, ptr %31, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %32
   store ptr %33, ptr %16, align 8, !tbaa !460
   store ptr %31, ptr %0, align 8
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %.sroa.5.0..sroa_idx.i, align 8
   %34 = sdiv i64 %.pre-phi4761, 64
-  %35 = getelementptr inbounds i64, ptr %31, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %31, i64 %34
   %36 = and i64 %.pre-phi4761, -9223372036854775745
   %37 = icmp ugt i64 %36, -9223372036854775808
   %storemerge.idx.i.i.i.i = select i1 %37, i64 -8, i64 0

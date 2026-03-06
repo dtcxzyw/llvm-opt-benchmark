@@ -1686,31 +1686,31 @@ check_retval.exit54:                              ; preds = %16
 .lr.ph:                                           ; preds = %21, %.lr.ph
   %.059 = phi i64 [ %48, %.lr.ph ], [ 1, %21 ]
   %24 = mul nuw nsw i64 %.059, 3
-  %25 = getelementptr inbounds nuw double, ptr %12, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %24
   %26 = load double, ptr %25, align 8, !tbaa !31
   %27 = add nuw nsw i64 %24, 1
-  %28 = getelementptr inbounds nuw double, ptr %12, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %27
   %29 = load double, ptr %28, align 8, !tbaa !31
   %30 = add nuw nsw i64 %24, 2
-  %31 = getelementptr inbounds nuw double, ptr %12, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %30
   %32 = load double, ptr %31, align 8, !tbaa !31
   %33 = fadd double %32, 1.000000e+00
   %34 = fneg double %33
   %35 = tail call double @llvm.fmuladd.f64(double %34, double %26, double %7)
   %36 = fmul double %26, %29
   %37 = tail call double @llvm.fmuladd.f64(double %36, double %26, double %35)
-  %38 = getelementptr inbounds nuw double, ptr %17, i64 %24
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %24
   store double %37, ptr %38, align 8, !tbaa !31
   %39 = fneg double %26
   %40 = fmul double %36, %39
   %41 = tail call double @llvm.fmuladd.f64(double %32, double %26, double %40)
-  %42 = getelementptr inbounds nuw double, ptr %17, i64 %27
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %27
   store double %41, ptr %42, align 8, !tbaa !31
   %43 = fsub double %9, %32
   %44 = fdiv double %43, %11
   %45 = fneg double %32
   %46 = tail call double @llvm.fmuladd.f64(double %45, double %26, double %44)
-  %47 = getelementptr inbounds nuw double, ptr %17, i64 %30
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %30
   store double %46, ptr %47, align 8, !tbaa !31
   %48 = add nuw nsw i64 %.059, 1
   %exitcond.not = icmp eq i64 %48, %22
@@ -1820,7 +1820,7 @@ check_retval.exit109:                             ; preds = %30
 .lr.ph:                                           ; preds = %35, %.lr.ph
   %.0115 = phi i64 [ %55, %.lr.ph ], [ 1, %35 ]
   %50 = mul nuw nsw i64 %.0115, 3
-  %51 = getelementptr inbounds nuw double, ptr %26, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %50
   %52 = load double, ptr %51, align 8, !tbaa !31
   %53 = getelementptr i8, ptr %51, i64 -24
   %54 = load double, ptr %53, align 8, !tbaa !31
@@ -1829,14 +1829,14 @@ check_retval.exit109:                             ; preds = %30
   %56 = getelementptr inbounds nuw i8, ptr %26, i64 %.idx114
   %57 = load double, ptr %56, align 8, !tbaa !31
   %58 = add nuw nsw i64 %50, 1
-  %59 = getelementptr inbounds nuw double, ptr %26, i64 %58
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %58
   %60 = load double, ptr %59, align 8, !tbaa !31
   %61 = getelementptr i8, ptr %51, i64 -16
   %62 = load double, ptr %61, align 8, !tbaa !31
   %63 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %64 = load double, ptr %63, align 8, !tbaa !31
   %65 = add nuw nsw i64 %50, 2
-  %66 = getelementptr inbounds nuw double, ptr %26, i64 %65
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %65
   %67 = load double, ptr %66, align 8, !tbaa !31
   %68 = getelementptr i8, ptr %51, i64 -8
   %69 = load double, ptr %68, align 8, !tbaa !31
@@ -1853,7 +1853,7 @@ check_retval.exit109:                             ; preds = %30
   %80 = tail call double @llvm.fmuladd.f64(double %79, double %52, double %77)
   %81 = fmul double %52, %60
   %82 = tail call double @llvm.fmuladd.f64(double %81, double %52, double %80)
-  %83 = getelementptr inbounds nuw double, ptr %31, i64 %50
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %50
   store double %82, ptr %83, align 8, !tbaa !31
   %84 = tail call double @llvm.fmuladd.f64(double %60, double -2.000000e+00, double %62)
   %85 = fadd double %84, %64
@@ -1863,7 +1863,7 @@ check_retval.exit109:                             ; preds = %30
   %89 = tail call double @llvm.fmuladd.f64(double %67, double %52, double %88)
   %90 = fneg double %81
   %91 = tail call double @llvm.fmuladd.f64(double %90, double %52, double %89)
-  %92 = getelementptr inbounds nuw double, ptr %31, i64 %58
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %58
   store double %91, ptr %92, align 8, !tbaa !31
   %93 = tail call double @llvm.fmuladd.f64(double %67, double -2.000000e+00, double %69)
   %94 = fadd double %93, %71
@@ -1875,7 +1875,7 @@ check_retval.exit109:                             ; preds = %30
   %100 = fadd double %99, %97
   %101 = fneg double %67
   %102 = tail call double @llvm.fmuladd.f64(double %101, double %52, double %100)
-  %103 = getelementptr inbounds nuw double, ptr %31, i64 %65
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %65
   store double %102, ptr %103, align 8, !tbaa !31
   %exitcond.not = icmp eq i64 %55, %48
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
@@ -1932,21 +1932,21 @@ define internal noundef i32 @Jac(double %0, ptr noundef %1, ptr readnone capture
   %34 = getelementptr i8, ptr %33, i64 -24
   %35 = load ptr, ptr %34, align 8, !tbaa !37
   %36 = getelementptr i8, ptr %35, i64 24
-  %37 = getelementptr double, ptr %36, i64 %30
+  %37 = getelementptr [8 x i8], ptr %36, i64 %30
   %38 = load double, ptr %37, align 8, !tbaa !31
   %39 = fsub double %38, %20
   store double %39, ptr %37, align 8, !tbaa !31
   %40 = getelementptr i8, ptr %33, i64 -16
   %41 = load ptr, ptr %40, align 8, !tbaa !37
   %42 = getelementptr i8, ptr %41, i64 24
-  %43 = getelementptr double, ptr %42, i64 %30
+  %43 = getelementptr [8 x i8], ptr %42, i64 %30
   %44 = load double, ptr %43, align 8, !tbaa !31
   %45 = fsub double %44, %22
   store double %45, ptr %43, align 8, !tbaa !31
   %46 = getelementptr i8, ptr %33, i64 -8
   %47 = load ptr, ptr %46, align 8, !tbaa !37
   %48 = getelementptr i8, ptr %47, i64 24
-  %49 = getelementptr double, ptr %48, i64 %30
+  %49 = getelementptr [8 x i8], ptr %48, i64 %30
   %50 = load double, ptr %49, align 8, !tbaa !31
   %51 = fsub double %50, %24
   store double %51, ptr %49, align 8, !tbaa !31
@@ -1954,21 +1954,21 @@ define internal noundef i32 @Jac(double %0, ptr noundef %1, ptr readnone capture
   %.idx.i = mul nuw nsw i64 %52, 24
   %53 = getelementptr inbounds nuw i8, ptr %28, i64 %.idx.i
   %54 = load ptr, ptr %53, align 8, !tbaa !37
-  %55 = getelementptr double, ptr %54, i64 %30
+  %55 = getelementptr [8 x i8], ptr %54, i64 %30
   %56 = getelementptr i8, ptr %55, i64 -24
   %57 = load double, ptr %56, align 8, !tbaa !31
   %58 = fadd double %20, %57
   store double %58, ptr %56, align 8, !tbaa !31
   %59 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %60 = load ptr, ptr %59, align 8, !tbaa !37
-  %61 = getelementptr double, ptr %60, i64 %30
+  %61 = getelementptr [8 x i8], ptr %60, i64 %30
   %62 = getelementptr i8, ptr %61, i64 -24
   %63 = load double, ptr %62, align 8, !tbaa !31
   %64 = fadd double %22, %63
   store double %64, ptr %62, align 8, !tbaa !31
   %65 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %66 = load ptr, ptr %65, align 8, !tbaa !37
-  %67 = getelementptr double, ptr %66, i64 %30
+  %67 = getelementptr [8 x i8], ptr %66, i64 %30
   %68 = getelementptr i8, ptr %67, i64 -24
   %69 = load double, ptr %68, align 8, !tbaa !31
   %70 = fadd double %24, %69
@@ -2050,7 +2050,7 @@ check_retval.exit90:                              ; preds = %24
 .lr.ph:                                           ; preds = %29, %.lr.ph
   %.096 = phi i64 [ %49, %.lr.ph ], [ 1, %29 ]
   %44 = mul nuw nsw i64 %.096, 3
-  %45 = getelementptr inbounds nuw double, ptr %20, i64 %44
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %44
   %46 = load double, ptr %45, align 8, !tbaa !31
   %47 = getelementptr i8, ptr %45, i64 -24
   %48 = load double, ptr %47, align 8, !tbaa !31
@@ -2059,14 +2059,14 @@ check_retval.exit90:                              ; preds = %24
   %50 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx95
   %51 = load double, ptr %50, align 8, !tbaa !31
   %52 = add nuw nsw i64 %44, 1
-  %53 = getelementptr inbounds nuw double, ptr %20, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %52
   %54 = load double, ptr %53, align 8, !tbaa !31
   %55 = getelementptr i8, ptr %45, i64 -16
   %56 = load double, ptr %55, align 8, !tbaa !31
   %57 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %58 = load double, ptr %57, align 8, !tbaa !31
   %59 = add nuw nsw i64 %44, 2
-  %60 = getelementptr inbounds nuw double, ptr %20, i64 %59
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %59
   %61 = load double, ptr %60, align 8, !tbaa !31
   %62 = getelementptr i8, ptr %45, i64 -8
   %63 = load double, ptr %62, align 8, !tbaa !31
@@ -2077,21 +2077,21 @@ check_retval.exit90:                              ; preds = %24
   %68 = fsub double %51, %48
   %69 = fmul double %37, %68
   %70 = tail call double @llvm.fmuladd.f64(double %67, double %31, double %69)
-  %71 = getelementptr inbounds nuw double, ptr %25, i64 %44
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %44
   store double %70, ptr %71, align 8, !tbaa !31
   %72 = tail call double @llvm.fmuladd.f64(double %54, double -2.000000e+00, double %56)
   %73 = fadd double %72, %58
   %74 = fsub double %58, %56
   %75 = fmul double %39, %74
   %76 = tail call double @llvm.fmuladd.f64(double %73, double %33, double %75)
-  %77 = getelementptr inbounds nuw double, ptr %25, i64 %52
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %52
   store double %76, ptr %77, align 8, !tbaa !31
   %78 = tail call double @llvm.fmuladd.f64(double %61, double -2.000000e+00, double %63)
   %79 = fadd double %78, %65
   %80 = fsub double %65, %63
   %81 = fmul double %41, %80
   %82 = tail call double @llvm.fmuladd.f64(double %79, double %35, double %81)
-  %83 = getelementptr inbounds nuw double, ptr %25, i64 %59
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %59
   store double %82, ptr %83, align 8, !tbaa !31
   %exitcond.not = icmp eq i64 %49, %42
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
@@ -2158,21 +2158,21 @@ define internal noundef i32 @Js(double %0, ptr readnone captures(none) %1, ptr r
   %34 = getelementptr i8, ptr %33, i64 -24
   %35 = load ptr, ptr %34, align 8, !tbaa !37
   %36 = getelementptr i8, ptr %35, i64 24
-  %37 = getelementptr double, ptr %36, i64 %30
+  %37 = getelementptr [8 x i8], ptr %36, i64 %30
   %38 = load double, ptr %37, align 8, !tbaa !31
   %39 = fsub double %38, %20
   store double %39, ptr %37, align 8, !tbaa !31
   %40 = getelementptr i8, ptr %33, i64 -16
   %41 = load ptr, ptr %40, align 8, !tbaa !37
   %42 = getelementptr i8, ptr %41, i64 24
-  %43 = getelementptr double, ptr %42, i64 %30
+  %43 = getelementptr [8 x i8], ptr %42, i64 %30
   %44 = load double, ptr %43, align 8, !tbaa !31
   %45 = fsub double %44, %22
   store double %45, ptr %43, align 8, !tbaa !31
   %46 = getelementptr i8, ptr %33, i64 -8
   %47 = load ptr, ptr %46, align 8, !tbaa !37
   %48 = getelementptr i8, ptr %47, i64 24
-  %49 = getelementptr double, ptr %48, i64 %30
+  %49 = getelementptr [8 x i8], ptr %48, i64 %30
   %50 = load double, ptr %49, align 8, !tbaa !31
   %51 = fsub double %50, %24
   store double %51, ptr %49, align 8, !tbaa !31
@@ -2180,21 +2180,21 @@ define internal noundef i32 @Js(double %0, ptr readnone captures(none) %1, ptr r
   %.idx.i = mul nuw nsw i64 %52, 24
   %53 = getelementptr inbounds nuw i8, ptr %28, i64 %.idx.i
   %54 = load ptr, ptr %53, align 8, !tbaa !37
-  %55 = getelementptr double, ptr %54, i64 %30
+  %55 = getelementptr [8 x i8], ptr %54, i64 %30
   %56 = getelementptr i8, ptr %55, i64 -24
   %57 = load double, ptr %56, align 8, !tbaa !31
   %58 = fadd double %20, %57
   store double %58, ptr %56, align 8, !tbaa !31
   %59 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %60 = load ptr, ptr %59, align 8, !tbaa !37
-  %61 = getelementptr double, ptr %60, i64 %30
+  %61 = getelementptr [8 x i8], ptr %60, i64 %30
   %62 = getelementptr i8, ptr %61, i64 -24
   %63 = load double, ptr %62, align 8, !tbaa !31
   %64 = fadd double %22, %63
   store double %64, ptr %62, align 8, !tbaa !31
   %65 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %66 = load ptr, ptr %65, align 8, !tbaa !37
-  %67 = getelementptr double, ptr %66, i64 %30
+  %67 = getelementptr [8 x i8], ptr %66, i64 %30
   %68 = getelementptr i8, ptr %67, i64 -24
   %69 = load double, ptr %68, align 8, !tbaa !31
   %70 = fadd double %24, %69
@@ -2251,7 +2251,7 @@ check_retval.exit60:                              ; preds = %18
 .lr.ph:                                           ; preds = %23, %.lr.ph
   %.066 = phi i64 [ %36, %.lr.ph ], [ 1, %23 ]
   %32 = mul i64 %.066, 3
-  %33 = getelementptr double, ptr %14, i64 %32
+  %33 = getelementptr [8 x i8], ptr %14, i64 %32
   %34 = getelementptr i8, ptr %33, i64 -24
   %35 = load double, ptr %34, align 8, !tbaa !31
   %36 = add nuw nsw i64 %.066, 1
@@ -2268,7 +2268,7 @@ check_retval.exit60:                              ; preds = %18
   %46 = load double, ptr %45, align 8, !tbaa !31
   %47 = fsub double %38, %35
   %48 = fmul double %25, %47
-  %49 = getelementptr inbounds nuw double, ptr %19, i64 %32
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %32
   store double %48, ptr %49, align 8, !tbaa !31
   %50 = fsub double %42, %40
   %51 = fmul double %27, %50
@@ -2338,7 +2338,7 @@ check_retval.exit72:                              ; preds = %18
 .lr.ph:                                           ; preds = %23, %.lr.ph
   %.078 = phi i64 [ %37, %.lr.ph ], [ 1, %23 ]
   %32 = mul nuw nsw i64 %.078, 3
-  %33 = getelementptr inbounds nuw double, ptr %14, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %32
   %34 = load double, ptr %33, align 8, !tbaa !31
   %35 = getelementptr i8, ptr %33, i64 -24
   %36 = load double, ptr %35, align 8, !tbaa !31
@@ -2347,14 +2347,14 @@ check_retval.exit72:                              ; preds = %18
   %38 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx77
   %39 = load double, ptr %38, align 8, !tbaa !31
   %40 = add nuw nsw i64 %32, 1
-  %41 = getelementptr inbounds nuw double, ptr %14, i64 %40
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %40
   %42 = load double, ptr %41, align 8, !tbaa !31
   %43 = getelementptr i8, ptr %33, i64 -16
   %44 = load double, ptr %43, align 8, !tbaa !31
   %45 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %46 = load double, ptr %45, align 8, !tbaa !31
   %47 = add nuw nsw i64 %32, 2
-  %48 = getelementptr inbounds nuw double, ptr %14, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %47
   %49 = load double, ptr %48, align 8, !tbaa !31
   %50 = getelementptr i8, ptr %33, i64 -8
   %51 = load double, ptr %50, align 8, !tbaa !31
@@ -2363,17 +2363,17 @@ check_retval.exit72:                              ; preds = %18
   %54 = tail call double @llvm.fmuladd.f64(double %34, double -2.000000e+00, double %36)
   %55 = fadd double %54, %39
   %56 = fmul double %25, %55
-  %57 = getelementptr inbounds nuw double, ptr %19, i64 %32
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %32
   store double %56, ptr %57, align 8, !tbaa !31
   %58 = tail call double @llvm.fmuladd.f64(double %42, double -2.000000e+00, double %44)
   %59 = fadd double %58, %46
   %60 = fmul double %27, %59
-  %61 = getelementptr inbounds nuw double, ptr %19, i64 %40
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %40
   store double %60, ptr %61, align 8, !tbaa !31
   %62 = tail call double @llvm.fmuladd.f64(double %49, double -2.000000e+00, double %51)
   %63 = fadd double %62, %53
   %64 = fmul double %29, %63
-  %65 = getelementptr inbounds nuw double, ptr %19, i64 %47
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %47
   store double %64, ptr %65, align 8, !tbaa !31
   %exitcond.not = icmp eq i64 %37, %30
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
@@ -2478,21 +2478,21 @@ check_retval.exit.thread:                         ; preds = %2
 check_retval.exit:                                ; preds = %.lr.ph, %check_retval.exit
   %.0763 = phi i64 [ 1, %.lr.ph ], [ %62, %check_retval.exit ]
   %15 = mul nuw nsw i64 %.0763, 3
-  %16 = getelementptr inbounds nuw double, ptr %3, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %15
   %17 = load double, ptr %16, align 8, !tbaa !31
   %18 = add nuw nsw i64 %15, 1
-  %19 = getelementptr inbounds nuw double, ptr %3, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %18
   %20 = load double, ptr %19, align 8, !tbaa !31
   %21 = add nuw nsw i64 %15, 2
-  %22 = getelementptr inbounds nuw double, ptr %3, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %21
   %23 = load double, ptr %22, align 8, !tbaa !31
   %24 = fmul double %17, 2.000000e+00
   %25 = fadd double %23, 1.000000e+00
   %26 = fneg double %25
   %27 = tail call double @llvm.fmuladd.f64(double %24, double %20, double %26)
-  %28 = getelementptr inbounds nuw ptr, ptr %8, i64 %15
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %15
   %29 = load ptr, ptr %28, align 8, !tbaa !37
-  %30 = getelementptr inbounds double, ptr %29, i64 %10
+  %30 = getelementptr inbounds [8 x i8], ptr %29, i64 %10
   %31 = load double, ptr %30, align 8, !tbaa !31
   %32 = fadd double %27, %31
   store double %32, ptr %30, align 8, !tbaa !31
@@ -2507,9 +2507,9 @@ check_retval.exit:                                ; preds = %.lr.ph, %check_retv
   %40 = fsub double %39, %23
   store double %40, ptr %38, align 8, !tbaa !31
   %41 = fmul double %17, %17
-  %42 = getelementptr inbounds nuw ptr, ptr %8, i64 %18
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %18
   %43 = load ptr, ptr %42, align 8, !tbaa !37
-  %44 = getelementptr double, ptr %43, i64 %10
+  %44 = getelementptr [8 x i8], ptr %43, i64 %10
   %45 = getelementptr i8, ptr %44, i64 -8
   %46 = load double, ptr %45, align 8, !tbaa !31
   %47 = fadd double %41, %46
@@ -2517,9 +2517,9 @@ check_retval.exit:                                ; preds = %.lr.ph, %check_retv
   %48 = load double, ptr %44, align 8, !tbaa !31
   %49 = fsub double %48, %41
   store double %49, ptr %44, align 8, !tbaa !31
-  %50 = getelementptr inbounds nuw ptr, ptr %8, i64 %21
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %21
   %51 = load ptr, ptr %50, align 8, !tbaa !37
-  %52 = getelementptr double, ptr %51, i64 %10
+  %52 = getelementptr [8 x i8], ptr %51, i64 %10
   %53 = getelementptr i8, ptr %52, i64 -16
   %54 = load double, ptr %53, align 8, !tbaa !31
   %55 = fsub double %54, %17
@@ -2570,7 +2570,7 @@ define internal fastcc void @LaplaceMatrix(ptr noundef readonly captures(none) %
   %21 = getelementptr i8, ptr %20, i64 -24
   %22 = load ptr, ptr %21, align 8, !tbaa !37
   %23 = getelementptr i8, ptr %22, i64 24
-  %24 = getelementptr double, ptr %23, i64 %12
+  %24 = getelementptr [8 x i8], ptr %23, i64 %12
   %25 = load double, ptr %24, align 8, !tbaa !31
   %26 = fadd double %19, %25
   store double %26, ptr %24, align 8, !tbaa !31
@@ -2580,7 +2580,7 @@ define internal fastcc void @LaplaceMatrix(ptr noundef readonly captures(none) %
   %30 = getelementptr i8, ptr %20, i64 -16
   %31 = load ptr, ptr %30, align 8, !tbaa !37
   %32 = getelementptr i8, ptr %31, i64 24
-  %33 = getelementptr double, ptr %32, i64 %12
+  %33 = getelementptr [8 x i8], ptr %32, i64 %12
   %34 = load double, ptr %33, align 8, !tbaa !31
   %35 = fadd double %34, %29
   store double %35, ptr %33, align 8, !tbaa !31
@@ -2590,7 +2590,7 @@ define internal fastcc void @LaplaceMatrix(ptr noundef readonly captures(none) %
   %39 = getelementptr i8, ptr %20, i64 -8
   %40 = load ptr, ptr %39, align 8, !tbaa !37
   %41 = getelementptr i8, ptr %40, i64 24
-  %42 = getelementptr double, ptr %41, i64 %12
+  %42 = getelementptr [8 x i8], ptr %41, i64 %12
   %43 = load double, ptr %42, align 8, !tbaa !31
   %44 = fadd double %43, %38
   store double %44, ptr %42, align 8, !tbaa !31
@@ -2599,7 +2599,7 @@ define internal fastcc void @LaplaceMatrix(ptr noundef readonly captures(none) %
   %47 = fdiv double %46, %5
   %48 = fdiv double %47, %5
   %49 = load ptr, ptr %20, align 8, !tbaa !37
-  %50 = getelementptr inbounds double, ptr %49, i64 %12
+  %50 = getelementptr inbounds [8 x i8], ptr %49, i64 %12
   %51 = load double, ptr %50, align 8, !tbaa !31
   %52 = fsub double %51, %48
   store double %52, ptr %50, align 8, !tbaa !31
@@ -2609,7 +2609,7 @@ define internal fastcc void @LaplaceMatrix(ptr noundef readonly captures(none) %
   %56 = fdiv double %55, %5
   %57 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %58 = load ptr, ptr %57, align 8, !tbaa !37
-  %59 = getelementptr inbounds double, ptr %58, i64 %12
+  %59 = getelementptr inbounds [8 x i8], ptr %58, i64 %12
   %60 = load double, ptr %59, align 8, !tbaa !31
   %61 = fsub double %60, %56
   store double %61, ptr %59, align 8, !tbaa !31
@@ -2619,7 +2619,7 @@ define internal fastcc void @LaplaceMatrix(ptr noundef readonly captures(none) %
   %65 = fdiv double %64, %5
   %66 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %67 = load ptr, ptr %66, align 8, !tbaa !37
-  %68 = getelementptr inbounds double, ptr %67, i64 %12
+  %68 = getelementptr inbounds [8 x i8], ptr %67, i64 %12
   %69 = load double, ptr %68, align 8, !tbaa !31
   %70 = fsub double %69, %65
   store double %70, ptr %68, align 8, !tbaa !31
@@ -2630,7 +2630,7 @@ define internal fastcc void @LaplaceMatrix(ptr noundef readonly captures(none) %
   %.idx = mul nuw nsw i64 %74, 24
   %75 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   %76 = load ptr, ptr %75, align 8, !tbaa !37
-  %77 = getelementptr double, ptr %76, i64 %12
+  %77 = getelementptr [8 x i8], ptr %76, i64 %12
   %78 = getelementptr i8, ptr %77, i64 -24
   %79 = load double, ptr %78, align 8, !tbaa !31
   %80 = fadd double %79, %73
@@ -2640,7 +2640,7 @@ define internal fastcc void @LaplaceMatrix(ptr noundef readonly captures(none) %
   %83 = fdiv double %82, %5
   %84 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %85 = load ptr, ptr %84, align 8, !tbaa !37
-  %86 = getelementptr double, ptr %85, i64 %12
+  %86 = getelementptr [8 x i8], ptr %85, i64 %12
   %87 = getelementptr i8, ptr %86, i64 -24
   %88 = load double, ptr %87, align 8, !tbaa !31
   %89 = fadd double %88, %83
@@ -2650,7 +2650,7 @@ define internal fastcc void @LaplaceMatrix(ptr noundef readonly captures(none) %
   %92 = fdiv double %91, %5
   %93 = getelementptr inbounds nuw i8, ptr %75, i64 16
   %94 = load ptr, ptr %93, align 8, !tbaa !37
-  %95 = getelementptr double, ptr %94, i64 %12
+  %95 = getelementptr [8 x i8], ptr %94, i64 %12
   %96 = getelementptr i8, ptr %95, i64 -24
   %97 = load double, ptr %96, align 8, !tbaa !31
   %98 = fadd double %97, %92

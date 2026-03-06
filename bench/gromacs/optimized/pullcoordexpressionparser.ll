@@ -168,7 +168,7 @@ _ZNSt10unique_ptrIN2mu6ParserESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNK
   br i1 %51, label %52, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 
 52:                                               ; preds = %50
-  %53 = getelementptr inbounds nuw double, ptr %42, i64 %39
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %39
   %.not.i.i = icmp eq ptr %41, %53
   br i1 %.not.i.i, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit, label %54
 
@@ -205,7 +205,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %48, %50, %52, %54
 68:                                               ; preds = %.lr.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit34
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit34 ]
   %69 = load ptr, ptr %24, align 8, !tbaa !26
-  %70 = getelementptr inbounds nuw double, ptr %69, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %indvars.iv
   store double 0.000000e+00, ptr %70, align 8, !tbaa !27
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %58, ptr %6, align 8, !tbaa !4
@@ -488,7 +488,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit30: ; preds = %168
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit: ; preds = %174, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27
   %178 = load ptr, ptr %25, align 8, !tbaa !19
   %179 = load ptr, ptr %24, align 8, !tbaa !26
-  %180 = getelementptr inbounds nuw double, ptr %179, i64 %indvars.iv
+  %180 = getelementptr inbounds nuw [8 x i8], ptr %179, i64 %indvars.iv
   invoke void @_ZN2mu10ParserBase9DefineVarERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPd(ptr noundef nonnull align 8 dereferenceable(596) %178, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull %180)
           to label %181 unwind label %176
 
@@ -672,9 +672,9 @@ _ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit36: ; preds = %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !26
-  %39 = getelementptr inbounds nuw double, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !23
-  %40 = getelementptr inbounds nuw double, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !39
   br label %41
 

@@ -6,8 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._exr_context_initializer_v3 = type { i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i32, float, i32, [4 x i8] }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
-%struct.exr_attr_chlist_entry_t = type { %struct.exr_attr_string_t, i32, i8, [3 x i8], i32, i32 }
-%struct.exr_attr_string_t = type { i32, i32, ptr }
 
 @.str = private unnamed_addr constant [53 x i8] c"Invalid filename passed to test file header function\00", align 1
 @.str.1 = private unnamed_addr constant [53 x i8] c"Invalid context handle passed to start_read function\00", align 1
@@ -1359,7 +1357,7 @@ define i32 @exr_register_attr_type_handler(ptr noundef %0, ptr noundef %1, ptr n
 
 69:                                               ; preds = %.lr.ph76, %._crit_edge
   %indvars.iv79 = phi i64 [ 0, %.lr.ph76 ], [ %indvars.iv.next80, %._crit_edge ]
-  %70 = getelementptr inbounds nuw ptr, ptr %67, i64 %indvars.iv79
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %indvars.iv79
   %71 = load ptr, ptr %70, align 8, !tbaa !85
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %73 = load i32, ptr %72, align 8, !tbaa !86
@@ -1374,7 +1372,7 @@ define i32 @exr_register_attr_type_handler(ptr noundef %0, ptr noundef %1, ptr n
 
 76:                                               ; preds = %.lr.ph, %96
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %96 ]
-  %77 = getelementptr inbounds nuw ptr, ptr %.pre, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %indvars.iv
   %78 = load ptr, ptr %77, align 8, !tbaa !77
   store ptr %78, ptr %6, align 8, !tbaa !77
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 17
@@ -1483,7 +1481,7 @@ define i32 @exr_set_longname_support(ptr noundef %0, i32 noundef %1) local_unnam
 
 23:                                               ; preds = %.lr.ph121, %.thread103
   %indvars.iv136 = phi i64 [ 0, %.lr.ph121 ], [ %indvars.iv.next137, %.thread103 ]
-  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv136
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv136
   %25 = load ptr, ptr %24, align 8, !tbaa !85
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load i32, ptr %26, align 8, !tbaa !95
@@ -1498,7 +1496,7 @@ define i32 @exr_set_longname_support(ptr noundef %0, i32 noundef %1) local_unnam
 
 30:                                               ; preds = %.lr.ph118, %.thread83
   %indvars.iv131 = phi i64 [ 0, %.lr.ph118 ], [ %indvars.iv.next132, %.thread83 ]
-  %31 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv131
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv131
   %32 = load ptr, ptr %31, align 8, !tbaa !77
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %34 = load i8, ptr %33, align 8, !tbaa !97
@@ -1548,7 +1546,7 @@ define i32 @exr_set_longname_support(ptr noundef %0, i32 noundef %1) local_unnam
 
 59:                                               ; preds = %.lr.ph, %58
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %58 ]
-  %60 = getelementptr inbounds nuw %struct.exr_attr_chlist_entry_t, ptr %57, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw [32 x i8], ptr %57, i64 %indvars.iv
   %61 = load i32, ptr %60, align 8, !tbaa !105
   %62 = icmp sgt i32 %61, 31
   br i1 %62, label %63, label %58
@@ -1565,7 +1563,7 @@ define i32 @exr_set_longname_support(ptr noundef %0, i32 noundef %1) local_unnam
   %67 = load ptr, ptr %66, align 8, !tbaa !50
   %68 = load i32, ptr %25, align 8, !tbaa !98
   %69 = load ptr, ptr %64, align 8, !tbaa !103
-  %70 = getelementptr inbounds nuw %struct.exr_attr_chlist_entry_t, ptr %69, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw [32 x i8], ptr %69, i64 %indvars.iv
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %72 = load ptr, ptr %71, align 8, !tbaa !108
   %73 = tail call i32 (ptr, i32, ptr, ...) %67(ptr noundef nonnull %0, i32 noundef 12, ptr noundef nonnull @.str.11, i32 noundef %68, ptr noundef %72, i32 noundef 31) #13
@@ -1640,7 +1638,7 @@ define i32 @exr_write_header(ptr noundef %0) local_unnamed_addr #0 {
 
 29:                                               ; preds = %.lr.ph, %39
   %indvars.iv = phi i64 [ %25, %.lr.ph ], [ %indvars.iv.next, %39 ]
-  %30 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv
   %31 = load ptr, ptr %30, align 8, !tbaa !85
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 104
   %33 = load ptr, ptr %32, align 8, !tbaa !110
@@ -1669,7 +1667,7 @@ define i32 @exr_write_header(ptr noundef %0) local_unnamed_addr #0 {
 
 44:                                               ; preds = %40
   %45 = load ptr, ptr %26, align 8, !tbaa !84
-  %46 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv153
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv153
   %47 = load ptr, ptr %46, align 8, !tbaa !85
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 32
   %49 = load ptr, ptr %48, align 8, !tbaa !112
@@ -1766,7 +1764,7 @@ define i32 @exr_write_header(ptr noundef %0) local_unnamed_addr #0 {
 93:                                               ; preds = %.lr.ph145, %93
   %indvars.iv156 = phi i64 [ 0, %.lr.ph145 ], [ %indvars.iv.next157, %93 ]
   %94 = phi i64 [ %.promoted, %.lr.ph145 ], [ %102, %93 ]
-  %95 = getelementptr inbounds nuw ptr, ptr %92, i64 %indvars.iv156
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %92, i64 %indvars.iv156
   %96 = load ptr, ptr %95, align 8, !tbaa !85
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 248
   store i64 %94, ptr %97, align 8, !tbaa !121

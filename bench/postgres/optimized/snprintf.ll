@@ -432,7 +432,7 @@ define internal fastcc void @dopr(ptr noundef nonnull captures(none) %0, ptr nou
 
 123:                                              ; preds = %122
   %124 = zext nneg i32 %.089.ph.i to i64
-  %125 = getelementptr inbounds nuw i32, ptr %8, i64 %124
+  %125 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %124
   %126 = load i32, ptr %125, align 4
   %switch.i = icmp ult i32 %126, 2
   br i1 %switch.i, label %127, label %find_arguments.exit.thread
@@ -457,7 +457,7 @@ define internal fastcc void @dopr(ptr noundef nonnull captures(none) %0, ptr nou
   %..i = select i1 %.not123.i, i32 1, i32 2
   %.0.i = select i1 %.not122.i, i32 %..i, i32 3
   %132 = sext i32 %.083.ph.ph.i.ph to i64
-  %133 = getelementptr inbounds i32, ptr %8, i64 %132
+  %133 = getelementptr inbounds [4 x i8], ptr %8, i64 %132
   %134 = load i32, ptr %133, align 4
   %.not124.i = icmp eq i32 %134, 0
   %.not125.i = icmp eq i32 %134, %.0.i
@@ -475,7 +475,7 @@ define internal fastcc void @dopr(ptr noundef nonnull captures(none) %0, ptr nou
 
 137:                                              ; preds = %136
   %138 = sext i32 %.083.ph.ph.i.ph to i64
-  %139 = getelementptr inbounds i32, ptr %8, i64 %138
+  %139 = getelementptr inbounds [4 x i8], ptr %8, i64 %138
   %140 = load i32, ptr %139, align 4
   %switch131.i = icmp ult i32 %140, 2
   br i1 %switch131.i, label %141, label %find_arguments.exit.thread
@@ -491,7 +491,7 @@ define internal fastcc void @dopr(ptr noundef nonnull captures(none) %0, ptr nou
 
 144:                                              ; preds = %143
   %145 = sext i32 %.083.ph.ph.i.ph to i64
-  %146 = getelementptr inbounds i32, ptr %8, i64 %145
+  %146 = getelementptr inbounds [4 x i8], ptr %8, i64 %145
   %147 = load i32, ptr %146, align 4
   switch i32 %147, label %find_arguments.exit.thread [
     i32 0, label %148
@@ -509,7 +509,7 @@ define internal fastcc void @dopr(ptr noundef nonnull captures(none) %0, ptr nou
 
 151:                                              ; preds = %150
   %152 = sext i32 %.083.ph.ph.i.ph to i64
-  %153 = getelementptr inbounds i32, ptr %8, i64 %152
+  %153 = getelementptr inbounds [4 x i8], ptr %8, i64 %152
   %154 = load i32, ptr %153, align 4
   switch i32 %154, label %find_arguments.exit.thread [
     i32 0, label %155
@@ -532,7 +532,7 @@ define internal fastcc void @dopr(ptr noundef nonnull captures(none) %0, ptr nou
 .lr.ph.i:                                         ; preds = %157, %236
   %.082234.i = phi i32 [ %237, %236 ], [ 1, %157 ]
   %158 = sext i32 %.082234.i to i64
-  %159 = getelementptr inbounds i32, ptr %8, i64 %158
+  %159 = getelementptr inbounds [4 x i8], ptr %8, i64 %158
   %160 = load i32, ptr %159, align 4
   switch i32 %160, label %236 [
     i32 0, label %find_arguments.exit.thread
@@ -565,7 +565,7 @@ define internal fastcc void @dopr(ptr noundef nonnull captures(none) %0, ptr nou
 172:                                              ; preds = %169, %164
   %173 = phi ptr [ %167, %164 ], [ %170, %169 ]
   %174 = load i32, ptr %173, align 4
-  %175 = getelementptr inbounds %union.PrintfArgValue, ptr %9, i64 %158
+  %175 = getelementptr inbounds [8 x i8], ptr %9, i64 %158
   store i32 %174, ptr %175, align 8
   br label %236
 
@@ -591,7 +591,7 @@ define internal fastcc void @dopr(ptr noundef nonnull captures(none) %0, ptr nou
 187:                                              ; preds = %184, %179
   %188 = phi ptr [ %182, %179 ], [ %185, %184 ]
   %189 = load i64, ptr %188, align 8
-  %190 = getelementptr inbounds %union.PrintfArgValue, ptr %9, i64 %158
+  %190 = getelementptr inbounds [8 x i8], ptr %9, i64 %158
   store i64 %189, ptr %190, align 8
   br label %236
 
@@ -617,7 +617,7 @@ define internal fastcc void @dopr(ptr noundef nonnull captures(none) %0, ptr nou
 202:                                              ; preds = %199, %194
   %203 = phi ptr [ %197, %194 ], [ %200, %199 ]
   %204 = load i64, ptr %203, align 8
-  %205 = getelementptr inbounds %union.PrintfArgValue, ptr %9, i64 %158
+  %205 = getelementptr inbounds [8 x i8], ptr %9, i64 %158
   store i64 %204, ptr %205, align 8
   br label %236
 
@@ -643,7 +643,7 @@ define internal fastcc void @dopr(ptr noundef nonnull captures(none) %0, ptr nou
 217:                                              ; preds = %214, %209
   %218 = phi ptr [ %212, %209 ], [ %215, %214 ]
   %219 = load double, ptr %218, align 8
-  %220 = getelementptr inbounds %union.PrintfArgValue, ptr %9, i64 %158
+  %220 = getelementptr inbounds [8 x i8], ptr %9, i64 %158
   store double %219, ptr %220, align 8
   br label %236
 
@@ -669,7 +669,7 @@ define internal fastcc void @dopr(ptr noundef nonnull captures(none) %0, ptr nou
 232:                                              ; preds = %229, %224
   %233 = phi ptr [ %227, %224 ], [ %230, %229 ]
   %234 = load ptr, ptr %233, align 8
-  %235 = getelementptr inbounds %union.PrintfArgValue, ptr %9, i64 %158
+  %235 = getelementptr inbounds [8 x i8], ptr %9, i64 %158
   store ptr %234, ptr %235, align 8
   br label %236
 
@@ -691,7 +691,7 @@ find_arguments.exit:                              ; preds = %236, %157
 
 239:                                              ; preds = %238
   %240 = sext i32 %.0199 to i64
-  %241 = getelementptr inbounds %union.PrintfArgValue, ptr %9, i64 %240
+  %241 = getelementptr inbounds [8 x i8], ptr %9, i64 %240
   %242 = load i32, ptr %241, align 8
   %.not237 = icmp eq i32 %.0190, 0
   br i1 %.not237, label %245, label %243
@@ -736,14 +736,14 @@ find_arguments.exit:                              ; preds = %236, %157
 
 257:                                              ; preds = %256
   %258 = sext i32 %.0167 to i64
-  %259 = getelementptr inbounds %union.PrintfArgValue, ptr %9, i64 %258
+  %259 = getelementptr inbounds [8 x i8], ptr %9, i64 %258
   %260 = load i64, ptr %259, align 8
   br label %312
 
 261:                                              ; preds = %256
   %.not235 = icmp eq i32 %.0195, 0
   %262 = sext i32 %.0167 to i64
-  %263 = getelementptr inbounds %union.PrintfArgValue, ptr %9, i64 %262
+  %263 = getelementptr inbounds [8 x i8], ptr %9, i64 %262
   br i1 %.not235, label %266, label %264
 
 264:                                              ; preds = %261
@@ -855,14 +855,14 @@ find_arguments.exit:                              ; preds = %236, %157
 
 320:                                              ; preds = %319
   %321 = sext i32 %.0167 to i64
-  %322 = getelementptr inbounds %union.PrintfArgValue, ptr %9, i64 %321
+  %322 = getelementptr inbounds [8 x i8], ptr %9, i64 %321
   %323 = load i64, ptr %322, align 8
   br label %375
 
 324:                                              ; preds = %319
   %.not230 = icmp eq i32 %.0195, 0
   %325 = sext i32 %.0167 to i64
-  %326 = getelementptr inbounds %union.PrintfArgValue, ptr %9, i64 %325
+  %326 = getelementptr inbounds [8 x i8], ptr %9, i64 %325
   br i1 %.not230, label %329, label %327
 
 327:                                              ; preds = %324
@@ -967,7 +967,7 @@ find_arguments.exit:                              ; preds = %236, %157
 
 380:                                              ; preds = %376
   %381 = sext i32 %.0167 to i64
-  %382 = getelementptr inbounds %union.PrintfArgValue, ptr %9, i64 %381
+  %382 = getelementptr inbounds [8 x i8], ptr %9, i64 %381
   br label %394
 
 383:                                              ; preds = %376
@@ -1082,7 +1082,7 @@ dopr_outch.exit.i:                                ; preds = %422, %404
 
 435:                                              ; preds = %429
   %436 = sext i32 %.0167 to i64
-  %437 = getelementptr inbounds %union.PrintfArgValue, ptr %9, i64 %436
+  %437 = getelementptr inbounds [8 x i8], ptr %9, i64 %436
   br label %449
 
 438:                                              ; preds = %429
@@ -1152,7 +1152,7 @@ dopr_outch.exit.i:                                ; preds = %422, %404
 
 466:                                              ; preds = %464
   %467 = sext i32 %.0167 to i64
-  %468 = getelementptr inbounds %union.PrintfArgValue, ptr %9, i64 %467
+  %468 = getelementptr inbounds [8 x i8], ptr %9, i64 %467
   br label %480
 
 469:                                              ; preds = %464
@@ -1207,7 +1207,7 @@ fmtptr.exit:                                      ; preds = %483, %484
 
 491:                                              ; preds = %485
   %492 = sext i32 %.0167 to i64
-  %493 = getelementptr inbounds %union.PrintfArgValue, ptr %9, i64 %492
+  %493 = getelementptr inbounds [8 x i8], ptr %9, i64 %492
   br label %505
 
 494:                                              ; preds = %485

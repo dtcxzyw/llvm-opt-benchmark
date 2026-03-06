@@ -546,7 +546,7 @@ define linkonce_odr dso_local void @_ZSt13__invoke_implIvRZN3igl8nchoosekIN5Eige
   %24 = load i32, ptr %23, align 4, !tbaa !19
   %25 = sext i32 %24 to i64
   %26 = load ptr, ptr %21, align 8, !tbaa !16, !noalias !47
-  %27 = getelementptr inbounds i32, ptr %26, i64 %25
+  %27 = getelementptr inbounds [4 x i8], ptr %26, i64 %25
   %28 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %29 = load i64, ptr %28, align 8, !tbaa !15, !noalias !47
   %30 = load ptr, ptr %19, align 8, !tbaa !21
@@ -558,8 +558,8 @@ define linkonce_odr dso_local void @_ZSt13__invoke_implIvRZN3igl8nchoosekIN5Eige
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i:                     ; preds = %18, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %38, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i ], [ 0, %18 ]
   %34 = mul nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i, %32
-  %35 = getelementptr inbounds i32, ptr %27, i64 %34
-  %36 = getelementptr inbounds nuw i32, ptr %30, i64 %.05.i.i.i.i.i.i.i.i.i.i.i
+  %35 = getelementptr inbounds [4 x i8], ptr %27, i64 %34
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %.05.i.i.i.i.i.i.i.i.i.i.i
   %37 = load i32, ptr %36, align 4, !tbaa !19
   store i32 %37, ptr %35, align 4, !tbaa !19
   %38 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i, 1
@@ -582,12 +582,12 @@ _ZN5Eigen5BlockINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSINS1_IiLi1
   %indvars.iv.i = phi i64 [ %17, %.lr.ph.i ], [ %indvars.iv.next.i, %_ZNKSt8functionIFviiEEclEii.exit.i ]
   %44 = load ptr, ptr %13, align 8, !tbaa !51
   %45 = load ptr, ptr %44, align 8, !tbaa !52
-  %46 = getelementptr inbounds i32, ptr %45, i64 %indvars.iv.i
+  %46 = getelementptr inbounds [4 x i8], ptr %45, i64 %indvars.iv.i
   %47 = load i32, ptr %46, align 4, !tbaa !19
   %48 = load ptr, ptr %0, align 8, !tbaa !44
   %49 = sext i32 %42 to i64
   %50 = load ptr, ptr %48, align 8, !tbaa !21
-  %51 = getelementptr inbounds i32, ptr %50, i64 %49
+  %51 = getelementptr inbounds [4 x i8], ptr %50, i64 %49
   store i32 %47, ptr %51, align 4, !tbaa !19
   %52 = load i32, ptr %43, align 4, !tbaa !19
   %53 = add nsw i32 %52, 1

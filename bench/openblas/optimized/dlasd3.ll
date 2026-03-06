@@ -36,24 +36,24 @@ define void @dlasd3_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %31 = load i32, ptr %6, align 4, !tbaa !3
   %narrow = xor i32 %31, -1
   %32 = sext i32 %narrow to i64
-  %33 = getelementptr inbounds double, ptr %5, i64 %32
+  %33 = getelementptr inbounds [8 x i8], ptr %5, i64 %32
   %34 = getelementptr inbounds i8, ptr %7, i64 -8
   %35 = load i32, ptr %9, align 4, !tbaa !3
   %narrow452 = xor i32 %35, -1
   %36 = sext i32 %narrow452 to i64
-  %37 = getelementptr inbounds double, ptr %8, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr %8, i64 %36
   %38 = load i32, ptr %11, align 4, !tbaa !3
   %narrow451 = xor i32 %38, -1
   %39 = sext i32 %narrow451 to i64
-  %40 = getelementptr inbounds double, ptr %10, i64 %39
+  %40 = getelementptr inbounds [8 x i8], ptr %10, i64 %39
   %41 = load i32, ptr %13, align 4, !tbaa !3
   %narrow449 = xor i32 %41, -1
   %42 = sext i32 %narrow449 to i64
-  %43 = getelementptr inbounds double, ptr %12, i64 %42
+  %43 = getelementptr inbounds [8 x i8], ptr %12, i64 %42
   %44 = load i32, ptr %15, align 4, !tbaa !3
   %narrow448 = xor i32 %44, -1
   %45 = sext i32 %narrow448 to i64
-  %46 = getelementptr inbounds double, ptr %14, i64 %45
+  %46 = getelementptr inbounds [8 x i8], ptr %14, i64 %45
   %47 = getelementptr inbounds i8, ptr %16, i64 -4
   %48 = getelementptr inbounds i8, ptr %18, i64 -8
   store i32 0, ptr %19, align 4, !tbaa !3
@@ -166,16 +166,16 @@ define void @dlasd3_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %96 = sext i32 %35 to i64
   %97 = add nuw i32 %94, 1
   %wide.trip.count573 = zext i32 %97 to i64
-  %invariant.gep628 = getelementptr double, ptr %40, i64 %95
-  %invariant.gep630 = getelementptr double, ptr %37, i64 %96
+  %invariant.gep628 = getelementptr [8 x i8], ptr %40, i64 %95
+  %invariant.gep630 = getelementptr [8 x i8], ptr %37, i64 %96
   br label %.lr.ph518
 
 .lr.ph518:                                        ; preds = %.lr.ph518.preheader, %.lr.ph518
   %indvars.iv570 = phi i64 [ 1, %.lr.ph518.preheader ], [ %indvars.iv.next571, %.lr.ph518 ]
-  %gep629 = getelementptr double, ptr %invariant.gep628, i64 %indvars.iv570
+  %gep629 = getelementptr [8 x i8], ptr %invariant.gep628, i64 %indvars.iv570
   %98 = load double, ptr %gep629, align 8, !tbaa !7
   %99 = fneg double %98
-  %gep631 = getelementptr double, ptr %invariant.gep630, i64 %indvars.iv570
+  %gep631 = getelementptr [8 x i8], ptr %invariant.gep630, i64 %indvars.iv570
   store double %99, ptr %gep631, align 8, !tbaa !7
   %indvars.iv.next571 = add nuw nsw i64 %indvars.iv570, 1
   %exitcond574.not = icmp eq i64 %indvars.iv.next571, %wide.trip.count573
@@ -188,7 +188,7 @@ define void @dlasd3_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %101 = getelementptr inbounds nuw double, ptr %34, i64 %indvars.iv
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv
   %102 = tail call double @dlamc3_(ptr noundef nonnull %101, ptr noundef nonnull %101) #4
   %103 = load double, ptr %101, align 8, !tbaa !7
   %104 = fsub double %102, %103
@@ -214,13 +214,13 @@ define void @dlasd3_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %storemerge460 = phi i32 [ %122, %120 ], [ 1, %._crit_edge ]
   %109 = mul nsw i32 %storemerge460, %35
   %110 = sext i32 %109 to i64
-  %111 = getelementptr double, ptr %37, i64 %110
+  %111 = getelementptr [8 x i8], ptr %37, i64 %110
   %112 = getelementptr i8, ptr %111, i64 8
   %113 = sext i32 %storemerge460 to i64
-  %114 = getelementptr inbounds double, ptr %30, i64 %113
+  %114 = getelementptr inbounds [8 x i8], ptr %30, i64 %113
   %115 = mul nsw i32 %storemerge460, %41
   %116 = sext i32 %115 to i64
-  %117 = getelementptr double, ptr %43, i64 %116
+  %117 = getelementptr [8 x i8], ptr %43, i64 %116
   %118 = getelementptr i8, ptr %117, i64 8
   call void @dlasd4_(ptr noundef nonnull %3, ptr noundef nonnull %22, ptr noundef %7, ptr noundef %18, ptr noundef %112, ptr noundef nonnull %27, ptr noundef nonnull %114, ptr noundef %118, ptr noundef nonnull %19) #4
   %119 = load i32, ptr %19, align 4, !tbaa !3
@@ -245,7 +245,7 @@ define void @dlasd3_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %125 = sext i32 %31 to i64
   %126 = add nuw i32 %.pre, 1
   %wide.trip.count537 = zext i32 %126 to i64
-  %invariant.gep610 = getelementptr double, ptr %33, i64 %125
+  %invariant.gep610 = getelementptr [8 x i8], ptr %33, i64 %125
   br label %.lr.ph476
 
 .lr.ph476:                                        ; preds = %.lr.ph476.preheader, %._crit_edge471
@@ -253,24 +253,24 @@ define void @dlasd3_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %127 = load i32, ptr %3, align 4, !tbaa !3
   %128 = mul nsw i32 %127, %35
   %129 = sext i32 %128 to i64
-  %130 = getelementptr double, ptr %37, i64 %indvars.iv529
-  %131 = getelementptr double, ptr %130, i64 %129
+  %130 = getelementptr [8 x i8], ptr %37, i64 %indvars.iv529
+  %131 = getelementptr [8 x i8], ptr %130, i64 %129
   %132 = load double, ptr %131, align 8, !tbaa !7
   %133 = mul nsw i32 %127, %41
   %134 = sext i32 %133 to i64
-  %135 = getelementptr double, ptr %43, i64 %indvars.iv529
-  %136 = getelementptr double, ptr %135, i64 %134
+  %135 = getelementptr [8 x i8], ptr %43, i64 %indvars.iv529
+  %136 = getelementptr [8 x i8], ptr %135, i64 %134
   %137 = load double, ptr %136, align 8, !tbaa !7
   %138 = fmul double %132, %137
-  %139 = getelementptr inbounds nuw double, ptr %48, i64 %indvars.iv529
+  %139 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %indvars.iv529
   store double %138, ptr %139, align 8, !tbaa !7
   %.not444.not464 = icmp samesign ugt i64 %indvars.iv529, 1
   br i1 %.not444.not464, label %.lr.ph467, label %.preheader
 
 .lr.ph467:                                        ; preds = %.lr.ph476
-  %140 = getelementptr inbounds nuw double, ptr %34, i64 %indvars.iv529
-  %invariant.gep = getelementptr double, ptr %37, i64 %indvars.iv529
-  %invariant.gep604 = getelementptr double, ptr %43, i64 %indvars.iv529
+  %140 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv529
+  %invariant.gep = getelementptr [8 x i8], ptr %37, i64 %indvars.iv529
+  %invariant.gep604 = getelementptr [8 x i8], ptr %43, i64 %indvars.iv529
   br label %145
 
 .preheader:                                       ; preds = %145, %.lr.ph476
@@ -281,24 +281,24 @@ define void @dlasd3_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   br i1 %.not446.not468, label %.lr.ph470, label %._crit_edge471
 
 .lr.ph470:                                        ; preds = %.preheader
-  %144 = getelementptr inbounds nuw double, ptr %34, i64 %indvars.iv529
+  %144 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv529
   %wide.trip.count534 = zext i32 %127 to i64
-  %invariant.gep606 = getelementptr double, ptr %37, i64 %indvars.iv529
-  %invariant.gep608 = getelementptr double, ptr %43, i64 %indvars.iv529
+  %invariant.gep606 = getelementptr [8 x i8], ptr %37, i64 %indvars.iv529
+  %invariant.gep608 = getelementptr [8 x i8], ptr %43, i64 %indvars.iv529
   br label %160
 
 145:                                              ; preds = %.lr.ph467, %145
   %146 = phi double [ %138, %.lr.ph467 ], [ %159, %145 ]
   %indvars.iv524 = phi i64 [ 1, %.lr.ph467 ], [ %indvars.iv.next525, %145 ]
   %147 = mul nsw i64 %indvars.iv524, %124
-  %gep = getelementptr double, ptr %invariant.gep, i64 %147
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %147
   %148 = load double, ptr %gep, align 8, !tbaa !7
   %149 = mul nsw i64 %indvars.iv524, %123
-  %gep605 = getelementptr double, ptr %invariant.gep604, i64 %149
+  %gep605 = getelementptr [8 x i8], ptr %invariant.gep604, i64 %149
   %150 = load double, ptr %gep605, align 8, !tbaa !7
   %151 = fmul double %148, %150
   %152 = load double, ptr %140, align 8, !tbaa !7
-  %153 = getelementptr inbounds nuw double, ptr %34, i64 %indvars.iv524
+  %153 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv524
   %154 = load double, ptr %153, align 8, !tbaa !7
   %155 = fsub double %152, %154
   %156 = fdiv double %151, %155
@@ -314,14 +314,14 @@ define void @dlasd3_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %161 = phi double [ %141, %.lr.ph470 ], [ %175, %160 ]
   %indvars.iv531 = phi i64 [ %indvars.iv529, %.lr.ph470 ], [ %indvars.iv.next532, %160 ]
   %162 = mul nsw i64 %indvars.iv531, %124
-  %gep607 = getelementptr double, ptr %invariant.gep606, i64 %162
+  %gep607 = getelementptr [8 x i8], ptr %invariant.gep606, i64 %162
   %163 = load double, ptr %gep607, align 8, !tbaa !7
   %164 = mul nsw i64 %indvars.iv531, %123
-  %gep609 = getelementptr double, ptr %invariant.gep608, i64 %164
+  %gep609 = getelementptr [8 x i8], ptr %invariant.gep608, i64 %164
   %165 = load double, ptr %gep609, align 8, !tbaa !7
   %166 = fmul double %163, %165
   %167 = load double, ptr %144, align 8, !tbaa !7
-  %168 = getelementptr double, ptr %34, i64 %indvars.iv531
+  %168 = getelementptr [8 x i8], ptr %34, i64 %indvars.iv531
   %169 = getelementptr i8, ptr %168, i64 8
   %170 = load double, ptr %169, align 8, !tbaa !7
   %171 = fsub double %167, %170
@@ -341,7 +341,7 @@ define void @dlasd3_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %178 = fneg double %176
   %179 = select i1 %177, double %176, double %178
   %180 = call double @sqrt(double noundef %179) #4, !tbaa !3
-  %gep611 = getelementptr double, ptr %invariant.gep610, i64 %indvars.iv529
+  %gep611 = getelementptr [8 x i8], ptr %invariant.gep610, i64 %indvars.iv529
   %181 = load double, ptr %gep611, align 8, !tbaa !7
   %182 = fcmp ult double %181, 0.000000e+00
   %183 = fcmp oge double %180, 0.000000e+00
@@ -371,12 +371,12 @@ define void @dlasd3_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %indvars.iv549 = phi i64 [ 1, %.lr.ph493.preheader ], [ %indvars.iv.next550, %._crit_edge488 ]
   %192 = load double, ptr %18, align 8, !tbaa !7
   %193 = mul nsw i64 %indvars.iv549, %187
-  %194 = getelementptr double, ptr %37, i64 %193
+  %194 = getelementptr [8 x i8], ptr %37, i64 %193
   %195 = getelementptr i8, ptr %194, i64 8
   %196 = load double, ptr %195, align 8, !tbaa !7
   %197 = fdiv double %192, %196
   %198 = mul nsw i64 %indvars.iv549, %188
-  %199 = getelementptr double, ptr %43, i64 %198
+  %199 = getelementptr [8 x i8], ptr %43, i64 %198
   %200 = getelementptr i8, ptr %199, i64 8
   %201 = load double, ptr %200, align 8, !tbaa !7
   %202 = fdiv double %197, %201
@@ -388,22 +388,22 @@ define void @dlasd3_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
 .lr.ph481.preheader:                              ; preds = %.lr.ph493
   %203 = add nuw i32 %191, 1
   %wide.trip.count542 = zext i32 %203 to i64
-  %invariant.gep612 = getelementptr double, ptr %37, i64 %193
-  %invariant.gep614 = getelementptr double, ptr %43, i64 %198
+  %invariant.gep612 = getelementptr [8 x i8], ptr %37, i64 %193
+  %invariant.gep614 = getelementptr [8 x i8], ptr %43, i64 %198
   br label %.lr.ph481
 
 .lr.ph481:                                        ; preds = %.lr.ph481.preheader, %.lr.ph481
   %indvars.iv539 = phi i64 [ 2, %.lr.ph481.preheader ], [ %indvars.iv.next540, %.lr.ph481 ]
-  %204 = getelementptr inbounds nuw double, ptr %48, i64 %indvars.iv539
+  %204 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %indvars.iv539
   %205 = load double, ptr %204, align 8, !tbaa !7
-  %gep613 = getelementptr double, ptr %invariant.gep612, i64 %indvars.iv539
+  %gep613 = getelementptr [8 x i8], ptr %invariant.gep612, i64 %indvars.iv539
   %206 = load double, ptr %gep613, align 8, !tbaa !7
   %207 = fdiv double %205, %206
-  %gep615 = getelementptr double, ptr %invariant.gep614, i64 %indvars.iv539
+  %gep615 = getelementptr [8 x i8], ptr %invariant.gep614, i64 %indvars.iv539
   %208 = load double, ptr %gep615, align 8, !tbaa !7
   %209 = fdiv double %207, %208
   store double %209, ptr %gep615, align 8, !tbaa !7
-  %210 = getelementptr inbounds nuw double, ptr %34, i64 %indvars.iv539
+  %210 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv539
   %211 = load double, ptr %210, align 8, !tbaa !7
   %212 = fmul double %209, %211
   store double %212, ptr %gep613, align 8, !tbaa !7
@@ -418,7 +418,7 @@ define void @dlasd3_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %214 = load double, ptr %195, align 8, !tbaa !7
   %215 = fdiv double %214, %213
   %216 = mul nsw i64 %indvars.iv549, %189
-  %217 = getelementptr double, ptr %33, i64 %216
+  %217 = getelementptr [8 x i8], ptr %33, i64 %216
   %218 = getelementptr i8, ptr %217, i64 8
   store double %215, ptr %218, align 8, !tbaa !7
   %219 = load i32, ptr %3, align 4, !tbaa !3
@@ -428,19 +428,19 @@ define void @dlasd3_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
 .lr.ph487.preheader:                              ; preds = %._crit_edge482
   %220 = add nuw i32 %219, 1
   %wide.trip.count547 = zext i32 %220 to i64
-  %221 = getelementptr double, ptr %37, i64 %193
-  %invariant.gep616 = getelementptr double, ptr %33, i64 %216
+  %221 = getelementptr [8 x i8], ptr %37, i64 %193
+  %invariant.gep616 = getelementptr [8 x i8], ptr %33, i64 %216
   br label %.lr.ph487
 
 .lr.ph487:                                        ; preds = %.lr.ph487.preheader, %.lr.ph487
   %indvars.iv544 = phi i64 [ 2, %.lr.ph487.preheader ], [ %indvars.iv.next545, %.lr.ph487 ]
-  %222 = getelementptr inbounds nuw i32, ptr %47, i64 %indvars.iv544
+  %222 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %indvars.iv544
   %223 = load i32, ptr %222, align 4, !tbaa !3
   %224 = sext i32 %223 to i64
-  %225 = getelementptr double, ptr %221, i64 %224
+  %225 = getelementptr [8 x i8], ptr %221, i64 %224
   %226 = load double, ptr %225, align 8, !tbaa !7
   %227 = fdiv double %226, %213
-  %gep617 = getelementptr double, ptr %invariant.gep616, i64 %indvars.iv544
+  %gep617 = getelementptr [8 x i8], ptr %invariant.gep616, i64 %indvars.iv544
   store double %227, ptr %gep617, align 8, !tbaa !7
   %indvars.iv.next545 = add nuw nsw i64 %indvars.iv544, 1
   %exitcond548.not = icmp eq i64 %indvars.iv.next545, %wide.trip.count547
@@ -469,10 +469,10 @@ define void @dlasd3_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
 232:                                              ; preds = %._crit_edge494.thread
   %233 = shl i32 %38, 1
   %234 = sext i32 %233 to i64
-  %235 = getelementptr double, ptr %40, i64 %234
+  %235 = getelementptr [8 x i8], ptr %40, i64 %234
   %236 = getelementptr i8, ptr %235, i64 8
   %237 = sext i32 %31 to i64
-  %238 = getelementptr double, ptr %33, i64 %237
+  %238 = getelementptr [8 x i8], ptr %33, i64 %237
   %239 = getelementptr i8, ptr %238, i64 16
   call void @dgemm_(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.2, ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull %17, ptr noundef nonnull @c_b13, ptr noundef %236, ptr noundef nonnull %11, ptr noundef %239, ptr noundef nonnull %6, ptr noundef nonnull @c_b26, ptr noundef %8, ptr noundef nonnull %9) #4
   %240 = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -489,11 +489,11 @@ define void @dlasd3_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   store i32 %248, ptr %26, align 4, !tbaa !3
   %249 = mul nsw i32 %248, %38
   %250 = sext i32 %249 to i64
-  %251 = getelementptr double, ptr %40, i64 %250
+  %251 = getelementptr [8 x i8], ptr %40, i64 %250
   %252 = getelementptr i8, ptr %251, i64 8
   %253 = add nsw i32 %248, %31
   %254 = sext i32 %253 to i64
-  %255 = getelementptr inbounds double, ptr %33, i64 %254
+  %255 = getelementptr inbounds [8 x i8], ptr %33, i64 %254
   call void @dgemm_(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.2, ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull %240, ptr noundef nonnull @c_b13, ptr noundef %252, ptr noundef nonnull %11, ptr noundef %255, ptr noundef nonnull %6, ptr noundef nonnull @c_b13, ptr noundef %8, ptr noundef nonnull %9) #4
   br label %273
 
@@ -511,11 +511,11 @@ define void @dlasd3_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   store i32 %264, ptr %26, align 4, !tbaa !3
   %265 = mul nsw i32 %264, %38
   %266 = sext i32 %265 to i64
-  %267 = getelementptr double, ptr %40, i64 %266
+  %267 = getelementptr [8 x i8], ptr %40, i64 %266
   %268 = getelementptr i8, ptr %267, i64 8
   %269 = add nsw i32 %264, %31
   %270 = sext i32 %269 to i64
-  %271 = getelementptr inbounds double, ptr %33, i64 %270
+  %271 = getelementptr inbounds [8 x i8], ptr %33, i64 %270
   call void @dgemm_(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.2, ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull %257, ptr noundef nonnull @c_b13, ptr noundef %268, ptr noundef nonnull %11, ptr noundef %271, ptr noundef nonnull %6, ptr noundef nonnull @c_b26, ptr noundef %8, ptr noundef nonnull %9) #4
   br label %273
 
@@ -526,7 +526,7 @@ define void @dlasd3_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
 273:                                              ; preds = %260, %272, %232, %243
   %274 = add nsw i32 %63, %35
   %275 = sext i32 %274 to i64
-  %276 = getelementptr inbounds double, ptr %37, i64 %275
+  %276 = getelementptr inbounds [8 x i8], ptr %37, i64 %275
   call void @dcopy_(ptr noundef nonnull %3, ptr noundef %5, ptr noundef nonnull %6, ptr noundef %276, ptr noundef nonnull %9) #4
   %277 = load i32, ptr %17, align 4, !tbaa !3
   %278 = add nsw i32 %277, 2
@@ -539,13 +539,13 @@ define void @dlasd3_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %284 = mul nsw i32 %278, %38
   %285 = add nsw i32 %284, %64
   %286 = sext i32 %285 to i64
-  %287 = getelementptr inbounds double, ptr %40, i64 %286
+  %287 = getelementptr inbounds [8 x i8], ptr %40, i64 %286
   %288 = add nsw i32 %278, %31
   %289 = sext i32 %288 to i64
-  %290 = getelementptr inbounds double, ptr %33, i64 %289
+  %290 = getelementptr inbounds [8 x i8], ptr %33, i64 %289
   %291 = add nsw i32 %64, %35
   %292 = sext i32 %291 to i64
-  %293 = getelementptr inbounds double, ptr %37, i64 %292
+  %293 = getelementptr inbounds [8 x i8], ptr %37, i64 %292
   call void @dgemm_(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.2, ptr noundef nonnull %1, ptr noundef nonnull %3, ptr noundef nonnull %25, ptr noundef nonnull @c_b13, ptr noundef %287, ptr noundef nonnull %11, ptr noundef %290, ptr noundef nonnull %6, ptr noundef nonnull @c_b26, ptr noundef %293, ptr noundef nonnull %9) #4
   br label %294
 
@@ -557,19 +557,19 @@ define void @dlasd3_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
 .lr.ph504.preheader:                              ; preds = %294
   %296 = sext i32 %31 to i64
   %297 = sext i32 %41 to i64
-  %invariant.gep620 = getelementptr double, ptr %33, i64 %296
+  %invariant.gep620 = getelementptr [8 x i8], ptr %33, i64 %296
   %298 = zext nneg i32 %295 to i64
   br label %.lr.ph504
 
 .lr.ph504:                                        ; preds = %.lr.ph504.preheader, %._crit_edge499
   %indvars.iv557 = phi i64 [ 1, %.lr.ph504.preheader ], [ %indvars.iv.next558, %._crit_edge499 ]
   %299 = mul nsw i64 %indvars.iv557, %297
-  %300 = getelementptr double, ptr %43, i64 %299
+  %300 = getelementptr [8 x i8], ptr %43, i64 %299
   %301 = getelementptr i8, ptr %300, i64 8
   %302 = call double @dnrm2_(ptr noundef nonnull %3, ptr noundef %301, ptr noundef nonnull @c__1) #4
   %303 = load double, ptr %301, align 8, !tbaa !7
   %304 = fdiv double %303, %302
-  %gep621 = getelementptr double, ptr %invariant.gep620, i64 %indvars.iv557
+  %gep621 = getelementptr [8 x i8], ptr %invariant.gep620, i64 %indvars.iv557
   store double %304, ptr %gep621, align 8, !tbaa !7
   %305 = load i32, ptr %3, align 4, !tbaa !3
   %.not438495 = icmp slt i32 %305, 2
@@ -578,20 +578,20 @@ define void @dlasd3_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
 .lr.ph498.preheader:                              ; preds = %.lr.ph504
   %306 = add nuw i32 %305, 1
   %wide.trip.count555 = zext i32 %306 to i64
-  %307 = getelementptr double, ptr %43, i64 %299
-  %invariant.gep618 = getelementptr double, ptr %33, i64 %indvars.iv557
+  %307 = getelementptr [8 x i8], ptr %43, i64 %299
+  %invariant.gep618 = getelementptr [8 x i8], ptr %33, i64 %indvars.iv557
   br label %.lr.ph498
 
 .lr.ph498:                                        ; preds = %.lr.ph498.preheader, %.lr.ph498
   %indvars.iv552 = phi i64 [ 2, %.lr.ph498.preheader ], [ %indvars.iv.next553, %.lr.ph498 ]
-  %308 = getelementptr inbounds nuw i32, ptr %47, i64 %indvars.iv552
+  %308 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %indvars.iv552
   %309 = load i32, ptr %308, align 4, !tbaa !3
   %310 = sext i32 %309 to i64
-  %311 = getelementptr double, ptr %307, i64 %310
+  %311 = getelementptr [8 x i8], ptr %307, i64 %310
   %312 = load double, ptr %311, align 8, !tbaa !7
   %313 = fdiv double %312, %302
   %314 = mul nsw i64 %indvars.iv552, %296
-  %gep619 = getelementptr double, ptr %invariant.gep618, i64 %314
+  %gep619 = getelementptr [8 x i8], ptr %invariant.gep618, i64 %314
   store double %313, ptr %gep619, align 8, !tbaa !7
   %indvars.iv.next553 = add nuw nsw i64 %indvars.iv552, 1
   %exitcond556.not = icmp eq i64 %indvars.iv.next553, %wide.trip.count555
@@ -631,11 +631,11 @@ define void @dlasd3_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %326 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %327 = mul nsw i32 %323, %31
   %328 = sext i32 %327 to i64
-  %329 = getelementptr double, ptr %33, i64 %328
+  %329 = getelementptr [8 x i8], ptr %33, i64 %328
   %330 = getelementptr i8, ptr %329, i64 8
   %331 = add nsw i32 %323, %44
   %332 = sext i32 %331 to i64
-  %333 = getelementptr inbounds double, ptr %46, i64 %332
+  %333 = getelementptr inbounds [8 x i8], ptr %46, i64 %332
   call void @dgemm_(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.2, ptr noundef nonnull %3, ptr noundef nonnull %28, ptr noundef nonnull %326, ptr noundef nonnull @c_b13, ptr noundef %330, ptr noundef nonnull %6, ptr noundef %333, ptr noundef nonnull %15, ptr noundef nonnull @c_b13, ptr noundef %12, ptr noundef nonnull %13) #4
   %.pre577 = load i32, ptr %17, align 4, !tbaa !3
   br label %334
@@ -662,15 +662,15 @@ define void @dlasd3_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %345 = sext i32 %343 to i64
   %346 = add nuw i32 %342, 1
   %wide.trip.count564 = zext i32 %346 to i64
-  %invariant.gep622 = getelementptr double, ptr %33, i64 %344
-  %invariant.gep624 = getelementptr double, ptr %33, i64 %345
+  %invariant.gep622 = getelementptr [8 x i8], ptr %33, i64 %344
+  %invariant.gep624 = getelementptr [8 x i8], ptr %33, i64 %345
   br label %347
 
 347:                                              ; preds = %.lr.ph509, %347
   %indvars.iv561 = phi i64 [ 1, %.lr.ph509 ], [ %indvars.iv.next562, %347 ]
-  %gep623 = getelementptr double, ptr %invariant.gep622, i64 %indvars.iv561
+  %gep623 = getelementptr [8 x i8], ptr %invariant.gep622, i64 %indvars.iv561
   %348 = load double, ptr %gep623, align 8, !tbaa !7
-  %gep625 = getelementptr double, ptr %invariant.gep624, i64 %indvars.iv561
+  %gep625 = getelementptr [8 x i8], ptr %invariant.gep624, i64 %indvars.iv561
   store double %348, ptr %gep625, align 8, !tbaa !7
   %indvars.iv.next562 = add nuw nsw i64 %indvars.iv561, 1
   %exitcond565.not = icmp eq i64 %indvars.iv.next562, %wide.trip.count564
@@ -686,16 +686,16 @@ define void @dlasd3_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %351 = sext i32 %44 to i64
   %352 = zext nneg i32 %336 to i64
   %353 = add i32 %349, 1
-  %invariant.gep626 = getelementptr double, ptr %46, i64 %352
+  %invariant.gep626 = getelementptr [8 x i8], ptr %46, i64 %352
   br label %.lr.ph514
 
 .lr.ph514:                                        ; preds = %.lr.ph514.preheader, %.lr.ph514
   %indvars.iv566 = phi i64 [ %350, %.lr.ph514.preheader ], [ %indvars.iv.next567, %.lr.ph514 ]
   %354 = mul nsw i64 %indvars.iv566, %351
-  %355 = getelementptr double, ptr %46, i64 %354
+  %355 = getelementptr [8 x i8], ptr %46, i64 %354
   %356 = getelementptr i8, ptr %355, i64 8
   %357 = load double, ptr %356, align 8, !tbaa !7
-  %gep627 = getelementptr double, ptr %invariant.gep626, i64 %354
+  %gep627 = getelementptr [8 x i8], ptr %invariant.gep626, i64 %354
   store double %357, ptr %gep627, align 8, !tbaa !7
   %indvars.iv.next567 = add nsw i64 %indvars.iv566, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next567 to i32
@@ -711,15 +711,15 @@ define void @dlasd3_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   store i32 %362, ptr %25, align 4, !tbaa !3
   %363 = mul nsw i32 %336, %31
   %364 = sext i32 %363 to i64
-  %365 = getelementptr double, ptr %33, i64 %364
+  %365 = getelementptr [8 x i8], ptr %33, i64 %364
   %366 = getelementptr i8, ptr %365, i64 8
   %367 = mul nsw i32 %64, %44
   %368 = add nsw i32 %336, %367
   %369 = sext i32 %368 to i64
-  %370 = getelementptr inbounds double, ptr %46, i64 %369
+  %370 = getelementptr inbounds [8 x i8], ptr %46, i64 %369
   %371 = mul nsw i32 %64, %41
   %372 = sext i32 %371 to i64
-  %373 = getelementptr double, ptr %43, i64 %372
+  %373 = getelementptr [8 x i8], ptr %43, i64 %372
   %374 = getelementptr i8, ptr %373, i64 8
   call void @dgemm_(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.2, ptr noundef nonnull %3, ptr noundef nonnull %29, ptr noundef nonnull %25, ptr noundef nonnull @c_b13, ptr noundef %366, ptr noundef nonnull %6, ptr noundef %370, ptr noundef nonnull %15, ptr noundef nonnull @c_b26, ptr noundef %374, ptr noundef nonnull %13) #4
   br label %.loopexit

@@ -600,13 +600,13 @@ define hidden void @png_set_quantize(ptr noalias noundef %0, ptr noundef %1, i32
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 %indvars.iv536
   %40 = load i8, ptr %39, align 1
   %41 = zext i8 %40 to i64
-  %42 = getelementptr inbounds nuw i16, ptr %4, i64 %41
+  %42 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %41
   %43 = load i16, ptr %42, align 2
   %indvars.iv.next537 = add nuw nsw i64 %indvars.iv536, 1
   %44 = getelementptr inbounds nuw i8, ptr %38, i64 %indvars.iv.next537
   %45 = load i8, ptr %44, align 1
   %46 = zext i8 %45 to i64
-  %47 = getelementptr inbounds nuw i16, ptr %4, i64 %46
+  %47 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %46
   %48 = load i16, ptr %47, align 2
   %49 = icmp ult i16 %43, %48
   br i1 %49, label %50, label %53
@@ -672,8 +672,8 @@ define hidden void @png_set_quantize(ptr noalias noundef %0, ptr noundef %1, i32
 
 67:                                               ; preds = %.preheader449
   %68 = trunc nsw i64 %indvars.iv.next544 to i32
-  %69 = getelementptr inbounds nuw %struct.png_color_struct, ptr %1, i64 %indvars.iv546
-  %70 = getelementptr inbounds %struct.png_color_struct, ptr %1, i64 %indvars.iv.next544
+  %69 = getelementptr inbounds nuw [3 x i8], ptr %1, i64 %indvars.iv546
+  %70 = getelementptr inbounds [3 x i8], ptr %1, i64 %indvars.iv.next544
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %69, ptr noundef nonnull align 1 dereferenceable(3) %70, i64 3, i1 false)
   br label %71
 
@@ -719,9 +719,9 @@ define hidden void @png_set_quantize(ptr noalias noundef %0, ptr noundef %1, i32
 
 84:                                               ; preds = %.preheader447
   %85 = trunc nsw i64 %indvars.iv.next552 to i32
-  %86 = getelementptr inbounds %struct.png_color_struct, ptr %1, i64 %indvars.iv.next552
+  %86 = getelementptr inbounds [3 x i8], ptr %1, i64 %indvars.iv.next552
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %7, ptr noundef nonnull align 1 dereferenceable(3) %86, i64 3, i1 false)
-  %87 = getelementptr inbounds nuw %struct.png_color_struct, ptr %1, i64 %indvars.iv554
+  %87 = getelementptr inbounds nuw [3 x i8], ptr %1, i64 %indvars.iv554
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %86, ptr noundef nonnull align 1 dereferenceable(3) %87, i64 3, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %87, ptr noundef nonnull align 1 dereferenceable(3) %7, i64 3, i1 false)
   %88 = trunc i64 %indvars.iv554 to i8
@@ -751,7 +751,7 @@ define hidden void @png_set_quantize(ptr noalias noundef %0, ptr noundef %1, i32
 
 100:                                              ; preds = %95
   %101 = zext i8 %98 to i64
-  %102 = getelementptr inbounds nuw %struct.png_color_struct, ptr %1, i64 %101
+  %102 = getelementptr inbounds nuw [3 x i8], ptr %1, i64 %101
   %103 = load i8, ptr %102, align 1
   %104 = zext i8 %103 to i32
   %105 = getelementptr inbounds nuw i8, ptr %102, i64 1
@@ -783,7 +783,7 @@ define hidden void @png_set_quantize(ptr noalias noundef %0, ptr noundef %1, i32
   %indvars.iv559 = phi i64 [ 1, %.lr.ph477.preheader ], [ %indvars.iv.next560, %.lr.ph477 ]
   %.0361475 = phi i32 [ %124, %.lr.ph477.preheader ], [ %spec.select430, %.lr.ph477 ]
   %.0364473 = phi i32 [ 0, %.lr.ph477.preheader ], [ %spec.select, %.lr.ph477 ]
-  %125 = getelementptr inbounds nuw %struct.png_color_struct, ptr %1, i64 %indvars.iv559
+  %125 = getelementptr inbounds nuw [3 x i8], ptr %1, i64 %indvars.iv559
   %126 = load i8, ptr %125, align 1
   %127 = zext i8 %126 to i32
   %128 = sub nsw i32 %104, %127
@@ -880,7 +880,7 @@ define hidden void @png_set_quantize(ptr noalias noundef %0, ptr noundef %1, i32
 
 .lr.ph489:                                        ; preds = %160
   %indvars.iv.next582 = add nuw nsw i64 %indvars.iv581, 1
-  %161 = getelementptr inbounds nuw %struct.png_color_struct, ptr %1, i64 %indvars.iv581
+  %161 = getelementptr inbounds nuw [3 x i8], ptr %1, i64 %indvars.iv581
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 1
   %163 = getelementptr inbounds nuw i8, ptr %161, i64 2
   %164 = trunc i64 %indvars.iv581 to i8
@@ -891,7 +891,7 @@ define hidden void @png_set_quantize(ptr noalias noundef %0, ptr noundef %1, i32
   %.3382487 = phi ptr [ %.1380, %.lr.ph489 ], [ %.5384, %199 ]
   %166 = load i8, ptr %161, align 1
   %167 = zext i8 %166 to i32
-  %168 = getelementptr inbounds nuw %struct.png_color_struct, ptr %1, i64 %indvars.iv576
+  %168 = getelementptr inbounds nuw [3 x i8], ptr %1, i64 %indvars.iv576
   %169 = load i8, ptr %168, align 1
   %170 = zext i8 %169 to i32
   %171 = sub nsw i32 %167, %170
@@ -922,7 +922,7 @@ define hidden void @png_set_quantize(ptr noalias noundef %0, ptr noundef %1, i32
 
 192:                                              ; preds = %189
   %193 = zext nneg i32 %188 to i64
-  %194 = getelementptr inbounds nuw ptr, ptr %157, i64 %193
+  %194 = getelementptr inbounds nuw [8 x i8], ptr %157, i64 %193
   %195 = load ptr, ptr %194, align 8
   store ptr %195, ptr %190, align 8
   %196 = getelementptr inbounds nuw i8, ptr %190, i64 8
@@ -957,7 +957,7 @@ define hidden void @png_set_quantize(ptr noalias noundef %0, ptr noundef %1, i32
 .preheader441.split.us.split.us:                  ; preds = %.preheader441.split.us, %.split.us.us.split.us.us.thread
   %indvars.iv603 = phi i64 [ %indvars.iv.next604, %.split.us.us.split.us.us.thread ], [ 0, %.preheader441.split.us ]
   %.2373496.us.us = phi i32 [ %.6.us.us, %.split.us.us.split.us.us.thread ], [ %.0371504, %.preheader441.split.us ]
-  %202 = getelementptr inbounds nuw ptr, ptr %157, i64 %indvars.iv603
+  %202 = getelementptr inbounds nuw [8 x i8], ptr %157, i64 %indvars.iv603
   %203 = load ptr, ptr %202, align 8
   %.not414.us.us = icmp eq ptr %203, null
   br i1 %.not414.us.us, label %.split.us.us.split.us.us.thread, label %.preheader440.us.us
@@ -1001,9 +1001,9 @@ define hidden void @png_set_quantize(ptr noalias noundef %0, ptr noundef %1, i32
   %223 = getelementptr inbounds nuw i8, ptr %204, i64 %222
   %224 = load i8, ptr %223, align 1
   %225 = zext i8 %224 to i64
-  %226 = getelementptr inbounds nuw %struct.png_color_struct, ptr %1, i64 %225
+  %226 = getelementptr inbounds nuw [3 x i8], ptr %1, i64 %225
   %227 = zext nneg i32 %221 to i64
-  %228 = getelementptr inbounds nuw %struct.png_color_struct, ptr %1, i64 %227
+  %228 = getelementptr inbounds nuw [3 x i8], ptr %1, i64 %227
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %226, ptr noundef nonnull align 1 dereferenceable(3) %228, i64 3, i1 false)
   %229 = zext i8 %..us.us.us.us to i64
   br label %233
@@ -1089,7 +1089,7 @@ define hidden void @png_set_quantize(ptr noalias noundef %0, ptr noundef %1, i32
 .preheader441.split.us.split:                     ; preds = %.preheader441.split.us, %.split.us.us.split.thread
   %indvars.iv593 = phi i64 [ %indvars.iv.next594, %.split.us.us.split.thread ], [ 0, %.preheader441.split.us ]
   %.2373496.us = phi i32 [ %.6.us, %.split.us.us.split.thread ], [ %.0371504, %.preheader441.split.us ]
-  %276 = getelementptr inbounds nuw ptr, ptr %157, i64 %indvars.iv593
+  %276 = getelementptr inbounds nuw [8 x i8], ptr %157, i64 %indvars.iv593
   %277 = load ptr, ptr %276, align 8
   %.not414.us = icmp eq ptr %277, null
   br i1 %.not414.us, label %.split.us.us.split.thread, label %.preheader440.us
@@ -1132,9 +1132,9 @@ define hidden void @png_set_quantize(ptr noalias noundef %0, ptr noundef %1, i32
   %297 = getelementptr inbounds nuw i8, ptr %278, i64 %296
   %298 = load i8, ptr %297, align 1
   %299 = zext i8 %298 to i64
-  %300 = getelementptr inbounds nuw %struct.png_color_struct, ptr %1, i64 %299
+  %300 = getelementptr inbounds nuw [3 x i8], ptr %1, i64 %299
   %301 = zext nneg i32 %295 to i64
-  %302 = getelementptr inbounds nuw %struct.png_color_struct, ptr %1, i64 %301
+  %302 = getelementptr inbounds nuw [3 x i8], ptr %1, i64 %301
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %300, ptr noundef nonnull align 1 dereferenceable(3) %302, i64 3, i1 false)
   %303 = load i8, ptr %297, align 1
   %304 = load ptr, ptr %150, align 8
@@ -1174,7 +1174,7 @@ define hidden void @png_set_quantize(ptr noalias noundef %0, ptr noundef %1, i32
 .preheader441.split:                              ; preds = %.preheader441, %.split.thread
   %indvars.iv586 = phi i64 [ %indvars.iv.next587, %.split.thread ], [ 0, %.preheader441 ]
   %.2373496 = phi i32 [ %.6, %.split.thread ], [ %.0371504, %.preheader441 ]
-  %325 = getelementptr inbounds nuw ptr, ptr %157, i64 %indvars.iv586
+  %325 = getelementptr inbounds nuw [8 x i8], ptr %157, i64 %indvars.iv586
   %326 = load ptr, ptr %325, align 8
   %.not414 = icmp eq ptr %326, null
   br i1 %.not414, label %.split.thread, label %.preheader440
@@ -1211,9 +1211,9 @@ define hidden void @png_set_quantize(ptr noalias noundef %0, ptr noundef %1, i32
   %347 = getelementptr inbounds nuw i8, ptr %327, i64 %346
   %348 = load i8, ptr %347, align 1
   %349 = zext i8 %348 to i64
-  %350 = getelementptr inbounds nuw %struct.png_color_struct, ptr %1, i64 %349
+  %350 = getelementptr inbounds nuw [3 x i8], ptr %1, i64 %349
   %351 = zext nneg i32 %345 to i64
-  %352 = getelementptr inbounds nuw %struct.png_color_struct, ptr %1, i64 %351
+  %352 = getelementptr inbounds nuw [3 x i8], ptr %1, i64 %351
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %350, ptr noundef nonnull align 1 dereferenceable(3) %352, i64 3, i1 false)
   %353 = load i8, ptr %347, align 1
   %354 = load ptr, ptr %150, align 8
@@ -1264,7 +1264,7 @@ define hidden void @png_set_quantize(ptr noalias noundef %0, ptr noundef %1, i32
 375:                                              ; preds = %.thread434, %.loopexit439
   %indvars.iv608 = phi i64 [ 0, %.thread434 ], [ %indvars.iv.next609, %.loopexit439 ]
   %.6385501 = phi ptr [ %.2381437, %.thread434 ], [ %.7, %.loopexit439 ]
-  %376 = getelementptr inbounds nuw ptr, ptr %157, i64 %indvars.iv608
+  %376 = getelementptr inbounds nuw [8 x i8], ptr %157, i64 %indvars.iv608
   %377 = load ptr, ptr %376, align 8
   %.not419 = icmp eq ptr %377, null
   br i1 %.not419, label %.loopexit439, label %.preheader438
@@ -1330,7 +1330,7 @@ define hidden void @png_set_quantize(ptr noalias noundef %0, ptr noundef %1, i32
 
 .lr.ph515:                                        ; preds = %.lr.ph515.preheader, %451
   %indvars.iv627 = phi i64 [ 0, %.lr.ph515.preheader ], [ %indvars.iv.next628, %451 ]
-  %397 = getelementptr inbounds nuw %struct.png_color_struct, ptr %1, i64 %indvars.iv627
+  %397 = getelementptr inbounds nuw [3 x i8], ptr %1, i64 %indvars.iv627
   %398 = load i8, ptr %397, align 1
   %399 = lshr i8 %398, 3
   %400 = zext nneg i8 %399 to i32
@@ -2105,7 +2105,7 @@ png_gamma_threshold.exit:                         ; preds = %8
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %118 = load i8, ptr %117, align 8, !alias.scope !93
   %119 = zext i8 %118 to i64
-  %120 = getelementptr inbounds nuw %struct.png_color_struct, ptr %116, i64 %119
+  %120 = getelementptr inbounds nuw [3 x i8], ptr %116, i64 %119
   %121 = load i8, ptr %120, align 1, !noalias !93
   %122 = zext i8 %121 to i16
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 538
@@ -2571,7 +2571,7 @@ png_init_palette_transformations.exit:            ; preds = %png_init_palette_tr
   ]
 
 392:                                              ; preds = %388
-  %393 = getelementptr inbounds nuw %struct.png_color_struct, ptr %289, i64 %indvars.iv
+  %393 = getelementptr inbounds nuw [3 x i8], ptr %289, i64 %indvars.iv
   store i8 %.sroa.0153.0, ptr %393, align 1
   %.sroa.4154.0..sroa_idx = getelementptr inbounds nuw i8, ptr %393, i64 1
   store i8 %.sroa.4154.0, ptr %.sroa.4154.0..sroa_idx, align 1
@@ -2581,7 +2581,7 @@ png_init_palette_transformations.exit:            ; preds = %png_init_palette_tr
 
 394:                                              ; preds = %388
   %395 = load ptr, ptr %379, align 8
-  %396 = getelementptr inbounds nuw %struct.png_color_struct, ptr %289, i64 %indvars.iv
+  %396 = getelementptr inbounds nuw [3 x i8], ptr %289, i64 %indvars.iv
   %397 = load i8, ptr %396, align 1
   %398 = zext i8 %397 to i64
   %399 = getelementptr inbounds nuw i8, ptr %395, i64 %398
@@ -2662,7 +2662,7 @@ png_init_palette_transformations.exit:            ; preds = %png_init_palette_tr
 
 470:                                              ; preds = %388, %384
   %471 = load ptr, ptr %378, align 8
-  %472 = getelementptr inbounds nuw %struct.png_color_struct, ptr %289, i64 %indvars.iv
+  %472 = getelementptr inbounds nuw [3 x i8], ptr %289, i64 %indvars.iv
   %473 = load i8, ptr %472, align 1
   %474 = zext i8 %473 to i64
   %475 = getelementptr inbounds nuw i8, ptr %471, i64 %474
@@ -2866,7 +2866,7 @@ png_init_palette_transformations.exit:            ; preds = %png_init_palette_tr
 584:                                              ; preds = %.lr.ph461, %584
   %indvars.iv480 = phi i64 [ 0, %.lr.ph461 ], [ %indvars.iv.next481, %584 ]
   %585 = load ptr, ptr %583, align 8
-  %586 = getelementptr inbounds nuw %struct.png_color_struct, ptr %580, i64 %indvars.iv480
+  %586 = getelementptr inbounds nuw [3 x i8], ptr %580, i64 %indvars.iv480
   %587 = load i8, ptr %586, align 1
   %588 = zext i8 %587 to i64
   %589 = getelementptr inbounds nuw i8, ptr %585, i64 %588
@@ -2947,7 +2947,7 @@ png_init_palette_transformations.exit:            ; preds = %png_init_palette_tr
   ]
 
 633:                                              ; preds = %629
-  %634 = getelementptr inbounds nuw %struct.png_color_struct, ptr %615, i64 %indvars.iv485
+  %634 = getelementptr inbounds nuw [3 x i8], ptr %615, i64 %indvars.iv485
   store i8 %618, ptr %634, align 1
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %634, i64 1
   store i8 %621, ptr %.sroa.3.0..sroa_idx, align 1
@@ -2956,7 +2956,7 @@ png_init_palette_transformations.exit:            ; preds = %png_init_palette_tr
   br label %684
 
 635:                                              ; preds = %629
-  %636 = getelementptr inbounds nuw %struct.png_color_struct, ptr %615, i64 %indvars.iv485
+  %636 = getelementptr inbounds nuw [3 x i8], ptr %615, i64 %indvars.iv485
   %637 = load i8, ptr %636, align 1
   %638 = zext i8 %637 to i16
   %639 = zext i8 %632 to i16
@@ -3058,7 +3058,7 @@ png_init_palette_transformations.exit:            ; preds = %png_init_palette_tr
 704:                                              ; preds = %.lr.ph468, %704
   %indvars.iv490 = phi i64 [ 0, %.lr.ph468 ], [ %indvars.iv.next491, %704 ]
   %705 = load ptr, ptr %703, align 8
-  %706 = getelementptr inbounds nuw %struct.png_color_struct, ptr %705, i64 %indvars.iv490
+  %706 = getelementptr inbounds nuw [3 x i8], ptr %705, i64 %indvars.iv490
   %707 = load i8, ptr %706, align 1
   %708 = zext i8 %707 to i16
   %709 = lshr i16 %708, %699
@@ -3086,7 +3086,7 @@ png_init_palette_transformations.exit:            ; preds = %png_init_palette_tr
 717:                                              ; preds = %.lr.ph470, %717
   %indvars.iv495 = phi i64 [ 0, %.lr.ph470 ], [ %indvars.iv.next496, %717 ]
   %718 = load ptr, ptr %716, align 8
-  %719 = getelementptr inbounds nuw %struct.png_color_struct, ptr %718, i64 %indvars.iv495
+  %719 = getelementptr inbounds nuw [3 x i8], ptr %718, i64 %indvars.iv495
   %720 = getelementptr inbounds nuw i8, ptr %719, i64 1
   %721 = load i8, ptr %720, align 1
   %722 = zext i8 %721 to i16
@@ -3115,7 +3115,7 @@ png_init_palette_transformations.exit:            ; preds = %png_init_palette_tr
 731:                                              ; preds = %.lr.ph472, %731
   %indvars.iv500 = phi i64 [ 0, %.lr.ph472 ], [ %indvars.iv.next501, %731 ]
   %732 = load ptr, ptr %730, align 8
-  %733 = getelementptr inbounds nuw %struct.png_color_struct, ptr %732, i64 %indvars.iv500
+  %733 = getelementptr inbounds nuw [3 x i8], ptr %732, i64 %indvars.iv500
   %734 = getelementptr inbounds nuw i8, ptr %733, i64 2
   %735 = load i8, ptr %734, align 1
   %736 = zext i8 %735 to i16
@@ -3661,21 +3661,21 @@ define hidden void @png_do_read_transformations(ptr noalias noundef %0, ptr noun
   store i8 %storemerge134.i, ptr %.311718.i, align 1
   %98 = load i8, ptr %.620.i, align 1
   %99 = zext i8 %98 to i64
-  %100 = getelementptr inbounds nuw %struct.png_color_struct, ptr %24, i64 %99
+  %100 = getelementptr inbounds nuw [3 x i8], ptr %24, i64 %99
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 2
   %102 = load i8, ptr %101, align 1
   %103 = getelementptr inbounds i8, ptr %.311718.i, i64 -2
   store i8 %102, ptr %.4118.i, align 1
   %104 = load i8, ptr %.620.i, align 1
   %105 = zext i8 %104 to i64
-  %106 = getelementptr inbounds nuw %struct.png_color_struct, ptr %24, i64 %105
+  %106 = getelementptr inbounds nuw [3 x i8], ptr %24, i64 %105
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 1
   %108 = load i8, ptr %107, align 1
   %109 = getelementptr inbounds i8, ptr %.311718.i, i64 -3
   store i8 %108, ptr %103, align 1
   %110 = load i8, ptr %.620.i, align 1
   %111 = zext i8 %110 to i64
-  %112 = getelementptr inbounds nuw %struct.png_color_struct, ptr %24, i64 %111
+  %112 = getelementptr inbounds nuw [3 x i8], ptr %24, i64 %111
   %113 = load i8, ptr %112, align 1
   %114 = getelementptr inbounds i8, ptr %.311718.i, i64 -4
   store i8 %113, ptr %109, align 1
@@ -3711,21 +3711,21 @@ define hidden void @png_do_read_transformations(ptr noalias noundef %0, ptr noun
   %.7.i = getelementptr inbounds i8, ptr %.pn13222.i, i64 -1
   %126 = load i8, ptr %.7.i, align 1
   %127 = zext i8 %126 to i64
-  %128 = getelementptr inbounds nuw %struct.png_color_struct, ptr %24, i64 %127
+  %128 = getelementptr inbounds nuw [3 x i8], ptr %24, i64 %127
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 2
   %130 = load i8, ptr %129, align 1
   %131 = getelementptr inbounds i8, ptr %.511923.i, i64 -1
   store i8 %130, ptr %.511923.i, align 1
   %132 = load i8, ptr %.7.i, align 1
   %133 = zext i8 %132 to i64
-  %134 = getelementptr inbounds nuw %struct.png_color_struct, ptr %24, i64 %133
+  %134 = getelementptr inbounds nuw [3 x i8], ptr %24, i64 %133
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 1
   %136 = load i8, ptr %135, align 1
   %137 = getelementptr inbounds i8, ptr %.511923.i, i64 -2
   store i8 %136, ptr %131, align 1
   %138 = load i8, ptr %.7.i, align 1
   %139 = zext i8 %138 to i64
-  %140 = getelementptr inbounds nuw %struct.png_color_struct, ptr %24, i64 %139
+  %140 = getelementptr inbounds nuw [3 x i8], ptr %24, i64 %139
   %141 = load i8, ptr %140, align 1
   %142 = getelementptr inbounds i8, ptr %.511923.i, i64 -3
   store i8 %141, ptr %137, align 1
@@ -4071,10 +4071,10 @@ png_do_expand_palette.exit:                       ; preds = %.sink.split.i, %82,
   %319 = load i32, ptr %286, align 4, !alias.scope !112
   %320 = lshr i32 %303, %319
   %321 = zext nneg i32 %320 to i64
-  %322 = getelementptr inbounds nuw ptr, ptr %317, i64 %321
+  %322 = getelementptr inbounds nuw [8 x i8], ptr %317, i64 %321
   %323 = load ptr, ptr %322, align 8, !noalias !112
   %324 = zext i8 %298 to i64
-  %325 = getelementptr inbounds nuw i16, ptr %323, i64 %324
+  %325 = getelementptr inbounds nuw [2 x i8], ptr %323, i64 %324
   %326 = load i16, ptr %325, align 2, !noalias !112
   br label %375
 
@@ -4083,28 +4083,28 @@ png_do_expand_palette.exit:                       ; preds = %.sink.split.i, %82,
   %329 = load i32, ptr %286, align 4, !alias.scope !112
   %330 = lshr i32 %328, %329
   %331 = zext nneg i32 %330 to i64
-  %332 = getelementptr inbounds nuw ptr, ptr %282, i64 %331
+  %332 = getelementptr inbounds nuw [8 x i8], ptr %282, i64 %331
   %333 = load ptr, ptr %332, align 8, !noalias !112
   %334 = lshr i32 %313, 8
   %335 = zext nneg i32 %334 to i64
-  %336 = getelementptr inbounds nuw i16, ptr %333, i64 %335
+  %336 = getelementptr inbounds nuw [2 x i8], ptr %333, i64 %335
   %337 = load i16, ptr %336, align 2, !noalias !112
   %338 = lshr i32 %303, %329
   %339 = zext nneg i32 %338 to i64
-  %340 = getelementptr inbounds nuw ptr, ptr %282, i64 %339
+  %340 = getelementptr inbounds nuw [8 x i8], ptr %282, i64 %339
   %341 = load ptr, ptr %340, align 8, !noalias !112
   %342 = zext i8 %298 to i64
-  %343 = getelementptr inbounds nuw i16, ptr %341, i64 %342
+  %343 = getelementptr inbounds nuw [2 x i8], ptr %341, i64 %342
   %344 = load i16, ptr %343, align 2, !noalias !112
   %345 = zext i16 %312 to i32
   %346 = and i32 %345, 255
   %347 = lshr i32 %346, %329
   %348 = zext nneg i32 %347 to i64
-  %349 = getelementptr inbounds nuw ptr, ptr %282, i64 %348
+  %349 = getelementptr inbounds nuw [8 x i8], ptr %282, i64 %348
   %350 = load ptr, ptr %349, align 8, !noalias !112
   %351 = lshr i32 %345, 8
   %352 = zext nneg i32 %351 to i64
-  %353 = getelementptr inbounds nuw i16, ptr %350, i64 %352
+  %353 = getelementptr inbounds nuw [2 x i8], ptr %350, i64 %352
   %354 = load i16, ptr %353, align 2, !noalias !112
   %355 = zext i16 %337 to i32
   %356 = mul nuw i32 %355, %177
@@ -4119,12 +4119,12 @@ png_do_expand_palette.exit:                       ; preds = %.sink.split.i, %82,
   %365 = and i32 %364, 255
   %366 = lshr i32 %365, %329
   %367 = zext nneg i32 %366 to i64
-  %368 = getelementptr inbounds nuw ptr, ptr %285, i64 %367
+  %368 = getelementptr inbounds nuw [8 x i8], ptr %285, i64 %367
   %369 = load ptr, ptr %368, align 8, !noalias !112
   %370 = lshr i32 %363, 23
   %371 = and i32 %370, 255
   %372 = zext nneg i32 %371 to i64
-  %373 = getelementptr inbounds nuw i16, ptr %369, i64 %372
+  %373 = getelementptr inbounds nuw [2 x i8], ptr %369, i64 %372
   %374 = load i16, ptr %373, align 2, !noalias !112
   br label %375
 
@@ -4721,10 +4721,10 @@ png_do_rgb_to_gray.exit.thread:                   ; preds = %166, %png_do_rgb_to
 681:                                              ; preds = %672
   %682 = lshr i32 %678, %496
   %683 = zext nneg i32 %682 to i64
-  %684 = getelementptr inbounds nuw ptr, ptr %490, i64 %683
+  %684 = getelementptr inbounds nuw [8 x i8], ptr %490, i64 %683
   %685 = load ptr, ptr %684, align 8
   %686 = zext i8 %673 to i64
-  %687 = getelementptr inbounds nuw i16, ptr %685, i64 %686
+  %687 = getelementptr inbounds nuw [2 x i8], ptr %685, i64 %686
   br label %688
 
 688:                                              ; preds = %681, %672
@@ -5002,10 +5002,10 @@ png_do_rgb_to_gray.exit.thread:                   ; preds = %166, %png_do_rgb_to
   %.pre-phi.i196 = phi i32 [ %.pre964.i, %._crit_edge963.i ], [ %829, %834 ], [ %829, %826 ]
   %848 = lshr i32 %813, %496
   %849 = zext nneg i32 %848 to i64
-  %850 = getelementptr inbounds nuw ptr, ptr %490, i64 %849
+  %850 = getelementptr inbounds nuw [8 x i8], ptr %490, i64 %849
   %851 = load ptr, ptr %850, align 8
   %852 = zext i8 %808 to i64
-  %853 = getelementptr inbounds nuw i16, ptr %851, i64 %852
+  %853 = getelementptr inbounds nuw [2 x i8], ptr %851, i64 %852
   %854 = load i16, ptr %853, align 2
   %855 = lshr i16 %854, 8
   %856 = trunc nuw i16 %855 to i8
@@ -5014,10 +5014,10 @@ png_do_rgb_to_gray.exit.thread:                   ; preds = %166, %png_do_rgb_to
   store i8 %857, ptr %811, align 1, !noalias !119
   %858 = lshr i32 %.pre-phi.i196, %496
   %859 = zext nneg i32 %858 to i64
-  %860 = getelementptr inbounds nuw ptr, ptr %490, i64 %859
+  %860 = getelementptr inbounds nuw [8 x i8], ptr %490, i64 %859
   %861 = load ptr, ptr %860, align 8
   %862 = zext i8 %.pre961.i to i64
-  %863 = getelementptr inbounds nuw i16, ptr %861, i64 %862
+  %863 = getelementptr inbounds nuw [2 x i8], ptr %861, i64 %862
   %864 = load i16, ptr %863, align 2
   %865 = lshr i16 %864, 8
   %866 = trunc nuw i16 %865 to i8
@@ -5026,10 +5026,10 @@ png_do_rgb_to_gray.exit.thread:                   ; preds = %166, %png_do_rgb_to
   store i8 %867, ptr %816, align 1, !noalias !119
   %868 = lshr i32 %823, %496
   %869 = zext nneg i32 %868 to i64
-  %870 = getelementptr inbounds nuw ptr, ptr %490, i64 %869
+  %870 = getelementptr inbounds nuw [8 x i8], ptr %490, i64 %869
   %871 = load ptr, ptr %870, align 8
   %872 = zext i8 %818 to i64
-  %873 = getelementptr inbounds nuw i16, ptr %871, i64 %872
+  %873 = getelementptr inbounds nuw [2 x i8], ptr %871, i64 %872
   br label %874
 
 874:                                              ; preds = %847, %838
@@ -5287,11 +5287,11 @@ png_do_rgb_to_gray.exit.thread:                   ; preds = %166, %png_do_rgb_to
   %1015 = zext i8 %1014 to i32
   %1016 = lshr i32 %1015, %496
   %1017 = zext nneg i32 %1016 to i64
-  %1018 = getelementptr inbounds nuw ptr, ptr %490, i64 %1017
+  %1018 = getelementptr inbounds nuw [8 x i8], ptr %490, i64 %1017
   %1019 = load ptr, ptr %1018, align 8
   %1020 = load i8, ptr %.20848.i, align 1, !noalias !119
   %1021 = zext i8 %1020 to i64
-  %1022 = getelementptr inbounds nuw i16, ptr %1019, i64 %1021
+  %1022 = getelementptr inbounds nuw [2 x i8], ptr %1019, i64 %1021
   %1023 = load i16, ptr %1022, align 2
   %1024 = lshr i16 %1023, 8
   %1025 = trunc nuw i16 %1024 to i8
@@ -5316,11 +5316,11 @@ png_do_rgb_to_gray.exit.thread:                   ; preds = %166, %png_do_rgb_to
   %1036 = zext i8 %1035 to i32
   %1037 = lshr i32 %1036, %496
   %1038 = zext nneg i32 %1037 to i64
-  %1039 = getelementptr inbounds nuw ptr, ptr %494, i64 %1038
+  %1039 = getelementptr inbounds nuw [8 x i8], ptr %494, i64 %1038
   %1040 = load ptr, ptr %1039, align 8
   %1041 = load i8, ptr %.20848.i, align 1, !noalias !119
   %1042 = zext i8 %1041 to i64
-  %1043 = getelementptr inbounds nuw i16, ptr %1040, i64 %1042
+  %1043 = getelementptr inbounds nuw [2 x i8], ptr %1040, i64 %1042
   %1044 = load i16, ptr %1043, align 2
   %1045 = zext i16 %1044 to i32
   %1046 = mul nuw i32 %1011, %1045
@@ -5343,11 +5343,11 @@ png_do_rgb_to_gray.exit.thread:                   ; preds = %166, %png_do_rgb_to
   %1059 = and i32 %1055, 255
   %1060 = lshr i32 %1059, %496
   %1061 = zext nneg i32 %1060 to i64
-  %1062 = getelementptr inbounds nuw ptr, ptr %492, i64 %1061
+  %1062 = getelementptr inbounds nuw [8 x i8], ptr %492, i64 %1061
   %1063 = load ptr, ptr %1062, align 8
   %1064 = lshr i32 %1054, 24
   %1065 = zext nneg i32 %1064 to i64
-  %1066 = getelementptr inbounds nuw i16, ptr %1063, i64 %1065
+  %1066 = getelementptr inbounds nuw [2 x i8], ptr %1063, i64 %1065
   %1067 = load i16, ptr %1066, align 2
   br label %1068
 
@@ -5734,11 +5734,11 @@ png_do_rgb_to_gray.exit.thread:                   ; preds = %166, %png_do_rgb_to
   %1315 = zext i8 %1314 to i32
   %1316 = lshr i32 %1315, %496
   %1317 = zext nneg i32 %1316 to i64
-  %1318 = getelementptr inbounds nuw ptr, ptr %490, i64 %1317
+  %1318 = getelementptr inbounds nuw [8 x i8], ptr %490, i64 %1317
   %1319 = load ptr, ptr %1318, align 8
   %1320 = load i8, ptr %.24836.i, align 1, !noalias !119
   %1321 = zext i8 %1320 to i64
-  %1322 = getelementptr inbounds nuw i16, ptr %1319, i64 %1321
+  %1322 = getelementptr inbounds nuw [2 x i8], ptr %1319, i64 %1321
   %1323 = load i16, ptr %1322, align 2
   %1324 = lshr i16 %1323, 8
   %1325 = trunc nuw i16 %1324 to i8
@@ -5750,12 +5750,12 @@ png_do_rgb_to_gray.exit.thread:                   ; preds = %166, %png_do_rgb_to
   %1329 = zext i8 %1328 to i32
   %1330 = lshr i32 %1329, %496
   %1331 = zext nneg i32 %1330 to i64
-  %1332 = getelementptr inbounds nuw ptr, ptr %490, i64 %1331
+  %1332 = getelementptr inbounds nuw [8 x i8], ptr %490, i64 %1331
   %1333 = load ptr, ptr %1332, align 8
   %1334 = getelementptr inbounds nuw i8, ptr %.24836.i, i64 2
   %1335 = load i8, ptr %1334, align 1, !noalias !119
   %1336 = zext i8 %1335 to i64
-  %1337 = getelementptr inbounds nuw i16, ptr %1333, i64 %1336
+  %1337 = getelementptr inbounds nuw [2 x i8], ptr %1333, i64 %1336
   %1338 = load i16, ptr %1337, align 2
   %1339 = lshr i16 %1338, 8
   %1340 = trunc nuw i16 %1339 to i8
@@ -5767,12 +5767,12 @@ png_do_rgb_to_gray.exit.thread:                   ; preds = %166, %png_do_rgb_to
   %1344 = zext i8 %1343 to i32
   %1345 = lshr i32 %1344, %496
   %1346 = zext nneg i32 %1345 to i64
-  %1347 = getelementptr inbounds nuw ptr, ptr %490, i64 %1346
+  %1347 = getelementptr inbounds nuw [8 x i8], ptr %490, i64 %1346
   %1348 = load ptr, ptr %1347, align 8
   %1349 = getelementptr inbounds nuw i8, ptr %.24836.i, i64 4
   %1350 = load i8, ptr %1349, align 1, !noalias !119
   %1351 = zext i8 %1350 to i64
-  %1352 = getelementptr inbounds nuw i16, ptr %1348, i64 %1351
+  %1352 = getelementptr inbounds nuw [2 x i8], ptr %1348, i64 %1351
   %1353 = load i16, ptr %1352, align 2
   %1354 = lshr i16 %1353, 8
   %1355 = trunc nuw i16 %1354 to i8
@@ -5813,11 +5813,11 @@ png_do_rgb_to_gray.exit.thread:                   ; preds = %166, %png_do_rgb_to
   %1378 = zext i8 %1377 to i32
   %1379 = lshr i32 %1378, %496
   %1380 = zext nneg i32 %1379 to i64
-  %1381 = getelementptr inbounds nuw ptr, ptr %494, i64 %1380
+  %1381 = getelementptr inbounds nuw [8 x i8], ptr %494, i64 %1380
   %1382 = load ptr, ptr %1381, align 8
   %1383 = load i8, ptr %.24836.i, align 1, !noalias !119
   %1384 = zext i8 %1383 to i64
-  %1385 = getelementptr inbounds nuw i16, ptr %1382, i64 %1384
+  %1385 = getelementptr inbounds nuw [2 x i8], ptr %1382, i64 %1384
   %1386 = load i16, ptr %1385, align 2
   %1387 = zext i16 %1386 to i32
   %1388 = mul nuw i32 %1311, %1387
@@ -5837,11 +5837,11 @@ png_do_rgb_to_gray.exit.thread:                   ; preds = %166, %png_do_rgb_to
   %1400 = and i32 %1397, 255
   %1401 = lshr i32 %1400, %496
   %1402 = zext nneg i32 %1401 to i64
-  %1403 = getelementptr inbounds nuw ptr, ptr %492, i64 %1402
+  %1403 = getelementptr inbounds nuw [8 x i8], ptr %492, i64 %1402
   %1404 = load ptr, ptr %1403, align 8
   %1405 = lshr i32 %1396, 24
   %1406 = zext nneg i32 %1405 to i64
-  %1407 = getelementptr inbounds nuw i16, ptr %1404, i64 %1406
+  %1407 = getelementptr inbounds nuw [2 x i8], ptr %1404, i64 %1406
   %1408 = load i16, ptr %1407, align 2
   br label %1409
 
@@ -5857,12 +5857,12 @@ png_do_rgb_to_gray.exit.thread:                   ; preds = %166, %png_do_rgb_to
   %1415 = zext i8 %1414 to i32
   %1416 = lshr i32 %1415, %496
   %1417 = zext nneg i32 %1416 to i64
-  %1418 = getelementptr inbounds nuw ptr, ptr %494, i64 %1417
+  %1418 = getelementptr inbounds nuw [8 x i8], ptr %494, i64 %1417
   %1419 = load ptr, ptr %1418, align 8
   %1420 = getelementptr inbounds nuw i8, ptr %.24836.i, i64 2
   %1421 = load i8, ptr %1420, align 1, !noalias !119
   %1422 = zext i8 %1421 to i64
-  %1423 = getelementptr inbounds nuw i16, ptr %1419, i64 %1422
+  %1423 = getelementptr inbounds nuw [2 x i8], ptr %1419, i64 %1422
   %1424 = load i16, ptr %1423, align 2
   %1425 = zext i16 %1424 to i32
   %1426 = mul nuw i32 %1311, %1425
@@ -5881,11 +5881,11 @@ png_do_rgb_to_gray.exit.thread:                   ; preds = %166, %png_do_rgb_to
   %1437 = and i32 %1434, 255
   %1438 = lshr i32 %1437, %496
   %1439 = zext nneg i32 %1438 to i64
-  %1440 = getelementptr inbounds nuw ptr, ptr %492, i64 %1439
+  %1440 = getelementptr inbounds nuw [8 x i8], ptr %492, i64 %1439
   %1441 = load ptr, ptr %1440, align 8
   %1442 = lshr i32 %1433, 24
   %1443 = zext nneg i32 %1442 to i64
-  %1444 = getelementptr inbounds nuw i16, ptr %1441, i64 %1443
+  %1444 = getelementptr inbounds nuw [2 x i8], ptr %1441, i64 %1443
   %1445 = load i16, ptr %1444, align 2
   br label %1446
 
@@ -5901,12 +5901,12 @@ png_do_rgb_to_gray.exit.thread:                   ; preds = %166, %png_do_rgb_to
   %1452 = zext i8 %1451 to i32
   %1453 = lshr i32 %1452, %496
   %1454 = zext nneg i32 %1453 to i64
-  %1455 = getelementptr inbounds nuw ptr, ptr %494, i64 %1454
+  %1455 = getelementptr inbounds nuw [8 x i8], ptr %494, i64 %1454
   %1456 = load ptr, ptr %1455, align 8
   %1457 = getelementptr inbounds nuw i8, ptr %.24836.i, i64 4
   %1458 = load i8, ptr %1457, align 1, !noalias !119
   %1459 = zext i8 %1458 to i64
-  %1460 = getelementptr inbounds nuw i16, ptr %1456, i64 %1459
+  %1460 = getelementptr inbounds nuw [2 x i8], ptr %1456, i64 %1459
   %1461 = load i16, ptr %1460, align 2
   %1462 = zext i16 %1461 to i32
   %1463 = mul nuw i32 %1311, %1462
@@ -5925,11 +5925,11 @@ png_do_rgb_to_gray.exit.thread:                   ; preds = %166, %png_do_rgb_to
   %1474 = and i32 %1471, 255
   %1475 = lshr i32 %1474, %496
   %1476 = zext nneg i32 %1475 to i64
-  %1477 = getelementptr inbounds nuw ptr, ptr %492, i64 %1476
+  %1477 = getelementptr inbounds nuw [8 x i8], ptr %492, i64 %1476
   %1478 = load ptr, ptr %1477, align 8
   %1479 = lshr i32 %1470, 24
   %1480 = zext nneg i32 %1479 to i64
-  %1481 = getelementptr inbounds nuw i16, ptr %1478, i64 %1480
+  %1481 = getelementptr inbounds nuw [2 x i8], ptr %1478, i64 %1480
   %1482 = load i16, ptr %1481, align 2
   br label %1483
 
@@ -6178,11 +6178,11 @@ png_do_compose.exit:                              ; preds = %1578, %1487, %1287,
   %1634 = zext i8 %1633 to i32
   %1635 = lshr i32 %1634, %1602
   %1636 = zext nneg i32 %1635 to i64
-  %1637 = getelementptr inbounds nuw ptr, ptr %1600, i64 %1636
+  %1637 = getelementptr inbounds nuw [8 x i8], ptr %1600, i64 %1636
   %1638 = load ptr, ptr %1637, align 8, !noalias !143
   %1639 = load i8, ptr %.1252.i, align 1, !noalias !143
   %1640 = zext i8 %1639 to i64
-  %1641 = getelementptr inbounds nuw i16, ptr %1638, i64 %1640
+  %1641 = getelementptr inbounds nuw [2 x i8], ptr %1638, i64 %1640
   %1642 = load i16, ptr %1641, align 2, !noalias !143
   %1643 = lshr i16 %1642, 8
   %1644 = trunc nuw i16 %1643 to i8
@@ -6195,11 +6195,11 @@ png_do_compose.exit:                              ; preds = %1578, %1487, %1287,
   %1649 = zext i8 %1648 to i32
   %1650 = lshr i32 %1649, %1602
   %1651 = zext nneg i32 %1650 to i64
-  %1652 = getelementptr inbounds nuw ptr, ptr %1600, i64 %1651
+  %1652 = getelementptr inbounds nuw [8 x i8], ptr %1600, i64 %1651
   %1653 = load ptr, ptr %1652, align 8, !noalias !143
   %1654 = load i8, ptr %1646, align 1, !noalias !143
   %1655 = zext i8 %1654 to i64
-  %1656 = getelementptr inbounds nuw i16, ptr %1653, i64 %1655
+  %1656 = getelementptr inbounds nuw [2 x i8], ptr %1653, i64 %1655
   %1657 = load i16, ptr %1656, align 2, !noalias !143
   %1658 = lshr i16 %1657, 8
   %1659 = trunc nuw i16 %1658 to i8
@@ -6212,11 +6212,11 @@ png_do_compose.exit:                              ; preds = %1578, %1487, %1287,
   %1664 = zext i8 %1663 to i32
   %1665 = lshr i32 %1664, %1602
   %1666 = zext nneg i32 %1665 to i64
-  %1667 = getelementptr inbounds nuw ptr, ptr %1600, i64 %1666
+  %1667 = getelementptr inbounds nuw [8 x i8], ptr %1600, i64 %1666
   %1668 = load ptr, ptr %1667, align 8, !noalias !143
   %1669 = load i8, ptr %1661, align 1, !noalias !143
   %1670 = zext i8 %1669 to i64
-  %1671 = getelementptr inbounds nuw i16, ptr %1668, i64 %1670
+  %1671 = getelementptr inbounds nuw [2 x i8], ptr %1668, i64 %1670
   %1672 = load i16, ptr %1671, align 2, !noalias !143
   %1673 = lshr i16 %1672, 8
   %1674 = trunc nuw i16 %1673 to i8
@@ -6272,11 +6272,11 @@ png_do_compose.exit:                              ; preds = %1578, %1487, %1287,
   %1698 = zext i8 %1697 to i32
   %1699 = lshr i32 %1698, %1602
   %1700 = zext nneg i32 %1699 to i64
-  %1701 = getelementptr inbounds nuw ptr, ptr %1600, i64 %1700
+  %1701 = getelementptr inbounds nuw [8 x i8], ptr %1600, i64 %1700
   %1702 = load ptr, ptr %1701, align 8, !noalias !143
   %1703 = load i8, ptr %.3246.i, align 1, !noalias !143
   %1704 = zext i8 %1703 to i64
-  %1705 = getelementptr inbounds nuw i16, ptr %1702, i64 %1704
+  %1705 = getelementptr inbounds nuw [2 x i8], ptr %1702, i64 %1704
   %1706 = load i16, ptr %1705, align 2, !noalias !143
   %1707 = lshr i16 %1706, 8
   %1708 = trunc nuw i16 %1707 to i8
@@ -6289,11 +6289,11 @@ png_do_compose.exit:                              ; preds = %1578, %1487, %1287,
   %1713 = zext i8 %1712 to i32
   %1714 = lshr i32 %1713, %1602
   %1715 = zext nneg i32 %1714 to i64
-  %1716 = getelementptr inbounds nuw ptr, ptr %1600, i64 %1715
+  %1716 = getelementptr inbounds nuw [8 x i8], ptr %1600, i64 %1715
   %1717 = load ptr, ptr %1716, align 8, !noalias !143
   %1718 = load i8, ptr %1710, align 1, !noalias !143
   %1719 = zext i8 %1718 to i64
-  %1720 = getelementptr inbounds nuw i16, ptr %1717, i64 %1719
+  %1720 = getelementptr inbounds nuw [2 x i8], ptr %1717, i64 %1719
   %1721 = load i16, ptr %1720, align 2, !noalias !143
   %1722 = lshr i16 %1721, 8
   %1723 = trunc nuw i16 %1722 to i8
@@ -6306,11 +6306,11 @@ png_do_compose.exit:                              ; preds = %1578, %1487, %1287,
   %1728 = zext i8 %1727 to i32
   %1729 = lshr i32 %1728, %1602
   %1730 = zext nneg i32 %1729 to i64
-  %1731 = getelementptr inbounds nuw ptr, ptr %1600, i64 %1730
+  %1731 = getelementptr inbounds nuw [8 x i8], ptr %1600, i64 %1730
   %1732 = load ptr, ptr %1731, align 8, !noalias !143
   %1733 = load i8, ptr %1725, align 1, !noalias !143
   %1734 = zext i8 %1733 to i64
-  %1735 = getelementptr inbounds nuw i16, ptr %1732, i64 %1734
+  %1735 = getelementptr inbounds nuw [2 x i8], ptr %1732, i64 %1734
   %1736 = load i16, ptr %1735, align 2, !noalias !143
   %1737 = lshr i16 %1736, 8
   %1738 = trunc nuw i16 %1737 to i8
@@ -6354,11 +6354,11 @@ png_do_compose.exit:                              ; preds = %1578, %1487, %1287,
   %1752 = zext i8 %1751 to i32
   %1753 = lshr i32 %1752, %1602
   %1754 = zext nneg i32 %1753 to i64
-  %1755 = getelementptr inbounds nuw ptr, ptr %1600, i64 %1754
+  %1755 = getelementptr inbounds nuw [8 x i8], ptr %1600, i64 %1754
   %1756 = load ptr, ptr %1755, align 8, !noalias !143
   %1757 = load i8, ptr %.5240.i, align 1, !noalias !143
   %1758 = zext i8 %1757 to i64
-  %1759 = getelementptr inbounds nuw i16, ptr %1756, i64 %1758
+  %1759 = getelementptr inbounds nuw [2 x i8], ptr %1756, i64 %1758
   %1760 = load i16, ptr %1759, align 2, !noalias !143
   %1761 = lshr i16 %1760, 8
   %1762 = trunc nuw i16 %1761 to i8
@@ -6499,11 +6499,11 @@ png_do_compose.exit:                              ; preds = %1578, %1487, %1287,
   %1844 = zext i8 %1843 to i32
   %1845 = lshr i32 %1844, %1602
   %1846 = zext nneg i32 %1845 to i64
-  %1847 = getelementptr inbounds nuw ptr, ptr %1600, i64 %1846
+  %1847 = getelementptr inbounds nuw [8 x i8], ptr %1600, i64 %1846
   %1848 = load ptr, ptr %1847, align 8, !noalias !143
   %1849 = load i8, ptr %.9231.i, align 1, !noalias !143
   %1850 = zext i8 %1849 to i64
-  %1851 = getelementptr inbounds nuw i16, ptr %1848, i64 %1850
+  %1851 = getelementptr inbounds nuw [2 x i8], ptr %1848, i64 %1850
   %1852 = load i16, ptr %1851, align 2, !noalias !143
   %1853 = lshr i16 %1852, 8
   %1854 = trunc nuw i16 %1853 to i8
@@ -6621,11 +6621,11 @@ png_do_gamma.exit:                                ; preds = %.lr.ph232.i, %.lr.p
   %1907 = zext i8 %1906 to i32
   %1908 = lshr i32 %1907, %1899
   %1909 = zext nneg i32 %1908 to i64
-  %1910 = getelementptr inbounds nuw ptr, ptr %1897, i64 %1909
+  %1910 = getelementptr inbounds nuw [8 x i8], ptr %1897, i64 %1909
   %1911 = load ptr, ptr %1910, align 8, !noalias !156
   %1912 = load i8, ptr %.148.i, align 1, !noalias !156
   %1913 = zext i8 %1912 to i64
-  %1914 = getelementptr inbounds nuw i16, ptr %1911, i64 %1913
+  %1914 = getelementptr inbounds nuw [2 x i8], ptr %1911, i64 %1913
   %1915 = load i16, ptr %1914, align 2, !noalias !156
   %1916 = lshr i16 %1915, 8
   %1917 = trunc nuw i16 %1916 to i8
@@ -7236,7 +7236,7 @@ png_do_read_invert_alpha.exit:                    ; preds = %.lr.ph.i246, %.lr.p
   %2229 = sub nsw i32 %2206, %2228
   %2230 = add nuw nsw i32 %.0.i250, 1
   %2231 = zext nneg i32 %.0.i250 to i64
-  %2232 = getelementptr inbounds nuw i32, ptr %3, i64 %2231
+  %2232 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %2231
   store i32 %2229, ptr %2232, align 4
   br label %2233
 
@@ -7248,7 +7248,7 @@ png_do_read_invert_alpha.exit:                    ; preds = %.lr.ph.i246, %.lr.p
 2234:                                             ; preds = %2234, %2233
   %indvars.iv.i = phi i64 [ 0, %2233 ], [ %indvars.iv.next.i, %2234 ]
   %.07998.i = phi i32 [ 0, %2233 ], [ %spec.select.i, %2234 ]
-  %2235 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i
+  %2235 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv.i
   %2236 = load i32, ptr %2235, align 4
   %2237 = icmp sgt i32 %2236, 0
   %.not91.i = icmp slt i32 %2236, %2206
@@ -7328,7 +7328,7 @@ png_do_read_invert_alpha.exit:                    ; preds = %.lr.ph.i246, %.lr.p
   %2273 = load i8, ptr %.083102.i, align 1
   %2274 = zext i8 %2273 to i32
   %2275 = sext i32 %.081103.i to i64
-  %2276 = getelementptr inbounds i32, ptr %3, i64 %2275
+  %2276 = getelementptr inbounds [4 x i8], ptr %3, i64 %2275
   %2277 = load i32, ptr %2276, align 4
   %2278 = lshr i32 %2274, %2277
   %2279 = add nsw i32 %.081103.i, 1
@@ -7358,7 +7358,7 @@ png_do_read_invert_alpha.exit:                    ; preds = %.lr.ph.i246, %.lr.p
   %2293 = zext i8 %2292 to i32
   %2294 = or disjoint i32 %2290, %2293
   %2295 = sext i32 %.076101.i to i64
-  %2296 = getelementptr inbounds i32, ptr %3, i64 %2295
+  %2296 = getelementptr inbounds [4 x i8], ptr %3, i64 %2295
   %2297 = load i32, ptr %2296, align 4
   %2298 = lshr i32 %2294, %2297
   %2299 = add nsw i32 %.076101.i, 1

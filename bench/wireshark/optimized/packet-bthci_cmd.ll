@@ -11032,7 +11032,7 @@ define internal fastcc i32 @dissect_eir_ad_data(ptr noundef %0, ptr noundef %1, 
   %.13845 = phi i32 [ %442, %.lr.ph ], [ %39, %.preheader ]
   %437 = load i32, ptr @hf_btcommon_eir_ad_le_features, align 4
   %438 = load i32, ptr @ett_eir_ad_le_features, align 4
-  %439 = getelementptr ptr, ptr @hfx_btcommon_eir_ad_le_features, i64 %indvars.iv
+  %439 = getelementptr [8 x i8], ptr @hfx_btcommon_eir_ad_le_features, i64 %indvars.iv
   %440 = load ptr, ptr %439, align 8
   %441 = call ptr @proto_tree_add_bitmask(ptr noundef %34, ptr noundef %0, i32 noundef %.13845, i32 noundef %437, i32 noundef %438, ptr noundef %440, i32 noundef 0)
   %442 = add i32 %.13845, 1

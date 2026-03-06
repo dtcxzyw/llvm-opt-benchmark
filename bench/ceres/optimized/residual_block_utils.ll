@@ -82,13 +82,13 @@ define hidden void @_ZN5ceres8internal20InvalidateEvaluationERKNS0_13ResidualBlo
 20:                                               ; preds = %.lr.ph, %20
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %20 ]
   %21 = load ptr, ptr %19, align 8, !tbaa !27
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8, !tbaa !28
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load i32, ptr %24, align 8, !tbaa !30
   %26 = mul nsw i32 %25, %16
   %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8, !tbaa !48
   tail call void @_ZN5ceres8internal15InvalidateArrayElPd(i64 noundef %27, ptr noundef %29)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -221,7 +221,7 @@ define hidden void @_ZN5ceres8internal18EvaluationToStringB5cxx11ERKNS0_13Residu
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %68
   %indvars.iv147 = phi i64 [ %indvars.iv.next148, %68 ], [ 0, %.lr.ph.split.us ]
   %57 = load ptr, ptr %48, align 8, !tbaa !27
-  %58 = getelementptr inbounds nuw ptr, ptr %57, i64 %indvars.iv147
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %indvars.iv147
   %59 = load ptr, ptr %58, align 8, !tbaa !28
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %61 = load i32, ptr %60, align 8, !tbaa !30
@@ -263,13 +263,13 @@ define hidden void @_ZN5ceres8internal18EvaluationToStringB5cxx11ERKNS0_13Residu
   br i1 %exitcond151.not, label %._crit_edge, label %.lr.ph.split.us.split.us, !llvm.loop !58
 
 .lr.ph68.us.us:                                   ; preds = %66
-  %69 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv147
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv147
   br label %70
 
 70:                                               ; preds = %74, %.lr.ph68.us.us
   %indvars.iv142 = phi i64 [ %indvars.iv.next143, %74 ], [ 0, %.lr.ph68.us.us ]
   %71 = load ptr, ptr %69, align 8, !tbaa !48
-  %72 = getelementptr inbounds nuw double, ptr %71, i64 %indvars.iv142
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %indvars.iv142
   invoke void @_ZN5ceres8internal19AppendArrayToStringElPKdPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i64 noundef 1, ptr noundef %72, ptr noundef %0)
           to label %73 unwind label %.split74.us.split.us.split.us.split.us
 
@@ -345,7 +345,7 @@ define hidden void @_ZN5ceres8internal18EvaluationToStringB5cxx11ERKNS0_13Residu
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %96
   %indvars.iv136 = phi i64 [ %indvars.iv.next137, %96 ], [ 0, %.lr.ph.split.us ]
   %85 = load ptr, ptr %48, align 8, !tbaa !27
-  %86 = getelementptr inbounds nuw ptr, ptr %85, i64 %indvars.iv136
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %indvars.iv136
   %87 = load ptr, ptr %86, align 8, !tbaa !28
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %89 = load i32, ptr %88, align 8, !tbaa !30
@@ -387,14 +387,14 @@ define hidden void @_ZN5ceres8internal18EvaluationToStringB5cxx11ERKNS0_13Residu
   br i1 %exitcond140.not, label %._crit_edge, label %.lr.ph.split.us.split, !llvm.loop !58
 
 .lr.ph68.us:                                      ; preds = %94
-  %97 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv136
-  %98 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv136
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv136
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv136
   br label %99
 
 99:                                               ; preds = %.lr.ph68.us, %103
   %indvars.iv131 = phi i64 [ 0, %.lr.ph68.us ], [ %indvars.iv.next132, %103 ]
   %100 = load ptr, ptr %97, align 8, !tbaa !48
-  %101 = getelementptr inbounds nuw double, ptr %100, i64 %indvars.iv131
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %100, i64 %indvars.iv131
   invoke void @_ZN5ceres8internal19AppendArrayToStringElPKdPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i64 noundef 1, ptr noundef %101, ptr noundef %0)
           to label %102 unwind label %.split74.us.split.split.us
 
@@ -420,8 +420,8 @@ define hidden void @_ZN5ceres8internal18EvaluationToStringB5cxx11ERKNS0_13Residu
   %105 = load ptr, ptr %98, align 8, !tbaa !48
   %.not36.us.us = icmp eq ptr %105, null
   %106 = mul nuw nsw i64 %indvars.iv126, %.sroa.0.0.insert.ext.i.i.i7.i.us
-  %107 = getelementptr inbounds nuw double, ptr %105, i64 %106
-  %108 = getelementptr inbounds nuw double, ptr %107, i64 %indvars.iv131
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %105, i64 %106
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %indvars.iv131
   %109 = select i1 %.not36.us.us, ptr null, ptr %108
   invoke void @_ZN5ceres8internal19AppendArrayToStringElPKdPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i64 noundef 1, ptr noundef %109, ptr noundef %0)
           to label %110 unwind label %.split.split.us.split.us
@@ -499,7 +499,7 @@ define hidden void @_ZN5ceres8internal18EvaluationToStringB5cxx11ERKNS0_13Residu
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %149
   %indvars.iv121 = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next122, %149 ]
   %126 = load ptr, ptr %48, align 8, !tbaa !27
-  %127 = getelementptr inbounds nuw ptr, ptr %126, i64 %indvars.iv121
+  %127 = getelementptr inbounds nuw [8 x i8], ptr %126, i64 %indvars.iv121
   %128 = load ptr, ptr %127, align 8, !tbaa !28
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 8
   %130 = load i32, ptr %129, align 8, !tbaa !30
@@ -528,7 +528,7 @@ define hidden void @_ZN5ceres8internal18EvaluationToStringB5cxx11ERKNS0_13Residu
   br i1 %136, label %.lr.ph68, label %._crit_edge69.split
 
 .lr.ph68:                                         ; preds = %135
-  %137 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv121
+  %137 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv121
   br label %140
 
 .split94:                                         ; preds = %.lr.ph.split
@@ -549,7 +549,7 @@ define hidden void @_ZN5ceres8internal18EvaluationToStringB5cxx11ERKNS0_13Residu
 140:                                              ; preds = %.lr.ph68, %147
   %indvars.iv = phi i64 [ 0, %.lr.ph68 ], [ %indvars.iv.next, %147 ]
   %141 = load ptr, ptr %137, align 8, !tbaa !48
-  %142 = getelementptr inbounds nuw double, ptr %141, i64 %indvars.iv
+  %142 = getelementptr inbounds nuw [8 x i8], ptr %141, i64 %indvars.iv
   invoke void @_ZN5ceres8internal19AppendArrayToStringElPKdPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i64 noundef 1, ptr noundef %142, ptr noundef %0)
           to label %143 unwind label %.split74
 
@@ -701,13 +701,13 @@ define hidden noundef zeroext i1 @_ZN5ceres8internal17IsEvaluationValidERKNS0_13
 21:                                               ; preds = %21, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
   %22 = load ptr, ptr %20, align 8, !tbaa !27
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8, !tbaa !28
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load i32, ptr %25, align 8, !tbaa !30
   %27 = mul nsw i32 %26, %15
   %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8, !tbaa !48
   %31 = tail call noundef zeroext i1 @_ZN5ceres8internal12IsArrayValidElPKd(i64 noundef %28, ptr noundef %30)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

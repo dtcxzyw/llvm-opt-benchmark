@@ -2653,7 +2653,7 @@ define internal noundef i32 @meta(ptr noundef %0, i64 %1, ptr noundef %2, i64 %3
 
 42:                                               ; preds = %41
   %43 = load ptr, ptr %10, align 8, !tbaa !53
-  %44 = getelementptr ptr, ptr %43, i64 %32
+  %44 = getelementptr [8 x i8], ptr %43, i64 %32
   %45 = getelementptr i8, ptr %44, i64 -8
   %46 = load ptr, ptr %45, align 8, !tbaa !54
   tail call void @free(ptr noundef %46) #22
@@ -2668,7 +2668,7 @@ define internal noundef i32 @meta(ptr noundef %0, i64 %1, ptr noundef %2, i64 %3
 
 50:                                               ; preds = %47
   %51 = load ptr, ptr %10, align 8, !tbaa !53
-  %52 = getelementptr ptr, ptr %51, i64 %48
+  %52 = getelementptr [8 x i8], ptr %51, i64 %48
   %53 = getelementptr i8, ptr %52, i64 -8
   store ptr %19, ptr %53, align 8, !tbaa !54
   %.not35.i = icmp eq i64 %48, 1
@@ -2677,7 +2677,7 @@ define internal noundef i32 @meta(ptr noundef %0, i64 %1, ptr noundef %2, i64 %3
 .lr.ph.i:                                         ; preds = %50, %64
   %.02430.i = phi i64 [ %66, %64 ], [ 0, %50 ]
   %.02529.i = phi i64 [ %61, %64 ], [ 0, %50 ]
-  %54 = getelementptr inbounds nuw ptr, ptr %51, i64 %.02430.i
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %.02430.i
   %55 = load ptr, ptr %54, align 8, !tbaa !54
   %56 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %55) #23
   %.not.i = icmp eq i64 %.02529.i, 0
@@ -2783,7 +2783,7 @@ print_chain.exit:                                 ; preds = %7
   %16 = add i64 %9, -1
   %17 = load ptr, ptr %6, align 8, !tbaa !53
   store i64 %16, ptr %8, align 8, !tbaa !52
-  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %16
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %16
   %19 = load ptr, ptr %18, align 8, !tbaa !54
   tail call void @free(ptr noundef %19) #22
   br label %25
@@ -3468,7 +3468,7 @@ define internal fastcc range(i32 0, 2) i32 @print_chain(ptr noundef nonnull read
   %.02430 = phi i64 [ %21, %16 ], [ 0, %2 ]
   %.02529 = phi i64 [ %13, %16 ], [ 0, %2 ]
   %5 = load ptr, ptr %0, align 8, !tbaa !53
-  %6 = getelementptr inbounds nuw ptr, ptr %5, i64 %.02430
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.02430
   %7 = load ptr, ptr %6, align 8, !tbaa !54
   %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #23
   %.not = icmp eq i64 %.02529, 0
@@ -3490,7 +3490,7 @@ define internal fastcc range(i32 0, 2) i32 @print_chain(ptr noundef nonnull read
 16:                                               ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 %.2
   %18 = load ptr, ptr %0, align 8, !tbaa !53
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %.02430
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %.02430
   %20 = load ptr, ptr %19, align 8, !tbaa !54
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %17, ptr align 1 %20, i64 %8, i1 false)
   %21 = add nuw i64 %.02430, 1
@@ -3845,7 +3845,7 @@ checkaccess.exit:                                 ; preds = %78
   %154 = add i64 %153, -1
   %155 = load ptr, ptr %8, align 8, !tbaa !53
   %156 = load i64, ptr %146, align 8, !tbaa !52
-  %157 = getelementptr ptr, ptr %155, i64 %156
+  %157 = getelementptr [8 x i8], ptr %155, i64 %156
   %158 = getelementptr i8, ptr %157, i64 -8
   %159 = load ptr, ptr %158, align 8, !tbaa !54
   %160 = load ptr, ptr %6, align 8, !tbaa !54
@@ -3927,7 +3927,7 @@ checkaccess.exit:                                 ; preds = %78
   %198 = phi i64 [ %203, %.lr.ph106 ], [ 0, %195 ]
   %.060105 = phi i32 [ %202, %.lr.ph106 ], [ 0, %195 ]
   %199 = load ptr, ptr %8, align 8, !tbaa !53
-  %200 = getelementptr inbounds nuw ptr, ptr %199, i64 %198
+  %200 = getelementptr inbounds nuw [8 x i8], ptr %199, i64 %198
   %201 = load ptr, ptr %200, align 8, !tbaa !54
   call void @free(ptr noundef %201) #22
   %202 = add i32 %.060105, 1

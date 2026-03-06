@@ -111,7 +111,7 @@ define internal i32 @truehd_core_filter(ptr noundef %0, ptr noundef %1) #0 {
   %.0106137 = phi i32 [ 0, %.preheader.lr.ph ], [ %.1107, %106 ]
   %.0112136 = phi i32 [ 0, %.preheader.lr.ph ], [ %.2, %106 ]
   %.promoted133135 = phi i32 [ %.promoted132, %.preheader.lr.ph ], [ %.promoted134, %106 ]
-  %60 = getelementptr inbounds nuw %struct.AccessUnit, ptr %4, i64 %indvars.iv148
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv148
   br label %78
 
 61:                                               ; preds = %78
@@ -269,7 +269,7 @@ define internal i32 @truehd_core_filter(ptr noundef %0, ptr noundef %1) #0 {
   %indvars.iv152 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next153, %193 ]
   %.0104142 = phi i16 [ %147, %.lr.ph ], [ %.1105, %193 ]
   %.0108141 = phi i32 [ 0, %.lr.ph ], [ %.1109, %193 ]
-  %152 = getelementptr inbounds nuw %struct.AccessUnit, ptr %4, i64 %indvars.iv152
+  %152 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv152
   %153 = load i8, ptr %152, align 8, !tbaa !21
   %154 = zext i8 %153 to i16
   %155 = shl i16 %154, 15

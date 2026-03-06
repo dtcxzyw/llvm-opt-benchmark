@@ -3,14 +3,6 @@ source_filename = "bench/ffmpeg/original/slicethread.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.WorkerContext = type { ptr, %union.pthread_mutex_t, %union.pthread_cond_t, i64, i32 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%union.pthread_cond_t = type { %struct.__pthread_cond_s }
-%struct.__pthread_cond_s = type { %union.__atomic_wide_counter, %union.__atomic_wide_counter, [2 x i32], [2 x i32], i32, i32, [2 x i32] }
-%union.__atomic_wide_counter = type { i64 }
-
 @.str = private unnamed_addr constant [30 x i8] c"Assertion %s failed at %s:%d\0A\00", align 1
 @.str.1 = private unnamed_addr constant [16 x i8] c"nb_threads >= 0\00", align 1
 @.str.2 = private unnamed_addr constant [24 x i8] c"libavutil/slicethread.c\00", align 1
@@ -113,7 +105,7 @@ define range(i32 -2147483647, -2147483648) i32 @avpriv_slicethread_create(ptr no
 .lr.ph123:                                        ; preds = %.lr.ph123.preheader, %._crit_edge
   %indvars.iv = phi i64 [ 0, %.lr.ph123.preheader ], [ %indvars.iv.next, %._crit_edge ]
   %42 = load ptr, ptr %16, align 8, !tbaa !9
-  %43 = getelementptr inbounds nuw %struct.WorkerContext, ptr %42, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [112 x i8], ptr %42, i64 %indvars.iv
   store ptr %16, ptr %43, align 8, !tbaa !19
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %44, ptr noundef null) #7
@@ -237,7 +229,7 @@ define void @avpriv_slicethread_free(ptr noundef %0) local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %11 = load ptr, ptr %2, align 8, !tbaa !9
-  %12 = getelementptr inbounds nuw %struct.WorkerContext, ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [112 x i8], ptr %11, i64 %indvars.iv
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %13) #7
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 104
@@ -252,7 +244,7 @@ define void @avpriv_slicethread_free(ptr noundef %0) local_unnamed_addr #0 {
 .lr.ph31:                                         ; preds = %.lr.ph31.preheader, %.lr.ph31
   %indvars.iv33 = phi i64 [ 0, %.lr.ph31.preheader ], [ %indvars.iv.next34, %.lr.ph31 ]
   %19 = load ptr, ptr %2, align 8, !tbaa !9
-  %20 = getelementptr inbounds nuw %struct.WorkerContext, ptr %19, i64 %indvars.iv33
+  %20 = getelementptr inbounds nuw [112 x i8], ptr %19, i64 %indvars.iv33
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 96
   %22 = load i64, ptr %21, align 8, !tbaa !27
   %23 = tail call i32 @pthread_join(i64 noundef %22, ptr noundef null) #7
@@ -405,7 +397,7 @@ define void @avpriv_slicethread_execute(ptr noundef %0, i32 noundef %1, i32 noun
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %19 = load ptr, ptr %0, align 8, !tbaa !9
-  %20 = getelementptr inbounds nuw %struct.WorkerContext, ptr %19, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [112 x i8], ptr %19, i64 %indvars.iv
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %21) #7
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 104

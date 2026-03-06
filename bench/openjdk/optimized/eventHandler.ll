@@ -122,7 +122,7 @@ define hidden zeroext range(i8 0, 2) i8 @eventHandlerRestricted_iterator(i32 nou
 getHandlerChain.exit:                             ; preds = %3, %5
   %8 = add i32 %0, -1
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw %struct.HandlerChain_, ptr @__handlers, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr @__handlers, i64 %9
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr @getEnv() #6
   %13 = icmp eq ptr %1, null
@@ -455,7 +455,7 @@ define hidden i32 @eventHandler_freeAll(i32 noundef %0) local_unnamed_addr #0 {
 getHandlerChain.exit:                             ; preds = %1, %4
   %7 = add i32 %0, -1
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw %struct.HandlerChain_, ptr @__handlers, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr @__handlers, i64 %8
   %10 = load ptr, ptr %9, align 8
   %.not14 = icmp eq ptr %10, null
   br i1 %.not14, label %freeHandler.exit._crit_edge, label %.lr.ph
@@ -630,7 +630,7 @@ define hidden i32 @eventHandler_freeByID(i32 noundef %0, i32 noundef %1) local_u
 getHandlerChain.exit.i:                           ; preds = %5, %2
   %8 = add i32 %0, -1
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw %struct.HandlerChain_, ptr @__handlers, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr @__handlers, i64 %9
   %.07.i.i = load ptr, ptr %10, align 8
   %.not8.i.i = icmp eq ptr %.07.i.i, null
   br i1 %.not8.i.i, label %freeHandler.exit, label %.lr.ph.i.i
@@ -3990,7 +3990,7 @@ adjust_jvmti_error.exit19.thread:                 ; preds = %adjust_jvmti_error.
 
 getHandlerChain.exit:                             ; preds = %adjust_jvmti_error.exit19.thread, %freeHandlerChain.exit
   %indvars.iv = phi i64 [ 1, %adjust_jvmti_error.exit19.thread ], [ %indvars.iv.next, %freeHandlerChain.exit ]
-  %24 = getelementptr %struct.HandlerChain_, ptr @__handlers, i64 %indvars.iv
+  %24 = getelementptr [8 x i8], ptr @__handlers, i64 %indvars.iv
   %25 = getelementptr i8, ptr %24, i64 -8
   %.val = load ptr, ptr %25, align 8
   %.not4.i = icmp eq ptr %.val, null
@@ -4315,7 +4315,7 @@ define internal fastcc i32 @installHandler(ptr noundef %0, ptr noundef %1, i8 no
 getHandlerChain.exit:                             ; preds = %15, %19
   %22 = add i32 %17, -1
   %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds nuw %struct.HandlerChain_, ptr @__handlers, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr @__handlers, i64 %23
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %25, ptr %26, align 8
@@ -4507,7 +4507,7 @@ define internal fastcc void @event_callback(ptr noundef %0, ptr noundef nonnull 
 getHandlerChain.exit.i:                           ; preds = %61, %58
   %64 = add i32 %7, -1
   %65 = zext i32 %64 to i64
-  %66 = getelementptr inbounds nuw %struct.HandlerChain_, ptr @__handlers, i64 %65
+  %66 = getelementptr inbounds nuw [8 x i8], ptr @__handlers, i64 %65
   %67 = load ptr, ptr %66, align 8
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %69 = load ptr, ptr %68, align 8

@@ -31,7 +31,7 @@ define dso_local i32 @archive_write_set_format_filter_by_ext(ptr noundef %0, ptr
 
 5:                                                ; preds = %cmpsuff.exit.thread.i, %.split.i
   %indvars.iv.i = phi i64 [ 0, %.split.i ], [ %indvars.iv.next.i, %cmpsuff.exit.thread.i ]
-  %6 = getelementptr inbounds nuw %struct.anon, ptr @names, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw [24 x i8], ptr @names, i64 %indvars.iv.i
   %7 = load ptr, ptr %6, align 8, !tbaa !4
   %8 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %7) #3
   %.not.i.i = icmp ult i64 %4, %8
@@ -51,7 +51,7 @@ cmpsuff.exit.thread.i:                            ; preds = %cmpsuff.exit.i, %5
 
 get_array_index.exit:                             ; preds = %cmpsuff.exit.i
   %13 = and i64 %indvars.iv.i, 4294967295
-  %14 = getelementptr inbounds nuw %struct.anon, ptr @names, i64 %13
+  %14 = getelementptr inbounds nuw [24 x i8], ptr @names, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !12
   %17 = tail call i32 %16(ptr noundef %0) #4
@@ -88,7 +88,7 @@ define dso_local i32 @archive_write_set_format_filter_by_ext_def(ptr noundef %0,
 
 6:                                                ; preds = %cmpsuff.exit.thread.i, %.split.i
   %indvars.iv.i = phi i64 [ 0, %.split.i ], [ %indvars.iv.next.i, %cmpsuff.exit.thread.i ]
-  %7 = getelementptr inbounds nuw %struct.anon, ptr @names, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw [24 x i8], ptr @names, i64 %indvars.iv.i
   %8 = load ptr, ptr %7, align 8, !tbaa !4
   %9 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %8) #3
   %.not.i.i = icmp ult i64 %5, %9
@@ -116,7 +116,7 @@ get_array_index.exit.thread:                      ; preds = %cmpsuff.exit.thread
 
 16:                                               ; preds = %cmpsuff.exit.thread.i20, %.split.i16
   %indvars.iv.i17 = phi i64 [ 0, %.split.i16 ], [ %indvars.iv.next.i21, %cmpsuff.exit.thread.i20 ]
-  %17 = getelementptr inbounds nuw %struct.anon, ptr @names, i64 %indvars.iv.i17
+  %17 = getelementptr inbounds nuw [24 x i8], ptr @names, i64 %indvars.iv.i17
   %18 = load ptr, ptr %17, align 8, !tbaa !4
   %19 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %18) #3
   %.not.i.i18 = icmp ult i64 %15, %19
@@ -137,7 +137,7 @@ cmpsuff.exit.thread.i20:                          ; preds = %cmpsuff.exit.i19, %
 get_array_index.exit25.thread28:                  ; preds = %cmpsuff.exit.i, %cmpsuff.exit.i19
   %.01330.in = phi i64 [ %indvars.iv.i17, %cmpsuff.exit.i19 ], [ %indvars.iv.i, %cmpsuff.exit.i ]
   %24 = and i64 %.01330.in, 4294967295
-  %25 = getelementptr inbounds nuw %struct.anon, ptr @names, i64 %24
+  %25 = getelementptr inbounds nuw [24 x i8], ptr @names, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !12
   %28 = tail call i32 %27(ptr noundef %0) #4

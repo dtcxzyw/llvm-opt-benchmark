@@ -66,7 +66,7 @@ _ZN13OldObjectRoot18system_oop_storageENS_6SystemE.exit.thread: ; preds = %1, %_
 
 switch.lookup:                                    ; preds = %_ZN13OldObjectRoot18system_oop_storageENS_6SystemE.exit.thread
   %9 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN13OldObjectRoot18system_descriptionENS_6SystemE, i64 %9
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN13OldObjectRoot18system_descriptionENS_6SystemE, i64 %9
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %10
 
@@ -93,7 +93,7 @@ define hidden noundef nonnull ptr @_ZN13OldObjectRoot16type_descriptionENS_4Type
 
 switch.lookup:                                    ; preds = %1
   %5 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN13OldObjectRoot16type_descriptionENS_4TypeE, i64 %5
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN13OldObjectRoot16type_descriptionENS_4TypeE, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }

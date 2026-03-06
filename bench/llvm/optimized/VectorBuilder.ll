@@ -186,7 +186,7 @@ _ZN4llvm15SmallVectorImplIPNS_5ValueEE7reserveEm.exit.i: ; preds = %21
 24:                                               ; preds = %_ZN4llvm15SmallVectorImplIPNS_5ValueEE7reserveEm.exit.i.thread, %_ZN4llvm15SmallVectorImplIPNS_5ValueEE7reserveEm.exit.i
   %.pre8.i78 = phi i64 [ %23, %_ZN4llvm15SmallVectorImplIPNS_5ValueEE7reserveEm.exit.i.thread ], [ 0, %_ZN4llvm15SmallVectorImplIPNS_5ValueEE7reserveEm.exit.i ]
   %25 = load ptr, ptr %7, align 8, !tbaa !41
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %.pre8.i78
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %.pre8.i78
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %26, ptr align 8 %3, i64 %.idx, i1 false)
   %.pre.i = load i32, ptr %17, align 8, !tbaa !42
   br label %_ZN4llvm15SmallVectorImplIPNS_5ValueEE6appendIPKS2_vEEvT_S7_.exit
@@ -223,7 +223,7 @@ _ZN4llvm15SmallVectorImplIPNS_5ValueEE7reserveEm.exit.i.i: ; preds = %38, %34
 
 .lr.ph.preheader.i.i:                             ; preds = %_ZN4llvm15SmallVectorImplIPNS_5ValueEE7reserveEm.exit.i.i
   %39 = load ptr, ptr %7, align 8, !tbaa !41
-  %40 = getelementptr ptr, ptr %39, i64 %.pre-phi.i.i
+  %40 = getelementptr [8 x i8], ptr %39, i64 %.pre-phi.i.i
   %41 = sub i64 %15, %.pre-phi.i.i
   %42 = shl i64 %41, 3
   call void @llvm.memset.p0.i64(ptr align 8 %40, i8 0, i64 %42, i1 false), !tbaa !44
@@ -256,7 +256,7 @@ _ZN4llvm15SmallVectorImplIPNS_5ValueEE7reserveEm.exit.i.i12..lr.ph.preheader.i.i
 .lr.ph.preheader.i.i15:                           ; preds = %_ZN4llvm15SmallVectorImplIPNS_5ValueEE7reserveEm.exit.i.i12..lr.ph.preheader.i.i15_crit_edge, %46
   %48 = phi ptr [ %.pre, %_ZN4llvm15SmallVectorImplIPNS_5ValueEE7reserveEm.exit.i.i12..lr.ph.preheader.i.i15_crit_edge ], [ %16, %46 ]
   %.pre-phi.i.i1360 = phi i64 [ %.pre13.i.i18, %_ZN4llvm15SmallVectorImplIPNS_5ValueEE7reserveEm.exit.i.i12..lr.ph.preheader.i.i15_crit_edge ], [ 0, %46 ]
-  %49 = getelementptr ptr, ptr %48, i64 %.pre-phi.i.i1360
+  %49 = getelementptr [8 x i8], ptr %48, i64 %.pre-phi.i.i1360
   %50 = sub i64 %15, %.pre-phi.i.i1360
   %51 = shl i64 %50, 3
   call void @llvm.memset.p0.i64(ptr align 8 %49, i8 0, i64 %51, i1 false), !tbaa !44
@@ -282,9 +282,9 @@ _ZN4llvm15SmallVectorImplIPNS_5ValueEE7reserveEm.exit.i.i12..lr.ph.preheader.i.i
 
 61:                                               ; preds = %56
   %62 = add i64 %.066, 1
-  %63 = getelementptr inbounds nuw ptr, ptr %3, i64 %.066
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.066
   %64 = load ptr, ptr %63, align 8, !tbaa !44
-  %65 = getelementptr inbounds nuw ptr, ptr %55, i64 %storemerge65
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %storemerge65
   store ptr %64, ptr %65, align 8, !tbaa !44
   br label %66
 
@@ -318,7 +318,7 @@ _ZN4llvm13VectorBuilder11requestMaskEv.exit:      ; preds = %68, %71
   %.0.i20 = phi ptr [ %78, %71 ], [ %70, %68 ]
   %79 = and i64 %8, 4294967295
   %80 = load ptr, ptr %7, align 8, !tbaa !41
-  %81 = getelementptr inbounds nuw ptr, ptr %80, i64 %79
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %79
   store ptr %.0.i20, ptr %81, align 8, !tbaa !44
   br label %82
 
@@ -346,7 +346,7 @@ _ZN4llvm13VectorBuilder10requestEVLEv.exit:       ; preds = %83, %86
   %.0.i22 = phi ptr [ %94, %86 ], [ %85, %83 ]
   %95 = and i64 %9, 4294967295
   %96 = load ptr, ptr %7, align 8, !tbaa !41
-  %97 = getelementptr inbounds nuw ptr, ptr %96, i64 %95
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %96, i64 %95
   store ptr %.0.i22, ptr %97, align 8, !tbaa !44
   br label %98
 

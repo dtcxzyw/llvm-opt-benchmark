@@ -27,7 +27,7 @@ define noundef i32 @ossl_rand_pool_init() local_unnamed_addr #0 {
 
 1:                                                ; preds = %0, %1
   %.03 = phi i64 [ 0, %0 ], [ %3, %1 ]
-  %2 = getelementptr inbounds nuw %struct.random_device, ptr @random_devices, i64 %.03
+  %2 = getelementptr inbounds nuw [40 x i8], ptr @random_devices, i64 %.03
   store i32 -1, ptr %2, align 8, !tbaa !3
   %3 = add nuw nsw i64 %.03, 1
   %exitcond.not = icmp eq i64 %3, 4
@@ -47,7 +47,7 @@ define void @ossl_rand_pool_cleanup() local_unnamed_addr #1 {
 
 5:                                                ; preds = %0, %close_random_device.exit
   %.03 = phi i64 [ 0, %0 ], [ %32, %close_random_device.exit ]
-  %6 = getelementptr inbounds nuw %struct.random_device, ptr @random_devices, i64 %.03
+  %6 = getelementptr inbounds nuw [40 x i8], ptr @random_devices, i64 %.03
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %7 = load i32, ptr %6, align 8, !tbaa !3
   %.not.i.i = icmp eq i32 %7, -1
@@ -121,7 +121,7 @@ define void @ossl_rand_pool_keep_random_devices_open(i32 noundef %0) local_unnam
 
 7:                                                ; preds = %close_random_device.exit.i, %3
   %.03.i = phi i64 [ 0, %3 ], [ %34, %close_random_device.exit.i ]
-  %8 = getelementptr inbounds nuw %struct.random_device, ptr @random_devices, i64 %.03.i
+  %8 = getelementptr inbounds nuw [40 x i8], ptr @random_devices, i64 %.03.i
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %9 = load i32, ptr %8, align 8, !tbaa !3
   %.not.i.i.i = icmp eq i32 %9, -1
@@ -328,7 +328,7 @@ wait_random_seeded.exit.thread:                   ; preds = %50
   %59 = shl nuw i64 1, %58
   %60 = sdiv i32 %54, 64
   %61 = sext i32 %60 to i64
-  %62 = getelementptr inbounds i64, ptr %7, i64 %61
+  %62 = getelementptr inbounds [8 x i8], ptr %7, i64 %61
   %63 = load i64, ptr %62, align 8, !tbaa !24
   %64 = or i64 %63, %59
   store i64 %64, ptr %62, align 8, !tbaa !24
@@ -414,7 +414,7 @@ wait_random_seeded.exit:                          ; preds = %53, %.critedge.thre
   %.052101 = phi i64 [ 0, %.lr.ph103 ], [ %190, %189 ]
   %.053100 = phi i64 [ %89, %.lr.ph103 ], [ %.154, %189 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %100 = getelementptr inbounds nuw %struct.random_device, ptr @random_devices, i64 %.052101
+  %100 = getelementptr inbounds nuw [40 x i8], ptr @random_devices, i64 %.052101
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %101 = load i32, ptr %100, align 8, !tbaa !3
   %.not.i.i = icmp eq i32 %101, -1
@@ -460,7 +460,7 @@ check_random_device.exit.i:                       ; preds = %114
   br i1 %.not.i73, label %get_random_device.exit, label %123
 
 123:                                              ; preds = %check_random_device.exit.i, %check_random_device.exit.thread.i
-  %124 = getelementptr inbounds nuw ptr, ptr @random_device_paths, i64 %.052101
+  %124 = getelementptr inbounds nuw [8 x i8], ptr @random_device_paths, i64 %.052101
   %125 = load ptr, ptr %124, align 8, !tbaa !29
   %126 = call i32 (ptr, i32, ...) @open(ptr noundef %125, i32 noundef 0) #11
   store i32 %126, ptr %100, align 8, !tbaa !3

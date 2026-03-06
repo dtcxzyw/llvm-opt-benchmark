@@ -408,7 +408,7 @@ _ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE11_S_rel
 _ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %78, %_ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
   store ptr %73, ptr %0, align 8
   store ptr %77, ptr %5, align 8
-  %79 = getelementptr inbounds nuw ptr, ptr %73, i64 %71
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %71
   store ptr %79, ptr %55, align 8
   br label %_ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE9push_backEOS3_.exit
 
@@ -668,7 +668,7 @@ _ZSt8_DestroyIPN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseInfoIN1
 _ZNSt6vectorIN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseInfoIN12_GLOBAL__N_19ExprInfopEE8TestInfoEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i: ; preds = %77, %_ZSt8_DestroyIPN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseInfoIN12_GLOBAL__N_19ExprInfopEE8TestInfoEEES8_EvT_SA_RSaIT0_E.exit.i.i.i
   store ptr %58, ptr %33, align 8
   store ptr %76, ptr %35, align 8
-  %78 = getelementptr inbounds nuw %"class.testing::internal::linked_ptr.13", ptr %58, i64 %56
+  %78 = getelementptr inbounds nuw [16 x i8], ptr %58, i64 %56
   store ptr %78, ptr %37, align 8
   br label %_ZNSt6vectorIN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseInfoIN12_GLOBAL__N_19ExprInfopEE8TestInfoEEESaIS8_EE9push_backEOS8_.exit
 
@@ -6502,7 +6502,7 @@ _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFN7tes
 _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFN7testing8internal14ParamGeneratorIN12_GLOBAL__N_113expected_infoEEEvEESaISF_EE9push_backEOSF_.exit.i.i: ; preds = %85, %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFN7testing8internal14ParamGeneratorIN12_GLOBAL__N_113expected_infoEEEvEESaISF_EE11_S_relocateEPSF_SI_SI_RSG_.exit30.i.i.i.i.i
   store ptr %61, ptr %22, align 8
   store ptr %84, ptr %27, align 8
-  %86 = getelementptr inbounds nuw %"struct.std::pair", ptr %61, i64 %57
+  %86 = getelementptr inbounds nuw [40 x i8], ptr %61, i64 %57
   store ptr %86, ptr %29, align 8
   %.pre1.i.i = load ptr, ptr %1, align 8
   %87 = icmp eq ptr %.pre1.i.i, %23

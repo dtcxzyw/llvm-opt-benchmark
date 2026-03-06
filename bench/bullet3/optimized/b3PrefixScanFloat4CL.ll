@@ -10,10 +10,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.b3LauncherCL = type { ptr, ptr, ptr, i32, [4 x i8], %class.b3AlignedObjectArray, i32, i8, ptr, %class.b3AlignedObjectArray.1 }
 %class.b3AlignedObjectArray = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
 %class.b3AlignedObjectArray.1 = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%struct.b3KernelArgData = type { i32, i32, i32, i32, %union.anon.7 }
-%union.anon.7 = type { ptr, [8 x i8] }
-%class.b3Vector3 = type { %union.anon.3 }
-%union.anon.3 = type { [4 x float] }
 
 $_ZN13b3OpenCLArrayI9b3Vector3EC2EP11_cl_contextP17_cl_command_queuemb = comdat any
 
@@ -416,9 +412,9 @@ _ZN20b3AlignedObjectArrayI15b3KernelArgDataE8allocateEi.exit.i.i: ; preds = %68
 
 76:                                               ; preds = %76, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %76 ]
-  %77 = getelementptr inbounds nuw %struct.b3KernelArgData, ptr %71, i64 %indvars.iv.i.i.i
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %71, i64 %indvars.iv.i.i.i
   %78 = load ptr, ptr %75, align 8, !tbaa !54
-  %79 = getelementptr inbounds nuw %struct.b3KernelArgData, ptr %78, i64 %indvars.iv.i.i.i
+  %79 = getelementptr inbounds nuw [32 x i8], ptr %78, i64 %indvars.iv.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %77, ptr noundef nonnull align 16 dereferenceable(32) %79, i64 32, i1 false), !tbaa.struct !55
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
@@ -464,7 +460,7 @@ _ZN20b3AlignedObjectArrayI15b3KernelArgDataE10deallocateEv.exit.i.i: ; preds = %
   %87 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %88 = load ptr, ptr %87, align 8, !tbaa !54
   %89 = sext i32 %86 to i64
-  %90 = getelementptr inbounds %struct.b3KernelArgData, ptr %88, i64 %89
+  %90 = getelementptr inbounds [32 x i8], ptr %88, i64 %89
   store i32 0, ptr %90, align 16, !tbaa !28
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %90, i64 4
   store i32 %58, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !28
@@ -597,9 +593,9 @@ _ZN20b3AlignedObjectArrayI15b3KernelArgDataE8allocateEi.exit.i.i48: ; preds = %1
 
 149:                                              ; preds = %149, %.lr.ph.i.i.i57
   %indvars.iv.i.i.i59 = phi i64 [ 0, %.lr.ph.i.i.i57 ], [ %indvars.iv.next.i.i.i60, %149 ]
-  %150 = getelementptr inbounds nuw %struct.b3KernelArgData, ptr %144, i64 %indvars.iv.i.i.i59
+  %150 = getelementptr inbounds nuw [32 x i8], ptr %144, i64 %indvars.iv.i.i.i59
   %151 = load ptr, ptr %148, align 8, !tbaa !54
-  %152 = getelementptr inbounds nuw %struct.b3KernelArgData, ptr %151, i64 %indvars.iv.i.i.i59
+  %152 = getelementptr inbounds nuw [32 x i8], ptr %151, i64 %indvars.iv.i.i.i59
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %150, ptr noundef nonnull align 16 dereferenceable(32) %152, i64 32, i1 false), !tbaa.struct !55
   %indvars.iv.next.i.i.i60 = add nuw nsw i64 %indvars.iv.i.i.i59, 1
   %exitcond.not.i.i.i61 = icmp eq i64 %indvars.iv.next.i.i.i60, %wide.trip.count.i.i.i58
@@ -645,7 +641,7 @@ _ZN20b3AlignedObjectArrayI15b3KernelArgDataE10deallocateEv.exit.i.i55: ; preds =
   %160 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %161 = load ptr, ptr %160, align 8, !tbaa !54
   %162 = sext i32 %159 to i64
-  %163 = getelementptr inbounds %struct.b3KernelArgData, ptr %161, i64 %162
+  %163 = getelementptr inbounds [32 x i8], ptr %161, i64 %162
   store i32 0, ptr %163, align 16, !tbaa !28
   %.sroa.491.0..sroa_idx = getelementptr inbounds nuw i8, ptr %163, i64 4
   store i32 %131, ptr %.sroa.491.0..sroa_idx, align 4, !tbaa !28
@@ -782,9 +778,9 @@ _ZN20b3AlignedObjectArrayI15b3KernelArgDataE8allocateEi.exit.i.i70: ; preds = %2
 
 223:                                              ; preds = %223, %.lr.ph.i.i.i79
   %indvars.iv.i.i.i81 = phi i64 [ 0, %.lr.ph.i.i.i79 ], [ %indvars.iv.next.i.i.i82, %223 ]
-  %224 = getelementptr inbounds nuw %struct.b3KernelArgData, ptr %218, i64 %indvars.iv.i.i.i81
+  %224 = getelementptr inbounds nuw [32 x i8], ptr %218, i64 %indvars.iv.i.i.i81
   %225 = load ptr, ptr %222, align 8, !tbaa !54
-  %226 = getelementptr inbounds nuw %struct.b3KernelArgData, ptr %225, i64 %indvars.iv.i.i.i81
+  %226 = getelementptr inbounds nuw [32 x i8], ptr %225, i64 %indvars.iv.i.i.i81
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %224, ptr noundef nonnull align 16 dereferenceable(32) %226, i64 32, i1 false), !tbaa.struct !55
   %indvars.iv.next.i.i.i82 = add nuw nsw i64 %indvars.iv.i.i.i81, 1
   %exitcond.not.i.i.i83 = icmp eq i64 %indvars.iv.next.i.i.i82, %wide.trip.count.i.i.i80
@@ -830,7 +826,7 @@ _ZN20b3AlignedObjectArrayI15b3KernelArgDataE10deallocateEv.exit.i.i77: ; preds =
   %234 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %235 = load ptr, ptr %234, align 8, !tbaa !54
   %236 = sext i32 %233 to i64
-  %237 = getelementptr inbounds %struct.b3KernelArgData, ptr %235, i64 %236
+  %237 = getelementptr inbounds [32 x i8], ptr %235, i64 %236
   store i32 0, ptr %237, align 16, !tbaa !28
   %.sroa.495.0..sroa_idx = getelementptr inbounds nuw i8, ptr %237, i64 4
   store i32 %205, ptr %.sroa.495.0..sroa_idx, align 4, !tbaa !28
@@ -1097,12 +1093,12 @@ define dso_local void @_ZN20b3PrefixScanFloat4CL11executeHostER20b3AlignedObject
   %.sroa.0.016 = phi <2 x float> [ zeroinitializer, %.lr.ph ], [ %.sroa.0.4.vec.insert, %9 ]
   %.sroa.8.015 = phi <2 x float> [ zeroinitializer, %.lr.ph ], [ %.sroa.8.8.vec.insert, %9 ]
   %10 = load ptr, ptr %7, align 8, !tbaa !63
-  %11 = getelementptr inbounds nuw %class.b3Vector3, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %indvars.iv
   store <2 x float> %.sroa.0.016, ptr %11, align 16
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
   store <2 x float> %.sroa.8.015, ptr %.sroa.8.0..sroa_idx, align 8, !tbaa !34
   %12 = load ptr, ptr %8, align 8, !tbaa !63
-  %13 = getelementptr inbounds nuw %class.b3Vector3, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %indvars.iv
   %14 = load float, ptr %13, align 16, !tbaa !34
   %.sroa.0.0.vec.extract = extractelement <2 x float> %.sroa.0.016, i64 0
   %15 = fadd float %.sroa.0.0.vec.extract, %14
@@ -1125,7 +1121,7 @@ define dso_local void @_ZN20b3PrefixScanFloat4CL11executeHostER20b3AlignedObject
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %24 = load ptr, ptr %23, align 8, !tbaa !63
   %25 = sext i32 %3 to i64
-  %26 = getelementptr %class.b3Vector3, ptr %24, i64 %25
+  %26 = getelementptr [16 x i8], ptr %24, i64 %25
   %27 = getelementptr i8, ptr %26, i64 -16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, ptr noundef nonnull align 16 dereferenceable(16) %27, i64 16, i1 false), !tbaa.struct !51
   br label %28

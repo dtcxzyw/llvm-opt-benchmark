@@ -30,11 +30,11 @@ define internal void @dsd_ctables_tableinit() #2 {
   br label %7
 
 .preheader:                                       ; preds = %20
-  %invariant.gep = getelementptr inbounds nuw double, ptr @ctables_msbf, i64 %indvars.iv37
+  %invariant.gep = getelementptr inbounds nuw [8 x i8], ptr @ctables_msbf, i64 %indvars.iv37
   %4 = getelementptr inbounds nuw i8, ptr @ff_reverse, i64 %indvars.iv37
   %5 = load i8, ptr %4, align 1, !tbaa !4
   %6 = zext i8 %5 to i64
-  %invariant.gep24 = getelementptr inbounds nuw double, ptr @ctables_lsbf, i64 %6
+  %invariant.gep24 = getelementptr inbounds nuw [8 x i8], ptr @ctables_lsbf, i64 %6
   br label %21
 
 7:                                                ; preds = %2, %20
@@ -46,7 +46,7 @@ define internal void @dsd_ctables_tableinit() #2 {
   %12 = and i32 %11, 2
   %13 = add nsw i32 %12, -1
   %14 = sitofp i32 %13 to double
-  %invariant.gep41 = getelementptr inbounds nuw double, ptr @htaps, i64 %indvars.iv29
+  %invariant.gep41 = getelementptr inbounds nuw [8 x i8], ptr @htaps, i64 %indvars.iv29
   br label %15
 
 15:                                               ; preds = %7, %15
@@ -54,7 +54,7 @@ define internal void @dsd_ctables_tableinit() #2 {
   %.idx = shl nuw nsw i64 %indvars.iv, 6
   %gep42 = getelementptr inbounds nuw i8, ptr %invariant.gep41, i64 %.idx
   %16 = load double, ptr %gep42, align 8, !tbaa !7
-  %17 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %18 = load double, ptr %17, align 8, !tbaa !7
   %19 = tail call nsz double @llvm.fmuladd.f64(double %14, double %16, double %18)
   store double %19, ptr %17, align 8, !tbaa !7
@@ -69,12 +69,12 @@ define internal void @dsd_ctables_tableinit() #2 {
 
 21:                                               ; preds = %.preheader, %21
   %indvars.iv33 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next34, %21 ]
-  %22 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv33
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv33
   %23 = load double, ptr %22, align 8, !tbaa !7
   %24 = sub nuw nsw i64 5, %indvars.iv33
-  %gep = getelementptr inbounds nuw [256 x double], ptr %invariant.gep, i64 %24
+  %gep = getelementptr inbounds nuw [2048 x i8], ptr %invariant.gep, i64 %24
   store double %23, ptr %gep, align 8, !tbaa !7
-  %gep25 = getelementptr inbounds nuw [256 x double], ptr %invariant.gep24, i64 %24
+  %gep25 = getelementptr inbounds nuw [2048 x i8], ptr %invariant.gep24, i64 %24
   store double %23, ptr %gep25, align 8, !tbaa !7
   %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 1
   %exitcond36.not = icmp eq i64 %indvars.iv.next34, 6
@@ -137,12 +137,12 @@ define void @ff_dsd2pcm_translate(ptr noundef captures(none) %0, i64 noundef %1,
   %33 = zext nneg i32 %32 to i64
   %34 = getelementptr inbounds nuw i8, ptr %8, i64 %33
   %35 = load i8, ptr %34, align 1, !tbaa !4
-  %36 = getelementptr inbounds nuw [256 x double], ptr %9, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [2048 x i8], ptr %9, i64 %indvars.iv
   %37 = zext i8 %30 to i64
-  %38 = getelementptr inbounds nuw double, ptr %36, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %37
   %39 = load double, ptr %38, align 8, !tbaa !7
   %40 = zext i8 %35 to i64
-  %41 = getelementptr inbounds nuw double, ptr %36, i64 %40
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %40
   %42 = load double, ptr %41, align 8, !tbaa !7
   %43 = fadd nsz double %39, %42
   %44 = fadd nsz double %.03338, %43
@@ -155,7 +155,7 @@ define void @ff_dsd2pcm_translate(ptr noundef captures(none) %0, i64 noundef %1,
   %47 = getelementptr inbounds i8, ptr %.03142, i64 %4
   %48 = fptrunc nsz double %44 to float
   store float %48, ptr %.03241, align 4, !tbaa !18
-  %49 = getelementptr inbounds float, ptr %.03241, i64 %6
+  %49 = getelementptr inbounds [4 x i8], ptr %.03241, i64 %6
   %50 = add i32 %.03440, 1
   %51 = and i32 %50, 15
   %.not36 = icmp eq i64 %46, 0

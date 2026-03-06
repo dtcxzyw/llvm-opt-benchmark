@@ -4,15 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.Vmem = type { ptr, i64, i64 }
-%struct.Ast_ = type { %union.SourceSpan, i32, i8, %union.anon.62 }
-%union.SourceSpan = type { i64 }
-%union.anon.62 = type { %struct.AstDocDirective_ }
-%struct.AstDocDirective_ = type { i8, %union.anon.65 }
-%union.anon.65 = type { %struct.anon.66 }
-%struct.anon.66 = type { ptr, %union.SourceSpan, i8 }
-%struct.TypeInfo_ = type { i16, ptr, %union.SourceSpan, %union.anon.57 }
-%union.anon.57 = type { %struct.anon.58 }
-%struct.anon.58 = type { ptr, ptr }
 %struct.Int = type { %struct.Int128_, i32 }
 %struct.Int128_ = type { i64, i64 }
 
@@ -322,7 +313,7 @@ parse_default_stmt.exit:                          ; preds = %parse_case_stmts.ex
   %108 = load i32, ptr %.1.i, align 4
   %109 = add i32 %108, -1
   %110 = zext i32 %109 to i64
-  %111 = getelementptr inbounds nuw ptr, ptr %107, i64 %110
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %110
   store ptr %.044, ptr %111, align 8
   %112 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 24) #7
   br i1 %112, label %.loopexit, label %15, !llvm.loop !9
@@ -1656,7 +1647,7 @@ extend_span_with_token.exit:                      ; preds = %25, %26
 
 94:                                               ; preds = %.lr.ph, %94
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %94 ]
-  %95 = getelementptr inbounds nuw ptr, ptr %72, i64 %indvars.iv
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %indvars.iv
   %96 = load ptr, ptr %95, align 8
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 80
   %98 = load i32, ptr %97, align 8
@@ -1925,7 +1916,7 @@ parse_optional_label.exit.thread110:              ; preds = %10, %parse_optional
 
 100:                                              ; preds = %.critedge4
   %101 = and i64 %phi.call88.in, 4294967295
-  %102 = getelementptr inbounds nuw %struct.Ast_, ptr %.sink121, i64 %101
+  %102 = getelementptr inbounds nuw [48 x i8], ptr %.sink121, i64 %101
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 12
   %104 = load i8, ptr %103, align 4
   %.not101 = icmp eq i8 %104, 6
@@ -3634,7 +3625,7 @@ define internal fastcc ptr @parse_asm_block_stmt(ptr noundef %0) unnamed_addr #0
   store i32 %80, ptr %.1.i.i, align 4
   %81 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 8
   %82 = zext i32 %79 to i64
-  %83 = getelementptr inbounds nuw ptr, ptr %81, i64 %82
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %82
   store ptr %49, ptr %83, align 8
   %84 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 8) #7
   br i1 %84, label %.critedge63.backedge.i, label %86
@@ -4325,7 +4316,7 @@ parse_default_stmt.exit:                          ; preds = %86, %47
   store i32 %125, ptr %.1.i, align 4
   %126 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   %127 = zext i32 %124 to i64
-  %128 = getelementptr inbounds nuw ptr, ptr %126, i64 %127
+  %128 = getelementptr inbounds nuw [8 x i8], ptr %126, i64 %127
   store ptr %.051, ptr %128, align 8
   %129 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 158) #7
   br i1 %129, label %._crit_edge, label %37, !llvm.loop !14
@@ -4880,7 +4871,7 @@ define internal fastcc ptr @parse_assert_stmt(ptr noundef %0) unnamed_addr #0 {
   store i32 %70, ptr %.1.i, align 4
   %71 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   %72 = zext i32 %69 to i64
-  %73 = getelementptr inbounds nuw ptr, ptr %71, i64 %72
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %72
   store ptr %37, ptr %73, align 8
   %74 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 8) #7
   br i1 %74, label %.lr.ph, label %._crit_edge, !llvm.loop !17
@@ -4940,7 +4931,7 @@ define dso_local ptr @parse_short_body(ptr noundef %0, i32 noundef %1, i1 nounde
 9:                                                ; preds = %3
   %10 = load ptr, ptr @type_info_arena, align 8
   %11 = zext i32 %1 to i64
-  %12 = getelementptr inbounds nuw %struct.TypeInfo_, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [40 x i8], ptr %10, i64 %11
   %13 = load i16, ptr %12, align 8
   %14 = and i16 %13, 7
   %.not69 = icmp eq i16 %14, 2
@@ -5156,7 +5147,7 @@ define internal fastcc ptr @parse_decl_stmt_after_type(ptr noundef %0, ptr nound
   tail call void @llvm.assume(i1 %.not137)
   %41 = add i32 %40, -1
   %42 = zext i32 %41 to i64
-  %43 = getelementptr inbounds nuw ptr, ptr %20, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %42
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load i64, ptr %45, align 8
@@ -5226,7 +5217,7 @@ extend_span_with_token.exit:                      ; preds = %52, %53
   store i32 %78, ptr %.1.i, align 4
   %79 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   %80 = zext i32 %77 to i64
-  %81 = getelementptr inbounds nuw ptr, ptr %79, i64 %80
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %79, i64 %80
   store ptr %7, ptr %81, align 8
   %82 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 8) #7
   br i1 %82, label %.lr.ph, label %.loopexit
@@ -5281,7 +5272,7 @@ extend_span_with_token.exit:                      ; preds = %52, %53
   tail call void @llvm.assume(i1 %.not134)
   %106 = add i32 %105, -1
   %107 = zext i32 %106 to i64
-  %108 = getelementptr inbounds nuw ptr, ptr %99, i64 %107
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %99, i64 %107
   %109 = load ptr, ptr %108, align 8
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 16
   %111 = load i64, ptr %110, align 8
@@ -5324,7 +5315,7 @@ extend_span_with_token.exit:                      ; preds = %52, %53
   store i32 %132, ptr %.1.i139, align 4
   %133 = getelementptr inbounds nuw i8, ptr %.1.i139, i64 8
   %134 = zext i32 %131 to i64
-  %135 = getelementptr inbounds nuw ptr, ptr %133, i64 %134
+  %135 = getelementptr inbounds nuw [8 x i8], ptr %133, i64 %134
   store ptr %84, ptr %135, align 8
   %136 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 8) #7
   br i1 %136, label %.lr.ph, label %._crit_edge, !llvm.loop !18
@@ -5344,7 +5335,7 @@ extend_span_with_token.exit:                      ; preds = %52, %53
 
 .lr.ph169:                                        ; preds = %.lr.ph169.preheader, %145
   %indvars.iv = phi i64 [ 0, %.lr.ph169.preheader ], [ %indvars.iv.next, %145 ]
-  %139 = getelementptr inbounds nuw ptr, ptr %133, i64 %indvars.iv
+  %139 = getelementptr inbounds nuw [8 x i8], ptr %133, i64 %indvars.iv
   %140 = load ptr, ptr %139, align 8
   %141 = icmp eq ptr %140, %84
   br i1 %141, label %145, label %142

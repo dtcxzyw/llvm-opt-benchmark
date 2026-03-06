@@ -126,7 +126,7 @@ define noundef double @_ZN3gmx36getTransformationPullCoordinateValueEP17pull_coo
 
 ._crit_edge:                                      ; preds = %4, %._crit_edge.loopexit
   %.0.lcssa = phi i64 [ %5, %._crit_edge.loopexit ], [ 0, %4 ]
-  %6 = getelementptr inbounds nuw double, ptr %.pre, i64 %.0.lcssa
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %.0.lcssa
   store double %3, ptr %6, align 8, !tbaa !10
   %7 = tail call fastcc noundef double @_ZN3gmx12_GLOBAL__N_136getTransformationPullCoordinateValueEP17pull_coord_work_t(ptr noundef nonnull %0)
   ret double %7
@@ -137,7 +137,7 @@ define noundef double @_ZN3gmx36getTransformationPullCoordinateValueEP17pull_coo
   %8 = getelementptr inbounds nuw i8, ptr %.sroa.0.014, i64 376
   %9 = load double, ptr %8, align 8, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %10 = getelementptr inbounds nuw double, ptr %.pre, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %indvars.iv
   store double %9, ptr %10, align 8, !tbaa !10
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.0.014, i64 488
   %.not = icmp eq ptr %11, %2
@@ -751,7 +751,7 @@ define void @_ZN3gmx38distributeTransformationPullCoordForceEP17pull_coord_work_
   %13 = load double, ptr %6, align 8, !tbaa !12
   %14 = sext i32 %12 to i64
   %15 = load ptr, ptr %7, align 8, !tbaa !4
-  %16 = getelementptr inbounds nuw double, ptr %15, i64 %14
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %14
   %17 = load double, ptr %16, align 8, !tbaa !10
   %18 = load double, ptr %8, align 8, !tbaa !83
   %19 = fadd double %17, %18
@@ -760,7 +760,7 @@ define void @_ZN3gmx38distributeTransformationPullCoordForceEP17pull_coord_work_
   %21 = fsub double %20, %13
   %22 = fdiv double %21, %18
   %23 = load ptr, ptr %7, align 8, !tbaa !4
-  %24 = getelementptr inbounds nuw double, ptr %23, i64 %14
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %14
   store double %17, ptr %24, align 8, !tbaa !10
   %25 = fmul double %5, %22
   %26 = fcmp une double %25, 0.000000e+00

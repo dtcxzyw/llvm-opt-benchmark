@@ -253,7 +253,7 @@ bytestream2_get_byte.exit:                        ; preds = %68, %69
 bytestream2_get_be16.exit:                        ; preds = %124, %125
   %130 = phi ptr [ %105, %124 ], [ %126, %125 ]
   %.0.i260 = phi i32 [ 0, %124 ], [ %129, %125 ]
-  %131 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %131 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   store i32 %.0.i260, ptr %131, align 4, !tbaa !51
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -264,7 +264,7 @@ bytestream2_get_be16.exit:                        ; preds = %124, %125
   %134 = phi ptr [ %105, %.preheader ], [ %182, %180 ]
   %indvars.iv306 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next307, %180 ]
   %.0221300 = phi i32 [ %104, %.preheader ], [ %183, %180 ]
-  %135 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv306
+  %135 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv306
   %136 = load i32, ptr %135, align 4, !tbaa !51
   %137 = and i32 %136, 32767
   %.not249 = icmp ult i32 %136, 32768
@@ -582,7 +582,7 @@ bytestream2_init.exit259:                         ; preds = %226
   %311 = shl nuw nsw i32 %310, %.04159.i
   %312 = shl nuw nsw i32 %311, 21
   %313 = sub nuw nsw i64 15, %indvars.iv.i
-  %314 = getelementptr inbounds nuw i32, ptr %290, i64 %313
+  %314 = getelementptr inbounds nuw [4 x i8], ptr %290, i64 %313
   %315 = load i32, ptr %314, align 4, !tbaa !51
   %316 = or i32 %312, %315
   store i32 %316, ptr %314, align 4, !tbaa !51
@@ -618,7 +618,7 @@ bytestream2_init.exit259:                         ; preds = %226
   %331 = shl nuw nsw i32 %330, %.04063.i
   %332 = shl nuw nsw i32 %331, 13
   %333 = sub nuw nsw i64 15, %indvars.iv71.i
-  %334 = getelementptr inbounds nuw i32, ptr %290, i64 %333
+  %334 = getelementptr inbounds nuw [4 x i8], ptr %290, i64 %333
   %335 = load i32, ptr %334, align 4, !tbaa !51
   %336 = or i32 %332, %335
   store i32 %336, ptr %334, align 4, !tbaa !51
@@ -654,7 +654,7 @@ bytestream2_init.exit259:                         ; preds = %226
   %351 = shl nuw nsw i32 %350, %.03867.i
   %352 = shl nuw nsw i32 %351, 5
   %353 = sub nuw nsw i64 15, %indvars.iv76.i
-  %354 = getelementptr inbounds nuw i32, ptr %290, i64 %353
+  %354 = getelementptr inbounds nuw [4 x i8], ptr %290, i64 %353
   %355 = load i32, ptr %354, align 4, !tbaa !51
   %356 = or i32 %352, %355
   store i32 %356, ptr %354, align 4, !tbaa !51
@@ -664,7 +664,7 @@ bytestream2_init.exit259:                         ; preds = %226
 
 .preheader.i:                                     ; preds = %337, %.preheader.i
   %indvars.iv81.i = phi i64 [ %indvars.iv.next82.i, %.preheader.i ], [ 0, %337 ]
-  %357 = getelementptr inbounds nuw i32, ptr %290, i64 %indvars.iv81.i
+  %357 = getelementptr inbounds nuw [4 x i8], ptr %290, i64 %indvars.iv81.i
   %358 = load i32, ptr %357, align 4, !tbaa !51
   %359 = lshr i32 %358, 3
   %360 = or i32 %358, %359

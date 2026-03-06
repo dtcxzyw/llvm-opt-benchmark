@@ -10,11 +10,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::_Hashtable" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
 %"struct.std::__detail::_Hash_node_base" = type { ptr }
 %"struct.std::__detail::_Prime_rehash_policy" = type { float, i64 }
-%struct.AtomProperty = type { i8, %"class.std::__cxx11::basic_string", double, %"class.std::vector" }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<BaseEntry, std::allocator<BaseEntry>>::_Vector_impl" }
-%"struct.std::_Vector_base<BaseEntry, std::allocator<BaseEntry>>::_Vector_impl" = type { %"struct.std::_Vector_base<BaseEntry, std::allocator<BaseEntry>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<BaseEntry, std::allocator<BaseEntry>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %struct.BaseEntry = type { %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i8, float }
 %"class.std::unique_ptr.13" = type { %"struct.std::__uniq_ptr_data.14" }
 %"struct.std::__uniq_ptr_data.14" = type { %"class.std::__uniq_ptr_impl.15" }
@@ -507,7 +502,7 @@ define noundef nonnull ptr @_ZN14AtomProperties4propEi(ptr noundef nonnull reado
   %3 = load ptr, ptr %0, align 8, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds %struct.AtomProperty, ptr %4, i64 %5
+  %6 = getelementptr inbounds [72 x i8], ptr %4, i64 %5
   ret ptr %6
 }
 
@@ -527,7 +522,7 @@ define noundef zeroext i1 @_ZN14AtomProperties15setAtomPropertyEiRKNSt7__cxx1112
   %12 = load ptr, ptr %0, align 8, !tbaa !4
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = sext i32 %1 to i64
-  %15 = getelementptr inbounds %struct.AtomProperty, ptr %13, i64 %14
+  %15 = getelementptr inbounds [72 x i8], ptr %13, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 368
   %17 = load i8, ptr %12, align 8, !tbaa !9, !range !48, !noundef !49
   %18 = trunc nuw i8 %17 to i1
@@ -682,7 +677,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit31: ; preds = %66,
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEmc.exit: ; preds = %72, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %73 = load ptr, ptr %0, align 8, !tbaa !4
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
-  %75 = getelementptr inbounds %struct.AtomProperty, ptr %74, i64 %14
+  %75 = getelementptr inbounds [72 x i8], ptr %74, i64 %14
   %76 = getelementptr inbounds nuw i8, ptr %73, i64 368
   %77 = invoke fastcc noundef i32 @_ZL17findPropertyIndexP12AtomPropertyRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4hashIS7_EN3gmx20EqualCaseInsensitiveESaISt4pairIKS7_S7_EEERSD_SJ_Pb(ptr noundef nonnull %75, ptr noundef nonnull align 8 dereferenceable(56) %76, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %8)
           to label %78 unwind label %98
@@ -739,14 +734,14 @@ _ZL15printvdwWarningP8_IO_FILE.exit:              ; preds = %.noexc34._ZL15print
 100:                                              ; preds = %_ZL15printvdwWarningP8_IO_FILE.exit, %80, %78
   %101 = icmp sgt i32 %77, -1
   %102 = load ptr, ptr %0, align 8, !tbaa !4
-  %103 = getelementptr %struct.AtomProperty, ptr %102, i64 %14
+  %103 = getelementptr [72 x i8], ptr %102, i64 %14
   br i1 %101, label %104, label %111
 
 104:                                              ; preds = %100
   %105 = getelementptr i8, ptr %103, i64 56
   %106 = zext nneg i32 %77 to i64
   %107 = load ptr, ptr %105, align 8, !tbaa !38
-  %108 = getelementptr inbounds nuw %struct.BaseEntry, ptr %107, i64 %106
+  %108 = getelementptr inbounds nuw [72 x i8], ptr %107, i64 %106
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 68
   %110 = load float, ptr %109, align 4, !tbaa !57
   br label %115
@@ -835,18 +830,18 @@ define internal fastcc noundef zeroext i1 @_ZL13setPropertiesP12AtomPropertyRKSt
 
 29:                                               ; preds = %4
   %30 = sext i32 %2 to i64
-  %31 = getelementptr inbounds ptr, ptr @__const._ZL13setPropertiesP12AtomPropertyRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4hashIS7_EN3gmx20EqualCaseInsensitiveESaISt4pairIKS7_S7_EEEib.fns, i64 %30
+  %31 = getelementptr inbounds [8 x i8], ptr @__const._ZL13setPropertiesP12AtomPropertyRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4hashIS7_EN3gmx20EqualCaseInsensitiveESaISt4pairIKS7_S7_EEEib.fns, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !61
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %35 = load i64, ptr %34, align 8, !tbaa !34
   %36 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %32) #22
   %37 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %33, i64 noundef 0, i64 noundef %35, ptr noundef nonnull %32, i64 noundef %36)
-  %38 = getelementptr inbounds double, ptr %18, i64 %30
+  %38 = getelementptr inbounds [8 x i8], ptr %18, i64 %30
   %39 = load double, ptr %38, align 8, !tbaa !62
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store double %39, ptr %40, align 8, !tbaa !59
-  %41 = getelementptr inbounds double, ptr %17, i64 %30
+  %41 = getelementptr inbounds [8 x i8], ptr %17, i64 %30
   %42 = load double, ptr %41, align 8, !tbaa !62
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -1143,7 +1138,7 @@ _ZN9BaseEntryD2Ev.exit.i.i:                       ; preds = %_ZNSt7__cxx1112basi
   %150 = phi ptr [ %.pre41.i.i, %._crit_edge.i.i ], [ %140, %_ZN9BaseEntryD2Ev.exit.i.i ]
   %.0.i.i = phi i32 [ %99, %._crit_edge.i.i ], [ %146, %_ZN9BaseEntryD2Ev.exit.i.i ]
   %151 = sext i32 %.0.i.i to i64
-  %152 = getelementptr inbounds nuw %struct.BaseEntry, ptr %150, i64 %151
+  %152 = getelementptr inbounds nuw [72 x i8], ptr %150, i64 %151
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 64
   %154 = load i8, ptr %153, align 8, !tbaa !66, !range !48, !noundef !49
   %155 = trunc nuw i8 %154 to i1
@@ -1169,7 +1164,7 @@ _ZN9BaseEntryD2Ev.exit.i.i:                       ; preds = %_ZNSt7__cxx1112basi
   %169 = load ptr, ptr %33, align 8, !tbaa !37
   %170 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %160, ptr noundef nonnull @.str.11, ptr noundef %161, ptr noundef %162, double noundef %163, double noundef %168, i32 noundef range(i32 -2147483647, -2147483648) %67, ptr noundef %169, double noundef %163) #24
   %171 = load ptr, ptr %.phi.trans.insert40.i.i, align 8, !tbaa !38
-  %172 = getelementptr inbounds nuw %struct.BaseEntry, ptr %171, i64 %151
+  %172 = getelementptr inbounds nuw [72 x i8], ptr %171, i64 %151
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 68
   store float %98, ptr %173, align 4, !tbaa !57
   br label %176
@@ -1421,7 +1416,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit83: ; preds = %26,
   %.057102 = phi i64 [ 0, %.lr.ph ], [ %82, %_ZL17compareToDatabaseRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_.exit95.thread ]
   %.058101 = phi i32 [ -4, %.lr.ph ], [ %.159, %_ZL17compareToDatabaseRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_.exit95.thread ]
   %.060100 = phi i32 [ -4, %.lr.ph ], [ %.161, %_ZL17compareToDatabaseRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_.exit95.thread ]
-  %34 = getelementptr inbounds nuw %struct.BaseEntry, ptr %33, i64 %.057102
+  %34 = getelementptr inbounds nuw [72 x i8], ptr %33, i64 %.057102
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 32
   %.val = load ptr, ptr %2, align 8
   %.val74 = load i64, ptr %21, align 8, !tbaa !34
@@ -1464,7 +1459,7 @@ _ZL17compareToDatabaseRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_.
   br i1 %49, label %60, label %50
 
 50:                                               ; preds = %_ZL17compareToDatabaseRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_.exit.thread
-  %51 = getelementptr inbounds nuw %struct.BaseEntry, ptr %.pre108, i64 %.057102
+  %51 = getelementptr inbounds nuw [72 x i8], ptr %.pre108, i64 %.057102
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 32
   %53 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %52, ptr noundef nonnull @.str.21) #22
   %54 = icmp eq i32 %53, 0
@@ -1472,7 +1467,7 @@ _ZL17compareToDatabaseRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_.
   br i1 %54, label %60, label %55
 
 55:                                               ; preds = %50
-  %56 = getelementptr inbounds nuw %struct.BaseEntry, ptr %.pre109, i64 %.057102
+  %56 = getelementptr inbounds nuw [72 x i8], ptr %.pre109, i64 %.057102
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 32
   %58 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull @.str.19) #22
   %59 = icmp eq i32 %58, 0
@@ -1483,7 +1478,7 @@ _ZL17compareToDatabaseRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_.
 60:                                               ; preds = %._crit_edge.i, %55, %_ZL17compareToDatabaseRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_.exit.thread, %50
   %61 = phi ptr [ %33, %._crit_edge.i ], [ %.pre108, %_ZL17compareToDatabaseRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_.exit.thread ], [ %.pre, %55 ], [ %.pre109, %50 ]
   %.056 = phi i32 [ %39, %._crit_edge.i ], [ -3, %_ZL17compareToDatabaseRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_.exit.thread ], [ %spec.select, %55 ], [ -3, %50 ]
-  %62 = getelementptr inbounds nuw %struct.BaseEntry, ptr %61, i64 %.057102
+  %62 = getelementptr inbounds nuw [72 x i8], ptr %61, i64 %.057102
   %.val77 = load ptr, ptr %3, align 8
   %.val78 = load i64, ptr %22, align 8, !tbaa !34
   %.val79 = load ptr, ptr %62, align 8
@@ -1589,7 +1584,7 @@ _ZL17compareToDatabaseRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_.
 110:                                              ; preds = %102
   %111 = sext i32 %.0.lcssa to i64
   %112 = load ptr, ptr %17, align 8, !tbaa !38
-  %113 = getelementptr inbounds nuw %struct.BaseEntry, ptr %112, i64 %111
+  %113 = getelementptr inbounds nuw [72 x i8], ptr %112, i64 %111
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 32
   %115 = load ptr, ptr %114, align 8, !tbaa !37
   %116 = load ptr, ptr %113, align 8, !tbaa !37
@@ -2151,7 +2146,7 @@ _ZNSt6vectorI9BaseEntrySaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit30: ; preds = %_
 _ZNSt12_Vector_baseI9BaseEntrySaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %_ZNSt6vectorI9BaseEntrySaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit30, %123
   store ptr %22, ptr %0, align 8, !tbaa !38
   store ptr %.0.lcssa.i.i.i29, ptr %4, align 8, !tbaa !39
-  %127 = getelementptr inbounds nuw %struct.BaseEntry, ptr %22, i64 %16
+  %127 = getelementptr inbounds nuw [72 x i8], ptr %22, i64 %16
   store ptr %127, ptr %122, align 8, !tbaa !42
   ret void
 }

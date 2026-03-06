@@ -157,7 +157,7 @@ zend_string_alloc.exit:                           ; preds = %valid_environment_n
 32:                                               ; preds = %28
   %33 = load i8, ptr %17, align 1, !tbaa !11
   %34 = zext i8 %33 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr @zend_one_char_string, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr @zend_one_char_string, i64 %34
   %36 = load ptr, ptr %35, align 8, !tbaa !19
   br label %zend_string_init_fast.exit.i
 
@@ -273,7 +273,7 @@ zend_string_alloc.exit.i:                         ; preds = %3
 19:                                               ; preds = %15
   %20 = load i8, ptr %1, align 1, !tbaa !11
   %21 = zext i8 %20 to i64
-  %22 = getelementptr inbounds nuw ptr, ptr @zend_one_char_string, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr @zend_one_char_string, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !19
   br label %php_register_variable_safe.exit
 
@@ -327,7 +327,7 @@ zend_string_alloc.exit:                           ; preds = %4
 19:                                               ; preds = %15
   %20 = load i8, ptr %1, align 1, !tbaa !11
   %21 = zext i8 %20 to i64
-  %22 = getelementptr inbounds nuw ptr, ptr @zend_one_char_string, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr @zend_one_char_string, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !19
   br label %zend_string_init_fast.exit
 
@@ -692,7 +692,7 @@ zval_ptr_dtor_nogc.exit259:                       ; preds = %zend_symtable_str_d
   %144 = load ptr, ptr %110, align 8, !tbaa !44
   %145 = load i8, ptr %143, align 1, !tbaa !11
   %146 = sext i8 %145 to i64
-  %147 = getelementptr inbounds i16, ptr %144, i64 %146
+  %147 = getelementptr inbounds [2 x i8], ptr %144, i64 %146
   %148 = load i16, ptr %147, align 2, !tbaa !46
   %149 = and i16 %148, 8192
   %.not236 = icmp eq i16 %149, 0
@@ -1577,7 +1577,7 @@ zend_string_alloc.exit.i.i:                       ; preds = %55
 72:                                               ; preds = %68
   %73 = load i8, ptr %57, align 1, !tbaa !11
   %74 = zext i8 %73 to i64
-  %75 = getelementptr inbounds nuw ptr, ptr @zend_one_char_string, i64 %74
+  %75 = getelementptr inbounds nuw [8 x i8], ptr @zend_one_char_string, i64 %74
   %76 = load ptr, ptr %75, align 8, !tbaa !19
   br label %php_register_variable_safe.exit.i
 
@@ -1822,7 +1822,7 @@ define dso_local void @php_default_treat_data(i32 noundef %0, ptr noundef %1, pt
   %.2 = phi ptr [ %66, %60 ], [ %.069120, %.preheader ]
   %61 = load i8, ptr %.2, align 1, !tbaa !11
   %62 = sext i8 %61 to i64
-  %63 = getelementptr inbounds i16, ptr %59, i64 %62
+  %63 = getelementptr inbounds [2 x i8], ptr %59, i64 %62
   %64 = load i16, ptr %63, align 2, !tbaa !46
   %65 = and i16 %64, 8192
   %.not87 = icmp eq i16 %65, 0
@@ -1931,7 +1931,7 @@ zend_string_alloc.exit.i:                         ; preds = %96
 112:                                              ; preds = %108
   %113 = load i8, ptr %97, align 1, !tbaa !11
   %114 = zext i8 %113 to i64
-  %115 = getelementptr inbounds nuw ptr, ptr @zend_one_char_string, i64 %114
+  %115 = getelementptr inbounds nuw [8 x i8], ptr @zend_one_char_string, i64 %114
   %116 = load ptr, ptr %115, align 8, !tbaa !19
   br label %php_register_variable_safe.exit
 
@@ -2021,7 +2021,7 @@ define dso_local void @php_build_argv(ptr noundef %0, ptr noundef readonly captu
 zend_string_alloc.exit50:                         ; preds = %.lr.ph, %32
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %32 ]
   %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 144), align 8, !tbaa !79
-  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8, !tbaa !9
   %18 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #16
   %19 = and i64 %18, -8

@@ -2423,7 +2423,7 @@ define hidden void @"_ZN7dashmap6mapref5entry24VacantEntry$LT$K$C$V$GT$6insert17
   %30 = add i64 %29, 1
   store i64 %30, ptr %28, align 8, !alias.scope !305, !noalias !308
   %31 = sub nsw i64 0, %11
-  %32 = getelementptr inbounds { { { i64, [10 x i64] }, { { i64, [2 x i64] } } }, { { { i64, [1 x i64] } } } }, ptr %12, i64 %31
+  %32 = getelementptr inbounds [128 x i8], ptr %12, i64 %31
   %33 = getelementptr inbounds i8, ptr %32, i64 -128
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %33, ptr noundef nonnull align 8 dereferenceable(112) %1, i64 112, i1 false), !noalias !305
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %32, i64 -16
@@ -2445,7 +2445,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$
   %5 = load i64, ptr %4, align 8, !noundef !3
   %6 = icmp ult i64 %1, %5
   tail call void @llvm.assume(i1 %6)
-  %7 = getelementptr inbounds { { { { i64 } }, { { { ptr, i64, i64, i64 }, {}, {} } } }, [11 x i64] }, ptr %3, i64 %1
+  %7 = getelementptr inbounds [128 x i8], ptr %3, i64 %1
   %8 = cmpxchg weak ptr %7, i64 0, i64 -4 acquire monotonic, align 8
   %.sroa.18.0.in.i = extractvalue { i64, i1 } %8, 1
   br i1 %.sroa.18.0.in.i, label %10, label %9, !prof !5
@@ -2478,7 +2478,7 @@ define hidden void @"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$u20$dash
   %14 = load i64, ptr %13, align 8, !alias.scope !315, !noundef !3
   %15 = icmp ult i64 %11, %14
   tail call void @llvm.assume(i1 %15)
-  %16 = getelementptr inbounds { { { { i64 } }, { { { ptr, i64, i64, i64 }, {}, {} } } }, [11 x i64] }, ptr %12, i64 %11
+  %16 = getelementptr inbounds [128 x i8], ptr %12, i64 %11
   %17 = load atomic i64, ptr %16 monotonic, align 128, !noalias !315
   %18 = icmp ugt i64 %17, -9
   br i1 %18, label %_ZN7dashmap4lock9RawRwLock20try_lock_shared_fast17hd721552ec487a175E.exit.thread.i, label %_ZN7dashmap4lock9RawRwLock20try_lock_shared_fast17hd721552ec487a175E.exit.i, !prof !318
@@ -2529,7 +2529,7 @@ _ZN7dashmap4lock9RawRwLock20try_lock_shared_fast17hd721552ec487a175E.exit.thread
   %38 = add i64 %.sroa.04.0.i.i, %36
   %39 = and i64 %38, %25
   %40 = sub nsw i64 0, %39
-  %41 = getelementptr inbounds { { { i64, [10 x i64] }, { { i64, [2 x i64] } } }, { { { i64, [1 x i64] } } } }, ptr %26, i64 %40
+  %41 = getelementptr inbounds [128 x i8], ptr %26, i64 %40
   %42 = getelementptr inbounds i8, ptr %41, i64 -128
   %43 = tail call fastcc noundef zeroext i1 @"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2eq17h3185e0da3699874fE"(ptr noalias noundef readonly align 8 dereferenceable(112) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %42), !noalias !332
   br i1 %43, label %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find17hd1cc3d5b30752139E.exit", label %31
@@ -2590,7 +2590,7 @@ define hidden void @"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$u20$dash
   %15 = load i64, ptr %14, align 8, !alias.scope !341, !noundef !3
   %16 = icmp ult i64 %12, %15
   tail call void @llvm.assume(i1 %16)
-  %17 = getelementptr inbounds { { { { i64 } }, { { { ptr, i64, i64, i64 }, {}, {} } } }, [11 x i64] }, ptr %13, i64 %12
+  %17 = getelementptr inbounds [128 x i8], ptr %13, i64 %12
   %18 = cmpxchg weak ptr %17, i64 0, i64 -4 acquire monotonic, align 8, !noalias !341
   %.sroa.18.0.in.i.i = extractvalue { i64, i1 } %18, 1
   br i1 %.sroa.18.0.in.i.i, label %"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$u20$dashmap..t..Map$LT$K$C$V$C$S$GT$$GT$18_yield_write_shard17h166603ba15c4742fE.llvm.11658830681698093427.exit", label %21, !prof !5
@@ -2655,7 +2655,7 @@ define hidden void @"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$u20$dash
   %42 = add i64 %.sroa.0.024.i.i, %40
   %43 = and i64 %42, %.val6.i
   %44 = sub nsw i64 0, %43
-  %45 = getelementptr inbounds { { { i64, [10 x i64] }, { { i64, [2 x i64] } } }, { { { i64, [1 x i64] } } } }, ptr %.val.i, i64 %44
+  %45 = getelementptr inbounds [128 x i8], ptr %.val.i, i64 %44
   %46 = getelementptr inbounds i8, ptr %45, i64 -128
   %47 = call fastcc noundef zeroext i1 @"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2eq17h3185e0da3699874fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %46, ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %2), !noalias !358
   br i1 %47, label %79, label %35
@@ -2823,7 +2823,7 @@ define hidden { i64, ptr } @"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$
   %41 = add i64 %40, 1
   store i64 %41, ptr %39, align 8, !alias.scope !371, !noalias !374
   %42 = sub nsw i64 0, %.sroa.4.0.copyload
-  %43 = getelementptr inbounds { { { i64, [10 x i64] }, { { i64, [2 x i64] } } }, { { { i64, [1 x i64] } } } }, ptr %23, i64 %42
+  %43 = getelementptr inbounds [128 x i8], ptr %23, i64 %42
   %44 = getelementptr inbounds i8, ptr %43, i64 -128
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %44, ptr noundef nonnull align 8 dereferenceable(112) %5, i64 112, i1 false)
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %43, i64 -16
@@ -3156,7 +3156,7 @@ define hidden noundef nonnull ptr @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$G
   %23 = add i64 %22, 1
   store i64 %23, ptr %21, align 8
   %24 = sub nsw i64 0, %2
-  %25 = getelementptr inbounds { { { i64, [10 x i64] }, { { i64, [2 x i64] } } }, { { { i64, [1 x i64] } } } }, ptr %5, i64 %24
+  %25 = getelementptr inbounds [128 x i8], ptr %5, i64 %24
   %26 = getelementptr inbounds i8, ptr %25, i64 -128
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %26, ptr noundef nonnull align 8 dereferenceable(128) %3, i64 128, i1 false)
   ret ptr %25
@@ -3208,7 +3208,7 @@ define hidden { i64, ptr } @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$24fin
   %24 = add i64 %.sroa.0.024.i, %22
   %25 = and i64 %24, %.val6
   %26 = sub nsw i64 0, %25
-  %27 = getelementptr inbounds { { { i64, [10 x i64] }, { { i64, [2 x i64] } } }, { { { i64, [1 x i64] } } } }, ptr %.val, i64 %26
+  %27 = getelementptr inbounds [128 x i8], ptr %.val, i64 %26
   %28 = getelementptr inbounds i8, ptr %27, i64 -128
   %29 = tail call fastcc noundef zeroext i1 @"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2eq17h3185e0da3699874fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %28, ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %2), !noalias !457
   br i1 %29, label %.loopexit, label %17

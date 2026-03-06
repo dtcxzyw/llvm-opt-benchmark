@@ -1979,10 +1979,10 @@ define linkonce_odr hidden void @_ZN5boost4wave4util6throw_INS0_20preprocess_exc
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %4)
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = sext i32 %0 to i64
-  %9 = getelementptr inbounds i32, ptr @_ZZN5boost4wave20preprocess_exception14severity_levelEiE29preprocess_exception_severity, i64 %8
+  %9 = getelementptr inbounds [4 x i8], ptr @_ZZN5boost4wave20preprocess_exception14severity_levelEiE29preprocess_exception_severity, i64 %8
   %10 = load i32, ptr %9, align 4, !tbaa !59
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds ptr, ptr @_ZZN5boost4wave4util12get_severityEiE13severity_text, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr @_ZZN5boost4wave4util12get_severityEiE13severity_text, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !22
   %.not.i = icmp eq ptr %13, null
   br i1 %.not.i, label %14, label %22
@@ -2008,7 +2008,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %14, %22
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit17 unwind label %44
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit17: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
-  %26 = getelementptr inbounds ptr, ptr @_ZZN5boost4wave20preprocess_exception10error_textEiE27preprocess_exception_errors, i64 %8
+  %26 = getelementptr inbounds [8 x i8], ptr @_ZZN5boost4wave20preprocess_exception10error_textEiE27preprocess_exception_errors, i64 %8
   %27 = load ptr, ptr %26, align 8, !tbaa !22
   %.not.i18 = icmp eq ptr %27, null
   br i1 %.not.i18, label %28, label %36
@@ -3444,7 +3444,7 @@ _ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i: ; preds = %30, %_ZNSt6vec
   %.pre = phi i64 [ %.pre.pre, %30 ], [ %20, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit.i ]
   store ptr %29, ptr %4, align 8, !tbaa !146
   store ptr %29, ptr %6, align 8, !tbaa !137
-  %31 = getelementptr inbounds nuw i64, ptr %29, i64 %24
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %24
   store ptr %31, ptr %13, align 8, !tbaa !139
   br label %_ZNSt6vectorImSaImEE7reserveEm.exit
 
@@ -6016,7 +6016,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i: ; preds = %34, %.noex
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i: ; preds = %36, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i
   store ptr %31, ptr %11, align 8, !tbaa !146
   store ptr %35, ptr %12, align 8, !tbaa !137
-  %37 = getelementptr inbounds nuw i64, ptr %31, i64 %29
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %29
   store ptr %37, ptr %14, align 8, !tbaa !139
   br label %_ZNSt6vectorImSaImEE9push_backERKm.exit
 
@@ -7249,7 +7249,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(696) ptr @_ZN
   br i1 %23, label %24, label %_ZNSt6vectorIPN5boost4wave8grammars18expression_grammar10definitionINS0_6spirit7classic7scannerISt20_List_const_iteratorINS1_8cpplexer9lex_tokenINS1_4util13file_positionINSB_11flex_stringIcSt11char_traitsIcESaIcENSB_9CowStringINSB_22AllocatorStringStorageIcSG_EEPcEEEEEEEEENS6_16scanner_policiesINS6_28skip_parser_iteration_policyINS6_11alternativeINSS_INS6_5chlitINS1_8token_idEEESV_EESV_EENS6_16iteration_policyEEENS6_12match_policyENS6_13action_policyEEEEEEESaIS15_EE6resizeEm.exit
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds nuw ptr, ptr %11, i64 %19
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %19
   %.not.i.i = icmp eq ptr %10, %25
   br i1 %.not.i.i, label %_ZNSt6vectorIPN5boost4wave8grammars18expression_grammar10definitionINS0_6spirit7classic7scannerISt20_List_const_iteratorINS1_8cpplexer9lex_tokenINS1_4util13file_positionINSB_11flex_stringIcSt11char_traitsIcESaIcENSB_9CowStringINSB_22AllocatorStringStorageIcSG_EEPcEEEEEEEEENS6_16scanner_policiesINS6_28skip_parser_iteration_policyINS6_11alternativeINSS_INS6_5chlitINS1_8token_idEEESV_EESV_EENS6_16iteration_policyEEENS6_12match_policyENS6_13action_policyEEEEEEESaIS15_EE6resizeEm.exit, label %26
 
@@ -7259,7 +7259,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(696) ptr @_ZN
 
 _ZNSt6vectorIPN5boost4wave8grammars18expression_grammar10definitionINS0_6spirit7classic7scannerISt20_List_const_iteratorINS1_8cpplexer9lex_tokenINS1_4util13file_positionINSB_11flex_stringIcSt11char_traitsIcESaIcENSB_9CowStringINSB_22AllocatorStringStorageIcSG_EEPcEEEEEEEEENS6_16scanner_policiesINS6_28skip_parser_iteration_policyINS6_11alternativeINSS_INS6_5chlitINS1_8token_idEEESV_EESV_EENS6_16iteration_policyEEENS6_12match_policyENS6_13action_policyEEEEEEESaIS15_EE6resizeEm.exit: ; preds = %26, %24, %22, %20, %2
   %27 = phi ptr [ %11, %26 ], [ %11, %24 ], [ %11, %22 ], [ %.pre, %20 ], [ %11, %2 ]
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %7
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %7
   %29 = load ptr, ptr %28, align 8, !tbaa !22
   %.not17 = icmp eq ptr %29, null
   br i1 %.not17, label %30, label %88
@@ -7345,7 +7345,7 @@ _ZNSt6vectorIPN5boost6spirit7classic4impl19grammar_helper_baseINS2_7grammarINS0_
 _ZNSt6vectorIPN5boost6spirit7classic4impl19grammar_helper_baseINS2_7grammarINS0_4wave8grammars18expression_grammarENS2_15closure_contextINS7_8closures16cpp_expr_closureEEEEEEESaISF_EE17_M_realloc_insertIJRKSF_EEEvN9__gnu_cxx17__normal_iteratorIPSF_SH_EEDpOT_.exit.i.i: ; preds = %60, %_ZNSt6vectorIPN5boost6spirit7classic4impl19grammar_helper_baseINS2_7grammarINS0_4wave8grammars18expression_grammarENS2_15closure_contextINS7_8closures16cpp_expr_closureEEEEEEESaISF_EE11_S_relocateEPSF_SI_SI_RSG_.exit16.i.i.i
   store ptr %55, ptr %5, align 8, !tbaa !94
   store ptr %59, ptr %35, align 8, !tbaa !249
-  %61 = getelementptr inbounds nuw ptr, ptr %55, i64 %53
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %53
   store ptr %61, ptr %37, align 8, !tbaa !96
   br label %_ZN5boost6spirit7classic4impl19grammar_helper_listINS1_7grammarINS_4wave8grammars18expression_grammarENS1_15closure_contextINS6_8closures16cpp_expr_closureEEEEEE9push_backEPNS2_19grammar_helper_baseISC_EE.exit
 
@@ -7355,7 +7355,7 @@ _ZN5boost6spirit7classic4impl19grammar_helper_listINS1_7grammarINS_4wave8grammar
   %64 = add i64 %63, 1
   store i64 %64, ptr %62, align 8, !tbaa !250
   %65 = load ptr, ptr %8, align 8, !tbaa !241
-  %66 = getelementptr inbounds nuw ptr, ptr %65, i64 %7
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %7
   store ptr %31, ptr %66, align 8, !tbaa !22
   %67 = load i8, ptr %34, align 8, !tbaa !130, !range !52, !noundef !53
   %68 = trunc nuw i8 %67 to i1
@@ -7539,7 +7539,7 @@ define linkonce_odr hidden noundef i32 @_ZN5boost6spirit7classic4impl14grammar_h
   br i1 %.not, label %13, label %_ZN5boost10shared_ptrINS_6spirit7classic4impl14grammar_helperINS2_7grammarINS_4wave8grammars18expression_grammarENS2_15closure_contextINS7_8closures16cpp_expr_closureEEEEES8_NS2_7scannerISt20_List_const_iteratorINS6_8cpplexer9lex_tokenINS6_4util13file_positionINSI_11flex_stringIcSt11char_traitsIcESaIcENSI_9CowStringINSI_22AllocatorStringStorageIcSN_EEPcEEEEEEEEENS2_16scanner_policiesINS2_28skip_parser_iteration_policyINS2_11alternativeINSZ_INS2_5chlitINS6_8token_idEEES12_EES12_EENS2_16iteration_policyEEENS2_12match_policyENS2_13action_policyEEEEEEEE5resetEv.exit
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds nuw ptr, ptr %8, i64 %4
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %4
   %15 = load ptr, ptr %14, align 8, !tbaa !22
   %16 = icmp eq ptr %15, null
   br i1 %16, label %18, label %17
@@ -7552,7 +7552,7 @@ define linkonce_odr hidden noundef i32 @_ZN5boost6spirit7classic4impl14grammar_h
 
 18:                                               ; preds = %17, %13
   %19 = phi ptr [ %.pre, %17 ], [ %8, %13 ]
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %4
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %4
   store ptr null, ptr %20, align 8, !tbaa !22
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %22 = load i64, ptr %21, align 8, !tbaa !250
@@ -10699,9 +10699,9 @@ _ZNSt6vectorIPN5boost4wave8grammars18expression_grammar10definitionINS0_6spirit7
 
 _ZNSt12_Vector_baseIPN5boost4wave8grammars18expression_grammar10definitionINS0_6spirit7classic7scannerISt20_List_const_iteratorINS1_8cpplexer9lex_tokenINS1_4util13file_positionINSB_11flex_stringIcSt11char_traitsIcESaIcENSB_9CowStringINSB_22AllocatorStringStorageIcSG_EEPcEEEEEEEEENS6_16scanner_policiesINS6_28skip_parser_iteration_policyINS6_11alternativeINSS_INS6_5chlitINS1_8token_idEEESV_EESV_EENS6_16iteration_policyEEENS6_12match_policyENS6_13action_policyEEEEEEESaIS15_EE13_M_deallocateEPS15_m.exit36: ; preds = %_ZNSt6vectorIPN5boost4wave8grammars18expression_grammar10definitionINS0_6spirit7classic7scannerISt20_List_const_iteratorINS1_8cpplexer9lex_tokenINS1_4util13file_positionINSB_11flex_stringIcSt11char_traitsIcESaIcENSB_9CowStringINSB_22AllocatorStringStorageIcSG_EEPcEEEEEEEEENS6_16scanner_policiesINS6_28skip_parser_iteration_policyINS6_11alternativeINSS_INS6_5chlitINS1_8token_idEEESV_EESV_EENS6_16iteration_policyEEENS6_12match_policyENS6_13action_policyEEEEEEESaIS15_EE11_S_relocateEPS15_S18_S18_RS16_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !241
-  %39 = getelementptr inbounds nuw ptr, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !246
-  %40 = getelementptr inbounds nuw ptr, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !245
   br label %41
 
@@ -24024,7 +24024,7 @@ define linkonce_odr hidden noundef i32 @_ZNK5boost4wave20preprocess_exception12g
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1048
   %3 = load i32, ptr %2, align 8, !tbaa !76
   %4 = sext i32 %3 to i64
-  %5 = getelementptr inbounds i32, ptr @_ZZN5boost4wave20preprocess_exception14severity_levelEiE29preprocess_exception_severity, i64 %4
+  %5 = getelementptr inbounds [4 x i8], ptr @_ZZN5boost4wave20preprocess_exception14severity_levelEiE29preprocess_exception_severity, i64 %4
   %6 = load i32, ptr %5, align 4, !tbaa !59
   ret i32 %6
 }

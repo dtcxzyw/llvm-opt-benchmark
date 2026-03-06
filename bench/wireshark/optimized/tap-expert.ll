@@ -108,7 +108,7 @@ define internal void @expert_stat_init(ptr noundef %0, ptr readnone captures(non
 30:                                               ; preds = %.thread46, %30
   %indvars.iv = phi i64 [ 0, %.thread46 ], [ %indvars.iv.next, %30 ]
   %31 = tail call ptr @g_array_sized_new(i32 noundef 0, i32 noundef 0, i32 noundef 24, i32 noundef 1000)
-  %32 = getelementptr ptr, ptr %27, i64 %indvars.iv
+  %32 = getelementptr [8 x i8], ptr %27, i64 %indvars.iv
   store ptr %31, ptr %32, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
@@ -160,7 +160,7 @@ define internal void @expert_stat_reset(ptr noundef captures(none) %0) #0 {
 
 5:                                                ; preds = %1, %5
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %5 ]
-  %6 = getelementptr ptr, ptr %0, i64 %indvars.iv
+  %6 = getelementptr [8 x i8], ptr %0, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr @g_array_set_size(ptr noundef %7, i32 noundef 0)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -192,7 +192,7 @@ define internal noundef i32 @expert_stat_packet(ptr noundef readonly captures(no
 
 switch.lookup:                                    ; preds = %5
   %13 = zext nneg i32 %10 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.expert_stat_packet, i64 %13
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.expert_stat_packet, i64 %13
   %switch.load = load i32, ptr %switch.gep, align 4
   %14 = load i32, ptr @lowest_report_level, align 4
   %15 = icmp ult i32 %switch.load, %14
@@ -200,7 +200,7 @@ switch.lookup:                                    ; preds = %5
 
 .preheader:                                       ; preds = %switch.lookup
   %16 = zext nneg i32 %switch.load to i64
-  %17 = getelementptr ptr, ptr %0, i64 %16
+  %17 = getelementptr [8 x i8], ptr %0, i64 %16
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load i32, ptr %19, align 8
@@ -222,7 +222,7 @@ switch.lookup:                                    ; preds = %5
 
 25:                                               ; preds = %.lr.ph, %41
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %41 ]
-  %26 = getelementptr %struct.expert_entry, ptr %21, i64 %indvars.iv
+  %26 = getelementptr [24 x i8], ptr %21, i64 %indvars.iv
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = tail call i32 @strcmp(ptr noundef %23, ptr noundef %28) #8
@@ -308,7 +308,7 @@ define internal void @expert_tapdata_free(ptr noundef %0) #0 {
 
 5:                                                ; preds = %1, %5
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %5 ]
-  %6 = getelementptr ptr, ptr %0, i64 %indvars.iv
+  %6 = getelementptr [8 x i8], ptr %0, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr @g_array_free(ptr noundef %7, i32 noundef 1)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -358,7 +358,7 @@ define internal fastcc void @draw_items_for_severity(ptr noundef readonly captur
 7:                                                ; preds = %.preheader, %7
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %7 ]
   %.02021 = phi i32 [ 0, %.preheader ], [ %11, %7 ]
-  %8 = getelementptr %struct.expert_entry, ptr %6, i64 %indvars.iv
+  %8 = getelementptr [24 x i8], ptr %6, i64 %indvars.iv
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = add i32 %10, %.02021
@@ -377,7 +377,7 @@ define internal fastcc void @draw_items_for_severity(ptr noundef readonly captur
 .lr.ph:                                           ; preds = %12, %.lr.ph
   %indvars.iv25 = phi i64 [ %indvars.iv.next26, %.lr.ph ], [ 0, %12 ]
   %17 = load ptr, ptr %0, align 8
-  %18 = getelementptr %struct.expert_entry, ptr %17, i64 %indvars.iv25
+  %18 = getelementptr [24 x i8], ptr %17, i64 %indvars.iv25
   %19 = load i32, ptr %18, align 8
   %20 = tail call ptr @val_to_str_wmem(ptr noundef null, i32 noundef %19, ptr noundef nonnull @expert_group_vals, ptr noundef nonnull @.str.19)
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 4

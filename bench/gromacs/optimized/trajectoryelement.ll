@@ -919,7 +919,7 @@ _ZNSt6vectorISt8functionIFvP10gmx_mdoutfldbbEESaIS4_EE11_S_relocateEPS4_S7_S7_RS
 _ZNSt12_Vector_baseISt8functionIFvP10gmx_mdoutfldbbEESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZNSt6vectorISt8functionIFvP10gmx_mdoutfldbbEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit25, %47
   store ptr %20, ptr %0, align 8, !tbaa !57
   store ptr %.0.lcssa.i.i.i24, ptr %4, align 8, !tbaa !50
-  %51 = getelementptr inbounds nuw %"class.std::function.13", ptr %20, i64 %16
+  %51 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %16
   store ptr %51, ptr %46, align 8, !tbaa !51
   ret void
 }
@@ -1462,7 +1462,7 @@ _ZNSt6vectorIPN3gmx23ITrajectoryWriterClientESaIS2_EE11_S_relocateEPS2_S5_S5_RS3
 _ZNSt6vectorIPN3gmx23ITrajectoryWriterClientESaIS2_EE17_M_realloc_insertIJRS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %42, %_ZNSt6vectorIPN3gmx23ITrajectoryWriterClientESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %37, ptr %0, align 8, !tbaa !60
   store ptr %41, ptr %18, align 8, !tbaa !72
-  %43 = getelementptr inbounds nuw ptr, ptr %37, i64 %35
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %35
   store ptr %43, ptr %20, align 8, !tbaa !61
   br label %_ZNSt6vectorIPN3gmx23ITrajectoryWriterClientESaIS2_EE12emplace_backIJRS2_EEES6_DpOT_.exit
 

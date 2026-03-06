@@ -2466,7 +2466,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIdSaIdE
           to label %call5.i.i.i.i2.i.i.noexc unwind label %lpad4
 
 call5.i.i.i.i2.i.i.noexc:                         ; preds = %if.then.i.i.i.i.i
-  %add.ptr.i.i.i = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i10, i64 %add
+  %add.ptr.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i10, i64 %add
   store double 0.000000e+00, ptr %call5.i.i.i.i2.i.i10, align 8, !tbaa !91
   %cmp.i.i.i.i.i.i.i = icmp eq i64 %2, %1
   br i1 %cmp.i.i.i.i.i.i.i, label %for.body.preheader, label %if.end.i.i.i.i.i.i.i
@@ -2505,9 +2505,9 @@ invoke.cont9:                                     ; preds = %for.body
   %6 = load i64, ptr %retval.i, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %retval.i)
   %7 = load ptr, ptr %dates, align 8, !tbaa !93
-  %add.ptr.i = getelementptr inbounds nuw %"class.QuantLib::Date", ptr %7, i64 %i.039
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %i.039
   store i64 %6, ptr %add.ptr.i, align 8, !tbaa !30
-  %add.ptr.i12 = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i10, i64 %i.039
+  %add.ptr.i12 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i10, i64 %i.039
   store double %fixing, ptr %add.ptr.i12, align 8, !tbaa !91
   %inc = add nuw i64 %i.039, 1
   %exitcond.not = icmp eq i64 %i.039, %sub.i
@@ -2609,7 +2609,7 @@ _ZNSt12_Vector_baseIN8QuantLib4DateESaIS1_EEC2EmRKS2_.exit: ; preds = %_ZNSt6vec
   store ptr %call5.i.i.i.i2.i, ptr %this, align 8, !tbaa !93
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %call5.i.i.i.i2.i, ptr %_M_finish.i.i, align 8, !tbaa !97
-  %add.ptr.i.i = getelementptr inbounds nuw %"class.QuantLib::Date", ptr %call5.i.i.i.i2.i, i64 %__n
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i, i64 %__n
   %_M_end_of_storage.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %add.ptr.i.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !96
   br label %for.body.i.i.i.i

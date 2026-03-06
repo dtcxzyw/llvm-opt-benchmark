@@ -23,7 +23,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.38" }
 %"struct.std::_Head_base.38" = type { ptr }
-%"class.llvm::Use" = type { ptr, ptr, ptr, ptr }
 %"struct.std::pair" = type <{ %"class.llvm::DenseMapIterator", i8, [7 x i8] }>
 %"class.llvm::DenseMapIterator" = type { ptr, ptr }
 %"struct.std::pair.159" = type { ptr, %"class.std::unique_ptr.161" }
@@ -69,8 +68,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorTemplateBase.151" = type { %"class.llvm::SmallVectorTemplateCommon.152" }
 %"class.llvm::SmallVectorTemplateCommon.152" = type { %"class.llvm::SmallVectorBase" }
 %"struct.llvm::SmallVectorStorage.210" = type { [64 x i8] }
-%"struct.llvm::detail::DenseMapPair" = type { %"struct.std::pair.159" }
-%"struct.std::pair.169" = type { i32, ptr }
 
 $_ZN4llvm9sandboxir7Tracker17emplaceIfTrackingINS0_16RemoveFromParentEJPNS0_11InstructionEEEEbDpT0_ = comdat any
 
@@ -776,7 +773,7 @@ $_ZTVN4llvm9sandboxir13GenericSetterIXadL_ZNKS0_18PossiblyNonNegInst9hasNonNegEv
 define dso_local noundef nonnull ptr @_ZN4llvm9sandboxir11Instruction13getOpcodeNameENS1_6OpcodeE(i32 noundef %0) local_unnamed_addr #0 align 2 {
 switch.lookup:
   %1 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm9sandboxir11Instruction13getOpcodeNameENS1_6OpcodeE, i64 %1
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4llvm9sandboxir11Instruction13getOpcodeNameENS1_6OpcodeE, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -1050,7 +1047,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9sandboxir7Tracker17empla
   br i1 %.not.i.i.not.i.i, label %_ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_deleteIS3_EE.exit, label %16, !prof !67
 
 16:                                               ; preds = %7
-  %17 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %.pre3.i.i, i64 %11
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %.pre3.i.i, i64 %11
   %18 = icmp uge ptr %3, %.pre3.i.i
   %19 = icmp ult ptr %3, %17
   %spec.select.i.i.i.i.i.i = and i1 %18, %19
@@ -1077,7 +1074,7 @@ _ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_
   %.016.i.i.i.i = phi ptr [ %3, %7 ], [ %25, %20 ], [ %3, %.critedge.i.i.i.i ]
   %28 = load i32, ptr %9, align 8, !tbaa !49
   %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %27, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %29
   store i64 %26, ptr %30, align 8, !tbaa !69
   store ptr null, ptr %.016.i.i.i.i, align 8, !tbaa !69
   %31 = add i32 %28, 1
@@ -1143,7 +1140,7 @@ define dso_local void @_ZN4llvm9sandboxir11Instruction15eraseFromParentEv(ptr no
   br i1 %.not.i.i.not.i.i, label %_ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_deleteIS3_EE.exit, label %25, !prof !67
 
 25:                                               ; preds = %16
-  %26 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %.pre3.i.i, i64 %20
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %.pre3.i.i, i64 %20
   %27 = icmp uge ptr %4, %.pre3.i.i
   %28 = icmp ult ptr %4, %26
   %spec.select.i.i.i.i.i.i = and i1 %27, %28
@@ -1170,7 +1167,7 @@ _ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_
   %.016.i.i.i.i = phi ptr [ %4, %16 ], [ %34, %29 ], [ %4, %.critedge.i.i.i.i ]
   %37 = load i32, ptr %18, align 8, !tbaa !49
   %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %36, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %38
   store i64 %35, ptr %39, align 8, !tbaa !69
   store ptr null, ptr %.016.i.i.i.i, align 8, !tbaa !69
   %40 = add i32 %37, 1
@@ -1234,7 +1231,7 @@ _ZNSt10unique_ptrIN4llvm9sandboxir15EraseFromParentESt14default_deleteIS2_EED2Ev
   %62 = and i32 %56, 134217727
   %63 = zext nneg i32 %62 to i64
   %64 = sub nsw i64 0, %63
-  %65 = getelementptr inbounds %"class.llvm::Use", ptr %54, i64 %64
+  %65 = getelementptr inbounds [32 x i8], ptr %54, i64 %64
   br label %_ZN4llvm4User8operandsEv.exit.i
 
 _ZN4llvm4User8operandsEv.exit.i:                  ; preds = %61, %58
@@ -1457,7 +1454,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9sandboxir7Tracker17empla
   br i1 %.not.i.i.not.i.i, label %_ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_deleteIS3_EE.exit, label %16, !prof !67
 
 16:                                               ; preds = %7
-  %17 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %.pre3.i.i, i64 %11
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %.pre3.i.i, i64 %11
   %18 = icmp uge ptr %3, %.pre3.i.i
   %19 = icmp ult ptr %3, %17
   %spec.select.i.i.i.i.i.i = and i1 %18, %19
@@ -1484,7 +1481,7 @@ _ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_
   %.016.i.i.i.i = phi ptr [ %3, %7 ], [ %25, %20 ], [ %3, %.critedge.i.i.i.i ]
   %28 = load i32, ptr %9, align 8, !tbaa !49
   %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %27, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %29
   store i64 %26, ptr %30, align 8, !tbaa !69
   store ptr null, ptr %.016.i.i.i.i, align 8, !tbaa !69
   %31 = add i32 %28, 1
@@ -1588,7 +1585,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9sandboxir7Tracker17empla
   br i1 %.not.i.i.not.i.i, label %_ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_deleteIS3_EE.exit, label %16, !prof !67
 
 16:                                               ; preds = %7
-  %17 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %.pre3.i.i, i64 %11
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %.pre3.i.i, i64 %11
   %18 = icmp uge ptr %3, %.pre3.i.i
   %19 = icmp ult ptr %3, %17
   %spec.select.i.i.i.i.i.i = and i1 %18, %19
@@ -1615,7 +1612,7 @@ _ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_
   %.016.i.i.i.i = phi ptr [ %3, %7 ], [ %25, %20 ], [ %3, %.critedge.i.i.i.i ]
   %28 = load i32, ptr %9, align 8, !tbaa !49
   %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %27, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %29
   store i64 %26, ptr %30, align 8, !tbaa !69
   store ptr null, ptr %.016.i.i.i.i, align 8, !tbaa !69
   %31 = add i32 %28, 1
@@ -1807,7 +1804,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9sandboxir7Tracker17empla
   br i1 %.not.i.i.not.i.i, label %_ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_deleteIS3_EE.exit, label %22, !prof !67
 
 22:                                               ; preds = %7
-  %23 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %.pre3.i.i, i64 %17
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %.pre3.i.i, i64 %17
   %24 = icmp uge ptr %3, %.pre3.i.i
   %25 = icmp ult ptr %3, %23
   %spec.select.i.i.i.i.i.i = and i1 %24, %25
@@ -1834,7 +1831,7 @@ _ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_
   %.016.i.i.i.i = phi ptr [ %3, %7 ], [ %31, %26 ], [ %3, %.critedge.i.i.i.i ]
   %34 = load i32, ptr %15, align 8, !tbaa !49
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %33, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %35
   store i64 %32, ptr %36, align 8, !tbaa !69
   store ptr null, ptr %.016.i.i.i.i, align 8, !tbaa !69
   %37 = add i32 %34, 1
@@ -1905,7 +1902,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9sandboxir7Tracker17empla
   br i1 %.not.i.i.not.i.i, label %_ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_deleteIS3_EE.exit, label %22, !prof !67
 
 22:                                               ; preds = %7
-  %23 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %.pre3.i.i, i64 %17
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %.pre3.i.i, i64 %17
   %24 = icmp uge ptr %3, %.pre3.i.i
   %25 = icmp ult ptr %3, %23
   %spec.select.i.i.i.i.i.i = and i1 %24, %25
@@ -1932,7 +1929,7 @@ _ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_
   %.016.i.i.i.i = phi ptr [ %3, %7 ], [ %31, %26 ], [ %3, %.critedge.i.i.i.i ]
   %34 = load i32, ptr %15, align 8, !tbaa !49
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %33, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %35
   store i64 %32, ptr %36, align 8, !tbaa !69
   store ptr null, ptr %.016.i.i.i.i, align 8, !tbaa !69
   %37 = add i32 %34, 1
@@ -2003,7 +2000,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9sandboxir7Tracker17empla
   br i1 %.not.i.i.not.i.i, label %_ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_deleteIS3_EE.exit, label %22, !prof !67
 
 22:                                               ; preds = %7
-  %23 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %.pre3.i.i, i64 %17
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %.pre3.i.i, i64 %17
   %24 = icmp uge ptr %3, %.pre3.i.i
   %25 = icmp ult ptr %3, %23
   %spec.select.i.i.i.i.i.i = and i1 %24, %25
@@ -2030,7 +2027,7 @@ _ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_
   %.016.i.i.i.i = phi ptr [ %3, %7 ], [ %31, %26 ], [ %3, %.critedge.i.i.i.i ]
   %34 = load i32, ptr %15, align 8, !tbaa !49
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %33, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %35
   store i64 %32, ptr %36, align 8, !tbaa !69
   store ptr null, ptr %.016.i.i.i.i, align 8, !tbaa !69
   %37 = add i32 %34, 1
@@ -2101,7 +2098,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9sandboxir7Tracker17empla
   br i1 %.not.i.i.not.i.i, label %_ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_deleteIS3_EE.exit, label %22, !prof !67
 
 22:                                               ; preds = %7
-  %23 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %.pre3.i.i, i64 %17
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %.pre3.i.i, i64 %17
   %24 = icmp uge ptr %3, %.pre3.i.i
   %25 = icmp ult ptr %3, %23
   %spec.select.i.i.i.i.i.i = and i1 %24, %25
@@ -2128,7 +2125,7 @@ _ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_
   %.016.i.i.i.i = phi ptr [ %3, %7 ], [ %31, %26 ], [ %3, %.critedge.i.i.i.i ]
   %34 = load i32, ptr %15, align 8, !tbaa !49
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %33, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %35
   store i64 %32, ptr %36, align 8, !tbaa !69
   store ptr null, ptr %.016.i.i.i.i, align 8, !tbaa !69
   %37 = add i32 %34, 1
@@ -2199,7 +2196,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9sandboxir7Tracker17empla
   br i1 %.not.i.i.not.i.i, label %_ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_deleteIS3_EE.exit, label %22, !prof !67
 
 22:                                               ; preds = %7
-  %23 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %.pre3.i.i, i64 %17
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %.pre3.i.i, i64 %17
   %24 = icmp uge ptr %3, %.pre3.i.i
   %25 = icmp ult ptr %3, %23
   %spec.select.i.i.i.i.i.i = and i1 %24, %25
@@ -2226,7 +2223,7 @@ _ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_
   %.016.i.i.i.i = phi ptr [ %3, %7 ], [ %31, %26 ], [ %3, %.critedge.i.i.i.i ]
   %34 = load i32, ptr %15, align 8, !tbaa !49
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %33, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %35
   store i64 %32, ptr %36, align 8, !tbaa !69
   store ptr null, ptr %.016.i.i.i.i, align 8, !tbaa !69
   %37 = add i32 %34, 1
@@ -2297,7 +2294,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9sandboxir7Tracker17empla
   br i1 %.not.i.i.not.i.i, label %_ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_deleteIS3_EE.exit, label %22, !prof !67
 
 22:                                               ; preds = %7
-  %23 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %.pre3.i.i, i64 %17
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %.pre3.i.i, i64 %17
   %24 = icmp uge ptr %3, %.pre3.i.i
   %25 = icmp ult ptr %3, %23
   %spec.select.i.i.i.i.i.i = and i1 %24, %25
@@ -2324,7 +2321,7 @@ _ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_
   %.016.i.i.i.i = phi ptr [ %3, %7 ], [ %31, %26 ], [ %3, %.critedge.i.i.i.i ]
   %34 = load i32, ptr %15, align 8, !tbaa !49
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %33, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %35
   store i64 %32, ptr %36, align 8, !tbaa !69
   store ptr null, ptr %.016.i.i.i.i, align 8, !tbaa !69
   %37 = add i32 %34, 1
@@ -2395,7 +2392,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9sandboxir7Tracker17empla
   br i1 %.not.i.i.not.i.i, label %_ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_deleteIS3_EE.exit, label %22, !prof !67
 
 22:                                               ; preds = %7
-  %23 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %.pre3.i.i, i64 %17
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %.pre3.i.i, i64 %17
   %24 = icmp uge ptr %3, %.pre3.i.i
   %25 = icmp ult ptr %3, %23
   %spec.select.i.i.i.i.i.i = and i1 %24, %25
@@ -2422,7 +2419,7 @@ _ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_
   %.016.i.i.i.i = phi ptr [ %3, %7 ], [ %31, %26 ], [ %3, %.critedge.i.i.i.i ]
   %34 = load i32, ptr %15, align 8, !tbaa !49
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %33, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %35
   store i64 %32, ptr %36, align 8, !tbaa !69
   store ptr null, ptr %.016.i.i.i.i, align 8, !tbaa !69
   %37 = add i32 %34, 1
@@ -2493,7 +2490,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9sandboxir7Tracker17empla
   br i1 %.not.i.i.not.i.i, label %_ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_deleteIS3_EE.exit, label %22, !prof !67
 
 22:                                               ; preds = %7
-  %23 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %.pre3.i.i, i64 %17
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %.pre3.i.i, i64 %17
   %24 = icmp uge ptr %3, %.pre3.i.i
   %25 = icmp ult ptr %3, %23
   %spec.select.i.i.i.i.i.i = and i1 %24, %25
@@ -2520,7 +2517,7 @@ _ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_
   %.016.i.i.i.i = phi ptr [ %3, %7 ], [ %31, %26 ], [ %3, %.critedge.i.i.i.i ]
   %34 = load i32, ptr %15, align 8, !tbaa !49
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %33, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %35
   store i64 %32, ptr %36, align 8, !tbaa !69
   store ptr null, ptr %.016.i.i.i.i, align 8, !tbaa !69
   %37 = add i32 %34, 1
@@ -2591,7 +2588,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9sandboxir7Tracker17empla
   br i1 %.not.i.i.not.i.i, label %_ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_deleteIS3_EE.exit, label %22, !prof !67
 
 22:                                               ; preds = %7
-  %23 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %.pre3.i.i, i64 %17
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %.pre3.i.i, i64 %17
   %24 = icmp uge ptr %3, %.pre3.i.i
   %25 = icmp ult ptr %3, %23
   %spec.select.i.i.i.i.i.i = and i1 %24, %25
@@ -2618,7 +2615,7 @@ _ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_
   %.016.i.i.i.i = phi ptr [ %3, %7 ], [ %31, %26 ], [ %3, %.critedge.i.i.i.i ]
   %34 = load i32, ptr %15, align 8, !tbaa !49
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %33, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %35
   store i64 %32, ptr %36, align 8, !tbaa !69
   store ptr null, ptr %.016.i.i.i.i, align 8, !tbaa !69
   %37 = add i32 %34, 1
@@ -2689,7 +2686,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9sandboxir7Tracker17empla
   br i1 %.not.i.i.not.i.i, label %_ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_deleteIS3_EE.exit, label %22, !prof !67
 
 22:                                               ; preds = %7
-  %23 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %.pre3.i.i, i64 %17
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %.pre3.i.i, i64 %17
   %24 = icmp uge ptr %3, %.pre3.i.i
   %25 = icmp ult ptr %3, %23
   %spec.select.i.i.i.i.i.i = and i1 %24, %25
@@ -2716,7 +2713,7 @@ _ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_
   %.016.i.i.i.i = phi ptr [ %3, %7 ], [ %31, %26 ], [ %3, %.critedge.i.i.i.i ]
   %34 = load i32, ptr %15, align 8, !tbaa !49
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %33, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %35
   store i64 %32, ptr %36, align 8, !tbaa !69
   store ptr null, ptr %.016.i.i.i.i, align 8, !tbaa !69
   %37 = add i32 %34, 1
@@ -2786,7 +2783,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9sandboxir7Tracker17empla
   br i1 %.not.i.i.not.i.i, label %_ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_deleteIS3_EE.exit, label %21, !prof !67
 
 21:                                               ; preds = %7
-  %22 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %.pre3.i.i, i64 %16
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %.pre3.i.i, i64 %16
   %23 = icmp uge ptr %3, %.pre3.i.i
   %24 = icmp ult ptr %3, %22
   %spec.select.i.i.i.i.i.i = and i1 %23, %24
@@ -2813,7 +2810,7 @@ _ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_
   %.016.i.i.i.i = phi ptr [ %3, %7 ], [ %30, %25 ], [ %3, %.critedge.i.i.i.i ]
   %33 = load i32, ptr %14, align 8, !tbaa !49
   %34 = zext i32 %33 to i64
-  %35 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %32, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %34
   store i64 %31, ptr %35, align 8, !tbaa !69
   store ptr null, ptr %.016.i.i.i.i, align 8, !tbaa !69
   %36 = add i32 %33, 1
@@ -2963,7 +2960,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9sandboxir7Tracker17empla
   br i1 %.not.i.i.not.i.i, label %_ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_deleteIS3_EE.exit, label %22, !prof !67
 
 22:                                               ; preds = %7
-  %23 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %.pre3.i.i, i64 %17
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %.pre3.i.i, i64 %17
   %24 = icmp uge ptr %3, %.pre3.i.i
   %25 = icmp ult ptr %3, %23
   %spec.select.i.i.i.i.i.i = and i1 %24, %25
@@ -2990,7 +2987,7 @@ _ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_
   %.016.i.i.i.i = phi ptr [ %3, %7 ], [ %31, %26 ], [ %3, %.critedge.i.i.i.i ]
   %34 = load i32, ptr %15, align 8, !tbaa !49
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %33, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %35
   store i64 %32, ptr %36, align 8, !tbaa !69
   store ptr null, ptr %.016.i.i.i.i, align 8, !tbaa !69
   %37 = add i32 %34, 1
@@ -3345,7 +3342,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9sandboxir7Tracker17empla
   br i1 %.not.i.i.not.i.i, label %_ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_deleteIS3_EE.exit, label %24, !prof !67
 
 24:                                               ; preds = %7
-  %25 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %.pre3.i.i, i64 %19
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %.pre3.i.i, i64 %19
   %26 = icmp uge ptr %3, %.pre3.i.i
   %27 = icmp ult ptr %3, %25
   %spec.select.i.i.i.i.i.i = and i1 %26, %27
@@ -3372,7 +3369,7 @@ _ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_
   %.016.i.i.i.i = phi ptr [ %3, %7 ], [ %33, %28 ], [ %3, %.critedge.i.i.i.i ]
   %36 = load i32, ptr %17, align 8, !tbaa !49
   %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %35, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %37
   store i64 %34, ptr %38, align 8, !tbaa !69
   store ptr null, ptr %.016.i.i.i.i, align 8, !tbaa !69
   %39 = add i32 %36, 1
@@ -3442,7 +3439,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9sandboxir7Tracker17empla
   br i1 %.not.i.i.not.i.i, label %_ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_deleteIS3_EE.exit, label %22, !prof !67
 
 22:                                               ; preds = %7
-  %23 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %.pre3.i.i, i64 %17
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %.pre3.i.i, i64 %17
   %24 = icmp uge ptr %3, %.pre3.i.i
   %25 = icmp ult ptr %3, %23
   %spec.select.i.i.i.i.i.i = and i1 %24, %25
@@ -3469,7 +3466,7 @@ _ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_
   %.016.i.i.i.i = phi ptr [ %3, %7 ], [ %31, %26 ], [ %3, %.critedge.i.i.i.i ]
   %34 = load i32, ptr %15, align 8, !tbaa !49
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %33, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %35
   store i64 %32, ptr %36, align 8, !tbaa !69
   store ptr null, ptr %.016.i.i.i.i, align 8, !tbaa !69
   %37 = add i32 %34, 1
@@ -3568,7 +3565,7 @@ define dso_local void @_ZN4llvm9sandboxir10SelectInst10swapValuesEv(ptr noundef 
   br i1 %.not.i.i.not.i.i.i, label %_ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_deleteIS3_EE.exit.i, label %28, !prof !67
 
 28:                                               ; preds = %17
-  %29 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %.pre3.i.i.i, i64 %23
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %.pre3.i.i.i, i64 %23
   %30 = icmp uge ptr %2, %.pre3.i.i.i
   %31 = icmp ult ptr %2, %29
   %spec.select.i.i.i.i.i.i.i = and i1 %30, %31
@@ -3595,7 +3592,7 @@ _ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_
   %.016.i.i.i.i.i = phi ptr [ %2, %17 ], [ %37, %32 ], [ %2, %.critedge.i.i.i.i.i ]
   %40 = load i32, ptr %21, align 8, !tbaa !49
   %41 = zext i32 %40 to i64
-  %42 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %39, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %41
   store i64 %38, ptr %42, align 8, !tbaa !69
   store ptr null, ptr %.016.i.i.i.i.i, align 8, !tbaa !69
   %43 = add i32 %40, 1
@@ -3763,7 +3760,7 @@ define dso_local noundef ptr @_ZNK4llvm9sandboxir10BranchInst12getSuccessorEj(pt
   %7 = getelementptr inbounds i8, ptr %6, i64 -32
   %8 = zext i32 %1 to i64
   %9 = sub nsw i64 0, %8
-  %10 = getelementptr inbounds %"class.llvm::Use", ptr %7, i64 %9
+  %10 = getelementptr inbounds [32 x i8], ptr %7, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !75
   %12 = tail call noundef ptr @_ZNK4llvm9sandboxir7Context8getValueEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(432) %4, ptr noundef %11) #18
   ret ptr %12
@@ -3845,7 +3842,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9sandboxir7Tracker17empla
   br i1 %.not.i.i.not.i.i, label %_ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_deleteIS3_EE.exit, label %24, !prof !67
 
 24:                                               ; preds = %7
-  %25 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %.pre3.i.i, i64 %19
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %.pre3.i.i, i64 %19
   %26 = icmp uge ptr %3, %.pre3.i.i
   %27 = icmp ult ptr %3, %25
   %spec.select.i.i.i.i.i.i = and i1 %26, %27
@@ -3872,7 +3869,7 @@ _ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_
   %.016.i.i.i.i = phi ptr [ %3, %7 ], [ %33, %28 ], [ %3, %.critedge.i.i.i.i ]
   %36 = load i32, ptr %17, align 8, !tbaa !49
   %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %35, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %37
   store i64 %34, ptr %38, align 8, !tbaa !69
   store ptr null, ptr %.016.i.i.i.i, align 8, !tbaa !69
   %39 = add i32 %36, 1
@@ -4041,7 +4038,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9sandboxir7Tracker17empla
   br i1 %.not.i.i.not.i.i, label %_ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_deleteIS3_EE.exit, label %24, !prof !67
 
 24:                                               ; preds = %7
-  %25 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %.pre3.i.i, i64 %19
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %.pre3.i.i, i64 %19
   %26 = icmp uge ptr %3, %.pre3.i.i
   %27 = icmp ult ptr %3, %25
   %spec.select.i.i.i.i.i.i = and i1 %26, %27
@@ -4068,7 +4065,7 @@ _ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_
   %.016.i.i.i.i = phi ptr [ %3, %7 ], [ %33, %28 ], [ %3, %.critedge.i.i.i.i ]
   %36 = load i32, ptr %17, align 8, !tbaa !49
   %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %35, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %37
   store i64 %34, ptr %38, align 8, !tbaa !69
   store ptr null, ptr %.016.i.i.i.i, align 8, !tbaa !69
   %39 = add i32 %36, 1
@@ -4375,7 +4372,7 @@ define dso_local noundef ptr @_ZNK4llvm9sandboxir10ReturnInst14getReturnValueEv(
 _ZNK4llvm10ReturnInst14getReturnValueEv.exit:     ; preds = %1
   %7 = zext nneg i32 %6 to i64
   %8 = sub nsw i64 0, %7
-  %9 = getelementptr inbounds %"class.llvm::Use", ptr %3, i64 %8
+  %9 = getelementptr inbounds [32 x i8], ptr %3, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !75
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %_ZNK4llvm10ReturnInst14getReturnValueEv.exit.thread, label %11
@@ -4680,7 +4677,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE9push_backES2_.exit: ; preds =
   %34 = phi i32 [ %26, %.lr.ph ], [ %.pre.i, %31 ]
   %35 = load ptr, ptr %8, align 8, !tbaa !46
   %36 = zext i32 %34 to i64
-  %37 = getelementptr inbounds nuw ptr, ptr %35, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %36
   %38 = ptrtoint ptr %29 to i64
   store i64 %38, ptr %37, align 1
   %39 = load i32, ptr %11, align 8, !tbaa !49
@@ -4901,7 +4898,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE9push_backES2_.exit: ; preds =
   %42 = phi i32 [ %34, %.lr.ph ], [ %.pre.i, %39 ]
   %43 = load ptr, ptr %10, align 8, !tbaa !46
   %44 = zext i32 %42 to i64
-  %45 = getelementptr inbounds nuw ptr, ptr %43, i64 %44
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %44
   %46 = ptrtoint ptr %37 to i64
   store i64 %46, ptr %45, align 1
   %47 = load i32, ptr %14, align 8, !tbaa !49
@@ -5142,7 +5139,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_10BasicBlockELb1EE9push_backES2_.exit: ; p
   %39 = phi i32 [ %31, %.lr.ph ], [ %.pre.i, %36 ]
   %40 = load ptr, ptr %10, align 8, !tbaa !46
   %41 = zext i32 %39 to i64
-  %42 = getelementptr inbounds nuw ptr, ptr %40, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %41
   %43 = ptrtoint ptr %34 to i64
   store i64 %43, ptr %42, align 1
   %44 = load i32, ptr %15, align 8, !tbaa !49
@@ -5215,7 +5212,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE9push_backES2_.exit: ; preds =
   %75 = phi i32 [ %67, %.lr.ph32 ], [ %.pre.i24, %72 ]
   %76 = load ptr, ptr %11, align 8, !tbaa !46
   %77 = zext i32 %75 to i64
-  %78 = getelementptr inbounds nuw ptr, ptr %76, i64 %77
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %77
   %79 = ptrtoint ptr %70 to i64
   store i64 %79, ptr %78, align 1
   %80 = load i32, ptr %20, align 8, !tbaa !49
@@ -5358,7 +5355,7 @@ _ZNK4llvm8CallBase25getNumTotalBundleOperandsEv.exit: ; preds = %_ZNK4llvm8CallB
   %34 = and i32 %5, 134217727
   %35 = zext nneg i32 %34 to i64
   %36 = sub nsw i64 0, %35
-  %37 = getelementptr inbounds %"class.llvm::Use", ptr %0, i64 %36
+  %37 = getelementptr inbounds [32 x i8], ptr %0, i64 %36
   %38 = ptrtoint ptr %37 to i64
   %39 = sub i64 %33, %38
   %40 = lshr exact i64 %39, 5
@@ -5369,9 +5366,9 @@ _ZNK4llvm8CallBase25getNumTotalBundleOperandsEv.exit: ; preds = %_ZNK4llvm8CallB
   %45 = and i32 %32, 134217727
   %46 = zext nneg i32 %45 to i64
   %47 = sub nsw i64 0, %46
-  %48 = getelementptr inbounds %"class.llvm::Use", ptr %0, i64 %47
+  %48 = getelementptr inbounds [32 x i8], ptr %0, i64 %47
   %49 = zext i32 %44 to i64
-  %50 = getelementptr inbounds nuw %"class.llvm::Use", ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [32 x i8], ptr %48, i64 %49
   %51 = load ptr, ptr %50, align 8, !tbaa !75
   ret ptr %51
 }
@@ -5454,7 +5451,7 @@ _ZNK4llvm8CallBase25getNumTotalBundleOperandsEv.exit: ; preds = %_ZNK4llvm8CallB
   %38 = and i32 %32, 134217727
   %39 = zext nneg i32 %38 to i64
   %40 = sub nsw i64 0, %39
-  %41 = getelementptr inbounds %"class.llvm::Use", ptr %0, i64 %40
+  %41 = getelementptr inbounds [32 x i8], ptr %0, i64 %40
   br label %_ZNK4llvm4User13getOperandUseEj.exit
 
 _ZNK4llvm4User13getOperandUseEj.exit:             ; preds = %34, %37
@@ -5463,7 +5460,7 @@ _ZNK4llvm4User13getOperandUseEj.exit:             ; preds = %34, %37
   %44 = and i32 %5, 134217727
   %45 = zext nneg i32 %44 to i64
   %46 = sub nsw i64 0, %45
-  %47 = getelementptr inbounds %"class.llvm::Use", ptr %0, i64 %46
+  %47 = getelementptr inbounds [32 x i8], ptr %0, i64 %46
   %48 = ptrtoint ptr %47 to i64
   %49 = sub i64 %43, %48
   %50 = lshr exact i64 %49, 5
@@ -5472,7 +5469,7 @@ _ZNK4llvm4User13getOperandUseEj.exit:             ; preds = %34, %37
   %53 = add i32 %52, %51
   %54 = add i32 %53, %.0.i
   %55 = zext i32 %54 to i64
-  %56 = getelementptr inbounds nuw %"class.llvm::Use", ptr %42, i64 %55
+  %56 = getelementptr inbounds nuw [32 x i8], ptr %42, i64 %55
   %57 = load ptr, ptr %56, align 8, !tbaa !75
   ret ptr %57
 }
@@ -5487,7 +5484,7 @@ define dso_local noundef ptr @_ZNK4llvm9sandboxir10CallBrInst14getDefaultDestEv(
   %7 = load i32, ptr %6, align 8, !tbaa !342
   %8 = zext i32 %7 to i64
   %9 = sub nsw i64 0, %8
-  %10 = getelementptr %"class.llvm::Use", ptr %5, i64 %9
+  %10 = getelementptr [32 x i8], ptr %5, i64 %9
   %11 = getelementptr i8, ptr %10, i64 -64
   %12 = load ptr, ptr %11, align 8, !tbaa !75
   %13 = tail call noundef ptr @_ZNK4llvm9sandboxir7Context8getValueEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(432) %3, ptr noundef %12) #18
@@ -5505,9 +5502,9 @@ define dso_local noundef ptr @_ZNK4llvm9sandboxir10CallBrInst15getIndirectDestEj
   %9 = load i32, ptr %8, align 8, !tbaa !342
   %10 = zext i32 %9 to i64
   %11 = sub nsw i64 0, %10
-  %12 = getelementptr inbounds %"class.llvm::Use", ptr %7, i64 %11
+  %12 = getelementptr inbounds [32 x i8], ptr %7, i64 %11
   %13 = zext i32 %1 to i64
-  %14 = getelementptr inbounds nuw %"class.llvm::Use", ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [32 x i8], ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !75
   %16 = tail call noundef ptr @_ZNK4llvm9sandboxir7Context8getValueEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(432) %4, ptr noundef %15) #18
   ret ptr %16
@@ -5548,8 +5545,8 @@ define dso_local void @_ZNK4llvm9sandboxir10CallBrInst16getIndirectDestsEv(ptr d
   %17 = load i32, ptr %12, align 8, !tbaa !342, !noalias !344
   %18 = zext i32 %17 to i64
   %19 = sub nsw i64 0, %18
-  %20 = getelementptr inbounds %"class.llvm::Use", ptr %14, i64 %19
-  %21 = getelementptr inbounds nuw %"class.llvm::Use", ptr %20, i64 %indvars.iv.i
+  %20 = getelementptr inbounds [32 x i8], ptr %14, i64 %19
+  %21 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %indvars.iv.i
   %22 = load ptr, ptr %21, align 8, !tbaa !75, !noalias !344
   %23 = load i32, ptr %11, align 4, !tbaa !66, !alias.scope !344
   %.not.i.i.not.i.i = icmp ult i32 %16, %23
@@ -5566,7 +5563,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_10BasicBlockELb1EE9push_backES2_.exit.i: ;
   %27 = phi i32 [ %16, %15 ], [ %.pre.i.i, %24 ]
   %28 = load ptr, ptr %3, align 8, !tbaa !46, !alias.scope !344
   %29 = zext i32 %27 to i64
-  %30 = getelementptr inbounds nuw ptr, ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %29
   %31 = ptrtoint ptr %22 to i64
   store i64 %31, ptr %30, align 1
   %32 = load i32, ptr %10, align 8, !tbaa !49, !alias.scope !344
@@ -5626,7 +5623,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_9sandboxir10BasicBlockELb1EE9push_backES3_
   %49 = phi i32 [ %44, %40 ], [ %.pre.i, %46 ]
   %50 = load ptr, ptr %0, align 8, !tbaa !46
   %51 = zext i32 %49 to i64
-  %52 = getelementptr inbounds nuw ptr, ptr %50, i64 %51
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %51
   %53 = ptrtoint ptr %43 to i64
   store i64 %53, ptr %52, align 1
   %54 = load i32, ptr %5, align 8, !tbaa !49
@@ -5651,7 +5648,7 @@ define dso_local void @_ZN4llvm9sandboxir10CallBrInst14setDefaultDestEPNS0_10Bas
   %12 = load i32, ptr %11, align 8, !tbaa !342
   %13 = zext i32 %12 to i64
   %14 = sub nsw i64 0, %13
-  %15 = getelementptr %"class.llvm::Use", ptr %8, i64 %14
+  %15 = getelementptr [32 x i8], ptr %8, i64 %14
   %16 = getelementptr i8, ptr %15, i64 -64
   %17 = load ptr, ptr %16, align 8, !tbaa !75
   %.not.i.i.i = icmp eq ptr %17, null
@@ -5722,7 +5719,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9sandboxir7Tracker17empla
   %16 = load i32, ptr %15, align 8, !tbaa !342, !noalias !350
   %17 = zext i32 %16 to i64
   %18 = sub nsw i64 0, %17
-  %19 = getelementptr %"class.llvm::Use", ptr %14, i64 %18
+  %19 = getelementptr [32 x i8], ptr %14, i64 %18
   %20 = getelementptr i8, ptr %19, i64 -64
   %21 = load ptr, ptr %20, align 8, !tbaa !75, !noalias !350
   %22 = tail call noundef ptr @_ZNK4llvm9sandboxir7Context8getValueEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(432) %12, ptr noundef %21) #18, !noalias !350
@@ -5740,7 +5737,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9sandboxir7Tracker17empla
   br i1 %.not.i.i.not.i.i, label %_ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_deleteIS3_EE.exit, label %30, !prof !67
 
 30:                                               ; preds = %7
-  %31 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %.pre3.i.i, i64 %25
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %.pre3.i.i, i64 %25
   %32 = icmp uge ptr %3, %.pre3.i.i
   %33 = icmp ult ptr %3, %31
   %spec.select.i.i.i.i.i.i = and i1 %32, %33
@@ -5767,7 +5764,7 @@ _ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_
   %.016.i.i.i.i = phi ptr [ %3, %7 ], [ %39, %34 ], [ %3, %.critedge.i.i.i.i ]
   %42 = load i32, ptr %23, align 8, !tbaa !49
   %43 = zext i32 %42 to i64
-  %44 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %41, i64 %43
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %43
   store i64 %40, ptr %44, align 8, !tbaa !69
   store ptr null, ptr %.016.i.i.i.i, align 8, !tbaa !69
   %45 = add i32 %42, 1
@@ -5806,9 +5803,9 @@ define dso_local void @_ZN4llvm9sandboxir10CallBrInst15setIndirectDestEjPNS0_10B
   %14 = load i32, ptr %13, align 8, !tbaa !342
   %15 = zext i32 %14 to i64
   %16 = sub nsw i64 0, %15
-  %17 = getelementptr inbounds %"class.llvm::Use", ptr %12, i64 %16
+  %17 = getelementptr inbounds [32 x i8], ptr %12, i64 %16
   %18 = zext i32 %1 to i64
-  %19 = getelementptr inbounds nuw %"class.llvm::Use", ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [32 x i8], ptr %17, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !75
   %.not.i.i.i = icmp eq ptr %20, null
   br i1 %.not.i.i.i, label %_ZN4llvm3Use14removeFromListEv.exit.i.i.i, label %21
@@ -5879,9 +5876,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9sandboxir7Tracker17empla
   %18 = load i32, ptr %17, align 8, !tbaa !342, !noalias !357
   %19 = zext i32 %18 to i64
   %20 = sub nsw i64 0, %19
-  %21 = getelementptr inbounds %"class.llvm::Use", ptr %16, i64 %20
+  %21 = getelementptr inbounds [32 x i8], ptr %16, i64 %20
   %22 = zext i32 %2 to i64
-  %23 = getelementptr inbounds nuw %"class.llvm::Use", ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [32 x i8], ptr %21, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !75, !noalias !357
   %25 = tail call noundef ptr @_ZNK4llvm9sandboxir7Context8getValueEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(432) %13, ptr noundef %24) #18, !noalias !357
   store ptr %25, ptr %11, align 8, !tbaa !362, !noalias !357
@@ -5900,7 +5897,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9sandboxir7Tracker17empla
   br i1 %.not.i.i.not.i.i, label %_ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_deleteIS3_EE.exit, label %34, !prof !67
 
 34:                                               ; preds = %8
-  %35 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %.pre3.i.i, i64 %29
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %.pre3.i.i, i64 %29
   %36 = icmp uge ptr %4, %.pre3.i.i
   %37 = icmp ult ptr %4, %35
   %spec.select.i.i.i.i.i.i = and i1 %36, %37
@@ -5927,7 +5924,7 @@ _ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_
   %.016.i.i.i.i = phi ptr [ %4, %8 ], [ %43, %38 ], [ %4, %.critedge.i.i.i.i ]
   %46 = load i32, ptr %27, align 8, !tbaa !49
   %47 = zext i32 %46 to i64
-  %48 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %45, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %47
   store i64 %44, ptr %48, align 8, !tbaa !69
   store ptr null, ptr %.016.i.i.i.i, align 8, !tbaa !69
   %49 = add i32 %46, 1
@@ -5965,7 +5962,7 @@ define dso_local noundef ptr @_ZNK4llvm9sandboxir10CallBrInst12getSuccessorEj(pt
   %10 = load i32, ptr %9, align 8, !tbaa !342
   %11 = zext i32 %10 to i64
   %12 = sub nsw i64 0, %11
-  %13 = getelementptr %"class.llvm::Use", ptr %6, i64 %12
+  %13 = getelementptr [32 x i8], ptr %6, i64 %12
   %14 = getelementptr i8, ptr %13, i64 -64
   br label %_ZNK4llvm10CallBrInst12getSuccessorEj.exit
 
@@ -5976,9 +5973,9 @@ define dso_local noundef ptr @_ZNK4llvm9sandboxir10CallBrInst12getSuccessorEj(pt
   %19 = load i32, ptr %18, align 8, !tbaa !342
   %20 = zext i32 %19 to i64
   %21 = sub nsw i64 0, %20
-  %22 = getelementptr inbounds %"class.llvm::Use", ptr %17, i64 %21
+  %22 = getelementptr inbounds [32 x i8], ptr %17, i64 %21
   %23 = zext i32 %16 to i64
-  %24 = getelementptr inbounds nuw %"class.llvm::Use", ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %23
   br label %_ZNK4llvm10CallBrInst12getSuccessorEj.exit
 
 _ZNK4llvm10CallBrInst12getSuccessorEj.exit:       ; preds = %8, %15
@@ -6086,7 +6083,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9sandboxir7Tracker17empla
   br i1 %.not.i.i.not.i.i, label %_ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_deleteIS3_EE.exit, label %24, !prof !67
 
 24:                                               ; preds = %7
-  %25 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %.pre3.i.i, i64 %19
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %.pre3.i.i, i64 %19
   %26 = icmp uge ptr %3, %.pre3.i.i
   %27 = icmp ult ptr %3, %25
   %spec.select.i.i.i.i.i.i = and i1 %26, %27
@@ -6113,7 +6110,7 @@ _ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_
   %.016.i.i.i.i = phi ptr [ %3, %7 ], [ %33, %28 ], [ %3, %.critedge.i.i.i.i ]
   %36 = load i32, ptr %17, align 8, !tbaa !49
   %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %35, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %37
   store i64 %34, ptr %38, align 8, !tbaa !69
   store ptr null, ptr %.016.i.i.i.i, align 8, !tbaa !69
   %39 = add i32 %36, 1
@@ -6158,13 +6155,13 @@ define dso_local noundef ptr @_ZNK4llvm9sandboxir14LandingPadInst9getClauseEj(pt
   %14 = and i32 %8, 134217727
   %15 = zext nneg i32 %14 to i64
   %16 = sub nsw i64 0, %15
-  %17 = getelementptr inbounds %"class.llvm::Use", ptr %6, i64 %16
+  %17 = getelementptr inbounds [32 x i8], ptr %6, i64 %16
   br label %_ZNK4llvm14LandingPadInst9getClauseEj.exit
 
 _ZNK4llvm14LandingPadInst9getClauseEj.exit:       ; preds = %10, %13
   %18 = phi ptr [ %12, %10 ], [ %17, %13 ]
   %19 = zext i32 %1 to i64
-  %20 = getelementptr inbounds nuw %"class.llvm::Use", ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw [32 x i8], ptr %18, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !75
   %22 = tail call noundef ptr @_ZNK4llvm9sandboxir7Context8getValueEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(432) %4, ptr noundef %21) #18
   ret ptr %22
@@ -6275,7 +6272,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9sandboxir7Tracker17empla
   br i1 %.not.i.i.not.i.i, label %_ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_deleteIS3_EE.exit, label %25, !prof !67
 
 25:                                               ; preds = %7
-  %26 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %.pre3.i.i, i64 %20
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %.pre3.i.i, i64 %20
   %27 = icmp uge ptr %3, %.pre3.i.i
   %28 = icmp ult ptr %3, %26
   %spec.select.i.i.i.i.i.i = and i1 %27, %28
@@ -6302,7 +6299,7 @@ _ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_
   %.016.i.i.i.i = phi ptr [ %3, %7 ], [ %34, %29 ], [ %3, %.critedge.i.i.i.i ]
   %37 = load i32, ptr %18, align 8, !tbaa !49
   %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %36, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %38
   store i64 %35, ptr %39, align 8, !tbaa !69
   store ptr null, ptr %.016.i.i.i.i, align 8, !tbaa !69
   %40 = add i32 %37, 1
@@ -6337,9 +6334,9 @@ define dso_local noundef ptr @_ZNK4llvm9sandboxir14FuncletPadInst13getArgOperand
   %9 = and i32 %8, 134217727
   %10 = zext nneg i32 %9 to i64
   %11 = sub nsw i64 0, %10
-  %12 = getelementptr inbounds %"class.llvm::Use", ptr %6, i64 %11
+  %12 = getelementptr inbounds [32 x i8], ptr %6, i64 %11
   %13 = zext i32 %1 to i64
-  %14 = getelementptr inbounds nuw %"class.llvm::Use", ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [32 x i8], ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !75
   %16 = tail call noundef ptr @_ZNK4llvm9sandboxir7Context8getValueEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(432) %4, ptr noundef %15) #18
   ret ptr %16
@@ -6360,9 +6357,9 @@ define dso_local void @_ZN4llvm9sandboxir14FuncletPadInst13setArgOperandEjPNS0_5
   %14 = and i32 %13, 134217727
   %15 = zext nneg i32 %14 to i64
   %16 = sub nsw i64 0, %15
-  %17 = getelementptr inbounds %"class.llvm::Use", ptr %9, i64 %16
+  %17 = getelementptr inbounds [32 x i8], ptr %9, i64 %16
   %18 = zext i32 %1 to i64
-  %19 = getelementptr inbounds nuw %"class.llvm::Use", ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [32 x i8], ptr %17, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !75
   %.not.i.i.i.i = icmp eq ptr %20, null
   br i1 %.not.i.i.i.i, label %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i, label %21
@@ -6433,9 +6430,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9sandboxir7Tracker17empla
   %18 = and i32 %17, 134217727
   %19 = zext nneg i32 %18 to i64
   %20 = sub nsw i64 0, %19
-  %21 = getelementptr inbounds %"class.llvm::Use", ptr %15, i64 %20
+  %21 = getelementptr inbounds [32 x i8], ptr %15, i64 %20
   %22 = zext i32 %2 to i64
-  %23 = getelementptr inbounds nuw %"class.llvm::Use", ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [32 x i8], ptr %21, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !75, !noalias !378
   %25 = tail call noundef ptr @_ZNK4llvm9sandboxir7Context8getValueEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(432) %13, ptr noundef %24) #18, !noalias !378
   store ptr %25, ptr %11, align 8, !tbaa !383, !noalias !378
@@ -6454,7 +6451,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9sandboxir7Tracker17empla
   br i1 %.not.i.i.not.i.i, label %_ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_deleteIS3_EE.exit, label %34, !prof !67
 
 34:                                               ; preds = %8
-  %35 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %.pre3.i.i, i64 %29
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %.pre3.i.i, i64 %29
   %36 = icmp uge ptr %4, %.pre3.i.i
   %37 = icmp ult ptr %4, %35
   %spec.select.i.i.i.i.i.i = and i1 %36, %37
@@ -6481,7 +6478,7 @@ _ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_
   %.016.i.i.i.i = phi ptr [ %4, %8 ], [ %43, %38 ], [ %4, %.critedge.i.i.i.i ]
   %46 = load i32, ptr %27, align 8, !tbaa !49
   %47 = zext i32 %46 to i64
-  %48 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %45, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %47
   store i64 %44, ptr %48, align 8, !tbaa !69
   store ptr null, ptr %.016.i.i.i.i, align 8, !tbaa !69
   %49 = add i32 %46, 1
@@ -6629,7 +6626,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE9push_backES2_.exit: ; preds =
   %52 = phi i32 [ %44, %.lr.ph ], [ %.pre.i, %49 ]
   %53 = load ptr, ptr %9, align 8, !tbaa !46
   %54 = zext i32 %52 to i64
-  %55 = getelementptr inbounds nuw ptr, ptr %53, i64 %54
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %54
   %56 = ptrtoint ptr %47 to i64
   store i64 %56, ptr %55, align 1
   %57 = load i32, ptr %12, align 8, !tbaa !49
@@ -6754,7 +6751,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE9push_backES2_.exit: ; preds =
   %52 = phi i32 [ %44, %.lr.ph ], [ %.pre.i, %49 ]
   %53 = load ptr, ptr %9, align 8, !tbaa !46
   %54 = zext i32 %52 to i64
-  %55 = getelementptr inbounds nuw ptr, ptr %53, i64 %54
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %54
   %56 = ptrtoint ptr %47 to i64
   store i64 %56, ptr %55, align 1
   %57 = load i32, ptr %12, align 8, !tbaa !49
@@ -6922,7 +6919,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9sandboxir7Tracker17empla
   br i1 %.not.i.i.not.i.i, label %_ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_deleteIS3_EE.exit, label %25, !prof !67
 
 25:                                               ; preds = %7
-  %26 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %.pre3.i.i, i64 %20
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %.pre3.i.i, i64 %20
   %27 = icmp uge ptr %3, %.pre3.i.i
   %28 = icmp ult ptr %3, %26
   %spec.select.i.i.i.i.i.i = and i1 %27, %28
@@ -6949,7 +6946,7 @@ _ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_
   %.016.i.i.i.i = phi ptr [ %3, %7 ], [ %34, %29 ], [ %3, %.critedge.i.i.i.i ]
   %37 = load i32, ptr %18, align 8, !tbaa !49
   %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %36, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %38
   store i64 %35, ptr %39, align 8, !tbaa !69
   store ptr null, ptr %.016.i.i.i.i, align 8, !tbaa !69
   %40 = add i32 %37, 1
@@ -7078,7 +7075,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9sandboxir7Tracker17empla
   br i1 %.not.i.i.not.i.i, label %_ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_deleteIS3_EE.exit, label %25, !prof !67
 
 25:                                               ; preds = %7
-  %26 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %.pre3.i.i, i64 %20
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %.pre3.i.i, i64 %20
   %27 = icmp uge ptr %3, %.pre3.i.i
   %28 = icmp ult ptr %3, %26
   %spec.select.i.i.i.i.i.i = and i1 %27, %28
@@ -7105,7 +7102,7 @@ _ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_
   %.016.i.i.i.i = phi ptr [ %3, %7 ], [ %34, %29 ], [ %3, %.critedge.i.i.i.i ]
   %37 = load i32, ptr %18, align 8, !tbaa !49
   %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %36, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %38
   store i64 %35, ptr %39, align 8, !tbaa !69
   store ptr null, ptr %.016.i.i.i.i, align 8, !tbaa !69
   %40 = add i32 %37, 1
@@ -7217,7 +7214,7 @@ define dso_local noundef ptr @_ZNK4llvm9sandboxir17CleanupReturnInst13getCleanup
   %8 = and i32 %7, 134217727
   %9 = zext nneg i32 %8 to i64
   %10 = sub nsw i64 0, %9
-  %11 = getelementptr inbounds %"class.llvm::Use", ptr %5, i64 %10
+  %11 = getelementptr inbounds [32 x i8], ptr %5, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !75
   %13 = tail call noundef ptr @_ZNK4llvm9sandboxir7Context8getValueEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(432) %3, ptr noundef %12) #18
   ret ptr %13
@@ -7238,7 +7235,7 @@ define dso_local void @_ZN4llvm9sandboxir17CleanupReturnInst13setCleanupPadEPNS0
   %13 = and i32 %12, 134217727
   %14 = zext nneg i32 %13 to i64
   %15 = sub nsw i64 0, %14
-  %16 = getelementptr inbounds %"class.llvm::Use", ptr %8, i64 %15
+  %16 = getelementptr inbounds [32 x i8], ptr %8, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !75
   %.not.i.i.i = icmp eq ptr %17, null
   br i1 %.not.i.i.i, label %_ZN4llvm3Use14removeFromListEv.exit.i.i.i, label %18
@@ -7309,7 +7306,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9sandboxir7Tracker17empla
   %17 = and i32 %16, 134217727
   %18 = zext nneg i32 %17 to i64
   %19 = sub nsw i64 0, %18
-  %20 = getelementptr inbounds %"class.llvm::Use", ptr %14, i64 %19
+  %20 = getelementptr inbounds [32 x i8], ptr %14, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !75, !noalias !399
   %22 = tail call noundef ptr @_ZNK4llvm9sandboxir7Context8getValueEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(432) %12, ptr noundef %21) #18, !noalias !399
   store ptr %22, ptr %10, align 8, !tbaa !406, !noalias !399
@@ -7326,7 +7323,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9sandboxir7Tracker17empla
   br i1 %.not.i.i.not.i.i, label %_ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_deleteIS3_EE.exit, label %30, !prof !67
 
 30:                                               ; preds = %7
-  %31 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %.pre3.i.i, i64 %25
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %.pre3.i.i, i64 %25
   %32 = icmp uge ptr %3, %.pre3.i.i
   %33 = icmp ult ptr %3, %31
   %spec.select.i.i.i.i.i.i = and i1 %32, %33
@@ -7353,7 +7350,7 @@ _ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_
   %.016.i.i.i.i = phi ptr [ %3, %7 ], [ %39, %34 ], [ %3, %.critedge.i.i.i.i ]
   %42 = load i32, ptr %23, align 8, !tbaa !49
   %43 = zext i32 %42 to i64
-  %44 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %41, i64 %43
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %43
   store i64 %40, ptr %44, align 8, !tbaa !69
   store ptr null, ptr %.016.i.i.i.i, align 8, !tbaa !69
   %45 = add i32 %42, 1
@@ -7394,7 +7391,7 @@ define dso_local noundef ptr @_ZNK4llvm9sandboxir17CleanupReturnInst13getUnwindD
   %12 = and i32 %11, 134217727
   %13 = zext nneg i32 %12 to i64
   %14 = sub nsw i64 0, %13
-  %15 = getelementptr inbounds %"class.llvm::Use", ptr %5, i64 %14
+  %15 = getelementptr inbounds [32 x i8], ptr %5, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %17 = load ptr, ptr %16, align 8, !tbaa !75
   br label %_ZNK4llvm17CleanupReturnInst13getUnwindDestEv.exit
@@ -7420,7 +7417,7 @@ define dso_local void @_ZN4llvm9sandboxir17CleanupReturnInst13setUnwindDestEPNS0
   %13 = and i32 %12, 134217727
   %14 = zext nneg i32 %13 to i64
   %15 = sub nsw i64 0, %14
-  %16 = getelementptr inbounds %"class.llvm::Use", ptr %8, i64 %15
+  %16 = getelementptr inbounds [32 x i8], ptr %8, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %18 = load ptr, ptr %17, align 8, !tbaa !75
   %.not.i.i.i = icmp eq ptr %18, null
@@ -7497,7 +7494,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9sandboxir7Tracker17empla
   %20 = and i32 %19, 134217727
   %21 = zext nneg i32 %20 to i64
   %22 = sub nsw i64 0, %21
-  %23 = getelementptr inbounds %"class.llvm::Use", ptr %13, i64 %22
+  %23 = getelementptr inbounds [32 x i8], ptr %13, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %25 = load ptr, ptr %24, align 8, !tbaa !75, !noalias !407
   br label %_ZSt11make_uniqueIN4llvm9sandboxir13GenericSetterIXadL_ZNKS1_17CleanupReturnInst13getUnwindDestEvEEXadL_ZNS3_13setUnwindDestEPNS1_10BasicBlockEEEEEJRPS3_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
@@ -7520,7 +7517,7 @@ _ZSt11make_uniqueIN4llvm9sandboxir13GenericSetterIXadL_ZNKS1_17CleanupReturnInst
   br i1 %.not.i.i.not.i.i, label %_ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_deleteIS3_EE.exit, label %36, !prof !67
 
 36:                                               ; preds = %_ZSt11make_uniqueIN4llvm9sandboxir13GenericSetterIXadL_ZNKS1_17CleanupReturnInst13getUnwindDestEvEEXadL_ZNS3_13setUnwindDestEPNS1_10BasicBlockEEEEEJRPS3_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
-  %37 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %.pre3.i.i, i64 %31
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %.pre3.i.i, i64 %31
   %38 = icmp uge ptr %3, %.pre3.i.i
   %39 = icmp ult ptr %3, %37
   %spec.select.i.i.i.i.i.i = and i1 %38, %39
@@ -7547,7 +7544,7 @@ _ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_
   %.016.i.i.i.i = phi ptr [ %3, %_ZSt11make_uniqueIN4llvm9sandboxir13GenericSetterIXadL_ZNKS1_17CleanupReturnInst13getUnwindDestEvEEXadL_ZNS3_13setUnwindDestEPNS1_10BasicBlockEEEEEJRPS3_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit ], [ %45, %40 ], [ %3, %.critedge.i.i.i.i ]
   %48 = load i32, ptr %29, align 8, !tbaa !49
   %49 = zext i32 %48 to i64
-  %50 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %47, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %49
   store i64 %46, ptr %50, align 8, !tbaa !69
   store ptr null, ptr %.016.i.i.i.i, align 8, !tbaa !69
   %51 = add i32 %48, 1
@@ -7636,7 +7633,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE9push_backES2_.exit: ; preds =
   %31 = phi i32 [ %23, %.lr.ph ], [ %.pre.i, %28 ]
   %32 = load ptr, ptr %8, align 8, !tbaa !46
   %33 = zext i32 %31 to i64
-  %34 = getelementptr inbounds nuw ptr, ptr %32, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %33
   %35 = ptrtoint ptr %26 to i64
   store i64 %35, ptr %34, align 1
   %36 = load i32, ptr %11, align 8, !tbaa !49
@@ -7868,7 +7865,7 @@ define dso_local noundef ptr @_ZNK4llvm9sandboxir17GetElementPtrInst17getPointer
   %8 = and i32 %7, 134217727
   %9 = zext nneg i32 %8 to i64
   %10 = sub nsw i64 0, %9
-  %11 = getelementptr inbounds %"class.llvm::Use", ptr %5, i64 %10
+  %11 = getelementptr inbounds [32 x i8], ptr %5, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !75
   %13 = tail call noundef ptr @_ZNK4llvm9sandboxir7Context8getValueEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(432) %3, ptr noundef %12) #18
   ret ptr %13
@@ -7887,7 +7884,7 @@ define dso_local noundef ptr @_ZNK4llvm9sandboxir17GetElementPtrInst21getPointer
   %10 = and i32 %9, 134217727
   %11 = zext nneg i32 %10 to i64
   %12 = sub nsw i64 0, %11
-  %13 = getelementptr inbounds %"class.llvm::Use", ptr %7, i64 %12
+  %13 = getelementptr inbounds [32 x i8], ptr %7, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !75
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !294
@@ -8046,7 +8043,7 @@ define dso_local noundef ptr @_ZNK4llvm9sandboxir7PHINode16getIncomingValueEj(pt
   %7 = getelementptr inbounds i8, ptr %6, i64 -8
   %8 = load ptr, ptr %7, align 8, !tbaa !73
   %9 = zext i32 %1 to i64
-  %10 = getelementptr inbounds nuw %"class.llvm::Use", ptr %8, i64 %9
+  %10 = getelementptr inbounds nuw [32 x i8], ptr %8, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !75
   %12 = tail call noundef ptr @_ZNK4llvm9sandboxir7Context8getValueEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(432) %4, ptr noundef %11) #18
   ret ptr %12
@@ -8065,7 +8062,7 @@ define dso_local void @_ZN4llvm9sandboxir7PHINode16setIncomingValueEjPNS0_5Value
   %12 = getelementptr inbounds i8, ptr %9, i64 -8
   %13 = load ptr, ptr %12, align 8, !tbaa !73
   %14 = zext i32 %1 to i64
-  %15 = getelementptr inbounds nuw %"class.llvm::Use", ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [32 x i8], ptr %13, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !75
   %.not.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i, label %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i, label %17
@@ -8134,7 +8131,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9sandboxir7Tracker17empla
   %16 = getelementptr inbounds i8, ptr %15, i64 -8
   %17 = load ptr, ptr %16, align 8, !tbaa !73, !noalias !421
   %18 = zext i32 %2 to i64
-  %19 = getelementptr inbounds nuw %"class.llvm::Use", ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [32 x i8], ptr %17, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !75, !noalias !421
   %21 = tail call noundef ptr @_ZNK4llvm9sandboxir7Context8getValueEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(432) %13, ptr noundef %20) #18, !noalias !421
   store ptr %21, ptr %11, align 8, !tbaa !427, !noalias !421
@@ -8153,7 +8150,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9sandboxir7Tracker17empla
   br i1 %.not.i.i.not.i.i, label %_ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_deleteIS3_EE.exit, label %30, !prof !67
 
 30:                                               ; preds = %8
-  %31 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %.pre3.i.i, i64 %25
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %.pre3.i.i, i64 %25
   %32 = icmp uge ptr %4, %.pre3.i.i
   %33 = icmp ult ptr %4, %31
   %spec.select.i.i.i.i.i.i = and i1 %32, %33
@@ -8180,7 +8177,7 @@ _ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_
   %.016.i.i.i.i = phi ptr [ %4, %8 ], [ %39, %34 ], [ %4, %.critedge.i.i.i.i ]
   %42 = load i32, ptr %23, align 8, !tbaa !49
   %43 = zext i32 %42 to i64
-  %44 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %41, i64 %43
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %43
   store i64 %40, ptr %44, align 8, !tbaa !69
   store ptr null, ptr %.016.i.i.i.i, align 8, !tbaa !69
   %45 = add i32 %42, 1
@@ -8215,9 +8212,9 @@ define dso_local noundef ptr @_ZNK4llvm9sandboxir7PHINode16getIncomingBlockEj(pt
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %10 = load i32, ptr %9, align 8, !tbaa !419
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw %"class.llvm::Use", ptr %8, i64 %11
+  %12 = getelementptr inbounds nuw [32 x i8], ptr %8, i64 %11
   %13 = zext i32 %1 to i64
-  %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !349
   %16 = tail call noundef ptr @_ZNK4llvm9sandboxir7Context8getValueEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(432) %4, ptr noundef %15) #18
   ret ptr %16
@@ -8237,9 +8234,9 @@ define dso_local noundef ptr @_ZNK4llvm9sandboxir7PHINode16getIncomingBlockERKNS
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %13 = load i32, ptr %12, align 8, !tbaa !419
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %"class.llvm::Use", ptr %7, i64 %14
+  %15 = getelementptr inbounds nuw [32 x i8], ptr %7, i64 %14
   %16 = and i64 %11, 4294967295
-  %17 = getelementptr inbounds nuw ptr, ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !349
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %20 = load ptr, ptr %19, align 8, !tbaa !18
@@ -8262,9 +8259,9 @@ define dso_local void @_ZN4llvm9sandboxir7PHINode16setIncomingBlockEjPNS0_10Basi
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 72
   %15 = load i32, ptr %14, align 8, !tbaa !419
   %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds nuw %"class.llvm::Use", ptr %13, i64 %16
+  %17 = getelementptr inbounds nuw [32 x i8], ptr %13, i64 %16
   %18 = zext i32 %1 to i64
-  %19 = getelementptr inbounds nuw ptr, ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %18
   store ptr %11, ptr %19, align 8, !tbaa !349
   ret void
 }
@@ -8293,9 +8290,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9sandboxir7Tracker17empla
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 72
   %19 = load i32, ptr %18, align 8, !tbaa !419, !noalias !429
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds nuw %"class.llvm::Use", ptr %17, i64 %20
+  %21 = getelementptr inbounds nuw [32 x i8], ptr %17, i64 %20
   %22 = zext i32 %2 to i64
-  %23 = getelementptr inbounds nuw ptr, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !349, !noalias !429
   %25 = tail call noundef ptr @_ZNK4llvm9sandboxir7Context8getValueEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(432) %13, ptr noundef %24) #18, !noalias !429
   store ptr %25, ptr %11, align 8, !tbaa !434, !noalias !429
@@ -8314,7 +8311,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9sandboxir7Tracker17empla
   br i1 %.not.i.i.not.i.i, label %_ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_deleteIS3_EE.exit, label %34, !prof !67
 
 34:                                               ; preds = %8
-  %35 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %.pre3.i.i, i64 %29
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %.pre3.i.i, i64 %29
   %36 = icmp uge ptr %4, %.pre3.i.i
   %37 = icmp ult ptr %4, %35
   %spec.select.i.i.i.i.i.i = and i1 %36, %37
@@ -8341,7 +8338,7 @@ _ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_
   %.016.i.i.i.i = phi ptr [ %4, %8 ], [ %43, %38 ], [ %4, %.critedge.i.i.i.i ]
   %46 = load i32, ptr %27, align 8, !tbaa !49
   %47 = zext i32 %46 to i64
-  %48 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %45, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %47
   store i64 %44, ptr %48, align 8, !tbaa !69
   store ptr null, ptr %.016.i.i.i.i, align 8, !tbaa !69
   %49 = add i32 %46, 1
@@ -8401,7 +8398,7 @@ define dso_local void @_ZN4llvm9sandboxir7PHINode11addIncomingEPNS0_5ValueEPNS0_
   %28 = getelementptr inbounds i8, ptr %9, i64 -8
   %29 = load ptr, ptr %28, align 8, !tbaa !73
   %30 = zext i32 %27 to i64
-  %31 = getelementptr inbounds nuw %"class.llvm::Use", ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [32 x i8], ptr %29, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !75
   %.not.i.i.i.i.i = icmp eq ptr %32, null
   br i1 %.not.i.i.i.i.i, label %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i, label %33
@@ -8451,9 +8448,9 @@ _ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit: ; preds = %_ZN4
   %50 = load ptr, ptr %28, align 8, !tbaa !73
   %51 = load i32, ptr %17, align 8, !tbaa !419
   %52 = zext i32 %51 to i64
-  %53 = getelementptr inbounds nuw %"class.llvm::Use", ptr %50, i64 %52
+  %53 = getelementptr inbounds nuw [32 x i8], ptr %50, i64 %52
   %54 = zext i32 %49 to i64
-  %55 = getelementptr inbounds nuw ptr, ptr %53, i64 %54
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %54
   store ptr %13, ptr %55, align 8, !tbaa !349
   ret void
 }
@@ -8483,7 +8480,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9sandboxir7Tracker17empla
   br i1 %.not.i.i.not.i.i, label %_ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_deleteIS3_EE.exit, label %16, !prof !67
 
 16:                                               ; preds = %7
-  %17 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %.pre3.i.i, i64 %11
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %.pre3.i.i, i64 %11
   %18 = icmp uge ptr %3, %.pre3.i.i
   %19 = icmp ult ptr %3, %17
   %spec.select.i.i.i.i.i.i = and i1 %18, %19
@@ -8510,7 +8507,7 @@ _ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_
   %.016.i.i.i.i = phi ptr [ %3, %7 ], [ %25, %20 ], [ %3, %.critedge.i.i.i.i ]
   %28 = load i32, ptr %9, align 8, !tbaa !49
   %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %27, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %29
   store i64 %26, ptr %30, align 8, !tbaa !69
   store ptr null, ptr %.016.i.i.i.i, align 8, !tbaa !69
   %31 = add i32 %28, 1
@@ -8573,7 +8570,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9sandboxir7Tracker17empla
   br i1 %.not.i.i.not.i.i, label %_ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_deleteIS3_EE.exit, label %17, !prof !67
 
 17:                                               ; preds = %8
-  %18 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %.pre3.i.i, i64 %12
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.pre3.i.i, i64 %12
   %19 = icmp uge ptr %4, %.pre3.i.i
   %20 = icmp ult ptr %4, %18
   %spec.select.i.i.i.i.i.i = and i1 %19, %20
@@ -8600,7 +8597,7 @@ _ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_
   %.016.i.i.i.i = phi ptr [ %4, %8 ], [ %26, %21 ], [ %4, %.critedge.i.i.i.i ]
   %29 = load i32, ptr %10, align 8, !tbaa !49
   %30 = zext i32 %29 to i64
-  %31 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %28, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %30
   store i64 %27, ptr %31, align 8, !tbaa !69
   store ptr null, ptr %.016.i.i.i.i, align 8, !tbaa !69
   %32 = add i32 %29, 1
@@ -8647,13 +8644,13 @@ define dso_local noundef ptr @_ZN4llvm9sandboxir7PHINode19removeIncomingValueEPN
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 72
   %16 = load i32, ptr %15, align 8, !tbaa !419
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw %"class.llvm::Use", ptr %14, i64 %17
+  %18 = getelementptr inbounds nuw [32 x i8], ptr %14, i64 %17
   %19 = zext nneg i32 %12 to i64
   br label %20
 
 20:                                               ; preds = %24, %.lr.ph.i.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %24 ], [ 0, %.lr.ph.i.i ]
-  %21 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv.i
   %22 = load ptr, ptr %21, align 8, !tbaa !349
   %23 = icmp eq ptr %22, %7
   br i1 %23, label %_ZNK4llvm7PHINode18getBasicBlockIndexEPKNS_10BasicBlockE.exit.loopexit.split.loop.exit4.i, label %24
@@ -8684,13 +8681,13 @@ _ZNK4llvm9sandboxir7PHINode18getBasicBlockIndexEPKNS0_10BasicBlockE.exit: ; pred
   %35 = getelementptr inbounds nuw i8, ptr %29, i64 72
   %36 = load i32, ptr %35, align 8, !tbaa !419
   %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds nuw %"class.llvm::Use", ptr %34, i64 %37
+  %38 = getelementptr inbounds nuw [32 x i8], ptr %34, i64 %37
   %39 = zext nneg i32 %32 to i64
   br label %40
 
 40:                                               ; preds = %44, %.lr.ph.i.i7
   %indvars.iv.i8 = phi i64 [ %indvars.iv.next.i9, %44 ], [ 0, %.lr.ph.i.i7 ]
-  %41 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv.i8
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv.i8
   %42 = load ptr, ptr %41, align 8, !tbaa !349
   %43 = icmp eq ptr %42, %28
   br i1 %43, label %_ZNK4llvm7PHINode18getBasicBlockIndexEPKNS_10BasicBlockE.exit.loopexit.split.loop.exit4.i11, label %44
@@ -8737,7 +8734,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9sandboxir7Tracker17empla
   br i1 %.not.i.i.not.i.i, label %_ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_deleteIS3_EE.exit, label %17, !prof !67
 
 17:                                               ; preds = %8
-  %18 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %.pre3.i.i, i64 %12
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.pre3.i.i, i64 %12
   %19 = icmp uge ptr %4, %.pre3.i.i
   %20 = icmp ult ptr %4, %18
   %spec.select.i.i.i.i.i.i = and i1 %19, %20
@@ -8764,7 +8761,7 @@ _ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_
   %.016.i.i.i.i = phi ptr [ %4, %8 ], [ %26, %21 ], [ %4, %.critedge.i.i.i.i ]
   %29 = load i32, ptr %10, align 8, !tbaa !49
   %30 = zext i32 %29 to i64
-  %31 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %28, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %30
   store i64 %27, ptr %31, align 8, !tbaa !69
   store ptr null, ptr %.016.i.i.i.i, align 8, !tbaa !69
   %32 = add i32 %29, 1
@@ -8806,13 +8803,13 @@ define dso_local noundef i32 @_ZNK4llvm9sandboxir7PHINode18getBasicBlockIndexEPK
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %13 = load i32, ptr %12, align 8, !tbaa !419
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %"class.llvm::Use", ptr %11, i64 %14
+  %15 = getelementptr inbounds nuw [32 x i8], ptr %11, i64 %14
   %16 = zext nneg i32 %9 to i64
   br label %17
 
 17:                                               ; preds = %21, %.lr.ph.i
   %indvars.iv = phi i64 [ %indvars.iv.next, %21 ], [ 0, %.lr.ph.i ]
-  %18 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !349
   %20 = icmp eq ptr %19, %4
   br i1 %20, label %_ZNK4llvm7PHINode18getBasicBlockIndexEPKNS_10BasicBlockE.exit.loopexit.split.loop.exit4, label %21
@@ -8849,13 +8846,13 @@ define dso_local noundef ptr @_ZNK4llvm9sandboxir7PHINode24getIncomingValueForBl
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %11 = load i32, ptr %10, align 8, !tbaa !419
   %12 = zext i32 %11 to i64
-  %13 = getelementptr inbounds nuw %"class.llvm::Use", ptr %.pre.i, i64 %12
+  %13 = getelementptr inbounds nuw [32 x i8], ptr %.pre.i, i64 %12
   %14 = zext nneg i32 %9 to i64
   br label %15
 
 15:                                               ; preds = %19, %.lr.ph.i.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %19 ], [ 0, %.lr.ph.i.i ]
-  %16 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv.i
   %17 = load ptr, ptr %16, align 8, !tbaa !349
   %18 = icmp eq ptr %17, %4
   br i1 %18, label %_ZNK4llvm7PHINode18getBasicBlockIndexEPKNS_10BasicBlockE.exit.loopexit.i, label %19
@@ -8872,7 +8869,7 @@ _ZNK4llvm7PHINode18getBasicBlockIndexEPKNS_10BasicBlockE.exit.loopexit.i: ; pred
 
 _ZNK4llvm7PHINode24getIncomingValueForBlockEPKNS_10BasicBlockE.exit: ; preds = %2, %_ZNK4llvm7PHINode18getBasicBlockIndexEPKNS_10BasicBlockE.exit.loopexit.i
   %21 = phi i64 [ %20, %_ZNK4llvm7PHINode18getBasicBlockIndexEPKNS_10BasicBlockE.exit.loopexit.i ], [ 4294967295, %2 ]
-  %22 = getelementptr inbounds nuw %"class.llvm::Use", ptr %.pre.i, i64 %21
+  %22 = getelementptr inbounds nuw [32 x i8], ptr %.pre.i, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !75
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %25 = load ptr, ptr %24, align 8, !tbaa !18
@@ -8929,8 +8926,8 @@ define dso_local void @_ZN4llvm9sandboxir7PHINode24replaceIncomingBlockWithEPKNS
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 72
   %18 = load i32, ptr %17, align 8, !tbaa !419
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw %"class.llvm::Use", ptr %16, i64 %19
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [32 x i8], ptr %16, i64 %19
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8, !tbaa !349
   %23 = tail call noundef ptr @_ZNK4llvm9sandboxir7Context8getValueEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(432) %13, ptr noundef %22) #18
   %24 = icmp eq ptr %23, %1
@@ -8948,8 +8945,8 @@ define dso_local void @_ZN4llvm9sandboxir7PHINode24replaceIncomingBlockWithEPKNS
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 72
   %35 = load i32, ptr %34, align 8, !tbaa !419
   %36 = zext i32 %35 to i64
-  %37 = getelementptr inbounds nuw %"class.llvm::Use", ptr %33, i64 %36
-  %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [32 x i8], ptr %33, i64 %36
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv
   store ptr %31, ptr %38, align 8, !tbaa !349
   br label %39
 
@@ -9270,7 +9267,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9sandboxir7Tracker17empla
   br i1 %.not.i.i.not.i.i, label %_ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_deleteIS3_EE.exit, label %24, !prof !67
 
 24:                                               ; preds = %7
-  %25 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %.pre3.i.i, i64 %19
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %.pre3.i.i, i64 %19
   %26 = icmp uge ptr %3, %.pre3.i.i
   %27 = icmp ult ptr %3, %25
   %spec.select.i.i.i.i.i.i = and i1 %26, %27
@@ -9297,7 +9294,7 @@ _ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_
   %.016.i.i.i.i = phi ptr [ %3, %7 ], [ %33, %28 ], [ %3, %.critedge.i.i.i.i ]
   %36 = load i32, ptr %17, align 8, !tbaa !49
   %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %35, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %37
   store i64 %34, ptr %38, align 8, !tbaa !69
   store ptr null, ptr %.016.i.i.i.i, align 8, !tbaa !69
   %39 = add i32 %36, 1
@@ -9431,7 +9428,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9sandboxir7Tracker17empla
   br i1 %.not.i.i.not.i.i, label %_ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_deleteIS3_EE.exit, label %16, !prof !67
 
 16:                                               ; preds = %7
-  %17 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %.pre3.i.i, i64 %11
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %.pre3.i.i, i64 %11
   %18 = icmp uge ptr %3, %.pre3.i.i
   %19 = icmp ult ptr %3, %17
   %spec.select.i.i.i.i.i.i = and i1 %18, %19
@@ -9458,7 +9455,7 @@ _ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_
   %.016.i.i.i.i = phi ptr [ %3, %7 ], [ %25, %20 ], [ %3, %.critedge.i.i.i.i ]
   %28 = load i32, ptr %9, align 8, !tbaa !49
   %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %27, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %29
   store i64 %26, ptr %30, align 8, !tbaa !69
   store ptr null, ptr %.016.i.i.i.i, align 8, !tbaa !69
   %31 = add i32 %28, 1
@@ -9507,7 +9504,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9sandboxir7Tracker17empla
   br i1 %.not.i.i.not.i.i, label %_ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_deleteIS3_EE.exit, label %16, !prof !67
 
 16:                                               ; preds = %7
-  %17 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %.pre3.i.i, i64 %11
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %.pre3.i.i, i64 %11
   %18 = icmp uge ptr %3, %.pre3.i.i
   %19 = icmp ult ptr %3, %17
   %spec.select.i.i.i.i.i.i = and i1 %18, %19
@@ -9534,7 +9531,7 @@ _ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_
   %.016.i.i.i.i = phi ptr [ %3, %7 ], [ %25, %20 ], [ %3, %.critedge.i.i.i.i ]
   %28 = load i32, ptr %9, align 8, !tbaa !49
   %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %27, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %29
   store i64 %26, ptr %30, align 8, !tbaa !69
   store ptr null, ptr %.016.i.i.i.i, align 8, !tbaa !69
   %31 = add i32 %28, 1
@@ -9720,7 +9717,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9sandboxir7Tracker17empla
   br i1 %.not.i.i.not.i.i, label %_ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_deleteIS3_EE.exit, label %26, !prof !67
 
 26:                                               ; preds = %7
-  %27 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %.pre3.i.i, i64 %21
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %.pre3.i.i, i64 %21
   %28 = icmp uge ptr %3, %.pre3.i.i
   %29 = icmp ult ptr %3, %27
   %spec.select.i.i.i.i.i.i = and i1 %28, %29
@@ -9747,7 +9744,7 @@ _ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_
   %.016.i.i.i.i = phi ptr [ %3, %7 ], [ %35, %30 ], [ %3, %.critedge.i.i.i.i ]
   %38 = load i32, ptr %19, align 8, !tbaa !49
   %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %37, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %39
   store i64 %36, ptr %40, align 8, !tbaa !69
   store ptr null, ptr %.016.i.i.i.i, align 8, !tbaa !69
   %41 = add i32 %38, 1
@@ -9902,7 +9899,7 @@ _ZSt11make_uniqueIN4llvm9sandboxir13GenericSetterIXadL_ZNKS1_15CatchSwitchInst13
   br i1 %.not.i.i.not.i.i, label %_ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_deleteIS3_EE.exit, label %31, !prof !67
 
 31:                                               ; preds = %_ZSt11make_uniqueIN4llvm9sandboxir13GenericSetterIXadL_ZNKS1_15CatchSwitchInst13getUnwindDestEvEEXadL_ZNS3_13setUnwindDestEPNS1_10BasicBlockEEEEEJRPS3_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
-  %32 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %.pre3.i.i, i64 %26
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %.pre3.i.i, i64 %26
   %33 = icmp uge ptr %3, %.pre3.i.i
   %34 = icmp ult ptr %3, %32
   %spec.select.i.i.i.i.i.i = and i1 %33, %34
@@ -9929,7 +9926,7 @@ _ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_
   %.016.i.i.i.i = phi ptr [ %3, %_ZSt11make_uniqueIN4llvm9sandboxir13GenericSetterIXadL_ZNKS1_15CatchSwitchInst13getUnwindDestEvEEXadL_ZNS3_13setUnwindDestEPNS1_10BasicBlockEEEEEJRPS3_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit ], [ %40, %35 ], [ %3, %.critedge.i.i.i.i ]
   %43 = load i32, ptr %24, align 8, !tbaa !49
   %44 = zext i32 %43 to i64
-  %45 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %42, i64 %44
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %44
   store i64 %41, ptr %45, align 8, !tbaa !69
   store ptr null, ptr %.016.i.i.i.i, align 8, !tbaa !69
   %46 = add i32 %43, 1
@@ -9992,7 +9989,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9sandboxir7Tracker17empla
   br i1 %.not.i.i.not.i.i, label %_ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_deleteIS3_EE.exit, label %16, !prof !67
 
 16:                                               ; preds = %7
-  %17 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %.pre3.i.i, i64 %11
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %.pre3.i.i, i64 %11
   %18 = icmp uge ptr %3, %.pre3.i.i
   %19 = icmp ult ptr %3, %17
   %spec.select.i.i.i.i.i.i = and i1 %18, %19
@@ -10019,7 +10016,7 @@ _ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_
   %.016.i.i.i.i = phi ptr [ %3, %7 ], [ %25, %20 ], [ %3, %.critedge.i.i.i.i ]
   %28 = load i32, ptr %9, align 8, !tbaa !49
   %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %27, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %29
   store i64 %26, ptr %30, align 8, !tbaa !69
   store ptr null, ptr %.016.i.i.i.i, align 8, !tbaa !69
   %31 = add i32 %28, 1
@@ -10263,7 +10260,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9sandboxir7Tracker17empla
   br i1 %.not.i.i.not.i.i, label %_ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_deleteIS3_EE.exit, label %26, !prof !67
 
 26:                                               ; preds = %7
-  %27 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %.pre3.i.i, i64 %21
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %.pre3.i.i, i64 %21
   %28 = icmp uge ptr %3, %.pre3.i.i
   %29 = icmp ult ptr %3, %27
   %spec.select.i.i.i.i.i.i = and i1 %28, %29
@@ -10290,7 +10287,7 @@ _ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_
   %.016.i.i.i.i = phi ptr [ %3, %7 ], [ %35, %30 ], [ %3, %.critedge.i.i.i.i ]
   %38 = load i32, ptr %19, align 8, !tbaa !49
   %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %37, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %39
   store i64 %36, ptr %40, align 8, !tbaa !69
   store ptr null, ptr %.016.i.i.i.i, align 8, !tbaa !69
   %41 = add i32 %38, 1
@@ -10425,7 +10422,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9sandboxir7Tracker17empla
   br i1 %.not.i.i.not.i.i, label %_ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_deleteIS3_EE.exit, label %27, !prof !67
 
 27:                                               ; preds = %7
-  %28 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %.pre3.i.i, i64 %22
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %.pre3.i.i, i64 %22
   %29 = icmp uge ptr %3, %.pre3.i.i
   %30 = icmp ult ptr %3, %28
   %spec.select.i.i.i.i.i.i = and i1 %29, %30
@@ -10452,7 +10449,7 @@ _ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_
   %.016.i.i.i.i = phi ptr [ %3, %7 ], [ %36, %31 ], [ %3, %.critedge.i.i.i.i ]
   %39 = load i32, ptr %20, align 8, !tbaa !49
   %40 = zext i32 %39 to i64
-  %41 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %38, i64 %40
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %40
   store i64 %37, ptr %41, align 8, !tbaa !69
   store ptr null, ptr %.016.i.i.i.i, align 8, !tbaa !69
   %42 = add i32 %39, 1
@@ -10507,7 +10504,7 @@ define dso_local noundef ptr @_ZN4llvm9sandboxir10SwitchInst12findCaseDestEPNS0_
   %20 = add nuw nsw i64 %19, 3
   %21 = and i64 %20, 4294967295
   %22 = select i1 %.not.i.i.i, i64 1, i64 %21
-  %23 = getelementptr inbounds nuw %"class.llvm::Use", ptr %8, i64 %22
+  %23 = getelementptr inbounds nuw [32 x i8], ptr %8, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !75
   %.not.i = icmp eq ptr %24, %6
   br i1 %.not.i, label %25, label %31
@@ -10519,7 +10516,7 @@ define dso_local noundef ptr @_ZN4llvm9sandboxir10SwitchInst12findCaseDestEPNS0_
 26:                                               ; preds = %25
   %27 = add nuw nsw i64 %19, 2
   %28 = and i64 %27, 4294967294
-  %29 = getelementptr inbounds nuw %"class.llvm::Use", ptr %8, i64 %28
+  %29 = getelementptr inbounds nuw [32 x i8], ptr %8, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !75
   br label %31
 
@@ -10576,7 +10573,7 @@ define dso_local void @_ZN4llvm9sandboxir10SwitchInst7addCaseEPNS0_11ConstantInt
   br i1 %.not.i.i.not.i.i.i, label %_ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_deleteIS3_EE.exit.i, label %22, !prof !67
 
 22:                                               ; preds = %11
-  %23 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %.pre3.i.i.i, i64 %17
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %.pre3.i.i.i, i64 %17
   %24 = icmp uge ptr %4, %.pre3.i.i.i
   %25 = icmp ult ptr %4, %23
   %spec.select.i.i.i.i.i.i.i = and i1 %24, %25
@@ -10603,7 +10600,7 @@ _ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_
   %.016.i.i.i.i.i = phi ptr [ %4, %11 ], [ %31, %26 ], [ %4, %.critedge.i.i.i.i.i ]
   %34 = load i32, ptr %15, align 8, !tbaa !49
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %33, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %35
   store i64 %32, ptr %36, align 8, !tbaa !69
   store ptr null, ptr %.016.i.i.i.i.i, align 8, !tbaa !69
   %37 = add i32 %34, 1
@@ -10678,7 +10675,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9sandboxir7Tracker17empla
   br i1 %.not.i.i.not.i.i, label %_ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_deleteIS3_EE.exit, label %16, !prof !67
 
 16:                                               ; preds = %7
-  %17 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %.pre3.i.i, i64 %11
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %.pre3.i.i, i64 %11
   %18 = icmp uge ptr %3, %.pre3.i.i
   %19 = icmp ult ptr %3, %17
   %spec.select.i.i.i.i.i.i = and i1 %18, %19
@@ -10705,7 +10702,7 @@ _ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_
   %.016.i.i.i.i = phi ptr [ %3, %7 ], [ %25, %20 ], [ %3, %.critedge.i.i.i.i ]
   %28 = load i32, ptr %9, align 8, !tbaa !49
   %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %27, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %29
   store i64 %26, ptr %30, align 8, !tbaa !69
   store ptr null, ptr %.016.i.i.i.i, align 8, !tbaa !69
   %31 = add i32 %28, 1
@@ -10742,7 +10739,7 @@ define dso_local noundef ptr @_ZNK4llvm9sandboxir10SwitchInst12getSuccessorEj(pt
   %9 = getelementptr inbounds i8, ptr %6, i64 -8
   %10 = load ptr, ptr %9, align 8, !tbaa !73
   %11 = zext i32 %8 to i64
-  %12 = getelementptr inbounds nuw %"class.llvm::Use", ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !75
   %14 = tail call noundef ptr @_ZNK4llvm9sandboxir7Context8getValueEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(432) %4, ptr noundef %13) #18
   ret ptr %14
@@ -10763,7 +10760,7 @@ define dso_local void @_ZN4llvm9sandboxir10SwitchInst12setSuccessorEjPNS0_10Basi
   %14 = getelementptr inbounds i8, ptr %9, i64 -8
   %15 = load ptr, ptr %14, align 8, !tbaa !73
   %16 = zext i32 %13 to i64
-  %17 = getelementptr inbounds nuw %"class.llvm::Use", ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [32 x i8], ptr %15, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !75
   %.not.i.i.i.i = icmp eq ptr %18, null
   br i1 %.not.i.i.i.i, label %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i, label %19
@@ -10834,7 +10831,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9sandboxir7Tracker17empla
   %18 = getelementptr inbounds i8, ptr %15, i64 -8
   %19 = load ptr, ptr %18, align 8, !tbaa !73, !noalias !530
   %20 = zext i32 %17 to i64
-  %21 = getelementptr inbounds nuw %"class.llvm::Use", ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [32 x i8], ptr %19, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !75, !noalias !530
   %23 = tail call noundef ptr @_ZNK4llvm9sandboxir7Context8getValueEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(432) %13, ptr noundef %22) #18, !noalias !530
   store ptr %23, ptr %11, align 8, !tbaa !535, !noalias !530
@@ -10853,7 +10850,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9sandboxir7Tracker17empla
   br i1 %.not.i.i.not.i.i, label %_ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_deleteIS3_EE.exit, label %32, !prof !67
 
 32:                                               ; preds = %8
-  %33 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %.pre3.i.i, i64 %27
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %.pre3.i.i, i64 %27
   %34 = icmp uge ptr %4, %.pre3.i.i
   %35 = icmp ult ptr %4, %33
   %spec.select.i.i.i.i.i.i = and i1 %34, %35
@@ -10880,7 +10877,7 @@ _ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_
   %.016.i.i.i.i = phi ptr [ %4, %8 ], [ %41, %36 ], [ %4, %.critedge.i.i.i.i ]
   %44 = load i32, ptr %25, align 8, !tbaa !49
   %45 = zext i32 %44 to i64
-  %46 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %43, i64 %45
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %45
   store i64 %42, ptr %46, align 8, !tbaa !69
   store ptr null, ptr %.016.i.i.i.i, align 8, !tbaa !69
   %47 = add i32 %44, 1
@@ -11166,7 +11163,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9sandboxir7Tracker17empla
   br i1 %.not.i.i.not.i.i, label %_ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_deleteIS3_EE.exit, label %23, !prof !67
 
 23:                                               ; preds = %7
-  %24 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %.pre3.i.i, i64 %18
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.pre3.i.i, i64 %18
   %25 = icmp uge ptr %3, %.pre3.i.i
   %26 = icmp ult ptr %3, %24
   %spec.select.i.i.i.i.i.i = and i1 %25, %26
@@ -11193,7 +11190,7 @@ _ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_
   %.016.i.i.i.i = phi ptr [ %3, %7 ], [ %32, %27 ], [ %3, %.critedge.i.i.i.i ]
   %35 = load i32, ptr %16, align 8, !tbaa !49
   %36 = zext i32 %35 to i64
-  %37 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %34, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %36
   store i64 %33, ptr %37, align 8, !tbaa !69
   store ptr null, ptr %.016.i.i.i.i, align 8, !tbaa !69
   %38 = add i32 %35, 1
@@ -11271,7 +11268,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9sandboxir7Tracker17empla
   br i1 %.not.i.i.not.i.i, label %_ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_deleteIS3_EE.exit, label %25, !prof !67
 
 25:                                               ; preds = %7
-  %26 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %.pre3.i.i, i64 %20
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %.pre3.i.i, i64 %20
   %27 = icmp uge ptr %3, %.pre3.i.i
   %28 = icmp ult ptr %3, %26
   %spec.select.i.i.i.i.i.i = and i1 %27, %28
@@ -11298,7 +11295,7 @@ _ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_
   %.016.i.i.i.i = phi ptr [ %3, %7 ], [ %34, %29 ], [ %3, %.critedge.i.i.i.i ]
   %37 = load i32, ptr %18, align 8, !tbaa !49
   %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %36, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %38
   store i64 %35, ptr %39, align 8, !tbaa !69
   store ptr null, ptr %.016.i.i.i.i, align 8, !tbaa !69
   %40 = add i32 %37, 1
@@ -11374,7 +11371,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9sandboxir7Tracker17empla
   br i1 %.not.i.i.not.i.i, label %_ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_deleteIS3_EE.exit, label %24, !prof !67
 
 24:                                               ; preds = %7
-  %25 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %.pre3.i.i, i64 %19
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %.pre3.i.i, i64 %19
   %26 = icmp uge ptr %3, %.pre3.i.i
   %27 = icmp ult ptr %3, %25
   %spec.select.i.i.i.i.i.i = and i1 %26, %27
@@ -11401,7 +11398,7 @@ _ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_
   %.016.i.i.i.i = phi ptr [ %3, %7 ], [ %33, %28 ], [ %3, %.critedge.i.i.i.i ]
   %36 = load i32, ptr %17, align 8, !tbaa !49
   %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %35, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %37
   store i64 %34, ptr %38, align 8, !tbaa !69
   store ptr null, ptr %.016.i.i.i.i, align 8, !tbaa !69
   %39 = add i32 %36, 1
@@ -11479,7 +11476,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9sandboxir7Tracker17empla
   br i1 %.not.i.i.not.i.i, label %_ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_deleteIS3_EE.exit, label %25, !prof !67
 
 25:                                               ; preds = %7
-  %26 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %.pre3.i.i, i64 %20
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %.pre3.i.i, i64 %20
   %27 = icmp uge ptr %3, %.pre3.i.i
   %28 = icmp ult ptr %3, %26
   %spec.select.i.i.i.i.i.i = and i1 %27, %28
@@ -11506,7 +11503,7 @@ _ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_
   %.016.i.i.i.i = phi ptr [ %3, %7 ], [ %34, %29 ], [ %3, %.critedge.i.i.i.i ]
   %37 = load i32, ptr %18, align 8, !tbaa !49
   %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %36, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %38
   store i64 %35, ptr %39, align 8, !tbaa !69
   store ptr null, ptr %.016.i.i.i.i, align 8, !tbaa !69
   %40 = add i32 %37, 1
@@ -11576,7 +11573,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9sandboxir7Tracker17empla
   br i1 %.not.i.i.not.i.i, label %_ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_deleteIS3_EE.exit, label %22, !prof !67
 
 22:                                               ; preds = %7
-  %23 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %.pre3.i.i, i64 %17
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %.pre3.i.i, i64 %17
   %24 = icmp uge ptr %3, %.pre3.i.i
   %25 = icmp ult ptr %3, %23
   %spec.select.i.i.i.i.i.i = and i1 %24, %25
@@ -11603,7 +11600,7 @@ _ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_
   %.016.i.i.i.i = phi ptr [ %3, %7 ], [ %31, %26 ], [ %3, %.critedge.i.i.i.i ]
   %34 = load i32, ptr %15, align 8, !tbaa !49
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %33, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %35
   store i64 %32, ptr %36, align 8, !tbaa !69
   store ptr null, ptr %.016.i.i.i.i, align 8, !tbaa !69
   %37 = add i32 %34, 1
@@ -11789,7 +11786,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9sandboxir7Tracker17empla
   br i1 %.not.i.i.not.i.i, label %_ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_deleteIS3_EE.exit, label %22, !prof !67
 
 22:                                               ; preds = %7
-  %23 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %.pre3.i.i, i64 %17
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %.pre3.i.i, i64 %17
   %24 = icmp uge ptr %3, %.pre3.i.i
   %25 = icmp ult ptr %3, %23
   %spec.select.i.i.i.i.i.i = and i1 %24, %25
@@ -11816,7 +11813,7 @@ _ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_
   %.016.i.i.i.i = phi ptr [ %3, %7 ], [ %31, %26 ], [ %3, %.critedge.i.i.i.i ]
   %34 = load i32, ptr %15, align 8, !tbaa !49
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %33, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %35
   store i64 %32, ptr %36, align 8, !tbaa !69
   store ptr null, ptr %.016.i.i.i.i, align 8, !tbaa !69
   %37 = add i32 %34, 1
@@ -12022,7 +12019,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9sandboxir7Tracker17empla
   br i1 %.not.i.i.not.i.i, label %_ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_deleteIS3_EE.exit, label %25, !prof !67
 
 25:                                               ; preds = %7
-  %26 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %.pre3.i.i, i64 %20
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %.pre3.i.i, i64 %20
   %27 = icmp uge ptr %3, %.pre3.i.i
   %28 = icmp ult ptr %3, %26
   %spec.select.i.i.i.i.i.i = and i1 %27, %28
@@ -12049,7 +12046,7 @@ _ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_
   %.016.i.i.i.i = phi ptr [ %3, %7 ], [ %34, %29 ], [ %3, %.critedge.i.i.i.i ]
   %37 = load i32, ptr %18, align 8, !tbaa !49
   %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %36, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %38
   store i64 %35, ptr %39, align 8, !tbaa !69
   store ptr null, ptr %.016.i.i.i.i, align 8, !tbaa !69
   %40 = add i32 %37, 1
@@ -12125,7 +12122,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9sandboxir7Tracker17empla
   br i1 %.not.i.i.not.i.i, label %_ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_deleteIS3_EE.exit, label %24, !prof !67
 
 24:                                               ; preds = %7
-  %25 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %.pre3.i.i, i64 %19
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %.pre3.i.i, i64 %19
   %26 = icmp uge ptr %3, %.pre3.i.i
   %27 = icmp ult ptr %3, %25
   %spec.select.i.i.i.i.i.i = and i1 %26, %27
@@ -12152,7 +12149,7 @@ _ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_
   %.016.i.i.i.i = phi ptr [ %3, %7 ], [ %33, %28 ], [ %3, %.critedge.i.i.i.i ]
   %36 = load i32, ptr %17, align 8, !tbaa !49
   %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %35, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %37
   store i64 %34, ptr %38, align 8, !tbaa !69
   store ptr null, ptr %.016.i.i.i.i, align 8, !tbaa !69
   %39 = add i32 %36, 1
@@ -12229,7 +12226,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9sandboxir7Tracker17empla
   br i1 %.not.i.i.not.i.i, label %_ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_deleteIS3_EE.exit, label %25, !prof !67
 
 25:                                               ; preds = %7
-  %26 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %.pre3.i.i, i64 %20
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %.pre3.i.i, i64 %20
   %27 = icmp uge ptr %3, %.pre3.i.i
   %28 = icmp ult ptr %3, %26
   %spec.select.i.i.i.i.i.i = and i1 %27, %28
@@ -12256,7 +12253,7 @@ _ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_
   %.016.i.i.i.i = phi ptr [ %3, %7 ], [ %34, %29 ], [ %3, %.critedge.i.i.i.i ]
   %37 = load i32, ptr %18, align 8, !tbaa !49
   %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %36, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %38
   store i64 %35, ptr %39, align 8, !tbaa !69
   store ptr null, ptr %.016.i.i.i.i, align 8, !tbaa !69
   %40 = add i32 %37, 1
@@ -12334,7 +12331,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9sandboxir7Tracker17empla
   br i1 %.not.i.i.not.i.i, label %_ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_deleteIS3_EE.exit, label %25, !prof !67
 
 25:                                               ; preds = %7
-  %26 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %.pre3.i.i, i64 %20
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %.pre3.i.i, i64 %20
   %27 = icmp uge ptr %3, %.pre3.i.i
   %28 = icmp ult ptr %3, %26
   %spec.select.i.i.i.i.i.i = and i1 %27, %28
@@ -12361,7 +12358,7 @@ _ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_
   %.016.i.i.i.i = phi ptr [ %3, %7 ], [ %34, %29 ], [ %3, %.critedge.i.i.i.i ]
   %37 = load i32, ptr %18, align 8, !tbaa !49
   %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %36, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %38
   store i64 %35, ptr %39, align 8, !tbaa !69
   store ptr null, ptr %.016.i.i.i.i, align 8, !tbaa !69
   %40 = add i32 %37, 1
@@ -12439,7 +12436,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9sandboxir7Tracker17empla
   br i1 %.not.i.i.not.i.i, label %_ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_deleteIS3_EE.exit, label %25, !prof !67
 
 25:                                               ; preds = %7
-  %26 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %.pre3.i.i, i64 %20
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %.pre3.i.i, i64 %20
   %27 = icmp uge ptr %3, %.pre3.i.i
   %28 = icmp ult ptr %3, %26
   %spec.select.i.i.i.i.i.i = and i1 %27, %28
@@ -12466,7 +12463,7 @@ _ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_
   %.016.i.i.i.i = phi ptr [ %3, %7 ], [ %34, %29 ], [ %3, %.critedge.i.i.i.i ]
   %37 = load i32, ptr %18, align 8, !tbaa !49
   %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %36, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %38
   store i64 %35, ptr %39, align 8, !tbaa !69
   store ptr null, ptr %.016.i.i.i.i, align 8, !tbaa !69
   %40 = add i32 %37, 1
@@ -12653,7 +12650,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9sandboxir7Tracker17empla
   br i1 %.not.i.i.not.i.i, label %_ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_deleteIS3_EE.exit, label %16, !prof !67
 
 16:                                               ; preds = %7
-  %17 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %.pre3.i.i, i64 %11
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %.pre3.i.i, i64 %11
   %18 = icmp uge ptr %3, %.pre3.i.i
   %19 = icmp ult ptr %3, %17
   %spec.select.i.i.i.i.i.i = and i1 %18, %19
@@ -12680,7 +12677,7 @@ _ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_
   %.016.i.i.i.i = phi ptr [ %3, %7 ], [ %25, %20 ], [ %3, %.critedge.i.i.i.i ]
   %28 = load i32, ptr %9, align 8, !tbaa !49
   %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %27, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %29
   store i64 %26, ptr %30, align 8, !tbaa !69
   store ptr null, ptr %.016.i.i.i.i, align 8, !tbaa !69
   %31 = add i32 %28, 1
@@ -12756,7 +12753,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9sandboxir7Tracker17empla
   br i1 %.not.i.i.not.i.i, label %_ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_deleteIS3_EE.exit, label %24, !prof !67
 
 24:                                               ; preds = %7
-  %25 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %.pre3.i.i, i64 %19
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %.pre3.i.i, i64 %19
   %26 = icmp uge ptr %3, %.pre3.i.i
   %27 = icmp ult ptr %3, %25
   %spec.select.i.i.i.i.i.i = and i1 %26, %27
@@ -12783,7 +12780,7 @@ _ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_
   %.016.i.i.i.i = phi ptr [ %3, %7 ], [ %33, %28 ], [ %3, %.critedge.i.i.i.i ]
   %36 = load i32, ptr %17, align 8, !tbaa !49
   %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %35, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %37
   store i64 %34, ptr %38, align 8, !tbaa !69
   store ptr null, ptr %.016.i.i.i.i, align 8, !tbaa !69
   %39 = add i32 %36, 1
@@ -12860,7 +12857,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9sandboxir7Tracker17empla
   br i1 %.not.i.i.not.i.i, label %_ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_deleteIS3_EE.exit, label %25, !prof !67
 
 25:                                               ; preds = %7
-  %26 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %.pre3.i.i, i64 %20
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %.pre3.i.i, i64 %20
   %27 = icmp uge ptr %3, %.pre3.i.i
   %28 = icmp ult ptr %3, %26
   %spec.select.i.i.i.i.i.i = and i1 %27, %28
@@ -12887,7 +12884,7 @@ _ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_
   %.016.i.i.i.i = phi ptr [ %3, %7 ], [ %34, %29 ], [ %3, %.critedge.i.i.i.i ]
   %37 = load i32, ptr %18, align 8, !tbaa !49
   %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %36, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %38
   store i64 %35, ptr %39, align 8, !tbaa !69
   store ptr null, ptr %.016.i.i.i.i, align 8, !tbaa !69
   %40 = add i32 %37, 1
@@ -12991,7 +12988,7 @@ define dso_local noundef ptr @_ZN4llvm9sandboxir8CastInst6createEPNS0_4TypeENS0_
 switch.lookup:
   %6 = tail call noundef nonnull align 8 dereferenceable(144) ptr @_ZN4llvm9sandboxir11Instruction12setInsertPosENS0_14InsertPositionE(ptr noundef nonnull byval(%"class.llvm::sandboxir::InsertPosition") align 8 %3)
   %7 = sext i32 %1 to i64
-  %8 = getelementptr i32, ptr @switch.table._ZN4llvm9sandboxir8CastInst6createEPNS0_4TypeENS0_11Instruction6OpcodeEPNS0_5ValueENS0_14InsertPositionERNS0_7ContextERKNS_5TwineE, i64 %7
+  %8 = getelementptr [4 x i8], ptr @switch.table._ZN4llvm9sandboxir8CastInst6createEPNS0_4TypeENS0_11Instruction6OpcodeEPNS0_5ValueENS0_14InsertPositionERNS0_7ContextERKNS_5TwineE, i64 %7
   %switch.gep = getelementptr i8, ptr %8, i64 -192
   %switch.load = load i32, ptr %switch.gep, align 4
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -13286,7 +13283,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9sandboxir7Tracker17empla
   br i1 %.not.i.i.not.i.i, label %_ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_deleteIS3_EE.exit, label %22, !prof !67
 
 22:                                               ; preds = %7
-  %23 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %.pre3.i.i, i64 %17
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %.pre3.i.i, i64 %17
   %24 = icmp uge ptr %3, %.pre3.i.i
   %25 = icmp ult ptr %3, %23
   %spec.select.i.i.i.i.i.i = and i1 %24, %25
@@ -13313,7 +13310,7 @@ _ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_
   %.016.i.i.i.i = phi ptr [ %3, %7 ], [ %31, %26 ], [ %3, %.critedge.i.i.i.i ]
   %34 = load i32, ptr %15, align 8, !tbaa !49
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %33, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %35
   store i64 %32, ptr %36, align 8, !tbaa !69
   store ptr null, ptr %.016.i.i.i.i, align 8, !tbaa !69
   %37 = add i32 %34, 1
@@ -13682,7 +13679,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9sandboxir7Tracker17empla
   br i1 %.not.i.i.not.i.i, label %_ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_deleteIS3_EE.exit, label %16, !prof !67
 
 16:                                               ; preds = %7
-  %17 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %.pre3.i.i, i64 %11
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %.pre3.i.i, i64 %11
   %18 = icmp uge ptr %3, %.pre3.i.i
   %19 = icmp ult ptr %3, %17
   %spec.select.i.i.i.i.i.i = and i1 %18, %19
@@ -13709,7 +13706,7 @@ _ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_
   %.016.i.i.i.i = phi ptr [ %3, %7 ], [ %25, %20 ], [ %3, %.critedge.i.i.i.i ]
   %28 = load i32, ptr %9, align 8, !tbaa !49
   %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %27, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %29
   store i64 %26, ptr %30, align 8, !tbaa !69
   store ptr null, ptr %.016.i.i.i.i, align 8, !tbaa !69
   %31 = add i32 %28, 1
@@ -13843,7 +13840,7 @@ define dso_local void @_ZN4llvm9sandboxir17ShuffleVectorInst7commuteEv(ptr nound
   br i1 %.not.i.i.not.i.i.i, label %_ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_deleteIS3_EE.exit.i, label %31, !prof !67
 
 31:                                               ; preds = %20
-  %32 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %.pre3.i.i.i, i64 %26
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %.pre3.i.i.i, i64 %26
   %33 = icmp uge ptr %2, %.pre3.i.i.i
   %34 = icmp ult ptr %2, %32
   %spec.select.i.i.i.i.i.i.i = and i1 %33, %34
@@ -13870,7 +13867,7 @@ _ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_
   %.016.i.i.i.i.i = phi ptr [ %2, %20 ], [ %40, %35 ], [ %2, %.critedge.i.i.i.i.i ]
   %43 = load i32, ptr %24, align 8, !tbaa !49
   %44 = zext i32 %43 to i64
-  %45 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %42, i64 %44
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %44
   store i64 %41, ptr %45, align 8, !tbaa !69
   store ptr null, ptr %.016.i.i.i.i.i, align 8, !tbaa !69
   %46 = add i32 %43, 1
@@ -14390,7 +14387,7 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_4TypeES
   %17 = add i32 %8, -1
   %.02944.i = and i32 %16, %17
   %18 = zext nneg i32 %.02944.i to i64
-  %19 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %6, i64 %18
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !323
   %21 = icmp eq ptr %11, %20
   br i1 %21, label %.loopexit, label %.lr.ph.i, !prof !661
@@ -14418,7 +14415,7 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_4TypeES
   %31 = add i32 %.02746.i, %.02947.i
   %.029.i = and i32 %31, %17
   %32 = zext i32 %.029.i to i64
-  %33 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %6, i64 %32
+  %33 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %32
   %34 = load ptr, ptr %33, align 8, !tbaa !323
   %35 = icmp eq ptr %11, %34
   br i1 %35, label %.loopexit, label %.lr.ph.i, !prof !662, !llvm.loop !663
@@ -14491,7 +14488,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_4TypeESt10unique_ptrINS_9sandboxir4TypeE
   %.sink29 = phi ptr [ %50, %59 ], [ %19, %10 ], [ %33, %27 ]
   %.sink = phi i8 [ 1, %59 ], [ 0, %10 ], [ 0, %27 ]
   %65 = zext i32 %.sink32 to i64
-  %66 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %.sink30, i64 %65
+  %66 = getelementptr inbounds nuw [16 x i8], ptr %.sink30, i64 %65
   store ptr %.sink29, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %66, ptr %.sroa.4.0..sroa_idx, align 8
@@ -14518,7 +14515,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   %15 = add i32 %6, -1
   %.02944 = and i32 %14, %15
   %16 = zext nneg i32 %.02944 to i64
-  %17 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %16
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !323
   %19 = icmp eq ptr %9, %18
   br i1 %19, label %.thread, label %.lr.ph, !prof !661
@@ -14546,7 +14543,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   %29 = add i32 %.02947, %.02746
   %.029 = and i32 %29, %15
   %30 = zext i32 %.029 to i64
-  %31 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %30
+  %31 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !323
   %33 = icmp eq ptr %9, %32
   br i1 %33, label %.thread, label %.lr.ph, !prof !662, !llvm.loop !663
@@ -14655,7 +14652,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_4TypeESt10unique_ptrINS_9sandboxir4TypeE
   %46 = xor i32 %44, %45
   %.02944.i.i = and i32 %46, %39
   %47 = zext nneg i32 %.02944.i.i to i64
-  %48 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %21, i64 %47
+  %48 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %47
   %49 = load ptr, ptr %48, align 8, !tbaa !323
   %50 = icmp eq ptr %41, %49
   br i1 %50, label %_ZNSt10unique_ptrIN4llvm9sandboxir4TypeENS1_7Context11TypeDeleterEED2Ev.exit.i, label %.lr.ph.i15.i, !prof !661
@@ -14683,7 +14680,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_4TypeESt10unique_ptrINS_9sandboxir4TypeE
   %60 = add i32 %.02746.i.i, %.02947.i.i
   %.029.i.i = and i32 %60, %39
   %61 = zext i32 %.029.i.i to i64
-  %62 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %21, i64 %61
+  %62 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %61
   %63 = load ptr, ptr %62, align 8, !tbaa !323
   %64 = icmp eq ptr %41, %63
   br i1 %64, label %_ZNSt10unique_ptrIN4llvm9sandboxir4TypeENS1_7Context11TypeDeleterEED2Ev.exit.i, label %.lr.ph.i15.i, !prof !662, !llvm.loop !663
@@ -14937,7 +14934,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIjPNS_6MDNodeEELb1EE9push_backES4_.exit
   %14 = phi i32 [ %7, %3 ], [ %.pre.i, %10 ]
   %15 = load ptr, ptr %0, align 8, !tbaa !46
   %16 = zext i32 %14 to i64
-  %17 = getelementptr inbounds nuw %"struct.std::pair.169", ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %16
   store i32 %4, ptr %17, align 1
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %5, ptr %.sroa.22.0..sroa_idx.i, align 1
@@ -14946,7 +14943,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIjPNS_6MDNodeEELb1EE9push_backES4_.exit
   store i32 %19, ptr %6, align 8, !tbaa !49
   %20 = load ptr, ptr %0, align 8, !tbaa !46
   %21 = zext i32 %19 to i64
-  %22 = getelementptr inbounds nuw %"struct.std::pair.169", ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %21
   %23 = getelementptr inbounds i8, ptr %22, i64 -16
   ret ptr %23
 }
@@ -15197,10 +15194,10 @@ _ZNK4llvm8CallBase17hasOperandBundlesEv.exit.i:   ; preds = %14, %_ZNK4llvm8Call
 _ZNK4llvm8CallBase25getNumTotalBundleOperandsEv.exit: ; preds = %_ZNK4llvm8CallBase17hasOperandBundlesEv.exit.i, %23
   %.0.i = phi i64 [ %35, %23 ], [ 0, %_ZNK4llvm8CallBase17hasOperandBundlesEv.exit.i ]
   %36 = sub nsw i64 0, %.0.i.i
-  %37 = getelementptr inbounds %"class.llvm::Use", ptr %0, i64 %36
+  %37 = getelementptr inbounds [32 x i8], ptr %0, i64 %36
   %38 = getelementptr inbounds i8, ptr %37, i64 -32
   %39 = sub nsw i64 0, %.0.i
-  %40 = getelementptr inbounds %"class.llvm::Use", ptr %38, i64 %39
+  %40 = getelementptr inbounds [32 x i8], ptr %38, i64 %39
   ret ptr %40
 }
 
@@ -16174,7 +16171,7 @@ define linkonce_odr hidden void @_ZN4llvm9sandboxir13GenericSetterIXadL_ZNKS0_10
   %16 = load i32, ptr %15, align 8, !tbaa !342
   %17 = zext i32 %16 to i64
   %18 = sub nsw i64 0, %17
-  %19 = getelementptr %"class.llvm::Use", ptr %12, i64 %18
+  %19 = getelementptr [32 x i8], ptr %12, i64 %18
   %20 = getelementptr i8, ptr %19, i64 -64
   %21 = load ptr, ptr %20, align 8, !tbaa !75
   %.not.i.i.i.i = icmp eq ptr %21, null
@@ -16254,9 +16251,9 @@ define linkonce_odr hidden void @_ZN4llvm9sandboxir20GenericSetterWithIdxIXadL_Z
   %19 = load i32, ptr %18, align 8, !tbaa !342
   %20 = zext i32 %19 to i64
   %21 = sub nsw i64 0, %20
-  %22 = getelementptr inbounds %"class.llvm::Use", ptr %17, i64 %21
+  %22 = getelementptr inbounds [32 x i8], ptr %17, i64 %21
   %23 = zext i32 %6 to i64
-  %24 = getelementptr inbounds nuw %"class.llvm::Use", ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !75
   %.not.i.i.i.i = icmp eq ptr %25, null
   br i1 %.not.i.i.i.i, label %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i, label %26
@@ -16439,9 +16436,9 @@ define linkonce_odr hidden void @_ZN4llvm9sandboxir20GenericSetterWithIdxIXadL_Z
   %19 = and i32 %18, 134217727
   %20 = zext nneg i32 %19 to i64
   %21 = sub nsw i64 0, %20
-  %22 = getelementptr inbounds %"class.llvm::Use", ptr %14, i64 %21
+  %22 = getelementptr inbounds [32 x i8], ptr %14, i64 %21
   %23 = zext i32 %6 to i64
-  %24 = getelementptr inbounds nuw %"class.llvm::Use", ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !75
   %.not.i.i.i.i.i = icmp eq ptr %25, null
   br i1 %.not.i.i.i.i.i, label %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i, label %26
@@ -16662,7 +16659,7 @@ define linkonce_odr hidden void @_ZN4llvm9sandboxir13GenericSetterIXadL_ZNKS0_17
   %17 = and i32 %16, 134217727
   %18 = zext nneg i32 %17 to i64
   %19 = sub nsw i64 0, %18
-  %20 = getelementptr inbounds %"class.llvm::Use", ptr %12, i64 %19
+  %20 = getelementptr inbounds [32 x i8], ptr %12, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !75
   %.not.i.i.i.i = icmp eq ptr %21, null
   br i1 %.not.i.i.i.i, label %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i, label %22
@@ -16739,7 +16736,7 @@ define linkonce_odr hidden void @_ZN4llvm9sandboxir13GenericSetterIXadL_ZNKS0_17
   %17 = and i32 %16, 134217727
   %18 = zext nneg i32 %17 to i64
   %19 = sub nsw i64 0, %18
-  %20 = getelementptr inbounds %"class.llvm::Use", ptr %12, i64 %19
+  %20 = getelementptr inbounds [32 x i8], ptr %12, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 32
   %22 = load ptr, ptr %21, align 8, !tbaa !75
   %.not.i.i.i.i = icmp eq ptr %22, null
@@ -16817,7 +16814,7 @@ define linkonce_odr hidden void @_ZN4llvm9sandboxir20GenericSetterWithIdxIXadL_Z
   %17 = getelementptr inbounds i8, ptr %14, i64 -8
   %18 = load ptr, ptr %17, align 8, !tbaa !73
   %19 = zext i32 %6 to i64
-  %20 = getelementptr inbounds nuw %"class.llvm::Use", ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw [32 x i8], ptr %18, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !75
   %.not.i.i.i.i.i = icmp eq ptr %21, null
   br i1 %.not.i.i.i.i.i, label %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i, label %22
@@ -16896,9 +16893,9 @@ define linkonce_odr hidden void @_ZN4llvm9sandboxir20GenericSetterWithIdxIXadL_Z
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 72
   %20 = load i32, ptr %19, align 8, !tbaa !419
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw %"class.llvm::Use", ptr %18, i64 %21
+  %22 = getelementptr inbounds nuw [32 x i8], ptr %18, i64 %21
   %23 = zext i32 %6 to i64
-  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %23
   store ptr %16, ptr %24, align 8, !tbaa !349
   ret void
 }
@@ -17271,7 +17268,7 @@ define linkonce_odr hidden void @_ZN4llvm9sandboxir20GenericSetterWithIdxIXadL_Z
   %19 = getelementptr inbounds i8, ptr %14, i64 -8
   %20 = load ptr, ptr %19, align 8, !tbaa !73
   %21 = zext i32 %18 to i64
-  %22 = getelementptr inbounds nuw %"class.llvm::Use", ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !75
   %.not.i.i.i.i.i = icmp eq ptr %23, null
   br i1 %.not.i.i.i.i.i, label %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i, label %24

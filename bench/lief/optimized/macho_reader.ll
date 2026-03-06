@@ -1858,7 +1858,7 @@ _ZNSt12_Vector_baseISt8functionIFbRKSt10unique_ptrIN4LIEF5MachO6SymbolESt14defau
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %22, ptr %0, align 8, !tbaa !90
   store ptr %.0.lcssa.i.i.i.i35, ptr %4, align 8, !tbaa !91
-  %61 = getelementptr inbounds nuw %"class.std::function", ptr %22, i64 %16
+  %61 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %61, ptr %60, align 8, !tbaa !162
   ret void
 

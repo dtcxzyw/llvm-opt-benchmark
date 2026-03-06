@@ -413,7 +413,7 @@ define internal fastcc void @_ZL8res_initP12ResourceDataPhPKviP10UErrorCode(ptr 
 
 114:                                              ; preds = %.thread86
   %115 = sext i32 %112 to i64
-  %116 = getelementptr inbounds i32, ptr %2, i64 %115
+  %116 = getelementptr inbounds [4 x i8], ptr %2, i64 %115
   store ptr %116, ptr %9, align 8, !tbaa !24
   br label %.thread89
 
@@ -495,7 +495,7 @@ define ptr @res_getStringNoTrace_77(ptr noundef readonly captures(none) %0, i32 
   %.sink.in = getelementptr inbounds nuw i8, ptr %0, i64 %.sink.in.v
   %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !33
   %11 = zext i32 %.sink47 to i64
-  %12 = getelementptr inbounds nuw i16, ptr %.sink, i64 %11
+  %12 = getelementptr inbounds nuw [2 x i8], ptr %.sink, i64 %11
   %13 = load i16, ptr %12, align 2, !tbaa !34
   %14 = zext i16 %13 to i32
   %15 = and i32 %14, 64512
@@ -553,7 +553,7 @@ define ptr @res_getStringNoTrace_77(ptr noundef readonly captures(none) %0, i32 
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %50 = load ptr, ptr %49, align 8, !tbaa !14
   %51 = zext nneg i32 %1 to i64
-  %52 = getelementptr inbounds nuw i32, ptr %50, i64 %51
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %51
   br label %53
 
 53:                                               ; preds = %46, %48
@@ -593,7 +593,7 @@ define ptr @res_getAlias_77(ptr noundef readonly captures(none) %0, i32 noundef 
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !14
   %11 = zext nneg i32 %4 to i64
-  %12 = getelementptr inbounds nuw i32, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %11
   br label %13
 
 13:                                               ; preds = %6, %8
@@ -631,7 +631,7 @@ define ptr @res_getBinaryNoTrace_77(ptr noundef readonly captures(none) %0, i32 
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !14
   %11 = zext nneg i32 %4 to i64
-  %12 = getelementptr inbounds nuw i32, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %11
   br label %13
 
 13:                                               ; preds = %6, %8
@@ -669,7 +669,7 @@ define ptr @res_getIntVectorNoTrace_77(ptr noundef readonly captures(none) %0, i
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !14
   %11 = zext nneg i32 %4 to i64
-  %12 = getelementptr inbounds nuw i32, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %11
   br label %13
 
 13:                                               ; preds = %6, %8
@@ -718,7 +718,7 @@ define i32 @res_countArrayItems_77(ptr noundef readonly captures(none) %0, i32 n
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !14
   %10 = zext nneg i32 %3 to i64
-  %11 = getelementptr inbounds nuw i32, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %10
   %12 = load i32, ptr %11, align 4, !tbaa !22
   br label %30
 
@@ -730,7 +730,7 @@ define i32 @res_countArrayItems_77(ptr noundef readonly captures(none) %0, i32 n
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !14
   %18 = zext nneg i32 %3 to i64
-  %19 = getelementptr inbounds nuw i32, ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %18
   %20 = load i16, ptr %19, align 2, !tbaa !36
   %21 = zext i16 %20 to i32
   br label %30
@@ -739,7 +739,7 @@ define i32 @res_countArrayItems_77(ptr noundef readonly captures(none) %0, i32 n
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load ptr, ptr %23, align 8, !tbaa !24
   %25 = zext nneg i32 %3 to i64
-  %26 = getelementptr inbounds nuw i16, ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %25
   %27 = load i16, ptr %26, align 2, !tbaa !36
   %28 = zext i16 %27 to i32
   br label %30
@@ -809,7 +809,7 @@ define noundef ptr @_ZNK6icu_7717ResourceDataValue9getStringERiR10UErrorCode(ptr
   %.sink.in.i.i = getelementptr inbounds nuw i8, ptr %8, i64 %.sink.in.i.v.i
   %.sink.i.i = load ptr, ptr %.sink.in.i.i, align 8, !tbaa !33
   %18 = zext i32 %.sink47.i.i to i64
-  %19 = getelementptr inbounds nuw i16, ptr %.sink.i.i, i64 %18
+  %19 = getelementptr inbounds nuw [2 x i8], ptr %.sink.i.i, i64 %18
   %20 = load i16, ptr %19, align 2, !tbaa !34
   %21 = zext i16 %20 to i32
   %22 = and i32 %21, 64512
@@ -867,7 +867,7 @@ define noundef ptr @_ZNK6icu_7717ResourceDataValue9getStringERiR10UErrorCode(ptr
   %56 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %57 = load ptr, ptr %56, align 8, !tbaa !14
   %58 = zext nneg i32 %10 to i64
-  %59 = getelementptr inbounds nuw i32, ptr %57, i64 %58
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %58
   br label %60
 
 60:                                               ; preds = %55, %53
@@ -916,7 +916,7 @@ define noundef ptr @_ZNK6icu_7717ResourceDataValue14getAliasStringERiR10UErrorCo
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !14
   %18 = zext nneg i32 %11 to i64
-  %19 = getelementptr inbounds nuw i32, ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %18
   br label %res_getAlias_77.exit
 
 res_getAlias_77.exit:                             ; preds = %13, %15
@@ -1013,7 +1013,7 @@ define noundef ptr @_ZNK6icu_7717ResourceDataValue12getIntVectorERiR10UErrorCode
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !14
   %18 = zext nneg i32 %11 to i64
-  %19 = getelementptr inbounds nuw i32, ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %18
   br label %_ZN6icu_7716res_getIntVectorERKNS_14ResourceTracerEPK12ResourceDatajPi.exit
 
 _ZN6icu_7716res_getIntVectorERKNS_14ResourceTracerEPK12ResourceDatajPi.exit: ; preds = %13, %15
@@ -1057,7 +1057,7 @@ define noundef ptr @_ZNK6icu_7717ResourceDataValue9getBinaryERiR10UErrorCode(ptr
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !14
   %18 = zext nneg i32 %11 to i64
-  %19 = getelementptr inbounds nuw i32, ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %18
   br label %_ZN6icu_7713res_getBinaryERKNS_14ResourceTracerEPK12ResourceDatajPi.exit
 
 _ZN6icu_7713res_getBinaryERKNS_14ResourceTracerEPK12ResourceDatajPi.exit: ; preds = %13, %15
@@ -1107,7 +1107,7 @@ define void @_ZNK6icu_7717ResourceDataValue8getArrayER10UErrorCode(ptr dead_on_u
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !14
   %18 = zext nneg i32 %10 to i64
-  %19 = getelementptr inbounds nuw i32, ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %21 = load i32, ptr %19, align 4, !tbaa !22
   br label %33
@@ -1118,7 +1118,7 @@ define void @_ZNK6icu_7717ResourceDataValue8getArrayER10UErrorCode(ptr dead_on_u
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load ptr, ptr %25, align 8, !tbaa !24
   %27 = zext nneg i32 %10 to i64
-  %28 = getelementptr inbounds nuw i16, ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw [2 x i8], ptr %26, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 2
   %30 = load i16, ptr %28, align 2, !tbaa !36
   %31 = zext i16 %30 to i32
@@ -1175,16 +1175,16 @@ define void @_ZNK6icu_7717ResourceDataValue8getTableER10UErrorCode(ptr dead_on_u
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !14
   %18 = zext nneg i32 %10 to i64
-  %19 = getelementptr inbounds nuw i32, ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 2
   %21 = load i16, ptr %19, align 2, !tbaa !36
   %22 = zext i16 %21 to i32
   %23 = zext i16 %21 to i64
-  %24 = getelementptr inbounds nuw i16, ptr %20, i64 %23
+  %24 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %23
   %25 = and i32 %22, 1
   %26 = xor i32 %25, 1
   %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr inbounds nuw i16, ptr %24, i64 %27
+  %28 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %27
   br label %54
 
 29:                                               ; preds = %7
@@ -1193,12 +1193,12 @@ define void @_ZNK6icu_7717ResourceDataValue8getTableER10UErrorCode(ptr dead_on_u
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %33 = load ptr, ptr %32, align 8, !tbaa !24
   %34 = zext nneg i32 %10 to i64
-  %35 = getelementptr inbounds nuw i16, ptr %33, i64 %34
+  %35 = getelementptr inbounds nuw [2 x i8], ptr %33, i64 %34
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 2
   %37 = load i16, ptr %35, align 2, !tbaa !36
   %38 = zext i16 %37 to i32
   %39 = zext i16 %37 to i64
-  %40 = getelementptr inbounds nuw i16, ptr %36, i64 %39
+  %40 = getelementptr inbounds nuw [2 x i8], ptr %36, i64 %39
   br label %54
 
 41:                                               ; preds = %7
@@ -1211,11 +1211,11 @@ define void @_ZNK6icu_7717ResourceDataValue8getTableER10UErrorCode(ptr dead_on_u
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %46 = load ptr, ptr %45, align 8, !tbaa !14
   %47 = zext nneg i32 %10 to i64
-  %48 = getelementptr inbounds nuw i32, ptr %46, i64 %47
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 4
   %50 = load i32, ptr %48, align 4, !tbaa !22
   %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds i32, ptr %49, i64 %51
+  %52 = getelementptr inbounds [4 x i8], ptr %49, i64 %51
   br label %54
 
 53:                                               ; preds = %7
@@ -1262,7 +1262,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7717ResourceDataValue21isNoIn
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !14
   %13 = zext nneg i32 %5 to i64
-  %14 = getelementptr inbounds nuw i32, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !22
   %16 = icmp eq i32 %15, 3
   br i1 %16, label %17, label %_ZN12_GLOBAL__N_121isNoInheritanceMarkerEPK12ResourceDataj.exit
@@ -1300,7 +1300,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7717ResourceDataValue21isNoIn
   %.sink.in.i = getelementptr inbounds nuw i8, ptr %3, i64 %.sink.in.i.v
   %.sink.i = load ptr, ptr %.sink.in.i, align 8, !tbaa !33
   %36 = zext i32 %.sink39.i to i64
-  %37 = getelementptr inbounds nuw i16, ptr %.sink.i, i64 %36
+  %37 = getelementptr inbounds nuw [2 x i8], ptr %.sink.i, i64 %36
   %38 = load i16, ptr %37, align 2, !tbaa !34
   switch i16 %38, label %_ZN12_GLOBAL__N_121isNoInheritanceMarkerEPK12ResourceDataj.exit [
     i16 8709, label %39
@@ -1412,7 +1412,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_114getStringArrayEPK12Resour
   br i1 %.not.i, label %37, label %26
 
 26:                                               ; preds = %24
-  %27 = getelementptr inbounds nuw i16, ptr %25, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [2 x i8], ptr %25, i64 %indvars.iv
   %28 = load i16, ptr %27, align 2, !tbaa !36
   %29 = zext i16 %28 to i32
   %30 = load i32, ptr %20, align 4, !tbaa !31
@@ -1432,7 +1432,7 @@ _ZL18makeResourceFrom16PK12ResourceDatai.exit.i:  ; preds = %32, %26
 
 37:                                               ; preds = %24
   %38 = load ptr, ptr %22, align 8, !tbaa !47
-  %39 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %indvars.iv
   %40 = load i32, ptr %39, align 4, !tbaa !22
   br label %_ZNK6icu_7713ResourceArray19internalGetResourceEPK12ResourceDatai.exit
 
@@ -1452,7 +1452,7 @@ _ZNK6icu_7713ResourceArray19internalGetResourceEPK12ResourceDatai.exit: ; preds 
   %.sink.in.i = getelementptr inbounds nuw i8, ptr %0, i64 %.sink.in.i.v
   %.sink.i = load ptr, ptr %.sink.in.i, align 8, !tbaa !33
   %47 = zext i32 %.sink47.i to i64
-  %48 = getelementptr inbounds nuw i16, ptr %.sink.i, i64 %47
+  %48 = getelementptr inbounds nuw [2 x i8], ptr %.sink.i, i64 %47
   %49 = load i16, ptr %48, align 2, !tbaa !34
   %50 = zext i16 %49 to i32
   %51 = and i32 %50, 64512
@@ -1509,7 +1509,7 @@ _ZNK6icu_7713ResourceArray19internalGetResourceEPK12ResourceDatai.exit: ; preds 
 84:                                               ; preds = %82
   %85 = load ptr, ptr %23, align 8, !tbaa !14
   %86 = zext nneg i32 %.0.i to i64
-  %87 = getelementptr inbounds nuw i32, ptr %85, i64 %86
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %85, i64 %86
   br label %88
 
 88:                                               ; preds = %84, %82
@@ -1521,7 +1521,7 @@ _ZNK6icu_7713ResourceArray19internalGetResourceEPK12ResourceDatai.exit: ; preds 
 92:                                               ; preds = %53, %88, %57, %62, %70
   %.133.i.ph = phi i32 [ %78, %70 ], [ %68, %62 ], [ %58, %57 ], [ %91, %88 ], [ %54, %53 ]
   %.2.i.ph = phi ptr [ %79, %70 ], [ %69, %62 ], [ %59, %57 ], [ %90, %88 ], [ %48, %53 ]
-  %93 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %2, i64 %indvars.iv
+  %93 = getelementptr inbounds nuw [64 x i8], ptr %2, i64 %indvars.iv
   store ptr %.2.i.ph, ptr %6, align 8, !tbaa !57
   %94 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString5setToEaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %93, i8 noundef signext 1, ptr noundef nonnull %6, i32 noundef %.133.i.ph)
           to label %95 unwind label %97
@@ -1620,7 +1620,7 @@ define noundef i32 @_ZNK6icu_7717ResourceDataValue29getStringArrayOrStringAsArra
   %.sink.in.i.i = getelementptr inbounds nuw i8, ptr %30, i64 %.sink.in.i.v.i
   %.sink.i.i = load ptr, ptr %.sink.in.i.i, align 8, !tbaa !33
   %38 = zext i32 %.sink47.i.i to i64
-  %39 = getelementptr inbounds nuw i16, ptr %.sink.i.i, i64 %38
+  %39 = getelementptr inbounds nuw [2 x i8], ptr %.sink.i.i, i64 %38
   %40 = load i16, ptr %39, align 2, !tbaa !34
   %41 = zext i16 %40 to i32
   %42 = and i32 %41, 64512
@@ -1678,7 +1678,7 @@ define noundef i32 @_ZNK6icu_7717ResourceDataValue29getStringArrayOrStringAsArra
   %76 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %77 = load ptr, ptr %76, align 8, !tbaa !14
   %78 = zext nneg i32 %8 to i64
-  %79 = getelementptr inbounds nuw i32, ptr %77, i64 %78
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %78
   br label %80
 
 80:                                               ; preds = %75, %73
@@ -1751,7 +1751,7 @@ define void @_ZNK6icu_7717ResourceDataValue23getStringOrFirstOfArrayER10UErrorCo
   %.sink.in.i.i = getelementptr inbounds nuw i8, ptr %12, i64 %.sink.in.i.v.i
   %.sink.i.i = load ptr, ptr %.sink.in.i.i, align 8, !tbaa !33
   %22 = zext i32 %.sink47.i.i to i64
-  %23 = getelementptr inbounds nuw i16, ptr %.sink.i.i, i64 %22
+  %23 = getelementptr inbounds nuw [2 x i8], ptr %.sink.i.i, i64 %22
   %24 = load i16, ptr %23, align 2, !tbaa !34
   %25 = zext i16 %24 to i32
   %26 = and i32 %25, 64512
@@ -1809,7 +1809,7 @@ define void @_ZNK6icu_7717ResourceDataValue23getStringOrFirstOfArrayER10UErrorCo
   %60 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %61 = load ptr, ptr %60, align 8, !tbaa !14
   %62 = zext nneg i32 %14 to i64
-  %63 = getelementptr inbounds nuw i32, ptr %61, i64 %62
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %62
   br label %64
 
 64:                                               ; preds = %59, %57
@@ -1915,7 +1915,7 @@ _ZNK6icu_7713ResourceArray19internalGetResourceEPK12ResourceDatai.exit: ; preds 
   %.sink.in.i = getelementptr inbounds nuw i8, ptr %90, i64 %.sink.in.i.v
   %.sink.i = load ptr, ptr %.sink.in.i, align 8, !tbaa !33
   %115 = zext i32 %.sink47.i to i64
-  %116 = getelementptr inbounds nuw i16, ptr %.sink.i, i64 %115
+  %116 = getelementptr inbounds nuw [2 x i8], ptr %.sink.i, i64 %115
   %117 = load i16, ptr %116, align 2, !tbaa !34
   %118 = zext i16 %117 to i32
   %119 = and i32 %118, 64512
@@ -1973,7 +1973,7 @@ _ZNK6icu_7713ResourceArray19internalGetResourceEPK12ResourceDatai.exit: ; preds 
   %153 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %154 = load ptr, ptr %153, align 8, !tbaa !14
   %155 = zext nneg i32 %.0.i to i64
-  %156 = getelementptr inbounds nuw i32, ptr %154, i64 %155
+  %156 = getelementptr inbounds nuw [4 x i8], ptr %154, i64 %155
   br label %157
 
 157:                                              ; preds = %152, %150
@@ -2031,7 +2031,7 @@ define noundef i32 @_ZNK6icu_7713ResourceArray19internalGetResourceEPK12Resource
 
 5:                                                ; preds = %3
   %6 = sext i32 %2 to i64
-  %7 = getelementptr inbounds i16, ptr %4, i64 %6
+  %7 = getelementptr inbounds [2 x i8], ptr %4, i64 %6
   %8 = load i16, ptr %7, align 2, !tbaa !36
   %9 = zext i16 %8 to i32
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 52
@@ -2055,7 +2055,7 @@ _ZL18makeResourceFrom16PK12ResourceDatai.exit:    ; preds = %5, %13
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !47
   %22 = sext i32 %2 to i64
-  %23 = getelementptr inbounds i32, ptr %21, i64 %22
+  %23 = getelementptr inbounds [4 x i8], ptr %21, i64 %22
   %24 = load i32, ptr %23, align 4, !tbaa !22
   br label %25
 
@@ -2094,7 +2094,7 @@ define i32 @res_getTableItemByKey_77(ptr noundef readonly captures(none) %0, i32
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !14
   %16 = zext nneg i32 %5 to i64
-  %17 = getelementptr inbounds nuw i32, ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 2
   %19 = load i16, ptr %17, align 2, !tbaa !36
   %20 = zext i16 %19 to i32
@@ -2115,7 +2115,7 @@ define i32 @res_getTableItemByKey_77(ptr noundef readonly captures(none) %0, i32
   %27 = add nuw nsw i32 %.02836.i, %.02737.i
   %28 = lshr i32 %27, 1
   %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr inbounds nuw i16, ptr %18, i64 %29
+  %30 = getelementptr inbounds nuw [2 x i8], ptr %18, i64 %29
   %31 = load i16, ptr %30, align 2, !tbaa !36
   %32 = zext i16 %31 to i32
   %33 = icmp sgt i32 %22, %32
@@ -2160,12 +2160,12 @@ define i32 @res_getTableItemByKey_77(ptr noundef readonly captures(none) %0, i32
   store ptr %42, ptr %3, align 8, !tbaa !63
   store i32 %28, ptr %2, align 4, !tbaa !22
   %51 = zext i16 %19 to i64
-  %52 = getelementptr inbounds nuw i16, ptr %18, i64 %51
+  %52 = getelementptr inbounds nuw [2 x i8], ptr %18, i64 %51
   %53 = and i32 %20, 1
   %54 = xor i32 %53, 1
   %55 = zext nneg i32 %54 to i64
-  %56 = getelementptr inbounds nuw i16, ptr %52, i64 %55
-  %57 = getelementptr inbounds nuw i32, ptr %56, i64 %29
+  %56 = getelementptr inbounds nuw [2 x i8], ptr %52, i64 %55
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %29
   %58 = load i32, ptr %57, align 4, !tbaa !22
   br label %146
 
@@ -2173,7 +2173,7 @@ define i32 @res_getTableItemByKey_77(ptr noundef readonly captures(none) %0, i32
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %61 = load ptr, ptr %60, align 8, !tbaa !24
   %62 = zext nneg i32 %5 to i64
-  %63 = getelementptr inbounds nuw i16, ptr %61, i64 %62
+  %63 = getelementptr inbounds nuw [2 x i8], ptr %61, i64 %62
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 2
   %65 = load i16, ptr %63, align 2, !tbaa !36
   %66 = zext i16 %65 to i32
@@ -2195,7 +2195,7 @@ define i32 @res_getTableItemByKey_77(ptr noundef readonly captures(none) %0, i32
   %74 = add nuw nsw i32 %.02836.i67, %.02737.i66
   %75 = lshr i32 %74, 1
   %76 = zext nneg i32 %75 to i64
-  %77 = getelementptr inbounds nuw i16, ptr %64, i64 %76
+  %77 = getelementptr inbounds nuw [2 x i8], ptr %64, i64 %76
   %78 = load i16, ptr %77, align 2, !tbaa !36
   %79 = zext i16 %78 to i32
   %80 = icmp sgt i32 %68, %79
@@ -2242,7 +2242,7 @@ define i32 @res_getTableItemByKey_77(ptr noundef readonly captures(none) %0, i32
   store i32 %75, ptr %2, align 4, !tbaa !22
   %99 = add nuw nsw i32 %75, %66
   %100 = zext nneg i32 %99 to i64
-  %101 = getelementptr inbounds nuw i16, ptr %64, i64 %100
+  %101 = getelementptr inbounds nuw [2 x i8], ptr %64, i64 %100
   %102 = load i16, ptr %101, align 2, !tbaa !36
   %103 = zext i16 %102 to i32
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 52
@@ -2270,7 +2270,7 @@ define i32 @res_getTableItemByKey_77(ptr noundef readonly captures(none) %0, i32
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %117 = load ptr, ptr %116, align 8, !tbaa !14
   %118 = zext nneg i32 %5 to i64
-  %119 = getelementptr inbounds nuw i32, ptr %117, i64 %118
+  %119 = getelementptr inbounds nuw [4 x i8], ptr %117, i64 %118
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 4
   %121 = load i32, ptr %119, align 4, !tbaa !22
   %122 = icmp sgt i32 %121, 0
@@ -2286,7 +2286,7 @@ define i32 @res_getTableItemByKey_77(ptr noundef readonly captures(none) %0, i32
   %125 = add nuw nsw i32 %.02633.i, %.02534.i
   %126 = lshr i32 %125, 1
   %127 = zext nneg i32 %126 to i64
-  %128 = getelementptr inbounds nuw i32, ptr %120, i64 %127
+  %128 = getelementptr inbounds nuw [4 x i8], ptr %120, i64 %127
   %129 = load i32, ptr %128, align 4, !tbaa !22
   %130 = and i32 %129, 2147483647
   %131 = icmp slt i32 %129, 0
@@ -2321,7 +2321,7 @@ define i32 @res_getTableItemByKey_77(ptr noundef readonly captures(none) %0, i32
   store i32 %126, ptr %2, align 4, !tbaa !22
   %142 = add nuw nsw i32 %126, %121
   %143 = zext nneg i32 %142 to i64
-  %144 = getelementptr inbounds nuw i32, ptr %120, i64 %143
+  %144 = getelementptr inbounds nuw [4 x i8], ptr %120, i64 %143
   %145 = load i32, ptr %144, align 4, !tbaa !22
   br label %146
 
@@ -2352,7 +2352,7 @@ define i32 @res_getTableItemByIndex_77(ptr noundef readonly captures(none) %0, i
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !14
   %13 = zext nneg i32 %5 to i64
-  %14 = getelementptr inbounds nuw i32, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 2
   %16 = load i16, ptr %14, align 2, !tbaa !36
   %17 = zext i16 %16 to i32
@@ -2361,17 +2361,17 @@ define i32 @res_getTableItemByIndex_77(ptr noundef readonly captures(none) %0, i
 
 18:                                               ; preds = %10
   %19 = zext i16 %16 to i64
-  %20 = getelementptr inbounds nuw i16, ptr %15, i64 %19
+  %20 = getelementptr inbounds nuw [2 x i8], ptr %15, i64 %19
   %21 = and i32 %17, 1
   %22 = xor i32 %21, 1
   %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr inbounds nuw i16, ptr %20, i64 %23
+  %24 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %23
   %.not96 = icmp eq ptr %3, null
   %.pre = zext nneg i32 %2 to i64
   br i1 %.not96, label %.thread, label %25
 
 25:                                               ; preds = %18
-  %26 = getelementptr inbounds nuw i16, ptr %15, i64 %.pre
+  %26 = getelementptr inbounds nuw [2 x i8], ptr %15, i64 %.pre
   %27 = load i16, ptr %26, align 2, !tbaa !36
   %28 = zext i16 %27 to i32
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 36
@@ -2400,7 +2400,7 @@ define i32 @res_getTableItemByIndex_77(ptr noundef readonly captures(none) %0, i
   br label %.thread
 
 .thread:                                          ; preds = %18, %43
-  %45 = getelementptr inbounds nuw i32, ptr %24, i64 %.pre
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %.pre
   %46 = load i32, ptr %45, align 4, !tbaa !22
   br label %118
 
@@ -2408,7 +2408,7 @@ define i32 @res_getTableItemByIndex_77(ptr noundef readonly captures(none) %0, i
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %49 = load ptr, ptr %48, align 8, !tbaa !24
   %50 = zext nneg i32 %5 to i64
-  %51 = getelementptr inbounds nuw i16, ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [2 x i8], ptr %49, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 2
   %53 = load i16, ptr %51, align 2, !tbaa !36
   %54 = zext i16 %53 to i32
@@ -2421,7 +2421,7 @@ define i32 @res_getTableItemByIndex_77(ptr noundef readonly captures(none) %0, i
 
 56:                                               ; preds = %55
   %57 = zext nneg i32 %2 to i64
-  %58 = getelementptr inbounds nuw i16, ptr %52, i64 %57
+  %58 = getelementptr inbounds nuw [2 x i8], ptr %52, i64 %57
   %59 = load i16, ptr %58, align 2, !tbaa !36
   %60 = zext i16 %59 to i32
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 36
@@ -2453,7 +2453,7 @@ define i32 @res_getTableItemByIndex_77(ptr noundef readonly captures(none) %0, i
 78:                                               ; preds = %76, %55
   %79 = add nuw nsw i32 %2, %54
   %80 = zext nneg i32 %79 to i64
-  %81 = getelementptr inbounds nuw i16, ptr %52, i64 %80
+  %81 = getelementptr inbounds nuw [2 x i8], ptr %52, i64 %80
   %82 = load i16, ptr %81, align 2, !tbaa !36
   %83 = zext i16 %82 to i32
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 52
@@ -2481,7 +2481,7 @@ define i32 @res_getTableItemByIndex_77(ptr noundef readonly captures(none) %0, i
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %96 = load ptr, ptr %95, align 8, !tbaa !14
   %97 = zext nneg i32 %5 to i64
-  %98 = getelementptr inbounds nuw i32, ptr %96, i64 %97
+  %98 = getelementptr inbounds nuw [4 x i8], ptr %96, i64 %97
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 4
   %100 = load i32, ptr %98, align 4, !tbaa !22
   %.not92 = icmp slt i32 %2, %100
@@ -2493,7 +2493,7 @@ define i32 @res_getTableItemByIndex_77(ptr noundef readonly captures(none) %0, i
 
 102:                                              ; preds = %101
   %103 = zext nneg i32 %2 to i64
-  %104 = getelementptr inbounds nuw i32, ptr %99, i64 %103
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %99, i64 %103
   %105 = load i32, ptr %104, align 4, !tbaa !22
   %106 = icmp sgt i32 %105, -1
   br i1 %106, label %111, label %107
@@ -2515,7 +2515,7 @@ define i32 @res_getTableItemByIndex_77(ptr noundef readonly captures(none) %0, i
 .thread101:                                       ; preds = %101, %111
   %114 = add nuw nsw i32 %100, %2
   %115 = zext nneg i32 %114 to i64
-  %116 = getelementptr inbounds nuw i32, ptr %99, i64 %115
+  %116 = getelementptr inbounds nuw [4 x i8], ptr %99, i64 %115
   %117 = load i32, ptr %116, align 4, !tbaa !22
   br label %118
 
@@ -2555,7 +2555,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7713ResourceTable14getKeyAndV
 
 11:                                               ; preds = %9
   %12 = zext nneg i32 %1 to i64
-  %13 = getelementptr inbounds nuw i16, ptr %10, i64 %12
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %10, i64 %12
   %14 = load i16, ptr %13, align 2, !tbaa !36
   %15 = zext i16 %14 to i32
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -2585,7 +2585,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7713ResourceTable14getKeyAndV
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = load ptr, ptr %34, align 8, !tbaa !51
   %36 = zext nneg i32 %1 to i64
-  %37 = getelementptr inbounds nuw i32, ptr %35, i64 %36
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %36
   %38 = load i32, ptr %37, align 4, !tbaa !22
   %39 = icmp sgt i32 %38, -1
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -2618,7 +2618,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7713ResourceTable14getKeyAndV
 
 57:                                               ; preds = %53
   %58 = zext nneg i32 %1 to i64
-  %59 = getelementptr inbounds nuw i16, ptr %56, i64 %58
+  %59 = getelementptr inbounds nuw [2 x i8], ptr %56, i64 %58
   %60 = load i16, ptr %59, align 2, !tbaa !36
   %61 = zext i16 %60 to i32
   %62 = getelementptr inbounds nuw i8, ptr %54, i64 52
@@ -2642,7 +2642,7 @@ _ZL18makeResourceFrom16PK12ResourceDatai.exit:    ; preds = %57, %65
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %73 = load ptr, ptr %72, align 8, !tbaa !53
   %74 = zext nneg i32 %1 to i64
-  %75 = getelementptr inbounds nuw i32, ptr %73, i64 %74
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %73, i64 %74
   %76 = load i32, ptr %75, align 4, !tbaa !22
   br label %77
 
@@ -2686,7 +2686,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7713ResourceTable9findValueEP
   %18 = add nuw nsw i32 %.02836.i, %.02737.i
   %19 = lshr i32 %18, 1
   %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr inbounds nuw i16, ptr %4, i64 %20
+  %21 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %20
   %22 = load i16, ptr %21, align 2, !tbaa !36
   %23 = zext i16 %22 to i32
   %24 = icmp sgt i32 %12, %23
@@ -2743,7 +2743,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7713ResourceTable9findValueEP
   %51 = add nuw nsw i32 %.02633.i, %.02534.i
   %52 = lshr i32 %51, 1
   %53 = zext nneg i32 %52 to i64
-  %54 = getelementptr inbounds nuw i32, ptr %44, i64 %53
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %53
   %55 = load i32, ptr %54, align 4, !tbaa !22
   %56 = and i32 %55, 2147483647
   %57 = icmp slt i32 %55, 0
@@ -2780,7 +2780,7 @@ _ZL18_res_findTableItemPK12ResourceDataPKtiPKcPS5_.exit: ; preds = %37, %62
 
 70:                                               ; preds = %_ZL18_res_findTableItemPK12ResourceDataPKtiPKcPS5_.exit
   %71 = zext nneg i32 %.013 to i64
-  %72 = getelementptr inbounds nuw i16, ptr %69, i64 %71
+  %72 = getelementptr inbounds nuw [2 x i8], ptr %69, i64 %71
   %73 = load i16, ptr %72, align 2, !tbaa !36
   %74 = zext i16 %73 to i32
   %75 = getelementptr inbounds nuw i8, ptr %67, i64 52
@@ -2804,7 +2804,7 @@ _ZL18makeResourceFrom16PK12ResourceDatai.exit:    ; preds = %70, %78
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %86 = load ptr, ptr %85, align 8, !tbaa !53
   %87 = zext nneg i32 %.013 to i64
-  %88 = getelementptr inbounds nuw i32, ptr %86, i64 %87
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %86, i64 %87
   %89 = load i32, ptr %88, align 4, !tbaa !22
   br label %90
 
@@ -2840,14 +2840,14 @@ define i32 @res_getArrayItem_77(ptr noundef readonly captures(none) %0, i32 noun
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !14
   %12 = zext nneg i32 %4 to i64
-  %13 = getelementptr inbounds nuw i32, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !22
   %.not25 = icmp slt i32 %2, %14
   br i1 %.not25, label %.thread, label %41
 
 .thread:                                          ; preds = %9
   %15 = zext nneg i32 %2 to i64
-  %16 = getelementptr inbounds nuw i32, ptr %13, i64 %15
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %18 = load i32, ptr %17, align 4, !tbaa !22
   br label %41
@@ -2856,7 +2856,7 @@ define i32 @res_getArrayItem_77(ptr noundef readonly captures(none) %0, i32 noun
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load ptr, ptr %20, align 8, !tbaa !24
   %22 = zext nneg i32 %4 to i64
-  %23 = getelementptr inbounds nuw i16, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [2 x i8], ptr %21, i64 %22
   %24 = load i16, ptr %23, align 2, !tbaa !36
   %25 = zext i16 %24 to i32
   %.not = icmp samesign ult i32 %2, %25
@@ -2864,7 +2864,7 @@ define i32 @res_getArrayItem_77(ptr noundef readonly captures(none) %0, i32 noun
 
 26:                                               ; preds = %19
   %27 = zext nneg i32 %2 to i64
-  %28 = getelementptr inbounds nuw i16, ptr %23, i64 %27
+  %28 = getelementptr inbounds nuw [2 x i8], ptr %23, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 2
   %30 = load i16, ptr %29, align 2, !tbaa !36
   %31 = zext i16 %30 to i32
@@ -2908,7 +2908,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7713ResourceArray8getValueEiR
 
 12:                                               ; preds = %8
   %13 = zext nneg i32 %1 to i64
-  %14 = getelementptr inbounds nuw i16, ptr %11, i64 %13
+  %14 = getelementptr inbounds nuw [2 x i8], ptr %11, i64 %13
   %15 = load i16, ptr %14, align 2, !tbaa !36
   %16 = zext i16 %15 to i32
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 52
@@ -2932,7 +2932,7 @@ _ZL18makeResourceFrom16PK12ResourceDatai.exit.i:  ; preds = %20, %12
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = load ptr, ptr %27, align 8, !tbaa !47
   %29 = zext nneg i32 %1 to i64
-  %30 = getelementptr inbounds nuw i32, ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %29
   %31 = load i32, ptr %30, align 4, !tbaa !22
   br label %_ZNK6icu_7713ResourceArray19internalGetResourceEPK12ResourceDatai.exit
 
@@ -3059,14 +3059,14 @@ switch.early.test:                                ; preds = %22
 49:                                               ; preds = %48
   %50 = load ptr, ptr %17, align 8, !tbaa !14
   %51 = zext nneg i32 %46 to i64
-  %52 = getelementptr inbounds nuw i32, ptr %50, i64 %51
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %51
   %53 = load i32, ptr %52, align 4, !tbaa !22
   %.not25.i = icmp sgt i32 %53, %39
   br i1 %.not25.i, label %.thread.i, label %res_getArrayItem_77.exit
 
 .thread.i:                                        ; preds = %49
   %54 = and i64 %38, 2147483647
-  %55 = getelementptr inbounds nuw i32, ptr %52, i64 %54
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %54
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 4
   %57 = load i32, ptr %56, align 4, !tbaa !22
   br label %res_getArrayItem_77.exit
@@ -3074,7 +3074,7 @@ switch.early.test:                                ; preds = %22
 58:                                               ; preds = %45
   %59 = load ptr, ptr %14, align 8, !tbaa !24
   %60 = zext nneg i32 %46 to i64
-  %61 = getelementptr inbounds nuw i16, ptr %59, i64 %60
+  %61 = getelementptr inbounds nuw [2 x i8], ptr %59, i64 %60
   %62 = load i16, ptr %61, align 2, !tbaa !36
   %63 = zext i16 %62 to i32
   %.not.i = icmp samesign ult i32 %39, %63
@@ -3082,7 +3082,7 @@ switch.early.test:                                ; preds = %22
 
 64:                                               ; preds = %58
   %65 = and i64 %38, 2147483647
-  %66 = getelementptr inbounds nuw i16, ptr %61, i64 %65
+  %66 = getelementptr inbounds nuw [2 x i8], ptr %61, i64 %65
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 2
   %68 = load i16, ptr %67, align 2, !tbaa !36
   %69 = zext i16 %68 to i32
@@ -3329,10 +3329,10 @@ define i32 @ures_swap_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nou
 
 121:                                              ; preds = %118, %115
   %122 = zext nneg i32 %76 to i64
-  %123 = getelementptr inbounds nuw i32, ptr %64, i64 %122
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %122
   %124 = sub nsw i32 %79, %76
   %125 = shl nsw i32 %124, 2
-  %126 = getelementptr inbounds nuw i32, ptr %101, i64 %122
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %101, i64 %122
   %127 = call i32 @udata_swapInvStringBlock_77(ptr noundef nonnull %0, ptr noundef nonnull %123, i32 noundef %125, ptr noundef nonnull %126, ptr noundef nonnull %4)
   %128 = load i32, ptr %4, align 4, !tbaa !3
   %129 = icmp slt i32 %128, 1
@@ -3355,10 +3355,10 @@ define i32 @ures_swap_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nou
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %136 = load ptr, ptr %135, align 8, !tbaa !76
   %137 = sext i32 %79 to i64
-  %138 = getelementptr inbounds i32, ptr %64, i64 %137
+  %138 = getelementptr inbounds [4 x i8], ptr %64, i64 %137
   %139 = sub nsw i32 %.0134, %79
   %140 = shl nsw i32 %139, 2
-  %141 = getelementptr inbounds i32, ptr %101, i64 %137
+  %141 = getelementptr inbounds [4 x i8], ptr %101, i64 %137
   %142 = call noundef i32 %136(ptr noundef nonnull %0, ptr noundef nonnull %138, i32 noundef %140, ptr noundef %141, ptr noundef nonnull %4)
   %143 = load i32, ptr %4, align 4, !tbaa !3
   %144 = icmp slt i32 %143, 1
@@ -3409,7 +3409,7 @@ define i32 @ures_swap_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nou
   br label %.critedge
 
 164:                                              ; preds = %153
-  %165 = getelementptr inbounds nuw %struct.Row, ptr %159, i64 %154
+  %165 = getelementptr inbounds nuw [8 x i8], ptr %159, i64 %154
   br label %166
 
 166:                                              ; preds = %164, %151
@@ -3505,7 +3505,7 @@ define internal fastcc void @_ZL17ures_swapResourcePK12UDataSwapperPKjPjjPKcP9Te
   %14 = load ptr, ptr %13, align 8, !tbaa !75
   %15 = lshr i32 %10, 5
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds nuw i32, ptr %14, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !22
   %19 = and i32 %3, 31
   %20 = shl nuw i32 1, %19
@@ -3517,8 +3517,8 @@ define internal fastcc void @_ZL17ures_swapResourcePK12UDataSwapperPKjPjjPKcP9Te
   %23 = or i32 %18, %20
   store i32 %23, ptr %17, align 4, !tbaa !22
   %24 = zext nneg i32 %10 to i64
-  %25 = getelementptr inbounds nuw i32, ptr %1, i64 %24
-  %26 = getelementptr inbounds nuw i32, ptr %2, i64 %24
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %24
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %24
   switch i32 %8, label %256 [
     i32 3, label %27
     i32 0, label %27
@@ -3614,8 +3614,8 @@ define internal fastcc void @_ZL17ures_swapResourcePK12UDataSwapperPKjPjjPKcP9Te
 82:                                               ; preds = %80
   %.0269 = add nsw i32 %.pn, %10
   %83 = sext i32 %.0269 to i64
-  %84 = getelementptr inbounds i32, ptr %1, i64 %83
-  %85 = getelementptr inbounds i32, ptr %2, i64 %83
+  %84 = getelementptr inbounds [4 x i8], ptr %1, i64 %83
+  %85 = getelementptr inbounds [4 x i8], ptr %2, i64 %83
   %86 = icmp sgt i32 %.0274, 0
   br i1 %86, label %.lr.ph, label %._crit_edge
 
@@ -3633,7 +3633,7 @@ define internal fastcc void @_ZL17ures_swapResourcePK12UDataSwapperPKjPjjPKcP9Te
 
 91:                                               ; preds = %90
   %92 = load ptr, ptr %87, align 8, !tbaa !82
-  %93 = getelementptr inbounds nuw i16, ptr %.0278, i64 %indvars.iv
+  %93 = getelementptr inbounds nuw [2 x i8], ptr %.0278, i64 %indvars.iv
   %94 = load i16, ptr %93, align 2, !tbaa !36
   %95 = tail call noundef zeroext i16 %92(i16 noundef zeroext %94)
   %96 = zext i16 %95 to i32
@@ -3643,7 +3643,7 @@ define internal fastcc void @_ZL17ures_swapResourcePK12UDataSwapperPKjPjjPKcP9Te
   br label %106
 
 100:                                              ; preds = %90
-  %101 = getelementptr inbounds nuw i32, ptr %.0276, i64 %indvars.iv
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %.0276, i64 %indvars.iv
   %102 = load i32, ptr %101, align 4, !tbaa !22
   %103 = tail call i32 @udata_readInt32_77(ptr noundef nonnull %0, i32 noundef %102)
   %104 = icmp sgt i32 %103, -1
@@ -3656,7 +3656,7 @@ define internal fastcc void @_ZL17ures_swapResourcePK12UDataSwapperPKjPjjPKcP9Te
   %107 = getelementptr inbounds nuw i8, ptr %2, i64 %.sink380
   %.2 = select i1 %.sink, ptr %107, ptr @.str.15
   %108 = load ptr, ptr %89, align 8, !tbaa !72
-  %109 = getelementptr inbounds nuw i32, ptr %84, i64 %indvars.iv
+  %109 = getelementptr inbounds nuw [4 x i8], ptr %84, i64 %indvars.iv
   %110 = load i32, ptr %109, align 4, !tbaa !22
   %111 = tail call noundef i32 %108(i32 noundef %110)
   tail call fastcc void @_ZL17ures_swapResourcePK12UDataSwapperPKjPjjPKcP9TempTableP10UErrorCode(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %111, ptr noundef %.2, ptr noundef %5, ptr noundef %6)
@@ -3734,12 +3734,12 @@ define internal fastcc void @_ZL17ures_swapResourcePK12UDataSwapperPKjPjjPKcP9Te
 144:                                              ; preds = %.lr.ph313, %144
   %indvars.iv340 = phi i64 [ 0, %.lr.ph313 ], [ %indvars.iv.next341, %144 ]
   %145 = load ptr, ptr %141, align 8, !tbaa !82
-  %146 = getelementptr inbounds nuw i16, ptr %.0278, i64 %indvars.iv340
+  %146 = getelementptr inbounds nuw [2 x i8], ptr %.0278, i64 %indvars.iv340
   %147 = load i16, ptr %146, align 2, !tbaa !36
   %148 = tail call noundef zeroext i16 %145(i16 noundef zeroext %147)
   %149 = zext i16 %148 to i32
   %150 = load ptr, ptr %142, align 8, !tbaa !78
-  %151 = getelementptr inbounds nuw %struct.Row, ptr %150, i64 %indvars.iv340
+  %151 = getelementptr inbounds nuw [8 x i8], ptr %150, i64 %indvars.iv340
   store i32 %149, ptr %151, align 4, !tbaa !86
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 4
   %153 = trunc nuw nsw i64 %indvars.iv340 to i32
@@ -3750,11 +3750,11 @@ define internal fastcc void @_ZL17ures_swapResourcePK12UDataSwapperPKjPjjPKcP9Te
 
 154:                                              ; preds = %.lr.ph315, %154
   %indvars.iv345 = phi i64 [ 0, %.lr.ph315 ], [ %indvars.iv.next346, %154 ]
-  %155 = getelementptr inbounds nuw i32, ptr %.0276, i64 %indvars.iv345
+  %155 = getelementptr inbounds nuw [4 x i8], ptr %.0276, i64 %indvars.iv345
   %156 = load i32, ptr %155, align 4, !tbaa !22
   %157 = tail call i32 @udata_readInt32_77(ptr noundef nonnull %0, i32 noundef %156)
   %158 = load ptr, ptr %143, align 8, !tbaa !78
-  %159 = getelementptr inbounds nuw %struct.Row, ptr %158, i64 %indvars.iv345
+  %159 = getelementptr inbounds nuw [8 x i8], ptr %158, i64 %indvars.iv345
   store i32 %157, ptr %159, align 4, !tbaa !86
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 4
   %161 = trunc nuw nsw i64 %indvars.iv345 to i32
@@ -3800,13 +3800,13 @@ define internal fastcc void @_ZL17ures_swapResourcePK12UDataSwapperPKjPjjPKcP9Te
 175:                                              ; preds = %.lr.ph318, %175
   %indvars.iv350 = phi i64 [ 0, %.lr.ph318 ], [ %indvars.iv.next351, %175 ]
   %176 = load ptr, ptr %162, align 8, !tbaa !78
-  %177 = getelementptr inbounds nuw %struct.Row, ptr %176, i64 %indvars.iv350
+  %177 = getelementptr inbounds nuw [8 x i8], ptr %176, i64 %indvars.iv350
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 4
   %179 = load i32, ptr %178, align 4, !tbaa !88
   %180 = load ptr, ptr %174, align 8, !tbaa !76
   %181 = sext i32 %179 to i64
-  %182 = getelementptr inbounds i16, ptr %.0278, i64 %181
-  %183 = getelementptr inbounds nuw i16, ptr %.0268, i64 %indvars.iv350
+  %182 = getelementptr inbounds [2 x i8], ptr %.0278, i64 %181
+  %183 = getelementptr inbounds nuw [2 x i8], ptr %.0268, i64 %indvars.iv350
   %184 = tail call noundef i32 %180(ptr noundef nonnull %0, ptr noundef nonnull %182, i32 noundef 2, ptr noundef %183, ptr noundef nonnull %6)
   %indvars.iv.next351 = add nuw nsw i64 %indvars.iv350, 1
   %exitcond354.not = icmp eq i64 %indvars.iv.next351, %wide.trip.count353
@@ -3843,13 +3843,13 @@ define internal fastcc void @_ZL17ures_swapResourcePK12UDataSwapperPKjPjjPKcP9Te
 194:                                              ; preds = %.lr.ph322, %194
   %indvars.iv355 = phi i64 [ 0, %.lr.ph322 ], [ %indvars.iv.next356, %194 ]
   %195 = load ptr, ptr %162, align 8, !tbaa !78
-  %196 = getelementptr inbounds nuw %struct.Row, ptr %195, i64 %indvars.iv355
+  %196 = getelementptr inbounds nuw [8 x i8], ptr %195, i64 %indvars.iv355
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 4
   %198 = load i32, ptr %197, align 4, !tbaa !88
   %199 = load ptr, ptr %193, align 8, !tbaa !80
   %200 = sext i32 %198 to i64
-  %201 = getelementptr inbounds i32, ptr %.0276, i64 %200
-  %202 = getelementptr inbounds nuw i32, ptr %.0267, i64 %indvars.iv355
+  %201 = getelementptr inbounds [4 x i8], ptr %.0276, i64 %200
+  %202 = getelementptr inbounds nuw [4 x i8], ptr %.0267, i64 %indvars.iv355
   %203 = tail call noundef i32 %199(ptr noundef nonnull %0, ptr noundef %201, i32 noundef 4, ptr noundef %202, ptr noundef nonnull %6)
   %indvars.iv.next356 = add nuw nsw i64 %indvars.iv355, 1
   %exitcond359.not = icmp eq i64 %indvars.iv.next356, %wide.trip.count358
@@ -3886,13 +3886,13 @@ define internal fastcc void @_ZL17ures_swapResourcePK12UDataSwapperPKjPjjPKcP9Te
 213:                                              ; preds = %.lr.ph326, %213
   %indvars.iv360 = phi i64 [ 0, %.lr.ph326 ], [ %indvars.iv.next361, %213 ]
   %214 = load ptr, ptr %162, align 8, !tbaa !78
-  %215 = getelementptr inbounds nuw %struct.Row, ptr %214, i64 %indvars.iv360
+  %215 = getelementptr inbounds nuw [8 x i8], ptr %214, i64 %indvars.iv360
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 4
   %217 = load i32, ptr %216, align 4, !tbaa !88
   %218 = load ptr, ptr %212, align 8, !tbaa !80
   %219 = sext i32 %217 to i64
-  %220 = getelementptr inbounds i32, ptr %84, i64 %219
-  %221 = getelementptr inbounds nuw i32, ptr %.0266, i64 %indvars.iv360
+  %220 = getelementptr inbounds [4 x i8], ptr %84, i64 %219
+  %221 = getelementptr inbounds nuw [4 x i8], ptr %.0266, i64 %indvars.iv360
   %222 = tail call noundef i32 %218(ptr noundef nonnull %0, ptr noundef %220, i32 noundef 4, ptr noundef %221, ptr noundef nonnull %6)
   %indvars.iv.next361 = add nuw nsw i64 %indvars.iv360, 1
   %exitcond364.not = icmp eq i64 %indvars.iv.next361, %wide.trip.count363
@@ -3927,7 +3927,7 @@ define internal fastcc void @_ZL17ures_swapResourcePK12UDataSwapperPKjPjjPKcP9Te
 235:                                              ; preds = %.lr.ph331, %244
   %indvars.iv365 = phi i64 [ 0, %.lr.ph331 ], [ %indvars.iv.next366, %244 ]
   %236 = load ptr, ptr %234, align 8, !tbaa !72
-  %237 = getelementptr inbounds nuw i32, ptr %231, i64 %indvars.iv365
+  %237 = getelementptr inbounds nuw [4 x i8], ptr %231, i64 %indvars.iv365
   %238 = load i32, ptr %237, align 4, !tbaa !22
   %239 = tail call noundef i32 %236(i32 noundef %238)
   tail call fastcc void @_ZL17ures_swapResourcePK12UDataSwapperPKjPjjPKcP9TempTableP10UErrorCode(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %239, ptr noundef null, ptr noundef %5, ptr noundef %6)

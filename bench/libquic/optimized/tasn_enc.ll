@@ -3,8 +3,6 @@ source_filename = "bench/libquic/original/tasn_enc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.ASN1_TEMPLATE_st = type { i64, i64, i64, ptr, ptr }
-
 ; Function Attrs: nounwind uwtable
 define hidden i32 @ASN1_item_ndef_i2d(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call fastcc i32 @asn1_item_flags_i2d(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 2048)
@@ -144,7 +142,7 @@ define hidden i32 @ASN1_item_ex_i2d(ptr noundef %0, ptr noundef %1, ptr noundef 
 37:                                               ; preds = %32
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %39 = load ptr, ptr %38, align 8, !tbaa !21
-  %40 = getelementptr inbounds nuw %struct.ASN1_TEMPLATE_st, ptr %39, i64 %33
+  %40 = getelementptr inbounds nuw [40 x i8], ptr %39, i64 %33
   %41 = tail call ptr @asn1_get_field_ptr(ptr noundef %0, ptr noundef %40) #11
   %42 = tail call fastcc i32 @asn1_template_ex_i2d(ptr noundef %41, ptr noundef %1, ptr noundef %40, i32 noundef -1, i32 noundef %4)
   br label %.critedge

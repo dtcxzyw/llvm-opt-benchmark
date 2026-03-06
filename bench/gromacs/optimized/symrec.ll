@@ -1041,7 +1041,7 @@ define void @_ZN3gmx26SelectionParserSymbolTable4Impl18addReservedSymbolsEv(ptr 
           to label %8 unwind label %31
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds nuw ptr, ptr @__const._ZN3gmx26SelectionParserSymbolTable4Impl18addReservedSymbolsEv.sym_reserved, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZN3gmx26SelectionParserSymbolTable4Impl18addReservedSymbolsEv.sym_reserved, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !59
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %11, ptr %7, align 8, !tbaa !39
@@ -1240,7 +1240,7 @@ _ZNKSt14default_deleteIN3gmx21SelectionParserSymbolEEclEPS1_.exit.i: ; preds = %
 _ZNSt10unique_ptrIN3gmx21SelectionParserSymbolESt14default_deleteIS1_EED2Ev.exit16: ; preds = %_ZNKSt14default_deleteIN3gmx21SelectionParserSymbolEEclEPS1_.exit.i, %27
   store ptr null, ptr %3, align 8, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %29 = getelementptr inbounds nuw ptr, ptr @_ZN3gmx29PositionCalculationCollection14typeEnumValuesE, i64 %indvars.iv.next
+  %29 = getelementptr inbounds nuw [8 x i8], ptr @_ZN3gmx29PositionCalculationCollection14typeEnumValuesE, i64 %indvars.iv.next
   %30 = load ptr, ptr %29, align 8, !tbaa !59
   %.not = icmp eq ptr %30, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !61

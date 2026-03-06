@@ -235,7 +235,7 @@ define void @_ZN6LibRaw18kodak_thumb_loaderEv(ptr noundef nonnull align 8 derefe
 107:                                              ; preds = %100, %107
   %indvars.iv = phi i64 [ 0, %100 ], [ %indvars.iv.next, %107 ]
   %.0122184 = phi double [ 0x7FEFFFFFFFFFFFFF, %100 ], [ %.1123, %107 ]
-  %108 = getelementptr inbounds nuw float, ptr %101, i64 %indvars.iv
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %101, i64 %indvars.iv
   %109 = load float, ptr %108, align 4, !tbaa !90
   %110 = fpext reassoc nsz arcp contract afn float %109 to double
   %111 = fcmp reassoc nsz arcp contract afn ogt double %.0122184, %110
@@ -246,13 +246,13 @@ define void @_ZN6LibRaw18kodak_thumb_loaderEv(ptr noundef nonnull align 8 derefe
 
 112:                                              ; preds = %.preheader182, %112
   %indvars.iv253 = phi i64 [ 0, %.preheader182 ], [ %indvars.iv.next254, %112 ]
-  %113 = getelementptr inbounds nuw float, ptr %101, i64 %indvars.iv253
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %101, i64 %indvars.iv253
   %114 = load float, ptr %113, align 4, !tbaa !90
   %115 = fpext reassoc nsz arcp contract afn float %114 to double
   %116 = fmul reassoc nsz arcp contract afn double %115, 6.553500e+04
   %117 = fmul reassoc nsz arcp contract afn double %116, %106
   %118 = fptrunc reassoc nsz arcp contract afn double %117 to float
-  %119 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv253
+  %119 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv253
   store float %118, ptr %119, align 4, !tbaa !90
   %indvars.iv.next254 = add nuw nsw i64 %indvars.iv253, 1
   %exitcond256.not = icmp eq i64 %indvars.iv.next254, 3
@@ -287,7 +287,7 @@ define void @_ZN6LibRaw18kodak_thumb_loaderEv(ptr noundef nonnull align 8 derefe
 135:                                              ; preds = %.lr.ph, %150
   %136 = phi i64 [ 0, %.lr.ph ], [ %152, %150 ]
   %.0136186 = phi i32 [ 0, %.lr.ph ], [ %151, %150 ]
-  %137 = getelementptr inbounds nuw i16, ptr %130, i64 %136
+  %137 = getelementptr inbounds nuw [2 x i8], ptr %130, i64 %136
   %138 = load i16, ptr %137, align 2, !tbaa !95
   %.not165 = icmp eq i16 %138, 0
   br i1 %.not165, label %150, label %139
@@ -295,7 +295,7 @@ define void @_ZN6LibRaw18kodak_thumb_loaderEv(ptr noundef nonnull align 8 derefe
 139:                                              ; preds = %135
   %140 = and i32 %.0136186, 3
   %141 = zext nneg i32 %140 to i64
-  %142 = getelementptr inbounds nuw float, ptr %2, i64 %141
+  %142 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %141
   %143 = load float, ptr %142, align 4, !tbaa !90
   %144 = uitofp i16 %138 to float
   %145 = fmul reassoc nsz arcp contract afn float %143, %144
@@ -358,12 +358,12 @@ define void @_ZN6LibRaw18kodak_thumb_loaderEv(ptr noundef nonnull align 8 derefe
 
 .lr.ph203.us:                                     ; preds = %.preheader176.us211, %.lr.ph203.us
   %indvars.iv268 = phi i64 [ %indvars.iv.next269, %.lr.ph203.us ], [ 0, %.preheader176.us211 ]
-  %172 = getelementptr inbounds nuw [8192 x i32], ptr %131, i64 %indvars.iv268
-  %173 = getelementptr inbounds nuw i16, ptr %.1142205.us213, i64 %indvars.iv268
+  %172 = getelementptr inbounds nuw [32768 x i8], ptr %131, i64 %indvars.iv268
+  %173 = getelementptr inbounds nuw [2 x i8], ptr %.1142205.us213, i64 %indvars.iv268
   %174 = load i16, ptr %173, align 2, !tbaa !95
   %175 = lshr i16 %174, 3
   %176 = zext nneg i16 %175 to i64
-  %177 = getelementptr inbounds nuw i32, ptr %172, i64 %176
+  %177 = getelementptr inbounds nuw [4 x i8], ptr %172, i64 %176
   %178 = load i32, ptr %177, align 4, !tbaa !99
   %179 = add nsw i32 %178, 1
   store i32 %179, ptr %177, align 4, !tbaa !99
@@ -425,18 +425,18 @@ define void @_ZN6LibRaw18kodak_thumb_loaderEv(ptr noundef nonnull align 8 derefe
   %196 = phi float [ 0.000000e+00, %.lr.ph197 ], [ %205, %195 ]
   %197 = phi float [ 0.000000e+00, %.lr.ph197 ], [ %209, %195 ]
   %198 = phi float [ 0.000000e+00, %.lr.ph197 ], [ %213, %195 ]
-  %199 = getelementptr inbounds nuw float, ptr @__const._ZN6LibRaw18kodak_thumb_loaderEv.out_cam, i64 %indvars.iv257
+  %199 = getelementptr inbounds nuw [4 x i8], ptr @__const._ZN6LibRaw18kodak_thumb_loaderEv.out_cam, i64 %indvars.iv257
   %200 = load float, ptr %199, align 4, !tbaa !90
-  %201 = getelementptr inbounds nuw i16, ptr %.3195, i64 %indvars.iv257
+  %201 = getelementptr inbounds nuw [2 x i8], ptr %.3195, i64 %indvars.iv257
   %202 = load i16, ptr %201, align 2, !tbaa !95
   %203 = uitofp i16 %202 to float
   %204 = fmul reassoc nsz arcp contract afn float %200, %203
   %205 = fadd reassoc nsz arcp contract afn float %204, %196
-  %206 = getelementptr inbounds nuw float, ptr getelementptr inbounds nuw (i8, ptr @__const._ZN6LibRaw18kodak_thumb_loaderEv.out_cam, i64 16), i64 %indvars.iv257
+  %206 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @__const._ZN6LibRaw18kodak_thumb_loaderEv.out_cam, i64 16), i64 %indvars.iv257
   %207 = load float, ptr %206, align 4, !tbaa !90
   %208 = fmul reassoc nsz arcp contract afn float %207, %203
   %209 = fadd reassoc nsz arcp contract afn float %208, %197
-  %210 = getelementptr inbounds nuw float, ptr getelementptr inbounds nuw (i8, ptr @__const._ZN6LibRaw18kodak_thumb_loaderEv.out_cam, i64 32), i64 %indvars.iv257
+  %210 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @__const._ZN6LibRaw18kodak_thumb_loaderEv.out_cam, i64 32), i64 %indvars.iv257
   %211 = load float, ptr %210, align 4, !tbaa !90
   %212 = fmul reassoc nsz arcp contract afn float %211, %203
   %213 = fadd reassoc nsz arcp contract afn float %212, %198
@@ -451,13 +451,13 @@ define void @_ZN6LibRaw18kodak_thumb_loaderEv(ptr noundef nonnull align 8 derefe
 
 216:                                              ; preds = %.preheader180, %216
   %indvars.iv261 = phi i64 [ 0, %.preheader180 ], [ %indvars.iv.next262, %216 ]
-  %217 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv261
+  %217 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv261
   %218 = load float, ptr %217, align 4, !tbaa !90
   %219 = fptosi float %218 to i32
   %220 = tail call i32 @llvm.smax.i32(i32 %219, i32 0)
   %221 = tail call i32 @llvm.umin.i32(i32 %220, i32 65535)
   %222 = trunc nuw i32 %221 to i16
-  %223 = getelementptr inbounds nuw i16, ptr %.3195, i64 %indvars.iv261
+  %223 = getelementptr inbounds nuw [2 x i8], ptr %.3195, i64 %indvars.iv261
   store i16 %222, ptr %223, align 2, !tbaa !95
   %indvars.iv.next262 = add nuw nsw i64 %indvars.iv261, 1
   %exitcond264.not = icmp eq i64 %indvars.iv.next262, 3
@@ -465,12 +465,12 @@ define void @_ZN6LibRaw18kodak_thumb_loaderEv(ptr noundef nonnull align 8 derefe
 
 .lr.ph193:                                        ; preds = %.preheader179, %.lr.ph193
   %indvars.iv265 = phi i64 [ %indvars.iv.next266, %.lr.ph193 ], [ 0, %.preheader179 ]
-  %224 = getelementptr inbounds nuw [8192 x i32], ptr %131, i64 %indvars.iv265
-  %225 = getelementptr inbounds nuw i16, ptr %.3195, i64 %indvars.iv265
+  %224 = getelementptr inbounds nuw [32768 x i8], ptr %131, i64 %indvars.iv265
+  %225 = getelementptr inbounds nuw [2 x i8], ptr %.3195, i64 %indvars.iv265
   %226 = load i16, ptr %225, align 2, !tbaa !95
   %227 = lshr i16 %226, 3
   %228 = zext nneg i16 %227 to i64
-  %229 = getelementptr inbounds nuw i32, ptr %224, i64 %228
+  %229 = getelementptr inbounds nuw [4 x i8], ptr %224, i64 %228
   %230 = load i32, ptr %229, align 4, !tbaa !99
   %231 = add nsw i32 %230, 1
   store i32 %231, ptr %229, align 4, !tbaa !99
@@ -549,7 +549,7 @@ define void @_ZN6LibRaw18kodak_thumb_loaderEv(ptr noundef nonnull align 8 derefe
 .preheader174:                                    ; preds = %.preheader174.lr.ph, %.split.loop.exit329
   %indvars.iv276 = phi i64 [ 0, %.preheader174.lr.ph ], [ %indvars.iv.next277, %.split.loop.exit329 ]
   %.1126217 = phi i32 [ 0, %.preheader174.lr.ph ], [ %spec.select171, %.split.loop.exit329 ]
-  %268 = getelementptr inbounds nuw [8192 x i32], ptr %267, i64 %indvars.iv276
+  %268 = getelementptr inbounds nuw [32768 x i8], ptr %267, i64 %indvars.iv276
   br label %269
 
 269:                                              ; preds = %.preheader174, %271
@@ -560,7 +560,7 @@ define void @_ZN6LibRaw18kodak_thumb_loaderEv(ptr noundef nonnull align 8 derefe
 
 271:                                              ; preds = %269
   %indvars.iv.next274 = add nsw i64 %indvars.iv273, -1
-  %272 = getelementptr inbounds nuw i32, ptr %268, i64 %indvars.iv.next274
+  %272 = getelementptr inbounds nuw [4 x i8], ptr %268, i64 %indvars.iv.next274
   %273 = load i32, ptr %272, align 4, !tbaa !99
   %274 = add nsw i32 %273, %.0127
   %275 = icmp sgt i32 %274, %.0129
@@ -768,11 +768,11 @@ define void @_ZN6LibRaw18kodak_thumb_loaderEv(ptr noundef nonnull align 8 derefe
   %indvars.iv280 = phi i64 [ %indvars.iv.next281, %.lr.ph221 ], [ 0, %.preheader ]
   %375 = phi i32 [ %390, %.lr.ph221 ], [ %356, %.preheader ]
   %376 = load ptr, ptr %4, align 8, !tbaa !85
-  %377 = getelementptr inbounds [4 x i16], ptr %376, i64 %indvars.iv283
-  %378 = getelementptr inbounds nuw i16, ptr %377, i64 %indvars.iv280
+  %377 = getelementptr inbounds [8 x i8], ptr %376, i64 %indvars.iv283
+  %378 = getelementptr inbounds nuw [2 x i8], ptr %377, i64 %indvars.iv280
   %379 = load i16, ptr %378, align 2, !tbaa !95
   %380 = zext i16 %379 to i64
-  %381 = getelementptr inbounds nuw i16, ptr %248, i64 %380
+  %381 = getelementptr inbounds nuw [2 x i8], ptr %248, i64 %380
   %382 = load i16, ptr %381, align 2, !tbaa !95
   %383 = lshr i16 %382, 8
   %384 = trunc nuw i16 %383 to i8

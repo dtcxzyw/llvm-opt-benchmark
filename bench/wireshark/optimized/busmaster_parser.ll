@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.token_t = type { i64, i64, i64, i64 }
 %union.YYMINORTYPE = type { %struct.token_t, [40 x i8] }
 %struct.msg_data_t = type { i32, [64 x i8] }
-%struct.yyStackEntry = type { i8, i8, %union.YYMINORTYPE }
 
 @yyRuleInfoNRhs = internal unnamed_addr constant [64 x i8] c"\00\FD\EE\FD\FD\F9\FB\F5\FB\F9\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\00\FF\FE\FD\FC\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FF\FF\FF\FF\FF\FF\FF\FE\00\FE\00\FD\00\FE\FE\FD", align 16
 @yy_shift_ofst = internal unnamed_addr constant [78 x i8] c"\22------------2A>LM------>OZ]^]^fimq\9E\9E\9E\9E\9E\9E\9E\1BSU:knoprtuy|\80\85\86\81{}~\7F\82\83\84\87\88\89\8B\8E\91\92\95\97\9B\9C\9D", align 16
@@ -551,7 +550,7 @@ yy_find_shift_action.exit:                        ; preds = %19, %29, %32
   %224 = getelementptr i8, ptr @yyRuleInfoNRhs, i64 %39
   %225 = load i8, ptr %224, align 1
   %226 = sext i8 %225 to i64
-  %227 = getelementptr %struct.yyStackEntry, ptr %56, i64 %226
+  %227 = getelementptr [80 x i8], ptr %56, i64 %226
   %228 = load i8, ptr %227, align 8
   %229 = zext i8 %228 to i64
   %230 = getelementptr i8, ptr @yy_reduce_ofst, i64 %229

@@ -1269,9 +1269,9 @@ define void @_ZNK6icu_7713TimeZoneNames15getDisplayNamesERKNS_13UnicodeStringEPK
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %44
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %44 ]
-  %17 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %18 = load i32, ptr %17, align 4, !tbaa !35
-  %19 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %5, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 %indvars.iv
   %20 = load ptr, ptr %0, align 8, !tbaa !15
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 80
   %22 = load ptr, ptr %21, align 8

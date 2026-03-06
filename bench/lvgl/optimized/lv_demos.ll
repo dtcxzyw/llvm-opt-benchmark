@@ -30,7 +30,7 @@ define noundef zeroext i1 @lv_demos_create(ptr noundef readonly captures(address
 7:                                                ; preds = %5, %7
   %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %7 ]
   %.122 = phi ptr [ null, %5 ], [ %spec.select, %7 ]
-  %8 = getelementptr inbounds nuw %struct.demo_entry_info_t, ptr @demos_entry_info, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [16 x i8], ptr @demos_entry_info, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 16, !tbaa !8
   %10 = tail call i32 @lv_strcmp(ptr noundef %6, ptr noundef %9) #3
   %11 = icmp eq i32 %10, 0

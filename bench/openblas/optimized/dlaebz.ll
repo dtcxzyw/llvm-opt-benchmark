@@ -8,8 +8,8 @@ define void @dlaebz_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %21 = load i32, ptr %3, align 4, !tbaa !3
   %narrow = xor i32 %21, -1
   %22 = sext i32 %narrow to i64
-  %23 = getelementptr inbounds i32, ptr %16, i64 %22
-  %24 = getelementptr inbounds double, ptr %13, i64 %22
+  %23 = getelementptr inbounds [4 x i8], ptr %16, i64 %22
+  %24 = getelementptr inbounds [8 x i8], ptr %13, i64 %22
   %25 = getelementptr inbounds i8, ptr %9, i64 -8
   %26 = getelementptr inbounds i8, ptr %11, i64 -8
   %27 = getelementptr inbounds i8, ptr %12, i64 -4
@@ -45,8 +45,8 @@ define void @dlaebz_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %43 = sext i32 %41 to i64
   %44 = add nuw i32 %37, 1
   %wide.trip.count727 = zext i32 %44 to i64
-  %invariant.gep767 = getelementptr i32, ptr %23, i64 %43
-  %invariant.gep769 = getelementptr i32, ptr %23, i64 %42
+  %invariant.gep767 = getelementptr [4 x i8], ptr %23, i64 %43
+  %invariant.gep769 = getelementptr [4 x i8], ptr %23, i64 %42
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %73
@@ -58,13 +58,13 @@ define void @dlaebz_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %indvars.iv720 = phi i64 [ 1, %.preheader ], [ 2, %._crit_edge665 ]
   %46 = mul nsw i64 %indvars.iv720, %42
   %47 = add nsw i64 %46, %indvars.iv724
-  %48 = getelementptr inbounds double, ptr %24, i64 %47
+  %48 = getelementptr inbounds [8 x i8], ptr %24, i64 %47
   %49 = load double, ptr %48, align 8, !tbaa !7
   %50 = fsub double %38, %49
   %51 = tail call double @llvm.fabs.f64(double %50)
   %52 = fcmp olt double %51, %39
   %.0529 = select i1 %52, double %40, double %50
-  %53 = getelementptr inbounds i32, ptr %23, i64 %47
+  %53 = getelementptr inbounds [4 x i8], ptr %23, i64 %47
   %54 = fcmp ole double %.0529, 0.000000e+00
   %storemerge = zext i1 %54 to i32
   store i32 %storemerge, ptr %53, align 4, !tbaa !3
@@ -81,9 +81,9 @@ define void @dlaebz_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %57 = phi i32 [ %storemerge, %.lr.ph664.preheader ], [ %72, %71 ]
   %indvars.iv715 = phi i64 [ 2, %.lr.ph664.preheader ], [ %indvars.iv.next716, %71 ]
   %.1530662 = phi double [ %.0529, %.lr.ph664.preheader ], [ %.2531, %71 ]
-  %58 = getelementptr inbounds nuw double, ptr %25, i64 %indvars.iv715
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv715
   %59 = load double, ptr %58, align 8, !tbaa !7
-  %60 = getelementptr double, ptr %26, i64 %indvars.iv715
+  %60 = getelementptr [8 x i8], ptr %26, i64 %indvars.iv715
   %61 = getelementptr i8, ptr %60, i64 -8
   %62 = load double, ptr %61, align 8, !tbaa !7
   %63 = fdiv double %62, %.1530662
@@ -111,10 +111,10 @@ define void @dlaebz_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 
 73:                                               ; preds = %._crit_edge665
   %74 = load i32, ptr %15, align 4, !tbaa !3
-  %gep768 = getelementptr i32, ptr %invariant.gep767, i64 %indvars.iv724
+  %gep768 = getelementptr [4 x i8], ptr %invariant.gep767, i64 %indvars.iv724
   %75 = load i32, ptr %gep768, align 4, !tbaa !3
   %76 = add nsw i32 %75, %74
-  %gep770 = getelementptr i32, ptr %invariant.gep769, i64 %indvars.iv724
+  %gep770 = getelementptr [4 x i8], ptr %invariant.gep769, i64 %indvars.iv724
   %77 = load i32, ptr %gep770, align 4, !tbaa !3
   %78 = sub i32 %76, %77
   store i32 %78, ptr %15, align 4, !tbaa !3
@@ -135,19 +135,19 @@ define void @dlaebz_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %84 = sext i32 %82 to i64
   %85 = add nuw i32 %80, 1
   %wide.trip.count = zext i32 %85 to i64
-  %invariant.gep = getelementptr double, ptr %24, i64 %83
-  %invariant.gep761 = getelementptr double, ptr %24, i64 %84
+  %invariant.gep = getelementptr [8 x i8], ptr %24, i64 %83
+  %invariant.gep761 = getelementptr [8 x i8], ptr %24, i64 %84
   br label %86
 
 86:                                               ; preds = %.lr.ph, %86
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %86 ]
-  %gep = getelementptr double, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %indvars.iv
   %87 = load double, ptr %gep, align 8, !tbaa !7
-  %gep762 = getelementptr double, ptr %invariant.gep761, i64 %indvars.iv
+  %gep762 = getelementptr [8 x i8], ptr %invariant.gep761, i64 %indvars.iv
   %88 = load double, ptr %gep762, align 8, !tbaa !7
   %89 = fadd double %87, %88
   %90 = fmul double %89, 5.000000e-01
-  %91 = getelementptr inbounds nuw double, ptr %28, i64 %indvars.iv
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv
   store double %90, ptr %91, align 8, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -162,8 +162,8 @@ define void @dlaebz_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %93 = shl i32 %21, 1
   %94 = sext i32 %21 to i64
   %95 = sext i32 %93 to i64
-  %invariant.gep763 = getelementptr double, ptr %24, i64 %94
-  %invariant.gep765 = getelementptr double, ptr %24, i64 %95
+  %invariant.gep763 = getelementptr [8 x i8], ptr %24, i64 %94
+  %invariant.gep765 = getelementptr [8 x i8], ptr %24, i64 %95
   br label %97
 
 ._crit_edge647:                                   ; preds = %.lr.ph646
@@ -203,12 +203,12 @@ define void @dlaebz_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 .lr.ph626:                                        ; preds = %.lr.ph626.preheader, %._crit_edge623
   %indvars.iv689 = phi i64 [ %103, %.lr.ph626.preheader ], [ %indvars.iv.next690, %._crit_edge623 ]
   %105 = load double, ptr %9, align 8, !tbaa !7
-  %106 = getelementptr inbounds double, ptr %28, i64 %indvars.iv689
+  %106 = getelementptr inbounds [8 x i8], ptr %28, i64 %indvars.iv689
   %107 = load double, ptr %106, align 8, !tbaa !7
   %108 = fsub double %105, %107
-  %109 = getelementptr inbounds double, ptr %29, i64 %indvars.iv689
+  %109 = getelementptr inbounds [8 x i8], ptr %29, i64 %indvars.iv689
   store double %108, ptr %109, align 8, !tbaa !7
-  %110 = getelementptr inbounds i32, ptr %30, i64 %indvars.iv689
+  %110 = getelementptr inbounds [4 x i8], ptr %30, i64 %indvars.iv689
   store i32 0, ptr %110, align 4, !tbaa !3
   %111 = load double, ptr %8, align 8, !tbaa !7
   %112 = fcmp ugt double %108, %111
@@ -238,9 +238,9 @@ define void @dlaebz_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %122 = phi i32 [ %118, %.lr.ph622.preheader ], [ %141, %140 ]
   %123 = phi double [ %119, %.lr.ph622.preheader ], [ %142, %140 ]
   %indvars.iv683 = phi i64 [ 2, %.lr.ph622.preheader ], [ %indvars.iv.next684, %140 ]
-  %124 = getelementptr inbounds nuw double, ptr %25, i64 %indvars.iv683
+  %124 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv683
   %125 = load double, ptr %124, align 8, !tbaa !7
-  %126 = getelementptr double, ptr %26, i64 %indvars.iv683
+  %126 = getelementptr [8 x i8], ptr %26, i64 %indvars.iv683
   %127 = getelementptr i8, ptr %126, i64 -8
   %128 = load double, ptr %127, align 8, !tbaa !7
   %129 = fdiv double %128, %123
@@ -290,12 +290,12 @@ define void @dlaebz_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %indvars.iv699 = phi i64 [ %indvars.iv.next700, %191 ], [ %145, %._crit_edge627 ]
   %.0542632 = phi i32 [ %.1543, %191 ], [ %.0534650, %._crit_edge627 ]
   %149 = add nsw i64 %indvars.iv699, %94
-  %150 = getelementptr inbounds i32, ptr %23, i64 %149
+  %150 = getelementptr inbounds [4 x i8], ptr %23, i64 %149
   %151 = load i32, ptr %150, align 4, !tbaa !3
-  %152 = getelementptr inbounds i32, ptr %30, i64 %indvars.iv699
+  %152 = getelementptr inbounds [4 x i8], ptr %30, i64 %indvars.iv699
   %153 = load i32, ptr %152, align 4, !tbaa !3
   %154 = add nsw i64 %indvars.iv699, %95
-  %155 = getelementptr inbounds i32, ptr %23, i64 %154
+  %155 = getelementptr inbounds [4 x i8], ptr %23, i64 %154
   %156 = load i32, ptr %155, align 4, !tbaa !3
   %157 = tail call i32 @llvm.smax.i32(i32 %151, i32 %153)
   %158 = tail call i32 @llvm.smin.i32(i32 %156, i32 %157)
@@ -305,9 +305,9 @@ define void @dlaebz_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   br i1 %160, label %161, label %165
 
 161:                                              ; preds = %.lr.ph634
-  %162 = getelementptr inbounds double, ptr %28, i64 %indvars.iv699
+  %162 = getelementptr inbounds [8 x i8], ptr %28, i64 %indvars.iv699
   %163 = load double, ptr %162, align 8, !tbaa !7
-  %164 = getelementptr inbounds double, ptr %24, i64 %154
+  %164 = getelementptr inbounds [8 x i8], ptr %24, i64 %154
   store double %163, ptr %164, align 8, !tbaa !7
   br label %191
 
@@ -317,9 +317,9 @@ define void @dlaebz_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   br i1 %167, label %168, label %172
 
 168:                                              ; preds = %165
-  %169 = getelementptr inbounds double, ptr %28, i64 %indvars.iv699
+  %169 = getelementptr inbounds [8 x i8], ptr %28, i64 %indvars.iv699
   %170 = load double, ptr %169, align 8, !tbaa !7
-  %171 = getelementptr inbounds double, ptr %24, i64 %149
+  %171 = getelementptr inbounds [8 x i8], ptr %24, i64 %149
   store double %170, ptr %171, align 8, !tbaa !7
   br label %191
 
@@ -330,22 +330,22 @@ define void @dlaebz_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   br i1 %.not591.not, label %175, label %189
 
 175:                                              ; preds = %172
-  %176 = getelementptr inbounds double, ptr %24, i64 %154
+  %176 = getelementptr inbounds [8 x i8], ptr %24, i64 %154
   %177 = load double, ptr %176, align 8, !tbaa !7
   %178 = add nsw i32 %173, %93
   %179 = sext i32 %178 to i64
-  %180 = getelementptr inbounds double, ptr %24, i64 %179
+  %180 = getelementptr inbounds [8 x i8], ptr %24, i64 %179
   store double %177, ptr %180, align 8, !tbaa !7
-  %181 = getelementptr inbounds i32, ptr %23, i64 %179
+  %181 = getelementptr inbounds [4 x i8], ptr %23, i64 %179
   store i32 %159, ptr %181, align 4, !tbaa !3
-  %182 = getelementptr inbounds double, ptr %28, i64 %indvars.iv699
+  %182 = getelementptr inbounds [8 x i8], ptr %28, i64 %indvars.iv699
   %183 = load double, ptr %182, align 8, !tbaa !7
   %184 = add nsw i32 %173, %21
   %185 = sext i32 %184 to i64
-  %186 = getelementptr inbounds double, ptr %24, i64 %185
+  %186 = getelementptr inbounds [8 x i8], ptr %24, i64 %185
   store double %183, ptr %186, align 8, !tbaa !7
   %187 = load i32, ptr %152, align 4, !tbaa !3
-  %188 = getelementptr inbounds i32, ptr %23, i64 %185
+  %188 = getelementptr inbounds [4 x i8], ptr %23, i64 %185
   store i32 %187, ptr %188, align 4, !tbaa !3
   store double %183, ptr %176, align 8, !tbaa !7
   store i32 %187, ptr %155, align 4, !tbaa !3
@@ -371,20 +371,20 @@ define void @dlaebz_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 
 .lr.ph630:                                        ; preds = %._crit_edge627, %210
   %indvars.iv694 = phi i64 [ %indvars.iv.next695, %210 ], [ %145, %._crit_edge627 ]
-  %193 = getelementptr inbounds i32, ptr %30, i64 %indvars.iv694
+  %193 = getelementptr inbounds [4 x i8], ptr %30, i64 %indvars.iv694
   %194 = load i32, ptr %193, align 4, !tbaa !3
-  %195 = getelementptr inbounds i32, ptr %27, i64 %indvars.iv694
+  %195 = getelementptr inbounds [4 x i8], ptr %27, i64 %indvars.iv694
   %196 = load i32, ptr %195, align 4, !tbaa !3
   %.not582 = icmp sgt i32 %194, %196
   br i1 %.not582, label %.thread, label %197
 
 197:                                              ; preds = %.lr.ph630
-  %198 = getelementptr inbounds double, ptr %28, i64 %indvars.iv694
+  %198 = getelementptr inbounds [8 x i8], ptr %28, i64 %indvars.iv694
   %199 = load double, ptr %198, align 8, !tbaa !7
   %200 = add nsw i64 %indvars.iv694, %94
-  %201 = getelementptr inbounds double, ptr %24, i64 %200
+  %201 = getelementptr inbounds [8 x i8], ptr %24, i64 %200
   store double %199, ptr %201, align 8, !tbaa !7
-  %202 = getelementptr inbounds i32, ptr %23, i64 %200
+  %202 = getelementptr inbounds [4 x i8], ptr %23, i64 %200
   store i32 %194, ptr %202, align 4, !tbaa !3
   %.pre729 = load i32, ptr %193, align 4, !tbaa !3
   %.pre730 = load i32, ptr %195, align 4, !tbaa !3
@@ -393,12 +393,12 @@ define void @dlaebz_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 
 .thread:                                          ; preds = %.lr.ph630, %197
   %204 = phi i32 [ %.pre729, %197 ], [ %194, %.lr.ph630 ]
-  %205 = getelementptr inbounds double, ptr %28, i64 %indvars.iv694
+  %205 = getelementptr inbounds [8 x i8], ptr %28, i64 %indvars.iv694
   %206 = load double, ptr %205, align 8, !tbaa !7
   %207 = add nsw i64 %indvars.iv694, %95
-  %208 = getelementptr inbounds double, ptr %24, i64 %207
+  %208 = getelementptr inbounds [8 x i8], ptr %24, i64 %207
   store double %206, ptr %208, align 8, !tbaa !7
-  %209 = getelementptr inbounds i32, ptr %23, i64 %207
+  %209 = getelementptr inbounds [4 x i8], ptr %23, i64 %207
   store i32 %204, ptr %209, align 4, !tbaa !3
   br label %210
 
@@ -411,7 +411,7 @@ define void @dlaebz_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 .lr.ph617:                                        ; preds = %.lr.ph617.preheader, %279
   %indvars.iv679 = phi i64 [ %101, %.lr.ph617.preheader ], [ %indvars.iv.next680, %279 ]
   %.2544615 = phi i32 [ %.0534650, %.lr.ph617.preheader ], [ %.3545, %279 ]
-  %211 = getelementptr inbounds double, ptr %28, i64 %indvars.iv679
+  %211 = getelementptr inbounds [8 x i8], ptr %28, i64 %indvars.iv679
   %212 = load double, ptr %211, align 8, !tbaa !7
   %213 = load double, ptr %9, align 8, !tbaa !7
   %214 = fsub double %213, %212
@@ -435,9 +435,9 @@ define void @dlaebz_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %indvars.iv674 = phi i64 [ 2, %.lr.ph613.preheader ], [ %indvars.iv.next675, %.lr.ph613 ]
   %.1612 = phi double [ %.0, %.lr.ph613.preheader ], [ %.2, %.lr.ph613 ]
   %.1552610 = phi i32 [ %.0551, %.lr.ph613.preheader ], [ %.2553, %.lr.ph613 ]
-  %222 = getelementptr inbounds nuw double, ptr %25, i64 %indvars.iv674
+  %222 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv674
   %223 = load double, ptr %222, align 8, !tbaa !7
-  %224 = getelementptr double, ptr %26, i64 %indvars.iv674
+  %224 = getelementptr [8 x i8], ptr %26, i64 %indvars.iv674
   %225 = getelementptr i8, ptr %224, i64 -8
   %226 = load double, ptr %225, align 8, !tbaa !7
   %227 = fdiv double %226, %.1612
@@ -461,10 +461,10 @@ define void @dlaebz_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 
 236:                                              ; preds = %._crit_edge
   %237 = add nsw i64 %indvars.iv679, %94
-  %238 = getelementptr inbounds i32, ptr %23, i64 %237
+  %238 = getelementptr inbounds [4 x i8], ptr %23, i64 %237
   %239 = load i32, ptr %238, align 4, !tbaa !3
   %240 = add nsw i64 %indvars.iv679, %95
-  %241 = getelementptr inbounds i32, ptr %23, i64 %240
+  %241 = getelementptr inbounds [4 x i8], ptr %23, i64 %240
   %242 = load i32, ptr %241, align 4, !tbaa !3
   %243 = tail call i32 @llvm.smax.i32(i32 %239, i32 %.1552.lcssa)
   %.not579 = icmp sgt i32 %242, %243
@@ -472,7 +472,7 @@ define void @dlaebz_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   br i1 %.not579, label %247, label %245
 
 245:                                              ; preds = %236
-  %246 = getelementptr inbounds double, ptr %24, i64 %240
+  %246 = getelementptr inbounds [8 x i8], ptr %24, i64 %240
   store double %212, ptr %246, align 8, !tbaa !7
   br label %279
 
@@ -481,7 +481,7 @@ define void @dlaebz_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   br i1 %248, label %249, label %251
 
 249:                                              ; preds = %247
-  %250 = getelementptr inbounds double, ptr %24, i64 %237
+  %250 = getelementptr inbounds [8 x i8], ptr %24, i64 %237
   store double %212, ptr %250, align 8, !tbaa !7
   br label %279
 
@@ -492,19 +492,19 @@ define void @dlaebz_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 
 254:                                              ; preds = %251
   %255 = add nsw i32 %.2544615, 1
-  %256 = getelementptr inbounds double, ptr %24, i64 %240
+  %256 = getelementptr inbounds [8 x i8], ptr %24, i64 %240
   %257 = load double, ptr %256, align 8, !tbaa !7
   %258 = add nsw i32 %255, %93
   %259 = sext i32 %258 to i64
-  %260 = getelementptr inbounds double, ptr %24, i64 %259
+  %260 = getelementptr inbounds [8 x i8], ptr %24, i64 %259
   store double %257, ptr %260, align 8, !tbaa !7
-  %261 = getelementptr inbounds i32, ptr %23, i64 %259
+  %261 = getelementptr inbounds [4 x i8], ptr %23, i64 %259
   store i32 %242, ptr %261, align 4, !tbaa !3
   %262 = add nsw i32 %255, %21
   %263 = sext i32 %262 to i64
-  %264 = getelementptr inbounds double, ptr %24, i64 %263
+  %264 = getelementptr inbounds [8 x i8], ptr %24, i64 %263
   store double %212, ptr %264, align 8, !tbaa !7
-  %265 = getelementptr inbounds i32, ptr %23, i64 %263
+  %265 = getelementptr inbounds [4 x i8], ptr %23, i64 %263
   store i32 %244, ptr %265, align 4, !tbaa !3
   store double %212, ptr %256, align 8, !tbaa !7
   store i32 %244, ptr %241, align 4, !tbaa !3
@@ -516,16 +516,16 @@ define void @dlaebz_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   br label %.loopexit
 
 268:                                              ; preds = %._crit_edge
-  %269 = getelementptr inbounds i32, ptr %27, i64 %indvars.iv679
+  %269 = getelementptr inbounds [4 x i8], ptr %27, i64 %indvars.iv679
   %270 = load i32, ptr %269, align 4, !tbaa !3
   %.not576 = icmp sgt i32 %.1552.lcssa, %270
   br i1 %.not576, label %.thread757, label %271
 
 271:                                              ; preds = %268
   %272 = add nsw i64 %indvars.iv679, %94
-  %273 = getelementptr inbounds double, ptr %24, i64 %272
+  %273 = getelementptr inbounds [8 x i8], ptr %24, i64 %272
   store double %212, ptr %273, align 8, !tbaa !7
-  %274 = getelementptr inbounds i32, ptr %23, i64 %272
+  %274 = getelementptr inbounds [4 x i8], ptr %23, i64 %272
   store i32 %.1552.lcssa, ptr %274, align 4, !tbaa !3
   %.pre = load i32, ptr %269, align 4, !tbaa !3
   %275 = icmp slt i32 %.1552.lcssa, %.pre
@@ -533,9 +533,9 @@ define void @dlaebz_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 
 .thread757:                                       ; preds = %268, %271
   %276 = add nsw i64 %indvars.iv679, %95
-  %277 = getelementptr inbounds double, ptr %24, i64 %276
+  %277 = getelementptr inbounds [8 x i8], ptr %24, i64 %276
   store double %212, ptr %277, align 8, !tbaa !7
-  %278 = getelementptr inbounds i32, ptr %23, i64 %276
+  %278 = getelementptr inbounds [4 x i8], ptr %23, i64 %276
   store i32 %.1552.lcssa, ptr %278, align 4, !tbaa !3
   br label %279
 
@@ -570,10 +570,10 @@ define void @dlaebz_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %indvars.iv704 = phi i64 [ %280, %.lr.ph642.preheader ], [ %indvars.iv.next705, %341 ]
   %.0546638 = phi i32 [ %.0540649, %.lr.ph642.preheader ], [ %.1547, %341 ]
   %284 = add nsw i64 %indvars.iv704, %95
-  %285 = getelementptr inbounds double, ptr %24, i64 %284
+  %285 = getelementptr inbounds [8 x i8], ptr %24, i64 %284
   %286 = load double, ptr %285, align 8, !tbaa !7
   %287 = add nsw i64 %indvars.iv704, %94
-  %288 = getelementptr inbounds double, ptr %24, i64 %287
+  %288 = getelementptr inbounds [8 x i8], ptr %24, i64 %287
   %289 = load double, ptr %288, align 8, !tbaa !7
   %290 = fsub double %286, %289
   %291 = tail call double @llvm.fabs.f64(double %290)
@@ -597,9 +597,9 @@ define void @dlaebz_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   br i1 %306, label %312, label %307
 
 307:                                              ; preds = %.lr.ph642
-  %308 = getelementptr inbounds i32, ptr %23, i64 %287
+  %308 = getelementptr inbounds [4 x i8], ptr %23, i64 %287
   %309 = load i32, ptr %308, align 4, !tbaa !3
-  %310 = getelementptr inbounds i32, ptr %23, i64 %284
+  %310 = getelementptr inbounds [4 x i8], ptr %23, i64 %284
   %311 = load i32, ptr %310, align 4, !tbaa !3
   %.not588 = icmp slt i32 %309, %311
   br i1 %.not588, label %341, label %312
@@ -610,24 +610,24 @@ define void @dlaebz_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   br i1 %314, label %315, label %339
 
 315:                                              ; preds = %312
-  %316 = getelementptr inbounds i32, ptr %23, i64 %287
+  %316 = getelementptr inbounds [4 x i8], ptr %23, i64 %287
   %317 = load i32, ptr %316, align 4, !tbaa !3
-  %318 = getelementptr inbounds i32, ptr %23, i64 %284
+  %318 = getelementptr inbounds [4 x i8], ptr %23, i64 %284
   %319 = load i32, ptr %318, align 4, !tbaa !3
   %320 = add nsw i32 %.0546638, %21
   %321 = sext i32 %320 to i64
-  %322 = getelementptr inbounds double, ptr %24, i64 %321
+  %322 = getelementptr inbounds [8 x i8], ptr %24, i64 %321
   %323 = load double, ptr %322, align 8, !tbaa !7
   store double %323, ptr %288, align 8, !tbaa !7
   %324 = add nsw i32 %.0546638, %93
   %325 = sext i32 %324 to i64
-  %326 = getelementptr inbounds double, ptr %24, i64 %325
+  %326 = getelementptr inbounds [8 x i8], ptr %24, i64 %325
   %327 = load double, ptr %326, align 8, !tbaa !7
   store double %327, ptr %285, align 8, !tbaa !7
-  %328 = getelementptr inbounds i32, ptr %23, i64 %321
+  %328 = getelementptr inbounds [4 x i8], ptr %23, i64 %321
   %329 = load i32, ptr %328, align 4, !tbaa !3
   store i32 %329, ptr %316, align 4, !tbaa !3
-  %330 = getelementptr inbounds i32, ptr %23, i64 %325
+  %330 = getelementptr inbounds [4 x i8], ptr %23, i64 %325
   %331 = load i32, ptr %330, align 4, !tbaa !3
   store i32 %331, ptr %318, align 4, !tbaa !3
   store double %289, ptr %322, align 8, !tbaa !7
@@ -639,9 +639,9 @@ define void @dlaebz_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   br i1 %333, label %334, label %339
 
 334:                                              ; preds = %315
-  %335 = getelementptr inbounds i32, ptr %27, i64 %indvars.iv704
+  %335 = getelementptr inbounds [4 x i8], ptr %27, i64 %indvars.iv704
   %336 = load i32, ptr %335, align 4, !tbaa !3
-  %337 = getelementptr inbounds i32, ptr %27, i64 %313
+  %337 = getelementptr inbounds [4 x i8], ptr %27, i64 %313
   %338 = load i32, ptr %337, align 4, !tbaa !3
   store i32 %338, ptr %335, align 4, !tbaa !3
   store i32 %336, ptr %337, align 4, !tbaa !3
@@ -660,13 +660,13 @@ define void @dlaebz_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 
 .lr.ph646:                                        ; preds = %.lr.ph646.preheader, %.lr.ph646
   %indvars.iv709 = phi i64 [ %282, %.lr.ph646.preheader ], [ %indvars.iv.next710, %.lr.ph646 ]
-  %gep764 = getelementptr double, ptr %invariant.gep763, i64 %indvars.iv709
+  %gep764 = getelementptr [8 x i8], ptr %invariant.gep763, i64 %indvars.iv709
   %342 = load double, ptr %gep764, align 8, !tbaa !7
-  %gep766 = getelementptr double, ptr %invariant.gep765, i64 %indvars.iv709
+  %gep766 = getelementptr [8 x i8], ptr %invariant.gep765, i64 %indvars.iv709
   %343 = load double, ptr %gep766, align 8, !tbaa !7
   %344 = fadd double %342, %343
   %345 = fmul double %344, 5.000000e-01
-  %346 = getelementptr inbounds double, ptr %28, i64 %indvars.iv709
+  %346 = getelementptr inbounds [8 x i8], ptr %28, i64 %indvars.iv709
   store double %345, ptr %346, align 8, !tbaa !7
   %indvars.iv.next710 = add nsw i64 %indvars.iv709, 1
   %lftr.wideiv712 = trunc i64 %indvars.iv.next710 to i32

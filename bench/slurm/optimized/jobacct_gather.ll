@@ -1589,116 +1589,116 @@ define internal fastcc void @_copy_tres_usage(ptr noundef nonnull captures(none)
 27:                                               ; preds = %.lr.ph, %27
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %27 ]
   %28 = load ptr, ptr %13, align 8
-  %29 = getelementptr inbounds nuw i64, ptr %28, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv
   %30 = load i64, ptr %29, align 8
   %31 = load ptr, ptr %0, align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 144
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds nuw i64, ptr %33, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv
   store i64 %30, ptr %34, align 8
   %35 = load ptr, ptr %14, align 8
-  %36 = getelementptr inbounds nuw i64, ptr %35, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv
   %37 = load i64, ptr %36, align 8
   %38 = load ptr, ptr %0, align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 152
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds nuw i64, ptr %40, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv
   store i64 %37, ptr %41, align 8
   %42 = load ptr, ptr %15, align 8
-  %43 = getelementptr inbounds nuw i64, ptr %42, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv
   %44 = load i64, ptr %43, align 8
   %45 = load ptr, ptr %0, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 160
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds nuw i64, ptr %47, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %indvars.iv
   store i64 %44, ptr %48, align 8
   %49 = load ptr, ptr %16, align 8
-  %50 = getelementptr inbounds nuw i64, ptr %49, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %indvars.iv
   %51 = load i64, ptr %50, align 8
   %52 = load ptr, ptr %0, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 168
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds nuw i64, ptr %54, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %indvars.iv
   store i64 %51, ptr %55, align 8
   %56 = load ptr, ptr %17, align 8
-  %57 = getelementptr inbounds nuw i64, ptr %56, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %indvars.iv
   %58 = load i64, ptr %57, align 8
   %59 = load ptr, ptr %0, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 176
   %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds nuw i64, ptr %61, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %indvars.iv
   store i64 %58, ptr %62, align 8
   %63 = load ptr, ptr %18, align 8
-  %64 = getelementptr inbounds nuw i64, ptr %63, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %indvars.iv
   %65 = load i64, ptr %64, align 8
   %66 = load ptr, ptr %0, align 8
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 184
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds nuw i64, ptr %68, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %indvars.iv
   store i64 %65, ptr %69, align 8
   %70 = load ptr, ptr %19, align 8
-  %71 = getelementptr inbounds nuw i64, ptr %70, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %indvars.iv
   %72 = load i64, ptr %71, align 8
   %73 = load ptr, ptr %0, align 8
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 192
   %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds nuw i64, ptr %75, i64 %indvars.iv
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %indvars.iv
   store i64 %72, ptr %76, align 8
   %77 = load ptr, ptr %20, align 8
-  %78 = getelementptr inbounds nuw i64, ptr %77, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %indvars.iv
   %79 = load i64, ptr %78, align 8
   %80 = load ptr, ptr %0, align 8
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 200
   %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds nuw i64, ptr %82, i64 %indvars.iv
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %82, i64 %indvars.iv
   store i64 %79, ptr %83, align 8
   %84 = load ptr, ptr %21, align 8
-  %85 = getelementptr inbounds nuw i64, ptr %84, i64 %indvars.iv
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %indvars.iv
   %86 = load i64, ptr %85, align 8
   %87 = load ptr, ptr %0, align 8
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 208
   %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds nuw i64, ptr %89, i64 %indvars.iv
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %89, i64 %indvars.iv
   store i64 %86, ptr %90, align 8
   %91 = load ptr, ptr %22, align 8
-  %92 = getelementptr inbounds nuw i64, ptr %91, i64 %indvars.iv
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %indvars.iv
   %93 = load i64, ptr %92, align 8
   %94 = load ptr, ptr %0, align 8
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 216
   %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds nuw i64, ptr %96, i64 %indvars.iv
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %96, i64 %indvars.iv
   store i64 %93, ptr %97, align 8
   %98 = load ptr, ptr %23, align 8
-  %99 = getelementptr inbounds nuw i64, ptr %98, i64 %indvars.iv
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %indvars.iv
   %100 = load i64, ptr %99, align 8
   %101 = load ptr, ptr %0, align 8
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 224
   %103 = load ptr, ptr %102, align 8
-  %104 = getelementptr inbounds nuw i64, ptr %103, i64 %indvars.iv
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %103, i64 %indvars.iv
   store i64 %100, ptr %104, align 8
   %105 = load ptr, ptr %24, align 8
-  %106 = getelementptr inbounds nuw i64, ptr %105, i64 %indvars.iv
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %105, i64 %indvars.iv
   %107 = load i64, ptr %106, align 8
   %108 = load ptr, ptr %0, align 8
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 232
   %110 = load ptr, ptr %109, align 8
-  %111 = getelementptr inbounds nuw i64, ptr %110, i64 %indvars.iv
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %110, i64 %indvars.iv
   store i64 %107, ptr %111, align 8
   %112 = load ptr, ptr %25, align 8
-  %113 = getelementptr inbounds nuw i64, ptr %112, i64 %indvars.iv
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %112, i64 %indvars.iv
   %114 = load i64, ptr %113, align 8
   %115 = load ptr, ptr %0, align 8
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 240
   %117 = load ptr, ptr %116, align 8
-  %118 = getelementptr inbounds nuw i64, ptr %117, i64 %indvars.iv
+  %118 = getelementptr inbounds nuw [8 x i8], ptr %117, i64 %indvars.iv
   store i64 %114, ptr %118, align 8
   %119 = load ptr, ptr %26, align 8
-  %120 = getelementptr inbounds nuw i64, ptr %119, i64 %indvars.iv
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %119, i64 %indvars.iv
   %121 = load i64, ptr %120, align 8
   %122 = load ptr, ptr %0, align 8
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 248
   %124 = load ptr, ptr %123, align 8
-  %125 = getelementptr inbounds nuw i64, ptr %124, i64 %indvars.iv
+  %125 = getelementptr inbounds nuw [8 x i8], ptr %124, i64 %indvars.iv
   store i64 %121, ptr %125, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %126 = load i32, ptr %10, align 8
@@ -2901,14 +2901,14 @@ define dso_local void @jobacctinfo_aggregate(ptr noundef captures(none) %0, ptr 
 87:                                               ; preds = %195, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %195 ]
   %88 = load ptr, ptr %59, align 8
-  %89 = getelementptr inbounds nuw i64, ptr %88, i64 %indvars.iv.i
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %indvars.iv.i
   %90 = load i64, ptr %89, align 8
   %.not.i = icmp eq i64 %90, -1
   br i1 %.not.i, label %110, label %91
 
 91:                                               ; preds = %87
   %92 = load ptr, ptr %60, align 8
-  %93 = getelementptr inbounds nuw i64, ptr %92, i64 %indvars.iv.i
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %92, i64 %indvars.iv.i
   %94 = load i64, ptr %93, align 8
   %95 = icmp eq i64 %94, -1
   %96 = icmp ult i64 %94, %90
@@ -2922,32 +2922,32 @@ define dso_local void @jobacctinfo_aggregate(ptr noundef captures(none) %0, ptr 
 
 98:                                               ; preds = %97
   %99 = load ptr, ptr %61, align 8
-  %100 = getelementptr inbounds nuw i64, ptr %99, i64 %indvars.iv.i
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %99, i64 %indvars.iv.i
   %101 = load i64, ptr %100, align 8
   %102 = load ptr, ptr %62, align 8
-  %103 = getelementptr inbounds nuw i64, ptr %102, i64 %indvars.iv.i
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %102, i64 %indvars.iv.i
   store i64 %101, ptr %103, align 8
   br label %104
 
 104:                                              ; preds = %98, %97
   %105 = load ptr, ptr %63, align 8
-  %106 = getelementptr inbounds nuw i64, ptr %105, i64 %indvars.iv.i
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %105, i64 %indvars.iv.i
   %107 = load i64, ptr %106, align 8
   %108 = load ptr, ptr %64, align 8
-  %109 = getelementptr inbounds nuw i64, ptr %108, i64 %indvars.iv.i
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %108, i64 %indvars.iv.i
   store i64 %107, ptr %109, align 8
   br label %110
 
 110:                                              ; preds = %104, %91, %87
   %111 = load ptr, ptr %65, align 8
-  %112 = getelementptr inbounds nuw i64, ptr %111, i64 %indvars.iv.i
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %111, i64 %indvars.iv.i
   %113 = load i64, ptr %112, align 8
   %.not123.i = icmp eq i64 %113, -1
   br i1 %.not123.i, label %132, label %114
 
 114:                                              ; preds = %110
   %115 = load ptr, ptr %66, align 8
-  %116 = getelementptr inbounds nuw i64, ptr %115, i64 %indvars.iv.i
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %115, i64 %indvars.iv.i
   %117 = load i64, ptr %116, align 8
   %118 = icmp ugt i64 %117, %113
   br i1 %118, label %119, label %132
@@ -2959,32 +2959,32 @@ define dso_local void @jobacctinfo_aggregate(ptr noundef captures(none) %0, ptr 
 
 120:                                              ; preds = %119
   %121 = load ptr, ptr %67, align 8
-  %122 = getelementptr inbounds nuw i64, ptr %121, i64 %indvars.iv.i
+  %122 = getelementptr inbounds nuw [8 x i8], ptr %121, i64 %indvars.iv.i
   %123 = load i64, ptr %122, align 8
   %124 = load ptr, ptr %68, align 8
-  %125 = getelementptr inbounds nuw i64, ptr %124, i64 %indvars.iv.i
+  %125 = getelementptr inbounds nuw [8 x i8], ptr %124, i64 %indvars.iv.i
   store i64 %123, ptr %125, align 8
   br label %126
 
 126:                                              ; preds = %120, %119
   %127 = load ptr, ptr %69, align 8
-  %128 = getelementptr inbounds nuw i64, ptr %127, i64 %indvars.iv.i
+  %128 = getelementptr inbounds nuw [8 x i8], ptr %127, i64 %indvars.iv.i
   %129 = load i64, ptr %128, align 8
   %130 = load ptr, ptr %70, align 8
-  %131 = getelementptr inbounds nuw i64, ptr %130, i64 %indvars.iv.i
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %130, i64 %indvars.iv.i
   store i64 %129, ptr %131, align 8
   br label %132
 
 132:                                              ; preds = %126, %114, %110
   %133 = load ptr, ptr %71, align 8
-  %134 = getelementptr inbounds nuw i64, ptr %133, i64 %indvars.iv.i
+  %134 = getelementptr inbounds nuw [8 x i8], ptr %133, i64 %indvars.iv.i
   %135 = load i64, ptr %134, align 8
   %.not125.i = icmp eq i64 %135, -1
   br i1 %.not125.i, label %141, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %132
   %136 = load ptr, ptr %72, align 8
-  %137 = getelementptr inbounds nuw i64, ptr %136, i64 %indvars.iv.i
+  %137 = getelementptr inbounds nuw [8 x i8], ptr %136, i64 %indvars.iv.i
   %138 = load i64, ptr %137, align 8
   %139 = icmp eq i64 %138, -1
   %140 = select i1 %139, i64 0, i64 %138
@@ -2994,14 +2994,14 @@ define dso_local void @jobacctinfo_aggregate(ptr noundef captures(none) %0, ptr 
 
 141:                                              ; preds = %.sink.split.i, %132
   %142 = load ptr, ptr %73, align 8
-  %143 = getelementptr inbounds nuw i64, ptr %142, i64 %indvars.iv.i
+  %143 = getelementptr inbounds nuw [8 x i8], ptr %142, i64 %indvars.iv.i
   %144 = load i64, ptr %143, align 8
   %.not126.i = icmp eq i64 %144, -1
   br i1 %.not126.i, label %164, label %145
 
 145:                                              ; preds = %141
   %146 = load ptr, ptr %74, align 8
-  %147 = getelementptr inbounds nuw i64, ptr %146, i64 %indvars.iv.i
+  %147 = getelementptr inbounds nuw [8 x i8], ptr %146, i64 %indvars.iv.i
   %148 = load i64, ptr %147, align 8
   %149 = icmp eq i64 %148, -1
   %150 = icmp ult i64 %148, %144
@@ -3015,32 +3015,32 @@ define dso_local void @jobacctinfo_aggregate(ptr noundef captures(none) %0, ptr 
 
 152:                                              ; preds = %151
   %153 = load ptr, ptr %75, align 8
-  %154 = getelementptr inbounds nuw i64, ptr %153, i64 %indvars.iv.i
+  %154 = getelementptr inbounds nuw [8 x i8], ptr %153, i64 %indvars.iv.i
   %155 = load i64, ptr %154, align 8
   %156 = load ptr, ptr %76, align 8
-  %157 = getelementptr inbounds nuw i64, ptr %156, i64 %indvars.iv.i
+  %157 = getelementptr inbounds nuw [8 x i8], ptr %156, i64 %indvars.iv.i
   store i64 %155, ptr %157, align 8
   br label %158
 
 158:                                              ; preds = %152, %151
   %159 = load ptr, ptr %77, align 8
-  %160 = getelementptr inbounds nuw i64, ptr %159, i64 %indvars.iv.i
+  %160 = getelementptr inbounds nuw [8 x i8], ptr %159, i64 %indvars.iv.i
   %161 = load i64, ptr %160, align 8
   %162 = load ptr, ptr %78, align 8
-  %163 = getelementptr inbounds nuw i64, ptr %162, i64 %indvars.iv.i
+  %163 = getelementptr inbounds nuw [8 x i8], ptr %162, i64 %indvars.iv.i
   store i64 %161, ptr %163, align 8
   br label %164
 
 164:                                              ; preds = %158, %145, %141
   %165 = load ptr, ptr %79, align 8
-  %166 = getelementptr inbounds nuw i64, ptr %165, i64 %indvars.iv.i
+  %166 = getelementptr inbounds nuw [8 x i8], ptr %165, i64 %indvars.iv.i
   %167 = load i64, ptr %166, align 8
   %.not128.i = icmp eq i64 %167, -1
   br i1 %.not128.i, label %186, label %168
 
 168:                                              ; preds = %164
   %169 = load ptr, ptr %80, align 8
-  %170 = getelementptr inbounds nuw i64, ptr %169, i64 %indvars.iv.i
+  %170 = getelementptr inbounds nuw [8 x i8], ptr %169, i64 %indvars.iv.i
   %171 = load i64, ptr %170, align 8
   %172 = icmp ugt i64 %171, %167
   br i1 %172, label %173, label %186
@@ -3052,32 +3052,32 @@ define dso_local void @jobacctinfo_aggregate(ptr noundef captures(none) %0, ptr 
 
 174:                                              ; preds = %173
   %175 = load ptr, ptr %81, align 8
-  %176 = getelementptr inbounds nuw i64, ptr %175, i64 %indvars.iv.i
+  %176 = getelementptr inbounds nuw [8 x i8], ptr %175, i64 %indvars.iv.i
   %177 = load i64, ptr %176, align 8
   %178 = load ptr, ptr %82, align 8
-  %179 = getelementptr inbounds nuw i64, ptr %178, i64 %indvars.iv.i
+  %179 = getelementptr inbounds nuw [8 x i8], ptr %178, i64 %indvars.iv.i
   store i64 %177, ptr %179, align 8
   br label %180
 
 180:                                              ; preds = %174, %173
   %181 = load ptr, ptr %83, align 8
-  %182 = getelementptr inbounds nuw i64, ptr %181, i64 %indvars.iv.i
+  %182 = getelementptr inbounds nuw [8 x i8], ptr %181, i64 %indvars.iv.i
   %183 = load i64, ptr %182, align 8
   %184 = load ptr, ptr %84, align 8
-  %185 = getelementptr inbounds nuw i64, ptr %184, i64 %indvars.iv.i
+  %185 = getelementptr inbounds nuw [8 x i8], ptr %184, i64 %indvars.iv.i
   store i64 %183, ptr %185, align 8
   br label %186
 
 186:                                              ; preds = %180, %168, %164
   %187 = load ptr, ptr %85, align 8
-  %188 = getelementptr inbounds nuw i64, ptr %187, i64 %indvars.iv.i
+  %188 = getelementptr inbounds nuw [8 x i8], ptr %187, i64 %indvars.iv.i
   %189 = load i64, ptr %188, align 8
   %.not130.i = icmp eq i64 %189, -1
   br i1 %.not130.i, label %195, label %.sink.split144.i
 
 .sink.split144.i:                                 ; preds = %186
   %190 = load ptr, ptr %86, align 8
-  %191 = getelementptr inbounds nuw i64, ptr %190, i64 %indvars.iv.i
+  %191 = getelementptr inbounds nuw [8 x i8], ptr %190, i64 %indvars.iv.i
   %192 = load i64, ptr %191, align 8
   %193 = icmp eq i64 %192, -1
   %194 = select i1 %193, i64 0, i64 %192
@@ -3289,7 +3289,7 @@ define internal fastcc void @_init_tres_usage(ptr noundef captures(none) initial
   br i1 %.not, label %48, label %43
 
 43:                                               ; preds = %40
-  %44 = getelementptr inbounds nuw ptr, ptr %41, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 24
   %47 = load i32, ptr %46, align 8
@@ -3298,25 +3298,25 @@ define internal fastcc void @_init_tres_usage(ptr noundef captures(none) initial
 48:                                               ; preds = %40, %43
   %49 = phi i32 [ %47, %43 ], [ %42, %40 ]
   %50 = load ptr, ptr %7, align 8
-  %51 = getelementptr inbounds nuw i32, ptr %50, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %indvars.iv
   store i32 %49, ptr %51, align 4
   %52 = load ptr, ptr %17, align 8
-  %53 = getelementptr inbounds nuw i64, ptr %52, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %indvars.iv
   store i64 -1, ptr %53, align 8
   %54 = load ptr, ptr %11, align 8
-  %55 = getelementptr inbounds nuw i64, ptr %54, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %indvars.iv
   store i64 -1, ptr %55, align 8
   %56 = load ptr, ptr %23, align 8
-  %57 = getelementptr inbounds nuw i64, ptr %56, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %indvars.iv
   store i64 -1, ptr %57, align 8
   %58 = load ptr, ptr %25, align 8
-  %59 = getelementptr inbounds nuw i64, ptr %58, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %indvars.iv
   store i64 -1, ptr %59, align 8
   %60 = load ptr, ptr %31, align 8
-  %61 = getelementptr inbounds nuw i64, ptr %60, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %indvars.iv
   store i64 -1, ptr %61, align 8
   %62 = load ptr, ptr %37, align 8
-  %63 = getelementptr inbounds nuw i64, ptr %62, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %indvars.iv
   store i64 -1, ptr %63, align 8
   br i1 %.not99, label %81, label %64
 
@@ -3328,37 +3328,37 @@ define internal fastcc void @_init_tres_usage(ptr noundef captures(none) initial
 .thread:                                          ; preds = %64
   %66 = zext i32 %65 to i64
   %67 = load ptr, ptr %15, align 8
-  %68 = getelementptr inbounds nuw i64, ptr %67, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %indvars.iv
   store i64 %66, ptr %68, align 8
   %69 = load i32, ptr %1, align 8
   %70 = zext i32 %69 to i64
   %71 = load ptr, ptr %21, align 8
-  %72 = getelementptr inbounds nuw i64, ptr %71, i64 %indvars.iv
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %indvars.iv
   store i64 %70, ptr %72, align 8
   %73 = load i32, ptr %1, align 8
   %74 = zext i32 %73 to i64
   %75 = load ptr, ptr %29, align 8
-  %76 = getelementptr inbounds nuw i64, ptr %75, i64 %indvars.iv
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %indvars.iv
   store i64 %74, ptr %76, align 8
   %77 = load i32, ptr %1, align 8
   %78 = zext i32 %77 to i64
   %79 = load ptr, ptr %35, align 8
-  %80 = getelementptr inbounds nuw i64, ptr %79, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %79, i64 %indvars.iv
   store i64 %78, ptr %80, align 8
   br label %90
 
 81:                                               ; preds = %48, %64
   %82 = load ptr, ptr %15, align 8
-  %83 = getelementptr inbounds nuw i64, ptr %82, i64 %indvars.iv
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %82, i64 %indvars.iv
   store i64 -1, ptr %83, align 8
   %84 = load ptr, ptr %21, align 8
-  %85 = getelementptr inbounds nuw i64, ptr %84, i64 %indvars.iv
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %indvars.iv
   store i64 -1, ptr %85, align 8
   %86 = load ptr, ptr %29, align 8
-  %87 = getelementptr inbounds nuw i64, ptr %86, i64 %indvars.iv
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %86, i64 %indvars.iv
   store i64 -1, ptr %87, align 8
   %88 = load ptr, ptr %35, align 8
-  %89 = getelementptr inbounds nuw i64, ptr %88, i64 %indvars.iv
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %indvars.iv
   store i64 -1, ptr %89, align 8
   br i1 %.not99, label %106, label %90
 
@@ -3370,17 +3370,17 @@ define internal fastcc void @_init_tres_usage(ptr noundef captures(none) initial
 92:                                               ; preds = %90
   %93 = zext i32 %91 to i64
   %94 = load ptr, ptr %13, align 8
-  %95 = getelementptr inbounds nuw i64, ptr %94, i64 %indvars.iv
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %indvars.iv
   store i64 %93, ptr %95, align 8
   %96 = load i32, ptr %39, align 4
   %97 = zext i32 %96 to i64
   %98 = load ptr, ptr %19, align 8
-  %99 = getelementptr inbounds nuw i64, ptr %98, i64 %indvars.iv
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %indvars.iv
   store i64 %97, ptr %99, align 8
   %100 = load i32, ptr %39, align 4
   %101 = zext i32 %100 to i64
   %102 = load ptr, ptr %27, align 8
-  %103 = getelementptr inbounds nuw i64, ptr %102, i64 %indvars.iv
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %102, i64 %indvars.iv
   store i64 %101, ptr %103, align 8
   %104 = load i32, ptr %39, align 4
   %105 = zext i32 %104 to i64
@@ -3388,20 +3388,20 @@ define internal fastcc void @_init_tres_usage(ptr noundef captures(none) initial
 
 106:                                              ; preds = %90, %81
   %107 = load ptr, ptr %13, align 8
-  %108 = getelementptr inbounds nuw i64, ptr %107, i64 %indvars.iv
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %indvars.iv
   store i64 -1, ptr %108, align 8
   %109 = load ptr, ptr %19, align 8
-  %110 = getelementptr inbounds nuw i64, ptr %109, i64 %indvars.iv
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %109, i64 %indvars.iv
   store i64 -1, ptr %110, align 8
   %111 = load ptr, ptr %27, align 8
-  %112 = getelementptr inbounds nuw i64, ptr %111, i64 %indvars.iv
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %111, i64 %indvars.iv
   store i64 -1, ptr %112, align 8
   br label %113
 
 113:                                              ; preds = %92, %106
   %.sink = phi i64 [ %105, %92 ], [ -1, %106 ]
   %114 = load ptr, ptr %33, align 8
-  %115 = getelementptr inbounds nuw i64, ptr %114, i64 %indvars.iv
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %114, i64 %indvars.iv
   store i64 %.sink, ptr %115, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %116 = load i32, ptr %4, align 8

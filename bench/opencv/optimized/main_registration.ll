@@ -52,7 +52,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.cv::Size_" = type { i32, i32 }
 %"class.cv::Point_" = type { float, float }
 %"class.cv::Point3_" = type { float, float, float }
-%"class.cv::KeyPoint" = type { %"class.cv::Point_", float, float, float, i32, i32 }
 %"struct.cv::Ptr.22" = type { %"class.std::shared_ptr.23" }
 %"class.std::shared_ptr.23" = type { %"class.std::__shared_ptr.24" }
 %"class.std::__shared_ptr.24" = type { ptr, %"class.std::__shared_count" }
@@ -2825,11 +2824,11 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i1010: ; preds = %.noexc1013,
 974:                                              ; preds = %971
   %975 = load i32, ptr getelementptr inbounds nuw (i8, ptr @registration, i64 8), align 8, !tbaa !108
   %976 = sext i32 %975 to i64
-  %977 = getelementptr inbounds i32, ptr @_ZL3pts, i64 %976
+  %977 = getelementptr inbounds [4 x i8], ptr @_ZL3pts, i64 %976
   %978 = load i32, ptr %977, align 4, !tbaa !59
   %979 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mesh, i64 16), align 8, !tbaa !97
   %980 = sext i32 %978 to i64
-  %981 = getelementptr %"class.cv::Point3_", ptr %979, i64 %980
+  %981 = getelementptr [12 x i8], ptr %979, i64 %980
   %982 = getelementptr i8, ptr %981, i64 -12
   %.sroa.01.0.copyload.i = load <2 x float>, ptr %982, align 4
   %.sroa.22.0..sroa_idx.i = getelementptr i8, ptr %981, i64 -4
@@ -3620,7 +3619,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit736: ; preds = %12
   %1210 = phi i64 [ 0, %.lr.ph ], [ %1231, %1230 ]
   %.0631154 = phi i32 [ 0, %.lr.ph ], [ %.pre-phi, %1230 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %82)
-  %1211 = getelementptr inbounds nuw %"class.cv::KeyPoint", ptr %1209, i64 %1210
+  %1211 = getelementptr inbounds nuw [28 x i8], ptr %1209, i64 %1210
   %1212 = load i64, ptr %1211, align 4
   store i64 %1212, ptr %82, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %83)
@@ -3658,7 +3657,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit736: ; preds = %12
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %84) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %84)
   %1220 = load ptr, ptr %80, align 8, !tbaa !124
-  %1221 = getelementptr inbounds nuw %"class.cv::KeyPoint", ptr %1220, i64 %1210
+  %1221 = getelementptr inbounds nuw [28 x i8], ptr %1220, i64 %1210
   invoke void @_ZN5Model12add_keypointERKN2cv8KeyPointE(ptr noundef nonnull align 8 dereferenceable(240) @model, ptr noundef nonnull align 4 dereferenceable(28) %1221)
           to label %1230 unwind label %1222
 
@@ -5584,7 +5583,7 @@ define internal void @_ZL24onMouseModelRegistrationiiiiPv(i32 noundef %0, i32 no
 
 13:                                               ; preds = %9
   %14 = sext i32 %10 to i64
-  %15 = getelementptr inbounds i32, ptr @_ZL3pts, i64 %14
+  %15 = getelementptr inbounds [4 x i8], ptr @_ZL3pts, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !59
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %17 = sitofp i32 %1 to float
@@ -5595,7 +5594,7 @@ define internal void @_ZL24onMouseModelRegistrationiiiiPv(i32 noundef %0, i32 no
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mesh, i64 16), align 8, !tbaa !97
   %21 = sext i32 %16 to i64
-  %22 = getelementptr %"class.cv::Point3_", ptr %20, i64 %21
+  %22 = getelementptr [12 x i8], ptr %20, i64 %21
   %23 = getelementptr i8, ptr %22, i64 -12
   %.sroa.01.0.copyload.i = load <2 x float>, ptr %23, align 4
   %.sroa.22.0..sroa_idx.i = getelementptr i8, ptr %22, i64 -4

@@ -11,8 +11,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
 %struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
 %struct.__pthread_internal_list = type { ptr, ptr }
-%struct.node_use_record_t = type { i64, ptr, ptr, i16 }
-%struct.part_row_data_t = type { ptr, i32, i32, ptr, i32 }
 
 @slurmctld_tres_cnt = dso_local local_unnamed_addr global i32 0, align 4
 @backfill_busy_nodes = dso_local local_unnamed_addr global i8 0, align 1
@@ -451,7 +449,7 @@ _check_allocatable_sockets.exit:                  ; preds = %113, %112, %74, %.l
   %130 = getelementptr inbounds nuw i8, ptr %71, i64 208
   %131 = load i32, ptr %130, align 8
   %132 = zext i32 %131 to i64
-  %133 = getelementptr inbounds nuw %struct.node_use_record_t, ptr %129, i64 %132
+  %133 = getelementptr inbounds nuw [32 x i8], ptr %129, i64 %132
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 24
   store i16 0, ptr %134, align 8
   %135 = getelementptr inbounds nuw i8, ptr %71, i64 200
@@ -822,20 +820,20 @@ define dso_local range(i32 -1, 1) i32 @select_p_job_expand(ptr noundef %0, ptr n
 145:                                              ; preds = %143
   %146 = load ptr, ptr %16, align 8
   %147 = sext i32 %.1182 to i64
-  %148 = getelementptr inbounds i16, ptr %146, i64 %147
+  %148 = getelementptr inbounds [2 x i8], ptr %146, i64 %147
   %149 = load i16, ptr %148, align 2
   %150 = load ptr, ptr %115, align 8
   %151 = sext i32 %144 to i64
-  %152 = getelementptr inbounds i16, ptr %150, i64 %151
+  %152 = getelementptr inbounds [2 x i8], ptr %150, i64 %151
   store i16 %149, ptr %152, align 2
   %153 = load ptr, ptr %16, align 8
-  %154 = getelementptr inbounds i16, ptr %153, i64 %147
+  %154 = getelementptr inbounds [2 x i8], ptr %153, i64 %147
   store i16 0, ptr %154, align 2
   %155 = load ptr, ptr %116, align 8
-  %156 = getelementptr inbounds i64, ptr %155, i64 %147
+  %156 = getelementptr inbounds [8 x i8], ptr %155, i64 %147
   %157 = load i64, ptr %156, align 8
   %158 = load ptr, ptr %117, align 8
-  %159 = getelementptr inbounds i64, ptr %158, i64 %151
+  %159 = getelementptr inbounds [8 x i8], ptr %158, i64 %151
   store i64 %157, ptr %159, align 8
   %160 = trunc i32 %144 to i16
   %161 = trunc i32 %.1182 to i16
@@ -848,35 +846,35 @@ define dso_local range(i32 -1, 1) i32 @select_p_job_expand(ptr noundef %0, ptr n
 164:                                              ; preds = %163
   %165 = load ptr, ptr %33, align 8
   %166 = sext i32 %.1180 to i64
-  %167 = getelementptr inbounds i16, ptr %165, i64 %166
+  %167 = getelementptr inbounds [2 x i8], ptr %165, i64 %166
   %168 = load i16, ptr %167, align 2
   %169 = load ptr, ptr %115, align 8
   %170 = sext i32 %144 to i64
-  %171 = getelementptr inbounds i16, ptr %169, i64 %170
+  %171 = getelementptr inbounds [2 x i8], ptr %169, i64 %170
   %172 = load i16, ptr %171, align 2
   %173 = add i16 %172, %168
   store i16 %173, ptr %171, align 2
   %174 = load ptr, ptr %118, align 8
-  %175 = getelementptr inbounds i16, ptr %174, i64 %166
+  %175 = getelementptr inbounds [2 x i8], ptr %174, i64 %166
   %176 = load i16, ptr %175, align 2
   %177 = load ptr, ptr %119, align 8
-  %178 = getelementptr inbounds i16, ptr %177, i64 %170
+  %178 = getelementptr inbounds [2 x i8], ptr %177, i64 %170
   %179 = load i16, ptr %178, align 2
   %180 = add i16 %179, %176
   store i16 %180, ptr %178, align 2
   %181 = load ptr, ptr %120, align 8
-  %182 = getelementptr inbounds i64, ptr %181, i64 %166
+  %182 = getelementptr inbounds [8 x i8], ptr %181, i64 %166
   %183 = load i64, ptr %182, align 8
   %184 = load ptr, ptr %117, align 8
-  %185 = getelementptr inbounds i64, ptr %184, i64 %170
+  %185 = getelementptr inbounds [8 x i8], ptr %184, i64 %170
   %186 = load i64, ptr %185, align 8
   %187 = add i64 %186, %183
   store i64 %187, ptr %185, align 8
   %188 = load ptr, ptr %121, align 8
-  %189 = getelementptr inbounds i64, ptr %188, i64 %166
+  %189 = getelementptr inbounds [8 x i8], ptr %188, i64 %166
   %190 = load i64, ptr %189, align 8
   %191 = load ptr, ptr %122, align 8
-  %192 = getelementptr inbounds i64, ptr %191, i64 %170
+  %192 = getelementptr inbounds [8 x i8], ptr %191, i64 %170
   %193 = load i64, ptr %192, align 8
   %194 = add i64 %193, %190
   store i64 %194, ptr %192, align 8
@@ -895,13 +893,13 @@ define dso_local range(i32 -1, 1) i32 @select_p_job_expand(ptr noundef %0, ptr n
 
 203:                                              ; preds = %198
   %204 = load ptr, ptr %115, align 8
-  %205 = getelementptr inbounds i16, ptr %204, i64 %170
+  %205 = getelementptr inbounds [2 x i8], ptr %204, i64 %170
   %206 = load i16, ptr %205, align 2
   %207 = trunc i32 %201 to i16
   %208 = mul i16 %206, %207
   store i16 %208, ptr %205, align 2
   %209 = load ptr, ptr %115, align 8
-  %210 = getelementptr inbounds i16, ptr %209, i64 %170
+  %210 = getelementptr inbounds [2 x i8], ptr %209, i64 %170
   %211 = load i16, ptr %210, align 2
   %212 = zext i16 %211 to i32
   %213 = sdiv i32 %212, %202
@@ -919,7 +917,7 @@ define dso_local range(i32 -1, 1) i32 @select_p_job_expand(ptr noundef %0, ptr n
 
 220:                                              ; preds = %215
   %221 = load ptr, ptr @node_record_table_ptr, align 8
-  %222 = getelementptr inbounds ptr, ptr %221, i64 %indvars.iv
+  %222 = getelementptr inbounds [8 x i8], ptr %221, i64 %indvars.iv
   %223 = load ptr, ptr %222, align 8
   %224 = getelementptr inbounds nuw i8, ptr %223, i64 114
   br label %.sink.split
@@ -927,7 +925,7 @@ define dso_local range(i32 -1, 1) i32 @select_p_job_expand(ptr noundef %0, ptr n
 225:                                              ; preds = %215
   %226 = load ptr, ptr %115, align 8
   %227 = sext i32 %144 to i64
-  %228 = getelementptr inbounds i16, ptr %226, i64 %227
+  %228 = getelementptr inbounds [2 x i8], ptr %226, i64 %227
   br label %.sink.split
 
 .sink.split:                                      ; preds = %225, %220
@@ -1194,7 +1192,7 @@ _dump_job_res.exit:                               ; preds = %31, %34
   %51 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %52 = load ptr, ptr %51, align 8
   %53 = zext nneg i32 %.079112 to i64
-  %54 = getelementptr inbounds nuw i16, ptr %52, i64 %53
+  %54 = getelementptr inbounds nuw [2 x i8], ptr %52, i64 %53
   %55 = load i16, ptr %54, align 2
   %56 = icmp eq i16 %55, 0
   br i1 %56, label %57, label %63
@@ -1212,7 +1210,7 @@ _dump_job_res.exit:                               ; preds = %31, %34
 
 63:                                               ; preds = %50
   %64 = sext i32 %43 to i64
-  %65 = getelementptr inbounds %struct.node_use_record_t, ptr %6, i64 %64
+  %65 = getelementptr inbounds [32 x i8], ptr %6, i64 %64
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %67 = load ptr, ptr %66, align 8
   %.not97 = icmp eq ptr %67, null
@@ -1236,11 +1234,11 @@ _dump_job_res.exit:                               ; preds = %31, %34
   call void @gres_node_state_log(ptr noundef %.078, ptr noundef %79) #9
   %80 = load i32, ptr %4, align 4
   %81 = sext i32 %80 to i64
-  %82 = getelementptr inbounds %struct.node_use_record_t, ptr %6, i64 %81
+  %82 = getelementptr inbounds [32 x i8], ptr %6, i64 %81
   %83 = load i64, ptr %82, align 8
   %84 = getelementptr inbounds nuw i8, ptr %8, i64 72
   %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr inbounds nuw i64, ptr %85, i64 %53
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %53
   %87 = load i64, ptr %86, align 8
   %88 = icmp ult i64 %83, %87
   br i1 %88, label %89, label %95
@@ -1250,7 +1248,7 @@ _dump_job_res.exit:                               ; preds = %31, %34
   %91 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.24, ptr noundef %90, i64 noundef %83, i64 noundef %87, ptr noundef nonnull %0) #9
   %92 = load i32, ptr %4, align 4
   %93 = sext i32 %92 to i64
-  %94 = getelementptr inbounds %struct.node_use_record_t, ptr %6, i64 %93
+  %94 = getelementptr inbounds [32 x i8], ptr %6, i64 %93
   store i64 0, ptr %94, align 8
   br label %97
 
@@ -1261,7 +1259,7 @@ _dump_job_res.exit:                               ; preds = %31, %34
 
 97:                                               ; preds = %95, %89
   %.pre-phi = phi i64 [ %81, %95 ], [ %93, %89 ]
-  %98 = getelementptr inbounds %struct.node_use_record_t, ptr %6, i64 %.pre-phi
+  %98 = getelementptr inbounds [32 x i8], ptr %6, i64 %.pre-phi
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 16
   %100 = load ptr, ptr %99, align 8
   %.not98 = icmp eq ptr %100, null
@@ -1339,7 +1337,7 @@ _dump_job_res.exit:                               ; preds = %31, %34
   %storemerge102118 = phi i32 [ %148, %.loopexit ], [ %storemerge102118.ph, %.preheader.outer ]
   %130 = load ptr, ptr %124, align 8
   %131 = zext nneg i32 %storemerge102118 to i64
-  %132 = getelementptr inbounds nuw %struct.part_row_data_t, ptr %130, i64 %131
+  %132 = getelementptr inbounds nuw [32 x i8], ptr %130, i64 %131
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 12
   %134 = load i32, ptr %133, align 4
   %.not121 = icmp eq i32 %134, 0
@@ -1357,7 +1355,7 @@ _dump_job_res.exit:                               ; preds = %31, %34
 
 137:                                              ; preds = %.lr.ph117, %136
   %indvars.iv = phi i64 [ 0, %.lr.ph117 ], [ %indvars.iv.next, %136 ]
-  %138 = getelementptr inbounds nuw ptr, ptr %135, i64 %indvars.iv
+  %138 = getelementptr inbounds nuw [8 x i8], ptr %135, i64 %indvars.iv
   %139 = load ptr, ptr %138, align 8
   %.not104 = icmp eq ptr %139, %8
   br i1 %.not104, label %140, label %136
@@ -1406,7 +1404,7 @@ _dump_job_res.exit:                               ; preds = %31, %34
   %160 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %161 = load i32, ptr %160, align 8
   %162 = zext i32 %161 to i64
-  %163 = getelementptr inbounds nuw %struct.node_use_record_t, ptr %6, i64 %162
+  %163 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %162
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 24
   %165 = load i16, ptr %164, align 8
   %166 = zext i16 %165 to i32
@@ -1425,7 +1423,7 @@ _dump_job_res.exit:                               ; preds = %31, %34
   %173 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.29) #9
   %174 = load i32, ptr %160, align 8
   %175 = zext i32 %174 to i64
-  %176 = getelementptr inbounds nuw %struct.node_use_record_t, ptr %6, i64 %175
+  %176 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %175
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 24
   store i16 0, ptr %177, align 8
   br label %178
@@ -1809,7 +1807,7 @@ define dso_local range(i32 0, 1901) i32 @select_p_select_nodeinfo_set_all() loca
   %.promoted59 = phi ptr [ %.promoted58, %34 ], [ %.promoted6164, %22 ]
   %25 = phi ptr [ %35, %34 ], [ %.promoted6164, %22 ]
   %26 = load ptr, ptr %15, align 8
-  %27 = getelementptr inbounds nuw %struct.part_row_data_t, ptr %26, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [32 x i8], ptr %26, i64 %indvars.iv
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = load ptr, ptr %28, align 8
   %.not52 = icmp eq ptr %29, null
@@ -1864,7 +1862,7 @@ define dso_local range(i32 0, 1901) i32 @select_p_select_nodeinfo_set_all() loca
 47:                                               ; preds = %46
   %48 = load i32, ptr %1, align 4
   %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds ptr, ptr %13, i64 %49
+  %50 = getelementptr inbounds [8 x i8], ptr %13, i64 %49
   %51 = load ptr, ptr %50, align 8
   %.not48 = icmp eq ptr %51, null
   br i1 %.not48, label %54, label %52
@@ -1904,7 +1902,7 @@ define dso_local range(i32 0, 1901) i32 @select_p_select_nodeinfo_set_all() loca
   %74 = load ptr, ptr @select_node_usage, align 8
   %75 = load i32, ptr %1, align 4
   %76 = sext i32 %75 to i64
-  %77 = getelementptr inbounds %struct.node_use_record_t, ptr %74, i64 %76
+  %77 = getelementptr inbounds [32 x i8], ptr %74, i64 %76
   %78 = load i64, ptr %77, align 8
   %79 = load ptr, ptr %3, align 8
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
@@ -1938,7 +1936,7 @@ define dso_local range(i32 0, 1901) i32 @select_p_select_nodeinfo_set_all() loca
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
   store i64 %94, ptr %97, align 8
   %98 = load ptr, ptr @select_node_usage, align 8
-  %99 = getelementptr inbounds %struct.node_use_record_t, ptr %98, i64 %.pre-phi
+  %99 = getelementptr inbounds [32 x i8], ptr %98, i64 %.pre-phi
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 8
   %101 = load ptr, ptr %100, align 8
   %.not50 = icmp eq ptr %101, null

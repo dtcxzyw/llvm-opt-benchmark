@@ -364,15 +364,15 @@ define internal noundef i32 @colorcontrast_slice16(ptr noundef readonly captures
   %56 = load ptr, ptr %1, align 8, !tbaa !57
   %57 = sext i32 %16 to i64
   %58 = mul nsw i64 %23, %57
-  %59 = getelementptr inbounds i16, ptr %56, i64 %58
+  %59 = getelementptr inbounds [2 x i8], ptr %56, i64 %58
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %61 = load ptr, ptr %60, align 8, !tbaa !57
   %62 = mul nsw i64 %27, %57
-  %63 = getelementptr inbounds i16, ptr %61, i64 %62
+  %63 = getelementptr inbounds [2 x i8], ptr %61, i64 %62
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %65 = load ptr, ptr %64, align 8, !tbaa !57
   %66 = mul nsw i64 %31, %57
-  %67 = getelementptr inbounds i16, ptr %65, i64 %66
+  %67 = getelementptr inbounds [2 x i8], ptr %65, i64 %66
   %wide.trip.count = zext nneg i32 %12 to i64
   br label %.preheader.us
 
@@ -385,13 +385,13 @@ define internal noundef i32 @colorcontrast_slice16(ptr noundef readonly captures
 
 68:                                               ; preds = %.preheader.us, %68
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %68 ]
-  %69 = getelementptr inbounds nuw i16, ptr %.0211.us, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw [2 x i8], ptr %.0211.us, i64 %indvars.iv
   %70 = load i16, ptr %69, align 2, !tbaa !62
   %71 = uitofp i16 %70 to float
-  %72 = getelementptr inbounds nuw i16, ptr %.0186210.us, i64 %indvars.iv
+  %72 = getelementptr inbounds nuw [2 x i8], ptr %.0186210.us, i64 %indvars.iv
   %73 = load i16, ptr %72, align 2, !tbaa !62
   %74 = uitofp i16 %73 to float
-  %75 = getelementptr inbounds nuw i16, ptr %.0187209.us, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw [2 x i8], ptr %.0187209.us, i64 %indvars.iv
   %76 = load i16, ptr %75, align 2, !tbaa !62
   %77 = uitofp i16 %76 to float
   %78 = fadd nnan nsz float %74, %77
@@ -495,9 +495,9 @@ define internal noundef i32 @colorcontrast_slice16(ptr noundef readonly captures
   br i1 %exitcond.not, label %._crit_edge.us, label %68, !llvm.loop !64
 
 ._crit_edge.us:                                   ; preds = %68
-  %158 = getelementptr inbounds i16, ptr %.0211.us, i64 %23
-  %159 = getelementptr inbounds i16, ptr %.0186210.us, i64 %27
-  %160 = getelementptr inbounds i16, ptr %.0187209.us, i64 %31
+  %158 = getelementptr inbounds [2 x i8], ptr %.0211.us, i64 %23
+  %159 = getelementptr inbounds [2 x i8], ptr %.0186210.us, i64 %27
+  %160 = getelementptr inbounds [2 x i8], ptr %.0187209.us, i64 %31
   %161 = add nsw i32 %.0188208.us, 1
   %162 = icmp slt i32 %161, %19
   br i1 %162, label %.preheader.us, label %._crit_edge212, !llvm.loop !65
@@ -759,7 +759,7 @@ define internal noundef i32 @colorcontrast_slice16p(ptr noundef readonly capture
   %56 = load ptr, ptr %1, align 8, !tbaa !57
   %57 = sext i32 %16 to i64
   %58 = mul nsw i64 %23, %57
-  %59 = getelementptr inbounds i16, ptr %56, i64 %58
+  %59 = getelementptr inbounds [2 x i8], ptr %56, i64 %58
   %60 = sext i32 %49 to i64
   %61 = zext i8 %55 to i64
   %62 = zext i8 %53 to i64
@@ -770,21 +770,21 @@ define internal noundef i32 @colorcontrast_slice16p(ptr noundef readonly capture
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
   %.0211.us = phi ptr [ %152, %._crit_edge.us ], [ %59, %.preheader.us.preheader ]
   %.0190210.us = phi i32 [ %153, %._crit_edge.us ], [ %16, %.preheader.us.preheader ]
-  %invariant.gep = getelementptr i16, ptr %.0211.us, i64 %61
-  %invariant.gep219 = getelementptr i16, ptr %.0211.us, i64 %62
-  %invariant.gep221 = getelementptr i16, ptr %.0211.us, i64 %63
+  %invariant.gep = getelementptr [2 x i8], ptr %.0211.us, i64 %61
+  %invariant.gep219 = getelementptr [2 x i8], ptr %.0211.us, i64 %62
+  %invariant.gep221 = getelementptr [2 x i8], ptr %.0211.us, i64 %63
   br label %64
 
 64:                                               ; preds = %.preheader.us, %64
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %64 ]
   %65 = mul nsw i64 %indvars.iv, %60
-  %gep = getelementptr i16, ptr %invariant.gep, i64 %65
+  %gep = getelementptr [2 x i8], ptr %invariant.gep, i64 %65
   %66 = load i16, ptr %gep, align 2, !tbaa !62
   %67 = uitofp i16 %66 to float
-  %gep220 = getelementptr i16, ptr %invariant.gep219, i64 %65
+  %gep220 = getelementptr [2 x i8], ptr %invariant.gep219, i64 %65
   %68 = load i16, ptr %gep220, align 2, !tbaa !62
   %69 = uitofp i16 %68 to float
-  %gep222 = getelementptr i16, ptr %invariant.gep221, i64 %65
+  %gep222 = getelementptr [2 x i8], ptr %invariant.gep221, i64 %65
   %70 = load i16, ptr %gep222, align 2, !tbaa !62
   %71 = uitofp i16 %70 to float
   %72 = fadd nnan nsz float %69, %71
@@ -888,7 +888,7 @@ define internal noundef i32 @colorcontrast_slice16p(ptr noundef readonly capture
   br i1 %exitcond.not, label %._crit_edge.us, label %64, !llvm.loop !69
 
 ._crit_edge.us:                                   ; preds = %64
-  %152 = getelementptr inbounds i16, ptr %.0211.us, i64 %23
+  %152 = getelementptr inbounds [2 x i8], ptr %.0211.us, i64 %23
   %153 = add nsw i32 %.0190210.us, 1
   %154 = icmp slt i32 %153, %19
   br i1 %154, label %.preheader.us, label %._crit_edge212, !llvm.loop !70

@@ -202,7 +202,7 @@ define range(i32 0, 552) i32 @cli_ooxml_filetype(ptr noundef %0, ptr noundef %1)
 
 switch.lookup:                                    ; preds = %14
   %18 = zext nneg i32 %16 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.cli_ooxml_filetype, i64 %18
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.cli_ooxml_filetype, i64 %18
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %19
 

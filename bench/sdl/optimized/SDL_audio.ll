@@ -91,7 +91,7 @@ define hidden range(i32 -2147483647, -2147483648) i32 @SDL_GetNumAudioDrivers_RE
 
 .preheader:                                       ; preds = %3, %.loopexit
   %indvars.iv18 = phi i64 [ 0, %3 ], [ %indvars.iv.next19, %.loopexit ]
-  %4 = getelementptr inbounds nuw ptr, ptr @bootstrap, i64 %indvars.iv18
+  %4 = getelementptr inbounds nuw [8 x i8], ptr @bootstrap, i64 %indvars.iv18
   %.not16 = icmp eq i64 %indvars.iv18, 0
   br i1 %.not16, label %.critedge, label %.lr.ph
 
@@ -111,7 +111,7 @@ define hidden range(i32 -2147483647, -2147483648) i32 @SDL_GetNumAudioDrivers_RE
 9:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
   %10 = load ptr, ptr %5, align 8
-  %11 = getelementptr inbounds nuw ptr, ptr @bootstrap, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr @bootstrap, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 @SDL_strcmp_REAL(ptr noundef %10, ptr noundef %13) #14
@@ -124,7 +124,7 @@ define hidden range(i32 -2147483647, -2147483648) i32 @SDL_GetNumAudioDrivers_RE
   %18 = add nsw i32 %17, 1
   store i32 %18, ptr @SDL_GetNumAudioDrivers_REAL.num_drivers, align 4
   %19 = sext i32 %17 to i64
-  %20 = getelementptr inbounds ptr, ptr @deduped_bootstrap, i64 %19
+  %20 = getelementptr inbounds [8 x i8], ptr @deduped_bootstrap, i64 %19
   store ptr %16, ptr %20, align 8
   br label %.loopexit
 
@@ -156,7 +156,7 @@ define hidden ptr @SDL_GetAudioDriver_REAL(i32 noundef %0) local_unnamed_addr #0
 
 .preheader.i:                                     ; preds = %.loopexit.i, %6
   %indvars.iv18.i = phi i64 [ 0, %6 ], [ %indvars.iv.next19.i, %.loopexit.i ]
-  %7 = getelementptr inbounds nuw ptr, ptr @bootstrap, i64 %indvars.iv18.i
+  %7 = getelementptr inbounds nuw [8 x i8], ptr @bootstrap, i64 %indvars.iv18.i
   %.not16.i = icmp eq i64 %indvars.iv18.i, 0
   %.pre = load ptr, ptr %7, align 8
   br i1 %.not16.i, label %.critedge.i, label %.lr.ph.i
@@ -173,7 +173,7 @@ define hidden ptr @SDL_GetAudioDriver_REAL(i32 noundef %0) local_unnamed_addr #0
 .lr.ph.i:                                         ; preds = %.preheader.i, %10
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %10 ], [ 0, %.preheader.i ]
   %11 = load ptr, ptr %.pre, align 8
-  %12 = getelementptr inbounds nuw ptr, ptr @bootstrap, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw [8 x i8], ptr @bootstrap, i64 %indvars.iv.i
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i32 @SDL_strcmp_REAL(ptr noundef %11, ptr noundef %14) #14
@@ -185,7 +185,7 @@ define hidden ptr @SDL_GetAudioDriver_REAL(i32 noundef %0) local_unnamed_addr #0
   %18 = add nsw i32 %17, 1
   store i32 %18, ptr @SDL_GetNumAudioDrivers_REAL.num_drivers, align 4
   %19 = sext i32 %17 to i64
-  %20 = getelementptr inbounds ptr, ptr @deduped_bootstrap, i64 %19
+  %20 = getelementptr inbounds [8 x i8], ptr @deduped_bootstrap, i64 %19
   store ptr %.pre, ptr %20, align 8
   br label %.loopexit.i
 
@@ -201,7 +201,7 @@ SDL_GetNumAudioDrivers_REAL.exit:                 ; preds = %3, %8
 
 22:                                               ; preds = %SDL_GetNumAudioDrivers_REAL.exit
   %23 = zext nneg i32 %0 to i64
-  %24 = getelementptr inbounds nuw ptr, ptr @deduped_bootstrap, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr @deduped_bootstrap, i64 %23
   %25 = load ptr, ptr %24, align 8
   %26 = load ptr, ptr %25, align 8
   br label %29
@@ -1034,7 +1034,7 @@ select.unfold.preheader:                          ; preds = %18, %select.unfold
 50:                                               ; preds = %33, %38, %42
   %.4 = phi i1 [ %.259119, %33 ], [ true, %42 ], [ %.259119, %38 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %51 = getelementptr inbounds nuw ptr, ptr @bootstrap, i64 %indvars.iv.next
+  %51 = getelementptr inbounds nuw [8 x i8], ptr @bootstrap, i64 %indvars.iv.next
   %52 = load ptr, ptr %51, align 8
   %.not91 = icmp eq i64 %indvars.iv.next, 3
   br i1 %.not91, label %select.unfold, label %33, !llvm.loop !10
@@ -1058,7 +1058,7 @@ select.unfold..critedge2_crit_edge:               ; preds = %select.unfold
 55:                                               ; preds = %54, %68
   %.6124156 = phi i1 [ false, %54 ], [ %.7, %68 ]
   %indvars.iv129155 = phi i64 [ 0, %54 ], [ %indvars.iv.next130, %68 ]
-  %56 = getelementptr inbounds nuw ptr, ptr @bootstrap, i64 %indvars.iv129155
+  %56 = getelementptr inbounds nuw [8 x i8], ptr @bootstrap, i64 %indvars.iv129155
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %59 = load i8, ptr %58, align 8, !range !6, !noundef !7
@@ -2153,7 +2153,7 @@ define internal fastcc ptr @GetAudioDevices(ptr noundef writeonly captures(addre
   %21 = call zeroext i1 @SDL_IterateHashTable(ptr noundef %20, ptr noundef nonnull @CountAudioDevices, ptr noundef nonnull %3) #14
   %22 = load i32, ptr %3, align 8
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds i32, ptr %13, i64 %23
+  %24 = getelementptr inbounds [4 x i8], ptr %13, i64 %23
   store i32 0, ptr %24, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @current_audio, i64 136), align 8
@@ -3796,7 +3796,7 @@ define hidden zeroext i1 @SDL_BindAudioStreams_REAL(i32 noundef %0, ptr noundef 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.critedge
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.critedge ]
-  %26 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8
   %.not61 = icmp eq ptr %27, null
   br i1 %.not61, label %.critedge74, label %30
@@ -3844,7 +3844,7 @@ define hidden zeroext i1 @SDL_BindAudioStreams_REAL(i32 noundef %0, ptr noundef 
 
 .lr.ph85:                                         ; preds = %.lr.ph85.preheader, %.lr.ph85
   %indvars.iv98 = phi i64 [ 0, %.lr.ph85.preheader ], [ %indvars.iv.next99, %.lr.ph85 ]
-  %44 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv98
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv98
   %45 = load ptr, ptr %44, align 8
   %46 = load ptr, ptr %45, align 8
   tail call void @SDL_UnlockMutex_REAL(ptr noundef %46) #14
@@ -3867,7 +3867,7 @@ define hidden zeroext i1 @SDL_BindAudioStreams_REAL(i32 noundef %0, ptr noundef 
 
 49:                                               ; preds = %.lr.ph87, %61
   %indvars.iv103 = phi i64 [ 0, %.lr.ph87 ], [ %indvars.iv.next104, %61 ]
-  %50 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv103
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv103
   %51 = load ptr, ptr %50, align 8
   %.not63 = icmp eq ptr %51, null
   br i1 %.not63, label %61, label %52
@@ -3933,7 +3933,7 @@ define hidden void @SDL_UnbindAudioStreams_REAL(ptr noundef readonly captures(ad
 
 .preheader74:                                     ; preds = %.preheader74.preheader, %.thread
   %indvars.iv = phi i64 [ 0, %.preheader74.preheader ], [ %indvars.iv.next, %.thread ]
-  %5 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8
   %.not69 = icmp eq ptr %6, null
   br i1 %.not69, label %.thread, label %.preheader73
@@ -3991,7 +3991,7 @@ define hidden void @SDL_UnbindAudioStreams_REAL(ptr noundef readonly captures(ad
 
 .lr.ph:                                           ; preds = %.thread, %52
   %indvars.iv80 = phi i64 [ %indvars.iv.next81, %52 ], [ 0, %.thread ]
-  %26 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv80
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv80
   %27 = load ptr, ptr %26, align 8
   %.not65 = icmp eq ptr %27, null
   br i1 %.not65, label %52, label %28
@@ -4055,7 +4055,7 @@ define hidden void @SDL_UnbindAudioStreams_REAL(ptr noundef readonly captures(ad
 
 .lr.ph78:                                         ; preds = %.lr.ph78.preheader, %64
   %indvars.iv85 = phi i64 [ 0, %.lr.ph78.preheader ], [ %indvars.iv.next86, %64 ]
-  %53 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv85
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv85
   %54 = load ptr, ptr %53, align 8
   %.not = icmp eq ptr %54, null
   br i1 %.not, label %64, label %55
@@ -4415,7 +4415,7 @@ define hidden nonnull ptr @SDL_ClosestAudioFormats(i32 noundef %0) local_unnamed
 
 3:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %4 = getelementptr inbounds nuw [9 x i32], ptr @format_list, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [36 x i8], ptr @format_list, i64 %indvars.iv
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %5, %0
   br i1 %6, label %7, label %2
@@ -5559,7 +5559,7 @@ define internal noundef zeroext i1 @CountAudioDevices(ptr noundef captures(none)
   %17 = add nsw i32 %16, 1
   store i32 %17, ptr %0, align 8
   %18 = sext i32 %16 to i64
-  %19 = getelementptr inbounds i32, ptr %15, i64 %18
+  %19 = getelementptr inbounds [4 x i8], ptr %15, i64 %18
   store i32 %6, ptr %19, align 4
   br label %20
 

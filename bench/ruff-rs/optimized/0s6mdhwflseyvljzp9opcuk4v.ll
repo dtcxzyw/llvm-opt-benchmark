@@ -193,7 +193,7 @@ define noalias noundef nonnull ptr @_ZN16ruff_source_file10line_index9LineIndex1
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h180a5cec9bd57c02E.exit20": ; preds = %60, %55
   %61 = load ptr, ptr %16, align 8, !alias.scope !15, !noalias !18, !nonnull !4, !noundef !4
-  %62 = getelementptr inbounds nuw i32, ptr %61, i64 %57
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %57
   store i32 %56, ptr %62, align 4
   %63 = add i64 %57, 1
   store i64 %63, ptr %17, align 8, !alias.scope !15, !noalias !18
@@ -281,7 +281,7 @@ define { i64, i64 } @_ZN16ruff_source_file10line_index9LineIndex15source_locatio
   %.sroa.05.0.lcssa.i.i = phi i64 [ 0, %5 ], [ %26, %.lr.ph.i.i ]
   %18 = icmp ult i64 %.sroa.05.0.lcssa.i.i, %17
   tail call void @llvm.assume(i1 %18)
-  %19 = getelementptr inbounds nuw i32, ptr %15, i64 %.sroa.05.0.lcssa.i.i
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %.sroa.05.0.lcssa.i.i
   %.val23.i.i = load i32, ptr %19, align 4, !alias.scope !28, !noalias !31, !noundef !4
   %20 = icmp eq i32 %.val23.i.i, %1
   br i1 %20, label %36, label %29
@@ -293,7 +293,7 @@ define { i64, i64 } @_ZN16ruff_source_file10line_index9LineIndex15source_locatio
   %22 = add i64 %21, %.sroa.05.027.i.i
   %23 = icmp ult i64 %22, %17
   tail call void @llvm.assume(i1 %23)
-  %24 = getelementptr inbounds nuw i32, ptr %15, i64 %22
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %22
   %.val25.i.i = load i32, ptr %24, align 4, !alias.scope !28, !noalias !31, !noundef !4
   %25 = icmp ugt i32 %.val25.i.i, %1
   %26 = select i1 %25, i64 %.sroa.05.027.i.i, i64 %22, !unpredictable !4
@@ -330,7 +330,7 @@ _ZN16ruff_source_file10line_index9LineIndex10line_index17h1804a19986ceff9aE.exit
   br i1 %43, label %.split.i, label %.split3.i
 
 44:                                               ; preds = %40
-  %45 = getelementptr inbounds nuw i32, ptr %15, i64 %38
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %38
   %46 = load i32, ptr %45, align 4, !noalias !33, !noundef !4
   br label %_ZN16ruff_source_file10line_index9LineIndex10line_start17h723df2838e2bc03bE.exit
 
@@ -650,7 +650,7 @@ define noundef range(i64 1, 0) i64 @_ZN16ruff_source_file10line_index9LineIndex1
   %.sroa.05.0.lcssa.i = phi i64 [ 0, %2 ], [ %16, %.lr.ph.i ]
   %8 = icmp ult i64 %.sroa.05.0.lcssa.i, %7
   tail call void @llvm.assume(i1 %8)
-  %9 = getelementptr inbounds nuw i32, ptr %5, i64 %.sroa.05.0.lcssa.i
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.sroa.05.0.lcssa.i
   %.val23.i = load i32, ptr %9, align 4, !alias.scope !59, !noalias !62, !noundef !4
   %10 = icmp eq i32 %.val23.i, %1
   br i1 %10, label %26, label %19
@@ -662,7 +662,7 @@ define noundef range(i64 1, 0) i64 @_ZN16ruff_source_file10line_index9LineIndex1
   %12 = add i64 %11, %.sroa.05.027.i
   %13 = icmp ult i64 %12, %7
   tail call void @llvm.assume(i1 %13)
-  %14 = getelementptr inbounds nuw i32, ptr %5, i64 %12
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %12
   %.val25.i = load i32, ptr %14, align 4, !alias.scope !59, !noalias !62, !noundef !4
   %15 = icmp ugt i32 %.val25.i, %1
   %16 = select i1 %15, i64 %.sroa.05.027.i, i64 %12, !unpredictable !4
@@ -711,7 +711,7 @@ define noundef i32 @_ZN16ruff_source_file10line_index9LineIndex10line_start17h72
   br i1 %16, label %.split, label %.split3
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds nuw i32, ptr %9, i64 %6
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %6
   %19 = load i32, ptr %18, align 4, !noundef !4
   br label %21
 
@@ -750,7 +750,7 @@ define noundef i32 @_ZN16ruff_source_file10line_index9LineIndex8line_end17heb88e
 11:                                               ; preds = %4
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %13 = load ptr, ptr %12, align 8, !noalias !67, !nonnull !4, !noundef !4
-  %14 = getelementptr i32, ptr %13, i64 %1
+  %14 = getelementptr [4 x i8], ptr %13, i64 %1
   %15 = load i32, ptr %14, align 4, !noundef !4
   br label %16
 
@@ -785,7 +785,7 @@ define noundef i32 @_ZN16ruff_source_file10line_index9LineIndex18line_end_exclus
 11:                                               ; preds = %4
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %13 = load ptr, ptr %12, align 8, !noalias !70, !nonnull !4, !noundef !4
-  %14 = getelementptr i32, ptr %13, i64 %1
+  %14 = getelementptr [4 x i8], ptr %13, i64 %1
   %15 = load i32, ptr %14, align 4, !noundef !4
   %16 = tail call noundef i32 @_ZN14ruff_text_size4size8TextSize3new17h074aa630890fc876E(i32 noundef 1)
   %17 = sub i32 %15, %16
@@ -827,7 +827,7 @@ define { i32, i32 } @_ZN16ruff_source_file10line_index9LineIndex10line_range17ha
   unreachable
 
 _ZN16ruff_source_file10line_index9LineIndex10line_start17h723df2838e2bc03bE.exit: ; preds = %13
-  %16 = getelementptr inbounds nuw i32, ptr %8, i64 %11
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %11
   %17 = load i32, ptr %16, align 4, !noalias !76, !noundef !4
   %18 = tail call noundef range(i64 1, 0) i64 @llvm.uadd.sat.i64(i64 range(i64 1, 0) %1, i64 1)
   %19 = add i64 %18, -1
@@ -843,7 +843,7 @@ _ZN16ruff_source_file10line_index9LineIndex10line_start17h723df2838e2bc03bE.exit
   br i1 %24, label %.split.i8, label %.split3.i7
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds nuw i32, ptr %8, i64 %19
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %19
   %27 = load i32, ptr %26, align 4, !noalias !79, !noundef !4
   br label %_ZN16ruff_source_file10line_index9LineIndex10line_start17h723df2838e2bc03bE.exit9
 

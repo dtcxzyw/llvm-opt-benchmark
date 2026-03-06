@@ -93,7 +93,7 @@ define hidden noundef range(i32 0, 2) i32 @main() local_unnamed_addr #0 personal
 
 8:                                                ; preds = %0, %224
   %.0621 = phi i64 [ 0, %0 ], [ %225, %224 ]
-  %9 = getelementptr inbounds nuw %struct.TestVector, ptr @_ZL12kTestVectors, i64 %.0621
+  %9 = getelementptr inbounds nuw [32 x i8], ptr @_ZL12kTestVectors, i64 %.0621
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @EVP_MD_CTX_init(ptr noundef nonnull align 8 dereferenceable(32) %5)
   %10 = load ptr, ptr %9, align 16, !tbaa !6

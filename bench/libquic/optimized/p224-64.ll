@@ -3057,7 +3057,7 @@ flip_endian.exit.loopexit.i191:                   ; preds = %131
   %.0130288 = phi i64 [ 2, %141 ], [ %161, %160 ]
   %147 = and i64 %.0130288, 1
   %.not164 = icmp eq i64 %147, 0
-  %148 = getelementptr inbounds nuw [3 x [4 x i64]], ptr %43, i64 %.0130288
+  %148 = getelementptr inbounds nuw [96 x i8], ptr %43, i64 %.0130288
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 32
   %150 = getelementptr inbounds nuw i8, ptr %148, i64 64
   br i1 %.not164, label %155, label %151
@@ -3071,7 +3071,7 @@ flip_endian.exit.loopexit.i191:                   ; preds = %131
 
 155:                                              ; preds = %146
   %156 = lshr exact i64 %.0130288, 1
-  %157 = getelementptr inbounds nuw [3 x [4 x i64]], ptr %43, i64 %156
+  %157 = getelementptr inbounds nuw [96 x i8], ptr %43, i64 %156
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 32
   %159 = getelementptr inbounds nuw i8, ptr %157, i64 64
   call fastcc void @point_double(ptr noundef %148, ptr noundef %149, ptr noundef %150, ptr noundef %157, ptr noundef %158, ptr noundef %159)
@@ -3212,7 +3212,7 @@ get_bit.exit79.i:                                 ; preds = %195
 
 236:                                              ; preds = %.split26.us.i.i, %get_bit.exit79.i
   %.02327.i.i = phi i64 [ 0, %get_bit.exit79.i ], [ %251, %.split26.us.i.i ]
-  %237 = getelementptr inbounds nuw [3 x [4 x i64]], ptr getelementptr inbounds nuw (i8, ptr @g_pre_comp, i64 1536), i64 %.02327.i.i
+  %237 = getelementptr inbounds nuw [96 x i8], ptr getelementptr inbounds nuw (i8, ptr @g_pre_comp, i64 1536), i64 %.02327.i.i
   %238 = xor i64 %.02327.i.i, %235
   %239 = lshr i64 %238, 4
   %240 = or i64 %239, %238
@@ -3225,9 +3225,9 @@ get_bit.exit79.i:                                 ; preds = %195
 
 .split.us.i.i:                                    ; preds = %236, %.split.us.i.i
   %.024.us.i.i = phi i64 [ %250, %.split.us.i.i ], [ 0, %236 ]
-  %245 = getelementptr inbounds nuw i64, ptr %237, i64 %.024.us.i.i
+  %245 = getelementptr inbounds nuw [8 x i8], ptr %237, i64 %.024.us.i.i
   %246 = load i64, ptr %245, align 8, !tbaa !11
-  %247 = getelementptr inbounds nuw i64, ptr %12, i64 %.024.us.i.i
+  %247 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.024.us.i.i
   %248 = load i64, ptr %247, align 8, !tbaa !11
   %249 = or i64 %248, %246
   store i64 %249, ptr %247, align 8, !tbaa !11
@@ -3289,7 +3289,7 @@ get_bit.exit81.i:                                 ; preds = %253, %252
 
 286:                                              ; preds = %.split26.us.i90.i, %get_bit.exit81.i
   %.02327.i88.i = phi i64 [ 0, %get_bit.exit81.i ], [ %301, %.split26.us.i90.i ]
-  %287 = getelementptr inbounds nuw [3 x [4 x i64]], ptr @g_pre_comp, i64 %.02327.i88.i
+  %287 = getelementptr inbounds nuw [96 x i8], ptr @g_pre_comp, i64 %.02327.i88.i
   %288 = xor i64 %.02327.i88.i, %285
   %289 = lshr i64 %288, 4
   %290 = or i64 %289, %288
@@ -3302,9 +3302,9 @@ get_bit.exit81.i:                                 ; preds = %253, %252
 
 .split.us.i92.i:                                  ; preds = %286, %.split.us.i92.i
   %.024.us.i93.i = phi i64 [ %300, %.split.us.i92.i ], [ 0, %286 ]
-  %295 = getelementptr inbounds nuw i64, ptr %287, i64 %.024.us.i93.i
+  %295 = getelementptr inbounds nuw [8 x i8], ptr %287, i64 %.024.us.i93.i
   %296 = load i64, ptr %295, align 8, !tbaa !11
-  %297 = getelementptr inbounds nuw i64, ptr %12, i64 %.024.us.i93.i
+  %297 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.024.us.i93.i
   %298 = load i64, ptr %297, align 8, !tbaa !11
   %299 = or i64 %298, %296
   store i64 %299, ptr %297, align 8, !tbaa !11
@@ -3446,7 +3446,7 @@ get_bit.exit107.i:                                ; preds = %368, %get_bit.exit1
 
 375:                                              ; preds = %.split26.us.i110.i, %get_bit.exit107.i
   %.02327.i108.i = phi i64 [ 0, %get_bit.exit107.i ], [ %390, %.split26.us.i110.i ]
-  %376 = getelementptr inbounds nuw [3 x [4 x i64]], ptr %.1138, i64 %.02327.i108.i
+  %376 = getelementptr inbounds nuw [96 x i8], ptr %.1138, i64 %.02327.i108.i
   %377 = xor i64 %.02327.i108.i, %374
   %378 = lshr i64 %377, 4
   %379 = or i64 %378, %377
@@ -3459,9 +3459,9 @@ get_bit.exit107.i:                                ; preds = %368, %get_bit.exit1
 
 .split.us.i112.i:                                 ; preds = %375, %.split.us.i112.i
   %.024.us.i113.i = phi i64 [ %389, %.split.us.i112.i ], [ 0, %375 ]
-  %384 = getelementptr inbounds nuw i64, ptr %376, i64 %.024.us.i113.i
+  %384 = getelementptr inbounds nuw [8 x i8], ptr %376, i64 %.024.us.i113.i
   %385 = load i64, ptr %384, align 8, !tbaa !11
-  %386 = getelementptr inbounds nuw i64, ptr %12, i64 %.024.us.i113.i
+  %386 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.024.us.i113.i
   %387 = load i64, ptr %386, align 8, !tbaa !11
   %388 = or i64 %387, %385
   store i64 %388, ptr %386, align 8, !tbaa !11
@@ -3494,9 +3494,9 @@ select_point.exit115.i:                           ; preds = %.split26.us.i110.i
 
 402:                                              ; preds = %402, %select_point.exit115.i
   %.010.i.i = phi i64 [ 0, %select_point.exit115.i ], [ %410, %402 ]
-  %403 = getelementptr inbounds nuw i64, ptr %186, i64 %.010.i.i
+  %403 = getelementptr inbounds nuw [8 x i8], ptr %186, i64 %.010.i.i
   %404 = load i64, ptr %403, align 8, !tbaa !11
-  %405 = getelementptr inbounds nuw i64, ptr %184, i64 %.010.i.i
+  %405 = getelementptr inbounds nuw [8 x i8], ptr %184, i64 %.010.i.i
   %406 = load i64, ptr %405, align 8, !tbaa !11
   %407 = xor i64 %406, %404
   %408 = and i64 %407, %401
@@ -5221,9 +5221,9 @@ define internal fastcc void @point_add(ptr noundef nonnull captures(none) %0, pt
 
 1241:                                             ; preds = %1241, %799
   %.010.i = phi i64 [ 0, %799 ], [ %1249, %1241 ]
-  %1242 = getelementptr inbounds nuw i64, ptr %7, i64 %.010.i
+  %1242 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.010.i
   %1243 = load i64, ptr %1242, align 8, !tbaa !11
-  %1244 = getelementptr inbounds nuw i64, ptr %11, i64 %.010.i
+  %1244 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.010.i
   %1245 = load i64, ptr %1244, align 8, !tbaa !11
   %1246 = xor i64 %1245, %1243
   %1247 = and i64 %1246, %.neg
@@ -5235,9 +5235,9 @@ define internal fastcc void @point_add(ptr noundef nonnull captures(none) %0, pt
 
 copy_conditional.exit:                            ; preds = %1241, %copy_conditional.exit
   %.010.i63 = phi i64 [ %1257, %copy_conditional.exit ], [ 0, %1241 ]
-  %1250 = getelementptr inbounds nuw i64, ptr %3, i64 %.010.i63
+  %1250 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.010.i63
   %1251 = load i64, ptr %1250, align 8, !tbaa !11
-  %1252 = getelementptr inbounds nuw i64, ptr %11, i64 %.010.i63
+  %1252 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.010.i63
   %1253 = load i64, ptr %1252, align 8, !tbaa !11
   %1254 = xor i64 %1253, %1251
   %1255 = and i64 %1254, %.neg301
@@ -5249,9 +5249,9 @@ copy_conditional.exit:                            ; preds = %1241, %copy_conditi
 
 copy_conditional.exit65:                          ; preds = %copy_conditional.exit, %copy_conditional.exit65
   %.010.i66 = phi i64 [ %1265, %copy_conditional.exit65 ], [ 0, %copy_conditional.exit ]
-  %1258 = getelementptr inbounds nuw i64, ptr %8, i64 %.010.i66
+  %1258 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.010.i66
   %1259 = load i64, ptr %1258, align 8, !tbaa !11
-  %1260 = getelementptr inbounds nuw i64, ptr %12, i64 %.010.i66
+  %1260 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.010.i66
   %1261 = load i64, ptr %1260, align 8, !tbaa !11
   %1262 = xor i64 %1261, %1259
   %1263 = and i64 %1262, %.neg
@@ -5263,9 +5263,9 @@ copy_conditional.exit65:                          ; preds = %copy_conditional.ex
 
 copy_conditional.exit68:                          ; preds = %copy_conditional.exit65, %copy_conditional.exit68
   %.010.i69 = phi i64 [ %1273, %copy_conditional.exit68 ], [ 0, %copy_conditional.exit65 ]
-  %1266 = getelementptr inbounds nuw i64, ptr %4, i64 %.010.i69
+  %1266 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.010.i69
   %1267 = load i64, ptr %1266, align 8, !tbaa !11
-  %1268 = getelementptr inbounds nuw i64, ptr %12, i64 %.010.i69
+  %1268 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.010.i69
   %1269 = load i64, ptr %1268, align 8, !tbaa !11
   %1270 = xor i64 %1269, %1267
   %1271 = and i64 %1270, %.neg301
@@ -5277,9 +5277,9 @@ copy_conditional.exit68:                          ; preds = %copy_conditional.ex
 
 copy_conditional.exit71:                          ; preds = %copy_conditional.exit68, %copy_conditional.exit71
   %.010.i72 = phi i64 [ %1281, %copy_conditional.exit71 ], [ 0, %copy_conditional.exit68 ]
-  %1274 = getelementptr inbounds nuw i64, ptr %9, i64 %.010.i72
+  %1274 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.010.i72
   %1275 = load i64, ptr %1274, align 8, !tbaa !11
-  %1276 = getelementptr inbounds nuw i64, ptr %13, i64 %.010.i72
+  %1276 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.010.i72
   %1277 = load i64, ptr %1276, align 8, !tbaa !11
   %1278 = xor i64 %1277, %1275
   %1279 = and i64 %1278, %.neg
@@ -5291,9 +5291,9 @@ copy_conditional.exit71:                          ; preds = %copy_conditional.ex
 
 copy_conditional.exit74:                          ; preds = %copy_conditional.exit71, %copy_conditional.exit74
   %.010.i75 = phi i64 [ %1289, %copy_conditional.exit74 ], [ 0, %copy_conditional.exit71 ]
-  %1282 = getelementptr inbounds nuw i64, ptr %5, i64 %.010.i75
+  %1282 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.010.i75
   %1283 = load i64, ptr %1282, align 8, !tbaa !11
-  %1284 = getelementptr inbounds nuw i64, ptr %13, i64 %.010.i75
+  %1284 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.010.i75
   %1285 = load i64, ptr %1284, align 8, !tbaa !11
   %1286 = xor i64 %1285, %1283
   %1287 = and i64 %1286, %.neg301

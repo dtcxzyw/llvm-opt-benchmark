@@ -3,8 +3,6 @@ source_filename = "bench/clamav/original/spin.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.cli_exe_section = type { i32, i32, i32, i32, i32, i32, i32, i32, i32 }
-
 @.str = private unnamed_addr constant [11 x i8] c"in unspin\0A\00", align 1
 @.str.1 = private unnamed_addr constant [45 x i8] c"spin: Unable to allocate memory for spinned\0A\00", align 1
 @.str.2 = private unnamed_addr constant [34 x i8] c"spin: Not spinned or bad version\0A\00", align 1
@@ -48,7 +46,7 @@ define range(i32 0, 3) i32 @unspin(ptr noundef %0, i32 noundef %1, ptr noundef r
   %9 = alloca i32, align 4
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str) #8
   %10 = sext i32 %3 to i64
-  %11 = getelementptr inbounds %struct.cli_exe_section, ptr %2, i64 %10
+  %11 = getelementptr inbounds [36 x i8], ptr %2, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %13 = load i32, ptr %12, align 4, !tbaa !3
   %14 = zext i32 %13 to i64
@@ -307,7 +305,7 @@ define range(i32 0, 3) i32 @unspin(ptr noundef %0, i32 noundef %1, ptr noundef r
   br i1 %.not688, label %.loopexit739, label %140
 
 140:                                              ; preds = %.lr.ph758
-  %141 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %2, i64 %indvars.iv
+  %141 = getelementptr inbounds nuw [36 x i8], ptr %2, i64 %indvars.iv
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 12
   %143 = load i32, ptr %142, align 4, !tbaa !3
   %144 = zext i32 %143 to i64
@@ -498,7 +496,7 @@ define range(i32 0, 3) i32 @unspin(ptr noundef %0, i32 noundef %1, ptr noundef r
   br i1 %or.cond711, label %.preheader734, label %225
 
 .preheader734:                                    ; preds = %217
-  %218 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %2, i64 %indvars.iv812
+  %218 = getelementptr inbounds nuw [36 x i8], ptr %2, i64 %indvars.iv812
   %219 = getelementptr inbounds nuw i8, ptr %218, i64 12
   %220 = load i32, ptr %219, align 4, !tbaa !3
   %.not684764 = icmp eq i32 %220, 0
@@ -574,7 +572,7 @@ define range(i32 0, 3) i32 @unspin(ptr noundef %0, i32 noundef %1, ptr noundef r
   br i1 %242, label %.critedge713, label %243
 
 243:                                              ; preds = %241
-  %244 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %2, i64 %indvars.iv817
+  %244 = getelementptr inbounds nuw [36 x i8], ptr %2, i64 %indvars.iv817
   %245 = getelementptr inbounds nuw i8, ptr %244, i64 4
   %246 = load i32, ptr %245, align 4, !tbaa !48
   %247 = zext i32 %246 to i64
@@ -618,7 +616,7 @@ define range(i32 0, 3) i32 @unspin(ptr noundef %0, i32 noundef %1, ptr noundef r
   %.0577778 = phi i32 [ 0, %.lr.ph782.preheader ], [ %.1578, %296 ]
   %258 = and i32 %.5562780, 1
   %.not663 = icmp eq i32 %258, 0
-  %259 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %2, i64 %indvars.iv822
+  %259 = getelementptr inbounds nuw [36 x i8], ptr %2, i64 %indvars.iv822
   br i1 %.not663, label %287, label %260
 
 260:                                              ; preds = %.lr.ph782
@@ -626,7 +624,7 @@ define range(i32 0, 3) i32 @unspin(ptr noundef %0, i32 noundef %1, ptr noundef r
   %262 = load i32, ptr %261, align 4, !tbaa !48
   %263 = zext i32 %262 to i64
   %264 = tail call ptr @cli_max_malloc(i64 noundef %263) #8
-  %265 = getelementptr inbounds nuw ptr, ptr %255, i64 %indvars.iv822
+  %265 = getelementptr inbounds nuw [8 x i8], ptr %255, i64 %indvars.iv822
   store ptr %264, ptr %265, align 8, !tbaa !49
   %266 = icmp eq ptr %264, null
   br i1 %266, label %.loopexit.thread876, label %269
@@ -670,7 +668,7 @@ define range(i32 0, 3) i32 @unspin(ptr noundef %0, i32 noundef %1, ptr noundef r
   %291 = load i32, ptr %290, align 4, !tbaa !8
   %292 = zext i32 %291 to i64
   %293 = getelementptr inbounds nuw i8, ptr %0, i64 %292
-  %294 = getelementptr inbounds nuw ptr, ptr %255, i64 %indvars.iv822
+  %294 = getelementptr inbounds nuw [8 x i8], ptr %255, i64 %indvars.iv822
   store ptr %293, ptr %294, align 8, !tbaa !49
   %295 = trunc nuw nsw i64 %indvars.iv822 to i32
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.25, i32 noundef %295) #8
@@ -707,7 +705,7 @@ define range(i32 0, 3) i32 @unspin(ptr noundef %0, i32 noundef %1, ptr noundef r
   br i1 %.not680, label %303, label %300
 
 300:                                              ; preds = %.lr.ph787
-  %301 = getelementptr inbounds nuw ptr, ptr %255, i64 %indvars.iv827
+  %301 = getelementptr inbounds nuw [8 x i8], ptr %255, i64 %indvars.iv827
   %302 = load ptr, ptr %301, align 8, !tbaa !49
   tail call void @free(ptr noundef %302) #8
   br label %303
@@ -741,7 +739,7 @@ define range(i32 0, 3) i32 @unspin(ptr noundef %0, i32 noundef %1, ptr noundef r
 
 .lr.ph790:                                        ; preds = %.lr.ph790.preheader, %332
   %indvars.iv832 = phi i64 [ 0, %.lr.ph790.preheader ], [ %indvars.iv.next833, %332 ]
-  %310 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %2, i64 %indvars.iv832
+  %310 = getelementptr inbounds nuw [36 x i8], ptr %2, i64 %indvars.iv832
   %311 = load i32, ptr %310, align 4, !tbaa !9
   %.not666 = icmp ugt i32 %311, %307
   br i1 %.not666, label %332, label %312
@@ -804,7 +802,7 @@ define range(i32 0, 3) i32 @unspin(ptr noundef %0, i32 noundef %1, ptr noundef r
 
 339:                                              ; preds = %335
   %340 = zext nneg i32 %.4574.lcssa to i64
-  %341 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %2, i64 %340
+  %341 = getelementptr inbounds nuw [36 x i8], ptr %2, i64 %340
   %342 = load i32, ptr %341, align 4, !tbaa !9
   %343 = sub i32 %334, %342
   %344 = getelementptr inbounds nuw i8, ptr %341, i64 4
@@ -864,7 +862,7 @@ define range(i32 0, 3) i32 @unspin(ptr noundef %0, i32 noundef %1, ptr noundef r
   br label %395
 
 386:                                              ; preds = %350
-  %387 = getelementptr inbounds nuw ptr, ptr %255, i64 %340
+  %387 = getelementptr inbounds nuw [8 x i8], ptr %255, i64 %340
   store ptr %349, ptr %387, align 8, !tbaa !49
   %388 = or i32 %336, %235
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.29) #8
@@ -913,7 +911,7 @@ define range(i32 0, 3) i32 @unspin(ptr noundef %0, i32 noundef %1, ptr noundef r
   br i1 %.not678, label %408, label %401
 
 401:                                              ; preds = %.lr.ph798
-  %402 = getelementptr %struct.cli_exe_section, ptr %400, i64 %indvars.iv837
+  %402 = getelementptr [36 x i8], ptr %400, i64 %indvars.iv837
   %403 = getelementptr i8, ptr %402, i64 -28
   %404 = load i32, ptr %403, align 4, !tbaa !8
   %405 = getelementptr i8, ptr %402, i64 -24
@@ -923,12 +921,12 @@ define range(i32 0, 3) i32 @unspin(ptr noundef %0, i32 noundef %1, ptr noundef r
 
 408:                                              ; preds = %.lr.ph798, %401
   %409 = phi i32 [ %407, %401 ], [ 0, %.lr.ph798 ]
-  %410 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %400, i64 %indvars.iv837
+  %410 = getelementptr inbounds nuw [36 x i8], ptr %400, i64 %indvars.iv837
   %411 = getelementptr inbounds nuw i8, ptr %410, i64 8
   store i32 %409, ptr %411, align 4, !tbaa !8
   %412 = and i32 %.7564796, 1
   %.not679 = icmp eq i32 %412, 0
-  %413 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %2, i64 %indvars.iv837
+  %413 = getelementptr inbounds nuw [36 x i8], ptr %2, i64 %indvars.iv837
   %414 = getelementptr inbounds nuw i8, ptr %413, i64 4
   %415 = getelementptr inbounds nuw i8, ptr %413, i64 12
   %.in = select i1 %.not679, ptr %415, ptr %414
@@ -940,7 +938,7 @@ define range(i32 0, 3) i32 @unspin(ptr noundef %0, i32 noundef %1, ptr noundef r
   %419 = load i32, ptr %414, align 4, !tbaa !48
   %420 = getelementptr inbounds nuw i8, ptr %410, i64 4
   store i32 %419, ptr %420, align 4, !tbaa !48
-  %421 = getelementptr inbounds nuw ptr, ptr %255, i64 %indvars.iv837
+  %421 = getelementptr inbounds nuw [8 x i8], ptr %255, i64 %indvars.iv837
   %422 = load ptr, ptr %421, align 8, !tbaa !49
   %423 = zext i32 %416 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0530797, ptr align 1 %422, i64 %423, i1 false)
@@ -992,7 +990,7 @@ define range(i32 0, 3) i32 @unspin(ptr noundef %0, i32 noundef %1, ptr noundef r
 
 .lr.ph802.split:                                  ; preds = %.lr.ph802.split.preheader, %.lr.ph802.split
   %indvars.iv842 = phi i64 [ 0, %.lr.ph802.split.preheader ], [ %indvars.iv.next843, %.lr.ph802.split ]
-  %435 = getelementptr inbounds nuw ptr, ptr %255, i64 %indvars.iv842
+  %435 = getelementptr inbounds nuw [8 x i8], ptr %255, i64 %indvars.iv842
   %436 = load ptr, ptr %435, align 8, !tbaa !49
   tail call void @free(ptr noundef %436) #8
   %indvars.iv.next843 = add nuw nsw i64 %indvars.iv842, 1

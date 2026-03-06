@@ -58,13 +58,13 @@ ARKodeSPRKTable_Free.exit19.i:                    ; preds = %14
 
 18:                                               ; preds = %.lr.ph, %18
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %18 ]
-  %19 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %20 = load double, ptr %19, align 8, !tbaa !13
-  %21 = getelementptr inbounds nuw double, ptr %15, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   store double %20, ptr %21, align 8, !tbaa !13
-  %22 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %23 = load double, ptr %22, align 8, !tbaa !13
-  %24 = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   store double %23, ptr %24, align 8, !tbaa !13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %10
@@ -1297,13 +1297,13 @@ ARKodeSPRKTable_Alloc.exit:                       ; preds = %1, %ARKodeSPRKTable
 
 26:                                               ; preds = %.lr.ph, %26
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %26 ]
-  %27 = getelementptr inbounds nuw double, ptr %19, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv
   %28 = load double, ptr %27, align 8, !tbaa !13
-  %29 = getelementptr inbounds nuw double, ptr %21, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv
   store double %28, ptr %29, align 8, !tbaa !13
-  %30 = getelementptr inbounds nuw double, ptr %23, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv
   %31 = load double, ptr %30, align 8, !tbaa !13
-  %32 = getelementptr inbounds nuw double, ptr %25, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv
   store double %31, ptr %32, align 8, !tbaa !13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1395,16 +1395,16 @@ define range(i32 -20, 1) i32 @ARKodeSPRKTable_ToButcher(ptr noundef readonly cap
 29:                                               ; preds = %.lr.ph98, %._crit_edge95
   %.06697 = phi i32 [ 0, %.lr.ph98 ], [ %.4.lcssa, %._crit_edge95 ]
   %30 = sext i32 %.06697 to i64
-  %31 = getelementptr inbounds double, ptr %13, i64 %30
+  %31 = getelementptr inbounds [8 x i8], ptr %13, i64 %30
   %32 = load double, ptr %31, align 8, !tbaa !13
-  %33 = getelementptr inbounds double, ptr %15, i64 %30
+  %33 = getelementptr inbounds [8 x i8], ptr %15, i64 %30
   store double %32, ptr %33, align 8, !tbaa !13
   %.not7481 = icmp slt i32 %.06697, 0
   br i1 %.not7481, label %.preheader76.preheader, label %.lr.ph
 
 .lr.ph:                                           ; preds = %29
   %34 = load ptr, ptr %16, align 8, !tbaa !24
-  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %30
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %30
   %36 = load ptr, ptr %35, align 8, !tbaa !25
   %37 = add nuw i32 %.06697, 1
   %wide.trip.count = zext i32 %37 to i64
@@ -1412,9 +1412,9 @@ define range(i32 -20, 1) i32 @ARKodeSPRKTable_ToButcher(ptr noundef readonly cap
 
 38:                                               ; preds = %.lr.ph, %38
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %38 ]
-  %39 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %40 = load double, ptr %39, align 8, !tbaa !13
-  %41 = getelementptr inbounds nuw double, ptr %36, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv
   store double %40, ptr %41, align 8, !tbaa !13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1426,14 +1426,14 @@ define range(i32 -20, 1) i32 @ARKodeSPRKTable_ToButcher(ptr noundef readonly cap
 .preheader76:                                     ; preds = %.preheader76.preheader, %48
   %indvars.iv112 = phi i64 [ %indvars.iv.next113, %48 ], [ 0, %.preheader76.preheader ]
   %indvars.iv110 = phi i64 [ %indvars.iv.next111, %48 ], [ 1, %.preheader76.preheader ]
-  %42 = getelementptr inbounds nuw double, ptr %25, i64 %indvars.iv112
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv112
   %.promoted = load double, ptr %42, align 8, !tbaa !13
   br label %43
 
 43:                                               ; preds = %.preheader76, %43
   %indvars.iv103 = phi i64 [ 0, %.preheader76 ], [ %indvars.iv.next104, %43 ]
   %44 = phi double [ %.promoted, %.preheader76 ], [ %47, %43 ]
-  %45 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv103
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv103
   %46 = load double, ptr %45, align 8, !tbaa !13
   %47 = fadd double %46, %44
   store double %47, ptr %42, align 8, !tbaa !13
@@ -1449,24 +1449,24 @@ define range(i32 -20, 1) i32 @ARKodeSPRKTable_ToButcher(ptr noundef readonly cap
 
 .lr.ph88:                                         ; preds = %48, %._crit_edge
   %indvars.iv124 = phi i64 [ %indvars.iv.next125, %._crit_edge ], [ 0, %48 ]
-  %49 = getelementptr inbounds nuw double, ptr %26, i64 %indvars.iv124
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv124
   %50 = load double, ptr %49, align 8, !tbaa !13
-  %51 = getelementptr inbounds nuw double, ptr %27, i64 %indvars.iv124
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv124
   store double %50, ptr %51, align 8, !tbaa !13
   %.not100 = icmp eq i64 %indvars.iv124, 0
   br i1 %.not100, label %._crit_edge, label %.lr.ph86
 
 .lr.ph86:                                         ; preds = %.lr.ph88
   %52 = load ptr, ptr %20, align 8, !tbaa !24
-  %53 = getelementptr inbounds nuw ptr, ptr %52, i64 %indvars.iv124
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %indvars.iv124
   %54 = load ptr, ptr %53, align 8, !tbaa !25
   br label %55
 
 55:                                               ; preds = %.lr.ph86, %55
   %indvars.iv119 = phi i64 [ 0, %.lr.ph86 ], [ %indvars.iv.next120, %55 ]
-  %56 = getelementptr inbounds nuw double, ptr %26, i64 %indvars.iv119
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv119
   %57 = load double, ptr %56, align 8, !tbaa !13
-  %58 = getelementptr inbounds nuw double, ptr %54, i64 %indvars.iv119
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %indvars.iv119
   store double %57, ptr %58, align 8, !tbaa !13
   %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
   %exitcond123.not = icmp eq i64 %indvars.iv.next120, %indvars.iv124
@@ -1485,14 +1485,14 @@ define range(i32 -20, 1) i32 @ARKodeSPRKTable_ToButcher(ptr noundef readonly cap
 .lr.ph90:                                         ; preds = %.preheader
   %59 = load ptr, ptr %18, align 8, !tbaa !10
   %60 = load ptr, ptr %21, align 8, !tbaa !23
-  %61 = getelementptr inbounds nuw double, ptr %60, i64 %indvars.iv134
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %indvars.iv134
   %.promoted93 = load double, ptr %61, align 8, !tbaa !13
   br label %62
 
 62:                                               ; preds = %.lr.ph90, %62
   %indvars.iv129 = phi i64 [ 0, %.lr.ph90 ], [ %indvars.iv.next130, %62 ]
   %63 = phi double [ %.promoted93, %.lr.ph90 ], [ %66, %62 ]
-  %64 = getelementptr inbounds nuw double, ptr %59, i64 %indvars.iv129
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %indvars.iv129
   %65 = load double, ptr %64, align 8, !tbaa !13
   %66 = fadd double %65, %63
   store double %66, ptr %61, align 8, !tbaa !13

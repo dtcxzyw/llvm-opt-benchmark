@@ -608,7 +608,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %62, %_ZNKSt14defaul
 82:                                               ; preds = %.lr.ph, %_ZN4i18n12phonenumbers12_GLOBAL__N_120TestCountryLanguagesEPKNS0_16CountryLanguagesE.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN4i18n12phonenumbers12_GLOBAL__N_120TestCountryLanguagesEPKNS0_16CountryLanguagesE.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
-  %83 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %84 = load i32, ptr %83, align 4, !tbaa !20
   store i32 %84, ptr %25, align 4, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
@@ -996,7 +996,7 @@ _ZN7testing15AssertionResultD2Ev.exit.i:          ; preds = %_ZNKSt14default_del
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit84.i ], [ 0, %_ZN7testing15AssertionResultD2Ev.exit.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %204 = load ptr, ptr %163, align 8, !tbaa !52
-  %205 = getelementptr inbounds nuw ptr, ptr %204, i64 %indvars.iv.i
+  %205 = getelementptr inbounds nuw [8 x i8], ptr %204, i64 %indvars.iv.i
   %206 = load ptr, ptr %205, align 8, !tbaa !53
   store ptr %76, ptr %10, align 8, !tbaa !54
   %207 = icmp eq ptr %206, null
@@ -1198,7 +1198,7 @@ _ZN7testing15AssertionResultD2Ev.exit58.i:        ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %261 = load ptr, ptr %163, align 8, !tbaa !52
-  %262 = getelementptr ptr, ptr %261, i64 %indvars.iv.i
+  %262 = getelementptr [8 x i8], ptr %261, i64 %indvars.iv.i
   %263 = getelementptr i8, ptr %262, i64 -8
   %264 = load ptr, ptr %263, align 8, !tbaa !53
   store ptr %79, ptr %17, align 8, !tbaa !54
@@ -1728,7 +1728,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %80, %_ZNKSt14defaul
 107:                                              ; preds = %.lr.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit88
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit88 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %41)
-  %108 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %109 = load ptr, ptr %108, align 8, !tbaa !53
   store ptr %91, ptr %41, align 8, !tbaa !54
   %110 = icmp eq ptr %109, null
@@ -2332,7 +2332,7 @@ _ZN7testing15AssertionResultD2Ev.exit.i:          ; preds = %_ZNKSt14default_del
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZN4absl7debian218container_internal19btree_set_containerINS1_5btreeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEEE6insertEOi.exit.i ], [ 0, %_ZN7testing15AssertionResultD2Ev.exit.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %285 = load ptr, ptr %238, align 8, !tbaa !84
-  %286 = getelementptr inbounds nuw i32, ptr %285, i64 %indvars.iv.i
+  %286 = getelementptr inbounds nuw [4 x i8], ptr %285, i64 %indvars.iv.i
   %287 = load i32, ptr %286, align 4, !tbaa !20
   store i32 %287, ptr %9, align 4, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -2468,7 +2468,7 @@ _ZN7testing15AssertionResultD2Ev.exit108.i:       ; preds = %_ZNKSt14default_del
 326:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit108.i
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %327 = load ptr, ptr %238, align 8, !tbaa !84
-  %328 = getelementptr i32, ptr %327, i64 %indvars.iv.i
+  %328 = getelementptr [4 x i8], ptr %327, i64 %indvars.iv.i
   %329 = getelementptr i8, ptr %328, i64 -4
   %330 = load i32, ptr %329, align 4, !tbaa !20, !noalias !85
   %331 = load i32, ptr %9, align 4, !tbaa !20, !noalias !85
@@ -2655,7 +2655,7 @@ _ZN7testing15AssertionResultD2Ev.exit123.i:       ; preds = %_ZNKSt14default_del
 
 391:                                              ; preds = %395, %.lr.ph.i.i.i.i.i.i.i
   %indvars.iv.i.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i.i.i ], [ %indvars.iv.next.i.i.i.i.i.i.i, %395 ]
-  %392 = getelementptr inbounds nuw i32, ptr %390, i64 %indvars.iv.i.i.i.i.i.i.i
+  %392 = getelementptr inbounds nuw [4 x i8], ptr %390, i64 %indvars.iv.i.i.i.i.i.i.i
   %393 = load i32, ptr %392, align 4, !tbaa !20, !noalias !88
   %394 = icmp slt i32 %393, %377
   br i1 %394, label %395, label %._crit_edge.loopexit.split.loop.exit.i.i.i.i.i.i.i
@@ -2679,7 +2679,7 @@ _ZNK4absl7debian218container_internal10btree_nodeINS1_10set_paramsIiSt4lessIiESa
 400:                                              ; preds = %_ZNK4absl7debian218container_internal10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE11lower_boundIiEENS1_12SearchResultIiLb0EEERKT_RKS5_.exit.i.i.i.i
   %401 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i, i64 256
   %402 = sext i32 %.0.lcssa.i.i.i.i.i.i.i to i64
-  %403 = getelementptr inbounds ptr, ptr %401, i64 %402
+  %403 = getelementptr inbounds [8 x i8], ptr %401, i64 %402
   br label %386
 
 _ZNK4absl7debian218container_internal5btreeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE15internal_locateIiEENS1_12SearchResultINS1_14btree_iteratorINS1_10btree_nodeIS7_EERiPiEELb0EEERKT_.exit.i.i.i: ; preds = %_ZNK4absl7debian218container_internal10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE11lower_boundIiEENS1_12SearchResultIiLb0EEERKT_RKS5_.exit.i.i.i.i, %408
@@ -2704,7 +2704,7 @@ _ZNK4absl7debian218container_internal5btreeINS1_10set_paramsIiSt4lessIiESaIiELi2
 415:                                              ; preds = %_ZNK4absl7debian218container_internal5btreeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE15internal_locateIiEENS1_12SearchResultINS1_14btree_iteratorINS1_10btree_nodeIS7_EERiPiEELb0EEERKT_.exit.i.i.i
   %416 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i16.i.i.i, i64 12
   %417 = sext i32 %.sroa.8.0.i.i.i.i to i64
-  %418 = getelementptr inbounds i32, ptr %416, i64 %417
+  %418 = getelementptr inbounds [4 x i8], ptr %416, i64 %417
   %419 = load i32, ptr %418, align 4, !tbaa !20, !noalias !88
   %420 = icmp sgt i32 %419, %377
   br i1 %420, label %_ZN4absl7debian218container_internal5btreeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE13internal_lastINS1_14btree_iteratorINS1_10btree_nodeIS7_EERiPiEEEET_SG_.exit.thread.i.i.i, label %_ZN4absl7debian218container_internal19btree_set_containerINS1_5btreeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEEE6insertEOi.exit.i
@@ -2880,7 +2880,7 @@ _ZN7testing15AssertionResultD2Ev.exit138.i:       ; preds = %_ZNKSt14default_del
   %indvars.iv209.i = phi i64 [ 0, %.lr.ph200.i ], [ %indvars.iv.next210.i, %_ZN7testing15AssertionResultD2Ev.exit184.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %475 = load ptr, ptr %465, align 8, !tbaa !98
-  %476 = getelementptr inbounds nuw i32, ptr %475, i64 %indvars.iv209.i
+  %476 = getelementptr inbounds nuw [4 x i8], ptr %475, i64 %indvars.iv209.i
   %477 = load i32, ptr %476, align 4, !tbaa !20
   store i32 %477, ptr %22, align 4, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
@@ -3016,7 +3016,7 @@ _ZN7testing15AssertionResultD2Ev.exit154.i:       ; preds = %_ZNKSt14default_del
 516:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit154.i
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
   %517 = load ptr, ptr %465, align 8, !tbaa !98
-  %518 = getelementptr i32, ptr %517, i64 %indvars.iv209.i
+  %518 = getelementptr [4 x i8], ptr %517, i64 %indvars.iv209.i
   %519 = getelementptr i8, ptr %518, i64 -4
   %520 = load i32, ptr %519, align 4, !tbaa !20, !noalias !99
   %521 = load i32, ptr %22, align 4, !tbaa !20, !noalias !99
@@ -3175,7 +3175,7 @@ _ZN7testing15AssertionResultD2Ev.exit170.i:       ; preds = %_ZNKSt14default_del
 
 569:                                              ; preds = %573, %.lr.ph.i.i.i.i.i.i.i.i
   %indvars.iv.i.i.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i.i.i.i ], [ %indvars.iv.next.i.i.i.i.i.i.i.i, %573 ]
-  %570 = getelementptr inbounds nuw i32, ptr %568, i64 %indvars.iv.i.i.i.i.i.i.i.i
+  %570 = getelementptr inbounds nuw [4 x i8], ptr %568, i64 %indvars.iv.i.i.i.i.i.i.i.i
   %571 = load i32, ptr %570, align 4, !tbaa !20
   %572 = icmp slt i32 %571, %563
   br i1 %572, label %573, label %._crit_edge.loopexit.split.loop.exit.i.i.i.i.i.i.i.i
@@ -3199,7 +3199,7 @@ _ZNK4absl7debian218container_internal10btree_nodeINS1_10set_paramsIiSt4lessIiESa
 578:                                              ; preds = %_ZNK4absl7debian218container_internal10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE11lower_boundIiEENS1_12SearchResultIiLb0EEERKT_RKS5_.exit.i.i.i.i.i
   %579 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i.i, i64 256
   %580 = sext i32 %.0.lcssa.i.i.i.i.i.i.i.i to i64
-  %581 = getelementptr inbounds ptr, ptr %579, i64 %580
+  %581 = getelementptr inbounds [8 x i8], ptr %579, i64 %580
   br label %564
 
 _ZNK4absl7debian218container_internal5btreeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE15internal_locateIiEENS1_12SearchResultINS1_14btree_iteratorINS1_10btree_nodeIS7_EERiPiEELb0EEERKT_.exit.i.i.i.i: ; preds = %_ZNK4absl7debian218container_internal10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE11lower_boundIiEENS1_12SearchResultIiLb0EEERKT_RKS5_.exit.i.i.i.i.i, %586
@@ -3224,7 +3224,7 @@ _ZNK4absl7debian218container_internal5btreeINS1_10set_paramsIiSt4lessIiESaIiELi2
 593:                                              ; preds = %_ZNK4absl7debian218container_internal5btreeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE15internal_locateIiEENS1_12SearchResultINS1_14btree_iteratorINS1_10btree_nodeIS7_EERiPiEELb0EEERKT_.exit.i.i.i.i
   %594 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i6.i.i.i.i, i64 12
   %595 = sext i32 %.sroa.8.0.i.i.i.i.i to i64
-  %596 = getelementptr inbounds i32, ptr %594, i64 %595
+  %596 = getelementptr inbounds [4 x i8], ptr %594, i64 %595
   %597 = load i32, ptr %596, align 4, !tbaa !20
   %598 = icmp slt i32 %563, %597
   br i1 %598, label %.loopexit.i.i.thread.i, label %.loopexit.i.i.i
@@ -3671,8 +3671,8 @@ _ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integra
 97:                                               ; preds = %.lr.ph, %_ZN7testing15AssertionResultD2Ev.exit148
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN7testing15AssertionResultD2Ev.exit148 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %98 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
-  %99 = getelementptr inbounds nuw i32, ptr %85, i64 %indvars.iv
+  %98 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %85, i64 %indvars.iv
   %100 = load i32, ptr %98, align 4, !tbaa !20, !noalias !110
   %101 = load i32, ptr %99, align 4, !tbaa !20, !noalias !110
   %102 = icmp eq i32 %100, %101
@@ -3962,10 +3962,10 @@ _ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integra
 191:                                              ; preds = %.lr.ph294, %_ZN7testing15AssertionResultD2Ev.exit180
   %indvars.iv309 = phi i64 [ 0, %.lr.ph294 ], [ %indvars.iv.next310, %_ZN7testing15AssertionResultD2Ev.exit180 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  %192 = getelementptr inbounds nuw ptr, ptr @__const._ZN4i18n12phonenumbers44GeocodingDataTest_TestTestGeocodingData_Test8TestBodyEv.expected_languages, i64 %indvars.iv309
+  %192 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZN4i18n12phonenumbers44GeocodingDataTest_TestTestGeocodingData_Test8TestBodyEv.expected_languages, i64 %indvars.iv309
   %193 = load ptr, ptr %192, align 8, !tbaa !53
   %194 = load ptr, ptr %89, align 8, !tbaa !52
-  %195 = getelementptr inbounds nuw ptr, ptr %194, i64 %indvars.iv309
+  %195 = getelementptr inbounds nuw [8 x i8], ptr %194, i64 %indvars.iv309
   %196 = load ptr, ptr %195, align 8, !tbaa !53
   call void @_ZN7testing8internal14CmpHelperSTREQEPKcS2_S2_S2_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %15, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21, ptr noundef %193, ptr noundef %196)
   %197 = load i8, ptr %15, align 8, !tbaa !21, !range !31, !noundef !32
@@ -4242,9 +4242,9 @@ _ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integra
 285:                                              ; preds = %.lr.ph298, %_ZN7testing15AssertionResultD2Ev.exit212
   %indvars.iv312 = phi i64 [ 0, %.lr.ph298 ], [ %indvars.iv.next313, %_ZN7testing15AssertionResultD2Ev.exit212 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
-  %286 = getelementptr inbounds nuw ptr, ptr @__const._ZN4i18n12phonenumbers44GeocodingDataTest_TestTestGeocodingData_Test8TestBodyEv.expected_language_code_pairs, i64 %indvars.iv312
+  %286 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZN4i18n12phonenumbers44GeocodingDataTest_TestTestGeocodingData_Test8TestBodyEv.expected_language_code_pairs, i64 %indvars.iv312
   %287 = load ptr, ptr %286, align 8, !tbaa !53
-  %288 = getelementptr inbounds nuw ptr, ptr %273, i64 %indvars.iv312
+  %288 = getelementptr inbounds nuw [8 x i8], ptr %273, i64 %indvars.iv312
   %289 = load ptr, ptr %288, align 8, !tbaa !53
   call void @_ZN7testing8internal14CmpHelperSTREQEPKcS2_S2_S2_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %23, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30, ptr noundef %287, ptr noundef %289)
   %290 = load i8, ptr %23, align 8, !tbaa !21, !range !31, !noundef !32
@@ -4523,9 +4523,9 @@ _ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integra
 378:                                              ; preds = %.lr.ph302, %_ZN7testing15AssertionResultD2Ev.exit258
   %indvars.iv315 = phi i64 [ 0, %.lr.ph302 ], [ %indvars.iv.next316, %_ZN7testing15AssertionResultD2Ev.exit258 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
-  %379 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv315
+  %379 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %indvars.iv315
   %380 = load ptr, ptr %277, align 8, !tbaa !84
-  %381 = getelementptr inbounds nuw i32, ptr %380, i64 %indvars.iv315
+  %381 = getelementptr inbounds nuw [4 x i8], ptr %380, i64 %indvars.iv315
   %382 = load i32, ptr %379, align 4, !tbaa !20, !noalias !133
   %383 = load i32, ptr %381, align 4, !tbaa !20, !noalias !133
   %384 = icmp eq i32 %382, %383
@@ -4647,10 +4647,10 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit245:         ; preds = %412, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i243
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
-  %420 = getelementptr inbounds nuw ptr, ptr @__const._ZN4i18n12phonenumbers44GeocodingDataTest_TestTestGeocodingData_Test8TestBodyEv.expected_descriptions, i64 %indvars.iv315
+  %420 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZN4i18n12phonenumbers44GeocodingDataTest_TestTestGeocodingData_Test8TestBodyEv.expected_descriptions, i64 %indvars.iv315
   %421 = load ptr, ptr %420, align 8, !tbaa !53
   %422 = load ptr, ptr %369, align 8, !tbaa !138
-  %423 = getelementptr inbounds nuw ptr, ptr %422, i64 %indvars.iv315
+  %423 = getelementptr inbounds nuw [8 x i8], ptr %422, i64 %indvars.iv315
   %424 = load ptr, ptr %423, align 8, !tbaa !53
   call void @_ZN7testing8internal14CmpHelperSTREQEPKcS2_S2_S2_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %34, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.37, ptr noundef %421, ptr noundef %424)
   %425 = load i8, ptr %34, align 8, !tbaa !21, !range !31, !noundef !32
@@ -4910,7 +4910,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %indvars.iv318 = phi i64 [ 0, %.lr.ph306 ], [ %indvars.iv.next319, %_ZN7testing15AssertionResultD2Ev.exit290 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %42)
   %506 = load ptr, ptr %503, align 8, !tbaa !98
-  %507 = getelementptr inbounds nuw i32, ptr %506, i64 %indvars.iv318
+  %507 = getelementptr inbounds nuw [4 x i8], ptr %506, i64 %indvars.iv318
   %508 = load i32, ptr %41, align 4, !tbaa !20, !noalias !140
   %509 = load i32, ptr %507, align 4, !tbaa !20, !noalias !140
   %510 = icmp eq i32 %508, %509
@@ -4921,7 +4921,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br label %_ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit277
 
 512:                                              ; preds = %505
-  %513 = getelementptr inbounds nuw i32, ptr %41, i64 %indvars.iv318
+  %513 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %indvars.iv318
   call void @_ZN7testing8internal18CmpHelperEQFailureIiiEENS_15AssertionResultEPKcS4_RKT_RKT0_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %42, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.41, ptr noundef nonnull align 4 dereferenceable(4) %513, ptr noundef nonnull align 4 dereferenceable(4) %507)
   br label %_ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit277
 
@@ -7678,7 +7678,7 @@ define linkonce_odr dso_local { ptr, i32 } @_ZN4absl7debian218container_internal
 .thread.i.i:                                      ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 256
   %10 = sext i32 %2 to i64
-  %11 = getelementptr inbounds ptr, ptr %9, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %9, i64 %10
   %storemerge4.i.i.i = load ptr, ptr %11, align 8, !tbaa !93
   store ptr %storemerge4.i.i.i, ptr %5, align 8, !tbaa !172
   %12 = getelementptr inbounds nuw i8, ptr %storemerge4.i.i.i, i64 11
@@ -7692,7 +7692,7 @@ define linkonce_odr dso_local { ptr, i32 } @_ZN4absl7debian218container_internal
   %15 = load i8, ptr %14, align 1, !tbaa !40
   %16 = getelementptr inbounds nuw i8, ptr %storemerge6.i.i.i, i64 256
   %17 = zext i8 %15 to i64
-  %18 = getelementptr inbounds nuw ptr, ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %17
   %storemerge.i.i.i = load ptr, ptr %18, align 8, !tbaa !93
   store ptr %storemerge.i.i.i, ptr %5, align 8, !tbaa !172
   %19 = getelementptr inbounds nuw i8, ptr %storemerge.i.i.i, i64 11
@@ -7824,7 +7824,7 @@ _ZN4absl7debian218container_internal10btree_nodeINS1_10set_paramsIiSt4lessIiESaI
   %74 = phi i8 [ %.pre.i, %_ZN4absl7debian218container_internal10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE19transfer_n_backwardElllPS8_PS6_.exit.loopexit.i ], [ %61, %56 ]
   %75 = getelementptr inbounds nuw i8, ptr %58, i64 12
   %76 = and i64 %59, 255
-  %77 = getelementptr inbounds nuw i32, ptr %75, i64 %76
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %75, i64 %76
   %78 = load i32, ptr %3, align 4, !tbaa !20
   store i32 %78, ptr %77, align 4, !tbaa !20
   %79 = add i8 %74, 1
@@ -7847,9 +7847,9 @@ _ZN4absl7debian218container_internal10btree_nodeINS1_10set_paramsIiSt4lessIiESaI
 87:                                               ; preds = %87, %.lr.ph.i19
   %indvars.iv.i = phi i64 [ %83, %.lr.ph.i19 ], [ %indvars.iv.next.i, %87 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %88 = getelementptr inbounds ptr, ptr %86, i64 %indvars.iv.next.i
+  %88 = getelementptr inbounds [8 x i8], ptr %86, i64 %indvars.iv.next.i
   %89 = load ptr, ptr %88, align 8, !tbaa !93
-  %90 = getelementptr inbounds ptr, ptr %86, i64 %indvars.iv.i
+  %90 = getelementptr inbounds [8 x i8], ptr %86, i64 %indvars.iv.i
   store ptr %89, ptr %90, align 8, !tbaa !93
   %91 = trunc i64 %indvars.iv.i to i8
   %92 = getelementptr inbounds nuw i8, ptr %89, i64 8
@@ -7918,7 +7918,7 @@ define linkonce_odr dso_local void @_ZN4absl7debian218container_internal10btree_
   %.1 = phi ptr [ %22, %._crit_edge ], [ %.1.be, %.backedge ]
   %24 = getelementptr inbounds nuw i8, ptr %.1, i64 256
   %25 = sext i32 %.147 to i64
-  %26 = getelementptr inbounds ptr, ptr %24, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %24, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !93
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 11
   %29 = load i8, ptr %28, align 1, !tbaa !40
@@ -8012,7 +8012,7 @@ define linkonce_odr dso_local void @_ZN4absl7debian218container_internal5btreeIN
   %13 = add nuw nsw i64 %12, 4294967295
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 256
   %15 = and i64 %13, 4294967295
-  %16 = getelementptr inbounds nuw ptr, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !93
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 10
   %19 = load i8, ptr %18, align 1, !tbaa !40
@@ -8057,7 +8057,7 @@ define linkonce_odr dso_local void @_ZN4absl7debian218container_internal5btreeIN
 43:                                               ; preds = %39
   %44 = zext i8 %10 to i64
   %45 = getelementptr i8, ptr %6, i64 264
-  %46 = getelementptr ptr, ptr %45, i64 %44
+  %46 = getelementptr [8 x i8], ptr %45, i64 %44
   %47 = load ptr, ptr %46, align 8, !tbaa !93
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 10
   %49 = load i8, ptr %48, align 1, !tbaa !40
@@ -8290,7 +8290,7 @@ _ZN4absl7debian218container_internal10btree_nodeINS1_10set_paramsIiSt4lessIiESaI
 
 .lr.ph60:                                         ; preds = %.preheader
   %48 = getelementptr inbounds nuw i8, ptr %2, i64 256
-  %invariant.gep = getelementptr ptr, ptr %48, i64 %34
+  %invariant.gep = getelementptr [8 x i8], ptr %48, i64 %34
   br label %60
 
 49:                                               ; preds = %.lr.ph, %49
@@ -8300,10 +8300,10 @@ _ZN4absl7debian218container_internal10btree_nodeINS1_10set_paramsIiSt4lessIiESaI
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %52 = trunc nuw nsw i64 %indvars.iv.next to i32
   %53 = add nuw nsw i32 %52, %51
-  %54 = getelementptr inbounds nuw ptr, ptr %44, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %indvars.iv
   %55 = load ptr, ptr %54, align 8, !tbaa !93
   %56 = zext nneg i32 %53 to i64
-  %57 = getelementptr inbounds nuw ptr, ptr %45, i64 %56
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %56
   store ptr %55, ptr %57, align 8, !tbaa !93
   %58 = trunc i32 %53 to i8
   %59 = getelementptr inbounds nuw i8, ptr %55, i64 8
@@ -8314,9 +8314,9 @@ _ZN4absl7debian218container_internal10btree_nodeINS1_10set_paramsIiSt4lessIiESaI
 
 60:                                               ; preds = %.lr.ph60, %60
   %indvars.iv62 = phi i64 [ 0, %.lr.ph60 ], [ %indvars.iv.next63, %60 ]
-  %gep = getelementptr ptr, ptr %invariant.gep, i64 %indvars.iv62
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %indvars.iv62
   %61 = load ptr, ptr %gep, align 8, !tbaa !93
-  %62 = getelementptr inbounds nuw ptr, ptr %48, i64 %indvars.iv62
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %indvars.iv62
   store ptr %61, ptr %62, align 8, !tbaa !93
   %63 = trunc i64 %indvars.iv62 to i8
   %64 = getelementptr inbounds nuw i8, ptr %61, i64 8
@@ -8453,9 +8453,9 @@ _ZN4absl7debian218container_internal10btree_nodeINS1_10set_paramsIiSt4lessIiESaI
 61:                                               ; preds = %54, %61
   %indvars.iv = phi i64 [ %57, %54 ], [ %indvars.iv.next, %61 ]
   %62 = add nsw i64 %indvars.iv, %58
-  %63 = getelementptr inbounds nuw ptr, ptr %56, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %indvars.iv
   %64 = load ptr, ptr %63, align 8, !tbaa !93
-  %65 = getelementptr inbounds ptr, ptr %56, i64 %62
+  %65 = getelementptr inbounds [8 x i8], ptr %56, i64 %62
   store ptr %64, ptr %65, align 8, !tbaa !93
   %66 = trunc i64 %62 to i8
   %67 = getelementptr inbounds nuw i8, ptr %64, i64 8
@@ -8474,9 +8474,9 @@ _ZN4absl7debian218container_internal10btree_nodeINS1_10set_paramsIiSt4lessIiESaI
   %73 = sub i32 %72, %1
   %74 = add i32 %73, %71
   %75 = sext i32 %74 to i64
-  %76 = getelementptr inbounds ptr, ptr %59, i64 %75
+  %76 = getelementptr inbounds [8 x i8], ptr %59, i64 %75
   %77 = load ptr, ptr %76, align 8, !tbaa !93
-  %78 = getelementptr inbounds ptr, ptr %56, i64 %69
+  %78 = getelementptr inbounds [8 x i8], ptr %56, i64 %69
   store ptr %77, ptr %78, align 8, !tbaa !93
   %79 = trunc i64 %69 to i8
   %80 = getelementptr inbounds nuw i8, ptr %77, i64 8
@@ -8563,7 +8563,7 @@ _ZN4absl7debian218container_internal10btree_nodeINS1_10set_paramsIiSt4lessIiESaI
   %33 = load i8, ptr %32, align 8, !tbaa !40
   %34 = zext i8 %33 to i64
   %35 = zext i8 %30 to i64
-  %36 = getelementptr inbounds nuw i32, ptr %22, i64 %35
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %31, i64 10
   %38 = load i8, ptr %37, align 1, !tbaa !40
   %39 = icmp ult i8 %33, %38
@@ -8600,7 +8600,7 @@ _ZN4absl7debian218container_internal10btree_nodeINS1_10set_paramsIiSt4lessIiESaI
 _ZN4absl7debian218container_internal10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE19transfer_n_backwardElllPS8_PS6_.exit.i: ; preds = %_ZN4absl7debian218container_internal10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE19transfer_n_backwardElllPS8_PS6_.exit.loopexit.i, %_ZN4absl7debian218container_internal10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE10transfer_nElllPS8_PS6_.exit
   %51 = phi i8 [ %.pre.i, %_ZN4absl7debian218container_internal10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE19transfer_n_backwardElllPS8_PS6_.exit.loopexit.i ], [ %38, %_ZN4absl7debian218container_internal10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE10transfer_nElllPS8_PS6_.exit ]
   %52 = getelementptr inbounds nuw i8, ptr %31, i64 12
-  %53 = getelementptr inbounds nuw i32, ptr %52, i64 %34
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %34
   %54 = load i32, ptr %36, align 4, !tbaa !20
   store i32 %54, ptr %53, align 4, !tbaa !20
   %55 = add i8 %51, 1
@@ -8623,9 +8623,9 @@ _ZN4absl7debian218container_internal10btree_nodeINS1_10set_paramsIiSt4lessIiESaI
 63:                                               ; preds = %63, %.lr.ph.i28
   %indvars.iv.i = phi i64 [ %59, %.lr.ph.i28 ], [ %indvars.iv.next.i, %63 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %64 = getelementptr inbounds ptr, ptr %62, i64 %indvars.iv.next.i
+  %64 = getelementptr inbounds [8 x i8], ptr %62, i64 %indvars.iv.next.i
   %65 = load ptr, ptr %64, align 8, !tbaa !93
-  %66 = getelementptr inbounds ptr, ptr %62, i64 %indvars.iv.i
+  %66 = getelementptr inbounds [8 x i8], ptr %62, i64 %indvars.iv.i
   store ptr %65, ptr %66, align 8, !tbaa !93
   %67 = trunc i64 %indvars.iv.i to i8
   %68 = getelementptr inbounds nuw i8, ptr %65, i64 8
@@ -8640,7 +8640,7 @@ _ZN4absl7debian218container_internal10btree_nodeINS1_10set_paramsIiSt4lessIiESaI
   %73 = add nuw nsw i32 %72, 1
   %74 = getelementptr inbounds nuw i8, ptr %70, i64 256
   %75 = zext nneg i32 %73 to i64
-  %76 = getelementptr inbounds nuw ptr, ptr %74, i64 %75
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %75
   store ptr %2, ptr %76, align 8, !tbaa !93
   %77 = trunc i32 %73 to i8
   %78 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -8662,9 +8662,9 @@ _ZN4absl7debian218container_internal10btree_nodeINS1_10set_paramsIiSt4lessIiESaI
   %indvars.iv33 = phi i64 [ 0, %81 ], [ %indvars.iv.next34, %86 ]
   %indvars.iv = phi i64 [ %85, %81 ], [ %indvars.iv.next, %86 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %87 = getelementptr inbounds nuw ptr, ptr %83, i64 %indvars.iv.next
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %indvars.iv.next
   %88 = load ptr, ptr %87, align 8, !tbaa !93
-  %89 = getelementptr inbounds nuw ptr, ptr %84, i64 %indvars.iv33
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %indvars.iv33
   store ptr %88, ptr %89, align 8, !tbaa !93
   %90 = trunc nuw i64 %indvars.iv33 to i8
   %91 = getelementptr inbounds nuw i8, ptr %88, i64 8

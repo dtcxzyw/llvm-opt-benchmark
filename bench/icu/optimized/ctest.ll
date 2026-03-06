@@ -449,7 +449,7 @@ define internal fastcc void @iterateTestsWithLevel(ptr noundef %0, i32 noundef %
 14:                                               ; preds = %12
   %15 = add nsw i32 %1, 1
   %16 = sext i32 %1 to i64
-  %17 = getelementptr inbounds ptr, ptr %2, i64 %16
+  %17 = getelementptr inbounds [8 x i8], ptr %2, i64 %16
   store ptr %0, ptr %17, align 8, !tbaa !10
   %18 = icmp sgt i32 %1, 0
   br i1 %18, label %.lr.ph.preheader, label %._crit_edge
@@ -460,7 +460,7 @@ define internal fastcc void @iterateTestsWithLevel(ptr noundef %0, i32 noundef %
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %19 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8, !tbaa !10
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %21) #25
@@ -477,7 +477,7 @@ define internal fastcc void @iterateTestsWithLevel(ptr noundef %0, i32 noundef %
 
 ._crit_edge:                                      ; preds = %14, %._crit_edge.loopexit
   %.0.lcssa = phi i64 [ %23, %._crit_edge.loopexit ], [ 0, %14 ]
-  %24 = getelementptr inbounds nuw ptr, ptr %2, i64 %.0.lcssa
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.0.lcssa
   %25 = load ptr, ptr %24, align 8, !tbaa !10
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %27 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %26) #25
@@ -1372,7 +1372,7 @@ define range(i32 0, 2) i32 @initArgs(i32 noundef %0, ptr noundef %1, ptr noundef
 9:                                                ; preds = %.lr.ph, %185
   %.094184 = phi i32 [ 1, %.lr.ph ], [ %186, %185 ]
   %10 = zext nneg i32 %.094184 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr %1, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !21
   %13 = load i8, ptr %12, align 1, !tbaa !11
   %14 = icmp eq i8 %13, 47
@@ -1553,7 +1553,7 @@ sub_1146:                                         ; preds = %.tail139, %sub_1141
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !21
   %82 = zext nneg i32 %79 to i64
-  %83 = getelementptr inbounds nuw ptr, ptr %1, i64 %82
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %82
   %84 = load ptr, ptr %83, align 8, !tbaa !21
   %85 = call i64 @strtol(ptr noundef %84, ptr noundef nonnull %6, i32 noundef 10) #25
   store i64 %85, ptr @MINIMUM_MEMORY_SIZE_FAILURE, align 8, !tbaa !27
@@ -1686,7 +1686,7 @@ sub_1161:                                         ; preds = %.tail154, %sub_1156
 
 136:                                              ; preds = %133
   %137 = zext nneg i32 %134 to i64
-  %138 = getelementptr inbounds nuw ptr, ptr %1, i64 %137
+  %138 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %137
   %139 = load ptr, ptr %138, align 8, !tbaa !21
   store ptr %139, ptr @XML_FILE_NAME, align 8, !tbaa !21
   br label %185
@@ -1786,7 +1786,7 @@ sub_1171:                                         ; preds = %.tail164, %sub_1166
   br i1 %177, label %179, label %._crit_edge220
 
 ._crit_edge220:                                   ; preds = %175
-  %178 = getelementptr inbounds nuw ptr, ptr %1, i64 %10
+  %178 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %10
   %.pre = load ptr, ptr %178, align 8, !tbaa !21
   br label %split
 
@@ -2018,7 +2018,7 @@ define i32 @runTestRequest(ptr noundef %0, i32 noundef %1, ptr noundef readonly 
   %indvars.iv = phi i64 [ %indvars.iv.next, %.tail48 ], [ %indvars.iv.ph, %.lr.ph.outer ]
   %.03660 = phi i32 [ %.137, %.tail48 ], [ %.03660.ph, %.lr.ph.outer ]
   %.03859 = phi i32 [ %.139, %.tail48 ], [ %.03859.ph, %.lr.ph.outer ]
-  %9 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !21
   %11 = load i8, ptr %10, align 1, !tbaa !11
   switch i8 %11, label %.tail.thread.thread [
@@ -2027,7 +2027,7 @@ define i32 @runTestRequest(ptr noundef %0, i32 noundef %1, ptr noundef readonly 
   ]
 
 12:                                               ; preds = %.lr.ph
-  %13 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %14 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, ptr noundef nonnull %10)
   %15 = load ptr, ptr %13, align 8, !tbaa !21
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 1
@@ -2225,7 +2225,7 @@ define range(i32 0, 2) i32 @ctest_xml_init(ptr noundef readonly captures(none) %
   %13 = phi i8 [ %5, %.lr.ph ], [ %20, %18 ]
   %.01323 = phi ptr [ %0, %.lr.ph ], [ %19, %18 ]
   %14 = sext i8 %13 to i64
-  %15 = getelementptr inbounds i16, ptr %7, i64 %14
+  %15 = getelementptr inbounds [2 x i8], ptr %7, i64 %14
   %16 = load i16, ptr %15, align 2, !tbaa !33
   %17 = and i16 %16, 8
   %.not20 = icmp eq i16 %17, 0
@@ -2258,7 +2258,7 @@ define range(i32 0, 2) i32 @ctest_xml_init(ptr noundef readonly captures(none) %
   %.028 = phi ptr [ %.026, %.lr.ph29 ], [ %.0, %35 ]
   %30 = load ptr, ptr %27, align 8, !tbaa !31
   %31 = sext i8 %29 to i64
-  %32 = getelementptr inbounds i16, ptr %30, i64 %31
+  %32 = getelementptr inbounds [2 x i8], ptr %30, i64 %31
   %33 = load i16, ptr %32, align 2, !tbaa !33
   %34 = and i16 %33, 8
   %.not21 = icmp eq i16 %34, 0
@@ -2407,7 +2407,7 @@ getTestOption.exit:                               ; preds = %4, %5, %7, %9, %11,
 
 switch.lookup:                                    ; preds = %20
   %22 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.setTestOption, i64 %22
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.setTestOption, i64 %22
   %switch.load = load ptr, ptr %switch.gep, align 8
   store i32 %.0, ptr %switch.load, align 4, !tbaa !18
   br label %23

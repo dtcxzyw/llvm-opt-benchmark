@@ -275,10 +275,10 @@ invoke.cont45:                                    ; preds = %invoke.cont40
   %mul54 = fmul double %call46, %add50
   %28 = load i64, ptr %d0_, align 8, !tbaa !28
   %29 = load ptr, ptr %coordinates_.i254, align 8, !tbaa !26
-  %add.ptr.i = getelementptr inbounds nuw i64, ptr %29, i64 %28
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %28
   %30 = load i64, ptr %add.ptr.i, align 8, !tbaa !44
   %31 = load i64, ptr %d1_, align 8, !tbaa !43
-  %add.ptr.i256 = getelementptr inbounds nuw i64, ptr %29, i64 %31
+  %add.ptr.i256 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %31
   %32 = load i64, ptr %add.ptr.i256, align 8, !tbaa !44
   %cmp = icmp eq i64 %30, 0
   %cmp65 = icmp eq i64 %32, 0
@@ -287,31 +287,31 @@ invoke.cont45:                                    ; preds = %invoke.cont40
 
 if.then:                                          ; preds = %invoke.cont45
   %33 = load ptr, ptr %a20_433, align 8, !tbaa !45
-  %arrayidx.i = getelementptr inbounds nuw double, ptr %33, i64 %11
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %11
   store double 0.000000e+00, ptr %arrayidx.i, align 8, !tbaa !46
   %34 = load ptr, ptr %a10_426, align 8, !tbaa !45
-  %arrayidx.i257 = getelementptr inbounds nuw double, ptr %34, i64 %11
+  %arrayidx.i257 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %11
   store double 0.000000e+00, ptr %arrayidx.i257, align 8, !tbaa !46
   %35 = load ptr, ptr %a02_463, align 8, !tbaa !45
-  %arrayidx.i258 = getelementptr inbounds nuw double, ptr %35, i64 %11
+  %arrayidx.i258 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %11
   store double 0.000000e+00, ptr %arrayidx.i258, align 8, !tbaa !46
   %36 = load ptr, ptr %a01_441, align 8, !tbaa !45
-  %arrayidx.i259 = getelementptr inbounds nuw double, ptr %36, i64 %11
+  %arrayidx.i259 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %11
   store double 0.000000e+00, ptr %arrayidx.i259, align 8, !tbaa !46
   %37 = load ptr, ptr %a00_418, align 8, !tbaa !45
-  %arrayidx.i260 = getelementptr inbounds nuw double, ptr %37, i64 %11
+  %arrayidx.i260 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %11
   store double 0.000000e+00, ptr %arrayidx.i260, align 8, !tbaa !46
   %mul76 = fmul double %call31, %call46
   %div = fdiv double 1.000000e+00, %mul76
   %38 = load ptr, ptr %a22_476, align 8, !tbaa !45
-  %arrayidx.i261 = getelementptr inbounds nuw double, ptr %38, i64 %11
+  %arrayidx.i261 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %11
   store double %div, ptr %arrayidx.i261, align 8, !tbaa !46
   %39 = load ptr, ptr %a11_449, align 8, !tbaa !45
-  %arrayidx.i262 = getelementptr inbounds nuw double, ptr %39, i64 %11
+  %arrayidx.i262 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %11
   store double %div, ptr %arrayidx.i262, align 8, !tbaa !46
   %fneg = fneg double %div
   %40 = load ptr, ptr %a12_470, align 8, !tbaa !45
-  %arrayidx.i263 = getelementptr inbounds nuw double, ptr %40, i64 %11
+  %arrayidx.i263 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %11
   store double %fneg, ptr %arrayidx.i263, align 8, !tbaa !46
   br label %if.end485
 
@@ -373,7 +373,7 @@ invoke.cont89:                                    ; preds = %.noexc274, %invoke.
   %dim_.i275 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %50 = load i64, ptr %d0_, align 8, !tbaa !28
   %51 = load ptr, ptr %dim_.i275, align 8, !tbaa !26
-  %add.ptr.i276 = getelementptr inbounds nuw i64, ptr %51, i64 %50
+  %add.ptr.i276 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %50
   %52 = load i64, ptr %add.ptr.i276, align 8, !tbaa !44
   %sub = add i64 %52, -1
   %cmp95 = icmp eq i64 %30, %sub
@@ -382,31 +382,31 @@ invoke.cont89:                                    ; preds = %.noexc274, %invoke.
 
 if.then98:                                        ; preds = %invoke.cont89
   %53 = load ptr, ptr %a00_418, align 8, !tbaa !45
-  %arrayidx.i277 = getelementptr inbounds nuw double, ptr %53, i64 %11
+  %arrayidx.i277 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %11
   store double 0.000000e+00, ptr %arrayidx.i277, align 8, !tbaa !46
   %54 = load ptr, ptr %a10_426, align 8, !tbaa !45
-  %arrayidx.i278 = getelementptr inbounds nuw double, ptr %54, i64 %11
+  %arrayidx.i278 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %11
   store double 0.000000e+00, ptr %arrayidx.i278, align 8, !tbaa !46
   %55 = load ptr, ptr %a20_433, align 8, !tbaa !45
-  %arrayidx.i279 = getelementptr inbounds nuw double, ptr %55, i64 %11
+  %arrayidx.i279 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %11
   store double 0.000000e+00, ptr %arrayidx.i279, align 8, !tbaa !46
   %56 = load ptr, ptr %a21_456, align 8, !tbaa !45
-  %arrayidx.i280 = getelementptr inbounds nuw double, ptr %56, i64 %11
+  %arrayidx.i280 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %11
   store double 0.000000e+00, ptr %arrayidx.i280, align 8, !tbaa !46
   %57 = load ptr, ptr %a22_476, align 8, !tbaa !45
-  %arrayidx.i281 = getelementptr inbounds nuw double, ptr %57, i64 %11
+  %arrayidx.i281 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %11
   store double 0.000000e+00, ptr %arrayidx.i281, align 8, !tbaa !46
   %mul114 = fmul double %call23, %call46
   %div115 = fdiv double 1.000000e+00, %mul114
   %58 = load ptr, ptr %a12_470, align 8, !tbaa !45
-  %arrayidx.i282 = getelementptr inbounds nuw double, ptr %58, i64 %11
+  %arrayidx.i282 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %11
   store double %div115, ptr %arrayidx.i282, align 8, !tbaa !46
   %59 = load ptr, ptr %a01_441, align 8, !tbaa !45
-  %arrayidx.i283 = getelementptr inbounds nuw double, ptr %59, i64 %11
+  %arrayidx.i283 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %11
   store double %div115, ptr %arrayidx.i283, align 8, !tbaa !46
   %fneg122 = fneg double %div115
   %60 = load ptr, ptr %a02_463, align 8, !tbaa !45
-  %arrayidx.i284 = getelementptr inbounds nuw double, ptr %60, i64 %11
+  %arrayidx.i284 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %11
   store double %fneg122, ptr %arrayidx.i284, align 8, !tbaa !46
   br label %if.end485
 
@@ -446,7 +446,7 @@ invoke.cont136:                                   ; preds = %.noexc295, %invoke.
   %dim_.i297 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %64 = load i64, ptr %d1_, align 8, !tbaa !43
   %65 = load ptr, ptr %dim_.i297, align 8, !tbaa !26
-  %add.ptr.i298 = getelementptr inbounds nuw i64, ptr %65, i64 %64
+  %add.ptr.i298 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %64
   %66 = load i64, ptr %add.ptr.i298, align 8, !tbaa !44
   %sub142 = add i64 %66, -1
   %cmp143 = icmp eq i64 %32, %sub142
@@ -458,31 +458,31 @@ invoke.cont136.if.else175_crit_edge:              ; preds = %invoke.cont136
 
 if.then144:                                       ; preds = %invoke.cont136
   %67 = load ptr, ptr %a22_476, align 8, !tbaa !45
-  %arrayidx.i299 = getelementptr inbounds nuw double, ptr %67, i64 %11
+  %arrayidx.i299 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %11
   store double 0.000000e+00, ptr %arrayidx.i299, align 8, !tbaa !46
   %68 = load ptr, ptr %a12_470, align 8, !tbaa !45
-  %arrayidx.i300 = getelementptr inbounds nuw double, ptr %68, i64 %11
+  %arrayidx.i300 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %11
   store double 0.000000e+00, ptr %arrayidx.i300, align 8, !tbaa !46
   %69 = load ptr, ptr %a02_463, align 8, !tbaa !45
-  %arrayidx.i301 = getelementptr inbounds nuw double, ptr %69, i64 %11
+  %arrayidx.i301 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %11
   store double 0.000000e+00, ptr %arrayidx.i301, align 8, !tbaa !46
   %70 = load ptr, ptr %a01_441, align 8, !tbaa !45
-  %arrayidx.i302 = getelementptr inbounds nuw double, ptr %70, i64 %11
+  %arrayidx.i302 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %11
   store double 0.000000e+00, ptr %arrayidx.i302, align 8, !tbaa !46
   %71 = load ptr, ptr %a00_418, align 8, !tbaa !45
-  %arrayidx.i303 = getelementptr inbounds nuw double, ptr %71, i64 %11
+  %arrayidx.i303 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %11
   store double 0.000000e+00, ptr %arrayidx.i303, align 8, !tbaa !46
   %mul160 = fmul double %call31, %call38
   %div161 = fdiv double 1.000000e+00, %mul160
   %72 = load ptr, ptr %a21_456, align 8, !tbaa !45
-  %arrayidx.i304 = getelementptr inbounds nuw double, ptr %72, i64 %11
+  %arrayidx.i304 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %11
   store double %div161, ptr %arrayidx.i304, align 8, !tbaa !46
   %73 = load ptr, ptr %a10_426, align 8, !tbaa !45
-  %arrayidx.i305 = getelementptr inbounds nuw double, ptr %73, i64 %11
+  %arrayidx.i305 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %11
   store double %div161, ptr %arrayidx.i305, align 8, !tbaa !46
   %fneg168 = fneg double %div161
   %74 = load ptr, ptr %a11_449, align 8, !tbaa !45
-  %arrayidx.i306 = getelementptr inbounds nuw double, ptr %74, i64 %11
+  %arrayidx.i306 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %11
   store double %fneg168, ptr %arrayidx.i306, align 8, !tbaa !46
   br label %if.end485
 
@@ -519,7 +519,7 @@ invoke.cont180:                                   ; preds = %.noexc317, %invoke.
   %dim_.i319 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %79 = load i64, ptr %d0_, align 8, !tbaa !28
   %80 = load ptr, ptr %dim_.i319, align 8, !tbaa !26
-  %add.ptr.i320 = getelementptr inbounds nuw i64, ptr %80, i64 %79
+  %add.ptr.i320 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %79
   %81 = load i64, ptr %add.ptr.i320, align 8, !tbaa !44
   %sub186 = add i64 %81, -1
   %cmp187 = icmp eq i64 %30, %sub186
@@ -558,7 +558,7 @@ invoke.cont193:                                   ; preds = %.noexc330, %invoke.
   %dim_.i332 = getelementptr inbounds nuw i8, ptr %85, i64 8
   %86 = load i64, ptr %d1_, align 8, !tbaa !43
   %87 = load ptr, ptr %dim_.i332, align 8, !tbaa !26
-  %add.ptr.i333 = getelementptr inbounds nuw i64, ptr %87, i64 %86
+  %add.ptr.i333 = getelementptr inbounds nuw [8 x i8], ptr %87, i64 %86
   %88 = load i64, ptr %add.ptr.i333, align 8, !tbaa !44
   %sub199 = add i64 %88, -1
   %cmp200 = icmp eq i64 %32, %sub199
@@ -566,31 +566,31 @@ invoke.cont193:                                   ; preds = %.noexc330, %invoke.
 
 if.then201:                                       ; preds = %invoke.cont193
   %89 = load ptr, ptr %a02_463, align 8, !tbaa !45
-  %arrayidx.i334 = getelementptr inbounds nuw double, ptr %89, i64 %11
+  %arrayidx.i334 = getelementptr inbounds nuw [8 x i8], ptr %89, i64 %11
   store double 0.000000e+00, ptr %arrayidx.i334, align 8, !tbaa !46
   %90 = load ptr, ptr %a12_470, align 8, !tbaa !45
-  %arrayidx.i335 = getelementptr inbounds nuw double, ptr %90, i64 %11
+  %arrayidx.i335 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %11
   store double 0.000000e+00, ptr %arrayidx.i335, align 8, !tbaa !46
   %91 = load ptr, ptr %a22_476, align 8, !tbaa !45
-  %arrayidx.i336 = getelementptr inbounds nuw double, ptr %91, i64 %11
+  %arrayidx.i336 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %11
   store double 0.000000e+00, ptr %arrayidx.i336, align 8, !tbaa !46
   %92 = load ptr, ptr %a21_456, align 8, !tbaa !45
-  %arrayidx.i337 = getelementptr inbounds nuw double, ptr %92, i64 %11
+  %arrayidx.i337 = getelementptr inbounds nuw [8 x i8], ptr %92, i64 %11
   store double 0.000000e+00, ptr %arrayidx.i337, align 8, !tbaa !46
   %93 = load ptr, ptr %a20_433, align 8, !tbaa !45
-  %arrayidx.i338 = getelementptr inbounds nuw double, ptr %93, i64 %11
+  %arrayidx.i338 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %11
   store double 0.000000e+00, ptr %arrayidx.i338, align 8, !tbaa !46
   %mul217 = fmul double %call23, %call38
   %div218 = fdiv double 1.000000e+00, %mul217
   %94 = load ptr, ptr %a11_449, align 8, !tbaa !45
-  %arrayidx.i339 = getelementptr inbounds nuw double, ptr %94, i64 %11
+  %arrayidx.i339 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %11
   store double %div218, ptr %arrayidx.i339, align 8, !tbaa !46
   %95 = load ptr, ptr %a00_418, align 8, !tbaa !45
-  %arrayidx.i340 = getelementptr inbounds nuw double, ptr %95, i64 %11
+  %arrayidx.i340 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %11
   store double %div218, ptr %arrayidx.i340, align 8, !tbaa !46
   %fneg225 = fneg double %div218
   %96 = load ptr, ptr %a01_441, align 8, !tbaa !45
-  %arrayidx.i341 = getelementptr inbounds nuw double, ptr %96, i64 %11
+  %arrayidx.i341 = getelementptr inbounds nuw [8 x i8], ptr %96, i64 %11
   store double %fneg225, ptr %arrayidx.i341, align 8, !tbaa !46
   br label %if.end485
 
@@ -599,37 +599,37 @@ if.else232:                                       ; preds = %invoke.cont193, %in
 
 if.then234:                                       ; preds = %if.else232
   %97 = load ptr, ptr %a02_463, align 8, !tbaa !45
-  %arrayidx.i343 = getelementptr inbounds nuw double, ptr %97, i64 %11
+  %arrayidx.i343 = getelementptr inbounds nuw [8 x i8], ptr %97, i64 %11
   store double 0.000000e+00, ptr %arrayidx.i343, align 8, !tbaa !46
   %98 = load ptr, ptr %a01_441, align 8, !tbaa !45
-  %arrayidx.i344 = getelementptr inbounds nuw double, ptr %98, i64 %11
+  %arrayidx.i344 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %11
   store double 0.000000e+00, ptr %arrayidx.i344, align 8, !tbaa !46
   %99 = load ptr, ptr %a00_418, align 8, !tbaa !45
-  %arrayidx.i345 = getelementptr inbounds nuw double, ptr %99, i64 %11
+  %arrayidx.i345 = getelementptr inbounds nuw [8 x i8], ptr %99, i64 %11
   store double 0.000000e+00, ptr %arrayidx.i345, align 8, !tbaa !46
   %mul244 = fmul double %call31, %mul51
   %div245 = fdiv double %call46, %mul244
   %100 = load ptr, ptr %a10_426, align 8, !tbaa !45
-  %arrayidx.i346 = getelementptr inbounds nuw double, ptr %100, i64 %11
+  %arrayidx.i346 = getelementptr inbounds nuw [8 x i8], ptr %100, i64 %11
   store double %div245, ptr %arrayidx.i346, align 8, !tbaa !46
   %fneg249 = fneg double %div245
   %101 = load ptr, ptr %a20_433, align 8, !tbaa !45
-  %arrayidx.i347 = getelementptr inbounds nuw double, ptr %101, i64 %11
+  %arrayidx.i347 = getelementptr inbounds nuw [8 x i8], ptr %101, i64 %11
   store double %fneg249, ptr %arrayidx.i347, align 8, !tbaa !46
   %sub253 = fsub double %call46, %call38
   %mul254 = fmul double %call31, %mul52
   %div255 = fdiv double %sub253, %mul254
   %102 = load ptr, ptr %a21_456, align 8, !tbaa !45
-  %arrayidx.i348 = getelementptr inbounds nuw double, ptr %102, i64 %11
+  %arrayidx.i348 = getelementptr inbounds nuw [8 x i8], ptr %102, i64 %11
   store double %div255, ptr %arrayidx.i348, align 8, !tbaa !46
   %fneg259 = fneg double %div255
   %103 = load ptr, ptr %a11_449, align 8, !tbaa !45
-  %arrayidx.i349 = getelementptr inbounds nuw double, ptr %103, i64 %11
+  %arrayidx.i349 = getelementptr inbounds nuw [8 x i8], ptr %103, i64 %11
   store double %fneg259, ptr %arrayidx.i349, align 8, !tbaa !46
   %mul263 = fmul double %call31, %mul54
   %div264 = fdiv double %call38, %mul263
   %104 = load ptr, ptr %a22_476, align 8, !tbaa !45
-  %arrayidx.i350 = getelementptr inbounds nuw double, ptr %104, i64 %11
+  %arrayidx.i350 = getelementptr inbounds nuw [8 x i8], ptr %104, i64 %11
   store double %div264, ptr %arrayidx.i350, align 8, !tbaa !46
   %fneg268 = fneg double %div264
   br label %if.end485
@@ -667,7 +667,7 @@ invoke.cont277:                                   ; preds = %.noexc361, %invoke.
   %dim_.i363 = getelementptr inbounds nuw i8, ptr %108, i64 8
   %109 = load i64, ptr %d0_, align 8, !tbaa !28
   %110 = load ptr, ptr %dim_.i363, align 8, !tbaa !26
-  %add.ptr.i364 = getelementptr inbounds nuw i64, ptr %110, i64 %109
+  %add.ptr.i364 = getelementptr inbounds nuw [8 x i8], ptr %110, i64 %109
   %111 = load i64, ptr %add.ptr.i364, align 8, !tbaa !44
   %sub283 = add i64 %111, -1
   %cmp284 = icmp eq i64 %30, %sub283
@@ -675,37 +675,37 @@ invoke.cont277:                                   ; preds = %.noexc361, %invoke.
 
 if.then285:                                       ; preds = %invoke.cont277
   %112 = load ptr, ptr %a22_476, align 8, !tbaa !45
-  %arrayidx.i365 = getelementptr inbounds nuw double, ptr %112, i64 %11
+  %arrayidx.i365 = getelementptr inbounds nuw [8 x i8], ptr %112, i64 %11
   store double 0.000000e+00, ptr %arrayidx.i365, align 8, !tbaa !46
   %113 = load ptr, ptr %a21_456, align 8, !tbaa !45
-  %arrayidx.i366 = getelementptr inbounds nuw double, ptr %113, i64 %11
+  %arrayidx.i366 = getelementptr inbounds nuw [8 x i8], ptr %113, i64 %11
   store double 0.000000e+00, ptr %arrayidx.i366, align 8, !tbaa !46
   %114 = load ptr, ptr %a20_433, align 8, !tbaa !45
-  %arrayidx.i367 = getelementptr inbounds nuw double, ptr %114, i64 %11
+  %arrayidx.i367 = getelementptr inbounds nuw [8 x i8], ptr %114, i64 %11
   store double 0.000000e+00, ptr %arrayidx.i367, align 8, !tbaa !46
   %mul295 = fmul double %call23, %mul51
   %div296 = fdiv double %call46, %mul295
   %115 = load ptr, ptr %a00_418, align 8, !tbaa !45
-  %arrayidx.i368 = getelementptr inbounds nuw double, ptr %115, i64 %11
+  %arrayidx.i368 = getelementptr inbounds nuw [8 x i8], ptr %115, i64 %11
   store double %div296, ptr %arrayidx.i368, align 8, !tbaa !46
   %fneg300 = fneg double %div296
   %116 = load ptr, ptr %a10_426, align 8, !tbaa !45
-  %arrayidx.i369 = getelementptr inbounds nuw double, ptr %116, i64 %11
+  %arrayidx.i369 = getelementptr inbounds nuw [8 x i8], ptr %116, i64 %11
   store double %fneg300, ptr %arrayidx.i369, align 8, !tbaa !46
   %sub304 = fsub double %call46, %call38
   %mul305 = fmul double %call23, %mul52
   %div306 = fdiv double %sub304, %mul305
   %117 = load ptr, ptr %a11_449, align 8, !tbaa !45
-  %arrayidx.i370 = getelementptr inbounds nuw double, ptr %117, i64 %11
+  %arrayidx.i370 = getelementptr inbounds nuw [8 x i8], ptr %117, i64 %11
   store double %div306, ptr %arrayidx.i370, align 8, !tbaa !46
   %fneg310 = fneg double %div306
   %118 = load ptr, ptr %a01_441, align 8, !tbaa !45
-  %arrayidx.i371 = getelementptr inbounds nuw double, ptr %118, i64 %11
+  %arrayidx.i371 = getelementptr inbounds nuw [8 x i8], ptr %118, i64 %11
   store double %fneg310, ptr %arrayidx.i371, align 8, !tbaa !46
   %mul314 = fmul double %call23, %mul54
   %div315 = fdiv double %call38, %mul314
   %119 = load ptr, ptr %a12_470, align 8, !tbaa !45
-  %arrayidx.i372 = getelementptr inbounds nuw double, ptr %119, i64 %11
+  %arrayidx.i372 = getelementptr inbounds nuw [8 x i8], ptr %119, i64 %11
   store double %div315, ptr %arrayidx.i372, align 8, !tbaa !46
   %fneg319 = fneg double %div315
   br label %if.end485
@@ -715,37 +715,37 @@ if.else323:                                       ; preds = %invoke.cont277
 
 if.then325:                                       ; preds = %if.else323
   %120 = load ptr, ptr %a20_433, align 8, !tbaa !45
-  %arrayidx.i374 = getelementptr inbounds nuw double, ptr %120, i64 %11
+  %arrayidx.i374 = getelementptr inbounds nuw [8 x i8], ptr %120, i64 %11
   store double 0.000000e+00, ptr %arrayidx.i374, align 8, !tbaa !46
   %121 = load ptr, ptr %a10_426, align 8, !tbaa !45
-  %arrayidx.i375 = getelementptr inbounds nuw double, ptr %121, i64 %11
+  %arrayidx.i375 = getelementptr inbounds nuw [8 x i8], ptr %121, i64 %11
   store double 0.000000e+00, ptr %arrayidx.i375, align 8, !tbaa !46
   %122 = load ptr, ptr %a00_418, align 8, !tbaa !45
-  %arrayidx.i376 = getelementptr inbounds nuw double, ptr %122, i64 %11
+  %arrayidx.i376 = getelementptr inbounds nuw [8 x i8], ptr %122, i64 %11
   store double 0.000000e+00, ptr %arrayidx.i376, align 8, !tbaa !46
   %mul335 = fmul double %mul, %call46
   %div336 = fdiv double %call31, %mul335
   %123 = load ptr, ptr %a01_441, align 8, !tbaa !45
-  %arrayidx.i377 = getelementptr inbounds nuw double, ptr %123, i64 %11
+  %arrayidx.i377 = getelementptr inbounds nuw [8 x i8], ptr %123, i64 %11
   store double %div336, ptr %arrayidx.i377, align 8, !tbaa !46
   %fneg340 = fneg double %div336
   %124 = load ptr, ptr %a02_463, align 8, !tbaa !45
-  %arrayidx.i378 = getelementptr inbounds nuw double, ptr %124, i64 %11
+  %arrayidx.i378 = getelementptr inbounds nuw [8 x i8], ptr %124, i64 %11
   store double %fneg340, ptr %arrayidx.i378, align 8, !tbaa !46
   %sub344 = fsub double %call31, %call23
   %mul345 = fmul double %mul47, %call46
   %div346 = fdiv double %sub344, %mul345
   %125 = load ptr, ptr %a12_470, align 8, !tbaa !45
-  %arrayidx.i379 = getelementptr inbounds nuw double, ptr %125, i64 %11
+  %arrayidx.i379 = getelementptr inbounds nuw [8 x i8], ptr %125, i64 %11
   store double %div346, ptr %arrayidx.i379, align 8, !tbaa !46
   %fneg350 = fneg double %div346
   %126 = load ptr, ptr %a11_449, align 8, !tbaa !45
-  %arrayidx.i380 = getelementptr inbounds nuw double, ptr %126, i64 %11
+  %arrayidx.i380 = getelementptr inbounds nuw [8 x i8], ptr %126, i64 %11
   store double %fneg350, ptr %arrayidx.i380, align 8, !tbaa !46
   %mul354 = fmul double %mul49, %call46
   %div355 = fdiv double %call23, %mul354
   %127 = load ptr, ptr %a22_476, align 8, !tbaa !45
-  %arrayidx.i381 = getelementptr inbounds nuw double, ptr %127, i64 %11
+  %arrayidx.i381 = getelementptr inbounds nuw [8 x i8], ptr %127, i64 %11
   store double %div355, ptr %arrayidx.i381, align 8, !tbaa !46
   %fneg359 = fneg double %div355
   br label %if.end485
@@ -783,7 +783,7 @@ invoke.cont368:                                   ; preds = %.noexc392, %invoke.
   %dim_.i394 = getelementptr inbounds nuw i8, ptr %131, i64 8
   %132 = load i64, ptr %d1_, align 8, !tbaa !43
   %133 = load ptr, ptr %dim_.i394, align 8, !tbaa !26
-  %add.ptr.i395 = getelementptr inbounds nuw i64, ptr %133, i64 %132
+  %add.ptr.i395 = getelementptr inbounds nuw [8 x i8], ptr %133, i64 %132
   %134 = load i64, ptr %add.ptr.i395, align 8, !tbaa !44
   %sub374 = add i64 %134, -1
   %cmp375 = icmp eq i64 %32, %sub374
@@ -791,37 +791,37 @@ invoke.cont368:                                   ; preds = %.noexc392, %invoke.
 
 if.then376:                                       ; preds = %invoke.cont368
   %135 = load ptr, ptr %a02_463, align 8, !tbaa !45
-  %arrayidx.i396 = getelementptr inbounds nuw double, ptr %135, i64 %11
+  %arrayidx.i396 = getelementptr inbounds nuw [8 x i8], ptr %135, i64 %11
   store double 0.000000e+00, ptr %arrayidx.i396, align 8, !tbaa !46
   %136 = load ptr, ptr %a12_470, align 8, !tbaa !45
-  %arrayidx.i397 = getelementptr inbounds nuw double, ptr %136, i64 %11
+  %arrayidx.i397 = getelementptr inbounds nuw [8 x i8], ptr %136, i64 %11
   store double 0.000000e+00, ptr %arrayidx.i397, align 8, !tbaa !46
   %137 = load ptr, ptr %a22_476, align 8, !tbaa !45
-  %arrayidx.i398 = getelementptr inbounds nuw double, ptr %137, i64 %11
+  %arrayidx.i398 = getelementptr inbounds nuw [8 x i8], ptr %137, i64 %11
   store double 0.000000e+00, ptr %arrayidx.i398, align 8, !tbaa !46
   %mul386 = fmul double %mul, %call38
   %div387 = fdiv double %call31, %mul386
   %138 = load ptr, ptr %a00_418, align 8, !tbaa !45
-  %arrayidx.i399 = getelementptr inbounds nuw double, ptr %138, i64 %11
+  %arrayidx.i399 = getelementptr inbounds nuw [8 x i8], ptr %138, i64 %11
   store double %div387, ptr %arrayidx.i399, align 8, !tbaa !46
   %fneg391 = fneg double %div387
   %139 = load ptr, ptr %a01_441, align 8, !tbaa !45
-  %arrayidx.i400 = getelementptr inbounds nuw double, ptr %139, i64 %11
+  %arrayidx.i400 = getelementptr inbounds nuw [8 x i8], ptr %139, i64 %11
   store double %fneg391, ptr %arrayidx.i400, align 8, !tbaa !46
   %sub395 = fsub double %call31, %call23
   %mul396 = fmul double %mul47, %call38
   %div397 = fdiv double %sub395, %mul396
   %140 = load ptr, ptr %a11_449, align 8, !tbaa !45
-  %arrayidx.i401 = getelementptr inbounds nuw double, ptr %140, i64 %11
+  %arrayidx.i401 = getelementptr inbounds nuw [8 x i8], ptr %140, i64 %11
   store double %div397, ptr %arrayidx.i401, align 8, !tbaa !46
   %fneg401 = fneg double %div397
   %141 = load ptr, ptr %a10_426, align 8, !tbaa !45
-  %arrayidx.i402 = getelementptr inbounds nuw double, ptr %141, i64 %11
+  %arrayidx.i402 = getelementptr inbounds nuw [8 x i8], ptr %141, i64 %11
   store double %fneg401, ptr %arrayidx.i402, align 8, !tbaa !46
   %mul405 = fmul double %mul49, %call38
   %div406 = fdiv double %call23, %mul405
   %142 = load ptr, ptr %a21_456, align 8, !tbaa !45
-  %arrayidx.i403 = getelementptr inbounds nuw double, ptr %142, i64 %11
+  %arrayidx.i403 = getelementptr inbounds nuw [8 x i8], ptr %142, i64 %11
   store double %div406, ptr %arrayidx.i403, align 8, !tbaa !46
   %fneg410 = fneg double %div406
   br label %if.end485
@@ -831,7 +831,7 @@ if.else414:                                       ; preds = %invoke.cont368
   %mul416 = fmul double %mul, %mul51
   %div417 = fdiv double %mul415, %mul416
   %143 = load ptr, ptr %a00_418, align 8, !tbaa !45
-  %arrayidx.i405 = getelementptr inbounds nuw double, ptr %143, i64 %11
+  %arrayidx.i405 = getelementptr inbounds nuw [8 x i8], ptr %143, i64 %11
   store double %div417, ptr %arrayidx.i405, align 8, !tbaa !46
   %sub421 = fsub double %call31, %call23
   %fneg422 = fneg double %sub421
@@ -839,14 +839,14 @@ if.else414:                                       ; preds = %invoke.cont368
   %mul424 = fmul double %mul47, %mul51
   %div425 = fdiv double %mul423, %mul424
   %144 = load ptr, ptr %a10_426, align 8, !tbaa !45
-  %arrayidx.i406 = getelementptr inbounds nuw double, ptr %144, i64 %11
+  %arrayidx.i406 = getelementptr inbounds nuw [8 x i8], ptr %144, i64 %11
   store double %div425, ptr %arrayidx.i406, align 8, !tbaa !46
   %fneg429 = fneg double %call23
   %mul430 = fmul double %call46, %fneg429
   %mul431 = fmul double %mul49, %mul51
   %div432 = fdiv double %mul430, %mul431
   %145 = load ptr, ptr %a20_433, align 8, !tbaa !45
-  %arrayidx.i407 = getelementptr inbounds nuw double, ptr %145, i64 %11
+  %arrayidx.i407 = getelementptr inbounds nuw [8 x i8], ptr %145, i64 %11
   store double %div432, ptr %arrayidx.i407, align 8, !tbaa !46
   %fneg436 = fneg double %call31
   %sub437 = fsub double %call46, %call38
@@ -854,31 +854,31 @@ if.else414:                                       ; preds = %invoke.cont368
   %mul439 = fmul double %mul, %mul52
   %div440 = fdiv double %mul438, %mul439
   %146 = load ptr, ptr %a01_441, align 8, !tbaa !45
-  %arrayidx.i408 = getelementptr inbounds nuw double, ptr %146, i64 %11
+  %arrayidx.i408 = getelementptr inbounds nuw [8 x i8], ptr %146, i64 %11
   store double %div440, ptr %arrayidx.i408, align 8, !tbaa !46
   %mul446 = fmul double %sub421, %sub437
   %mul447 = fmul double %mul47, %mul52
   %div448 = fdiv double %mul446, %mul447
   %147 = load ptr, ptr %a11_449, align 8, !tbaa !45
-  %arrayidx.i409 = getelementptr inbounds nuw double, ptr %147, i64 %11
+  %arrayidx.i409 = getelementptr inbounds nuw [8 x i8], ptr %147, i64 %11
   store double %div448, ptr %arrayidx.i409, align 8, !tbaa !46
   %mul453 = fmul double %call23, %sub437
   %mul454 = fmul double %mul49, %mul52
   %div455 = fdiv double %mul453, %mul454
   %148 = load ptr, ptr %a21_456, align 8, !tbaa !45
-  %arrayidx.i410 = getelementptr inbounds nuw double, ptr %148, i64 %11
+  %arrayidx.i410 = getelementptr inbounds nuw [8 x i8], ptr %148, i64 %11
   store double %div455, ptr %arrayidx.i410, align 8, !tbaa !46
   %mul460 = fmul double %call38, %fneg436
   %mul461 = fmul double %mul, %mul54
   %div462 = fdiv double %mul460, %mul461
   %149 = load ptr, ptr %a02_463, align 8, !tbaa !45
-  %arrayidx.i411 = getelementptr inbounds nuw double, ptr %149, i64 %11
+  %arrayidx.i411 = getelementptr inbounds nuw [8 x i8], ptr %149, i64 %11
   store double %div462, ptr %arrayidx.i411, align 8, !tbaa !46
   %mul467 = fmul double %sub421, %call38
   %mul468 = fmul double %mul47, %mul54
   %div469 = fdiv double %mul467, %mul468
   %150 = load ptr, ptr %a12_470, align 8, !tbaa !45
-  %arrayidx.i412 = getelementptr inbounds nuw double, ptr %150, i64 %11
+  %arrayidx.i412 = getelementptr inbounds nuw [8 x i8], ptr %150, i64 %11
   store double %div469, ptr %arrayidx.i412, align 8, !tbaa !46
   %mul473 = fmul double %call23, %call38
   %mul474 = fmul double %mul49, %mul54
@@ -889,7 +889,7 @@ if.end485:                                        ; preds = %if.then98, %if.then
   %.sink.in = phi ptr [ %a11_449, %if.then98 ], [ %a10_426, %if.then201 ], [ %a02_463, %if.then285 ], [ %a20_433, %if.then376 ], [ %a22_476, %if.else414 ], [ %a21_456, %if.then325 ], [ %a12_470, %if.then234 ], [ %a20_433, %if.then144 ], [ %a21_456, %if.then ]
   %fneg122.sink = phi double [ %fneg122, %if.then98 ], [ %fneg225, %if.then201 ], [ %fneg319, %if.then285 ], [ %fneg410, %if.then376 ], [ %div475, %if.else414 ], [ %fneg359, %if.then325 ], [ %fneg268, %if.then234 ], [ %fneg168, %if.then144 ], [ %fneg, %if.then ]
   %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !45
-  %arrayidx.i285 = getelementptr inbounds nuw double, ptr %.sink, i64 %11
+  %arrayidx.i285 = getelementptr inbounds nuw [8 x i8], ptr %.sink, i64 %11
   store double %fneg122.sink, ptr %arrayidx.i285, align 8, !tbaa !46
   %151 = load i64, ptr %__begin1, align 8, !tbaa !24
   %inc.i = add i64 %151, 1
@@ -909,11 +909,11 @@ for.body.lr.ph.i:                                 ; preds = %if.end485
 
 for.body.i:                                       ; preds = %if.then.i, %for.body.lr.ph.i
   %i.08.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc9.i, %if.then.i ]
-  %add.ptr.i.i = getelementptr inbounds nuw i64, ptr %154, i64 %i.08.i
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %154, i64 %i.08.i
   %155 = load i64, ptr %add.ptr.i.i, align 8, !tbaa !44
   %inc3.i = add i64 %155, 1
   store i64 %inc3.i, ptr %add.ptr.i.i, align 8, !tbaa !44
-  %add.ptr.i5.i = getelementptr inbounds nuw i64, ptr %153, i64 %i.08.i
+  %add.ptr.i5.i = getelementptr inbounds nuw [8 x i8], ptr %153, i64 %i.08.i
   %156 = load i64, ptr %add.ptr.i5.i, align 8, !tbaa !44
   %cmp6.i = icmp eq i64 %inc3.i, %156
   br i1 %cmp6.i, label %if.then.i, label %_ZN8QuantLib19FdmLinearOpIteratorppEv.exit.loopexit

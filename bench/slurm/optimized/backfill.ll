@@ -18,8 +18,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.resv_exc_t = type { ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.will_run_data = type { i64, i64 }
 %struct.node_space_handler_t = type { ptr, ptr }
-%struct.node_used_t = type { i8, i64, ptr, i8, i8, i32, i8, i32 }
-%struct.node_space_map_t = type { i64, i64, ptr, ptr, i32, i32 }
 %struct.timespec = type { i64, i64 }
 %struct.job_record = type { i32, ptr, ptr, ptr, ptr, i16, i32, i32, i32, ptr, i32, ptr, ptr, i16, ptr, double, i64, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, i32, i64, i64, i32, i32, ptr, i16, i64, i64, i8, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, i32, ptr, i32, ptr, i32, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, i32, i16, i64, ptr, ptr, ptr, ptr, %struct.acct_policy_limit_set_t, i16, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, ptr, ptr, i16, ptr, ptr, i8, ptr, ptr, i64, i64, i8, i32, i32, i8, i32, ptr, i32, i64, i32, ptr, ptr, ptr, i8, i16, i64, i32, ptr, ptr, ptr, ptr, ptr, i16, i32, ptr, ptr, ptr, ptr, i32, ptr, i32, i16, i64, ptr, i32, i32, ptr, i64, ptr, ptr, i64, i32, i32, i64, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, i16, i16, i16, i16, ptr, i32, i32, i8, i64 }
 %struct.acct_policy_limit_set_t = type { i16, i16, ptr }
@@ -1417,7 +1415,7 @@ define internal fastcc void @_attempt_backfill() unnamed_addr #0 {
 
 .lr.ph.i:                                         ; preds = %118, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %118 ]
-  %127 = getelementptr inbounds nuw %struct.node_used_t, ptr %121, i64 %indvars.iv.i
+  %127 = getelementptr inbounds nuw [40 x i8], ptr %121, i64 %indvars.iv.i
   call void @list_append(ptr noundef %122, ptr noundef %127) #15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %128 = load i32, ptr @node_record_count, align 4
@@ -3371,7 +3369,7 @@ _set_job_time_limit.exit938:                      ; preds = %998, %1002
   %.3462 = phi i64 [ 0, %1034 ], [ %.6465, %1104 ]
   %.0430 = phi i32 [ 0, %1034 ], [ %1106, %1104 ]
   %1037 = sext i32 %.0430 to i64
-  %1038 = getelementptr inbounds %struct.node_space_map_t, ptr %.pre3301, i64 %1037
+  %1038 = getelementptr inbounds [40 x i8], ptr %.pre3301, i64 %1037
   %1039 = getelementptr inbounds nuw i8, ptr %1038, i64 8
   %1040 = load i64, ptr %1039, align 8
   %1041 = load i64, ptr %16, align 8
@@ -3420,7 +3418,7 @@ _set_job_time_limit.exit938:                      ; preds = %998, %1002
   %1061 = phi ptr [ %1059, %1058 ], [ %1055, %1057 ]
   %1062 = load ptr, ptr %25, align 8
   %1063 = sext i32 %1045 to i64
-  %1064 = getelementptr inbounds %struct.node_space_map_t, ptr %.pre3301, i64 %1063
+  %1064 = getelementptr inbounds [40 x i8], ptr %.pre3301, i64 %1063
   %1065 = getelementptr inbounds nuw i8, ptr %1064, i64 16
   %1066 = load ptr, ptr %1065, align 8
   call void @bit_and(ptr noundef %1062, ptr noundef %1066) #15
@@ -3481,7 +3479,7 @@ _set_job_time_limit.exit938:                      ; preds = %998, %1002
 
 1096:                                             ; preds = %1091
   %1097 = sext i32 %1093 to i64
-  %1098 = getelementptr inbounds %struct.node_space_map_t, ptr %.pre3301, i64 %1097
+  %1098 = getelementptr inbounds [40 x i8], ptr %.pre3301, i64 %1097
   %1099 = getelementptr inbounds nuw i8, ptr %1098, i64 36
   %1100 = load i32, ptr %1099, align 4
   %.not780 = icmp eq i32 %1100, 0
@@ -3922,7 +3920,7 @@ _set_job_time_limit.exit940:                      ; preds = %1162, %1165
 1298:                                             ; preds = %1312, %1294
   %.4 = phi i32 [ 0, %1294 ], [ %1314, %1312 ]
   %1299 = sext i32 %.4 to i64
-  %1300 = getelementptr inbounds %struct.node_space_map_t, ptr %.pre3301, i64 %1299
+  %1300 = getelementptr inbounds [40 x i8], ptr %.pre3301, i64 %1299
   %1301 = getelementptr inbounds nuw i8, ptr %1300, i64 8
   %1302 = load i64, ptr %1301, align 8
   %1303 = load i64, ptr %16, align 8
@@ -5580,7 +5578,7 @@ _het_job_deadlock_fini.exit:                      ; preds = %2075, %2077
   %2104 = phi ptr [ %.pre3359, %2102 ], [ %2114, %2119 ]
   %.0 = phi i32 [ 0, %2102 ], [ %2121, %2119 ]
   %2105 = sext i32 %.0 to i64
-  %2106 = getelementptr inbounds %struct.node_space_map_t, ptr %2104, i64 %2105
+  %2106 = getelementptr inbounds [40 x i8], ptr %2104, i64 %2105
   %2107 = getelementptr inbounds nuw i8, ptr %2106, i64 16
   %2108 = load ptr, ptr %2107, align 8
   %.not881 = icmp eq ptr %2108, null
@@ -5593,11 +5591,11 @@ _het_job_deadlock_fini.exit:                      ; preds = %2075, %2077
 
 2110:                                             ; preds = %2109, %2103
   %2111 = phi ptr [ %.pre3360, %2109 ], [ %2104, %2103 ]
-  %2112 = getelementptr inbounds %struct.node_space_map_t, ptr %2111, i64 %2105
+  %2112 = getelementptr inbounds [40 x i8], ptr %2111, i64 %2105
   %2113 = getelementptr inbounds nuw i8, ptr %2112, i64 16
   store ptr null, ptr %2113, align 8
   %2114 = load ptr, ptr %18, align 8
-  %2115 = getelementptr inbounds %struct.node_space_map_t, ptr %2114, i64 %2105
+  %2115 = getelementptr inbounds [40 x i8], ptr %2114, i64 %2105
   %2116 = getelementptr inbounds nuw i8, ptr %2115, i64 24
   %2117 = load ptr, ptr %2116, align 8
   %.not882 = icmp eq ptr %2117, null
@@ -5627,7 +5625,7 @@ _het_job_deadlock_fini.exit:                      ; preds = %2075, %2077
 .lr.ph2248:                                       ; preds = %.lr.ph2248.preheader, %2131
   %2127 = phi ptr [ %2114, %.lr.ph2248.preheader ], [ %2132, %2131 ]
   %indvars.iv = phi i64 [ %2126, %.lr.ph2248.preheader ], [ %indvars.iv.next, %2131 ]
-  %2128 = getelementptr inbounds %struct.node_space_map_t, ptr %2127, i64 %indvars.iv
+  %2128 = getelementptr inbounds [40 x i8], ptr %2127, i64 %indvars.iv
   %2129 = getelementptr inbounds nuw i8, ptr %2128, i64 16
   %2130 = load ptr, ptr %2129, align 8
   %.not884 = icmp eq ptr %2130, null
@@ -5636,7 +5634,7 @@ _het_job_deadlock_fini.exit:                      ; preds = %2075, %2077
 2131:                                             ; preds = %.lr.ph2248
   call void @slurm_bit_free(ptr noundef nonnull %2129) #15
   %2132 = load ptr, ptr %18, align 8
-  %2133 = getelementptr inbounds %struct.node_space_map_t, ptr %2132, i64 %indvars.iv
+  %2133 = getelementptr inbounds [40 x i8], ptr %2132, i64 %indvars.iv
   %2134 = getelementptr inbounds nuw i8, ptr %2133, i64 16
   store ptr null, ptr %2134, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
@@ -6295,7 +6293,7 @@ define internal fastcc void @_handle_planned(i1 noundef zeroext %0) unnamed_addr
   %.02030.us = phi i1 [ %.1.us, %45 ], [ false, %.lr.ph ]
   %9 = load ptr, ptr @node_record_table_ptr, align 8
   %10 = and i64 %8, 2147483647
-  %11 = getelementptr inbounds nuw ptr, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %10
   %12 = load ptr, ptr %11, align 8
   %.not24.us = icmp eq ptr %12, null
   br i1 %.not24.us, label %43, label %13
@@ -6379,7 +6377,7 @@ define internal fastcc void @_handle_planned(i1 noundef zeroext %0) unnamed_addr
   %.02030 = phi i1 [ %.1, %74 ], [ false, %.lr.ph ]
   %53 = load ptr, ptr @node_record_table_ptr, align 8
   %54 = and i64 %52, 2147483647
-  %55 = getelementptr inbounds nuw ptr, ptr %53, i64 %54
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %54
   %56 = load ptr, ptr %55, align 8
   %.not24 = icmp eq ptr %56, null
   br i1 %.not24, label %57, label %59
@@ -6749,7 +6747,7 @@ _hetjob_calc_prio_tier.exit:                      ; preds = %87, %91
   %indvars.iv53.i = phi i64 [ %indvars.iv.next54.i, %_adjust_hetjob_prio.exit.us.us.us.i ], [ 0, %.preheader.split.us.split.us.i ]
   %.216.us.us.us.i = phi i32 [ %121, %_adjust_hetjob_prio.exit.us.us.us.i ], [ %.023.i, %.preheader.split.us.split.us.i ]
   %.1715.us.us.us.i = phi i32 [ %spec.select.i34, %_adjust_hetjob_prio.exit.us.us.us.i ], [ %.06.i, %.preheader.split.us.split.us.i ]
-  %118 = getelementptr inbounds nuw i32, ptr %112, i64 %indvars.iv53.i
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %112, i64 %indvars.iv53.i
   %119 = load i32, ptr %118, align 4
   %120 = icmp eq i32 %119, 0
   br i1 %120, label %.thread.i, label %_adjust_hetjob_prio.exit.us.us.us.i
@@ -6766,7 +6764,7 @@ _adjust_hetjob_prio.exit.us.us.us.i:              ; preds = %.preheader.split.us
   %indvars.iv48.i = phi i64 [ %indvars.iv.next49.i, %_adjust_hetjob_prio.exit.us.us.i ], [ 0, %.preheader.split.us.split.us.i ]
   %.216.us.us.i = phi i32 [ %125, %_adjust_hetjob_prio.exit.us.us.i ], [ %.023.i, %.preheader.split.us.split.us.i ]
   %.1715.us.us.i = phi i32 [ %spec.select.us.us.i, %_adjust_hetjob_prio.exit.us.us.i ], [ %.06.i, %.preheader.split.us.split.us.i ]
-  %122 = getelementptr inbounds nuw i32, ptr %112, i64 %indvars.iv48.i
+  %122 = getelementptr inbounds nuw [4 x i8], ptr %112, i64 %indvars.iv48.i
   %123 = load i32, ptr %122, align 4
   %124 = icmp eq i32 %123, 0
   br i1 %124, label %.thread.i, label %_adjust_hetjob_prio.exit.us.us.i
@@ -6782,7 +6780,7 @@ _adjust_hetjob_prio.exit.us.us.i:                 ; preds = %.preheader.split.us
   %indvars.iv43.i = phi i64 [ %indvars.iv.next44.i, %_adjust_hetjob_prio.exit.us.i ], [ 0, %.preheader.split.us.i ]
   %.216.us.i = phi i32 [ %129, %_adjust_hetjob_prio.exit.us.i ], [ %.023.i, %.preheader.split.us.i ]
   %.1715.us.i = phi i32 [ %.28.us.i, %_adjust_hetjob_prio.exit.us.i ], [ %.06.i, %.preheader.split.us.i ]
-  %126 = getelementptr inbounds nuw i32, ptr %112, i64 %indvars.iv43.i
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %112, i64 %indvars.iv43.i
   %127 = load i32, ptr %126, align 4
   %128 = icmp eq i32 %127, 0
   br i1 %128, label %.thread.i, label %_adjust_hetjob_prio.exit.us.i
@@ -6804,7 +6802,7 @@ _adjust_hetjob_prio.exit.us.i:                    ; preds = %.preheader.split.us
   %indvars.iv.i = phi i64 [ 0, %.preheader.split.preheader.i ], [ %indvars.iv.next.i, %_adjust_hetjob_prio.exit.i24 ]
   %.216.i = phi i32 [ %.023.i, %.preheader.split.preheader.i ], [ %133, %_adjust_hetjob_prio.exit.i24 ]
   %.1715.i = phi i32 [ %.06.i, %.preheader.split.preheader.i ], [ %.28.i, %_adjust_hetjob_prio.exit.i24 ]
-  %130 = getelementptr inbounds nuw i32, ptr %112, i64 %indvars.iv.i
+  %130 = getelementptr inbounds nuw [4 x i8], ptr %112, i64 %indvars.iv.i
   %131 = load i32, ptr %130, align 4
   %132 = icmp eq i32 %131, 0
   br i1 %132, label %.thread.i, label %_adjust_hetjob_prio.exit.i24
@@ -7179,7 +7177,7 @@ define internal fastcc void @_dump_node_space_table(ptr noundef %0) unnamed_addr
 12:                                               ; preds = %.preheader, %32
   %.0 = phi i32 [ %34, %32 ], [ 0, %.preheader ]
   %13 = sext i32 %.0 to i64
-  %14 = getelementptr inbounds %struct.node_space_map_t, ptr %0, i64 %13
+  %14 = getelementptr inbounds [40 x i8], ptr %0, i64 %13
   call void @slurm_make_time_str(ptr noundef %14, ptr noundef nonnull %2, i32 noundef 256) #15
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   call void @slurm_make_time_str(ptr noundef nonnull %15, ptr noundef nonnull %3, i32 noundef 256) #15
@@ -9026,7 +9024,7 @@ define internal fastcc noundef zeroext i1 @_test_resv_overlap(ptr noundef readon
 26:                                               ; preds = %44, %23
   %.0 = phi i32 [ 0, %23 ], [ %46, %44 ]
   %27 = sext i32 %.0 to i64
-  %28 = getelementptr inbounds %struct.node_space_map_t, ptr %0, i64 %27
+  %28 = getelementptr inbounds [40 x i8], ptr %0, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load i64, ptr %29, align 8
   %31 = icmp sgt i64 %30, %24
@@ -9356,7 +9354,7 @@ define internal fastcc void @_reset_job_time_limit(ptr noundef %0, i64 noundef %
 8:                                                ; preds = %28, %3
   %.0 = phi i32 [ 0, %3 ], [ %30, %28 ]
   %9 = sext i32 %.0 to i64
-  %10 = getelementptr inbounds %struct.node_space_map_t, ptr %2, i64 %9
+  %10 = getelementptr inbounds [40 x i8], ptr %2, i64 %9
   %11 = load i64, ptr %10, align 8
   %.not = icmp eq i64 %11, %1
   br i1 %.not, label %28, label %12
@@ -9491,7 +9489,7 @@ define internal range(i32 0, 2) i32 @_mark_nodes_usage(ptr noundef %0, ptr nound
   %39 = phi i64 [ %31, %.lr.ph ], [ %83, %79 ]
   %.05363 = phi i8 [ 0, %.lr.ph ], [ %.1, %79 ]
   %40 = and i64 %39, 2147483647
-  %41 = getelementptr inbounds nuw %struct.node_used_t, ptr %1, i64 %40
+  %41 = getelementptr inbounds nuw [40 x i8], ptr %1, i64 %40
   %42 = load i8, ptr %41, align 8, !range !12, !noundef !13
   %43 = trunc nuw i8 %42 to i1
   br i1 %43, label %49, label %44
@@ -9610,7 +9608,7 @@ define internal fastcc i32 @_get_job_max_tl(ptr noundef %0, i64 noundef %1, ptr 
   %.029 = phi i32 [ %31, %29 ], [ 0, %.preheader ]
   %.028 = phi i64 [ %.1, %29 ], [ 0, %.preheader ]
   %10 = sext i32 %.029 to i64
-  %11 = getelementptr inbounds %struct.node_space_map_t, ptr %2, i64 %10
+  %11 = getelementptr inbounds [40 x i8], ptr %2, i64 %10
   %12 = load i64, ptr %11, align 8
   %.not = icmp eq i64 %12, %1
   br i1 %.not, label %29, label %13
@@ -10016,7 +10014,7 @@ define internal fastcc void @_add_reservation(i32 noundef %0, i32 noundef %1, pt
   %.0175 = phi i32 [ 0, %6 ], [ %53, %51 ]
   %.0174 = phi i32 [ 0, %6 ], [ %.0175, %51 ]
   %15 = sext i32 %.0175 to i64
-  %16 = getelementptr inbounds %struct.node_space_map_t, ptr %4, i64 %15
+  %16 = getelementptr inbounds [40 x i8], ptr %4, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load i64, ptr %17, align 8
   %19 = icmp sgt i64 %18, %13
@@ -10026,7 +10024,7 @@ define internal fastcc void @_add_reservation(i32 noundef %0, i32 noundef %1, pt
   %21 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %22 = load i32, ptr %5, align 4
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds %struct.node_space_map_t, ptr %4, i64 %23
+  %24 = getelementptr inbounds [40 x i8], ptr %4, i64 %23
   store i64 %13, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 %18, ptr %25, align 8
@@ -10093,7 +10091,7 @@ define internal fastcc void @_add_reservation(i32 noundef %0, i32 noundef %1, pt
 .split:                                           ; preds = %.split.preheader, %110
   %.2 = phi i32 [ %59, %110 ], [ %.0175, %.split.preheader ]
   %56 = sext i32 %.2 to i64
-  %57 = getelementptr inbounds %struct.node_space_map_t, ptr %4, i64 %56
+  %57 = getelementptr inbounds [40 x i8], ptr %4, i64 %56
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 36
   %59 = load i32, ptr %58, align 4
   %.not204 = icmp eq i32 %59, 0
@@ -10101,7 +10099,7 @@ define internal fastcc void @_add_reservation(i32 noundef %0, i32 noundef %1, pt
 
 60:                                               ; preds = %.split
   %61 = sext i32 %59 to i64
-  %62 = getelementptr inbounds %struct.node_space_map_t, ptr %4, i64 %61
+  %62 = getelementptr inbounds [40 x i8], ptr %4, i64 %61
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %64 = load i64, ptr %63, align 8
   %65 = icmp sgt i64 %64, %55
@@ -10110,7 +10108,7 @@ define internal fastcc void @_add_reservation(i32 noundef %0, i32 noundef %1, pt
 66:                                               ; preds = %60
   %67 = load i32, ptr %5, align 4
   %68 = sext i32 %67 to i64
-  %69 = getelementptr inbounds %struct.node_space_map_t, ptr %4, i64 %68
+  %69 = getelementptr inbounds [40 x i8], ptr %4, i64 %68
   store i64 %55, ptr %69, align 8
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   store i64 %64, ptr %70, align 8
@@ -10217,7 +10215,7 @@ define internal fastcc void @_add_reservation(i32 noundef %0, i32 noundef %1, pt
 .lr.ph:                                           ; preds = %.critedge, %.backedge
   %.0177240 = phi i32 [ %119, %.backedge ], [ %.1285, %.critedge ]
   %116 = sext i32 %.0177240 to i64
-  %117 = getelementptr inbounds %struct.node_space_map_t, ptr %4, i64 %116
+  %117 = getelementptr inbounds [40 x i8], ptr %4, i64 %116
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 36
   %119 = load i32, ptr %118, align 4
   %120 = icmp eq i32 %119, 0
@@ -10231,7 +10229,7 @@ define internal fastcc void @_add_reservation(i32 noundef %0, i32 noundef %1, pt
   br i1 %.not212, label %._crit_edge258, label %124
 
 124:                                              ; preds = %121
-  %125 = getelementptr inbounds %struct.node_space_map_t, ptr %4, i64 %.pre
+  %125 = getelementptr inbounds [40 x i8], ptr %4, i64 %.pre
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 24
   %127 = load ptr, ptr %126, align 8
   %128 = tail call zeroext i1 @slurm_bf_licenses_equal(ptr noundef nonnull %123, ptr noundef %127) #15
@@ -10244,7 +10242,7 @@ define internal fastcc void @_add_reservation(i32 noundef %0, i32 noundef %1, pt
 ._crit_edge258:                                   ; preds = %121, %124
   %129 = getelementptr inbounds nuw i8, ptr %117, i64 16
   %130 = load ptr, ptr %129, align 8
-  %131 = getelementptr inbounds %struct.node_space_map_t, ptr %4, i64 %.pre
+  %131 = getelementptr inbounds [40 x i8], ptr %4, i64 %.pre
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 16
   %133 = load ptr, ptr %132, align 8
   %134 = tail call i32 @bit_equal(ptr noundef %130, ptr noundef %133) #15
@@ -10284,7 +10282,7 @@ define internal fastcc void @_add_reservation(i32 noundef %0, i32 noundef %1, pt
 
 .lr.ph245:                                        ; preds = %.lr.ph245.preheader, %149
   %indvars.iv = phi i64 [ %147, %.lr.ph245.preheader ], [ %indvars.iv.next, %149 ]
-  %150 = getelementptr inbounds %struct.node_space_map_t, ptr %4, i64 %indvars.iv
+  %150 = getelementptr inbounds [40 x i8], ptr %4, i64 %indvars.iv
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 16
   %152 = load ptr, ptr %151, align 8
   %.not216 = icmp eq ptr %152, null
@@ -11272,7 +11270,7 @@ define internal fastcc noundef zeroext i1 @_het_job_limit_check(ptr noundef nonn
   %83 = getelementptr inbounds nuw i8, ptr %25, i64 1072
   %84 = load ptr, ptr %83, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %85 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   store ptr %84, ptr %85, align 8
   %86 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %18, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 4316, ptr noundef nonnull @__func__._het_job_limit_check) #15
   store ptr %86, ptr %83, align 8
@@ -11323,7 +11321,7 @@ define internal fastcc noundef zeroext i1 @_het_job_limit_check(ptr noundef nonn
   call void @slurm_xfree(ptr noundef nonnull %103) #15
   %104 = add nsw i32 %.06690, 1
   %105 = sext i32 %.06690 to i64
-  %106 = getelementptr inbounds ptr, ptr %12, i64 %105
+  %106 = getelementptr inbounds [8 x i8], ptr %12, i64 %105
   %107 = load ptr, ptr %106, align 8
   store ptr %107, ptr %103, align 8
   br label %108

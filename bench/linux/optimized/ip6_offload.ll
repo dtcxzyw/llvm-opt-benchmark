@@ -97,7 +97,7 @@ define dso_local ptr @ipv6_gro_receive(ptr noundef %0, ptr noundef %1) #0 align 
   %52 = load i8, ptr %51, align 2
   %53 = zext i8 %52 to i32
   %54 = zext i8 %52 to i64
-  %55 = getelementptr ptr, ptr @inet6_offloads, i64 %54
+  %55 = getelementptr [8 x i8], ptr @inet6_offloads, i64 %54
   %56 = load volatile ptr, ptr %55, align 8
   %57 = icmp eq ptr %56, null
   br i1 %57, label %62, label %58
@@ -211,7 +211,7 @@ define dso_local ptr @ipv6_gro_receive(ptr noundef %0, ptr noundef %1) #0 align 
   %121 = load i8, ptr %118, align 1
   %122 = zext i8 %121 to i32
   %123 = zext i8 %121 to i64
-  %124 = getelementptr ptr, ptr @inet6_offloads, i64 %123
+  %124 = getelementptr [8 x i8], ptr @inet6_offloads, i64 %123
   %125 = load volatile ptr, ptr %124, align 8
   %126 = icmp eq ptr %125, null
   br i1 %126, label %.thread17.loopexit, label %.lr.ph, !prof !8
@@ -242,7 +242,7 @@ define dso_local ptr @ipv6_gro_receive(ptr noundef %0, ptr noundef %1) #0 align 
   %137 = add i32 %136, %134
   store i32 %137, ptr %3, align 8
   %138 = zext nneg i32 %.lcssa24 to i64
-  %139 = getelementptr ptr, ptr @inet6_offloads, i64 %138
+  %139 = getelementptr [8 x i8], ptr @inet6_offloads, i64 %138
   %140 = load volatile ptr, ptr %139, align 8
   %141 = icmp eq ptr %140, null
   br i1 %141, label %.thread, label %142
@@ -582,7 +582,7 @@ define dso_local i32 @ipv6_gro_complete(ptr noundef %0, i32 noundef %1) #0 align
   %71 = phi i16 [ %66, %60 ], [ 0, %27 ]
   %72 = getelementptr inbounds nuw i8, ptr %70, i64 4
   store i16 %71, ptr %72, align 4
-  %73 = getelementptr ptr, ptr @inet6_offloads, i64 %69
+  %73 = getelementptr [8 x i8], ptr @inet6_offloads, i64 %69
   %74 = load volatile ptr, ptr %73, align 8
   %75 = icmp eq ptr %74, null
   br i1 %75, label %.thread, label %.preheader, !prof !7
@@ -609,7 +609,7 @@ define dso_local i32 @ipv6_gro_complete(ptr noundef %0, i32 noundef %1) #0 align
   %92 = add i32 %91, %78
   %93 = load i8, ptr %86, align 1
   %94 = zext i8 %93 to i64
-  %95 = getelementptr ptr, ptr @inet6_offloads, i64 %94
+  %95 = getelementptr [8 x i8], ptr @inet6_offloads, i64 %94
   %96 = load volatile ptr, ptr %95, align 8
   %97 = icmp eq ptr %96, null
   br i1 %97, label %.thread, label %.preheader, !prof !8, !llvm.loop !13
@@ -920,7 +920,7 @@ define internal ptr @ipv6_gso_segment(ptr noundef initializes((180, 182)) %0, i6
   %137 = getelementptr inbounds nuw i8, ptr %134, i64 6
   %138 = load i8, ptr %137, align 2
   %139 = zext i8 %138 to i64
-  %140 = getelementptr ptr, ptr @inet6_offloads, i64 %139
+  %140 = getelementptr [8 x i8], ptr @inet6_offloads, i64 %139
   %141 = load volatile ptr, ptr %140, align 8
   %142 = icmp eq ptr %141, null
   br i1 %142, label %._crit_edge, label %.lr.ph.preheader, !prof !7
@@ -1014,7 +1014,7 @@ define internal ptr @ipv6_gso_segment(ptr noundef initializes((180, 182)) %0, i6
   %188 = getelementptr i8, ptr %181, i64 %187
   store ptr %188, ptr %4, align 8
   %189 = zext i8 %182 to i64
-  %190 = getelementptr ptr, ptr @inet6_offloads, i64 %189
+  %190 = getelementptr [8 x i8], ptr @inet6_offloads, i64 %189
   %191 = load volatile ptr, ptr %190, align 8
   %192 = icmp eq ptr %191, null
   br i1 %192, label %._crit_edge, label %.lr.ph, !prof !8
@@ -1066,7 +1066,7 @@ define internal ptr @ipv6_gso_segment(ptr noundef initializes((180, 182)) %0, i6
 .thread16:                                        ; preds = %196, %212, %211, %208
   %222 = phi i1 [ false, %196 ], [ %210, %208 ], [ false, %211 ], [ %221, %212 ]
   %223 = zext i8 %.in.lcssa to i64
-  %224 = getelementptr ptr, ptr @inet6_offloads, i64 %223
+  %224 = getelementptr [8 x i8], ptr @inet6_offloads, i64 %223
   %225 = load volatile ptr, ptr %224, align 8
   %226 = icmp eq ptr %225, null
   br i1 %226, label %.thread18, label %227, !prof !5

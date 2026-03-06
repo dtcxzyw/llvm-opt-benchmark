@@ -568,7 +568,7 @@ _ZNSt6vectorIN15option_parser_t8option_tESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.ex
 _ZNSt12_Vector_baseIN15option_parser_t8option_tESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN15option_parser_t8option_tESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit25, %53
   store ptr %20, ptr %0, align 8, !tbaa !34
   store ptr %.0.lcssa.i.i.i24, ptr %4, align 8, !tbaa !16
-  %57 = getelementptr inbounds nuw %"struct.option_parser_t::option_t", ptr %20, i64 %16
+  %57 = getelementptr inbounds nuw [56 x i8], ptr %20, i64 %16
   store ptr %57, ptr %52, align 8, !tbaa !19
   ret void
 }

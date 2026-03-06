@@ -325,7 +325,7 @@ _ZNSt13unordered_mapISt5arrayIhLm16EESt10unique_ptrIN4Luau7CodeGen12NativeModule
 _ZNKSt10_HashtableISt5arrayIhLm16EESt4pairIKS1_St10unique_ptrIN4Luau7CodeGen12NativeModuleESt14default_deleteIS7_EEESaISB_ENSt8__detail10_Select1stESt8equal_toIvENS6_19SharedCodeAllocator12ModuleIdHashENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb0ELb0ELb1EEEE15_M_bucket_indexERKNSD_16_Hash_node_valueISB_Lb0EEE.exit.i.i.i: ; preds = %_ZNSt13unordered_mapISt5arrayIhLm16EESt10unique_ptrIN4Luau7CodeGen12NativeModuleESt14default_deleteIS5_EENS4_19SharedCodeAllocator12ModuleIdHashESt8equal_toIvESaISt4pairIKS1_S8_EEE4findERSE_.exit
   %21 = urem i64 %17, %16
   %22 = load ptr, ptr %12, align 8, !tbaa !51
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %21
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %21
   %24 = load ptr, ptr %23, align 8, !tbaa !52
   br label %25
 
@@ -1235,7 +1235,7 @@ _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIA_jN4Luau7Co
 
 20:                                               ; preds = %12
   %21 = lshr i64 %13, 1
-  %22 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %0, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %21
   %23 = getelementptr inbounds i8, ptr %storemerge20, i64 -8
   tail call void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_comp_iterINS5_25NativeProtoBytecodeIdLessEEEEvT_SH_SH_SH_T0_(ptr %0, ptr nonnull %11, ptr %22, ptr nonnull %23)
   br label %24
@@ -1316,7 +1316,7 @@ define linkonce_odr dso_local void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iter
 14:                                               ; preds = %_ZNSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEED2Ev.exit12, %11
   %.010 = phi i64 [ %13, %11 ], [ %20, %_ZNSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEED2Ev.exit12 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %15 = getelementptr inbounds %"class.std::unique_ptr", ptr %0, i64 %.010
+  %15 = getelementptr inbounds [8 x i8], ptr %0, i64 %.010
   %16 = load i64, ptr %15, align 8, !tbaa !32
   store ptr null, ptr %15, align 8, !tbaa !32
   store i64 %16, ptr %5, align 8, !tbaa !32
@@ -1460,9 +1460,9 @@ define linkonce_odr dso_local void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_it
   %.040 = phi i64 [ %spec.select, %_ZNSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEEaSEOS4_.exit ], [ %1, %4 ]
   %8 = shl i64 %.040, 1
   %9 = add i64 %8, 2
-  %10 = getelementptr inbounds %"class.std::unique_ptr", ptr %0, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %0, i64 %9
   %11 = or disjoint i64 %8, 1
-  %12 = getelementptr inbounds %"class.std::unique_ptr", ptr %0, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %0, i64 %11
   %13 = load ptr, ptr %10, align 8, !tbaa !32
   %14 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4Luau7CodeGen28getNativeProtoExecDataHeaderEPj(ptr noundef %13) #22
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -1473,8 +1473,8 @@ define linkonce_odr dso_local void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_it
   %20 = load i32, ptr %19, align 8, !tbaa !84
   %21 = icmp ult i32 %16, %20
   %spec.select = select i1 %21, i64 %11, i64 %9
-  %22 = getelementptr inbounds %"class.std::unique_ptr", ptr %0, i64 %spec.select
-  %23 = getelementptr inbounds %"class.std::unique_ptr", ptr %0, i64 %.040
+  %22 = getelementptr inbounds [8 x i8], ptr %0, i64 %spec.select
+  %23 = getelementptr inbounds [8 x i8], ptr %0, i64 %.040
   %24 = load ptr, ptr %22, align 8, !tbaa !32
   store ptr null, ptr %22, align 8, !tbaa !32
   %25 = load ptr, ptr %23, align 8, !tbaa !32
@@ -1505,8 +1505,8 @@ _ZNSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEEaSEOS4_.exit: ;
 34:                                               ; preds = %30
   %35 = shl nsw i64 %.0.lcssa, 1
   %36 = or disjoint i64 %35, 1
-  %37 = getelementptr inbounds %"class.std::unique_ptr", ptr %0, i64 %36
-  %38 = getelementptr inbounds %"class.std::unique_ptr", ptr %0, i64 %.0.lcssa
+  %37 = getelementptr inbounds [8 x i8], ptr %0, i64 %36
+  %38 = getelementptr inbounds [8 x i8], ptr %0, i64 %.0.lcssa
   %39 = load ptr, ptr %37, align 8, !tbaa !32
   store ptr null, ptr %37, align 8, !tbaa !32
   %40 = load ptr, ptr %38, align 8, !tbaa !32
@@ -1530,7 +1530,7 @@ _ZNSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEEaSEOS4_.exit26:
   %.020.i = phi i64 [ %.0921.i, %_ZNSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEEaSEOS4_.exit.i ], [ %.1, %_ZNSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEEaSEOS4_.exit26 ]
   %.0921.in.i = add nsw i64 %.020.i, -1
   %.0921.i = sdiv i64 %.0921.in.i, 2
-  %45 = getelementptr inbounds %"class.std::unique_ptr", ptr %0, i64 %.0921.i
+  %45 = getelementptr inbounds [8 x i8], ptr %0, i64 %.0921.i
   %46 = load ptr, ptr %45, align 8, !tbaa !32
   %47 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4Luau7CodeGen28getNativeProtoExecDataHeaderEPj(ptr noundef %46) #22
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
@@ -1542,7 +1542,7 @@ _ZNSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEEaSEOS4_.exit26:
   br i1 %53, label %54, label %.critedge.i
 
 54:                                               ; preds = %.lr.ph.i
-  %55 = getelementptr inbounds %"class.std::unique_ptr", ptr %0, i64 %.020.i
+  %55 = getelementptr inbounds [8 x i8], ptr %0, i64 %.020.i
   %56 = load ptr, ptr %45, align 8, !tbaa !32
   store ptr null, ptr %45, align 8, !tbaa !32
   %57 = load ptr, ptr %55, align 8, !tbaa !32
@@ -1560,7 +1560,7 @@ _ZNSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEEaSEOS4_.exit.i:
 
 .critedge.i:                                      ; preds = %_ZNSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEEaSEOS4_.exit.i, %.lr.ph.i, %_ZNSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEEaSEOS4_.exit26
   %.0.lcssa.i = phi i64 [ %.1, %_ZNSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEEaSEOS4_.exit26 ], [ %.020.i, %.lr.ph.i ], [ %.0921.i, %_ZNSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEEaSEOS4_.exit.i ]
-  %60 = getelementptr inbounds %"class.std::unique_ptr", ptr %0, i64 %.0.lcssa.i
+  %60 = getelementptr inbounds [8 x i8], ptr %0, i64 %.0.lcssa.i
   %61 = load ptr, ptr %60, align 8, !tbaa !32
   store ptr %44, ptr %60, align 8, !tbaa !32
   %.not.i.i.i.i10.i = icmp eq ptr %61, null
@@ -1910,7 +1910,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIA_jN4Luau7CodeGen26
   %.013.i = phi i64 [ %.1.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.i ], [ %9, %.critedge ]
   %.sroa.011.012.i = phi ptr [ %.sroa.011.1.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.i ], [ %.sroa.037.047, %.critedge ]
   %28 = lshr i64 %.013.i, 1
-  %29 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %.sroa.011.012.i, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.011.012.i, i64 %28
   %30 = load i32, ptr %2, align 4, !tbaa !55
   %31 = load ptr, ptr %29, align 8, !tbaa !32
   %32 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4Luau7CodeGen28getNativeProtoExecDataHeaderEPj(ptr noundef %31) #22
@@ -1939,7 +1939,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIA_jN4Luau7CodeGen26
   %.013.i27 = phi i64 [ %.1.i32, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.i26 ], [ %42, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESt6vectorIS7_SaIS7_EEEEjNS0_5__ops14_Iter_comp_valINS5_25NativeProtoBytecodeIdLessEEEET_SI_SI_RKT0_T1_.exit ]
   %.sroa.011.012.i28 = phi ptr [ %.sroa.011.1.i31, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.i26 ], [ %40, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESt6vectorIS7_SaIS7_EEEEjNS0_5__ops14_Iter_comp_valINS5_25NativeProtoBytecodeIdLessEEEET_SI_SI_RKT0_T1_.exit ]
   %44 = lshr i64 %.013.i27, 1
-  %45 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %.sroa.011.012.i28, i64 %44
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.011.012.i28, i64 %44
   %46 = load i32, ptr %2, align 4, !tbaa !55
   %47 = load ptr, ptr %45, align 8, !tbaa !32
   %48 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4Luau7CodeGen28getNativeProtoExecDataHeaderEPj(ptr noundef %47) #22
@@ -1995,7 +1995,7 @@ _ZNKSt8__detail15_Hash_code_baseISt5arrayIhLm16EESt4pairIKS2_St10unique_ptrIN4Lu
   %9 = load i64, ptr %8, align 8, !tbaa !43
   %10 = urem i64 %4, %9
   %11 = load ptr, ptr %0, align 8, !tbaa !51
-  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %10
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %10
   %13 = load ptr, ptr %12, align 8, !tbaa !52
   %.not.i.i = icmp eq ptr %13, null
   br i1 %.not.i.i, label %.loopexit28, label %.preheader.i.i
@@ -2117,7 +2117,7 @@ _ZNSt10_HashtableISt5arrayIhLm16EESt4pairIKS1_St10unique_ptrIN4Luau7CodeGen12Nat
 31:                                               ; preds = %_ZNSt10_HashtableISt5arrayIhLm16EESt4pairIKS1_St10unique_ptrIN4Luau7CodeGen12NativeModuleESt14default_deleteIS7_EEESaISB_ENSt8__detail10_Select1stESt8equal_toIvENS6_19SharedCodeAllocator12ModuleIdHashENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit, %5
   %.0 = phi i64 [ %30, %_ZNSt10_HashtableISt5arrayIhLm16EESt4pairIKS1_St10unique_ptrIN4Luau7CodeGen12NativeModuleESt14default_deleteIS7_EEESaISB_ENSt8__detail10_Select1stESt8equal_toIvENS6_19SharedCodeAllocator12ModuleIdHashENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit ], [ %1, %5 ]
   %32 = load ptr, ptr %0, align 8, !tbaa !51
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %.0
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.0
   %34 = load ptr, ptr %33, align 8, !tbaa !52
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %38, label %35
@@ -2153,14 +2153,14 @@ _ZNSt10_HashtableISt5arrayIhLm16EESt4pairIKS1_St10unique_ptrIN4Luau7CodeGen12Nat
 
 _ZNKSt10_HashtableISt5arrayIhLm16EESt4pairIKS1_St10unique_ptrIN4Luau7CodeGen12NativeModuleESt14default_deleteIS7_EEESaISB_ENSt8__detail10_Select1stESt8equal_toIvENS6_19SharedCodeAllocator12ModuleIdHashENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb0ELb0ELb1EEEE15_M_bucket_indexERKNSD_16_Hash_node_valueISB_Lb0EEE.exit.i: ; preds = %42
   %49 = urem i64 %45, %44
-  %50 = getelementptr inbounds nuw ptr, ptr %32, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %49
   store ptr %3, ptr %50, align 8, !tbaa !52
   %.pre.i = load ptr, ptr %0, align 8, !tbaa !51
   br label %51
 
 51:                                               ; preds = %_ZNKSt10_HashtableISt5arrayIhLm16EESt4pairIKS1_St10unique_ptrIN4Luau7CodeGen12NativeModuleESt14default_deleteIS7_EEESaISB_ENSt8__detail10_Select1stESt8equal_toIvENS6_19SharedCodeAllocator12ModuleIdHashENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb0ELb0ELb1EEEE15_M_bucket_indexERKNSD_16_Hash_node_valueISB_Lb0EEE.exit.i, %38
   %52 = phi ptr [ %.pre.i, %_ZNKSt10_HashtableISt5arrayIhLm16EESt4pairIKS1_St10unique_ptrIN4Luau7CodeGen12NativeModuleESt14default_deleteIS7_EEESaISB_ENSt8__detail10_Select1stESt8equal_toIvENS6_19SharedCodeAllocator12ModuleIdHashENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb0ELb0ELb1EEEE15_M_bucket_indexERKNSD_16_Hash_node_valueISB_Lb0EEE.exit.i ], [ %32, %38 ]
-  %53 = getelementptr inbounds nuw ptr, ptr %52, i64 %.0
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %.0
   store ptr %39, ptr %53, align 8, !tbaa !52
   br label %_ZNSt10_HashtableISt5arrayIhLm16EESt4pairIKS1_St10unique_ptrIN4Luau7CodeGen12NativeModuleESt14default_deleteIS7_EEESaISB_ENSt8__detail10_Select1stESt8equal_toIvENS6_19SharedCodeAllocator12ModuleIdHashENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb0ELb0ELb1EEEE22_M_insert_bucket_beginEmPNSD_10_Hash_nodeISB_Lb0EEE.exit
 
@@ -2307,7 +2307,7 @@ _ZNSt10_HashtableISt5arrayIhLm16EESt4pairIKS1_St10unique_ptrIN4Luau7CodeGen12Nat
 
 _ZNKSt8__detail15_Hash_code_baseISt5arrayIhLm16EESt4pairIKS2_St10unique_ptrIN4Luau7CodeGen12NativeModuleESt14default_deleteIS8_EEENS_10_Select1stENS7_19SharedCodeAllocator12ModuleIdHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EE15_M_bucket_indexERKNS_16_Hash_node_valueISC_Lb0EEEm.exit: ; preds = %.lr.ph
   %20 = urem i64 %16, %1
-  %21 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !52
   %.not27 = icmp eq ptr %22, null
   br i1 %.not27, label %23, label %28
@@ -2322,7 +2322,7 @@ _ZNKSt8__detail15_Hash_code_baseISt5arrayIhLm16EESt4pairIKS2_St10unique_ptrIN4Lu
   br i1 %.not28, label %31, label %26
 
 26:                                               ; preds = %23
-  %27 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %27, align 8, !tbaa !52
   br label %31
 
@@ -2397,7 +2397,7 @@ _ZNKSt8__detail15_Hash_code_baseISt5arrayIhLm16EESt4pairIKS2_St10unique_ptrIN4Lu
   %16 = load i64, ptr %15, align 8, !tbaa !43
   %17 = urem i64 %11, %16
   %18 = load ptr, ptr %0, align 8, !tbaa !51
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %17
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %17
   %20 = load ptr, ptr %19, align 8, !tbaa !52
   %.not.i.i = icmp eq ptr %20, null
   br i1 %.not.i.i, label %_ZNKSt10_HashtableISt5arrayIhLm16EESt4pairIKS1_St10unique_ptrIN4Luau7CodeGen12NativeModuleESt14default_deleteIS7_EEESaISB_ENSt8__detail10_Select1stESt8equal_toIvENS6_19SharedCodeAllocator12ModuleIdHashENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit, label %.preheader.i.i
@@ -2441,7 +2441,7 @@ _ZNKSt10_HashtableISt5arrayIhLm16EESt4pairIKS1_St10unique_ptrIN4Luau7CodeGen12Na
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local ptr @_ZNSt10_HashtableISt5arrayIhLm16EESt4pairIKS1_St10unique_ptrIN4Luau7CodeGen12NativeModuleESt14default_deleteIS7_EEESaISB_ENSt8__detail10_Select1stESt8equal_toIvENS6_19SharedCodeAllocator12ModuleIdHashENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNSD_15_Hash_node_baseEPNSD_10_Hash_nodeISB_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = load ptr, ptr %0, align 8, !tbaa !51
-  %6 = getelementptr inbounds nuw ptr, ptr %5, i64 %1
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %1
   %7 = load ptr, ptr %6, align 8, !tbaa !52
   %8 = icmp eq ptr %2, %7
   %9 = load ptr, ptr %3, align 8, !tbaa !53
@@ -2472,9 +2472,9 @@ define linkonce_odr dso_local ptr @_ZNSt10_HashtableISt5arrayIhLm16EESt4pairIKS1
 
 21:                                               ; preds = %19
   %.pre.i = load ptr, ptr %0, align 8, !tbaa !51
-  %22 = getelementptr inbounds nuw ptr, ptr %.pre.i, i64 %1
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i, i64 %1
   %23 = load ptr, ptr %22, align 8, !tbaa !52
-  %24 = getelementptr inbounds nuw ptr, ptr %.pre.i, i64 %20
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i, i64 %20
   store ptr %23, ptr %24, align 8, !tbaa !52
   br label %._crit_edge.i
 
@@ -2517,7 +2517,7 @@ _ZNKSt10_HashtableISt5arrayIhLm16EESt4pairIKS1_St10unique_ptrIN4Luau7CodeGen12Na
 
 41:                                               ; preds = %_ZNKSt10_HashtableISt5arrayIhLm16EESt4pairIKS1_St10unique_ptrIN4Luau7CodeGen12NativeModuleESt14default_deleteIS7_EEESaISB_ENSt8__detail10_Select1stESt8equal_toIvENS6_19SharedCodeAllocator12ModuleIdHashENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb0ELb0ELb1EEEE15_M_bucket_indexERKNSD_16_Hash_node_valueISB_Lb0EEE.exit19
   %42 = load ptr, ptr %0, align 8, !tbaa !51
-  %43 = getelementptr inbounds nuw ptr, ptr %42, i64 %40
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %40
   store ptr %2, ptr %43, align 8, !tbaa !52
   br label %_ZNSt10_HashtableISt5arrayIhLm16EESt4pairIKS1_St10unique_ptrIN4Luau7CodeGen12NativeModuleESt14default_deleteIS7_EEESaISB_ENSt8__detail10_Select1stESt8equal_toIvENS6_19SharedCodeAllocator12ModuleIdHashENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb0ELb0ELb1EEEE22_M_remove_bucket_beginEmPNSD_10_Hash_nodeISB_Lb0EEEm.exit
 
@@ -2623,7 +2623,7 @@ _ZNKSt8__detail15_Hash_code_baseISt5arrayIhLm16EESt4pairIKS2_St10unique_ptrIN4Lu
   %16 = load i64, ptr %15, align 8, !tbaa !43
   %17 = urem i64 %11, %16
   %18 = load ptr, ptr %0, align 8, !tbaa !51
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %17
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %17
   %20 = load ptr, ptr %19, align 8, !tbaa !52
   %.not.i.i = icmp eq ptr %20, null
   br i1 %.not.i.i, label %_ZNKSt10_HashtableISt5arrayIhLm16EESt4pairIKS1_St10unique_ptrIN4Luau7CodeGen12NativeModuleESt14default_deleteIS7_EEESaISB_ENSt8__detail10_Select1stESt8equal_toIvENS6_19SharedCodeAllocator12ModuleIdHashENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit, label %.preheader.i.i

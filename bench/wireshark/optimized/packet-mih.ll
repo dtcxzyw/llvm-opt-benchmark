@@ -1034,10 +1034,10 @@ define internal i32 @dissect_mih(ptr noundef %0, ptr noundef readonly captures(n
 switch.lookup:                                    ; preds = %52
   %60 = and i16 %58, 1023
   %61 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_mih, i64 %61
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_mih, i64 %61
   %switch.load = load ptr, ptr %switch.gep, align 8
   %62 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep217 = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_mih.1, i64 %62
+  %switch.gep217 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_mih.1, i64 %62
   %switch.load218 = load ptr, ptr %switch.gep217, align 8
   %63 = load i32, ptr %switch.load, align 4
   %64 = tail call ptr @proto_tree_add_item(ptr noundef %38, i32 noundef %63, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0)
@@ -2214,7 +2214,7 @@ define internal fastcc void @dissect_link_status_req(ptr noundef %0, i16 noundef
 switch.lookup:                                    ; preds = %.lr.ph.i
   %18 = add i16 %.012.i, 1
   %19 = zext nneg i8 %16 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_link_param, i64 %19
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_link_param, i64 %19
   %switch.load = load ptr, ptr %switch.gep, align 8
   %20 = load i32, ptr %switch.load, align 4
   %21 = sext i16 %18 to i32
@@ -2329,7 +2329,7 @@ define internal noundef signext i16 @dissect_link_cfg_param(ptr noundef %0, i16 
 switch.lookup:                                    ; preds = %3
   %7 = add i16 %1, 1
   %8 = zext nneg i8 %5 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_link_param, i64 %8
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_link_param, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
   %9 = load i32, ptr %switch.load, align 4
   %10 = sext i16 %7 to i32
@@ -2377,7 +2377,7 @@ define internal noundef signext i16 @dissect_link_cfg_status(ptr noundef %0, i16
 switch.lookup:                                    ; preds = %3
   %7 = add i16 %1, 1
   %8 = zext nneg i8 %5 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_link_param, i64 %8
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_link_param, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
   %9 = load i32, ptr %switch.load, align 4
   %10 = sext i16 %7 to i32
@@ -3227,7 +3227,7 @@ define internal fastcc signext i16 @dissect_link_param(ptr noundef %0, i16 nound
 switch.lookup:                                    ; preds = %3
   %7 = add i16 %1, 1
   %8 = zext nneg i8 %5 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_link_param, i64 %8
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_link_param, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
   %9 = load i32, ptr %switch.load, align 4
   %10 = sext i16 %7 to i32

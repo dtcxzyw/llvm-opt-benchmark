@@ -131,7 +131,7 @@ define internal i32 @imm5_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
 
 41:                                               ; preds = %.thread
   %42 = zext nneg i32 %.07786 to i64
-  %43 = getelementptr %struct.IMM5_unit, ptr @IMM5_units, i64 %42
+  %43 = getelementptr [15 x i8], ptr @IMM5_units, i64 %42
   %44 = getelementptr i8, ptr %43, i64 -15
   %45 = getelementptr i8, ptr %43, i64 -1
   %46 = load i8, ptr %45, align 1, !tbaa !38

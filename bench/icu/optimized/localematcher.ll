@@ -1077,12 +1077,12 @@ define noundef i32 @_ZN6icu_7713LocaleMatcher11putIfAbsentERKNS_3LSREiiR10UError
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %19 = load ptr, ptr %18, align 8, !tbaa !57
   %20 = sext i32 %3 to i64
-  %21 = getelementptr inbounds ptr, ptr %19, i64 %20
+  %21 = getelementptr inbounds [8 x i8], ptr %19, i64 %20
   store ptr %1, ptr %21, align 8, !tbaa !58
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %23 = load ptr, ptr %22, align 8, !tbaa !59
   %24 = add nsw i32 %3, 1
-  %25 = getelementptr inbounds i32, ptr %23, i64 %20
+  %25 = getelementptr inbounds [4 x i8], ptr %23, i64 %20
   store i32 %2, ptr %25, align 4, !tbaa !60
   br label %26
 
@@ -1293,7 +1293,7 @@ _ZN6icu_773LSRD2Ev.exit:                          ; preds = %_ZN6icu_7712_GLOBAL
   br i1 %102, label %.loopexit211, label %103
 
 103:                                              ; preds = %100
-  %104 = getelementptr inbounds %"struct.icu_77::LSR", ptr %101, i64 %92
+  %104 = getelementptr inbounds [48 x i8], ptr %101, i64 %92
   br label %105
 
 105:                                              ; preds = %105, %103
@@ -1357,7 +1357,7 @@ _ZN6icu_773LSRD2Ev.exit:                          ; preds = %_ZN6icu_7712_GLOBAL
 
 135:                                              ; preds = %133
   %136 = load ptr, ptr %24, align 8, !tbaa !85
-  %137 = getelementptr inbounds nuw ptr, ptr %136, i64 %indvars.iv
+  %137 = getelementptr inbounds nuw [8 x i8], ptr %136, i64 %indvars.iv
   store ptr %134, ptr %137, align 8, !tbaa !88
   %138 = icmp eq ptr %134, null
   br i1 %138, label %.critedge, label %141
@@ -1410,7 +1410,7 @@ _ZN6icu_773LSRD2Ev.exit:                          ; preds = %_ZN6icu_7712_GLOBAL
 
 _ZN6icu_7712_GLOBAL__N_118getMaximalLsrOrUndERKNS_13LikelySubtagsERKNS_6LocaleER10UErrorCode.exit184: ; preds = %.noexc182, %154
   %155 = load ptr, ptr %25, align 8, !tbaa !86
-  %156 = getelementptr inbounds nuw %"struct.icu_77::LSR", ptr %155, i64 %indvars.iv
+  %156 = getelementptr inbounds nuw [48 x i8], ptr %155, i64 %indvars.iv
   %157 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN6icu_773LSRaSEOS0_(ptr noundef nonnull align 8 dereferenceable(48) %156, ptr noundef nonnull align 8 dereferenceable(48) %6) #17
   %158 = load ptr, ptr %122, align 8, !tbaa !77
   %.not.i185 = icmp eq ptr %158, null
@@ -1526,10 +1526,10 @@ _ZN6icu_773LSRD2Ev.exit186:                       ; preds = %_ZN6icu_7712_GLOBAL
   %.0119224 = phi i32 [ 0, %.lr.ph228 ], [ %.2121.ph, %201 ]
   %.0122223 = phi i32 [ 0, %.lr.ph228 ], [ %.2124.ph, %201 ]
   %205 = load ptr, ptr %24, align 8, !tbaa !85
-  %206 = getelementptr inbounds nuw ptr, ptr %205, i64 %indvars.iv245
+  %206 = getelementptr inbounds nuw [8 x i8], ptr %205, i64 %indvars.iv245
   %207 = load ptr, ptr %206, align 8, !tbaa !88
   %208 = load ptr, ptr %25, align 8, !tbaa !86
-  %209 = getelementptr inbounds nuw %"struct.icu_77::LSR", ptr %208, i64 %indvars.iv245
+  %209 = getelementptr inbounds nuw [48 x i8], ptr %208, i64 %indvars.iv245
   %210 = icmp eq ptr %.1102226, null
   %211 = load i8, ptr %198, align 8, !range !35
   %212 = trunc nuw i8 %211 to i1
@@ -1566,11 +1566,11 @@ _ZN6icu_773LSRD2Ev.exit186:                       ; preds = %_ZN6icu_7712_GLOBAL
 226:                                              ; preds = %.noexc188
   %227 = load ptr, ptr %28, align 8, !tbaa !57
   %228 = sext i32 %.0122223 to i64
-  %229 = getelementptr inbounds ptr, ptr %227, i64 %228
+  %229 = getelementptr inbounds [8 x i8], ptr %227, i64 %228
   store ptr %209, ptr %229, align 8, !tbaa !58
   %230 = load ptr, ptr %29, align 8, !tbaa !59
   %231 = add nsw i32 %.0122223, 1
-  %232 = getelementptr inbounds i32, ptr %230, i64 %228
+  %232 = getelementptr inbounds [4 x i8], ptr %230, i64 %228
   store i32 0, ptr %232, align 4, !tbaa !60
   br label %_ZN6icu_7713LocaleMatcher11putIfAbsentERKNS_3LSREiiR10UErrorCode.exit
 
@@ -1650,7 +1650,7 @@ _ZN6icu_7713LocaleMatcher11putIfAbsentERKNS_3LSREiiR10UErrorCode.exit: ; preds =
 
 264:                                              ; preds = %.lr.ph234
   %265 = load ptr, ptr %25, align 8, !tbaa !86
-  %266 = getelementptr inbounds nuw %"struct.icu_77::LSR", ptr %265, i64 %indvars.iv248
+  %266 = getelementptr inbounds nuw [48 x i8], ptr %265, i64 %indvars.iv248
   %267 = load i32, ptr %2, align 4, !tbaa !16
   %268 = icmp slt i32 %267, 1
   br i1 %268, label %269, label %_ZN6icu_7713LocaleMatcher11putIfAbsentERKNS_3LSREiiR10UErrorCode.exit193
@@ -1678,11 +1678,11 @@ _ZN6icu_7713LocaleMatcher11putIfAbsentERKNS_3LSREiiR10UErrorCode.exit: ; preds =
 278:                                              ; preds = %.noexc192
   %279 = load ptr, ptr %28, align 8, !tbaa !57
   %280 = sext i32 %.3125231 to i64
-  %281 = getelementptr inbounds ptr, ptr %279, i64 %280
+  %281 = getelementptr inbounds [8 x i8], ptr %279, i64 %280
   store ptr %266, ptr %281, align 8, !tbaa !58
   %282 = load ptr, ptr %29, align 8, !tbaa !59
   %283 = add nsw i32 %.3125231, 1
-  %284 = getelementptr inbounds i32, ptr %282, i64 %280
+  %284 = getelementptr inbounds [4 x i8], ptr %282, i64 %280
   store i32 %274, ptr %284, align 4, !tbaa !60
   br label %_ZN6icu_7713LocaleMatcher11putIfAbsentERKNS_3LSREiiR10UErrorCode.exit193
 
@@ -1720,7 +1720,7 @@ _ZN6icu_7713LocaleMatcher11putIfAbsentERKNS_3LSREiiR10UErrorCode.exit193: ; pred
 
 296:                                              ; preds = %.lr.ph238
   %297 = load ptr, ptr %25, align 8, !tbaa !86
-  %298 = getelementptr inbounds nuw %"struct.icu_77::LSR", ptr %297, i64 %indvars.iv251
+  %298 = getelementptr inbounds nuw [48 x i8], ptr %297, i64 %indvars.iv251
   %299 = load i32, ptr %2, align 4, !tbaa !16
   %300 = icmp slt i32 %299, 1
   br i1 %300, label %301, label %_ZN6icu_7713LocaleMatcher11putIfAbsentERKNS_3LSREiiR10UErrorCode.exit198
@@ -1748,11 +1748,11 @@ _ZN6icu_7713LocaleMatcher11putIfAbsentERKNS_3LSREiiR10UErrorCode.exit193: ; pred
 310:                                              ; preds = %.noexc197
   %311 = load ptr, ptr %28, align 8, !tbaa !57
   %312 = sext i32 %.5127236 to i64
-  %313 = getelementptr inbounds ptr, ptr %311, i64 %312
+  %313 = getelementptr inbounds [8 x i8], ptr %311, i64 %312
   store ptr %298, ptr %313, align 8, !tbaa !58
   %314 = load ptr, ptr %29, align 8, !tbaa !59
   %315 = add nsw i32 %.5127236, 1
-  %316 = getelementptr inbounds i32, ptr %314, i64 %312
+  %316 = getelementptr inbounds [4 x i8], ptr %314, i64 %312
   store i32 %306, ptr %316, align 4, !tbaa !60
   br label %_ZN6icu_7713LocaleMatcher11putIfAbsentERKNS_3LSREiiR10UErrorCode.exit198
 
@@ -2191,7 +2191,7 @@ define void @_ZN6icu_7713LocaleMatcherD2Ev(ptr noundef nonnull readonly align 8 
   %9 = phi i32 [ %3, %.lr.ph ], [ %19, %18 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %18 ]
   %10 = load ptr, ptr %5, align 8, !tbaa !85
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !88
   %13 = icmp eq ptr %12, null
   br i1 %13, label %18, label %14
@@ -2750,7 +2750,7 @@ _ZN6icu_773LSRD2Ev.exit:                          ; preds = %_ZN6icu_7717LocaleL
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %142 = load ptr, ptr %141, align 8, !tbaa !59
   %143 = zext nneg i32 %.235 to i64
-  %144 = getelementptr inbounds nuw i32, ptr %142, i64 %143
+  %144 = getelementptr inbounds nuw [4 x i8], ptr %142, i64 %143
   %145 = load i32, ptr %144, align 4, !tbaa !60
   br label %.loopexit
 
@@ -3718,7 +3718,7 @@ define noundef i32 @uloc_acceptLanguage_77(ptr noundef %0, i32 noundef %1, ptr n
 
 _ZN12_GLOBAL__N_113LocaleFromTagC2ERKS0_.exit:    ; preds = %24
   %26 = zext nneg i32 %4 to i64
-  %27 = getelementptr inbounds nuw ptr, ptr %3, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %26
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN6icu_776Locale18ConvertingIteratorIPPKcN12_GLOBAL__N_113LocaleFromTagEEE, i64 16), ptr %9, align 8, !tbaa !14
   %28 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %3, ptr %28, align 8, !tbaa !169

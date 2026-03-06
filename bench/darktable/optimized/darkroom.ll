@@ -758,7 +758,7 @@ define void @expose(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef 
 
 switch.lookup:                                    ; preds = %104
   %108 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.expose, i64 %108
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.expose, i64 %108
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %109
 
@@ -4262,7 +4262,7 @@ dt_action_view.exit:                              ; preds = %.lr.ph.i, %5
 
 55:                                               ; preds = %42, %55
   %indvars.iv = phi i64 [ 0, %42 ], [ %indvars.iv.next, %55 ]
-  %56 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %indvars.iv
   %57 = load ptr, ptr %56, align 8, !tbaa !299
   %58 = tail call ptr @g_type_check_instance_cast(ptr noundef %57, i64 noundef %48) #19
   tail call void @gtk_toggle_button_set_active(ptr noundef %58, i32 noundef 0) #19

@@ -191,7 +191,7 @@ define internal range(i32 0, 2) i32 @test_non_derandomised_ml_kem() #1 {
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 256, ptr %7, align 4, !tbaa !11
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %25 = getelementptr inbounds nuw i32, ptr @test_non_derandomised_ml_kem.alg, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [4 x i8], ptr @test_non_derandomised_ml_kem.alg, i64 %indvars.iv
   %26 = load i32, ptr %25, align 4, !tbaa !11
   %27 = call ptr @ossl_ml_kem_get_vinfo(i32 noundef %26) #6
   %28 = icmp eq ptr %27, null

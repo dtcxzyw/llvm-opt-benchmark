@@ -114,7 +114,7 @@ define dso_local range(i32 -128, 289) i32 @gmllex() local_unnamed_addr #1 {
 
 15:                                               ; preds = %13
   %16 = load i64, ptr @yy_buffer_stack_top, align 8, !tbaa !15
-  %17 = getelementptr inbounds nuw ptr, ptr %14, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !17
   %.not100 = icmp eq ptr %18, null
   br i1 %.not100, label %23, label %45
@@ -154,7 +154,7 @@ define dso_local range(i32 -128, 289) i32 @gmllex() local_unnamed_addr #1 {
   unreachable
 
 31:                                               ; preds = %26
-  %32 = getelementptr inbounds nuw ptr, ptr %29, i64 %24
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %32, i8 0, i64 64, i1 false)
   store i64 %27, ptr @yy_buffer_stack_max, align 8, !tbaa !15
   %.pre = load ptr, ptr @gmlin, align 8, !tbaa !4
@@ -189,7 +189,7 @@ gml_create_buffer.exit:                           ; preds = %36
   tail call fastcc void @gml_init_buffer(ptr noundef nonnull %34, ptr noundef %33)
   %42 = load ptr, ptr @yy_buffer_stack, align 8, !tbaa !13
   %43 = load i64, ptr @yy_buffer_stack_top, align 8, !tbaa !15
-  %44 = getelementptr inbounds nuw ptr, ptr %42, i64 %43
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %43
   store ptr %34, ptr %44, align 8, !tbaa !17
   br label %45
 
@@ -219,7 +219,7 @@ gml_create_buffer.exit:                           ; preds = %36
   %56 = load i32, ptr @yy_start, align 4, !tbaa !9
   %57 = load ptr, ptr @yy_buffer_stack, align 8, !tbaa !13
   %58 = load i64, ptr @yy_buffer_stack_top, align 8, !tbaa !15
-  %59 = getelementptr inbounds nuw ptr, ptr %57, i64 %58
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %58
   %60 = load ptr, ptr %59, align 8, !tbaa !17
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 40
   %62 = load i32, ptr %61, align 8, !tbaa !27
@@ -240,7 +240,7 @@ gml_create_buffer.exit:                           ; preds = %36
   %67 = getelementptr inbounds nuw i8, ptr @yy_ec, i64 %66
   %68 = load i8, ptr %67, align 1, !tbaa !26
   %69 = sext i32 %.1 to i64
-  %70 = getelementptr inbounds i16, ptr @yy_accept, i64 %69
+  %70 = getelementptr inbounds [2 x i8], ptr @yy_accept, i64 %69
   %71 = load i16, ptr %70, align 2, !tbaa !28
   %.not101 = icmp eq i16 %71, 0
   br i1 %.not101, label %73, label %72
@@ -251,12 +251,12 @@ gml_create_buffer.exit:                           ; preds = %36
   br label %73
 
 73:                                               ; preds = %72, %64
-  %74 = getelementptr inbounds i16, ptr @yy_base, i64 %69
+  %74 = getelementptr inbounds [2 x i8], ptr @yy_base, i64 %69
   %75 = load i16, ptr %74, align 2, !tbaa !28
   %76 = sext i16 %75 to i64
   %77 = zext i8 %68 to i64
   %78 = add nsw i64 %76, %77
-  %79 = getelementptr inbounds i16, ptr @yy_chk, i64 %78
+  %79 = getelementptr inbounds [2 x i8], ptr @yy_chk, i64 %78
   %80 = load i16, ptr %79, align 2, !tbaa !28
   %81 = sext i16 %80 to i32
   %.not102276 = icmp eq i32 %.1, %81
@@ -266,7 +266,7 @@ gml_create_buffer.exit:                           ; preds = %36
   %82 = phi i64 [ %95, %90 ], [ %77, %73 ]
   %83 = phi i64 [ %91, %90 ], [ %69, %73 ]
   %.039277 = phi i8 [ %.140, %90 ], [ %68, %73 ]
-  %84 = getelementptr inbounds i16, ptr @yy_def, i64 %83
+  %84 = getelementptr inbounds [2 x i8], ptr @yy_def, i64 %83
   %85 = load i16, ptr %84, align 2, !tbaa !28
   %86 = icmp sgt i16 %85, 142
   br i1 %86, label %87, label %90
@@ -279,24 +279,24 @@ gml_create_buffer.exit:                           ; preds = %36
 90:                                               ; preds = %87, %.lr.ph
   %.140 = phi i8 [ %89, %87 ], [ %.039277, %.lr.ph ]
   %91 = sext i16 %85 to i64
-  %92 = getelementptr inbounds i16, ptr @yy_base, i64 %91
+  %92 = getelementptr inbounds [2 x i8], ptr @yy_base, i64 %91
   %93 = load i16, ptr %92, align 2, !tbaa !28
   %94 = sext i16 %93 to i64
   %95 = zext i8 %.140 to i64
   %96 = add nsw i64 %94, %95
-  %97 = getelementptr inbounds i16, ptr @yy_chk, i64 %96
+  %97 = getelementptr inbounds [2 x i8], ptr @yy_chk, i64 %96
   %98 = load i16, ptr %97, align 2, !tbaa !28
   %.not102 = icmp eq i16 %85, %98
   br i1 %.not102, label %._crit_edge, label %.lr.ph, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %90, %73
   %.lcssa = phi i64 [ %78, %73 ], [ %96, %90 ]
-  %99 = getelementptr inbounds i16, ptr @yy_nxt, i64 %.lcssa
+  %99 = getelementptr inbounds [2 x i8], ptr @yy_nxt, i64 %.lcssa
   %100 = load i16, ptr %99, align 2, !tbaa !28
   %101 = sext i16 %100 to i32
   %102 = getelementptr inbounds nuw i8, ptr %.149, i64 1
   %103 = sext i16 %100 to i64
-  %104 = getelementptr inbounds i16, ptr @yy_base, i64 %103
+  %104 = getelementptr inbounds [2 x i8], ptr @yy_base, i64 %103
   %105 = load i16, ptr %104, align 2, !tbaa !28
   %.not103 = icmp eq i16 %105, 301
   br i1 %.not103, label %.preheader.outer, label %64, !llvm.loop !32
@@ -318,7 +318,7 @@ gml_create_buffer.exit:                           ; preds = %36
   %.250 = phi ptr [ %126, %124 ], [ %.250.ph, %.preheader.outer ]
   %.3 = phi i32 [ %127, %124 ], [ %.3.ph, %.preheader.outer ]
   %107 = sext i32 %.3 to i64
-  %108 = getelementptr inbounds i16, ptr @yy_accept, i64 %107
+  %108 = getelementptr inbounds [2 x i8], ptr @yy_accept, i64 %107
   %109 = load i16, ptr %108, align 2, !tbaa !28
   %110 = icmp eq i16 %109, 0
   br i1 %110, label %111, label %117
@@ -327,7 +327,7 @@ gml_create_buffer.exit:                           ; preds = %36
   %112 = load ptr, ptr @yy_last_accepting_cpos, align 8, !tbaa !11
   %113 = load i32, ptr @yy_last_accepting_state, align 4, !tbaa !9
   %114 = sext i32 %113 to i64
-  %115 = getelementptr inbounds i16, ptr @yy_accept, i64 %114
+  %115 = getelementptr inbounds [2 x i8], ptr @yy_accept, i64 %114
   %116 = load i16, ptr %115, align 2, !tbaa !28
   br label %117
 
@@ -417,7 +417,7 @@ gml_create_buffer.exit:                           ; preds = %36
   %138 = zext i1 %137 to i32
   %139 = load ptr, ptr @yy_buffer_stack, align 8, !tbaa !13
   %140 = load i64, ptr @yy_buffer_stack_top, align 8, !tbaa !15
-  %141 = getelementptr inbounds nuw ptr, ptr %139, i64 %140
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %139, i64 %140
   %142 = load ptr, ptr %141, align 8, !tbaa !17
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 40
   store i32 %138, ptr %143, align 8, !tbaa !27
@@ -438,7 +438,7 @@ gml_create_buffer.exit:                           ; preds = %36
   %154 = zext i1 %153 to i32
   %155 = load ptr, ptr @yy_buffer_stack, align 8, !tbaa !13
   %156 = load i64, ptr @yy_buffer_stack_top, align 8, !tbaa !15
-  %157 = getelementptr inbounds nuw ptr, ptr %155, i64 %156
+  %157 = getelementptr inbounds nuw [8 x i8], ptr %155, i64 %156
   %158 = load ptr, ptr %157, align 8, !tbaa !17
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 40
   store i32 %154, ptr %159, align 8, !tbaa !27
@@ -465,7 +465,7 @@ gml_create_buffer.exit:                           ; preds = %36
   %173 = zext i1 %172 to i32
   %174 = load ptr, ptr @yy_buffer_stack, align 8, !tbaa !13
   %175 = load i64, ptr @yy_buffer_stack_top, align 8, !tbaa !15
-  %176 = getelementptr inbounds nuw ptr, ptr %174, i64 %175
+  %176 = getelementptr inbounds nuw [8 x i8], ptr %174, i64 %175
   %177 = load ptr, ptr %176, align 8, !tbaa !17
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 40
   store i32 %173, ptr %178, align 8, !tbaa !27
@@ -490,7 +490,7 @@ gml_create_buffer.exit:                           ; preds = %36
   %189 = zext i1 %188 to i32
   %190 = load ptr, ptr @yy_buffer_stack, align 8, !tbaa !13
   %191 = load i64, ptr @yy_buffer_stack_top, align 8, !tbaa !15
-  %192 = getelementptr inbounds nuw ptr, ptr %190, i64 %191
+  %192 = getelementptr inbounds nuw [8 x i8], ptr %190, i64 %191
   %193 = load ptr, ptr %192, align 8, !tbaa !17
   %194 = getelementptr inbounds nuw i8, ptr %193, i64 40
   store i32 %189, ptr %194, align 8, !tbaa !27
@@ -511,7 +511,7 @@ gml_create_buffer.exit:                           ; preds = %36
   %205 = zext i1 %204 to i32
   %206 = load ptr, ptr @yy_buffer_stack, align 8, !tbaa !13
   %207 = load i64, ptr @yy_buffer_stack_top, align 8, !tbaa !15
-  %208 = getelementptr inbounds nuw ptr, ptr %206, i64 %207
+  %208 = getelementptr inbounds nuw [8 x i8], ptr %206, i64 %207
   %209 = load ptr, ptr %208, align 8, !tbaa !17
   %210 = getelementptr inbounds nuw i8, ptr %209, i64 40
   store i32 %205, ptr %210, align 8, !tbaa !27
@@ -532,7 +532,7 @@ gml_create_buffer.exit:                           ; preds = %36
   %221 = zext i1 %220 to i32
   %222 = load ptr, ptr @yy_buffer_stack, align 8, !tbaa !13
   %223 = load i64, ptr @yy_buffer_stack_top, align 8, !tbaa !15
-  %224 = getelementptr inbounds nuw ptr, ptr %222, i64 %223
+  %224 = getelementptr inbounds nuw [8 x i8], ptr %222, i64 %223
   %225 = load ptr, ptr %224, align 8, !tbaa !17
   %226 = getelementptr inbounds nuw i8, ptr %225, i64 40
   store i32 %221, ptr %226, align 8, !tbaa !27
@@ -553,7 +553,7 @@ gml_create_buffer.exit:                           ; preds = %36
   %237 = zext i1 %236 to i32
   %238 = load ptr, ptr @yy_buffer_stack, align 8, !tbaa !13
   %239 = load i64, ptr @yy_buffer_stack_top, align 8, !tbaa !15
-  %240 = getelementptr inbounds nuw ptr, ptr %238, i64 %239
+  %240 = getelementptr inbounds nuw [8 x i8], ptr %238, i64 %239
   %241 = load ptr, ptr %240, align 8, !tbaa !17
   %242 = getelementptr inbounds nuw i8, ptr %241, i64 40
   store i32 %237, ptr %242, align 8, !tbaa !27
@@ -574,7 +574,7 @@ gml_create_buffer.exit:                           ; preds = %36
   %253 = zext i1 %252 to i32
   %254 = load ptr, ptr @yy_buffer_stack, align 8, !tbaa !13
   %255 = load i64, ptr @yy_buffer_stack_top, align 8, !tbaa !15
-  %256 = getelementptr inbounds nuw ptr, ptr %254, i64 %255
+  %256 = getelementptr inbounds nuw [8 x i8], ptr %254, i64 %255
   %257 = load ptr, ptr %256, align 8, !tbaa !17
   %258 = getelementptr inbounds nuw i8, ptr %257, i64 40
   store i32 %253, ptr %258, align 8, !tbaa !27
@@ -595,7 +595,7 @@ gml_create_buffer.exit:                           ; preds = %36
   %269 = zext i1 %268 to i32
   %270 = load ptr, ptr @yy_buffer_stack, align 8, !tbaa !13
   %271 = load i64, ptr @yy_buffer_stack_top, align 8, !tbaa !15
-  %272 = getelementptr inbounds nuw ptr, ptr %270, i64 %271
+  %272 = getelementptr inbounds nuw [8 x i8], ptr %270, i64 %271
   %273 = load ptr, ptr %272, align 8, !tbaa !17
   %274 = getelementptr inbounds nuw i8, ptr %273, i64 40
   store i32 %269, ptr %274, align 8, !tbaa !27
@@ -616,7 +616,7 @@ gml_create_buffer.exit:                           ; preds = %36
   %285 = zext i1 %284 to i32
   %286 = load ptr, ptr @yy_buffer_stack, align 8, !tbaa !13
   %287 = load i64, ptr @yy_buffer_stack_top, align 8, !tbaa !15
-  %288 = getelementptr inbounds nuw ptr, ptr %286, i64 %287
+  %288 = getelementptr inbounds nuw [8 x i8], ptr %286, i64 %287
   %289 = load ptr, ptr %288, align 8, !tbaa !17
   %290 = getelementptr inbounds nuw i8, ptr %289, i64 40
   store i32 %285, ptr %290, align 8, !tbaa !27
@@ -637,7 +637,7 @@ gml_create_buffer.exit:                           ; preds = %36
   %301 = zext i1 %300 to i32
   %302 = load ptr, ptr @yy_buffer_stack, align 8, !tbaa !13
   %303 = load i64, ptr @yy_buffer_stack_top, align 8, !tbaa !15
-  %304 = getelementptr inbounds nuw ptr, ptr %302, i64 %303
+  %304 = getelementptr inbounds nuw [8 x i8], ptr %302, i64 %303
   %305 = load ptr, ptr %304, align 8, !tbaa !17
   %306 = getelementptr inbounds nuw i8, ptr %305, i64 40
   store i32 %301, ptr %306, align 8, !tbaa !27
@@ -658,7 +658,7 @@ gml_create_buffer.exit:                           ; preds = %36
   %317 = zext i1 %316 to i32
   %318 = load ptr, ptr @yy_buffer_stack, align 8, !tbaa !13
   %319 = load i64, ptr @yy_buffer_stack_top, align 8, !tbaa !15
-  %320 = getelementptr inbounds nuw ptr, ptr %318, i64 %319
+  %320 = getelementptr inbounds nuw [8 x i8], ptr %318, i64 %319
   %321 = load ptr, ptr %320, align 8, !tbaa !17
   %322 = getelementptr inbounds nuw i8, ptr %321, i64 40
   store i32 %317, ptr %322, align 8, !tbaa !27
@@ -679,7 +679,7 @@ gml_create_buffer.exit:                           ; preds = %36
   %333 = zext i1 %332 to i32
   %334 = load ptr, ptr @yy_buffer_stack, align 8, !tbaa !13
   %335 = load i64, ptr @yy_buffer_stack_top, align 8, !tbaa !15
-  %336 = getelementptr inbounds nuw ptr, ptr %334, i64 %335
+  %336 = getelementptr inbounds nuw [8 x i8], ptr %334, i64 %335
   %337 = load ptr, ptr %336, align 8, !tbaa !17
   %338 = getelementptr inbounds nuw i8, ptr %337, i64 40
   store i32 %333, ptr %338, align 8, !tbaa !27
@@ -700,7 +700,7 @@ gml_create_buffer.exit:                           ; preds = %36
   %349 = zext i1 %348 to i32
   %350 = load ptr, ptr @yy_buffer_stack, align 8, !tbaa !13
   %351 = load i64, ptr @yy_buffer_stack_top, align 8, !tbaa !15
-  %352 = getelementptr inbounds nuw ptr, ptr %350, i64 %351
+  %352 = getelementptr inbounds nuw [8 x i8], ptr %350, i64 %351
   %353 = load ptr, ptr %352, align 8, !tbaa !17
   %354 = getelementptr inbounds nuw i8, ptr %353, i64 40
   store i32 %349, ptr %354, align 8, !tbaa !27
@@ -721,7 +721,7 @@ gml_create_buffer.exit:                           ; preds = %36
   %365 = zext i1 %364 to i32
   %366 = load ptr, ptr @yy_buffer_stack, align 8, !tbaa !13
   %367 = load i64, ptr @yy_buffer_stack_top, align 8, !tbaa !15
-  %368 = getelementptr inbounds nuw ptr, ptr %366, i64 %367
+  %368 = getelementptr inbounds nuw [8 x i8], ptr %366, i64 %367
   %369 = load ptr, ptr %368, align 8, !tbaa !17
   %370 = getelementptr inbounds nuw i8, ptr %369, i64 40
   store i32 %365, ptr %370, align 8, !tbaa !27
@@ -742,7 +742,7 @@ gml_create_buffer.exit:                           ; preds = %36
   %381 = zext i1 %380 to i32
   %382 = load ptr, ptr @yy_buffer_stack, align 8, !tbaa !13
   %383 = load i64, ptr @yy_buffer_stack_top, align 8, !tbaa !15
-  %384 = getelementptr inbounds nuw ptr, ptr %382, i64 %383
+  %384 = getelementptr inbounds nuw [8 x i8], ptr %382, i64 %383
   %385 = load ptr, ptr %384, align 8, !tbaa !17
   %386 = getelementptr inbounds nuw i8, ptr %385, i64 40
   store i32 %381, ptr %386, align 8, !tbaa !27
@@ -763,7 +763,7 @@ gml_create_buffer.exit:                           ; preds = %36
   %397 = zext i1 %396 to i32
   %398 = load ptr, ptr @yy_buffer_stack, align 8, !tbaa !13
   %399 = load i64, ptr @yy_buffer_stack_top, align 8, !tbaa !15
-  %400 = getelementptr inbounds nuw ptr, ptr %398, i64 %399
+  %400 = getelementptr inbounds nuw [8 x i8], ptr %398, i64 %399
   %401 = load ptr, ptr %400, align 8, !tbaa !17
   %402 = getelementptr inbounds nuw i8, ptr %401, i64 40
   store i32 %397, ptr %402, align 8, !tbaa !27
@@ -784,7 +784,7 @@ gml_create_buffer.exit:                           ; preds = %36
   %413 = zext i1 %412 to i32
   %414 = load ptr, ptr @yy_buffer_stack, align 8, !tbaa !13
   %415 = load i64, ptr @yy_buffer_stack_top, align 8, !tbaa !15
-  %416 = getelementptr inbounds nuw ptr, ptr %414, i64 %415
+  %416 = getelementptr inbounds nuw [8 x i8], ptr %414, i64 %415
   %417 = load ptr, ptr %416, align 8, !tbaa !17
   %418 = getelementptr inbounds nuw i8, ptr %417, i64 40
   store i32 %413, ptr %418, align 8, !tbaa !27
@@ -805,7 +805,7 @@ gml_create_buffer.exit:                           ; preds = %36
   %429 = zext i1 %428 to i32
   %430 = load ptr, ptr @yy_buffer_stack, align 8, !tbaa !13
   %431 = load i64, ptr @yy_buffer_stack_top, align 8, !tbaa !15
-  %432 = getelementptr inbounds nuw ptr, ptr %430, i64 %431
+  %432 = getelementptr inbounds nuw [8 x i8], ptr %430, i64 %431
   %433 = load ptr, ptr %432, align 8, !tbaa !17
   %434 = getelementptr inbounds nuw i8, ptr %433, i64 40
   store i32 %429, ptr %434, align 8, !tbaa !27
@@ -826,7 +826,7 @@ gml_create_buffer.exit:                           ; preds = %36
   %445 = zext i1 %444 to i32
   %446 = load ptr, ptr @yy_buffer_stack, align 8, !tbaa !13
   %447 = load i64, ptr @yy_buffer_stack_top, align 8, !tbaa !15
-  %448 = getelementptr inbounds nuw ptr, ptr %446, i64 %447
+  %448 = getelementptr inbounds nuw [8 x i8], ptr %446, i64 %447
   %449 = load ptr, ptr %448, align 8, !tbaa !17
   %450 = getelementptr inbounds nuw i8, ptr %449, i64 40
   store i32 %445, ptr %450, align 8, !tbaa !27
@@ -847,7 +847,7 @@ gml_create_buffer.exit:                           ; preds = %36
   %461 = zext i1 %460 to i32
   %462 = load ptr, ptr @yy_buffer_stack, align 8, !tbaa !13
   %463 = load i64, ptr @yy_buffer_stack_top, align 8, !tbaa !15
-  %464 = getelementptr inbounds nuw ptr, ptr %462, i64 %463
+  %464 = getelementptr inbounds nuw [8 x i8], ptr %462, i64 %463
   %465 = load ptr, ptr %464, align 8, !tbaa !17
   %466 = getelementptr inbounds nuw i8, ptr %465, i64 40
   store i32 %461, ptr %466, align 8, !tbaa !27
@@ -868,7 +868,7 @@ gml_create_buffer.exit:                           ; preds = %36
   %477 = zext i1 %476 to i32
   %478 = load ptr, ptr @yy_buffer_stack, align 8, !tbaa !13
   %479 = load i64, ptr @yy_buffer_stack_top, align 8, !tbaa !15
-  %480 = getelementptr inbounds nuw ptr, ptr %478, i64 %479
+  %480 = getelementptr inbounds nuw [8 x i8], ptr %478, i64 %479
   %481 = load ptr, ptr %480, align 8, !tbaa !17
   %482 = getelementptr inbounds nuw i8, ptr %481, i64 40
   store i32 %477, ptr %482, align 8, !tbaa !27
@@ -889,7 +889,7 @@ gml_create_buffer.exit:                           ; preds = %36
   %493 = zext i1 %492 to i32
   %494 = load ptr, ptr @yy_buffer_stack, align 8, !tbaa !13
   %495 = load i64, ptr @yy_buffer_stack_top, align 8, !tbaa !15
-  %496 = getelementptr inbounds nuw ptr, ptr %494, i64 %495
+  %496 = getelementptr inbounds nuw [8 x i8], ptr %494, i64 %495
   %497 = load ptr, ptr %496, align 8, !tbaa !17
   %498 = getelementptr inbounds nuw i8, ptr %497, i64 40
   store i32 %493, ptr %498, align 8, !tbaa !27
@@ -910,7 +910,7 @@ gml_create_buffer.exit:                           ; preds = %36
   %509 = zext i1 %508 to i32
   %510 = load ptr, ptr @yy_buffer_stack, align 8, !tbaa !13
   %511 = load i64, ptr @yy_buffer_stack_top, align 8, !tbaa !15
-  %512 = getelementptr inbounds nuw ptr, ptr %510, i64 %511
+  %512 = getelementptr inbounds nuw [8 x i8], ptr %510, i64 %511
   %513 = load ptr, ptr %512, align 8, !tbaa !17
   %514 = getelementptr inbounds nuw i8, ptr %513, i64 40
   store i32 %509, ptr %514, align 8, !tbaa !27
@@ -931,7 +931,7 @@ gml_create_buffer.exit:                           ; preds = %36
   %525 = zext i1 %524 to i32
   %526 = load ptr, ptr @yy_buffer_stack, align 8, !tbaa !13
   %527 = load i64, ptr @yy_buffer_stack_top, align 8, !tbaa !15
-  %528 = getelementptr inbounds nuw ptr, ptr %526, i64 %527
+  %528 = getelementptr inbounds nuw [8 x i8], ptr %526, i64 %527
   %529 = load ptr, ptr %528, align 8, !tbaa !17
   %530 = getelementptr inbounds nuw i8, ptr %529, i64 40
   store i32 %525, ptr %530, align 8, !tbaa !27
@@ -952,7 +952,7 @@ gml_create_buffer.exit:                           ; preds = %36
   %541 = zext i1 %540 to i32
   %542 = load ptr, ptr @yy_buffer_stack, align 8, !tbaa !13
   %543 = load i64, ptr @yy_buffer_stack_top, align 8, !tbaa !15
-  %544 = getelementptr inbounds nuw ptr, ptr %542, i64 %543
+  %544 = getelementptr inbounds nuw [8 x i8], ptr %542, i64 %543
   %545 = load ptr, ptr %544, align 8, !tbaa !17
   %546 = getelementptr inbounds nuw i8, ptr %545, i64 40
   store i32 %541, ptr %546, align 8, !tbaa !27
@@ -973,7 +973,7 @@ gml_create_buffer.exit:                           ; preds = %36
   %557 = zext i1 %556 to i32
   %558 = load ptr, ptr @yy_buffer_stack, align 8, !tbaa !13
   %559 = load i64, ptr @yy_buffer_stack_top, align 8, !tbaa !15
-  %560 = getelementptr inbounds nuw ptr, ptr %558, i64 %559
+  %560 = getelementptr inbounds nuw [8 x i8], ptr %558, i64 %559
   %561 = load ptr, ptr %560, align 8, !tbaa !17
   %562 = getelementptr inbounds nuw i8, ptr %561, i64 40
   store i32 %557, ptr %562, align 8, !tbaa !27
@@ -994,7 +994,7 @@ gml_create_buffer.exit:                           ; preds = %36
   %573 = zext i1 %572 to i32
   %574 = load ptr, ptr @yy_buffer_stack, align 8, !tbaa !13
   %575 = load i64, ptr @yy_buffer_stack_top, align 8, !tbaa !15
-  %576 = getelementptr inbounds nuw ptr, ptr %574, i64 %575
+  %576 = getelementptr inbounds nuw [8 x i8], ptr %574, i64 %575
   %577 = load ptr, ptr %576, align 8, !tbaa !17
   %578 = getelementptr inbounds nuw i8, ptr %577, i64 40
   store i32 %573, ptr %578, align 8, !tbaa !27
@@ -1015,7 +1015,7 @@ gml_create_buffer.exit:                           ; preds = %36
   %589 = zext i1 %588 to i32
   %590 = load ptr, ptr @yy_buffer_stack, align 8, !tbaa !13
   %591 = load i64, ptr @yy_buffer_stack_top, align 8, !tbaa !15
-  %592 = getelementptr inbounds nuw ptr, ptr %590, i64 %591
+  %592 = getelementptr inbounds nuw [8 x i8], ptr %590, i64 %591
   %593 = load ptr, ptr %592, align 8, !tbaa !17
   %594 = getelementptr inbounds nuw i8, ptr %593, i64 40
   store i32 %589, ptr %594, align 8, !tbaa !27
@@ -1036,7 +1036,7 @@ gml_create_buffer.exit:                           ; preds = %36
   %605 = zext i1 %604 to i32
   %606 = load ptr, ptr @yy_buffer_stack, align 8, !tbaa !13
   %607 = load i64, ptr @yy_buffer_stack_top, align 8, !tbaa !15
-  %608 = getelementptr inbounds nuw ptr, ptr %606, i64 %607
+  %608 = getelementptr inbounds nuw [8 x i8], ptr %606, i64 %607
   %609 = load ptr, ptr %608, align 8, !tbaa !17
   %610 = getelementptr inbounds nuw i8, ptr %609, i64 40
   store i32 %605, ptr %610, align 8, !tbaa !27
@@ -1057,7 +1057,7 @@ gml_create_buffer.exit:                           ; preds = %36
   %621 = zext i1 %620 to i32
   %622 = load ptr, ptr @yy_buffer_stack, align 8, !tbaa !13
   %623 = load i64, ptr @yy_buffer_stack_top, align 8, !tbaa !15
-  %624 = getelementptr inbounds nuw ptr, ptr %622, i64 %623
+  %624 = getelementptr inbounds nuw [8 x i8], ptr %622, i64 %623
   %625 = load ptr, ptr %624, align 8, !tbaa !17
   %626 = getelementptr inbounds nuw i8, ptr %625, i64 40
   store i32 %621, ptr %626, align 8, !tbaa !27
@@ -1078,7 +1078,7 @@ gml_create_buffer.exit:                           ; preds = %36
   %636 = zext i1 %635 to i32
   %637 = load ptr, ptr @yy_buffer_stack, align 8, !tbaa !13
   %638 = load i64, ptr @yy_buffer_stack_top, align 8, !tbaa !15
-  %639 = getelementptr inbounds nuw ptr, ptr %637, i64 %638
+  %639 = getelementptr inbounds nuw [8 x i8], ptr %637, i64 %638
   %640 = load ptr, ptr %639, align 8, !tbaa !17
   %641 = getelementptr inbounds nuw i8, ptr %640, i64 40
   store i32 %636, ptr %641, align 8, !tbaa !27
@@ -1116,7 +1116,7 @@ gv_strdup.exit:                                   ; preds = %642
   %659 = zext i1 %658 to i32
   %660 = load ptr, ptr @yy_buffer_stack, align 8, !tbaa !13
   %661 = load i64, ptr @yy_buffer_stack_top, align 8, !tbaa !15
-  %662 = getelementptr inbounds nuw ptr, ptr %660, i64 %661
+  %662 = getelementptr inbounds nuw [8 x i8], ptr %660, i64 %661
   %663 = load ptr, ptr %662, align 8, !tbaa !17
   %664 = getelementptr inbounds nuw i8, ptr %663, i64 40
   store i32 %659, ptr %664, align 8, !tbaa !27
@@ -1154,7 +1154,7 @@ gv_strdup.exit108:                                ; preds = %665
   %682 = zext i1 %681 to i32
   %683 = load ptr, ptr @yy_buffer_stack, align 8, !tbaa !13
   %684 = load i64, ptr @yy_buffer_stack_top, align 8, !tbaa !15
-  %685 = getelementptr inbounds nuw ptr, ptr %683, i64 %684
+  %685 = getelementptr inbounds nuw [8 x i8], ptr %683, i64 %684
   %686 = load ptr, ptr %685, align 8, !tbaa !17
   %687 = getelementptr inbounds nuw i8, ptr %686, i64 40
   store i32 %682, ptr %687, align 8, !tbaa !27
@@ -1192,7 +1192,7 @@ gv_strdup.exit109:                                ; preds = %688
   %706 = zext i1 %705 to i32
   %707 = load ptr, ptr @yy_buffer_stack, align 8, !tbaa !13
   %708 = load i64, ptr @yy_buffer_stack_top, align 8, !tbaa !15
-  %709 = getelementptr inbounds nuw ptr, ptr %707, i64 %708
+  %709 = getelementptr inbounds nuw [8 x i8], ptr %707, i64 %708
   %710 = load ptr, ptr %709, align 8, !tbaa !17
   %711 = getelementptr inbounds nuw i8, ptr %710, i64 40
   store i32 %706, ptr %711, align 8, !tbaa !27
@@ -1229,7 +1229,7 @@ beginstr.exit:                                    ; preds = %712
   %728 = zext i1 %727 to i32
   %729 = load ptr, ptr @yy_buffer_stack, align 8, !tbaa !13
   %730 = load i64, ptr @yy_buffer_stack_top, align 8, !tbaa !15
-  %731 = getelementptr inbounds nuw ptr, ptr %729, i64 %730
+  %731 = getelementptr inbounds nuw [8 x i8], ptr %729, i64 %730
   %732 = load ptr, ptr %731, align 8, !tbaa !17
   %733 = getelementptr inbounds nuw i8, ptr %732, i64 40
   store i32 %728, ptr %733, align 8, !tbaa !27
@@ -1257,7 +1257,7 @@ beginstr.exit:                                    ; preds = %712
   %745 = zext i1 %744 to i32
   %746 = load ptr, ptr @yy_buffer_stack, align 8, !tbaa !13
   %747 = load i64, ptr @yy_buffer_stack_top, align 8, !tbaa !15
-  %748 = getelementptr inbounds nuw ptr, ptr %746, i64 %747
+  %748 = getelementptr inbounds nuw [8 x i8], ptr %746, i64 %747
   %749 = load ptr, ptr %748, align 8, !tbaa !17
   %750 = getelementptr inbounds nuw i8, ptr %749, i64 40
   store i32 %745, ptr %750, align 8, !tbaa !27
@@ -1310,7 +1310,7 @@ addstr.exit:                                      ; preds = %763, %765
   %777 = zext i1 %776 to i32
   %778 = load ptr, ptr @yy_buffer_stack, align 8, !tbaa !13
   %779 = load i64, ptr @yy_buffer_stack_top, align 8, !tbaa !15
-  %780 = getelementptr inbounds nuw ptr, ptr %778, i64 %779
+  %780 = getelementptr inbounds nuw [8 x i8], ptr %778, i64 %779
   %781 = load ptr, ptr %780, align 8, !tbaa !17
   %782 = getelementptr inbounds nuw i8, ptr %781, i64 40
   store i32 %777, ptr %782, align 8, !tbaa !27
@@ -1336,7 +1336,7 @@ addstr.exit:                                      ; preds = %763, %765
   %795 = zext i1 %794 to i32
   %796 = load ptr, ptr @yy_buffer_stack, align 8, !tbaa !13
   %797 = load i64, ptr @yy_buffer_stack_top, align 8, !tbaa !15
-  %798 = getelementptr inbounds nuw ptr, ptr %796, i64 %797
+  %798 = getelementptr inbounds nuw [8 x i8], ptr %796, i64 %797
   %799 = load ptr, ptr %798, align 8, !tbaa !17
   %800 = getelementptr inbounds nuw i8, ptr %799, i64 40
   store i32 %795, ptr %800, align 8, !tbaa !27
@@ -1355,7 +1355,7 @@ addstr.exit:                                      ; preds = %763, %765
   store i8 %807, ptr %.351, align 1, !tbaa !26
   %808 = load ptr, ptr @yy_buffer_stack, align 8, !tbaa !13
   %809 = load i64, ptr @yy_buffer_stack_top, align 8, !tbaa !15
-  %810 = getelementptr inbounds nuw ptr, ptr %808, i64 %809
+  %810 = getelementptr inbounds nuw [8 x i8], ptr %808, i64 %809
   %811 = load ptr, ptr %810, align 8, !tbaa !17
   %812 = getelementptr inbounds nuw i8, ptr %811, i64 56
   %813 = load i32, ptr %812, align 8, !tbaa !33
@@ -1420,7 +1420,7 @@ addstr.exit:                                      ; preds = %763, %765
 846:                                              ; preds = %842, %.lr.ph26.i
   %847 = phi i8 [ %845, %842 ], [ 1, %.lr.ph26.i ]
   %848 = sext i32 %.01723.i to i64
-  %849 = getelementptr inbounds i16, ptr @yy_accept, i64 %848
+  %849 = getelementptr inbounds [2 x i8], ptr @yy_accept, i64 %848
   %850 = load i16, ptr %849, align 2, !tbaa !28
   %.not19.i = icmp eq i16 %850, 0
   br i1 %.not19.i, label %852, label %851
@@ -1431,12 +1431,12 @@ addstr.exit:                                      ; preds = %763, %765
   br label %852
 
 852:                                              ; preds = %851, %846
-  %853 = getelementptr inbounds i16, ptr @yy_base, i64 %848
+  %853 = getelementptr inbounds [2 x i8], ptr @yy_base, i64 %848
   %854 = load i16, ptr %853, align 2, !tbaa !28
   %855 = sext i16 %854 to i64
   %856 = zext i8 %847 to i64
   %857 = add nsw i64 %855, %856
-  %858 = getelementptr inbounds i16, ptr @yy_chk, i64 %857
+  %858 = getelementptr inbounds [2 x i8], ptr @yy_chk, i64 %857
   %859 = load i16, ptr %858, align 2, !tbaa !28
   %860 = sext i16 %859 to i32
   %.not2021.i = icmp eq i32 %.01723.i, %860
@@ -1446,7 +1446,7 @@ addstr.exit:                                      ; preds = %763, %765
   %861 = phi i64 [ %874, %869 ], [ %856, %852 ]
   %862 = phi i64 [ %870, %869 ], [ %848, %852 ]
   %.022.i = phi i8 [ %.1.i, %869 ], [ %847, %852 ]
-  %863 = getelementptr inbounds i16, ptr @yy_def, i64 %862
+  %863 = getelementptr inbounds [2 x i8], ptr @yy_def, i64 %862
   %864 = load i16, ptr %863, align 2, !tbaa !28
   %865 = icmp sgt i16 %864, 142
   br i1 %865, label %866, label %869
@@ -1459,19 +1459,19 @@ addstr.exit:                                      ; preds = %763, %765
 869:                                              ; preds = %866, %.lr.ph.i
   %.1.i = phi i8 [ %868, %866 ], [ %.022.i, %.lr.ph.i ]
   %870 = sext i16 %864 to i64
-  %871 = getelementptr inbounds i16, ptr @yy_base, i64 %870
+  %871 = getelementptr inbounds [2 x i8], ptr @yy_base, i64 %870
   %872 = load i16, ptr %871, align 2, !tbaa !28
   %873 = sext i16 %872 to i64
   %874 = zext i8 %.1.i to i64
   %875 = add nsw i64 %873, %874
-  %876 = getelementptr inbounds i16, ptr @yy_chk, i64 %875
+  %876 = getelementptr inbounds [2 x i8], ptr @yy_chk, i64 %875
   %877 = load i16, ptr %876, align 2, !tbaa !28
   %.not20.i = icmp eq i16 %864, %877
   br i1 %.not20.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !34
 
 ._crit_edge.i:                                    ; preds = %869, %852
   %.lcssa.i = phi i64 [ %857, %852 ], [ %875, %869 ]
-  %878 = getelementptr inbounds i16, ptr @yy_nxt, i64 %.lcssa.i
+  %878 = getelementptr inbounds [2 x i8], ptr @yy_nxt, i64 %.lcssa.i
   %879 = load i16, ptr %878, align 2, !tbaa !28
   %880 = sext i16 %879 to i32
   %881 = getelementptr inbounds nuw i8, ptr %.01624.i, i64 1
@@ -1481,7 +1481,7 @@ addstr.exit:                                      ; preds = %763, %765
 yy_get_previous_state.exit:                       ; preds = %._crit_edge.i, %827
   %.017.lcssa.i = phi i32 [ %839, %827 ], [ %880, %._crit_edge.i ]
   %882 = sext i32 %.017.lcssa.i to i64
-  %883 = getelementptr inbounds i16, ptr @yy_accept, i64 %882
+  %883 = getelementptr inbounds [2 x i8], ptr @yy_accept, i64 %882
   %884 = load i16, ptr %883, align 2, !tbaa !28
   %.not.i111 = icmp eq i16 %884, 0
   br i1 %.not.i111, label %886, label %885
@@ -1492,11 +1492,11 @@ yy_get_previous_state.exit:                       ; preds = %._crit_edge.i, %827
   br label %886
 
 886:                                              ; preds = %885, %yy_get_previous_state.exit
-  %887 = getelementptr inbounds i16, ptr @yy_base, i64 %882
+  %887 = getelementptr inbounds [2 x i8], ptr @yy_base, i64 %882
   %888 = load i16, ptr %887, align 2, !tbaa !28
   %889 = sext i16 %888 to i64
   %890 = add nsw i64 %889, 1
-  %891 = getelementptr inbounds i16, ptr @yy_chk, i64 %890
+  %891 = getelementptr inbounds [2 x i8], ptr @yy_chk, i64 %890
   %892 = load i16, ptr %891, align 2, !tbaa !28
   %893 = sext i16 %892 to i32
   %.not1415.i = icmp eq i32 %.017.lcssa.i, %893
@@ -1504,21 +1504,21 @@ yy_get_previous_state.exit:                       ; preds = %._crit_edge.i, %827
 
 .lr.ph.i112:                                      ; preds = %886, %.lr.ph.i112
   %894 = phi i64 [ %897, %.lr.ph.i112 ], [ %882, %886 ]
-  %895 = getelementptr inbounds i16, ptr @yy_def, i64 %894
+  %895 = getelementptr inbounds [2 x i8], ptr @yy_def, i64 %894
   %896 = load i16, ptr %895, align 2, !tbaa !28
   %897 = sext i16 %896 to i64
-  %898 = getelementptr inbounds i16, ptr @yy_base, i64 %897
+  %898 = getelementptr inbounds [2 x i8], ptr @yy_base, i64 %897
   %899 = load i16, ptr %898, align 2, !tbaa !28
   %900 = sext i16 %899 to i64
   %901 = add nsw i64 %900, 1
-  %902 = getelementptr inbounds i16, ptr @yy_chk, i64 %901
+  %902 = getelementptr inbounds [2 x i8], ptr @yy_chk, i64 %901
   %903 = load i16, ptr %902, align 2, !tbaa !28
   %.not14.i = icmp eq i16 %896, %903
   br i1 %.not14.i, label %yy_try_NUL_trans.exit, label %.lr.ph.i112, !llvm.loop !36
 
 yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i112, %886
   %.lcssa.i114 = phi i64 [ %890, %886 ], [ %901, %.lr.ph.i112 ]
-  %904 = getelementptr inbounds i16, ptr @yy_nxt, i64 %.lcssa.i114
+  %904 = getelementptr inbounds [2 x i8], ptr @yy_nxt, i64 %.lcssa.i114
   %905 = load i16, ptr %904, align 2, !tbaa !28
   %906 = icmp eq i16 %905, 142
   %.not105152 = icmp eq i64 %.lcssa.i114, 0
@@ -1679,7 +1679,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i112, %886
 976:                                              ; preds = %._crit_edge62.i
   %977 = load ptr, ptr @yy_buffer_stack, align 8, !tbaa !13
   %978 = load i64, ptr @yy_buffer_stack_top, align 8, !tbaa !15
-  %979 = getelementptr inbounds nuw ptr, ptr %977, i64 %978
+  %979 = getelementptr inbounds nuw [8 x i8], ptr %977, i64 %978
   %980 = load ptr, ptr %979, align 8, !tbaa !17
   %981 = getelementptr inbounds nuw i8, ptr %980, i64 28
   store i32 %973, ptr %981, align 4, !tbaa !23
@@ -1699,7 +1699,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i112, %886
   %.pre66.i = load i32, ptr @yy_n_chars, align 4, !tbaa !9
   %.pre67.i = load ptr, ptr @yy_buffer_stack, align 8, !tbaa !13
   %.pre68.i = load i64, ptr @yy_buffer_stack_top, align 8, !tbaa !15
-  %.phi.trans.insert.i = getelementptr inbounds nuw ptr, ptr %.pre67.i, i64 %.pre68.i
+  %.phi.trans.insert.i = getelementptr inbounds nuw [8 x i8], ptr %.pre67.i, i64 %.pre68.i
   %.pre69.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !17
   br label %992
 
@@ -1715,7 +1715,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i112, %886
   %996 = phi i32 [ %.pre66.i, %988 ], [ 0, %990 ], [ %973, %976 ]
   %.036.i = phi i32 [ 1, %988 ], [ 2, %990 ], [ 0, %976 ]
   %997 = add nsw i32 %996, %927
-  %998 = getelementptr inbounds nuw ptr, ptr %995, i64 %994
+  %998 = getelementptr inbounds nuw [8 x i8], ptr %995, i64 %994
   %999 = getelementptr inbounds nuw i8, ptr %993, i64 24
   %1000 = load i32, ptr %999, align 8, !tbaa !19
   %1001 = icmp sgt i32 %997, %1000
@@ -1774,7 +1774,7 @@ yy_get_next_buffer.exit:                          ; preds = %._crit_edge70.i, %1
 yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread150_crit_edge: ; preds = %yy_get_next_buffer.exit
   %.pre405 = load ptr, ptr @yy_buffer_stack, align 8, !tbaa !13
   %.pre406 = load i64, ptr @yy_buffer_stack_top, align 8, !tbaa !15
-  %.phi.trans.insert407 = getelementptr inbounds nuw ptr, ptr %.pre405, i64 %.pre406
+  %.phi.trans.insert407 = getelementptr inbounds nuw [8 x i8], ptr %.pre405, i64 %.pre406
   %.pre408 = load ptr, ptr %.phi.trans.insert407, align 8, !tbaa !17
   %.phi.trans.insert409 = getelementptr inbounds nuw i8, ptr %.pre408, i64 8
   %.pre410 = load ptr, ptr %.phi.trans.insert409, align 8, !tbaa !21
@@ -1795,7 +1795,7 @@ yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread150_crit_edge: ; preds = %
   %1034 = load i32, ptr @yy_start, align 4, !tbaa !9
   %1035 = load ptr, ptr @yy_buffer_stack, align 8, !tbaa !13
   %1036 = load i64, ptr @yy_buffer_stack_top, align 8, !tbaa !15
-  %1037 = getelementptr inbounds nuw ptr, ptr %1035, i64 %1036
+  %1037 = getelementptr inbounds nuw [8 x i8], ptr %1035, i64 %1036
   %1038 = load ptr, ptr %1037, align 8, !tbaa !17
   %1039 = getelementptr inbounds nuw i8, ptr %1038, i64 40
   %1040 = load i32, ptr %1039, align 8, !tbaa !27
@@ -1819,7 +1819,7 @@ yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread150_crit_edge: ; preds = %
 1048:                                             ; preds = %1044, %.lr.ph26.i120
   %1049 = phi i8 [ %1047, %1044 ], [ 1, %.lr.ph26.i120 ]
   %1050 = sext i32 %.01723.i122 to i64
-  %1051 = getelementptr inbounds i16, ptr @yy_accept, i64 %1050
+  %1051 = getelementptr inbounds [2 x i8], ptr @yy_accept, i64 %1050
   %1052 = load i16, ptr %1051, align 2, !tbaa !28
   %.not19.i124 = icmp eq i16 %1052, 0
   br i1 %.not19.i124, label %1054, label %1053
@@ -1830,12 +1830,12 @@ yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread150_crit_edge: ; preds = %
   br label %1054
 
 1054:                                             ; preds = %1053, %1048
-  %1055 = getelementptr inbounds i16, ptr @yy_base, i64 %1050
+  %1055 = getelementptr inbounds [2 x i8], ptr @yy_base, i64 %1050
   %1056 = load i16, ptr %1055, align 2, !tbaa !28
   %1057 = sext i16 %1056 to i64
   %1058 = zext i8 %1049 to i64
   %1059 = add nsw i64 %1057, %1058
-  %1060 = getelementptr inbounds i16, ptr @yy_chk, i64 %1059
+  %1060 = getelementptr inbounds [2 x i8], ptr @yy_chk, i64 %1059
   %1061 = load i16, ptr %1060, align 2, !tbaa !28
   %1062 = sext i16 %1061 to i32
   %.not2021.i125 = icmp eq i32 %.01723.i122, %1062
@@ -1845,7 +1845,7 @@ yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread150_crit_edge: ; preds = %
   %1063 = phi i64 [ %1076, %1071 ], [ %1058, %1054 ]
   %1064 = phi i64 [ %1072, %1071 ], [ %1050, %1054 ]
   %.022.i127 = phi i8 [ %.1.i128, %1071 ], [ %1049, %1054 ]
-  %1065 = getelementptr inbounds i16, ptr @yy_def, i64 %1064
+  %1065 = getelementptr inbounds [2 x i8], ptr @yy_def, i64 %1064
   %1066 = load i16, ptr %1065, align 2, !tbaa !28
   %1067 = icmp sgt i16 %1066, 142
   br i1 %1067, label %1068, label %1071
@@ -1858,19 +1858,19 @@ yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread150_crit_edge: ; preds = %
 1071:                                             ; preds = %1068, %.lr.ph.i126
   %.1.i128 = phi i8 [ %1070, %1068 ], [ %.022.i127, %.lr.ph.i126 ]
   %1072 = sext i16 %1066 to i64
-  %1073 = getelementptr inbounds i16, ptr @yy_base, i64 %1072
+  %1073 = getelementptr inbounds [2 x i8], ptr @yy_base, i64 %1072
   %1074 = load i16, ptr %1073, align 2, !tbaa !28
   %1075 = sext i16 %1074 to i64
   %1076 = zext i8 %.1.i128 to i64
   %1077 = add nsw i64 %1075, %1076
-  %1078 = getelementptr inbounds i16, ptr @yy_chk, i64 %1077
+  %1078 = getelementptr inbounds [2 x i8], ptr @yy_chk, i64 %1077
   %1079 = load i16, ptr %1078, align 2, !tbaa !28
   %.not20.i129 = icmp eq i16 %1066, %1079
   br i1 %.not20.i129, label %._crit_edge.i130, label %.lr.ph.i126, !llvm.loop !34
 
 ._crit_edge.i130:                                 ; preds = %1071, %1054
   %.lcssa.i131 = phi i64 [ %1059, %1054 ], [ %1077, %1071 ]
-  %1080 = getelementptr inbounds i16, ptr @yy_nxt, i64 %.lcssa.i131
+  %1080 = getelementptr inbounds [2 x i8], ptr @yy_nxt, i64 %.lcssa.i131
   %1081 = load i16, ptr %1080, align 2, !tbaa !28
   %1082 = sext i16 %1081 to i32
   %1083 = getelementptr inbounds nuw i8, ptr %.01624.i121, i64 1
@@ -1907,7 +1907,7 @@ yy_get_next_buffer.exit.thread150:                ; preds = %921, %yy_get_next_b
 1098:                                             ; preds = %1094, %.lr.ph26.i135
   %1099 = phi i8 [ %1097, %1094 ], [ 1, %.lr.ph26.i135 ]
   %1100 = sext i32 %.01723.i137 to i64
-  %1101 = getelementptr inbounds i16, ptr @yy_accept, i64 %1100
+  %1101 = getelementptr inbounds [2 x i8], ptr @yy_accept, i64 %1100
   %1102 = load i16, ptr %1101, align 2, !tbaa !28
   %.not19.i139 = icmp eq i16 %1102, 0
   br i1 %.not19.i139, label %1104, label %1103
@@ -1918,12 +1918,12 @@ yy_get_next_buffer.exit.thread150:                ; preds = %921, %yy_get_next_b
   br label %1104
 
 1104:                                             ; preds = %1103, %1098
-  %1105 = getelementptr inbounds i16, ptr @yy_base, i64 %1100
+  %1105 = getelementptr inbounds [2 x i8], ptr @yy_base, i64 %1100
   %1106 = load i16, ptr %1105, align 2, !tbaa !28
   %1107 = sext i16 %1106 to i64
   %1108 = zext i8 %1099 to i64
   %1109 = add nsw i64 %1107, %1108
-  %1110 = getelementptr inbounds i16, ptr @yy_chk, i64 %1109
+  %1110 = getelementptr inbounds [2 x i8], ptr @yy_chk, i64 %1109
   %1111 = load i16, ptr %1110, align 2, !tbaa !28
   %1112 = sext i16 %1111 to i32
   %.not2021.i140 = icmp eq i32 %.01723.i137, %1112
@@ -1933,7 +1933,7 @@ yy_get_next_buffer.exit.thread150:                ; preds = %921, %yy_get_next_b
   %1113 = phi i64 [ %1126, %1121 ], [ %1108, %1104 ]
   %1114 = phi i64 [ %1122, %1121 ], [ %1100, %1104 ]
   %.022.i142 = phi i8 [ %.1.i143, %1121 ], [ %1099, %1104 ]
-  %1115 = getelementptr inbounds i16, ptr @yy_def, i64 %1114
+  %1115 = getelementptr inbounds [2 x i8], ptr @yy_def, i64 %1114
   %1116 = load i16, ptr %1115, align 2, !tbaa !28
   %1117 = icmp sgt i16 %1116, 142
   br i1 %1117, label %1118, label %1121
@@ -1946,19 +1946,19 @@ yy_get_next_buffer.exit.thread150:                ; preds = %921, %yy_get_next_b
 1121:                                             ; preds = %1118, %.lr.ph.i141
   %.1.i143 = phi i8 [ %1120, %1118 ], [ %.022.i142, %.lr.ph.i141 ]
   %1122 = sext i16 %1116 to i64
-  %1123 = getelementptr inbounds i16, ptr @yy_base, i64 %1122
+  %1123 = getelementptr inbounds [2 x i8], ptr @yy_base, i64 %1122
   %1124 = load i16, ptr %1123, align 2, !tbaa !28
   %1125 = sext i16 %1124 to i64
   %1126 = zext i8 %.1.i143 to i64
   %1127 = add nsw i64 %1125, %1126
-  %1128 = getelementptr inbounds i16, ptr @yy_chk, i64 %1127
+  %1128 = getelementptr inbounds [2 x i8], ptr @yy_chk, i64 %1127
   %1129 = load i16, ptr %1128, align 2, !tbaa !28
   %.not20.i144 = icmp eq i16 %1116, %1129
   br i1 %.not20.i144, label %._crit_edge.i145, label %.lr.ph.i141, !llvm.loop !34
 
 ._crit_edge.i145:                                 ; preds = %1121, %1104
   %.lcssa.i146 = phi i64 [ %1109, %1104 ], [ %1127, %1121 ]
-  %1130 = getelementptr inbounds i16, ptr @yy_nxt, i64 %.lcssa.i146
+  %1130 = getelementptr inbounds [2 x i8], ptr @yy_nxt, i64 %.lcssa.i146
   %1131 = load i16, ptr %1130, align 2, !tbaa !28
   %1132 = sext i16 %1131 to i32
   %1133 = getelementptr inbounds nuw i8, ptr %.01624.i136, i64 1
@@ -2034,7 +2034,7 @@ define dso_local void @gmlrestart(ptr noundef %0) local_unnamed_addr #1 {
 
 3:                                                ; preds = %1
   %4 = load i64, ptr @yy_buffer_stack_top, align 8, !tbaa !15
-  %5 = getelementptr inbounds nuw ptr, ptr %2, i64 %4
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !17
   %.not2 = icmp eq ptr %6, null
   br i1 %.not2, label %11, label %33
@@ -2074,7 +2074,7 @@ define dso_local void @gmlrestart(ptr noundef %0) local_unnamed_addr #1 {
   unreachable
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds nuw ptr, ptr %17, i64 %12
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %20, i8 0, i64 64, i1 false)
   store i64 %15, ptr @yy_buffer_stack_max, align 8, !tbaa !15
   br label %gmlensure_buffer_stack.exit
@@ -2108,7 +2108,7 @@ gmlensure_buffer_stack.exit:                      ; preds = %10, %11, %19
   tail call fastcc void @gml_init_buffer(ptr noundef nonnull %22, ptr noundef %21)
   %30 = load ptr, ptr @yy_buffer_stack, align 8, !tbaa !13
   %31 = load i64, ptr @yy_buffer_stack_top, align 8, !tbaa !15
-  %32 = getelementptr inbounds nuw ptr, ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %31
   store ptr %22, ptr %32, align 8, !tbaa !17
   br label %33
 
@@ -2117,7 +2117,7 @@ gmlensure_buffer_stack.exit:                      ; preds = %10, %11, %19
   tail call fastcc void @gml_init_buffer(ptr noundef nonnull %34, ptr noundef %0)
   %35 = load ptr, ptr @yy_buffer_stack, align 8, !tbaa !13
   %36 = load i64, ptr @yy_buffer_stack_top, align 8, !tbaa !15
-  %37 = getelementptr inbounds nuw ptr, ptr %35, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %36
   %38 = load ptr, ptr %37, align 8, !tbaa !17
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 28
   %40 = load i32, ptr %39, align 4, !tbaa !23
@@ -2176,7 +2176,7 @@ gml_flush_buffer.exit.thread:                     ; preds = %5
 
 16:                                               ; preds = %5
   %17 = load i64, ptr @yy_buffer_stack_top, align 8, !tbaa !15
-  %18 = getelementptr inbounds nuw ptr, ptr %.pr.pre, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.pr.pre, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !17
   %20 = icmp eq ptr %0, %19
   br i1 %20, label %21, label %gml_flush_buffer.exit.thread17
@@ -2210,7 +2210,7 @@ gml_flush_buffer.exit:                            ; preds = %2
 
 30:                                               ; preds = %gml_flush_buffer.exit.thread17, %gml_flush_buffer.exit
   %31 = load i64, ptr @yy_buffer_stack_top, align 8, !tbaa !15
-  %32 = getelementptr inbounds nuw ptr, ptr %.pr.pre, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %.pr.pre, i64 %31
   %33 = load ptr, ptr %32, align 8, !tbaa !17
   %34 = icmp eq ptr %0, %33
   br i1 %34, label %37, label %.critedge
@@ -2283,7 +2283,7 @@ define dso_local void @gml_switch_to_buffer(ptr noundef %0) local_unnamed_addr #
   unreachable
 
 16:                                               ; preds = %11
-  %17 = getelementptr inbounds nuw ptr, ptr %14, i64 %9
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %9
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %17, i8 0, i64 64, i1 false)
   store i64 %12, ptr @yy_buffer_stack_max, align 8, !tbaa !15
   br label %.thread
@@ -2291,7 +2291,7 @@ define dso_local void @gml_switch_to_buffer(ptr noundef %0) local_unnamed_addr #
 .thread:                                          ; preds = %16, %7, %6
   %18 = phi i64 [ 0, %6 ], [ %8, %7 ], [ %8, %16 ]
   %19 = phi ptr [ %4, %6 ], [ %2, %7 ], [ %14, %16 ]
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %18
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %18
   %21 = load ptr, ptr %20, align 8, !tbaa !17
   %22 = icmp eq ptr %21, %0
   br i1 %22, label %39, label %23
@@ -2313,7 +2313,7 @@ define dso_local void @gml_switch_to_buffer(ptr noundef %0) local_unnamed_addr #
   br label %31
 
 31:                                               ; preds = %24, %23
-  %32 = getelementptr inbounds nuw ptr, ptr %19, i64 %18
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %18
   store ptr %0, ptr %32, align 8, !tbaa !17
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %34 = load i32, ptr %33, align 4, !tbaa !23
@@ -2350,7 +2350,7 @@ define dso_local void @gml_delete_buffer(ptr noundef captures(address) %0) local
 
 4:                                                ; preds = %2
   %5 = load i64, ptr @yy_buffer_stack_top, align 8, !tbaa !15
-  %6 = getelementptr inbounds nuw ptr, ptr %3, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !17
   %8 = icmp eq ptr %0, %7
   br i1 %8, label %9, label %.critedge
@@ -2412,7 +2412,7 @@ define dso_local void @gml_flush_buffer(ptr noundef captures(address) %0) local_
 
 13:                                               ; preds = %2
   %14 = load i64, ptr @yy_buffer_stack_top, align 8, !tbaa !15
-  %15 = getelementptr inbounds nuw ptr, ptr %12, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !17
   %17 = icmp eq ptr %0, %16
   br i1 %17, label %18, label %.critedge
@@ -2481,7 +2481,7 @@ define dso_local void @gmlpush_buffer_state(ptr noundef %0) local_unnamed_addr #
   unreachable
 
 18:                                               ; preds = %13
-  %19 = getelementptr inbounds nuw ptr, ptr %16, i64 %11
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %11
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %19, i8 0, i64 64, i1 false)
   store i64 %14, ptr @yy_buffer_stack_max, align 8, !tbaa !15
   br label %gmlensure_buffer_stack.exit
@@ -2489,7 +2489,7 @@ define dso_local void @gmlpush_buffer_state(ptr noundef %0) local_unnamed_addr #
 gmlensure_buffer_stack.exit:                      ; preds = %18, %9, %8
   %20 = phi i64 [ 0, %8 ], [ %10, %9 ], [ %10, %18 ]
   %21 = phi ptr [ %6, %8 ], [ %4, %9 ], [ %16, %18 ]
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %20
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %20
   %23 = load ptr, ptr %22, align 8, !tbaa !17
   %.not4 = icmp eq ptr %23, null
   br i1 %.not4, label %.thread, label %24
@@ -2510,7 +2510,7 @@ gmlensure_buffer_stack.exit:                      ; preds = %18, %9, %8
 
 .thread:                                          ; preds = %gmlensure_buffer_stack.exit, %24
   %32 = phi i64 [ %31, %24 ], [ %20, %gmlensure_buffer_stack.exit ]
-  %33 = getelementptr inbounds nuw ptr, ptr %21, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %32
   store ptr %0, ptr %33, align 8, !tbaa !17
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %35 = load i32, ptr %34, align 4, !tbaa !23
@@ -2537,7 +2537,7 @@ define dso_local void @gmlpop_buffer_state() local_unnamed_addr #6 {
 
 2:                                                ; preds = %0
   %3 = load i64, ptr @yy_buffer_stack_top, align 8, !tbaa !15
-  %4 = getelementptr inbounds nuw ptr, ptr %1, i64 %3
+  %4 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !17
   %.not4 = icmp eq ptr %5, null
   br i1 %.not4, label %.thread, label %.critedge.i
@@ -2564,7 +2564,7 @@ gml_delete_buffer.exit:                           ; preds = %.critedge.i, %8
 11:                                               ; preds = %gml_delete_buffer.exit
   %12 = add i64 %3, -1
   store i64 %12, ptr @yy_buffer_stack_top, align 8, !tbaa !15
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %1, i64 %12
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %12
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !17
   %.not7 = icmp eq ptr %.pre, null
   br i1 %.not7, label %.thread, label %13
@@ -2796,13 +2796,13 @@ define dso_local noundef i32 @gmllex_destroy() local_unnamed_addr #11 {
 
 .lr.ph.preheader:                                 ; preds = %0
   %.pre = load i64, ptr @yy_buffer_stack_top, align 8, !tbaa !15
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pr, i64 %.pre
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pr, i64 %.pre
   %.pre9 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !17
   %1 = icmp eq ptr %.pre9, null
   br i1 %1, label %.critedge, label %.critedge.i
 
 .critedge.i:                                      ; preds = %.lr.ph.preheader
-  %2 = getelementptr inbounds nuw ptr, ptr %.pr, i64 %.pre
+  %2 = getelementptr inbounds nuw [8 x i8], ptr %.pr, i64 %.pre
   store ptr null, ptr %2, align 8, !tbaa !17
   %3 = getelementptr inbounds nuw i8, ptr %.pre9, i64 32
   %4 = load i32, ptr %3, align 8, !tbaa !22
@@ -2821,7 +2821,7 @@ gmlpop_buffer_state.exit:                         ; preds = %.critedge.i, %5
   %8 = phi i64 [ %.pre, %.critedge.i ], [ %.pre11, %5 ]
   %9 = phi ptr [ %.pr, %.critedge.i ], [ %.pre10, %5 ]
   tail call void @free(ptr noundef nonnull %.pre9) #30
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %8
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %8
   store ptr null, ptr %10, align 8, !tbaa !17
   br label %.critedge
 
@@ -2887,7 +2887,7 @@ define dso_local void @gmllexeof() local_unnamed_addr #16 {
   store i8 %3, ptr %2, align 1, !tbaa !26
   %4 = load ptr, ptr @yy_buffer_stack, align 8, !tbaa !13
   %5 = load i64, ptr @yy_buffer_stack_top, align 8, !tbaa !15
-  %6 = getelementptr inbounds nuw ptr, ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !17
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !21

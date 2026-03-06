@@ -1703,7 +1703,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.ex
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %202 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %202 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %203 = load ptr, ptr %202, align 8, !tbaa !15
   call void @llvm.experimental.noalias.scope.decl(metadata !73)
   %204 = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %203, i32 noundef 32) #24, !noalias !73

@@ -52,8 +52,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
 %"class.std::locale" = type { ptr }
 %"class.llvh::cl::OptionCategory" = type { %"class.llvh::StringRef", %"class.llvh::StringRef" }
-%"class.llvh::cl::parser<DisassemblyFormat>::OptionInfo" = type { %"class.llvh::cl::generic_parser_base::GenericOptionInfo", %"struct.llvh::cl::OptionValue.2" }
-%"class.llvh::cl::generic_parser_base::GenericOptionInfo" = type { %"class.llvh::StringRef", %"class.llvh::StringRef" }
 %"class.llvh::InitLLVM" = type { %"class.llvh::BumpPtrAllocatorImpl", %"class.llvh::SmallVector.38", %"class.llvh::PrettyStackTraceProgram" }
 %"class.llvh::BumpPtrAllocatorImpl" = type <{ ptr, ptr, %"class.llvh::SmallVector.25", %"class.llvh::SmallVector.32", i64, i64, %"class.llvh::MallocAllocator", [7 x i8] }>
 %"class.llvh::SmallVector.25" = type { %"class.llvh::SmallVectorImpl.26", %"struct.llvh::SmallVectorStorage.29" }
@@ -214,7 +212,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::equal_to.263" = type { i8 }
 %"class.std::allocator.370" = type { i8 }
 %"struct.std::__detail::_AllocNode" = type { ptr }
-%"class.hermes::StringTableEntry" = type { i32, i32 }
 %"struct.llvh::cl::desc" = type { %"class.llvh::StringRef" }
 %"struct.llvh::cl::initializer" = type { ptr }
 %"class.llvh::cl::ValuesClass" = type { %"class.llvh::SmallVector.7" }
@@ -666,7 +663,7 @@ _ZN4llvh2cl6parserI17DisassemblyFormatE16addLiteralOptionIiEEvNS_9StringRefERKT_
   %8 = phi i32 [ %.pre.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i ], [ %6, %for.body.i.i.i.i.i ]
   %9 = load ptr, ptr %Values.i, align 8
   %conv.i3.i.i.i.i.i.i.i = zext i32 %8 to i64
-  %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds nuw %"class.llvh::cl::parser<DisassemblyFormat>::OptionInfo", ptr %9, i64 %conv.i3.i.i.i.i.i.i.i
+  %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds nuw [48 x i8], ptr %9, i64 %conv.i3.i.i.i.i.i.i.i
   store ptr %Value.sroa.0.0.copyload.i.i.i.i.i, ptr %add.ptr.i.i.i.i.i.i.i.i, align 8
   %X.sroa.2.0.add.ptr.i.i.sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i.i.i.i, i64 8
   store i64 %Value.sroa.2.0.copyload.i.i.i.i.i, ptr %X.sroa.2.0.add.ptr.i.i.sroa_idx.i.i.i.i.i.i, align 8
@@ -3170,7 +3167,7 @@ _ZN4llvh23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backERKS1_.exit.i: ; 
   %8 = phi i32 [ %.pre.i.i, %if.then.i.i ], [ %6, %for.body.i ]
   %9 = load ptr, ptr %OptionNames, align 8
   %conv.i3.i.i = zext i32 %8 to i64
-  %add.ptr.i.i.i = getelementptr inbounds nuw %"class.llvh::StringRef", ptr %9, i64 %conv.i3.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %conv.i3.i.i
   store ptr %4, ptr %add.ptr.i.i.i, align 1
   %ref.tmp.sroa.2.0.add.ptr.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 8
   store i64 %5, ptr %ref.tmp.sroa.2.0.add.ptr.i.i.sroa_idx.i, align 1
@@ -3220,7 +3217,7 @@ entry:
   %Values = getelementptr inbounds nuw i8, ptr %this, i64 16
   %conv = zext i32 %N to i64
   %0 = load ptr, ptr %Values, align 8
-  %arrayidx.i = getelementptr inbounds nuw %"class.llvh::cl::parser<DisassemblyFormat>::OptionInfo", ptr %0, i64 %conv
+  %arrayidx.i = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %conv
   %retval.sroa.0.0.copyload = load ptr, ptr %arrayidx.i, align 8
   %retval.sroa.2.0.Name.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   %retval.sroa.2.0.copyload = load i64, ptr %retval.sroa.2.0.Name.sroa_idx, align 8
@@ -3235,7 +3232,7 @@ entry:
   %Values = getelementptr inbounds nuw i8, ptr %this, i64 16
   %conv = zext i32 %N to i64
   %0 = load ptr, ptr %Values, align 8
-  %arrayidx.i = getelementptr inbounds nuw %"class.llvh::cl::parser<DisassemblyFormat>::OptionInfo", ptr %0, i64 %conv
+  %arrayidx.i = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %conv
   %HelpStr = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 16
   %retval.sroa.0.0.copyload = load ptr, ptr %HelpStr, align 8
   %retval.sroa.2.0.HelpStr.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 24
@@ -3253,7 +3250,7 @@ entry:
   %Values = getelementptr inbounds nuw i8, ptr %this, i64 16
   %conv = zext i32 %N to i64
   %0 = load ptr, ptr %Values, align 8
-  %arrayidx.i = getelementptr inbounds nuw %"class.llvh::cl::parser<DisassemblyFormat>::OptionInfo", ptr %0, i64 %conv
+  %arrayidx.i = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %conv
   %V = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 32
   ret ptr %V
 }
@@ -3294,7 +3291,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
   %i.08.us = phi i64 [ %inc.us, %for.inc.us ], [ 0, %for.body.lr.ph ]
-  %arrayidx.i23.us = getelementptr inbounds nuw %"class.llvh::cl::parser<DisassemblyFormat>::OptionInfo", ptr %4, i64 %i.08.us
+  %arrayidx.i23.us = getelementptr inbounds nuw [48 x i8], ptr %4, i64 %i.08.us
   %agg.tmp.sroa.2.0.Name.sroa_idx.us = getelementptr inbounds nuw i8, ptr %arrayidx.i23.us, i64 8
   %agg.tmp.sroa.2.0.copyload.us = load i64, ptr %agg.tmp.sroa.2.0.Name.sroa_idx.us, align 8
   %cmp.i.us = icmp eq i64 %agg.tmp.sroa.2.0.copyload.us, 0
@@ -3307,7 +3304,7 @@ for.inc.us:                                       ; preds = %for.body.us
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %i.08 = phi i64 [ %inc, %for.inc ], [ 0, %for.body.lr.ph ]
-  %arrayidx.i23 = getelementptr inbounds nuw %"class.llvh::cl::parser<DisassemblyFormat>::OptionInfo", ptr %4, i64 %i.08
+  %arrayidx.i23 = getelementptr inbounds nuw [48 x i8], ptr %4, i64 %i.08
   %agg.tmp.sroa.2.0.Name.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i23, i64 8
   %agg.tmp.sroa.2.0.copyload = load i64, ptr %agg.tmp.sroa.2.0.Name.sroa_idx, align 8
   %cmp.i = icmp eq i64 %agg.tmp.sroa.2.0.copyload, %agg.tmp5.sroa.2.0.copyload.fr
@@ -3321,7 +3318,7 @@ land.rhs.i:                                       ; preds = %for.body
 
 if.then7:                                         ; preds = %land.rhs.i, %for.body.us
   %6 = phi i64 [ %i.08.us, %for.body.us ], [ %i.08, %land.rhs.i ]
-  %7 = getelementptr inbounds nuw %"class.llvh::cl::parser<DisassemblyFormat>::OptionInfo", ptr %4, i64 %6
+  %7 = getelementptr inbounds nuw [48 x i8], ptr %4, i64 %6
   %Value.i = getelementptr inbounds nuw i8, ptr %7, i64 40
   %8 = load i32, ptr %Value.i, align 4
   store i32 %8, ptr %V, align 4
@@ -4044,7 +4041,7 @@ if.then.i.i.i.i.i.i.i8:                           ; preds = %if.end.i.i.i.i.i.i
   %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 96
   %13 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i.i, align 8
   %rem.i.i.i.i.i.i.i.i.i.i = urem i64 %13, %8
-  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %12, i64 %rem.i.i.i.i.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %12, i64 %rem.i.i.i.i.i.i.i.i.i.i
   store ptr %_M_before_begin.i.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes11ProfileDataC2EOS0_.exit.i.i
 
@@ -4153,12 +4150,12 @@ if.end.i1014:                                     ; preds = %if.end
 
 if.then7:                                         ; preds = %if.end.i1014, %if.end.i1023
   %conv.i.i = zext i32 %0 to i64
-  %add.ptr.i9.i = getelementptr inbounds nuw %"class.llvh::StringRef", ptr %1, i64 %conv.i.i
+  %add.ptr.i9.i = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %conv.i.i
   %call.i.i.i = call noundef ptr @_ZSt9__find_ifIPN4llvh9StringRefEN9__gnu_cxx5__ops16_Iter_equals_valIA6_KcEEET_S9_S9_T0_St26random_access_iterator_tag(ptr noundef nonnull %1, ptr noundef nonnull %add.ptr.i9.i, ptr nonnull @.str.46)
   %4 = load ptr, ptr %commandTokens, align 8
   %5 = load i32, ptr %Size.i.i.i.i.i, align 8
   %conv.i6.i = zext i32 %5 to i64
-  %add.ptr.i.i = getelementptr inbounds nuw %"class.llvh::StringRef", ptr %4, i64 %conv.i6.i
+  %add.ptr.i.i = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %conv.i6.i
   %cmp.not.i.not = icmp eq ptr %call.i.i.i, %add.ptr.i.i
   br i1 %cmp.not.i.not, label %if.else, label %if.then.i
 
@@ -4265,12 +4262,12 @@ if.end.i978:                                      ; preds = %if.end.i1014
 
 if.then49:                                        ; preds = %if.end.i978, %if.end.i987
   %conv.i.i169 = zext i32 %0 to i64
-  %add.ptr.i9.i170 = getelementptr inbounds nuw %"class.llvh::StringRef", ptr %1, i64 %conv.i.i169
+  %add.ptr.i9.i170 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %conv.i.i169
   %call.i.i.i171 = call noundef ptr @_ZSt9__find_ifIPN4llvh9StringRefEN9__gnu_cxx5__ops16_Iter_equals_valIA9_KcEEET_S9_S9_T0_St26random_access_iterator_tag(ptr noundef nonnull %1, ptr noundef nonnull %add.ptr.i9.i170, ptr nonnull @.str.52)
   %12 = load ptr, ptr %commandTokens, align 8
   %13 = load i32, ptr %Size.i.i.i.i.i, align 8
   %conv.i6.i172 = zext i32 %13 to i64
-  %add.ptr.i.i173 = getelementptr inbounds nuw %"class.llvh::StringRef", ptr %12, i64 %conv.i6.i172
+  %add.ptr.i.i173 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %conv.i6.i172
   %cmp.not.i174.not = icmp eq ptr %call.i.i.i171, %add.ptr.i.i173
   br i1 %cmp.not.i174.not, label %_ZL16findAndRemoveOneIN4llvh11SmallVectorINS0_9StringRefELj8EEEA9_cEbRT_RKT0_.exit, label %if.then.i175
 
@@ -5146,7 +5143,7 @@ if.then.i:                                        ; preds = %if.end9
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 96
   %14 = load i64, ptr %add.ptr.i.i.i, align 8
   %rem.i.i.i.i = urem i64 %14, %11
-  %arrayidx.i = getelementptr inbounds ptr, ptr %10, i64 %rem.i.i.i.i
+  %arrayidx.i = getelementptr inbounds [8 x i8], ptr %10, i64 %rem.i.i.i.i
   store ptr %_M_before_begin.i, ptr %arrayidx.i, align 8
   br label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St13unordered_mapItmSt4hashItESt8equal_toItESaIS6_IKtmEEEESaISH_ENSt8__detail10_Select1stESB_IS5_ES9_IS5_ENSJ_18_Mod_range_hashingENSJ_20_Default_ranged_hashENSJ_20_Prime_rehash_policyENSJ_17_Hashtable_traitsILb1ELb0ELb1EEEE16_M_update_bbeginEv.exit
 
@@ -6684,7 +6681,7 @@ if.end.i:                                         ; preds = %if.then.i16, %if.en
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i, i64 72
   store i64 %call.i.i.i8, ptr %add.ptr.i, align 8
   %10 = load ptr, ptr %this, align 8
-  %arrayidx.i.i = getelementptr inbounds ptr, ptr %10, i64 %__bkt.addr.0.i
+  %arrayidx.i.i = getelementptr inbounds [8 x i8], ptr %10, i64 %__bkt.addr.0.i
   %11 = load ptr, ptr %arrayidx.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %11, null
   br i1 %tobool.not.i.i, label %if.else.i.i, label %if.then.i.i
@@ -6708,14 +6705,14 @@ if.then14.i.i:                                    ; preds = %if.else.i.i
   %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %14, i64 72
   %16 = load i64, ptr %add.ptr.i.i.i.i, align 8
   %rem.i.i.i.i.i = urem i64 %16, %15
-  %arrayidx17.i.i = getelementptr inbounds ptr, ptr %10, i64 %rem.i.i.i.i.i
+  %arrayidx17.i.i = getelementptr inbounds [8 x i8], ptr %10, i64 %rem.i.i.i.i.i
   store ptr %call5.i.i.i.i.i, ptr %arrayidx17.i.i, align 8
   %.pre = load ptr, ptr %this, align 8
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then14.i.i, %if.else.i.i
   %17 = phi ptr [ %.pre, %if.then14.i.i ], [ %10, %if.else.i.i ]
-  %arrayidx20.i.i = getelementptr inbounds ptr, ptr %17, i64 %__bkt.addr.0.i
+  %arrayidx20.i.i = getelementptr inbounds [8 x i8], ptr %17, i64 %__bkt.addr.0.i
   store ptr %_M_before_begin.i.i, ptr %arrayidx20.i.i, align 8
   br label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
 
@@ -6739,7 +6736,7 @@ declare noundef i64 @_ZSt11_Hash_bytesPKvmm(ptr noundef, i64 noundef, i64 nounde
 define linkonce_odr dso_local noundef ptr @_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE22_M_find_before_node_trIS5_EEPNSA_15_Hash_node_baseEmRKT_m(ptr noundef nonnull align 8 dereferenceable(56) %this, i64 noundef %__bkt, ptr noundef nonnull align 8 dereferenceable(32) %__k, i64 noundef %__code) local_unnamed_addr #3 comdat align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %0, i64 %__bkt
+  %arrayidx = getelementptr inbounds [8 x i8], ptr %0, i64 %__bkt
   %1 = load ptr, ptr %arrayidx, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %return, label %if.end
@@ -6845,7 +6842,7 @@ while.body:                                       ; preds = %_ZNSt10_HashtableIN
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %__p.022, i64 72
   %2 = load i64, ptr %add.ptr.i, align 8
   %rem.i.i = urem i64 %2, %__bkt_count
-  %arrayidx = getelementptr inbounds ptr, ptr %retval.0.i, i64 %rem.i.i
+  %arrayidx = getelementptr inbounds [8 x i8], ptr %retval.0.i, i64 %rem.i.i
   %3 = load ptr, ptr %arrayidx, align 8
   %tobool5.not = icmp eq ptr %3, null
   br i1 %tobool5.not, label %if.then, label %if.else
@@ -6860,7 +6857,7 @@ if.then:                                          ; preds = %while.body
   br i1 %tobool14.not, label %if.end22, label %if.then15
 
 if.then15:                                        ; preds = %if.then
-  %arrayidx16 = getelementptr inbounds ptr, ptr %retval.0.i, i64 %__bbegin_bkt.021
+  %arrayidx16 = getelementptr inbounds [8 x i8], ptr %retval.0.i, i64 %__bbegin_bkt.021
   store ptr %__p.022, ptr %arrayidx16, align 8
   br label %if.end22
 
@@ -6956,7 +6953,7 @@ return:                                           ; preds = %_ZNKSt8__detail15_H
 define linkonce_odr dso_local noundef ptr @_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_find_before_nodeEmRS7_m(ptr noundef nonnull align 8 dereferenceable(56) %this, i64 noundef %__bkt, ptr noundef nonnull align 8 dereferenceable(32) %__k, i64 noundef %__code) local_unnamed_addr #3 comdat align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %0, i64 %__bkt
+  %arrayidx = getelementptr inbounds [8 x i8], ptr %0, i64 %__bkt
   %1 = load ptr, ptr %arrayidx, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %return, label %if.end
@@ -7303,7 +7300,7 @@ entry:
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %utf8Storage) #21
   %conv = zext i32 %id to i64
   %0 = load ptr, ptr %this, align 8
-  %add.ptr.i = getelementptr inbounds nuw %"class.hermes::StringTableEntry", ptr %0, i64 %conv
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %conv
   %filenameStorage_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load ptr, ptr %filenameStorage_, align 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -7851,7 +7848,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call5.i.i.i, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i18, ptr %_M_finish.i.i, align 8
-  %add.ptr19 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr19 = getelementptr inbounds nuw [32 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr19, ptr %_M_end_of_storage, align 8
   ret void
 }

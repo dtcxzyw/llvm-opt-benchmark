@@ -2450,7 +2450,7 @@ arkCheckConvergence.exit:                         ; preds = %193
 
 290:                                              ; preds = %.lr.ph, %289
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %289 ]
-  %291 = getelementptr inbounds nuw i32, ptr %288, i64 %indvars.iv
+  %291 = getelementptr inbounds nuw [4 x i8], ptr %288, i64 %indvars.iv
   %292 = load i32, ptr %291, align 4, !tbaa !115
   %.not304 = icmp eq i32 %292, 0
   br i1 %.not304, label %293, label %289
@@ -6037,15 +6037,15 @@ define range(i32 -28, 1) i32 @arkPredict_Bootstrap(ptr noundef readonly captures
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %21 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %22 = load double, ptr %21, align 8, !tbaa !113
   %23 = fmul double %18, %22
   %24 = add nuw nsw i64 %indvars.iv, 2
-  %25 = getelementptr inbounds nuw double, ptr %4, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %24
   store double %23, ptr %25, align 8, !tbaa !113
-  %26 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8, !tbaa !52
-  %28 = getelementptr inbounds nuw ptr, ptr %5, i64 %24
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %24
   store ptr %27, ptr %28, align 8, !tbaa !52
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -6223,7 +6223,7 @@ define range(i32 0, 2) i32 @arkResizeVecArray(ptr noundef readonly captures(addr
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %17 ]
   %18 = load ptr, ptr %4, align 8, !tbaa !165
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8, !tbaa !52
   %21 = tail call i32 %0(ptr noundef %20, ptr noundef %3, ptr noundef %1) #16
   %.not26 = icmp eq i32 %21, 0

@@ -304,11 +304,11 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit104:   ; preds = %113, %118, %120
 136:                                              ; preds = %.noexc
   %137 = icmp eq i32 %.060, -1
   %138 = sext i32 %.060 to i64
-  %139 = getelementptr inbounds i16, ptr %.049, i64 %138
+  %139 = getelementptr inbounds [2 x i8], ptr %.049, i64 %138
   %.0187.i = select i1 %137, ptr null, ptr %139
   %140 = icmp eq i32 %.065, -1
   %141 = sext i32 %.065 to i64
-  %142 = getelementptr inbounds i16, ptr %.069, i64 %141
+  %142 = getelementptr inbounds [2 x i8], ptr %.069, i64 %141
   %.0183.i = select i1 %140, ptr null, ptr %142
   %143 = and i32 %4, 4096
   %.not227.i = icmp eq i32 %143, 0
@@ -363,7 +363,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit104:   ; preds = %113, %118, %120
 .preheader259.us.i:                               ; preds = %.preheader259.us.i, %.preheader259.us.preheader.i
   %indvars.iv.i = phi i64 [ %158, %.preheader259.us.preheader.i ], [ %indvars.iv.next.i, %.preheader259.us.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %159 = getelementptr inbounds %struct.CmpEquivLevel, ptr %9, i64 %indvars.iv.next.i
+  %159 = getelementptr inbounds [24 x i8], ptr %9, i64 %indvars.iv.next.i
   %160 = load ptr, ptr %159, align 8, !tbaa !17
   %161 = icmp eq ptr %160, null
   br i1 %161, label %.preheader259.us.i, label %162, !llvm.loop !20
@@ -412,7 +412,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit104:   ; preds = %113, %118, %120
 .preheader259.i:                                  ; preds = %.preheader259.i, %.preheader259.preheader.i
   %indvars.iv331.i = phi i64 [ %175, %.preheader259.preheader.i ], [ %indvars.iv.next332.i, %.preheader259.i ]
   %indvars.iv.next332.i = add nsw i64 %indvars.iv331.i, -1
-  %178 = getelementptr inbounds %struct.CmpEquivLevel, ptr %9, i64 %indvars.iv.next332.i
+  %178 = getelementptr inbounds [24 x i8], ptr %9, i64 %indvars.iv.next332.i
   %179 = load ptr, ptr %178, align 8, !tbaa !17
   %180 = icmp eq ptr %179, null
   br i1 %180, label %.preheader259.i, label %181, !llvm.loop !20
@@ -466,7 +466,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit104:   ; preds = %113, %118, %120
 .preheader.i:                                     ; preds = %.preheader.i, %.preheader.preheader.i
   %indvars.iv334.i = phi i64 [ %195, %.preheader.preheader.i ], [ %indvars.iv.next335.i, %.preheader.i ]
   %indvars.iv.next335.i = add nsw i64 %indvars.iv334.i, -1
-  %199 = getelementptr inbounds %struct.CmpEquivLevel, ptr %10, i64 %indvars.iv.next335.i
+  %199 = getelementptr inbounds [24 x i8], ptr %10, i64 %indvars.iv.next335.i
   %200 = load ptr, ptr %199, align 8, !tbaa !17
   %201 = icmp eq ptr %200, null
   br i1 %201, label %.preheader.i, label %202, !llvm.loop !25
@@ -671,7 +671,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit104:   ; preds = %113, %118, %120
 301:                                              ; preds = %300, %.noexc108
   %302 = phi i32 [ %.0162.i, %300 ], [ %.pre.i, %.noexc108 ]
   %303 = sext i32 %302 to i64
-  %304 = getelementptr inbounds i16, ptr %13, i64 %303
+  %304 = getelementptr inbounds [2 x i8], ptr %13, i64 %303
   br label %.backedge.i.backedge
 
 305:                                              ; preds = %.noexc107, %268
@@ -754,7 +754,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit104:   ; preds = %113, %118, %120
 338:                                              ; preds = %337, %.noexc110
   %339 = phi i32 [ %.0.i106, %337 ], [ %.pre338.i, %.noexc110 ]
   %340 = sext i32 %339 to i64
-  %341 = getelementptr inbounds i16, ptr %14, i64 %340
+  %341 = getelementptr inbounds [2 x i8], ptr %14, i64 %340
   br label %.backedge.i.backedge
 
 342:                                              ; preds = %.noexc109, %305
@@ -794,7 +794,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit104:   ; preds = %113, %118, %120
   %.5204.i = phi ptr [ %351, %350 ], [ %.1200.i, %352 ], [ %.1200.i, %346 ]
   %.3.i = phi i32 [ %.1167.i, %350 ], [ %356, %352 ], [ %.1167.i, %346 ]
   %358 = sext i32 %.1179.i to i64
-  %359 = getelementptr inbounds %struct.CmpEquivLevel, ptr %9, i64 %358
+  %359 = getelementptr inbounds [24 x i8], ptr %9, i64 %358
   store ptr %.1195.i, ptr %359, align 8, !tbaa !17
   %360 = getelementptr inbounds nuw i8, ptr %359, i64 8
   store ptr %.5204.i, ptr %360, align 8, !tbaa !22
@@ -813,7 +813,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit104:   ; preds = %113, %118, %120
   %.4182.i = phi i32 [ %363, %362 ], [ 2, %357 ]
   %366 = load i32, ptr %8, align 4, !tbaa !27
   %367 = sext i32 %366 to i64
-  %368 = getelementptr inbounds i16, ptr %345, i64 %367
+  %368 = getelementptr inbounds [2 x i8], ptr %345, i64 %367
   br label %.backedge.i.backedge
 
 369:                                              ; preds = %.noexc111, %342
@@ -853,7 +853,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit104:   ; preds = %113, %118, %120
   %.6.i = phi ptr [ %.1200.i, %377 ], [ %380, %379 ], [ %.1200.i, %373 ]
   %.3171.i = phi i32 [ %.1169.i, %377 ], [ %383, %379 ], [ %.1169.i, %373 ]
   %385 = sext i32 %.1174.i to i64
-  %386 = getelementptr inbounds %struct.CmpEquivLevel, ptr %10, i64 %385
+  %386 = getelementptr inbounds [24 x i8], ptr %10, i64 %385
   store ptr %.1192.i, ptr %386, align 8, !tbaa !17
   %387 = getelementptr inbounds nuw i8, ptr %386, i64 8
   store ptr %.6211.i, ptr %387, align 8, !tbaa !22
@@ -872,7 +872,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit104:   ; preds = %113, %118, %120
   %.4177.i = phi i32 [ %390, %389 ], [ 2, %384 ]
   %393 = load i32, ptr %8, align 4, !tbaa !27
   %394 = sext i32 %393 to i64
-  %395 = getelementptr inbounds i16, ptr %372, i64 %394
+  %395 = getelementptr inbounds [2 x i8], ptr %372, i64 %394
   br label %.backedge.i.backedge
 
 .backedge.i.backedge:                             ; preds = %392, %365, %338, %301, %210

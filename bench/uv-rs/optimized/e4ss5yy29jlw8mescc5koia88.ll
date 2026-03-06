@@ -541,7 +541,7 @@ _ZN9uv_pep4407version12VersionSmall12push_release17h02d96fd89e4e4274E.exit: ; pr
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hda888f7614147de9E.exit": ; preds = %93, %87
   %94 = getelementptr inbounds nuw i8, ptr %86, i64 72
   %95 = load ptr, ptr %94, align 8, !alias.scope !94, !nonnull !3, !noundef !3
-  %96 = getelementptr inbounds i64, ptr %95, i64 %90
+  %96 = getelementptr inbounds [8 x i8], ptr %95, i64 %90
   store i64 %64, ptr %96, align 8
   %97 = add i64 %90, 1
   store i64 %97, ptr %89, align 8, !alias.scope !94
@@ -784,7 +784,7 @@ _ZN9uv_pep4407version12VersionSmall12push_release17h02d96fd89e4e4274E.exit: ; pr
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hda888f7614147de9E.exit": ; preds = %71, %65
   %72 = getelementptr inbounds nuw i8, ptr %64, i64 72
   %73 = load ptr, ptr %72, align 8, !alias.scope !123, !nonnull !3, !noundef !3
-  %74 = getelementptr inbounds i64, ptr %73, i64 %68
+  %74 = getelementptr inbounds [8 x i8], ptr %73, i64 %68
   store i64 %42, ptr %74, align 8
   %75 = add i64 %68, 1
   store i64 %75, ptr %67, align 8, !alias.scope !123
@@ -1125,7 +1125,7 @@ _ZN9uv_pep4407version12VersionSmall12push_release17h02d96fd89e4e4274E.exit.i: ; 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hda888f7614147de9E.exit.i": ; preds = %101, %95
   %102 = getelementptr inbounds nuw i8, ptr %94, i64 72
   %103 = load ptr, ptr %102, align 8, !alias.scope !174, !noalias !155, !nonnull !3, !noundef !3
-  %104 = getelementptr inbounds i64, ptr %103, i64 %98
+  %104 = getelementptr inbounds [8 x i8], ptr %103, i64 %98
   store i64 %72, ptr %104, align 8, !noalias !155
   %105 = add i64 %98, 1
   store i64 %105, ptr %97, align 8, !alias.scope !174, !noalias !155
@@ -1719,7 +1719,7 @@ default.unreachable385:                           ; preds = %2
   store i64 %.sroa.7.0.i74, ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !240, !noalias !245
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   %.not53 = icmp eq i64 %.sroa.7.0.i74, 0
-  %142 = getelementptr i64, ptr %139, i64 %.sroa.7.0.i74
+  %142 = getelementptr [8 x i8], ptr %139, i64 %.sroa.7.0.i74
   %143 = getelementptr i8, ptr %142, i64 -8
   %144 = icmp eq ptr %143, null
   %145 = or i1 %.not53, %144
@@ -2035,7 +2035,7 @@ default.unreachable385:                           ; preds = %2
   store i64 %.sroa.7.0.i98, ptr %.sroa.6.0..sroa_idx.i104, align 8, !alias.scope !280, !noalias !285
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %.not = icmp eq i64 %.sroa.7.0.i98, 0
-  %240 = getelementptr i64, ptr %237, i64 %.sroa.7.0.i98
+  %240 = getelementptr [8 x i8], ptr %237, i64 %.sroa.7.0.i98
   %241 = getelementptr i8, ptr %240, i64 -8
   %242 = icmp eq ptr %241, null
   %243 = or i1 %.not, %242
@@ -2236,7 +2236,7 @@ default.unreachable385:                           ; preds = %2
   %.sroa.0.0.i119368 = phi ptr [ %298, %295 ], [ %.sroa.0.0.i119368.ph, %.thread.sink.split ]
   %.sroa.7.0.i118367 = phi i64 [ %300, %295 ], [ %.sroa.7.0.i118367.ph, %.thread.sink.split ]
   call void @llvm.lifetime.start.p0(ptr nonnull %39)
-  %303 = getelementptr i64, ptr %.sroa.0.0.i119368, i64 %.sroa.7.0.i118367
+  %303 = getelementptr [8 x i8], ptr %.sroa.0.0.i119368, i64 %.sroa.7.0.i118367
   %304 = getelementptr i8, ptr %303, i64 -16
   %305 = load i64, ptr %304, align 8, !noundef !3
   %306 = add i64 %305, 1
@@ -2392,7 +2392,7 @@ _ZN9uv_pep4407version12VersionSmall12push_release17h02d96fd89e4e4274E.exit.i: ; 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hda888f7614147de9E.exit.i": ; preds = %352, %346
   %353 = getelementptr inbounds nuw i8, ptr %345, i64 72
   %354 = load ptr, ptr %353, align 8, !alias.scope !334, !noalias !320, !nonnull !3, !noundef !3
-  %355 = getelementptr inbounds i64, ptr %354, i64 %349
+  %355 = getelementptr inbounds [8 x i8], ptr %354, i64 %349
   store i64 %.sroa.02.0.i.i.i.sroa.speculated, ptr %355, align 8, !noalias !320
   %356 = add i64 %349, 1
   store i64 %356, ptr %348, align 8, !alias.scope !334, !noalias !320
@@ -2788,7 +2788,7 @@ _ZN9uv_pep4407version7Version7release17h3b904b11940ddafeE.exit.thread: ; preds =
 "_ZN71_$LT$uv_pep440..version..Release$u20$as$u20$core..ops..deref..Deref$GT$5deref17hd084f99d64626cdbE.exit": ; preds = %_ZN9uv_pep4407version7Version7release17h3b904b11940ddafeE.exit.thread, %27, %30, %35, %42, %51
   %.sroa.7.0.i19 = phi i64 [ %56, %51 ], [ 1, %27 ], [ 2, %30 ], [ 3, %35 ], [ 4, %42 ], [ 0, %_ZN9uv_pep4407version7Version7release17h3b904b11940ddafeE.exit.thread ]
   %.sroa.0.0.i = phi ptr [ %54, %51 ], [ %.sroa.7.0..sroa_idx.i50, %27 ], [ %.sroa.7.0..sroa_idx.i61, %30 ], [ %.sroa.7.0..sroa_idx.i72, %35 ], [ %.sroa.7.0..sroa_idx.i83, %42 ], [ %.sroa.7.0..sroa_idx.i40, %_ZN9uv_pep4407version7Version7release17h3b904b11940ddafeE.exit.thread ]
-  %58 = getelementptr inbounds i64, ptr %.sroa.0.0.i, i64 %.sroa.7.0.i19
+  %58 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0.i, i64 %.sroa.7.0.i19
   store ptr %.sroa.0.0.i, ptr %12, align 8
   %59 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %58, ptr %59, align 8
@@ -2926,7 +2926,7 @@ _ZN9uv_pep4407version7Version7release17h3b904b11940ddafeE.exit30.thread: ; preds
 "_ZN71_$LT$uv_pep440..version..Release$u20$as$u20$core..ops..deref..Deref$GT$5deref17hd084f99d64626cdbE.exit34": ; preds = %_ZN9uv_pep4407version7Version7release17h3b904b11940ddafeE.exit30.thread, %74, %77, %82, %89, %98
   %.sroa.7.0.i31 = phi i64 [ %103, %98 ], [ 1, %74 ], [ 2, %77 ], [ 3, %82 ], [ 4, %89 ], [ 0, %_ZN9uv_pep4407version7Version7release17h3b904b11940ddafeE.exit30.thread ]
   %.sroa.0.0.i32 = phi ptr [ %101, %98 ], [ %.sroa.7.0..sroa_idx.i25103, %74 ], [ %.sroa.7.0..sroa_idx.i25114, %77 ], [ %.sroa.7.0..sroa_idx.i25125, %82 ], [ %.sroa.7.0..sroa_idx.i25136, %89 ], [ %.sroa.7.0..sroa_idx.i2593, %_ZN9uv_pep4407version7Version7release17h3b904b11940ddafeE.exit30.thread ]
-  %105 = getelementptr inbounds i64, ptr %.sroa.0.0.i32, i64 %.sroa.7.0.i31
+  %105 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0.i32, i64 %.sroa.7.0.i31
   store ptr %.sroa.0.0.i32, ptr %10, align 8
   %106 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %105, ptr %106, align 8
@@ -3554,7 +3554,7 @@ _ZN9uv_pep4407version7Version7release17h3b904b11940ddafeE.exit.thread: ; preds =
 "_ZN71_$LT$uv_pep440..version..Release$u20$as$u20$core..ops..deref..Deref$GT$5deref17hd084f99d64626cdbE.exit": ; preds = %_ZN9uv_pep4407version7Version7release17h3b904b11940ddafeE.exit.thread, %30, %33, %38, %45, %54
   %.sroa.7.0.i30 = phi i64 [ %59, %54 ], [ 1, %30 ], [ 2, %33 ], [ 3, %38 ], [ 4, %45 ], [ 0, %_ZN9uv_pep4407version7Version7release17h3b904b11940ddafeE.exit.thread ]
   %.sroa.0.0.i = phi ptr [ %57, %54 ], [ %.sroa.7.0..sroa_idx.i91, %30 ], [ %.sroa.7.0..sroa_idx.i102, %33 ], [ %.sroa.7.0..sroa_idx.i113, %38 ], [ %.sroa.7.0..sroa_idx.i124, %45 ], [ %.sroa.7.0..sroa_idx.i81, %_ZN9uv_pep4407version7Version7release17h3b904b11940ddafeE.exit.thread ]
-  %61 = getelementptr inbounds i64, ptr %.sroa.0.0.i, i64 %.sroa.7.0.i30
+  %61 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0.i, i64 %.sroa.7.0.i30
   store ptr %.sroa.0.0.i, ptr %15, align 8
   %62 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %61, ptr %62, align 8
@@ -3738,7 +3738,7 @@ default.unreachable:                              ; preds = %.thread189
 "_ZN71_$LT$uv_pep440..version..Release$u20$as$u20$core..ops..deref..Deref$GT$5deref17hd084f99d64626cdbE.exit60": ; preds = %_ZN9uv_pep4407version7Version7release17h3b904b11940ddafeE.exit56.thread, %92, %95, %100, %107, %116
   %.sroa.7.0.i57 = phi i64 [ %81, %116 ], [ 1, %92 ], [ 2, %95 ], [ 3, %100 ], [ 4, %107 ], [ 0, %_ZN9uv_pep4407version7Version7release17h3b904b11940ddafeE.exit56.thread ]
   %.sroa.0.0.i58 = phi ptr [ %79, %116 ], [ %.sroa.7.0..sroa_idx.i51209, %92 ], [ %.sroa.7.0..sroa_idx.i51220, %95 ], [ %.sroa.7.0..sroa_idx.i51231, %100 ], [ %.sroa.7.0..sroa_idx.i51242, %107 ], [ %.sroa.7.0..sroa_idx.i51199, %_ZN9uv_pep4407version7Version7release17h3b904b11940ddafeE.exit56.thread ]
-  %117 = getelementptr inbounds i64, ptr %.sroa.0.0.i58, i64 %.sroa.7.0.i57
+  %117 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0.i58, i64 %.sroa.7.0.i57
   store ptr %.sroa.0.0.i58, ptr %11, align 8
   %118 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %117, ptr %118, align 8
@@ -3800,7 +3800,7 @@ default.unreachable:                              ; preds = %.thread189
   %.sroa.0.0.i73 = phi ptr [ %.sroa.7.0..sroa_idx.i66285, %127 ], [ %.sroa.7.0..sroa_idx.i66296, %128 ], [ %79, %131 ]
   store i64 %.sink304, ptr %.sink305.sroa.phi, align 8, !alias.scope !510, !noalias !513
   store i64 %.sink, ptr %.sink303.sroa.phi, align 8, !alias.scope !510, !noalias !513
-  %132 = getelementptr inbounds i64, ptr %.sroa.0.0.i73, i64 %.sroa.7.0.i72
+  %132 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0.i73, i64 %.sroa.7.0.i72
   store ptr %.sroa.0.0.i73, ptr %13, align 8
   %133 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %132, ptr %133, align 8

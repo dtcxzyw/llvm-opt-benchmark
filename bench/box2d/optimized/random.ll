@@ -42,7 +42,7 @@ define void @RandomPolygon(ptr dead_on_unwind noalias writable sret(%struct.b2Po
 20:                                               ; preds = %2, %20
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %20 ]
   %21 = phi i32 [ %11, %2 ], [ %39, %20 ]
-  %22 = getelementptr inbounds nuw %struct.b2Vec2, ptr %3, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %23 = shl i32 %21, 13
   %24 = xor i32 %23, %21
   %25 = lshr i32 %24, 17

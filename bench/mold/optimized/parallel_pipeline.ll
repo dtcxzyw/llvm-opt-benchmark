@@ -3,7 +3,6 @@ source_filename = "bench/mold/original/parallel_pipeline.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"struct.tbb::detail::r1::task_info" = type <{ ptr, i64, i8, i8, [6 x i8] }>
 %"class.tbb::detail::d1::small_object_allocator" = type { ptr }
 %"class.tbb::detail::r1::pipeline" = type { ptr, ptr, ptr, %"struct.std::atomic.0", %"struct.std::atomic", %"class.tbb::detail::d1::wait_context" }
 %"struct.std::atomic.0" = type { %"struct.std::__atomic_base.1" }
@@ -98,7 +97,7 @@ define void @_ZN3tbb6detail2r112input_buffer4growEm(ptr noundef nonnull align 8 
 
 .lr.ph:                                           ; preds = %10, %.lr.ph
   %.02733 = phi i64 [ %20, %.lr.ph ], [ 0, %10 ]
-  %18 = getelementptr inbounds nuw %"struct.tbb::detail::r1::task_info", ptr %12, i64 %.02733
+  %18 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %.02733
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 17
   store i8 0, ptr %19, align 1, !tbaa !20
   %20 = add nuw i64 %.02733, 1
@@ -115,9 +114,9 @@ define void @_ZN3tbb6detail2r112input_buffer4growEm(ptr noundef nonnull align 8 
   %.035 = phi i64 [ 0, %.lr.ph37 ], [ %26, %21 ]
   %.02634 = phi i64 [ %15, %.lr.ph37 ], [ %27, %21 ]
   %22 = and i64 %.02634, %16
-  %23 = getelementptr inbounds nuw %"struct.tbb::detail::r1::task_info", ptr %13, i64 %22
+  %23 = getelementptr inbounds nuw [24 x i8], ptr %13, i64 %22
   %24 = and i64 %.02634, %17
-  %25 = getelementptr inbounds nuw %"struct.tbb::detail::r1::task_info", ptr %12, i64 %24
+  %25 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %25, ptr noundef nonnull align 8 dereferenceable(18) %23, i64 18, i1 false), !tbaa.struct !23
   %26 = add nuw i64 %.035, 1
   %27 = add i64 %.02634, 1
@@ -521,7 +520,7 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit: ; preds = 
   %23 = load i64, ptr %22, align 8, !tbaa !3
   %24 = add i64 %23, -1
   %25 = and i64 %24, %21
-  %26 = getelementptr inbounds nuw %"struct.tbb::detail::r1::task_info", ptr %18, i64 %25
+  %26 = getelementptr inbounds nuw [24 x i8], ptr %18, i64 %25
   %27 = load ptr, ptr @__itt_sync_acquired_ptr__3_0, align 8, !tbaa !24
   %.not = icmp eq ptr %27, null
   br i1 %.not, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit, label %28
@@ -716,7 +715,7 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit: ; preds = 
 
 .lr.ph.i:                                         ; preds = %.noexc, %.lr.ph.i
   %.02733.i = phi i64 [ %56, %.lr.ph.i ], [ 0, %.noexc ]
-  %54 = getelementptr inbounds nuw %"struct.tbb::detail::r1::task_info", ptr %49, i64 %.02733.i
+  %54 = getelementptr inbounds nuw [24 x i8], ptr %49, i64 %.02733.i
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 17
   store i8 0, ptr %55, align 1, !tbaa !20
   %56 = add nuw i64 %.02733.i, 1
@@ -733,9 +732,9 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit: ; preds = 
   %.035.i = phi i64 [ 0, %.lr.ph37.i ], [ %62, %57 ]
   %.02634.i = phi i64 [ %51, %.lr.ph37.i ], [ %63, %57 ]
   %58 = and i64 %.02634.i, %52
-  %59 = getelementptr inbounds nuw %"struct.tbb::detail::r1::task_info", ptr %50, i64 %58
+  %59 = getelementptr inbounds nuw [24 x i8], ptr %50, i64 %58
   %60 = and i64 %.02634.i, %53
-  %61 = getelementptr inbounds nuw %"struct.tbb::detail::r1::task_info", ptr %49, i64 %60
+  %61 = getelementptr inbounds nuw [24 x i8], ptr %49, i64 %60
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %61, ptr noundef nonnull align 8 dereferenceable(18) %59, i64 18, i1 false), !tbaa.struct !23
   %62 = add nuw i64 %.035.i, 1
   %63 = add i64 %.02634.i, 1
@@ -771,7 +770,7 @@ _ZN3tbb6detail2r112input_buffer4growEm.exit:      ; preds = %._crit_edge38.i, %6
   %70 = load i64, ptr %38, align 8, !tbaa !3
   %71 = add i64 %70, -1
   %72 = and i64 %71, %.013
-  %73 = getelementptr inbounds nuw %"struct.tbb::detail::r1::task_info", ptr %69, i64 %72
+  %73 = getelementptr inbounds nuw [24 x i8], ptr %69, i64 %72
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %73, ptr noundef nonnull align 8 dereferenceable(18) %1, i64 18, i1 false), !tbaa.struct !23
   br label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit22
 
@@ -920,7 +919,7 @@ define void @_ZN3tbb6detail2r18pipeline10add_filterERNS0_2d111base_filterE(ptr n
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %20
   %.02733.i.i = phi i64 [ %34, %.lr.ph.i.i ], [ 0, %20 ]
-  %32 = getelementptr inbounds nuw %"struct.tbb::detail::r1::task_info", ptr %30, i64 %.02733.i.i
+  %32 = getelementptr inbounds nuw [24 x i8], ptr %30, i64 %.02733.i.i
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 17
   store i8 0, ptr %33, align 1, !tbaa !20
   %34 = add nuw nsw i64 %.02733.i.i, 1
@@ -966,7 +965,7 @@ _ZN3tbb6detail2r112input_bufferC2Eb.exit:         ; preds = %._crit_edge38.i.i, 
 
 .lr.ph.i.i13:                                     ; preds = %.lr.ph.i.i13, %41
   %.02733.i.i14 = phi i64 [ %51, %.lr.ph.i.i13 ], [ 0, %41 ]
-  %49 = getelementptr inbounds nuw %"struct.tbb::detail::r1::task_info", ptr %47, i64 %.02733.i.i14
+  %49 = getelementptr inbounds nuw [24 x i8], ptr %47, i64 %.02733.i.i14
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 17
   store i8 0, ptr %50, align 1, !tbaa !20
   %51 = add nuw nsw i64 %.02733.i.i14, 1

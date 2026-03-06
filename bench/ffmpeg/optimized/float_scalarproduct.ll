@@ -19,9 +19,9 @@ define float @ff_scalarproduct_float_c(ptr noundef readonly captures(none) %0, p
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.089 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %9, %.lr.ph ]
-  %5 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %6 = load float, ptr %5, align 4, !tbaa !4
-  %7 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %8 = load float, ptr %7, align 4, !tbaa !4
   %9 = tail call nsz float @llvm.fmuladd.f32(float %6, float %8, float %.089)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

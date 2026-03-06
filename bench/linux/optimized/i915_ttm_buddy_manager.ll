@@ -5,7 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.lock_class_key = type {}
 %struct.ttm_resource_manager_func = type { ptr, ptr, ptr, ptr, ptr }
-%struct.list_head = type { ptr, ptr }
 
 @i915_ttm_buddy_man_init.__key = internal global %struct.lock_class_key zeroinitializer, align 1
 @.str = private unnamed_addr constant [12 x i8] c"&bman->lock\00", align 1
@@ -60,7 +59,7 @@ define dso_local i32 @i915_ttm_buddy_man_init(ptr noundef %0, i32 noundef %1, i1
 
 30:                                               ; preds = %36, %16
   %31 = phi i64 [ 0, %16 ], [ %37, %36 ]
-  %32 = getelementptr %struct.list_head, ptr %29, i64 %31
+  %32 = getelementptr [16 x i8], ptr %29, i64 %31
   %33 = load volatile ptr, ptr %32, align 8
   %34 = icmp eq ptr %33, %32
   br i1 %34, label %36, label %35, !prof !5
@@ -80,7 +79,7 @@ define dso_local i32 @i915_ttm_buddy_man_init(ptr noundef %0, i32 noundef %1, i1
   store i8 1, ptr %10, align 8
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %41 = sext i32 %1 to i64
-  %42 = getelementptr ptr, ptr %40, i64 %41
+  %42 = getelementptr [8 x i8], ptr %40, i64 %41
   store ptr %10, ptr %42, align 8
   br label %44
 
@@ -109,14 +108,14 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #1
 define dso_local i32 @i915_ttm_buddy_man_fini(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = sext i32 %1 to i64
-  %5 = getelementptr ptr, ptr %3, i64 %4
+  %5 = getelementptr [8 x i8], ptr %3, i64 %4
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
   br label %8
 
 8:                                                ; preds = %14, %2
   %9 = phi i64 [ 0, %2 ], [ %15, %14 ]
-  %10 = getelementptr %struct.list_head, ptr %7, i64 %9
+  %10 = getelementptr [16 x i8], ptr %7, i64 %9
   %11 = load volatile ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, %10
   br i1 %12, label %14, label %13, !prof !5

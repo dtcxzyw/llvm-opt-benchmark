@@ -141,7 +141,7 @@ _ZNSt6vectorIPN4cvc57context5ScopeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i
 _ZNSt6vectorIPN4cvc57context5ScopeESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %35, %_ZNSt6vectorIPN4cvc57context5ScopeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
   store ptr %30, ptr %2, align 8, !tbaa !31
   store ptr %34, ptr %11, align 8, !tbaa !27
-  %36 = getelementptr inbounds nuw ptr, ptr %30, i64 %28
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %28
   store ptr %36, ptr %13, align 8, !tbaa !28
   br label %_ZNSt6vectorIPN4cvc57context5ScopeESaIS3_EE9push_backEOS3_.exit
 
@@ -563,7 +563,7 @@ _ZNSt6vectorIPN4cvc57context5ScopeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i
 _ZNSt6vectorIPN4cvc57context5ScopeESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %40, %_ZNSt6vectorIPN4cvc57context5ScopeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
   store ptr %35, ptr %2, align 8, !tbaa !31
   store ptr %39, ptr %6, align 8, !tbaa !27
-  %41 = getelementptr inbounds nuw ptr, ptr %35, i64 %33
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %33
   store ptr %41, ptr %18, align 8, !tbaa !28
   br label %_ZNSt6vectorIPN4cvc57context5ScopeESaIS3_EE9push_backEOS3_.exit
 
@@ -931,7 +931,7 @@ _ZNSt6vectorIPN4cvc57context10ContextObjESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.ex
 _ZNSt6vectorIPN4cvc57context10ContextObjESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %29, %_ZNSt6vectorIPN4cvc57context10ContextObjESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
   store ptr %24, ptr %4, align 8, !tbaa !60
   store ptr %28, ptr %5, align 8, !tbaa !58
-  %30 = getelementptr inbounds nuw ptr, ptr %24, i64 %22
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %22
   store ptr %30, ptr %7, align 8, !tbaa !59
   br label %_ZN4cvc57context5Scope23enqueueToGarbageCollectEPNS0_10ContextObjE.exit
 
@@ -999,7 +999,7 @@ _ZNSt6vectorIPN4cvc57context10ContextObjESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.ex
 _ZNSt6vectorIPN4cvc57context10ContextObjESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %28, %_ZNSt6vectorIPN4cvc57context10ContextObjESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
   store ptr %23, ptr %3, align 8, !tbaa !60
   store ptr %27, ptr %4, align 8, !tbaa !58
-  %29 = getelementptr inbounds nuw ptr, ptr %23, i64 %21
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %21
   store ptr %29, ptr %6, align 8, !tbaa !59
   br label %_ZNSt6vectorIPN4cvc57context10ContextObjESaIS3_EE9push_backERKS3_.exit
 

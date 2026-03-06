@@ -1028,7 +1028,7 @@ define hidden void @_Z17cornerHarris_demoiPv(i32 %0, ptr readnone captures(none)
   %98 = load i64, ptr %97, align 8, !tbaa !10
   %99 = mul i64 %98, %indvars.iv69
   %100 = getelementptr inbounds nuw i8, ptr %96, i64 %99
-  %101 = getelementptr inbounds nuw float, ptr %100, i64 %indvars.iv
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %100, i64 %indvars.iv
   %102 = load float, ptr %101, align 4, !tbaa !77
   %103 = fptosi float %102 to i32
   %104 = load i32, ptr @thresh, align 4, !tbaa !52

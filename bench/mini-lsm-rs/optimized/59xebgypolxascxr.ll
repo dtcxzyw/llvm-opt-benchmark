@@ -9508,7 +9508,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h3dd3b88c499b662dE.exit: ; preds = %65
 118:                                              ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17ha02ecb5abd029822E.exit"
   %119 = getelementptr inbounds nuw i8, ptr %91, i64 152
   %120 = load ptr, ptr %119, align 8, !noalias !1091, !nonnull !14, !align !483, !noundef !14
-  %121 = getelementptr inbounds { { { i64 }, {} }, { i64 } }, ptr %120, i64 %.0.i.i
+  %121 = getelementptr inbounds [16 x i8], ptr %120, i64 %.0.i.i
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 8
   %123 = getelementptr inbounds nuw i8, ptr %91, i64 168
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1087
@@ -11044,7 +11044,7 @@ define void @_ZN8mini_lsm9iterators15concat_iterator17SstConcatIterator24create_
   %7 = load ptr, ptr %6, align 8, !nonnull !14, !noundef !14
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i64, ptr %8, align 8, !noundef !14
-  %10 = getelementptr inbounds ptr, ptr %7, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %7, i64 %9
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %.noexc, %2
@@ -11079,7 +11079,7 @@ define void @_ZN8mini_lsm9iterators15concat_iterator17SstConcatIterator24create_
   br i1 %exitcond.not.i, label %_ZN8mini_lsm9iterators15concat_iterator17SstConcatIterator15check_sst_valid17h881e2eefecfbb48fE.exit, label %22
 
 22:                                               ; preds = %21
-  %23 = getelementptr ptr, ptr %7, i64 %.sroa.05.0.i
+  %23 = getelementptr [8 x i8], ptr %7, i64 %.sroa.05.0.i
   %24 = load ptr, ptr %23, align 8, !alias.scope !1226, !nonnull !14, !noundef !14
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 72
   %26 = getelementptr i8, ptr %23, i64 8
@@ -11274,7 +11274,7 @@ define void @_ZN8mini_lsm9iterators15concat_iterator17SstConcatIterator22create_
   %12 = load ptr, ptr %11, align 8, !nonnull !14, !noundef !14
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %14 = load i64, ptr %13, align 8, !noundef !14
-  %15 = getelementptr inbounds ptr, ptr %12, i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr %12, i64 %14
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %.noexc, %4
@@ -11309,7 +11309,7 @@ define void @_ZN8mini_lsm9iterators15concat_iterator17SstConcatIterator22create_
   br i1 %exitcond.not.i, label %_ZN8mini_lsm9iterators15concat_iterator17SstConcatIterator15check_sst_valid17h881e2eefecfbb48fE.exit, label %27
 
 27:                                               ; preds = %26
-  %28 = getelementptr ptr, ptr %12, i64 %.sroa.05.0.i
+  %28 = getelementptr [8 x i8], ptr %12, i64 %.sroa.05.0.i
   %29 = load ptr, ptr %28, align 8, !alias.scope !1243, !nonnull !14, !noundef !14
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 72
   %31 = getelementptr i8, ptr %28, i64 8
@@ -11375,7 +11375,7 @@ _ZN8mini_lsm9iterators15concat_iterator17SstConcatIterator15check_sst_valid17h88
 46:                                               ; preds = %43
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.val = load ptr, ptr %11, align 8, !nonnull !14, !noundef !14
-  %47 = getelementptr inbounds ptr, ptr %.val, i64 %44
+  %47 = getelementptr inbounds [8 x i8], ptr %.val, i64 %44
   %.val38 = load ptr, ptr %47, align 8, !nonnull !14, !noundef !14
   %48 = atomicrmw add ptr %.val38, i64 1 monotonic, align 8
   %49 = icmp slt i64 %48, 0
@@ -11540,7 +11540,7 @@ define hidden noundef ptr @_ZN8mini_lsm9iterators15concat_iterator17SstConcatIte
 "_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h44468bd2bc869cd0E.exit": ; preds = %14
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.716.sroa.0)
   %.val = load ptr, ptr %12, align 8, !nonnull !14, !noundef !14
-  %17 = getelementptr inbounds ptr, ptr %.val, i64 %15
+  %17 = getelementptr inbounds [8 x i8], ptr %.val, i64 %15
   %.val29 = load ptr, ptr %17, align 8, !nonnull !14, !noundef !14
   %18 = atomicrmw add ptr %.val29, i64 1 monotonic, align 8
   %19 = icmp slt i64 %18, 0

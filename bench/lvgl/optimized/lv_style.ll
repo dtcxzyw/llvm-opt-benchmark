@@ -14,8 +14,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.lv_ll_t = type { i32, ptr, ptr }
 %struct.lv_style_t = type { ptr, i32, i8 }
 %struct._lv_font_t = type { ptr, ptr, ptr, i32, i32, i8, i8, i8, ptr, ptr, ptr }
-%struct.lv_style_const_prop_t = type { i8, %union.lv_style_value_t }
-%union.lv_style_value_t = type { ptr }
 
 @lv_style_const_prop_id_inv = local_unnamed_addr constant i8 0, align 1
 @lv_style_builtin_prop_flag_lookup_table = local_unnamed_addr constant [141 x i8] c"\00\04\04\02\04\04\04\04\04\04\04\00\00\00\00\00\06\06\06\06\06\06\04\00\06\06\06\06\00\00\00\00\00\00\00\00\00\00\00\05\02\00\00\00\00\00\00\00\04\00\00\00\00\00\00\00\02\00\02\02\02\00\02\00\02\02\02\00\00\00\00\00\02\00\00\00\00\00\00\00\02\00\00\00\00\00\00\00\01\01\05\05\05\01\05\00\10\01\01\00\00\00\00\10\22\22\0C\0C222\00\0022\10\00\00\00\00\00\00\00\00\00\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\00", align 16
@@ -89,7 +87,7 @@ lv_style_reset.exit:                              ; preds = %2
   %.val.i = phi i8 [ %.val.i.pr, %.lr.ph.splitthread-pre-split ], [ %13, %.lr.ph ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.splitthread-pre-split ], [ 0, %.lr.ph ]
   %15 = phi i8 [ %62, %.lr.ph.splitthread-pre-split ], [ %11, %.lr.ph ]
-  %16 = getelementptr inbounds nuw %struct.lv_style_const_prop_t, ptr %6, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %indvars.iv
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq i8 %.val.i, -1
@@ -119,7 +117,7 @@ lv_style_reset.exit:                              ; preds = %2
   br i1 %30, label %31, label %25, !llvm.loop !13
 
 31:                                               ; preds = %27
-  %32 = getelementptr inbounds nuw %union.lv_style_value_t, ptr %21, i64 %indvars.iv.next.i
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv.next.i
   store ptr %18, ptr %32, align 8, !tbaa !12
   br label %lv_style_set_prop.exit
 
@@ -165,7 +163,7 @@ lv_style_reset.exit:                              ; preds = %2
   store i8 %15, ptr %52, align 1, !tbaa !12
   %53 = load i8, ptr %3, align 4, !tbaa !3
   %54 = zext i8 %53 to i64
-  %55 = getelementptr %union.lv_style_value_t, ptr %35, i64 %54
+  %55 = getelementptr [8 x i8], ptr %35, i64 %54
   %56 = getelementptr i8, ptr %55, i64 -8
   store ptr %18, ptr %56, align 8, !tbaa !12
   %57 = tail call i8 @llvm.umin.i8(i8 %15, i8 124)
@@ -179,7 +177,7 @@ lv_style_reset.exit:                              ; preds = %2
 
 lv_style_set_prop.exit:                           ; preds = %.lr.ph.split, %31, %.loopexit.i, %._crit_edge.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %61 = getelementptr inbounds nuw %struct.lv_style_const_prop_t, ptr %6, i64 %indvars.iv.next
+  %61 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %indvars.iv.next
   %62 = load i8, ptr %61, align 8, !tbaa !10
   %.not = icmp eq i8 %62, 0
   br i1 %.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !17
@@ -202,7 +200,7 @@ lv_style_set_prop.exit:                           ; preds = %.lr.ph.split, %31, 
   %indvars.iv58 = phi i64 [ %indvars.iv.next59, %.lr.ph48.splitthread-pre-split ], [ 0, %.lr.ph48 ]
   %69 = getelementptr inbounds nuw i8, ptr %65, i64 %indvars.iv58
   %70 = load i8, ptr %69, align 1, !tbaa !12
-  %71 = getelementptr inbounds nuw %union.lv_style_value_t, ptr %6, i64 %indvars.iv58
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv58
   %72 = load ptr, ptr %71, align 8
   %73 = icmp eq i8 %.val.i26, -1
   br i1 %73, label %lv_style_set_prop.exit43, label %74
@@ -238,7 +236,7 @@ lv_style_set_prop.exit:                           ; preds = %.lr.ph.split, %31, 
   br i1 %85, label %86, label %80, !llvm.loop !13
 
 86:                                               ; preds = %82
-  %87 = getelementptr inbounds nuw %union.lv_style_value_t, ptr %76, i64 %indvars.iv.next.i41
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %indvars.iv.next.i41
   store ptr %72, ptr %87, align 8, !tbaa !12
   br label %lv_style_set_prop.exit43
 
@@ -284,7 +282,7 @@ lv_style_set_prop.exit:                           ; preds = %.lr.ph.split, %31, 
   store i8 %70, ptr %107, align 1, !tbaa !12
   %108 = load i8, ptr %3, align 4, !tbaa !3
   %109 = zext i8 %108 to i64
-  %110 = getelementptr %union.lv_style_value_t, ptr %90, i64 %109
+  %110 = getelementptr [8 x i8], ptr %90, i64 %109
   %111 = getelementptr i8, ptr %110, i64 -8
   store ptr %72, ptr %111, align 8, !tbaa !12
   %112 = tail call i8 @llvm.umin.i8(i8 %70, i8 124)
@@ -345,7 +343,7 @@ define void @lv_style_set_prop(ptr noundef captures(none) %0, i8 noundef zeroext
   br i1 %17, label %18, label %12, !llvm.loop !13
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds nuw %union.lv_style_value_t, ptr %8, i64 %indvars.iv.next
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.next
   store ptr %2, ptr %19, align 8, !tbaa !12
   br label %49
 
@@ -391,7 +389,7 @@ define void @lv_style_set_prop(ptr noundef captures(none) %0, i8 noundef zeroext
   store i8 %1, ptr %39, align 1, !tbaa !12
   %40 = load i8, ptr %4, align 4, !tbaa !3
   %41 = zext i8 %40 to i64
-  %42 = getelementptr %union.lv_style_value_t, ptr %22, i64 %41
+  %42 = getelementptr [8 x i8], ptr %22, i64 %41
   %43 = getelementptr i8, ptr %42, i64 -8
   store ptr %2, ptr %43, align 8, !tbaa !12
   %44 = tail call i8 @llvm.umin.i8(i8 %1, i8 124)
@@ -528,8 +526,8 @@ define noundef zeroext i1 @lv_style_remove_prop(ptr noundef captures(none) %0, i
 
 27:                                               ; preds = %23
   %28 = zext i32 %.13948 to i64
-  %29 = getelementptr inbounds nuw %union.lv_style_value_t, ptr %16, i64 %28
-  %30 = getelementptr inbounds nuw %union.lv_style_value_t, ptr %4, i64 %indvars.iv52
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %28
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv52
   %31 = load i64, ptr %30, align 8, !tbaa !12
   store i64 %31, ptr %29, align 8, !tbaa !12
   %32 = load i8, ptr %25, align 1, !tbaa !12
@@ -579,7 +577,7 @@ define range(i32 0, 2) i32 @lv_style_get_prop(ptr noundef readonly captures(none
   %.02635.i5 = phi i32 [ %10, %.lr.ph36.i ], [ 0, %.lr.ph36.i.preheader ]
   %10 = add i32 %.02635.i5, 1
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw %struct.lv_style_const_prop_t, ptr %6, i64 %11
+  %12 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %11
   %13 = load i8, ptr %12, align 8, !tbaa !10
   %.not.not.i = icmp eq i8 %13, 0
   br i1 %.not.not.i, label %lv_style_get_prop_inlined.exit, label %.lr.ph36.i, !llvm.loop !46
@@ -613,7 +611,7 @@ define range(i32 0, 2) i32 @lv_style_get_prop(ptr noundef readonly captures(none
   br i1 %23, label %24, label %20
 
 24:                                               ; preds = %.lr.ph.i
-  %25 = getelementptr inbounds nuw %union.lv_style_value_t, ptr %6, i64 %indvars.iv.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv.i
   br label %.thread.sink.split.i
 
 .thread.sink.split.i:                             ; preds = %24, %.lr.ph36.i._crit_edge

@@ -39,8 +39,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple.16" = type { %"struct.std::_Tuple_impl.17" }
 %"struct.std::_Tuple_impl.17" = type { %"struct.std::_Head_base.20" }
 %"struct.std::_Head_base.20" = type { ptr }
-%"class.xgboost::detail::GradientPairInternal.80" = type { float, float }
-%"class.xgboost::detail::GradientPairInternal" = type { double, double }
 %"struct.dmlc::Error" = type { %"class.std::runtime_error" }
 %"class.std::runtime_error" = type { %"class.std::exception", %"struct.std::__cow_string" }
 %"class.std::exception" = type { ptr }
@@ -335,21 +333,21 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 .lr.ph.i.i.i:                                     ; preds = %"_ZZN7xgboost4tree8cpu_impl8FitStumpEPKNS_7ContextERKNS_8MetaInfoENS_6linalg10TensorViewIKNS_6detail20GradientPairInternalIfEELi2EEENS9_IfLi1EEEENK3$_0clImEEDaT_.exit.loopexit.i.i", %.lr.ph148.split.i.i
   %.049147.i.i = phi i64 [ 0, %.lr.ph148.split.i.i ], [ %94, %"_ZZN7xgboost4tree8cpu_impl8FitStumpEPKNS_7ContextERKNS_8MetaInfoENS_6linalg10TensorViewIKNS_6detail20GradientPairInternalIfEELi2EEENS9_IfLi1EEEENK3$_0clImEEDaT_.exit.loopexit.i.i" ]
   %73 = mul i64 %.049147.i.i, %70
-  %74 = getelementptr %"class.xgboost::detail::GradientPairInternal.80", ptr %72, i64 %73
+  %74 = getelementptr [8 x i8], ptr %72, i64 %73
   br label %75
 
 75:                                               ; preds = %75, %.lr.ph.i.i.i
   %76 = phi i64 [ 0, %.lr.ph.i.i.i ], [ %92, %75 ]
   %storemerge5.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i ], [ %91, %75 ]
   %77 = mul i64 %76, %71
-  %78 = getelementptr %"class.xgboost::detail::GradientPairInternal.80", ptr %74, i64 %77
+  %78 = getelementptr [8 x i8], ptr %74, i64 %77
   %79 = load float, ptr %78, align 4, !tbaa !43
   %80 = fpext float %79 to double
   %81 = getelementptr inbounds nuw i8, ptr %78, i64 4
   %82 = load float, ptr %81, align 4, !tbaa !46
   %83 = fpext float %82 to double
   %84 = mul i64 %76, %61
-  %85 = getelementptr %"class.xgboost::detail::GradientPairInternal", ptr %51, i64 %84
+  %85 = getelementptr [16 x i8], ptr %51, i64 %84
   %86 = load double, ptr %85, align 8, !tbaa !47
   %87 = fadd double %86, %80
   store double %87, ptr %85, align 8, !tbaa !47
@@ -483,21 +481,21 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 .lr.ph.i.i74.i.i:                                 ; preds = %"_ZN4dmlc12OMPException3RunIZN7xgboost4tree8cpu_impl8FitStumpEPKNS2_7ContextERKNS2_8MetaInfoENS2_6linalg10TensorViewIKNS2_6detail20GradientPairInternalIfEELi2EEENSC_IfLi1EEEE3$_0JmEEEvT_DpT0_.exit76.loopexit.i.i", %.lr.ph140.split.i.i
   %.041139.i.i = phi i64 [ 0, %.lr.ph140.split.i.i ], [ %145, %"_ZN4dmlc12OMPException3RunIZN7xgboost4tree8cpu_impl8FitStumpEPKNS2_7ContextERKNS2_8MetaInfoENS2_6linalg10TensorViewIKNS2_6detail20GradientPairInternalIfEELi2EEENSC_IfLi1EEEE3$_0JmEEEvT_DpT0_.exit76.loopexit.i.i" ]
   %124 = mul i64 %.041139.i.i, %121
-  %125 = getelementptr %"class.xgboost::detail::GradientPairInternal.80", ptr %123, i64 %124
+  %125 = getelementptr [8 x i8], ptr %123, i64 %124
   br label %126
 
 126:                                              ; preds = %126, %.lr.ph.i.i74.i.i
   %127 = phi i64 [ 0, %.lr.ph.i.i74.i.i ], [ %143, %126 ]
   %storemerge5.i.i75.i.i = phi i32 [ 0, %.lr.ph.i.i74.i.i ], [ %142, %126 ]
   %128 = mul i64 %127, %122
-  %129 = getelementptr %"class.xgboost::detail::GradientPairInternal.80", ptr %125, i64 %128
+  %129 = getelementptr [8 x i8], ptr %125, i64 %128
   %130 = load float, ptr %129, align 4, !tbaa !43
   %131 = fpext float %130 to double
   %132 = getelementptr inbounds nuw i8, ptr %129, i64 4
   %133 = load float, ptr %132, align 4, !tbaa !46
   %134 = fpext float %133 to double
   %135 = mul i64 %127, %61
-  %136 = getelementptr %"class.xgboost::detail::GradientPairInternal", ptr %51, i64 %135
+  %136 = getelementptr [16 x i8], ptr %51, i64 %135
   %137 = load double, ptr %136, align 8, !tbaa !47
   %138 = fadd double %137, %131
   store double %138, ptr %136, align 8, !tbaa !47
@@ -560,7 +558,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 .lr.ph:                                           ; preds = %.preheader91
   %161 = mul i64 %60, %indvars.iv
-  %162 = getelementptr %"class.xgboost::detail::GradientPairInternal", ptr %51, i64 %161
+  %162 = getelementptr [16 x i8], ptr %51, i64 %161
   br label %169
 
 163:                                              ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit, %.loopexit
@@ -586,8 +584,8 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %170 = phi i64 [ 0, %.lr.ph ], [ %183, %169 ]
   %storemerge2593 = phi i32 [ 0, %.lr.ph ], [ %182, %169 ]
   %171 = mul i64 %170, %61
-  %172 = getelementptr %"class.xgboost::detail::GradientPairInternal", ptr %162, i64 %171
-  %173 = getelementptr inbounds nuw %"class.xgboost::detail::GradientPairInternal", ptr %51, i64 %171
+  %172 = getelementptr [16 x i8], ptr %162, i64 %171
+  %173 = getelementptr inbounds nuw [16 x i8], ptr %51, i64 %171
   %174 = load double, ptr %172, align 8, !tbaa !47
   %175 = load double, ptr %173, align 8, !tbaa !47
   %176 = fadd double %174, %175
@@ -746,7 +744,7 @@ _ZN7xgboost10collective6ResultD2Ev.exit:          ; preds = %._crit_edge96, %_ZN
 220:                                              ; preds = %.lr.ph95, %220
   %storemerge2094 = phi i64 [ 0, %.lr.ph95 ], [ %232, %220 ]
   %221 = mul i64 %storemerge2094, %61
-  %222 = getelementptr inbounds nuw %"class.xgboost::detail::GradientPairInternal", ptr %51, i64 %221
+  %222 = getelementptr inbounds nuw [16 x i8], ptr %51, i64 %221
   %223 = load double, ptr %222, align 8, !tbaa !47
   %224 = getelementptr inbounds nuw i8, ptr %222, i64 8
   %225 = load double, ptr %224, align 8, !tbaa !50
@@ -755,7 +753,7 @@ _ZN7xgboost10collective6ResultD2Ev.exit:          ; preds = %._crit_edge96, %_ZN
   %.sroa.speculated.i = select i1 %227, double 0x3EB0C6F7A0000000, double %225
   %228 = fdiv double %226, %.sroa.speculated.i
   %229 = mul i64 %212, %storemerge2094
-  %230 = getelementptr inbounds nuw float, ptr %214, i64 %229
+  %230 = getelementptr inbounds nuw [4 x i8], ptr %214, i64 %229
   %231 = fptrunc double %228 to float
   store float %231, ptr %230, align 4, !tbaa !110
   %232 = add nuw i64 %storemerge2094, 1
@@ -1505,7 +1503,7 @@ _ZNSt6vectorIPvSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i: ; preds = %3
           to label %.noexc27 unwind label %22
 
 .noexc27:                                         ; preds = %8
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %2
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %2
   store ptr null, ptr %10, align 8, !tbaa !161
   %12 = add nsw i64 %2, -1
   %13 = icmp eq i64 %12, 0
@@ -1561,7 +1559,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %20, %17
 32:                                               ; preds = %.lr.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %indvars.iv = phi i64 [ %31, %.lr.ph ], [ %indvars.iv.next, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %33 = getelementptr inbounds ptr, ptr %26, i64 %indvars.iv
+  %33 = getelementptr inbounds [8 x i8], ptr %26, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8, !tbaa !162
   invoke void @_ZN4dmlc8DemangleB5cxx11EPKc(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef %34)
           to label %35 unwind label %48

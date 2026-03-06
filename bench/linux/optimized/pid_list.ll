@@ -27,13 +27,13 @@ define dso_local zeroext i1 @trace_pid_list_is_set(ptr noundef %0, i32 noundef %
   %14 = zext nneg i32 %13 to i64
   %15 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %0) #8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %17 = getelementptr ptr, ptr %16, i64 %14
+  %17 = getelementptr [8 x i8], ptr %16, i64 %14
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %29, label %20
 
 20:                                               ; preds = %12
-  %21 = getelementptr ptr, ptr %18, i64 %9
+  %21 = getelementptr [8 x i8], ptr %18, i64 %9
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
   br i1 %23, label %29, label %24
@@ -82,7 +82,7 @@ define dso_local noundef range(i32 -22, 1) i32 @trace_pid_list_set(ptr noundef %
   %14 = zext nneg i32 %13 to i64
   %15 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %0) #8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %17 = getelementptr ptr, ptr %16, i64 %14
+  %17 = getelementptr [8 x i8], ptr %16, i64 %14
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %38
@@ -126,7 +126,7 @@ define dso_local noundef range(i32 -22, 1) i32 @trace_pid_list_set(ptr noundef %
 
 38:                                               ; preds = %37, %12
   %39 = phi ptr [ %18, %12 ], [ %22, %37 ]
-  %40 = getelementptr ptr, ptr %39, i64 %9
+  %40 = getelementptr [8 x i8], ptr %39, i64 %9
   %41 = load ptr, ptr %40, align 8
   %42 = icmp eq ptr %41, null
   br i1 %42, label %43, label %61
@@ -204,13 +204,13 @@ define dso_local noundef range(i32 -22, 1) i32 @trace_pid_list_clear(ptr noundef
   %14 = zext nneg i32 %13 to i64
   %15 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %0) #8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %17 = getelementptr ptr, ptr %16, i64 %14
+  %17 = getelementptr [8 x i8], ptr %16, i64 %14
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %43, label %20
 
 20:                                               ; preds = %12
-  %21 = getelementptr ptr, ptr %18, i64 %9
+  %21 = getelementptr [8 x i8], ptr %18, i64 %9
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
   br i1 %23, label %43, label %24
@@ -282,7 +282,7 @@ define dso_local noundef range(i32 -22, 1) i32 @trace_pid_list_next(ptr noundef 
   %17 = phi i64 [ %14, %7 ], [ %37, %.loopexit ]
   %18 = phi i32 [ %8, %7 ], [ %36, %.loopexit ]
   %19 = phi i64 [ %15, %7 ], [ 0, %.loopexit ]
-  %20 = getelementptr ptr, ptr %13, i64 %17
+  %20 = getelementptr [8 x i8], ptr %13, i64 %17
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
   br i1 %22, label %.loopexit, label %.preheader.preheader
@@ -294,7 +294,7 @@ define dso_local noundef range(i32 -22, 1) i32 @trace_pid_list_next(ptr noundef 
 .preheader:                                       ; preds = %.preheader.preheader, %33
   %24 = phi i64 [ %34, %33 ], [ %19, %.preheader.preheader ]
   %25 = phi i64 [ 0, %33 ], [ %23, %.preheader.preheader ]
-  %26 = getelementptr ptr, ptr %21, i64 %24
+  %26 = getelementptr [8 x i8], ptr %21, i64 %24
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
   br i1 %28, label %33, label %29
@@ -349,14 +349,14 @@ define dso_local noundef range(i32 -19, 1) i32 @trace_pid_list_first(ptr noundef
 
 7:                                                ; preds = %.loopexit, %4
   %8 = phi i64 [ 0, %4 ], [ %23, %.loopexit ]
-  %9 = getelementptr ptr, ptr %6, i64 %8
+  %9 = getelementptr [8 x i8], ptr %6, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %7, %20
   %12 = phi i64 [ %21, %20 ], [ 0, %7 ]
-  %13 = getelementptr ptr, ptr %10, i64 %12
+  %13 = getelementptr [8 x i8], ptr %10, i64 %12
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %20, label %16
@@ -669,14 +669,14 @@ define dso_local void @trace_pid_list_free(ptr noundef %0) local_unnamed_addr #0
 
 20:                                               ; preds = %31, %.loopexit
   %21 = phi i64 [ 0, %.loopexit ], [ %32, %31 ]
-  %22 = getelementptr ptr, ptr %15, i64 %21
+  %22 = getelementptr [8 x i8], ptr %15, i64 %21
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %31, label %.preheader
 
 .preheader:                                       ; preds = %20, %.preheader
   %25 = phi i64 [ %28, %.preheader ], [ 0, %20 ]
-  %26 = getelementptr ptr, ptr %23, i64 %25
+  %26 = getelementptr [8 x i8], ptr %23, i64 %25
   %27 = load ptr, ptr %26, align 8
   tail call void @kfree(ptr noundef %27) #8
   %28 = add nuw nsw i64 %25, 1

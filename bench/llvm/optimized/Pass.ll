@@ -1148,7 +1148,7 @@ _ZN4llvm12is_containedIRNS_15SmallVectorImplIPKvEES3_EEbOT_RKT0_.exit.thread: ; 
 _ZN4llvm23SmallVectorTemplateBaseIPKvLb1EE9push_backES2_.exit: ; preds = %_ZN4llvm12is_containedIRNS_15SmallVectorImplIPKvEES3_EEbOT_RKT0_.exit.thread, %47
   %.pre-phi = phi i64 [ %7, %_ZN4llvm12is_containedIRNS_15SmallVectorImplIPKvEES3_EEbOT_RKT0_.exit.thread ], [ %.pre17, %47 ]
   %50 = phi ptr [ %4, %_ZN4llvm12is_containedIRNS_15SmallVectorImplIPKvEES3_EEbOT_RKT0_.exit.thread ], [ %.pre, %47 ]
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %.pre-phi
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %.pre-phi
   %52 = ptrtoint ptr %2 to i64
   store i64 %52, ptr %51, align 1
   %53 = load i32, ptr %5, align 8, !tbaa !156
@@ -1345,7 +1345,7 @@ _ZN4llvm9StringRefC2EPKc.exit19:                  ; preds = %_ZN4llvm9StringRefC
   br i1 %.not.i.i.not.i.i, label %_ZN4llvm2cl6parserIPKNS_8PassInfoEE16addLiteralOptionIS4_EEvNS_9StringRefERKT_S7_.exit, label %47, !prof !164
 
 47:                                               ; preds = %_ZN4llvm9StringRefC2EPKc.exit19
-  %48 = getelementptr inbounds nuw %"class.llvm::cl::parser<const llvm::PassInfo *>::OptionInfo", ptr %.pre3.i.i, i64 %43
+  %48 = getelementptr inbounds nuw [56 x i8], ptr %.pre3.i.i, i64 %43
   %49 = icmp uge ptr %3, %.pre3.i.i
   %50 = icmp ult ptr %3, %48
   %spec.select.i.i.i.i.i.i = and i1 %49, %50
@@ -1370,7 +1370,7 @@ _ZN4llvm2cl6parserIPKNS_8PassInfoEE16addLiteralOptionIS4_EEvNS_9StringRefERKT_S7
   %.016.i.i.i.i = phi ptr [ %3, %_ZN4llvm9StringRefC2EPKc.exit19 ], [ %56, %51 ], [ %3, %.critedge.i.i.i.i ]
   %58 = load i32, ptr %41, align 8, !tbaa !156
   %59 = zext i32 %58 to i64
-  %60 = getelementptr inbounds nuw %"class.llvm::cl::parser<const llvm::PassInfo *>::OptionInfo", ptr %57, i64 %59
+  %60 = getelementptr inbounds nuw [56 x i8], ptr %57, i64 %59
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %60, ptr noundef nonnull align 8 dereferenceable(56) %.016.i.i.i.i, i64 32, i1 false), !tbaa.struct !175
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 32
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl15OptionValueCopyIPKNS_8PassInfoEEE, i64 16), ptr %61, align 8, !tbaa !102
@@ -1437,7 +1437,7 @@ define linkonce_odr hidden { ptr, i64 } @_ZNK4llvm2cl6parserIPKNS_8PassInfoEE9ge
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = zext i32 %1 to i64
   %5 = load ptr, ptr %3, align 8, !tbaa !155
-  %6 = getelementptr inbounds nuw %"class.llvm::cl::parser<const llvm::PassInfo *>::OptionInfo", ptr %5, i64 %4
+  %6 = getelementptr inbounds nuw [56 x i8], ptr %5, i64 %4
   %.sroa.0.0.copyload = load ptr, ptr %6, align 8, !tbaa !134
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !115
@@ -1451,7 +1451,7 @@ define linkonce_odr hidden { ptr, i64 } @_ZNK4llvm2cl6parserIPKNS_8PassInfoEE14g
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = zext i32 %1 to i64
   %5 = load ptr, ptr %3, align 8, !tbaa !155
-  %6 = getelementptr inbounds nuw %"class.llvm::cl::parser<const llvm::PassInfo *>::OptionInfo", ptr %5, i64 %4
+  %6 = getelementptr inbounds nuw [56 x i8], ptr %5, i64 %4
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.sroa.0.0.copyload = load ptr, ptr %7, align 8, !tbaa !134
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -1468,7 +1468,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = zext i32 %1 to i64
   %5 = load ptr, ptr %3, align 8, !tbaa !155
-  %6 = getelementptr inbounds nuw %"class.llvm::cl::parser<const llvm::PassInfo *>::OptionInfo", ptr %5, i64 %4
+  %6 = getelementptr inbounds nuw [56 x i8], ptr %5, i64 %4
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   ret ptr %7
 }
@@ -1592,7 +1592,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKvLb1EE9push_backES2_.exit: ; preds = %6, %15
   %19 = phi i32 [ %12, %6 ], [ %.pre.i, %15 ]
   %20 = load ptr, ptr %8, align 8, !tbaa !155
   %21 = zext i32 %19 to i64
-  %22 = getelementptr inbounds nuw ptr, ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %21
   %23 = ptrtoint ptr %10 to i64
   store i64 %23, ptr %22, align 1
   %24 = load i32, ptr %11, align 8, !tbaa !156

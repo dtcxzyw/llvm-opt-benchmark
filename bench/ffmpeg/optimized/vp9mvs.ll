@@ -3,9 +3,6 @@ source_filename = "bench/ffmpeg/original/vp9mvs.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.VP9mv = type { i16, i16 }
-%struct.VP9mvrefPair = type { [2 x %struct.VP9mv], [2 x i8], [2 x i8] }
-
 @ff_vp9_mv_joint_tree = external local_unnamed_addr constant [3 x [2 x i8]], align 1
 @find_ref_mvs.mv_ref_blk_off = internal unnamed_addr constant [13 x [8 x [2 x i8]]] [[8 x [2 x i8]] [[2 x i8] c"\03\FF", [2 x i8] c"\FF\03", [2 x i8] c"\04\FF", [2 x i8] c"\FF\04", [2 x i8] c"\FF\FF", [2 x i8] c"\00\FF", [2 x i8] c"\FF\00", [2 x i8] c"\06\FF"], [8 x [2 x i8]] [[2 x i8] c"\00\FF", [2 x i8] c"\FF\00", [2 x i8] c"\04\FF", [2 x i8] c"\FF\02", [2 x i8] c"\FF\FF", [2 x i8] c"\00\FD", [2 x i8] c"\FD\00", [2 x i8] c"\02\FF"], [8 x [2 x i8]] [[2 x i8] c"\FF\00", [2 x i8] c"\00\FF", [2 x i8] c"\FF\04", [2 x i8] c"\02\FF", [2 x i8] c"\FF\FF", [2 x i8] c"\FD\00", [2 x i8] c"\00\FD", [2 x i8] c"\FF\02"], [8 x [2 x i8]] [[2 x i8] c"\01\FF", [2 x i8] c"\FF\01", [2 x i8] c"\02\FF", [2 x i8] c"\FF\02", [2 x i8] c"\FF\FF", [2 x i8] c"\00\FD", [2 x i8] c"\FD\00", [2 x i8] c"\FD\FD"], [8 x [2 x i8]] [[2 x i8] c"\00\FF", [2 x i8] c"\FF\00", [2 x i8] c"\02\FF", [2 x i8] c"\FF\FF", [2 x i8] c"\FF\01", [2 x i8] c"\00\FD", [2 x i8] c"\FD\00", [2 x i8] c"\FD\FD"], [8 x [2 x i8]] [[2 x i8] c"\FF\00", [2 x i8] c"\00\FF", [2 x i8] c"\FF\02", [2 x i8] c"\FF\FF", [2 x i8] c"\01\FF", [2 x i8] c"\FD\00", [2 x i8] c"\00\FD", [2 x i8] c"\FD\FD"], [8 x [2 x i8]] [[2 x i8] c"\00\FF", [2 x i8] c"\FF\00", [2 x i8] c"\01\FF", [2 x i8] c"\FF\01", [2 x i8] c"\FF\FF", [2 x i8] c"\00\FD", [2 x i8] c"\FD\00", [2 x i8] c"\FD\FD"], [8 x [2 x i8]] [[2 x i8] c"\00\FF", [2 x i8] c"\FF\00", [2 x i8] c"\01\FF", [2 x i8] c"\FF\FF", [2 x i8] c"\00\FE", [2 x i8] c"\FE\00", [2 x i8] c"\FE\FF", [2 x i8] c"\FF\FE"], [8 x [2 x i8]] [[2 x i8] c"\FF\00", [2 x i8] c"\00\FF", [2 x i8] c"\FF\01", [2 x i8] c"\FF\FF", [2 x i8] c"\FE\00", [2 x i8] c"\00\FE", [2 x i8] c"\FF\FE", [2 x i8] c"\FE\FF"], [8 x [2 x i8]] [[2 x i8] c"\00\FF", [2 x i8] c"\FF\00", [2 x i8] c"\FF\FF", [2 x i8] c"\00\FE", [2 x i8] c"\FE\00", [2 x i8] c"\FF\FE", [2 x i8] c"\FE\FF", [2 x i8] c"\FE\FE"], [8 x [2 x i8]] [[2 x i8] c"\00\FF", [2 x i8] c"\FF\00", [2 x i8] c"\FF\FF", [2 x i8] c"\00\FE", [2 x i8] c"\FE\00", [2 x i8] c"\FF\FE", [2 x i8] c"\FE\FF", [2 x i8] c"\FE\FE"], [8 x [2 x i8]] [[2 x i8] c"\00\FF", [2 x i8] c"\FF\00", [2 x i8] c"\FF\FF", [2 x i8] c"\00\FE", [2 x i8] c"\FE\00", [2 x i8] c"\FF\FE", [2 x i8] c"\FE\FF", [2 x i8] c"\FE\FE"], [8 x [2 x i8]] [[2 x i8] c"\00\FF", [2 x i8] c"\FF\00", [2 x i8] c"\FF\FF", [2 x i8] c"\00\FE", [2 x i8] c"\FE\00", [2 x i8] c"\FF\FE", [2 x i8] c"\FE\FF", [2 x i8] c"\FE\FE"]], align 16
 @ff_vpx_norm_shift = external local_unnamed_addr constant [256 x i8], align 16
@@ -170,7 +167,7 @@ vp89_rac_get_tree.exit:                           ; preds = %vpx_rac_renorm.exit
   %95 = sub nsw i32 0, %93
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 1108
   %97 = zext nneg i32 %95 to i64
-  %98 = getelementptr inbounds nuw i32, ptr %96, i64 %97
+  %98 = getelementptr inbounds nuw [4 x i8], ptr %96, i64 %97
   %99 = load i32, ptr %98, align 4, !tbaa !52
   %100 = add i32 %99, 1
   store i32 %100, ptr %98, align 4, !tbaa !52
@@ -297,13 +294,13 @@ vp89_rac_get_tree.exit89.i:                       ; preds = %vpx_rac_renorm.exit
   %184 = sub nsw i32 0, %182
   %185 = getelementptr inbounds nuw i8, ptr %0, i64 1124
   %186 = zext i1 %135 to i64
-  %187 = getelementptr inbounds nuw i32, ptr %185, i64 %186
+  %187 = getelementptr inbounds nuw [4 x i8], ptr %185, i64 %186
   %188 = load i32, ptr %187, align 4, !tbaa !52
   %189 = add i32 %188, 1
   store i32 %189, ptr %187, align 4, !tbaa !52
   %190 = getelementptr inbounds nuw i8, ptr %0, i64 1132
   %191 = zext nneg i32 %184 to i64
-  %192 = getelementptr inbounds nuw i32, ptr %190, i64 %191
+  %192 = getelementptr inbounds nuw [4 x i8], ptr %190, i64 %191
   %193 = load i32, ptr %192, align 4, !tbaa !52
   %194 = add i32 %193, 1
   store i32 %194, ptr %192, align 4, !tbaa !52
@@ -372,9 +369,9 @@ vpx_rac_renorm.exit152:                           ; preds = %197, %211, %215
   %235 = trunc nuw nsw i64 %indvars.iv to i32
   %236 = shl nuw i32 %233, %235
   %237 = or i32 %236, %.081.i268
-  %238 = getelementptr inbounds nuw [2 x i32], ptr %196, i64 %indvars.iv
+  %238 = getelementptr inbounds nuw [8 x i8], ptr %196, i64 %indvars.iv
   %239 = zext i1 %229 to i64
-  %240 = getelementptr inbounds nuw i32, ptr %238, i64 %239
+  %240 = getelementptr inbounds nuw [4 x i8], ptr %238, i64 %239
   %241 = load i32, ptr %240, align 4, !tbaa !52
   %242 = add i32 %241, 1
   store i32 %242, ptr %240, align 4, !tbaa !52
@@ -457,7 +454,7 @@ vp89_rac_get_tree.exit87.i:                       ; preds = %vpx_rac_renorm.exit
   %290 = or i32 %287, %289
   %291 = getelementptr inbounds nuw i8, ptr %0, i64 1296
   %292 = zext nneg i32 %288 to i64
-  %293 = getelementptr inbounds nuw i32, ptr %291, i64 %292
+  %293 = getelementptr inbounds nuw [4 x i8], ptr %291, i64 %292
   %294 = load i32, ptr %293, align 4, !tbaa !52
   %295 = add i32 %294, 1
   store i32 %295, ptr %293, align 4, !tbaa !52
@@ -517,7 +514,7 @@ vpx_rac_renorm.exit149:                           ; preds = %296, %310, %314
   store i32 %333, ptr %49, align 8, !tbaa !46
   %334 = getelementptr inbounds nuw i8, ptr %0, i64 1320
   %335 = zext i1 %328 to i64
-  %336 = getelementptr inbounds nuw i32, ptr %334, i64 %335
+  %336 = getelementptr inbounds nuw [4 x i8], ptr %334, i64 %335
   %337 = load i32, ptr %336, align 4, !tbaa !52
   %338 = add i32 %337, 1
   store i32 %338, ptr %336, align 4, !tbaa !52
@@ -590,7 +587,7 @@ vpx_rac_renorm.exit155:                           ; preds = %346, %360, %364
   store i32 %382, ptr %49, align 8, !tbaa !46
   %383 = getelementptr inbounds nuw i8, ptr %0, i64 1176
   %384 = zext i1 %378 to i64
-  %385 = getelementptr inbounds nuw i32, ptr %383, i64 %384
+  %385 = getelementptr inbounds nuw [4 x i8], ptr %383, i64 %384
   %386 = load i32, ptr %385, align 4, !tbaa !52
   %387 = add i32 %386, 1
   store i32 %387, ptr %385, align 4, !tbaa !52
@@ -665,9 +662,9 @@ vpx_rac_renorm.exit158:                           ; preds = %390, %405, %409
 vp89_rac_get_tree.exit.i:                         ; preds = %vpx_rac_renorm.exit158
   %433 = sub nsw i32 0, %431
   %434 = getelementptr inbounds nuw i8, ptr %0, i64 1264
-  %435 = getelementptr inbounds nuw [4 x i32], ptr %434, i64 %384
+  %435 = getelementptr inbounds nuw [16 x i8], ptr %434, i64 %384
   %436 = zext nneg i32 %433 to i64
-  %437 = getelementptr inbounds nuw i32, ptr %435, i64 %436
+  %437 = getelementptr inbounds nuw [4 x i8], ptr %435, i64 %436
   %438 = load i32, ptr %437, align 4, !tbaa !52
   %439 = add i32 %438, 1
   store i32 %439, ptr %437, align 4, !tbaa !52
@@ -730,7 +727,7 @@ vpx_rac_renorm.exit161:                           ; preds = %443, %457, %461
   store i32 %480, ptr %49, align 8, !tbaa !46
   %481 = getelementptr inbounds nuw i8, ptr %0, i64 1312
   %482 = zext i1 %475 to i64
-  %483 = getelementptr inbounds nuw i32, ptr %481, i64 %482
+  %483 = getelementptr inbounds nuw [4 x i8], ptr %481, i64 %482
   %484 = load i32, ptr %483, align 4, !tbaa !52
   %485 = add i32 %484, 1
   store i32 %485, ptr %483, align 4, !tbaa !52
@@ -881,13 +878,13 @@ vp89_rac_get_tree.exit89.i87:                     ; preds = %vpx_rac_renorm.exit
   %583 = sub nsw i32 0, %581
   %584 = getelementptr inbounds nuw i8, ptr %0, i64 1328
   %585 = zext i1 %533 to i64
-  %586 = getelementptr inbounds nuw i32, ptr %584, i64 %585
+  %586 = getelementptr inbounds nuw [4 x i8], ptr %584, i64 %585
   %587 = load i32, ptr %586, align 4, !tbaa !52
   %588 = add i32 %587, 1
   store i32 %588, ptr %586, align 4, !tbaa !52
   %589 = getelementptr inbounds nuw i8, ptr %0, i64 1336
   %590 = zext nneg i32 %583 to i64
-  %591 = getelementptr inbounds nuw i32, ptr %589, i64 %590
+  %591 = getelementptr inbounds nuw [4 x i8], ptr %589, i64 %590
   %592 = load i32, ptr %591, align 4, !tbaa !52
   %593 = add i32 %592, 1
   store i32 %593, ptr %591, align 4, !tbaa !52
@@ -956,9 +953,9 @@ vpx_rac_renorm.exit176:                           ; preds = %596, %610, %614
   %634 = trunc nuw nsw i64 %indvars.iv347 to i32
   %635 = shl nuw i32 %632, %634
   %636 = or i32 %635, %.081.i89281
-  %637 = getelementptr inbounds nuw [2 x i32], ptr %595, i64 %indvars.iv347
+  %637 = getelementptr inbounds nuw [8 x i8], ptr %595, i64 %indvars.iv347
   %638 = zext i1 %628 to i64
-  %639 = getelementptr inbounds nuw i32, ptr %637, i64 %638
+  %639 = getelementptr inbounds nuw [4 x i8], ptr %637, i64 %638
   %640 = load i32, ptr %639, align 4, !tbaa !52
   %641 = add i32 %640, 1
   store i32 %641, ptr %639, align 4, !tbaa !52
@@ -1041,7 +1038,7 @@ vp89_rac_get_tree.exit87.i92:                     ; preds = %vpx_rac_renorm.exit
   %690 = or i32 %687, %689
   %691 = getelementptr inbounds nuw i8, ptr %0, i64 1500
   %692 = zext nneg i32 %688 to i64
-  %693 = getelementptr inbounds nuw i32, ptr %691, i64 %692
+  %693 = getelementptr inbounds nuw [4 x i8], ptr %691, i64 %692
   %694 = load i32, ptr %693, align 4, !tbaa !52
   %695 = add i32 %694, 1
   store i32 %695, ptr %693, align 4, !tbaa !52
@@ -1101,7 +1098,7 @@ vpx_rac_renorm.exit173:                           ; preds = %696, %710, %714
   store i32 %733, ptr %49, align 8, !tbaa !46
   %734 = getelementptr inbounds nuw i8, ptr %0, i64 1524
   %735 = zext i1 %728 to i64
-  %736 = getelementptr inbounds nuw i32, ptr %734, i64 %735
+  %736 = getelementptr inbounds nuw [4 x i8], ptr %734, i64 %735
   %737 = load i32, ptr %736, align 4, !tbaa !52
   %738 = add i32 %737, 1
   store i32 %738, ptr %736, align 4, !tbaa !52
@@ -1174,7 +1171,7 @@ vpx_rac_renorm.exit179:                           ; preds = %746, %760, %764
   store i32 %782, ptr %49, align 8, !tbaa !46
   %783 = getelementptr inbounds nuw i8, ptr %0, i64 1380
   %784 = zext i1 %778 to i64
-  %785 = getelementptr inbounds nuw i32, ptr %783, i64 %784
+  %785 = getelementptr inbounds nuw [4 x i8], ptr %783, i64 %784
   %786 = load i32, ptr %785, align 4, !tbaa !52
   %787 = add i32 %786, 1
   store i32 %787, ptr %785, align 4, !tbaa !52
@@ -1249,9 +1246,9 @@ vpx_rac_renorm.exit182:                           ; preds = %790, %806, %810
 vp89_rac_get_tree.exit.i99:                       ; preds = %vpx_rac_renorm.exit182
   %834 = sub nsw i32 0, %832
   %835 = getelementptr inbounds nuw i8, ptr %0, i64 1468
-  %836 = getelementptr inbounds nuw [4 x i32], ptr %835, i64 %784
+  %836 = getelementptr inbounds nuw [16 x i8], ptr %835, i64 %784
   %837 = zext nneg i32 %834 to i64
-  %838 = getelementptr inbounds nuw i32, ptr %836, i64 %837
+  %838 = getelementptr inbounds nuw [4 x i8], ptr %836, i64 %837
   %839 = load i32, ptr %838, align 4, !tbaa !52
   %840 = add i32 %839, 1
   store i32 %840, ptr %838, align 4, !tbaa !52
@@ -1314,7 +1311,7 @@ vpx_rac_renorm.exit185:                           ; preds = %844, %858, %862
   store i32 %881, ptr %49, align 8, !tbaa !46
   %882 = getelementptr inbounds nuw i8, ptr %0, i64 1516
   %883 = zext i1 %876 to i64
-  %884 = getelementptr inbounds nuw i32, ptr %882, i64 %883
+  %884 = getelementptr inbounds nuw [4 x i8], ptr %882, i64 %883
   %885 = load i32, ptr %884, align 4, !tbaa !52
   %886 = add i32 %885, 1
   store i32 %886, ptr %884, align 4, !tbaa !52
@@ -1484,7 +1481,7 @@ vp89_rac_get_tree.exit84:                         ; preds = %vpx_rac_renorm.exit
   %980 = sub nsw i32 0, %978
   %981 = getelementptr inbounds nuw i8, ptr %0, i64 1108
   %982 = zext nneg i32 %980 to i64
-  %983 = getelementptr inbounds nuw i32, ptr %981, i64 %982
+  %983 = getelementptr inbounds nuw [4 x i8], ptr %981, i64 %982
   %984 = load i32, ptr %983, align 4, !tbaa !52
   %985 = add i32 %984, 1
   store i32 %985, ptr %983, align 4, !tbaa !52
@@ -1611,13 +1608,13 @@ vp89_rac_get_tree.exit89.i103:                    ; preds = %vpx_rac_renorm.exit
   %1069 = sub nsw i32 0, %1067
   %1070 = getelementptr inbounds nuw i8, ptr %0, i64 1124
   %1071 = zext i1 %1020 to i64
-  %1072 = getelementptr inbounds nuw i32, ptr %1070, i64 %1071
+  %1072 = getelementptr inbounds nuw [4 x i8], ptr %1070, i64 %1071
   %1073 = load i32, ptr %1072, align 4, !tbaa !52
   %1074 = add i32 %1073, 1
   store i32 %1074, ptr %1072, align 4, !tbaa !52
   %1075 = getelementptr inbounds nuw i8, ptr %0, i64 1132
   %1076 = zext nneg i32 %1069 to i64
-  %1077 = getelementptr inbounds nuw i32, ptr %1075, i64 %1076
+  %1077 = getelementptr inbounds nuw [4 x i8], ptr %1075, i64 %1076
   %1078 = load i32, ptr %1077, align 4, !tbaa !52
   %1079 = add i32 %1078, 1
   store i32 %1079, ptr %1077, align 4, !tbaa !52
@@ -1686,9 +1683,9 @@ vpx_rac_renorm.exit200:                           ; preds = %1082, %1096, %1100
   %1120 = trunc nuw nsw i64 %indvars.iv353 to i32
   %1121 = shl nuw i32 %1118, %1120
   %1122 = or i32 %1121, %.081.i105298
-  %1123 = getelementptr inbounds nuw [2 x i32], ptr %1081, i64 %indvars.iv353
+  %1123 = getelementptr inbounds nuw [8 x i8], ptr %1081, i64 %indvars.iv353
   %1124 = zext i1 %1114 to i64
-  %1125 = getelementptr inbounds nuw i32, ptr %1123, i64 %1124
+  %1125 = getelementptr inbounds nuw [4 x i8], ptr %1123, i64 %1124
   %1126 = load i32, ptr %1125, align 4, !tbaa !52
   %1127 = add i32 %1126, 1
   store i32 %1127, ptr %1125, align 4, !tbaa !52
@@ -1771,7 +1768,7 @@ vp89_rac_get_tree.exit87.i108:                    ; preds = %vpx_rac_renorm.exit
   %1175 = or i32 %1172, %1174
   %1176 = getelementptr inbounds nuw i8, ptr %0, i64 1296
   %1177 = zext nneg i32 %1173 to i64
-  %1178 = getelementptr inbounds nuw i32, ptr %1176, i64 %1177
+  %1178 = getelementptr inbounds nuw [4 x i8], ptr %1176, i64 %1177
   %1179 = load i32, ptr %1178, align 4, !tbaa !52
   %1180 = add i32 %1179, 1
   store i32 %1180, ptr %1178, align 4, !tbaa !52
@@ -1831,7 +1828,7 @@ vpx_rac_renorm.exit197:                           ; preds = %1181, %1195, %1199
   store i32 %1218, ptr %934, align 8, !tbaa !46
   %1219 = getelementptr inbounds nuw i8, ptr %0, i64 1320
   %1220 = zext i1 %1213 to i64
-  %1221 = getelementptr inbounds nuw i32, ptr %1219, i64 %1220
+  %1221 = getelementptr inbounds nuw [4 x i8], ptr %1219, i64 %1220
   %1222 = load i32, ptr %1221, align 4, !tbaa !52
   %1223 = add i32 %1222, 1
   store i32 %1223, ptr %1221, align 4, !tbaa !52
@@ -1904,7 +1901,7 @@ vpx_rac_renorm.exit203:                           ; preds = %1231, %1245, %1249
   store i32 %1267, ptr %934, align 8, !tbaa !46
   %1268 = getelementptr inbounds nuw i8, ptr %0, i64 1176
   %1269 = zext i1 %1263 to i64
-  %1270 = getelementptr inbounds nuw i32, ptr %1268, i64 %1269
+  %1270 = getelementptr inbounds nuw [4 x i8], ptr %1268, i64 %1269
   %1271 = load i32, ptr %1270, align 4, !tbaa !52
   %1272 = add i32 %1271, 1
   store i32 %1272, ptr %1270, align 4, !tbaa !52
@@ -1979,9 +1976,9 @@ vpx_rac_renorm.exit206:                           ; preds = %1275, %1290, %1294
 vp89_rac_get_tree.exit.i115:                      ; preds = %vpx_rac_renorm.exit206
   %1318 = sub nsw i32 0, %1316
   %1319 = getelementptr inbounds nuw i8, ptr %0, i64 1264
-  %1320 = getelementptr inbounds nuw [4 x i32], ptr %1319, i64 %1269
+  %1320 = getelementptr inbounds nuw [16 x i8], ptr %1319, i64 %1269
   %1321 = zext nneg i32 %1318 to i64
-  %1322 = getelementptr inbounds nuw i32, ptr %1320, i64 %1321
+  %1322 = getelementptr inbounds nuw [4 x i8], ptr %1320, i64 %1321
   %1323 = load i32, ptr %1322, align 4, !tbaa !52
   %1324 = add i32 %1323, 1
   store i32 %1324, ptr %1322, align 4, !tbaa !52
@@ -2044,7 +2041,7 @@ vpx_rac_renorm.exit209:                           ; preds = %1328, %1342, %1346
   store i32 %1365, ptr %934, align 8, !tbaa !46
   %1366 = getelementptr inbounds nuw i8, ptr %0, i64 1312
   %1367 = zext i1 %1360 to i64
-  %1368 = getelementptr inbounds nuw i32, ptr %1366, i64 %1367
+  %1368 = getelementptr inbounds nuw [4 x i8], ptr %1366, i64 %1367
   %1369 = load i32, ptr %1368, align 4, !tbaa !52
   %1370 = add i32 %1369, 1
   store i32 %1370, ptr %1368, align 4, !tbaa !52
@@ -2195,13 +2192,13 @@ vp89_rac_get_tree.exit89.i119:                    ; preds = %vpx_rac_renorm.exit
   %1468 = sub nsw i32 0, %1466
   %1469 = getelementptr inbounds nuw i8, ptr %0, i64 1328
   %1470 = zext i1 %1418 to i64
-  %1471 = getelementptr inbounds nuw i32, ptr %1469, i64 %1470
+  %1471 = getelementptr inbounds nuw [4 x i8], ptr %1469, i64 %1470
   %1472 = load i32, ptr %1471, align 4, !tbaa !52
   %1473 = add i32 %1472, 1
   store i32 %1473, ptr %1471, align 4, !tbaa !52
   %1474 = getelementptr inbounds nuw i8, ptr %0, i64 1336
   %1475 = zext nneg i32 %1468 to i64
-  %1476 = getelementptr inbounds nuw i32, ptr %1474, i64 %1475
+  %1476 = getelementptr inbounds nuw [4 x i8], ptr %1474, i64 %1475
   %1477 = load i32, ptr %1476, align 4, !tbaa !52
   %1478 = add i32 %1477, 1
   store i32 %1478, ptr %1476, align 4, !tbaa !52
@@ -2270,9 +2267,9 @@ vpx_rac_renorm.exit224:                           ; preds = %1481, %1495, %1499
   %1519 = trunc nuw nsw i64 %indvars.iv359 to i32
   %1520 = shl nuw i32 %1517, %1519
   %1521 = or i32 %1520, %.081.i121314
-  %1522 = getelementptr inbounds nuw [2 x i32], ptr %1480, i64 %indvars.iv359
+  %1522 = getelementptr inbounds nuw [8 x i8], ptr %1480, i64 %indvars.iv359
   %1523 = zext i1 %1513 to i64
-  %1524 = getelementptr inbounds nuw i32, ptr %1522, i64 %1523
+  %1524 = getelementptr inbounds nuw [4 x i8], ptr %1522, i64 %1523
   %1525 = load i32, ptr %1524, align 4, !tbaa !52
   %1526 = add i32 %1525, 1
   store i32 %1526, ptr %1524, align 4, !tbaa !52
@@ -2355,7 +2352,7 @@ vp89_rac_get_tree.exit87.i124:                    ; preds = %vpx_rac_renorm.exit
   %1575 = or i32 %1572, %1574
   %1576 = getelementptr inbounds nuw i8, ptr %0, i64 1500
   %1577 = zext nneg i32 %1573 to i64
-  %1578 = getelementptr inbounds nuw i32, ptr %1576, i64 %1577
+  %1578 = getelementptr inbounds nuw [4 x i8], ptr %1576, i64 %1577
   %1579 = load i32, ptr %1578, align 4, !tbaa !52
   %1580 = add i32 %1579, 1
   store i32 %1580, ptr %1578, align 4, !tbaa !52
@@ -2415,7 +2412,7 @@ vpx_rac_renorm.exit221:                           ; preds = %1581, %1595, %1599
   store i32 %1618, ptr %934, align 8, !tbaa !46
   %1619 = getelementptr inbounds nuw i8, ptr %0, i64 1524
   %1620 = zext i1 %1613 to i64
-  %1621 = getelementptr inbounds nuw i32, ptr %1619, i64 %1620
+  %1621 = getelementptr inbounds nuw [4 x i8], ptr %1619, i64 %1620
   %1622 = load i32, ptr %1621, align 4, !tbaa !52
   %1623 = add i32 %1622, 1
   store i32 %1623, ptr %1621, align 4, !tbaa !52
@@ -2488,7 +2485,7 @@ vpx_rac_renorm.exit227:                           ; preds = %1631, %1645, %1649
   store i32 %1667, ptr %934, align 8, !tbaa !46
   %1668 = getelementptr inbounds nuw i8, ptr %0, i64 1380
   %1669 = zext i1 %1663 to i64
-  %1670 = getelementptr inbounds nuw i32, ptr %1668, i64 %1669
+  %1670 = getelementptr inbounds nuw [4 x i8], ptr %1668, i64 %1669
   %1671 = load i32, ptr %1670, align 4, !tbaa !52
   %1672 = add i32 %1671, 1
   store i32 %1672, ptr %1670, align 4, !tbaa !52
@@ -2563,9 +2560,9 @@ vpx_rac_renorm.exit230:                           ; preds = %1675, %1691, %1695
 vp89_rac_get_tree.exit.i131:                      ; preds = %vpx_rac_renorm.exit230
   %1719 = sub nsw i32 0, %1717
   %1720 = getelementptr inbounds nuw i8, ptr %0, i64 1468
-  %1721 = getelementptr inbounds nuw [4 x i32], ptr %1720, i64 %1669
+  %1721 = getelementptr inbounds nuw [16 x i8], ptr %1720, i64 %1669
   %1722 = zext nneg i32 %1719 to i64
-  %1723 = getelementptr inbounds nuw i32, ptr %1721, i64 %1722
+  %1723 = getelementptr inbounds nuw [4 x i8], ptr %1721, i64 %1722
   %1724 = load i32, ptr %1723, align 4, !tbaa !52
   %1725 = add i32 %1724, 1
   store i32 %1725, ptr %1723, align 4, !tbaa !52
@@ -2628,7 +2625,7 @@ vpx_rac_renorm.exit233:                           ; preds = %1729, %1743, %1747
   store i32 %1766, ptr %934, align 8, !tbaa !46
   %1767 = getelementptr inbounds nuw i8, ptr %0, i64 1516
   %1768 = zext i1 %1761 to i64
-  %1769 = getelementptr inbounds nuw i32, ptr %1767, i64 %1768
+  %1769 = getelementptr inbounds nuw [4 x i8], ptr %1767, i64 %1768
   %1770 = load i32, ptr %1769, align 4, !tbaa !52
   %1771 = add i32 %1770, 1
   store i32 %1771, ptr %1769, align 4, !tbaa !52
@@ -2671,7 +2668,7 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %17 = load i32, ptr %16, align 4, !tbaa !64
   %18 = zext i32 %17 to i64
-  %19 = getelementptr inbounds nuw [8 x [2 x i8]], ptr @find_ref_mvs.mv_ref_blk_off, i64 %18
+  %19 = getelementptr inbounds nuw [16 x i8], ptr @find_ref_mvs.mv_ref_blk_off, i64 %18
   %20 = icmp sgt i32 %5, -1
   br i1 %20, label %21, label %..thread1611_crit_edge
 
@@ -2688,7 +2685,7 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
 23:                                               ; preds = %21
   %24 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %25 = zext nneg i32 %3 to i64
-  %26 = getelementptr inbounds nuw %struct.VP9mv, ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %25
   %27 = load i32, ptr %26, align 4, !tbaa !19
   %.not948.not = icmp eq i32 %4, 0
   br i1 %.not948.not, label %.thread, label %50
@@ -2705,7 +2702,7 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
   %31 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %32 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %33 = zext nneg i32 %3 to i64
-  %34 = getelementptr inbounds nuw %struct.VP9mv, ptr %32, i64 %33
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %33
   %35 = load i32, ptr %34, align 4, !tbaa !19
   %.not.not = icmp eq i32 %4, 0
   br i1 %.not.not, label %.thread1594, label %36
@@ -2716,7 +2713,7 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
 
 36:                                               ; preds = %30
   %37 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %38 = getelementptr inbounds nuw %struct.VP9mv, ptr %37, i64 %33
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %33
   %39 = load i32, ptr %38, align 4, !tbaa !19
   %40 = icmp eq i32 %35, -2147450880
   br i1 %40, label %44, label %41
@@ -2726,7 +2723,7 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
   br i1 %.not, label %.thread1596, label %.critedge
 
 .thread1596:                                      ; preds = %41
-  %42 = getelementptr inbounds nuw %struct.VP9mv, ptr %31, i64 %33
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %33
   %43 = load i32, ptr %42, align 4, !tbaa !19
   br label %48
 
@@ -2735,7 +2732,7 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
   br label %.critedge1060
 
 44:                                               ; preds = %36
-  %45 = getelementptr inbounds nuw %struct.VP9mv, ptr %31, i64 %33
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %33
   %46 = load i32, ptr %45, align 4, !tbaa !19
   %47 = icmp eq i32 %39, -2147450880
   br i1 %47, label %50, label %48
@@ -2765,7 +2762,7 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
   %59 = mul i32 %58, %56
   %60 = add i32 %59, %13
   %61 = zext i32 %60 to i64
-  %62 = getelementptr inbounds nuw %struct.VP9mvrefPair, ptr %54, i64 %61
+  %62 = getelementptr inbounds nuw [12 x i8], ptr %54, i64 %61
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %64 = load i8, ptr %63, align 4, !tbaa !19
   %65 = sext i8 %64 to i32
@@ -2783,7 +2780,7 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
   %72 = and i32 %5, 1
   %73 = or disjoint i32 %70, %72
   %74 = sext i32 %73 to i64
-  %75 = getelementptr inbounds [2 x %struct.VP9mv], ptr %69, i64 %74
+  %75 = getelementptr inbounds [8 x i8], ptr %69, i64 %74
   %76 = load i16, ptr %75, align 4, !tbaa !39
   %77 = sext i16 %76 to i32
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 77024
@@ -2819,7 +2816,7 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
 
 93:                                               ; preds = %67
   %94 = sext i32 %70 to i64
-  %95 = getelementptr inbounds [2 x %struct.VP9mv], ptr %69, i64 %94
+  %95 = getelementptr inbounds [8 x i8], ptr %69, i64 %94
   %96 = load i32, ptr %95, align 4
   %.not954 = icmp eq i32 %4, 0
   br i1 %.not954, label %97, label %113
@@ -2900,7 +2897,7 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
   %142 = and i32 %5, 1
   %143 = or disjoint i32 %140, %142
   %144 = sext i32 %143 to i64
-  %145 = getelementptr inbounds [2 x %struct.VP9mv], ptr %139, i64 %144
+  %145 = getelementptr inbounds [8 x i8], ptr %139, i64 %144
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 4
   %147 = load i16, ptr %146, align 4, !tbaa !39
   %148 = sext i16 %147 to i32
@@ -2937,7 +2934,7 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
 
 164:                                              ; preds = %137
   %165 = sext i32 %140 to i64
-  %166 = getelementptr inbounds [2 x %struct.VP9mv], ptr %139, i64 %165
+  %166 = getelementptr inbounds [8 x i8], ptr %139, i64 %165
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 4
   %168 = load i32, ptr %167, align 4
   %.not950 = icmp eq i32 %4, 0
@@ -3019,7 +3016,7 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
   %214 = add i32 %13, -1
   %215 = add i32 %214, %213
   %216 = zext i32 %215 to i64
-  %217 = getelementptr inbounds nuw %struct.VP9mvrefPair, ptr %209, i64 %216
+  %217 = getelementptr inbounds nuw [12 x i8], ptr %209, i64 %216
   %218 = getelementptr inbounds nuw i8, ptr %217, i64 8
   %219 = load i8, ptr %218, align 4, !tbaa !19
   %220 = sext i8 %219 to i32
@@ -3037,7 +3034,7 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
   %227 = lshr i32 %5, 1
   %228 = add nsw i32 %226, %227
   %229 = sext i32 %228 to i64
-  %230 = getelementptr inbounds [2 x %struct.VP9mv], ptr %225, i64 %229
+  %230 = getelementptr inbounds [8 x i8], ptr %225, i64 %229
   br i1 %224, label %231, label %250
 
 231:                                              ; preds = %223
@@ -3109,7 +3106,7 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
   %266 = getelementptr inbounds nuw i8, ptr %0, i64 52224
   %267 = shl nsw i32 %15, 1
   %268 = sext i32 %267 to i64
-  %269 = getelementptr inbounds [2 x %struct.VP9mv], ptr %266, i64 %268
+  %269 = getelementptr inbounds [8 x i8], ptr %266, i64 %268
   %270 = load i32, ptr %269, align 8
   %.not964 = icmp eq i32 %4, 0
   br i1 %.not964, label %271, label %287
@@ -3189,7 +3186,7 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
   %315 = lshr i32 %5, 1
   %316 = add nsw i32 %314, %315
   %317 = sext i32 %316 to i64
-  %318 = getelementptr [2 x %struct.VP9mv], ptr %0, i64 %317
+  %318 = getelementptr [8 x i8], ptr %0, i64 %317
   %319 = getelementptr i8, ptr %318, i64 52228
   br i1 %313, label %320, label %339
 
@@ -3261,7 +3258,7 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
 354:                                              ; preds = %311
   %355 = shl nsw i32 %15, 1
   %356 = sext i32 %355 to i64
-  %357 = getelementptr [2 x %struct.VP9mv], ptr %0, i64 %356
+  %357 = getelementptr [8 x i8], ptr %0, i64 %356
   %358 = getelementptr i8, ptr %357, i64 52228
   %359 = load i32, ptr %358, align 4
   %.not958 = icmp eq i32 %4, 0
@@ -3377,7 +3374,7 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
   %426 = mul i32 %425, %424
   %427 = add i32 %426, %410
   %428 = zext i32 %427 to i64
-  %429 = getelementptr inbounds nuw %struct.VP9mvrefPair, ptr %423, i64 %428
+  %429 = getelementptr inbounds nuw [12 x i8], ptr %423, i64 %428
   %430 = getelementptr inbounds nuw i8, ptr %429, i64 8
   %431 = load i8, ptr %430, align 4, !tbaa !19
   %432 = sext i8 %431 to i32
@@ -3650,7 +3647,7 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
   %565 = mul i32 %564, %563
   %566 = add i32 %565, %13
   %567 = zext i32 %566 to i64
-  %568 = getelementptr inbounds nuw %struct.VP9mvrefPair, ptr %562, i64 %567
+  %568 = getelementptr inbounds nuw [12 x i8], ptr %562, i64 %567
   %569 = getelementptr inbounds nuw i8, ptr %7, i64 528
   %570 = load i32, ptr %569, align 8, !tbaa !82
   %.not971 = icmp eq i32 %570, 0
@@ -3957,7 +3954,7 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
   %726 = mul i32 %725, %724
   %727 = add i32 %726, %710
   %728 = zext i32 %727 to i64
-  %729 = getelementptr inbounds nuw %struct.VP9mvrefPair, ptr %723, i64 %728
+  %729 = getelementptr inbounds nuw [12 x i8], ptr %723, i64 %728
   %730 = getelementptr inbounds nuw i8, ptr %729, i64 8
   %731 = load i8, ptr %730, align 4, !tbaa !19
   %732 = sext i8 %731 to i32
@@ -4500,7 +4497,7 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
   %982 = mul i32 %981, %980
   %983 = add i32 %982, %13
   %984 = zext i32 %983 to i64
-  %985 = getelementptr inbounds nuw %struct.VP9mvrefPair, ptr %979, i64 %984
+  %985 = getelementptr inbounds nuw [12 x i8], ptr %979, i64 %984
   %986 = getelementptr inbounds nuw i8, ptr %985, i64 8
   %987 = load i8, ptr %986, align 4, !tbaa !19
   %988 = sext i8 %987 to i32

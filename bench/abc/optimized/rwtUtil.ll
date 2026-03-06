@@ -115,7 +115,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %45 = add nsw i32 %44, 1
   store i32 %45, ptr %17, align 4, !tbaa !23
   %46 = sext i32 %44 to i64
-  %47 = getelementptr inbounds ptr, ptr %43, i64 %46
+  %47 = getelementptr inbounds [8 x i8], ptr %43, i64 %46
   store ptr %6, ptr %47, align 8, !tbaa !30
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %55, label %48
@@ -124,7 +124,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %50 = load ptr, ptr %49, align 8, !tbaa !31
   %51 = zext i32 %1 to i64
-  %52 = getelementptr inbounds nuw ptr, ptr %50, i64 %51
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %51
   br label %53
 
 53:                                               ; preds = %53, %48
@@ -299,12 +299,12 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %94 = add nsw i32 %93, 1
   store i32 %94, ptr %66, align 4, !tbaa !23
   %95 = sext i32 %93 to i64
-  %96 = getelementptr inbounds ptr, ptr %92, i64 %95
+  %96 = getelementptr inbounds [8 x i8], ptr %92, i64 %95
   store ptr %47, ptr %96, align 8, !tbaa !30
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %98 = load ptr, ptr %97, align 8, !tbaa !36
   %99 = zext nneg i32 %.0 to i64
-  %100 = getelementptr inbounds nuw i16, ptr %98, i64 %99
+  %100 = getelementptr inbounds nuw [2 x i8], ptr %98, i64 %99
   %101 = load i16, ptr %100, align 2, !tbaa !37
   %102 = trunc i32 %.0.in to i16
   %.not45 = icmp eq i16 %101, %102
@@ -317,7 +317,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   store i32 %106, ptr %104, align 8, !tbaa !39
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %108 = load ptr, ptr %107, align 8, !tbaa !31
-  %109 = getelementptr inbounds nuw ptr, ptr %108, i64 %99
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %108, i64 %99
   %110 = load ptr, ptr %109, align 8, !tbaa !3
   %111 = icmp eq ptr %110, null
   br i1 %111, label %112, label %.preheader
@@ -429,7 +429,7 @@ define void @Rwt_ManIncTravId(ptr noundef captures(none) %0) local_unnamed_addr 
 
 11:                                               ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
-  %12 = getelementptr inbounds nuw ptr, ptr %.val7, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %.val7, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !30
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store i32 0, ptr %14, align 4, !tbaa !27
@@ -473,7 +473,7 @@ define i32 @Rwt_ManNodeVolume(ptr noundef captures(none) %0, ptr noundef capture
 
 14:                                               ; preds = %14, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %14 ]
-  %15 = getelementptr inbounds nuw ptr, ptr %.val7.i, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %.val7.i, i64 %indvars.iv.i
   %16 = load ptr, ptr %15, align 8, !tbaa !30
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
   store i32 0, ptr %17, align 4, !tbaa !27
@@ -531,11 +531,11 @@ Abc_Clock.exit:                                   ; preds = %2, %8
   %22 = load ptr, ptr %21, align 8, !tbaa !29
   %23 = lshr i32 %17, 2
   %24 = zext nneg i32 %23 to i64
-  %25 = getelementptr inbounds nuw ptr, ptr %22, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !30
   %27 = lshr i32 %15, 1
   %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %22, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !30
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %32 = load i32, ptr %31, align 8
@@ -567,7 +567,7 @@ Abc_Clock.exit:                                   ; preds = %2, %8
 
 45:                                               ; preds = %45, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %45 ]
-  %46 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv.i.i
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv.i.i
   %47 = load ptr, ptr %46, align 8, !tbaa !30
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 4
   store i32 0, ptr %48, align 4, !tbaa !27
@@ -700,7 +700,7 @@ define noalias noundef ptr @Rwt_ManGetPractical(ptr noundef readonly captures(no
 
 4:                                                ; preds = %1, %4
   %indvars.iv = phi i64 [ 1, %1 ], [ %indvars.iv.next, %4 ]
-  %5 = getelementptr inbounds nuw i16, ptr @s_RwtPracticalClasses, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [2 x i8], ptr @s_RwtPracticalClasses, i64 %indvars.iv
   %6 = load i16, ptr %5, align 2, !tbaa !37
   %7 = zext i16 %6 to i64
   %8 = getelementptr inbounds nuw i8, ptr %calloc, i64 %7

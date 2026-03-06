@@ -254,7 +254,7 @@ define void @_ZN7Imf_3_421calculateBytesPerLineERKNS_6HeaderEPciiiiiiRSt6vectorI
   %indvars.iv58 = phi i64 [ 0, %.lr.ph47 ], [ %indvars.iv.next59, %._crit_edge42 ]
   %.sroa.031.044 = phi ptr [ %13, %.lr.ph47 ], [ %33, %._crit_edge42 ]
   %18 = load ptr, ptr %9, align 8, !tbaa !21
-  %19 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv58
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv58
   %20 = load i32, ptr %19, align 4, !tbaa !25
   %21 = sub nsw i32 %7, %20
   br i1 %.not37, label %._crit_edge42, label %.lr.ph41
@@ -265,7 +265,7 @@ define void @_ZN7Imf_3_421calculateBytesPerLineERKNS_6HeaderEPciiiiiiRSt6vectorI
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph41
   %23 = load ptr, ptr %8, align 8, !tbaa !21
-  %24 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv58
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %indvars.iv58
   %25 = load i32, ptr %24, align 4, !tbaa !25
   %26 = sub nsw i32 %5, %25
   %27 = sub i32 %4, %25
@@ -306,7 +306,7 @@ define void @_ZN7Imf_3_421calculateBytesPerLineERKNS_6HeaderEPciiiiiiRSt6vectorI
   %43 = mul nsw i32 %42, %40
   %44 = sext i32 %43 to i64
   %45 = load ptr, ptr %10, align 8, !tbaa !28
-  %46 = getelementptr inbounds nuw i64, ptr %45, i64 %indvars.iv53
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv53
   %47 = load i64, ptr %46, align 8, !tbaa !31
   %48 = add i64 %47, %44
   store i64 %48, ptr %46, align 8, !tbaa !31
@@ -559,7 +559,7 @@ _ZN7Imf_3_412_GLOBAL__N_119calculateNumYLevelsERKNS_15TileDescriptionEiiii.exit:
   %106 = add nsw i64 %98, %105
   %107 = udiv i64 %106, %97
   %108 = trunc i64 %107 to i32
-  %109 = getelementptr inbounds nuw i32, ptr %91, i64 %indvars.iv.i
+  %109 = getelementptr inbounds nuw [4 x i8], ptr %91, i64 %indvars.iv.i
   store i32 %108, ptr %109, align 4, !tbaa !25
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -600,7 +600,7 @@ _ZN7Imf_3_412_GLOBAL__N_117calculateNumTilesEPiiiiiNS_17LevelRoundingModeE.exit:
   %126 = add nsw i64 %118, %125
   %127 = udiv i64 %126, %117
   %128 = trunc i64 %127 to i32
-  %129 = getelementptr inbounds nuw i32, ptr %90, i64 %indvars.iv.i56
+  %129 = getelementptr inbounds nuw [4 x i8], ptr %90, i64 %indvars.iv.i56
   store i32 %128, ptr %129, align 4, !tbaa !25
   %indvars.iv.next.i61 = add nuw nsw i64 %indvars.iv.i56, 1
   %exitcond.not.i62 = icmp eq i64 %indvars.iv.next.i61, %wide.trip.count.i55
@@ -678,7 +678,7 @@ define noundef range(i32 0, -2147483648) i32 @_ZN7Imf_3_428getTiledChunkOffsetTa
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
   %indvars.iv56 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next57, %._crit_edge.us ]
   %.23046.us = phi i64 [ 0, %.preheader.us.preheader ], [ %35, %._crit_edge.us ]
-  %26 = getelementptr inbounds nuw i32, ptr %.pre66, i64 %indvars.iv56
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %.pre66, i64 %indvars.iv56
   %27 = load i32, ptr %26, align 4, !tbaa !25
   %28 = sext i32 %27 to i64
   br label %30
@@ -691,7 +691,7 @@ define noundef range(i32 0, -2147483648) i32 @_ZN7Imf_3_428getTiledChunkOffsetTa
 30:                                               ; preds = %.preheader.us, %29
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %29 ]
   %.33144.us = phi i64 [ %.23046.us, %.preheader.us ], [ %35, %29 ]
-  %31 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %indvars.iv
   %32 = load i32, ptr %31, align 4, !tbaa !25
   %33 = sext i32 %32 to i64
   %34 = mul nsw i64 %33, %28
@@ -733,10 +733,10 @@ define noundef range(i32 0, -2147483648) i32 @_ZN7Imf_3_428getTiledChunkOffsetTa
 46:                                               ; preds = %.lr.ph, %45
   %indvars.iv61 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next62, %45 ]
   %.12949 = phi i64 [ 0, %.lr.ph ], [ %54, %45 ]
-  %47 = getelementptr inbounds nuw i32, ptr %.pre67, i64 %indvars.iv61
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %.pre67, i64 %indvars.iv61
   %48 = load i32, ptr %47, align 4, !tbaa !25
   %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds nuw i32, ptr %44, i64 %indvars.iv61
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %indvars.iv61
   %51 = load i32, ptr %50, align 4, !tbaa !25
   %52 = sext i32 %51 to i64
   %53 = mul nsw i64 %52, %49

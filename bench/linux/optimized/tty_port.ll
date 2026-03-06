@@ -228,7 +228,7 @@ define dso_local void @tty_port_link_device(ptr noundef %0, ptr noundef readonly
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %10 = load ptr, ptr %9, align 8
   %11 = zext i32 %2 to i64
-  %12 = getelementptr ptr, ptr %10, i64 %11
+  %12 = getelementptr [8 x i8], ptr %10, i64 %11
   store ptr %0, ptr %12, align 8
   br label %13
 
@@ -253,7 +253,7 @@ define dso_local ptr @tty_port_register_device(ptr noundef %0, ptr noundef %1, i
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %11 = load ptr, ptr %10, align 8
   %12 = zext i32 %2 to i64
-  %13 = getelementptr ptr, ptr %11, i64 %12
+  %13 = getelementptr [8 x i8], ptr %11, i64 %12
   store ptr %0, ptr %13, align 8
   br label %14
 
@@ -279,7 +279,7 @@ define dso_local ptr @tty_port_register_device_attr(ptr noundef %0, ptr noundef 
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %13 = load ptr, ptr %12, align 8
   %14 = zext i32 %2 to i64
-  %15 = getelementptr ptr, ptr %13, i64 %14
+  %15 = getelementptr [8 x i8], ptr %13, i64 %14
   store ptr %0, ptr %15, align 8
   br label %16
 
@@ -308,7 +308,7 @@ define dso_local ptr @tty_port_register_device_attr_serdev(ptr noundef %0, ptr n
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %14 = load ptr, ptr %13, align 8
   %15 = zext i32 %2 to i64
-  %16 = getelementptr ptr, ptr %14, i64 %15
+  %16 = getelementptr [8 x i8], ptr %14, i64 %15
   store ptr %0, ptr %16, align 8
   br label %17
 
@@ -334,7 +334,7 @@ define dso_local ptr @tty_port_register_device_serdev(ptr noundef %0, ptr nounde
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %12 = load ptr, ptr %11, align 8
   %13 = zext i32 %2 to i64
-  %14 = getelementptr ptr, ptr %12, i64 %13
+  %14 = getelementptr [8 x i8], ptr %12, i64 %13
   store ptr %0, ptr %14, align 8
   br label %15
 

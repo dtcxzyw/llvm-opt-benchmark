@@ -283,7 +283,7 @@ define void @_ZNK6icu_7714SearchIterator14getMatchedTextERNS_13UnicodeStringE(pt
 11:                                               ; preds = %2
   %12 = load ptr, ptr %4, align 8, !tbaa !28
   %13 = sext i32 %6 to i64
-  %14 = getelementptr inbounds i16, ptr %12, i64 %13
+  %14 = getelementptr inbounds [2 x i8], ptr %12, i64 %13
   tail call void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load i16, ptr %15, align 8, !tbaa !6

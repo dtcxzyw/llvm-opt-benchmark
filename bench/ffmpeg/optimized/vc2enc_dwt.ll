@@ -30,7 +30,7 @@ define range(i32 0, 2) i32 @ff_vc2enc_init_transforms(ptr noundef writeonly capt
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %19, ptr %20, align 8, !tbaa !12
   %21 = sext i32 %19 to i64
-  %22 = getelementptr inbounds i32, ptr %14, i64 %21
+  %22 = getelementptr inbounds [4 x i8], ptr %14, i64 %21
   store ptr %22, ptr %0, align 8, !tbaa !8
   br label %23
 
@@ -65,18 +65,18 @@ define internal void @vc2_subband_dwt_97(ptr noundef readonly captures(none) %0,
 
 13:                                               ; preds = %.preheader227.us, %13
   %indvars.iv = phi i64 [ 0, %.preheader227.us ], [ %indvars.iv.next, %13 ]
-  %14 = getelementptr inbounds nuw i32, ptr %.0196229.us, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %.0196229.us, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4, !tbaa !13
   %16 = shl nsw i32 %15, 1
-  %17 = getelementptr inbounds nuw i32, ptr %.0192230.us, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %.0192230.us, i64 %indvars.iv
   store i32 %16, ptr %17, align 4, !tbaa !13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %13, !llvm.loop !14
 
 ._crit_edge.us:                                   ; preds = %13
-  %18 = getelementptr inbounds nuw i32, ptr %.0192230.us, i64 %8
-  %19 = getelementptr inbounds i32, ptr %.0196229.us, i64 %2
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %.0192230.us, i64 %8
+  %19 = getelementptr inbounds [4 x i8], ptr %.0196229.us, i64 %2
   %20 = add nuw nsw i32 %.0188231.us, 1
   %exitcond283.not = icmp eq i32 %20, %9
   br i1 %exitcond283.not, label %.lr.ph239, label %.preheader227.us, !llvm.loop !16
@@ -136,7 +136,7 @@ define internal void @vc2_subband_dwt_97(ptr noundef readonly captures(none) %0,
   br i1 %exitcond288.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph, %25
-  %56 = getelementptr i32, ptr %.1193237, i64 %8
+  %56 = getelementptr [4 x i8], ptr %.1193237, i64 %8
   %57 = getelementptr i8, ptr %56, i64 -8
   %58 = load i32, ptr %57, align 4, !tbaa !13
   %59 = mul nsw i32 %58, 17
@@ -202,7 +202,7 @@ define internal void @vc2_subband_dwt_97(ptr noundef readonly captures(none) %0,
   br i1 %exitcond294.not, label %._crit_edge240, label %25, !llvm.loop !19
 
 ._crit_edge240:                                   ; preds = %._crit_edge236, %5
-  %102 = getelementptr inbounds i32, ptr %6, i64 %8
+  %102 = getelementptr inbounds [4 x i8], ptr %6, i64 %8
   %103 = icmp sgt i32 %7, 0
   br i1 %103, label %.lr.ph243, label %._crit_edge265
 
@@ -214,14 +214,14 @@ define internal void @vc2_subband_dwt_97(ptr noundef readonly captures(none) %0,
 
 105:                                              ; preds = %.lr.ph243, %105
   %indvars.iv295 = phi i64 [ 0, %.lr.ph243 ], [ %indvars.iv.next296, %105 ]
-  %106 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv295
+  %106 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv295
   %107 = load i32, ptr %106, align 4, !tbaa !13
   %108 = shl nsw i32 %107, 3
-  %109 = getelementptr i32, ptr %102, i64 %indvars.iv295
-  %110 = getelementptr i32, ptr %109, i64 %8
+  %109 = getelementptr [4 x i8], ptr %102, i64 %indvars.iv295
+  %110 = getelementptr [4 x i8], ptr %109, i64 %8
   %111 = load i32, ptr %110, align 4, !tbaa !13
   %112 = mul nsw i32 %111, 9
-  %113 = getelementptr i32, ptr %104, i64 %indvars.iv295
+  %113 = getelementptr [4 x i8], ptr %104, i64 %indvars.iv295
   %114 = load i32, ptr %113, align 4, !tbaa !13
   %115 = add i32 %108, 8
   %116 = add i32 %115, %112
@@ -236,7 +236,7 @@ define internal void @vc2_subband_dwt_97(ptr noundef readonly captures(none) %0,
 
 ._crit_edge244:                                   ; preds = %105
   %121 = shl nuw nsw i64 %8, 1
-  %122 = getelementptr inbounds nuw i32, ptr %6, i64 %121
+  %122 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %121
   %123 = icmp sgt i32 %4, 3
   br i1 %123, label %.preheader225.lr.ph, label %._crit_edge250
 
@@ -249,28 +249,28 @@ define internal void @vc2_subband_dwt_97(ptr noundef readonly captures(none) %0,
 .preheader225.us:                                 ; preds = %.preheader225.lr.ph, %._crit_edge247.us
   %.2190249.us = phi i32 [ %145, %._crit_edge247.us ], [ 1, %.preheader225.lr.ph ]
   %.2194248.us = phi ptr [ %125, %._crit_edge247.us ], [ %122, %.preheader225.lr.ph ]
-  %125 = getelementptr i32, ptr %.2194248.us, i64 %121
+  %125 = getelementptr [4 x i8], ptr %.2194248.us, i64 %121
   %126 = getelementptr i8, ptr %.2194248.us, i64 %.idx209
   br label %127
 
 127:                                              ; preds = %.preheader225.us, %127
   %indvars.iv300 = phi i64 [ 0, %.preheader225.us ], [ %indvars.iv.next301, %127 ]
-  %128 = getelementptr inbounds nuw i32, ptr %.2194248.us, i64 %indvars.iv300
+  %128 = getelementptr inbounds nuw [4 x i8], ptr %.2194248.us, i64 %indvars.iv300
   %129 = load i32, ptr %128, align 4, !tbaa !13
-  %130 = getelementptr i32, ptr %125, i64 %indvars.iv300
+  %130 = getelementptr [4 x i8], ptr %125, i64 %indvars.iv300
   %131 = load i32, ptr %130, align 4, !tbaa !13
   %132 = add i32 %131, %129
   %133 = mul i32 %132, 9
   %134 = sub nsw i64 %indvars.iv300, %121
-  %135 = getelementptr inbounds i32, ptr %.2194248.us, i64 %134
+  %135 = getelementptr inbounds [4 x i8], ptr %.2194248.us, i64 %134
   %136 = load i32, ptr %135, align 4, !tbaa !13
-  %137 = getelementptr i32, ptr %126, i64 %indvars.iv300
+  %137 = getelementptr [4 x i8], ptr %126, i64 %indvars.iv300
   %138 = load i32, ptr %137, align 4, !tbaa !13
   %139 = add i32 %136, %138
   %reass.sub276 = sub i32 %133, %139
   %140 = add i32 %reass.sub276, 8
   %141 = ashr i32 %140, 4
-  %142 = getelementptr i32, ptr %128, i64 %8
+  %142 = getelementptr [4 x i8], ptr %128, i64 %8
   %143 = load i32, ptr %142, align 4, !tbaa !13
   %144 = sub nsw i32 %143, %141
   store i32 %144, ptr %142, align 4, !tbaa !13
@@ -286,7 +286,7 @@ define internal void @vc2_subband_dwt_97(ptr noundef readonly captures(none) %0,
 ._crit_edge250:                                   ; preds = %._crit_edge247.us, %._crit_edge244
   %146 = add nsw i64 %10, -1
   %147 = mul nsw i64 %146, %8
-  %148 = getelementptr inbounds i32, ptr %6, i64 %147
+  %148 = getelementptr inbounds [4 x i8], ptr %6, i64 %147
   %.idx = mul nsw i64 %8, -12
   %149 = getelementptr i8, ptr %148, i64 %.idx
   %.idx208 = mul nsw i64 %8, -20
@@ -301,29 +301,29 @@ define internal void @vc2_subband_dwt_97(ptr noundef readonly captures(none) %0,
 151:                                              ; preds = %._crit_edge250, %151
   %indvars.iv306 = phi i64 [ 0, %._crit_edge250 ], [ %indvars.iv.next307, %151 ]
   %152 = sub nsw i64 %indvars.iv306, %8
-  %153 = getelementptr inbounds i32, ptr %148, i64 %152
+  %153 = getelementptr inbounds [4 x i8], ptr %148, i64 %152
   %154 = load i32, ptr %153, align 4, !tbaa !13
   %155 = mul nsw i32 %154, 17
-  %156 = getelementptr i32, ptr %149, i64 %indvars.iv306
+  %156 = getelementptr [4 x i8], ptr %149, i64 %indvars.iv306
   %157 = load i32, ptr %156, align 4, !tbaa !13
   %reass.sub277 = sub i32 %155, %157
   %158 = add i32 %reass.sub277, 8
   %159 = ashr i32 %158, 4
-  %160 = getelementptr inbounds nuw i32, ptr %148, i64 %indvars.iv306
+  %160 = getelementptr inbounds nuw [4 x i8], ptr %148, i64 %indvars.iv306
   %161 = load i32, ptr %160, align 4, !tbaa !13
   %162 = sub nsw i32 %161, %159
   store i32 %162, ptr %160, align 4, !tbaa !13
   %163 = mul nsw i32 %157, 9
   %164 = load i32, ptr %153, align 4, !tbaa !13
   %165 = shl nsw i32 %164, 3
-  %166 = getelementptr i32, ptr %150, i64 %indvars.iv306
+  %166 = getelementptr [4 x i8], ptr %150, i64 %indvars.iv306
   %167 = load i32, ptr %166, align 4, !tbaa !13
   %168 = add i32 %163, 8
   %169 = add i32 %168, %165
   %170 = sub i32 %169, %167
   %171 = ashr i32 %170, 4
   %172 = sub nsw i64 %indvars.iv306, %121
-  %173 = getelementptr inbounds i32, ptr %148, i64 %172
+  %173 = getelementptr inbounds [4 x i8], ptr %148, i64 %172
   %174 = load i32, ptr %173, align 4, !tbaa !13
   %175 = sub nsw i32 %174, %171
   store i32 %175, ptr %173, align 4, !tbaa !13
@@ -348,10 +348,10 @@ define internal void @vc2_subband_dwt_97(ptr noundef readonly captures(none) %0,
 178:                                              ; preds = %.preheader222.us, %178
   %indvars.iv316 = phi i64 [ 0, %.preheader222.us ], [ %indvars.iv.next317, %178 ]
   %179 = sub nsw i64 %indvars.iv316, %8
-  %180 = getelementptr inbounds i32, ptr %.3195259.us, i64 %179
+  %180 = getelementptr inbounds [4 x i8], ptr %.3195259.us, i64 %179
   %181 = load i32, ptr %180, align 4, !tbaa !13
-  %182 = getelementptr i32, ptr %.3195259.us, i64 %indvars.iv316
-  %183 = getelementptr i32, ptr %182, i64 %8
+  %182 = getelementptr [4 x i8], ptr %.3195259.us, i64 %indvars.iv316
+  %183 = getelementptr [4 x i8], ptr %182, i64 %8
   %184 = load i32, ptr %183, align 4, !tbaa !13
   %185 = add i32 %181, 2
   %186 = add i32 %185, %184
@@ -364,15 +364,15 @@ define internal void @vc2_subband_dwt_97(ptr noundef readonly captures(none) %0,
   br i1 %exitcond320.not, label %._crit_edge258.us, label %178, !llvm.loop !24
 
 ._crit_edge258.us:                                ; preds = %178
-  %190 = getelementptr inbounds nuw i32, ptr %.3195259.us, i64 %121
+  %190 = getelementptr inbounds nuw [4 x i8], ptr %.3195259.us, i64 %121
   %191 = add nuw nsw i32 %.3191260.us, 1
   %exitcond321.not = icmp eq i32 %.3191260.us, %177
   br i1 %exitcond321.not, label %._crit_edge261, label %.preheader222.us, !llvm.loop !25
 
 .lr.ph255:                                        ; preds = %.lr.ph255.preheader, %.lr.ph255
   %indvars.iv311 = phi i64 [ 0, %.lr.ph255.preheader ], [ %indvars.iv.next312, %.lr.ph255 ]
-  %192 = getelementptr i32, ptr %6, i64 %indvars.iv311
-  %193 = getelementptr i32, ptr %192, i64 %8
+  %192 = getelementptr [4 x i8], ptr %6, i64 %indvars.iv311
+  %193 = getelementptr [4 x i8], ptr %192, i64 %8
   %194 = load i32, ptr %193, align 4, !tbaa !13
   %195 = shl nsw i32 %194, 1
   %196 = add nsw i32 %195, 2
@@ -387,17 +387,17 @@ define internal void @vc2_subband_dwt_97(ptr noundef readonly captures(none) %0,
 ._crit_edge261:                                   ; preds = %._crit_edge258.us, %.preheader223
   %200 = add nsw i64 %10, -2
   %201 = mul nsw i64 %200, %8
-  %202 = getelementptr inbounds i32, ptr %6, i64 %201
+  %202 = getelementptr inbounds [4 x i8], ptr %6, i64 %201
   %wide.trip.count325 = zext nneg i32 %7 to i64
   br label %.lr.ph264
 
 .lr.ph264:                                        ; preds = %._crit_edge261, %.lr.ph264
   %indvars.iv322 = phi i64 [ 0, %._crit_edge261 ], [ %indvars.iv.next323, %.lr.ph264 ]
   %203 = sub nsw i64 %indvars.iv322, %8
-  %204 = getelementptr inbounds i32, ptr %202, i64 %203
+  %204 = getelementptr inbounds [4 x i8], ptr %202, i64 %203
   %205 = load i32, ptr %204, align 4, !tbaa !13
-  %206 = getelementptr i32, ptr %202, i64 %indvars.iv322
-  %207 = getelementptr i32, ptr %206, i64 %8
+  %206 = getelementptr [4 x i8], ptr %202, i64 %indvars.iv322
+  %207 = getelementptr [4 x i8], ptr %206, i64 %8
   %208 = load i32, ptr %207, align 4, !tbaa !13
   %209 = add i32 %205, 2
   %210 = add i32 %209, %208
@@ -420,11 +420,11 @@ define internal void @vc2_subband_dwt_97(ptr noundef readonly captures(none) %0,
 
 .preheader.us.preheader:                          ; preds = %.preheader.lr.ph
   %216 = zext nneg i32 %3 to i64
-  %217 = getelementptr inbounds nuw i32, ptr %1, i64 %216
+  %217 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %216
   %218 = zext nneg i32 %4 to i64
   %219 = mul nsw i64 %2, %218
-  %220 = getelementptr inbounds i32, ptr %1, i64 %219
-  %221 = getelementptr inbounds nuw i32, ptr %220, i64 %216
+  %220 = getelementptr inbounds [4 x i8], ptr %1, i64 %219
+  %221 = getelementptr inbounds nuw [4 x i8], ptr %220, i64 %216
   %wide.trip.count330 = zext nneg i32 %3 to i64
   br label %.preheader.us
 
@@ -435,7 +435,7 @@ define internal void @vc2_subband_dwt_97(ptr noundef readonly captures(none) %0,
   %.043.i271.us = phi ptr [ %237, %._crit_edge268.us ], [ %1, %.preheader.us.preheader ]
   %.044.i270.us = phi i32 [ %241, %._crit_edge268.us ], [ 0, %.preheader.us.preheader ]
   %.046.i269.us = phi ptr [ %236, %._crit_edge268.us ], [ %6, %.preheader.us.preheader ]
-  %invariant.gep.us = getelementptr i32, ptr %.046.i269.us, i64 %8
+  %invariant.gep.us = getelementptr [4 x i8], ptr %.046.i269.us, i64 %8
   br label %222
 
 222:                                              ; preds = %.preheader.us, %222
@@ -443,21 +443,21 @@ define internal void @vc2_subband_dwt_97(ptr noundef readonly captures(none) %0,
   %indvars.iv327.tr = trunc i64 %indvars.iv327 to i32
   %223 = shl i32 %indvars.iv327.tr, 1
   %224 = sext i32 %223 to i64
-  %225 = getelementptr inbounds i32, ptr %.046.i269.us, i64 %224
+  %225 = getelementptr inbounds [4 x i8], ptr %.046.i269.us, i64 %224
   %226 = load i32, ptr %225, align 4, !tbaa !13
-  %227 = getelementptr inbounds nuw i32, ptr %.043.i271.us, i64 %indvars.iv327
+  %227 = getelementptr inbounds nuw [4 x i8], ptr %.043.i271.us, i64 %indvars.iv327
   store i32 %226, ptr %227, align 4, !tbaa !13
   %228 = getelementptr i8, ptr %225, i64 4
   %229 = load i32, ptr %228, align 4, !tbaa !13
-  %230 = getelementptr inbounds nuw i32, ptr %.042.i272.us, i64 %indvars.iv327
+  %230 = getelementptr inbounds nuw [4 x i8], ptr %.042.i272.us, i64 %indvars.iv327
   store i32 %229, ptr %230, align 4, !tbaa !13
-  %gep.us = getelementptr i32, ptr %invariant.gep.us, i64 %224
+  %gep.us = getelementptr [4 x i8], ptr %invariant.gep.us, i64 %224
   %231 = load i32, ptr %gep.us, align 4, !tbaa !13
-  %232 = getelementptr inbounds nuw i32, ptr %.041.i273.us, i64 %indvars.iv327
+  %232 = getelementptr inbounds nuw [4 x i8], ptr %.041.i273.us, i64 %indvars.iv327
   store i32 %231, ptr %232, align 4, !tbaa !13
   %233 = getelementptr i8, ptr %gep.us, i64 4
   %234 = load i32, ptr %233, align 4, !tbaa !13
-  %235 = getelementptr inbounds nuw i32, ptr %.0.i274.us, i64 %indvars.iv327
+  %235 = getelementptr inbounds nuw [4 x i8], ptr %.0.i274.us, i64 %indvars.iv327
   store i32 %234, ptr %235, align 4, !tbaa !13
   %indvars.iv.next328 = add nuw nsw i64 %indvars.iv327, 1
   %exitcond331.not = icmp eq i64 %indvars.iv.next328, %wide.trip.count330
@@ -465,10 +465,10 @@ define internal void @vc2_subband_dwt_97(ptr noundef readonly captures(none) %0,
 
 ._crit_edge268.us:                                ; preds = %222
   %236 = getelementptr inbounds i8, ptr %.046.i269.us, i64 %.idx.i
-  %237 = getelementptr inbounds i32, ptr %.043.i271.us, i64 %2
-  %238 = getelementptr inbounds i32, ptr %.041.i273.us, i64 %2
-  %239 = getelementptr inbounds i32, ptr %.042.i272.us, i64 %2
-  %240 = getelementptr inbounds i32, ptr %.0.i274.us, i64 %2
+  %237 = getelementptr inbounds [4 x i8], ptr %.043.i271.us, i64 %2
+  %238 = getelementptr inbounds [4 x i8], ptr %.041.i273.us, i64 %2
+  %239 = getelementptr inbounds [4 x i8], ptr %.042.i272.us, i64 %2
+  %240 = getelementptr inbounds [4 x i8], ptr %.0.i274.us, i64 %2
   %241 = add nuw nsw i32 %.044.i270.us, 1
   %exitcond332.not = icmp eq i32 %241, %4
   br i1 %exitcond332.not, label %deinterleave.exit, label %.preheader.us, !llvm.loop !29
@@ -503,18 +503,18 @@ define internal void @vc2_subband_dwt_53(ptr noundef readonly captures(none) %0,
 
 13:                                               ; preds = %.preheader170.us, %13
   %indvars.iv = phi i64 [ 0, %.preheader170.us ], [ %indvars.iv.next, %13 ]
-  %14 = getelementptr inbounds nuw i32, ptr %.0146174.us, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %.0146174.us, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4, !tbaa !13
   %16 = shl nsw i32 %15, 1
-  %17 = getelementptr inbounds nuw i32, ptr %.0147173.us, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %.0147173.us, i64 %indvars.iv
   store i32 %16, ptr %17, align 4, !tbaa !13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %13, !llvm.loop !30
 
 ._crit_edge.us:                                   ; preds = %13
-  %18 = getelementptr inbounds nuw i32, ptr %.0147173.us, i64 %8
-  %19 = getelementptr inbounds i32, ptr %.0146174.us, i64 %2
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %.0147173.us, i64 %8
+  %19 = getelementptr inbounds [4 x i8], ptr %.0146174.us, i64 %2
   %20 = add nuw nsw i32 %.0142175.us, 1
   %exitcond223.not = icmp eq i32 %20, %9
   br i1 %exitcond223.not, label %.preheader168.lr.ph, label %.preheader170.us, !llvm.loop !31
@@ -551,7 +551,7 @@ define internal void @vc2_subband_dwt_53(ptr noundef readonly captures(none) %0,
   br i1 %exitcond228.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader168
-  %34 = getelementptr i32, ptr %.1148181, i64 %8
+  %34 = getelementptr [4 x i8], ptr %.1148181, i64 %8
   %35 = getelementptr i8, ptr %34, i64 -8
   %36 = load i32, ptr %35, align 4, !tbaa !13
   %37 = getelementptr i8, ptr %34, i64 -4
@@ -601,7 +601,7 @@ define internal void @vc2_subband_dwt_53(ptr noundef readonly captures(none) %0,
   br i1 %exitcond234.not, label %._crit_edge183, label %.preheader168, !llvm.loop !34
 
 ._crit_edge183:                                   ; preds = %._crit_edge180, %5
-  %66 = getelementptr i32, ptr %6, i64 %8
+  %66 = getelementptr [4 x i8], ptr %6, i64 %8
   %67 = icmp sgt i32 %7, 0
   br i1 %67, label %.lr.ph186.preheader, label %._crit_edge208
 
@@ -611,10 +611,10 @@ define internal void @vc2_subband_dwt_53(ptr noundef readonly captures(none) %0,
 
 .lr.ph186:                                        ; preds = %.lr.ph186.preheader, %.lr.ph186
   %indvars.iv235 = phi i64 [ 0, %.lr.ph186.preheader ], [ %indvars.iv.next236, %.lr.ph186 ]
-  %68 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv235
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv235
   %69 = load i32, ptr %68, align 4, !tbaa !13
-  %70 = getelementptr i32, ptr %66, i64 %indvars.iv235
-  %71 = getelementptr i32, ptr %70, i64 %8
+  %70 = getelementptr [4 x i8], ptr %66, i64 %indvars.iv235
+  %71 = getelementptr [4 x i8], ptr %70, i64 %8
   %72 = load i32, ptr %71, align 4, !tbaa !13
   %73 = add i32 %69, 1
   %74 = add i32 %73, %72
@@ -628,7 +628,7 @@ define internal void @vc2_subband_dwt_53(ptr noundef readonly captures(none) %0,
 
 ._crit_edge187:                                   ; preds = %.lr.ph186
   %78 = shl nuw nsw i64 %8, 1
-  %79 = getelementptr inbounds nuw i32, ptr %6, i64 %78
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %78
   %80 = add i32 %4, -1
   %81 = icmp sgt i32 %4, 2
   br i1 %81, label %.preheader167.lr.ph, label %._crit_edge193
@@ -646,14 +646,14 @@ define internal void @vc2_subband_dwt_53(ptr noundef readonly captures(none) %0,
 
 83:                                               ; preds = %.preheader167.us, %83
   %indvars.iv240 = phi i64 [ 0, %.preheader167.us ], [ %indvars.iv.next241, %83 ]
-  %84 = getelementptr inbounds nuw i32, ptr %.2149191.us, i64 %indvars.iv240
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %.2149191.us, i64 %indvars.iv240
   %85 = load i32, ptr %84, align 4, !tbaa !13
-  %86 = getelementptr i32, ptr %82, i64 %indvars.iv240
+  %86 = getelementptr [4 x i8], ptr %82, i64 %indvars.iv240
   %87 = load i32, ptr %86, align 4, !tbaa !13
   %88 = add i32 %85, 1
   %89 = add i32 %88, %87
   %90 = ashr i32 %89, 1
-  %91 = getelementptr i32, ptr %84, i64 %8
+  %91 = getelementptr [4 x i8], ptr %84, i64 %8
   %92 = load i32, ptr %91, align 4, !tbaa !13
   %93 = sub nsw i32 %92, %90
   store i32 %93, ptr %91, align 4, !tbaa !13
@@ -662,7 +662,7 @@ define internal void @vc2_subband_dwt_53(ptr noundef readonly captures(none) %0,
   br i1 %exitcond244.not, label %._crit_edge190.us, label %83, !llvm.loop !36
 
 ._crit_edge190.us:                                ; preds = %83
-  %94 = getelementptr inbounds nuw i32, ptr %.2149191.us, i64 %78
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %.2149191.us, i64 %78
   %95 = add nuw nsw i32 %.2144192.us, 1
   %exitcond245.not = icmp eq i32 %95, %80
   br i1 %exitcond245.not, label %._crit_edge193, label %.preheader167.us, !llvm.loop !37
@@ -670,7 +670,7 @@ define internal void @vc2_subband_dwt_53(ptr noundef readonly captures(none) %0,
 ._crit_edge193:                                   ; preds = %._crit_edge190.us, %._crit_edge187
   %96 = add nsw i64 %10, -1
   %97 = mul nsw i64 %96, %8
-  %98 = getelementptr inbounds i32, ptr %6, i64 %97
+  %98 = getelementptr inbounds [4 x i8], ptr %6, i64 %97
   %wide.trip.count249 = zext nneg i32 %7 to i64
   br label %.lr.ph196
 
@@ -681,9 +681,9 @@ define internal void @vc2_subband_dwt_53(ptr noundef readonly captures(none) %0,
 .lr.ph196:                                        ; preds = %._crit_edge193, %.lr.ph196
   %indvars.iv246 = phi i64 [ 0, %._crit_edge193 ], [ %indvars.iv.next247, %.lr.ph196 ]
   %99 = sub nsw i64 %indvars.iv246, %8
-  %100 = getelementptr inbounds i32, ptr %98, i64 %99
+  %100 = getelementptr inbounds [4 x i8], ptr %98, i64 %99
   %101 = load i32, ptr %100, align 4, !tbaa !13
-  %102 = getelementptr inbounds nuw i32, ptr %98, i64 %indvars.iv246
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %98, i64 %indvars.iv246
   %103 = load i32, ptr %102, align 4, !tbaa !13
   %104 = sub nsw i32 %103, %101
   store i32 %104, ptr %102, align 4, !tbaa !13
@@ -705,11 +705,11 @@ define internal void @vc2_subband_dwt_53(ptr noundef readonly captures(none) %0,
 
 105:                                              ; preds = %.preheader164.us, %105
   %indvars.iv256 = phi i64 [ 0, %.preheader164.us ], [ %indvars.iv.next257, %105 ]
-  %106 = getelementptr i32, ptr %.3150202.us, i64 %indvars.iv256
-  %107 = getelementptr i32, ptr %106, i64 %8
+  %106 = getelementptr [4 x i8], ptr %.3150202.us, i64 %indvars.iv256
+  %107 = getelementptr [4 x i8], ptr %106, i64 %8
   %108 = load i32, ptr %107, align 4, !tbaa !13
   %109 = sub nsw i64 %indvars.iv256, %8
-  %110 = getelementptr inbounds i32, ptr %.3150202.us, i64 %109
+  %110 = getelementptr inbounds [4 x i8], ptr %.3150202.us, i64 %109
   %111 = load i32, ptr %110, align 4, !tbaa !13
   %112 = add i32 %108, 2
   %113 = add i32 %112, %111
@@ -722,19 +722,19 @@ define internal void @vc2_subband_dwt_53(ptr noundef readonly captures(none) %0,
   br i1 %exitcond260.not, label %._crit_edge201.us, label %105, !llvm.loop !39
 
 ._crit_edge201.us:                                ; preds = %105
-  %117 = getelementptr inbounds nuw i32, ptr %.3150202.us, i64 %78
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %.3150202.us, i64 %78
   %118 = add nuw nsw i32 %.3145203.us, 1
   %exitcond261.not = icmp eq i32 %118, %80
   br i1 %exitcond261.not, label %.lr.ph207.preheader, label %.preheader164.us, !llvm.loop !40
 
 .lr.ph198:                                        ; preds = %.lr.ph198.preheader, %.lr.ph198
   %indvars.iv251 = phi i64 [ 0, %.lr.ph198.preheader ], [ %indvars.iv.next252, %.lr.ph198 ]
-  %119 = getelementptr i32, ptr %66, i64 %indvars.iv251
+  %119 = getelementptr [4 x i8], ptr %66, i64 %indvars.iv251
   %120 = load i32, ptr %119, align 4, !tbaa !13
   %121 = shl nsw i32 %120, 1
   %122 = add nsw i32 %121, 2
   %123 = ashr i32 %122, 2
-  %124 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv251
+  %124 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv251
   %125 = load i32, ptr %124, align 4, !tbaa !13
   %126 = add nsw i32 %123, %125
   store i32 %126, ptr %124, align 4, !tbaa !13
@@ -745,17 +745,17 @@ define internal void @vc2_subband_dwt_53(ptr noundef readonly captures(none) %0,
 .lr.ph207.preheader:                              ; preds = %._crit_edge201.us, %.preheader165
   %.pn298 = add nsw i64 %10, -2
   %.pn = mul nsw i64 %.pn298, %8
-  %127 = getelementptr inbounds i32, ptr %6, i64 %.pn
+  %127 = getelementptr inbounds [4 x i8], ptr %6, i64 %.pn
   %wide.trip.count265 = zext nneg i32 %7 to i64
   br label %.lr.ph207
 
 .lr.ph207:                                        ; preds = %.lr.ph207.preheader, %.lr.ph207
   %indvars.iv262 = phi i64 [ 0, %.lr.ph207.preheader ], [ %indvars.iv.next263, %.lr.ph207 ]
   %128 = sub nsw i64 %indvars.iv262, %8
-  %129 = getelementptr inbounds i32, ptr %127, i64 %128
+  %129 = getelementptr inbounds [4 x i8], ptr %127, i64 %128
   %130 = load i32, ptr %129, align 4, !tbaa !13
-  %131 = getelementptr i32, ptr %127, i64 %indvars.iv262
-  %132 = getelementptr i32, ptr %131, i64 %8
+  %131 = getelementptr [4 x i8], ptr %127, i64 %indvars.iv262
+  %132 = getelementptr [4 x i8], ptr %131, i64 %8
   %133 = load i32, ptr %132, align 4, !tbaa !13
   %134 = add i32 %130, 2
   %135 = add i32 %134, %133
@@ -778,11 +778,11 @@ define internal void @vc2_subband_dwt_53(ptr noundef readonly captures(none) %0,
 
 .preheader.us.preheader:                          ; preds = %.preheader.lr.ph
   %141 = zext nneg i32 %3 to i64
-  %142 = getelementptr inbounds nuw i32, ptr %1, i64 %141
+  %142 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %141
   %143 = zext nneg i32 %4 to i64
   %144 = mul nsw i64 %2, %143
-  %145 = getelementptr inbounds i32, ptr %1, i64 %144
-  %146 = getelementptr inbounds nuw i32, ptr %145, i64 %141
+  %145 = getelementptr inbounds [4 x i8], ptr %1, i64 %144
+  %146 = getelementptr inbounds nuw [4 x i8], ptr %145, i64 %141
   %wide.trip.count270 = zext nneg i32 %3 to i64
   br label %.preheader.us
 
@@ -793,7 +793,7 @@ define internal void @vc2_subband_dwt_53(ptr noundef readonly captures(none) %0,
   %.043.i214.us = phi ptr [ %162, %._crit_edge211.us ], [ %1, %.preheader.us.preheader ]
   %.044.i213.us = phi i32 [ %166, %._crit_edge211.us ], [ 0, %.preheader.us.preheader ]
   %.046.i212.us = phi ptr [ %161, %._crit_edge211.us ], [ %6, %.preheader.us.preheader ]
-  %invariant.gep.us = getelementptr i32, ptr %.046.i212.us, i64 %8
+  %invariant.gep.us = getelementptr [4 x i8], ptr %.046.i212.us, i64 %8
   br label %147
 
 147:                                              ; preds = %.preheader.us, %147
@@ -801,21 +801,21 @@ define internal void @vc2_subband_dwt_53(ptr noundef readonly captures(none) %0,
   %indvars.iv267.tr = trunc i64 %indvars.iv267 to i32
   %148 = shl i32 %indvars.iv267.tr, 1
   %149 = sext i32 %148 to i64
-  %150 = getelementptr inbounds i32, ptr %.046.i212.us, i64 %149
+  %150 = getelementptr inbounds [4 x i8], ptr %.046.i212.us, i64 %149
   %151 = load i32, ptr %150, align 4, !tbaa !13
-  %152 = getelementptr inbounds nuw i32, ptr %.043.i214.us, i64 %indvars.iv267
+  %152 = getelementptr inbounds nuw [4 x i8], ptr %.043.i214.us, i64 %indvars.iv267
   store i32 %151, ptr %152, align 4, !tbaa !13
   %153 = getelementptr i8, ptr %150, i64 4
   %154 = load i32, ptr %153, align 4, !tbaa !13
-  %155 = getelementptr inbounds nuw i32, ptr %.042.i215.us, i64 %indvars.iv267
+  %155 = getelementptr inbounds nuw [4 x i8], ptr %.042.i215.us, i64 %indvars.iv267
   store i32 %154, ptr %155, align 4, !tbaa !13
-  %gep.us = getelementptr i32, ptr %invariant.gep.us, i64 %149
+  %gep.us = getelementptr [4 x i8], ptr %invariant.gep.us, i64 %149
   %156 = load i32, ptr %gep.us, align 4, !tbaa !13
-  %157 = getelementptr inbounds nuw i32, ptr %.041.i216.us, i64 %indvars.iv267
+  %157 = getelementptr inbounds nuw [4 x i8], ptr %.041.i216.us, i64 %indvars.iv267
   store i32 %156, ptr %157, align 4, !tbaa !13
   %158 = getelementptr i8, ptr %gep.us, i64 4
   %159 = load i32, ptr %158, align 4, !tbaa !13
-  %160 = getelementptr inbounds nuw i32, ptr %.0.i217.us, i64 %indvars.iv267
+  %160 = getelementptr inbounds nuw [4 x i8], ptr %.0.i217.us, i64 %indvars.iv267
   store i32 %159, ptr %160, align 4, !tbaa !13
   %indvars.iv.next268 = add nuw nsw i64 %indvars.iv267, 1
   %exitcond271.not = icmp eq i64 %indvars.iv.next268, %wide.trip.count270
@@ -823,10 +823,10 @@ define internal void @vc2_subband_dwt_53(ptr noundef readonly captures(none) %0,
 
 ._crit_edge211.us:                                ; preds = %147
   %161 = getelementptr inbounds i8, ptr %.046.i212.us, i64 %.idx.i
-  %162 = getelementptr inbounds i32, ptr %.043.i214.us, i64 %2
-  %163 = getelementptr inbounds i32, ptr %.041.i216.us, i64 %2
-  %164 = getelementptr inbounds i32, ptr %.042.i215.us, i64 %2
-  %165 = getelementptr inbounds i32, ptr %.0.i217.us, i64 %2
+  %162 = getelementptr inbounds [4 x i8], ptr %.043.i214.us, i64 %2
+  %163 = getelementptr inbounds [4 x i8], ptr %.041.i216.us, i64 %2
+  %164 = getelementptr inbounds [4 x i8], ptr %.042.i215.us, i64 %2
+  %165 = getelementptr inbounds [4 x i8], ptr %.0.i217.us, i64 %2
   %166 = add nuw nsw i32 %.044.i213.us, 1
   %exitcond272.not = icmp eq i32 %166, %4
   br i1 %exitcond272.not, label %deinterleave.exit, label %.preheader.us, !llvm.loop !29
@@ -853,19 +853,19 @@ define internal void @vc2_subband_dwt_haar(ptr noundef readonly captures(none) %
 .preheader6.us:                                   ; preds = %.preheader6.us.preheader, %._crit_edge.us
   %indvars.iv29 = phi i64 [ 0, %.preheader6.us.preheader ], [ %indvars.iv.next30, %._crit_edge.us ]
   %12 = mul nsw i64 %indvars.iv29, %2
-  %13 = getelementptr i32, ptr %1, i64 %12
+  %13 = getelementptr [4 x i8], ptr %1, i64 %12
   %14 = mul nuw nsw i64 %indvars.iv29, %8
-  %15 = getelementptr i32, ptr %6, i64 %14
+  %15 = getelementptr [4 x i8], ptr %6, i64 %14
   br label %16
 
 16:                                               ; preds = %.preheader6.us, %16
   %indvars.iv = phi i64 [ 0, %.preheader6.us ], [ %indvars.iv.next, %16 ]
-  %17 = getelementptr i32, ptr %13, i64 %indvars.iv
+  %17 = getelementptr [4 x i8], ptr %13, i64 %indvars.iv
   %18 = getelementptr i8, ptr %17, i64 4
   %19 = load i32, ptr %18, align 4, !tbaa !13
   %20 = load i32, ptr %17, align 4, !tbaa !13
   %21 = sub nsw i32 %19, %20
-  %22 = getelementptr i32, ptr %15, i64 %indvars.iv
+  %22 = getelementptr [4 x i8], ptr %15, i64 %indvars.iv
   %23 = getelementptr i8, ptr %22, i64 4
   store i32 %21, ptr %23, align 4, !tbaa !13
   %24 = load i32, ptr %17, align 4, !tbaa !13
@@ -892,17 +892,17 @@ define internal void @vc2_subband_dwt_haar(ptr noundef readonly captures(none) %
 
 .preheader4.us:                                   ; preds = %.preheader4.us.preheader, %._crit_edge.us14
   %indvars.iv35 = phi i64 [ 0, %.preheader4.us.preheader ], [ %indvars.iv.next36, %._crit_edge.us14 ]
-  %invariant.gep.us = getelementptr i32, ptr %6, i64 %indvars.iv35
+  %invariant.gep.us = getelementptr [4 x i8], ptr %6, i64 %indvars.iv35
   br label %30
 
 30:                                               ; preds = %.preheader4.us, %30
   %indvars.iv32 = phi i64 [ 0, %.preheader4.us ], [ %indvars.iv.next33, %30 ]
   %31 = or disjoint i64 %indvars.iv32, 1
   %32 = mul nuw nsw i64 %31, %8
-  %gep.us = getelementptr i32, ptr %invariant.gep.us, i64 %32
+  %gep.us = getelementptr [4 x i8], ptr %invariant.gep.us, i64 %32
   %33 = load i32, ptr %gep.us, align 4, !tbaa !13
   %34 = mul nuw nsw i64 %indvars.iv32, %8
-  %gep10.us = getelementptr i32, ptr %invariant.gep.us, i64 %34
+  %gep10.us = getelementptr [4 x i8], ptr %invariant.gep.us, i64 %34
   %35 = load i32, ptr %gep10.us, align 4, !tbaa !13
   %36 = sub nsw i32 %33, %35
   store i32 %36, ptr %gep.us, align 4, !tbaa !13
@@ -931,11 +931,11 @@ define internal void @vc2_subband_dwt_haar(ptr noundef readonly captures(none) %
 
 .preheader.us.preheader:                          ; preds = %.preheader.lr.ph
   %44 = zext nneg i32 %3 to i64
-  %45 = getelementptr inbounds nuw i32, ptr %1, i64 %44
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %44
   %46 = zext nneg i32 %4 to i64
   %47 = mul nsw i64 %2, %46
-  %48 = getelementptr inbounds i32, ptr %1, i64 %47
-  %49 = getelementptr inbounds nuw i32, ptr %48, i64 %44
+  %48 = getelementptr inbounds [4 x i8], ptr %1, i64 %47
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %44
   %wide.trip.count43 = zext nneg i32 %3 to i64
   br label %.preheader.us
 
@@ -946,7 +946,7 @@ define internal void @vc2_subband_dwt_haar(ptr noundef readonly captures(none) %
   %.043.i.i18.us = phi ptr [ %65, %._crit_edge.us24 ], [ %1, %.preheader.us.preheader ]
   %.044.i.i17.us = phi i32 [ %69, %._crit_edge.us24 ], [ 0, %.preheader.us.preheader ]
   %.046.i.i16.us = phi ptr [ %64, %._crit_edge.us24 ], [ %6, %.preheader.us.preheader ]
-  %invariant.gep.us22 = getelementptr i32, ptr %.046.i.i16.us, i64 %8
+  %invariant.gep.us22 = getelementptr [4 x i8], ptr %.046.i.i16.us, i64 %8
   br label %50
 
 50:                                               ; preds = %.preheader.us, %50
@@ -954,21 +954,21 @@ define internal void @vc2_subband_dwt_haar(ptr noundef readonly captures(none) %
   %indvars.iv40.tr = trunc i64 %indvars.iv40 to i32
   %51 = shl i32 %indvars.iv40.tr, 1
   %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds i32, ptr %.046.i.i16.us, i64 %52
+  %53 = getelementptr inbounds [4 x i8], ptr %.046.i.i16.us, i64 %52
   %54 = load i32, ptr %53, align 4, !tbaa !13
-  %55 = getelementptr inbounds nuw i32, ptr %.043.i.i18.us, i64 %indvars.iv40
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %.043.i.i18.us, i64 %indvars.iv40
   store i32 %54, ptr %55, align 4, !tbaa !13
   %56 = getelementptr i8, ptr %53, i64 4
   %57 = load i32, ptr %56, align 4, !tbaa !13
-  %58 = getelementptr inbounds nuw i32, ptr %.042.i.i19.us, i64 %indvars.iv40
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %.042.i.i19.us, i64 %indvars.iv40
   store i32 %57, ptr %58, align 4, !tbaa !13
-  %gep.us23 = getelementptr i32, ptr %invariant.gep.us22, i64 %52
+  %gep.us23 = getelementptr [4 x i8], ptr %invariant.gep.us22, i64 %52
   %59 = load i32, ptr %gep.us23, align 4, !tbaa !13
-  %60 = getelementptr inbounds nuw i32, ptr %.041.i.i20.us, i64 %indvars.iv40
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %.041.i.i20.us, i64 %indvars.iv40
   store i32 %59, ptr %60, align 4, !tbaa !13
   %61 = getelementptr i8, ptr %gep.us23, i64 4
   %62 = load i32, ptr %61, align 4, !tbaa !13
-  %63 = getelementptr inbounds nuw i32, ptr %.0.i.i21.us, i64 %indvars.iv40
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %.0.i.i21.us, i64 %indvars.iv40
   store i32 %62, ptr %63, align 4, !tbaa !13
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
   %exitcond44.not = icmp eq i64 %indvars.iv.next41, %wide.trip.count43
@@ -976,10 +976,10 @@ define internal void @vc2_subband_dwt_haar(ptr noundef readonly captures(none) %
 
 ._crit_edge.us24:                                 ; preds = %50
   %64 = getelementptr inbounds i8, ptr %.046.i.i16.us, i64 %.idx.i.i
-  %65 = getelementptr inbounds i32, ptr %.043.i.i18.us, i64 %2
-  %66 = getelementptr inbounds i32, ptr %.041.i.i20.us, i64 %2
-  %67 = getelementptr inbounds i32, ptr %.042.i.i19.us, i64 %2
-  %68 = getelementptr inbounds i32, ptr %.0.i.i21.us, i64 %2
+  %65 = getelementptr inbounds [4 x i8], ptr %.043.i.i18.us, i64 %2
+  %66 = getelementptr inbounds [4 x i8], ptr %.041.i.i20.us, i64 %2
+  %67 = getelementptr inbounds [4 x i8], ptr %.042.i.i19.us, i64 %2
+  %68 = getelementptr inbounds [4 x i8], ptr %.0.i.i21.us, i64 %2
   %69 = add nuw nsw i32 %.044.i.i17.us, 1
   %exitcond45.not = icmp eq i32 %69, %4
   br i1 %exitcond45.not, label %dwt_haar.exit, label %.preheader.us, !llvm.loop !29
@@ -1006,20 +1006,20 @@ define internal void @vc2_subband_dwt_haar_shift(ptr noundef readonly captures(n
 .preheader6.us:                                   ; preds = %.preheader6.us.preheader, %._crit_edge.us
   %indvars.iv29 = phi i64 [ 0, %.preheader6.us.preheader ], [ %indvars.iv.next30, %._crit_edge.us ]
   %12 = mul nsw i64 %indvars.iv29, %2
-  %13 = getelementptr i32, ptr %1, i64 %12
+  %13 = getelementptr [4 x i8], ptr %1, i64 %12
   %14 = mul nuw nsw i64 %indvars.iv29, %8
-  %15 = getelementptr i32, ptr %6, i64 %14
+  %15 = getelementptr [4 x i8], ptr %6, i64 %14
   br label %16
 
 16:                                               ; preds = %.preheader6.us, %16
   %indvars.iv = phi i64 [ 0, %.preheader6.us ], [ %indvars.iv.next, %16 ]
-  %17 = getelementptr i32, ptr %13, i64 %indvars.iv
+  %17 = getelementptr [4 x i8], ptr %13, i64 %indvars.iv
   %18 = getelementptr i8, ptr %17, i64 4
   %19 = load i32, ptr %18, align 4, !tbaa !13
   %20 = load i32, ptr %17, align 4, !tbaa !13
   %21 = sub nsw i32 %19, %20
   %22 = shl nsw i32 %21, 1
-  %23 = getelementptr i32, ptr %15, i64 %indvars.iv
+  %23 = getelementptr [4 x i8], ptr %15, i64 %indvars.iv
   %24 = getelementptr i8, ptr %23, i64 4
   store i32 %22, ptr %24, align 4, !tbaa !13
   %25 = load i32, ptr %17, align 4, !tbaa !13
@@ -1045,17 +1045,17 @@ define internal void @vc2_subband_dwt_haar_shift(ptr noundef readonly captures(n
 
 .preheader4.us:                                   ; preds = %.preheader4.us.preheader, %._crit_edge.us14
   %indvars.iv35 = phi i64 [ 0, %.preheader4.us.preheader ], [ %indvars.iv.next36, %._crit_edge.us14 ]
-  %invariant.gep.us = getelementptr i32, ptr %6, i64 %indvars.iv35
+  %invariant.gep.us = getelementptr [4 x i8], ptr %6, i64 %indvars.iv35
   br label %30
 
 30:                                               ; preds = %.preheader4.us, %30
   %indvars.iv32 = phi i64 [ 0, %.preheader4.us ], [ %indvars.iv.next33, %30 ]
   %31 = or disjoint i64 %indvars.iv32, 1
   %32 = mul nuw nsw i64 %31, %8
-  %gep.us = getelementptr i32, ptr %invariant.gep.us, i64 %32
+  %gep.us = getelementptr [4 x i8], ptr %invariant.gep.us, i64 %32
   %33 = load i32, ptr %gep.us, align 4, !tbaa !13
   %34 = mul nuw nsw i64 %indvars.iv32, %8
-  %gep10.us = getelementptr i32, ptr %invariant.gep.us, i64 %34
+  %gep10.us = getelementptr [4 x i8], ptr %invariant.gep.us, i64 %34
   %35 = load i32, ptr %gep10.us, align 4, !tbaa !13
   %36 = sub nsw i32 %33, %35
   store i32 %36, ptr %gep.us, align 4, !tbaa !13
@@ -1084,11 +1084,11 @@ define internal void @vc2_subband_dwt_haar_shift(ptr noundef readonly captures(n
 
 .preheader.us.preheader:                          ; preds = %.preheader.lr.ph
   %44 = zext nneg i32 %3 to i64
-  %45 = getelementptr inbounds nuw i32, ptr %1, i64 %44
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %44
   %46 = zext nneg i32 %4 to i64
   %47 = mul nsw i64 %2, %46
-  %48 = getelementptr inbounds i32, ptr %1, i64 %47
-  %49 = getelementptr inbounds nuw i32, ptr %48, i64 %44
+  %48 = getelementptr inbounds [4 x i8], ptr %1, i64 %47
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %44
   %wide.trip.count43 = zext nneg i32 %3 to i64
   br label %.preheader.us
 
@@ -1099,7 +1099,7 @@ define internal void @vc2_subband_dwt_haar_shift(ptr noundef readonly captures(n
   %.043.i.i18.us = phi ptr [ %65, %._crit_edge.us24 ], [ %1, %.preheader.us.preheader ]
   %.044.i.i17.us = phi i32 [ %69, %._crit_edge.us24 ], [ 0, %.preheader.us.preheader ]
   %.046.i.i16.us = phi ptr [ %64, %._crit_edge.us24 ], [ %6, %.preheader.us.preheader ]
-  %invariant.gep.us22 = getelementptr i32, ptr %.046.i.i16.us, i64 %8
+  %invariant.gep.us22 = getelementptr [4 x i8], ptr %.046.i.i16.us, i64 %8
   br label %50
 
 50:                                               ; preds = %.preheader.us, %50
@@ -1107,21 +1107,21 @@ define internal void @vc2_subband_dwt_haar_shift(ptr noundef readonly captures(n
   %indvars.iv40.tr = trunc i64 %indvars.iv40 to i32
   %51 = shl i32 %indvars.iv40.tr, 1
   %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds i32, ptr %.046.i.i16.us, i64 %52
+  %53 = getelementptr inbounds [4 x i8], ptr %.046.i.i16.us, i64 %52
   %54 = load i32, ptr %53, align 4, !tbaa !13
-  %55 = getelementptr inbounds nuw i32, ptr %.043.i.i18.us, i64 %indvars.iv40
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %.043.i.i18.us, i64 %indvars.iv40
   store i32 %54, ptr %55, align 4, !tbaa !13
   %56 = getelementptr i8, ptr %53, i64 4
   %57 = load i32, ptr %56, align 4, !tbaa !13
-  %58 = getelementptr inbounds nuw i32, ptr %.042.i.i19.us, i64 %indvars.iv40
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %.042.i.i19.us, i64 %indvars.iv40
   store i32 %57, ptr %58, align 4, !tbaa !13
-  %gep.us23 = getelementptr i32, ptr %invariant.gep.us22, i64 %52
+  %gep.us23 = getelementptr [4 x i8], ptr %invariant.gep.us22, i64 %52
   %59 = load i32, ptr %gep.us23, align 4, !tbaa !13
-  %60 = getelementptr inbounds nuw i32, ptr %.041.i.i20.us, i64 %indvars.iv40
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %.041.i.i20.us, i64 %indvars.iv40
   store i32 %59, ptr %60, align 4, !tbaa !13
   %61 = getelementptr i8, ptr %gep.us23, i64 4
   %62 = load i32, ptr %61, align 4, !tbaa !13
-  %63 = getelementptr inbounds nuw i32, ptr %.0.i.i21.us, i64 %indvars.iv40
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %.0.i.i21.us, i64 %indvars.iv40
   store i32 %62, ptr %63, align 4, !tbaa !13
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
   %exitcond44.not = icmp eq i64 %indvars.iv.next41, %wide.trip.count43
@@ -1129,10 +1129,10 @@ define internal void @vc2_subband_dwt_haar_shift(ptr noundef readonly captures(n
 
 ._crit_edge.us24:                                 ; preds = %50
   %64 = getelementptr inbounds i8, ptr %.046.i.i16.us, i64 %.idx.i.i
-  %65 = getelementptr inbounds i32, ptr %.043.i.i18.us, i64 %2
-  %66 = getelementptr inbounds i32, ptr %.041.i.i20.us, i64 %2
-  %67 = getelementptr inbounds i32, ptr %.042.i.i19.us, i64 %2
-  %68 = getelementptr inbounds i32, ptr %.0.i.i21.us, i64 %2
+  %65 = getelementptr inbounds [4 x i8], ptr %.043.i.i18.us, i64 %2
+  %66 = getelementptr inbounds [4 x i8], ptr %.041.i.i20.us, i64 %2
+  %67 = getelementptr inbounds [4 x i8], ptr %.042.i.i19.us, i64 %2
+  %68 = getelementptr inbounds [4 x i8], ptr %.0.i.i21.us, i64 %2
   %69 = add nuw nsw i32 %.044.i.i17.us, 1
   %exitcond45.not = icmp eq i32 %69, %4
   br i1 %exitcond45.not, label %dwt_haar.exit, label %.preheader.us, !llvm.loop !29
@@ -1154,7 +1154,7 @@ define void @ff_vc2enc_free_transforms(ptr noundef captures(none) %0) local_unna
   %5 = load i32, ptr %4, align 8, !tbaa !12
   %6 = sext i32 %5 to i64
   %7 = sub nsw i64 0, %6
-  %8 = getelementptr inbounds i32, ptr %2, i64 %7
+  %8 = getelementptr inbounds [4 x i8], ptr %2, i64 %7
   tail call void @av_free(ptr noundef nonnull %8) #3
   store ptr null, ptr %0, align 8, !tbaa !8
   br label %9

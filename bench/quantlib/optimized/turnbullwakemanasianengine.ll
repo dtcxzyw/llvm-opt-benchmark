@@ -1908,7 +1908,7 @@ if.then.i18.i.i.i:                                ; preds = %_ZNSt6vectorIdSaIdE
   br label %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i: ; preds = %if.then.i18.i.i.i, %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit17.i.i.i
-  %add.ptr19.i.i.i = getelementptr inbounds nuw double, ptr %call5.i.i.i.i.i.i421, i64 %cond.i.i.i.i
+  %add.ptr19.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i421, i64 %cond.i.i.i.i
   br label %invoke.cont390
 
 invoke.cont390:                                   ; preds = %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i, %if.then.i.i418
@@ -2009,7 +2009,7 @@ if.then.i18.i.i.i454:                             ; preds = %_ZNSt6vectorIdSaIdE
   br label %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i455
 
 _ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i455: ; preds = %if.then.i18.i.i.i454, %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit17.i.i.i451
-  %add.ptr19.i.i.i456 = getelementptr inbounds nuw double, ptr %call5.i.i.i.i.i.i461, i64 %cond.i.i.i.i446
+  %add.ptr19.i.i.i456 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i461, i64 %cond.i.i.i.i446
   br label %invoke.cont405
 
 invoke.cont405:                                   ; preds = %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i455, %if.then.i.i434
@@ -2122,7 +2122,7 @@ if.then.i18.i.i.i501:                             ; preds = %_ZNSt6vectorIdSaIdE
   br label %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i502
 
 _ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i502: ; preds = %if.then.i18.i.i.i501, %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit17.i.i.i498
-  %add.ptr19.i.i.i503 = getelementptr inbounds nuw double, ptr %call5.i.i.i.i.i.i508, i64 %cond.i.i.i.i493
+  %add.ptr19.i.i.i503 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i508, i64 %cond.i.i.i.i493
   %.pre1423 = load double, ptr %add.ptr.i.i.i496, align 8, !tbaa !104
   br label %invoke.cont421
 
@@ -2188,7 +2188,7 @@ if.then.i18.i.i.i537:                             ; preds = %_ZNSt6vectorIdSaIdE
   br label %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i538
 
 _ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i538: ; preds = %if.then.i18.i.i.i537, %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit17.i.i.i534
-  %add.ptr19.i.i.i539 = getelementptr inbounds nuw double, ptr %call5.i.i.i.i.i.i544, i64 %cond.i.i.i.i529
+  %add.ptr19.i.i.i539 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i544, i64 %cond.i.i.i.i529
   br label %invoke.cont429
 
 invoke.cont429:                                   ; preds = %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i538, %if.then.i.i517
@@ -2278,10 +2278,10 @@ cond.false.i552:                                  ; preds = %for.cond.cleanup447
 for.body448:                                      ; preds = %for.body448.preheader, %for.cond.cleanup457
   %i.01305 = phi i64 [ %inc469, %for.cond.cleanup457 ], [ 0, %for.body448.preheader ]
   %EA2.01304 = phi double [ %EA2.1.lcssa, %for.cond.cleanup457 ], [ 0.000000e+00, %for.body448.preheader ]
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %forwards.sroa.0.3, i64 %i.01305
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %forwards.sroa.0.3, i64 %i.01305
   %179 = load double, ptr %add.ptr.i, align 8, !tbaa !104
   %mul451 = fmul double %179, %179
-  %add.ptr.i557 = getelementptr inbounds nuw double, ptr %spotVars.sroa.0.3, i64 %i.01305
+  %add.ptr.i557 = getelementptr inbounds nuw [8 x i8], ptr %spotVars.sroa.0.3, i64 %i.01305
   %180 = load double, ptr %add.ptr.i557, align 8, !tbaa !104
   %call453 = call double @exp(double noundef %180) #27, !tbaa !107
   %181 = call double @llvm.fmuladd.f64(double %mul451, double %call453, double %EA2.01304)
@@ -2301,10 +2301,10 @@ for.cond.cleanup457:                              ; preds = %for.body458, %for.b
 for.body458:                                      ; preds = %for.body458.lr.ph, %for.body458
   %j.01301 = phi i64 [ 0, %for.body458.lr.ph ], [ %inc, %for.body458 ]
   %EA2.11300 = phi double [ %181, %for.body458.lr.ph ], [ %184, %for.body458 ]
-  %add.ptr.i559 = getelementptr inbounds nuw double, ptr %forwards.sroa.0.3, i64 %j.01301
+  %add.ptr.i559 = getelementptr inbounds nuw [8 x i8], ptr %forwards.sroa.0.3, i64 %j.01301
   %182 = load double, ptr %add.ptr.i559, align 8, !tbaa !104
   %mul462 = fmul double %mul460, %182
-  %add.ptr.i560 = getelementptr inbounds nuw double, ptr %spotVars.sroa.0.3, i64 %j.01301
+  %add.ptr.i560 = getelementptr inbounds nuw [8 x i8], ptr %spotVars.sroa.0.3, i64 %j.01301
   %183 = load double, ptr %add.ptr.i560, align 8, !tbaa !104
   %call464 = call double @exp(double noundef %183) #27, !tbaa !107
   %184 = call double @llvm.fmuladd.f64(double %mul462, double %call464, double %EA2.11300)

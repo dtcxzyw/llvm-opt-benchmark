@@ -61,8 +61,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.re_pattern_buffer = type { ptr, i64, i64, i64, ptr, ptr, i64, i8 }
 %struct.wl_interface = type { ptr, i32, i32, ptr, i32, ptr }
 %struct.wl_output_listener = type { ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.GLFWvidmode = type { i32, i32, i32, i32, i32, i32 }
-%struct._GLFWscaleWayland = type { ptr, i32 }
 
 @.str = private unnamed_addr constant [46 x i8] c"Wayland: Unsupported output interface version\00", align 1
 @_glfw = external global %struct._GLFWlibrary, align 8
@@ -228,7 +226,7 @@ define hidden void @_glfwGetMonitorWorkareaWayland(ptr noundef readonly captures
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 268
   %18 = load i32, ptr %17, align 4, !tbaa !117
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds %struct.GLFWvidmode, ptr %16, i64 %19
+  %20 = getelementptr inbounds [24 x i8], ptr %16, i64 %19
   %21 = load i32, ptr %20, align 4, !tbaa !118
   store i32 %21, ptr %3, align 4, !tbaa !113
   br label %22
@@ -243,7 +241,7 @@ define hidden void @_glfwGetMonitorWorkareaWayland(ptr noundef readonly captures
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 268
   %27 = load i32, ptr %26, align 4, !tbaa !117
   %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds %struct.GLFWvidmode, ptr %25, i64 %28
+  %29 = getelementptr inbounds [24 x i8], ptr %25, i64 %28
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %31 = load i32, ptr %30, align 4, !tbaa !119
   store i32 %31, ptr %4, align 4, !tbaa !113
@@ -270,7 +268,7 @@ define hidden noundef i32 @_glfwGetVideoModeWayland(ptr noundef readonly capture
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 268
   %6 = load i32, ptr %5, align 4, !tbaa !117
   %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds %struct.GLFWvidmode, ptr %4, i64 %7
+  %8 = getelementptr inbounds [24 x i8], ptr %4, i64 %7
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %1, ptr noundef nonnull align 4 dereferenceable(24) %8, i64 24, i1 false), !tbaa.struct !121
   ret i32 1
 }
@@ -359,7 +357,7 @@ define internal void @outputHandleMode(ptr noundef captures(none) %0, ptr readno
   store ptr %18, ptr %14, align 8, !tbaa !116
   %19 = load i32, ptr %11, align 8, !tbaa !120
   %20 = sext i32 %19 to i64
-  %21 = getelementptr %struct.GLFWvidmode, ptr %18, i64 %20
+  %21 = getelementptr [24 x i8], ptr %18, i64 %20
   %22 = getelementptr i8, ptr %21, i64 -24
   store i32 %3, ptr %22, align 4, !tbaa !113
   %.sroa.4.0..sroa_idx = getelementptr i8, ptr %21, i64 -20
@@ -406,7 +404,7 @@ define internal void @outputHandleDone(ptr noundef %0, ptr readnone captures(non
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 268
   %14 = load i32, ptr %13, align 4, !tbaa !117
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds %struct.GLFWvidmode, ptr %12, i64 %15
+  %16 = getelementptr inbounds [24 x i8], ptr %12, i64 %15
   %17 = load i32, ptr %16, align 4, !tbaa !118
   %18 = sitofp i32 %17 to float
   %19 = fmul nnan float %18, 0x4039666660000000
@@ -440,7 +438,7 @@ define internal void @outputHandleDone(ptr noundef %0, ptr readnone captures(non
 
 33:                                               ; preds = %.lr.ph, %32
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %32 ]
-  %34 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv
   %35 = load ptr, ptr %34, align 8, !tbaa !128
   %36 = icmp eq ptr %35, %0
   br i1 %36, label %.loopexit, label %32
@@ -485,7 +483,7 @@ define internal void @outputHandleScale(ptr noundef captures(none) initializes((
 
 13:                                               ; preds = %.lr.ph, %11
   %.015 = phi i64 [ 0, %.lr.ph ], [ %12, %11 ]
-  %14 = getelementptr inbounds nuw %struct._GLFWscaleWayland, ptr %9, i64 %.015
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %.015
   %15 = load ptr, ptr %14, align 8, !tbaa !164
   %16 = icmp eq ptr %15, %10
   br i1 %16, label %17, label %11

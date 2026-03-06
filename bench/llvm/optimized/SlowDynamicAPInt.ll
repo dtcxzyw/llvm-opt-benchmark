@@ -2209,7 +2209,7 @@ define dso_local void @_ZNK4llvm6detail16SlowDynamicAPIntngEv(ptr dead_on_unwind
   %22 = load ptr, ptr %1, align 8
   %23 = lshr i32 %18, 6
   %24 = zext nneg i32 %23 to i64
-  %25 = getelementptr inbounds nuw i64, ptr %22, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %24
   %26 = load i64, ptr %25, align 8, !tbaa !8
   %27 = and i64 %26, %21
   %.not.i = icmp eq i64 %27, 0

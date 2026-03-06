@@ -8831,7 +8831,7 @@ define i32 @dissect_nt_sid(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr n
 
 54:                                               ; preds = %53, %51
   %indvars.iv.i = phi i64 [ 0, %51 ], [ %indvars.iv.next.i, %53 ]
-  %55 = getelementptr %struct._sid_strings, ptr @well_known_sids, i64 %indvars.iv.i
+  %55 = getelementptr [16 x i8], ptr @well_known_sids, i64 %indvars.iv.i
   %56 = load ptr, ptr %55, align 16
   %57 = tail call i32 @strcmp(ptr noundef %56, ptr noundef readonly %52) #7
   %58 = icmp eq i32 %57, 0
@@ -8913,7 +8913,7 @@ match_wkwn_sids.exit.thread:                      ; preds = %53, %match_wkwn_sid
 
 .preheader:                                       ; preds = %84, %86
   %indvars.iv.i263 = phi i64 [ %indvars.iv.next.i264, %86 ], [ 0, %84 ]
-  %87 = getelementptr %struct._sid_strings, ptr @well_known_sids, i64 %indvars.iv.i263
+  %87 = getelementptr [16 x i8], ptr @well_known_sids, i64 %indvars.iv.i263
   %88 = load ptr, ptr %87, align 16
   %89 = tail call i32 @strcmp(ptr noundef %88, ptr noundef readonly %85) #7
   %90 = icmp eq i32 %89, 0
@@ -8942,7 +8942,7 @@ match_wkwn_sids.exit268:                          ; preds = %.preheader
 
 .preheader390:                                    ; preds = %84, %98
   %indvars.iv.i269 = phi i64 [ %indvars.iv.next.i270, %98 ], [ 0, %84 ]
-  %99 = getelementptr %struct._sid_strings, ptr @well_known_sids, i64 %indvars.iv.i269
+  %99 = getelementptr [16 x i8], ptr @well_known_sids, i64 %indvars.iv.i269
   %100 = load ptr, ptr %99, align 16
   %101 = tail call i32 @strcmp(ptr noundef %100, ptr noundef readonly %85) #7
   %102 = icmp eq i32 %101, 0
@@ -9008,7 +9008,7 @@ match_wkwn_sids.exit274.thread:                   ; preds = %98, %104, %match_wk
 
 130:                                              ; preds = %129, %127
   %indvars.iv.i275 = phi i64 [ 0, %127 ], [ %indvars.iv.next.i276, %129 ]
-  %131 = getelementptr %struct._sid_strings, ptr @well_known_sids, i64 %indvars.iv.i275
+  %131 = getelementptr [16 x i8], ptr @well_known_sids, i64 %indvars.iv.i275
   %132 = load ptr, ptr %131, align 16
   %133 = tail call i32 @strcmp(ptr noundef %132, ptr noundef readonly %128) #7
   %134 = icmp eq i32 %133, 0

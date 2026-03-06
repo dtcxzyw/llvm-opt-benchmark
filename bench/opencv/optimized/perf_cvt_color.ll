@@ -114,7 +114,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Head_base" = type { %"struct.opencv_test::(anonymous namespace)::CvtMode" }
 %"struct.opencv_test::(anonymous namespace)::CvtMode" = type { i32 }
 %"struct.std::_Head_base.24" = type { %"class.cv::Size_" }
-%"struct.testing::internal::ParameterizedTestCaseInfo<opencv_test::Size_CvtMode_cvtColor8u>::InstantiationInfo" = type <{ %"class.std::__cxx11::basic_string", ptr, ptr, ptr, i32, [4 x i8] }>
 %"class.testing::internal::ParamIterator.347" = type { %"class.testing::internal::scoped_ptr.348" }
 %"class.testing::internal::scoped_ptr.348" = type { ptr }
 %"struct.testing::TestParamInfo.195" = type { %"class.std::tuple.40", i64 }
@@ -123,7 +122,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Tuple_impl.42" = type { %"struct.std::_Head_base.43" }
 %"struct.std::_Head_base.43" = type { %"struct.opencv_test::(anonymous namespace)::CvtMode16U" }
 %"struct.opencv_test::(anonymous namespace)::CvtMode16U" = type { i32 }
-%"struct.testing::internal::ParameterizedTestCaseInfo<opencv_test::Size_CvtMode16U_DISABLED_cvtColor_16u>::InstantiationInfo" = type <{ %"class.std::__cxx11::basic_string", ptr, ptr, ptr, i32, [4 x i8] }>
 %"class.testing::internal::ParamIterator.350" = type { %"class.testing::internal::scoped_ptr.351" }
 %"class.testing::internal::scoped_ptr.351" = type { ptr }
 %"struct.testing::TestParamInfo.222" = type { %"class.std::tuple.59", i64 }
@@ -132,7 +130,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Tuple_impl.61" = type { %"struct.std::_Head_base.62" }
 %"struct.std::_Head_base.62" = type { %"struct.opencv_test::(anonymous namespace)::CvtMode32F" }
 %"struct.opencv_test::(anonymous namespace)::CvtMode32F" = type { i32 }
-%"struct.testing::internal::ParameterizedTestCaseInfo<opencv_test::Size_CvtMode32F_DISABLED_cvtColor_32f>::InstantiationInfo" = type <{ %"class.std::__cxx11::basic_string", ptr, ptr, ptr, i32, [4 x i8] }>
 %"class.testing::internal::ParamIterator.353" = type { %"class.testing::internal::scoped_ptr.354" }
 %"class.testing::internal::scoped_ptr.354" = type { ptr }
 %"struct.testing::TestParamInfo.249" = type { %"class.std::tuple.78", i64 }
@@ -141,7 +138,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Tuple_impl.80" = type { %"struct.std::_Head_base.81" }
 %"struct.std::_Head_base.81" = type { %"struct.opencv_test::(anonymous namespace)::CvtModeBayer" }
 %"struct.opencv_test::(anonymous namespace)::CvtModeBayer" = type { i32 }
-%"struct.testing::internal::ParameterizedTestCaseInfo<opencv_test::Size_CvtMode_Bayer_cvtColorBayer8u>::InstantiationInfo" = type <{ %"class.std::__cxx11::basic_string", ptr, ptr, ptr, i32, [4 x i8] }>
 %"class.testing::internal::ParamIterator.356" = type { %"class.testing::internal::scoped_ptr.357" }
 %"class.testing::internal::scoped_ptr.357" = type { ptr }
 %"struct.testing::TestParamInfo.276" = type { %"class.std::tuple.97", i64 }
@@ -150,7 +146,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Tuple_impl.99" = type { %"struct.std::_Head_base.100" }
 %"struct.std::_Head_base.100" = type { %"struct.opencv_test::(anonymous namespace)::CvtMode2" }
 %"struct.opencv_test::(anonymous namespace)::CvtMode2" = type { i32 }
-%"struct.testing::internal::ParameterizedTestCaseInfo<opencv_test::Size_CvtMode2_cvtColorYUV420>::InstantiationInfo" = type <{ %"class.std::__cxx11::basic_string", ptr, ptr, ptr, i32, [4 x i8] }>
 %"class.testing::internal::ParamIterator.359" = type { %"class.testing::internal::scoped_ptr.360" }
 %"class.testing::internal::scoped_ptr.360" = type { ptr }
 %"struct.testing::TestParamInfo.303" = type { %"class.std::tuple.116", i64 }
@@ -159,7 +154,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Tuple_impl.118" = type { %"struct.std::_Head_base.119" }
 %"struct.std::_Head_base.119" = type { %"struct.opencv_test::(anonymous namespace)::CvtMode3" }
 %"struct.opencv_test::(anonymous namespace)::CvtMode3" = type { i32 }
-%"struct.testing::internal::ParameterizedTestCaseInfo<opencv_test::Size_CvtMode3_cvtColorRGB2YUV420p>::InstantiationInfo" = type <{ %"class.std::__cxx11::basic_string", ptr, ptr, ptr, i32, [4 x i8] }>
 %"class.testing::internal::ParamIterator.362" = type { %"class.testing::internal::scoped_ptr.363" }
 %"class.testing::internal::scoped_ptr.363" = type { ptr }
 %"struct.testing::TestParamInfo.330" = type { %"class.std::tuple.135", i64 }
@@ -169,6 +163,12 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Head_base.138" = type { %"struct.opencv_test::(anonymous namespace)::EdgeAwareBayerMode" }
 %"struct.opencv_test::(anonymous namespace)::EdgeAwareBayerMode" = type { i32 }
 %"struct.testing::internal::ParameterizedTestCaseInfo<opencv_test::EdgeAwareDemosaicingTest_demosaicingEA>::InstantiationInfo" = type <{ %"class.std::__cxx11::basic_string", ptr, ptr, ptr, i32, [4 x i8] }>
+%"struct.testing::internal::ParameterizedTestCaseInfo<opencv_test::Size_CvtMode3_cvtColorRGB2YUV420p>::InstantiationInfo" = type <{ %"class.std::__cxx11::basic_string", ptr, ptr, ptr, i32, [4 x i8] }>
+%"struct.testing::internal::ParameterizedTestCaseInfo<opencv_test::Size_CvtMode2_cvtColorYUV420>::InstantiationInfo" = type <{ %"class.std::__cxx11::basic_string", ptr, ptr, ptr, i32, [4 x i8] }>
+%"struct.testing::internal::ParameterizedTestCaseInfo<opencv_test::Size_CvtMode_Bayer_cvtColorBayer8u>::InstantiationInfo" = type <{ %"class.std::__cxx11::basic_string", ptr, ptr, ptr, i32, [4 x i8] }>
+%"struct.testing::internal::ParameterizedTestCaseInfo<opencv_test::Size_CvtMode32F_DISABLED_cvtColor_32f>::InstantiationInfo" = type <{ %"class.std::__cxx11::basic_string", ptr, ptr, ptr, i32, [4 x i8] }>
+%"struct.testing::internal::ParameterizedTestCaseInfo<opencv_test::Size_CvtMode16U_DISABLED_cvtColor_16u>::InstantiationInfo" = type <{ %"class.std::__cxx11::basic_string", ptr, ptr, ptr, i32, [4 x i8] }>
+%"struct.testing::internal::ParameterizedTestCaseInfo<opencv_test::Size_CvtMode_cvtColor8u>::InstantiationInfo" = type <{ %"class.std::__cxx11::basic_string", ptr, ptr, ptr, i32, [4 x i8] }>
 
 $_ZN11opencv_test39Size_CvtMode_cvtColor8u_cvtColor8u_Test13AddToRegistryEv = comdat any
 
@@ -1763,7 +1763,7 @@ _ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE11_S_rel
 _ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %103, %_ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
   store ptr %98, ptr %0, align 8, !tbaa !74
   store ptr %102, ptr %9, align 8, !tbaa !71
-  %104 = getelementptr inbounds nuw ptr, ptr %98, i64 %96
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %96
   store ptr %104, ptr %81, align 8, !tbaa !73
   br label %_ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE9push_backEOS3_.exit
 
@@ -3807,7 +3807,7 @@ _ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE11_S_rel
 _ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %103, %_ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
   store ptr %98, ptr %0, align 8, !tbaa !74
   store ptr %102, ptr %9, align 8, !tbaa !71
-  %104 = getelementptr inbounds nuw ptr, ptr %98, i64 %96
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %96
   store ptr %104, ptr %81, align 8, !tbaa !73
   br label %_ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE9push_backEOS3_.exit
 
@@ -5365,7 +5365,7 @@ _ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE11_S_rel
 _ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %103, %_ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
   store ptr %98, ptr %0, align 8, !tbaa !74
   store ptr %102, ptr %9, align 8, !tbaa !71
-  %104 = getelementptr inbounds nuw ptr, ptr %98, i64 %96
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %96
   store ptr %104, ptr %81, align 8, !tbaa !73
   br label %_ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE9push_backEOS3_.exit
 
@@ -6977,7 +6977,7 @@ _ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE11_S_rel
 _ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %103, %_ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
   store ptr %98, ptr %0, align 8, !tbaa !74
   store ptr %102, ptr %9, align 8, !tbaa !71
-  %104 = getelementptr inbounds nuw ptr, ptr %98, i64 %96
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %96
   store ptr %104, ptr %81, align 8, !tbaa !73
   br label %_ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE9push_backEOS3_.exit
 
@@ -8399,7 +8399,7 @@ _ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE11_S_rel
 _ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %103, %_ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
   store ptr %98, ptr %0, align 8, !tbaa !74
   store ptr %102, ptr %9, align 8, !tbaa !71
-  %104 = getelementptr inbounds nuw ptr, ptr %98, i64 %96
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %96
   store ptr %104, ptr %81, align 8, !tbaa !73
   br label %_ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE9push_backEOS3_.exit
 
@@ -9964,7 +9964,7 @@ _ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE11_S_rel
 _ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %103, %_ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
   store ptr %98, ptr %0, align 8, !tbaa !74
   store ptr %102, ptr %9, align 8, !tbaa !71
-  %104 = getelementptr inbounds nuw ptr, ptr %98, i64 %96
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %96
   store ptr %104, ptr %81, align 8, !tbaa !73
   br label %_ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE9push_backEOS3_.exit
 
@@ -11449,7 +11449,7 @@ _ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE11_S_rel
 _ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %103, %_ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
   store ptr %98, ptr %0, align 8, !tbaa !74
   store ptr %102, ptr %9, align 8, !tbaa !71
-  %104 = getelementptr inbounds nuw ptr, ptr %98, i64 %96
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %96
   store ptr %104, ptr %81, align 8, !tbaa !73
   br label %_ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE9push_backEOS3_.exit
 
@@ -13824,7 +13824,7 @@ _ZNSt12_Vector_baseIN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseIn
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !527
   store ptr %35, ptr %4, align 8, !tbaa !30
-  %42 = getelementptr inbounds nuw %"class.testing::internal::linked_ptr.139", ptr %20, i64 %16
+  %42 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %42, ptr %41, align 8, !tbaa !33
   ret void
 
@@ -16873,7 +16873,7 @@ _ZNSt12_Vector_baseIN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseIn
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !609
   store ptr %35, ptr %4, align 8, !tbaa !148
-  %42 = getelementptr inbounds nuw %"class.testing::internal::linked_ptr.171", ptr %20, i64 %16
+  %42 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %42, ptr %41, align 8, !tbaa !151
   ret void
 
@@ -19244,7 +19244,7 @@ _ZNSt12_Vector_baseIN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseIn
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !653
   store ptr %35, ptr %4, align 8, !tbaa !212
-  %42 = getelementptr inbounds nuw %"class.testing::internal::linked_ptr.198", ptr %20, i64 %16
+  %42 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %42, ptr %41, align 8, !tbaa !215
   ret void
 
@@ -21615,7 +21615,7 @@ _ZNSt12_Vector_baseIN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseIn
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !697
   store ptr %35, ptr %4, align 8, !tbaa !277
-  %42 = getelementptr inbounds nuw %"class.testing::internal::linked_ptr.225", ptr %20, i64 %16
+  %42 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %42, ptr %41, align 8, !tbaa !280
   ret void
 
@@ -23986,7 +23986,7 @@ _ZNSt12_Vector_baseIN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseIn
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !741
   store ptr %35, ptr %4, align 8, !tbaa !340
-  %42 = getelementptr inbounds nuw %"class.testing::internal::linked_ptr.252", ptr %20, i64 %16
+  %42 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %42, ptr %41, align 8, !tbaa !343
   ret void
 
@@ -26357,7 +26357,7 @@ _ZNSt12_Vector_baseIN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseIn
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !785
   store ptr %35, ptr %4, align 8, !tbaa !404
-  %42 = getelementptr inbounds nuw %"class.testing::internal::linked_ptr.279", ptr %20, i64 %16
+  %42 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %42, ptr %41, align 8, !tbaa !407
   ret void
 
@@ -28728,7 +28728,7 @@ _ZNSt12_Vector_baseIN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseIn
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !829
   store ptr %35, ptr %4, align 8, !tbaa !468
-  %42 = getelementptr inbounds nuw %"class.testing::internal::linked_ptr.306", ptr %20, i64 %16
+  %42 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %42, ptr %41, align 8, !tbaa !471
   ret void
 
@@ -32716,7 +32716,7 @@ switch.early.test.i.i.i.i.i.i.i.i.i.i:            ; preds = %.preheader.i.i.i.i.
 .critedge38.i.i.i.i.i.i.i.i.i.i:                  ; preds = %503, %.critedge38.loopexit.split.loop.exit.i.i.i.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i.i.i.i.i
   %.2.lcssa.i.i.i.i.i.i.i.i.i.i = phi i32 [ %496, %.preheader.i.i.i.i.i.i.i.i.i.i ], [ %509, %.critedge38.loopexit.split.loop.exit.i.i.i.i.i.i.i.i.i.i ], [ %504, %503 ]
   %.lcssa53.i.i.i.i.i.i.i.i.i.i = phi i64 [ %497, %.preheader.i.i.i.i.i.i.i.i.i.i ], [ %indvars.iv71.i.i.i.i.i.i.i.i.i.i, %.critedge38.loopexit.split.loop.exit.i.i.i.i.i.i.i.i.i.i ], [ %indvars.iv.next72.i.i.i.i.i.i.i.i.i.i, %503 ]
-  %510 = getelementptr inbounds nuw i32, ptr @__const._ZNK11opencv_test12_GLOBAL__N_17CvtMode7PrintToEPSo.vals, i64 %indvars.iv73.i.i.i.i.i.i.i.i.i.i
+  %510 = getelementptr inbounds nuw [4 x i8], ptr @__const._ZNK11opencv_test12_GLOBAL__N_17CvtMode7PrintToEPSo.vals, i64 %indvars.iv73.i.i.i.i.i.i.i.i.i.i
   %511 = load i32, ptr %510, align 4, !tbaa !89, !noalias !920
   %.not35.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %.val.i.i.i.i.i.i.i, %511
   br i1 %.not35.i.i.i.i.i.i.i.i.i.i, label %512, label %489
@@ -33693,7 +33693,7 @@ _ZNSt12_Vector_baseIN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %22, ptr %0, align 8, !tbaa !873
   store ptr %.0.lcssa.i.i.i.i25, ptr %4, align 8, !tbaa !876
-  %76 = getelementptr inbounds nuw %"struct.testing::internal::ParameterizedTestCaseInfo<opencv_test::Size_CvtMode_cvtColor8u>::InstantiationInfo", ptr %22, i64 %16
+  %76 = getelementptr inbounds nuw [64 x i8], ptr %22, i64 %16
   store ptr %76, ptr %75, align 8, !tbaa !961
   ret void
 }
@@ -35382,7 +35382,7 @@ _ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GL
   br i1 %or.cond43.i.i.i.i.i.i.i.i.i.i, label %.preheader.i.i.i.i.i.i.i.i.i.i, label %.critedge38.i.i.i.i.i.i.i.i.i.i, !llvm.loop !1000
 
 .critedge38.i.i.i.i.i.i.i.i.i.i:                  ; preds = %.preheader.i.i.i.i.i.i.i.i.i.i
-  %502 = getelementptr inbounds nuw i32, ptr @__const._ZNK11opencv_test12_GLOBAL__N_110CvtMode16U7PrintToEPSo.vals, i64 %indvars.iv66.i.i.i.i.i.i.i.i.i.i
+  %502 = getelementptr inbounds nuw [4 x i8], ptr @__const._ZNK11opencv_test12_GLOBAL__N_110CvtMode16U7PrintToEPSo.vals, i64 %indvars.iv66.i.i.i.i.i.i.i.i.i.i
   %503 = load i32, ptr %502, align 4, !tbaa !89, !noalias !995
   %.not35.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %.val.i.i.i.i.i.i.i, %503
   br i1 %.not35.i.i.i.i.i.i.i.i.i.i, label %504, label %489
@@ -36177,7 +36177,7 @@ _ZNSt12_Vector_baseIN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %22, ptr %0, align 8, !tbaa !962
   store ptr %.0.lcssa.i.i.i.i25, ptr %4, align 8, !tbaa !965
-  %76 = getelementptr inbounds nuw %"struct.testing::internal::ParameterizedTestCaseInfo<opencv_test::Size_CvtMode16U_DISABLED_cvtColor_16u>::InstantiationInfo", ptr %22, i64 %16
+  %76 = getelementptr inbounds nuw [64 x i8], ptr %22, i64 %16
   store ptr %76, ptr %75, align 8, !tbaa !1022
   ret void
 }
@@ -37889,7 +37889,7 @@ switch.early.test.i.i.i.i.i.i.i.i.i.i:            ; preds = %.preheader.i.i.i.i.
 .critedge38.i.i.i.i.i.i.i.i.i.i:                  ; preds = %503, %.critedge38.loopexit.split.loop.exit.i.i.i.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i.i.i.i.i
   %.2.lcssa.i.i.i.i.i.i.i.i.i.i = phi i32 [ %496, %.preheader.i.i.i.i.i.i.i.i.i.i ], [ %509, %.critedge38.loopexit.split.loop.exit.i.i.i.i.i.i.i.i.i.i ], [ %504, %503 ]
   %.lcssa53.i.i.i.i.i.i.i.i.i.i = phi i64 [ %497, %.preheader.i.i.i.i.i.i.i.i.i.i ], [ %indvars.iv71.i.i.i.i.i.i.i.i.i.i, %.critedge38.loopexit.split.loop.exit.i.i.i.i.i.i.i.i.i.i ], [ %indvars.iv.next72.i.i.i.i.i.i.i.i.i.i, %503 ]
-  %510 = getelementptr inbounds nuw i32, ptr @__const._ZNK11opencv_test12_GLOBAL__N_110CvtMode32F7PrintToEPSo.vals, i64 %indvars.iv73.i.i.i.i.i.i.i.i.i.i
+  %510 = getelementptr inbounds nuw [4 x i8], ptr @__const._ZNK11opencv_test12_GLOBAL__N_110CvtMode32F7PrintToEPSo.vals, i64 %indvars.iv73.i.i.i.i.i.i.i.i.i.i
   %511 = load i32, ptr %510, align 4, !tbaa !89, !noalias !1056
   %.not35.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %.val.i.i.i.i.i.i.i, %511
   br i1 %.not35.i.i.i.i.i.i.i.i.i.i, label %512, label %489
@@ -38684,7 +38684,7 @@ _ZNSt12_Vector_baseIN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %22, ptr %0, align 8, !tbaa !1023
   store ptr %.0.lcssa.i.i.i.i25, ptr %4, align 8, !tbaa !1026
-  %76 = getelementptr inbounds nuw %"struct.testing::internal::ParameterizedTestCaseInfo<opencv_test::Size_CvtMode32F_DISABLED_cvtColor_32f>::InstantiationInfo", ptr %22, i64 %16
+  %76 = getelementptr inbounds nuw [64 x i8], ptr %22, i64 %16
   store ptr %76, ptr %75, align 8, !tbaa !1083
   ret void
 }
@@ -40373,7 +40373,7 @@ _ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GL
   br i1 %or.cond43.i.i.i.i.i.i.i.i.i.i, label %.preheader.i.i.i.i.i.i.i.i.i.i, label %.critedge38.i.i.i.i.i.i.i.i.i.i, !llvm.loop !1122
 
 .critedge38.i.i.i.i.i.i.i.i.i.i:                  ; preds = %.preheader.i.i.i.i.i.i.i.i.i.i
-  %502 = getelementptr inbounds nuw i32, ptr @__const._ZNK11opencv_test12_GLOBAL__N_112CvtModeBayer7PrintToEPSo.vals, i64 %indvars.iv66.i.i.i.i.i.i.i.i.i.i
+  %502 = getelementptr inbounds nuw [4 x i8], ptr @__const._ZNK11opencv_test12_GLOBAL__N_112CvtModeBayer7PrintToEPSo.vals, i64 %indvars.iv66.i.i.i.i.i.i.i.i.i.i
   %503 = load i32, ptr %502, align 4, !tbaa !89, !noalias !1117
   %.not35.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %.val.i.i.i.i.i.i.i, %503
   br i1 %.not35.i.i.i.i.i.i.i.i.i.i, label %504, label %489
@@ -41168,7 +41168,7 @@ _ZNSt12_Vector_baseIN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %22, ptr %0, align 8, !tbaa !1084
   store ptr %.0.lcssa.i.i.i.i25, ptr %4, align 8, !tbaa !1087
-  %76 = getelementptr inbounds nuw %"struct.testing::internal::ParameterizedTestCaseInfo<opencv_test::Size_CvtMode_Bayer_cvtColorBayer8u>::InstantiationInfo", ptr %22, i64 %16
+  %76 = getelementptr inbounds nuw [64 x i8], ptr %22, i64 %16
   store ptr %76, ptr %75, align 8, !tbaa !1144
   ret void
 }
@@ -42857,7 +42857,7 @@ _ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GL
   br i1 %or.cond43.i.i.i.i.i.i.i.i.i.i, label %.preheader.i.i.i.i.i.i.i.i.i.i, label %.critedge38.i.i.i.i.i.i.i.i.i.i, !llvm.loop !1183
 
 .critedge38.i.i.i.i.i.i.i.i.i.i:                  ; preds = %.preheader.i.i.i.i.i.i.i.i.i.i
-  %502 = getelementptr inbounds nuw i32, ptr @__const._ZNK11opencv_test12_GLOBAL__N_18CvtMode27PrintToEPSo.vals, i64 %indvars.iv66.i.i.i.i.i.i.i.i.i.i
+  %502 = getelementptr inbounds nuw [4 x i8], ptr @__const._ZNK11opencv_test12_GLOBAL__N_18CvtMode27PrintToEPSo.vals, i64 %indvars.iv66.i.i.i.i.i.i.i.i.i.i
   %503 = load i32, ptr %502, align 4, !tbaa !89, !noalias !1178
   %.not35.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %.val.i.i.i.i.i.i.i, %503
   br i1 %.not35.i.i.i.i.i.i.i.i.i.i, label %504, label %489
@@ -43652,7 +43652,7 @@ _ZNSt12_Vector_baseIN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %22, ptr %0, align 8, !tbaa !1145
   store ptr %.0.lcssa.i.i.i.i25, ptr %4, align 8, !tbaa !1148
-  %76 = getelementptr inbounds nuw %"struct.testing::internal::ParameterizedTestCaseInfo<opencv_test::Size_CvtMode2_cvtColorYUV420>::InstantiationInfo", ptr %22, i64 %16
+  %76 = getelementptr inbounds nuw [64 x i8], ptr %22, i64 %16
   store ptr %76, ptr %75, align 8, !tbaa !1205
   ret void
 }
@@ -45341,7 +45341,7 @@ _ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GL
   br i1 %or.cond43.i.i.i.i.i.i.i.i.i.i, label %.preheader.i.i.i.i.i.i.i.i.i.i, label %.critedge38.i.i.i.i.i.i.i.i.i.i, !llvm.loop !1244
 
 .critedge38.i.i.i.i.i.i.i.i.i.i:                  ; preds = %.preheader.i.i.i.i.i.i.i.i.i.i
-  %502 = getelementptr inbounds nuw i32, ptr @__const._ZNK11opencv_test12_GLOBAL__N_18CvtMode37PrintToEPSo.vals, i64 %indvars.iv66.i.i.i.i.i.i.i.i.i.i
+  %502 = getelementptr inbounds nuw [4 x i8], ptr @__const._ZNK11opencv_test12_GLOBAL__N_18CvtMode37PrintToEPSo.vals, i64 %indvars.iv66.i.i.i.i.i.i.i.i.i.i
   %503 = load i32, ptr %502, align 4, !tbaa !89, !noalias !1239
   %.not35.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %.val.i.i.i.i.i.i.i, %503
   br i1 %.not35.i.i.i.i.i.i.i.i.i.i, label %504, label %489
@@ -46136,7 +46136,7 @@ _ZNSt12_Vector_baseIN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %22, ptr %0, align 8, !tbaa !1206
   store ptr %.0.lcssa.i.i.i.i25, ptr %4, align 8, !tbaa !1209
-  %76 = getelementptr inbounds nuw %"struct.testing::internal::ParameterizedTestCaseInfo<opencv_test::Size_CvtMode3_cvtColorRGB2YUV420p>::InstantiationInfo", ptr %22, i64 %16
+  %76 = getelementptr inbounds nuw [64 x i8], ptr %22, i64 %16
   store ptr %76, ptr %75, align 8, !tbaa !1266
   ret void
 }
@@ -47825,7 +47825,7 @@ _ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GL
   br i1 %or.cond43.i.i.i.i.i.i.i.i.i.i, label %.preheader.i.i.i.i.i.i.i.i.i.i, label %.critedge38.i.i.i.i.i.i.i.i.i.i, !llvm.loop !1305
 
 .critedge38.i.i.i.i.i.i.i.i.i.i:                  ; preds = %.preheader.i.i.i.i.i.i.i.i.i.i
-  %502 = getelementptr inbounds nuw i32, ptr @__const._ZNK11opencv_test12_GLOBAL__N_118EdgeAwareBayerMode7PrintToEPSo.vals, i64 %indvars.iv66.i.i.i.i.i.i.i.i.i.i
+  %502 = getelementptr inbounds nuw [4 x i8], ptr @__const._ZNK11opencv_test12_GLOBAL__N_118EdgeAwareBayerMode7PrintToEPSo.vals, i64 %indvars.iv66.i.i.i.i.i.i.i.i.i.i
   %503 = load i32, ptr %502, align 4, !tbaa !89, !noalias !1300
   %.not35.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %.val.i.i.i.i.i.i.i, %503
   br i1 %.not35.i.i.i.i.i.i.i.i.i.i, label %504, label %489
@@ -48620,7 +48620,7 @@ _ZNSt12_Vector_baseIN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %22, ptr %0, align 8, !tbaa !1267
   store ptr %.0.lcssa.i.i.i.i25, ptr %4, align 8, !tbaa !1270
-  %76 = getelementptr inbounds nuw %"struct.testing::internal::ParameterizedTestCaseInfo<opencv_test::EdgeAwareDemosaicingTest_demosaicingEA>::InstantiationInfo", ptr %22, i64 %16
+  %76 = getelementptr inbounds nuw [64 x i8], ptr %22, i64 %16
   store ptr %76, ptr %75, align 8, !tbaa !1327
   ret void
 }

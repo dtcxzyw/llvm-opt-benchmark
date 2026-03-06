@@ -439,7 +439,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i: ; preds = %49, %_ZNKS
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i: ; preds = %51, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i
   store ptr %45, ptr %23, align 8, !tbaa !13
   store ptr %50, ptr %25, align 8, !tbaa !16
-  %52 = getelementptr inbounds nuw i32, ptr %45, i64 %43
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %43
   store ptr %52, ptr %27, align 8, !tbaa !27
   br label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit
 
@@ -549,7 +549,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i: ; preds = %55, %_ZNKS
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i: ; preds = %57, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i
   store ptr %52, ptr %32, align 8, !tbaa !13
   store ptr %56, ptr %33, align 8, !tbaa !16
-  %58 = getelementptr inbounds nuw i32, ptr %52, i64 %50
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %50
   store ptr %58, ptr %35, align 8, !tbaa !27
   br label %.sink.split
 
@@ -619,7 +619,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i24: ; preds = %89, %_ZN
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i26: ; preds = %91, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i24
   store ptr %86, ptr %66, align 8, !tbaa !13
   store ptr %90, ptr %67, align 8, !tbaa !16
-  %92 = getelementptr inbounds nuw i32, ptr %86, i64 %84
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %86, i64 %84
   store ptr %92, ptr %69, align 8, !tbaa !27
   br label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit27
 
@@ -746,7 +746,7 @@ _ZN5dracoL15rabs_desc_writeEPNS_8AnsCoderEih.exit: ; preds = %41, %47
   %53 = phi i32 [ %.sroa.22.082, %41 ], [ %52, %47 ]
   %54 = zext nneg i32 %53 to i64
   %55 = zext i8 %44 to i64
-  %56 = getelementptr inbounds nuw %"struct.draco::fastdiv_elem", ptr @_ZN5draco16vp10_fastdiv_tabE, i64 %55
+  %56 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5draco16vp10_fastdiv_tabE, i64 %55
   %57 = load i32, ptr %56, align 8, !tbaa !30
   %58 = zext i32 %57 to i64
   %59 = mul nuw nsw i64 %58, %54
@@ -849,7 +849,7 @@ _ZN5dracoL15rabs_desc_writeEPNS_8AnsCoderEih.exit: ; preds = %41, %47
   %112 = phi i32 [ %.sroa.22.286, %99 ], [ %110, %105 ]
   %113 = zext nneg i32 %112 to i64
   %114 = zext i8 %102 to i64
-  %115 = getelementptr inbounds nuw %"struct.draco::fastdiv_elem", ptr @_ZN5draco16vp10_fastdiv_tabE, i64 %114
+  %115 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5draco16vp10_fastdiv_tabE, i64 %114
   %116 = load i32, ptr %115, align 8, !tbaa !30
   %117 = zext i32 %116 to i64
   %118 = mul nuw nsw i64 %117, %113

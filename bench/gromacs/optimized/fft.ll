@@ -3,8 +3,6 @@ source_filename = "bench/gromacs/original/fft.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.t_complex = type { float, float }
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define noundef i32 @_Z20gmx_fft_transpose_2dP9t_complexS0_ii(ptr noundef captures(address) %0, ptr noundef writeonly captures(address) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca [500 x i8], align 16
@@ -37,16 +35,16 @@ define noundef i32 @_Z20gmx_fft_transpose_2dP9t_complexS0_ii(ptr noundef capture
 .preheader253.us:                                 ; preds = %.preheader253.us.preheader, %._crit_edge.us
   %indvars.iv273 = phi i64 [ 0, %.preheader253.us.preheader ], [ %indvars.iv.next274, %._crit_edge.us ]
   %17 = mul nuw nsw i64 %indvars.iv273, %16
-  %invariant.gep = getelementptr inbounds nuw %struct.t_complex, ptr %0, i64 %17
-  %invariant.gep310 = getelementptr inbounds nuw %struct.t_complex, ptr %1, i64 %indvars.iv273
+  %invariant.gep = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %17
+  %invariant.gep310 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv273
   br label %18
 
 18:                                               ; preds = %.preheader253.us, %18
   %indvars.iv = phi i64 [ 0, %.preheader253.us ], [ %indvars.iv.next, %18 ]
-  %gep = getelementptr inbounds nuw %struct.t_complex, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep, i64 %indvars.iv
   %19 = load float, ptr %gep, align 4, !tbaa !4
   %20 = mul nuw nsw i64 %indvars.iv, %15
-  %gep311 = getelementptr inbounds nuw %struct.t_complex, ptr %invariant.gep310, i64 %20
+  %gep311 = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep310, i64 %20
   store float %19, ptr %gep311, align 4, !tbaa !4
   %21 = getelementptr inbounds nuw i8, ptr %gep, i64 4
   %22 = load float, ptr %21, align 4, !tbaa !9
@@ -91,18 +89,18 @@ define noundef i32 @_Z20gmx_fft_transpose_2dP9t_complexS0_ii(ptr noundef capture
 
 .lr.ph263:                                        ; preds = %.lr.ph265
   %31 = mul nuw nsw i64 %indvars.iv291, %28
-  %invariant.gep312 = getelementptr inbounds nuw %struct.t_complex, ptr %0, i64 %31
-  %invariant.gep314 = getelementptr inbounds nuw %struct.t_complex, ptr %0, i64 %indvars.iv291
+  %invariant.gep312 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %31
+  %invariant.gep314 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv291
   br label %32
 
 32:                                               ; preds = %.lr.ph263, %32
   %indvars.iv286 = phi i64 [ %indvars.iv284, %.lr.ph263 ], [ %indvars.iv.next287, %32 ]
-  %gep313 = getelementptr inbounds nuw %struct.t_complex, ptr %invariant.gep312, i64 %indvars.iv286
+  %gep313 = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep312, i64 %indvars.iv286
   %33 = load float, ptr %gep313, align 4, !tbaa !4
   %34 = getelementptr inbounds nuw i8, ptr %gep313, i64 4
   %35 = load float, ptr %34, align 4, !tbaa !9
   %36 = mul nuw nsw i64 %indvars.iv286, %28
-  %gep315 = getelementptr inbounds nuw %struct.t_complex, ptr %invariant.gep314, i64 %36
+  %gep315 = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep314, i64 %36
   %37 = load float, ptr %gep315, align 4, !tbaa !4
   store float %37, ptr %gep313, align 4, !tbaa !4
   %38 = getelementptr inbounds nuw i8, ptr %gep315, i64 4
@@ -146,12 +144,12 @@ define noundef i32 @_Z20gmx_fft_transpose_2dP9t_complexS0_ii(ptr noundef capture
   %.4 = phi i32 [ 1, %47 ], [ %109, %.loopexit266.loopexit ]
   %51 = sub nsw i32 %49, %.4
   %52 = sext i32 %.4 to i64
-  %53 = getelementptr inbounds %struct.t_complex, ptr %0, i64 %52
+  %53 = getelementptr inbounds [8 x i8], ptr %0, i64 %52
   %54 = load float, ptr %53, align 4, !tbaa !4
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 4
   %56 = load float, ptr %55, align 4, !tbaa !9
   %57 = sext i32 %51 to i64
-  %58 = getelementptr inbounds %struct.t_complex, ptr %0, i64 %57
+  %58 = getelementptr inbounds [8 x i8], ptr %0, i64 %57
   %59 = load float, ptr %58, align 4, !tbaa !4
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 4
   %61 = load float, ptr %60, align 4, !tbaa !9
@@ -196,20 +194,20 @@ define noundef i32 @_Z20gmx_fft_transpose_2dP9t_complexS0_ii(ptr noundef capture
 
 82:                                               ; preds = %80
   %83 = sext i32 %66 to i64
-  %84 = getelementptr inbounds %struct.t_complex, ptr %0, i64 %83
+  %84 = getelementptr inbounds [8 x i8], ptr %0, i64 %83
   %85 = load float, ptr %84, align 4, !tbaa !4
   %86 = sext i32 %.0208 to i64
-  %87 = getelementptr inbounds %struct.t_complex, ptr %0, i64 %86
+  %87 = getelementptr inbounds [8 x i8], ptr %0, i64 %86
   store float %85, ptr %87, align 4, !tbaa !4
   %88 = getelementptr inbounds nuw i8, ptr %84, i64 4
   %89 = load float, ptr %88, align 4, !tbaa !9
   %90 = getelementptr inbounds nuw i8, ptr %87, i64 4
   store float %89, ptr %90, align 4, !tbaa !9
   %91 = sext i32 %67 to i64
-  %92 = getelementptr inbounds %struct.t_complex, ptr %0, i64 %91
+  %92 = getelementptr inbounds [8 x i8], ptr %0, i64 %91
   %93 = load float, ptr %92, align 4, !tbaa !4
   %94 = sext i32 %.0206 to i64
-  %95 = getelementptr inbounds %struct.t_complex, ptr %0, i64 %94
+  %95 = getelementptr inbounds [8 x i8], ptr %0, i64 %94
   store float %93, ptr %95, align 4, !tbaa !4
   %96 = getelementptr inbounds nuw i8, ptr %92, i64 4
   %97 = load float, ptr %96, align 4, !tbaa !9
@@ -223,12 +221,12 @@ define noundef i32 @_Z20gmx_fft_transpose_2dP9t_complexS0_ii(ptr noundef capture
   %.sroa.6.1.ph = phi float [ %56, %80 ], [ %61, %77 ]
   %.sroa.030.1.ph = phi float [ %54, %80 ], [ %59, %77 ]
   %100 = sext i32 %.0208 to i64
-  %101 = getelementptr inbounds %struct.t_complex, ptr %0, i64 %100
+  %101 = getelementptr inbounds [8 x i8], ptr %0, i64 %100
   store float %.sroa.033.1.ph, ptr %101, align 4, !tbaa !4
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 4
   store float %.sroa.8.1.ph, ptr %102, align 4, !tbaa !9
   %103 = sext i32 %.0206 to i64
-  %104 = getelementptr inbounds %struct.t_complex, ptr %0, i64 %103
+  %104 = getelementptr inbounds [8 x i8], ptr %0, i64 %103
   store float %.sroa.030.1.ph, ptr %104, align 4, !tbaa !4
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 4
   store float %.sroa.6.1.ph, ptr %105, align 4, !tbaa !9

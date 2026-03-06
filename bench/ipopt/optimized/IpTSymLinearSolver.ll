@@ -8,8 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %"class.std::allocator.13" = type { i8 }
-%"class.Ipopt::SmartPtr.48" = type { ptr }
-%"class.Ipopt::SmartPtr.36" = type { ptr }
 
 $_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_ = comdat any
 
@@ -1570,12 +1568,12 @@ define noundef i32 @_ZN5Ipopt16TSymLinearSolver10MultiSolveERKNS_9SymMatrixERSt6
   %indvars.iv115 = phi i64 [ 0, %.lr.ph103 ], [ %indvars.iv.next116, %_ZN5Ipopt9TimedTask3EndEv.exit ]
   %51 = load i32, ptr %31, align 8, !tbaa !89
   %52 = load ptr, ptr %2, align 8, !tbaa !88
-  %53 = getelementptr inbounds nuw %"class.Ipopt::SmartPtr.48", ptr %52, i64 %indvars.iv115
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %indvars.iv115
   %54 = load ptr, ptr %53, align 8, !tbaa !90
   %55 = trunc nuw nsw i64 %indvars.iv115 to i32
   %56 = mul nsw i32 %51, %55
   %57 = sext i32 %56 to i64
-  %58 = getelementptr inbounds double, ptr %38, i64 %57
+  %58 = getelementptr inbounds [8 x i8], ptr %38, i64 %57
   tail call void @_ZN5Ipopt13TripletHelper20FillValuesFromVectorEiRKNS_6VectorEPd(i32 noundef %51, ptr noundef nonnull align 8 dereferenceable(205) %54, ptr noundef nonnull %58)
   %59 = load ptr, ptr %40, align 8, !tbaa !42
   %60 = load ptr, ptr %59, align 8, !tbaa !8
@@ -1601,7 +1599,7 @@ define noundef i32 @_ZN5Ipopt16TSymLinearSolver10MultiSolveERKNS_9SymMatrixERSt6
   %73 = mul nsw i32 %71, %55
   %74 = add nsw i32 %73, %.07396
   %75 = sext i32 %74 to i64
-  %76 = getelementptr inbounds double, ptr %38, i64 %75
+  %76 = getelementptr inbounds [8 x i8], ptr %38, i64 %75
   %77 = load double, ptr %76, align 8, !tbaa !93
   %78 = load ptr, ptr %72, align 8, !tbaa !8
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 16
@@ -1654,7 +1652,7 @@ _ZN5Ipopt9TimedTask5StartEv.exit:                 ; preds = %92, %88, %86
   %104 = mul nsw i32 %101, %55
   %105 = sext i32 %104 to i64
   %wide.trip.count = zext nneg i32 %101 to i64
-  %invariant.gep = getelementptr double, ptr %38, i64 %105
+  %invariant.gep = getelementptr [8 x i8], ptr %38, i64 %105
   br label %107
 
 ._crit_edge:                                      ; preds = %107, %_ZN5Ipopt9TimedTask5StartEv.exit
@@ -1664,9 +1662,9 @@ _ZN5Ipopt9TimedTask5StartEv.exit:                 ; preds = %92, %88, %86
 
 107:                                              ; preds = %.lr.ph98, %107
   %indvars.iv = phi i64 [ 0, %.lr.ph98 ], [ %indvars.iv.next, %107 ]
-  %108 = getelementptr inbounds nuw double, ptr %103, i64 %indvars.iv
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %103, i64 %indvars.iv
   %109 = load double, ptr %108, align 8, !tbaa !93
-  %gep = getelementptr double, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %indvars.iv
   %110 = load double, ptr %gep, align 8, !tbaa !93
   %111 = fmul double %109, %110
   store double %111, ptr %gep, align 8, !tbaa !93
@@ -1885,7 +1883,7 @@ _ZN5Ipopt9TimedTask5StartEv.exit86:               ; preds = %223, %219, %217
   %234 = load ptr, ptr %212, align 8, !tbaa !35
   %235 = zext nneg i32 %232 to i64
   %236 = mul nuw nsw i64 %indvars.iv125, %235
-  %237 = getelementptr inbounds nuw double, ptr %38, i64 %236
+  %237 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %236
   br label %239
 
 ._crit_edge106:                                   ; preds = %239, %_ZN5Ipopt9TimedTask5StartEv.exit86
@@ -1895,9 +1893,9 @@ _ZN5Ipopt9TimedTask5StartEv.exit86:               ; preds = %223, %219, %217
 
 239:                                              ; preds = %.lr.ph105, %239
   %indvars.iv120 = phi i64 [ 0, %.lr.ph105 ], [ %indvars.iv.next121, %239 ]
-  %240 = getelementptr inbounds nuw double, ptr %234, i64 %indvars.iv120
+  %240 = getelementptr inbounds nuw [8 x i8], ptr %234, i64 %indvars.iv120
   %241 = load double, ptr %240, align 8, !tbaa !93
-  %242 = getelementptr inbounds nuw double, ptr %237, i64 %indvars.iv120
+  %242 = getelementptr inbounds nuw [8 x i8], ptr %237, i64 %indvars.iv120
   %243 = load double, ptr %242, align 8, !tbaa !93
   %244 = fmul double %241, %243
   store double %244, ptr %242, align 8, !tbaa !93
@@ -1973,7 +1971,7 @@ _ZN5Ipopt9TimedTask3EndEv.exit87..loopexit_crit_edge: ; preds = %_ZN5Ipopt9Timed
   %288 = mul nsw i32 %286, %283
   %289 = add nsw i32 %288, %.0107
   %290 = sext i32 %289 to i64
-  %291 = getelementptr inbounds double, ptr %38, i64 %290
+  %291 = getelementptr inbounds [8 x i8], ptr %38, i64 %290
   %292 = load double, ptr %291, align 8, !tbaa !93
   %293 = load ptr, ptr %287, align 8, !tbaa !8
   %294 = getelementptr inbounds nuw i8, ptr %293, i64 16
@@ -1989,9 +1987,9 @@ _ZN5Ipopt9TimedTask3EndEv.exit87..loopexit_crit_edge: ; preds = %_ZN5Ipopt9Timed
   %299 = phi i32 [ %.pre, %_ZN5Ipopt9TimedTask3EndEv.exit87..loopexit_crit_edge ], [ %284, %278 ], [ %297, %.lr.ph109 ]
   %300 = mul nsw i32 %299, %.pre-phi
   %301 = sext i32 %300 to i64
-  %302 = getelementptr inbounds double, ptr %38, i64 %301
+  %302 = getelementptr inbounds [8 x i8], ptr %38, i64 %301
   %303 = load ptr, ptr %3, align 8, !tbaa !105
-  %304 = getelementptr inbounds nuw %"class.Ipopt::SmartPtr.36", ptr %303, i64 %indvars.iv125
+  %304 = getelementptr inbounds nuw [8 x i8], ptr %303, i64 %indvars.iv125
   %305 = load ptr, ptr %304, align 8, !tbaa !108
   tail call void @_ZN5Ipopt13TripletHelper17PutValuesInVectorEiPKdRNS_6VectorE(i32 noundef %299, ptr noundef nonnull %302, ptr noundef nonnull align 8 dereferenceable(205) %305)
   %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1
@@ -2761,7 +2759,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit36: ; preds = %_ZN
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %91 ]
   %97 = load ptr, ptr %60, align 8, !tbaa !42
   %98 = load ptr, ptr %54, align 8, !tbaa !35
-  %99 = getelementptr inbounds nuw double, ptr %98, i64 %indvars.iv
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %indvars.iv
   %100 = load double, ptr %99, align 8, !tbaa !93
   %101 = load ptr, ptr %97, align 8, !tbaa !8
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 16
@@ -2833,20 +2831,20 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit36: ; preds = %_ZN
 
 145:                                              ; preds = %.lr.ph56, %145
   %indvars.iv60 = phi i64 [ 0, %.lr.ph56 ], [ %indvars.iv.next61, %145 ]
-  %146 = getelementptr inbounds nuw i32, ptr %114, i64 %indvars.iv60
+  %146 = getelementptr inbounds nuw [4 x i8], ptr %114, i64 %indvars.iv60
   %147 = load i32, ptr %146, align 4, !tbaa !121
   %148 = sext i32 %147 to i64
-  %149 = getelementptr double, ptr %112, i64 %148
+  %149 = getelementptr [8 x i8], ptr %112, i64 %148
   %150 = getelementptr i8, ptr %149, i64 -8
   %151 = load double, ptr %150, align 8, !tbaa !93
-  %152 = getelementptr inbounds nuw i32, ptr %116, i64 %indvars.iv60
+  %152 = getelementptr inbounds nuw [4 x i8], ptr %116, i64 %indvars.iv60
   %153 = load i32, ptr %152, align 4, !tbaa !121
   %154 = sext i32 %153 to i64
-  %155 = getelementptr double, ptr %112, i64 %154
+  %155 = getelementptr [8 x i8], ptr %112, i64 %154
   %156 = getelementptr i8, ptr %155, i64 -8
   %157 = load double, ptr %156, align 8, !tbaa !93
   %158 = fmul double %151, %157
-  %159 = getelementptr inbounds nuw double, ptr %.028, i64 %indvars.iv60
+  %159 = getelementptr inbounds nuw [8 x i8], ptr %.028, i64 %indvars.iv60
   %160 = load double, ptr %159, align 8, !tbaa !93
   %161 = fmul double %160, %158
   store double %161, ptr %159, align 8, !tbaa !93
@@ -3262,10 +3260,10 @@ define noundef i32 @_ZN5Ipopt16TSymLinearSolver22DetermineDependentRowsEiiiPdPiS
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %42 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   %43 = load i32, ptr %42, align 4, !tbaa !121
   %44 = add nsw i32 %43, %2
-  %45 = getelementptr inbounds nuw i32, ptr %34, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %indvars.iv
   store i32 %44, ptr %45, align 4, !tbaa !121
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %37
@@ -3281,10 +3279,10 @@ define noundef i32 @_ZN5Ipopt16TSymLinearSolver22DetermineDependentRowsEiiiPdPiS
   %indvars.iv143 = phi i64 [ 0, %.lr.ph129.preheader ], [ %indvars.iv.next144, %.lr.ph129 ]
   %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
   %49 = add nsw i64 %indvars.iv143, %41
-  %50 = getelementptr inbounds i32, ptr %34, i64 %49
+  %50 = getelementptr inbounds [4 x i8], ptr %34, i64 %49
   %51 = trunc nuw nsw i64 %indvars.iv.next144 to i32
   store i32 %51, ptr %50, align 4, !tbaa !121
-  %52 = getelementptr inbounds i32, ptr %35, i64 %49
+  %52 = getelementptr inbounds [4 x i8], ptr %35, i64 %49
   store i32 %51, ptr %52, align 4, !tbaa !121
   %exitcond147.not = icmp eq i64 %indvars.iv.next144, %wide.trip.count146
   br i1 %exitcond147.not, label %._crit_edge, label %.lr.ph129, !llvm.loop !125
@@ -3589,12 +3587,12 @@ _ZN5Ipopt9TimedTask3EndEv.exit89:                 ; preds = %205, %201, %_ZN5Ipo
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store double 1.000000e+00, ptr %9, align 8, !tbaa !93
   %243 = sext i32 %3 to i64
-  %244 = getelementptr inbounds double, ptr %.071, i64 %243
+  %244 = getelementptr inbounds [8 x i8], ptr %.071, i64 %243
   call void @_ZN5Ipopt10IpBlasCopyEiPKdiPdi(i32 noundef %2, ptr noundef nonnull %9, i32 noundef 0, ptr noundef %244, i32 noundef 1)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store double 0.000000e+00, ptr %10, align 8, !tbaa !93
   %245 = sext i32 %2 to i64
-  %246 = getelementptr inbounds double, ptr %244, i64 %245
+  %246 = getelementptr inbounds [8 x i8], ptr %244, i64 %245
   call void @_ZN5Ipopt10IpBlasCopyEiPKdiPdi(i32 noundef %1, ptr noundef nonnull %10, i32 noundef 0, ptr noundef %246, i32 noundef 1)
   %247 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %248 = load i8, ptr %247, align 8, !tbaa !61, !range !57, !noundef !58
@@ -3752,7 +3750,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit93: ; preds = %_ZN
   %indvars.iv148 = phi i64 [ %indvars.iv.next149, %.lr.ph131 ], [ 0, %306 ]
   %312 = load ptr, ptr %275, align 8, !tbaa !42
   %313 = load ptr, ptr %171, align 8, !tbaa !35
-  %314 = getelementptr inbounds nuw double, ptr %313, i64 %indvars.iv148
+  %314 = getelementptr inbounds nuw [8 x i8], ptr %313, i64 %indvars.iv148
   %315 = load double, ptr %314, align 8, !tbaa !93
   %316 = load ptr, ptr %312, align 8, !tbaa !8
   %317 = getelementptr inbounds nuw i8, ptr %316, i64 16
@@ -3817,20 +3815,20 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit93: ; preds = %_ZN
 
 356:                                              ; preds = %.lr.ph134, %356
   %indvars.iv151 = phi i64 [ 0, %.lr.ph134 ], [ %indvars.iv.next152, %356 ]
-  %357 = getelementptr inbounds nuw i32, ptr %326, i64 %indvars.iv151
+  %357 = getelementptr inbounds nuw [4 x i8], ptr %326, i64 %indvars.iv151
   %358 = load i32, ptr %357, align 4, !tbaa !121
   %359 = sext i32 %358 to i64
-  %360 = getelementptr double, ptr %325, i64 %359
+  %360 = getelementptr [8 x i8], ptr %325, i64 %359
   %361 = getelementptr i8, ptr %360, i64 -8
   %362 = load double, ptr %361, align 8, !tbaa !93
-  %363 = getelementptr inbounds nuw i32, ptr %327, i64 %indvars.iv151
+  %363 = getelementptr inbounds nuw [4 x i8], ptr %327, i64 %indvars.iv151
   %364 = load i32, ptr %363, align 4, !tbaa !121
   %365 = sext i32 %364 to i64
-  %366 = getelementptr double, ptr %325, i64 %365
+  %366 = getelementptr [8 x i8], ptr %325, i64 %365
   %367 = getelementptr i8, ptr %366, i64 -8
   %368 = load double, ptr %367, align 8, !tbaa !93
   %369 = fmul double %362, %368
-  %370 = getelementptr inbounds nuw double, ptr %.071, i64 %indvars.iv151
+  %370 = getelementptr inbounds nuw [8 x i8], ptr %.071, i64 %indvars.iv151
   %371 = load double, ptr %370, align 8, !tbaa !93
   %372 = fmul double %371, %369
   store double %372, ptr %370, align 8, !tbaa !93

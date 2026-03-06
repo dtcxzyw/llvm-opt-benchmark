@@ -167,14 +167,14 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 34:                                               ; preds = %30
   %35 = sext i32 %31 to i64
-  %36 = getelementptr inbounds ptr, ptr %1, i64 %35
+  %36 = getelementptr inbounds [8 x i8], ptr %1, i64 %35
   %37 = load ptr, ptr %36, align 8
   br i1 %.036, label %43, label %47
 
 38:                                               ; preds = %30
   %39 = add i32 %31, 1
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds ptr, ptr %1, i64 %40
+  %41 = getelementptr inbounds [8 x i8], ptr %1, i64 %40
   %42 = load ptr, ptr %41, align 8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.15, ptr noundef %42) #7
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 2, ptr noundef nonnull @.str.13, ptr noundef %8) #7

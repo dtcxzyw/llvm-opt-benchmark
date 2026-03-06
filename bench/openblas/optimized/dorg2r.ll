@@ -18,7 +18,7 @@ define void @dorg2r_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %12 = load i32, ptr %4, align 4, !tbaa !3
   %narrow = xor i32 %12, -1
   %13 = sext i32 %narrow to i64
-  %14 = getelementptr inbounds double, ptr %3, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %3, i64 %13
   %15 = getelementptr inbounds i8, ptr %5, i64 -8
   store i32 0, ptr %7, align 4, !tbaa !3
   %16 = load i32, ptr %0, align 4, !tbaa !3
@@ -84,7 +84,7 @@ define void @dorg2r_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 .lr.ph106.split.us:                               ; preds = %.lr.ph106
   %39 = mul i32 %31, %narrow140
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds double, ptr %14, i64 %40
+  %41 = getelementptr inbounds [8 x i8], ptr %14, i64 %40
   store double 1.000000e+00, ptr %41, align 8, !tbaa !7
   br label %.preheader
 
@@ -118,7 +118,7 @@ define void @dorg2r_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %54 = trunc nsw i64 %indvars.iv to i32
   %55 = mul i32 %31, %54
   %56 = sext i32 %55 to i64
-  %57 = getelementptr inbounds double, ptr %14, i64 %56
+  %57 = getelementptr inbounds [8 x i8], ptr %14, i64 %56
   store double 1.000000e+00, ptr %57, align 8, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %indvar.next = add i32 %indvar, 1
@@ -151,19 +151,19 @@ define void @dorg2r_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 69:                                               ; preds = %58
   %70 = mul i32 %42, %indvars134
   %71 = sext i32 %70 to i64
-  %72 = getelementptr inbounds double, ptr %14, i64 %71
+  %72 = getelementptr inbounds [8 x i8], ptr %14, i64 %71
   store double 1.000000e+00, ptr %72, align 8, !tbaa !7
   %reass.sub = sub i32 %.pre136, %indvars134
   %73 = add i32 %reass.sub, 1
   store i32 %73, ptr %9, align 4, !tbaa !3
   %74 = sub nsw i32 %66, %indvars134
   store i32 %74, ptr %10, align 4, !tbaa !3
-  %75 = getelementptr inbounds nuw double, ptr %15, i64 %indvars.iv130
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv130
   %76 = add nuw nsw i32 %indvars134, 1
   %77 = mul nsw i32 %76, %12
   %78 = sext i32 %77 to i64
-  %79 = getelementptr double, ptr %14, i64 %indvars.iv130
-  %80 = getelementptr double, ptr %79, i64 %78
+  %79 = getelementptr [8 x i8], ptr %14, i64 %indvars.iv130
+  %80 = getelementptr [8 x i8], ptr %79, i64 %78
   call void @dlarf_(ptr noundef nonnull @.str.1, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %72, ptr noundef nonnull @c__1, ptr noundef nonnull %75, ptr noundef %80, ptr noundef nonnull %4, ptr noundef %6) #5
   %.pre = load i32, ptr %0, align 4, !tbaa !3
   br label %81
@@ -177,25 +177,25 @@ define void @dorg2r_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 85:                                               ; preds = %81
   %86 = sub nsw i32 %82, %indvars134
   store i32 %86, ptr %9, align 4, !tbaa !3
-  %87 = getelementptr inbounds nuw double, ptr %15, i64 %indvars.iv130
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv130
   %88 = load double, ptr %87, align 8, !tbaa !7
   %89 = fneg double %88
   store double %89, ptr %11, align 8, !tbaa !7
   %90 = mul nsw i64 %indvars.iv130, %49
-  %91 = getelementptr double, ptr %14, i64 %indvars.iv130
+  %91 = getelementptr [8 x i8], ptr %14, i64 %indvars.iv130
   %92 = getelementptr i8, ptr %91, i64 8
-  %93 = getelementptr double, ptr %92, i64 %90
+  %93 = getelementptr [8 x i8], ptr %92, i64 %90
   call void @dscal_(ptr noundef nonnull %9, ptr noundef nonnull %11, ptr noundef %93, ptr noundef nonnull @c__1) #5
   br label %94
 
 94:                                               ; preds = %85, %81
-  %95 = getelementptr inbounds nuw double, ptr %15, i64 %indvars.iv130
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv130
   %96 = load double, ptr %95, align 8, !tbaa !7
   %97 = fsub double 1.000000e+00, %96
   %98 = mul nsw i32 %12, %indvars134
   %99 = sext i32 %98 to i64
-  %100 = getelementptr double, ptr %14, i64 %indvars.iv130
-  %101 = getelementptr double, ptr %100, i64 %99
+  %100 = getelementptr [8 x i8], ptr %14, i64 %indvars.iv130
+  %101 = getelementptr [8 x i8], ptr %100, i64 %99
   store double %97, ptr %101, align 8, !tbaa !7
   %indvars.iv.next131 = add nsw i64 %indvars.iv130, -1
   %102 = trunc nuw nsw i64 %indvars.iv.next131 to i32

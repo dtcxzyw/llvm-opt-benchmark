@@ -23,7 +23,7 @@ define hidden { i64, i8 } @_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE(i8 noun
 entry:
   %retval = alloca %"struct.hermes::inst::InstMetaData", align 8
   %idx.ext = zext i8 %opCode to i64
-  %add.ptr = getelementptr inbounds nuw %struct.anon, ptr @_ZN6hermes4instL4metaE, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw [8 x i8], ptr @_ZN6hermes4instL4metaE, i64 %idx.ext
   store i8 %opCode, ptr %retval, align 8
   %0 = load i8, ptr %add.ptr, align 8
   %retval.1.retval.1.retval.1.size2.sroa_idx = getelementptr inbounds nuw i8, ptr %retval, i64 1
@@ -59,7 +59,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 define hidden noundef zeroext i8 @_ZN6hermes4inst11getInstSizeENS0_6OpCodeE(i8 noundef zeroext %opCode) local_unnamed_addr #0 {
 entry:
   %idxprom = zext i8 %opCode to i64
-  %arrayidx = getelementptr inbounds nuw %struct.anon, ptr @_ZN6hermes4instL4metaE, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [8 x i8], ptr @_ZN6hermes4instL4metaE, i64 %idxprom
   %0 = load i8, ptr %arrayidx, align 8
   ret i8 %0
 }
@@ -80,7 +80,7 @@ entry:
   %0 = load i8, ptr %inst, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %retval.i.sroa.6)
   %idx.ext.i = zext i8 %0 to i64
-  %add.ptr.i = getelementptr inbounds nuw %struct.anon, ptr @_ZN6hermes4instL4metaE, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr @_ZN6hermes4instL4metaE, i64 %idx.ext.i
   %retval.i.sroa.0.0.insert.ext = zext i8 %0 to i24
   %1 = load i8, ptr %add.ptr.i, align 8
   %retval.i.sroa.0.1.insert.ext = zext i8 %1 to i24
@@ -3608,7 +3608,7 @@ if.then4.i.i:                                     ; preds = %for.body
 _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i, %if.then4.i.i
   %arrayidx = getelementptr inbounds nuw i8, ptr %operandType, i64 %indvars.iv
   %7 = load i8, ptr %arrayidx, align 1
-  %arrayidx8 = getelementptr inbounds nuw %"union.hermes::inst::OperandValue", ptr %operandValue, i64 %indvars.iv
+  %arrayidx8 = getelementptr inbounds nuw [8 x i8], ptr %operandValue, i64 %indvars.iv
   %agg.tmp6.sroa.0.0.copyload = load i64, ptr %arrayidx8, align 8
   call void @_ZN6hermes4inst11dumpOperandERN4llvh11raw_ostreamENS0_11OperandTypeENS0_12OperandValueE(ptr noundef nonnull align 8 dereferenceable(36) %OS, i8 noundef zeroext %7, i64 %agg.tmp6.sroa.0.0.copyload)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

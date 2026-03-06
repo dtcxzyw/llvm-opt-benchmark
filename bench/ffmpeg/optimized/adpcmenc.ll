@@ -8,9 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon.0 = type { ptr }
 %union.anon.1 = type { i64 }
 %struct.PutBitContext = type { i32, i32, ptr, ptr, ptr }
-%struct.ADPCMChannelStatus = type { i32, i16, i32, i32, i32, i32, i32, i32, i32 }
-%struct.TrellisNode = type { i32, i32, i32, i32, i32 }
-%struct.TrellisPath = type { i32, i32 }
 
 @.str = private unnamed_addr constant [11 x i8] c"adpcm_argo\00", align 1
 @.str.1 = private unnamed_addr constant [21 x i8] c"ADPCM Argonaut Games\00", align 1
@@ -486,8 +483,8 @@ define internal range(i32 -2147483648, 1) i32 @adpcm_encode_frame(ptr noundef %0
 56:                                               ; preds = %.lr.ph1146, %56
   %indvars.iv1296 = phi i64 [ 0, %.lr.ph1146 ], [ %indvars.iv.next1297, %56 ]
   %.08981143 = phi ptr [ %33, %.lr.ph1146 ], [ %68, %56 ]
-  %57 = getelementptr inbounds nuw %struct.ADPCMChannelStatus, ptr %50, i64 %indvars.iv1296
-  %58 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv1296
+  %57 = getelementptr inbounds nuw [36 x i8], ptr %50, i64 %indvars.iv1296
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv1296
   %59 = load ptr, ptr %58, align 8, !tbaa !63
   %60 = load i16, ptr %59, align 2, !tbaa !64
   %61 = sext i16 %60 to i32
@@ -536,14 +533,14 @@ define internal range(i32 -2147483648, 1) i32 @adpcm_encode_frame(ptr noundef %0
 
 78:                                               ; preds = %.lr.ph1159, %78
   %indvars.iv1315 = phi i64 [ 0, %.lr.ph1159 ], [ %indvars.iv.next1316, %78 ]
-  %79 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv1315
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv1315
   %80 = load ptr, ptr %79, align 8, !tbaa !63
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 2
   %82 = trunc nuw nsw i64 %indvars.iv1315 to i32
   %83 = mul i32 %74, %82
   %84 = sext i32 %83 to i64
   %85 = getelementptr inbounds i8, ptr %73, i64 %84
-  %86 = getelementptr inbounds nuw %struct.ADPCMChannelStatus, ptr %75, i64 %indvars.iv1315
+  %86 = getelementptr inbounds nuw [36 x i8], ptr %75, i64 %indvars.iv1315
   tail call fastcc void @adpcm_compress_trellis(ptr noundef nonnull %0, ptr noundef nonnull %81, ptr noundef %85, ptr noundef nonnull %86, i32 noundef %74, i32 noundef 1)
   %indvars.iv.next1316 = add nuw nsw i64 %indvars.iv1315, 1
   %exitcond1319.not = icmp eq i64 %indvars.iv.next1316, %wide.trip.count1318
@@ -616,8 +613,8 @@ define internal range(i32 -2147483648, 1) i32 @adpcm_encode_frame(ptr noundef %0
 102:                                              ; preds = %.lr.ph1153, %110
   %indvars.iv1304 = phi i64 [ 0, %.lr.ph1153 ], [ %indvars.iv.next1305, %110 ]
   %.51151 = phi ptr [ %.41156, %.lr.ph1153 ], [ %179, %110 ]
-  %103 = getelementptr inbounds nuw %struct.ADPCMChannelStatus, ptr %55, i64 %indvars.iv1304
-  %104 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv1304
+  %103 = getelementptr inbounds nuw [36 x i8], ptr %55, i64 %indvars.iv1304
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv1304
   %105 = load ptr, ptr %104, align 8, !tbaa !63
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 %.idx1370
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 2
@@ -633,7 +630,7 @@ define internal range(i32 -2147483648, 1) i32 @adpcm_encode_frame(ptr noundef %0
 111:                                              ; preds = %102, %111
   %indvars.iv1301 = phi i64 [ 0, %102 ], [ %indvars.iv.next1302, %111 ]
   %.61149 = phi ptr [ %.51151, %102 ], [ %179, %111 ]
-  %112 = getelementptr inbounds nuw i16, ptr %107, i64 %indvars.iv1301
+  %112 = getelementptr inbounds nuw [2 x i8], ptr %107, i64 %indvars.iv1301
   %113 = load i16, ptr %112, align 2, !tbaa !64
   %114 = sext i16 %113 to i32
   %115 = load i32, ptr %108, align 4, !tbaa !66
@@ -642,7 +639,7 @@ define internal range(i32 -2147483648, 1) i32 @adpcm_encode_frame(ptr noundef %0
   %118 = shl nsw i32 %117, 2
   %119 = load i16, ptr %109, align 4, !tbaa !68
   %120 = sext i16 %119 to i64
-  %121 = getelementptr inbounds i16, ptr @ff_adpcm_step_table, i64 %120
+  %121 = getelementptr inbounds [2 x i8], ptr @ff_adpcm_step_table, i64 %120
   %122 = load i16, ptr %121, align 2, !tbaa !64
   %123 = sext i16 %122 to i32
   %124 = sdiv i32 %118, %123
@@ -676,7 +673,7 @@ define internal range(i32 -2147483648, 1) i32 @adpcm_encode_frame(ptr noundef %0
   %150 = tail call i32 @llvm.abs.i32(i32 %149, i1 true)
   %151 = shl nuw nsw i32 %150, 2
   %152 = zext nneg i32 %143 to i64
-  %153 = getelementptr inbounds nuw i16, ptr @ff_adpcm_step_table, i64 %152
+  %153 = getelementptr inbounds nuw [2 x i8], ptr @ff_adpcm_step_table, i64 %152
   %154 = load i16, ptr %153, align 2, !tbaa !64
   %155 = sext i16 %154 to i32
   %156 = sdiv i32 %151, %155
@@ -762,7 +759,7 @@ define internal range(i32 -2147483648, 1) i32 @adpcm_encode_frame(ptr noundef %0
   %.sroa.35.01135 = phi ptr [ %spec.select.i557, %.lr.ph1138 ], [ %.sroa.35.2, %.loopexit ]
   %.sroa.19837.01134 = phi i32 [ 32, %.lr.ph1138 ], [ %.sroa.19837.2, %.loopexit ]
   %.sroa.0829.01133 = phi i32 [ 0, %.lr.ph1138 ], [ %.sroa.0829.2, %.loopexit ]
-  %202 = getelementptr inbounds nuw %struct.ADPCMChannelStatus, ptr %186, i64 %indvars.iv1291
+  %202 = getelementptr inbounds nuw [36 x i8], ptr %186, i64 %indvars.iv1291
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 12
   %204 = load i32, ptr %203, align 4, !tbaa !66
   %205 = lshr i32 %204, 7
@@ -841,12 +838,12 @@ put_bits.exit561:                                 ; preds = %235, %242, %228
   br i1 %245, label %247, label %.preheader910
 
 .preheader910:                                    ; preds = %put_bits.exit561
-  %246 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv1291
+  %246 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv1291
   br label %276
 
 247:                                              ; preds = %put_bits.exit561
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %248 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv1291
+  %248 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv1291
   %249 = load ptr, ptr %248, align 8, !tbaa !63
   call fastcc void @adpcm_compress_trellis(ptr noundef nonnull %0, ptr noundef %249, ptr noundef %5, ptr noundef nonnull %202, i32 noundef 64, i32 noundef 1)
   br label %252
@@ -910,14 +907,14 @@ put_bits.exit565:                                 ; preds = %266, %273, %259
   %.sroa.19837.31126 = phi i32 [ %243, %.preheader910 ], [ %380, %put_bits.exit586 ]
   %.sroa.0829.31125 = phi i32 [ %.026.i.i559, %.preheader910 ], [ %.026.i.i584, %put_bits.exit586 ]
   %277 = load ptr, ptr %246, align 8, !tbaa !63
-  %278 = getelementptr inbounds nuw i16, ptr %277, i64 %indvars.iv1287
+  %278 = getelementptr inbounds nuw [2 x i8], ptr %277, i64 %indvars.iv1287
   %279 = load i16, ptr %278, align 2, !tbaa !64
   %280 = sext i16 %279 to i32
   %281 = load i32, ptr %203, align 4, !tbaa !66
   %282 = sub nsw i32 %280, %281
   %283 = load i16, ptr %224, align 4, !tbaa !68
   %284 = sext i16 %283 to i64
-  %285 = getelementptr inbounds i16, ptr @ff_adpcm_step_table, i64 %284
+  %285 = getelementptr inbounds [2 x i8], ptr @ff_adpcm_step_table, i64 %284
   %286 = load i16, ptr %285, align 2, !tbaa !64
   %287 = sext i16 %286 to i32
   %288 = lshr i32 %282, 28
@@ -964,7 +961,7 @@ put_bits.exit565:                                 ; preds = %266, %273, %259
   %316 = sext i16 %315 to i32
   %317 = sub nsw i32 %316, %304
   %318 = zext nneg i32 %312 to i64
-  %319 = getelementptr inbounds nuw i16, ptr @ff_adpcm_step_table, i64 %318
+  %319 = getelementptr inbounds nuw [2 x i8], ptr @ff_adpcm_step_table, i64 %318
   %320 = load i16, ptr %319, align 2, !tbaa !64
   %321 = sext i16 %320 to i32
   %322 = lshr i32 %317, 28
@@ -1172,7 +1169,7 @@ put_bits.exit586:                                 ; preds = %372, %379, %365
   %.sroa.19.11107 = phi ptr [ %.sroa.19.4, %put_bits.exit606 ], [ %.sroa.19.01118, %.preheader912 ]
   %.sroa.11.11106 = phi i32 [ %467, %put_bits.exit606 ], [ %.sroa.11.01117, %.preheader912 ]
   %.sroa.0820.11105 = phi i32 [ %.026.i.i604, %put_bits.exit606 ], [ %.sroa.0820.01116, %.preheader912 ]
-  %412 = getelementptr inbounds nuw %struct.ADPCMChannelStatus, ptr %393, i64 %indvars.iv1282
+  %412 = getelementptr inbounds nuw [36 x i8], ptr %393, i64 %indvars.iv1282
   %413 = getelementptr inbounds nuw i8, ptr %.14721109, i64 2
   %414 = load i16, ptr %.14721109, align 2, !tbaa !64
   %415 = sext i16 %414 to i32
@@ -1182,7 +1179,7 @@ put_bits.exit586:                                 ; preds = %372, %379, %365
   %419 = getelementptr inbounds nuw i8, ptr %412, i64 4
   %420 = load i16, ptr %419, align 4, !tbaa !68
   %421 = sext i16 %420 to i64
-  %422 = getelementptr inbounds i16, ptr @ff_adpcm_step_table, i64 %421
+  %422 = getelementptr inbounds [2 x i8], ptr @ff_adpcm_step_table, i64 %421
   %423 = load i16, ptr %422, align 2, !tbaa !64
   %424 = sext i16 %423 to i32
   %425 = lshr i32 %418, 28
@@ -1337,7 +1334,7 @@ put_bits.exit606:                                 ; preds = %459, %466, %452
   %.sroa.13807.1.lcssa = phi i32 [ %.sroa.13807.01097, %.preheader915 ], [ %603, %put_bits.exit624 ]
   %.sroa.0802.1.lcssa = phi i32 [ %.sroa.0802.01098, %.preheader915 ], [ %.026.i.i622, %put_bits.exit624 ]
   %.3474.lcssa = phi ptr [ %.24731100, %.preheader915 ], [ %502, %put_bits.exit624 ]
-  %498 = getelementptr inbounds i16, ptr %.3474.lcssa, i64 %485
+  %498 = getelementptr inbounds [2 x i8], ptr %.3474.lcssa, i64 %485
   %499 = add nsw i32 %.05281099, -1
   %500 = icmp sgt i32 %.05281099, 1
   br i1 %500, label %.preheader915, label %._crit_edge1101, !llvm.loop !84
@@ -1348,7 +1345,7 @@ put_bits.exit606:                                 ; preds = %459, %466, %452
   %.sroa.0802.11087 = phi i32 [ %.026.i.i622, %put_bits.exit624 ], [ %.sroa.0802.01098, %.preheader915 ]
   %.sroa.13807.11086 = phi i32 [ %603, %put_bits.exit624 ], [ %.sroa.13807.01097, %.preheader915 ]
   %.sroa.23812.11085 = phi ptr [ %.sroa.23812.6, %put_bits.exit624 ], [ %.sroa.23812.01096, %.preheader915 ]
-  %501 = getelementptr inbounds nuw %struct.ADPCMChannelStatus, ptr %482, i64 %indvars.iv1277
+  %501 = getelementptr inbounds nuw [36 x i8], ptr %482, i64 %indvars.iv1277
   %502 = getelementptr inbounds nuw i8, ptr %.34741089, i64 2
   %503 = load i16, ptr %.34741089, align 2, !tbaa !64
   %504 = sext i16 %503 to i32
@@ -1358,7 +1355,7 @@ put_bits.exit606:                                 ; preds = %459, %466, %452
   %508 = getelementptr inbounds nuw i8, ptr %501, i64 4
   %509 = load i16, ptr %508, align 4, !tbaa !68
   %510 = sext i16 %509 to i64
-  %511 = getelementptr inbounds i16, ptr @ff_adpcm_step_table, i64 %510
+  %511 = getelementptr inbounds [2 x i8], ptr @ff_adpcm_step_table, i64 %510
   %512 = load i16, ptr %511, align 2, !tbaa !64
   %513 = sext i16 %512 to i32
   %514 = lshr i32 %507, 28
@@ -1430,12 +1427,12 @@ put_bits.exit617:                                 ; preds = %537, %553
   %.sroa.23812.4 = phi ptr [ %.sroa.23812.11085, %537 ], [ %.sroa.23812.3, %553 ]
   %.026.i.i615 = phi i32 [ %539, %537 ], [ %535, %553 ]
   %.0.i.i616 = phi i32 [ %540, %537 ], [ %554, %553 ]
-  %557 = getelementptr inbounds nuw i16, ptr %502, i64 %484
+  %557 = getelementptr inbounds nuw [2 x i8], ptr %502, i64 %484
   %558 = load i16, ptr %557, align 2, !tbaa !64
   %559 = sext i16 %558 to i32
   %560 = sub nsw i32 %559, %556
   %561 = sext i16 %555 to i64
-  %562 = getelementptr inbounds i16, ptr @ff_adpcm_step_table, i64 %561
+  %562 = getelementptr inbounds [2 x i8], ptr @ff_adpcm_step_table, i64 %561
   %563 = load i16, ptr %562, align 2, !tbaa !64
   %564 = sext i16 %563 to i32
   %565 = lshr i32 %560, 28
@@ -1556,13 +1553,13 @@ put_bits.exit630._crit_edge:                      ; preds = %put_bits.exit634, %
   %.sroa.0762.01067 = phi i32 [ 2, %.lr.ph1069 ], [ %.026.i.i632, %put_bits.exit634 ]
   %.sroa.23772.01066 = phi i32 [ 30, %.lr.ph1069 ], [ %670, %put_bits.exit634 ]
   %.sroa.43.01065 = phi ptr [ %spec.select.i625, %.lr.ph1069 ], [ %.sroa.43.10, %put_bits.exit634 ]
-  %627 = getelementptr inbounds nuw %struct.ADPCMChannelStatus, ptr %612, i64 %indvars.iv1265
+  %627 = getelementptr inbounds nuw [36 x i8], ptr %612, i64 %indvars.iv1265
   %628 = getelementptr inbounds nuw i8, ptr %627, i64 4
   %629 = load i16, ptr %628, align 4, !tbaa !68
   %630 = tail call i16 @llvm.smax.i16(i16 %629, i16 0)
   %631 = tail call i16 @llvm.umin.i16(i16 %630, i16 63)
   store i16 %631, ptr %628, align 4, !tbaa !68
-  %632 = getelementptr inbounds nuw i16, ptr %12, i64 %indvars.iv1265
+  %632 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %indvars.iv1265
   %633 = load i16, ptr %632, align 2, !tbaa !64
   %634 = zext i16 %633 to i32
   %635 = icmp sgt i32 %.sroa.23772.01066, 16
@@ -1644,7 +1641,7 @@ put_bits.exit634:                                 ; preds = %662, %669, %655
 674:                                              ; preds = %put_bits.exit630._crit_edge
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %675 = sext i32 %11 to i64
-  %676 = getelementptr inbounds i16, ptr %12, i64 %675
+  %676 = getelementptr inbounds [2 x i8], ptr %12, i64 %675
   %677 = getelementptr inbounds nuw i8, ptr %9, i64 12
   call fastcc void @adpcm_compress_trellis(ptr noundef nonnull %0, ptr noundef %676, ptr noundef %6, ptr noundef nonnull %677, i32 noundef 4095, i32 noundef %11)
   br i1 %15, label %678, label %682
@@ -1759,7 +1756,7 @@ put_bits.exit642:                                 ; preds = %727, %711, %put_bit
   %.sroa.23772.41074 = phi i32 [ %.sroa.23772.0.lcssa, %.lr.ph1077 ], [ %.sroa.23772.5, %put_bits.exit652 ]
   %.sroa.43.41073 = phi ptr [ %.sroa.43.0.lcssa, %.lr.ph1077 ], [ %.sroa.43.5, %put_bits.exit652 ]
   %730 = mul nsw i64 %indvars.iv1270, %625
-  %731 = getelementptr inbounds i16, ptr %12, i64 %730
+  %731 = getelementptr inbounds [2 x i8], ptr %12, i64 %730
   %732 = load i16, ptr %731, align 2, !tbaa !64
   %733 = sext i16 %732 to i32
   %734 = load i32, ptr %620, align 4, !tbaa !66
@@ -1768,7 +1765,7 @@ put_bits.exit642:                                 ; preds = %727, %711, %put_bit
   %737 = shl nsw i32 %736, 2
   %738 = load i16, ptr %621, align 4, !tbaa !68
   %739 = sext i16 %738 to i64
-  %740 = getelementptr inbounds i16, ptr @ff_adpcm_step_table, i64 %739
+  %740 = getelementptr inbounds [2 x i8], ptr @ff_adpcm_step_table, i64 %739
   %741 = load i16, ptr %740, align 2, !tbaa !64
   %742 = sext i16 %741 to i32
   %743 = sdiv i32 %737, %742
@@ -1843,7 +1840,7 @@ put_bits.exit647:                                 ; preds = %773, %780, %766
   %790 = shl nsw i32 %789, 2
   %791 = load i16, ptr %624, align 4, !tbaa !68
   %792 = sext i16 %791 to i64
-  %793 = getelementptr inbounds i16, ptr @ff_adpcm_step_table, i64 %792
+  %793 = getelementptr inbounds [2 x i8], ptr @ff_adpcm_step_table, i64 %792
   %794 = load i16, ptr %793, align 2, !tbaa !64
   %795 = sext i16 %794 to i32
   %796 = sdiv i32 %790, %795
@@ -1957,7 +1954,7 @@ put_bits.exit652:                                 ; preds = %835, %819, %put_bit
   %.71029 = phi ptr [ %33, %.lr.ph1031 ], [ %853, %852 ]
   %853 = getelementptr inbounds nuw i8, ptr %.71029, i64 1
   store i8 0, ptr %.71029, align 1, !tbaa !49
-  %854 = getelementptr inbounds nuw %struct.ADPCMChannelStatus, ptr %41, i64 %indvars.iv1232
+  %854 = getelementptr inbounds nuw [36 x i8], ptr %41, i64 %indvars.iv1232
   %855 = getelementptr inbounds nuw i8, ptr %854, i64 24
   store i32 %40, ptr %855, align 4, !tbaa !89
   %856 = getelementptr inbounds nuw i8, ptr %854, i64 28
@@ -1973,7 +1970,7 @@ put_bits.exit652:                                 ; preds = %835, %819, %put_bit
 .lr.ph1035:                                       ; preds = %.lr.ph1035.preheader, %862
   %indvars.iv1237 = phi i64 [ 0, %.lr.ph1035.preheader ], [ %indvars.iv.next1238, %862 ]
   %.81033 = phi ptr [ %853, %.lr.ph1035.preheader ], [ %865, %862 ]
-  %857 = getelementptr inbounds nuw %struct.ADPCMChannelStatus, ptr %9, i64 %indvars.iv1237
+  %857 = getelementptr inbounds nuw [36 x i8], ptr %9, i64 %indvars.iv1237
   %858 = getelementptr inbounds nuw i8, ptr %857, i64 44
   %859 = load i32, ptr %858, align 4, !tbaa !92
   %860 = icmp slt i32 %859, 16
@@ -2002,7 +1999,7 @@ put_bits.exit652:                                 ; preds = %835, %819, %put_bit
   %866 = getelementptr inbounds nuw i8, ptr %.44751038, i64 2
   %867 = load i16, ptr %.44751038, align 2, !tbaa !64
   %868 = sext i16 %867 to i32
-  %869 = getelementptr inbounds nuw %struct.ADPCMChannelStatus, ptr %9, i64 %indvars.iv1242
+  %869 = getelementptr inbounds nuw [36 x i8], ptr %9, i64 %indvars.iv1242
   %870 = getelementptr inbounds nuw i8, ptr %869, i64 32
   store i32 %868, ptr %870, align 4, !tbaa !94
   %indvars.iv.next1243 = add nuw nsw i64 %indvars.iv1242, 1
@@ -2020,7 +2017,7 @@ put_bits.exit652:                                 ; preds = %835, %819, %put_bit
   %871 = getelementptr inbounds nuw i8, ptr %.54761043, i64 2
   %872 = load i16, ptr %.54761043, align 2, !tbaa !64
   %873 = sext i16 %872 to i32
-  %874 = getelementptr inbounds nuw %struct.ADPCMChannelStatus, ptr %9, i64 %indvars.iv1247
+  %874 = getelementptr inbounds nuw [36 x i8], ptr %9, i64 %indvars.iv1247
   %875 = getelementptr inbounds nuw i8, ptr %874, i64 28
   store i32 %873, ptr %875, align 4, !tbaa !96
   store i16 %872, ptr %.98991041, align 1, !tbaa !49
@@ -2040,7 +2037,7 @@ put_bits.exit652:                                 ; preds = %835, %819, %put_bit
 .lr.ph1049:                                       ; preds = %.lr.ph1049.preheader, %.lr.ph1049
   %indvars.iv1252 = phi i64 [ 0, %.lr.ph1049.preheader ], [ %indvars.iv.next1253, %.lr.ph1049 ]
   %.101047 = phi ptr [ %876, %.lr.ph1049.preheader ], [ %884, %.lr.ph1049 ]
-  %880 = getelementptr inbounds nuw %struct.ADPCMChannelStatus, ptr %9, i64 %indvars.iv1252
+  %880 = getelementptr inbounds nuw [36 x i8], ptr %9, i64 %indvars.iv1252
   %881 = getelementptr inbounds nuw i8, ptr %880, i64 32
   %882 = load i32, ptr %881, align 4, !tbaa !94
   %883 = trunc i32 %882 to i16
@@ -2139,7 +2136,7 @@ put_bits.exit652:                                 ; preds = %835, %819, %put_bit
   %928 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %929 = getelementptr inbounds nuw i8, ptr %9, i64 44
   %930 = zext i1 %15 to i64
-  %931 = getelementptr inbounds nuw %struct.ADPCMChannelStatus, ptr %924, i64 %930
+  %931 = getelementptr inbounds nuw [36 x i8], ptr %924, i64 %930
   %932 = getelementptr inbounds nuw i8, ptr %931, i64 16
   %933 = getelementptr inbounds nuw i8, ptr %931, i64 24
   %934 = getelementptr inbounds nuw i8, ptr %931, i64 20
@@ -2193,7 +2190,7 @@ adpcm_ms_compress_sample.exit:                    ; preds = %952, %954
   %965 = tail call i32 @llvm.smin.i32(i32 %964, i32 32767)
   store i32 %965, ptr %925, align 4, !tbaa !96
   %966 = zext nneg i32 %959 to i64
-  %967 = getelementptr inbounds nuw i16, ptr @ff_adpcm_AdaptationTable, i64 %966
+  %967 = getelementptr inbounds nuw [2 x i8], ptr @ff_adpcm_AdaptationTable, i64 %966
   %968 = load i16, ptr %967, align 2, !tbaa !64
   %969 = sext i16 %968 to i32
   %970 = mul nsw i32 %951, %969
@@ -2244,7 +2241,7 @@ adpcm_ms_compress_sample.exit663:                 ; preds = %988, %990
   %1001 = tail call i32 @llvm.smin.i32(i32 %1000, i32 32767)
   store i32 %1001, ptr %932, align 4, !tbaa !96
   %1002 = zext nneg i32 %995 to i64
-  %1003 = getelementptr inbounds nuw i16, ptr @ff_adpcm_AdaptationTable, i64 %1002
+  %1003 = getelementptr inbounds nuw [2 x i8], ptr @ff_adpcm_AdaptationTable, i64 %1002
   %1004 = load i16, ptr %1003, align 2, !tbaa !64
   %1005 = sext i16 %1004 to i32
   %1006 = mul nsw i32 %987, %1005
@@ -2351,7 +2348,7 @@ adpcm_ms_compress_sample.exit663:                 ; preds = %988, %990
   %1056 = getelementptr inbounds nuw i8, ptr %9, i64 12
   %1057 = getelementptr inbounds nuw i8, ptr %9, i64 20
   %1058 = zext i1 %15 to i64
-  %1059 = getelementptr inbounds nuw %struct.ADPCMChannelStatus, ptr %1056, i64 %1058
+  %1059 = getelementptr inbounds nuw [36 x i8], ptr %1056, i64 %1058
   %1060 = getelementptr inbounds nuw i8, ptr %1059, i64 8
   br label %1061
 
@@ -2391,7 +2388,7 @@ adpcm_yamaha_compress_sample.exit:                ; preds = %1061, %._crit_edge.
   %1082 = tail call i32 @llvm.smax.i32(i32 %1081, i32 -32768)
   %1083 = tail call i32 @llvm.smin.i32(i32 %1082, i32 32767)
   store i32 %1083, ptr %1056, align 4, !tbaa !78
-  %1084 = getelementptr inbounds i16, ptr @ff_adpcm_yamaha_indexscale, i64 %1075
+  %1084 = getelementptr inbounds [2 x i8], ptr @ff_adpcm_yamaha_indexscale, i64 %1075
   %1085 = load i16, ptr %1084, align 2, !tbaa !64
   %1086 = sext i16 %1085 to i32
   %1087 = mul nsw i32 %1065, %1086
@@ -2432,7 +2429,7 @@ adpcm_yamaha_compress_sample.exit670:             ; preds = %adpcm_yamaha_compre
   %1112 = tail call i32 @llvm.smax.i32(i32 %1111, i32 -32768)
   %1113 = tail call i32 @llvm.smin.i32(i32 %1112, i32 32767)
   store i32 %1113, ptr %1059, align 4, !tbaa !78
-  %1114 = getelementptr inbounds i16, ptr @ff_adpcm_yamaha_indexscale, i64 %1105
+  %1114 = getelementptr inbounds [2 x i8], ptr @ff_adpcm_yamaha_indexscale, i64 %1105
   %1115 = load i16, ptr %1114, align 2, !tbaa !64
   %1116 = sext i16 %1115 to i32
   %1117 = mul nsw i32 %1095, %1116
@@ -2524,7 +2521,7 @@ adpcm_yamaha_compress_sample.exit670:             ; preds = %adpcm_yamaha_compre
   %.sroa.13749.1.lcssa = phi i32 [ %.sroa.13749.01008, %.preheader931 ], [ %1270, %put_bits.exit707 ]
   %.sroa.0744.1.lcssa = phi i32 [ %.sroa.0744.01009, %.preheader931 ], [ %.026.i.i705, %put_bits.exit707 ]
   %.9.lcssa = phi ptr [ %.84791011, %.preheader931 ], [ %1161, %put_bits.exit707 ]
-  %1157 = getelementptr inbounds i16, ptr %.9.lcssa, i64 %1144
+  %1157 = getelementptr inbounds [2 x i8], ptr %.9.lcssa, i64 %1144
   %1158 = add nsw i32 %.05051010, -1
   %1159 = icmp sgt i32 %.05051010, 1
   br i1 %1159, label %.preheader931, label %._crit_edge1012, !llvm.loop !106
@@ -2535,7 +2532,7 @@ adpcm_yamaha_compress_sample.exit670:             ; preds = %adpcm_yamaha_compre
   %.sroa.0744.1998 = phi i32 [ %.026.i.i705, %put_bits.exit707 ], [ %.sroa.0744.01009, %.preheader931 ]
   %.sroa.13749.1997 = phi i32 [ %1270, %put_bits.exit707 ], [ %.sroa.13749.01008, %.preheader931 ]
   %.sroa.23754.1996 = phi ptr [ %.sroa.23754.6, %put_bits.exit707 ], [ %.sroa.23754.01007, %.preheader931 ]
-  %1160 = getelementptr inbounds nuw %struct.ADPCMChannelStatus, ptr %1141, i64 %indvars.iv1219
+  %1160 = getelementptr inbounds nuw [36 x i8], ptr %1141, i64 %indvars.iv1219
   %1161 = getelementptr inbounds nuw i8, ptr %.91000, i64 2
   %1162 = load i16, ptr %.91000, align 2, !tbaa !64
   %1163 = sext i16 %1162 to i32
@@ -2545,7 +2542,7 @@ adpcm_yamaha_compress_sample.exit670:             ; preds = %adpcm_yamaha_compre
   %1167 = getelementptr inbounds nuw i8, ptr %1160, i64 4
   %1168 = load i16, ptr %1167, align 4, !tbaa !68
   %1169 = sext i16 %1168 to i64
-  %1170 = getelementptr inbounds i16, ptr @ff_adpcm_step_table, i64 %1169
+  %1170 = getelementptr inbounds [2 x i8], ptr @ff_adpcm_step_table, i64 %1169
   %1171 = load i16, ptr %1170, align 2, !tbaa !64
   %1172 = sext i16 %1171 to i32
   %1173 = lshr i32 %1166, 28
@@ -2630,12 +2627,12 @@ put_bits.exit691:                                 ; preds = %1200, %1216
   %.sroa.23754.4 = phi ptr [ %.sroa.23754.1996, %1200 ], [ %.sroa.23754.3, %1216 ]
   %.026.i.i689 = phi i32 [ %1202, %1200 ], [ %.2.i684, %1216 ]
   %.0.i.i690 = phi i32 [ %1203, %1200 ], [ %1217, %1216 ]
-  %1220 = getelementptr inbounds nuw i16, ptr %1161, i64 %1143
+  %1220 = getelementptr inbounds nuw [2 x i8], ptr %1161, i64 %1143
   %1221 = load i16, ptr %1220, align 2, !tbaa !64
   %1222 = sext i16 %1221 to i32
   %1223 = sub nsw i32 %1222, %1219
   %1224 = sext i16 %1218 to i64
-  %1225 = getelementptr inbounds i16, ptr @ff_adpcm_step_table, i64 %1224
+  %1225 = getelementptr inbounds [2 x i8], ptr @ff_adpcm_step_table, i64 %1224
   %1226 = load i16, ptr %1225, align 2, !tbaa !64
   %1227 = sext i16 %1226 to i32
   %1228 = lshr i32 %1223, 28
@@ -2769,7 +2766,7 @@ put_bits.exit707:                                 ; preds = %1262, %1269, %1255
 
 ._crit_edge994:                                   ; preds = %.lr.ph993, %1298
   %.17.lcssa = phi ptr [ %1287, %1298 ], [ %1308, %.lr.ph993 ]
-  %1300 = getelementptr inbounds i16, ptr %12, i64 %1296
+  %1300 = getelementptr inbounds [2 x i8], ptr %12, i64 %1296
   tail call void @av_free(ptr noundef nonnull %1297) #10
   br label %.loopexit932
 
@@ -2806,7 +2803,7 @@ put_bits.exit707:                                 ; preds = %1262, %1269, %1255
   %1317 = shl nsw i32 %1316, 2
   %1318 = load i16, ptr %1280, align 4, !tbaa !68
   %1319 = sext i16 %1318 to i64
-  %1320 = getelementptr inbounds i16, ptr @ff_adpcm_step_table, i64 %1319
+  %1320 = getelementptr inbounds [2 x i8], ptr @ff_adpcm_step_table, i64 %1319
   %1321 = load i16, ptr %1320, align 2, !tbaa !64
   %1322 = sext i16 %1321 to i32
   %1323 = sdiv i32 %1317, %1322
@@ -2840,7 +2837,7 @@ put_bits.exit707:                                 ; preds = %1262, %1269, %1255
   %1349 = tail call i32 @llvm.abs.i32(i32 %1348, i1 true)
   %1350 = shl nuw nsw i32 %1349, 2
   %1351 = zext nneg i32 %1342 to i64
-  %1352 = getelementptr inbounds nuw i16, ptr @ff_adpcm_step_table, i64 %1351
+  %1352 = getelementptr inbounds nuw [2 x i8], ptr @ff_adpcm_step_table, i64 %1351
   %1353 = load i16, ptr %1352, align 2, !tbaa !64
   %1354 = sext i16 %1353 to i32
   %1355 = sdiv i32 %1350, %1354
@@ -2965,12 +2962,12 @@ flush_put_bits.exit714:                           ; preds = %1411, %.preheader93
 
 1418:                                             ; preds = %.lr.ph973, %.split969
   %indvars.iv1209 = phi i64 [ 0, %.lr.ph973 ], [ %indvars.iv.next1210, %.split969 ]
-  %1419 = getelementptr inbounds nuw %struct.ADPCMChannelStatus, ptr %1399, i64 %indvars.iv1209
+  %1419 = getelementptr inbounds nuw [36 x i8], ptr %1399, i64 %indvars.iv1209
   %1420 = getelementptr inbounds nuw i8, ptr %1419, i64 16
   %1421 = load i32, ptr %1420, align 4, !tbaa !96
   %1422 = getelementptr inbounds nuw i8, ptr %1419, i64 20
   %1423 = load i32, ptr %1422, align 4, !tbaa !94
-  %1424 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv1209
+  %1424 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv1209
   %1425 = load i32, ptr %1395, align 8, !tbaa !60
   %1426 = icmp sgt i32 %1425, 0
   br i1 %1426, label %.preheader934.split.preheader, label %.split969
@@ -3038,7 +3035,7 @@ flush_put_bits.exit714:                           ; preds = %1411, %.preheader93
 adpcm_argo_compress_nibble.exit.us.us.i:          ; preds = %.lr.ph.split.us.i, %adpcm_argo_compress_nibble.exit.us.us.i
   %indvars.iv58.i = phi i64 [ %indvars.iv.next59.i, %adpcm_argo_compress_nibble.exit.us.us.i ], [ 0, %.lr.ph.split.us.i ]
   %.045.us.us.i = phi i64 [ %1453, %adpcm_argo_compress_nibble.exit.us.us.i ], [ 0, %.lr.ph.split.us.i ]
-  %1438 = getelementptr inbounds nuw i16, ptr %1435, i64 %indvars.iv58.i
+  %1438 = getelementptr inbounds nuw [2 x i8], ptr %1435, i64 %indvars.iv58.i
   %1439 = load i16, ptr %1438, align 2, !tbaa !64
   %1440 = sext i16 %1439 to i32
   %1441 = load i32, ptr %1420, align 4, !tbaa !96
@@ -3061,7 +3058,7 @@ adpcm_argo_compress_nibble.exit.us.us.i:          ; preds = %.lr.ph.split.us.i, 
 adpcm_argo_compress_nibble.exit.us.i:             ; preds = %.lr.ph.split.us.i, %adpcm_argo_compress_nibble.exit.us.i
   %indvars.iv53.i = phi i64 [ %indvars.iv.next54.i, %adpcm_argo_compress_nibble.exit.us.i ], [ 0, %.lr.ph.split.us.i ]
   %.045.us.i = phi i64 [ %1473, %adpcm_argo_compress_nibble.exit.us.i ], [ 0, %.lr.ph.split.us.i ]
-  %1454 = getelementptr inbounds nuw i16, ptr %1435, i64 %indvars.iv53.i
+  %1454 = getelementptr inbounds nuw [2 x i8], ptr %1435, i64 %indvars.iv53.i
   %1455 = load i16, ptr %1454, align 2, !tbaa !64
   %1456 = sext i16 %1455 to i32
   %1457 = shl nsw i32 %1456, 2
@@ -3170,7 +3167,7 @@ adpcm_argo_compress_block.exit:                   ; preds = %adpcm_argo_compress
   %.sroa.13.1.lcssa = phi i32 [ %.sroa.13.0948, %.preheader937 ], [ %1611, %put_bits.exit730 ]
   %.sroa.0.1.lcssa = phi i32 [ %.sroa.0.0949, %.preheader937 ], [ %.026.i.i728, %put_bits.exit730 ]
   %.14.lcssa = phi ptr [ %.13950, %.preheader937 ], [ %1511, %put_bits.exit730 ]
-  %1507 = getelementptr inbounds i16, ptr %.14.lcssa, i64 %1494
+  %1507 = getelementptr inbounds [2 x i8], ptr %.14.lcssa, i64 %1494
   %1508 = add nsw i32 %.0468951, -1
   %1509 = icmp sgt i32 %.0468951, 1
   br i1 %1509, label %.preheader937, label %._crit_edge952, !llvm.loop !121
@@ -3181,7 +3178,7 @@ adpcm_argo_compress_block.exit:                   ; preds = %adpcm_argo_compress
   %.sroa.0.1941 = phi i32 [ %.026.i.i728, %put_bits.exit730 ], [ %.sroa.0.0949, %.preheader937 ]
   %.sroa.13.1940 = phi i32 [ %1611, %put_bits.exit730 ], [ %.sroa.13.0948, %.preheader937 ]
   %.sroa.23.1939 = phi ptr [ %.sroa.23.6, %put_bits.exit730 ], [ %.sroa.23.0947, %.preheader937 ]
-  %1510 = getelementptr inbounds nuw %struct.ADPCMChannelStatus, ptr %1491, i64 %indvars.iv
+  %1510 = getelementptr inbounds nuw [36 x i8], ptr %1491, i64 %indvars.iv
   %1511 = getelementptr inbounds nuw i8, ptr %.14942, i64 2
   %1512 = load i16, ptr %.14942, align 2, !tbaa !64
   %1513 = sext i16 %1512 to i32
@@ -3193,7 +3190,7 @@ adpcm_argo_compress_block.exit:                   ; preds = %adpcm_argo_compress
   %1519 = getelementptr inbounds nuw i8, ptr %1510, i64 4
   %1520 = load i16, ptr %1519, align 4, !tbaa !68
   %1521 = sext i16 %1520 to i64
-  %1522 = getelementptr inbounds i16, ptr @ff_adpcm_step_table, i64 %1521
+  %1522 = getelementptr inbounds [2 x i8], ptr @ff_adpcm_step_table, i64 %1521
   %1523 = load i16, ptr %1522, align 2, !tbaa !64
   %1524 = sext i16 %1523 to i32
   %1525 = sdiv i32 %1518, %1524
@@ -3220,14 +3217,14 @@ adpcm_argo_compress_block.exit:                   ; preds = %adpcm_argo_compress
   %1545 = trunc nuw nsw i32 %1544 to i16
   store i16 %1545, ptr %1519, align 4, !tbaa !68
   %1546 = and i32 %1528, 255
-  %1547 = getelementptr inbounds nuw i16, ptr %1511, i64 %1492
+  %1547 = getelementptr inbounds nuw [2 x i8], ptr %1511, i64 %1492
   %1548 = load i16, ptr %1547, align 2, !tbaa !64
   %1549 = sext i16 %1548 to i32
   %1550 = sub nsw i32 %1549, %1537
   %1551 = tail call i32 @llvm.abs.i32(i32 %1550, i1 true)
   %1552 = shl nuw nsw i32 %1551, 2
   %1553 = zext nneg i32 %1544 to i64
-  %1554 = getelementptr inbounds nuw i16, ptr @ff_adpcm_step_table, i64 %1553
+  %1554 = getelementptr inbounds nuw [2 x i8], ptr @ff_adpcm_step_table, i64 %1553
   %1555 = load i16, ptr %1554, align 2, !tbaa !64
   %1556 = sext i16 %1555 to i32
   %1557 = sdiv i32 %1552, %1556
@@ -3380,7 +3377,7 @@ define internal fastcc void @adpcm_compress_trellis(ptr noundef readonly capture
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 248
   %21 = load ptr, ptr %20, align 8, !tbaa !42
   %22 = sext i32 %11 to i64
-  %23 = getelementptr inbounds ptr, ptr %21, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr %21, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 256
   %25 = load ptr, ptr %24, align 8, !tbaa !43
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(65536) %25, i8 -1, i64 65536, i1 false)
@@ -3388,7 +3385,7 @@ define internal fastcc void @adpcm_compress_trellis(ptr noundef readonly capture
   %27 = sext i32 %26 to i64
   %28 = shl nsw i64 %27, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %21, i8 0, i64 %28, i1 false)
-  %29 = getelementptr inbounds %struct.TrellisNode, ptr %19, i64 %22
+  %29 = getelementptr inbounds [20 x i8], ptr %19, i64 %22
   store ptr %29, ptr %21, align 8, !tbaa !124
   store i32 0, ptr %29, align 4, !tbaa !125
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
@@ -3487,9 +3484,9 @@ define internal fastcc void @adpcm_compress_trellis(ptr noundef readonly capture
   %73 = and i32 %72, 1
   %74 = shl nuw i32 %73, %10
   %75 = sext i32 %74 to i64
-  %76 = getelementptr inbounds %struct.TrellisNode, ptr %19, i64 %75
+  %76 = getelementptr inbounds [20 x i8], ptr %19, i64 %75
   %77 = mul nsw i64 %indvars.iv644, %70
-  %78 = getelementptr inbounds i16, ptr %1, i64 %77
+  %78 = getelementptr inbounds [2 x i8], ptr %1, i64 %77
   %79 = load i16, ptr %78, align 2, !tbaa !64
   %80 = sext i16 %79 to i32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %.0407600, i8 0, i64 %59, i1 false)
@@ -3504,7 +3501,7 @@ define internal fastcc void @adpcm_compress_trellis(ptr noundef readonly capture
   %.1412570.us = phi i32 [ %.2413.lcssa.us, %.loopexit.us ], [ %.0411599, %.lr.ph571 ]
   %.0425568.us = phi ptr [ %.1426.lcssa.us, %.loopexit.us ], [ %76, %.lr.ph571 ]
   %.0436567.us = phi i32 [ %.1437.lcssa.us, %.loopexit.us ], [ 0, %.lr.ph571 ]
-  %82 = getelementptr inbounds nuw ptr, ptr %.0406601, i64 %indvars.iv633
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %.0406601, i64 %indvars.iv633
   %83 = load ptr, ptr %82, align 8, !tbaa !124
   %.not.us = icmp eq ptr %83, null
   br i1 %.not.us, label %.critedge, label %84
@@ -3531,19 +3528,19 @@ define internal fastcc void @adpcm_compress_trellis(ptr noundef readonly capture
   %.0.i.us = tail call i32 @llvm.smin.i32(i32 %102, i32 6)
   %103 = add nsw i32 %100, %86
   %104 = tail call i32 @llvm.smax.i32(i32 %103, i32 -7)
-  %.not494558.us = icmp slt i32 %104, %.0.i.us
-  br i1 %.not494558.us, label %.loopexit.us, label %.lr.ph563.us.preheader
+  %.not491558.us = icmp slt i32 %104, %.0.i.us
+  br i1 %.not491558.us, label %.loopexit.us, label %.lr.ph563.us.preheader
 
 .lr.ph563.us.preheader:                           ; preds = %84
-  %.0.i502.us = tail call i32 @llvm.smin.i32(i32 %104, i32 7)
-  %smax631 = tail call i32 @llvm.smax.i32(i32 %.0.i502.us, i32 %.0.i.us)
+  %.0.i499.us = tail call i32 @llvm.smin.i32(i32 %104, i32 7)
+  %smax631 = tail call i32 @llvm.smax.i32(i32 %.0.i499.us, i32 %.0.i.us)
   br label %.lr.ph563.us
 
-.lr.ph563.us:                                     ; preds = %.lr.ph563.us.preheader, %.thread520.us
-  %.2413562.us = phi i32 [ %.3.us, %.thread520.us ], [ %.1412570.us, %.lr.ph563.us.preheader ]
-  %.1426561.us = phi ptr [ %.2427.us, %.thread520.us ], [ %.0425568.us, %.lr.ph563.us.preheader ]
-  %.1437560.us = phi i32 [ %.2438.us, %.thread520.us ], [ %.0436567.us, %.lr.ph563.us.preheader ]
-  %.0451559.us = phi i32 [ %170, %.thread520.us ], [ %.0.i.us, %.lr.ph563.us.preheader ]
+.lr.ph563.us:                                     ; preds = %.lr.ph563.us.preheader, %.thread517.us
+  %.2413562.us = phi i32 [ %.3.us, %.thread517.us ], [ %.1412570.us, %.lr.ph563.us.preheader ]
+  %.1426561.us = phi ptr [ %.2427.us, %.thread517.us ], [ %.0425568.us, %.lr.ph563.us.preheader ]
+  %.1437560.us = phi i32 [ %.2438.us, %.thread517.us ], [ %.0436567.us, %.lr.ph563.us.preheader ]
+  %.0451559.us = phi i32 [ %170, %.thread517.us ], [ %.0.i.us, %.lr.ph563.us.preheader ]
   %105 = and i32 %.0451559.us, 15
   %106 = mul nsw i32 %.0451559.us, %88
   %107 = add nsw i32 %106, %98
@@ -3555,7 +3552,7 @@ define internal fastcc void @adpcm_compress_trellis(ptr noundef readonly capture
   %113 = mul i32 %110, %110
   %114 = add i32 %112, %113
   %115 = icmp ult i32 %114, %112
-  br i1 %115, label %.thread520.us, label %116
+  br i1 %115, label %.thread517.us, label %116
 
 116:                                              ; preds = %.lr.ph563.us
   %117 = and i32 %109, 65535
@@ -3564,7 +3561,7 @@ define internal fastcc void @adpcm_compress_trellis(ptr noundef readonly capture
   %120 = load i8, ptr %119, align 1, !tbaa !49
   %121 = zext i8 %120 to i32
   %122 = icmp eq i32 %.0423593, %121
-  br i1 %122, label %.thread520.us, label %123
+  br i1 %122, label %.thread517.us, label %123
 
 123:                                              ; preds = %116
   %124 = icmp slt i32 %.1437560.us, %11
@@ -3578,21 +3575,21 @@ define internal fastcc void @adpcm_compress_trellis(ptr noundef readonly capture
   %126 = and i32 %.1437560.us, %62
   %127 = add nsw i32 %126, %61
   %128 = sext i32 %127 to i64
-  %129 = getelementptr inbounds ptr, ptr %.0407600, i64 %128
+  %129 = getelementptr inbounds [8 x i8], ptr %.0407600, i64 %128
   %130 = load ptr, ptr %129, align 8, !tbaa !124
   %131 = load i32, ptr %130, align 4, !tbaa !125
   %132 = icmp ugt i32 %114, %131
-  br i1 %132, label %.thread520.us, label %133
+  br i1 %132, label %.thread517.us, label %133
 
 133:                                              ; preds = %._crit_edge666, %125
   %.pre-phi = phi i64 [ %.pre667, %._crit_edge666 ], [ %128, %125 ]
   %.0454.us = phi i32 [ %.1437560.us, %._crit_edge666 ], [ %127, %125 ]
   %.3439.us = add nsw i32 %.1437560.us, 1
   store i8 %81, ptr %119, align 1, !tbaa !49
-  %134 = getelementptr inbounds ptr, ptr %.0407600, i64 %.pre-phi
+  %134 = getelementptr inbounds [8 x i8], ptr %.0407600, i64 %.pre-phi
   %135 = load ptr, ptr %134, align 8, !tbaa !124
-  %.not495.us = icmp eq ptr %135, null
-  br i1 %.not495.us, label %136, label %._crit_edge659
+  %.not492.us = icmp eq ptr %135, null
+  br i1 %.not492.us, label %136, label %._crit_edge659
 
 ._crit_edge659:                                   ; preds = %133
   %.phi.trans.insert660 = getelementptr inbounds nuw i8, ptr %135, i64 4
@@ -3614,7 +3611,7 @@ define internal fastcc void @adpcm_compress_trellis(ptr noundef readonly capture
   %.4.us = phi i32 [ %.2413562.us, %._crit_edge659 ], [ %138, %136 ]
   store i32 %114, ptr %.0459.us, align 4, !tbaa !125
   %142 = zext nneg i32 %105 to i64
-  %143 = getelementptr inbounds nuw i16, ptr @ff_adpcm_AdaptationTable, i64 %142
+  %143 = getelementptr inbounds nuw [2 x i8], ptr @ff_adpcm_AdaptationTable, i64 %142
   %144 = load i16, ptr %143, align 2, !tbaa !64
   %145 = sext i16 %144 to i32
   %146 = mul nsw i32 %88, %145
@@ -3630,36 +3627,36 @@ define internal fastcc void @adpcm_compress_trellis(ptr noundef readonly capture
   %153 = getelementptr inbounds nuw i8, ptr %.0459.us, i64 8
   store i32 %109, ptr %153, align 4, !tbaa !129
   %154 = sext i32 %141 to i64
-  %155 = getelementptr inbounds %struct.TrellisPath, ptr %17, i64 %154
+  %155 = getelementptr inbounds [8 x i8], ptr %17, i64 %154
   store i32 %105, ptr %155, align 4, !tbaa !131
   %156 = getelementptr inbounds nuw i8, ptr %149, i64 4
   %157 = load i32, ptr %156, align 4, !tbaa !127
   %158 = getelementptr inbounds nuw i8, ptr %155, i64 4
   store i32 %157, ptr %158, align 4, !tbaa !133
   %159 = icmp sgt i32 %.0454.us, 0
-  br i1 %159, label %.lr.ph556.us, label %.thread520.us
+  br i1 %159, label %.lr.ph556.us, label %.thread517.us
 
 .lr.ph556.us:                                     ; preds = %140, %166
   %.1455555.us = phi i32 [ %161, %166 ], [ %.0454.us, %140 ]
   %160 = add nsw i32 %.1455555.us, -1
   %161 = lshr i32 %160, 1
   %162 = zext nneg i32 %161 to i64
-  %163 = getelementptr inbounds nuw ptr, ptr %.0407600, i64 %162
+  %163 = getelementptr inbounds nuw [8 x i8], ptr %.0407600, i64 %162
   %164 = load ptr, ptr %163, align 8, !tbaa !124
   %165 = load i32, ptr %164, align 4, !tbaa !125
-  %.not496.us = icmp ugt i32 %165, %114
-  br i1 %.not496.us, label %166, label %.thread520.us
+  %.not493.us = icmp ugt i32 %165, %114
+  br i1 %.not493.us, label %166, label %.thread517.us
 
 166:                                              ; preds = %.lr.ph556.us
   %167 = zext nneg i32 %.1455555.us to i64
-  %168 = getelementptr inbounds nuw ptr, ptr %.0407600, i64 %167
+  %168 = getelementptr inbounds nuw [8 x i8], ptr %.0407600, i64 %167
   %169 = load ptr, ptr %168, align 8, !tbaa !124
   store ptr %164, ptr %168, align 8, !tbaa !124
   store ptr %169, ptr %163, align 8, !tbaa !124
   %.not615 = icmp eq i32 %161, 0
-  br i1 %.not615, label %.thread520.us, label %.lr.ph556.us
+  br i1 %.not615, label %.thread517.us, label %.lr.ph556.us
 
-.thread520.us:                                    ; preds = %.lr.ph556.us, %166, %140, %125, %116, %.lr.ph563.us
+.thread517.us:                                    ; preds = %.lr.ph556.us, %166, %140, %125, %116, %.lr.ph563.us
   %.2438.us = phi i32 [ %.1437560.us, %.lr.ph563.us ], [ %.1437560.us, %116 ], [ %.1437560.us, %125 ], [ %.3439.us, %140 ], [ %.3439.us, %166 ], [ %.3439.us, %.lr.ph556.us ]
   %.2427.us = phi ptr [ %.1426561.us, %.lr.ph563.us ], [ %.1426561.us, %116 ], [ %.1426561.us, %125 ], [ %.3428.us, %140 ], [ %.3428.us, %166 ], [ %.3428.us, %.lr.ph556.us ]
   %.3.us = phi i32 [ %.2413562.us, %.lr.ph563.us ], [ %.2413562.us, %116 ], [ %.2413562.us, %125 ], [ %.4.us, %140 ], [ %.4.us, %166 ], [ %.4.us, %.lr.ph556.us ]
@@ -3667,10 +3664,10 @@ define internal fastcc void @adpcm_compress_trellis(ptr noundef readonly capture
   %exitcond632.not = icmp eq i32 %.0451559.us, %smax631
   br i1 %exitcond632.not, label %.loopexit.us, label %.lr.ph563.us, !llvm.loop !134
 
-.loopexit.us:                                     ; preds = %.thread520.us, %84
-  %.1437.lcssa.us = phi i32 [ %.0436567.us, %84 ], [ %.2438.us, %.thread520.us ]
-  %.1426.lcssa.us = phi ptr [ %.0425568.us, %84 ], [ %.2427.us, %.thread520.us ]
-  %.2413.lcssa.us = phi i32 [ %.1412570.us, %84 ], [ %.3.us, %.thread520.us ]
+.loopexit.us:                                     ; preds = %.thread517.us, %84
+  %.1437.lcssa.us = phi i32 [ %.0436567.us, %84 ], [ %.2438.us, %.thread517.us ]
+  %.1426.lcssa.us = phi ptr [ %.0425568.us, %84 ], [ %.2427.us, %.thread517.us ]
+  %.2413.lcssa.us = phi i32 [ %.1412570.us, %84 ], [ %.3.us, %.thread517.us ]
   %indvars.iv.next634 = add nuw nsw i64 %indvars.iv633, 1
   %exitcond638.not = icmp eq i64 %indvars.iv.next634, %wide.trip.count637
   br i1 %exitcond638.not, label %.critedge, label %.lr.ph571.split.us, !llvm.loop !135
@@ -3691,7 +3688,7 @@ define internal fastcc void @adpcm_compress_trellis(ptr noundef readonly capture
   %.1412570.us576 = phi i32 [ %.6.lcssa.us, %.loopexit531.us ], [ %.0411599, %.lr.ph571.split.split.us.preheader ]
   %.0425568.us578 = phi ptr [ %.5430.lcssa.us, %.loopexit531.us ], [ %76, %.lr.ph571.split.split.us.preheader ]
   %.0436567.us579 = phi i32 [ %.5441.lcssa.us, %.loopexit531.us ], [ 0, %.lr.ph571.split.split.us.preheader ]
-  %171 = getelementptr inbounds nuw ptr, ptr %.0406601, i64 %indvars.iv
+  %171 = getelementptr inbounds nuw [8 x i8], ptr %.0406601, i64 %indvars.iv
   %172 = load ptr, ptr %171, align 8, !tbaa !124
   %.not.us580 = icmp eq ptr %172, null
   br i1 %.not.us580, label %.critedge, label %173
@@ -3706,29 +3703,29 @@ define internal fastcc void @adpcm_compress_trellis(ptr noundef readonly capture
   %180 = sub nsw i32 %80, %179
   %181 = shl nsw i32 %180, 2
   %182 = sext i32 %177 to i64
-  %183 = getelementptr inbounds i16, ptr @ff_adpcm_step_table, i64 %182
+  %183 = getelementptr inbounds [2 x i8], ptr @ff_adpcm_step_table, i64 %182
   %184 = load i16, ptr %183, align 2, !tbaa !64
   %185 = sext i16 %184 to i32
   %186 = sdiv i32 %181, %185
   %187 = sub nsw i32 %186, %175
   %188 = tail call i32 @llvm.smax.i32(i32 %187, i32 -7)
-  %.0.i504.us = tail call i32 @llvm.smin.i32(i32 %188, i32 6)
+  %.0.i501.us = tail call i32 @llvm.smin.i32(i32 %188, i32 6)
   %189 = add nsw i32 %186, %175
   %190 = tail call i32 @llvm.smax.i32(i32 %189, i32 -6)
-  %.0.i506.us = tail call i32 @llvm.smin.i32(i32 %190, i32 7)
+  %.0.i503.us = tail call i32 @llvm.smin.i32(i32 %190, i32 7)
   %191 = icmp slt i32 %187, 1
   %192 = sext i1 %191 to i32
-  %spec.select497.us = add nsw i32 %.0.i504.us, %192
+  %spec.select494.us = add nsw i32 %.0.i501.us, %192
   %.lobit.us = ashr i32 %189, 31
-  %.0457.us = add nsw i32 %.0.i506.us, %.lobit.us
-  %.not491535.us = icmp sgt i32 %spec.select497.us, %.0457.us
-  br i1 %.not491535.us, label %.loopexit531.us, label %.lr.ph540.us
+  %.0457.us = add nsw i32 %.0.i503.us, %.lobit.us
+  %.not488535.us = icmp sgt i32 %spec.select494.us, %.0457.us
+  br i1 %.not488535.us, label %.loopexit531.us, label %.lr.ph540.us
 
-.lr.ph540.us:                                     ; preds = %173, %.thread523.us
-  %.6539.us = phi i32 [ %.7.us, %.thread523.us ], [ %.1412570.us576, %173 ]
-  %.5430538.us = phi ptr [ %.6431.us, %.thread523.us ], [ %.0425568.us578, %173 ]
-  %.5441537.us = phi i32 [ %.6442.us, %.thread523.us ], [ %.0436567.us579, %173 ]
-  %.1452536.us = phi i32 [ %265, %.thread523.us ], [ %spec.select497.us, %173 ]
+.lr.ph540.us:                                     ; preds = %173, %.thread520.us
+  %.6539.us = phi i32 [ %.7.us, %.thread520.us ], [ %.1412570.us576, %173 ]
+  %.5430538.us = phi ptr [ %.6431.us, %.thread520.us ], [ %.0425568.us578, %173 ]
+  %.5441537.us = phi i32 [ %.6442.us, %.thread520.us ], [ %.0436567.us579, %173 ]
+  %.1452536.us = phi i32 [ %265, %.thread520.us ], [ %spec.select494.us, %173 ]
   %193 = icmp slt i32 %.1452536.us, 0
   %194 = sub nsw i32 7, %.1452536.us
   %195 = select i1 %193, i32 %194, i32 %.1452536.us
@@ -3747,7 +3744,7 @@ define internal fastcc void @adpcm_compress_trellis(ptr noundef readonly capture
   %208 = mul i32 %205, %205
   %209 = add i32 %208, %207
   %210 = icmp ult i32 %209, %207
-  br i1 %210, label %.thread523.us, label %211
+  br i1 %210, label %.thread520.us, label %211
 
 211:                                              ; preds = %.lr.ph540.us
   %212 = and i32 %204, 65535
@@ -3756,7 +3753,7 @@ define internal fastcc void @adpcm_compress_trellis(ptr noundef readonly capture
   %215 = load i8, ptr %214, align 1, !tbaa !49
   %216 = zext i8 %215 to i32
   %217 = icmp eq i32 %.0423593, %216
-  br i1 %217, label %.thread523.us, label %218
+  br i1 %217, label %.thread520.us, label %218
 
 218:                                              ; preds = %211
   %219 = icmp slt i32 %.5441537.us, %11
@@ -3770,21 +3767,21 @@ define internal fastcc void @adpcm_compress_trellis(ptr noundef readonly capture
   %221 = and i32 %.5441537.us, %62
   %222 = add nsw i32 %221, %61
   %223 = sext i32 %222 to i64
-  %224 = getelementptr inbounds ptr, ptr %.0407600, i64 %223
+  %224 = getelementptr inbounds [8 x i8], ptr %.0407600, i64 %223
   %225 = load ptr, ptr %224, align 8, !tbaa !124
   %226 = load i32, ptr %225, align 4, !tbaa !125
   %227 = icmp ugt i32 %209, %226
-  br i1 %227, label %.thread523.us, label %228
+  br i1 %227, label %.thread520.us, label %228
 
 228:                                              ; preds = %._crit_edge664, %220
   %.pre-phi671 = phi i64 [ %.pre670, %._crit_edge664 ], [ %223, %220 ]
   %.0448.us = phi i32 [ %.5441537.us, %._crit_edge664 ], [ %222, %220 ]
   %.7443.us = add nsw i32 %.5441537.us, 1
   store i8 %81, ptr %214, align 1, !tbaa !49
-  %229 = getelementptr inbounds ptr, ptr %.0407600, i64 %.pre-phi671
+  %229 = getelementptr inbounds [8 x i8], ptr %.0407600, i64 %.pre-phi671
   %230 = load ptr, ptr %229, align 8, !tbaa !124
-  %.not492.us = icmp eq ptr %230, null
-  br i1 %.not492.us, label %231, label %._crit_edge655
+  %.not489.us = icmp eq ptr %230, null
+  br i1 %.not489.us, label %231, label %._crit_edge655
 
 ._crit_edge655:                                   ; preds = %228
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %230, i64 4
@@ -3821,36 +3818,36 @@ define internal fastcc void @adpcm_compress_trellis(ptr noundef readonly capture
   %248 = getelementptr inbounds nuw i8, ptr %.0447.us, i64 8
   store i32 %204, ptr %248, align 4, !tbaa !129
   %249 = sext i32 %236 to i64
-  %250 = getelementptr inbounds %struct.TrellisPath, ptr %17, i64 %249
+  %250 = getelementptr inbounds [8 x i8], ptr %17, i64 %249
   store i32 %195, ptr %250, align 4, !tbaa !131
   %251 = getelementptr inbounds nuw i8, ptr %244, i64 4
   %252 = load i32, ptr %251, align 4, !tbaa !127
   %253 = getelementptr inbounds nuw i8, ptr %250, i64 4
   store i32 %252, ptr %253, align 4, !tbaa !133
   %254 = icmp sgt i32 %.0448.us, 0
-  br i1 %254, label %.lr.ph.us, label %.thread523.us
+  br i1 %254, label %.lr.ph.us, label %.thread520.us
 
 .lr.ph.us:                                        ; preds = %235, %261
   %.1449533.us = phi i32 [ %256, %261 ], [ %.0448.us, %235 ]
   %255 = add nsw i32 %.1449533.us, -1
   %256 = lshr i32 %255, 1
   %257 = zext nneg i32 %256 to i64
-  %258 = getelementptr inbounds nuw ptr, ptr %.0407600, i64 %257
+  %258 = getelementptr inbounds nuw [8 x i8], ptr %.0407600, i64 %257
   %259 = load ptr, ptr %258, align 8, !tbaa !124
   %260 = load i32, ptr %259, align 4, !tbaa !125
-  %.not493.us = icmp ugt i32 %260, %209
-  br i1 %.not493.us, label %261, label %.thread523.us
+  %.not490.us = icmp ugt i32 %260, %209
+  br i1 %.not490.us, label %261, label %.thread520.us
 
 261:                                              ; preds = %.lr.ph.us
   %262 = zext nneg i32 %.1449533.us to i64
-  %263 = getelementptr inbounds nuw ptr, ptr %.0407600, i64 %262
+  %263 = getelementptr inbounds nuw [8 x i8], ptr %.0407600, i64 %262
   %264 = load ptr, ptr %263, align 8, !tbaa !124
   store ptr %259, ptr %263, align 8, !tbaa !124
   store ptr %264, ptr %258, align 8, !tbaa !124
   %.not613 = icmp eq i32 %256, 0
-  br i1 %.not613, label %.thread523.us, label %.lr.ph.us
+  br i1 %.not613, label %.thread520.us, label %.lr.ph.us
 
-.thread523.us:                                    ; preds = %.lr.ph.us, %261, %235, %220, %211, %.lr.ph540.us
+.thread520.us:                                    ; preds = %.lr.ph.us, %261, %235, %220, %211, %.lr.ph540.us
   %.6442.us = phi i32 [ %.5441537.us, %.lr.ph540.us ], [ %.5441537.us, %211 ], [ %.5441537.us, %220 ], [ %.7443.us, %235 ], [ %.7443.us, %261 ], [ %.7443.us, %.lr.ph.us ]
   %.6431.us = phi ptr [ %.5430538.us, %.lr.ph540.us ], [ %.5430538.us, %211 ], [ %.5430538.us, %220 ], [ %.7432.us, %235 ], [ %.7432.us, %261 ], [ %.7432.us, %.lr.ph.us ]
   %.7.us = phi i32 [ %.6539.us, %.lr.ph540.us ], [ %.6539.us, %211 ], [ %.6539.us, %220 ], [ %.8.us, %235 ], [ %.8.us, %261 ], [ %.8.us, %.lr.ph.us ]
@@ -3858,10 +3855,10 @@ define internal fastcc void @adpcm_compress_trellis(ptr noundef readonly capture
   %exitcond.not = icmp eq i32 %.1452536.us, %.0457.us
   br i1 %exitcond.not, label %.loopexit531.us, label %.lr.ph540.us, !llvm.loop !136
 
-.loopexit531.us:                                  ; preds = %.thread523.us, %173
-  %.5441.lcssa.us = phi i32 [ %.0436567.us579, %173 ], [ %.6442.us, %.thread523.us ]
-  %.5430.lcssa.us = phi ptr [ %.0425568.us578, %173 ], [ %.6431.us, %.thread523.us ]
-  %.6.lcssa.us = phi i32 [ %.1412570.us576, %173 ], [ %.7.us, %.thread523.us ]
+.loopexit531.us:                                  ; preds = %.thread520.us, %173
+  %.5441.lcssa.us = phi i32 [ %.0436567.us579, %173 ], [ %.6442.us, %.thread520.us ]
+  %.5430.lcssa.us = phi ptr [ %.0425568.us578, %173 ], [ %.6431.us, %.thread520.us ]
+  %.6.lcssa.us = phi i32 [ %.1412570.us576, %173 ], [ %.7.us, %.thread520.us ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond622.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond622.not, label %.critedge, label %.lr.ph571.split.split.us, !llvm.loop !135
@@ -3871,7 +3868,7 @@ define internal fastcc void @adpcm_compress_trellis(ptr noundef readonly capture
   %.1412570 = phi i32 [ %.9.lcssa, %.loopexit530 ], [ %.0411599, %.lr.ph571.split ]
   %.0425568 = phi ptr [ %.8433.lcssa, %.loopexit530 ], [ %76, %.lr.ph571.split ]
   %.0436567 = phi i32 [ %.8444.lcssa, %.loopexit530 ], [ 0, %.lr.ph571.split ]
-  %266 = getelementptr inbounds nuw ptr, ptr %.0406601, i64 %indvars.iv625
+  %266 = getelementptr inbounds nuw [8 x i8], ptr %.0406601, i64 %indvars.iv625
   %267 = load ptr, ptr %266, align 8, !tbaa !124
   %.not = icmp eq ptr %267, null
   br i1 %.not, label %.critedge, label %268
@@ -3888,23 +3885,23 @@ define internal fastcc void @adpcm_compress_trellis(ptr noundef readonly capture
   %277 = sdiv i32 %276, %272
   %278 = sub nsw i32 %277, %270
   %279 = tail call i32 @llvm.smax.i32(i32 %278, i32 -7)
-  %.0.i510 = tail call i32 @llvm.smin.i32(i32 %279, i32 6)
+  %.0.i507 = tail call i32 @llvm.smin.i32(i32 %279, i32 6)
   %280 = add nsw i32 %277, %270
   %281 = tail call i32 @llvm.smax.i32(i32 %280, i32 -6)
-  %.0.i512 = tail call i32 @llvm.smin.i32(i32 %281, i32 7)
+  %.0.i509 = tail call i32 @llvm.smin.i32(i32 %281, i32 7)
   %282 = icmp slt i32 %278, 1
   %283 = sext i1 %282 to i32
-  %spec.select499 = add nsw i32 %.0.i510, %283
-  %.lobit529 = ashr i32 %280, 31
-  %.0418 = add nsw i32 %.0.i512, %.lobit529
-  %.not488546 = icmp sgt i32 %spec.select499, %.0418
-  br i1 %.not488546, label %.loopexit530, label %.lr.ph551
+  %spec.select496 = add nsw i32 %.0.i507, %283
+  %.lobit527 = ashr i32 %280, 31
+  %.0418 = add nsw i32 %.0.i509, %.lobit527
+  %.not485546 = icmp sgt i32 %spec.select496, %.0418
+  br i1 %.not485546, label %.loopexit530, label %.lr.ph551
 
-.lr.ph551:                                        ; preds = %268, %.thread526
-  %.9550 = phi i32 [ %.10, %.thread526 ], [ %.1412570, %268 ]
-  %.8433549 = phi ptr [ %.9434, %.thread526 ], [ %.0425568, %268 ]
-  %.8444548 = phi i32 [ %.9445, %.thread526 ], [ %.0436567, %268 ]
-  %.2453547 = phi i32 [ %357, %.thread526 ], [ %spec.select499, %268 ]
+.lr.ph551:                                        ; preds = %268, %.thread523
+  %.9550 = phi i32 [ %.10, %.thread523 ], [ %.1412570, %268 ]
+  %.8433549 = phi ptr [ %.9434, %.thread523 ], [ %.0425568, %268 ]
+  %.8444548 = phi i32 [ %.9445, %.thread523 ], [ %.0436567, %268 ]
+  %.2453547 = phi i32 [ %357, %.thread523 ], [ %spec.select496, %268 ]
   %284 = icmp slt i32 %.2453547, 0
   %285 = sub nsw i32 7, %.2453547
   %286 = select i1 %284, i32 %285, i32 %.2453547
@@ -3923,7 +3920,7 @@ define internal fastcc void @adpcm_compress_trellis(ptr noundef readonly capture
   %299 = mul i32 %296, %296
   %300 = add i32 %299, %298
   %301 = icmp ult i32 %300, %298
-  br i1 %301, label %.thread526, label %302
+  br i1 %301, label %.thread523, label %302
 
 302:                                              ; preds = %.lr.ph551
   %303 = and i32 %295, 65535
@@ -3932,7 +3929,7 @@ define internal fastcc void @adpcm_compress_trellis(ptr noundef readonly capture
   %306 = load i8, ptr %305, align 1, !tbaa !49
   %307 = zext i8 %306 to i32
   %308 = icmp eq i32 %.0423593, %307
-  br i1 %308, label %.thread526, label %309
+  br i1 %308, label %.thread523, label %309
 
 309:                                              ; preds = %302
   %310 = icmp slt i32 %.8444548, %11
@@ -3946,21 +3943,21 @@ define internal fastcc void @adpcm_compress_trellis(ptr noundef readonly capture
   %312 = and i32 %.8444548, %62
   %313 = add nsw i32 %312, %61
   %314 = sext i32 %313 to i64
-  %315 = getelementptr inbounds ptr, ptr %.0407600, i64 %314
+  %315 = getelementptr inbounds [8 x i8], ptr %.0407600, i64 %314
   %316 = load ptr, ptr %315, align 8, !tbaa !124
   %317 = load i32, ptr %316, align 4, !tbaa !125
   %318 = icmp ugt i32 %300, %317
-  br i1 %318, label %.thread526, label %319
+  br i1 %318, label %.thread523, label %319
 
 319:                                              ; preds = %._crit_edge665, %311
   %.pre-phi669 = phi i64 [ %.pre668, %._crit_edge665 ], [ %314, %311 ]
   %.0409 = phi i32 [ %.8444548, %._crit_edge665 ], [ %313, %311 ]
   %.10446 = add nsw i32 %.8444548, 1
   store i8 %81, ptr %305, align 1, !tbaa !49
-  %320 = getelementptr inbounds ptr, ptr %.0407600, i64 %.pre-phi669
+  %320 = getelementptr inbounds [8 x i8], ptr %.0407600, i64 %.pre-phi669
   %321 = load ptr, ptr %320, align 8, !tbaa !124
-  %.not489 = icmp eq ptr %321, null
-  br i1 %.not489, label %322, label %._crit_edge656
+  %.not486 = icmp eq ptr %321, null
+  br i1 %.not486, label %322, label %._crit_edge656
 
 ._crit_edge656:                                   ; preds = %319
   %.phi.trans.insert657 = getelementptr inbounds nuw i8, ptr %321, i64 4
@@ -3981,7 +3978,7 @@ define internal fastcc void @adpcm_compress_trellis(ptr noundef readonly capture
   %.11 = phi i32 [ %.9550, %._crit_edge656 ], [ %324, %322 ]
   %.0408 = phi ptr [ %321, %._crit_edge656 ], [ %.8433549, %322 ]
   store i32 %300, ptr %.0408, align 4, !tbaa !125
-  %328 = getelementptr inbounds i16, ptr @ff_adpcm_yamaha_indexscale, i64 %287
+  %328 = getelementptr inbounds [2 x i8], ptr @ff_adpcm_yamaha_indexscale, i64 %287
   %329 = load i16, ptr %328, align 2, !tbaa !64
   %330 = sext i16 %329 to i32
   %331 = mul nsw i32 %272, %330
@@ -3998,36 +3995,36 @@ define internal fastcc void @adpcm_compress_trellis(ptr noundef readonly capture
   %340 = getelementptr inbounds nuw i8, ptr %.0408, i64 8
   store i32 %295, ptr %340, align 4, !tbaa !129
   %341 = sext i32 %327 to i64
-  %342 = getelementptr inbounds %struct.TrellisPath, ptr %17, i64 %341
+  %342 = getelementptr inbounds [8 x i8], ptr %17, i64 %341
   store i32 %286, ptr %342, align 4, !tbaa !131
   %343 = getelementptr inbounds nuw i8, ptr %336, i64 4
   %344 = load i32, ptr %343, align 4, !tbaa !127
   %345 = getelementptr inbounds nuw i8, ptr %342, i64 4
   store i32 %344, ptr %345, align 4, !tbaa !133
   %346 = icmp sgt i32 %.0409, 0
-  br i1 %346, label %.lr.ph544, label %.thread526
+  br i1 %346, label %.lr.ph544, label %.thread523
 
 .lr.ph544:                                        ; preds = %326, %353
   %.1410543 = phi i32 [ %348, %353 ], [ %.0409, %326 ]
   %347 = add nsw i32 %.1410543, -1
   %348 = lshr i32 %347, 1
   %349 = zext nneg i32 %348 to i64
-  %350 = getelementptr inbounds nuw ptr, ptr %.0407600, i64 %349
+  %350 = getelementptr inbounds nuw [8 x i8], ptr %.0407600, i64 %349
   %351 = load ptr, ptr %350, align 8, !tbaa !124
   %352 = load i32, ptr %351, align 4, !tbaa !125
-  %.not490 = icmp ugt i32 %352, %300
-  br i1 %.not490, label %353, label %.thread526
+  %.not487 = icmp ugt i32 %352, %300
+  br i1 %.not487, label %353, label %.thread523
 
 353:                                              ; preds = %.lr.ph544
   %354 = zext nneg i32 %.1410543 to i64
-  %355 = getelementptr inbounds nuw ptr, ptr %.0407600, i64 %354
+  %355 = getelementptr inbounds nuw [8 x i8], ptr %.0407600, i64 %354
   %356 = load ptr, ptr %355, align 8, !tbaa !124
   store ptr %351, ptr %355, align 8, !tbaa !124
   store ptr %356, ptr %350, align 8, !tbaa !124
   %.not614 = icmp eq i32 %348, 0
-  br i1 %.not614, label %.thread526, label %.lr.ph544
+  br i1 %.not614, label %.thread523, label %.lr.ph544
 
-.thread526:                                       ; preds = %353, %.lr.ph544, %326, %311, %302, %.lr.ph551
+.thread523:                                       ; preds = %353, %.lr.ph544, %326, %311, %302, %.lr.ph551
   %.9445 = phi i32 [ %.8444548, %.lr.ph551 ], [ %.8444548, %302 ], [ %.8444548, %311 ], [ %.10446, %326 ], [ %.10446, %.lr.ph544 ], [ %.10446, %353 ]
   %.9434 = phi ptr [ %.8433549, %.lr.ph551 ], [ %.8433549, %302 ], [ %.8433549, %311 ], [ %.10435, %326 ], [ %.10435, %.lr.ph544 ], [ %.10435, %353 ]
   %.10 = phi i32 [ %.9550, %.lr.ph551 ], [ %.9550, %302 ], [ %.9550, %311 ], [ %.11, %326 ], [ %.11, %.lr.ph544 ], [ %.11, %353 ]
@@ -4035,10 +4032,10 @@ define internal fastcc void @adpcm_compress_trellis(ptr noundef readonly capture
   %exitcond624.not = icmp eq i32 %.2453547, %.0418
   br i1 %exitcond624.not, label %.loopexit530, label %.lr.ph551, !llvm.loop !137
 
-.loopexit530:                                     ; preds = %.thread526, %268
-  %.8444.lcssa = phi i32 [ %.0436567, %268 ], [ %.9445, %.thread526 ]
-  %.8433.lcssa = phi ptr [ %.0425568, %268 ], [ %.9434, %.thread526 ]
-  %.9.lcssa = phi i32 [ %.1412570, %268 ], [ %.10, %.thread526 ]
+.loopexit530:                                     ; preds = %.thread523, %268
+  %.8444.lcssa = phi i32 [ %.0436567, %268 ], [ %.9445, %.thread523 ]
+  %.8433.lcssa = phi ptr [ %.0425568, %268 ], [ %.9434, %.thread523 ]
+  %.9.lcssa = phi i32 [ %.1412570, %268 ], [ %.10, %.thread523 ]
   %indvars.iv.next626 = add nuw nsw i64 %indvars.iv625, 1
   %exitcond630.not = icmp eq i64 %indvars.iv.next626, %wide.trip.count629
   br i1 %exitcond630.not, label %.critedge, label %.lr.ph571.split.split, !llvm.loop !135
@@ -4065,10 +4062,10 @@ define internal fastcc void @adpcm_compress_trellis(ptr noundef readonly capture
 
 .lr.ph:                                           ; preds = %.preheader532, %367
   %indvars.iv639 = phi i64 [ %indvars.iv.next640, %367 ], [ 1, %.preheader532 ]
-  %365 = getelementptr inbounds nuw ptr, ptr %.0407600, i64 %indvars.iv639
+  %365 = getelementptr inbounds nuw [8 x i8], ptr %.0407600, i64 %indvars.iv639
   %366 = load ptr, ptr %365, align 8, !tbaa !124
-  %.not485 = icmp eq ptr %366, null
-  br i1 %.not485, label %.critedge13, label %367
+  %.not484 = icmp eq ptr %366, null
+  br i1 %.not484, label %.critedge13, label %367
 
 367:                                              ; preds = %.lr.ph
   %368 = load i32, ptr %362, align 4, !tbaa !125
@@ -4096,11 +4093,11 @@ define internal fastcc void @adpcm_compress_trellis(ptr noundef readonly capture
 
 .lr.ph592:                                        ; preds = %.preheader, %.lr.ph592
   %indvars.iv646 = phi i64 [ %indvars.iv.next647, %.lr.ph592 ], [ %indvars.iv644, %.preheader ]
-  %.pn487591 = phi ptr [ %.0, %.lr.ph592 ], [ %362, %.preheader ]
-  %.pn486.in.in = getelementptr inbounds nuw i8, ptr %.pn487591, i64 4
-  %.pn486.in = load i32, ptr %.pn486.in.in, align 4, !tbaa !123
-  %.pn486 = sext i32 %.pn486.in to i64
-  %.0 = getelementptr inbounds %struct.TrellisPath, ptr %17, i64 %.pn486
+  %.pn529591 = phi ptr [ %.0, %.lr.ph592 ], [ %362, %.preheader ]
+  %.pn528.in.in = getelementptr inbounds nuw i8, ptr %.pn529591, i64 4
+  %.pn528.in = load i32, ptr %.pn528.in.in, align 4, !tbaa !123
+  %.pn528 = sext i32 %.pn528.in to i64
+  %.0 = getelementptr inbounds [8 x i8], ptr %17, i64 %.pn528
   %377 = load i32, ptr %.0, align 4, !tbaa !131
   %378 = trunc i32 %377 to i8
   %379 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv646
@@ -4140,11 +4137,11 @@ define internal fastcc void @adpcm_compress_trellis(ptr noundef readonly capture
 
 .lr.ph610:                                        ; preds = %.lr.ph610.preheader, %.lr.ph610
   %indvars.iv652 = phi i64 [ %385, %.lr.ph610.preheader ], [ %indvars.iv.next653, %.lr.ph610 ]
-  %.pn484607 = phi ptr [ %383, %.lr.ph610.preheader ], [ %.1, %.lr.ph610 ]
-  %.pn.in.in = getelementptr inbounds nuw i8, ptr %.pn484607, i64 4
+  %.pn526607 = phi ptr [ %383, %.lr.ph610.preheader ], [ %.1, %.lr.ph610 ]
+  %.pn.in.in = getelementptr inbounds nuw i8, ptr %.pn526607, i64 4
   %.pn.in = load i32, ptr %.pn.in.in, align 4, !tbaa !123
   %.pn = sext i32 %.pn.in to i64
-  %.1 = getelementptr inbounds %struct.TrellisPath, ptr %17, i64 %.pn
+  %.1 = getelementptr inbounds [8 x i8], ptr %17, i64 %.pn
   %387 = load i32, ptr %.1, align 4, !tbaa !131
   %388 = trunc i32 %387 to i8
   %389 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv652
@@ -4190,7 +4187,7 @@ define internal fastcc zeroext i8 @adpcm_ima_compress_sample(ptr noundef capture
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %10 = load i16, ptr %9, align 4, !tbaa !68
   %11 = sext i16 %10 to i64
-  %12 = getelementptr inbounds i16, ptr @ff_adpcm_step_table, i64 %11
+  %12 = getelementptr inbounds [2 x i8], ptr @ff_adpcm_step_table, i64 %11
   %13 = load i16, ptr %12, align 2, !tbaa !64
   %14 = sext i16 %13 to i32
   %15 = sdiv i32 %8, %14
@@ -4416,7 +4413,7 @@ put_bits.exit35:                                  ; preds = %67, %75, %55
 
 adpcm_argo_compress_nibble.exit.us.us:            ; preds = %.lr.ph.split.us, %adpcm_argo_compress_nibble.exit.us.us
   %indvars.iv58 = phi i64 [ %indvars.iv.next59, %adpcm_argo_compress_nibble.exit.us.us ], [ 0, %.lr.ph.split.us ]
-  %106 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv58
+  %106 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv58
   %107 = load i16, ptr %106, align 2, !tbaa !64
   %108 = sext i16 %107 to i32
   %109 = load i32, ptr %104, align 4, !tbaa !96
@@ -4431,7 +4428,7 @@ adpcm_argo_compress_nibble.exit.us.us:            ; preds = %.lr.ph.split.us, %a
 
 adpcm_argo_compress_nibble.exit.us:               ; preds = %.lr.ph.split.us, %adpcm_argo_compress_nibble.exit.us
   %indvars.iv53 = phi i64 [ %indvars.iv.next54, %adpcm_argo_compress_nibble.exit.us ], [ 0, %.lr.ph.split.us ]
-  %115 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv53
+  %115 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv53
   %116 = load i16, ptr %115, align 2, !tbaa !64
   %117 = sext i16 %116 to i32
   %118 = shl nsw i32 %117, 2
@@ -4453,7 +4450,7 @@ adpcm_argo_compress_nibble.exit.us:               ; preds = %.lr.ph.split.us, %a
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %put_bits.exit43
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %put_bits.exit43 ]
-  %128 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv
+  %128 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv
   %129 = load i16, ptr %128, align 2, !tbaa !64
   %130 = sext i16 %129 to i32
   br i1 %.not.i69, label %139, label %131

@@ -94,7 +94,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_ZNK3vcg3ply14PropDescrip
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %3 = load i32, ptr %2, align 4
   %4 = sext i32 %3 to i64
-  %5 = getelementptr inbounds i32, ptr @_ZN3vcg3plyL8TypeSizeE, i64 %4
+  %5 = getelementptr inbounds [4 x i8], ptr @_ZN3vcg3plyL8TypeSizeE, i64 %4
   %6 = load i32, ptr %5, align 4
   %7 = sext i32 %6 to i64
   ret i64 %7
@@ -105,7 +105,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_ZNK3vcg3ply14PropDescrip
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load i32, ptr %2, align 8
   %4 = sext i32 %3 to i64
-  %5 = getelementptr inbounds i32, ptr @_ZN3vcg3plyL8TypeSizeE, i64 %4
+  %5 = getelementptr inbounds [4 x i8], ptr @_ZN3vcg3plyL8TypeSizeE, i64 %4
   %6 = load i32, ptr %5, align 4
   %7 = sext i32 %6 to i64
   ret i64 %7
@@ -116,7 +116,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_ZNK3vcg3ply14PropDescrip
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load i32, ptr %2, align 8
   %4 = sext i32 %3 to i64
-  %5 = getelementptr inbounds i32, ptr @_ZN3vcg3plyL8TypeSizeE, i64 %4
+  %5 = getelementptr inbounds [4 x i8], ptr @_ZN3vcg3plyL8TypeSizeE, i64 %4
   %6 = load i32, ptr %5, align 4
   %7 = sext i32 %6 to i64
   ret i64 %7
@@ -127,7 +127,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_ZNK3vcg3ply14PropDescrip
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %3 = load i32, ptr %2, align 4
   %4 = sext i32 %3 to i64
-  %5 = getelementptr inbounds i32, ptr @_ZN3vcg3plyL8TypeSizeE, i64 %4
+  %5 = getelementptr inbounds [4 x i8], ptr @_ZN3vcg3plyL8TypeSizeE, i64 %4
   %6 = load i32, ptr %5, align 4
   %7 = sext i32 %6 to i64
   ret i64 %7
@@ -138,7 +138,7 @@ define noundef ptr @_ZNK3vcg3ply14PropDescriptor11memtypenameEv(ptr noundef nonn
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %3 = load i32, ptr %2, align 4
   %4 = sext i32 %3 to i64
-  %5 = getelementptr inbounds ptr, ptr @_ZN3vcg3ply7PlyFile9typenamesE, i64 %4
+  %5 = getelementptr inbounds [8 x i8], ptr @_ZN3vcg3ply7PlyFile9typenamesE, i64 %4
   %6 = load ptr, ptr %5, align 8
   ret ptr %6
 }
@@ -148,7 +148,7 @@ define noundef ptr @_ZNK3vcg3ply14PropDescriptor11stotypenameEv(ptr noundef nonn
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load i32, ptr %2, align 8
   %4 = sext i32 %3 to i64
-  %5 = getelementptr inbounds ptr, ptr @_ZN3vcg3ply7PlyFile9typenamesE, i64 %4
+  %5 = getelementptr inbounds [8 x i8], ptr @_ZN3vcg3ply7PlyFile9typenamesE, i64 %4
   %6 = load ptr, ptr %5, align 8
   ret ptr %6
 }
@@ -158,7 +158,7 @@ define noundef ptr @_ZNK3vcg3ply14PropDescriptor12memtype2nameEv(ptr noundef non
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load i32, ptr %2, align 8
   %4 = sext i32 %3 to i64
-  %5 = getelementptr inbounds ptr, ptr @_ZN3vcg3ply7PlyFile9typenamesE, i64 %4
+  %5 = getelementptr inbounds [8 x i8], ptr @_ZN3vcg3ply7PlyFile9typenamesE, i64 %4
   %6 = load ptr, ptr %5, align 8
   ret ptr %6
 }
@@ -168,7 +168,7 @@ define noundef ptr @_ZNK3vcg3ply14PropDescriptor12stotype2nameEv(ptr noundef non
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %3 = load i32, ptr %2, align 4
   %4 = sext i32 %3 to i64
-  %5 = getelementptr inbounds ptr, ptr @_ZN3vcg3ply7PlyFile9typenamesE, i64 %4
+  %5 = getelementptr inbounds [8 x i8], ptr @_ZN3vcg3ply7PlyFile9typenamesE, i64 %4
   %6 = load ptr, ptr %5, align 8
   ret ptr %6
 }
@@ -424,7 +424,7 @@ _ZNSt12_Vector_baseIN3vcg3ply11PlyPropertyESaIS2_EE13_M_deallocateEPS2_m.exit: ;
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i21, ptr %4, align 8
-  %62 = getelementptr inbounds nuw %"class.vcg::ply::PlyProperty", ptr %20, i64 %16
+  %62 = getelementptr inbounds nuw [168 x i8], ptr %20, i64 %16
   store ptr %62, ptr %61, align 8
   ret void
 }
@@ -1395,14 +1395,14 @@ define noundef range(i32 -1, 9) i32 @_ZNK3vcg3ply7PlyFile8FindTypeEPKc(ptr nonnu
 
 3:                                                ; preds = %2, %11
   %indvars.iv = phi i64 [ 1, %2 ], [ %indvars.iv.next, %11 ]
-  %4 = getelementptr inbounds nuw ptr, ptr @_ZN3vcg3ply7PlyFile9typenamesE, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [8 x i8], ptr @_ZN3vcg3ply7PlyFile9typenamesE, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %5) #34
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %.split.loop.exit11, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds nuw ptr, ptr @_ZN3vcg3ply7PlyFile12newtypenamesE, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr @_ZN3vcg3ply7PlyFile12newtypenamesE, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %9) #34
   %.not8 = icmp eq i32 %10, 0
@@ -1527,7 +1527,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %22, %29, %31, %33, 
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %49 = load i32, ptr %48, align 4
   %50 = sext i32 %49 to i64
-  %51 = getelementptr inbounds i32, ptr @_ZN3vcg3plyL8TypeSizeE, i64 %50
+  %51 = getelementptr inbounds [4 x i8], ptr @_ZN3vcg3plyL8TypeSizeE, i64 %50
   %52 = load i32, ptr %51, align 4
   %53 = sext i32 %52 to i64
   %54 = tail call noalias ptr @calloc(i64 noundef %47, i64 noundef %53) #35
@@ -1562,7 +1562,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %22, %29, %31, %33, 
   %.03450 = phi i32 [ 0, %.lr.ph ], [ %67, %66 ]
   %69 = load i32, ptr %63, align 4
   %70 = sext i32 %69 to i64
-  %71 = getelementptr inbounds i32, ptr @_ZN3vcg3plyL8TypeSizeE, i64 %70
+  %71 = getelementptr inbounds [4 x i8], ptr @_ZN3vcg3plyL8TypeSizeE, i64 %70
   %72 = load i32, ptr %71, align 4
   %73 = mul nsw i32 %72, %.03450
   %74 = sext i32 %73 to i64
@@ -1767,7 +1767,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %20, %27, %29, %31, 
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %47 = load i32, ptr %46, align 4
   %48 = sext i32 %47 to i64
-  %49 = getelementptr inbounds i32, ptr @_ZN3vcg3plyL8TypeSizeE, i64 %48
+  %49 = getelementptr inbounds [4 x i8], ptr @_ZN3vcg3plyL8TypeSizeE, i64 %48
   %50 = load i32, ptr %49, align 4
   %51 = sext i32 %50 to i64
   %52 = tail call noalias ptr @calloc(i64 noundef %45, i64 noundef %51) #35
@@ -1802,7 +1802,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %20, %27, %29, %31, 
   %.03746 = phi i32 [ 0, %.lr.ph ], [ %65, %64 ]
   %67 = load i32, ptr %61, align 4
   %68 = sext i32 %67 to i64
-  %69 = getelementptr inbounds i32, ptr @_ZN3vcg3plyL8TypeSizeE, i64 %68
+  %69 = getelementptr inbounds [4 x i8], ptr @_ZN3vcg3plyL8TypeSizeE, i64 %68
   %70 = load i32, ptr %69, align 4
   %71 = mul nsw i32 %70, %.03746
   %72 = sext i32 %71 to i64
@@ -1822,7 +1822,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %20, %27, %29, %31, 
   %78 = load i32, ptr %17, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %79 = sext i32 %78 to i64
-  %80 = getelementptr inbounds i32, ptr @_ZN3vcg3plyL8TypeSizeE, i64 %79
+  %80 = getelementptr inbounds [4 x i8], ptr @_ZN3vcg3plyL8TypeSizeE, i64 %79
   %81 = load i32, ptr %80, align 4
   %82 = sext i32 %81 to i64
   %83 = call i64 @fread(ptr noundef nonnull %6, i64 noundef 1, i64 noundef %82, ptr noundef %0)
@@ -1853,7 +1853,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %20, %27, %29, %31, 
   %99 = load i32, ptr %98, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %100 = sext i32 %99 to i64
-  %101 = getelementptr inbounds i32, ptr @_ZN3vcg3plyL8TypeSizeE, i64 %100
+  %101 = getelementptr inbounds [4 x i8], ptr @_ZN3vcg3plyL8TypeSizeE, i64 %100
   %102 = load i32, ptr %101, align 4
   %103 = sext i32 %102 to i64
   %104 = call i64 @fread(ptr noundef nonnull %5, i64 noundef 1, i64 noundef %103, ptr noundef %0)
@@ -1938,7 +1938,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i21, ptr %4, align 8
-  %29 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %20, i64 %16
+  %29 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %16
   store ptr %29, ptr %28, align 8
   ret void
 }
@@ -2056,7 +2056,7 @@ _ZNSt12_Vector_baseIN3vcg3ply10PlyElementESaIS2_EE13_M_deallocateEPS2_m.exit: ; 
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i31, ptr %4, align 8
-  %53 = getelementptr inbounds nuw %"class.vcg::ply::PlyElement", ptr %20, i64 %16
+  %53 = getelementptr inbounds nuw [64 x i8], ptr %20, i64 %16
   store ptr %53, ptr %52, align 8
   ret void
 
@@ -2453,7 +2453,7 @@ define noundef ptr @_ZN3vcg3ply7PlyFile8ElemNameEi(ptr noundef nonnull readonly 
 
 13:                                               ; preds = %4
   %14 = zext nneg i32 %1 to i64
-  %15 = getelementptr inbounds nuw %"class.vcg::ply::PlyElement", ptr %7, i64 %14
+  %15 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 %14
   %16 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %15) #29
   br label %17
 
@@ -2484,7 +2484,7 @@ define noundef i32 @_ZNK3vcg3ply7PlyFile10ElemNumberEi(ptr noundef nonnull reado
 
 13:                                               ; preds = %4
   %14 = zext nneg i32 %1 to i64
-  %15 = getelementptr inbounds nuw %"class.vcg::ply::PlyElement", ptr %7, i64 %14
+  %15 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %17 = load i32, ptr %16, align 8
   br label %18
@@ -2943,7 +2943,7 @@ define void @_ZN3vcg3ply7PlyFile7compileEPNS0_11PlyPropertyE(ptr noundef nonnull
   %160 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %161 = load i32, ptr %160, align 8
   %162 = sext i32 %161 to i64
-  %163 = getelementptr inbounds i32, ptr @_ZN3vcg3plyL8TypeSizeE, i64 %162
+  %163 = getelementptr inbounds [4 x i8], ptr @_ZN3vcg3plyL8TypeSizeE, i64 %162
   %164 = load i32, ptr %163, align 4
   %165 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %164)
   %166 = icmp eq i32 %165, 1
@@ -3364,7 +3364,7 @@ define void @_ZN3vcg3ply7PlyFile7compileEPNS0_11PlyPropertyE(ptr noundef nonnull
   %311 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %312 = load i32, ptr %311, align 8
   %313 = sext i32 %312 to i64
-  %314 = getelementptr inbounds i32, ptr @_ZN3vcg3plyL8TypeSizeE, i64 %313
+  %314 = getelementptr inbounds [4 x i8], ptr @_ZN3vcg3plyL8TypeSizeE, i64 %313
   %315 = load i32, ptr %314, align 4
   %316 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %315)
   %317 = icmp eq i32 %316, 1
@@ -3483,7 +3483,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %15, %17, %19, %
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 68
   %35 = load i32, ptr %34, align 4
   %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds i32, ptr @_ZN3vcg3plyL8TypeSizeE, i64 %36
+  %37 = getelementptr inbounds [4 x i8], ptr @_ZN3vcg3plyL8TypeSizeE, i64 %36
   %38 = load i32, ptr %37, align 4
   %39 = sext i32 %38 to i64
   %40 = call noalias ptr @calloc(i64 noundef %33, i64 noundef %39) #35
@@ -3519,7 +3519,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %15, %17, %19, %
   %.01921 = phi i32 [ 0, %.lr.ph ], [ %53, %52 ]
   %57 = load i32, ptr %49, align 4
   %58 = sext i32 %57 to i64
-  %59 = getelementptr inbounds i32, ptr @_ZN3vcg3plyL8TypeSizeE, i64 %58
+  %59 = getelementptr inbounds [4 x i8], ptr @_ZN3vcg3plyL8TypeSizeE, i64 %58
   %60 = load i32, ptr %59, align 4
   %61 = mul nsw i32 %60, %.01921
   %62 = sext i32 %61 to i64

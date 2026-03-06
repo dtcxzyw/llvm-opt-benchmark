@@ -30,14 +30,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol___skb_gro_ch
 %struct.static_call_key = type { ptr, %union.anon.71 }
 %union.anon.71 = type { i64 }
 %struct.cpumask = type { [1 x i64] }
-%struct.bio_vec = type { ptr, i32, i32 }
-%struct.page = type { i64, %union.anon.59, %union.anon.67, %struct.atomic_t, [8 x i8] }
-%union.anon.59 = type { %struct.anon.60 }
-%struct.anon.60 = type { %union.anon.61, ptr, %union.anon.63, i64 }
-%union.anon.61 = type { %struct.list_head }
-%union.anon.63 = type { i64 }
-%union.anon.67 = type { %struct.atomic_t }
-%struct.gro_list = type { %struct.list_head, i32 }
 
 @offload_base = dso_local global %struct.list_head { ptr @offload_base, ptr @offload_base }, section ".data..read_mostly", align 8
 @gro_normal_batch = dso_local global i32 8, section ".data..read_mostly", align 4
@@ -265,10 +257,10 @@ define dso_local range(i32 -109, 1) i32 @skb_gro_receive(ptr noundef captures(ad
   store i8 0, ptr %75, align 2
   %85 = getelementptr inbounds nuw i8, ptr %72, i64 48
   %86 = zext nneg i32 %81 to i64
-  %87 = getelementptr %struct.bio_vec, ptr %85, i64 %86
+  %87 = getelementptr [16 x i8], ptr %85, i64 %86
   %88 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %89 = zext i8 %76 to i64
-  %90 = getelementptr %struct.bio_vec, ptr %88, i64 %89
+  %90 = getelementptr [16 x i8], ptr %88, i64 %89
   br label %91
 
 91:                                               ; preds = %91, %83
@@ -330,7 +322,7 @@ define dso_local range(i32 -109, 1) i32 @skb_gro_receive(ptr noundef captures(ad
   %134 = select i1 %130, i64 %131, i64 %133
   %135 = add i64 %129, %134
   %136 = lshr i64 %135, 12
-  %137 = getelementptr %struct.page, ptr %127, i64 %136
+  %137 = getelementptr [64 x i8], ptr %127, i64 %136
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 8
   %139 = load volatile i64, ptr %138, align 8
   %140 = and i64 %139, 1
@@ -384,7 +376,7 @@ define dso_local range(i32 -109, 1) i32 @skb_gro_receive(ptr noundef captures(ad
   %171 = sub i32 %15, %10
   %172 = getelementptr inbounds nuw i8, ptr %72, i64 48
   %173 = zext i8 %124 to i64
-  %174 = getelementptr %struct.bio_vec, ptr %172, i64 %173
+  %174 = getelementptr [16 x i8], ptr %172, i64 %173
   %175 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %176 = load ptr, ptr %175, align 8
   %177 = load i64, ptr @vmemmap_base, align 8
@@ -577,7 +569,7 @@ define dso_local void @napi_gro_flush(ptr noundef %0, i1 noundef zeroext %1) #0 
   %18 = lshr i64 %16, %17
   %19 = add i32 %14, %15
   %20 = zext i32 %19 to i64
-  %21 = getelementptr %struct.gro_list, ptr %5, i64 %20
+  %21 = getelementptr [24 x i8], ptr %5, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, %21
@@ -1016,7 +1008,7 @@ define internal fastcc range(i32 0, 5) i32 @dev_gro_receive(ptr noundef %0, ptr 
   %5 = and i32 %4, 7
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = zext nneg i32 %5 to i64
-  %8 = getelementptr %struct.gro_list, ptr %6, i64 %7
+  %8 = getelementptr [24 x i8], ptr %6, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %11 = load i16, ptr %10, align 8

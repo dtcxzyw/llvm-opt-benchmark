@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::ios_base::Init" = type { i8 }
 %"class.sat::status" = type { i32, i32, ptr }
 %"class.sat::justification" = type <{ i32, [4 x i8], i64, i32, [4 x i8] }>
-%"class.sat::literal" = type { i32 }
 %"struct.sat::cleaner::report" = type { ptr, %class.stopwatch, i32, i32 }
 %class.stopwatch = type <{ %"class.std::chrono::time_point", %"class.std::chrono::duration", i8, [7 x i8] }>
 %"class.std::chrono::time_point" = type { %"class.std::chrono::duration" }
@@ -80,7 +79,7 @@ _ZN6vectorIS_IN3sat7watchedELb1EjELb1EjE3endEv.exit: ; preds = %1
   %11 = load ptr, ptr %0, align 8, !tbaa !12
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 3288
   %13 = load ptr, ptr %12, align 8, !tbaa !17
-  %14 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4, !tbaa !19
   %.not27 = icmp eq i32 %15, 0
   %16 = load ptr, ptr %.036, align 8, !tbaa !21
@@ -130,7 +129,7 @@ _ZN6vectorIN3sat7watchedELb1EjE3endEv.exit:       ; preds = %21
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 3288
   %34 = load ptr, ptr %33, align 8, !tbaa !17
   %35 = and i64 %32, 4294967295
-  %36 = getelementptr inbounds nuw i32, ptr %34, i64 %35
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %35
   %37 = load i32, ptr %36, align 4, !tbaa !19
   %38 = icmp eq i32 %37, 0
   br i1 %38, label %39, label %44
@@ -248,10 +247,10 @@ _ZN6vectorIPN3sat6clauseELb0EjE3endEv.exit:       ; preds = %2
 29:                                               ; preds = %.lr.ph, %43
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %43 ]
   %.04856 = phi i32 [ 0, %.lr.ph ], [ %.149, %43 ]
-  %30 = getelementptr inbounds nuw %"class.sat::literal", ptr %26, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv
   %.sroa.04.0.copyload = load i32, ptr %30, align 4, !tbaa !16
   %31 = zext i32 %.sroa.04.0.copyload to i64
-  %32 = getelementptr inbounds nuw i32, ptr %28, i64 %31
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %31
   %33 = load i32, ptr %32, align 4, !tbaa !19
   switch i32 %33, label %43 [
     i32 1, label %44
@@ -271,7 +270,7 @@ _ZN6vectorIPN3sat6clauseELb0EjE3endEv.exit:       ; preds = %2
   br i1 %.not51, label %41, label %39
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds nuw %"class.sat::literal", ptr %26, i64 %38
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %38
   %.sroa.0.0.copyload.i = load i32, ptr %40, align 4, !tbaa !16
   store i32 %.sroa.04.0.copyload, ptr %40, align 4, !tbaa !16
   store i32 %.sroa.0.0.copyload.i, ptr %30, align 4, !tbaa !16
@@ -324,7 +323,7 @@ _ZN6vectorIPN3sat6clauseELb0EjE3endEv.exit:       ; preds = %2
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 3288
   %53 = load ptr, ptr %52, align 8, !tbaa !17
   %54 = zext i32 %.sroa.02.0.copyload to i64
-  %55 = getelementptr inbounds nuw i32, ptr %53, i64 %54
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %54
   %56 = load i32, ptr %55, align 4, !tbaa !19
   switch i32 %56, label %_ZN3sat6solver11assign_unitENS_7literalE.exit [
     i32 -1, label %57
@@ -352,7 +351,7 @@ _ZN6vectorIPN3sat6clauseELb0EjE3endEv.exit:       ; preds = %2
   %66 = lshr i32 %.sroa.02.0.copyload, 1
   %67 = load ptr, ptr %65, align 8, !tbaa !45
   %68 = zext nneg i32 %66 to i64
-  %69 = getelementptr inbounds nuw %"class.sat::justification", ptr %67, i64 %68
+  %69 = getelementptr inbounds nuw [24 x i8], ptr %67, i64 %68
   %70 = load i32, ptr %69, align 8, !tbaa !48
   %.not.i.i.i = icmp eq i32 %70, 0
   br i1 %.not.i.i.i, label %_ZN3sat6solver11assign_unitENS_7literalE.exit, label %71
@@ -482,7 +481,7 @@ _ZN6vectorIPN3sat6clauseELb0EjE3endEv.exit:       ; preds = %1
   %.077109 = phi ptr [ %15, %.lr.ph ], [ %32, %.critedge ]
   %.sroa.040.0.copyload = load i32, ptr %.077109, align 4, !tbaa !16
   %22 = zext i32 %.sroa.040.0.copyload to i64
-  %23 = getelementptr inbounds nuw i32, ptr %20, i64 %22
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %22
   %24 = load i32, ptr %23, align 4, !tbaa !19
   %.not84 = icmp eq i32 %24, 0
   br i1 %.not84, label %.critedge, label %25
@@ -491,7 +490,7 @@ _ZN6vectorIPN3sat6clauseELb0EjE3endEv.exit:       ; preds = %1
   %26 = lshr i32 %.sroa.040.0.copyload, 1
   %27 = load ptr, ptr %12, align 8, !tbaa !45
   %28 = zext nneg i32 %26 to i64
-  %29 = getelementptr inbounds nuw %"class.sat::justification", ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [24 x i8], ptr %27, i64 %28
   %30 = load i32, ptr %29, align 8, !tbaa !48
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %.critedge94, label %.critedge
@@ -546,7 +545,7 @@ _ZN6vectorIPN3sat6clauseELb0EjE3endEv.exit97:     ; preds = %._crit_edge113
   %.080115 = phi ptr [ %46, %.lr.ph117 ], [ %63, %.critedge91 ]
   %.sroa.023.0.copyload = load i32, ptr %.080115, align 4, !tbaa !16
   %53 = zext i32 %.sroa.023.0.copyload to i64
-  %54 = getelementptr inbounds nuw i32, ptr %51, i64 %53
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %53
   %55 = load i32, ptr %54, align 4, !tbaa !19
   %.not87 = icmp eq i32 %55, 0
   br i1 %.not87, label %.critedge91, label %56
@@ -555,7 +554,7 @@ _ZN6vectorIPN3sat6clauseELb0EjE3endEv.exit97:     ; preds = %._crit_edge113
   %57 = lshr i32 %.sroa.023.0.copyload, 1
   %58 = load ptr, ptr %43, align 8, !tbaa !45
   %59 = zext nneg i32 %57 to i64
-  %60 = getelementptr inbounds nuw %"class.sat::justification", ptr %58, i64 %59
+  %60 = getelementptr inbounds nuw [24 x i8], ptr %58, i64 %59
   %61 = load i32, ptr %60, align 8, !tbaa !48
   %62 = icmp eq i32 %61, 0
   br i1 %62, label %.critedge94, label %.critedge91
@@ -594,7 +593,7 @@ _ZN6vectorIS_IN3sat7watchedELb1EjELb1EjE3endEv.exit: ; preds = %._crit_edge122
 76:                                               ; preds = %.lr.ph126, %_ZNK6vectorIN3sat7watchedELb1EjE5emptyEv.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph126 ], [ %indvars.iv.next, %_ZNK6vectorIN3sat7watchedELb1EjE5emptyEv.exit.thread ]
   %.079125 = phi ptr [ %66, %.lr.ph126 ], [ %92, %_ZNK6vectorIN3sat7watchedELb1EjE5emptyEv.exit.thread ]
-  %77 = getelementptr inbounds nuw i32, ptr %74, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %74, i64 %indvars.iv
   %78 = load i32, ptr %77, align 4, !tbaa !19
   %.not89 = icmp eq i32 %78, 0
   br i1 %.not89, label %_ZNK6vectorIN3sat7watchedELb1EjE5emptyEv.exit.thread, label %79
@@ -603,7 +602,7 @@ _ZN6vectorIS_IN3sat7watchedELb1EjELb1EjE3endEv.exit: ; preds = %._crit_edge122
   %80 = lshr i64 %indvars.iv, 1
   %81 = load ptr, ptr %75, align 8, !tbaa !45
   %82 = and i64 %80, 2147483647
-  %83 = getelementptr inbounds nuw %"class.sat::justification", ptr %81, i64 %82
+  %83 = getelementptr inbounds nuw [24 x i8], ptr %81, i64 %82
   %84 = load i32, ptr %83, align 8, !tbaa !48
   %85 = icmp eq i32 %84, 0
   br i1 %85, label %86, label %_ZNK6vectorIN3sat7watchedELb1EjE5emptyEv.exit.thread

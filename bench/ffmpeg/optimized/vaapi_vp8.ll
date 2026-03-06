@@ -352,17 +352,17 @@ vaapi_vp8_surface_id.exit185:                     ; preds = %vaapi_vp8_surface_i
 
 .preheader186:                                    ; preds = %.preheader187, %191
   %indvars.iv241 = phi i64 [ 0, %.preheader187 ], [ %indvars.iv.next242, %191 ]
-  %179 = getelementptr inbounds nuw [8 x [3 x [11 x i8]]], ptr %5, i64 %indvars.iv241
-  %180 = getelementptr inbounds nuw [16 x [3 x [11 x i8]]], ptr %178, i64 %indvars.iv241
+  %179 = getelementptr inbounds nuw [264 x i8], ptr %5, i64 %indvars.iv241
+  %180 = getelementptr inbounds nuw [528 x i8], ptr %178, i64 %indvars.iv241
   br label %181
 
 181:                                              ; preds = %.preheader186, %190
   %indvars.iv237 = phi i64 [ 0, %.preheader186 ], [ %indvars.iv.next238, %190 ]
-  %182 = getelementptr inbounds nuw i32, ptr @vaapi_vp8_start_frame.coeff_bands_inverse, i64 %indvars.iv237
+  %182 = getelementptr inbounds nuw [4 x i8], ptr @vaapi_vp8_start_frame.coeff_bands_inverse, i64 %indvars.iv237
   %183 = load i32, ptr %182, align 4, !tbaa !73
-  %184 = getelementptr inbounds nuw [3 x [11 x i8]], ptr %179, i64 %indvars.iv237
+  %184 = getelementptr inbounds nuw [33 x i8], ptr %179, i64 %indvars.iv237
   %185 = sext i32 %183 to i64
-  %186 = getelementptr inbounds [3 x [11 x i8]], ptr %180, i64 %185
+  %186 = getelementptr inbounds [33 x i8], ptr %180, i64 %185
   br label %187
 
 187:                                              ; preds = %181, %187
@@ -423,7 +423,7 @@ vaapi_vp8_surface_id.exit185:                     ; preds = %vaapi_vp8_surface_i
   %216 = call i32 @llvm.smax.i32(i32 %.0, i32 0)
   %217 = call i32 @llvm.umin.i32(i32 %216, i32 127)
   %218 = trunc nuw nsw i32 %217 to i16
-  %219 = getelementptr inbounds nuw [6 x i16], ptr %6, i64 %indvars.iv245
+  %219 = getelementptr inbounds nuw [12 x i8], ptr %6, i64 %indvars.iv245
   store i16 %218, ptr %219, align 4, !tbaa !100
   %220 = add nsw i32 %198, %.0
   %221 = call i32 @llvm.smax.i32(i32 %220, i32 0)
@@ -531,10 +531,10 @@ define internal i32 @vaapi_vp8_decode_slice(ptr noundef %0, ptr noundef %1, i32 
 
 40:                                               ; preds = %3, %40
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %40 ]
-  %41 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %indvars.iv
   %42 = load i32, ptr %41, align 4, !tbaa !73
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %43 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv.next
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %indvars.iv.next
   store i32 %42, ptr %43, align 4, !tbaa !73
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
   br i1 %exitcond.not, label %44, label %40, !llvm.loop !105

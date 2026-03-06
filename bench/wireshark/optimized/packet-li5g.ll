@@ -222,12 +222,12 @@ define internal i32 @dissect_li5g(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 34:                                               ; preds = %.lr.ph
   %35 = zext nneg i16 %30 to i64
-  %36 = getelementptr i32, ptr @hf_li5g_attrContents, i64 %35
+  %36 = getelementptr [4 x i8], ptr @hf_li5g_attrContents, i64 %35
   %37 = load i32, ptr %36, align 4
   %38 = add i32 %.0108124, 4
   %39 = zext i16 %32 to i32
   %40 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %37, ptr noundef %0, i32 noundef %38, i32 noundef %39, i32 noundef 0)
-  %41 = getelementptr i32, ptr @ett_attrContents, i64 %35
+  %41 = getelementptr [4 x i8], ptr @ett_attrContents, i64 %35
   %42 = load i32, ptr %41, align 4
   %43 = call ptr @proto_item_add_subtree(ptr noundef %40, i32 noundef %42)
   %44 = load i32, ptr @hf_li5g_attrType, align 4

@@ -2441,7 +2441,7 @@ define internal ptr @typealias_new(ptr readnone captures(none) %0, ptr noundef %
 39:                                               ; preds = %Py_DECREF.exit.i.i, %.lr.ph.i.i
   %.02444.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %116, %Py_DECREF.exit.i.i ]
   %.02543.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %.126.i.i, %Py_DECREF.exit.i.i ]
-  %40 = getelementptr ptr, ptr %37, i64 %.02444.i.i
+  %40 = getelementptr [8 x i8], ptr %37, i64 %.02444.i.i
   %41 = load ptr, ptr %40, align 8, !tbaa !16
   %.val33.i.i = load ptr, ptr %38, align 8, !tbaa !39
   %42 = getelementptr inbounds nuw i8, ptr %.val33.i.i, i64 224504
@@ -2962,7 +2962,7 @@ define internal fastcc ptr @unpack_typevartuples(ptr noundef captures(ret: addre
 
 .lr.ph.i:                                         ; preds = %1, %10
   %.01317.i = phi i64 [ %11, %10 ], [ 0, %1 ]
-  %12 = getelementptr ptr, ptr %9, i64 %.01317.i
+  %12 = getelementptr [8 x i8], ptr %9, i64 %.01317.i
   %13 = load ptr, ptr %12, align 8, !tbaa !16
   %14 = getelementptr i8, ptr %13, i64 8
   %.val15.i = load ptr, ptr %14, align 8, !tbaa !18
@@ -2985,7 +2985,7 @@ contains_typevartuple.exit:                       ; preds = %.lr.ph.i
 
 23:                                               ; preds = %.lr.ph, %.critedge
   %.03042 = phi i64 [ 0, %.lr.ph ], [ %41, %.critedge ]
-  %24 = getelementptr ptr, ptr %9, i64 %.03042
+  %24 = getelementptr [8 x i8], ptr %9, i64 %.03042
   %25 = load ptr, ptr %24, align 8, !tbaa !16
   %26 = getelementptr i8, ptr %25, i64 8
   %.val36 = load ptr, ptr %26, align 8, !tbaa !18
@@ -3024,7 +3024,7 @@ contains_typevartuple.exit:                       ; preds = %.lr.ph.i
 
 .critedge:                                        ; preds = %38, %35, %27
   %.sink = phi ptr [ %28, %27 ], [ %25, %35 ], [ %25, %38 ]
-  %40 = getelementptr ptr, ptr %22, i64 %.03042
+  %40 = getelementptr [8 x i8], ptr %22, i64 %.03042
   store ptr %.sink, ptr %40, align 8, !tbaa !16
   %41 = add nuw nsw i64 %.03042, 1
   %exitcond.not = icmp eq i64 %41, %.val.i
@@ -3686,7 +3686,7 @@ define internal ptr @constevaluator_call(ptr noundef readonly captures(none) %0,
 
 30:                                               ; preds = %.lr.ph, %28
   %.02943 = phi i64 [ 0, %.lr.ph ], [ %29, %28 ]
-  %31 = getelementptr ptr, ptr %26, i64 %.02943
+  %31 = getelementptr [8 x i8], ptr %26, i64 %.02943
   %32 = load ptr, ptr %31, align 8, !tbaa !16
   %.not40 = icmp eq i64 %.02943, 0
   br i1 %.not40, label %37, label %33
@@ -7483,7 +7483,7 @@ Py_DECREF.exit35:                                 ; preds = %Py_DECREF.exit37, %
 
 38:                                               ; preds = %.lr.ph, %_Py_NewRef.exit40
   %.02750 = phi i64 [ 0, %.lr.ph ], [ %41, %_Py_NewRef.exit40 ]
-  %39 = getelementptr ptr, ptr %22, i64 %.02750
+  %39 = getelementptr [8 x i8], ptr %22, i64 %.02750
   %40 = load ptr, ptr %39, align 8, !tbaa !16
   %41 = add nuw nsw i64 %.02750, 1
   %42 = load i32, ptr %40, align 8, !tbaa !27
@@ -7496,7 +7496,7 @@ Py_DECREF.exit35:                                 ; preds = %Py_DECREF.exit37, %
   br label %_Py_NewRef.exit40
 
 _Py_NewRef.exit40:                                ; preds = %38, %44
-  %46 = getelementptr ptr, ptr %20, i64 %41
+  %46 = getelementptr [8 x i8], ptr %20, i64 %41
   store ptr %40, ptr %46, align 8, !tbaa !16
   %exitcond.not = icmp eq i64 %41, %.val
   br i1 %exitcond.not, label %._crit_edge, label %38, !llvm.loop !159

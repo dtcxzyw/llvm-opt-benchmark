@@ -10,10 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
 %struct.string_list = type { ptr, i64, i64, i8, ptr }
-%struct.snapshot_record = type { ptr, i64 }
 %struct.object_id = type { [32 x i8], i32 }
-%struct.string_list_item = type { ptr, ptr }
-%struct.jump_list_entry = type { ptr, ptr }
 
 @strbuf_slopbuf = external global [0 x i8], align 1
 @refs_be_packed = dso_local global %struct.ref_storage_be { ptr @.str.12, ptr @packed_ref_store_init, ptr @packed_ref_store_release, ptr @packed_ref_store_create_on_disk, ptr @packed_ref_store_remove_on_disk, ptr @packed_transaction_prepare, ptr @packed_transaction_finish, ptr @packed_transaction_abort, ptr @packed_pack_refs, ptr null, ptr null, ptr @packed_ref_iterator_begin, ptr @packed_read_raw_ref, ptr null, ptr @packed_reflog_iterator_begin, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @packed_fsck }, align 8
@@ -733,7 +730,7 @@ st_mult.exit109.i.i:                              ; preds = %215
 223:                                              ; preds = %st_mult.exit109.i.i, %212
   %.4.i.i = phi i64 [ %..i.i, %st_mult.exit109.i.i ], [ %.289145.i125.i49, %212 ]
   %.2.i.i = phi ptr [ %222, %st_mult.exit109.i.i ], [ %.1146.i124.i50, %212 ]
-  %224 = getelementptr inbounds nuw %struct.snapshot_record, ptr %.2.i.i, i64 %.091144.i126.i48
+  %224 = getelementptr inbounds nuw [16 x i8], ptr %.2.i.i, i64 %.091144.i126.i48
   store ptr %.095142.i128.i46, ptr %224, align 8, !tbaa !67
   %225 = ptrtoint ptr %.092.i.i to i64
   %226 = sub i64 %225, %198
@@ -820,7 +817,7 @@ cmp_packed_ref_records.exit.thread113.thread.i.i: ; preds = %cmp_packed_ref_reco
 .lr.ph152.i.i:                                    ; preds = %253, %.lr.ph152.i.i
   %.086150.i.i = phi ptr [ %260, %.lr.ph152.i.i ], [ %254, %253 ]
   %.090149.i.i = phi i64 [ %261, %.lr.ph152.i.i ], [ 0, %253 ]
-  %255 = getelementptr inbounds nuw %struct.snapshot_record, ptr %.2.i.i, i64 %.090149.i.i
+  %255 = getelementptr inbounds nuw [16 x i8], ptr %.2.i.i, i64 %.090149.i.i
   %256 = load ptr, ptr %255, align 8, !tbaa !67
   %257 = getelementptr inbounds nuw i8, ptr %255, i64 8
   %258 = load i64, ptr %257, align 8, !tbaa !69
@@ -1121,7 +1118,7 @@ packed_downcast.exit:                             ; preds = %10
 
 22:                                               ; preds = %.lr.ph, %31
   %.02440 = phi i64 [ 0, %.lr.ph ], [ %32, %31 ]
-  %23 = getelementptr inbounds nuw ptr, ptr %19, i64 %.02440
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.02440
   %24 = load ptr, ptr %23, align 8, !tbaa !76
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 88
   %26 = load i32, ptr %25, align 8, !tbaa !22
@@ -1148,7 +1145,7 @@ packed_downcast.exit:                             ; preds = %10
   %34 = phi i64 [ %17, %.lr.ph42 ], [ %49, %48 ]
   %.12541 = phi i64 [ 0, %.lr.ph42 ], [ %50, %48 ]
   %35 = load ptr, ptr %21, align 8, !tbaa !75
-  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %.12541
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %.12541
   %37 = load ptr, ptr %36, align 8, !tbaa !76
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -1349,7 +1346,7 @@ packed_downcast.exit:                             ; preds = %10
 21:                                               ; preds = %.lr.ph, %21
   %.02750 = phi i64 [ 0, %.lr.ph ], [ %28, %21 ]
   %22 = load ptr, ptr %20, align 8, !tbaa !75
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %.02750
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %.02750
   %24 = load ptr, ptr %23, align 8, !tbaa !76
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 144
   %26 = tail call ptr @string_list_append(ptr noundef nonnull %16, ptr noundef nonnull %25) #18
@@ -1460,14 +1457,14 @@ select.unfold.i:                                  ; preds = %select.unfold.i.bac
 
 .thread133.thread190.i:                           ; preds = %66
   %67 = load ptr, ptr %16, align 8, !tbaa !92
-  %68 = getelementptr inbounds nuw %struct.string_list_item, ptr %67, i64 %.085.i
+  %68 = getelementptr inbounds nuw [16 x i8], ptr %67, i64 %.085.i
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %70 = load ptr, ptr %69, align 8, !tbaa !81
   br label %99
 
 71:                                               ; preds = %.critedge.thread.i
   %72 = load ptr, ptr %16, align 8, !tbaa !92
-  %73 = getelementptr inbounds nuw %struct.string_list_item, ptr %72, i64 %.085.i
+  %73 = getelementptr inbounds nuw [16 x i8], ptr %72, i64 %.085.i
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %75 = load ptr, ptr %74, align 8, !tbaa !81
   %76 = getelementptr inbounds nuw i8, ptr %.3.i, i64 8
@@ -2325,7 +2322,7 @@ st_mult.exit.i:                                   ; preds = %180
   %190 = phi i64 [ %176, %._crit_edge144.i ], [ %.pre145.i, %st_mult.exit.i ]
   %191 = phi ptr [ %.pre.i, %._crit_edge144.i ], [ %188, %st_mult.exit.i ]
   store i64 %.pre-phi.i, ptr %81, align 8, !tbaa !102
-  %192 = getelementptr inbounds nuw %struct.jump_list_entry, ptr %191, i64 %190
+  %192 = getelementptr inbounds nuw [16 x i8], ptr %191, i64 %190
   store ptr %.2.i.i.i, ptr %192, align 8, !tbaa !108
   %193 = getelementptr inbounds nuw i8, ptr %192, i64 8
   store ptr %.2.i.i88.i, ptr %193, align 8, !tbaa !110
@@ -2365,7 +2362,7 @@ sane_qsort.exit.i:                                ; preds = %198
   %.050127.i = phi i64 [ %.1.i, %214 ], [ 1, %.lr.ph129.i.preheader ]
   %.052126.i = phi ptr [ %.153.i, %214 ], [ %.pre146.i, %.lr.ph129.i.preheader ]
   %202 = load ptr, ptr %199, align 8, !tbaa !107
-  %203 = getelementptr inbounds nuw %struct.jump_list_entry, ptr %202, i64 %.0128.i
+  %203 = getelementptr inbounds nuw [16 x i8], ptr %202, i64 %.0128.i
   %204 = load ptr, ptr %203, align 8, !tbaa !108
   %205 = getelementptr inbounds nuw i8, ptr %.052126.i, i64 8
   %206 = load ptr, ptr %205, align 8, !tbaa !110
@@ -2382,7 +2379,7 @@ sane_qsort.exit.i:                                ; preds = %198
 
 211:                                              ; preds = %.lr.ph129.i
   %212 = add i64 %.050127.i, 1
-  %213 = getelementptr inbounds nuw %struct.jump_list_entry, ptr %202, i64 %.050127.i
+  %213 = getelementptr inbounds nuw [16 x i8], ptr %202, i64 %.050127.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %213, ptr noundef nonnull align 8 dereferenceable(16) %203, i64 16, i1 false), !tbaa.struct !112
   %.pre149.i = load i64, ptr %196, align 8, !tbaa !102
   br label %214
@@ -2935,7 +2932,7 @@ strbuf_setlen.exit.i:                             ; preds = %21, %.backedge
 
 26:                                               ; preds = %23
   %27 = load ptr, ptr %8, align 8, !tbaa !107
-  %28 = getelementptr inbounds nuw %struct.jump_list_entry, ptr %27, i64 %24
+  %28 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %24
   %29 = load ptr, ptr %9, align 8, !tbaa !116
   %30 = load ptr, ptr %28, align 8, !tbaa !108
   %31 = icmp ult ptr %29, %30
@@ -3065,7 +3062,7 @@ strbuf_setlen.exit.i:                             ; preds = %21, %.backedge
 
 100:                                              ; preds = %102, %96
   %.0811.i.i.i = phi i64 [ 0, %96 ], [ %103, %102 ]
-  %101 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i.i
+  %101 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %.0811.i.i.i
   %.not.i.i.i = icmp eq ptr %99, %101
   br i1 %.not.i.i.i, label %.split.loop.exit9.i.i.i, label %102
 
@@ -3182,7 +3179,7 @@ oidclr.exit.i:                                    ; preds = %102, %.split.loop.e
 
 161:                                              ; preds = %163, %157
   %.0811.i.i82.i = phi i64 [ 0, %157 ], [ %164, %163 ]
-  %162 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i82.i
+  %162 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %.0811.i.i82.i
   %.not.i.i83.i = icmp eq ptr %160, %162
   br i1 %.not.i.i83.i, label %.split.loop.exit9.i.i86.i, label %163
 
@@ -3216,7 +3213,7 @@ oidclr.exit87.i:                                  ; preds = %163, %.split.loop.e
 
 173:                                              ; preds = %175, %169
   %.0811.i.i88.i = phi i64 [ 0, %169 ], [ %176, %175 ]
-  %174 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i88.i
+  %174 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %.0811.i.i88.i
   %.not.i.i89.i = icmp eq ptr %172, %174
   br i1 %.not.i.i89.i, label %.split.loop.exit9.i.i92.i, label %175
 

@@ -1885,9 +1885,9 @@ define i32 @kinLsDenseDQJac(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
   %.04447 = phi i64 [ 0, %.lr.ph ], [ %44, %41 ]
   %21 = tail call ptr @SUNDenseMatrix_Column(ptr noundef %2, i64 noundef %.04447) #13
   tail call void @N_VSetArrayPointer(ptr noundef %21, ptr noundef %5) #13
-  %22 = getelementptr inbounds nuw double, ptr %11, i64 %.04447
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.04447
   %23 = load double, ptr %22, align 8, !tbaa !84
-  %24 = getelementptr inbounds nuw double, ptr %14, i64 %.04447
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.04447
   %25 = load double, ptr %24, align 8, !tbaa !84
   %26 = fdiv double 1.000000e+00, %25
   %27 = fcmp oge double %23, 0.000000e+00
@@ -1960,17 +1960,17 @@ define i32 @kinLsBandDQJac(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.092105 = phi i64 [ %40, %.lr.ph ], [ %26, %.lr.ph.preheader ]
   %27 = load double, ptr %22, align 8, !tbaa !89
-  %28 = getelementptr inbounds double, ptr %14, i64 %.092105
+  %28 = getelementptr inbounds [8 x i8], ptr %14, i64 %.092105
   %29 = load double, ptr %28, align 8, !tbaa !84
   %30 = tail call double @llvm.fabs.f64(double %29)
-  %31 = getelementptr inbounds double, ptr %17, i64 %.092105
+  %31 = getelementptr inbounds [8 x i8], ptr %17, i64 %.092105
   %32 = load double, ptr %31, align 8, !tbaa !84
   %33 = tail call double @llvm.fabs.f64(double %32)
   %34 = fdiv double 1.000000e+00, %33
   %35 = fcmp ogt double %30, %34
   %. = select i1 %35, double %30, double %34
   %36 = fmul double %27, %.
-  %37 = getelementptr inbounds double, ptr %18, i64 %.092105
+  %37 = getelementptr inbounds [8 x i8], ptr %18, i64 %.092105
   %38 = load double, ptr %37, align 8, !tbaa !84
   %39 = fadd double %38, %36
   store double %39, ptr %37, align 8, !tbaa !84
@@ -1987,15 +1987,15 @@ define i32 @kinLsBandDQJac(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
 
 .lr.ph112:                                        ; preds = %._crit_edge, %._crit_edge110
   %.1111 = phi i64 [ %72, %._crit_edge110 ], [ %26, %._crit_edge ]
-  %45 = getelementptr inbounds double, ptr %14, i64 %.1111
+  %45 = getelementptr inbounds [8 x i8], ptr %14, i64 %.1111
   %46 = load double, ptr %45, align 8, !tbaa !84
-  %47 = getelementptr inbounds double, ptr %18, i64 %.1111
+  %47 = getelementptr inbounds [8 x i8], ptr %18, i64 %.1111
   store double %46, ptr %47, align 8, !tbaa !84
   %48 = tail call ptr @SUNBandMatrix_Column(ptr noundef %2, i64 noundef %.1111) #13
   %49 = load double, ptr %22, align 8, !tbaa !89
   %50 = load double, ptr %45, align 8, !tbaa !84
   %51 = tail call double @llvm.fabs.f64(double %50)
-  %52 = getelementptr inbounds double, ptr %17, i64 %.1111
+  %52 = getelementptr inbounds [8 x i8], ptr %17, i64 %.1111
   %53 = load double, ptr %52, align 8, !tbaa !84
   %54 = tail call double @llvm.fabs.f64(double %53)
   %55 = fdiv double 1.000000e+00, %54
@@ -2012,14 +2012,14 @@ define i32 @kinLsBandDQJac(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
 
 .lr.ph109:                                        ; preds = %.lr.ph112, %.lr.ph109
   %.091107 = phi i64 [ %71, %.lr.ph109 ], [ %60, %.lr.ph112 ]
-  %63 = getelementptr inbounds nuw double, ptr %13, i64 %.091107
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.091107
   %64 = load double, ptr %63, align 8, !tbaa !84
-  %65 = getelementptr inbounds nuw double, ptr %12, i64 %.091107
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.091107
   %66 = load double, ptr %65, align 8, !tbaa !84
   %67 = fsub double %64, %66
   %68 = fmul double %58, %67
   %69 = sub nsw i64 %.091107, %.1111
-  %70 = getelementptr inbounds double, ptr %48, i64 %69
+  %70 = getelementptr inbounds [8 x i8], ptr %48, i64 %69
   store double %68, ptr %70, align 8, !tbaa !84
   %71 = add nuw nsw i64 %.091107, 1
   %.not103.not = icmp slt i64 %.091107, %62

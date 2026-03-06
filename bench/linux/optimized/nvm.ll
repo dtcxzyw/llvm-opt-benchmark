@@ -173,7 +173,7 @@ define dso_local noundef range(i32 -1, 1) i32 @e1000e_read_nvm_eerd(ptr noundef 
   %33 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %32) #5, !srcloc !5
   %34 = lshr i32 %33, 16
   %35 = trunc nuw i32 %34 to i16
-  %36 = getelementptr i16, ptr %3, i64 %15
+  %36 = getelementptr [2 x i8], ptr %3, i64 %15
   store i16 %35, ptr %36, align 2
   %37 = add nuw nsw i64 %15, 1
   %38 = icmp eq i64 %37, %13
@@ -392,7 +392,7 @@ define dso_local i32 @e1000e_write_nvm_spi(ptr noundef %0, i16 noundef zeroext %
 
 .preheader:                                       ; preds = %.preheader.preheader, %170
   %indvars.iv = phi i64 [ %140, %.preheader.preheader ], [ %indvars.iv.next, %170 ]
-  %141 = getelementptr i16, ptr %3, i64 %indvars.iv
+  %141 = getelementptr [2 x i8], ptr %3, i64 %indvars.iv
   %142 = load i16, ptr %141, align 2
   %143 = tail call i16 @llvm.bswap.i16(i16 %142)
   tail call fastcc void @e1000_shift_out_eec_bits(ptr noundef %0, i16 noundef zeroext %143, i16 noundef zeroext 16)

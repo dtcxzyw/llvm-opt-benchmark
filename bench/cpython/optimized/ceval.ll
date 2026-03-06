@@ -921,8 +921,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union._PyStackRef = type { i64 }
 %struct.PyFrameConstructor = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct._PyInterpreterFrame = type { %union._PyStackRef, ptr, %union._PyStackRef, ptr, ptr, ptr, ptr, ptr, ptr, i16, i8, i8, [1 x %union._PyStackRef] }
-%union._Py_CODEUNIT = type { i16 }
-%struct.PyDictUnicodeEntry = type { ptr, ptr }
 
 @__func__._Py_CheckRecursiveCall = private unnamed_addr constant [23 x i8] c"_Py_CheckRecursiveCall\00", align 1
 @.str = private unnamed_addr constant [36 x i8] c"Cannot recover from stack overflow.\00", align 1
@@ -1334,7 +1332,7 @@ _PyObject_CallNoArgs.exit:                        ; preds = %_PyVectorcall_Funct
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %49
   %.099186.us = phi i64 [ %51, %49 ], [ 0, %.lr.ph ]
-  %38 = getelementptr ptr, ptr %34, i64 %.099186.us
+  %38 = getelementptr [8 x i8], ptr %34, i64 %.099186.us
   %39 = load ptr, ptr %38, align 8, !tbaa !100
   %40 = call i32 @PySet_Contains(ptr noundef nonnull %14, ptr noundef %39) #15
   %.not109.us = icmp eq i32 %40, 0
@@ -1360,7 +1358,7 @@ _PyObject_CallNoArgs.exit:                        ; preds = %_PyVectorcall_Funct
   br i1 %48, label %.split190.us, label %49
 
 49:                                               ; preds = %47
-  %50 = getelementptr ptr, ptr %37, i64 %.099186.us
+  %50 = getelementptr [8 x i8], ptr %37, i64 %.099186.us
   store ptr %45, ptr %50, align 8, !tbaa !100
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %51 = add nuw nsw i64 %.099186.us, 1
@@ -1369,7 +1367,7 @@ _PyObject_CallNoArgs.exit:                        ; preds = %_PyVectorcall_Funct
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %90
   %.099186 = phi i64 [ %92, %90 ], [ 0, %.lr.ph ]
-  %52 = getelementptr ptr, ptr %34, i64 %.099186
+  %52 = getelementptr [8 x i8], ptr %34, i64 %.099186
   %53 = load ptr, ptr %52, align 8, !tbaa !100
   %54 = call i32 @PySet_Contains(ptr noundef nonnull %14, ptr noundef %53) #15
   %.not109 = icmp eq i32 %54, 0
@@ -1462,7 +1460,7 @@ _PyErr_Occurred.exit.thread:                      ; preds = %.split.us, %_PyErr_
   br label %.thread157
 
 90:                                               ; preds = %66
-  %91 = getelementptr ptr, ptr %37, i64 %.099186
+  %91 = getelementptr [8 x i8], ptr %37, i64 %.099186
   store ptr %64, ptr %91, align 8, !tbaa !100
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %92 = add nuw nsw i64 %.099186, 1
@@ -1776,7 +1774,7 @@ define dso_local ptr @_PyEval_MatchClass(ptr noundef %0, ptr noundef %1, ptr nou
   %.0132237 = phi i64 [ %120, %119 ], [ 0, %.preheader ]
   %72 = load ptr, ptr %8, align 8, !tbaa !100
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  %74 = getelementptr ptr, ptr %73, i64 %.0132237
+  %74 = getelementptr [8 x i8], ptr %73, i64 %.0132237
   %75 = load ptr, ptr %74, align 8, !tbaa !100
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %77 = load ptr, ptr %76, align 8, !tbaa !103
@@ -1910,7 +1908,7 @@ match_class_attr.exit:                            ; preds = %86
 
 135:                                              ; preds = %.lr.ph240, %172
   %.0133239 = phi i64 [ 0, %.lr.ph240 ], [ %173, %172 ]
-  %136 = getelementptr ptr, ptr %134, i64 %.0133239
+  %136 = getelementptr [8 x i8], ptr %134, i64 %.0133239
   %137 = load ptr, ptr %136, align 8, !tbaa !100
   %138 = call i32 @PySet_Contains(ptr noundef nonnull %19, ptr noundef %137) #15
   %.not.i192 = icmp eq i32 %138, 0
@@ -2299,8 +2297,8 @@ Py_XINCREF.exit:                                  ; preds = %19, %20, %23
 
 .lr.ph:                                           ; preds = %Py_XINCREF.exit, %_Py_NewRef.exit50
   %.04253 = phi i64 [ %35, %_Py_NewRef.exit50 ], [ 0, %Py_XINCREF.exit ]
-  %27 = getelementptr %union._PyStackRef, ptr %.040, i64 %.04253
-  %28 = getelementptr ptr, ptr %3, i64 %.04253
+  %27 = getelementptr [8 x i8], ptr %.040, i64 %.04253
+  %28 = getelementptr [8 x i8], ptr %3, i64 %.04253
   %29 = load ptr, ptr %28, align 8, !tbaa !100
   %30 = load i32, ptr %29, align 8, !tbaa !113
   %31 = icmp slt i32 %30, 0
@@ -2332,8 +2330,8 @@ _Py_NewRef.exit50:                                ; preds = %.lr.ph, %32
 .lr.ph56:                                         ; preds = %36, %_Py_NewRef.exit52
   %.04154 = phi i64 [ %50, %_Py_NewRef.exit52 ], [ 0, %36 ]
   %41 = add i64 %.04154, %4
-  %42 = getelementptr %union._PyStackRef, ptr %.040, i64 %41
-  %43 = getelementptr ptr, ptr %3, i64 %41
+  %42 = getelementptr [8 x i8], ptr %.040, i64 %41
+  %43 = getelementptr [8 x i8], ptr %3, i64 %41
   %44 = load ptr, ptr %43, align 8, !tbaa !100
   %45 = load i32, ptr %44, align 8, !tbaa !113
   %46 = icmp slt i32 %45, 0
@@ -2509,10 +2507,10 @@ define dso_local ptr @_PyObjectArray_FromStackRefArray(ptr noundef readonly capt
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %13 = phi i64 [ %19, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %.018 = phi i32 [ %18, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %14 = getelementptr %union._PyStackRef, ptr %0, i64 %13
+  %14 = getelementptr [8 x i8], ptr %0, i64 %13
   %15 = load i64, ptr %14, align 8, !tbaa !113
   %16 = inttoptr i64 %15 to ptr
-  %17 = getelementptr ptr, ptr %.01321, i64 %13
+  %17 = getelementptr [8 x i8], ptr %.01321, i64 %13
   store ptr %16, ptr %17, align 8, !tbaa !100
   %18 = add i32 %.018, 1
   %19 = sext i32 %18 to i64
@@ -2758,7 +2756,7 @@ _Py_EnsureFuncTstateNotNULL.exit:                 ; preds = %3
   %116 = getelementptr inbounds nuw i8, ptr %.2, i64 64
   store ptr %.18897, ptr %116, align 8, !tbaa !136
   %117 = sext i32 %.08890 to i64
-  %118 = getelementptr ptr, ptr @_PyEval_BinaryOps, i64 %117
+  %118 = getelementptr [8 x i8], ptr @_PyEval_BinaryOps, i64 %117
   %119 = load ptr, ptr %118, align 8, !tbaa !144
   %120 = call ptr %119(ptr noundef %114, ptr noundef %115) #15
   %121 = load ptr, ptr %116, align 8, !tbaa !136
@@ -3133,7 +3131,7 @@ _Py_EnsureFuncTstateNotNULL.exit:                 ; preds = %3
   %320 = load i8, ptr %319, align 1, !tbaa !113
   %321 = getelementptr inbounds nuw i8, ptr %.2, i64 80
   %322 = zext i8 %320 to i64
-  %323 = getelementptr %union._PyStackRef, ptr %321, i64 %322
+  %323 = getelementptr [8 x i8], ptr %321, i64 %322
   %324 = load i64, ptr %323, align 8, !tbaa !113
   %.not9814 = icmp eq i64 %324, %.sroa.04668.0.copyload
   br i1 %.not9814, label %325, label %101
@@ -3811,7 +3809,7 @@ _Py_NewRef.exit:                                  ; preds = %669, %672
   %675 = ptrtoint ptr %650 to i64
   %676 = getelementptr i8, ptr %.28898, i64 -8
   %.sroa.04450.0.copyload = load i64, ptr %676, align 8, !tbaa !113
-  %677 = getelementptr ptr, ptr %674, i64 %.pre-phi12588
+  %677 = getelementptr [8 x i8], ptr %674, i64 %.pre-phi12588
   store ptr %677, ptr %10248, align 8, !tbaa !165
   %678 = getelementptr inbounds nuw i8, ptr %674, i64 8
   store ptr %.2, ptr %678, align 8, !tbaa !141
@@ -3843,7 +3841,7 @@ _Py_NewRef.exit.i.i:                              ; preds = %682, %_Py_NewRef.ex
   %693 = getelementptr inbounds nuw i8, ptr %.val10515, i64 72
   %694 = load i32, ptr %693, align 8, !tbaa !174
   %695 = sext i32 %694 to i64
-  %696 = getelementptr %union._PyStackRef, ptr %692, i64 %695
+  %696 = getelementptr [8 x i8], ptr %692, i64 %695
   %697 = getelementptr inbounds nuw i8, ptr %674, i64 64
   store ptr %696, ptr %697, align 8, !tbaa !136
   %698 = getelementptr inbounds nuw i8, ptr %674, i64 48
@@ -3862,7 +3860,7 @@ _Py_NewRef.exit.i.i:                              ; preds = %682, %_Py_NewRef.ex
 
 .lr.ph.i.i:                                       ; preds = %_Py_NewRef.exit.i.i, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 2, %_Py_NewRef.exit.i.i ]
-  %705 = getelementptr %union._PyStackRef, ptr %692, i64 %indvars.iv.i.i
+  %705 = getelementptr [8 x i8], ptr %692, i64 %indvars.iv.i.i
   store i64 0, ptr %705, align 8, !tbaa !113
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %706 = load i32, ptr %693, align 8, !tbaa !174
@@ -3936,7 +3934,7 @@ _PyFrame_PushUnchecked.exit:                      ; preds = %_PyFrame_PushUnchec
 742:                                              ; preds = %737
   %743 = getelementptr inbounds nuw i8, ptr %725, i64 24
   %744 = load ptr, ptr %743, align 8, !tbaa !181
-  %745 = getelementptr ptr, ptr %744, i64 %740
+  %745 = getelementptr [8 x i8], ptr %744, i64 %740
   %746 = load ptr, ptr %745, align 8, !tbaa !100
   %747 = load i32, ptr %746, align 8, !tbaa !113
   %748 = icmp slt i32 %747, 0
@@ -4092,7 +4090,7 @@ _PyUnicode_DATA.exit.i:                           ; preds = %808, %806
 
 _PyUnicode_DATA.exit17.i:                         ; preds = %816, %814
   %.0.i15.i = phi ptr [ %.0.i.i14.i, %814 ], [ %.val4.i16.i, %816 ]
-  %818 = getelementptr i16, ptr %.0.i15.i, i64 %798
+  %818 = getelementptr [2 x i8], ptr %.0.i15.i, i64 %798
   %819 = load i16, ptr %818, align 2, !tbaa !143
   %820 = zext i16 %819 to i32
   br label %PyUnicode_READ_CHAR.exit
@@ -4114,7 +4112,7 @@ _PyUnicode_DATA.exit17.i:                         ; preds = %816, %814
 
 _PyUnicode_DATA.exit25.i:                         ; preds = %824, %822
   %.0.i23.i = phi ptr [ %.0.i.i22.i, %822 ], [ %.val4.i24.i, %824 ]
-  %826 = getelementptr i32, ptr %.0.i23.i, i64 %798
+  %826 = getelementptr [4 x i8], ptr %.0.i23.i, i64 %798
   %827 = load i32, ptr %826, align 4, !tbaa !180
   br label %PyUnicode_READ_CHAR.exit
 
@@ -4125,7 +4123,7 @@ PyUnicode_READ_CHAR.exit:                         ; preds = %_PyUnicode_DATA.exi
 
 829:                                              ; preds = %PyUnicode_READ_CHAR.exit
   %830 = zext nneg i32 %.0.i to i64
-  %831 = getelementptr %struct.anon.804, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 74616), i64 %830
+  %831 = getelementptr [48 x i8], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 74616), i64 %830
   %832 = load i32, ptr %782, align 8, !tbaa !113
   %.not9517 = icmp sgt i32 %832, -1
   br i1 %.not9517, label %833, label %842
@@ -4222,7 +4220,7 @@ PyUnicode_READ_CHAR.exit:                         ; preds = %_PyUnicode_DATA.exi
 
 881:                                              ; preds = %876
   %882 = getelementptr inbounds nuw i8, ptr %864, i64 24
-  %883 = getelementptr ptr, ptr %882, i64 %879
+  %883 = getelementptr [8 x i8], ptr %882, i64 %879
   %884 = load ptr, ptr %883, align 8, !tbaa !100
   %885 = load i32, ptr %884, align 8, !tbaa !113
   %886 = icmp slt i32 %885, 0
@@ -4297,7 +4295,7 @@ Py_INCREF.exit10104:                              ; preds = %881, %887
   %917 = getelementptr i8, ptr %.28893, i64 2
   %918 = sub i32 0, %.08890
   %919 = sext i32 %918 to i64
-  %920 = getelementptr %union._PyStackRef, ptr %.28898, i64 %919
+  %920 = getelementptr [8 x i8], ptr %.28898, i64 %919
   %921 = sext i32 %.08890 to i64
   %922 = call ptr @_PyList_FromStackRefStealOnSuccess(ptr noundef %920, i64 noundef %921) #15
   %923 = icmp eq ptr %922, null
@@ -4308,7 +4306,7 @@ Py_INCREF.exit10104:                              ; preds = %881, %887
   store i64 %925, ptr %920, align 8, !tbaa !113
   %926 = sub i32 1, %.08890
   %927 = sext i32 %926 to i64
-  %928 = getelementptr %union._PyStackRef, ptr %.28898, i64 %927
+  %928 = getelementptr [8 x i8], ptr %.28898, i64 %927
   %929 = load i16, ptr %917, align 2, !tbaa !143
   %.sroa.24330.0.extract.shift = lshr i16 %929, 8
   %.sroa.24330.0.extract.trunc = zext nneg i16 %.sroa.24330.0.extract.shift to i32
@@ -4322,7 +4320,7 @@ Py_INCREF.exit10104:                              ; preds = %881, %887
   %934 = getelementptr i8, ptr %.28893, i64 2
   %.neg = mul i32 %.08890, -2
   %935 = sext i32 %.neg to i64
-  %936 = getelementptr %union._PyStackRef, ptr %.28898, i64 %935
+  %936 = getelementptr [8 x i8], ptr %.28898, i64 %935
   %937 = getelementptr inbounds nuw i8, ptr %.2, i64 64
   store ptr %.28898, ptr %937, align 8, !tbaa !136
   %938 = getelementptr i8, ptr %936, i64 8
@@ -4342,7 +4340,7 @@ Py_INCREF.exit10104:                              ; preds = %881, %887
 
 .lr.ph11542:                                      ; preds = %.lr.ph11542.preheader, %958
   %indvars.iv12539 = phi i64 [ %946, %.lr.ph11542.preheader ], [ %indvars.iv.next12540, %958 ]
-  %947 = getelementptr %union._PyStackRef, ptr %936, i64 %indvars.iv12539
+  %947 = getelementptr [8 x i8], ptr %936, i64 %indvars.iv12539
   %948 = load i64, ptr %947, align 8, !tbaa !113
   %949 = inttoptr i64 %948 to ptr
   %950 = load i32, ptr %949, align 8, !tbaa !113
@@ -4373,16 +4371,16 @@ Py_INCREF.exit10104:                              ; preds = %881, %887
   br i1 %960, label %961, label %963
 
 961:                                              ; preds = %._crit_edge11543
-  %962 = getelementptr %union._PyStackRef, ptr %941, i64 %935
+  %962 = getelementptr [8 x i8], ptr %941, i64 %935
   br label %monitor_throw.exit
 
 963:                                              ; preds = %._crit_edge11543
   %964 = ptrtoint ptr %940 to i64
-  %965 = getelementptr %union._PyStackRef, ptr %941, i64 %935
+  %965 = getelementptr [8 x i8], ptr %941, i64 %935
   store i64 %964, ptr %965, align 8, !tbaa !113
   %966 = sub i32 1, %942
   %967 = sext i32 %966 to i64
-  %968 = getelementptr %union._PyStackRef, ptr %941, i64 %967
+  %968 = getelementptr [8 x i8], ptr %941, i64 %967
   %969 = load i16, ptr %934, align 2, !tbaa !143
   %.sroa.24313.0.extract.shift = lshr i16 %969, 8
   %.sroa.24313.0.extract.trunc = zext nneg i16 %.sroa.24313.0.extract.shift to i32
@@ -4396,7 +4394,7 @@ Py_INCREF.exit10104:                              ; preds = %881, %887
   %974 = getelementptr i8, ptr %.28893, i64 2
   %975 = sub i32 0, %.08890
   %976 = sext i32 %975 to i64
-  %977 = getelementptr %union._PyStackRef, ptr %.28898, i64 %976
+  %977 = getelementptr [8 x i8], ptr %.28898, i64 %976
   %978 = getelementptr inbounds nuw i8, ptr %.2, i64 64
   store ptr %.28898, ptr %978, align 8, !tbaa !136
   %979 = call ptr @PySet_New(ptr noundef null) #15
@@ -4424,7 +4422,7 @@ Py_INCREF.exit10104:                              ; preds = %881, %887
 
 .lr.ph11904:                                      ; preds = %.lr.ph11904.preheader, %997
   %indvars.iv12543 = phi i64 [ %985, %.lr.ph11904.preheader ], [ %indvars.iv.next12544, %997 ]
-  %986 = getelementptr %union._PyStackRef, ptr %977, i64 %indvars.iv12543
+  %986 = getelementptr [8 x i8], ptr %977, i64 %indvars.iv12543
   %987 = load i64, ptr %986, align 8, !tbaa !113
   %988 = inttoptr i64 %987 to ptr
   %989 = load i32, ptr %988, align 8, !tbaa !113
@@ -4451,7 +4449,7 @@ Py_INCREF.exit10104:                              ; preds = %881, %887
   br i1 %998, label %.lr.ph11904, label %._crit_edge11905, !llvm.loop !187
 
 ._crit_edge11905:                                 ; preds = %997, %.preheader
-  %999 = getelementptr %union._PyStackRef, ptr %980, i64 %976
+  %999 = getelementptr [8 x i8], ptr %980, i64 %976
   br label %monitor_throw.exit
 
 .preheader10897.loopexit:                         ; preds = %1011
@@ -4478,7 +4476,7 @@ Py_INCREF.exit10104:                              ; preds = %881, %887
 
 1005:                                             ; preds = %.lr.ph11536
   store ptr %.6890211535, ptr %978, align 8, !tbaa !136
-  %1006 = getelementptr %union._PyStackRef, ptr %977, i64 %indvars.iv12531
+  %1006 = getelementptr [8 x i8], ptr %977, i64 %indvars.iv12531
   %1007 = load i64, ptr %1006, align 8, !tbaa !113
   %1008 = inttoptr i64 %1007 to ptr
   %1009 = call i32 @PySet_Add(ptr noundef nonnull %979, ptr noundef %1008) #15
@@ -4495,7 +4493,7 @@ Py_INCREF.exit10104:                              ; preds = %881, %887
 
 .lr.ph11539:                                      ; preds = %.lr.ph11539.preheader, %1023
   %indvars.iv12536 = phi i64 [ %1003, %.lr.ph11539.preheader ], [ %indvars.iv.next12537, %1023 ]
-  %1012 = getelementptr %union._PyStackRef, ptr %977, i64 %indvars.iv12536
+  %1012 = getelementptr [8 x i8], ptr %977, i64 %indvars.iv12536
   %1013 = load i64, ptr %1012, align 8, !tbaa !113
   %1014 = inttoptr i64 %1013 to ptr
   %1015 = load i32, ptr %1014, align 8, !tbaa !113
@@ -4525,7 +4523,7 @@ Py_INCREF.exit10104:                              ; preds = %881, %887
   br i1 %.08933.lcssa, label %1037, label %1025
 
 1025:                                             ; preds = %._crit_edge11540
-  %1026 = getelementptr %union._PyStackRef, ptr %.68902.lcssa, i64 %976
+  %1026 = getelementptr [8 x i8], ptr %.68902.lcssa, i64 %976
   store ptr %1026, ptr %978, align 8, !tbaa !136
   %1027 = load i32, ptr %979, align 8, !tbaa !113
   %.not9748 = icmp sgt i32 %1027, -1
@@ -4552,11 +4550,11 @@ Py_INCREF.exit10104:                              ; preds = %881, %887
 
 1037:                                             ; preds = %._crit_edge11540
   %1038 = ptrtoint ptr %979 to i64
-  %1039 = getelementptr %union._PyStackRef, ptr %.68902.lcssa, i64 %976
+  %1039 = getelementptr [8 x i8], ptr %.68902.lcssa, i64 %976
   store i64 %1038, ptr %1039, align 8, !tbaa !113
   %1040 = sub i32 1, %.08890
   %1041 = sext i32 %1040 to i64
-  %1042 = getelementptr %union._PyStackRef, ptr %.68902.lcssa, i64 %1041
+  %1042 = getelementptr [8 x i8], ptr %.68902.lcssa, i64 %1041
   %1043 = load i16, ptr %974, align 2, !tbaa !143
   %.sroa.24278.0.extract.shift = lshr i16 %1043, 8
   %.sroa.24278.0.extract.trunc = zext nneg i16 %.sroa.24278.0.extract.shift to i32
@@ -4570,7 +4568,7 @@ Py_INCREF.exit10104:                              ; preds = %881, %887
   %1048 = getelementptr i8, ptr %.28893, i64 2
   %1049 = sub i32 0, %.08890
   %1050 = sext i32 %1049 to i64
-  %1051 = getelementptr %union._PyStackRef, ptr %.28898, i64 %1050
+  %1051 = getelementptr [8 x i8], ptr %.28898, i64 %1050
   %1052 = load i64, ptr %1051, align 8, !tbaa !113
   %1053 = inttoptr i64 %1052 to ptr
   %1054 = getelementptr i8, ptr %1051, i64 8
@@ -4600,7 +4598,7 @@ Py_INCREF.exit10104:                              ; preds = %881, %887
 
 .lr.ph11531:                                      ; preds = %.lr.ph11531.preheader, %1080
   %indvars.iv12528 = phi i64 [ %1068, %.lr.ph11531.preheader ], [ %indvars.iv.next12529, %1080 ]
-  %1069 = getelementptr %union._PyStackRef, ptr %1051, i64 %indvars.iv12528
+  %1069 = getelementptr [8 x i8], ptr %1051, i64 %indvars.iv12528
   %1070 = load i64, ptr %1069, align 8, !tbaa !113
   %1071 = inttoptr i64 %1070 to ptr
   %1072 = load i32, ptr %1071, align 8, !tbaa !113
@@ -4636,7 +4634,7 @@ Py_INCREF.exit10104:                              ; preds = %881, %887
   store i64 %1085, ptr %1051, align 8, !tbaa !113
   %1086 = sub i32 1, %.08890
   %1087 = sext i32 %1086 to i64
-  %1088 = getelementptr %union._PyStackRef, ptr %.28898, i64 %1087
+  %1088 = getelementptr [8 x i8], ptr %.28898, i64 %1087
   %1089 = load i16, ptr %1048, align 2, !tbaa !143
   %.sroa.24258.0.extract.shift = lshr i16 %1089, 8
   %.sroa.24258.0.extract.trunc = zext nneg i16 %.sroa.24258.0.extract.shift to i32
@@ -4650,7 +4648,7 @@ Py_INCREF.exit10104:                              ; preds = %881, %887
   %1094 = getelementptr i8, ptr %.28893, i64 2
   %1095 = sub i32 0, %.08890
   %1096 = sext i32 %1095 to i64
-  %1097 = getelementptr %union._PyStackRef, ptr %.28898, i64 %1096
+  %1097 = getelementptr [8 x i8], ptr %.28898, i64 %1096
   %1098 = sext i32 %.08890 to i64
   %1099 = call ptr @_PyUnicode_JoinArray(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 35376), ptr noundef %1097, i64 noundef %1098) #15
   %1100 = add i32 %.08890, -1
@@ -4663,7 +4661,7 @@ Py_INCREF.exit10104:                              ; preds = %881, %887
 
 .lr.ph11528:                                      ; preds = %.lr.ph11528.preheader, %1114
   %indvars.iv12525 = phi i64 [ %1102, %.lr.ph11528.preheader ], [ %indvars.iv.next12526, %1114 ]
-  %1103 = getelementptr %union._PyStackRef, ptr %1097, i64 %indvars.iv12525
+  %1103 = getelementptr [8 x i8], ptr %1097, i64 %indvars.iv12525
   %1104 = load i64, ptr %1103, align 8, !tbaa !113
   %1105 = inttoptr i64 %1104 to ptr
   %1106 = load i32, ptr %1105, align 8, !tbaa !113
@@ -4698,7 +4696,7 @@ Py_INCREF.exit10104:                              ; preds = %881, %887
   store i64 %1118, ptr %1097, align 8, !tbaa !113
   %1119 = sub i32 1, %.08890
   %1120 = sext i32 %1119 to i64
-  %1121 = getelementptr %union._PyStackRef, ptr %.28898, i64 %1120
+  %1121 = getelementptr [8 x i8], ptr %.28898, i64 %1120
   %1122 = load i16, ptr %1094, align 2, !tbaa !143
   %.sroa.24242.0.extract.shift = lshr i16 %1122, 8
   %.sroa.24242.0.extract.trunc = zext nneg i16 %.sroa.24242.0.extract.shift to i32
@@ -4712,7 +4710,7 @@ Py_INCREF.exit10104:                              ; preds = %881, %887
   %1127 = getelementptr i8, ptr %.28893, i64 2
   %1128 = sub i32 0, %.08890
   %1129 = sext i32 %1128 to i64
-  %1130 = getelementptr %union._PyStackRef, ptr %.28898, i64 %1129
+  %1130 = getelementptr [8 x i8], ptr %.28898, i64 %1129
   %1131 = sext i32 %.08890 to i64
   %1132 = call ptr @_PyTuple_FromStackRefStealOnSuccess(ptr noundef %1130, i64 noundef %1131) #15
   %1133 = icmp eq ptr %1132, null
@@ -4723,7 +4721,7 @@ Py_INCREF.exit10104:                              ; preds = %881, %887
   store i64 %1135, ptr %1130, align 8, !tbaa !113
   %1136 = sub i32 1, %.08890
   %1137 = sext i32 %1136 to i64
-  %1138 = getelementptr %union._PyStackRef, ptr %.28898, i64 %1137
+  %1138 = getelementptr [8 x i8], ptr %.28898, i64 %1137
   %1139 = load i16, ptr %1127, align 2, !tbaa !143
   %.sroa.24235.0.extract.shift = lshr i16 %1139, 8
   %.sroa.24235.0.extract.trunc = zext nneg i16 %.sroa.24235.0.extract.shift to i32
@@ -4748,10 +4746,10 @@ _PyThreadState_HasStackSpace.exit10601.thread:    ; preds = %3337, %1491, %1344,
   %.5 = phi ptr [ %1146, %1144 ], [ %1319, %1317 ], [ %1319, %1341 ], [ %1319, %_PyThreadState_HasStackSpace.exit10601 ], [ %1319, %1337 ], [ %1319, %1323 ], [ %1429, %1427 ], [ %1429, %1442 ], [ %1429, %1478 ], [ %1429, %1482 ], [ %1429, %1502 ], [ %1429, %_PyThreadState_HasStackSpace.exit10607 ], [ %1429, %1471 ], [ %1429, %1433 ], [ %1531, %1529 ], [ %1531, %1535 ], [ %1531, %1552 ], [ %1531, %1555 ], [ %1531, %1546 ], [ %1622, %1637 ], [ %1622, %1620 ], [ %1711, %1729 ], [ %1711, %1709 ], [ %1801, %1819 ], [ %1801, %1799 ], [ %1891, %1889 ], [ %1891, %1910 ], [ %1891, %1913 ], [ %1891, %1906 ], [ %2177, %2175 ], [ %2177, %2190 ], [ %2713, %2711 ], [ %2713, %2726 ], [ %2772, %2770 ], [ %2772, %2781 ], [ %2826, %2844 ], [ %2826, %2849 ], [ %2826, %2824 ], [ %2929, %2947 ], [ %2929, %2952 ], [ %2929, %2927 ], [ %3032, %3030 ], [ %3032, %3060 ], [ %3032, %3063 ], [ %3032, %3051 ], [ %3032, %3047 ], [ %3114, %3112 ], [ %3114, %3133 ], [ %3114, %3138 ], [ %3114, %3141 ], [ %3114, %3129 ], [ %3221, %3219 ], [ %3308, %3337 ], [ %3308, %3306 ], [ %3308, %3321 ], [ %3308, %3325 ], [ %3308, %3348 ], [ %3308, %_PyThreadState_HasStackSpace.exit10633 ], [ %3308, %3312 ], [ %3377, %3375 ], [ %3377, %3390 ], [ %3377, %3381 ], [ %3435, %3433 ], [ %3475, %3473 ], [ %3515, %3513 ], [ %1429, %1491 ], [ %1319, %1344 ]
   %1147 = xor i32 %.08890, -1
   %1148 = sext i32 %1147 to i64
-  %1149 = getelementptr %union._PyStackRef, ptr %.88904, i64 %1148
+  %1149 = getelementptr [8 x i8], ptr %.88904, i64 %1148
   %1150 = sub i32 -2, %.08890
   %1151 = sext i32 %1150 to i64
-  %1152 = getelementptr %union._PyStackRef, ptr %.88904, i64 %1151
+  %1152 = getelementptr [8 x i8], ptr %.88904, i64 %1151
   %1153 = getelementptr i8, ptr %.28893, i64 2
   %.val10478 = load i16, ptr %1153, align 2, !tbaa !143
   %1154 = icmp ult i16 %.val10478, 15
@@ -4790,9 +4788,9 @@ _PyThreadState_HasStackSpace.exit10601.thread:    ; preds = %3337, %1491, %1344,
   br i1 %1175, label %1182, label %.thread13178
 
 .thread13178:                                     ; preds = %1173
-  %1176 = getelementptr %union._PyStackRef, ptr %.88904, i64 %1168
-  %1177 = getelementptr %union._PyStackRef, ptr %.88904, i64 %1148
-  %1178 = getelementptr %union._PyStackRef, ptr %.88904, i64 %1151
+  %1176 = getelementptr [8 x i8], ptr %.88904, i64 %1168
+  %1177 = getelementptr [8 x i8], ptr %.88904, i64 %1148
+  %1178 = getelementptr [8 x i8], ptr %.88904, i64 %1151
   %1179 = load i64, ptr %1177, align 8, !tbaa !113
   %1180 = icmp eq i64 %1179, 0
   %1181 = add i32 %.08890, 1
@@ -4855,7 +4853,7 @@ _Py_NewRef.exit10598:                             ; preds = %_Py_NewRef.exit1059
 1207:                                             ; preds = %1200, %1203, %_Py_NewRef.exit10598
   %1208 = load ptr, ptr %1197, align 8, !tbaa !136
   store ptr null, ptr %1197, align 8, !tbaa !136
-  %.phi.trans.insert12572 = getelementptr %union._PyStackRef, ptr %1208, i64 %1151
+  %.phi.trans.insert12572 = getelementptr [8 x i8], ptr %1208, i64 %1151
   %.pre12573 = load i64, ptr %.phi.trans.insert12572, align 8, !tbaa !113
   %.phi.trans.insert12574 = inttoptr i64 %.pre12573 to ptr
   %.phi.trans.insert12575 = getelementptr i8, ptr %.phi.trans.insert12574, i64 8
@@ -4866,9 +4864,9 @@ _Py_NewRef.exit10598:                             ; preds = %_Py_NewRef.exit1059
   %.pre-phi = phi ptr [ %.phi.trans.insert12574, %1207 ], [ %1170, %1165 ]
   %.val10392 = phi ptr [ %.val10392.pre, %1207 ], [ %.val10394, %1165 ]
   %.98905 = phi ptr [ %1208, %1207 ], [ %.88904, %1165 ]
-  %1210 = getelementptr %union._PyStackRef, ptr %.98905, i64 %1168
-  %1211 = getelementptr %union._PyStackRef, ptr %.98905, i64 %1148
-  %1212 = getelementptr %union._PyStackRef, ptr %.98905, i64 %1151
+  %1210 = getelementptr [8 x i8], ptr %.98905, i64 %1168
+  %1211 = getelementptr [8 x i8], ptr %.98905, i64 %1148
+  %1212 = getelementptr [8 x i8], ptr %.98905, i64 %1151
   %1213 = load i64, ptr %1211, align 8, !tbaa !113
   %1214 = icmp eq i64 %1213, 0
   %1215 = add i32 %.08890, 1
@@ -4921,7 +4919,7 @@ _Py_NewRef.exit10599:                             ; preds = %1235, %1231, %1226
   %1241 = call ptr @_PyEvalFramePushAndInit(ptr noundef nonnull %0, i64 %1240, ptr noundef %1237, ptr noundef %.08940, i64 noundef %1239, ptr noundef null, ptr noundef nonnull %.2)
   %1242 = load ptr, ptr %1238, align 8, !tbaa !136
   store ptr null, ptr %1238, align 8, !tbaa !136
-  %1243 = getelementptr %union._PyStackRef, ptr %1242, i64 %1151
+  %1243 = getelementptr [8 x i8], ptr %1242, i64 %1151
   %1244 = icmp eq ptr %1241, null
   br i1 %1244, label %monitor_throw.exit, label %1245
 
@@ -5003,7 +5001,7 @@ _Py_NewRef.exit10599:                             ; preds = %1235, %1231, %1226
 
 .lr.ph11525:                                      ; preds = %.lr.ph11525.preheader, %1294
   %indvars.iv12522 = phi i64 [ %1282, %.lr.ph11525.preheader ], [ %indvars.iv.next12523, %1294 ]
-  %1283 = getelementptr %union._PyStackRef, ptr %1251, i64 %indvars.iv12522
+  %1283 = getelementptr [8 x i8], ptr %1251, i64 %indvars.iv12522
   %1284 = load i64, ptr %1283, align 8, !tbaa !113
   %1285 = inttoptr i64 %1284 to ptr
   %1286 = load i32, ptr %1285, align 8, !tbaa !113
@@ -5034,7 +5032,7 @@ _Py_NewRef.exit10599:                             ; preds = %1235, %1231, %1226
   br i1 %1296, label %1297, label %1299
 
 1297:                                             ; preds = %._crit_edge11526
-  %1298 = getelementptr %union._PyStackRef, ptr %1256, i64 %1151
+  %1298 = getelementptr [8 x i8], ptr %1256, i64 %1151
   br label %monitor_throw.exit
 
 1299:                                             ; preds = %._crit_edge11526
@@ -5045,9 +5043,9 @@ _Py_NewRef.exit10599:                             ; preds = %1235, %1231, %1226
   br i1 %.not9741, label %1311, label %1303
 
 1303:                                             ; preds = %1299
-  %1304 = getelementptr %union._PyStackRef, ptr %1256, i64 %1151
+  %1304 = getelementptr [8 x i8], ptr %1256, i64 %1151
   store i64 %1300, ptr %1304, align 8, !tbaa !113
-  %1305 = getelementptr %union._PyStackRef, ptr %1256, i64 %1148
+  %1305 = getelementptr [8 x i8], ptr %1256, i64 %1148
   store ptr %1305, ptr %1252, align 8, !tbaa !136
   %1306 = call i32 @_Py_HandlePending(ptr noundef nonnull %0) #15
   %1307 = load ptr, ptr %1252, align 8, !tbaa !136
@@ -5057,14 +5055,14 @@ _Py_NewRef.exit10599:                             ; preds = %1235, %1231, %1226
 
 1308:                                             ; preds = %1303
   %1309 = sext i32 %1248 to i64
-  %1310 = getelementptr %union._PyStackRef, ptr %1307, i64 %1309
+  %1310 = getelementptr [8 x i8], ptr %1307, i64 %1309
   br label %1311
 
 1311:                                             ; preds = %1308, %1299
   %.118907 = phi ptr [ %1310, %1308 ], [ %1256, %1299 ]
-  %1312 = getelementptr %union._PyStackRef, ptr %.118907, i64 %1151
+  %1312 = getelementptr [8 x i8], ptr %.118907, i64 %1151
   store i64 %1300, ptr %1312, align 8, !tbaa !113
-  %1313 = getelementptr %union._PyStackRef, ptr %.118907, i64 %1148
+  %1313 = getelementptr [8 x i8], ptr %.118907, i64 %1148
   %1314 = load i16, ptr %.5, align 2, !tbaa !143
   %.sroa.24142.0.extract.shift = lshr i16 %1314, 8
   %.sroa.24142.0.extract.trunc = zext nneg i16 %.sroa.24142.0.extract.shift to i32
@@ -5087,10 +5085,10 @@ _Py_NewRef.exit10599:                             ; preds = %1235, %1231, %1226
   %1325 = sext i32 %1324 to i64
   %1326 = xor i32 %.08890, -1
   %1327 = sext i32 %1326 to i64
-  %1328 = getelementptr %union._PyStackRef, ptr %.28898, i64 %1327
+  %1328 = getelementptr [8 x i8], ptr %.28898, i64 %1327
   %1329 = sub i32 -2, %.08890
   %1330 = sext i32 %1329 to i64
-  %1331 = getelementptr %union._PyStackRef, ptr %.28898, i64 %1330
+  %1331 = getelementptr [8 x i8], ptr %.28898, i64 %1330
   %1332 = getelementptr i8, ptr %.28893, i64 4
   %.val10539 = load i32, ptr %1332, align 2
   %1333 = load i64, ptr %1331, align 8, !tbaa !113
@@ -5183,11 +5181,11 @@ _Py_NewRef.exit10602:                             ; preds = %1365, %1369
 
 1381:                                             ; preds = %1374, %1377, %_Py_NewRef.exit10602
   %1382 = load ptr, ptr %1361, align 8, !tbaa !136
-  %1383 = getelementptr %union._PyStackRef, ptr %1382, i64 %1325
-  %1384 = getelementptr %union._PyStackRef, ptr %1382, i64 %1327
-  %1385 = getelementptr %union._PyStackRef, ptr %1382, i64 %1330
+  %1383 = getelementptr [8 x i8], ptr %1382, i64 %1325
+  %1384 = getelementptr [8 x i8], ptr %1382, i64 %1327
+  %1385 = getelementptr [8 x i8], ptr %1382, i64 %1330
   %1386 = load ptr, ptr %10248, align 8, !tbaa !165
-  %1387 = getelementptr ptr, ptr %1386, i64 %10251
+  %1387 = getelementptr [8 x i8], ptr %1386, i64 %10251
   store ptr %1387, ptr %10248, align 8, !tbaa !165
   %1388 = getelementptr inbounds nuw i8, ptr %1386, i64 8
   store ptr %.2, ptr %1388, align 8, !tbaa !141
@@ -5196,7 +5194,7 @@ _Py_NewRef.exit10602:                             ; preds = %1365, %1369
   store i64 ptrtoint (ptr @_Py_InitCleanup to i64), ptr %1386, align 8, !tbaa !113
   %1390 = getelementptr inbounds nuw i8, ptr %1386, i64 40
   store ptr null, ptr %1390, align 8, !tbaa !173
-  %1391 = getelementptr %union._PyStackRef, ptr %1386, i64 %10253
+  %1391 = getelementptr [8 x i8], ptr %1386, i64 %10253
   %1392 = getelementptr i8, ptr %1391, i64 88
   %1393 = getelementptr inbounds nuw i8, ptr %1386, i64 64
   store ptr %1392, ptr %1393, align 8, !tbaa !136
@@ -5234,7 +5232,7 @@ _Py_NewRef.exit10603:                             ; preds = %1381, %1405
   %1411 = call ptr @_PyEvalFramePushAndInit(ptr noundef nonnull %0, i64 %1410, ptr noundef null, ptr noundef %1407, i64 noundef %1409, ptr noundef null, ptr noundef nonnull %1386)
   %1412 = load ptr, ptr %1361, align 8, !tbaa !136
   store ptr null, ptr %1361, align 8, !tbaa !136
-  %1413 = getelementptr %union._PyStackRef, ptr %1412, i64 %1330
+  %1413 = getelementptr [8 x i8], ptr %1412, i64 %1330
   %1414 = icmp eq ptr %1411, null
   br i1 %1414, label %1415, label %1416
 
@@ -5275,10 +5273,10 @@ _Py_NewRef.exit10603:                             ; preds = %1381, %1405
 1433:                                             ; preds = %1427
   %1434 = xor i32 %.08890, -1
   %1435 = sext i32 %1434 to i64
-  %1436 = getelementptr %union._PyStackRef, ptr %.28898, i64 %1435
+  %1436 = getelementptr [8 x i8], ptr %.28898, i64 %1435
   %1437 = sub i32 -2, %.08890
   %1438 = sext i32 %1437 to i64
-  %1439 = getelementptr %union._PyStackRef, ptr %.28898, i64 %1438
+  %1439 = getelementptr [8 x i8], ptr %.28898, i64 %1438
   %1440 = load i64, ptr %1436, align 8, !tbaa !113
   %1441 = icmp eq i64 %1440, 0
   br i1 %1441, label %1442, label %_PyThreadState_HasStackSpace.exit10601.thread
@@ -5397,11 +5395,11 @@ _PyThreadState_HasStackSpace.exit10607:           ; preds = %1491
 1505:                                             ; preds = %1502
   %1506 = sub i32 0, %.08890
   %1507 = sext i32 %1506 to i64
-  %1508 = getelementptr %union._PyStackRef, ptr %1472, i64 %1507
+  %1508 = getelementptr [8 x i8], ptr %1472, i64 %1507
   %1509 = call fastcc ptr @_PyFrame_PushUnchecked(ptr noundef nonnull %0, i64 %1473, i32 noundef %1486, ptr noundef nonnull %.2)
   %1510 = getelementptr inbounds nuw i8, ptr %1509, i64 80
   %1511 = zext i1 %1488 to i64
-  %1512 = getelementptr %union._PyStackRef, ptr %1510, i64 %1511
+  %1512 = getelementptr [8 x i8], ptr %1510, i64 %1511
   %1513 = load i64, ptr %1436, align 8, !tbaa !113
   store i64 %1513, ptr %1510, align 8, !tbaa !113
   %1514 = icmp sgt i32 %.08890, 0
@@ -5413,8 +5411,8 @@ _PyThreadState_HasStackSpace.exit10607:           ; preds = %1491
 
 .lr.ph11501:                                      ; preds = %.lr.ph11501.preheader, %.lr.ph11501
   %indvars.iv12497 = phi i64 [ 0, %.lr.ph11501.preheader ], [ %indvars.iv.next12498, %.lr.ph11501 ]
-  %1515 = getelementptr %union._PyStackRef, ptr %1512, i64 %indvars.iv12497
-  %1516 = getelementptr %union._PyStackRef, ptr %1508, i64 %indvars.iv12497
+  %1515 = getelementptr [8 x i8], ptr %1512, i64 %indvars.iv12497
+  %1516 = getelementptr [8 x i8], ptr %1508, i64 %indvars.iv12497
   %1517 = load i64, ptr %1516, align 8, !tbaa !113
   store i64 %1517, ptr %1515, align 8, !tbaa !113
   %indvars.iv.next12498 = add nuw nsw i64 %indvars.iv12497, 1
@@ -5424,7 +5422,7 @@ _PyThreadState_HasStackSpace.exit10607:           ; preds = %1491
 ._crit_edge11502:                                 ; preds = %.lr.ph11501, %1505
   %1518 = getelementptr inbounds nuw i8, ptr %.2, i64 72
   store i16 4, ptr %1518, align 8, !tbaa !139
-  %1519 = getelementptr %union._PyStackRef, ptr %1472, i64 %1438
+  %1519 = getelementptr [8 x i8], ptr %1472, i64 %1438
   store ptr %1519, ptr %1461, align 8, !tbaa !136
   store ptr %1509, ptr %49, align 8, !tbaa !140
   %1520 = load i32, ptr %10246, align 4, !tbaa !95
@@ -5455,10 +5453,10 @@ _PyThreadState_HasStackSpace.exit10607:           ; preds = %1491
 1535:                                             ; preds = %1529
   %1536 = xor i32 %.08890, -1
   %1537 = sext i32 %1536 to i64
-  %1538 = getelementptr %union._PyStackRef, ptr %.28898, i64 %1537
+  %1538 = getelementptr [8 x i8], ptr %.28898, i64 %1537
   %1539 = sub i32 -2, %.08890
   %1540 = sext i32 %1539 to i64
-  %1541 = getelementptr %union._PyStackRef, ptr %.28898, i64 %1540
+  %1541 = getelementptr [8 x i8], ptr %.28898, i64 %1540
   %1542 = getelementptr i8, ptr %.28893, i64 4
   %.val10541 = load i32, ptr %1542, align 2
   %1543 = load i64, ptr %1541, align 8, !tbaa !113
@@ -5542,7 +5540,7 @@ _Py_NewRef.exit10609:                             ; preds = %_Py_NewRef.exit1060
   store ptr null, ptr %1572, align 8, !tbaa !136
   %1584 = sub i32 0, %.08890
   %1585 = sext i32 %1584 to i64
-  %1586 = getelementptr %union._PyStackRef, ptr %1583, i64 %1585
+  %1586 = getelementptr [8 x i8], ptr %1583, i64 %1585
   %1587 = load i64, ptr %1541, align 8, !tbaa !113
   %1588 = inttoptr i64 %1587 to ptr
   %1589 = load i64, ptr %1538, align 8, !tbaa !113
@@ -5579,7 +5577,7 @@ _Py_NewRef.exit10610:                             ; preds = %1600, %1596, %1582
   %1605 = call ptr @_PyEvalFramePushAndInit(ptr noundef nonnull %0, i64 %1604, ptr noundef %1602, ptr noundef %.08943, i64 noundef %1603, ptr noundef null, ptr noundef nonnull %.2)
   %1606 = load ptr, ptr %1572, align 8, !tbaa !136
   store ptr null, ptr %1572, align 8, !tbaa !136
-  %1607 = getelementptr %union._PyStackRef, ptr %1606, i64 %1540
+  %1607 = getelementptr [8 x i8], ptr %1606, i64 %1540
   %1608 = icmp eq ptr %1605, null
   br i1 %1608, label %monitor_throw.exit.loopexit, label %1609
 
@@ -5609,13 +5607,13 @@ _Py_NewRef.exit10610:                             ; preds = %1600, %1596, %1582
   %1622 = getelementptr i8, ptr %.28893, i64 8
   %1623 = sub i32 0, %.08890
   %1624 = sext i32 %1623 to i64
-  %1625 = getelementptr %union._PyStackRef, ptr %.28898, i64 %1624
+  %1625 = getelementptr [8 x i8], ptr %.28898, i64 %1624
   %1626 = xor i32 %.08890, -1
   %1627 = sext i32 %1626 to i64
-  %1628 = getelementptr %union._PyStackRef, ptr %.28898, i64 %1627
+  %1628 = getelementptr [8 x i8], ptr %.28898, i64 %1627
   %1629 = sub i32 -2, %.08890
   %1630 = sext i32 %1629 to i64
-  %1631 = getelementptr %union._PyStackRef, ptr %.28898, i64 %1630
+  %1631 = getelementptr [8 x i8], ptr %.28898, i64 %1630
   %1632 = load i64, ptr %1631, align 8, !tbaa !113
   %1633 = inttoptr i64 %1632 to ptr
   %1634 = getelementptr i8, ptr %1633, i64 8
@@ -5701,7 +5699,7 @@ _Py_NewRef.exit10610:                             ; preds = %1600, %1596, %1582
 
 .lr.ph11497:                                      ; preds = %.lr.ph11497.preheader, %1686
   %indvars.iv12494 = phi i64 [ %1674, %.lr.ph11497.preheader ], [ %indvars.iv.next12495, %1686 ]
-  %1675 = getelementptr %union._PyStackRef, ptr %1625, i64 %indvars.iv12494
+  %1675 = getelementptr [8 x i8], ptr %1625, i64 %indvars.iv12494
   %1676 = load i64, ptr %1675, align 8, !tbaa !113
   %1677 = inttoptr i64 %1676 to ptr
   %1678 = load i32, ptr %1677, align 8, !tbaa !113
@@ -5732,7 +5730,7 @@ _Py_NewRef.exit10610:                             ; preds = %1600, %1596, %1582
   br i1 %1688, label %1689, label %1691
 
 1689:                                             ; preds = %._crit_edge11498
-  %1690 = getelementptr %union._PyStackRef, ptr %1648, i64 %1630
+  %1690 = getelementptr [8 x i8], ptr %1648, i64 %1630
   br label %monitor_throw.exit
 
 1691:                                             ; preds = %._crit_edge11498
@@ -5743,9 +5741,9 @@ _Py_NewRef.exit10610:                             ; preds = %1600, %1596, %1582
   br i1 %.not9493, label %1703, label %1695
 
 1695:                                             ; preds = %1691
-  %1696 = getelementptr %union._PyStackRef, ptr %1648, i64 %1630
+  %1696 = getelementptr [8 x i8], ptr %1648, i64 %1630
   store i64 %1692, ptr %1696, align 8, !tbaa !113
-  %1697 = getelementptr %union._PyStackRef, ptr %1648, i64 %1627
+  %1697 = getelementptr [8 x i8], ptr %1648, i64 %1627
   store ptr %1697, ptr %1645, align 8, !tbaa !136
   %1698 = call i32 @_Py_HandlePending(ptr noundef nonnull %0) #15
   %1699 = load ptr, ptr %1645, align 8, !tbaa !136
@@ -5755,14 +5753,14 @@ _Py_NewRef.exit10610:                             ; preds = %1600, %1596, %1582
 
 1700:                                             ; preds = %1695
   %1701 = sext i32 %1638 to i64
-  %1702 = getelementptr %union._PyStackRef, ptr %1699, i64 %1701
+  %1702 = getelementptr [8 x i8], ptr %1699, i64 %1701
   br label %1703
 
 1703:                                             ; preds = %1700, %1691
   %.128908 = phi ptr [ %1702, %1700 ], [ %1648, %1691 ]
-  %1704 = getelementptr %union._PyStackRef, ptr %.128908, i64 %1630
+  %1704 = getelementptr [8 x i8], ptr %.128908, i64 %1630
   store i64 %1692, ptr %1704, align 8, !tbaa !113
-  %1705 = getelementptr %union._PyStackRef, ptr %.128908, i64 %1627
+  %1705 = getelementptr [8 x i8], ptr %.128908, i64 %1627
   %1706 = load i16, ptr %1622, align 2, !tbaa !143
   %.sroa.23968.0.extract.shift = lshr i16 %1706, 8
   %.sroa.23968.0.extract.trunc = zext nneg i16 %.sroa.23968.0.extract.shift to i32
@@ -5776,13 +5774,13 @@ _Py_NewRef.exit10610:                             ; preds = %1600, %1596, %1582
   %1711 = getelementptr i8, ptr %.28893, i64 8
   %1712 = sub i32 0, %.08890
   %1713 = sext i32 %1712 to i64
-  %1714 = getelementptr %union._PyStackRef, ptr %.28898, i64 %1713
+  %1714 = getelementptr [8 x i8], ptr %.28898, i64 %1713
   %1715 = xor i32 %.08890, -1
   %1716 = sext i32 %1715 to i64
-  %1717 = getelementptr %union._PyStackRef, ptr %.28898, i64 %1716
+  %1717 = getelementptr [8 x i8], ptr %.28898, i64 %1716
   %1718 = sub i32 -2, %.08890
   %1719 = sext i32 %1718 to i64
-  %1720 = getelementptr %union._PyStackRef, ptr %.28898, i64 %1719
+  %1720 = getelementptr [8 x i8], ptr %.28898, i64 %1719
   %1721 = load i64, ptr %1720, align 8, !tbaa !113
   %1722 = inttoptr i64 %1721 to ptr
   %1723 = load i64, ptr %1717, align 8, !tbaa !113
@@ -5871,7 +5869,7 @@ PyCFunction_GET_SELF.exit:                        ; preds = %1729
 
 .lr.ph11494:                                      ; preds = %.lr.ph11494.preheader, %1776
   %indvars.iv12491 = phi i64 [ %1764, %.lr.ph11494.preheader ], [ %indvars.iv.next12492, %1776 ]
-  %1765 = getelementptr %union._PyStackRef, ptr %1714, i64 %indvars.iv12491
+  %1765 = getelementptr [8 x i8], ptr %1714, i64 %indvars.iv12491
   %1766 = load i64, ptr %1765, align 8, !tbaa !113
   %1767 = inttoptr i64 %1766 to ptr
   %1768 = load i32, ptr %1767, align 8, !tbaa !113
@@ -5902,7 +5900,7 @@ PyCFunction_GET_SELF.exit:                        ; preds = %1729
   br i1 %1778, label %1779, label %1781
 
 1779:                                             ; preds = %._crit_edge11495
-  %1780 = getelementptr %union._PyStackRef, ptr %1738, i64 %1719
+  %1780 = getelementptr [8 x i8], ptr %1738, i64 %1719
   br label %monitor_throw.exit
 
 1781:                                             ; preds = %._crit_edge11495
@@ -5913,9 +5911,9 @@ PyCFunction_GET_SELF.exit:                        ; preds = %1729
   br i1 %.not9487, label %1793, label %1785
 
 1785:                                             ; preds = %1781
-  %1786 = getelementptr %union._PyStackRef, ptr %1738, i64 %1719
+  %1786 = getelementptr [8 x i8], ptr %1738, i64 %1719
   store i64 %1782, ptr %1786, align 8, !tbaa !113
-  %1787 = getelementptr %union._PyStackRef, ptr %1738, i64 %1716
+  %1787 = getelementptr [8 x i8], ptr %1738, i64 %1716
   store ptr %1787, ptr %1733, align 8, !tbaa !136
   %1788 = call i32 @_Py_HandlePending(ptr noundef nonnull %0) #15
   %1789 = load ptr, ptr %1733, align 8, !tbaa !136
@@ -5925,14 +5923,14 @@ PyCFunction_GET_SELF.exit:                        ; preds = %1729
 
 1790:                                             ; preds = %1785
   %1791 = sext i32 %1725 to i64
-  %1792 = getelementptr %union._PyStackRef, ptr %1789, i64 %1791
+  %1792 = getelementptr [8 x i8], ptr %1789, i64 %1791
   br label %1793
 
 1793:                                             ; preds = %1790, %1781
   %.138909 = phi ptr [ %1792, %1790 ], [ %1738, %1781 ]
-  %1794 = getelementptr %union._PyStackRef, ptr %.138909, i64 %1719
+  %1794 = getelementptr [8 x i8], ptr %.138909, i64 %1719
   store i64 %1782, ptr %1794, align 8, !tbaa !113
-  %1795 = getelementptr %union._PyStackRef, ptr %.138909, i64 %1716
+  %1795 = getelementptr [8 x i8], ptr %.138909, i64 %1716
   %1796 = load i16, ptr %1711, align 2, !tbaa !143
   %.sroa.23925.0.extract.shift = lshr i16 %1796, 8
   %.sroa.23925.0.extract.trunc = zext nneg i16 %.sroa.23925.0.extract.shift to i32
@@ -5946,13 +5944,13 @@ PyCFunction_GET_SELF.exit:                        ; preds = %1729
   %1801 = getelementptr i8, ptr %.28893, i64 8
   %1802 = sub i32 0, %.08890
   %1803 = sext i32 %1802 to i64
-  %1804 = getelementptr %union._PyStackRef, ptr %.28898, i64 %1803
+  %1804 = getelementptr [8 x i8], ptr %.28898, i64 %1803
   %1805 = xor i32 %.08890, -1
   %1806 = sext i32 %1805 to i64
-  %1807 = getelementptr %union._PyStackRef, ptr %.28898, i64 %1806
+  %1807 = getelementptr [8 x i8], ptr %.28898, i64 %1806
   %1808 = sub i32 -2, %.08890
   %1809 = sext i32 %1808 to i64
-  %1810 = getelementptr %union._PyStackRef, ptr %.28898, i64 %1809
+  %1810 = getelementptr [8 x i8], ptr %.28898, i64 %1809
   %1811 = load i64, ptr %1810, align 8, !tbaa !113
   %1812 = inttoptr i64 %1811 to ptr
   %1813 = load i64, ptr %1807, align 8, !tbaa !113
@@ -6041,7 +6039,7 @@ PyCFunction_GET_SELF.exit10615:                   ; preds = %1819
 
 .lr.ph11491:                                      ; preds = %.lr.ph11491.preheader, %1866
   %indvars.iv12488 = phi i64 [ %1854, %.lr.ph11491.preheader ], [ %indvars.iv.next12489, %1866 ]
-  %1855 = getelementptr %union._PyStackRef, ptr %1804, i64 %indvars.iv12488
+  %1855 = getelementptr [8 x i8], ptr %1804, i64 %indvars.iv12488
   %1856 = load i64, ptr %1855, align 8, !tbaa !113
   %1857 = inttoptr i64 %1856 to ptr
   %1858 = load i32, ptr %1857, align 8, !tbaa !113
@@ -6072,7 +6070,7 @@ PyCFunction_GET_SELF.exit10615:                   ; preds = %1819
   br i1 %1868, label %1869, label %1871
 
 1869:                                             ; preds = %._crit_edge11492
-  %1870 = getelementptr %union._PyStackRef, ptr %1828, i64 %1809
+  %1870 = getelementptr [8 x i8], ptr %1828, i64 %1809
   br label %monitor_throw.exit
 
 1871:                                             ; preds = %._crit_edge11492
@@ -6083,9 +6081,9 @@ PyCFunction_GET_SELF.exit10615:                   ; preds = %1819
   br i1 %.not9481, label %1883, label %1875
 
 1875:                                             ; preds = %1871
-  %1876 = getelementptr %union._PyStackRef, ptr %1828, i64 %1809
+  %1876 = getelementptr [8 x i8], ptr %1828, i64 %1809
   store i64 %1872, ptr %1876, align 8, !tbaa !113
-  %1877 = getelementptr %union._PyStackRef, ptr %1828, i64 %1806
+  %1877 = getelementptr [8 x i8], ptr %1828, i64 %1806
   store ptr %1877, ptr %1822, align 8, !tbaa !136
   %1878 = call i32 @_Py_HandlePending(ptr noundef nonnull %0) #15
   %1879 = load ptr, ptr %1822, align 8, !tbaa !136
@@ -6095,14 +6093,14 @@ PyCFunction_GET_SELF.exit10615:                   ; preds = %1819
 
 1880:                                             ; preds = %1875
   %1881 = sext i32 %1815 to i64
-  %1882 = getelementptr %union._PyStackRef, ptr %1879, i64 %1881
+  %1882 = getelementptr [8 x i8], ptr %1879, i64 %1881
   br label %1883
 
 1883:                                             ; preds = %1880, %1871
   %.148910 = phi ptr [ %1882, %1880 ], [ %1828, %1871 ]
-  %1884 = getelementptr %union._PyStackRef, ptr %.148910, i64 %1809
+  %1884 = getelementptr [8 x i8], ptr %.148910, i64 %1809
   store i64 %1872, ptr %1884, align 8, !tbaa !113
-  %1885 = getelementptr %union._PyStackRef, ptr %.148910, i64 %1806
+  %1885 = getelementptr [8 x i8], ptr %.148910, i64 %1806
   %1886 = load i16, ptr %1801, align 2, !tbaa !143
   %.sroa.23882.0.extract.shift = lshr i16 %1886, 8
   %.sroa.23882.0.extract.trunc = zext nneg i16 %.sroa.23882.0.extract.shift to i32
@@ -6116,13 +6114,13 @@ PyCFunction_GET_SELF.exit10615:                   ; preds = %1819
   %1891 = getelementptr i8, ptr %.28893, i64 8
   %1892 = sub i32 0, %.08890
   %1893 = sext i32 %1892 to i64
-  %1894 = getelementptr %union._PyStackRef, ptr %.28898, i64 %1893
+  %1894 = getelementptr [8 x i8], ptr %.28898, i64 %1893
   %1895 = xor i32 %.08890, -1
   %1896 = sext i32 %1895 to i64
-  %1897 = getelementptr %union._PyStackRef, ptr %.28898, i64 %1896
+  %1897 = getelementptr [8 x i8], ptr %.28898, i64 %1896
   %1898 = sub i32 -2, %.08890
   %1899 = sext i32 %1898 to i64
-  %1900 = getelementptr %union._PyStackRef, ptr %.28898, i64 %1899
+  %1900 = getelementptr [8 x i8], ptr %.28898, i64 %1899
   %1901 = load i64, ptr %1900, align 8, !tbaa !113
   %1902 = inttoptr i64 %1901 to ptr
   %1903 = load i64, ptr %1897, align 8, !tbaa !113
@@ -6188,7 +6186,7 @@ PyCFunction_GET_SELF.exit10618:                   ; preds = %1913
 
 1933:                                             ; preds = %1926, %1929, %PyCFunction_GET_SELF.exit10618
   %1934 = load ptr, ptr %1918, align 8, !tbaa !136
-  %1935 = getelementptr %union._PyStackRef, ptr %1934, i64 %1899
+  %1935 = getelementptr [8 x i8], ptr %1934, i64 %1899
   store ptr %1935, ptr %1918, align 8, !tbaa !136
   %1936 = load i64, ptr %1900, align 8, !tbaa !113
   %1937 = inttoptr i64 %1936 to ptr
@@ -6537,7 +6535,7 @@ _Py_NewRef.exit10622:                             ; preds = %2040, %2036, %2028
   %2113 = getelementptr inbounds nuw i8, ptr %.2, i64 64
   store ptr %.28898, ptr %2113, align 8, !tbaa !136
   %2114 = sext i32 %.08890 to i64
-  %2115 = getelementptr %struct.intrinsic_func1_info, ptr @_PyIntrinsics_UnaryFunctions, i64 %2114
+  %2115 = getelementptr [16 x i8], ptr @_PyIntrinsics_UnaryFunctions, i64 %2114
   %2116 = load ptr, ptr %2115, align 8, !tbaa !212
   %2117 = inttoptr i64 %.sroa.03743.0.copyload to ptr
   %2118 = call ptr %2116(ptr noundef %0, ptr noundef %2117) #15
@@ -6589,7 +6587,7 @@ _Py_NewRef.exit10622:                             ; preds = %2040, %2036, %2028
   %2143 = getelementptr inbounds nuw i8, ptr %.2, i64 64
   store ptr %.28898, ptr %2143, align 8, !tbaa !136
   %2144 = sext i32 %.08890 to i64
-  %2145 = getelementptr %struct.intrinsic_func2_info, ptr @_PyIntrinsics_BinaryFunctions, i64 %2144
+  %2145 = getelementptr [16 x i8], ptr @_PyIntrinsics_BinaryFunctions, i64 %2144
   %2146 = load ptr, ptr %2145, align 8, !tbaa !212
   %2147 = call ptr %2146(ptr noundef %0, ptr noundef %2142, ptr noundef %2141) #15
   %2148 = load ptr, ptr %2143, align 8, !tbaa !136
@@ -6653,13 +6651,13 @@ _Py_NewRef.exit10622:                             ; preds = %2040, %2036, %2028
   %2177 = getelementptr i8, ptr %.28893, i64 8
   %2178 = sub i32 0, %.08890
   %2179 = sext i32 %2178 to i64
-  %2180 = getelementptr %union._PyStackRef, ptr %.28898, i64 %2179
+  %2180 = getelementptr [8 x i8], ptr %.28898, i64 %2179
   %2181 = xor i32 %.08890, -1
   %2182 = sext i32 %2181 to i64
-  %2183 = getelementptr %union._PyStackRef, ptr %.28898, i64 %2182
+  %2183 = getelementptr [8 x i8], ptr %.28898, i64 %2182
   %2184 = sub i32 -2, %.08890
   %2185 = sext i32 %2184 to i64
-  %2186 = getelementptr %union._PyStackRef, ptr %.28898, i64 %2185
+  %2186 = getelementptr [8 x i8], ptr %.28898, i64 %2185
   %2187 = load i64, ptr %2183, align 8, !tbaa !113
   %2188 = icmp ne i64 %2187, 0
   %.08958.idx = select i1 %2188, i64 -8, i64 0
@@ -6751,7 +6749,7 @@ _Py_NewRef.exit10622:                             ; preds = %2040, %2036, %2028
 
 .lr.ph11488:                                      ; preds = %.lr.ph11488.preheader, %2242
   %indvars.iv12485 = phi i64 [ %2230, %.lr.ph11488.preheader ], [ %indvars.iv.next12486, %2242 ]
-  %2231 = getelementptr %union._PyStackRef, ptr %2180, i64 %indvars.iv12485
+  %2231 = getelementptr [8 x i8], ptr %2180, i64 %indvars.iv12485
   %2232 = load i64, ptr %2231, align 8, !tbaa !113
   %2233 = inttoptr i64 %2232 to ptr
   %2234 = load i32, ptr %2233, align 8, !tbaa !113
@@ -6778,9 +6776,9 @@ _Py_NewRef.exit10622:                             ; preds = %2040, %2036, %2028
   br i1 %2243, label %.lr.ph11488, label %._crit_edge11489, !llvm.loop !215
 
 ._crit_edge11489:                                 ; preds = %2242, %2227
-  %2244 = getelementptr %union._PyStackRef, ptr %2202, i64 %2185
+  %2244 = getelementptr [8 x i8], ptr %2202, i64 %2185
   store i64 %.9827, ptr %2244, align 8, !tbaa !113
-  %2245 = getelementptr %union._PyStackRef, ptr %2202, i64 %2182
+  %2245 = getelementptr [8 x i8], ptr %2202, i64 %2182
   %2246 = load i16, ptr %2177, align 2, !tbaa !143
   %.sroa.23670.0.extract.shift = lshr i16 %2246, 8
   %.sroa.23670.0.extract.trunc = zext nneg i16 %.sroa.23670.0.extract.shift to i32
@@ -6798,10 +6796,10 @@ _Py_NewRef.exit10622:                             ; preds = %2040, %2036, %2028
   %.7 = phi ptr [ %2251, %2249 ], [ %2431, %2429 ], [ %2431, %2435 ], [ %2431, %2452 ], [ %2431, %2455 ], [ %2431, %2446 ], [ %2536, %2534 ], [ %2639, %2643 ], [ %2639, %2637 ], [ %2639, %2652 ]
   %2253 = sub i32 -2, %.08890
   %2254 = sext i32 %2253 to i64
-  %2255 = getelementptr %union._PyStackRef, ptr %.28898, i64 %2254
+  %2255 = getelementptr [8 x i8], ptr %.28898, i64 %2254
   %2256 = sub i32 -3, %.08890
   %2257 = sext i32 %2256 to i64
-  %2258 = getelementptr %union._PyStackRef, ptr %.28898, i64 %2257
+  %2258 = getelementptr [8 x i8], ptr %.28898, i64 %2257
   %2259 = getelementptr i8, ptr %.28893, i64 2
   %.val10479 = load i16, ptr %2259, align 2, !tbaa !143
   %2260 = icmp ult i16 %.val10479, 15
@@ -6896,7 +6894,7 @@ _Py_NewRef.exit10624:                             ; preds = %_Py_NewRef.exit1062
 2308:                                             ; preds = %2301, %2304, %_Py_NewRef.exit10624
   %2309 = load ptr, ptr %2298, align 8, !tbaa !136
   store ptr null, ptr %2298, align 8, !tbaa !136
-  %.phi.trans.insert12567 = getelementptr %union._PyStackRef, ptr %2309, i64 %2257
+  %.phi.trans.insert12567 = getelementptr [8 x i8], ptr %2309, i64 %2257
   %.pre12568 = load i64, ptr %.phi.trans.insert12567, align 8, !tbaa !113
   %.phi.trans.insert12569 = inttoptr i64 %.pre12568 to ptr
   %.phi.trans.insert12570 = getelementptr i8, ptr %.phi.trans.insert12569, i64 8
@@ -6907,9 +6905,9 @@ _Py_NewRef.exit10624:                             ; preds = %_Py_NewRef.exit1062
   %.pre-phi12581 = phi ptr [ %.phi.trans.insert12569, %2308 ], [ %2277, %2280 ], [ %2277, %2271 ]
   %.val10359 = phi ptr [ %.val10359.pre, %2308 ], [ @PyMethod_Type, %2280 ], [ %.val10361, %2271 ]
   %.208916 = phi ptr [ %2309, %2308 ], [ %.28898, %2280 ], [ %.28898, %2271 ]
-  %2311 = getelementptr %union._PyStackRef, ptr %.208916, i64 %2275
-  %2312 = getelementptr %union._PyStackRef, ptr %.208916, i64 %2254
-  %2313 = getelementptr %union._PyStackRef, ptr %.208916, i64 %2257
+  %2311 = getelementptr [8 x i8], ptr %.208916, i64 %2275
+  %2312 = getelementptr [8 x i8], ptr %.208916, i64 %2254
+  %2313 = getelementptr [8 x i8], ptr %.208916, i64 %2257
   %2314 = inttoptr i64 %.sroa.03645.0.copyload to ptr
   %2315 = load i64, ptr %2312, align 8, !tbaa !113
   %2316 = icmp ne i64 %2315, 0
@@ -6991,7 +6989,7 @@ _Py_NewRef.exit10625:                             ; preds = %2340, %2336, %2331
 2358:                                             ; preds = %2351, %2354, %_Py_NewRef.exit10625
   %2359 = load ptr, ptr %2344, align 8, !tbaa !136
   store ptr null, ptr %2344, align 8, !tbaa !136
-  %2360 = getelementptr %union._PyStackRef, ptr %2359, i64 %2254
+  %2360 = getelementptr [8 x i8], ptr %2359, i64 %2254
   %2361 = icmp eq ptr %2347, null
   br i1 %2361, label %monitor_throw.exit, label %2362
 
@@ -7067,7 +7065,7 @@ _Py_NewRef.exit10625:                             ; preds = %2340, %2336, %2331
 
 .lr.ph11522:                                      ; preds = %.lr.ph11522.preheader, %2408
   %indvars.iv12519 = phi i64 [ %2396, %.lr.ph11522.preheader ], [ %indvars.iv.next12520, %2408 ]
-  %2397 = getelementptr %union._PyStackRef, ptr %2311, i64 %indvars.iv12519
+  %2397 = getelementptr [8 x i8], ptr %2311, i64 %indvars.iv12519
   %2398 = load i64, ptr %2397, align 8, !tbaa !113
   %2399 = inttoptr i64 %2398 to ptr
   %2400 = load i32, ptr %2399, align 8, !tbaa !113
@@ -7117,14 +7115,14 @@ _Py_NewRef.exit10625:                             ; preds = %2340, %2336, %2331
   br i1 %2419, label %2420, label %2422
 
 2420:                                             ; preds = %2418
-  %2421 = getelementptr %union._PyStackRef, ptr %2370, i64 %2257
+  %2421 = getelementptr [8 x i8], ptr %2370, i64 %2257
   br label %monitor_throw.exit
 
 2422:                                             ; preds = %2418
   %2423 = ptrtoint ptr %2369 to i64
-  %2424 = getelementptr %union._PyStackRef, ptr %2370, i64 %2257
+  %2424 = getelementptr [8 x i8], ptr %2370, i64 %2257
   store i64 %2423, ptr %2424, align 8, !tbaa !113
-  %2425 = getelementptr %union._PyStackRef, ptr %2370, i64 %2254
+  %2425 = getelementptr [8 x i8], ptr %2370, i64 %2254
   %2426 = load i16, ptr %.7, align 2, !tbaa !143
   %.sroa.23558.0.extract.shift = lshr i16 %2426, 8
   %.sroa.23558.0.extract.trunc = zext nneg i16 %.sroa.23558.0.extract.shift to i32
@@ -7145,10 +7143,10 @@ _Py_NewRef.exit10625:                             ; preds = %2340, %2336, %2331
 2435:                                             ; preds = %2429
   %2436 = sub i32 -2, %.08890
   %2437 = sext i32 %2436 to i64
-  %2438 = getelementptr %union._PyStackRef, ptr %.28898, i64 %2437
+  %2438 = getelementptr [8 x i8], ptr %.28898, i64 %2437
   %2439 = sub i32 -3, %.08890
   %2440 = sext i32 %2439 to i64
-  %2441 = getelementptr %union._PyStackRef, ptr %.28898, i64 %2440
+  %2441 = getelementptr [8 x i8], ptr %.28898, i64 %2440
   %2442 = getelementptr i8, ptr %.28893, i64 4
   %.val10542 = load i32, ptr %2442, align 2
   %2443 = load i64, ptr %2441, align 8, !tbaa !113
@@ -7231,7 +7229,7 @@ _Py_NewRef.exit10627:                             ; preds = %_Py_NewRef.exit1062
   %.sroa.03546.0.copyload = load i64, ptr %2482, align 8, !tbaa !113
   %2483 = xor i32 %.08890, -1
   %2484 = sext i32 %2483 to i64
-  %2485 = getelementptr %union._PyStackRef, ptr %2481, i64 %2484
+  %2485 = getelementptr [8 x i8], ptr %2481, i64 %2484
   %2486 = load i64, ptr %2441, align 8, !tbaa !113
   %2487 = inttoptr i64 %2486 to ptr
   %2488 = load i64, ptr %2438, align 8, !tbaa !113
@@ -7295,7 +7293,7 @@ _Py_NewRef.exit10628:                             ; preds = %2503, %2499, %2480
 2519:                                             ; preds = %2512, %2515, %_Py_NewRef.exit10628
   %2520 = load ptr, ptr %2472, align 8, !tbaa !136
   store ptr null, ptr %2472, align 8, !tbaa !136
-  %2521 = getelementptr %union._PyStackRef, ptr %2520, i64 %2437
+  %2521 = getelementptr [8 x i8], ptr %2520, i64 %2437
   %2522 = icmp eq ptr %2508, null
   br i1 %2522, label %monitor_throw.exit.loopexit, label %2523
 
@@ -7325,7 +7323,7 @@ _Py_NewRef.exit10628:                             ; preds = %2503, %2499, %2480
   %2536 = getelementptr i8, ptr %.28893, i64 8
   %2537 = sub i32 -3, %.08890
   %2538 = sext i32 %2537 to i64
-  %2539 = getelementptr %union._PyStackRef, ptr %.28898, i64 %2538
+  %2539 = getelementptr [8 x i8], ptr %.28898, i64 %2538
   %2540 = load i64, ptr %2539, align 8, !tbaa !113
   %2541 = inttoptr i64 %2540 to ptr
   %2542 = getelementptr inbounds nuw i8, ptr %2541, i64 8
@@ -7340,10 +7338,10 @@ _Py_NewRef.exit10628:                             ; preds = %2503, %2499, %2480
   %.sroa.03500.0.copyload = load i64, ptr %2547, align 8, !tbaa !113
   %2548 = xor i32 %.08890, -1
   %2549 = sext i32 %2548 to i64
-  %2550 = getelementptr %union._PyStackRef, ptr %.28898, i64 %2549
+  %2550 = getelementptr [8 x i8], ptr %.28898, i64 %2549
   %2551 = sub i32 -2, %.08890
   %2552 = sext i32 %2551 to i64
-  %2553 = getelementptr %union._PyStackRef, ptr %.28898, i64 %2552
+  %2553 = getelementptr [8 x i8], ptr %.28898, i64 %2552
   %2554 = load i64, ptr %2553, align 8, !tbaa !113
   %2555 = icmp eq i64 %2554, 0
   %2556 = add i32 %.08890, 1
@@ -7440,7 +7438,7 @@ _Py_NewRef.exit10628:                             ; preds = %2503, %2499, %2480
 
 .lr.ph11485:                                      ; preds = %.lr.ph11485.preheader, %2614
   %indvars.iv12482 = phi i64 [ %2602, %.lr.ph11485.preheader ], [ %indvars.iv.next12483, %2614 ]
-  %2603 = getelementptr %union._PyStackRef, ptr %2550, i64 %indvars.iv12482
+  %2603 = getelementptr [8 x i8], ptr %2550, i64 %indvars.iv12482
   %2604 = load i64, ptr %2603, align 8, !tbaa !113
   %2605 = inttoptr i64 %2604 to ptr
   %2606 = load i32, ptr %2605, align 8, !tbaa !113
@@ -7471,7 +7469,7 @@ _Py_NewRef.exit10628:                             ; preds = %2503, %2499, %2480
   br i1 %2616, label %2617, label %2619
 
 2617:                                             ; preds = %._crit_edge11486
-  %2618 = getelementptr %union._PyStackRef, ptr %2576, i64 %2552
+  %2618 = getelementptr [8 x i8], ptr %2576, i64 %2552
   br label %monitor_throw.exit
 
 2619:                                             ; preds = %._crit_edge11486
@@ -7482,9 +7480,9 @@ _Py_NewRef.exit10628:                             ; preds = %2503, %2499, %2480
   br i1 %.not9457, label %2631, label %2623
 
 2623:                                             ; preds = %2619
-  %2624 = getelementptr %union._PyStackRef, ptr %2576, i64 %2552
+  %2624 = getelementptr [8 x i8], ptr %2576, i64 %2552
   store i64 %2620, ptr %2624, align 8, !tbaa !113
-  %2625 = getelementptr %union._PyStackRef, ptr %2576, i64 %2549
+  %2625 = getelementptr [8 x i8], ptr %2576, i64 %2549
   store ptr %2625, ptr %2561, align 8, !tbaa !136
   %2626 = call i32 @_Py_HandlePending(ptr noundef nonnull %0) #15
   %2627 = load ptr, ptr %2561, align 8, !tbaa !136
@@ -7494,14 +7492,14 @@ _Py_NewRef.exit10628:                             ; preds = %2503, %2499, %2480
 
 2628:                                             ; preds = %2623
   %2629 = sext i32 %2556 to i64
-  %2630 = getelementptr %union._PyStackRef, ptr %2627, i64 %2629
+  %2630 = getelementptr [8 x i8], ptr %2627, i64 %2629
   br label %2631
 
 2631:                                             ; preds = %2628, %2619
   %.228918 = phi ptr [ %2630, %2628 ], [ %2576, %2619 ]
-  %2632 = getelementptr %union._PyStackRef, ptr %.228918, i64 %2552
+  %2632 = getelementptr [8 x i8], ptr %.228918, i64 %2552
   store i64 %2620, ptr %2632, align 8, !tbaa !113
-  %2633 = getelementptr %union._PyStackRef, ptr %.228918, i64 %2549
+  %2633 = getelementptr [8 x i8], ptr %.228918, i64 %2549
   %2634 = load i16, ptr %2536, align 2, !tbaa !143
   %.sroa.23454.0.extract.shift = lshr i16 %2634, 8
   %.sroa.23454.0.extract.trunc = zext nneg i16 %.sroa.23454.0.extract.shift to i32
@@ -7522,7 +7520,7 @@ _Py_NewRef.exit10628:                             ; preds = %2503, %2499, %2480
 2643:                                             ; preds = %2637
   %2644 = sub i32 -3, %.08890
   %2645 = sext i32 %2644 to i64
-  %2646 = getelementptr %union._PyStackRef, ptr %.28898, i64 %2645
+  %2646 = getelementptr [8 x i8], ptr %.28898, i64 %2645
   %2647 = load i64, ptr %2646, align 8, !tbaa !113
   %2648 = inttoptr i64 %2647 to ptr
   %2649 = getelementptr inbounds nuw i8, ptr %2648, i64 8
@@ -7543,10 +7541,10 @@ _Py_NewRef.exit10628:                             ; preds = %2503, %2499, %2480
   %.sroa.03445.0.copyload = load i64, ptr %2657, align 8, !tbaa !113
   %2658 = xor i32 %.08890, -1
   %2659 = sext i32 %2658 to i64
-  %2660 = getelementptr %union._PyStackRef, ptr %.28898, i64 %2659
+  %2660 = getelementptr [8 x i8], ptr %.28898, i64 %2659
   %2661 = sub i32 -2, %.08890
   %2662 = sext i32 %2661 to i64
-  %2663 = getelementptr %union._PyStackRef, ptr %.28898, i64 %2662
+  %2663 = getelementptr [8 x i8], ptr %.28898, i64 %2662
   %2664 = load i64, ptr %2663, align 8, !tbaa !113
   %2665 = icmp ne i64 %2664, 0
   %.08969.idx = select i1 %2665, i64 -8, i64 0
@@ -7609,7 +7607,7 @@ _Py_NewRef.exit10629:                             ; preds = %2679, %2675, %2656
 2696:                                             ; preds = %2689, %2692, %_Py_NewRef.exit10629
   %2697 = load ptr, ptr %2682, align 8, !tbaa !136
   store ptr null, ptr %2682, align 8, !tbaa !136
-  %2698 = getelementptr %union._PyStackRef, ptr %2697, i64 %2662
+  %2698 = getelementptr [8 x i8], ptr %2697, i64 %2662
   %2699 = icmp eq ptr %2685, null
   br i1 %2699, label %monitor_throw.exit.loopexit, label %2700
 
@@ -7639,13 +7637,13 @@ _Py_NewRef.exit10629:                             ; preds = %2679, %2675, %2656
   %2713 = getelementptr i8, ptr %.28893, i64 8
   %2714 = sub i32 0, %.08890
   %2715 = sext i32 %2714 to i64
-  %2716 = getelementptr %union._PyStackRef, ptr %.28898, i64 %2715
+  %2716 = getelementptr [8 x i8], ptr %.28898, i64 %2715
   %2717 = xor i32 %.08890, -1
   %2718 = sext i32 %2717 to i64
-  %2719 = getelementptr %union._PyStackRef, ptr %.28898, i64 %2718
+  %2719 = getelementptr [8 x i8], ptr %.28898, i64 %2718
   %2720 = sub i32 -2, %.08890
   %2721 = sext i32 %2720 to i64
-  %2722 = getelementptr %union._PyStackRef, ptr %.28898, i64 %2721
+  %2722 = getelementptr [8 x i8], ptr %.28898, i64 %2721
   %2723 = load i64, ptr %2719, align 8, !tbaa !113
   %2724 = icmp ne i64 %2723, 0
   %2725 = zext i1 %2724 to i32
@@ -7702,7 +7700,7 @@ _Py_NewRef.exit10629:                             ; preds = %2679, %2675, %2656
 
 2750:                                             ; preds = %2743, %2746, %2741
   %2751 = load ptr, ptr %2734, align 8, !tbaa !136
-  %2752 = getelementptr %union._PyStackRef, ptr %2751, i64 %2721
+  %2752 = getelementptr [8 x i8], ptr %2751, i64 %2721
   store ptr %2752, ptr %2734, align 8, !tbaa !136
   %2753 = load i64, ptr %2722, align 8, !tbaa !113
   %2754 = inttoptr i64 %2753 to ptr
@@ -7776,7 +7774,7 @@ _Py_NewRef.exit10629:                             ; preds = %2679, %2675, %2656
 2791:                                             ; preds = %2785
   %2792 = getelementptr i8, ptr %2777, i64 24
   %.val12.i = load ptr, ptr %2792, align 8, !tbaa !181
-  %2793 = getelementptr ptr, ptr %.val12.i, i64 %.val.i10630
+  %2793 = getelementptr [8 x i8], ptr %.val12.i, i64 %.val.i10630
   store ptr %2786, ptr %2793, align 8, !tbaa !100
   %2794 = add nsw i64 %.val.i10630, 1
   store i64 %2794, ptr %2787, align 8, !tbaa !101
@@ -7850,13 +7848,13 @@ _PyList_AppendTakeRef.exit:                       ; preds = %2791, %2795
   %2826 = getelementptr i8, ptr %.28893, i64 8
   %2827 = sub i32 0, %.08890
   %2828 = sext i32 %2827 to i64
-  %2829 = getelementptr %union._PyStackRef, ptr %.28898, i64 %2828
+  %2829 = getelementptr [8 x i8], ptr %.28898, i64 %2828
   %2830 = xor i32 %.08890, -1
   %2831 = sext i32 %2830 to i64
-  %2832 = getelementptr %union._PyStackRef, ptr %.28898, i64 %2831
+  %2832 = getelementptr [8 x i8], ptr %.28898, i64 %2831
   %2833 = sub i32 -2, %.08890
   %2834 = sext i32 %2833 to i64
-  %2835 = getelementptr %union._PyStackRef, ptr %.28898, i64 %2834
+  %2835 = getelementptr [8 x i8], ptr %.28898, i64 %2834
   %2836 = load i64, ptr %2835, align 8, !tbaa !113
   %2837 = inttoptr i64 %2836 to ptr
   %2838 = load i64, ptr %2832, align 8, !tbaa !113
@@ -7955,7 +7953,7 @@ _PyList_AppendTakeRef.exit:                       ; preds = %2791, %2795
 
 .lr.ph11482:                                      ; preds = %.lr.ph11482.preheader, %2904
   %indvars.iv12479 = phi i64 [ %2892, %.lr.ph11482.preheader ], [ %indvars.iv.next12480, %2904 ]
-  %2893 = getelementptr %union._PyStackRef, ptr %2829, i64 %indvars.iv12479
+  %2893 = getelementptr [8 x i8], ptr %2829, i64 %indvars.iv12479
   %2894 = load i64, ptr %2893, align 8, !tbaa !113
   %2895 = inttoptr i64 %2894 to ptr
   %2896 = load i32, ptr %2895, align 8, !tbaa !113
@@ -7986,7 +7984,7 @@ _PyList_AppendTakeRef.exit:                       ; preds = %2791, %2795
   br i1 %2906, label %2907, label %2909
 
 2907:                                             ; preds = %._crit_edge11483
-  %2908 = getelementptr %union._PyStackRef, ptr %2866, i64 %2834
+  %2908 = getelementptr [8 x i8], ptr %2866, i64 %2834
   br label %monitor_throw.exit
 
 2909:                                             ; preds = %._crit_edge11483
@@ -7997,9 +7995,9 @@ _PyList_AppendTakeRef.exit:                       ; preds = %2791, %2795
   br i1 %.not9438, label %2921, label %2913
 
 2913:                                             ; preds = %2909
-  %2914 = getelementptr %union._PyStackRef, ptr %2866, i64 %2834
+  %2914 = getelementptr [8 x i8], ptr %2866, i64 %2834
   store i64 %2910, ptr %2914, align 8, !tbaa !113
-  %2915 = getelementptr %union._PyStackRef, ptr %2866, i64 %2831
+  %2915 = getelementptr [8 x i8], ptr %2866, i64 %2831
   store ptr %2915, ptr %2860, align 8, !tbaa !136
   %2916 = call i32 @_Py_HandlePending(ptr noundef nonnull %0) #15
   %2917 = load ptr, ptr %2860, align 8, !tbaa !136
@@ -8009,14 +8007,14 @@ _PyList_AppendTakeRef.exit:                       ; preds = %2791, %2795
 
 2918:                                             ; preds = %2913
   %2919 = sext i32 %2840 to i64
-  %2920 = getelementptr %union._PyStackRef, ptr %2917, i64 %2919
+  %2920 = getelementptr [8 x i8], ptr %2917, i64 %2919
   br label %2921
 
 2921:                                             ; preds = %2918, %2909
   %.238919 = phi ptr [ %2920, %2918 ], [ %2866, %2909 ]
-  %2922 = getelementptr %union._PyStackRef, ptr %.238919, i64 %2834
+  %2922 = getelementptr [8 x i8], ptr %.238919, i64 %2834
   store i64 %2910, ptr %2922, align 8, !tbaa !113
-  %2923 = getelementptr %union._PyStackRef, ptr %.238919, i64 %2831
+  %2923 = getelementptr [8 x i8], ptr %.238919, i64 %2831
   %2924 = load i16, ptr %2826, align 2, !tbaa !143
   %.sroa.23318.0.extract.shift = lshr i16 %2924, 8
   %.sroa.23318.0.extract.trunc = zext nneg i16 %.sroa.23318.0.extract.shift to i32
@@ -8030,13 +8028,13 @@ _PyList_AppendTakeRef.exit:                       ; preds = %2791, %2795
   %2929 = getelementptr i8, ptr %.28893, i64 8
   %2930 = sub i32 0, %.08890
   %2931 = sext i32 %2930 to i64
-  %2932 = getelementptr %union._PyStackRef, ptr %.28898, i64 %2931
+  %2932 = getelementptr [8 x i8], ptr %.28898, i64 %2931
   %2933 = xor i32 %.08890, -1
   %2934 = sext i32 %2933 to i64
-  %2935 = getelementptr %union._PyStackRef, ptr %.28898, i64 %2934
+  %2935 = getelementptr [8 x i8], ptr %.28898, i64 %2934
   %2936 = sub i32 -2, %.08890
   %2937 = sext i32 %2936 to i64
-  %2938 = getelementptr %union._PyStackRef, ptr %.28898, i64 %2937
+  %2938 = getelementptr [8 x i8], ptr %.28898, i64 %2937
   %2939 = load i64, ptr %2938, align 8, !tbaa !113
   %2940 = inttoptr i64 %2939 to ptr
   %2941 = load i64, ptr %2935, align 8, !tbaa !113
@@ -8135,7 +8133,7 @@ _PyList_AppendTakeRef.exit:                       ; preds = %2791, %2795
 
 .lr.ph11479:                                      ; preds = %.lr.ph11479.preheader, %3007
   %indvars.iv12476 = phi i64 [ %2995, %.lr.ph11479.preheader ], [ %indvars.iv.next12477, %3007 ]
-  %2996 = getelementptr %union._PyStackRef, ptr %2932, i64 %indvars.iv12476
+  %2996 = getelementptr [8 x i8], ptr %2932, i64 %indvars.iv12476
   %2997 = load i64, ptr %2996, align 8, !tbaa !113
   %2998 = inttoptr i64 %2997 to ptr
   %2999 = load i32, ptr %2998, align 8, !tbaa !113
@@ -8166,7 +8164,7 @@ _PyList_AppendTakeRef.exit:                       ; preds = %2791, %2795
   br i1 %3009, label %3010, label %3012
 
 3010:                                             ; preds = %._crit_edge11480
-  %3011 = getelementptr %union._PyStackRef, ptr %2969, i64 %2937
+  %3011 = getelementptr [8 x i8], ptr %2969, i64 %2937
   br label %monitor_throw.exit
 
 3012:                                             ; preds = %._crit_edge11480
@@ -8177,9 +8175,9 @@ _PyList_AppendTakeRef.exit:                       ; preds = %2791, %2795
   br i1 %.not9432, label %3024, label %3016
 
 3016:                                             ; preds = %3012
-  %3017 = getelementptr %union._PyStackRef, ptr %2969, i64 %2937
+  %3017 = getelementptr [8 x i8], ptr %2969, i64 %2937
   store i64 %3013, ptr %3017, align 8, !tbaa !113
-  %3018 = getelementptr %union._PyStackRef, ptr %2969, i64 %2934
+  %3018 = getelementptr [8 x i8], ptr %2969, i64 %2934
   store ptr %3018, ptr %2963, align 8, !tbaa !136
   %3019 = call i32 @_Py_HandlePending(ptr noundef nonnull %0) #15
   %3020 = load ptr, ptr %2963, align 8, !tbaa !136
@@ -8189,14 +8187,14 @@ _PyList_AppendTakeRef.exit:                       ; preds = %2791, %2795
 
 3021:                                             ; preds = %3016
   %3022 = sext i32 %2943 to i64
-  %3023 = getelementptr %union._PyStackRef, ptr %3020, i64 %3022
+  %3023 = getelementptr [8 x i8], ptr %3020, i64 %3022
   br label %3024
 
 3024:                                             ; preds = %3021, %3012
   %.248920 = phi ptr [ %3023, %3021 ], [ %2969, %3012 ]
-  %3025 = getelementptr %union._PyStackRef, ptr %.248920, i64 %2937
+  %3025 = getelementptr [8 x i8], ptr %.248920, i64 %2937
   store i64 %3013, ptr %3025, align 8, !tbaa !113
-  %3026 = getelementptr %union._PyStackRef, ptr %.248920, i64 %2934
+  %3026 = getelementptr [8 x i8], ptr %.248920, i64 %2934
   %3027 = load i16, ptr %2929, align 2, !tbaa !143
   %.sroa.23268.0.extract.shift = lshr i16 %3027, 8
   %.sroa.23268.0.extract.trunc = zext nneg i16 %.sroa.23268.0.extract.shift to i32
@@ -8210,13 +8208,13 @@ _PyList_AppendTakeRef.exit:                       ; preds = %2791, %2795
   %3032 = getelementptr i8, ptr %.28893, i64 8
   %3033 = sub i32 0, %.08890
   %3034 = sext i32 %3033 to i64
-  %3035 = getelementptr %union._PyStackRef, ptr %.28898, i64 %3034
+  %3035 = getelementptr [8 x i8], ptr %.28898, i64 %3034
   %3036 = xor i32 %.08890, -1
   %3037 = sext i32 %3036 to i64
-  %3038 = getelementptr %union._PyStackRef, ptr %.28898, i64 %3037
+  %3038 = getelementptr [8 x i8], ptr %.28898, i64 %3037
   %3039 = sub i32 -2, %.08890
   %3040 = sext i32 %3039 to i64
-  %3041 = getelementptr %union._PyStackRef, ptr %.28898, i64 %3040
+  %3041 = getelementptr [8 x i8], ptr %.28898, i64 %3040
   %3042 = load i64, ptr %3041, align 8, !tbaa !113
   %3043 = inttoptr i64 %3042 to ptr
   %3044 = load i64, ptr %3038, align 8, !tbaa !113
@@ -8287,7 +8285,7 @@ _PyList_AppendTakeRef.exit:                       ; preds = %2791, %2795
 
 3081:                                             ; preds = %3075, %3078, %3066
   %3082 = load ptr, ptr %3070, align 8, !tbaa !136
-  %3083 = getelementptr %union._PyStackRef, ptr %3082, i64 %3040
+  %3083 = getelementptr [8 x i8], ptr %3082, i64 %3040
   store ptr %3083, ptr %3070, align 8, !tbaa !136
   %3084 = load i64, ptr %3041, align 8, !tbaa !113
   %3085 = inttoptr i64 %3084 to ptr
@@ -8353,13 +8351,13 @@ _PyList_AppendTakeRef.exit:                       ; preds = %2791, %2795
   %3114 = getelementptr i8, ptr %.28893, i64 8
   %3115 = sub i32 0, %.08890
   %3116 = sext i32 %3115 to i64
-  %3117 = getelementptr %union._PyStackRef, ptr %.28898, i64 %3116
+  %3117 = getelementptr [8 x i8], ptr %.28898, i64 %3116
   %3118 = xor i32 %.08890, -1
   %3119 = sext i32 %3118 to i64
-  %3120 = getelementptr %union._PyStackRef, ptr %.28898, i64 %3119
+  %3120 = getelementptr [8 x i8], ptr %.28898, i64 %3119
   %3121 = sub i32 -2, %.08890
   %3122 = sext i32 %3121 to i64
-  %3123 = getelementptr %union._PyStackRef, ptr %.28898, i64 %3122
+  %3123 = getelementptr [8 x i8], ptr %.28898, i64 %3122
   %3124 = load i64, ptr %3123, align 8, !tbaa !113
   %3125 = inttoptr i64 %3124 to ptr
   %3126 = load i64, ptr %3120, align 8, !tbaa !113
@@ -8472,7 +8470,7 @@ _PyList_AppendTakeRef.exit:                       ; preds = %2791, %2795
 
 .lr.ph11476:                                      ; preds = %.lr.ph11476.preheader, %3196
   %indvars.iv12473 = phi i64 [ %3184, %.lr.ph11476.preheader ], [ %indvars.iv.next12474, %3196 ]
-  %3185 = getelementptr %union._PyStackRef, ptr %3117, i64 %indvars.iv12473
+  %3185 = getelementptr [8 x i8], ptr %3117, i64 %indvars.iv12473
   %3186 = load i64, ptr %3185, align 8, !tbaa !113
   %3187 = inttoptr i64 %3186 to ptr
   %3188 = load i32, ptr %3187, align 8, !tbaa !113
@@ -8503,7 +8501,7 @@ _PyList_AppendTakeRef.exit:                       ; preds = %2791, %2795
   br i1 %3198, label %3199, label %3201
 
 3199:                                             ; preds = %._crit_edge11477
-  %3200 = getelementptr %union._PyStackRef, ptr %3156, i64 %3122
+  %3200 = getelementptr [8 x i8], ptr %3156, i64 %3122
   br label %monitor_throw.exit
 
 3201:                                             ; preds = %._crit_edge11477
@@ -8514,9 +8512,9 @@ _PyList_AppendTakeRef.exit:                       ; preds = %2791, %2795
   br i1 %.not9420, label %3213, label %3205
 
 3205:                                             ; preds = %3201
-  %3206 = getelementptr %union._PyStackRef, ptr %3156, i64 %3122
+  %3206 = getelementptr [8 x i8], ptr %3156, i64 %3122
   store i64 %3202, ptr %3206, align 8, !tbaa !113
-  %3207 = getelementptr %union._PyStackRef, ptr %3156, i64 %3119
+  %3207 = getelementptr [8 x i8], ptr %3156, i64 %3119
   store ptr %3207, ptr %3153, align 8, !tbaa !136
   %3208 = call i32 @_Py_HandlePending(ptr noundef nonnull %0) #15
   %3209 = load ptr, ptr %3153, align 8, !tbaa !136
@@ -8526,14 +8524,14 @@ _PyList_AppendTakeRef.exit:                       ; preds = %2791, %2795
 
 3210:                                             ; preds = %3205
   %3211 = sext i32 %3128 to i64
-  %3212 = getelementptr %union._PyStackRef, ptr %3209, i64 %3211
+  %3212 = getelementptr [8 x i8], ptr %3209, i64 %3211
   br label %3213
 
 3213:                                             ; preds = %3210, %3201
   %.268922 = phi ptr [ %3212, %3210 ], [ %3156, %3201 ]
-  %3214 = getelementptr %union._PyStackRef, ptr %.268922, i64 %3122
+  %3214 = getelementptr [8 x i8], ptr %.268922, i64 %3122
   store i64 %3202, ptr %3214, align 8, !tbaa !113
-  %3215 = getelementptr %union._PyStackRef, ptr %.268922, i64 %3119
+  %3215 = getelementptr [8 x i8], ptr %.268922, i64 %3119
   %3216 = load i16, ptr %3114, align 2, !tbaa !143
   %.sroa.23184.0.extract.shift = lshr i16 %3216, 8
   %.sroa.23184.0.extract.trunc = zext nneg i16 %.sroa.23184.0.extract.shift to i32
@@ -8547,7 +8545,7 @@ _PyList_AppendTakeRef.exit:                       ; preds = %2791, %2795
   %3221 = getelementptr i8, ptr %.28893, i64 8
   %3222 = sub i32 -2, %.08890
   %3223 = sext i32 %3222 to i64
-  %3224 = getelementptr %union._PyStackRef, ptr %.28898, i64 %3223
+  %3224 = getelementptr [8 x i8], ptr %.28898, i64 %3223
   %3225 = load i64, ptr %3224, align 8, !tbaa !113
   %3226 = inttoptr i64 %3225 to ptr
   %3227 = getelementptr inbounds nuw i8, ptr %3226, i64 8
@@ -8560,10 +8558,10 @@ _PyList_AppendTakeRef.exit:                       ; preds = %2791, %2795
 3231:                                             ; preds = %3219
   %3232 = sub i32 0, %.08890
   %3233 = sext i32 %3232 to i64
-  %3234 = getelementptr %union._PyStackRef, ptr %.28898, i64 %3233
+  %3234 = getelementptr [8 x i8], ptr %.28898, i64 %3233
   %3235 = xor i32 %.08890, -1
   %3236 = sext i32 %3235 to i64
-  %3237 = getelementptr %union._PyStackRef, ptr %.28898, i64 %3236
+  %3237 = getelementptr [8 x i8], ptr %.28898, i64 %3236
   %3238 = load i64, ptr %3237, align 8, !tbaa !113
   %3239 = icmp eq i64 %3238, 0
   %3240 = add i32 %.08890, 1
@@ -8633,7 +8631,7 @@ _PyList_AppendTakeRef.exit:                       ; preds = %2791, %2795
 
 .lr.ph11473:                                      ; preds = %.lr.ph11473.preheader, %3283
   %indvars.iv12470 = phi i64 [ %3271, %.lr.ph11473.preheader ], [ %indvars.iv.next12471, %3283 ]
-  %3272 = getelementptr %union._PyStackRef, ptr %3234, i64 %indvars.iv12470
+  %3272 = getelementptr [8 x i8], ptr %3234, i64 %indvars.iv12470
   %3273 = load i64, ptr %3272, align 8, !tbaa !113
   %3274 = inttoptr i64 %3273 to ptr
   %3275 = load i32, ptr %3274, align 8, !tbaa !113
@@ -8664,7 +8662,7 @@ _PyList_AppendTakeRef.exit:                       ; preds = %2791, %2795
   br i1 %3285, label %3286, label %3288
 
 3286:                                             ; preds = %._crit_edge11474
-  %3287 = getelementptr %union._PyStackRef, ptr %3245, i64 %3223
+  %3287 = getelementptr [8 x i8], ptr %3245, i64 %3223
   br label %monitor_throw.exit
 
 3288:                                             ; preds = %._crit_edge11474
@@ -8675,9 +8673,9 @@ _PyList_AppendTakeRef.exit:                       ; preds = %2791, %2795
   br i1 %.not9413, label %3300, label %3292
 
 3292:                                             ; preds = %3288
-  %3293 = getelementptr %union._PyStackRef, ptr %3245, i64 %3223
+  %3293 = getelementptr [8 x i8], ptr %3245, i64 %3223
   store i64 %3289, ptr %3293, align 8, !tbaa !113
-  %3294 = getelementptr %union._PyStackRef, ptr %3245, i64 %3236
+  %3294 = getelementptr [8 x i8], ptr %3245, i64 %3236
   store ptr %3294, ptr %3241, align 8, !tbaa !136
   %3295 = call i32 @_Py_HandlePending(ptr noundef nonnull %0) #15
   %3296 = load ptr, ptr %3241, align 8, !tbaa !136
@@ -8687,14 +8685,14 @@ _PyList_AppendTakeRef.exit:                       ; preds = %2791, %2795
 
 3297:                                             ; preds = %3292
   %3298 = sext i32 %3240 to i64
-  %3299 = getelementptr %union._PyStackRef, ptr %3296, i64 %3298
+  %3299 = getelementptr [8 x i8], ptr %3296, i64 %3298
   br label %3300
 
 3300:                                             ; preds = %3297, %3288
   %.278923 = phi ptr [ %3299, %3297 ], [ %3245, %3288 ]
-  %3301 = getelementptr %union._PyStackRef, ptr %.278923, i64 %3223
+  %3301 = getelementptr [8 x i8], ptr %.278923, i64 %3223
   store i64 %3289, ptr %3301, align 8, !tbaa !113
-  %3302 = getelementptr %union._PyStackRef, ptr %.278923, i64 %3236
+  %3302 = getelementptr [8 x i8], ptr %.278923, i64 %3236
   %3303 = load i16, ptr %3221, align 2, !tbaa !143
   %.sroa.23142.0.extract.shift = lshr i16 %3303, 8
   %.sroa.23142.0.extract.trunc = zext nneg i16 %.sroa.23142.0.extract.shift to i32
@@ -8715,7 +8713,7 @@ _PyList_AppendTakeRef.exit:                       ; preds = %2791, %2795
 3312:                                             ; preds = %3306
   %3313 = sub i32 -2, %.08890
   %3314 = sext i32 %3313 to i64
-  %3315 = getelementptr %union._PyStackRef, ptr %.28898, i64 %3314
+  %3315 = getelementptr [8 x i8], ptr %.28898, i64 %3314
   %3316 = load i64, ptr %3315, align 8, !tbaa !113
   %3317 = inttoptr i64 %3316 to ptr
   %3318 = getelementptr inbounds nuw i8, ptr %3317, i64 8
@@ -8734,7 +8732,7 @@ _PyList_AppendTakeRef.exit:                       ; preds = %2791, %2795
 3325:                                             ; preds = %3321
   %3326 = xor i32 %.08890, -1
   %3327 = sext i32 %3326 to i64
-  %3328 = getelementptr %union._PyStackRef, ptr %.28898, i64 %3327
+  %3328 = getelementptr [8 x i8], ptr %.28898, i64 %3327
   %3329 = getelementptr inbounds nuw i8, ptr %3317, i64 48
   %3330 = load ptr, ptr %3329, align 8, !tbaa !166
   %3331 = getelementptr inbounds nuw i8, ptr %3330, i64 52
@@ -8771,11 +8769,11 @@ _PyThreadState_HasStackSpace.exit10633:           ; preds = %3337
 3351:                                             ; preds = %3348
   %3352 = sub i32 0, %.08890
   %3353 = sext i32 %3352 to i64
-  %3354 = getelementptr %union._PyStackRef, ptr %.28898, i64 %3353
+  %3354 = getelementptr [8 x i8], ptr %.28898, i64 %3353
   %3355 = call fastcc ptr @_PyFrame_PushUnchecked(ptr noundef nonnull %0, i64 %3316, i32 noundef %3332, ptr noundef nonnull %.2)
   %3356 = getelementptr inbounds nuw i8, ptr %3355, i64 80
   %3357 = zext i1 %3334 to i64
-  %3358 = getelementptr %union._PyStackRef, ptr %3356, i64 %3357
+  %3358 = getelementptr [8 x i8], ptr %3356, i64 %3357
   %3359 = load i64, ptr %3328, align 8, !tbaa !113
   store i64 %3359, ptr %3356, align 8, !tbaa !113
   %3360 = icmp sgt i32 %.08890, 0
@@ -8787,8 +8785,8 @@ _PyThreadState_HasStackSpace.exit10633:           ; preds = %3337
 
 .lr.ph11470:                                      ; preds = %.lr.ph11470.preheader, %.lr.ph11470
   %indvars.iv = phi i64 [ 0, %.lr.ph11470.preheader ], [ %indvars.iv.next, %.lr.ph11470 ]
-  %3361 = getelementptr %union._PyStackRef, ptr %3358, i64 %indvars.iv
-  %3362 = getelementptr %union._PyStackRef, ptr %3354, i64 %indvars.iv
+  %3361 = getelementptr [8 x i8], ptr %3358, i64 %indvars.iv
+  %3362 = getelementptr [8 x i8], ptr %3354, i64 %indvars.iv
   %3363 = load i64, ptr %3362, align 8, !tbaa !113
   store i64 %3363, ptr %3361, align 8, !tbaa !113
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -8829,7 +8827,7 @@ _PyThreadState_HasStackSpace.exit10633:           ; preds = %3337
 3381:                                             ; preds = %3375
   %3382 = sub i32 -2, %.08890
   %3383 = sext i32 %3382 to i64
-  %3384 = getelementptr %union._PyStackRef, ptr %.28898, i64 %3383
+  %3384 = getelementptr [8 x i8], ptr %.28898, i64 %3383
   %3385 = load i64, ptr %3384, align 8, !tbaa !113
   %3386 = inttoptr i64 %3385 to ptr
   %3387 = getelementptr inbounds nuw i8, ptr %3386, i64 8
@@ -8848,10 +8846,10 @@ _PyThreadState_HasStackSpace.exit10633:           ; preds = %3337
 3394:                                             ; preds = %3390
   %3395 = sub i32 0, %.08890
   %3396 = sext i32 %3395 to i64
-  %3397 = getelementptr %union._PyStackRef, ptr %.28898, i64 %3396
+  %3397 = getelementptr [8 x i8], ptr %.28898, i64 %3396
   %3398 = xor i32 %.08890, -1
   %3399 = sext i32 %3398 to i64
-  %3400 = getelementptr %union._PyStackRef, ptr %.28898, i64 %3399
+  %3400 = getelementptr [8 x i8], ptr %.28898, i64 %3399
   %3401 = load i64, ptr %3400, align 8, !tbaa !113
   %3402 = icmp ne i64 %3401, 0
   %3403 = zext i1 %3402 to i32
@@ -8887,7 +8885,7 @@ _Py_NewRef.exit10634:                             ; preds = %3412, %3408, %3394
   %3418 = call ptr @_PyEvalFramePushAndInit(ptr noundef nonnull %0, i64 %3417, ptr noundef %3414, ptr noundef %.08991, i64 noundef %3416, ptr noundef null, ptr noundef nonnull %.2)
   %3419 = load ptr, ptr %3415, align 8, !tbaa !136
   store ptr null, ptr %3415, align 8, !tbaa !136
-  %3420 = getelementptr %union._PyStackRef, ptr %3419, i64 %3383
+  %3420 = getelementptr [8 x i8], ptr %3419, i64 %3383
   %3421 = icmp eq ptr %3418, null
   br i1 %3421, label %monitor_throw.exit.loopexit, label %3422
 
@@ -9301,7 +9299,7 @@ _Py_NewRef.exit10635:                             ; preds = %3522, %3526
 
 3626:                                             ; preds = %3624, %.lr.ph.i
   %.01730.i = phi i64 [ 0, %.lr.ph.i ], [ %3625, %3624 ]
-  %3627 = getelementptr ptr, ptr %3623, i64 %.01730.i
+  %3627 = getelementptr [8 x i8], ptr %3623, i64 %.01730.i
   %3628 = load ptr, ptr %3627, align 8, !tbaa !100
   %3629 = getelementptr i8, ptr %3628, i64 8
   %.val27.i = load ptr, ptr %3629, align 8, !tbaa !103
@@ -10223,7 +10221,7 @@ monitor_reraise.exit:                             ; preds = %_Py_NewRef.exit1063
   %4085 = getelementptr i8, ptr %.28898, i64 -8
   %.sroa.02704.0.copyload = load i64, ptr %4085, align 8, !tbaa !113
   %4086 = sext i32 %.08890 to i64
-  %4087 = getelementptr ptr, ptr @_PyEval_ConversionFuncs, i64 %4086
+  %4087 = getelementptr [8 x i8], ptr @_PyEval_ConversionFuncs, i64 %4086
   %4088 = load ptr, ptr %4087, align 8, !tbaa !144
   %4089 = getelementptr inbounds nuw i8, ptr %.2, i64 64
   store ptr %.28898, ptr %4089, align 8, !tbaa !136
@@ -10273,7 +10271,7 @@ monitor_reraise.exit:                             ; preds = %_Py_NewRef.exit1063
   store ptr %.28893, ptr %4113, align 8, !tbaa !133
   %4114 = getelementptr i8, ptr %.28893, i64 2
   %4115 = sext i32 %4112 to i64
-  %4116 = getelementptr %union._PyStackRef, ptr %.28898, i64 %4115
+  %4116 = getelementptr [8 x i8], ptr %.28898, i64 %4115
   %.sroa.02691.0.copyload = load i64, ptr %4116, align 8, !tbaa !113
   %4117 = inttoptr i64 %.sroa.02691.0.copyload to ptr
   %4118 = load i32, ptr %4117, align 8, !tbaa !113
@@ -10320,12 +10318,12 @@ _Py_NewRef.exit10645:                             ; preds = %4111, %4120
 
 4141:                                             ; preds = %.lr.ph11519, %_Py_NewRef.exit10646
   %indvars.iv12514 = phi i64 [ 0, %.lr.ph11519 ], [ %indvars.iv.next12515, %_Py_NewRef.exit10646 ]
-  %4142 = getelementptr ptr, ptr %4139, i64 %indvars.iv12514
+  %4142 = getelementptr [8 x i8], ptr %4139, i64 %indvars.iv12514
   %4143 = load ptr, ptr %4142, align 8, !tbaa !100
   %4144 = trunc nuw nsw i64 %indvars.iv12514 to i32
   %4145 = add i32 %4132, %4144
   %4146 = sext i32 %4145 to i64
-  %4147 = getelementptr %union._PyStackRef, ptr %4140, i64 %4146
+  %4147 = getelementptr [8 x i8], ptr %4140, i64 %4146
   %4148 = load i32, ptr %4143, align 8, !tbaa !113
   %4149 = icmp slt i32 %4148, 0
   br i1 %4149, label %_Py_NewRef.exit10646, label %4150
@@ -10362,7 +10360,7 @@ _Py_NewRef.exit10646:                             ; preds = %4141, %4150
   %4162 = load ptr, ptr %4161, align 8, !tbaa !235
   %4163 = getelementptr inbounds nuw i8, ptr %4162, i64 24
   %4164 = sext i32 %.08890 to i64
-  %4165 = getelementptr ptr, ptr %4163, i64 %4164
+  %4165 = getelementptr [8 x i8], ptr %4163, i64 %4164
   %4166 = load ptr, ptr %4165, align 8, !tbaa !100
   %4167 = getelementptr inbounds nuw i8, ptr %.2, i64 64
   store ptr %.28898, ptr %4167, align 8, !tbaa !136
@@ -10407,7 +10405,7 @@ _Py_NewRef.exit10646:                             ; preds = %4141, %4150
   %4187 = getelementptr i8, ptr %.28893, i64 2
   %4188 = getelementptr inbounds nuw i8, ptr %.2, i64 80
   %4189 = sext i32 %.08890 to i64
-  %4190 = getelementptr %union._PyStackRef, ptr %4188, i64 %4189
+  %4190 = getelementptr [8 x i8], ptr %4188, i64 %4189
   %4191 = load i64, ptr %4190, align 8, !tbaa !113
   %4192 = inttoptr i64 %4191 to ptr
   %4193 = getelementptr inbounds nuw i8, ptr %4192, i64 16
@@ -10435,7 +10433,7 @@ _PyErr_Occurred.exit.thread.i:                    ; preds = %_PyErr_Occurred.exi
   %4201 = getelementptr inbounds nuw i8, ptr %4198, i64 96
   %4202 = load ptr, ptr %4201, align 8, !tbaa !238
   %4203 = getelementptr inbounds nuw i8, ptr %4202, i64 24
-  %4204 = getelementptr ptr, ptr %4203, i64 %4189
+  %4204 = getelementptr [8 x i8], ptr %4203, i64 %4189
   %4205 = load ptr, ptr %4204, align 8, !tbaa !100
   %4206 = getelementptr i8, ptr %4198, i64 72
   %.val8.i = load i32, ptr %4206, align 8, !tbaa !174
@@ -10491,7 +10489,7 @@ _PyEval_FormatExcUnbound.exit:                    ; preds = %_PyErr_Occurred.exi
   %4228 = getelementptr i8, ptr %.28893, i64 2
   %4229 = getelementptr inbounds nuw i8, ptr %.2, i64 80
   %4230 = sext i32 %.08890 to i64
-  %4231 = getelementptr %union._PyStackRef, ptr %4229, i64 %4230
+  %4231 = getelementptr [8 x i8], ptr %4229, i64 %4230
   %.sroa.02653.0.copyload = load i64, ptr %4231, align 8, !tbaa !113
   %4232 = icmp eq i64 %.sroa.02653.0.copyload, 0
   br i1 %4232, label %4233, label %4241
@@ -10549,7 +10547,7 @@ _PyEval_FormatExcUnbound.exit:                    ; preds = %_PyErr_Occurred.exi
   %4260 = load ptr, ptr %4259, align 8, !tbaa !235
   %4261 = getelementptr inbounds nuw i8, ptr %4260, i64 24
   %4262 = sext i32 %.08890 to i64
-  %4263 = getelementptr ptr, ptr %4261, i64 %4262
+  %4263 = getelementptr [8 x i8], ptr %4261, i64 %4262
   %4264 = load ptr, ptr %4263, align 8, !tbaa !100
   %4265 = getelementptr inbounds nuw i8, ptr %.2, i64 64
   store ptr %.28898, ptr %4265, align 8, !tbaa !136
@@ -10592,7 +10590,7 @@ _PyEval_FormatExcUnbound.exit:                    ; preds = %_PyErr_Occurred.exi
   %4286 = load ptr, ptr %4285, align 8, !tbaa !235
   %4287 = getelementptr inbounds nuw i8, ptr %4286, i64 24
   %4288 = sext i32 %.08890 to i64
-  %4289 = getelementptr ptr, ptr %4287, i64 %4288
+  %4289 = getelementptr [8 x i8], ptr %4287, i64 %4288
   %4290 = load ptr, ptr %4289, align 8, !tbaa !100
   %4291 = getelementptr inbounds nuw i8, ptr %.2, i64 40
   %4292 = load ptr, ptr %4291, align 8, !tbaa !173
@@ -10705,11 +10703,11 @@ _PyEval_FormatExcUnbound.exit:                    ; preds = %_PyErr_Occurred.exi
   %.sroa.02607.0.copyload = load i64, ptr %4346, align 8, !tbaa !113
   %4347 = xor i32 %.08890, -1
   %4348 = sext i32 %4347 to i64
-  %4349 = getelementptr %union._PyStackRef, ptr %.28898, i64 %4348
+  %4349 = getelementptr [8 x i8], ptr %.28898, i64 %4348
   %.sroa.02610.0.copyload = load i64, ptr %4349, align 8, !tbaa !113
   %4350 = sub i32 -4, %.08890
   %4351 = sext i32 %4350 to i64
-  %4352 = getelementptr %union._PyStackRef, ptr %.28898, i64 %4351
+  %4352 = getelementptr [8 x i8], ptr %.28898, i64 %4351
   %.sroa.02611.0.copyload = load i64, ptr %4352, align 8, !tbaa !113
   %4353 = inttoptr i64 %.sroa.02610.0.copyload to ptr
   %4354 = inttoptr i64 %.sroa.02607.0.copyload to ptr
@@ -10778,7 +10776,7 @@ _PyEval_FormatExcUnbound.exit:                    ; preds = %_PyErr_Occurred.exi
   %.sroa.02586.0.copyload = load i64, ptr %4386, align 8, !tbaa !113
   %4387 = xor i32 %.08890, -1
   %4388 = sext i32 %4387 to i64
-  %4389 = getelementptr %union._PyStackRef, ptr %.28898, i64 %4388
+  %4389 = getelementptr [8 x i8], ptr %.28898, i64 %4388
   %.sroa.02589.0.copyload = load i64, ptr %4389, align 8, !tbaa !113
   %4390 = inttoptr i64 %.sroa.02589.0.copyload to ptr
   %4391 = inttoptr i64 %.sroa.02586.0.copyload to ptr
@@ -11350,7 +11348,7 @@ _PyErr_Occurred.exit.thread:                      ; preds = %4646, %_PyEval_Moni
   %4677 = getelementptr i8, ptr %.28893, i64 4
   %4678 = add i32 %.08890, 1
   %4679 = sext i32 %4678 to i64
-  %4680 = getelementptr %union._Py_CODEUNIT, ptr %4677, i64 %4679
+  %4680 = getelementptr [2 x i8], ptr %4677, i64 %4679
   %4681 = load i16, ptr %4680, align 2, !tbaa !143
   %.sroa.22472.0.extract.shift = lshr i16 %4681, 8
   %.sroa.22472.0.extract.trunc = zext nneg i16 %.sroa.22472.0.extract.shift to i32
@@ -11493,7 +11491,7 @@ _PyErr_Occurred.exit.thread:                      ; preds = %4646, %_PyEval_Moni
   %.36 = phi ptr [ %4751, %4750 ], [ %.28898, %.thread ]
   %4753 = add i32 %.08890, 1
   %4754 = sext i32 %4753 to i64
-  %4755 = getelementptr %union._Py_CODEUNIT, ptr %4728, i64 %4754
+  %4755 = getelementptr [2 x i8], ptr %4728, i64 %4754
   %4756 = load i16, ptr %4755, align 2, !tbaa !143
   %.sroa.22434.0.extract.shift = lshr i16 %4756, 8
   %.sroa.22434.0.extract.trunc = zext nneg i16 %.sroa.22434.0.extract.shift to i32
@@ -11506,7 +11504,7 @@ _PyErr_Occurred.exit.thread:                      ; preds = %4646, %_PyEval_Moni
   %4761 = load ptr, ptr %4760, align 8, !tbaa !181
   %4762 = add nuw i64 %4738, 1
   store i64 %4762, ptr %4736, align 8, !tbaa !247
-  %4763 = getelementptr ptr, ptr %4761, i64 %4738
+  %4763 = getelementptr [8 x i8], ptr %4761, i64 %4738
   %4764 = load ptr, ptr %4763, align 8, !tbaa !100
   %4765 = load i32, ptr %4764, align 8, !tbaa !113
   %4766 = icmp slt i32 %4765, 0
@@ -11549,7 +11547,7 @@ _Py_NewRef.exit10663:                             ; preds = %4759, %4767
 4784:                                             ; preds = %4780
   %4785 = add i32 %.08890, 1
   %4786 = sext i32 %4785 to i64
-  %4787 = getelementptr %union._Py_CODEUNIT, ptr %4776, i64 %4786
+  %4787 = getelementptr [2 x i8], ptr %4776, i64 %4786
   %4788 = load i16, ptr %4787, align 2, !tbaa !143
   %.sroa.22419.0.extract.shift = lshr i16 %4788, 8
   %.sroa.22419.0.extract.trunc = zext nneg i16 %.sroa.22419.0.extract.shift to i32
@@ -11638,7 +11636,7 @@ _Py_NewRef.exit10663:                             ; preds = %4759, %4767
   %.37 = phi ptr [ %4830, %4829 ], [ %.28898, %4812 ]
   %4832 = add i32 %.08890, 1
   %4833 = sext i32 %4832 to i64
-  %4834 = getelementptr %union._Py_CODEUNIT, ptr %4808, i64 %4833
+  %4834 = getelementptr [2 x i8], ptr %4808, i64 %4833
   %4835 = load i16, ptr %4834, align 2, !tbaa !143
   %.sroa.22389.0.extract.shift = lshr i16 %4835, 8
   %.sroa.22389.0.extract.trunc = zext nneg i16 %.sroa.22389.0.extract.shift to i32
@@ -11650,7 +11648,7 @@ _Py_NewRef.exit10663:                             ; preds = %4759, %4767
   %4839 = getelementptr inbounds nuw i8, ptr %4814, i64 24
   %4840 = add nsw i64 %4817, 1
   store i64 %4840, ptr %4816, align 8, !tbaa !247
-  %4841 = getelementptr ptr, ptr %4839, i64 %4817
+  %4841 = getelementptr [8 x i8], ptr %4839, i64 %4817
   %4842 = load ptr, ptr %4841, align 8, !tbaa !100
   %4843 = load i32, ptr %4842, align 8, !tbaa !113
   %4844 = icmp slt i32 %4843, 0
@@ -12027,7 +12025,7 @@ _Py_NewRef.exit10664:                             ; preds = %4838, %4845
   %5044 = load ptr, ptr %5043, align 8, !tbaa !235
   %5045 = getelementptr inbounds nuw i8, ptr %5044, i64 24
   %5046 = sext i32 %.08890 to i64
-  %5047 = getelementptr ptr, ptr %5045, i64 %5046
+  %5047 = getelementptr [8 x i8], ptr %5045, i64 %5046
   %5048 = load ptr, ptr %5047, align 8, !tbaa !100
   %5049 = getelementptr inbounds nuw i8, ptr %.2, i64 64
   store ptr %.28898, ptr %5049, align 8, !tbaa !136
@@ -12063,7 +12061,7 @@ _Py_NewRef.exit10664:                             ; preds = %4838, %4845
   %5067 = load ptr, ptr %5066, align 8, !tbaa !235
   %5068 = getelementptr inbounds nuw i8, ptr %5067, i64 24
   %5069 = sext i32 %.08890 to i64
-  %5070 = getelementptr ptr, ptr %5068, i64 %5069
+  %5070 = getelementptr [8 x i8], ptr %5068, i64 %5069
   %5071 = load ptr, ptr %5070, align 8, !tbaa !100
   %5072 = getelementptr inbounds nuw i8, ptr %.2, i64 64
   store ptr %.28898, ptr %5072, align 8, !tbaa !136
@@ -12133,10 +12131,10 @@ _Py_NewRef.exit10664:                             ; preds = %4838, %4845
   %5107 = sext i32 %5106 to i64
   %5108 = xor i32 %.08890, -1
   %5109 = sext i32 %5108 to i64
-  %5110 = getelementptr %union._PyStackRef, ptr %.28898, i64 %5109
+  %5110 = getelementptr [8 x i8], ptr %.28898, i64 %5109
   %5111 = sub i32 -2, %.08890
   %5112 = sext i32 %5111 to i64
-  %5113 = getelementptr %union._PyStackRef, ptr %.28898, i64 %5112
+  %5113 = getelementptr [8 x i8], ptr %.28898, i64 %5112
   %5114 = load i64, ptr %5113, align 8, !tbaa !113
   %5115 = inttoptr i64 %5114 to ptr
   %5116 = getelementptr i8, ptr %5115, i64 8
@@ -12203,7 +12201,7 @@ _Py_NewRef.exit10666:                             ; preds = %_Py_NewRef.exit1066
 5146:                                             ; preds = %5139, %5142, %_Py_NewRef.exit10666
   %5147 = load ptr, ptr %5136, align 8, !tbaa !136
   store ptr null, ptr %5136, align 8, !tbaa !136
-  %.phi.trans.insert = getelementptr %union._PyStackRef, ptr %5147, i64 %5112
+  %.phi.trans.insert = getelementptr [8 x i8], ptr %5147, i64 %5112
   %.pre12549 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !113
   %.pre12585 = inttoptr i64 %.pre12549 to ptr
   br label %5148
@@ -12211,9 +12209,9 @@ _Py_NewRef.exit10666:                             ; preds = %_Py_NewRef.exit1066
 5148:                                             ; preds = %5146, %5118, %5103
   %.pre-phi12586 = phi ptr [ %.pre12585, %5146 ], [ %5115, %5118 ], [ %5115, %5103 ]
   %.39 = phi ptr [ %5147, %5146 ], [ %.28898, %5118 ], [ %.28898, %5103 ]
-  %5149 = getelementptr %union._PyStackRef, ptr %.39, i64 %5107
-  %5150 = getelementptr %union._PyStackRef, ptr %.39, i64 %5109
-  %5151 = getelementptr %union._PyStackRef, ptr %.39, i64 %5112
+  %5149 = getelementptr [8 x i8], ptr %.39, i64 %5107
+  %5150 = getelementptr [8 x i8], ptr %.39, i64 %5109
+  %5151 = getelementptr [8 x i8], ptr %.39, i64 %5112
   %5152 = load i64, ptr %5150, align 8, !tbaa !113
   %.not9609 = icmp eq i64 %5152, 0
   br i1 %.not9609, label %5155, label %5153
@@ -12297,7 +12295,7 @@ _Py_NewRef.exit10667:                             ; preds = %5189, %5185, %5180
   %5194 = call ptr @_PyEvalFramePushAndInit(ptr noundef nonnull %0, i64 %5193, ptr noundef %5191, ptr noundef %.08997, i64 noundef %5192, ptr noundef null, ptr noundef nonnull %.2)
   %5195 = load ptr, ptr %5160, align 8, !tbaa !136
   store ptr null, ptr %5160, align 8, !tbaa !136
-  %5196 = getelementptr %union._PyStackRef, ptr %5195, i64 %5112
+  %5196 = getelementptr [8 x i8], ptr %5195, i64 %5112
   %5197 = icmp eq ptr %5194, null
   br i1 %5197, label %monitor_throw.exit, label %5198
 
@@ -12419,7 +12417,7 @@ _Py_NewRef.exit10667:                             ; preds = %5189, %5185, %5180
 
 .lr.ph11512:                                      ; preds = %.lr.ph11512.preheader, %5265
   %indvars.iv12508 = phi i64 [ %5253, %.lr.ph11512.preheader ], [ %indvars.iv.next12509, %5265 ]
-  %5254 = getelementptr %union._PyStackRef, ptr %5149, i64 %indvars.iv12508
+  %5254 = getelementptr [8 x i8], ptr %5149, i64 %indvars.iv12508
   %5255 = load i64, ptr %5254, align 8, !tbaa !113
   %5256 = inttoptr i64 %5255 to ptr
   %5257 = load i32, ptr %5256, align 8, !tbaa !113
@@ -12450,7 +12448,7 @@ _Py_NewRef.exit10667:                             ; preds = %5189, %5185, %5180
   br i1 %5267, label %5268, label %5270
 
 5268:                                             ; preds = %._crit_edge11513
-  %5269 = getelementptr %union._PyStackRef, ptr %.40, i64 %5112
+  %5269 = getelementptr [8 x i8], ptr %.40, i64 %5112
   br label %monitor_throw.exit
 
 5270:                                             ; preds = %._crit_edge11513
@@ -12461,9 +12459,9 @@ _Py_NewRef.exit10667:                             ; preds = %5189, %5185, %5180
   br i1 %.not9615, label %5282, label %5274
 
 5274:                                             ; preds = %5270
-  %5275 = getelementptr %union._PyStackRef, ptr %.40, i64 %5112
+  %5275 = getelementptr [8 x i8], ptr %.40, i64 %5112
   store i64 %5271, ptr %5275, align 8, !tbaa !113
-  %5276 = getelementptr %union._PyStackRef, ptr %.40, i64 %5109
+  %5276 = getelementptr [8 x i8], ptr %.40, i64 %5109
   store ptr %5276, ptr %5160, align 8, !tbaa !136
   %5277 = call i32 @_Py_HandlePending(ptr noundef nonnull %0) #15
   %5278 = load ptr, ptr %5160, align 8, !tbaa !136
@@ -12473,14 +12471,14 @@ _Py_NewRef.exit10667:                             ; preds = %5189, %5185, %5180
 
 5279:                                             ; preds = %5274
   %5280 = sext i32 %5168 to i64
-  %5281 = getelementptr %union._PyStackRef, ptr %5278, i64 %5280
+  %5281 = getelementptr [8 x i8], ptr %5278, i64 %5280
   br label %5282
 
 5282:                                             ; preds = %5279, %5270
   %.41 = phi ptr [ %5281, %5279 ], [ %.40, %5270 ]
-  %5283 = getelementptr %union._PyStackRef, ptr %.41, i64 %5112
+  %5283 = getelementptr [8 x i8], ptr %.41, i64 %5112
   store i64 %5271, ptr %5283, align 8, !tbaa !113
-  %5284 = getelementptr %union._PyStackRef, ptr %.41, i64 %5109
+  %5284 = getelementptr [8 x i8], ptr %.41, i64 %5109
   %5285 = load i16, ptr %5105, align 2, !tbaa !143
   %.sroa.22161.0.extract.shift = lshr i16 %5285, 8
   %.sroa.22161.0.extract.trunc = zext nneg i16 %.sroa.22161.0.extract.shift to i32
@@ -12780,13 +12778,13 @@ _Py_Check_ArgsIterable.exit10675:                 ; preds = %5305, %5308, %5314,
   %5431 = getelementptr i8, ptr %.28893, i64 8
   %5432 = xor i32 %.08890, -1
   %5433 = sext i32 %5432 to i64
-  %5434 = getelementptr %union._PyStackRef, ptr %.28898, i64 %5433
+  %5434 = getelementptr [8 x i8], ptr %.28898, i64 %5433
   %5435 = sub i32 -2, %.08890
   %5436 = sext i32 %5435 to i64
-  %5437 = getelementptr %union._PyStackRef, ptr %.28898, i64 %5436
+  %5437 = getelementptr [8 x i8], ptr %.28898, i64 %5436
   %5438 = sub i32 -3, %.08890
   %5439 = sext i32 %5438 to i64
-  %5440 = getelementptr %union._PyStackRef, ptr %.28898, i64 %5439
+  %5440 = getelementptr [8 x i8], ptr %.28898, i64 %5439
   %5441 = load i64, ptr %5437, align 8, !tbaa !113
   %.not9619 = icmp eq i64 %5441, 0
   br i1 %.not9619, label %5444, label %5442
@@ -12819,8 +12817,8 @@ _Py_Check_ArgsIterable.exit10675:                 ; preds = %5305, %5308, %5314,
 5454:                                             ; preds = %5448
   %5455 = getelementptr i8, ptr %5453, i64 -8
   %.sroa.02032.0.copyload = load i64, ptr %5455, align 8, !tbaa !113
-  %5456 = getelementptr %union._PyStackRef, ptr %5453, i64 %5439
-  %5457 = getelementptr %union._PyStackRef, ptr %5453, i64 %5436
+  %5456 = getelementptr [8 x i8], ptr %5453, i64 %5439
+  %5457 = getelementptr [8 x i8], ptr %5453, i64 %5436
   %5458 = load i64, ptr %5440, align 8, !tbaa !113
   %5459 = inttoptr i64 %5458 to ptr
   %5460 = getelementptr i8, ptr %5459, i64 8
@@ -12890,9 +12888,9 @@ _Py_NewRef.exit10677:                             ; preds = %_Py_NewRef.exit1067
 
 5491:                                             ; preds = %5489, %5462, %5454
   %.45 = phi ptr [ %5490, %5489 ], [ %5453, %5462 ], [ %5453, %5454 ]
-  %5492 = getelementptr %union._PyStackRef, ptr %.45, i64 %5433
-  %5493 = getelementptr %union._PyStackRef, ptr %.45, i64 %5436
-  %5494 = getelementptr %union._PyStackRef, ptr %.45, i64 %5439
+  %5492 = getelementptr [8 x i8], ptr %.45, i64 %5433
+  %5493 = getelementptr [8 x i8], ptr %.45, i64 %5436
+  %5494 = getelementptr [8 x i8], ptr %.45, i64 %5439
   %5495 = load i64, ptr %5494, align 8, !tbaa !113
   %5496 = inttoptr i64 %5495 to ptr
   %5497 = inttoptr i64 %.sroa.02032.0.copyload to ptr
@@ -12977,7 +12975,7 @@ _Py_NewRef.exit10678:                             ; preds = %5524, %5520, %5515
 5541:                                             ; preds = %5534, %5537, %_Py_NewRef.exit10678
   %5542 = load ptr, ptr %5451, align 8, !tbaa !136
   store ptr null, ptr %5451, align 8, !tbaa !136
-  %5543 = getelementptr %union._PyStackRef, ptr %5542, i64 %5436
+  %5543 = getelementptr [8 x i8], ptr %5542, i64 %5436
   %5544 = icmp eq ptr %5530, null
   br i1 %5544, label %monitor_throw.exit, label %5545
 
@@ -13101,7 +13099,7 @@ _Py_NewRef.exit10678:                             ; preds = %5524, %5520, %5515
 
 .lr.ph11515:                                      ; preds = %.lr.ph11515.preheader, %5613
   %indvars.iv12511 = phi i64 [ %5601, %.lr.ph11515.preheader ], [ %indvars.iv.next12512, %5613 ]
-  %5602 = getelementptr %union._PyStackRef, ptr %5492, i64 %indvars.iv12511
+  %5602 = getelementptr [8 x i8], ptr %5492, i64 %indvars.iv12511
   %5603 = load i64, ptr %5602, align 8, !tbaa !113
   %5604 = inttoptr i64 %5603 to ptr
   %5605 = load i32, ptr %5604, align 8, !tbaa !113
@@ -13151,14 +13149,14 @@ _Py_NewRef.exit10678:                             ; preds = %5524, %5520, %5515
   br i1 %5624, label %5625, label %5627
 
 5625:                                             ; preds = %5623
-  %5626 = getelementptr %union._PyStackRef, ptr %.46, i64 %5439
+  %5626 = getelementptr [8 x i8], ptr %.46, i64 %5439
   br label %monitor_throw.exit
 
 5627:                                             ; preds = %5623
   %5628 = ptrtoint ptr %.09045 to i64
-  %5629 = getelementptr %union._PyStackRef, ptr %.46, i64 %5439
+  %5629 = getelementptr [8 x i8], ptr %.46, i64 %5439
   store i64 %5628, ptr %5629, align 8, !tbaa !113
-  %5630 = getelementptr %union._PyStackRef, ptr %.46, i64 %5436
+  %5630 = getelementptr [8 x i8], ptr %.46, i64 %5436
   %5631 = load i16, ptr %5431, align 2, !tbaa !143
   %.sroa.21944.0.extract.shift = lshr i16 %5631, 8
   %.sroa.21944.0.extract.trunc = zext nneg i16 %.sroa.21944.0.extract.shift to i32
@@ -13406,7 +13404,7 @@ _PyErr_Occurred.exit10684.thread:                 ; preds = %5709, %_PyEval_Moni
   %.49 = phi ptr [ %5739, %_PyEval_MonitorRaise.exit10690 ], [ %5700, %_PyErr_Occurred.exit10684 ], [ %5700, %5709 ]
   %5740 = add i32 %.08890, 1
   %5741 = sext i32 %5740 to i64
-  %5742 = getelementptr %union._Py_CODEUNIT, ptr %5692, i64 %5741
+  %5742 = getelementptr [2 x i8], ptr %5692, i64 %5741
   br label %5743
 
 5743:                                             ; preds = %5701, %_PyErr_Occurred.exit10684.thread, %5705
@@ -13476,7 +13474,7 @@ _PyErr_Occurred.exit10684.thread:                 ; preds = %5709, %_PyEval_Moni
 5775:                                             ; preds = %5773
   %5776 = sext i32 %.08890 to i64
   %5777 = sub nsw i64 0, %5776
-  %5778 = getelementptr %union._Py_CODEUNIT, ptr %5766, i64 %5777
+  %5778 = getelementptr [2 x i8], ptr %5766, i64 %5777
   br label %5790
 
 5779:                                             ; preds = %5773
@@ -13484,7 +13482,7 @@ _PyErr_Occurred.exit10684.thread:                 ; preds = %5709, %_PyEval_Moni
   store ptr %.51, ptr %5780, align 8, !tbaa !136
   %5781 = sext i32 %.08890 to i64
   %5782 = sub nsw i64 0, %5781
-  %5783 = getelementptr %union._Py_CODEUNIT, ptr %5766, i64 %5782
+  %5783 = getelementptr [2 x i8], ptr %5766, i64 %5782
   %5784 = call ptr @_Py_call_instrumentation_jump(ptr noundef %.28893, ptr noundef nonnull %0, i32 noundef 7, ptr noundef nonnull %.2, ptr noundef %.28893, ptr noundef %5783) #15
   %5785 = load ptr, ptr %5780, align 8, !tbaa !136
   store ptr null, ptr %5780, align 8, !tbaa !136
@@ -13492,7 +13490,7 @@ _PyErr_Occurred.exit10684.thread:                 ; preds = %5709, %_PyEval_Moni
   br i1 %5786, label %5787, label %5790
 
 5787:                                             ; preds = %5779
-  %5788 = getelementptr %union._Py_CODEUNIT, ptr null, i64 %5782
+  %5788 = getelementptr [2 x i8], ptr null, i64 %5782
   %5789 = getelementptr i8, ptr %5788, i64 2
   br label %monitor_throw.exit
 
@@ -13516,14 +13514,14 @@ _PyErr_Occurred.exit10684.thread:                 ; preds = %5709, %_PyEval_Moni
 
 5798:                                             ; preds = %5794
   %5799 = sext i32 %.08890 to i64
-  %5800 = getelementptr %union._Py_CODEUNIT, ptr %5796, i64 %5799
+  %5800 = getelementptr [2 x i8], ptr %5796, i64 %5799
   br label %5811
 
 5801:                                             ; preds = %5794
   %5802 = getelementptr inbounds nuw i8, ptr %.2, i64 64
   store ptr %.28898, ptr %5802, align 8, !tbaa !136
   %5803 = sext i32 %.08890 to i64
-  %5804 = getelementptr %union._Py_CODEUNIT, ptr %5796, i64 %5803
+  %5804 = getelementptr [2 x i8], ptr %5796, i64 %5803
   %5805 = call ptr @_Py_call_instrumentation_jump(ptr noundef %.28893, ptr noundef nonnull %0, i32 noundef 7, ptr noundef nonnull %.2, ptr noundef %.28893, ptr noundef %5804) #15
   %5806 = load ptr, ptr %5802, align 8, !tbaa !136
   store ptr null, ptr %5802, align 8, !tbaa !136
@@ -13531,7 +13529,7 @@ _PyErr_Occurred.exit10684.thread:                 ; preds = %5709, %_PyEval_Moni
   br i1 %5807, label %5808, label %5811
 
 5808:                                             ; preds = %5801
-  %5809 = getelementptr %union._Py_CODEUNIT, ptr null, i64 %5803
+  %5809 = getelementptr [2 x i8], ptr null, i64 %5803
   %5810 = getelementptr i8, ptr %5809, i64 2
   br label %monitor_throw.exit
 
@@ -13819,7 +13817,7 @@ _PyErr_Occurred.exit10684.thread:                 ; preds = %5709, %_PyEval_Moni
   %5956 = getelementptr inbounds nuw i8, ptr %5955, i64 24
   %5957 = ashr i32 %.08890, 2
   %5958 = sext i32 %5957 to i64
-  %5959 = getelementptr ptr, ptr %5956, i64 %5958
+  %5959 = getelementptr [8 x i8], ptr %5956, i64 %5958
   %5960 = load ptr, ptr %5959, align 8, !tbaa !100
   %5961 = getelementptr i8, ptr %.57, i64 -24
   store ptr %5961, ptr %5874, align 8, !tbaa !136
@@ -13862,7 +13860,7 @@ _PyErr_Occurred.exit10684.thread:                 ; preds = %5709, %_PyEval_Moni
 
 5979:                                             ; preds = %5977, %5974
   %5980 = zext nneg i32 %5976 to i64
-  %5981 = getelementptr %union._PyStackRef, ptr %5972, i64 %5980
+  %5981 = getelementptr [8 x i8], ptr %5972, i64 %5980
   %5982 = getelementptr i8, ptr %5981, i64 8
   %5983 = load i16, ptr %5865, align 2, !tbaa !143
   %.sroa.21793.0.extract.shift = lshr i16 %5983, 8
@@ -13984,14 +13982,14 @@ _PyErr_Occurred.exit10684.thread:                 ; preds = %5709, %_PyEval_Moni
 
 6044:                                             ; preds = %6042
   %6045 = sext i32 %.08890 to i64
-  %6046 = getelementptr %union._Py_CODEUNIT, ptr %6034, i64 %6045
+  %6046 = getelementptr [2 x i8], ptr %6034, i64 %6045
   br label %6057
 
 6047:                                             ; preds = %6042
   %6048 = getelementptr inbounds nuw i8, ptr %.2, i64 64
   store ptr %6035, ptr %6048, align 8, !tbaa !136
   %6049 = sext i32 %.08890 to i64
-  %6050 = getelementptr %union._Py_CODEUNIT, ptr %6034, i64 %6049
+  %6050 = getelementptr [2 x i8], ptr %6034, i64 %6049
   %6051 = call ptr @_Py_call_instrumentation_jump(ptr noundef nonnull %.28893, ptr noundef nonnull %0, i32 noundef 9, ptr noundef nonnull %.2, ptr noundef nonnull %.28893, ptr noundef %6050) #15
   %6052 = load ptr, ptr %6048, align 8, !tbaa !136
   store ptr null, ptr %6048, align 8, !tbaa !136
@@ -13999,7 +13997,7 @@ _PyErr_Occurred.exit10684.thread:                 ; preds = %5709, %_PyEval_Moni
   br i1 %6053, label %6054, label %6057
 
 6054:                                             ; preds = %6047
-  %6055 = getelementptr %union._Py_CODEUNIT, ptr null, i64 %6049
+  %6055 = getelementptr [2 x i8], ptr null, i64 %6049
   %6056 = getelementptr i8, ptr %6055, i64 2
   br label %monitor_throw.exit
 
@@ -14036,14 +14034,14 @@ _PyErr_Occurred.exit10684.thread:                 ; preds = %5709, %_PyEval_Moni
 
 6074:                                             ; preds = %6072
   %6075 = sext i32 %.08890 to i64
-  %6076 = getelementptr %union._Py_CODEUNIT, ptr %6063, i64 %6075
+  %6076 = getelementptr [2 x i8], ptr %6063, i64 %6075
   br label %6099
 
 6077:                                             ; preds = %6072
   %6078 = getelementptr inbounds nuw i8, ptr %.2, i64 64
   store ptr %6064, ptr %6078, align 8, !tbaa !136
   %6079 = sext i32 %.08890 to i64
-  %6080 = getelementptr %union._Py_CODEUNIT, ptr %6063, i64 %6079
+  %6080 = getelementptr [2 x i8], ptr %6063, i64 %6079
   %6081 = call ptr @_Py_call_instrumentation_jump(ptr noundef nonnull %.28893, ptr noundef nonnull %0, i32 noundef 9, ptr noundef nonnull %.2, ptr noundef nonnull %.28893, ptr noundef %6080) #15
   %6082 = load ptr, ptr %6078, align 8, !tbaa !136
   store ptr null, ptr %6078, align 8, !tbaa !136
@@ -14051,7 +14049,7 @@ _PyErr_Occurred.exit10684.thread:                 ; preds = %5709, %_PyEval_Moni
   br i1 %6083, label %6084, label %6099
 
 6084:                                             ; preds = %6077
-  %6085 = getelementptr %union._Py_CODEUNIT, ptr null, i64 %6079
+  %6085 = getelementptr [2 x i8], ptr null, i64 %6079
   %6086 = getelementptr i8, ptr %6085, i64 2
   br label %monitor_throw.exit
 
@@ -14137,13 +14135,13 @@ _PyErr_Occurred.exit10684.thread:                 ; preds = %5709, %_PyEval_Moni
 
 6127:                                             ; preds = %6124
   %6128 = sext i32 %.08890 to i64
-  %6129 = getelementptr %union._Py_CODEUNIT, ptr %6105, i64 %6128
+  %6129 = getelementptr [2 x i8], ptr %6105, i64 %6128
   br label %6139
 
 6130:                                             ; preds = %6124
   store ptr %6125, ptr %6115, align 8, !tbaa !136
   %6131 = sext i32 %.08890 to i64
-  %6132 = getelementptr %union._Py_CODEUNIT, ptr %6105, i64 %6131
+  %6132 = getelementptr [2 x i8], ptr %6105, i64 %6131
   %6133 = call ptr @_Py_call_instrumentation_jump(ptr noundef nonnull %.28893, ptr noundef nonnull %0, i32 noundef 9, ptr noundef nonnull %.2, ptr noundef nonnull %.28893, ptr noundef %6132) #15
   %6134 = load ptr, ptr %6115, align 8, !tbaa !136
   store ptr null, ptr %6115, align 8, !tbaa !136
@@ -14151,7 +14149,7 @@ _PyErr_Occurred.exit10684.thread:                 ; preds = %5709, %_PyEval_Moni
   br i1 %6135, label %6136, label %6139
 
 6136:                                             ; preds = %6130
-  %6137 = getelementptr %union._Py_CODEUNIT, ptr null, i64 %6131
+  %6137 = getelementptr [2 x i8], ptr null, i64 %6131
   %6138 = getelementptr i8, ptr %6137, i64 2
   br label %monitor_throw.exit
 
@@ -14187,14 +14185,14 @@ _PyErr_Occurred.exit10684.thread:                 ; preds = %5709, %_PyEval_Moni
 
 6155:                                             ; preds = %6153
   %6156 = sext i32 %.08890 to i64
-  %6157 = getelementptr %union._Py_CODEUNIT, ptr %6145, i64 %6156
+  %6157 = getelementptr [2 x i8], ptr %6145, i64 %6156
   br label %6168
 
 6158:                                             ; preds = %6153
   %6159 = getelementptr inbounds nuw i8, ptr %.2, i64 64
   store ptr %6146, ptr %6159, align 8, !tbaa !136
   %6160 = sext i32 %.08890 to i64
-  %6161 = getelementptr %union._Py_CODEUNIT, ptr %6145, i64 %6160
+  %6161 = getelementptr [2 x i8], ptr %6145, i64 %6160
   %6162 = call ptr @_Py_call_instrumentation_jump(ptr noundef nonnull %.28893, ptr noundef nonnull %0, i32 noundef 9, ptr noundef nonnull %.2, ptr noundef nonnull %.28893, ptr noundef %6161) #15
   %6163 = load ptr, ptr %6159, align 8, !tbaa !136
   store ptr null, ptr %6159, align 8, !tbaa !136
@@ -14202,7 +14200,7 @@ _PyErr_Occurred.exit10684.thread:                 ; preds = %5709, %_PyEval_Moni
   br i1 %6164, label %6165, label %6168
 
 6165:                                             ; preds = %6158
-  %6166 = getelementptr %union._Py_CODEUNIT, ptr null, i64 %6160
+  %6166 = getelementptr [2 x i8], ptr null, i64 %6160
   %6167 = getelementptr i8, ptr %6166, i64 2
   br label %monitor_throw.exit
 
@@ -14327,7 +14325,7 @@ _PyErr_Occurred.exit10684.thread:                 ; preds = %5709, %_PyEval_Moni
   %6229 = getelementptr inbounds nuw i8, ptr %6224, i64 72
   %6230 = load i16, ptr %6229, align 8, !tbaa !139
   %6231 = zext i16 %6230 to i64
-  %6232 = getelementptr %union._Py_CODEUNIT, ptr %6228, i64 %6231
+  %6232 = getelementptr [2 x i8], ptr %6228, i64 %6231
   store i64 %.sroa.01712.0.copyload, ptr %6226, align 8, !tbaa !113
   %6233 = getelementptr i8, ptr %6226, i64 8
   %6234 = load i16, ptr %6232, align 2, !tbaa !143
@@ -14509,7 +14507,7 @@ _PyErr_Occurred.exit10684.thread:                 ; preds = %5709, %_PyEval_Moni
   %.65 = phi ptr [ %6326, %6323 ], [ %.28898, %6320 ]
   %6328 = sub i32 0, %.08890
   %6329 = sext i32 %6328 to i64
-  %6330 = getelementptr %union._Py_CODEUNIT, ptr %6311, i64 %6329
+  %6330 = getelementptr [2 x i8], ptr %6311, i64 %6329
   %6331 = load i16, ptr %6330, align 2, !tbaa !143
   %.sroa.21659.0.extract.shift = lshr i16 %6331, 8
   %.sroa.21659.0.extract.trunc = zext nneg i16 %.sroa.21659.0.extract.shift to i32
@@ -14539,7 +14537,7 @@ _PyErr_Occurred.exit10684.thread:                 ; preds = %5709, %_PyEval_Moni
   %.66 = phi ptr [ %6342, %6339 ], [ %.28898, %6334 ]
   %6344 = sub i32 0, %.08890
   %6345 = sext i32 %6344 to i64
-  %6346 = getelementptr %union._Py_CODEUNIT, ptr %6336, i64 %6345
+  %6346 = getelementptr [2 x i8], ptr %6336, i64 %6345
   %6347 = load i16, ptr %6346, align 2, !tbaa !143
   %.sroa.21656.0.extract.shift = lshr i16 %6347, 8
   %.sroa.21656.0.extract.trunc = zext nneg i16 %.sroa.21656.0.extract.shift to i32
@@ -14553,7 +14551,7 @@ _PyErr_Occurred.exit10684.thread:                 ; preds = %5709, %_PyEval_Moni
   %6352 = getelementptr i8, ptr %.28893, i64 2
   %6353 = sub i32 0, %.08890
   %6354 = sext i32 %6353 to i64
-  %6355 = getelementptr %union._Py_CODEUNIT, ptr %6352, i64 %6354
+  %6355 = getelementptr [2 x i8], ptr %6352, i64 %6354
   %6356 = load i16, ptr %6355, align 2, !tbaa !143
   %.sroa.21654.0.extract.shift = lshr i16 %6356, 8
   %.sroa.21654.0.extract.trunc = zext nneg i16 %.sroa.21654.0.extract.shift to i32
@@ -14583,7 +14581,7 @@ _PyErr_Occurred.exit10684.thread:                 ; preds = %5709, %_PyEval_Moni
   %.67 = phi ptr [ %6367, %6364 ], [ %.28898, %6359 ]
   %6369 = sub i32 0, %.08890
   %6370 = sext i32 %6369 to i64
-  %6371 = getelementptr %union._Py_CODEUNIT, ptr %6361, i64 %6370
+  %6371 = getelementptr [2 x i8], ptr %6361, i64 %6370
   %6372 = load i16, ptr %6371, align 2, !tbaa !143
   %.sroa.21651.0.extract.shift = lshr i16 %6372, 8
   %.sroa.21651.0.extract.trunc = zext nneg i16 %.sroa.21651.0.extract.shift to i32
@@ -14596,7 +14594,7 @@ _PyErr_Occurred.exit10684.thread:                 ; preds = %5709, %_PyEval_Moni
   store ptr %.28893, ptr %6376, align 8, !tbaa !133
   %6377 = getelementptr i8, ptr %.28893, i64 2
   %6378 = sext i32 %.08890 to i64
-  %6379 = getelementptr %union._Py_CODEUNIT, ptr %6377, i64 %6378
+  %6379 = getelementptr [2 x i8], ptr %6377, i64 %6378
   %6380 = load i16, ptr %6379, align 2, !tbaa !143
   %.sroa.21649.0.extract.shift = lshr i16 %6380, 8
   %.sroa.21649.0.extract.trunc = zext nneg i16 %.sroa.21649.0.extract.shift to i32
@@ -14612,7 +14610,7 @@ _PyErr_Occurred.exit10684.thread:                 ; preds = %5709, %_PyEval_Moni
   %.sroa.01646.0.copyload = load i64, ptr %6386, align 8, !tbaa !113
   %6387 = xor i32 %.08890, -1
   %6388 = sext i32 %6387 to i64
-  %6389 = getelementptr %union._PyStackRef, ptr %.28898, i64 %6388
+  %6389 = getelementptr [8 x i8], ptr %.28898, i64 %6388
   %.sroa.01647.0.copyload = load i64, ptr %6389, align 8, !tbaa !113
   %6390 = inttoptr i64 %.sroa.01647.0.copyload to ptr
   %6391 = inttoptr i64 %.sroa.01646.0.copyload to ptr
@@ -14626,7 +14624,7 @@ _PyErr_Occurred.exit10684.thread:                 ; preds = %5709, %_PyEval_Moni
 _PyList_AppendTakeRef.exit10694.thread:           ; preds = %6383
   %6396 = getelementptr i8, ptr %6390, i64 24
   %.val12.i10693 = load ptr, ptr %6396, align 8, !tbaa !181
-  %6397 = getelementptr ptr, ptr %.val12.i10693, i64 %.val.i10691
+  %6397 = getelementptr [8 x i8], ptr %.val12.i10693, i64 %.val.i10691
   store ptr %6391, ptr %6397, align 8, !tbaa !100
   %6398 = add nsw i64 %.val.i10691, 1
   store i64 %6398, ptr %6392, align 8, !tbaa !101
@@ -14653,7 +14651,7 @@ _PyList_AppendTakeRef.exit10694:                  ; preds = %6383
   %.sroa.01639.0.copyload = load i64, ptr %6408, align 8, !tbaa !113
   %6409 = xor i32 %.08890, -1
   %6410 = sext i32 %6409 to i64
-  %6411 = getelementptr %union._PyStackRef, ptr %.28898, i64 %6410
+  %6411 = getelementptr [8 x i8], ptr %.28898, i64 %6410
   %.sroa.01642.0.copyload = load i64, ptr %6411, align 8, !tbaa !113
   %6412 = inttoptr i64 %.sroa.01642.0.copyload to ptr
   %6413 = inttoptr i64 %.sroa.01639.0.copyload to ptr
@@ -14767,7 +14765,7 @@ _PyThreadState_HasStackSpace.exit10698.thread:    ; preds = %6927, %6621, %7033,
   %6467 = getelementptr inbounds nuw i8, ptr %6466, i64 24
   %6468 = ashr i32 %.08890, 1
   %6469 = sext i32 %6468 to i64
-  %6470 = getelementptr ptr, ptr %6467, i64 %6469
+  %6470 = getelementptr [8 x i8], ptr %6467, i64 %6469
   %6471 = load ptr, ptr %6470, align 8, !tbaa !100
   %6472 = getelementptr inbounds nuw i8, ptr %.2, i64 64
   store ptr %.28898, ptr %6472, align 8, !tbaa !136
@@ -14788,7 +14786,7 @@ _PyThreadState_HasStackSpace.exit10698.thread:    ; preds = %6927, %6621, %7033,
   %6481 = getelementptr inbounds nuw i8, ptr %6480, i64 24
   %6482 = ashr i32 %.08890, 1
   %6483 = sext i32 %6482 to i64
-  %6484 = getelementptr ptr, ptr %6481, i64 %6483
+  %6484 = getelementptr [8 x i8], ptr %6481, i64 %6483
   %6485 = load ptr, ptr %6484, align 8, !tbaa !100
   %6486 = and i32 %.08890, 1
   %.not9691 = icmp eq i32 %6486, 0
@@ -14876,7 +14874,7 @@ thread-pre-split13189:                            ; preds = %6513, %6510
   %6523 = getelementptr i8, ptr %.69, i64 -8
   store i64 %6522, ptr %6523, align 8, !tbaa !113
   %6524 = zext nneg i32 %6486 to i64
-  %6525 = getelementptr %union._PyStackRef, ptr %.69, i64 %6524
+  %6525 = getelementptr [8 x i8], ptr %.69, i64 %6524
   %6526 = load i16, ptr %.24, align 2, !tbaa !143
   %.sroa.21588.0.extract.shift = lshr i16 %6526, 8
   %.sroa.21588.0.extract.trunc = zext nneg i16 %.sroa.21588.0.extract.shift to i32
@@ -14950,7 +14948,7 @@ _Py_NewRef.exit10695:                             ; preds = %6541, %6545
 
 6558:                                             ; preds = %6557, %6555
   %6559 = zext nneg i32 %6556 to i64
-  %6560 = getelementptr %union._PyStackRef, ptr %.28898, i64 %6559
+  %6560 = getelementptr [8 x i8], ptr %.28898, i64 %6559
   %6561 = load i16, ptr %6531, align 2, !tbaa !143
   %.sroa.21569.0.extract.shift = lshr i16 %6561, 8
   %.sroa.21569.0.extract.trunc = zext nneg i16 %.sroa.21569.0.extract.shift to i32
@@ -15032,7 +15030,7 @@ _Py_NewRef.exit10696:                             ; preds = %6580, %6584
 
 6597:                                             ; preds = %6596, %6594
   %6598 = zext nneg i32 %6595 to i64
-  %6599 = getelementptr %union._PyStackRef, ptr %.28898, i64 %6598
+  %6599 = getelementptr [8 x i8], ptr %.28898, i64 %6598
   %6600 = load i16, ptr %6566, align 2, !tbaa !143
   %.sroa.21546.0.extract.shift = lshr i16 %6600, 8
   %.sroa.21546.0.extract.trunc = zext nneg i16 %.sroa.21546.0.extract.shift to i32
@@ -15101,7 +15099,7 @@ _PyThreadState_HasStackSpace.exit10698:           ; preds = %6621
   %6639 = getelementptr inbounds nuw i8, ptr %6638, i64 24
   %6640 = ashr i32 %.08890, 1
   %6641 = sext i32 %6640 to i64
-  %6642 = getelementptr ptr, ptr %6639, i64 %6641
+  %6642 = getelementptr [8 x i8], ptr %6639, i64 %6641
   %6643 = load ptr, ptr %6642, align 8, !tbaa !100
   %6644 = load i32, ptr %.val10508, align 8, !tbaa !113
   %6645 = icmp slt i32 %6644, 0
@@ -15215,7 +15213,7 @@ _Py_NewRef.exit10702:                             ; preds = %6680, %6683
 
 6698:                                             ; preds = %6697, %6694
   %6699 = zext nneg i32 %6696 to i64
-  %6700 = getelementptr %union._PyStackRef, ptr %6695, i64 %6699
+  %6700 = getelementptr [8 x i8], ptr %6695, i64 %6699
   %6701 = load i16, ptr %6661, align 2, !tbaa !143
   %.sroa.21501.0.extract.shift = lshr i16 %6701, 8
   %.sroa.21501.0.extract.trunc = zext nneg i16 %.sroa.21501.0.extract.shift to i32
@@ -15408,7 +15406,7 @@ _Py_NewRef.exit10706:                             ; preds = %6771, %6775
   %6804 = shl nuw i64 1, %6803
   %6805 = getelementptr i8, ptr %6796, i64 %6804
   %6806 = zext i16 %.val10486 to i64
-  %6807 = getelementptr %struct.PyDictUnicodeEntry, ptr %6805, i64 %6806
+  %6807 = getelementptr [16 x i8], ptr %6805, i64 %6806
   %6808 = getelementptr i8, ptr %6807, i64 40
   %6809 = load ptr, ptr %6808, align 8, !tbaa !279
   %6810 = icmp eq ptr %6809, null
@@ -15459,7 +15457,7 @@ Py_INCREF.exit10106:                              ; preds = %6811, %6814
 
 6829:                                             ; preds = %6828, %6825
   %6830 = zext nneg i32 %6827 to i64
-  %6831 = getelementptr %union._PyStackRef, ptr %6826, i64 %6830
+  %6831 = getelementptr [8 x i8], ptr %6826, i64 %6830
   %6832 = load i16, ptr %6784, align 2, !tbaa !143
   %.sroa.21421.0.extract.shift = lshr i16 %6832, 8
   %.sroa.21421.0.extract.trunc = zext nneg i16 %.sroa.21421.0.extract.shift to i32
@@ -15760,7 +15758,7 @@ _Py_NewRef.exit10713:                             ; preds = %6972, %6975
 
 6988:                                             ; preds = %6987, %6985
   %6989 = zext nneg i32 %6986 to i64
-  %6990 = getelementptr %union._PyStackRef, ptr %.28898, i64 %6989
+  %6990 = getelementptr [8 x i8], ptr %.28898, i64 %6989
   %6991 = load i16, ptr %6959, align 2, !tbaa !143
   %.sroa.21337.0.extract.shift = lshr i16 %6991, 8
   %.sroa.21337.0.extract.trunc = zext nneg i16 %.sroa.21337.0.extract.shift to i32
@@ -15815,7 +15813,7 @@ _Py_NewRef.exit10713:                             ; preds = %6972, %6975
   %7020 = getelementptr inbounds nuw i8, ptr %7019, i64 24
   %7021 = ashr i32 %.08890, 1
   %7022 = sext i32 %7021 to i64
-  %7023 = getelementptr ptr, ptr %7020, i64 %7022
+  %7023 = getelementptr [8 x i8], ptr %7020, i64 %7022
   %7024 = load ptr, ptr %7023, align 8, !tbaa !100
   %7025 = getelementptr inbounds nuw i8, ptr %7010, i64 32
   %7026 = getelementptr inbounds nuw i8, ptr %7010, i64 9
@@ -15823,7 +15821,7 @@ _Py_NewRef.exit10713:                             ; preds = %6972, %6975
   %7028 = zext nneg i8 %7027 to i64
   %7029 = shl nuw i64 1, %7028
   %7030 = getelementptr i8, ptr %7025, i64 %7029
-  %7031 = getelementptr %struct.PyDictUnicodeEntry, ptr %7030, i64 %7008
+  %7031 = getelementptr [16 x i8], ptr %7030, i64 %7008
   %7032 = load ptr, ptr %7031, align 8, !tbaa !283
   %.not9316 = icmp eq ptr %7032, %7024
   br i1 %.not9316, label %7033, label %_PyThreadState_HasStackSpace.exit10698.thread
@@ -15875,7 +15873,7 @@ _Py_NewRef.exit10714:                             ; preds = %7037, %7040
 
 7053:                                             ; preds = %7052, %7050
   %7054 = zext nneg i32 %7051 to i64
-  %7055 = getelementptr %union._PyStackRef, ptr %.28898, i64 %7054
+  %7055 = getelementptr [8 x i8], ptr %.28898, i64 %7054
   %7056 = load i16, ptr %6996, align 2, !tbaa !143
   %.sroa.21306.0.extract.shift = lshr i16 %7056, 8
   %.sroa.21306.0.extract.trunc = zext nneg i16 %.sroa.21306.0.extract.shift to i32
@@ -15950,7 +15948,7 @@ _Py_NewRef.exit10714:                             ; preds = %7037, %7040
   %7095 = load ptr, ptr %7094, align 8, !tbaa !284
   %7096 = getelementptr inbounds nuw i8, ptr %7095, i64 24
   %7097 = sext i32 %.08890 to i64
-  %7098 = getelementptr ptr, ptr %7096, i64 %7097
+  %7098 = getelementptr [8 x i8], ptr %7096, i64 %7097
   %7099 = load ptr, ptr %7098, align 8, !tbaa !100
   %7100 = load i32, ptr %7099, align 8, !tbaa !113
   %7101 = icmp slt i32 %7100, 0
@@ -15994,7 +15992,7 @@ _Py_NewRef.exit10715:                             ; preds = %7090, %7102
   %7120 = load ptr, ptr %7119, align 8, !tbaa !284
   %7121 = getelementptr inbounds nuw i8, ptr %7120, i64 24
   %7122 = sext i32 %.08890 to i64
-  %7123 = getelementptr ptr, ptr %7121, i64 %7122
+  %7123 = getelementptr [8 x i8], ptr %7121, i64 %7122
   %7124 = load ptr, ptr %7123, align 8, !tbaa !100
   %7125 = ptrtoint ptr %7124 to i64
   store i64 %7125, ptr %.28898, align 8, !tbaa !113
@@ -16016,7 +16014,7 @@ _Py_NewRef.exit10715:                             ; preds = %7090, %7102
   %7135 = load ptr, ptr %7134, align 8, !tbaa !284
   %7136 = getelementptr inbounds nuw i8, ptr %7135, i64 24
   %7137 = sext i32 %.08890 to i64
-  %7138 = getelementptr ptr, ptr %7136, i64 %7137
+  %7138 = getelementptr [8 x i8], ptr %7136, i64 %7137
   %7139 = load ptr, ptr %7138, align 8, !tbaa !100
   %7140 = load i32, ptr %7139, align 8, !tbaa !113
   %7141 = icmp slt i32 %7140, 0
@@ -16044,7 +16042,7 @@ _Py_NewRef.exit10716:                             ; preds = %7130, %7142
   %7151 = getelementptr i8, ptr %.28893, i64 2
   %7152 = getelementptr inbounds nuw i8, ptr %.2, i64 80
   %7153 = sext i32 %.08890 to i64
-  %7154 = getelementptr %union._PyStackRef, ptr %7152, i64 %7153
+  %7154 = getelementptr [8 x i8], ptr %7152, i64 %7153
   %7155 = load i64, ptr %7154, align 8, !tbaa !113
   %7156 = inttoptr i64 %7155 to ptr
   %7157 = getelementptr i8, ptr %7156, i64 16
@@ -16081,7 +16079,7 @@ _PyErr_Occurred.exit.thread.i10722:               ; preds = %_PyErr_Occurred.exi
   %7167 = getelementptr inbounds nuw i8, ptr %7164, i64 96
   %7168 = load ptr, ptr %7167, align 8, !tbaa !238
   %7169 = getelementptr inbounds nuw i8, ptr %7168, i64 24
-  %7170 = getelementptr ptr, ptr %7169, i64 %7153
+  %7170 = getelementptr [8 x i8], ptr %7169, i64 %7153
   %7171 = load ptr, ptr %7170, align 8, !tbaa !100
   %7172 = getelementptr i8, ptr %7164, i64 72
   %.val8.i10723 = load i32, ptr %7172, align 8, !tbaa !174
@@ -16119,7 +16117,7 @@ _PyEval_FormatExcUnbound.exit10728:               ; preds = %_PyErr_Occurred.exi
   %7186 = getelementptr i8, ptr %.28893, i64 2
   %7187 = getelementptr inbounds nuw i8, ptr %.2, i64 80
   %7188 = sext i32 %.08890 to i64
-  %7189 = getelementptr %union._PyStackRef, ptr %7187, i64 %7188
+  %7189 = getelementptr [8 x i8], ptr %7187, i64 %7188
   %7190 = load i64, ptr %7189, align 8, !tbaa !113
   %7191 = inttoptr i64 %7190 to ptr
   %7192 = load i32, ptr %7191, align 8, !tbaa !113
@@ -16147,7 +16145,7 @@ _Py_NewRef.exit10729:                             ; preds = %7184, %7194
   %7202 = getelementptr i8, ptr %.28893, i64 2
   %7203 = getelementptr inbounds nuw i8, ptr %.2, i64 80
   %7204 = sext i32 %.08890 to i64
-  %7205 = getelementptr %union._PyStackRef, ptr %7203, i64 %7204
+  %7205 = getelementptr [8 x i8], ptr %7203, i64 %7204
   %.sroa.01264.0.copyload = load i64, ptr %7205, align 8, !tbaa !113
   store i64 0, ptr %7205, align 8, !tbaa !113
   store i64 %.sroa.01264.0.copyload, ptr %.28898, align 8, !tbaa !113
@@ -16165,7 +16163,7 @@ _Py_NewRef.exit10729:                             ; preds = %7184, %7194
   %7212 = getelementptr i8, ptr %.28893, i64 2
   %7213 = getelementptr inbounds nuw i8, ptr %.2, i64 80
   %7214 = sext i32 %.08890 to i64
-  %7215 = getelementptr %union._PyStackRef, ptr %7213, i64 %7214
+  %7215 = getelementptr [8 x i8], ptr %7213, i64 %7214
   %.sroa.01259.0.copyload = load i64, ptr %7215, align 8, !tbaa !113
   %7216 = icmp eq i64 %.sroa.01259.0.copyload, 0
   br i1 %7216, label %7217, label %7225
@@ -16213,7 +16211,7 @@ _Py_NewRef.exit10730:                             ; preds = %7225, %7229
   %7239 = and i32 %.08890, 15
   %7240 = getelementptr inbounds nuw i8, ptr %.2, i64 80
   %7241 = zext i32 %7238 to i64
-  %7242 = getelementptr %union._PyStackRef, ptr %7240, i64 %7241
+  %7242 = getelementptr [8 x i8], ptr %7240, i64 %7241
   %7243 = load i64, ptr %7242, align 8, !tbaa !113
   %7244 = inttoptr i64 %7243 to ptr
   %7245 = load i32, ptr %7244, align 8, !tbaa !113
@@ -16227,7 +16225,7 @@ _Py_NewRef.exit10730:                             ; preds = %7225, %7229
 
 _Py_NewRef.exit10731:                             ; preds = %7235, %7247
   %7249 = zext nneg i32 %7239 to i64
-  %7250 = getelementptr %union._PyStackRef, ptr %7240, i64 %7249
+  %7250 = getelementptr [8 x i8], ptr %7240, i64 %7249
   %7251 = load i64, ptr %7250, align 8, !tbaa !113
   %7252 = inttoptr i64 %7251 to ptr
   %7253 = load i32, ptr %7252, align 8, !tbaa !113
@@ -16264,7 +16262,7 @@ _Py_NewRef.exit10732:                             ; preds = %_Py_NewRef.exit1073
   %7269 = load ptr, ptr %7268, align 8, !tbaa !238
   %7270 = getelementptr inbounds nuw i8, ptr %7269, i64 24
   %7271 = sext i32 %.08890 to i64
-  %7272 = getelementptr ptr, ptr %7270, i64 %7271
+  %7272 = getelementptr [8 x i8], ptr %7270, i64 %7271
   %7273 = load ptr, ptr %7272, align 8, !tbaa !100
   %7274 = getelementptr inbounds nuw i8, ptr %.2, i64 64
   store ptr %.28898, ptr %7274, align 8, !tbaa !136
@@ -16281,7 +16279,7 @@ _Py_NewRef.exit10732:                             ; preds = %_Py_NewRef.exit1073
 
 7280:                                             ; preds = %7278
   %7281 = getelementptr inbounds nuw i8, ptr %.2, i64 80
-  %7282 = getelementptr %union._PyStackRef, ptr %7281, i64 %7271
+  %7282 = getelementptr [8 x i8], ptr %7281, i64 %7271
   %7283 = load i64, ptr %7282, align 8, !tbaa !113
   %7284 = inttoptr i64 %7283 to ptr
   %7285 = getelementptr i8, ptr %7284, i64 16
@@ -16360,7 +16358,7 @@ PyCell_GetRef.exit10734.thread:                   ; preds = %7286, %7289
   %7318 = load ptr, ptr %7317, align 8, !tbaa !235
   %7319 = getelementptr inbounds nuw i8, ptr %7318, i64 24
   %7320 = sext i32 %.08890 to i64
-  %7321 = getelementptr ptr, ptr %7319, i64 %7320
+  %7321 = getelementptr [8 x i8], ptr %7319, i64 %7320
   %7322 = load ptr, ptr %7321, align 8, !tbaa !100
   %7323 = getelementptr inbounds nuw i8, ptr %.2, i64 64
   store ptr %.28898, ptr %7323, align 8, !tbaa !136
@@ -16517,7 +16515,7 @@ _PyErr_Occurred.exit10737.thread:                 ; preds = %7357, %_PyErr_Occur
   %7402 = getelementptr inbounds nuw i8, ptr %7401, i64 24
   %7403 = ashr i32 %.08890, 1
   %7404 = sext i32 %7403 to i64
-  %7405 = getelementptr ptr, ptr %7402, i64 %7404
+  %7405 = getelementptr [8 x i8], ptr %7402, i64 %7404
   %7406 = load ptr, ptr %7405, align 8, !tbaa !100
   %7407 = getelementptr inbounds nuw i8, ptr %.2, i64 64
   store ptr %.28898, ptr %7407, align 8, !tbaa !136
@@ -16542,7 +16540,7 @@ _PyErr_Occurred.exit10737.thread:                 ; preds = %7357, %_PyErr_Occur
   %7420 = getelementptr inbounds nuw i8, ptr %7419, i64 24
   %7421 = ashr i32 %.08890, 1
   %7422 = sext i32 %7421 to i64
-  %7423 = getelementptr ptr, ptr %7420, i64 %7422
+  %7423 = getelementptr [8 x i8], ptr %7420, i64 %7422
   %7424 = load ptr, ptr %7423, align 8, !tbaa !100
   %7425 = getelementptr inbounds nuw i8, ptr %.2, i64 64
   store ptr %.28898, ptr %7425, align 8, !tbaa !136
@@ -16569,7 +16567,7 @@ _PyErr_Occurred.exit10737.thread:                 ; preds = %7357, %_PyErr_Occur
 
 7437:                                             ; preds = %7435, %7433
   %7438 = zext nneg i32 %7434 to i64
-  %7439 = getelementptr %union._PyStackRef, ptr %7430, i64 %7438
+  %7439 = getelementptr [8 x i8], ptr %7430, i64 %7438
   %7440 = getelementptr i8, ptr %7439, i64 8
   %7441 = load i16, ptr %.25, align 2, !tbaa !143
   %.sroa.21199.0.extract.shift = lshr i16 %7441, 8
@@ -16628,7 +16626,7 @@ _PyErr_Occurred.exit10737.thread:                 ; preds = %7357, %_PyErr_Occur
   %7477 = shl nuw i64 1, %7476
   %7478 = getelementptr i8, ptr %7468, i64 %7477
   %7479 = zext i16 %.val10492 to i64
-  %7480 = getelementptr %struct.PyDictUnicodeEntry, ptr %7478, i64 %7479
+  %7480 = getelementptr [16 x i8], ptr %7478, i64 %7479
   %7481 = getelementptr i8, ptr %7480, i64 40
   %7482 = load ptr, ptr %7481, align 8, !tbaa !279
   %7483 = icmp eq ptr %7482, null
@@ -16658,7 +16656,7 @@ Py_INCREF.exit10107:                              ; preds = %7484, %7487
 
 7493:                                             ; preds = %7491, %Py_INCREF.exit10107
   %7494 = zext nneg i32 %7490 to i64
-  %7495 = getelementptr %union._PyStackRef, ptr %.28898, i64 %7494
+  %7495 = getelementptr [8 x i8], ptr %.28898, i64 %7494
   %7496 = getelementptr i8, ptr %7495, i64 8
   %7497 = load i16, ptr %7446, align 2, !tbaa !143
   %.sroa.21175.0.extract.shift = lshr i16 %7497, 8
@@ -16698,7 +16696,7 @@ Py_INCREF.exit10107:                              ; preds = %7484, %7487
   %7520 = shl nuw i64 1, %7519
   %7521 = getelementptr i8, ptr %7511, i64 %7520
   %7522 = zext i16 %.val10494 to i64
-  %7523 = getelementptr %struct.PyDictUnicodeEntry, ptr %7521, i64 %7522
+  %7523 = getelementptr [16 x i8], ptr %7521, i64 %7522
   %7524 = getelementptr i8, ptr %7523, i64 40
   %7525 = load ptr, ptr %7524, align 8, !tbaa !279
   %7526 = icmp eq ptr %7525, null
@@ -16728,7 +16726,7 @@ Py_INCREF.exit10108:                              ; preds = %7527, %7530
 
 7536:                                             ; preds = %7534, %Py_INCREF.exit10108
   %7537 = zext nneg i32 %7533 to i64
-  %7538 = getelementptr %union._PyStackRef, ptr %.28898, i64 %7537
+  %7538 = getelementptr [8 x i8], ptr %.28898, i64 %7537
   %7539 = getelementptr i8, ptr %7538, i64 8
   %7540 = load i16, ptr %7502, align 2, !tbaa !143
   %.sroa.21156.0.extract.shift = lshr i16 %7540, 8
@@ -16786,7 +16784,7 @@ _Py_NewRef.exit10738:                             ; preds = %7553, %7556
   %7568 = load ptr, ptr %7567, align 8, !tbaa !235
   %7569 = getelementptr inbounds nuw i8, ptr %7568, i64 24
   %7570 = sext i32 %.08890 to i64
-  %7571 = getelementptr ptr, ptr %7569, i64 %7570
+  %7571 = getelementptr [8 x i8], ptr %7569, i64 %7570
   %7572 = load ptr, ptr %7571, align 8, !tbaa !100
   %7573 = getelementptr inbounds nuw i8, ptr %.2, i64 64
   store ptr %.28898, ptr %7573, align 8, !tbaa !136
@@ -16813,7 +16811,7 @@ _Py_NewRef.exit10738:                             ; preds = %7553, %7556
   %7585 = getelementptr i8, ptr %.28893, i64 2
   %7586 = add i32 %.08890, 5
   %7587 = sext i32 %7586 to i64
-  %7588 = getelementptr %struct._longobject, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 13912), i64 %7587
+  %7588 = getelementptr [32 x i8], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 13912), i64 %7587
   %7589 = ptrtoint ptr %7588 to i64
   store i64 %7589, ptr %.28898, align 8, !tbaa !113
   %7590 = getelementptr i8, ptr %.28898, i64 8
@@ -16832,7 +16830,7 @@ _Py_NewRef.exit10738:                             ; preds = %7553, %7556
   %.sroa.01136.0.copyload = load i64, ptr %7597, align 8, !tbaa !113
   %7598 = inttoptr i64 %.sroa.01136.0.copyload to ptr
   %7599 = sext i32 %.08890 to i64
-  %7600 = getelementptr %struct._special_method, ptr @_Py_SpecialMethods, i64 %7599
+  %7600 = getelementptr [16 x i8], ptr @_Py_SpecialMethods, i64 %7599
   %7601 = load ptr, ptr %7600, align 16, !tbaa !285
   %7602 = getelementptr inbounds nuw i8, ptr %.2, i64 64
   store ptr %7597, ptr %7602, align 8, !tbaa !136
@@ -16998,7 +16996,7 @@ _PyErr_Occurred.exit10741.thread:                 ; preds = %7606, %_PyErr_Occur
   %7682 = getelementptr inbounds nuw i8, ptr %7681, i64 24
   %7683 = ashr i32 %.08890, 2
   %7684 = sext i32 %7683 to i64
-  %7685 = getelementptr ptr, ptr %7682, i64 %7684
+  %7685 = getelementptr [8 x i8], ptr %7682, i64 %7684
   %7686 = load ptr, ptr %7685, align 8, !tbaa !100
   %7687 = getelementptr i8, ptr %7649, i64 -24
   store ptr %7687, ptr %7645, align 8, !tbaa !136
@@ -17040,7 +17038,7 @@ _PyErr_Occurred.exit10741.thread:                 ; preds = %7606, %_PyErr_Occur
 
 7704:                                             ; preds = %7702, %7700
   %7705 = zext nneg i32 %7632 to i64
-  %7706 = getelementptr %union._PyStackRef, ptr %7698, i64 %7705
+  %7706 = getelementptr [8 x i8], ptr %7698, i64 %7705
   %7707 = getelementptr i8, ptr %7706, i64 8
   %7708 = load i16, ptr %.26, align 2, !tbaa !143
   %.sroa.21037.0.extract.shift = lshr i16 %7708, 8
@@ -17081,7 +17079,7 @@ _PyErr_Occurred.exit10741.thread:                 ; preds = %7606, %_PyErr_Occur
   %7727 = getelementptr inbounds nuw i8, ptr %7726, i64 24
   %7728 = ashr i32 %.08890, 2
   %7729 = sext i32 %7728 to i64
-  %7730 = getelementptr ptr, ptr %7727, i64 %7729
+  %7730 = getelementptr [8 x i8], ptr %7727, i64 %7729
   %7731 = load ptr, ptr %7730, align 8, !tbaa !100
   %7732 = getelementptr inbounds nuw i8, ptr %.2, i64 64
   store ptr %.28898, ptr %7732, align 8, !tbaa !136
@@ -17190,7 +17188,7 @@ _PyErr_Occurred.exit10741.thread:                 ; preds = %7606, %_PyErr_Occur
   %7784 = getelementptr inbounds nuw i8, ptr %7783, i64 24
   %7785 = ashr i32 %.08890, 2
   %7786 = sext i32 %7785 to i64
-  %7787 = getelementptr ptr, ptr %7784, i64 %7786
+  %7787 = getelementptr [8 x i8], ptr %7784, i64 %7786
   %7788 = load ptr, ptr %7787, align 8, !tbaa !100
   store i32 0, ptr %18, align 4, !tbaa !180
   %7789 = getelementptr inbounds nuw i8, ptr %.2, i64 64
@@ -17296,7 +17294,7 @@ _PyErr_Occurred.exit10741.thread:                 ; preds = %7606, %_PyErr_Occur
   %7837 = getelementptr i8, ptr %.28893, i64 2
   %7838 = getelementptr inbounds nuw i8, ptr %.2, i64 80
   %7839 = sext i32 %.08890 to i64
-  %7840 = getelementptr %union._PyStackRef, ptr %7838, i64 %7839
+  %7840 = getelementptr [8 x i8], ptr %7838, i64 %7839
   %7841 = load i64, ptr %7840, align 8, !tbaa !113
   %7842 = inttoptr i64 %7841 to ptr
   %7843 = call ptr @PyCell_New(ptr noundef %7842) #15
@@ -17401,7 +17399,7 @@ _PyErr_Occurred.exit10741.thread:                 ; preds = %7606, %_PyErr_Occur
   %.sroa.0934.0.copyload = load i64, ptr %7896, align 8, !tbaa !113
   %7897 = sub i32 -2, %.08890
   %7898 = sext i32 %7897 to i64
-  %7899 = getelementptr %union._PyStackRef, ptr %.28898, i64 %7898
+  %7899 = getelementptr [8 x i8], ptr %.28898, i64 %7898
   %.sroa.0935.0.copyload = load i64, ptr %7899, align 8, !tbaa !113
   %7900 = inttoptr i64 %.sroa.0935.0.copyload to ptr
   %7901 = getelementptr inbounds nuw i8, ptr %.2, i64 64
@@ -17730,7 +17728,7 @@ _PyErr_Occurred.exit10744.thread:                 ; preds = %7953, %_PyErr_Occur
 8072:                                             ; preds = %8058, %8068
   %8073 = phi i32 [ %8071, %8068 ], [ %.08890, %8058 ]
   %8074 = sext i32 %8073 to i64
-  %8075 = getelementptr %union._Py_CODEUNIT, ptr %8060, i64 %8074
+  %8075 = getelementptr [2 x i8], ptr %8060, i64 %8074
   %8076 = load i16, ptr %8075, align 2, !tbaa !143
   %.sroa.2846.0.extract.shift = lshr i16 %8076, 8
   %.sroa.2846.0.extract.trunc = zext nneg i16 %.sroa.2846.0.extract.shift to i32
@@ -17788,7 +17786,7 @@ _PyErr_Occurred.exit10744.thread:                 ; preds = %7953, %_PyErr_Occur
 8105:                                             ; preds = %.critedge, %8098
   %8106 = phi i32 [ %8104, %8098 ], [ %.08890, %.critedge ]
   %8107 = sext i32 %8106 to i64
-  %8108 = getelementptr %union._Py_CODEUNIT, ptr %8081, i64 %8107
+  %8108 = getelementptr [2 x i8], ptr %8081, i64 %8107
   %8109 = load i16, ptr %8108, align 2, !tbaa !143
   %.sroa.2829.0.extract.shift = lshr i16 %8109, 8
   %.sroa.2829.0.extract.trunc = zext nneg i16 %.sroa.2829.0.extract.shift to i32
@@ -17846,7 +17844,7 @@ _PyErr_Occurred.exit10744.thread:                 ; preds = %7953, %_PyErr_Occur
 8138:                                             ; preds = %8126, %8131
   %8139 = phi i32 [ %8137, %8131 ], [ %.08890, %8126 ]
   %8140 = sext i32 %8139 to i64
-  %8141 = getelementptr %union._Py_CODEUNIT, ptr %8114, i64 %8140
+  %8141 = getelementptr [2 x i8], ptr %8114, i64 %8140
   %8142 = load i16, ptr %8141, align 2, !tbaa !143
   %.sroa.2812.0.extract.shift = lshr i16 %8142, 8
   %.sroa.2812.0.extract.trunc = zext nneg i16 %.sroa.2812.0.extract.shift to i32
@@ -17878,7 +17876,7 @@ _PyErr_Occurred.exit10744.thread:                 ; preds = %7953, %_PyErr_Occur
 8159:                                             ; preds = %8145, %8155
   %8160 = phi i32 [ %8158, %8155 ], [ %.08890, %8145 ]
   %8161 = sext i32 %8160 to i64
-  %8162 = getelementptr %union._Py_CODEUNIT, ptr %8147, i64 %8161
+  %8162 = getelementptr [2 x i8], ptr %8147, i64 %8161
   %8163 = load i16, ptr %8162, align 2, !tbaa !143
   %.sroa.2805.0.extract.shift = lshr i16 %8163, 8
   %.sroa.2805.0.extract.trunc = zext nneg i16 %.sroa.2805.0.extract.shift to i32
@@ -17971,7 +17969,7 @@ _Py_NewRef.exit10745:                             ; preds = %8183, %8193
   %8208 = getelementptr i8, ptr %.28893, i64 2
   %8209 = sub i32 0, %.08890
   %8210 = sext i32 %8209 to i64
-  %8211 = getelementptr %union._PyStackRef, ptr %.28898, i64 %8210
+  %8211 = getelementptr [8 x i8], ptr %.28898, i64 %8210
   %8212 = icmp eq i32 %.08890, 2
   br i1 %8212, label %.thread10856, label %8216
 
@@ -18407,7 +18405,7 @@ monitor_reraise.exit10754:                        ; preds = %8373, %8377, %8386,
 8402:                                             ; preds = %8397
   %8403 = xor i32 %.08890, -1
   %8404 = sext i32 %8403 to i64
-  %8405 = getelementptr %union._PyStackRef, ptr %.28898, i64 %8404
+  %8405 = getelementptr [8 x i8], ptr %.28898, i64 %8404
   %8406 = load i64, ptr %8405, align 8, !tbaa !113
   %8407 = inttoptr i64 %8406 to ptr
   %8408 = getelementptr i8, ptr %8407, i64 8
@@ -18425,7 +18423,7 @@ monitor_reraise.exit10754:                        ; preds = %8373, %8377, %8386,
   %8413 = inttoptr i64 %.2.val10583 to ptr
   %8414 = getelementptr inbounds nuw i8, ptr %8413, i64 208
   %8415 = call i64 @PyLong_AsLong(ptr noundef nonnull %8407) #15
-  %8416 = getelementptr %union._Py_CODEUNIT, ptr %8414, i64 %8415
+  %8416 = getelementptr [2 x i8], ptr %8414, i64 %8415
   store ptr %8416, ptr %8398, align 8, !tbaa !133
   %8417 = load ptr, ptr %8411, align 8, !tbaa !136
   store ptr null, ptr %8411, align 8, !tbaa !136
@@ -18648,7 +18646,7 @@ monitor_reraise.exit10760:                        ; preds = %8431, %8437, %8446,
   %8528 = getelementptr inbounds nuw i8, ptr %8514, i64 152
   %sext.i = shl i64 %8525, 29
   %8529 = ashr i64 %sext.i, 32
-  %8530 = getelementptr %union._PyStackRef, ptr %8528, i64 %8529
+  %8530 = getelementptr [8 x i8], ptr %8528, i64 %8529
   %8531 = getelementptr inbounds nuw i8, ptr %8514, i64 136
   store ptr %8530, ptr %8531, align 8, !tbaa !136
   %8532 = icmp sgt i32 %8527, 1
@@ -18660,8 +18658,8 @@ monitor_reraise.exit10760:                        ; preds = %8431, %8437, %8446,
 
 .lr.ph.i10761:                                    ; preds = %.lr.ph.i10761, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i10761 ]
-  %8533 = getelementptr %union._PyStackRef, ptr %8528, i64 %indvars.iv.i
-  %8534 = getelementptr %union._PyStackRef, ptr %8522, i64 %indvars.iv.i
+  %8533 = getelementptr [8 x i8], ptr %8528, i64 %indvars.iv.i
+  %8534 = getelementptr [8 x i8], ptr %8522, i64 %indvars.iv.i
   %8535 = load i64, ptr %8534, align 8, !tbaa !113
   store i64 %8535, ptr %8533, align 8, !tbaa !113
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -18687,7 +18685,7 @@ _PyFrame_Copy.exit:                               ; preds = %.lr.ph.i10761, %851
   %8545 = getelementptr inbounds nuw i8, ptr %8542, i64 72
   %8546 = load i16, ptr %8545, align 8, !tbaa !139
   %8547 = zext i16 %8546 to i64
-  %8548 = getelementptr %union._Py_CODEUNIT, ptr %8544, i64 %8547
+  %8548 = getelementptr [2 x i8], ptr %8544, i64 %8547
   %8549 = getelementptr inbounds nuw i8, ptr %8542, i64 64
   %8550 = load ptr, ptr %8549, align 8, !tbaa !136
   store ptr null, ptr %8549, align 8, !tbaa !136
@@ -18723,7 +18721,7 @@ _PyFrame_Copy.exit:                               ; preds = %.lr.ph.i10761, %851
   %8568 = getelementptr inbounds nuw i8, ptr %8563, i64 72
   %8569 = load i16, ptr %8568, align 8, !tbaa !139
   %8570 = zext i16 %8569 to i64
-  %8571 = getelementptr %union._Py_CODEUNIT, ptr %8567, i64 %8570
+  %8571 = getelementptr [2 x i8], ptr %8567, i64 %8570
   store i64 %.sroa.0734.0.copyload, ptr %8565, align 8, !tbaa !113
   %8572 = getelementptr i8, ptr %8565, i64 8
   %8573 = load i16, ptr %8571, align 2, !tbaa !143
@@ -18936,7 +18934,7 @@ _PyEval_MonitorRaise.exit10768:                   ; preds = %8645, %8649, %8658,
 
 8673:                                             ; preds = %8669
   %8674 = sext i32 %.08890 to i64
-  %8675 = getelementptr %union._Py_CODEUNIT, ptr %.28, i64 %8674
+  %8675 = getelementptr [2 x i8], ptr %.28, i64 %8674
   br label %8683
 
 8676:                                             ; preds = %8669
@@ -19166,7 +19164,7 @@ _PyEval_MonitorRaise.exit10768:                   ; preds = %8645, %8649, %8658,
   %.sroa.0648.0.copyload = load i64, ptr %8792, align 8, !tbaa !113
   %8793 = xor i32 %.08890, -1
   %8794 = sext i32 %8793 to i64
-  %8795 = getelementptr %union._PyStackRef, ptr %.28898, i64 %8794
+  %8795 = getelementptr [8 x i8], ptr %.28898, i64 %8794
   %.sroa.0650.0.copyload = load i64, ptr %8795, align 8, !tbaa !113
   %8796 = getelementptr inbounds nuw i8, ptr %.2, i64 64
   store ptr %.28898, ptr %8796, align 8, !tbaa !136
@@ -19217,7 +19215,7 @@ _PyEval_MonitorRaise.exit10768:                   ; preds = %8645, %8649, %8658,
   %8820 = inttoptr i64 %.sroa.0637.0.copyload to ptr
   %8821 = inttoptr i64 %.sroa.0639.0.copyload to ptr
   %8822 = sext i32 %.08890 to i64
-  %8823 = getelementptr i64, ptr @_Py_FunctionAttributeOffsets, i64 %8822
+  %8823 = getelementptr [8 x i8], ptr @_Py_FunctionAttributeOffsets, i64 %8822
   %8824 = load i64, ptr %8823, align 8, !tbaa !282
   %8825 = getelementptr i8, ptr %8820, i64 %8824
   store ptr %8821, ptr %8825, align 8, !tbaa !100
@@ -19237,7 +19235,7 @@ _PyEval_MonitorRaise.exit10768:                   ; preds = %8645, %8649, %8658,
   %.sroa.0626.0.copyload = load i64, ptr %8832, align 8, !tbaa !113
   %8833 = xor i32 %.08890, -1
   %8834 = sext i32 %8833 to i64
-  %8835 = getelementptr %union._PyStackRef, ptr %.28898, i64 %8834
+  %8835 = getelementptr [8 x i8], ptr %.28898, i64 %8834
   %.sroa.0628.0.copyload = load i64, ptr %8835, align 8, !tbaa !113
   %8836 = getelementptr inbounds nuw i8, ptr %.2, i64 64
   store ptr %.28898, ptr %8836, align 8, !tbaa !136
@@ -19300,7 +19298,7 @@ _PyEval_MonitorRaise.exit10768:                   ; preds = %8645, %8649, %8658,
   %8865 = load ptr, ptr %8864, align 8, !tbaa !235
   %8866 = getelementptr inbounds nuw i8, ptr %8865, i64 24
   %8867 = sext i32 %.08890 to i64
-  %8868 = getelementptr ptr, ptr %8866, i64 %8867
+  %8868 = getelementptr [8 x i8], ptr %8866, i64 %8867
   %8869 = load ptr, ptr %8868, align 8, !tbaa !100
   %8870 = getelementptr inbounds nuw i8, ptr %.2, i64 64
   store ptr %.28898, ptr %8870, align 8, !tbaa !136
@@ -19322,7 +19320,7 @@ _PyEval_MonitorRaise.exit10768:                   ; preds = %8645, %8649, %8658,
   %8879 = load ptr, ptr %8878, align 8, !tbaa !235
   %8880 = getelementptr inbounds nuw i8, ptr %8879, i64 24
   %8881 = sext i32 %.08890 to i64
-  %8882 = getelementptr ptr, ptr %8880, i64 %8881
+  %8882 = getelementptr [8 x i8], ptr %8880, i64 %8881
   %8883 = load ptr, ptr %8882, align 8, !tbaa !100
   %8884 = getelementptr inbounds nuw i8, ptr %.2, i64 64
   store ptr %.28898, ptr %8884, align 8, !tbaa !136
@@ -19434,7 +19432,7 @@ _PyEval_MonitorRaise.exit10768:                   ; preds = %8645, %8649, %8658,
   %8941 = load i8, ptr %8940, align 1, !tbaa !295
   %8942 = load i8, ptr %8926, align 8, !tbaa !296
   %8943 = zext i8 %8942 to i64
-  %8944 = getelementptr ptr, ptr %8938, i64 %8943
+  %8944 = getelementptr [8 x i8], ptr %8938, i64 %8943
   %8945 = trunc i64 %8939 to i8
   %8946 = zext i8 %8941 to i64
   %8947 = getelementptr i8, ptr %8944, i64 %8946
@@ -19605,7 +19603,7 @@ _PyEval_MonitorRaise.exit10768:                   ; preds = %8645, %8649, %8658,
   %9029 = load ptr, ptr %9028, align 8, !tbaa !235
   %9030 = getelementptr inbounds nuw i8, ptr %9029, i64 24
   %9031 = sext i32 %.08890 to i64
-  %9032 = getelementptr ptr, ptr %9030, i64 %9031
+  %9032 = getelementptr [8 x i8], ptr %9030, i64 %9031
   %9033 = load ptr, ptr %9032, align 8, !tbaa !100
   %9034 = zext i16 %.val10500 to i64
   %9035 = getelementptr inbounds nuw i8, ptr %.val10589, i64 32
@@ -19628,7 +19626,7 @@ _PyEval_MonitorRaise.exit10768:                   ; preds = %8645, %8649, %8658,
   %9046 = zext nneg i8 %9045 to i64
   %9047 = shl nuw i64 1, %9046
   %9048 = getelementptr i8, ptr %9043, i64 %9047
-  %9049 = getelementptr %struct.PyDictUnicodeEntry, ptr %9048, i64 %9034
+  %9049 = getelementptr [16 x i8], ptr %9048, i64 %9034
   %9050 = load ptr, ptr %9049, align 8, !tbaa !283
   %.not9280 = icmp eq ptr %9050, %9033
   br i1 %.not9280, label %9051, label %8859
@@ -19714,7 +19712,7 @@ _PyDict_NotifyEvent.exit:                         ; preds = %9055, %9062
   %.sroa.0488.0.copyload = load i64, ptr %9089, align 8, !tbaa !113
   %9090 = getelementptr inbounds nuw i8, ptr %.2, i64 80
   %9091 = sext i32 %.08890 to i64
-  %9092 = getelementptr %union._PyStackRef, ptr %9090, i64 %9091
+  %9092 = getelementptr [8 x i8], ptr %9090, i64 %9091
   %9093 = load i64, ptr %9092, align 8, !tbaa !113
   %9094 = inttoptr i64 %9093 to ptr
   %9095 = getelementptr inbounds nuw i8, ptr %.2, i64 64
@@ -19760,7 +19758,7 @@ PyCell_SetTakeRef.exit:                           ; preds = %9086, %9099, %9101,
   %.sroa.0483.0.copyload = load i64, ptr %9113, align 8, !tbaa !113
   %9114 = getelementptr inbounds nuw i8, ptr %.2, i64 80
   %9115 = sext i32 %.08890 to i64
-  %9116 = getelementptr %union._PyStackRef, ptr %9114, i64 %9115
+  %9116 = getelementptr [8 x i8], ptr %9114, i64 %9115
   %.sroa.0482.0.copyload = load i64, ptr %9116, align 8, !tbaa !113
   store i64 %.sroa.0483.0.copyload, ptr %9116, align 8, !tbaa !113
   %9117 = icmp eq i64 %.sroa.0482.0.copyload, 0
@@ -19804,7 +19802,7 @@ PyCell_SetTakeRef.exit:                           ; preds = %9086, %9099, %9101,
   %9137 = and i32 %.08890, 15
   %9138 = getelementptr inbounds nuw i8, ptr %.2, i64 80
   %9139 = zext i32 %9136 to i64
-  %9140 = getelementptr %union._PyStackRef, ptr %9138, i64 %9139
+  %9140 = getelementptr [8 x i8], ptr %9138, i64 %9139
   %.sroa.0466.0.copyload = load i64, ptr %9140, align 8, !tbaa !113
   store i64 %.sroa.0471.0.copyload, ptr %9140, align 8, !tbaa !113
   %9141 = icmp eq i64 %.sroa.0466.0.copyload, 0
@@ -19832,7 +19830,7 @@ PyCell_SetTakeRef.exit:                           ; preds = %9086, %9099, %9101,
 
 9152:                                             ; preds = %9142, %9148, %9145, %9132
   %9153 = zext nneg i32 %9137 to i64
-  %9154 = getelementptr %union._PyStackRef, ptr %9138, i64 %9153
+  %9154 = getelementptr [8 x i8], ptr %9138, i64 %9153
   %9155 = load i64, ptr %9154, align 8, !tbaa !113
   %9156 = inttoptr i64 %9155 to ptr
   %9157 = load i32, ptr %9156, align 8, !tbaa !113
@@ -19865,7 +19863,7 @@ _Py_NewRef.exit10775:                             ; preds = %9152, %9159
   %9170 = and i32 %.08890, 15
   %9171 = getelementptr inbounds nuw i8, ptr %.2, i64 80
   %9172 = zext i32 %9169 to i64
-  %9173 = getelementptr %union._PyStackRef, ptr %9171, i64 %9172
+  %9173 = getelementptr [8 x i8], ptr %9171, i64 %9172
   %.sroa.0447.0.copyload = load i64, ptr %9173, align 8, !tbaa !113
   store i64 %.sroa.0452.0.copyload, ptr %9173, align 8, !tbaa !113
   %9174 = icmp eq i64 %.sroa.0447.0.copyload, 0
@@ -19893,7 +19891,7 @@ _Py_NewRef.exit10775:                             ; preds = %9152, %9159
 
 9185:                                             ; preds = %9164, %9178, %9181, %9175
   %9186 = zext nneg i32 %9170 to i64
-  %9187 = getelementptr %union._PyStackRef, ptr %9171, i64 %9186
+  %9187 = getelementptr [8 x i8], ptr %9171, i64 %9186
   %.sroa.0439.0.copyload = load i64, ptr %9187, align 8, !tbaa !113
   store i64 %.sroa.0454.0.copyload, ptr %9187, align 8, !tbaa !113
   %9188 = icmp eq i64 %.sroa.0439.0.copyload, 0
@@ -19939,7 +19937,7 @@ _Py_NewRef.exit10775:                             ; preds = %9152, %9159
   %9209 = load ptr, ptr %9208, align 8, !tbaa !235
   %9210 = getelementptr inbounds nuw i8, ptr %9209, i64 24
   %9211 = sext i32 %.08890 to i64
-  %9212 = getelementptr ptr, ptr %9210, i64 %9211
+  %9212 = getelementptr [8 x i8], ptr %9210, i64 %9211
   %9213 = load ptr, ptr %9212, align 8, !tbaa !100
   %9214 = getelementptr inbounds nuw i8, ptr %.2, i64 64
   store ptr %.28898, ptr %9214, align 8, !tbaa !136
@@ -19992,7 +19990,7 @@ _Py_NewRef.exit10775:                             ; preds = %9152, %9159
   %9240 = load ptr, ptr %9239, align 8, !tbaa !235
   %9241 = getelementptr inbounds nuw i8, ptr %9240, i64 24
   %9242 = sext i32 %.08890 to i64
-  %9243 = getelementptr ptr, ptr %9241, i64 %9242
+  %9243 = getelementptr [8 x i8], ptr %9241, i64 %9242
   %9244 = load ptr, ptr %9243, align 8, !tbaa !100
   %9245 = getelementptr inbounds nuw i8, ptr %.2, i64 40
   %9246 = load ptr, ptr %9245, align 8, !tbaa !173
@@ -20392,7 +20390,7 @@ _Py_NewRef.exit10775:                             ; preds = %9152, %9159
 9448:                                             ; preds = %9443
   %9449 = getelementptr inbounds nuw i8, ptr %9431, i64 24
   %9450 = load ptr, ptr %9449, align 8, !tbaa !181
-  %9451 = getelementptr ptr, ptr %9450, i64 %9446
+  %9451 = getelementptr [8 x i8], ptr %9450, i64 %9446
   %9452 = load ptr, ptr %9451, align 8, !tbaa !100
   %9453 = inttoptr i64 %.sroa.0320.0.copyload to ptr
   store ptr %9453, ptr %9451, align 8, !tbaa !100
@@ -20476,7 +20474,7 @@ _Py_NewRef.exit10775:                             ; preds = %9152, %9159
   %9490 = getelementptr i8, ptr %.28898, i64 -8
   %9491 = sub i32 0, %.08890
   %9492 = sext i32 %9491 to i64
-  %9493 = getelementptr %union._PyStackRef, ptr %.28898, i64 %9492
+  %9493 = getelementptr [8 x i8], ptr %.28898, i64 %9492
   %.sroa.0278.0.copyload = load i64, ptr %9493, align 8, !tbaa !113
   %9494 = load i64, ptr %9490, align 8, !tbaa !113
   store i64 %9494, ptr %9493, align 8, !tbaa !113
@@ -20879,10 +20877,10 @@ _Py_NewRef.exit10775:                             ; preds = %9152, %9159
   %.sroa.0155.0.copyload = load i64, ptr %9694, align 8, !tbaa !113
   %9695 = and i32 %.08890, 255
   %9696 = zext nneg i32 %9695 to i64
-  %9697 = getelementptr %union._PyStackRef, ptr %.28898, i64 %9696
+  %9697 = getelementptr [8 x i8], ptr %.28898, i64 %9696
   %9698 = ashr i32 %.08890, 8
   %9699 = sext i32 %9698 to i64
-  %9700 = getelementptr %union._PyStackRef, ptr %9697, i64 %9699
+  %9700 = getelementptr [8 x i8], ptr %9697, i64 %9699
   %9701 = getelementptr inbounds nuw i8, ptr %.2, i64 64
   store ptr %.28898, ptr %9701, align 8, !tbaa !136
   %9702 = call i32 @_PyEval_UnpackIterableStackRef(ptr noundef %0, i64 %.sroa.0155.0.copyload, i32 noundef %9695, i32 noundef %9698, ptr noundef %9700)
@@ -20914,7 +20912,7 @@ _Py_NewRef.exit10775:                             ; preds = %9152, %9159
 9715:                                             ; preds = %9713
   %9716 = add nsw i32 %9695, %9698
   %9717 = sext i32 %9716 to i64
-  %9718 = getelementptr %union._PyStackRef, ptr %9703, i64 %9717
+  %9718 = getelementptr [8 x i8], ptr %9703, i64 %9717
   %9719 = load i16, ptr %9693, align 2, !tbaa !143
   %.sroa.2146.0.extract.shift = lshr i16 %9719, 8
   %.sroa.2146.0.extract.trunc = zext nneg i16 %.sroa.2146.0.extract.shift to i32
@@ -20953,7 +20951,7 @@ _Py_NewRef.exit10775:                             ; preds = %9152, %9159
   %9735 = add i16 %.val10503, -16
   store i16 %9735, ptr %9726, align 2, !tbaa !143
   %9736 = sext i32 %.08890 to i64
-  %9737 = getelementptr %union._PyStackRef, ptr %9734, i64 %9736
+  %9737 = getelementptr [8 x i8], ptr %9734, i64 %9736
   %9738 = getelementptr inbounds nuw i8, ptr %.2, i64 64
   store ptr %.28898, ptr %9738, align 8, !tbaa !136
   %9739 = call i32 @_PyEval_UnpackIterableStackRef(ptr noundef %0, i64 %.sroa.0138.0.copyload, i32 noundef %.08890, i32 noundef -1, ptr noundef %9737)
@@ -20985,7 +20983,7 @@ _Py_NewRef.exit10775:                             ; preds = %9152, %9159
 9752:                                             ; preds = %9750
   %9753 = add i32 %.08890, -1
   %9754 = sext i32 %9753 to i64
-  %9755 = getelementptr %union._PyStackRef, ptr %9740, i64 %9754
+  %9755 = getelementptr [8 x i8], ptr %9740, i64 %9754
   %9756 = load i16, ptr %.33, align 2, !tbaa !143
   %.sroa.2126.0.extract.shift = lshr i16 %9756, 8
   %.sroa.2126.0.extract.trunc = zext nneg i16 %.sroa.2126.0.extract.shift to i32
@@ -21027,7 +21025,7 @@ _Py_NewRef.exit10775:                             ; preds = %9152, %9159
   %indvars.iv12502 = phi i64 [ %9775, %.lr.ph11505.preheader ], [ %indvars.iv.next12503, %_Py_NewRef.exit10778 ]
   %.0898511503 = phi ptr [ %9762, %.lr.ph11505.preheader ], [ %9776, %_Py_NewRef.exit10778 ]
   %9776 = getelementptr i8, ptr %.0898511503, i64 8
-  %9777 = getelementptr ptr, ptr %9772, i64 %indvars.iv12502
+  %9777 = getelementptr [8 x i8], ptr %9772, i64 %indvars.iv12502
   %9778 = load ptr, ptr %9777, align 8, !tbaa !100
   %9779 = load i32, ptr %9778, align 8, !tbaa !113
   %9780 = icmp slt i32 %9779, 0
@@ -21065,7 +21063,7 @@ _Py_NewRef.exit10778:                             ; preds = %.lr.ph11505, %9781
 
 9792:                                             ; preds = %9786, %9789, %._crit_edge11506
   %9793 = sext i32 %9773 to i64
-  %9794 = getelementptr %union._PyStackRef, ptr %.28898, i64 %9793
+  %9794 = getelementptr [8 x i8], ptr %.28898, i64 %9793
   %9795 = load i16, ptr %9761, align 2, !tbaa !143
   %.sroa.2109.0.extract.shift = lshr i16 %9795, 8
   %.sroa.2109.0.extract.trunc = zext nneg i16 %.sroa.2109.0.extract.shift to i32
@@ -21106,7 +21104,7 @@ _Py_NewRef.exit10778:                             ; preds = %.lr.ph11505, %9781
   %indvars.iv12505 = phi i64 [ %9813, %.lr.ph11509.preheader ], [ %indvars.iv.next12506, %_Py_NewRef.exit10780 ]
   %.0897511507 = phi ptr [ %9801, %.lr.ph11509.preheader ], [ %9814, %_Py_NewRef.exit10780 ]
   %9814 = getelementptr i8, ptr %.0897511507, i64 8
-  %9815 = getelementptr ptr, ptr %9810, i64 %indvars.iv12505
+  %9815 = getelementptr [8 x i8], ptr %9810, i64 %indvars.iv12505
   %9816 = load ptr, ptr %9815, align 8, !tbaa !100
   %9817 = load i32, ptr %9816, align 8, !tbaa !113
   %9818 = icmp slt i32 %9817, 0
@@ -21144,7 +21142,7 @@ _Py_NewRef.exit10780:                             ; preds = %.lr.ph11509, %9819
 
 9830:                                             ; preds = %9824, %9827, %._crit_edge11510
   %9831 = sext i32 %9811 to i64
-  %9832 = getelementptr %union._PyStackRef, ptr %.28898, i64 %9831
+  %9832 = getelementptr [8 x i8], ptr %.28898, i64 %9831
   %9833 = load i16, ptr %9800, align 2, !tbaa !143
   %.sroa.292.0.extract.shift = lshr i16 %9833, 8
   %.sroa.292.0.extract.trunc = zext nneg i16 %.sroa.292.0.extract.shift to i32
@@ -21282,7 +21280,7 @@ _Py_NewRef.exit10784:                             ; preds = %_Py_NewRef.exit1078
   %9899 = getelementptr inbounds nuw i8, ptr %.2, i64 64
   store ptr %.85, ptr %9899, align 8, !tbaa !136
   %.neg9753 = sext i1 %9898 to i64
-  %9900 = getelementptr ptr, ptr %10261, i64 %.neg9753
+  %9900 = getelementptr [8 x i8], ptr %10261, i64 %.neg9753
   %9901 = select i1 %9898, i64 -9223372036854775804, i64 -9223372036854775805
   %9902 = call ptr @PyObject_Vectorcall(ptr noundef %9880, ptr noundef %9900, i64 noundef %9901, ptr noundef null) #15
   %9903 = load ptr, ptr %9899, align 8, !tbaa !136
@@ -21437,7 +21435,7 @@ _PyFrame_IsIncomplete.exit:                       ; preds = %9959
   %9964 = getelementptr inbounds nuw i8, ptr %9962, i64 192
   %9965 = load i32, ptr %9964, align 8, !tbaa !301
   %9966 = sext i32 %9965 to i64
-  %9967 = getelementptr %union._Py_CODEUNIT, ptr %9963, i64 %9966
+  %9967 = getelementptr [2 x i8], ptr %9963, i64 %9966
   %9968 = icmp ult ptr %9961, %9967
   br i1 %9968, label %_PyFrame_IsIncomplete.exit.thread, label %_PyFrame_IsIncomplete.exit.thread10864
 
@@ -21755,7 +21753,7 @@ skip_to_next_entry.exit.i:                        ; preds = %10112, %.lr.ph.i87.
   %10115 = getelementptr inbounds nuw i8, ptr %10002, i64 72
   %10116 = load i32, ptr %10115, align 8, !tbaa !174
   %10117 = sext i32 %10116 to i64
-  %10118 = getelementptr %union._PyStackRef, ptr %9997, i64 %10117
+  %10118 = getelementptr [8 x i8], ptr %9997, i64 %10117
   %10119 = icmp ugt ptr %.318927, %10118
   br i1 %10119, label %.lr.ph11908, label %._crit_edge11909
 
@@ -21846,9 +21844,9 @@ skip_to_next_entry.exit.i:                        ; preds = %10112, %.lr.ph.i87.
   %10160 = getelementptr inbounds nuw i8, ptr %10002, i64 72
   %10161 = load i32, ptr %10160, align 8, !tbaa !174
   %10162 = sext i32 %10161 to i64
-  %10163 = getelementptr %union._PyStackRef, ptr %9997, i64 %10162
+  %10163 = getelementptr [8 x i8], ptr %9997, i64 %10162
   %10164 = sext i32 %10158 to i64
-  %10165 = getelementptr %union._PyStackRef, ptr %10163, i64 %10164
+  %10165 = getelementptr [8 x i8], ptr %10163, i64 %10164
   %10166 = icmp ugt ptr %.318927, %10165
   br i1 %10166, label %.lr.ph, label %._crit_edge
 
@@ -21916,7 +21914,7 @@ skip_to_next_entry.exit.i:                        ; preds = %10112, %.lr.ph.i87.
   %10194 = inttoptr i64 %.3.val10586 to ptr
   %10195 = getelementptr inbounds nuw i8, ptr %10194, i64 208
   %10196 = sext i32 %.0.lcssa.i76.i to i64
-  %10197 = getelementptr %union._Py_CODEUNIT, ptr %10195, i64 %10196
+  %10197 = getelementptr [2 x i8], ptr %10195, i64 %10196
   %.val.i10813 = load ptr, ptr %9999, align 8, !tbaa !9
   %10198 = getelementptr i8, ptr %.val.i10813, i64 223020
   %10199 = load i8, ptr %10198, align 1, !tbaa !113
@@ -22075,7 +22073,7 @@ _Py_EnterRecursivePy.exit10816:                   ; preds = %10233
   %.08890 = phi i32 [ %.08890.ph, %.preheader10899 ], [ %.08890.be, %.backedge.backedge ]
   %.2 = phi ptr [ %.2.ph, %.preheader10899 ], [ %.2.be, %.backedge.backedge ]
   %.pn.pn = phi i64 [ %.pn, %.preheader10899 ], [ %.pn.pn.be, %.backedge.backedge ]
-  %.in = getelementptr ptr, ptr @_PyEval_EvalFrameDefault.opcode_targets, i64 %.pn.pn
+  %.in = getelementptr [8 x i8], ptr @_PyEval_EvalFrameDefault.opcode_targets, i64 %.pn.pn
   %10278 = load ptr, ptr %.in, align 8, !tbaa !144
   indirectbr ptr %10278, [label %1142, label %501, label %547, label %304, label %1964, label %3542, label %3610, label %3661, label %4310, label %4429, label %4492, label %4510, label %4530, label %4558, label %4588, label %4852, label %4919, label %8457, label %4958, label %4982, label %5000, label %6271, label %7059, label %7543, label %7862, label %7961, label %7978, label %7991, label %8004, label %8010, label %8016, label %8041, label %8166, label %8183, label %8199, label %8508, label %8556, label %8738, label %9286, label %9341, label %9498, label %9635, label %9659, label %9683, label %9873, label %98, label %915, label %932, label %972, label %1046, label %1092, label %1125, label %1144, label %2109, label %2136, label %2249, label %3744, label %3961, label %4082, label %4111, label %4126, label %4156, label %4185, label %4226, label %4255, label %4281, label %4343, label %4383, label %4548, label %4624, label %4934, label %5038, label %5060, label %6279, label %6309, label %6350, label %6375, label %6383, label %6405, label %6457, label %7081, label %7090, label %7149, label %7184, label %7200, label %7210, label %7235, label %7262, label %7312, label %7392, label %7563, label %7583, label %7594, label %7627, label %7835, label %7892, label %7911, label %8058, label %8079, label %8112, label %8145, label %8206, label %8397, label %8576, label %8789, label %8815, label %8829, label %8856, label %9086, label %9110, label %9132, label %9164, label %9203, label %9234, label %9487, label %9691, label %9722, label %9911, label %9934, label %4528, label %5815, label %5764, label %5288, label %5429, label %5103, label %5863, label %6237, label %6212, label %6172, label %6103, label %6061, label %6032, label %6143, label %5986, label %5794, label %5747, label %5690, label %5659, label %6000, label %5634, label %9836, label %9798, label %9759, label %9614, label %9605, label %9585, label %9562, label %9551, label %9530, label %8459, label %148, label %175, label %219, label %263, label %359, label %386, label %430, label %457, label %592, label %636, label %719, label %777, label %858, label %1317, label %1427, label %1529, label %1620, label %1709, label %1799, label %1889, label %2175, label %2429, label %2534, label %2637, label %2711, label %2770, label %2824, label %2927, label %3030, label %3112, label %3219, label %3306, label %3375, label %3433, label %3473, label %3513, label %3807, label %3856, label %3918, label %4005, label %4043, label %4690, label %4726, label %4774, label %4806, label %6334, label %6359, label %6529, label %6564, label %6603, label %6659, label %6704, label %6730, label %6750, label %6782, label %6835, label %6862, label %6901, label %6957, label %6994, label %7115, label %7130, label %7444, label %7500, label %7711, label %7768, label %8497, label %8702, label %8912, label %8973, label %9012, label %9394, label %9424]
 }
@@ -22214,7 +22212,7 @@ define internal fastcc ptr @_PyFrame_PushUnchecked(ptr noundef captures(none) %0
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 76
   %11 = load i32, ptr %10, align 4, !tbaa !167
   %12 = sext i32 %11 to i64
-  %13 = getelementptr ptr, ptr %9, i64 %12
+  %13 = getelementptr [8 x i8], ptr %9, i64 %12
   store ptr %13, ptr %8, align 8, !tbaa !165
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %3, ptr %14, align 8, !tbaa !141
@@ -22246,7 +22244,7 @@ _Py_NewRef.exit.i:                                ; preds = %18, %4
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %30 = load i32, ptr %29, align 8, !tbaa !174
   %31 = sext i32 %30 to i64
-  %32 = getelementptr %union._PyStackRef, ptr %28, i64 %31
+  %32 = getelementptr [8 x i8], ptr %28, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %9, i64 64
   store ptr %32, ptr %33, align 8, !tbaa !136
   %34 = getelementptr inbounds nuw i8, ptr %9, i64 48
@@ -22269,7 +22267,7 @@ _Py_NewRef.exit.i:                                ; preds = %18, %4
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ %41, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %42 = getelementptr %union._PyStackRef, ptr %28, i64 %indvars.iv.i
+  %42 = getelementptr [8 x i8], ptr %28, i64 %indvars.iv.i
   store i64 0, ptr %42, align 8, !tbaa !113
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %43 = load i32, ptr %29, align 8, !tbaa !174
@@ -22339,7 +22337,7 @@ _Py_NewRef.exit.i:                                ; preds = %22, %17
   %33 = getelementptr inbounds nuw i8, ptr %11, i64 72
   %34 = load i32, ptr %33, align 8, !tbaa !174
   %35 = sext i32 %34 to i64
-  %36 = getelementptr %union._PyStackRef, ptr %32, i64 %35
+  %36 = getelementptr [8 x i8], ptr %32, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %15, i64 64
   store ptr %36, ptr %37, align 8, !tbaa !136
   %38 = getelementptr inbounds nuw i8, ptr %15, i64 48
@@ -22358,7 +22356,7 @@ _Py_NewRef.exit.i:                                ; preds = %22, %17
 
 .lr.ph.i:                                         ; preds = %_Py_NewRef.exit.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %_Py_NewRef.exit.i ]
-  %45 = getelementptr %union._PyStackRef, ptr %32, i64 %indvars.iv.i
+  %45 = getelementptr [8 x i8], ptr %32, i64 %indvars.iv.i
   store i64 0, ptr %45, align 8, !tbaa !113
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %46 = load i32, ptr %33, align 8, !tbaa !174
@@ -22394,8 +22392,8 @@ _PyFrame_Initialize.exit:                         ; preds = %.lr.ph.i, %_Py_NewR
   %65 = lshr i32 %64, 2
   %66 = and i32 %65, 1
   %67 = zext nneg i32 %66 to i64
-  %68 = getelementptr %union._PyStackRef, ptr %32, i64 %55
-  %69 = getelementptr %union._PyStackRef, ptr %68, i64 %67
+  %68 = getelementptr [8 x i8], ptr %32, i64 %55
+  %69 = getelementptr [8 x i8], ptr %68, i64 %67
   %70 = ptrtoint ptr %60 to i64
   store i64 %70, ptr %69, align 8, !tbaa !113
   %.pre.i = load i32, ptr %50, align 4, !tbaa !199
@@ -22412,8 +22410,8 @@ _PyFrame_Initialize.exit:                         ; preds = %.lr.ph.i, %_Py_NewR
 
 .lr.ph462.i:                                      ; preds = %71, %.lr.ph462.i
   %.0270461.i = phi i64 [ %79, %.lr.ph462.i ], [ 0, %71 ]
-  %76 = getelementptr %union._PyStackRef, ptr %32, i64 %.0270461.i
-  %77 = getelementptr %union._PyStackRef, ptr %3, i64 %.0270461.i
+  %76 = getelementptr [8 x i8], ptr %32, i64 %.0270461.i
+  %77 = getelementptr [8 x i8], ptr %3, i64 %.0270461.i
   %78 = load i64, ptr %77, align 8, !tbaa !113
   store i64 %78, ptr %76, align 8, !tbaa !113
   %79 = add nuw nsw i64 %.0270461.i, 1
@@ -22430,7 +22428,7 @@ _PyFrame_Initialize.exit:                         ; preds = %.lr.ph.i, %_Py_NewR
   br i1 %74, label %83, label %.thread375.i
 
 83:                                               ; preds = %82
-  %84 = getelementptr %union._PyStackRef, ptr %3, i64 %..i
+  %84 = getelementptr [8 x i8], ptr %3, i64 %..i
   %85 = sub i64 %4, %..i
   %86 = tail call ptr @_PyTuple_FromStackRefStealOnSuccess(ptr noundef %84, i64 noundef %85) #15
   %87 = icmp eq ptr %86, null
@@ -22438,7 +22436,7 @@ _PyFrame_Initialize.exit:                         ; preds = %.lr.ph.i, %_Py_NewR
 
 .lr.ph464.i:                                      ; preds = %83, %99
   %.0276463.i = phi i64 [ %100, %99 ], [ %..i, %83 ]
-  %88 = getelementptr %union._PyStackRef, ptr %3, i64 %.0276463.i
+  %88 = getelementptr [8 x i8], ptr %3, i64 %.0276463.i
   %89 = load i64, ptr %88, align 8, !tbaa !113
   %90 = inttoptr i64 %89 to ptr
   %91 = load i32, ptr %90, align 8, !tbaa !113
@@ -22466,7 +22464,7 @@ _PyFrame_Initialize.exit:                         ; preds = %.lr.ph.i, %_Py_NewR
 
 .thread375.i:                                     ; preds = %83, %82
   %.0275.ph.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 88968), %82 ], [ %86, %83 ]
-  %101 = getelementptr %union._PyStackRef, ptr %32, i64 %55
+  %101 = getelementptr [8 x i8], ptr %32, i64 %55
   %102 = ptrtoint ptr %.0275.ph.i to i64
   store i64 %102, ptr %101, align 8, !tbaa !113
   br label %.loopexit416.i
@@ -22476,7 +22474,7 @@ _PyFrame_Initialize.exit:                         ; preds = %.lr.ph.i, %_Py_NewR
 
 .preheader415.i:                                  ; preds = %103, %115
   %.1271468.i = phi i64 [ %116, %115 ], [ %73, %103 ]
-  %104 = getelementptr %union._PyStackRef, ptr %3, i64 %.1271468.i
+  %104 = getelementptr [8 x i8], ptr %3, i64 %.1271468.i
   %105 = load i64, ptr %104, align 8, !tbaa !113
   %106 = inttoptr i64 %105 to ptr
   %107 = load i32, ptr %106, align 8, !tbaa !113
@@ -22509,7 +22507,7 @@ _PyFrame_Initialize.exit:                         ; preds = %.lr.ph.i, %_Py_NewR
 117:                                              ; preds = %.loopexit416.i
   %118 = getelementptr i8, ptr %5, i64 16
   %.val359.i = load i64, ptr %118, align 8, !tbaa !101
-  %invariant.gep.i = getelementptr %union._PyStackRef, ptr %3, i64 %4
+  %invariant.gep.i = getelementptr [8 x i8], ptr %3, i64 %4
   %119 = icmp sgt i64 %.val359.i, 0
   br i1 %119, label %.lr.ph477.i, label %.thread392.i
 
@@ -22522,9 +22520,9 @@ _PyFrame_Initialize.exit:                         ; preds = %.lr.ph.i, %_Py_NewR
 
 124:                                              ; preds = %309, %.lr.ph477.i
   %.1475.i = phi i64 [ 0, %.lr.ph477.i ], [ %310, %309 ]
-  %125 = getelementptr ptr, ptr %120, i64 %.1475.i
+  %125 = getelementptr [8 x i8], ptr %120, i64 %.1475.i
   %126 = load ptr, ptr %125, align 8, !tbaa !100
-  %gep.i = getelementptr %union._PyStackRef, ptr %invariant.gep.i, i64 %.1475.i
+  %gep.i = getelementptr [8 x i8], ptr %invariant.gep.i, i64 %.1475.i
   %.sroa.073.0.copyload.i = load i64, ptr %gep.i, align 8, !tbaa !113
   %127 = icmp eq ptr %126, null
   br i1 %127, label %132, label %128
@@ -22555,7 +22553,7 @@ _PyFrame_Initialize.exit:                         ; preds = %.lr.ph.i, %_Py_NewR
 
 .lr.ph471.i:                                      ; preds = %137, %146
   %.0288469.i = phi i64 [ %147, %146 ], [ %141, %137 ]
-  %143 = getelementptr ptr, ptr %139, i64 %.0288469.i
+  %143 = getelementptr [8 x i8], ptr %139, i64 %.0288469.i
   %144 = load ptr, ptr %143, align 8, !tbaa !100
   %145 = icmp eq ptr %144, %126
   br i1 %145, label %.loopexit.i, label %146
@@ -22567,7 +22565,7 @@ _PyFrame_Initialize.exit:                         ; preds = %.lr.ph.i, %_Py_NewR
 
 .lr.ph473.i:                                      ; preds = %146, %153
   %.2290472.i = phi i64 [ %154, %153 ], [ %141, %146 ]
-  %148 = getelementptr ptr, ptr %139, i64 %.2290472.i
+  %148 = getelementptr [8 x i8], ptr %139, i64 %.2290472.i
   %149 = load ptr, ptr %148, align 8, !tbaa !100
   %150 = tail call i32 @PyObject_RichCompareBool(ptr noundef nonnull %126, ptr noundef %149, i32 noundef 2) #15
   %151 = icmp sgt i32 %150, 0
@@ -22610,7 +22608,7 @@ _PyFrame_Initialize.exit:                         ; preds = %.lr.ph.i, %_Py_NewR
   %.064125.us.i.i = phi i32 [ %.4.us.i.i, %._crit_edge.us.i.i ], [ 0, %.preheader.i.i ]
   %163 = load ptr, ptr %121, align 8, !tbaa !238
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 24
-  %165 = getelementptr ptr, ptr %164, i64 %indvars.iv.i.i
+  %165 = getelementptr [8 x i8], ptr %164, i64 %indvars.iv.i.i
   %166 = load ptr, ptr %165, align 8, !tbaa !100
   br label %167
 
@@ -22618,7 +22616,7 @@ _PyFrame_Initialize.exit:                         ; preds = %.lr.ph.i, %_Py_NewR
   %168 = phi i64 [ 0, %.lr.ph.us.i.i ], [ %184, %select.unfold99.us.i.i ]
   %.2123.us.i.i = phi i32 [ %.064125.us.i.i, %.lr.ph.us.i.i ], [ %.4.us.i.i, %select.unfold99.us.i.i ]
   %.072122.us.i.i = phi i32 [ 0, %.lr.ph.us.i.i ], [ %183, %select.unfold99.us.i.i ]
-  %169 = getelementptr ptr, ptr %120, i64 %168
+  %169 = getelementptr [8 x i8], ptr %120, i64 %168
   %170 = load ptr, ptr %169, align 8, !tbaa !100
   %171 = icmp eq ptr %170, %166
   br i1 %171, label %180, label %172
@@ -22786,9 +22784,9 @@ positional_only_passed_as_keyword.exit.thread380.i: ; preds = %positional_only_p
 244:                                              ; preds = %244, %.lr.ph480.i
   %.0295478.i = phi i64 [ %239, %.lr.ph480.i ], [ %249, %244 ]
   %245 = sub nsw i64 %.0295478.i, %239
-  %246 = getelementptr ptr, ptr %139, i64 %.0295478.i
+  %246 = getelementptr [8 x i8], ptr %139, i64 %.0295478.i
   %247 = load ptr, ptr %246, align 8, !tbaa !100
-  %248 = getelementptr ptr, ptr %.val369.i, i64 %245
+  %248 = getelementptr [8 x i8], ptr %.val369.i, i64 %245
   store ptr %247, ptr %248, align 8, !tbaa !100
   %249 = add nsw i64 %.0295478.i, 1
   %exitcond540.not.i = icmp eq i64 %249, %55
@@ -22873,7 +22871,7 @@ positional_only_passed_as_keyword.exit.thread.i:  ; preds = %275, %.lr.ph473.i, 
 
 .lr.ph485.i:                                      ; preds = %positional_only_passed_as_keyword.exit.thread.i, %299
   %.3484.i = phi i64 [ %300, %299 ], [ %.1475.i, %positional_only_passed_as_keyword.exit.thread.i ]
-  %gep483.i = getelementptr %union._PyStackRef, ptr %invariant.gep.i, i64 %.3484.i
+  %gep483.i = getelementptr [8 x i8], ptr %invariant.gep.i, i64 %.3484.i
   %289 = load i64, ptr %gep483.i, align 8, !tbaa !113
   %290 = inttoptr i64 %289 to ptr
   %291 = load i32, ptr %290, align 8, !tbaa !113
@@ -22901,7 +22899,7 @@ positional_only_passed_as_keyword.exit.thread.i:  ; preds = %275, %.lr.ph473.i, 
 
 .loopexit.i:                                      ; preds = %.lr.ph471.i, %.lr.ph473.i
   %.1289.i = phi i64 [ %.2290472.i, %.lr.ph473.i ], [ %.0288469.i, %.lr.ph471.i ]
-  %301 = getelementptr %union._PyStackRef, ptr %32, i64 %.1289.i
+  %301 = getelementptr [8 x i8], ptr %32, i64 %.1289.i
   %302 = load i64, ptr %301, align 8, !tbaa !113
   %.not330.i = icmp eq i64 %302, 0
   br i1 %.not330.i, label %308, label %303
@@ -22951,7 +22949,7 @@ positional_only_passed_as_keyword.exit.thread.i:  ; preds = %275, %.lr.ph473.i, 
 .lr.ph.i.i:                                       ; preds = %317, %.lr.ph.i.i
   %.05173.i.i = phi i64 [ %spec.select.i.i, %.lr.ph.i.i ], [ 0, %317 ]
   %.05272.i.i = phi i64 [ %329, %.lr.ph.i.i ], [ %312, %317 ]
-  %326 = getelementptr %union._PyStackRef, ptr %32, i64 %.05272.i.i
+  %326 = getelementptr [8 x i8], ptr %32, i64 %.05272.i.i
   %327 = load i64, ptr %326, align 8, !tbaa !113
   %.not67.i.i = icmp ne i64 %327, 0
   %328 = zext i1 %.not67.i.i to i64
@@ -23085,7 +23083,7 @@ positional_only_passed_as_keyword.exit.thread.i:  ; preds = %275, %.lr.ph473.i, 
 .lr.ph489.i:                                      ; preds = %382, %.lr.ph489.i
   %.4487.i = phi i64 [ %390, %.lr.ph489.i ], [ %4, %382 ]
   %.0293486.i = phi i64 [ %spec.select345.i, %.lr.ph489.i ], [ 0, %382 ]
-  %386 = getelementptr %union._PyStackRef, ptr %32, i64 %.4487.i
+  %386 = getelementptr [8 x i8], ptr %32, i64 %.4487.i
   %387 = load i64, ptr %386, align 8, !tbaa !113
   %388 = icmp eq i64 %387, 0
   %389 = zext i1 %388 to i64
@@ -23111,18 +23109,18 @@ positional_only_passed_as_keyword.exit.thread.i:  ; preds = %275, %.lr.ph473.i, 
   br i1 %396, label %.lr.ph493.i, label %.thread396.i
 
 .lr.ph493.i:                                      ; preds = %392
-  %397 = getelementptr %union._PyStackRef, ptr %32, i64 %384
+  %397 = getelementptr [8 x i8], ptr %32, i64 %384
   br label %398
 
 398:                                              ; preds = %410, %.lr.ph493.i
   %.6491.i = phi i64 [ %.5.i, %.lr.ph493.i ], [ %411, %410 ]
-  %399 = getelementptr %union._PyStackRef, ptr %397, i64 %.6491.i
+  %399 = getelementptr [8 x i8], ptr %397, i64 %.6491.i
   %400 = load i64, ptr %399, align 8, !tbaa !113
   %401 = icmp eq i64 %400, 0
   br i1 %401, label %402, label %410
 
 402:                                              ; preds = %398
-  %403 = getelementptr ptr, ptr %395, i64 %.6491.i
+  %403 = getelementptr [8 x i8], ptr %395, i64 %.6491.i
   %404 = load ptr, ptr %403, align 8, !tbaa !100
   %405 = load i32, ptr %404, align 8, !tbaa !113
   %406 = icmp slt i32 %405, 0
@@ -23168,7 +23166,7 @@ _Py_NewRef.exit.i75:                              ; preds = %407, %402
 424:                                              ; preds = %442, %.lr.ph498.i
   %.7495.i = phi i64 [ %421, %.lr.ph498.i ], [ %443, %442 ]
   %.0277494.i = phi i64 [ 0, %.lr.ph498.i ], [ %.1278.i, %442 ]
-  %425 = getelementptr %union._PyStackRef, ptr %32, i64 %.7495.i
+  %425 = getelementptr [8 x i8], ptr %32, i64 %.7495.i
   %426 = load i64, ptr %425, align 8, !tbaa !113
   %.not335.i = icmp eq i64 %426, 0
   br i1 %.not335.i, label %427, label %442
@@ -23181,7 +23179,7 @@ _Py_NewRef.exit.i75:                              ; preds = %407, %402
 429:                                              ; preds = %427
   %430 = load ptr, ptr %423, align 8, !tbaa !238
   %431 = getelementptr inbounds nuw i8, ptr %430, i64 24
-  %432 = getelementptr ptr, ptr %431, i64 %.7495.i
+  %432 = getelementptr [8 x i8], ptr %431, i64 %.7495.i
   %433 = load ptr, ptr %432, align 8, !tbaa !100
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %434 = call i32 @PyDict_GetItemRef(ptr noundef nonnull %428, ptr noundef %433, ptr noundef nonnull %8) #15
@@ -23229,7 +23227,7 @@ _Py_NewRef.exit.i75:                              ; preds = %407, %402
 
 .lr.ph.i76:                                       ; preds = %.preheader420.i, %458
   %.2272460.i = phi i64 [ %459, %458 ], [ 0, %.preheader420.i ]
-  %447 = getelementptr %union._PyStackRef, ptr %3, i64 %.2272460.i
+  %447 = getelementptr [8 x i8], ptr %3, i64 %.2272460.i
   %448 = load i64, ptr %447, align 8, !tbaa !113
   %449 = inttoptr i64 %448 to ptr
   %450 = load i32, ptr %449, align 8, !tbaa !113
@@ -23268,7 +23266,7 @@ _Py_NewRef.exit.i75:                              ; preds = %407, %402
 
 .lr.ph467.i:                                      ; preds = %460, %475
   %.3273465.i = phi i64 [ %476, %475 ], [ %4, %460 ]
-  %464 = getelementptr %union._PyStackRef, ptr %3, i64 %.3273465.i
+  %464 = getelementptr [8 x i8], ptr %3, i64 %.3273465.i
   %465 = load i64, ptr %464, align 8, !tbaa !113
   %466 = inttoptr i64 %465 to ptr
   %467 = load i32, ptr %466, align 8, !tbaa !113
@@ -23384,7 +23382,7 @@ clear_thread_frame.exit:                          ; preds = %.loopexit81, %481, 
 
 .lr.ph:                                           ; preds = %512, %524
   %.057109 = phi i64 [ %525, %524 ], [ 0, %512 ]
-  %513 = getelementptr %union._PyStackRef, ptr %3, i64 %.057109
+  %513 = getelementptr [8 x i8], ptr %3, i64 %.057109
   %514 = load i64, ptr %513, align 8, !tbaa !113
   %515 = inttoptr i64 %514 to ptr
   %516 = load i32, ptr %515, align 8, !tbaa !113
@@ -23413,13 +23411,13 @@ clear_thread_frame.exit:                          ; preds = %.loopexit81, %481, 
 526:                                              ; preds = %._crit_edge
   %527 = getelementptr i8, ptr %5, i64 16
   %.val = load i64, ptr %527, align 8, !tbaa !101
-  %invariant.gep = getelementptr %union._PyStackRef, ptr %3, i64 %4
+  %invariant.gep = getelementptr [8 x i8], ptr %3, i64 %4
   %528 = icmp sgt i64 %.val, 0
   br i1 %528, label %.lr.ph112, label %.loopexit
 
 .lr.ph112:                                        ; preds = %526, %539
   %.056110 = phi i64 [ %540, %539 ], [ 0, %526 ]
-  %gep = getelementptr %union._PyStackRef, ptr %invariant.gep, i64 %.056110
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %.056110
   %529 = load i64, ptr %gep, align 8, !tbaa !113
   %530 = inttoptr i64 %529 to ptr
   %531 = load i32, ptr %530, align 8, !tbaa !113
@@ -23571,7 +23569,7 @@ define internal fastcc ptr @_PyEvalFramePushAndInit_Ex(ptr noundef %0, i64 %1, p
 
 .lr.ph:                                           ; preds = %27, %.lr.ph
   %.082108 = phi i64 [ %32, %.lr.ph ], [ 0, %27 ]
-  %29 = getelementptr %union._PyStackRef, ptr %15, i64 %.082108
+  %29 = getelementptr [8 x i8], ptr %15, i64 %.082108
   %30 = load ptr, ptr %29, align 8, !tbaa !100
   %31 = ptrtoint ptr %30 to i64
   store i64 %31, ptr %29, align 8, !tbaa !113
@@ -23626,8 +23624,8 @@ define internal fastcc ptr @_PyEvalFramePushAndInit_Ex(ptr noundef %0, i64 %1, p
 
 55:                                               ; preds = %.lr.ph110, %_Py_NewRef.exit
   %.083109 = phi i64 [ 0, %.lr.ph110 ], [ %64, %_Py_NewRef.exit ]
-  %56 = getelementptr %union._PyStackRef, ptr %.1131, i64 %.083109
-  %57 = getelementptr ptr, ptr %54, i64 %.083109
+  %56 = getelementptr [8 x i8], ptr %.1131, i64 %.083109
+  %57 = getelementptr [8 x i8], ptr %54, i64 %.083109
   %58 = load ptr, ptr %57, align 8, !tbaa !100
   %59 = load i32, ptr %58, align 8, !tbaa !113
   %60 = icmp slt i32 %59, 0
@@ -23778,7 +23776,7 @@ define dso_local range(i32 -1, 1) i32 @_PyEval_CheckExceptStarTypeValid(ptr noun
 
 12:                                               ; preds = %10, %.lr.ph.i
   %.01730.i = phi i64 [ 0, %.lr.ph.i ], [ %11, %10 ]
-  %13 = getelementptr ptr, ptr %9, i64 %.01730.i
+  %13 = getelementptr [8 x i8], ptr %9, i64 %.01730.i
   %14 = load ptr, ptr %13, align 8, !tbaa !100
   %15 = getelementptr i8, ptr %14, i64 8
   %.val27.i = load ptr, ptr %15, align 8, !tbaa !103
@@ -23824,7 +23822,7 @@ define dso_local range(i32 -1, 1) i32 @_PyEval_CheckExceptStarTypeValid(ptr noun
 
 31:                                               ; preds = %.lr.ph, %29
   %.02351 = phi i64 [ 0, %.lr.ph ], [ %30, %29 ]
-  %32 = getelementptr ptr, ptr %28, i64 %.02351
+  %32 = getelementptr [8 x i8], ptr %28, i64 %.02351
   %33 = load ptr, ptr %32, align 8, !tbaa !100
   %34 = load ptr, ptr @PyExc_BaseExceptionGroup, align 8, !tbaa !100
   %35 = tail call i32 @PyObject_IsSubclass(ptr noundef %33, ptr noundef %34) #15
@@ -24171,7 +24169,7 @@ define dso_local range(i32 -1, 1) i32 @_PyEval_CheckExceptTypeValid(ptr noundef 
 
 12:                                               ; preds = %.lr.ph, %10
   %.01730 = phi i64 [ 0, %.lr.ph ], [ %11, %10 ]
-  %13 = getelementptr ptr, ptr %9, i64 %.01730
+  %13 = getelementptr [8 x i8], ptr %9, i64 %.01730
   %14 = load ptr, ptr %13, align 8, !tbaa !100
   %15 = getelementptr i8, ptr %14, i64 8
   %.val27 = load ptr, ptr %15, align 8, !tbaa !103
@@ -24252,7 +24250,7 @@ _PyErr_Occurred.exit.thread:                      ; preds = %3, %_PyErr_Occurred
   %8 = load ptr, ptr %7, align 8, !tbaa !238
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %10 = sext i32 %2 to i64
-  %11 = getelementptr ptr, ptr %9, i64 %10
+  %11 = getelementptr [8 x i8], ptr %9, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !100
   %13 = getelementptr i8, ptr %1, i64 72
   %.val8 = load i32, ptr %13, align 8, !tbaa !174
@@ -25721,7 +25719,7 @@ _PyErr_Occurred.exit145.thread:                   ; preds = %46, %_PyErr_Occurre
   %108 = getelementptr i8, ptr %.2157, i64 -8
   %109 = load ptr, ptr %98, align 8, !tbaa !181
   %110 = sub i64 %.val142, %indvars.iv
-  %111 = getelementptr ptr, ptr %109, i64 %110
+  %111 = getelementptr [8 x i8], ptr %109, i64 %110
   %112 = load ptr, ptr %111, align 8, !tbaa !100
   %113 = ptrtoint ptr %112 to i64
   store i64 %113, ptr %108, align 8, !tbaa !113
@@ -25896,9 +25894,9 @@ define dso_local ptr @PyEval_EvalCodeEx(ptr noundef %0, ptr noundef %1, ptr noun
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %46 = getelementptr ptr, ptr %3, i64 %indvars.iv
+  %46 = getelementptr [8 x i8], ptr %3, i64 %indvars.iv
   %47 = load ptr, ptr %46, align 8, !tbaa !100
-  %48 = getelementptr ptr, ptr %41, i64 %indvars.iv
+  %48 = getelementptr [8 x i8], ptr %41, i64 %indvars.iv
   store ptr %47, ptr %48, align 8, !tbaa !100
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -25909,7 +25907,7 @@ define dso_local ptr @PyEval_EvalCodeEx(ptr noundef %0, ptr noundef %1, ptr noun
   %indvars.iv145.tr = trunc i64 %indvars.iv145 to i32
   %50 = shl i32 %indvars.iv145.tr, 1
   %51 = sext i32 %50 to i64
-  %52 = getelementptr ptr, ptr %5, i64 %51
+  %52 = getelementptr [8 x i8], ptr %5, i64 %51
   %53 = load ptr, ptr %52, align 8, !tbaa !100
   %54 = load i32, ptr %53, align 8, !tbaa !113
   %55 = icmp slt i32 %54, 0
@@ -25921,14 +25919,14 @@ define dso_local ptr @PyEval_EvalCodeEx(ptr noundef %0, ptr noundef %1, ptr noun
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %49, %56
-  %58 = getelementptr ptr, ptr %45, i64 %indvars.iv145
+  %58 = getelementptr [8 x i8], ptr %45, i64 %indvars.iv145
   store ptr %53, ptr %58, align 8, !tbaa !100
   %59 = getelementptr i8, ptr %52, i64 8
   %60 = load ptr, ptr %59, align 8, !tbaa !100
   %61 = trunc nuw nsw i64 %indvars.iv145 to i32
   %62 = add i32 %4, %61
   %63 = sext i32 %62 to i64
-  %64 = getelementptr ptr, ptr %41, i64 %63
+  %64 = getelementptr [8 x i8], ptr %41, i64 %63
   store ptr %60, ptr %64, align 8, !tbaa !100
   %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 1
   %exitcond149.not = icmp eq i64 %indvars.iv.next146, %wide.trip.count148
@@ -26459,7 +26457,7 @@ _PyFrame_IsIncomplete.exit.i.i:                   ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 192
   %13 = load i32, ptr %12, align 8, !tbaa !301
   %14 = sext i32 %13 to i64
-  %15 = getelementptr %union._Py_CODEUNIT, ptr %11, i64 %14
+  %15 = getelementptr [2 x i8], ptr %11, i64 %14
   %16 = icmp ult ptr %9, %15
   br i1 %16, label %_PyFrame_IsIncomplete.exit.thread.i.i, label %_PyThreadState_GetFrame.exit
 
@@ -26503,7 +26501,7 @@ _PyFrame_IsIncomplete.exit.i.i.i:                 ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 192
   %13 = load i32, ptr %12, align 8, !tbaa !301
   %14 = sext i32 %13 to i64
-  %15 = getelementptr %union._Py_CODEUNIT, ptr %11, i64 %14
+  %15 = getelementptr [2 x i8], ptr %11, i64 %14
   %16 = icmp ult ptr %9, %15
   br i1 %16, label %_PyFrame_IsIncomplete.exit.thread.i.i.i, label %_PyEval_GetFrame.exit
 
@@ -26562,7 +26560,7 @@ _PyFrame_IsIncomplete.exit.i.i:                   ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 192
   %12 = load i32, ptr %11, align 8, !tbaa !301
   %13 = sext i32 %12 to i64
-  %14 = getelementptr %union._Py_CODEUNIT, ptr %10, i64 %13
+  %14 = getelementptr [2 x i8], ptr %10, i64 %13
   %15 = icmp ult ptr %8, %14
   br i1 %15, label %_PyFrame_IsIncomplete.exit.thread.i.i, label %_PyThreadState_GetFrame.exit
 
@@ -26617,7 +26615,7 @@ _PyFrame_IsIncomplete.exit.i.i.i:                 ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 192
   %13 = load i32, ptr %12, align 8, !tbaa !301
   %14 = sext i32 %13 to i64
-  %15 = getelementptr %union._Py_CODEUNIT, ptr %11, i64 %14
+  %15 = getelementptr [2 x i8], ptr %11, i64 %14
   %16 = icmp ult ptr %9, %15
   br i1 %16, label %_PyFrame_IsIncomplete.exit.thread.i.i.i, label %_PyThreadState_GetFrame.exit.i
 
@@ -26674,7 +26672,7 @@ _PyFrame_IsIncomplete.exit.i.i.i.i:               ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 192
   %15 = load i32, ptr %14, align 8, !tbaa !301
   %16 = sext i32 %15 to i64
-  %17 = getelementptr %union._Py_CODEUNIT, ptr %13, i64 %16
+  %17 = getelementptr [2 x i8], ptr %13, i64 %16
   %18 = icmp ult ptr %11, %17
   br i1 %18, label %_PyFrame_IsIncomplete.exit.thread.i.i.i.i, label %_PyThreadState_GetFrame.exit.i.i
 
@@ -26746,7 +26744,7 @@ _PyFrame_IsIncomplete.exit.i.i.i.i.i:             ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 192
   %16 = load i32, ptr %15, align 8, !tbaa !301
   %17 = sext i32 %16 to i64
-  %18 = getelementptr %union._Py_CODEUNIT, ptr %14, i64 %17
+  %18 = getelementptr [2 x i8], ptr %14, i64 %17
   %19 = icmp ult ptr %12, %18
   br i1 %19, label %_PyFrame_IsIncomplete.exit.thread.i.i.i.i.i, label %_PyThreadState_GetFrame.exit.i.i.i
 
@@ -26815,7 +26813,7 @@ _PyFrame_IsIncomplete.exit.i.i:                   ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 192
   %13 = load i32, ptr %12, align 8, !tbaa !301
   %14 = sext i32 %13 to i64
-  %15 = getelementptr %union._Py_CODEUNIT, ptr %11, i64 %14
+  %15 = getelementptr [2 x i8], ptr %11, i64 %14
   %16 = icmp ult ptr %9, %15
   br i1 %16, label %_PyFrame_IsIncomplete.exit.thread.i.i, label %_PyThreadState_GetFrame.exit
 
@@ -26960,7 +26958,7 @@ _PyFrame_IsIncomplete.exit.i.i:                   ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 192
   %13 = load i32, ptr %12, align 8, !tbaa !301
   %14 = sext i32 %13 to i64
-  %15 = getelementptr %union._Py_CODEUNIT, ptr %11, i64 %14
+  %15 = getelementptr [2 x i8], ptr %11, i64 %14
   %16 = icmp ult ptr %9, %15
   br i1 %16, label %_PyFrame_IsIncomplete.exit.thread.i.i, label %_PyThreadState_GetFrame.exit
 
@@ -27103,7 +27101,7 @@ _PyFrame_IsIncomplete.exit.i.i:                   ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 192
   %13 = load i32, ptr %12, align 8, !tbaa !301
   %14 = sext i32 %13 to i64
-  %15 = getelementptr %union._Py_CODEUNIT, ptr %11, i64 %14
+  %15 = getelementptr [2 x i8], ptr %11, i64 %14
   %16 = icmp ult ptr %9, %15
   br i1 %16, label %_PyFrame_IsIncomplete.exit.thread.i.i, label %_PyThreadState_GetFrame.exit
 
@@ -27158,7 +27156,7 @@ _PyFrame_IsIncomplete.exit.i.i:                   ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 192
   %13 = load i32, ptr %12, align 8, !tbaa !301
   %14 = sext i32 %13 to i64
-  %15 = getelementptr %union._Py_CODEUNIT, ptr %11, i64 %14
+  %15 = getelementptr [2 x i8], ptr %11, i64 %14
   %16 = icmp ult ptr %9, %15
   br i1 %16, label %_PyFrame_IsIncomplete.exit.thread.i.i, label %_PyThreadState_GetFrame.exit
 
@@ -27218,7 +27216,7 @@ _PyFrame_IsIncomplete.exit.i.i.i:                 ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 192
   %13 = load i32, ptr %12, align 8, !tbaa !301
   %14 = sext i32 %13 to i64
-  %15 = getelementptr %union._Py_CODEUNIT, ptr %11, i64 %14
+  %15 = getelementptr [2 x i8], ptr %11, i64 %14
   %16 = icmp ult ptr %9, %15
   br i1 %16, label %_PyFrame_IsIncomplete.exit.thread.i.i.i, label %_PyThreadState_GetFrame.exit.i
 
@@ -27555,7 +27553,7 @@ define dso_local range(i64 255, 254) i64 @PyUnstable_Eval_RequestCodeExtraIndex(
   %10 = add i64 %7, 1
   store i64 %10, ptr %6, align 8, !tbaa !358
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8560
-  %12 = getelementptr ptr, ptr %11, i64 %7
+  %12 = getelementptr [8 x i8], ptr %11, i64 %7
   store ptr %0, ptr %12, align 8, !tbaa !144
   br label %13
 
@@ -27699,7 +27697,7 @@ define internal fastcc void @missing_arguments(ptr noundef %0, ptr noundef reado
 25:                                               ; preds = %.lr.ph, %43
   %.055 = phi i64 [ %.041, %.lr.ph ], [ %44, %43 ]
   %.04054 = phi i64 [ 0, %.lr.ph ], [ %.2, %43 ]
-  %26 = getelementptr %union._PyStackRef, ptr %4, i64 %.055
+  %26 = getelementptr [8 x i8], ptr %4, i64 %.055
   %27 = load i64, ptr %26, align 8, !tbaa !113
   %28 = icmp eq i64 %27, 0
   br i1 %28, label %29, label %43
@@ -27707,7 +27705,7 @@ define internal fastcc void @missing_arguments(ptr noundef %0, ptr noundef reado
 29:                                               ; preds = %25
   %30 = load ptr, ptr %23, align 8, !tbaa !238
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
-  %32 = getelementptr ptr, ptr %31, i64 %.055
+  %32 = getelementptr [8 x i8], ptr %31, i64 %.055
   %33 = load ptr, ptr %32, align 8, !tbaa !100
   %34 = tail call ptr @PyObject_Repr(ptr noundef %33) #15
   %.not49 = icmp eq ptr %34, null
@@ -27727,7 +27725,7 @@ define internal fastcc void @missing_arguments(ptr noundef %0, ptr noundef reado
 40:                                               ; preds = %29
   %41 = add i64 %.04054, 1
   %.val52 = load ptr, ptr %24, align 8, !tbaa !181
-  %42 = getelementptr ptr, ptr %.val52, i64 %.04054
+  %42 = getelementptr [8 x i8], ptr %.val52, i64 %.04054
   store ptr %34, ptr %42, align 8, !tbaa !100
   br label %43
 
@@ -27767,9 +27765,9 @@ define internal fastcc void @missing_arguments(ptr noundef %0, ptr noundef reado
 
 59:                                               ; preds = %._crit_edge
   %60 = add i64 %.val92.i, -2
-  %61 = getelementptr ptr, ptr %47, i64 %60
+  %61 = getelementptr [8 x i8], ptr %47, i64 %60
   %62 = load ptr, ptr %61, align 8, !tbaa !100
-  %63 = getelementptr ptr, ptr %47, i64 %.val92.i
+  %63 = getelementptr [8 x i8], ptr %47, i64 %.val92.i
   %64 = getelementptr i8, ptr %63, i64 -8
   %65 = load ptr, ptr %64, align 8, !tbaa !100
   %66 = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.95, ptr noundef %62, ptr noundef %65) #15

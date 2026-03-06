@@ -5265,7 +5265,7 @@ define hidden void @_ZN4cvc58internal6theory5arith8rewriter17decomposeRelationEP
   %22 = icmp eq i32 %21, 2
   %23 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %24 = zext i1 %22 to i64
-  %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !18, !noalias !78
   store ptr %26, ptr %5, align 8, !tbaa !9, !alias.scope !78
   %27 = load i64, ptr %26, align 8, !noalias !78
@@ -5341,7 +5341,7 @@ _ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit:  ; preds = %56, %54, %48, %40, 
   %66 = icmp eq i32 %65, 2
   %67 = getelementptr inbounds nuw i8, ptr %59, i64 24
   %68 = zext i1 %66 to i64
-  %69 = getelementptr inbounds nuw ptr, ptr %67, i64 %68
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %68
   %70 = load ptr, ptr %69, align 8, !tbaa !18, !noalias !81
   store ptr %70, ptr %6, align 8, !tbaa !9, !alias.scope !81
   %71 = load i64, ptr %70, align 8, !noalias !81

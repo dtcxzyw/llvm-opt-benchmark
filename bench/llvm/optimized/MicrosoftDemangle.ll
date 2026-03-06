@@ -405,7 +405,7 @@ _ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i: ; preds =
   %98 = add i64 %.sroa.01.0.copyload.i, -1
   store i64 %98, ptr %1, align 8, !tbaa !33
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %100 = getelementptr inbounds nuw ptr, ptr %99, i64 %91
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %99, i64 %91
   %101 = load ptr, ptr %100, align 8, !tbaa !43
   br label %_ZN4llvm11ms_demangle9Demangler27demangleUnqualifiedTypeNameERSt17basic_string_viewIcSt11char_traitsIcEEb.exit
 
@@ -656,7 +656,7 @@ switch.hole_check:                                ; preds = %7
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %16 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i16, ptr @switch.table._ZN4llvm11ms_demangle9Demangler18demangleQualifiersERSt17basic_string_viewIcSt11char_traitsIcEE, i64 %16
+  %switch.gep = getelementptr inbounds nuw [2 x i8], ptr @switch.table._ZN4llvm11ms_demangle9Demangler18demangleQualifiersERSt17basic_string_viewIcSt11char_traitsIcEE, i64 %16
   %switch.load = load i16, ptr %switch.gep, align 2
   br label %17
 
@@ -699,7 +699,7 @@ _ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i: ; preds =
   %15 = add i64 %.sroa.01.0.copyload.i, -1
   store i64 %15, ptr %1, align 8, !tbaa !33
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %8
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %8
   %18 = load ptr, ptr %17, align 8, !tbaa !43
   br label %_ZN4llvm11ms_demangle9Demangler27demangleUnqualifiedTypeNameERSt17basic_string_viewIcSt11char_traitsIcEEb.exit
 
@@ -1854,7 +1854,7 @@ _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit: ; preds = %_
 55:                                               ; preds = %48
   %56 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %57 = load ptr, ptr %56, align 8, !tbaa !78
-  %58 = getelementptr ptr, ptr %57, i64 %52
+  %58 = getelementptr [8 x i8], ptr %57, i64 %52
   %59 = getelementptr i8, ptr %58, i64 -16
   %60 = load ptr, ptr %59, align 8, !tbaa !79
   %61 = getelementptr inbounds nuw i8, ptr %36, i64 24
@@ -1894,7 +1894,7 @@ _ZN4llvm11ms_demangle9Demangler32demangleFullyQualifiedSymbolNameERSt17basic_str
   %77 = load ptr, ptr %76, align 8, !tbaa !78
   %78 = getelementptr inbounds nuw i8, ptr %75, i64 24
   %79 = load i64, ptr %78, align 8, !tbaa !75
-  %80 = getelementptr ptr, ptr %77, i64 %79
+  %80 = getelementptr [8 x i8], ptr %77, i64 %79
   %81 = getelementptr i8, ptr %80, i64 -8
   %82 = load ptr, ptr %81, align 8, !tbaa !79
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
@@ -1928,7 +1928,7 @@ _ZN4llvm11ms_demangle9Demangler21demangleEncodedSymbolERSt17basic_string_viewIcS
   %99 = load ptr, ptr %98, align 8, !tbaa !78
   %100 = getelementptr inbounds nuw i8, ptr %97, i64 24
   %101 = load i64, ptr %100, align 8, !tbaa !75
-  %102 = getelementptr ptr, ptr %99, i64 %101
+  %102 = getelementptr [8 x i8], ptr %99, i64 %101
   %103 = getelementptr i8, ptr %102, i64 -8
   %104 = load ptr, ptr %103, align 8, !tbaa !79
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 8
@@ -2044,7 +2044,7 @@ define dso_local noundef ptr @_ZN4llvm11ms_demangle9Demangler18demangleDeclarato
 21:                                               ; preds = %15
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %23 = load ptr, ptr %22, align 8, !tbaa !78
-  %24 = getelementptr ptr, ptr %23, i64 %19
+  %24 = getelementptr [8 x i8], ptr %23, i64 %19
   %25 = getelementptr i8, ptr %24, i64 -16
   %26 = load ptr, ptr %25, align 8, !tbaa !79
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -2085,7 +2085,7 @@ _ZN4llvm11ms_demangle9Demangler32demangleFullyQualifiedSymbolNameERSt17basic_str
   %44 = load ptr, ptr %43, align 8, !tbaa !78
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 24
   %46 = load i64, ptr %45, align 8, !tbaa !75
-  %47 = getelementptr ptr, ptr %44, i64 %46
+  %47 = getelementptr [8 x i8], ptr %44, i64 %46
   %48 = getelementptr i8, ptr %47, i64 -8
   %49 = load ptr, ptr %48, align 8, !tbaa !79
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
@@ -2119,7 +2119,7 @@ _ZN4llvm11ms_demangle9Demangler21demangleEncodedSymbolERSt17basic_string_viewIcS
   %66 = load ptr, ptr %65, align 8, !tbaa !78
   %67 = getelementptr inbounds nuw i8, ptr %64, i64 24
   %68 = load i64, ptr %67, align 8, !tbaa !75
-  %69 = getelementptr ptr, ptr %66, i64 %68
+  %69 = getelementptr [8 x i8], ptr %66, i64 %68
   %70 = getelementptr i8, ptr %69, i64 -8
   %71 = load ptr, ptr %70, align 8, !tbaa !79
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
@@ -3943,7 +3943,7 @@ _ZN4llvm11ms_demangle9Demangler19demangleCharLiteralERSt17basic_string_viewIcSt1
 switch.lookup:                                    ; preds = %178, %173
   %180 = call fastcc noundef i32 @_ZL17guessCharByteSizePKhjm(ptr noundef %4, i32 noundef %174, i64 noundef %.sroa.0.0.i)
   %181 = zext nneg i32 %180 to i64
-  %182 = getelementptr i32, ptr @switch.table._ZN4llvm11ms_demangle9Demangler21demangleStringLiteralERSt17basic_string_viewIcSt11char_traitsIcEE, i64 %181
+  %182 = getelementptr [4 x i8], ptr @switch.table._ZN4llvm11ms_demangle9Demangler21demangleStringLiteralERSt17basic_string_viewIcSt11char_traitsIcEE, i64 %181
   %switch.gep = getelementptr i8, ptr %182, i64 -4
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr %31, align 4, !tbaa !116
@@ -5626,7 +5626,7 @@ switch.lookup:                                    ; preds = %3
   %8 = zext nneg i8 %1 to i64
   %.v = select i1 %or.cond, i64 -48, i64 -55
   %9 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm11ms_demangle9Demangler30translateIntrinsicFunctionCodeEcNS0_27FunctionIdentifierCodeGroupE, i64 %9
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4llvm11ms_demangle9Demangler30translateIntrinsicFunctionCodeEcNS0_27FunctionIdentifierCodeGroupE, i64 %9
   %switch.load = load ptr, ptr %switch.gep, align 8
   %10 = getelementptr i8, ptr %switch.load, i64 %.v
   %11 = getelementptr i8, ptr %10, i64 %8
@@ -5674,7 +5674,7 @@ define dso_local noundef ptr @_ZN4llvm11ms_demangle9Demangler21demangleEncodedSy
   %21 = load ptr, ptr %20, align 8, !tbaa !78
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %23 = load i64, ptr %22, align 8, !tbaa !75
-  %24 = getelementptr ptr, ptr %21, i64 %23
+  %24 = getelementptr [8 x i8], ptr %21, i64 %23
   %25 = getelementptr i8, ptr %24, i64 -8
   %26 = load ptr, ptr %25, align 8, !tbaa !79
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
@@ -5921,7 +5921,7 @@ _ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i: ; preds =
   %85 = add i64 %.sroa.01.0.copyload.i, -1
   store i64 %85, ptr %1, align 8, !tbaa !33
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %87 = getelementptr inbounds nuw ptr, ptr %86, i64 %79
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %86, i64 %79
   %88 = load ptr, ptr %87, align 8, !tbaa !43
   br label %_ZN4llvm11ms_demangle9Demangler27demangleUnqualifiedTypeNameERSt17basic_string_viewIcSt11char_traitsIcEEb.exit
 
@@ -6044,7 +6044,7 @@ define dso_local noundef ptr @_ZN4llvm11ms_demangle9Demangler32demangleFullyQual
 22:                                               ; preds = %15
   %23 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %24 = load ptr, ptr %23, align 8, !tbaa !78
-  %25 = getelementptr ptr, ptr %24, i64 %19
+  %25 = getelementptr [8 x i8], ptr %24, i64 %19
   %26 = getelementptr i8, ptr %25, i64 -16
   %27 = load ptr, ptr %26, align 8, !tbaa !79
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -6349,7 +6349,7 @@ _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit: ; preds = %_
 47:                                               ; preds = %40
   %48 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %49 = load ptr, ptr %48, align 8, !tbaa !78
-  %50 = getelementptr ptr, ptr %49, i64 %44
+  %50 = getelementptr [8 x i8], ptr %49, i64 %44
   %51 = getelementptr i8, ptr %50, i64 -16
   %52 = load ptr, ptr %51, align 8, !tbaa !79
   %53 = getelementptr inbounds nuw i8, ptr %28, i64 24
@@ -6389,7 +6389,7 @@ _ZN4llvm11ms_demangle9Demangler32demangleFullyQualifiedSymbolNameERSt17basic_str
   %69 = load ptr, ptr %68, align 8, !tbaa !78
   %70 = getelementptr inbounds nuw i8, ptr %67, i64 24
   %71 = load i64, ptr %70, align 8, !tbaa !75
-  %72 = getelementptr ptr, ptr %69, i64 %71
+  %72 = getelementptr [8 x i8], ptr %69, i64 %71
   %73 = getelementptr i8, ptr %72, i64 -8
   %74 = load ptr, ptr %73, align 8, !tbaa !79
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
@@ -6423,7 +6423,7 @@ _ZN4llvm11ms_demangle9Demangler21demangleEncodedSymbolERSt17basic_string_viewIcS
   %91 = load ptr, ptr %90, align 8, !tbaa !78
   %92 = getelementptr inbounds nuw i8, ptr %89, i64 24
   %93 = load i64, ptr %92, align 8, !tbaa !75
-  %94 = getelementptr ptr, ptr %91, i64 %93
+  %94 = getelementptr [8 x i8], ptr %91, i64 %93
   %95 = getelementptr i8, ptr %94, i64 -8
   %96 = load ptr, ptr %95, align 8, !tbaa !79
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
@@ -6727,7 +6727,7 @@ _ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i: ; preds =
   %118 = add i64 %.sroa.01.0.copyload.i, -1
   store i64 %118, ptr %1, align 8, !tbaa !33
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %120 = getelementptr inbounds nuw ptr, ptr %119, i64 %111
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %119, i64 %111
   %121 = load ptr, ptr %120, align 8, !tbaa !43
   br label %_ZN4llvm11ms_demangle9Demangler27demangleUnqualifiedTypeNameERSt17basic_string_viewIcSt11char_traitsIcEEb.exit
 
@@ -6937,7 +6937,7 @@ define dso_local void @_ZN4llvm11ms_demangle9Demangler14memorizeStringESt17basic
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %13
   %.013.us = phi i64 [ %14, %13 ], [ 0, %.lr.ph ]
-  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %.013.us
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.013.us
   %10 = load ptr, ptr %9, align 8, !tbaa !43
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %.sroa.0.0.copyload.us = load i64, ptr %11, align 8, !tbaa !24
@@ -6951,7 +6951,7 @@ define dso_local void @_ZN4llvm11ms_demangle9Demangler14memorizeStringESt17basic
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %20
   %.013 = phi i64 [ %21, %20 ], [ 0, %.lr.ph ]
-  %15 = getelementptr inbounds nuw ptr, ptr %7, i64 %.013
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.013
   %16 = load ptr, ptr %15, align 8, !tbaa !43
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %.sroa.0.0.copyload = load i64, ptr %17, align 8, !tbaa !24
@@ -7020,7 +7020,7 @@ _ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_19NamedIdentifierNodeEJEEEPT_DpO
   %46 = load i64, ptr %4, align 8, !tbaa !42
   %47 = add i64 %46, 1
   store i64 %47, ptr %4, align 8, !tbaa !42
-  %48 = getelementptr inbounds nuw ptr, ptr %45, i64 %46
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %46
   store ptr %.sink11.i, ptr %48, align 8, !tbaa !43
   br label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread11
 
@@ -7052,7 +7052,7 @@ define dso_local noundef ptr @_ZN4llvm11ms_demangle9Demangler19demangleBackRefNa
   %15 = add i64 %14, -1
   store i64 %15, ptr %1, align 8, !tbaa !33
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %7
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %7
   %18 = load ptr, ptr %17, align 8, !tbaa !43
   br label %19
 
@@ -7265,7 +7265,7 @@ _ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %
   %16 = add i64 %.sroa.03.0.copyload, -1
   store i64 %16, ptr %1, align 8, !tbaa !33
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %9
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %9
   %19 = load ptr, ptr %18, align 8, !tbaa !43
   br label %_ZN4llvm11ms_demangle9Demangler19demangleBackRefNameERSt17basic_string_viewIcSt11char_traitsIcEE.exit
 
@@ -7481,7 +7481,7 @@ _ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i: ; preds =
   store ptr %67, ptr %.sroa.261.0..sroa_idx, align 8, !tbaa !39
   %68 = add i64 %.sroa.019.0.copyload594, -4
   store i64 %68, ptr %1, align 8, !tbaa !33
-  %69 = getelementptr inbounds nuw ptr, ptr %7, i64 %63
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %63
   %70 = load ptr, ptr %69, align 8, !tbaa !43
   br label %_ZN4llvm11ms_demangle9Demangler27demangleUnqualifiedTypeNameERSt17basic_string_viewIcSt11char_traitsIcEEb.exit
 
@@ -7699,7 +7699,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   %149 = load ptr, ptr %148, align 8, !tbaa !78
   %150 = getelementptr inbounds nuw i8, ptr %147, i64 24
   %151 = load i64, ptr %150, align 8, !tbaa !75
-  %152 = getelementptr ptr, ptr %149, i64 %151
+  %152 = getelementptr [8 x i8], ptr %149, i64 %151
   %153 = getelementptr i8, ptr %152, i64 -8
   %154 = load ptr, ptr %153, align 8, !tbaa !79
   tail call void @_ZN4llvm11ms_demangle9Demangler18memorizeIdentifierEPNS0_14IdentifierNodeE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef %154)
@@ -7822,7 +7822,7 @@ _ZN4llvm11ms_demangle9Demangler14demangleSignedERSt17basic_string_viewIcSt11char
   %191 = add nsw i32 %190, 1
   store i32 %191, ptr %123, align 8, !tbaa !149
   %192 = sext i32 %190 to i64
-  %193 = getelementptr inbounds nuw i64, ptr %189, i64 %192
+  %193 = getelementptr inbounds nuw [8 x i8], ptr %189, i64 %192
   store i64 %188, ptr %193, align 8, !tbaa !24
   br label %194
 
@@ -7926,7 +7926,7 @@ _ZN4llvm11ms_demangle9Demangler14demangleSignedERSt17basic_string_viewIcSt11char
   %230 = add nsw i32 %229, 1
   store i32 %230, ptr %123, align 8, !tbaa !149
   %231 = sext i32 %229 to i64
-  %232 = getelementptr inbounds nuw i64, ptr %228, i64 %231
+  %232 = getelementptr inbounds nuw [8 x i8], ptr %228, i64 %231
   store i64 %227, ptr %232, align 8, !tbaa !24
   br label %233
 
@@ -8027,7 +8027,7 @@ _ZN4llvm11ms_demangle9Demangler14demangleSignedERSt17basic_string_viewIcSt11char
   %269 = add nsw i32 %268, 1
   store i32 %269, ptr %123, align 8, !tbaa !149
   %270 = sext i32 %268 to i64
-  %271 = getelementptr inbounds nuw i64, ptr %267, i64 %270
+  %271 = getelementptr inbounds nuw [8 x i8], ptr %267, i64 %270
   store i64 %266, ptr %271, align 8, !tbaa !24
   br label %273
 
@@ -8395,7 +8395,7 @@ _ZN4llvm11ms_demangle9Demangler14demangleSignedERSt17basic_string_viewIcSt11char
   %413 = add nuw nsw i32 %378, 1
   store i32 %413, ptr %329, align 8, !tbaa !149
   %414 = zext nneg i32 %378 to i64
-  %415 = getelementptr inbounds nuw i64, ptr %412, i64 %414
+  %415 = getelementptr inbounds nuw [8 x i8], ptr %412, i64 %414
   store i64 %411, ptr %415, align 8, !tbaa !24
   %.sroa.0.0.copyload.i.i.i561 = load i64, ptr %1, align 8, !tbaa !24
   %416 = icmp eq i64 %.sroa.0.0.copyload.i.i.i561, 0
@@ -8490,7 +8490,7 @@ _ZN4llvm11ms_demangle9Demangler14demangleSignedERSt17basic_string_viewIcSt11char
   %449 = or disjoint i32 %378, 2
   store i32 %449, ptr %329, align 8, !tbaa !149
   %450 = zext nneg i32 %413 to i64
-  %451 = getelementptr inbounds nuw i64, ptr %412, i64 %450
+  %451 = getelementptr inbounds nuw [8 x i8], ptr %412, i64 %450
   store i64 %448, ptr %451, align 8, !tbaa !24
   store i8 1, ptr %331, align 4, !tbaa !151
   br label %511
@@ -10358,7 +10358,7 @@ _ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %
   %16 = add i64 %.sroa.01.0.copyload, -1
   store i64 %16, ptr %1, align 8, !tbaa !33
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %9
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %9
   %19 = load ptr, ptr %18, align 8, !tbaa !43
   br label %_ZN4llvm11ms_demangle9Demangler19demangleBackRefNameERSt17basic_string_viewIcSt11char_traitsIcEE.exit
 
@@ -10418,7 +10418,7 @@ _ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %
   %15 = add i64 %.sroa.05.0.copyload, -1
   store i64 %15, ptr %1, align 8, !tbaa !33
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %8
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %8
   %18 = load ptr, ptr %17, align 8, !tbaa !43
   br label %_ZN4llvm11ms_demangle9Demangler19demangleBackRefNameERSt17basic_string_viewIcSt11char_traitsIcEE.exit
 
@@ -10624,7 +10624,7 @@ _ZN4llvm11ms_demangle14ArenaAllocator10allocArrayIPNS0_4NodeEJEEEPT_m.exit: ; pr
   %.016 = phi i64 [ %53, %.lr.ph ], [ 0, %_ZN4llvm11ms_demangle14ArenaAllocator10allocArrayIPNS0_4NodeEJEEEPT_m.exit ]
   %.01315 = phi ptr [ %52, %.lr.ph ], [ %1, %_ZN4llvm11ms_demangle14ArenaAllocator10allocArrayIPNS0_4NodeEJEEEPT_m.exit ]
   %49 = load ptr, ptr %.01315, align 8, !tbaa !47
-  %50 = getelementptr inbounds nuw ptr, ptr %.sink.i, i64 %.016
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %.sink.i, i64 %.016
   store ptr %49, ptr %50, align 8, !tbaa !79
   %51 = getelementptr inbounds nuw i8, ptr %.01315, i64 8
   %52 = load ptr, ptr %51, align 8, !tbaa !51
@@ -11050,7 +11050,7 @@ _ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i: ; preds =
   %80 = add i64 %.pr, -2
   store i64 %80, ptr %1, align 8, !tbaa !33
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %82 = getelementptr inbounds nuw ptr, ptr %81, i64 %73
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %73
   %83 = load ptr, ptr %82, align 8, !tbaa !43
   br label %_ZN4llvm11ms_demangle9Demangler27demangleUnqualifiedTypeNameERSt17basic_string_viewIcSt11char_traitsIcEEb.exit
 
@@ -11147,7 +11147,7 @@ _ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i54: ; preds
   %114 = add i64 %.sroa.01.0.copyload.i51, -1
   store i64 %114, ptr %1, align 8, !tbaa !33
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %116 = getelementptr inbounds nuw ptr, ptr %115, i64 %107
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %115, i64 %107
   %117 = load ptr, ptr %116, align 8, !tbaa !43
   br label %_ZN4llvm11ms_demangle9Demangler27demangleUnqualifiedTypeNameERSt17basic_string_viewIcSt11char_traitsIcEEb.exit64
 
@@ -12450,7 +12450,7 @@ _ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i: ; preds =
   %43 = add i64 %.sroa.01.0.copyload.i, -1
   store i64 %43, ptr %1, align 8, !tbaa !33
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %45 = getelementptr inbounds nuw ptr, ptr %44, i64 %36
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %36
   %46 = load ptr, ptr %45, align 8, !tbaa !43
   br label %_ZN4llvm11ms_demangle9Demangler27demangleUnqualifiedTypeNameERSt17basic_string_viewIcSt11char_traitsIcEEb.exit
 
@@ -13509,7 +13509,7 @@ _ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %
   %.sink.i55 = phi ptr [ %64, %62 ], [ %61, %60 ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sink.i55, i8 0, i64 16, i1 false)
   store ptr %.sink.i55, ptr %.03882, align 8, !tbaa !143
-  %69 = getelementptr inbounds nuw ptr, ptr %35, i64 %44
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %44
   %70 = load ptr, ptr %69, align 8, !tbaa !176
   store ptr %70, ptr %.sink.i55, align 8, !tbaa !47
   %.pre = load i8, ptr %31, align 8, !tbaa !35, !range !45
@@ -13582,7 +13582,7 @@ _ZN4llvm11ms_demangle14ArenaAllocator5allocI8NodeListJEEEPT_DpOT0_.exit60: ; pre
 103:                                              ; preds = %96
   %104 = add nuw nsw i64 %100, 1
   store i64 %104, ptr %34, align 8, !tbaa !175
-  %105 = getelementptr inbounds nuw ptr, ptr %35, i64 %100
+  %105 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %100
   store ptr %93, ptr %105, align 8, !tbaa !176
   br label %.backedge91
 
@@ -13710,7 +13710,7 @@ define dso_local void @_ZN4llvm11ms_demangle9Demangler18dumpBackReferencesEv(ptr
 15:                                               ; preds = %.lr.ph, %15
   %.01014 = phi i64 [ 0, %.lr.ph ], [ %26, %15 ]
   store i64 0, ptr %12, align 8, !tbaa !123
-  %16 = getelementptr inbounds nuw ptr, ptr %3, i64 %.01014
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.01014
   %17 = load ptr, ptr %16, align 8, !tbaa !176
   %18 = load ptr, ptr %17, align 8, !tbaa !22
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
@@ -13750,7 +13750,7 @@ define dso_local void @_ZN4llvm11ms_demangle9Demangler18dumpBackReferencesEv(ptr
 38:                                               ; preds = %.lr.ph17, %38
   %.015 = phi i64 [ 0, %.lr.ph17 ], [ %48, %38 ]
   %39 = trunc i64 %.015 to i32
-  %40 = getelementptr inbounds nuw ptr, ptr %36, i64 %.015
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %.015
   %41 = load ptr, ptr %40, align 8, !tbaa !43
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 24
   %43 = load i64, ptr %42, align 8, !tbaa !33
@@ -13845,7 +13845,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
 38:                                               ; preds = %31
   %39 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %40 = load ptr, ptr %39, align 8, !tbaa !78
-  %41 = getelementptr ptr, ptr %40, i64 %35
+  %41 = getelementptr [8 x i8], ptr %40, i64 %35
   %42 = getelementptr i8, ptr %41, i64 -16
   %43 = load ptr, ptr %42, align 8, !tbaa !79
   %44 = getelementptr inbounds nuw i8, ptr %20, i64 24

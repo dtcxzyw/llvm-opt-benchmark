@@ -206,7 +206,7 @@ define internal range(i32 -1, 1) i32 @hwloc_nvml_discover(ptr noundef readonly c
   br i1 %90, label %91, label %132
 
 91:                                               ; preds = %87
-  %92 = getelementptr inbounds nuw %struct.nvmlPciInfo_st, ptr %40, i64 %indvars.iv
+  %92 = getelementptr inbounds nuw [68 x i8], ptr %40, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(68) %92, ptr noundef nonnull align 4 dereferenceable(68) %6, i64 68, i1 false), !tbaa.struct !32
   %93 = load i32, ptr %52, align 4, !tbaa !33
   %94 = load i32, ptr %53, align 4, !tbaa !35
@@ -280,7 +280,7 @@ hwloc__pci_link_speed.exit:                       ; preds = %108, %116, %121
 134:                                              ; preds = %hwloc__pci_link_speed.exit, %97, %132
   %.1132 = phi ptr [ %133, %132 ], [ %96, %hwloc__pci_link_speed.exit ], [ %96, %97 ]
   call void @hwloc_insert_object_by_parent(ptr noundef %18, ptr noundef %.1132, ptr noundef nonnull %62) #11
-  %135 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv
+  %135 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv
   store ptr %62, ptr %135, align 8, !tbaa !38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -300,7 +300,7 @@ hwloc__pci_link_speed.exit:                       ; preds = %108, %116, %121
   %140 = trunc nuw i64 %indvars.iv269 to i32
   %141 = call i32 @nvmlDeviceGetHandleByIndex_v2(i32 noundef %140, ptr noundef nonnull %11) #11
   %142 = mul nuw nsw i64 %indvars.iv269, 18
-  %143 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv269
+  %143 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv269
   br label %144
 
 144:                                              ; preds = %139, %252
@@ -312,7 +312,7 @@ hwloc__pci_link_speed.exit:                       ; preds = %108, %116, %121
   %145 = trunc nuw nsw i64 %indvars.iv266 to i32
   %146 = add nuw i64 %142, %indvars.iv266
   %147 = and i64 %146, 4294967295
-  %148 = getelementptr inbounds nuw i32, ptr %47, i64 %147
+  %148 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %147
   store i32 -1, ptr %148, align 4, !tbaa !14
   %149 = load ptr, ptr %11, align 8, !tbaa !30
   %150 = call i32 @nvmlDeviceGetNvLinkState(ptr noundef %149, i32 noundef %145, ptr noundef nonnull %13) #11
@@ -355,7 +355,7 @@ hwloc__pci_link_speed.exit:                       ; preds = %108, %116, %121
 
 164:                                              ; preds = %177, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %177 ]
-  %165 = getelementptr inbounds nuw %struct.nvmlPciInfo_st, ptr %40, i64 %indvars.iv.i
+  %165 = getelementptr inbounds nuw [68 x i8], ptr %40, i64 %indvars.iv.i
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 16
   %167 = load i32, ptr %166, align 4, !tbaa !33
   %168 = icmp eq i32 %167, %.sroa.3.0.copyload.pre
@@ -528,7 +528,7 @@ hwloc__nvml_get_peer_gpu_by_pci.exit.thread:      ; preds = %177, %162, %hwloc__
 
 .lr.ph.i181:                                      ; preds = %247, %.lr.ph.preheader.i
   %indvars.iv.i182 = phi i64 [ %243, %.lr.ph.preheader.i ], [ %indvars.iv.next.i183, %247 ]
-  %244 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv.i182
+  %244 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv.i182
   %245 = load ptr, ptr %244, align 8, !tbaa !38
   %246 = icmp eq ptr %245, %.020.i
   br i1 %246, label %.loopexit.loopexit.i, label %247
@@ -540,7 +540,7 @@ hwloc__nvml_get_peer_gpu_by_pci.exit.thread:      ; preds = %177, %162, %hwloc__
 
 ._crit_edge.i:                                    ; preds = %247, %.._crit_edge_crit_edge.i
   %.pre-phi.i = phi i64 [ %.pre.i, %.._crit_edge_crit_edge.i ], [ %wide.trip.count.i180, %247 ]
-  %248 = getelementptr inbounds nuw ptr, ptr %43, i64 %.pre-phi.i
+  %248 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %.pre-phi.i
   store ptr %.020.i, ptr %248, align 8, !tbaa !38
   %249 = add i32 %.1190233, 1
   br label %.thread206
@@ -612,7 +612,7 @@ hwloc__nvml_get_peer_gpu_by_pci.exit.thread:      ; preds = %177, %162, %hwloc__
   %264 = trunc nuw nsw i64 %indvars.iv272 to i32
   %265 = add i32 %261, %264
   %266 = zext i32 %265 to i64
-  %267 = getelementptr inbounds nuw i32, ptr %47, i64 %266
+  %267 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %266
   %268 = load i32, ptr %267, align 4, !tbaa !14
   %269 = icmp eq i32 %268, -1
   %270 = icmp ult i32 %268, %.2246
@@ -652,18 +652,18 @@ hwloc__nvml_get_peer_gpu_by_pci.exit.thread:      ; preds = %177, %162, %hwloc__
 
 switch.lookup:                                    ; preds = %274
   %286 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.hwloc_nvml_discover, i64 %286
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.hwloc_nvml_discover, i64 %286
   %switch.load = load i64, ptr %switch.gep, align 8
   %287 = add i32 %268, %262
   %288 = zext i32 %287 to i64
-  %289 = getelementptr inbounds nuw i64, ptr %46, i64 %288
+  %289 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %288
   %290 = load i64, ptr %289, align 8, !tbaa !48
   %291 = add i64 %290, %switch.load
   store i64 %291, ptr %289, align 8, !tbaa !48
   %292 = mul i32 %268, %.0189.lcssa
   %293 = add i32 %292, %.2246
   %294 = zext i32 %293 to i64
-  %295 = getelementptr inbounds nuw i64, ptr %46, i64 %294
+  %295 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %294
   %296 = load i64, ptr %295, align 8, !tbaa !48
   %297 = add i64 %296, %switch.load
   store i64 %297, ptr %295, align 8, !tbaa !48
@@ -702,7 +702,7 @@ switch.lookup:                                    ; preds = %274
   %306 = trunc nuw i64 %indvars.iv276 to i32
   %307 = mul i32 %.3167, %306
   %308 = zext i32 %307 to i64
-  %309 = getelementptr inbounds nuw i64, ptr %46, i64 %308
+  %309 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %308
   store i64 1000000, ptr %309, align 8, !tbaa !48
   %indvars.iv.next277 = add nuw nsw i64 %indvars.iv276, 1
   %exitcond279.not = icmp eq i64 %indvars.iv.next277, %wide.trip.count

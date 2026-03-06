@@ -271,7 +271,7 @@ common.resume:                                    ; preds = %46, %8
   %16 = load i64, ptr %14, align 8, !alias.scope !34, !noalias !20, !noundef !7
   %.not.i.i.i = icmp eq i64 %16, 0
   %17 = load ptr, ptr %15, align 8, !alias.scope !34, !noalias !20, !nonnull !7
-  %18 = getelementptr i64, ptr %17, i64 %16
+  %18 = getelementptr [8 x i8], ptr %17, i64 %16
   %19 = getelementptr i8, ptr %18, i64 -8
   %.not1011.i.i.i = icmp eq ptr %19, null
   %.not10.i.i.i = select i1 %.not.i.i.i, i1 true, i1 %.not1011.i.i.i
@@ -3311,7 +3311,7 @@ _ZN9byteorder2io12ReadBytesExt8read_u1617hbadb9ce034e76b39E.exit85: ; preds = %4
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hccd4647b910ba609E.exit": ; preds = %86, %.noexc94
   %93 = phi i64 [ %.pre.i, %.noexc94 ], [ %74, %86 ]
   %94 = load ptr, ptr %20, align 8, !alias.scope !512, !nonnull !7, !noundef !7
-  %95 = getelementptr inbounds i16, ptr %94, i64 %93
+  %95 = getelementptr inbounds [2 x i8], ptr %94, i64 %93
   store i16 %89, ptr %95, align 2
   %96 = load i64, ptr %21, align 8, !alias.scope !512, !noundef !7
   %97 = add i64 %96, 1
@@ -4590,14 +4590,14 @@ default.unreachable128:                           ; preds = %"_ZN5alloc3vec16Vec
   br i1 %.not.i.i, label %.loopexit, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h905db8f993a1e265E.exit"
-  %89 = getelementptr inbounds i16, ptr %85, i64 %87
+  %89 = getelementptr inbounds [2 x i8], ptr %85, i64 %87
   br label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hee1792eeb4820602E.exit10.i.i"
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hee1792eeb4820602E.exit10.i.i": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hee1792eeb4820602E.exit10.i.i", %.lr.ph.preheader.i.i
   %.011.i.i = phi i64 [ %95, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hee1792eeb4820602E.exit10.i.i" ], [ 0, %.lr.ph.preheader.i.i ]
   %90 = xor i64 %.011.i.i, -1
-  %91 = getelementptr inbounds nuw i16, ptr %85, i64 %.011.i.i
-  %92 = getelementptr i16, ptr %89, i64 %90
+  %91 = getelementptr inbounds nuw [2 x i8], ptr %85, i64 %.011.i.i
+  %92 = getelementptr [2 x i8], ptr %89, i64 %90
   call void @llvm.experimental.noalias.scope.decl(metadata !901)
   call void @llvm.experimental.noalias.scope.decl(metadata !904)
   %93 = load i16, ptr %91, align 2, !alias.scope !906, !noalias !909, !noundef !7
@@ -4975,10 +4975,10 @@ define hidden noundef zeroext i1 @"_ZN70_$LT$diesel..mysql..backend..MysqlType$u
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !284, !noundef !7
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN70_$LT$diesel..mysql..backend..MysqlType$u20$as$u20$core..fmt..Debug$GT$3fmt17h0a44f2039cc93ec0E.llvm.15310856661090120578", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN70_$LT$diesel..mysql..backend..MysqlType$u20$as$u20$core..fmt..Debug$GT$3fmt17h0a44f2039cc93ec0E.llvm.15310856661090120578", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN70_$LT$diesel..mysql..backend..MysqlType$u20$as$u20$core..fmt..Debug$GT$3fmt17h0a44f2039cc93ec0E.llvm.15310856661090120578.23", i64 %4
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN70_$LT$diesel..mysql..backend..MysqlType$u20$as$u20$core..fmt..Debug$GT$3fmt17h0a44f2039cc93ec0E.llvm.15310856661090120578.23", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5

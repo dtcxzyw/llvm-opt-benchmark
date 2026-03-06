@@ -382,7 +382,7 @@ define internal fastcc noundef align 8 dereferenceable_or_null(40) ptr @"_ZN9has
   %55 = add i64 %.sroa.01.0.i.i.i, %52
   %56 = and i64 %55, %.val5
   %57 = sub nsw i64 0, %56
-  %58 = getelementptr inbounds { { { { { { i64, ptr, {} }, i64 } } } }, { { ptr, { { { { { ptr, i64 } }, {} }, {} } }, { i64, i8, [7 x i8] } } } }, ptr %.val, i64 %57
+  %58 = getelementptr inbounds [64 x i8], ptr %.val, i64 %57
   %59 = getelementptr i8, ptr %58, i64 -56
   %.val4.i.i.i = load ptr, ptr %59, align 8, !noalias !86
   %60 = getelementptr i8, ptr %58, i64 -48
@@ -3003,7 +3003,7 @@ _ZN14wasmtime_cache6config11CacheConfig9directory17h429e89ca63bdd77cE.exit.i.i: 
   %854 = udiv i64 %853, 100
   %855 = load ptr, ptr %214, align 8, !noalias !497, !nonnull !5, !noundef !5
   %856 = load i64, ptr %215, align 8, !noalias !497, !noundef !5
-  %857 = getelementptr inbounds { i64, [5 x i64] }, ptr %855, i64 %856
+  %857 = getelementptr inbounds [48 x i8], ptr %855, i64 %856
   br label %.outer.i
 
 .outer.i:                                         ; preds = %869, %852
@@ -3064,7 +3064,7 @@ _ZN14wasmtime_cache6config11CacheConfig9directory17h429e89ca63bdd77cE.exit.i.i: 
   br i1 %878, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4faa2f689915a777E.exit.thread.i", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4faa2f689915a777E.exit.lr.ph.i"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4faa2f689915a777E.exit.lr.ph.i": ; preds = %877
-  %879 = getelementptr inbounds { i64, [5 x i64] }, ptr %855, i64 %.sroa.443.0219.i
+  %879 = getelementptr inbounds [48 x i8], ptr %855, i64 %.sroa.443.0219.i
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4faa2f689915a777E.exit.i"
 
 880:                                              ; preds = %.thread216.i
@@ -4022,7 +4022,7 @@ _ZN3std4path4Path14with_extension17h55d376ffffd64a79E.exit332: ; preds = %331
 358:                                              ; preds = %._crit_edge.i, %349
   %359 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %350, %349 ]
   %360 = load ptr, ptr %159, align 8, !alias.scope !781, !noalias !784, !nonnull !5, !noundef !5
-  %361 = getelementptr inbounds { i64, [5 x i64] }, ptr %360, i64 %359
+  %361 = getelementptr inbounds [48 x i8], ptr %360, i64 %359
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %361, ptr noundef nonnull align 8 dereferenceable(48) %36, i64 48, i1 false)
   %362 = load i64, ptr %158, align 8, !alias.scope !781, !noalias !784, !noundef !5
   %363 = add i64 %362, 1
@@ -4135,7 +4135,7 @@ _ZN3std4path4Path14with_extension17h55d376ffffd64a79E.exit332: ; preds = %331
 396:                                              ; preds = %._crit_edge.i335, %387
   %397 = phi i64 [ %.pre.i336, %._crit_edge.i335 ], [ %388, %387 ]
   %398 = load ptr, ptr %159, align 8, !alias.scope !805, !noalias !808, !nonnull !5, !noundef !5
-  %399 = getelementptr inbounds { i64, [5 x i64] }, ptr %398, i64 %397
+  %399 = getelementptr inbounds [48 x i8], ptr %398, i64 %397
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %399, ptr noundef nonnull align 8 dereferenceable(48) %41, i64 48, i1 false)
   %400 = load i64, ptr %158, align 8, !alias.scope !805, !noalias !808, !noundef !5
   %401 = add i64 %400, 1
@@ -4284,7 +4284,7 @@ _ZN3std4path4Path14with_extension17h55d376ffffd64a79E.exit332: ; preds = %331
 434:                                              ; preds = %._crit_edge.i344, %425
   %435 = phi i64 [ %.pre.i345, %._crit_edge.i344 ], [ %426, %425 ]
   %436 = load ptr, ptr %159, align 8, !alias.scope !837, !noalias !840, !nonnull !5, !noundef !5
-  %437 = getelementptr inbounds { i64, [5 x i64] }, ptr %436, i64 %435
+  %437 = getelementptr inbounds [48 x i8], ptr %436, i64 %435
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %437, ptr noundef nonnull align 8 dereferenceable(48) %43, i64 48, i1 false)
   %438 = load i64, ptr %158, align 8, !alias.scope !837, !noalias !840, !noundef !5
   %439 = add i64 %438, 1
@@ -4533,7 +4533,7 @@ _ZN3std4path4Path14with_extension17h55d376ffffd64a79E.exit332: ; preds = %331
 504:                                              ; preds = %._crit_edge.i364, %495
   %505 = phi i64 [ %.pre.i365, %._crit_edge.i364 ], [ %496, %495 ]
   %506 = load ptr, ptr %159, align 8, !alias.scope !895, !noalias !898, !nonnull !5, !noundef !5
-  %507 = getelementptr inbounds { i64, [5 x i64] }, ptr %506, i64 %505
+  %507 = getelementptr inbounds [48 x i8], ptr %506, i64 %505
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %507, ptr noundef nonnull align 8 dereferenceable(48) %67, i64 48, i1 false)
   %508 = load i64, ptr %158, align 8, !alias.scope !895, !noalias !898, !noundef !5
   %509 = add i64 %508, 1
@@ -4608,7 +4608,7 @@ _ZN3std4path4Path14with_extension17h55d376ffffd64a79E.exit332: ; preds = %331
 530:                                              ; preds = %._crit_edge.i372, %520
   %531 = phi i64 [ %.pre.i373, %._crit_edge.i372 ], [ %522, %520 ]
   %532 = load ptr, ptr %159, align 8, !alias.scope !913, !noalias !916, !nonnull !5, !noundef !5
-  %533 = getelementptr inbounds { i64, [5 x i64] }, ptr %532, i64 %531
+  %533 = getelementptr inbounds [48 x i8], ptr %532, i64 %531
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %533, ptr noundef nonnull align 8 dereferenceable(48) %53, i64 48, i1 false)
   %534 = load i64, ptr %158, align 8, !alias.scope !913, !noalias !916, !noundef !5
   %535 = add i64 %534, 1
@@ -4755,7 +4755,7 @@ _ZN3std4path4Path14with_extension17h55d376ffffd64a79E.exit332: ; preds = %331
 568:                                              ; preds = %._crit_edge.i388, %559
   %569 = phi i64 [ %.pre.i389, %._crit_edge.i388 ], [ %560, %559 ]
   %570 = load ptr, ptr %159, align 8, !alias.scope !945, !noalias !948, !nonnull !5, !noundef !5
-  %571 = getelementptr inbounds { i64, [5 x i64] }, ptr %570, i64 %569
+  %571 = getelementptr inbounds [48 x i8], ptr %570, i64 %569
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %571, ptr noundef nonnull align 8 dereferenceable(48) %57, i64 48, i1 false)
   %572 = load i64, ptr %158, align 8, !alias.scope !945, !noalias !948, !noundef !5
   %573 = add i64 %572, 1
@@ -4801,7 +4801,7 @@ _ZN3std4path4Path14with_extension17h55d376ffffd64a79E.exit332: ; preds = %331
 585:                                              ; preds = %._crit_edge.i393, %576
   %586 = phi i64 [ %.pre.i394, %._crit_edge.i393 ], [ %577, %576 ]
   %587 = load ptr, ptr %159, align 8, !alias.scope !950, !noalias !953, !nonnull !5, !noundef !5
-  %588 = getelementptr inbounds { i64, [5 x i64] }, ptr %587, i64 %586
+  %588 = getelementptr inbounds [48 x i8], ptr %587, i64 %586
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %588, ptr noundef nonnull align 8 dereferenceable(48) %55, i64 48, i1 false)
   %589 = load i64, ptr %158, align 8, !alias.scope !950, !noalias !953, !noundef !5
   %590 = add i64 %589, 1
@@ -4991,7 +4991,7 @@ _ZN3std4path4Path14with_extension17h55d376ffffd64a79E.exit332: ; preds = %331
 635:                                              ; preds = %._crit_edge.i414, %626
   %636 = phi i64 [ %.pre.i415, %._crit_edge.i414 ], [ %627, %626 ]
   %637 = load ptr, ptr %159, align 8, !alias.scope !1008, !noalias !1011, !nonnull !5, !noundef !5
-  %638 = getelementptr inbounds { i64, [5 x i64] }, ptr %637, i64 %636
+  %638 = getelementptr inbounds [48 x i8], ptr %637, i64 %636
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %638, ptr noundef nonnull align 8 dereferenceable(48) %80, i64 48, i1 false)
   %639 = load i64, ptr %158, align 8, !alias.scope !1008, !noalias !1011, !noundef !5
   %640 = add i64 %639, 1
@@ -5037,7 +5037,7 @@ _ZN3std4path4Path14with_extension17h55d376ffffd64a79E.exit332: ; preds = %331
 652:                                              ; preds = %._crit_edge.i419, %643
   %653 = phi i64 [ %.pre.i420, %._crit_edge.i419 ], [ %644, %643 ]
   %654 = load ptr, ptr %159, align 8, !alias.scope !1013, !noalias !1016, !nonnull !5, !noundef !5
-  %655 = getelementptr inbounds { i64, [5 x i64] }, ptr %654, i64 %653
+  %655 = getelementptr inbounds [48 x i8], ptr %654, i64 %653
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %655, ptr noundef nonnull align 8 dereferenceable(48) %78, i64 48, i1 false)
   %656 = load i64, ptr %158, align 8, !alias.scope !1013, !noalias !1016, !noundef !5
   %657 = add i64 %656, 1
@@ -5249,7 +5249,7 @@ _ZN3std4path4Path14with_extension17h55d376ffffd64a79E.exit332: ; preds = %331
 713:                                              ; preds = %._crit_edge.i432, %704
   %714 = phi i64 [ %.pre.i433, %._crit_edge.i432 ], [ %705, %704 ]
   %715 = load ptr, ptr %159, align 8, !alias.scope !1047, !noalias !1050, !nonnull !5, !noundef !5
-  %716 = getelementptr inbounds { i64, [5 x i64] }, ptr %715, i64 %714
+  %716 = getelementptr inbounds [48 x i8], ptr %715, i64 %714
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %716, ptr noundef nonnull align 8 dereferenceable(48) %97, i64 48, i1 false)
   %717 = load i64, ptr %158, align 8, !alias.scope !1047, !noalias !1050, !noundef !5
   %718 = add i64 %717, 1
@@ -5338,7 +5338,7 @@ _ZN3std4path4Path14with_extension17h55d376ffffd64a79E.exit332: ; preds = %331
 742:                                              ; preds = %._crit_edge.i441, %732
   %743 = phi i64 [ %.pre.i442, %._crit_edge.i441 ], [ %734, %732 ]
   %744 = load ptr, ptr %159, align 8, !alias.scope !1083, !noalias !1086, !nonnull !5, !noundef !5
-  %745 = getelementptr inbounds { i64, [5 x i64] }, ptr %744, i64 %743
+  %745 = getelementptr inbounds [48 x i8], ptr %744, i64 %743
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %745, ptr noundef nonnull align 8 dereferenceable(48) %95, i64 48, i1 false)
   %746 = load i64, ptr %158, align 8, !alias.scope !1083, !noalias !1086, !noundef !5
   %747 = add i64 %746, 1
@@ -5500,7 +5500,7 @@ _ZN3std4path4Path14with_extension17h55d376ffffd64a79E.exit332: ; preds = %331
 803:                                              ; preds = %._crit_edge.i460, %794
   %804 = phi i64 [ %.pre.i461, %._crit_edge.i460 ], [ %795, %794 ]
   %805 = load ptr, ptr %159, align 8, !alias.scope !1127, !noalias !1130, !nonnull !5, !noundef !5
-  %806 = getelementptr inbounds { i64, [5 x i64] }, ptr %805, i64 %804
+  %806 = getelementptr inbounds [48 x i8], ptr %805, i64 %804
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %806, ptr noundef nonnull align 8 dereferenceable(48) %102, i64 48, i1 false)
   %807 = load i64, ptr %158, align 8, !alias.scope !1127, !noalias !1130, !noundef !5
   %808 = add i64 %807, 1
@@ -5864,7 +5864,7 @@ _ZN3std4path4Path14with_extension17h55d376ffffd64a79E.exit332: ; preds = %331
   %900 = phi i64 [ %.pre.i500, %._crit_edge.i499 ], [ %891, %887 ]
   %901 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %902 = load ptr, ptr %901, align 8, !alias.scope !1234, !noalias !1237, !nonnull !5, !noundef !5
-  %903 = getelementptr inbounds { i64, [5 x i64] }, ptr %902, i64 %900
+  %903 = getelementptr inbounds [48 x i8], ptr %902, i64 %900
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %903, ptr noundef nonnull align 8 dereferenceable(48) %116, i64 48, i1 false)
   %904 = load i64, ptr %890, align 8, !alias.scope !1234, !noalias !1237, !noundef !5
   %905 = add i64 %904, 1

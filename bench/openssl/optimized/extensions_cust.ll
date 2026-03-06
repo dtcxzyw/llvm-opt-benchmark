@@ -3,8 +3,6 @@ source_filename = "bench/openssl/original/extensions_cust.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.custom_ext_method = type { i16, i32, i32, i32, ptr, ptr, ptr, ptr, ptr }
-
 @.str = private unnamed_addr constant [40 x i8] c"../openssl/ssl/statem/extensions_cust.c\00", align 1
 @__func__.custom_ext_parse = private unnamed_addr constant [17 x i8] c"custom_ext_parse\00", align 1
 @__func__.custom_ext_add = private unnamed_addr constant [15 x i8] c"custom_ext_add\00", align 1
@@ -274,7 +272,7 @@ define range(i32 0, 2) i32 @custom_ext_add(ptr noundef %0, i32 noundef %1, ptr n
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 0, ptr %9, align 8, !tbaa !17
   %21 = load ptr, ptr %12, align 8, !tbaa !9
-  %22 = getelementptr inbounds nuw %struct.custom_ext_method, ptr %21, i64 %.06193
+  %22 = getelementptr inbounds nuw [56 x i8], ptr %21, i64 %.06193
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load i32, ptr %23, align 8, !tbaa !82
   %25 = call i32 @should_add_extension(ptr noundef %0, i32 noundef %24, i32 noundef %1, i32 noundef %5) #9
@@ -577,8 +575,8 @@ define range(i32 0, 2) i32 @custom_exts_copy(ptr noundef captures(none) %0, ptr 
 .lr.ph:                                           ; preds = %.lr.ph.outer, %.thread45
   %.02635 = phi i64 [ %37, %.thread45 ], [ %.02635.ph, %.lr.ph.outer ]
   %.134 = phi i32 [ 1, %.thread45 ], [ %.134.ph, %.lr.ph.outer ]
-  %15 = getelementptr inbounds nuw %struct.custom_ext_method, ptr %13, i64 %.02635
-  %16 = getelementptr inbounds nuw %struct.custom_ext_method, ptr %14, i64 %.02635
+  %15 = getelementptr inbounds nuw [56 x i8], ptr %13, i64 %.02635
+  %16 = getelementptr inbounds nuw [56 x i8], ptr %14, i64 %.02635
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %18 = load ptr, ptr %17, align 8, !tbaa !87
   %.not30 = icmp eq ptr %18, @custom_ext_add_old_cb_wrap
@@ -880,7 +878,7 @@ define range(i32 0, 2) i32 @ossl_tls_add_custom_ext_intern(ptr noundef %0, ptr n
 57:                                               ; preds = %.loopexit
   store ptr %55, ptr %.044, align 8, !tbaa !9
   %58 = load i64, ptr %33, align 8, !tbaa !3
-  %59 = getelementptr inbounds nuw %struct.custom_ext_method, ptr %55, i64 %58
+  %59 = getelementptr inbounds nuw [56 x i8], ptr %55, i64 %58
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %59, i8 0, i64 16, i1 false)
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 4
   store i32 %2, ptr %60, align 4, !tbaa !16

@@ -2899,7 +2899,7 @@ define linkonce_odr dso_local void @_ZN7testing19exceptions_internal18Constructo
   %13 = load i64, ptr %12, align 8, !tbaa !48
   %14 = urem i64 %11, %13
   %15 = load ptr, ptr %9, align 8, !tbaa !55
-  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %14
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %14
   %17 = load ptr, ptr %16, align 8, !tbaa !56
   %.not.i.i.i.i = icmp eq ptr %17, null
   br i1 %.not.i.i.i.i, label %.loopexit.i.i, label %18
@@ -3449,7 +3449,7 @@ _ZNSt10_HashtableIPvSt4pairIKS0_N7testing19exceptions_internal14TrackedAddressEE
 31:                                               ; preds = %_ZNSt10_HashtableIPvSt4pairIKS0_N7testing19exceptions_internal14TrackedAddressEESaIS6_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit, %5
   %.0 = phi i64 [ %30, %_ZNSt10_HashtableIPvSt4pairIKS0_N7testing19exceptions_internal14TrackedAddressEESaIS6_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit ], [ %1, %5 ]
   %32 = load ptr, ptr %0, align 8, !tbaa !55
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %.0
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.0
   %34 = load ptr, ptr %33, align 8, !tbaa !56
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %38, label %35
@@ -3476,7 +3476,7 @@ _ZNSt10_HashtableIPvSt4pairIKS0_N7testing19exceptions_internal14TrackedAddressEE
   %45 = load ptr, ptr %43, align 8, !tbaa !58
   %46 = ptrtoint ptr %45 to i64
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %32, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !56
   br label %49
 
@@ -3577,7 +3577,7 @@ _ZNSt10_HashtableIPvSt4pairIKS0_N7testing19exceptions_internal14TrackedAddressEE
   %16 = load ptr, ptr %15, align 8, !tbaa !58
   %17 = ptrtoint ptr %16 to i64
   %18 = urem i64 %17, %1
-  %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !56
   %.not27 = icmp eq ptr %20, null
   br i1 %.not27, label %21, label %26
@@ -3592,7 +3592,7 @@ _ZNSt10_HashtableIPvSt4pairIKS0_N7testing19exceptions_internal14TrackedAddressEE
   br i1 %.not28, label %29, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %25, align 8, !tbaa !56
   br label %29
 
@@ -3683,7 +3683,7 @@ define linkonce_odr dso_local void @_ZN7testing19exceptions_internal18Constructo
   %21 = load i64, ptr %20, align 8, !tbaa !48
   %22 = urem i64 %19, %21
   %23 = load ptr, ptr %7, align 8, !tbaa !55
-  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %22
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %22
   %25 = load ptr, ptr %24, align 8, !tbaa !56
   %.not.i.i.i.i = icmp eq ptr %25, null
   br i1 %.not.i.i.i.i, label %_ZNSt13unordered_mapIPvN7testing19exceptions_internal14TrackedAddressESt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_S3_EEE4findERS9_.exit.thread, label %26
@@ -31694,7 +31694,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %43, %_ZNKSt14defaul
 55:                                               ; preds = %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit.i.i, %"_ZN7testing12_GLOBAL__N_113ExpectNoThrowIZNS0_49ThrowingValueTest_NonThrowingPlacementDelete_Test8TestBodyEvE3$_0EEvRKT_.exit"
   %56 = phi i1 [ true, %"_ZN7testing12_GLOBAL__N_113ExpectNoThrowIZNS0_49ThrowingValueTest_NonThrowingPlacementDelete_Test8TestBodyEvE3$_0EEvRKT_.exit" ], [ false, %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit.i.i ]
   %indvars.iv.i.i = phi i64 [ 0, %"_ZN7testing12_GLOBAL__N_113ExpectNoThrowIZNS0_49ThrowingValueTest_NonThrowingPlacementDelete_Test8TestBodyEvE3$_0EEvRKT_.exit" ], [ 1, %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit.i.i ]
-  %57 = getelementptr inbounds nuw %"class.testing::ThrowingValue", ptr %.ptr12, i64 %indvars.iv.i.i
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %.ptr12, i64 %indvars.iv.i.i
   invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull align 4 dereferenceable(4) %57)
           to label %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit.i.i unwind label %58
 
@@ -40263,7 +40263,7 @@ _ZNSt12_Vector_baseIN7testing13ThrowingValueILNS0_8TypeSpecE0EEENS0_17ThrowingAl
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %23, ptr %4, align 8, !tbaa !360
   store ptr %29, ptr %5, align 8, !tbaa !356
-  %44 = getelementptr inbounds nuw %"class.testing::ThrowingValue", ptr %23, i64 %17
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %17
   store ptr %44, ptr %43, align 8, !tbaa !358
   ret void
 

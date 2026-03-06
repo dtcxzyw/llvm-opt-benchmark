@@ -95,7 +95,7 @@ define internal range(i32 -12, 1) i32 @zisofs_read_folio(ptr noundef readonly ca
 
 45:                                               ; preds = %37
   %46 = zext nneg i32 %40 to i64
-  %47 = getelementptr ptr, ptr %42, i64 %46
+  %47 = getelementptr [8 x i8], ptr %42, i64 %46
   store ptr %1, ptr %47, align 8
   %48 = icmp sgt i32 %39, 0
   br i1 %48, label %49, label %.loopexit51
@@ -118,7 +118,7 @@ define internal range(i32 -12, 1) i32 @zisofs_read_folio(ptr noundef readonly ca
 56:                                               ; preds = %52
   %57 = load i32, ptr %50, align 8
   %58 = tail call ptr @pagecache_get_page(ptr noundef %7, i64 noundef %54, i32 noundef 54, i32 noundef %57) #9
-  %59 = getelementptr ptr, ptr %42, i64 %53
+  %59 = getelementptr [8 x i8], ptr %42, i64 %53
   store ptr %58, ptr %59, align 8
   br label %60
 
@@ -344,7 +344,7 @@ define internal range(i32 -12, 1) i32 @zisofs_read_folio(ptr noundef readonly ca
 
 216:                                              ; preds = %229, %214
   %217 = phi i64 [ 0, %214 ], [ %230, %229 ]
-  %218 = getelementptr ptr, ptr %159, i64 %217
+  %218 = getelementptr [8 x i8], ptr %159, i64 %217
   %219 = load ptr, ptr %218, align 8
   %220 = icmp eq ptr %219, null
   br i1 %220, label %229, label %221
@@ -451,7 +451,7 @@ define internal range(i32 -12, 1) i32 @zisofs_read_folio(ptr noundef readonly ca
 
 279:                                              ; preds = %276
   %280 = sext i32 %269 to i64
-  %281 = getelementptr ptr, ptr %159, i64 %280
+  %281 = getelementptr [8 x i8], ptr %159, i64 %280
   %282 = load ptr, ptr %281, align 8
   %283 = icmp eq ptr %282, null
   br i1 %283, label %295, label %284
@@ -486,7 +486,7 @@ define internal range(i32 -12, 1) i32 @zisofs_read_folio(ptr noundef readonly ca
 
 303:                                              ; preds = %298
   %304 = sext i32 %270 to i64
-  %305 = getelementptr ptr, ptr %241, i64 %304
+  %305 = getelementptr [8 x i8], ptr %241, i64 %304
   %306 = load ptr, ptr %305, align 8
   %307 = call i32 @__SCT__might_resched() #9
   %308 = load volatile i64, ptr %306, align 8
@@ -574,7 +574,7 @@ thread-pre-split:                                 ; preds = %.preheader
 
 357:                                              ; preds = %.loopexit45
   %358 = sext i32 %269 to i64
-  %359 = getelementptr ptr, ptr %159, i64 %358
+  %359 = getelementptr [8 x i8], ptr %159, i64 %358
   %360 = load ptr, ptr %359, align 8
   %361 = icmp eq ptr %360, null
   br i1 %361, label %363, label %362
@@ -628,7 +628,7 @@ thread-pre-split:                                 ; preds = %.preheader
 
 385:                                              ; preds = %391, %383
   %386 = phi i64 [ 0, %383 ], [ %392, %391 ]
-  %387 = getelementptr ptr, ptr %241, i64 %386
+  %387 = getelementptr [8 x i8], ptr %241, i64 %386
   %388 = load ptr, ptr %387, align 8
   %389 = icmp eq ptr %388, null
   br i1 %389, label %391, label %390
@@ -674,7 +674,7 @@ thread-pre-split:                                 ; preds = %.preheader
   %408 = phi i64 [ %233, %.thread42 ], [ %395, %.loopexit46 ]
   %409 = and i64 %408, 4095
   %410 = sub i32 %158, %406
-  %411 = getelementptr ptr, ptr %159, i64 %407
+  %411 = getelementptr [8 x i8], ptr %159, i64 %407
   %412 = add nuw i64 %161, 1
   %413 = icmp ult i64 %412, %120
   %414 = icmp sgt i32 %410, 0
@@ -716,7 +716,7 @@ thread-pre-split:                                 ; preds = %.preheader
 
 .split.us:                                        ; preds = %431, %471
   %433 = phi i64 [ %472, %471 ], [ 0, %431 ]
-  %434 = getelementptr ptr, ptr %42, i64 %433
+  %434 = getelementptr [8 x i8], ptr %42, i64 %433
   %435 = load ptr, ptr %434, align 8
   %436 = icmp eq ptr %435, null
   br i1 %436, label %471, label %437
@@ -786,7 +786,7 @@ thread-pre-split:                                 ; preds = %.preheader
 
 .split:                                           ; preds = %431, %540
   %474 = phi i64 [ %541, %540 ], [ 0, %431 ]
-  %475 = getelementptr ptr, ptr %42, i64 %474
+  %475 = getelementptr [8 x i8], ptr %42, i64 %474
   %476 = load ptr, ptr %475, align 8
   %477 = icmp eq ptr %476, null
   br i1 %477, label %540, label %478

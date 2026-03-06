@@ -17,11 +17,11 @@ define void @dlatsqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %15 = load i32, ptr %5, align 4, !tbaa !3
   %narrow = xor i32 %15, -1
   %16 = sext i32 %narrow to i64
-  %17 = getelementptr inbounds double, ptr %4, i64 %16
+  %17 = getelementptr inbounds [8 x i8], ptr %4, i64 %16
   %18 = load i32, ptr %7, align 4, !tbaa !3
   %narrow149 = xor i32 %18, -1
   %19 = sext i32 %narrow149 to i64
-  %20 = getelementptr inbounds double, ptr %6, i64 %19
+  %20 = getelementptr inbounds [8 x i8], ptr %6, i64 %19
   store i32 0, ptr %10, align 4, !tbaa !3
   %21 = load i32, ptr %9, align 4, !tbaa !3
   %22 = icmp eq i32 %21, -1
@@ -115,7 +115,7 @@ define void @dlatsqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %65 = sext i32 %61 to i64
   %66 = sext i32 %60 to i64
   %67 = sext i32 %15 to i64
-  %invariant.gep = getelementptr double, ptr %17, i64 %67
+  %invariant.gep = getelementptr [8 x i8], ptr %17, i64 %67
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -125,12 +125,12 @@ define void @dlatsqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %69 = load i32, ptr %1, align 4, !tbaa !3
   %70 = sub nsw i32 %68, %69
   store i32 %70, ptr %13, align 4, !tbaa !3
-  %gep = getelementptr double, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %indvars.iv
   %71 = mul nsw i32 %69, %.0159
   %72 = add nsw i32 %71, 1
   %73 = mul nsw i32 %72, %18
   %74 = sext i32 %73 to i64
-  %75 = getelementptr double, ptr %20, i64 %74
+  %75 = getelementptr [8 x i8], ptr %20, i64 %74
   %76 = getelementptr i8, ptr %75, i64 8
   call void @dtpqrt_(ptr noundef nonnull %13, ptr noundef nonnull %1, ptr noundef nonnull @c__0, ptr noundef nonnull %3, ptr noundef %4, ptr noundef nonnull %5, ptr noundef %gep, ptr noundef nonnull %5, ptr noundef %76, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %10) #4
   %77 = add nuw nsw i32 %.0159, 1
@@ -156,11 +156,11 @@ define void @dlatsqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
 82:                                               ; preds = %._crit_edge
   %83 = add nsw i32 %55, %15
   %84 = sext i32 %83 to i64
-  %85 = getelementptr inbounds double, ptr %17, i64 %84
+  %85 = getelementptr inbounds [8 x i8], ptr %17, i64 %84
   %86 = add nsw i32 %.0.lcssa, 1
   %87 = mul nsw i32 %86, %18
   %88 = sext i32 %87 to i64
-  %89 = getelementptr double, ptr %20, i64 %88
+  %89 = getelementptr [8 x i8], ptr %20, i64 %88
   %90 = getelementptr i8, ptr %89, i64 8
   call void @dtpqrt_(ptr noundef nonnull %14, ptr noundef nonnull %1, ptr noundef nonnull @c__0, ptr noundef nonnull %3, ptr noundef %4, ptr noundef nonnull %5, ptr noundef %85, ptr noundef nonnull %5, ptr noundef %90, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %10) #4
   %.pre = load i32, ptr %1, align 4, !tbaa !3

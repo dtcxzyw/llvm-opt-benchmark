@@ -754,14 +754,14 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_5MachO12PlatformTypeENS_12VersionTu
   %.016.i.i.i = phi ptr [ %2, %.thread ], [ %54, %48 ], [ %2, %.critedge.i.i.i ]
   %57 = load i32, ptr %13, align 8, !tbaa !58
   %58 = zext i32 %57 to i64
-  %59 = getelementptr inbounds nuw %"struct.std::pair.8", ptr %56, i64 %58
+  %59 = getelementptr inbounds nuw [20 x i8], ptr %56, i64 %58
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %59, ptr noundef nonnull align 4 dereferenceable(20) %.016.i.i.i, i64 20, i1 false)
   %60 = load i32, ptr %13, align 8, !tbaa !58
   %61 = add i32 %60, 1
   store i32 %61, ptr %13, align 8, !tbaa !58
   %62 = load ptr, ptr %1, align 8, !tbaa !56
   %63 = zext i32 %61 to i64
-  %64 = getelementptr inbounds nuw %"struct.std::pair.8", ptr %62, i64 %63
+  %64 = getelementptr inbounds nuw [20 x i8], ptr %62, i64 %63
   %65 = getelementptr inbounds i8, ptr %64, i64 -20
   br label %72
 
@@ -1649,7 +1649,7 @@ _ZNSt8_Rb_treeIN4llvm5MachO12PlatformTypeES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_
 
 _ZNK4llvm8SmallSetINS_5MachO12PlatformTypeELj3ESt4lessIS2_EE5vfindERKS2_.exit: ; preds = %.lr.ph.i, %39
   %.1.i = phi ptr [ %.0912.i, %.lr.ph.i ], [ %36, %39 ]
-  %41 = getelementptr inbounds nuw i32, ptr %32, i64 %35
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %35
   %.not = icmp eq ptr %.1.i, %41
   br i1 %.not, label %42, label %_ZNSt3setIN4llvm5MachO12PlatformTypeESt4lessIS2_ESaIS2_EE6insertERKS2_.exit
 
@@ -1675,14 +1675,14 @@ _ZNK4llvm8SmallSetINS_5MachO12PlatformTypeELj3ESt4lessIS2_EE5vfindERKS2_.exit: ;
 _ZN4llvm23SmallVectorTemplateBaseINS_5MachO12PlatformTypeELb1EE9push_backES2_.exit: ; preds = %.thread, %46
   %.pre-phi = phi i64 [ %35, %.thread ], [ %.pre66, %46 ]
   %49 = phi ptr [ %32, %.thread ], [ %.pre65, %46 ]
-  %50 = getelementptr inbounds nuw i32, ptr %49, i64 %.pre-phi
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %.pre-phi
   store i32 %.pre, ptr %50, align 1
   %51 = load i32, ptr %33, align 8, !tbaa !58
   %52 = add i32 %51, 1
   store i32 %52, ptr %33, align 8, !tbaa !58
   %53 = load ptr, ptr %1, align 8, !tbaa !56
   %54 = zext i32 %52 to i64
-  %55 = getelementptr inbounds nuw i32, ptr %53, i64 %54
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %54
   %56 = getelementptr inbounds i8, ptr %55, i64 -4
   br label %_ZNSt3setIN4llvm5MachO12PlatformTypeESt4lessIS2_ESaIS2_EE6insertERKS2_.exit
 

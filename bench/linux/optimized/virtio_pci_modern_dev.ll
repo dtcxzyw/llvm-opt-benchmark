@@ -28,7 +28,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_vp_modern_av
 %struct.module_version_attribute = type { %struct.module_attribute, ptr, ptr }
 %struct.module_attribute = type { %struct.attribute, ptr, ptr, ptr, ptr, ptr }
 %struct.attribute = type { ptr, i16 }
-%struct.resource = type { i64, i64, ptr, i64, i64, ptr, ptr, ptr }
 
 @.str = private unnamed_addr constant [39 x i8] c"virtio_pci: leaving for legacy driver\0A\00", align 1
 @.str.1 = private unnamed_addr constant [43 x i8] c"virtio_pci: missing capabilities %i/%i/%i\0A\00", align 1
@@ -161,7 +160,7 @@ define dso_local i32 @vp_modern_probe(ptr noundef %0) #0 align 16 {
 
 56:                                               ; preds = %45
   %57 = zext nneg i8 %52 to i64
-  %58 = getelementptr %struct.resource, ptr %44, i64 %57
+  %58 = getelementptr [64 x i8], ptr %44, i64 %57
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %60 = load i64, ptr %59, align 8
   %61 = icmp eq i64 %60, 0
@@ -226,7 +225,7 @@ define dso_local i32 @vp_modern_probe(ptr noundef %0) #0 align 16 {
 
 93:                                               ; preds = %.preheader84
   %94 = zext nneg i8 %89 to i64
-  %95 = getelementptr %struct.resource, ptr %44, i64 %94
+  %95 = getelementptr [64 x i8], ptr %44, i64 %94
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %97 = load i64, ptr %96, align 8
   %98 = icmp eq i64 %97, 0
@@ -290,7 +289,7 @@ virtio_pci_find_capability.exit10:                ; preds = %114, %76, %109
 
 130:                                              ; preds = %.preheader83
   %131 = zext nneg i8 %126 to i64
-  %132 = getelementptr %struct.resource, ptr %44, i64 %131
+  %132 = getelementptr [64 x i8], ptr %44, i64 %131
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 8
   %134 = load i64, ptr %133, align 8
   %135 = icmp eq i64 %134, 0
@@ -391,7 +390,7 @@ virtio_pci_find_capability.exit13:                ; preds = %140
 
 186:                                              ; preds = %.preheader
   %187 = zext nneg i8 %182 to i64
-  %188 = getelementptr %struct.resource, ptr %44, i64 %187
+  %188 = getelementptr [64 x i8], ptr %44, i64 %187
   %189 = getelementptr inbounds nuw i8, ptr %188, i64 8
   %190 = load i64, ptr %189, align 8
   %191 = icmp eq i64 %190, 0
@@ -642,7 +641,7 @@ define internal fastcc ptr @vp_modern_map_capability(ptr noundef readonly captur
   %61 = add nuw nsw i64 %2, %60
   %62 = getelementptr inbounds nuw i8, ptr %12, i64 920
   %63 = zext nneg i8 %19 to i64
-  %64 = getelementptr %struct.resource, ptr %62, i64 %63
+  %64 = getelementptr [64 x i8], ptr %62, i64 %63
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %66 = load i64, ptr %65, align 8
   %67 = icmp eq i64 %66, 0
@@ -687,7 +686,7 @@ define internal fastcc ptr @vp_modern_map_capability(ptr noundef readonly captur
 88:                                               ; preds = %86
   %89 = load i8, ptr %9, align 1
   %90 = zext i8 %89 to i64
-  %91 = getelementptr %struct.resource, ptr %62, i64 %90
+  %91 = getelementptr [64 x i8], ptr %62, i64 %90
   %92 = load i64, ptr %91, align 8
   %93 = load i32, ptr %10, align 4
   %94 = zext i32 %93 to i64

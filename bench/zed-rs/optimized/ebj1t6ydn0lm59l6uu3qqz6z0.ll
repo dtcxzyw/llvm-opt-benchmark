@@ -6233,7 +6233,7 @@ _ZN3std3ffi6os_str5OsStr15to_string_lossy17h96d38b1cf20636d8E.exit.i: ; preds = 
 242:                                              ; preds = %237, %231
   %243 = getelementptr inbounds nuw i8, ptr %0, i64 752
   %244 = load ptr, ptr %243, align 8, !alias.scope !1276, !noalias !1279, !nonnull !4, !noundef !4
-  %245 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %244, i64 %234
+  %245 = getelementptr inbounds [24 x i8], ptr %244, i64 %234
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %245, ptr noundef nonnull align 8 dereferenceable(24) %17, i64 24, i1 false), !noalias !1167
   %246 = add i64 %234, 1
   store i64 %246, ptr %233, align 8, !alias.scope !1276, !noalias !1279

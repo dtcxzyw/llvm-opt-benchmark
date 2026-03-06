@@ -3775,7 +3775,7 @@ _ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i: ; preds = %_ZN
 
 switch.lookup:                                    ; preds = %33
   %37 = zext nneg i32 %35 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN10open_spiel4json12_GLOBAL__N_111ParseStringB5cxx11EPN4absl7debian211string_viewE, i64 %37
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN10open_spiel4json12_GLOBAL__N_111ParseStringB5cxx11EPN4absl7debian211string_viewE, i64 %37
   %switch.load = load ptr, ptr %switch.gep, align 8
   %38 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull %switch.load)
           to label %39 unwind label %.loopexit
@@ -4186,7 +4186,7 @@ _ZNSt6vectorIN10open_spiel4json5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit3
 _ZNSt12_Vector_baseIN10open_spiel4json5ValueESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN10open_spiel4json5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit35, %49
   store ptr %25, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i34, ptr %7, align 8
-  %53 = getelementptr inbounds nuw %"class.open_spiel::json::Value", ptr %25, i64 %19
+  %53 = getelementptr inbounds nuw [56 x i8], ptr %25, i64 %19
   store ptr %53, ptr %48, align 8
   ret void
 

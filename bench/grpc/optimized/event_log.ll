@@ -20,17 +20,13 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<grpc_core::EventLog::Entry, std::allocator<grpc_core::EventLog::Entry>>::_Vector_impl" }
 %"struct.std::_Vector_base<grpc_core::EventLog::Entry, std::allocator<grpc_core::EventLog::Entry>>::_Vector_impl" = type { %"struct.std::_Vector_base<grpc_core::EventLog::Entry, std::allocator<grpc_core::EventLog::Entry>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<grpc_core::EventLog::Entry, std::allocator<grpc_core::EventLog::Entry>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::basic_string_view" = type { i64, ptr }
-%"struct.grpc_core::EventLog::Entry" = type { double, %"class.std::basic_string_view", i64 }
-%"struct.grpc_core::EventLog::Fragment" = type { %"class.absl::lts_20240722::Mutex", %"class.std::vector" }
-%"class.absl::lts_20240722::Mutex" = type { %"struct.std::atomic.10" }
-%"struct.std::atomic.10" = type { %"struct.std::__atomic_base.11" }
-%"struct.std::__atomic_base.11" = type { i64 }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %"struct.absl::lts_20240722::strings_internal::AlphaNumFormatterImpl" = type { i8 }
 %"class.absl::lts_20240722::AlphaNum" = type { %"class.std::basic_string_view", [32 x i8] }
+%"class.std::basic_string_view" = type { i64, ptr }
+%"struct.grpc_core::EventLog::Entry" = type { double, %"class.std::basic_string_view", i64 }
 
 $__clang_call_terminate = comdat any
 
@@ -236,7 +232,7 @@ _ZN9grpc_core8EventLog6AppendESt17basic_string_viewIcSt11char_traitsIcEEl.exit: 
   br i1 %.not64, label %"_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPN9grpc_core8EventLog5EntryESt6vectorIS4_SaIS4_EEEEZNS3_13EndCollectionEN4absl12lts_202407224SpanIKSt17basic_string_viewIcSt11char_traitsIcEEEEE3$_0EvT_SK_T0_.exit", label %.lr.ph66
 
 .lr.ph66:                                         ; preds = %_ZN9grpc_core8EventLog6AppendESt17basic_string_viewIcSt11char_traitsIcEEl.exit
-  %13 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %2, i64 %3
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %3
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %34
@@ -441,7 +437,7 @@ _ZNSt6vectorIN9grpc_core8EventLog5EntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exi
 
 _ZNSt6vectorIN9grpc_core8EventLog5EntryESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %72, %_ZNSt6vectorIN9grpc_core8EventLog5EntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i
   store ptr %67, ptr %0, align 8, !tbaa !9
-  %73 = getelementptr inbounds nuw %"struct.grpc_core::EventLog::Entry", ptr %67, i64 %65
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %67, i64 %65
   br label %_ZNSt6vectorIN9grpc_core8EventLog5EntryESaIS2_EE9push_backERKS2_.exit
 
 .loopexit:                                        ; preds = %.lr.ph, %_ZNKSt6vectorIN9grpc_core8EventLog5EntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i
@@ -587,7 +583,7 @@ _ZNSt6vectorIN9grpc_core8EventLog5EntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exi
 _ZNSt6vectorIN9grpc_core8EventLog5EntryESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %33, %_ZNSt6vectorIN9grpc_core8EventLog5EntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i
   store ptr %28, ptr %8, align 8, !tbaa !9
   store ptr %32, ptr %9, align 8, !tbaa !26
-  %34 = getelementptr inbounds nuw %"struct.grpc_core::EventLog::Entry", ptr %28, i64 %26
+  %34 = getelementptr inbounds nuw [32 x i8], ptr %28, i64 %26
   store ptr %34, ptr %11, align 8, !tbaa !12
   br label %_ZNSt6vectorIN9grpc_core8EventLog5EntryESaIS2_EE9push_backEOS2_.exit
 
@@ -678,7 +674,7 @@ _ZN9grpc_core20PerCpuShardingHelper15GetShardingBitsEv.exit: ; preds = %_ZTWN9gr
   %22 = load i64, ptr %21, align 8, !tbaa !13
   %23 = urem i64 %20, %22
   %24 = load ptr, ptr %18, align 8, !tbaa !4
-  %25 = getelementptr inbounds nuw %"struct.grpc_core::EventLog::Fragment", ptr %24, i64 %23
+  %25 = getelementptr inbounds nuw [32 x i8], ptr %24, i64 %23
   ret ptr %25
 }
 
@@ -735,7 +731,7 @@ _ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %4
 
 24:                                               ; preds = %21
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %23, i8 0, i64 %22, i1 false), !tbaa !32
-  %25 = getelementptr inbounds nuw i64, ptr %23, i64 %3
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %3
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 %22
   %27 = ptrtoint ptr %25 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -858,7 +854,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %65, %
   br i1 %.not68, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %73 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %2, i64 %3
+  %73 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %3
   %74 = ptrtoint ptr %2 to i64
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %76 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -1361,7 +1357,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN9grpc_core8EventLog5EntryES
   %14 = sub i64 %13, %5
   %15 = ashr exact i64 %14, 5
   %16 = sub nsw i64 0, %15
-  %17 = getelementptr inbounds %"struct.grpc_core::EventLog::Entry", ptr %12, i64 %16
+  %17 = getelementptr inbounds [32 x i8], ptr %12, i64 %16
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %17, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %14, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false), !tbaa.struct !30
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -1402,7 +1398,7 @@ common.ret27:                                     ; preds = %9, %21, %22
 
 22:                                               ; preds = %2
   %23 = lshr i64 %7, 1
-  %24 = getelementptr inbounds nuw %"struct.grpc_core::EventLog::Entry", ptr %0, i64 %23
+  %24 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %23
   tail call fastcc void @"_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPN9grpc_core8EventLog5EntryESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_13EndCollectionEN4absl12lts_202407224SpanIKSt17basic_string_viewIcSt11char_traitsIcEEEEE3$_0EEEvT_SN_T0_"(ptr %0, ptr %24)
   tail call fastcc void @"_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPN9grpc_core8EventLog5EntryESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_13EndCollectionEN4absl12lts_202407224SpanIKSt17basic_string_viewIcSt11char_traitsIcEEEEE3$_0EEEvT_SN_T0_"(ptr %24, ptr %1)
   %25 = ptrtoint ptr %24 to i64
@@ -1420,7 +1416,7 @@ define internal fastcc void @"_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal
   %8 = ashr exact i64 %7, 5
   %9 = add nsw i64 %8, 1
   %10 = sdiv i64 %9, 2
-  %11 = getelementptr inbounds %"struct.grpc_core::EventLog::Entry", ptr %0, i64 %10
+  %11 = getelementptr inbounds [32 x i8], ptr %0, i64 %10
   %12 = icmp sgt i64 %10, %3
   br i1 %12, label %13, label %14
 
@@ -1490,7 +1486,7 @@ define internal fastcc void @"_ZSt22__merge_without_bufferIN9__gnu_cxx17__normal
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN9grpc_core8EventLog5EntryESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit: ; preds = %19
   %22 = sdiv i64 %.tr7282, 2
-  %23 = getelementptr inbounds %"struct.grpc_core::EventLog::Entry", ptr %.tr78, i64 %22
+  %23 = getelementptr inbounds [32 x i8], ptr %.tr78, i64 %22
   %.val = load double, ptr %23, align 8
   %24 = sub i64 %12, %21
   %25 = ashr exact i64 %24, 5
@@ -1501,7 +1497,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN9grpc_core8EventLog5EntryESt6vecto
   %.04.i = phi i64 [ %.1.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN9grpc_core8EventLog5EntryESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i ], [ %25, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN9grpc_core8EventLog5EntryESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit ]
   %.sroa.02.03.i = phi ptr [ %.sroa.02.1.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN9grpc_core8EventLog5EntryESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i ], [ %.tr7080, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN9grpc_core8EventLog5EntryESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit ]
   %27 = lshr i64 %.04.i, 1
-  %28 = getelementptr inbounds nuw %"struct.grpc_core::EventLog::Entry", ptr %.sroa.02.03.i, i64 %27
+  %28 = getelementptr inbounds nuw [32 x i8], ptr %.sroa.02.03.i, i64 %27
   %.val.i.i = load double, ptr %28, align 8, !tbaa !77
   %29 = fcmp olt double %.val.i.i, %.val
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 32
@@ -1525,7 +1521,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN9grpc_core8EventLog5EntryESt6vecto
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN9grpc_core8EventLog5EntryESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit54: ; preds = %19
   %36 = sdiv i64 %.tr7383, 2
-  %37 = getelementptr inbounds %"struct.grpc_core::EventLog::Entry", ptr %.tr7080, i64 %36
+  %37 = getelementptr inbounds [32 x i8], ptr %.tr7080, i64 %36
   %.val50 = load double, ptr %37, align 8
   %38 = ptrtoint ptr %.tr78 to i64
   %39 = sub i64 %21, %38
@@ -1537,7 +1533,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN9grpc_core8EventLog5EntryESt6vecto
   %.04.i57 = phi i64 [ %.1.i62, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN9grpc_core8EventLog5EntryESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i56 ], [ %40, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN9grpc_core8EventLog5EntryESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit54 ]
   %.sroa.02.03.i58 = phi ptr [ %.sroa.02.1.i61, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN9grpc_core8EventLog5EntryESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i56 ], [ %.tr78, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN9grpc_core8EventLog5EntryESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit54 ]
   %42 = lshr i64 %.04.i57, 1
-  %43 = getelementptr inbounds nuw %"struct.grpc_core::EventLog::Entry", ptr %.sroa.02.03.i58, i64 %42
+  %43 = getelementptr inbounds nuw [32 x i8], ptr %.sroa.02.03.i58, i64 %42
   %.val2.i.i = load double, ptr %43, align 8, !tbaa !77
   %44 = fcmp olt double %.val50, %.val2.i.i
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 32
@@ -1614,7 +1610,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN9grpc_core8EventLog5EntryESt6vecto
   br i1 %74, label %.lr.ph66.preheader.i.i, label %._crit_edge67.i.i
 
 .lr.ph66.preheader.i.i:                           ; preds = %73
-  %75 = getelementptr inbounds %"struct.grpc_core::EventLog::Entry", ptr %.sroa.026.0.i.i, i64 %.0.i.i
+  %75 = getelementptr inbounds [32 x i8], ptr %.sroa.026.0.i.i, i64 %.0.i.i
   br label %.lr.ph66.i.i
 
 ._crit_edge67.i.i:                                ; preds = %.lr.ph66.i.i, %73
@@ -1643,9 +1639,9 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN9grpc_core8EventLog5EntryESt6vecto
   br label %.backedge
 
 82:                                               ; preds = %70
-  %83 = getelementptr inbounds %"struct.grpc_core::EventLog::Entry", ptr %.sroa.026.0.i.i, i64 %.056.i.i
+  %83 = getelementptr inbounds [32 x i8], ptr %.sroa.026.0.i.i, i64 %.056.i.i
   %84 = sub i64 0, %71
-  %85 = getelementptr inbounds %"struct.grpc_core::EventLog::Entry", ptr %83, i64 %84
+  %85 = getelementptr inbounds [32 x i8], ptr %83, i64 %84
   %86 = icmp sgt i64 %.0.i.i, 0
   br i1 %86, label %.lr.ph.i.i, label %._crit_edge.i.i
 
@@ -1729,7 +1725,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN9grpc_core8EventLog5EntryES
   %17 = sub i64 %16, %12
   %18 = ashr exact i64 %17, 5
   %19 = sub nsw i64 0, %18
-  %20 = getelementptr inbounds %"struct.grpc_core::EventLog::Entry", ptr %15, i64 %19
+  %20 = getelementptr inbounds [32 x i8], ptr %15, i64 %19
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %20, ptr noundef nonnull align 8 dereferenceable(1) %.sroa.033.036.i, i64 %17, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.033.036.i, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !tbaa.struct !30
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1797,7 +1793,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN9grpc_core8EventLog5EntryES
   %33 = sub i64 %32, %.lcssa.i
   %34 = ashr exact i64 %33, 5
   %35 = sub nsw i64 0, %34
-  %36 = getelementptr inbounds %"struct.grpc_core::EventLog::Entry", ptr %31, i64 %35
+  %36 = getelementptr inbounds [32 x i8], ptr %31, i64 %35
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %36, ptr noundef nonnull align 8 dereferenceable(1) %.sroa.033.0.lcssa.i, i64 %33, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.033.0.lcssa.i, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !tbaa.struct !30
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -2293,7 +2289,7 @@ _ZSt13move_backwardIPN9grpc_core8EventLog5EntryEN9__gnu_cxx17__normal_iteratorIS
   %45 = sub i64 %43, %44
   %46 = ashr exact i64 %45, 5
   %47 = sub nsw i64 0, %46
-  %48 = getelementptr inbounds %"struct.grpc_core::EventLog::Entry", ptr %.lcssa.sink.i, i64 %47
+  %48 = getelementptr inbounds [32 x i8], ptr %.lcssa.sink.i, i64 %47
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %48, ptr align 8 %5, i64 %45, i1 false)
   br label %"_ZSt21__move_merge_adaptiveIPN9grpc_core8EventLog5EntryEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEES9_NS4_5__ops15_Iter_comp_iterIZNS1_13EndCollectionEN4absl12lts_202407224SpanIKSt17basic_string_viewIcSt11char_traitsIcEEEEE3$_0EEEvT_SN_T0_SO_T1_T2_.exit"
 
@@ -2303,7 +2299,7 @@ _ZSt13move_backwardIPN9grpc_core8EventLog5EntryEN9__gnu_cxx17__normal_iteratorIS
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN9grpc_core8EventLog5EntryESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit: ; preds = %49
   %51 = sdiv i64 %.tr111129, 2
-  %52 = getelementptr inbounds %"struct.grpc_core::EventLog::Entry", ptr %.tr125, i64 %51
+  %52 = getelementptr inbounds [32 x i8], ptr %.tr125, i64 %51
   %.val = load double, ptr %52, align 8
   %53 = sub i64 %8, %50
   %54 = ashr exact i64 %53, 5
@@ -2314,7 +2310,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN9grpc_core8EventLog5EntryESt6vecto
   %.04.i = phi i64 [ %.1.i88, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN9grpc_core8EventLog5EntryESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i ], [ %54, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN9grpc_core8EventLog5EntryESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit ]
   %.sroa.02.03.i = phi ptr [ %.sroa.02.1.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN9grpc_core8EventLog5EntryESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i ], [ %.tr109127, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN9grpc_core8EventLog5EntryESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit ]
   %56 = lshr i64 %.04.i, 1
-  %57 = getelementptr inbounds nuw %"struct.grpc_core::EventLog::Entry", ptr %.sroa.02.03.i, i64 %56
+  %57 = getelementptr inbounds nuw [32 x i8], ptr %.sroa.02.03.i, i64 %56
   %.val.i.i87 = load double, ptr %57, align 8, !tbaa !77
   %58 = fcmp olt double %.val.i.i87, %.val
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 32
@@ -2338,7 +2334,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN9grpc_core8EventLog5EntryESt6vecto
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN9grpc_core8EventLog5EntryESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit92: ; preds = %49
   %65 = sdiv i64 %.tr112130, 2
-  %66 = getelementptr inbounds %"struct.grpc_core::EventLog::Entry", ptr %.tr109127, i64 %65
+  %66 = getelementptr inbounds [32 x i8], ptr %.tr109127, i64 %65
   %.val82 = load double, ptr %66, align 8
   %67 = ptrtoint ptr %.tr125 to i64
   %68 = sub i64 %50, %67
@@ -2350,7 +2346,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN9grpc_core8EventLog5EntryESt6vecto
   %.04.i95 = phi i64 [ %.1.i101, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN9grpc_core8EventLog5EntryESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i94 ], [ %69, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN9grpc_core8EventLog5EntryESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit92 ]
   %.sroa.02.03.i96 = phi ptr [ %.sroa.02.1.i100, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN9grpc_core8EventLog5EntryESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i94 ], [ %.tr125, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN9grpc_core8EventLog5EntryESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit92 ]
   %71 = lshr i64 %.04.i95, 1
-  %72 = getelementptr inbounds nuw %"struct.grpc_core::EventLog::Entry", ptr %.sroa.02.03.i96, i64 %71
+  %72 = getelementptr inbounds nuw [32 x i8], ptr %.sroa.02.03.i96, i64 %71
   %.val2.i.i99 = load double, ptr %72, align 8, !tbaa !77
   %73 = fcmp olt double %.val82, %.val2.i.i99
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 32
@@ -2424,7 +2420,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN9grpc_core8EventLog5EntryESt6vectorIS
   %20 = sub i64 %15, %19
   %21 = ashr exact i64 %20, 5
   %22 = sub nsw i64 0, %21
-  %23 = getelementptr inbounds %"struct.grpc_core::EventLog::Entry", ptr %2, i64 %22
+  %23 = getelementptr inbounds [32 x i8], ptr %2, i64 %22
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %23, ptr align 8 %0, i64 %20, i1 false)
   br label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN9grpc_core8EventLog5EntryESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit
 
@@ -2474,13 +2470,13 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN9grpc_core8EventLog5EntryESt6vectorIS
 36:                                               ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN9grpc_core8EventLog5EntryESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit
   %37 = ashr exact i64 %31, 5
   %38 = sub nsw i64 0, %37
-  %39 = getelementptr inbounds %"struct.grpc_core::EventLog::Entry", ptr %2, i64 %38
+  %39 = getelementptr inbounds [32 x i8], ptr %2, i64 %38
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %39, ptr align 8 %5, i64 %31, i1 false)
   br label %_ZSt13move_backwardIPN9grpc_core8EventLog5EntryEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit
 
 _ZSt13move_backwardIPN9grpc_core8EventLog5EntryEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN9grpc_core8EventLog5EntryESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit, %36
   %.pre-phi.i.i.i.i.i43 = phi i64 [ %38, %36 ], [ 0, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN9grpc_core8EventLog5EntryESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit ]
-  %40 = getelementptr inbounds %"struct.grpc_core::EventLog::Entry", ptr %2, i64 %.pre-phi.i.i.i.i.i43
+  %40 = getelementptr inbounds [32 x i8], ptr %2, i64 %.pre-phi.i.i.i.i.i43
   br label %_ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPN9grpc_core8EventLog5EntryESt6vectorIS5_SaIS5_EEEEEET_SB_SB_SB_.exit
 
 41:                                               ; preds = %26
@@ -2534,7 +2530,7 @@ _ZSt13move_backwardIPN9grpc_core8EventLog5EntryEN9__gnu_cxx17__normal_iteratorIS
   br i1 %64, label %.lr.ph66.preheader.i.i, label %._crit_edge67.i.i
 
 .lr.ph66.preheader.i.i:                           ; preds = %63
-  %65 = getelementptr inbounds %"struct.grpc_core::EventLog::Entry", ptr %.sroa.026.0.i.i, i64 %.0.i.i
+  %65 = getelementptr inbounds [32 x i8], ptr %.sroa.026.0.i.i, i64 %.0.i.i
   br label %.lr.ph66.i.i
 
 ._crit_edge67.i.i:                                ; preds = %.lr.ph66.i.i, %63
@@ -2563,9 +2559,9 @@ _ZSt13move_backwardIPN9grpc_core8EventLog5EntryEN9__gnu_cxx17__normal_iteratorIS
   br label %.backedge
 
 72:                                               ; preds = %60
-  %73 = getelementptr inbounds %"struct.grpc_core::EventLog::Entry", ptr %.sroa.026.0.i.i, i64 %.056.i.i
+  %73 = getelementptr inbounds [32 x i8], ptr %.sroa.026.0.i.i, i64 %.056.i.i
   %74 = sub i64 0, %61
-  %75 = getelementptr inbounds %"struct.grpc_core::EventLog::Entry", ptr %73, i64 %74
+  %75 = getelementptr inbounds [32 x i8], ptr %73, i64 %74
   %76 = icmp sgt i64 %.0.i.i, 0
   br i1 %76, label %.lr.ph.i.i, label %._crit_edge.i.i
 

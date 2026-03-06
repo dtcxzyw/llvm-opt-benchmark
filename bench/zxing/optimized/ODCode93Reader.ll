@@ -156,10 +156,10 @@ _ZNK5ZXing11PatternView3sumEi.exit.i.i122:        ; preds = %.lr.ph.i.i.i.i.i116
 
 48:                                               ; preds = %47, %45
   %indvars.iv.i.i123 = phi i64 [ 0, %45 ], [ %indvars.iv.next.i.i124, %47 ]
-  %49 = getelementptr inbounds nuw i16, ptr %25, i64 %indvars.iv.i.i123
+  %49 = getelementptr inbounds nuw [2 x i8], ptr %25, i64 %indvars.iv.i.i123
   %50 = load i16, ptr %49, align 2, !tbaa !20, !noalias !3
   %51 = uitofp i16 %50 to double
-  %52 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv.i.i123
+  %52 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %indvars.iv.i.i123
   %53 = load i16, ptr %52, align 2, !tbaa !20, !noalias !3
   %54 = uitofp i16 %53 to double
   %55 = fneg double %54
@@ -209,7 +209,7 @@ _ZN5ZXing4OneDL12IsStartGuardERKNS_11PatternViewEi.exit127.._crit_edge.i_crit_ed
   %74 = phi i32 [ %21, %24 ], [ %.pre10.i.pre, %_ZN5ZXing4OneDL12IsStartGuardERKNS_11PatternViewEi.exit127.._crit_edge.i_crit_edge ], [ %21, %_ZN5ZXing4OneDL12IsStartGuardERKNS_11PatternViewEi.exit127.thread ]
   %75 = phi ptr [ %25, %24 ], [ %.pre.i.pre, %_ZN5ZXing4OneDL12IsStartGuardERKNS_11PatternViewEi.exit127.._crit_edge.i_crit_edge ], [ %25, %_ZN5ZXing4OneDL12IsStartGuardERKNS_11PatternViewEi.exit127.thread ]
   %76 = sext i32 %74 to i64
-  %77 = getelementptr inbounds i16, ptr %75, i64 %76
+  %77 = getelementptr inbounds [2 x i8], ptr %75, i64 %76
   %78 = getelementptr inbounds i8, ptr %77, i64 -60
   %.not9.i = icmp ult ptr %73, %78
   br i1 %.not9.i, label %.lr.ph.i.preheader, label %.critedge.i
@@ -260,10 +260,10 @@ _ZNK5ZXing11PatternView3sumEi.exit.i.i:           ; preds = %.lr.ph.i.i.i.i.i
 
 95:                                               ; preds = %94, %92
   %indvars.iv.i.i = phi i64 [ 0, %92 ], [ %indvars.iv.next.i.i, %94 ]
-  %96 = getelementptr inbounds nuw i16, ptr %82, i64 %indvars.iv.i.i
+  %96 = getelementptr inbounds nuw [2 x i8], ptr %82, i64 %indvars.iv.i.i
   %97 = load i16, ptr %96, align 2, !tbaa !20, !noalias !3
   %98 = uitofp i16 %97 to double
-  %99 = getelementptr inbounds nuw i16, ptr %7, i64 %indvars.iv.i.i
+  %99 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %indvars.iv.i.i
   %100 = load i16, ptr %99, align 2, !tbaa !20, !noalias !3
   %101 = uitofp i16 %100 to double
   %102 = fneg double %101
@@ -343,7 +343,7 @@ _ZN5ZXing13FindLeftGuardILi6EPFbRKNS_11PatternViewEiEEES1_S3_iT0_.exit: ; preds 
 _ZNK5ZXing11PatternView7isValidEv.exit:           ; preds = %_ZN5ZXing13FindLeftGuardILi6EPFbRKNS_11PatternViewEiEEES1_S3_iT0_.exit
   %129 = load i32, ptr %20, align 8, !tbaa !6
   %130 = sext i32 %129 to i64
-  %131 = getelementptr inbounds i16, ptr %126, i64 %130
+  %131 = getelementptr inbounds [2 x i8], ptr %126, i64 %130
   %132 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %133 = load ptr, ptr %132, align 8, !tbaa !19
   %.not = icmp ugt ptr %131, %133
@@ -435,9 +435,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm.exit: ; preds = 
 _ZN5ZXing11PatternView10skipSymbolEv.exit:        ; preds = %163
   %165 = load i32, ptr %20, align 8, !tbaa !6
   %166 = sext i32 %165 to i64
-  %167 = getelementptr inbounds i16, ptr %164, i64 %166
+  %167 = getelementptr inbounds [2 x i8], ptr %164, i64 %166
   store ptr %167, ptr %3, align 8, !tbaa !16
-  %168 = getelementptr inbounds i16, ptr %167, i64 %166
+  %168 = getelementptr inbounds [2 x i8], ptr %167, i64 %166
   %169 = load ptr, ptr %132, align 8, !tbaa !19
   %.not130 = icmp ugt ptr %168, %169
   br i1 %.not130, label %_ZN5ZXing11PatternView10skipSymbolEv.exit.thread, label %191
@@ -1033,7 +1033,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit88: ; preds = %404
   %414 = load ptr, ptr %3, align 8, !tbaa !16
   %415 = load i32, ptr %20, align 8, !tbaa !6
   %416 = sext i32 %415 to i64
-  %417 = getelementptr inbounds i16, ptr %414, i64 %416
+  %417 = getelementptr inbounds [2 x i8], ptr %414, i64 %416
   %.not6.i.i.i89 = icmp eq ptr %413, %417
   br i1 %.not6.i.i.i89, label %_ZNK5ZXing11PatternView13pixelsTillEndEv.exit, label %.lr.ph.i.i.i90
 
@@ -1200,17 +1200,17 @@ _ZNK5ZXing11PatternView3sumEi.exit.i:             ; preds = %.lr.ph.i.i.i.i
 13:                                               ; preds = %13, %_ZNK5ZXing11PatternView3sumEi.exit.i
   %indvars.iv.i = phi i64 [ 0, %_ZNK5ZXing11PatternView3sumEi.exit.i ], [ %indvars.iv.next.i, %13 ]
   %.033.i = phi i32 [ 9, %_ZNK5ZXing11PatternView3sumEi.exit.i ], [ %24, %13 ]
-  %14 = getelementptr inbounds nuw i16, ptr %5, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %indvars.iv.i
   %15 = load i16, ptr %14, align 2, !tbaa !20, !noalias !60
   %16 = uitofp i16 %15 to double
   %17 = fdiv double %16, %9
   %18 = fadd double %17, 5.000000e-01
   %19 = fptosi double %18 to i32
-  %20 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv.i
   store i32 %19, ptr %20, align 4, !tbaa !27, !noalias !60
   %21 = sitofp i32 %19 to double
   %22 = fsub double %17, %21
-  %23 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv.i
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.i
   store double %22, ptr %23, align 8, !tbaa !63, !noalias !60
   %24 = sub nsw i32 %.033.i, %19
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1280,7 +1280,7 @@ _ZN5ZXing17NormalizedPatternILi6ELi9EEESt5arrayIiXT_EERKNS_11PatternViewE.exit: 
 45:                                               ; preds = %45, %_ZN5ZXing17NormalizedPatternILi6ELi9EEESt5arrayIiXT_EERKNS_11PatternViewE.exit
   %indvars.iv.i1 = phi i64 [ 0, %_ZN5ZXing17NormalizedPatternILi6ELi9EEESt5arrayIiXT_EERKNS_11PatternViewE.exit ], [ %indvars.iv.next.i2, %45 ]
   %.0911.i = phi i32 [ 0, %_ZN5ZXing17NormalizedPatternILi6ELi9EEESt5arrayIiXT_EERKNS_11PatternViewE.exit ], [ %53, %45 ]
-  %46 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i1
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i1
   %47 = load i32, ptr %46, align 4, !tbaa !27
   %48 = shl i32 %.0911.i, %47
   %49 = trunc nuw nsw i64 %indvars.iv.i1 to i32

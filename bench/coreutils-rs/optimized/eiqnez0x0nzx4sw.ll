@@ -110,7 +110,7 @@ define hidden void @_ZN12clap_builder7builder3arg3Arg13visible_alias17h3933a83f8
   %14 = phi i64 [ %.pre.i, %.noexc ], [ %7, %4 ]
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 304
   %16 = load ptr, ptr %15, align 8, !alias.scope !17, !noalias !20, !nonnull !16, !noundef !16
-  %17 = getelementptr inbounds { { { { ptr, i64 } } }, i8, [7 x i8] }, ptr %16, i64 %14
+  %17 = getelementptr inbounds [24 x i8], ptr %16, i64 %14
   store ptr %2, ptr %17, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i64 %3, ptr %.sroa.4.0..sroa_idx, align 8

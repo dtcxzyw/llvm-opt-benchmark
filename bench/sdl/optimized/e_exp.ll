@@ -62,10 +62,10 @@ define hidden double @SDL_uclibc_exp(double noundef %0) local_unnamed_addr #0 {
 
 26:                                               ; preds = %24
   %27 = zext nneg i32 %3 to i64
-  %28 = getelementptr inbounds nuw double, ptr @ln2HI, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr @ln2HI, i64 %27
   %29 = load double, ptr %28, align 8
   %30 = fsub double %0, %29
-  %31 = getelementptr inbounds nuw double, ptr @ln2LO, i64 %27
+  %31 = getelementptr inbounds nuw [8 x i8], ptr @ln2LO, i64 %27
   %32 = load double, ptr %31, align 8
   %33 = xor i32 %3, 1
   %34 = sub nsw i32 %33, %3
@@ -73,7 +73,7 @@ define hidden double @SDL_uclibc_exp(double noundef %0) local_unnamed_addr #0 {
 
 .thread76:                                        ; preds = %20, %24
   %35 = zext nneg i32 %3 to i64
-  %36 = getelementptr inbounds nuw double, ptr @halF, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr @halF, i64 %35
   %37 = load double, ptr %36, align 8
   %38 = tail call double @llvm.fmuladd.f64(double %0, double 0x3FF71547652B82FE, double %37)
   %39 = fptosi double %38 to i32

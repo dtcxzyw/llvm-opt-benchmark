@@ -93,7 +93,7 @@ define dso_local noundef range(i32 -22, 1) i32 @drm_buddy_init(ptr noundef captu
   %28 = phi i32 [ %33, %.preheader14 ], [ 0, %22 ]
   %29 = load ptr, ptr %0, align 8
   %30 = zext i32 %28 to i64
-  %31 = getelementptr %struct.list_head, ptr %29, i64 %30
+  %31 = getelementptr [16 x i8], ptr %29, i64 %30
   store volatile ptr %31, ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store volatile ptr %31, ptr %32, align 8
@@ -158,7 +158,7 @@ define dso_local noundef range(i32 -22, 1) i32 @drm_buddy_init(ptr noundef captu
   store i64 %67, ptr %57, align 8
   %68 = load ptr, ptr %0, align 8
   %69 = and i64 %60, 63
-  %70 = getelementptr %struct.list_head, ptr %68, i64 %69
+  %70 = getelementptr [16 x i8], ptr %68, i64 %69
   %71 = load volatile ptr, ptr %70, align 8
   %72 = icmp eq ptr %71, %70
   br i1 %72, label %75, label %73
@@ -235,7 +235,7 @@ define dso_local noundef range(i32 -22, 1) i32 @drm_buddy_init(ptr noundef captu
 108:                                              ; preds = %97
   %109 = load ptr, ptr %43, align 8
   %110 = zext i32 %46 to i64
-  %111 = getelementptr ptr, ptr %109, i64 %110
+  %111 = getelementptr [8 x i8], ptr %109, i64 %110
   store ptr %57, ptr %111, align 8
   %112 = add i64 %52, %47
   %113 = sub i64 %45, %52
@@ -247,7 +247,7 @@ define dso_local noundef range(i32 -22, 1) i32 @drm_buddy_init(ptr noundef captu
   %117 = phi i64 [ %107, %106 ], [ %118, %116 ]
   %118 = add nsw i64 %117, -1
   %119 = load ptr, ptr %43, align 8
-  %120 = getelementptr ptr, ptr %119, i64 %118
+  %120 = getelementptr [8 x i8], ptr %119, i64 %118
   %121 = load ptr, ptr %120, align 8
   %122 = load ptr, ptr @slab_blocks, align 8
   tail call void @kmem_cache_free(ptr noundef %122, ptr noundef %121) #8
@@ -287,7 +287,7 @@ define dso_local void @drm_buddy_fini(ptr noundef readonly captures(none) %0) #0
   %8 = phi i32 [ 0, %5 ], [ %20, %17 ]
   %9 = load ptr, ptr %6, align 8
   %10 = sext i32 %8 to i64
-  %11 = getelementptr ptr, ptr %9, i64 %10
+  %11 = getelementptr [8 x i8], ptr %9, i64 %10
   %12 = load ptr, ptr %11, align 8
   %13 = load i64, ptr %12, align 8
   %14 = and i64 %13, 3072
@@ -299,7 +299,7 @@ define dso_local void @drm_buddy_fini(ptr noundef readonly captures(none) %0) #0
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 192, i32 2305, i64 12) #8, !srcloc !27
   tail call void asm sideeffect "320: nop\0A\09.pushsection .discard.instr_end\0A\09.long 320b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 320) #8, !srcloc !28
   %.pre = load ptr, ptr %6, align 8
-  %.phi.trans.insert = getelementptr ptr, ptr %.pre, i64 %10
+  %.phi.trans.insert = getelementptr [8 x i8], ptr %.pre, i64 %10
   %.pre1 = load ptr, ptr %.phi.trans.insert, align 8
   br label %17
 
@@ -437,7 +437,7 @@ define internal fastcc void @__drm_buddy_free(ptr noundef readonly captures(none
   store i64 %32, ptr %.lcssa5, align 8
   %33 = load ptr, ptr %0, align 8
   %34 = and i64 %30, 63
-  %35 = getelementptr %struct.list_head, ptr %33, i64 %34
+  %35 = getelementptr [16 x i8], ptr %33, i64 %34
   %36 = load volatile ptr, ptr %35, align 8
   %37 = icmp eq ptr %36, %35
   br i1 %37, label %40, label %38
@@ -592,7 +592,7 @@ define dso_local noundef i32 @drm_buddy_block_trim(ptr noundef captures(none) %0
   store i64 %38, ptr %13, align 8
   %39 = load ptr, ptr %0, align 8
   %40 = and i64 %36, 63
-  %41 = getelementptr %struct.list_head, ptr %39, i64 %40
+  %41 = getelementptr [16 x i8], ptr %39, i64 %40
   %42 = load volatile ptr, ptr %41, align 8
   %43 = icmp eq ptr %42, %41
   br i1 %43, label %46, label %44
@@ -1011,7 +1011,7 @@ define dso_local noundef i32 @drm_buddy_alloc_blocks(ptr noundef captures(none) 
   %49 = phi i32 [ 0, %46 ], [ %57, %48 ]
   %50 = load ptr, ptr %47, align 8
   %51 = sext i32 %49 to i64
-  %52 = getelementptr ptr, ptr %50, i64 %51
+  %52 = getelementptr [8 x i8], ptr %50, i64 %51
   %53 = load ptr, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 56
   %55 = load ptr, ptr %42, align 8
@@ -1107,7 +1107,7 @@ __drm_buddy_alloc_range.exit:                     ; preds = %48, %41
 112:                                              ; preds = %139, %110
   %113 = phi i32 [ %107, %110 ], [ %140, %139 ]
   %114 = zext i32 %113 to i64
-  %115 = getelementptr %struct.list_head, ptr %111, i64 %114
+  %115 = getelementptr [16 x i8], ptr %111, i64 %114
   %116 = load volatile ptr, ptr %115, align 8
   %117 = icmp eq ptr %116, %115
   br i1 %117, label %139, label %118
@@ -1224,7 +1224,7 @@ __drm_buddy_alloc_range.exit:                     ; preds = %48, %41
   %181 = phi ptr [ null, %178 ], [ %200, %199 ]
   %182 = phi i32 [ %175, %178 ], [ %201, %199 ]
   %183 = zext i32 %182 to i64
-  %184 = getelementptr %struct.list_head, ptr %179, i64 %183
+  %184 = getelementptr [16 x i8], ptr %179, i64 %183
   %185 = load volatile ptr, ptr %184, align 8
   %186 = icmp eq ptr %185, %184
   br i1 %186, label %199, label %187
@@ -1366,7 +1366,7 @@ __drm_buddy_alloc_range.exit:                     ; preds = %48, %41
   %260 = phi i32 [ %268, %.preheader49 ], [ 0, %.preheader51 ]
   %261 = load ptr, ptr %94, align 8
   %262 = sext i32 %260 to i64
-  %263 = getelementptr ptr, ptr %261, i64 %262
+  %263 = getelementptr [8 x i8], ptr %261, i64 %262
   %264 = load ptr, ptr %263, align 8
   %265 = getelementptr inbounds nuw i8, ptr %264, i64 56
   %266 = load ptr, ptr %91, align 8
@@ -1695,7 +1695,7 @@ define internal fastcc noundef i32 @__alloc_contig_try_harder(ptr noundef captur
 21:                                               ; preds = %4
   %22 = load ptr, ptr %0, align 8
   %23 = zext i32 %19 to i64
-  %24 = getelementptr %struct.list_head, ptr %22, i64 %23
+  %24 = getelementptr [16 x i8], ptr %22, i64 %23
   %25 = load volatile ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, %24
   br i1 %26, label %.loopexit17, label %27
@@ -1732,7 +1732,7 @@ define internal fastcc noundef i32 @__alloc_contig_try_harder(ptr noundef captur
   %46 = phi i32 [ %54, %.preheader15 ], [ 0, %39 ]
   %47 = load ptr, ptr %34, align 8
   %48 = sext i32 %46 to i64
-  %49 = getelementptr ptr, ptr %47, i64 %48
+  %49 = getelementptr [8 x i8], ptr %47, i64 %48
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 56
   %52 = load ptr, ptr %32, align 8
@@ -1776,7 +1776,7 @@ define internal fastcc noundef i32 @__alloc_contig_try_harder(ptr noundef captur
   %74 = phi i32 [ %82, %.preheader13 ], [ 0, %59 ]
   %75 = load ptr, ptr %34, align 8
   %76 = sext i32 %74 to i64
-  %77 = getelementptr ptr, ptr %75, i64 %76
+  %77 = getelementptr [8 x i8], ptr %75, i64 %76
   %78 = load ptr, ptr %77, align 8
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 56
   %80 = load ptr, ptr %36, align 8
@@ -1936,7 +1936,7 @@ define dso_local void @drm_buddy_print(ptr noundef readonly captures(none) %0, p
 17:                                               ; preds = %.loopexit, %15
   %18 = phi i64 [ %16, %15 ], [ %43, %.loopexit ]
   %19 = load ptr, ptr %0, align 8
-  %20 = getelementptr %struct.list_head, ptr %19, i64 %18
+  %20 = getelementptr [16 x i8], ptr %19, i64 %18
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, %20
   br i1 %22, label %.loopexit, label %.preheader
@@ -2104,7 +2104,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @split_block(ptr noundef re
   store i64 %49, ptr %46, align 8
   %50 = load ptr, ptr %0, align 8
   %51 = and i64 %47, 63
-  %52 = getelementptr %struct.list_head, ptr %50, i64 %51
+  %52 = getelementptr [16 x i8], ptr %50, i64 %51
   %53 = load volatile ptr, ptr %52, align 8
   %54 = icmp eq ptr %53, %52
   br i1 %54, label %57, label %55
@@ -2155,7 +2155,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @split_block(ptr noundef re
   store i64 %79, ptr %76, align 8
   %80 = load ptr, ptr %0, align 8
   %81 = and i64 %77, 63
-  %82 = getelementptr %struct.list_head, ptr %80, i64 %81
+  %82 = getelementptr [16 x i8], ptr %80, i64 %81
   %83 = load volatile ptr, ptr %82, align 8
   %84 = icmp eq ptr %83, %82
   br i1 %84, label %87, label %85

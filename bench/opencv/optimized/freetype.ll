@@ -12,7 +12,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.cv::_OutputArray" = type { %"class.cv::_InputArray" }
 %"class.cv::_InputArray" = type { i32, ptr, %"class.cv::Size_" }
 %"class.cv::Size_" = type { i32, i32 }
-%"class.cv::Point_" = type { i32, i32 }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -21,8 +20,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.cv::Scalar_" = type { %"class.cv::Vec" }
 %"class.cv::Vec" = type { %"class.cv::Matx" }
 %"class.cv::Matx" = type { [4 x double] }
-%struct.hb_glyph_info_t = type { i32, i32, i32, %union._hb_var_int_t, %union._hb_var_int_t }
-%union._hb_var_int_t = type { i32 }
 %struct.FT_Outline_ = type { i16, i16, ptr, ptr, ptr, i32 }
 %struct.FT_BBox_ = type { i64, i64, i64, i64 }
 %"struct.cv::Ptr" = type { %"class.std::shared_ptr" }
@@ -372,7 +369,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i: ;
 _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %84, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i
   store ptr %78, ptr %9, align 8, !tbaa !29
   store ptr %83, ptr %10, align 8, !tbaa !26
-  %85 = getelementptr inbounds nuw %"class.cv::Point_", ptr %78, i64 %76
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %76
   store ptr %85, ptr %61, align 8, !tbaa !53
   br label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE9push_backEOS2_.exit
 
@@ -503,7 +500,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i: ;
 _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %48, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i
   store ptr %42, ptr %6, align 8, !tbaa !29
   store ptr %47, ptr %22, align 8, !tbaa !26
-  %49 = getelementptr inbounds nuw %"class.cv::Point_", ptr %42, i64 %40
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %40
   store ptr %49, ptr %24, align 8, !tbaa !53
   br label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE9push_backEOS2_.exit
 
@@ -695,7 +692,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i: ;
 _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %97, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i
   store ptr %91, ptr %16, align 8, !tbaa !29
   store ptr %96, ptr %17, align 8, !tbaa !26
-  %98 = getelementptr inbounds nuw %"class.cv::Point_", ptr %91, i64 %89
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %89
   store ptr %98, ptr %18, align 8, !tbaa !53
   br label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE9push_backEOS2_.exit
 
@@ -874,7 +871,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i: ;
 _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %83, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i
   store ptr %77, ptr %13, align 8, !tbaa !29
   store ptr %82, ptr %14, align 8, !tbaa !26
-  %84 = getelementptr inbounds nuw %"class.cv::Point_", ptr %77, i64 %75
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %75
   store ptr %84, ptr %15, align 8, !tbaa !53
   br label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE9push_backEOS2_.exit
 
@@ -2018,7 +2015,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit103: ; preds = %85
   %indvars.iv138 = phi i64 [ %indvars.iv.next139, %._crit_edge.split.us.us ], [ 0, %.lr.ph123 ]
   %.sroa.4.1121.us = phi i32 [ %162, %._crit_edge.split.us.us ], [ %spec.select, %.lr.ph123 ]
   %.sroa.050.0.in120.us = phi i64 [ %157, %._crit_edge.split.us.us ], [ %3, %.lr.ph123 ]
-  %124 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %76, i64 %indvars.iv138
+  %124 = getelementptr inbounds nuw [20 x i8], ptr %76, i64 %indvars.iv138
   %125 = load i32, ptr %124, align 4, !tbaa !108
   %126 = invoke i32 @FT_Load_Glyph(ptr noundef %123, i32 noundef %125, i32 noundef 0)
           to label %127 unwind label %.split126.us
@@ -2175,7 +2172,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit103: ; preds = %85
   %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge.split ], [ 0, %.lr.ph123 ]
   %.sroa.4.1121 = phi i32 [ %295, %._crit_edge.split ], [ %spec.select, %.lr.ph123 ]
   %.sroa.050.0.in120 = phi i64 [ %290, %._crit_edge.split ], [ %3, %.lr.ph123 ]
-  %202 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %76, i64 %indvars.iv
+  %202 = getelementptr inbounds nuw [20 x i8], ptr %76, i64 %indvars.iv
   %203 = load i32, ptr %202, align 4, !tbaa !108
   %204 = invoke i32 @FT_Load_Glyph(ptr noundef %201, i32 noundef %203, i32 noundef 0)
           to label %205 unwind label %.split126
@@ -2719,7 +2716,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit112: ; preds = %84
   %indvars.iv149 = phi i64 [ %indvars.iv.next150, %._crit_edge.split.us.us ], [ 0, %.lr.ph134 ]
   %.sroa.4.1132.us = phi i32 [ %156, %._crit_edge.split.us.us ], [ %spec.select, %.lr.ph134 ]
   %.sroa.057.0.in131.us = phi i64 [ %151, %._crit_edge.split.us.us ], [ %3, %.lr.ph134 ]
-  %123 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %75, i64 %indvars.iv149
+  %123 = getelementptr inbounds nuw [20 x i8], ptr %75, i64 %indvars.iv149
   %124 = load i32, ptr %123, align 4, !tbaa !108
   %125 = invoke i32 @FT_Load_Glyph(ptr noundef %122, i32 noundef %124, i32 noundef 0)
           to label %126 unwind label %.split137.us
@@ -2895,7 +2892,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit112: ; preds = %84
   %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge.split ], [ 0, %.lr.ph134 ]
   %.sroa.4.1132 = phi i32 [ %308, %._crit_edge.split ], [ %spec.select, %.lr.ph134 ]
   %.sroa.057.0.in131 = phi i64 [ %303, %._crit_edge.split ], [ %3, %.lr.ph134 ]
-  %208 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %75, i64 %indvars.iv
+  %208 = getelementptr inbounds nuw [20 x i8], ptr %75, i64 %indvars.iv
   %209 = load i32, ptr %208, align 4, !tbaa !108
   %210 = invoke i32 @FT_Load_Glyph(ptr noundef %207, i32 noundef %209, i32 noundef 0)
           to label %211 unwind label %.split137
@@ -3316,7 +3313,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit60: ; preds = %42,
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %107 ]
   %.sroa.8.168 = phi i64 [ %.sroa.8.0, %.lr.ph ], [ %117, %107 ]
   %.sroa.0.067 = phi i64 [ %73, %.lr.ph ], [ %114, %107 ]
-  %78 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %36, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw [20 x i8], ptr %36, i64 %indvars.iv
   %79 = load i32, ptr %78, align 4, !tbaa !108
   %80 = call i32 @FT_Load_Glyph(ptr noundef %77, i32 noundef %79, i32 noundef 0)
   %.not48 = icmp eq i32 %80, 0
@@ -3995,7 +3992,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit92: ; preds = %79,
   %.0146161 = phi i32 [ 2147483647, %.lr.ph ], [ %.sroa.speculated119, %_ZN2cv8freetype13FreeType2Impl3ftdEl.exit115 ]
   %.0147160 = phi i32 [ -2147483648, %.lr.ph ], [ %.sroa.speculated, %_ZN2cv8freetype13FreeType2Impl3ftdEl.exit115 ]
   %.0148159 = phi i32 [ -2147483648, %.lr.ph ], [ %.sroa.speculated123, %_ZN2cv8freetype13FreeType2Impl3ftdEl.exit115 ]
-  %89 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %69, i64 %indvars.iv
+  %89 = getelementptr inbounds nuw [20 x i8], ptr %69, i64 %indvars.iv
   %90 = load i32, ptr %89, align 4, !tbaa !108
   %91 = call i32 @FT_Load_Glyph(ptr noundef %88, i32 noundef %90, i32 noundef 0)
   %.not72 = icmp eq i32 %91, 0

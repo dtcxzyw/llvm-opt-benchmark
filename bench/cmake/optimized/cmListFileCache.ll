@@ -41,7 +41,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.13" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%class.BT = type { %"class.std::__cxx11::basic_string", %class.cmListFileBacktrace }
 %"struct.std::pair" = type { %"class.std::basic_string_view", ptr }
 %"class.std::basic_string_view" = type { i64, ptr }
 %"class.std::vector.79" = type { %"struct.std::_Vector_base.80" }
@@ -57,10 +56,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Optional_payload_base.base.58" = type <{ %"union.std::_Optional_payload_base<cmListFileContext>::_Storage", i8 }>
 %"union.std::_Optional_payload_base<cmListFileContext>::_Storage" = type { %class.cmListFileContext }
 %class.cmAlphaNum = type { ptr, %"class.std::basic_string_view", [32 x i8] }
-%struct.cmListFileArgument = type { %"class.std::__cxx11::basic_string", i32, i64 }
-%class.cmListFileFunction = type { %"class.std::shared_ptr.49" }
-%"class.std::shared_ptr.49" = type { %"class.std::__shared_ptr.50" }
-%"class.std::__shared_ptr.50" = type { ptr, %"class.std::__shared_count" }
 
 $_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_ = comdat any
 
@@ -2209,7 +2204,7 @@ _ZNSt12_Vector_baseI2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaI
   store ptr %19, ptr %0, align 8, !tbaa !102
   %47 = getelementptr inbounds nuw i8, ptr %19, i64 %17
   store ptr %47, ptr %14, align 8, !tbaa !98
-  %48 = getelementptr inbounds nuw %class.BT, ptr %19, i64 %1
+  %48 = getelementptr inbounds nuw [48 x i8], ptr %19, i64 %1
   store ptr %48, ptr %6, align 8, !tbaa !101
   br label %49
 
@@ -8844,7 +8839,7 @@ _ZNSt6vectorI18cmListFileArgumentSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit38: ; 
 _ZNSt12_Vector_baseI18cmListFileArgumentSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %_ZNSt6vectorI18cmListFileArgumentSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit38, %62
   store ptr %24, ptr %0, align 8, !tbaa !58
   store ptr %.0.lcssa.i.i.i37, ptr %6, align 8, !tbaa !59
-  %66 = getelementptr inbounds nuw %struct.cmListFileArgument, ptr %24, i64 %18
+  %66 = getelementptr inbounds nuw [48 x i8], ptr %24, i64 %18
   store ptr %66, ptr %61, align 8, !tbaa !62
   ret void
 
@@ -9136,7 +9131,7 @@ _ZNSt6vectorI18cmListFileFunctionSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit35: ; 
 _ZNSt12_Vector_baseI18cmListFileFunctionSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %_ZNSt6vectorI18cmListFileFunctionSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit35, %41
   store ptr %25, ptr %0, align 8, !tbaa !284
   store ptr %.0.lcssa.i.i.i34, ptr %7, align 8, !tbaa !160
-  %45 = getelementptr inbounds nuw %class.cmListFileFunction, ptr %25, i64 %19
+  %45 = getelementptr inbounds nuw [16 x i8], ptr %25, i64 %19
   store ptr %45, ptr %40, align 8, !tbaa !163
   ret void
 
@@ -10124,7 +10119,7 @@ _ZNSt6vectorIN12_GLOBAL__N_112NestingStateESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.
 _ZNSt6vectorIN12_GLOBAL__N_112NestingStateESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %190, %_ZNSt6vectorIN12_GLOBAL__N_112NestingStateESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit39.i.i
   store ptr %77, ptr %0, align 8, !tbaa !303
   store ptr %189, ptr %3, align 8, !tbaa !233
-  %194 = getelementptr inbounds nuw %"struct.(anonymous namespace)::NestingState", ptr %77, i64 %75
+  %194 = getelementptr inbounds nuw [120 x i8], ptr %77, i64 %75
   store ptr %194, ptr %5, align 8, !tbaa !302
   br label %_ZNSt6vectorIN12_GLOBAL__N_112NestingStateESaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.exit
 
@@ -11487,7 +11482,7 @@ _ZNSt6vectorI2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EE11
 _ZNSt12_Vector_baseI2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EE13_M_deallocateEPS7_m.exit: ; preds = %_ZNSt6vectorI2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit37, %108
   store ptr %24, ptr %0, align 8, !tbaa !102
   store ptr %.0.lcssa.i.i.i36, ptr %6, align 8, !tbaa !98
-  %112 = getelementptr inbounds nuw %class.BT, ptr %24, i64 %18
+  %112 = getelementptr inbounds nuw [48 x i8], ptr %24, i64 %18
   store ptr %112, ptr %107, align 8, !tbaa !101
   ret void
 }

@@ -3,9 +3,7 @@ source_filename = "bench/openssl/original/punycode_test.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.puny_test = type { [50 x i32], ptr }
 %struct.wpacket_st = type { ptr, ptr, i64, i64, i64, ptr, i8 }
-%struct.bad_decode_test = type { i64, [20 x i8] }
 
 @.str = private unnamed_addr constant [14 x i8] c"test_punycode\00", align 1
 @.str.1 = private unnamed_addr constant [21 x i8] c"test_dotted_overflow\00", align 1
@@ -88,7 +86,7 @@ define internal range(i32 0, 2) i32 @test_punycode(i32 noundef %0) #0 {
   %2 = alloca [50 x i32], align 16
   %3 = alloca i32, align 4
   %4 = sext i32 %0 to i64
-  %5 = getelementptr inbounds %struct.puny_test, ptr @puny_cases, i64 %4
+  %5 = getelementptr inbounds [208 x i8], ptr @puny_cases, i64 %4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 50, ptr %3, align 4, !tbaa !4
@@ -104,7 +102,7 @@ define internal range(i32 0, 2) i32 @test_punycode(i32 noundef %0) #0 {
 
 .preheader:                                       ; preds = %1, %16
   %.011 = phi i64 [ %17, %16 ], [ 0, %1 ]
-  %13 = getelementptr inbounds nuw i32, ptr %5, i64 %.011
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.011
   %14 = load i32, ptr %13, align 4, !tbaa !4
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %18, label %16
@@ -343,7 +341,7 @@ define internal i32 @test_a2ulabel_bad_decode(i32 noundef %0) #0 {
   %2 = alloca [20 x i8], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = sext i32 %0 to i64
-  %4 = getelementptr inbounds %struct.bad_decode_test, ptr @bad_decode_tests, i64 %3
+  %4 = getelementptr inbounds [32 x i8], ptr @bad_decode_tests, i64 %3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i64, ptr %4, align 16, !tbaa !20
   %7 = call i32 @ossl_a2ulabel(ptr noundef nonnull %5, ptr noundef nonnull %2, i64 noundef %6) #6

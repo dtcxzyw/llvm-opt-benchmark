@@ -181,7 +181,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ba
 
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8586d91bb1bc73e4E.exit.thread44": ; preds = %21
   %24 = load ptr, ptr %7, align 8, !alias.scope !11, !noalias !17, !nonnull !4, !noundef !4
-  %25 = getelementptr inbounds i16, ptr %24, i64 %16
+  %25 = getelementptr inbounds [2 x i8], ptr %24, i64 %16
   %26 = load i16, ptr %25, align 2, !range !30, !noalias !28, !noundef !4
   %27 = tail call { ptr, i64 } @_ZN6parser9lexed_str8LexedStr10range_text17h658e8b3e85b21e8eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %.sroa.26.32.copyload, i64 noundef %16, i64 noundef %11), !noalias !17
   %28 = extractvalue { ptr, i64 } %27, 0
@@ -252,7 +252,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ba
   %50 = icmp eq <16 x i8> %.0.copyload.i.i.i, splat (i8 10)
   %51 = icmp eq <16 x i8> %.0.copyload2.i.i.i, splat (i8 10)
   %52 = and <16 x i1> %50, %51
-  %53 = getelementptr inbounds nuw i16, ptr %3, i64 %.sroa.022.039.i.i
+  %53 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %.sroa.022.039.i.i
   store <16 x i1> %52, ptr %53, align 2, !noalias !37
   %exitcond.not.i.i = icmp eq i64 %46, 4
   br i1 %exitcond.not.i.i, label %.preheader38.i.i, label %45
@@ -270,7 +270,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ba
   %.sroa.028.041.i.i = phi i64 [ %59, %63 ], [ 0, %45 ]
   %.240.i.i = phi i8 [ %.3.i.i, %63 ], [ 0, %45 ]
   %59 = add nuw nsw i64 %.sroa.028.041.i.i, 1
-  %60 = getelementptr inbounds nuw i16, ptr %3, i64 %.sroa.028.041.i.i
+  %60 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %.sroa.028.041.i.i
   %61 = load i16, ptr %60, align 2, !noalias !37, !noundef !4
   %62 = icmp eq i16 %61, 0
   br i1 %62, label %63, label %64
@@ -406,7 +406,7 @@ _ZN6parser9shortcuts8is_inner17h446d350359f8bc24E.exit: ; preds = %"_ZN4core5sli
 
 "_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h32e9f43a76eb08b4E.exit": ; preds = %113
   %116 = load ptr, ptr %7, align 8, !alias.scope !73, !noalias !79, !nonnull !4, !noundef !4
-  %117 = getelementptr inbounds i16, ptr %116, i64 %108
+  %117 = getelementptr inbounds [2 x i8], ptr %116, i64 %108
   %118 = load i16, ptr %117, align 2, !range !30, !noalias !96, !noundef !4
   %119 = tail call { ptr, i64 } @_ZN6parser9lexed_str8LexedStr10range_text17h658e8b3e85b21e8eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %.sroa.26.32.copyload, i64 noundef %108, i64 noundef %32), !noalias !79
   %120 = extractvalue { ptr, i64 } %119, 0

@@ -322,7 +322,7 @@ define dso_local void @e1000e_update_mc_addr_list_generic(ptr noundef initialize
   %44 = and i32 %40, 31
   %45 = shl nuw i32 1, %44
   %46 = zext nneg i32 %43 to i64
-  %47 = getelementptr i32, ptr %4, i64 %46
+  %47 = getelementptr [4 x i8], ptr %4, i64 %46
   %48 = load i32, ptr %47, align 4
   %49 = or i32 %45, %48
   store i32 %49, ptr %47, align 4
@@ -344,7 +344,7 @@ define dso_local void @e1000e_update_mc_addr_list_generic(ptr noundef initialize
   %58 = add nsw i64 %57, -1
   %59 = shl nuw nsw i64 %58, 2
   %60 = add nuw nsw i64 %59, 20992
-  %61 = getelementptr i32, ptr %4, i64 %58
+  %61 = getelementptr [4 x i8], ptr %4, i64 %58
   %62 = load i32, ptr %61, align 4
   tail call void @__ew32(ptr noundef %0, i64 noundef %60, i32 noundef %62) #6
   %63 = icmp samesign ugt i64 %57, 1

@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 define internal i32 @euckr_mbc_enc_len(ptr noundef readonly captures(none) %0) #0 {
   %2 = load i8, ptr %0, align 1, !tbaa !4
   %3 = zext i8 %2 to i64
-  %4 = getelementptr inbounds nuw i32, ptr @EncLen_EUCKR, i64 %3
+  %4 = getelementptr inbounds nuw [4 x i8], ptr @EncLen_EUCKR, i64 %3
   %5 = load i32, ptr %4, align 4, !tbaa !7
   ret i32 %5
 }

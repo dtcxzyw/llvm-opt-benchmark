@@ -13,7 +13,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.DrawParallelogramFuncs = type { ptr, ptr }
 %struct._NativePrimitive = type { ptr, ptr, ptr, ptr, %union.anon, %union.anon, i32, i32 }
 %union.anon = type { ptr }
-%struct.ImageRef = type { ptr, ptr, i32, i32, i32, i32, i32, i32 }
 
 @PrimitiveTypes = external global %struct._PrimitiveTypes, align 8
 @SurfaceTypes = external global %struct._SurfaceTypes, align 8
@@ -49,7 +48,7 @@ define hidden void @AnyIntSetRect(ptr noundef readonly captures(none) %0, i32 no
 
 24:                                               ; preds = %24, %23
   %indvars.iv = phi i64 [ %indvars.iv.next, %24 ], [ 0, %23 ]
-  %25 = getelementptr inbounds nuw i32, ptr %.016, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %.016, i64 %indvars.iv
   store i32 %5, ptr %25, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -114,7 +113,7 @@ define hidden void @AnyIntSetSpans(ptr noundef readonly captures(none) %0, ptr n
 
 33:                                               ; preds = %.lr.ph.us, %33
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %33 ]
-  %34 = getelementptr inbounds nuw i32, ptr %.018.us, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %.018.us, i64 %indvars.iv
   store i32 %3, ptr %34, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -177,7 +176,7 @@ define hidden void @AnyIntSetParallelogram(ptr noundef readonly captures(none) %
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %smax, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %31 = getelementptr inbounds i32, ptr %.02741, i64 %indvars.iv
+  %31 = getelementptr inbounds [4 x i8], ptr %.02741, i64 %indvars.iv
   store i32 %9, ptr %31, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %32 = icmp slt i64 %indvars.iv.next, %30
@@ -330,7 +329,7 @@ define hidden void @AnyIntXorRect(ptr noundef readonly captures(none) %0, i32 no
 
 31:                                               ; preds = %31, %30
   %indvars.iv = phi i64 [ %indvars.iv.next, %31 ], [ 0, %30 ]
-  %32 = getelementptr inbounds nuw i32, ptr %.020, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %.020, i64 %indvars.iv
   %33 = load i32, ptr %32, align 4
   %34 = xor i32 %33, %29
   store i32 %34, ptr %32, align 4
@@ -404,7 +403,7 @@ define hidden void @AnyIntXorSpans(ptr noundef readonly captures(none) %0, ptr n
 
 40:                                               ; preds = %.lr.ph.us, %40
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %40 ]
-  %41 = getelementptr inbounds nuw i32, ptr %.022.us, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %.022.us, i64 %indvars.iv
   %42 = load i32, ptr %41, align 4
   %43 = xor i32 %42, %26
   store i32 %43, ptr %41, align 4
@@ -554,7 +553,7 @@ define hidden void @AnyIntDrawGlyphList(ptr noundef readonly captures(none) %0, 
 
 17:                                               ; preds = %.lr.ph, %.loopexit
   %indvars.iv90 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next91, %.loopexit ]
-  %18 = getelementptr inbounds nuw %struct.ImageRef, ptr %1, i64 %indvars.iv90
+  %18 = getelementptr inbounds nuw [40 x i8], ptr %1, i64 %indvars.iv90
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8
   %.not = icmp eq ptr %20, null
@@ -624,7 +623,7 @@ define hidden void @AnyIntDrawGlyphList(ptr noundef readonly captures(none) %0, 
   br i1 %.not86, label %57, label %55
 
 55:                                               ; preds = %52
-  %56 = getelementptr inbounds nuw i32, ptr %.070, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %.070, i64 %indvars.iv
   store i32 %3, ptr %56, align 4
   br label %57
 
@@ -671,7 +670,7 @@ define hidden void @AnyIntDrawGlyphListXor(ptr noundef readonly captures(none) %
 
 24:                                               ; preds = %.lr.ph, %.loopexit
   %indvars.iv94 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next95, %.loopexit ]
-  %25 = getelementptr inbounds nuw %struct.ImageRef, ptr %1, i64 %indvars.iv94
+  %25 = getelementptr inbounds nuw [40 x i8], ptr %1, i64 %indvars.iv94
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load ptr, ptr %26, align 8
   %.not = icmp eq ptr %27, null
@@ -741,7 +740,7 @@ define hidden void @AnyIntDrawGlyphListXor(ptr noundef readonly captures(none) %
   br i1 %.not90, label %66, label %62
 
 62:                                               ; preds = %59
-  %63 = getelementptr inbounds nuw i32, ptr %.074, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %.074, i64 %indvars.iv
   %64 = load i32, ptr %63, align 4
   %65 = xor i32 %64, %23
   store i32 %65, ptr %63, align 4
@@ -893,7 +892,7 @@ define hidden void @AnyIntIsomorphicScaleCopy(ptr noundef %0, ptr noundef %1, i3
   %.024 = phi i32 [ %4, %23 ], [ %37, %29 ]
   %30 = ashr i32 %.024, %8
   %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds i32, ptr %28, i64 %31
+  %32 = getelementptr inbounds [4 x i8], ptr %28, i64 %31
   %33 = load i32, ptr %32, align 4
   store i32 %33, ptr %.1, align 4
   %34 = ptrtoint ptr %.1 to i64

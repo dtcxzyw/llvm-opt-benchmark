@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.ScanKeyData = type { i32, i16, i16, i32, i32, %struct.FmgrInfo, i64 }
 %struct.FmgrInfo = type { ptr, i32, i16, i8, i8, i8, ptr, ptr, ptr }
 %struct.ClusterParams = type { i32 }
-%union.ListCell = type { ptr }
 %struct.VacuumParams = type { i32, i32, i32, i32, i32, i8, i32, i32, i32, i32, double, i32 }
 %struct.VacuumCutoffs = type { i32, i32, i32, i32, i32, i32 }
 %struct.PGRUsage = type { %struct.timeval, %struct.rusage }
@@ -102,7 +101,7 @@ define dso_local void @cluster(ptr noundef %0, ptr noundef readonly captures(non
 .lr.ph94:                                         ; preds = %.lr.ph, %22
   %indvars.iv = phi i64 [ %indvars.iv.next, %22 ], [ 0, %.lr.ph ]
   %12 = load ptr, ptr %9, align 8
-  %13 = getelementptr inbounds nuw %union.ListCell, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
@@ -193,7 +192,7 @@ define dso_local void @cluster(ptr noundef %0, ptr noundef readonly captures(non
 .lr.ph100:                                        ; preds = %.lr.ph96, %61
   %indvars.iv106 = phi i64 [ %indvars.iv.next107, %61 ], [ 0, %.lr.ph96 ]
   %65 = load ptr, ptr %58, align 8
-  %66 = getelementptr inbounds nuw %union.ListCell, ptr %65, i64 %indvars.iv106
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %indvars.iv106
   %67 = load i32, ptr %66, align 8
   %68 = tail call zeroext i1 @get_index_isclustered(i32 noundef %67) #7
   br i1 %68, label %.critedge68, label %61
@@ -270,7 +269,7 @@ define dso_local void @cluster(ptr noundef %0, ptr noundef readonly captures(non
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %cluster_is_permitted_for_relation.exit.thread.i ], [ 0, %.lr.ph.i ]
   %.0182327.i = phi ptr [ %.1.i, %cluster_is_permitted_for_relation.exit.thread.i ], [ null, %.lr.ph.i ]
   %101 = load ptr, ptr %98, align 8
-  %102 = getelementptr inbounds nuw %union.ListCell, ptr %101, i64 %indvars.iv.i
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %101, i64 %indvars.iv.i
   %103 = load i32, ptr %102, align 8
   %104 = tail call i32 @IndexGetRelation(i32 noundef %103, i1 noundef zeroext false) #7
   %105 = tail call signext i8 @get_rel_relkind(i32 noundef %103) #7
@@ -402,7 +401,7 @@ get_tables_to_cluster.exit:                       ; preds = %cluster_is_permitte
 .lr.ph15.i:                                       ; preds = %.lr.ph.i77, %.lr.ph15.i
   %indvars.iv.i78 = phi i64 [ %indvars.iv.next.i79, %.lr.ph15.i ], [ 0, %.lr.ph.i77 ]
   %160 = load ptr, ptr %157, align 8
-  %161 = getelementptr inbounds nuw %union.ListCell, ptr %160, i64 %indvars.iv.i78
+  %161 = getelementptr inbounds nuw [8 x i8], ptr %160, i64 %indvars.iv.i78
   %162 = load ptr, ptr %161, align 8
   call void @StartTransactionCommand() #7
   %163 = call ptr @GetTransactionSnapshot() #7
@@ -1080,7 +1079,7 @@ define dso_local void @mark_index_clustered(ptr noundef %0, i32 noundef %1, i1 n
 .lr.ph42:                                         ; preds = %.lr.ph, %51
   %indvars.iv = phi i64 [ %indvars.iv.next, %51 ], [ 0, %.lr.ph ]
   %23 = load ptr, ptr %20, align 8
-  %24 = getelementptr inbounds nuw %union.ListCell, ptr %23, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv
   %25 = load i32, ptr %24, align 8
   %26 = zext i32 %25 to i64
   %27 = tail call ptr @SearchSysCacheCopy(i32 noundef 34, i64 noundef %26, i64 noundef 0, i64 noundef 0, i64 noundef 0) #7
@@ -1367,7 +1366,7 @@ define dso_local void @finish_heap_swap(i32 noundef %0, i32 noundef %1, i1 nound
   call void @RelationMapRemoveMapping(i32 noundef %42) #7
   %43 = add i32 %.04755, 1
   %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds i32, ptr %11, i64 %44
+  %45 = getelementptr inbounds [4 x i8], ptr %11, i64 %44
   %46 = load i32, ptr %45, align 4
   %.not52 = icmp eq i32 %46, 0
   br i1 %.not52, label %._crit_edge, label %.lr.ph, !llvm.loop !7

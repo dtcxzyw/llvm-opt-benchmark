@@ -86,7 +86,7 @@ define internal range(i32 -2147483648, 1) i32 @hls_open(ptr noundef %0, ptr noun
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %31 ]
   %.058 = phi i32 [ -1, %.preheader ], [ %spec.select54, %31 ]
   %.04357 = phi i32 [ 0, %.preheader ], [ %spec.select, %31 ]
-  %32 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv
   %33 = load ptr, ptr %32, align 8, !tbaa !25
   %34 = load i32, ptr %33, align 4, !tbaa !27
   %35 = icmp sgt i32 %34, %.04357
@@ -101,7 +101,7 @@ define internal range(i32 -2147483648, 1) i32 @hls_open(ptr noundef %0, ptr noun
 
 38:                                               ; preds = %31
   %39 = sext i32 %spec.select54 to i64
-  %40 = getelementptr inbounds ptr, ptr %30, i64 %39
+  %40 = getelementptr inbounds [8 x i8], ptr %30, i64 %39
   %41 = load ptr, ptr %40, align 8, !tbaa !25
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
   %43 = call i64 @av_strlcpy(ptr noundef nonnull %6, ptr noundef nonnull %42, i64 noundef 4096) #7
@@ -152,7 +152,7 @@ define internal range(i32 -2147483648, 1) i32 @hls_open(ptr noundef %0, ptr noun
 64:                                               ; preds = %64, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %64 ]
   %65 = load ptr, ptr %63, align 8, !tbaa !34
-  %66 = getelementptr inbounds nuw ptr, ptr %65, i64 %indvars.iv.i.i
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %indvars.iv.i.i
   call void @av_freep(ptr noundef %66) #7
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %67 = load i32, ptr %60, align 8, !tbaa !17
@@ -176,7 +176,7 @@ free_segment_list.exit.i:                         ; preds = %64, %58
 75:                                               ; preds = %75, %.lr.ph.i4.i
   %indvars.iv.i5.i = phi i64 [ 0, %.lr.ph.i4.i ], [ %indvars.iv.next.i6.i, %75 ]
   %76 = load ptr, ptr %74, align 8, !tbaa !24
-  %77 = getelementptr inbounds nuw ptr, ptr %76, i64 %indvars.iv.i5.i
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %indvars.iv.i5.i
   call void @av_freep(ptr noundef %77) #7
   %indvars.iv.next.i6.i = add nuw nsw i64 %indvars.iv.i5.i, 1
   %78 = load i32, ptr %71, align 8, !tbaa !23
@@ -245,7 +245,7 @@ define internal range(i32 1, 0) i32 @hls_read(ptr noundef %0, ptr noundef %1, i3
 28:                                               ; preds = %.thread
   %29 = load ptr, ptr %10, align 8, !tbaa !34
   %30 = zext nneg i32 %26 to i64
-  %31 = getelementptr ptr, ptr %29, i64 %30
+  %31 = getelementptr [8 x i8], ptr %29, i64 %30
   %32 = getelementptr i8, ptr %31, i64 -8
   %33 = load ptr, ptr %32, align 8, !tbaa !38
   br label %34
@@ -331,7 +331,7 @@ define internal range(i32 1, 0) i32 @hls_read(ptr noundef %0, ptr noundef %1, i3
 71:                                               ; preds = %53
   %72 = load ptr, ptr %10, align 8, !tbaa !34
   %73 = sext i32 %56 to i64
-  %74 = getelementptr inbounds ptr, ptr %72, i64 %73
+  %74 = getelementptr inbounds [8 x i8], ptr %72, i64 %73
   %75 = load ptr, ptr %74, align 8, !tbaa !38
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 48, ptr noundef nonnull @.str.16, ptr noundef nonnull %76) #7
@@ -374,7 +374,7 @@ define internal noundef i32 @hls_close(ptr noundef readonly captures(none) %0) #
 8:                                                ; preds = %8, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %8 ]
   %9 = load ptr, ptr %7, align 8, !tbaa !34
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i
   tail call void @av_freep(ptr noundef %10) #7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %11 = load i32, ptr %4, align 8, !tbaa !17
@@ -398,7 +398,7 @@ free_segment_list.exit:                           ; preds = %8, %1
 19:                                               ; preds = %19, %.lr.ph.i4
   %indvars.iv.i5 = phi i64 [ 0, %.lr.ph.i4 ], [ %indvars.iv.next.i6, %19 ]
   %20 = load ptr, ptr %18, align 8, !tbaa !24
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv.i5
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv.i5
   tail call void @av_freep(ptr noundef %21) #7
   %indvars.iv.next.i6 = add nuw nsw i64 %indvars.iv.i5, 1
   %22 = load i32, ptr %15, align 8, !tbaa !23
@@ -461,7 +461,7 @@ define internal fastcc i32 @parse_playlist(ptr noundef %0, ptr noundef %1) unnam
 24:                                               ; preds = %24, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %24 ]
   %25 = load ptr, ptr %23, align 8, !tbaa !34
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv.i
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv.i
   call void @av_freep(ptr noundef %26) #7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %27 = load i32, ptr %20, align 8, !tbaa !17

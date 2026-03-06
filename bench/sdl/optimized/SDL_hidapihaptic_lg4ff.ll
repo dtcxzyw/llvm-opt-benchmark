@@ -5,11 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.SDL_HIDAPI_HapticDriver = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.lg4ff_effect_parameters = type { i32, i32, i32, i32, i32, i32 }
-%struct.lg4ff_slot = type { i32, %struct.lg4ff_effect_parameters, [7 x i8], i32, i8, i32 }
-%struct.lg4ff_effect_state = type { %union.SDL_HapticEffect, i64, i64, i64, i32, i64, i64, i32, i32, i32, double, i32, i8 }
-%union.SDL_HapticEffect = type { %struct.SDL_HapticCustom, [16 x i8] }
-%struct.SDL_HapticCustom = type { i16, %struct.SDL_HapticDirection, i32, i16, i16, i16, i8, i16, i16, ptr, i16, i16, i16, i16 }
-%struct.SDL_HapticDirection = type { i8, [3 x i32] }
 
 @SDL_HIDAPI_HapticDriverLg4ff = hidden local_unnamed_addr global %struct.SDL_HIDAPI_HapticDriver { ptr @SDL_HIDAPI_HapticDriverLg4ff_JoystickSupported, ptr @SDL_HIDAPI_HapticDriverLg4ff_Open, ptr @SDL_HIDAPI_HapticDriverLg4ff_Close, ptr @SDL_HIDAPI_HapticDriverLg4ff_NumEffects, ptr @SDL_HIDAPI_HapticDriverLg4ff_NumEffects, ptr @SDL_HIDAPI_HapticDriverLg4ff_GetFeatures, ptr @SDL_HIDAPI_HapticDriverLg4ff_NumAxes, ptr @SDL_HIDAPI_HapticDriverLg4ff_CreateEffect, ptr @SDL_HIDAPI_HapticDriverLg4ff_UpdateEffect, ptr @SDL_HIDAPI_HapticDriverLg4ff_RunEffect, ptr @SDL_HIDAPI_HapticDriverLg4ff_StopEffect, ptr @SDL_HIDAPI_HapticDriverLg4ff_DestroyEffect, ptr @SDL_HIDAPI_HapticDriverLg4ff_GetEffectStatus, ptr @SDL_HIDAPI_HapticDriverLg4ff_SetGain, ptr @SDL_HIDAPI_HapticDriverLg4ff_SetAutocenter, ptr @SDL_HIDAPI_HapticDriverLg4ff_Pause, ptr @SDL_HIDAPI_HapticDriverLg4ff_Resume, ptr @SDL_HIDAPI_HapticDriverLg4ff_StopEffects }, align 8
 @supported_device_ids = internal unnamed_addr constant [6 x i32] [i32 49743, i32 49819, i32 49817, i32 49818, i32 49816, i32 49812], align 16
@@ -43,7 +38,7 @@ define internal noundef zeroext i1 @SDL_HIDAPI_HapticDriverLg4ff_JoystickSupport
 
 5:                                                ; preds = %5, %.preheader
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %5 ]
-  %6 = getelementptr inbounds nuw i32, ptr @supported_device_ids, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [4 x i8], ptr @supported_device_ids, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %7, %4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -76,7 +71,7 @@ define internal ptr @SDL_HIDAPI_HapticDriverLg4ff_Open(ptr noundef %0) #0 {
 
 8:                                                ; preds = %7, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %7 ]
-  %9 = getelementptr inbounds nuw i32, ptr @supported_device_ids, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw [4 x i8], ptr @supported_device_ids, i64 %indvars.iv.i
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, %6
   br i1 %11, label %SDL_HIDAPI_HapticDriverLg4ff_JoystickSupported.exit, label %7
@@ -125,7 +120,7 @@ SDL_HIDAPI_HapticDriverLg4ff_JoystickSupported.exit: ; preds = %8
 
 29:                                               ; preds = %34, %22
   %indvars.iv.i35 = phi i64 [ 0, %22 ], [ %indvars.iv.next.i36, %34 ]
-  %30 = getelementptr inbounds nuw %struct.lg4ff_slot, ptr %24, i64 %indvars.iv.i35
+  %30 = getelementptr inbounds nuw [48 x i8], ptr %24, i64 %indvars.iv.i35
   %31 = trunc nuw nsw i64 %indvars.iv.i35 to i32
   store i32 %31, ptr %30, align 8
   call fastcc void @lg4ff_update_slot(ptr noundef nonnull %30, ptr noundef %2)
@@ -269,7 +264,7 @@ define internal void @SDL_HIDAPI_HapticDriverLg4ff_Close(ptr noundef readonly ca
 
 6:                                                ; preds = %6, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %6 ]
-  %7 = getelementptr inbounds nuw %struct.lg4ff_effect_state, ptr %3, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw [152 x i8], ptr %3, i64 %indvars.iv.i
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 104
   store i32 0, ptr %8, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -326,7 +321,7 @@ define internal range(i32 -1, 16) i32 @SDL_HIDAPI_HapticDriverLg4ff_CreateEffect
 
 11:                                               ; preds = %8, %16
   %indvars.iv = phi i64 [ 0, %8 ], [ %indvars.iv.next, %16 ]
-  %12 = getelementptr inbounds nuw %struct.lg4ff_effect_state, ptr %4, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [152 x i8], ptr %4, i64 %indvars.iv
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 156
   %14 = load i8, ptr %13, align 4, !range !7, !noundef !8
   %15 = trunc nuw i8 %14 to i1
@@ -366,7 +361,7 @@ define internal range(i32 -1, 16) i32 @SDL_HIDAPI_HapticDriverLg4ff_CreateEffect
 effect_is_periodic.exit.i:                        ; preds = %26, %.split.i.i, %20
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %31 = and i64 %indvars.iv, 4294967295
-  %32 = getelementptr inbounds nuw %struct.lg4ff_effect_state, ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw [152 x i8], ptr %30, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 96
   %34 = load i32, ptr %33, align 8
   %35 = and i32 %34, 1
@@ -393,7 +388,7 @@ effect_is_periodic.exit.i:                        ; preds = %26, %.split.i.i, %2
 41:                                               ; preds = %38, %.thread.i
   %42 = load ptr, ptr %9, align 8
   tail call void @SDL_UnlockMutex_REAL(ptr noundef %42) #9
-  %43 = getelementptr %struct.lg4ff_effect_state, ptr %4, i64 %31
+  %43 = getelementptr [152 x i8], ptr %4, i64 %31
   %44 = getelementptr i8, ptr %43, i64 156
   store i8 1, ptr %44, align 4
   br label %48
@@ -421,7 +416,7 @@ define internal noundef zeroext i1 @SDL_HIDAPI_HapticDriverLg4ff_UpdateEffect(pt
 
 lg4ff_effect_slot_valid_active.exit:              ; preds = %3
   %8 = zext nneg i32 %1 to i64
-  %9 = getelementptr inbounds nuw %struct.lg4ff_effect_state, ptr %5, i64 %8
+  %9 = getelementptr inbounds nuw [152 x i8], ptr %5, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 156
   %11 = load i8, ptr %10, align 4, !range !7, !noundef !8
   %12 = trunc nuw i8 %11 to i1
@@ -454,7 +449,7 @@ lg4ff_effect_slot_valid_active.exit.thread:       ; preds = %3, %lg4ff_effect_sl
 
 effect_is_periodic.exit.i:                        ; preds = %20, %.split.i.i, %15
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %25 = getelementptr inbounds nuw %struct.lg4ff_effect_state, ptr %24, i64 %8
+  %25 = getelementptr inbounds nuw [152 x i8], ptr %24, i64 %8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 96
   %27 = load i32, ptr %26, align 8
   %28 = and i32 %27, 1
@@ -501,7 +496,7 @@ define internal noundef zeroext i1 @SDL_HIDAPI_HapticDriverLg4ff_RunEffect(ptr n
 
 lg4ff_effect_slot_valid_active.exit:              ; preds = %3
   %8 = zext nneg i32 %1 to i64
-  %9 = getelementptr inbounds nuw %struct.lg4ff_effect_state, ptr %5, i64 %8
+  %9 = getelementptr inbounds nuw [152 x i8], ptr %5, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 156
   %11 = load i8, ptr %10, align 4, !range !7, !noundef !8
   %12 = trunc nuw i8 %11 to i1
@@ -516,7 +511,7 @@ lg4ff_effect_slot_valid_active.exit.thread:       ; preds = %3, %lg4ff_effect_sl
 15:                                               ; preds = %lg4ff_effect_slot_valid_active.exit
   %16 = tail call i64 @SDL_GetTicks_REAL() #9
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %18 = getelementptr inbounds nuw %struct.lg4ff_effect_state, ptr %17, i64 %8
+  %18 = getelementptr inbounds nuw [152 x i8], ptr %17, i64 %8
   %19 = icmp sgt i32 %2, 0
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 96
   %21 = load i32, ptr %20, align 8
@@ -577,7 +572,7 @@ define internal noundef zeroext i1 @SDL_HIDAPI_HapticDriverLg4ff_StopEffect(ptr 
 
 lg4ff_effect_slot_valid_active.exit.i:            ; preds = %2
   %7 = zext nneg i32 %1 to i64
-  %8 = getelementptr inbounds nuw %struct.lg4ff_effect_state, ptr %4, i64 %7
+  %8 = getelementptr inbounds nuw [152 x i8], ptr %4, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 156
   %10 = load i8, ptr %9, align 4, !range !7, !noundef !8
   %11 = trunc nuw i8 %10 to i1
@@ -627,7 +622,7 @@ define internal void @SDL_HIDAPI_HapticDriverLg4ff_DestroyEffect(ptr noundef rea
 
 lg4ff_effect_slot_valid_active.exit:              ; preds = %2
   %7 = zext nneg i32 %1 to i64
-  %8 = getelementptr inbounds nuw %struct.lg4ff_effect_state, ptr %4, i64 %7
+  %8 = getelementptr inbounds nuw [152 x i8], ptr %4, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 156
   %10 = load i8, ptr %9, align 4, !range !7, !noundef !8
   %11 = trunc nuw i8 %10 to i1
@@ -635,7 +630,7 @@ lg4ff_effect_slot_valid_active.exit:              ; preds = %2
 
 12:                                               ; preds = %lg4ff_effect_slot_valid_active.exit
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %14 = getelementptr inbounds nuw %struct.lg4ff_effect_state, ptr %13, i64 %7
+  %14 = getelementptr inbounds nuw [152 x i8], ptr %13, i64 %7
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 96
   store i32 0, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 148
@@ -660,7 +655,7 @@ define internal zeroext i1 @SDL_HIDAPI_HapticDriverLg4ff_GetEffectStatus(ptr nou
 
 lg4ff_effect_slot_valid_active.exit:              ; preds = %2
   %7 = zext nneg i32 %1 to i64
-  %8 = getelementptr %struct.lg4ff_effect_state, ptr %4, i64 %7
+  %8 = getelementptr [152 x i8], ptr %4, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 156
   %10 = load i8, ptr %9, align 4, !range !7, !noundef !8
   %11 = trunc nuw i8 %10 to i1
@@ -851,7 +846,7 @@ define internal noundef zeroext i1 @SDL_HIDAPI_HapticDriverLg4ff_StopEffects(ptr
 
 6:                                                ; preds = %1, %6
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %6 ]
-  %7 = getelementptr inbounds nuw %struct.lg4ff_effect_state, ptr %3, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [152 x i8], ptr %3, i64 %indvars.iv
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 104
   store i32 0, ptr %8, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -954,7 +949,7 @@ define internal noundef i32 @SDL_HIDAPI_HapticDriverLg4ff_ThreadFunction(ptr nou
   %46 = phi i32 [ %673, %lg4ff_update_state.exit.i ], [ 0, %28 ]
   %.0104.i = phi i32 [ %.1.i, %lg4ff_update_state.exit.i ], [ %35, %28 ]
   %47 = phi i32 [ %674, %lg4ff_update_state.exit.i ], [ 0, %28 ]
-  %48 = getelementptr inbounds nuw %struct.lg4ff_effect_state, ptr %10, i64 %indvars.iv.i
+  %48 = getelementptr inbounds nuw [152 x i8], ptr %10, i64 %indvars.iv.i
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 96
   %50 = load i32, ptr %49, align 8
   %51 = and i32 %50, 1
@@ -2141,7 +2136,7 @@ lg4ff_update_state.exit.i:                        ; preds = %653, %643, %624, %l
 696:                                              ; preds = %696, %678
   %indvars.iv146.i = phi i64 [ 1, %678 ], [ %indvars.iv.next147.i, %696 ]
   %.067128.i = phi i32 [ %695, %678 ], [ %716, %696 ]
-  %697 = getelementptr inbounds nuw %struct.lg4ff_effect_parameters, ptr %2, i64 %indvars.iv146.i
+  %697 = getelementptr inbounds nuw [24 x i8], ptr %2, i64 %indvars.iv146.i
   %698 = getelementptr inbounds nuw i8, ptr %697, i64 12
   %699 = load i32, ptr %698, align 4
   %700 = sext i32 %699 to i64
@@ -2182,8 +2177,8 @@ lg4ff_update_state.exit.i:                        ; preds = %653, %643, %624, %l
 
 721:                                              ; preds = %.preheader, %731
   %indvars.iv149.i = phi i64 [ %indvars.iv.next150.i, %731 ], [ 0, %.preheader ]
-  %722 = getelementptr inbounds nuw %struct.lg4ff_slot, ptr %26, i64 %indvars.iv149.i
-  %723 = getelementptr inbounds nuw %struct.lg4ff_effect_parameters, ptr %2, i64 %indvars.iv149.i
+  %722 = getelementptr inbounds nuw [48 x i8], ptr %26, i64 %indvars.iv149.i
+  %723 = getelementptr inbounds nuw [24 x i8], ptr %2, i64 %indvars.iv149.i
   call fastcc void @lg4ff_update_slot(ptr noundef nonnull %722, ptr noundef %723)
   %724 = getelementptr inbounds nuw i8, ptr %722, i64 40
   %725 = load i8, ptr %724, align 4, !range !7, !noundef !8

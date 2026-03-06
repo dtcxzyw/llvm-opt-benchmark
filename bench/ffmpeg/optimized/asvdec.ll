@@ -88,13 +88,13 @@ define internal noundef i32 @decode_init(ptr noundef %0) #0 {
   %32 = getelementptr inbounds nuw i8, ptr @ff_asv_scantab, i64 %indvars.iv
   %33 = load i8, ptr %32, align 1, !tbaa !31
   %34 = zext i8 %33 to i64
-  %35 = getelementptr inbounds nuw i16, ptr @ff_mpeg1_default_intra_matrix, i64 %34
+  %35 = getelementptr inbounds nuw [2 x i8], ptr @ff_mpeg1_default_intra_matrix, i64 %34
   %36 = load i16, ptr %35, align 2, !tbaa !32
   %37 = zext i16 %36 to i32
   %38 = shl nuw nsw i32 %37, %29
   %39 = udiv i32 %38, %.0
   %40 = trunc i32 %39 to i16
-  %41 = getelementptr inbounds nuw i16, ptr %30, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [2 x i8], ptr %30, i64 %indvars.iv
   store i16 %40, ptr %41, align 2, !tbaa !32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
@@ -593,7 +593,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_mb(ptr noundef capt
 24:                                               ; preds = %.preheader, %250
   %indvars.iv30 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next31, %250 ]
   %25 = phi i32 [ %.promoted26, %.preheader ], [ %251, %250 ]
-  %26 = getelementptr inbounds nuw [64 x i16], ptr %1, i64 %indvars.iv30
+  %26 = getelementptr inbounds nuw [128 x i8], ptr %1, i64 %indvars.iv30
   %27 = lshr i32 %25, 3
   %28 = zext nneg i32 %27 to i64
   %29 = getelementptr inbounds nuw i8, ptr %13, i64 %28
@@ -622,7 +622,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_mb(ptr noundef capt
   %45 = shl i32 %43, %44
   %46 = lshr i32 %45, 27
   %47 = zext nneg i32 %46 to i64
-  %48 = getelementptr inbounds nuw %struct.VLCElem, ptr @ccp_vlc, i64 %47
+  %48 = getelementptr inbounds nuw [4 x i8], ptr @ccp_vlc, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 2
   %50 = load i16, ptr %49, align 2, !tbaa !31
   %51 = sext i16 %50 to i32
@@ -656,7 +656,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_mb(ptr noundef capt
   %67 = shl i32 %65, %66
   %68 = lshr i32 %67, 28
   %69 = zext nneg i32 %68 to i64
-  %70 = getelementptr inbounds nuw %struct.VLCElem, ptr @level_vlc, i64 %69
+  %70 = getelementptr inbounds nuw [4 x i8], ptr @level_vlc, i64 %69
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 2
   %72 = load i16, ptr %71, align 2, !tbaa !31
   %73 = sext i16 %72 to i32
@@ -690,7 +690,7 @@ asv1_get_level.exit.i:                            ; preds = %89, %78
   %92 = phi i32 [ %88, %78 ], [ %76, %89 ]
   %.0.i.i = phi i32 [ %86, %78 ], [ %91, %89 ]
   %93 = shl nuw nsw i64 %indvars.iv.i, 2
-  %94 = getelementptr inbounds nuw i16, ptr %22, i64 %93
+  %94 = getelementptr inbounds nuw [2 x i8], ptr %22, i64 %93
   %95 = load i16, ptr %94, align 2, !tbaa !32
   %96 = zext i16 %95 to i32
   %97 = mul nsw i32 %.0.i.i, %96
@@ -699,7 +699,7 @@ asv1_get_level.exit.i:                            ; preds = %89, %78
   %100 = getelementptr inbounds nuw i8, ptr %23, i64 %93
   %101 = load i8, ptr %100, align 1, !tbaa !31
   %102 = zext i8 %101 to i64
-  %103 = getelementptr inbounds nuw i16, ptr %26, i64 %102
+  %103 = getelementptr inbounds nuw [2 x i8], ptr %26, i64 %102
   store i16 %99, ptr %103, align 2, !tbaa !32
   br label %104
 
@@ -719,7 +719,7 @@ asv1_get_level.exit.i:                            ; preds = %89, %78
   %114 = shl i32 %112, %113
   %115 = lshr i32 %114, 28
   %116 = zext nneg i32 %115 to i64
-  %117 = getelementptr inbounds nuw %struct.VLCElem, ptr @level_vlc, i64 %116
+  %117 = getelementptr inbounds nuw [4 x i8], ptr @level_vlc, i64 %116
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 2
   %119 = load i16, ptr %118, align 2, !tbaa !31
   %120 = sext i16 %119 to i32
@@ -754,7 +754,7 @@ asv1_get_level.exit48.i:                          ; preds = %136, %125
   %.0.i47.i = phi i32 [ %133, %125 ], [ %138, %136 ]
   %140 = shl nuw nsw i64 %indvars.iv.i, 2
   %141 = or disjoint i64 %140, 1
-  %142 = getelementptr inbounds nuw i16, ptr %22, i64 %141
+  %142 = getelementptr inbounds nuw [2 x i8], ptr %22, i64 %141
   %143 = load i16, ptr %142, align 2, !tbaa !32
   %144 = zext i16 %143 to i32
   %145 = mul nsw i32 %.0.i47.i, %144
@@ -763,7 +763,7 @@ asv1_get_level.exit48.i:                          ; preds = %136, %125
   %148 = getelementptr inbounds nuw i8, ptr %23, i64 %141
   %149 = load i8, ptr %148, align 1, !tbaa !31
   %150 = zext i8 %149 to i64
-  %151 = getelementptr inbounds nuw i16, ptr %26, i64 %150
+  %151 = getelementptr inbounds nuw [2 x i8], ptr %26, i64 %150
   store i16 %147, ptr %151, align 2, !tbaa !32
   br label %152
 
@@ -783,7 +783,7 @@ asv1_get_level.exit48.i:                          ; preds = %136, %125
   %162 = shl i32 %160, %161
   %163 = lshr i32 %162, 28
   %164 = zext nneg i32 %163 to i64
-  %165 = getelementptr inbounds nuw %struct.VLCElem, ptr @level_vlc, i64 %164
+  %165 = getelementptr inbounds nuw [4 x i8], ptr @level_vlc, i64 %164
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 2
   %167 = load i16, ptr %166, align 2, !tbaa !31
   %168 = sext i16 %167 to i32
@@ -818,7 +818,7 @@ asv1_get_level.exit50.i:                          ; preds = %184, %173
   %.0.i49.i = phi i32 [ %181, %173 ], [ %186, %184 ]
   %188 = shl nuw nsw i64 %indvars.iv.i, 2
   %189 = or disjoint i64 %188, 2
-  %190 = getelementptr inbounds nuw i16, ptr %22, i64 %189
+  %190 = getelementptr inbounds nuw [2 x i8], ptr %22, i64 %189
   %191 = load i16, ptr %190, align 2, !tbaa !32
   %192 = zext i16 %191 to i32
   %193 = mul nsw i32 %.0.i49.i, %192
@@ -827,7 +827,7 @@ asv1_get_level.exit50.i:                          ; preds = %184, %173
   %196 = getelementptr inbounds nuw i8, ptr %23, i64 %189
   %197 = load i8, ptr %196, align 1, !tbaa !31
   %198 = zext i8 %197 to i64
-  %199 = getelementptr inbounds nuw i16, ptr %26, i64 %198
+  %199 = getelementptr inbounds nuw [2 x i8], ptr %26, i64 %198
   store i16 %195, ptr %199, align 2, !tbaa !32
   br label %200
 
@@ -847,7 +847,7 @@ asv1_get_level.exit50.i:                          ; preds = %184, %173
   %210 = shl i32 %208, %209
   %211 = lshr i32 %210, 28
   %212 = zext nneg i32 %211 to i64
-  %213 = getelementptr inbounds nuw %struct.VLCElem, ptr @level_vlc, i64 %212
+  %213 = getelementptr inbounds nuw [4 x i8], ptr @level_vlc, i64 %212
   %214 = getelementptr inbounds nuw i8, ptr %213, i64 2
   %215 = load i16, ptr %214, align 2, !tbaa !31
   %216 = sext i16 %215 to i32
@@ -882,7 +882,7 @@ asv1_get_level.exit52.i:                          ; preds = %232, %221
   %.0.i51.i = phi i32 [ %229, %221 ], [ %234, %232 ]
   %236 = shl nuw nsw i64 %indvars.iv.i, 2
   %237 = or disjoint i64 %236, 3
-  %238 = getelementptr inbounds nuw i16, ptr %22, i64 %237
+  %238 = getelementptr inbounds nuw [2 x i8], ptr %22, i64 %237
   %239 = load i16, ptr %238, align 2, !tbaa !32
   %240 = zext i16 %239 to i32
   %241 = mul nsw i32 %.0.i51.i, %240
@@ -891,7 +891,7 @@ asv1_get_level.exit52.i:                          ; preds = %232, %221
   %244 = getelementptr inbounds nuw i8, ptr %23, i64 %237
   %245 = load i8, ptr %244, align 1, !tbaa !31
   %246 = zext i8 %245 to i64
-  %247 = getelementptr inbounds nuw i16, ptr %26, i64 %246
+  %247 = getelementptr inbounds nuw [2 x i8], ptr %26, i64 %246
   store i16 %243, ptr %247, align 2, !tbaa !32
   br label %248
 
@@ -914,7 +914,7 @@ asv1_decode_block.exit:                           ; preds = %55
 252:                                              ; preds = %.preheader23, %asv2_decode_block.exit
   %indvars.iv = phi i64 [ 0, %.preheader23 ], [ %indvars.iv.next, %asv2_decode_block.exit ]
   %253 = phi i32 [ %.promoted, %.preheader23 ], [ %623, %asv2_decode_block.exit ]
-  %254 = getelementptr inbounds nuw [64 x i16], ptr %1, i64 %indvars.iv
+  %254 = getelementptr inbounds nuw [128 x i8], ptr %1, i64 %indvars.iv
   %255 = lshr i32 %253, 3
   %256 = zext nneg i32 %255 to i64
   %257 = getelementptr inbounds nuw i8, ptr %13, i64 %256
@@ -946,7 +946,7 @@ asv1_decode_block.exit:                           ; preds = %55
   %279 = lshr i32 %277, %278
   %280 = and i32 %279, 15
   %281 = zext nneg i32 %280 to i64
-  %282 = getelementptr inbounds nuw %struct.VLCElem, ptr @dc_ccp_vlc, i64 %281
+  %282 = getelementptr inbounds nuw [4 x i8], ptr @dc_ccp_vlc, i64 %281
   %283 = load i16, ptr %282, align 4, !tbaa !31
   %284 = getelementptr inbounds nuw i8, ptr %282, i64 2
   %285 = load i16, ptr %284, align 2, !tbaa !31
@@ -971,7 +971,7 @@ asv1_decode_block.exit:                           ; preds = %55
   %297 = lshr i32 %295, %296
   %298 = and i32 %297, 1023
   %299 = zext nneg i32 %298 to i64
-  %300 = getelementptr inbounds nuw %struct.VLCElem, ptr @asv2_level_vlc, i64 %299
+  %300 = getelementptr inbounds nuw [4 x i8], ptr @asv2_level_vlc, i64 %299
   %301 = load i16, ptr %300, align 4, !tbaa !31
   %302 = getelementptr inbounds nuw i8, ptr %300, i64 2
   %303 = load i16, ptr %302, align 2, !tbaa !31
@@ -1011,7 +1011,7 @@ asv2_get_level.exit.i:                            ; preds = %319, %308
   %327 = trunc i32 %326 to i16
   %328 = load i8, ptr %15, align 1, !tbaa !31
   %329 = zext i8 %328 to i64
-  %330 = getelementptr inbounds nuw i16, ptr %254, i64 %329
+  %330 = getelementptr inbounds nuw [2 x i8], ptr %254, i64 %329
   store i16 %327, ptr %330, align 2, !tbaa !32
   br label %331
 
@@ -1030,7 +1030,7 @@ asv2_get_level.exit.i:                            ; preds = %319, %308
   %340 = lshr i32 %338, %339
   %341 = and i32 %340, 1023
   %342 = zext nneg i32 %341 to i64
-  %343 = getelementptr inbounds nuw %struct.VLCElem, ptr @asv2_level_vlc, i64 %342
+  %343 = getelementptr inbounds nuw [4 x i8], ptr @asv2_level_vlc, i64 %342
   %344 = load i16, ptr %343, align 4, !tbaa !31
   %345 = getelementptr inbounds nuw i8, ptr %343, i64 2
   %346 = load i16, ptr %345, align 2, !tbaa !31
@@ -1070,7 +1070,7 @@ asv2_get_level.exit64.i:                          ; preds = %362, %351
   %370 = trunc i32 %369 to i16
   %371 = load i8, ptr %17, align 2, !tbaa !31
   %372 = zext i8 %371 to i64
-  %373 = getelementptr inbounds nuw i16, ptr %254, i64 %372
+  %373 = getelementptr inbounds nuw [2 x i8], ptr %254, i64 %372
   store i16 %370, ptr %373, align 2, !tbaa !32
   br label %374
 
@@ -1089,7 +1089,7 @@ asv2_get_level.exit64.i:                          ; preds = %362, %351
   %383 = lshr i32 %381, %382
   %384 = and i32 %383, 1023
   %385 = zext nneg i32 %384 to i64
-  %386 = getelementptr inbounds nuw %struct.VLCElem, ptr @asv2_level_vlc, i64 %385
+  %386 = getelementptr inbounds nuw [4 x i8], ptr @asv2_level_vlc, i64 %385
   %387 = load i16, ptr %386, align 4, !tbaa !31
   %388 = getelementptr inbounds nuw i8, ptr %386, i64 2
   %389 = load i16, ptr %388, align 2, !tbaa !31
@@ -1129,7 +1129,7 @@ asv2_get_level.exit66.i:                          ; preds = %405, %394
   %412 = trunc i32 %411 to i16
   %413 = load i8, ptr %19, align 1, !tbaa !31
   %414 = zext i8 %413 to i64
-  %415 = getelementptr inbounds nuw i16, ptr %254, i64 %414
+  %415 = getelementptr inbounds nuw [2 x i8], ptr %254, i64 %414
   store i16 %412, ptr %415, align 2, !tbaa !32
   br label %416
 
@@ -1154,7 +1154,7 @@ asv2_get_level.exit66.i:                          ; preds = %405, %394
   %425 = lshr i32 %423, %424
   %426 = and i32 %425, 63
   %427 = zext nneg i32 %426 to i64
-  %428 = getelementptr inbounds nuw %struct.VLCElem, ptr @ac_ccp_vlc, i64 %427
+  %428 = getelementptr inbounds nuw [4 x i8], ptr @ac_ccp_vlc, i64 %427
   %429 = load i16, ptr %428, align 4, !tbaa !31
   %430 = getelementptr inbounds nuw i8, ptr %428, i64 2
   %431 = load i16, ptr %430, align 2, !tbaa !31
@@ -1179,7 +1179,7 @@ asv2_get_level.exit66.i:                          ; preds = %405, %394
   %443 = lshr i32 %441, %442
   %444 = and i32 %443, 1023
   %445 = zext nneg i32 %444 to i64
-  %446 = getelementptr inbounds nuw %struct.VLCElem, ptr @asv2_level_vlc, i64 %445
+  %446 = getelementptr inbounds nuw [4 x i8], ptr @asv2_level_vlc, i64 %445
   %447 = load i16, ptr %446, align 4, !tbaa !31
   %448 = getelementptr inbounds nuw i8, ptr %446, i64 2
   %449 = load i16, ptr %448, align 2, !tbaa !31
@@ -1213,7 +1213,7 @@ asv2_get_level.exit68.i:                          ; preds = %465, %454
   %468 = phi i32 [ %462, %454 ], [ %452, %465 ]
   %.0.i67.i = phi i32 [ %464, %454 ], [ %467, %465 ]
   %469 = shl nsw i64 %indvars.iv.i19, 2
-  %470 = getelementptr inbounds nuw i16, ptr %20, i64 %469
+  %470 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %469
   %471 = load i16, ptr %470, align 2, !tbaa !32
   %472 = zext i16 %471 to i32
   %473 = mul nsw i32 %.0.i67.i, %472
@@ -1222,7 +1222,7 @@ asv2_get_level.exit68.i:                          ; preds = %465, %454
   %476 = getelementptr inbounds nuw i8, ptr %21, i64 %469
   %477 = load i8, ptr %476, align 1, !tbaa !31
   %478 = zext i8 %477 to i64
-  %479 = getelementptr inbounds nuw i16, ptr %254, i64 %478
+  %479 = getelementptr inbounds nuw [2 x i8], ptr %254, i64 %478
   store i16 %475, ptr %479, align 2, !tbaa !32
   br label %480
 
@@ -1241,7 +1241,7 @@ asv2_get_level.exit68.i:                          ; preds = %465, %454
   %489 = lshr i32 %487, %488
   %490 = and i32 %489, 1023
   %491 = zext nneg i32 %490 to i64
-  %492 = getelementptr inbounds nuw %struct.VLCElem, ptr @asv2_level_vlc, i64 %491
+  %492 = getelementptr inbounds nuw [4 x i8], ptr @asv2_level_vlc, i64 %491
   %493 = load i16, ptr %492, align 4, !tbaa !31
   %494 = getelementptr inbounds nuw i8, ptr %492, i64 2
   %495 = load i16, ptr %494, align 2, !tbaa !31
@@ -1276,7 +1276,7 @@ asv2_get_level.exit70.i:                          ; preds = %511, %500
   %.0.i69.i = phi i32 [ %510, %500 ], [ %513, %511 ]
   %515 = shl nsw i64 %indvars.iv.i19, 2
   %516 = or disjoint i64 %515, 1
-  %517 = getelementptr inbounds nuw i16, ptr %20, i64 %516
+  %517 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %516
   %518 = load i16, ptr %517, align 2, !tbaa !32
   %519 = zext i16 %518 to i32
   %520 = mul nsw i32 %.0.i69.i, %519
@@ -1285,7 +1285,7 @@ asv2_get_level.exit70.i:                          ; preds = %511, %500
   %523 = getelementptr inbounds nuw i8, ptr %21, i64 %516
   %524 = load i8, ptr %523, align 1, !tbaa !31
   %525 = zext i8 %524 to i64
-  %526 = getelementptr inbounds nuw i16, ptr %254, i64 %525
+  %526 = getelementptr inbounds nuw [2 x i8], ptr %254, i64 %525
   store i16 %522, ptr %526, align 2, !tbaa !32
   br label %527
 
@@ -1304,7 +1304,7 @@ asv2_get_level.exit70.i:                          ; preds = %511, %500
   %536 = lshr i32 %534, %535
   %537 = and i32 %536, 1023
   %538 = zext nneg i32 %537 to i64
-  %539 = getelementptr inbounds nuw %struct.VLCElem, ptr @asv2_level_vlc, i64 %538
+  %539 = getelementptr inbounds nuw [4 x i8], ptr @asv2_level_vlc, i64 %538
   %540 = load i16, ptr %539, align 4, !tbaa !31
   %541 = getelementptr inbounds nuw i8, ptr %539, i64 2
   %542 = load i16, ptr %541, align 2, !tbaa !31
@@ -1339,7 +1339,7 @@ asv2_get_level.exit72.i:                          ; preds = %558, %547
   %.0.i71.i = phi i32 [ %557, %547 ], [ %560, %558 ]
   %562 = shl nsw i64 %indvars.iv.i19, 2
   %563 = or disjoint i64 %562, 2
-  %564 = getelementptr inbounds nuw i16, ptr %20, i64 %563
+  %564 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %563
   %565 = load i16, ptr %564, align 2, !tbaa !32
   %566 = zext i16 %565 to i32
   %567 = mul nsw i32 %.0.i71.i, %566
@@ -1348,7 +1348,7 @@ asv2_get_level.exit72.i:                          ; preds = %558, %547
   %570 = getelementptr inbounds nuw i8, ptr %21, i64 %563
   %571 = load i8, ptr %570, align 1, !tbaa !31
   %572 = zext i8 %571 to i64
-  %573 = getelementptr inbounds nuw i16, ptr %254, i64 %572
+  %573 = getelementptr inbounds nuw [2 x i8], ptr %254, i64 %572
   store i16 %569, ptr %573, align 2, !tbaa !32
   br label %574
 
@@ -1367,7 +1367,7 @@ asv2_get_level.exit72.i:                          ; preds = %558, %547
   %583 = lshr i32 %581, %582
   %584 = and i32 %583, 1023
   %585 = zext nneg i32 %584 to i64
-  %586 = getelementptr inbounds nuw %struct.VLCElem, ptr @asv2_level_vlc, i64 %585
+  %586 = getelementptr inbounds nuw [4 x i8], ptr @asv2_level_vlc, i64 %585
   %587 = load i16, ptr %586, align 4, !tbaa !31
   %588 = getelementptr inbounds nuw i8, ptr %586, i64 2
   %589 = load i16, ptr %588, align 2, !tbaa !31
@@ -1402,7 +1402,7 @@ asv2_get_level.exit74.i:                          ; preds = %605, %594
   %.0.i73.i = phi i32 [ %604, %594 ], [ %607, %605 ]
   %609 = shl nsw i64 %indvars.iv.i19, 2
   %610 = or disjoint i64 %609, 3
-  %611 = getelementptr inbounds nuw i16, ptr %20, i64 %610
+  %611 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %610
   %612 = load i16, ptr %611, align 2, !tbaa !32
   %613 = zext i16 %612 to i32
   %614 = mul nsw i32 %.0.i73.i, %613
@@ -1411,7 +1411,7 @@ asv2_get_level.exit74.i:                          ; preds = %605, %594
   %617 = getelementptr inbounds nuw i8, ptr %21, i64 %610
   %618 = load i8, ptr %617, align 1, !tbaa !31
   %619 = zext i8 %618 to i64
-  %620 = getelementptr inbounds nuw i16, ptr %254, i64 %619
+  %620 = getelementptr inbounds nuw [2 x i8], ptr %254, i64 %619
   store i16 %616, ptr %620, align 2, !tbaa !32
   br label %621
 

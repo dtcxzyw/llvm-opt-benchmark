@@ -17,10 +17,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Rb_tree<llvm::MachO::PlatformType, llvm::MachO::PlatformType, std::_Identity<llvm::MachO::PlatformType>, std::less<llvm::MachO::PlatformType>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
 %"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
 %"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%"struct.llvm::detail::DenseMapPair" = type { %"struct.std::pair" }
-%"struct.std::pair" = type { %"struct.llvm::SymbolsMapKey", ptr }
-%"struct.llvm::SymbolsMapKey" = type { i8, %"class.llvm::StringRef" }
-%"struct.llvm::object::TapiFile::Symbol" = type { %"class.llvm::StringRef", %"class.llvm::StringRef", i32, i32 }
 %"class.llvm::Error" = type { ptr }
 %"class.llvm::Expected" = type { %union.anon.39, i8, [7 x i8] }
 %union.anon.39 = type { %"struct.llvm::AlignedCharArrayUnion.40" }
@@ -73,7 +69,7 @@ define dso_local void @_ZN4llvm6object8TapiFileC2ENS_15MemoryBufferRefERKNS_5Mac
   br i1 %16, label %21, label %23
 
 21:                                               ; preds = %4
-  %22 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %17, i64 %20
+  %22 = getelementptr inbounds nuw [32 x i8], ptr %17, i64 %20
   br label %_ZNK4llvm5MachO13InterfaceFile7symbolsEv.exit
 
 23:                                               ; preds = %4
@@ -110,7 +106,7 @@ define dso_local void @_ZN4llvm6object8TapiFileC2ENS_15MemoryBufferRefERKNS_5Mac
 _ZNK4llvm5MachO13InterfaceFile7symbolsEv.exit:    ; preds = %.lr.ph.i6.i12.i3.i.i.i, %26, %27, %.critedge2.i10.i16.i11.i.i.i, %21, %23
   %.pn19.i.i.i = phi ptr [ %22, %21 ], [ %17, %23 ], [ %.sroa.0.3.i4.i.i.i, %.lr.ph.i6.i12.i3.i.i.i ], [ %.sroa.0.3.i4.i.i.i, %27 ], [ %24, %.critedge2.i10.i16.i11.i.i.i ], [ %.sroa.0.3.i4.i.i.i, %26 ]
   %.pn17.i.i.i = phi ptr [ %22, %21 ], [ %24, %23 ], [ %24, %.critedge2.i10.i16.i11.i.i.i ], [ %24, %27 ], [ %24, %26 ], [ %24, %.lr.ph.i6.i12.i3.i.i.i ]
-  %29 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %17, i64 %20
+  %29 = getelementptr inbounds nuw [32 x i8], ptr %17, i64 %20
   %.not344 = icmp eq ptr %.pn19.i.i.i, %29
   br i1 %.not344, label %._crit_edge, label %.lr.ph
 
@@ -253,7 +249,7 @@ _ZNSt6vectorIN4llvm6object8TapiFile6SymbolESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.
 _ZNSt6vectorIN4llvm6object8TapiFile6SymbolESaIS3_EE17_M_realloc_insertIJNS0_9StringRefES7_jNS1_9SymbolRef4TypeEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit: ; preds = %_ZNSt6vectorIN4llvm6object8TapiFile6SymbolESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit25.i, %91
   store ptr %83, ptr %6, align 8, !tbaa !105
   store ptr %90, ptr %32, align 8, !tbaa !99
-  %92 = getelementptr inbounds nuw %"struct.llvm::object::TapiFile::Symbol", ptr %83, i64 %81
+  %92 = getelementptr inbounds nuw [40 x i8], ptr %83, i64 %81
   store ptr %92, ptr %33, align 8, !tbaa !100
   br label %_ZNSt6vectorIN4llvm6object8TapiFile6SymbolESaIS3_EE12emplace_backIJNS0_9StringRefES7_jNS1_9SymbolRef4TypeEEEERS3_DpOT_.exit
 
@@ -289,7 +285,7 @@ _ZNSt6vectorIN4llvm6object8TapiFile6SymbolESaIS3_EE17_M_realloc_insertIJNS0_9Str
 
 _ZNK4llvm8SmallSetINS_5MachO12PlatformTypeELj3ESt4lessIS2_EE5vfindERKS2_.exit.i.i: ; preds = %106, %.lr.ph.i.i.i, %99
   %.1.i.i.i = phi ptr [ %103, %99 ], [ %.0912.i.i.i, %.lr.ph.i.i.i ], [ %103, %106 ]
-  %108 = getelementptr inbounds nuw i32, ptr %100, i64 %102
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %100, i64 %102
   %109 = icmp ne ptr %.1.i.i.i, %108
   %.pre = load ptr, ptr %37, align 8, !tbaa !125
   br label %_ZNK4llvm8SmallSetINS_5MachO12PlatformTypeELj3ESt4lessIS2_EE5countERKS2_.exit
@@ -440,7 +436,7 @@ _ZNSt6vectorIN4llvm6object8TapiFile6SymbolESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.
 _ZNSt6vectorIN4llvm6object8TapiFile6SymbolESaIS3_EE17_M_realloc_insertIJRKNS0_13StringLiteralENS0_9StringRefEjNS1_9SymbolRef4TypeEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit: ; preds = %_ZNSt6vectorIN4llvm6object8TapiFile6SymbolESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit25.i185, %159
   store ptr %151, ptr %6, align 8, !tbaa !105
   store ptr %158, ptr %32, align 8, !tbaa !99
-  %160 = getelementptr inbounds nuw %"struct.llvm::object::TapiFile::Symbol", ptr %151, i64 %149
+  %160 = getelementptr inbounds nuw [40 x i8], ptr %151, i64 %149
   store ptr %160, ptr %33, align 8, !tbaa !100
   br label %_ZNSt6vectorIN4llvm6object8TapiFile6SymbolESaIS3_EE12emplace_backIJNS0_9StringRefES7_jNS1_9SymbolRef4TypeEEEERS3_DpOT_.exit
 
@@ -523,7 +519,7 @@ _ZNSt6vectorIN4llvm6object8TapiFile6SymbolESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.
 _ZNSt6vectorIN4llvm6object8TapiFile6SymbolESaIS3_EE17_M_realloc_insertIJRKNS0_13StringLiteralENS0_9StringRefEjNS1_9SymbolRef4TypeEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit211: ; preds = %_ZNSt6vectorIN4llvm6object8TapiFile6SymbolESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit25.i208, %188
   store ptr %180, ptr %6, align 8, !tbaa !105
   store ptr %187, ptr %32, align 8, !tbaa !99
-  %189 = getelementptr inbounds nuw %"struct.llvm::object::TapiFile::Symbol", ptr %180, i64 %178
+  %189 = getelementptr inbounds nuw [40 x i8], ptr %180, i64 %178
   store ptr %189, ptr %33, align 8, !tbaa !100
   %.val30.pre = load i8, ptr %124, align 1, !tbaa !98
   %.pre353 = and i8 %.val30.pre, 8
@@ -629,7 +625,7 @@ _ZNSt6vectorIN4llvm6object8TapiFile6SymbolESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.
 _ZNSt6vectorIN4llvm6object8TapiFile6SymbolESaIS3_EE17_M_realloc_insertIJRKNS0_13StringLiteralENS0_9StringRefEjNS1_9SymbolRef4TypeEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit235: ; preds = %_ZNSt6vectorIN4llvm6object8TapiFile6SymbolESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit25.i232, %219
   store ptr %211, ptr %6, align 8, !tbaa !105
   store ptr %218, ptr %32, align 8, !tbaa !99
-  %220 = getelementptr inbounds nuw %"struct.llvm::object::TapiFile::Symbol", ptr %211, i64 %209
+  %220 = getelementptr inbounds nuw [40 x i8], ptr %211, i64 %209
   store ptr %220, ptr %33, align 8, !tbaa !100
   br label %_ZNSt6vectorIN4llvm6object8TapiFile6SymbolESaIS3_EE12emplace_backIJNS0_9StringRefES7_jNS1_9SymbolRef4TypeEEEERS3_DpOT_.exit
 
@@ -733,7 +729,7 @@ _ZNSt6vectorIN4llvm6object8TapiFile6SymbolESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.
 _ZNSt6vectorIN4llvm6object8TapiFile6SymbolESaIS3_EE17_M_realloc_insertIJRKNS0_13StringLiteralENS0_9StringRefEjNS1_9SymbolRef4TypeEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit259: ; preds = %_ZNSt6vectorIN4llvm6object8TapiFile6SymbolESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit25.i256, %256
   store ptr %248, ptr %6, align 8, !tbaa !105
   store ptr %255, ptr %32, align 8, !tbaa !99
-  %257 = getelementptr inbounds nuw %"struct.llvm::object::TapiFile::Symbol", ptr %248, i64 %246
+  %257 = getelementptr inbounds nuw [40 x i8], ptr %248, i64 %246
   store ptr %257, ptr %33, align 8, !tbaa !100
   br label %_ZNSt6vectorIN4llvm6object8TapiFile6SymbolESaIS3_EE12emplace_backIJNS0_9StringRefES7_jNS1_9SymbolRef4TypeEEEERS3_DpOT_.exit
 
@@ -837,7 +833,7 @@ _ZNSt6vectorIN4llvm6object8TapiFile6SymbolESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.
 _ZNSt6vectorIN4llvm6object8TapiFile6SymbolESaIS3_EE17_M_realloc_insertIJRKNS0_13StringLiteralENS0_9StringRefEjNS1_9SymbolRef4TypeEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit283: ; preds = %_ZNSt6vectorIN4llvm6object8TapiFile6SymbolESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit25.i280, %293
   store ptr %285, ptr %6, align 8, !tbaa !105
   store ptr %292, ptr %32, align 8, !tbaa !99
-  %294 = getelementptr inbounds nuw %"struct.llvm::object::TapiFile::Symbol", ptr %285, i64 %283
+  %294 = getelementptr inbounds nuw [40 x i8], ptr %285, i64 %283
   store ptr %294, ptr %33, align 8, !tbaa !100
   br label %_ZNSt6vectorIN4llvm6object8TapiFile6SymbolESaIS3_EE12emplace_backIJNS0_9StringRefES7_jNS1_9SymbolRef4TypeEEEERS3_DpOT_.exit
 
@@ -933,7 +929,7 @@ define dso_local void @_ZNK4llvm6object8TapiFile15printSymbolNameERNS_11raw_ostr
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %6 = and i64 %3, 4294967295
   %7 = load ptr, ptr %5, align 8, !tbaa !105
-  %8 = getelementptr inbounds nuw %"struct.llvm::object::TapiFile::Symbol", ptr %7, i64 %6
+  %8 = getelementptr inbounds nuw [40 x i8], ptr %7, i64 %6
   %.sroa.01.0.copyload = load ptr, ptr %8, align 8, !tbaa !97
   %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.sroa.22.0.copyload = load i64, ptr %.sroa.22.0..sroa_idx, align 8, !tbaa !85
@@ -1005,7 +1001,7 @@ define dso_local void @_ZNK4llvm6object8TapiFile13getSymbolTypeENS0_11DataRefImp
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %5 = and i64 %2, 4294967295
   %6 = load ptr, ptr %4, align 8, !tbaa !105
-  %7 = getelementptr inbounds nuw %"struct.llvm::object::TapiFile::Symbol", ptr %6, i64 %5
+  %7 = getelementptr inbounds nuw [40 x i8], ptr %6, i64 %5
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 36
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i8, ptr %9, align 8
@@ -1021,7 +1017,7 @@ define dso_local void @_ZNK4llvm6object8TapiFile14getSymbolFlagsENS0_11DataRefIm
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %5 = and i64 %2, 4294967295
   %6 = load ptr, ptr %4, align 8, !tbaa !105
-  %7 = getelementptr inbounds nuw %"struct.llvm::object::TapiFile::Symbol", ptr %6, i64 %5
+  %7 = getelementptr inbounds nuw [40 x i8], ptr %6, i64 %5
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i8, ptr %9, align 8

@@ -167,7 +167,7 @@ WebPIsAlphaMode.exit.i:                           ; preds = %28, %29
   br i1 %53, label %.critedge, label %54
 
 54:                                               ; preds = %WebPIsAlphaMode.exit.i
-  %55 = getelementptr inbounds nuw i32, ptr %52, i64 %45
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %45
   %56 = getelementptr inbounds i8, ptr %52, i64 %48
   %57 = ptrtoint ptr %56 to i64
   %58 = add i64 %57, 31
@@ -194,7 +194,7 @@ WebPIsAlphaMode.exit.i:                           ; preds = %28, %29
 72:                                               ; preds = %54
   %73 = load ptr, ptr %63, align 8, !tbaa !32
   %74 = getelementptr inbounds i8, ptr %55, i64 %43
-  %75 = getelementptr inbounds nuw i32, ptr %52, i64 %44
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %44
   %76 = tail call i32 @WebPRescalerInit(ptr noundef %73, i32 noundef %38, i32 noundef %42, ptr noundef nonnull %74, i32 noundef %32, i32 noundef %34, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %75) #6
   %.not81.i = icmp eq i32 %76, 0
   br i1 %.not81.i, label %.critedge, label %77
@@ -317,7 +317,7 @@ WebPIsAlphaMode.exit.i59:                         ; preds = %98, %99
   %152 = load ptr, ptr %151, align 8, !tbaa !39
   %153 = getelementptr inbounds nuw i8, ptr %25, i64 52
   %154 = load i32, ptr %153, align 4, !tbaa !40
-  %155 = getelementptr inbounds nuw i32, ptr %126, i64 %118
+  %155 = getelementptr inbounds nuw [4 x i8], ptr %126, i64 %118
   %156 = tail call i32 @WebPRescalerInit(ptr noundef %150, i32 noundef %112, i32 noundef %116, ptr noundef %152, i32 noundef %106, i32 noundef %108, i32 noundef %154, i32 noundef 1, ptr noundef nonnull %155) #6
   %.not79.i = icmp eq i32 %156, 0
   br i1 %.not79.i, label %.critedge, label %157
@@ -328,7 +328,7 @@ WebPIsAlphaMode.exit.i59:                         ; preds = %98, %99
   %160 = load ptr, ptr %159, align 8, !tbaa !41
   %161 = getelementptr inbounds nuw i8, ptr %25, i64 56
   %162 = load i32, ptr %161, align 8, !tbaa !42
-  %163 = getelementptr inbounds nuw i32, ptr %155, i64 %120
+  %163 = getelementptr inbounds nuw [4 x i8], ptr %155, i64 %120
   %164 = tail call i32 @WebPRescalerInit(ptr noundef %158, i32 noundef %112, i32 noundef %116, ptr noundef %160, i32 noundef %106, i32 noundef %108, i32 noundef %162, i32 noundef 1, ptr noundef nonnull %163) #6
   %.not80.i62 = icmp eq i32 %164, 0
   br i1 %.not80.i62, label %.critedge, label %165
@@ -345,7 +345,7 @@ WebPIsAlphaMode.exit.i59:                         ; preds = %98, %99
   %171 = load ptr, ptr %170, align 8, !tbaa !43
   %172 = getelementptr inbounds nuw i8, ptr %25, i64 60
   %173 = load i32, ptr %172, align 4, !tbaa !44
-  %174 = getelementptr inbounds nuw i32, ptr %155, i64 %121
+  %174 = getelementptr inbounds nuw [4 x i8], ptr %155, i64 %121
   %175 = tail call i32 @WebPRescalerInit(ptr noundef %167, i32 noundef %168, i32 noundef %169, ptr noundef %171, i32 noundef %102, i32 noundef %104, i32 noundef %173, i32 noundef 1, ptr noundef nonnull %174) #6
   %.not81.i63 = icmp eq i32 %175, 0
   br i1 %.not81.i63, label %.critedge, label %176
@@ -466,7 +466,7 @@ define internal i32 @EmitSampledRGB(ptr noundef readonly captures(none) %0, ptr 
   %27 = load i32, ptr %26, align 8, !tbaa !15
   %28 = load i32, ptr %3, align 8, !tbaa !24
   %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds nuw ptr, ptr @WebPSamplers, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr @WebPSamplers, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !58
   tail call void @WebPSamplerProcessPlane(ptr noundef %15, i32 noundef %17, ptr noundef %19, ptr noundef %21, i32 noundef %23, ptr noundef %13, i32 noundef %10, i32 noundef %25, i32 noundef %27, ptr noundef %31) #6
   %32 = load i32, ptr %26, align 8, !tbaa !15
@@ -492,7 +492,7 @@ define internal i32 @EmitFancyRGB(ptr noundef readonly captures(none) %0, ptr no
   %15 = getelementptr inbounds i8, ptr %7, i64 %14
   %16 = load i32, ptr %5, align 8, !tbaa !24
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw ptr, ptr @WebPUpsamplers, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr @WebPUpsamplers, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !58
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %21 = load ptr, ptr %20, align 8, !tbaa !53
@@ -1022,7 +1022,7 @@ define internal i32 @EmitRescaledRGB(ptr noundef readonly captures(none) %0, ptr
   %49 = load ptr, ptr %1, align 8, !tbaa !23
   %50 = load i32, ptr %49, align 8, !tbaa !24
   %51 = zext i32 %50 to i64
-  %52 = getelementptr inbounds nuw ptr, ptr @WebPYUV444Converters, i64 %51
+  %52 = getelementptr inbounds nuw [8 x i8], ptr @WebPYUV444Converters, i64 %51
   %53 = load ptr, ptr %52, align 8, !tbaa !58
   %54 = getelementptr inbounds nuw i8, ptr %49, i64 24
   %55 = load ptr, ptr %8, align 8, !tbaa !31

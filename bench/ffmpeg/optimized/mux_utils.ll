@@ -169,18 +169,18 @@ define i32 @ff_format_shift_data(ptr noundef %0, i64 noundef %1, i32 noundef %2)
   %36 = load ptr, ptr %6, align 8, !tbaa !36
   %37 = zext nneg i32 %.039 to i64
   %38 = call i32 @avio_read(ptr noundef %36, ptr noundef %35, i32 noundef %2) #3
-  %39 = getelementptr inbounds nuw i32, ptr %5, i64 %37
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %37
   store i32 %38, ptr %39, align 4, !tbaa !37
   %40 = xor i32 %.039, 1
   %41 = zext nneg i32 %40 to i64
-  %42 = getelementptr inbounds nuw i32, ptr %5, i64 %41
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %41
   %43 = load i32, ptr %42, align 4, !tbaa !37
   %44 = icmp slt i32 %43, 1
   br i1 %44, label %.thread, label %45
 
 45:                                               ; preds = %34
   %46 = load ptr, ptr %12, align 8, !tbaa !21
-  %47 = getelementptr inbounds nuw ptr, ptr %4, i64 %41
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %41
   %48 = load ptr, ptr %47, align 8, !tbaa !20
   call void @avio_write(ptr noundef %46, ptr noundef %48, i32 noundef %43) #3
   %49 = zext nneg i32 %43 to i64

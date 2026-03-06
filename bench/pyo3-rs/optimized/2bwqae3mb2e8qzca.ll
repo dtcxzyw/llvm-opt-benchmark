@@ -704,7 +704,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend12frompyobject9Container5bu
   %.sroa.28.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %81, i64 8
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.28.0..sroa_idx.i, align 8, !noalias !4
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %81, i64 16
-  %95 = getelementptr inbounds { { i64, [13 x i64] }, { i64, [2 x i64] }, ptr }, ptr %92, i64 %94
+  %95 = getelementptr inbounds [144 x i8], ptr %92, i64 %94
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.3.0..sroa_idx.i, i8 0, i64 16, i1 false), !noalias !4
   store ptr %92, ptr %80, align 8, !noalias !4
   %96 = getelementptr inbounds nuw i8, ptr %80, i64 8
@@ -1904,7 +1904,7 @@ _ZN19pyo3_macros_backend12frompyobject9Container12build_struct17he1c6a9473cbaceb
   br label %400
 
 403:                                              ; preds = %395
-  %404 = getelementptr inbounds { { i64, [13 x i64] } }, ptr %397, i64 %399
+  %404 = getelementptr inbounds [112 x i8], ptr %397, i64 %399
   invoke void @_ZN4core4iter6traits8iterator8Iterator3zip17h4b844e11130ee131E(ptr nonnull sret([56 x i8]) align 8 %27, ptr align 8 %397, ptr %404, ptr nonnull align 8 %28)
           to label %408 unwind label %406, !noalias !7
 
@@ -2073,7 +2073,7 @@ _ZN19pyo3_macros_backend12frompyobject9Container12build_struct17he1c6a9473cbaceb
   %451 = load ptr, ptr %450, align 8, !noalias !7
   %452 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %453 = load i64, ptr %452, align 8, !noalias !7
-  %454 = getelementptr inbounds { { [16 x i8], i8, [7 x i8] }, { {} } }, ptr %451, i64 %453
+  %454 = getelementptr inbounds [24 x i8], ptr %451, i64 %453
   store ptr %451, ptr %15, align 8, !noalias !7
   %455 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %454, ptr %455, align 8, !noalias !7
@@ -3918,7 +3918,7 @@ define hidden void @_ZN19pyo3_macros_backend12frompyobject16ContainerOptions10fr
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 64
   store ptr null, ptr %25, align 8
   store i64 -9223372036854775808, ptr %21, align 8
-  %26 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %1, i64 %2
+  %26 = getelementptr inbounds [256 x i8], ptr %1, i64 %2
   store ptr %1, ptr %20, align 8
   %27 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %26, ptr %27, align 8
@@ -4647,7 +4647,7 @@ define hidden void @_ZN19pyo3_macros_backend12frompyobject19FieldPyO3Attributes1
   %19 = alloca [24 x i8], align 8
   store i64 -9223372036854775797, ptr %19, align 8
   store i64 -9223372036854775808, ptr %18, align 8
-  %20 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %1, i64 %2
+  %20 = getelementptr inbounds [256 x i8], ptr %1, i64 %2
   store ptr %1, ptr %17, align 8
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %20, ptr %21, align 8
@@ -5628,7 +5628,7 @@ define void @_ZN19pyo3_macros_backend12frompyobject26build_derive_from_pyobject1
 285:                                              ; preds = %284
   %286 = load ptr, ptr %250, align 8, !noalias !16
   %287 = load i64, ptr %251, align 8, !noalias !16
-  %288 = getelementptr inbounds { { i64, [3 x i64] }, { {} } }, ptr %286, i64 %287
+  %288 = getelementptr inbounds [32 x i8], ptr %286, i64 %287
   store ptr %286, ptr %14, align 8, !noalias !16
   %289 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %288, ptr %289, align 8, !noalias !16
@@ -5793,7 +5793,7 @@ define void @_ZN19pyo3_macros_backend12frompyobject26build_derive_from_pyobject1
 332:                                              ; preds = %331
   %333 = load ptr, ptr %252, align 8, !noalias !16
   %334 = load i64, ptr %253, align 8, !noalias !16
-  %335 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %333, i64 %334
+  %335 = getelementptr inbounds [24 x i8], ptr %333, i64 %334
   store ptr %333, ptr %6, align 8, !noalias !16
   %336 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %335, ptr %336, align 8, !noalias !16
@@ -5838,7 +5838,7 @@ define void @_ZN19pyo3_macros_backend12frompyobject26build_derive_from_pyobject1
 348:                                              ; preds = %347
   %349 = load ptr, ptr %254, align 8, !noalias !16
   %350 = load i64, ptr %255, align 8, !noalias !16
-  %351 = getelementptr inbounds ptr, ptr %349, i64 %350
+  %351 = getelementptr inbounds [8 x i8], ptr %349, i64 %350
   store ptr %349, ptr %3, align 8, !noalias !16
   %352 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %351, ptr %352, align 8, !noalias !16

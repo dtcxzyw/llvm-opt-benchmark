@@ -6,19 +6,16 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.strvec = type { ptr, i64, i64 }
 %struct.decoration_options = type { ptr, ptr, ptr, ptr, ptr }
 %struct.strbuf = type { i64, i64, ptr }
-%struct.cmt_fmt_map = type { ptr, i32, i32, i32, i32, i32, ptr }
 %struct.ident_split = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.regmatch_t = type { i32, i32 }
 %struct.format_commit_context = type { ptr, ptr, ptr, i8, %struct.signature_check, i32, i32, ptr, ptr, i64, i64, i64, i32, i32, %struct.chunk, %struct.chunk, i64, i64, i64, i64 }
 %struct.signature_check = type { ptr, i64, i32, i64, ptr, ptr, i8, ptr, ptr, ptr, ptr, i32 }
 %struct.chunk = type { i64, i64 }
-%struct.string_list_item = type { ptr, ptr }
 %struct.pretty_print_context = type { i32, i32, ptr, i32, %struct.date_mode, i8, i32, i32, ptr, ptr, ptr, ptr, ptr, i32, ptr, i8, ptr, %struct.string_list, i32 }
 %struct.date_mode = type { i32, i32, ptr }
 %struct.string_list = type { ptr, i64, i64, i8, ptr }
 %struct.child_process = type { %struct.strvec, %struct.strvec, i32, i32, i64, ptr, ptr, i32, i32, i32, ptr, i16, ptr }
 %struct.process_trailer_options = type { i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr }
-%struct.anon = type { ptr, i32 }
 
 @user_format = internal unnamed_addr global ptr null, align 8
 @.str = private unnamed_addr constant [8 x i8] c"format:\00", align 1
@@ -269,7 +266,7 @@ tailrecurse._crit_edge.i.i:                       ; preds = %tailrecurse.i.i, %3
   %.029.i.i = phi ptr [ null, %.lr.ph.preheader.i.i ], [ %.1.i.i, %52 ]
   %.01827.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %.119.i.i, %52 ]
   %41 = load ptr, ptr @commit_formats, align 8, !tbaa !62
-  %42 = getelementptr inbounds nuw %struct.cmt_fmt_map, ptr %41, i64 %indvars.iv.i.i
+  %42 = getelementptr inbounds nuw [40 x i8], ptr %41, i64 %indvars.iv.i.i
   %43 = load ptr, ptr %42, align 8, !tbaa !66
   %44 = tail call i32 @istarts_with(ptr noundef %43, ptr noundef %.tr31.i.i) #20
   %.not24.i.i = icmp eq i32 %44, 0
@@ -277,7 +274,7 @@ tailrecurse._crit_edge.i.i:                       ; preds = %tailrecurse.i.i, %3
 
 45:                                               ; preds = %.lr.ph.i.i
   %46 = load ptr, ptr @commit_formats, align 8, !tbaa !62
-  %47 = getelementptr inbounds nuw %struct.cmt_fmt_map, ptr %46, i64 %indvars.iv.i.i
+  %47 = getelementptr inbounds nuw [40 x i8], ptr %46, i64 %indvars.iv.i.i
   %48 = load ptr, ptr %47, align 8, !tbaa !66
   %49 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %48) #21
   %50 = icmp eq ptr %.029.i.i, null
@@ -3705,7 +3702,7 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
 
 83:                                               ; preds = %.lr.ph, %.loopexit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.loopexit ]
-  %84 = getelementptr inbounds nuw %struct.string_list_item, ptr %82, i64 %indvars.iv
+  %84 = getelementptr inbounds nuw [16 x i8], ptr %82, i64 %indvars.iv
   %85 = load ptr, ptr %84, align 8, !tbaa !128
   %.not.i52 = icmp eq ptr %85, null
   br i1 %.not.i52, label %.loopexit, label %.preheader.i
@@ -3784,12 +3781,12 @@ strbuf_addch.exit62:                              ; preds = %strbuf_avail.exit.i
 .lr.ph88:                                         ; preds = %strbuf_addch.exit62, %.lr.ph88
   %indvars.iv96 = phi i64 [ %indvars.iv.next97, %.lr.ph88 ], [ 0, %strbuf_addch.exit62 ]
   %108 = load ptr, ptr %105, align 8, !tbaa !156
-  %109 = getelementptr inbounds nuw %struct.string_list_item, ptr %108, i64 %indvars.iv96
+  %109 = getelementptr inbounds nuw [16 x i8], ptr %108, i64 %indvars.iv96
   %110 = load ptr, ptr %109, align 8, !tbaa !128
   %111 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %110) #21
   call void @strbuf_add(ptr noundef nonnull %2, ptr noundef nonnull %110, i64 noundef %111) #20
   %112 = load ptr, ptr %105, align 8, !tbaa !156
-  %113 = getelementptr inbounds nuw %struct.string_list_item, ptr %112, i64 %indvars.iv96
+  %113 = getelementptr inbounds nuw [16 x i8], ptr %112, i64 %indvars.iv96
   %114 = load ptr, ptr %113, align 8, !tbaa !128
   call void @free(ptr noundef %114) #20
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
@@ -4706,7 +4703,7 @@ skip_prefix.exit:                                 ; preds = %.lr.ph
 
 .lr.ph:                                           ; preds = %skip_prefix.exit.preheader, %skip_prefix.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %skip_prefix.exit ], [ 0, %skip_prefix.exit.preheader ]
-  %13 = getelementptr inbounds nuw %struct.cmt_fmt_map, ptr %.pre.pre.pre, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [40 x i8], ptr %.pre.pre.pre, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8, !tbaa !66
   %15 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(1) %scevgep) #21
   %.not36 = icmp eq i32 %15, 0
@@ -4724,7 +4721,7 @@ skip_prefix.exit._crit_edge:                      ; preds = %skip_prefix.exit, %
 
 .lr.ph70:                                         ; preds = %skip_prefix.exit._crit_edge, %18
   %indvars.iv80 = phi i64 [ %indvars.iv.next81, %18 ], [ %7, %skip_prefix.exit._crit_edge ]
-  %19 = getelementptr inbounds nuw %struct.cmt_fmt_map, ptr %.pre.pre.pre, i64 %indvars.iv80
+  %19 = getelementptr inbounds nuw [40 x i8], ptr %.pre.pre.pre, i64 %indvars.iv80
   %20 = load ptr, ptr %19, align 8, !tbaa !66
   %21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(1) %scevgep) #21
   %.not = icmp eq i32 %21, 0
@@ -4751,7 +4748,7 @@ st_mult.exit:                                     ; preds = %._crit_edge
 29:                                               ; preds = %st_mult.exit, %._crit_edge
   %30 = phi i64 [ %.pre88, %st_mult.exit ], [ %16, %._crit_edge ]
   %31 = phi ptr [ %28, %st_mult.exit ], [ %.pre.pre.pre, %._crit_edge ]
-  %32 = getelementptr inbounds nuw %struct.cmt_fmt_map, ptr %31, i64 %30
+  %32 = getelementptr inbounds nuw [40 x i8], ptr %31, i64 %30
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %32, i8 0, i64 40, i1 false)
   %33 = add i64 %30, 1
   store i64 %33, ptr @commit_formats_len, align 8, !tbaa !64
@@ -6166,7 +6163,7 @@ define internal fastcc i64 @parse_describe_args(ptr noundef %0, ptr noundef nonn
 4:                                                ; preds = %.backedge, %2
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.be, %.backedge ]
   %.166115 = phi ptr [ %0, %2 ], [ %.166115.be, %.backedge ]
-  %5 = getelementptr inbounds nuw %struct.anon, ptr @__const.parse_describe_args.option, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [16 x i8], ptr @__const.parse_describe_args.option, i64 %indvars.iv
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i32, ptr %6, align 8, !tbaa !221
   switch i32 %7, label %match_placeholder_bool_arg.exit.thread [

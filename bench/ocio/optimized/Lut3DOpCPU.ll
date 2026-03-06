@@ -7,19 +7,14 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
 %"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
 %"class.std::__shared_count" = type { ptr }
-%"struct.OpenColorIO_v2_5dev::(anonymous namespace)::InvLut3DRenderer::treeLevel" = type { i64, i64, %"class.std::vector.11", %"class.std::vector.11", %"class.std::vector.54", %"class.std::vector.54" }
-%"class.std::vector.11" = type { %"struct.std::_Vector_base.12" }
-%"struct.std::_Vector_base.12" = type { %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl" }
-%"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl" = type { %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.54" = type { %"struct.std::_Vector_base.55" }
-%"struct.std::_Vector_base.55" = type { %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"struct.OpenColorIO_v2_5dev::(anonymous namespace)::InvLut3DRenderer::baseInd" = type { [3 x i64], i64 }
 %"class.OpenColorIO_v2_5dev::Lut3DOpData::Lut3DArray" = type { %"class.OpenColorIO_v2_5dev::ArrayT" }
 %"class.OpenColorIO_v2_5dev::ArrayT" = type { %"class.OpenColorIO_v2_5dev::ArrayBase", i64, i64, %"class.std::vector.11" }
 %"class.OpenColorIO_v2_5dev::ArrayBase" = type { ptr }
+%"class.std::vector.11" = type { %"struct.std::_Vector_base.12" }
+%"struct.std::_Vector_base.12" = type { %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl" }
+%"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl" = type { %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data" }
+%"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 
 $__clang_call_terminate = comdat any
 
@@ -435,19 +430,19 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut3DRe
   %.0171.i.i = phi ptr [ %40, %.lr.ph.i.i ], [ %20, %.noexc ]
   %22 = mul nuw nsw i64 %.02.i.i, 3
   %23 = load ptr, ptr %16, align 8, !tbaa !86
-  %24 = getelementptr inbounds nuw float, ptr %23, i64 %22
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %22
   %25 = load float, ptr %24, align 4, !tbaa !99
   %26 = tail call noundef float @_ZN19OpenColorIO_v2_5dev13SanitizeFloatEf(float noundef %25)
   store float %26, ptr %.0171.i.i, align 4, !tbaa !99
   %27 = load ptr, ptr %16, align 8, !tbaa !86
-  %28 = getelementptr inbounds nuw float, ptr %27, i64 %22
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %22
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %30 = load float, ptr %29, align 4, !tbaa !99
   %31 = tail call noundef float @_ZN19OpenColorIO_v2_5dev13SanitizeFloatEf(float noundef %30)
   %32 = getelementptr inbounds nuw i8, ptr %.0171.i.i, i64 4
   store float %31, ptr %32, align 4, !tbaa !99
   %33 = load ptr, ptr %16, align 8, !tbaa !86
-  %34 = getelementptr inbounds nuw float, ptr %33, i64 %22
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %22
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load float, ptr %35, align 4, !tbaa !99
   %37 = tail call noundef float @_ZN19OpenColorIO_v2_5dev13SanitizeFloatEf(float noundef %36)
@@ -608,7 +603,7 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_124Lut3DTetrahedralR
 91:                                               ; preds = %28
   %92 = fcmp ogt float %61, %63
   %93 = sext i32 %68 to i64
-  %94 = getelementptr inbounds float, ptr %27, i64 %93
+  %94 = getelementptr inbounds [4 x i8], ptr %27, i64 %93
   %95 = load float, ptr %94, align 4, !tbaa !99
   br i1 %92, label %96, label %138
 
@@ -616,17 +611,17 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_124Lut3DTetrahedralR
   %97 = fsub float 1.000000e+00, %59
   %98 = fsub float %59, %61
   %99 = sext i32 %73 to i64
-  %100 = getelementptr inbounds float, ptr %27, i64 %99
+  %100 = getelementptr inbounds [4 x i8], ptr %27, i64 %99
   %101 = load float, ptr %100, align 4, !tbaa !99
   %102 = fmul float %98, %101
   %103 = tail call float @llvm.fmuladd.f32(float %97, float %95, float %102)
   %104 = fsub float %61, %63
   %105 = sext i32 %83 to i64
-  %106 = getelementptr inbounds float, ptr %27, i64 %105
+  %106 = getelementptr inbounds [4 x i8], ptr %27, i64 %105
   %107 = load float, ptr %106, align 4, !tbaa !99
   %108 = tail call float @llvm.fmuladd.f32(float %104, float %107, float %103)
   %109 = sext i32 %89 to i64
-  %110 = getelementptr inbounds float, ptr %27, i64 %109
+  %110 = getelementptr inbounds [4 x i8], ptr %27, i64 %109
   %111 = load float, ptr %110, align 4, !tbaa !99
   %112 = tail call float @llvm.fmuladd.f32(float %63, float %111, float %108)
   store float %112, ptr %.0263276, align 4, !tbaa !99
@@ -661,10 +656,10 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_124Lut3DTetrahedralR
 138:                                              ; preds = %91
   %139 = fcmp ogt float %59, %63
   %140 = sext i32 %85 to i64
-  %141 = getelementptr inbounds float, ptr %27, i64 %140
+  %141 = getelementptr inbounds [4 x i8], ptr %27, i64 %140
   %142 = load float, ptr %141, align 4, !tbaa !99
   %143 = sext i32 %89 to i64
-  %144 = getelementptr inbounds float, ptr %27, i64 %143
+  %144 = getelementptr inbounds [4 x i8], ptr %27, i64 %143
   %145 = load float, ptr %144, align 4, !tbaa !99
   %146 = getelementptr i8, ptr %94, i64 4
   %147 = getelementptr i8, ptr %141, i64 4
@@ -676,7 +671,7 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_124Lut3DTetrahedralR
   %151 = fsub float 1.000000e+00, %59
   %152 = fsub float %59, %63
   %153 = sext i32 %73 to i64
-  %154 = getelementptr inbounds float, ptr %27, i64 %153
+  %154 = getelementptr inbounds [4 x i8], ptr %27, i64 %153
   %155 = load float, ptr %154, align 4, !tbaa !99
   %156 = fmul float %152, %155
   %157 = tail call float @llvm.fmuladd.f32(float %151, float %95, float %156)
@@ -712,7 +707,7 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_124Lut3DTetrahedralR
   %183 = fsub float 1.000000e+00, %63
   %184 = fsub float %63, %59
   %185 = sext i32 %79 to i64
-  %186 = getelementptr inbounds float, ptr %27, i64 %185
+  %186 = getelementptr inbounds [4 x i8], ptr %27, i64 %185
   %187 = load float, ptr %186, align 4, !tbaa !99
   %188 = fmul float %184, %187
   %189 = tail call float @llvm.fmuladd.f32(float %183, float %95, float %188)
@@ -751,21 +746,21 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_124Lut3DTetrahedralR
 216:                                              ; preds = %214
   %217 = fsub float 1.000000e+00, %63
   %218 = sext i32 %68 to i64
-  %219 = getelementptr inbounds float, ptr %27, i64 %218
+  %219 = getelementptr inbounds [4 x i8], ptr %27, i64 %218
   %220 = load float, ptr %219, align 4, !tbaa !99
   %221 = fsub float %63, %61
   %222 = sext i32 %79 to i64
-  %223 = getelementptr inbounds float, ptr %27, i64 %222
+  %223 = getelementptr inbounds [4 x i8], ptr %27, i64 %222
   %224 = load float, ptr %223, align 4, !tbaa !99
   %225 = fmul float %221, %224
   %226 = tail call float @llvm.fmuladd.f32(float %217, float %220, float %225)
   %227 = fsub float %61, %59
   %228 = sext i32 %87 to i64
-  %229 = getelementptr inbounds float, ptr %27, i64 %228
+  %229 = getelementptr inbounds [4 x i8], ptr %27, i64 %228
   %230 = load float, ptr %229, align 4, !tbaa !99
   %231 = tail call float @llvm.fmuladd.f32(float %227, float %230, float %226)
   %232 = sext i32 %89 to i64
-  %233 = getelementptr inbounds float, ptr %27, i64 %232
+  %233 = getelementptr inbounds [4 x i8], ptr %27, i64 %232
   %234 = load float, ptr %233, align 4, !tbaa !99
   %235 = tail call float @llvm.fmuladd.f32(float %59, float %234, float %231)
   store float %235, ptr %.0263276, align 4, !tbaa !99
@@ -801,13 +796,13 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_124Lut3DTetrahedralR
   %262 = fcmp ogt float %63, %59
   %263 = fsub float 1.000000e+00, %61
   %264 = sext i32 %68 to i64
-  %265 = getelementptr inbounds float, ptr %27, i64 %264
+  %265 = getelementptr inbounds [4 x i8], ptr %27, i64 %264
   %266 = load float, ptr %265, align 4, !tbaa !99
   %267 = sext i32 %77 to i64
-  %268 = getelementptr inbounds float, ptr %27, i64 %267
+  %268 = getelementptr inbounds [4 x i8], ptr %27, i64 %267
   %269 = load float, ptr %268, align 4, !tbaa !99
   %270 = sext i32 %89 to i64
-  %271 = getelementptr inbounds float, ptr %27, i64 %270
+  %271 = getelementptr inbounds [4 x i8], ptr %27, i64 %270
   %272 = load float, ptr %271, align 4, !tbaa !99
   %273 = getelementptr i8, ptr %265, i64 4
   %274 = getelementptr i8, ptr %268, i64 4
@@ -822,7 +817,7 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_124Lut3DTetrahedralR
   %281 = tail call float @llvm.fmuladd.f32(float %263, float %266, float %280)
   %282 = fsub float %63, %59
   %283 = sext i32 %87 to i64
-  %284 = getelementptr inbounds float, ptr %27, i64 %283
+  %284 = getelementptr inbounds [4 x i8], ptr %27, i64 %283
   %285 = load float, ptr %284, align 4, !tbaa !99
   %286 = tail call float @llvm.fmuladd.f32(float %282, float %285, float %281)
   %287 = tail call float @llvm.fmuladd.f32(float %59, float %272, float %286)
@@ -856,7 +851,7 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_124Lut3DTetrahedralR
   %311 = tail call float @llvm.fmuladd.f32(float %263, float %266, float %310)
   %312 = fsub float %59, %63
   %313 = sext i32 %83 to i64
-  %314 = getelementptr inbounds float, ptr %27, i64 %313
+  %314 = getelementptr inbounds [4 x i8], ptr %27, i64 %313
   %315 = load float, ptr %314, align 4, !tbaa !99
   %316 = tail call float @llvm.fmuladd.f32(float %312, float %315, float %311)
   %317 = tail call float @llvm.fmuladd.f32(float %63, float %272, float %316)
@@ -1115,19 +1110,19 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_113Lut3DRenderer5app
   %74 = shl <4 x i32> %73, splat (i32 2)
   %.sroa.0.0.vec.extract.i = extractelement <4 x i32> %74, i64 0
   %75 = sext i32 %.sroa.0.0.vec.extract.i to i64
-  %76 = getelementptr inbounds float, ptr %47, i64 %75
+  %76 = getelementptr inbounds [4 x i8], ptr %47, i64 %75
   %77 = load <4 x float>, ptr %76, align 16, !tbaa !94
   %.sroa.0.4.vec.extract.i = extractelement <4 x i32> %74, i64 1
   %78 = sext i32 %.sroa.0.4.vec.extract.i to i64
-  %79 = getelementptr inbounds float, ptr %47, i64 %78
+  %79 = getelementptr inbounds [4 x i8], ptr %47, i64 %78
   %80 = load <4 x float>, ptr %79, align 16, !tbaa !94
   %.sroa.0.8.vec.extract.i = extractelement <4 x i32> %74, i64 2
   %81 = sext i32 %.sroa.0.8.vec.extract.i to i64
-  %82 = getelementptr inbounds float, ptr %47, i64 %81
+  %82 = getelementptr inbounds [4 x i8], ptr %47, i64 %81
   %83 = load <4 x float>, ptr %82, align 16, !tbaa !94
   %.sroa.0.12.vec.extract.i = extractelement <4 x i32> %74, i64 3
   %84 = sext i32 %.sroa.0.12.vec.extract.i to i64
-  %85 = getelementptr inbounds float, ptr %47, i64 %84
+  %85 = getelementptr inbounds [4 x i8], ptr %47, i64 %84
   %86 = load <4 x float>, ptr %85, align 16, !tbaa !94
   %87 = bitcast <4 x i32> %44 to <2 x i64>
   %88 = and <2 x i64> %87, splat (i64 4294967295)
@@ -1155,19 +1150,19 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_113Lut3DRenderer5app
   %109 = shl <4 x i32> %108, splat (i32 2)
   %.sroa.0.0.vec.extract.i79 = extractelement <4 x i32> %109, i64 0
   %110 = sext i32 %.sroa.0.0.vec.extract.i79 to i64
-  %111 = getelementptr inbounds float, ptr %47, i64 %110
+  %111 = getelementptr inbounds [4 x i8], ptr %47, i64 %110
   %112 = load <4 x float>, ptr %111, align 16, !tbaa !94
   %.sroa.0.4.vec.extract.i80 = extractelement <4 x i32> %109, i64 1
   %113 = sext i32 %.sroa.0.4.vec.extract.i80 to i64
-  %114 = getelementptr inbounds float, ptr %47, i64 %113
+  %114 = getelementptr inbounds [4 x i8], ptr %47, i64 %113
   %115 = load <4 x float>, ptr %114, align 16, !tbaa !94
   %.sroa.0.8.vec.extract.i81 = extractelement <4 x i32> %109, i64 2
   %116 = sext i32 %.sroa.0.8.vec.extract.i81 to i64
-  %117 = getelementptr inbounds float, ptr %47, i64 %116
+  %117 = getelementptr inbounds [4 x i8], ptr %47, i64 %116
   %118 = load <4 x float>, ptr %117, align 16, !tbaa !94
   %.sroa.0.12.vec.extract.i82 = extractelement <4 x i32> %109, i64 3
   %119 = sext i32 %.sroa.0.12.vec.extract.i82 to i64
-  %120 = getelementptr inbounds float, ptr %47, i64 %119
+  %120 = getelementptr inbounds [4 x i8], ptr %47, i64 %119
   %121 = load <4 x float>, ptr %120, align 16, !tbaa !94
   %122 = shufflevector <4 x float> %40, <4 x float> poison, <4 x i32> zeroinitializer
   %123 = shufflevector <4 x float> %40, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
@@ -1539,7 +1534,7 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer5
   %61 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %62 = load i64, ptr %61, align 8, !tbaa !110
   %63 = add i64 %60, %62
-  %64 = getelementptr inbounds nuw i64, ptr %20, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv
   store i64 %63, ptr %64, align 8, !tbaa !110
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
@@ -1555,7 +1550,7 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer5
 
 .lr.ph:                                           ; preds = %.preheader150, %.lr.ph
   %.0106156 = phi i64 [ %68, %.lr.ph ], [ 0, %.preheader150 ]
-  %65 = getelementptr inbounds nuw i64, ptr %17, i64 %.0106156
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %.0106156
   %66 = load i64, ptr %65, align 8, !tbaa !110
   %67 = mul i64 %66, %.val
   store i64 %67, ptr %65, align 8, !tbaa !110
@@ -1591,7 +1586,7 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer5
 
 84:                                               ; preds = %._crit_edge, %84
   %.0108157 = phi i64 [ 0, %._crit_edge ], [ %86, %84 ]
-  %85 = getelementptr inbounds nuw i64, ptr %22, i64 %.0108157
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %.0108157
   store i64 1, ptr %85, align 8, !tbaa !110
   %86 = add nuw nsw i64 %.0108157, 1
   %exitcond175.not = icmp eq i64 %86, 16
@@ -1646,9 +1641,9 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer5
   %104 = phi float [ 0.000000e+00, %87 ], [ %405, %.loopexit ]
   %105 = phi float [ 0.000000e+00, %87 ], [ %406, %.loopexit ]
   %.0110163 = phi i64 [ 0, %87 ], [ %407, %.loopexit ]
-  %106 = getelementptr inbounds nuw i64, ptr %21, i64 %.0110163
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %.0110163
   %107 = load i64, ptr %106, align 8, !tbaa !110
-  %108 = getelementptr inbounds nuw i64, ptr %22, i64 %.0110163
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %.0110163
   %109 = load i64, ptr %108, align 8, !tbaa !110
   %110 = icmp ult i64 %107, %109
   br i1 %110, label %.lr.ph162, label %.loopexit
@@ -1662,27 +1657,27 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer5
   %113 = phi i64 [ %107, %.lr.ph162 ], [ %400, %398 ]
   %114 = phi ptr [ %106, %.lr.ph162 ], [ %399, %398 ]
   %.1161 = phi i64 [ %.0110163, %.lr.ph162 ], [ %.5, %398 ]
-  %115 = getelementptr inbounds i64, ptr %23, i64 %.1161
+  %115 = getelementptr inbounds [8 x i8], ptr %23, i64 %.1161
   %116 = load i64, ptr %115, align 8, !tbaa !110
-  %117 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::(anonymous namespace)::InvLut3DRenderer::treeLevel", ptr %.val121.pre, i64 %.1161
+  %117 = getelementptr inbounds nuw [112 x i8], ptr %.val121.pre, i64 %.1161
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 16
   %119 = mul i64 %116, %.val
   %120 = load ptr, ptr %118, align 8, !tbaa !86
-  %121 = getelementptr inbounds nuw float, ptr %120, i64 %119
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %120, i64 %119
   %122 = load float, ptr %121, align 4, !tbaa !99
   %123 = fcmp ult float %.sroa.speculated.i, %122
   br i1 %123, label %.critedge, label %124
 
 124:                                              ; preds = %112
   %125 = add i64 %119, 1
-  %126 = getelementptr inbounds nuw float, ptr %120, i64 %125
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %120, i64 %125
   %127 = load float, ptr %126, align 4, !tbaa !99
   %128 = fcmp ult float %.sroa.speculated.i132, %127
   br i1 %128, label %.critedge, label %129
 
 129:                                              ; preds = %124
   %130 = add i64 %119, 2
-  %131 = getelementptr inbounds nuw float, ptr %120, i64 %130
+  %131 = getelementptr inbounds nuw [4 x i8], ptr %120, i64 %130
   %132 = load float, ptr %131, align 4, !tbaa !99
   %133 = fcmp ult float %.sroa.speculated.i134, %132
   br i1 %133, label %.critedge, label %134
@@ -1690,19 +1685,19 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer5
 134:                                              ; preds = %129
   %135 = getelementptr inbounds nuw i8, ptr %117, i64 40
   %136 = load ptr, ptr %135, align 8, !tbaa !86
-  %137 = getelementptr inbounds nuw float, ptr %136, i64 %119
+  %137 = getelementptr inbounds nuw [4 x i8], ptr %136, i64 %119
   %138 = load float, ptr %137, align 4, !tbaa !99
   %139 = fcmp ugt float %.sroa.speculated.i, %138
   br i1 %139, label %.critedge, label %140
 
 140:                                              ; preds = %134
-  %141 = getelementptr inbounds nuw float, ptr %136, i64 %125
+  %141 = getelementptr inbounds nuw [4 x i8], ptr %136, i64 %125
   %142 = load float, ptr %141, align 4, !tbaa !99
   %143 = fcmp ugt float %.sroa.speculated.i132, %142
   br i1 %143, label %.critedge, label %144
 
 144:                                              ; preds = %140
-  %145 = getelementptr inbounds nuw float, ptr %136, i64 %130
+  %145 = getelementptr inbounds nuw [4 x i8], ptr %136, i64 %130
   %146 = load float, ptr %145, align 4, !tbaa !99
   %147 = fcmp ugt float %.sroa.speculated.i134, %146
   %148 = add nuw i64 %113, 1
@@ -1719,7 +1714,7 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer5
   br i1 %.not, label %._crit_edge160, label %.lr.ph159
 
 .lr.ph159:                                        ; preds = %.preheader
-  %152 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::(anonymous namespace)::InvLut3DRenderer::baseInd", ptr %.val130, i64 %116
+  %152 = getelementptr inbounds nuw [32 x i8], ptr %.val130, i64 %116
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %24, ptr align 8 %152, i64 %79, i1 false), !tbaa !110
   br label %._crit_edge160
 
@@ -1743,15 +1738,15 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer5
   br label %154
 
 .preheader367.i:                                  ; preds = %154
-  %153 = getelementptr float, ptr %111, i64 %160
+  %153 = getelementptr [4 x i8], ptr %111, i64 %160
   br label %162
 
 154:                                              ; preds = %154, %._crit_edge160
   %.0265372.i = phi i64 [ 0, %._crit_edge160 ], [ %160, %154 ]
   %.0266371.i = phi i64 [ 0, %._crit_edge160 ], [ %161, %154 ]
-  %155 = getelementptr inbounds nuw i64, ptr %24, i64 %.0266371.i
+  %155 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %.0266371.i
   %156 = load i64, ptr %155, align 8, !tbaa !110
-  %157 = getelementptr inbounds nuw i64, ptr %17, i64 %.0266371.i
+  %157 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %.0266371.i
   %158 = load i64, ptr %157, align 8, !tbaa !110
   %159 = mul i64 %158, %156
   %160 = add i64 %159, %.0265372.i
@@ -1761,24 +1756,24 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer5
 
 162:                                              ; preds = %176, %.preheader367.i
   %.0267374.i = phi i64 [ 0, %.preheader367.i ], [ %177, %176 ]
-  %163 = getelementptr inbounds nuw i64, ptr %5, i64 %.0267374.i
+  %163 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.0267374.i
   store i64 %.0267374.i, ptr %163, align 8, !tbaa !110
-  %164 = getelementptr inbounds nuw i64, ptr %6, i64 %.0267374.i
+  %164 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.0267374.i
   store i64 %.0267374.i, ptr %164, align 8, !tbaa !110
-  %165 = getelementptr float, ptr %153, i64 %.0267374.i
+  %165 = getelementptr [4 x i8], ptr %153, i64 %.0267374.i
   %166 = load float, ptr %165, align 4, !tbaa !99
   %167 = fpext float %166 to double
-  %168 = getelementptr inbounds nuw double, ptr %9, i64 %.0267374.i
+  %168 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.0267374.i
   store double %167, ptr %168, align 8, !tbaa !118
-  %169 = getelementptr inbounds nuw float, ptr %26, i64 %.0267374.i
+  %169 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %.0267374.i
   %170 = load float, ptr %169, align 4, !tbaa !99
   %171 = fpext float %170 to double
   %172 = fsub double %171, %167
-  %173 = getelementptr inbounds nuw double, ptr %14, i64 %.0267374.i
+  %173 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.0267374.i
   store double %172, ptr %173, align 8, !tbaa !118
-  %174 = getelementptr inbounds nuw double, ptr %10, i64 %.0267374.i
+  %174 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.0267374.i
   store double %172, ptr %174, align 8, !tbaa !118
-  %175 = getelementptr inbounds nuw [4 x double], ptr %11, i64 %.0267374.i
+  %175 = getelementptr inbounds nuw [32 x i8], ptr %11, i64 %.0267374.i
   br label %178
 
 176:                                              ; preds = %178
@@ -1790,7 +1785,7 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer5
   %.0274373.i = phi i64 [ 0, %162 ], [ %182, %178 ]
   %179 = icmp eq i64 %.0267374.i, %.0274373.i
   %180 = select i1 %179, double 1.000000e+00, double 0.000000e+00
-  %181 = getelementptr inbounds nuw double, ptr %175, i64 %.0274373.i
+  %181 = getelementptr inbounds nuw [8 x i8], ptr %175, i64 %.0274373.i
   store double %180, ptr %181, align 8, !tbaa !118
   %182 = add nuw nsw i64 %.0274373.i, 1
   %exitcond452.not.i = icmp eq i64 %182, 3
@@ -1800,7 +1795,7 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer5
   %.0255440.i = phi i64 [ %.8.ph.i, %.thread336.i ], [ 0, %176 ]
   %.0259439.i = phi i64 [ %.2261.lcssa.i, %.thread336.i ], [ 0, %176 ]
   %.0290437.i = phi i64 [ %373, %.thread336.i ], [ 0, %176 ]
-  %183 = getelementptr inbounds nuw i64, ptr %18, i64 %.0290437.i
+  %183 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %.0290437.i
   %184 = load i64, ptr %183, align 8, !tbaa !110
   %185 = icmp slt i64 %184, 0
   br i1 %185, label %.preheader363.preheader.i, label %.loopexit364.i
@@ -1811,11 +1806,11 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer5
 
 .preheader363.i:                                  ; preds = %189, %.preheader363.preheader.i
   %.0293376.i = phi i64 [ %190, %189 ], [ 0, %.preheader363.preheader.i ]
-  %186 = getelementptr inbounds nuw i64, ptr %5, i64 %.0293376.i
+  %186 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.0293376.i
   store i64 %.0293376.i, ptr %186, align 8, !tbaa !110
-  %187 = getelementptr inbounds nuw i64, ptr %6, i64 %.0293376.i
+  %187 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.0293376.i
   store i64 %.0293376.i, ptr %187, align 8, !tbaa !110
-  %188 = getelementptr inbounds nuw [4 x double], ptr %11, i64 %.0293376.i
+  %188 = getelementptr inbounds nuw [32 x i8], ptr %11, i64 %.0293376.i
   br label %191
 
 189:                                              ; preds = %191
@@ -1827,7 +1822,7 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer5
   %.0298375.i = phi i64 [ 0, %.preheader363.i ], [ %195, %191 ]
   %192 = icmp eq i64 %.0293376.i, %.0298375.i
   %193 = select i1 %192, double 1.000000e+00, double 0.000000e+00
-  %194 = getelementptr inbounds nuw double, ptr %188, i64 %.0298375.i
+  %194 = getelementptr inbounds nuw [8 x i8], ptr %188, i64 %.0298375.i
   store double %193, ptr %194, align 8, !tbaa !118
   %195 = add nuw nsw i64 %.0298375.i, 1
   %exitcond454.not.i = icmp eq i64 %195, 3
@@ -1836,9 +1831,9 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer5
 .loopexit364.i:                                   ; preds = %189, %.preheader365.i
   %.1260.i = phi i64 [ %.0259439.i, %.preheader365.i ], [ 0, %189 ]
   %.0251.i = phi i64 [ %184, %.preheader365.i ], [ 0, %189 ]
-  %196 = getelementptr inbounds nuw i64, ptr %19, i64 %.0290437.i
+  %196 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.0290437.i
   %197 = load i64, ptr %196, align 8, !tbaa !110
-  %198 = getelementptr inbounds nuw i64, ptr %20, i64 %.0290437.i
+  %198 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %.0290437.i
   %199 = load i64, ptr %198, align 8, !tbaa !110
   %.idx.i = mul i64 %199, 12
   %200 = getelementptr i8, ptr %153, i64 %.idx.i
@@ -1850,33 +1845,33 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer5
 
 201:                                              ; preds = %201, %.loopexit364.i
   %.0299377.i = phi i64 [ 0, %.loopexit364.i ], [ %209, %201 ]
-  %202 = getelementptr float, ptr %200, i64 %.0299377.i
+  %202 = getelementptr [4 x i8], ptr %200, i64 %.0299377.i
   %203 = load float, ptr %202, align 4, !tbaa !99
   %204 = fpext float %203 to double
-  %205 = getelementptr inbounds nuw double, ptr %9, i64 %.0299377.i
+  %205 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.0299377.i
   %206 = load double, ptr %205, align 8, !tbaa !118
   %207 = fsub double %204, %206
-  %208 = getelementptr inbounds nuw double, ptr %16, i64 %.0299377.i
+  %208 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.0299377.i
   store double %207, ptr %208, align 8, !tbaa !118
   %209 = add nuw nsw i64 %.0299377.i, 1
   %exitcond456.not.i = icmp eq i64 %209, 3
   br i1 %exitcond456.not.i, label %.preheader362.i, label %201, !llvm.loop !124
 
 .preheader361.i:                                  ; preds = %.lr.ph.i, %.preheader362.i
-  %invariant.gep.i = getelementptr double, ptr %11, i64 %197
+  %invariant.gep.i = getelementptr [8 x i8], ptr %11, i64 %197
   br label %226
 
 .lr.ph.i:                                         ; preds = %.preheader362.i, %.lr.ph.i
   %.0297378.i = phi i64 [ %222, %.lr.ph.i ], [ 0, %.preheader362.i ]
-  %210 = getelementptr inbounds nuw double, ptr %13, i64 %.0297378.i
+  %210 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.0297378.i
   %211 = load double, ptr %210, align 8, !tbaa !118
-  %212 = getelementptr inbounds nuw i64, ptr %8, i64 %.0297378.i
+  %212 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.0297378.i
   %213 = load i64, ptr %212, align 8, !tbaa !110
-  %214 = getelementptr inbounds nuw double, ptr %16, i64 %213
+  %214 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %213
   %215 = load double, ptr %214, align 8, !tbaa !118
-  %216 = getelementptr inbounds nuw i64, ptr %7, i64 %.0297378.i
+  %216 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.0297378.i
   %217 = load i64, ptr %216, align 8, !tbaa !110
-  %218 = getelementptr inbounds nuw double, ptr %16, i64 %217
+  %218 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %217
   %219 = load double, ptr %218, align 8, !tbaa !118
   %220 = fneg double %211
   %221 = tail call double @llvm.fmuladd.f64(double %220, double %215, double %219)
@@ -1893,11 +1888,11 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer5
 226:                                              ; preds = %226, %.preheader361.i
   %.0294380.i = phi i64 [ 0, %.preheader361.i ], [ %232, %226 ]
   %.0295379.i = phi i64 [ 0, %.preheader361.i ], [ %spec.select.i, %226 ]
-  %227 = getelementptr inbounds nuw double, ptr %16, i64 %.0294380.i
+  %227 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.0294380.i
   %228 = load double, ptr %227, align 8, !tbaa !118
-  %gep.i = getelementptr [4 x double], ptr %invariant.gep.i, i64 %.0294380.i
+  %gep.i = getelementptr [32 x i8], ptr %invariant.gep.i, i64 %.0294380.i
   store double %228, ptr %gep.i, align 8, !tbaa !118
-  %229 = getelementptr inbounds nuw i64, ptr %6, i64 %.0294380.i
+  %229 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.0294380.i
   %230 = load i64, ptr %229, align 8, !tbaa !110
   %231 = icmp eq i64 %230, %197
   %232 = add nuw nsw i64 %.0294380.i, 1
@@ -1906,7 +1901,7 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer5
   br i1 %exitcond458.not.i, label %223, label %226, !llvm.loop !126
 
 233:                                              ; preds = %223
-  %234 = getelementptr inbounds nuw i64, ptr %6, i64 %225
+  %234 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %225
   %235 = load i64, ptr %234, align 8, !tbaa !110
   %236 = icmp eq i64 %225, 0
   %.promoted.i = load i64, ptr %6, align 16
@@ -1933,13 +1928,13 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer5
   %.2261425.i = phi i64 [ %.4263.i, %.loopexit357.i ], [ %.1260.i, %._crit_edge.i ]
   %.0291423.i = phi i64 [ 1, %.loopexit357.i ], [ %225, %._crit_edge.i ]
   %240 = add nuw nsw i64 %.0291423.i, 1
-  %241 = getelementptr inbounds nuw i64, ptr %5, i64 %.0291423.i
+  %241 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.0291423.i
   %242 = load i64, ptr %241, align 8, !tbaa !110
-  %243 = getelementptr inbounds nuw i64, ptr %6, i64 %.0291423.i
+  %243 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.0291423.i
   %244 = load i64, ptr %243, align 8, !tbaa !110
-  %invariant.gep383.i = getelementptr double, ptr %11, i64 %244
-  %245 = getelementptr inbounds nuw [4 x double], ptr %11, i64 %242
-  %246 = getelementptr inbounds nuw double, ptr %245, i64 %244
+  %invariant.gep383.i = getelementptr [8 x i8], ptr %11, i64 %244
+  %245 = getelementptr inbounds nuw [32 x i8], ptr %11, i64 %242
+  %246 = getelementptr inbounds nuw [8 x i8], ptr %245, i64 %244
   %247 = load double, ptr %246, align 8, !tbaa !118
   %248 = tail call double @llvm.fabs.f64(double %247)
   br label %.lr.ph389.i
@@ -1953,14 +1948,14 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer5
   %.2278405.us.i = phi double [ %.4280.us.i, %256 ], [ %.1277.i, %._crit_edge390.i ]
   %.0281404.us.i = phi i64 [ %.2283.us.i, %256 ], [ %.0291423.i, %._crit_edge390.i ]
   %.3287403.us.i = phi i64 [ %.5289.us.i, %256 ], [ %.1285.i, %._crit_edge390.i ]
-  %250 = getelementptr inbounds nuw i64, ptr %6, i64 %.0273406.us.i
+  %250 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.0273406.us.i
   %251 = load i64, ptr %250, align 8, !tbaa !110
-  %invariant.gep401.us.i = getelementptr double, ptr %11, i64 %251
+  %invariant.gep401.us.i = getelementptr [8 x i8], ptr %11, i64 %251
   br label %257
 
 252:                                              ; preds = %._crit_edge397.us.i
   %253 = load i64, ptr %243, align 8, !tbaa !110
-  %254 = getelementptr inbounds nuw i64, ptr %6, i64 %.2283.us.i
+  %254 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.2283.us.i
   %255 = load i64, ptr %254, align 8, !tbaa !110
   store i64 %255, ptr %243, align 8, !tbaa !110
   store i64 %253, ptr %254, align 8, !tbaa !110
@@ -1975,9 +1970,9 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer5
   %.3279394.us.i = phi double [ %.2278405.us.i, %.preheader355.us.i ], [ %.4280.us.i, %257 ]
   %.1282393.us.i = phi i64 [ %.0281404.us.i, %.preheader355.us.i ], [ %.2283.us.i, %257 ]
   %.4288392.us.i = phi i64 [ %.3287403.us.i, %.preheader355.us.i ], [ %.5289.us.i, %257 ]
-  %258 = getelementptr inbounds nuw i64, ptr %5, i64 %.0272395.us.i
+  %258 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.0272395.us.i
   %259 = load i64, ptr %258, align 8, !tbaa !110
-  %gep402.us.i = getelementptr [4 x double], ptr %invariant.gep401.us.i, i64 %259
+  %gep402.us.i = getelementptr [32 x i8], ptr %invariant.gep401.us.i, i64 %259
   %260 = load double, ptr %gep402.us.i, align 8, !tbaa !118
   %261 = tail call double @llvm.fabs.f64(double %260)
   %262 = fcmp ogt double %261, %.3279394.us.i
@@ -1996,9 +1991,9 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer5
   %.0275387.i = phi i64 [ %270, %.lr.ph389.i ], [ %240, %.lr.ph389.preheader.i ]
   %.0276386.i = phi double [ %.1277.i, %.lr.ph389.i ], [ %248, %.lr.ph389.preheader.i ]
   %.0284385.i = phi i64 [ %.1285.i, %.lr.ph389.i ], [ %.0291423.i, %.lr.ph389.preheader.i ]
-  %265 = getelementptr inbounds nuw i64, ptr %5, i64 %.0275387.i
+  %265 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.0275387.i
   %266 = load i64, ptr %265, align 8, !tbaa !110
-  %gep384.i = getelementptr [4 x double], ptr %invariant.gep383.i, i64 %266
+  %gep384.i = getelementptr [32 x i8], ptr %invariant.gep383.i, i64 %266
   %267 = load double, ptr %gep384.i, align 8, !tbaa !118
   %268 = tail call double @llvm.fabs.f64(double %267)
   %269 = fcmp ogt double %268, %.0276386.i
@@ -2014,7 +2009,7 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer5
   br i1 %.not311.i, label %.lr.ph421.i, label %271
 
 271:                                              ; preds = %.loopexit359.i
-  %272 = getelementptr inbounds nuw i64, ptr %5, i64 %.2286.i
+  %272 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.2286.i
   %273 = load i64, ptr %272, align 8, !tbaa !110
   store i64 %273, ptr %241, align 8, !tbaa !110
   store i64 %242, ptr %272, align 8, !tbaa !110
@@ -2022,20 +2017,20 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer5
 
 .lr.ph421.i:                                      ; preds = %271, %.loopexit359.i
   %274 = load i64, ptr %241, align 8, !tbaa !110
-  %275 = getelementptr inbounds nuw [4 x double], ptr %11, i64 %274
+  %275 = getelementptr inbounds nuw [32 x i8], ptr %11, i64 %274
   %276 = load i64, ptr %243, align 8, !tbaa !110
-  %277 = getelementptr inbounds nuw double, ptr %275, i64 %276
+  %277 = getelementptr inbounds nuw [8 x i8], ptr %275, i64 %276
   %278 = load double, ptr %277, align 8, !tbaa !118
-  %279 = getelementptr inbounds nuw double, ptr %10, i64 %274
+  %279 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %274
   br label %280
 
 280:                                              ; preds = %307, %.lr.ph421.i
   %.3262419.i = phi i64 [ %.2261425.i, %.lr.ph421.i ], [ %.4263.i, %307 ]
   %.0264418.i = phi i64 [ %240, %.lr.ph421.i ], [ 2, %307 ]
-  %281 = getelementptr inbounds nuw i64, ptr %5, i64 %.0264418.i
+  %281 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.0264418.i
   %282 = load i64, ptr %281, align 8, !tbaa !110
-  %283 = getelementptr inbounds nuw [4 x double], ptr %11, i64 %282
-  %284 = getelementptr inbounds nuw double, ptr %283, i64 %276
+  %283 = getelementptr inbounds nuw [32 x i8], ptr %11, i64 %282
+  %284 = getelementptr inbounds nuw [8 x i8], ptr %283, i64 %276
   %285 = load double, ptr %284, align 8, !tbaa !118
   %286 = tail call double @llvm.fabs.f64(double %285)
   %287 = fcmp ult double %286, 1.000000e-09
@@ -2049,26 +2044,26 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer5
 
 ._crit_edge417.i:                                 ; preds = %298
   %290 = load double, ptr %279, align 8, !tbaa !118
-  %291 = getelementptr inbounds nuw double, ptr %10, i64 %282
+  %291 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %282
   %292 = load double, ptr %291, align 8, !tbaa !118
   %293 = tail call double @llvm.fmuladd.f64(double %289, double %290, double %292)
   store double %293, ptr %291, align 8, !tbaa !118
-  %294 = getelementptr inbounds nuw i64, ptr %7, i64 %.3262419.i
+  %294 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.3262419.i
   store i64 %282, ptr %294, align 8, !tbaa !110
-  %295 = getelementptr inbounds nuw i64, ptr %8, i64 %.3262419.i
+  %295 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.3262419.i
   store i64 %274, ptr %295, align 8, !tbaa !110
-  %296 = getelementptr inbounds nuw double, ptr %13, i64 %.3262419.i
+  %296 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.3262419.i
   store double %288, ptr %296, align 8, !tbaa !118
   %297 = add i64 %.3262419.i, 1
   br label %307
 
 298:                                              ; preds = %298, %.lr.ph416.i
   %.0254414.i = phi i64 [ %240, %.lr.ph416.i ], [ %306, %298 ]
-  %299 = getelementptr inbounds nuw i64, ptr %6, i64 %.0254414.i
+  %299 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.0254414.i
   %300 = load i64, ptr %299, align 8, !tbaa !110
-  %301 = getelementptr inbounds nuw double, ptr %275, i64 %300
+  %301 = getelementptr inbounds nuw [8 x i8], ptr %275, i64 %300
   %302 = load double, ptr %301, align 8, !tbaa !118
-  %303 = getelementptr inbounds nuw double, ptr %283, i64 %300
+  %303 = getelementptr inbounds nuw [8 x i8], ptr %283, i64 %300
   %304 = load double, ptr %303, align 8, !tbaa !118
   %305 = tail call double @llvm.fmuladd.f64(double %289, double %302, double %304)
   store double %305, ptr %303, align 8, !tbaa !118
@@ -2084,12 +2079,12 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer5
 .preheader360.i:                                  ; preds = %._crit_edge428.i, %338
   %.0252436.i = phi i64 [ %340, %338 ], [ 2, %._crit_edge428.i ]
   %.0253435.i = phi double [ %.1.ph.i, %338 ], [ 0.000000e+00, %._crit_edge428.i ]
-  %308 = getelementptr inbounds nuw i64, ptr %5, i64 %.0252436.i
+  %308 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.0252436.i
   %309 = load i64, ptr %308, align 8, !tbaa !110
-  %310 = getelementptr inbounds nuw [4 x double], ptr %11, i64 %309
-  %311 = getelementptr inbounds nuw i64, ptr %6, i64 %.0252436.i
+  %310 = getelementptr inbounds nuw [32 x i8], ptr %11, i64 %309
+  %311 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.0252436.i
   %312 = load i64, ptr %311, align 8, !tbaa !110
-  %313 = getelementptr inbounds nuw double, ptr %310, i64 %312
+  %313 = getelementptr inbounds nuw [8 x i8], ptr %310, i64 %312
   %314 = load double, ptr %313, align 8, !tbaa !118
   %315 = tail call double @llvm.fabs.f64(double %314)
   %316 = fcmp olt double %315, 1.000000e-09
@@ -2100,7 +2095,7 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer5
   br i1 %317, label %.lr.ph432.i, label %._crit_edge433.i
 
 318:                                              ; preds = %.preheader360.i
-  %319 = getelementptr inbounds nuw double, ptr %10, i64 %309
+  %319 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %309
   %320 = load double, ptr %319, align 8, !tbaa !118
   %321 = tail call double @llvm.fabs.f64(double %320)
   %322 = fcmp ogt double %321, 1.000000e-09
@@ -2108,7 +2103,7 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer5
 
 ._crit_edge433.i:                                 ; preds = %.lr.ph432.i, %.preheader356.i
   %.0250.lcssa.i = phi double [ 0.000000e+00, %.preheader356.i ], [ %336, %.lr.ph432.i ]
-  %323 = getelementptr inbounds nuw double, ptr %10, i64 %309
+  %323 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %309
   %324 = load double, ptr %323, align 8, !tbaa !118
   %325 = fsub double %324, %.0250.lcssa.i
   %326 = fdiv double %325, %314
@@ -2122,11 +2117,11 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer5
   %.0249.in431.i = phi i64 [ 1, %.lr.ph432.i ], [ %.0252436.i, %.preheader356.i ]
   %.0250430.i = phi double [ %336, %.lr.ph432.i ], [ 0.000000e+00, %.preheader356.i ]
   %.0249.i = add nuw nsw i64 %.0249.in431.i, 1
-  %330 = getelementptr inbounds nuw i64, ptr %6, i64 %.0249.i
+  %330 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.0249.i
   %331 = load i64, ptr %330, align 8, !tbaa !110
-  %332 = getelementptr inbounds nuw double, ptr %310, i64 %331
+  %332 = getelementptr inbounds nuw [8 x i8], ptr %310, i64 %331
   %333 = load double, ptr %332, align 8, !tbaa !118
-  %334 = getelementptr inbounds nuw double, ptr %12, i64 %.0249.i
+  %334 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.0249.i
   %335 = load double, ptr %334, align 8, !tbaa !118
   %336 = tail call double @llvm.fmuladd.f64(double %333, double %335, double %.0250430.i)
   %337 = icmp eq i64 %.0249.in431.i, 0
@@ -2135,7 +2130,7 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer5
 338:                                              ; preds = %._crit_edge433.i, %318
   %.sink.i = phi double [ 0.000000e+00, %318 ], [ %326, %._crit_edge433.i ]
   %.1.ph.i = phi double [ %.0253435.i, %318 ], [ %328, %._crit_edge433.i ]
-  %339 = getelementptr inbounds nuw double, ptr %12, i64 %.0252436.i
+  %339 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.0252436.i
   store double %.sink.i, ptr %339, align 8, !tbaa !118
   %340 = add nsw i64 %.0252436.i, -1
   %.not475.i = icmp eq i64 %.0252436.i, 0
@@ -2145,21 +2140,21 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer5
   %342 = mul nuw nsw i64 %.0290437.i, 3
   %343 = load double, ptr %78, align 8, !tbaa !118
   %344 = fptrunc double %343 to float
-  %345 = getelementptr inbounds nuw i64, ptr @__const._ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer5applyEPKvPvl.path_list, i64 %342
+  %345 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer5applyEPKvPvl.path_list, i64 %342
   %346 = getelementptr inbounds nuw i8, ptr %345, i64 16
   %347 = load i64, ptr %346, align 8, !tbaa !110
-  %348 = getelementptr inbounds nuw float, ptr %25, i64 %347
+  %348 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %347
   store float %344, ptr %348, align 4, !tbaa !99
   %349 = add nuw nsw i64 %342, 1
   br label %356
 
 .preheader354.i:                                  ; preds = %338, %.preheader354.i
   %.0247441.i = phi i64 [ %355, %.preheader354.i ], [ 0, %338 ]
-  %350 = getelementptr inbounds nuw double, ptr %12, i64 %.0247441.i
+  %350 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.0247441.i
   %351 = load double, ptr %350, align 8, !tbaa !118
-  %352 = getelementptr inbounds nuw i64, ptr %6, i64 %.0247441.i
+  %352 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.0247441.i
   %353 = load i64, ptr %352, align 8, !tbaa !110
-  %354 = getelementptr inbounds nuw double, ptr %15, i64 %353
+  %354 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %353
   store double %351, ptr %354, align 8, !tbaa !118
   %355 = add nuw nsw i64 %.0247441.i, 1
   %exitcond465.not.i = icmp eq i64 %355, 3
@@ -2168,20 +2163,20 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer5
 356:                                              ; preds = %356, %341
   %.0245443.i = phi i64 [ 1, %341 ], [ %372, %356 ]
   %.0246442.i = phi i64 [ %349, %341 ], [ %371, %356 ]
-  %357 = getelementptr inbounds nuw i64, ptr @__const._ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer5applyEPKvPvl.path_order, i64 %.0245443.i
+  %357 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer5applyEPKvPvl.path_order, i64 %.0245443.i
   %358 = load i64, ptr %357, align 8, !tbaa !110
-  %359 = getelementptr inbounds nuw double, ptr %15, i64 %358
+  %359 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %358
   %360 = load double, ptr %359, align 8, !tbaa !118
-  %361 = getelementptr i64, ptr @__const._ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer5applyEPKvPvl.path_list, i64 %.0246442.i
+  %361 = getelementptr [8 x i8], ptr @__const._ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer5applyEPKvPvl.path_list, i64 %.0246442.i
   %362 = getelementptr i8, ptr %361, i64 8
   %363 = load i64, ptr %362, align 8, !tbaa !110
-  %364 = getelementptr inbounds nuw float, ptr %25, i64 %363
+  %364 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %363
   %365 = load float, ptr %364, align 4, !tbaa !99
   %366 = fpext float %365 to double
   %367 = fadd double %360, %366
   %368 = fptrunc double %367 to float
   %369 = load i64, ptr %361, align 8, !tbaa !110
-  %370 = getelementptr inbounds nuw float, ptr %25, i64 %369
+  %370 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %369
   store float %368, ptr %370, align 4, !tbaa !99
   %371 = add nsw i64 %.0246442.i, -1
   %372 = add nuw nsw i64 %.0245443.i, 1
@@ -2203,10 +2198,10 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer5
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %.preheader.i
   %.0444.i = phi i64 [ %381, %.preheader.i ], [ 0, %.preheader.i.preheader ]
-  %375 = getelementptr inbounds nuw i64, ptr %24, i64 %.0444.i
+  %375 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %.0444.i
   %376 = load i64, ptr %375, align 8, !tbaa !110
   %377 = uitofp i64 %376 to float
-  %378 = getelementptr inbounds nuw float, ptr %25, i64 %.0444.i
+  %378 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %.0444.i
   %379 = load float, ptr %378, align 4, !tbaa !99
   %380 = fadd float %379, %377
   store float %380, ptr %378, align 4, !tbaa !99
@@ -2236,20 +2231,20 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer5
 382:                                              ; preds = %150
   %383 = getelementptr inbounds nuw i8, ptr %117, i64 88
   %384 = load ptr, ptr %383, align 8, !tbaa !104
-  %385 = getelementptr inbounds nuw i64, ptr %384, i64 %116
+  %385 = getelementptr inbounds nuw [8 x i8], ptr %384, i64 %116
   %386 = load i64, ptr %385, align 8, !tbaa !110
   %387 = shl i64 %.1161, 32
   %sext = add i64 %387, 4294967296
   %388 = ashr exact i64 %sext, 32
-  %389 = getelementptr inbounds i64, ptr %22, i64 %388
+  %389 = getelementptr inbounds [8 x i8], ptr %22, i64 %388
   store i64 %386, ptr %389, align 8, !tbaa !110
   %390 = getelementptr inbounds nuw i8, ptr %117, i64 64
   %391 = load ptr, ptr %390, align 8, !tbaa !104
-  %392 = getelementptr inbounds nuw i64, ptr %391, i64 %116
+  %392 = getelementptr inbounds nuw [8 x i8], ptr %391, i64 %116
   %393 = load i64, ptr %392, align 8, !tbaa !110
-  %394 = getelementptr inbounds i64, ptr %23, i64 %388
+  %394 = getelementptr inbounds [8 x i8], ptr %23, i64 %388
   store i64 %393, ptr %394, align 8, !tbaa !110
-  %395 = getelementptr inbounds i64, ptr %21, i64 %388
+  %395 = getelementptr inbounds [8 x i8], ptr %21, i64 %388
   store i64 0, ptr %395, align 8, !tbaa !110
   br label %398
 
@@ -2278,9 +2273,9 @@ select.unfold:                                    ; preds = %.thread347.i
 
 398:                                              ; preds = %select.unfold, %144, %382, %.critedge
   %.5 = phi i64 [ %70, %select.unfold ], [ %388, %382 ], [ %.1161, %144 ], [ %.1161, %.critedge ]
-  %399 = getelementptr inbounds i64, ptr %21, i64 %.5
+  %399 = getelementptr inbounds [8 x i8], ptr %21, i64 %.5
   %400 = load i64, ptr %399, align 8, !tbaa !110
-  %401 = getelementptr inbounds i64, ptr %22, i64 %.5
+  %401 = getelementptr inbounds [8 x i8], ptr %22, i64 %.5
   %402 = load i64, ptr %401, align 8, !tbaa !110
   %403 = icmp ult i64 %400, %402
   br i1 %403, label %112, label %.loopexit
@@ -3015,9 +3010,9 @@ _ZNSt6vectorIN19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer9treeLevelESa
 
 _ZNSt12_Vector_baseIN19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer9treeLevelESaIS3_EE13_M_deallocateEPS3_m.exit39.i.i.i: ; preds = %313, %_ZNSt6vectorIN19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer9treeLevelESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.i.i.i
   store ptr %272, ptr %248, align 8, !tbaa !106
-  %317 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::(anonymous namespace)::InvLut3DRenderer::treeLevel", ptr %273, i64 %256
+  %317 = getelementptr inbounds nuw [112 x i8], ptr %273, i64 %256
   store ptr %317, ptr %249, align 8, !tbaa !107
-  %318 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::(anonymous namespace)::InvLut3DRenderer::treeLevel", ptr %272, i64 %270
+  %318 = getelementptr inbounds nuw [112 x i8], ptr %272, i64 %270
   store ptr %318, ptr %257, align 8, !tbaa !109
   br label %_ZNSt6vectorIN19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer9treeLevelESaIS3_EE6resizeEm.exit.i
 
@@ -3026,7 +3021,7 @@ _ZNSt12_Vector_baseIN19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer9treeL
   br i1 %320, label %321, label %_ZNSt6vectorIN19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer9treeLevelESaIS3_EE6resizeEm.exit.i
 
 321:                                              ; preds = %319
-  %322 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::(anonymous namespace)::InvLut3DRenderer::treeLevel", ptr %.val.i.i, i64 %246
+  %322 = getelementptr inbounds nuw [112 x i8], ptr %.val.i.i, i64 %246
   %.not.i9.i.i = icmp eq ptr %.val4.i.i, %322
   br i1 %.not.i9.i.i, label %_ZNSt6vectorIN19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer9treeLevelESaIS3_EE6resizeEm.exit.i, label %.lr.ph.i.i.i.i.i.i
 
@@ -3117,7 +3112,7 @@ _ZNSt6vectorIN19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer9treeLevelESa
 360:                                              ; preds = %360, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer18extrapolate3DArrayERSt10shared_ptrIKNS_11Lut3DOpDataEE.exit
   %.0147.i = phi i64 [ 0, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer18extrapolate3DArrayERSt10shared_ptrIKNS_11Lut3DOpDataEE.exit ], [ %365, %360 ]
   %.0128146.i = phi float [ 0.000000e+00, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer18extrapolate3DArrayERSt10shared_ptrIKNS_11Lut3DOpDataEE.exit ], [ %.sroa.speculated.i, %360 ]
-  %361 = getelementptr inbounds nuw i64, ptr %238, i64 %.0147.i
+  %361 = getelementptr inbounds nuw [8 x i8], ptr %238, i64 %.0147.i
   %362 = load i64, ptr %361, align 8, !tbaa !110
   %363 = uitofp i64 %362 to float
   %364 = fcmp olt float %.0128146.i, %363
@@ -3157,7 +3152,7 @@ _ZNSt6vectorIN19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer9treeLevelESa
   br i1 %379, label %380, label %_ZNSt6vectorImSaImEE6resizeEm.exit.i
 
 380:                                              ; preds = %378
-  %381 = getelementptr inbounds nuw i64, ptr %370, i64 %356
+  %381 = getelementptr inbounds nuw [8 x i8], ptr %370, i64 %356
   %.not.i.i.i = icmp eq ptr %369, %381
   br i1 %.not.i.i.i, label %_ZNSt6vectorImSaImEE6resizeEm.exit.i, label %382
 
@@ -3176,7 +3171,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit.i:             ; preds = %382, %380, %378, %3
 
 ._crit_edge.i6:                                   ; preds = %388, %.preheader.i5
   %.058.lcssa.i = phi i64 [ 1, %.preheader.i5 ], [ %394, %388 ]
-  %385 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::(anonymous namespace)::InvLut3DRenderer::treeLevel", ptr %.val.i, i64 %.051151.i
+  %385 = getelementptr inbounds nuw [112 x i8], ptr %.val.i, i64 %.051151.i
   store i64 %.058.lcssa.i, ptr %385, align 8, !tbaa !174
   %386 = getelementptr inbounds nuw i8, ptr %385, i64 8
   store i64 %357, ptr %386, align 8, !tbaa !176
@@ -3187,7 +3182,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit.i:             ; preds = %382, %380, %378, %3
 388:                                              ; preds = %388, %.lr.ph.i
   %.058149.i = phi i64 [ 1, %.lr.ph.i ], [ %394, %388 ]
   %.060148.i = phi i64 [ 0, %.lr.ph.i ], [ %395, %388 ]
-  %389 = getelementptr inbounds nuw i64, ptr %238, i64 %.060148.i
+  %389 = getelementptr inbounds nuw [8 x i8], ptr %238, i64 %.060148.i
   %390 = load i64, ptr %389, align 8, !tbaa !110
   %391 = add i64 %390, -2
   %392 = lshr i64 %391, %366
@@ -3236,7 +3231,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit.i:             ; preds = %382, %380, %378, %3
 407:                                              ; preds = %407, %.preheader.us.us.us.i.i
   %.252.us.us.us.i.i = phi i64 [ %.13554.us.us.us.i.i, %.preheader.us.us.us.i.i ], [ %411, %407 ]
   %.03751.us.us.us.i.i = phi i64 [ 0, %.preheader.us.us.us.i.i ], [ %412, %407 ]
-  %408 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::(anonymous namespace)::InvLut3DRenderer::baseInd", ptr %.val.us.us.i.i, i64 %.252.us.us.us.i.i
+  %408 = getelementptr inbounds nuw [32 x i8], ptr %.val.us.us.i.i, i64 %.252.us.us.us.i.i
   store i64 %.03659.us.us.i.i, ptr %408, align 8, !tbaa !110
   %409 = getelementptr inbounds nuw i8, ptr %408, i64 8
   store i64 %.03853.us.us.us.i.i, ptr %409, align 8, !tbaa !110
@@ -3281,7 +3276,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit.i:             ; preds = %382, %380, %378, %3
 422:                                              ; preds = %422, %.preheader45.us.i.i
   %.048.us.i.i = phi i64 [ 0, %.preheader45.us.i.i ], [ %426, %422 ]
   %.147.us.i.i = phi i64 [ %.03349.us.i.i, %.preheader45.us.i.i ], [ %425, %422 ]
-  %423 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::(anonymous namespace)::InvLut3DRenderer::baseInd", ptr %.val42.i.i, i64 %.147.us.i.i
+  %423 = getelementptr inbounds nuw [32 x i8], ptr %.val42.i.i, i64 %.147.us.i.i
   store i64 %.03250.us.i.i, ptr %423, align 8, !tbaa !110
   %424 = getelementptr inbounds nuw i8, ptr %423, i64 8
   store i64 %.048.us.i.i, ptr %424, align 8, !tbaa !110
@@ -3319,7 +3314,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer9RangeTree8initIndsEv.ex
 _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer9RangeTree10indsToHashEm.exit.us.i: ; preds = %.lr.ph158.i, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer9RangeTree10indsToHashEm.exit.us.i
   %.059157.us.i = phi i64 [ %438, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer9RangeTree10indsToHashEm.exit.us.i ], [ 0, %.lr.ph158.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %436 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::(anonymous namespace)::InvLut3DRenderer::baseInd", ptr %.val72.i, i64 %.059157.us.i
+  %436 = getelementptr inbounds nuw [32 x i8], ptr %.val72.i, i64 %.059157.us.i
   %437 = getelementptr inbounds nuw i8, ptr %436, i64 24
   store i64 0, ptr %437, align 8, !tbaa !186
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -3338,7 +3333,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer9RangeTree10indsToHashEm
   %446 = trunc i64 %445 to i32
   %447 = shl nuw i32 1, %446
   %448 = sext i32 %447 to i64
-  %449 = getelementptr inbounds nuw i64, ptr %384, i64 %.061154.i
+  %449 = getelementptr inbounds nuw [8 x i8], ptr %384, i64 %.061154.i
   store i64 %448, ptr %449, align 8, !tbaa !110
   %450 = add nuw i64 %.061154.i, 1
   %451 = load i64, ptr %247, align 8, !tbaa !112
@@ -3467,7 +3462,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN19OpenColorIO_v2_5dev12_GLO
   %479 = sub i64 %478, %431
   %480 = ashr exact i64 %479, 5
   %481 = sub nsw i64 0, %480
-  %482 = getelementptr inbounds %"struct.OpenColorIO_v2_5dev::(anonymous namespace)::InvLut3DRenderer::baseInd", ptr %477, i64 %481
+  %482 = getelementptr inbounds [32 x i8], ptr %477, i64 %481
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %482, ptr noundef nonnull align 8 dereferenceable(1) %.val72.i, i64 %479, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.val72.i, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false), !tbaa.struct !190
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -3514,7 +3509,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN19OpenColorIO_v2_5dev12_GLOBAL__N_116
 .noexc80.i:                                       ; preds = %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer7baseIndESt6vectorIS5_SaIS5_EEEEEvT_SB_.exit.i
   %490 = ashr exact i64 %432, 2
   %491 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %490) #28
-  %492 = getelementptr inbounds nuw i64, ptr %491, i64 %433
+  %492 = getelementptr inbounds nuw [8 x i8], ptr %491, i64 %433
   store i64 0, ptr %491, align 8, !tbaa !110
   %493 = getelementptr i8, ptr %491, i64 8
   %494 = add nsw i64 %433, -1
@@ -3531,7 +3526,7 @@ _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %.noexc80.i
   %.059157.i = phi i64 [ %522, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer9RangeTree10indsToHashEm.exit.loopexit.i ], [ 0, %.lr.ph158.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.val.i82.i = load ptr, ptr %428, align 8
-  %497 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::(anonymous namespace)::InvLut3DRenderer::baseInd", ptr %.val.i82.i, i64 %.059157.i
+  %497 = getelementptr inbounds nuw [32 x i8], ptr %.val.i82.i, i64 %.059157.i
   br i1 %.not29.i.i, label %.lr.ph26.split.preheader.i.i, label %.lr.ph.us.i.i
 
 .lr.ph26.split.preheader.i.i:                     ; preds = %.lr.ph26.i.i
@@ -3547,10 +3542,10 @@ _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %.noexc80.i
 500:                                              ; preds = %500, %.lr.ph.us.i.i
   %501 = phi i64 [ 0, %.lr.ph.us.i.i ], [ %509, %500 ]
   %.02123.us.i.i = phi i64 [ 0, %.lr.ph.us.i.i ], [ %510, %500 ]
-  %502 = getelementptr inbounds nuw i64, ptr %497, i64 %.02123.us.i.i
+  %502 = getelementptr inbounds nuw [8 x i8], ptr %497, i64 %.02123.us.i.i
   %503 = load i64, ptr %502, align 8, !tbaa !110
   %504 = lshr i64 %503, %499
-  %505 = getelementptr inbounds nuw i64, ptr @__const._ZN19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer9RangeTree10indsToHashEm.pows2, i64 %.02123.us.i.i
+  %505 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZN19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer9RangeTree10indsToHashEm.pows2, i64 %.02123.us.i.i
   %506 = load i64, ptr %505, align 8, !tbaa !110
   %507 = trunc i64 %504 to i1
   %508 = select i1 %507, i64 %506, i64 0
@@ -3560,7 +3555,7 @@ _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %.noexc80.i
   br i1 %exitcond.not.i83.i, label %._crit_edge.us.i84.i, label %500, !llvm.loop !194
 
 ._crit_edge.us.i84.i:                             ; preds = %500
-  %511 = getelementptr inbounds nuw i64, ptr %6, i64 %.02024.us.i.i
+  %511 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.02024.us.i.i
   store i64 %509, ptr %511, align 8, !tbaa !110
   %512 = add nuw i64 %.02024.us.i.i, 1
   %exitcond33.not.i.i = icmp eq i64 %512, %.pre35
@@ -3572,9 +3567,9 @@ _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %.noexc80.i
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i
   %.028.i.i = phi i64 [ %519, %.lr.ph.i.i ], [ 0, %.lr.ph.i.i.preheader ]
   %.01927.i.i = phi i64 [ %518, %.lr.ph.i.i ], [ 0, %.lr.ph.i.i.preheader ]
-  %513 = getelementptr inbounds nuw i64, ptr %6, i64 %.028.i.i
+  %513 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.028.i.i
   %514 = load i64, ptr %513, align 8, !tbaa !110
-  %515 = getelementptr inbounds nuw i64, ptr %435, i64 %.028.i.i
+  %515 = getelementptr inbounds nuw [8 x i8], ptr %435, i64 %.028.i.i
   %516 = load i64, ptr %515, align 8, !tbaa !110
   %517 = mul i64 %516, %514
   %518 = add i64 %517, %.01927.i.i
@@ -3583,7 +3578,7 @@ _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %.noexc80.i
   br i1 %exitcond34.not.i.i, label %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer9RangeTree10indsToHashEm.exit.loopexit.i, label %.lr.ph.i.i, !llvm.loop !196
 
 _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer9RangeTree10indsToHashEm.exit.loopexit.i: ; preds = %.lr.ph.i.i
-  %520 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::(anonymous namespace)::InvLut3DRenderer::baseInd", ptr %.val72.i, i64 %.059157.i
+  %520 = getelementptr inbounds nuw [32 x i8], ptr %.val72.i, i64 %.059157.i
   %521 = getelementptr inbounds nuw i8, ptr %520, i64 24
   store i64 %518, ptr %521, align 8, !tbaa !186
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -3609,7 +3604,7 @@ _ZNSt6vectorImSaImEEC2EmRKS0_.exit.i:             ; preds = %_ZSt6fill_nIPmmmET_
   %.sroa.0113.3292.i = phi ptr [ null, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer9RangeTree8initIndsEv.exit.i ], [ %491, %._crit_edge162.i.loopexit ]
   %525 = add i64 %524, -1
   %.val60.i.i = load ptr, ptr %248, align 8, !tbaa !106
-  %526 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::(anonymous namespace)::InvLut3DRenderer::treeLevel", ptr %.val60.i.i, i64 %525
+  %526 = getelementptr inbounds nuw [112 x i8], ptr %.val60.i.i, i64 %525
   %527 = load i64, ptr %526, align 8, !tbaa !174
   %528 = getelementptr inbounds nuw i8, ptr %526, i64 16
   %529 = mul i64 %523, %527
@@ -3639,7 +3634,7 @@ _ZNSt6vectorImSaImEEC2EmRKS0_.exit.i:             ; preds = %_ZSt6fill_nIPmmmET_
   br i1 %541, label %542, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i.i
 
 542:                                              ; preds = %540
-  %543 = getelementptr inbounds nuw float, ptr %532, i64 %529
+  %543 = getelementptr inbounds nuw [4 x i8], ptr %532, i64 %529
   %.not.i.i.i.i = icmp eq ptr %531, %543
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i.i, label %544
 
@@ -3651,7 +3646,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit.i.i:           ; preds = %544, %542, %540, %.
   %.pre-phi.i.i = phi i64 [ %.pre104.i.i, %.noexc87.i ], [ %529, %540 ], [ %529, %542 ], [ %529, %544 ]
   %545 = phi i64 [ %.pre.i.i, %.noexc87.i ], [ %523, %540 ], [ %523, %542 ], [ %523, %544 ]
   %.val58.i.i = phi ptr [ %.val58.pre.i.i, %.noexc87.i ], [ %.val60.i.i, %540 ], [ %.val60.i.i, %542 ], [ %.val60.i.i, %544 ]
-  %546 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::(anonymous namespace)::InvLut3DRenderer::treeLevel", ptr %.val58.i.i, i64 %525
+  %546 = getelementptr inbounds nuw [112 x i8], ptr %.val58.i.i, i64 %525
   %547 = getelementptr inbounds nuw i8, ptr %546, i64 40
   %548 = getelementptr inbounds nuw i8, ptr %546, i64 48
   %549 = load ptr, ptr %548, align 8, !tbaa !171
@@ -3677,7 +3672,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit.i.i:           ; preds = %544, %542, %540, %.
   br i1 %559, label %560, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit65.i.i
 
 560:                                              ; preds = %558
-  %561 = getelementptr inbounds nuw float, ptr %550, i64 %.pre-phi.i.i
+  %561 = getelementptr inbounds nuw [4 x i8], ptr %550, i64 %.pre-phi.i.i
   %.not.i.i64.i.i = icmp eq ptr %549, %561
   br i1 %.not.i.i64.i.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit65.i.i, label %562
 
@@ -3753,7 +3748,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit65.i.i:         ; preds = %562, %560, %558, %.
 .lr.ph78.split.us.preheader.i.i:                  ; preds = %582
   %.val63.i.i = load ptr, ptr %428, align 8, !tbaa !184
   %.val57.i.i = load ptr, ptr %248, align 8
-  %584 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::(anonymous namespace)::InvLut3DRenderer::treeLevel", ptr %.val57.i.i, i64 %525
+  %584 = getelementptr inbounds nuw [112 x i8], ptr %.val57.i.i, i64 %525
   %585 = getelementptr inbounds nuw i8, ptr %584, i64 16
   %586 = getelementptr inbounds nuw i8, ptr %584, i64 40
   %587 = shl nuw nsw i64 %563, 2
@@ -3768,16 +3763,16 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit65.i.i:         ; preds = %562, %560, %558, %.
 
 591:                                              ; preds = %.lr.ph75.us.i.i, %591
   %.074.us.i.i = phi i64 [ 0, %.lr.ph75.us.i.i ], [ %601, %591 ]
-  %592 = getelementptr inbounds nuw float, ptr %4, i64 %.074.us.i.i
+  %592 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.074.us.i.i
   %593 = load float, ptr %592, align 4, !tbaa !99
   %594 = fadd float %593, 0xBEB0C6F7A0000000
   %595 = add i64 %.074.us.i.i, %632
-  %596 = getelementptr inbounds nuw float, ptr %588, i64 %595
+  %596 = getelementptr inbounds nuw [4 x i8], ptr %588, i64 %595
   store float %594, ptr %596, align 4, !tbaa !99
-  %597 = getelementptr inbounds nuw float, ptr %5, i64 %.074.us.i.i
+  %597 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.074.us.i.i
   %598 = load float, ptr %597, align 4, !tbaa !99
   %599 = fadd float %598, 0x3EB0C6F7A0000000
-  %600 = getelementptr inbounds nuw float, ptr %589, i64 %595
+  %600 = getelementptr inbounds nuw [4 x i8], ptr %589, i64 %595
   store float %599, ptr %600, align 4, !tbaa !99
   %601 = add nuw i64 %.074.us.i.i, 1
   %exitcond100.not.i.i = icmp eq i64 %601, %563
@@ -3785,7 +3780,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit65.i.i:         ; preds = %562, %560, %558, %.
 
 .preheader69.us.i.i:                              ; preds = %._crit_edge.us80.i.i, %.lr.ph78.split.us.preheader.i.i
   %.05276.us.i.i = phi i64 [ %590, %._crit_edge.us80.i.i ], [ 0, %.lr.ph78.split.us.preheader.i.i ]
-  %602 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::(anonymous namespace)::InvLut3DRenderer::baseInd", ptr %.val63.i.i, i64 %.05276.us.i.i
+  %602 = getelementptr inbounds nuw [32 x i8], ptr %.val63.i.i, i64 %.05276.us.i.i
   %603 = load i64, ptr %602, align 8, !tbaa !110
   %604 = mul i64 %603, %566
   %605 = getelementptr inbounds nuw i8, ptr %602, i64 8
@@ -3796,30 +3791,30 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit65.i.i:         ; preds = %562, %560, %558, %.
   %610 = load i64, ptr %609, align 8, !tbaa !110
   %611 = add i64 %608, %610
   %612 = mul i64 %611, %563
-  %613 = getelementptr float, ptr %236, i64 %612
+  %613 = getelementptr [4 x i8], ptr %236, i64 %612
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr readonly align 4 %613, i64 %587, i1 false), !tbaa !99
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr readonly align 4 %613, i64 %587, i1 false), !tbaa !99
   br label %.lr.ph72.us.us.i.i
 
 .lr.ph72.us.us.i.i:                               ; preds = %._crit_edge.us.us.i.i, %.preheader69.us.i.i
   %.05373.us.us.i.i = phi i64 [ 1, %.preheader69.us.i.i ], [ %631, %._crit_edge.us.us.i.i ]
-  %614 = getelementptr inbounds nuw i64, ptr %3, i64 %.05373.us.us.i.i
+  %614 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.05373.us.us.i.i
   %615 = load i64, ptr %614, align 8, !tbaa !110
   %616 = add i64 %615, %611
   %617 = mul i64 %616, %563
-  %618 = getelementptr float, ptr %236, i64 %617
+  %618 = getelementptr [4 x i8], ptr %236, i64 %617
   br label %619
 
 619:                                              ; preds = %619, %.lr.ph72.us.us.i.i
   %.05171.us.us.i.i = phi i64 [ 0, %.lr.ph72.us.us.i.i ], [ %630, %619 ]
-  %620 = getelementptr inbounds nuw float, ptr %4, i64 %.05171.us.us.i.i
-  %621 = getelementptr float, ptr %618, i64 %.05171.us.us.i.i
+  %620 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.05171.us.us.i.i
+  %621 = getelementptr [4 x i8], ptr %618, i64 %.05171.us.us.i.i
   %622 = load float, ptr %621, align 4, !tbaa !99
   %623 = load float, ptr %620, align 4, !tbaa !99
   %624 = fcmp olt float %622, %623
   %625 = select i1 %624, float %622, float %623
   store float %625, ptr %620, align 4, !tbaa !99
-  %626 = getelementptr inbounds nuw float, ptr %5, i64 %.05171.us.us.i.i
+  %626 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.05171.us.us.i.i
   %627 = load float, ptr %626, align 4, !tbaa !99
   %628 = fcmp olt float %627, %622
   %629 = select i1 %628, float %622, float %627
@@ -3839,10 +3834,10 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit65.i.i:         ; preds = %562, %560, %558, %.
 
 633:                                              ; preds = %633, %_ZNSt6vectorImSaImEEC2EmRKS0_.exit.i
   %.053160.i = phi i64 [ 0, %_ZNSt6vectorImSaImEEC2EmRKS0_.exit.i ], [ %638, %633 ]
-  %634 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::(anonymous namespace)::InvLut3DRenderer::baseInd", ptr %.val74.i, i64 %.053160.i
+  %634 = getelementptr inbounds nuw [32 x i8], ptr %.val74.i, i64 %.053160.i
   %635 = getelementptr inbounds nuw i8, ptr %634, i64 24
   %636 = load i64, ptr %635, align 8, !tbaa !186
-  %637 = getelementptr inbounds nuw i64, ptr %491, i64 %.053160.i
+  %637 = getelementptr inbounds nuw [8 x i8], ptr %491, i64 %.053160.i
   store i64 %636, ptr %637, align 8, !tbaa !110
   %638 = add nuw i64 %.053160.i, 1
   %exitcond201.not.i = icmp eq i64 %638, %433
@@ -3886,7 +3881,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit65.i.i:         ; preds = %562, %560, %558, %.
   %.sroa.15.0168.i = phi ptr [ %.0.i.i.i.i.i294.i, %.lr.ph172.preheader.i ], [ %.sroa.15.1.i, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer9RangeTree12updateRangesEm.exit.i ]
   %.sroa.0113.0167.i = phi ptr [ %.sroa.0113.3292.i, %.lr.ph172.preheader.i ], [ %.sroa.0113.4.i, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer9RangeTree12updateRangesEm.exit.i ]
   %.val47.i.i = load ptr, ptr %248, align 8, !tbaa !106
-  %650 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::(anonymous namespace)::InvLut3DRenderer::treeLevel", ptr %.val47.i.i, i64 %indvars.iv.i
+  %650 = getelementptr inbounds nuw [112 x i8], ptr %.val47.i.i, i64 %indvars.iv.i
   %651 = load i64, ptr %650, align 8, !tbaa !174
   %652 = getelementptr inbounds nuw i8, ptr %650, i64 64
   %653 = getelementptr inbounds nuw i8, ptr %650, i64 72
@@ -3913,7 +3908,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit65.i.i:         ; preds = %562, %560, %558, %.
   br i1 %664, label %665, label %_ZNSt6vectorImSaImEE6resizeEm.exit.i.i
 
 665:                                              ; preds = %663
-  %666 = getelementptr inbounds nuw i64, ptr %655, i64 %651
+  %666 = getelementptr inbounds nuw [8 x i8], ptr %655, i64 %651
   %.not.i.i.i95.i = icmp eq ptr %654, %666
   br i1 %.not.i.i.i95.i, label %_ZNSt6vectorImSaImEE6resizeEm.exit.i.i, label %667
 
@@ -3923,7 +3918,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit65.i.i:         ; preds = %562, %560, %558, %.
 
 _ZNSt6vectorImSaImEE6resizeEm.exit.i.i:           ; preds = %667, %665, %663, %.noexc96.i
   %.val45.i.i = phi ptr [ %.val45.pre.i.i, %.noexc96.i ], [ %.val47.i.i, %663 ], [ %.val47.i.i, %665 ], [ %.val47.i.i, %667 ]
-  %668 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::(anonymous namespace)::InvLut3DRenderer::treeLevel", ptr %.val45.i.i, i64 %indvars.iv.i
+  %668 = getelementptr inbounds nuw [112 x i8], ptr %.val45.i.i, i64 %indvars.iv.i
   %669 = getelementptr inbounds nuw i8, ptr %668, i64 88
   %670 = getelementptr inbounds nuw i8, ptr %668, i64 96
   %671 = load ptr, ptr %670, align 8, !tbaa !115
@@ -3949,7 +3944,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit.i.i:           ; preds = %667, %665, %663, %.
   br i1 %681, label %682, label %_ZNSt6vectorImSaImEE6resizeEm.exit49.i.i
 
 682:                                              ; preds = %680
-  %683 = getelementptr inbounds nuw i64, ptr %672, i64 %651
+  %683 = getelementptr inbounds nuw [8 x i8], ptr %672, i64 %651
   %.not.i.i48.i.i = icmp eq ptr %671, %683
   br i1 %.not.i.i48.i.i, label %_ZNSt6vectorImSaImEE6resizeEm.exit49.i.i, label %684
 
@@ -3964,11 +3959,11 @@ _ZNSt6vectorImSaImEE6resizeEm.exit49.i.i:         ; preds = %684, %682, %680, %.
   %687 = shl nuw i32 1, %686
   %688 = sext i32 %687 to i64
   %689 = load ptr, ptr %367, align 8, !tbaa !104
-  %690 = getelementptr inbounds nuw i64, ptr %689, i64 %indvars.iv.i
+  %690 = getelementptr inbounds nuw [8 x i8], ptr %689, i64 %indvars.iv.i
   %691 = getelementptr inbounds nuw i8, ptr %690, i64 8
   %692 = load i64, ptr %691, align 8, !tbaa !110
   %693 = mul i64 %692, %688
-  %694 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::(anonymous namespace)::InvLut3DRenderer::treeLevel", ptr %.val44.i.i, i64 %indvars.iv.i
+  %694 = getelementptr inbounds nuw [112 x i8], ptr %.val44.i.i, i64 %indvars.iv.i
   %695 = getelementptr inbounds nuw i8, ptr %694, i64 64
   %696 = load ptr, ptr %695, align 8, !tbaa !104
   store i64 0, ptr %696, align 8, !tbaa !110
@@ -3989,7 +3984,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit49.i.i:         ; preds = %684, %682, %680, %.
 .lr.ph.i93.i:                                     ; preds = %_ZNSt6vectorImSaImEE6resizeEm.exit49.i.i, %712
   %.051.i.i = phi i64 [ %.1.i.i, %712 ], [ 1, %_ZNSt6vectorImSaImEE6resizeEm.exit49.i.i ]
   %.03750.i.i = phi i64 [ %713, %712 ], [ 1, %_ZNSt6vectorImSaImEE6resizeEm.exit49.i.i ]
-  %703 = getelementptr i64, ptr %.sroa.0113.0167.i, i64 %.03750.i.i
+  %703 = getelementptr [8 x i8], ptr %.sroa.0113.0167.i, i64 %.03750.i.i
   %704 = load i64, ptr %703, align 8, !tbaa !110
   %705 = getelementptr i8, ptr %703, i64 -8
   %706 = load i64, ptr %705, align 8, !tbaa !110
@@ -3998,7 +3993,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit49.i.i:         ; preds = %684, %682, %680, %.
   br i1 %708, label %709, label %712
 
 709:                                              ; preds = %.lr.ph.i93.i
-  %710 = getelementptr inbounds nuw i64, ptr %696, i64 %.051.i.i
+  %710 = getelementptr inbounds nuw [8 x i8], ptr %696, i64 %.051.i.i
   store i64 %.03750.i.i, ptr %710, align 8, !tbaa !110
   %711 = add i64 %.051.i.i, 1
   br label %712
@@ -4012,24 +4007,24 @@ _ZNSt6vectorImSaImEE6resizeEm.exit49.i.i:         ; preds = %684, %682, %680, %.
 .lr.ph53.i.i:                                     ; preds = %.preheader.i.i, %.lr.ph53.i.i
   %.03652.i.i = phi i64 [ %714, %.lr.ph53.i.i ], [ 0, %.preheader.i.i ]
   %714 = add nuw i64 %.03652.i.i, 1
-  %715 = getelementptr inbounds nuw i64, ptr %696, i64 %714
+  %715 = getelementptr inbounds nuw [8 x i8], ptr %696, i64 %714
   %716 = load i64, ptr %715, align 8, !tbaa !110
-  %717 = getelementptr inbounds nuw i64, ptr %696, i64 %.03652.i.i
+  %717 = getelementptr inbounds nuw [8 x i8], ptr %696, i64 %.03652.i.i
   %718 = load i64, ptr %717, align 8, !tbaa !110
   %719 = sub i64 %716, %718
-  %720 = getelementptr inbounds nuw i64, ptr %.pre.i92.i, i64 %.03652.i.i
+  %720 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i92.i, i64 %.03652.i.i
   store i64 %719, ptr %720, align 8, !tbaa !110
   %exitcond54.not.i.i = icmp eq i64 %714, %702
   br i1 %exitcond54.not.i.i, label %.loopexit.i, label %.lr.ph53.i.i, !llvm.loop !203
 
 .loopexit.i:                                      ; preds = %.lr.ph53.i.i, %.preheader.i.i
-  %721 = getelementptr inbounds nuw i64, ptr %696, i64 %702
+  %721 = getelementptr inbounds nuw [8 x i8], ptr %696, i64 %702
   %722 = load i64, ptr %721, align 8, !tbaa !110
   %723 = sub i64 %700, %722
-  %724 = getelementptr inbounds nuw i64, ptr %.pre.i92.i, i64 %702
+  %724 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i92.i, i64 %702
   store i64 %723, ptr %724, align 8, !tbaa !110
   %.val70.i = load ptr, ptr %248, align 8, !tbaa !106
-  %725 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::(anonymous namespace)::InvLut3DRenderer::treeLevel", ptr %.val70.i, i64 %indvars.iv.i
+  %725 = getelementptr inbounds nuw [112 x i8], ptr %.val70.i, i64 %indvars.iv.i
   %726 = load i64, ptr %725, align 8, !tbaa !174
   %.not180.i = icmp eq i64 %726, 0
   br i1 %.not180.i, label %._crit_edge166.i, label %.lr.ph165.i
@@ -4119,8 +4114,8 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit.i.i: ; preds = %755, %_ZSt27
   br label %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit36.i.i
 
 _ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit36.i.i: ; preds = %756, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit.i.i
-  %758 = getelementptr inbounds nuw i64, ptr %750, i64 %731
-  %759 = getelementptr inbounds nuw i64, ptr %749, i64 %747
+  %758 = getelementptr inbounds nuw [8 x i8], ptr %750, i64 %731
+  %759 = getelementptr inbounds nuw [8 x i8], ptr %749, i64 %747
   br label %_ZNSt6vectorImSaImEE6resizeEm.exit100.i
 
 760:                                              ; preds = %._crit_edge166.i
@@ -4128,7 +4123,7 @@ _ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit36.i.i: ; preds = %756, %_ZNS
   br i1 %761, label %762, label %_ZNSt6vectorImSaImEE6resizeEm.exit100.i
 
 762:                                              ; preds = %760
-  %763 = getelementptr inbounds nuw i64, ptr %.sroa.0113.0167.i, i64 %726
+  %763 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0113.0167.i, i64 %726
   %.not.i.i98.i = icmp eq ptr %.sroa.15.0168.i, %763
   %spec.select.i = select i1 %.not.i.i98.i, ptr %.sroa.15.0168.i, ptr %763
   br label %_ZNSt6vectorImSaImEE6resizeEm.exit100.i
@@ -4140,11 +4135,11 @@ _ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit36.i.i: ; preds = %756, %_ZNS
 
 766:                                              ; preds = %766, %.lr.ph165.i
   %.050163.i = phi i64 [ 0, %.lr.ph165.i ], [ %772, %766 ]
-  %767 = getelementptr inbounds nuw i64, ptr %728, i64 %.050163.i
+  %767 = getelementptr inbounds nuw [8 x i8], ptr %728, i64 %.050163.i
   %768 = load i64, ptr %767, align 8, !tbaa !110
-  %769 = getelementptr inbounds nuw i64, ptr %.sroa.0113.0167.i, i64 %768
+  %769 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0113.0167.i, i64 %768
   %770 = load i64, ptr %769, align 8, !tbaa !110
-  %771 = getelementptr inbounds nuw i64, ptr %.sroa.0113.0167.i, i64 %.050163.i
+  %771 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0113.0167.i, i64 %.050163.i
   store i64 %770, ptr %771, align 8, !tbaa !110
   %772 = add nuw i64 %.050163.i, 1
   %exitcond202.not.i = icmp eq i64 %772, %726
@@ -4159,7 +4154,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit100.i:          ; preds = %762, %760, %_ZNSt12
   %775 = shl nuw i32 1, %774
   %776 = sext i32 %775 to i64
   %.val77.i.i = load ptr, ptr %248, align 8, !tbaa !106
-  %777 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::(anonymous namespace)::InvLut3DRenderer::treeLevel", ptr %.val77.i.i, i64 %indvars.iv.i
+  %777 = getelementptr inbounds nuw [112 x i8], ptr %.val77.i.i, i64 %indvars.iv.i
   %778 = load i64, ptr %777, align 8, !tbaa !174
   %779 = getelementptr inbounds nuw i8, ptr %777, i64 16
   %780 = mul i64 %778, %773
@@ -4189,7 +4184,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit100.i:          ; preds = %762, %760, %_ZNSt12
   br i1 %792, label %793, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i101.i
 
 793:                                              ; preds = %791
-  %794 = getelementptr inbounds nuw float, ptr %783, i64 %780
+  %794 = getelementptr inbounds nuw [4 x i8], ptr %783, i64 %780
   %.not.i.i.i104.i = icmp eq ptr %782, %794
   br i1 %.not.i.i.i104.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i101.i, label %795
 
@@ -4200,7 +4195,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit100.i:          ; preds = %762, %760, %_ZNSt12
 _ZNSt6vectorIfSaIfEE6resizeEm.exit.i101.i:        ; preds = %795, %793, %791, %.noexc106.i
   %.pre-phi.i102.i = phi i64 [ %.pre114.i.i, %.noexc106.i ], [ %780, %791 ], [ %780, %793 ], [ %780, %795 ]
   %.val75.i.i = phi ptr [ %.val75.pre.i.i, %.noexc106.i ], [ %.val77.i.i, %791 ], [ %.val77.i.i, %793 ], [ %.val77.i.i, %795 ]
-  %796 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::(anonymous namespace)::InvLut3DRenderer::treeLevel", ptr %.val75.i.i, i64 %indvars.iv.i
+  %796 = getelementptr inbounds nuw [112 x i8], ptr %.val75.i.i, i64 %indvars.iv.i
   %797 = getelementptr inbounds nuw i8, ptr %796, i64 40
   %798 = getelementptr inbounds nuw i8, ptr %796, i64 48
   %799 = load ptr, ptr %798, align 8, !tbaa !171
@@ -4222,7 +4217,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit.i101.i:        ; preds = %795, %793, %791, %.
   br i1 %809, label %810, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit79.i.i
 
 810:                                              ; preds = %808
-  %811 = getelementptr inbounds nuw float, ptr %800, i64 %.pre-phi.i102.i
+  %811 = getelementptr inbounds nuw [4 x i8], ptr %800, i64 %.pre-phi.i102.i
   %.not.i.i78.i.i = icmp eq ptr %799, %811
   br i1 %.not.i.i78.i.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit79.i.i, label %812
 
@@ -4236,7 +4231,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit79.i.i:         ; preds = %812, %810, %808, %8
 
 .lr.ph87.i.i:                                     ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit79.i.i
   %.val74.i.i = load ptr, ptr %248, align 8, !tbaa !106
-  %813 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::(anonymous namespace)::InvLut3DRenderer::treeLevel", ptr %.val74.i.i, i64 %indvars.iv.i
+  %813 = getelementptr inbounds nuw [112 x i8], ptr %.val74.i.i, i64 %indvars.iv.i
   %814 = getelementptr inbounds nuw i8, ptr %813, i64 64
   %815 = load ptr, ptr %814, align 8, !tbaa !104
   %816 = load i64, ptr %237, align 8, !tbaa !111
@@ -4261,7 +4256,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit79.i.i:         ; preds = %812, %810, %808, %8
 
 .lr.ph.us.us.i.i:                                 ; preds = %..preheader_crit_edge.us.us.i.i, %.lr.ph87.split.us.split.us.i.i
   %.086.us.us.i.i = phi i64 [ 0, %.lr.ph87.split.us.split.us.i.i ], [ %839, %..preheader_crit_edge.us.us.i.i ]
-  %825 = getelementptr inbounds nuw i64, ptr %815, i64 %.086.us.us.i.i
+  %825 = getelementptr inbounds nuw [8 x i8], ptr %815, i64 %.086.us.us.i.i
   %826 = load i64, ptr %825, align 8, !tbaa !110
   %827 = mul i64 %826, %.fr101.i.i
   %828 = mul i64 %.086.us.us.i.i, %.fr101.i.i
@@ -4270,14 +4265,14 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit79.i.i:         ; preds = %812, %810, %808, %8
 829:                                              ; preds = %829, %.lr.ph.us.us.i.i
   %.05880.us.us.i.i = phi i64 [ 0, %.lr.ph.us.us.i.i ], [ %838, %829 ]
   %830 = add i64 %.05880.us.us.i.i, %827
-  %831 = getelementptr inbounds nuw float, ptr %821, i64 %830
+  %831 = getelementptr inbounds nuw [4 x i8], ptr %821, i64 %830
   %832 = load float, ptr %831, align 4, !tbaa !99
   %833 = add i64 %.05880.us.us.i.i, %828
-  %834 = getelementptr inbounds nuw float, ptr %822, i64 %833
+  %834 = getelementptr inbounds nuw [4 x i8], ptr %822, i64 %833
   store float %832, ptr %834, align 4, !tbaa !99
-  %835 = getelementptr inbounds nuw float, ptr %823, i64 %830
+  %835 = getelementptr inbounds nuw [4 x i8], ptr %823, i64 %830
   %836 = load float, ptr %835, align 4, !tbaa !99
-  %837 = getelementptr inbounds nuw float, ptr %824, i64 %833
+  %837 = getelementptr inbounds nuw [4 x i8], ptr %824, i64 %833
   store float %836, ptr %837, align 4, !tbaa !99
   %838 = add nuw i64 %.05880.us.us.i.i, 1
   %exitcond111.not.i.i = icmp eq i64 %838, %.fr101.i.i
@@ -4305,28 +4300,28 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit79.i.i:         ; preds = %812, %810, %808, %8
 847:                                              ; preds = %.lr.ph.us92.i.i, %847
   %.05880.us90.i.i = phi i64 [ 0, %.lr.ph.us92.i.i ], [ %856, %847 ]
   %848 = add i64 %.05880.us90.i.i, %862
-  %849 = getelementptr inbounds nuw float, ptr %843, i64 %848
+  %849 = getelementptr inbounds nuw [4 x i8], ptr %843, i64 %848
   %850 = load float, ptr %849, align 4, !tbaa !99
   %851 = add i64 %.05880.us90.i.i, %863
-  %852 = getelementptr inbounds nuw float, ptr %844, i64 %851
+  %852 = getelementptr inbounds nuw [4 x i8], ptr %844, i64 %851
   store float %850, ptr %852, align 4, !tbaa !99
-  %853 = getelementptr inbounds nuw float, ptr %845, i64 %848
+  %853 = getelementptr inbounds nuw [4 x i8], ptr %845, i64 %848
   %854 = load float, ptr %853, align 4, !tbaa !99
-  %855 = getelementptr inbounds nuw float, ptr %846, i64 %851
+  %855 = getelementptr inbounds nuw [4 x i8], ptr %846, i64 %851
   store float %854, ptr %855, align 4, !tbaa !99
   %856 = add nuw i64 %.05880.us90.i.i, 1
   %exitcond.not.i103.i = icmp eq i64 %856, %.fr101.i.i
   br i1 %exitcond.not.i103.i, label %.preheader.us91.i.i, label %847, !llvm.loop !205
 
 .preheader.us91.i.i:                              ; preds = %847
-  %857 = getelementptr inbounds nuw i64, ptr %841, i64 %.086.us89.i.i
+  %857 = getelementptr inbounds nuw [8 x i8], ptr %841, i64 %.086.us89.i.i
   %858 = load i64, ptr %857, align 8, !tbaa !110
   %859 = add i64 %861, -1
   br label %864
 
 .lr.ph.us92.i.i:                                  ; preds = %._crit_edge.split.us.us.i.i, %.lr.ph87.split.split.us.preheader.i.i
   %.086.us89.i.i = phi i64 [ %886, %._crit_edge.split.us.us.i.i ], [ 0, %.lr.ph87.split.split.us.preheader.i.i ]
-  %860 = getelementptr inbounds nuw i64, ptr %815, i64 %.086.us89.i.i
+  %860 = getelementptr inbounds nuw [8 x i8], ptr %815, i64 %.086.us89.i.i
   %861 = load i64, ptr %860, align 8, !tbaa !110
   %862 = mul i64 %861, %.fr101.i.i
   %863 = mul i64 %.086.us89.i.i, %.fr101.i.i
@@ -4345,10 +4340,10 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit79.i.i:         ; preds = %812, %810, %808, %8
 867:                                              ; preds = %883, %.lr.ph82.us.us.i.i
   %.06081.us.us.i.i = phi i64 [ 0, %.lr.ph82.us.us.i.i ], [ %884, %883 ]
   %868 = add i64 %.06081.us.us.i.i, %863
-  %869 = getelementptr inbounds nuw float, ptr %844, i64 %868
+  %869 = getelementptr inbounds nuw [4 x i8], ptr %844, i64 %868
   %870 = load float, ptr %869, align 4, !tbaa !99
   %871 = add i64 %.06081.us.us.i.i, %866
-  %872 = getelementptr inbounds nuw float, ptr %843, i64 %871
+  %872 = getelementptr inbounds nuw [4 x i8], ptr %843, i64 %871
   %873 = load float, ptr %872, align 4, !tbaa !99
   %874 = fcmp olt float %873, %870
   br i1 %874, label %875, label %876
@@ -4358,9 +4353,9 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit79.i.i:         ; preds = %812, %810, %808, %8
   br label %876
 
 876:                                              ; preds = %875, %867
-  %877 = getelementptr inbounds nuw float, ptr %846, i64 %868
+  %877 = getelementptr inbounds nuw [4 x i8], ptr %846, i64 %868
   %878 = load float, ptr %877, align 4, !tbaa !99
-  %879 = getelementptr inbounds nuw float, ptr %845, i64 %871
+  %879 = getelementptr inbounds nuw [4 x i8], ptr %845, i64 %871
   %880 = load float, ptr %879, align 4, !tbaa !99
   %881 = fcmp ogt float %880, %878
   br i1 %881, label %882, label %883
@@ -4655,9 +4650,9 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit36: ; preds = %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !104
-  %39 = getelementptr inbounds nuw i64, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !115
-  %40 = getelementptr inbounds nuw i64, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !105
   br label %41
 
@@ -4739,9 +4734,9 @@ _ZNSt6vectorIN19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer7baseIndESaIS
 
 _ZNSt12_Vector_baseIN19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer7baseIndESaIS3_EE13_M_deallocateEPS3_m.exit35.i: ; preds = %32, %_ZNSt6vectorIN19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer7baseIndESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.i
   store ptr %27, ptr %0, align 8, !tbaa !184
-  %34 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::(anonymous namespace)::InvLut3DRenderer::baseInd", ptr %28, i64 %10
+  %34 = getelementptr inbounds nuw [32 x i8], ptr %28, i64 %10
   store ptr %34, ptr %3, align 8, !tbaa !185
-  %35 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::(anonymous namespace)::InvLut3DRenderer::baseInd", ptr %27, i64 %25
+  %35 = getelementptr inbounds nuw [32 x i8], ptr %27, i64 %25
   store ptr %35, ptr %11, align 8, !tbaa !211
   br label %_ZNSt6vectorIN19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer7baseIndESaIS3_EE17_M_default_appendEm.exit
 
@@ -4750,7 +4745,7 @@ _ZNSt12_Vector_baseIN19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer7baseI
   br i1 %37, label %38, label %_ZNSt6vectorIN19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer7baseIndESaIS3_EE17_M_default_appendEm.exit
 
 38:                                               ; preds = %36
-  %39 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::(anonymous namespace)::InvLut3DRenderer::baseInd", ptr %.val7, i64 %1
+  %39 = getelementptr inbounds nuw [32 x i8], ptr %.val7, i64 %1
   %.not.i9 = icmp eq ptr %.val8, %39
   br i1 %.not.i9, label %_ZNSt6vectorIN19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer7baseIndESaIS3_EE17_M_default_appendEm.exit, label %40
 
@@ -4803,13 +4798,13 @@ define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iterat
   %27 = and i64 %.fr.i20.lcssa, 32
   %28 = icmp eq i64 %27, 0
   %29 = or disjoint i64 %23, 1
-  %30 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::(anonymous namespace)::InvLut3DRenderer::baseInd", ptr %0, i64 %29
-  %31 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::(anonymous namespace)::InvLut3DRenderer::baseInd", ptr %0, i64 %24
+  %30 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %29
+  %31 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %24
   br label %32
 
 32:                                               ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer7baseIndESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_less_iterEEvT_T0_SE_T1_T2_.exit.i.i.i, %._crit_edge
   %.07.i.i.i = phi i64 [ %24, %._crit_edge ], [ %57, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer7baseIndESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_less_iterEEvT_T0_SE_T1_T2_.exit.i.i.i ]
-  %33 = getelementptr inbounds %"struct.OpenColorIO_v2_5dev::(anonymous namespace)::InvLut3DRenderer::baseInd", ptr %0, i64 %.07.i.i.i
+  %33 = getelementptr inbounds [32 x i8], ptr %0, i64 %.07.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.03.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.03.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %33, i64 24, i1 false)
   %.sroa.46.0..sroa.0.0..val12.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %33, i64 24
@@ -4821,17 +4816,17 @@ define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iterat
   %.042.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.07.i.i.i, %32 ]
   %35 = shl i64 %.042.i.i.i.i, 1
   %36 = add i64 %35, 2
-  %37 = getelementptr inbounds %"struct.OpenColorIO_v2_5dev::(anonymous namespace)::InvLut3DRenderer::baseInd", ptr %0, i64 %36
+  %37 = getelementptr inbounds [32 x i8], ptr %0, i64 %36
   %38 = or disjoint i64 %35, 1
-  %39 = getelementptr inbounds %"struct.OpenColorIO_v2_5dev::(anonymous namespace)::InvLut3DRenderer::baseInd", ptr %0, i64 %38
+  %39 = getelementptr inbounds [32 x i8], ptr %0, i64 %38
   %40 = getelementptr i8, ptr %37, i64 24
   %.val2.i.i.i.i.i = load i64, ptr %40, align 8, !tbaa !186
   %41 = getelementptr i8, ptr %39, i64 24
   %.val3.i.i.i.i.i = load i64, ptr %41, align 8, !tbaa !186
   %42 = icmp ult i64 %.val2.i.i.i.i.i, %.val3.i.i.i.i.i
   %spec.select.i.i.i.i = select i1 %42, i64 %38, i64 %36
-  %43 = getelementptr inbounds %"struct.OpenColorIO_v2_5dev::(anonymous namespace)::InvLut3DRenderer::baseInd", ptr %0, i64 %spec.select.i.i.i.i
-  %44 = getelementptr inbounds %"struct.OpenColorIO_v2_5dev::(anonymous namespace)::InvLut3DRenderer::baseInd", ptr %0, i64 %.042.i.i.i.i
+  %43 = getelementptr inbounds [32 x i8], ptr %0, i64 %spec.select.i.i.i.i
+  %44 = getelementptr inbounds [32 x i8], ptr %0, i64 %.042.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull align 8 dereferenceable(32) %43, i64 32, i1 false), !tbaa.struct !190
   %45 = icmp slt i64 %spec.select.i.i.i.i, %26
   br i1 %45, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !218
@@ -4855,21 +4850,21 @@ define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iterat
   %.06.i.i.i.i.i = phi i64 [ %.097.i.i.i.i.i, %53 ], [ %.1.i.i.i.i, %48 ]
   %.097.in.i.i.i.i.i = add nsw i64 %.06.i.i.i.i.i, -1
   %.097.i.i.i.i.i = sdiv i64 %.097.in.i.i.i.i.i, 2
-  %50 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::(anonymous namespace)::InvLut3DRenderer::baseInd", ptr %0, i64 %.097.i.i.i.i.i
+  %50 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %.097.i.i.i.i.i
   %51 = getelementptr i8, ptr %50, i64 24
   %.val1.i.i.i.i.i.i = load i64, ptr %51, align 8, !tbaa !186
   %52 = icmp ult i64 %.val1.i.i.i.i.i.i, %.sroa.46.0.copyload.i.i.i
   br i1 %52, label %53, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer7baseIndESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_less_iterEEvT_T0_SE_T1_T2_.exit.i.i.i
 
 53:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %54 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::(anonymous namespace)::InvLut3DRenderer::baseInd", ptr %0, i64 %.06.i.i.i.i.i
+  %54 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %.06.i.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %54, ptr noundef nonnull align 8 dereferenceable(32) %50, i64 32, i1 false), !tbaa.struct !190
   %55 = icmp sgt i64 %.097.i.i.i.i.i, %.07.i.i.i
   br i1 %55, label %.lr.ph.i.i.i.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer7baseIndESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_less_iterEEvT_T0_SE_T1_T2_.exit.i.i.i, !llvm.loop !219
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer7baseIndESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_less_iterEEvT_T0_SE_T1_T2_.exit.i.i.i: ; preds = %53, %.lr.ph.i.i.i.i.i, %48
   %.0.lcssa.i.i.i.i.i = phi i64 [ %.1.i.i.i.i, %48 ], [ %.06.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.097.i.i.i.i.i, %53 ]
-  %56 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::(anonymous namespace)::InvLut3DRenderer::baseInd", ptr %0, i64 %.0.lcssa.i.i.i.i.i
+  %56 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %.0.lcssa.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %56, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.03.i.i.i, i64 24, i1 false)
   %.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %56, i64 24
   store i64 %.sroa.46.0.copyload.i.i.i, ptr %.sroa.4.0..sroa_idx.i.i.i.i, align 8, !tbaa !110
@@ -4902,17 +4897,17 @@ _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN19OpenColorIO_v2_5dev12_GLOBA
   %.042.i.i.i27.i = phi i64 [ %spec.select.i.i.i30.i, %.lr.ph.i.i.i26.i ], [ 0, %.lr.ph.i9.i ]
   %66 = shl i64 %.042.i.i.i27.i, 1
   %67 = add i64 %66, 2
-  %68 = getelementptr inbounds %"struct.OpenColorIO_v2_5dev::(anonymous namespace)::InvLut3DRenderer::baseInd", ptr %0, i64 %67
+  %68 = getelementptr inbounds [32 x i8], ptr %0, i64 %67
   %69 = or disjoint i64 %66, 1
-  %70 = getelementptr inbounds %"struct.OpenColorIO_v2_5dev::(anonymous namespace)::InvLut3DRenderer::baseInd", ptr %0, i64 %69
+  %70 = getelementptr inbounds [32 x i8], ptr %0, i64 %69
   %71 = getelementptr i8, ptr %68, i64 24
   %.val2.i.i.i.i28.i = load i64, ptr %71, align 8, !tbaa !186
   %72 = getelementptr i8, ptr %70, i64 24
   %.val3.i.i.i.i29.i = load i64, ptr %72, align 8, !tbaa !186
   %73 = icmp ult i64 %.val2.i.i.i.i28.i, %.val3.i.i.i.i29.i
   %spec.select.i.i.i30.i = select i1 %73, i64 %69, i64 %67
-  %74 = getelementptr inbounds %"struct.OpenColorIO_v2_5dev::(anonymous namespace)::InvLut3DRenderer::baseInd", ptr %0, i64 %spec.select.i.i.i30.i
-  %75 = getelementptr inbounds %"struct.OpenColorIO_v2_5dev::(anonymous namespace)::InvLut3DRenderer::baseInd", ptr %0, i64 %.042.i.i.i27.i
+  %74 = getelementptr inbounds [32 x i8], ptr %0, i64 %spec.select.i.i.i30.i
+  %75 = getelementptr inbounds [32 x i8], ptr %0, i64 %.042.i.i.i27.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %75, ptr noundef nonnull align 8 dereferenceable(32) %74, i64 32, i1 false), !tbaa.struct !190
   %76 = icmp slt i64 %spec.select.i.i.i30.i, %64
   br i1 %76, label %.lr.ph.i.i.i26.i, label %._crit_edge.i.i.i11.i, !llvm.loop !218
@@ -4932,8 +4927,8 @@ _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN19OpenColorIO_v2_5dev12_GLOBA
 .thread.i.i25.i:                                  ; preds = %79
   %83 = shl nuw nsw i64 %.0.lcssa.i.i.i12.i, 1
   %84 = or disjoint i64 %83, 1
-  %85 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::(anonymous namespace)::InvLut3DRenderer::baseInd", ptr %0, i64 %84
-  %86 = getelementptr inbounds %"struct.OpenColorIO_v2_5dev::(anonymous namespace)::InvLut3DRenderer::baseInd", ptr %0, i64 %.0.lcssa.i.i.i12.i
+  %85 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %84
+  %86 = getelementptr inbounds [32 x i8], ptr %0, i64 %.0.lcssa.i.i.i12.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %86, ptr noundef nonnull align 8 dereferenceable(32) %85, i64 32, i1 false), !tbaa.struct !190
   br label %.lr.ph.i.i.i.i16.i.preheader
 
@@ -4949,21 +4944,21 @@ _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN19OpenColorIO_v2_5dev12_GLOBA
   %.06.i.i.i.i17.i = phi i64 [ %.097.i.i78.i.i19.i, %91 ], [ %.06.i.i.i.i17.i.ph, %.lr.ph.i.i.i.i16.i.preheader ]
   %.097.in.i.i.i.i18.i = add nsw i64 %.06.i.i.i.i17.i, -1
   %.097.i.i78.i.i19.i = lshr i64 %.097.in.i.i.i.i18.i, 1
-  %88 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::(anonymous namespace)::InvLut3DRenderer::baseInd", ptr %0, i64 %.097.i.i78.i.i19.i
+  %88 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %.097.i.i78.i.i19.i
   %89 = getelementptr i8, ptr %88, i64 24
   %.val1.i.i.i.i.i20.i = load i64, ptr %89, align 8, !tbaa !186
   %90 = icmp ult i64 %.val1.i.i.i.i.i20.i, %.sroa.46.0.copyload.i.i10.i
   br i1 %90, label %91, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer7baseIndESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_SD_RT0_.exit.i21.i
 
 91:                                               ; preds = %.lr.ph.i.i.i.i16.i
-  %92 = getelementptr inbounds %"struct.OpenColorIO_v2_5dev::(anonymous namespace)::InvLut3DRenderer::baseInd", ptr %0, i64 %.06.i.i.i.i17.i
+  %92 = getelementptr inbounds [32 x i8], ptr %0, i64 %.06.i.i.i.i17.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %92, ptr noundef nonnull align 8 dereferenceable(32) %88, i64 32, i1 false), !tbaa.struct !190
   %.not9.i.i24.i = icmp eq i64 %.097.i.i78.i.i19.i, 0
   br i1 %.not9.i.i24.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer7baseIndESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_SD_RT0_.exit.i21.i, label %.lr.ph.i.i.i.i16.i, !llvm.loop !219
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer7baseIndESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_SD_RT0_.exit.i21.i: ; preds = %91, %.lr.ph.i.i.i.i16.i, %87
   %.0.lcssa.i.i.i.i22.i = phi i64 [ 0, %87 ], [ %.06.i.i.i.i17.i, %.lr.ph.i.i.i.i16.i ], [ 0, %91 ]
-  %93 = getelementptr inbounds %"struct.OpenColorIO_v2_5dev::(anonymous namespace)::InvLut3DRenderer::baseInd", ptr %0, i64 %.0.lcssa.i.i.i.i22.i
+  %93 = getelementptr inbounds [32 x i8], ptr %0, i64 %.0.lcssa.i.i.i.i22.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %93, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.03.i.i8.i, i64 24, i1 false)
   %.sroa.4.0..sroa_idx.i.i.i23.i = getelementptr inbounds nuw i8, ptr %93, i64 24
   store i64 %.sroa.46.0.copyload.i.i10.i, ptr %.sroa.4.0..sroa_idx.i.i.i23.i, align 8, !tbaa !110
@@ -4977,7 +4972,7 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN19OpenColorIO_v2_5dev12_GLOBAL
   %95 = phi i64 [ %128, %20 ], [ %14, %.lr.ph ]
   %96 = add nsw i64 %.01933, -1
   %97 = lshr i64 %95, 1
-  %98 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::(anonymous namespace)::InvLut3DRenderer::baseInd", ptr %0, i64 %97
+  %98 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %97
   %99 = getelementptr inbounds i8, ptr %storemerge1834, i64 -32
   %.val2.i.i.i = load i64, ptr %17, align 8, !tbaa !186
   %100 = getelementptr i8, ptr %98, i64 24
@@ -5193,9 +5188,9 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36: ; preds = %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !86
-  %39 = getelementptr inbounds nuw float, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !171
-  %40 = getelementptr inbounds nuw float, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !87
   br label %41
 

@@ -163,7 +163,7 @@ define hidden range(i32 0, 2) i32 @_PyAST_Validate(ptr noundef readonly captures
 
 .lr.ph47.i:                                       ; preds = %.lr.ph.i, %30
   %.01522.us46.i = phi i64 [ %31, %30 ], [ 0, %.lr.ph.i ]
-  %34 = getelementptr ptr, ptr %27, i64 %.01522.us46.i
+  %34 = getelementptr [8 x i8], ptr %27, i64 %.01522.us46.i
   %35 = load ptr, ptr %34, align 8, !tbaa !29
   %.not.us.i = icmp eq ptr %35, null
   br i1 %.not.us.i, label %.split.us.i, label %.critedge.us.i
@@ -231,7 +231,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @validate_stmts(ptr noundef n
   br i1 %11, label %12, label %.thread138
 
 12:                                               ; preds = %9
-  %13 = getelementptr ptr, ptr %4, i64 %.013
+  %13 = getelementptr [8 x i8], ptr %4, i64 %.013
   %14 = load ptr, ptr %13, align 8, !tbaa !32
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %.critedge, label %15
@@ -393,7 +393,7 @@ validate_body.exit81:                             ; preds = %57
 
 .lr.ph47.i:                                       ; preds = %.lr.ph.i, %78
   %.01522.us46.i = phi i64 [ %79, %78 ], [ 0, %.lr.ph.i ]
-  %82 = getelementptr ptr, ptr %75, i64 %.01522.us46.i
+  %82 = getelementptr [8 x i8], ptr %75, i64 %.01522.us46.i
   %83 = load ptr, ptr %82, align 8, !tbaa !29
   %.not.us.i = icmp eq ptr %83, null
   br i1 %.not.us.i, label %.split.us.i, label %.critedge.us.i
@@ -466,7 +466,7 @@ validate_body.exit76:                             ; preds = %94
 
 .lr.ph47.i842:                                    ; preds = %.lr.ph.i841, %111
   %.01522.us46.i843 = phi i64 [ %112, %111 ], [ 0, %.lr.ph.i841 ]
-  %115 = getelementptr ptr, ptr %108, i64 %.01522.us46.i843
+  %115 = getelementptr [8 x i8], ptr %108, i64 %.01522.us46.i843
   %116 = load ptr, ptr %115, align 8, !tbaa !29
   %.not.us.i844 = icmp eq ptr %116, null
   br i1 %.not.us.i844, label %.split.us.i847, label %.critedge.us.i845
@@ -501,7 +501,7 @@ validate_body.exit76:                             ; preds = %94
 
 .lr.ph20.i:                                       ; preds = %.lr.ph.split.i, %125
   %.081219.i = phi i64 [ %126, %125 ], [ 0, %.lr.ph.split.i ]
-  %129 = getelementptr ptr, ptr %121, i64 %.081219.i
+  %129 = getelementptr [8 x i8], ptr %121, i64 %.081219.i
   %130 = load ptr, ptr %129, align 8, !tbaa !42
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 8
   %132 = load ptr, ptr %131, align 8, !tbaa !44
@@ -529,7 +529,7 @@ validate_body.exit76:                             ; preds = %94
 
 .lr.ph47.i852:                                    ; preds = %.lr.ph.i851, %140
   %.01522.us46.i853 = phi i64 [ %141, %140 ], [ 0, %.lr.ph.i851 ]
-  %144 = getelementptr ptr, ptr %137, i64 %.01522.us46.i853
+  %144 = getelementptr [8 x i8], ptr %137, i64 %.01522.us46.i853
   %145 = load ptr, ptr %144, align 8, !tbaa !29
   %.not.us.i854 = icmp eq ptr %145, null
   br i1 %.not.us.i854, label %.split.us.i857, label %.critedge.us.i855
@@ -583,7 +583,7 @@ _validate_nonempty_seq.exit.thread.i70:           ; preds = %157, %153
 
 .lr.ph47.i.i64:                                   ; preds = %.lr.ph.i.i63, %164
   %.01522.us46.i.i65 = phi i64 [ %165, %164 ], [ 0, %.lr.ph.i.i63 ]
-  %168 = getelementptr ptr, ptr %162, i64 %.01522.us46.i.i65
+  %168 = getelementptr [8 x i8], ptr %162, i64 %.01522.us46.i.i65
   %169 = load ptr, ptr %168, align 8, !tbaa !29
   %.not.us.i.i66 = icmp eq ptr %169, null
   br i1 %.not.us.i.i66, label %.split.us.i.i69, label %.critedge.us.i.i67
@@ -627,7 +627,7 @@ _validate_nonempty_seq.exit.thread.i:             ; preds = %176, %172
 
 .lr.ph47.i.i:                                     ; preds = %.lr.ph.i.i, %183
   %.01522.us46.i.i = phi i64 [ %184, %183 ], [ 0, %.lr.ph.i.i ]
-  %187 = getelementptr ptr, ptr %181, i64 %.01522.us46.i.i
+  %187 = getelementptr [8 x i8], ptr %181, i64 %.01522.us46.i.i
   %188 = load ptr, ptr %187, align 8, !tbaa !29
   %.not.us.i.i = icmp eq ptr %188, null
   br i1 %.not.us.i.i, label %.split.us.i.i, label %.critedge.us.i.i
@@ -850,7 +850,7 @@ _validate_nonempty_seq.exit62.thread:             ; preds = %294, %298
 
 306:                                              ; preds = %.lr.ph353
   %307 = getelementptr inbounds nuw i8, ptr %303, i64 16
-  %308 = getelementptr ptr, ptr %307, i64 %.0292.i352
+  %308 = getelementptr [8 x i8], ptr %307, i64 %.0292.i352
   %309 = load ptr, ptr %308, align 8, !tbaa !48
   %310 = load ptr, ptr %309, align 8, !tbaa !50
   %311 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %0, ptr noundef %310, i32 noundef 1)
@@ -905,7 +905,7 @@ _validate_nonempty_seq.exit59.thread:             ; preds = %323, %327
 
 335:                                              ; preds = %.lr.ph351
   %336 = getelementptr inbounds nuw i8, ptr %332, i64 16
-  %337 = getelementptr ptr, ptr %336, i64 %.0293.i350
+  %337 = getelementptr [8 x i8], ptr %336, i64 %.0293.i350
   %338 = load ptr, ptr %337, align 8, !tbaa !48
   %339 = load ptr, ptr %338, align 8, !tbaa !50
   %340 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %0, ptr noundef %339, i32 noundef 1)
@@ -973,7 +973,7 @@ _validate_nonempty_seq.exit56:                    ; preds = %validate_body.exit5
 
 371:                                              ; preds = %.lr.ph349
   %372 = getelementptr inbounds nuw i8, ptr %368, i64 16
-  %373 = getelementptr ptr, ptr %372, i64 %.0291.i348
+  %373 = getelementptr [8 x i8], ptr %372, i64 %.0291.i348
   %374 = load ptr, ptr %373, align 8, !tbaa !57
   %375 = load ptr, ptr %374, align 8, !tbaa !59
   %376 = tail call fastcc i32 @validate_pattern(ptr noundef nonnull %0, ptr noundef %375, i32 noundef 0)
@@ -1137,7 +1137,7 @@ validate_body.exit48:                             ; preds = %411
 
 449:                                              ; preds = %.lr.ph346
   %450 = getelementptr inbounds nuw i8, ptr %446, i64 16
-  %451 = getelementptr ptr, ptr %450, i64 %.0280.i345
+  %451 = getelementptr [8 x i8], ptr %450, i64 %.0280.i345
   %452 = load ptr, ptr %451, align 8, !tbaa !65
   %453 = getelementptr inbounds nuw i8, ptr %452, i64 32
   %454 = load i32, ptr %453, align 8, !tbaa !67
@@ -1351,7 +1351,7 @@ validate_body.exit38:                             ; preds = %514
 
 552:                                              ; preds = %.lr.ph
   %553 = getelementptr inbounds nuw i8, ptr %549, i64 16
-  %554 = getelementptr ptr, ptr %553, i64 %.0277.i343
+  %554 = getelementptr [8 x i8], ptr %553, i64 %.0277.i343
   %555 = load ptr, ptr %554, align 8, !tbaa !65
   %556 = getelementptr inbounds nuw i8, ptr %555, i64 8
   %557 = load ptr, ptr %556, align 8, !tbaa !26
@@ -1569,7 +1569,7 @@ validate_body.exit:                               ; preds = %643
 
 .lr.ph47.i860:                                    ; preds = %.lr.ph.i859, %664
   %.01522.us46.i861 = phi i64 [ %665, %664 ], [ 0, %.lr.ph.i859 ]
-  %668 = getelementptr ptr, ptr %661, i64 %.01522.us46.i861
+  %668 = getelementptr [8 x i8], ptr %661, i64 %.01522.us46.i861
   %669 = load ptr, ptr %668, align 8, !tbaa !29
   %.not.us.i862 = icmp eq ptr %669, null
   br i1 %.not.us.i862, label %.split.us.i865, label %.critedge.us.i863
@@ -1756,11 +1756,11 @@ expr_context_name.exit:                           ; preds = %48
 switch.lookup:                                    ; preds = %52
   %54 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !31
   %55 = zext nneg i32 %2 to i64
-  %56 = getelementptr ptr, ptr @switch.table.validate_expr.4, i64 %55
+  %56 = getelementptr [8 x i8], ptr @switch.table.validate_expr.4, i64 %55
   %switch.gep = getelementptr i8, ptr %56, i64 -8
   %switch.load = load ptr, ptr %switch.gep, align 8
   %57 = sext i32 %.0 to i64
-  %58 = getelementptr ptr, ptr @switch.table.validate_expr.4, i64 %57
+  %58 = getelementptr [8 x i8], ptr @switch.table.validate_expr.4, i64 %57
   %switch.gep240 = getelementptr i8, ptr %58, i64 -8
   %switch.load241 = load ptr, ptr %switch.gep240, align 8
   %59 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %54, ptr noundef nonnull @.str.61, ptr noundef nonnull %switch.load, ptr noundef nonnull %switch.load241) #6
@@ -2222,7 +2222,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @validate_exprs(ptr noundef n
 
 .lr.ph47:                                         ; preds = %.lr.ph.split.us.split, %9
   %.01522.us46 = phi i64 [ %10, %9 ], [ 0, %.lr.ph.split.us.split ]
-  %13 = getelementptr ptr, ptr %6, i64 %.01522.us46
+  %13 = getelementptr [8 x i8], ptr %6, i64 %.01522.us46
   %14 = load ptr, ptr %13, align 8, !tbaa !29
   %.not.us = icmp eq ptr %14, null
   br i1 %.not.us, label %.split.us, label %.critedge.us
@@ -2238,7 +2238,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @validate_exprs(ptr noundef n
 .lr.ph40:                                         ; preds = %.lr.ph.split.split, %.critedge
   %16 = phi i64 [ %22, %.critedge ], [ %7, %.lr.ph.split.split ]
   %.0152239 = phi i64 [ %23, %.critedge ], [ 0, %.lr.ph.split.split ]
-  %17 = getelementptr ptr, ptr %6, i64 %.0152239
+  %17 = getelementptr [8 x i8], ptr %6, i64 %.0152239
   %18 = load ptr, ptr %17, align 8, !tbaa !29
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %.critedge, label %19
@@ -2357,7 +2357,7 @@ define internal fastcc range(i32 0, 2) i32 @validate_type_params(ptr noundef non
   br i1 %10, label %11, label %validate_typeparam.exit.thread
 
 11:                                               ; preds = %8
-  %12 = getelementptr ptr, ptr %4, i64 %.011
+  %12 = getelementptr [8 x i8], ptr %4, i64 %.011
   %13 = load ptr, ptr %12, align 8, !tbaa !81
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %.critedge, label %14
@@ -2438,7 +2438,7 @@ define internal fastcc range(i32 0, 2) i32 @validate_type_params(ptr noundef non
 
 49:                                               ; preds = %48, %45
   %indvars.iv.i.i = phi i64 [ 0, %45 ], [ %indvars.iv.next.i.i, %48 ]
-  %50 = getelementptr ptr, ptr @validate_name.forbidden, i64 %indvars.iv.i.i
+  %50 = getelementptr [8 x i8], ptr @validate_name.forbidden, i64 %indvars.iv.i.i
   %51 = load ptr, ptr %50, align 8, !tbaa !90
   %52 = tail call i32 @_PyUnicode_EqualToASCIIString(ptr noundef %47, ptr noundef %51) #6
   %.not9.i.i = icmp eq i32 %52, 0
@@ -2478,7 +2478,7 @@ validate_name.exit.i:                             ; preds = %48
 
 66:                                               ; preds = %65, %62
   %indvars.iv.i59.i = phi i64 [ 0, %62 ], [ %indvars.iv.next.i61.i, %65 ]
-  %67 = getelementptr ptr, ptr @validate_name.forbidden, i64 %indvars.iv.i59.i
+  %67 = getelementptr [8 x i8], ptr @validate_name.forbidden, i64 %indvars.iv.i59.i
   %68 = load ptr, ptr %67, align 8, !tbaa !90
   %69 = tail call i32 @_PyUnicode_EqualToASCIIString(ptr noundef %64, ptr noundef %68) #6
   %.not9.i60.i = icmp eq i32 %69, 0
@@ -2507,7 +2507,7 @@ validate_name.exit63.i:                           ; preds = %65
 
 78:                                               ; preds = %77, %74
   %indvars.iv.i64.i = phi i64 [ 0, %74 ], [ %indvars.iv.next.i66.i, %77 ]
-  %79 = getelementptr ptr, ptr @validate_name.forbidden, i64 %indvars.iv.i64.i
+  %79 = getelementptr [8 x i8], ptr @validate_name.forbidden, i64 %indvars.iv.i64.i
   %80 = load ptr, ptr %79, align 8, !tbaa !90
   %81 = tail call i32 @_PyUnicode_EqualToASCIIString(ptr noundef %76, ptr noundef %80) #6
   %.not9.i65.i = icmp eq i32 %81, 0
@@ -2672,7 +2672,7 @@ define internal fastcc range(i32 0, 2) i32 @validate_arguments(ptr noundef nonnu
 
 .lr.ph60:                                         ; preds = %.lr.ph, %68
   %.015.i5759 = phi i64 [ %69, %68 ], [ 0, %.lr.ph ]
-  %72 = getelementptr ptr, ptr %65, i64 %.015.i5759
+  %72 = getelementptr [8 x i8], ptr %65, i64 %.015.i5759
   %73 = load ptr, ptr %72, align 8, !tbaa !29
   %.not.i = icmp eq ptr %73, null
   br i1 %.not.i, label %validate_exprs.exit.thread55.sink.split, label %.critedge.i
@@ -2700,7 +2700,7 @@ validate_exprs.exit.split:                        ; preds = %validate_exprs.exit
 .lr.ph62:                                         ; preds = %validate_exprs.exit.split, %.critedge.i52
   %80 = phi i64 [ %85, %.critedge.i52 ], [ %78, %validate_exprs.exit.split ]
   %.015.i4761 = phi i64 [ %86, %.critedge.i52 ], [ 0, %validate_exprs.exit.split ]
-  %81 = getelementptr ptr, ptr %77, i64 %.015.i4761
+  %81 = getelementptr [8 x i8], ptr %77, i64 %.015.i4761
   %82 = load ptr, ptr %81, align 8, !tbaa !29
   %.not.i50 = icmp eq ptr %82, null
   br i1 %.not.i50, label %.critedge.i52, label %83
@@ -2750,7 +2750,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @validate_keywords(ptr nounde
 
 .lr.ph20:                                         ; preds = %.lr.ph.split, %7
   %.081219 = phi i64 [ %8, %7 ], [ 0, %.lr.ph.split ]
-  %11 = getelementptr ptr, ptr %3, i64 %.081219
+  %11 = getelementptr [8 x i8], ptr %3, i64 %.081219
   %12 = load ptr, ptr %11, align 8, !tbaa !42
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !44
@@ -2936,7 +2936,7 @@ define internal fastcc range(i32 0, 2) i32 @validate_pattern(ptr noundef nonnull
 .lr.ph170:                                        ; preds = %.lr.ph, %.thread147
   %88 = phi i64 [ %101, %.thread147 ], [ %86, %.lr.ph ]
   %.0103167169 = phi i64 [ %102, %.thread147 ], [ 0, %.lr.ph ]
-  %89 = getelementptr ptr, ptr %85, i64 %.0103167169
+  %89 = getelementptr [8 x i8], ptr %85, i64 %.0103167169
   %90 = load ptr, ptr %89, align 8, !tbaa !29
   %91 = load i32, ptr %90, align 8, !tbaa !46
   %92 = icmp eq i32 %91, 20
@@ -3044,7 +3044,7 @@ define internal fastcc range(i32 0, 2) i32 @validate_pattern(ptr noundef nonnull
 
 137:                                              ; preds = %.lr.ph202
   %138 = getelementptr inbounds nuw i8, ptr %134, i64 16
-  %139 = getelementptr ptr, ptr %138, i64 %.096201
+  %139 = getelementptr [8 x i8], ptr %138, i64 %.096201
   %140 = load ptr, ptr %139, align 8, !tbaa !31
   br label %142
 
@@ -3055,7 +3055,7 @@ define internal fastcc range(i32 0, 2) i32 @validate_pattern(ptr noundef nonnull
 
 142:                                              ; preds = %141, %137
   %indvars.iv.i = phi i64 [ 0, %137 ], [ %indvars.iv.next.i, %141 ]
-  %143 = getelementptr ptr, ptr @validate_name.forbidden, i64 %indvars.iv.i
+  %143 = getelementptr [8 x i8], ptr @validate_name.forbidden, i64 %indvars.iv.i
   %144 = load ptr, ptr %143, align 8, !tbaa !90
   %145 = tail call i32 @_PyUnicode_EqualToASCIIString(ptr noundef %140, ptr noundef %144) #6
   %.not9.i = icmp eq i32 %145, 0
@@ -3182,7 +3182,7 @@ define internal fastcc range(i32 0, 2) i32 @validate_name(ptr noundef %0) unname
 
 3:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %4 = getelementptr ptr, ptr @validate_name.forbidden, i64 %indvars.iv
+  %4 = getelementptr [8 x i8], ptr @validate_name.forbidden, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 8, !tbaa !90
   %6 = tail call i32 @_PyUnicode_EqualToASCIIString(ptr noundef %0, ptr noundef %5) #6
   %.not9 = icmp eq i32 %6, 0
@@ -3214,7 +3214,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @validate_args(ptr noundef no
 .lr.ph80:                                         ; preds = %.lr.ph, %41
   %7 = phi i64 [ %42, %41 ], [ %5, %.lr.ph ]
   %.0346079 = phi i64 [ %43, %41 ], [ 0, %.lr.ph ]
-  %8 = getelementptr ptr, ptr %4, i64 %.0346079
+  %8 = getelementptr [8 x i8], ptr %4, i64 %.0346079
   %9 = load ptr, ptr %8, align 8, !tbaa !112
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load i32, ptr %10, align 8, !tbaa !113
@@ -3455,7 +3455,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @validate_patterns(ptr nounde
 
 .lr.ph24:                                         ; preds = %.lr.ph.split, %8
   %.0131623 = phi i64 [ %9, %8 ], [ 0, %.lr.ph.split ]
-  %12 = getelementptr ptr, ptr %4, i64 %.0131623
+  %12 = getelementptr [8 x i8], ptr %4, i64 %.0131623
   %13 = load ptr, ptr %12, align 8, !tbaa !117
   %14 = tail call fastcc i32 @validate_pattern(ptr noundef %0, ptr noundef %13, i32 noundef %2)
   %.not.not = icmp eq i32 %14, 0
@@ -3484,7 +3484,7 @@ define internal fastcc range(i32 0, 2) i32 @validate_capture(ptr noundef nonnull
 
 .preheader:                                       ; preds = %1, %6
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %6 ], [ 0, %1 ]
-  %7 = getelementptr ptr, ptr @validate_name.forbidden, i64 %indvars.iv.i
+  %7 = getelementptr [8 x i8], ptr @validate_name.forbidden, i64 %indvars.iv.i
   %8 = load ptr, ptr %7, align 8, !tbaa !90
   %9 = tail call i32 @_PyUnicode_EqualToASCIIString(ptr noundef nonnull %0, ptr noundef %8) #6
   %.not9.i = icmp eq i32 %9, 0
@@ -3520,7 +3520,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @validate_comprehension(ptr n
 
 9:                                                ; preds = %.lr.ph37, %.critedge25
   %.01836 = phi i64 [ 0, %.lr.ph37 ], [ %32, %.critedge25 ]
-  %10 = getelementptr ptr, ptr %8, i64 %.01836
+  %10 = getelementptr [8 x i8], ptr %8, i64 %.01836
   %11 = load ptr, ptr %10, align 8, !tbaa !118
   %12 = load ptr, ptr %11, align 8, !tbaa !120
   %13 = tail call fastcc i32 @validate_expr(ptr noundef %0, ptr noundef %12, i32 noundef 2)
@@ -3554,7 +3554,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @validate_comprehension(ptr n
 
 .lr.ph35:                                         ; preds = %.lr.ph, %25
   %.015.i3234 = phi i64 [ %26, %25 ], [ 0, %.lr.ph ]
-  %29 = getelementptr ptr, ptr %22, i64 %.015.i3234
+  %29 = getelementptr [8 x i8], ptr %22, i64 %.015.i3234
   %30 = load ptr, ptr %29, align 8, !tbaa !29
   %.not.i = icmp eq ptr %30, null
   br i1 %.not.i, label %.thread.sink.split, label %.critedge.i

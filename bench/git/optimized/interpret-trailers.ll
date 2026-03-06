@@ -339,7 +339,7 @@ define dso_local noundef i32 @cmd_interpret_trailers(i32 noundef %0, ptr noundef
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %137 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %137 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %138 = load ptr, ptr %137, align 8, !tbaa !29
   call fastcc void @interpret_trailers(ptr noundef %5, ptr noundef %6, ptr noundef %138)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

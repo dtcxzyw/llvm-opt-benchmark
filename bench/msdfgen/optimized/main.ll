@@ -24,12 +24,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.msdfgen::BitmapConstRef" = type { ptr, i32, i32 }
 %"struct.msdfgen::BitmapConstRef.4" = type { ptr, i32, i32 }
 %"struct.msdfgen::BitmapConstRef.5" = type { ptr, i32, i32 }
-%"class.msdfgen::EdgeHolder" = type { ptr }
-%"class.msdfgen::Contour" = type { %"class.std::vector.9" }
-%"class.std::vector.9" = type { %"struct.std::_Vector_base.10" }
-%"struct.std::_Vector_base.10" = type { %"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl" }
-%"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl" = type { %"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.msdfgen::SimpleContourCombiner" = type { %"class.msdfgen::TrueDistanceSelector" }
 %"class.msdfgen::TrueDistanceSelector" = type { %"struct.msdfgen::Vector2", %"class.msdfgen::SignedDistance" }
 %"class.msdfgen::SignedDistance" = type { double, double }
@@ -333,7 +327,7 @@ while.body:                                       ; preds = %while.body.outer, %
   %suggestHelp.03221 = phi i1 [ true, %while.cond.backedge.thread ], [ %suggestHelp.03221.ph, %while.body.outer ]
   %argPos.03220 = phi i32 [ %inc1008, %while.cond.backedge.thread ], [ %argPos.03220.ph, %while.body.outer ]
   %idxprom = sext i32 %argPos.03220 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %argv, i64 %idxprom
+  %arrayidx = getelementptr inbounds [8 x i8], ptr %argv, i64 %idxprom
   %2 = load ptr, ptr %arrayidx, align 8
   %3 = load i8, ptr %2, align 1
   %cmp5 = icmp eq i8 %3, 45
@@ -499,7 +493,7 @@ if.end30:                                         ; preds = %if.end25
 
 if.then35:                                        ; preds = %if.end30
   %idxprom37 = sext i32 %add to i64
-  %arrayidx38 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom37
+  %arrayidx38 = getelementptr inbounds [8 x i8], ptr %argv, i64 %idxprom37
   %11 = load ptr, ptr %arrayidx38, align 8
   %add39 = add nsw i32 %argPos.03220, 2
   br label %while.cond.backedge
@@ -521,11 +515,11 @@ lor.lhs.false:                                    ; preds = %land.lhs.true43
 
 if.then50:                                        ; preds = %lor.lhs.false, %land.lhs.true43
   %inputType.1 = phi i32 [ 2, %land.lhs.true43 ], [ 3, %lor.lhs.false ]
-  %arrayidx.le5144 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom
+  %arrayidx.le5144 = getelementptr inbounds [8 x i8], ptr %argv, i64 %idxprom
   %arrayidx53 = getelementptr i8, ptr %arrayidx.le5144, i64 8
   %12 = load ptr, ptr %arrayidx53, align 8
   %idxprom55 = sext i32 %add41 to i64
-  %arrayidx56 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom55
+  %arrayidx56 = getelementptr inbounds [8 x i8], ptr %argv, i64 %idxprom55
   %13 = load ptr, ptr %arrayidx56, align 8
   %14 = load i8, ptr %13, align 1
   switch i8 %14, label %sw.default [
@@ -673,7 +667,7 @@ if.end66:                                         ; preds = %lor.lhs.false, %if.
 
 if.then72:                                        ; preds = %if.end66
   %idxprom74 = sext i32 %add70 to i64
-  %arrayidx75 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom74
+  %arrayidx75 = getelementptr inbounds [8 x i8], ptr %argv, i64 %idxprom74
   %28 = load ptr, ptr %arrayidx75, align 8
   br label %while.cond.backedge
 
@@ -696,7 +690,7 @@ if.end85:                                         ; preds = %if.end77
 
 if.then91:                                        ; preds = %if.end85
   %idxprom93 = sext i32 %add89 to i64
-  %arrayidx94 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom93
+  %arrayidx94 = getelementptr inbounds [8 x i8], ptr %argv, i64 %idxprom93
   %29 = load ptr, ptr %arrayidx94, align 8
   br label %while.cond.backedge
 
@@ -720,7 +714,7 @@ if.end96.tail:                                    ; preds = %sub_1
 
 if.then102:                                       ; preds = %if.end96.tail
   %idxprom104 = sext i32 %add100 to i64
-  %arrayidx105 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom104
+  %arrayidx105 = getelementptr inbounds [8 x i8], ptr %argv, i64 %idxprom104
   %35 = load ptr, ptr %arrayidx105, align 8
   br label %while.cond.backedge
 
@@ -817,7 +811,7 @@ if.end181:                                        ; preds = %if.end173
 
 if.then187:                                       ; preds = %if.end181
   %idxprom189 = sext i32 %add185 to i64
-  %arrayidx190 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom189
+  %arrayidx190 = getelementptr inbounds [8 x i8], ptr %argv, i64 %idxprom189
   %36 = load ptr, ptr %arrayidx190, align 8
   %call191 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %36, ptr noundef nonnull dereferenceable(8) @.str.24) #18
   %tobool192.not = icmp eq i32 %call191, 0
@@ -858,7 +852,7 @@ if.end227:                                        ; preds = %if.end181
 
 if.then233:                                       ; preds = %if.end227
   %idxprom235 = sext i32 %add231 to i64
-  %arrayidx236 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom235
+  %arrayidx236 = getelementptr inbounds [8 x i8], ptr %argv, i64 %idxprom235
   %39 = load ptr, ptr %arrayidx236, align 8
   %call237 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %39, ptr noundef nonnull dereferenceable(5) @.str.31) #18
   %tobool238.not = icmp eq i32 %call237, 0
@@ -981,7 +975,7 @@ if.end376:                                        ; preds = %if.end227
   br i1 %brmerge, label %if.end402, label %if.then382
 
 if.then382:                                       ; preds = %if.end376
-  %arrayidx.le5142 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom
+  %arrayidx.le5142 = getelementptr inbounds [8 x i8], ptr %argv, i64 %idxprom
   %arrayidx385 = getelementptr i8, ptr %arrayidx.le5142, i64 8
   %42 = load ptr, ptr %arrayidx385, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %end.i608)
@@ -1004,7 +998,7 @@ _ZL13parseUnsignedRjPKc.exit:                     ; preds = %if.then382
 
 land.lhs.true387:                                 ; preds = %_ZL13parseUnsignedRjPKc.exit
   %idxprom389 = sext i32 %add41 to i64
-  %arrayidx390 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom389
+  %arrayidx390 = getelementptr inbounds [8 x i8], ptr %argv, i64 %idxprom389
   %45 = load ptr, ptr %arrayidx390, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %end.i613)
   store ptr null, ptr %end.i613, align 8
@@ -1056,7 +1050,7 @@ if.end410:                                        ; preds = %if.end402
 
 if.then416:                                       ; preds = %if.end410
   %idxprom418 = sext i32 %add414 to i64
-  %arrayidx419 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom418
+  %arrayidx419 = getelementptr inbounds [8 x i8], ptr %argv, i64 %idxprom418
   %50 = load ptr, ptr %arrayidx419, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %end.i620)
   store ptr null, ptr %end.i620, align 8
@@ -1092,7 +1086,7 @@ if.end429:                                        ; preds = %if.end410
 
 if.then435:                                       ; preds = %if.end429
   %idxprom438 = sext i32 %add433 to i64
-  %arrayidx439 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom438
+  %arrayidx439 = getelementptr inbounds [8 x i8], ptr %argv, i64 %idxprom438
   %55 = load ptr, ptr %arrayidx439, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %end.i625)
   store ptr null, ptr %end.i625, align 8
@@ -1128,7 +1122,7 @@ if.end449:                                        ; preds = %if.end429
 
 if.then455:                                       ; preds = %if.end449
   %idxprom457 = sext i32 %add453 to i64
-  %arrayidx458 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom457
+  %arrayidx458 = getelementptr inbounds [8 x i8], ptr %argv, i64 %idxprom457
   %60 = load ptr, ptr %arrayidx458, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %end.i631)
   store ptr null, ptr %end.i631, align 8
@@ -1166,7 +1160,7 @@ if.end469:                                        ; preds = %if.end449
   br i1 %brmerge597, label %if.end495, label %if.then475
 
 if.then475:                                       ; preds = %if.end469
-  %arrayidx.le5140 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom
+  %arrayidx.le5140 = getelementptr inbounds [8 x i8], ptr %argv, i64 %idxprom
   %arrayidx478 = getelementptr i8, ptr %arrayidx.le5140, i64 8
   %65 = load ptr, ptr %arrayidx478, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %end.i638)
@@ -1188,7 +1182,7 @@ _ZL11parseDoubleRdPKc.exit643:                    ; preds = %if.then475
 
 land.lhs.true480:                                 ; preds = %_ZL11parseDoubleRdPKc.exit643
   %idxprom482 = sext i32 %add41 to i64
-  %arrayidx483 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom482
+  %arrayidx483 = getelementptr inbounds [8 x i8], ptr %argv, i64 %idxprom482
   %68 = load ptr, ptr %arrayidx483, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %end.i644)
   store ptr null, ptr %end.i644, align 8
@@ -1229,7 +1223,7 @@ if.end495:                                        ; preds = %if.end469
   br i1 %brmerge599, label %if.end517, label %if.then501
 
 if.then501:                                       ; preds = %if.end495
-  %arrayidx.le5138 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom
+  %arrayidx.le5138 = getelementptr inbounds [8 x i8], ptr %argv, i64 %idxprom
   %arrayidx504 = getelementptr i8, ptr %arrayidx.le5138, i64 8
   %73 = load ptr, ptr %arrayidx504, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %end.i651)
@@ -1251,7 +1245,7 @@ _ZL11parseDoubleRdPKc.exit656:                    ; preds = %if.then501
 
 land.lhs.true506:                                 ; preds = %_ZL11parseDoubleRdPKc.exit656
   %idxprom508 = sext i32 %add41 to i64
-  %arrayidx509 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom508
+  %arrayidx509 = getelementptr inbounds [8 x i8], ptr %argv, i64 %idxprom508
   %76 = load ptr, ptr %arrayidx509, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %end.i657)
   store ptr null, ptr %end.i657, align 8
@@ -1291,7 +1285,7 @@ if.end517:                                        ; preds = %if.end495
 
 if.then523:                                       ; preds = %if.end517
   %idxprom525 = sext i32 %add521 to i64
-  %arrayidx526 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom525
+  %arrayidx526 = getelementptr inbounds [8 x i8], ptr %argv, i64 %idxprom525
   %81 = load ptr, ptr %arrayidx526, align 8
   %call527 = call fastcc noundef zeroext i1 @_ZL10parseAngleRdPKc(ptr noundef nonnull align 8 dereferenceable(8) %at, ptr noundef %81)
   br i1 %call527, label %if.end532, label %do.body529
@@ -1315,7 +1309,7 @@ if.end534:                                        ; preds = %if.end517
 
 if.then540:                                       ; preds = %if.end534
   %idxprom542 = sext i32 %add538 to i64
-  %arrayidx543 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom542
+  %arrayidx543 = getelementptr inbounds [8 x i8], ptr %argv, i64 %idxprom542
   %85 = load ptr, ptr %arrayidx543, align 8
   %call544 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %85, ptr noundef nonnull dereferenceable(9) @.str.66) #18
   %tobool545.not = icmp eq i32 %call544, 0
@@ -1486,7 +1480,7 @@ if.end718:                                        ; preds = %if.end534
 
 if.then724:                                       ; preds = %if.end718
   %idxprom726 = sext i32 %add722 to i64
-  %arrayidx727 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom726
+  %arrayidx727 = getelementptr inbounds [8 x i8], ptr %argv, i64 %idxprom726
   %92 = load ptr, ptr %arrayidx727, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %end.i664)
   store ptr null, ptr %end.i664, align 8
@@ -1526,7 +1520,7 @@ if.end738:                                        ; preds = %if.end718
 
 if.then744:                                       ; preds = %if.end738
   %idxprom746 = sext i32 %add742 to i64
-  %arrayidx747 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom746
+  %arrayidx747 = getelementptr inbounds [8 x i8], ptr %argv, i64 %idxprom746
   %97 = load ptr, ptr %arrayidx747, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %end.i670)
   store ptr null, ptr %end.i670, align 8
@@ -1566,7 +1560,7 @@ if.end758:                                        ; preds = %if.end738
 
 if.then764:                                       ; preds = %if.end758
   %idxprom766 = sext i32 %add762 to i64
-  %arrayidx767 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom766
+  %arrayidx767 = getelementptr inbounds [8 x i8], ptr %argv, i64 %idxprom766
   %102 = load ptr, ptr %arrayidx767, align 8
   %call768 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %102, ptr noundef nonnull dereferenceable(7) @.str.92) #18
   %tobool769.not = icmp eq i32 %call768, 0
@@ -1597,7 +1591,7 @@ if.end791:                                        ; preds = %if.end758
 
 for.cond.preheader:                               ; preds = %if.end791
   %idxprom799 = sext i32 %add795 to i64
-  %arrayidx800 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom799
+  %arrayidx800 = getelementptr inbounds [8 x i8], ptr %argv, i64 %idxprom799
   %105 = load ptr, ptr %arrayidx800, align 8
   %106 = load i8, ptr %105, align 1
   %tobool803.not3209 = icmp eq i8 %106, 0
@@ -1645,7 +1639,7 @@ if.end832:                                        ; preds = %if.end791
 
 if.then838:                                       ; preds = %if.end832
   %idxprom840 = sext i32 %add836 to i64
-  %arrayidx841 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom840
+  %arrayidx841 = getelementptr inbounds [8 x i8], ptr %argv, i64 %idxprom840
   %112 = load ptr, ptr %arrayidx841, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %end.i676)
   store ptr null, ptr %end.i676, align 8
@@ -1683,7 +1677,7 @@ if.end850:                                        ; preds = %if.end832
 
 if.then856:                                       ; preds = %if.end850
   %idxprom858 = sext i32 %add854 to i64
-  %arrayidx859 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom858
+  %arrayidx859 = getelementptr inbounds [8 x i8], ptr %argv, i64 %idxprom858
   %117 = load ptr, ptr %arrayidx859, align 8
   br label %while.cond.backedge
 
@@ -1696,9 +1690,9 @@ if.end861:                                        ; preds = %if.end850
   br i1 %or.cond5163, label %if.then867, label %if.end892
 
 if.then867:                                       ; preds = %if.end861
-  %arrayidx.le5136 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom
+  %arrayidx.le5136 = getelementptr inbounds [8 x i8], ptr %argv, i64 %idxprom
   %idxprom871 = sext i32 %add41 to i64
-  %arrayidx872 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom871
+  %arrayidx872 = getelementptr inbounds [8 x i8], ptr %argv, i64 %idxprom871
   %118 = load ptr, ptr %arrayidx872, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %end.i682)
   store ptr null, ptr %end.i682, align 8
@@ -1720,7 +1714,7 @@ _ZL13parseUnsignedRjPKc.exit688:                  ; preds = %if.then867
 
 lor.lhs.false874:                                 ; preds = %_ZL13parseUnsignedRjPKc.exit688
   %idxprom876 = sext i32 %add865 to i64
-  %arrayidx877 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom876
+  %arrayidx877 = getelementptr inbounds [8 x i8], ptr %argv, i64 %idxprom876
   %121 = load ptr, ptr %arrayidx877, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %end.i689)
   store ptr null, ptr %end.i689, align 8
@@ -1764,9 +1758,9 @@ if.end892:                                        ; preds = %if.end861
   br i1 %or.cond5164, label %if.then898, label %if.end923
 
 if.then898:                                       ; preds = %if.end892
-  %arrayidx.le = getelementptr inbounds ptr, ptr %argv, i64 %idxprom
+  %arrayidx.le = getelementptr inbounds [8 x i8], ptr %argv, i64 %idxprom
   %idxprom902 = sext i32 %add41 to i64
-  %arrayidx903 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom902
+  %arrayidx903 = getelementptr inbounds [8 x i8], ptr %argv, i64 %idxprom902
   %127 = load ptr, ptr %arrayidx903, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %end.i696)
   store ptr null, ptr %end.i696, align 8
@@ -1788,7 +1782,7 @@ _ZL13parseUnsignedRjPKc.exit702:                  ; preds = %if.then898
 
 lor.lhs.false905:                                 ; preds = %_ZL13parseUnsignedRjPKc.exit702
   %idxprom907 = sext i32 %add896 to i64
-  %arrayidx908 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom907
+  %arrayidx908 = getelementptr inbounds [8 x i8], ptr %argv, i64 %idxprom907
   %130 = load ptr, ptr %arrayidx908, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %end.i703)
   store ptr null, ptr %end.i703, align 8
@@ -1887,7 +1881,7 @@ if.end971:                                        ; preds = %if.end963
 
 if.then977:                                       ; preds = %if.end971
   %idxprom979 = sext i32 %add975 to i64
-  %arrayidx980 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom979
+  %arrayidx980 = getelementptr inbounds [8 x i8], ptr %argv, i64 %idxprom979
   %136 = load ptr, ptr %arrayidx980, align 8
   %137 = load i8, ptr %136, align 1
   %138 = add i8 %137, -48
@@ -2753,7 +2747,7 @@ if.then1435:                                      ; preds = %if.then1429
 
 switch.lookup:                                    ; preds = %if.then1435
   %239 = zext nneg i32 %237 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.main, i64 %239
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.main, i64 %239
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %sw.epilog1442
 
@@ -3118,7 +3112,7 @@ sw.bb1637:                                        ; preds = %if.then1615
   %mtsdf.sroa.15.12.extract.trunc = trunc nuw i64 %mtsdf.sroa.15.12.extract.shift to i32
   %mul1645 = mul nsw i32 %mul1642, %mtsdf.sroa.15.12.extract.trunc
   %idx.ext1646 = sext i32 %mul1645 to i64
-  %add.ptr1647 = getelementptr inbounds float, ptr %mtsdf.sroa.0.2, i64 %idx.ext1646
+  %add.ptr1647 = getelementptr inbounds [4 x i8], ptr %mtsdf.sroa.0.2, i64 %idx.ext1646
   br label %sw.epilog1649
 
 sw.epilog1649:                                    ; preds = %sw.bb1637, %sw.bb1626, %sw.bb1616
@@ -5357,7 +5351,7 @@ while.body:                                       ; preds = %while.cond.preheade
   %5 = phi ptr [ %7, %while.body ], [ %4, %while.cond.preheader ]
   %conv1055 = phi i64 [ %conv10, %while.body ], [ %conv1048, %while.cond.preheader ]
   %e.254 = phi i32 [ %inc17, %while.body ], [ %spec.select, %while.cond.preheader ]
-  %add.ptr.i = getelementptr inbounds nuw %"class.msdfgen::EdgeHolder", ptr %5, i64 %conv1055
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %conv1055
   %call16 = tail call noundef ptr @_ZN7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i)
   %color = getelementptr inbounds nuw i8, ptr %call16, i64 8
   store i32 7, ptr %color, align 8
@@ -5385,7 +5379,7 @@ if.end18:                                         ; preds = %while.body, %while.
   br i1 %cmp23.not, label %if.end25, label %for.end
 
 if.end25:                                         ; preds = %if.end18
-  %add.ptr.i40 = getelementptr inbounds nuw %"class.msdfgen::Contour", ptr %9, i64 %conv22
+  %add.ptr.i40 = getelementptr inbounds nuw [24 x i8], ptr %9, i64 %conv22
   br label %for.inc
 
 sw.bb29:                                          ; preds = %for.cond
@@ -5417,7 +5411,7 @@ if.then39:                                        ; preds = %sw.bb30
   %or61 = or i32 %or, %conv59
   %17 = icmp eq i8 %13, 87
   %or70 = select i1 %17, i32 7, i32 %or61
-  %add.ptr.i46 = getelementptr inbounds nuw %"class.msdfgen::EdgeHolder", ptr %12, i64 %conv35
+  %add.ptr.i46 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %conv35
   %call74 = tail call noundef ptr @_ZN7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i46)
   %color75 = getelementptr inbounds nuw i8, ptr %call74, i64 8
   store i32 %or70, ptr %color75, align 8

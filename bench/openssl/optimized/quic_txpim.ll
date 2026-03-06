@@ -3,8 +3,6 @@ source_filename = "bench/openssl/original/quic_txpim.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.quic_txpim_chunk_st = type { i64, i64, i64, i8 }
-
 @.str = private unnamed_addr constant [33 x i8] c"../openssl/ssl/quic/quic_txpim.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
@@ -244,7 +242,7 @@ define range(i32 0, 2) i32 @ossl_quic_txpim_pkt_append_chunk(ptr noundef capture
   %23 = phi ptr [ %.pre, %._crit_edge ], [ %18, %20 ]
   %24 = add i64 %22, 1
   store i64 %24, ptr %4, align 8, !tbaa !28
-  %25 = getelementptr inbounds nuw %struct.quic_txpim_chunk_st, ptr %23, i64 %22
+  %25 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %22
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false), !tbaa.struct !35
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %27 = load i8, ptr %26, align 8

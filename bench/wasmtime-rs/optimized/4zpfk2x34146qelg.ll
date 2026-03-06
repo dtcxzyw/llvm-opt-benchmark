@@ -45,7 +45,7 @@ define hidden { i32, i32 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h4ee731f57189b
   tail call void @llvm.assume(i1 %8)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !nonnull !4, !noundef !4
-  %11 = getelementptr inbounds i32, ptr %10, i64 %6
+  %11 = getelementptr inbounds [4 x i8], ptr %10, i64 %6
   %12 = load i32, ptr %11, align 4, !noundef !4
   br label %13
 
@@ -74,7 +74,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hca15ad9f34f56f27E.ll
   %9 = phi i64 [ %.pre, %7 ], [ %4, %2 ]
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !nonnull !4, !noundef !4
-  %12 = getelementptr inbounds i32, ptr %11, i64 %9
+  %12 = getelementptr inbounds [4 x i8], ptr %11, i64 %9
   store i32 %1, ptr %12, align 4
   %13 = load i64, ptr %3, align 8, !noundef !4
   %14 = add i64 %13, 1
@@ -115,7 +115,7 @@ switch.lookup:
   %3 = zext nneg i32 %2 to i64
   %4 = add nsw i64 %3, -1
   %5 = select i1 %.not, i64 0, i64 %4
-  %switch.gep = getelementptr inbounds i64, ptr @switch.table._ZN14cranelift_wasm5state17ControlStackFrame14br_destination17hd8cff4fe16f835d3E, i64 %5
+  %switch.gep = getelementptr inbounds [8 x i8], ptr @switch.table._ZN14cranelift_wasm5state17ControlStackFrame14br_destination17hd8cff4fe16f835d3E, i64 %5
   %switch.load = load i64, ptr %switch.gep, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
   %.0 = load i32, ptr %6, align 4, !noundef !4
@@ -484,7 +484,7 @@ _ZN14cranelift_wasm5state20FuncTranslationState5clear17h80f9141668053e6fE.exit: 
 .preheader:                                       ; preds = %_ZN14cranelift_wasm5state20FuncTranslationState5clear17h80f9141668053e6fE.exit, %.preheader
   %.017.i = phi i64 [ %33, %.preheader ], [ 0, %_ZN14cranelift_wasm5state20FuncTranslationState5clear17h80f9141668053e6fE.exit ]
   %.016.i = phi i64 [ %34, %.preheader ], [ 0, %_ZN14cranelift_wasm5state20FuncTranslationState5clear17h80f9141668053e6fE.exit ]
-  %30 = getelementptr inbounds { { i32, [1 x i32] }, i16, i8, [1 x i8] }, ptr %26, i64 %.016.i
+  %30 = getelementptr inbounds [12 x i8], ptr %26, i64 %.016.i
   %.val.i = load i32, ptr %30, align 4, !range !89, !alias.scope !90, !noundef !4
   %31 = icmp eq i32 %.val.i, 0
   %32 = zext i1 %31 to i64
@@ -513,7 +513,7 @@ _ZN14cranelift_wasm5state20FuncTranslationState10push_block17h29aadd0842f290d7E.
   %44 = phi i64 [ %.pre.i.i, %43 ], [ %40, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h03f113c0b89fbd16E.exit" ]
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %46 = load ptr, ptr %45, align 8, !alias.scope !96, !noalias !99, !nonnull !4, !noundef !4
-  %47 = getelementptr inbounds { [9 x i32], i32, [4 x i32] }, ptr %46, i64 %44
+  %47 = getelementptr inbounds [56 x i8], ptr %46, i64 %44
   store i64 0, ptr %47, align 8
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %47, i64 8
   store i64 %.0.i, ptr %.sroa.4.0..sroa_idx.i, align 8
@@ -548,7 +548,7 @@ define void @_ZN14cranelift_wasm5state20FuncTranslationState5push117h726c1d7cebb
   %8 = phi i64 [ %.pre.i, %7 ], [ %4, %2 ]
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !alias.scope !101, !nonnull !4, !noundef !4
-  %11 = getelementptr inbounds i32, ptr %10, i64 %8
+  %11 = getelementptr inbounds [4 x i8], ptr %10, i64 %8
   store i32 %1, ptr %11, align 4
   %12 = load i64, ptr %3, align 8, !alias.scope !101, !noundef !4
   %13 = add i64 %12, 1
@@ -575,7 +575,7 @@ define void @_ZN14cranelift_wasm5state20FuncTranslationState5pushn17hbbe68b94392
   %.idx.i = shl nuw nsw i64 %2, 2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8, !alias.scope !113, !noalias !111, !nonnull !4, !noundef !4
-  %13 = getelementptr inbounds i32, ptr %12, i64 %10
+  %13 = getelementptr inbounds [4 x i8], ptr %12, i64 %10
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %13, ptr nonnull readonly align 4 %1, i64 %.idx.i, i1 false)
   %14 = load i64, ptr %4, align 8, !alias.scope !113, !noalias !111, !noundef !4
   %15 = add i64 %14, %2
@@ -603,7 +603,7 @@ define noundef i32 @_ZN14cranelift_wasm5state20FuncTranslationState4pop117h1c1c6
   tail call void @llvm.assume(i1 %9)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !alias.scope !114, !nonnull !4, !noundef !4
-  %12 = getelementptr inbounds i32, ptr %11, i64 %7
+  %12 = getelementptr inbounds [4 x i8], ptr %11, i64 %7
   %13 = load i32, ptr %12, align 4, !noalias !114, !noundef !4
   ret i32 %13
 }
@@ -615,7 +615,7 @@ define noundef i32 @_ZN14cranelift_wasm5state20FuncTranslationState5peek117h42fb
   %.not = icmp eq i64 %3, 0
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !nonnull !4
-  %6 = getelementptr i32, ptr %5, i64 %3
+  %6 = getelementptr [4 x i8], ptr %5, i64 %3
   %7 = getelementptr i8, ptr %6, i64 -4
   %8 = icmp eq ptr %7, null
   %9 = select i1 %.not, i1 true, i1 %8
@@ -650,7 +650,7 @@ define { i32, i32 } @_ZN14cranelift_wasm5state20FuncTranslationState4pop217h448f
   tail call void @llvm.assume(i1 %9)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !alias.scope !117, !nonnull !4, !noundef !4
-  %12 = getelementptr inbounds i32, ptr %11, i64 %7
+  %12 = getelementptr inbounds [4 x i8], ptr %11, i64 %7
   %13 = load i32, ptr %12, align 4, !noalias !117, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !120)
   %14 = icmp eq i64 %7, 0
@@ -665,7 +665,7 @@ define { i32, i32 } @_ZN14cranelift_wasm5state20FuncTranslationState4pop217h448f
   store i64 %17, ptr %2, align 8, !alias.scope !120
   %18 = icmp ult i64 %17, %8
   tail call void @llvm.assume(i1 %18)
-  %19 = getelementptr inbounds i32, ptr %11, i64 %17
+  %19 = getelementptr inbounds [4 x i8], ptr %11, i64 %17
   %20 = load i32, ptr %19, align 4, !noalias !120, !noundef !4
   %21 = insertvalue { i32, i32 } poison, i32 %20, 0
   %22 = insertvalue { i32, i32 } %21, i32 %13, 1
@@ -692,7 +692,7 @@ define void @_ZN14cranelift_wasm5state20FuncTranslationState4pop317h917630204866
   tail call void @llvm.assume(i1 %10)
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8, !alias.scope !123, !nonnull !4, !noundef !4
-  %13 = getelementptr inbounds i32, ptr %12, i64 %8
+  %13 = getelementptr inbounds [4 x i8], ptr %12, i64 %8
   %14 = load i32, ptr %13, align 4, !noalias !123, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !126)
   %15 = icmp eq i64 %8, 0
@@ -707,7 +707,7 @@ define void @_ZN14cranelift_wasm5state20FuncTranslationState4pop317h917630204866
   store i64 %18, ptr %3, align 8, !alias.scope !126
   %19 = icmp ult i64 %18, %9
   tail call void @llvm.assume(i1 %19)
-  %20 = getelementptr inbounds i32, ptr %12, i64 %18
+  %20 = getelementptr inbounds [4 x i8], ptr %12, i64 %18
   %21 = load i32, ptr %20, align 4, !noalias !126, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !129)
   %22 = icmp eq i64 %18, 0
@@ -722,7 +722,7 @@ define void @_ZN14cranelift_wasm5state20FuncTranslationState4pop317h917630204866
   store i64 %25, ptr %3, align 8, !alias.scope !129
   %26 = icmp ult i64 %25, %9
   tail call void @llvm.assume(i1 %26)
-  %27 = getelementptr inbounds i32, ptr %12, i64 %25
+  %27 = getelementptr inbounds [4 x i8], ptr %12, i64 %25
   %28 = load i32, ptr %27, align 4, !noalias !129, !noundef !4
   store i32 %28, ptr %0, align 4
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -759,7 +759,7 @@ define { ptr, i64 } @_ZN14cranelift_wasm5state20FuncTranslationState5peekn17h775
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !4, !noundef !4
-  %10 = getelementptr inbounds i32, ptr %9, i64 %5
+  %10 = getelementptr inbounds [4 x i8], ptr %9, i64 %5
   %11 = insertvalue { ptr, i64 } poison, ptr %10, 0
   %12 = insertvalue { ptr, i64 } %11, i64 %1, 1
   ret { ptr, i64 } %12
@@ -780,7 +780,7 @@ define { ptr, i64 } @_ZN14cranelift_wasm5state20FuncTranslationState9peekn_mut17
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !4, !noundef !4
-  %10 = getelementptr inbounds i32, ptr %9, i64 %5
+  %10 = getelementptr inbounds [4 x i8], ptr %9, i64 %5
   %11 = insertvalue { ptr, i64 } poison, ptr %10, 0
   %12 = insertvalue { ptr, i64 } %11, i64 %1, 1
   ret { ptr, i64 } %12
@@ -811,7 +811,7 @@ define void @_ZN14cranelift_wasm5state20FuncTranslationState10push_block17h29aad
   %14 = sub i64 %7, %2
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load ptr, ptr %15, align 8, !alias.scope !135, !noalias !138, !nonnull !4, !noundef !4
-  %17 = getelementptr inbounds { [9 x i32], i32, [4 x i32] }, ptr %16, i64 %13
+  %17 = getelementptr inbounds [56 x i8], ptr %16, i64 %13
   store i64 %2, ptr %17, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i64 %3, ptr %.sroa.4.0..sroa_idx, align 8
@@ -850,7 +850,7 @@ define void @_ZN14cranelift_wasm5state20FuncTranslationState9push_loop17h5b7f4cc
   %15 = sub i64 %8, %3
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = load ptr, ptr %16, align 8, !alias.scope !140, !noalias !143, !nonnull !4, !noundef !4
-  %18 = getelementptr inbounds { [9 x i32], i32, [4 x i32] }, ptr %17, i64 %14
+  %18 = getelementptr inbounds [56 x i8], ptr %17, i64 %14
   store i64 %3, ptr %18, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i64 %4, ptr %.sroa.4.0..sroa_idx, align 8
@@ -913,7 +913,7 @@ define void @_ZN14cranelift_wasm5state20FuncTranslationState7push_if17h30c17eb7e
   %27 = sub i64 %17, %3
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %29 = load ptr, ptr %28, align 8, !alias.scope !148, !noalias !151, !nonnull !4, !noundef !4
-  %30 = getelementptr inbounds { [9 x i32], i32, [4 x i32] }, ptr %29, i64 %26
+  %30 = getelementptr inbounds [56 x i8], ptr %29, i64 %26
   store i64 %3, ptr %30, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i64 %4, ptr %.sroa.4.0..sroa_idx, align 8
@@ -945,7 +945,7 @@ define void @_ZN14cranelift_wasm5state20FuncTranslationState7push_if17h30c17eb7e
 
 37:                                               ; preds = %33
   %38 = load ptr, ptr %16, align 8, !nonnull !4, !noundef !4
-  %39 = getelementptr inbounds i32, ptr %38, i64 %.sroa.02.012
+  %39 = getelementptr inbounds [4 x i8], ptr %38, i64 %.sroa.02.012
   %40 = load i32, ptr %39, align 4, !noundef !4
   %41 = load i64, ptr %0, align 8, !alias.scope !154, !noundef !4
   %42 = icmp eq i64 %34, %41
@@ -960,7 +960,7 @@ define void @_ZN14cranelift_wasm5state20FuncTranslationState7push_if17h30c17eb7e
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hca15ad9f34f56f27E.llvm.1704480944486436820.exit": ; preds = %37, %43
   %44 = phi ptr [ %.pre15, %43 ], [ %38, %37 ]
   %45 = phi i64 [ %.pre.i9, %43 ], [ %34, %37 ]
-  %46 = getelementptr inbounds i32, ptr %44, i64 %45
+  %46 = getelementptr inbounds [4 x i8], ptr %44, i64 %45
   store i32 %40, ptr %46, align 4
   %47 = load i64, ptr %7, align 8, !alias.scope !154, !noundef !4
   %48 = add i64 %47, 1

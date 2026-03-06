@@ -346,7 +346,7 @@ for.body.lr.ph.i:                                 ; preds = %entry
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.inc.i ]
-  %arrayidx.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.i
+  %arrayidx.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i
   %5 = load ptr, ptr %arrayidx.i.i, align 8, !noalias !5
   %cmp5.i = icmp eq ptr %5, %1
   br i1 %cmp5.i, label %if.then.i, label %for.inc.i
@@ -654,7 +654,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %4 = load ptr, ptr %arrayidx.i, align 8
   %cmp5 = icmp eq ptr %4, %0
   br i1 %cmp5, label %if.then, label %for.inc
@@ -758,7 +758,7 @@ for.body.lr.ph.i:                                 ; preds = %entry
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.inc.i ]
-  %arrayidx.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.i
+  %arrayidx.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i
   %5 = load ptr, ptr %arrayidx.i.i, align 8, !noalias !12
   %cmp5.i = icmp eq ptr %5, %1
   br i1 %cmp5.i, label %if.then.i, label %for.inc.i
@@ -920,7 +920,7 @@ invoke.cont16:                                    ; preds = %_ZN6google8protobuf
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3.i.i)
   %idxprom.i = zext i32 %26 to i64
-  %arrayidx.i = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %idxprom.i
   %27 = load i32, ptr %arrayidx.i, align 4
   %28 = load ptr, ptr %d_.i, align 8
   switch i32 %27, label %sw.default [
@@ -1036,7 +1036,7 @@ for.body.lr.ph.i64:                               ; preds = %invoke.cont24
 
 for.body.i67:                                     ; preds = %for.inc.i71, %for.body.lr.ph.i64
   %indvars.iv.i68 = phi i64 [ 0, %for.body.lr.ph.i64 ], [ %indvars.iv.next.i72, %for.inc.i71 ]
-  %arrayidx.i.i69 = getelementptr inbounds nuw ptr, ptr %44, i64 %indvars.iv.i68
+  %arrayidx.i.i69 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %indvars.iv.i68
   %45 = load ptr, ptr %arrayidx.i.i69, align 8, !noalias !18
   %cmp5.i70 = icmp eq ptr %45, %41
   br i1 %cmp5.i70, label %if.then.i74, label %for.inc.i71
@@ -2446,7 +2446,7 @@ for.body.lr.ph.i:                                 ; preds = %entry
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.inc.i ]
-  %arrayidx.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.i
+  %arrayidx.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i
   %5 = load ptr, ptr %arrayidx.i.i, align 8, !noalias !24
   %cmp5.i = icmp eq ptr %5, %1
   br i1 %cmp5.i, label %if.then.i, label %for.inc.i
@@ -2611,7 +2611,7 @@ for.body.lr.ph.i:                                 ; preds = %entry
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.inc.i ]
-  %arrayidx.i.i = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.i
+  %arrayidx.i.i = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.i
   %4 = load ptr, ptr %arrayidx.i.i, align 8, !noalias !27
   %cmp5.i = icmp eq ptr %4, %0
   br i1 %cmp5.i, label %if.then.i, label %for.inc.i
@@ -2773,7 +2773,7 @@ invoke.cont14:                                    ; preds = %_ZN6google8protobuf
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3.i.i)
   %idxprom.i = zext i32 %25 to i64
-  %arrayidx.i = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %idxprom.i
   %26 = load i32, ptr %arrayidx.i, align 4
   switch i32 %26, label %sw.default [
     i32 10, label %sw.bb
@@ -2916,7 +2916,7 @@ for.body.lr.ph.i65:                               ; preds = %invoke.cont24
 
 for.body.i68:                                     ; preds = %for.inc.i72, %for.body.lr.ph.i65
   %indvars.iv.i69 = phi i64 [ 0, %for.body.lr.ph.i65 ], [ %indvars.iv.next.i73, %for.inc.i72 ]
-  %arrayidx.i.i70 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv.i69
+  %arrayidx.i.i70 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv.i69
   %46 = load ptr, ptr %arrayidx.i.i70, align 8, !noalias !33
   %cmp5.i71 = icmp eq ptr %46, %42
   br i1 %cmp5.i71, label %if.then.i75, label %for.inc.i72
@@ -3826,7 +3826,7 @@ for.body.lr.ph.i:                                 ; preds = %entry
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.inc.i ]
-  %arrayidx.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.i
+  %arrayidx.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i
   %5 = load ptr, ptr %arrayidx.i.i, align 8, !noalias !36
   %cmp5.i = icmp eq ptr %5, %1
   br i1 %cmp5.i, label %if.then.i, label %for.inc.i
@@ -3988,7 +3988,7 @@ invoke.cont16:                                    ; preds = %_ZN6google8protobuf
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3.i.i)
   %idxprom.i = zext i32 %26 to i64
-  %arrayidx.i = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %idxprom.i
   %27 = load i32, ptr %arrayidx.i, align 4
   switch i32 %27, label %sw.default [
     i32 10, label %sw.bb
@@ -4266,7 +4266,7 @@ for.body.lr.ph.i110:                              ; preds = %invoke.cont38
 
 for.body.i113:                                    ; preds = %for.inc.i117, %for.body.lr.ph.i110
   %indvars.iv.i114 = phi i64 [ 0, %for.body.lr.ph.i110 ], [ %indvars.iv.next.i118, %for.inc.i117 ]
-  %arrayidx.i.i115 = getelementptr inbounds nuw ptr, ptr %62, i64 %indvars.iv.i114
+  %arrayidx.i.i115 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %indvars.iv.i114
   %63 = load ptr, ptr %arrayidx.i.i115, align 8, !noalias !45
   %cmp5.i116 = icmp eq ptr %63, %59
   br i1 %cmp5.i116, label %if.then.i120, label %for.inc.i117
@@ -4511,7 +4511,7 @@ for.body.lr.ph.i170:                              ; preds = %sw.bb69
 
 for.body.i173:                                    ; preds = %for.inc.i177, %for.body.lr.ph.i170
   %indvars.iv.i174 = phi i64 [ 0, %for.body.lr.ph.i170 ], [ %indvars.iv.next.i178, %for.inc.i177 ]
-  %arrayidx.i.i175 = getelementptr inbounds nuw ptr, ptr %91, i64 %indvars.iv.i174
+  %arrayidx.i.i175 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %indvars.iv.i174
   %92 = load ptr, ptr %arrayidx.i.i175, align 8, !noalias !48
   %cmp5.i176 = icmp eq ptr %92, %88
   br i1 %cmp5.i176, label %if.then.i180, label %for.inc.i177
@@ -4565,7 +4565,7 @@ for.body.lr.ph.i196:                              ; preds = %invoke.cont75
 
 for.body.i199:                                    ; preds = %for.inc.i203, %for.body.lr.ph.i196
   %indvars.iv.i200 = phi i64 [ 0, %for.body.lr.ph.i196 ], [ %indvars.iv.next.i204, %for.inc.i203 ]
-  %arrayidx.i.i201 = getelementptr inbounds nuw ptr, ptr %100, i64 %indvars.iv.i200
+  %arrayidx.i.i201 = getelementptr inbounds nuw [8 x i8], ptr %100, i64 %indvars.iv.i200
   %101 = load ptr, ptr %arrayidx.i.i201, align 8, !noalias !51
   %cmp5.i202 = icmp eq ptr %101, %97
   br i1 %cmp5.i202, label %if.then.i206, label %for.inc.i203
@@ -4734,7 +4734,7 @@ for.body.lr.ph.i236:                              ; preds = %sw.bb97
 
 for.body.i239:                                    ; preds = %for.inc.i243, %for.body.lr.ph.i236
   %indvars.iv.i240 = phi i64 [ 0, %for.body.lr.ph.i236 ], [ %indvars.iv.next.i244, %for.inc.i243 ]
-  %arrayidx.i.i241 = getelementptr inbounds nuw ptr, ptr %125, i64 %indvars.iv.i240
+  %arrayidx.i.i241 = getelementptr inbounds nuw [8 x i8], ptr %125, i64 %indvars.iv.i240
   %126 = load ptr, ptr %arrayidx.i.i241, align 8, !noalias !54
   %cmp5.i242 = icmp eq ptr %126, %122
   br i1 %cmp5.i242, label %if.then.i246, label %for.inc.i243
@@ -4788,7 +4788,7 @@ for.body.lr.ph.i263:                              ; preds = %invoke.cont103
 
 for.body.i266:                                    ; preds = %for.inc.i270, %for.body.lr.ph.i263
   %indvars.iv.i267 = phi i64 [ 0, %for.body.lr.ph.i263 ], [ %indvars.iv.next.i271, %for.inc.i270 ]
-  %arrayidx.i.i268 = getelementptr inbounds nuw ptr, ptr %134, i64 %indvars.iv.i267
+  %arrayidx.i.i268 = getelementptr inbounds nuw [8 x i8], ptr %134, i64 %indvars.iv.i267
   %135 = load ptr, ptr %arrayidx.i.i268, align 8, !noalias !57
   %cmp5.i269 = icmp eq ptr %135, %131
   br i1 %cmp5.i269, label %if.then.i273, label %for.inc.i270
@@ -4929,7 +4929,7 @@ for.body.lr.ph.i320:                              ; preds = %sw.default
 
 for.body.i323:                                    ; preds = %for.inc.i327, %for.body.lr.ph.i320
   %indvars.iv.i324 = phi i64 [ 0, %for.body.lr.ph.i320 ], [ %indvars.iv.next.i328, %for.inc.i327 ]
-  %arrayidx.i.i325 = getelementptr inbounds nuw ptr, ptr %156, i64 %indvars.iv.i324
+  %arrayidx.i.i325 = getelementptr inbounds nuw [8 x i8], ptr %156, i64 %indvars.iv.i324
   %157 = load ptr, ptr %arrayidx.i.i325, align 8, !noalias !60
   %cmp5.i326 = icmp eq ptr %157, %153
   br i1 %cmp5.i326, label %if.then.i330, label %for.inc.i327
@@ -4983,7 +4983,7 @@ for.body.lr.ph.i347:                              ; preds = %invoke.cont124
 
 for.body.i350:                                    ; preds = %for.inc.i354, %for.body.lr.ph.i347
   %indvars.iv.i351 = phi i64 [ 0, %for.body.lr.ph.i347 ], [ %indvars.iv.next.i355, %for.inc.i354 ]
-  %arrayidx.i.i352 = getelementptr inbounds nuw ptr, ptr %165, i64 %indvars.iv.i351
+  %arrayidx.i.i352 = getelementptr inbounds nuw [8 x i8], ptr %165, i64 %indvars.iv.i351
   %166 = load ptr, ptr %arrayidx.i.i352, align 8, !noalias !63
   %cmp5.i353 = icmp eq ptr %166, %162
   br i1 %cmp5.i353, label %if.then.i357, label %for.inc.i354
@@ -5358,7 +5358,7 @@ _ZNK6google8protobuf15FieldDescriptor9type_nameEv.exit: ; preds = %entry, %_ZN6g
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3.i.i)
   %idxprom.i = zext i32 %6 to i64
-  %arrayidx.i = getelementptr inbounds nuw ptr, ptr @_ZN6google8protobuf15FieldDescriptor11kTypeToNameE, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr @_ZN6google8protobuf15FieldDescriptor11kTypeToNameE, i64 %idxprom.i
   %7 = load ptr, ptr %arrayidx.i, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #21
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
@@ -5775,7 +5775,7 @@ for.body.lr.ph.i:                                 ; preds = %invoke.cont23
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.inc.i ]
-  %arrayidx.i.i37 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv.i
+  %arrayidx.i.i37 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv.i
   %46 = load ptr, ptr %arrayidx.i.i37, align 8, !noalias !69
   %cmp5.i = icmp eq ptr %46, %42
   br i1 %cmp5.i, label %if.then.i, label %for.inc.i
@@ -8377,7 +8377,7 @@ for.body.lr.ph.i:                                 ; preds = %invoke.cont16
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.inc.i ]
-  %arrayidx.i.i = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv.i
+  %arrayidx.i.i = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv.i
   %25 = load ptr, ptr %arrayidx.i.i, align 8, !noalias !74
   %cmp5.i = icmp eq ptr %25, %21
   br i1 %cmp5.i, label %if.then.i, label %for.inc.i
@@ -8852,7 +8852,7 @@ for.body.lr.ph.i:                                 ; preds = %invoke.cont16
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.inc.i ]
-  %arrayidx.i.i = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv.i
+  %arrayidx.i.i = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv.i
   %25 = load ptr, ptr %arrayidx.i.i, align 8, !noalias !77
   %cmp5.i = icmp eq ptr %25, %21
   br i1 %cmp5.i, label %if.then.i, label %for.inc.i
@@ -9454,7 +9454,7 @@ for.body.lr.ph.i:                                 ; preds = %invoke.cont23
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.inc.i ]
-  %arrayidx.i.i37 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv.i
+  %arrayidx.i.i37 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv.i
   %46 = load ptr, ptr %arrayidx.i.i37, align 8, !noalias !83
   %cmp5.i = icmp eq ptr %46, %42
   br i1 %cmp5.i, label %if.then.i, label %for.inc.i

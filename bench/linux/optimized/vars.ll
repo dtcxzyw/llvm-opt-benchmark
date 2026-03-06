@@ -52,7 +52,7 @@ define dso_local zeroext i1 @efivar_validate(i64 %0, i64 %1, ptr noundef %2, ptr
 17:                                               ; preds = %.thread6, %12
   %18 = phi i64 [ 0, %12 ], [ %46, %.thread6 ]
   %19 = phi ptr [ @.str.3, %12 ], [ %49, %.thread6 ]
-  %20 = getelementptr %struct.variable_validate, ptr @variable_validate, i64 %18
+  %20 = getelementptr [32 x i8], ptr @variable_validate, i64 %18
   %21 = load i64, ptr %20, align 16
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %23 = load i64, ptr %22, align 8
@@ -112,7 +112,7 @@ define dso_local zeroext i1 @efivar_validate(i64 %0, i64 %1, ptr noundef %2, ptr
 
 .thread6:                                         ; preds = %32, %30, %17, %38
   %46 = add nuw nsw i64 %18, 1
-  %47 = getelementptr %struct.variable_validate, ptr @variable_validate, i64 %46
+  %47 = getelementptr [32 x i8], ptr @variable_validate, i64 %46
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %49 = load ptr, ptr %48, align 16
   %50 = icmp eq i64 %46, 16
@@ -148,7 +148,7 @@ define dso_local zeroext i1 @efivar_variable_is_removable(i64 %0, i64 %1, ptr no
   %10 = phi i64 [ 0, %4 ], [ %32, %.thread4 ]
   %11 = phi i1 [ true, %4 ], [ %37, %.thread4 ]
   %12 = phi ptr [ @.str.3, %4 ], [ %35, %.thread4 ]
-  %13 = getelementptr %struct.variable_validate, ptr @variable_validate, i64 %10
+  %13 = getelementptr [32 x i8], ptr @variable_validate, i64 %10
   %14 = load i64, ptr %13, align 16
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %16 = load i64, ptr %15, align 8
@@ -191,7 +191,7 @@ define dso_local zeroext i1 @efivar_variable_is_removable(i64 %0, i64 %1, ptr no
 
 .thread4:                                         ; preds = %25, %23, %30, %9
   %32 = add nuw nsw i64 %10, 1
-  %33 = getelementptr %struct.variable_validate, ptr @variable_validate, i64 %32
+  %33 = getelementptr [32 x i8], ptr @variable_validate, i64 %32
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 16
   %36 = load i8, ptr %35, align 1
@@ -363,7 +363,7 @@ define dso_local i32 @efivar_init(ptr noundef readonly captures(none) %0, ptr no
 
 .preheader:                                       ; preds = %79, %.preheader
   %81 = phi i64 [ %86, %.preheader ], [ 0, %79 ]
-  %82 = getelementptr i16, ptr %10, i64 %81
+  %82 = getelementptr [2 x i8], ptr %10, i64 %81
   %83 = load i16, ptr %82, align 2
   %84 = trunc i16 %83 to i8
   %85 = getelementptr i8, ptr %77, i64 %81
@@ -697,7 +697,7 @@ define internal noundef zeroext i1 @validate_load_option(ptr noundef %0, i32 nou
 
 .preheader:                                       ; preds = %.preheader.preheader, %10
   %indvars.iv = phi i64 [ %9, %.preheader.preheader ], [ %indvars.iv.next, %10 ]
-  %13 = getelementptr i16, ptr %0, i64 %indvars.iv
+  %13 = getelementptr [2 x i8], ptr %0, i64 %indvars.iv
   %14 = load i16, ptr %13, align 2
   %15 = icmp ugt i16 %14, 127
   br i1 %15, label %.loopexit, label %16

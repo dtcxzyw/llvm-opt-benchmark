@@ -124,13 +124,13 @@ define dso_local void @archive_entry_linkresolver_free(ptr noundef captures(addr
 
 .lr.ph68.split.split.i:                           ; preds = %23, %.lr.ph68.i
   %.064.i = phi i64 [ %24, %23 ], [ 0, %.lr.ph68.i ]
-  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %.064.i
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %.064.i
   %.02941.i = load ptr, ptr %16, align 8, !tbaa !20
   %.not3442.i = icmp eq ptr %.02941.i, null
   br i1 %.not3442.i, label %23, label %.split.us.i
 
 .split.us.i:                                      ; preds = %.lr.ph68.split.split.i
-  %17 = getelementptr inbounds nuw ptr, ptr %15, i64 %.064.i
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %.064.i
   %18 = load ptr, ptr %.02941.i, align 8, !tbaa !21
   %.not36.i = icmp eq ptr %18, null
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.02941.i, i64 8
@@ -201,13 +201,13 @@ define dso_local void @archive_entry_linkresolver_free(ptr noundef captures(addr
 
 .lr.ph68.split.split.i9:                          ; preds = %49, %.lr.ph68.i8
   %.064.i10 = phi i64 [ %50, %49 ], [ 0, %.lr.ph68.i8 ]
-  %42 = getelementptr inbounds nuw ptr, ptr %41, i64 %.064.i10
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %.064.i10
   %.02941.i11 = load ptr, ptr %42, align 8, !tbaa !20
   %.not3442.i12 = icmp eq ptr %.02941.i11, null
   br i1 %.not3442.i12, label %49, label %.split.us.i13
 
 .split.us.i13:                                    ; preds = %.lr.ph68.split.split.i9
-  %43 = getelementptr inbounds nuw ptr, ptr %41, i64 %.064.i10
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %.064.i10
   %44 = load ptr, ptr %.02941.i11, align 8, !tbaa !21
   %.not36.i14 = icmp eq ptr %44, null
   %.phi.trans.insert.i15 = getelementptr inbounds nuw i8, ptr %.02941.i11, i64 8
@@ -291,7 +291,7 @@ define internal fastcc noundef ptr @next_entry(ptr noundef captures(none) %0, i3
 
 .lr.ph68.split.us.split:                          ; preds = %.lr.ph68.split.us, %._crit_edge.split.split.us73
   %.064.us = phi i64 [ %23, %._crit_edge.split.split.us73 ], [ 0, %.lr.ph68.split.us ]
-  %19 = getelementptr inbounds nuw ptr, ptr %15, i64 %.064.us
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %.064.us
   %.02941.us = load ptr, ptr %19, align 8, !tbaa !20
   %.not3442.us = icmp eq ptr %.02941.us, null
   br i1 %.not3442.us, label %._crit_edge.split.split.us73, label %.lr.ph.us
@@ -318,7 +318,7 @@ define internal fastcc noundef ptr @next_entry(ptr noundef captures(none) %0, i3
 
 .lr.ph68.split.split.us:                          ; preds = %.lr.ph68.split, %._crit_edge.split.us.us
   %.064.us82 = phi i64 [ %25, %._crit_edge.split.us.us ], [ 0, %.lr.ph68.split ]
-  %24 = getelementptr inbounds nuw ptr, ptr %15, i64 %.064.us82
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %.064.us82
   %.02941.us83 = load ptr, ptr %24, align 8, !tbaa !20
   %.not3442.us84 = icmp eq ptr %.02941.us83, null
   br i1 %.not3442.us84, label %._crit_edge.split.us.us, label %.lr.ph.us85
@@ -342,7 +342,7 @@ define internal fastcc noundef ptr @next_entry(ptr noundef captures(none) %0, i3
 
 .lr.ph68.split.split:                             ; preds = %.lr.ph68.split, %41
   %.064 = phi i64 [ %42, %41 ], [ 0, %.lr.ph68.split ]
-  %30 = getelementptr inbounds nuw ptr, ptr %15, i64 %.064
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %.064
   %.02941 = load ptr, ptr %30, align 8, !tbaa !20
   %.not3442 = icmp eq ptr %.02941, null
   br i1 %.not3442, label %41, label %.split.us
@@ -350,7 +350,7 @@ define internal fastcc noundef ptr @next_entry(ptr noundef captures(none) %0, i3
 .split.us:                                        ; preds = %.lr.ph68.split.split, %.lr.ph.us85, %.lr.ph.us
   %.064.lcssa.sink = phi i64 [ %.064.us82, %.lr.ph.us85 ], [ %.064.us, %.lr.ph.us ], [ %.064, %.lr.ph68.split.split ]
   %.us-phi44 = phi ptr [ %.02943.us.us86, %.lr.ph.us85 ], [ %.02943.us69, %.lr.ph.us ], [ %.02941, %.lr.ph68.split.split ]
-  %31 = getelementptr inbounds nuw ptr, ptr %15, i64 %.064.lcssa.sink
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %.064.lcssa.sink
   %32 = load ptr, ptr %.us-phi44, align 8, !tbaa !21
   %.not36 = icmp eq ptr %32, null
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.us-phi44, i64 8
@@ -562,7 +562,7 @@ define internal fastcc ptr @find_entry(ptr noundef captures(none) %0, ptr nounde
   %18 = add i64 %17, -1
   %19 = and i64 %18, %15
   %20 = load ptr, ptr %0, align 8, !tbaa !13
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %19
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %19
   %.04050 = load ptr, ptr %21, align 8, !tbaa !20
   %.not4451 = icmp eq ptr %.04050, null
   br i1 %.not4451, label %.loopexit, label %.lr.ph
@@ -617,7 +617,7 @@ define internal fastcc ptr @find_entry(ptr noundef captures(none) %0, ptr nounde
 
 45:                                               ; preds = %43, %42
   %46 = load ptr, ptr %0, align 8, !tbaa !13
-  %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %19
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %19
   %48 = load ptr, ptr %47, align 8, !tbaa !20
   %49 = icmp eq ptr %48, %.04052
   br i1 %49, label %50, label %51
@@ -686,7 +686,7 @@ define internal fastcc noundef ptr @insert_entry(ptr noundef captures(none) %0, 
 
 .preheader.i:                                     ; preds = %._crit_edge.i, %.preheader.lr.ph.i
   %.040.i = phi i64 [ 0, %.preheader.lr.ph.i ], [ %33, %._crit_edge.i ]
-  %19 = getelementptr inbounds nuw ptr, ptr %.pre.i, i64 %.040.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i, i64 %.040.i
   %20 = load ptr, ptr %19, align 8, !tbaa !20
   %.not39.i = icmp eq ptr %20, null
   br i1 %.not39.i, label %._crit_edge.i, label %.lr.ph.i
@@ -698,7 +698,7 @@ define internal fastcc noundef ptr @insert_entry(ptr noundef captures(none) %0, 
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %24 = load i64, ptr %23, align 8, !tbaa !30
   %25 = and i64 %24, %18
-  %26 = getelementptr inbounds nuw ptr, ptr %16, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !20
   %.not37.i = icmp eq ptr %27, null
   br i1 %.not37.i, label %30, label %28
@@ -736,7 +736,7 @@ grow_hash.exit:                                   ; preds = %._crit_edge41.i, %1
   %38 = add i64 %37, -1
   %39 = and i64 %38, %36
   %40 = load ptr, ptr %0, align 8, !tbaa !13
-  %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %39
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %39
   %42 = load ptr, ptr %41, align 8, !tbaa !20
   %.not = icmp eq ptr %42, null
   br i1 %.not, label %45, label %43

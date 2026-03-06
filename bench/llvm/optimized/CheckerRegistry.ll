@@ -13,8 +13,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.clang::DiagnosticBuilder" = type <{ %"class.clang::StreamingDiagnostic", ptr, %"class.clang::SourceLocation", i32, %"class.std::__cxx11::basic_string", i8, i8, [6 x i8] }>
 %"class.clang::StreamingDiagnostic" = type { ptr, ptr }
 %"class.clang::SourceLocation" = type { i32 }
-%"struct.std::pair.196" = type { %"class.llvm::StringRef", %"struct.clang::ento::CmdLineOption" }
-%"struct.std::pair.194" = type { %"class.llvm::StringRef", %"class.llvm::StringRef" }
 %"struct.clang::ento::PackageInfo" = type { %"class.llvm::StringRef", %"class.llvm::SmallVector.57" }
 %"class.llvm::SmallVector.57" = type { %"class.llvm::SmallVectorImpl.58" }
 %"class.llvm::SmallVectorImpl.58" = type { %"class.llvm::SmallVectorTemplateBase.59" }
@@ -33,14 +31,15 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::DenseSet" = type { %"class.llvm::detail::DenseSetImpl" }
 %"class.llvm::detail::DenseSetImpl" = type { %"class.llvm::DenseMap" }
 %"class.llvm::DenseMap" = type <{ ptr, i32, i32, i32, [4 x i8] }>
-%"class.llvm::detail::DenseSetPair" = type { ptr }
 %"struct.__gnu_cxx::__ops::_Iter_comp_iter" = type { i8 }
 %"struct.__gnu_cxx::__ops::_Iter_comp_val" = type { i8 }
 %"struct.__gnu_cxx::__ops::_Iter_comp_iter.205" = type { i8 }
+%"struct.std::pair.194" = type { %"class.llvm::StringRef", %"class.llvm::StringRef" }
 %"class.llvm::Twine" = type <{ %"union.llvm::Twine::Child", %"union.llvm::Twine::Child", i8, i8, [6 x i8] }>
 %"union.llvm::Twine::Child" = type { %struct.anon }
 %struct.anon = type { ptr, i64 }
 %"struct.std::pair.219" = type { %"class.llvm::StringRef", %"class.std::__cxx11::basic_string" }
+%"struct.std::pair.196" = type { %"class.llvm::StringRef", %"struct.clang::ento::CmdLineOption" }
 
 $_ZN5clang4ento15CheckerRegistry19resolveDependenciesILb1EEEvv = comdat any
 
@@ -3168,7 +3167,7 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i:      ; preds = %1167
   %1181 = add i32 %1163, -1
   store i32 %1181, ptr %1162, align 8, !tbaa !41
   %1182 = zext i32 %1181 to i64
-  %1183 = getelementptr inbounds nuw ptr, ptr %1180, i64 %1182
+  %1183 = getelementptr inbounds nuw [8 x i8], ptr %1180, i64 %1182
   %1184 = load ptr, ptr %1183, align 8, !tbaa !59
   store i8 0, ptr %1184, align 8, !tbaa !43
   %1185 = getelementptr inbounds nuw i8, ptr %1184, i64 424
@@ -3227,7 +3226,7 @@ _ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentK
   %1207 = add i8 %1206, 1
   store i8 %1207, ptr %1204, align 8, !tbaa !43
   %1208 = zext i8 %1206 to i64
-  %1209 = getelementptr inbounds nuw i64, ptr %1205, i64 %1208
+  %1209 = getelementptr inbounds nuw [8 x i8], ptr %1205, i64 %1208
   store i64 ptrtoint (ptr @.str.581 to i64), ptr %1209, align 8, !tbaa !62
   %1210 = ptrtoint ptr %1135 to i64
   %1211 = getelementptr inbounds nuw i8, ptr %1204, i64 1
@@ -3240,7 +3239,7 @@ _ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentK
   %1217 = add i8 %1216, 1
   store i8 %1217, ptr %1214, align 8, !tbaa !43
   %1218 = zext i8 %1216 to i64
-  %1219 = getelementptr inbounds nuw i64, ptr %1215, i64 %1218
+  %1219 = getelementptr inbounds nuw [8 x i8], ptr %1215, i64 %1218
   store i64 %1210, ptr %1219, align 8, !tbaa !62
   %1220 = load i8, ptr %1095, align 8, !tbaa !27, !range !35, !noundef !36
   %1221 = trunc nuw i8 %1220 to i1
@@ -3427,7 +3426,7 @@ _ZN4llvm4sortIRSt6vectorIN5clang4ento11CheckerInfoESaIS4_EENS3_16checker_registr
 1290:                                             ; preds = %_ZN4llvm4sortIRSt6vectorIN5clang4ento11CheckerInfoESaIS4_EENS3_16checker_registry10FullNameLTIS4_EEEEvOT_T0_.exit
   %1291 = zext i32 %1285 to i64
   %1292 = load ptr, ptr %1278, align 8, !tbaa !56
-  %1293 = getelementptr inbounds nuw %"struct.std::pair.196", ptr %1292, i64 %1291
+  %1293 = getelementptr inbounds nuw [104 x i8], ptr %1292, i64 %1291
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1293, ptr noundef nonnull align 8 dereferenceable(16) %274, i64 16, i1 false), !tbaa.struct !73
   %1294 = getelementptr inbounds nuw i8, ptr %1293, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %1294, ptr noundef nonnull align 8 dereferenceable(88) %275, i64 88, i1 false), !tbaa.struct !74
@@ -3463,7 +3462,7 @@ _ZN5clang4ento15CheckerRegistry16addPackageOptionEN4llvm9StringRefES3_S3_S3_S3_S
 1307:                                             ; preds = %_ZN5clang4ento15CheckerRegistry16addPackageOptionEN4llvm9StringRefES3_S3_S3_S3_S3_b.exit
   %1308 = zext i32 %1302 to i64
   %1309 = load ptr, ptr %1300, align 8, !tbaa !56
-  %1310 = getelementptr inbounds nuw %"struct.std::pair.194", ptr %1309, i64 %1308
+  %1310 = getelementptr inbounds nuw [32 x i8], ptr %1309, i64 %1308
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1310, ptr noundef nonnull align 8 dereferenceable(16) %272, i64 16, i1 false), !tbaa.struct !73
   %1311 = getelementptr inbounds nuw i8, ptr %1310, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1311, ptr noundef nonnull align 8 dereferenceable(16) %273, i64 16, i1 false), !tbaa.struct !73
@@ -3499,7 +3498,7 @@ _ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit: ; pred
 1324:                                             ; preds = %_ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit
   %1325 = zext i32 %1319 to i64
   %1326 = load ptr, ptr %1317, align 8, !tbaa !56
-  %1327 = getelementptr inbounds nuw %"struct.std::pair.194", ptr %1326, i64 %1325
+  %1327 = getelementptr inbounds nuw [32 x i8], ptr %1326, i64 %1325
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1327, ptr noundef nonnull align 8 dereferenceable(16) %270, i64 16, i1 false), !tbaa.struct !73
   %1328 = getelementptr inbounds nuw i8, ptr %1327, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1328, ptr noundef nonnull align 8 dereferenceable(16) %271, i64 16, i1 false), !tbaa.struct !73
@@ -3535,7 +3534,7 @@ _ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit67: ; pr
 1341:                                             ; preds = %_ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit67
   %1342 = zext i32 %1336 to i64
   %1343 = load ptr, ptr %1334, align 8, !tbaa !56
-  %1344 = getelementptr inbounds nuw %"struct.std::pair.194", ptr %1343, i64 %1342
+  %1344 = getelementptr inbounds nuw [32 x i8], ptr %1343, i64 %1342
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1344, ptr noundef nonnull align 8 dereferenceable(16) %268, i64 16, i1 false), !tbaa.struct !73
   %1345 = getelementptr inbounds nuw i8, ptr %1344, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1345, ptr noundef nonnull align 8 dereferenceable(16) %269, i64 16, i1 false), !tbaa.struct !73
@@ -3571,7 +3570,7 @@ _ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit69: ; pr
 1358:                                             ; preds = %_ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit69
   %1359 = zext i32 %1353 to i64
   %1360 = load ptr, ptr %1351, align 8, !tbaa !56
-  %1361 = getelementptr inbounds nuw %"struct.std::pair.194", ptr %1360, i64 %1359
+  %1361 = getelementptr inbounds nuw [32 x i8], ptr %1360, i64 %1359
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1361, ptr noundef nonnull align 8 dereferenceable(16) %266, i64 16, i1 false), !tbaa.struct !73
   %1362 = getelementptr inbounds nuw i8, ptr %1361, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1362, ptr noundef nonnull align 8 dereferenceable(16) %267, i64 16, i1 false), !tbaa.struct !73
@@ -3607,7 +3606,7 @@ _ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit71: ; pr
 1375:                                             ; preds = %_ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit71
   %1376 = zext i32 %1370 to i64
   %1377 = load ptr, ptr %1368, align 8, !tbaa !56
-  %1378 = getelementptr inbounds nuw %"struct.std::pair.194", ptr %1377, i64 %1376
+  %1378 = getelementptr inbounds nuw [32 x i8], ptr %1377, i64 %1376
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1378, ptr noundef nonnull align 8 dereferenceable(16) %264, i64 16, i1 false), !tbaa.struct !73
   %1379 = getelementptr inbounds nuw i8, ptr %1378, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1379, ptr noundef nonnull align 8 dereferenceable(16) %265, i64 16, i1 false), !tbaa.struct !73
@@ -3643,7 +3642,7 @@ _ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit73: ; pr
 1392:                                             ; preds = %_ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit73
   %1393 = zext i32 %1387 to i64
   %1394 = load ptr, ptr %1385, align 8, !tbaa !56
-  %1395 = getelementptr inbounds nuw %"struct.std::pair.194", ptr %1394, i64 %1393
+  %1395 = getelementptr inbounds nuw [32 x i8], ptr %1394, i64 %1393
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1395, ptr noundef nonnull align 8 dereferenceable(16) %262, i64 16, i1 false), !tbaa.struct !73
   %1396 = getelementptr inbounds nuw i8, ptr %1395, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1396, ptr noundef nonnull align 8 dereferenceable(16) %263, i64 16, i1 false), !tbaa.struct !73
@@ -3679,7 +3678,7 @@ _ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit75: ; pr
 1409:                                             ; preds = %_ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit75
   %1410 = zext i32 %1404 to i64
   %1411 = load ptr, ptr %1402, align 8, !tbaa !56
-  %1412 = getelementptr inbounds nuw %"struct.std::pair.194", ptr %1411, i64 %1410
+  %1412 = getelementptr inbounds nuw [32 x i8], ptr %1411, i64 %1410
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1412, ptr noundef nonnull align 8 dereferenceable(16) %260, i64 16, i1 false), !tbaa.struct !73
   %1413 = getelementptr inbounds nuw i8, ptr %1412, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1413, ptr noundef nonnull align 8 dereferenceable(16) %261, i64 16, i1 false), !tbaa.struct !73
@@ -3715,7 +3714,7 @@ _ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit77: ; pr
 1426:                                             ; preds = %_ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit77
   %1427 = zext i32 %1421 to i64
   %1428 = load ptr, ptr %1419, align 8, !tbaa !56
-  %1429 = getelementptr inbounds nuw %"struct.std::pair.194", ptr %1428, i64 %1427
+  %1429 = getelementptr inbounds nuw [32 x i8], ptr %1428, i64 %1427
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1429, ptr noundef nonnull align 8 dereferenceable(16) %258, i64 16, i1 false), !tbaa.struct !73
   %1430 = getelementptr inbounds nuw i8, ptr %1429, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1430, ptr noundef nonnull align 8 dereferenceable(16) %259, i64 16, i1 false), !tbaa.struct !73
@@ -3751,7 +3750,7 @@ _ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit79: ; pr
 1443:                                             ; preds = %_ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit79
   %1444 = zext i32 %1438 to i64
   %1445 = load ptr, ptr %1436, align 8, !tbaa !56
-  %1446 = getelementptr inbounds nuw %"struct.std::pair.194", ptr %1445, i64 %1444
+  %1446 = getelementptr inbounds nuw [32 x i8], ptr %1445, i64 %1444
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1446, ptr noundef nonnull align 8 dereferenceable(16) %256, i64 16, i1 false), !tbaa.struct !73
   %1447 = getelementptr inbounds nuw i8, ptr %1446, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1447, ptr noundef nonnull align 8 dereferenceable(16) %257, i64 16, i1 false), !tbaa.struct !73
@@ -3787,7 +3786,7 @@ _ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit81: ; pr
 1460:                                             ; preds = %_ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit81
   %1461 = zext i32 %1455 to i64
   %1462 = load ptr, ptr %1453, align 8, !tbaa !56
-  %1463 = getelementptr inbounds nuw %"struct.std::pair.194", ptr %1462, i64 %1461
+  %1463 = getelementptr inbounds nuw [32 x i8], ptr %1462, i64 %1461
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1463, ptr noundef nonnull align 8 dereferenceable(16) %254, i64 16, i1 false), !tbaa.struct !73
   %1464 = getelementptr inbounds nuw i8, ptr %1463, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1464, ptr noundef nonnull align 8 dereferenceable(16) %255, i64 16, i1 false), !tbaa.struct !73
@@ -3823,7 +3822,7 @@ _ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit83: ; pr
 1477:                                             ; preds = %_ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit83
   %1478 = zext i32 %1472 to i64
   %1479 = load ptr, ptr %1470, align 8, !tbaa !56
-  %1480 = getelementptr inbounds nuw %"struct.std::pair.194", ptr %1479, i64 %1478
+  %1480 = getelementptr inbounds nuw [32 x i8], ptr %1479, i64 %1478
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1480, ptr noundef nonnull align 8 dereferenceable(16) %252, i64 16, i1 false), !tbaa.struct !73
   %1481 = getelementptr inbounds nuw i8, ptr %1480, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1481, ptr noundef nonnull align 8 dereferenceable(16) %253, i64 16, i1 false), !tbaa.struct !73
@@ -3859,7 +3858,7 @@ _ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit85: ; pr
 1494:                                             ; preds = %_ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit85
   %1495 = zext i32 %1489 to i64
   %1496 = load ptr, ptr %1487, align 8, !tbaa !56
-  %1497 = getelementptr inbounds nuw %"struct.std::pair.194", ptr %1496, i64 %1495
+  %1497 = getelementptr inbounds nuw [32 x i8], ptr %1496, i64 %1495
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1497, ptr noundef nonnull align 8 dereferenceable(16) %250, i64 16, i1 false), !tbaa.struct !73
   %1498 = getelementptr inbounds nuw i8, ptr %1497, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1498, ptr noundef nonnull align 8 dereferenceable(16) %251, i64 16, i1 false), !tbaa.struct !73
@@ -3895,7 +3894,7 @@ _ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit87: ; pr
 1511:                                             ; preds = %_ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit87
   %1512 = zext i32 %1506 to i64
   %1513 = load ptr, ptr %1504, align 8, !tbaa !56
-  %1514 = getelementptr inbounds nuw %"struct.std::pair.194", ptr %1513, i64 %1512
+  %1514 = getelementptr inbounds nuw [32 x i8], ptr %1513, i64 %1512
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1514, ptr noundef nonnull align 8 dereferenceable(16) %248, i64 16, i1 false), !tbaa.struct !73
   %1515 = getelementptr inbounds nuw i8, ptr %1514, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1515, ptr noundef nonnull align 8 dereferenceable(16) %249, i64 16, i1 false), !tbaa.struct !73
@@ -3931,7 +3930,7 @@ _ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit89: ; pr
 1528:                                             ; preds = %_ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit89
   %1529 = zext i32 %1523 to i64
   %1530 = load ptr, ptr %1521, align 8, !tbaa !56
-  %1531 = getelementptr inbounds nuw %"struct.std::pair.194", ptr %1530, i64 %1529
+  %1531 = getelementptr inbounds nuw [32 x i8], ptr %1530, i64 %1529
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1531, ptr noundef nonnull align 8 dereferenceable(16) %246, i64 16, i1 false), !tbaa.struct !73
   %1532 = getelementptr inbounds nuw i8, ptr %1531, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1532, ptr noundef nonnull align 8 dereferenceable(16) %247, i64 16, i1 false), !tbaa.struct !73
@@ -3967,7 +3966,7 @@ _ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit91: ; pr
 1545:                                             ; preds = %_ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit91
   %1546 = zext i32 %1540 to i64
   %1547 = load ptr, ptr %1538, align 8, !tbaa !56
-  %1548 = getelementptr inbounds nuw %"struct.std::pair.194", ptr %1547, i64 %1546
+  %1548 = getelementptr inbounds nuw [32 x i8], ptr %1547, i64 %1546
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1548, ptr noundef nonnull align 8 dereferenceable(16) %244, i64 16, i1 false), !tbaa.struct !73
   %1549 = getelementptr inbounds nuw i8, ptr %1548, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1549, ptr noundef nonnull align 8 dereferenceable(16) %245, i64 16, i1 false), !tbaa.struct !73
@@ -4003,7 +4002,7 @@ _ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit93: ; pr
 1562:                                             ; preds = %_ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit93
   %1563 = zext i32 %1557 to i64
   %1564 = load ptr, ptr %1555, align 8, !tbaa !56
-  %1565 = getelementptr inbounds nuw %"struct.std::pair.194", ptr %1564, i64 %1563
+  %1565 = getelementptr inbounds nuw [32 x i8], ptr %1564, i64 %1563
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1565, ptr noundef nonnull align 8 dereferenceable(16) %242, i64 16, i1 false), !tbaa.struct !73
   %1566 = getelementptr inbounds nuw i8, ptr %1565, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1566, ptr noundef nonnull align 8 dereferenceable(16) %243, i64 16, i1 false), !tbaa.struct !73
@@ -4039,7 +4038,7 @@ _ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit95: ; pr
 1579:                                             ; preds = %_ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit95
   %1580 = zext i32 %1574 to i64
   %1581 = load ptr, ptr %1572, align 8, !tbaa !56
-  %1582 = getelementptr inbounds nuw %"struct.std::pair.194", ptr %1581, i64 %1580
+  %1582 = getelementptr inbounds nuw [32 x i8], ptr %1581, i64 %1580
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1582, ptr noundef nonnull align 8 dereferenceable(16) %240, i64 16, i1 false), !tbaa.struct !73
   %1583 = getelementptr inbounds nuw i8, ptr %1582, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1583, ptr noundef nonnull align 8 dereferenceable(16) %241, i64 16, i1 false), !tbaa.struct !73
@@ -4075,7 +4074,7 @@ _ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit97: ; pr
 1596:                                             ; preds = %_ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit97
   %1597 = zext i32 %1591 to i64
   %1598 = load ptr, ptr %1589, align 8, !tbaa !56
-  %1599 = getelementptr inbounds nuw %"struct.std::pair.194", ptr %1598, i64 %1597
+  %1599 = getelementptr inbounds nuw [32 x i8], ptr %1598, i64 %1597
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1599, ptr noundef nonnull align 8 dereferenceable(16) %238, i64 16, i1 false), !tbaa.struct !73
   %1600 = getelementptr inbounds nuw i8, ptr %1599, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1600, ptr noundef nonnull align 8 dereferenceable(16) %239, i64 16, i1 false), !tbaa.struct !73
@@ -4111,7 +4110,7 @@ _ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit99: ; pr
 1613:                                             ; preds = %_ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit99
   %1614 = zext i32 %1608 to i64
   %1615 = load ptr, ptr %1606, align 8, !tbaa !56
-  %1616 = getelementptr inbounds nuw %"struct.std::pair.194", ptr %1615, i64 %1614
+  %1616 = getelementptr inbounds nuw [32 x i8], ptr %1615, i64 %1614
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1616, ptr noundef nonnull align 8 dereferenceable(16) %236, i64 16, i1 false), !tbaa.struct !73
   %1617 = getelementptr inbounds nuw i8, ptr %1616, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1617, ptr noundef nonnull align 8 dereferenceable(16) %237, i64 16, i1 false), !tbaa.struct !73
@@ -4147,7 +4146,7 @@ _ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit101: ; p
 1630:                                             ; preds = %_ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit101
   %1631 = zext i32 %1625 to i64
   %1632 = load ptr, ptr %1623, align 8, !tbaa !56
-  %1633 = getelementptr inbounds nuw %"struct.std::pair.194", ptr %1632, i64 %1631
+  %1633 = getelementptr inbounds nuw [32 x i8], ptr %1632, i64 %1631
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1633, ptr noundef nonnull align 8 dereferenceable(16) %234, i64 16, i1 false), !tbaa.struct !73
   %1634 = getelementptr inbounds nuw i8, ptr %1633, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1634, ptr noundef nonnull align 8 dereferenceable(16) %235, i64 16, i1 false), !tbaa.struct !73
@@ -4183,7 +4182,7 @@ _ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit103: ; p
 1647:                                             ; preds = %_ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit103
   %1648 = zext i32 %1642 to i64
   %1649 = load ptr, ptr %1640, align 8, !tbaa !56
-  %1650 = getelementptr inbounds nuw %"struct.std::pair.194", ptr %1649, i64 %1648
+  %1650 = getelementptr inbounds nuw [32 x i8], ptr %1649, i64 %1648
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1650, ptr noundef nonnull align 8 dereferenceable(16) %232, i64 16, i1 false), !tbaa.struct !73
   %1651 = getelementptr inbounds nuw i8, ptr %1650, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1651, ptr noundef nonnull align 8 dereferenceable(16) %233, i64 16, i1 false), !tbaa.struct !73
@@ -4219,7 +4218,7 @@ _ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit105: ; p
 1664:                                             ; preds = %_ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit105
   %1665 = zext i32 %1659 to i64
   %1666 = load ptr, ptr %1657, align 8, !tbaa !56
-  %1667 = getelementptr inbounds nuw %"struct.std::pair.194", ptr %1666, i64 %1665
+  %1667 = getelementptr inbounds nuw [32 x i8], ptr %1666, i64 %1665
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1667, ptr noundef nonnull align 8 dereferenceable(16) %230, i64 16, i1 false), !tbaa.struct !73
   %1668 = getelementptr inbounds nuw i8, ptr %1667, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1668, ptr noundef nonnull align 8 dereferenceable(16) %231, i64 16, i1 false), !tbaa.struct !73
@@ -4255,7 +4254,7 @@ _ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit107: ; p
 1681:                                             ; preds = %_ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit107
   %1682 = zext i32 %1676 to i64
   %1683 = load ptr, ptr %1674, align 8, !tbaa !56
-  %1684 = getelementptr inbounds nuw %"struct.std::pair.194", ptr %1683, i64 %1682
+  %1684 = getelementptr inbounds nuw [32 x i8], ptr %1683, i64 %1682
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1684, ptr noundef nonnull align 8 dereferenceable(16) %228, i64 16, i1 false), !tbaa.struct !73
   %1685 = getelementptr inbounds nuw i8, ptr %1684, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1685, ptr noundef nonnull align 8 dereferenceable(16) %229, i64 16, i1 false), !tbaa.struct !73
@@ -4291,7 +4290,7 @@ _ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit109: ; p
 1698:                                             ; preds = %_ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit109
   %1699 = zext i32 %1693 to i64
   %1700 = load ptr, ptr %1691, align 8, !tbaa !56
-  %1701 = getelementptr inbounds nuw %"struct.std::pair.194", ptr %1700, i64 %1699
+  %1701 = getelementptr inbounds nuw [32 x i8], ptr %1700, i64 %1699
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1701, ptr noundef nonnull align 8 dereferenceable(16) %226, i64 16, i1 false), !tbaa.struct !73
   %1702 = getelementptr inbounds nuw i8, ptr %1701, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1702, ptr noundef nonnull align 8 dereferenceable(16) %227, i64 16, i1 false), !tbaa.struct !73
@@ -4327,7 +4326,7 @@ _ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit111: ; p
 1715:                                             ; preds = %_ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit111
   %1716 = zext i32 %1710 to i64
   %1717 = load ptr, ptr %1708, align 8, !tbaa !56
-  %1718 = getelementptr inbounds nuw %"struct.std::pair.194", ptr %1717, i64 %1716
+  %1718 = getelementptr inbounds nuw [32 x i8], ptr %1717, i64 %1716
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1718, ptr noundef nonnull align 8 dereferenceable(16) %224, i64 16, i1 false), !tbaa.struct !73
   %1719 = getelementptr inbounds nuw i8, ptr %1718, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1719, ptr noundef nonnull align 8 dereferenceable(16) %225, i64 16, i1 false), !tbaa.struct !73
@@ -4363,7 +4362,7 @@ _ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit113: ; p
 1732:                                             ; preds = %_ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit113
   %1733 = zext i32 %1727 to i64
   %1734 = load ptr, ptr %1725, align 8, !tbaa !56
-  %1735 = getelementptr inbounds nuw %"struct.std::pair.194", ptr %1734, i64 %1733
+  %1735 = getelementptr inbounds nuw [32 x i8], ptr %1734, i64 %1733
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1735, ptr noundef nonnull align 8 dereferenceable(16) %222, i64 16, i1 false), !tbaa.struct !73
   %1736 = getelementptr inbounds nuw i8, ptr %1735, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1736, ptr noundef nonnull align 8 dereferenceable(16) %223, i64 16, i1 false), !tbaa.struct !73
@@ -4399,7 +4398,7 @@ _ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit115: ; p
 1749:                                             ; preds = %_ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit115
   %1750 = zext i32 %1744 to i64
   %1751 = load ptr, ptr %1742, align 8, !tbaa !56
-  %1752 = getelementptr inbounds nuw %"struct.std::pair.194", ptr %1751, i64 %1750
+  %1752 = getelementptr inbounds nuw [32 x i8], ptr %1751, i64 %1750
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1752, ptr noundef nonnull align 8 dereferenceable(16) %220, i64 16, i1 false), !tbaa.struct !73
   %1753 = getelementptr inbounds nuw i8, ptr %1752, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1753, ptr noundef nonnull align 8 dereferenceable(16) %221, i64 16, i1 false), !tbaa.struct !73
@@ -4435,7 +4434,7 @@ _ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit117: ; p
 1766:                                             ; preds = %_ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit117
   %1767 = zext i32 %1761 to i64
   %1768 = load ptr, ptr %1759, align 8, !tbaa !56
-  %1769 = getelementptr inbounds nuw %"struct.std::pair.194", ptr %1768, i64 %1767
+  %1769 = getelementptr inbounds nuw [32 x i8], ptr %1768, i64 %1767
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1769, ptr noundef nonnull align 8 dereferenceable(16) %218, i64 16, i1 false), !tbaa.struct !73
   %1770 = getelementptr inbounds nuw i8, ptr %1769, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1770, ptr noundef nonnull align 8 dereferenceable(16) %219, i64 16, i1 false), !tbaa.struct !73
@@ -4471,7 +4470,7 @@ _ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit119: ; p
 1783:                                             ; preds = %_ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit119
   %1784 = zext i32 %1778 to i64
   %1785 = load ptr, ptr %1776, align 8, !tbaa !56
-  %1786 = getelementptr inbounds nuw %"struct.std::pair.194", ptr %1785, i64 %1784
+  %1786 = getelementptr inbounds nuw [32 x i8], ptr %1785, i64 %1784
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1786, ptr noundef nonnull align 8 dereferenceable(16) %216, i64 16, i1 false), !tbaa.struct !73
   %1787 = getelementptr inbounds nuw i8, ptr %1786, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1787, ptr noundef nonnull align 8 dereferenceable(16) %217, i64 16, i1 false), !tbaa.struct !73
@@ -4507,7 +4506,7 @@ _ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit121: ; p
 1800:                                             ; preds = %_ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit121
   %1801 = zext i32 %1795 to i64
   %1802 = load ptr, ptr %1793, align 8, !tbaa !56
-  %1803 = getelementptr inbounds nuw %"struct.std::pair.194", ptr %1802, i64 %1801
+  %1803 = getelementptr inbounds nuw [32 x i8], ptr %1802, i64 %1801
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1803, ptr noundef nonnull align 8 dereferenceable(16) %214, i64 16, i1 false), !tbaa.struct !73
   %1804 = getelementptr inbounds nuw i8, ptr %1803, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1804, ptr noundef nonnull align 8 dereferenceable(16) %215, i64 16, i1 false), !tbaa.struct !73
@@ -4543,7 +4542,7 @@ _ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit123: ; p
 1817:                                             ; preds = %_ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit123
   %1818 = zext i32 %1812 to i64
   %1819 = load ptr, ptr %1810, align 8, !tbaa !56
-  %1820 = getelementptr inbounds nuw %"struct.std::pair.194", ptr %1819, i64 %1818
+  %1820 = getelementptr inbounds nuw [32 x i8], ptr %1819, i64 %1818
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1820, ptr noundef nonnull align 8 dereferenceable(16) %212, i64 16, i1 false), !tbaa.struct !73
   %1821 = getelementptr inbounds nuw i8, ptr %1820, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1821, ptr noundef nonnull align 8 dereferenceable(16) %213, i64 16, i1 false), !tbaa.struct !73
@@ -4579,7 +4578,7 @@ _ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit125: ; p
 1834:                                             ; preds = %_ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit125
   %1835 = zext i32 %1829 to i64
   %1836 = load ptr, ptr %1827, align 8, !tbaa !56
-  %1837 = getelementptr inbounds nuw %"struct.std::pair.194", ptr %1836, i64 %1835
+  %1837 = getelementptr inbounds nuw [32 x i8], ptr %1836, i64 %1835
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1837, ptr noundef nonnull align 8 dereferenceable(16) %210, i64 16, i1 false), !tbaa.struct !73
   %1838 = getelementptr inbounds nuw i8, ptr %1837, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1838, ptr noundef nonnull align 8 dereferenceable(16) %211, i64 16, i1 false), !tbaa.struct !73
@@ -4615,7 +4614,7 @@ _ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit127: ; p
 1851:                                             ; preds = %_ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit127
   %1852 = zext i32 %1846 to i64
   %1853 = load ptr, ptr %1844, align 8, !tbaa !56
-  %1854 = getelementptr inbounds nuw %"struct.std::pair.194", ptr %1853, i64 %1852
+  %1854 = getelementptr inbounds nuw [32 x i8], ptr %1853, i64 %1852
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1854, ptr noundef nonnull align 8 dereferenceable(16) %208, i64 16, i1 false), !tbaa.struct !73
   %1855 = getelementptr inbounds nuw i8, ptr %1854, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1855, ptr noundef nonnull align 8 dereferenceable(16) %209, i64 16, i1 false), !tbaa.struct !73
@@ -4651,7 +4650,7 @@ _ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit129: ; p
 1868:                                             ; preds = %_ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit129
   %1869 = zext i32 %1863 to i64
   %1870 = load ptr, ptr %1861, align 8, !tbaa !56
-  %1871 = getelementptr inbounds nuw %"struct.std::pair.194", ptr %1870, i64 %1869
+  %1871 = getelementptr inbounds nuw [32 x i8], ptr %1870, i64 %1869
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1871, ptr noundef nonnull align 8 dereferenceable(16) %206, i64 16, i1 false), !tbaa.struct !73
   %1872 = getelementptr inbounds nuw i8, ptr %1871, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1872, ptr noundef nonnull align 8 dereferenceable(16) %207, i64 16, i1 false), !tbaa.struct !73
@@ -4687,7 +4686,7 @@ _ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit131: ; p
 1885:                                             ; preds = %_ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit131
   %1886 = zext i32 %1880 to i64
   %1887 = load ptr, ptr %1878, align 8, !tbaa !56
-  %1888 = getelementptr inbounds nuw %"struct.std::pair.194", ptr %1887, i64 %1886
+  %1888 = getelementptr inbounds nuw [32 x i8], ptr %1887, i64 %1886
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1888, ptr noundef nonnull align 8 dereferenceable(16) %204, i64 16, i1 false), !tbaa.struct !73
   %1889 = getelementptr inbounds nuw i8, ptr %1888, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1889, ptr noundef nonnull align 8 dereferenceable(16) %205, i64 16, i1 false), !tbaa.struct !73
@@ -4723,7 +4722,7 @@ _ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit133: ; p
 1902:                                             ; preds = %_ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit133
   %1903 = zext i32 %1897 to i64
   %1904 = load ptr, ptr %1895, align 8, !tbaa !56
-  %1905 = getelementptr inbounds nuw %"struct.std::pair.194", ptr %1904, i64 %1903
+  %1905 = getelementptr inbounds nuw [32 x i8], ptr %1904, i64 %1903
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1905, ptr noundef nonnull align 8 dereferenceable(16) %202, i64 16, i1 false), !tbaa.struct !73
   %1906 = getelementptr inbounds nuw i8, ptr %1905, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1906, ptr noundef nonnull align 8 dereferenceable(16) %203, i64 16, i1 false), !tbaa.struct !73
@@ -4759,7 +4758,7 @@ _ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit135: ; p
 1919:                                             ; preds = %_ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit135
   %1920 = zext i32 %1914 to i64
   %1921 = load ptr, ptr %1912, align 8, !tbaa !56
-  %1922 = getelementptr inbounds nuw %"struct.std::pair.194", ptr %1921, i64 %1920
+  %1922 = getelementptr inbounds nuw [32 x i8], ptr %1921, i64 %1920
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1922, ptr noundef nonnull align 8 dereferenceable(16) %200, i64 16, i1 false), !tbaa.struct !73
   %1923 = getelementptr inbounds nuw i8, ptr %1922, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1923, ptr noundef nonnull align 8 dereferenceable(16) %201, i64 16, i1 false), !tbaa.struct !73
@@ -4795,7 +4794,7 @@ _ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit137: ; p
 1936:                                             ; preds = %_ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit137
   %1937 = zext i32 %1931 to i64
   %1938 = load ptr, ptr %1929, align 8, !tbaa !56
-  %1939 = getelementptr inbounds nuw %"struct.std::pair.194", ptr %1938, i64 %1937
+  %1939 = getelementptr inbounds nuw [32 x i8], ptr %1938, i64 %1937
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1939, ptr noundef nonnull align 8 dereferenceable(16) %198, i64 16, i1 false), !tbaa.struct !73
   %1940 = getelementptr inbounds nuw i8, ptr %1939, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1940, ptr noundef nonnull align 8 dereferenceable(16) %199, i64 16, i1 false), !tbaa.struct !73
@@ -4831,7 +4830,7 @@ _ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit139: ; p
 1953:                                             ; preds = %_ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit139
   %1954 = zext i32 %1948 to i64
   %1955 = load ptr, ptr %1946, align 8, !tbaa !56
-  %1956 = getelementptr inbounds nuw %"struct.std::pair.194", ptr %1955, i64 %1954
+  %1956 = getelementptr inbounds nuw [32 x i8], ptr %1955, i64 %1954
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1956, ptr noundef nonnull align 8 dereferenceable(16) %196, i64 16, i1 false), !tbaa.struct !73
   %1957 = getelementptr inbounds nuw i8, ptr %1956, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1957, ptr noundef nonnull align 8 dereferenceable(16) %197, i64 16, i1 false), !tbaa.struct !73
@@ -4867,7 +4866,7 @@ _ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit141: ; p
 1970:                                             ; preds = %_ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit141
   %1971 = zext i32 %1965 to i64
   %1972 = load ptr, ptr %1963, align 8, !tbaa !56
-  %1973 = getelementptr inbounds nuw %"struct.std::pair.194", ptr %1972, i64 %1971
+  %1973 = getelementptr inbounds nuw [32 x i8], ptr %1972, i64 %1971
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1973, ptr noundef nonnull align 8 dereferenceable(16) %194, i64 16, i1 false), !tbaa.struct !73
   %1974 = getelementptr inbounds nuw i8, ptr %1973, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1974, ptr noundef nonnull align 8 dereferenceable(16) %195, i64 16, i1 false), !tbaa.struct !73
@@ -4903,7 +4902,7 @@ _ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit143: ; p
 1987:                                             ; preds = %_ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit143
   %1988 = zext i32 %1982 to i64
   %1989 = load ptr, ptr %1980, align 8, !tbaa !56
-  %1990 = getelementptr inbounds nuw %"struct.std::pair.194", ptr %1989, i64 %1988
+  %1990 = getelementptr inbounds nuw [32 x i8], ptr %1989, i64 %1988
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1990, ptr noundef nonnull align 8 dereferenceable(16) %192, i64 16, i1 false), !tbaa.struct !73
   %1991 = getelementptr inbounds nuw i8, ptr %1990, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1991, ptr noundef nonnull align 8 dereferenceable(16) %193, i64 16, i1 false), !tbaa.struct !73
@@ -4939,7 +4938,7 @@ _ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit145: ; p
 2004:                                             ; preds = %_ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit145
   %2005 = zext i32 %1999 to i64
   %2006 = load ptr, ptr %1997, align 8, !tbaa !56
-  %2007 = getelementptr inbounds nuw %"struct.std::pair.194", ptr %2006, i64 %2005
+  %2007 = getelementptr inbounds nuw [32 x i8], ptr %2006, i64 %2005
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2007, ptr noundef nonnull align 8 dereferenceable(16) %190, i64 16, i1 false), !tbaa.struct !73
   %2008 = getelementptr inbounds nuw i8, ptr %2007, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2008, ptr noundef nonnull align 8 dereferenceable(16) %191, i64 16, i1 false), !tbaa.struct !73
@@ -4975,7 +4974,7 @@ _ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit147: ; p
 2021:                                             ; preds = %_ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit147
   %2022 = zext i32 %2016 to i64
   %2023 = load ptr, ptr %2014, align 8, !tbaa !56
-  %2024 = getelementptr inbounds nuw %"struct.std::pair.194", ptr %2023, i64 %2022
+  %2024 = getelementptr inbounds nuw [32 x i8], ptr %2023, i64 %2022
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2024, ptr noundef nonnull align 8 dereferenceable(16) %188, i64 16, i1 false), !tbaa.struct !73
   %2025 = getelementptr inbounds nuw i8, ptr %2024, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2025, ptr noundef nonnull align 8 dereferenceable(16) %189, i64 16, i1 false), !tbaa.struct !73
@@ -5011,7 +5010,7 @@ _ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit149: ; p
 2038:                                             ; preds = %_ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit149
   %2039 = zext i32 %2033 to i64
   %2040 = load ptr, ptr %2031, align 8, !tbaa !56
-  %2041 = getelementptr inbounds nuw %"struct.std::pair.194", ptr %2040, i64 %2039
+  %2041 = getelementptr inbounds nuw [32 x i8], ptr %2040, i64 %2039
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2041, ptr noundef nonnull align 8 dereferenceable(16) %186, i64 16, i1 false), !tbaa.struct !73
   %2042 = getelementptr inbounds nuw i8, ptr %2041, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2042, ptr noundef nonnull align 8 dereferenceable(16) %187, i64 16, i1 false), !tbaa.struct !73
@@ -5047,7 +5046,7 @@ _ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit151: ; p
 2055:                                             ; preds = %_ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit151
   %2056 = zext i32 %2050 to i64
   %2057 = load ptr, ptr %2048, align 8, !tbaa !56
-  %2058 = getelementptr inbounds nuw %"struct.std::pair.194", ptr %2057, i64 %2056
+  %2058 = getelementptr inbounds nuw [32 x i8], ptr %2057, i64 %2056
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2058, ptr noundef nonnull align 8 dereferenceable(16) %184, i64 16, i1 false), !tbaa.struct !73
   %2059 = getelementptr inbounds nuw i8, ptr %2058, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2059, ptr noundef nonnull align 8 dereferenceable(16) %185, i64 16, i1 false), !tbaa.struct !73
@@ -5083,7 +5082,7 @@ _ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit153: ; p
 2072:                                             ; preds = %_ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit153
   %2073 = zext i32 %2067 to i64
   %2074 = load ptr, ptr %2065, align 8, !tbaa !56
-  %2075 = getelementptr inbounds nuw %"struct.std::pair.194", ptr %2074, i64 %2073
+  %2075 = getelementptr inbounds nuw [32 x i8], ptr %2074, i64 %2073
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2075, ptr noundef nonnull align 8 dereferenceable(16) %182, i64 16, i1 false), !tbaa.struct !73
   %2076 = getelementptr inbounds nuw i8, ptr %2075, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2076, ptr noundef nonnull align 8 dereferenceable(16) %183, i64 16, i1 false), !tbaa.struct !73
@@ -5119,7 +5118,7 @@ _ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit155: ; p
 2089:                                             ; preds = %_ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit155
   %2090 = zext i32 %2084 to i64
   %2091 = load ptr, ptr %2082, align 8, !tbaa !56
-  %2092 = getelementptr inbounds nuw %"struct.std::pair.194", ptr %2091, i64 %2090
+  %2092 = getelementptr inbounds nuw [32 x i8], ptr %2091, i64 %2090
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2092, ptr noundef nonnull align 8 dereferenceable(16) %180, i64 16, i1 false), !tbaa.struct !73
   %2093 = getelementptr inbounds nuw i8, ptr %2092, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2093, ptr noundef nonnull align 8 dereferenceable(16) %181, i64 16, i1 false), !tbaa.struct !73
@@ -5155,7 +5154,7 @@ _ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit157: ; p
 2106:                                             ; preds = %_ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit157
   %2107 = zext i32 %2101 to i64
   %2108 = load ptr, ptr %2099, align 8, !tbaa !56
-  %2109 = getelementptr inbounds nuw %"struct.std::pair.194", ptr %2108, i64 %2107
+  %2109 = getelementptr inbounds nuw [32 x i8], ptr %2108, i64 %2107
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2109, ptr noundef nonnull align 8 dereferenceable(16) %178, i64 16, i1 false), !tbaa.struct !73
   %2110 = getelementptr inbounds nuw i8, ptr %2109, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2110, ptr noundef nonnull align 8 dereferenceable(16) %179, i64 16, i1 false), !tbaa.struct !73
@@ -5191,7 +5190,7 @@ _ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit159: ; p
 2123:                                             ; preds = %_ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit159
   %2124 = zext i32 %2118 to i64
   %2125 = load ptr, ptr %2116, align 8, !tbaa !56
-  %2126 = getelementptr inbounds nuw %"struct.std::pair.194", ptr %2125, i64 %2124
+  %2126 = getelementptr inbounds nuw [32 x i8], ptr %2125, i64 %2124
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2126, ptr noundef nonnull align 8 dereferenceable(16) %176, i64 16, i1 false), !tbaa.struct !73
   %2127 = getelementptr inbounds nuw i8, ptr %2126, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2127, ptr noundef nonnull align 8 dereferenceable(16) %177, i64 16, i1 false), !tbaa.struct !73
@@ -5227,7 +5226,7 @@ _ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit161: ; p
 2140:                                             ; preds = %_ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit161
   %2141 = zext i32 %2135 to i64
   %2142 = load ptr, ptr %2133, align 8, !tbaa !56
-  %2143 = getelementptr inbounds nuw %"struct.std::pair.194", ptr %2142, i64 %2141
+  %2143 = getelementptr inbounds nuw [32 x i8], ptr %2142, i64 %2141
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2143, ptr noundef nonnull align 8 dereferenceable(16) %174, i64 16, i1 false), !tbaa.struct !73
   %2144 = getelementptr inbounds nuw i8, ptr %2143, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2144, ptr noundef nonnull align 8 dereferenceable(16) %175, i64 16, i1 false), !tbaa.struct !73
@@ -5263,7 +5262,7 @@ _ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit163: ; p
 2157:                                             ; preds = %_ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit163
   %2158 = zext i32 %2152 to i64
   %2159 = load ptr, ptr %2150, align 8, !tbaa !56
-  %2160 = getelementptr inbounds nuw %"struct.std::pair.194", ptr %2159, i64 %2158
+  %2160 = getelementptr inbounds nuw [32 x i8], ptr %2159, i64 %2158
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2160, ptr noundef nonnull align 8 dereferenceable(16) %172, i64 16, i1 false), !tbaa.struct !73
   %2161 = getelementptr inbounds nuw i8, ptr %2160, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2161, ptr noundef nonnull align 8 dereferenceable(16) %173, i64 16, i1 false), !tbaa.struct !73
@@ -5299,7 +5298,7 @@ _ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit165: ; p
 2174:                                             ; preds = %_ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit165
   %2175 = zext i32 %2169 to i64
   %2176 = load ptr, ptr %2167, align 8, !tbaa !56
-  %2177 = getelementptr inbounds nuw %"struct.std::pair.194", ptr %2176, i64 %2175
+  %2177 = getelementptr inbounds nuw [32 x i8], ptr %2176, i64 %2175
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2177, ptr noundef nonnull align 8 dereferenceable(16) %170, i64 16, i1 false), !tbaa.struct !73
   %2178 = getelementptr inbounds nuw i8, ptr %2177, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2178, ptr noundef nonnull align 8 dereferenceable(16) %171, i64 16, i1 false), !tbaa.struct !73
@@ -5335,7 +5334,7 @@ _ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit167: ; p
 2191:                                             ; preds = %_ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit167
   %2192 = zext i32 %2186 to i64
   %2193 = load ptr, ptr %2184, align 8, !tbaa !56
-  %2194 = getelementptr inbounds nuw %"struct.std::pair.194", ptr %2193, i64 %2192
+  %2194 = getelementptr inbounds nuw [32 x i8], ptr %2193, i64 %2192
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2194, ptr noundef nonnull align 8 dereferenceable(16) %168, i64 16, i1 false), !tbaa.struct !73
   %2195 = getelementptr inbounds nuw i8, ptr %2194, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2195, ptr noundef nonnull align 8 dereferenceable(16) %169, i64 16, i1 false), !tbaa.struct !73
@@ -5371,7 +5370,7 @@ _ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit169: ; p
 2208:                                             ; preds = %_ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit169
   %2209 = zext i32 %2203 to i64
   %2210 = load ptr, ptr %2201, align 8, !tbaa !56
-  %2211 = getelementptr inbounds nuw %"struct.std::pair.194", ptr %2210, i64 %2209
+  %2211 = getelementptr inbounds nuw [32 x i8], ptr %2210, i64 %2209
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2211, ptr noundef nonnull align 8 dereferenceable(16) %166, i64 16, i1 false), !tbaa.struct !73
   %2212 = getelementptr inbounds nuw i8, ptr %2211, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2212, ptr noundef nonnull align 8 dereferenceable(16) %167, i64 16, i1 false), !tbaa.struct !73
@@ -5407,7 +5406,7 @@ _ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit171: ; p
 2225:                                             ; preds = %_ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit171
   %2226 = zext i32 %2220 to i64
   %2227 = load ptr, ptr %2218, align 8, !tbaa !56
-  %2228 = getelementptr inbounds nuw %"struct.std::pair.194", ptr %2227, i64 %2226
+  %2228 = getelementptr inbounds nuw [32 x i8], ptr %2227, i64 %2226
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2228, ptr noundef nonnull align 8 dereferenceable(16) %164, i64 16, i1 false), !tbaa.struct !73
   %2229 = getelementptr inbounds nuw i8, ptr %2228, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2229, ptr noundef nonnull align 8 dereferenceable(16) %165, i64 16, i1 false), !tbaa.struct !73
@@ -5443,7 +5442,7 @@ _ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit173: ; p
 2242:                                             ; preds = %_ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit173
   %2243 = zext i32 %2237 to i64
   %2244 = load ptr, ptr %2235, align 8, !tbaa !56
-  %2245 = getelementptr inbounds nuw %"struct.std::pair.194", ptr %2244, i64 %2243
+  %2245 = getelementptr inbounds nuw [32 x i8], ptr %2244, i64 %2243
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2245, ptr noundef nonnull align 8 dereferenceable(16) %162, i64 16, i1 false), !tbaa.struct !73
   %2246 = getelementptr inbounds nuw i8, ptr %2245, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2246, ptr noundef nonnull align 8 dereferenceable(16) %163, i64 16, i1 false), !tbaa.struct !73
@@ -5479,7 +5478,7 @@ _ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit175: ; p
 2259:                                             ; preds = %_ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit175
   %2260 = zext i32 %2254 to i64
   %2261 = load ptr, ptr %2252, align 8, !tbaa !56
-  %2262 = getelementptr inbounds nuw %"struct.std::pair.194", ptr %2261, i64 %2260
+  %2262 = getelementptr inbounds nuw [32 x i8], ptr %2261, i64 %2260
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2262, ptr noundef nonnull align 8 dereferenceable(16) %160, i64 16, i1 false), !tbaa.struct !73
   %2263 = getelementptr inbounds nuw i8, ptr %2262, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2263, ptr noundef nonnull align 8 dereferenceable(16) %161, i64 16, i1 false), !tbaa.struct !73
@@ -5515,7 +5514,7 @@ _ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit177: ; p
 2276:                                             ; preds = %_ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit177
   %2277 = zext i32 %2271 to i64
   %2278 = load ptr, ptr %2269, align 8, !tbaa !56
-  %2279 = getelementptr inbounds nuw %"struct.std::pair.194", ptr %2278, i64 %2277
+  %2279 = getelementptr inbounds nuw [32 x i8], ptr %2278, i64 %2277
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2279, ptr noundef nonnull align 8 dereferenceable(16) %158, i64 16, i1 false), !tbaa.struct !73
   %2280 = getelementptr inbounds nuw i8, ptr %2279, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2280, ptr noundef nonnull align 8 dereferenceable(16) %159, i64 16, i1 false), !tbaa.struct !73
@@ -5551,7 +5550,7 @@ _ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit179: ; p
 2293:                                             ; preds = %_ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit179
   %2294 = zext i32 %2288 to i64
   %2295 = load ptr, ptr %2286, align 8, !tbaa !56
-  %2296 = getelementptr inbounds nuw %"struct.std::pair.194", ptr %2295, i64 %2294
+  %2296 = getelementptr inbounds nuw [32 x i8], ptr %2295, i64 %2294
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2296, ptr noundef nonnull align 8 dereferenceable(16) %156, i64 16, i1 false), !tbaa.struct !73
   %2297 = getelementptr inbounds nuw i8, ptr %2296, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2297, ptr noundef nonnull align 8 dereferenceable(16) %157, i64 16, i1 false), !tbaa.struct !73
@@ -5587,7 +5586,7 @@ _ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit181: ; p
 2310:                                             ; preds = %_ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit181
   %2311 = zext i32 %2305 to i64
   %2312 = load ptr, ptr %2303, align 8, !tbaa !56
-  %2313 = getelementptr inbounds nuw %"struct.std::pair.194", ptr %2312, i64 %2311
+  %2313 = getelementptr inbounds nuw [32 x i8], ptr %2312, i64 %2311
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2313, ptr noundef nonnull align 8 dereferenceable(16) %154, i64 16, i1 false), !tbaa.struct !73
   %2314 = getelementptr inbounds nuw i8, ptr %2313, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2314, ptr noundef nonnull align 8 dereferenceable(16) %155, i64 16, i1 false), !tbaa.struct !73
@@ -5623,7 +5622,7 @@ _ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit183: ; p
 2327:                                             ; preds = %_ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit183
   %2328 = zext i32 %2322 to i64
   %2329 = load ptr, ptr %2320, align 8, !tbaa !56
-  %2330 = getelementptr inbounds nuw %"struct.std::pair.194", ptr %2329, i64 %2328
+  %2330 = getelementptr inbounds nuw [32 x i8], ptr %2329, i64 %2328
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2330, ptr noundef nonnull align 8 dereferenceable(16) %152, i64 16, i1 false), !tbaa.struct !73
   %2331 = getelementptr inbounds nuw i8, ptr %2330, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2331, ptr noundef nonnull align 8 dereferenceable(16) %153, i64 16, i1 false), !tbaa.struct !73
@@ -5659,7 +5658,7 @@ _ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit185: ; p
 2344:                                             ; preds = %_ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit185
   %2345 = zext i32 %2339 to i64
   %2346 = load ptr, ptr %2337, align 8, !tbaa !56
-  %2347 = getelementptr inbounds nuw %"struct.std::pair.194", ptr %2346, i64 %2345
+  %2347 = getelementptr inbounds nuw [32 x i8], ptr %2346, i64 %2345
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2347, ptr noundef nonnull align 8 dereferenceable(16) %150, i64 16, i1 false), !tbaa.struct !73
   %2348 = getelementptr inbounds nuw i8, ptr %2347, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2348, ptr noundef nonnull align 8 dereferenceable(16) %151, i64 16, i1 false), !tbaa.struct !73
@@ -5695,7 +5694,7 @@ _ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit187: ; p
 2361:                                             ; preds = %_ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit187
   %2362 = zext i32 %2356 to i64
   %2363 = load ptr, ptr %2354, align 8, !tbaa !56
-  %2364 = getelementptr inbounds nuw %"struct.std::pair.194", ptr %2363, i64 %2362
+  %2364 = getelementptr inbounds nuw [32 x i8], ptr %2363, i64 %2362
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2364, ptr noundef nonnull align 8 dereferenceable(16) %148, i64 16, i1 false), !tbaa.struct !73
   %2365 = getelementptr inbounds nuw i8, ptr %2364, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2365, ptr noundef nonnull align 8 dereferenceable(16) %149, i64 16, i1 false), !tbaa.struct !73
@@ -5731,7 +5730,7 @@ _ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit189: ; p
 2378:                                             ; preds = %_ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit189
   %2379 = zext i32 %2373 to i64
   %2380 = load ptr, ptr %2371, align 8, !tbaa !56
-  %2381 = getelementptr inbounds nuw %"struct.std::pair.194", ptr %2380, i64 %2379
+  %2381 = getelementptr inbounds nuw [32 x i8], ptr %2380, i64 %2379
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2381, ptr noundef nonnull align 8 dereferenceable(16) %146, i64 16, i1 false), !tbaa.struct !73
   %2382 = getelementptr inbounds nuw i8, ptr %2381, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2382, ptr noundef nonnull align 8 dereferenceable(16) %147, i64 16, i1 false), !tbaa.struct !73
@@ -5767,7 +5766,7 @@ _ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit191: ; p
 2395:                                             ; preds = %_ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit191
   %2396 = zext i32 %2390 to i64
   %2397 = load ptr, ptr %2388, align 8, !tbaa !56
-  %2398 = getelementptr inbounds nuw %"struct.std::pair.194", ptr %2397, i64 %2396
+  %2398 = getelementptr inbounds nuw [32 x i8], ptr %2397, i64 %2396
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2398, ptr noundef nonnull align 8 dereferenceable(16) %144, i64 16, i1 false), !tbaa.struct !73
   %2399 = getelementptr inbounds nuw i8, ptr %2398, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2399, ptr noundef nonnull align 8 dereferenceable(16) %145, i64 16, i1 false), !tbaa.struct !73
@@ -5803,7 +5802,7 @@ _ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit193: ; p
 2412:                                             ; preds = %_ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit193
   %2413 = zext i32 %2407 to i64
   %2414 = load ptr, ptr %2405, align 8, !tbaa !56
-  %2415 = getelementptr inbounds nuw %"struct.std::pair.194", ptr %2414, i64 %2413
+  %2415 = getelementptr inbounds nuw [32 x i8], ptr %2414, i64 %2413
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2415, ptr noundef nonnull align 8 dereferenceable(16) %142, i64 16, i1 false), !tbaa.struct !73
   %2416 = getelementptr inbounds nuw i8, ptr %2415, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2416, ptr noundef nonnull align 8 dereferenceable(16) %143, i64 16, i1 false), !tbaa.struct !73
@@ -5839,7 +5838,7 @@ _ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit195: ; p
 2429:                                             ; preds = %_ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_.exit195
   %2430 = zext i32 %2424 to i64
   %2431 = load ptr, ptr %2422, align 8, !tbaa !56
-  %2432 = getelementptr inbounds nuw %"struct.std::pair.194", ptr %2431, i64 %2430
+  %2432 = getelementptr inbounds nuw [32 x i8], ptr %2431, i64 %2430
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2432, ptr noundef nonnull align 8 dereferenceable(16) %140, i64 16, i1 false), !tbaa.struct !73
   %2433 = getelementptr inbounds nuw i8, ptr %2432, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2433, ptr noundef nonnull align 8 dereferenceable(16) %141, i64 16, i1 false), !tbaa.struct !73
@@ -5875,7 +5874,7 @@ _ZN5clang4ento15CheckerRegistry17addWeakDependencyEN4llvm9StringRefES3_.exit: ; 
 2446:                                             ; preds = %_ZN5clang4ento15CheckerRegistry17addWeakDependencyEN4llvm9StringRefES3_.exit
   %2447 = zext i32 %2441 to i64
   %2448 = load ptr, ptr %2439, align 8, !tbaa !56
-  %2449 = getelementptr inbounds nuw %"struct.std::pair.194", ptr %2448, i64 %2447
+  %2449 = getelementptr inbounds nuw [32 x i8], ptr %2448, i64 %2447
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2449, ptr noundef nonnull align 8 dereferenceable(16) %138, i64 16, i1 false), !tbaa.struct !73
   %2450 = getelementptr inbounds nuw i8, ptr %2449, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2450, ptr noundef nonnull align 8 dereferenceable(16) %139, i64 16, i1 false), !tbaa.struct !73
@@ -5911,7 +5910,7 @@ _ZN5clang4ento15CheckerRegistry17addWeakDependencyEN4llvm9StringRefES3_.exit198:
 2463:                                             ; preds = %_ZN5clang4ento15CheckerRegistry17addWeakDependencyEN4llvm9StringRefES3_.exit198
   %2464 = zext i32 %2458 to i64
   %2465 = load ptr, ptr %2456, align 8, !tbaa !56
-  %2466 = getelementptr inbounds nuw %"struct.std::pair.194", ptr %2465, i64 %2464
+  %2466 = getelementptr inbounds nuw [32 x i8], ptr %2465, i64 %2464
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2466, ptr noundef nonnull align 8 dereferenceable(16) %136, i64 16, i1 false), !tbaa.struct !73
   %2467 = getelementptr inbounds nuw i8, ptr %2466, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2467, ptr noundef nonnull align 8 dereferenceable(16) %137, i64 16, i1 false), !tbaa.struct !73
@@ -5947,7 +5946,7 @@ _ZN5clang4ento15CheckerRegistry17addWeakDependencyEN4llvm9StringRefES3_.exit200:
 2480:                                             ; preds = %_ZN5clang4ento15CheckerRegistry17addWeakDependencyEN4llvm9StringRefES3_.exit200
   %2481 = zext i32 %2475 to i64
   %2482 = load ptr, ptr %2473, align 8, !tbaa !56
-  %2483 = getelementptr inbounds nuw %"struct.std::pair.194", ptr %2482, i64 %2481
+  %2483 = getelementptr inbounds nuw [32 x i8], ptr %2482, i64 %2481
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2483, ptr noundef nonnull align 8 dereferenceable(16) %134, i64 16, i1 false), !tbaa.struct !73
   %2484 = getelementptr inbounds nuw i8, ptr %2483, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2484, ptr noundef nonnull align 8 dereferenceable(16) %135, i64 16, i1 false), !tbaa.struct !73
@@ -5983,7 +5982,7 @@ _ZN5clang4ento15CheckerRegistry17addWeakDependencyEN4llvm9StringRefES3_.exit202:
 2497:                                             ; preds = %_ZN5clang4ento15CheckerRegistry17addWeakDependencyEN4llvm9StringRefES3_.exit202
   %2498 = zext i32 %2492 to i64
   %2499 = load ptr, ptr %2490, align 8, !tbaa !56
-  %2500 = getelementptr inbounds nuw %"struct.std::pair.194", ptr %2499, i64 %2498
+  %2500 = getelementptr inbounds nuw [32 x i8], ptr %2499, i64 %2498
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2500, ptr noundef nonnull align 8 dereferenceable(16) %132, i64 16, i1 false), !tbaa.struct !73
   %2501 = getelementptr inbounds nuw i8, ptr %2500, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2501, ptr noundef nonnull align 8 dereferenceable(16) %133, i64 16, i1 false), !tbaa.struct !73
@@ -6019,7 +6018,7 @@ _ZN5clang4ento15CheckerRegistry17addWeakDependencyEN4llvm9StringRefES3_.exit204:
 2514:                                             ; preds = %_ZN5clang4ento15CheckerRegistry17addWeakDependencyEN4llvm9StringRefES3_.exit204
   %2515 = zext i32 %2509 to i64
   %2516 = load ptr, ptr %2507, align 8, !tbaa !56
-  %2517 = getelementptr inbounds nuw %"struct.std::pair.194", ptr %2516, i64 %2515
+  %2517 = getelementptr inbounds nuw [32 x i8], ptr %2516, i64 %2515
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2517, ptr noundef nonnull align 8 dereferenceable(16) %130, i64 16, i1 false), !tbaa.struct !73
   %2518 = getelementptr inbounds nuw i8, ptr %2517, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2518, ptr noundef nonnull align 8 dereferenceable(16) %131, i64 16, i1 false), !tbaa.struct !73
@@ -6073,7 +6072,7 @@ _ZN5clang4ento15CheckerRegistry17addWeakDependencyEN4llvm9StringRefES3_.exit206:
 2535:                                             ; preds = %_ZN5clang4ento15CheckerRegistry17addWeakDependencyEN4llvm9StringRefES3_.exit206
   %2536 = zext i32 %2530 to i64
   %2537 = load ptr, ptr %2523, align 8, !tbaa !56
-  %2538 = getelementptr inbounds nuw %"struct.std::pair.196", ptr %2537, i64 %2536
+  %2538 = getelementptr inbounds nuw [104 x i8], ptr %2537, i64 %2536
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2538, ptr noundef nonnull align 8 dereferenceable(16) %128, i64 16, i1 false), !tbaa.struct !73
   %2539 = getelementptr inbounds nuw i8, ptr %2538, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %2539, ptr noundef nonnull align 8 dereferenceable(88) %129, i64 88, i1 false), !tbaa.struct !74
@@ -6127,7 +6126,7 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
 2556:                                             ; preds = %_ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S3_b.exit
   %2557 = zext i32 %2551 to i64
   %2558 = load ptr, ptr %2544, align 8, !tbaa !56
-  %2559 = getelementptr inbounds nuw %"struct.std::pair.196", ptr %2558, i64 %2557
+  %2559 = getelementptr inbounds nuw [104 x i8], ptr %2558, i64 %2557
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2559, ptr noundef nonnull align 8 dereferenceable(16) %126, i64 16, i1 false), !tbaa.struct !73
   %2560 = getelementptr inbounds nuw i8, ptr %2559, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %2560, ptr noundef nonnull align 8 dereferenceable(88) %127, i64 88, i1 false), !tbaa.struct !74
@@ -6181,7 +6180,7 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
 2577:                                             ; preds = %_ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S3_b.exit219
   %2578 = zext i32 %2572 to i64
   %2579 = load ptr, ptr %2565, align 8, !tbaa !56
-  %2580 = getelementptr inbounds nuw %"struct.std::pair.196", ptr %2579, i64 %2578
+  %2580 = getelementptr inbounds nuw [104 x i8], ptr %2579, i64 %2578
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2580, ptr noundef nonnull align 8 dereferenceable(16) %124, i64 16, i1 false), !tbaa.struct !73
   %2581 = getelementptr inbounds nuw i8, ptr %2580, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %2581, ptr noundef nonnull align 8 dereferenceable(88) %125, i64 88, i1 false), !tbaa.struct !74
@@ -6235,7 +6234,7 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
 2598:                                             ; preds = %_ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S3_b.exit226
   %2599 = zext i32 %2593 to i64
   %2600 = load ptr, ptr %2586, align 8, !tbaa !56
-  %2601 = getelementptr inbounds nuw %"struct.std::pair.196", ptr %2600, i64 %2599
+  %2601 = getelementptr inbounds nuw [104 x i8], ptr %2600, i64 %2599
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2601, ptr noundef nonnull align 8 dereferenceable(16) %122, i64 16, i1 false), !tbaa.struct !73
   %2602 = getelementptr inbounds nuw i8, ptr %2601, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %2602, ptr noundef nonnull align 8 dereferenceable(88) %123, i64 88, i1 false), !tbaa.struct !74
@@ -6289,7 +6288,7 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
 2619:                                             ; preds = %_ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S3_b.exit233
   %2620 = zext i32 %2614 to i64
   %2621 = load ptr, ptr %2607, align 8, !tbaa !56
-  %2622 = getelementptr inbounds nuw %"struct.std::pair.196", ptr %2621, i64 %2620
+  %2622 = getelementptr inbounds nuw [104 x i8], ptr %2621, i64 %2620
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2622, ptr noundef nonnull align 8 dereferenceable(16) %120, i64 16, i1 false), !tbaa.struct !73
   %2623 = getelementptr inbounds nuw i8, ptr %2622, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %2623, ptr noundef nonnull align 8 dereferenceable(88) %121, i64 88, i1 false), !tbaa.struct !74
@@ -6343,7 +6342,7 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
 2640:                                             ; preds = %_ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S3_b.exit240
   %2641 = zext i32 %2635 to i64
   %2642 = load ptr, ptr %2628, align 8, !tbaa !56
-  %2643 = getelementptr inbounds nuw %"struct.std::pair.196", ptr %2642, i64 %2641
+  %2643 = getelementptr inbounds nuw [104 x i8], ptr %2642, i64 %2641
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2643, ptr noundef nonnull align 8 dereferenceable(16) %118, i64 16, i1 false), !tbaa.struct !73
   %2644 = getelementptr inbounds nuw i8, ptr %2643, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %2644, ptr noundef nonnull align 8 dereferenceable(88) %119, i64 88, i1 false), !tbaa.struct !74
@@ -6397,7 +6396,7 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
 2661:                                             ; preds = %_ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S3_b.exit247
   %2662 = zext i32 %2656 to i64
   %2663 = load ptr, ptr %2649, align 8, !tbaa !56
-  %2664 = getelementptr inbounds nuw %"struct.std::pair.196", ptr %2663, i64 %2662
+  %2664 = getelementptr inbounds nuw [104 x i8], ptr %2663, i64 %2662
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2664, ptr noundef nonnull align 8 dereferenceable(16) %116, i64 16, i1 false), !tbaa.struct !73
   %2665 = getelementptr inbounds nuw i8, ptr %2664, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %2665, ptr noundef nonnull align 8 dereferenceable(88) %117, i64 88, i1 false), !tbaa.struct !74
@@ -6451,7 +6450,7 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
 2682:                                             ; preds = %_ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S3_b.exit254
   %2683 = zext i32 %2677 to i64
   %2684 = load ptr, ptr %2670, align 8, !tbaa !56
-  %2685 = getelementptr inbounds nuw %"struct.std::pair.196", ptr %2684, i64 %2683
+  %2685 = getelementptr inbounds nuw [104 x i8], ptr %2684, i64 %2683
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2685, ptr noundef nonnull align 8 dereferenceable(16) %114, i64 16, i1 false), !tbaa.struct !73
   %2686 = getelementptr inbounds nuw i8, ptr %2685, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %2686, ptr noundef nonnull align 8 dereferenceable(88) %115, i64 88, i1 false), !tbaa.struct !74
@@ -6505,7 +6504,7 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
 2703:                                             ; preds = %_ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S3_b.exit261
   %2704 = zext i32 %2698 to i64
   %2705 = load ptr, ptr %2691, align 8, !tbaa !56
-  %2706 = getelementptr inbounds nuw %"struct.std::pair.196", ptr %2705, i64 %2704
+  %2706 = getelementptr inbounds nuw [104 x i8], ptr %2705, i64 %2704
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2706, ptr noundef nonnull align 8 dereferenceable(16) %112, i64 16, i1 false), !tbaa.struct !73
   %2707 = getelementptr inbounds nuw i8, ptr %2706, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %2707, ptr noundef nonnull align 8 dereferenceable(88) %113, i64 88, i1 false), !tbaa.struct !74
@@ -6559,7 +6558,7 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
 2724:                                             ; preds = %_ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S3_b.exit268
   %2725 = zext i32 %2719 to i64
   %2726 = load ptr, ptr %2712, align 8, !tbaa !56
-  %2727 = getelementptr inbounds nuw %"struct.std::pair.196", ptr %2726, i64 %2725
+  %2727 = getelementptr inbounds nuw [104 x i8], ptr %2726, i64 %2725
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2727, ptr noundef nonnull align 8 dereferenceable(16) %110, i64 16, i1 false), !tbaa.struct !73
   %2728 = getelementptr inbounds nuw i8, ptr %2727, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %2728, ptr noundef nonnull align 8 dereferenceable(88) %111, i64 88, i1 false), !tbaa.struct !74
@@ -6613,7 +6612,7 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
 2745:                                             ; preds = %_ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S3_b.exit275
   %2746 = zext i32 %2740 to i64
   %2747 = load ptr, ptr %2733, align 8, !tbaa !56
-  %2748 = getelementptr inbounds nuw %"struct.std::pair.196", ptr %2747, i64 %2746
+  %2748 = getelementptr inbounds nuw [104 x i8], ptr %2747, i64 %2746
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2748, ptr noundef nonnull align 8 dereferenceable(16) %108, i64 16, i1 false), !tbaa.struct !73
   %2749 = getelementptr inbounds nuw i8, ptr %2748, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %2749, ptr noundef nonnull align 8 dereferenceable(88) %109, i64 88, i1 false), !tbaa.struct !74
@@ -6667,7 +6666,7 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
 2766:                                             ; preds = %_ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S3_b.exit282
   %2767 = zext i32 %2761 to i64
   %2768 = load ptr, ptr %2754, align 8, !tbaa !56
-  %2769 = getelementptr inbounds nuw %"struct.std::pair.196", ptr %2768, i64 %2767
+  %2769 = getelementptr inbounds nuw [104 x i8], ptr %2768, i64 %2767
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2769, ptr noundef nonnull align 8 dereferenceable(16) %106, i64 16, i1 false), !tbaa.struct !73
   %2770 = getelementptr inbounds nuw i8, ptr %2769, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %2770, ptr noundef nonnull align 8 dereferenceable(88) %107, i64 88, i1 false), !tbaa.struct !74
@@ -6721,7 +6720,7 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
 2787:                                             ; preds = %_ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S3_b.exit289
   %2788 = zext i32 %2782 to i64
   %2789 = load ptr, ptr %2775, align 8, !tbaa !56
-  %2790 = getelementptr inbounds nuw %"struct.std::pair.196", ptr %2789, i64 %2788
+  %2790 = getelementptr inbounds nuw [104 x i8], ptr %2789, i64 %2788
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2790, ptr noundef nonnull align 8 dereferenceable(16) %104, i64 16, i1 false), !tbaa.struct !73
   %2791 = getelementptr inbounds nuw i8, ptr %2790, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %2791, ptr noundef nonnull align 8 dereferenceable(88) %105, i64 88, i1 false), !tbaa.struct !74
@@ -6775,7 +6774,7 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
 2808:                                             ; preds = %_ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S3_b.exit296
   %2809 = zext i32 %2803 to i64
   %2810 = load ptr, ptr %2796, align 8, !tbaa !56
-  %2811 = getelementptr inbounds nuw %"struct.std::pair.196", ptr %2810, i64 %2809
+  %2811 = getelementptr inbounds nuw [104 x i8], ptr %2810, i64 %2809
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2811, ptr noundef nonnull align 8 dereferenceable(16) %102, i64 16, i1 false), !tbaa.struct !73
   %2812 = getelementptr inbounds nuw i8, ptr %2811, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %2812, ptr noundef nonnull align 8 dereferenceable(88) %103, i64 88, i1 false), !tbaa.struct !74
@@ -6829,7 +6828,7 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
 2829:                                             ; preds = %_ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S3_b.exit303
   %2830 = zext i32 %2824 to i64
   %2831 = load ptr, ptr %2817, align 8, !tbaa !56
-  %2832 = getelementptr inbounds nuw %"struct.std::pair.196", ptr %2831, i64 %2830
+  %2832 = getelementptr inbounds nuw [104 x i8], ptr %2831, i64 %2830
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2832, ptr noundef nonnull align 8 dereferenceable(16) %100, i64 16, i1 false), !tbaa.struct !73
   %2833 = getelementptr inbounds nuw i8, ptr %2832, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %2833, ptr noundef nonnull align 8 dereferenceable(88) %101, i64 88, i1 false), !tbaa.struct !74
@@ -6883,7 +6882,7 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
 2850:                                             ; preds = %_ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S3_b.exit310
   %2851 = zext i32 %2845 to i64
   %2852 = load ptr, ptr %2838, align 8, !tbaa !56
-  %2853 = getelementptr inbounds nuw %"struct.std::pair.196", ptr %2852, i64 %2851
+  %2853 = getelementptr inbounds nuw [104 x i8], ptr %2852, i64 %2851
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2853, ptr noundef nonnull align 8 dereferenceable(16) %98, i64 16, i1 false), !tbaa.struct !73
   %2854 = getelementptr inbounds nuw i8, ptr %2853, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %2854, ptr noundef nonnull align 8 dereferenceable(88) %99, i64 88, i1 false), !tbaa.struct !74
@@ -6937,7 +6936,7 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
 2871:                                             ; preds = %_ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S3_b.exit317
   %2872 = zext i32 %2866 to i64
   %2873 = load ptr, ptr %2859, align 8, !tbaa !56
-  %2874 = getelementptr inbounds nuw %"struct.std::pair.196", ptr %2873, i64 %2872
+  %2874 = getelementptr inbounds nuw [104 x i8], ptr %2873, i64 %2872
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2874, ptr noundef nonnull align 8 dereferenceable(16) %96, i64 16, i1 false), !tbaa.struct !73
   %2875 = getelementptr inbounds nuw i8, ptr %2874, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %2875, ptr noundef nonnull align 8 dereferenceable(88) %97, i64 88, i1 false), !tbaa.struct !74
@@ -6991,7 +6990,7 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
 2892:                                             ; preds = %_ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S3_b.exit324
   %2893 = zext i32 %2887 to i64
   %2894 = load ptr, ptr %2880, align 8, !tbaa !56
-  %2895 = getelementptr inbounds nuw %"struct.std::pair.196", ptr %2894, i64 %2893
+  %2895 = getelementptr inbounds nuw [104 x i8], ptr %2894, i64 %2893
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2895, ptr noundef nonnull align 8 dereferenceable(16) %94, i64 16, i1 false), !tbaa.struct !73
   %2896 = getelementptr inbounds nuw i8, ptr %2895, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %2896, ptr noundef nonnull align 8 dereferenceable(88) %95, i64 88, i1 false), !tbaa.struct !74
@@ -7045,7 +7044,7 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
 2913:                                             ; preds = %_ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S3_b.exit331
   %2914 = zext i32 %2908 to i64
   %2915 = load ptr, ptr %2901, align 8, !tbaa !56
-  %2916 = getelementptr inbounds nuw %"struct.std::pair.196", ptr %2915, i64 %2914
+  %2916 = getelementptr inbounds nuw [104 x i8], ptr %2915, i64 %2914
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2916, ptr noundef nonnull align 8 dereferenceable(16) %92, i64 16, i1 false), !tbaa.struct !73
   %2917 = getelementptr inbounds nuw i8, ptr %2916, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %2917, ptr noundef nonnull align 8 dereferenceable(88) %93, i64 88, i1 false), !tbaa.struct !74
@@ -7099,7 +7098,7 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
 2934:                                             ; preds = %_ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S3_b.exit338
   %2935 = zext i32 %2929 to i64
   %2936 = load ptr, ptr %2922, align 8, !tbaa !56
-  %2937 = getelementptr inbounds nuw %"struct.std::pair.196", ptr %2936, i64 %2935
+  %2937 = getelementptr inbounds nuw [104 x i8], ptr %2936, i64 %2935
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2937, ptr noundef nonnull align 8 dereferenceable(16) %90, i64 16, i1 false), !tbaa.struct !73
   %2938 = getelementptr inbounds nuw i8, ptr %2937, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %2938, ptr noundef nonnull align 8 dereferenceable(88) %91, i64 88, i1 false), !tbaa.struct !74
@@ -7153,7 +7152,7 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
 2955:                                             ; preds = %_ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S3_b.exit345
   %2956 = zext i32 %2950 to i64
   %2957 = load ptr, ptr %2943, align 8, !tbaa !56
-  %2958 = getelementptr inbounds nuw %"struct.std::pair.196", ptr %2957, i64 %2956
+  %2958 = getelementptr inbounds nuw [104 x i8], ptr %2957, i64 %2956
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2958, ptr noundef nonnull align 8 dereferenceable(16) %88, i64 16, i1 false), !tbaa.struct !73
   %2959 = getelementptr inbounds nuw i8, ptr %2958, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %2959, ptr noundef nonnull align 8 dereferenceable(88) %89, i64 88, i1 false), !tbaa.struct !74
@@ -7207,7 +7206,7 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
 2976:                                             ; preds = %_ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S3_b.exit352
   %2977 = zext i32 %2971 to i64
   %2978 = load ptr, ptr %2964, align 8, !tbaa !56
-  %2979 = getelementptr inbounds nuw %"struct.std::pair.196", ptr %2978, i64 %2977
+  %2979 = getelementptr inbounds nuw [104 x i8], ptr %2978, i64 %2977
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2979, ptr noundef nonnull align 8 dereferenceable(16) %86, i64 16, i1 false), !tbaa.struct !73
   %2980 = getelementptr inbounds nuw i8, ptr %2979, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %2980, ptr noundef nonnull align 8 dereferenceable(88) %87, i64 88, i1 false), !tbaa.struct !74
@@ -7261,7 +7260,7 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
 2997:                                             ; preds = %_ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S3_b.exit359
   %2998 = zext i32 %2992 to i64
   %2999 = load ptr, ptr %2985, align 8, !tbaa !56
-  %3000 = getelementptr inbounds nuw %"struct.std::pair.196", ptr %2999, i64 %2998
+  %3000 = getelementptr inbounds nuw [104 x i8], ptr %2999, i64 %2998
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %3000, ptr noundef nonnull align 8 dereferenceable(16) %84, i64 16, i1 false), !tbaa.struct !73
   %3001 = getelementptr inbounds nuw i8, ptr %3000, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %3001, ptr noundef nonnull align 8 dereferenceable(88) %85, i64 88, i1 false), !tbaa.struct !74
@@ -7315,7 +7314,7 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
 3018:                                             ; preds = %_ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S3_b.exit366
   %3019 = zext i32 %3013 to i64
   %3020 = load ptr, ptr %3006, align 8, !tbaa !56
-  %3021 = getelementptr inbounds nuw %"struct.std::pair.196", ptr %3020, i64 %3019
+  %3021 = getelementptr inbounds nuw [104 x i8], ptr %3020, i64 %3019
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %3021, ptr noundef nonnull align 8 dereferenceable(16) %82, i64 16, i1 false), !tbaa.struct !73
   %3022 = getelementptr inbounds nuw i8, ptr %3021, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %3022, ptr noundef nonnull align 8 dereferenceable(88) %83, i64 88, i1 false), !tbaa.struct !74
@@ -7369,7 +7368,7 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
 3039:                                             ; preds = %_ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S3_b.exit373
   %3040 = zext i32 %3034 to i64
   %3041 = load ptr, ptr %3027, align 8, !tbaa !56
-  %3042 = getelementptr inbounds nuw %"struct.std::pair.196", ptr %3041, i64 %3040
+  %3042 = getelementptr inbounds nuw [104 x i8], ptr %3041, i64 %3040
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %3042, ptr noundef nonnull align 8 dereferenceable(16) %80, i64 16, i1 false), !tbaa.struct !73
   %3043 = getelementptr inbounds nuw i8, ptr %3042, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %3043, ptr noundef nonnull align 8 dereferenceable(88) %81, i64 88, i1 false), !tbaa.struct !74
@@ -7423,7 +7422,7 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
 3060:                                             ; preds = %_ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S3_b.exit380
   %3061 = zext i32 %3055 to i64
   %3062 = load ptr, ptr %3048, align 8, !tbaa !56
-  %3063 = getelementptr inbounds nuw %"struct.std::pair.196", ptr %3062, i64 %3061
+  %3063 = getelementptr inbounds nuw [104 x i8], ptr %3062, i64 %3061
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %3063, ptr noundef nonnull align 8 dereferenceable(16) %78, i64 16, i1 false), !tbaa.struct !73
   %3064 = getelementptr inbounds nuw i8, ptr %3063, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %3064, ptr noundef nonnull align 8 dereferenceable(88) %79, i64 88, i1 false), !tbaa.struct !74
@@ -7477,7 +7476,7 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
 3081:                                             ; preds = %_ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S3_b.exit387
   %3082 = zext i32 %3076 to i64
   %3083 = load ptr, ptr %3069, align 8, !tbaa !56
-  %3084 = getelementptr inbounds nuw %"struct.std::pair.196", ptr %3083, i64 %3082
+  %3084 = getelementptr inbounds nuw [104 x i8], ptr %3083, i64 %3082
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %3084, ptr noundef nonnull align 8 dereferenceable(16) %76, i64 16, i1 false), !tbaa.struct !73
   %3085 = getelementptr inbounds nuw i8, ptr %3084, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %3085, ptr noundef nonnull align 8 dereferenceable(88) %77, i64 88, i1 false), !tbaa.struct !74
@@ -7531,7 +7530,7 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
 3102:                                             ; preds = %_ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S3_b.exit394
   %3103 = zext i32 %3097 to i64
   %3104 = load ptr, ptr %3090, align 8, !tbaa !56
-  %3105 = getelementptr inbounds nuw %"struct.std::pair.196", ptr %3104, i64 %3103
+  %3105 = getelementptr inbounds nuw [104 x i8], ptr %3104, i64 %3103
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %3105, ptr noundef nonnull align 8 dereferenceable(16) %74, i64 16, i1 false), !tbaa.struct !73
   %3106 = getelementptr inbounds nuw i8, ptr %3105, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %3106, ptr noundef nonnull align 8 dereferenceable(88) %75, i64 88, i1 false), !tbaa.struct !74
@@ -7585,7 +7584,7 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
 3123:                                             ; preds = %_ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S3_b.exit401
   %3124 = zext i32 %3118 to i64
   %3125 = load ptr, ptr %3111, align 8, !tbaa !56
-  %3126 = getelementptr inbounds nuw %"struct.std::pair.196", ptr %3125, i64 %3124
+  %3126 = getelementptr inbounds nuw [104 x i8], ptr %3125, i64 %3124
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %3126, ptr noundef nonnull align 8 dereferenceable(16) %72, i64 16, i1 false), !tbaa.struct !73
   %3127 = getelementptr inbounds nuw i8, ptr %3126, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %3127, ptr noundef nonnull align 8 dereferenceable(88) %73, i64 88, i1 false), !tbaa.struct !74
@@ -7639,7 +7638,7 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
 3144:                                             ; preds = %_ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S3_b.exit408
   %3145 = zext i32 %3139 to i64
   %3146 = load ptr, ptr %3132, align 8, !tbaa !56
-  %3147 = getelementptr inbounds nuw %"struct.std::pair.196", ptr %3146, i64 %3145
+  %3147 = getelementptr inbounds nuw [104 x i8], ptr %3146, i64 %3145
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %3147, ptr noundef nonnull align 8 dereferenceable(16) %70, i64 16, i1 false), !tbaa.struct !73
   %3148 = getelementptr inbounds nuw i8, ptr %3147, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %3148, ptr noundef nonnull align 8 dereferenceable(88) %71, i64 88, i1 false), !tbaa.struct !74
@@ -7693,7 +7692,7 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
 3165:                                             ; preds = %_ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S3_b.exit415
   %3166 = zext i32 %3160 to i64
   %3167 = load ptr, ptr %3153, align 8, !tbaa !56
-  %3168 = getelementptr inbounds nuw %"struct.std::pair.196", ptr %3167, i64 %3166
+  %3168 = getelementptr inbounds nuw [104 x i8], ptr %3167, i64 %3166
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %3168, ptr noundef nonnull align 8 dereferenceable(16) %68, i64 16, i1 false), !tbaa.struct !73
   %3169 = getelementptr inbounds nuw i8, ptr %3168, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %3169, ptr noundef nonnull align 8 dereferenceable(88) %69, i64 88, i1 false), !tbaa.struct !74
@@ -7747,7 +7746,7 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
 3186:                                             ; preds = %_ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S3_b.exit422
   %3187 = zext i32 %3181 to i64
   %3188 = load ptr, ptr %3174, align 8, !tbaa !56
-  %3189 = getelementptr inbounds nuw %"struct.std::pair.196", ptr %3188, i64 %3187
+  %3189 = getelementptr inbounds nuw [104 x i8], ptr %3188, i64 %3187
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %3189, ptr noundef nonnull align 8 dereferenceable(16) %66, i64 16, i1 false), !tbaa.struct !73
   %3190 = getelementptr inbounds nuw i8, ptr %3189, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %3190, ptr noundef nonnull align 8 dereferenceable(88) %67, i64 88, i1 false), !tbaa.struct !74
@@ -7801,7 +7800,7 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
 3207:                                             ; preds = %_ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S3_b.exit429
   %3208 = zext i32 %3202 to i64
   %3209 = load ptr, ptr %3195, align 8, !tbaa !56
-  %3210 = getelementptr inbounds nuw %"struct.std::pair.196", ptr %3209, i64 %3208
+  %3210 = getelementptr inbounds nuw [104 x i8], ptr %3209, i64 %3208
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %3210, ptr noundef nonnull align 8 dereferenceable(16) %64, i64 16, i1 false), !tbaa.struct !73
   %3211 = getelementptr inbounds nuw i8, ptr %3210, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %3211, ptr noundef nonnull align 8 dereferenceable(88) %65, i64 88, i1 false), !tbaa.struct !74
@@ -7855,7 +7854,7 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
 3228:                                             ; preds = %_ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S3_b.exit436
   %3229 = zext i32 %3223 to i64
   %3230 = load ptr, ptr %3216, align 8, !tbaa !56
-  %3231 = getelementptr inbounds nuw %"struct.std::pair.196", ptr %3230, i64 %3229
+  %3231 = getelementptr inbounds nuw [104 x i8], ptr %3230, i64 %3229
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %3231, ptr noundef nonnull align 8 dereferenceable(16) %62, i64 16, i1 false), !tbaa.struct !73
   %3232 = getelementptr inbounds nuw i8, ptr %3231, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %3232, ptr noundef nonnull align 8 dereferenceable(88) %63, i64 88, i1 false), !tbaa.struct !74
@@ -7909,7 +7908,7 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
 3249:                                             ; preds = %_ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S3_b.exit443
   %3250 = zext i32 %3244 to i64
   %3251 = load ptr, ptr %3237, align 8, !tbaa !56
-  %3252 = getelementptr inbounds nuw %"struct.std::pair.196", ptr %3251, i64 %3250
+  %3252 = getelementptr inbounds nuw [104 x i8], ptr %3251, i64 %3250
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %3252, ptr noundef nonnull align 8 dereferenceable(16) %60, i64 16, i1 false), !tbaa.struct !73
   %3253 = getelementptr inbounds nuw i8, ptr %3252, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %3253, ptr noundef nonnull align 8 dereferenceable(88) %61, i64 88, i1 false), !tbaa.struct !74
@@ -7963,7 +7962,7 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
 3270:                                             ; preds = %_ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S3_b.exit450
   %3271 = zext i32 %3265 to i64
   %3272 = load ptr, ptr %3258, align 8, !tbaa !56
-  %3273 = getelementptr inbounds nuw %"struct.std::pair.196", ptr %3272, i64 %3271
+  %3273 = getelementptr inbounds nuw [104 x i8], ptr %3272, i64 %3271
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %3273, ptr noundef nonnull align 8 dereferenceable(16) %58, i64 16, i1 false), !tbaa.struct !73
   %3274 = getelementptr inbounds nuw i8, ptr %3273, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %3274, ptr noundef nonnull align 8 dereferenceable(88) %59, i64 88, i1 false), !tbaa.struct !74
@@ -8017,7 +8016,7 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
 3291:                                             ; preds = %_ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S3_b.exit457
   %3292 = zext i32 %3286 to i64
   %3293 = load ptr, ptr %3279, align 8, !tbaa !56
-  %3294 = getelementptr inbounds nuw %"struct.std::pair.196", ptr %3293, i64 %3292
+  %3294 = getelementptr inbounds nuw [104 x i8], ptr %3293, i64 %3292
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %3294, ptr noundef nonnull align 8 dereferenceable(16) %56, i64 16, i1 false), !tbaa.struct !73
   %3295 = getelementptr inbounds nuw i8, ptr %3294, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %3295, ptr noundef nonnull align 8 dereferenceable(88) %57, i64 88, i1 false), !tbaa.struct !74
@@ -8071,7 +8070,7 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
 3312:                                             ; preds = %_ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S3_b.exit464
   %3313 = zext i32 %3307 to i64
   %3314 = load ptr, ptr %3300, align 8, !tbaa !56
-  %3315 = getelementptr inbounds nuw %"struct.std::pair.196", ptr %3314, i64 %3313
+  %3315 = getelementptr inbounds nuw [104 x i8], ptr %3314, i64 %3313
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %3315, ptr noundef nonnull align 8 dereferenceable(16) %54, i64 16, i1 false), !tbaa.struct !73
   %3316 = getelementptr inbounds nuw i8, ptr %3315, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %3316, ptr noundef nonnull align 8 dereferenceable(88) %55, i64 88, i1 false), !tbaa.struct !74
@@ -8125,7 +8124,7 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
 3333:                                             ; preds = %_ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S3_b.exit471
   %3334 = zext i32 %3328 to i64
   %3335 = load ptr, ptr %3321, align 8, !tbaa !56
-  %3336 = getelementptr inbounds nuw %"struct.std::pair.196", ptr %3335, i64 %3334
+  %3336 = getelementptr inbounds nuw [104 x i8], ptr %3335, i64 %3334
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %3336, ptr noundef nonnull align 8 dereferenceable(16) %52, i64 16, i1 false), !tbaa.struct !73
   %3337 = getelementptr inbounds nuw i8, ptr %3336, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %3337, ptr noundef nonnull align 8 dereferenceable(88) %53, i64 88, i1 false), !tbaa.struct !74
@@ -8179,7 +8178,7 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
 3354:                                             ; preds = %_ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S3_b.exit478
   %3355 = zext i32 %3349 to i64
   %3356 = load ptr, ptr %3342, align 8, !tbaa !56
-  %3357 = getelementptr inbounds nuw %"struct.std::pair.196", ptr %3356, i64 %3355
+  %3357 = getelementptr inbounds nuw [104 x i8], ptr %3356, i64 %3355
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %3357, ptr noundef nonnull align 8 dereferenceable(16) %50, i64 16, i1 false), !tbaa.struct !73
   %3358 = getelementptr inbounds nuw i8, ptr %3357, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %3358, ptr noundef nonnull align 8 dereferenceable(88) %51, i64 88, i1 false), !tbaa.struct !74
@@ -8233,7 +8232,7 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
 3375:                                             ; preds = %_ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S3_b.exit485
   %3376 = zext i32 %3370 to i64
   %3377 = load ptr, ptr %3363, align 8, !tbaa !56
-  %3378 = getelementptr inbounds nuw %"struct.std::pair.196", ptr %3377, i64 %3376
+  %3378 = getelementptr inbounds nuw [104 x i8], ptr %3377, i64 %3376
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %3378, ptr noundef nonnull align 8 dereferenceable(16) %48, i64 16, i1 false), !tbaa.struct !73
   %3379 = getelementptr inbounds nuw i8, ptr %3378, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %3379, ptr noundef nonnull align 8 dereferenceable(88) %49, i64 88, i1 false), !tbaa.struct !74
@@ -8287,7 +8286,7 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
 3396:                                             ; preds = %_ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S3_b.exit492
   %3397 = zext i32 %3391 to i64
   %3398 = load ptr, ptr %3384, align 8, !tbaa !56
-  %3399 = getelementptr inbounds nuw %"struct.std::pair.196", ptr %3398, i64 %3397
+  %3399 = getelementptr inbounds nuw [104 x i8], ptr %3398, i64 %3397
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %3399, ptr noundef nonnull align 8 dereferenceable(16) %46, i64 16, i1 false), !tbaa.struct !73
   %3400 = getelementptr inbounds nuw i8, ptr %3399, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %3400, ptr noundef nonnull align 8 dereferenceable(88) %47, i64 88, i1 false), !tbaa.struct !74
@@ -8341,7 +8340,7 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
 3417:                                             ; preds = %_ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S3_b.exit499
   %3418 = zext i32 %3412 to i64
   %3419 = load ptr, ptr %3405, align 8, !tbaa !56
-  %3420 = getelementptr inbounds nuw %"struct.std::pair.196", ptr %3419, i64 %3418
+  %3420 = getelementptr inbounds nuw [104 x i8], ptr %3419, i64 %3418
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %3420, ptr noundef nonnull align 8 dereferenceable(16) %44, i64 16, i1 false), !tbaa.struct !73
   %3421 = getelementptr inbounds nuw i8, ptr %3420, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %3421, ptr noundef nonnull align 8 dereferenceable(88) %45, i64 88, i1 false), !tbaa.struct !74
@@ -8395,7 +8394,7 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
 3438:                                             ; preds = %_ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S3_b.exit506
   %3439 = zext i32 %3433 to i64
   %3440 = load ptr, ptr %3426, align 8, !tbaa !56
-  %3441 = getelementptr inbounds nuw %"struct.std::pair.196", ptr %3440, i64 %3439
+  %3441 = getelementptr inbounds nuw [104 x i8], ptr %3440, i64 %3439
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %3441, ptr noundef nonnull align 8 dereferenceable(16) %42, i64 16, i1 false), !tbaa.struct !73
   %3442 = getelementptr inbounds nuw i8, ptr %3441, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %3442, ptr noundef nonnull align 8 dereferenceable(88) %43, i64 88, i1 false), !tbaa.struct !74
@@ -8449,7 +8448,7 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
 3459:                                             ; preds = %_ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S3_b.exit513
   %3460 = zext i32 %3454 to i64
   %3461 = load ptr, ptr %3447, align 8, !tbaa !56
-  %3462 = getelementptr inbounds nuw %"struct.std::pair.196", ptr %3461, i64 %3460
+  %3462 = getelementptr inbounds nuw [104 x i8], ptr %3461, i64 %3460
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %3462, ptr noundef nonnull align 8 dereferenceable(16) %40, i64 16, i1 false), !tbaa.struct !73
   %3463 = getelementptr inbounds nuw i8, ptr %3462, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %3463, ptr noundef nonnull align 8 dereferenceable(88) %41, i64 88, i1 false), !tbaa.struct !74
@@ -8503,7 +8502,7 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
 3480:                                             ; preds = %_ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S3_b.exit520
   %3481 = zext i32 %3475 to i64
   %3482 = load ptr, ptr %3468, align 8, !tbaa !56
-  %3483 = getelementptr inbounds nuw %"struct.std::pair.196", ptr %3482, i64 %3481
+  %3483 = getelementptr inbounds nuw [104 x i8], ptr %3482, i64 %3481
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %3483, ptr noundef nonnull align 8 dereferenceable(16) %38, i64 16, i1 false), !tbaa.struct !73
   %3484 = getelementptr inbounds nuw i8, ptr %3483, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %3484, ptr noundef nonnull align 8 dereferenceable(88) %39, i64 88, i1 false), !tbaa.struct !74
@@ -8557,7 +8556,7 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
 3501:                                             ; preds = %_ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S3_b.exit527
   %3502 = zext i32 %3496 to i64
   %3503 = load ptr, ptr %3489, align 8, !tbaa !56
-  %3504 = getelementptr inbounds nuw %"struct.std::pair.196", ptr %3503, i64 %3502
+  %3504 = getelementptr inbounds nuw [104 x i8], ptr %3503, i64 %3502
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %3504, ptr noundef nonnull align 8 dereferenceable(16) %36, i64 16, i1 false), !tbaa.struct !73
   %3505 = getelementptr inbounds nuw i8, ptr %3504, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %3505, ptr noundef nonnull align 8 dereferenceable(88) %37, i64 88, i1 false), !tbaa.struct !74
@@ -8611,7 +8610,7 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
 3522:                                             ; preds = %_ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S3_b.exit534
   %3523 = zext i32 %3517 to i64
   %3524 = load ptr, ptr %3510, align 8, !tbaa !56
-  %3525 = getelementptr inbounds nuw %"struct.std::pair.196", ptr %3524, i64 %3523
+  %3525 = getelementptr inbounds nuw [104 x i8], ptr %3524, i64 %3523
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %3525, ptr noundef nonnull align 8 dereferenceable(16) %34, i64 16, i1 false), !tbaa.struct !73
   %3526 = getelementptr inbounds nuw i8, ptr %3525, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %3526, ptr noundef nonnull align 8 dereferenceable(88) %35, i64 88, i1 false), !tbaa.struct !74
@@ -8665,7 +8664,7 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
 3543:                                             ; preds = %_ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S3_b.exit541
   %3544 = zext i32 %3538 to i64
   %3545 = load ptr, ptr %3531, align 8, !tbaa !56
-  %3546 = getelementptr inbounds nuw %"struct.std::pair.196", ptr %3545, i64 %3544
+  %3546 = getelementptr inbounds nuw [104 x i8], ptr %3545, i64 %3544
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %3546, ptr noundef nonnull align 8 dereferenceable(16) %32, i64 16, i1 false), !tbaa.struct !73
   %3547 = getelementptr inbounds nuw i8, ptr %3546, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %3547, ptr noundef nonnull align 8 dereferenceable(88) %33, i64 88, i1 false), !tbaa.struct !74
@@ -8719,7 +8718,7 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
 3564:                                             ; preds = %_ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S3_b.exit548
   %3565 = zext i32 %3559 to i64
   %3566 = load ptr, ptr %3552, align 8, !tbaa !56
-  %3567 = getelementptr inbounds nuw %"struct.std::pair.196", ptr %3566, i64 %3565
+  %3567 = getelementptr inbounds nuw [104 x i8], ptr %3566, i64 %3565
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %3567, ptr noundef nonnull align 8 dereferenceable(16) %30, i64 16, i1 false), !tbaa.struct !73
   %3568 = getelementptr inbounds nuw i8, ptr %3567, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %3568, ptr noundef nonnull align 8 dereferenceable(88) %31, i64 88, i1 false), !tbaa.struct !74
@@ -8773,7 +8772,7 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
 3585:                                             ; preds = %_ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S3_b.exit555
   %3586 = zext i32 %3580 to i64
   %3587 = load ptr, ptr %3573, align 8, !tbaa !56
-  %3588 = getelementptr inbounds nuw %"struct.std::pair.196", ptr %3587, i64 %3586
+  %3588 = getelementptr inbounds nuw [104 x i8], ptr %3587, i64 %3586
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %3588, ptr noundef nonnull align 8 dereferenceable(16) %28, i64 16, i1 false), !tbaa.struct !73
   %3589 = getelementptr inbounds nuw i8, ptr %3588, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %3589, ptr noundef nonnull align 8 dereferenceable(88) %29, i64 88, i1 false), !tbaa.struct !74
@@ -8827,7 +8826,7 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
 3606:                                             ; preds = %_ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S3_b.exit562
   %3607 = zext i32 %3601 to i64
   %3608 = load ptr, ptr %3594, align 8, !tbaa !56
-  %3609 = getelementptr inbounds nuw %"struct.std::pair.196", ptr %3608, i64 %3607
+  %3609 = getelementptr inbounds nuw [104 x i8], ptr %3608, i64 %3607
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %3609, ptr noundef nonnull align 8 dereferenceable(16) %26, i64 16, i1 false), !tbaa.struct !73
   %3610 = getelementptr inbounds nuw i8, ptr %3609, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %3610, ptr noundef nonnull align 8 dereferenceable(88) %27, i64 88, i1 false), !tbaa.struct !74
@@ -8881,7 +8880,7 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
 3627:                                             ; preds = %_ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S3_b.exit569
   %3628 = zext i32 %3622 to i64
   %3629 = load ptr, ptr %3615, align 8, !tbaa !56
-  %3630 = getelementptr inbounds nuw %"struct.std::pair.196", ptr %3629, i64 %3628
+  %3630 = getelementptr inbounds nuw [104 x i8], ptr %3629, i64 %3628
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %3630, ptr noundef nonnull align 8 dereferenceable(16) %24, i64 16, i1 false), !tbaa.struct !73
   %3631 = getelementptr inbounds nuw i8, ptr %3630, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %3631, ptr noundef nonnull align 8 dereferenceable(88) %25, i64 88, i1 false), !tbaa.struct !74
@@ -8935,7 +8934,7 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
 3648:                                             ; preds = %_ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S3_b.exit576
   %3649 = zext i32 %3643 to i64
   %3650 = load ptr, ptr %3636, align 8, !tbaa !56
-  %3651 = getelementptr inbounds nuw %"struct.std::pair.196", ptr %3650, i64 %3649
+  %3651 = getelementptr inbounds nuw [104 x i8], ptr %3650, i64 %3649
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %3651, ptr noundef nonnull align 8 dereferenceable(16) %22, i64 16, i1 false), !tbaa.struct !73
   %3652 = getelementptr inbounds nuw i8, ptr %3651, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %3652, ptr noundef nonnull align 8 dereferenceable(88) %23, i64 88, i1 false), !tbaa.struct !74
@@ -8989,7 +8988,7 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
 3669:                                             ; preds = %_ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S3_b.exit583
   %3670 = zext i32 %3664 to i64
   %3671 = load ptr, ptr %3657, align 8, !tbaa !56
-  %3672 = getelementptr inbounds nuw %"struct.std::pair.196", ptr %3671, i64 %3670
+  %3672 = getelementptr inbounds nuw [104 x i8], ptr %3671, i64 %3670
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %3672, ptr noundef nonnull align 8 dereferenceable(16) %20, i64 16, i1 false), !tbaa.struct !73
   %3673 = getelementptr inbounds nuw i8, ptr %3672, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %3673, ptr noundef nonnull align 8 dereferenceable(88) %21, i64 88, i1 false), !tbaa.struct !74
@@ -9043,7 +9042,7 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
 3690:                                             ; preds = %_ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S3_b.exit590
   %3691 = zext i32 %3685 to i64
   %3692 = load ptr, ptr %3678, align 8, !tbaa !56
-  %3693 = getelementptr inbounds nuw %"struct.std::pair.196", ptr %3692, i64 %3691
+  %3693 = getelementptr inbounds nuw [104 x i8], ptr %3692, i64 %3691
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %3693, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false), !tbaa.struct !73
   %3694 = getelementptr inbounds nuw i8, ptr %3693, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %3694, ptr noundef nonnull align 8 dereferenceable(88) %19, i64 88, i1 false), !tbaa.struct !74
@@ -9097,7 +9096,7 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
 3711:                                             ; preds = %_ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S3_b.exit597
   %3712 = zext i32 %3706 to i64
   %3713 = load ptr, ptr %3699, align 8, !tbaa !56
-  %3714 = getelementptr inbounds nuw %"struct.std::pair.196", ptr %3713, i64 %3712
+  %3714 = getelementptr inbounds nuw [104 x i8], ptr %3713, i64 %3712
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %3714, ptr noundef nonnull align 8 dereferenceable(16) %16, i64 16, i1 false), !tbaa.struct !73
   %3715 = getelementptr inbounds nuw i8, ptr %3714, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %3715, ptr noundef nonnull align 8 dereferenceable(88) %17, i64 88, i1 false), !tbaa.struct !74
@@ -9151,7 +9150,7 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
 3732:                                             ; preds = %_ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S3_b.exit604
   %3733 = zext i32 %3727 to i64
   %3734 = load ptr, ptr %3720, align 8, !tbaa !56
-  %3735 = getelementptr inbounds nuw %"struct.std::pair.196", ptr %3734, i64 %3733
+  %3735 = getelementptr inbounds nuw [104 x i8], ptr %3734, i64 %3733
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %3735, ptr noundef nonnull align 8 dereferenceable(16) %14, i64 16, i1 false), !tbaa.struct !73
   %3736 = getelementptr inbounds nuw i8, ptr %3735, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %3736, ptr noundef nonnull align 8 dereferenceable(88) %15, i64 88, i1 false), !tbaa.struct !74
@@ -9205,7 +9204,7 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
 3753:                                             ; preds = %_ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S3_b.exit611
   %3754 = zext i32 %3748 to i64
   %3755 = load ptr, ptr %3741, align 8, !tbaa !56
-  %3756 = getelementptr inbounds nuw %"struct.std::pair.196", ptr %3755, i64 %3754
+  %3756 = getelementptr inbounds nuw [104 x i8], ptr %3755, i64 %3754
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %3756, ptr noundef nonnull align 8 dereferenceable(16) %12, i64 16, i1 false), !tbaa.struct !73
   %3757 = getelementptr inbounds nuw i8, ptr %3756, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %3757, ptr noundef nonnull align 8 dereferenceable(88) %13, i64 88, i1 false), !tbaa.struct !74
@@ -9259,7 +9258,7 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
 3774:                                             ; preds = %_ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S3_b.exit618
   %3775 = zext i32 %3769 to i64
   %3776 = load ptr, ptr %3762, align 8, !tbaa !56
-  %3777 = getelementptr inbounds nuw %"struct.std::pair.196", ptr %3776, i64 %3775
+  %3777 = getelementptr inbounds nuw [104 x i8], ptr %3776, i64 %3775
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %3777, ptr noundef nonnull align 8 dereferenceable(16) %10, i64 16, i1 false), !tbaa.struct !73
   %3778 = getelementptr inbounds nuw i8, ptr %3777, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %3778, ptr noundef nonnull align 8 dereferenceable(88) %11, i64 88, i1 false), !tbaa.struct !74
@@ -9313,7 +9312,7 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
 3795:                                             ; preds = %_ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S3_b.exit625
   %3796 = zext i32 %3790 to i64
   %3797 = load ptr, ptr %3783, align 8, !tbaa !56
-  %3798 = getelementptr inbounds nuw %"struct.std::pair.196", ptr %3797, i64 %3796
+  %3798 = getelementptr inbounds nuw [104 x i8], ptr %3797, i64 %3796
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %3798, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false), !tbaa.struct !73
   %3799 = getelementptr inbounds nuw i8, ptr %3798, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %3799, ptr noundef nonnull align 8 dereferenceable(88) %9, i64 88, i1 false), !tbaa.struct !74
@@ -9523,7 +9522,7 @@ define dso_local void @_ZN5clang4ento15CheckerRegistry10addPackageEN4llvm9String
 17:                                               ; preds = %3
   %18 = zext i32 %12 to i64
   %19 = load ptr, ptr %6, align 8, !tbaa !56
-  %20 = getelementptr inbounds nuw %"struct.clang::ento::PackageInfo", ptr %19, i64 %18
+  %20 = getelementptr inbounds nuw [32 x i8], ptr %19, i64 %18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false), !tbaa.struct !73
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 32
@@ -10575,7 +10574,7 @@ define dso_local void @_ZN5clang4ento15CheckerRegistry16addPackageOptionEN4llvm9
 28:                                               ; preds = %10
   %29 = zext i32 %23 to i64
   %30 = load ptr, ptr %15, align 8, !tbaa !56
-  %31 = getelementptr inbounds nuw %"struct.std::pair.196", ptr %30, i64 %29
+  %31 = getelementptr inbounds nuw [104 x i8], ptr %30, i64 %29
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %31, ptr noundef nonnull align 8 dereferenceable(16) %11, i64 16, i1 false), !tbaa.struct !73
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %32, ptr noundef nonnull align 8 dereferenceable(88) %12, i64 88, i1 false), !tbaa.struct !74
@@ -10615,7 +10614,7 @@ define dso_local void @_ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9Str
 18:                                               ; preds = %5
   %19 = zext i32 %13 to i64
   %20 = load ptr, ptr %11, align 8, !tbaa !56
-  %21 = getelementptr inbounds nuw %"struct.std::pair.194", ptr %20, i64 %19
+  %21 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !73
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !73
@@ -10654,7 +10653,7 @@ define dso_local void @_ZN5clang4ento15CheckerRegistry17addWeakDependencyEN4llvm
 18:                                               ; preds = %5
   %19 = zext i32 %13 to i64
   %20 = load ptr, ptr %11, align 8, !tbaa !56
-  %21 = getelementptr inbounds nuw %"struct.std::pair.194", ptr %20, i64 %19
+  %21 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !73
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !73
@@ -10710,7 +10709,7 @@ define dso_local void @_ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9
 28:                                               ; preds = %10
   %29 = zext i32 %23 to i64
   %30 = load ptr, ptr %15, align 8, !tbaa !56
-  %31 = getelementptr inbounds nuw %"struct.std::pair.196", ptr %30, i64 %29
+  %31 = getelementptr inbounds nuw [104 x i8], ptr %30, i64 %29
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %31, ptr noundef nonnull align 8 dereferenceable(16) %11, i64 16, i1 false), !tbaa.struct !73
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %32, ptr noundef nonnull align 8 dereferenceable(88) %12, i64 88, i1 false), !tbaa.struct !74
@@ -10812,7 +10811,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang4ento11CheckerInfoESt6vector
   %.016.i.i.i.i = phi i64 [ %48, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang4ento11CheckerInfoESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.lr.ph.i.i.i.i ], [ %.1.i.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5clang4ento16checker_registry10FullNameLTINS3_11CheckerInfoEEEEclINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEKS6_EEbT_RT0_.exit.thread.i.i.i.i ]
   %.sroa.011.015.i.i.i.i = phi ptr [ %41, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang4ento11CheckerInfoESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.lr.ph.i.i.i.i ], [ %.sroa.011.1.i.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5clang4ento16checker_registry10FullNameLTINS3_11CheckerInfoEEEEclINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEKS6_EEbT_RT0_.exit.thread.i.i.i.i ]
   %49 = lshr i64 %.016.i.i.i.i, 1
-  %50 = getelementptr inbounds nuw %"struct.clang::ento::CheckerInfo", ptr %.sroa.011.015.i.i.i.i, i64 %49
+  %50 = getelementptr inbounds nuw [120 x i8], ptr %.sroa.011.015.i.i.i.i, i64 %49
   %.sroa.22.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %50, i64 24
   %.sroa.22.0.copyload.i.i.i.i.i.i = load i64, ptr %.sroa.22.0..sroa_idx.i.i.i.i.i.i, align 8, !tbaa !62
   %.sroa.speculated.i.i.i.i.i.i.i.i = call i64 @llvm.umin.i64(i64 %.sroa.22.0.copyload, i64 %.sroa.22.0.copyload.i.i.i.i.i.i)
@@ -10884,7 +10883,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang4ento11CheckerInfoESt6vector
   %.016.i.i.i.i15 = phi i64 [ %67, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang4ento11CheckerInfoESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.lr.ph.i.i.i.i13 ], [ %.1.i.i.i.i29, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5clang4ento16checker_registry10FullNameLTINS3_11CheckerInfoEEEEclINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEKS6_EEbT_RT0_.exit.thread.i.i.i.i27 ]
   %.sroa.011.015.i.i.i.i16 = phi ptr [ %61, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang4ento11CheckerInfoESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.lr.ph.i.i.i.i13 ], [ %.sroa.011.1.i.i.i.i28, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5clang4ento16checker_registry10FullNameLTINS3_11CheckerInfoEEEEclINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEKS6_EEbT_RT0_.exit.thread.i.i.i.i27 ]
   %68 = lshr i64 %.016.i.i.i.i15, 1
-  %69 = getelementptr inbounds nuw %"struct.clang::ento::CheckerInfo", ptr %.sroa.011.015.i.i.i.i16, i64 %68
+  %69 = getelementptr inbounds nuw [120 x i8], ptr %.sroa.011.015.i.i.i.i16, i64 %68
   %.sroa.22.0..sroa_idx.i.i.i.i.i.i19 = getelementptr inbounds nuw i8, ptr %69, i64 24
   %.sroa.22.0.copyload.i.i.i.i.i.i20 = load i64, ptr %.sroa.22.0..sroa_idx.i.i.i.i.i.i19, align 8, !tbaa !62
   %.sroa.speculated.i.i.i.i.i.i.i.i21 = call i64 @llvm.umin.i64(i64 %.sroa.2.0.copyload, i64 %.sroa.22.0.copyload.i.i.i.i.i.i20)
@@ -10939,7 +10938,7 @@ _ZN5clang4ento16checker_registry10binaryFindISt6vectorINS0_11CheckerInfoESaIS4_E
 86:                                               ; preds = %_ZN5clang4ento16checker_registry10binaryFindISt6vectorINS0_11CheckerInfoESaIS4_EEEENSt11conditionalIXsr3std8is_constIT_EE5valueENS8_14const_iteratorENS8_8iteratorEE4typeERS8_N4llvm9StringRefE.exit32
   %87 = zext i32 %81 to i64
   %88 = load ptr, ptr %79, align 8, !tbaa !56
-  %89 = getelementptr inbounds nuw ptr, ptr %88, i64 %87
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %87
   store ptr %.sroa.011.0.lcssa.i.i.i.i12, ptr %89, align 8, !tbaa !64
   %90 = add nuw i32 %81, 1
   store i32 %90, ptr %80, align 8, !tbaa !57
@@ -11040,7 +11039,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang4ento11CheckerInfoESt6vector
   %.016.i.i.i.i = phi i64 [ %48, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang4ento11CheckerInfoESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.lr.ph.i.i.i.i ], [ %.1.i.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5clang4ento16checker_registry10FullNameLTINS3_11CheckerInfoEEEEclINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEKS6_EEbT_RT0_.exit.thread.i.i.i.i ]
   %.sroa.011.015.i.i.i.i = phi ptr [ %41, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang4ento11CheckerInfoESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.lr.ph.i.i.i.i ], [ %.sroa.011.1.i.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5clang4ento16checker_registry10FullNameLTINS3_11CheckerInfoEEEEclINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEKS6_EEbT_RT0_.exit.thread.i.i.i.i ]
   %49 = lshr i64 %.016.i.i.i.i, 1
-  %50 = getelementptr inbounds nuw %"struct.clang::ento::CheckerInfo", ptr %.sroa.011.015.i.i.i.i, i64 %49
+  %50 = getelementptr inbounds nuw [120 x i8], ptr %.sroa.011.015.i.i.i.i, i64 %49
   %.sroa.22.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %50, i64 24
   %.sroa.22.0.copyload.i.i.i.i.i.i = load i64, ptr %.sroa.22.0..sroa_idx.i.i.i.i.i.i, align 8, !tbaa !62
   %.sroa.speculated.i.i.i.i.i.i.i.i = call i64 @llvm.umin.i64(i64 %.sroa.22.0.copyload, i64 %.sroa.22.0.copyload.i.i.i.i.i.i)
@@ -11112,7 +11111,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang4ento11CheckerInfoESt6vector
   %.016.i.i.i.i15 = phi i64 [ %67, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang4ento11CheckerInfoESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.lr.ph.i.i.i.i13 ], [ %.1.i.i.i.i29, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5clang4ento16checker_registry10FullNameLTINS3_11CheckerInfoEEEEclINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEKS6_EEbT_RT0_.exit.thread.i.i.i.i27 ]
   %.sroa.011.015.i.i.i.i16 = phi ptr [ %61, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang4ento11CheckerInfoESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.lr.ph.i.i.i.i13 ], [ %.sroa.011.1.i.i.i.i28, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5clang4ento16checker_registry10FullNameLTINS3_11CheckerInfoEEEEclINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEKS6_EEbT_RT0_.exit.thread.i.i.i.i27 ]
   %68 = lshr i64 %.016.i.i.i.i15, 1
-  %69 = getelementptr inbounds nuw %"struct.clang::ento::CheckerInfo", ptr %.sroa.011.015.i.i.i.i16, i64 %68
+  %69 = getelementptr inbounds nuw [120 x i8], ptr %.sroa.011.015.i.i.i.i16, i64 %68
   %.sroa.22.0..sroa_idx.i.i.i.i.i.i19 = getelementptr inbounds nuw i8, ptr %69, i64 24
   %.sroa.22.0.copyload.i.i.i.i.i.i20 = load i64, ptr %.sroa.22.0..sroa_idx.i.i.i.i.i.i19, align 8, !tbaa !62
   %.sroa.speculated.i.i.i.i.i.i.i.i21 = call i64 @llvm.umin.i64(i64 %.sroa.2.0.copyload, i64 %.sroa.22.0.copyload.i.i.i.i.i.i20)
@@ -11167,7 +11166,7 @@ _ZN5clang4ento16checker_registry10binaryFindISt6vectorINS0_11CheckerInfoESaIS4_E
 86:                                               ; preds = %_ZN5clang4ento16checker_registry10binaryFindISt6vectorINS0_11CheckerInfoESaIS4_EEEENSt11conditionalIXsr3std8is_constIT_EE5valueENS8_14const_iteratorENS8_8iteratorEE4typeERS8_N4llvm9StringRefE.exit32
   %87 = zext i32 %81 to i64
   %88 = load ptr, ptr %79, align 8, !tbaa !56
-  %89 = getelementptr inbounds nuw ptr, ptr %88, i64 %87
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %87
   store ptr %.sroa.011.0.lcssa.i.i.i.i12, ptr %89, align 8, !tbaa !64
   %90 = add nuw i32 %81, 1
   store i32 %90, ptr %80, align 8, !tbaa !57
@@ -11281,7 +11280,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang4ento11CheckerInfoESt6vector
   %.016.i.i.i.i.i = phi i64 [ %50, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang4ento11CheckerInfoESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.lr.ph.i.i.i.i.i ], [ %.1.i.i.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5clang4ento16checker_registry10FullNameLTINS3_11CheckerInfoEEEEclINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEKS6_EEbT_RT0_.exit.thread.i.i.i.i.i ]
   %.sroa.011.015.i.i.i.i.i = phi ptr [ %.val, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang4ento11CheckerInfoESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.lr.ph.i.i.i.i.i ], [ %.sroa.011.1.i.i.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5clang4ento16checker_registry10FullNameLTINS3_11CheckerInfoEEEEclINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEKS6_EEbT_RT0_.exit.thread.i.i.i.i.i ]
   %51 = lshr i64 %.016.i.i.i.i.i, 1
-  %52 = getelementptr inbounds nuw %"struct.clang::ento::CheckerInfo", ptr %.sroa.011.015.i.i.i.i.i, i64 %51
+  %52 = getelementptr inbounds nuw [120 x i8], ptr %.sroa.011.015.i.i.i.i.i, i64 %51
   %.sroa.22.0..sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %52, i64 24
   %.sroa.22.0.copyload.i.i.i.i.i.i.i = load i64, ptr %.sroa.22.0..sroa_idx.i.i.i.i.i.i.i, align 8, !tbaa !62
   %.sroa.speculated.i.i.i.i.i.i.i.i.i = call i64 @llvm.umin.i64(i64 %.sroa.29.0.copyload, i64 %.sroa.22.0.copyload.i.i.i.i.i.i.i)
@@ -11335,7 +11334,7 @@ _ZN5clang4ento16checker_registry10binaryFindISt6vectorINS0_11CheckerInfoESaIS4_E
 69:                                               ; preds = %_ZN5clang4ento16checker_registry10binaryFindISt6vectorINS0_11CheckerInfoESaIS4_EEEENSt11conditionalIXsr3std8is_constIT_EE5valueENS8_14const_iteratorENS8_8iteratorEE4typeERS8_N4llvm9StringRefE.exit.i
   %70 = zext i32 %64 to i64
   %71 = load ptr, ptr %62, align 8, !tbaa !56
-  %72 = getelementptr inbounds nuw %"struct.clang::ento::CmdLineOption", ptr %71, i64 %70
+  %72 = getelementptr inbounds nuw [88 x i8], ptr %71, i64 %70
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %72, ptr noundef nonnull align 8 dereferenceable(88) %42, i64 88, i1 false), !tbaa.struct !74
   %73 = load i32, ptr %63, align 8, !tbaa !57
   %74 = add i32 %73, 1
@@ -11380,7 +11379,7 @@ _ZSt7advanceIPN5clang4ento11PackageInfoElEvRT_T0_.exit.i.i.i.i.i: ; preds = %_ZN
   %.017.i.i.i.i.i = phi ptr [ %.val22, %_ZSt7advanceIPN5clang4ento11PackageInfoElEvRT_T0_.exit.lr.ph.i.i.i.i.i ], [ %.1.i.i.i.i.i34, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5clang4ento16checker_registry10FullNameLTINS3_11PackageInfoEEEEclIPS6_KS6_EEbT_RT0_.exit.i.i.i.i.i ]
   %.01116.i.i.i.i.i = phi i64 [ %83, %_ZSt7advanceIPN5clang4ento11PackageInfoElEvRT_T0_.exit.lr.ph.i.i.i.i.i ], [ %.112.i.i.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5clang4ento16checker_registry10FullNameLTINS3_11PackageInfoEEEEclIPS6_KS6_EEbT_RT0_.exit.i.i.i.i.i ]
   %84 = lshr i64 %.01116.i.i.i.i.i, 1
-  %85 = getelementptr inbounds nuw %"struct.clang::ento::PackageInfo", ptr %.017.i.i.i.i.i, i64 %84
+  %85 = getelementptr inbounds nuw [32 x i8], ptr %.017.i.i.i.i.i, i64 %84
   %.sroa.22.0..sroa_idx.i.i.i.i.i.i.i27 = getelementptr inbounds nuw i8, ptr %85, i64 8
   %.sroa.22.0.copyload.i.i.i.i.i.i.i28 = load i64, ptr %.sroa.22.0..sroa_idx.i.i.i.i.i.i.i27, align 8, !tbaa !62
   %.sroa.speculated.i.i.i.i.i.i.i.i.i29 = call i64 @llvm.umin.i64(i64 %.sroa.2.0.copyload, i64 %.sroa.22.0.copyload.i.i.i.i.i.i.i28)
@@ -11435,7 +11434,7 @@ _ZN5clang4ento16checker_registry10binaryFindIN4llvm11SmallVectorINS0_11PackageIn
 104:                                              ; preds = %_ZN5clang4ento16checker_registry10binaryFindIN4llvm11SmallVectorINS0_11PackageInfoELj0EEEEENSt11conditionalIXsr3std8is_constIT_EE5valueENS8_14const_iteratorENS8_8iteratorEE4typeERS8_NS3_9StringRefE.exit.i
   %105 = zext i32 %99 to i64
   %106 = load ptr, ptr %97, align 8, !tbaa !56
-  %107 = getelementptr inbounds nuw %"struct.clang::ento::CmdLineOption", ptr %106, i64 %105
+  %107 = getelementptr inbounds nuw [88 x i8], ptr %106, i64 %105
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %107, ptr noundef nonnull align 8 dereferenceable(88) %79, i64 88, i1 false), !tbaa.struct !74
   %108 = load i32, ptr %98, align 8, !tbaa !57
   %109 = add i32 %108, 1
@@ -11482,7 +11481,7 @@ define dso_local void @_ZNK5clang4ento15CheckerRegistry22validateCheckerOptionsE
 _ZN4llvm9StringMapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15MallocAllocatorEE5beginEv.exit: ; preds = %.preheader.i.i.i, %1
   %.sroa.0.1.i = phi ptr [ %10, %1 ], [ %.sroa.0.0.i, %.preheader.i.i.i ]
   %16 = zext i32 %12 to i64
-  %17 = getelementptr inbounds nuw ptr, ptr %10, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %16
   %.not4548 = icmp eq ptr %.sroa.0.1.i, %17
   br i1 %.not4548, label %_ZN4llvm17StringMapIterBaseINS_17StringMapIteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_14StringMapEntryIS7_EEEppEv.exit._crit_edge, label %.lr.ph
 
@@ -11635,7 +11634,7 @@ _ZN5clang4ento11CheckerInfoD2Ev.exit:             ; preds = %_ZN4llvm11SmallVect
   %82 = getelementptr inbounds nuw i8, ptr %70, i64 72
   %83 = load i32, ptr %82, align 8, !tbaa !57
   %84 = zext i32 %83 to i64
-  %85 = getelementptr inbounds nuw %"struct.clang::ento::PackageInfo", ptr %81, i64 %84
+  %85 = getelementptr inbounds nuw [32 x i8], ptr %81, i64 %84
   %86 = call noundef ptr @_ZSt9__find_ifIPN5clang4ento11PackageInfoEN9__gnu_cxx5__ops16_Iter_equals_valIKS2_EEET_S9_S9_T0_St26random_access_iterator_tag(ptr noundef %81, ptr noundef %85, ptr nonnull align 8 dereferenceable(32) %5)
   %87 = load ptr, ptr %33, align 8, !tbaa !56
   %88 = icmp eq ptr %87, %34
@@ -11653,7 +11652,7 @@ _ZN5clang4ento11PackageInfoD2Ev.exit:             ; preds = %79, %89
   %93 = getelementptr inbounds nuw i8, ptr %90, i64 72
   %94 = load i32, ptr %93, align 8, !tbaa !57
   %95 = zext i32 %94 to i64
-  %96 = getelementptr inbounds nuw %"struct.clang::ento::PackageInfo", ptr %92, i64 %95
+  %96 = getelementptr inbounds nuw [32 x i8], ptr %92, i64 %95
   %.not = icmp eq ptr %86, %96
   br i1 %.not, label %103, label %97
 
@@ -11841,7 +11840,7 @@ _ZNK5clang4ento11CheckerInfo9isEnabledERKNS0_14CheckerManagerE.exit: ; preds = %
   %61 = add i32 %52, -1
   %.02944.i.i = and i32 %60, %61
   %62 = zext nneg i32 %.02944.i.i to i64
-  %63 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %51, i64 %62
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %62
   %64 = load ptr, ptr %63, align 8, !tbaa !64, !noalias !137
   %65 = icmp eq ptr %55, %64
   br i1 %65, label %_ZN4llvm9SetVectorIPKN5clang4ento11CheckerInfoENS_11SmallVectorIS5_Lj0EEENS_8DenseSetIS5_NS_12DenseMapInfoIS5_vEEEELj0EE6insertERKS5_.exit.i, label %.lr.ph.i.i, !prof !143
@@ -11869,7 +11868,7 @@ _ZNK5clang4ento11CheckerInfo9isEnabledERKNS0_14CheckerManagerE.exit: ; preds = %
   %75 = add i32 %.02746.i.i, %.02947.i.i
   %.029.i.i = and i32 %75, %61
   %76 = zext i32 %.029.i.i to i64
-  %77 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %51, i64 %76
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %76
   %78 = load ptr, ptr %77, align 8, !tbaa !64, !noalias !137
   %79 = icmp eq ptr %55, %78
   br i1 %79, label %_ZN4llvm9SetVectorIPKN5clang4ento11CheckerInfoENS_11SmallVectorIS5_Lj0EEENS_8DenseSetIS5_NS_12DenseMapInfoIS5_vEEEELj0EE6insertERKS5_.exit.i, label %.lr.ph.i.i, !prof !144, !llvm.loop !145
@@ -11914,7 +11913,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento11CheckerInfoENS_6detail13Dens
   %100 = add i32 %91, -1
   %.02944.i = and i32 %99, %100
   %101 = zext nneg i32 %.02944.i to i64
-  %102 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %90, i64 %101
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %101
   %103 = load ptr, ptr %102, align 8, !tbaa !64, !noalias !137
   %104 = icmp eq ptr %94, %103
   br i1 %104, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento11CheckerInfoENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS6_vEENS7_12DenseSetPairIS6_EEEES6_S8_SA_SC_E15LookupBucketForIS6_EEbRKT_RPSC_.exit, label %.lr.ph.i64, !prof !143
@@ -11942,7 +11941,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento11CheckerInfoENS_6detail13Dens
   %114 = add i32 %.02746.i, %.02947.i
   %.029.i = and i32 %114, %100
   %115 = zext i32 %.029.i to i64
-  %116 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %90, i64 %115
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %115
   %117 = load ptr, ptr %116, align 8, !tbaa !64, !noalias !137
   %118 = icmp eq ptr %94, %117
   br i1 %118, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento11CheckerInfoENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS6_vEENS7_12DenseSetPairIS6_EEEES6_S8_SA_SC_E15LookupBucketForIS6_EEbRKT_RPSC_.exit, label %.lr.ph.i64, !prof !144, !llvm.loop !145
@@ -11986,7 +11985,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKN5clang4ento11CheckerInfoELb1EE9push_backES5
   %135 = phi i32 [ %130, %128 ], [ %.pre.i.i.i, %132 ]
   %136 = load ptr, ptr %12, align 8, !tbaa !56
   %137 = zext i32 %135 to i64
-  %138 = getelementptr inbounds nuw ptr, ptr %136, i64 %137
+  %138 = getelementptr inbounds nuw [8 x i8], ptr %136, i64 %137
   %139 = ptrtoint ptr %129 to i64
   store i64 %139, ptr %138, align 1
   %140 = load i32, ptr %14, align 8, !tbaa !57
@@ -12029,7 +12028,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKN5clang4ento11CheckerInfoELb1EE9push_backES5
   %152 = phi i32 [ %147, %145 ], [ %.pre.i.i, %149 ]
   %153 = load ptr, ptr %12, align 8, !tbaa !56
   %154 = zext i32 %152 to i64
-  %155 = getelementptr inbounds nuw ptr, ptr %153, i64 %154
+  %155 = getelementptr inbounds nuw [8 x i8], ptr %153, i64 %154
   %156 = ptrtoint ptr %146 to i64
   store i64 %156, ptr %155, align 1
   %157 = load i32, ptr %14, align 8, !tbaa !57
@@ -12145,7 +12144,7 @@ _ZNK5clang4ento11CheckerInfo9isEnabledERKNS0_14CheckerManagerE.exit26: ; preds =
   %211 = add i32 %202, -1
   %.02944.i.i39 = and i32 %210, %211
   %212 = zext nneg i32 %.02944.i.i39 to i64
-  %213 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %201, i64 %212
+  %213 = getelementptr inbounds nuw [8 x i8], ptr %201, i64 %212
   %214 = load ptr, ptr %213, align 8, !tbaa !64, !noalias !152
   %215 = icmp eq ptr %205, %214
   br i1 %215, label %_ZN4llvm9SetVectorIPKN5clang4ento11CheckerInfoENS_11SmallVectorIS5_Lj0EEENS_8DenseSetIS5_NS_12DenseMapInfoIS5_vEEEELj0EE6insertERKS5_.exit.i28, label %.lr.ph.i.i40, !prof !143
@@ -12173,7 +12172,7 @@ _ZNK5clang4ento11CheckerInfo9isEnabledERKNS0_14CheckerManagerE.exit26: ; preds =
   %225 = add i32 %.02746.i.i42, %.02947.i.i41
   %.029.i.i46 = and i32 %225, %211
   %226 = zext i32 %.029.i.i46 to i64
-  %227 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %201, i64 %226
+  %227 = getelementptr inbounds nuw [8 x i8], ptr %201, i64 %226
   %228 = load ptr, ptr %227, align 8, !tbaa !64, !noalias !152
   %229 = icmp eq ptr %205, %228
   br i1 %229, label %_ZN4llvm9SetVectorIPKN5clang4ento11CheckerInfoENS_11SmallVectorIS5_Lj0EEENS_8DenseSetIS5_NS_12DenseMapInfoIS5_vEEEELj0EE6insertERKS5_.exit.i28, label %.lr.ph.i.i40, !prof !144, !llvm.loop !145
@@ -12218,7 +12217,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento11CheckerInfoENS_6detail13Dens
   %250 = add i32 %241, -1
   %.02944.i68 = and i32 %249, %250
   %251 = zext nneg i32 %.02944.i68 to i64
-  %252 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %240, i64 %251
+  %252 = getelementptr inbounds nuw [8 x i8], ptr %240, i64 %251
   %253 = load ptr, ptr %252, align 8, !tbaa !64, !noalias !152
   %254 = icmp eq ptr %244, %253
   br i1 %254, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento11CheckerInfoENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS6_vEENS7_12DenseSetPairIS6_EEEES6_S8_SA_SC_E15LookupBucketForIS6_EEbRKT_RPSC_.exit79, label %.lr.ph.i69, !prof !143
@@ -12246,7 +12245,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento11CheckerInfoENS_6detail13Dens
   %264 = add i32 %.02746.i71, %.02947.i70
   %.029.i75 = and i32 %264, %250
   %265 = zext i32 %.029.i75 to i64
-  %266 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %240, i64 %265
+  %266 = getelementptr inbounds nuw [8 x i8], ptr %240, i64 %265
   %267 = load ptr, ptr %266, align 8, !tbaa !64, !noalias !152
   %268 = icmp eq ptr %244, %267
   br i1 %268, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento11CheckerInfoENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS6_vEENS7_12DenseSetPairIS6_EEEES6_S8_SA_SC_E15LookupBucketForIS6_EEbRKT_RPSC_.exit79, label %.lr.ph.i69, !prof !144, !llvm.loop !145
@@ -12290,7 +12289,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKN5clang4ento11CheckerInfoELb1EE9push_backES5
   %285 = phi i32 [ %280, %278 ], [ %.pre.i.i.i31, %282 ]
   %286 = load ptr, ptr %193, align 8, !tbaa !56
   %287 = zext i32 %285 to i64
-  %288 = getelementptr inbounds nuw ptr, ptr %286, i64 %287
+  %288 = getelementptr inbounds nuw [8 x i8], ptr %286, i64 %287
   %289 = ptrtoint ptr %279 to i64
   store i64 %289, ptr %288, align 1
   %290 = load i32, ptr %194, align 8, !tbaa !57
@@ -12342,7 +12341,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKN5clang4ento11CheckerInfoELb1EE9push_backES5
   %307 = phi i32 [ %300, %296 ], [ %.pre.i.i34, %303 ]
   %308 = load ptr, ptr %297, align 8, !tbaa !56
   %309 = zext i32 %307 to i64
-  %310 = getelementptr inbounds nuw ptr, ptr %308, i64 %309
+  %310 = getelementptr inbounds nuw [8 x i8], ptr %308, i64 %309
   %311 = ptrtoint ptr %298 to i64
   store i64 %311, ptr %310, align 1
   %312 = load i32, ptr %299, align 8, !tbaa !57
@@ -12450,7 +12449,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKN5clang4ento11CheckerInfoELb1EE9push_backES5
   %38 = phi i32 [ %33, %31 ], [ %.pre.i.i, %35 ]
   %39 = load ptr, ptr %13, align 8, !tbaa !56
   %40 = zext i32 %38 to i64
-  %41 = getelementptr inbounds nuw ptr, ptr %39, i64 %40
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %40
   %42 = ptrtoint ptr %32 to i64
   store i64 %42, ptr %41, align 1
   %43 = load i32, ptr %14, align 8, !tbaa !57
@@ -12524,7 +12523,7 @@ define internal fastcc void @"_ZL23collectWeakDependenciesIZN5clang4ento15Checke
   %29 = add i32 %.val.val13, -1
   %.01828.i.i.i.i.i.i = and i32 %28, %29
   %30 = zext nneg i32 %.01828.i.i.i.i.i.i to i64
-  %31 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %.val.val, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %.val.val, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !64
   %33 = icmp eq ptr %21, %32
   br i1 %33, label %"_ZZN5clang4ento15CheckerRegistry18initializeRegistryERKNS0_14CheckerManagerEENK3$_1clEPKNS0_11CheckerInfoE.exit", label %.lr.ph.i.i.i.i.i.i, !prof !143
@@ -12541,7 +12540,7 @@ define internal fastcc void @"_ZL23collectWeakDependenciesIZN5clang4ento15Checke
   %38 = add i32 %.01629.i.i.i.i.i.i, %.01830.i.i.i.i.i.i
   %.018.i.i.i.i.i.i = and i32 %38, %29
   %39 = zext i32 %.018.i.i.i.i.i.i to i64
-  %40 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %.val.val, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %.val.val, i64 %39
   %41 = load ptr, ptr %40, align 8, !tbaa !64
   %42 = icmp eq ptr %21, %41
   br i1 %42, label %"_ZZN5clang4ento15CheckerRegistry18initializeRegistryERKNS0_14CheckerManagerEENK3$_1clEPKNS0_11CheckerInfoE.exit", label %.lr.ph.i.i.i.i.i.i, !prof !144, !llvm.loop !164
@@ -12585,7 +12584,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKN5clang4ento11CheckerInfoELb1EE9push_backES5
   %57 = phi i32 [ %52, %50 ], [ %.pre.i.i, %54 ]
   %58 = load ptr, ptr %14, align 8, !tbaa !56
   %59 = zext i32 %57 to i64
-  %60 = getelementptr inbounds nuw ptr, ptr %58, i64 %59
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %59
   %61 = ptrtoint ptr %51 to i64
   store i64 %61, ptr %60, align 1
   %62 = load i32, ptr %15, align 8, !tbaa !57
@@ -12946,7 +12945,7 @@ define linkonce_odr hidden void @_ZN5clang20DiagStorageAllocator10DeallocateEPNS
   %9 = add i32 %8, 1
   store i32 %9, ptr %7, align 8, !tbaa !41
   %10 = zext i32 %8 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr %4, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %10
   store ptr %1, ptr %11, align 8, !tbaa !59
   br label %43
 
@@ -13558,7 +13557,7 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i:        ; preds = %15
   %29 = add i32 %11, -1
   store i32 %29, ptr %10, align 8, !tbaa !41
   %30 = zext i32 %29 to i64
-  %31 = getelementptr inbounds nuw ptr, ptr %28, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !59
   store i8 0, ptr %32, align 8, !tbaa !43
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 424
@@ -13666,7 +13665,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_
   %73 = add i8 %72, 1
   store i8 %73, ptr %70, align 8, !tbaa !43
   %74 = zext i8 %72 to i64
-  %75 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %71, i64 %74
+  %75 = getelementptr inbounds nuw [32 x i8], ptr %71, i64 %74
   %76 = load ptr, ptr %75, align 8, !tbaa !26
   %77 = getelementptr inbounds nuw i8, ptr %75, i64 16
   %78 = icmp eq ptr %76, %77
@@ -13820,7 +13819,7 @@ _ZSt14__partial_sortIPN5clang4ento11PackageInfoEN9__gnu_cxx5__ops15_Iter_comp_it
 
 24:                                               ; preds = %16
   %25 = lshr i64 %17, 6
-  %26 = getelementptr inbounds nuw %"struct.clang::ento::PackageInfo", ptr %0, i64 %25
+  %26 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %25
   %27 = getelementptr inbounds i8, ptr %.021, i64 -32
   call void @_ZSt22__move_median_to_firstIPN5clang4ento11PackageInfoEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_16checker_registry10FullNameLTIS2_EEEEEvT_SB_SB_SB_T0_(ptr noundef %0, ptr noundef nonnull %11, ptr noundef %26, ptr noundef nonnull %27)
   br label %28
@@ -14077,7 +14076,7 @@ define linkonce_odr void @_ZSt11__make_heapIPN5clang4ento11PackageInfoEN9__gnu_c
 22:                                               ; preds = %_ZN5clang4ento11PackageInfoD2Ev.exit17, %11
   %.013 = phi i64 [ %13, %11 ], [ %39, %_ZN5clang4ento11PackageInfoD2Ev.exit17 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %23 = getelementptr inbounds nuw %"struct.clang::ento::PackageInfo", ptr %0, i64 %.013
+  %23 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %.013
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %23, i64 16, i1 false), !tbaa.struct !73
   store ptr %15, ptr %14, align 8, !tbaa !56
   store i32 0, ptr %16, align 8, !tbaa !57
@@ -14326,8 +14325,8 @@ define linkonce_odr void @_ZSt13__adjust_heapIPN5clang4ento11PackageInfoElS2_N9_
   %.039 = phi i64 [ %spec.select38, %_ZN5clang4ento11PackageInfoaSEOS1_.exit ], [ %1, %4 ]
   %10 = shl i64 %.039, 1
   %11 = add i64 %10, 2
-  %12 = getelementptr inbounds %"struct.clang::ento::PackageInfo", ptr %0, i64 %11
-  %13 = getelementptr %"struct.clang::ento::PackageInfo", ptr %0, i64 %10
+  %12 = getelementptr inbounds [32 x i8], ptr %0, i64 %11
+  %13 = getelementptr [32 x i8], ptr %0, i64 %10
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.sroa.22.0.copyload.i.i = load i64, ptr %.sroa.22.0..sroa_idx.i.i, align 8, !tbaa !62
   %.sroa.2.0..sroa_idx.i.i = getelementptr i8, ptr %13, i64 40
@@ -14357,8 +14356,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang4ento16checker_registry10FullNameLTI
   %.sink = phi i1 [ %17, %.thread.i.i.i.i ], [ %18, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang4ento16checker_registry10FullNameLTINS3_11PackageInfoEEEEclIPS6_SA_EEbT_T0_.exit ]
   %19 = or disjoint i64 %10, 1
   %spec.select38 = select i1 %.sink, i64 %19, i64 %11
-  %20 = getelementptr inbounds %"struct.clang::ento::PackageInfo", ptr %0, i64 %spec.select38
-  %21 = getelementptr inbounds %"struct.clang::ento::PackageInfo", ptr %0, i64 %.039
+  %20 = getelementptr inbounds [32 x i8], ptr %0, i64 %spec.select38
+  %21 = getelementptr inbounds [32 x i8], ptr %0, i64 %.039
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %20, i64 16, i1 false), !tbaa.struct !73
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 16
@@ -14422,8 +14421,8 @@ _ZN5clang4ento11PackageInfoaSEOS1_.exit:          ; preds = %_ZN9__gnu_cxx5__ops
 49:                                               ; preds = %45
   %50 = shl nsw i64 %.0.lcssa, 1
   %51 = or disjoint i64 %50, 1
-  %52 = getelementptr inbounds %"struct.clang::ento::PackageInfo", ptr %0, i64 %51
-  %53 = getelementptr inbounds %"struct.clang::ento::PackageInfo", ptr %0, i64 %.0.lcssa
+  %52 = getelementptr inbounds [32 x i8], ptr %0, i64 %51
+  %53 = getelementptr inbounds [32 x i8], ptr %0, i64 %.0.lcssa
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %53, ptr noundef nonnull align 8 dereferenceable(32) %52, i64 16, i1 false), !tbaa.struct !73
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %55 = getelementptr inbounds nuw i8, ptr %52, i64 16
@@ -14601,7 +14600,7 @@ _ZSt4moveIPN5clang4ento13CmdLineOptionES3_ET0_T_S5_S4_.exit35: ; preds = %37, %3
   %.idx40 = mul nuw nsw i64 %.026, 88
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 %.idx40
   %44 = load ptr, ptr %0, align 8, !tbaa !56
-  %45 = getelementptr inbounds nuw %"struct.clang::ento::CmdLineOption", ptr %44, i64 %.026
+  %45 = getelementptr inbounds nuw [88 x i8], ptr %44, i64 %.026
   %.idx3941 = sub nsw i64 %40, %.026
   %gepdiff = mul nsw i64 %.idx3941, 88
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %45, ptr align 8 %43, i64 %gepdiff, i1 false)
@@ -14634,7 +14633,7 @@ define linkonce_odr void @_ZSt11__push_heapIPN5clang4ento11PackageInfoElS2_N9__g
   %.01323 = phi i64 [ %1, %.lr.ph ], [ %.024, %_ZN5clang4ento11PackageInfoaSEOS1_.exit ]
   %.024.in = add nsw i64 %.01323, -1
   %.024 = sdiv i64 %.024.in, 2
-  %8 = getelementptr inbounds %"struct.clang::ento::PackageInfo", ptr %0, i64 %.024
+  %8 = getelementptr inbounds [32 x i8], ptr %0, i64 %.024
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.sroa.22.0.copyload.i.i = load i64, ptr %.sroa.22.0..sroa_idx.i.i, align 8, !tbaa !62
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !62
@@ -14659,7 +14658,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5clang4ento16checker_registry10FullNameLTIN
   br i1 %12, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5clang4ento16checker_registry10FullNameLTINS3_11PackageInfoEEEEclIPS6_S6_EEbT_RT0_.exit.thread19, label %.critedge
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5clang4ento16checker_registry10FullNameLTINS3_11PackageInfoEEEEclIPS6_S6_EEbT_RT0_.exit.thread19: ; preds = %.thread.i.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5clang4ento16checker_registry10FullNameLTINS3_11PackageInfoEEEEclIPS6_S6_EEbT_RT0_.exit
-  %13 = getelementptr inbounds %"struct.clang::ento::PackageInfo", ptr %0, i64 %.01323
+  %13 = getelementptr inbounds [32 x i8], ptr %0, i64 %.01323
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 16, i1 false), !tbaa.struct !73
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -14710,7 +14709,7 @@ _ZN5clang4ento11PackageInfoaSEOS1_.exit:          ; preds = %_ZN9__gnu_cxx5__ops
 
 .critedge:                                        ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5clang4ento16checker_registry10FullNameLTINS3_11PackageInfoEEEEclIPS6_S6_EEbT_RT0_.exit, %_ZN5clang4ento11PackageInfoaSEOS1_.exit, %.thread.i.i.i.i, %5
   %.013.lcssa = phi i64 [ %1, %5 ], [ %.01323, %.thread.i.i.i.i ], [ %.024, %_ZN5clang4ento11PackageInfoaSEOS1_.exit ], [ %.01323, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5clang4ento16checker_registry10FullNameLTINS3_11PackageInfoEEEEclIPS6_S6_EEbT_RT0_.exit ]
-  %35 = getelementptr inbounds %"struct.clang::ento::PackageInfo", ptr %0, i64 %.013.lcssa
+  %35 = getelementptr inbounds [32 x i8], ptr %0, i64 %.013.lcssa
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 16, i1 false), !tbaa.struct !73
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -15389,7 +15388,7 @@ _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN5clang4ento11CheckerInfoES
 
 20:                                               ; preds = %12
   %21 = udiv i64 %13, 240
-  %22 = getelementptr inbounds nuw %"struct.clang::ento::CheckerInfo", ptr %0, i64 %21
+  %22 = getelementptr inbounds nuw [120 x i8], ptr %0, i64 %21
   %23 = getelementptr inbounds i8, ptr %storemerge19, i64 -120
   tail call void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5clang4ento11CheckerInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterINS3_16checker_registry10FullNameLTIS4_EEEEEvT_SG_SG_SG_T0_(ptr %0, ptr nonnull %10, ptr %22, ptr nonnull %23)
   br label %24
@@ -15523,7 +15522,7 @@ define linkonce_odr void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5cl
 36:                                               ; preds = %_ZN5clang4ento11CheckerInfoD2Ev.exit17, %11
   %.08 = phi i64 [ %13, %11 ], [ %92, %_ZN5clang4ento11CheckerInfoD2Ev.exit17 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %37 = getelementptr inbounds %"struct.clang::ento::CheckerInfo", ptr %0, i64 %.08
+  %37 = getelementptr inbounds [120 x i8], ptr %0, i64 %.08
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %4, ptr noundef nonnull align 8 dereferenceable(120) %37, i64 64, i1 false)
   store ptr %15, ptr %14, align 8, !tbaa !56
   store i32 0, ptr %16, align 8, !tbaa !57
@@ -16059,9 +16058,9 @@ define linkonce_odr void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5
   %.041 = phi i64 [ %20, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang4ento16checker_registry10FullNameLTINS3_11CheckerInfoEEEEclINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEESF_EEbT_T0_.exit.thread ], [ %1, %4 ]
   %9 = shl i64 %.041, 1
   %10 = add i64 %9, 2
-  %11 = getelementptr inbounds %"struct.clang::ento::CheckerInfo", ptr %0, i64 %10
+  %11 = getelementptr inbounds [120 x i8], ptr %0, i64 %10
   %12 = or disjoint i64 %9, 1
-  %13 = getelementptr inbounds %"struct.clang::ento::CheckerInfo", ptr %0, i64 %12
+  %13 = getelementptr inbounds [120 x i8], ptr %0, i64 %12
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %11, i64 24
   %.sroa.22.0.copyload.i.i = load i64, ptr %.sroa.22.0..sroa_idx.i.i, align 8, !tbaa !62
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %13, i64 24
@@ -16093,8 +16092,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang4ento16checker_registry10FullNameLTI
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang4ento16checker_registry10FullNameLTINS3_11CheckerInfoEEEEclINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEESF_EEbT_T0_.exit.thread: ; preds = %.thread.i.i.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang4ento16checker_registry10FullNameLTINS3_11CheckerInfoEEEEclINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEESF_EEbT_T0_.exit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang4ento16checker_registry10FullNameLTINS3_11CheckerInfoEEEEclINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEESF_EEbT_T0_.exit.thread38
   %20 = phi i64 [ %12, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang4ento16checker_registry10FullNameLTINS3_11CheckerInfoEEEEclINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEESF_EEbT_T0_.exit.thread38 ], [ %10, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang4ento16checker_registry10FullNameLTINS3_11CheckerInfoEEEEclINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEESF_EEbT_T0_.exit ], [ %10, %.thread.i.i.i.i ]
-  %21 = getelementptr inbounds %"struct.clang::ento::CheckerInfo", ptr %0, i64 %20
-  %22 = getelementptr inbounds %"struct.clang::ento::CheckerInfo", ptr %0, i64 %.041
+  %21 = getelementptr inbounds [120 x i8], ptr %0, i64 %20
+  %22 = getelementptr inbounds [120 x i8], ptr %0, i64 %.041
   %23 = tail call noundef nonnull align 8 dereferenceable(120) ptr @_ZN5clang4ento11CheckerInfoaSEOS1_(ptr noundef nonnull align 8 dereferenceable(120) %22, ptr noundef nonnull align 8 dereferenceable(120) %21)
   %24 = icmp slt i64 %20, %7
   br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !189
@@ -16114,8 +16113,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang4ento16checker_registry10FullNameLTI
 31:                                               ; preds = %27
   %32 = shl nsw i64 %.0.lcssa, 1
   %33 = or disjoint i64 %32, 1
-  %34 = getelementptr inbounds %"struct.clang::ento::CheckerInfo", ptr %0, i64 %33
-  %35 = getelementptr inbounds %"struct.clang::ento::CheckerInfo", ptr %0, i64 %.0.lcssa
+  %34 = getelementptr inbounds [120 x i8], ptr %0, i64 %33
+  %35 = getelementptr inbounds [120 x i8], ptr %0, i64 %.0.lcssa
   %36 = tail call noundef nonnull align 8 dereferenceable(120) ptr @_ZN5clang4ento11CheckerInfoaSEOS1_(ptr noundef nonnull align 8 dereferenceable(120) %35, ptr noundef nonnull align 8 dereferenceable(120) %34)
   br label %37
 
@@ -16190,7 +16189,7 @@ _ZN5clang4ento11CheckerInfoC2EOS1_.exit:          ; preds = %_ZN4llvm11SmallVect
   %.021.i = phi i64 [ %.1, %.lr.ph.i ], [ %.0922.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5clang4ento16checker_registry10FullNameLTINS3_11CheckerInfoEEEEclINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEES6_EEbT_RT0_.exit.thread17.i ]
   %.0922.in.i = add nsw i64 %.021.i, -1
   %.0922.i = sdiv i64 %.0922.in.i, 2
-  %69 = getelementptr inbounds %"struct.clang::ento::CheckerInfo", ptr %0, i64 %.0922.i
+  %69 = getelementptr inbounds [120 x i8], ptr %0, i64 %.0922.i
   %.sroa.22.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %69, i64 24
   %.sroa.22.0.copyload.i.i.i = load i64, ptr %.sroa.22.0..sroa_idx.i.i.i, align 8, !tbaa !62
   %.sroa.2.0.copyload.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !tbaa !62
@@ -16216,14 +16215,14 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5clang4ento16checker_registry10FullNameLTIN
   br i1 %74, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5clang4ento16checker_registry10FullNameLTINS3_11CheckerInfoEEEEclINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEES6_EEbT_RT0_.exit.thread17.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN5clang4ento11CheckerInfoESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops14_Iter_comp_valINS3_16checker_registry10FullNameLTIS4_EEEEEvT_T0_SH_T1_RT2_.exit
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5clang4ento16checker_registry10FullNameLTINS3_11CheckerInfoEEEEclINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEES6_EEbT_RT0_.exit.thread17.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5clang4ento16checker_registry10FullNameLTINS3_11CheckerInfoEEEEclINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEES6_EEbT_RT0_.exit.i, %.thread.i.i.i.i.i
-  %75 = getelementptr inbounds %"struct.clang::ento::CheckerInfo", ptr %0, i64 %.021.i
+  %75 = getelementptr inbounds [120 x i8], ptr %0, i64 %.021.i
   %76 = call noundef nonnull align 8 dereferenceable(120) ptr @_ZN5clang4ento11CheckerInfoaSEOS1_(ptr noundef nonnull align 8 dereferenceable(120) %75, ptr noundef nonnull align 8 dereferenceable(120) %69)
   %77 = icmp sgt i64 %.0922.i, %1
   br i1 %77, label %68, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN5clang4ento11CheckerInfoESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops14_Iter_comp_valINS3_16checker_registry10FullNameLTIS4_EEEEEvT_T0_SH_T1_RT2_.exit, !llvm.loop !190
 
 _ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN5clang4ento11CheckerInfoESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops14_Iter_comp_valINS3_16checker_registry10FullNameLTIS4_EEEEEvT_T0_SH_T1_RT2_.exit: ; preds = %.thread.i.i.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5clang4ento16checker_registry10FullNameLTINS3_11CheckerInfoEEEEclINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEES6_EEbT_RT0_.exit.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5clang4ento16checker_registry10FullNameLTINS3_11CheckerInfoEEEEclINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEES6_EEbT_RT0_.exit.thread17.i, %_ZN5clang4ento11CheckerInfoC2EOS1_.exit
   %.0.lcssa.i = phi i64 [ %.1, %_ZN5clang4ento11CheckerInfoC2EOS1_.exit ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5clang4ento16checker_registry10FullNameLTINS3_11CheckerInfoEEEEclINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEES6_EEbT_RT0_.exit.i ], [ %.0922.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5clang4ento16checker_registry10FullNameLTINS3_11CheckerInfoEEEEclINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEES6_EEbT_RT0_.exit.thread17.i ], [ %.021.i, %.thread.i.i.i.i.i ]
-  %78 = getelementptr inbounds %"struct.clang::ento::CheckerInfo", ptr %0, i64 %.0.lcssa.i
+  %78 = getelementptr inbounds [120 x i8], ptr %0, i64 %.0.lcssa.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %78, ptr noundef nonnull align 8 dereferenceable(120) %5, i64 64, i1 false)
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 64
   %80 = icmp eq ptr %78, %5
@@ -16473,7 +16472,7 @@ _ZSt4moveIPPKN5clang4ento11CheckerInfoES5_ET0_T_S7_S6_.exit35: ; preds = %37, %3
   %.idx40 = shl nuw nsw i64 %.026, 3
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 %.idx40
   %44 = load ptr, ptr %0, align 8, !tbaa !56
-  %45 = getelementptr inbounds nuw ptr, ptr %44, i64 %.026
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %.026
   %46 = sub nsw i64 %40, %.026
   %gepdiff = shl nsw i64 %46, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %45, ptr align 8 %43, i64 %gepdiff, i1 false)
@@ -17656,7 +17655,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKN5clang4ento11CheckerInfoELb1EE9push_backES5
   %12 = phi i32 [ %5, %2 ], [ %.pre.i, %8 ]
   %13 = load ptr, ptr %0, align 8, !tbaa !56
   %14 = zext i32 %12 to i64
-  %15 = getelementptr inbounds nuw ptr, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %14
   %16 = ptrtoint ptr %3 to i64
   store i64 %16, ptr %15, align 1
   %17 = load i32, ptr %4, align 8, !tbaa !57
@@ -17664,7 +17663,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKN5clang4ento11CheckerInfoELb1EE9push_backES5
   store i32 %18, ptr %4, align 8, !tbaa !57
   %19 = load ptr, ptr %0, align 8, !tbaa !56
   %20 = zext i32 %18 to i64
-  %21 = getelementptr inbounds nuw ptr, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %20
   %22 = getelementptr inbounds i8, ptr %21, i64 -8
   ret ptr %22
 }
@@ -17688,7 +17687,7 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4e
   %17 = add i32 %8, -1
   %.02944.i = and i32 %16, %17
   %18 = zext nneg i32 %.02944.i to i64
-  %19 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %6, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !64
   %21 = icmp eq ptr %11, %20
   br i1 %21, label %.loopexit, label %.lr.ph.i, !prof !143
@@ -17716,7 +17715,7 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4e
   %31 = add i32 %.02746.i, %.02947.i
   %.029.i = and i32 %31, %17
   %32 = zext i32 %.029.i to i64
-  %33 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %6, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %32
   %34 = load ptr, ptr %33, align 8, !tbaa !64
   %35 = icmp eq ptr %11, %34
   br i1 %35, label %.loopexit, label %.lr.ph.i, !prof !144, !llvm.loop !145
@@ -17785,7 +17784,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento11CheckerInfoENS_6detail13Dens
   %.sink29 = phi ptr [ %50, %59 ], [ %19, %10 ], [ %33, %27 ]
   %.sink = phi i8 [ 1, %59 ], [ 0, %10 ], [ 0, %27 ]
   %63 = zext i32 %.sink32 to i64
-  %64 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %.sink30, i64 %63
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %.sink30, i64 %63
   store ptr %.sink29, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %64, ptr %.sroa.4.0..sroa_idx, align 8
@@ -17812,7 +17811,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   %15 = add i32 %6, -1
   %.02944 = and i32 %14, %15
   %16 = zext nneg i32 %.02944 to i64
-  %17 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %4, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !64
   %19 = icmp eq ptr %9, %18
   br i1 %19, label %.thread, label %.lr.ph, !prof !143
@@ -17840,7 +17839,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   %29 = add i32 %.02947, %.02746
   %.029 = and i32 %29, %15
   %30 = zext i32 %.029 to i64
-  %31 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %4, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !64
   %33 = icmp eq ptr %9, %32
   br i1 %33, label %.thread, label %.lr.ph, !prof !144, !llvm.loop !145
@@ -17948,7 +17947,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento11CheckerInfoENS_6detail13Dens
   %46 = xor i32 %44, %45
   %.02944.i.i = and i32 %46, %38
   %47 = zext nneg i32 %.02944.i.i to i64
-  %48 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %21, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %47
   %49 = load ptr, ptr %48, align 8, !tbaa !64
   %50 = icmp eq ptr %41, %49
   br i1 %50, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento11CheckerInfoENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS6_vEENS7_12DenseSetPairIS6_EEEES6_S8_SA_SC_E15LookupBucketForIS6_EEbRKT_RPSC_.exit.i, label %.lr.ph.i15.i, !prof !143
@@ -17976,7 +17975,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento11CheckerInfoENS_6detail13Dens
   %60 = add i32 %.02746.i.i, %.02947.i.i
   %.029.i.i = and i32 %60, %38
   %61 = zext i32 %.029.i.i to i64
-  %62 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %21, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %61
   %63 = load ptr, ptr %62, align 8, !tbaa !64
   %64 = icmp eq ptr %41, %63
   br i1 %64, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento11CheckerInfoENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS6_vEENS7_12DenseSetPairIS6_EEEES6_S8_SA_SC_E15LookupBucketForIS6_EEbRKT_RPSC_.exit.i, label %.lr.ph.i15.i, !prof !144, !llvm.loop !145
@@ -18044,7 +18043,7 @@ define internal fastcc noundef zeroext i1 @"_ZL25collectStrongDependenciesIZN5cl
   %27 = add i32 %.val.val15, -1
   %.01828.i.i.i.i.i.i = and i32 %26, %27
   %28 = zext nneg i32 %.01828.i.i.i.i.i.i to i64
-  %29 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %.val.val, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %.val.val, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !64
   %31 = icmp eq ptr %19, %30
   br i1 %31, label %"_ZZN5clang4ento15CheckerRegistry18initializeRegistryERKNS0_14CheckerManagerEENK3$_1clEPKNS0_11CheckerInfoE.exit", label %.lr.ph.i.i.i.i.i.i, !prof !143
@@ -18061,7 +18060,7 @@ define internal fastcc noundef zeroext i1 @"_ZL25collectStrongDependenciesIZN5cl
   %36 = add i32 %.01629.i.i.i.i.i.i, %.01830.i.i.i.i.i.i
   %.018.i.i.i.i.i.i = and i32 %36, %27
   %37 = zext i32 %.018.i.i.i.i.i.i to i64
-  %38 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %.val.val, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %.val.val, i64 %37
   %39 = load ptr, ptr %38, align 8, !tbaa !64
   %40 = icmp eq ptr %19, %39
   br i1 %40, label %"_ZZN5clang4ento15CheckerRegistry18initializeRegistryERKNS0_14CheckerManagerEENK3$_1clEPKNS0_11CheckerInfoE.exit", label %.lr.ph.i.i.i.i.i.i, !prof !144, !llvm.loop !164
@@ -18105,7 +18104,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKN5clang4ento11CheckerInfoELb1EE9push_backES5
   %54 = phi i32 [ %49, %47 ], [ %.pre.i.i, %51 ]
   %55 = load ptr, ptr %14, align 8, !tbaa !56
   %56 = zext i32 %54 to i64
-  %57 = getelementptr inbounds nuw ptr, ptr %55, i64 %56
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %56
   %58 = ptrtoint ptr %48 to i64
   store i64 %58, ptr %57, align 1
   %59 = load i32, ptr %15, align 8, !tbaa !57
@@ -18146,7 +18145,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN4
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_9StringRefES2_ELb1EE9push_backERKS3_.exit, label %12, !prof !72
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds nuw %"struct.std::pair.194", ptr %.pre3.i, i64 %8
+  %13 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i, i64 %8
   %14 = icmp uge ptr %4, %.pre3.i
   %15 = icmp ult ptr %4, %13
   %spec.select.i.i.i.i.i = and i1 %14, %15
@@ -18173,7 +18172,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_9StringRefES2_ELb1EE9push_backERKS3
   %.016.i.i.i = phi ptr [ %4, %3 ], [ %22, %16 ], [ %4, %.critedge.i.i.i ]
   %25 = load i32, ptr %6, align 8, !tbaa !57
   %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds nuw %"struct.std::pair.194", ptr %24, i64 %26
+  %27 = getelementptr inbounds nuw [32 x i8], ptr %24, i64 %26
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %.016.i.i.i, i64 32, i1 false)
   %28 = load i32, ptr %6, align 8, !tbaa !57
   %29 = add i32 %28, 1
@@ -18181,7 +18180,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_9StringRefES2_ELb1EE9push_backERKS3
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %30 = load ptr, ptr %0, align 8, !tbaa !56
   %31 = zext i32 %29 to i64
-  %32 = getelementptr inbounds nuw %"struct.std::pair.194", ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw [32 x i8], ptr %30, i64 %31
   %33 = getelementptr inbounds i8, ptr %32, i64 -32
   ret ptr %33
 }
@@ -18448,7 +18447,7 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i:      ; preds = %99
   %113 = add i32 %95, -1
   store i32 %113, ptr %94, align 8, !tbaa !41
   %114 = zext i32 %113 to i64
-  %115 = getelementptr inbounds nuw ptr, ptr %112, i64 %114
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %112, i64 %114
   %116 = load ptr, ptr %115, align 8, !tbaa !59
   store i8 0, ptr %116, align 8, !tbaa !43
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 424
@@ -18507,7 +18506,7 @@ _ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentK
   %139 = add i8 %138, 1
   store i8 %139, ptr %136, align 8, !tbaa !43
   %140 = zext i8 %138 to i64
-  %141 = getelementptr inbounds nuw i64, ptr %137, i64 %140
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %137, i64 %140
   store i64 ptrtoint (ptr @.str.692 to i64), ptr %141, align 8, !tbaa !62
   %142 = getelementptr inbounds nuw i8, ptr %14, i64 64
   %143 = load i8, ptr %142, align 8, !tbaa !27, !range !35, !noundef !36
@@ -18713,7 +18712,7 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i73:    ; preds = %210
   %224 = add i32 %206, -1
   store i32 %224, ptr %205, align 8, !tbaa !41
   %225 = zext i32 %224 to i64
-  %226 = getelementptr inbounds nuw ptr, ptr %223, i64 %225
+  %226 = getelementptr inbounds nuw [8 x i8], ptr %223, i64 %225
   %227 = load ptr, ptr %226, align 8, !tbaa !59
   store i8 0, ptr %227, align 8, !tbaa !43
   %228 = getelementptr inbounds nuw i8, ptr %227, i64 424
@@ -18772,7 +18771,7 @@ _ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentK
   %250 = add i8 %249, 1
   store i8 %250, ptr %247, align 8, !tbaa !43
   %251 = zext i8 %249 to i64
-  %252 = getelementptr inbounds nuw i64, ptr %248, i64 %251
+  %252 = getelementptr inbounds nuw [8 x i8], ptr %248, i64 %251
   store i64 ptrtoint (ptr @.str.693 to i64), ptr %252, align 8, !tbaa !62
   %253 = getelementptr inbounds nuw i8, ptr %16, i64 64
   %254 = load i8, ptr %253, align 8, !tbaa !27, !range !35, !noundef !36
@@ -18916,7 +18915,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4llvm9StringMapINSt7__cxx1112basic_st
   %6 = tail call noundef i32 @_ZN4llvm13StringMapImpl15LookupBucketForENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, i32 noundef %3) #15
   %7 = load ptr, ptr %0, align 8, !tbaa !121
   %8 = zext i32 %6 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !108
   %magicptr = ptrtoint ptr %10 to i64
   switch i64 %magicptr, label %.preheader.i.i [
@@ -19001,7 +19000,7 @@ _ZN4llvm14StringMapEntryINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6c
   %40 = tail call noundef i32 @_ZN4llvm13StringMapImpl11RehashTableEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %6) #15
   %41 = load ptr, ptr %0, align 8, !tbaa !121
   %42 = zext i32 %40 to i64
-  %43 = getelementptr inbounds nuw ptr, ptr %41, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %42
   br label %.preheader.i.i24
 
 .preheader.i.i24:                                 ; preds = %.critedge.i.i.i26, %_ZN4llvm14StringMapEntryINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6createINS_15MallocAllocatorEJS6_EEEPS7_NS_9StringRefERT_DpOT0_.exit
@@ -19051,7 +19050,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(81) ptr @_ZN4
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang4ento13CmdLineOptionELb1EE9push_backERKS3_.exit, label %10, !prof !72
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds nuw %"struct.clang::ento::CmdLineOption", ptr %.pre3.i, i64 %6
+  %11 = getelementptr inbounds nuw [88 x i8], ptr %.pre3.i, i64 %6
   %12 = icmp uge ptr %3, %.pre3.i
   %13 = icmp ult ptr %3, %11
   %spec.select.i.i.i.i.i = and i1 %12, %13
@@ -19078,7 +19077,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang4ento13CmdLineOptionELb1EE9push_backERK
   %.016.i.i.i = phi ptr [ %3, %2 ], [ %20, %14 ], [ %3, %.critedge.i.i.i ]
   %23 = load i32, ptr %4, align 8, !tbaa !57
   %24 = zext i32 %23 to i64
-  %25 = getelementptr inbounds nuw %"struct.clang::ento::CmdLineOption", ptr %22, i64 %24
+  %25 = getelementptr inbounds nuw [88 x i8], ptr %22, i64 %24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(88) %25, ptr noundef nonnull align 8 dereferenceable(88) %.016.i.i.i, i64 88, i1 false)
   %26 = load i32, ptr %4, align 8, !tbaa !57
   %27 = add i32 %26, 1
@@ -19086,7 +19085,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang4ento13CmdLineOptionELb1EE9push_backERK
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %28 = load ptr, ptr %0, align 8, !tbaa !56
   %29 = zext i32 %27 to i64
-  %30 = getelementptr inbounds nuw %"struct.clang::ento::CmdLineOption", ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [88 x i8], ptr %28, i64 %29
   %31 = getelementptr inbounds i8, ptr %30, i64 -88
   ret ptr %31
 }
@@ -19100,7 +19099,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8, !tbaa !57
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw %"struct.clang::ento::PackageInfo", ptr %5, i64 %8
+  %9 = getelementptr inbounds nuw [32 x i8], ptr %5, i64 %8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 16, i1 false), !tbaa.struct !73
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 32
@@ -19205,7 +19204,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang4ento11PackageInfoELb0EE21takeAllocatio
   %47 = add i32 %46, 1
   store i32 %47, ptr %6, align 8, !tbaa !57
   %48 = zext i32 %47 to i64
-  %49 = getelementptr inbounds nuw %"struct.clang::ento::PackageInfo", ptr %5, i64 %48
+  %49 = getelementptr inbounds nuw [32 x i8], ptr %5, i64 %48
   %50 = getelementptr inbounds i8, ptr %49, i64 -32
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %50
@@ -19231,7 +19230,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(104) ptr @_ZN
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_9StringRefEN5clang4ento13CmdLineOptionEELb1EE9push_backERKS6_.exit, label %12, !prof !72
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds nuw %"struct.std::pair.196", ptr %.pre3.i, i64 %8
+  %13 = getelementptr inbounds nuw [104 x i8], ptr %.pre3.i, i64 %8
   %14 = icmp uge ptr %4, %.pre3.i
   %15 = icmp ult ptr %4, %13
   %spec.select.i.i.i.i.i = and i1 %14, %15
@@ -19258,7 +19257,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_9StringRefEN5clang4ento13CmdLineOpt
   %.016.i.i.i = phi ptr [ %4, %3 ], [ %22, %16 ], [ %4, %.critedge.i.i.i ]
   %25 = load i32, ptr %6, align 8, !tbaa !57
   %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds nuw %"struct.std::pair.196", ptr %24, i64 %26
+  %27 = getelementptr inbounds nuw [104 x i8], ptr %24, i64 %26
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(104) %27, ptr noundef nonnull align 8 dereferenceable(104) %.016.i.i.i, i64 104, i1 false)
   %28 = load i32, ptr %6, align 8, !tbaa !57
   %29 = add i32 %28, 1
@@ -19266,7 +19265,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_9StringRefEN5clang4ento13CmdLineOpt
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %30 = load ptr, ptr %0, align 8, !tbaa !56
   %31 = zext i32 %29 to i64
-  %32 = getelementptr inbounds nuw %"struct.std::pair.196", ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw [104 x i8], ptr %30, i64 %31
   %33 = getelementptr inbounds i8, ptr %32, i64 -104
   ret ptr %33
 }
@@ -19424,7 +19423,7 @@ _ZSt8_DestroyIPN5clang4ento11CheckerInfoES2_EvT_S4_RSaIT0_E.exit: ; preds = %_ZS
 _ZNSt12_Vector_baseIN5clang4ento11CheckerInfoESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZSt8_DestroyIPN5clang4ento11CheckerInfoES2_EvT_S4_RSaIT0_E.exit, %66
   store ptr %25, ptr %0, align 8, !tbaa !221
   store ptr %.0.lcssa.i.i.i.i.i28, ptr %9, align 8, !tbaa !96
-  %70 = getelementptr inbounds nuw %"struct.clang::ento::CheckerInfo", ptr %25, i64 %21
+  %70 = getelementptr inbounds nuw [120 x i8], ptr %25, i64 %21
   store ptr %70, ptr %65, align 8, !tbaa !98
   ret void
 }
@@ -19548,7 +19547,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4llvm9StringMapImNS_15MallocAllocator
   %5 = tail call noundef i32 @_ZN4llvm13StringMapImpl15LookupBucketForENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, i32 noundef %3) #15
   %6 = load ptr, ptr %0, align 8, !tbaa !121
   %7 = zext i32 %5 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !108
   %magicptr = ptrtoint ptr %9 to i64
   switch i64 %magicptr, label %.preheader.i.i [
@@ -19602,7 +19601,7 @@ _ZN4llvm14StringMapEntryImE6createINS_15MallocAllocatorEJEEEPS1_NS_9StringRefERT
   %26 = tail call noundef i32 @_ZN4llvm13StringMapImpl11RehashTableEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %5) #15
   %27 = load ptr, ptr %0, align 8, !tbaa !121
   %28 = zext i32 %26 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %28
   br label %.preheader.i.i23
 
 .preheader.i.i23:                                 ; preds = %.critedge.i.i.i25, %_ZN4llvm14StringMapEntryImE6createINS_15MallocAllocatorEJEEEPS1_NS_9StringRefERT_DpOT0_.exit

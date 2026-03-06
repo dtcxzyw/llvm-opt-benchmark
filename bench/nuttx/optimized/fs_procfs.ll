@@ -41,7 +41,7 @@ define internal i32 @procfs_open(ptr noundef %0, ptr noundef %1, i32 noundef %2,
 5:                                                ; preds = %4, %19
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %19 ]
   %.017 = phi i32 [ -2, %4 ], [ %.2, %19 ]
-  %6 = getelementptr inbounds nuw %struct.procfs_entry_s, ptr @g_procfs_entries, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [24 x i8], ptr @g_procfs_entries, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 @fnmatch(ptr noundef %7, ptr noundef %1, i32 noundef 0) #12
   %9 = icmp eq i32 %8, 0
@@ -233,13 +233,13 @@ define internal i32 @procfs_opendir(ptr readnone captures(none) %0, ptr noundef 
   %15 = phi i32 [ %.pre.i, %.lr.ph.preheader.i ], [ %22, %21 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %21 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %16 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv.next.i
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv.next.i
   %17 = load i32, ptr %16, align 4
   %18 = icmp sgt i32 %15, %17
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %.lr.ph.i
-  %20 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv.i
   store i32 %17, ptr %20, align 4
   store i32 %15, ptr %16, align 4
   br label %21
@@ -267,7 +267,7 @@ procfs_sort_pid.exit:                             ; preds = %._crit_edge.i, %9
 
 28:                                               ; preds = %25, %55
   %indvars.iv = phi i64 [ 0, %25 ], [ %indvars.iv.next, %55 ]
-  %29 = getelementptr inbounds nuw %struct.procfs_entry_s, ptr @g_procfs_entries, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [24 x i8], ptr @g_procfs_entries, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8
   %31 = tail call i32 @fnmatch(ptr noundef %30, ptr noundef nonnull %1, i32 noundef 0) #12
   %32 = icmp eq i32 %31, 0
@@ -366,7 +366,7 @@ define internal i32 @procfs_readdir(ptr readnone captures(none) %0, ptr noundef 
 
 17:                                               ; preds = %.lr.ph111, %.critedge.thread
   %indvars.iv = phi i64 [ %16, %.lr.ph111 ], [ %indvars.iv.next, %.critedge.thread ]
-  %18 = getelementptr inbounds nuw %struct.procfs_entry_s, ptr @g_procfs_entries, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [24 x i8], ptr @g_procfs_entries, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8
   br label %20
 
@@ -437,7 +437,7 @@ define internal i32 @procfs_readdir(ptr readnone captures(none) %0, ptr noundef 
 45:                                               ; preds = %7
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %47 = zext i16 %9 to i64
-  %48 = getelementptr inbounds nuw i32, ptr %46, i64 %47
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %47
   %49 = load i32, ptr %48, align 4
   %50 = tail call ptr @nxsched_get_tcb(i32 noundef %49) #12
   %.not94 = icmp eq ptr %50, null
@@ -471,10 +471,10 @@ define internal i32 @procfs_readdir(ptr readnone captures(none) %0, ptr noundef 
 
 67:                                               ; preds = %63
   %68 = zext nneg i16 %61 to i64
-  %69 = getelementptr inbounds nuw %struct.procfs_entry_s, ptr @g_procfs_entries, i64 %68
+  %69 = getelementptr inbounds nuw [24 x i8], ptr @g_procfs_entries, i64 %68
   %70 = load ptr, ptr %69, align 8
   %71 = zext nneg i16 %65 to i64
-  %72 = getelementptr inbounds nuw %struct.procfs_entry_s, ptr @g_procfs_entries, i64 %71
+  %72 = getelementptr inbounds nuw [24 x i8], ptr @g_procfs_entries, i64 %71
   %73 = load ptr, ptr %72, align 8
   %74 = getelementptr inbounds nuw i8, ptr %1, i64 33
   %75 = load i8, ptr %74, align 1
@@ -616,7 +616,7 @@ define internal i32 @procfs_stat(ptr readnone captures(none) %0, ptr noundef %1,
 
 13:                                               ; preds = %9, %12
   %indvars.iv = phi i64 [ 0, %9 ], [ %indvars.iv.next, %12 ]
-  %14 = getelementptr inbounds nuw %struct.procfs_entry_s, ptr @g_procfs_entries, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [24 x i8], ptr @g_procfs_entries, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 @fnmatch(ptr noundef %15, ptr noundef nonnull %1, i32 noundef 0) #12
   %17 = icmp eq i32 %16, 0
@@ -670,7 +670,7 @@ define internal void @procfs_enum(ptr noundef readonly captures(none) %0, ptr no
   %8 = load i32, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %10 = zext nneg i16 %4 to i64
-  %11 = getelementptr inbounds nuw i32, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %10
   store i32 %8, ptr %11, align 4
   %narrow = add nuw nsw i16 %4, 1
   store i16 %narrow, ptr %3, align 4

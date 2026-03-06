@@ -181,7 +181,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 39:                                               ; preds = %35
   %40 = sext i32 %36 to i64
-  %41 = getelementptr inbounds ptr, ptr %1, i64 %40
+  %41 = getelementptr inbounds [8 x i8], ptr %1, i64 %40
   %42 = load ptr, ptr %41, align 8
   %43 = add nsw i32 %36, 1
   store i32 %43, ptr @optind, align 4
@@ -195,7 +195,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 47:                                               ; preds = %44
   %48 = sext i32 %45 to i64
-  %49 = getelementptr inbounds ptr, ptr %1, i64 %48
+  %49 = getelementptr inbounds [8 x i8], ptr %1, i64 %48
   %50 = load ptr, ptr %49, align 8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.16, ptr noundef %50) #9
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 2, ptr noundef nonnull @.str.15, ptr noundef %8) #9

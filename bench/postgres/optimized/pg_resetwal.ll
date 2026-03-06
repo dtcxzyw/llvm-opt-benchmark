@@ -732,7 +732,7 @@ sub_1148:                                         ; preds = %.tail.thread, %.thr
   %232 = add nsw i32 %.pre, 1
   store i32 %232, ptr @optind, align 4
   %233 = sext i32 %.pre to i64
-  %234 = getelementptr inbounds ptr, ptr %1, i64 %233
+  %234 = getelementptr inbounds [8 x i8], ptr %1, i64 %233
   %235 = load ptr, ptr %234, align 8
   br label %236
 
@@ -744,7 +744,7 @@ sub_1148:                                         ; preds = %.tail.thread, %.thr
 
 239:                                              ; preds = %236
   %240 = sext i32 %237 to i64
-  %241 = getelementptr inbounds ptr, ptr %1, i64 %240
+  %241 = getelementptr inbounds [8 x i8], ptr %1, i64 %240
   %242 = load ptr, ptr %241, align 8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.40, ptr noundef %242) #15
   %243 = load ptr, ptr @progname, align 8

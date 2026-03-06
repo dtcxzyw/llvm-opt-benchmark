@@ -44,7 +44,6 @@ module asm ".previous\09\09\09\09\09"
 %struct.cdrom_tochdr = type { i8, i8 }
 %struct.cdrom_tocentry = type { i8, i8, i8, %union.cdrom_addr, i8 }
 %union.cdrom_addr = type { i32 }
-%struct.cdrom_slot = type { i8, [3 x i8] }
 %struct.track_information = type { i16, i8, i8, i8, [3 x i8], i32, i32, i32, i32, i32, i32 }
 %struct.cdrom_mcn = type { [14 x i8] }
 %struct.cdrom_timed_media_change_info = type { i64, i64 }
@@ -58,7 +57,6 @@ module asm ".previous\09\09\09\09\09"
 %struct.cdrom_read_audio = type { %union.cdrom_addr, i8, i32, ptr }
 %struct.compat_cdrom_read_audio = type { %union.cdrom_addr, i8, i32, i32 }
 %struct.cdrom_blk = type { i32, i16 }
-%struct.dvd_layer = type <{ [3 x i8], i16, [3 x i8], i32, i32, i32 }>
 %struct.rpc_state_t = type { i16, i8, i8, i8, i8, i8, i8 }
 %union.dvd_authinfo = type { %struct.dvd_lu_send_title_key }
 %struct.dvd_lu_send_title_key = type { i8, i8, [5 x i8], i32, i8 }
@@ -1390,7 +1388,7 @@ cdrom_count_tracks.exit:                          ; preds = %82
   %361 = load i8, ptr %360, align 1
   %362 = and i8 %361, 3
   %363 = zext nneg i8 %362 to i64
-  %364 = getelementptr ptr, ptr @mrw_format_status, i64 %363
+  %364 = getelementptr [8 x i8], ptr @mrw_format_status, i64 %363
   %365 = load ptr, ptr %364, align 8
   %366 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.6, ptr noundef %365) #16
   %367 = load i8, ptr %360, align 1
@@ -1890,7 +1888,7 @@ define dso_local range(i32 -12, 256) i32 @cdrom_number_of_slots(ptr noundef init
 
 21:                                               ; preds = %21, %12
   %22 = phi i64 [ 0, %12 ], [ %27, %21 ]
-  %23 = getelementptr %struct.cdrom_slot, ptr %20, i64 %22
+  %23 = getelementptr [4 x i8], ptr %20, i64 %22
   %24 = load i8, ptr %23, align 4
   %25 = and i8 %24, 126
   %26 = or disjoint i8 %25, -128
@@ -2788,7 +2786,7 @@ define dso_local i32 @cdrom_ioctl(ptr noundef %0, ptr noundef %1, i32 noundef %2
 
 205:                                              ; preds = %205, %196
   %206 = phi i64 [ 0, %196 ], [ %211, %205 ]
-  %207 = getelementptr %struct.cdrom_slot, ptr %204, i64 %206
+  %207 = getelementptr [4 x i8], ptr %204, i64 %206
   %208 = load i8, ptr %207, align 4
   %209 = and i8 %208, 126
   %210 = or disjoint i8 %209, -128
@@ -2834,7 +2832,7 @@ define dso_local i32 @cdrom_ioctl(ptr noundef %0, ptr noundef %1, i32 noundef %2
 
 232:                                              ; preds = %.thread34, %213
   %233 = getelementptr inbounds nuw i8, ptr %189, i64 8
-  %234 = getelementptr %struct.cdrom_slot, ptr %233, i64 %3
+  %234 = getelementptr [4 x i8], ptr %233, i64 %3
   %235 = load i8, ptr %234, align 4
   %236 = and i8 %235, 1
   %237 = zext nneg i8 %236 to i32
@@ -3103,7 +3101,7 @@ define dso_local i32 @cdrom_ioctl(ptr noundef %0, ptr noundef %1, i32 noundef %2
 
 413:                                              ; preds = %413, %404
   %414 = phi i64 [ 0, %404 ], [ %419, %413 ]
-  %415 = getelementptr %struct.cdrom_slot, ptr %412, i64 %414
+  %415 = getelementptr [4 x i8], ptr %412, i64 %414
   %416 = load i8, ptr %415, align 4
   %417 = and i8 %416, 126
   %418 = or disjoint i8 %417, -128
@@ -3372,7 +3370,7 @@ define dso_local i32 @cdrom_ioctl(ptr noundef %0, ptr noundef %1, i32 noundef %2
 
 592:                                              ; preds = %592, %583
   %593 = phi i64 [ 0, %583 ], [ %598, %592 ]
-  %594 = getelementptr %struct.cdrom_slot, ptr %591, i64 %593
+  %594 = getelementptr [4 x i8], ptr %591, i64 %593
   %595 = load i8, ptr %594, align 4
   %596 = and i8 %595, 126
   %597 = or disjoint i8 %596, -128
@@ -5352,7 +5350,7 @@ define internal fastcc i32 @mmc_ioctl_dvd_read_struct(ptr noundef %0, ptr nounde
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %44 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %45 = zext nneg i8 %25 to i64
-  %46 = getelementptr %struct.dvd_layer, ptr %44, i64 %45
+  %46 = getelementptr [20 x i8], ptr %44, i64 %45
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 4
   store i32 0, ptr %47, align 4
   %48 = load i8, ptr %43, align 4

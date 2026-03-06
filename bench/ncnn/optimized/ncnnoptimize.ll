@@ -6,10 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.prng_rand_t = type { [64 x i64], i64, i64 }
 %"class.ncnn::Extractor" = type { ptr, ptr }
 %"class.ncnn::Mat" = type { ptr, ptr, i64, i32, ptr, i32, i32, i32, i32, i32, i64 }
-%"class.ncnn::Blob" = type { %"class.std::__cxx11::basic_string", i32, i32, %"class.ncnn::Mat" }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
 %class.MemoryFootprintAllocator = type { %"class.ncnn::Allocator", i32, i32, %"class.ncnn::Mutex", %"class.std::map" }
 %"class.ncnn::Allocator" = type { ptr }
 %"class.ncnn::Mutex" = type { %union.pthread_mutex_t }
@@ -507,7 +503,7 @@ define dso_local void @_ZN11ModelWriterC2Ev(ptr noundef nonnull align 8 derefere
   %.01.i = phi i64 [ 1, %6 ], [ %17, %13 ]
   %14 = mul nuw nsw i64 %.01.i, 2147483647
   %15 = add nuw nsw i64 %14, 7767517
-  %16 = getelementptr inbounds nuw i64, ptr @_ZL17g_prng_rand_state, i64 %.01.i
+  %16 = getelementptr inbounds nuw [8 x i8], ptr @_ZL17g_prng_rand_state, i64 %.01.i
   store i64 %15, ptr %16, align 8, !tbaa !32
   %17 = add nuw nsw i64 %.01.i, 1
   %exitcond.not.i = icmp eq i64 %17, 64
@@ -525,15 +521,15 @@ define dso_local void @_ZN11ModelWriterC2Ev(ptr noundef nonnull align 8 derefere
 .split.us.i:                                      ; preds = %18
   %20 = add i64 %.us-phi45.i, 40
   %21 = and i64 %20, 63
-  %22 = getelementptr inbounds nuw i64, ptr @_ZL17g_prng_rand_state, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr @_ZL17g_prng_rand_state, i64 %21
   %23 = load i64, ptr %22, align 8, !tbaa !32
   %24 = add i64 %.us-phi45.i, 9
   %25 = and i64 %24, 63
-  %26 = getelementptr inbounds nuw i64, ptr @_ZL17g_prng_rand_state, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr @_ZL17g_prng_rand_state, i64 %25
   %27 = load i64, ptr %26, align 8, !tbaa !32
   %28 = add i64 %27, %23
   %29 = and i64 %.us-phi45.i, 63
-  %30 = getelementptr inbounds nuw i64, ptr @_ZL17g_prng_rand_state, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr @_ZL17g_prng_rand_state, i64 %29
   store i64 %28, ptr %30, align 8, !tbaa !32
   %31 = add i64 %.us-phi45.i, 1
   br label %_ZL9prng_randP11prng_rand_t.exit.i
@@ -543,15 +539,15 @@ define dso_local void @_ZN11ModelWriterC2Ev(ptr noundef nonnull align 8 derefere
   %32 = phi i64 [ %44, %.split.i ], [ %.us-phi45.i, %18 ]
   %33 = add i64 %32, 40
   %34 = and i64 %33, 63
-  %35 = getelementptr inbounds nuw i64, ptr @_ZL17g_prng_rand_state, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr @_ZL17g_prng_rand_state, i64 %34
   %36 = load i64, ptr %35, align 8, !tbaa !32
   %37 = add i64 %32, 9
   %38 = and i64 %37, 63
-  %39 = getelementptr inbounds nuw i64, ptr @_ZL17g_prng_rand_state, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr @_ZL17g_prng_rand_state, i64 %38
   %40 = load i64, ptr %39, align 8, !tbaa !32
   %41 = add i64 %40, %36
   %42 = and i64 %32, 63
-  %43 = getelementptr inbounds nuw i64, ptr @_ZL17g_prng_rand_state, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr @_ZL17g_prng_rand_state, i64 %42
   store i64 %41, ptr %43, align 8, !tbaa !32
   %44 = add i64 %32, 1
   %45 = add nuw nsw i64 %.0161.i.i, 1
@@ -685,7 +681,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN11ModelWriter15shape_inference
   %.0124301 = phi i64 [ 0, %.lr.ph ], [ %52, %.critedge ]
   %33 = load ptr, ptr %13, align 8, !tbaa !39
   %34 = load ptr, ptr %33, align 8, !tbaa !44
-  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %.0124301
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %.0124301
   %36 = load ptr, ptr %35, align 8, !tbaa !50
   %37 = load ptr, ptr %36, align 8, !tbaa !20
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 40
@@ -748,7 +744,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN11ModelWriter15shape_inference
   %.0138303 = phi i64 [ 0, %.lr.ph304 ], [ %131, %130 ]
   %63 = load ptr, ptr %13, align 8, !tbaa !39
   %64 = load ptr, ptr %63, align 8, !tbaa !44
-  %65 = getelementptr inbounds nuw ptr, ptr %64, i64 %.0138303
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %.0138303
   %66 = load ptr, ptr %65, align 8, !tbaa !50
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 48
   %68 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %67, ptr noundef nonnull @.str.8) #25
@@ -939,7 +935,7 @@ _ZN4ncnn3MatD2Ev.exit155:                         ; preds = %115, %113, %121, %1
   %.0143308 = phi i64 [ 0, %.lr.ph309 ], [ %212, %.critedge154 ]
   %150 = load ptr, ptr %22, align 8, !tbaa !45
   %151 = load ptr, ptr %150, align 8, !tbaa !49
-  %152 = getelementptr inbounds nuw %"class.ncnn::Blob", ptr %151, i64 %.0143308
+  %152 = getelementptr inbounds nuw [112 x i8], ptr %151, i64 %.0143308
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 80
   %154 = load i32, ptr %153, align 8, !tbaa !80
   %155 = getelementptr inbounds nuw i8, ptr %152, i64 84
@@ -1089,7 +1085,7 @@ _ZN4ncnn3MatD2Ev.exit157:                         ; preds = %197, %195, %203, %2
   %.0137312 = phi i64 [ 0, %.lr.ph313 ], [ %317, %.loopexit223 ]
   %214 = load ptr, ptr %13, align 8, !tbaa !39
   %215 = load ptr, ptr %214, align 8, !tbaa !44
-  %216 = getelementptr inbounds nuw ptr, ptr %215, i64 %.0137312
+  %216 = getelementptr inbounds nuw [8 x i8], ptr %215, i64 %.0137312
   %217 = load ptr, ptr %216, align 8, !tbaa !50
   %218 = getelementptr inbounds nuw i8, ptr %217, i64 48
   %219 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %218, ptr noundef nonnull @.str.8) #25
@@ -1107,7 +1103,7 @@ _ZN4ncnn3MatD2Ev.exit157:                         ; preds = %197, %195, %203, %2
 .lr.ph311:                                        ; preds = %.preheader222, %_ZN4ncnn3MatD2Ev.exit158
   %225 = phi ptr [ %293, %_ZN4ncnn3MatD2Ev.exit158 ], [ %224, %.preheader222 ]
   %.0134310 = phi i64 [ %291, %_ZN4ncnn3MatD2Ev.exit158 ], [ 0, %.preheader222 ]
-  %226 = getelementptr inbounds nuw i32, ptr %225, i64 %.0134310
+  %226 = getelementptr inbounds nuw [4 x i8], ptr %225, i64 %.0134310
   %227 = load i32, ptr %226, align 4, !tbaa !78
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %148, align 8, !tbaa !72
@@ -1120,7 +1116,7 @@ _ZN4ncnn3MatD2Ev.exit157:                         ; preds = %197, %195, %203, %2
   %230 = load ptr, ptr %22, align 8, !tbaa !45
   %231 = sext i32 %227 to i64
   %232 = load ptr, ptr %230, align 8, !tbaa !49
-  %233 = getelementptr inbounds nuw %"class.ncnn::Blob", ptr %232, i64 %231
+  %233 = getelementptr inbounds nuw [112 x i8], ptr %232, i64 %231
   %234 = getelementptr inbounds nuw i8, ptr %233, i64 40
   %235 = icmp eq ptr %234, %5
   %.pre = load ptr, ptr %139, align 8, !tbaa !74
@@ -1307,7 +1303,7 @@ _ZN4ncnn3MatD2Ev.exit159:                         ; preds = %302, %299, %308, %3
   %.0131318 = phi i64 [ %494, %.loopexit ], [ 0, %.loopexit223 ]
   %318 = load ptr, ptr %13, align 8, !tbaa !39
   %319 = load ptr, ptr %318, align 8, !tbaa !44
-  %320 = getelementptr inbounds nuw ptr, ptr %319, i64 %.0131318
+  %320 = getelementptr inbounds nuw [8 x i8], ptr %319, i64 %.0131318
   %321 = load ptr, ptr %320, align 8, !tbaa !50
   %322 = getelementptr inbounds nuw i8, ptr %321, i64 48
   %323 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %322, ptr noundef nonnull @.str.8) #25
@@ -1361,15 +1357,15 @@ _ZN4ncnn3MatD2Ev.exit159:                         ; preds = %302, %299, %308, %3
   %350 = phi ptr [ %412, %_ZN4ncnn3MataSERKS0_.exit162 ], [ %338, %.preheader219 ]
   %351 = phi ptr [ %413, %_ZN4ncnn3MataSERKS0_.exit162 ], [ %337, %.preheader219 ]
   %.0125314 = phi i64 [ %414, %_ZN4ncnn3MataSERKS0_.exit162 ], [ 0, %.preheader219 ]
-  %352 = getelementptr inbounds nuw i32, ptr %350, i64 %.0125314
+  %352 = getelementptr inbounds nuw [4 x i8], ptr %350, i64 %.0125314
   %353 = load i32, ptr %352, align 4, !tbaa !78
   %354 = load ptr, ptr %22, align 8, !tbaa !45
   %355 = sext i32 %353 to i64
   %356 = load ptr, ptr %354, align 8, !tbaa !49
-  %357 = getelementptr inbounds nuw %"class.ncnn::Blob", ptr %356, i64 %355
+  %357 = getelementptr inbounds nuw [112 x i8], ptr %356, i64 %355
   %358 = getelementptr inbounds nuw i8, ptr %357, i64 40
   %359 = load ptr, ptr %328, align 8, !tbaa !98
-  %360 = getelementptr inbounds nuw %"class.ncnn::Mat", ptr %359, i64 %.0125314
+  %360 = getelementptr inbounds nuw [72 x i8], ptr %359, i64 %.0125314
   %361 = icmp eq ptr %360, %358
   br i1 %361, label %_ZN4ncnn3MataSERKS0_.exit162, label %362
 
@@ -1484,15 +1480,15 @@ _ZN4ncnn3MataSERKS0_.exit162:                     ; preds = %.noexc161, %.lr.ph3
   %422 = phi ptr [ %484, %_ZN4ncnn3MataSERKS0_.exit165 ], [ %349, %.preheader ]
   %423 = phi ptr [ %485, %_ZN4ncnn3MataSERKS0_.exit165 ], [ %348, %.preheader ]
   %.0123316 = phi i64 [ %486, %_ZN4ncnn3MataSERKS0_.exit165 ], [ 0, %.preheader ]
-  %424 = getelementptr inbounds nuw i32, ptr %422, i64 %.0123316
+  %424 = getelementptr inbounds nuw [4 x i8], ptr %422, i64 %.0123316
   %425 = load i32, ptr %424, align 4, !tbaa !78
   %426 = load ptr, ptr %22, align 8, !tbaa !45
   %427 = sext i32 %425 to i64
   %428 = load ptr, ptr %426, align 8, !tbaa !49
-  %429 = getelementptr inbounds nuw %"class.ncnn::Blob", ptr %428, i64 %427
+  %429 = getelementptr inbounds nuw [112 x i8], ptr %428, i64 %427
   %430 = getelementptr inbounds nuw i8, ptr %429, i64 40
   %431 = load ptr, ptr %339, align 8, !tbaa !98
-  %432 = getelementptr inbounds nuw %"class.ncnn::Mat", ptr %431, i64 %.0123316
+  %432 = getelementptr inbounds nuw [72 x i8], ptr %431, i64 %.0123316
   %433 = icmp eq ptr %432, %430
   br i1 %433, label %_ZN4ncnn3MataSERKS0_.exit165, label %434
 
@@ -1661,7 +1657,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN4ncnn3MatESaIS1_EE6resizeEm(pt
   br i1 %14, label %15, label %_ZNSt6vectorIN4ncnn3MatESaIS1_EE15_M_erase_at_endEPS1_.exit
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds nuw %"class.ncnn::Mat", ptr %5, i64 %1
+  %16 = getelementptr inbounds nuw [72 x i8], ptr %5, i64 %1
   %.not.i = icmp eq ptr %4, %16
   br i1 %.not.i, label %_ZNSt6vectorIN4ncnn3MatESaIS1_EE15_M_erase_at_endEPS1_.exit, label %.lr.ph.i.i.i.i
 
@@ -1941,9 +1937,9 @@ _ZSt8_DestroyIPN4ncnn3MatES1_EvT_S3_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIN4nc
 
 _ZNSt12_Vector_baseIN4ncnn3MatESaIS1_EE13_M_deallocateEPS1_m.exit51: ; preds = %_ZSt8_DestroyIPN4ncnn3MatES1_EvT_S3_RSaIT0_E.exit, %91
   store ptr %29, ptr %0, align 8, !tbaa !98
-  %92 = getelementptr inbounds nuw %"class.ncnn::Mat", ptr %30, i64 %1
+  %92 = getelementptr inbounds nuw [72 x i8], ptr %30, i64 %1
   store ptr %92, ptr %4, align 8, !tbaa !102
-  %93 = getelementptr inbounds nuw %"class.ncnn::Mat", ptr %29, i64 %27
+  %93 = getelementptr inbounds nuw [72 x i8], ptr %29, i64 %27
   store ptr %93, ptr %11, align 8, !tbaa !104
   br label %94
 
@@ -2055,7 +2051,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN11ModelWriter25estimate_memory
   %.073162 = phi i64 [ 0, %.lr.ph ], [ %129, %128 ]
   %52 = load ptr, ptr %14, align 8, !tbaa !39
   %53 = load ptr, ptr %52, align 8, !tbaa !44
-  %54 = getelementptr inbounds nuw ptr, ptr %53, i64 %.073162
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %.073162
   %55 = load ptr, ptr %54, align 8, !tbaa !50
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 48
   %57 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %56, ptr noundef nonnull @.str.8) #25
@@ -2177,7 +2173,7 @@ default.unreachable:                              ; preds = %74
   %106 = load i32, ptr %105, align 4, !tbaa !78
   %107 = sext i32 %106 to i64
   %108 = load ptr, ptr %104, align 8, !tbaa !49
-  %109 = getelementptr inbounds nuw %"class.ncnn::Blob", ptr %108, i64 %107
+  %109 = getelementptr inbounds nuw [112 x i8], ptr %108, i64 %107
   %110 = load ptr, ptr %109, align 8, !tbaa !52
   %111 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %103, ptr noundef nonnull @.str.15, ptr noundef %110) #27
   %112 = load ptr, ptr %44, align 8, !tbaa !74
@@ -2341,7 +2337,7 @@ _ZNSt6vectorIN4ncnn3MatESaIS1_EED2Ev.exit:        ; preds = %_ZSt8_DestroyIPN4nc
   %.064163 = phi i64 [ 0, %.lr.ph164 ], [ %253, %252 ]
   %182 = load ptr, ptr %23, align 8, !tbaa !45
   %183 = load ptr, ptr %182, align 8, !tbaa !49
-  %184 = getelementptr inbounds nuw %"class.ncnn::Blob", ptr %183, i64 %.064163
+  %184 = getelementptr inbounds nuw [112 x i8], ptr %183, i64 %.064163
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 32
   %186 = load i32, ptr %185, align 8, !tbaa !127
   %187 = icmp eq i32 %186, -1
@@ -2357,7 +2353,7 @@ _ZNSt6vectorIN4ncnn3MatESaIS1_EED2Ev.exit:        ; preds = %_ZSt8_DestroyIPN4nc
   %192 = load ptr, ptr %14, align 8, !tbaa !39
   %193 = sext i32 %186 to i64
   %194 = load ptr, ptr %192, align 8, !tbaa !44
-  %195 = getelementptr inbounds nuw ptr, ptr %194, i64 %193
+  %195 = getelementptr inbounds nuw [8 x i8], ptr %194, i64 %193
   %196 = load ptr, ptr %195, align 8, !tbaa !50
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 48
   %198 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %197, ptr noundef nonnull @.str.8) #25
@@ -3416,7 +3412,7 @@ _ZNSt12_Vector_baseIN4ncnn3MatESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_Z
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !98
   store ptr %.0.lcssa.i.i.i.i.i35, ptr %4, align 8, !tbaa !102
-  %149 = getelementptr inbounds nuw %"class.ncnn::Mat", ptr %20, i64 %16
+  %149 = getelementptr inbounds nuw [72 x i8], ptr %20, i64 %16
   store ptr %149, ptr %148, align 8, !tbaa !104
   ret void
 }
@@ -3463,7 +3459,7 @@ define dso_local noundef i32 @_ZN11ModelWriter23fprintf_param_int_arrayEiRKN4ncn
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %11 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv
   %12 = load i32, ptr %11, align 4, !tbaa !78
   %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.20, i32 noundef %12) #25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3490,7 +3486,7 @@ define dso_local noundef i32 @_ZN11ModelWriter25fprintf_param_float_arrayEiRKN4n
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %11 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv
   %12 = load float, ptr %11, align 4, !tbaa !86
   %13 = fpext float %12 to double
   %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.21, double noundef %13) #25
@@ -3681,7 +3677,7 @@ _ZN4ncnn3MatD2Ev.exit28:                          ; preds = %71, %68, %77, %81, 
 
 .lr.ph.i:                                         ; preds = %86, %99
   %.09.i = phi i64 [ %100, %99 ], [ 0, %86 ]
-  %92 = getelementptr inbounds nuw float, ptr %88, i64 %.09.i
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %88, i64 %.09.i
   %93 = load float, ptr %92, align 4, !tbaa !86
   %94 = call float @llvm.fabs.f32(float %93)
   %95 = fpext float %94 to double
@@ -3885,15 +3881,15 @@ define internal fastcc void @_ZL9RandomizeRN4ncnn3MatEff(ptr noundef nonnull rea
 .split.us.i:                                      ; preds = %17
   %19 = add i64 %.us-phi7.i6061, 40
   %20 = and i64 %19, 63
-  %21 = getelementptr inbounds nuw i64, ptr @_ZL17g_prng_rand_state, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr @_ZL17g_prng_rand_state, i64 %20
   %22 = load i64, ptr %21, align 8, !tbaa !32
   %23 = add i64 %.us-phi7.i6061, 9
   %24 = and i64 %23, 63
-  %25 = getelementptr inbounds nuw i64, ptr @_ZL17g_prng_rand_state, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr @_ZL17g_prng_rand_state, i64 %24
   %26 = load i64, ptr %25, align 8, !tbaa !32
   %27 = add i64 %26, %22
   %28 = and i64 %.us-phi7.i6061, 63
-  %29 = getelementptr inbounds nuw i64, ptr @_ZL17g_prng_rand_state, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr @_ZL17g_prng_rand_state, i64 %28
   store i64 %27, ptr %29, align 8, !tbaa !32
   %30 = add i64 %.us-phi7.i6061, 1
   br label %_ZL11RandomFloatff.exit
@@ -3903,15 +3899,15 @@ define internal fastcc void @_ZL9RandomizeRN4ncnn3MatEff(ptr noundef nonnull rea
   %31 = phi i64 [ %43, %.split.i ], [ %.us-phi7.i6061, %17 ]
   %32 = add i64 %31, 40
   %33 = and i64 %32, 63
-  %34 = getelementptr inbounds nuw i64, ptr @_ZL17g_prng_rand_state, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr @_ZL17g_prng_rand_state, i64 %33
   %35 = load i64, ptr %34, align 8, !tbaa !32
   %36 = add i64 %31, 9
   %37 = and i64 %36, 63
-  %38 = getelementptr inbounds nuw i64, ptr @_ZL17g_prng_rand_state, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr @_ZL17g_prng_rand_state, i64 %37
   %39 = load i64, ptr %38, align 8, !tbaa !32
   %40 = add i64 %39, %35
   %41 = and i64 %31, 63
-  %42 = getelementptr inbounds nuw i64, ptr @_ZL17g_prng_rand_state, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr @_ZL17g_prng_rand_state, i64 %41
   store i64 %40, ptr %42, align 8, !tbaa !32
   %43 = add i64 %31, 1
   %44 = add nuw nsw i64 %.0161.i.i, 1
@@ -3925,7 +3921,7 @@ _ZL11RandomFloatff.exit:                          ; preds = %.split.i, %.split.u
   %46 = fmul nnan float %45, 0x3BF0000000000000
   %47 = fmul float %12, %46
   %48 = fadd float %1, %47
-  %49 = getelementptr inbounds nuw float, ptr %13, i64 %.02363
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %.02363
   store float %48, ptr %49, align 4, !tbaa !86
   %50 = add nuw i64 %.02363, 1
   %51 = icmp ult i64 %50, %16
@@ -3960,15 +3956,15 @@ _ZL11RandomFloatff.exit:                          ; preds = %.split.i, %.split.u
 .split.us.i30:                                    ; preds = %61
   %64 = add i64 %.promoted.i.i29, 40
   %65 = and i64 %64, 63
-  %66 = getelementptr inbounds nuw i64, ptr @_ZL17g_prng_rand_state, i64 %65
+  %66 = getelementptr inbounds nuw [8 x i8], ptr @_ZL17g_prng_rand_state, i64 %65
   %67 = load i64, ptr %66, align 8, !tbaa !32
   %68 = add i64 %.promoted.i.i29, 9
   %69 = and i64 %68, 63
-  %70 = getelementptr inbounds nuw i64, ptr @_ZL17g_prng_rand_state, i64 %69
+  %70 = getelementptr inbounds nuw [8 x i8], ptr @_ZL17g_prng_rand_state, i64 %69
   %71 = load i64, ptr %70, align 8, !tbaa !32
   %72 = add i64 %71, %67
   %73 = and i64 %.promoted.i.i29, 63
-  %74 = getelementptr inbounds nuw i64, ptr @_ZL17g_prng_rand_state, i64 %73
+  %74 = getelementptr inbounds nuw [8 x i8], ptr @_ZL17g_prng_rand_state, i64 %73
   store i64 %72, ptr %74, align 8, !tbaa !32
   %75 = add i64 %.promoted.i.i29, 1
   br label %_ZL11RandomFloatff.exit36
@@ -3978,15 +3974,15 @@ _ZL11RandomFloatff.exit:                          ; preds = %.split.i, %.split.u
   %76 = phi i64 [ %88, %.split.i33 ], [ %.promoted.i.i29, %61 ]
   %77 = add i64 %76, 40
   %78 = and i64 %77, 63
-  %79 = getelementptr inbounds nuw i64, ptr @_ZL17g_prng_rand_state, i64 %78
+  %79 = getelementptr inbounds nuw [8 x i8], ptr @_ZL17g_prng_rand_state, i64 %78
   %80 = load i64, ptr %79, align 8, !tbaa !32
   %81 = add i64 %76, 9
   %82 = and i64 %81, 63
-  %83 = getelementptr inbounds nuw i64, ptr @_ZL17g_prng_rand_state, i64 %82
+  %83 = getelementptr inbounds nuw [8 x i8], ptr @_ZL17g_prng_rand_state, i64 %82
   %84 = load i64, ptr %83, align 8, !tbaa !32
   %85 = add i64 %84, %80
   %86 = and i64 %76, 63
-  %87 = getelementptr inbounds nuw i64, ptr @_ZL17g_prng_rand_state, i64 %86
+  %87 = getelementptr inbounds nuw [8 x i8], ptr @_ZL17g_prng_rand_state, i64 %86
   store i64 %85, ptr %87, align 8, !tbaa !32
   %88 = add i64 %76, 1
   %89 = add nuw nsw i64 %.0161.i.i34, 1
@@ -4002,7 +3998,7 @@ _ZL11RandomFloatff.exit36:                        ; preds = %.split.i33, %.split
   %92 = fmul float %60, %91
   %93 = fadd float %1, %92
   %94 = tail call noundef zeroext i16 @_ZN4ncnn18float32_to_float16Ef(float noundef %93)
-  %95 = getelementptr inbounds nuw i16, ptr %53, i64 %.02456
+  %95 = getelementptr inbounds nuw [2 x i8], ptr %53, i64 %.02456
   store i16 %94, ptr %95, align 2, !tbaa !145
   %96 = add nuw i64 %.02456, 1
   %97 = load i64, ptr %54, align 8, !tbaa !72
@@ -4041,15 +4037,15 @@ _ZL11RandomFloatff.exit36:                        ; preds = %.split.i33, %.split
 .split.us.i41:                                    ; preds = %.lr.ph
   %111 = add i64 %.us-phi7.i43101, 40
   %112 = and i64 %111, 63
-  %113 = getelementptr inbounds nuw i64, ptr @_ZL17g_prng_rand_state, i64 %112
+  %113 = getelementptr inbounds nuw [8 x i8], ptr @_ZL17g_prng_rand_state, i64 %112
   %114 = load i64, ptr %113, align 8, !tbaa !32
   %115 = add i64 %.us-phi7.i43101, 9
   %116 = and i64 %115, 63
-  %117 = getelementptr inbounds nuw i64, ptr @_ZL17g_prng_rand_state, i64 %116
+  %117 = getelementptr inbounds nuw [8 x i8], ptr @_ZL17g_prng_rand_state, i64 %116
   %118 = load i64, ptr %117, align 8, !tbaa !32
   %119 = add i64 %118, %114
   %120 = and i64 %.us-phi7.i43101, 63
-  %121 = getelementptr inbounds nuw i64, ptr @_ZL17g_prng_rand_state, i64 %120
+  %121 = getelementptr inbounds nuw [8 x i8], ptr @_ZL17g_prng_rand_state, i64 %120
   store i64 %119, ptr %121, align 8, !tbaa !32
   %122 = add i64 %.us-phi7.i43101, 1
   br label %_ZL11RandomFloatff.exit47
@@ -4059,15 +4055,15 @@ _ZL11RandomFloatff.exit36:                        ; preds = %.split.i33, %.split
   %123 = phi i64 [ %135, %.split.i44 ], [ %.us-phi7.i43101, %.lr.ph ]
   %124 = add i64 %123, 40
   %125 = and i64 %124, 63
-  %126 = getelementptr inbounds nuw i64, ptr @_ZL17g_prng_rand_state, i64 %125
+  %126 = getelementptr inbounds nuw [8 x i8], ptr @_ZL17g_prng_rand_state, i64 %125
   %127 = load i64, ptr %126, align 8, !tbaa !32
   %128 = add i64 %123, 9
   %129 = and i64 %128, 63
-  %130 = getelementptr inbounds nuw i64, ptr @_ZL17g_prng_rand_state, i64 %129
+  %130 = getelementptr inbounds nuw [8 x i8], ptr @_ZL17g_prng_rand_state, i64 %129
   %131 = load i64, ptr %130, align 8, !tbaa !32
   %132 = add i64 %131, %127
   %133 = and i64 %123, 63
-  %134 = getelementptr inbounds nuw i64, ptr @_ZL17g_prng_rand_state, i64 %133
+  %134 = getelementptr inbounds nuw [8 x i8], ptr @_ZL17g_prng_rand_state, i64 %133
   store i64 %132, ptr %134, align 8, !tbaa !32
   %135 = add i64 %123, 1
   %136 = add nuw nsw i64 %.0161.i.i45, 1
@@ -4210,7 +4206,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %27, %23, %34, %38, 
 
 .lr.ph.i:                                         ; preds = %49, %58
   %.09.i = phi i64 [ %59, %58 ], [ 0, %49 ]
-  %51 = getelementptr inbounds nuw float, ptr %.pre, i64 %.09.i
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %.pre, i64 %.09.i
   %52 = load float, ptr %51, align 4, !tbaa !86
   %53 = call float @llvm.fabs.f32(float %52)
   %54 = fpext float %53 to double
@@ -4350,7 +4346,7 @@ define dso_local noundef i32 @_ZN11ModelWriter4saveEPKcS1_(ptr noundef nonnull r
   %.029794367 = phi i64 [ 0, %.lr.ph4370 ], [ %173, %.loopexit4221 ]
   %42 = load ptr, ptr %12, align 8, !tbaa !39
   %43 = load ptr, ptr %42, align 8, !tbaa !44
-  %44 = getelementptr inbounds nuw ptr, ptr %43, i64 %.029794367
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %.029794367
   %45 = load ptr, ptr %44, align 8, !tbaa !50
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %47 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull @.str.8) #25
@@ -4391,12 +4387,12 @@ define dso_local noundef i32 @_ZN11ModelWriter4saveEPKcS1_(ptr noundef nonnull r
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.noexc4130
   %.029814363 = phi i64 [ %117, %.noexc4130 ], [ 0, %.lr.ph.preheader ]
   %67 = load ptr, ptr %51, align 8, !tbaa !77
-  %68 = getelementptr inbounds nuw i32, ptr %67, i64 %.029814363
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %67, i64 %.029814363
   %69 = load i32, ptr %68, align 4, !tbaa !78
   %70 = load ptr, ptr %27, align 8, !tbaa !45
   %71 = sext i32 %69 to i64
   %72 = load ptr, ptr %70, align 8, !tbaa !49
-  %73 = getelementptr inbounds nuw %"class.ncnn::Blob", ptr %72, i64 %71
+  %73 = getelementptr inbounds nuw [112 x i8], ptr %72, i64 %71
   %.02931.i = load ptr, ptr %22, align 8, !tbaa !131
   %.not32.i = icmp eq ptr %.02931.i, null
   br i1 %.not32.i, label %._crit_edge.thread.i, label %.lr.ph.i
@@ -4548,12 +4544,12 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_Identi
 .lr.ph4366:                                       ; preds = %.lr.ph4366.preheader, %.noexc4150
   %.030064364 = phi i64 [ %170, %.noexc4150 ], [ 0, %.lr.ph4366.preheader ]
   %120 = load ptr, ptr %59, align 8, !tbaa !77
-  %121 = getelementptr inbounds nuw i32, ptr %120, i64 %.030064364
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %120, i64 %.030064364
   %122 = load i32, ptr %121, align 4, !tbaa !78
   %123 = load ptr, ptr %27, align 8, !tbaa !45
   %124 = sext i32 %122 to i64
   %125 = load ptr, ptr %123, align 8, !tbaa !49
-  %126 = getelementptr inbounds nuw %"class.ncnn::Blob", ptr %125, i64 %124
+  %126 = getelementptr inbounds nuw [112 x i8], ptr %125, i64 %124
   %.02931.i4157 = load ptr, ptr %22, align 8, !tbaa !131
   %.not32.i4158 = icmp eq ptr %.02931.i4157, null
   br i1 %.not32.i4158, label %._crit_edge.thread.i4188, label %.lr.ph.i4159
@@ -4720,7 +4716,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_Identi
   %.030074384 = phi i64 [ 0, %._crit_edge4371 ], [ %5712, %5711 ]
   %177 = load ptr, ptr %12, align 8, !tbaa !39
   %178 = load ptr, ptr %177, align 8, !tbaa !44
-  %179 = getelementptr inbounds nuw ptr, ptr %178, i64 %.030074384
+  %179 = getelementptr inbounds nuw [8 x i8], ptr %178, i64 %.030074384
   %180 = load ptr, ptr %179, align 8, !tbaa !50
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 48
   %182 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %181, ptr noundef nonnull @.str.8) #25
@@ -4778,12 +4774,12 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_Identi
 .lr.ph4374:                                       ; preds = %194, %.lr.ph4374
   %.030084372 = phi i64 [ %225, %.lr.ph4374 ], [ 0, %194 ]
   %216 = load ptr, ptr %195, align 8, !tbaa !77
-  %217 = getelementptr inbounds nuw i32, ptr %216, i64 %.030084372
+  %217 = getelementptr inbounds nuw [4 x i8], ptr %216, i64 %.030084372
   %218 = load i32, ptr %217, align 4, !tbaa !78
   %219 = load ptr, ptr %31, align 8, !tbaa !45
   %220 = sext i32 %218 to i64
   %221 = load ptr, ptr %219, align 8, !tbaa !49
-  %222 = getelementptr inbounds nuw %"class.ncnn::Blob", ptr %221, i64 %220
+  %222 = getelementptr inbounds nuw [112 x i8], ptr %221, i64 %220
   %223 = load ptr, ptr %222, align 8, !tbaa !52
   %224 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.27, ptr noundef %223) #25
   %225 = add nuw i64 %.030084372, 1
@@ -4799,12 +4795,12 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_Identi
 .lr.ph4376:                                       ; preds = %.preheader4220, %.lr.ph4376
   %.030094375 = phi i64 [ %238, %.lr.ph4376 ], [ 0, %.preheader4220 ]
   %229 = load ptr, ptr %203, align 8, !tbaa !77
-  %230 = getelementptr inbounds nuw i32, ptr %229, i64 %.030094375
+  %230 = getelementptr inbounds nuw [4 x i8], ptr %229, i64 %.030094375
   %231 = load i32, ptr %230, align 4, !tbaa !78
   %232 = load ptr, ptr %31, align 8, !tbaa !45
   %233 = sext i32 %231 to i64
   %234 = load ptr, ptr %232, align 8, !tbaa !49
-  %235 = getelementptr inbounds nuw %"class.ncnn::Blob", ptr %234, i64 %233
+  %235 = getelementptr inbounds nuw [112 x i8], ptr %234, i64 %233
   %236 = load ptr, ptr %235, align 8, !tbaa !52
   %237 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.27, ptr noundef %236) #25
   %238 = add nuw i64 %.030094375, 1
@@ -4818,10 +4814,10 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_Identi
 
 241:                                              ; preds = %.lr.ph4380, %239
   %.030134378 = phi i64 [ 0, %.lr.ph4380 ], [ %240, %239 ]
-  %242 = getelementptr inbounds nuw i32, ptr %226, i64 %.030134378
+  %242 = getelementptr inbounds nuw [4 x i8], ptr %226, i64 %.030134378
   %243 = load i32, ptr %242, align 4, !tbaa !78
   %244 = sext i32 %243 to i64
-  %245 = getelementptr inbounds nuw %"class.ncnn::Blob", ptr %228, i64 %244
+  %245 = getelementptr inbounds nuw [112 x i8], ptr %228, i64 %244
   %246 = getelementptr inbounds nuw i8, ptr %245, i64 80
   %247 = load i32, ptr %246, align 8, !tbaa !80
   %.not3553 = icmp eq i32 %247, 0
@@ -4834,12 +4830,12 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_Identi
 .lr.ph4383:                                       ; preds = %.critedge.loopexit, %.lr.ph4383
   %.030144382 = phi i64 [ %265, %.lr.ph4383 ], [ 0, %.critedge.loopexit ]
   %249 = load ptr, ptr %203, align 8, !tbaa !77
-  %250 = getelementptr inbounds nuw i32, ptr %249, i64 %.030144382
+  %250 = getelementptr inbounds nuw [4 x i8], ptr %249, i64 %.030144382
   %251 = load i32, ptr %250, align 4, !tbaa !78
   %252 = load ptr, ptr %31, align 8, !tbaa !45
   %253 = sext i32 %251 to i64
   %254 = load ptr, ptr %252, align 8, !tbaa !49
-  %255 = getelementptr inbounds nuw %"class.ncnn::Blob", ptr %254, i64 %253
+  %255 = getelementptr inbounds nuw [112 x i8], ptr %254, i64 %253
   %256 = getelementptr inbounds nuw i8, ptr %255, i64 80
   %257 = load i32, ptr %256, align 8, !tbaa !80
   %258 = getelementptr inbounds nuw i8, ptr %255, i64 84
@@ -5374,13 +5370,13 @@ _ZNK4ncnn3Mat5emptyEv.exit.thread:                ; preds = %526, %515, %_ZNK4nc
   %560 = load i32, ptr %559, align 4, !tbaa !78
   %561 = sext i32 %560 to i64
   %562 = load ptr, ptr %558, align 8, !tbaa !49
-  %563 = getelementptr inbounds nuw %"class.ncnn::Blob", ptr %562, i64 %561
+  %563 = getelementptr inbounds nuw [112 x i8], ptr %562, i64 %561
   %564 = getelementptr inbounds nuw i8, ptr %563, i64 96
   %565 = load i32, ptr %564, align 8, !tbaa !84
   %566 = load ptr, ptr %203, align 8, !tbaa !77
   %567 = load i32, ptr %566, align 4, !tbaa !78
   %568 = sext i32 %567 to i64
-  %569 = getelementptr inbounds nuw %"class.ncnn::Blob", ptr %562, i64 %568
+  %569 = getelementptr inbounds nuw [112 x i8], ptr %562, i64 %568
   %570 = getelementptr inbounds nuw i8, ptr %569, i64 84
   %571 = load i32, ptr %570, align 4, !tbaa !82
   %572 = getelementptr inbounds nuw i8, ptr %569, i64 88
@@ -5591,13 +5587,13 @@ _ZNK4ncnn3Mat5emptyEv.exit4089.thread:            ; preds = %675, %664, %_ZNK4nc
   %698 = load i32, ptr %697, align 4, !tbaa !78
   %699 = sext i32 %698 to i64
   %700 = load ptr, ptr %696, align 8, !tbaa !49
-  %701 = getelementptr inbounds nuw %"class.ncnn::Blob", ptr %700, i64 %699
+  %701 = getelementptr inbounds nuw [112 x i8], ptr %700, i64 %699
   %702 = getelementptr inbounds nuw i8, ptr %701, i64 88
   %703 = load i32, ptr %702, align 8, !tbaa !83
   %704 = load ptr, ptr %203, align 8, !tbaa !77
   %705 = load i32, ptr %704, align 4, !tbaa !78
   %706 = sext i32 %705 to i64
-  %707 = getelementptr inbounds nuw %"class.ncnn::Blob", ptr %700, i64 %706
+  %707 = getelementptr inbounds nuw [112 x i8], ptr %700, i64 %706
   %708 = getelementptr inbounds nuw i8, ptr %707, i64 84
   %709 = load i32, ptr %708, align 4, !tbaa !82
   %710 = getelementptr inbounds nuw i8, ptr %707, i64 88
@@ -5901,13 +5897,13 @@ _ZNK4ncnn3Mat5emptyEv.exit4090.thread:            ; preds = %866, %855, %_ZNK4nc
   %879 = load i32, ptr %878, align 4, !tbaa !78
   %880 = sext i32 %879 to i64
   %881 = load ptr, ptr %877, align 8, !tbaa !49
-  %882 = getelementptr inbounds nuw %"class.ncnn::Blob", ptr %881, i64 %880
+  %882 = getelementptr inbounds nuw [112 x i8], ptr %881, i64 %880
   %883 = getelementptr inbounds nuw i8, ptr %882, i64 96
   %884 = load i32, ptr %883, align 8, !tbaa !84
   %885 = load ptr, ptr %203, align 8, !tbaa !77
   %886 = load i32, ptr %885, align 4, !tbaa !78
   %887 = sext i32 %886 to i64
-  %888 = getelementptr inbounds nuw %"class.ncnn::Blob", ptr %881, i64 %887
+  %888 = getelementptr inbounds nuw [112 x i8], ptr %881, i64 %887
   %889 = getelementptr inbounds nuw i8, ptr %888, i64 84
   %890 = load i32, ptr %889, align 4, !tbaa !82
   %891 = getelementptr inbounds nuw i8, ptr %888, i64 88
@@ -6258,13 +6254,13 @@ _ZNK4ncnn3Mat5emptyEv.exit4091.thread:            ; preds = %1045, %1034, %_ZNK4
   %1088 = load i32, ptr %1087, align 4, !tbaa !78
   %1089 = sext i32 %1088 to i64
   %1090 = load ptr, ptr %1086, align 8, !tbaa !49
-  %1091 = getelementptr inbounds nuw %"class.ncnn::Blob", ptr %1090, i64 %1089
+  %1091 = getelementptr inbounds nuw [112 x i8], ptr %1090, i64 %1089
   %1092 = getelementptr inbounds nuw i8, ptr %1091, i64 96
   %1093 = load i32, ptr %1092, align 8, !tbaa !84
   %1094 = load ptr, ptr %203, align 8, !tbaa !77
   %1095 = load i32, ptr %1094, align 4, !tbaa !78
   %1096 = sext i32 %1095 to i64
-  %1097 = getelementptr inbounds nuw %"class.ncnn::Blob", ptr %1090, i64 %1096
+  %1097 = getelementptr inbounds nuw [112 x i8], ptr %1090, i64 %1096
   %1098 = getelementptr inbounds nuw i8, ptr %1097, i64 84
   %1099 = load i32, ptr %1098, align 4, !tbaa !82
   %1100 = getelementptr inbounds nuw i8, ptr %1097, i64 88
@@ -6492,13 +6488,13 @@ _ZNK4ncnn3Mat5emptyEv.exit4092.thread:            ; preds = %1215, %1204, %_ZNK4
   %1238 = load i32, ptr %1237, align 4, !tbaa !78
   %1239 = sext i32 %1238 to i64
   %1240 = load ptr, ptr %1236, align 8, !tbaa !49
-  %1241 = getelementptr inbounds nuw %"class.ncnn::Blob", ptr %1240, i64 %1239
+  %1241 = getelementptr inbounds nuw [112 x i8], ptr %1240, i64 %1239
   %1242 = getelementptr inbounds nuw i8, ptr %1241, i64 88
   %1243 = load i32, ptr %1242, align 8, !tbaa !83
   %1244 = load ptr, ptr %203, align 8, !tbaa !77
   %1245 = load i32, ptr %1244, align 4, !tbaa !78
   %1246 = sext i32 %1245 to i64
-  %1247 = getelementptr inbounds nuw %"class.ncnn::Blob", ptr %1240, i64 %1246
+  %1247 = getelementptr inbounds nuw [112 x i8], ptr %1240, i64 %1246
   %1248 = getelementptr inbounds nuw i8, ptr %1247, i64 84
   %1249 = load i32, ptr %1248, align 4, !tbaa !82
   %1250 = getelementptr inbounds nuw i8, ptr %1247, i64 88
@@ -6819,13 +6815,13 @@ _ZNK4ncnn3Mat5emptyEv.exit4093.thread:            ; preds = %1418, %1407, %_ZNK4
   %1431 = load i32, ptr %1430, align 4, !tbaa !78
   %1432 = sext i32 %1431 to i64
   %1433 = load ptr, ptr %1429, align 8, !tbaa !49
-  %1434 = getelementptr inbounds nuw %"class.ncnn::Blob", ptr %1433, i64 %1432
+  %1434 = getelementptr inbounds nuw [112 x i8], ptr %1433, i64 %1432
   %1435 = getelementptr inbounds nuw i8, ptr %1434, i64 96
   %1436 = load i32, ptr %1435, align 8, !tbaa !84
   %1437 = load ptr, ptr %203, align 8, !tbaa !77
   %1438 = load i32, ptr %1437, align 4, !tbaa !78
   %1439 = sext i32 %1438 to i64
-  %1440 = getelementptr inbounds nuw %"class.ncnn::Blob", ptr %1433, i64 %1439
+  %1440 = getelementptr inbounds nuw [112 x i8], ptr %1433, i64 %1439
   %1441 = getelementptr inbounds nuw i8, ptr %1440, i64 84
   %1442 = load i32, ptr %1441, align 4, !tbaa !82
   %1443 = getelementptr inbounds nuw i8, ptr %1440, i64 88
@@ -7461,7 +7457,7 @@ _ZNK4ncnn3Mat5emptyEv.exit4099.thread:            ; preds = %1795, %1784, %_ZNK4
   %1818 = load i32, ptr %1817, align 4, !tbaa !78
   %1819 = sext i32 %1818 to i64
   %1820 = load ptr, ptr %1816, align 8, !tbaa !49
-  %1821 = getelementptr inbounds nuw %"class.ncnn::Blob", ptr %1820, i64 %1819
+  %1821 = getelementptr inbounds nuw [112 x i8], ptr %1820, i64 %1819
   %1822 = getelementptr inbounds nuw i8, ptr %1821, i64 84
   %1823 = load i32, ptr %1822, align 4, !tbaa !82
   %1824 = getelementptr inbounds nuw i8, ptr %1821, i64 88
@@ -7471,7 +7467,7 @@ _ZNK4ncnn3Mat5emptyEv.exit4099.thread:            ; preds = %1795, %1784, %_ZNK4
   %1828 = load ptr, ptr %203, align 8, !tbaa !77
   %1829 = load i32, ptr %1828, align 4, !tbaa !78
   %1830 = sext i32 %1829 to i64
-  %1831 = getelementptr inbounds nuw %"class.ncnn::Blob", ptr %1820, i64 %1830
+  %1831 = getelementptr inbounds nuw [112 x i8], ptr %1820, i64 %1830
   %1832 = getelementptr inbounds nuw i8, ptr %1831, i64 96
   %1833 = load i32, ptr %1832, align 8, !tbaa !84
   %1834 = load i32, ptr %1682, align 8, !tbaa !308
@@ -7689,7 +7685,7 @@ _ZNK4ncnn3Mat5emptyEv.exit4100.thread:            ; preds = %1938, %1927, %_ZNK4
   %1961 = load i32, ptr %1960, align 4, !tbaa !78
   %1962 = sext i32 %1961 to i64
   %1963 = load ptr, ptr %1959, align 8, !tbaa !49
-  %1964 = getelementptr inbounds nuw %"class.ncnn::Blob", ptr %1963, i64 %1962
+  %1964 = getelementptr inbounds nuw [112 x i8], ptr %1963, i64 %1962
   %1965 = getelementptr inbounds nuw i8, ptr %1964, i64 84
   %1966 = load i32, ptr %1965, align 4, !tbaa !82
   %1967 = getelementptr inbounds nuw i8, ptr %1964, i64 88
@@ -7697,7 +7693,7 @@ _ZNK4ncnn3Mat5emptyEv.exit4100.thread:            ; preds = %1938, %1927, %_ZNK4
   %1969 = load ptr, ptr %203, align 8, !tbaa !77
   %1970 = load i32, ptr %1969, align 4, !tbaa !78
   %1971 = sext i32 %1970 to i64
-  %1972 = getelementptr inbounds nuw %"class.ncnn::Blob", ptr %1963, i64 %1971
+  %1972 = getelementptr inbounds nuw [112 x i8], ptr %1963, i64 %1971
   %1973 = getelementptr inbounds nuw i8, ptr %1972, i64 88
   %1974 = load i32, ptr %1973, align 8, !tbaa !83
   %1975 = load i32, ptr %1859, align 4, !tbaa !327
@@ -8058,7 +8054,7 @@ _ZNK4ncnn3Mat5emptyEv.exit4101.thread:            ; preds = %2158, %2147, %_ZNK4
   %2171 = load i32, ptr %2170, align 4, !tbaa !78
   %2172 = sext i32 %2171 to i64
   %2173 = load ptr, ptr %2169, align 8, !tbaa !49
-  %2174 = getelementptr inbounds nuw %"class.ncnn::Blob", ptr %2173, i64 %2172
+  %2174 = getelementptr inbounds nuw [112 x i8], ptr %2173, i64 %2172
   %2175 = getelementptr inbounds nuw i8, ptr %2174, i64 84
   %2176 = load i32, ptr %2175, align 4, !tbaa !82
   %2177 = getelementptr inbounds nuw i8, ptr %2174, i64 88
@@ -8070,7 +8066,7 @@ _ZNK4ncnn3Mat5emptyEv.exit4101.thread:            ; preds = %2158, %2147, %_ZNK4
   %2183 = load ptr, ptr %203, align 8, !tbaa !77
   %2184 = load i32, ptr %2183, align 4, !tbaa !78
   %2185 = sext i32 %2184 to i64
-  %2186 = getelementptr inbounds nuw %"class.ncnn::Blob", ptr %2173, i64 %2185
+  %2186 = getelementptr inbounds nuw [112 x i8], ptr %2173, i64 %2185
   %2187 = getelementptr inbounds nuw i8, ptr %2186, i64 96
   %2188 = load i32, ptr %2187, align 8, !tbaa !84
   %2189 = load i32, ptr %2009, align 4, !tbaa !342
@@ -8388,7 +8384,7 @@ _ZNK4ncnn3Mat5emptyEv.exit4102.thread:            ; preds = %2347, %2336, %_ZNK4
   %2370 = load i32, ptr %2369, align 4, !tbaa !78
   %2371 = sext i32 %2370 to i64
   %2372 = load ptr, ptr %2368, align 8, !tbaa !49
-  %2373 = getelementptr inbounds nuw %"class.ncnn::Blob", ptr %2372, i64 %2371
+  %2373 = getelementptr inbounds nuw [112 x i8], ptr %2372, i64 %2371
   %2374 = getelementptr inbounds nuw i8, ptr %2373, i64 84
   %2375 = load i32, ptr %2374, align 4, !tbaa !82
   %2376 = getelementptr inbounds nuw i8, ptr %2373, i64 88
@@ -8398,7 +8394,7 @@ _ZNK4ncnn3Mat5emptyEv.exit4102.thread:            ; preds = %2347, %2336, %_ZNK4
   %2380 = load ptr, ptr %203, align 8, !tbaa !77
   %2381 = load i32, ptr %2380, align 4, !tbaa !78
   %2382 = sext i32 %2381 to i64
-  %2383 = getelementptr inbounds nuw %"class.ncnn::Blob", ptr %2372, i64 %2382
+  %2383 = getelementptr inbounds nuw [112 x i8], ptr %2372, i64 %2382
   %2384 = getelementptr inbounds nuw i8, ptr %2383, i64 96
   %2385 = load i32, ptr %2384, align 8, !tbaa !84
   %2386 = load i32, ptr %2227, align 8, !tbaa !367
@@ -8633,7 +8629,7 @@ _ZNK4ncnn3Mat5emptyEv.exit4103.thread:            ; preds = %2502, %2491, %_ZNK4
   %2525 = load i32, ptr %2524, align 4, !tbaa !78
   %2526 = sext i32 %2525 to i64
   %2527 = load ptr, ptr %2523, align 8, !tbaa !49
-  %2528 = getelementptr inbounds nuw %"class.ncnn::Blob", ptr %2527, i64 %2526
+  %2528 = getelementptr inbounds nuw [112 x i8], ptr %2527, i64 %2526
   %2529 = getelementptr inbounds nuw i8, ptr %2528, i64 84
   %2530 = load i32, ptr %2529, align 4, !tbaa !82
   %2531 = getelementptr inbounds nuw i8, ptr %2528, i64 88
@@ -8641,7 +8637,7 @@ _ZNK4ncnn3Mat5emptyEv.exit4103.thread:            ; preds = %2502, %2491, %_ZNK4
   %2533 = load ptr, ptr %203, align 8, !tbaa !77
   %2534 = load i32, ptr %2533, align 4, !tbaa !78
   %2535 = sext i32 %2534 to i64
-  %2536 = getelementptr inbounds nuw %"class.ncnn::Blob", ptr %2527, i64 %2535
+  %2536 = getelementptr inbounds nuw [112 x i8], ptr %2527, i64 %2535
   %2537 = getelementptr inbounds nuw i8, ptr %2536, i64 88
   %2538 = load i32, ptr %2537, align 8, !tbaa !83
   %2539 = load i32, ptr %2416, align 4, !tbaa !387
@@ -9019,7 +9015,7 @@ _ZNK4ncnn3Mat5emptyEv.exit4104.thread:            ; preds = %2734, %2723, %_ZNK4
   %2747 = load i32, ptr %2746, align 4, !tbaa !78
   %2748 = sext i32 %2747 to i64
   %2749 = load ptr, ptr %2745, align 8, !tbaa !49
-  %2750 = getelementptr inbounds nuw %"class.ncnn::Blob", ptr %2749, i64 %2748
+  %2750 = getelementptr inbounds nuw [112 x i8], ptr %2749, i64 %2748
   %2751 = getelementptr inbounds nuw i8, ptr %2750, i64 84
   %2752 = load i32, ptr %2751, align 4, !tbaa !82
   %2753 = getelementptr inbounds nuw i8, ptr %2750, i64 88
@@ -9031,7 +9027,7 @@ _ZNK4ncnn3Mat5emptyEv.exit4104.thread:            ; preds = %2734, %2723, %_ZNK4
   %2759 = load ptr, ptr %203, align 8, !tbaa !77
   %2760 = load i32, ptr %2759, align 4, !tbaa !78
   %2761 = sext i32 %2760 to i64
-  %2762 = getelementptr inbounds nuw %"class.ncnn::Blob", ptr %2749, i64 %2761
+  %2762 = getelementptr inbounds nuw [112 x i8], ptr %2749, i64 %2761
   %2763 = getelementptr inbounds nuw i8, ptr %2762, i64 96
   %2764 = load i32, ptr %2763, align 8, !tbaa !84
   %2765 = load i32, ptr %2578, align 4, !tbaa !403
@@ -9276,7 +9272,7 @@ _ZNK4ncnn3Mat5emptyEv.exit4105.thread:            ; preds = %2895, %2884, %_ZNK4
   %2908 = load i32, ptr %2907, align 4, !tbaa !78
   %2909 = sext i32 %2908 to i64
   %2910 = load ptr, ptr %2906, align 8, !tbaa !49
-  %2911 = getelementptr inbounds nuw %"class.ncnn::Blob", ptr %2910, i64 %2909
+  %2911 = getelementptr inbounds nuw [112 x i8], ptr %2910, i64 %2909
   %2912 = getelementptr inbounds nuw i8, ptr %2911, i64 84
   %2913 = load i32, ptr %2912, align 4, !tbaa !82
   %2914 = getelementptr inbounds nuw i8, ptr %2911, i64 88
@@ -9286,7 +9282,7 @@ _ZNK4ncnn3Mat5emptyEv.exit4105.thread:            ; preds = %2895, %2884, %_ZNK4
   %2918 = load ptr, ptr %203, align 8, !tbaa !77
   %2919 = load i32, ptr %2918, align 4, !tbaa !78
   %2920 = sext i32 %2919 to i64
-  %2921 = getelementptr inbounds nuw %"class.ncnn::Blob", ptr %2910, i64 %2920
+  %2921 = getelementptr inbounds nuw [112 x i8], ptr %2910, i64 %2920
   %2922 = getelementptr inbounds nuw i8, ptr %2921, i64 96
   %2923 = load i32, ptr %2922, align 8, !tbaa !84
   %2924 = load i32, ptr %2808, align 8, !tbaa !429
@@ -10805,7 +10801,7 @@ _ZNK4ncnn3Mat5emptyEv.exit4108.thread:            ; preds = %3765, %3754, %_ZNK4
   %3786 = load i32, ptr %3785, align 4, !tbaa !78
   %3787 = sext i32 %3786 to i64
   %3788 = load ptr, ptr %3784, align 8, !tbaa !49
-  %3789 = getelementptr inbounds nuw %"class.ncnn::Blob", ptr %3788, i64 %3787
+  %3789 = getelementptr inbounds nuw [112 x i8], ptr %3788, i64 %3787
   %3790 = getelementptr inbounds nuw i8, ptr %3789, i64 84
   %3791 = load i32, ptr %3790, align 4, !tbaa !82
   %3792 = getelementptr inbounds nuw i8, ptr %3789, i64 88
@@ -10815,7 +10811,7 @@ _ZNK4ncnn3Mat5emptyEv.exit4108.thread:            ; preds = %3765, %3754, %_ZNK4
   %3796 = load ptr, ptr %203, align 8, !tbaa !77
   %3797 = load i32, ptr %3796, align 4, !tbaa !78
   %3798 = sext i32 %3797 to i64
-  %3799 = getelementptr inbounds nuw %"class.ncnn::Blob", ptr %3788, i64 %3798
+  %3799 = getelementptr inbounds nuw [112 x i8], ptr %3788, i64 %3798
   %3800 = getelementptr inbounds nuw i8, ptr %3799, i64 84
   %3801 = load i32, ptr %3800, align 4, !tbaa !82
   %3802 = sext i32 %3791 to i64
@@ -14323,7 +14319,7 @@ _ZN4ncnn3MatD2Ev.exit45:                          ; preds = %72, %69, %78, %82, 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %87 = getelementptr inbounds nuw i32, ptr %51, i64 %indvars.iv
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %indvars.iv
   %88 = load i32, ptr %87, align 4, !tbaa !78
   %89 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.20, i32 noundef %88) #25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -14479,7 +14475,7 @@ _ZN4ncnn3MatD2Ev.exit42:                          ; preds = %132, %129, %138, %1
 
 .lr.ph139:                                        ; preds = %.lr.ph139.preheader, %.lr.ph139
   %indvars.iv143 = phi i64 [ 0, %.lr.ph139.preheader ], [ %indvars.iv.next144, %.lr.ph139 ]
-  %147 = getelementptr inbounds nuw float, ptr %111, i64 %indvars.iv143
+  %147 = getelementptr inbounds nuw [4 x i8], ptr %111, i64 %indvars.iv143
   %148 = load float, ptr %147, align 4, !tbaa !86
   %149 = fpext float %148 to double
   %150 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.21, double noundef %149) #25
@@ -14682,7 +14678,7 @@ define dso_local noundef i32 @_ZN11NetOptimize20fuse_batchnorm_scaleEv(ptr nound
   %.066 = phi i64 [ 0, %.lr.ph68 ], [ %.pre-phi, %._crit_edge.thread ]
   %13 = load ptr, ptr %2, align 8, !tbaa !39
   %14 = load ptr, ptr %13, align 8, !tbaa !44
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %.066
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.066
   %16 = load ptr, ptr %15, align 8, !tbaa !50
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %18 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull @.str.30) #25
@@ -14696,7 +14692,7 @@ define dso_local noundef i32 @_ZN11NetOptimize20fuse_batchnorm_scaleEv(ptr nound
 19:                                               ; preds = %12
   %20 = load ptr, ptr %2, align 8, !tbaa !39
   %21 = load ptr, ptr %20, align 8, !tbaa !44
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %.066
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %.066
   %23 = load ptr, ptr %22, align 8, !tbaa !50
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 136
   %25 = load ptr, ptr %24, align 8, !tbaa !77
@@ -14709,7 +14705,7 @@ define dso_local noundef i32 @_ZN11NetOptimize20fuse_batchnorm_scaleEv(ptr nound
   %.05359 = phi i64 [ %.053, %49 ], [ %.05358, %19 ]
   %28 = load ptr, ptr %2, align 8, !tbaa !39
   %29 = load ptr, ptr %28, align 8, !tbaa !44
-  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %.05359
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %.05359
   %31 = load ptr, ptr %30, align 8, !tbaa !50
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 48
   %33 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull @.str.144) #25
@@ -14719,7 +14715,7 @@ define dso_local noundef i32 @_ZN11NetOptimize20fuse_batchnorm_scaleEv(ptr nound
 34:                                               ; preds = %.lr.ph
   %35 = load ptr, ptr %2, align 8, !tbaa !39
   %36 = load ptr, ptr %35, align 8, !tbaa !44
-  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %.05359
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %.05359
   %38 = load ptr, ptr %37, align 8, !tbaa !50
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 112
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 120
@@ -14749,9 +14745,9 @@ define dso_local noundef i32 @_ZN11NetOptimize20fuse_batchnorm_scaleEv(ptr nound
 51:                                               ; preds = %._crit_edge
   %52 = load ptr, ptr %2, align 8, !tbaa !39
   %53 = load ptr, ptr %52, align 8, !tbaa !44
-  %54 = getelementptr inbounds nuw ptr, ptr %53, i64 %.066
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %.066
   %55 = load ptr, ptr %54, align 8, !tbaa !50
-  %56 = getelementptr inbounds nuw ptr, ptr %53, i64 %.053.lcssa
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %.053.lcssa
   %57 = load ptr, ptr %56, align 8, !tbaa !50
   %58 = load ptr, ptr @stderr, align 8, !tbaa !5
   %59 = getelementptr inbounds nuw i8, ptr %55, i64 80
@@ -14782,13 +14778,13 @@ define dso_local noundef i32 @_ZN11NetOptimize20fuse_batchnorm_scaleEv(ptr nound
 
 .lr.ph64.split.us:                                ; preds = %.lr.ph64.split.us.preheader, %.lr.ph64.split.us
   %indvars.iv74 = phi i64 [ 0, %.lr.ph64.split.us.preheader ], [ %indvars.iv.next75, %.lr.ph64.split.us ]
-  %75 = getelementptr inbounds nuw float, ptr %67, i64 %indvars.iv74
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %67, i64 %indvars.iv74
   %76 = load float, ptr %75, align 4, !tbaa !86
-  %77 = getelementptr inbounds nuw float, ptr %72, i64 %indvars.iv74
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %indvars.iv74
   %78 = load float, ptr %77, align 4, !tbaa !86
   %79 = fmul float %76, %78
   store float %79, ptr %75, align 4, !tbaa !86
-  %80 = getelementptr inbounds nuw float, ptr %69, i64 %indvars.iv74
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %69, i64 %indvars.iv74
   %81 = load float, ptr %80, align 4, !tbaa !86
   %82 = load float, ptr %77, align 4, !tbaa !86
   %83 = fmul float %81, %82
@@ -14814,7 +14810,7 @@ define dso_local noundef i32 @_ZN11NetOptimize20fuse_batchnorm_scaleEv(ptr nound
   %92 = load ptr, ptr %11, align 8, !tbaa !45
   %93 = sext i32 %88 to i64
   %94 = load ptr, ptr %92, align 8, !tbaa !49
-  %95 = getelementptr inbounds nuw %"class.ncnn::Blob", ptr %94, i64 %93
+  %95 = getelementptr inbounds nuw [112 x i8], ptr %94, i64 %93
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 32
   store i32 %91, ptr %96, align 8, !tbaa !127
   %97 = getelementptr inbounds nuw i8, ptr %57, i64 48
@@ -14825,16 +14821,16 @@ define dso_local noundef i32 @_ZN11NetOptimize20fuse_batchnorm_scaleEv(ptr nound
 
 101:                                              ; preds = %.lr.ph64.split, %101
   %indvars.iv = phi i64 [ 0, %.lr.ph64.split ], [ %indvars.iv.next, %101 ]
-  %102 = getelementptr inbounds nuw float, ptr %67, i64 %indvars.iv
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %67, i64 %indvars.iv
   %103 = load float, ptr %102, align 4, !tbaa !86
-  %104 = getelementptr inbounds nuw float, ptr %72, i64 %indvars.iv
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %indvars.iv
   %105 = load float, ptr %104, align 4, !tbaa !86
   %106 = fmul float %103, %105
   store float %106, ptr %102, align 4, !tbaa !86
-  %107 = getelementptr inbounds nuw float, ptr %69, i64 %indvars.iv
+  %107 = getelementptr inbounds nuw [4 x i8], ptr %69, i64 %indvars.iv
   %108 = load float, ptr %107, align 4, !tbaa !86
   %109 = load float, ptr %104, align 4, !tbaa !86
-  %110 = getelementptr inbounds nuw float, ptr %85, i64 %indvars.iv
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %85, i64 %indvars.iv
   %111 = load float, ptr %110, align 4, !tbaa !86
   %112 = tail call float @llvm.fmuladd.f32(float %108, float %109, float %111)
   store float %112, ptr %107, align 4, !tbaa !86
@@ -14892,7 +14888,7 @@ define dso_local noundef i32 @_ZN11NetOptimize26fuse_convolution_batchnormEv(ptr
   %.0205 = phi i64 [ 0, %.lr.ph207 ], [ %.pre-phi, %._crit_edge.thread ]
   %24 = load ptr, ptr %3, align 8, !tbaa !39
   %25 = load ptr, ptr %24, align 8, !tbaa !44
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %.0205
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %.0205
   %27 = load ptr, ptr %26, align 8, !tbaa !50
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 48
   %29 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull @.str.41) #25
@@ -14906,7 +14902,7 @@ define dso_local noundef i32 @_ZN11NetOptimize26fuse_convolution_batchnormEv(ptr
 30:                                               ; preds = %23
   %31 = load ptr, ptr %3, align 8, !tbaa !39
   %32 = load ptr, ptr %31, align 8, !tbaa !44
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %.0205
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.0205
   %34 = load ptr, ptr %33, align 8, !tbaa !50
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 136
   %36 = load ptr, ptr %35, align 8, !tbaa !77
@@ -14919,7 +14915,7 @@ define dso_local noundef i32 @_ZN11NetOptimize26fuse_convolution_batchnormEv(ptr
   %.078189 = phi i64 [ %.078, %60 ], [ %.078188, %30 ]
   %39 = load ptr, ptr %3, align 8, !tbaa !39
   %40 = load ptr, ptr %39, align 8, !tbaa !44
-  %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %.078189
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %.078189
   %42 = load ptr, ptr %41, align 8, !tbaa !50
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 48
   %44 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull @.str.30) #25
@@ -14929,7 +14925,7 @@ define dso_local noundef i32 @_ZN11NetOptimize26fuse_convolution_batchnormEv(ptr
 45:                                               ; preds = %.lr.ph
   %46 = load ptr, ptr %3, align 8, !tbaa !39
   %47 = load ptr, ptr %46, align 8, !tbaa !44
-  %48 = getelementptr inbounds nuw ptr, ptr %47, i64 %.078189
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %.078189
   %49 = load ptr, ptr %48, align 8, !tbaa !50
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 112
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 120
@@ -14959,9 +14955,9 @@ define dso_local noundef i32 @_ZN11NetOptimize26fuse_convolution_batchnormEv(ptr
 62:                                               ; preds = %._crit_edge
   %63 = load ptr, ptr %3, align 8, !tbaa !39
   %64 = load ptr, ptr %63, align 8, !tbaa !44
-  %65 = getelementptr inbounds nuw ptr, ptr %64, i64 %.0205
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %.0205
   %66 = load ptr, ptr %65, align 8, !tbaa !50
-  %67 = getelementptr inbounds nuw ptr, ptr %64, i64 %.078.lcssa
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %.078.lcssa
   %68 = load ptr, ptr %67, align 8, !tbaa !50
   %69 = load ptr, ptr @stderr, align 8, !tbaa !5
   %70 = getelementptr inbounds nuw i8, ptr %66, i64 80
@@ -15045,24 +15041,24 @@ _ZNSt6vectorIfSaIfEED2Ev.exit123.thread:          ; preds = %86
 
 101:                                              ; preds = %.lr.ph193, %101
   %indvars.iv = phi i64 [ 0, %.lr.ph193 ], [ %indvars.iv.next, %101 ]
-  %102 = getelementptr inbounds nuw float, ptr %90, i64 %indvars.iv
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %90, i64 %indvars.iv
   %103 = load float, ptr %102, align 4, !tbaa !86
   %104 = fadd float %78, %103
   %105 = call noundef float @sqrtf(float noundef %104) #25, !tbaa !78
-  %106 = getelementptr inbounds nuw float, ptr %92, i64 %indvars.iv
+  %106 = getelementptr inbounds nuw [4 x i8], ptr %92, i64 %indvars.iv
   %107 = load float, ptr %106, align 4, !tbaa !86
-  %108 = getelementptr inbounds nuw float, ptr %94, i64 %indvars.iv
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %94, i64 %indvars.iv
   %109 = load float, ptr %108, align 4, !tbaa !86
-  %110 = getelementptr inbounds nuw float, ptr %96, i64 %indvars.iv
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %96, i64 %indvars.iv
   %111 = load float, ptr %110, align 4, !tbaa !86
   %112 = fmul float %109, %111
   %113 = fdiv float %112, %105
   %114 = fsub float %107, %113
-  %115 = getelementptr inbounds nuw float, ptr %82, i64 %indvars.iv
+  %115 = getelementptr inbounds nuw [4 x i8], ptr %82, i64 %indvars.iv
   store float %114, ptr %115, align 4, !tbaa !86
   %116 = load float, ptr %108, align 4, !tbaa !86
   %117 = fdiv float %116, %105
-  %118 = getelementptr inbounds nuw float, ptr %87, i64 %indvars.iv
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %87, i64 %indvars.iv
   store float %117, ptr %118, align 4, !tbaa !86
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond218.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -15291,7 +15287,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit121:                 ; preds = %._crit_edge201
   %221 = load ptr, ptr %22, align 8, !tbaa !45
   %222 = sext i32 %217 to i64
   %223 = load ptr, ptr %221, align 8, !tbaa !49
-  %224 = getelementptr inbounds nuw %"class.ncnn::Blob", ptr %223, i64 %222
+  %224 = getelementptr inbounds nuw [112 x i8], ptr %223, i64 %222
   %225 = getelementptr inbounds nuw i8, ptr %224, i64 32
   store i32 %220, ptr %225, align 8, !tbaa !127
   %226 = getelementptr inbounds nuw i8, ptr %68, i64 48
@@ -15303,19 +15299,19 @@ _ZNSt6vectorIfSaIfEED2Ev.exit121:                 ; preds = %._crit_edge201
 230:                                              ; preds = %.lr.ph203, %._crit_edge201
   %indvars.iv224 = phi i64 [ 0, %.lr.ph203 ], [ %indvars.iv.next225, %._crit_edge201 ]
   %231 = mul nsw i64 %indvars.iv224, %214
-  %232 = getelementptr inbounds float, ptr %212, i64 %231
+  %232 = getelementptr inbounds [4 x i8], ptr %212, i64 %231
   br i1 %213, label %.lr.ph200, label %._crit_edge201
 
 .lr.ph200:                                        ; preds = %230
-  %233 = getelementptr inbounds nuw float, ptr %.sroa.0126.0255, i64 %indvars.iv224
+  %233 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0126.0255, i64 %indvars.iv224
   br label %241
 
 ._crit_edge201:                                   ; preds = %241, %230
-  %234 = getelementptr inbounds nuw float, ptr %207, i64 %indvars.iv224
+  %234 = getelementptr inbounds nuw [4 x i8], ptr %207, i64 %indvars.iv224
   %235 = load float, ptr %234, align 4, !tbaa !86
-  %236 = getelementptr inbounds nuw float, ptr %.sroa.0126.0255, i64 %indvars.iv224
+  %236 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0126.0255, i64 %indvars.iv224
   %237 = load float, ptr %236, align 4, !tbaa !86
-  %238 = getelementptr inbounds nuw float, ptr %.sroa.0132.0140253, i64 %indvars.iv224
+  %238 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0132.0140253, i64 %indvars.iv224
   %239 = load float, ptr %238, align 4, !tbaa !86
   %240 = call float @llvm.fmuladd.f32(float %235, float %237, float %239)
   store float %240, ptr %234, align 4, !tbaa !86
@@ -15326,7 +15322,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit121:                 ; preds = %._crit_edge201
 241:                                              ; preds = %.lr.ph200, %241
   %indvars.iv219 = phi i64 [ 0, %.lr.ph200 ], [ %indvars.iv.next220, %241 ]
   %242 = load float, ptr %233, align 4, !tbaa !86
-  %243 = getelementptr inbounds nuw float, ptr %232, i64 %indvars.iv219
+  %243 = getelementptr inbounds nuw [4 x i8], ptr %232, i64 %indvars.iv219
   %244 = load float, ptr %243, align 4, !tbaa !86
   %245 = fmul float %242, %244
   store float %245, ptr %243, align 4, !tbaa !86
@@ -15386,7 +15382,7 @@ define dso_local noundef i32 @_ZN11NetOptimize20fuse_convolution_mulEv(ptr nound
   %.0100 = phi i64 [ 0, %.lr.ph102 ], [ %.pre-phi, %._crit_edge.thread ]
   %13 = load ptr, ptr %2, align 8, !tbaa !39
   %14 = load ptr, ptr %13, align 8, !tbaa !44
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %.0100
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.0100
   %16 = load ptr, ptr %15, align 8, !tbaa !50
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %18 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull @.str.41) #25
@@ -15400,7 +15396,7 @@ define dso_local noundef i32 @_ZN11NetOptimize20fuse_convolution_mulEv(ptr nound
 19:                                               ; preds = %12
   %20 = load ptr, ptr %2, align 8, !tbaa !39
   %21 = load ptr, ptr %20, align 8, !tbaa !44
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %.0100
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %.0100
   %23 = load ptr, ptr %22, align 8, !tbaa !50
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 136
   %25 = load ptr, ptr %24, align 8, !tbaa !77
@@ -15413,7 +15409,7 @@ define dso_local noundef i32 @_ZN11NetOptimize20fuse_convolution_mulEv(ptr nound
   %.06782 = phi i64 [ %.067, %49 ], [ %.06781, %19 ]
   %28 = load ptr, ptr %2, align 8, !tbaa !39
   %29 = load ptr, ptr %28, align 8, !tbaa !44
-  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %.06782
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %.06782
   %31 = load ptr, ptr %30, align 8, !tbaa !50
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 48
   %33 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull @.str.34) #25
@@ -15423,7 +15419,7 @@ define dso_local noundef i32 @_ZN11NetOptimize20fuse_convolution_mulEv(ptr nound
 34:                                               ; preds = %.lr.ph
   %35 = load ptr, ptr %2, align 8, !tbaa !39
   %36 = load ptr, ptr %35, align 8, !tbaa !44
-  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %.06782
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %.06782
   %38 = load ptr, ptr %37, align 8, !tbaa !50
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 112
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 120
@@ -15453,9 +15449,9 @@ define dso_local noundef i32 @_ZN11NetOptimize20fuse_convolution_mulEv(ptr nound
 51:                                               ; preds = %._crit_edge
   %52 = load ptr, ptr %2, align 8, !tbaa !39
   %53 = load ptr, ptr %52, align 8, !tbaa !44
-  %54 = getelementptr inbounds nuw ptr, ptr %53, i64 %.0100
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %.0100
   %55 = load ptr, ptr %54, align 8, !tbaa !50
-  %56 = getelementptr inbounds nuw ptr, ptr %53, i64 %.067.lcssa
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %.067.lcssa
   %57 = load ptr, ptr %56, align 8, !tbaa !50
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 208
   %59 = load i32, ptr %58, align 8, !tbaa !165
@@ -15476,7 +15472,7 @@ define dso_local noundef i32 @_ZN11NetOptimize20fuse_convolution_mulEv(ptr nound
   %.06885 = phi i64 [ 0, %.lr.ph86 ], [ %84, %83 ]
   %65 = load ptr, ptr %2, align 8, !tbaa !39
   %66 = load ptr, ptr %65, align 8, !tbaa !44
-  %67 = getelementptr inbounds nuw ptr, ptr %66, i64 %.06885
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %.06885
   %68 = load ptr, ptr %67, align 8, !tbaa !50
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 48
   %70 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %69, ptr noundef nonnull @.str.116) #25
@@ -15486,7 +15482,7 @@ define dso_local noundef i32 @_ZN11NetOptimize20fuse_convolution_mulEv(ptr nound
 71:                                               ; preds = %64
   %72 = load ptr, ptr %2, align 8, !tbaa !39
   %73 = load ptr, ptr %72, align 8, !tbaa !44
-  %74 = getelementptr inbounds nuw ptr, ptr %73, i64 %.06885
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %.06885
   %75 = load ptr, ptr %74, align 8, !tbaa !50
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 136
   %77 = load ptr, ptr %76, align 8, !tbaa !77
@@ -15509,7 +15505,7 @@ define dso_local noundef i32 @_ZN11NetOptimize20fuse_convolution_mulEv(ptr nound
 86:                                               ; preds = %._crit_edge87
   %87 = load ptr, ptr %2, align 8, !tbaa !39
   %88 = load ptr, ptr %87, align 8, !tbaa !44
-  %89 = getelementptr inbounds nuw ptr, ptr %88, i64 %.06885
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %.06885
   %90 = load ptr, ptr %89, align 8, !tbaa !50
   %91 = getelementptr inbounds nuw i8, ptr %55, i64 208
   %92 = load i32, ptr %91, align 8, !tbaa !176
@@ -15562,12 +15558,12 @@ define dso_local noundef i32 @_ZN11NetOptimize20fuse_convolution_mulEv(ptr nound
 .lr.ph93.us:                                      ; preds = %128, %.lr.ph97.split.us
   %indvars.iv116 = phi i64 [ %indvars.iv.next117, %128 ], [ 0, %.lr.ph97.split.us ]
   %120 = mul nuw nsw i64 %indvars.iv116, %119
-  %121 = getelementptr inbounds nuw float, ptr %112, i64 %120
-  %122 = getelementptr inbounds nuw float, ptr %118, i64 %indvars.iv116
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %112, i64 %120
+  %122 = getelementptr inbounds nuw [4 x i8], ptr %118, i64 %indvars.iv116
   br label %129
 
 123:                                              ; preds = %._crit_edge94.us
-  %124 = getelementptr inbounds nuw float, ptr %114, i64 %indvars.iv116
+  %124 = getelementptr inbounds nuw [4 x i8], ptr %114, i64 %indvars.iv116
   %125 = load float, ptr %124, align 4, !tbaa !86
   %126 = load float, ptr %122, align 4, !tbaa !86
   %127 = fmul float %125, %126
@@ -15582,7 +15578,7 @@ define dso_local noundef i32 @_ZN11NetOptimize20fuse_convolution_mulEv(ptr nound
 129:                                              ; preds = %.lr.ph93.us, %129
   %indvars.iv111 = phi i64 [ 0, %.lr.ph93.us ], [ %indvars.iv.next112, %129 ]
   %130 = load float, ptr %122, align 4, !tbaa !86
-  %131 = getelementptr inbounds nuw float, ptr %121, i64 %indvars.iv111
+  %131 = getelementptr inbounds nuw [4 x i8], ptr %121, i64 %indvars.iv111
   %132 = load float, ptr %131, align 4, !tbaa !86
   %133 = fmul float %130, %132
   store float %133, ptr %131, align 4, !tbaa !86
@@ -15612,7 +15608,7 @@ define dso_local noundef i32 @_ZN11NetOptimize20fuse_convolution_mulEv(ptr nound
   %141 = load ptr, ptr %11, align 8, !tbaa !45
   %142 = sext i32 %137 to i64
   %143 = load ptr, ptr %141, align 8, !tbaa !49
-  %144 = getelementptr inbounds nuw %"class.ncnn::Blob", ptr %143, i64 %142
+  %144 = getelementptr inbounds nuw [112 x i8], ptr %143, i64 %142
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 32
   store i32 %140, ptr %145, align 8, !tbaa !127
   %146 = getelementptr inbounds nuw i8, ptr %57, i64 48
@@ -15621,9 +15617,9 @@ define dso_local noundef i32 @_ZN11NetOptimize20fuse_convolution_mulEv(ptr nound
 
 148:                                              ; preds = %.lr.ph97.split.split, %148
   %indvars.iv = phi i64 [ 0, %.lr.ph97.split.split ], [ %indvars.iv.next, %148 ]
-  %149 = getelementptr inbounds nuw float, ptr %114, i64 %indvars.iv
+  %149 = getelementptr inbounds nuw [4 x i8], ptr %114, i64 %indvars.iv
   %150 = load float, ptr %149, align 4, !tbaa !86
-  %151 = getelementptr inbounds nuw float, ptr %134, i64 %indvars.iv
+  %151 = getelementptr inbounds nuw [4 x i8], ptr %134, i64 %indvars.iv
   %152 = load float, ptr %151, align 4, !tbaa !86
   %153 = fmul float %150, %152
   store float %153, ptr %149, align 4, !tbaa !86
@@ -15673,7 +15669,7 @@ define dso_local noundef i32 @_ZN11NetOptimize20fuse_convolution_addEv(ptr nound
   %.0106 = phi i64 [ 0, %.lr.ph108 ], [ %.pre-phi, %._crit_edge.thread ]
   %24 = load ptr, ptr %3, align 8, !tbaa !39
   %25 = load ptr, ptr %24, align 8, !tbaa !44
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %.0106
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %.0106
   %27 = load ptr, ptr %26, align 8, !tbaa !50
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 48
   %29 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull @.str.41) #25
@@ -15687,7 +15683,7 @@ define dso_local noundef i32 @_ZN11NetOptimize20fuse_convolution_addEv(ptr nound
 30:                                               ; preds = %23
   %31 = load ptr, ptr %3, align 8, !tbaa !39
   %32 = load ptr, ptr %31, align 8, !tbaa !44
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %.0106
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.0106
   %34 = load ptr, ptr %33, align 8, !tbaa !50
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 136
   %36 = load ptr, ptr %35, align 8, !tbaa !77
@@ -15700,7 +15696,7 @@ define dso_local noundef i32 @_ZN11NetOptimize20fuse_convolution_addEv(ptr nound
   %.06694 = phi i64 [ %.066, %60 ], [ %.06693, %30 ]
   %39 = load ptr, ptr %3, align 8, !tbaa !39
   %40 = load ptr, ptr %39, align 8, !tbaa !44
-  %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %.06694
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %.06694
   %42 = load ptr, ptr %41, align 8, !tbaa !50
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 48
   %44 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull @.str.34) #25
@@ -15710,7 +15706,7 @@ define dso_local noundef i32 @_ZN11NetOptimize20fuse_convolution_addEv(ptr nound
 45:                                               ; preds = %.lr.ph
   %46 = load ptr, ptr %3, align 8, !tbaa !39
   %47 = load ptr, ptr %46, align 8, !tbaa !44
-  %48 = getelementptr inbounds nuw ptr, ptr %47, i64 %.06694
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %.06694
   %49 = load ptr, ptr %48, align 8, !tbaa !50
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 112
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 120
@@ -15740,9 +15736,9 @@ define dso_local noundef i32 @_ZN11NetOptimize20fuse_convolution_addEv(ptr nound
 62:                                               ; preds = %._crit_edge
   %63 = load ptr, ptr %3, align 8, !tbaa !39
   %64 = load ptr, ptr %63, align 8, !tbaa !44
-  %65 = getelementptr inbounds nuw ptr, ptr %64, i64 %.0106
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %.0106
   %66 = load ptr, ptr %65, align 8, !tbaa !50
-  %67 = getelementptr inbounds nuw ptr, ptr %64, i64 %.066.lcssa
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %.066.lcssa
   %68 = load ptr, ptr %67, align 8, !tbaa !50
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 208
   %70 = load i32, ptr %69, align 8, !tbaa !165
@@ -15763,7 +15759,7 @@ define dso_local noundef i32 @_ZN11NetOptimize20fuse_convolution_addEv(ptr nound
   %.06797 = phi i64 [ 0, %.lr.ph98 ], [ %95, %94 ]
   %76 = load ptr, ptr %3, align 8, !tbaa !39
   %77 = load ptr, ptr %76, align 8, !tbaa !44
-  %78 = getelementptr inbounds nuw ptr, ptr %77, i64 %.06797
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %.06797
   %79 = load ptr, ptr %78, align 8, !tbaa !50
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 48
   %81 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %80, ptr noundef nonnull @.str.116) #25
@@ -15773,7 +15769,7 @@ define dso_local noundef i32 @_ZN11NetOptimize20fuse_convolution_addEv(ptr nound
 82:                                               ; preds = %75
   %83 = load ptr, ptr %3, align 8, !tbaa !39
   %84 = load ptr, ptr %83, align 8, !tbaa !44
-  %85 = getelementptr inbounds nuw ptr, ptr %84, i64 %.06797
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %.06797
   %86 = load ptr, ptr %85, align 8, !tbaa !50
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 136
   %88 = load ptr, ptr %87, align 8, !tbaa !77
@@ -15796,7 +15792,7 @@ define dso_local noundef i32 @_ZN11NetOptimize20fuse_convolution_addEv(ptr nound
 97:                                               ; preds = %._crit_edge99
   %98 = load ptr, ptr %3, align 8, !tbaa !39
   %99 = load ptr, ptr %98, align 8, !tbaa !44
-  %100 = getelementptr inbounds nuw ptr, ptr %99, i64 %.06797
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %99, i64 %.06797
   %101 = load ptr, ptr %100, align 8, !tbaa !50
   %102 = getelementptr inbounds nuw i8, ptr %66, i64 208
   %103 = load i32, ptr %102, align 8, !tbaa !176
@@ -15953,9 +15949,9 @@ define dso_local noundef i32 @_ZN11NetOptimize20fuse_convolution_addEv(ptr nound
 
 187:                                              ; preds = %.lr.ph105, %187
   %indvars.iv = phi i64 [ 0, %.lr.ph105 ], [ %indvars.iv.next, %187 ]
-  %188 = getelementptr inbounds nuw float, ptr %184, i64 %indvars.iv
+  %188 = getelementptr inbounds nuw [4 x i8], ptr %184, i64 %indvars.iv
   %189 = load float, ptr %188, align 4, !tbaa !86
-  %190 = getelementptr inbounds nuw float, ptr %186, i64 %indvars.iv
+  %190 = getelementptr inbounds nuw [4 x i8], ptr %186, i64 %indvars.iv
   %191 = load float, ptr %190, align 4, !tbaa !86
   %192 = fadd float %189, %191
   store float %192, ptr %188, align 4, !tbaa !86
@@ -15974,7 +15970,7 @@ _ZN4ncnn3MataSERKS0_.exit:                        ; preds = %187, %182, %.noexc,
   %199 = load ptr, ptr %22, align 8, !tbaa !45
   %200 = sext i32 %195 to i64
   %201 = load ptr, ptr %199, align 8, !tbaa !49
-  %202 = getelementptr inbounds nuw %"class.ncnn::Blob", ptr %201, i64 %200
+  %202 = getelementptr inbounds nuw [112 x i8], ptr %201, i64 %200
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 32
   store i32 %198, ptr %203, align 8, !tbaa !127
   %204 = getelementptr inbounds nuw i8, ptr %68, i64 48
@@ -16115,7 +16111,7 @@ define dso_local noundef i32 @_ZN11NetOptimize35fuse_convolutiondepthwise_batchn
   %.0205 = phi i64 [ 0, %.lr.ph207 ], [ %.pre-phi, %._crit_edge.thread ]
   %24 = load ptr, ptr %3, align 8, !tbaa !39
   %25 = load ptr, ptr %24, align 8, !tbaa !44
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %.0205
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %.0205
   %27 = load ptr, ptr %26, align 8, !tbaa !50
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 48
   %29 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull @.str.64) #25
@@ -16129,7 +16125,7 @@ define dso_local noundef i32 @_ZN11NetOptimize35fuse_convolutiondepthwise_batchn
 30:                                               ; preds = %23
   %31 = load ptr, ptr %3, align 8, !tbaa !39
   %32 = load ptr, ptr %31, align 8, !tbaa !44
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %.0205
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.0205
   %34 = load ptr, ptr %33, align 8, !tbaa !50
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 136
   %36 = load ptr, ptr %35, align 8, !tbaa !77
@@ -16142,7 +16138,7 @@ define dso_local noundef i32 @_ZN11NetOptimize35fuse_convolutiondepthwise_batchn
   %.078189 = phi i64 [ %.078, %60 ], [ %.078188, %30 ]
   %39 = load ptr, ptr %3, align 8, !tbaa !39
   %40 = load ptr, ptr %39, align 8, !tbaa !44
-  %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %.078189
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %.078189
   %42 = load ptr, ptr %41, align 8, !tbaa !50
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 48
   %44 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull @.str.30) #25
@@ -16152,7 +16148,7 @@ define dso_local noundef i32 @_ZN11NetOptimize35fuse_convolutiondepthwise_batchn
 45:                                               ; preds = %.lr.ph
   %46 = load ptr, ptr %3, align 8, !tbaa !39
   %47 = load ptr, ptr %46, align 8, !tbaa !44
-  %48 = getelementptr inbounds nuw ptr, ptr %47, i64 %.078189
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %.078189
   %49 = load ptr, ptr %48, align 8, !tbaa !50
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 112
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 120
@@ -16182,9 +16178,9 @@ define dso_local noundef i32 @_ZN11NetOptimize35fuse_convolutiondepthwise_batchn
 62:                                               ; preds = %._crit_edge
   %63 = load ptr, ptr %3, align 8, !tbaa !39
   %64 = load ptr, ptr %63, align 8, !tbaa !44
-  %65 = getelementptr inbounds nuw ptr, ptr %64, i64 %.0205
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %.0205
   %66 = load ptr, ptr %65, align 8, !tbaa !50
-  %67 = getelementptr inbounds nuw ptr, ptr %64, i64 %.078.lcssa
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %.078.lcssa
   %68 = load ptr, ptr %67, align 8, !tbaa !50
   %69 = load ptr, ptr @stderr, align 8, !tbaa !5
   %70 = getelementptr inbounds nuw i8, ptr %66, i64 80
@@ -16268,24 +16264,24 @@ _ZNSt6vectorIfSaIfEED2Ev.exit123.thread:          ; preds = %86
 
 101:                                              ; preds = %.lr.ph193, %101
   %indvars.iv = phi i64 [ 0, %.lr.ph193 ], [ %indvars.iv.next, %101 ]
-  %102 = getelementptr inbounds nuw float, ptr %90, i64 %indvars.iv
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %90, i64 %indvars.iv
   %103 = load float, ptr %102, align 4, !tbaa !86
   %104 = fadd float %78, %103
   %105 = call noundef float @sqrtf(float noundef %104) #25, !tbaa !78
-  %106 = getelementptr inbounds nuw float, ptr %92, i64 %indvars.iv
+  %106 = getelementptr inbounds nuw [4 x i8], ptr %92, i64 %indvars.iv
   %107 = load float, ptr %106, align 4, !tbaa !86
-  %108 = getelementptr inbounds nuw float, ptr %94, i64 %indvars.iv
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %94, i64 %indvars.iv
   %109 = load float, ptr %108, align 4, !tbaa !86
-  %110 = getelementptr inbounds nuw float, ptr %96, i64 %indvars.iv
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %96, i64 %indvars.iv
   %111 = load float, ptr %110, align 4, !tbaa !86
   %112 = fmul float %109, %111
   %113 = fdiv float %112, %105
   %114 = fsub float %107, %113
-  %115 = getelementptr inbounds nuw float, ptr %82, i64 %indvars.iv
+  %115 = getelementptr inbounds nuw [4 x i8], ptr %82, i64 %indvars.iv
   store float %114, ptr %115, align 4, !tbaa !86
   %116 = load float, ptr %108, align 4, !tbaa !86
   %117 = fdiv float %116, %105
-  %118 = getelementptr inbounds nuw float, ptr %87, i64 %indvars.iv
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %87, i64 %indvars.iv
   store float %117, ptr %118, align 4, !tbaa !86
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond218.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -16514,7 +16510,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit121:                 ; preds = %._crit_edge201
   %221 = load ptr, ptr %22, align 8, !tbaa !45
   %222 = sext i32 %217 to i64
   %223 = load ptr, ptr %221, align 8, !tbaa !49
-  %224 = getelementptr inbounds nuw %"class.ncnn::Blob", ptr %223, i64 %222
+  %224 = getelementptr inbounds nuw [112 x i8], ptr %223, i64 %222
   %225 = getelementptr inbounds nuw i8, ptr %224, i64 32
   store i32 %220, ptr %225, align 8, !tbaa !127
   %226 = getelementptr inbounds nuw i8, ptr %68, i64 48
@@ -16526,19 +16522,19 @@ _ZNSt6vectorIfSaIfEED2Ev.exit121:                 ; preds = %._crit_edge201
 230:                                              ; preds = %.lr.ph203, %._crit_edge201
   %indvars.iv224 = phi i64 [ 0, %.lr.ph203 ], [ %indvars.iv.next225, %._crit_edge201 ]
   %231 = mul nsw i64 %indvars.iv224, %214
-  %232 = getelementptr inbounds float, ptr %212, i64 %231
+  %232 = getelementptr inbounds [4 x i8], ptr %212, i64 %231
   br i1 %213, label %.lr.ph200, label %._crit_edge201
 
 .lr.ph200:                                        ; preds = %230
-  %233 = getelementptr inbounds nuw float, ptr %.sroa.0126.0255, i64 %indvars.iv224
+  %233 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0126.0255, i64 %indvars.iv224
   br label %241
 
 ._crit_edge201:                                   ; preds = %241, %230
-  %234 = getelementptr inbounds nuw float, ptr %207, i64 %indvars.iv224
+  %234 = getelementptr inbounds nuw [4 x i8], ptr %207, i64 %indvars.iv224
   %235 = load float, ptr %234, align 4, !tbaa !86
-  %236 = getelementptr inbounds nuw float, ptr %.sroa.0126.0255, i64 %indvars.iv224
+  %236 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0126.0255, i64 %indvars.iv224
   %237 = load float, ptr %236, align 4, !tbaa !86
-  %238 = getelementptr inbounds nuw float, ptr %.sroa.0132.0140253, i64 %indvars.iv224
+  %238 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0132.0140253, i64 %indvars.iv224
   %239 = load float, ptr %238, align 4, !tbaa !86
   %240 = call float @llvm.fmuladd.f32(float %235, float %237, float %239)
   store float %240, ptr %234, align 4, !tbaa !86
@@ -16549,7 +16545,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit121:                 ; preds = %._crit_edge201
 241:                                              ; preds = %.lr.ph200, %241
   %indvars.iv219 = phi i64 [ 0, %.lr.ph200 ], [ %indvars.iv.next220, %241 ]
   %242 = load float, ptr %233, align 4, !tbaa !86
-  %243 = getelementptr inbounds nuw float, ptr %232, i64 %indvars.iv219
+  %243 = getelementptr inbounds nuw [4 x i8], ptr %232, i64 %indvars.iv219
   %244 = load float, ptr %243, align 4, !tbaa !86
   %245 = fmul float %242, %244
   store float %245, ptr %243, align 4, !tbaa !86
@@ -16606,7 +16602,7 @@ define dso_local noundef i32 @_ZN11NetOptimize29fuse_convolutiondepthwise_mulEv(
   %.0100 = phi i64 [ 0, %.lr.ph102 ], [ %.pre-phi, %._crit_edge.thread ]
   %13 = load ptr, ptr %2, align 8, !tbaa !39
   %14 = load ptr, ptr %13, align 8, !tbaa !44
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %.0100
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.0100
   %16 = load ptr, ptr %15, align 8, !tbaa !50
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %18 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull @.str.64) #25
@@ -16620,7 +16616,7 @@ define dso_local noundef i32 @_ZN11NetOptimize29fuse_convolutiondepthwise_mulEv(
 19:                                               ; preds = %12
   %20 = load ptr, ptr %2, align 8, !tbaa !39
   %21 = load ptr, ptr %20, align 8, !tbaa !44
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %.0100
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %.0100
   %23 = load ptr, ptr %22, align 8, !tbaa !50
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 136
   %25 = load ptr, ptr %24, align 8, !tbaa !77
@@ -16633,7 +16629,7 @@ define dso_local noundef i32 @_ZN11NetOptimize29fuse_convolutiondepthwise_mulEv(
   %.06782 = phi i64 [ %.067, %49 ], [ %.06781, %19 ]
   %28 = load ptr, ptr %2, align 8, !tbaa !39
   %29 = load ptr, ptr %28, align 8, !tbaa !44
-  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %.06782
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %.06782
   %31 = load ptr, ptr %30, align 8, !tbaa !50
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 48
   %33 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull @.str.34) #25
@@ -16643,7 +16639,7 @@ define dso_local noundef i32 @_ZN11NetOptimize29fuse_convolutiondepthwise_mulEv(
 34:                                               ; preds = %.lr.ph
   %35 = load ptr, ptr %2, align 8, !tbaa !39
   %36 = load ptr, ptr %35, align 8, !tbaa !44
-  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %.06782
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %.06782
   %38 = load ptr, ptr %37, align 8, !tbaa !50
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 112
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 120
@@ -16673,9 +16669,9 @@ define dso_local noundef i32 @_ZN11NetOptimize29fuse_convolutiondepthwise_mulEv(
 51:                                               ; preds = %._crit_edge
   %52 = load ptr, ptr %2, align 8, !tbaa !39
   %53 = load ptr, ptr %52, align 8, !tbaa !44
-  %54 = getelementptr inbounds nuw ptr, ptr %53, i64 %.0100
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %.0100
   %55 = load ptr, ptr %54, align 8, !tbaa !50
-  %56 = getelementptr inbounds nuw ptr, ptr %53, i64 %.067.lcssa
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %.067.lcssa
   %57 = load ptr, ptr %56, align 8, !tbaa !50
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 208
   %59 = load i32, ptr %58, align 8, !tbaa !165
@@ -16696,7 +16692,7 @@ define dso_local noundef i32 @_ZN11NetOptimize29fuse_convolutiondepthwise_mulEv(
   %.06885 = phi i64 [ 0, %.lr.ph86 ], [ %84, %83 ]
   %65 = load ptr, ptr %2, align 8, !tbaa !39
   %66 = load ptr, ptr %65, align 8, !tbaa !44
-  %67 = getelementptr inbounds nuw ptr, ptr %66, i64 %.06885
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %.06885
   %68 = load ptr, ptr %67, align 8, !tbaa !50
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 48
   %70 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %69, ptr noundef nonnull @.str.116) #25
@@ -16706,7 +16702,7 @@ define dso_local noundef i32 @_ZN11NetOptimize29fuse_convolutiondepthwise_mulEv(
 71:                                               ; preds = %64
   %72 = load ptr, ptr %2, align 8, !tbaa !39
   %73 = load ptr, ptr %72, align 8, !tbaa !44
-  %74 = getelementptr inbounds nuw ptr, ptr %73, i64 %.06885
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %.06885
   %75 = load ptr, ptr %74, align 8, !tbaa !50
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 136
   %77 = load ptr, ptr %76, align 8, !tbaa !77
@@ -16729,7 +16725,7 @@ define dso_local noundef i32 @_ZN11NetOptimize29fuse_convolutiondepthwise_mulEv(
 86:                                               ; preds = %._crit_edge87
   %87 = load ptr, ptr %2, align 8, !tbaa !39
   %88 = load ptr, ptr %87, align 8, !tbaa !44
-  %89 = getelementptr inbounds nuw ptr, ptr %88, i64 %.06885
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %.06885
   %90 = load ptr, ptr %89, align 8, !tbaa !50
   %91 = getelementptr inbounds nuw i8, ptr %55, i64 208
   %92 = load i32, ptr %91, align 8, !tbaa !228
@@ -16782,12 +16778,12 @@ define dso_local noundef i32 @_ZN11NetOptimize29fuse_convolutiondepthwise_mulEv(
 .lr.ph93.us:                                      ; preds = %128, %.lr.ph97.split.us
   %indvars.iv116 = phi i64 [ %indvars.iv.next117, %128 ], [ 0, %.lr.ph97.split.us ]
   %120 = mul nuw nsw i64 %indvars.iv116, %119
-  %121 = getelementptr inbounds nuw float, ptr %112, i64 %120
-  %122 = getelementptr inbounds nuw float, ptr %118, i64 %indvars.iv116
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %112, i64 %120
+  %122 = getelementptr inbounds nuw [4 x i8], ptr %118, i64 %indvars.iv116
   br label %129
 
 123:                                              ; preds = %._crit_edge94.us
-  %124 = getelementptr inbounds nuw float, ptr %114, i64 %indvars.iv116
+  %124 = getelementptr inbounds nuw [4 x i8], ptr %114, i64 %indvars.iv116
   %125 = load float, ptr %124, align 4, !tbaa !86
   %126 = load float, ptr %122, align 4, !tbaa !86
   %127 = fmul float %125, %126
@@ -16802,7 +16798,7 @@ define dso_local noundef i32 @_ZN11NetOptimize29fuse_convolutiondepthwise_mulEv(
 129:                                              ; preds = %.lr.ph93.us, %129
   %indvars.iv111 = phi i64 [ 0, %.lr.ph93.us ], [ %indvars.iv.next112, %129 ]
   %130 = load float, ptr %122, align 4, !tbaa !86
-  %131 = getelementptr inbounds nuw float, ptr %121, i64 %indvars.iv111
+  %131 = getelementptr inbounds nuw [4 x i8], ptr %121, i64 %indvars.iv111
   %132 = load float, ptr %131, align 4, !tbaa !86
   %133 = fmul float %130, %132
   store float %133, ptr %131, align 4, !tbaa !86
@@ -16832,7 +16828,7 @@ define dso_local noundef i32 @_ZN11NetOptimize29fuse_convolutiondepthwise_mulEv(
   %141 = load ptr, ptr %11, align 8, !tbaa !45
   %142 = sext i32 %137 to i64
   %143 = load ptr, ptr %141, align 8, !tbaa !49
-  %144 = getelementptr inbounds nuw %"class.ncnn::Blob", ptr %143, i64 %142
+  %144 = getelementptr inbounds nuw [112 x i8], ptr %143, i64 %142
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 32
   store i32 %140, ptr %145, align 8, !tbaa !127
   %146 = getelementptr inbounds nuw i8, ptr %57, i64 48
@@ -16841,9 +16837,9 @@ define dso_local noundef i32 @_ZN11NetOptimize29fuse_convolutiondepthwise_mulEv(
 
 148:                                              ; preds = %.lr.ph97.split.split, %148
   %indvars.iv = phi i64 [ 0, %.lr.ph97.split.split ], [ %indvars.iv.next, %148 ]
-  %149 = getelementptr inbounds nuw float, ptr %114, i64 %indvars.iv
+  %149 = getelementptr inbounds nuw [4 x i8], ptr %114, i64 %indvars.iv
   %150 = load float, ptr %149, align 4, !tbaa !86
-  %151 = getelementptr inbounds nuw float, ptr %134, i64 %indvars.iv
+  %151 = getelementptr inbounds nuw [4 x i8], ptr %134, i64 %indvars.iv
   %152 = load float, ptr %151, align 4, !tbaa !86
   %153 = fmul float %150, %152
   store float %153, ptr %149, align 4, !tbaa !86
@@ -16893,7 +16889,7 @@ define dso_local noundef i32 @_ZN11NetOptimize29fuse_convolutiondepthwise_addEv(
   %.0106 = phi i64 [ 0, %.lr.ph108 ], [ %.pre-phi, %._crit_edge.thread ]
   %24 = load ptr, ptr %3, align 8, !tbaa !39
   %25 = load ptr, ptr %24, align 8, !tbaa !44
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %.0106
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %.0106
   %27 = load ptr, ptr %26, align 8, !tbaa !50
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 48
   %29 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull @.str.64) #25
@@ -16907,7 +16903,7 @@ define dso_local noundef i32 @_ZN11NetOptimize29fuse_convolutiondepthwise_addEv(
 30:                                               ; preds = %23
   %31 = load ptr, ptr %3, align 8, !tbaa !39
   %32 = load ptr, ptr %31, align 8, !tbaa !44
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %.0106
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.0106
   %34 = load ptr, ptr %33, align 8, !tbaa !50
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 136
   %36 = load ptr, ptr %35, align 8, !tbaa !77
@@ -16920,7 +16916,7 @@ define dso_local noundef i32 @_ZN11NetOptimize29fuse_convolutiondepthwise_addEv(
   %.06694 = phi i64 [ %.066, %60 ], [ %.06693, %30 ]
   %39 = load ptr, ptr %3, align 8, !tbaa !39
   %40 = load ptr, ptr %39, align 8, !tbaa !44
-  %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %.06694
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %.06694
   %42 = load ptr, ptr %41, align 8, !tbaa !50
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 48
   %44 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull @.str.34) #25
@@ -16930,7 +16926,7 @@ define dso_local noundef i32 @_ZN11NetOptimize29fuse_convolutiondepthwise_addEv(
 45:                                               ; preds = %.lr.ph
   %46 = load ptr, ptr %3, align 8, !tbaa !39
   %47 = load ptr, ptr %46, align 8, !tbaa !44
-  %48 = getelementptr inbounds nuw ptr, ptr %47, i64 %.06694
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %.06694
   %49 = load ptr, ptr %48, align 8, !tbaa !50
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 112
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 120
@@ -16960,9 +16956,9 @@ define dso_local noundef i32 @_ZN11NetOptimize29fuse_convolutiondepthwise_addEv(
 62:                                               ; preds = %._crit_edge
   %63 = load ptr, ptr %3, align 8, !tbaa !39
   %64 = load ptr, ptr %63, align 8, !tbaa !44
-  %65 = getelementptr inbounds nuw ptr, ptr %64, i64 %.0106
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %.0106
   %66 = load ptr, ptr %65, align 8, !tbaa !50
-  %67 = getelementptr inbounds nuw ptr, ptr %64, i64 %.066.lcssa
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %.066.lcssa
   %68 = load ptr, ptr %67, align 8, !tbaa !50
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 208
   %70 = load i32, ptr %69, align 8, !tbaa !165
@@ -16983,7 +16979,7 @@ define dso_local noundef i32 @_ZN11NetOptimize29fuse_convolutiondepthwise_addEv(
   %.06797 = phi i64 [ 0, %.lr.ph98 ], [ %95, %94 ]
   %76 = load ptr, ptr %3, align 8, !tbaa !39
   %77 = load ptr, ptr %76, align 8, !tbaa !44
-  %78 = getelementptr inbounds nuw ptr, ptr %77, i64 %.06797
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %.06797
   %79 = load ptr, ptr %78, align 8, !tbaa !50
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 48
   %81 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %80, ptr noundef nonnull @.str.116) #25
@@ -16993,7 +16989,7 @@ define dso_local noundef i32 @_ZN11NetOptimize29fuse_convolutiondepthwise_addEv(
 82:                                               ; preds = %75
   %83 = load ptr, ptr %3, align 8, !tbaa !39
   %84 = load ptr, ptr %83, align 8, !tbaa !44
-  %85 = getelementptr inbounds nuw ptr, ptr %84, i64 %.06797
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %.06797
   %86 = load ptr, ptr %85, align 8, !tbaa !50
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 136
   %88 = load ptr, ptr %87, align 8, !tbaa !77
@@ -17016,7 +17012,7 @@ define dso_local noundef i32 @_ZN11NetOptimize29fuse_convolutiondepthwise_addEv(
 97:                                               ; preds = %._crit_edge99
   %98 = load ptr, ptr %3, align 8, !tbaa !39
   %99 = load ptr, ptr %98, align 8, !tbaa !44
-  %100 = getelementptr inbounds nuw ptr, ptr %99, i64 %.06797
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %99, i64 %.06797
   %101 = load ptr, ptr %100, align 8, !tbaa !50
   %102 = getelementptr inbounds nuw i8, ptr %66, i64 208
   %103 = load i32, ptr %102, align 8, !tbaa !228
@@ -17173,9 +17169,9 @@ define dso_local noundef i32 @_ZN11NetOptimize29fuse_convolutiondepthwise_addEv(
 
 187:                                              ; preds = %.lr.ph105, %187
   %indvars.iv = phi i64 [ 0, %.lr.ph105 ], [ %indvars.iv.next, %187 ]
-  %188 = getelementptr inbounds nuw float, ptr %184, i64 %indvars.iv
+  %188 = getelementptr inbounds nuw [4 x i8], ptr %184, i64 %indvars.iv
   %189 = load float, ptr %188, align 4, !tbaa !86
-  %190 = getelementptr inbounds nuw float, ptr %186, i64 %indvars.iv
+  %190 = getelementptr inbounds nuw [4 x i8], ptr %186, i64 %indvars.iv
   %191 = load float, ptr %190, align 4, !tbaa !86
   %192 = fadd float %189, %191
   store float %192, ptr %188, align 4, !tbaa !86
@@ -17194,7 +17190,7 @@ _ZN4ncnn3MataSERKS0_.exit:                        ; preds = %187, %182, %.noexc,
   %199 = load ptr, ptr %22, align 8, !tbaa !45
   %200 = sext i32 %195 to i64
   %201 = load ptr, ptr %199, align 8, !tbaa !49
-  %202 = getelementptr inbounds nuw %"class.ncnn::Blob", ptr %201, i64 %200
+  %202 = getelementptr inbounds nuw [112 x i8], ptr %201, i64 %200
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 32
   store i32 %198, ptr %203, align 8, !tbaa !127
   %204 = getelementptr inbounds nuw i8, ptr %68, i64 48
@@ -17335,7 +17331,7 @@ define dso_local noundef i32 @_ZN11NetOptimize28fuse_deconvolution_batchnormEv(p
   %.0205 = phi i64 [ 0, %.lr.ph207 ], [ %.pre-phi, %._crit_edge.thread ]
   %24 = load ptr, ptr %3, align 8, !tbaa !39
   %25 = load ptr, ptr %24, align 8, !tbaa !44
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %.0205
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %.0205
   %27 = load ptr, ptr %26, align 8, !tbaa !50
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 48
   %29 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull @.str.71) #25
@@ -17349,7 +17345,7 @@ define dso_local noundef i32 @_ZN11NetOptimize28fuse_deconvolution_batchnormEv(p
 30:                                               ; preds = %23
   %31 = load ptr, ptr %3, align 8, !tbaa !39
   %32 = load ptr, ptr %31, align 8, !tbaa !44
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %.0205
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.0205
   %34 = load ptr, ptr %33, align 8, !tbaa !50
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 136
   %36 = load ptr, ptr %35, align 8, !tbaa !77
@@ -17362,7 +17358,7 @@ define dso_local noundef i32 @_ZN11NetOptimize28fuse_deconvolution_batchnormEv(p
   %.078189 = phi i64 [ %.078, %60 ], [ %.078188, %30 ]
   %39 = load ptr, ptr %3, align 8, !tbaa !39
   %40 = load ptr, ptr %39, align 8, !tbaa !44
-  %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %.078189
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %.078189
   %42 = load ptr, ptr %41, align 8, !tbaa !50
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 48
   %44 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull @.str.30) #25
@@ -17372,7 +17368,7 @@ define dso_local noundef i32 @_ZN11NetOptimize28fuse_deconvolution_batchnormEv(p
 45:                                               ; preds = %.lr.ph
   %46 = load ptr, ptr %3, align 8, !tbaa !39
   %47 = load ptr, ptr %46, align 8, !tbaa !44
-  %48 = getelementptr inbounds nuw ptr, ptr %47, i64 %.078189
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %.078189
   %49 = load ptr, ptr %48, align 8, !tbaa !50
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 112
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 120
@@ -17402,9 +17398,9 @@ define dso_local noundef i32 @_ZN11NetOptimize28fuse_deconvolution_batchnormEv(p
 62:                                               ; preds = %._crit_edge
   %63 = load ptr, ptr %3, align 8, !tbaa !39
   %64 = load ptr, ptr %63, align 8, !tbaa !44
-  %65 = getelementptr inbounds nuw ptr, ptr %64, i64 %.0205
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %.0205
   %66 = load ptr, ptr %65, align 8, !tbaa !50
-  %67 = getelementptr inbounds nuw ptr, ptr %64, i64 %.078.lcssa
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %.078.lcssa
   %68 = load ptr, ptr %67, align 8, !tbaa !50
   %69 = load ptr, ptr @stderr, align 8, !tbaa !5
   %70 = getelementptr inbounds nuw i8, ptr %66, i64 80
@@ -17488,24 +17484,24 @@ _ZNSt6vectorIfSaIfEED2Ev.exit123.thread:          ; preds = %86
 
 101:                                              ; preds = %.lr.ph193, %101
   %indvars.iv = phi i64 [ 0, %.lr.ph193 ], [ %indvars.iv.next, %101 ]
-  %102 = getelementptr inbounds nuw float, ptr %90, i64 %indvars.iv
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %90, i64 %indvars.iv
   %103 = load float, ptr %102, align 4, !tbaa !86
   %104 = fadd float %78, %103
   %105 = call noundef float @sqrtf(float noundef %104) #25, !tbaa !78
-  %106 = getelementptr inbounds nuw float, ptr %92, i64 %indvars.iv
+  %106 = getelementptr inbounds nuw [4 x i8], ptr %92, i64 %indvars.iv
   %107 = load float, ptr %106, align 4, !tbaa !86
-  %108 = getelementptr inbounds nuw float, ptr %94, i64 %indvars.iv
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %94, i64 %indvars.iv
   %109 = load float, ptr %108, align 4, !tbaa !86
-  %110 = getelementptr inbounds nuw float, ptr %96, i64 %indvars.iv
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %96, i64 %indvars.iv
   %111 = load float, ptr %110, align 4, !tbaa !86
   %112 = fmul float %109, %111
   %113 = fdiv float %112, %105
   %114 = fsub float %107, %113
-  %115 = getelementptr inbounds nuw float, ptr %82, i64 %indvars.iv
+  %115 = getelementptr inbounds nuw [4 x i8], ptr %82, i64 %indvars.iv
   store float %114, ptr %115, align 4, !tbaa !86
   %116 = load float, ptr %108, align 4, !tbaa !86
   %117 = fdiv float %116, %105
-  %118 = getelementptr inbounds nuw float, ptr %87, i64 %indvars.iv
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %87, i64 %indvars.iv
   store float %117, ptr %118, align 4, !tbaa !86
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond218.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -17734,7 +17730,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit121:                 ; preds = %._crit_edge201
   %221 = load ptr, ptr %22, align 8, !tbaa !45
   %222 = sext i32 %217 to i64
   %223 = load ptr, ptr %221, align 8, !tbaa !49
-  %224 = getelementptr inbounds nuw %"class.ncnn::Blob", ptr %223, i64 %222
+  %224 = getelementptr inbounds nuw [112 x i8], ptr %223, i64 %222
   %225 = getelementptr inbounds nuw i8, ptr %224, i64 32
   store i32 %220, ptr %225, align 8, !tbaa !127
   %226 = getelementptr inbounds nuw i8, ptr %68, i64 48
@@ -17746,19 +17742,19 @@ _ZNSt6vectorIfSaIfEED2Ev.exit121:                 ; preds = %._crit_edge201
 230:                                              ; preds = %.lr.ph203, %._crit_edge201
   %indvars.iv224 = phi i64 [ 0, %.lr.ph203 ], [ %indvars.iv.next225, %._crit_edge201 ]
   %231 = mul nsw i64 %indvars.iv224, %214
-  %232 = getelementptr inbounds float, ptr %212, i64 %231
+  %232 = getelementptr inbounds [4 x i8], ptr %212, i64 %231
   br i1 %213, label %.lr.ph200, label %._crit_edge201
 
 .lr.ph200:                                        ; preds = %230
-  %233 = getelementptr inbounds nuw float, ptr %.sroa.0126.0255, i64 %indvars.iv224
+  %233 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0126.0255, i64 %indvars.iv224
   br label %241
 
 ._crit_edge201:                                   ; preds = %241, %230
-  %234 = getelementptr inbounds nuw float, ptr %207, i64 %indvars.iv224
+  %234 = getelementptr inbounds nuw [4 x i8], ptr %207, i64 %indvars.iv224
   %235 = load float, ptr %234, align 4, !tbaa !86
-  %236 = getelementptr inbounds nuw float, ptr %.sroa.0126.0255, i64 %indvars.iv224
+  %236 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0126.0255, i64 %indvars.iv224
   %237 = load float, ptr %236, align 4, !tbaa !86
-  %238 = getelementptr inbounds nuw float, ptr %.sroa.0132.0140253, i64 %indvars.iv224
+  %238 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0132.0140253, i64 %indvars.iv224
   %239 = load float, ptr %238, align 4, !tbaa !86
   %240 = call float @llvm.fmuladd.f32(float %235, float %237, float %239)
   store float %240, ptr %234, align 4, !tbaa !86
@@ -17769,7 +17765,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit121:                 ; preds = %._crit_edge201
 241:                                              ; preds = %.lr.ph200, %241
   %indvars.iv219 = phi i64 [ 0, %.lr.ph200 ], [ %indvars.iv.next220, %241 ]
   %242 = load float, ptr %233, align 4, !tbaa !86
-  %243 = getelementptr inbounds nuw float, ptr %232, i64 %indvars.iv219
+  %243 = getelementptr inbounds nuw [4 x i8], ptr %232, i64 %indvars.iv219
   %244 = load float, ptr %243, align 4, !tbaa !86
   %245 = fmul float %242, %244
   store float %245, ptr %243, align 4, !tbaa !86
@@ -17826,7 +17822,7 @@ define dso_local noundef i32 @_ZN11NetOptimize22fuse_deconvolution_mulEv(ptr nou
   %.0100 = phi i64 [ 0, %.lr.ph102 ], [ %.pre-phi, %._crit_edge.thread ]
   %13 = load ptr, ptr %2, align 8, !tbaa !39
   %14 = load ptr, ptr %13, align 8, !tbaa !44
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %.0100
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.0100
   %16 = load ptr, ptr %15, align 8, !tbaa !50
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %18 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull @.str.71) #25
@@ -17840,7 +17836,7 @@ define dso_local noundef i32 @_ZN11NetOptimize22fuse_deconvolution_mulEv(ptr nou
 19:                                               ; preds = %12
   %20 = load ptr, ptr %2, align 8, !tbaa !39
   %21 = load ptr, ptr %20, align 8, !tbaa !44
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %.0100
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %.0100
   %23 = load ptr, ptr %22, align 8, !tbaa !50
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 136
   %25 = load ptr, ptr %24, align 8, !tbaa !77
@@ -17853,7 +17849,7 @@ define dso_local noundef i32 @_ZN11NetOptimize22fuse_deconvolution_mulEv(ptr nou
   %.06782 = phi i64 [ %.067, %49 ], [ %.06781, %19 ]
   %28 = load ptr, ptr %2, align 8, !tbaa !39
   %29 = load ptr, ptr %28, align 8, !tbaa !44
-  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %.06782
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %.06782
   %31 = load ptr, ptr %30, align 8, !tbaa !50
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 48
   %33 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull @.str.34) #25
@@ -17863,7 +17859,7 @@ define dso_local noundef i32 @_ZN11NetOptimize22fuse_deconvolution_mulEv(ptr nou
 34:                                               ; preds = %.lr.ph
   %35 = load ptr, ptr %2, align 8, !tbaa !39
   %36 = load ptr, ptr %35, align 8, !tbaa !44
-  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %.06782
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %.06782
   %38 = load ptr, ptr %37, align 8, !tbaa !50
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 112
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 120
@@ -17893,9 +17889,9 @@ define dso_local noundef i32 @_ZN11NetOptimize22fuse_deconvolution_mulEv(ptr nou
 51:                                               ; preds = %._crit_edge
   %52 = load ptr, ptr %2, align 8, !tbaa !39
   %53 = load ptr, ptr %52, align 8, !tbaa !44
-  %54 = getelementptr inbounds nuw ptr, ptr %53, i64 %.0100
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %.0100
   %55 = load ptr, ptr %54, align 8, !tbaa !50
-  %56 = getelementptr inbounds nuw ptr, ptr %53, i64 %.067.lcssa
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %.067.lcssa
   %57 = load ptr, ptr %56, align 8, !tbaa !50
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 208
   %59 = load i32, ptr %58, align 8, !tbaa !165
@@ -17916,7 +17912,7 @@ define dso_local noundef i32 @_ZN11NetOptimize22fuse_deconvolution_mulEv(ptr nou
   %.06885 = phi i64 [ 0, %.lr.ph86 ], [ %84, %83 ]
   %65 = load ptr, ptr %2, align 8, !tbaa !39
   %66 = load ptr, ptr %65, align 8, !tbaa !44
-  %67 = getelementptr inbounds nuw ptr, ptr %66, i64 %.06885
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %.06885
   %68 = load ptr, ptr %67, align 8, !tbaa !50
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 48
   %70 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %69, ptr noundef nonnull @.str.116) #25
@@ -17926,7 +17922,7 @@ define dso_local noundef i32 @_ZN11NetOptimize22fuse_deconvolution_mulEv(ptr nou
 71:                                               ; preds = %64
   %72 = load ptr, ptr %2, align 8, !tbaa !39
   %73 = load ptr, ptr %72, align 8, !tbaa !44
-  %74 = getelementptr inbounds nuw ptr, ptr %73, i64 %.06885
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %.06885
   %75 = load ptr, ptr %74, align 8, !tbaa !50
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 136
   %77 = load ptr, ptr %76, align 8, !tbaa !77
@@ -17949,7 +17945,7 @@ define dso_local noundef i32 @_ZN11NetOptimize22fuse_deconvolution_mulEv(ptr nou
 86:                                               ; preds = %._crit_edge87
   %87 = load ptr, ptr %2, align 8, !tbaa !39
   %88 = load ptr, ptr %87, align 8, !tbaa !44
-  %89 = getelementptr inbounds nuw ptr, ptr %88, i64 %.06885
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %.06885
   %90 = load ptr, ptr %89, align 8, !tbaa !50
   %91 = getelementptr inbounds nuw i8, ptr %55, i64 208
   %92 = load i32, ptr %91, align 8, !tbaa !305
@@ -18002,12 +17998,12 @@ define dso_local noundef i32 @_ZN11NetOptimize22fuse_deconvolution_mulEv(ptr nou
 .lr.ph93.us:                                      ; preds = %128, %.lr.ph97.split.us
   %indvars.iv116 = phi i64 [ %indvars.iv.next117, %128 ], [ 0, %.lr.ph97.split.us ]
   %120 = mul nuw nsw i64 %indvars.iv116, %119
-  %121 = getelementptr inbounds nuw float, ptr %112, i64 %120
-  %122 = getelementptr inbounds nuw float, ptr %118, i64 %indvars.iv116
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %112, i64 %120
+  %122 = getelementptr inbounds nuw [4 x i8], ptr %118, i64 %indvars.iv116
   br label %129
 
 123:                                              ; preds = %._crit_edge94.us
-  %124 = getelementptr inbounds nuw float, ptr %114, i64 %indvars.iv116
+  %124 = getelementptr inbounds nuw [4 x i8], ptr %114, i64 %indvars.iv116
   %125 = load float, ptr %124, align 4, !tbaa !86
   %126 = load float, ptr %122, align 4, !tbaa !86
   %127 = fmul float %125, %126
@@ -18022,7 +18018,7 @@ define dso_local noundef i32 @_ZN11NetOptimize22fuse_deconvolution_mulEv(ptr nou
 129:                                              ; preds = %.lr.ph93.us, %129
   %indvars.iv111 = phi i64 [ 0, %.lr.ph93.us ], [ %indvars.iv.next112, %129 ]
   %130 = load float, ptr %122, align 4, !tbaa !86
-  %131 = getelementptr inbounds nuw float, ptr %121, i64 %indvars.iv111
+  %131 = getelementptr inbounds nuw [4 x i8], ptr %121, i64 %indvars.iv111
   %132 = load float, ptr %131, align 4, !tbaa !86
   %133 = fmul float %130, %132
   store float %133, ptr %131, align 4, !tbaa !86
@@ -18052,7 +18048,7 @@ define dso_local noundef i32 @_ZN11NetOptimize22fuse_deconvolution_mulEv(ptr nou
   %141 = load ptr, ptr %11, align 8, !tbaa !45
   %142 = sext i32 %137 to i64
   %143 = load ptr, ptr %141, align 8, !tbaa !49
-  %144 = getelementptr inbounds nuw %"class.ncnn::Blob", ptr %143, i64 %142
+  %144 = getelementptr inbounds nuw [112 x i8], ptr %143, i64 %142
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 32
   store i32 %140, ptr %145, align 8, !tbaa !127
   %146 = getelementptr inbounds nuw i8, ptr %57, i64 48
@@ -18061,9 +18057,9 @@ define dso_local noundef i32 @_ZN11NetOptimize22fuse_deconvolution_mulEv(ptr nou
 
 148:                                              ; preds = %.lr.ph97.split.split, %148
   %indvars.iv = phi i64 [ 0, %.lr.ph97.split.split ], [ %indvars.iv.next, %148 ]
-  %149 = getelementptr inbounds nuw float, ptr %114, i64 %indvars.iv
+  %149 = getelementptr inbounds nuw [4 x i8], ptr %114, i64 %indvars.iv
   %150 = load float, ptr %149, align 4, !tbaa !86
-  %151 = getelementptr inbounds nuw float, ptr %134, i64 %indvars.iv
+  %151 = getelementptr inbounds nuw [4 x i8], ptr %134, i64 %indvars.iv
   %152 = load float, ptr %151, align 4, !tbaa !86
   %153 = fmul float %150, %152
   store float %153, ptr %149, align 4, !tbaa !86
@@ -18113,7 +18109,7 @@ define dso_local noundef i32 @_ZN11NetOptimize22fuse_deconvolution_addEv(ptr nou
   %.0106 = phi i64 [ 0, %.lr.ph108 ], [ %.pre-phi, %._crit_edge.thread ]
   %24 = load ptr, ptr %3, align 8, !tbaa !39
   %25 = load ptr, ptr %24, align 8, !tbaa !44
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %.0106
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %.0106
   %27 = load ptr, ptr %26, align 8, !tbaa !50
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 48
   %29 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull @.str.71) #25
@@ -18127,7 +18123,7 @@ define dso_local noundef i32 @_ZN11NetOptimize22fuse_deconvolution_addEv(ptr nou
 30:                                               ; preds = %23
   %31 = load ptr, ptr %3, align 8, !tbaa !39
   %32 = load ptr, ptr %31, align 8, !tbaa !44
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %.0106
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.0106
   %34 = load ptr, ptr %33, align 8, !tbaa !50
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 136
   %36 = load ptr, ptr %35, align 8, !tbaa !77
@@ -18140,7 +18136,7 @@ define dso_local noundef i32 @_ZN11NetOptimize22fuse_deconvolution_addEv(ptr nou
   %.06694 = phi i64 [ %.066, %60 ], [ %.06693, %30 ]
   %39 = load ptr, ptr %3, align 8, !tbaa !39
   %40 = load ptr, ptr %39, align 8, !tbaa !44
-  %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %.06694
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %.06694
   %42 = load ptr, ptr %41, align 8, !tbaa !50
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 48
   %44 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull @.str.34) #25
@@ -18150,7 +18146,7 @@ define dso_local noundef i32 @_ZN11NetOptimize22fuse_deconvolution_addEv(ptr nou
 45:                                               ; preds = %.lr.ph
   %46 = load ptr, ptr %3, align 8, !tbaa !39
   %47 = load ptr, ptr %46, align 8, !tbaa !44
-  %48 = getelementptr inbounds nuw ptr, ptr %47, i64 %.06694
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %.06694
   %49 = load ptr, ptr %48, align 8, !tbaa !50
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 112
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 120
@@ -18180,9 +18176,9 @@ define dso_local noundef i32 @_ZN11NetOptimize22fuse_deconvolution_addEv(ptr nou
 62:                                               ; preds = %._crit_edge
   %63 = load ptr, ptr %3, align 8, !tbaa !39
   %64 = load ptr, ptr %63, align 8, !tbaa !44
-  %65 = getelementptr inbounds nuw ptr, ptr %64, i64 %.0106
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %.0106
   %66 = load ptr, ptr %65, align 8, !tbaa !50
-  %67 = getelementptr inbounds nuw ptr, ptr %64, i64 %.066.lcssa
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %.066.lcssa
   %68 = load ptr, ptr %67, align 8, !tbaa !50
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 208
   %70 = load i32, ptr %69, align 8, !tbaa !165
@@ -18203,7 +18199,7 @@ define dso_local noundef i32 @_ZN11NetOptimize22fuse_deconvolution_addEv(ptr nou
   %.06797 = phi i64 [ 0, %.lr.ph98 ], [ %95, %94 ]
   %76 = load ptr, ptr %3, align 8, !tbaa !39
   %77 = load ptr, ptr %76, align 8, !tbaa !44
-  %78 = getelementptr inbounds nuw ptr, ptr %77, i64 %.06797
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %.06797
   %79 = load ptr, ptr %78, align 8, !tbaa !50
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 48
   %81 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %80, ptr noundef nonnull @.str.116) #25
@@ -18213,7 +18209,7 @@ define dso_local noundef i32 @_ZN11NetOptimize22fuse_deconvolution_addEv(ptr nou
 82:                                               ; preds = %75
   %83 = load ptr, ptr %3, align 8, !tbaa !39
   %84 = load ptr, ptr %83, align 8, !tbaa !44
-  %85 = getelementptr inbounds nuw ptr, ptr %84, i64 %.06797
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %.06797
   %86 = load ptr, ptr %85, align 8, !tbaa !50
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 136
   %88 = load ptr, ptr %87, align 8, !tbaa !77
@@ -18236,7 +18232,7 @@ define dso_local noundef i32 @_ZN11NetOptimize22fuse_deconvolution_addEv(ptr nou
 97:                                               ; preds = %._crit_edge99
   %98 = load ptr, ptr %3, align 8, !tbaa !39
   %99 = load ptr, ptr %98, align 8, !tbaa !44
-  %100 = getelementptr inbounds nuw ptr, ptr %99, i64 %.06797
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %99, i64 %.06797
   %101 = load ptr, ptr %100, align 8, !tbaa !50
   %102 = getelementptr inbounds nuw i8, ptr %66, i64 208
   %103 = load i32, ptr %102, align 8, !tbaa !305
@@ -18393,9 +18389,9 @@ define dso_local noundef i32 @_ZN11NetOptimize22fuse_deconvolution_addEv(ptr nou
 
 187:                                              ; preds = %.lr.ph105, %187
   %indvars.iv = phi i64 [ 0, %.lr.ph105 ], [ %indvars.iv.next, %187 ]
-  %188 = getelementptr inbounds nuw float, ptr %184, i64 %indvars.iv
+  %188 = getelementptr inbounds nuw [4 x i8], ptr %184, i64 %indvars.iv
   %189 = load float, ptr %188, align 4, !tbaa !86
-  %190 = getelementptr inbounds nuw float, ptr %186, i64 %indvars.iv
+  %190 = getelementptr inbounds nuw [4 x i8], ptr %186, i64 %indvars.iv
   %191 = load float, ptr %190, align 4, !tbaa !86
   %192 = fadd float %189, %191
   store float %192, ptr %188, align 4, !tbaa !86
@@ -18414,7 +18410,7 @@ _ZN4ncnn3MataSERKS0_.exit:                        ; preds = %187, %182, %.noexc,
   %199 = load ptr, ptr %22, align 8, !tbaa !45
   %200 = sext i32 %195 to i64
   %201 = load ptr, ptr %199, align 8, !tbaa !49
-  %202 = getelementptr inbounds nuw %"class.ncnn::Blob", ptr %201, i64 %200
+  %202 = getelementptr inbounds nuw [112 x i8], ptr %201, i64 %200
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 32
   store i32 %198, ptr %203, align 8, !tbaa !127
   %204 = getelementptr inbounds nuw i8, ptr %68, i64 48
@@ -18555,7 +18551,7 @@ define dso_local noundef i32 @_ZN11NetOptimize37fuse_deconvolutiondepthwise_batc
   %.0205 = phi i64 [ 0, %.lr.ph207 ], [ %.pre-phi, %._crit_edge.thread ]
   %24 = load ptr, ptr %3, align 8, !tbaa !39
   %25 = load ptr, ptr %24, align 8, !tbaa !44
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %.0205
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %.0205
   %27 = load ptr, ptr %26, align 8, !tbaa !50
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 48
   %29 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull @.str.80) #25
@@ -18569,7 +18565,7 @@ define dso_local noundef i32 @_ZN11NetOptimize37fuse_deconvolutiondepthwise_batc
 30:                                               ; preds = %23
   %31 = load ptr, ptr %3, align 8, !tbaa !39
   %32 = load ptr, ptr %31, align 8, !tbaa !44
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %.0205
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.0205
   %34 = load ptr, ptr %33, align 8, !tbaa !50
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 136
   %36 = load ptr, ptr %35, align 8, !tbaa !77
@@ -18582,7 +18578,7 @@ define dso_local noundef i32 @_ZN11NetOptimize37fuse_deconvolutiondepthwise_batc
   %.078189 = phi i64 [ %.078, %60 ], [ %.078188, %30 ]
   %39 = load ptr, ptr %3, align 8, !tbaa !39
   %40 = load ptr, ptr %39, align 8, !tbaa !44
-  %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %.078189
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %.078189
   %42 = load ptr, ptr %41, align 8, !tbaa !50
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 48
   %44 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull @.str.30) #25
@@ -18592,7 +18588,7 @@ define dso_local noundef i32 @_ZN11NetOptimize37fuse_deconvolutiondepthwise_batc
 45:                                               ; preds = %.lr.ph
   %46 = load ptr, ptr %3, align 8, !tbaa !39
   %47 = load ptr, ptr %46, align 8, !tbaa !44
-  %48 = getelementptr inbounds nuw ptr, ptr %47, i64 %.078189
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %.078189
   %49 = load ptr, ptr %48, align 8, !tbaa !50
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 112
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 120
@@ -18622,9 +18618,9 @@ define dso_local noundef i32 @_ZN11NetOptimize37fuse_deconvolutiondepthwise_batc
 62:                                               ; preds = %._crit_edge
   %63 = load ptr, ptr %3, align 8, !tbaa !39
   %64 = load ptr, ptr %63, align 8, !tbaa !44
-  %65 = getelementptr inbounds nuw ptr, ptr %64, i64 %.0205
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %.0205
   %66 = load ptr, ptr %65, align 8, !tbaa !50
-  %67 = getelementptr inbounds nuw ptr, ptr %64, i64 %.078.lcssa
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %.078.lcssa
   %68 = load ptr, ptr %67, align 8, !tbaa !50
   %69 = load ptr, ptr @stderr, align 8, !tbaa !5
   %70 = getelementptr inbounds nuw i8, ptr %66, i64 80
@@ -18708,24 +18704,24 @@ _ZNSt6vectorIfSaIfEED2Ev.exit123.thread:          ; preds = %86
 
 101:                                              ; preds = %.lr.ph193, %101
   %indvars.iv = phi i64 [ 0, %.lr.ph193 ], [ %indvars.iv.next, %101 ]
-  %102 = getelementptr inbounds nuw float, ptr %90, i64 %indvars.iv
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %90, i64 %indvars.iv
   %103 = load float, ptr %102, align 4, !tbaa !86
   %104 = fadd float %78, %103
   %105 = call noundef float @sqrtf(float noundef %104) #25, !tbaa !78
-  %106 = getelementptr inbounds nuw float, ptr %92, i64 %indvars.iv
+  %106 = getelementptr inbounds nuw [4 x i8], ptr %92, i64 %indvars.iv
   %107 = load float, ptr %106, align 4, !tbaa !86
-  %108 = getelementptr inbounds nuw float, ptr %94, i64 %indvars.iv
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %94, i64 %indvars.iv
   %109 = load float, ptr %108, align 4, !tbaa !86
-  %110 = getelementptr inbounds nuw float, ptr %96, i64 %indvars.iv
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %96, i64 %indvars.iv
   %111 = load float, ptr %110, align 4, !tbaa !86
   %112 = fmul float %109, %111
   %113 = fdiv float %112, %105
   %114 = fsub float %107, %113
-  %115 = getelementptr inbounds nuw float, ptr %82, i64 %indvars.iv
+  %115 = getelementptr inbounds nuw [4 x i8], ptr %82, i64 %indvars.iv
   store float %114, ptr %115, align 4, !tbaa !86
   %116 = load float, ptr %108, align 4, !tbaa !86
   %117 = fdiv float %116, %105
-  %118 = getelementptr inbounds nuw float, ptr %87, i64 %indvars.iv
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %87, i64 %indvars.iv
   store float %117, ptr %118, align 4, !tbaa !86
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond218.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -18954,7 +18950,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit121:                 ; preds = %._crit_edge201
   %221 = load ptr, ptr %22, align 8, !tbaa !45
   %222 = sext i32 %217 to i64
   %223 = load ptr, ptr %221, align 8, !tbaa !49
-  %224 = getelementptr inbounds nuw %"class.ncnn::Blob", ptr %223, i64 %222
+  %224 = getelementptr inbounds nuw [112 x i8], ptr %223, i64 %222
   %225 = getelementptr inbounds nuw i8, ptr %224, i64 32
   store i32 %220, ptr %225, align 8, !tbaa !127
   %226 = getelementptr inbounds nuw i8, ptr %68, i64 48
@@ -18966,19 +18962,19 @@ _ZNSt6vectorIfSaIfEED2Ev.exit121:                 ; preds = %._crit_edge201
 230:                                              ; preds = %.lr.ph203, %._crit_edge201
   %indvars.iv224 = phi i64 [ 0, %.lr.ph203 ], [ %indvars.iv.next225, %._crit_edge201 ]
   %231 = mul nsw i64 %indvars.iv224, %214
-  %232 = getelementptr inbounds float, ptr %212, i64 %231
+  %232 = getelementptr inbounds [4 x i8], ptr %212, i64 %231
   br i1 %213, label %.lr.ph200, label %._crit_edge201
 
 .lr.ph200:                                        ; preds = %230
-  %233 = getelementptr inbounds nuw float, ptr %.sroa.0126.0255, i64 %indvars.iv224
+  %233 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0126.0255, i64 %indvars.iv224
   br label %241
 
 ._crit_edge201:                                   ; preds = %241, %230
-  %234 = getelementptr inbounds nuw float, ptr %207, i64 %indvars.iv224
+  %234 = getelementptr inbounds nuw [4 x i8], ptr %207, i64 %indvars.iv224
   %235 = load float, ptr %234, align 4, !tbaa !86
-  %236 = getelementptr inbounds nuw float, ptr %.sroa.0126.0255, i64 %indvars.iv224
+  %236 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0126.0255, i64 %indvars.iv224
   %237 = load float, ptr %236, align 4, !tbaa !86
-  %238 = getelementptr inbounds nuw float, ptr %.sroa.0132.0140253, i64 %indvars.iv224
+  %238 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0132.0140253, i64 %indvars.iv224
   %239 = load float, ptr %238, align 4, !tbaa !86
   %240 = call float @llvm.fmuladd.f32(float %235, float %237, float %239)
   store float %240, ptr %234, align 4, !tbaa !86
@@ -18989,7 +18985,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit121:                 ; preds = %._crit_edge201
 241:                                              ; preds = %.lr.ph200, %241
   %indvars.iv219 = phi i64 [ 0, %.lr.ph200 ], [ %indvars.iv.next220, %241 ]
   %242 = load float, ptr %233, align 4, !tbaa !86
-  %243 = getelementptr inbounds nuw float, ptr %232, i64 %indvars.iv219
+  %243 = getelementptr inbounds nuw [4 x i8], ptr %232, i64 %indvars.iv219
   %244 = load float, ptr %243, align 4, !tbaa !86
   %245 = fmul float %242, %244
   store float %245, ptr %243, align 4, !tbaa !86
@@ -19057,7 +19053,7 @@ define dso_local noundef i32 @_ZN11NetOptimize27fuse_innerproduct_batchnormEv(pt
   %.0205 = phi i64 [ 0, %.lr.ph207 ], [ %.pre-phi, %._crit_edge.thread ]
   %24 = load ptr, ptr %3, align 8, !tbaa !39
   %25 = load ptr, ptr %24, align 8, !tbaa !44
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %.0205
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %.0205
   %27 = load ptr, ptr %26, align 8, !tbaa !50
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 48
   %29 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull @.str.107) #25
@@ -19071,7 +19067,7 @@ define dso_local noundef i32 @_ZN11NetOptimize27fuse_innerproduct_batchnormEv(pt
 30:                                               ; preds = %23
   %31 = load ptr, ptr %3, align 8, !tbaa !39
   %32 = load ptr, ptr %31, align 8, !tbaa !44
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %.0205
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.0205
   %34 = load ptr, ptr %33, align 8, !tbaa !50
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 136
   %36 = load ptr, ptr %35, align 8, !tbaa !77
@@ -19084,7 +19080,7 @@ define dso_local noundef i32 @_ZN11NetOptimize27fuse_innerproduct_batchnormEv(pt
   %.078189 = phi i64 [ %.078, %60 ], [ %.078188, %30 ]
   %39 = load ptr, ptr %3, align 8, !tbaa !39
   %40 = load ptr, ptr %39, align 8, !tbaa !44
-  %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %.078189
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %.078189
   %42 = load ptr, ptr %41, align 8, !tbaa !50
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 48
   %44 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull @.str.30) #25
@@ -19094,7 +19090,7 @@ define dso_local noundef i32 @_ZN11NetOptimize27fuse_innerproduct_batchnormEv(pt
 45:                                               ; preds = %.lr.ph
   %46 = load ptr, ptr %3, align 8, !tbaa !39
   %47 = load ptr, ptr %46, align 8, !tbaa !44
-  %48 = getelementptr inbounds nuw ptr, ptr %47, i64 %.078189
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %.078189
   %49 = load ptr, ptr %48, align 8, !tbaa !50
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 112
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 120
@@ -19124,9 +19120,9 @@ define dso_local noundef i32 @_ZN11NetOptimize27fuse_innerproduct_batchnormEv(pt
 62:                                               ; preds = %._crit_edge
   %63 = load ptr, ptr %3, align 8, !tbaa !39
   %64 = load ptr, ptr %63, align 8, !tbaa !44
-  %65 = getelementptr inbounds nuw ptr, ptr %64, i64 %.0205
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %.0205
   %66 = load ptr, ptr %65, align 8, !tbaa !50
-  %67 = getelementptr inbounds nuw ptr, ptr %64, i64 %.078.lcssa
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %.078.lcssa
   %68 = load ptr, ptr %67, align 8, !tbaa !50
   %69 = load ptr, ptr @stderr, align 8, !tbaa !5
   %70 = getelementptr inbounds nuw i8, ptr %66, i64 80
@@ -19210,24 +19206,24 @@ _ZNSt6vectorIfSaIfEED2Ev.exit123.thread:          ; preds = %86
 
 101:                                              ; preds = %.lr.ph193, %101
   %indvars.iv = phi i64 [ 0, %.lr.ph193 ], [ %indvars.iv.next, %101 ]
-  %102 = getelementptr inbounds nuw float, ptr %90, i64 %indvars.iv
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %90, i64 %indvars.iv
   %103 = load float, ptr %102, align 4, !tbaa !86
   %104 = fadd float %78, %103
   %105 = call noundef float @sqrtf(float noundef %104) #25, !tbaa !78
-  %106 = getelementptr inbounds nuw float, ptr %92, i64 %indvars.iv
+  %106 = getelementptr inbounds nuw [4 x i8], ptr %92, i64 %indvars.iv
   %107 = load float, ptr %106, align 4, !tbaa !86
-  %108 = getelementptr inbounds nuw float, ptr %94, i64 %indvars.iv
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %94, i64 %indvars.iv
   %109 = load float, ptr %108, align 4, !tbaa !86
-  %110 = getelementptr inbounds nuw float, ptr %96, i64 %indvars.iv
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %96, i64 %indvars.iv
   %111 = load float, ptr %110, align 4, !tbaa !86
   %112 = fmul float %109, %111
   %113 = fdiv float %112, %105
   %114 = fsub float %107, %113
-  %115 = getelementptr inbounds nuw float, ptr %82, i64 %indvars.iv
+  %115 = getelementptr inbounds nuw [4 x i8], ptr %82, i64 %indvars.iv
   store float %114, ptr %115, align 4, !tbaa !86
   %116 = load float, ptr %108, align 4, !tbaa !86
   %117 = fdiv float %116, %105
-  %118 = getelementptr inbounds nuw float, ptr %87, i64 %indvars.iv
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %87, i64 %indvars.iv
   store float %117, ptr %118, align 4, !tbaa !86
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond218.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -19456,7 +19452,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit121:                 ; preds = %._crit_edge201
   %221 = load ptr, ptr %22, align 8, !tbaa !45
   %222 = sext i32 %217 to i64
   %223 = load ptr, ptr %221, align 8, !tbaa !49
-  %224 = getelementptr inbounds nuw %"class.ncnn::Blob", ptr %223, i64 %222
+  %224 = getelementptr inbounds nuw [112 x i8], ptr %223, i64 %222
   %225 = getelementptr inbounds nuw i8, ptr %224, i64 32
   store i32 %220, ptr %225, align 8, !tbaa !127
   %226 = getelementptr inbounds nuw i8, ptr %68, i64 48
@@ -19468,19 +19464,19 @@ _ZNSt6vectorIfSaIfEED2Ev.exit121:                 ; preds = %._crit_edge201
 230:                                              ; preds = %.lr.ph203, %._crit_edge201
   %indvars.iv224 = phi i64 [ 0, %.lr.ph203 ], [ %indvars.iv.next225, %._crit_edge201 ]
   %231 = mul nsw i64 %indvars.iv224, %214
-  %232 = getelementptr inbounds float, ptr %212, i64 %231
+  %232 = getelementptr inbounds [4 x i8], ptr %212, i64 %231
   br i1 %213, label %.lr.ph200, label %._crit_edge201
 
 .lr.ph200:                                        ; preds = %230
-  %233 = getelementptr inbounds nuw float, ptr %.sroa.0126.0255, i64 %indvars.iv224
+  %233 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0126.0255, i64 %indvars.iv224
   br label %241
 
 ._crit_edge201:                                   ; preds = %241, %230
-  %234 = getelementptr inbounds nuw float, ptr %207, i64 %indvars.iv224
+  %234 = getelementptr inbounds nuw [4 x i8], ptr %207, i64 %indvars.iv224
   %235 = load float, ptr %234, align 4, !tbaa !86
-  %236 = getelementptr inbounds nuw float, ptr %.sroa.0126.0255, i64 %indvars.iv224
+  %236 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0126.0255, i64 %indvars.iv224
   %237 = load float, ptr %236, align 4, !tbaa !86
-  %238 = getelementptr inbounds nuw float, ptr %.sroa.0132.0140253, i64 %indvars.iv224
+  %238 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0132.0140253, i64 %indvars.iv224
   %239 = load float, ptr %238, align 4, !tbaa !86
   %240 = call float @llvm.fmuladd.f32(float %235, float %237, float %239)
   store float %240, ptr %234, align 4, !tbaa !86
@@ -19491,7 +19487,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit121:                 ; preds = %._crit_edge201
 241:                                              ; preds = %.lr.ph200, %241
   %indvars.iv219 = phi i64 [ 0, %.lr.ph200 ], [ %indvars.iv.next220, %241 ]
   %242 = load float, ptr %233, align 4, !tbaa !86
-  %243 = getelementptr inbounds nuw float, ptr %232, i64 %indvars.iv219
+  %243 = getelementptr inbounds nuw [4 x i8], ptr %232, i64 %indvars.iv219
   %244 = load float, ptr %243, align 4, !tbaa !86
   %245 = fmul float %242, %244
   store float %245, ptr %243, align 4, !tbaa !86
@@ -19559,7 +19555,7 @@ define dso_local noundef i32 @_ZN11NetOptimize21fuse_innerproduct_addEv(ptr noun
   %.0106 = phi i64 [ 0, %.lr.ph108 ], [ %.pre-phi, %._crit_edge.thread ]
   %24 = load ptr, ptr %3, align 8, !tbaa !39
   %25 = load ptr, ptr %24, align 8, !tbaa !44
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %.0106
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %.0106
   %27 = load ptr, ptr %26, align 8, !tbaa !50
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 48
   %29 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull @.str.107) #25
@@ -19573,7 +19569,7 @@ define dso_local noundef i32 @_ZN11NetOptimize21fuse_innerproduct_addEv(ptr noun
 30:                                               ; preds = %23
   %31 = load ptr, ptr %3, align 8, !tbaa !39
   %32 = load ptr, ptr %31, align 8, !tbaa !44
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %.0106
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.0106
   %34 = load ptr, ptr %33, align 8, !tbaa !50
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 136
   %36 = load ptr, ptr %35, align 8, !tbaa !77
@@ -19586,7 +19582,7 @@ define dso_local noundef i32 @_ZN11NetOptimize21fuse_innerproduct_addEv(ptr noun
   %.06694 = phi i64 [ %.066, %60 ], [ %.06693, %30 ]
   %39 = load ptr, ptr %3, align 8, !tbaa !39
   %40 = load ptr, ptr %39, align 8, !tbaa !44
-  %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %.06694
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %.06694
   %42 = load ptr, ptr %41, align 8, !tbaa !50
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 48
   %44 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull @.str.34) #25
@@ -19596,7 +19592,7 @@ define dso_local noundef i32 @_ZN11NetOptimize21fuse_innerproduct_addEv(ptr noun
 45:                                               ; preds = %.lr.ph
   %46 = load ptr, ptr %3, align 8, !tbaa !39
   %47 = load ptr, ptr %46, align 8, !tbaa !44
-  %48 = getelementptr inbounds nuw ptr, ptr %47, i64 %.06694
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %.06694
   %49 = load ptr, ptr %48, align 8, !tbaa !50
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 112
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 120
@@ -19626,9 +19622,9 @@ define dso_local noundef i32 @_ZN11NetOptimize21fuse_innerproduct_addEv(ptr noun
 62:                                               ; preds = %._crit_edge
   %63 = load ptr, ptr %3, align 8, !tbaa !39
   %64 = load ptr, ptr %63, align 8, !tbaa !44
-  %65 = getelementptr inbounds nuw ptr, ptr %64, i64 %.0106
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %.0106
   %66 = load ptr, ptr %65, align 8, !tbaa !50
-  %67 = getelementptr inbounds nuw ptr, ptr %64, i64 %.066.lcssa
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %.066.lcssa
   %68 = load ptr, ptr %67, align 8, !tbaa !50
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 208
   %70 = load i32, ptr %69, align 8, !tbaa !165
@@ -19649,7 +19645,7 @@ define dso_local noundef i32 @_ZN11NetOptimize21fuse_innerproduct_addEv(ptr noun
   %.06797 = phi i64 [ 0, %.lr.ph98 ], [ %95, %94 ]
   %76 = load ptr, ptr %3, align 8, !tbaa !39
   %77 = load ptr, ptr %76, align 8, !tbaa !44
-  %78 = getelementptr inbounds nuw ptr, ptr %77, i64 %.06797
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %.06797
   %79 = load ptr, ptr %78, align 8, !tbaa !50
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 48
   %81 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %80, ptr noundef nonnull @.str.116) #25
@@ -19659,7 +19655,7 @@ define dso_local noundef i32 @_ZN11NetOptimize21fuse_innerproduct_addEv(ptr noun
 82:                                               ; preds = %75
   %83 = load ptr, ptr %3, align 8, !tbaa !39
   %84 = load ptr, ptr %83, align 8, !tbaa !44
-  %85 = getelementptr inbounds nuw ptr, ptr %84, i64 %.06797
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %.06797
   %86 = load ptr, ptr %85, align 8, !tbaa !50
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 136
   %88 = load ptr, ptr %87, align 8, !tbaa !77
@@ -19682,7 +19678,7 @@ define dso_local noundef i32 @_ZN11NetOptimize21fuse_innerproduct_addEv(ptr noun
 97:                                               ; preds = %._crit_edge99
   %98 = load ptr, ptr %3, align 8, !tbaa !39
   %99 = load ptr, ptr %98, align 8, !tbaa !44
-  %100 = getelementptr inbounds nuw ptr, ptr %99, i64 %.06797
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %99, i64 %.06797
   %101 = load ptr, ptr %100, align 8, !tbaa !50
   %102 = getelementptr inbounds nuw i8, ptr %66, i64 208
   %103 = load i32, ptr %102, align 8, !tbaa !530
@@ -19839,9 +19835,9 @@ define dso_local noundef i32 @_ZN11NetOptimize21fuse_innerproduct_addEv(ptr noun
 
 187:                                              ; preds = %.lr.ph105, %187
   %indvars.iv = phi i64 [ 0, %.lr.ph105 ], [ %indvars.iv.next, %187 ]
-  %188 = getelementptr inbounds nuw float, ptr %184, i64 %indvars.iv
+  %188 = getelementptr inbounds nuw [4 x i8], ptr %184, i64 %indvars.iv
   %189 = load float, ptr %188, align 4, !tbaa !86
-  %190 = getelementptr inbounds nuw float, ptr %186, i64 %indvars.iv
+  %190 = getelementptr inbounds nuw [4 x i8], ptr %186, i64 %indvars.iv
   %191 = load float, ptr %190, align 4, !tbaa !86
   %192 = fadd float %189, %191
   store float %192, ptr %188, align 4, !tbaa !86
@@ -19860,7 +19856,7 @@ _ZN4ncnn3MataSERKS0_.exit:                        ; preds = %187, %182, %.noexc,
   %199 = load ptr, ptr %22, align 8, !tbaa !45
   %200 = sext i32 %195 to i64
   %201 = load ptr, ptr %199, align 8, !tbaa !49
-  %202 = getelementptr inbounds nuw %"class.ncnn::Blob", ptr %201, i64 %200
+  %202 = getelementptr inbounds nuw [112 x i8], ptr %201, i64 %200
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 32
   store i32 %198, ptr %203, align 8, !tbaa !127
   %204 = getelementptr inbounds nuw i8, ptr %68, i64 48
@@ -19990,7 +19986,7 @@ define dso_local noundef i32 @_ZN11NetOptimize25fuse_innerproduct_dropoutEv(ptr 
   %.076 = phi i64 [ 0, %.lr.ph78 ], [ %.pre-phi, %._crit_edge.thread ]
   %13 = load ptr, ptr %2, align 8, !tbaa !39
   %14 = load ptr, ptr %13, align 8, !tbaa !44
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %.076
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.076
   %16 = load ptr, ptr %15, align 8, !tbaa !50
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %18 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull @.str.107) #25
@@ -20004,7 +20000,7 @@ define dso_local noundef i32 @_ZN11NetOptimize25fuse_innerproduct_dropoutEv(ptr 
 19:                                               ; preds = %12
   %20 = load ptr, ptr %2, align 8, !tbaa !39
   %21 = load ptr, ptr %20, align 8, !tbaa !44
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %.076
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %.076
   %23 = load ptr, ptr %22, align 8, !tbaa !50
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 136
   %25 = load ptr, ptr %24, align 8, !tbaa !77
@@ -20017,7 +20013,7 @@ define dso_local noundef i32 @_ZN11NetOptimize25fuse_innerproduct_dropoutEv(ptr 
   %.05362 = phi i64 [ %.053, %49 ], [ %.05361, %19 ]
   %28 = load ptr, ptr %2, align 8, !tbaa !39
   %29 = load ptr, ptr %28, align 8, !tbaa !44
-  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %.05362
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %.05362
   %31 = load ptr, ptr %30, align 8, !tbaa !50
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 48
   %33 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull @.str.91) #25
@@ -20027,7 +20023,7 @@ define dso_local noundef i32 @_ZN11NetOptimize25fuse_innerproduct_dropoutEv(ptr 
 34:                                               ; preds = %.lr.ph
   %35 = load ptr, ptr %2, align 8, !tbaa !39
   %36 = load ptr, ptr %35, align 8, !tbaa !44
-  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %.05362
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %.05362
   %38 = load ptr, ptr %37, align 8, !tbaa !50
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 112
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 120
@@ -20057,9 +20053,9 @@ define dso_local noundef i32 @_ZN11NetOptimize25fuse_innerproduct_dropoutEv(ptr 
 51:                                               ; preds = %._crit_edge
   %52 = load ptr, ptr %2, align 8, !tbaa !39
   %53 = load ptr, ptr %52, align 8, !tbaa !44
-  %54 = getelementptr inbounds nuw ptr, ptr %53, i64 %.076
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %.076
   %55 = load ptr, ptr %54, align 8, !tbaa !50
-  %56 = getelementptr inbounds nuw ptr, ptr %53, i64 %.053.lcssa
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %.053.lcssa
   %57 = load ptr, ptr %56, align 8, !tbaa !50
   %58 = load ptr, ptr @stderr, align 8, !tbaa !5
   %59 = getelementptr inbounds nuw i8, ptr %55, i64 80
@@ -20095,12 +20091,12 @@ define dso_local noundef i32 @_ZN11NetOptimize25fuse_innerproduct_dropoutEv(ptr 
 .lr.ph67.us:                                      ; preds = %.lr.ph67.us.preheader, %._crit_edge68.us
   %indvars.iv84 = phi i64 [ 0, %.lr.ph67.us.preheader ], [ %indvars.iv.next85, %._crit_edge68.us ]
   %78 = mul nuw nsw i64 %indvars.iv84, %77
-  %79 = getelementptr inbounds nuw float, ptr %74, i64 %78
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %74, i64 %78
   br label %80
 
 80:                                               ; preds = %.lr.ph67.us, %80
   %indvars.iv = phi i64 [ 0, %.lr.ph67.us ], [ %indvars.iv.next, %80 ]
-  %81 = getelementptr inbounds nuw float, ptr %79, i64 %indvars.iv
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %79, i64 %indvars.iv
   %82 = load float, ptr %81, align 4, !tbaa !86
   %83 = fmul float %65, %82
   store float %83, ptr %81, align 4, !tbaa !86
@@ -20133,7 +20129,7 @@ define dso_local noundef i32 @_ZN11NetOptimize25fuse_innerproduct_dropoutEv(ptr 
 
 .lr.ph75:                                         ; preds = %.lr.ph75.preheader, %.lr.ph75
   %indvars.iv89 = phi i64 [ 0, %.lr.ph75.preheader ], [ %indvars.iv.next90, %.lr.ph75 ]
-  %89 = getelementptr inbounds nuw float, ptr %88, i64 %indvars.iv89
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %88, i64 %indvars.iv89
   %90 = load float, ptr %89, align 4, !tbaa !86
   %91 = fmul float %65, %90
   store float %91, ptr %89, align 4, !tbaa !86
@@ -20152,7 +20148,7 @@ define dso_local noundef i32 @_ZN11NetOptimize25fuse_innerproduct_dropoutEv(ptr 
   %98 = load ptr, ptr %11, align 8, !tbaa !45
   %99 = sext i32 %94 to i64
   %100 = load ptr, ptr %98, align 8, !tbaa !49
-  %101 = getelementptr inbounds nuw %"class.ncnn::Blob", ptr %100, i64 %99
+  %101 = getelementptr inbounds nuw [112 x i8], ptr %100, i64 %99
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 32
   store i32 %97, ptr %102, align 8, !tbaa !127
   %103 = getelementptr inbounds nuw i8, ptr %57, i64 48
@@ -20248,7 +20244,7 @@ define dso_local noundef i32 @_ZN11NetOptimize27fuse_convolution_activationEv(pt
   %.0343 = phi i64 [ 0, %.lr.ph345 ], [ %.pre-phi371, %._crit_edge.thread ]
   %69 = load ptr, ptr %7, align 8, !tbaa !39
   %70 = load ptr, ptr %69, align 8, !tbaa !44
-  %71 = getelementptr inbounds nuw ptr, ptr %70, i64 %.0343
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %.0343
   %72 = load ptr, ptr %71, align 8, !tbaa !50
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 48
   %74 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %73, ptr noundef nonnull @.str.41) #25
@@ -20262,7 +20258,7 @@ define dso_local noundef i32 @_ZN11NetOptimize27fuse_convolution_activationEv(pt
 75:                                               ; preds = %68
   %76 = load ptr, ptr %7, align 8, !tbaa !39
   %77 = load ptr, ptr %76, align 8, !tbaa !44
-  %78 = getelementptr inbounds nuw ptr, ptr %77, i64 %.0343
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %.0343
   %79 = load ptr, ptr %78, align 8, !tbaa !50
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 136
   %81 = load ptr, ptr %80, align 8, !tbaa !77
@@ -20275,7 +20271,7 @@ define dso_local noundef i32 @_ZN11NetOptimize27fuse_convolution_activationEv(pt
   %.0107340 = phi i64 [ %.0107, %133 ], [ %.0107339, %75 ]
   %84 = load ptr, ptr %7, align 8, !tbaa !39
   %85 = load ptr, ptr %84, align 8, !tbaa !44
-  %86 = getelementptr inbounds nuw ptr, ptr %85, i64 %.0107340
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %.0107340
   %87 = load ptr, ptr %86, align 8, !tbaa !50
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 48
   %89 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %88, ptr noundef nonnull @.str.136) #25
@@ -20285,7 +20281,7 @@ define dso_local noundef i32 @_ZN11NetOptimize27fuse_convolution_activationEv(pt
 90:                                               ; preds = %.lr.ph
   %91 = load ptr, ptr %7, align 8, !tbaa !39
   %92 = load ptr, ptr %91, align 8, !tbaa !44
-  %93 = getelementptr inbounds nuw ptr, ptr %92, i64 %.0107340
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %92, i64 %.0107340
   %94 = load ptr, ptr %93, align 8, !tbaa !50
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 48
   %96 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %95, ptr noundef nonnull @.str.39) #25
@@ -20295,7 +20291,7 @@ define dso_local noundef i32 @_ZN11NetOptimize27fuse_convolution_activationEv(pt
 97:                                               ; preds = %90
   %98 = load ptr, ptr %7, align 8, !tbaa !39
   %99 = load ptr, ptr %98, align 8, !tbaa !44
-  %100 = getelementptr inbounds nuw ptr, ptr %99, i64 %.0107340
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %99, i64 %.0107340
   %101 = load ptr, ptr %100, align 8, !tbaa !50
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 48
   %103 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %102, ptr noundef nonnull @.str.172) #25
@@ -20305,7 +20301,7 @@ define dso_local noundef i32 @_ZN11NetOptimize27fuse_convolution_activationEv(pt
 104:                                              ; preds = %97
   %105 = load ptr, ptr %7, align 8, !tbaa !39
   %106 = load ptr, ptr %105, align 8, !tbaa !44
-  %107 = getelementptr inbounds nuw ptr, ptr %106, i64 %.0107340
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %.0107340
   %108 = load ptr, ptr %107, align 8, !tbaa !50
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 48
   %110 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %109, ptr noundef nonnull @.str.173) #25
@@ -20315,7 +20311,7 @@ define dso_local noundef i32 @_ZN11NetOptimize27fuse_convolution_activationEv(pt
 111:                                              ; preds = %104
   %112 = load ptr, ptr %7, align 8, !tbaa !39
   %113 = load ptr, ptr %112, align 8, !tbaa !44
-  %114 = getelementptr inbounds nuw ptr, ptr %113, i64 %.0107340
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %113, i64 %.0107340
   %115 = load ptr, ptr %114, align 8, !tbaa !50
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 48
   %117 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %116, ptr noundef nonnull @.str.106) #25
@@ -20325,7 +20321,7 @@ define dso_local noundef i32 @_ZN11NetOptimize27fuse_convolution_activationEv(pt
 118:                                              ; preds = %111, %104, %97, %90, %.lr.ph
   %119 = load ptr, ptr %7, align 8, !tbaa !39
   %120 = load ptr, ptr %119, align 8, !tbaa !44
-  %121 = getelementptr inbounds nuw ptr, ptr %120, i64 %.0107340
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %120, i64 %.0107340
   %122 = load ptr, ptr %121, align 8, !tbaa !50
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 112
   %124 = getelementptr inbounds nuw i8, ptr %122, i64 120
@@ -20355,9 +20351,9 @@ define dso_local noundef i32 @_ZN11NetOptimize27fuse_convolution_activationEv(pt
 135:                                              ; preds = %._crit_edge
   %136 = load ptr, ptr %7, align 8, !tbaa !39
   %137 = load ptr, ptr %136, align 8, !tbaa !44
-  %138 = getelementptr inbounds nuw ptr, ptr %137, i64 %.0343
+  %138 = getelementptr inbounds nuw [8 x i8], ptr %137, i64 %.0343
   %139 = load ptr, ptr %138, align 8, !tbaa !50
-  %140 = getelementptr inbounds nuw ptr, ptr %137, i64 %.0107.lcssa
+  %140 = getelementptr inbounds nuw [8 x i8], ptr %137, i64 %.0107.lcssa
   %141 = load ptr, ptr %140, align 8, !tbaa !50
   %142 = load ptr, ptr @stderr, align 8, !tbaa !5
   %143 = getelementptr inbounds nuw i8, ptr %139, i64 80
@@ -20962,7 +20958,7 @@ _ZN4ncnn3MatD2Ev.exit124:                         ; preds = %402, %399, %408, %4
   %424 = load ptr, ptr %46, align 8, !tbaa !45
   %425 = sext i32 %420 to i64
   %426 = load ptr, ptr %424, align 8, !tbaa !49
-  %427 = getelementptr inbounds nuw %"class.ncnn::Blob", ptr %426, i64 %425
+  %427 = getelementptr inbounds nuw [112 x i8], ptr %426, i64 %425
   %428 = getelementptr inbounds nuw i8, ptr %427, i64 32
   store i32 %423, ptr %428, align 8, !tbaa !127
   %429 = getelementptr inbounds nuw i8, ptr %141, i64 56
@@ -20982,7 +20978,7 @@ _ZN4ncnn3MatD2Ev.exit124:                         ; preds = %402, %399, %408, %4
   %.0113354 = phi i64 [ 0, %.lr.ph355 ], [ %.pre-phi, %._crit_edge350.thread ]
   %433 = load ptr, ptr %7, align 8, !tbaa !39
   %434 = load ptr, ptr %433, align 8, !tbaa !44
-  %435 = getelementptr inbounds nuw ptr, ptr %434, i64 %.0113354
+  %435 = getelementptr inbounds nuw [8 x i8], ptr %434, i64 %.0113354
   %436 = load ptr, ptr %435, align 8, !tbaa !50
   %437 = getelementptr inbounds nuw i8, ptr %436, i64 48
   %438 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %437, ptr noundef nonnull @.str.57) #25
@@ -20996,7 +20992,7 @@ _ZN4ncnn3MatD2Ev.exit124:                         ; preds = %402, %399, %408, %4
 439:                                              ; preds = %432
   %440 = load ptr, ptr %7, align 8, !tbaa !39
   %441 = load ptr, ptr %440, align 8, !tbaa !44
-  %442 = getelementptr inbounds nuw ptr, ptr %441, i64 %.0113354
+  %442 = getelementptr inbounds nuw [8 x i8], ptr %441, i64 %.0113354
   %443 = load ptr, ptr %442, align 8, !tbaa !50
   %444 = getelementptr inbounds nuw i8, ptr %443, i64 136
   %445 = load ptr, ptr %444, align 8, !tbaa !77
@@ -21009,7 +21005,7 @@ _ZN4ncnn3MatD2Ev.exit124:                         ; preds = %402, %399, %408, %4
   %.0112347 = phi i64 [ %.0112, %490 ], [ %.0112346, %439 ]
   %448 = load ptr, ptr %7, align 8, !tbaa !39
   %449 = load ptr, ptr %448, align 8, !tbaa !44
-  %450 = getelementptr inbounds nuw ptr, ptr %449, i64 %.0112347
+  %450 = getelementptr inbounds nuw [8 x i8], ptr %449, i64 %.0112347
   %451 = load ptr, ptr %450, align 8, !tbaa !50
   %452 = getelementptr inbounds nuw i8, ptr %451, i64 48
   %453 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %452, ptr noundef nonnull @.str.136) #25
@@ -21019,7 +21015,7 @@ _ZN4ncnn3MatD2Ev.exit124:                         ; preds = %402, %399, %408, %4
 454:                                              ; preds = %.lr.ph349
   %455 = load ptr, ptr %7, align 8, !tbaa !39
   %456 = load ptr, ptr %455, align 8, !tbaa !44
-  %457 = getelementptr inbounds nuw ptr, ptr %456, i64 %.0112347
+  %457 = getelementptr inbounds nuw [8 x i8], ptr %456, i64 %.0112347
   %458 = load ptr, ptr %457, align 8, !tbaa !50
   %459 = getelementptr inbounds nuw i8, ptr %458, i64 48
   %460 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %459, ptr noundef nonnull @.str.39) #25
@@ -21029,7 +21025,7 @@ _ZN4ncnn3MatD2Ev.exit124:                         ; preds = %402, %399, %408, %4
 461:                                              ; preds = %454
   %462 = load ptr, ptr %7, align 8, !tbaa !39
   %463 = load ptr, ptr %462, align 8, !tbaa !44
-  %464 = getelementptr inbounds nuw ptr, ptr %463, i64 %.0112347
+  %464 = getelementptr inbounds nuw [8 x i8], ptr %463, i64 %.0112347
   %465 = load ptr, ptr %464, align 8, !tbaa !50
   %466 = getelementptr inbounds nuw i8, ptr %465, i64 48
   %467 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %466, ptr noundef nonnull @.str.172) #25
@@ -21039,7 +21035,7 @@ _ZN4ncnn3MatD2Ev.exit124:                         ; preds = %402, %399, %408, %4
 468:                                              ; preds = %461
   %469 = load ptr, ptr %7, align 8, !tbaa !39
   %470 = load ptr, ptr %469, align 8, !tbaa !44
-  %471 = getelementptr inbounds nuw ptr, ptr %470, i64 %.0112347
+  %471 = getelementptr inbounds nuw [8 x i8], ptr %470, i64 %.0112347
   %472 = load ptr, ptr %471, align 8, !tbaa !50
   %473 = getelementptr inbounds nuw i8, ptr %472, i64 48
   %474 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %473, ptr noundef nonnull @.str.173) #25
@@ -21049,7 +21045,7 @@ _ZN4ncnn3MatD2Ev.exit124:                         ; preds = %402, %399, %408, %4
 475:                                              ; preds = %468, %461, %454, %.lr.ph349
   %476 = load ptr, ptr %7, align 8, !tbaa !39
   %477 = load ptr, ptr %476, align 8, !tbaa !44
-  %478 = getelementptr inbounds nuw ptr, ptr %477, i64 %.0112347
+  %478 = getelementptr inbounds nuw [8 x i8], ptr %477, i64 %.0112347
   %479 = load ptr, ptr %478, align 8, !tbaa !50
   %480 = getelementptr inbounds nuw i8, ptr %479, i64 112
   %481 = getelementptr inbounds nuw i8, ptr %479, i64 120
@@ -21079,9 +21075,9 @@ _ZN4ncnn3MatD2Ev.exit124:                         ; preds = %402, %399, %408, %4
 492:                                              ; preds = %._crit_edge350
   %493 = load ptr, ptr %7, align 8, !tbaa !39
   %494 = load ptr, ptr %493, align 8, !tbaa !44
-  %495 = getelementptr inbounds nuw ptr, ptr %494, i64 %.0113354
+  %495 = getelementptr inbounds nuw [8 x i8], ptr %494, i64 %.0113354
   %496 = load ptr, ptr %495, align 8, !tbaa !50
-  %497 = getelementptr inbounds nuw ptr, ptr %494, i64 %.0112.lcssa
+  %497 = getelementptr inbounds nuw [8 x i8], ptr %494, i64 %.0112.lcssa
   %498 = load ptr, ptr %497, align 8, !tbaa !50
   %499 = load ptr, ptr @stderr, align 8, !tbaa !5
   %500 = getelementptr inbounds nuw i8, ptr %496, i64 80
@@ -21499,7 +21495,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %663, %660, %669, %6
   %695 = load ptr, ptr %67, align 8, !tbaa !45
   %696 = sext i32 %691 to i64
   %697 = load ptr, ptr %695, align 8, !tbaa !49
-  %698 = getelementptr inbounds nuw %"class.ncnn::Blob", ptr %697, i64 %696
+  %698 = getelementptr inbounds nuw [112 x i8], ptr %697, i64 %696
   %699 = getelementptr inbounds nuw i8, ptr %698, i64 32
   store i32 %694, ptr %699, align 8, !tbaa !127
   %700 = getelementptr inbounds nuw i8, ptr %498, i64 56
@@ -21575,7 +21571,7 @@ define dso_local noundef i32 @_ZN11NetOptimize36fuse_convolutiondepthwise_activa
   %.0195 = phi i64 [ 0, %.lr.ph197 ], [ %.pre-phi, %._crit_edge.thread ]
   %46 = load ptr, ptr %5, align 8, !tbaa !39
   %47 = load ptr, ptr %46, align 8, !tbaa !44
-  %48 = getelementptr inbounds nuw ptr, ptr %47, i64 %.0195
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %.0195
   %49 = load ptr, ptr %48, align 8, !tbaa !50
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 48
   %51 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %50, ptr noundef nonnull @.str.64) #25
@@ -21589,7 +21585,7 @@ define dso_local noundef i32 @_ZN11NetOptimize36fuse_convolutiondepthwise_activa
 52:                                               ; preds = %45
   %53 = load ptr, ptr %5, align 8, !tbaa !39
   %54 = load ptr, ptr %53, align 8, !tbaa !44
-  %55 = getelementptr inbounds nuw ptr, ptr %54, i64 %.0195
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %.0195
   %56 = load ptr, ptr %55, align 8, !tbaa !50
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 136
   %58 = load ptr, ptr %57, align 8, !tbaa !77
@@ -21602,7 +21598,7 @@ define dso_local noundef i32 @_ZN11NetOptimize36fuse_convolutiondepthwise_activa
   %.059192 = phi i64 [ %.059, %110 ], [ %.059191, %52 ]
   %61 = load ptr, ptr %5, align 8, !tbaa !39
   %62 = load ptr, ptr %61, align 8, !tbaa !44
-  %63 = getelementptr inbounds nuw ptr, ptr %62, i64 %.059192
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %.059192
   %64 = load ptr, ptr %63, align 8, !tbaa !50
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 48
   %66 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %65, ptr noundef nonnull @.str.136) #25
@@ -21612,7 +21608,7 @@ define dso_local noundef i32 @_ZN11NetOptimize36fuse_convolutiondepthwise_activa
 67:                                               ; preds = %.lr.ph
   %68 = load ptr, ptr %5, align 8, !tbaa !39
   %69 = load ptr, ptr %68, align 8, !tbaa !44
-  %70 = getelementptr inbounds nuw ptr, ptr %69, i64 %.059192
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %.059192
   %71 = load ptr, ptr %70, align 8, !tbaa !50
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 48
   %73 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %72, ptr noundef nonnull @.str.39) #25
@@ -21622,7 +21618,7 @@ define dso_local noundef i32 @_ZN11NetOptimize36fuse_convolutiondepthwise_activa
 74:                                               ; preds = %67
   %75 = load ptr, ptr %5, align 8, !tbaa !39
   %76 = load ptr, ptr %75, align 8, !tbaa !44
-  %77 = getelementptr inbounds nuw ptr, ptr %76, i64 %.059192
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %.059192
   %78 = load ptr, ptr %77, align 8, !tbaa !50
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 48
   %80 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %79, ptr noundef nonnull @.str.172) #25
@@ -21632,7 +21628,7 @@ define dso_local noundef i32 @_ZN11NetOptimize36fuse_convolutiondepthwise_activa
 81:                                               ; preds = %74
   %82 = load ptr, ptr %5, align 8, !tbaa !39
   %83 = load ptr, ptr %82, align 8, !tbaa !44
-  %84 = getelementptr inbounds nuw ptr, ptr %83, i64 %.059192
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %.059192
   %85 = load ptr, ptr %84, align 8, !tbaa !50
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 48
   %87 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %86, ptr noundef nonnull @.str.173) #25
@@ -21642,7 +21638,7 @@ define dso_local noundef i32 @_ZN11NetOptimize36fuse_convolutiondepthwise_activa
 88:                                               ; preds = %81
   %89 = load ptr, ptr %5, align 8, !tbaa !39
   %90 = load ptr, ptr %89, align 8, !tbaa !44
-  %91 = getelementptr inbounds nuw ptr, ptr %90, i64 %.059192
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %.059192
   %92 = load ptr, ptr %91, align 8, !tbaa !50
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 48
   %94 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %93, ptr noundef nonnull @.str.106) #25
@@ -21652,7 +21648,7 @@ define dso_local noundef i32 @_ZN11NetOptimize36fuse_convolutiondepthwise_activa
 95:                                               ; preds = %88, %81, %74, %67, %.lr.ph
   %96 = load ptr, ptr %5, align 8, !tbaa !39
   %97 = load ptr, ptr %96, align 8, !tbaa !44
-  %98 = getelementptr inbounds nuw ptr, ptr %97, i64 %.059192
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %97, i64 %.059192
   %99 = load ptr, ptr %98, align 8, !tbaa !50
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 112
   %101 = getelementptr inbounds nuw i8, ptr %99, i64 120
@@ -21682,9 +21678,9 @@ define dso_local noundef i32 @_ZN11NetOptimize36fuse_convolutiondepthwise_activa
 112:                                              ; preds = %._crit_edge
   %113 = load ptr, ptr %5, align 8, !tbaa !39
   %114 = load ptr, ptr %113, align 8, !tbaa !44
-  %115 = getelementptr inbounds nuw ptr, ptr %114, i64 %.0195
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %114, i64 %.0195
   %116 = load ptr, ptr %115, align 8, !tbaa !50
-  %117 = getelementptr inbounds nuw ptr, ptr %114, i64 %.059.lcssa
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %114, i64 %.059.lcssa
   %118 = load ptr, ptr %117, align 8, !tbaa !50
   %119 = load ptr, ptr @stderr, align 8, !tbaa !5
   %120 = getelementptr inbounds nuw i8, ptr %116, i64 80
@@ -22289,7 +22285,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %379, %376, %385, %3
   %401 = load ptr, ptr %44, align 8, !tbaa !45
   %402 = sext i32 %397 to i64
   %403 = load ptr, ptr %401, align 8, !tbaa !49
-  %404 = getelementptr inbounds nuw %"class.ncnn::Blob", ptr %403, i64 %402
+  %404 = getelementptr inbounds nuw [112 x i8], ptr %403, i64 %402
   %405 = getelementptr inbounds nuw i8, ptr %404, i64 32
   store i32 %400, ptr %405, align 8, !tbaa !127
   %406 = getelementptr inbounds nuw i8, ptr %118, i64 56
@@ -22354,7 +22350,7 @@ define dso_local noundef i32 @_ZN11NetOptimize29fuse_deconvolution_activationEv(
   %.0138 = phi i64 [ 0, %.lr.ph140 ], [ %.pre-phi, %._crit_edge.thread ]
   %35 = load ptr, ptr %4, align 8, !tbaa !39
   %36 = load ptr, ptr %35, align 8, !tbaa !44
-  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %.0138
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %.0138
   %38 = load ptr, ptr %37, align 8, !tbaa !50
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 48
   %40 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %39, ptr noundef nonnull @.str.71) #25
@@ -22368,7 +22364,7 @@ define dso_local noundef i32 @_ZN11NetOptimize29fuse_deconvolution_activationEv(
 41:                                               ; preds = %34
   %42 = load ptr, ptr %4, align 8, !tbaa !39
   %43 = load ptr, ptr %42, align 8, !tbaa !44
-  %44 = getelementptr inbounds nuw ptr, ptr %43, i64 %.0138
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %.0138
   %45 = load ptr, ptr %44, align 8, !tbaa !50
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 136
   %47 = load ptr, ptr %46, align 8, !tbaa !77
@@ -22381,7 +22377,7 @@ define dso_local noundef i32 @_ZN11NetOptimize29fuse_deconvolution_activationEv(
   %.049135 = phi i64 [ %.049, %85 ], [ %.049134, %41 ]
   %50 = load ptr, ptr %4, align 8, !tbaa !39
   %51 = load ptr, ptr %50, align 8, !tbaa !44
-  %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %.049135
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %.049135
   %53 = load ptr, ptr %52, align 8, !tbaa !50
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 48
   %55 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %54, ptr noundef nonnull @.str.136) #25
@@ -22391,7 +22387,7 @@ define dso_local noundef i32 @_ZN11NetOptimize29fuse_deconvolution_activationEv(
 56:                                               ; preds = %.lr.ph
   %57 = load ptr, ptr %4, align 8, !tbaa !39
   %58 = load ptr, ptr %57, align 8, !tbaa !44
-  %59 = getelementptr inbounds nuw ptr, ptr %58, i64 %.049135
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %.049135
   %60 = load ptr, ptr %59, align 8, !tbaa !50
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 48
   %62 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %61, ptr noundef nonnull @.str.39) #25
@@ -22401,7 +22397,7 @@ define dso_local noundef i32 @_ZN11NetOptimize29fuse_deconvolution_activationEv(
 63:                                               ; preds = %56
   %64 = load ptr, ptr %4, align 8, !tbaa !39
   %65 = load ptr, ptr %64, align 8, !tbaa !44
-  %66 = getelementptr inbounds nuw ptr, ptr %65, i64 %.049135
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %.049135
   %67 = load ptr, ptr %66, align 8, !tbaa !50
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 48
   %69 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %68, ptr noundef nonnull @.str.172) #25
@@ -22411,7 +22407,7 @@ define dso_local noundef i32 @_ZN11NetOptimize29fuse_deconvolution_activationEv(
 70:                                               ; preds = %63, %56, %.lr.ph
   %71 = load ptr, ptr %4, align 8, !tbaa !39
   %72 = load ptr, ptr %71, align 8, !tbaa !44
-  %73 = getelementptr inbounds nuw ptr, ptr %72, i64 %.049135
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %.049135
   %74 = load ptr, ptr %73, align 8, !tbaa !50
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 112
   %76 = getelementptr inbounds nuw i8, ptr %74, i64 120
@@ -22441,9 +22437,9 @@ define dso_local noundef i32 @_ZN11NetOptimize29fuse_deconvolution_activationEv(
 87:                                               ; preds = %._crit_edge
   %88 = load ptr, ptr %4, align 8, !tbaa !39
   %89 = load ptr, ptr %88, align 8, !tbaa !44
-  %90 = getelementptr inbounds nuw ptr, ptr %89, i64 %.0138
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %89, i64 %.0138
   %91 = load ptr, ptr %90, align 8, !tbaa !50
-  %92 = getelementptr inbounds nuw ptr, ptr %89, i64 %.049.lcssa
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %89, i64 %.049.lcssa
   %93 = load ptr, ptr %92, align 8, !tbaa !50
   %94 = load ptr, ptr @stderr, align 8, !tbaa !5
   %95 = getelementptr inbounds nuw i8, ptr %91, i64 80
@@ -22851,7 +22847,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %258, %255, %264, %2
   %285 = load ptr, ptr %33, align 8, !tbaa !45
   %286 = sext i32 %281 to i64
   %287 = load ptr, ptr %285, align 8, !tbaa !49
-  %288 = getelementptr inbounds nuw %"class.ncnn::Blob", ptr %287, i64 %286
+  %288 = getelementptr inbounds nuw [112 x i8], ptr %287, i64 %286
   %289 = getelementptr inbounds nuw i8, ptr %288, i64 32
   store i32 %284, ptr %289, align 8, !tbaa !127
   %290 = getelementptr inbounds nuw i8, ptr %93, i64 56
@@ -22916,7 +22912,7 @@ define dso_local noundef i32 @_ZN11NetOptimize38fuse_deconvolutiondepthwise_acti
   %.0138 = phi i64 [ 0, %.lr.ph140 ], [ %.pre-phi, %._crit_edge.thread ]
   %35 = load ptr, ptr %4, align 8, !tbaa !39
   %36 = load ptr, ptr %35, align 8, !tbaa !44
-  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %.0138
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %.0138
   %38 = load ptr, ptr %37, align 8, !tbaa !50
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 48
   %40 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %39, ptr noundef nonnull @.str.80) #25
@@ -22930,7 +22926,7 @@ define dso_local noundef i32 @_ZN11NetOptimize38fuse_deconvolutiondepthwise_acti
 41:                                               ; preds = %34
   %42 = load ptr, ptr %4, align 8, !tbaa !39
   %43 = load ptr, ptr %42, align 8, !tbaa !44
-  %44 = getelementptr inbounds nuw ptr, ptr %43, i64 %.0138
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %.0138
   %45 = load ptr, ptr %44, align 8, !tbaa !50
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 136
   %47 = load ptr, ptr %46, align 8, !tbaa !77
@@ -22943,7 +22939,7 @@ define dso_local noundef i32 @_ZN11NetOptimize38fuse_deconvolutiondepthwise_acti
   %.049135 = phi i64 [ %.049, %85 ], [ %.049134, %41 ]
   %50 = load ptr, ptr %4, align 8, !tbaa !39
   %51 = load ptr, ptr %50, align 8, !tbaa !44
-  %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %.049135
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %.049135
   %53 = load ptr, ptr %52, align 8, !tbaa !50
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 48
   %55 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %54, ptr noundef nonnull @.str.136) #25
@@ -22953,7 +22949,7 @@ define dso_local noundef i32 @_ZN11NetOptimize38fuse_deconvolutiondepthwise_acti
 56:                                               ; preds = %.lr.ph
   %57 = load ptr, ptr %4, align 8, !tbaa !39
   %58 = load ptr, ptr %57, align 8, !tbaa !44
-  %59 = getelementptr inbounds nuw ptr, ptr %58, i64 %.049135
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %.049135
   %60 = load ptr, ptr %59, align 8, !tbaa !50
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 48
   %62 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %61, ptr noundef nonnull @.str.39) #25
@@ -22963,7 +22959,7 @@ define dso_local noundef i32 @_ZN11NetOptimize38fuse_deconvolutiondepthwise_acti
 63:                                               ; preds = %56
   %64 = load ptr, ptr %4, align 8, !tbaa !39
   %65 = load ptr, ptr %64, align 8, !tbaa !44
-  %66 = getelementptr inbounds nuw ptr, ptr %65, i64 %.049135
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %.049135
   %67 = load ptr, ptr %66, align 8, !tbaa !50
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 48
   %69 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %68, ptr noundef nonnull @.str.172) #25
@@ -22973,7 +22969,7 @@ define dso_local noundef i32 @_ZN11NetOptimize38fuse_deconvolutiondepthwise_acti
 70:                                               ; preds = %63, %56, %.lr.ph
   %71 = load ptr, ptr %4, align 8, !tbaa !39
   %72 = load ptr, ptr %71, align 8, !tbaa !44
-  %73 = getelementptr inbounds nuw ptr, ptr %72, i64 %.049135
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %.049135
   %74 = load ptr, ptr %73, align 8, !tbaa !50
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 112
   %76 = getelementptr inbounds nuw i8, ptr %74, i64 120
@@ -23003,9 +22999,9 @@ define dso_local noundef i32 @_ZN11NetOptimize38fuse_deconvolutiondepthwise_acti
 87:                                               ; preds = %._crit_edge
   %88 = load ptr, ptr %4, align 8, !tbaa !39
   %89 = load ptr, ptr %88, align 8, !tbaa !44
-  %90 = getelementptr inbounds nuw ptr, ptr %89, i64 %.0138
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %89, i64 %.0138
   %91 = load ptr, ptr %90, align 8, !tbaa !50
-  %92 = getelementptr inbounds nuw ptr, ptr %89, i64 %.049.lcssa
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %89, i64 %.049.lcssa
   %93 = load ptr, ptr %92, align 8, !tbaa !50
   %94 = load ptr, ptr @stderr, align 8, !tbaa !5
   %95 = getelementptr inbounds nuw i8, ptr %91, i64 80
@@ -23413,7 +23409,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %258, %255, %264, %2
   %285 = load ptr, ptr %33, align 8, !tbaa !45
   %286 = sext i32 %281 to i64
   %287 = load ptr, ptr %285, align 8, !tbaa !49
-  %288 = getelementptr inbounds nuw %"class.ncnn::Blob", ptr %287, i64 %286
+  %288 = getelementptr inbounds nuw [112 x i8], ptr %287, i64 %286
   %289 = getelementptr inbounds nuw i8, ptr %288, i64 32
   store i32 %284, ptr %289, align 8, !tbaa !127
   %290 = getelementptr inbounds nuw i8, ptr %93, i64 56
@@ -23489,7 +23485,7 @@ define dso_local noundef i32 @_ZN11NetOptimize28fuse_innerproduct_activationEv(p
   %.0195 = phi i64 [ 0, %.lr.ph197 ], [ %.pre-phi, %._crit_edge.thread ]
   %46 = load ptr, ptr %5, align 8, !tbaa !39
   %47 = load ptr, ptr %46, align 8, !tbaa !44
-  %48 = getelementptr inbounds nuw ptr, ptr %47, i64 %.0195
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %.0195
   %49 = load ptr, ptr %48, align 8, !tbaa !50
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 48
   %51 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %50, ptr noundef nonnull @.str.107) #25
@@ -23503,7 +23499,7 @@ define dso_local noundef i32 @_ZN11NetOptimize28fuse_innerproduct_activationEv(p
 52:                                               ; preds = %45
   %53 = load ptr, ptr %5, align 8, !tbaa !39
   %54 = load ptr, ptr %53, align 8, !tbaa !44
-  %55 = getelementptr inbounds nuw ptr, ptr %54, i64 %.0195
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %.0195
   %56 = load ptr, ptr %55, align 8, !tbaa !50
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 136
   %58 = load ptr, ptr %57, align 8, !tbaa !77
@@ -23516,7 +23512,7 @@ define dso_local noundef i32 @_ZN11NetOptimize28fuse_innerproduct_activationEv(p
   %.059192 = phi i64 [ %.059, %110 ], [ %.059191, %52 ]
   %61 = load ptr, ptr %5, align 8, !tbaa !39
   %62 = load ptr, ptr %61, align 8, !tbaa !44
-  %63 = getelementptr inbounds nuw ptr, ptr %62, i64 %.059192
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %.059192
   %64 = load ptr, ptr %63, align 8, !tbaa !50
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 48
   %66 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %65, ptr noundef nonnull @.str.136) #25
@@ -23526,7 +23522,7 @@ define dso_local noundef i32 @_ZN11NetOptimize28fuse_innerproduct_activationEv(p
 67:                                               ; preds = %.lr.ph
   %68 = load ptr, ptr %5, align 8, !tbaa !39
   %69 = load ptr, ptr %68, align 8, !tbaa !44
-  %70 = getelementptr inbounds nuw ptr, ptr %69, i64 %.059192
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %.059192
   %71 = load ptr, ptr %70, align 8, !tbaa !50
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 48
   %73 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %72, ptr noundef nonnull @.str.39) #25
@@ -23536,7 +23532,7 @@ define dso_local noundef i32 @_ZN11NetOptimize28fuse_innerproduct_activationEv(p
 74:                                               ; preds = %67
   %75 = load ptr, ptr %5, align 8, !tbaa !39
   %76 = load ptr, ptr %75, align 8, !tbaa !44
-  %77 = getelementptr inbounds nuw ptr, ptr %76, i64 %.059192
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %.059192
   %78 = load ptr, ptr %77, align 8, !tbaa !50
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 48
   %80 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %79, ptr noundef nonnull @.str.172) #25
@@ -23546,7 +23542,7 @@ define dso_local noundef i32 @_ZN11NetOptimize28fuse_innerproduct_activationEv(p
 81:                                               ; preds = %74
   %82 = load ptr, ptr %5, align 8, !tbaa !39
   %83 = load ptr, ptr %82, align 8, !tbaa !44
-  %84 = getelementptr inbounds nuw ptr, ptr %83, i64 %.059192
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %.059192
   %85 = load ptr, ptr %84, align 8, !tbaa !50
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 48
   %87 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %86, ptr noundef nonnull @.str.173) #25
@@ -23556,7 +23552,7 @@ define dso_local noundef i32 @_ZN11NetOptimize28fuse_innerproduct_activationEv(p
 88:                                               ; preds = %81
   %89 = load ptr, ptr %5, align 8, !tbaa !39
   %90 = load ptr, ptr %89, align 8, !tbaa !44
-  %91 = getelementptr inbounds nuw ptr, ptr %90, i64 %.059192
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %.059192
   %92 = load ptr, ptr %91, align 8, !tbaa !50
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 48
   %94 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %93, ptr noundef nonnull @.str.106) #25
@@ -23566,7 +23562,7 @@ define dso_local noundef i32 @_ZN11NetOptimize28fuse_innerproduct_activationEv(p
 95:                                               ; preds = %88, %81, %74, %67, %.lr.ph
   %96 = load ptr, ptr %5, align 8, !tbaa !39
   %97 = load ptr, ptr %96, align 8, !tbaa !44
-  %98 = getelementptr inbounds nuw ptr, ptr %97, i64 %.059192
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %97, i64 %.059192
   %99 = load ptr, ptr %98, align 8, !tbaa !50
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 112
   %101 = getelementptr inbounds nuw i8, ptr %99, i64 120
@@ -23596,9 +23592,9 @@ define dso_local noundef i32 @_ZN11NetOptimize28fuse_innerproduct_activationEv(p
 112:                                              ; preds = %._crit_edge
   %113 = load ptr, ptr %5, align 8, !tbaa !39
   %114 = load ptr, ptr %113, align 8, !tbaa !44
-  %115 = getelementptr inbounds nuw ptr, ptr %114, i64 %.0195
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %114, i64 %.0195
   %116 = load ptr, ptr %115, align 8, !tbaa !50
-  %117 = getelementptr inbounds nuw ptr, ptr %114, i64 %.059.lcssa
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %114, i64 %.059.lcssa
   %118 = load ptr, ptr %117, align 8, !tbaa !50
   %119 = load ptr, ptr @stderr, align 8, !tbaa !5
   %120 = getelementptr inbounds nuw i8, ptr %116, i64 80
@@ -24203,7 +24199,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %379, %376, %385, %3
   %401 = load ptr, ptr %44, align 8, !tbaa !45
   %402 = sext i32 %397 to i64
   %403 = load ptr, ptr %401, align 8, !tbaa !49
-  %404 = getelementptr inbounds nuw %"class.ncnn::Blob", ptr %403, i64 %402
+  %404 = getelementptr inbounds nuw [112 x i8], ptr %403, i64 %402
   %405 = getelementptr inbounds nuw i8, ptr %404, i64 32
   store i32 %400, ptr %405, align 8, !tbaa !127
   %406 = getelementptr inbounds nuw i8, ptr %118, i64 56
@@ -24239,7 +24235,7 @@ define dso_local noundef i32 @_ZN11NetOptimize24fuse_memorydata_binaryopEv(ptr n
   %.0198 = phi i64 [ %.pre-phi, %._crit_edge.thread ], [ 0, %1 ]
   %11 = load ptr, ptr %2, align 8, !tbaa !39
   %12 = load ptr, ptr %11, align 8, !tbaa !44
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %.0198
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.0198
   %14 = load ptr, ptr %13, align 8, !tbaa !50
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %16 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull @.str.116) #25
@@ -24253,7 +24249,7 @@ define dso_local noundef i32 @_ZN11NetOptimize24fuse_memorydata_binaryopEv(ptr n
 17:                                               ; preds = %.lr.ph200
   %18 = load ptr, ptr %2, align 8, !tbaa !39
   %19 = load ptr, ptr %18, align 8, !tbaa !44
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %.0198
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.0198
   %21 = load ptr, ptr %20, align 8, !tbaa !50
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 136
   %23 = load ptr, ptr %22, align 8, !tbaa !77
@@ -24266,7 +24262,7 @@ define dso_local noundef i32 @_ZN11NetOptimize24fuse_memorydata_binaryopEv(ptr n
   %.0128193 = phi i64 [ %.0128, %51 ], [ %.0128192, %17 ]
   %26 = load ptr, ptr %2, align 8, !tbaa !39
   %27 = load ptr, ptr %26, align 8, !tbaa !44
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %.0128193
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %.0128193
   %29 = load ptr, ptr %28, align 8, !tbaa !50
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 48
   %31 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull @.str.34) #25
@@ -24276,7 +24272,7 @@ define dso_local noundef i32 @_ZN11NetOptimize24fuse_memorydata_binaryopEv(ptr n
 32:                                               ; preds = %.lr.ph
   %33 = load ptr, ptr %2, align 8, !tbaa !39
   %34 = load ptr, ptr %33, align 8, !tbaa !44
-  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %.0128193
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %.0128193
   %36 = load ptr, ptr %35, align 8, !tbaa !50
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 112
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 120
@@ -24312,9 +24308,9 @@ define dso_local noundef i32 @_ZN11NetOptimize24fuse_memorydata_binaryopEv(ptr n
 53:                                               ; preds = %._crit_edge
   %54 = load ptr, ptr %2, align 8, !tbaa !39
   %55 = load ptr, ptr %54, align 8, !tbaa !44
-  %56 = getelementptr inbounds nuw ptr, ptr %55, i64 %.0198
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %.0198
   %57 = load ptr, ptr %56, align 8, !tbaa !50
-  %58 = getelementptr inbounds nuw ptr, ptr %55, i64 %.0128.lcssa
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %.0128.lcssa
   %59 = load ptr, ptr %58, align 8, !tbaa !50
   %60 = getelementptr inbounds nuw i8, ptr %57, i64 208
   %61 = load i32, ptr %60, align 8, !tbaa !570
@@ -24376,7 +24372,7 @@ define dso_local noundef i32 @_ZN11NetOptimize24fuse_memorydata_binaryopEv(ptr n
   %86 = load ptr, ptr %85, align 8, !tbaa !52
   %87 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %82, ptr noundef nonnull @.str.180, ptr noundef %84, ptr noundef %86) #27
   %88 = load ptr, ptr %69, align 8, !tbaa !852
-  %89 = getelementptr inbounds nuw i32, ptr %88, i64 %.0129
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %88, i64 %.0129
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 4
   %91 = getelementptr inbounds nuw i8, ptr %59, i64 120
   %92 = load ptr, ptr %91, align 8, !tbaa !852
@@ -24413,7 +24409,7 @@ _ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EE.exit: ; preds
   %.0134219 = phi i64 [ %256, %._crit_edge206.thread ], [ 0, %._crit_edge.thread ]
   %102 = load ptr, ptr %2, align 8, !tbaa !39
   %103 = load ptr, ptr %102, align 8, !tbaa !44
-  %104 = getelementptr inbounds nuw ptr, ptr %103, i64 %.0134219
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %103, i64 %.0134219
   %105 = load ptr, ptr %104, align 8, !tbaa !50
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 48
   %107 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %106, ptr noundef nonnull @.str.116) #25
@@ -24423,7 +24419,7 @@ _ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EE.exit: ; preds
 108:                                              ; preds = %.lr.ph220
   %109 = load ptr, ptr %2, align 8, !tbaa !39
   %110 = load ptr, ptr %109, align 8, !tbaa !44
-  %111 = getelementptr inbounds nuw ptr, ptr %110, i64 %.0134219
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %110, i64 %.0134219
   %112 = load ptr, ptr %111, align 8, !tbaa !50
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 136
   %114 = load ptr, ptr %113, align 8, !tbaa !77
@@ -24437,7 +24433,7 @@ _ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EE.exit: ; preds
   %.0137.in202 = phi i64 [ %.0137203, %138 ], [ %.0134219, %108 ]
   %117 = load ptr, ptr %2, align 8, !tbaa !39
   %118 = load ptr, ptr %117, align 8, !tbaa !44
-  %119 = getelementptr inbounds nuw ptr, ptr %118, i64 %.0137203
+  %119 = getelementptr inbounds nuw [8 x i8], ptr %118, i64 %.0137203
   %120 = load ptr, ptr %119, align 8, !tbaa !50
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 48
   %122 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %121, ptr noundef nonnull @.str.181) #25
@@ -24447,7 +24443,7 @@ _ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EE.exit: ; preds
 123:                                              ; preds = %.lr.ph205
   %124 = load ptr, ptr %2, align 8, !tbaa !39
   %125 = load ptr, ptr %124, align 8, !tbaa !44
-  %126 = getelementptr inbounds nuw ptr, ptr %125, i64 %.0137203
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %125, i64 %.0137203
   %127 = load ptr, ptr %126, align 8, !tbaa !50
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 112
   %129 = getelementptr inbounds nuw i8, ptr %127, i64 120
@@ -24484,7 +24480,7 @@ _ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EE.exit: ; preds
   %.0143214 = phi i64 [ %183, %.loopexit ], [ %141, %140 ]
   %143 = load ptr, ptr %2, align 8, !tbaa !39
   %144 = load ptr, ptr %143, align 8, !tbaa !44
-  %145 = getelementptr inbounds nuw ptr, ptr %144, i64 %.0143214
+  %145 = getelementptr inbounds nuw [8 x i8], ptr %144, i64 %.0143214
   %146 = load ptr, ptr %145, align 8, !tbaa !50
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 48
   %148 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %147, ptr noundef nonnull @.str.34) #25
@@ -24494,7 +24490,7 @@ _ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EE.exit: ; preds
 149:                                              ; preds = %.lr.ph217
   %150 = load ptr, ptr %2, align 8, !tbaa !39
   %151 = load ptr, ptr %150, align 8, !tbaa !44
-  %152 = getelementptr inbounds nuw ptr, ptr %151, i64 %.0143214
+  %152 = getelementptr inbounds nuw [8 x i8], ptr %151, i64 %.0143214
   %153 = load ptr, ptr %152, align 8, !tbaa !50
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 112
   %155 = getelementptr inbounds nuw i8, ptr %153, i64 120
@@ -24507,7 +24503,7 @@ _ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EE.exit: ; preds
   br i1 %.not149, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %149
-  %161 = getelementptr inbounds nuw ptr, ptr %151, i64 %.0137.lcssa
+  %161 = getelementptr inbounds nuw [8 x i8], ptr %151, i64 %.0137.lcssa
   %162 = load ptr, ptr %161, align 8, !tbaa !50
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 136
   %164 = getelementptr inbounds nuw i8, ptr %162, i64 144
@@ -24529,7 +24525,7 @@ _ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EE.exit: ; preds
 
 175:                                              ; preds = %.lr.ph213, %182
   %indvars.iv = phi i64 [ 0, %.lr.ph213 ], [ %indvars.iv.next, %182 ]
-  %176 = getelementptr inbounds nuw i32, ptr %166, i64 %indvars.iv
+  %176 = getelementptr inbounds nuw [4 x i8], ptr %166, i64 %indvars.iv
   %177 = load i32, ptr %176, align 4, !tbaa !78
   %178 = icmp eq i32 %173, %177
   br i1 %178, label %.thread176.loopexit, label %179
@@ -24563,11 +24559,11 @@ _ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EE.exit: ; preds
 186:                                              ; preds = %.thread176
   %187 = load ptr, ptr %2, align 8, !tbaa !39
   %188 = load ptr, ptr %187, align 8, !tbaa !44
-  %189 = getelementptr inbounds nuw ptr, ptr %188, i64 %.0134219
+  %189 = getelementptr inbounds nuw [8 x i8], ptr %188, i64 %.0134219
   %190 = load ptr, ptr %189, align 8, !tbaa !50
-  %191 = getelementptr inbounds nuw ptr, ptr %188, i64 %.0137.lcssa
+  %191 = getelementptr inbounds nuw [8 x i8], ptr %188, i64 %.0137.lcssa
   %192 = load ptr, ptr %191, align 8, !tbaa !50
-  %193 = getelementptr inbounds nuw ptr, ptr %188, i64 %.0143191
+  %193 = getelementptr inbounds nuw [8 x i8], ptr %188, i64 %.0143191
   %194 = load ptr, ptr %193, align 8, !tbaa !50
   %195 = getelementptr inbounds nuw i8, ptr %190, i64 208
   %196 = load i32, ptr %195, align 8, !tbaa !570
@@ -24592,7 +24588,7 @@ _ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EE.exit: ; preds
   %206 = load i32, ptr %205, align 4, !tbaa !78
   %207 = getelementptr inbounds nuw i8, ptr %192, i64 136
   %208 = load ptr, ptr %207, align 8, !tbaa !77
-  %209 = getelementptr inbounds nuw i32, ptr %208, i64 %.1139
+  %209 = getelementptr inbounds nuw [4 x i8], ptr %208, i64 %.1139
   %210 = load i32, ptr %209, align 4, !tbaa !78
   %211 = icmp eq i32 %206, %210
   br i1 %211, label %212, label %.thread179
@@ -24633,7 +24629,7 @@ _ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EE.exit: ; preds
   %225 = load ptr, ptr %224, align 8, !tbaa !52
   %226 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %221, ptr noundef nonnull @.str.180, ptr noundef %223, ptr noundef %225) #27
   %227 = load ptr, ptr %204, align 8, !tbaa !852
-  %228 = getelementptr inbounds nuw i32, ptr %227, i64 %.0131
+  %228 = getelementptr inbounds nuw [4 x i8], ptr %227, i64 %.0131
   %229 = getelementptr inbounds nuw i8, ptr %228, i64 4
   %230 = getelementptr inbounds nuw i8, ptr %194, i64 120
   %231 = load ptr, ptr %230, align 8, !tbaa !852
@@ -24653,7 +24649,7 @@ _ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EE.exit161: ; pr
   %236 = getelementptr inbounds i8, ptr %235, i64 -4
   store ptr %236, ptr %230, align 8, !tbaa !89
   %237 = load ptr, ptr %207, align 8, !tbaa !852
-  %238 = getelementptr inbounds i32, ptr %237, i64 %.1139
+  %238 = getelementptr inbounds [4 x i8], ptr %237, i64 %.1139
   %239 = getelementptr inbounds nuw i8, ptr %238, i64 4
   %240 = getelementptr inbounds nuw i8, ptr %192, i64 144
   %241 = load ptr, ptr %240, align 8, !tbaa !852
@@ -24734,7 +24730,7 @@ define dso_local noundef i32 @_ZN11NetOptimize21fuse_binaryop_eltwiseEv(ptr noun
   %.086172 = phi i64 [ 0, %.lr.ph174 ], [ %279, %278 ]
   %24 = load ptr, ptr %4, align 8, !tbaa !39
   %25 = load ptr, ptr %24, align 8, !tbaa !44
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %.086172
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %.086172
   %27 = load ptr, ptr %26, align 8, !tbaa !50
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 48
   %29 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull @.str.34) #25
@@ -24744,7 +24740,7 @@ define dso_local noundef i32 @_ZN11NetOptimize21fuse_binaryop_eltwiseEv(ptr noun
 30:                                               ; preds = %23
   %31 = load ptr, ptr %4, align 8, !tbaa !39
   %32 = load ptr, ptr %31, align 8, !tbaa !44
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %.086172
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.086172
   %34 = load ptr, ptr %33, align 8, !tbaa !50
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 112
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 120
@@ -24779,7 +24775,7 @@ define dso_local noundef i32 @_ZN11NetOptimize21fuse_binaryop_eltwiseEv(ptr noun
   %.087162 = phi i64 [ %79, %78 ], [ 0, %48 ]
   %52 = load ptr, ptr %4, align 8, !tbaa !39
   %53 = load ptr, ptr %52, align 8, !tbaa !44
-  %54 = getelementptr inbounds nuw ptr, ptr %53, i64 %.087162
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %.087162
   %55 = load ptr, ptr %54, align 8, !tbaa !50
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 48
   %57 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %56, ptr noundef nonnull @.str.34) #25
@@ -24789,7 +24785,7 @@ define dso_local noundef i32 @_ZN11NetOptimize21fuse_binaryop_eltwiseEv(ptr noun
 58:                                               ; preds = %.lr.ph
   %59 = load ptr, ptr %4, align 8, !tbaa !39
   %60 = load ptr, ptr %59, align 8, !tbaa !44
-  %61 = getelementptr inbounds nuw ptr, ptr %60, i64 %.087162
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %.087162
   %62 = load ptr, ptr %61, align 8, !tbaa !50
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 112
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 120
@@ -24827,7 +24823,7 @@ define dso_local noundef i32 @_ZN11NetOptimize21fuse_binaryop_eltwiseEv(ptr noun
   %.088165 = phi i64 [ %107, %106 ], [ 0, %.lr.ph167.preheader ]
   %80 = load ptr, ptr %4, align 8, !tbaa !39
   %81 = load ptr, ptr %80, align 8, !tbaa !44
-  %82 = getelementptr inbounds nuw ptr, ptr %81, i64 %.088165
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %.088165
   %83 = load ptr, ptr %82, align 8, !tbaa !50
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 48
   %85 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %84, ptr noundef nonnull @.str.34) #25
@@ -24837,7 +24833,7 @@ define dso_local noundef i32 @_ZN11NetOptimize21fuse_binaryop_eltwiseEv(ptr noun
 86:                                               ; preds = %.lr.ph167
   %87 = load ptr, ptr %4, align 8, !tbaa !39
   %88 = load ptr, ptr %87, align 8, !tbaa !44
-  %89 = getelementptr inbounds nuw ptr, ptr %88, i64 %.088165
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %.088165
   %90 = load ptr, ptr %89, align 8, !tbaa !50
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 112
   %92 = getelementptr inbounds nuw i8, ptr %90, i64 120
@@ -24878,9 +24874,9 @@ define dso_local noundef i32 @_ZN11NetOptimize21fuse_binaryop_eltwiseEv(ptr noun
 110:                                              ; preds = %._crit_edge168
   %111 = load ptr, ptr %4, align 8, !tbaa !39
   %112 = load ptr, ptr %111, align 8, !tbaa !44
-  %113 = getelementptr inbounds nuw ptr, ptr %112, i64 %.087.lcssa195
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %112, i64 %.087.lcssa195
   %114 = load ptr, ptr %113, align 8, !tbaa !50
-  %115 = getelementptr inbounds nuw ptr, ptr %112, i64 %.088.lcssa
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %112, i64 %.088.lcssa
   %116 = load ptr, ptr %115, align 8, !tbaa !50
   %117 = load ptr, ptr @stderr, align 8, !tbaa !5
   %118 = getelementptr inbounds nuw i8, ptr %114, i64 80
@@ -25180,7 +25176,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit127: ; preds = %
 271:                                              ; preds = %257, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit127
   %272 = load ptr, ptr %4, align 8, !tbaa !39
   %273 = load ptr, ptr %272, align 8, !tbaa !44
-  %274 = getelementptr inbounds nuw ptr, ptr %273, i64 %.086172
+  %274 = getelementptr inbounds nuw [8 x i8], ptr %273, i64 %.086172
   store ptr %125, ptr %274, align 8, !tbaa !50
   %275 = load ptr, ptr %34, align 8, !tbaa !20
   %276 = getelementptr inbounds nuw i8, ptr %275, i64 8
@@ -25343,7 +25339,7 @@ define dso_local noundef i32 @_ZN11NetOptimize17eliminate_dropoutEv(ptr noundef 
   %13 = zext i32 %indvars.iv to i64
   %14 = load ptr, ptr %2, align 8, !tbaa !39
   %15 = load ptr, ptr %14, align 8, !tbaa !44
-  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %.032
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %.032
   %17 = load ptr, ptr %16, align 8, !tbaa !50
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 48
   %19 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull @.str.91) #25
@@ -25353,7 +25349,7 @@ define dso_local noundef i32 @_ZN11NetOptimize17eliminate_dropoutEv(ptr noundef 
 20:                                               ; preds = %12
   %21 = load ptr, ptr %2, align 8, !tbaa !39
   %22 = load ptr, ptr %21, align 8, !tbaa !44
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %.032
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %.032
   %24 = load ptr, ptr %23, align 8, !tbaa !50
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 208
   %26 = load float, ptr %25, align 8, !tbaa !449
@@ -25373,7 +25369,7 @@ define dso_local noundef i32 @_ZN11NetOptimize17eliminate_dropoutEv(ptr noundef 
   %indvars.iv39 = phi i64 [ %indvars.iv.next40, %56 ], [ %13, %28 ]
   %34 = load ptr, ptr %2, align 8, !tbaa !39
   %35 = load ptr, ptr %34, align 8, !tbaa !44
-  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv39
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv39
   %37 = load ptr, ptr %36, align 8, !tbaa !50
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 48
   %39 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull @.str.8) #25
@@ -25383,7 +25379,7 @@ define dso_local noundef i32 @_ZN11NetOptimize17eliminate_dropoutEv(ptr noundef 
 41:                                               ; preds = %.lr.ph
   %42 = load ptr, ptr %2, align 8, !tbaa !39
   %43 = load ptr, ptr %42, align 8, !tbaa !44
-  %44 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv39
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv39
   %45 = load ptr, ptr %44, align 8, !tbaa !50
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 136
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 144
@@ -25422,7 +25418,7 @@ define dso_local noundef i32 @_ZN11NetOptimize17eliminate_dropoutEv(ptr noundef 
   %60 = phi ptr [ %.pre42, %._crit_edge..thread_crit_edge ], [ %43, %.thread.loopexit ]
   %.02427 = phi i32 [ %.02429, %._crit_edge..thread_crit_edge ], [ %59, %.thread.loopexit ]
   %61 = sext i32 %.02427 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   %63 = load ptr, ptr %62, align 8, !tbaa !50
   %64 = load ptr, ptr @stderr, align 8, !tbaa !5
   %65 = getelementptr inbounds nuw i8, ptr %63, i64 80
@@ -25439,7 +25435,7 @@ define dso_local noundef i32 @_ZN11NetOptimize17eliminate_dropoutEv(ptr noundef 
   %75 = load ptr, ptr %11, align 8, !tbaa !45
   %76 = sext i32 %72 to i64
   %77 = load ptr, ptr %75, align 8, !tbaa !49
-  %78 = getelementptr inbounds nuw %"class.ncnn::Blob", ptr %77, i64 %76
+  %78 = getelementptr inbounds nuw [112 x i8], ptr %77, i64 %76
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 32
   store i32 %.02427, ptr %79, align 8, !tbaa !127
   %80 = getelementptr inbounds nuw i8, ptr %24, i64 48
@@ -25482,7 +25478,7 @@ define dso_local noundef i32 @_ZN11NetOptimize20eliminate_pooling1x1Ev(ptr nound
   %13 = zext i32 %indvars.iv to i64
   %14 = load ptr, ptr %2, align 8, !tbaa !39
   %15 = load ptr, ptr %14, align 8, !tbaa !44
-  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %.065
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %.065
   %17 = load ptr, ptr %16, align 8, !tbaa !50
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 48
   %19 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull @.str.123) #25
@@ -25492,7 +25488,7 @@ define dso_local noundef i32 @_ZN11NetOptimize20eliminate_pooling1x1Ev(ptr nound
 20:                                               ; preds = %12
   %21 = load ptr, ptr %2, align 8, !tbaa !39
   %22 = load ptr, ptr %21, align 8, !tbaa !44
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %.065
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %.065
   %24 = load ptr, ptr %23, align 8, !tbaa !50
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 228
   %26 = load i32, ptr %25, align 4, !tbaa !617
@@ -25561,7 +25557,7 @@ define dso_local noundef i32 @_ZN11NetOptimize20eliminate_pooling1x1Ev(ptr nound
   %.039.in56 = phi i32 [ %84, %.thread ], [ %55, %51 ]
   %57 = load ptr, ptr %2, align 8, !tbaa !39
   %58 = load ptr, ptr %57, align 8, !tbaa !44
-  %59 = getelementptr inbounds nuw ptr, ptr %58, i64 %indvars.iv72
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %indvars.iv72
   %60 = load ptr, ptr %59, align 8, !tbaa !50
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 48
   %62 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %61, ptr noundef nonnull @.str.8) #25
@@ -25571,7 +25567,7 @@ define dso_local noundef i32 @_ZN11NetOptimize20eliminate_pooling1x1Ev(ptr nound
 .preheader:                                       ; preds = %.lr.ph58
   %64 = load ptr, ptr %2, align 8, !tbaa !39
   %65 = load ptr, ptr %64, align 8, !tbaa !44
-  %66 = getelementptr inbounds nuw ptr, ptr %65, i64 %indvars.iv72
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %indvars.iv72
   %67 = load ptr, ptr %66, align 8, !tbaa !50
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 136
   %69 = getelementptr inbounds nuw i8, ptr %67, i64 144
@@ -25589,7 +25585,7 @@ define dso_local noundef i32 @_ZN11NetOptimize20eliminate_pooling1x1Ev(ptr nound
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %79
   %.03854 = phi i64 [ %80, %79 ], [ 0, %.lr.ph.preheader ]
-  %76 = getelementptr inbounds nuw i32, ptr %71, i64 %.03854
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %71, i64 %.03854
   %77 = load i32, ptr %76, align 4, !tbaa !78
   %78 = icmp eq i32 %77, %54
   br i1 %78, label %81, label %79
@@ -25627,7 +25623,7 @@ define dso_local noundef i32 @_ZN11NetOptimize20eliminate_pooling1x1Ev(ptr nound
   %90 = load ptr, ptr %2, align 8, !tbaa !39
   %91 = sext i32 %.039.lcssa to i64
   %92 = load ptr, ptr %90, align 8, !tbaa !44
-  %93 = getelementptr inbounds nuw ptr, ptr %92, i64 %91
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %92, i64 %91
   %94 = load ptr, ptr %93, align 8, !tbaa !50
   %95 = load ptr, ptr @stderr, align 8, !tbaa !5
   %96 = getelementptr inbounds nuw i8, ptr %94, i64 80
@@ -25645,7 +25641,7 @@ define dso_local noundef i32 @_ZN11NetOptimize20eliminate_pooling1x1Ev(ptr nound
   %107 = load ptr, ptr %11, align 8, !tbaa !45
   %108 = sext i32 %103 to i64
   %109 = load ptr, ptr %107, align 8, !tbaa !49
-  %110 = getelementptr inbounds nuw %"class.ncnn::Blob", ptr %109, i64 %108
+  %110 = getelementptr inbounds nuw [112 x i8], ptr %109, i64 %108
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 32
   store i32 %.039.lcssa, ptr %111, align 8, !tbaa !127
   %112 = getelementptr inbounds nuw i8, ptr %24, i64 48
@@ -25686,7 +25682,7 @@ define dso_local noundef i32 @_ZN11NetOptimize14eliminate_noopEv(ptr noundef non
   %13 = zext i32 %indvars.iv to i64
   %14 = load ptr, ptr %2, align 8, !tbaa !39
   %15 = load ptr, ptr %14, align 8, !tbaa !44
-  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %.064
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %.064
   %17 = load ptr, ptr %16, align 8, !tbaa !50
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 48
   %19 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull @.str.185) #25
@@ -25696,7 +25692,7 @@ define dso_local noundef i32 @_ZN11NetOptimize14eliminate_noopEv(ptr noundef non
 20:                                               ; preds = %12
   %21 = load ptr, ptr %2, align 8, !tbaa !39
   %22 = load ptr, ptr %21, align 8, !tbaa !44
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %.064
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %.064
   %24 = load ptr, ptr %23, align 8, !tbaa !50
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 112
   %26 = load ptr, ptr %25, align 8, !tbaa !852
@@ -25728,10 +25724,10 @@ define dso_local noundef i32 @_ZN11NetOptimize14eliminate_noopEv(ptr noundef non
 
 45:                                               ; preds = %.lr.ph63, %45
   %.04562 = phi i64 [ 0, %.lr.ph63 ], [ %51, %45 ]
-  %46 = getelementptr inbounds nuw i32, ptr %38, i64 %.04562
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %.04562
   %47 = load i32, ptr %46, align 4, !tbaa !78
   %48 = sext i32 %47 to i64
-  %49 = getelementptr inbounds nuw %"class.ncnn::Blob", ptr %44, i64 %48
+  %49 = getelementptr inbounds nuw [112 x i8], ptr %44, i64 %48
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 32
   store i32 -1, ptr %50, align 8, !tbaa !127
   %51 = add nuw i64 %.04562, 1
@@ -25750,7 +25746,7 @@ define dso_local noundef i32 @_ZN11NetOptimize14eliminate_noopEv(ptr noundef non
   %.048.in58 = phi i32 [ %82, %.loopexit ], [ %54, %52 ]
   %56 = load ptr, ptr %2, align 8, !tbaa !39
   %57 = load ptr, ptr %56, align 8, !tbaa !44
-  %58 = getelementptr inbounds nuw ptr, ptr %57, i64 %indvars.iv74
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %indvars.iv74
   %59 = load ptr, ptr %58, align 8, !tbaa !50
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 48
   %61 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull @.str.8) #25
@@ -25760,7 +25756,7 @@ define dso_local noundef i32 @_ZN11NetOptimize14eliminate_noopEv(ptr noundef non
 63:                                               ; preds = %.lr.ph60
   %64 = load ptr, ptr %2, align 8, !tbaa !39
   %65 = load ptr, ptr %64, align 8, !tbaa !44
-  %66 = getelementptr inbounds nuw ptr, ptr %65, i64 %indvars.iv74
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %indvars.iv74
   %67 = load ptr, ptr %66, align 8, !tbaa !50
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 136
   %69 = getelementptr inbounds nuw i8, ptr %67, i64 144
@@ -25778,7 +25774,7 @@ define dso_local noundef i32 @_ZN11NetOptimize14eliminate_noopEv(ptr noundef non
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %79
   %.04456 = phi i64 [ %80, %79 ], [ 0, %.lr.ph.preheader ]
-  %76 = getelementptr inbounds nuw i32, ptr %71, i64 %.04456
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %71, i64 %.04456
   %77 = load i32, ptr %76, align 4, !tbaa !78
   %78 = icmp eq i32 %77, %53
   br i1 %78, label %.loopexit50, label %79
@@ -25827,7 +25823,7 @@ define dso_local noundef i32 @_ZN11NetOptimize14eliminate_noopEv(ptr noundef non
   %106 = load ptr, ptr %11, align 8, !tbaa !45
   %107 = sext i32 %101 to i64
   %108 = load ptr, ptr %106, align 8, !tbaa !49
-  %109 = getelementptr inbounds nuw %"class.ncnn::Blob", ptr %108, i64 %107
+  %109 = getelementptr inbounds nuw [112 x i8], ptr %108, i64 %107
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 32
   store i32 %87, ptr %110, align 8, !tbaa !127
   br label %.loopexit50.thread.sink.split
@@ -25873,7 +25869,7 @@ define dso_local noundef i32 @_ZN11NetOptimize15eliminate_splitEv(ptr noundef no
   %13 = zext i32 %indvars.iv to i64
   %14 = load ptr, ptr %2, align 8, !tbaa !39
   %15 = load ptr, ptr %14, align 8, !tbaa !44
-  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %.072
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %.072
   %17 = load ptr, ptr %16, align 8, !tbaa !50
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 48
   %19 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull @.str.181) #25
@@ -25883,7 +25879,7 @@ define dso_local noundef i32 @_ZN11NetOptimize15eliminate_splitEv(ptr noundef no
 20:                                               ; preds = %12
   %21 = load ptr, ptr %2, align 8, !tbaa !39
   %22 = load ptr, ptr %21, align 8, !tbaa !44
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %.072
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %.072
   %24 = load ptr, ptr %23, align 8, !tbaa !50
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 136
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 144
@@ -25910,10 +25906,10 @@ define dso_local noundef i32 @_ZN11NetOptimize15eliminate_splitEv(ptr noundef no
   %.04355 = phi i32 [ 0, %.lr.ph ], [ %.144, %37 ]
   %.04554 = phi i32 [ -1, %.lr.ph ], [ %.146, %37 ]
   %.04753 = phi i64 [ 0, %.lr.ph ], [ %46, %37 ]
-  %38 = getelementptr inbounds nuw i32, ptr %28, i64 %.04753
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %.04753
   %39 = load i32, ptr %38, align 4, !tbaa !78
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds nuw %"class.ncnn::Blob", ptr %34, i64 %40
+  %41 = getelementptr inbounds nuw [112 x i8], ptr %34, i64 %40
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 36
   %43 = load i32, ptr %42, align 4, !tbaa !128
   %.not48 = icmp ne i32 %43, -1
@@ -25940,7 +25936,7 @@ define dso_local noundef i32 @_ZN11NetOptimize15eliminate_splitEv(ptr noundef no
   %.041.in60 = phi i32 [ %79, %.thread ], [ %50, %._crit_edge.thread ]
   %52 = load ptr, ptr %2, align 8, !tbaa !39
   %53 = load ptr, ptr %52, align 8, !tbaa !44
-  %54 = getelementptr inbounds nuw ptr, ptr %53, i64 %indvars.iv82
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %indvars.iv82
   %55 = load ptr, ptr %54, align 8, !tbaa !50
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 48
   %57 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %56, ptr noundef nonnull @.str.8) #25
@@ -25950,7 +25946,7 @@ define dso_local noundef i32 @_ZN11NetOptimize15eliminate_splitEv(ptr noundef no
 .preheader:                                       ; preds = %.lr.ph63
   %59 = load ptr, ptr %2, align 8, !tbaa !39
   %60 = load ptr, ptr %59, align 8, !tbaa !44
-  %61 = getelementptr inbounds nuw ptr, ptr %60, i64 %indvars.iv82
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %indvars.iv82
   %62 = load ptr, ptr %61, align 8, !tbaa !50
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 136
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 144
@@ -25968,7 +25964,7 @@ define dso_local noundef i32 @_ZN11NetOptimize15eliminate_splitEv(ptr noundef no
 
 .lr.ph58:                                         ; preds = %.lr.ph58.preheader, %74
   %.04057 = phi i64 [ %75, %74 ], [ 0, %.lr.ph58.preheader ]
-  %71 = getelementptr inbounds nuw i32, ptr %66, i64 %.04057
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %.04057
   %72 = load i32, ptr %71, align 4, !tbaa !78
   %73 = icmp eq i32 %72, %49
   br i1 %73, label %76, label %74
@@ -26006,7 +26002,7 @@ define dso_local noundef i32 @_ZN11NetOptimize15eliminate_splitEv(ptr noundef no
   %85 = load ptr, ptr %2, align 8, !tbaa !39
   %86 = sext i32 %.041.lcssa to i64
   %87 = load ptr, ptr %85, align 8, !tbaa !44
-  %88 = getelementptr inbounds nuw ptr, ptr %87, i64 %86
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %87, i64 %86
   %89 = load ptr, ptr %88, align 8, !tbaa !50
   %90 = load ptr, ptr @stderr, align 8, !tbaa !5
   %91 = getelementptr inbounds nuw i8, ptr %89, i64 80
@@ -26015,7 +26011,7 @@ define dso_local noundef i32 @_ZN11NetOptimize15eliminate_splitEv(ptr noundef no
   %94 = load ptr, ptr %93, align 8, !tbaa !52
   %95 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %90, ptr noundef nonnull @.str.188, ptr noundef %92, ptr noundef %94) #27
   %96 = load ptr, ptr %25, align 8, !tbaa !77
-  %97 = getelementptr inbounds nuw i32, ptr %96, i64 %.045.lcssa92
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %96, i64 %.045.lcssa92
   %98 = load i32, ptr %97, align 4, !tbaa !78
   %99 = getelementptr inbounds nuw i8, ptr %89, i64 136
   %100 = load ptr, ptr %99, align 8, !tbaa !77
@@ -26024,7 +26020,7 @@ define dso_local noundef i32 @_ZN11NetOptimize15eliminate_splitEv(ptr noundef no
   %102 = load ptr, ptr %11, align 8, !tbaa !45
   %103 = sext i32 %98 to i64
   %104 = load ptr, ptr %102, align 8, !tbaa !49
-  %105 = getelementptr inbounds nuw %"class.ncnn::Blob", ptr %104, i64 %103
+  %105 = getelementptr inbounds nuw [112 x i8], ptr %104, i64 %103
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 32
   store i32 %.041.lcssa, ptr %106, align 8, !tbaa !127
   %107 = getelementptr inbounds nuw i8, ptr %24, i64 48
@@ -26061,7 +26057,7 @@ define dso_local noundef i32 @_ZN11NetOptimize29eliminate_orphaned_memorydataEv(
   %.02435 = phi i64 [ %.pre-phi, %.loopexit ], [ 0, %1 ]
   %11 = load ptr, ptr %2, align 8, !tbaa !39
   %12 = load ptr, ptr %11, align 8, !tbaa !44
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %.02435
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.02435
   %14 = load ptr, ptr %13, align 8, !tbaa !50
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %16 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull @.str.116) #25
@@ -26075,7 +26071,7 @@ define dso_local noundef i32 @_ZN11NetOptimize29eliminate_orphaned_memorydataEv(
 17:                                               ; preds = %.lr.ph36
   %18 = load ptr, ptr %2, align 8, !tbaa !39
   %19 = load ptr, ptr %18, align 8, !tbaa !44
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %.02435
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.02435
   %21 = load ptr, ptr %20, align 8, !tbaa !50
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 136
   %23 = load ptr, ptr %22, align 8, !tbaa !77
@@ -26088,7 +26084,7 @@ define dso_local noundef i32 @_ZN11NetOptimize29eliminate_orphaned_memorydataEv(
   %.02333 = phi i64 [ %.023, %.critedge28 ], [ %.02332, %17 ]
   %26 = load ptr, ptr %2, align 8, !tbaa !39
   %27 = load ptr, ptr %26, align 8, !tbaa !44
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %.02333
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %.02333
   %29 = load ptr, ptr %28, align 8, !tbaa !50
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 48
   %31 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull @.str.8) #25
@@ -26098,7 +26094,7 @@ define dso_local noundef i32 @_ZN11NetOptimize29eliminate_orphaned_memorydataEv(
 .preheader:                                       ; preds = %.lr.ph34
   %33 = load ptr, ptr %2, align 8, !tbaa !39
   %34 = load ptr, ptr %33, align 8, !tbaa !44
-  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %.02333
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %.02333
   %36 = load ptr, ptr %35, align 8, !tbaa !50
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 112
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 120
@@ -26121,7 +26117,7 @@ define dso_local noundef i32 @_ZN11NetOptimize29eliminate_orphaned_memorydataEv(
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %45
   %.031 = phi i64 [ %46, %45 ], [ 0, %.lr.ph.preheader ]
-  %47 = getelementptr inbounds nuw i32, ptr %40, i64 %.031
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %.031
   %48 = load i32, ptr %47, align 4, !tbaa !78
   %49 = icmp eq i32 %48, %24
   br i1 %49, label %.loopexit, label %45
@@ -26134,7 +26130,7 @@ define dso_local noundef i32 @_ZN11NetOptimize29eliminate_orphaned_memorydataEv(
 .critedge.loopexit:                               ; preds = %.critedge28
   %.pre = load ptr, ptr %2, align 8, !tbaa !39
   %.pre41 = load ptr, ptr %.pre, align 8, !tbaa !44
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre41, i64 %.02435
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre41, i64 %.02435
   %.pre42 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !50
   br label %.critedge
 
@@ -26146,7 +26142,7 @@ define dso_local noundef i32 @_ZN11NetOptimize29eliminate_orphaned_memorydataEv(
   %54 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %51, ptr noundef nonnull @.str.189, ptr noundef %53) #27
   %55 = load ptr, ptr %2, align 8, !tbaa !39
   %56 = load ptr, ptr %55, align 8, !tbaa !44
-  %57 = getelementptr inbounds nuw ptr, ptr %56, i64 %.02435
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %.02435
   %58 = load ptr, ptr %57, align 8, !tbaa !50
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 48
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 56
@@ -26185,7 +26181,7 @@ define dso_local noundef i32 @_ZN11NetOptimize38eliminate_reshape_after_global_p
   %.040 = phi i64 [ 0, %.lr.ph42 ], [ %89, %._crit_edge.thread ]
   %13 = load ptr, ptr %2, align 8, !tbaa !39
   %14 = load ptr, ptr %13, align 8, !tbaa !44
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %.040
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.040
   %16 = load ptr, ptr %15, align 8, !tbaa !50
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %18 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull @.str.123) #25
@@ -26195,7 +26191,7 @@ define dso_local noundef i32 @_ZN11NetOptimize38eliminate_reshape_after_global_p
 19:                                               ; preds = %12
   %20 = load ptr, ptr %2, align 8, !tbaa !39
   %21 = load ptr, ptr %20, align 8, !tbaa !44
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %.040
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %.040
   %23 = load ptr, ptr %22, align 8, !tbaa !50
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 244
   %25 = load i32, ptr %24, align 4, !tbaa !621
@@ -26214,7 +26210,7 @@ define dso_local noundef i32 @_ZN11NetOptimize38eliminate_reshape_after_global_p
   %.02937 = phi i64 [ %.029, %53 ], [ %.02936, %27 ]
   %32 = load ptr, ptr %2, align 8, !tbaa !39
   %33 = load ptr, ptr %32, align 8, !tbaa !44
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %.02937
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.02937
   %35 = load ptr, ptr %34, align 8, !tbaa !50
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 48
   %37 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull @.str.139) #25
@@ -26224,7 +26220,7 @@ define dso_local noundef i32 @_ZN11NetOptimize38eliminate_reshape_after_global_p
 38:                                               ; preds = %.lr.ph
   %39 = load ptr, ptr %2, align 8, !tbaa !39
   %40 = load ptr, ptr %39, align 8, !tbaa !44
-  %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %.02937
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %.02937
   %42 = load ptr, ptr %41, align 8, !tbaa !50
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 112
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 120
@@ -26254,7 +26250,7 @@ define dso_local noundef i32 @_ZN11NetOptimize38eliminate_reshape_after_global_p
 55:                                               ; preds = %._crit_edge
   %56 = load ptr, ptr %2, align 8, !tbaa !39
   %57 = load ptr, ptr %56, align 8, !tbaa !44
-  %58 = getelementptr inbounds nuw ptr, ptr %57, i64 %.029.lcssa
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %.029.lcssa
   %59 = load ptr, ptr %58, align 8, !tbaa !50
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 212
   %61 = load i32, ptr %60, align 4, !tbaa !704
@@ -26289,7 +26285,7 @@ define dso_local noundef i32 @_ZN11NetOptimize38eliminate_reshape_after_global_p
   %80 = load ptr, ptr %11, align 8, !tbaa !45
   %81 = sext i32 %77 to i64
   %82 = load ptr, ptr %80, align 8, !tbaa !49
-  %83 = getelementptr inbounds nuw %"class.ncnn::Blob", ptr %82, i64 %81
+  %83 = getelementptr inbounds nuw [112 x i8], ptr %82, i64 %81
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 32
   store i32 %79, ptr %84, align 8, !tbaa !127
   %85 = getelementptr inbounds nuw i8, ptr %59, i64 48
@@ -26329,7 +26325,7 @@ define dso_local noundef i32 @_ZN11NetOptimize38eliminate_flatten_after_global_p
   %.034 = phi i64 [ 0, %.lr.ph36 ], [ %80, %._crit_edge.thread ]
   %13 = load ptr, ptr %2, align 8, !tbaa !39
   %14 = load ptr, ptr %13, align 8, !tbaa !44
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %.034
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.034
   %16 = load ptr, ptr %15, align 8, !tbaa !50
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %18 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull @.str.123) #25
@@ -26339,7 +26335,7 @@ define dso_local noundef i32 @_ZN11NetOptimize38eliminate_flatten_after_global_p
 19:                                               ; preds = %12
   %20 = load ptr, ptr %2, align 8, !tbaa !39
   %21 = load ptr, ptr %20, align 8, !tbaa !44
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %.034
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %.034
   %23 = load ptr, ptr %22, align 8, !tbaa !50
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 244
   %25 = load i32, ptr %24, align 4, !tbaa !621
@@ -26358,7 +26354,7 @@ define dso_local noundef i32 @_ZN11NetOptimize38eliminate_flatten_after_global_p
   %.02631 = phi i64 [ %.026, %53 ], [ %.02630, %27 ]
   %32 = load ptr, ptr %2, align 8, !tbaa !39
   %33 = load ptr, ptr %32, align 8, !tbaa !44
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %.02631
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.02631
   %35 = load ptr, ptr %34, align 8, !tbaa !50
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 48
   %37 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull @.str.191) #25
@@ -26368,7 +26364,7 @@ define dso_local noundef i32 @_ZN11NetOptimize38eliminate_flatten_after_global_p
 38:                                               ; preds = %.lr.ph
   %39 = load ptr, ptr %2, align 8, !tbaa !39
   %40 = load ptr, ptr %39, align 8, !tbaa !44
-  %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %.02631
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %.02631
   %42 = load ptr, ptr %41, align 8, !tbaa !50
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 112
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 120
@@ -26398,7 +26394,7 @@ define dso_local noundef i32 @_ZN11NetOptimize38eliminate_flatten_after_global_p
 55:                                               ; preds = %._crit_edge
   %56 = load ptr, ptr %2, align 8, !tbaa !39
   %57 = load ptr, ptr %56, align 8, !tbaa !44
-  %58 = getelementptr inbounds nuw ptr, ptr %57, i64 %.026.lcssa
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %.026.lcssa
   %59 = load ptr, ptr %58, align 8, !tbaa !50
   %60 = load ptr, ptr @stderr, align 8, !tbaa !5
   %61 = getelementptr inbounds nuw i8, ptr %23, i64 80
@@ -26415,7 +26411,7 @@ define dso_local noundef i32 @_ZN11NetOptimize38eliminate_flatten_after_global_p
   %71 = load ptr, ptr %11, align 8, !tbaa !45
   %72 = sext i32 %68 to i64
   %73 = load ptr, ptr %71, align 8, !tbaa !49
-  %74 = getelementptr inbounds nuw %"class.ncnn::Blob", ptr %73, i64 %72
+  %74 = getelementptr inbounds nuw [112 x i8], ptr %73, i64 %72
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 32
   store i32 %70, ptr %75, align 8, !tbaa !127
   %76 = getelementptr inbounds nuw i8, ptr %59, i64 48
@@ -26455,7 +26451,7 @@ define dso_local noundef i32 @_ZN11NetOptimize36eliminate_flatten_after_innerpro
   %.033 = phi i64 [ 0, %.lr.ph35 ], [ %.pre-phi, %._crit_edge.thread ]
   %13 = load ptr, ptr %2, align 8, !tbaa !39
   %14 = load ptr, ptr %13, align 8, !tbaa !44
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %.033
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.033
   %16 = load ptr, ptr %15, align 8, !tbaa !50
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %18 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull @.str.107) #25
@@ -26469,7 +26465,7 @@ define dso_local noundef i32 @_ZN11NetOptimize36eliminate_flatten_after_innerpro
 19:                                               ; preds = %12
   %20 = load ptr, ptr %2, align 8, !tbaa !39
   %21 = load ptr, ptr %20, align 8, !tbaa !44
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %.033
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %.033
   %23 = load ptr, ptr %22, align 8, !tbaa !50
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 136
   %25 = load ptr, ptr %24, align 8, !tbaa !77
@@ -26482,7 +26478,7 @@ define dso_local noundef i32 @_ZN11NetOptimize36eliminate_flatten_after_innerpro
   %.02530 = phi i64 [ %.025, %49 ], [ %.02529, %19 ]
   %28 = load ptr, ptr %2, align 8, !tbaa !39
   %29 = load ptr, ptr %28, align 8, !tbaa !44
-  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %.02530
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %.02530
   %31 = load ptr, ptr %30, align 8, !tbaa !50
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 48
   %33 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull @.str.191) #25
@@ -26492,7 +26488,7 @@ define dso_local noundef i32 @_ZN11NetOptimize36eliminate_flatten_after_innerpro
 34:                                               ; preds = %.lr.ph
   %35 = load ptr, ptr %2, align 8, !tbaa !39
   %36 = load ptr, ptr %35, align 8, !tbaa !44
-  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %.02530
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %.02530
   %38 = load ptr, ptr %37, align 8, !tbaa !50
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 112
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 120
@@ -26522,9 +26518,9 @@ define dso_local noundef i32 @_ZN11NetOptimize36eliminate_flatten_after_innerpro
 51:                                               ; preds = %._crit_edge
   %52 = load ptr, ptr %2, align 8, !tbaa !39
   %53 = load ptr, ptr %52, align 8, !tbaa !44
-  %54 = getelementptr inbounds nuw ptr, ptr %53, i64 %.033
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %.033
   %55 = load ptr, ptr %54, align 8, !tbaa !50
-  %56 = getelementptr inbounds nuw ptr, ptr %53, i64 %.025.lcssa
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %.025.lcssa
   %57 = load ptr, ptr %56, align 8, !tbaa !50
   %58 = load ptr, ptr @stderr, align 8, !tbaa !5
   %59 = getelementptr inbounds nuw i8, ptr %55, i64 80
@@ -26542,7 +26538,7 @@ define dso_local noundef i32 @_ZN11NetOptimize36eliminate_flatten_after_innerpro
   %70 = load ptr, ptr %11, align 8, !tbaa !45
   %71 = sext i32 %66 to i64
   %72 = load ptr, ptr %70, align 8, !tbaa !49
-  %73 = getelementptr inbounds nuw %"class.ncnn::Blob", ptr %72, i64 %71
+  %73 = getelementptr inbounds nuw [112 x i8], ptr %72, i64 %71
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 32
   store i32 %69, ptr %74, align 8, !tbaa !127
   %75 = getelementptr inbounds nuw i8, ptr %57, i64 48
@@ -26582,7 +26578,7 @@ define dso_local noundef i32 @_ZN11NetOptimize33eliminate_reshape_before_binaryo
   %.050 = phi i64 [ 0, %.lr.ph52 ], [ %108, %._crit_edge.thread ]
   %13 = load ptr, ptr %2, align 8, !tbaa !39
   %14 = load ptr, ptr %13, align 8, !tbaa !44
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %.050
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.050
   %16 = load ptr, ptr %15, align 8, !tbaa !50
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %18 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull @.str.139) #25
@@ -26592,7 +26588,7 @@ define dso_local noundef i32 @_ZN11NetOptimize33eliminate_reshape_before_binaryo
 19:                                               ; preds = %12
   %20 = load ptr, ptr %2, align 8, !tbaa !39
   %21 = load ptr, ptr %20, align 8, !tbaa !44
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %.050
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %.050
   %23 = load ptr, ptr %22, align 8, !tbaa !50
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 208
   %25 = load i32, ptr %24, align 8, !tbaa !702
@@ -26623,7 +26619,7 @@ define dso_local noundef i32 @_ZN11NetOptimize33eliminate_reshape_before_binaryo
   %.03645 = phi i64 [ %.036, %62 ], [ %.03644, %32 ]
   %37 = load ptr, ptr %2, align 8, !tbaa !39
   %38 = load ptr, ptr %37, align 8, !tbaa !44
-  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.03645
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %.03645
   %40 = load ptr, ptr %39, align 8, !tbaa !50
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 48
   %42 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef nonnull @.str.34) #25
@@ -26633,7 +26629,7 @@ define dso_local noundef i32 @_ZN11NetOptimize33eliminate_reshape_before_binaryo
 43:                                               ; preds = %.lr.ph
   %44 = load ptr, ptr %2, align 8, !tbaa !39
   %45 = load ptr, ptr %44, align 8, !tbaa !44
-  %46 = getelementptr inbounds nuw ptr, ptr %45, i64 %.03645
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %.03645
   %47 = load ptr, ptr %46, align 8, !tbaa !50
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 112
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 120
@@ -26669,7 +26665,7 @@ define dso_local noundef i32 @_ZN11NetOptimize33eliminate_reshape_before_binaryo
 64:                                               ; preds = %._crit_edge
   %65 = load ptr, ptr %2, align 8, !tbaa !39
   %66 = load ptr, ptr %65, align 8, !tbaa !44
-  %67 = getelementptr inbounds nuw ptr, ptr %66, i64 %.036.lcssa
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %.036.lcssa
   %68 = load ptr, ptr %67, align 8, !tbaa !50
   %69 = load ptr, ptr @stderr, align 8, !tbaa !5
   %70 = getelementptr inbounds nuw i8, ptr %23, i64 80
@@ -26682,7 +26678,7 @@ define dso_local noundef i32 @_ZN11NetOptimize33eliminate_reshape_before_binaryo
   %77 = load i32, ptr %76, align 4, !tbaa !78
   %78 = load ptr, ptr %2, align 8, !tbaa !39
   %79 = load ptr, ptr %78, align 8, !tbaa !44
-  %80 = getelementptr inbounds nuw ptr, ptr %79, i64 %.036.lcssa
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %79, i64 %.036.lcssa
   %81 = load ptr, ptr %80, align 8, !tbaa !50
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 112
   %83 = load ptr, ptr %82, align 8, !tbaa !77
@@ -26714,7 +26710,7 @@ define dso_local noundef i32 @_ZN11NetOptimize33eliminate_reshape_before_binaryo
   %99 = load ptr, ptr %11, align 8, !tbaa !45
   %100 = sext i32 %77 to i64
   %101 = load ptr, ptr %99, align 8, !tbaa !49
-  %102 = getelementptr inbounds nuw %"class.ncnn::Blob", ptr %101, i64 %100
+  %102 = getelementptr inbounds nuw [112 x i8], ptr %101, i64 %100
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 36
   store i32 %98, ptr %103, align 4, !tbaa !128
   %104 = getelementptr inbounds nuw i8, ptr %23, i64 48
@@ -26755,7 +26751,7 @@ define dso_local noundef i32 @_ZN11NetOptimize37replace_reduction_with_global_po
   %.075 = phi i64 [ 0, %.lr.ph77 ], [ %134, %._crit_edge.thread ]
   %14 = load ptr, ptr %3, align 8, !tbaa !39
   %15 = load ptr, ptr %14, align 8, !tbaa !44
-  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %.075
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %.075
   %17 = load ptr, ptr %16, align 8, !tbaa !50
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 48
   %19 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull @.str.135) #25
@@ -26765,7 +26761,7 @@ define dso_local noundef i32 @_ZN11NetOptimize37replace_reduction_with_global_po
 20:                                               ; preds = %13
   %21 = load ptr, ptr %3, align 8, !tbaa !39
   %22 = load ptr, ptr %21, align 8, !tbaa !44
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %.075
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %.075
   %24 = load ptr, ptr %23, align 8, !tbaa !50
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 208
   %26 = load i32, ptr %25, align 8, !tbaa !687
@@ -26810,7 +26806,7 @@ define dso_local noundef i32 @_ZN11NetOptimize37replace_reduction_with_global_po
   %.05572 = phi i64 [ %.055, %68 ], [ %.05571, %42 ]
   %47 = load ptr, ptr %3, align 8, !tbaa !39
   %48 = load ptr, ptr %47, align 8, !tbaa !44
-  %49 = getelementptr inbounds nuw ptr, ptr %48, i64 %.05572
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %.05572
   %50 = load ptr, ptr %49, align 8, !tbaa !50
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 48
   %52 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %51, ptr noundef nonnull @.str.135) #25
@@ -26820,7 +26816,7 @@ define dso_local noundef i32 @_ZN11NetOptimize37replace_reduction_with_global_po
 53:                                               ; preds = %.lr.ph
   %54 = load ptr, ptr %3, align 8, !tbaa !39
   %55 = load ptr, ptr %54, align 8, !tbaa !44
-  %56 = getelementptr inbounds nuw ptr, ptr %55, i64 %.05572
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %.05572
   %57 = load ptr, ptr %56, align 8, !tbaa !50
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 112
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 120
@@ -26850,7 +26846,7 @@ define dso_local noundef i32 @_ZN11NetOptimize37replace_reduction_with_global_po
 70:                                               ; preds = %._crit_edge
   %71 = load ptr, ptr %3, align 8, !tbaa !39
   %72 = load ptr, ptr %71, align 8, !tbaa !44
-  %73 = getelementptr inbounds nuw ptr, ptr %72, i64 %.055.lcssa
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %.055.lcssa
   %74 = load ptr, ptr %73, align 8, !tbaa !50
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 208
   %76 = load i32, ptr %75, align 8, !tbaa !687
@@ -26915,7 +26911,7 @@ define dso_local noundef i32 @_ZN11NetOptimize37replace_reduction_with_global_po
   store i32 1, ptr %114, align 4, !tbaa !621
   %115 = load ptr, ptr %3, align 8, !tbaa !39
   %116 = load ptr, ptr %115, align 8, !tbaa !44
-  %117 = getelementptr inbounds nuw ptr, ptr %116, i64 %.055.lcssa
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %116, i64 %.055.lcssa
   store ptr %98, ptr %117, align 8, !tbaa !50
   %118 = load ptr, ptr %74, align 8, !tbaa !20
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 8
@@ -26930,7 +26926,7 @@ define dso_local noundef i32 @_ZN11NetOptimize37replace_reduction_with_global_po
   %126 = load ptr, ptr %12, align 8, !tbaa !45
   %127 = sext i32 %123 to i64
   %128 = load ptr, ptr %126, align 8, !tbaa !49
-  %129 = getelementptr inbounds nuw %"class.ncnn::Blob", ptr %128, i64 %127
+  %129 = getelementptr inbounds nuw [112 x i8], ptr %128, i64 %127
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 36
   store i32 %125, ptr %130, align 4, !tbaa !128
   %131 = getelementptr inbounds nuw i8, ptr %24, i64 48
@@ -26989,7 +26985,7 @@ define dso_local noundef i32 @_ZN11NetOptimize29replace_prelu_with_leaky_reluEv(
   %.024 = phi i64 [ %58, %57 ], [ 0, %.lr.ph.preheader ]
   %12 = load ptr, ptr %3, align 8, !tbaa !39
   %13 = load ptr, ptr %12, align 8, !tbaa !44
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %.024
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.024
   %15 = load ptr, ptr %14, align 8, !tbaa !50
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 48
   %17 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull @.str.127) #25
@@ -26999,7 +26995,7 @@ define dso_local noundef i32 @_ZN11NetOptimize29replace_prelu_with_leaky_reluEv(
 18:                                               ; preds = %.lr.ph
   %19 = load ptr, ptr %3, align 8, !tbaa !39
   %20 = load ptr, ptr %19, align 8, !tbaa !44
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %.024
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %.024
   %22 = load ptr, ptr %21, align 8, !tbaa !50
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 208
   %24 = load i32, ptr %23, align 8, !tbaa !663
@@ -27040,7 +27036,7 @@ define dso_local noundef i32 @_ZN11NetOptimize29replace_prelu_with_leaky_reluEv(
   store float %49, ptr %50, align 8, !tbaa !692
   %51 = load ptr, ptr %3, align 8, !tbaa !39
   %52 = load ptr, ptr %51, align 8, !tbaa !44
-  %53 = getelementptr inbounds nuw ptr, ptr %52, i64 %.024
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %.024
   store ptr %30, ptr %53, align 8, !tbaa !50
   %54 = load ptr, ptr %22, align 8, !tbaa !20
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
@@ -27085,7 +27081,7 @@ define dso_local noundef i32 @_ZN11NetOptimize58replace_convolution_with_innerpr
   %.0101 = phi i64 [ %369, %._crit_edge.thread ], [ 0, %1 ]
   %12 = load ptr, ptr %3, align 8, !tbaa !39
   %13 = load ptr, ptr %12, align 8, !tbaa !44
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %.0101
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.0101
   %15 = load ptr, ptr %14, align 8, !tbaa !50
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 48
   %17 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull @.str.123) #25
@@ -27095,7 +27091,7 @@ define dso_local noundef i32 @_ZN11NetOptimize58replace_convolution_with_innerpr
 18:                                               ; preds = %.lr.ph103
   %19 = load ptr, ptr %3, align 8, !tbaa !39
   %20 = load ptr, ptr %19, align 8, !tbaa !44
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %.0101
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %.0101
   %22 = load ptr, ptr %21, align 8, !tbaa !50
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 244
   %24 = load i32, ptr %23, align 4, !tbaa !621
@@ -27114,7 +27110,7 @@ define dso_local noundef i32 @_ZN11NetOptimize58replace_convolution_with_innerpr
   %.05398 = phi i64 [ %.053, %52 ], [ %.05397, %26 ]
   %31 = load ptr, ptr %3, align 8, !tbaa !39
   %32 = load ptr, ptr %31, align 8, !tbaa !44
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %.05398
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.05398
   %34 = load ptr, ptr %33, align 8, !tbaa !50
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 48
   %36 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull @.str.41) #25
@@ -27124,7 +27120,7 @@ define dso_local noundef i32 @_ZN11NetOptimize58replace_convolution_with_innerpr
 37:                                               ; preds = %.lr.ph
   %38 = load ptr, ptr %3, align 8, !tbaa !39
   %39 = load ptr, ptr %38, align 8, !tbaa !44
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %.05398
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %.05398
   %41 = load ptr, ptr %40, align 8, !tbaa !50
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 112
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 120
@@ -27154,7 +27150,7 @@ define dso_local noundef i32 @_ZN11NetOptimize58replace_convolution_with_innerpr
 54:                                               ; preds = %._crit_edge
   %55 = load ptr, ptr %3, align 8, !tbaa !39
   %56 = load ptr, ptr %55, align 8, !tbaa !44
-  %57 = getelementptr inbounds nuw ptr, ptr %56, i64 %.053.lcssa
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %.053.lcssa
   %58 = load ptr, ptr %57, align 8, !tbaa !50
   %59 = load ptr, ptr @stderr, align 8, !tbaa !5
   %60 = getelementptr inbounds nuw i8, ptr %22, i64 80
@@ -27681,7 +27677,7 @@ _ZN4ncnn3MataSERKS0_.exit58:                      ; preds = %.noexc57, %_ZN4ncnn
 362:                                              ; preds = %.noexc, %_ZN4ncnn3MataSERKS0_.exit58
   %363 = load ptr, ptr %3, align 8, !tbaa !39
   %364 = load ptr, ptr %363, align 8, !tbaa !44
-  %365 = getelementptr inbounds nuw ptr, ptr %364, i64 %.053.lcssa
+  %365 = getelementptr inbounds nuw [8 x i8], ptr %364, i64 %.053.lcssa
   store ptr %65, ptr %365, align 8, !tbaa !50
   %366 = load ptr, ptr %58, align 8, !tbaa !20
   %367 = getelementptr inbounds nuw i8, ptr %366, i64 8
@@ -27724,7 +27720,7 @@ define dso_local noundef i32 @_ZN11NetOptimize56replace_convolution_with_innerpr
   %.054105.us = phi i64 [ %.pre-phi.mux, %._crit_edge.us.thread ], [ 0, %1 ]
   %12 = load ptr, ptr %3, align 8, !tbaa !39
   %13 = load ptr, ptr %12, align 8, !tbaa !44
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %.054105.us
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.054105.us
   %15 = load ptr, ptr %14, align 8, !tbaa !50
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 48
   %17 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull @.str.107) #25
@@ -27738,7 +27734,7 @@ define dso_local noundef i32 @_ZN11NetOptimize56replace_convolution_with_innerpr
 18:                                               ; preds = %.lr.ph108.us
   %19 = load ptr, ptr %3, align 8, !tbaa !39
   %20 = load ptr, ptr %19, align 8, !tbaa !44
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %.054105.us
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %.054105.us
   %22 = load ptr, ptr %21, align 8, !tbaa !50
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 136
   %24 = load ptr, ptr %23, align 8, !tbaa !77
@@ -27751,7 +27747,7 @@ define dso_local noundef i32 @_ZN11NetOptimize56replace_convolution_with_innerpr
   %.056102.us = phi i64 [ %.056.us, %48 ], [ %.056101.us, %18 ]
   %27 = load ptr, ptr %3, align 8, !tbaa !39
   %28 = load ptr, ptr %27, align 8, !tbaa !44
-  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %.056102.us
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %.056102.us
   %30 = load ptr, ptr %29, align 8, !tbaa !50
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 48
   %32 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull @.str.41) #25
@@ -27761,7 +27757,7 @@ define dso_local noundef i32 @_ZN11NetOptimize56replace_convolution_with_innerpr
 33:                                               ; preds = %.lr.ph.us
   %34 = load ptr, ptr %3, align 8, !tbaa !39
   %35 = load ptr, ptr %34, align 8, !tbaa !44
-  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %.056102.us
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %.056102.us
   %37 = load ptr, ptr %36, align 8, !tbaa !50
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 112
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 120
@@ -27791,9 +27787,9 @@ define dso_local noundef i32 @_ZN11NetOptimize56replace_convolution_with_innerpr
 50:                                               ; preds = %._crit_edge.us
   %51 = load ptr, ptr %3, align 8, !tbaa !39
   %52 = load ptr, ptr %51, align 8, !tbaa !44
-  %53 = getelementptr inbounds nuw ptr, ptr %52, i64 %.054105.us
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %.054105.us
   %54 = load ptr, ptr %53, align 8, !tbaa !50
-  %55 = getelementptr inbounds nuw ptr, ptr %52, i64 %.056.lcssa.us
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %.056.lcssa.us
   %56 = load ptr, ptr %55, align 8, !tbaa !50
   %57 = load ptr, ptr @stderr, align 8, !tbaa !5
   %58 = getelementptr inbounds nuw i8, ptr %54, i64 80
@@ -28320,7 +28316,7 @@ _ZN4ncnn3MataSERKS0_.exit61.us:                   ; preds = %.noexc60.us, %_ZN4n
 360:                                              ; preds = %.noexc.us, %_ZN4ncnn3MataSERKS0_.exit61.us
   %361 = load ptr, ptr %3, align 8, !tbaa !39
   %362 = load ptr, ptr %361, align 8, !tbaa !44
-  %363 = getelementptr inbounds nuw ptr, ptr %362, i64 %.056.lcssa.us
+  %363 = getelementptr inbounds nuw [8 x i8], ptr %362, i64 %.056.lcssa.us
   store ptr %63, ptr %363, align 8, !tbaa !50
   %364 = load ptr, ptr %56, align 8, !tbaa !20
   %365 = getelementptr inbounds nuw i8, ptr %364, i64 8

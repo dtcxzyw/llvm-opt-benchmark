@@ -3,8 +3,6 @@ source_filename = "bench/cmake/original/archive_write_set_format.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.anon = type { i32, ptr }
-
 @.str = private unnamed_addr constant [15 x i8] c"No such format\00", align 1
 @.str.1 = private unnamed_addr constant [12 x i8] c"directories\00", align 1
 @.str.2 = private unnamed_addr constant [15 x i8] c"symbolic links\00", align 1
@@ -28,7 +26,7 @@ define dso_local i32 @archive_write_set_format(ptr noundef %0, i32 noundef %1) l
 
 4:                                                ; preds = %2, %3
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %3 ]
-  %5 = getelementptr inbounds nuw %struct.anon, ptr @codes, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [16 x i8], ptr @codes, i64 %indvars.iv
   %6 = load i32, ptr %5, align 16, !tbaa !6
   %7 = icmp eq i32 %1, %6
   br i1 %7, label %8, label %3
@@ -64,7 +62,7 @@ define dso_local void @__archive_write_entry_filetype_unsupported(ptr noundef %0
 
 switch.lookup:                                    ; preds = %3
   %8 = zext nneg i32 %6 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.__archive_write_entry_filetype_unsupported, i64 %8
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.__archive_write_entry_filetype_unsupported, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
   %9 = tail call ptr @archive_entry_pathname(ptr noundef %1) #3
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.7, ptr noundef %9, ptr noundef %2, ptr noundef nonnull %switch.load) #3

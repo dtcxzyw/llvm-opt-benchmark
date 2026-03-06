@@ -12,7 +12,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::array" = type { [5 x i64] }
 %"struct.std::pair.38" = type { i8, i8 }
 %"class.llvm::MCRegisterClass" = type { ptr, ptr, i32, i16, i16, i16, i16, i8, i8, i8 }
-%"struct.llvm::RISCVSysReg::SysReg" = type <{ [32 x i8], i32, [4 x i8], %"class.llvm::FeatureBitset", i8, i8, i8, [5 x i8] }>
 %"class.llvm::StringRef" = type { ptr, i64 }
 %struct.KeyType.0 = type { %"class.std::__cxx11::basic_string" }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
@@ -575,7 +574,7 @@ _ZSt7advanceIPKN4llvm11RISCVSysReg6SysRegElEvRT_T0_.exit.i.i.i: ; preds = %.crit
   %.05.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN4llvm11RISCVSysReg6SysRegElEvRT_T0_.exit.i.i.i ], [ %.019.i.i, %.critedge.i.i ]
   %.0114.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN4llvm11RISCVSysReg6SysRegElEvRT_T0_.exit.i.i.i ], [ %2, %.critedge.i.i ]
   %12 = lshr i64 %.0114.i.i.i, 1
-  %13 = getelementptr inbounds nuw %"struct.llvm::RISCVSysReg::SysReg", ptr %.05.i.i.i, i64 %12
+  %13 = getelementptr inbounds nuw [88 x i8], ptr %.05.i.i.i, i64 %12
   %14 = getelementptr i8, ptr %13, i64 32
   %.val.i.i.i = load i32, ptr %14, align 8, !tbaa !3
   %15 = icmp ult i32 %.val.i.i.i, %1
@@ -604,7 +603,7 @@ _ZSt7advanceIPKN4llvm11RISCVSysReg6SysRegElEvRT_T0_.exit.i24.i.i: ; preds = %_ZS
   %.05.i25.i.i = phi ptr [ %20, %_ZSt7advanceIPKN4llvm11RISCVSysReg6SysRegElEvRT_T0_.exit.lr.ph.i23.i.i ], [ %.1.i30.i.i, %_ZSt7advanceIPKN4llvm11RISCVSysReg6SysRegElEvRT_T0_.exit.i24.i.i ]
   %.0114.i26.i.i = phi i64 [ %23, %_ZSt7advanceIPKN4llvm11RISCVSysReg6SysRegElEvRT_T0_.exit.lr.ph.i23.i.i ], [ %.112.i29.i.i, %_ZSt7advanceIPKN4llvm11RISCVSysReg6SysRegElEvRT_T0_.exit.i24.i.i ]
   %24 = lshr i64 %.0114.i26.i.i, 1
-  %25 = getelementptr inbounds nuw %"struct.llvm::RISCVSysReg::SysReg", ptr %.05.i25.i.i, i64 %24
+  %25 = getelementptr inbounds nuw [88 x i8], ptr %.05.i25.i.i, i64 %24
   %26 = getelementptr i8, ptr %25, i64 32
   %.val13.i.i.i = load i32, ptr %26, align 8, !tbaa !3
   %27 = icmp ugt i32 %.val13.i.i.i, %1
@@ -648,7 +647,7 @@ define dso_local noundef ptr @_ZN4llvm11RISCVSysReg18lookupSysRegByNameENS_9Stri
   %.04.i.i = phi ptr [ %.1.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm11RISCVSysReg18lookupSysRegByNameENS2_9StringRefEE4CompEclIPKZNS3_18lookupSysRegByNameES4_E9IndexTypeKZNS3_18lookupSysRegByNameES4_E7KeyTypeEEbT_RT0_.exit.i.i ], [ @_ZZN4llvm11RISCVSysReg18lookupSysRegByNameENS_9StringRefEE5Index, %2 ]
   %.0113.i.i = phi i64 [ %.112.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm11RISCVSysReg18lookupSysRegByNameENS2_9StringRefEE4CompEclIPKZNS3_18lookupSysRegByNameES4_E9IndexTypeKZNS3_18lookupSysRegByNameES4_E7KeyTypeEEbT_RT0_.exit.i.i ], [ 440, %2 ]
   %7 = lshr i64 %.0113.i.i, 1
-  %8 = getelementptr inbounds nuw %struct.IndexType, ptr %.04.i.i, i64 %7
+  %8 = getelementptr inbounds nuw [16 x i8], ptr %.04.i.i, i64 %7
   %.val.i.i = load ptr, ptr %8, align 8, !tbaa !15
   %.not.i.i.i.i.i = icmp eq ptr %.val.i.i, null
   br i1 %.not.i.i.i.i.i, label %_ZN4llvm9StringRefC2EPKc.exit.i.i.i.i, label %9
@@ -705,7 +704,7 @@ _ZSt11lower_boundIPKZN4llvm11RISCVSysReg18lookupSysRegByNameENS0_9StringRefEE9In
   %28 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 8
   %29 = load i32, ptr %28, align 8, !tbaa !20
   %30 = zext i32 %29 to i64
-  %31 = getelementptr inbounds nuw %"struct.llvm::RISCVSysReg::SysReg", ptr @_ZN4llvm11RISCVSysRegL11SysRegsListE, i64 %30
+  %31 = getelementptr inbounds nuw [88 x i8], ptr @_ZN4llvm11RISCVSysRegL11SysRegsListE, i64 %30
   br label %32
 
 32:                                               ; preds = %_ZSt11lower_boundIPKZN4llvm11RISCVSysReg18lookupSysRegByNameENS0_9StringRefEE9IndexTypeZNS1_18lookupSysRegByNameES2_E7KeyTypeZNS1_18lookupSysRegByNameES2_E4CompET_S8_S8_RKT0_T1_.exit, %24, %27
@@ -738,7 +737,7 @@ _ZSt7advanceIPKN4llvm15RISCVInsnOpcode11RISCVOpcodeElEvRT_T0_.exit.i.i: ; preds 
   %.05.i.i = phi ptr [ @_ZN4llvm15RISCVInsnOpcodeL16RISCVOpcodesListE, %_ZSt7advanceIPKN4llvm15RISCVInsnOpcode11RISCVOpcodeElEvRT_T0_.exit.lr.ph.i.i ], [ %.1.i.i, %_ZSt7advanceIPKN4llvm15RISCVInsnOpcode11RISCVOpcodeElEvRT_T0_.exit.i.i ]
   %.0114.i.i = phi i64 [ 27, %_ZSt7advanceIPKN4llvm15RISCVInsnOpcode11RISCVOpcodeElEvRT_T0_.exit.lr.ph.i.i ], [ %.112.i.i, %_ZSt7advanceIPKN4llvm15RISCVInsnOpcode11RISCVOpcodeElEvRT_T0_.exit.i.i ]
   %2 = lshr i64 %.0114.i.i, 1
-  %3 = getelementptr inbounds nuw %"struct.llvm::RISCVInsnOpcode::RISCVOpcode", ptr %.05.i.i, i64 %2
+  %3 = getelementptr inbounds nuw [16 x i8], ptr %.05.i.i, i64 %2
   %4 = getelementptr i8, ptr %3, i64 8
   %.val.i.i = load i32, ptr %4, align 8, !tbaa !26
   %5 = icmp ult i32 %.val.i.i, %1
@@ -784,7 +783,7 @@ define dso_local noundef ptr @_ZN4llvm15RISCVInsnOpcode23lookupRISCVOpcodeByName
   %.04.i.i = phi ptr [ %.1.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm15RISCVInsnOpcode23lookupRISCVOpcodeByNameENS2_9StringRefEE4CompEclIPKZNS3_23lookupRISCVOpcodeByNameES4_E9IndexTypeKZNS3_23lookupRISCVOpcodeByNameES4_E7KeyTypeEEbT_RT0_.exit.i.i ], [ @_ZZN4llvm15RISCVInsnOpcode23lookupRISCVOpcodeByNameENS_9StringRefEE5Index, %2 ]
   %.0113.i.i = phi i64 [ %.112.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm15RISCVInsnOpcode23lookupRISCVOpcodeByNameENS2_9StringRefEE4CompEclIPKZNS3_23lookupRISCVOpcodeByNameES4_E9IndexTypeKZNS3_23lookupRISCVOpcodeByNameES4_E7KeyTypeEEbT_RT0_.exit.i.i ], [ 27, %2 ]
   %7 = lshr i64 %.0113.i.i, 1
-  %8 = getelementptr inbounds nuw %struct.IndexType.6, ptr %.04.i.i, i64 %7
+  %8 = getelementptr inbounds nuw [16 x i8], ptr %.04.i.i, i64 %7
   %.val.i.i = load ptr, ptr %8, align 8, !tbaa !29
   %.not.i.i.i.i.i = icmp eq ptr %.val.i.i, null
   br i1 %.not.i.i.i.i.i, label %_ZN4llvm9StringRefC2EPKc.exit.i.i.i.i, label %9
@@ -841,7 +840,7 @@ _ZSt11lower_boundIPKZN4llvm15RISCVInsnOpcode23lookupRISCVOpcodeByNameENS0_9Strin
   %28 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 8
   %29 = load i32, ptr %28, align 8, !tbaa !32
   %30 = zext i32 %29 to i64
-  %31 = getelementptr inbounds nuw %"struct.llvm::RISCVInsnOpcode::RISCVOpcode", ptr @_ZN4llvm15RISCVInsnOpcodeL16RISCVOpcodesListE, i64 %30
+  %31 = getelementptr inbounds nuw [16 x i8], ptr @_ZN4llvm15RISCVInsnOpcodeL16RISCVOpcodesListE, i64 %30
   br label %32
 
 32:                                               ; preds = %_ZSt11lower_boundIPKZN4llvm15RISCVInsnOpcode23lookupRISCVOpcodeByNameENS0_9StringRefEE9IndexTypeZNS1_23lookupRISCVOpcodeByNameES2_E7KeyTypeZNS1_23lookupRISCVOpcodeByNameES2_E4CompET_S8_S8_RKT0_T1_.exit, %24, %27
@@ -1307,7 +1306,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   %33 = shl nuw i64 1, %32
   %34 = lshr i32 %.sroa.52.0.copyload, 6
   %35 = zext nneg i32 %34 to i64
-  %36 = getelementptr inbounds nuw i64, ptr %2, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %35
   %37 = load i64, ptr %36, align 8, !tbaa !33
   %38 = and i64 %33, %37
   %.not13 = icmp eq i64 %38, 0
@@ -13813,7 +13812,7 @@ _ZSt7advanceIPKSt4pairIhhElEvRT_T0_.exit.i.i.i:   ; preds = %.thread21.i.i.i, %2
   %.026.i.i.i = phi ptr [ @_ZN4llvmL14LoadFP32ImmArrE, %27 ], [ %48, %.thread21.i.i.i ]
   %.01125.i.i.i = phi i64 [ 30, %27 ], [ %47, %.thread21.i.i.i ]
   %32 = lshr i64 %.01125.i.i.i, 1
-  %33 = getelementptr inbounds nuw %"struct.std::pair.38", ptr %.026.i.i.i, i64 %32
+  %33 = getelementptr inbounds nuw [2 x i8], ptr %.026.i.i.i, i64 %32
   %34 = load i8, ptr %33, align 1, !tbaa !91
   %35 = icmp ult i8 %34, %.sroa.0.0.extract.trunc
   br i1 %35, label %.thread.i.i.i, label %39
@@ -13917,7 +13916,7 @@ define dso_local noundef float @_ZN4llvm14RISCVLoadFPImm8getFPImmEj(i32 noundef 
   %3 = add i32 %0, -2
   %4 = select i1 %2, i32 14, i32 %3
   %5 = zext i32 %4 to i64
-  %6 = getelementptr inbounds nuw %"struct.std::pair.38", ptr @_ZN4llvmL14LoadFP32ImmArrE, i64 %5
+  %6 = getelementptr inbounds nuw [2 x i8], ptr @_ZN4llvmL14LoadFP32ImmArrE, i64 %5
   %7 = load i8, ptr %6, align 2, !tbaa !91
   %8 = zext i8 %7 to i32
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1
@@ -14086,7 +14085,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9MCOperandELb1EE9push_backES1_.exit: ; pred
   %13 = phi i32 [ %6, %3 ], [ %.pre.i, %9 ]
   %14 = load ptr, ptr %4, align 8, !tbaa !76
   %15 = zext i32 %13 to i64
-  %16 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %15
   store i8 %1, ptr %16, align 1
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i64 %2, ptr %.sroa.22.0..sroa_idx.i, align 1
@@ -14801,7 +14800,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %69
   store ptr %22, ptr %0, align 8, !tbaa !56
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !59
-  %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %73, ptr %68, align 8, !tbaa !61
   ret void
 }

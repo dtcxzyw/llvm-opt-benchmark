@@ -191,7 +191,7 @@ define dso_local void @_ZN28TestFastScan_knnVSrange_Test8TestBodyEv(ptr nonnull 
 17:                                               ; preds = %17, %1
   %store_forwarded = phi i64 [ 5489, %1 ], [ %23, %17 ]
   %.011.i.i.i = phi i64 [ 1, %1 ], [ %24, %17 ]
-  %18 = getelementptr i64, ptr %2, i64 %.011.i.i.i
+  %18 = getelementptr [8 x i8], ptr %2, i64 %.011.i.i.i
   %19 = lshr i64 %store_forwarded, 30
   %20 = xor i64 %19, %store_forwarded
   %21 = mul nuw nsw i64 %20, 1812433253
@@ -247,10 +247,10 @@ select.unfold.i.i.i.i:                            ; preds = %.noexc, %36
 44:                                               ; preds = %44, %43
   %45 = phi i64 [ %.pre.i.i, %43 ], [ %50, %44 ]
   %.021.i.i = phi i64 [ 0, %43 ], [ %48, %44 ]
-  %46 = getelementptr inbounds nuw i64, ptr %2, i64 %.021.i.i
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.021.i.i
   %47 = and i64 %45, -2147483648
   %48 = add nuw nsw i64 %.021.i.i, 1
-  %49 = getelementptr inbounds nuw i64, ptr %2, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %48
   %50 = load i64, ptr %49, align 8, !tbaa !5
   %51 = and i64 %50, 2147483646
   %52 = or disjoint i64 %51, %47
@@ -273,10 +273,10 @@ select.unfold.i.i.i.i:                            ; preds = %.noexc, %36
 .preheader.i.i:                                   ; preds = %.preheader.i.i, %.preheader.preheader.i.i
   %60 = phi i64 [ %65, %.preheader.i.i ], [ %.pre24.i.i, %.preheader.preheader.i.i ]
   %.01822.i.i = phi i64 [ %63, %.preheader.i.i ], [ 227, %.preheader.preheader.i.i ]
-  %61 = getelementptr inbounds nuw i64, ptr %2, i64 %.01822.i.i
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.01822.i.i
   %62 = and i64 %60, -2147483648
   %63 = add nuw nsw i64 %.01822.i.i, 1
-  %64 = getelementptr inbounds nuw i64, ptr %2, i64 %63
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %63
   %65 = load i64, ptr %64, align 8, !tbaa !5
   %66 = and i64 %65, 2147483646
   %67 = or disjoint i64 %66, %62
@@ -312,7 +312,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %86 = phi i64 [ 0, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit.i ], [ %41, %select.unfold.i.i.i.i ]
   %87 = add nuw nsw i64 %86, 1
   store i64 %87, ptr %26, align 8, !tbaa !11
-  %88 = getelementptr inbounds nuw i64, ptr %2, i64 %86
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %86
   %89 = load i64, ptr %88, align 8, !tbaa !5
   %90 = lshr i64 %89, 11
   %91 = and i64 %90, 4294967295
@@ -342,7 +342,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %.016.i.i.i.i = phi double [ %108, %107 ], [ %39, %38 ]
   %110 = fadd double %.016.i.i.i.i, 0.000000e+00
   %111 = fptrunc double %110 to float
-  %112 = getelementptr inbounds nuw float, ptr %16, i64 %.025139
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.025139
   store float %111, ptr %112, align 4, !tbaa !19
   %113 = add nuw nsw i64 %.025139, 1
   %exitcond.not = icmp eq i64 %113, 256000

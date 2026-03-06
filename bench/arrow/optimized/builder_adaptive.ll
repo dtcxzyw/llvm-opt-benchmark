@@ -2418,21 +2418,21 @@ _ZN5arrow6StatusD2Ev.exit31:                      ; preds = %_ZN5arrow6StatusD2E
 46:                                               ; preds = %.split
   %47 = load ptr, ptr %21, align 8, !tbaa !69
   %48 = load i64, ptr %22, align 8, !tbaa !74
-  %49 = getelementptr inbounds i16, ptr %47, i64 %48
+  %49 = getelementptr inbounds [2 x i8], ptr %47, i64 %48
   call void @_ZN5arrow8internal12DowncastIntsEPKlPsl(ptr noundef %.02544, ptr noundef %49, i64 noundef %.sroa.speculated)
   br label %58
 
 50:                                               ; preds = %.split
   %51 = load ptr, ptr %21, align 8, !tbaa !69
   %52 = load i64, ptr %22, align 8, !tbaa !74
-  %53 = getelementptr inbounds i32, ptr %51, i64 %52
+  %53 = getelementptr inbounds [4 x i8], ptr %51, i64 %52
   call void @_ZN5arrow8internal12DowncastIntsEPKlPil(ptr noundef %.02544, ptr noundef %53, i64 noundef %.sroa.speculated)
   br label %58
 
 54:                                               ; preds = %.split
   %55 = load ptr, ptr %21, align 8, !tbaa !69
   %56 = load i64, ptr %22, align 8, !tbaa !74
-  %57 = getelementptr inbounds i64, ptr %55, i64 %56
+  %57 = getelementptr inbounds [8 x i8], ptr %55, i64 %56
   call void @_ZN5arrow8internal12DowncastIntsEPKlPll(ptr noundef %.02544, ptr noundef %57, i64 noundef %.sroa.speculated)
   br label %58
 
@@ -2470,7 +2470,7 @@ _ZN5arrow18TypedBufferBuilderIbvE12UnsafeAppendEPKhl.exit.i: ; preds = %58
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZN5arrow18TypedBufferBuilderIbvE12UnsafeAppendEPKhl.exit.i, %60
-  %68 = getelementptr inbounds nuw i64, ptr %.02544, i64 %.sroa.speculated
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %.02544, i64 %.sroa.speculated
   %69 = getelementptr inbounds nuw i8, ptr %.02743, i64 %.sroa.speculated
   %spec.select = select i1 %59, ptr null, ptr %69
   %70 = sub nsw i64 %.042, %.sroa.speculated
@@ -2544,7 +2544,7 @@ define void @_ZN5arrow18AdaptiveIntBuilder13ExpandIntSizeEh(ptr dead_on_unwind n
 .lr.ph.i.i.i.i.i.preheader.i.i:                   ; preds = %25
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %30 = load ptr, ptr %29, align 8, !tbaa !69, !noalias !194
-  %31 = getelementptr inbounds nuw i16, ptr %30, i64 %27
+  %31 = getelementptr inbounds nuw [2 x i8], ptr %30, i64 %27
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 %27
   br label %.lr.ph.i.i.i.i.i.i.i
 
@@ -2747,21 +2747,21 @@ _ZN5arrow6StatusD2Ev.exit31:                      ; preds = %_ZN5arrow6StatusD2E
 46:                                               ; preds = %.split
   %47 = load ptr, ptr %21, align 8, !tbaa !69
   %48 = load i64, ptr %22, align 8, !tbaa !74
-  %49 = getelementptr inbounds i16, ptr %47, i64 %48
+  %49 = getelementptr inbounds [2 x i8], ptr %47, i64 %48
   call void @_ZN5arrow8internal13DowncastUIntsEPKmPtl(ptr noundef %.02544, ptr noundef %49, i64 noundef %.sroa.speculated)
   br label %58
 
 50:                                               ; preds = %.split
   %51 = load ptr, ptr %21, align 8, !tbaa !69
   %52 = load i64, ptr %22, align 8, !tbaa !74
-  %53 = getelementptr inbounds i32, ptr %51, i64 %52
+  %53 = getelementptr inbounds [4 x i8], ptr %51, i64 %52
   call void @_ZN5arrow8internal13DowncastUIntsEPKmPjl(ptr noundef %.02544, ptr noundef %53, i64 noundef %.sroa.speculated)
   br label %58
 
 54:                                               ; preds = %.split
   %55 = load ptr, ptr %21, align 8, !tbaa !69
   %56 = load i64, ptr %22, align 8, !tbaa !74
-  %57 = getelementptr inbounds i64, ptr %55, i64 %56
+  %57 = getelementptr inbounds [8 x i8], ptr %55, i64 %56
   call void @_ZN5arrow8internal13DowncastUIntsEPKmPml(ptr noundef %.02544, ptr noundef %57, i64 noundef %.sroa.speculated)
   br label %58
 
@@ -2799,7 +2799,7 @@ _ZN5arrow18TypedBufferBuilderIbvE12UnsafeAppendEPKhl.exit.i: ; preds = %58
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZN5arrow18TypedBufferBuilderIbvE12UnsafeAppendEPKhl.exit.i, %60
-  %68 = getelementptr inbounds nuw i64, ptr %.02544, i64 %.sroa.speculated
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %.02544, i64 %.sroa.speculated
   %69 = getelementptr inbounds nuw i8, ptr %.02743, i64 %.sroa.speculated
   %spec.select = select i1 %59, ptr null, ptr %69
   %70 = sub nsw i64 %.042, %.sroa.speculated
@@ -2916,7 +2916,7 @@ define linkonce_odr void @_ZN5arrow18AdaptiveIntBuilder14ExpandIntSizeNIiEENS_6S
 .lr.ph.i.i.i.i.i.preheader.i:                     ; preds = %21
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %26 = load ptr, ptr %25, align 8, !tbaa !69, !noalias !231
-  %27 = getelementptr inbounds nuw i32, ptr %26, i64 %23
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %23
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 %23
   br label %.lr.ph.i.i.i.i.i.i
 
@@ -2962,8 +2962,8 @@ define linkonce_odr void @_ZN5arrow18AdaptiveIntBuilder14ExpandIntSizeNIiEENS_6S
 .lr.ph.i.i.i.i.i.preheader.i1:                    ; preds = %46
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %51 = load ptr, ptr %50, align 8, !tbaa !69, !noalias !239
-  %52 = getelementptr inbounds nuw i32, ptr %51, i64 %48
-  %53 = getelementptr inbounds nuw i16, ptr %51, i64 %48
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %48
+  %53 = getelementptr inbounds nuw [2 x i8], ptr %51, i64 %48
   br label %.lr.ph.i.i.i.i.i.i2
 
 .lr.ph.i.i.i.i.i.i2:                              ; preds = %.lr.ph.i.i.i.i.i.i2, %.lr.ph.i.i.i.i.i.preheader.i1
@@ -3035,7 +3035,7 @@ define linkonce_odr void @_ZN5arrow18AdaptiveIntBuilder14ExpandIntSizeNIlEENS_6S
 .lr.ph.i.i.i.i.i.preheader.i:                     ; preds = %22
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %27 = load ptr, ptr %26, align 8, !tbaa !69, !noalias !247
-  %28 = getelementptr inbounds nuw i64, ptr %27, i64 %24
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %24
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 %24
   br label %.lr.ph.i.i.i.i.i.i
 
@@ -3081,8 +3081,8 @@ define linkonce_odr void @_ZN5arrow18AdaptiveIntBuilder14ExpandIntSizeNIlEENS_6S
 .lr.ph.i.i.i.i.i.preheader.i1:                    ; preds = %47
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %52 = load ptr, ptr %51, align 8, !tbaa !69, !noalias !255
-  %53 = getelementptr inbounds nuw i64, ptr %52, i64 %49
-  %54 = getelementptr inbounds nuw i16, ptr %52, i64 %49
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %49
+  %54 = getelementptr inbounds nuw [2 x i8], ptr %52, i64 %49
   br label %.lr.ph.i.i.i.i.i.i2
 
 .lr.ph.i.i.i.i.i.i2:                              ; preds = %.lr.ph.i.i.i.i.i.i2, %.lr.ph.i.i.i.i.i.preheader.i1
@@ -3127,8 +3127,8 @@ define linkonce_odr void @_ZN5arrow18AdaptiveIntBuilder14ExpandIntSizeNIlEENS_6S
 .lr.ph.i.i.i.i.i.preheader.i6:                    ; preds = %72
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %77 = load ptr, ptr %76, align 8, !tbaa !69, !noalias !263
-  %78 = getelementptr inbounds nuw i64, ptr %77, i64 %74
-  %79 = getelementptr inbounds nuw i32, ptr %77, i64 %74
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %74
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %74
   br label %.lr.ph.i.i.i.i.i.i7
 
 .lr.ph.i.i.i.i.i.i7:                              ; preds = %.lr.ph.i.i.i.i.i.i7, %.lr.ph.i.i.i.i.i.preheader.i6
@@ -3896,7 +3896,7 @@ define void @_ZN5arrow19AdaptiveUIntBuilder13ExpandIntSizeEh(ptr dead_on_unwind 
 .lr.ph.i.i.i.i.i.preheader.i.i:                   ; preds = %25
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %30 = load ptr, ptr %29, align 8, !tbaa !69, !noalias !295
-  %31 = getelementptr inbounds nuw i16, ptr %30, i64 %27
+  %31 = getelementptr inbounds nuw [2 x i8], ptr %30, i64 %27
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 %27
   br label %.lr.ph.i.i.i.i.i.i.i
 
@@ -4028,7 +4028,7 @@ define linkonce_odr void @_ZN5arrow19AdaptiveUIntBuilder14ExpandIntSizeNIjEENS_6
 .lr.ph.i.i.i.i.i.preheader.i:                     ; preds = %21
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %26 = load ptr, ptr %25, align 8, !tbaa !69, !noalias !312
-  %27 = getelementptr inbounds nuw i32, ptr %26, i64 %23
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %23
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 %23
   br label %.lr.ph.i.i.i.i.i.i
 
@@ -4074,8 +4074,8 @@ define linkonce_odr void @_ZN5arrow19AdaptiveUIntBuilder14ExpandIntSizeNIjEENS_6
 .lr.ph.i.i.i.i.i.preheader.i1:                    ; preds = %46
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %51 = load ptr, ptr %50, align 8, !tbaa !69, !noalias !320
-  %52 = getelementptr inbounds nuw i32, ptr %51, i64 %48
-  %53 = getelementptr inbounds nuw i16, ptr %51, i64 %48
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %48
+  %53 = getelementptr inbounds nuw [2 x i8], ptr %51, i64 %48
   br label %.lr.ph.i.i.i.i.i.i2
 
 .lr.ph.i.i.i.i.i.i2:                              ; preds = %.lr.ph.i.i.i.i.i.i2, %.lr.ph.i.i.i.i.i.preheader.i1
@@ -4147,7 +4147,7 @@ define linkonce_odr void @_ZN5arrow19AdaptiveUIntBuilder14ExpandIntSizeNImEENS_6
 .lr.ph.i.i.i.i.i.preheader.i:                     ; preds = %22
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %27 = load ptr, ptr %26, align 8, !tbaa !69, !noalias !328
-  %28 = getelementptr inbounds nuw i64, ptr %27, i64 %24
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %24
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 %24
   br label %.lr.ph.i.i.i.i.i.i
 
@@ -4193,8 +4193,8 @@ define linkonce_odr void @_ZN5arrow19AdaptiveUIntBuilder14ExpandIntSizeNImEENS_6
 .lr.ph.i.i.i.i.i.preheader.i1:                    ; preds = %47
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %52 = load ptr, ptr %51, align 8, !tbaa !69, !noalias !336
-  %53 = getelementptr inbounds nuw i64, ptr %52, i64 %49
-  %54 = getelementptr inbounds nuw i16, ptr %52, i64 %49
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %49
+  %54 = getelementptr inbounds nuw [2 x i8], ptr %52, i64 %49
   br label %.lr.ph.i.i.i.i.i.i2
 
 .lr.ph.i.i.i.i.i.i2:                              ; preds = %.lr.ph.i.i.i.i.i.i2, %.lr.ph.i.i.i.i.i.preheader.i1
@@ -4239,8 +4239,8 @@ define linkonce_odr void @_ZN5arrow19AdaptiveUIntBuilder14ExpandIntSizeNImEENS_6
 .lr.ph.i.i.i.i.i.preheader.i6:                    ; preds = %72
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %77 = load ptr, ptr %76, align 8, !tbaa !69, !noalias !344
-  %78 = getelementptr inbounds nuw i64, ptr %77, i64 %74
-  %79 = getelementptr inbounds nuw i32, ptr %77, i64 %74
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %74
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %74
   br label %.lr.ph.i.i.i.i.i.i7
 
 .lr.ph.i.i.i.i.i.i7:                              ; preds = %.lr.ph.i.i.i.i.i.i7, %.lr.ph.i.i.i.i.i.preheader.i6
@@ -4283,7 +4283,7 @@ define linkonce_odr void @_ZN5arrow8internal22AdaptiveIntBuilderBase10AppendNull
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 9392
   %5 = load i32, ptr %4, align 8, !tbaa !59
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds i64, ptr %3, i64 %6
+  %7 = getelementptr inbounds [8 x i8], ptr %3, i64 %6
   store i64 0, ptr %7, align 8, !tbaa !70
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 170
   %9 = getelementptr inbounds i8, ptr %8, i64 %6
@@ -4409,7 +4409,7 @@ define linkonce_odr void @_ZN5arrow8internal22AdaptiveIntBuilderBase16AppendEmpt
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 9392
   %5 = load i32, ptr %4, align 8, !tbaa !59
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds i64, ptr %3, i64 %6
+  %7 = getelementptr inbounds [8 x i8], ptr %3, i64 %6
   store i64 0, ptr %7, align 8, !tbaa !70
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 170
   %9 = getelementptr inbounds i8, ptr %8, i64 %6

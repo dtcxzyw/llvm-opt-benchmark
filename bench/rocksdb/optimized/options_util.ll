@@ -390,8 +390,8 @@ _ZNSt6vectorIN7rocksdb22ColumnFamilyDescriptorESaIS1_EE5clearEv.exit: ; preds = 
   %.02970 = phi i64 [ 0, %.lr.ph ], [ %312, %_ZNSt10shared_ptrIN7rocksdb5CacheEEaSERKS2_.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %120 = load ptr, ptr %50, align 8, !tbaa !63
-  %121 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %120, i64 %.02970
-  %122 = getelementptr inbounds nuw %"struct.rocksdb::ColumnFamilyOptions", ptr %119, i64 %.02970
+  %121 = getelementptr inbounds nuw [32 x i8], ptr %120, i64 %.02970
+  %122 = getelementptr inbounds nuw [832 x i8], ptr %119, i64 %.02970
   store ptr %65, ptr %12, align 8, !tbaa !66
   %123 = load ptr, ptr %121, align 8, !tbaa !4
   %124 = getelementptr inbounds nuw i8, ptr %121, i64 8
@@ -673,7 +673,7 @@ _ZN7rocksdb22ColumnFamilyDescriptorD2Ev.exit:     ; preds = %_ZNSt6vectorIN7rock
 
 245:                                              ; preds = %_ZN7rocksdb22ColumnFamilyDescriptorD2Ev.exit
   %246 = load ptr, ptr %51, align 8, !tbaa !59
-  %247 = getelementptr inbounds nuw %"struct.rocksdb::ColumnFamilyOptions", ptr %246, i64 %.02970
+  %247 = getelementptr inbounds nuw [832 x i8], ptr %246, i64 %.02970
   %248 = getelementptr inbounds nuw i8, ptr %247, i64 752
   %249 = load ptr, ptr %248, align 8, !tbaa !154
   %.not34 = icmp eq ptr %249, null
@@ -6505,7 +6505,7 @@ _ZNSt6vectorIN7rocksdb22ColumnFamilyDescriptorESaIS1_EE11_S_relocateEPS1_S4_S4_R
 _ZNSt12_Vector_baseIN7rocksdb22ColumnFamilyDescriptorESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN7rocksdb22ColumnFamilyDescriptorESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit29, %83
   store ptr %22, ptr %0, align 8, !tbaa !50
   store ptr %.0.lcssa.i.i.i27, ptr %4, align 8, !tbaa !53
-  %87 = getelementptr inbounds nuw %"struct.rocksdb::ColumnFamilyDescriptor", ptr %22, i64 %16
+  %87 = getelementptr inbounds nuw [864 x i8], ptr %22, i64 %16
   store ptr %87, ptr %82, align 8, !tbaa !69
   ret void
 }
@@ -6909,7 +6909,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit36, %73
   store ptr %23, ptr %0, align 8, !tbaa !63
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8, !tbaa !216
-  %77 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %77, ptr %72, align 8, !tbaa !218
   ret void
 
@@ -7021,7 +7021,7 @@ _ZNSt6vectorIN7rocksdb19ColumnFamilyOptionsESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_
 _ZNSt12_Vector_baseIN7rocksdb19ColumnFamilyOptionsESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN7rocksdb19ColumnFamilyOptionsESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32, %28
   store ptr %20, ptr %0, align 8, !tbaa !59
   store ptr %.0.lcssa.i.i.i31, ptr %4, align 8, !tbaa !56
-  %32 = getelementptr inbounds nuw %"struct.rocksdb::ColumnFamilyOptions", ptr %20, i64 %16
+  %32 = getelementptr inbounds nuw [832 x i8], ptr %20, i64 %16
   store ptr %32, ptr %27, align 8, !tbaa !215
   ret void
 

@@ -624,7 +624,7 @@ invoke.cont13:                                    ; preds = %if.end5
   %6 = load i64, ptr %_M_bucket_count.i.i.i, align 8
   %7 = load i64, ptr %add.ptr10, align 8
   %rem.i.i.i.i.i = urem i64 %7, %6
-  %arrayidx.i.i = getelementptr inbounds ptr, ptr %5, i64 %rem.i.i.i.i.i
+  %arrayidx.i.i = getelementptr inbounds [8 x i8], ptr %5, i64 %rem.i.i.i.i.i
   store ptr %_M_before_begin.i18, ptr %arrayidx.i.i, align 8
   %__ht_n.023 = load ptr, ptr %2, align 8
   %tobool15.not24 = icmp eq ptr %__ht_n.023, null
@@ -647,7 +647,7 @@ invoke.cont19:                                    ; preds = %for.body
   %10 = load i64, ptr %_M_bucket_count.i.i.i, align 8
   %rem.i.i.i = urem i64 %9, %10
   %11 = load ptr, ptr %this, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %11, i64 %rem.i.i.i
+  %arrayidx = getelementptr inbounds [8 x i8], ptr %11, i64 %rem.i.i.i
   %12 = load ptr, ptr %arrayidx, align 8
   %tobool28.not = icmp eq ptr %12, null
   br i1 %tobool28.not, label %if.then29, label %if.end32
@@ -876,7 +876,7 @@ declare noundef i64 @_ZSt11_Hash_bytesPKvmm(ptr noundef, i64 noundef, i64 nounde
 define linkonce_odr noundef ptr @_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_find_before_nodeEmRS7_m(ptr noundef nonnull align 8 dereferenceable(56) %this, i64 noundef %__bkt, ptr noundef nonnull align 8 dereferenceable(32) %__k, i64 noundef %__code) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %0, i64 %__bkt
+  %arrayidx = getelementptr inbounds [8 x i8], ptr %0, i64 %__bkt
   %1 = load ptr, ptr %arrayidx, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %return, label %if.end

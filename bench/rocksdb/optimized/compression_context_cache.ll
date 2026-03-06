@@ -5,9 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %"class.rocksdb::CompressionContextCache" = type { ptr }
 %"class.rocksdb::ZSTDUncompressCachedData" = type { ptr, i64 }
-%"struct.rocksdb::compression_cache::ZSTDCachedData" = type { %"class.rocksdb::ZSTDUncompressCachedData", %"struct.std::atomic", [40 x i8] }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { ptr }
 
 $_ZN7rocksdb23CompressionContextCache3Rep21GetZSTDUncompressDataEv = comdat any
 
@@ -171,7 +168,7 @@ define linkonce_odr void @_ZN7rocksdb23CompressionContextCache3Rep21GetZSTDUncom
 _ZNK7rocksdb14CoreLocalArrayINS_17compression_cache14ZSTDCachedDataEE21AccessElementAndIndexEv.exit: ; preds = %5, %21
   %storemerge.i = phi i64 [ %25, %21 ], [ %20, %5 ]
   %26 = load ptr, ptr %1, align 8, !tbaa !24
-  %27 = getelementptr inbounds nuw %"struct.rocksdb::compression_cache::ZSTDCachedData", ptr %26, i64 %storemerge.i
+  %27 = getelementptr inbounds nuw [64 x i8], ptr %26, i64 %storemerge.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !25)
   store ptr null, ptr %0, align 8, !tbaa !28, !alias.scope !25
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -227,7 +224,7 @@ _ZN7rocksdb17compression_cache14ZSTDCachedData17GetUncompressDataEl.exit: ; pred
 define void @_ZN7rocksdb23CompressionContextCache30ReturnCachedZSTDUncompressDataEl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, i64 noundef %1) local_unnamed_addr #5 align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !4
   %4 = load ptr, ptr %3, align 8, !tbaa !24
-  %5 = getelementptr inbounds nuw %"struct.rocksdb::compression_cache::ZSTDCachedData", ptr %4, i64 %1
+  %5 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %1
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = ptrtoint ptr %5 to i64
   %8 = atomicrmw xchg ptr %6, i64 %7 seq_cst, align 8

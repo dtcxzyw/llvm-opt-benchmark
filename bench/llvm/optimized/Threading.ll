@@ -796,7 +796,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit69.thread:       ; preds = %_ZN4llvmeqENS_9Stri
 157:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit69.thread
   %158 = zext nneg i32 %.098134 to i64
   %159 = lshr i64 %158, 6
-  %160 = getelementptr inbounds nuw i64, ptr %8, i64 %159
+  %160 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %159
   %161 = load i64, ptr %160, align 8, !tbaa !15
   %162 = and i64 %158, 63
   %163 = shl nuw i64 1, %162
@@ -815,7 +815,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit69.thread:       ; preds = %_ZN4llvmeqENS_9Stri
   %172 = and i64 %171, 63
   %173 = shl nuw i64 1, %172
   %174 = lshr i64 %171, 6
-  %175 = getelementptr inbounds nuw i64, ptr %9, i64 %174
+  %175 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %174
   %176 = load i64, ptr %175, align 8, !tbaa !15
   %177 = or i64 %176, %173
   store i64 %177, ptr %175, align 8, !tbaa !15

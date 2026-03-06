@@ -1095,7 +1095,7 @@ define hidden void @_PyArgv_AsWstrList(ptr dead_on_unwind noalias writable write
   %.02027 = phi i64 [ 0, %.lr.ph ], [ %40, %35 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %23 = load ptr, ptr %15, align 8, !tbaa !24
-  %24 = getelementptr ptr, ptr %23, i64 %.02027
+  %24 = getelementptr [8 x i8], ptr %23, i64 %.02027
   %25 = load ptr, ptr %24, align 8, !tbaa !8
   %26 = call ptr @Py_DecodeLocale(ptr noundef %25, ptr noundef nonnull %5) #17
   %.not22 = icmp eq ptr %26, null
@@ -1122,7 +1122,7 @@ define hidden void @_PyArgv_AsWstrList(ptr dead_on_unwind noalias writable write
 
 35:                                               ; preds = %22
   %36 = load ptr, ptr %12, align 8, !tbaa !17
-  %37 = getelementptr ptr, ptr %36, i64 %.02027
+  %37 = getelementptr [8 x i8], ptr %36, i64 %.02027
   store ptr %26, ptr %37, align 8, !tbaa !26
   %38 = load i64, ptr %4, align 8, !tbaa !28
   %39 = add i64 %38, 1
@@ -1384,7 +1384,7 @@ precmdline_parse_cmdline.exit:                    ; preds = %32
 
 59:                                               ; preds = %75, %.lr.ph.i
   %.01929.i = phi i64 [ 0, %.lr.ph.i ], [ %76, %75 ]
-  %60 = getelementptr ptr, ptr %58, i64 %.01929.i
+  %60 = getelementptr [8 x i8], ptr %58, i64 %.01929.i
   %61 = load ptr, ptr %60, align 8, !tbaa !26
   %62 = call ptr @wcschr(ptr noundef %61, i32 noundef 61) #18
   %.not.i25 = icmp eq ptr %62, null
@@ -1452,7 +1452,7 @@ _Py_get_xoption.exit.thread:                      ; preds = %75, %55, %_Py_get_x
 
 85:                                               ; preds = %101, %.lr.ph.i27
   %.01929.i28 = phi i64 [ 0, %.lr.ph.i27 ], [ %102, %101 ]
-  %86 = getelementptr ptr, ptr %84, i64 %.01929.i28
+  %86 = getelementptr [8 x i8], ptr %84, i64 %.01929.i28
   %87 = load ptr, ptr %86, align 8, !tbaa !26
   %88 = call ptr @wcschr(ptr noundef %87, i32 noundef 61) #18
   %.not.i29 = icmp eq ptr %88, null
@@ -1527,7 +1527,7 @@ define hidden noundef ptr @_Py_get_xoption(ptr noundef readonly captures(none) %
 
 7:                                                ; preds = %.lr.ph, %25
   %.01929 = phi i64 [ 0, %.lr.ph ], [ %26, %25 ]
-  %8 = getelementptr ptr, ptr %6, i64 %.01929
+  %8 = getelementptr [8 x i8], ptr %6, i64 %.01929
   %9 = load ptr, ptr %8, align 8, !tbaa !26
   %10 = tail call ptr @wcschr(ptr noundef %9, i32 noundef 61) #18
   %.not = icmp eq ptr %10, null
@@ -1551,7 +1551,7 @@ define hidden noundef ptr @_Py_get_xoption(ptr noundef readonly captures(none) %
   br i1 %20, label %21, label %25
 
 21:                                               ; preds = %18
-  %22 = getelementptr i32, ptr %1, i64 %.018
+  %22 = getelementptr [4 x i8], ptr %1, i64 %.018
   %23 = load i32, ptr %22, align 4, !tbaa !4
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %._crit_edge, label %25
@@ -2660,7 +2660,7 @@ preconfig_init_coerce_c_locale.exit.i:            ; preds = %preconfig_init_coer
 
 138:                                              ; preds = %154, %.lr.ph.i.i.i
   %.01929.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %155, %154 ]
-  %139 = getelementptr ptr, ptr %137, i64 %.01929.i.i.i
+  %139 = getelementptr [8 x i8], ptr %137, i64 %.01929.i.i.i
   %140 = load ptr, ptr %139, align 8, !tbaa !26, !noalias !69
   %141 = call ptr @wcschr(ptr noundef %140, i32 noundef 61) #18, !noalias !69
   %.not.i.i25.i = icmp eq ptr %141, null

@@ -3,10 +3,8 @@ source_filename = "bench/clamav/original/filetypes.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.ftmap_s = type { ptr, i32 }
 %struct.cli_ac_data = type { ptr, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, [32 x i32], ptr, i32 }
 %struct.m_area_tag = type { ptr, i64, i64, ptr }
-%struct.ooxml_ftcodes = type { ptr, i64, i32 }
 
 @.str = private unnamed_addr constant [25 x i8] c"Recognized %s partition\0A\00", align 1
 @.str.1 = private unnamed_addr constant [43 x i8] c"Partition type is potentially unsupported\0A\00", align 1
@@ -141,7 +139,7 @@ define i32 @cli_ftcode(ptr noundef readonly captures(none) %0) local_unnamed_add
 
 3:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %4 = getelementptr inbounds nuw %struct.ftmap_s, ptr @ftmap, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [16 x i8], ptr @ftmap, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 16, !tbaa !3
   %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %0) #10
   %.not7 = icmp eq i32 %6, 0
@@ -172,7 +170,7 @@ define ptr @cli_ftname(i32 noundef %0) local_unnamed_addr #2 {
 4:                                                ; preds = %1, %2
   %.09 = phi i32 [ 0, %1 ], [ %3, %2 ]
   %5 = zext nneg i32 %.09 to i64
-  %6 = getelementptr inbounds nuw %struct.ftmap_s, ptr @ftmap, i64 %5
+  %6 = getelementptr inbounds nuw [16 x i8], ptr @ftmap, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load i32, ptr %7, align 8, !tbaa !10
   %9 = icmp eq i32 %8, %0
@@ -556,7 +554,7 @@ cli_compare_ftm_file.exit:                        ; preds = %61, %._crit_edge.i2
 .preheader:                                       ; preds = %81, %104
   %indvars.iv = phi i64 [ %indvars.iv.next, %104 ], [ 0, %81 ]
   %.2156278 = phi i32 [ %.3157, %104 ], [ %.0154286, %81 ]
-  %88 = getelementptr inbounds nuw %struct.ooxml_ftcodes, ptr @ooxml_detect, i64 %indvars.iv
+  %88 = getelementptr inbounds nuw [24 x i8], ptr @ooxml_detect, i64 %indvars.iv
   %89 = load ptr, ptr %88, align 8, !tbaa !49
   %90 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %91 = load i64, ptr %90, align 8, !tbaa !51

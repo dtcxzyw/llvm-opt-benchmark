@@ -158,7 +158,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 31:                                               ; preds = %28
   %32 = sext i32 %29 to i64
-  %33 = getelementptr inbounds ptr, ptr %1, i64 %32
+  %33 = getelementptr inbounds [8 x i8], ptr %1, i64 %32
   %34 = load ptr, ptr %33, align 8
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.10, ptr noundef %34) #7
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 2, ptr noundef nonnull @.str.9, ptr noundef %8) #7
@@ -506,7 +506,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 switch.lookup:                                    ; preds = %164
   %168 = zext nneg i32 %163 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.main, i64 %168
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.main, i64 %168
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %.sink.split
 

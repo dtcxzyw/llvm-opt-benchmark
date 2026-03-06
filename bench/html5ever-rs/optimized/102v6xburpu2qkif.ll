@@ -143,7 +143,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN5alloc11collec
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 96
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %29 = load i64, ptr %28, align 8, !alias.scope !26, !noundef !7
-  %30 = getelementptr inbounds i64, ptr %27, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %27, i64 %29
   %31 = load ptr, ptr %0, align 8, !nonnull !7, !noundef !7
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %33 = load i64, ptr %32, align 8, !noundef !7
@@ -179,7 +179,7 @@ define hidden noundef i64 @"_ZN5alloc11collections5btree3map5entry30OccupiedEntr
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !29, !noundef !7
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 96
-  %7 = getelementptr inbounds i64, ptr %6, i64 %5
+  %7 = getelementptr inbounds [8 x i8], ptr %6, i64 %5
   %8 = load i64, ptr %7, align 8, !noundef !7
   store i64 %1, ptr %7, align 8
   ret i64 %8

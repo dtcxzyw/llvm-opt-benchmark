@@ -536,8 +536,8 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %94, %_ZNKSt14defaul
 .preheader:                                       ; preds = %107, %146
   %indvars.iv212 = phi i64 [ 0, %107 ], [ %indvars.iv.next213, %146 ]
   %114 = mul nuw nsw i64 %indvars.iv212, 15
-  %invariant.gep238 = getelementptr inbounds nuw i64, ptr %29, i64 %114
-  %invariant.gep = getelementptr inbounds nuw i64, ptr %103, i64 %114
+  %invariant.gep238 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %114
+  %invariant.gep = getelementptr inbounds nuw [8 x i8], ptr %103, i64 %114
   br label %147
 
 _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %146
@@ -632,7 +632,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit124:                 ; preds = %_ZN5faiss23Residual
 147:                                              ; preds = %.preheader, %_ZN7testing15AssertionResultD2Ev.exit153
   %indvars.iv208 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next209, %_ZN7testing15AssertionResultD2Ev.exit153 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %gep239 = getelementptr inbounds nuw i64, ptr %invariant.gep238, i64 %indvars.iv208
+  %gep239 = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep238, i64 %indvars.iv208
   %148 = load i64, ptr %gep239, align 8, !tbaa !14
   store i64 %148, ptr %9, align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -778,7 +778,7 @@ _ZN7testing15AssertionResultD2Ev.exit139:         ; preds = %178, %_ZNKSt14defau
 
 .critedge:                                        ; preds = %_ZN7testing15AssertionResultD2Ev.exit139, %188
   %indvars.iv = phi i64 [ 0, %_ZN7testing15AssertionResultD2Ev.exit139 ], [ %indvars.iv.next, %188 ]
-  %gep = getelementptr inbounds nuw i64, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep, i64 %indvars.iv
   %190 = load i64, ptr %gep, align 8, !tbaa !14
   %.not = icmp eq i64 %187, %190
   br i1 %.not, label %.thread202, label %188

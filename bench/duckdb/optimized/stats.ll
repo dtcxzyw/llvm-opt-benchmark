@@ -3118,7 +3118,7 @@ emitter_json_object_end.exit122:                  ; preds = %187, %emitter_inden
 
 198:                                              ; preds = %159, %emitter_json_object_end.exit134
   %indvars.iv = phi i64 [ 0, %159 ], [ %indvars.iv.next, %emitter_json_object_end.exit134 ]
-  %199 = getelementptr inbounds nuw ptr, ptr @duckdb_je_global_mutex_names, i64 %indvars.iv
+  %199 = getelementptr inbounds nuw [8 x i8], ptr @duckdb_je_global_mutex_names, i64 %indvars.iv
   %200 = load ptr, ptr %199, align 8, !tbaa !20
   %201 = load i64, ptr %55, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -8458,7 +8458,7 @@ emitter_indent.exit.i.i:                          ; preds = %.lr.ph.i.i.i, %1253
 
 1260:                                             ; preds = %emitter_json_object_end.exit29.i, %1218
   %indvars.iv.i = phi i64 [ 0, %1218 ], [ %indvars.iv.next.i, %emitter_json_object_end.exit29.i ]
-  %1261 = getelementptr inbounds nuw ptr, ptr @duckdb_je_arena_mutex_names, i64 %indvars.iv.i
+  %1261 = getelementptr inbounds nuw [8 x i8], ptr @duckdb_je_arena_mutex_names, i64 %indvars.iv.i
   %1262 = load ptr, ptr %1261, align 8, !tbaa !20
   call fastcc void @emitter_json_object_kv_begin(ptr noundef nonnull %0, ptr noundef %1262)
   call void @llvm.lifetime.start.p0(ptr nonnull %103)
@@ -10101,7 +10101,7 @@ tsd_fetch_impl.exit141.i:                         ; preds = %1729, %1727
   %1747 = phi i64 [ %.pre283.i, %1744 ], [ %1736, %1733 ]
   %1748 = phi i64 [ %.pre282.i, %1744 ], [ %1734, %1733 ]
   %1749 = phi i64 [ %.pre.i482, %1744 ], [ %1740, %1733 ]
-  %1750 = getelementptr inbounds nuw i64, ptr @duckdb_je_sz_pind2sz_tab, i64 %indvars.iv.i479
+  %1750 = getelementptr inbounds nuw [8 x i8], ptr @duckdb_je_sz_pind2sz_tab, i64 %indvars.iv.i479
   %1751 = load i64, ptr %1750, align 8, !tbaa !3
   store i64 %1751, ptr %1664, align 8, !tbaa !7
   store i64 %indvars.iv.i479, ptr %1665, align 8, !tbaa !7
@@ -15894,7 +15894,7 @@ emitter_indent.exit.i:                            ; preds = %.lr.ph.i.i, %341, %
   br label %emitter_json_object_end.exit
 
 emitter_json_object_end.exit:                     ; preds = %emitter_json_object_begin.exit, %emitter_indent.exit.i
-  %348 = getelementptr inbounds nuw i64, ptr @duckdb_je_sz_pind2sz_tab, i64 %indvars.iv
+  %348 = getelementptr inbounds nuw [8 x i8], ptr @duckdb_je_sz_pind2sz_tab, i64 %indvars.iv
   %349 = load i64, ptr %348, align 8, !tbaa !3
   store i64 %349, ptr %259, align 8, !tbaa !7
   store i64 %indvars.iv, ptr %260, align 8, !tbaa !7

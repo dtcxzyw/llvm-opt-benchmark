@@ -1176,7 +1176,7 @@ define void @_ZN10meili_snap34default_snapshot_settings_for_test17h23bbead29b6e1
   store i8 %198, ptr %205, align 1, !noalias !174
   %206 = load ptr, ptr %.sroa.4130.0.copyload, align 8, !alias.scope !181, !noalias !174, !nonnull !5, !noundef !5
   %207 = sub nsw i64 0, %188
-  %208 = getelementptr inbounds { { { { { { i64, ptr, {} }, i64 } } } }, i64 }, ptr %206, i64 %207
+  %208 = getelementptr inbounds [32 x i8], ptr %206, i64 %207
   %209 = and i8 %196, 1
   %210 = zext nneg i8 %209 to i64
   %211 = getelementptr inbounds nuw i8, ptr %.sroa.4130.0.copyload, i64 16

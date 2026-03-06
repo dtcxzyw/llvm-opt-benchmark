@@ -159,7 +159,7 @@ define void @_RNvMCsff1zCjKRl2o_13turborepo_envNtB2_22EnvironmentVariableMap11to
           to label %_RINvNtCs68wO5nsWeTG_5alloc5slice11stable_sortNtNtB4_6string6StringNvYBH_NtNtCs1LoaDTb72WA_4core3cmp10PartialOrd2ltECsff1zCjKRl2o_13turborepo_env.exit unwind label %.loopexit.split-lp
 
 .lr.ph.preheader.i.i:                             ; preds = %21
-  %24 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 } }, ptr %17, i64 %19
+  %24 = getelementptr inbounds nuw [24 x i8], ptr %17, i64 %19
   %25 = getelementptr inbounds nuw i8, ptr %17, i64 24
   br label %.lr.ph.i.i
 
@@ -246,7 +246,7 @@ define void @_RNvMCsff1zCjKRl2o_13turborepo_envNtB2_22EnvironmentVariableMap5nam
           to label %_RINvNtCs68wO5nsWeTG_5alloc5slice11stable_sortNtNtB4_6string6StringNvYBH_NtNtCs1LoaDTb72WA_4core3cmp10PartialOrd2ltECsff1zCjKRl2o_13turborepo_env.exit unwind label %.loopexit.split-lp
 
 .lr.ph.preheader.i.i:                             ; preds = %21
-  %24 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 } }, ptr %17, i64 %19
+  %24 = getelementptr inbounds nuw [24 x i8], ptr %17, i64 %19
   %25 = getelementptr inbounds nuw i8, ptr %17, i64 24
   br label %.lr.ph.i.i
 
@@ -333,7 +333,7 @@ define void @_RNvMCsff1zCjKRl2o_13turborepo_envNtB2_22EnvironmentVariableMap18to
           to label %_RINvNtCs68wO5nsWeTG_5alloc5slice11stable_sortNtNtB4_6string6StringNvYBH_NtNtCs1LoaDTb72WA_4core3cmp10PartialOrd2ltECsff1zCjKRl2o_13turborepo_env.exit unwind label %.loopexit.split-lp
 
 .lr.ph.preheader.i.i:                             ; preds = %21
-  %24 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 } }, ptr %17, i64 %19
+  %24 = getelementptr inbounds nuw [24 x i8], ptr %17, i64 %19
   %25 = getelementptr inbounds nuw i8, ptr %17, i64 24
   br label %.lr.ph.i.i
 
@@ -945,7 +945,7 @@ _RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterhENtNtNtNtBa_4iter6traits8
 
 89:                                               ; preds = %84, %80
   %90 = load ptr, ptr %16, align 8, !alias.scope !109, !noalias !112, !nonnull !5, !noundef !5
-  %91 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %90, i64 %81
+  %91 = getelementptr inbounds [24 x i8], ptr %90, i64 %81
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %91, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   %92 = add i64 %81, 1
   store i64 %92, ptr %17, align 8, !alias.scope !109, !noalias !112
@@ -1107,7 +1107,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VecNt
 
 158:                                              ; preds = %153, %149
   %159 = load ptr, ptr %16, align 8, !alias.scope !120, !noalias !123, !nonnull !5, !noundef !5
-  %160 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %159, i64 %150
+  %160 = getelementptr inbounds [24 x i8], ptr %159, i64 %150
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %160, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
   %161 = add i64 %150, 1
   store i64 %161, ptr %17, align 8, !alias.scope !120, !noalias !123
@@ -1117,7 +1117,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VecNt
 
 162:                                              ; preds = %158
   %163 = load ptr, ptr %16, align 8, !nonnull !5, !noundef !5
-  %164 = getelementptr { { { i64, ptr, {} }, i64 } }, ptr %163, i64 %161
+  %164 = getelementptr [24 x i8], ptr %163, i64 %161
   %165 = getelementptr i8, ptr %164, i64 -16
   %166 = load ptr, ptr %165, align 8, !nonnull !5, !noundef !5
   %167 = getelementptr i8, ptr %164, i64 -8
@@ -1178,7 +1178,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VecNt
 
 186:                                              ; preds = %181, %176
   %187 = load ptr, ptr %16, align 8, !alias.scope !128, !noalias !131, !nonnull !5, !noundef !5
-  %188 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %187, i64 %178
+  %188 = getelementptr inbounds [24 x i8], ptr %187, i64 %178
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %188, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   %189 = add i64 %178, 1
   store i64 %189, ptr %17, align 8, !alias.scope !128, !noalias !131
@@ -1245,7 +1245,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VecNt
 
 207:                                              ; preds = %202, %198
   %208 = load ptr, ptr %16, align 8, !alias.scope !141, !noalias !144, !nonnull !5, !noundef !5
-  %209 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %208, i64 %199
+  %209 = getelementptr inbounds [24 x i8], ptr %208, i64 %199
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %209, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false)
   %210 = add i64 %199, 1
   store i64 %210, ptr %17, align 8, !alias.scope !141, !noalias !144

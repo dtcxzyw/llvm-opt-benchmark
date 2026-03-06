@@ -1958,7 +1958,7 @@ _ZNKSt3__119istreambuf_iteratorIcNS_11char_traitsIcEEEdeB8ne210000Ev.exit: ; pre
 _ZNKSt3__15ctypeIcE2isB8ne210000Etc.exit:         ; preds = %_ZNKSt3__119istreambuf_iteratorIcNS_11char_traitsIcEEEdeB8ne210000Ev.exit
   %57 = load ptr, ptr %33, align 8, !tbaa !48
   %58 = zext nneg i8 %.0.i.i to i64
-  %59 = getelementptr inbounds nuw i16, ptr %57, i64 %58
+  %59 = getelementptr inbounds nuw [2 x i8], ptr %57, i64 %58
   %60 = load i16, ptr %59, align 2, !tbaa !53
   %61 = and i16 %60, 8192
   %.not35 = icmp eq i16 %61, 0
@@ -9914,7 +9914,7 @@ define weak_odr dso_local void @_ZNSt3__115basic_streambufIwNS_11char_traitsIwEE
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !66
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds i32, ptr %4, i64 %5
+  %6 = getelementptr inbounds [4 x i8], ptr %4, i64 %5
   store ptr %6, ptr %3, align 8, !tbaa !66
   ret void
 }
@@ -9935,7 +9935,7 @@ define weak_odr dso_local void @_ZNSt3__115basic_streambufIwNS_11char_traitsIwEE
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8, !tbaa !73
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds i32, ptr %4, i64 %5
+  %6 = getelementptr inbounds [4 x i8], ptr %4, i64 %5
   store ptr %6, ptr %3, align 8, !tbaa !73
   ret void
 }
@@ -10018,7 +10018,7 @@ define weak_odr dso_local noundef i64 @_ZNSt3__115basic_streambufIwNS_11char_tra
 
 _ZNSt3__118__char_traits_baseIwjLj4294967295EE4copyB8ne210000EPwPKwm.exit: ; preds = %11, %18
   %20 = phi ptr [ %8, %11 ], [ %.pre, %18 ]
-  %21 = getelementptr inbounds i32, ptr %.025, i64 %.sroa.speculated
+  %21 = getelementptr inbounds [4 x i8], ptr %.025, i64 %.sroa.speculated
   %sext = shl i64 %.sroa.speculated, 32
   %22 = ashr exact i64 %sext, 30
   %23 = getelementptr inbounds i8, ptr %20, i64 %22
@@ -10132,9 +10132,9 @@ define weak_odr dso_local noundef i64 @_ZNSt3__115basic_streambufIwNS_11char_tra
 
 _ZNSt3__118__char_traits_baseIwjLj4294967295EE4copyB8ne210000EPwPKwm.exit: ; preds = %20, %26
   %28 = phi ptr [ %8, %20 ], [ %.pre, %26 ]
-  %29 = getelementptr inbounds i32, ptr %28, i64 %.sroa.speculated
+  %29 = getelementptr inbounds [4 x i8], ptr %28, i64 %.sroa.speculated
   store ptr %29, ptr %5, align 8, !tbaa !73
-  %30 = getelementptr inbounds i32, ptr %.023, i64 %.sroa.speculated
+  %30 = getelementptr inbounds [4 x i8], ptr %.023, i64 %.sroa.speculated
   %31 = add nsw i64 %.sroa.speculated, %.01622
   br label %32
 

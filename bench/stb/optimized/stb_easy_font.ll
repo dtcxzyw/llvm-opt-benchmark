@@ -181,7 +181,7 @@ define range(i32 0, 67108864) i32 @stb_easy_font_print(float noundef %0, float n
 
 18:                                               ; preds = %.lr.ph
   %19 = sext i8 %14 to i64
-  %20 = getelementptr %struct.stb_easy_font_info_struct, ptr @stb_easy_font_charinfo, i64 %19
+  %20 = getelementptr [3 x i8], ptr @stb_easy_font_charinfo, i64 %19
   %21 = getelementptr i8, ptr %20, i64 -96
   %22 = load i8, ptr %21, align 1, !tbaa !11
   %23 = zext i8 %22 to i32
@@ -392,7 +392,7 @@ define i32 @stb_easy_font_width(ptr noundef readonly captures(none) %0) local_un
 
 7:                                                ; preds = %3
   %8 = sext i8 %4 to i64
-  %9 = getelementptr %struct.stb_easy_font_info_struct, ptr @stb_easy_font_charinfo, i64 %8
+  %9 = getelementptr [3 x i8], ptr @stb_easy_font_charinfo, i64 %8
   %10 = getelementptr i8, ptr %9, i64 -96
   %11 = load i8, ptr %10, align 1, !tbaa !11
   %12 = and i8 %11, 15

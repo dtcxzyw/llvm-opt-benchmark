@@ -995,7 +995,7 @@ common.resume:                                    ; preds = %269, %249, %.body, 
   %84 = load ptr, ptr %83, align 8, !nonnull !8, !noundef !8
   %85 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %86 = load i64, ptr %85, align 8, !noundef !8
-  %87 = getelementptr inbounds { i8, [31 x i8] }, ptr %84, i64 %86
+  %87 = getelementptr inbounds [32 x i8], ptr %84, i64 %86
   call void @llvm.lifetime.start.p0(ptr nonnull %19), !noalias !166
   store ptr null, ptr %19, align 8, !noalias !166
   call void @llvm.lifetime.start.p0(ptr nonnull %18), !noalias !166
@@ -1053,7 +1053,7 @@ _ZN4core4iter8adapters11try_process17h4a5fec24f7d06aafE.exit: ; preds = %91
   %99 = load ptr, ptr %98, align 8, !nonnull !8, !noundef !8
   %100 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %101 = load i64, ptr %100, align 8, !noundef !8
-  %102 = getelementptr inbounds { i8, [31 x i8] }, ptr %99, i64 %101
+  %102 = getelementptr inbounds [32 x i8], ptr %99, i64 %101
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !181
   store ptr null, ptr %16, align 8, !noalias !181
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !181
@@ -1231,7 +1231,7 @@ _ZN4core4iter8adapters11try_process17hbcde6a699859d34bE.exit: ; preds = %106
   %151 = load ptr, ptr %150, align 8, !nonnull !8, !noundef !8
   %152 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %153 = load i64, ptr %152, align 8, !noundef !8
-  %154 = getelementptr inbounds { ptr, i64 }, ptr %151, i64 %153
+  %154 = getelementptr inbounds [16 x i8], ptr %151, i64 %153
   call void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h979d9673dc152891E.llvm.11314885810397339290"(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %22, ptr noundef nonnull %151, ptr noundef nonnull %154)
   %.sroa.34.8.copyload2 = load i64, ptr %22, align 8
   %.sroa.46.8..sroa_idx9 = getelementptr inbounds nuw i8, ptr %22, i64 8
@@ -1469,7 +1469,7 @@ _ZN4core4iter8adapters11try_process17hbcde6a699859d34bE.exit: ; preds = %106
 209:                                              ; preds = %._crit_edge.i, %189
   %210 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %190, %189 ]
   %211 = load ptr, ptr %161, align 8, !alias.scope !209, !noalias !212, !nonnull !8, !noundef !8
-  %212 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, [1 x i64], { i32, [11 x i32] } }, ptr %211, i64 %210
+  %212 = getelementptr inbounds [80 x i8], ptr %211, i64 %210
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %212, ptr noundef nonnull align 16 dereferenceable(80) %28, i64 80, i1 false)
   %213 = add i64 %210, 1
   store i64 %213, ptr %162, align 8, !alias.scope !209, !noalias !212
@@ -2322,8 +2322,8 @@ _ZN13wasmtime_wast9component11match_debug17hdd8294c8eb0d14dcE.exit: ; preds = %"
 
 .lr.ph352:                                        ; preds = %268, %296
   %.sroa.15.0351 = phi i64 [ %297, %296 ], [ 0, %268 ]
-  %282 = getelementptr inbounds { i8, [31 x i8] }, ptr %270, i64 %.sroa.15.0351
-  %283 = getelementptr inbounds { i32, [11 x i32] }, ptr %272, i64 %.sroa.15.0351
+  %282 = getelementptr inbounds [32 x i8], ptr %270, i64 %.sroa.15.0351
+  %283 = getelementptr inbounds [48 x i8], ptr %272, i64 %.sroa.15.0351
   call void @llvm.lifetime.start.p0(ptr nonnull %65)
   store i64 %.sroa.15.0351, ptr %65, align 8
   %284 = tail call noundef ptr @_ZN13wasmtime_wast9component9match_val17h306a017ddd665414E(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %282, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %283)
@@ -2410,8 +2410,8 @@ common.resume:                                    ; preds = %493, %376, %329, %2
 .lr.ph349:                                        ; preds = %301, %343
   %.sroa.9223.0348 = phi i64 [ %312, %343 ], [ 0, %301 ]
   %312 = add nuw i64 %.sroa.9223.0348, 1
-  %313 = getelementptr inbounds { { ptr, i64 }, { i8, [31 x i8] } }, ptr %305, i64 %.sroa.9223.0348
-  %314 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, [1 x i64], { i32, [11 x i32] } }, ptr %307, i64 %.sroa.9223.0348
+  %313 = getelementptr inbounds [48 x i8], ptr %305, i64 %.sroa.9223.0348
+  %314 = getelementptr inbounds [80 x i8], ptr %307, i64 %.sroa.9223.0348
   call void @llvm.lifetime.start.p0(ptr nonnull %64)
   store ptr %313, ptr %64, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %63)
@@ -2576,8 +2576,8 @@ common.resume:                                    ; preds = %493, %376, %329, %2
 
 .lr.ph:                                           ; preds = %352, %380
   %.sroa.15240.0347 = phi i64 [ %381, %380 ], [ 0, %352 ]
-  %366 = getelementptr inbounds { i8, [31 x i8] }, ptr %354, i64 %.sroa.15240.0347
-  %367 = getelementptr inbounds { i32, [11 x i32] }, ptr %356, i64 %.sroa.15240.0347
+  %366 = getelementptr inbounds [32 x i8], ptr %354, i64 %.sroa.15240.0347
+  %367 = getelementptr inbounds [48 x i8], ptr %356, i64 %.sroa.15240.0347
   call void @llvm.lifetime.start.p0(ptr nonnull %55)
   store i64 %.sroa.15240.0347, ptr %55, align 8
   %368 = tail call noundef ptr @_ZN13wasmtime_wast9component9match_val17h306a017ddd665414E(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %366, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %367)
@@ -2881,14 +2881,14 @@ common.resume:                                    ; preds = %493, %376, %329, %2
   %482 = load ptr, ptr %481, align 8, !nonnull !8, !noundef !8
   %483 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
   %484 = load i64, ptr %483, align 8, !noundef !8
-  %485 = getelementptr inbounds { ptr, i64 }, ptr %482, i64 %484
+  %485 = getelementptr inbounds [16 x i8], ptr %482, i64 %484
   call void @"_ZN120_$LT$alloc..collections..btree..set..BTreeSet$LT$T$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$T$GT$$GT$9from_iter17hb358f05451a20035E"(ptr noalias noundef nonnull sret({ { { ptr, [1 x i64] }, i64, { {} }, {} } }) align 8 captures(none) dereferenceable(24) %42, ptr noundef nonnull %482, ptr noundef nonnull %485)
   call void @llvm.lifetime.start.p0(ptr nonnull %41)
   %486 = getelementptr inbounds nuw i8, ptr %.tr266, i64 16
   %487 = load ptr, ptr %486, align 8, !nonnull !8, !noundef !8
   %488 = getelementptr inbounds nuw i8, ptr %.tr266, i64 24
   %489 = load i64, ptr %488, align 8, !noundef !8
-  %490 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %487, i64 %489
+  %490 = getelementptr inbounds [24 x i8], ptr %487, i64 %489
   invoke void @"_ZN120_$LT$alloc..collections..btree..set..BTreeSet$LT$T$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$T$GT$$GT$9from_iter17hc5ce3cf97ef5768eE"(ptr noalias noundef nonnull sret({ { { ptr, [1 x i64] }, i64, { {} }, {} } }) align 8 captures(none) dereferenceable(24) %41, ptr noundef nonnull %487, ptr noundef nonnull %490)
           to label %496 unwind label %494
 
@@ -3123,10 +3123,10 @@ switch.lookup:
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = zext nneg i8 %.0.val to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN13wasmtime_wast9component8mismatch17h1fc70858aad392d9E, i64 %5
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN13wasmtime_wast9component8mismatch17h1fc70858aad392d9E, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
   %6 = zext nneg i8 %.0.val to i64
-  %switch.gep5 = getelementptr inbounds nuw i64, ptr @switch.table._ZN13wasmtime_wast9component8mismatch17h1fc70858aad392d9E.20, i64 %6
+  %switch.gep5 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN13wasmtime_wast9component8mismatch17h1fc70858aad392d9E.20, i64 %6
   %switch.load6 = load i64, ptr %switch.gep5, align 8
   store ptr %switch.load, ptr %3, align 8
   store i64 %switch.load6, ptr %4, align 8
@@ -3137,10 +3137,10 @@ switch.lookup:
 
 switch.lookup7:                                   ; preds = %switch.lookup
   %8 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep8 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN13wasmtime_wast9component8mismatch17h1fc70858aad392d9E.19, i64 %8
+  %switch.gep8 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN13wasmtime_wast9component8mismatch17h1fc70858aad392d9E.19, i64 %8
   %switch.load9 = load ptr, ptr %switch.gep8, align 8
   %9 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep10 = getelementptr inbounds nuw i64, ptr @switch.table._ZN13wasmtime_wast9component8mismatch17h1fc70858aad392d9E.20, i64 %9
+  %switch.gep10 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN13wasmtime_wast9component8mismatch17h1fc70858aad392d9E.20, i64 %9
   %switch.load11 = load i64, ptr %switch.gep10, align 8
   br label %10
 

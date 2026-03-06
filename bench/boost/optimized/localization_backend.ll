@@ -24,7 +24,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.19" = type { %"struct.std::_Vector_base<std::reference_wrapper<const boost::locale::localization_backend>, std::allocator<std::reference_wrapper<const boost::locale::localization_backend>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::reference_wrapper<const boost::locale::localization_backend>, std::allocator<std::reference_wrapper<const boost::locale::localization_backend>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::reference_wrapper<const boost::locale::localization_backend>, std::allocator<std::reference_wrapper<const boost::locale::localization_backend>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::reference_wrapper<const boost::locale::localization_backend>, std::allocator<std::reference_wrapper<const boost::locale::localization_backend>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::reference_wrapper" = type { ptr }
 %"class.std::vector.11" = type { %"struct.std::_Vector_base.12" }
 %"struct.std::_Vector_base.12" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
@@ -1030,7 +1029,7 @@ _ZNSt6vectorISt17reference_wrapperIKN5boost6locale20localization_backendEESaIS5_
 _ZNSt6vectorISt17reference_wrapperIKN5boost6locale20localization_backendEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i: ; preds = %38, %_ZNSt6vectorISt17reference_wrapperIKN5boost6locale20localization_backendEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i
   store ptr %31, ptr %2, align 8, !tbaa !41
   store ptr %37, ptr %6, align 8, !tbaa !40
-  %39 = getelementptr inbounds nuw %"class.std::reference_wrapper", ptr %31, i64 %29
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %29
   store ptr %39, ptr %7, align 8, !tbaa !38
   br label %_ZNSt6vectorISt17reference_wrapperIKN5boost6locale20localization_backendEESaIS5_EE9push_backEOS5_.exit
 
@@ -2275,7 +2274,7 @@ _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10uni
 _ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN5boost6locale20localization_backendESt14default_deleteISA_EEESaISE_EE13_M_deallocateEPSE_m.exit: ; preds = %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN5boost6locale20localization_backendESt14default_deleteISA_EEESaISE_EE11_S_relocateEPSE_SH_SH_RSF_.exit26, %78
   store ptr %22, ptr %0, align 8, !tbaa !25
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !27
-  %82 = getelementptr inbounds nuw %"struct.std::pair", ptr %22, i64 %16
+  %82 = getelementptr inbounds nuw [40 x i8], ptr %22, i64 %16
   store ptr %82, ptr %77, align 8, !tbaa !33
   ret void
 }
@@ -2442,7 +2441,7 @@ _ZNSt6vectorISt10unique_ptrIN5boost6locale20localization_backendESt14default_del
 .noexc13:                                         ; preds = %66, %_ZNSt6vectorISt10unique_ptrIN5boost6locale20localization_backendESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i
   store ptr %59, ptr %4, align 8, !tbaa !98
   store ptr %65, ptr %30, align 8, !tbaa !95
-  %70 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %59, i64 %57
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %57
   store ptr %70, ptr %31, align 8, !tbaa !97
   br label %_ZNSt10unique_ptrIN5boost6locale20localization_backendESt14default_deleteIS2_EED2Ev.exit
 
@@ -2777,7 +2776,7 @@ _ZNSt6vectorISt17reference_wrapperIKN5boost6locale20localization_backendEESaIS5_
 _ZNSt6vectorISt17reference_wrapperIKN5boost6locale20localization_backendEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i: ; preds = %38, %_ZNSt6vectorISt17reference_wrapperIKN5boost6locale20localization_backendEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i
   store ptr %31, ptr %2, align 8, !tbaa !41
   store ptr %37, ptr %7, align 8, !tbaa !40
-  %39 = getelementptr inbounds nuw %"class.std::reference_wrapper", ptr %31, i64 %29
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %29
   store ptr %39, ptr %8, align 8, !tbaa !38
   br label %_ZNSt6vectorISt17reference_wrapperIKN5boost6locale20localization_backendEESaIS5_EE9push_backEOS5_.exit
 
@@ -2938,7 +2937,7 @@ define linkonce_odr hidden void @_ZN5boost6locale28localization_backend_manager4
   br i1 %.not14, label %19, label %23
 
 19:                                               ; preds = %.critedge
-  %20 = getelementptr inbounds nuw i32, ptr %14, i64 %.011.lcssa
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %.011.lcssa
   %21 = load i32, ptr %20, align 4, !tbaa !20
   %22 = icmp eq i32 %21, -1
   br i1 %22, label %23, label %24
@@ -2951,7 +2950,7 @@ define linkonce_odr hidden void @_ZN5boost6locale28localization_backend_manager4
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = sext i32 %21 to i64
   %27 = load ptr, ptr %25, align 8, !tbaa !98
-  %28 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %27, i64 %26
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %26
   %29 = load ptr, ptr %28, align 8, !tbaa !28
   %30 = load ptr, ptr %29, align 8, !tbaa !29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 40
@@ -3203,7 +3202,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit36, %73
   store ptr %23, ptr %0, align 8, !tbaa !112
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8, !tbaa !51
-  %77 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %77, ptr %72, align 8, !tbaa !53
   ret void
 

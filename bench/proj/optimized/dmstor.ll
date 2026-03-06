@@ -35,7 +35,7 @@ define hidden noundef double @_Z10dmstor_ctxP6pj_ctxPKcPPc(ptr noundef %0, ptr n
   %.050 = phi ptr [ %1, %7 ], [ %16, %10 ]
   %11 = load i8, ptr %.050, align 1, !tbaa !10
   %12 = sext i8 %11 to i64
-  %13 = getelementptr inbounds i16, ptr %9, i64 %12
+  %13 = getelementptr inbounds [2 x i8], ptr %9, i64 %12
   %14 = load i16, ptr %13, align 2, !tbaa !11
   %15 = and i16 %14, 8192
   %.not62 = icmp eq i16 %15, 0
@@ -75,7 +75,7 @@ switch.early.test:                                ; preds = %18
   %.pre = load i8, ptr %26, align 1, !tbaa !10
   %.pre90 = load ptr, ptr %8, align 8, !tbaa !8
   %.phi.trans.insert = sext i8 %.pre to i64
-  %.phi.trans.insert91 = getelementptr inbounds i16, ptr %.pre90, i64 %.phi.trans.insert
+  %.phi.trans.insert91 = getelementptr inbounds [2 x i8], ptr %.pre90, i64 %.phi.trans.insert
   %.pre92 = load i16, ptr %.phi.trans.insert91, align 2, !tbaa !11
   br label %18, !llvm.loop !15
 
@@ -185,7 +185,7 @@ _ZL11proj_strtodPcPS_.exit:                       ; preds = %42, %._crit_edge.i
 
 .thread:                                          ; preds = %49, %54
   %62 = zext nneg i32 %.04684 to i64
-  %63 = getelementptr inbounds nuw double, ptr @_ZL2vm, i64 %62
+  %63 = getelementptr inbounds nuw [8 x i8], ptr @_ZL2vm, i64 %62
   %64 = load double, ptr %63, align 8, !tbaa !17
   %65 = call double @llvm.fmuladd.f64(double %.0.i, double %64, double %.04285)
   br label %._crit_edge
@@ -203,7 +203,7 @@ _ZL11proj_strtodPcPS_.exit:                       ; preds = %42, %._crit_edge.i
 
 70:                                               ; preds = %66
   %71 = zext nneg i32 %.3 to i64
-  %72 = getelementptr inbounds nuw double, ptr @_ZL2vm, i64 %71
+  %72 = getelementptr inbounds nuw [8 x i8], ptr @_ZL2vm, i64 %71
   %73 = load double, ptr %72, align 8, !tbaa !17
   %74 = call double @llvm.fmuladd.f64(double %.0.i, double %73, double %.04285)
   %75 = getelementptr inbounds nuw i8, ptr %50, i64 %.0

@@ -195,7 +195,7 @@ define range(i32 -1, 257) i32 @exr_compression_lines_per_chunk(i32 noundef %0) l
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.exr_compression_lines_per_chunk, i64 %3
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.exr_compression_lines_per_chunk, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %4
 
@@ -237,7 +237,7 @@ define i32 @exr_compress_chunk(ptr noundef %0) local_unnamed_addr #0 {
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 472
   %18 = load ptr, ptr %17, align 8, !tbaa !32
   %19 = zext nneg i32 %7 to i64
-  %20 = getelementptr inbounds nuw ptr, ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !33
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %23 = load i64, ptr %22, align 8, !tbaa !34
@@ -510,7 +510,7 @@ define i32 @exr_uncompress_chunk(ptr noundef %0) local_unnamed_addr #0 {
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 472
   %19 = load ptr, ptr %18, align 8, !tbaa !32
   %20 = zext nneg i32 %8 to i64
-  %21 = getelementptr inbounds nuw ptr, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !33
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %24 = load ptr, ptr %23, align 8, !tbaa !50

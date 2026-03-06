@@ -21,7 +21,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Head_base" = type { i8 }
 %"struct.std::_Head_base.135" = type { i64 }
 %"struct.std::_Head_base.136" = type { i64 }
-%struct.tlb_entry_t = type { ptr, i64 }
 %"class.std::function" = type { %"class.std::_Function_base", ptr }
 %"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
 %"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
@@ -177,7 +176,7 @@ define linkonce_odr noundef i64 @_ZN12dummy_rocc_t7custom0E11rocc_insn_tmm(ptr n
   %8 = lshr i32 %1, 20
   %9 = and i32 %8, 31
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr inbounds nuw i64, ptr %7, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %10
   %12 = load i64, ptr %11, align 8, !tbaa !9
   %13 = icmp samesign ugt i32 %9, 3
   br i1 %13, label %14, label %15
@@ -211,7 +210,7 @@ define linkonce_odr noundef i64 @_ZN12dummy_rocc_t7custom0E11rocc_insn_tmm(ptr n
   %.not = icmp eq i64 %24, 0
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 39056
   %26 = and i64 %23, 255
-  %27 = getelementptr inbounds nuw i64, ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %26
   %28 = load i64, ptr %27, align 8, !tbaa !9
   %29 = icmp eq i64 %28, %23
   %or.cond.i = select i1 %.not, i1 %29, i1 false, !prof !139
@@ -219,7 +218,7 @@ define linkonce_odr noundef i64 @_ZN12dummy_rocc_t7custom0E11rocc_insn_tmm(ptr n
 
 30:                                               ; preds = %18
   %31 = getelementptr inbounds nuw i8, ptr %22, i64 32912
-  %32 = getelementptr inbounds nuw %struct.tlb_entry_t, ptr %31, i64 %26
+  %32 = getelementptr inbounds nuw [16 x i8], ptr %31, i64 %26
   %33 = load ptr, ptr %32, align 8, !tbaa !140
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 %2
   %35 = load i64, ptr %34, align 8
@@ -421,7 +420,7 @@ _ZNSt6vectorISt5tupleIJmmhEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22: ; preds
 _ZNSt12_Vector_baseISt5tupleIJmmhEESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorISt5tupleIJmmhEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22, %49
   store ptr %20, ptr %0, align 8, !tbaa !174
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !171
-  %53 = getelementptr inbounds nuw %"class.std::tuple", ptr %20, i64 %16
+  %53 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %53, ptr %48, align 8, !tbaa !172
   ret void
 }

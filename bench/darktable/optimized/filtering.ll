@@ -21,8 +21,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.dt_lib_filtering_params_rule_t = type { i64, [256 x i8] }
 %struct.dt_lib_filtering_params_sort_t = type { i32 }
 %struct.dt_lib_filtering_rule_t = type { i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, [256 x i8], ptr, ptr, ptr, ptr, i32, i32, i32, ptr }
-%struct._filter_t = type { i32, ptr, ptr }
-%struct._widgets_sort_t = type { i32, ptr, ptr, ptr, ptr, i32, i32, ptr }
 %struct._cairo_rectangle_int = type { i32, i32, i32, i32 }
 %struct.timeval = type { i64, i64 }
 %struct._GdkRGBA = type { double, double, double, double }
@@ -447,7 +445,7 @@ define internal float @_action_process_colors(ptr noundef %0, i32 noundef %1, i3
   %8 = tail call ptr @g_object_get_data(ptr noundef %7, ptr noundef nonnull @.str.98) #21
   %.not34 = icmp eq i32 %1, 0
   %9 = sext i32 %1 to i64
-  %10 = getelementptr ptr, ptr %8, i64 %9
+  %10 = getelementptr [8 x i8], ptr %8, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %.in = select i1 %.not34, ptr %11, ptr %10
   %12 = load ptr, ptr %.in, align 8, !tbaa !6
@@ -1446,7 +1444,7 @@ define internal fastcc void @_filters_update_params(ptr initializes((0, 2692)) %
   %15 = trunc nuw nsw i64 %indvars.iv to i32
   %16 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %1, i64 noundef 200, ptr noundef nonnull @.str.72, i32 noundef %15) #21
   %17 = call i32 @dt_conf_get_int(ptr noundef nonnull %1) #21
-  %18 = getelementptr inbounds nuw %struct.dt_lib_filtering_params_rule_t, ptr %10, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [264 x i8], ptr %10, i64 %indvars.iv
   %19 = load i64, ptr %18, align 4
   %20 = and i32 %17, 65535
   %21 = zext nneg i32 %20 to i64
@@ -1527,7 +1525,7 @@ define internal fastcc void @_filters_update_params(ptr initializes((0, 2692)) %
   %66 = trunc nuw nsw i64 %indvars.iv9 to i32
   %67 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %1, i64 noundef 200, ptr noundef nonnull @.str.103, i32 noundef %66) #21
   %68 = call i32 @dt_conf_get_int(ptr noundef nonnull %1) #21
-  %69 = getelementptr inbounds nuw %struct.dt_lib_filtering_params_sort_t, ptr %64, i64 %indvars.iv9
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %indvars.iv9
   %70 = load i32, ptr %69, align 4
   %71 = and i32 %68, 65535
   %72 = and i32 %70, -65536
@@ -1603,14 +1601,14 @@ define noundef i32 @set_params(ptr noundef %0, ptr noundef %1, i32 noundef %2) l
   br i1 %9, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %20
-  %24 = getelementptr inbounds nuw %struct.dt_lib_filtering_params_rule_t, ptr %10, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [264 x i8], ptr %10, i64 %indvars.iv
   br label %48
 
 ._crit_edge:                                      ; preds = %60, %20
   %.159.lcssa = phi i32 [ %.05864, %20 ], [ %.2, %60 ]
   %.056.lcssa = phi i32 [ %23, %20 ], [ %.1, %60 ]
   %25 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 200, ptr noundef nonnull @.str.72, i32 noundef %.056.lcssa) #21
-  %26 = getelementptr inbounds nuw %struct.dt_lib_filtering_params_rule_t, ptr %10, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [264 x i8], ptr %10, i64 %indvars.iv
   %27 = load i64, ptr %26, align 4
   %28 = trunc i64 %27 to i32
   %29 = and i32 %28, 65535
@@ -1678,7 +1676,7 @@ define noundef i32 @set_params(ptr noundef %0, ptr noundef %1, i32 noundef %2) l
   %indvars.iv78 = phi i64 [ 0, %.lr.ph72 ], [ %indvars.iv.next79, %64 ]
   %65 = trunc nuw i64 %indvars.iv78 to i32
   %66 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 200, ptr noundef nonnull @.str.77, i32 noundef %65) #21
-  %67 = getelementptr inbounds nuw %struct.dt_lib_filtering_params_sort_t, ptr %19, i64 %indvars.iv78
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %indvars.iv78
   %68 = load i32, ptr %67, align 4
   %69 = and i32 %68, 65535
   call void @dt_conf_set_int(ptr noundef nonnull %4, i32 noundef %69) #21
@@ -2061,7 +2059,7 @@ define internal fastcc void @_filters_gui_update(ptr noundef %0) unnamed_addr #1
   br i1 %.not53, label %.split, label %.split49
 
 .split49:                                         ; preds = %24
-  %35 = getelementptr inbounds nuw %struct.dt_lib_filtering_rule_t, ptr %4, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [384 x i8], ptr %4, i64 %indvars.iv
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 328
   %37 = load ptr, ptr %36, align 8, !tbaa !123
   %.not.i = icmp eq ptr %37, null
@@ -2097,7 +2095,7 @@ _widget_special_destroy.exit:                     ; preds = %41, %44
 
 .split:                                           ; preds = %24
   %48 = call i32 @dt_conf_get_int(ptr noundef nonnull %2) #21
-  %49 = getelementptr inbounds nuw %struct.dt_lib_filtering_rule_t, ptr %4, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [384 x i8], ptr %4, i64 %indvars.iv
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 328
   %51 = load ptr, ptr %50, align 8, !tbaa !123
   %.not.i55 = icmp eq ptr %51, null
@@ -2138,7 +2136,7 @@ _widget_special_destroy.exit57:                   ; preds = %55, %58
   br i1 %.not54, label %71, label %64
 
 64:                                               ; preds = %62
-  %65 = getelementptr inbounds nuw %struct.dt_lib_filtering_rule_t, ptr %4, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw [384 x i8], ptr %4, i64 %indvars.iv
   %66 = load ptr, ptr %21, align 8, !tbaa !127
   %67 = tail call i64 @gtk_box_get_type() #22
   %68 = call ptr @g_type_check_instance_cast(ptr noundef %66, i64 noundef %67) #21
@@ -2148,14 +2146,14 @@ _widget_special_destroy.exit57:                   ; preds = %55, %58
   br label %71
 
 71:                                               ; preds = %64, %62
-  %72 = getelementptr inbounds nuw %struct.dt_lib_filtering_rule_t, ptr %4, i64 %indvars.iv
+  %72 = getelementptr inbounds nuw [384 x i8], ptr %4, i64 %indvars.iv
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %74 = load ptr, ptr %73, align 8, !tbaa !128
   call void @gtk_widget_show_all(ptr noundef %74) #21
   br i1 %.not53, label %_widget_init_special.exit, label %75
 
 75:                                               ; preds = %71
-  %76 = getelementptr inbounds nuw %struct.dt_lib_filtering_rule_t, ptr %4, i64 %indvars.iv
+  %76 = getelementptr inbounds nuw [384 x i8], ptr %4, i64 %indvars.iv
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 344
   %78 = load ptr, ptr %77, align 8, !tbaa !125
   %.not28.i = icmp eq ptr %78, null
@@ -2166,7 +2164,7 @@ _widget_special_destroy.exit57:                   ; preds = %55, %58
   br label %80
 
 80:                                               ; preds = %79, %75
-  %81 = getelementptr inbounds nuw %struct.dt_lib_filtering_rule_t, ptr %4, i64 %indvars.iv
+  %81 = getelementptr inbounds nuw [384 x i8], ptr %4, i64 %indvars.iv
   %82 = call ptr @gtk_box_new(i32 noundef 0, i32 noundef 0) #21
   store ptr %82, ptr %77, align 8, !tbaa !125
   %83 = call ptr @g_type_check_instance_cast(ptr noundef %82, i64 noundef 80) #21
@@ -2182,7 +2180,7 @@ _widget_special_destroy.exit57:                   ; preds = %55, %58
 
 88:                                               ; preds = %87, %80
   %indvars.iv.i.i = phi i64 [ 0, %80 ], [ %indvars.iv.next.i.i, %87 ]
-  %89 = getelementptr inbounds nuw %struct._filter_t, ptr @filters, i64 %indvars.iv.i.i
+  %89 = getelementptr inbounds nuw [24 x i8], ptr @filters, i64 %indvars.iv.i.i
   %90 = load i32, ptr %89, align 8, !tbaa !130
   %91 = icmp eq i32 %90, %86
   br i1 %91, label %_filters_get.exit.i, label %87
@@ -2195,7 +2193,7 @@ _filters_get.exit.i:                              ; preds = %88
   br label %_widget_init_special.exit
 
 _widget_init_special.exit:                        ; preds = %87, %_filters_get.exit.i, %71
-  %94 = getelementptr inbounds nuw %struct.dt_lib_filtering_rule_t, ptr %4, i64 %indvars.iv
+  %94 = getelementptr inbounds nuw [384 x i8], ptr %4, i64 %indvars.iv
   call void @g_free(ptr noundef %29) #21
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 4
   %96 = load i32, ptr %95, align 4, !tbaa !129
@@ -2208,7 +2206,7 @@ _widget_init_special.exit:                        ; preds = %87, %_filters_get.e
 
 98:                                               ; preds = %97, %_widget_init_special.exit
   %indvars.iv.i.i58 = phi i64 [ 0, %_widget_init_special.exit ], [ %indvars.iv.next.i.i59, %97 ]
-  %99 = getelementptr inbounds nuw %struct._filter_t, ptr @filters, i64 %indvars.iv.i.i58
+  %99 = getelementptr inbounds nuw [24 x i8], ptr @filters, i64 %indvars.iv.i.i58
   %100 = load i32, ptr %99, align 8, !tbaa !130
   %101 = icmp eq i32 %100, %96
   br i1 %101, label %_filters_get.exit.i62, label %97
@@ -2238,7 +2236,7 @@ _widget_update.exit:                              ; preds = %97, %_filters_get.e
 
 .lr.ph69:                                         ; preds = %.lr.ph69.preheader, %118
   %indvars.iv75 = phi i64 [ %23, %.lr.ph69.preheader ], [ %indvars.iv.next76, %118 ]
-  %112 = getelementptr inbounds %struct.dt_lib_filtering_rule_t, ptr %4, i64 %indvars.iv75
+  %112 = getelementptr inbounds [384 x i8], ptr %4, i64 %indvars.iv75
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 4
   store i32 0, ptr %113, align 4, !tbaa !129
   %114 = getelementptr inbounds nuw i8, ptr %112, i64 8
@@ -2340,7 +2338,7 @@ define internal fastcc void @_sort_gui_update(ptr noundef %0) unnamed_addr #1 {
   %36 = call i32 @dt_conf_get_int(ptr noundef nonnull %2) #21
   %37 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 200, ptr noundef nonnull @.str.104, i32 noundef %34) #21
   %38 = call i32 @dt_conf_get_int(ptr noundef nonnull %2) #21
-  %39 = getelementptr inbounds nuw %struct._widgets_sort_t, ptr %25, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [56 x i8], ptr %25, i64 %indvars.iv
   %40 = call fastcc i32 @_sort_init(ptr noundef nonnull %39, i32 noundef %36, i32 noundef %38, i32 noundef %34, ptr noundef %0)
   %.not43 = icmp eq i32 %40, 0
   br i1 %.not43, label %47, label %41
@@ -2395,7 +2393,7 @@ define internal fastcc void @_sort_gui_update(ptr noundef %0) unnamed_addr #1 {
 
 66:                                               ; preds = %.lr.ph49, %71
   %indvars.iv52 = phi i64 [ %32, %.lr.ph49 ], [ %indvars.iv.next53, %71 ]
-  %67 = getelementptr inbounds %struct._widgets_sort_t, ptr %31, i64 %indvars.iv52
+  %67 = getelementptr inbounds [56 x i8], ptr %31, i64 %indvars.iv52
   store i32 0, ptr %67, align 8, !tbaa !140
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %69 = load ptr, ptr %68, align 8, !tbaa !136
@@ -2506,7 +2504,7 @@ define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(384) %2, i8 0, i64 384, i1 false)
   %19 = call ptr @gtk_box_new(i32 noundef 0, i32 noundef 0) #21
   store ptr %19, ptr %14, align 8, !tbaa !123
-  %20 = getelementptr inbounds nuw %struct._filter_t, ptr @filters, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [24 x i8], ptr @filters, i64 %indvars.iv
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !132
   %23 = load i32, ptr %20, align 8, !tbaa !130
@@ -2598,7 +2596,7 @@ define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_
 
 77:                                               ; preds = %16, %77
   %indvars.iv69 = phi i64 [ 0, %16 ], [ %indvars.iv.next70, %77 ]
-  %78 = getelementptr inbounds nuw %struct.dt_lib_filtering_rule_t, ptr %3, i64 %indvars.iv69
+  %78 = getelementptr inbounds nuw [384 x i8], ptr %3, i64 %indvars.iv69
   %79 = trunc nuw nsw i64 %indvars.iv69 to i32
   store i32 %79, ptr %78, align 8, !tbaa !176
   %80 = getelementptr inbounds nuw i8, ptr %78, i64 376
@@ -3027,7 +3025,7 @@ _get_mask.exit.i.i:                               ; preds = %66, %64
 
 switch.lookup:                                    ; preds = %79
   %82 = zext nneg i32 %.02127.i.i to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._event_history_show, i64 %82
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._event_history_show, i64 %82
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %83
 
@@ -3424,7 +3422,7 @@ define internal void @_proxy_reset_filter(ptr noundef readonly captures(none) %0
 .lr.ph:                                           ; preds = %2, %_widget_update.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_widget_update.exit ], [ 0, %2 ]
   %8 = phi i32 [ %38, %_widget_update.exit ], [ %6, %2 ]
-  %9 = getelementptr inbounds nuw %struct.dt_lib_filtering_rule_t, ptr %4, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [384 x i8], ptr %4, i64 %indvars.iv
   %10 = add nsw i32 %8, -1
   %11 = zext i32 %10 to i64
   %.not = icmp eq i64 %indvars.iv, %11
@@ -3468,7 +3466,7 @@ _rule_set_raw_text.exit:                          ; preds = %.lr.ph, %13, %16
 
 31:                                               ; preds = %30, %_rule_set_raw_text.exit
   %indvars.iv.i.i = phi i64 [ 0, %_rule_set_raw_text.exit ], [ %indvars.iv.next.i.i, %30 ]
-  %32 = getelementptr inbounds nuw %struct._filter_t, ptr @filters, i64 %indvars.iv.i.i
+  %32 = getelementptr inbounds nuw [24 x i8], ptr @filters, i64 %indvars.iv.i.i
   %33 = load i32, ptr %32, align 8, !tbaa !130
   %34 = icmp eq i32 %33, %29
   br i1 %34, label %_filters_get.exit.i, label %30
@@ -3556,7 +3554,7 @@ define internal void @_topbar_show_pref_menu(ptr noundef %0, ptr noundef %1) #1 
 .lr.ph:                                           ; preds = %2, %50
   %43 = phi i32 [ %51, %50 ], [ %22, %2 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %50 ], [ 0, %2 ]
-  %44 = getelementptr inbounds nuw %struct.dt_lib_filtering_rule_t, ptr %8, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [384 x i8], ptr %8, i64 %indvars.iv
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 368
   %46 = load i32, ptr %45, align 8, !tbaa !187
   %.not49 = icmp eq i32 %46, 0
@@ -3646,7 +3644,7 @@ define internal void @_dt_collection_updated(ptr readnone captures(none) %0, i32
 .lr.ph:                                           ; preds = %14, %_widget_update.exit
   %18 = phi i32 [ %30, %_widget_update.exit ], [ %17, %14 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %_widget_update.exit ], [ 0, %14 ]
-  %19 = getelementptr inbounds nuw %struct.dt_lib_filtering_rule_t, ptr %8, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [384 x i8], ptr %8, i64 %indvars.iv
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %21 = load i32, ptr %20, align 4, !tbaa !129
   br label %23
@@ -3658,7 +3656,7 @@ define internal void @_dt_collection_updated(ptr readnone captures(none) %0, i32
 
 23:                                               ; preds = %22, %.lr.ph
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next.i.i, %22 ]
-  %24 = getelementptr inbounds nuw %struct._filter_t, ptr @filters, i64 %indvars.iv.i.i
+  %24 = getelementptr inbounds nuw [24 x i8], ptr @filters, i64 %indvars.iv.i.i
   %25 = load i32, ptr %24, align 8, !tbaa !130
   %26 = icmp eq i32 %25, %21
   br i1 %26, label %_filters_get.exit.i, label %22
@@ -3719,7 +3717,7 @@ define void @gui_cleanup(ptr noundef captures(none) %0) local_unnamed_addr #11 {
 
 10:                                               ; preds = %1, %10
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %10 ]
-  %11 = getelementptr inbounds nuw %struct.dt_lib_filtering_rule_t, ptr %3, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [384 x i8], ptr %3, i64 %indvars.iv
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 364
   store i32 1, ptr %12, align 4, !tbaa !192
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3784,7 +3782,7 @@ define internal fastcc void @_topbar_update(ptr noundef %0) unnamed_addr #1 {
 .lr.ph66:                                         ; preds = %._crit_edge, %69
   %indvars.iv = phi i64 [ %indvars.iv.next, %69 ], [ 0, %._crit_edge ]
   %.04764 = phi i32 [ %.1, %69 ], [ 0, %._crit_edge ]
-  %21 = getelementptr inbounds nuw %struct.dt_lib_filtering_rule_t, ptr %3, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [384 x i8], ptr %3, i64 %indvars.iv
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 368
   %23 = load i32, ptr %22, align 8, !tbaa !187
   %.not50 = icmp eq i32 %23, 0
@@ -3813,7 +3811,7 @@ define internal fastcc void @_topbar_update(ptr noundef %0) unnamed_addr #1 {
 
 35:                                               ; preds = %34, %27
   %indvars.iv.i.i = phi i64 [ 0, %27 ], [ %indvars.iv.next.i.i, %34 ]
-  %36 = getelementptr inbounds nuw %struct._filter_t, ptr @filters, i64 %indvars.iv.i.i
+  %36 = getelementptr inbounds nuw [24 x i8], ptr @filters, i64 %indvars.iv.i.i
   %37 = load i32, ptr %36, align 8, !tbaa !130
   %38 = icmp eq i32 %37, %33
   br i1 %38, label %_filters_get.exit.i, label %34
@@ -3837,7 +3835,7 @@ _widget_init_special.exit:                        ; preds = %34, %_filters_get.e
 
 43:                                               ; preds = %42, %_widget_init_special.exit
   %indvars.iv.i.i53 = phi i64 [ 0, %_widget_init_special.exit ], [ %indvars.iv.next.i.i54, %42 ]
-  %44 = getelementptr inbounds nuw %struct._filter_t, ptr @filters, i64 %indvars.iv.i.i53
+  %44 = getelementptr inbounds nuw [24 x i8], ptr @filters, i64 %indvars.iv.i.i53
   %45 = load i32, ptr %44, align 8, !tbaa !130
   %46 = icmp eq i32 %45, %41
   br i1 %46, label %_filters_get.exit.i57, label %42
@@ -4204,7 +4202,7 @@ _get_mask.exit.split.us:                          ; preds = %_get_mask.exit, %_g
   %.not55.us = icmp ne i32 %19, 0
   %20 = select i1 %.not55.us, i32 4096, i32 0
   %21 = select i1 %.not54.us, i32 8192, i32 %20
-  %22 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv64
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv64
   %23 = load ptr, ptr %22, align 8, !tbaa !6
   %24 = tail call i64 @dtgtk_button_get_type() #21
   %25 = tail call ptr @g_type_check_instance_cast(ptr noundef %23, i64 noundef %24) #21
@@ -4238,7 +4236,7 @@ _get_mask.exit.split:                             ; preds = %_get_mask.exit, %_g
   %.not55 = icmp ne i32 %34, 0
   %35 = select i1 %.not55, i32 4096, i32 0
   %36 = select i1 %.not54, i32 8192, i32 %35
-  %37 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv
   %38 = load ptr, ptr %37, align 8, !tbaa !6
   %39 = tail call i64 @dtgtk_button_get_type() #21
   %40 = tail call ptr @g_type_check_instance_cast(ptr noundef %38, i64 noundef %39) #21
@@ -4247,7 +4245,7 @@ _get_mask.exit.split:                             ; preds = %_get_mask.exit, %_g
   tail call void @dtgtk_button_set_paint(ptr noundef %40, ptr noundef nonnull @dtgtk_cairo_paint_label_sel, i32 noundef %42, ptr noundef null) #21
   %43 = load ptr, ptr %37, align 8, !tbaa !6
   tail call void @gtk_widget_queue_draw(ptr noundef %43) #21
-  %44 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv
   %45 = load ptr, ptr %44, align 8, !tbaa !6
   %46 = tail call i64 @dtgtk_button_get_type() #21
   %47 = tail call ptr @g_type_check_instance_cast(ptr noundef %45, i64 noundef %46) #21
@@ -4699,7 +4697,7 @@ define internal fastcc void @_widget_init_special(ptr noundef %0, ptr noundef %1
 
 30:                                               ; preds = %29, %25
   %indvars.iv.i = phi i64 [ 0, %25 ], [ %indvars.iv.next.i, %29 ]
-  %31 = getelementptr inbounds nuw %struct._filter_t, ptr @filters, i64 %indvars.iv.i
+  %31 = getelementptr inbounds nuw [24 x i8], ptr @filters, i64 %indvars.iv.i
   %32 = load i32, ptr %31, align 8, !tbaa !130
   %33 = icmp eq i32 %32, %28
   br i1 %33, label %_filters_get.exit, label %29
@@ -4747,7 +4745,7 @@ define internal fastcc void @_rule_populate_prop_combo(ptr noundef captures(none
 
 10:                                               ; preds = %9, %6
   %indvars.iv.i.i = phi i64 [ 0, %6 ], [ %indvars.iv.next.i.i, %9 ]
-  %11 = getelementptr inbounds nuw %struct._filter_t, ptr @filters, i64 %indvars.iv.i.i
+  %11 = getelementptr inbounds nuw [24 x i8], ptr @filters, i64 %indvars.iv.i.i
   %12 = load i32, ptr %11, align 8, !tbaa !130
   %13 = icmp eq i32 %12, %8
   br i1 %13, label %_filters_get.exit.i, label %9
@@ -5302,7 +5300,7 @@ _rule_populate_prop_combo_add.exit64.i:           ; preds = %34, %_rule_populate
 
 126:                                              ; preds = %125, %123
   %indvars.iv.i.i205.i = phi i64 [ 0, %123 ], [ %indvars.iv.next.i.i206.i, %125 ]
-  %127 = getelementptr inbounds nuw %struct._filter_t, ptr @filters, i64 %indvars.iv.i.i205.i
+  %127 = getelementptr inbounds nuw [24 x i8], ptr @filters, i64 %indvars.iv.i.i205.i
   %128 = load i32, ptr %127, align 8, !tbaa !130
   %129 = zext i32 %128 to i64
   %130 = icmp eq i64 %124, %129
@@ -5367,7 +5365,7 @@ define internal void @_event_rule_change_type(ptr noundef %0, ptr noundef %1) #1
 
 14:                                               ; preds = %13, %11
   %indvars.iv.i.i = phi i64 [ 0, %11 ], [ %indvars.iv.next.i.i, %13 ]
-  %15 = getelementptr inbounds nuw %struct._filter_t, ptr @filters, i64 %indvars.iv.i.i
+  %15 = getelementptr inbounds nuw [24 x i8], ptr @filters, i64 %indvars.iv.i.i
   %16 = load i32, ptr %15, align 8, !tbaa !130
   %17 = icmp eq i32 %16, %12
   br i1 %17, label %_filters_get.exit.i, label %13
@@ -6109,7 +6107,7 @@ define internal void @_colors_widget_init(ptr noundef %0, i32 %1, ptr readnone c
   %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %27 ]
   %28 = trunc nuw nsw i64 %indvars.iv to i32
   %29 = tail call ptr @dtgtk_button_new(ptr noundef nonnull @dtgtk_cairo_paint_label_sel, i32 noundef %28, ptr noundef null) #21
-  %30 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   store ptr %29, ptr %30, align 8, !tbaa !6
   %31 = tail call ptr @g_type_check_instance_cast(ptr noundef %29, i64 noundef 80) #21
   %32 = inttoptr i64 %indvars.iv to ptr
@@ -6669,7 +6667,7 @@ define internal void @_date_widget_init(ptr noundef %0, i32 noundef %1, ptr noun
 
 switch.lookup:                                    ; preds = %14
   %21 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._date_update, i64 %21
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._date_update, i64 %21
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_date_get_db_colname.exit
 
@@ -6775,7 +6773,7 @@ define internal range(i32 0, 2) i32 @_date_update(ptr noundef %0) #1 {
 
 switch.lookup:                                    ; preds = %20
   %27 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._date_update, i64 %27
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._date_update, i64 %27
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_date_get_db_colname.exit
 
@@ -7330,7 +7328,7 @@ define internal range(i32 0, 2) i32 @_rating_range_update(ptr noundef %0) #1 {
 
 51:                                               ; preds = %.lr.ph
   %52 = sext i32 %47 to i64
-  %53 = getelementptr i32, ptr %3, i64 %52
+  %53 = getelementptr [4 x i8], ptr %3, i64 %52
   %54 = getelementptr i8, ptr %53, i64 4
   %55 = load i32, ptr %54, align 4, !tbaa !114
   %56 = add nsw i32 %55, %49
@@ -8922,7 +8920,7 @@ _local_copy_decode.exit:                          ; preds = %10, %12, %7
   %42 = load ptr, ptr %4, align 8, !tbaa !72
   %43 = call i32 @sqlite3_column_int(ptr noundef %42, i32 noundef 1) #21
   %44 = sext i32 %41 to i64
-  %45 = getelementptr inbounds i32, ptr %3, i64 %44
+  %45 = getelementptr inbounds [4 x i8], ptr %3, i64 %44
   store i32 %43, ptr %45, align 4, !tbaa !114
   %46 = load ptr, ptr %4, align 8, !tbaa !72
   %47 = call i32 @sqlite3_step(ptr noundef %46) #21
@@ -8984,7 +8982,7 @@ _local_copy_synchronise.exit:                     ; preds = %61, %62
   %77 = phi i1 [ true, %._crit_edge ], [ false, %76 ]
   %indvars.iv.sroa.phi = phi ptr [ %3, %._crit_edge ], [ %indvars.iv.sroa.gep26, %76 ]
   %indvars.iv = phi i64 [ 1, %._crit_edge ], [ 2, %76 ]
-  %78 = getelementptr inbounds nuw ptr, ptr @_local_copy_names, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw [8 x i8], ptr @_local_copy_names, i64 %indvars.iv
   %79 = load ptr, ptr %78, align 8, !tbaa !77
   %80 = call ptr @dcgettext(ptr noundef null, ptr noundef %79, i32 noundef 5) #21
   %81 = load i32, ptr %indvars.iv.sroa.phi, align 4, !tbaa !114
@@ -9123,7 +9121,7 @@ _history_decode.exit:                             ; preds = %10, %12, %14, %7
   %44 = load ptr, ptr %4, align 8, !tbaa !72
   %45 = call i32 @sqlite3_column_int(ptr noundef %44, i32 noundef 1) #21
   %46 = sext i32 %43 to i64
-  %47 = getelementptr inbounds i32, ptr %3, i64 %46
+  %47 = getelementptr inbounds [4 x i8], ptr %3, i64 %46
   store i32 %45, ptr %47, align 4, !tbaa !114
   %48 = load ptr, ptr %4, align 8, !tbaa !72
   %49 = call i32 @sqlite3_step(ptr noundef %48) #21
@@ -9184,10 +9182,10 @@ _history_synchronise.exit:                        ; preds = %63, %64
 78:                                               ; preds = %._crit_edge, %78
   %indvars.iv = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next, %78 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %79 = getelementptr inbounds nuw ptr, ptr @_history_names, i64 %indvars.iv.next
+  %79 = getelementptr inbounds nuw [8 x i8], ptr @_history_names, i64 %indvars.iv.next
   %80 = load ptr, ptr %79, align 8, !tbaa !77
   %81 = call ptr @dcgettext(ptr noundef null, ptr noundef %80, i32 noundef 5) #21
-  %82 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %83 = load i32, ptr %82, align 4, !tbaa !114
   %84 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.273, ptr noundef %81, i32 noundef %83) #21
   %85 = load ptr, ptr %53, align 8, !tbaa !244
@@ -9232,7 +9230,7 @@ define internal void @_module_order_widget_init(ptr noundef %0, i32 %1, ptr read
   %19 = tail call noalias ptr @g_strdup(ptr noundef %18) #21
   %20 = load ptr, ptr @_module_order_names, align 8, !tbaa !247
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv.next
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv.next
   store ptr %19, ptr %21, align 8, !tbaa !77
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
   br i1 %exitcond.not, label %12, label %16
@@ -9373,7 +9371,7 @@ _module_order_decode.exit:                        ; preds = %10, %12, %14, %16, 
 
 53:                                               ; preds = %.lr.ph, %49
   %54 = phi i64 [ %52, %49 ], [ 6, %.lr.ph ]
-  %55 = getelementptr inbounds i32, ptr %3, i64 %54
+  %55 = getelementptr inbounds [4 x i8], ptr %3, i64 %54
   store i32 %45, ptr %55, align 4, !tbaa !114
   %56 = load ptr, ptr %4, align 8, !tbaa !72
   %57 = call i32 @sqlite3_step(ptr noundef %56) #21
@@ -9435,10 +9433,10 @@ _module_order_synchronise.exit:                   ; preds = %71, %72
   %indvars.iv = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next, %86 ]
   %87 = load ptr, ptr @_module_order_names, align 8, !tbaa !247
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %88 = getelementptr inbounds nuw ptr, ptr %87, i64 %indvars.iv.next
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %87, i64 %indvars.iv.next
   %89 = load ptr, ptr %88, align 8, !tbaa !77
   %90 = call ptr @dcgettext(ptr noundef null, ptr noundef %89, i32 noundef 5) #21
-  %91 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %92 = load i32, ptr %91, align 4, !tbaa !114
   %93 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.273, ptr noundef %90, i32 noundef %92) #21
   %94 = load ptr, ptr %61, align 8, !tbaa !249
@@ -10065,7 +10063,7 @@ define internal noundef i32 @_filename_select_func(ptr noundef %0, ptr noundef %
 .lr.ph:                                           ; preds = %4, %9
   %indvars.iv = phi i64 [ %indvars.iv.next, %9 ], [ 0, %4 ]
   %13 = load ptr, ptr %5, align 8, !tbaa !77
-  %14 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !77
   %16 = call i32 @g_strcmp0(ptr noundef %13, ptr noundef %15) #21
   %.not = icmp eq i32 %16, 0
@@ -11284,7 +11282,7 @@ define internal noundef i32 @_misc_select_func(ptr noundef %0, ptr noundef %1, p
 .lr.ph:                                           ; preds = %4, %9
   %indvars.iv = phi i64 [ %indvars.iv.next, %9 ], [ 0, %4 ]
   %13 = load ptr, ptr %5, align 8, !tbaa !77
-  %14 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !77
   %16 = call i32 @g_strcmp0(ptr noundef %13, ptr noundef %15) #21
   %.not = icmp eq i32 %16, 0
@@ -11785,7 +11783,7 @@ define internal void @_rating_legacy_changed(ptr readnone captures(none) %0, ptr
 
 switch.lookup:                                    ; preds = %81
   %84 = zext nneg i32 %9 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._rating_legacy_changed, i64 %84
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._rating_legacy_changed, i64 %84
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %85
 
@@ -11917,7 +11915,7 @@ define internal fastcc void @_popup_add_item(ptr noundef %0, ptr noundef %1, i32
 
 .preheader:                                       ; preds = %7, %10
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %10 ], [ 0, %7 ]
-  %11 = getelementptr inbounds nuw %struct._filter_t, ptr @filters, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [24 x i8], ptr @filters, i64 %indvars.iv.i
   %12 = load i32, ptr %11, align 8, !tbaa !130
   %13 = icmp eq i32 %12, %2
   br i1 %13, label %_filters_get.exit, label %10
@@ -12236,7 +12234,7 @@ _filters_get.exit.preheader.i112:                 ; preds = %_topbar_populate_pr
 
 .lr.ph.i116:                                      ; preds = %_filters_get.exit.i119, %.lr.ph.preheader.i114
   %indvars.iv.i117 = phi i64 [ 0, %.lr.ph.preheader.i114 ], [ %indvars.iv.next.i120, %_filters_get.exit.i119 ]
-  %12 = getelementptr inbounds nuw %struct.dt_lib_filtering_rule_t, ptr %1, i64 %indvars.iv.i117
+  %12 = getelementptr inbounds nuw [384 x i8], ptr %1, i64 %indvars.iv.i117
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 368
   %14 = load i32, ptr %13, align 8, !tbaa !187
   %.not13.i118 = icmp eq i32 %14, 0
@@ -12305,7 +12303,7 @@ _filters_get.exit.preheader.i140:                 ; preds = %.preheader
 
 .lr.ph.i144:                                      ; preds = %_filters_get.exit.i147, %.lr.ph.preheader.i142
   %indvars.iv.i145 = phi i64 [ 0, %.lr.ph.preheader.i142 ], [ %indvars.iv.next.i148, %_filters_get.exit.i147 ]
-  %33 = getelementptr inbounds nuw %struct.dt_lib_filtering_rule_t, ptr %1, i64 %indvars.iv.i145
+  %33 = getelementptr inbounds nuw [384 x i8], ptr %1, i64 %indvars.iv.i145
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 368
   %35 = load i32, ptr %34, align 8, !tbaa !187
   %.not13.i146 = icmp eq i32 %35, 0
@@ -12351,7 +12349,7 @@ _filters_get.exit.preheader.i154:                 ; preds = %_topbar_populate_pr
 
 .lr.ph.i158:                                      ; preds = %_filters_get.exit.i161, %.lr.ph.preheader.i156
   %indvars.iv.i159 = phi i64 [ 0, %.lr.ph.preheader.i156 ], [ %indvars.iv.next.i162, %_filters_get.exit.i161 ]
-  %45 = getelementptr inbounds nuw %struct.dt_lib_filtering_rule_t, ptr %1, i64 %indvars.iv.i159
+  %45 = getelementptr inbounds nuw [384 x i8], ptr %1, i64 %indvars.iv.i159
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 368
   %47 = load i32, ptr %46, align 8, !tbaa !187
   %.not13.i160 = icmp eq i32 %47, 0
@@ -12384,7 +12382,7 @@ _filters_get.exit.preheader.i168:                 ; preds = %41, %48, %_filters_
 
 .lr.ph.i172:                                      ; preds = %_filters_get.exit.i175, %.lr.ph.preheader.i170
   %indvars.iv.i173 = phi i64 [ 0, %.lr.ph.preheader.i170 ], [ %indvars.iv.next.i176, %_filters_get.exit.i175 ]
-  %55 = getelementptr inbounds nuw %struct.dt_lib_filtering_rule_t, ptr %1, i64 %indvars.iv.i173
+  %55 = getelementptr inbounds nuw [384 x i8], ptr %1, i64 %indvars.iv.i173
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 368
   %57 = load i32, ptr %56, align 8, !tbaa !187
   %.not13.i174 = icmp eq i32 %57, 0
@@ -12430,7 +12428,7 @@ _filters_get.exit.preheader.i182:                 ; preds = %_topbar_populate_pr
 
 .lr.ph.i186:                                      ; preds = %_filters_get.exit.i189, %.lr.ph.preheader.i184
   %indvars.iv.i187 = phi i64 [ 0, %.lr.ph.preheader.i184 ], [ %indvars.iv.next.i190, %_filters_get.exit.i189 ]
-  %67 = getelementptr inbounds nuw %struct.dt_lib_filtering_rule_t, ptr %1, i64 %indvars.iv.i187
+  %67 = getelementptr inbounds nuw [384 x i8], ptr %1, i64 %indvars.iv.i187
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 368
   %69 = load i32, ptr %68, align 8, !tbaa !187
   %.not13.i188 = icmp eq i32 %69, 0
@@ -12491,7 +12489,7 @@ _topbar_populate_prop_combo_add.exit206:          ; preds = %_topbar_populate_pr
 
 89:                                               ; preds = %88, %86
   %indvars.iv.i.i207 = phi i64 [ 0, %86 ], [ %indvars.iv.next.i.i208, %88 ]
-  %90 = getelementptr inbounds nuw %struct._filter_t, ptr @filters, i64 %indvars.iv.i.i207
+  %90 = getelementptr inbounds nuw [24 x i8], ptr @filters, i64 %indvars.iv.i.i207
   %91 = load i32, ptr %90, align 8, !tbaa !130
   %92 = zext i32 %91 to i64
   %93 = icmp eq i64 %87, %92
@@ -12508,7 +12506,7 @@ _filters_get.exit.preheader.i210:                 ; preds = %89
 
 .lr.ph.i214:                                      ; preds = %_filters_get.exit.i217, %.lr.ph.preheader.i212
   %indvars.iv.i215 = phi i64 [ 0, %.lr.ph.preheader.i212 ], [ %indvars.iv.next.i218, %_filters_get.exit.i217 ]
-  %96 = getelementptr inbounds nuw %struct.dt_lib_filtering_rule_t, ptr %1, i64 %indvars.iv.i215
+  %96 = getelementptr inbounds nuw [384 x i8], ptr %1, i64 %indvars.iv.i215
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 368
   %98 = load i32, ptr %97, align 8, !tbaa !187
   %.not13.i216 = icmp eq i32 %98, 0
@@ -12570,7 +12568,7 @@ _filters_get.exit.preheader.i224:                 ; preds = %113
 
 .lr.ph.i228:                                      ; preds = %_filters_get.exit.i231, %.lr.ph.preheader.i226
   %indvars.iv.i229 = phi i64 [ 0, %.lr.ph.preheader.i226 ], [ %indvars.iv.next.i232, %_filters_get.exit.i231 ]
-  %117 = getelementptr inbounds nuw %struct.dt_lib_filtering_rule_t, ptr %1, i64 %indvars.iv.i229
+  %117 = getelementptr inbounds nuw [384 x i8], ptr %1, i64 %indvars.iv.i229
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 368
   %119 = load i32, ptr %118, align 8, !tbaa !187
   %.not13.i230 = icmp eq i32 %119, 0
@@ -12616,7 +12614,7 @@ _filters_get.exit.preheader.i238:                 ; preds = %_topbar_populate_pr
 
 .lr.ph.i242:                                      ; preds = %_filters_get.exit.i245, %.lr.ph.preheader.i240
   %indvars.iv.i243 = phi i64 [ 0, %.lr.ph.preheader.i240 ], [ %indvars.iv.next.i246, %_filters_get.exit.i245 ]
-  %129 = getelementptr inbounds nuw %struct.dt_lib_filtering_rule_t, ptr %1, i64 %indvars.iv.i243
+  %129 = getelementptr inbounds nuw [384 x i8], ptr %1, i64 %indvars.iv.i243
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 368
   %131 = load i32, ptr %130, align 8, !tbaa !187
   %.not13.i244 = icmp eq i32 %131, 0
@@ -12662,7 +12660,7 @@ _filters_get.exit.preheader.i252:                 ; preds = %_topbar_populate_pr
 
 .lr.ph.i256:                                      ; preds = %_filters_get.exit.i259, %.lr.ph.preheader.i254
   %indvars.iv.i257 = phi i64 [ 0, %.lr.ph.preheader.i254 ], [ %indvars.iv.next.i260, %_filters_get.exit.i259 ]
-  %141 = getelementptr inbounds nuw %struct.dt_lib_filtering_rule_t, ptr %1, i64 %indvars.iv.i257
+  %141 = getelementptr inbounds nuw [384 x i8], ptr %1, i64 %indvars.iv.i257
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 368
   %143 = load i32, ptr %142, align 8, !tbaa !187
   %.not13.i258 = icmp eq i32 %143, 0
@@ -12708,7 +12706,7 @@ _filters_get.exit.preheader.i266:                 ; preds = %_topbar_populate_pr
 
 .lr.ph.i270:                                      ; preds = %_filters_get.exit.i273, %.lr.ph.preheader.i268
   %indvars.iv.i271 = phi i64 [ 0, %.lr.ph.preheader.i268 ], [ %indvars.iv.next.i274, %_filters_get.exit.i273 ]
-  %153 = getelementptr inbounds nuw %struct.dt_lib_filtering_rule_t, ptr %1, i64 %indvars.iv.i271
+  %153 = getelementptr inbounds nuw [384 x i8], ptr %1, i64 %indvars.iv.i271
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 368
   %155 = load i32, ptr %154, align 8, !tbaa !187
   %.not13.i272 = icmp eq i32 %155, 0
@@ -12754,7 +12752,7 @@ _filters_get.exit.preheader.i280:                 ; preds = %_topbar_populate_pr
 
 .lr.ph.i284:                                      ; preds = %_filters_get.exit.i287, %.lr.ph.preheader.i282
   %indvars.iv.i285 = phi i64 [ 0, %.lr.ph.preheader.i282 ], [ %indvars.iv.next.i288, %_filters_get.exit.i287 ]
-  %165 = getelementptr inbounds nuw %struct.dt_lib_filtering_rule_t, ptr %1, i64 %indvars.iv.i285
+  %165 = getelementptr inbounds nuw [384 x i8], ptr %1, i64 %indvars.iv.i285
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 368
   %167 = load i32, ptr %166, align 8, !tbaa !187
   %.not13.i286 = icmp eq i32 %167, 0
@@ -12800,7 +12798,7 @@ _filters_get.exit.preheader.i294:                 ; preds = %_topbar_populate_pr
 
 .lr.ph.i298:                                      ; preds = %_filters_get.exit.i301, %.lr.ph.preheader.i296
   %indvars.iv.i299 = phi i64 [ 0, %.lr.ph.preheader.i296 ], [ %indvars.iv.next.i302, %_filters_get.exit.i301 ]
-  %177 = getelementptr inbounds nuw %struct.dt_lib_filtering_rule_t, ptr %1, i64 %indvars.iv.i299
+  %177 = getelementptr inbounds nuw [384 x i8], ptr %1, i64 %indvars.iv.i299
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 368
   %179 = load i32, ptr %178, align 8, !tbaa !187
   %.not13.i300 = icmp eq i32 %179, 0
@@ -12846,7 +12844,7 @@ _filters_get.exit.preheader.i308:                 ; preds = %_topbar_populate_pr
 
 .lr.ph.i312:                                      ; preds = %_filters_get.exit.i315, %.lr.ph.preheader.i310
   %indvars.iv.i313 = phi i64 [ 0, %.lr.ph.preheader.i310 ], [ %indvars.iv.next.i316, %_filters_get.exit.i315 ]
-  %189 = getelementptr inbounds nuw %struct.dt_lib_filtering_rule_t, ptr %1, i64 %indvars.iv.i313
+  %189 = getelementptr inbounds nuw [384 x i8], ptr %1, i64 %indvars.iv.i313
   %190 = getelementptr inbounds nuw i8, ptr %189, i64 368
   %191 = load i32, ptr %190, align 8, !tbaa !187
   %.not13.i314 = icmp eq i32 %191, 0
@@ -12892,7 +12890,7 @@ _filters_get.exit.preheader.i322:                 ; preds = %_topbar_populate_pr
 
 .lr.ph.i326:                                      ; preds = %_filters_get.exit.i329, %.lr.ph.preheader.i324
   %indvars.iv.i327 = phi i64 [ 0, %.lr.ph.preheader.i324 ], [ %indvars.iv.next.i330, %_filters_get.exit.i329 ]
-  %201 = getelementptr inbounds nuw %struct.dt_lib_filtering_rule_t, ptr %1, i64 %indvars.iv.i327
+  %201 = getelementptr inbounds nuw [384 x i8], ptr %1, i64 %indvars.iv.i327
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 368
   %203 = load i32, ptr %202, align 8, !tbaa !187
   %.not13.i328 = icmp eq i32 %203, 0
@@ -12938,7 +12936,7 @@ _filters_get.exit.preheader.i336:                 ; preds = %_topbar_populate_pr
 
 .lr.ph.i340:                                      ; preds = %_filters_get.exit.i343, %.lr.ph.preheader.i338
   %indvars.iv.i341 = phi i64 [ 0, %.lr.ph.preheader.i338 ], [ %indvars.iv.next.i344, %_filters_get.exit.i343 ]
-  %213 = getelementptr inbounds nuw %struct.dt_lib_filtering_rule_t, ptr %1, i64 %indvars.iv.i341
+  %213 = getelementptr inbounds nuw [384 x i8], ptr %1, i64 %indvars.iv.i341
   %214 = getelementptr inbounds nuw i8, ptr %213, i64 368
   %215 = load i32, ptr %214, align 8, !tbaa !187
   %.not13.i342 = icmp eq i32 %215, 0
@@ -12984,7 +12982,7 @@ _filters_get.exit.preheader.i350:                 ; preds = %_topbar_populate_pr
 
 .lr.ph.i354:                                      ; preds = %_filters_get.exit.i357, %.lr.ph.preheader.i352
   %indvars.iv.i355 = phi i64 [ 0, %.lr.ph.preheader.i352 ], [ %indvars.iv.next.i358, %_filters_get.exit.i357 ]
-  %225 = getelementptr inbounds nuw %struct.dt_lib_filtering_rule_t, ptr %1, i64 %indvars.iv.i355
+  %225 = getelementptr inbounds nuw [384 x i8], ptr %1, i64 %indvars.iv.i355
   %226 = getelementptr inbounds nuw i8, ptr %225, i64 368
   %227 = load i32, ptr %226, align 8, !tbaa !187
   %.not13.i356 = icmp eq i32 %227, 0
@@ -13030,7 +13028,7 @@ _filters_get.exit.preheader.i364:                 ; preds = %_topbar_populate_pr
 
 .lr.ph.i368:                                      ; preds = %_filters_get.exit.i371, %.lr.ph.preheader.i366
   %indvars.iv.i369 = phi i64 [ 0, %.lr.ph.preheader.i366 ], [ %indvars.iv.next.i372, %_filters_get.exit.i371 ]
-  %237 = getelementptr inbounds nuw %struct.dt_lib_filtering_rule_t, ptr %1, i64 %indvars.iv.i369
+  %237 = getelementptr inbounds nuw [384 x i8], ptr %1, i64 %indvars.iv.i369
   %238 = getelementptr inbounds nuw i8, ptr %237, i64 368
   %239 = load i32, ptr %238, align 8, !tbaa !187
   %.not13.i370 = icmp eq i32 %239, 0
@@ -13076,7 +13074,7 @@ _filters_get.exit.preheader.i378:                 ; preds = %_topbar_populate_pr
 
 .lr.ph.i382:                                      ; preds = %_filters_get.exit.i385, %.lr.ph.preheader.i380
   %indvars.iv.i383 = phi i64 [ 0, %.lr.ph.preheader.i380 ], [ %indvars.iv.next.i386, %_filters_get.exit.i385 ]
-  %249 = getelementptr inbounds nuw %struct.dt_lib_filtering_rule_t, ptr %1, i64 %indvars.iv.i383
+  %249 = getelementptr inbounds nuw [384 x i8], ptr %1, i64 %indvars.iv.i383
   %250 = getelementptr inbounds nuw i8, ptr %249, i64 368
   %251 = load i32, ptr %250, align 8, !tbaa !187
   %.not13.i384 = icmp eq i32 %251, 0
@@ -13135,7 +13133,7 @@ _filters_get.exit.preheader.i392:                 ; preds = %265
 
 .lr.ph.i396:                                      ; preds = %_filters_get.exit.i399, %.lr.ph.preheader.i394
   %indvars.iv.i397 = phi i64 [ 0, %.lr.ph.preheader.i394 ], [ %indvars.iv.next.i400, %_filters_get.exit.i399 ]
-  %269 = getelementptr inbounds nuw %struct.dt_lib_filtering_rule_t, ptr %1, i64 %indvars.iv.i397
+  %269 = getelementptr inbounds nuw [384 x i8], ptr %1, i64 %indvars.iv.i397
   %270 = getelementptr inbounds nuw i8, ptr %269, i64 368
   %271 = load i32, ptr %270, align 8, !tbaa !187
   %.not13.i398 = icmp eq i32 %271, 0
@@ -13181,7 +13179,7 @@ _filters_get.exit.preheader.i406:                 ; preds = %_topbar_populate_pr
 
 .lr.ph.i410:                                      ; preds = %_filters_get.exit.i413, %.lr.ph.preheader.i408
   %indvars.iv.i411 = phi i64 [ 0, %.lr.ph.preheader.i408 ], [ %indvars.iv.next.i414, %_filters_get.exit.i413 ]
-  %281 = getelementptr inbounds nuw %struct.dt_lib_filtering_rule_t, ptr %1, i64 %indvars.iv.i411
+  %281 = getelementptr inbounds nuw [384 x i8], ptr %1, i64 %indvars.iv.i411
   %282 = getelementptr inbounds nuw i8, ptr %281, i64 368
   %283 = load i32, ptr %282, align 8, !tbaa !187
   %.not13.i412 = icmp eq i32 %283, 0
@@ -13227,7 +13225,7 @@ _filters_get.exit.preheader.i420:                 ; preds = %_topbar_populate_pr
 
 .lr.ph.i424:                                      ; preds = %_filters_get.exit.i427, %.lr.ph.preheader.i422
   %indvars.iv.i425 = phi i64 [ 0, %.lr.ph.preheader.i422 ], [ %indvars.iv.next.i428, %_filters_get.exit.i427 ]
-  %293 = getelementptr inbounds nuw %struct.dt_lib_filtering_rule_t, ptr %1, i64 %indvars.iv.i425
+  %293 = getelementptr inbounds nuw [384 x i8], ptr %1, i64 %indvars.iv.i425
   %294 = getelementptr inbounds nuw i8, ptr %293, i64 368
   %295 = load i32, ptr %294, align 8, !tbaa !187
   %.not13.i426 = icmp eq i32 %295, 0
@@ -13279,7 +13277,7 @@ _filters_get.exit.preheader.i448:                 ; preds = %_topbar_populate_pr
 
 .lr.ph.i452:                                      ; preds = %_filters_get.exit.i455, %.lr.ph.preheader.i450
   %indvars.iv.i453 = phi i64 [ 0, %.lr.ph.preheader.i450 ], [ %indvars.iv.next.i456, %_filters_get.exit.i455 ]
-  %305 = getelementptr inbounds nuw %struct.dt_lib_filtering_rule_t, ptr %1, i64 %indvars.iv.i453
+  %305 = getelementptr inbounds nuw [384 x i8], ptr %1, i64 %indvars.iv.i453
   %306 = getelementptr inbounds nuw i8, ptr %305, i64 368
   %307 = load i32, ptr %306, align 8, !tbaa !187
   %.not13.i454 = icmp eq i32 %307, 0
@@ -13353,7 +13351,7 @@ define internal void @_topbar_rule_add(ptr noundef %0, ptr noundef %1) #1 {
   %21 = tail call ptr @g_type_check_instance_cast(ptr noundef %19, i64 noundef %20) #21
   %22 = load i32, ptr %9, align 8, !tbaa !122
   %23 = sext i32 %22 to i64
-  %24 = getelementptr %struct.dt_lib_filtering_rule_t, ptr %4, i64 %23
+  %24 = getelementptr [384 x i8], ptr %4, i64 %23
   %25 = getelementptr i8, ptr %24, i64 -384
   %26 = tail call fastcc ptr @_topbar_menu_new_rule(ptr noundef %25, ptr noundef nonnull %1)
   tail call void @gtk_box_pack_start(ptr noundef %21, ptr noundef %26, i32 noundef 1, i32 noundef 1, i32 noundef 0) #21

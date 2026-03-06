@@ -11,7 +11,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.JsonManifestParseContext = type { ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.verifier_context = type { ptr, ptr, %struct.SimpleStringList, i8, i8, i8, i8 }
 %struct.SimpleStringList = type { ptr, ptr }
-%struct.manifest_file = type { i32, ptr, i64, i32, i32, ptr, i8, i8 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 
 @main.long_options = internal global [10 x { ptr, i32, [4 x i8], ptr, i32, [4 x i8] }] [{ ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str, i32 0, [4 x i8] zeroinitializer, ptr null, i32 101, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.1, i32 1, [4 x i8] zeroinitializer, ptr null, i32 105, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.2, i32 1, [4 x i8] zeroinitializer, ptr null, i32 109, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.3, i32 1, [4 x i8] zeroinitializer, ptr null, i32 70, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.4, i32 0, [4 x i8] zeroinitializer, ptr null, i32 110, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.5, i32 0, [4 x i8] zeroinitializer, ptr null, i32 80, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.6, i32 0, [4 x i8] zeroinitializer, ptr null, i32 113, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.7, i32 0, [4 x i8] zeroinitializer, ptr null, i32 115, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.8, i32 1, [4 x i8] zeroinitializer, ptr null, i32 119, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } zeroinitializer], align 16
@@ -354,7 +353,7 @@ sub_0134:                                         ; preds = %.tail129.thread
   %88 = add nsw i32 %84, 1
   store i32 %88, ptr @optind, align 4
   %89 = sext i32 %84 to i64
-  %90 = getelementptr inbounds ptr, ptr %1, i64 %89
+  %90 = getelementptr inbounds [8 x i8], ptr %1, i64 %89
   %91 = load ptr, ptr %90, align 8
   %92 = call ptr @pstrdup(ptr noundef %91) #21
   %93 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -366,7 +365,7 @@ sub_0134:                                         ; preds = %.tail129.thread
 
 96:                                               ; preds = %87
   %97 = sext i32 %94 to i64
-  %98 = getelementptr inbounds ptr, ptr %1, i64 %97
+  %98 = getelementptr inbounds [8 x i8], ptr %1, i64 %97
   %99 = load ptr, ptr %98, align 8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.28, ptr noundef %99) #21
   %100 = load ptr, ptr @progname, align 8
@@ -1085,7 +1084,7 @@ verify_tar_backup.exit:                           ; preds = %331, %._crit_edge51
 418:                                              ; preds = %422, %.lr.ph.i.i71
   %419 = phi i64 [ 0, %.lr.ph.i.i71 ], [ %424, %422 ]
   %.01315.i.i = phi i32 [ 0, %.lr.ph.i.i71 ], [ %423, %422 ]
-  %420 = getelementptr inbounds nuw %struct.manifest_file, ptr %417, i64 %419
+  %420 = getelementptr inbounds nuw [48 x i8], ptr %417, i64 %419
   %421 = load i32, ptr %420, align 8
   %.not.i.i72 = icmp eq i32 %421, 1
   br i1 %.not.i.i72, label %422, label %manifest_files_start_iterate.exit.i
@@ -1124,7 +1123,7 @@ should_ignore_relpath.exit.i85:                   ; preds = %should_ignore_relpa
 430:                                              ; preds = %428
   %431 = load ptr, ptr %426, align 8
   %432 = zext i32 %.sroa.0.1.i to i64
-  %433 = getelementptr inbounds nuw %struct.manifest_file, ptr %431, i64 %432
+  %433 = getelementptr inbounds nuw [48 x i8], ptr %431, i64 %432
   %434 = add i32 %.sroa.0.1.i, -1
   %435 = load i32, ptr %427, align 4
   %436 = and i32 %435, %434
@@ -1216,7 +1215,7 @@ report_extra_backup_files.exit:                   ; preds = %428
 469:                                              ; preds = %473, %.lr.ph.i.i90
   %470 = phi i64 [ 0, %.lr.ph.i.i90 ], [ %475, %473 ]
   %.01315.i.i91 = phi i32 [ 0, %.lr.ph.i.i90 ], [ %474, %473 ]
-  %471 = getelementptr inbounds nuw %struct.manifest_file, ptr %468, i64 %470
+  %471 = getelementptr inbounds nuw [48 x i8], ptr %468, i64 %470
   %472 = load i32, ptr %471, align 8
   %.not.i.i92 = icmp eq i32 %472, 1
   br i1 %.not.i.i92, label %473, label %manifest_files_start_iterate.exit.i93
@@ -1255,7 +1254,7 @@ should_ignore_relpath.exit.i101:                  ; preds = %should_ignore_relpa
 481:                                              ; preds = %479
   %482 = load ptr, ptr %477, align 8
   %483 = zext i32 %.sroa.0.1.i98 to i64
-  %484 = getelementptr inbounds nuw %struct.manifest_file, ptr %482, i64 %483
+  %484 = getelementptr inbounds nuw [48 x i8], ptr %482, i64 %483
   %485 = add i32 %.sroa.0.1.i98, -1
   %486 = load i32, ptr %478, align 4
   %487 = and i32 %486, %485
@@ -1760,7 +1759,7 @@ define internal fastcc void @verify_plain_backup_directory(ptr noundef nonnull %
   %62 = load ptr, ptr %61, align 8
   %.01421.i.i = and i32 %.val.i.i, %59
   %63 = zext i32 %.01421.i.i to i64
-  %64 = getelementptr inbounds nuw %struct.manifest_file, ptr %62, i64 %63
+  %64 = getelementptr inbounds nuw [48 x i8], ptr %62, i64 %63
   %65 = load i32, ptr %64, align 8
   %66 = icmp eq i32 %65, 0
   br i1 %66, label %.loopexit, label %.lr.ph.i.i
@@ -1769,7 +1768,7 @@ define internal fastcc void @verify_plain_backup_directory(ptr noundef nonnull %
   %68 = add i32 %.01422.i.i, 1
   %.014.i.i = and i32 %68, %.val.i.i
   %69 = zext i32 %.014.i.i to i64
-  %70 = getelementptr inbounds nuw %struct.manifest_file, ptr %62, i64 %69
+  %70 = getelementptr inbounds nuw [48 x i8], ptr %62, i64 %69
   %71 = load i32, ptr %70, align 8
   %72 = icmp eq i32 %71, 0
   br i1 %72, label %.loopexit, label %.lr.ph.i.i
@@ -2063,7 +2062,7 @@ define internal void @verifybackup_per_file_cb(ptr noundef readonly captures(non
   %.val89.i.i = load i32, ptr %13, align 4
   %.071.i22.i = and i32 %.val89.i.i, %9
   %23 = zext i32 %.071.i22.i to i64
-  %24 = getelementptr inbounds nuw %struct.manifest_file, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [48 x i8], ptr %22, i64 %23
   %25 = load i32, ptr %24, align 8
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %._crit_edge.i, label %.lr.ph.i
@@ -2109,7 +2108,7 @@ manifest_files_distance.exit.i.i:                 ; preds = %38, %35
 .preheader106.i.preheader.i:                      ; preds = %manifest_files_distance.exit.i.i
   %44 = and i32 %43, %.val89.i.i
   %45 = zext i32 %44 to i64
-  %46 = getelementptr inbounds nuw %struct.manifest_file, ptr %22, i64 %45
+  %46 = getelementptr inbounds nuw [48 x i8], ptr %22, i64 %45
   %47 = load i32, ptr %46, align 8
   %.not105.i27.i = icmp eq i32 %47, 0
   br i1 %.not105.i27.i, label %.preheader.i.i, label %.lr.ph29.i
@@ -2134,7 +2133,7 @@ manifest_files_distance.exit.i.i:                 ; preds = %38, %35
   %58 = add i32 %48, 1
   %59 = and i32 %58, %.val89.i.i
   %60 = zext i32 %59 to i64
-  %61 = getelementptr inbounds nuw %struct.manifest_file, ptr %22, i64 %60
+  %61 = getelementptr inbounds nuw [48 x i8], ptr %22, i64 %60
   %62 = load i32, ptr %61, align 8
   %.not105.i.i = icmp eq i32 %62, 0
   br i1 %.not105.i.i, label %.preheader.i.i, label %.lr.ph29.i
@@ -2153,7 +2152,7 @@ manifest_files_distance.exit.i.i:                 ; preds = %38, %35
   %64 = add i32 %.075130.i.i, -1
   %65 = and i32 %.val93.i.i, %64
   %66 = zext i32 %65 to i64
-  %67 = getelementptr inbounds nuw %struct.manifest_file, ptr %22, i64 %66
+  %67 = getelementptr inbounds nuw [48 x i8], ptr %22, i64 %66
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.279129.i.i, ptr noundef nonnull align 8 dereferenceable(48) %67, i64 48, i1 false)
   %.not88.i.i = icmp eq i32 %65, %.071.i24.i
   br i1 %.not88.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !22
@@ -2182,7 +2181,7 @@ manifest_files_distance.exit.i.i:                 ; preds = %38, %35
 80:                                               ; preds = %73, %70
   %.071.i.i = and i32 %43, %.val89.i.i
   %81 = zext i32 %.071.i.i to i64
-  %82 = getelementptr inbounds nuw %struct.manifest_file, ptr %22, i64 %81
+  %82 = getelementptr inbounds nuw [48 x i8], ptr %22, i64 %81
   %83 = load i32, ptr %82, align 8
   %84 = icmp eq i32 %83, 0
   br i1 %84, label %._crit_edge.i, label %.lr.ph.i
@@ -2596,7 +2595,7 @@ manifest_files_update_parameters.exit:            ; preds = %manifest_files_comp
 .lr.ph:                                           ; preds = %manifest_files_update_parameters.exit, %40
   %32 = phi i64 [ %42, %40 ], [ 0, %manifest_files_update_parameters.exit ]
   %.062 = phi i32 [ %41, %40 ], [ 0, %manifest_files_update_parameters.exit ]
-  %33 = getelementptr inbounds nuw %struct.manifest_file, ptr %5, i64 %32
+  %33 = getelementptr inbounds nuw [48 x i8], ptr %5, i64 %32
   %34 = load i32, ptr %33, align 8
   %.not = icmp eq i32 %34, 1
   br i1 %.not, label %35, label %.lr.ph69.preheader
@@ -2623,7 +2622,7 @@ manifest_files_update_parameters.exit:            ; preds = %manifest_files_comp
   %.168 = phi i32 [ %61, %58 ], [ 0, %.lr.ph69.preheader ]
   %.05167 = phi i32 [ %spec.store.select, %58 ], [ %.05167.ph, %.lr.ph69.preheader ]
   %44 = zext i32 %.05167 to i64
-  %45 = getelementptr inbounds nuw %struct.manifest_file, ptr %5, i64 %44
+  %45 = getelementptr inbounds nuw [48 x i8], ptr %5, i64 %44
   %46 = load i32, ptr %45, align 8
   %47 = icmp eq i32 %46, 1
   br i1 %47, label %48, label %58
@@ -2639,7 +2638,7 @@ manifest_files_update_parameters.exit:            ; preds = %manifest_files_comp
   %.pn = phi i32 [ %50, %48 ], [ %56, %51 ]
   %.048 = and i32 %.pn, %.val58
   %52 = zext i32 %.048 to i64
-  %53 = getelementptr inbounds nuw %struct.manifest_file, ptr %15, i64 %52
+  %53 = getelementptr inbounds nuw [48 x i8], ptr %15, i64 %52
   %54 = load i32, ptr %53, align 8
   %55 = icmp eq i32 %54, 0
   %56 = add i32 %.048, 1

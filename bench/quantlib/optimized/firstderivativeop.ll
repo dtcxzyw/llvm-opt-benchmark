@@ -220,18 +220,18 @@ invoke.cont30:                                    ; preds = %invoke.cont25
   %mul34 = fmul double %call31, %add
   %20 = load i64, ptr %direction_, align 8, !tbaa !28
   %21 = load ptr, ptr %coordinates_.i66, align 8, !tbaa !26
-  %add.ptr.i = getelementptr inbounds nuw i64, ptr %21, i64 %20
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %20
   %22 = load i64, ptr %add.ptr.i, align 8, !tbaa !43
   %cmp = icmp eq i64 %22, 0
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %invoke.cont30
   %23 = load ptr, ptr %lower_75, align 8, !tbaa !44
-  %arrayidx.i = getelementptr inbounds nuw double, ptr %23, i64 %11
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %11
   store double 0.000000e+00, ptr %arrayidx.i, align 8, !tbaa !45
   %div = fdiv double 1.000000e+00, %call31
   %24 = load ptr, ptr %upper_84, align 8, !tbaa !44
-  %arrayidx.i67 = getelementptr inbounds nuw double, ptr %24, i64 %11
+  %arrayidx.i67 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %11
   store double %div, ptr %arrayidx.i67, align 8, !tbaa !45
   %fneg = fneg double %div
   br label %if.end87
@@ -283,7 +283,7 @@ invoke.cont54:                                    ; preds = %.noexc80, %invoke.c
   %31 = phi ptr [ %30, %invoke.cont50 ], [ %.pre.i79, %.noexc80 ]
   %dim_.i81 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %32 = load ptr, ptr %dim_.i81, align 8, !tbaa !26
-  %add.ptr.i82 = getelementptr inbounds nuw i64, ptr %32, i64 %direction
+  %add.ptr.i82 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %direction
   %33 = load i64, ptr %add.ptr.i82, align 8, !tbaa !43
   %sub = add i64 %33, -1
   %cmp59 = icmp eq i64 %22, %sub
@@ -292,11 +292,11 @@ invoke.cont54:                                    ; preds = %.noexc80, %invoke.c
 if.then60:                                        ; preds = %invoke.cont54
   %div61 = fdiv double 1.000000e+00, %call23
   %34 = load ptr, ptr %diag_80, align 8, !tbaa !44
-  %arrayidx.i83 = getelementptr inbounds nuw double, ptr %34, i64 %11
+  %arrayidx.i83 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %11
   store double %div61, ptr %arrayidx.i83, align 8, !tbaa !45
   %fneg65 = fneg double %div61
   %35 = load ptr, ptr %lower_75, align 8, !tbaa !44
-  %arrayidx.i84 = getelementptr inbounds nuw double, ptr %35, i64 %11
+  %arrayidx.i84 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %11
   store double %fneg65, ptr %arrayidx.i84, align 8, !tbaa !45
   br label %if.end87
 
@@ -304,12 +304,12 @@ if.else72:                                        ; preds = %invoke.cont54
   %fneg73 = fneg double %call31
   %div74 = fdiv double %fneg73, %mul
   %36 = load ptr, ptr %lower_75, align 8, !tbaa !44
-  %arrayidx.i86 = getelementptr inbounds nuw double, ptr %36, i64 %11
+  %arrayidx.i86 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %11
   store double %div74, ptr %arrayidx.i86, align 8, !tbaa !45
   %sub78 = fsub double %call31, %call23
   %div79 = fdiv double %sub78, %mul32
   %37 = load ptr, ptr %diag_80, align 8, !tbaa !44
-  %arrayidx.i87 = getelementptr inbounds nuw double, ptr %37, i64 %11
+  %arrayidx.i87 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %11
   store double %div79, ptr %arrayidx.i87, align 8, !tbaa !45
   %div83 = fdiv double %call23, %mul34
   br label %if.end87
@@ -318,7 +318,7 @@ if.end87:                                         ; preds = %if.then60, %if.else
   %.sink106.in = phi ptr [ %upper_84, %if.then60 ], [ %upper_84, %if.else72 ], [ %diag_80, %if.then ]
   %.sink = phi double [ 0.000000e+00, %if.then60 ], [ %div83, %if.else72 ], [ %fneg, %if.then ]
   %.sink106 = load ptr, ptr %.sink106.in, align 8, !tbaa !44
-  %arrayidx.i85 = getelementptr inbounds nuw double, ptr %.sink106, i64 %11
+  %arrayidx.i85 = getelementptr inbounds nuw [8 x i8], ptr %.sink106, i64 %11
   store double %.sink, ptr %arrayidx.i85, align 8, !tbaa !45
   %38 = load i64, ptr %__begin1, align 8, !tbaa !24
   %inc.i = add i64 %38, 1
@@ -338,11 +338,11 @@ for.body.lr.ph.i:                                 ; preds = %if.end87
 
 for.body.i:                                       ; preds = %if.then.i, %for.body.lr.ph.i
   %i.08.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc9.i, %if.then.i ]
-  %add.ptr.i.i = getelementptr inbounds nuw i64, ptr %41, i64 %i.08.i
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %i.08.i
   %42 = load i64, ptr %add.ptr.i.i, align 8, !tbaa !43
   %inc3.i = add i64 %42, 1
   store i64 %inc3.i, ptr %add.ptr.i.i, align 8, !tbaa !43
-  %add.ptr.i5.i = getelementptr inbounds nuw i64, ptr %40, i64 %i.08.i
+  %add.ptr.i5.i = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %i.08.i
   %43 = load i64, ptr %add.ptr.i5.i, align 8, !tbaa !43
   %cmp6.i = icmp eq i64 %inc3.i, %43
   br i1 %cmp6.i, label %if.then.i, label %_ZN8QuantLib19FdmLinearOpIteratorppEv.exit.loopexit

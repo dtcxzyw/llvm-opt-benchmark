@@ -175,7 +175,7 @@ define dso_local void @task_state_update(ptr noundef %0, i32 noundef %1, i32 nou
 
 switch.lookup:                                    ; preds = %6
   %10 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.task_state_update, i64 %10
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.task_state_update, i64 %10
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_task_state_type_str.exit
 

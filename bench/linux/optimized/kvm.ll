@@ -201,7 +201,7 @@ define dso_local void @kvm_async_pf_task_wait_schedule(i32 noundef %0) #1 align 
   %8 = mul i32 %0, 1640531527
   %9 = lshr i32 %8, 24
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr %struct.kvm_task_sleep_head, ptr @async_pf_sleepers, i64 %10
+  %11 = getelementptr [16 x i8], ptr @async_pf_sleepers, i64 %10
   call void @_raw_spin_lock(ptr noundef %11) #18
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   br label %13
@@ -302,7 +302,7 @@ define dso_local void @kvm_async_pf_task_wake(i32 noundef %0) #1 align 16 {
   %2 = mul i32 %0, 1640531527
   %3 = lshr i32 %2, 24
   %4 = zext nneg i32 %3 to i64
-  %5 = getelementptr %struct.kvm_task_sleep_head, ptr @async_pf_sleepers, i64 %4
+  %5 = getelementptr [16 x i8], ptr @async_pf_sleepers, i64 %4
   %6 = icmp eq i32 %0, -1
   br i1 %6, label %.preheader11, label %7
 
@@ -312,7 +312,7 @@ define dso_local void @kvm_async_pf_task_wake(i32 noundef %0) #1 align 16 {
 
 .preheader11:                                     ; preds = %1, %.loopexit
   %9 = phi i64 [ %37, %.loopexit ], [ 0, %1 ]
-  %10 = getelementptr %struct.kvm_task_sleep_head, ptr @async_pf_sleepers, i64 %9
+  %10 = getelementptr [16 x i8], ptr @async_pf_sleepers, i64 %9
   tail call void @_raw_spin_lock(ptr noundef %10) #18
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
@@ -711,7 +711,7 @@ define internal noundef i32 @kvm_alloc_cpumask() #9 section ".init.text" align 1
 
 25:                                               ; preds = %21
   %26 = and i64 %22, 63
-  %27 = getelementptr i64, ptr @__per_cpu_offset, i64 %26
+  %27 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %26
   %28 = load i64, ptr %27, align 8
   %29 = add i64 %28, ptrtoint (ptr @__pv_cpu_mask to i64)
   %30 = inttoptr i64 %29 to ptr
@@ -934,7 +934,7 @@ define internal void @kvm_guest_init() #9 section ".init.text" align 16 {
 
 2:                                                ; preds = %2, %0
   %3 = phi i64 [ 0, %0 ], [ %5, %2 ]
-  %4 = getelementptr %struct.kvm_task_sleep_head, ptr @async_pf_sleepers, i64 %3
+  %4 = getelementptr [16 x i8], ptr @async_pf_sleepers, i64 %3
   store i32 0, ptr %4, align 16
   %5 = add nuw nsw i64 %3, 1
   %6 = icmp eq i64 %5, 256
@@ -1784,7 +1784,7 @@ define internal fastcc void @__send_ipi_mask(ptr noundef readonly captures(none)
 
 24:                                               ; preds = %20
   %25 = and i64 %21, 63
-  %26 = getelementptr i64, ptr @__per_cpu_offset, i64 %25
+  %26 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %25
   %27 = load i64, ptr %26, align 8
   %28 = add i64 %27, ptrtoint (ptr @x86_cpu_to_apicid to i64)
   %29 = inttoptr i64 %28 to ptr
@@ -1931,7 +1931,7 @@ declare dso_local i32 @register_reboot_notifier(ptr noundef) local_unnamed_addr 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i64 @kvm_steal_clock(i32 noundef %0) #1 align 16 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr i64, ptr @__per_cpu_offset, i64 %2
+  %3 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %2
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, ptrtoint (ptr @steal_time to i64)
   %6 = inttoptr i64 %5 to ptr
@@ -2016,7 +2016,7 @@ define internal void @kvm_flush_tlb_multi(ptr noundef readonly captures(none) %0
 
 16:                                               ; preds = %12
   %17 = and i64 %13, 63
-  %18 = getelementptr i64, ptr @__per_cpu_offset, i64 %17
+  %18 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %17
   %19 = load i64, ptr %18, align 8
   %20 = add i64 %19, ptrtoint (ptr @steal_time to i64)
   %21 = inttoptr i64 %20 to ptr
@@ -2346,7 +2346,7 @@ __kvm_cpuid_base.exit4:                           ; preds = %46, %49, %67
 
 .preheader5:                                      ; preds = %85, %.loopexit
   %86 = phi i64 [ %114, %.loopexit ], [ 0, %85 ]
-  %87 = getelementptr %struct.kvm_task_sleep_head, ptr @async_pf_sleepers, i64 %86
+  %87 = getelementptr [16 x i8], ptr @async_pf_sleepers, i64 %86
   tail call void @_raw_spin_lock(ptr noundef %87) #18
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %89 = load ptr, ptr %88, align 8
@@ -2662,7 +2662,7 @@ __kvm_cpuid_base.exit2:                           ; preds = %90, %93, %111
 132:                                              ; preds = %130
   %133 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #19, !srcloc !93
   %134 = sext i32 %133 to i64
-  %135 = getelementptr i64, ptr @__per_cpu_offset, i64 %134
+  %135 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %134
   %136 = load i64, ptr %135, align 8
   %137 = add i64 %136, ptrtoint (ptr @steal_time to i64)
   %138 = inttoptr i64 %137 to ptr

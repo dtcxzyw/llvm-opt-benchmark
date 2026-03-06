@@ -19739,7 +19739,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit651:         ; preds = %1149, %1184, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i649
   call void @llvm.lifetime.end.p0(ptr nonnull %97)
   call void @llvm.lifetime.start.p0(ptr nonnull %101)
-  %1191 = getelementptr inbounds float, ptr %91, i64 %indvars.iv
+  %1191 = getelementptr inbounds [4 x i8], ptr %91, i64 %indvars.iv
   %1192 = load float, ptr %52, align 4, !tbaa !67, !noalias !328
   %1193 = load float, ptr %1191, align 4, !tbaa !67, !noalias !328
   %1194 = fcmp oeq float %1192, %1193
@@ -24809,7 +24809,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit597:         ; preds = %1066, %1108, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i595
   call void @llvm.lifetime.end.p0(ptr nonnull %93)
   call void @llvm.lifetime.start.p0(ptr nonnull %97)
-  %1115 = getelementptr inbounds float, ptr %87, i64 %indvars.iv
+  %1115 = getelementptr inbounds [4 x i8], ptr %87, i64 %indvars.iv
   %1116 = load float, ptr %48, align 4, !tbaa !67, !noalias !407
   %1117 = load float, ptr %1115, align 4, !tbaa !67, !noalias !407
   %1118 = fcmp oeq float %1116, %1117
@@ -25365,7 +25365,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit652:         ; preds = %1249, %1284, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i650
   call void @llvm.lifetime.end.p0(ptr nonnull %104)
   call void @llvm.lifetime.start.p0(ptr nonnull %108)
-  %1291 = getelementptr inbounds float, ptr %87, i64 %indvars.iv803
+  %1291 = getelementptr inbounds [4 x i8], ptr %87, i64 %indvars.iv803
   %1292 = load float, ptr %48, align 4, !tbaa !67, !noalias !418
   %1293 = load float, ptr %1291, align 4, !tbaa !67, !noalias !418
   %1294 = fcmp oeq float %1292, %1293

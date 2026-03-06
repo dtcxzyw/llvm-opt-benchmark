@@ -7,7 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon = type { ptr }
 %union.anon.0 = type { i64 }
 %struct.G726Tables = type { ptr, ptr, ptr, ptr }
-%struct.Float11 = type { i8, i8, i8 }
 
 @.str = private unnamed_addr constant [5 x i8] c"g726\00", align 1
 @.str.1 = private unnamed_addr constant [12 x i8] c"G.726 ADPCM\00", align 1
@@ -136,7 +135,7 @@ define internal range(i32 -22, 1) i32 @g726_encode_init(ptr noundef %0) #0 {
   store i32 %38, ptr %41, align 8, !tbaa !41
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %43 = zext nneg i32 %38 to i64
-  %44 = getelementptr %struct.G726Tables, ptr @G726Tables_pool, i64 %43
+  %44 = getelementptr [32 x i8], ptr @G726Tables_pool, i64 %43
   %45 = getelementptr i8, ptr %44, i64 -64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %42, ptr noundef nonnull align 16 dereferenceable(32) %45, i64 32, i1 false), !tbaa.struct !42
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 96
@@ -151,7 +150,7 @@ define internal range(i32 -22, 1) i32 @g726_encode_init(ptr noundef %0) #0 {
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader.critedge, %.preheader.i
   %indvars.iv17.i = phi i64 [ %indvars.iv.next18.i, %.preheader.i ], [ 0, %.preheader.i.preheader.critedge ]
-  %50 = getelementptr inbounds nuw %struct.Float11, ptr %4, i64 %indvars.iv17.i
+  %50 = getelementptr inbounds nuw [3 x i8], ptr %4, i64 %indvars.iv17.i
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 48
   store i8 32, ptr %51, align 1, !tbaa !46
   %indvars.iv.next18.i = add nuw nsw i64 %indvars.iv17.i, 1
@@ -173,7 +172,7 @@ g726_reset.exit:                                  ; preds = %.preheader.i
   %57 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 1640, ptr %57, align 4, !tbaa !48
   %58 = zext nneg i32 %38 to i64
-  %59 = getelementptr i32, ptr %2, i64 %58
+  %59 = getelementptr [4 x i8], ptr %2, i64 %58
   %60 = getelementptr i8, ptr %59, i64 -8
   %61 = load i32, ptr %60, align 4, !tbaa !48
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 376
@@ -262,7 +261,7 @@ define internal range(i32 -2147483648, 1) i32 @g726_encode_frame(ptr noundef %0,
 
 .preheader93:                                     ; preds = %33, %.preheader93
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.preheader93 ], [ 0, %33 ]
-  %57 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv.i.i
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %indvars.iv.i.i
   %58 = load i32, ptr %57, align 4, !tbaa !48
   %.not.i.i = icmp ne i32 %58, 2147483647
   %59 = icmp slt i32 %58, %55
@@ -312,7 +311,7 @@ g726_encode.exit:                                 ; preds = %.preheader93
 
 .preheader:                                       ; preds = %33, %.preheader
   %indvars.iv.i.i30 = phi i64 [ %indvars.iv.next.i.i33, %.preheader ], [ 0, %33 ]
-  %81 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv.i.i30
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %indvars.iv.i.i30
   %82 = load i32, ptr %81, align 4, !tbaa !48
   %.not.i.i31 = icmp ne i32 %82, 2147483647
   %83 = icmp slt i32 %82, %55
@@ -491,7 +490,7 @@ define internal range(i32 -1163346256, 1) i32 @g726_decode_init(ptr noundef %0) 
 .preheader.i.preheader.critedge:                  ; preds = %8
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %22 = zext nneg i32 %17 to i64
-  %23 = getelementptr %struct.G726Tables, ptr @G726Tables_pool, i64 %22
+  %23 = getelementptr [32 x i8], ptr @G726Tables_pool, i64 %22
   %24 = getelementptr i8, ptr %23, i64 -64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 16 dereferenceable(32) %24, i64 32, i1 false), !tbaa.struct !42
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 96
@@ -506,7 +505,7 @@ define internal range(i32 -1163346256, 1) i32 @g726_decode_init(ptr noundef %0) 
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader.critedge, %.preheader.i
   %indvars.iv17.i = phi i64 [ %indvars.iv.next18.i, %.preheader.i ], [ 0, %.preheader.i.preheader.critedge ]
-  %29 = getelementptr inbounds nuw %struct.Float11, ptr %3, i64 %indvars.iv17.i
+  %29 = getelementptr inbounds nuw [3 x i8], ptr %3, i64 %indvars.iv17.i
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 48
   store i8 32, ptr %30, align 1, !tbaa !46
   %indvars.iv.next18.i = add nuw nsw i64 %indvars.iv17.i, 1
@@ -628,7 +627,7 @@ define internal void @g726_decode_flush(ptr noundef readonly captures(none) %0) 
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 140
   %5 = load i32, ptr %4, align 4, !tbaa !40
   %6 = sext i32 %5 to i64
-  %7 = getelementptr %struct.G726Tables, ptr @G726Tables_pool, i64 %6
+  %7 = getelementptr [32 x i8], ptr @G726Tables_pool, i64 %6
   %8 = getelementptr i8, ptr %7, i64 -64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 16 dereferenceable(32) %8, i64 32, i1 false), !tbaa.struct !42
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 96
@@ -643,7 +642,7 @@ define internal void @g726_decode_flush(ptr noundef readonly captures(none) %0) 
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader.critedge, %.preheader.i
   %indvars.iv17.i = phi i64 [ %indvars.iv.next18.i, %.preheader.i ], [ 0, %.preheader.i.preheader.critedge ]
-  %13 = getelementptr inbounds nuw %struct.Float11, ptr %2, i64 %indvars.iv17.i
+  %13 = getelementptr inbounds nuw [3 x i8], ptr %2, i64 %indvars.iv17.i
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 48
   store i8 32, ptr %14, align 1, !tbaa !46
   %indvars.iv.next18.i = add nuw nsw i64 %indvars.iv17.i, 1
@@ -683,7 +682,7 @@ define internal fastcc signext i16 @g726_decode(ptr noundef captures(none) %0, i
   %8 = getelementptr i8, ptr %0, i64 136
   %.val144 = load i32, ptr %8, align 8, !tbaa !53
   %9 = sext i32 %1 to i64
-  %10 = getelementptr inbounds i16, ptr %.val, i64 %9
+  %10 = getelementptr inbounds [2 x i8], ptr %.val, i64 %9
   %11 = load i16, ptr %10, align 2, !tbaa !63
   %12 = sext i16 %11 to i32
   %13 = ashr i32 %.val144, 2
@@ -783,11 +782,11 @@ define internal fastcc signext i16 @g726_decode(ptr noundef captures(none) %0, i
 
 84:                                               ; preds = %54, %84
   %indvars.iv = phi i64 [ 0, %54 ], [ %indvars.iv.next, %84 ]
-  %85 = getelementptr inbounds nuw %struct.Float11, ptr %81, i64 %indvars.iv
+  %85 = getelementptr inbounds nuw [3 x i8], ptr %81, i64 %indvars.iv
   %86 = load i8, ptr %85, align 1, !tbaa !78
   %.inv.i146 = icmp eq i8 %86, 0
   %87 = select i1 %.inv.i146, i32 %52, i32 %82
-  %88 = getelementptr inbounds nuw i32, ptr %83, i64 %indvars.iv
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %83, i64 %indvars.iv
   %89 = load i32, ptr %88, align 4, !tbaa !48
   %90 = ashr i32 %89, 8
   %91 = sub i32 %89, %90
@@ -931,7 +930,7 @@ define internal fastcc signext i16 @g726_decode(ptr noundef captures(none) %0, i
   %181 = phi i32 [ %170, %172 ], [ %170, %177 ], [ %.pre, %164 ]
   %182 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %183 = load ptr, ptr %182, align 8, !tbaa !86
-  %184 = getelementptr inbounds i16, ptr %183, i64 %9
+  %184 = getelementptr inbounds [2 x i8], ptr %183, i64 %9
   %185 = load i16, ptr %184, align 2, !tbaa !63
   %186 = sext i16 %185 to i32
   %187 = sub nsw i32 0, %181
@@ -963,7 +962,7 @@ define internal fastcc signext i16 @g726_decode(ptr noundef captures(none) %0, i
 206:                                              ; preds = %179, %206
   %indvars.iv187 = phi i64 [ 0, %179 ], [ %indvars.iv.next188, %206 ]
   %207 = phi i32 [ 0, %179 ], [ %245, %206 ]
-  %208 = getelementptr inbounds nuw i32, ptr %205, i64 %indvars.iv187
+  %208 = getelementptr inbounds nuw [4 x i8], ptr %205, i64 %indvars.iv187
   %209 = load i32, ptr %208, align 4, !tbaa !48
   %210 = ashr i32 %209, 2
   %.lobit.i152 = lshr i32 %210, 31
@@ -984,7 +983,7 @@ define internal fastcc signext i16 @g726_decode(ptr noundef captures(none) %0, i
   %.narrow = add i8 %.tr, %216
   %220 = zext i8 %.narrow to i32
   %221 = ashr i32 %219, %220
-  %222 = getelementptr inbounds nuw %struct.Float11, ptr %120, i64 %indvars.iv187
+  %222 = getelementptr inbounds nuw [3 x i8], ptr %120, i64 %indvars.iv187
   %223 = getelementptr inbounds nuw i8, ptr %222, i64 1
   %224 = load i8, ptr %223, align 1, !tbaa !81
   %225 = zext i8 %224 to i32
@@ -1024,7 +1023,7 @@ define internal fastcc signext i16 @g726_decode(ptr noundef captures(none) %0, i
   %249 = phi i1 [ true, %246 ], [ false, %248 ]
   %indvars.iv191 = phi i64 [ 0, %246 ], [ 1, %248 ]
   %250 = phi i32 [ %245, %246 ], [ %288, %248 ]
-  %251 = getelementptr inbounds nuw i32, ptr %140, i64 %indvars.iv191
+  %251 = getelementptr inbounds nuw [4 x i8], ptr %140, i64 %indvars.iv191
   %252 = load i32, ptr %251, align 4, !tbaa !48
   %253 = ashr i32 %252, 2
   %.lobit.i157 = lshr i32 %253, 31
@@ -1045,7 +1044,7 @@ define internal fastcc signext i16 @g726_decode(ptr noundef captures(none) %0, i
   %.narrow195 = add i8 %.tr194, %259
   %263 = zext i8 %.narrow195 to i32
   %264 = ashr i32 %262, %263
-  %265 = getelementptr inbounds nuw %struct.Float11, ptr %99, i64 %indvars.iv191
+  %265 = getelementptr inbounds nuw [3 x i8], ptr %99, i64 %indvars.iv191
   %266 = getelementptr inbounds nuw i8, ptr %265, i64 1
   %267 = load i8, ptr %266, align 1, !tbaa !81
   %268 = zext i8 %267 to i32

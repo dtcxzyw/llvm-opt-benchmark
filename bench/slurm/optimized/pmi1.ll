@@ -373,7 +373,7 @@ define internal fastcc i32 @_handle_pmi1_cmd_buf(i32 noundef %0, i32 noundef %1,
 
 15:                                               ; preds = %.preheader, %14
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %14 ]
-  %16 = getelementptr inbounds nuw %struct.anon, ptr @pmi1_cmd_handlers, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [16 x i8], ptr @pmi1_cmd_handlers, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 16
   %18 = load ptr, ptr %11, align 8
   %19 = tail call i32 @slurm_xstrcmp(ptr noundef %18, ptr noundef %17) #8
@@ -507,7 +507,7 @@ define internal i32 @_handle_barrier_in(i32 %0, i32 noundef %1, ptr readnone cap
 6:                                                ; preds = %3
   %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @job_info, i64 48), align 8
   %8 = sext i32 %1 to i64
-  %9 = getelementptr inbounds i32, ptr %7, i64 %8
+  %9 = getelementptr inbounds [4 x i8], ptr %7, i64 %8
   %10 = load i32, ptr %9, align 4
   tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef 7, ptr noundef nonnull @.str.37, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._handle_barrier_in, i32 noundef %10) #8
   br label %11
@@ -996,13 +996,13 @@ define internal i32 @_handle_mcmd(i32 noundef %0, i32 noundef %1, ptr noundef %2
   %50 = load ptr, ptr @pmi1_spawn, align 8
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds nuw ptr, ptr %52, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %indvars.iv
   %54 = call zeroext i1 @client_req_get_str(ptr noundef %2, ptr noundef nonnull %6, ptr noundef %53) #8
   %55 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 64, ptr noundef nonnull @.str.84, i32 noundef %48) #8
   %56 = load ptr, ptr @pmi1_spawn, align 8
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 32
   %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds nuw ptr, ptr %58, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %indvars.iv
   %60 = call zeroext i1 @client_req_get_str(ptr noundef %2, ptr noundef nonnull %6, ptr noundef %59) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %61 = load ptr, ptr @pmi1_spawn, align 8
@@ -1018,7 +1018,7 @@ define internal i32 @_handle_mcmd(i32 noundef %0, i32 noundef %1, ptr noundef %2
   %68 = load ptr, ptr %67, align 8
   %69 = load i32, ptr %5, align 4
   %70 = sext i32 %69 to i64
-  %71 = getelementptr ptr, ptr %68, i64 %70
+  %71 = getelementptr [8 x i8], ptr %68, i64 %70
   %72 = getelementptr i8, ptr %71, i64 -8
   store ptr %12, ptr %72, align 8
   %73 = getelementptr inbounds nuw i8, ptr %66, i64 16

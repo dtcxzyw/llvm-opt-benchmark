@@ -56,7 +56,7 @@ define dso_local noundef zeroext i1 @execCurrentOf(ptr noundef readonly captures
 
 22:                                               ; preds = %18
   %23 = zext nneg i32 %11 to i64
-  %24 = getelementptr %struct.ParamExternData, ptr %.val, i64 %23
+  %24 = getelementptr [16 x i8], ptr %.val, i64 %23
   %25 = getelementptr i8, ptr %24, i64 48
   br label %26
 
@@ -180,7 +180,7 @@ fetch_cursor_param_value.exit:                    ; preds = %33
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %100
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %100 ]
   %.06182 = phi ptr [ null, %.lr.ph.preheader ], [ %.162, %100 ]
-  %84 = getelementptr inbounds nuw ptr, ptr %81, i64 %indvars.iv
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %indvars.iv
   %85 = load ptr, ptr %84, align 8
   %86 = icmp eq ptr %85, null
   br i1 %86, label %100, label %87
@@ -403,7 +403,7 @@ define internal fastcc ptr @search_plan_tree(ptr noundef readonly captures(addre
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %22 ]
   %.23355 = phi ptr [ null, %.lr.ph ], [ %.334, %22 ]
   %18 = load ptr, ptr %9, align 8
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8
   %21 = tail call fastcc ptr @search_plan_tree(ptr noundef %20, i32 noundef %1, ptr noundef %2)
   %.not = icmp eq ptr %21, null

@@ -689,7 +689,7 @@ select.unfold:                                    ; preds = %99, %103, %105, %10
   %.1142 = phi i64 [ %.0141457, %.thread737 ], [ %207, %206 ], [ %.0141457, %58 ], [ %.0141457, %.tail252 ], [ %.0141457, %.tail252.thread ], [ %.0141457, %66 ], [ %.0141457, %68 ], [ %.0141457, %137 ], [ %.0141457, %144 ], [ %.0141457, %153 ], [ %.0141457, %162 ], [ %.0141457, %165 ], [ %.0141457, %89 ], [ %.0141457, %189 ], [ %.0141457, %177 ], [ %.0141457, %52 ], [ %.0141457, %50 ], [ %.0141457, %46 ], [ %.0141457, %54 ], [ %.0141457, %179 ], [ %.0141457, %113 ], [ %.0141457, %111 ], [ %.0141457, %109 ], [ %.0141457, %107 ], [ %.0141457, %105 ], [ %.0141457, %103 ], [ %.0141457, %99 ]
   %208 = sub nsw i32 %.0139459, %.0230
   %209 = zext nneg i32 %.0230 to i64
-  %210 = getelementptr inbounds nuw ptr, ptr %.0140458, i64 %209
+  %210 = getelementptr inbounds nuw [8 x i8], ptr %.0140458, i64 %209
   %211 = icmp sgt i32 %208, 0
   br i1 %211, label %sub_0, label %.tail._crit_edge, !llvm.loop !15
 
@@ -889,7 +889,7 @@ hwloc_utils_disable_input_format.exit226:         ; preds = %251, %244, %243
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %281 ]
   %287 = trunc nuw i64 %indvars.iv to i32
   %288 = call ptr @hwloc_get_obj_by_depth(ptr noundef %282, i32 noundef %.0147, i32 noundef %287) #23
-  %289 = getelementptr inbounds nuw ptr, ptr %286, i64 %indvars.iv
+  %289 = getelementptr inbounds nuw [8 x i8], ptr %286, i64 %indvars.iv
   store ptr %288, ptr %289, align 8, !tbaa !19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %284
@@ -911,7 +911,7 @@ hwloc_utils_disable_input_format.exit226:         ; preds = %251, %244, %243
   %.1151501 = phi i32 [ 0, %.lr.ph503 ], [ %336, %hwloc_utils_cpuset_format_asprintf.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr null, ptr %10, align 8, !tbaa !4
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %222, i64 %293
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %222, i64 %293
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !22
   br i1 %.not195, label %._crit_edge727, label %294
 
@@ -1089,7 +1089,7 @@ define internal fastcc i64 @hwloc_utils_parse_restrict_flags(ptr noundef %0) unn
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 %.06714.i
   %16 = load ptr, ptr %12, align 8, !tbaa !30
   %17 = sext i8 %14 to i64
-  %18 = getelementptr inbounds i32, ptr %16, i64 %17
+  %18 = getelementptr inbounds [4 x i8], ptr %16, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !13
   %20 = trunc i32 %19 to i8
   store i8 %20, ptr %15, align 1, !tbaa !29
@@ -1145,7 +1145,7 @@ define internal fastcc i64 @hwloc_utils_parse_restrict_flags(ptr noundef %0) unn
   %indvars.iv31.i = phi i64 [ %indvars.iv.next32.i, %47 ], [ 0, %35 ]
   %.06417.us.i = phi i32 [ %.165.us.i, %47 ], [ 0, %35 ]
   %.315.us.i = phi i64 [ %.4.us.i, %47 ], [ %.069.i, %35 ]
-  %39 = getelementptr inbounds nuw %struct.hwloc_utils_parsing_flag, ptr @__const.hwloc_utils_parse_restrict_flags.possible_flags, i64 %indvars.iv31.i
+  %39 = getelementptr inbounds nuw [16 x i8], ptr @__const.hwloc_utils_parse_restrict_flags.possible_flags, i64 %indvars.iv31.i
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load ptr, ptr %40, align 8, !tbaa !33
   %42 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %41, ptr noundef nonnull dereferenceable(1) %28) #23
@@ -1172,7 +1172,7 @@ define internal fastcc i64 @hwloc_utils_parse_restrict_flags(ptr noundef %0) unn
   %indvars.iv.i = phi i64 [ 0, %.split.i ], [ %indvars.iv.next.i, %62 ]
   %.06417.i = phi i32 [ 0, %.split.i ], [ %.165.i, %62 ]
   %.315.i = phi i64 [ %.069.i, %.split.i ], [ %.4.i, %62 ]
-  %49 = getelementptr inbounds nuw %struct.hwloc_utils_parsing_flag, ptr @__const.hwloc_utils_parse_restrict_flags.possible_flags, i64 %indvars.iv.i
+  %49 = getelementptr inbounds nuw [16 x i8], ptr @__const.hwloc_utils_parse_restrict_flags.possible_flags, i64 %indvars.iv.i
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %51 = load ptr, ptr %50, align 8, !tbaa !33
   %52 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %51) #23
@@ -1725,7 +1725,7 @@ define internal fastcc void @hwloc_distrib(ptr noundef readonly captures(none) %
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.0624 = phi i32 [ 0, %.lr.ph.preheader ], [ %15, %.lr.ph ]
-  %10 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !19
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 184
   %13 = load ptr, ptr %12, align 8, !tbaa !42
@@ -1743,7 +1743,7 @@ define internal fastcc void @hwloc_distrib(ptr noundef readonly captures(none) %
   %18 = add i32 %1, %17
   %19 = select i1 %.not76, i32 %.115, i32 %18
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds nuw ptr, ptr %0, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !19
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 184
   %24 = load ptr, ptr %23, align 8, !tbaa !42
@@ -1800,7 +1800,7 @@ define internal fastcc void @hwloc_distrib(ptr noundef readonly captures(none) %
 .lr.ph11:                                         ; preds = %.lr.ph11.preheader, %.lr.ph11
   %indvars.iv21 = phi i64 [ 0, %.lr.ph11.preheader ], [ %indvars.iv.next22, %.lr.ph11 ]
   %50 = tail call noalias ptr @hwloc_bitmap_dup(ptr noundef %24) #22
-  %51 = getelementptr inbounds nuw ptr, ptr %.06314, i64 %indvars.iv21
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %.06314, i64 %indvars.iv21
   store ptr %50, ptr %51, align 8, !tbaa !22
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %52 = icmp samesign ult i64 %indvars.iv.next22, %49
@@ -1820,7 +1820,7 @@ define internal fastcc void @hwloc_distrib(ptr noundef readonly captures(none) %
 
 .loopexit:                                        ; preds = %.lr.ph11, %53, %57
   %60 = zext i32 %40 to i64
-  %61 = getelementptr inbounds nuw ptr, ptr %.06314, i64 %60
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %.06314, i64 %60
   br label %62
 
 62:                                               ; preds = %._crit_edge, %.loopexit
@@ -1880,7 +1880,7 @@ define internal fastcc void @hwloc_utils_parsing_flag_error(ptr noundef nonnull 
   %5 = load ptr, ptr @stderr, align 8, !tbaa !9
   %6 = tail call i64 @fwrite(ptr nonnull @.str.96, i64 2, i64 1, ptr %5) #27
   %7 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %8 = getelementptr inbounds nuw %struct.hwloc_utils_parsing_flag, ptr %0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %indvars.iv
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !33
   %fputs = tail call i32 @fputs(ptr %10, ptr %7) #27

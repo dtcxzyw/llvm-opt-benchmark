@@ -774,7 +774,7 @@ define dso_local ptr @acpi_hw_get_bit_register_info(i32 noundef %0) local_unname
 
 4:                                                ; preds = %1
   %5 = zext nneg i32 %0 to i64
-  %6 = getelementptr %struct.acpi_bit_register_info, ptr @acpi_gbl_bit_register_info, i64 %5
+  %6 = getelementptr [4 x i8], ptr @acpi_gbl_bit_register_info, i64 %5
   br label %7
 
 7:                                                ; preds = %4, %3

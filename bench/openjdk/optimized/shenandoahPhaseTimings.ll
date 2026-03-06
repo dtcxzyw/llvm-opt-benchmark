@@ -8,9 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.LogDecorators = type { i32 }
 %union.JfrNativeSettings = type { [164 x %struct.jfrNativeEventSetting] }
 %struct.jfrNativeEventSetting = type { i64, i64, i8, i8, i8, [5 x i8] }
-%class.HdrSeq = type { %class.NumberSeq, ptr }
-%class.NumberSeq = type { %class.AbsSeq, double, double }
-%class.AbsSeq = type { ptr, i32, double, double, double, double, double }
 %class.JfrFlush = type { ptr }
 %class.EventWriterHost = type { %class.WriterHost.base, [7 x i8] }
 %class.WriterHost.base = type <{ %class.MemoryWriterHost, i8 }>
@@ -413,9 +410,9 @@ define hidden void @_ZN22ShenandoahPhaseTimingsC2Ej(ptr noundef nonnull align 8 
 
 7:                                                ; preds = %.preheader160, %7
   %indvars.iv = phi i64 [ 0, %.preheader160 ], [ %indvars.iv.next, %7 ]
-  %8 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   store ptr null, ptr %8, align 8
-  %9 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   store double -1.000000e+00, ptr %9, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 316
@@ -451,7 +448,7 @@ define hidden void @_ZN22ShenandoahPhaseTimingsC2Ej(ptr noundef nonnull align 8 
 .lr.ph.i.i.i:                                     ; preds = %12, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %.lr.ph.i.i.i ], [ 0, %12 ]
   %24 = load ptr, ptr %13, align 8
-  %25 = getelementptr inbounds nuw double, ptr %24, i64 %indvars.iv.i.i.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv.i.i.i
   store double %22, ptr %25, align 8
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %26 = load i32, ptr %15, align 8
@@ -464,7 +461,7 @@ _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i.preheader: ; preds = %.lr.ph.i.i.i, %
 
 _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i:       ; preds = %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i.preheader, %32
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %32 ], [ 0, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i.preheader ]
-  %29 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv.i.i
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv.i.i
   %30 = load ptr, ptr %29, align 8
   %.not.i.i = icmp eq ptr %30, null
   br i1 %.not.i.i, label %32, label %31
@@ -479,7 +476,7 @@ _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i:       ; preds = %_ZN15WorkerDataArra
   br i1 %exitcond.not.i.i, label %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i, !llvm.loop !9
 
 _ZN15WorkerDataArrayIdEC2EPKcS2_j.exit:           ; preds = %32
-  %33 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv164
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv164
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 27832
   store ptr %13, ptr %34, align 8
   %35 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 112, i8 noundef zeroext 5, i32 noundef 0) #13
@@ -505,7 +502,7 @@ _ZN15WorkerDataArrayIdEC2EPKcS2_j.exit:           ; preds = %32
 .lr.ph.i.i.i81:                                   ; preds = %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit, %.lr.ph.i.i.i81
   %indvars.iv.i.i.i82 = phi i64 [ %indvars.iv.next.i.i.i83, %.lr.ph.i.i.i81 ], [ 0, %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit ]
   %46 = load ptr, ptr %35, align 8
-  %47 = getelementptr inbounds nuw double, ptr %46, i64 %indvars.iv.i.i.i82
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv.i.i.i82
   store double %44, ptr %47, align 8
   %indvars.iv.next.i.i.i83 = add nuw nsw i64 %indvars.iv.i.i.i82, 1
   %48 = load i32, ptr %37, align 8
@@ -518,7 +515,7 @@ _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i84.preheader: ; preds = %.lr.ph.i.i.i8
 
 _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i84:     ; preds = %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i84.preheader, %54
   %indvars.iv.i.i85 = phi i64 [ %indvars.iv.next.i.i87, %54 ], [ 0, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i84.preheader ]
-  %51 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv.i.i85
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv.i.i85
   %52 = load ptr, ptr %51, align 8
   %.not.i.i86 = icmp eq ptr %52, null
   br i1 %.not.i.i86, label %54, label %53
@@ -558,7 +555,7 @@ _ZN15WorkerDataArrayIdEC2EPKcS2_j.exit89:         ; preds = %54
 .lr.ph.i.i.i91:                                   ; preds = %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit89, %.lr.ph.i.i.i91
   %indvars.iv.i.i.i92 = phi i64 [ %indvars.iv.next.i.i.i93, %.lr.ph.i.i.i91 ], [ 0, %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit89 ]
   %67 = load ptr, ptr %56, align 8
-  %68 = getelementptr inbounds nuw double, ptr %67, i64 %indvars.iv.i.i.i92
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %indvars.iv.i.i.i92
   store double %65, ptr %68, align 8
   %indvars.iv.next.i.i.i93 = add nuw nsw i64 %indvars.iv.i.i.i92, 1
   %69 = load i32, ptr %58, align 8
@@ -571,7 +568,7 @@ _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i94.preheader: ; preds = %.lr.ph.i.i.i9
 
 _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i94:     ; preds = %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i94.preheader, %75
   %indvars.iv.i.i95 = phi i64 [ %indvars.iv.next.i.i97, %75 ], [ 0, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i94.preheader ]
-  %72 = getelementptr inbounds nuw ptr, ptr %64, i64 %indvars.iv.i.i95
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %indvars.iv.i.i95
   %73 = load ptr, ptr %72, align 8
   %.not.i.i96 = icmp eq ptr %73, null
   br i1 %.not.i.i96, label %75, label %74
@@ -611,7 +608,7 @@ _ZN15WorkerDataArrayIdEC2EPKcS2_j.exit99:         ; preds = %75
 .lr.ph.i.i.i101:                                  ; preds = %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit99, %.lr.ph.i.i.i101
   %indvars.iv.i.i.i102 = phi i64 [ %indvars.iv.next.i.i.i103, %.lr.ph.i.i.i101 ], [ 0, %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit99 ]
   %88 = load ptr, ptr %77, align 8
-  %89 = getelementptr inbounds nuw double, ptr %88, i64 %indvars.iv.i.i.i102
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %indvars.iv.i.i.i102
   store double %86, ptr %89, align 8
   %indvars.iv.next.i.i.i103 = add nuw nsw i64 %indvars.iv.i.i.i102, 1
   %90 = load i32, ptr %79, align 8
@@ -624,7 +621,7 @@ _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i104.preheader: ; preds = %.lr.ph.i.i.i
 
 _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i104:    ; preds = %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i104.preheader, %96
   %indvars.iv.i.i105 = phi i64 [ %indvars.iv.next.i.i107, %96 ], [ 0, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i104.preheader ]
-  %93 = getelementptr inbounds nuw ptr, ptr %85, i64 %indvars.iv.i.i105
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %indvars.iv.i.i105
   %94 = load ptr, ptr %93, align 8
   %.not.i.i106 = icmp eq ptr %94, null
   br i1 %.not.i.i106, label %96, label %95
@@ -664,7 +661,7 @@ _ZN15WorkerDataArrayIdEC2EPKcS2_j.exit109:        ; preds = %96
 .lr.ph.i.i.i111:                                  ; preds = %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit109, %.lr.ph.i.i.i111
   %indvars.iv.i.i.i112 = phi i64 [ %indvars.iv.next.i.i.i113, %.lr.ph.i.i.i111 ], [ 0, %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit109 ]
   %109 = load ptr, ptr %98, align 8
-  %110 = getelementptr inbounds nuw double, ptr %109, i64 %indvars.iv.i.i.i112
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %109, i64 %indvars.iv.i.i.i112
   store double %107, ptr %110, align 8
   %indvars.iv.next.i.i.i113 = add nuw nsw i64 %indvars.iv.i.i.i112, 1
   %111 = load i32, ptr %100, align 8
@@ -677,7 +674,7 @@ _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i114.preheader: ; preds = %.lr.ph.i.i.i
 
 _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i114:    ; preds = %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i114.preheader, %117
   %indvars.iv.i.i115 = phi i64 [ %indvars.iv.next.i.i117, %117 ], [ 0, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i114.preheader ]
-  %114 = getelementptr inbounds nuw ptr, ptr %106, i64 %indvars.iv.i.i115
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %indvars.iv.i.i115
   %115 = load ptr, ptr %114, align 8
   %.not.i.i116 = icmp eq ptr %115, null
   br i1 %.not.i.i116, label %117, label %116
@@ -717,7 +714,7 @@ _ZN15WorkerDataArrayIdEC2EPKcS2_j.exit119:        ; preds = %117
 .lr.ph.i.i.i121:                                  ; preds = %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit119, %.lr.ph.i.i.i121
   %indvars.iv.i.i.i122 = phi i64 [ %indvars.iv.next.i.i.i123, %.lr.ph.i.i.i121 ], [ 0, %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit119 ]
   %130 = load ptr, ptr %119, align 8
-  %131 = getelementptr inbounds nuw double, ptr %130, i64 %indvars.iv.i.i.i122
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %130, i64 %indvars.iv.i.i.i122
   store double %128, ptr %131, align 8
   %indvars.iv.next.i.i.i123 = add nuw nsw i64 %indvars.iv.i.i.i122, 1
   %132 = load i32, ptr %121, align 8
@@ -730,7 +727,7 @@ _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i124.preheader: ; preds = %.lr.ph.i.i.i
 
 _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i124:    ; preds = %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i124.preheader, %138
   %indvars.iv.i.i125 = phi i64 [ %indvars.iv.next.i.i127, %138 ], [ 0, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i124.preheader ]
-  %135 = getelementptr inbounds nuw ptr, ptr %127, i64 %indvars.iv.i.i125
+  %135 = getelementptr inbounds nuw [8 x i8], ptr %127, i64 %indvars.iv.i.i125
   %136 = load ptr, ptr %135, align 8
   %.not.i.i126 = icmp eq ptr %136, null
   br i1 %.not.i.i126, label %138, label %137
@@ -770,7 +767,7 @@ _ZN15WorkerDataArrayIdEC2EPKcS2_j.exit129:        ; preds = %138
 .lr.ph.i.i.i131:                                  ; preds = %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit129, %.lr.ph.i.i.i131
   %indvars.iv.i.i.i132 = phi i64 [ %indvars.iv.next.i.i.i133, %.lr.ph.i.i.i131 ], [ 0, %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit129 ]
   %151 = load ptr, ptr %140, align 8
-  %152 = getelementptr inbounds nuw double, ptr %151, i64 %indvars.iv.i.i.i132
+  %152 = getelementptr inbounds nuw [8 x i8], ptr %151, i64 %indvars.iv.i.i.i132
   store double %149, ptr %152, align 8
   %indvars.iv.next.i.i.i133 = add nuw nsw i64 %indvars.iv.i.i.i132, 1
   %153 = load i32, ptr %142, align 8
@@ -783,7 +780,7 @@ _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i134.preheader: ; preds = %.lr.ph.i.i.i
 
 _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i134:    ; preds = %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i134.preheader, %159
   %indvars.iv.i.i135 = phi i64 [ %indvars.iv.next.i.i137, %159 ], [ 0, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i134.preheader ]
-  %156 = getelementptr inbounds nuw ptr, ptr %148, i64 %indvars.iv.i.i135
+  %156 = getelementptr inbounds nuw [8 x i8], ptr %148, i64 %indvars.iv.i.i135
   %157 = load ptr, ptr %156, align 8
   %.not.i.i136 = icmp eq ptr %157, null
   br i1 %.not.i.i136, label %159, label %158
@@ -823,7 +820,7 @@ _ZN15WorkerDataArrayIdEC2EPKcS2_j.exit139:        ; preds = %159
 .lr.ph.i.i.i141:                                  ; preds = %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit139, %.lr.ph.i.i.i141
   %indvars.iv.i.i.i142 = phi i64 [ %indvars.iv.next.i.i.i143, %.lr.ph.i.i.i141 ], [ 0, %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit139 ]
   %172 = load ptr, ptr %161, align 8
-  %173 = getelementptr inbounds nuw double, ptr %172, i64 %indvars.iv.i.i.i142
+  %173 = getelementptr inbounds nuw [8 x i8], ptr %172, i64 %indvars.iv.i.i.i142
   store double %170, ptr %173, align 8
   %indvars.iv.next.i.i.i143 = add nuw nsw i64 %indvars.iv.i.i.i142, 1
   %174 = load i32, ptr %163, align 8
@@ -836,7 +833,7 @@ _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i144.preheader: ; preds = %.lr.ph.i.i.i
 
 _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i144:    ; preds = %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i144.preheader, %180
   %indvars.iv.i.i145 = phi i64 [ %indvars.iv.next.i.i147, %180 ], [ 0, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i144.preheader ]
-  %177 = getelementptr inbounds nuw ptr, ptr %169, i64 %indvars.iv.i.i145
+  %177 = getelementptr inbounds nuw [8 x i8], ptr %169, i64 %indvars.iv.i.i145
   %178 = load ptr, ptr %177, align 8
   %.not.i.i146 = icmp eq ptr %178, null
   br i1 %.not.i.i146, label %180, label %179
@@ -876,7 +873,7 @@ _ZN15WorkerDataArrayIdEC2EPKcS2_j.exit149:        ; preds = %180
 .lr.ph.i.i.i151:                                  ; preds = %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit149, %.lr.ph.i.i.i151
   %indvars.iv.i.i.i152 = phi i64 [ %indvars.iv.next.i.i.i153, %.lr.ph.i.i.i151 ], [ 0, %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit149 ]
   %193 = load ptr, ptr %182, align 8
-  %194 = getelementptr inbounds nuw double, ptr %193, i64 %indvars.iv.i.i.i152
+  %194 = getelementptr inbounds nuw [8 x i8], ptr %193, i64 %indvars.iv.i.i.i152
   store double %191, ptr %194, align 8
   %indvars.iv.next.i.i.i153 = add nuw nsw i64 %indvars.iv.i.i.i152, 1
   %195 = load i32, ptr %184, align 8
@@ -889,7 +886,7 @@ _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i154.preheader: ; preds = %.lr.ph.i.i.i
 
 _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i154:    ; preds = %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i154.preheader, %201
   %indvars.iv.i.i155 = phi i64 [ %indvars.iv.next.i.i157, %201 ], [ 0, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i154.preheader ]
-  %198 = getelementptr inbounds nuw ptr, ptr %190, i64 %indvars.iv.i.i155
+  %198 = getelementptr inbounds nuw [8 x i8], ptr %190, i64 %indvars.iv.i.i155
   %199 = load ptr, ptr %198, align 8
   %.not.i.i156 = icmp eq ptr %199, null
   br i1 %.not.i.i156, label %201, label %200
@@ -971,7 +968,7 @@ define hidden noundef ptr @_ZN22ShenandoahPhaseTimings11worker_dataENS_5PhaseENS
   %5 = add nsw i32 %4, %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 27816
   %7 = zext i32 %5 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8
   ret ptr %9
 }
@@ -999,7 +996,7 @@ define hidden noundef zeroext i1 @_ZN22ShenandoahPhaseTimings18is_root_work_phas
 define hidden void @_ZN22ShenandoahPhaseTimings14set_cycle_dataENS_5PhaseEd(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(30352) %0, i32 noundef %1, double noundef %2) local_unnamed_addr #5 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds nuw double, ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %5
   store double %2, ptr %6, align 8
   ret void
 }
@@ -1014,7 +1011,7 @@ define hidden void @_ZN22ShenandoahPhaseTimings17record_phase_timeENS_5PhaseEd(p
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = zext i32 %1 to i64
-  %10 = getelementptr inbounds nuw double, ptr %8, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %9
   store double %2, ptr %10, align 8
   br label %11
 
@@ -1031,7 +1028,7 @@ define hidden void @_ZN22ShenandoahPhaseTimings20record_workers_startENS_5PhaseE
 
 .preheader:                                       ; preds = %2, %_ZN15WorkerDataArrayIdE5resetEv.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN15WorkerDataArrayIdE5resetEv.exit ], [ 1, %2 ]
-  %4 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 30264
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef double @_ZN15WorkerDataArrayIdE13uninitializedEv() #13
@@ -1043,7 +1040,7 @@ define hidden void @_ZN22ShenandoahPhaseTimings20record_workers_startENS_5PhaseE
 .lr.ph.i.i:                                       ; preds = %.preheader, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %.preheader ]
   %10 = load ptr, ptr %6, align 8
-  %11 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv.i.i
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i.i
   store double %7, ptr %11, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %12 = load i32, ptr %8, align 8
@@ -1057,7 +1054,7 @@ _ZN15WorkerDataArrayIdE7set_allEd.exit.i:         ; preds = %.lr.ph.i.i, %.prehe
 
 16:                                               ; preds = %20, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i
   %indvars.iv.i = phi i64 [ 0, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i ], [ %indvars.iv.next.i, %20 ]
-  %17 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv.i
   %18 = load ptr, ptr %17, align 8
   %.not.i = icmp eq ptr %18, null
   br i1 %.not.i, label %20, label %19
@@ -1101,15 +1098,15 @@ define hidden void @_ZN22ShenandoahPhaseTimings26flush_par_workers_to_cycleEv(pt
   br i1 %or.cond.not, label %.preheader.split.preheader, label %.split.us.thread
 
 .preheader.split.preheader:                       ; preds = %3
-  %8 = getelementptr inbounds nuw ptr, ptr %2, i64 %6
-  %invariant.gep = getelementptr double, ptr %0, i64 %indvars.iv45
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %6
+  %invariant.gep = getelementptr [8 x i8], ptr %0, i64 %indvars.iv45
   br label %.preheader.split
 
 .preheader.split:                                 ; preds = %.preheader.split.preheader, %._crit_edge.thread
   %9 = phi i32 [ 1, %.preheader.split.preheader ], [ %31, %._crit_edge.thread ]
   %indvars.iv42 = phi i64 [ 1, %.preheader.split.preheader ], [ %indvars.iv.next43, %._crit_edge.thread ]
   %.03037 = phi double [ -1.000000e+00, %.preheader.split.preheader ], [ %.131, %._crit_edge.thread ]
-  %10 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv42
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv42
   %11 = load ptr, ptr %10, align 8
   %.not39 = icmp eq i32 %9, 0
   br i1 %.not39, label %._crit_edge.thread, label %.lr.ph
@@ -1118,7 +1115,7 @@ define hidden void @_ZN22ShenandoahPhaseTimings26flush_par_workers_to_cycleEv(pt
   %indvars.iv = phi i64 [ %indvars.iv.next, %21 ], [ 0, %.preheader.split ]
   %.02934 = phi double [ %.1, %21 ], [ -1.000000e+00, %.preheader.split ]
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   %14 = load double, ptr %13, align 8
   %15 = tail call noundef double @_ZN15WorkerDataArrayIdE13uninitializedEv() #13
   %16 = fcmp une double %14, %15
@@ -1145,7 +1142,7 @@ define hidden void @_ZN22ShenandoahPhaseTimings26flush_par_workers_to_cycleEv(pt
   br i1 %25, label %26, label %._crit_edge.thread
 
 26:                                               ; preds = %._crit_edge
-  %gep = getelementptr double, ptr %invariant.gep, i64 %indvars.iv42
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %indvars.iv42
   %27 = getelementptr inbounds nuw i8, ptr %gep, i64 16
   store double %.1, ptr %27, align 8
   %28 = fcmp oeq double %.03037, -1.000000e+00
@@ -1167,7 +1164,7 @@ define hidden void @_ZN22ShenandoahPhaseTimings26flush_par_workers_to_cycleEv(pt
   br i1 %32, label %33, label %.split.us.thread
 
 33:                                               ; preds = %.split.us
-  %34 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv45
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv45
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   store double %.131, ptr %35, align 8
   br label %.split.us.thread
@@ -1191,13 +1188,13 @@ define hidden void @_ZN22ShenandoahPhaseTimings21flush_cycle_to_globalEv(ptr nou
 
 5:                                                ; preds = %1, %_ZN15WorkerDataArrayIdE5resetEv.exit
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %_ZN15WorkerDataArrayIdE5resetEv.exit ]
-  %6 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %7 = load double, ptr %6, align 8
   %8 = fcmp une double %7, -1.000000e+00
   br i1 %8, label %9, label %14
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds nuw %class.HdrSeq, ptr %3, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [80 x i8], ptr %3, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
@@ -1206,7 +1203,7 @@ define hidden void @_ZN22ShenandoahPhaseTimings21flush_cycle_to_globalEv(ptr nou
   br label %14
 
 14:                                               ; preds = %9, %5
-  %15 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %_ZN15WorkerDataArrayIdE5resetEv.exit, label %17
@@ -1221,7 +1218,7 @@ define hidden void @_ZN22ShenandoahPhaseTimings21flush_cycle_to_globalEv(ptr nou
 .lr.ph.i.i:                                       ; preds = %17, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %17 ]
   %21 = load ptr, ptr %16, align 8
-  %22 = getelementptr inbounds nuw double, ptr %21, i64 %indvars.iv.i.i
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv.i.i
   store double %18, ptr %22, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %23 = load i32, ptr %19, align 8
@@ -1235,7 +1232,7 @@ _ZN15WorkerDataArrayIdE7set_allEd.exit.i:         ; preds = %.lr.ph.i.i, %17
 
 27:                                               ; preds = %31, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i
   %indvars.iv.i = phi i64 [ 0, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i ], [ %indvars.iv.next.i, %31 ]
-  %28 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv.i
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv.i
   %29 = load ptr, ptr %28, align 8
   %.not.i = icmp eq ptr %29, null
   br i1 %.not.i, label %31, label %30
@@ -1272,14 +1269,14 @@ define hidden void @_ZNK22ShenandoahPhaseTimings14print_cycle_onEP12outputStream
 
 5:                                                ; preds = %2, %40
   %indvars.iv36 = phi i64 [ 0, %2 ], [ %indvars.iv.next37, %40 ]
-  %6 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv36
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv36
   %7 = load double, ptr %6, align 8
   %8 = fmul double %7, 1.000000e+06
   %9 = fcmp ogt double %8, 0.000000e+00
   br i1 %9, label %10, label %40
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds nuw ptr, ptr @_ZN22ShenandoahPhaseTimings12_phase_namesE, i64 %indvars.iv36
+  %11 = getelementptr inbounds nuw [8 x i8], ptr @_ZN22ShenandoahPhaseTimings12_phase_namesE, i64 %indvars.iv36
   %12 = load ptr, ptr %11, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.289, ptr noundef %12, double noundef %8) #13
   %13 = trunc nuw nsw i64 %indvars.iv36 to i32
@@ -1299,7 +1296,7 @@ define hidden void @_ZNK22ShenandoahPhaseTimings14print_cycle_onEP12outputStream
   br label %22
 
 22:                                               ; preds = %15, %20, %10
-  %23 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv36
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv36
   %24 = load ptr, ptr %23, align 8
   %.not = icmp eq ptr %24, null
   br i1 %.not, label %.loopexit, label %25
@@ -1314,7 +1311,7 @@ define hidden void @_ZNK22ShenandoahPhaseTimings14print_cycle_onEP12outputStream
   %indvars.iv = phi i64 [ %indvars.iv.next, %36 ], [ 0, %25 ]
   %27 = load ptr, ptr %23, align 8
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds nuw double, ptr %28, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv
   %30 = load double, ptr %29, align 8
   %31 = tail call noundef double @_ZN15WorkerDataArrayIdE13uninitializedEv() #13
   %32 = fcmp une double %30, %31
@@ -1383,7 +1380,7 @@ define hidden void @_ZNK22ShenandoahPhaseTimings15print_global_onEP12outputStrea
 
 4:                                                ; preds = %2, %33
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %33 ]
-  %5 = getelementptr inbounds nuw %class.HdrSeq, ptr %3, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [80 x i8], ptr %3, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8
@@ -1392,7 +1389,7 @@ define hidden void @_ZNK22ShenandoahPhaseTimings15print_global_onEP12outputStrea
   br i1 %10, label %11, label %33
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds nuw ptr, ptr @_ZN22ShenandoahPhaseTimings12_phase_namesE, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr @_ZN22ShenandoahPhaseTimings12_phase_namesE, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %15 = load double, ptr %14, align 8
@@ -1472,7 +1469,7 @@ define hidden void @_ZN30ShenandoahWorkerTimingsTrackerD2Ev(ptr noundef nonnull 
   %8 = add nsw i32 %7, %6
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 27816
   %10 = zext i32 %8 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %10
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load i32, ptr %13, align 8
@@ -1482,7 +1479,7 @@ define hidden void @_ZN30ShenandoahWorkerTimingsTrackerD2Ev(ptr noundef nonnull 
   %18 = fsub double %15, %17
   %19 = load ptr, ptr %12, align 8
   %20 = zext i32 %14 to i64
-  %21 = getelementptr inbounds nuw double, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %20
   store double %18, ptr %21, align 8
   %22 = load i32, ptr %3, align 8
   switch i32 %22, label %_ZN22ShenandoahPhaseTimings18is_root_work_phaseENS_5PhaseE.exit [
@@ -1502,7 +1499,7 @@ define hidden void @_ZN30ShenandoahWorkerTimingsTrackerD2Ev(ptr noundef nonnull 
   %28 = tail call noundef i32 @_ZN4GCId7currentEv() #13
   %29 = load i32, ptr %13, align 8
   %30 = zext i32 %26 to i64
-  %31 = getelementptr inbounds nuw ptr, ptr @_ZN22ShenandoahPhaseTimings12_phase_namesE, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr @_ZN22ShenandoahPhaseTimings12_phase_namesE, i64 %30
   %32 = load ptr, ptr %31, align 8
   %33 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 1769), align 1
   %.not.i.i = icmp eq i8 %33, 0
@@ -3309,7 +3306,7 @@ define linkonce_odr hidden void @_ZN15WorkerDataArrayImE5resetEv(ptr noundef non
 .lr.ph.i:                                         ; preds = %1, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %1 ]
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.i
   store i64 %2, ptr %6, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %7 = load i32, ptr %3, align 8
@@ -3323,7 +3320,7 @@ _ZN15WorkerDataArrayImE7set_allEm.exit:           ; preds = %.lr.ph.i, %1
 
 11:                                               ; preds = %_ZN15WorkerDataArrayImE7set_allEm.exit, %15
   %indvars.iv = phi i64 [ 0, %_ZN15WorkerDataArrayImE7set_allEm.exit ], [ %indvars.iv.next, %15 ]
-  %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %15, label %14

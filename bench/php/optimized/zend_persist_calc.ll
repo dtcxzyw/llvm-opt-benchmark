@@ -10,15 +10,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon.0 = type { i32 }
 %union.anon.1 = type { i32 }
 %union.anon.2 = type { ptr }
-%struct._zval_struct = type { %union._zend_value, %union.anon.9, %union.anon.12 }
-%union._zend_value = type { i64 }
-%union.anon.9 = type { i32 }
-%union.anon.12 = type { i32 }
-%struct._zend_class_name = type { ptr, ptr }
-%struct.zend_attribute_arg = type { ptr, %struct._zval_struct }
-%struct._zend_early_binding = type { ptr, ptr, ptr, i32 }
-%struct._zend_arg_info = type { ptr, %struct.zend_type, ptr }
-%struct.zend_type = type { ptr, i32 }
 
 @accel_globals = external local_unnamed_addr global %struct._zend_accel_globals, align 8
 @accel_shared_globals = external local_unnamed_addr global ptr, align 8
@@ -385,7 +376,7 @@ zend_hash_persist_calc.exit:                      ; preds = %95
 .lr.ph529:                                        ; preds = %215, %.lr.ph529
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph529 ], [ 0, %215 ]
   %225 = load ptr, ptr %213, align 8, !tbaa !73
-  %226 = getelementptr inbounds nuw %struct._zval_struct, ptr %225, i64 %indvars.iv
+  %226 = getelementptr inbounds nuw [16 x i8], ptr %225, i64 %indvars.iv
   tail call fastcc void @zend_persist_zval_calc(ptr noundef %226)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %227 = load i32, ptr %216, align 8, !tbaa !74
@@ -416,7 +407,7 @@ zend_hash_persist_calc.exit:                      ; preds = %95
   %242 = phi i32 [ %249, %248 ], [ %234, %232 ]
   %indvars.iv574 = phi i64 [ %indvars.iv.next575, %248 ], [ 0, %232 ]
   %243 = load ptr, ptr %230, align 8, !tbaa !75
-  %244 = getelementptr inbounds nuw %struct._zval_struct, ptr %243, i64 %indvars.iv574
+  %244 = getelementptr inbounds nuw [16 x i8], ptr %243, i64 %indvars.iv574
   %245 = getelementptr inbounds nuw i8, ptr %244, i64 8
   %246 = load i8, ptr %245, align 8, !tbaa !66
   %.not499 = icmp eq i8 %246, 12
@@ -1009,7 +1000,7 @@ zend_hash_persist_calc.exit517:                   ; preds = %._crit_edge536
   %606 = phi i1 [ true, %600 ], [ false, %611 ]
   %indvars.iv.i = phi i64 [ 0, %600 ], [ 1, %611 ]
   %607 = load ptr, ptr %598, align 8, !tbaa !89
-  %608 = getelementptr inbounds nuw ptr, ptr %607, i64 %indvars.iv.i
+  %608 = getelementptr inbounds nuw [8 x i8], ptr %607, i64 %indvars.iv.i
   %609 = load ptr, ptr %608, align 8, !tbaa !90
   %.not33.i = icmp eq ptr %609, null
   br i1 %.not33.i, label %611, label %610
@@ -1176,7 +1167,7 @@ zend_persist_property_info_calc.exit:             ; preds = %611, %597, %530, %.
   %698 = load i8, ptr %697, align 8, !tbaa !50, !range !51, !noundef !52
   %699 = trunc nuw i8 %698 to i1
   %700 = load ptr, ptr %694, align 8, !tbaa !66
-  %701 = getelementptr inbounds nuw %struct._zend_class_name, ptr %700, i64 %indvars.iv577
+  %701 = getelementptr inbounds nuw [16 x i8], ptr %700, i64 %indvars.iv577
   %702 = load ptr, ptr %701, align 8, !tbaa !97
   br i1 %699, label %703, label %713
 
@@ -1209,7 +1200,7 @@ zend_persist_property_info_calc.exit:             ; preds = %611, %597, %530, %.
 721:                                              ; preds = %717, %713
   %722 = tail call ptr @accel_new_interned_string(ptr noundef %702) #4
   %723 = load ptr, ptr %694, align 8, !tbaa !66
-  %724 = getelementptr inbounds nuw %struct._zend_class_name, ptr %723, i64 %indvars.iv577
+  %724 = getelementptr inbounds nuw [16 x i8], ptr %723, i64 %indvars.iv577
   %725 = load ptr, ptr %724, align 8, !tbaa !97
   %.not468 = icmp eq ptr %722, %725
   br i1 %.not468, label %727, label %726
@@ -1238,7 +1229,7 @@ zend_persist_property_info_calc.exit:             ; preds = %611, %597, %530, %.
   %740 = load i8, ptr %739, align 8, !tbaa !50, !range !51, !noundef !52
   %741 = trunc nuw i8 %740 to i1
   %742 = load ptr, ptr %694, align 8, !tbaa !66
-  %743 = getelementptr inbounds nuw %struct._zend_class_name, ptr %742, i64 %indvars.iv577
+  %743 = getelementptr inbounds nuw [16 x i8], ptr %742, i64 %indvars.iv577
   %744 = getelementptr inbounds nuw i8, ptr %743, i64 8
   %745 = load ptr, ptr %744, align 8, !tbaa !99
   br i1 %741, label %746, label %756
@@ -1272,7 +1263,7 @@ zend_persist_property_info_calc.exit:             ; preds = %611, %597, %530, %.
 764:                                              ; preds = %760, %756
   %765 = tail call ptr @accel_new_interned_string(ptr noundef %745) #4
   %766 = load ptr, ptr %694, align 8, !tbaa !66
-  %767 = getelementptr inbounds nuw %struct._zend_class_name, ptr %766, i64 %indvars.iv577
+  %767 = getelementptr inbounds nuw [16 x i8], ptr %766, i64 %indvars.iv577
   %768 = getelementptr inbounds nuw i8, ptr %767, i64 8
   %769 = load ptr, ptr %768, align 8, !tbaa !99
   %.not470 = icmp eq ptr %765, %769
@@ -1332,7 +1323,7 @@ zend_persist_property_info_calc.exit:             ; preds = %611, %597, %530, %.
   %797 = load i8, ptr %796, align 8, !tbaa !50, !range !51, !noundef !52
   %798 = trunc nuw i8 %797 to i1
   %799 = load ptr, ptr %793, align 8, !tbaa !101
-  %800 = getelementptr inbounds nuw %struct._zend_class_name, ptr %799, i64 %indvars.iv580
+  %800 = getelementptr inbounds nuw [16 x i8], ptr %799, i64 %indvars.iv580
   %801 = load ptr, ptr %800, align 8, !tbaa !97
   br i1 %798, label %802, label %812
 
@@ -1365,7 +1356,7 @@ zend_persist_property_info_calc.exit:             ; preds = %611, %597, %530, %.
 820:                                              ; preds = %816, %812
   %821 = tail call ptr @accel_new_interned_string(ptr noundef %801) #4
   %822 = load ptr, ptr %793, align 8, !tbaa !101
-  %823 = getelementptr inbounds nuw %struct._zend_class_name, ptr %822, i64 %indvars.iv580
+  %823 = getelementptr inbounds nuw [16 x i8], ptr %822, i64 %indvars.iv580
   %824 = load ptr, ptr %823, align 8, !tbaa !97
   %.not492 = icmp eq ptr %821, %824
   br i1 %.not492, label %826, label %825
@@ -1394,7 +1385,7 @@ zend_persist_property_info_calc.exit:             ; preds = %611, %597, %530, %.
   %839 = load i8, ptr %838, align 8, !tbaa !50, !range !51, !noundef !52
   %840 = trunc nuw i8 %839 to i1
   %841 = load ptr, ptr %793, align 8, !tbaa !101
-  %842 = getelementptr inbounds nuw %struct._zend_class_name, ptr %841, i64 %indvars.iv580
+  %842 = getelementptr inbounds nuw [16 x i8], ptr %841, i64 %indvars.iv580
   %843 = getelementptr inbounds nuw i8, ptr %842, i64 8
   %844 = load ptr, ptr %843, align 8, !tbaa !99
   br i1 %840, label %845, label %855
@@ -1428,7 +1419,7 @@ zend_persist_property_info_calc.exit:             ; preds = %611, %597, %530, %.
 863:                                              ; preds = %859, %855
   %864 = tail call ptr @accel_new_interned_string(ptr noundef %844) #4
   %865 = load ptr, ptr %793, align 8, !tbaa !101
-  %866 = getelementptr inbounds nuw %struct._zend_class_name, ptr %865, i64 %indvars.iv580
+  %866 = getelementptr inbounds nuw [16 x i8], ptr %865, i64 %indvars.iv580
   %867 = getelementptr inbounds nuw i8, ptr %866, i64 8
   %868 = load ptr, ptr %867, align 8, !tbaa !99
   %.not494 = icmp eq ptr %864, %868
@@ -1527,7 +1518,7 @@ zend_persist_property_info_calc.exit:             ; preds = %611, %597, %530, %.
 917:                                              ; preds = %913, %909
   %918 = tail call ptr @accel_new_interned_string(ptr noundef nonnull %894) #4
   %919 = load ptr, ptr %889, align 8, !tbaa !102
-  %920 = getelementptr inbounds nuw ptr, ptr %919, i64 %893
+  %920 = getelementptr inbounds nuw [8 x i8], ptr %919, i64 %893
   %921 = load ptr, ptr %920, align 8, !tbaa !103
   %922 = load ptr, ptr %921, align 8, !tbaa !105
   %.not484 = icmp eq ptr %918, %922
@@ -1554,7 +1545,7 @@ zend_persist_property_info_calc.exit:             ; preds = %611, %597, %530, %.
 934:                                              ; preds = %923, %924, %899, %913, %.lr.ph550
   %.pre604.pre613 = phi ptr [ %.pre604.pre613.pre, %923 ], [ %930, %924 ], [ %905, %899 ], [ %.pre604.pre613621, %913 ], [ %.pre604.pre613621, %.lr.ph550 ]
   %935 = load ptr, ptr %889, align 8, !tbaa !102
-  %936 = getelementptr inbounds nuw ptr, ptr %935, i64 %893
+  %936 = getelementptr inbounds nuw [8 x i8], ptr %935, i64 %893
   %937 = load ptr, ptr %936, align 8, !tbaa !103
   %938 = getelementptr inbounds nuw i8, ptr %937, i64 8
   %939 = load ptr, ptr %938, align 8, !tbaa !108
@@ -1596,7 +1587,7 @@ zend_persist_property_info_calc.exit:             ; preds = %611, %597, %530, %.
 962:                                              ; preds = %958, %954
   %963 = tail call ptr @accel_new_interned_string(ptr noundef nonnull %939) #4
   %964 = load ptr, ptr %889, align 8, !tbaa !102
-  %965 = getelementptr inbounds nuw ptr, ptr %964, i64 %893
+  %965 = getelementptr inbounds nuw [8 x i8], ptr %964, i64 %893
   %966 = load ptr, ptr %965, align 8, !tbaa !103
   %967 = getelementptr inbounds nuw i8, ptr %966, i64 8
   %968 = load ptr, ptr %967, align 8, !tbaa !108
@@ -1624,7 +1615,7 @@ zend_persist_property_info_calc.exit:             ; preds = %611, %597, %530, %.
 980:                                              ; preds = %969, %970, %944, %958, %934
   %.pre604.pre613623 = phi ptr [ %.pre604.pre, %969 ], [ %976, %970 ], [ %950, %944 ], [ %.pre604.pre613, %958 ], [ %.pre604.pre613, %934 ]
   %981 = load ptr, ptr %889, align 8, !tbaa !102
-  %982 = getelementptr inbounds nuw ptr, ptr %981, i64 %893
+  %982 = getelementptr inbounds nuw [8 x i8], ptr %981, i64 %893
   %983 = load ptr, ptr %982, align 8, !tbaa !103
   %984 = getelementptr inbounds nuw i8, ptr %983, i64 16
   %985 = load ptr, ptr %984, align 8, !tbaa !109
@@ -1666,7 +1657,7 @@ zend_persist_property_info_calc.exit:             ; preds = %611, %597, %530, %.
 1008:                                             ; preds = %1004, %1000
   %1009 = tail call ptr @accel_new_interned_string(ptr noundef nonnull %985) #4
   %1010 = load ptr, ptr %889, align 8, !tbaa !102
-  %1011 = getelementptr inbounds nuw ptr, ptr %1010, i64 %893
+  %1011 = getelementptr inbounds nuw [8 x i8], ptr %1010, i64 %893
   %1012 = load ptr, ptr %1011, align 8, !tbaa !103
   %1013 = getelementptr inbounds nuw i8, ptr %1012, i64 16
   %1014 = load ptr, ptr %1013, align 8, !tbaa !109
@@ -1700,7 +1691,7 @@ zend_persist_property_info_calc.exit:             ; preds = %611, %597, %530, %.
   %1030 = add i32 %.1549, 1
   %1031 = load ptr, ptr %889, align 8, !tbaa !102
   %1032 = zext i32 %1030 to i64
-  %1033 = getelementptr inbounds nuw ptr, ptr %1031, i64 %1032
+  %1033 = getelementptr inbounds nuw [8 x i8], ptr %1031, i64 %1032
   %1034 = load ptr, ptr %1033, align 8, !tbaa !103
   %.not473 = icmp eq ptr %1034, null
   br i1 %.not473, label %._crit_edge551.loopexit, label %.lr.ph550
@@ -1778,7 +1769,7 @@ zend_persist_property_info_calc.exit:             ; preds = %611, %597, %530, %.
 1072:                                             ; preds = %1068, %1064
   %1073 = tail call ptr @accel_new_interned_string(ptr noundef %1053) #4
   %1074 = load ptr, ptr %1044, align 8, !tbaa !110
-  %1075 = getelementptr inbounds nuw ptr, ptr %1074, i64 %1049
+  %1075 = getelementptr inbounds nuw [8 x i8], ptr %1074, i64 %1049
   %1076 = load ptr, ptr %1075, align 8, !tbaa !111
   %1077 = load ptr, ptr %1076, align 8, !tbaa !113
   %.not477 = icmp eq ptr %1073, %1077
@@ -1809,7 +1800,7 @@ zend_persist_property_info_calc.exit:             ; preds = %611, %597, %530, %.
   %1092 = load i8, ptr %1091, align 8, !tbaa !50, !range !51, !noundef !52
   %1093 = trunc nuw i8 %1092 to i1
   %1094 = load ptr, ptr %1044, align 8, !tbaa !110
-  %1095 = getelementptr inbounds nuw ptr, ptr %1094, i64 %1049
+  %1095 = getelementptr inbounds nuw [8 x i8], ptr %1094, i64 %1049
   %1096 = load ptr, ptr %1095, align 8, !tbaa !111
   %1097 = getelementptr inbounds nuw i8, ptr %1096, i64 8
   %1098 = load ptr, ptr %1097, align 8, !tbaa !115
@@ -1844,7 +1835,7 @@ zend_persist_property_info_calc.exit:             ; preds = %611, %597, %530, %.
 1117:                                             ; preds = %1113, %1109
   %1118 = tail call ptr @accel_new_interned_string(ptr noundef %1098) #4
   %1119 = load ptr, ptr %1044, align 8, !tbaa !110
-  %1120 = getelementptr inbounds nuw ptr, ptr %1119, i64 %1049
+  %1120 = getelementptr inbounds nuw [8 x i8], ptr %1119, i64 %1049
   %1121 = load ptr, ptr %1120, align 8, !tbaa !111
   %1122 = getelementptr inbounds nuw i8, ptr %1121, i64 8
   %1123 = load ptr, ptr %1122, align 8, !tbaa !115
@@ -1872,7 +1863,7 @@ zend_persist_property_info_calc.exit:             ; preds = %611, %597, %530, %.
 1135:                                             ; preds = %1124, %1125, %1113, %1099
   %.pre610 = phi ptr [ %.pre610.pre, %1124 ], [ %1131, %1125 ], [ %.pre610617, %1113 ], [ %1105, %1099 ]
   %1136 = load ptr, ptr %1044, align 8, !tbaa !110
-  %1137 = getelementptr inbounds nuw ptr, ptr %1136, i64 %1049
+  %1137 = getelementptr inbounds nuw [8 x i8], ptr %1136, i64 %1049
   %1138 = load ptr, ptr %1137, align 8, !tbaa !111
   %1139 = getelementptr inbounds nuw i8, ptr %1138, i64 16
   %1140 = load i32, ptr %1139, align 8, !tbaa !116
@@ -1888,7 +1879,7 @@ zend_persist_property_info_calc.exit:             ; preds = %611, %597, %530, %.
   %1144 = load i8, ptr %1143, align 8, !tbaa !50, !range !51, !noundef !52
   %1145 = trunc nuw i8 %1144 to i1
   %1146 = getelementptr inbounds nuw i8, ptr %1142, i64 24
-  %1147 = getelementptr inbounds nuw ptr, ptr %1146, i64 %indvars.iv583
+  %1147 = getelementptr inbounds nuw [8 x i8], ptr %1146, i64 %indvars.iv583
   %1148 = load ptr, ptr %1147, align 8, !tbaa !117
   br i1 %1145, label %1149, label %1159
 
@@ -1921,10 +1912,10 @@ zend_persist_property_info_calc.exit:             ; preds = %611, %597, %530, %.
 1167:                                             ; preds = %1163, %1159
   %1168 = tail call ptr @accel_new_interned_string(ptr noundef %1148) #4
   %1169 = load ptr, ptr %1044, align 8, !tbaa !110
-  %1170 = getelementptr inbounds nuw ptr, ptr %1169, i64 %1049
+  %1170 = getelementptr inbounds nuw [8 x i8], ptr %1169, i64 %1049
   %1171 = load ptr, ptr %1170, align 8, !tbaa !111
   %1172 = getelementptr inbounds nuw i8, ptr %1171, i64 24
-  %1173 = getelementptr inbounds nuw ptr, ptr %1172, i64 %indvars.iv583
+  %1173 = getelementptr inbounds nuw [8 x i8], ptr %1172, i64 %indvars.iv583
   %1174 = load ptr, ptr %1173, align 8, !tbaa !117
   %.not481 = icmp eq ptr %1168, %1174
   br i1 %.not481, label %1176, label %1175
@@ -1952,7 +1943,7 @@ zend_persist_property_info_calc.exit:             ; preds = %611, %597, %530, %.
   %1187 = phi ptr [ %.pre608, %1175 ], [ %1182, %1176 ], [ %1155, %1149 ], [ %1141, %1163 ]
   %indvars.iv.next584 = add nuw nsw i64 %indvars.iv583, 1
   %1188 = load ptr, ptr %1044, align 8, !tbaa !110
-  %1189 = getelementptr inbounds nuw ptr, ptr %1188, i64 %1049
+  %1189 = getelementptr inbounds nuw [8 x i8], ptr %1188, i64 %1049
   %1190 = load ptr, ptr %1189, align 8, !tbaa !111
   %1191 = getelementptr inbounds nuw i8, ptr %1190, i64 16
   %1192 = load i32, ptr %1191, align 8, !tbaa !116
@@ -1978,7 +1969,7 @@ zend_persist_property_info_calc.exit:             ; preds = %611, %597, %530, %.
   store i64 %1203, ptr %1201, align 8, !tbaa !34
   %1204 = add i32 %.2559, 1
   %1205 = zext i32 %1204 to i64
-  %1206 = getelementptr inbounds nuw ptr, ptr %1199, i64 %1205
+  %1206 = getelementptr inbounds nuw [8 x i8], ptr %1199, i64 %1205
   %1207 = load ptr, ptr %1206, align 8, !tbaa !111
   %.not475 = icmp eq ptr %1207, null
   br i1 %.not475, label %._crit_edge561.loopexit, label %.lr.ph560
@@ -2678,7 +2669,7 @@ zend_hash_persist_calc.exit:                      ; preds = %10
 
 154:                                              ; preds = %.lr.ph, %194
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %194 ]
-  %155 = getelementptr inbounds nuw %struct.zend_attribute_arg, ptr %153, i64 %indvars.iv
+  %155 = getelementptr inbounds nuw [24 x i8], ptr %153, i64 %indvars.iv
   %156 = load ptr, ptr %155, align 8, !tbaa !125
   %.not81 = icmp eq ptr %156, null
   br i1 %.not81, label %194, label %157
@@ -2779,7 +2770,7 @@ define hidden void @zend_persist_warnings_calc(i32 noundef %0, ptr noundef reado
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 440
   %12 = add i64 %9, 24
   store i64 %12, ptr %11, align 8, !tbaa !34
-  %13 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8, !tbaa !127
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !129
@@ -3315,7 +3306,7 @@ zend_persist_op_array_calc.exit:                  ; preds = %283, %281, %.lr.ph
   %302 = getelementptr inbounds nuw i8, ptr %301, i64 440
   %303 = add i64 %300, 24
   store i64 %303, ptr %302, align 8, !tbaa !34
-  %304 = getelementptr inbounds nuw ptr, ptr %293, i64 %indvars.iv.i
+  %304 = getelementptr inbounds nuw [8 x i8], ptr %293, i64 %indvars.iv.i
   %305 = load ptr, ptr %304, align 8, !tbaa !127
   %306 = getelementptr inbounds nuw i8, ptr %305, i64 8
   %307 = load ptr, ptr %306, align 8, !tbaa !129
@@ -3364,7 +3355,7 @@ zend_persist_warnings_calc.exit:                  ; preds = %.lr.ph.i74, %._crit
 .lr.ph.i76:                                       ; preds = %zend_persist_warnings_calc.exit, %455
   %339 = phi ptr [ %456, %455 ], [ %330, %zend_persist_warnings_calc.exit ]
   %indvars.iv.i77 = phi i64 [ %indvars.iv.next.i79, %455 ], [ 0, %zend_persist_warnings_calc.exit ]
-  %340 = getelementptr inbounds nuw %struct._zend_early_binding, ptr %334, i64 %indvars.iv.i77
+  %340 = getelementptr inbounds nuw [32 x i8], ptr %334, i64 %indvars.iv.i77
   %341 = getelementptr inbounds nuw i8, ptr %339, i64 400
   %342 = load i8, ptr %341, align 8, !tbaa !50, !range !51, !noundef !52
   %343 = trunc nuw i8 %342 to i1
@@ -3938,7 +3929,7 @@ zend_hash_persist_calc.exit:                      ; preds = %69
 
 .lr.ph214:                                        ; preds = %207, %259
   %indvars.iv = phi i64 [ %indvars.iv.next, %259 ], [ 0, %207 ]
-  %220 = getelementptr inbounds nuw %struct._zend_arg_info, ptr %.0150, i64 %indvars.iv
+  %220 = getelementptr inbounds nuw [32 x i8], ptr %.0150, i64 %indvars.iv
   %221 = load ptr, ptr %220, align 8, !tbaa !155
   %.not200 = icmp eq ptr %221, null
   br i1 %.not200, label %259, label %222
@@ -4104,7 +4095,7 @@ zend_hash_persist_calc.exit:                      ; preds = %69
   %321 = load i8, ptr %320, align 8, !tbaa !50, !range !51, !noundef !52
   %322 = trunc nuw i8 %321 to i1
   %323 = load ptr, ptr %307, align 8, !tbaa !163
-  %324 = getelementptr inbounds nuw ptr, ptr %323, i64 %indvars.iv223
+  %324 = getelementptr inbounds nuw [8 x i8], ptr %323, i64 %indvars.iv223
   %325 = load ptr, ptr %324, align 8, !tbaa !117
   br i1 %322, label %326, label %336
 
@@ -4137,7 +4128,7 @@ zend_hash_persist_calc.exit:                      ; preds = %69
 344:                                              ; preds = %340, %336
   %345 = tail call ptr @accel_new_interned_string(ptr noundef %325) #4
   %346 = load ptr, ptr %307, align 8, !tbaa !163
-  %347 = getelementptr inbounds nuw ptr, ptr %346, i64 %indvars.iv223
+  %347 = getelementptr inbounds nuw [8 x i8], ptr %346, i64 %indvars.iv223
   %348 = load ptr, ptr %347, align 8, !tbaa !117
   %.not199 = icmp eq ptr %345, %348
   br i1 %.not199, label %350, label %349
@@ -4188,7 +4179,7 @@ zend_hash_persist_calc.exit:                      ; preds = %69
 374:                                              ; preds = %.lr.ph218, %zend_persist_op_array_calc.exit
   %indvars.iv226 = phi i64 [ 0, %.lr.ph218 ], [ %indvars.iv.next227, %zend_persist_op_array_calc.exit ]
   %375 = load ptr, ptr %373, align 8, !tbaa !166
-  %376 = getelementptr inbounds nuw ptr, ptr %375, i64 %indvars.iv226
+  %376 = getelementptr inbounds nuw [8 x i8], ptr %375, i64 %indvars.iv226
   %377 = load ptr, ptr %376, align 8, !tbaa !167
   %378 = tail call ptr @zend_shared_alloc_get_xlat_entry(ptr noundef nonnull %377) #4
   %.not.i203 = icmp eq ptr %378, null
@@ -4273,7 +4264,7 @@ define internal fastcc void @zend_persist_ast_calc(ptr noundef captures(none) %0
 23:                                               ; preds = %.lr.ph, %28
   %24 = phi i32 [ %14, %.lr.ph ], [ %29, %28 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %28 ]
-  %25 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8, !tbaa !174
   %.not27 = icmp eq ptr %26, null
   br i1 %.not27, label %28, label %27
@@ -4336,7 +4327,7 @@ zend_ast_is_decl.exit:                            ; preds = %32
 
 55:                                               ; preds = %.lr.ph34, %59
   %indvars.iv39 = phi i64 [ 0, %.lr.ph34 ], [ %indvars.iv.next40, %59 ]
-  %56 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv39
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %indvars.iv39
   %57 = load ptr, ptr %56, align 8, !tbaa !174
   %.not = icmp eq ptr %57, null
   br i1 %.not, label %59, label %58
@@ -4376,7 +4367,7 @@ define internal fastcc void @zend_persist_type_calc(ptr noundef captures(address
   store i64 %15, ptr %12, align 8, !tbaa !34
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %17 = zext i32 %7 to i64
-  %18 = getelementptr inbounds nuw %struct.zend_type, ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %17
   br label %21
 
 19:                                               ; preds = %1

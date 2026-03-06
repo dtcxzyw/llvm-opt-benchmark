@@ -179,7 +179,7 @@ define hidden { ptr, i64 } @_ZN12wasm_bindgen7convert5impls24js_value_vector_fro
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h684cccd1e78768baE.exit": ; preds = %65, %59
   %66 = load ptr, ptr %32, align 8, !alias.scope !18, !nonnull !3, !noundef !3
-  %67 = getelementptr inbounds nuw { i64, i64 }, ptr %66, i64 %62
+  %67 = getelementptr inbounds nuw [16 x i8], ptr %66, i64 %62
   store i64 %60, ptr %67, align 8
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
   store i64 %61, ptr %68, align 8
@@ -379,7 +379,7 @@ define hidden { ptr, i64 } @_ZN12wasm_bindgen7convert5impls24js_value_vector_fro
 
 64:                                               ; preds = %59, %63
   %65 = load ptr, ptr %33, align 8, !alias.scope !37, !noalias !40, !nonnull !3, !noundef !3
-  %66 = getelementptr inbounds nuw { { i64, i64 }, { i64, i64 } }, ptr %65, i64 %60
+  %66 = getelementptr inbounds nuw [32 x i8], ptr %65, i64 %60
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %66, ptr noundef nonnull readonly align 8 dereferenceable(32) %8, i64 32, i1 false)
   %67 = add i64 %60, 1
   store i64 %67, ptr %34, align 8, !alias.scope !37, !noalias !40
@@ -591,7 +591,7 @@ define hidden { ptr, i64 } @_ZN12wasm_bindgen7convert5impls24js_value_vector_fro
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hc5674f852ae28c61E.exit": ; preds = %59, %64
   %69 = load ptr, ptr %33, align 8, !alias.scope !54, !nonnull !3, !noundef !3
-  %70 = getelementptr inbounds nuw ptr, ptr %69, i64 %61
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %61
   store ptr %60, ptr %70, align 8
   %71 = add i64 %61, 1
   store i64 %71, ptr %34, align 8, !alias.scope !54
@@ -798,7 +798,7 @@ define hidden { ptr, i64 } @_ZN12wasm_bindgen7convert5impls24js_value_vector_fro
 
 66:                                               ; preds = %61, %57
   %67 = load ptr, ptr %33, align 8, !alias.scope !72, !noalias !75, !nonnull !3, !noundef !3
-  %68 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 } }, { i64, i64 } }, ptr %67, i64 %58
+  %68 = getelementptr inbounds nuw [40 x i8], ptr %67, i64 %58
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %68, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 40, i1 false)
   %69 = add i64 %58, 1
   store i64 %69, ptr %34, align 8, !alias.scope !72, !noalias !75
@@ -1008,7 +1008,7 @@ define hidden { ptr, i64 } @_ZN12wasm_bindgen7convert5impls24js_value_vector_fro
 
 67:                                               ; preds = %62, %58
   %68 = load ptr, ptr %33, align 8, !alias.scope !93, !noalias !96, !nonnull !3, !noundef !3
-  %69 = getelementptr inbounds nuw { { { { ptr, ptr, {} }, { { i64, { { { { { i64, ptr, {} }, {} }, i64 }, i64 } } }, { i64, { { { { { ptr, i64, i64, i64 }, {}, {} }, {} } } } } } }, ptr, { { { ptr, ptr } }, {}, {} }, i32, [1 x i32] }, ptr, i8, [7 x i8] }, ptr %68, i64 %59
+  %69 = getelementptr inbounds nuw [144 x i8], ptr %68, i64 %59
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %69, ptr noundef nonnull align 8 dereferenceable(144) %8, i64 144, i1 false)
   %70 = add i64 %59, 1
   store i64 %70, ptr %34, align 8, !alias.scope !93, !noalias !96
@@ -1392,7 +1392,7 @@ define hidden { ptr, i64 } @_ZN12wasm_bindgen7convert5impls24js_value_vector_fro
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd983ecca7809c632E.exit": ; preds = %64, %58
   %65 = load ptr, ptr %32, align 8, !alias.scope !121, !nonnull !3, !noundef !3
-  %66 = getelementptr inbounds nuw { i32, i32 }, ptr %65, i64 %61
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %61
   store i32 %59, ptr %66, align 4
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 4
   store i32 %60, ptr %67, align 4
@@ -1600,7 +1600,7 @@ define hidden { ptr, i64 } @_ZN12wasm_bindgen7convert5impls24js_value_vector_fro
 
 66:                                               ; preds = %61, %57
   %67 = load ptr, ptr %33, align 8, !alias.scope !139, !noalias !142, !nonnull !3, !noundef !3
-  %68 = getelementptr inbounds nuw { { { { { { { { { i64, ptr, {} }, {} }, i64 } } } } } }, i32, [1 x i32] }, ptr %67, i64 %58
+  %68 = getelementptr inbounds nuw [32 x i8], ptr %67, i64 %58
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %68, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false)
   %69 = add i64 %58, 1
   store i64 %69, ptr %34, align 8, !alias.scope !139, !noalias !142
@@ -1807,7 +1807,7 @@ define hidden { ptr, i64 } @_ZN12wasm_bindgen7convert5impls24js_value_vector_fro
 
 66:                                               ; preds = %61, %57
   %67 = load ptr, ptr %33, align 8, !alias.scope !160, !noalias !163, !nonnull !3, !noundef !3
-  %68 = getelementptr inbounds nuw { { i64, [4 x i64] }, { i64, [4 x i64] }, { { { { i64, ptr, {} }, {} }, i64 } }, { { i64, i64 }, { i64, i64 } } }, ptr %67, i64 %58
+  %68 = getelementptr inbounds nuw [136 x i8], ptr %67, i64 %58
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %68, ptr noundef nonnull align 8 dereferenceable(136) %8, i64 136, i1 false)
   %69 = add i64 %58, 1
   store i64 %69, ptr %34, align 8, !alias.scope !160, !noalias !163
@@ -2014,7 +2014,7 @@ define hidden { ptr, i64 } @_ZN12wasm_bindgen7convert5impls24js_value_vector_fro
 
 66:                                               ; preds = %61, %57
   %67 = load ptr, ptr %33, align 8, !alias.scope !180, !noalias !183, !nonnull !3, !noundef !3
-  %68 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 } }, { { i64, i64 }, { i64, i64 } } }, ptr %67, i64 %58
+  %68 = getelementptr inbounds nuw [56 x i8], ptr %67, i64 %58
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %68, ptr noundef nonnull align 8 dereferenceable(56) %8, i64 56, i1 false)
   %69 = add i64 %58, 1
   store i64 %69, ptr %34, align 8, !alias.scope !180, !noalias !183
@@ -2265,7 +2265,7 @@ define hidden { i32, i32 } @_ZN12wasm_bindgen7convert5impls24js_value_vector_int
   %3 = alloca [32 x i8], align 8
   %4 = icmp ult i64 %1, 288230376151711744
   tail call void @llvm.assume(i1 %4)
-  %5 = getelementptr inbounds nuw { { i64, i64 }, { i64, i64 } }, ptr %0, i64 %1
+  %5 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %1
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !201
   store ptr %0, ptr %3, align 8
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -2292,7 +2292,7 @@ define hidden { i32, i32 } @_ZN12wasm_bindgen7convert5impls24js_value_vector_int
   %3 = alloca [32 x i8], align 8
   %4 = icmp ult i64 %1, 230584300921369396
   tail call void @llvm.assume(i1 %4)
-  %5 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 } }, { i64, i64 } }, ptr %0, i64 %1
+  %5 = getelementptr inbounds nuw [40 x i8], ptr %0, i64 %1
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !204
   store ptr %0, ptr %3, align 8
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -2319,7 +2319,7 @@ define hidden { i32, i32 } @_ZN12wasm_bindgen7convert5impls24js_value_vector_int
   %3 = alloca [32 x i8], align 8
   %4 = icmp ult i64 %1, 64051194700380388
   tail call void @llvm.assume(i1 %4)
-  %5 = getelementptr inbounds nuw { { { { ptr, ptr, {} }, { { i64, { { { { { i64, ptr, {} }, {} }, i64 }, i64 } } }, { i64, { { { { { ptr, i64, i64, i64 }, {}, {} }, {} } } } } } }, ptr, { { { ptr, ptr } }, {}, {} }, i32, [1 x i32] }, ptr, i8, [7 x i8] }, ptr %0, i64 %1
+  %5 = getelementptr inbounds nuw [144 x i8], ptr %0, i64 %1
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !207
   store ptr %0, ptr %3, align 8
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -2346,7 +2346,7 @@ define hidden { i32, i32 } @_ZN12wasm_bindgen7convert5impls24js_value_vector_int
   %3 = alloca [32 x i8], align 8
   %4 = icmp ult i64 %1, 1152921504606846976
   tail call void @llvm.assume(i1 %4)
-  %5 = getelementptr inbounds nuw { i32, i32 }, ptr %0, i64 %1
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %1
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !210
   store ptr %0, ptr %3, align 8
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -2373,7 +2373,7 @@ define hidden { i32, i32 } @_ZN12wasm_bindgen7convert5impls24js_value_vector_int
   %3 = alloca [32 x i8], align 8
   %4 = icmp ult i64 %1, 288230376151711744
   tail call void @llvm.assume(i1 %4)
-  %5 = getelementptr inbounds nuw { { { { { { { { { i64, ptr, {} }, {} }, i64 } } } } } }, i32, [1 x i32] }, ptr %0, i64 %1
+  %5 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %1
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !213
   store ptr %0, ptr %3, align 8
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -2400,7 +2400,7 @@ define hidden { i32, i32 } @_ZN12wasm_bindgen7convert5impls24js_value_vector_int
   %3 = alloca [32 x i8], align 8
   %4 = icmp ult i64 %1, 1152921504606846976
   tail call void @llvm.assume(i1 %4)
-  %5 = getelementptr inbounds nuw ptr, ptr %0, i64 %1
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %1
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !216
   store ptr %0, ptr %3, align 8
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -2454,7 +2454,7 @@ define hidden { i32, i32 } @_ZN12wasm_bindgen7convert5impls24js_value_vector_int
   %3 = alloca [32 x i8], align 8
   %4 = icmp ult i64 %1, 164703072086692426
   tail call void @llvm.assume(i1 %4)
-  %5 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 } }, { { i64, i64 }, { i64, i64 } } }, ptr %0, i64 %1
+  %5 = getelementptr inbounds nuw [56 x i8], ptr %0, i64 %1
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !222
   store ptr %0, ptr %3, align 8
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -2481,7 +2481,7 @@ define hidden { i32, i32 } @_ZN12wasm_bindgen7convert5impls24js_value_vector_int
   %3 = alloca [32 x i8], align 8
   %4 = icmp ult i64 %1, 67818912035696881
   tail call void @llvm.assume(i1 %4)
-  %5 = getelementptr inbounds nuw { { i64, [4 x i64] }, { i64, [4 x i64] }, { { { { i64, ptr, {} }, {} }, i64 } }, { { i64, i64 }, { i64, i64 } } }, ptr %0, i64 %1
+  %5 = getelementptr inbounds nuw [136 x i8], ptr %0, i64 %1
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !225
   store ptr %0, ptr %3, align 8
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -2508,7 +2508,7 @@ define hidden { i32, i32 } @_ZN12wasm_bindgen7convert5impls24js_value_vector_int
   %3 = alloca [32 x i8], align 8
   %4 = icmp ult i64 %1, 576460752303423488
   tail call void @llvm.assume(i1 %4)
-  %5 = getelementptr inbounds nuw { i64, i64 }, ptr %0, i64 %1
+  %5 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %1
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !228
   store ptr %0, ptr %3, align 8
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8

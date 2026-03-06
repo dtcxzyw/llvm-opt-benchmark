@@ -521,13 +521,13 @@ define linkonce_odr { ptr, i32 } @_ZN14arrow_vendored10fast_float19from_chars_ad
 
 174:                                              ; preds = %171
   %175 = sub nsw i64 0, %.4145.i
-  %176 = getelementptr inbounds nuw float, ptr @_ZN14arrow_vendored10fast_floatL19powers_of_ten_floatE, i64 %175
+  %176 = getelementptr inbounds nuw [4 x i8], ptr @_ZN14arrow_vendored10fast_floatL19powers_of_ten_floatE, i64 %175
   %177 = load float, ptr %176, align 4, !tbaa !31
   %178 = fdiv float %172, %177
   br label %183
 
 179:                                              ; preds = %171
-  %180 = getelementptr inbounds nuw float, ptr @_ZN14arrow_vendored10fast_floatL19powers_of_ten_floatE, i64 %.4145.i
+  %180 = getelementptr inbounds nuw [4 x i8], ptr @_ZN14arrow_vendored10fast_floatL19powers_of_ten_floatE, i64 %.4145.i
   %181 = load float, ptr %180, align 4, !tbaa !31
   %182 = fmul float %181, %172
   br label %183
@@ -547,7 +547,7 @@ define linkonce_odr { ptr, i32 } @_ZN14arrow_vendored10fast_float19from_chars_ad
   br i1 %187, label %188, label %201
 
 188:                                              ; preds = %186
-  %189 = getelementptr inbounds nuw i64, ptr @_ZN14arrow_vendored10fast_floatL18max_mantissa_floatE, i64 %.4145.i
+  %189 = getelementptr inbounds nuw [8 x i8], ptr @_ZN14arrow_vendored10fast_floatL18max_mantissa_floatE, i64 %.4145.i
   %190 = load i64, ptr %189, align 8, !tbaa !17
   %.not77 = icmp ugt i64 %.4131.i, %190
   br i1 %.not77, label %201, label %191
@@ -562,7 +562,7 @@ define linkonce_odr { ptr, i32 } @_ZN14arrow_vendored10fast_float19from_chars_ad
 
 194:                                              ; preds = %191
   %195 = uitofp i64 %.4131.i to float
-  %196 = getelementptr inbounds nuw float, ptr @_ZN14arrow_vendored10fast_floatL19powers_of_ten_floatE, i64 %.4145.i
+  %196 = getelementptr inbounds nuw [4 x i8], ptr @_ZN14arrow_vendored10fast_floatL19powers_of_ten_floatE, i64 %.4145.i
   %197 = load float, ptr %196, align 4, !tbaa !31
   %198 = fmul float %197, %195
   store float %198, ptr %2, align 4, !tbaa !31
@@ -590,7 +590,7 @@ define linkonce_odr { ptr, i32 } @_ZN14arrow_vendored10fast_float19from_chars_ad
   %209 = trunc nsw i64 %.4145.i to i32
   %210 = shl nsw i32 %209, 1
   %211 = sext i32 %210 to i64
-  %212 = getelementptr i64, ptr @_ZN14arrow_vendored10fast_float15powers_templateIvE17power_of_five_128E, i64 %211
+  %212 = getelementptr [8 x i8], ptr @_ZN14arrow_vendored10fast_float15powers_templateIvE17power_of_five_128E, i64 %211
   %213 = getelementptr i8, ptr %212, i64 5472
   %214 = load i64, ptr %213, align 16, !tbaa !17
   %215 = zext i64 %208 to i128
@@ -694,7 +694,7 @@ _ZN14arrow_vendored10fast_float13compute_floatINS0_13binary_formatIfEEEENS0_17ad
   %275 = trunc nsw i64 %.4145.i to i32
   %276 = shl nsw i32 %275, 1
   %277 = sext i32 %276 to i64
-  %278 = getelementptr i64, ptr @_ZN14arrow_vendored10fast_float15powers_templateIvE17power_of_five_128E, i64 %277
+  %278 = getelementptr [8 x i8], ptr @_ZN14arrow_vendored10fast_float15powers_templateIvE17power_of_five_128E, i64 %277
   %279 = getelementptr i8, ptr %278, i64 5472
   %280 = load i64, ptr %279, align 16, !tbaa !17
   %281 = zext i64 %274 to i128
@@ -792,7 +792,7 @@ _ZN14arrow_vendored10fast_float13compute_floatINS0_13binary_formatIfEEEENS0_17ad
   %339 = shl i32 %338, 1
   %340 = add i32 %339, 684
   %341 = sext i32 %340 to i64
-  %342 = getelementptr inbounds i64, ptr @_ZN14arrow_vendored10fast_float15powers_templateIvE17power_of_five_128E, i64 %341
+  %342 = getelementptr inbounds [8 x i8], ptr @_ZN14arrow_vendored10fast_float15powers_templateIvE17power_of_five_128E, i64 %341
   %343 = load i64, ptr %342, align 16, !tbaa !17
   %344 = zext i64 %337 to i128
   %345 = zext i64 %343 to i128
@@ -807,7 +807,7 @@ _ZN14arrow_vendored10fast_float13compute_floatINS0_13binary_formatIfEEEENS0_17ad
   %351 = trunc i128 %346 to i64
   %352 = add i32 %339, 685
   %353 = sext i32 %352 to i64
-  %354 = getelementptr inbounds i64, ptr @_ZN14arrow_vendored10fast_float15powers_templateIvE17power_of_five_128E, i64 %353
+  %354 = getelementptr inbounds [8 x i8], ptr @_ZN14arrow_vendored10fast_float15powers_templateIvE17power_of_five_128E, i64 %353
   %355 = load i64, ptr %354, align 8, !tbaa !17
   %356 = zext i64 %355 to i128
   %357 = mul nuw i128 %356, %344
@@ -1346,13 +1346,13 @@ define linkonce_odr { ptr, i32 } @_ZN14arrow_vendored10fast_float19from_chars_ad
 
 174:                                              ; preds = %171
   %175 = sub nsw i64 0, %.4145.i
-  %176 = getelementptr inbounds nuw double, ptr @_ZN14arrow_vendored10fast_floatL20powers_of_ten_doubleE, i64 %175
+  %176 = getelementptr inbounds nuw [8 x i8], ptr @_ZN14arrow_vendored10fast_floatL20powers_of_ten_doubleE, i64 %175
   %177 = load double, ptr %176, align 8, !tbaa !40
   %178 = fdiv double %172, %177
   br label %183
 
 179:                                              ; preds = %171
-  %180 = getelementptr inbounds nuw double, ptr @_ZN14arrow_vendored10fast_floatL20powers_of_ten_doubleE, i64 %.4145.i
+  %180 = getelementptr inbounds nuw [8 x i8], ptr @_ZN14arrow_vendored10fast_floatL20powers_of_ten_doubleE, i64 %.4145.i
   %181 = load double, ptr %180, align 8, !tbaa !40
   %182 = fmul double %181, %172
   br label %183
@@ -1372,7 +1372,7 @@ define linkonce_odr { ptr, i32 } @_ZN14arrow_vendored10fast_float19from_chars_ad
   br i1 %187, label %188, label %201
 
 188:                                              ; preds = %186
-  %189 = getelementptr inbounds nuw i64, ptr @_ZN14arrow_vendored10fast_floatL19max_mantissa_doubleE, i64 %.4145.i
+  %189 = getelementptr inbounds nuw [8 x i8], ptr @_ZN14arrow_vendored10fast_floatL19max_mantissa_doubleE, i64 %.4145.i
   %190 = load i64, ptr %189, align 8, !tbaa !17
   %.not77 = icmp ugt i64 %.4131.i, %190
   br i1 %.not77, label %201, label %191
@@ -1387,7 +1387,7 @@ define linkonce_odr { ptr, i32 } @_ZN14arrow_vendored10fast_float19from_chars_ad
 
 194:                                              ; preds = %191
   %195 = uitofp i64 %.4131.i to double
-  %196 = getelementptr inbounds nuw double, ptr @_ZN14arrow_vendored10fast_floatL20powers_of_ten_doubleE, i64 %.4145.i
+  %196 = getelementptr inbounds nuw [8 x i8], ptr @_ZN14arrow_vendored10fast_floatL20powers_of_ten_doubleE, i64 %.4145.i
   %197 = load double, ptr %196, align 8, !tbaa !40
   %198 = fmul double %197, %195
   store double %198, ptr %2, align 8, !tbaa !40
@@ -1415,7 +1415,7 @@ define linkonce_odr { ptr, i32 } @_ZN14arrow_vendored10fast_float19from_chars_ad
   %210 = trunc nsw i64 %.4145.i to i32
   %211 = shl nsw i32 %210, 1
   %212 = sext i32 %211 to i64
-  %213 = getelementptr i64, ptr @_ZN14arrow_vendored10fast_float15powers_templateIvE17power_of_five_128E, i64 %212
+  %213 = getelementptr [8 x i8], ptr @_ZN14arrow_vendored10fast_float15powers_templateIvE17power_of_five_128E, i64 %212
   %214 = getelementptr i8, ptr %213, i64 5472
   %215 = load i64, ptr %214, align 16, !tbaa !17
   %216 = zext i64 %209 to i128
@@ -1519,7 +1519,7 @@ _ZN14arrow_vendored10fast_float13compute_floatINS0_13binary_formatIdEEEENS0_17ad
   %278 = trunc nsw i64 %.4145.i to i32
   %279 = shl nsw i32 %278, 1
   %280 = sext i32 %279 to i64
-  %281 = getelementptr i64, ptr @_ZN14arrow_vendored10fast_float15powers_templateIvE17power_of_five_128E, i64 %280
+  %281 = getelementptr [8 x i8], ptr @_ZN14arrow_vendored10fast_float15powers_templateIvE17power_of_five_128E, i64 %280
   %282 = getelementptr i8, ptr %281, i64 5472
   %283 = load i64, ptr %282, align 16, !tbaa !17
   %284 = zext i64 %277 to i128
@@ -1617,7 +1617,7 @@ _ZN14arrow_vendored10fast_float13compute_floatINS0_13binary_formatIdEEEENS0_17ad
   %344 = shl i32 %343, 1
   %345 = add i32 %344, 684
   %346 = sext i32 %345 to i64
-  %347 = getelementptr inbounds i64, ptr @_ZN14arrow_vendored10fast_float15powers_templateIvE17power_of_five_128E, i64 %346
+  %347 = getelementptr inbounds [8 x i8], ptr @_ZN14arrow_vendored10fast_float15powers_templateIvE17power_of_five_128E, i64 %346
   %348 = load i64, ptr %347, align 16, !tbaa !17
   %349 = zext i64 %342 to i128
   %350 = zext i64 %348 to i128
@@ -1632,7 +1632,7 @@ _ZN14arrow_vendored10fast_float13compute_floatINS0_13binary_formatIdEEEENS0_17ad
   %357 = trunc i128 %351 to i64
   %358 = add i32 %344, 685
   %359 = sext i32 %358 to i64
-  %360 = getelementptr inbounds i64, ptr @_ZN14arrow_vendored10fast_float15powers_templateIvE17power_of_five_128E, i64 %359
+  %360 = getelementptr inbounds [8 x i8], ptr @_ZN14arrow_vendored10fast_float15powers_templateIvE17power_of_five_128E, i64 %359
   %361 = load i64, ptr %360, align 8, !tbaa !17
   %362 = zext i64 %361 to i128
   %363 = mul nuw i128 %362, %349
@@ -2233,7 +2233,7 @@ _ZN14arrow_vendored10fast_float10skip_zerosERPKcS2_.exit: ; preds = %.lr.ph312
   br i1 %.not19.i.i, label %_ZN14arrow_vendored10fast_float6bigint3mulEm.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %64
-  %65 = getelementptr inbounds nuw i64, ptr @_ZN14arrow_vendored10fast_floatL20powers_of_ten_uint64E, i64 %.2253.lcssa
+  %65 = getelementptr inbounds nuw [8 x i8], ptr @_ZN14arrow_vendored10fast_floatL20powers_of_ten_uint64E, i64 %.2253.lcssa
   %66 = load i64, ptr %65, align 8, !tbaa !17
   %67 = zext i64 %66 to i128
   br label %69
@@ -2247,7 +2247,7 @@ _ZN14arrow_vendored10fast_float10skip_zerosERPKcS2_.exit: ; preds = %.lr.ph312
 69:                                               ; preds = %69, %.lr.ph.i.i
   %.016.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %79, %69 ]
   %.01215.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %77, %69 ]
-  %70 = getelementptr inbounds nuw i64, ptr %0, i64 %.016.i.i
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.016.i.i
   %71 = load i64, ptr %70, align 8, !tbaa !17
   %72 = zext i64 %71 to i128
   %73 = mul nuw i128 %72, %67
@@ -2262,7 +2262,7 @@ _ZN14arrow_vendored10fast_float10skip_zerosERPKcS2_.exit: ; preds = %.lr.ph312
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %69, !llvm.loop !81
 
 _ZN14arrow_vendored10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i: ; preds = %._crit_edge.i.i
-  %80 = getelementptr inbounds nuw i64, ptr %0, i64 %63
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %63
   store i64 %77, ptr %80, align 8, !tbaa !17
   %81 = add nuw nsw i16 %62, 1
   store i16 %81, ptr %20, align 8, !tbaa !79
@@ -2284,7 +2284,7 @@ _ZN14arrow_vendored10fast_float6bigint3mulEm.exit: ; preds = %64, %._crit_edge.i
   br i1 %exitcond.not.i, label %.critedge.i.i, label %85
 
 85:                                               ; preds = %84
-  %86 = getelementptr inbounds nuw i64, ptr %0, i64 %.01421.i.i
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.01421.i.i
   %87 = load i64, ptr %86, align 8, !tbaa !17
   %88 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %87, i64 %.022.i.i)
   %89 = extractvalue { i64, i1 } %88, 1
@@ -2298,7 +2298,7 @@ _ZN14arrow_vendored10fast_float6bigint3mulEm.exit: ; preds = %64, %._crit_edge.i
   br i1 %92, label %_ZN14arrow_vendored10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i91, label %_ZN14arrow_vendored10fast_float6bigint3addEm.exit
 
 _ZN14arrow_vendored10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i91: ; preds = %.critedge.i.i
-  %93 = getelementptr inbounds nuw i64, ptr %0, i64 %83
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %83
   store i64 %.022.i.i, ptr %93, align 8, !tbaa !17
   %94 = add nuw nsw i16 %82, 1
   store i16 %94, ptr %20, align 8, !tbaa !79
@@ -2410,7 +2410,7 @@ _ZN14arrow_vendored10fast_float12is_truncatedENS0_4spanIKcEE.exit.thread: ; pred
 .lr.ph.i.i93:                                     ; preds = %_ZN14arrow_vendored10fast_float12is_truncatedENS0_4spanIKcEE.exit.thread, %.lr.ph.i.i93
   %.016.i.i94 = phi i64 [ %134, %.lr.ph.i.i93 ], [ 0, %_ZN14arrow_vendored10fast_float12is_truncatedENS0_4spanIKcEE.exit.thread ]
   %.01215.i.i95 = phi i64 [ %132, %.lr.ph.i.i93 ], [ 0, %_ZN14arrow_vendored10fast_float12is_truncatedENS0_4spanIKcEE.exit.thread ]
-  %125 = getelementptr inbounds nuw i64, ptr %0, i64 %.016.i.i94
+  %125 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.016.i.i94
   %126 = load i64, ptr %125, align 8, !tbaa !17
   %127 = zext i64 %126 to i128
   %128 = mul nuw nsw i128 %127, 10
@@ -2425,7 +2425,7 @@ _ZN14arrow_vendored10fast_float12is_truncatedENS0_4spanIKcEE.exit.thread: ; pred
   br i1 %exitcond.not.i.i96, label %._crit_edge.i.i97, label %.lr.ph.i.i93, !llvm.loop !81
 
 _ZN14arrow_vendored10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i100: ; preds = %._crit_edge.i.i97
-  %135 = getelementptr inbounds nuw i64, ptr %0, i64 %123
+  %135 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %123
   store i64 %132, ptr %135, align 8, !tbaa !17
   %136 = add nuw nsw i16 %.pr, 1
   store i16 %136, ptr %20, align 8, !tbaa !79
@@ -2442,7 +2442,7 @@ _ZN14arrow_vendored10fast_float6bigint3mulEm.exit101: ; preds = %._crit_edge.i.i
   br i1 %exitcond.not.i105, label %.critedge.i.i107, label %140
 
 140:                                              ; preds = %139
-  %141 = getelementptr inbounds nuw i64, ptr %0, i64 %.01421.i.i104
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.01421.i.i104
   %142 = load i64, ptr %141, align 8, !tbaa !17
   %143 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %142, i64 1)
   %144 = extractvalue { i64, i1 } %143, 1
@@ -2456,7 +2456,7 @@ _ZN14arrow_vendored10fast_float6bigint3mulEm.exit101: ; preds = %._crit_edge.i.i
   br i1 %147, label %_ZN14arrow_vendored10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i108, label %_ZN14arrow_vendored10fast_float12is_truncatedEPKcS2_.exit86.sink.split
 
 _ZN14arrow_vendored10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i108: ; preds = %.critedge.i.i107
-  %148 = getelementptr inbounds nuw i64, ptr %0, i64 %138
+  %148 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %138
   store i64 1, ptr %148, align 8, !tbaa !17
   %149 = add nuw nsw i16 %137, 1
   store i16 %149, ptr %20, align 8, !tbaa !79
@@ -2466,7 +2466,7 @@ _ZN14arrow_vendored10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i108: ;
   br i1 %.not19.i.i, label %_ZN14arrow_vendored10fast_float6bigint3mulEm.exit119, label %.lr.ph.i.i111
 
 .lr.ph.i.i111:                                    ; preds = %150
-  %151 = getelementptr inbounds nuw i64, ptr @_ZN14arrow_vendored10fast_floatL20powers_of_ten_uint64E, i64 %.2253.lcssa
+  %151 = getelementptr inbounds nuw [8 x i8], ptr @_ZN14arrow_vendored10fast_floatL20powers_of_ten_uint64E, i64 %.2253.lcssa
   %152 = load i64, ptr %151, align 8, !tbaa !17
   %153 = zext i64 %152 to i128
   br label %155
@@ -2480,7 +2480,7 @@ _ZN14arrow_vendored10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i108: ;
 155:                                              ; preds = %155, %.lr.ph.i.i111
   %.016.i.i112 = phi i64 [ 0, %.lr.ph.i.i111 ], [ %165, %155 ]
   %.01215.i.i113 = phi i64 [ 0, %.lr.ph.i.i111 ], [ %163, %155 ]
-  %156 = getelementptr inbounds nuw i64, ptr %0, i64 %.016.i.i112
+  %156 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.016.i.i112
   %157 = load i64, ptr %156, align 8, !tbaa !17
   %158 = zext i64 %157 to i128
   %159 = mul nuw i128 %158, %153
@@ -2495,7 +2495,7 @@ _ZN14arrow_vendored10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i108: ;
   br i1 %exitcond.not.i.i114, label %._crit_edge.i.i115, label %155, !llvm.loop !81
 
 _ZN14arrow_vendored10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i118: ; preds = %._crit_edge.i.i115
-  %166 = getelementptr inbounds nuw i64, ptr %0, i64 %63
+  %166 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %63
   store i64 %163, ptr %166, align 8, !tbaa !17
   %167 = add nuw nsw i16 %62, 1
   store i16 %167, ptr %20, align 8, !tbaa !79
@@ -2517,7 +2517,7 @@ _ZN14arrow_vendored10fast_float6bigint3mulEm.exit119: ; preds = %150, %._crit_ed
   br i1 %exitcond.not.i124, label %.critedge.i.i126, label %171
 
 171:                                              ; preds = %170
-  %172 = getelementptr inbounds nuw i64, ptr %0, i64 %.01421.i.i123
+  %172 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.01421.i.i123
   %173 = load i64, ptr %172, align 8, !tbaa !17
   %174 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %173, i64 %.022.i.i122)
   %175 = extractvalue { i64, i1 } %174, 1
@@ -2531,7 +2531,7 @@ _ZN14arrow_vendored10fast_float6bigint3mulEm.exit119: ; preds = %150, %._crit_ed
   br i1 %178, label %_ZN14arrow_vendored10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i127, label %_ZN14arrow_vendored10fast_float6bigint3addEm.exit128
 
 _ZN14arrow_vendored10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i127: ; preds = %.critedge.i.i126
-  %179 = getelementptr inbounds nuw i64, ptr %0, i64 %169
+  %179 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %169
   store i64 %.022.i.i122, ptr %179, align 8, !tbaa !17
   %180 = add nuw nsw i16 %168, 1
   store i16 %180, ptr %20, align 8, !tbaa !79
@@ -2690,7 +2690,7 @@ _ZN14arrow_vendored10fast_float10skip_zerosERPKcS2_.exit75: ; preds = %.lr.ph367
   br i1 %.not19.i.i129, label %_ZN14arrow_vendored10fast_float6bigint3mulEm.exit138, label %.lr.ph.i.i130
 
 .lr.ph.i.i130:                                    ; preds = %244
-  %245 = getelementptr inbounds nuw i64, ptr @_ZN14arrow_vendored10fast_floatL20powers_of_ten_uint64E, i64 %.6257.lcssa
+  %245 = getelementptr inbounds nuw [8 x i8], ptr @_ZN14arrow_vendored10fast_floatL20powers_of_ten_uint64E, i64 %.6257.lcssa
   %246 = load i64, ptr %245, align 8, !tbaa !17
   %247 = zext i64 %246 to i128
   br label %249
@@ -2704,7 +2704,7 @@ _ZN14arrow_vendored10fast_float10skip_zerosERPKcS2_.exit75: ; preds = %.lr.ph367
 249:                                              ; preds = %249, %.lr.ph.i.i130
   %.016.i.i131 = phi i64 [ 0, %.lr.ph.i.i130 ], [ %259, %249 ]
   %.01215.i.i132 = phi i64 [ 0, %.lr.ph.i.i130 ], [ %257, %249 ]
-  %250 = getelementptr inbounds nuw i64, ptr %0, i64 %.016.i.i131
+  %250 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.016.i.i131
   %251 = load i64, ptr %250, align 8, !tbaa !17
   %252 = zext i64 %251 to i128
   %253 = mul nuw i128 %252, %247
@@ -2719,7 +2719,7 @@ _ZN14arrow_vendored10fast_float10skip_zerosERPKcS2_.exit75: ; preds = %.lr.ph367
   br i1 %exitcond.not.i.i133, label %._crit_edge.i.i134, label %249, !llvm.loop !81
 
 _ZN14arrow_vendored10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i137: ; preds = %._crit_edge.i.i134
-  %260 = getelementptr inbounds nuw i64, ptr %0, i64 %243
+  %260 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %243
   store i64 %257, ptr %260, align 8, !tbaa !17
   %261 = add nuw nsw i16 %242, 1
   store i16 %261, ptr %200, align 8, !tbaa !79
@@ -2741,7 +2741,7 @@ _ZN14arrow_vendored10fast_float6bigint3mulEm.exit138: ; preds = %244, %._crit_ed
   br i1 %exitcond.not.i143, label %.critedge.i.i145, label %265
 
 265:                                              ; preds = %264
-  %266 = getelementptr inbounds nuw i64, ptr %0, i64 %.01421.i.i142
+  %266 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.01421.i.i142
   %267 = load i64, ptr %266, align 8, !tbaa !17
   %268 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %267, i64 %.022.i.i141)
   %269 = extractvalue { i64, i1 } %268, 1
@@ -2755,7 +2755,7 @@ _ZN14arrow_vendored10fast_float6bigint3mulEm.exit138: ; preds = %244, %._crit_ed
   br i1 %272, label %_ZN14arrow_vendored10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i146, label %_ZN14arrow_vendored10fast_float6bigint3addEm.exit147
 
 _ZN14arrow_vendored10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i146: ; preds = %.critedge.i.i145
-  %273 = getelementptr inbounds nuw i64, ptr %0, i64 %263
+  %273 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %263
   store i64 %.022.i.i141, ptr %273, align 8, !tbaa !17
   %274 = add nuw nsw i16 %262, 1
   store i16 %274, ptr %200, align 8, !tbaa !79
@@ -2811,7 +2811,7 @@ _ZN14arrow_vendored10fast_float6bigint3addEm.exit147: ; preds = %265, %_ZN14arro
 .lr.ph.i.i149:                                    ; preds = %.loopexit, %.lr.ph.i.i149
   %.016.i.i150 = phi i64 [ %297, %.lr.ph.i.i149 ], [ 0, %.loopexit ]
   %.01215.i.i151 = phi i64 [ %295, %.lr.ph.i.i149 ], [ 0, %.loopexit ]
-  %288 = getelementptr inbounds nuw i64, ptr %0, i64 %.016.i.i150
+  %288 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.016.i.i150
   %289 = load i64, ptr %288, align 8, !tbaa !17
   %290 = zext i64 %289 to i128
   %291 = mul nuw nsw i128 %290, 10
@@ -2826,7 +2826,7 @@ _ZN14arrow_vendored10fast_float6bigint3addEm.exit147: ; preds = %265, %_ZN14arro
   br i1 %exitcond.not.i.i152, label %._crit_edge.i.i153, label %.lr.ph.i.i149, !llvm.loop !81
 
 _ZN14arrow_vendored10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i156: ; preds = %._crit_edge.i.i153
-  %298 = getelementptr inbounds nuw i64, ptr %0, i64 %286
+  %298 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %286
   store i64 %295, ptr %298, align 8, !tbaa !17
   %299 = add nuw nsw i16 %.pr259, 1
   store i16 %299, ptr %200, align 8, !tbaa !79
@@ -2843,7 +2843,7 @@ _ZN14arrow_vendored10fast_float6bigint3mulEm.exit157: ; preds = %._crit_edge.i.i
   br i1 %exitcond.not.i161, label %.critedge.i.i163, label %303
 
 303:                                              ; preds = %302
-  %304 = getelementptr inbounds nuw i64, ptr %0, i64 %.01421.i.i160
+  %304 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.01421.i.i160
   %305 = load i64, ptr %304, align 8, !tbaa !17
   %306 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %305, i64 1)
   %307 = extractvalue { i64, i1 } %306, 1
@@ -2857,7 +2857,7 @@ _ZN14arrow_vendored10fast_float6bigint3mulEm.exit157: ; preds = %._crit_edge.i.i
   br i1 %310, label %_ZN14arrow_vendored10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i164, label %_ZN14arrow_vendored10fast_float12is_truncatedEPKcS2_.exit86.sink.split
 
 _ZN14arrow_vendored10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i164: ; preds = %.critedge.i.i163
-  %311 = getelementptr inbounds nuw i64, ptr %0, i64 %301
+  %311 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %301
   store i64 1, ptr %311, align 8, !tbaa !17
   %312 = add nuw nsw i16 %300, 1
   store i16 %312, ptr %200, align 8, !tbaa !79
@@ -2867,7 +2867,7 @@ _ZN14arrow_vendored10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i164: ;
   br i1 %.not19.i.i129, label %_ZN14arrow_vendored10fast_float6bigint3mulEm.exit175, label %.lr.ph.i.i167
 
 .lr.ph.i.i167:                                    ; preds = %313
-  %314 = getelementptr inbounds nuw i64, ptr @_ZN14arrow_vendored10fast_floatL20powers_of_ten_uint64E, i64 %.6257.lcssa
+  %314 = getelementptr inbounds nuw [8 x i8], ptr @_ZN14arrow_vendored10fast_floatL20powers_of_ten_uint64E, i64 %.6257.lcssa
   %315 = load i64, ptr %314, align 8, !tbaa !17
   %316 = zext i64 %315 to i128
   br label %318
@@ -2881,7 +2881,7 @@ _ZN14arrow_vendored10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i164: ;
 318:                                              ; preds = %318, %.lr.ph.i.i167
   %.016.i.i168 = phi i64 [ 0, %.lr.ph.i.i167 ], [ %328, %318 ]
   %.01215.i.i169 = phi i64 [ 0, %.lr.ph.i.i167 ], [ %326, %318 ]
-  %319 = getelementptr inbounds nuw i64, ptr %0, i64 %.016.i.i168
+  %319 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.016.i.i168
   %320 = load i64, ptr %319, align 8, !tbaa !17
   %321 = zext i64 %320 to i128
   %322 = mul nuw i128 %321, %316
@@ -2896,7 +2896,7 @@ _ZN14arrow_vendored10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i164: ;
   br i1 %exitcond.not.i.i170, label %._crit_edge.i.i171, label %318, !llvm.loop !81
 
 _ZN14arrow_vendored10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i174: ; preds = %._crit_edge.i.i171
-  %329 = getelementptr inbounds nuw i64, ptr %0, i64 %243
+  %329 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %243
   store i64 %326, ptr %329, align 8, !tbaa !17
   %330 = add nuw nsw i16 %242, 1
   store i16 %330, ptr %200, align 8, !tbaa !79
@@ -2918,7 +2918,7 @@ _ZN14arrow_vendored10fast_float6bigint3mulEm.exit175: ; preds = %313, %._crit_ed
   br i1 %exitcond.not.i180, label %.critedge.i.i182, label %334
 
 334:                                              ; preds = %333
-  %335 = getelementptr inbounds nuw i64, ptr %0, i64 %.01421.i.i179
+  %335 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.01421.i.i179
   %336 = load i64, ptr %335, align 8, !tbaa !17
   %337 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %336, i64 %.022.i.i178)
   %338 = extractvalue { i64, i1 } %337, 1
@@ -2932,7 +2932,7 @@ _ZN14arrow_vendored10fast_float6bigint3mulEm.exit175: ; preds = %313, %._crit_ed
   br i1 %341, label %_ZN14arrow_vendored10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i183, label %_ZN14arrow_vendored10fast_float6bigint3addEm.exit184
 
 _ZN14arrow_vendored10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i183: ; preds = %.critedge.i.i182
-  %342 = getelementptr inbounds nuw i64, ptr %0, i64 %332
+  %342 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %332
   store i64 %.022.i.i178, ptr %342, align 8, !tbaa !17
   %343 = add nuw nsw i16 %331, 1
   store i16 %343, ptr %200, align 8, !tbaa !79
@@ -2980,7 +2980,7 @@ define linkonce_odr { i64, i32 } @_ZN14arrow_vendored10fast_float19positive_digi
 .lr.ph.i.i.i.i:                                   ; preds = %8, %.lr.ph.i.i.i.i
   %.01622.i.i.i.i = phi i64 [ %15, %.lr.ph.i.i.i.i ], [ 0, %8 ]
   %.01721.i.i.i.i = phi i64 [ %19, %.lr.ph.i.i.i.i ], [ 0, %8 ]
-  %14 = getelementptr inbounds nuw i64, ptr %0, i64 %.01721.i.i.i.i
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.01721.i.i.i.i
   %15 = load i64, ptr %14, align 8, !tbaa !17
   %16 = shl i64 %15, %6
   %17 = lshr i64 %.01622.i.i.i.i, %9
@@ -2995,7 +2995,7 @@ define linkonce_odr { i64, i32 } @_ZN14arrow_vendored10fast_float19positive_digi
   br i1 %21, label %22, label %_ZN14arrow_vendored10fast_float6bigint5pow10Ej.exit
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds nuw i64, ptr %0, i64 %12
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %12
   store i64 %13, ptr %23, align 8, !tbaa !17
   %24 = add nuw nsw i16 %11, 1
   store i16 %24, ptr %10, align 8, !tbaa !79
@@ -3038,7 +3038,7 @@ _ZN14arrow_vendored10fast_float6bigint5pow10Ej.exit: ; preds = %25, %_ZN14arrow_
 
 40:                                               ; preds = %_ZN14arrow_vendored10fast_float6bigint5pow10Ej.exit
   %41 = getelementptr i8, ptr %0, i64 -8
-  %42 = getelementptr i64, ptr %41, i64 %39
+  %42 = getelementptr [8 x i8], ptr %41, i64 %39
   %43 = load i64, ptr %42, align 8, !tbaa !17
   %44 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %43, i1 true)
   %45 = shl i64 %43, %44
@@ -3046,10 +3046,10 @@ _ZN14arrow_vendored10fast_float6bigint5pow10Ej.exit: ; preds = %25, %_ZN14arrow_
 
 46:                                               ; preds = %_ZN14arrow_vendored10fast_float6bigint5pow10Ej.exit
   %47 = getelementptr i8, ptr %0, i64 -8
-  %48 = getelementptr i64, ptr %47, i64 %39
+  %48 = getelementptr [8 x i8], ptr %47, i64 %39
   %49 = load i64, ptr %48, align 8, !tbaa !17
   %50 = getelementptr i8, ptr %0, i64 -16
-  %51 = getelementptr i64, ptr %50, i64 %39
+  %51 = getelementptr [8 x i8], ptr %50, i64 %39
   %52 = load i64, ptr %51, align 8, !tbaa !17
   %53 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %49, i1 true)
   %54 = icmp eq i64 %53, 0
@@ -3064,14 +3064,14 @@ _ZN14arrow_vendored10fast_float11uint64_hi64EmmRb.exit.i: ; preds = %55, %46
   %.in.in.i = phi i64 [ %56, %55 ], [ %52, %46 ]
   %.0.i.i = phi i64 [ %57, %55 ], [ %49, %46 ]
   %.in.i = icmp ne i64 %.in.in.i, 0
-  %invariant.gep.i.i = getelementptr i64, ptr %0, i64 %39
+  %invariant.gep.i.i = getelementptr [8 x i8], ptr %0, i64 %39
   %58 = icmp ugt i16 %38, 2
   br i1 %58, label %.lr.ph.i.i, label %_ZNK14arrow_vendored10fast_float6bigint4hi64ERb.exit.thread
 
 .lr.ph.i.i:                                       ; preds = %_ZN14arrow_vendored10fast_float11uint64_hi64EmmRb.exit.i, %.lr.ph.i.i
   %.05.i.i = phi i64 [ %61, %.lr.ph.i.i ], [ 2, %_ZN14arrow_vendored10fast_float11uint64_hi64EmmRb.exit.i ]
   %59 = xor i64 %.05.i.i, -1
-  %gep.i.i = getelementptr i64, ptr %invariant.gep.i.i, i64 %59
+  %gep.i.i = getelementptr [8 x i8], ptr %invariant.gep.i.i, i64 %59
   %60 = load i64, ptr %gep.i.i, align 8, !tbaa !17
   %.not.not.i.i.not = icmp ne i64 %60, 0
   %61 = add nuw nsw i64 %.05.i.i, 1
@@ -3215,7 +3215,7 @@ _ZN14arrow_vendored10fast_float11to_extendedIfEENS0_17adjusted_mantissaET_.exit:
 .lr.ph.i.i.i:                                     ; preds = %43, %.lr.ph.i.i.i
   %.01622.i.i.i = phi i64 [ %49, %.lr.ph.i.i.i ], [ 0, %43 ]
   %.01721.i.i.i = phi i64 [ %53, %.lr.ph.i.i.i ], [ 0, %43 ]
-  %48 = getelementptr inbounds nuw i64, ptr %5, i64 %.01721.i.i.i
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.01721.i.i.i
   %49 = load i64, ptr %48, align 8, !tbaa !17
   %50 = shl i64 %49, %41
   %51 = lshr i64 %.01622.i.i.i, %44
@@ -3230,7 +3230,7 @@ _ZN14arrow_vendored10fast_float11to_extendedIfEENS0_17adjusted_mantissaET_.exit:
   br i1 %55, label %56, label %_ZN14arrow_vendored10fast_float6bigint4pow2Ej.exit
 
 56:                                               ; preds = %54
-  %57 = getelementptr inbounds nuw i64, ptr %5, i64 %46
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %46
   store i64 %47, ptr %57, align 8, !tbaa !17
   %58 = add nuw nsw i16 %45, 1
   store i16 %58, ptr %31, align 8, !tbaa !79
@@ -3289,7 +3289,7 @@ _ZN14arrow_vendored10fast_float6bigint9shl_limbsEm.exit.thread.i.i: ; preds = %5
 .lr.ph.i.i.i35:                                   ; preds = %77, %.lr.ph.i.i.i35
   %.01622.i.i.i36 = phi i64 [ %84, %.lr.ph.i.i.i35 ], [ 0, %77 ]
   %.01721.i.i.i37 = phi i64 [ %88, %.lr.ph.i.i.i35 ], [ 0, %77 ]
-  %83 = getelementptr inbounds nuw i64, ptr %0, i64 %.01721.i.i.i37
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.01721.i.i.i37
   %84 = load i64, ptr %83, align 8, !tbaa !17
   %85 = shl i64 %84, %75
   %86 = lshr i64 %.01622.i.i.i36, %78
@@ -3304,7 +3304,7 @@ _ZN14arrow_vendored10fast_float6bigint9shl_limbsEm.exit.thread.i.i: ; preds = %5
   br i1 %90, label %91, label %_ZN14arrow_vendored10fast_float6bigint4pow2Ej.exit
 
 91:                                               ; preds = %89
-  %92 = getelementptr inbounds nuw i64, ptr %0, i64 %81
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %81
   store i64 %82, ptr %92, align 8, !tbaa !17
   %93 = add nuw nsw i16 %80, 1
   store i16 %93, ptr %79, align 8, !tbaa !79
@@ -3358,9 +3358,9 @@ _ZN14arrow_vendored10fast_float6bigint4pow2Ej.exit: ; preds = %94, %59, %89, %_Z
 
 113:                                              ; preds = %.preheader.i
   %114 = add nsw i64 %.014.i, -1
-  %115 = getelementptr inbounds nuw i64, ptr %0, i64 %114
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %114
   %116 = load i64, ptr %115, align 8, !tbaa !17
-  %117 = getelementptr inbounds nuw i64, ptr %5, i64 %114
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %114
   %118 = load i64, ptr %117, align 8, !tbaa !17
   %119 = icmp ugt i64 %116, %118
   br i1 %119, label %_ZNK14arrow_vendored10fast_float6bigint7compareERKS1_.exit, label %120
@@ -3457,7 +3457,7 @@ define linkonce_odr noundef zeroext i1 @_ZN14arrow_vendored10fast_float6bigint4p
 .lr.ph.i:                                         ; preds = %10, %.lr.ph.i
   %.016.i = phi i64 [ %22, %.lr.ph.i ], [ 0, %10 ]
   %.01215.i = phi i64 [ %20, %.lr.ph.i ], [ 0, %10 ]
-  %13 = getelementptr inbounds nuw i64, ptr %0, i64 %.016.i
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.016.i
   %14 = load i64, ptr %13, align 8, !tbaa !17
   %15 = zext i64 %14 to i128
   %16 = mul nuw nsw i128 %15, 7450580596923828125
@@ -3476,7 +3476,7 @@ define linkonce_odr noundef zeroext i1 @_ZN14arrow_vendored10fast_float6bigint4p
   br i1 %24, label %_ZN14arrow_vendored10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i, label %_ZN14arrow_vendored10fast_float9large_mulILt62EEEbRNS0_8stackvecIXT_EEENS0_4spanImEE.exit
 
 _ZN14arrow_vendored10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i: ; preds = %23
-  %25 = getelementptr inbounds nuw i64, ptr %0, i64 %12
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %12
   store i64 %20, ptr %25, align 8, !tbaa !17
   %26 = add nuw nsw i16 %11, 1
   store i16 %26, ptr %5, align 8, !tbaa !79
@@ -3502,7 +3502,7 @@ _ZN14arrow_vendored10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i: ; pred
 
 .lr.ph.i14:                                       ; preds = %31
   %35 = zext nneg i32 %.112.lcssa to i64
-  %36 = getelementptr inbounds nuw i64, ptr @_ZN14arrow_vendored10fast_float11pow5_tablesIvE16small_power_of_5E, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr @_ZN14arrow_vendored10fast_float11pow5_tablesIvE16small_power_of_5E, i64 %35
   %37 = load i64, ptr %36, align 8, !tbaa !17
   %38 = zext i64 %37 to i128
   br label %39
@@ -3514,7 +3514,7 @@ _ZN14arrow_vendored10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i: ; pred
 39:                                               ; preds = %39, %.lr.ph.i14
   %.016.i15 = phi i64 [ 0, %.lr.ph.i14 ], [ %49, %39 ]
   %.01215.i16 = phi i64 [ 0, %.lr.ph.i14 ], [ %47, %39 ]
-  %40 = getelementptr inbounds nuw i64, ptr %0, i64 %.016.i15
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.016.i15
   %41 = load i64, ptr %40, align 8, !tbaa !17
   %42 = zext i64 %41 to i128
   %43 = mul nuw i128 %42, %38
@@ -3533,7 +3533,7 @@ _ZN14arrow_vendored10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i: ; pred
   br i1 %51, label %_ZN14arrow_vendored10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i21, label %_ZN14arrow_vendored10fast_float9large_mulILt62EEEbRNS0_8stackvecIXT_EEENS0_4spanImEE.exit
 
 _ZN14arrow_vendored10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i21: ; preds = %50
-  %52 = getelementptr inbounds nuw i64, ptr %0, i64 %34
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %34
   store i64 %47, ptr %52, align 8, !tbaa !17
   %53 = add nuw nsw i16 %33, 1
   store i16 %53, ptr %32, align 8, !tbaa !79
@@ -3597,7 +3597,7 @@ _ZN14arrow_vendored10fast_float8stackvecILt62EEC2ENS0_4spanImEE.exit: ; preds = 
 17:                                               ; preds = %17, %.lr.ph.i
   %.016.i = phi i64 [ 0, %.lr.ph.i ], [ %27, %17 ]
   %.01215.i = phi i64 [ 0, %.lr.ph.i ], [ %25, %17 ]
-  %18 = getelementptr inbounds nuw i64, ptr %0, i64 %.016.i
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.016.i
   %19 = load i64, ptr %18, align 8, !tbaa !17
   %20 = zext i64 %19 to i128
   %21 = mul nuw i128 %20, %16
@@ -3616,7 +3616,7 @@ _ZN14arrow_vendored10fast_float8stackvecILt62EEC2ENS0_4spanImEE.exit: ; preds = 
   br i1 %29, label %_ZN14arrow_vendored10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i, label %.critedge32
 
 _ZN14arrow_vendored10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i: ; preds = %28
-  %30 = getelementptr inbounds nuw i64, ptr %0, i64 %8
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %8
   store i64 %25, ptr %30, align 8, !tbaa !17
   %31 = add nuw nsw i16 %7, 1
   store i16 %31, ptr %6, align 8, !tbaa !79
@@ -3641,7 +3641,7 @@ _ZN14arrow_vendored10fast_float9small_mulILt62EEEbRNS0_8stackvecIXT_EEEm.exit: ;
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %.critedge.us
   %.02769.us = phi i64 [ %105, %.critedge.us ], [ 1, %.lr.ph.split.us.preheader ]
   %35 = phi i16 [ %104, %.critedge.us ], [ %.promoted, %.lr.ph.split.us.preheader ]
-  %36 = getelementptr inbounds nuw i64, ptr %1, i64 %.02769.us
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.02769.us
   %37 = load i64, ptr %36, align 8, !tbaa !17
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not29.us = icmp eq i64 %37, 0
@@ -3670,7 +3670,7 @@ _ZSt8__copy_nIPKmmPmET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i.i.us: ; 
 44:                                               ; preds = %44, %.lr.ph.i37.us
   %.016.i38.us = phi i64 [ 0, %.lr.ph.i37.us ], [ %54, %44 ]
   %.01215.i39.us = phi i64 [ 0, %.lr.ph.i37.us ], [ %52, %44 ]
-  %45 = getelementptr inbounds nuw i64, ptr %5, i64 %.016.i38.us
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.016.i38.us
   %46 = load i64, ptr %45, align 8, !tbaa !17
   %47 = zext i64 %46 to i128
   %48 = mul nuw i128 %47, %43
@@ -3693,7 +3693,7 @@ _ZSt8__copy_nIPKmmPmET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i.i.us: ; 
   br i1 %56, label %_ZN14arrow_vendored10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i44.us, label %_ZN14arrow_vendored10fast_float8stackvecILt62EE10try_extendENS0_4spanImEE.exit
 
 _ZN14arrow_vendored10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i44.us: ; preds = %55
-  %57 = getelementptr inbounds nuw i64, ptr %5, i64 %42
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %42
   store i64 %52, ptr %57, align 8, !tbaa !17
   %58 = add nuw nsw i16 %41, 1
   br label %59
@@ -3718,7 +3718,7 @@ _ZN14arrow_vendored10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i44.us: ;
   br i1 %70, label %_ZN14arrow_vendored10fast_float8stackvecILt62EE10try_resizeEmm.exit.thread.loopexit.i.us, label %_ZN14arrow_vendored10fast_float8stackvecILt62EE10try_resizeEmm.exit.thread.i.us
 
 _ZN14arrow_vendored10fast_float8stackvecILt62EE10try_resizeEmm.exit.thread.loopexit.i.us: ; preds = %69
-  %71 = getelementptr i64, ptr %0, i64 %62
+  %71 = getelementptr [8 x i8], ptr %0, i64 %62
   %72 = sub nuw nsw i64 %67, %62
   %73 = shl nuw nsw i64 %72, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %71, i8 0, i64 %73, i1 false), !tbaa !17
@@ -3731,16 +3731,16 @@ _ZN14arrow_vendored10fast_float8stackvecILt62EE10try_resizeEmm.exit.thread.i.us:
 
 74:                                               ; preds = %_ZN14arrow_vendored10fast_float8stackvecILt62EE10try_resizeEmm.exit.thread.i.us, %59
   %75 = phi i16 [ %35, %59 ], [ %storemerge.i.i.i.us, %_ZN14arrow_vendored10fast_float8stackvecILt62EE10try_resizeEmm.exit.thread.i.us ]
-  %invariant.gep.i.us = getelementptr i64, ptr %0, i64 %.02769.us
+  %invariant.gep.i.us = getelementptr [8 x i8], ptr %0, i64 %.02769.us
   %.not.i46.us = icmp eq i16 %60, 0
   br i1 %.not.i46.us, label %.critedge.us, label %.lr.ph.i47.us
 
 .lr.ph.i47.us:                                    ; preds = %74, %87
   %.02435.i.us = phi i64 [ %88, %87 ], [ 0, %74 ]
   %.02534.i.us = phi i1 [ %.031.in.i.us, %87 ], [ false, %74 ]
-  %gep.i.us = getelementptr i64, ptr %invariant.gep.i.us, i64 %.02435.i.us
+  %gep.i.us = getelementptr [8 x i8], ptr %invariant.gep.i.us, i64 %.02435.i.us
   %76 = load i64, ptr %gep.i.us, align 8, !tbaa !17
-  %77 = getelementptr inbounds nuw i64, ptr %5, i64 %.02435.i.us
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.02435.i.us
   %78 = load i64, ptr %77, align 8, !tbaa !17
   %79 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %76, i64 %78)
   %80 = extractvalue { i64, i1 } %79, 1
@@ -3780,14 +3780,14 @@ _ZN14arrow_vendored10fast_float8stackvecILt62EE10try_resizeEmm.exit.thread.i.us:
   br i1 %94, label %_ZN14arrow_vendored10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i.us, label %_ZN14arrow_vendored10fast_float8stackvecILt62EE10try_extendENS0_4spanImEE.exit
 
 _ZN14arrow_vendored10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i.us: ; preds = %.critedge.i.i.us
-  %95 = getelementptr inbounds nuw i64, ptr %0, i64 %91
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %91
   store i64 1, ptr %95, align 8, !tbaa !17
   %96 = add nuw nsw i16 %75, 1
   store i16 %96, ptr %6, align 8, !tbaa !79
   br label %.critedge.us
 
 97:                                               ; preds = %92
-  %98 = getelementptr inbounds nuw i64, ptr %0, i64 %.01421.i.i.us
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.01421.i.i.us
   %99 = load i64, ptr %98, align 8, !tbaa !17
   %100 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %99, i64 1)
   %101 = extractvalue { i64, i1 } %100, 1
@@ -3805,7 +3805,7 @@ _ZN14arrow_vendored10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i.us: ;
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.critedge
   %.02769 = phi i64 [ %108, %.critedge ], [ 1, %.lr.ph ]
-  %106 = getelementptr inbounds nuw i64, ptr %1, i64 %.02769
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.02769
   %107 = load i64, ptr %106, align 8, !tbaa !17
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not29 = icmp eq i64 %107, 0
@@ -3833,7 +3833,7 @@ _ZN14arrow_vendored10fast_float8stackvecILt62EE10try_extendENS0_4spanImEE.exit: 
 110:                                              ; preds = %116, %.lr.ph.i50
   %111 = phi i16 [ %.promoted.i, %.lr.ph.i50 ], [ %117, %116 ]
   %112 = zext i16 %111 to i64
-  %113 = getelementptr i64, ptr %109, i64 %112
+  %113 = getelementptr [8 x i8], ptr %109, i64 %112
   %114 = load i64, ptr %113, align 8, !tbaa !17
   %115 = icmp eq i64 %114, 0
   br i1 %115, label %116, label %.critedge32
@@ -4031,7 +4031,7 @@ define linkonce_odr { i64, i32 } @_ZN14arrow_vendored10fast_float19positive_digi
 .lr.ph.i.i.i.i:                                   ; preds = %8, %.lr.ph.i.i.i.i
   %.01622.i.i.i.i = phi i64 [ %15, %.lr.ph.i.i.i.i ], [ 0, %8 ]
   %.01721.i.i.i.i = phi i64 [ %19, %.lr.ph.i.i.i.i ], [ 0, %8 ]
-  %14 = getelementptr inbounds nuw i64, ptr %0, i64 %.01721.i.i.i.i
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.01721.i.i.i.i
   %15 = load i64, ptr %14, align 8, !tbaa !17
   %16 = shl i64 %15, %6
   %17 = lshr i64 %.01622.i.i.i.i, %9
@@ -4046,7 +4046,7 @@ define linkonce_odr { i64, i32 } @_ZN14arrow_vendored10fast_float19positive_digi
   br i1 %21, label %22, label %_ZN14arrow_vendored10fast_float6bigint5pow10Ej.exit
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds nuw i64, ptr %0, i64 %12
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %12
   store i64 %13, ptr %23, align 8, !tbaa !17
   %24 = add nuw nsw i16 %11, 1
   store i16 %24, ptr %10, align 8, !tbaa !79
@@ -4089,7 +4089,7 @@ _ZN14arrow_vendored10fast_float6bigint5pow10Ej.exit: ; preds = %25, %_ZN14arrow_
 
 40:                                               ; preds = %_ZN14arrow_vendored10fast_float6bigint5pow10Ej.exit
   %41 = getelementptr i8, ptr %0, i64 -8
-  %42 = getelementptr i64, ptr %41, i64 %39
+  %42 = getelementptr [8 x i8], ptr %41, i64 %39
   %43 = load i64, ptr %42, align 8, !tbaa !17
   %44 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %43, i1 true)
   %45 = shl i64 %43, %44
@@ -4097,10 +4097,10 @@ _ZN14arrow_vendored10fast_float6bigint5pow10Ej.exit: ; preds = %25, %_ZN14arrow_
 
 46:                                               ; preds = %_ZN14arrow_vendored10fast_float6bigint5pow10Ej.exit
   %47 = getelementptr i8, ptr %0, i64 -8
-  %48 = getelementptr i64, ptr %47, i64 %39
+  %48 = getelementptr [8 x i8], ptr %47, i64 %39
   %49 = load i64, ptr %48, align 8, !tbaa !17
   %50 = getelementptr i8, ptr %0, i64 -16
-  %51 = getelementptr i64, ptr %50, i64 %39
+  %51 = getelementptr [8 x i8], ptr %50, i64 %39
   %52 = load i64, ptr %51, align 8, !tbaa !17
   %53 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %49, i1 true)
   %54 = icmp eq i64 %53, 0
@@ -4115,14 +4115,14 @@ _ZN14arrow_vendored10fast_float11uint64_hi64EmmRb.exit.i: ; preds = %55, %46
   %.in.in.i = phi i64 [ %56, %55 ], [ %52, %46 ]
   %.0.i.i = phi i64 [ %57, %55 ], [ %49, %46 ]
   %.in.i = icmp ne i64 %.in.in.i, 0
-  %invariant.gep.i.i = getelementptr i64, ptr %0, i64 %39
+  %invariant.gep.i.i = getelementptr [8 x i8], ptr %0, i64 %39
   %58 = icmp ugt i16 %38, 2
   br i1 %58, label %.lr.ph.i.i, label %_ZNK14arrow_vendored10fast_float6bigint4hi64ERb.exit.thread
 
 .lr.ph.i.i:                                       ; preds = %_ZN14arrow_vendored10fast_float11uint64_hi64EmmRb.exit.i, %.lr.ph.i.i
   %.05.i.i = phi i64 [ %61, %.lr.ph.i.i ], [ 2, %_ZN14arrow_vendored10fast_float11uint64_hi64EmmRb.exit.i ]
   %59 = xor i64 %.05.i.i, -1
-  %gep.i.i = getelementptr i64, ptr %invariant.gep.i.i, i64 %59
+  %gep.i.i = getelementptr [8 x i8], ptr %invariant.gep.i.i, i64 %59
   %60 = load i64, ptr %gep.i.i, align 8, !tbaa !17
   %.not.not.i.i.not = icmp ne i64 %60, 0
   %61 = add nuw nsw i64 %.05.i.i, 1
@@ -4267,7 +4267,7 @@ _ZN14arrow_vendored10fast_float11to_extendedIdEENS0_17adjusted_mantissaET_.exit:
 .lr.ph.i.i.i:                                     ; preds = %44, %.lr.ph.i.i.i
   %.01622.i.i.i = phi i64 [ %50, %.lr.ph.i.i.i ], [ 0, %44 ]
   %.01721.i.i.i = phi i64 [ %54, %.lr.ph.i.i.i ], [ 0, %44 ]
-  %49 = getelementptr inbounds nuw i64, ptr %5, i64 %.01721.i.i.i
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.01721.i.i.i
   %50 = load i64, ptr %49, align 8, !tbaa !17
   %51 = shl i64 %50, %42
   %52 = lshr i64 %.01622.i.i.i, %45
@@ -4282,7 +4282,7 @@ _ZN14arrow_vendored10fast_float11to_extendedIdEENS0_17adjusted_mantissaET_.exit:
   br i1 %56, label %57, label %_ZN14arrow_vendored10fast_float6bigint4pow2Ej.exit
 
 57:                                               ; preds = %55
-  %58 = getelementptr inbounds nuw i64, ptr %5, i64 %47
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %47
   store i64 %48, ptr %58, align 8, !tbaa !17
   %59 = add nuw nsw i16 %46, 1
   store i16 %59, ptr %32, align 8, !tbaa !79
@@ -4341,7 +4341,7 @@ _ZN14arrow_vendored10fast_float6bigint9shl_limbsEm.exit.thread.i.i: ; preds = %6
 .lr.ph.i.i.i35:                                   ; preds = %78, %.lr.ph.i.i.i35
   %.01622.i.i.i36 = phi i64 [ %85, %.lr.ph.i.i.i35 ], [ 0, %78 ]
   %.01721.i.i.i37 = phi i64 [ %89, %.lr.ph.i.i.i35 ], [ 0, %78 ]
-  %84 = getelementptr inbounds nuw i64, ptr %0, i64 %.01721.i.i.i37
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.01721.i.i.i37
   %85 = load i64, ptr %84, align 8, !tbaa !17
   %86 = shl i64 %85, %76
   %87 = lshr i64 %.01622.i.i.i36, %79
@@ -4356,7 +4356,7 @@ _ZN14arrow_vendored10fast_float6bigint9shl_limbsEm.exit.thread.i.i: ; preds = %6
   br i1 %91, label %92, label %_ZN14arrow_vendored10fast_float6bigint4pow2Ej.exit
 
 92:                                               ; preds = %90
-  %93 = getelementptr inbounds nuw i64, ptr %0, i64 %82
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %82
   store i64 %83, ptr %93, align 8, !tbaa !17
   %94 = add nuw nsw i16 %81, 1
   store i16 %94, ptr %80, align 8, !tbaa !79
@@ -4410,9 +4410,9 @@ _ZN14arrow_vendored10fast_float6bigint4pow2Ej.exit: ; preds = %95, %60, %90, %_Z
 
 114:                                              ; preds = %.preheader.i
   %115 = add nsw i64 %.014.i, -1
-  %116 = getelementptr inbounds nuw i64, ptr %0, i64 %115
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %115
   %117 = load i64, ptr %116, align 8, !tbaa !17
-  %118 = getelementptr inbounds nuw i64, ptr %5, i64 %115
+  %118 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %115
   %119 = load i64, ptr %118, align 8, !tbaa !17
   %120 = icmp ugt i64 %117, %119
   br i1 %120, label %_ZNK14arrow_vendored10fast_float6bigint7compareERKS1_.exit, label %121
@@ -4942,7 +4942,7 @@ _ZN5arrow8internal13ParseUnsignedEPKcmPh.exit.i.i: ; preds = %47
   %71 = zext nneg i8 %52 to i64
   %72 = add nuw nsw i64 %71, 4294967295
   %73 = and i64 %72, 4294967295
-  %74 = getelementptr inbounds nuw %"class.arrow_vendored::date::day", ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %73
+  %74 = getelementptr inbounds nuw i8, ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %73
   %75 = load i8, ptr %74, align 1, !tbaa !6
   br label %_ZNK14arrow_vendored4date14year_month_day2okEv.exit.i.i
 
@@ -5435,7 +5435,7 @@ _ZN5arrow4util17CastSecondsToUnitENS_8TimeUnit4typeEl.exit95.i: ; preds = %304, 
   br i1 %323, label %switch.lookup, label %_ZN5arrow8internal6detailL15ParseSubSecondsEPKcmNS_8TimeUnit4typeEPj.exit.thread123.i
 
 switch.lookup:                                    ; preds = %322
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK5arrow8internal12_GLOBAL__N_113ISO8601ParserclEPKcmNS_8TimeUnit4typeEPlPb, i64 %switch.tableidx
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK5arrow8internal12_GLOBAL__N_113ISO8601ParserclEPKcmNS_8TimeUnit4typeEPlPb, i64 %switch.tableidx
   %switch.load = load i32, ptr %switch.gep, align 4
   %324 = load i32, ptr %7, align 4, !tbaa !106
   %325 = mul i32 %324, %switch.load
@@ -5452,7 +5452,7 @@ _ZN5arrow8internal6detailL15ParseSubSecondsEPKcmNS_8TimeUnit4typeEPj.exit.i: ; p
 
 switch.lookup34:                                  ; preds = %_ZN5arrow8internal6detailL15ParseSubSecondsEPKcmNS_8TimeUnit4typeEPj.exit.thread123.i, %318
   %326 = sext i32 %3 to i64
-  %327 = getelementptr i64, ptr @switch.table._ZNK5arrow8internal12_GLOBAL__N_113ISO8601ParserclEPKcmNS_8TimeUnit4typeEPlPb.39, i64 %326
+  %327 = getelementptr [8 x i8], ptr @switch.table._ZNK5arrow8internal12_GLOBAL__N_113ISO8601ParserclEPKcmNS_8TimeUnit4typeEPlPb.39, i64 %326
   %switch.gep35 = getelementptr i8, ptr %327, i64 -8
   %switch.load36 = load i64, ptr %switch.gep35, align 8
   %328 = mul nsw i64 %switch.load36, %296

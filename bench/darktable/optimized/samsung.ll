@@ -149,7 +149,7 @@ define void @_ZN6LibRaw22parseSamsungMakernotesEijjjj(ptr noundef nonnull align 
 71:                                               ; preds = %.preheader126, %71
   %indvars.iv145 = phi i64 [ 0, %.preheader126 ], [ %indvars.iv.next146, %71 ]
   %72 = tail call noundef i32 @_ZN6LibRaw4get4Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
-  %73 = getelementptr inbounds nuw i32, ptr %49, i64 %indvars.iv145
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %indvars.iv145
   store i32 %72, ptr %73, align 4, !tbaa !79
   %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 1
   %exitcond148.not = icmp eq i64 %indvars.iv.next146, 4
@@ -158,7 +158,7 @@ define void @_ZN6LibRaw22parseSamsungMakernotesEijjjj(ptr noundef nonnull align 
 74:                                               ; preds = %.preheader124, %74
   %indvars.iv149 = phi i64 [ 0, %.preheader124 ], [ %indvars.iv.next150, %74 ]
   %75 = tail call noundef i32 @_ZN6LibRaw4get4Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
-  %76 = getelementptr inbounds nuw i32, ptr %70, i64 %indvars.iv149
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %70, i64 %indvars.iv149
   store i32 %75, ptr %76, align 4, !tbaa !79
   %indvars.iv.next150 = add nuw nsw i64 %indvars.iv149, 1
   %exitcond152.not = icmp eq i64 %indvars.iv.next150, 4
@@ -234,7 +234,7 @@ define void @_ZN6LibRaw22parseSamsungMakernotesEijjjj(ptr noundef nonnull align 
 113:                                              ; preds = %.preheader127, %113
   %indvars.iv = phi i64 [ 0, %.preheader127 ], [ %indvars.iv.next, %113 ]
   %114 = tail call noundef i32 @_ZN6LibRaw4get4Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
-  %115 = getelementptr inbounds nuw i32, ptr %48, i64 %indvars.iv
+  %115 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %indvars.iv
   store i32 %114, ptr %115, align 4, !tbaa !79
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 11
@@ -258,7 +258,7 @@ define void @_ZN6LibRaw22parseSamsungMakernotesEijjjj(ptr noundef nonnull align 
 122:                                              ; preds = %.preheader, %122
   %indvars.iv181 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next182, %122 ]
   %123 = tail call noundef i32 @_ZN6LibRaw4get4Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
-  %124 = getelementptr inbounds nuw i32, ptr %120, i64 %indvars.iv181
+  %124 = getelementptr inbounds nuw [4 x i8], ptr %120, i64 %indvars.iv181
   %125 = load i32, ptr %124, align 4, !tbaa !79
   %126 = sub i32 %123, %125
   %127 = uitofp i32 %126 to float
@@ -266,7 +266,7 @@ define void @_ZN6LibRaw22parseSamsungMakernotesEijjjj(ptr noundef nonnull align 
   %129 = lshr i32 %128, 1
   %130 = xor i32 %129, %128
   %131 = zext nneg i32 %130 to i64
-  %132 = getelementptr inbounds nuw float, ptr %121, i64 %131
+  %132 = getelementptr inbounds nuw [4 x i8], ptr %121, i64 %131
   store float %127, ptr %132, align 4, !tbaa !87
   %indvars.iv.next182 = add nuw nsw i64 %indvars.iv181, 1
   %exitcond184.not = icmp eq i64 %indvars.iv.next182, 4
@@ -298,7 +298,7 @@ define void @_ZN6LibRaw22parseSamsungMakernotesEijjjj(ptr noundef nonnull align 
 140:                                              ; preds = %.preheader121, %140
   %indvars.iv161 = phi i64 [ 0, %.preheader121 ], [ %indvars.iv.next162, %140 ]
   %141 = tail call noundef i32 @_ZN6LibRaw4get4Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
-  %142 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv161
+  %142 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv161
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 4616
   %144 = load i32, ptr %143, align 4, !tbaa !79
   %145 = sub i32 %141, %144
@@ -306,7 +306,7 @@ define void @_ZN6LibRaw22parseSamsungMakernotesEijjjj(ptr noundef nonnull align 
   %147 = lshr i32 %146, 1
   %148 = xor i32 %147, %146
   %149 = zext nneg i32 %148 to i64
-  %150 = getelementptr inbounds nuw i32, ptr %139, i64 %149
+  %150 = getelementptr inbounds nuw [4 x i8], ptr %139, i64 %149
   store i32 %145, ptr %150, align 4, !tbaa !79
   %indvars.iv.next162 = add nuw nsw i64 %indvars.iv161, 1
   %exitcond164.not = icmp eq i64 %indvars.iv.next162, 4
@@ -332,17 +332,17 @@ define void @_ZN6LibRaw22parseSamsungMakernotesEijjjj(ptr noundef nonnull align 
 162:                                              ; preds = %.preheader122, %162
   %indvars.iv157 = phi i64 [ 0, %.preheader122 ], [ %indvars.iv.next158, %162 ]
   %163 = tail call noundef i32 @_ZN6LibRaw4get4Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
-  %164 = getelementptr inbounds nuw i16, ptr @__const._ZN6LibRaw22parseSamsungMakernotesEijjjj.ki, i64 %indvars.iv157
+  %164 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZN6LibRaw22parseSamsungMakernotesEijjjj.ki, i64 %indvars.iv157
   %165 = load i16, ptr %164, align 2, !tbaa !90
   %166 = zext i16 %165 to i64
-  %167 = getelementptr inbounds nuw i32, ptr %137, i64 %166
+  %167 = getelementptr inbounds nuw [4 x i8], ptr %137, i64 %166
   %168 = load i32, ptr %167, align 4, !tbaa !79
   %169 = sub i32 %163, %168
   %170 = trunc nuw nsw i64 %indvars.iv157 to i32
   %171 = lshr i32 %170, 1
   %172 = xor i32 %171, %170
   %173 = zext nneg i32 %172 to i64
-  %174 = getelementptr inbounds nuw i32, ptr %138, i64 %173
+  %174 = getelementptr inbounds nuw [4 x i8], ptr %138, i64 %173
   store i32 %169, ptr %174, align 4, !tbaa !79
   %indvars.iv.next158 = add nuw nsw i64 %indvars.iv157, 1
   %exitcond160.not = icmp eq i64 %indvars.iv.next158, 4
@@ -369,14 +369,14 @@ define void @_ZN6LibRaw22parseSamsungMakernotesEijjjj(ptr noundef nonnull align 
   %indvars.iv153 = phi i64 [ 0, %.preheader123 ], [ %indvars.iv.next154, %186 ]
   %187 = tail call noundef i32 @_ZN6LibRaw4get4Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
   %indvars.iv.next154 = add nuw nsw i64 %indvars.iv153, 1
-  %188 = getelementptr inbounds nuw i32, ptr %135, i64 %indvars.iv.next154
+  %188 = getelementptr inbounds nuw [4 x i8], ptr %135, i64 %indvars.iv.next154
   %189 = load i32, ptr %188, align 4, !tbaa !79
   %190 = sub i32 %187, %189
   %191 = trunc nuw nsw i64 %indvars.iv153 to i32
   %192 = lshr i32 %191, 1
   %193 = xor i32 %192, %191
   %194 = zext nneg i32 %193 to i64
-  %195 = getelementptr inbounds nuw i32, ptr %136, i64 %194
+  %195 = getelementptr inbounds nuw [4 x i8], ptr %136, i64 %194
   store i32 %190, ptr %195, align 4, !tbaa !79
   %exitcond156.not = icmp eq i64 %indvars.iv.next154, 4
   br i1 %exitcond156.not, label %196, label %186, !llvm.loop !92
@@ -431,14 +431,14 @@ define void @_ZN6LibRaw22parseSamsungMakernotesEijjjj(ptr noundef nonnull align 
 223:                                              ; preds = %.preheader116, %223
   %indvars.iv177 = phi i64 [ 0, %.preheader116 ], [ %indvars.iv.next178, %223 ]
   %224 = tail call noundef i32 @_ZN6LibRaw4get4Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
-  %225 = getelementptr inbounds nuw i32, ptr %221, i64 %indvars.iv177
+  %225 = getelementptr inbounds nuw [4 x i8], ptr %221, i64 %indvars.iv177
   %226 = load i32, ptr %225, align 4, !tbaa !79
   %227 = sub i32 %224, %226
   %228 = trunc nuw nsw i64 %indvars.iv177 to i32
   %229 = lshr i32 %228, 1
   %230 = xor i32 %229, %228
   %231 = zext nneg i32 %230 to i64
-  %232 = getelementptr inbounds nuw i32, ptr %222, i64 %231
+  %232 = getelementptr inbounds nuw [4 x i8], ptr %222, i64 %231
   store i32 %227, ptr %232, align 4, !tbaa !79
   %indvars.iv.next178 = add nuw nsw i64 %indvars.iv177, 1
   %exitcond180.not = icmp eq i64 %indvars.iv.next178, 4
@@ -457,7 +457,7 @@ define void @_ZN6LibRaw22parseSamsungMakernotesEijjjj(ptr noundef nonnull align 
 
 .preheader118:                                    ; preds = %.preheader119, %248
   %indvars.iv173 = phi i64 [ 0, %.preheader119 ], [ %indvars.iv.next174, %248 ]
-  %238 = getelementptr inbounds nuw [4 x float], ptr %237, i64 %indvars.iv173
+  %238 = getelementptr inbounds nuw [16 x i8], ptr %237, i64 %indvars.iv173
   %.idx = mul nuw nsw i64 %indvars.iv173, 12
   %invariant.gep = getelementptr inbounds nuw i8, ptr %236, i64 %.idx
   br label %239
@@ -465,14 +465,14 @@ define void @_ZN6LibRaw22parseSamsungMakernotesEijjjj(ptr noundef nonnull align 
 239:                                              ; preds = %.preheader118, %239
   %indvars.iv169 = phi i64 [ 0, %.preheader118 ], [ %indvars.iv.next170, %239 ]
   %240 = tail call noundef i32 @_ZN6LibRaw4get4Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
-  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv169
+  %gep = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep, i64 %indvars.iv169
   %241 = load i32, ptr %gep, align 4, !tbaa !79
   %242 = add i32 %241, %240
   %243 = trunc i32 %242 to i16
   %244 = sitofp i16 %243 to double
   %245 = fmul reassoc nnan nsz arcp contract afn double %244, 3.906250e-03
   %246 = fptrunc reassoc nsz arcp contract afn double %245 to float
-  %247 = getelementptr inbounds nuw float, ptr %238, i64 %indvars.iv169
+  %247 = getelementptr inbounds nuw [4 x i8], ptr %238, i64 %indvars.iv169
   store float %246, ptr %247, align 4, !tbaa !87
   %indvars.iv.next170 = add nuw nsw i64 %indvars.iv169, 1
   %exitcond172.not = icmp eq i64 %indvars.iv.next170, 3
@@ -497,13 +497,13 @@ define void @_ZN6LibRaw22parseSamsungMakernotesEijjjj(ptr noundef nonnull align 
 253:                                              ; preds = %251, %253
   %indvars.iv165 = phi i64 [ 0, %251 ], [ %indvars.iv.next166, %253 ]
   %254 = tail call noundef i32 @_ZN6LibRaw4get4Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
-  %255 = getelementptr inbounds nuw i32, ptr %252, i64 %indvars.iv165
+  %255 = getelementptr inbounds nuw [4 x i8], ptr %252, i64 %indvars.iv165
   %256 = load i32, ptr %255, align 4, !tbaa !79
   %257 = add i32 %256, %254
   %258 = trunc i32 %257 to i16
   %259 = sitofp i16 %258 to double
   %260 = fmul reassoc nnan nsz arcp contract afn double %259, 3.906250e-03
-  %261 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv165
+  %261 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv165
   store double %260, ptr %261, align 8, !tbaa !97
   %indvars.iv.next166 = add nuw nsw i64 %indvars.iv165, 1
   %exitcond168.not = icmp eq i64 %indvars.iv.next166, 9

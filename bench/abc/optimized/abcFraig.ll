@@ -91,7 +91,7 @@ define ptr @Abc_NtkFraig(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 nou
   %.val776.i = phi ptr [ %.val77.i, %48 ], [ %.val773.i, %29 ]
   %37 = getelementptr i8, ptr %.val776.i, i64 8
   %.val78.val.i = load ptr, ptr %37, align 8, !tbaa !36
-  %38 = getelementptr inbounds nuw ptr, ptr %.val78.val.i, i64 %indvars.iv.i
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %.val78.val.i, i64 %indvars.iv.i
   %39 = load ptr, ptr %38, align 8, !tbaa !37
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 64
   %41 = load ptr, ptr %40, align 8, !tbaa !27
@@ -121,7 +121,7 @@ define ptr @Abc_NtkFraig(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 nou
   %52 = phi ptr [ %77, %.critedge.i ], [ %34, %.critedge.preheader.i ]
   %53 = getelementptr i8, ptr %52, i64 8
   %.val81.val.i = load ptr, ptr %53, align 8, !tbaa !36
-  %54 = getelementptr inbounds nuw ptr, ptr %.val81.val.i, i64 %indvars.iv21.i
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %.val81.val.i, i64 %indvars.iv21.i
   %55 = load ptr, ptr %54, align 8, !tbaa !37
   %56 = icmp eq ptr %55, null
   br i1 %56, label %.critedge.i, label %57
@@ -205,7 +205,7 @@ Vec_PtrStart.exit.i:                              ; preds = %84, %.critedge2.i
   %93 = phi ptr [ %116, %115 ], [ %81, %Vec_PtrStart.exit.i ]
   %94 = getelementptr i8, ptr %93, i64 8
   %.val82.val.i = load ptr, ptr %94, align 8, !tbaa !36
-  %95 = getelementptr inbounds nuw ptr, ptr %.val82.val.i, i64 %indvars.iv24.i
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %.val82.val.i, i64 %indvars.iv24.i
   %96 = load ptr, ptr %95, align 8, !tbaa !37
   %97 = icmp eq ptr %96, null
   br i1 %97, label %115, label %98
@@ -236,7 +236,7 @@ Vec_PtrStart.exit.i:                              ; preds = %84, %.critedge2.i
   %111 = getelementptr inbounds nuw i8, ptr %96, i64 16
   %112 = load i32, ptr %111, align 8, !tbaa !42
   %113 = sext i32 %112 to i64
-  %114 = getelementptr inbounds ptr, ptr %.val86.i, i64 %113
+  %114 = getelementptr inbounds [8 x i8], ptr %.val86.i, i64 %113
   store ptr %109, ptr %114, align 8, !tbaa !37
   br label %115
 
@@ -318,7 +318,7 @@ Extra_ProgressBarUpdate.exit.us.i:                ; preds = %.lr.ph17.i, %Extra_
   %.val8816.us.i = phi ptr [ %.val88.us.i, %Extra_ProgressBarUpdate.exit.us.i ], [ %.val8813.i, %.lr.ph17.i ]
   %146 = getelementptr i8, ptr %.val8816.us.i, i64 8
   %.val89.val.us.i = load ptr, ptr %146, align 8, !tbaa !36
-  %147 = getelementptr inbounds nuw ptr, ptr %.val89.val.us.i, i64 %indvars.iv30.i
+  %147 = getelementptr inbounds nuw [8 x i8], ptr %.val89.val.us.i, i64 %indvars.iv30.i
   %148 = load ptr, ptr %147, align 8, !tbaa !37
   %149 = trunc nuw nsw i64 %indvars.iv30.i to i32
   call void @Extra_ProgressBarUpdate_int(ptr noundef null, i32 noundef %149, ptr noundef null) #11
@@ -331,7 +331,7 @@ Extra_ProgressBarUpdate.exit.us.i:                ; preds = %.lr.ph17.i, %Extra_
   %152 = getelementptr i8, ptr %.val79.val.us.i, i64 8
   %.val79.val.val.us.i = load ptr, ptr %152, align 8, !tbaa !36
   %153 = sext i32 %.val80.val.us.i to i64
-  %154 = getelementptr inbounds ptr, ptr %.val79.val.val.us.i, i64 %153
+  %154 = getelementptr inbounds [8 x i8], ptr %.val79.val.val.us.i, i64 %153
   %155 = load ptr, ptr %154, align 8, !tbaa !37
   call fastcc void @Abc_NtkFromFraig2_rec(ptr noundef %120, ptr noundef %155, ptr noundef nonnull %82)
   %indvars.iv.next31.i = add nuw nsw i64 %indvars.iv30.i, 1
@@ -347,7 +347,7 @@ Extra_ProgressBarUpdate.exit.us.i:                ; preds = %.lr.ph17.i, %Extra_
   %.val8816.i = phi ptr [ %.val88.i, %Extra_ProgressBarUpdate.exit.i ], [ %.val8813.i, %.lr.ph17.i ]
   %159 = getelementptr i8, ptr %.val8816.i, i64 8
   %.val89.val.i = load ptr, ptr %159, align 8, !tbaa !36
-  %160 = getelementptr inbounds nuw ptr, ptr %.val89.val.i, i64 %indvars.iv27.i
+  %160 = getelementptr inbounds nuw [8 x i8], ptr %.val89.val.i, i64 %indvars.iv27.i
   %161 = load ptr, ptr %160, align 8, !tbaa !37
   %162 = load i32, ptr %143, align 4, !tbaa !48
   %163 = sext i32 %162 to i64
@@ -369,7 +369,7 @@ Extra_ProgressBarUpdate.exit.i:                   ; preds = %165, %.lr.ph17.spli
   %169 = getelementptr i8, ptr %.val79.val.i, i64 8
   %.val79.val.val.i = load ptr, ptr %169, align 8, !tbaa !36
   %170 = sext i32 %.val80.val.i to i64
-  %171 = getelementptr inbounds ptr, ptr %.val79.val.val.i, i64 %170
+  %171 = getelementptr inbounds [8 x i8], ptr %.val79.val.val.i, i64 %170
   %172 = load ptr, ptr %171, align 8, !tbaa !37
   call fastcc void @Abc_NtkFromFraig2_rec(ptr noundef %120, ptr noundef %172, ptr noundef nonnull %82)
   %indvars.iv.next28.i = add nuw nsw i64 %indvars.iv27.i, 1
@@ -458,7 +458,7 @@ define ptr @Abc_NtkToFraig(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 n
   %.val5474 = phi ptr [ %.val54, %.lr.ph ], [ %.val5471, %4 ]
   %17 = getelementptr i8, ptr %.val5474, i64 8
   %.val56.val = load ptr, ptr %17, align 8, !tbaa !36
-  %18 = getelementptr inbounds nuw ptr, ptr %.val56.val, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.val56.val, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !37
   %20 = trunc nuw nsw i64 %indvars.iv to i32
   %21 = tail call ptr @Fraig_ManReadIthVar(ptr noundef %10, i32 noundef %20) #11
@@ -500,7 +500,7 @@ define ptr @Abc_NtkToFraig(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 n
   %.val91 = phi i32 [ %.val75, %.lr.ph78 ], [ %.val, %77 ]
   %indvars.iv85 = phi i64 [ 0, %.lr.ph78 ], [ %indvars.iv.next86, %77 ]
   %.val55 = load ptr, ptr %35, align 8, !tbaa !36
-  %37 = getelementptr inbounds nuw ptr, ptr %.val55, i64 %indvars.iv85
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %.val55, i64 %indvars.iv85
   %38 = load ptr, ptr %37, align 8, !tbaa !37
   %39 = getelementptr i8, ptr %38, i64 28
   %.val57 = load i32, ptr %39, align 4, !tbaa !59
@@ -531,7 +531,7 @@ Extra_ProgressBarUpdate.exit:                     ; preds = %46, %42, %41
   %50 = getelementptr i8, ptr %.val58.val, i64 8
   %.val58.val.val = load ptr, ptr %50, align 8, !tbaa !36
   %51 = sext i32 %.val59.val to i64
-  %52 = getelementptr inbounds ptr, ptr %.val58.val.val, i64 %51
+  %52 = getelementptr inbounds [8 x i8], ptr %.val58.val.val, i64 %51
   %53 = load ptr, ptr %52, align 8, !tbaa !37
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 64
   %55 = load ptr, ptr %54, align 8, !tbaa !27
@@ -546,7 +546,7 @@ Extra_ProgressBarUpdate.exit:                     ; preds = %46, %42, %41
   %63 = getelementptr i8, ptr %.val59, i64 4
   %.val65.val = load i32, ptr %63, align 4, !tbaa !48
   %64 = sext i32 %.val65.val to i64
-  %65 = getelementptr inbounds ptr, ptr %.val58.val.val, i64 %64
+  %65 = getelementptr inbounds [8 x i8], ptr %.val58.val.val, i64 %64
   %66 = load ptr, ptr %65, align 8, !tbaa !37
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 64
   %68 = load ptr, ptr %67, align 8, !tbaa !27
@@ -631,7 +631,7 @@ Vec_PtrStart.exit.i:                              ; preds = %92, %85
 
 101:                                              ; preds = %115, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %115 ]
-  %102 = getelementptr inbounds nuw ptr, ptr %.val81.val.i, i64 %indvars.iv.i
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %.val81.val.i, i64 %indvars.iv.i
   %103 = load ptr, ptr %102, align 8, !tbaa !37
   %104 = icmp eq ptr %103, null
   br i1 %104, label %115, label %105
@@ -649,7 +649,7 @@ Vec_PtrStart.exit.i:                              ; preds = %92, %85
   %111 = getelementptr inbounds nuw i8, ptr %103, i64 8
   %112 = load ptr, ptr %111, align 8, !tbaa !61
   %113 = sext i32 %110 to i64
-  %114 = getelementptr inbounds ptr, ptr %96, i64 %113
+  %114 = getelementptr inbounds [8 x i8], ptr %96, i64 %113
   store ptr %112, ptr %114, align 8, !tbaa !37
   br label %115
 
@@ -678,7 +678,7 @@ Vec_PtrStart.exit.i:                              ; preds = %92, %85
   %indvars.iv108.i = phi i64 [ 0, %.lr.ph96.i ], [ %indvars.iv.next109.i, %144 ]
   %125 = getelementptr i8, ptr %124, i64 8
   %.val82.val.i = load ptr, ptr %125, align 8, !tbaa !36
-  %126 = getelementptr inbounds nuw ptr, ptr %.val82.val.i, i64 %indvars.iv108.i
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %.val82.val.i, i64 %indvars.iv108.i
   %127 = load ptr, ptr %126, align 8, !tbaa !37
   %128 = icmp eq ptr %127, null
   br i1 %128, label %144, label %129
@@ -809,7 +809,7 @@ Vec_PtrStart.exit.i:                              ; preds = %92, %85
 
 184:                                              ; preds = %198, %.lr.ph106.i
   %indvars.iv111.i = phi i64 [ 0, %.lr.ph106.i ], [ %indvars.iv.next112.i, %198 ]
-  %185 = getelementptr inbounds nuw ptr, ptr %.val83.val.i, i64 %indvars.iv111.i
+  %185 = getelementptr inbounds nuw [8 x i8], ptr %.val83.val.i, i64 %indvars.iv111.i
   %186 = load ptr, ptr %185, align 8, !tbaa !37
   %187 = icmp eq ptr %186, null
   br i1 %187, label %198, label %188
@@ -825,7 +825,7 @@ Vec_PtrStart.exit.i:                              ; preds = %92, %85
   %192 = getelementptr inbounds nuw i8, ptr %186, i64 16
   %193 = load i32, ptr %192, align 8, !tbaa !42
   %194 = sext i32 %193 to i64
-  %195 = getelementptr inbounds ptr, ptr %96, i64 %194
+  %195 = getelementptr inbounds [8 x i8], ptr %96, i64 %194
   %196 = load ptr, ptr %195, align 8, !tbaa !37
   %197 = getelementptr inbounds nuw i8, ptr %186, i64 8
   store ptr %196, ptr %197, align 8, !tbaa !61
@@ -863,7 +863,7 @@ Abc_NtkFraigRemapUsingExdc.exit:                  ; preds = %.critedge6.i, %199
   %.val6782 = phi ptr [ %.val67, %.lr.ph83 ], [ %.val6779, %200 ]
   %204 = getelementptr i8, ptr %.val6782, i64 8
   %.val68.val = load ptr, ptr %204, align 8, !tbaa !36
-  %205 = getelementptr inbounds nuw ptr, ptr %.val68.val, i64 %indvars.iv88
+  %205 = getelementptr inbounds nuw [8 x i8], ptr %.val68.val, i64 %indvars.iv88
   %206 = load ptr, ptr %205, align 8, !tbaa !37
   %.val60 = load ptr, ptr %206, align 8, !tbaa !54
   %207 = getelementptr i8, ptr %206, i64 32
@@ -874,7 +874,7 @@ Abc_NtkFraigRemapUsingExdc.exit:                  ; preds = %.critedge6.i, %199
   %209 = getelementptr i8, ptr %.val60.val, i64 8
   %.val60.val.val = load ptr, ptr %209, align 8, !tbaa !36
   %210 = sext i32 %.val61.val to i64
-  %211 = getelementptr inbounds ptr, ptr %.val60.val.val, i64 %210
+  %211 = getelementptr inbounds [8 x i8], ptr %.val60.val.val, i64 %210
   %212 = load ptr, ptr %211, align 8, !tbaa !37
   %213 = getelementptr inbounds nuw i8, ptr %212, i64 64
   %214 = load ptr, ptr %213, align 8, !tbaa !27
@@ -916,7 +916,7 @@ define ptr @Abc_NtkFromFraig(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   %.val35 = phi ptr [ %.val, %.lr.ph ], [ %.val32, %2 ]
   %7 = getelementptr i8, ptr %.val35, i64 8
   %.val28.val = load ptr, ptr %7, align 8, !tbaa !36
-  %8 = getelementptr inbounds nuw ptr, ptr %.val28.val, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %.val28.val, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8, !tbaa !37
   %10 = trunc nuw nsw i64 %indvars.iv to i32
   %11 = tail call ptr @Fraig_ManReadIthVar(ptr noundef %0, i32 noundef %10) #11
@@ -956,12 +956,12 @@ Extra_ProgressBarUpdate.exit.us:                  ; preds = %.lr.ph40, %Extra_Pr
   %.val3039.us = phi ptr [ %.val30.us, %Extra_ProgressBarUpdate.exit.us ], [ %.val3036, %.lr.ph40 ]
   %25 = getelementptr i8, ptr %.val3039.us, i64 8
   %.val31.val.us = load ptr, ptr %25, align 8, !tbaa !36
-  %26 = getelementptr inbounds nuw ptr, ptr %.val31.val.us, i64 %indvars.iv46
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %.val31.val.us, i64 %indvars.iv46
   %27 = load ptr, ptr %26, align 8, !tbaa !37
   %28 = trunc nuw nsw i64 %indvars.iv46 to i32
   tail call void @Extra_ProgressBarUpdate_int(ptr noundef null, i32 noundef %28, ptr noundef null) #11
   %29 = tail call ptr @Fraig_ManReadOutputs(ptr noundef %0) #11
-  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv46
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv46
   %31 = load ptr, ptr %30, align 8, !tbaa !63
   %32 = tail call fastcc ptr @Abc_NodeFromFraig_rec(ptr noundef %3, ptr noundef %31)
   %33 = getelementptr inbounds nuw i8, ptr %27, i64 64
@@ -980,7 +980,7 @@ Extra_ProgressBarUpdate.exit.us:                  ; preds = %.lr.ph40, %Extra_Pr
   %.val3039 = phi ptr [ %.val30, %Extra_ProgressBarUpdate.exit ], [ %.val3036, %.lr.ph40 ]
   %38 = getelementptr i8, ptr %.val3039, i64 8
   %.val31.val = load ptr, ptr %38, align 8, !tbaa !36
-  %39 = getelementptr inbounds nuw ptr, ptr %.val31.val, i64 %indvars.iv43
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %.val31.val, i64 %indvars.iv43
   %40 = load ptr, ptr %39, align 8, !tbaa !37
   %41 = load i32, ptr %22, align 4, !tbaa !48
   %42 = sext i32 %41 to i64
@@ -994,7 +994,7 @@ Extra_ProgressBarUpdate.exit.us:                  ; preds = %.lr.ph40, %Extra_Pr
 
 Extra_ProgressBarUpdate.exit:                     ; preds = %.lr.ph40.split, %44
   %46 = tail call ptr @Fraig_ManReadOutputs(ptr noundef %0) #11
-  %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv43
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv43
   %48 = load ptr, ptr %47, align 8, !tbaa !63
   %49 = tail call fastcc ptr @Abc_NodeFromFraig_rec(ptr noundef %3, ptr noundef %48)
   %50 = getelementptr inbounds nuw i8, ptr %40, i64 64
@@ -1071,7 +1071,7 @@ define ptr @Abc_NtkToFraigExdc(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   %.val4567 = phi ptr [ %.val45, %.loopexit ], [ %.val4564, %.lr.ph68 ]
   %17 = getelementptr i8, ptr %.val4567, i64 8
   %.val46.val = load ptr, ptr %17, align 8, !tbaa !36
-  %18 = getelementptr inbounds nuw ptr, ptr %.val46.val, i64 %indvars.iv75
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.val46.val, i64 %indvars.iv75
   %19 = load ptr, ptr %18, align 8, !tbaa !37
   %.val4461 = load ptr, ptr %12, align 8, !tbaa !32
   %20 = getelementptr i8, ptr %.val4461, i64 4
@@ -1082,7 +1082,7 @@ define ptr @Abc_NtkToFraigExdc(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
 .lr.ph:                                           ; preds = %.lr.ph68.split, %31
   %indvars.iv = phi i64 [ %indvars.iv.next, %31 ], [ 0, %.lr.ph68.split ]
   %22 = tail call ptr @Abc_ObjName(ptr noundef %19) #11
-  %23 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8, !tbaa !73
   %25 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) %24) #13
   %26 = icmp eq i32 %25, 0
@@ -1134,7 +1134,7 @@ define ptr @Abc_NtkToFraigExdc(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   %indvars.iv78 = phi i64 [ %indvars.iv.next79, %81 ], [ 0, %39 ]
   %45 = getelementptr i8, ptr %44, i64 8
   %.val56.val = load ptr, ptr %45, align 8, !tbaa !36
-  %46 = getelementptr inbounds nuw ptr, ptr %.val56.val, i64 %indvars.iv78
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %.val56.val, i64 %indvars.iv78
   %47 = load ptr, ptr %46, align 8, !tbaa !37
   %48 = icmp eq ptr %47, null
   br i1 %48, label %81, label %49
@@ -1155,7 +1155,7 @@ define ptr @Abc_NtkToFraigExdc(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   %54 = getelementptr i8, ptr %.val49.val, i64 8
   %.val49.val.val = load ptr, ptr %54, align 8, !tbaa !36
   %55 = sext i32 %.val50.val to i64
-  %56 = getelementptr inbounds ptr, ptr %.val49.val.val, i64 %55
+  %56 = getelementptr inbounds [8 x i8], ptr %.val49.val.val, i64 %55
   %57 = load ptr, ptr %56, align 8, !tbaa !37
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 64
   %59 = load ptr, ptr %58, align 8, !tbaa !27
@@ -1170,7 +1170,7 @@ define ptr @Abc_NtkToFraigExdc(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   %67 = getelementptr i8, ptr %.val50, i64 4
   %.val54.val = load i32, ptr %67, align 4, !tbaa !48
   %68 = sext i32 %.val54.val to i64
-  %69 = getelementptr inbounds ptr, ptr %.val49.val.val, i64 %68
+  %69 = getelementptr inbounds [8 x i8], ptr %.val49.val.val, i64 %68
   %70 = load ptr, ptr %69, align 8, !tbaa !37
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 64
   %72 = load ptr, ptr %71, align 8, !tbaa !27
@@ -1210,7 +1210,7 @@ define ptr @Abc_NtkToFraigExdc(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   %91 = getelementptr i8, ptr %.val47.val, i64 8
   %.val47.val.val = load ptr, ptr %91, align 8, !tbaa !36
   %92 = sext i32 %.val48.val to i64
-  %93 = getelementptr inbounds ptr, ptr %.val47.val.val, i64 %92
+  %93 = getelementptr inbounds [8 x i8], ptr %.val47.val.val, i64 %92
   %94 = load ptr, ptr %93, align 8, !tbaa !37
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 64
   %96 = load ptr, ptr %95, align 8, !tbaa !27
@@ -1398,7 +1398,7 @@ Abc_NtkIsSopLogic.exit.thread:                    ; preds = %1, %Abc_NtkIsSopLog
   %11 = phi ptr [ %33, %32 ], [ %8, %6 ]
   %12 = getelementptr i8, ptr %11, i64 8
   %.val18.val.i = load ptr, ptr %12, align 8, !tbaa !36
-  %13 = getelementptr inbounds nuw ptr, ptr %.val18.val.i, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %.val18.val.i, i64 %indvars.iv.i
   %14 = load ptr, ptr %13, align 8, !tbaa !37
   %15 = icmp eq ptr %14, null
   br i1 %15, label %32, label %16
@@ -1467,7 +1467,7 @@ Abc_NtkFraigTrustCheck.exit:                      ; preds = %28
 46:                                               ; preds = %162, %.lr.ph.i17
   %indvars.iv.i18 = phi i64 [ 0, %.lr.ph.i17 ], [ %indvars.iv.next.i21, %162 ]
   %.val18.i = load ptr, ptr %44, align 8, !tbaa !36
-  %47 = getelementptr inbounds nuw ptr, ptr %.val18.i, i64 %indvars.iv.i18
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %.val18.i, i64 %indvars.iv.i18
   %48 = load ptr, ptr %47, align 8, !tbaa !37
   br i1 %.not.i.i, label %53, label %49
 
@@ -1513,7 +1513,7 @@ Extra_ProgressBarUpdate.exit.i:                   ; preds = %53, %49
   %69 = getelementptr i8, ptr %.val42.val.i.i, i64 8
   %.val42.val.val.i.i = load ptr, ptr %69, align 8, !tbaa !36
   %70 = sext i32 %.val43.val.i.i to i64
-  %71 = getelementptr inbounds ptr, ptr %.val42.val.val.i.i, i64 %70
+  %71 = getelementptr inbounds [8 x i8], ptr %.val42.val.val.i.i, i64 %70
   %72 = load ptr, ptr %71, align 8, !tbaa !37
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 64
   %74 = load ptr, ptr %73, align 8, !tbaa !27
@@ -1545,7 +1545,7 @@ Extra_ProgressBarUpdate.exit.i:                   ; preds = %53, %49
   %91 = getelementptr i8, ptr %.val40.val.i.i, i64 8
   %.val40.val.val.i.i = load ptr, ptr %91, align 8, !tbaa !36
   %92 = sext i32 %.val41.val.i.i to i64
-  %93 = getelementptr inbounds ptr, ptr %.val40.val.val.i.i, i64 %92
+  %93 = getelementptr inbounds [8 x i8], ptr %.val40.val.val.i.i, i64 %92
   %94 = load ptr, ptr %93, align 8, !tbaa !37
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 64
   %96 = load ptr, ptr %95, align 8, !tbaa !27
@@ -1565,7 +1565,7 @@ Extra_ProgressBarUpdate.exit.i:                   ; preds = %53, %49
   %105 = getelementptr i8, ptr %.val44.val.i.i, i64 8
   %.val44.val.val.i.i = load ptr, ptr %105, align 8, !tbaa !36
   %106 = sext i32 %.val45.val.i.i to i64
-  %107 = getelementptr inbounds ptr, ptr %.val44.val.val.i.i, i64 %106
+  %107 = getelementptr inbounds [8 x i8], ptr %.val44.val.val.i.i, i64 %106
   %108 = load ptr, ptr %107, align 8, !tbaa !37
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 64
   %110 = load ptr, ptr %109, align 8, !tbaa !27
@@ -1592,7 +1592,7 @@ Extra_ProgressBarUpdate.exit.i:                   ; preds = %53, %49
   %124 = getelementptr i8, ptr %.val38.val.i.i, i64 8
   %.val38.val.val.i.i = load ptr, ptr %124, align 8, !tbaa !36
   %125 = sext i32 %.val39.val.i.i to i64
-  %126 = getelementptr inbounds ptr, ptr %.val38.val.val.i.i, i64 %125
+  %126 = getelementptr inbounds [8 x i8], ptr %.val38.val.val.i.i, i64 %125
   %127 = load ptr, ptr %126, align 8, !tbaa !37
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 64
   %129 = load ptr, ptr %128, align 8, !tbaa !27
@@ -1617,10 +1617,10 @@ Extra_ProgressBarUpdate.exit.i:                   ; preds = %53, %49
   %135 = getelementptr i8, ptr %.val46.val.i.i, i64 8
   %.val46.val.val.i.i = load ptr, ptr %135, align 8, !tbaa !36
   %.val47.i.i = load ptr, ptr %122, align 8, !tbaa !55
-  %136 = getelementptr inbounds nuw i32, ptr %.val47.i.i, i64 %indvars.iv.i.i
+  %136 = getelementptr inbounds nuw [4 x i8], ptr %.val47.i.i, i64 %indvars.iv.i.i
   %137 = load i32, ptr %136, align 4, !tbaa !48
   %138 = sext i32 %137 to i64
-  %139 = getelementptr inbounds ptr, ptr %.val46.val.val.i.i, i64 %138
+  %139 = getelementptr inbounds [8 x i8], ptr %.val46.val.val.i.i, i64 %138
   %140 = load ptr, ptr %139, align 8, !tbaa !37
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 64
   %142 = load ptr, ptr %141, align 8, !tbaa !27
@@ -1664,7 +1664,7 @@ Abc_NodeFraigTrust.exit.i:                        ; preds = %152, %118, %87, %66
   %158 = getelementptr i8, ptr %.val20.val.i, i64 8
   %.val20.val.val.i = load ptr, ptr %158, align 8, !tbaa !36
   %159 = sext i32 %.val21.val.i to i64
-  %160 = getelementptr inbounds ptr, ptr %.val20.val.val.i, i64 %159
+  %160 = getelementptr inbounds [8 x i8], ptr %.val20.val.val.i, i64 %159
   %161 = load ptr, ptr %160, align 8, !tbaa !37
   br label %162
 
@@ -1761,7 +1761,7 @@ define range(i32 0, 2) i32 @Abc_NtkFraigStore(ptr noundef %0) local_unnamed_addr
 21:                                               ; preds = %21, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %21 ]
   %.val6.i = load ptr, ptr %20, align 8, !tbaa !36
-  %22 = getelementptr inbounds nuw ptr, ptr %.val6.i, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %.val6.i, i64 %indvars.iv.i
   %23 = load ptr, ptr %22, align 8, !tbaa !37
   tail call void @Abc_NtkDelete(ptr noundef %23) #11
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1842,7 +1842,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %54 = add nsw i32 %53, 1
   store i32 %54, ptr %7, align 4, !tbaa !33
   %55 = sext i32 %53 to i64
-  %56 = getelementptr inbounds ptr, ptr %52, i64 %55
+  %56 = getelementptr inbounds [8 x i8], ptr %52, i64 %55
   store ptr %2, ptr %56, align 8, !tbaa !37
   br label %57
 
@@ -1882,7 +1882,7 @@ define ptr @Abc_NtkFraigRestore(i32 noundef %0, i32 noundef %1, i32 noundef %2) 
   %14 = add nsw i32 %.val23, -1
   store i32 %14, ptr %6, align 4, !tbaa !33
   %15 = zext nneg i32 %14 to i64
-  %16 = getelementptr inbounds nuw ptr, ptr %.val25, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %.val25, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !37
   %18 = load i32, ptr %5, align 8, !tbaa !41
   %19 = icmp eq i32 %14, %18
@@ -1906,7 +1906,7 @@ Vec_PtrPush.exit:                                 ; preds = %Vec_PtrPush.exit.si
   %27 = add nsw i32 %26, 1
   store i32 %27, ptr %6, align 4, !tbaa !33
   %28 = sext i32 %26 to i64
-  %29 = getelementptr inbounds ptr, ptr %25, i64 %28
+  %29 = getelementptr inbounds [8 x i8], ptr %25, i64 %28
   store ptr %11, ptr %29, align 8, !tbaa !37
   %.val26 = load ptr, ptr %10, align 8, !tbaa !36
   store ptr %17, ptr %.val26, align 8, !tbaa !37
@@ -1964,7 +1964,7 @@ Vec_PtrPush.exit:                                 ; preds = %Vec_PtrPush.exit.si
 55:                                               ; preds = %55, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %55 ]
   %.val6.i = load ptr, ptr %54, align 8, !tbaa !36
-  %56 = getelementptr inbounds nuw ptr, ptr %.val6.i, i64 %indvars.iv.i
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %.val6.i, i64 %indvars.iv.i
   %57 = load ptr, ptr %56, align 8, !tbaa !37
   call void @Abc_NtkDelete(ptr noundef %57) #11
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -2002,7 +2002,7 @@ define void @Abc_NtkFraigStoreClean() local_unnamed_addr #0 {
 5:                                                ; preds = %.lr.ph, %5
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %5 ]
   %.val6 = load ptr, ptr %4, align 8, !tbaa !36
-  %6 = getelementptr inbounds nuw ptr, ptr %.val6, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %.val6, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8, !tbaa !37
   tail call void @Abc_NtkDelete(ptr noundef %7) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2039,7 +2039,7 @@ define void @Abc_NtkFraigStoreCheck(ptr noundef readonly captures(none) %0) loca
   %.val24.us = load ptr, ptr %2, align 8, !tbaa !78
   %9 = getelementptr i8, ptr %.val24.us, i64 8
   %.val24.val.us = load ptr, ptr %9, align 8, !tbaa !36
-  %10 = getelementptr inbounds nuw ptr, ptr %.val24.val.us, i64 %indvars.iv33
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %.val24.val.us, i64 %indvars.iv33
   %11 = load ptr, ptr %10, align 8, !tbaa !37
   %.val21.us = load ptr, ptr %11, align 8, !tbaa !54
   %12 = getelementptr i8, ptr %11, i64 32
@@ -2050,7 +2050,7 @@ define void @Abc_NtkFraigStoreCheck(ptr noundef readonly captures(none) %0) loca
   %14 = getelementptr i8, ptr %.val21.val.us, i64 8
   %.val21.val.val.us = load ptr, ptr %14, align 8, !tbaa !36
   %15 = sext i32 %.val22.val.us to i64
-  %16 = getelementptr inbounds ptr, ptr %.val21.val.val.us, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %.val21.val.val.us, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !37
   %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 1
   %18 = trunc nuw nsw i64 %indvars.iv.next34 to i32
@@ -2062,8 +2062,8 @@ define void @Abc_NtkFraigStoreCheck(ptr noundef readonly captures(none) %0) loca
   %.val23.us = load ptr, ptr %2, align 8, !tbaa !78
   %21 = getelementptr i8, ptr %.val23.us, i64 8
   %.val23.val.us = load ptr, ptr %21, align 8, !tbaa !36
-  %22 = getelementptr inbounds nuw ptr, ptr %.val23.val.us, i64 %20
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv33
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %.val23.val.us, i64 %20
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv33
   %24 = load ptr, ptr %23, align 8, !tbaa !37
   %.val.us = load ptr, ptr %24, align 8, !tbaa !54
   %25 = getelementptr i8, ptr %24, i64 32
@@ -2074,7 +2074,7 @@ define void @Abc_NtkFraigStoreCheck(ptr noundef readonly captures(none) %0) loca
   %27 = getelementptr i8, ptr %.val.val.us, i64 8
   %.val.val.val.us = load ptr, ptr %27, align 8, !tbaa !36
   %28 = sext i32 %.val20.val.us to i64
-  %29 = getelementptr inbounds ptr, ptr %.val.val.val.us, i64 %28
+  %29 = getelementptr inbounds [8 x i8], ptr %.val.val.val.us, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !37
   %.not.us = icmp eq ptr %17, %30
   %.pre = add nuw nsw i64 %indvars.iv, 1
@@ -2250,7 +2250,7 @@ Abc_NodeIsTravIdCurrent.exit:                     ; preds = %6, %._crit_edge.i.i
   %48 = getelementptr i8, ptr %.val2.i, i64 232
   %.val.i.i.i = load ptr, ptr %48, align 8, !tbaa !47
   %49 = sext i32 %.val3.i to i64
-  %50 = getelementptr inbounds i32, ptr %.val.i.i.i, i64 %49
+  %50 = getelementptr inbounds [4 x i8], ptr %.val.i.i.i, i64 %49
   %51 = load i32, ptr %50, align 4, !tbaa !48
   %52 = getelementptr inbounds nuw i8, ptr %.val28, i64 216
   %53 = load i32, ptr %52, align 8, !tbaa !50
@@ -2353,13 +2353,13 @@ Abc_NodeSetTravIdCurrent.exit:                    ; preds = %54, %._crit_edge.i.
   %95 = getelementptr i8, ptr %.val28, i64 232
   %.val.i.i.i41 = load ptr, ptr %95, align 8, !tbaa !47
   %96 = sext i32 %.val29 to i64
-  %97 = getelementptr inbounds i32, ptr %.val.i.i.i41, i64 %96
+  %97 = getelementptr inbounds [4 x i8], ptr %.val.i.i.i41, i64 %96
   store i32 %53, ptr %97, align 4, !tbaa !48
   %98 = load i32, ptr %7, align 8, !tbaa !42
   %99 = getelementptr i8, ptr %2, i64 8
   %.val = load ptr, ptr %99, align 8, !tbaa !36
   %100 = sext i32 %98 to i64
-  %101 = getelementptr inbounds ptr, ptr %.val, i64 %100
+  %101 = getelementptr inbounds [8 x i8], ptr %.val, i64 %100
   %102 = load ptr, ptr %101, align 8, !tbaa !37
   %.not22 = icmp eq ptr %102, null
   br i1 %.not22, label %117, label %104
@@ -2400,7 +2400,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   %120 = getelementptr i8, ptr %.val24.val, i64 8
   %.val24.val.val = load ptr, ptr %120, align 8, !tbaa !36
   %121 = sext i32 %.val25.val to i64
-  %122 = getelementptr inbounds ptr, ptr %.val24.val.val, i64 %121
+  %122 = getelementptr inbounds [8 x i8], ptr %.val24.val.val, i64 %121
   %123 = load ptr, ptr %122, align 8, !tbaa !37
   tail call fastcc void @Abc_NtkFromFraig2_rec(ptr noundef %0, ptr noundef %123, ptr noundef nonnull %2)
   %.val26 = load ptr, ptr %1, align 8, !tbaa !54
@@ -2412,7 +2412,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   %126 = getelementptr i8, ptr %.val26.val, i64 8
   %.val26.val.val = load ptr, ptr %126, align 8, !tbaa !36
   %127 = sext i32 %.val27.val to i64
-  %128 = getelementptr inbounds ptr, ptr %.val26.val.val, i64 %127
+  %128 = getelementptr inbounds [8 x i8], ptr %.val26.val.val, i64 %127
   %129 = load ptr, ptr %128, align 8, !tbaa !37
   tail call fastcc void @Abc_NtkFromFraig2_rec(ptr noundef %0, ptr noundef %129, ptr noundef nonnull %2)
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 256
@@ -2425,7 +2425,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   %133 = getelementptr i8, ptr %.val.val.i, i64 8
   %.val.val.val.i = load ptr, ptr %133, align 8, !tbaa !36
   %134 = sext i32 %.val2.val.i to i64
-  %135 = getelementptr inbounds ptr, ptr %.val.val.val.i, i64 %134
+  %135 = getelementptr inbounds [8 x i8], ptr %.val.val.val.i, i64 %134
   %136 = load ptr, ptr %135, align 8, !tbaa !37
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 64
   %138 = load ptr, ptr %137, align 8, !tbaa !27
@@ -2440,7 +2440,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   %145 = getelementptr i8, ptr %.val2.i44, i64 4
   %.val2.val.i49 = load i32, ptr %145, align 4, !tbaa !48
   %146 = sext i32 %.val2.val.i49 to i64
-  %147 = getelementptr inbounds ptr, ptr %.val.val.val.i, i64 %146
+  %147 = getelementptr inbounds [8 x i8], ptr %.val.val.val.i, i64 %146
   %148 = load ptr, ptr %147, align 8, !tbaa !37
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 64
   %150 = load ptr, ptr %149, align 8, !tbaa !27

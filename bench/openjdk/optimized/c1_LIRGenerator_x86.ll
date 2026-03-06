@@ -430,7 +430,7 @@ _ZN8LIR_List6appendEP6LIR_Op.exit:                ; preds = %62, %67
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %78 = load ptr, ptr %77, align 8
   %79 = sext i32 %75 to i64
-  %80 = getelementptr inbounds ptr, ptr %78, i64 %79
+  %80 = getelementptr inbounds [8 x i8], ptr %78, i64 %79
   store ptr %.0.i.i.i, ptr %80, align 8
   ret void
 }
@@ -536,7 +536,7 @@ define hidden i64 @_ZN12LIRGenerator19result_register_forEP9ValueTypeb(ptr nound
 
 switch.lookup:                                    ; preds = %2
   %8 = zext nneg i32 %4 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN12LIRGenerator16do_NewMultiArrayEP13NewMultiArray, i64 %8
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN12LIRGenerator16do_NewMultiArrayEP13NewMultiArray, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.sroa.0.0 = load i64, ptr %switch.load, align 8
   ret i64 %.sroa.0.0
@@ -882,7 +882,7 @@ _ZNK7LIR_Opr11is_constantEv.exit:                 ; preds = %_ZN12arrayOopDesc20
 
 21:                                               ; preds = %_ZNK7LIR_Opr11is_constantEv.exit
   %22 = zext i8 %3 to i64
-  %23 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %22
+  %23 = getelementptr inbounds nuw [4 x i8], ptr @_type2aelembytes, i64 %22
   %24 = load i32, ptr %23, align 4
   %25 = load ptr, ptr %17, align 8
   %26 = load ptr, ptr %25, align 8
@@ -1226,7 +1226,7 @@ _ZN8LIR_List6appendEP6LIR_Op.exit:                ; preds = %45, %50
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %61 = load ptr, ptr %60, align 8
   %62 = sext i32 %58 to i64
-  %63 = getelementptr inbounds ptr, ptr %61, i64 %62
+  %63 = getelementptr inbounds [8 x i8], ptr %61, i64 %62
   store ptr %.0.i.i.i, ptr %63, align 8
   ret void
 }
@@ -1635,7 +1635,7 @@ _ZN8LIR_List6appendEP6LIR_Op.exit:                ; preds = %50, %55
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %66 = load ptr, ptr %65, align 8
   %67 = sext i32 %63 to i64
-  %68 = getelementptr inbounds ptr, ptr %66, i64 %67
+  %68 = getelementptr inbounds [8 x i8], ptr %66, i64 %67
   store ptr %.0.i.i.i, ptr %68, align 8
   ret void
 }
@@ -1953,7 +1953,7 @@ _ZN8LIR_List6appendEP6LIR_Op.exit:                ; preds = %51, %56
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %67 = load ptr, ptr %66, align 8
   %68 = sext i32 %64 to i64
-  %69 = getelementptr inbounds ptr, ptr %67, i64 %68
+  %69 = getelementptr inbounds [8 x i8], ptr %67, i64 %68
   store ptr %.0.i.i.i, ptr %69, align 8
   ret void
 }
@@ -2612,7 +2612,7 @@ _ZN8LIR_List6appendEP6LIR_Op.exit:                ; preds = %50, %55
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %66 = load ptr, ptr %65, align 8
   %67 = sext i32 %63 to i64
-  %68 = getelementptr inbounds ptr, ptr %66, i64 %67
+  %68 = getelementptr inbounds [8 x i8], ptr %66, i64 %67
   store ptr %.0.i.i.i, ptr %68, align 8
   ret void
 }
@@ -2856,7 +2856,7 @@ _ZN26GrowableArrayWithAllocatorI9BasicType13GrowableArrayIS0_EE6appendERKS0_.exi
 
 switch.lookup:                                    ; preds = %_ZN26GrowableArrayWithAllocatorI9BasicType13GrowableArrayIS0_EE6appendERKS0_.exit63
   %108 = zext nneg i32 %104 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN12LIRGenerator16do_NewMultiArrayEP13NewMultiArray, i64 %108
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN12LIRGenerator16do_NewMultiArrayEP13NewMultiArray, i64 %108
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.sroa.0.0.i = load i64, ptr %switch.load, align 8
   %109 = load ptr, ptr %101, align 8
@@ -3109,7 +3109,7 @@ _ZN8LIR_List6appendEP6LIR_Op.exit:                ; preds = %43, %48
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %59 = load ptr, ptr %58, align 8
   %60 = sext i32 %56 to i64
-  %61 = getelementptr inbounds ptr, ptr %59, i64 %60
+  %61 = getelementptr inbounds [8 x i8], ptr %59, i64 %60
   store ptr %.0.i.i.i, ptr %61, align 8
   ret void
 }
@@ -3411,7 +3411,7 @@ _ZN26GrowableArrayWithAllocatorI9BasicType13GrowableArrayIS0_EE6appendERKS0_.exi
 
 switch.lookup:                                    ; preds = %_ZN26GrowableArrayWithAllocatorI9BasicType13GrowableArrayIS0_EE6appendERKS0_.exit55
   %134 = zext nneg i32 %130 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN12LIRGenerator16do_NewMultiArrayEP13NewMultiArray, i64 %134
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN12LIRGenerator16do_NewMultiArrayEP13NewMultiArray, i64 %134
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.sroa.0.0.i = load i64, ptr %switch.load, align 8
   %135 = load ptr, ptr %125, align 8
@@ -4043,7 +4043,7 @@ _ZN8LIR_List6appendEP6LIR_Op.exit:                ; preds = %51, %56
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %67 = load ptr, ptr %66, align 8
   %68 = sext i32 %64 to i64
-  %69 = getelementptr inbounds ptr, ptr %67, i64 %68
+  %69 = getelementptr inbounds [8 x i8], ptr %67, i64 %68
   store ptr %.0.i.i.i, ptr %69, align 8
   ret void
 }
@@ -4127,7 +4127,7 @@ _ZN8LIR_List6appendEP6LIR_Op.exit:                ; preds = %33, %38
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %49 = load ptr, ptr %48, align 8
   %50 = sext i32 %46 to i64
-  %51 = getelementptr inbounds ptr, ptr %49, i64 %50
+  %51 = getelementptr inbounds [8 x i8], ptr %49, i64 %50
   store ptr %.0.i.i.i, ptr %51, align 8
   ret void
 }
@@ -5495,7 +5495,7 @@ _ZN8LIR_List6appendEP6LIR_Op.exit:                ; preds = %50, %55
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %66 = load ptr, ptr %65, align 8
   %67 = sext i32 %63 to i64
-  %68 = getelementptr inbounds ptr, ptr %66, i64 %67
+  %68 = getelementptr inbounds [8 x i8], ptr %66, i64 %67
   store ptr %.0.i.i.i, ptr %68, align 8
   ret void
 }
@@ -6050,7 +6050,7 @@ _ZN8LIR_List6appendEP6LIR_Op.exit:                ; preds = %55, %60
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %71 = load ptr, ptr %70, align 8
   %72 = sext i32 %68 to i64
-  %73 = getelementptr inbounds ptr, ptr %71, i64 %72
+  %73 = getelementptr inbounds [8 x i8], ptr %71, i64 %72
   store ptr %.0.i.i.i, ptr %73, align 8
   ret void
 }
@@ -6227,7 +6227,7 @@ _ZN8LIR_List6appendEP6LIR_Op.exit:                ; preds = %50, %55
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %66 = load ptr, ptr %65, align 8
   %67 = sext i32 %63 to i64
-  %68 = getelementptr inbounds ptr, ptr %66, i64 %67
+  %68 = getelementptr inbounds [8 x i8], ptr %66, i64 %67
   store ptr %.0.i.i.i, ptr %68, align 8
   ret void
 }
@@ -6403,7 +6403,7 @@ _ZN8LIR_List6appendEP6LIR_Op.exit:                ; preds = %50, %55
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %66 = load ptr, ptr %65, align 8
   %67 = sext i32 %63 to i64
-  %68 = getelementptr inbounds ptr, ptr %66, i64 %67
+  %68 = getelementptr inbounds [8 x i8], ptr %66, i64 %67
   store ptr %.0.i.i.i, ptr %68, align 8
   ret void
 }
@@ -6738,7 +6738,7 @@ _ZN8LIR_List6appendEP6LIR_Op.exit:                ; preds = %43, %48
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %59 = load ptr, ptr %58, align 8
   %60 = sext i32 %56 to i64
-  %61 = getelementptr inbounds ptr, ptr %59, i64 %60
+  %61 = getelementptr inbounds [8 x i8], ptr %59, i64 %60
   store ptr %.0.i.i.i, ptr %61, align 8
   ret void
 }
@@ -6842,7 +6842,7 @@ _ZN8LIR_List6appendEP6LIR_Op.exit:                ; preds = %43, %48
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %59 = load ptr, ptr %58, align 8
   %60 = sext i32 %56 to i64
-  %61 = getelementptr inbounds ptr, ptr %59, i64 %60
+  %61 = getelementptr inbounds [8 x i8], ptr %59, i64 %60
   store ptr %.0.i.i.i, ptr %61, align 8
   ret void
 }
@@ -7039,7 +7039,7 @@ _ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit: ; preds = %2, %17
 
 switch.lookup:                                    ; preds = %_ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit
   %28 = zext nneg i32 %24 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN12LIRGenerator16do_NewMultiArrayEP13NewMultiArray, i64 %28
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN12LIRGenerator16do_NewMultiArrayEP13NewMultiArray, i64 %28
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.sroa.0.0.i = load i64, ptr %switch.load, align 8
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 104
@@ -7428,7 +7428,7 @@ _ZN8LIR_List6appendEP6LIR_Op.exit:                ; preds = %50, %55
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %66 = load ptr, ptr %65, align 8
   %67 = sext i32 %63 to i64
-  %68 = getelementptr inbounds ptr, ptr %66, i64 %67
+  %68 = getelementptr inbounds [8 x i8], ptr %66, i64 %67
   store ptr %.0.i.i.i, ptr %68, align 8
   ret void
 }
@@ -7547,7 +7547,7 @@ _ZN8LIR_List6appendEP6LIR_Op.exit:                ; preds = %50, %55
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %66 = load ptr, ptr %65, align 8
   %67 = sext i32 %63 to i64
-  %68 = getelementptr inbounds ptr, ptr %66, i64 %67
+  %68 = getelementptr inbounds [8 x i8], ptr %66, i64 %67
   store ptr %.0.i.i.i, ptr %68, align 8
   ret void
 }
@@ -7666,7 +7666,7 @@ _ZN8LIR_List6appendEP6LIR_Op.exit:                ; preds = %50, %55
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %66 = load ptr, ptr %65, align 8
   %67 = sext i32 %63 to i64
-  %68 = getelementptr inbounds ptr, ptr %66, i64 %67
+  %68 = getelementptr inbounds [8 x i8], ptr %66, i64 %67
   store ptr %.0.i.i.i, ptr %68, align 8
   ret void
 }
@@ -7785,7 +7785,7 @@ _ZN8LIR_List6appendEP6LIR_Op.exit:                ; preds = %50, %55
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %66 = load ptr, ptr %65, align 8
   %67 = sext i32 %63 to i64
-  %68 = getelementptr inbounds ptr, ptr %66, i64 %67
+  %68 = getelementptr inbounds [8 x i8], ptr %66, i64 %67
   store ptr %.0.i.i.i, ptr %68, align 8
   ret void
 }
@@ -8292,7 +8292,7 @@ _ZN8LIR_List6appendEP6LIR_Op.exit:                ; preds = %40, %45
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %56 = load ptr, ptr %55, align 8
   %57 = sext i32 %53 to i64
-  %58 = getelementptr inbounds ptr, ptr %56, i64 %57
+  %58 = getelementptr inbounds [8 x i8], ptr %56, i64 %57
   store ptr %.0.i.i.i, ptr %58, align 8
   ret void
 }
@@ -8859,7 +8859,7 @@ _ZN26GrowableArrayWithAllocatorI9BasicType13GrowableArrayIS0_EE6appendERKS0_.exi
 
 switch.lookup:                                    ; preds = %_ZN26GrowableArrayWithAllocatorI9BasicType13GrowableArrayIS0_EE6appendERKS0_.exit90
   %281 = zext nneg i32 %277 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN12LIRGenerator16do_NewMultiArrayEP13NewMultiArray, i64 %281
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN12LIRGenerator16do_NewMultiArrayEP13NewMultiArray, i64 %281
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.sroa.0.0.i = load i64, ptr %switch.load, align 8
   %282 = call i64 @_ZN12LIRGenerator12new_registerE9BasicType(ptr noundef nonnull align 8 dereferenceable(232) %0, i8 noundef zeroext 11) #9
@@ -9001,7 +9001,7 @@ _ZN8LIR_List6appendEP6LIR_Op.exit:                ; preds = %34, %39
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %50 = load ptr, ptr %49, align 8
   %51 = sext i32 %47 to i64
-  %52 = getelementptr inbounds ptr, ptr %50, i64 %51
+  %52 = getelementptr inbounds [8 x i8], ptr %50, i64 %51
   store ptr %.0.i.i.i, ptr %52, align 8
   ret void
 }
@@ -9105,7 +9105,7 @@ _ZN8LIR_List6appendEP6LIR_Op.exit:                ; preds = %43, %48
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %59 = load ptr, ptr %58, align 8
   %60 = sext i32 %56 to i64
-  %61 = getelementptr inbounds ptr, ptr %59, i64 %60
+  %61 = getelementptr inbounds [8 x i8], ptr %59, i64 %60
   store ptr %.0.i.i.i, ptr %61, align 8
   ret void
 }
@@ -9658,7 +9658,7 @@ _ZN26GrowableArrayWithAllocatorI9BasicType13GrowableArrayIS0_EE6appendERKS0_.exi
 
 switch.lookup:                                    ; preds = %_ZN26GrowableArrayWithAllocatorI9BasicType13GrowableArrayIS0_EE6appendERKS0_.exit98
   %270 = zext nneg i32 %266 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN12LIRGenerator16do_NewMultiArrayEP13NewMultiArray, i64 %270
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN12LIRGenerator16do_NewMultiArrayEP13NewMultiArray, i64 %270
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.sroa.0.0.i = load i64, ptr %switch.load, align 8
   %271 = call i64 @_ZN12LIRGenerator12new_registerE9BasicType(ptr noundef nonnull align 8 dereferenceable(232) %0, i8 noundef zeroext 11) #9
@@ -9822,7 +9822,7 @@ define hidden void @_ZN12LIRGenerator14do_NewInstanceEP11NewInstance(ptr noundef
 
 switch.lookup:                                    ; preds = %2
   %13 = zext nneg i32 %9 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN12LIRGenerator16do_NewMultiArrayEP13NewMultiArray, i64 %13
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN12LIRGenerator16do_NewMultiArrayEP13NewMultiArray, i64 %13
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.sroa.0.0.i = load i64, ptr %switch.load, align 8
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 104
@@ -9915,7 +9915,7 @@ _ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit: ; preds = %17, %25
 
 switch.lookup:                                    ; preds = %_ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit
   %35 = zext nneg i32 %31 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN12LIRGenerator16do_NewMultiArrayEP13NewMultiArray, i64 %35
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN12LIRGenerator16do_NewMultiArrayEP13NewMultiArray, i64 %35
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.sroa.0.0.i = load i64, ptr %switch.load, align 8
   %.sroa.023.0.copyload = load i64, ptr @_ZN8FrameMap11rcx_oop_oprE, align 8
@@ -10153,7 +10153,7 @@ _ZN8LIR_List6appendEP6LIR_Op.exit:                ; preds = %65, %70
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %81 = load ptr, ptr %80, align 8
   %82 = sext i32 %78 to i64
-  %83 = getelementptr inbounds ptr, ptr %81, i64 %82
+  %83 = getelementptr inbounds [8 x i8], ptr %81, i64 %82
   store ptr %.0.i.i.i, ptr %83, align 8
   ret void
 }
@@ -10232,7 +10232,7 @@ _ZNK10ciMetadata9is_loadedEv.exit.thread:         ; preds = %_ZN7LIRItemC2EP11In
 
 switch.lookup:                                    ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.thread
   %36 = zext nneg i32 %32 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN12LIRGenerator16do_NewMultiArrayEP13NewMultiArray, i64 %36
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN12LIRGenerator16do_NewMultiArrayEP13NewMultiArray, i64 %36
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.sroa.0.0.i = load i64, ptr %switch.load, align 8
   %.sroa.025.0.copyload = load i64, ptr @_ZN8FrameMap11rcx_oop_oprE, align 8
@@ -10411,7 +10411,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %31, %33
 
 36:                                               ; preds = %_ZN22CompilationResourceObjnwEm.exit
   %37 = load ptr, ptr %15, align 8
-  %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv.next
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv.next
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
   %41 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 32
@@ -10442,7 +10442,7 @@ _ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit: ; preds = %36, %45
 
 49:                                               ; preds = %_ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit, %_ZN22CompilationResourceObjnwEm.exit
   %50 = load ptr, ptr %9, align 8
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %indvars.iv.next
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %indvars.iv.next
   store ptr %.0.i.i.i, ptr %51, align 8
   %52 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %52, label %17, label %._crit_edge, !llvm.loop !9
@@ -10525,7 +10525,7 @@ _ZNK10ciMetadata9is_loadedEv.exit.thread:         ; preds = %._crit_edge, %87, %
   %indvars.iv72 = phi i64 [ %94, %.lr.ph69.preheader ], [ %indvars.iv.next73, %_ZN7LIRItem6resultEv.exit ]
   %indvars.iv.next73 = add nsw i64 %indvars.iv72, -1
   %95 = load ptr, ptr %9, align 8
-  %96 = getelementptr inbounds nuw ptr, ptr %95, i64 %indvars.iv.next73
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %indvars.iv.next73
   %97 = load ptr, ptr %96, align 8
   %98 = load ptr, ptr %97, align 8
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 48
@@ -10692,7 +10692,7 @@ _ZN26GrowableArrayWithAllocatorI7LIR_Opr13GrowableArrayIS0_EE6appendERKS0_.exit:
   store i32 %184, ptr %167, align 8
   %185 = load ptr, ptr %170, align 8
   %186 = sext i32 %183 to i64
-  %187 = getelementptr inbounds %class.LIR_Opr, ptr %185, i64 %186
+  %187 = getelementptr inbounds [8 x i8], ptr %185, i64 %186
   store i64 %135, ptr %187, align 8
   %188 = load i32, ptr %167, align 8
   %189 = load i32, ptr %169, align 4
@@ -10719,7 +10719,7 @@ _ZN26GrowableArrayWithAllocatorI7LIR_Opr13GrowableArrayIS0_EE6appendERKS0_.exit5
   store i32 %200, ptr %167, align 8
   %201 = load ptr, ptr %170, align 8
   %202 = sext i32 %199 to i64
-  %203 = getelementptr inbounds %class.LIR_Opr, ptr %201, i64 %202
+  %203 = getelementptr inbounds [8 x i8], ptr %201, i64 %202
   store i64 %137, ptr %203, align 8
   %204 = load i32, ptr %167, align 8
   %205 = load i32, ptr %169, align 4
@@ -10746,7 +10746,7 @@ _ZN26GrowableArrayWithAllocatorI7LIR_Opr13GrowableArrayIS0_EE6appendERKS0_.exit6
   store i32 %216, ptr %167, align 8
   %217 = load ptr, ptr %170, align 8
   %218 = sext i32 %215 to i64
-  %219 = getelementptr inbounds %class.LIR_Opr, ptr %217, i64 %218
+  %219 = getelementptr inbounds [8 x i8], ptr %217, i64 %218
   store i64 %165, ptr %219, align 8
   %220 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %221 = load ptr, ptr %220, align 8
@@ -10763,7 +10763,7 @@ _ZN26GrowableArrayWithAllocatorI7LIR_Opr13GrowableArrayIS0_EE6appendERKS0_.exit6
 
 switch.lookup:                                    ; preds = %_ZN26GrowableArrayWithAllocatorI7LIR_Opr13GrowableArrayIS0_EE6appendERKS0_.exit62
   %227 = zext nneg i32 %223 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN12LIRGenerator16do_NewMultiArrayEP13NewMultiArray, i64 %227
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN12LIRGenerator16do_NewMultiArrayEP13NewMultiArray, i64 %227
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.sroa.0.0.i = load i64, ptr %switch.load, align 8
   %228 = load ptr, ptr %138, align 8
@@ -10881,7 +10881,7 @@ _ZN8LIR_List6appendEP6LIR_Op.exit:                ; preds = %44, %49
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %60 = load ptr, ptr %59, align 8
   %61 = sext i32 %57 to i64
-  %62 = getelementptr inbounds ptr, ptr %60, i64 %61
+  %62 = getelementptr inbounds [8 x i8], ptr %60, i64 %61
   store ptr %.0.i.i.i, ptr %62, align 8
   ret void
 }
@@ -11658,7 +11658,7 @@ _ZN7LIRItem6resultEv.exit73:                      ; preds = %75, %80, %91
 
 switch.lookup:                                    ; preds = %97
   %101 = zext nneg i32 %.091 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN12LIRGenerator5do_IfEP2If.3, i64 %101
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN12LIRGenerator5do_IfEP2If.3, i64 %101
   %switch.load = load i32, ptr %switch.gep, align 4
   %102 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %103 = load ptr, ptr %102, align 8
@@ -11699,7 +11699,7 @@ switch.lookup:                                    ; preds = %97
 switch.lookup106:                                 ; preds = %122
   %127 = load ptr, ptr %123, align 8
   %128 = zext nneg i32 %.091 to i64
-  %switch.gep107 = getelementptr inbounds nuw i32, ptr @switch.table._ZN12LIRGenerator5do_IfEP2If.3, i64 %128
+  %switch.gep107 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN12LIRGenerator5do_IfEP2If.3, i64 %128
   %switch.load108 = load i32, ptr %switch.gep107, align 4
   call void @_ZN8LIR_List3cmpE13LIR_Condition7LIR_OprS1_P12CodeEmitInfo(ptr noundef nonnull align 8 dereferenceable(32) %127, i32 noundef %switch.load108, i64 %.sroa.03.0.i, i64 %.sroa.03.0.i71, ptr noundef null)
   call void @_ZN12LIRGenerator14profile_branchEP2IfN11Instruction9ConditionE(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef nonnull %1, i32 noundef %.091) #9
@@ -11723,19 +11723,19 @@ switch.lookup106:                                 ; preds = %122
   br i1 %spec.select.i, label %switch.lookup109, label %switch.lookup112
 
 switch.lookup109:                                 ; preds = %switch.lookup106
-  %switch.gep110 = getelementptr inbounds nuw i32, ptr @switch.table._ZN12LIRGenerator5do_IfEP2If.3, i64 %138
+  %switch.gep110 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN12LIRGenerator5do_IfEP2If.3, i64 %138
   %switch.load111 = load i32, ptr %switch.gep110, align 4
   %144 = load i32, ptr %10, align 8
   %145 = and i32 %144, 2048
   %.not.i = icmp eq i32 %145, 0
   %146 = zext i1 %.not.i to i64
-  %147 = getelementptr inbounds nuw ptr, ptr %142, i64 %146
+  %147 = getelementptr inbounds nuw [8 x i8], ptr %142, i64 %146
   %148 = load ptr, ptr %147, align 8
   call void @_ZN8LIR_List6branchE13LIR_ConditionP10BlockBeginS2_(ptr noundef nonnull align 8 dereferenceable(32) %137, i32 noundef %switch.load111, ptr noundef %143, ptr noundef %148)
   br label %149
 
 switch.lookup112:                                 ; preds = %switch.lookup106
-  %switch.gep113 = getelementptr inbounds nuw i32, ptr @switch.table._ZN12LIRGenerator5do_IfEP2If.3, i64 %138
+  %switch.gep113 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN12LIRGenerator5do_IfEP2If.3, i64 %138
   %switch.load114 = load i32, ptr %switch.gep113, align 4
   call void @_ZN8LIR_List6branchE13LIR_ConditionP10BlockBegin(ptr noundef nonnull align 8 dereferenceable(32) %137, i32 noundef %switch.load114, ptr noundef %143)
   br label %149
@@ -11757,7 +11757,7 @@ _ZNK8BlockEnd11default_suxEv.exit:                ; preds = %149, %153
   %157 = phi i64 [ %156, %153 ], [ -1, %149 ]
   %158 = getelementptr inbounds nuw i8, ptr %152, i64 8
   %159 = load ptr, ptr %158, align 8
-  %160 = getelementptr inbounds ptr, ptr %159, i64 %157
+  %160 = getelementptr inbounds [8 x i8], ptr %159, i64 %157
   %161 = load ptr, ptr %160, align 8
   call void @_ZN8LIR_List4jumpEP10BlockBegin(ptr noundef nonnull align 8 dereferenceable(32) %150, ptr noundef %161)
   ret void
@@ -11869,7 +11869,7 @@ _ZN8LIR_List6appendEP6LIR_Op.exit:                ; preds = %41, %46
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %57 = load ptr, ptr %56, align 8
   %58 = sext i32 %54 to i64
-  %59 = getelementptr inbounds ptr, ptr %57, i64 %58
+  %59 = getelementptr inbounds [8 x i8], ptr %57, i64 %58
   store ptr %.0.i.i.i, ptr %59, align 8
   ret void
 }
@@ -11957,7 +11957,7 @@ _ZN8LIR_List6appendEP6LIR_Op.exit:                ; preds = %34, %39
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %50 = load ptr, ptr %49, align 8
   %51 = sext i32 %47 to i64
-  %52 = getelementptr inbounds ptr, ptr %50, i64 %51
+  %52 = getelementptr inbounds [8 x i8], ptr %50, i64 %51
   store ptr %.0.i.i.i, ptr %52, align 8
   ret void
 }
@@ -12041,7 +12041,7 @@ _ZN8LIR_List6appendEP6LIR_Op.exit:                ; preds = %33, %38
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %49 = load ptr, ptr %48, align 8
   %50 = sext i32 %46 to i64
-  %51 = getelementptr inbounds ptr, ptr %49, i64 %50
+  %51 = getelementptr inbounds [8 x i8], ptr %49, i64 %50
   store ptr %.0.i.i.i, ptr %51, align 8
   ret void
 }
@@ -12125,7 +12125,7 @@ _ZN8LIR_List6appendEP6LIR_Op.exit:                ; preds = %32, %37
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %48 = load ptr, ptr %47, align 8
   %49 = sext i32 %45 to i64
-  %50 = getelementptr inbounds ptr, ptr %48, i64 %49
+  %50 = getelementptr inbounds [8 x i8], ptr %48, i64 %49
   store ptr %.0.i.i.i, ptr %50, align 8
   ret void
 }
@@ -12394,7 +12394,7 @@ _ZN8LIR_List6appendEP6LIR_Op.exit:                ; preds = %44, %49
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %60 = load ptr, ptr %59, align 8
   %61 = sext i32 %57 to i64
-  %62 = getelementptr inbounds ptr, ptr %60, i64 %61
+  %62 = getelementptr inbounds [8 x i8], ptr %60, i64 %61
   store ptr %.0.i.i.i, ptr %62, align 8
   ret void
 }
@@ -12540,9 +12540,9 @@ _ZN13GrowableArrayIP6LIR_OpE8allocateEv.exit:     ; preds = %7, %11, %15
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %26 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv
   %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
   store ptr %29, ptr %26, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -12559,7 +12559,7 @@ _ZN13GrowableArrayIP6LIR_OpE8allocateEv.exit:     ; preds = %7, %11, %15
 
 .lr.ph18:                                         ; preds = %.lr.ph18.preheader, %.lr.ph18
   %indvars.iv20 = phi i64 [ %24, %.lr.ph18.preheader ], [ %indvars.iv.next21, %.lr.ph18 ]
-  %35 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv20
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv20
   store ptr null, ptr %35, align 8
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %36 = load i32, ptr %3, align 4
@@ -12725,9 +12725,9 @@ _ZN13GrowableArrayI7LIR_OprE8allocateEv.exit:     ; preds = %7, %11, %15
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %26 = getelementptr inbounds nuw %class.LIR_Opr, ptr %.0.i, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv
   %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds nuw %class.LIR_Opr, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   %29 = load i64, ptr %28, align 8
   store i64 %29, ptr %26, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -12744,7 +12744,7 @@ _ZN13GrowableArrayI7LIR_OprE8allocateEv.exit:     ; preds = %7, %11, %15
 
 .lr.ph18:                                         ; preds = %.lr.ph18.preheader, %.lr.ph18
   %indvars.iv20 = phi i64 [ %24, %.lr.ph18.preheader ], [ %indvars.iv.next21, %.lr.ph18 ]
-  %35 = getelementptr inbounds nuw %class.LIR_Opr, ptr %.0.i, i64 %indvars.iv20
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv20
   store i64 0, ptr %35, align 8
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %36 = load i32, ptr %3, align 4

@@ -17,7 +17,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.b2Filter = type { i64, i64, i32 }
 %struct.b2DistanceJointDef = type { %struct.b2BodyId, %struct.b2BodyId, %struct.b2Vec2, %struct.b2Vec2, float, i8, float, float, i8, float, float, i8, float, float, i8, ptr, i32 }
 %struct.b2BodyId = type { i32, i16, i16 }
-%struct.b2JointId = type { i32, i16, i16 }
 %struct.ImVec2 = type { float, float }
 %struct.b2Polygon = type { [8 x %struct.b2Vec2], [8 x %struct.b2Vec2], %struct.b2Vec2, float, i32 }
 %struct.b2MotorJointDef = type { %struct.b2BodyId, %struct.b2BodyId, %struct.b2Vec2, float, float, float, float, i8, ptr, i32 }
@@ -29,6 +28,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.b2WeldJointDef = type { %struct.b2BodyId, %struct.b2BodyId, %struct.b2Vec2, %struct.b2Vec2, float, float, float, float, float, i8, ptr, i32 }
 %struct.b2ChainDef = type { ptr, ptr, i32, ptr, i32, %struct.b2Filter, i8, i32 }
 %class.Doohickey = type <{ %struct.b2BodyId, %struct.b2BodyId, %struct.b2BodyId, %struct.b2BodyId, %struct.b2JointId, %struct.b2JointId, %struct.b2JointId, i8, [3 x i8] }>
+%struct.b2JointId = type { i32, i16, i16 }
 %class.Car = type <{ %struct.b2BodyId, %struct.b2BodyId, %struct.b2BodyId, %struct.b2JointId, %struct.b2JointId, i8, [3 x i8] }>
 
 $_ZN13DistanceJoint6CreateER8Settings = comdat any
@@ -890,7 +890,7 @@ define linkonce_odr dso_local void @_ZN13DistanceJoint11CreateSceneEi(ptr nounde
 
 13:                                               ; preds = %.lr.ph, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
-  %14 = getelementptr inbounds nuw %struct.b2JointId, ptr %10, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %.sroa.034.0.copyload = load i64, ptr %14, align 8
   tail call void @b2DestroyJoint(i64 %.sroa.034.0.copyload)
   store i64 0, ptr %14, align 8
@@ -962,7 +962,7 @@ define linkonce_odr dso_local void @_ZN13DistanceJoint11CreateSceneEi(ptr nounde
 
 54:                                               ; preds = %.lr.ph45, %54
   %indvars.iv52 = phi i64 [ 0, %.lr.ph45 ], [ %indvars.iv.next53, %54 ]
-  %55 = getelementptr inbounds nuw %struct.b2BodyId, ptr %12, i64 %indvars.iv52
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv52
   %.sroa.029.0.copyload = load i64, ptr %55, align 8
   tail call void @b2DestroyBody(i64 %.sroa.029.0.copyload)
   store i64 0, ptr %55, align 8
@@ -994,7 +994,7 @@ define linkonce_odr dso_local void @_ZN13DistanceJoint11CreateSceneEi(ptr nounde
   store float 2.000000e+01, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !15
   %.sroa.014.0.copyload = load i32, ptr %48, align 4
   %65 = call i64 @b2CreateBody(i32 %.sroa.014.0.copyload, ptr noundef nonnull %6)
-  %66 = getelementptr inbounds nuw %struct.b2BodyId, ptr %49, i64 %indvars.iv55
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %indvars.iv55
   store i64 %65, ptr %66, align 8
   %67 = call i64 @b2CreateCircleShape(i64 %65, ptr noundef nonnull %4, ptr noundef nonnull %3)
   %68 = load float, ptr %27, align 4, !tbaa !35
@@ -1012,7 +1012,7 @@ define linkonce_odr dso_local void @_ZN13DistanceJoint11CreateSceneEi(ptr nounde
   store <2 x float> %73, ptr %52, align 8
   %.sroa.0.0.copyload = load i32, ptr %48, align 4
   %74 = call i64 @b2CreateDistanceJoint(i32 %.sroa.0.0.copyload, ptr noundef nonnull %5)
-  %75 = getelementptr inbounds nuw %struct.b2JointId, ptr %53, i64 %indvars.iv55
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %indvars.iv55
   store i64 %74, ptr %75, align 8
   %76 = load i64, ptr %66, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1077,7 +1077,7 @@ define linkonce_odr dso_local void @_ZN13DistanceJoint8UpdateUIEv(ptr noundef no
 
 20:                                               ; preds = %.lr.ph, %20
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %20 ]
-  %21 = getelementptr inbounds nuw %struct.b2JointId, ptr %19, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv
   %.sroa.036.0.copyload = load i64, ptr %21, align 8
   %22 = load float, ptr %14, align 4, !tbaa !35
   call void @b2DistanceJoint_SetLength(i64 %.sroa.036.0.copyload, float noundef %22)
@@ -1106,7 +1106,7 @@ define linkonce_odr dso_local void @_ZN13DistanceJoint8UpdateUIEv(ptr noundef no
 
 32:                                               ; preds = %.lr.ph63, %32
   %indvars.iv75 = phi i64 [ 0, %.lr.ph63 ], [ %indvars.iv.next76, %32 ]
-  %33 = getelementptr inbounds nuw %struct.b2JointId, ptr %31, i64 %indvars.iv75
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv75
   %.sroa.030.0.copyload = load i64, ptr %33, align 8
   %34 = load i8, ptr %26, align 8, !tbaa !38, !range !13, !noundef !14
   %35 = trunc nuw i8 %34 to i1
@@ -1141,7 +1141,7 @@ define linkonce_odr dso_local void @_ZN13DistanceJoint8UpdateUIEv(ptr noundef no
 
 48:                                               ; preds = %.lr.ph65, %48
   %indvars.iv78 = phi i64 [ 0, %.lr.ph65 ], [ %indvars.iv.next79, %48 ]
-  %49 = getelementptr inbounds nuw %struct.b2JointId, ptr %47, i64 %indvars.iv78
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %indvars.iv78
   %.sroa.024.0.copyload = load i64, ptr %49, align 8
   %50 = load float, ptr %42, align 4, !tbaa !33
   call void @b2DistanceJoint_SetSpringHertz(i64 %.sroa.024.0.copyload, float noundef %50)
@@ -1170,7 +1170,7 @@ define linkonce_odr dso_local void @_ZN13DistanceJoint8UpdateUIEv(ptr noundef no
 
 60:                                               ; preds = %.lr.ph67, %60
   %indvars.iv81 = phi i64 [ 0, %.lr.ph67 ], [ %indvars.iv.next82, %60 ]
-  %61 = getelementptr inbounds nuw %struct.b2JointId, ptr %59, i64 %indvars.iv81
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %indvars.iv81
   %.sroa.018.0.copyload = load i64, ptr %61, align 8
   %62 = load float, ptr %54, align 8, !tbaa !34
   call void @b2DistanceJoint_SetSpringDampingRatio(i64 %.sroa.018.0.copyload, float noundef %62)
@@ -1199,7 +1199,7 @@ define linkonce_odr dso_local void @_ZN13DistanceJoint8UpdateUIEv(ptr noundef no
 
 72:                                               ; preds = %.lr.ph69, %72
   %indvars.iv84 = phi i64 [ 0, %.lr.ph69 ], [ %indvars.iv.next85, %72 ]
-  %73 = getelementptr inbounds nuw %struct.b2JointId, ptr %71, i64 %indvars.iv84
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %indvars.iv84
   %.sroa.012.0.copyload = load i64, ptr %73, align 8
   %74 = load i8, ptr %66, align 1, !tbaa !39, !range !13, !noundef !14
   %75 = trunc nuw i8 %74 to i1
@@ -1235,7 +1235,7 @@ define linkonce_odr dso_local void @_ZN13DistanceJoint8UpdateUIEv(ptr noundef no
 
 89:                                               ; preds = %.lr.ph71, %89
   %indvars.iv87 = phi i64 [ 0, %.lr.ph71 ], [ %indvars.iv.next88, %89 ]
-  %90 = getelementptr inbounds nuw %struct.b2JointId, ptr %87, i64 %indvars.iv87
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %87, i64 %indvars.iv87
   %.sroa.06.0.copyload = load i64, ptr %90, align 8
   %91 = load float, ptr %82, align 8, !tbaa !36
   %92 = load float, ptr %88, align 4, !tbaa !37
@@ -1265,7 +1265,7 @@ define linkonce_odr dso_local void @_ZN13DistanceJoint8UpdateUIEv(ptr noundef no
 
 102:                                              ; preds = %.lr.ph73, %102
   %indvars.iv90 = phi i64 [ 0, %.lr.ph73 ], [ %indvars.iv.next91, %102 ]
-  %103 = getelementptr inbounds nuw %struct.b2JointId, ptr %101, i64 %indvars.iv90
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %101, i64 %indvars.iv90
   %.sroa.01.0.copyload = load i64, ptr %103, align 8
   %104 = load float, ptr %82, align 8, !tbaa !36
   %105 = load float, ptr %96, align 4, !tbaa !37
@@ -3574,7 +3574,7 @@ define linkonce_odr dso_local void @_ZN6BridgeC2ER8Settings(ptr noundef nonnull 
           to label %60 unwind label %78
 
 60:                                               ; preds = %55
-  %61 = getelementptr inbounds nuw %struct.b2BodyId, ptr %34, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv
   store i64 %59, ptr %61, align 8
   %62 = invoke i64 @b2CreatePolygonShape(i64 %59, ptr noundef nonnull %5, ptr noundef nonnull %4)
           to label %63 unwind label %76
@@ -3607,7 +3607,7 @@ define linkonce_odr dso_local void @_ZN6BridgeC2ER8Settings(ptr noundef nonnull 
 
 74:                                               ; preds = %71
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %75 = getelementptr inbounds nuw %struct.b2JointId, ptr %40, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv
   store i64 %73, ptr %75, align 8
   %.sroa.062.0.copyload63 = load i64, ptr %61, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -3920,7 +3920,7 @@ define linkonce_odr dso_local void @_ZN6Bridge8UpdateUIEv(ptr noundef nonnull al
 
 18:                                               ; preds = %.preheader11, %18
   %indvars.iv = phi i64 [ 0, %.preheader11 ], [ %indvars.iv.next, %18 ]
-  %19 = getelementptr inbounds nuw %struct.b2JointId, ptr %17, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv
   %.sroa.03.0.copyload = load i64, ptr %19, align 8
   %20 = load float, ptr %15, align 8, !tbaa !145
   call void @b2RevoluteJoint_SetMaxMotorTorque(i64 %.sroa.03.0.copyload, float noundef %20)
@@ -3939,7 +3939,7 @@ define linkonce_odr dso_local void @_ZN6Bridge8UpdateUIEv(ptr noundef nonnull al
 
 24:                                               ; preds = %.preheader, %24
   %indvars.iv16 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next17, %24 ]
-  %25 = getelementptr inbounds nuw %struct.b2BodyId, ptr %23, i64 %indvars.iv16
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv16
   %.sroa.0.0.copyload = load i64, ptr %25, align 8
   %26 = load float, ptr %21, align 4, !tbaa !147
   call void @b2Body_SetGravityScale(i64 %.sroa.0.0.copyload, float noundef %26)
@@ -4104,7 +4104,7 @@ define linkonce_odr dso_local void @_ZN12BallAndChainC2ER8Settings(ptr noundef n
 
 59:                                               ; preds = %56
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %60 = getelementptr inbounds nuw %struct.b2JointId, ptr %31, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv
   store i64 %58, ptr %60, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %exitcond.not = icmp eq i64 %indvars.iv.next, 30
@@ -4278,7 +4278,7 @@ define linkonce_odr dso_local void @_ZN12BallAndChain8UpdateUIEv(ptr noundef non
 
 16:                                               ; preds = %.preheader, %16
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %16 ]
-  %17 = getelementptr inbounds nuw %struct.b2JointId, ptr %15, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   %.sroa.0.0.copyload = load i64, ptr %17, align 8
   %18 = load float, ptr %13, align 8, !tbaa !154
   call void @b2RevoluteJoint_SetMaxMotorTorque(i64 %.sroa.0.0.copyload, float noundef %18)
@@ -4434,7 +4434,7 @@ define linkonce_odr dso_local void @_ZN10CantileverC2ER8Settings(ptr noundef non
           to label %63 unwind label %81
 
 63:                                               ; preds = %56
-  %64 = getelementptr inbounds nuw %struct.b2BodyId, ptr %33, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv
   store i64 %62, ptr %64, align 4
   %65 = invoke i64 @b2CreateCapsuleShape(i64 %62, ptr noundef nonnull %5, ptr noundef nonnull %4)
           to label %66 unwind label %83
@@ -4471,7 +4471,7 @@ define linkonce_odr dso_local void @_ZN10CantileverC2ER8Settings(ptr noundef non
           to label %79 unwind label %89
 
 79:                                               ; preds = %72
-  %80 = getelementptr inbounds nuw %struct.b2JointId, ptr %42, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv
   store i64 %78, ptr %80, align 4
   %.sroa.032.0.copyload33 = load i64, ptr %64, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -4593,7 +4593,7 @@ define linkonce_odr dso_local void @_ZN10Cantilever8UpdateUIEv(ptr noundef nonnu
 
 16:                                               ; preds = %.preheader38, %16
   %indvars.iv = phi i64 [ 0, %.preheader38 ], [ %indvars.iv.next, %16 ]
-  %17 = getelementptr inbounds nuw %struct.b2JointId, ptr %15, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   %.sroa.019.0.copyload = load i64, ptr %17, align 4
   %18 = load float, ptr %13, align 8, !tbaa !160
   call void @b2WeldJoint_SetLinearHertz(i64 %.sroa.019.0.copyload, float noundef %18)
@@ -4612,7 +4612,7 @@ define linkonce_odr dso_local void @_ZN10Cantilever8UpdateUIEv(ptr noundef nonnu
 
 22:                                               ; preds = %.preheader36, %22
   %indvars.iv47 = phi i64 [ 0, %.preheader36 ], [ %indvars.iv.next48, %22 ]
-  %23 = getelementptr inbounds nuw %struct.b2JointId, ptr %21, i64 %indvars.iv47
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv47
   %.sroa.015.0.copyload = load i64, ptr %23, align 4
   %24 = load float, ptr %19, align 4, !tbaa !162
   call void @b2WeldJoint_SetLinearDampingRatio(i64 %.sroa.015.0.copyload, float noundef %24)
@@ -4631,7 +4631,7 @@ define linkonce_odr dso_local void @_ZN10Cantilever8UpdateUIEv(ptr noundef nonnu
 
 28:                                               ; preds = %.preheader34, %28
   %indvars.iv51 = phi i64 [ 0, %.preheader34 ], [ %indvars.iv.next52, %28 ]
-  %29 = getelementptr inbounds nuw %struct.b2JointId, ptr %27, i64 %indvars.iv51
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv51
   %.sroa.011.0.copyload = load i64, ptr %29, align 4
   %30 = load float, ptr %25, align 8, !tbaa !163
   call void @b2WeldJoint_SetAngularHertz(i64 %.sroa.011.0.copyload, float noundef %30)
@@ -4650,7 +4650,7 @@ define linkonce_odr dso_local void @_ZN10Cantilever8UpdateUIEv(ptr noundef nonnu
 
 34:                                               ; preds = %.preheader32, %34
   %indvars.iv55 = phi i64 [ 0, %.preheader32 ], [ %indvars.iv.next56, %34 ]
-  %35 = getelementptr inbounds nuw %struct.b2JointId, ptr %33, i64 %indvars.iv55
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv55
   %.sroa.07.0.copyload = load i64, ptr %35, align 4
   %36 = load float, ptr %31, align 4, !tbaa !164
   call void @b2WeldJoint_SetAngularDampingRatio(i64 %.sroa.07.0.copyload, float noundef %36)
@@ -4669,7 +4669,7 @@ define linkonce_odr dso_local void @_ZN10Cantilever8UpdateUIEv(ptr noundef nonnu
 
 40:                                               ; preds = %.preheader30, %40
   %indvars.iv59 = phi i64 [ 0, %.preheader30 ], [ %indvars.iv.next60, %40 ]
-  %41 = getelementptr inbounds nuw %struct.b2JointId, ptr %39, i64 %indvars.iv59
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %indvars.iv59
   %.sroa.03.0.copyload = load i64, ptr %41, align 4
   %42 = load i8, ptr %37, align 4, !tbaa !166, !range !13, !noundef !14
   %43 = trunc nuw i8 %42 to i1
@@ -4689,7 +4689,7 @@ define linkonce_odr dso_local void @_ZN10Cantilever8UpdateUIEv(ptr noundef nonnu
 
 47:                                               ; preds = %.preheader, %47
   %indvars.iv63 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next64, %47 ]
-  %48 = getelementptr inbounds nuw %struct.b2BodyId, ptr %46, i64 %indvars.iv63
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv63
   %.sroa.0.0.copyload = load i64, ptr %48, align 4
   %49 = load float, ptr %44, align 8, !tbaa !165
   call void @b2Body_SetGravityScale(i64 %.sroa.0.0.copyload, float noundef %49)
@@ -4968,7 +4968,7 @@ define linkonce_odr dso_local void @_ZN13FixedRotation11CreateSceneEv(ptr nounde
 
 111:                                              ; preds = %1, %119
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %119 ]
-  %112 = getelementptr inbounds nuw %struct.b2JointId, ptr %16, i64 %indvars.iv
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv
   %113 = load i32, ptr %112, align 8, !tbaa !182
   %.not = icmp eq i32 %113, 0
   br i1 %.not, label %115, label %114
@@ -4980,7 +4980,7 @@ define linkonce_odr dso_local void @_ZN13FixedRotation11CreateSceneEv(ptr nounde
   br label %115
 
 115:                                              ; preds = %114, %111
-  %116 = getelementptr inbounds nuw %struct.b2BodyId, ptr %17, i64 %indvars.iv
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv
   %117 = load i32, ptr %116, align 8, !tbaa !183
   %.not168 = icmp eq i32 %117, 0
   br i1 %.not168, label %119, label %118
@@ -5041,7 +5041,7 @@ define linkonce_odr dso_local void @_ZN13FixedRotation8UpdateUIEv(ptr noundef no
 
 16:                                               ; preds = %.preheader, %16
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %16 ]
-  %17 = getelementptr inbounds nuw %struct.b2BodyId, ptr %15, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   %.sroa.0.0.copyload = load i64, ptr %17, align 8
   %18 = load i8, ptr %13, align 8, !tbaa !19, !range !13, !noundef !14
   %19 = trunc nuw i8 %18 to i1
@@ -5657,7 +5657,7 @@ define linkonce_odr dso_local void @_ZN14BreakableJoint4StepER8Settings(ptr noun
 
 6:                                                ; preds = %2, %23
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %23 ]
-  %7 = getelementptr inbounds nuw %struct.b2JointId, ptr %3, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %8 = load i32, ptr %7, align 8, !tbaa !182
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %23, label %10
@@ -5940,7 +5940,7 @@ define linkonce_odr dso_local void @_ZN14UserConstraint4StepER8Settings(ptr noun
   %.sroa.063.0121 = phi <2 x float> [ %32, %13 ], [ %.sroa.063.1, %102 ]
   %.0120 = phi float [ %33, %13 ], [ %.1, %102 ]
   %.sroa.044.0.copyload = load i64, ptr %23, align 8
-  %54 = getelementptr inbounds nuw %struct.b2Vec2, ptr @__const._ZN14UserConstraint4StepER8Settings.localAnchors, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZN14UserConstraint4StepER8Settings.localAnchors, i64 %indvars.iv
   %.sroa.043.0.copyload = load <2 x float>, ptr %54, align 8
   %55 = tail call <2 x float> @b2Body_GetWorldPoint(i64 %.sroa.044.0.copyload, <2 x float> %.sroa.043.0.copyload)
   %.sroa.01.0.vec.extract.i = extractelement <2 x float> %55, i64 0
@@ -6012,7 +6012,7 @@ _Z11b2Normalize6b2Vec2.exit:                      ; preds = %52
   %.sink = phi float [ %93, %_Z11b2Normalize6b2Vec2.exit ], [ 0.000000e+00, %63 ]
   %.1 = phi float [ %101, %_Z11b2Normalize6b2Vec2.exit ], [ %.0120, %63 ]
   %.sroa.063.1 = phi <2 x float> [ %.sroa.03.4.vec.insert.i, %_Z11b2Normalize6b2Vec2.exit ], [ %.sroa.063.0121, %63 ]
-  %103 = getelementptr inbounds nuw float, ptr %37, i64 %indvars.iv
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %indvars.iv
   store float %.sink, ptr %103, align 4, !tbaa !15
   br i1 %53, label %52, label %38, !llvm.loop !197
 
@@ -6148,11 +6148,11 @@ define linkonce_odr dso_local void @_ZN7DrivingC2ER8Settings(ptr noundef nonnull
   %indvars.iv235 = phi i64 [ 0, %.preheader217 ], [ %indvars.iv.next236, %48 ]
   %indvars.iv = phi i64 [ %37, %.preheader217 ], [ %indvars.iv.next, %48 ]
   %.1189224 = phi float [ %.0188227, %.preheader217 ], [ %51, %48 ]
-  %49 = getelementptr inbounds nuw float, ptr @__const.Driving.hs, i64 %indvars.iv235
+  %49 = getelementptr inbounds nuw [4 x i8], ptr @__const.Driving.hs, i64 %indvars.iv235
   %50 = load float, ptr %49, align 4, !tbaa !15
   %51 = fadd float %.1189224, 5.000000e+00
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %52 = getelementptr inbounds %struct.b2Vec2, ptr %4, i64 %indvars.iv
+  %52 = getelementptr inbounds [8 x i8], ptr %4, i64 %indvars.iv
   store float %51, ptr %52, align 8, !tbaa !15
   %.sroa.4115.0..sroa_idx = getelementptr inbounds nuw i8, ptr %52, i64 4
   store float %50, ptr %.sroa.4115.0..sroa_idx, align 4, !tbaa !15

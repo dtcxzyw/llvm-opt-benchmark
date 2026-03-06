@@ -453,7 +453,7 @@ define i32 @phishingScan(ptr noundef %0, ptr noundef readonly captures(none) %1)
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %select.unfold ]
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %62 = load ptr, ptr %26, align 8, !tbaa !49
-  %63 = getelementptr inbounds nuw ptr, ptr %62, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %indvars.iv
   %64 = load ptr, ptr %63, align 8, !tbaa !50
   %65 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %64, ptr noundef nonnull dereferenceable(5) @.str, i64 noundef 5) #16
   %.not41 = icmp eq i32 %65, 0
@@ -483,14 +483,14 @@ define i32 @phishingScan(ptr noundef %0, ptr noundef readonly captures(none) %1)
 
 77:                                               ; preds = %75, %61
   %78 = load ptr, ptr %31, align 8, !tbaa !62
-  %79 = getelementptr inbounds nuw ptr, ptr %78, i64 %indvars.iv
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %indvars.iv
   %80 = load ptr, ptr %79, align 8, !tbaa !50
   %.not.i.not = icmp eq ptr %80, null
   %81 = select i1 %.not.i.not, ptr @empty_string, ptr %80
   store ptr %81, ptr %33, align 8, !tbaa !63
   store ptr null, ptr %16, align 8, !tbaa !64
   %82 = load ptr, ptr %35, align 8, !tbaa !65
-  %83 = getelementptr inbounds nuw ptr, ptr %82, i64 %indvars.iv
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %82, i64 %indvars.iv
   %84 = load ptr, ptr %83, align 8, !tbaa !50
   %.not.i49.not = icmp eq ptr %84, null
   %85 = select i1 %.not.i49.not, ptr @empty_string, ptr %84
@@ -616,14 +616,14 @@ define i32 @phishingScan(ptr noundef %0, ptr noundef readonly captures(none) %1)
 
 122:                                              ; preds = %121
   %123 = add nsw i64 %.05593.i.i, -1
-  %124 = getelementptr inbounds nuw ptr, ptr %10, i64 %.05593.i.i
+  %124 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.05593.i.i
   store ptr %.161.i.i, ptr %124, align 8, !tbaa !50
   %125 = icmp eq i64 %123, 0
   br i1 %125, label %._crit_edge.i.i, label %.preheader.i.i
 
 ._crit_edge.i.i:                                  ; preds = %122, %121, %112
   %.055.lcssa.i.i = phi i64 [ 4, %112 ], [ %.05593.i.i, %121 ], [ 0, %122 ]
-  %126 = getelementptr inbounds nuw ptr, ptr %10, i64 %.055.lcssa.i.i
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.055.lcssa.i.i
   store ptr %113, ptr %126, align 8, !tbaa !50
   %127 = load i64, ptr %8, align 8, !tbaa !95
   store i64 %127, ptr %11, align 16, !tbaa !95
@@ -655,7 +655,7 @@ define i32 @phishingScan(ptr noundef %0, ptr noundef readonly captures(none) %1)
   %138 = ptrtoint ptr %135 to i64
   %reass.sub.i.i = sub i64 %138, %130
   %139 = add i64 %reass.sub.i.i, 1
-  %140 = getelementptr inbounds nuw i64, ptr %11, i64 %.15896.i.i
+  %140 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.15896.i.i
   store i64 %139, ptr %140, align 8, !tbaa !95
   %.158.i.i = add nuw nsw i64 %.15896.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %.158.i.i, 6
@@ -677,7 +677,7 @@ define i32 @phishingScan(ptr noundef %0, ptr noundef readonly captures(none) %1)
 .lr.ph.us.us.i.i:                                 ; preds = %.split.us.i.i, %hash_match.exit.thread83.us.us.us.preheader.i.i
   %.062101.us.us.i.i = phi i64 [ %147, %hash_match.exit.thread83.us.us.us.preheader.i.i ], [ %.259.i.i, %.split.us.i.i ]
   %147 = add nsw i64 %.062101.us.us.i.i, -1
-  %148 = getelementptr inbounds nuw i64, ptr %11, i64 %147
+  %148 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %147
   %149 = load i64, ptr %148, align 8, !tbaa !95
   %.not76.us.us.i.i = icmp ugt i64 %149, %127
   br i1 %.not76.us.us.i.i, label %.split110.us.i.i, label %hash_match.exit.thread83.us.us.us.preheader.i.i
@@ -689,7 +689,7 @@ hash_match.exit.thread83.us.us.us.preheader.i.i:  ; preds = %.lr.ph.us.us.i.i
 .lr.ph.us.i.i:                                    ; preds = %.split.us.i.i, %..loopexit_crit_edge.split.us106.i.i
   %.062101.us.i.i = phi i64 [ %150, %..loopexit_crit_edge.split.us106.i.i ], [ %.259.i.i, %.split.us.i.i ]
   %150 = add nsw i64 %.062101.us.i.i, -1
-  %151 = getelementptr inbounds nuw i64, ptr %11, i64 %150
+  %151 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %150
   %152 = load i64, ptr %151, align 8, !tbaa !95
   %.not76.us.i.i = icmp ugt i64 %152, %127
   %153 = trunc i64 %152 to i32
@@ -698,7 +698,7 @@ hash_match.exit.thread83.us.us.us.preheader.i.i:  ; preds = %.lr.ph.us.us.i.i
 .lr.ph.split.us.i.i:                              ; preds = %.lr.ph.us.i.i, %.sink.split.i.i
   %.06397.us104.i.i = phi i64 [ %154, %.sink.split.i.i ], [ 5, %.lr.ph.us.i.i ]
   %154 = add nsw i64 %.06397.us104.i.i, -1
-  %155 = getelementptr inbounds nuw ptr, ptr %10, i64 %154
+  %155 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %154
   %156 = load ptr, ptr %155, align 8, !tbaa !50
   %157 = ptrtoint ptr %156 to i64
   %158 = sub i64 %144, %157
@@ -1859,7 +1859,7 @@ switch.early.test:                                ; preds = %.lr.ph179
   %154 = load ptr, ptr %152, align 8, !tbaa !97
   %155 = load i8, ptr %.09.i, align 1, !tbaa !94
   %156 = sext i8 %155 to i64
-  %157 = getelementptr inbounds i32, ptr %154, i64 %156
+  %157 = getelementptr inbounds [4 x i8], ptr %154, i64 %156
   %158 = load i32, ptr %157, align 4, !tbaa !71
   %159 = trunc i32 %158 to i8
   store i8 %159, ptr %.09.i, align 1, !tbaa !94
@@ -1917,12 +1917,12 @@ define internal fastcc void @str_hex_to_char(ptr noundef nonnull captures(none) 
 
 ._crit_edge.i:                                    ; preds = %9
   %15 = zext i8 %10 to i64
-  %16 = getelementptr inbounds nuw i16, ptr @hextable, i64 %15
+  %16 = getelementptr inbounds nuw [2 x i8], ptr @hextable, i64 %15
   %17 = load i16, ptr %16, align 2, !tbaa !98
   %18 = trunc i16 %17 to i8
   %19 = shl i8 %18, 4
   %20 = zext i8 %13 to i64
-  %21 = getelementptr inbounds nuw i16, ptr @hextable, i64 %20
+  %21 = getelementptr inbounds nuw [2 x i8], ptr @hextable, i64 %20
   %22 = load i16, ptr %21, align 2, !tbaa !98
   %23 = trunc i16 %22 to i8
   %24 = or i8 %19, %23
@@ -1960,7 +1960,7 @@ hex2int.exit:                                     ; preds = %9, %._crit_edge.i
   %35 = getelementptr inbounds nuw i8, ptr %.039.pn54, i64 2
   %36 = load i8, ptr %35, align 1, !tbaa !94
   %37 = sext i8 %36 to i64
-  %38 = getelementptr inbounds i16, ptr %34, i64 %37
+  %38 = getelementptr inbounds [2 x i8], ptr %34, i64 %37
   %39 = load i16, ptr %38, align 2, !tbaa !98
   %40 = and i16 %39, 4096
   %.not47 = icmp eq i16 %40, 0
@@ -1970,7 +1970,7 @@ hex2int.exit:                                     ; preds = %9, %._crit_edge.i
   %42 = getelementptr inbounds nuw i8, ptr %.039.pn54, i64 3
   %43 = load i8, ptr %42, align 1, !tbaa !94
   %44 = sext i8 %43 to i64
-  %45 = getelementptr inbounds i16, ptr %34, i64 %44
+  %45 = getelementptr inbounds [2 x i8], ptr %34, i64 %44
   %46 = load i16, ptr %45, align 2, !tbaa !98
   %47 = and i16 %46, 4096
   %.not48 = icmp eq i16 %47, 0
@@ -1984,12 +1984,12 @@ hex2int.exit:                                     ; preds = %9, %._crit_edge.i
 
 ._crit_edge.i50:                                  ; preds = %48
   %51 = zext i8 %36 to i64
-  %52 = getelementptr inbounds nuw i16, ptr @hextable, i64 %51
+  %52 = getelementptr inbounds nuw [2 x i8], ptr @hextable, i64 %51
   %53 = load i16, ptr %52, align 2, !tbaa !98
   %54 = trunc i16 %53 to i8
   %55 = shl i8 %54, 4
   %56 = zext i8 %43 to i64
-  %57 = getelementptr inbounds nuw i16, ptr @hextable, i64 %56
+  %57 = getelementptr inbounds nuw [2 x i8], ptr @hextable, i64 %56
   %58 = load i16, ptr %57, align 2, !tbaa !98
   %59 = trunc i16 %58 to i8
   %60 = or i8 %55, %59
@@ -2221,7 +2221,7 @@ validate_uri_ialpha.exit.thread:                  ; preds = %.lr.ph.i.i, %34, %5
   %78 = getelementptr inbounds nuw i8, ptr %.pn, i64 5
   %79 = load i8, ptr %78, align 1, !tbaa !94
   %80 = zext i8 %79 to i64
-  %81 = getelementptr inbounds nuw i16, ptr @tld_hash.asso_values, i64 %80
+  %81 = getelementptr inbounds nuw [2 x i8], ptr @tld_hash.asso_values, i64 %80
   %82 = load i16, ptr %81, align 2, !tbaa !98
   %83 = zext i16 %82 to i32
   %84 = add nuw nsw i32 %83, %74
@@ -2232,13 +2232,13 @@ tld_hash.exit.i:                                  ; preds = %77, %76
   %85 = getelementptr inbounds nuw i8, ptr %.pn, i64 1
   %86 = load i8, ptr %85, align 1, !tbaa !94
   %87 = zext i8 %86 to i64
-  %88 = getelementptr inbounds nuw i16, ptr @tld_hash.asso_values, i64 %87
+  %88 = getelementptr inbounds nuw [2 x i8], ptr @tld_hash.asso_values, i64 %87
   %89 = load i16, ptr %88, align 2, !tbaa !98
   %90 = zext i16 %89 to i32
   %91 = add nuw nsw i32 %.0.i.i, %90
   %92 = load i8, ptr %.pn, align 1, !tbaa !94
   %93 = zext i8 %92 to i64
-  %94 = getelementptr inbounds nuw i16, ptr @tld_hash.asso_values, i64 %93
+  %94 = getelementptr inbounds nuw [2 x i8], ptr @tld_hash.asso_values, i64 %93
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 50
   %96 = load i16, ptr %95, align 2, !tbaa !98
   %97 = zext i16 %96 to i32
@@ -2255,7 +2255,7 @@ tld_hash.exit.i:                                  ; preds = %77, %76
   br i1 %105, label %106, label %in_tld_set.exit.thread
 
 106:                                              ; preds = %100
-  %107 = getelementptr inbounds nuw ptr, ptr @in_tld_set.wordlist, i64 %101
+  %107 = getelementptr inbounds nuw [8 x i8], ptr @in_tld_set.wordlist, i64 %101
   %108 = load ptr, ptr %107, align 8, !tbaa !50
   %109 = load i8, ptr %108, align 1, !tbaa !94
   %110 = icmp eq i8 %92, %109
@@ -2345,7 +2345,7 @@ validate_uri_xpalphas_nodot.exit:                 ; preds = %134
   %143 = getelementptr inbounds nuw i8, ptr %.079175, i64 5
   %144 = load i8, ptr %143, align 1, !tbaa !94
   %145 = zext i8 %144 to i64
-  %146 = getelementptr inbounds nuw i16, ptr @tld_hash.asso_values, i64 %145
+  %146 = getelementptr inbounds nuw [2 x i8], ptr @tld_hash.asso_values, i64 %145
   %147 = load i16, ptr %146, align 2, !tbaa !98
   %148 = zext i16 %147 to i32
   %149 = add nuw nsw i32 %148, %139
@@ -2356,13 +2356,13 @@ tld_hash.exit.i123:                               ; preds = %142, %141
   %150 = getelementptr inbounds nuw i8, ptr %.079175, i64 1
   %151 = load i8, ptr %150, align 1, !tbaa !94
   %152 = zext i8 %151 to i64
-  %153 = getelementptr inbounds nuw i16, ptr @tld_hash.asso_values, i64 %152
+  %153 = getelementptr inbounds nuw [2 x i8], ptr @tld_hash.asso_values, i64 %152
   %154 = load i16, ptr %153, align 2, !tbaa !98
   %155 = zext i16 %154 to i32
   %156 = add nuw nsw i32 %.0.i.i124, %155
   %157 = load i8, ptr %.079175, align 1, !tbaa !94
   %158 = zext i8 %157 to i64
-  %159 = getelementptr inbounds nuw i16, ptr @tld_hash.asso_values, i64 %158
+  %159 = getelementptr inbounds nuw [2 x i8], ptr @tld_hash.asso_values, i64 %158
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 50
   %161 = load i16, ptr %160, align 2, !tbaa !98
   %162 = zext i16 %161 to i32
@@ -2379,7 +2379,7 @@ tld_hash.exit.i123:                               ; preds = %142, %141
   br i1 %170, label %171, label %.thread.i125
 
 171:                                              ; preds = %165
-  %172 = getelementptr inbounds nuw ptr, ptr @in_tld_set.wordlist, i64 %166
+  %172 = getelementptr inbounds nuw [8 x i8], ptr @in_tld_set.wordlist, i64 %166
   %173 = load ptr, ptr %172, align 8, !tbaa !50
   %174 = load i8, ptr %173, align 1, !tbaa !94
   %175 = icmp eq i8 %157, %174
@@ -2442,7 +2442,7 @@ in_tld_set.exit128:                               ; preds = %.thread.i125, %176,
   %200 = getelementptr inbounds nuw i8, ptr %.079.lcssa, i64 5
   %201 = load i8, ptr %200, align 1, !tbaa !94
   %202 = zext i8 %201 to i64
-  %203 = getelementptr inbounds nuw i16, ptr @tld_hash.asso_values, i64 %202
+  %203 = getelementptr inbounds nuw [2 x i8], ptr @tld_hash.asso_values, i64 %202
   %204 = load i16, ptr %203, align 2, !tbaa !98
   %205 = zext i16 %204 to i32
   %206 = add nuw nsw i32 %205, %196
@@ -2453,13 +2453,13 @@ tld_hash.exit.i132:                               ; preds = %199, %198
   %207 = getelementptr inbounds nuw i8, ptr %.079.lcssa, i64 1
   %208 = load i8, ptr %207, align 1, !tbaa !94
   %209 = zext i8 %208 to i64
-  %210 = getelementptr inbounds nuw i16, ptr @tld_hash.asso_values, i64 %209
+  %210 = getelementptr inbounds nuw [2 x i8], ptr @tld_hash.asso_values, i64 %209
   %211 = load i16, ptr %210, align 2, !tbaa !98
   %212 = zext i16 %211 to i32
   %213 = add nuw nsw i32 %.0.i.i133, %212
   %214 = load i8, ptr %.079.lcssa, align 1, !tbaa !94
   %215 = zext i8 %214 to i64
-  %216 = getelementptr inbounds nuw i16, ptr @tld_hash.asso_values, i64 %215
+  %216 = getelementptr inbounds nuw [2 x i8], ptr @tld_hash.asso_values, i64 %215
   %217 = getelementptr inbounds nuw i8, ptr %216, i64 50
   %218 = load i16, ptr %217, align 2, !tbaa !98
   %219 = zext i16 %218 to i32
@@ -2476,7 +2476,7 @@ tld_hash.exit.i132:                               ; preds = %199, %198
   br i1 %227, label %228, label %in_tld_set.exit137
 
 228:                                              ; preds = %222
-  %229 = getelementptr inbounds nuw ptr, ptr @in_tld_set.wordlist, i64 %223
+  %229 = getelementptr inbounds nuw [8 x i8], ptr @in_tld_set.wordlist, i64 %223
   %230 = load ptr, ptr %229, align 8, !tbaa !50
   %231 = load i8, ptr %230, align 1, !tbaa !94
   %232 = icmp eq i8 %214, %231
@@ -2804,7 +2804,7 @@ clear_msb.exit:                                   ; preds = %.lr.ph.i, %3
   %16 = phi ptr [ %22, %15 ], [ %7, %clear_msb.exit ]
   %17 = load i8, ptr %16, align 1, !tbaa !94
   %18 = sext i8 %17 to i64
-  %19 = getelementptr inbounds i16, ptr %14, i64 %18
+  %19 = getelementptr inbounds [2 x i8], ptr %14, i64 %18
   %20 = load i16, ptr %19, align 2, !tbaa !98
   %21 = and i16 %20, 8192
   %.not = icmp eq i16 %21, 0
@@ -2956,7 +2956,7 @@ string_free.exit.i81:                             ; preds = %.preheader.i78, %68
   %71 = phi ptr [ %77, %.preheader144 ], [ %49, %47 ]
   %72 = load i8, ptr %71, align 1, !tbaa !94
   %73 = sext i8 %72 to i64
-  %74 = getelementptr inbounds i16, ptr %14, i64 %73
+  %74 = getelementptr inbounds [2 x i8], ptr %14, i64 %73
   %75 = load i16, ptr %74, align 2, !tbaa !98
   %76 = and i16 %75, 8192
   %.not50 = icmp eq i16 %76, 0
@@ -3128,7 +3128,7 @@ str_replace.exit:                                 ; preds = %109, %105
   %136 = load ptr, ptr %134, align 8, !tbaa !97
   %137 = load i8, ptr %.09.i, align 1, !tbaa !94
   %138 = sext i8 %137 to i64
-  %139 = getelementptr inbounds i32, ptr %136, i64 %138
+  %139 = getelementptr inbounds [4 x i8], ptr %136, i64 %138
   %140 = load i32, ptr %139, align 4, !tbaa !71
   %141 = trunc i32 %140 to i8
   store i8 %141, ptr %.09.i, align 1, !tbaa !94
@@ -3534,7 +3534,7 @@ define internal fastcc void @str_fixup_spaces(ptr noundef nonnull captures(none)
   %16 = phi ptr [ %24, %15 ], [ %.promoted, %11 ]
   %17 = load i8, ptr %16, align 1, !tbaa !94
   %18 = zext i8 %17 to i64
-  %19 = getelementptr inbounds nuw i16, ptr %13, i64 %18
+  %19 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %18
   %20 = load i16, ptr %19, align 2, !tbaa !98
   %21 = and i16 %20, 8
   %.not = icmp eq i16 %21, 0
@@ -3547,7 +3547,7 @@ define internal fastcc void @str_fixup_spaces(ptr noundef nonnull captures(none)
   %25 = phi ptr [ %33, %.preheader ], [ %14, %15 ]
   %26 = load i8, ptr %25, align 1, !tbaa !94
   %27 = zext i8 %26 to i64
-  %28 = getelementptr inbounds nuw i16, ptr %13, i64 %27
+  %28 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %27
   %29 = load i16, ptr %28, align 2, !tbaa !98
   %30 = and i16 %29, 8
   %.not6 = icmp eq i16 %30, 0
@@ -3670,7 +3670,7 @@ define internal fastcc void @get_host(ptr noundef %0, i32 noundef range(i32 0, 2
   %39 = getelementptr inbounds nuw i8, ptr %32, i64 5
   %40 = load i8, ptr %39, align 1, !tbaa !94
   %41 = zext i8 %40 to i64
-  %42 = getelementptr inbounds nuw i16, ptr @tld_hash.asso_values, i64 %41
+  %42 = getelementptr inbounds nuw [2 x i8], ptr @tld_hash.asso_values, i64 %41
   %43 = load i16, ptr %42, align 2, !tbaa !98
   %44 = zext i16 %43 to i32
   %45 = add nuw nsw i32 %44, %35
@@ -3681,13 +3681,13 @@ tld_hash.exit.i:                                  ; preds = %38, %37
   %46 = getelementptr inbounds nuw i8, ptr %32, i64 1
   %47 = load i8, ptr %46, align 1, !tbaa !94
   %48 = zext i8 %47 to i64
-  %49 = getelementptr inbounds nuw i16, ptr @tld_hash.asso_values, i64 %48
+  %49 = getelementptr inbounds nuw [2 x i8], ptr @tld_hash.asso_values, i64 %48
   %50 = load i16, ptr %49, align 2, !tbaa !98
   %51 = zext i16 %50 to i32
   %52 = add nuw nsw i32 %.0.i.i, %51
   %53 = load i8, ptr %32, align 1, !tbaa !94
   %54 = zext i8 %53 to i64
-  %55 = getelementptr inbounds nuw i16, ptr @tld_hash.asso_values, i64 %54
+  %55 = getelementptr inbounds nuw [2 x i8], ptr @tld_hash.asso_values, i64 %54
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 50
   %57 = load i16, ptr %56, align 2, !tbaa !98
   %58 = zext i16 %57 to i32
@@ -3704,7 +3704,7 @@ tld_hash.exit.i:                                  ; preds = %38, %37
   br i1 %66, label %67, label %.critedge82
 
 67:                                               ; preds = %61
-  %68 = getelementptr inbounds nuw ptr, ptr @in_tld_set.wordlist, i64 %62
+  %68 = getelementptr inbounds nuw [8 x i8], ptr @in_tld_set.wordlist, i64 %62
   %69 = load ptr, ptr %68, align 8, !tbaa !50
   %70 = load i8, ptr %69, align 1, !tbaa !94
   %71 = icmp eq i8 %53, %70
@@ -3813,12 +3813,12 @@ string_assign.exit:                               ; preds = %7, %13, %16
   %26 = getelementptr i8, ptr %5, i64 2
   %.val24.i = load i8, ptr %26, align 1, !tbaa !94
   %27 = zext i8 %.val24.i to i64
-  %28 = getelementptr inbounds nuw i16, ptr @cctld_hash.asso_values, i64 %27
+  %28 = getelementptr inbounds nuw [2 x i8], ptr @cctld_hash.asso_values, i64 %27
   %29 = load i16, ptr %28, align 2, !tbaa !98
   %30 = zext i16 %29 to i32
   %31 = add nuw nsw i32 %30, 2
   %32 = zext i8 %.val.i to i64
-  %33 = getelementptr inbounds nuw i16, ptr @cctld_hash.asso_values, i64 %32
+  %33 = getelementptr inbounds nuw [2 x i8], ptr @cctld_hash.asso_values, i64 %32
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 50
   %35 = load i16, ptr %34, align 2, !tbaa !98
   %36 = zext i16 %35 to i32
@@ -3834,7 +3834,7 @@ string_assign.exit:                               ; preds = %7, %13, %16
   br i1 %43, label %44, label %.lr.ph.preheader.i53
 
 44:                                               ; preds = %39
-  %45 = getelementptr inbounds nuw ptr, ptr @in_cctld_set.wordlist, i64 %40
+  %45 = getelementptr inbounds nuw [8 x i8], ptr @in_cctld_set.wordlist, i64 %40
   %46 = load ptr, ptr %45, align 8, !tbaa !50
   %47 = load i8, ptr %46, align 1, !tbaa !94
   %48 = icmp eq i8 %.val.i, %47
@@ -3917,7 +3917,7 @@ rfind.exit:                                       ; preds = %.lr.ph.i
   %80 = getelementptr inbounds nuw i8, ptr %.015.i, i64 6
   %81 = load i8, ptr %80, align 1, !tbaa !94
   %82 = zext i8 %81 to i64
-  %83 = getelementptr inbounds nuw i16, ptr @tld_hash.asso_values, i64 %82
+  %83 = getelementptr inbounds nuw [2 x i8], ptr @tld_hash.asso_values, i64 %82
   %84 = load i16, ptr %83, align 2, !tbaa !98
   %85 = zext i16 %84 to i32
   %86 = add nuw nsw i32 %76, %85
@@ -3928,13 +3928,13 @@ tld_hash.exit.i:                                  ; preds = %79, %78
   %87 = getelementptr inbounds nuw i8, ptr %.015.i, i64 2
   %88 = load i8, ptr %87, align 1, !tbaa !94
   %89 = zext i8 %88 to i64
-  %90 = getelementptr inbounds nuw i16, ptr @tld_hash.asso_values, i64 %89
+  %90 = getelementptr inbounds nuw [2 x i8], ptr @tld_hash.asso_values, i64 %89
   %91 = load i16, ptr %90, align 2, !tbaa !98
   %92 = zext i16 %91 to i32
   %93 = add nuw nsw i32 %.0.i.i46, %92
   %94 = load i8, ptr %71, align 1, !tbaa !94
   %95 = zext i8 %94 to i64
-  %96 = getelementptr inbounds nuw i16, ptr @tld_hash.asso_values, i64 %95
+  %96 = getelementptr inbounds nuw [2 x i8], ptr @tld_hash.asso_values, i64 %95
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 50
   %98 = load i16, ptr %97, align 2, !tbaa !98
   %99 = zext i16 %98 to i32
@@ -3951,7 +3951,7 @@ tld_hash.exit.i:                                  ; preds = %79, %78
   br i1 %107, label %108, label %.thread.i47.preheader
 
 108:                                              ; preds = %102
-  %109 = getelementptr inbounds nuw ptr, ptr @in_tld_set.wordlist, i64 %103
+  %109 = getelementptr inbounds nuw [8 x i8], ptr @in_tld_set.wordlist, i64 %103
   %110 = load ptr, ptr %109, align 8, !tbaa !50
   %111 = load i8, ptr %110, align 1, !tbaa !94
   %112 = icmp eq i8 %94, %111

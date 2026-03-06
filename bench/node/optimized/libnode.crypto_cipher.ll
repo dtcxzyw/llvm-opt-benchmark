@@ -5,9 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
 %"struct.node::AssertionInfo" = type { ptr, ptr, ptr }
-%"class.v8::Local" = type { %"class.v8::LocalBase" }
-%"class.v8::LocalBase" = type { %"class.v8::IndirectHandleBase" }
-%"class.v8::IndirectHandleBase" = type { ptr }
 %"class.node::crypto::CipherPushContext" = type { %"class.std::vector", ptr }
 %"class.std::vector" = type { %"struct.std::_Vector_base" }
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<v8::Local<v8::Value>, std::allocator<v8::Local<v8::Value>>>::_Vector_impl" }
@@ -570,7 +567,7 @@ if.then.i.i21:                                    ; preds = %for.body
   br label %_ZN4node13OneByteStringEPN2v87IsolateEPKci.exit
 
 _ZN4node13OneByteStringEPN2v87IsolateEPKci.exit:  ; preds = %for.body, %if.then.i.i21
-  %add.ptr.i = getelementptr inbounds nuw %"class.v8::Local", ptr %arr.sroa.0.0, i64 %indvars.iv
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %arr.sroa.0.0, i64 %indvars.iv
   store ptr %call.i, ptr %add.ptr.i, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -578,7 +575,7 @@ _ZN4node13OneByteStringEPN2v87IsolateEPKci.exit:  ; preds = %for.body, %if.then.
 
 for.body34:                                       ; preds = %for.cond30.preheader, %_ZN4node13OneByteStringEPN2v87IsolateEPKci.exit26
   %indvars.iv48 = phi i64 [ 0, %for.cond30.preheader ], [ %indvars.iv.next49, %_ZN4node13OneByteStringEPN2v87IsolateEPKci.exit26 ]
-  %arrayidx = getelementptr inbounds nuw ptr, ptr @_ZZN4node6crypto10CipherBase13GetSSLCiphersERKN2v820FunctionCallbackInfoINS2_5ValueEEEE13TLS13_CIPHERS, i64 %indvars.iv48
+  %arrayidx = getelementptr inbounds nuw [8 x i8], ptr @_ZZN4node6crypto10CipherBase13GetSSLCiphersERKN2v820FunctionCallbackInfoINS2_5ValueEEEE13TLS13_CIPHERS, i64 %indvars.iv48
   %15 = load ptr, ptr %arrayidx, align 8
   %16 = load ptr, ptr %isolate_.i22, align 8
   %call.i23 = tail call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %16, ptr noundef %15, i32 noundef 0, i32 noundef -1) #20
@@ -593,7 +590,7 @@ _ZN4node13OneByteStringEPN2v87IsolateEPKci.exit26: ; preds = %for.body34, %if.th
   %17 = trunc nuw nsw i64 %indvars.iv48 to i32
   %add45 = add i32 %call14, %17
   %conv46 = zext i32 %add45 to i64
-  %add.ptr.i27 = getelementptr inbounds nuw %"class.v8::Local", ptr %arr.sroa.0.0, i64 %conv46
+  %add.ptr.i27 = getelementptr inbounds nuw [8 x i8], ptr %arr.sroa.0.0, i64 %conv46
   store ptr %call.i23, ptr %add.ptr.i27, align 8
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %exitcond51.not = icmp eq i64 %indvars.iv.next49, 5
@@ -2532,7 +2529,7 @@ if.end.i205:                                      ; preds = %if.end
   %values_.i206 = getelementptr inbounds nuw i8, ptr %args, i64 8
   %18 = load ptr, ptr %values_.i206, align 8
   %idx.ext.i207 = zext nneg i32 %12 to i64
-  %add.ptr.i208 = getelementptr inbounds nuw i64, ptr %18, i64 %idx.ext.i207
+  %add.ptr.i208 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %idx.ext.i207
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit213
 
 _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit213: ; preds = %if.end.i205, %if.then.i210
@@ -2572,7 +2569,7 @@ if.end.i187:                                      ; preds = %if.end12
   %values_.i188 = getelementptr inbounds nuw i8, ptr %args, i64 8
   %27 = load ptr, ptr %values_.i188, align 8
   %idx.ext.i189 = zext nneg i32 %add to i64
-  %add.ptr.i190 = getelementptr inbounds nuw i64, ptr %27, i64 %idx.ext.i189
+  %add.ptr.i190 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %idx.ext.i189
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit195
 
 _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit195: ; preds = %if.end.i187, %if.then.i192
@@ -2611,7 +2608,7 @@ if.end.i169:                                      ; preds = %if.end31
   %values_.i170 = getelementptr inbounds nuw i8, ptr %args, i64 8
   %36 = load ptr, ptr %values_.i170, align 8
   %idx.ext.i171 = zext nneg i32 %add33 to i64
-  %add.ptr.i172 = getelementptr inbounds nuw i64, ptr %36, i64 %idx.ext.i171
+  %add.ptr.i172 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %idx.ext.i171
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit177
 
 _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit177: ; preds = %if.end.i169, %if.then.i174
@@ -2649,7 +2646,7 @@ if.end.i151:                                      ; preds = %if.then40
   %values_.i152 = getelementptr inbounds nuw i8, ptr %args, i64 8
   %47 = load ptr, ptr %values_.i152, align 8
   %idx.ext.i153 = zext nneg i32 %add33 to i64
-  %add.ptr.i154 = getelementptr inbounds nuw i64, ptr %47, i64 %idx.ext.i153
+  %add.ptr.i154 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %idx.ext.i153
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit159
 
 _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit159: ; preds = %if.end.i151, %if.then.i156
@@ -2709,7 +2706,7 @@ if.end.i133:                                      ; preds = %if.end55
   %values_.i134 = getelementptr inbounds nuw i8, ptr %args, i64 8
   %59 = load ptr, ptr %values_.i134, align 8
   %idx.ext.i135 = zext nneg i32 %add58 to i64
-  %add.ptr.i136 = getelementptr inbounds nuw i64, ptr %59, i64 %idx.ext.i135
+  %add.ptr.i136 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %idx.ext.i135
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit141
 
 _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit141: ; preds = %if.end.i133, %if.then.i138
@@ -2753,7 +2750,7 @@ if.end.i:                                         ; preds = %cond.true
   %values_.i = getelementptr inbounds nuw i8, ptr %args, i64 8
   %71 = load ptr, ptr %values_.i, align 8
   %idx.ext.i = zext nneg i32 %add58 to i64
-  %add.ptr.i = getelementptr inbounds nuw i64, ptr %71, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %idx.ext.i
   br label %cond.end
 
 cond.end:                                         ; preds = %if.end5.i, %if.then.i, %if.end.i
@@ -3058,7 +3055,7 @@ if.end.i205:                                      ; preds = %if.end
   %values_.i206 = getelementptr inbounds nuw i8, ptr %args, i64 8
   %18 = load ptr, ptr %values_.i206, align 8
   %idx.ext.i207 = zext nneg i32 %12 to i64
-  %add.ptr.i208 = getelementptr inbounds nuw i64, ptr %18, i64 %idx.ext.i207
+  %add.ptr.i208 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %idx.ext.i207
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit213
 
 _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit213: ; preds = %if.end.i205, %if.then.i210
@@ -3098,7 +3095,7 @@ if.end.i187:                                      ; preds = %if.end12
   %values_.i188 = getelementptr inbounds nuw i8, ptr %args, i64 8
   %27 = load ptr, ptr %values_.i188, align 8
   %idx.ext.i189 = zext nneg i32 %add to i64
-  %add.ptr.i190 = getelementptr inbounds nuw i64, ptr %27, i64 %idx.ext.i189
+  %add.ptr.i190 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %idx.ext.i189
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit195
 
 _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit195: ; preds = %if.end.i187, %if.then.i192
@@ -3137,7 +3134,7 @@ if.end.i169:                                      ; preds = %if.end31
   %values_.i170 = getelementptr inbounds nuw i8, ptr %args, i64 8
   %36 = load ptr, ptr %values_.i170, align 8
   %idx.ext.i171 = zext nneg i32 %add33 to i64
-  %add.ptr.i172 = getelementptr inbounds nuw i64, ptr %36, i64 %idx.ext.i171
+  %add.ptr.i172 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %idx.ext.i171
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit177
 
 _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit177: ; preds = %if.end.i169, %if.then.i174
@@ -3175,7 +3172,7 @@ if.end.i151:                                      ; preds = %if.then40
   %values_.i152 = getelementptr inbounds nuw i8, ptr %args, i64 8
   %47 = load ptr, ptr %values_.i152, align 8
   %idx.ext.i153 = zext nneg i32 %add33 to i64
-  %add.ptr.i154 = getelementptr inbounds nuw i64, ptr %47, i64 %idx.ext.i153
+  %add.ptr.i154 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %idx.ext.i153
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit159
 
 _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit159: ; preds = %if.end.i151, %if.then.i156
@@ -3235,7 +3232,7 @@ if.end.i133:                                      ; preds = %if.end55
   %values_.i134 = getelementptr inbounds nuw i8, ptr %args, i64 8
   %59 = load ptr, ptr %values_.i134, align 8
   %idx.ext.i135 = zext nneg i32 %add58 to i64
-  %add.ptr.i136 = getelementptr inbounds nuw i64, ptr %59, i64 %idx.ext.i135
+  %add.ptr.i136 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %idx.ext.i135
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit141
 
 _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit141: ; preds = %if.end.i133, %if.then.i138
@@ -3279,7 +3276,7 @@ if.end.i:                                         ; preds = %cond.true
   %values_.i = getelementptr inbounds nuw i8, ptr %args, i64 8
   %71 = load ptr, ptr %values_.i, align 8
   %idx.ext.i = zext nneg i32 %add58 to i64
-  %add.ptr.i = getelementptr inbounds nuw i64, ptr %71, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %idx.ext.i
   br label %cond.end
 
 cond.end:                                         ; preds = %if.end5.i, %if.then.i, %if.end.i
@@ -3584,7 +3581,7 @@ if.end.i205:                                      ; preds = %if.end
   %values_.i206 = getelementptr inbounds nuw i8, ptr %args, i64 8
   %18 = load ptr, ptr %values_.i206, align 8
   %idx.ext.i207 = zext nneg i32 %12 to i64
-  %add.ptr.i208 = getelementptr inbounds nuw i64, ptr %18, i64 %idx.ext.i207
+  %add.ptr.i208 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %idx.ext.i207
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit213
 
 _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit213: ; preds = %if.end.i205, %if.then.i210
@@ -3624,7 +3621,7 @@ if.end.i187:                                      ; preds = %if.end12
   %values_.i188 = getelementptr inbounds nuw i8, ptr %args, i64 8
   %27 = load ptr, ptr %values_.i188, align 8
   %idx.ext.i189 = zext nneg i32 %add to i64
-  %add.ptr.i190 = getelementptr inbounds nuw i64, ptr %27, i64 %idx.ext.i189
+  %add.ptr.i190 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %idx.ext.i189
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit195
 
 _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit195: ; preds = %if.end.i187, %if.then.i192
@@ -3663,7 +3660,7 @@ if.end.i169:                                      ; preds = %if.end31
   %values_.i170 = getelementptr inbounds nuw i8, ptr %args, i64 8
   %36 = load ptr, ptr %values_.i170, align 8
   %idx.ext.i171 = zext nneg i32 %add33 to i64
-  %add.ptr.i172 = getelementptr inbounds nuw i64, ptr %36, i64 %idx.ext.i171
+  %add.ptr.i172 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %idx.ext.i171
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit177
 
 _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit177: ; preds = %if.end.i169, %if.then.i174
@@ -3701,7 +3698,7 @@ if.end.i151:                                      ; preds = %if.then40
   %values_.i152 = getelementptr inbounds nuw i8, ptr %args, i64 8
   %47 = load ptr, ptr %values_.i152, align 8
   %idx.ext.i153 = zext nneg i32 %add33 to i64
-  %add.ptr.i154 = getelementptr inbounds nuw i64, ptr %47, i64 %idx.ext.i153
+  %add.ptr.i154 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %idx.ext.i153
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit159
 
 _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit159: ; preds = %if.end.i151, %if.then.i156
@@ -3761,7 +3758,7 @@ if.end.i133:                                      ; preds = %if.end55
   %values_.i134 = getelementptr inbounds nuw i8, ptr %args, i64 8
   %59 = load ptr, ptr %values_.i134, align 8
   %idx.ext.i135 = zext nneg i32 %add58 to i64
-  %add.ptr.i136 = getelementptr inbounds nuw i64, ptr %59, i64 %idx.ext.i135
+  %add.ptr.i136 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %idx.ext.i135
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit141
 
 _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit141: ; preds = %if.end.i133, %if.then.i138
@@ -3805,7 +3802,7 @@ if.end.i:                                         ; preds = %cond.true
   %values_.i = getelementptr inbounds nuw i8, ptr %args, i64 8
   %71 = load ptr, ptr %values_.i, align 8
   %idx.ext.i = zext nneg i32 %add58 to i64
-  %add.ptr.i = getelementptr inbounds nuw i64, ptr %71, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %idx.ext.i
   br label %cond.end
 
 cond.end:                                         ; preds = %if.end5.i, %if.then.i, %if.end.i
@@ -4110,7 +4107,7 @@ if.end.i205:                                      ; preds = %if.end
   %values_.i206 = getelementptr inbounds nuw i8, ptr %args, i64 8
   %18 = load ptr, ptr %values_.i206, align 8
   %idx.ext.i207 = zext nneg i32 %12 to i64
-  %add.ptr.i208 = getelementptr inbounds nuw i64, ptr %18, i64 %idx.ext.i207
+  %add.ptr.i208 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %idx.ext.i207
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit213
 
 _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit213: ; preds = %if.end.i205, %if.then.i210
@@ -4150,7 +4147,7 @@ if.end.i187:                                      ; preds = %if.end12
   %values_.i188 = getelementptr inbounds nuw i8, ptr %args, i64 8
   %27 = load ptr, ptr %values_.i188, align 8
   %idx.ext.i189 = zext nneg i32 %add to i64
-  %add.ptr.i190 = getelementptr inbounds nuw i64, ptr %27, i64 %idx.ext.i189
+  %add.ptr.i190 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %idx.ext.i189
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit195
 
 _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit195: ; preds = %if.end.i187, %if.then.i192
@@ -4189,7 +4186,7 @@ if.end.i169:                                      ; preds = %if.end31
   %values_.i170 = getelementptr inbounds nuw i8, ptr %args, i64 8
   %36 = load ptr, ptr %values_.i170, align 8
   %idx.ext.i171 = zext nneg i32 %add33 to i64
-  %add.ptr.i172 = getelementptr inbounds nuw i64, ptr %36, i64 %idx.ext.i171
+  %add.ptr.i172 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %idx.ext.i171
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit177
 
 _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit177: ; preds = %if.end.i169, %if.then.i174
@@ -4227,7 +4224,7 @@ if.end.i151:                                      ; preds = %if.then40
   %values_.i152 = getelementptr inbounds nuw i8, ptr %args, i64 8
   %47 = load ptr, ptr %values_.i152, align 8
   %idx.ext.i153 = zext nneg i32 %add33 to i64
-  %add.ptr.i154 = getelementptr inbounds nuw i64, ptr %47, i64 %idx.ext.i153
+  %add.ptr.i154 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %idx.ext.i153
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit159
 
 _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit159: ; preds = %if.end.i151, %if.then.i156
@@ -4287,7 +4284,7 @@ if.end.i133:                                      ; preds = %if.end55
   %values_.i134 = getelementptr inbounds nuw i8, ptr %args, i64 8
   %59 = load ptr, ptr %values_.i134, align 8
   %idx.ext.i135 = zext nneg i32 %add58 to i64
-  %add.ptr.i136 = getelementptr inbounds nuw i64, ptr %59, i64 %idx.ext.i135
+  %add.ptr.i136 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %idx.ext.i135
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit141
 
 _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit141: ; preds = %if.end.i133, %if.then.i138
@@ -4331,7 +4328,7 @@ if.end.i:                                         ; preds = %cond.true
   %values_.i = getelementptr inbounds nuw i8, ptr %args, i64 8
   %71 = load ptr, ptr %values_.i, align 8
   %idx.ext.i = zext nneg i32 %add58 to i64
-  %add.ptr.i = getelementptr inbounds nuw i64, ptr %71, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %idx.ext.i
   br label %cond.end
 
 cond.end:                                         ; preds = %if.end5.i, %if.then.i, %if.end.i
@@ -5314,7 +5311,7 @@ if.then.i18.i.i.i.i.i:                            ; preds = %_ZNSt6vectorIlSaIlE
 _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i.i.i: ; preds = %if.then.i18.i.i.i.i.i, %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit17.i.i.i.i.i
   store ptr %call5.i.i.i.i.i.i.i.i, ptr %external_references_.i.i, align 8
   store ptr %incdec.ptr.i.i.i.i.i, ptr %_M_finish.i.i.i.i, align 8
-  %add.ptr19.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %call5.i.i.i.i.i.i.i.i, i64 %cond.i.i.i.i.i.i
+  %add.ptr19.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i.i, i64 %cond.i.i.i.i.i.i
   store ptr %add.ptr19.i.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i, align 8
   br label %_ZN4node25ExternalReferenceRegistry8RegisterEPFvRKN2v820FunctionCallbackInfoINS1_5ValueEEEE.exit
 
@@ -5376,7 +5373,7 @@ if.then.i18.i.i.i.i.i41:                          ; preds = %_ZNSt6vectorIlSaIlE
 _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i.i.i42: ; preds = %if.then.i18.i.i.i.i.i41, %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit17.i.i.i.i.i38
   store ptr %call5.i.i.i.i.i.i.i.i35, ptr %external_references_.i.i, align 8
   store ptr %incdec.ptr.i.i.i.i.i39, ptr %_M_finish.i.i.i.i, align 8
-  %add.ptr19.i.i.i.i.i43 = getelementptr inbounds nuw i64, ptr %call5.i.i.i.i.i.i.i.i35, i64 %cond.i.i.i.i.i.i32
+  %add.ptr19.i.i.i.i.i43 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i.i35, i64 %cond.i.i.i.i.i.i32
   store ptr %add.ptr19.i.i.i.i.i43, ptr %_M_end_of_storage.i.i.i.i, align 8
   br label %_ZN4node25ExternalReferenceRegistry8RegisterEPFvRKN2v820FunctionCallbackInfoINS1_5ValueEEEE.exit46
 
@@ -5438,7 +5435,7 @@ if.then.i18.i.i.i.i.i72:                          ; preds = %_ZNSt6vectorIlSaIlE
 _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i.i.i73: ; preds = %if.then.i18.i.i.i.i.i72, %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit17.i.i.i.i.i69
   store ptr %call5.i.i.i.i.i.i.i.i66, ptr %external_references_.i.i, align 8
   store ptr %incdec.ptr.i.i.i.i.i70, ptr %_M_finish.i.i.i.i, align 8
-  %add.ptr19.i.i.i.i.i74 = getelementptr inbounds nuw i64, ptr %call5.i.i.i.i.i.i.i.i66, i64 %cond.i.i.i.i.i.i63
+  %add.ptr19.i.i.i.i.i74 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i.i66, i64 %cond.i.i.i.i.i.i63
   store ptr %add.ptr19.i.i.i.i.i74, ptr %_M_end_of_storage.i.i.i.i, align 8
   br label %_ZN4node25ExternalReferenceRegistry8RegisterEPFvRKN2v820FunctionCallbackInfoINS1_5ValueEEEE.exit77
 
@@ -5500,7 +5497,7 @@ if.then.i18.i.i.i.i.i103:                         ; preds = %_ZNSt6vectorIlSaIlE
 _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i.i.i104: ; preds = %if.then.i18.i.i.i.i.i103, %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit17.i.i.i.i.i100
   store ptr %call5.i.i.i.i.i.i.i.i97, ptr %external_references_.i.i, align 8
   store ptr %incdec.ptr.i.i.i.i.i101, ptr %_M_finish.i.i.i.i, align 8
-  %add.ptr19.i.i.i.i.i105 = getelementptr inbounds nuw i64, ptr %call5.i.i.i.i.i.i.i.i97, i64 %cond.i.i.i.i.i.i94
+  %add.ptr19.i.i.i.i.i105 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i.i97, i64 %cond.i.i.i.i.i.i94
   store ptr %add.ptr19.i.i.i.i.i105, ptr %_M_end_of_storage.i.i.i.i, align 8
   br label %_ZN4node25ExternalReferenceRegistry8RegisterEPFvRKN2v820FunctionCallbackInfoINS1_5ValueEEEE.exit108
 
@@ -5562,7 +5559,7 @@ if.then.i18.i.i.i.i.i134:                         ; preds = %_ZNSt6vectorIlSaIlE
 _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i.i.i135: ; preds = %if.then.i18.i.i.i.i.i134, %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit17.i.i.i.i.i131
   store ptr %call5.i.i.i.i.i.i.i.i128, ptr %external_references_.i.i, align 8
   store ptr %incdec.ptr.i.i.i.i.i132, ptr %_M_finish.i.i.i.i, align 8
-  %add.ptr19.i.i.i.i.i136 = getelementptr inbounds nuw i64, ptr %call5.i.i.i.i.i.i.i.i128, i64 %cond.i.i.i.i.i.i125
+  %add.ptr19.i.i.i.i.i136 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i.i128, i64 %cond.i.i.i.i.i.i125
   store ptr %add.ptr19.i.i.i.i.i136, ptr %_M_end_of_storage.i.i.i.i, align 8
   br label %_ZN4node25ExternalReferenceRegistry8RegisterEPFvRKN2v820FunctionCallbackInfoINS1_5ValueEEEE.exit139
 
@@ -5624,7 +5621,7 @@ if.then.i18.i.i.i.i.i165:                         ; preds = %_ZNSt6vectorIlSaIlE
 _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i.i.i166: ; preds = %if.then.i18.i.i.i.i.i165, %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit17.i.i.i.i.i162
   store ptr %call5.i.i.i.i.i.i.i.i159, ptr %external_references_.i.i, align 8
   store ptr %incdec.ptr.i.i.i.i.i163, ptr %_M_finish.i.i.i.i, align 8
-  %add.ptr19.i.i.i.i.i167 = getelementptr inbounds nuw i64, ptr %call5.i.i.i.i.i.i.i.i159, i64 %cond.i.i.i.i.i.i156
+  %add.ptr19.i.i.i.i.i167 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i.i159, i64 %cond.i.i.i.i.i.i156
   store ptr %add.ptr19.i.i.i.i.i167, ptr %_M_end_of_storage.i.i.i.i, align 8
   br label %_ZN4node25ExternalReferenceRegistry8RegisterEPFvRKN2v820FunctionCallbackInfoINS1_5ValueEEEE.exit170
 
@@ -5686,7 +5683,7 @@ if.then.i18.i.i.i.i.i196:                         ; preds = %_ZNSt6vectorIlSaIlE
 _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i.i.i197: ; preds = %if.then.i18.i.i.i.i.i196, %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit17.i.i.i.i.i193
   store ptr %call5.i.i.i.i.i.i.i.i190, ptr %external_references_.i.i, align 8
   store ptr %incdec.ptr.i.i.i.i.i194, ptr %_M_finish.i.i.i.i, align 8
-  %add.ptr19.i.i.i.i.i198 = getelementptr inbounds nuw i64, ptr %call5.i.i.i.i.i.i.i.i190, i64 %cond.i.i.i.i.i.i187
+  %add.ptr19.i.i.i.i.i198 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i.i190, i64 %cond.i.i.i.i.i.i187
   store ptr %add.ptr19.i.i.i.i.i198, ptr %_M_end_of_storage.i.i.i.i, align 8
   br label %_ZN4node25ExternalReferenceRegistry8RegisterEPFvRKN2v820FunctionCallbackInfoINS1_5ValueEEEE.exit201
 
@@ -5748,7 +5745,7 @@ if.then.i18.i.i.i.i.i227:                         ; preds = %_ZNSt6vectorIlSaIlE
 _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i.i.i228: ; preds = %if.then.i18.i.i.i.i.i227, %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit17.i.i.i.i.i224
   store ptr %call5.i.i.i.i.i.i.i.i221, ptr %external_references_.i.i, align 8
   store ptr %incdec.ptr.i.i.i.i.i225, ptr %_M_finish.i.i.i.i, align 8
-  %add.ptr19.i.i.i.i.i229 = getelementptr inbounds nuw i64, ptr %call5.i.i.i.i.i.i.i.i221, i64 %cond.i.i.i.i.i.i218
+  %add.ptr19.i.i.i.i.i229 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i.i221, i64 %cond.i.i.i.i.i.i218
   store ptr %add.ptr19.i.i.i.i.i229, ptr %_M_end_of_storage.i.i.i.i, align 8
   br label %_ZN4node25ExternalReferenceRegistry8RegisterEPFvRKN2v820FunctionCallbackInfoINS1_5ValueEEEE.exit232
 
@@ -5810,7 +5807,7 @@ if.then.i18.i.i.i.i.i258:                         ; preds = %_ZNSt6vectorIlSaIlE
 _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i.i.i259: ; preds = %if.then.i18.i.i.i.i.i258, %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit17.i.i.i.i.i255
   store ptr %call5.i.i.i.i.i.i.i.i252, ptr %external_references_.i.i, align 8
   store ptr %incdec.ptr.i.i.i.i.i256, ptr %_M_finish.i.i.i.i, align 8
-  %add.ptr19.i.i.i.i.i260 = getelementptr inbounds nuw i64, ptr %call5.i.i.i.i.i.i.i.i252, i64 %cond.i.i.i.i.i.i249
+  %add.ptr19.i.i.i.i.i260 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i.i252, i64 %cond.i.i.i.i.i.i249
   store ptr %add.ptr19.i.i.i.i.i260, ptr %_M_end_of_storage.i.i.i.i, align 8
   br label %_ZN4node25ExternalReferenceRegistry8RegisterEPFvRKN2v820FunctionCallbackInfoINS1_5ValueEEEE.exit263
 
@@ -5872,7 +5869,7 @@ if.then.i18.i.i.i.i.i289:                         ; preds = %_ZNSt6vectorIlSaIlE
 _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i.i.i290: ; preds = %if.then.i18.i.i.i.i.i289, %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit17.i.i.i.i.i286
   store ptr %call5.i.i.i.i.i.i.i.i283, ptr %external_references_.i.i, align 8
   store ptr %incdec.ptr.i.i.i.i.i287, ptr %_M_finish.i.i.i.i, align 8
-  %add.ptr19.i.i.i.i.i291 = getelementptr inbounds nuw i64, ptr %call5.i.i.i.i.i.i.i.i283, i64 %cond.i.i.i.i.i.i280
+  %add.ptr19.i.i.i.i.i291 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i.i283, i64 %cond.i.i.i.i.i.i280
   store ptr %add.ptr19.i.i.i.i.i291, ptr %_M_end_of_storage.i.i.i.i, align 8
   br label %_ZN4node25ExternalReferenceRegistry8RegisterEPFvRKN2v820FunctionCallbackInfoINS1_5ValueEEEE.exit294
 
@@ -5934,7 +5931,7 @@ if.then.i18.i.i.i.i.i320:                         ; preds = %_ZNSt6vectorIlSaIlE
 _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i.i.i321: ; preds = %if.then.i18.i.i.i.i.i320, %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit17.i.i.i.i.i317
   store ptr %call5.i.i.i.i.i.i.i.i314, ptr %external_references_.i.i, align 8
   store ptr %incdec.ptr.i.i.i.i.i318, ptr %_M_finish.i.i.i.i, align 8
-  %add.ptr19.i.i.i.i.i322 = getelementptr inbounds nuw i64, ptr %call5.i.i.i.i.i.i.i.i314, i64 %cond.i.i.i.i.i.i311
+  %add.ptr19.i.i.i.i.i322 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i.i314, i64 %cond.i.i.i.i.i.i311
   store ptr %add.ptr19.i.i.i.i.i322, ptr %_M_end_of_storage.i.i.i.i, align 8
   br label %_ZN4node25ExternalReferenceRegistry8RegisterEPFvRKN2v820FunctionCallbackInfoINS1_5ValueEEEE.exit325
 
@@ -5996,7 +5993,7 @@ if.then.i18.i.i.i.i.i351:                         ; preds = %_ZNSt6vectorIlSaIlE
 _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i.i.i352: ; preds = %if.then.i18.i.i.i.i.i351, %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit17.i.i.i.i.i348
   store ptr %call5.i.i.i.i.i.i.i.i345, ptr %external_references_.i.i, align 8
   store ptr %incdec.ptr.i.i.i.i.i349, ptr %_M_finish.i.i.i.i, align 8
-  %add.ptr19.i.i.i.i.i353 = getelementptr inbounds nuw i64, ptr %call5.i.i.i.i.i.i.i.i345, i64 %cond.i.i.i.i.i.i342
+  %add.ptr19.i.i.i.i.i353 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i.i345, i64 %cond.i.i.i.i.i.i342
   store ptr %add.ptr19.i.i.i.i.i353, ptr %_M_end_of_storage.i.i.i.i, align 8
   br label %_ZN4node25ExternalReferenceRegistry8RegisterEPFvRKN2v820FunctionCallbackInfoINS1_5ValueEEEE.exit356
 
@@ -6058,7 +6055,7 @@ if.then.i18.i.i.i.i.i382:                         ; preds = %_ZNSt6vectorIlSaIlE
 _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i.i.i383: ; preds = %if.then.i18.i.i.i.i.i382, %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit17.i.i.i.i.i379
   store ptr %call5.i.i.i.i.i.i.i.i376, ptr %external_references_.i.i, align 8
   store ptr %incdec.ptr.i.i.i.i.i380, ptr %_M_finish.i.i.i.i, align 8
-  %add.ptr19.i.i.i.i.i384 = getelementptr inbounds nuw i64, ptr %call5.i.i.i.i.i.i.i.i376, i64 %cond.i.i.i.i.i.i373
+  %add.ptr19.i.i.i.i.i384 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i.i376, i64 %cond.i.i.i.i.i.i373
   store ptr %add.ptr19.i.i.i.i.i384, ptr %_M_end_of_storage.i.i.i.i, align 8
   br label %_ZN4node25ExternalReferenceRegistry8RegisterEPFvRKN2v820FunctionCallbackInfoINS1_5ValueEEEE.exit387
 
@@ -6120,7 +6117,7 @@ if.then.i18.i.i.i.i.i413:                         ; preds = %_ZNSt6vectorIlSaIlE
 _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i.i.i414: ; preds = %if.then.i18.i.i.i.i.i413, %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit17.i.i.i.i.i410
   store ptr %call5.i.i.i.i.i.i.i.i407, ptr %external_references_.i.i, align 8
   store ptr %incdec.ptr.i.i.i.i.i411, ptr %_M_finish.i.i.i.i, align 8
-  %add.ptr19.i.i.i.i.i415 = getelementptr inbounds nuw i64, ptr %call5.i.i.i.i.i.i.i.i407, i64 %cond.i.i.i.i.i.i404
+  %add.ptr19.i.i.i.i.i415 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i.i407, i64 %cond.i.i.i.i.i.i404
   store ptr %add.ptr19.i.i.i.i.i415, ptr %_M_end_of_storage.i.i.i.i, align 8
   br label %_ZN4node25ExternalReferenceRegistry8RegisterEPFvRKN2v820FunctionCallbackInfoINS1_5ValueEEEE.exit418
 
@@ -6182,7 +6179,7 @@ if.then.i18.i.i.i.i.i444:                         ; preds = %_ZNSt6vectorIlSaIlE
 _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i.i.i445: ; preds = %if.then.i18.i.i.i.i.i444, %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit17.i.i.i.i.i441
   store ptr %call5.i.i.i.i.i.i.i.i438, ptr %external_references_.i.i, align 8
   store ptr %incdec.ptr.i.i.i.i.i442, ptr %_M_finish.i.i.i.i, align 8
-  %add.ptr19.i.i.i.i.i446 = getelementptr inbounds nuw i64, ptr %call5.i.i.i.i.i.i.i.i438, i64 %cond.i.i.i.i.i.i435
+  %add.ptr19.i.i.i.i.i446 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i.i438, i64 %cond.i.i.i.i.i.i435
   store ptr %add.ptr19.i.i.i.i.i446, ptr %_M_end_of_storage.i.i.i.i, align 8
   br label %_ZN4node25ExternalReferenceRegistry8RegisterEPFvRKN2v820FunctionCallbackInfoINS1_5ValueEEEE.exit449
 
@@ -6243,7 +6240,7 @@ if.then.i18.i.i.i.i.i475:                         ; preds = %_ZNSt6vectorIlSaIlE
 _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i.i.i476: ; preds = %if.then.i18.i.i.i.i.i475, %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit17.i.i.i.i.i472
   store ptr %call5.i.i.i.i.i.i.i.i469, ptr %external_references_.i.i, align 8
   store ptr %incdec.ptr.i.i.i.i.i473, ptr %_M_finish.i.i.i.i, align 8
-  %add.ptr19.i.i.i.i.i477 = getelementptr inbounds nuw i64, ptr %call5.i.i.i.i.i.i.i.i469, i64 %cond.i.i.i.i.i.i466
+  %add.ptr19.i.i.i.i.i477 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i.i469, i64 %cond.i.i.i.i.i.i466
   store ptr %add.ptr19.i.i.i.i.i477, ptr %_M_end_of_storage.i.i.i.i, align 8
   br label %_ZN4node25ExternalReferenceRegistry8RegisterEPFvRKN2v820FunctionCallbackInfoINS1_5ValueEEEE.exit480
 
@@ -9173,7 +9170,7 @@ if.then.i20.i.i:                                  ; preds = %_ZNSt6vectorIN2v85L
 _ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE17_M_realloc_insertIJNS1_INS0_6StringEEEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %if.then.i20.i.i, %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i.i
   store ptr %call5.i.i.i.i.i, ptr %this, align 8
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i, align 8
-  %add.ptr19.i.i = getelementptr inbounds nuw %"class.v8::Local", ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
+  %add.ptr19.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
   store ptr %add.ptr19.i.i, ptr %_M_end_of_storage.i, align 8
   br label %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE12emplace_backIJNS1_INS0_6StringEEEEEERS3_DpOT_.exit
 

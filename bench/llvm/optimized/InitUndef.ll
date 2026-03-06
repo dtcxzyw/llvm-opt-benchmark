@@ -31,15 +31,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple.169" = type { %"struct.std::_Tuple_impl.170" }
 %"struct.std::_Tuple_impl.170" = type { %"struct.std::_Head_base.173" }
 %"struct.std::_Head_base.173" = type { ptr }
-%"struct.llvm::DeadLaneDetector::VRegInfo" = type { %"struct.llvm::LaneBitmask", %"struct.llvm::LaneBitmask" }
-%"struct.llvm::LaneBitmask" = type { i64 }
-%"struct.std::pair" = type { %"class.llvm::PointerUnion", ptr }
-%"class.llvm::PointerUnion" = type { %"class.llvm::pointer_union_detail::PointerUnionMembers" }
-%"class.llvm::pointer_union_detail::PointerUnionMembers" = type { %"class.llvm::pointer_union_detail::PointerUnionMembers.114" }
-%"class.llvm::pointer_union_detail::PointerUnionMembers.114" = type { %"class.llvm::pointer_union_detail::PointerUnionMembers.115" }
-%"class.llvm::pointer_union_detail::PointerUnionMembers.115" = type { %"class.llvm::PointerIntPair" }
-%"class.llvm::PointerIntPair" = type { %"struct.llvm::detail::PunnedPointer" }
-%"struct.llvm::detail::PunnedPointer" = type { [8 x i8] }
 
 $_ZN4llvm19MachineFunctionPass16doInitializationERNS_6ModuleE = comdat any
 
@@ -454,7 +445,7 @@ _ZNSt10unique_ptrIN4llvm16DeadLaneDetectorESt14default_deleteIS1_EED2Ev.exit: ; 
   %99 = call noundef i32 @_ZNK4llvm12MachineInstr18findTiedOperandIdxEj(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.049.087.i, i32 noundef 0) #13
   %100 = load ptr, ptr %92, align 8, !tbaa !284
   %101 = zext i32 %99 to i64
-  %102 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %100, i64 %101
+  %102 = getelementptr inbounds nuw [32 x i8], ptr %100, i64 %101
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 4
   %104 = load i32, ptr %103, align 4, !tbaa !285
   %105 = icmp eq i32 %104, 0
@@ -605,11 +596,11 @@ _ZL16isEarlyClobberMIRN4llvm12MachineInstrE.exit.i: ; preds = %.lr.ph.i.i.i.i.i.
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %155 = call noundef i32 @_ZNK4llvm12MachineInstr18getNumExplicitDefsEv(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.049.087.i) #13
   %156 = zext i32 %155 to i64
-  %157 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %.val.i, i64 %156
+  %157 = getelementptr inbounds nuw [32 x i8], ptr %.val.i, i64 %156
   %158 = load ptr, ptr %130, align 8, !tbaa !284
   %159 = load i24, ptr %131, align 8
   %160 = zext i24 %159 to i64
-  %161 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %158, i64 %160
+  %161 = getelementptr inbounds nuw [32 x i8], ptr %158, i64 %160
   %.not40.i.i = icmp eq ptr %157, %161
   br i1 %.not40.i.i, label %_ZN12_GLOBAL__N_19InitUndef12handleSubRegERN4llvm15MachineFunctionERNS1_12MachineInstrERKNS1_16DeadLaneDetectorE.exit.i, label %.lr.ph44.i.i
 
@@ -663,7 +654,7 @@ _ZL16isEarlyClobberMIRN4llvm12MachineInstrE.exit.i: ; preds = %.lr.ph.i.i.i.i.i.
 
 _ZNK4llvm8SmallSetINS_8RegisterELj8ESt4lessIS1_EE5vfindERKS1_.exit.i.i.i.i: ; preds = %185, %.lr.ph.i.i.i.i.i, %178
   %.1.i.i.i.i.i = phi ptr [ %182, %178 ], [ %.0912.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %182, %185 ]
-  %187 = getelementptr inbounds nuw %"class.llvm::Register", ptr %179, i64 %181
+  %187 = getelementptr inbounds nuw [4 x i8], ptr %179, i64 %181
   %.not78.i.i = icmp eq ptr %.1.i.i.i.i.i, %187
   br i1 %.not78.i.i, label %_ZNK4llvm8SmallSetINS_8RegisterELj8ESt4lessIS1_EE5countERKS1_.exit.thread.i.i, label %325
 
@@ -699,7 +690,7 @@ _ZNK4llvm8SmallSetINS_8RegisterELj8ESt4lessIS1_EE5countERKS1_.exit.thread.i.i: ;
   %196 = and i32 %171, 2147483647
   %197 = zext nneg i32 %196 to i64
   %198 = load ptr, ptr %82, align 8, !tbaa !313
-  %199 = getelementptr inbounds nuw %"struct.llvm::DeadLaneDetector::VRegInfo", ptr %198, i64 %197
+  %199 = getelementptr inbounds nuw [16 x i8], ptr %198, i64 %197
   %.sroa.010.0.copyload.i.i = load i64, ptr %199, align 8, !tbaa !11
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %199, i64 8
   %.sroa.5.0.copyload.i.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !tbaa !11
@@ -710,7 +701,7 @@ _ZNK4llvm8SmallSetINS_8RegisterELj8ESt4lessIS1_EE5countERKS1_.exit.thread.i.i: ;
   %202 = load ptr, ptr %28, align 8, !tbaa !179
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 48
   %204 = load ptr, ptr %203, align 8, !tbaa !28
-  %205 = getelementptr inbounds nuw %"struct.std::pair", ptr %204, i64 %197
+  %205 = getelementptr inbounds nuw [16 x i8], ptr %204, i64 %197
   %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %205, align 8
   %206 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, -8
   %207 = inttoptr i64 %206 to ptr
@@ -725,7 +716,7 @@ _ZNK4llvm8SmallSetINS_8RegisterELj8ESt4lessIS1_EE5countERKS1_.exit.thread.i.i: ;
   %.val.i.i = load ptr, ptr %8, align 8, !tbaa !28
   %.val53.i.i = load i32, ptr %59, align 8, !tbaa !31
   %212 = zext i32 %.val53.i.i to i64
-  %213 = getelementptr inbounds nuw i32, ptr %.val.i.i, i64 %212
+  %213 = getelementptr inbounds nuw [4 x i8], ptr %.val.i.i, i64 %212
   %214 = ptrtoint ptr %213 to i64
   %215 = lshr i64 %212, 2
   %.not.i.i.i = icmp eq i64 %215, 0
@@ -1070,11 +1061,11 @@ _ZN12_GLOBAL__N_19InitUndef12handleSubRegERN4llvm15MachineFunctionERNS1_12Machin
   %.4.i = phi i1 [ %.0.lcssa.i.i, %_ZN12_GLOBAL__N_19InitUndef12handleSubRegERN4llvm15MachineFunctionERNS1_12MachineInstrERKNS1_16DeadLaneDetectorE.exit.i ], [ %.1.i, %149 ]
   %330 = call noundef i32 @_ZNK4llvm12MachineInstr18getNumExplicitDefsEv(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.049.087.i) #13
   %331 = zext i32 %330 to i64
-  %332 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %329, i64 %331
+  %332 = getelementptr inbounds nuw [32 x i8], ptr %329, i64 %331
   %333 = load ptr, ptr %130, align 8, !tbaa !284
   %334 = load i24, ptr %131, align 8
   %335 = zext i24 %334 to i64
-  %336 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %333, i64 %335
+  %336 = getelementptr inbounds nuw [32 x i8], ptr %333, i64 %335
   %.not29.i.i = icmp eq ptr %332, %336
   br i1 %.not29.i.i, label %_ZL16isEarlyClobberMIRN4llvm12MachineInstrE.exit.thread.i, label %.lr.ph.i33.i
 
@@ -1109,7 +1100,7 @@ _ZN12_GLOBAL__N_19InitUndef12handleSubRegERN4llvm15MachineFunctionERNS1_12Machin
   br i1 %.not25.i.i, label %352, label %_ZL23findImplictDefMIFromRegN4llvm8RegisterEPNS_19MachineRegisterInfoE.exit.i.i
 
 352:                                              ; preds = %347
-  %353 = getelementptr inbounds nuw %"struct.std::pair", ptr %.val.i38.i, i64 %351
+  %353 = getelementptr inbounds nuw [16 x i8], ptr %.val.i38.i, i64 %351
   %354 = getelementptr inbounds nuw i8, ptr %353, i64 8
   %.0.i.i.i.i.i.i = load ptr, ptr %354, align 8, !tbaa !329
   %.not.i.i.i.i.i39.i = icmp eq ptr %.0.i.i.i.i.i.i, null
@@ -1174,7 +1165,7 @@ _ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb0ELb1ELb0ELb0ELb1ELb
 
 _ZL23findImplictDefMIFromRegN4llvm8RegisterEPNS_19MachineRegisterInfoE.exit.i.i: ; preds = %.lr.ph.i.loopexit.i.i, %.lr.ph.preheader.i.i.i, %347
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %379 = getelementptr inbounds nuw %"struct.std::pair", ptr %.val.i38.i, i64 %351
+  %379 = getelementptr inbounds nuw [16 x i8], ptr %.val.i38.i, i64 %351
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %379, align 8
   %380 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, -8
   %381 = inttoptr i64 %380 to ptr
@@ -1673,7 +1664,7 @@ _ZNSt8_Rb_treeIN4llvm8RegisterES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_inse
 
 _ZNK4llvm8SmallSetINS_8RegisterELj8ESt4lessIS1_EE5vfindERKS1_.exit: ; preds = %.lr.ph.i, %39
   %.1.i = phi ptr [ %.0912.i, %.lr.ph.i ], [ %36, %39 ]
-  %41 = getelementptr inbounds nuw %"class.llvm::Register", ptr %32, i64 %35
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %35
   %.not = icmp eq ptr %.1.i, %41
   br i1 %.not, label %42, label %_ZNSt3setIN4llvm8RegisterESt4lessIS1_ESaIS1_EE6insertERKS1_.exit
 
@@ -1699,14 +1690,14 @@ _ZNK4llvm8SmallSetINS_8RegisterELj8ESt4lessIS1_EE5vfindERKS1_.exit: ; preds = %.
 _ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit: ; preds = %.thread, %46
   %.pre-phi = phi i64 [ %35, %.thread ], [ %.pre66, %46 ]
   %49 = phi ptr [ %32, %.thread ], [ %.pre, %46 ]
-  %50 = getelementptr inbounds nuw %"class.llvm::Register", ptr %49, i64 %.pre-phi
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %.pre-phi
   store i32 %.sroa.05.0.copyload.pre, ptr %50, align 1
   %51 = load i32, ptr %33, align 8, !tbaa !31
   %52 = add i32 %51, 1
   store i32 %52, ptr %33, align 8, !tbaa !31
   %53 = load ptr, ptr %1, align 8, !tbaa !28
   %54 = zext i32 %52 to i64
-  %55 = getelementptr inbounds nuw %"class.llvm::Register", ptr %53, i64 %54
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %54
   %56 = getelementptr inbounds i8, ptr %55, i64 -4
   br label %_ZNSt3setIN4llvm8RegisterESt4lessIS1_ESaIS1_EE6insertERKS1_.exit
 

@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.AVCodecTag = type { i32, i32 }
 %struct.AVMetadataConv = type { ptr, ptr }
-%struct.StreamContext = type { i32, i32, i64, i32, ptr, i32, i32, i32, ptr }
 
 @ff_nut_subtitle_tags = constant [7 x %struct.AVCodecTag] [%struct.AVCodecTag { i32 94210, i32 944133205 }, %struct.AVCodecTag { i32 94230, i32 4281171 }, %struct.AVCodecTag { i32 94230, i32 5460801 }, %struct.AVCodecTag { i32 94208, i32 1396987460 }, %struct.AVCodecTag { i32 94209, i32 1396856388 }, %struct.AVCodecTag { i32 94215, i32 1413633604 }, %struct.AVCodecTag zeroinitializer], align 16
 @ff_nut_data_tags = constant [2 x %struct.AVCodecTag] [%struct.AVCodecTag { i32 94210, i32 944133205 }, %struct.AVCodecTag zeroinitializer], align 16
@@ -57,7 +56,7 @@ define void @ff_nut_reset_ts(ptr noundef readonly captures(none) %0, i64 %1, i64
 
 12:                                               ; preds = %.lr.ph, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
-  %13 = getelementptr inbounds nuw %struct.StreamContext, ptr %10, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [56 x i8], ptr %10, i64 %indvars.iv
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8, !tbaa !32
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4

@@ -9764,7 +9764,7 @@ define ptr @l_Array_mapMUnsafe_map___at___private_Lean_Data_Lsp_LanguageFeatures
   %.03268 = phi i64 [ %78, %94 ], [ %1, %3 ]
   %.03567 = phi ptr [ %.0.i.i54, %94 ], [ %2, %3 ]
   %7 = getelementptr inbounds nuw i8, ptr %.03567, i64 24
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %.03268
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.03268
   %9 = load ptr, ptr %8, align 8, !tbaa !4
   %10 = ptrtoint ptr %9 to i64
   %11 = trunc i64 %10 to i1
@@ -9800,7 +9800,7 @@ lean_array_uget.exit:                             ; preds = %.lr.ph, %14, %16, %
 lean_ensure_exclusive_array.exit.i:               ; preds = %19, %lean_array_uget.exit
   %.0.i.i = phi ptr [ %20, %19 ], [ %.03567, %lean_array_uget.exit ]
   %21 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %.03268
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %.03268
   %23 = load ptr, ptr %22, align 8, !tbaa !4
   %24 = ptrtoint ptr %23 to i64
   %25 = trunc i64 %24 to i1
@@ -9957,7 +9957,7 @@ lean_dec.exit:                                    ; preds = %lean_obj_tag.exit, 
 lean_ensure_exclusive_array.exit.i53:             ; preds = %80, %lean_dec.exit
   %.0.i.i54 = phi ptr [ %81, %80 ], [ %.0.i.i, %lean_dec.exit ]
   %82 = getelementptr inbounds nuw i8, ptr %.0.i.i54, i64 24
-  %83 = getelementptr inbounds nuw ptr, ptr %82, i64 %.03268
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %82, i64 %.03268
   %84 = load ptr, ptr %83, align 8, !tbaa !4
   %85 = ptrtoint ptr %84 to i64
   %86 = trunc i64 %85 to i1
@@ -14019,7 +14019,7 @@ define ptr @l_Array_mapMUnsafe_map___at___private_Lean_Data_Lsp_LanguageFeatures
 lean_ensure_exclusive_array.exit.i:               ; preds = %5, %.lr.ph
   %.0.i.i = phi ptr [ %6, %5 ], [ %.01731, %.lr.ph ]
   %7 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %.01532
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.01532
   %9 = load ptr, ptr %8, align 8, !tbaa !4
   %10 = ptrtoint ptr %9 to i64
   %11 = trunc i64 %10 to i1
@@ -14054,7 +14054,7 @@ lean_array_uset.exit:                             ; preds = %lean_ensure_exclusi
 22:                                               ; preds = %lean_array_uset.exit
   %23 = tail call ptr @lean_copy_expand_array(ptr noundef nonnull %.0.i.i, i1 noundef zeroext false) #9
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %23, i64 24
-  %.phi.trans.insert33 = getelementptr inbounds nuw ptr, ptr %.phi.trans.insert, i64 %.01532
+  %.phi.trans.insert33 = getelementptr inbounds nuw [8 x i8], ptr %.phi.trans.insert, i64 %.01532
   %.pre = load ptr, ptr %.phi.trans.insert33, align 8, !tbaa !4
   br label %lean_ensure_exclusive_array.exit.i21
 
@@ -14062,7 +14062,7 @@ lean_ensure_exclusive_array.exit.i21:             ; preds = %22, %lean_array_use
   %24 = phi ptr [ %.pre, %22 ], [ inttoptr (i64 1 to ptr), %lean_array_uset.exit ]
   %.0.i.i22 = phi ptr [ %23, %22 ], [ %.0.i.i, %lean_array_uset.exit ]
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i22, i64 24
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %.01532
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %.01532
   %27 = ptrtoint ptr %24 to i64
   %28 = trunc i64 %27 to i1
   br i1 %28, label %36, label %29
@@ -19748,7 +19748,7 @@ define ptr @l_Array_mapMUnsafe_map___at___private_Lean_Data_Lsp_LanguageFeatures
   %.03472 = phi i64 [ %93, %109 ], [ %1, %3 ]
   %.03771 = phi ptr [ %.0.i.i60, %109 ], [ %2, %3 ]
   %7 = getelementptr inbounds nuw i8, ptr %.03771, i64 24
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %.03472
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.03472
   %9 = load ptr, ptr %8, align 8, !tbaa !4
   %10 = ptrtoint ptr %9 to i64
   %11 = trunc i64 %10 to i1
@@ -19784,7 +19784,7 @@ lean_array_uget.exit:                             ; preds = %.lr.ph, %14, %16, %
 lean_ensure_exclusive_array.exit.i:               ; preds = %19, %lean_array_uget.exit
   %.0.i.i = phi ptr [ %20, %19 ], [ %.03771, %lean_array_uget.exit ]
   %21 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %.03472
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %.03472
   %23 = load ptr, ptr %22, align 8, !tbaa !4
   %24 = ptrtoint ptr %23 to i64
   %25 = trunc i64 %24 to i1
@@ -19974,7 +19974,7 @@ lean_dec.exit:                                    ; preds = %92, %91, %89, %lean
 lean_ensure_exclusive_array.exit.i59:             ; preds = %95, %lean_dec.exit
   %.0.i.i60 = phi ptr [ %96, %95 ], [ %.0.i.i, %lean_dec.exit ]
   %97 = getelementptr inbounds nuw i8, ptr %.0.i.i60, i64 24
-  %98 = getelementptr inbounds nuw ptr, ptr %97, i64 %.03472
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %97, i64 %.03472
   %99 = load ptr, ptr %98, align 8, !tbaa !4
   %100 = ptrtoint ptr %99 to i64
   %101 = trunc i64 %100 to i1
@@ -21003,7 +21003,7 @@ define ptr @l_Array_mapMUnsafe_map___at___private_Lean_Data_Lsp_LanguageFeatures
   %.01837 = phi i64 [ %31, %47 ], [ %1, %3 ]
   %.02036 = phi ptr [ %.0.i.i27, %47 ], [ %2, %3 ]
   %4 = getelementptr inbounds nuw i8, ptr %.02036, i64 24
-  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %.01837
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.01837
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = ptrtoint ptr %6 to i64
   %8 = trunc i64 %7 to i1
@@ -21039,7 +21039,7 @@ lean_array_uget.exit:                             ; preds = %.lr.ph, %11, %13, %
 lean_ensure_exclusive_array.exit.i:               ; preds = %16, %lean_array_uget.exit
   %.0.i.i = phi ptr [ %17, %16 ], [ %.02036, %lean_array_uget.exit ]
   %18 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %.01837
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %.01837
   %20 = load ptr, ptr %19, align 8, !tbaa !4
   %21 = ptrtoint ptr %20 to i64
   %22 = trunc i64 %21 to i1
@@ -21078,7 +21078,7 @@ lean_array_uset.exit:                             ; preds = %lean_ensure_exclusi
 lean_ensure_exclusive_array.exit.i26:             ; preds = %33, %lean_array_uset.exit
   %.0.i.i27 = phi ptr [ %34, %33 ], [ %.0.i.i, %lean_array_uset.exit ]
   %35 = getelementptr inbounds nuw i8, ptr %.0.i.i27, i64 24
-  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %.01837
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %.01837
   %37 = load ptr, ptr %36, align 8, !tbaa !4
   %38 = ptrtoint ptr %37 to i64
   %39 = trunc i64 %38 to i1
@@ -40472,7 +40472,7 @@ define ptr @l_Lean_Lsp_instToJsonSymbolKind(i8 noundef zeroext %0) local_unnamed
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_toJsonCallHierarchyItem____x40_Lean_Data_Lsp_LanguageFeatures___hyg_6912_, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_toJsonCallHierarchyItem____x40_Lean_Data_Lsp_LanguageFeatures___hyg_6912_, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -40514,7 +40514,7 @@ lean_dec.exit:                                    ; preds = %12, %11, %9, %1
 
 switch.lookup:                                    ; preds = %lean_dec.exit
   %14 = and i64 %3, 31
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_toJsonCallHierarchyItem____x40_Lean_Data_Lsp_LanguageFeatures___hyg_6912_, i64 %14
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_toJsonCallHierarchyItem____x40_Lean_Data_Lsp_LanguageFeatures___hyg_6912_, i64 %14
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %l_Lean_Lsp_instToJsonSymbolKind.exit
 
@@ -54715,7 +54715,7 @@ lean_alloc_ctor.exit185:                          ; preds = %lean_alloc_ctor.exi
 
 switch.lookup:                                    ; preds = %lean_alloc_ctor.exit185
   %133 = zext nneg i8 %24 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_toJsonCallHierarchyItem____x40_Lean_Data_Lsp_LanguageFeatures___hyg_6912_, i64 %133
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_toJsonCallHierarchyItem____x40_Lean_Data_Lsp_LanguageFeatures___hyg_6912_, i64 %133
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %134
 
@@ -54897,7 +54897,7 @@ define ptr @l_Array_mapMUnsafe_map___at_Lean_Lsp_instToJsonDocumentSymbol_go___s
   %.01838 = phi i64 [ %48, %64 ], [ %1, %3 ]
   %.02037 = phi ptr [ %.0.i.i28, %64 ], [ %2, %3 ]
   %4 = getelementptr inbounds nuw i8, ptr %.02037, i64 24
-  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %.01838
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.01838
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = ptrtoint ptr %6 to i64
   %8 = trunc i64 %7 to i1
@@ -54933,7 +54933,7 @@ lean_array_uget.exit:                             ; preds = %.lr.ph, %11, %13, %
 lean_ensure_exclusive_array.exit.i:               ; preds = %16, %lean_array_uget.exit
   %.0.i.i = phi ptr [ %17, %16 ], [ %.02037, %lean_array_uget.exit ]
   %18 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %.01838
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %.01838
   %20 = load ptr, ptr %19, align 8, !tbaa !4
   %21 = ptrtoint ptr %20 to i64
   %22 = trunc i64 %21 to i1
@@ -55018,7 +55018,7 @@ l_Lean_Lsp_instToJsonDocumentSymbol_go.exit:      ; preds = %43, %45, %46, %lean
 lean_ensure_exclusive_array.exit.i27:             ; preds = %50, %l_Lean_Lsp_instToJsonDocumentSymbol_go.exit
   %.0.i.i28 = phi ptr [ %51, %50 ], [ %.0.i.i, %l_Lean_Lsp_instToJsonDocumentSymbol_go.exit ]
   %52 = getelementptr inbounds nuw i8, ptr %.0.i.i28, i64 24
-  %53 = getelementptr inbounds nuw ptr, ptr %52, i64 %.01838
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %.01838
   %54 = load ptr, ptr %53, align 8, !tbaa !4
   %55 = ptrtoint ptr %54 to i64
   %56 = trunc i64 %55 to i1
@@ -55614,7 +55614,7 @@ lean_alloc_ctor.exit184:                          ; preds = %lean_alloc_ctor.exi
 
 switch.lookup:                                    ; preds = %lean_alloc_ctor.exit184
   %132 = zext nneg i8 %23 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_toJsonCallHierarchyItem____x40_Lean_Data_Lsp_LanguageFeatures___hyg_6912_, i64 %132
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_toJsonCallHierarchyItem____x40_Lean_Data_Lsp_LanguageFeatures___hyg_6912_, i64 %132
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %133
 
@@ -57328,7 +57328,7 @@ define noalias noundef nonnull ptr @l_Array_mapMUnsafe_map___at___private_Lean_D
   %.0198492 = phi i64 [ %.1199, %599 ], [ %1, %3 ]
   %.0210491 = phi ptr [ %.1211, %599 ], [ %2, %3 ]
   %7 = getelementptr inbounds nuw i8, ptr %.0210491, i64 24
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %.0198492
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.0198492
   %9 = load ptr, ptr %8, align 8, !tbaa !4
   %10 = ptrtoint ptr %9 to i64
   %11 = trunc i64 %10 to i1
@@ -57405,7 +57405,7 @@ lean_inc.exit236:                                 ; preds = %34, %33, %31, %24
 lean_ensure_exclusive_array.exit.i:               ; preds = %36, %lean_inc.exit236
   %.0.i.i = phi ptr [ %37, %36 ], [ %.0210491, %lean_inc.exit236 ]
   %38 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
-  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0198492
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %.0198492
   %40 = load ptr, ptr %39, align 8, !tbaa !4
   %41 = ptrtoint ptr %40 to i64
   %42 = trunc i64 %41 to i1
@@ -57805,7 +57805,7 @@ lean_dec.exit260:                                 ; preds = %199, %198, %196, %1
 lean_ensure_exclusive_array.exit.i362:            ; preds = %201, %lean_dec.exit260
   %.0.i.i363 = phi ptr [ %202, %201 ], [ %.0.i.i, %lean_dec.exit260 ]
   %203 = getelementptr inbounds nuw i8, ptr %.0.i.i363, i64 24
-  %204 = getelementptr inbounds nuw ptr, ptr %203, i64 %.0198492
+  %204 = getelementptr inbounds nuw [8 x i8], ptr %203, i64 %.0198492
   %205 = load ptr, ptr %204, align 8, !tbaa !4
   %206 = ptrtoint ptr %205 to i64
   %207 = trunc i64 %206 to i1
@@ -57980,7 +57980,7 @@ lean_dec.exit256:                                 ; preds = %259, %266, %265, %2
 lean_ensure_exclusive_array.exit.i369:            ; preds = %268, %lean_dec.exit256
   %.0.i.i370 = phi ptr [ %269, %268 ], [ %.0.i.i, %lean_dec.exit256 ]
   %270 = getelementptr inbounds nuw i8, ptr %.0.i.i370, i64 24
-  %271 = getelementptr inbounds nuw ptr, ptr %270, i64 %.0198492
+  %271 = getelementptr inbounds nuw [8 x i8], ptr %270, i64 %.0198492
   %272 = load ptr, ptr %271, align 8, !tbaa !4
   %273 = ptrtoint ptr %272 to i64
   %274 = trunc i64 %273 to i1
@@ -58622,7 +58622,7 @@ lean_dec.exit242:                                 ; preds = %515, %514, %512, %l
 lean_ensure_exclusive_array.exit.i401:            ; preds = %517, %lean_dec.exit242
   %.0.i.i402 = phi ptr [ %518, %517 ], [ %.0.i.i, %lean_dec.exit242 ]
   %519 = getelementptr inbounds nuw i8, ptr %.0.i.i402, i64 24
-  %520 = getelementptr inbounds nuw ptr, ptr %519, i64 %.0198492
+  %520 = getelementptr inbounds nuw [8 x i8], ptr %519, i64 %.0198492
   %521 = load ptr, ptr %520, align 8, !tbaa !4
   %522 = ptrtoint ptr %521 to i64
   %523 = trunc i64 %522 to i1
@@ -60763,7 +60763,7 @@ define ptr @l_Array_mapMUnsafe_map___at___private_Lean_Data_Lsp_LanguageFeatures
 lean_ensure_exclusive_array.exit.i:               ; preds = %5, %.lr.ph
   %.0.i.i = phi ptr [ %6, %5 ], [ %.01731, %.lr.ph ]
   %7 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %.01532
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.01532
   %9 = load ptr, ptr %8, align 8, !tbaa !4
   %10 = ptrtoint ptr %9 to i64
   %11 = trunc i64 %10 to i1
@@ -60798,7 +60798,7 @@ lean_array_uset.exit:                             ; preds = %lean_ensure_exclusi
 22:                                               ; preds = %lean_array_uset.exit
   %23 = tail call ptr @lean_copy_expand_array(ptr noundef nonnull %.0.i.i, i1 noundef zeroext false) #9
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %23, i64 24
-  %.phi.trans.insert33 = getelementptr inbounds nuw ptr, ptr %.phi.trans.insert, i64 %.01532
+  %.phi.trans.insert33 = getelementptr inbounds nuw [8 x i8], ptr %.phi.trans.insert, i64 %.01532
   %.pre = load ptr, ptr %.phi.trans.insert33, align 8, !tbaa !4
   br label %lean_ensure_exclusive_array.exit.i21
 
@@ -60806,7 +60806,7 @@ lean_ensure_exclusive_array.exit.i21:             ; preds = %22, %lean_array_use
   %24 = phi ptr [ %.pre, %22 ], [ inttoptr (i64 1 to ptr), %lean_array_uset.exit ]
   %.0.i.i22 = phi ptr [ %23, %22 ], [ %.0.i.i, %lean_array_uset.exit ]
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i22, i64 24
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %.01532
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %.01532
   %27 = ptrtoint ptr %24 to i64
   %28 = trunc i64 %27 to i1
   br i1 %28, label %36, label %29
@@ -61186,7 +61186,7 @@ lean_alloc_ctor.exit173:                          ; preds = %lean_alloc_ctor.exi
 
 switch.lookup:                                    ; preds = %lean_alloc_ctor.exit173
   %126 = zext nneg i8 %13 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_toJsonCallHierarchyItem____x40_Lean_Data_Lsp_LanguageFeatures___hyg_6912_, i64 %126
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_toJsonCallHierarchyItem____x40_Lean_Data_Lsp_LanguageFeatures___hyg_6912_, i64 %126
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %127
 
@@ -65624,7 +65624,7 @@ lean_alloc_ctor.exit226:                          ; preds = %lean_alloc_ctor.exi
 
 switch.lookup:                                    ; preds = %lean_alloc_ctor.exit226
   %197 = zext nneg i8 %13 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_toJsonCallHierarchyItem____x40_Lean_Data_Lsp_LanguageFeatures___hyg_6912_, i64 %197
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_toJsonCallHierarchyItem____x40_Lean_Data_Lsp_LanguageFeatures___hyg_6912_, i64 %197
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %198
 
@@ -67157,7 +67157,7 @@ define ptr @l_Array_mapMUnsafe_map___at___private_Lean_Data_Lsp_LanguageFeatures
   %.03472 = phi i64 [ %93, %109 ], [ %1, %3 ]
   %.03771 = phi ptr [ %.0.i.i60, %109 ], [ %2, %3 ]
   %7 = getelementptr inbounds nuw i8, ptr %.03771, i64 24
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %.03472
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.03472
   %9 = load ptr, ptr %8, align 8, !tbaa !4
   %10 = ptrtoint ptr %9 to i64
   %11 = trunc i64 %10 to i1
@@ -67193,7 +67193,7 @@ lean_array_uget.exit:                             ; preds = %.lr.ph, %14, %16, %
 lean_ensure_exclusive_array.exit.i:               ; preds = %19, %lean_array_uget.exit
   %.0.i.i = phi ptr [ %20, %19 ], [ %.03771, %lean_array_uget.exit ]
   %21 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %.03472
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %.03472
   %23 = load ptr, ptr %22, align 8, !tbaa !4
   %24 = ptrtoint ptr %23 to i64
   %25 = trunc i64 %24 to i1
@@ -67383,7 +67383,7 @@ lean_dec.exit:                                    ; preds = %92, %91, %89, %lean
 lean_ensure_exclusive_array.exit.i59:             ; preds = %95, %lean_dec.exit
   %.0.i.i60 = phi ptr [ %96, %95 ], [ %.0.i.i, %lean_dec.exit ]
   %97 = getelementptr inbounds nuw i8, ptr %.0.i.i60, i64 24
-  %98 = getelementptr inbounds nuw ptr, ptr %97, i64 %.03472
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %97, i64 %.03472
   %99 = load ptr, ptr %98, align 8, !tbaa !4
   %100 = ptrtoint ptr %99 to i64
   %101 = trunc i64 %100 to i1
@@ -68367,7 +68367,7 @@ define ptr @l_Array_mapMUnsafe_map___at___private_Lean_Data_Lsp_LanguageFeatures
   %.01837 = phi i64 [ %31, %47 ], [ %1, %3 ]
   %.02036 = phi ptr [ %.0.i.i27, %47 ], [ %2, %3 ]
   %4 = getelementptr inbounds nuw i8, ptr %.02036, i64 24
-  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %.01837
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.01837
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = ptrtoint ptr %6 to i64
   %8 = trunc i64 %7 to i1
@@ -68403,7 +68403,7 @@ lean_array_uget.exit:                             ; preds = %.lr.ph, %11, %13, %
 lean_ensure_exclusive_array.exit.i:               ; preds = %16, %lean_array_uget.exit
   %.0.i.i = phi ptr [ %17, %16 ], [ %.02036, %lean_array_uget.exit ]
   %18 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %.01837
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %.01837
   %20 = load ptr, ptr %19, align 8, !tbaa !4
   %21 = ptrtoint ptr %20 to i64
   %22 = trunc i64 %21 to i1
@@ -68442,7 +68442,7 @@ lean_array_uset.exit:                             ; preds = %lean_ensure_exclusi
 lean_ensure_exclusive_array.exit.i26:             ; preds = %33, %lean_array_uset.exit
   %.0.i.i27 = phi ptr [ %34, %33 ], [ %.0.i.i, %lean_array_uset.exit ]
   %35 = getelementptr inbounds nuw i8, ptr %.0.i.i27, i64 24
-  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %.01837
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %.01837
   %37 = load ptr, ptr %36, align 8, !tbaa !4
   %38 = ptrtoint ptr %37 to i64
   %39 = trunc i64 %38 to i1
@@ -70064,7 +70064,7 @@ define ptr @l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_toJsonSemanti
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_toJsonSemanticTokenType____x40_Lean_Data_Lsp_LanguageFeatures___hyg_7920____boxed, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_toJsonSemanticTokenType____x40_Lean_Data_Lsp_LanguageFeatures___hyg_7920____boxed, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -70106,7 +70106,7 @@ lean_dec.exit:                                    ; preds = %12, %11, %9, %1
 
 switch.lookup:                                    ; preds = %lean_dec.exit
   %14 = and i64 %3, 31
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_toJsonSemanticTokenType____x40_Lean_Data_Lsp_LanguageFeatures___hyg_7920____boxed, i64 %14
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_toJsonSemanticTokenType____x40_Lean_Data_Lsp_LanguageFeatures___hyg_7920____boxed, i64 %14
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_toJsonSemanticTokenType____x40_Lean_Data_Lsp_LanguageFeatures___hyg_7920_.exit
 
@@ -75444,7 +75444,7 @@ define ptr @l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_toJsonSemanti
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_toJsonSemanticTokenModifier____x40_Lean_Data_Lsp_LanguageFeatures___hyg_9298____boxed, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_toJsonSemanticTokenModifier____x40_Lean_Data_Lsp_LanguageFeatures___hyg_9298____boxed, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -75486,7 +75486,7 @@ lean_dec.exit:                                    ; preds = %12, %11, %9, %1
 
 switch.lookup:                                    ; preds = %lean_dec.exit
   %14 = and i64 %3, 15
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_toJsonSemanticTokenModifier____x40_Lean_Data_Lsp_LanguageFeatures___hyg_9298____boxed, i64 %14
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_toJsonSemanticTokenModifier____x40_Lean_Data_Lsp_LanguageFeatures___hyg_9298____boxed, i64 %14
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_toJsonSemanticTokenModifier____x40_Lean_Data_Lsp_LanguageFeatures___hyg_9298_.exit
 
@@ -80349,7 +80349,7 @@ define ptr @l_Array_mapMUnsafe_map___at___private_Lean_Data_Lsp_LanguageFeatures
   %.03472 = phi i64 [ %93, %109 ], [ %1, %3 ]
   %.03771 = phi ptr [ %.0.i.i60, %109 ], [ %2, %3 ]
   %7 = getelementptr inbounds nuw i8, ptr %.03771, i64 24
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %.03472
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.03472
   %9 = load ptr, ptr %8, align 8, !tbaa !4
   %10 = ptrtoint ptr %9 to i64
   %11 = trunc i64 %10 to i1
@@ -80385,7 +80385,7 @@ lean_array_uget.exit:                             ; preds = %.lr.ph, %14, %16, %
 lean_ensure_exclusive_array.exit.i:               ; preds = %19, %lean_array_uget.exit
   %.0.i.i = phi ptr [ %20, %19 ], [ %.03771, %lean_array_uget.exit ]
   %21 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %.03472
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %.03472
   %23 = load ptr, ptr %22, align 8, !tbaa !4
   %24 = ptrtoint ptr %23 to i64
   %25 = trunc i64 %24 to i1
@@ -80575,7 +80575,7 @@ lean_dec.exit:                                    ; preds = %92, %91, %89, %lean
 lean_ensure_exclusive_array.exit.i59:             ; preds = %95, %lean_dec.exit
   %.0.i.i60 = phi ptr [ %96, %95 ], [ %.0.i.i, %lean_dec.exit ]
   %97 = getelementptr inbounds nuw i8, ptr %.0.i.i60, i64 24
-  %98 = getelementptr inbounds nuw ptr, ptr %97, i64 %.03472
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %97, i64 %.03472
   %99 = load ptr, ptr %98, align 8, !tbaa !4
   %100 = ptrtoint ptr %99 to i64
   %101 = trunc i64 %100 to i1
@@ -81556,7 +81556,7 @@ define ptr @l_Array_mapMUnsafe_map___at___private_Lean_Data_Lsp_LanguageFeatures
   %.02040 = phi i64 [ %36, %52 ], [ %1, %3 ]
   %.02239 = phi ptr [ %.0.i.i29, %52 ], [ %2, %3 ]
   %4 = getelementptr inbounds nuw i8, ptr %.02239, i64 24
-  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %.02040
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.02040
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = ptrtoint ptr %6 to i64
   %8 = trunc i64 %7 to i1
@@ -81592,7 +81592,7 @@ lean_array_uget.exit:                             ; preds = %.lr.ph, %11, %13, %
 lean_ensure_exclusive_array.exit.i:               ; preds = %16, %lean_array_uget.exit
   %.0.i.i = phi ptr [ %17, %16 ], [ %.02239, %lean_array_uget.exit ]
   %18 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %.02040
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %.02040
   %20 = load ptr, ptr %19, align 8, !tbaa !4
   %21 = ptrtoint ptr %20 to i64
   %22 = trunc i64 %21 to i1
@@ -81646,7 +81646,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_array_uset.exi
 lean_ensure_exclusive_array.exit.i28:             ; preds = %38, %lean_alloc_ctor.exit
   %.0.i.i29 = phi ptr [ %39, %38 ], [ %.0.i.i, %lean_alloc_ctor.exit ]
   %40 = getelementptr inbounds nuw i8, ptr %.0.i.i29, i64 24
-  %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %.02040
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %.02040
   %42 = load ptr, ptr %41, align 8, !tbaa !4
   %43 = ptrtoint ptr %42 to i64
   %44 = trunc i64 %43 to i1
@@ -91589,7 +91589,7 @@ define ptr @l_Array_mapMUnsafe_map___at_Lean_Lsp_instFromJsonInlayHintLabel___sp
   %.03472 = phi i64 [ %93, %109 ], [ %1, %3 ]
   %.03771 = phi ptr [ %.0.i.i60, %109 ], [ %2, %3 ]
   %7 = getelementptr inbounds nuw i8, ptr %.03771, i64 24
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %.03472
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.03472
   %9 = load ptr, ptr %8, align 8, !tbaa !4
   %10 = ptrtoint ptr %9 to i64
   %11 = trunc i64 %10 to i1
@@ -91625,7 +91625,7 @@ lean_array_uget.exit:                             ; preds = %.lr.ph, %14, %16, %
 lean_ensure_exclusive_array.exit.i:               ; preds = %19, %lean_array_uget.exit
   %.0.i.i = phi ptr [ %20, %19 ], [ %.03771, %lean_array_uget.exit ]
   %21 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %.03472
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %.03472
   %23 = load ptr, ptr %22, align 8, !tbaa !4
   %24 = ptrtoint ptr %23 to i64
   %25 = trunc i64 %24 to i1
@@ -91815,7 +91815,7 @@ lean_dec.exit:                                    ; preds = %92, %91, %89, %lean
 lean_ensure_exclusive_array.exit.i59:             ; preds = %95, %lean_dec.exit
   %.0.i.i60 = phi ptr [ %96, %95 ], [ %.0.i.i, %lean_dec.exit ]
   %97 = getelementptr inbounds nuw i8, ptr %.0.i.i60, i64 24
-  %98 = getelementptr inbounds nuw ptr, ptr %97, i64 %.03472
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %97, i64 %.03472
   %99 = load ptr, ptr %98, align 8, !tbaa !4
   %100 = ptrtoint ptr %99 to i64
   %101 = trunc i64 %100 to i1
@@ -93186,7 +93186,7 @@ define ptr @l_Array_mapMUnsafe_map___at_Lean_Lsp_instToJsonInlayHintLabel___spec
   %.01837 = phi i64 [ %31, %47 ], [ %1, %3 ]
   %.02036 = phi ptr [ %.0.i.i27, %47 ], [ %2, %3 ]
   %4 = getelementptr inbounds nuw i8, ptr %.02036, i64 24
-  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %.01837
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.01837
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = ptrtoint ptr %6 to i64
   %8 = trunc i64 %7 to i1
@@ -93222,7 +93222,7 @@ lean_array_uget.exit:                             ; preds = %.lr.ph, %11, %13, %
 lean_ensure_exclusive_array.exit.i:               ; preds = %16, %lean_array_uget.exit
   %.0.i.i = phi ptr [ %17, %16 ], [ %.02036, %lean_array_uget.exit ]
   %18 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %.01837
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %.01837
   %20 = load ptr, ptr %19, align 8, !tbaa !4
   %21 = ptrtoint ptr %20 to i64
   %22 = trunc i64 %21 to i1
@@ -93261,7 +93261,7 @@ lean_array_uset.exit:                             ; preds = %lean_ensure_exclusi
 lean_ensure_exclusive_array.exit.i26:             ; preds = %33, %lean_array_uset.exit
   %.0.i.i27 = phi ptr [ %34, %33 ], [ %.0.i.i, %lean_array_uset.exit ]
   %35 = getelementptr inbounds nuw i8, ptr %.0.i.i27, i64 24
-  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %.01837
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %.01837
   %37 = load ptr, ptr %36, align 8, !tbaa !4
   %38 = ptrtoint ptr %37 to i64
   %39 = trunc i64 %38 to i1

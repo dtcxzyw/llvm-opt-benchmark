@@ -14,8 +14,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.replDataBuf = type { ptr, i64, i64, i64, i64 }
 %struct.aclInfo = type { i64, i64, i64, i64 }
 %struct.redisTLSContextConfig = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32 }
-%struct.evictionPoolEntry = type { i64, ptr, ptr, i32, i32 }
-%struct.redisDb = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i64, i64, ptr }
 
 @server = external global %struct.redisServer, align 8
 @EvictionPoolLRU = internal unnamed_addr global ptr null, align 8
@@ -71,7 +69,7 @@ define dso_local void @evictionPoolAlloc() local_unnamed_addr #0 {
 
 2:                                                ; preds = %0, %2
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %2 ]
-  %3 = getelementptr inbounds nuw %struct.evictionPoolEntry, ptr %1, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %4 = tail call ptr @sdsnewlen(ptr noundef null, i64 noundef 255) #15
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -115,7 +113,7 @@ define dso_local i32 @evictionPoolPopulate(ptr noundef readonly captures(none) %
 
 17:                                               ; preds = %.lr.ph, %166
   %indvars.iv121 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next122, %166 ]
-  %18 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv121
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv121
   %19 = load ptr, ptr %18, align 8, !tbaa !46
   %20 = call ptr @dictGetKey(ptr noundef %19) #15
   %21 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7536), align 8, !tbaa !48
@@ -216,7 +214,7 @@ LFUDecrAndReturn.exit:                            ; preds = %46, %.thread.i
 
 67:                                               ; preds = %66, %74
   %indvars.iv = phi i64 [ 0, %66 ], [ %indvars.iv.next, %74 ]
-  %68 = getelementptr inbounds nuw %struct.evictionPoolEntry, ptr %2, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw [32 x i8], ptr %2, i64 %indvars.iv
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %70 = load ptr, ptr %69, align 8, !tbaa !53
   %.not89 = icmp eq ptr %70, null
@@ -244,7 +242,7 @@ LFUDecrAndReturn.exit:                            ; preds = %46, %.thread.i
 
 79:                                               ; preds = %77, %.critedge
   %80 = and i64 %indvars.iv, 4294967295
-  %81 = getelementptr inbounds nuw %struct.evictionPoolEntry, ptr %2, i64 %80
+  %81 = getelementptr inbounds nuw [32 x i8], ptr %2, i64 %80
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %83 = load ptr, ptr %82, align 8, !tbaa !53
   %84 = icmp eq ptr %83, null
@@ -259,7 +257,7 @@ LFUDecrAndReturn.exit:                            ; preds = %46, %.thread.i
 87:                                               ; preds = %.loopexit
   %88 = load ptr, ptr %15, align 8, !tbaa !38
   %89 = zext nneg i32 %.076116 to i64
-  %90 = getelementptr inbounds nuw %struct.evictionPoolEntry, ptr %2, i64 %89
+  %90 = getelementptr inbounds nuw [32 x i8], ptr %2, i64 %89
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 32
   %92 = sub nsw i32 15, %.076116
   %93 = sext i32 %92 to i64
@@ -288,7 +286,7 @@ LFUDecrAndReturn.exit:                            ; preds = %46, %.thread.i
   %103 = phi i64 [ %101, %100 ], [ %89, %87 ]
   %.sink = phi ptr [ %97, %100 ], [ %88, %87 ]
   %.1.ph = phi i32 [ %96, %100 ], [ %.076116, %87 ]
-  %104 = getelementptr inbounds %struct.evictionPoolEntry, ptr %2, i64 %103
+  %104 = getelementptr inbounds [32 x i8], ptr %2, i64 %103
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 16
   store ptr %.sink, ptr %105, align 8, !tbaa !38
   br label %106
@@ -349,7 +347,7 @@ sdslen.exit:                                      ; preds = %111, %114, %118, %1
 sdslen.exit.thread:                               ; preds = %106, %sdslen.exit
   %.0.i9496 = phi i64 [ %.0.i94, %sdslen.exit ], [ 0, %106 ]
   %134 = sext i32 %.1 to i64
-  %135 = getelementptr inbounds %struct.evictionPoolEntry, ptr %2, i64 %134
+  %135 = getelementptr inbounds [32 x i8], ptr %2, i64 %134
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 16
   %137 = load ptr, ptr %136, align 8, !tbaa !38
   %138 = shl i64 %.0.i9496, 32
@@ -405,10 +403,10 @@ sdssetlen.exit:                                   ; preds = %sdslen.exit.thread,
 159:                                              ; preds = %sdssetlen.exit, %131
   %.sink132 = phi ptr [ %158, %sdssetlen.exit ], [ %132, %131 ]
   %.pre-phi = phi i64 [ %134, %sdssetlen.exit ], [ %133, %131 ]
-  %160 = getelementptr inbounds %struct.evictionPoolEntry, ptr %2, i64 %.pre-phi
+  %160 = getelementptr inbounds [32 x i8], ptr %2, i64 %.pre-phi
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 8
   store ptr %.sink132, ptr %161, align 8, !tbaa !53
-  %162 = getelementptr inbounds %struct.evictionPoolEntry, ptr %2, i64 %.pre-phi
+  %162 = getelementptr inbounds [32 x i8], ptr %2, i64 %.pre-phi
   store i64 %.077, ptr %162, align 8, !tbaa !54
   %163 = load i32, ptr %16, align 8, !tbaa !61
   %164 = getelementptr inbounds nuw i8, ptr %162, i64 24
@@ -935,7 +933,7 @@ evictionTimeLimitUs.exit:                         ; preds = %47, %49, %50
   %indvars.iv = phi i64 [ %indvars.iv.next, %.loopexit ], [ 0, %.preheader261 ]
   %.0107275 = phi i64 [ %.1108, %.loopexit ], [ 0, %.preheader261 ]
   %76 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 64), align 8, !tbaa !85
-  %77 = getelementptr inbounds nuw %struct.redisDb, ptr %76, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw [88 x i8], ptr %76, i64 %indvars.iv
   %78 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7536), align 8, !tbaa !48
   %79 = and i32 %78, 4
   %.not161 = icmp eq i32 %79, 0
@@ -985,7 +983,7 @@ evictionTimeLimitUs.exit:                         ; preds = %47, %49, %50
 .preheader:                                       ; preds = %._crit_edge, %.thread
   %indvars.iv301 = phi i64 [ %indvars.iv.next302, %.thread ], [ 15, %._crit_edge ]
   %.4115278 = phi i32 [ %.6, %.thread ], [ %.1112279, %._crit_edge ]
-  %99 = getelementptr inbounds nuw %struct.evictionPoolEntry, ptr %73, i64 %indvars.iv301
+  %99 = getelementptr inbounds nuw [32 x i8], ptr %73, i64 %indvars.iv301
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 8
   %101 = load ptr, ptr %100, align 8, !tbaa !53
   %102 = icmp eq ptr %101, null
@@ -999,7 +997,7 @@ evictionTimeLimitUs.exit:                         ; preds = %47, %49, %50
   %.not147 = icmp eq i32 %107, 0
   %108 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 64), align 8
   %109 = sext i32 %105 to i64
-  %110 = getelementptr inbounds %struct.redisDb, ptr %108, i64 %109
+  %110 = getelementptr inbounds [88 x i8], ptr %108, i64 %109
   %.099.in.idx = select i1 %.not147, i64 8, i64 0
   %.099.in = getelementptr inbounds nuw i8, ptr %110, i64 %.099.in.idx
   %.099 = load ptr, ptr %.099.in, align 8, !tbaa !86
@@ -1063,7 +1061,7 @@ evictionTimeLimitUs.exit:                         ; preds = %47, %49, %50
   %133 = urem i32 %132, %130
   %134 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 64), align 8, !tbaa !85
   %135 = sext i32 %133 to i64
-  %136 = getelementptr inbounds %struct.redisDb, ptr %134, i64 %135
+  %136 = getelementptr inbounds [88 x i8], ptr %134, i64 %135
   %137 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7536), align 8, !tbaa !48
   %138 = icmp eq i32 %137, 1540
   %.098.in.idx = select i1 %138, i64 0, i64 8
@@ -1089,7 +1087,7 @@ evictionTimeLimitUs.exit:                         ; preds = %47, %49, %50
   %.7123233 = phi ptr [ %.2118, %.thread229.loopexit ], [ %142, %141 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %143 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 64), align 8, !tbaa !85
-  %144 = getelementptr inbounds %struct.redisDb, ptr %143, i64 %.pre-phi
+  %144 = getelementptr inbounds [88 x i8], ptr %143, i64 %.pre-phi
   call void @enterExecutionUnit(i32 noundef 1, i64 noundef 0) #15
   %145 = getelementptr inbounds i8, ptr %.7123233, i64 -1
   %146 = load i8, ptr %145, align 1, !tbaa !56

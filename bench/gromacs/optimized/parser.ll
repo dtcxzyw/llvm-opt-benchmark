@@ -33,7 +33,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon.12 = type { i64, [8 x i8] }
 %"class.gmx::SelectionParserValue" = type <{ i32, [4 x i8], %"class.std::shared_ptr", %"class.std::__cxx11::basic_string", %union.anon.29, %"struct.gmx::SelectionLocation", [4 x i8] }>
 %union.anon.29 = type { [3 x float] }
-%union.yyalloc = type { %union.YYSTYPE }
 %"class.gmx::InvalidInputError" = type { %"class.gmx::UserInputError" }
 %"class.gmx::UserInputError" = type { %"class.gmx::GromacsException" }
 %"class.gmx::GromacsException" = type { %"class.std::exception", %"class.std::shared_ptr.34" }
@@ -465,7 +464,7 @@ define noundef range(i32 0, 5) i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstat
   %163 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %164 = load i32, ptr %163, align 4, !tbaa !15
   %165 = sext i32 %164 to i64
-  %166 = getelementptr inbounds i16, ptr @_ZL6yypact, i64 %165
+  %166 = getelementptr inbounds [2 x i8], ptr @_ZL6yypact, i64 %165
   %167 = load i16, ptr %166, align 2, !tbaa !16
   %168 = sext i16 %167 to i32
   br label %278
@@ -532,7 +531,7 @@ define noundef range(i32 0, 5) i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstat
   %202 = load ptr, ptr %201, align 8, !tbaa !13
   %203 = getelementptr inbounds nuw i8, ptr %0, i64 3688
   %204 = load i64, ptr %203, align 8, !tbaa !23
-  %205 = getelementptr inbounds nuw i16, ptr %202, i64 %204
+  %205 = getelementptr inbounds nuw [2 x i8], ptr %202, i64 %204
   %206 = getelementptr inbounds i8, ptr %205, i64 -2
   %.not1019 = icmp ugt ptr %206, %195
   br i1 %.not1019, label %.thread1470, label %207
@@ -563,13 +562,13 @@ define noundef range(i32 0, 5) i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstat
   %221 = shl nuw nsw i64 %215, 2
   %222 = add nuw nsw i64 %221, 4
   %223 = lshr i64 %222, 3
-  %224 = getelementptr inbounds nuw %union.yyalloc, ptr %218, i64 %223
+  %224 = getelementptr inbounds nuw [8 x i8], ptr %218, i64 %223
   %225 = getelementptr inbounds nuw i8, ptr %0, i64 2032
   %226 = load ptr, ptr %225, align 8, !tbaa !19
   %227 = shl i64 %212, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %224, ptr align 8 %226, i64 %227, i1 false)
   store ptr %224, ptr %225, align 8, !tbaa !19
-  %228 = getelementptr inbounds nuw %union.yyalloc, ptr %224, i64 %spec.select
+  %228 = getelementptr inbounds nuw [8 x i8], ptr %224, i64 %spec.select
   %229 = getelementptr inbounds nuw i8, ptr %0, i64 3648
   %230 = load ptr, ptr %229, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %228, ptr align 4 %230, i64 %227, i1 false)
@@ -591,14 +590,14 @@ define noundef range(i32 0, 5) i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstat
   %234 = phi ptr [ %228, %219 ], [ %.pre1545, %232 ]
   %235 = phi ptr [ %224, %219 ], [ %.pre1544, %232 ]
   %236 = phi ptr [ %218, %219 ], [ %.pre1543, %232 ]
-  %237 = getelementptr inbounds nuw i16, ptr %236, i64 %212
+  %237 = getelementptr inbounds nuw [2 x i8], ptr %236, i64 %212
   %238 = getelementptr inbounds i8, ptr %237, i64 -2
   store ptr %238, ptr %200, align 8, !tbaa !18
-  %239 = getelementptr inbounds nuw %union.YYSTYPE, ptr %235, i64 %212
+  %239 = getelementptr inbounds nuw [8 x i8], ptr %235, i64 %212
   %240 = getelementptr inbounds i8, ptr %239, i64 -8
   %241 = getelementptr inbounds nuw i8, ptr %0, i64 2040
   store ptr %240, ptr %241, align 8, !tbaa !20
-  %242 = getelementptr inbounds nuw %"struct.gmx::SelectionLocation", ptr %234, i64 %212
+  %242 = getelementptr inbounds nuw [8 x i8], ptr %234, i64 %212
   %243 = getelementptr inbounds i8, ptr %242, i64 -8
   %244 = getelementptr inbounds nuw i8, ptr %0, i64 3656
   store ptr %243, ptr %244, align 8, !tbaa !22
@@ -618,7 +617,7 @@ define noundef range(i32 0, 5) i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstat
   %250 = phi ptr [ %.pre1549, %246 ], [ %238, %233 ]
   %251 = phi i64 [ %.pre1547, %246 ], [ %.pre1548, %233 ]
   %252 = phi ptr [ %.pre1546, %246 ], [ %236, %233 ]
-  %253 = getelementptr inbounds nuw i16, ptr %252, i64 %251
+  %253 = getelementptr inbounds nuw [2 x i8], ptr %252, i64 %251
   %254 = getelementptr inbounds i8, ptr %253, i64 -2
   %.not1023 = icmp ugt ptr %254, %250
   br i1 %.not1023, label %..thread1470_crit_edge, label %.loopexit
@@ -646,7 +645,7 @@ define noundef range(i32 0, 5) i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstat
 
 262:                                              ; preds = %259
   %263 = sext i32 %260 to i64
-  %264 = getelementptr inbounds i16, ptr @_ZL6yypact, i64 %263
+  %264 = getelementptr inbounds [2 x i8], ptr @_ZL6yypact, i64 %263
   %265 = load i16, ptr %264, align 2, !tbaa !16
   %266 = sext i16 %265 to i32
   %267 = icmp eq i16 %265, -85
@@ -747,7 +746,7 @@ define noundef range(i32 0, 5) i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstat
   %313 = icmp samesign ult i32 %307, 49
   %.str.18..str.19.i = select i1 %313, ptr @.str.18, ptr @.str.19
   %314 = zext nneg i32 %307 to i64
-  %315 = getelementptr inbounds nuw ptr, ptr @_ZL7yytname, i64 %314
+  %315 = getelementptr inbounds nuw [8 x i8], ptr @_ZL7yytname, i64 %314
   %316 = load ptr, ptr %315, align 8, !tbaa !29
   %317 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %312, ptr noundef nonnull @.str.17, ptr noundef nonnull %.str.18..str.19.i, ptr noundef %316) #30
   %318 = call i64 @fwrite(ptr nonnull @.str.20, i64 2, i64 1, ptr %312) #29
@@ -765,14 +764,14 @@ define noundef range(i32 0, 5) i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstat
 
 322:                                              ; preds = %320
   %323 = zext nneg i32 %321 to i64
-  %324 = getelementptr inbounds nuw i16, ptr @_ZL7yycheck, i64 %323
+  %324 = getelementptr inbounds nuw [2 x i8], ptr @_ZL7yycheck, i64 %323
   %325 = load i16, ptr %324, align 2, !tbaa !16
   %326 = sext i16 %325 to i32
   %.not1032 = icmp eq i32 %.0762, %326
   br i1 %.not1032, label %327, label %361
 
 327:                                              ; preds = %322
-  %328 = getelementptr inbounds nuw i16, ptr @_ZL7yytable, i64 %323
+  %328 = getelementptr inbounds nuw [2 x i8], ptr @_ZL7yytable, i64 %323
   %329 = load i16, ptr %328, align 2, !tbaa !16
   %330 = sext i16 %329 to i32
   %331 = icmp slt i16 %329, 1
@@ -805,7 +804,7 @@ define noundef range(i32 0, 5) i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstat
   %345 = icmp samesign ult i32 %.0762, 49
   %.str.18..str.19.i1381 = select i1 %345, ptr @.str.18, ptr @.str.19
   %346 = zext nneg i32 %.0762 to i64
-  %347 = getelementptr inbounds nuw ptr, ptr @_ZL7yytname, i64 %346
+  %347 = getelementptr inbounds nuw [8 x i8], ptr @_ZL7yytname, i64 %346
   %348 = load ptr, ptr %347, align 8, !tbaa !29
   %349 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %344, ptr noundef nonnull @.str.17, ptr noundef nonnull %.str.18..str.19.i1381, ptr noundef %348) #30
   %350 = call i64 @fwrite(ptr nonnull @.str.20, i64 2, i64 1, ptr %344) #29
@@ -854,7 +853,7 @@ define noundef range(i32 0, 5) i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstat
   %377 = load ptr, ptr %376, align 8, !tbaa !20
   %378 = sub nsw i32 1, %375
   %379 = sext i32 %378 to i64
-  %380 = getelementptr inbounds %union.YYSTYPE, ptr %377, i64 %379
+  %380 = getelementptr inbounds [8 x i8], ptr %377, i64 %379
   %381 = load i64, ptr %380, align 8, !tbaa !14
   store i64 %381, ptr %8, align 8, !tbaa !14
   %.not1036 = icmp eq i8 %374, 0
@@ -865,7 +864,7 @@ define noundef range(i32 0, 5) i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstat
 384:                                              ; preds = %370
   %385 = zext i8 %374 to i64
   %386 = sub nsw i64 0, %385
-  %387 = getelementptr inbounds %"struct.gmx::SelectionLocation", ptr %383, i64 %386
+  %387 = getelementptr inbounds [8 x i8], ptr %383, i64 %386
   %388 = getelementptr inbounds nuw i8, ptr %387, i64 8
   %389 = load i32, ptr %388, align 4, !tbaa !31
   %390 = getelementptr inbounds nuw i8, ptr %383, i64 4
@@ -6978,7 +6977,7 @@ _ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeEle
   %2592 = icmp eq i32 %.2759, 0
   %.str.18..str.19.i1464 = select i1 %2592, ptr @.str.18, ptr @.str.19
   %2593 = zext i8 %2591 to i64
-  %2594 = getelementptr inbounds nuw ptr, ptr @_ZL7yytname, i64 %2593
+  %2594 = getelementptr inbounds nuw [8 x i8], ptr @_ZL7yytname, i64 %2593
   %2595 = load ptr, ptr %2594, align 8, !tbaa !29
   %2596 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2589, ptr noundef nonnull @.str.17, ptr noundef nonnull %.str.18..str.19.i1464, ptr noundef %2595) #30
   %2597 = call i64 @fwrite(ptr nonnull @.str.20, i64 2, i64 1, ptr %2589) #29
@@ -6994,15 +6993,15 @@ _ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeEle
   %2601 = load ptr, ptr %376, align 8, !tbaa !20
   %2602 = zext i8 %374 to i64
   %2603 = sub nsw i64 0, %2602
-  %2604 = getelementptr inbounds %union.YYSTYPE, ptr %2601, i64 %2603
+  %2604 = getelementptr inbounds [8 x i8], ptr %2601, i64 %2603
   store ptr %2604, ptr %376, align 8, !tbaa !20
   %2605 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %2606 = load ptr, ptr %2605, align 8, !tbaa !18
-  %2607 = getelementptr inbounds i16, ptr %2606, i64 %2603
+  %2607 = getelementptr inbounds [2 x i8], ptr %2606, i64 %2603
   store ptr %2607, ptr %2605, align 8, !tbaa !18
   %2608 = getelementptr inbounds nuw i8, ptr %0, i64 3656
   %2609 = load ptr, ptr %2608, align 8, !tbaa !22
-  %2610 = getelementptr inbounds %"struct.gmx::SelectionLocation", ptr %2609, i64 %2603
+  %2610 = getelementptr inbounds [8 x i8], ptr %2609, i64 %2603
   store ptr %2610, ptr %2608, align 8, !tbaa !22
   br i1 %.not1227, label %2614, label %2611
 
@@ -7042,20 +7041,20 @@ _ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeEle
 
 2633:                                             ; preds = %2614
   %2634 = zext nneg i32 %2631 to i64
-  %2635 = getelementptr inbounds nuw i16, ptr @_ZL7yycheck, i64 %2634
+  %2635 = getelementptr inbounds nuw [2 x i8], ptr @_ZL7yycheck, i64 %2634
   %2636 = load i16, ptr %2635, align 2, !tbaa !16
   %2637 = icmp eq i16 %2636, %2629
   br i1 %2637, label %2638, label %2642
 
 2638:                                             ; preds = %2633
-  %2639 = getelementptr inbounds nuw i16, ptr @_ZL7yytable, i64 %2634
+  %2639 = getelementptr inbounds nuw [2 x i8], ptr @_ZL7yytable, i64 %2634
   %2640 = load i16, ptr %2639, align 2, !tbaa !16
   %2641 = sext i16 %2640 to i32
   store i32 %2641, ptr %2632, align 4, !tbaa !15
   br label %189
 
 2642:                                             ; preds = %2633, %2614
-  %2643 = getelementptr inbounds i16, ptr @_ZL9yydefgoto, i64 %2624
+  %2643 = getelementptr inbounds [2 x i8], ptr @_ZL9yydefgoto, i64 %2624
   %2644 = load i16, ptr %2643, align 2, !tbaa !16
   %2645 = sext i16 %2644 to i32
   store i32 %2645, ptr %2632, align 4, !tbaa !15
@@ -7130,20 +7129,20 @@ _ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeEle
 2672:                                             ; preds = %.critedge1530, %.critedge, %1945, %1837, %1529, %1496, %1456, %1317, %1277, %1237, %1195, %1162, %1071, %2578, %2553, %2527, %2499, %2478, %2455, %2429, %2405, %2381, %2357, %2333, %2298, %2263, %2229, %2194, %2159, %2128, %2101, %2066, %2035, %2005, %1975, %1944, %1907, %1868, %1836, %1805, %1751, %1714, %1684, %1647, %1610, %1573, %1536, %1495, %1455, %1424, %1374, %1324, %1284, %1244, %1202, %1161, %1123, %1097, %1070, %1022, %961, %900, %824, %778, %742, %710, %678, %646, %614, %584, %548, %512, %1893, %807, %764
   %2673 = getelementptr inbounds nuw i8, ptr %0, i64 3656
   %2674 = load ptr, ptr %2673, align 8, !tbaa !22
-  %2675 = getelementptr inbounds %"struct.gmx::SelectionLocation", ptr %2674, i64 %379
+  %2675 = getelementptr inbounds [8 x i8], ptr %2674, i64 %379
   %2676 = getelementptr inbounds nuw i8, ptr %0, i64 3672
   %2677 = load i64, ptr %2675, align 4
   store i64 %2677, ptr %2676, align 8
   %2678 = load ptr, ptr %376, align 8, !tbaa !20
   %2679 = zext i8 %374 to i64
   %2680 = sub nsw i64 0, %2679
-  %2681 = getelementptr inbounds %union.YYSTYPE, ptr %2678, i64 %2680
+  %2681 = getelementptr inbounds [8 x i8], ptr %2678, i64 %2680
   store ptr %2681, ptr %376, align 8, !tbaa !20
   %2682 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %2683 = load ptr, ptr %2682, align 8, !tbaa !18
-  %2684 = getelementptr inbounds i16, ptr %2683, i64 %2680
+  %2684 = getelementptr inbounds [2 x i8], ptr %2683, i64 %2680
   store ptr %2684, ptr %2682, align 8, !tbaa !18
-  %2685 = getelementptr inbounds %"struct.gmx::SelectionLocation", ptr %2674, i64 %2680
+  %2685 = getelementptr inbounds [8 x i8], ptr %2674, i64 %2680
   store ptr %2685, ptr %2673, align 8, !tbaa !22
   %2686 = load i32, ptr @_gmx_sel_yydebug, align 4, !tbaa !24
   %.not1218 = icmp eq i32 %2686, 0
@@ -7180,7 +7179,7 @@ _ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeEle
 2704:                                             ; preds = %.backedge, %2695
   %2705 = load i32, ptr %2698, align 4, !tbaa !15
   %2706 = sext i32 %2705 to i64
-  %2707 = getelementptr inbounds i16, ptr @_ZL6yypact, i64 %2706
+  %2707 = getelementptr inbounds [2 x i8], ptr @_ZL6yypact, i64 %2706
   %2708 = load i16, ptr %2707, align 2, !tbaa !16
   %2709 = icmp sgt i16 %2708, -2
   br i1 %2709, label %2710, label %2720
@@ -7188,13 +7187,13 @@ _ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeEle
 2710:                                             ; preds = %2704
   %2711 = sext i16 %2708 to i64
   %2712 = add nsw i64 %2711, 1
-  %2713 = getelementptr inbounds nuw i16, ptr @_ZL7yycheck, i64 %2712
+  %2713 = getelementptr inbounds nuw [2 x i8], ptr @_ZL7yycheck, i64 %2712
   %2714 = load i16, ptr %2713, align 2, !tbaa !16
   %2715 = icmp eq i16 %2714, 1
   br i1 %2715, label %2716, label %2720
 
 2716:                                             ; preds = %2710
-  %2717 = getelementptr inbounds nuw i16, ptr @_ZL7yytable, i64 %2712
+  %2717 = getelementptr inbounds nuw [2 x i8], ptr @_ZL7yytable, i64 %2712
   %2718 = load i16, ptr %2717, align 2, !tbaa !16
   %2719 = icmp sgt i16 %2718, 0
   br i1 %2719, label %2742, label %2720
@@ -7319,15 +7318,15 @@ _ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeEle
   %2777 = load ptr, ptr %2776, align 8, !tbaa !20
   %narrow = sub nsw i32 0, %.87711500
   %2778 = sext i32 %narrow to i64
-  %2779 = getelementptr inbounds %union.YYSTYPE, ptr %2777, i64 %2778
+  %2779 = getelementptr inbounds [8 x i8], ptr %2777, i64 %2778
   store ptr %2779, ptr %2776, align 8, !tbaa !20
   %2780 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %2781 = load ptr, ptr %2780, align 8, !tbaa !18
-  %2782 = getelementptr inbounds i16, ptr %2781, i64 %2778
+  %2782 = getelementptr inbounds [2 x i8], ptr %2781, i64 %2778
   store ptr %2782, ptr %2780, align 8, !tbaa !18
   %2783 = getelementptr inbounds nuw i8, ptr %0, i64 3656
   %2784 = load ptr, ptr %2783, align 8, !tbaa !22
-  %2785 = getelementptr inbounds %"struct.gmx::SelectionLocation", ptr %2784, i64 %2778
+  %2785 = getelementptr inbounds [8 x i8], ptr %2784, i64 %2778
   store ptr %2785, ptr %2783, align 8, !tbaa !22
   %2786 = load i32, ptr @_gmx_sel_yydebug, align 4, !tbaa !24
   %.not1233 = icmp eq i32 %2786, 0
@@ -7425,7 +7424,7 @@ define internal fastcc void @_ZL15yy_symbol_printP8_IO_FILEiPK7YYSTYPEPKN3gmx17S
   %3 = icmp slt i32 %1, 49
   %.str.18..str.19 = select i1 %3, ptr @.str.18, ptr @.str.19
   %4 = sext i32 %1 to i64
-  %5 = getelementptr inbounds ptr, ptr @_ZL7yytname, i64 %4
+  %5 = getelementptr inbounds [8 x i8], ptr @_ZL7yytname, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !29
   %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.17, ptr noundef nonnull %.str.18..str.19, ptr noundef %6) #28
   %8 = tail call i64 @fwrite(ptr nonnull @.str.20, i64 2, i64 1, ptr %0)
@@ -7438,7 +7437,7 @@ declare void @_Z35_gmx_sel_lexer_set_current_locationPvRKN3gmx17SelectionLocatio
 ; Function Attrs: cold mustprogress nofree nounwind uwtable
 define internal fastcc void @_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv(ptr noundef readonly captures(none) %0, i32 noundef range(i32 0, 32769) %1) unnamed_addr #9 {
   %3 = zext nneg i32 %1 to i64
-  %4 = getelementptr inbounds nuw i16, ptr @_ZL7yyrline, i64 %3
+  %4 = getelementptr inbounds nuw [2 x i8], ptr @_ZL7yyrline, i64 %3
   %5 = load i16, ptr %4, align 2, !tbaa !16
   %6 = zext i16 %5 to i64
   %7 = getelementptr inbounds nuw i8, ptr @_ZL4yyr2, i64 %3
@@ -7462,7 +7461,7 @@ define internal fastcc void @_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLoc
   %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.97, i32 noundef %14) #30
   %16 = load ptr, ptr @stderr, align 8, !tbaa !25
   %17 = sub nsw i64 %indvars.iv.next, %12
-  %18 = getelementptr inbounds i16, ptr %0, i64 %17
+  %18 = getelementptr inbounds [2 x i8], ptr %0, i64 %17
   %19 = load i16, ptr %18, align 2, !tbaa !16
   %20 = sext i16 %19 to i64
   %21 = getelementptr inbounds i8, ptr @_ZL6yystos, i64 %20
@@ -7470,7 +7469,7 @@ define internal fastcc void @_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLoc
   %23 = icmp ult i8 %22, 49
   %.str.18..str.19.i = select i1 %23, ptr @.str.18, ptr @.str.19
   %24 = zext i8 %22 to i64
-  %25 = getelementptr inbounds nuw ptr, ptr @_ZL7yytname, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr @_ZL7yytname, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !29
   %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.17, ptr noundef nonnull %.str.18..str.19.i, ptr noundef %26) #30
   %28 = tail call i64 @fwrite(ptr nonnull @.str.20, i64 2, i64 1, ptr %16) #29
@@ -8951,7 +8950,7 @@ define internal fastcc void @_ZL10yydestructPKciP7YYSTYPEPN3gmx17SelectionLocati
   %9 = icmp slt i32 %1, 49
   %.str.18..str.19.i = select i1 %9, ptr @.str.18, ptr @.str.19
   %10 = sext i32 %1 to i64
-  %11 = getelementptr inbounds ptr, ptr @_ZL7yytname, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr @_ZL7yytname, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !29
   %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.17, ptr noundef nonnull %.str.18..str.19.i, ptr noundef %12) #30
   %14 = tail call i64 @fwrite(ptr nonnull @.str.20, i64 2, i64 1, ptr %8) #29

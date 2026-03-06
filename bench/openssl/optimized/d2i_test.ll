@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.options_st = type { ptr, i32, i32, ptr }
-%struct.error_enum = type { ptr, i32 }
 
 @test_get_options.options = internal constant [9 x %struct.options_st] [%struct.options_st { ptr @OPT_HELP_STR, i32 1, i32 45, ptr @.str }, %struct.options_st { ptr @OPT_HELP_STR, i32 1, i32 45, ptr @.str.1 }, %struct.options_st { ptr @.str.2, i32 500, i32 45, ptr @.str.3 }, %struct.options_st { ptr @.str.4, i32 501, i32 45, ptr @.str.5 }, %struct.options_st { ptr @.str.6, i32 502, i32 115, ptr @.str.7 }, %struct.options_st { ptr @.str.8, i32 503, i32 110, ptr @.str.9 }, %struct.options_st { ptr @.str.10, i32 504, i32 112, ptr @.str.11 }, %struct.options_st { ptr @.str.12, i32 505, i32 110, ptr @.str.13 }, %struct.options_st zeroinitializer], align 16
 @OPT_HELP_STR = external constant [0 x i8], align 1
@@ -118,7 +117,7 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
 
 .preheader:                                       ; preds = %12, %24
   %.120 = phi i64 [ %25, %24 ], [ 0, %12 ]
-  %26 = getelementptr inbounds nuw %struct.error_enum, ptr @setup_tests.expected_errors, i64 %.120
+  %26 = getelementptr inbounds nuw [16 x i8], ptr @setup_tests.expected_errors, i64 %.120
   %27 = load ptr, ptr %26, align 16, !tbaa !17
   %28 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull dereferenceable(1) %7) #7
   %29 = icmp eq i32 %28, 0

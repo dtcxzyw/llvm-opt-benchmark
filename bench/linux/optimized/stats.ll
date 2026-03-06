@@ -28,7 +28,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_ethtool_aggr
 %struct.ethtool_rmon_stats = type { i32, %union.anon.41 }
 %union.anon.41 = type { %struct.anon.42 }
 %struct.anon.42 = type { i64, i64, i64, i64, [10 x i64], [10 x i64] }
-%struct.ethtool_rmon_hist_range = type { i16, i16 }
 
 @stats_std_names = dso_local constant [4 x [32 x i8]] [[32 x i8] c"eth-phy\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00", [32 x i8] c"eth-mac\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00", [32 x i8] c"eth-ctrl\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00", [32 x i8] c"rmon\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00"], align 16
 @stats_eth_phy_names = dso_local local_unnamed_addr constant [1 x [32 x i8]] [[32 x i8] c"SymbolErrorDuringCarrier\00\00\00\00\00\00\00\00"], align 16
@@ -409,16 +408,16 @@ define dso_local void @ethtool_aggregate_mac_stats(ptr noundef %0, ptr noundef w
 
 13:                                               ; preds = %13, %2
   %14 = phi i64 [ %25, %13 ], [ 0, %2 ]
-  %15 = getelementptr i64, ptr %10, i64 %14
+  %15 = getelementptr [8 x i8], ptr %10, i64 %14
   %16 = load i64, ptr %15, align 8
-  %17 = getelementptr i64, ptr %11, i64 %14
+  %17 = getelementptr [8 x i8], ptr %11, i64 %14
   %18 = load i64, ptr %17, align 8
   %19 = icmp eq i64 %16, -1
   %20 = icmp eq i64 %18, -1
   %21 = select i1 %20, i64 0, i64 %18
   %22 = add i64 %21, %16
   %23 = select i1 %19, i64 %18, i64 %22
-  %24 = getelementptr i64, ptr %12, i64 %14
+  %24 = getelementptr [8 x i8], ptr %12, i64 %14
   store i64 %23, ptr %24, align 8
   %25 = add nuw nsw i64 %14, 1
   %26 = icmp eq i64 %25, 22
@@ -490,16 +489,16 @@ define dso_local void @ethtool_aggregate_ctrl_stats(ptr noundef %0, ptr noundef 
 
 13:                                               ; preds = %13, %2
   %14 = phi i64 [ %25, %13 ], [ 0, %2 ]
-  %15 = getelementptr i64, ptr %10, i64 %14
+  %15 = getelementptr [8 x i8], ptr %10, i64 %14
   %16 = load i64, ptr %15, align 8
-  %17 = getelementptr i64, ptr %11, i64 %14
+  %17 = getelementptr [8 x i8], ptr %11, i64 %14
   %18 = load i64, ptr %17, align 8
   %19 = icmp eq i64 %16, -1
   %20 = icmp eq i64 %18, -1
   %21 = select i1 %20, i64 0, i64 %18
   %22 = add i64 %21, %16
   %23 = select i1 %19, i64 %18, i64 %22
-  %24 = getelementptr i64, ptr %12, i64 %14
+  %24 = getelementptr [8 x i8], ptr %12, i64 %14
   store i64 %23, ptr %24, align 8
   %25 = add nuw nsw i64 %14, 1
   %26 = icmp eq i64 %25, 3
@@ -535,16 +534,16 @@ define dso_local void @ethtool_aggregate_pause_stats(ptr noundef %0, ptr noundef
 
 13:                                               ; preds = %13, %2
   %14 = phi i64 [ %25, %13 ], [ 0, %2 ]
-  %15 = getelementptr i64, ptr %10, i64 %14
+  %15 = getelementptr [8 x i8], ptr %10, i64 %14
   %16 = load i64, ptr %15, align 8
-  %17 = getelementptr i64, ptr %11, i64 %14
+  %17 = getelementptr [8 x i8], ptr %11, i64 %14
   %18 = load i64, ptr %17, align 8
   %19 = icmp eq i64 %16, -1
   %20 = icmp eq i64 %18, -1
   %21 = select i1 %20, i64 0, i64 %18
   %22 = add i64 %21, %16
   %23 = select i1 %19, i64 %18, i64 %22
-  %24 = getelementptr i64, ptr %12, i64 %14
+  %24 = getelementptr [8 x i8], ptr %12, i64 %14
   store i64 %23, ptr %24, align 8
   %25 = add nuw nsw i64 %14, 1
   %26 = icmp eq i64 %25, 2
@@ -583,16 +582,16 @@ define dso_local void @ethtool_aggregate_rmon_stats(ptr noundef %0, ptr noundef 
 
 14:                                               ; preds = %14, %2
   %15 = phi i64 [ %26, %14 ], [ 0, %2 ]
-  %16 = getelementptr i64, ptr %11, i64 %15
+  %16 = getelementptr [8 x i8], ptr %11, i64 %15
   %17 = load i64, ptr %16, align 8
-  %18 = getelementptr i64, ptr %12, i64 %15
+  %18 = getelementptr [8 x i8], ptr %12, i64 %15
   %19 = load i64, ptr %18, align 8
   %20 = icmp eq i64 %17, -1
   %21 = icmp eq i64 %19, -1
   %22 = select i1 %21, i64 0, i64 %19
   %23 = add i64 %22, %17
   %24 = select i1 %20, i64 %19, i64 %23
-  %25 = getelementptr i64, ptr %13, i64 %15
+  %25 = getelementptr [8 x i8], ptr %13, i64 %15
   store i64 %24, ptr %25, align 8
   %26 = add nuw nsw i64 %15, 1
   %27 = icmp eq i64 %26, 24
@@ -1027,7 +1026,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @stats_put_rmon_hist(ptr no
 
 13:                                               ; preds = %59, %9
   %14 = phi i64 [ 0, %9 ], [ %60, %59 ]
-  %15 = getelementptr %struct.ethtool_rmon_hist_range, ptr %3, i64 %14
+  %15 = getelementptr [4 x i8], ptr %3, i64 %14
   %16 = load i16, ptr %15, align 2
   %17 = icmp eq i16 %16, 0
   br i1 %17, label %18, label %22
@@ -1039,7 +1038,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @stats_put_rmon_hist(ptr no
   br i1 %21, label %.loopexit, label %22
 
 22:                                               ; preds = %18, %13
-  %23 = getelementptr i64, ptr %2, i64 %14
+  %23 = getelementptr [8 x i8], ptr %2, i64 %14
   %24 = load i64, ptr %23, align 8
   %25 = icmp eq i64 %24, -1
   br i1 %25, label %59, label %26

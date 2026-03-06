@@ -311,7 +311,7 @@ jss_skip_whitespace.exit.i:                       ; preds = %43, %25
 
 82:                                               ; preds = %.preheader, %95
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %95 ], [ 0, %.preheader ]
-  %83 = getelementptr inbounds nuw %struct.anon, ptr @ass_codes_map, i64 %indvars.iv.i
+  %83 = getelementptr inbounds nuw [24 x i8], ptr @ass_codes_map, i64 %indvars.iv.i
   %84 = load ptr, ptr %83, align 8, !tbaa !35
   %85 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %84) #7
   %86 = call i32 @strncmp(ptr noundef nonnull %.2.i, ptr noundef nonnull %84, i64 noundef %85) #7

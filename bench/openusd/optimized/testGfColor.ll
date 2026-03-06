@@ -8972,7 +8972,7 @@ _ZN11GfColorTestC2ERKN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceE.exit1278
   %.lhs.trunc = add nsw i16 %3817, -1000
   %3818 = udiv i16 %.lhs.trunc, 1000
   %3819 = zext nneg i16 %3818 to i64
-  %3820 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::GfVec2f", ptr @__const.main.tableOfKnownValues, i64 %3819
+  %3820 = getelementptr inbounds nuw [8 x i8], ptr @__const.main.tableOfKnownValues, i64 %3819
   %3821 = load float, ptr %3820, align 8
   %.sroa_idx = getelementptr inbounds nuw i8, ptr %3820, i64 4
   %3822 = load float, ptr %.sroa_idx, align 4

@@ -3,8 +3,6 @@ source_filename = "bench/luajit/original/lib_math.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%union.TValue = type { i64 }
-
 @.str = private unnamed_addr constant [5 x i8] c"math\00", align 1
 @lj_lib_init_math = internal constant [230 x i8] c"&\10\1ECabs\85floor\84ceilDsqrt\85log10\83exp\83sin\83cos\83tan\84asin\84acos\84atan\84sinh\84cosh\84tanh\85frexp\84modfClog\F9\03deg\00\01\02\00\00\01\02\18\01\00\00L\01\02\00\F1\87\9E\A6\03\DC\CB\B2\82\04\F9\03rad\00\01\02\00\00\01\02\18\01\00\00L\01\02\00\F3\F4\94\A5\14\C6\BE\C7\FC\03Eatan2\83pow\84fmodEldexpCmin\83max\FB\18-DT\FB!\09@\C2pi\FA\FB\00\00\00\00\00\00\F0\7F\C4huge\FA\FC\02\06random\FC\02\0Arandomseed\FF", align 16
 @lj_lib_cf_math = internal constant [8 x ptr] [ptr @lj_ffh_math_abs, ptr @lj_ffh_math_sqrt, ptr @lj_ffh_math_log, ptr @lj_ffh_math_atan2, ptr @lj_ffh_math_ldexp, ptr @lj_ffh_math_min, ptr @lj_cf_math_random, ptr @lj_cf_math_randomseed], align 16
@@ -92,7 +90,7 @@ define internal noundef i32 @lj_ffh_math_min(ptr noundef %0) #0 {
   %5 = trunc nuw nsw i64 %indvars.iv.next to i32
   %6 = tail call double @lj_lib_checknum(ptr noundef %0, i32 noundef %5) #5
   %7 = load ptr, ptr %2, align 8, !tbaa !8
-  %8 = getelementptr inbounds nuw %union.TValue, ptr %7, i64 %indvars.iv.next
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv.next
   %9 = load ptr, ptr %3, align 8, !tbaa !15
   %10 = icmp ult ptr %8, %9
   br i1 %10, label %4, label %11, !llvm.loop !18
@@ -191,7 +189,7 @@ define internal noundef i32 @lj_cf_math_randomseed(ptr noundef %0) #0 {
   %24 = icmp ult i64 %22, %23
   %25 = select i1 %24, i64 %23, i64 0
   %spec.select.i = add nuw nsw i64 %25, %22
-  %26 = getelementptr inbounds nuw i64, ptr %12, i64 %indvars.iv.i
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv.i
   store i64 %spec.select.i, ptr %26, align 8, !tbaa !4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4

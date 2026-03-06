@@ -27,9 +27,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Tuple_impl.10" = type { %"struct.std::_Head_base.13" }
 %"struct.std::_Head_base.13" = type { ptr }
 %"struct.std::type_index" = type { ptr }
-%struct.gmx_ana_selparam_t = type { ptr, %struct.gmx_ana_selvalue_t, ptr, i32 }
-%struct.gmx_ana_selvalue_t = type { i32, i32, %union.anon.0, i32 }
-%union.anon.0 = type { ptr }
 %"class.std::__exception_ptr::exception_ptr" = type { ptr }
 
 $_ZN3gmxlsINS_13InternalErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3stdE12is_base_of_vINS_16GromacsExceptionET_EES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE = comdat any
@@ -532,7 +529,7 @@ _Z24_gmx_sel_lexer_add_tokenPN3gmx17SelectionLocationEPKciP15gmx_sel_lexer_t.exi
   %103 = phi i32 [ %92, %._crit_edge ], [ %.pre82, %95 ]
   %104 = phi ptr [ %.pre, %._crit_edge ], [ %100, %95 ]
   %105 = sext i32 %103 to i64
-  %106 = getelementptr inbounds ptr, ptr %104, i64 %105
+  %106 = getelementptr inbounds [8 x i8], ptr %104, i64 %105
   store ptr %12, ptr %106, align 8, !tbaa !57
   %107 = and i32 %102, 256
   %.not58 = icmp eq i32 %107, 0
@@ -607,7 +604,7 @@ _Z24_gmx_sel_lexer_add_tokenPN3gmx17SelectionLocationEPKciP15gmx_sel_lexer_t.exi
 
 switch.lookup:                                    ; preds = %108
   %123 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZL17init_method_tokenP7YYSTYPEPN3gmx17SelectionLocationEPKNS1_21SelectionParserSymbolEbP15gmx_sel_lexer_t, i64 %123
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZL17init_method_tokenP7YYSTYPEPN3gmx17SelectionLocationEPKNS1_21SelectionParserSymbolEbP15gmx_sel_lexer_t, i64 %123
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %124
 
@@ -993,7 +990,7 @@ define noundef range(i32 258, 280) i32 @_Z33_gmx_sel_lexer_process_identifierP7Y
 .preheader.us:                                    ; preds = %.preheader228, %._crit_edge.us
   %.0139240.us = phi i32 [ %spec.select.us, %._crit_edge.us ], [ %19, %.preheader228 ]
   %27 = zext nneg i32 %.0139240.us to i64
-  %28 = getelementptr inbounds nuw ptr, ptr %24, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %27
   %29 = load ptr, ptr %28, align 8, !tbaa !57
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %31 = load i32, ptr %30, align 8, !tbaa !47
@@ -1002,7 +999,7 @@ define noundef range(i32 258, 280) i32 @_Z33_gmx_sel_lexer_process_identifierP7Y
 
 33:                                               ; preds = %.lr.ph.us, %55
   %indvars.iv254 = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next255, %55 ]
-  %34 = getelementptr inbounds nuw %struct.gmx_ana_selparam_t, ptr %57, i64 %indvars.iv254
+  %34 = getelementptr inbounds nuw [48 x i8], ptr %57, i64 %indvars.iv254
   %35 = load ptr, ptr %34, align 8, !tbaa !32
   %36 = icmp eq ptr %35, null
   br i1 %36, label %55, label %37
@@ -1057,7 +1054,7 @@ define noundef range(i32 258, 280) i32 @_Z33_gmx_sel_lexer_process_identifierP7Y
 .preheader:                                       ; preds = %.preheader228, %._crit_edge231.split.us
   %.0139240 = phi i32 [ %spec.select, %._crit_edge231.split.us ], [ %19, %.preheader228 ]
   %58 = zext nneg i32 %.0139240 to i64
-  %59 = getelementptr inbounds nuw ptr, ptr %24, i64 %58
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %58
   %60 = load ptr, ptr %59, align 8, !tbaa !57
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %62 = load i32, ptr %61, align 8, !tbaa !47
@@ -1072,7 +1069,7 @@ define noundef range(i32 258, 280) i32 @_Z33_gmx_sel_lexer_process_identifierP7Y
 
 66:                                               ; preds = %75, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %75 ], [ 0, %.lr.ph ]
-  %67 = getelementptr inbounds nuw %struct.gmx_ana_selparam_t, ptr %65, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw [48 x i8], ptr %65, i64 %indvars.iv
   %68 = load ptr, ptr %67, align 8, !tbaa !32
   %69 = icmp eq ptr %68, null
   br i1 %69, label %75, label %70
@@ -1784,7 +1781,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit: ; preds = %304, %3
 
 switch.lookup:                                    ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit
   %339 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._Z33_gmx_sel_lexer_process_identifierP7YYSTYPEPN3gmx17SelectionLocationEPcmP15gmx_sel_lexer_t, i64 %339
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._Z33_gmx_sel_lexer_process_identifierP7YYSTYPEPN3gmx17SelectionLocationEPcmP15gmx_sel_lexer_t, i64 %339
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_Z24_gmx_sel_lexer_add_tokenPN3gmx17SelectionLocationEPKciP15gmx_sel_lexer_t.exit170
 

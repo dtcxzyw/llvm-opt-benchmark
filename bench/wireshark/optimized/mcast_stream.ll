@@ -505,8 +505,8 @@ copy_address_wmem.exit154:                        ; preds = %copy_address_wmem.e
 242:                                              ; preds = %237, %236, %228
   %.027.i = phi i64 [ %241, %237 ], [ 39999, %236 ], [ 39998, %228 ]
   %.0.i155 = phi i64 [ %240, %237 ], [ 0, %236 ], [ 39999, %228 ]
-  %243 = getelementptr %struct.nstime_t, ptr %233, i64 %.0.i155
-  %244 = getelementptr %struct.nstime_t, ptr %233, i64 %.027.i
+  %243 = getelementptr [16 x i8], ptr %233, i64 %.0.i155
+  %244 = getelementptr [16 x i8], ptr %233, i64 %.027.i
   call void @nstime_delta(ptr noundef nonnull %7, ptr noundef %243, ptr noundef %244)
   %245 = call double @nstime_to_sec(ptr noundef nonnull %7)
   %246 = getelementptr inbounds nuw i8, ptr %.1, i64 180
@@ -581,8 +581,8 @@ buffusagecalc.exit:                               ; preds = %260, %263, %267
 283:                                              ; preds = %278, %277, %buffusagecalc.exit
   %.027.i156 = phi i64 [ %282, %278 ], [ 39999, %277 ], [ 39998, %buffusagecalc.exit ]
   %.0.i157 = phi i64 [ %281, %278 ], [ 0, %277 ], [ 39999, %buffusagecalc.exit ]
-  %284 = getelementptr %struct.nstime_t, ptr %274, i64 %.0.i157
-  %285 = getelementptr %struct.nstime_t, ptr %274, i64 %.027.i156
+  %284 = getelementptr [16 x i8], ptr %274, i64 %.0.i157
+  %285 = getelementptr [16 x i8], ptr %274, i64 %.027.i156
   call void @nstime_delta(ptr noundef nonnull %6, ptr noundef %284, ptr noundef %285)
   %286 = call double @nstime_to_sec(ptr noundef nonnull %6)
   %287 = getelementptr inbounds nuw i8, ptr %269, i64 180
@@ -689,12 +689,12 @@ define internal fastcc void @slidingwindow(ptr noundef captures(none) %0, ptr no
 22:                                               ; preds = %14, %20, %3
   %23 = load i32, ptr %6, align 4
   %24 = sext i32 %23 to i64
-  %25 = getelementptr %struct.nstime_t, ptr %5, i64 %24
+  %25 = getelementptr [16 x i8], ptr %5, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(16) %26, i64 16, i1 false)
   %27 = load i32, ptr %6, align 4
   %28 = sext i32 %27 to i64
-  %29 = getelementptr %struct.nstime_t, ptr %5, i64 %28
+  %29 = getelementptr [16 x i8], ptr %5, i64 %28
   %30 = load i16, ptr @mcast_stream_burstint, align 2
   %31 = getelementptr i8, ptr %29, i64 8
   %32 = zext i16 %30 to i64
@@ -705,7 +705,7 @@ define internal fastcc void @slidingwindow(ptr noundef captures(none) %0, ptr no
   %34 = phi i32 [ %.pre, %22 ], [ %storemerge50, %44 ]
   %.1 = phi i32 [ %spec.select, %22 ], [ %48, %44 ]
   %35 = sext i32 %34 to i64
-  %36 = getelementptr %struct.nstime_t, ptr %5, i64 %35
+  %36 = getelementptr [16 x i8], ptr %5, i64 %35
   %.val = load i64, ptr %36, align 8
   %37 = getelementptr i8, ptr %36, i64 8
   %.val51 = load i32, ptr %37, align 8

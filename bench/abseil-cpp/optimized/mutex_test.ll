@@ -113,8 +113,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.absl::Duration" = type { %"class.absl::Duration::HiRep", i32 }
 %"class.absl::Duration::HiRep" = type { i32, i32 }
 %"struct.(anonymous namespace)::TimeoutTestParam" = type { ptr, i32, i8, %"class.absl::Duration", %"class.absl::Duration", i8, %"class.absl::Duration" }
-%"class.std::shared_ptr.319" = type { %"class.std::__shared_ptr.320" }
-%"class.std::__shared_ptr.320" = type { ptr, %"class.std::__shared_count" }
 %"class.absl::Time" = type { %"class.absl::Duration" }
 %"class.std::function.328" = type { %"class.std::_Function_base", ptr }
 %"class.absl::log_internal::LogMessage::OstreamView" = type { %"class.std::basic_streambuf", ptr, %"class.absl::Span", %"class.absl::Span", %"class.absl::Span" }
@@ -124,8 +122,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.89" = type { %"struct.std::_Vector_base<std::thread, std::allocator<std::thread>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::thread, std::allocator<std::thread>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::thread, std::allocator<std::thread>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::thread, std::allocator<std::thread>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::shared_ptr.374" = type { %"class.std::__shared_ptr.375" }
-%"class.std::__shared_ptr.375" = type { ptr, %"class.std::__shared_count" }
 %"struct.(anonymous namespace)::TestContext" = type { i32, i32, i32, i32, %"class.absl::Mutex", %"class.absl::CondVar" }
 %"class.absl::synchronization_internal::ThreadPool" = type { %"class.absl::Mutex", %"class.std::queue", %"class.std::vector.88" }
 %"class.std::queue" = type { %"class.std::deque" }
@@ -159,11 +155,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.testing::TestParamInfo" = type { i32, i64 }
 %"struct.std::_Hashtable<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, unsigned long>, std::allocator<std::pair<const std::__cxx11::basic_string<char>, unsigned long>>, std::__detail::_Select1st, std::equal_to<std::__cxx11::basic_string<char>>, std::hash<string>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, false, true>>::_Scoped_node" = type { ptr, ptr }
 %"struct.testing::TestParamInfo.308" = type { %"struct.(anonymous namespace)::TimeoutTestParam", i64 }
-%"class.std::shared_ptr.150" = type { %"class.std::__shared_ptr.151" }
-%"class.std::__shared_ptr.151" = type { ptr, %"class.std::__shared_count" }
-%"struct.testing::internal::ParameterizedTestSuiteInfo<(anonymous namespace)::CondVarWaitDeadlock>::InstantiationInfo" = type <{ %"class.std::__cxx11::basic_string", ptr, ptr, ptr, i32, [4 x i8] }>
-%"struct.testing::internal::ParameterizedTestSuiteInfo<(anonymous namespace)::TimeoutTest>::InstantiationInfo" = type <{ %"class.std::__cxx11::basic_string", ptr, ptr, ptr, i32, [4 x i8] }>
-%"struct.testing::internal::ParameterizedTestSuiteInfo<(anonymous namespace)::MutexVariableThreadCountTest>::InstantiationInfo" = type <{ %"class.std::__cxx11::basic_string", ptr, ptr, ptr, i32, [4 x i8] }>
 
 $_ZN7testing8internal16SuiteApiResolverINS_4TestEE19GetSetUpCaseOrSuiteEPKci = comdat any
 
@@ -1254,7 +1245,7 @@ define internal fastcc noundef nonnull ptr @_ZN7testing8internal30ParameterizedT
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %13 = load i64, ptr %12, align 8, !tbaa !20
   %14 = load ptr, ptr %0, align 8, !tbaa !25
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %13
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %13
   %16 = load ptr, ptr %15, align 8, !tbaa !28
   %17 = load ptr, ptr %16, align 8, !tbaa !4
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
@@ -1506,7 +1497,7 @@ _ZNSt6vectorIPN7testing8internal30ParameterizedTestSuiteInfoBaseESaIS3_EE11_S_re
 _ZNSt6vectorIPN7testing8internal30ParameterizedTestSuiteInfoBaseESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %115, %_ZNSt6vectorIPN7testing8internal30ParameterizedTestSuiteInfoBaseESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
   store ptr %110, ptr %0, align 8, !tbaa !25
   store ptr %114, ptr %86, align 8, !tbaa !37
-  %116 = getelementptr inbounds nuw ptr, ptr %110, i64 %108
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %110, i64 %108
   store ptr %116, ptr %93, align 8, !tbaa !38
   br label %_ZNSt6vectorIPN7testing8internal30ParameterizedTestSuiteInfoBaseESaIS3_EE9push_backEOS3_.exit
 
@@ -1673,7 +1664,7 @@ define internal fastcc noundef nonnull ptr @_ZN7testing8internal30ParameterizedT
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %13 = load i64, ptr %12, align 8, !tbaa !20
   %14 = load ptr, ptr %0, align 8, !tbaa !25
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %13
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %13
   %16 = load ptr, ptr %15, align 8, !tbaa !28
   %17 = load ptr, ptr %16, align 8, !tbaa !4
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
@@ -1925,7 +1916,7 @@ _ZNSt6vectorIPN7testing8internal30ParameterizedTestSuiteInfoBaseESaIS3_EE11_S_re
 _ZNSt6vectorIPN7testing8internal30ParameterizedTestSuiteInfoBaseESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %115, %_ZNSt6vectorIPN7testing8internal30ParameterizedTestSuiteInfoBaseESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
   store ptr %110, ptr %0, align 8, !tbaa !25
   store ptr %114, ptr %86, align 8, !tbaa !37
-  %116 = getelementptr inbounds nuw ptr, ptr %110, i64 %108
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %110, i64 %108
   store ptr %116, ptr %93, align 8, !tbaa !38
   br label %_ZNSt6vectorIPN7testing8internal30ParameterizedTestSuiteInfoBaseESaIS3_EE9push_backEOS3_.exit
 
@@ -2277,7 +2268,7 @@ define internal fastcc noundef nonnull ptr @_ZN7testing8internal30ParameterizedT
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %13 = load i64, ptr %12, align 8, !tbaa !20
   %14 = load ptr, ptr %0, align 8, !tbaa !25
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %13
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %13
   %16 = load ptr, ptr %15, align 8, !tbaa !28
   %17 = load ptr, ptr %16, align 8, !tbaa !4
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
@@ -2529,7 +2520,7 @@ _ZNSt6vectorIPN7testing8internal30ParameterizedTestSuiteInfoBaseESaIS3_EE11_S_re
 _ZNSt6vectorIPN7testing8internal30ParameterizedTestSuiteInfoBaseESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %115, %_ZNSt6vectorIPN7testing8internal30ParameterizedTestSuiteInfoBaseESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
   store ptr %110, ptr %0, align 8, !tbaa !25
   store ptr %114, ptr %86, align 8, !tbaa !37
-  %116 = getelementptr inbounds nuw ptr, ptr %110, i64 %108
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %110, i64 %108
   store ptr %116, ptr %93, align 8, !tbaa !38
   br label %_ZNSt6vectorIPN7testing8internal30ParameterizedTestSuiteInfoBaseESaIS3_EE9push_backEOS3_.exit
 
@@ -3007,7 +2998,7 @@ _ZNSt12_Vector_baseISt6threadSaIS0_EE11_M_allocateEm.exit.i: ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %12, ptr %5, align 8, !tbaa !110
   store ptr %12, ptr %13, align 8, !tbaa !113
-  %14 = getelementptr inbounds nuw %"class.std::thread", ptr %12, i64 %6
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %6
   store ptr %14, ptr %10, align 8, !tbaa !114
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 96
   br label %18
@@ -3143,7 +3134,7 @@ _ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i: ; preds = %
 _ZNSt6vectorISt6threadSaIS0_EE9push_backEOS0_.exit: ; preds = %_ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i, %58
   store ptr %51, ptr %5, align 8, !tbaa !110
   store ptr %57, ptr %15, align 8, !tbaa !113
-  %59 = getelementptr inbounds nuw %"class.std::thread", ptr %51, i64 %49
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %49
   store ptr %59, ptr %10, align 8, !tbaa !114
   %.sroa.0.0.copyload.i.i.pr = load i64, ptr %3, align 8, !tbaa !33
   %.not.i = icmp eq i64 %.sroa.0.0.copyload.i.i.pr, 0
@@ -3400,7 +3391,7 @@ _ZNSt11_Deque_baseIN4absl12AnyInvocableIFvvEEESaIS3_EE15_M_allocate_mapEm.exit: 
   store ptr %9, ptr %0, align 8, !tbaa !147
   %10 = sub nsw i64 %.sroa.speculated, %7
   %11 = lshr i64 %10, 1
-  %12 = getelementptr inbounds nuw ptr, ptr %9, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %11
   %.idx = shl nuw nsw i64 %7, 3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx
   br label %.lr.ph.i
@@ -3494,7 +3485,7 @@ _ZNSt11_Deque_baseIN4absl12AnyInvocableIFvvEEESaIS3_EE15_M_create_nodesEPPS3_S7_
   store ptr %50, ptr %51, align 8, !tbaa !144
   store ptr %41, ptr %39, align 8, !tbaa !137
   %52 = and i64 %1, 15
-  %53 = getelementptr inbounds nuw %"class.absl::AnyInvocable", ptr %48, i64 %52
+  %53 = getelementptr inbounds nuw [32 x i8], ptr %48, i64 %52
   store ptr %53, ptr %45, align 8, !tbaa !104
   ret void
 
@@ -3831,9 +3822,9 @@ define linkonce_odr dso_local void @_ZNSt5dequeIN4absl12AnyInvocableIFvvEEESaIS3
   %19 = load ptr, ptr %0, align 8, !tbaa !147
   %20 = sub i64 %15, %13
   %21 = lshr i64 %20, 1
-  %22 = getelementptr inbounds nuw ptr, ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %21
   %23 = select i1 %2, i64 %1, i64 0
-  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %23
   %25 = icmp ult ptr %24, %7
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %26, %7
@@ -3852,12 +3843,12 @@ define linkonce_odr dso_local void @_ZNSt5dequeIN4absl12AnyInvocableIFvvEEESaIS3
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIPPN4absl12AnyInvocableIFvvEEES5_ET0_T_S7_S6_.exit, label %32
 
 32:                                               ; preds = %31
-  %33 = getelementptr inbounds nuw ptr, ptr %24, i64 %12
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %12
   %34 = ptrtoint ptr %26 to i64
   %35 = sub i64 %34, %9
   %36 = ashr exact i64 %35, 3
   %37 = sub nsw i64 0, %36
-  %38 = getelementptr inbounds ptr, ptr %33, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %33, i64 %37
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %38, ptr align 8 %7, i64 %35, i1 false)
   br label %_ZSt4copyIPPN4absl12AnyInvocableIFvvEEES5_ET0_T_S7_S6_.exit
 
@@ -3885,9 +3876,9 @@ _ZNSt11_Deque_baseIN4absl12AnyInvocableIFvvEEESaIS3_EE15_M_allocate_mapEm.exit: 
   %46 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %45) #48
   %47 = sub i64 %41, %13
   %48 = lshr i64 %47, 1
-  %49 = getelementptr inbounds nuw ptr, ptr %46, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %48
   %50 = select i1 %2, i64 %1, i64 0
-  %51 = getelementptr inbounds nuw ptr, ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i25 = icmp eq ptr %52, %7
   br i1 %.not.i.i.i.i.i25, label %_ZSt4copyIPPN4absl12AnyInvocableIFvvEEES5_ET0_T_S7_S6_.exit26, label %53
@@ -3915,7 +3906,7 @@ _ZSt4copyIPPN4absl12AnyInvocableIFvvEEES5_ET0_T_S7_S6_.exit: ; preds = %32, %31,
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 512
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %60, ptr %61, align 8, !tbaa !144
-  %62 = getelementptr inbounds nuw ptr, ptr %.0, i64 %12
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %.0, i64 %12
   %63 = getelementptr inbounds i8, ptr %62, i64 -8
   store ptr %63, ptr %4, align 8, !tbaa !141
   %64 = load ptr, ptr %63, align 8, !tbaa !142
@@ -7989,7 +7980,7 @@ _ZNKSt14default_deleteIA_N4absl5MutexEEclIS1_EENSt9enable_ifIXsr14is_convertible
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %_ZN4absl5Mutex10WriterLockEv.exit ]
   %10 = and i64 %indvars.iv, 1
   %11 = icmp eq i64 %10, 0
-  %12 = getelementptr inbounds nuw %"class.absl::Mutex", ptr %5, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   br i1 %11, label %13, label %17
 
 13:                                               ; preds = %9
@@ -13583,7 +13574,7 @@ _ZNSt13random_deviceclEv.exit:                    ; preds = %_ZNSt13random_devic
 25:                                               ; preds = %25, %_ZNSt13random_deviceclEv.exit
   %store_forwarded = phi i64 [ %24, %_ZNSt13random_deviceclEv.exit ], [ %31, %25 ]
   %.011.i.i = phi i64 [ 1, %_ZNSt13random_deviceclEv.exit ], [ %32, %25 ]
-  %26 = getelementptr i64, ptr %7, i64 %.011.i.i
+  %26 = getelementptr [8 x i8], ptr %7, i64 %.011.i.i
   %27 = lshr i64 %store_forwarded, 30
   %28 = xor i64 %27, %store_forwarded
   %29 = mul nuw nsw i64 %28, 1812433253
@@ -13829,10 +13820,10 @@ define linkonce_odr dso_local noundef i64 @_ZNSt23mersenne_twister_engineImLm32E
 6:                                                ; preds = %6, %5
   %7 = phi i64 [ %.pre.i, %5 ], [ %12, %6 ]
   %.021.i = phi i64 [ 0, %5 ], [ %10, %6 ]
-  %8 = getelementptr inbounds nuw i64, ptr %0, i64 %.021.i
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.021.i
   %9 = and i64 %7, -2147483648
   %10 = add nuw nsw i64 %.021.i, 1
-  %11 = getelementptr inbounds nuw i64, ptr %0, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %10
   %12 = load i64, ptr %11, align 8, !tbaa !33
   %13 = and i64 %12, 2147483646
   %14 = or disjoint i64 %13, %9
@@ -13856,10 +13847,10 @@ define linkonce_odr dso_local noundef i64 @_ZNSt23mersenne_twister_engineImLm32E
 .preheader.i:                                     ; preds = %.preheader.i, %.preheader.preheader.i
   %22 = phi i64 [ %27, %.preheader.i ], [ %.pre24.i, %.preheader.preheader.i ]
   %.01822.i = phi i64 [ %25, %.preheader.i ], [ 227, %.preheader.preheader.i ]
-  %23 = getelementptr inbounds nuw i64, ptr %0, i64 %.01822.i
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.01822.i
   %24 = and i64 %22, -2147483648
   %25 = add nuw nsw i64 %.01822.i, 1
-  %26 = getelementptr inbounds nuw i64, ptr %0, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %25
   %27 = load i64, ptr %26, align 8, !tbaa !33
   %28 = and i64 %27, 2147483646
   %29 = or disjoint i64 %28, %24
@@ -13897,7 +13888,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %51 = phi i64 [ 0, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit ], [ %3, %1 ]
   %52 = add nuw nsw i64 %51, 1
   store i64 %52, ptr %2, align 8, !tbaa !415
-  %53 = getelementptr inbounds nuw i64, ptr %0, i64 %51
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %51
   %54 = load i64, ptr %53, align 8, !tbaa !33
   %55 = lshr i64 %54, 11
   %56 = and i64 %55, 4294967295
@@ -14584,14 +14575,14 @@ _ZN12_GLOBAL__N_130ScopedDisableBazelTestWarningsC2Ev.exit: ; preds = %1, %_ZNSt
   br label %44
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds nuw %"class.absl::Mutex", ptr %16, i64 %.0
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.0
   invoke void @_ZN4absl5Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %23)
           to label %24 unwind label %30
 
 24:                                               ; preds = %22
   %25 = add nuw nsw i64 %.0, 1
   %26 = urem i64 %25, 100
-  %27 = getelementptr inbounds nuw %"class.absl::Mutex", ptr %16, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %26
   invoke void @_ZN4absl5Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %27)
           to label %28 unwind label %30
 
@@ -14714,7 +14705,7 @@ _ZNKSt14default_deleteIA_N4absl5MutexEEclIS1_EENSt9enable_ifIXsr14is_convertible
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %12
   %indvars.iv34 = phi i64 [ %indvars.iv, %.lr.ph.preheader ], [ %indvars.iv.next35, %12 ]
-  %11 = getelementptr inbounds nuw %"class.absl::Mutex", ptr %3, i64 %indvars.iv34
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv34
   invoke void @_ZN4absl5Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %11)
           to label %12 unwind label %14
 
@@ -14735,7 +14726,7 @@ _ZNKSt14default_deleteIA_N4absl5MutexEEclIS1_EENSt9enable_ifIXsr14is_convertible
 
 .lr.ph32:                                         ; preds = %.lr.ph32.preheader, %17
   %indvars.iv37 = phi i64 [ %indvars.iv, %.lr.ph32.preheader ], [ %indvars.iv.next38, %17 ]
-  %16 = getelementptr inbounds nuw %"class.absl::Mutex", ptr %3, i64 %indvars.iv37
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv37
   invoke void @_ZN4absl5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %16)
           to label %17 unwind label %19
 
@@ -15065,7 +15056,7 @@ _ZNSt6vectorIN12_GLOBAL__N_116TimeoutTestParamESaIS1_EE11_S_relocateEPS1_S4_S4_R
 _ZNSt6vectorIN12_GLOBAL__N_116TimeoutTestParamESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %30, %_ZNSt6vectorIN12_GLOBAL__N_116TimeoutTestParamESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26.i.i.i
   store ptr %25, ptr %0, align 8, !tbaa !458
   store ptr %29, ptr %4, align 8, !tbaa !459
-  %31 = getelementptr inbounds nuw %"struct.(anonymous namespace)::TimeoutTestParam", ptr %25, i64 %23
+  %31 = getelementptr inbounds nuw [56 x i8], ptr %25, i64 %23
   store ptr %31, ptr %5, align 8, !tbaa !456
   br label %_ZNSt6vectorIN12_GLOBAL__N_116TimeoutTestParamESaIS1_EE9push_backEOS1_.exit
 
@@ -15174,7 +15165,7 @@ _ZNSt6vectorIN12_GLOBAL__N_116TimeoutTestParamESaIS1_EE11_S_relocateEPS1_S4_S4_R
 _ZNSt6vectorIN12_GLOBAL__N_116TimeoutTestParamESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i146: ; preds = %54, %_ZNSt6vectorIN12_GLOBAL__N_116TimeoutTestParamESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26.i.i.i143
   store ptr %49, ptr %0, align 8, !tbaa !458
   store ptr %53, ptr %4, align 8, !tbaa !459
-  %55 = getelementptr inbounds nuw %"struct.(anonymous namespace)::TimeoutTestParam", ptr %49, i64 %47
+  %55 = getelementptr inbounds nuw [56 x i8], ptr %49, i64 %47
   store ptr %55, ptr %5, align 8, !tbaa !456
   br label %_ZNSt6vectorIN12_GLOBAL__N_116TimeoutTestParamESaIS1_EE9push_backEOS1_.exit149
 
@@ -15283,7 +15274,7 @@ _ZNSt6vectorIN12_GLOBAL__N_116TimeoutTestParamESaIS1_EE11_S_relocateEPS1_S4_S4_R
 _ZNSt6vectorIN12_GLOBAL__N_116TimeoutTestParamESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i162: ; preds = %78, %_ZNSt6vectorIN12_GLOBAL__N_116TimeoutTestParamESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26.i.i.i159
   store ptr %73, ptr %0, align 8, !tbaa !458
   store ptr %77, ptr %4, align 8, !tbaa !459
-  %79 = getelementptr inbounds nuw %"struct.(anonymous namespace)::TimeoutTestParam", ptr %73, i64 %71
+  %79 = getelementptr inbounds nuw [56 x i8], ptr %73, i64 %71
   store ptr %79, ptr %5, align 8, !tbaa !456
   br label %_ZNSt6vectorIN12_GLOBAL__N_116TimeoutTestParamESaIS1_EE9push_backEOS1_.exit165
 
@@ -15392,7 +15383,7 @@ _ZNSt6vectorIN12_GLOBAL__N_116TimeoutTestParamESaIS1_EE11_S_relocateEPS1_S4_S4_R
 _ZNSt6vectorIN12_GLOBAL__N_116TimeoutTestParamESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i178: ; preds = %102, %_ZNSt6vectorIN12_GLOBAL__N_116TimeoutTestParamESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26.i.i.i175
   store ptr %97, ptr %0, align 8, !tbaa !458
   store ptr %101, ptr %4, align 8, !tbaa !459
-  %103 = getelementptr inbounds nuw %"struct.(anonymous namespace)::TimeoutTestParam", ptr %97, i64 %95
+  %103 = getelementptr inbounds nuw [56 x i8], ptr %97, i64 %95
   store ptr %103, ptr %5, align 8, !tbaa !456
   br label %_ZNSt6vectorIN12_GLOBAL__N_116TimeoutTestParamESaIS1_EE9push_backEOS1_.exit181
 
@@ -15501,7 +15492,7 @@ _ZNSt6vectorIN12_GLOBAL__N_116TimeoutTestParamESaIS1_EE11_S_relocateEPS1_S4_S4_R
 _ZNSt6vectorIN12_GLOBAL__N_116TimeoutTestParamESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i194: ; preds = %126, %_ZNSt6vectorIN12_GLOBAL__N_116TimeoutTestParamESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26.i.i.i191
   store ptr %121, ptr %0, align 8, !tbaa !458
   store ptr %125, ptr %4, align 8, !tbaa !459
-  %127 = getelementptr inbounds nuw %"struct.(anonymous namespace)::TimeoutTestParam", ptr %121, i64 %119
+  %127 = getelementptr inbounds nuw [56 x i8], ptr %121, i64 %119
   store ptr %127, ptr %5, align 8, !tbaa !456
   br label %_ZNSt6vectorIN12_GLOBAL__N_116TimeoutTestParamESaIS1_EE9push_backEOS1_.exit197
 
@@ -15609,7 +15600,7 @@ _ZNSt6vectorIN12_GLOBAL__N_116TimeoutTestParamESaIS1_EE11_S_relocateEPS1_S4_S4_R
 _ZNSt6vectorIN12_GLOBAL__N_116TimeoutTestParamESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i210: ; preds = %150, %_ZNSt6vectorIN12_GLOBAL__N_116TimeoutTestParamESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26.i.i.i207
   store ptr %145, ptr %0, align 8, !tbaa !458
   store ptr %149, ptr %4, align 8, !tbaa !459
-  %151 = getelementptr inbounds nuw %"struct.(anonymous namespace)::TimeoutTestParam", ptr %145, i64 %143
+  %151 = getelementptr inbounds nuw [56 x i8], ptr %145, i64 %143
   store ptr %151, ptr %5, align 8, !tbaa !456
   br label %_ZNSt6vectorIN12_GLOBAL__N_116TimeoutTestParamESaIS1_EE9push_backEOS1_.exit213
 
@@ -15726,7 +15717,7 @@ _ZNSt6vectorIN12_GLOBAL__N_116TimeoutTestParamESaIS1_EE11_S_relocateEPS1_S4_S4_R
 _ZNSt6vectorIN12_GLOBAL__N_116TimeoutTestParamESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i232: ; preds = %175, %_ZNSt6vectorIN12_GLOBAL__N_116TimeoutTestParamESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26.i.i.i229
   store ptr %170, ptr %0, align 8, !tbaa !458
   store ptr %174, ptr %4, align 8, !tbaa !459
-  %176 = getelementptr inbounds nuw %"struct.(anonymous namespace)::TimeoutTestParam", ptr %170, i64 %168
+  %176 = getelementptr inbounds nuw [56 x i8], ptr %170, i64 %168
   store ptr %176, ptr %5, align 8, !tbaa !456
   br label %_ZNSt6vectorIN12_GLOBAL__N_116TimeoutTestParamESaIS1_EE9push_backEOS1_.exit235
 
@@ -15835,7 +15826,7 @@ _ZNSt6vectorIN12_GLOBAL__N_116TimeoutTestParamESaIS1_EE11_S_relocateEPS1_S4_S4_R
 _ZNSt6vectorIN12_GLOBAL__N_116TimeoutTestParamESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i248: ; preds = %199, %_ZNSt6vectorIN12_GLOBAL__N_116TimeoutTestParamESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26.i.i.i245
   store ptr %194, ptr %0, align 8, !tbaa !458
   store ptr %198, ptr %4, align 8, !tbaa !459
-  %200 = getelementptr inbounds nuw %"struct.(anonymous namespace)::TimeoutTestParam", ptr %194, i64 %192
+  %200 = getelementptr inbounds nuw [56 x i8], ptr %194, i64 %192
   store ptr %200, ptr %5, align 8, !tbaa !456
   br label %_ZNSt6vectorIN12_GLOBAL__N_116TimeoutTestParamESaIS1_EE9push_backEOS1_.exit251
 
@@ -15943,7 +15934,7 @@ _ZNSt6vectorIN12_GLOBAL__N_116TimeoutTestParamESaIS1_EE11_S_relocateEPS1_S4_S4_R
 _ZNSt6vectorIN12_GLOBAL__N_116TimeoutTestParamESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i264: ; preds = %223, %_ZNSt6vectorIN12_GLOBAL__N_116TimeoutTestParamESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26.i.i.i261
   store ptr %218, ptr %0, align 8, !tbaa !458
   store ptr %222, ptr %4, align 8, !tbaa !459
-  %224 = getelementptr inbounds nuw %"struct.(anonymous namespace)::TimeoutTestParam", ptr %218, i64 %216
+  %224 = getelementptr inbounds nuw [56 x i8], ptr %218, i64 %216
   store ptr %224, ptr %5, align 8, !tbaa !456
   br label %_ZNSt6vectorIN12_GLOBAL__N_116TimeoutTestParamESaIS1_EE9push_backEOS1_.exit267
 
@@ -16656,7 +16647,7 @@ _ZNSt12_Vector_baseISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInf
 _ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_111TimeoutTestEE8TestInfoEESaIS8_EE17_M_realloc_insertIJPS7_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i: ; preds = %88, %_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_111TimeoutTestEE8TestInfoEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit38.i.i
   store ptr %78, ptr %55, align 8, !tbaa !522
   store ptr %87, ptr %56, align 8, !tbaa !518
-  %105 = getelementptr inbounds nuw %"class.std::shared_ptr.319", ptr %78, i64 %74
+  %105 = getelementptr inbounds nuw [16 x i8], ptr %78, i64 %74
   store ptr %105, ptr %58, align 8, !tbaa !521
   br label %_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_111TimeoutTestEE8TestInfoEESaIS8_EE12emplace_backIJPS7_EEERS8_DpOT_.exit
 
@@ -20971,7 +20962,7 @@ _ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit32.i.i: ; preds =
 "_ZNSt6vectorISt6threadSaIS0_EE17_M_realloc_insertIJZN12_GLOBAL__N_125Mutex_SynchEventRace_Test8TestBodyEvE3$_0EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i": ; preds = %59, %_ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit32.i.i
   store ptr %40, ptr %4, align 8, !tbaa !110
   store ptr %58, ptr %5, align 8, !tbaa !113
-  %71 = getelementptr inbounds nuw %"class.std::thread", ptr %40, i64 %38
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %38
   store ptr %71, ptr %6, align 8, !tbaa !114
   br label %"_ZNSt6vectorISt6threadSaIS0_EE12emplace_backIJZN12_GLOBAL__N_125Mutex_SynchEventRace_Test8TestBodyEvE3$_0EEERS0_DpOT_.exit"
 
@@ -21767,7 +21758,7 @@ _ZNSt12_Vector_baseISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInf
 _ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_128MutexVariableThreadCountTestEE8TestInfoEESaIS8_EE17_M_realloc_insertIJPS7_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i: ; preds = %88, %_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_128MutexVariableThreadCountTestEE8TestInfoEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit38.i.i
   store ptr %78, ptr %55, align 8, !tbaa !657
   store ptr %87, ptr %56, align 8, !tbaa !653
-  %105 = getelementptr inbounds nuw %"class.std::shared_ptr.374", ptr %78, i64 %74
+  %105 = getelementptr inbounds nuw [16 x i8], ptr %78, i64 %74
   store ptr %105, ptr %58, align 8, !tbaa !656
   br label %_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_128MutexVariableThreadCountTestEE8TestInfoEESaIS8_EE12emplace_backIJPS7_EEERS8_DpOT_.exit
 
@@ -27401,7 +27392,7 @@ _ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit32.i.i: ; preds =
 "_ZNSt6vectorISt6threadSaIS0_EE17_M_realloc_insertIJZN12_GLOBAL__N_129Mutex_SignalExitedThread_Test8TestBodyEvE3$_0EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i": ; preds = %58, %_ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit32.i.i
   store ptr %39, ptr %4, align 8, !tbaa !110
   store ptr %57, ptr %6, align 8, !tbaa !113
-  %70 = getelementptr inbounds nuw %"class.std::thread", ptr %39, i64 %37
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %37
   store ptr %70, ptr %7, align 8, !tbaa !114
   br label %"_ZNSt6vectorISt6threadSaIS0_EE12emplace_backIJZN12_GLOBAL__N_129Mutex_SignalExitedThread_Test8TestBodyEvE3$_0EEERS0_DpOT_.exit"
 
@@ -31079,7 +31070,7 @@ _ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   %29 = load i64, ptr %28, align 8, !tbaa !808
   %30 = urem i64 %24, %29
   %31 = load ptr, ptr %0, align 8, !tbaa !809
-  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %30
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %30
   %33 = load ptr, ptr %32, align 8, !tbaa !810
   %.not.i.i = icmp eq ptr %33, null
   br i1 %.not.i.i, label %_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_mESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS7_m.exit, label %34
@@ -33176,7 +33167,7 @@ _ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
 
 48:                                               ; preds = %42
   %49 = load ptr, ptr %0, align 8, !tbaa !809
-  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %45
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %45
   %51 = load ptr, ptr %50, align 8, !tbaa !810
   %.not.i.i = icmp eq ptr %51, null
   br i1 %.not.i.i, label %.critedge28, label %52
@@ -33339,7 +33330,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i64 %2, ptr %32, align 8, !tbaa !811
   %33 = load ptr, ptr %0, align 8, !tbaa !809
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %.0
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.0
   %35 = load ptr, ptr %34, align 8, !tbaa !810
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %39, label %36
@@ -33365,7 +33356,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 48
   %46 = load i64, ptr %45, align 8, !tbaa !811
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %33, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !810
   br label %49
 
@@ -33457,7 +33448,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 48
   %16 = load i64, ptr %15, align 8, !tbaa !811
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !810
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -33472,7 +33463,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8, !tbaa !810
   br label %28
 
@@ -38474,7 +38465,7 @@ _ZNSt12_Vector_baseISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInf
 _ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_119CondVarWaitDeadlockEE8TestInfoEESaIS8_EE17_M_realloc_insertIJPS7_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i.i.i: ; preds = %506, %_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_119CondVarWaitDeadlockEE8TestInfoEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit38.i.i.i.i.i
   store ptr %496, ptr %473, align 8, !tbaa !820
   store ptr %505, ptr %474, align 8, !tbaa !823
-  %523 = getelementptr inbounds nuw %"class.std::shared_ptr.150", ptr %496, i64 %492
+  %523 = getelementptr inbounds nuw [16 x i8], ptr %496, i64 %492
   store ptr %523, ptr %476, align 8, !tbaa !825
   br label %_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_119CondVarWaitDeadlockEE8TestInfoEESaIS8_EE12emplace_backIJPS7_EEERS8_DpOT_.exit.i.i.i
 
@@ -38922,7 +38913,7 @@ _ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_119Con
 _ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_119CondVarWaitDeadlockEE17InstantiationInfoESaIS6_EE17_M_realloc_insertIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERPFNS1_14ParamGeneratorIiEEvERPFSF_RKNS0_13TestParamInfoIiEEERPKcRiEEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i.i: ; preds = %683, %_ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_119CondVarWaitDeadlockEE17InstantiationInfoESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit44.i.i.i.i
   store ptr %649, ptr %612, align 8, !tbaa !814
   store ptr %682, ptr %613, align 8, !tbaa !817
-  %687 = getelementptr inbounds nuw %"struct.testing::internal::ParameterizedTestSuiteInfo<(anonymous namespace)::CondVarWaitDeadlock>::InstantiationInfo", ptr %649, i64 %645
+  %687 = getelementptr inbounds nuw [64 x i8], ptr %649, i64 %645
   store ptr %687, ptr %615, align 8, !tbaa !819
   br label %_ZN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_119CondVarWaitDeadlockEE25AddTestSuiteInstantiationENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFNS0_14ParamGeneratorIiEEvEPFSA_RKNS_13TestParamInfoIiEEEPKci.exit.i
 
@@ -41887,7 +41878,7 @@ _ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_111Tim
 _ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_111TimeoutTestEE17InstantiationInfoESaIS6_EE17_M_realloc_insertIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERPFNS1_14ParamGeneratorINS3_16TimeoutTestParamEEEvERPFSF_RKNS0_13TestParamInfoISH_EEERPKcRiEEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i.i: ; preds = %1777, %_ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_111TimeoutTestEE17InstantiationInfoESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit44.i.i.i.i
   store ptr %1750, ptr %1721, align 8, !tbaa !873
   store ptr %1776, ptr %1722, align 8, !tbaa !876
-  %1781 = getelementptr inbounds nuw %"struct.testing::internal::ParameterizedTestSuiteInfo<(anonymous namespace)::TimeoutTest>::InstantiationInfo", ptr %1750, i64 %1745
+  %1781 = getelementptr inbounds nuw [64 x i8], ptr %1750, i64 %1745
   store ptr %1781, ptr %1724, align 8, !tbaa !878
   br label %_ZN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_111TimeoutTestEE25AddTestSuiteInstantiationENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFNS0_14ParamGeneratorINS2_16TimeoutTestParamEEEvEPFSA_RKNS_13TestParamInfoISC_EEEPKci.exit.i
 
@@ -43853,7 +43844,7 @@ _ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_128Mut
 _ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_128MutexVariableThreadCountTestEE17InstantiationInfoESaIS6_EE17_M_realloc_insertIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERPFNS1_14ParamGeneratorIiEEvERPFSF_RKNS0_13TestParamInfoIiEEERPKcRiEEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i.i: ; preds = %2481, %_ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_128MutexVariableThreadCountTestEE17InstantiationInfoESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit44.i.i.i.i
   store ptr %2455, ptr %2427, align 8, !tbaa !914
   store ptr %2480, ptr %2428, align 8, !tbaa !917
-  %2485 = getelementptr inbounds nuw %"struct.testing::internal::ParameterizedTestSuiteInfo<(anonymous namespace)::MutexVariableThreadCountTest>::InstantiationInfo", ptr %2455, i64 %2450
+  %2485 = getelementptr inbounds nuw [64 x i8], ptr %2455, i64 %2450
   store ptr %2485, ptr %2430, align 8, !tbaa !919
   br label %_ZN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_128MutexVariableThreadCountTestEE25AddTestSuiteInstantiationENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFNS0_14ParamGeneratorIiEEvEPFSA_RKNS_13TestParamInfoIiEEEPKci.exit.i
 

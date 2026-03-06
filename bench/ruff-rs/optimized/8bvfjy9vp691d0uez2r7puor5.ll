@@ -62,8 +62,8 @@ define { ptr, i64 } @_ZN18ruff_python_trivia14comment_ranges13CommentRanges17com
 
 14:                                               ; preds = %3
   %15 = load ptr, ptr %7, align 8
-  %16 = getelementptr inbounds nuw { i32, i32 }, ptr %15, i64 %11
-  %17 = getelementptr inbounds nuw { i32, i32 }, ptr %15, i64 %12
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %11
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %12
   store ptr %16, ptr %4, align 8
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %17, ptr %18, align 8
@@ -111,7 +111,7 @@ define { ptr, i64 } @_ZN18ruff_python_trivia14comment_ranges13CommentRanges17com
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h2b05c73b9f31c55dE.exit": ; preds = %27, %34
   %.pn6 = phi i64 [ %35, %34 ], [ %23, %27 ]
   %.pn9 = load ptr, ptr %7, align 8
-  %.pn8 = getelementptr inbounds nuw { i32, i32 }, ptr %.pn9, i64 %11
+  %.pn8 = getelementptr inbounds nuw [8 x i8], ptr %.pn9, i64 %11
   %.pn = insertvalue { ptr, i64 } poison, ptr %.pn8, 0
   %.merged = insertvalue { ptr, i64 } %.pn, i64 %.pn6, 1
   ret { ptr, i64 } %.merged
@@ -761,7 +761,7 @@ define { ptr, ptr } @"_ZN115_$LT$$RF$ruff_python_trivia..comment_ranges..Comment
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds nuw { i32, i32 }, ptr %3, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %5
   %7 = insertvalue { ptr, ptr } poison, ptr %3, 0
   %8 = insertvalue { ptr, ptr } %7, ptr %6, 1
   ret { ptr, ptr } %8

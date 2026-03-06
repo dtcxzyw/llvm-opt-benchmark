@@ -127,7 +127,7 @@ define hidden range(i32 0, 2) i32 @_glfwInitGLX() local_unnamed_addr #0 {
 
 .preheader:                                       ; preds = %0, %2
   %indvars.iv = phi i64 [ %indvars.iv.next, %2 ], [ 0, %0 ]
-  %3 = getelementptr inbounds nuw ptr, ptr @__const._glfwInitGLX.sonames, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [8 x i8], ptr @__const._glfwInitGLX.sonames, i64 %indvars.iv
   %4 = load ptr, ptr %3, align 8, !tbaa !93
   %5 = tail call ptr @_glfwPlatformLoadModule(ptr noundef %4) #4
   store ptr %5, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143376), align 8, !tbaa !3
@@ -736,7 +736,7 @@ define hidden range(i32 0, 2) i32 @_glfwCreateContextGLX(ptr noundef captures(no
 .sink.split117:                                   ; preds = %69, %70
   %.sink118 = phi i32 [ 8344, %70 ], [ 0, %69 ]
   %71 = zext nneg i32 %.088 to i64
-  %72 = getelementptr inbounds nuw i32, ptr %4, i64 %71
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %71
   store i32 8343, ptr %72, align 4, !tbaa !170
   %73 = add nuw nsw i32 %.088, 2
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 4
@@ -755,7 +755,7 @@ define hidden range(i32 0, 2) i32 @_glfwCreateContextGLX(ptr noundef captures(no
 
 81:                                               ; preds = %75
   %82 = zext nneg i32 %.290 to i64
-  %83 = getelementptr inbounds nuw i32, ptr %4, i64 %82
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %82
   store i32 12723, ptr %83, align 4, !tbaa !170
   %84 = add nuw nsw i32 %.290, 2
   %85 = getelementptr inbounds nuw i8, ptr %83, i64 4
@@ -775,7 +775,7 @@ define hidden range(i32 0, 2) i32 @_glfwCreateContextGLX(ptr noundef captures(no
 
 ._crit_edge:                                      ; preds = %86
   %91 = zext nneg i32 %.391 to i64
-  %92 = getelementptr inbounds nuw i32, ptr %4, i64 %91
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %91
   store i32 8337, ptr %92, align 4, !tbaa !170
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 4
   store i32 %88, ptr %93, align 4, !tbaa !170
@@ -792,7 +792,7 @@ define hidden range(i32 0, 2) i32 @_glfwCreateContextGLX(ptr noundef captures(no
 
 98:                                               ; preds = %97
   %99 = zext nneg i32 %.4 to i64
-  %100 = getelementptr inbounds nuw i32, ptr %4, i64 %99
+  %100 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %99
   store i32 37158, ptr %100, align 4, !tbaa !170
   %101 = add nuw nsw i32 %.4, 2
   %102 = getelementptr inbounds nuw i8, ptr %100, i64 4
@@ -806,7 +806,7 @@ define hidden range(i32 0, 2) i32 @_glfwCreateContextGLX(ptr noundef captures(no
 
 104:                                              ; preds = %103
   %105 = zext nneg i32 %.5 to i64
-  %106 = getelementptr inbounds nuw i32, ptr %4, i64 %105
+  %106 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %105
   store i32 8340, ptr %106, align 4, !tbaa !170
   %107 = add nuw nsw i32 %.5, 2
   %108 = getelementptr inbounds nuw i8, ptr %106, i64 4
@@ -816,7 +816,7 @@ define hidden range(i32 0, 2) i32 @_glfwCreateContextGLX(ptr noundef captures(no
 109:                                              ; preds = %104, %103
   %.6 = phi i32 [ %107, %104 ], [ %.5, %103 ]
   %110 = zext nneg i32 %.6 to i64
-  %111 = getelementptr inbounds nuw i32, ptr %4, i64 %110
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %110
   store i32 0, ptr %111, align 4, !tbaa !170
   %112 = getelementptr i8, ptr %111, i64 4
   store i32 0, ptr %112, align 4, !tbaa !170
@@ -985,10 +985,10 @@ define internal fastcc range(i32 0, 2) i32 @chooseGLXFBConfig(ptr noundef %0, pt
 46:                                               ; preds = %.lr.ph, %165
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %165 ]
   %.06580 = phi i32 [ 0, %.lr.ph ], [ %.1, %165 ]
-  %47 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv
   %48 = load ptr, ptr %47, align 8, !tbaa !128
   %49 = sext i32 %.06580 to i64
-  %50 = getelementptr inbounds %struct._GLFWfbconfig, ptr %39, i64 %49
+  %50 = getelementptr inbounds [72 x i8], ptr %39, i64 %49
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %51 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143392), align 8, !tbaa !95
   %52 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !109

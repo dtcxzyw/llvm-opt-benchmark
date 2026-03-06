@@ -12,7 +12,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.pw_stream_events = type { i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.spa_type_info = type { i32, i32, ptr, ptr }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
-%struct.ScreenProps = type { i32, %struct.GdkRectangle, %struct.GdkRectangle, ptr, ptr, i32, i32 }
 %struct.GdkRectangle = type { i32, i32, i32, i32 }
 %struct.spa_pod_builder = type { ptr, i32, i32, %struct.spa_pod_builder_state, %struct.spa_callbacks }
 %struct.spa_pod_builder_state = type { i32, i32, ptr }
@@ -998,7 +997,7 @@ define hidden void @storeRestoreToken(ptr noundef %0, ptr noundef %1) local_unna
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %72 = load ptr, ptr @screenSpace, align 8
-  %73 = getelementptr inbounds nuw %struct.ScreenProps, ptr %72, i64 %indvars.iv
+  %73 = getelementptr inbounds nuw [64 x i8], ptr %72, i64 %indvars.iv
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 4
   %.sroa.0.0.copyload = load i32, ptr %74, align 4
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %73, i64 8
@@ -1506,7 +1505,7 @@ define i32 @Java_sun_awt_screencast_ScreencastHelper_getRGBPixelsImpl(ptr nounde
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %48 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv.i
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %indvars.iv.i
   %49 = load i32, ptr %48, align 4
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 4
   %51 = load i32, ptr %50, align 4
@@ -1515,7 +1514,7 @@ define i32 @Java_sun_awt_screencast_ScreencastHelper_getRGBPixelsImpl(ptr nounde
   %54 = getelementptr inbounds nuw i8, ptr %48, i64 12
   %55 = load i32, ptr %54, align 4
   %56 = lshr exact i64 %indvars.iv.i, 2
-  %57 = getelementptr inbounds nuw %struct.GdkRectangle, ptr %32, i64 %56
+  %57 = getelementptr inbounds nuw [16 x i8], ptr %32, i64 %56
   store i32 %49, ptr %57, align 16
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %57, i64 4
   store i32 %51, ptr %.sroa.2.0..sroa_idx.i, align 4
@@ -1593,7 +1592,7 @@ arrayToRectangles.exit:                           ; preds = %._crit_edge.i, %45,
   %79 = phi i32 [ %77, %.lr.ph141.preheader ], [ %129, %128 ]
   %80 = phi ptr [ %.pre147, %.lr.ph141.preheader ], [ %130, %128 ]
   %indvars.iv144 = phi i64 [ 0, %.lr.ph141.preheader ], [ %indvars.iv.next145, %128 ]
-  %81 = getelementptr inbounds nuw %struct.ScreenProps, ptr %80, i64 %indvars.iv144
+  %81 = getelementptr inbounds nuw [64 x i8], ptr %80, i64 %indvars.iv144
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 56
   %83 = load volatile i32, ptr %82, align 8
   %.not110 = icmp eq i32 %83, 0
@@ -1657,7 +1656,7 @@ arrayToRectangles.exit:                           ; preds = %._crit_edge.i, %45,
   %111 = load ptr, ptr %88, align 8
   %112 = call ptr %110(ptr noundef %111) #16
   %113 = mul nsw i64 %indvars.iv, %93
-  %114 = getelementptr inbounds i32, ptr %112, i64 %113
+  %114 = getelementptr inbounds [4 x i8], ptr %112, i64 %113
   call void %107(ptr noundef nonnull %0, ptr noundef %6, i32 noundef %104, i32 noundef %.sroa.3.0.copyload, ptr noundef %114) #16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1926,7 +1925,7 @@ initScreenSpace.exit.i:                           ; preds = %21
 87:                                               ; preds = %265, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %265 ]
   %88 = load ptr, ptr @screenSpace, align 8
-  %89 = getelementptr inbounds nuw %struct.ScreenProps, ptr %88, i64 %indvars.iv.i
+  %89 = getelementptr inbounds nuw [64 x i8], ptr %88, i64 %indvars.iv.i
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 40
   %91 = load ptr, ptr %90, align 8
   %92 = icmp eq ptr %91, null
@@ -1971,7 +1970,7 @@ checkScreen.exit.thread.i:                        ; preds = %98
 
 111:                                              ; preds = %98
   %112 = load ptr, ptr @screenSpace, align 8
-  %113 = getelementptr inbounds nuw %struct.ScreenProps, ptr %112, i64 %indvars.iv.i
+  %113 = getelementptr inbounds nuw [64 x i8], ptr %112, i64 %indvars.iv.i
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 4
   %115 = load i32, ptr %114, align 4
   %.sroa.0.0.extract.trunc..i.i = call i32 @llvm.smax.i32(i32 %115, i32 %.sroa.0.0.extract.trunc.i.i)
@@ -2046,7 +2045,7 @@ checkScreen.exit.i:                               ; preds = %133, %._crit_edge.i
 
 152:                                              ; preds = %148
   %153 = load ptr, ptr @screenSpace, align 8
-  %154 = getelementptr inbounds nuw %struct.ScreenProps, ptr %153, i64 %indvars.iv.i
+  %154 = getelementptr inbounds nuw [64 x i8], ptr %153, i64 %indvars.iv.i
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 40
   %156 = load ptr, ptr %155, align 8
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 144
@@ -2115,7 +2114,7 @@ checkScreen.exit.i:                               ; preds = %133, %._crit_edge.i
   call void (ptr, ...) @debug_screencast(ptr noundef nonnull @.str.59, ptr noundef nonnull @__func__.connectStream, i32 noundef 481, i32 noundef %184, i32 noundef %186, i32 noundef %188, i32 noundef %190, i32 noundef %192, i32 noundef %194, i32 noundef %196, i32 noundef %198, i32 noundef %200, i32 noundef %202)
   %203 = load ptr, ptr %156, align 8
   %204 = load ptr, ptr @screenSpace, align 8
-  %205 = getelementptr inbounds nuw %struct.ScreenProps, ptr %204, i64 %indvars.iv.i
+  %205 = getelementptr inbounds nuw [64 x i8], ptr %204, i64 %indvars.iv.i
   %206 = load i32, ptr %205, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -2299,7 +2298,7 @@ doLoop.exit:                                      ; preds = %doLoop.exit.prehead
 
 284:                                              ; preds = %291, %.lr.ph.i11
   %indvars.iv.i12 = phi i64 [ 0, %.lr.ph.i11 ], [ %indvars.iv.next.i14, %291 ]
-  %285 = getelementptr inbounds nuw %struct.ScreenProps, ptr %283, i64 %indvars.iv.i12
+  %285 = getelementptr inbounds nuw [64 x i8], ptr %283, i64 %indvars.iv.i12
   %286 = getelementptr inbounds nuw i8, ptr %285, i64 56
   %287 = load volatile i32, ptr %286, align 8
   %.not.i13 = icmp eq i32 %287, 0
@@ -2376,7 +2375,7 @@ define internal fastcc void @doCleanup() unnamed_addr #3 {
   %8 = phi i32 [ %6, %.lr.ph.preheader ], [ %31, %30 ]
   %9 = phi ptr [ %.pre21, %.lr.ph.preheader ], [ %32, %30 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %30 ]
-  %10 = getelementptr inbounds nuw %struct.ScreenProps, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [64 x i8], ptr %9, i64 %indvars.iv
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %12 = load ptr, ptr %11, align 8
   %.not17 = icmp eq ptr %12, null

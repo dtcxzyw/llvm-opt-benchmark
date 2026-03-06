@@ -1868,7 +1868,7 @@ switch.lookup:                                    ; preds = %2, %switch.lookup
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %switch.lookup ]
   tail call void @_ZN19JfrCheckpointWriter9write_keyEm(ptr noundef nonnull align 8 dereferenceable(73) %1, i64 noundef %indvars.iv) #12
   %3 = and i64 %indvars.iv, 4294967295
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN24G1HeapRegionTypeConstant9serializeER19JfrCheckpointWriter, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN24G1HeapRegionTypeConstant9serializeER19JfrCheckpointWriter, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   tail call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE10write_utf8EPKc(ptr noundef nonnull align 8 dereferenceable(41) %1, ptr noundef nonnull %switch.load)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2274,7 +2274,7 @@ define linkonce_odr hidden void @_ZN16G1YCTypeConstant9serializeER19JfrCheckpoin
 3:                                                ; preds = %2, %3
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %3 ]
   tail call void @_ZN19JfrCheckpointWriter9write_keyEm(ptr noundef nonnull align 8 dereferenceable(73) %1, i64 noundef %indvars.iv) #12
-  %4 = getelementptr inbounds nuw ptr, ptr @_ZZN19G1GCPauseTypeHelper9to_stringE13G1GCPauseTypeE13pause_strings, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN19G1GCPauseTypeHelper9to_stringE13G1GCPauseTypeE13pause_strings, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 8
   tail call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE10write_utf8EPKc(ptr noundef nonnull align 8 dereferenceable(41) %1, ptr noundef %5)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

@@ -226,7 +226,7 @@ define hidden noundef zeroext i1 @"_ZN94_$LT$std..collections..hash..map..HashMa
   %30 = add i64 %.sroa.01.0.i.i.i.i.i.i, %29
   %31 = and i64 %30, %12
   %32 = sub nsw i64 0, %31
-  %33 = getelementptr inbounds { i32, [1 x i32], { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 } } }, ptr %13, i64 %32
+  %33 = getelementptr inbounds [104 x i8], ptr %13, i64 %32
   %34 = getelementptr inbounds i8, ptr %33, i64 -104
   %35 = call noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h443994b4c5925313E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %18, ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %34), !noalias !45
   br i1 %35, label %45, label %39, !prof !48

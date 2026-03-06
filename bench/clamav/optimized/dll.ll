@@ -244,7 +244,7 @@ _ZN7DataSetC2Ev.exit:                             ; preds = %11
 
 switch.lookup:                                    ; preds = %64
   %66 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.RAROpenArchiveEx, i64 %66
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.RAROpenArchiveEx, i64 %66
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZL13RarErrorToDll8RAR_EXIT.exit
 
@@ -439,7 +439,7 @@ _ZL13RarErrorToDll8RAR_EXIT.exit:                 ; preds = %64, %switch.lookup,
   %158 = phi ptr [ %133, %._ZN5ArrayIwE3AddEm.exit_crit_edge.i ], [ %.pre, %.noexc135 ]
   %159 = phi ptr [ %.pre1.i, %._ZN5ArrayIwE3AddEm.exit_crit_edge.i ], [ %154, %.noexc135 ]
   %160 = phi i64 [ %137, %._ZN5ArrayIwE3AddEm.exit_crit_edge.i ], [ %.pre.i, %.noexc135 ]
-  %161 = getelementptr i32, ptr %159, i64 %160
+  %161 = getelementptr [4 x i8], ptr %159, i64 %160
   %162 = getelementptr i8, ptr %161, i64 -4
   store i32 0, ptr %162, align 4, !tbaa !135
   %163 = call i64 @wcslen(ptr noundef nonnull %159) #21
@@ -462,7 +462,7 @@ _ZL13RarErrorToDll8RAR_EXIT.exit:                 ; preds = %64, %switch.lookup,
   %177 = load i32, ptr %172, align 1, !tbaa !22
   %178 = add i32 %177, -1
   %179 = zext i32 %178 to i64
-  %180 = getelementptr inbounds nuw i32, ptr %176, i64 %179
+  %180 = getelementptr inbounds nuw [4 x i8], ptr %176, i64 %179
   store i32 0, ptr %180, align 4, !tbaa !135
   br label %231
 
@@ -787,7 +787,7 @@ define internal fastcc noundef range(i32 0, 25) i32 @_ZL13RarErrorToDll8RAR_EXIT
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZL13RarErrorToDll8RAR_EXIT, i64 %3
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZL13RarErrorToDll8RAR_EXIT, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %4
 

@@ -1341,13 +1341,13 @@ define linkonce_odr hidden void @_ZN2cv3dnn20CorrelationLayerImpl7forwardERKNS_1
   %indvars.iv55.i = phi i64 [ %indvars.iv.next56.i, %._crit_edge.us.us.us.i ], [ 0, %.preheader43.us.us.i ]
   %49 = add nuw nsw i64 %indvars.iv55.i, %45
   %50 = mul nuw nsw i64 %49, %43
-  %invariant.gep.i = getelementptr inbounds nuw float, ptr %37, i64 %50
+  %invariant.gep.i = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %50
   %51 = trunc nuw nsw i64 %indvars.iv55.i to i32
   br label %52
 
 52:                                               ; preds = %52, %.preheader.us.us.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %52 ], [ 0, %.preheader.us.us.us.i ]
-  %gep.i = getelementptr inbounds nuw float, ptr %invariant.gep.i, i64 %indvars.iv.i
+  %gep.i = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep.i, i64 %indvars.iv.i
   %53 = load float, ptr %gep.i, align 4, !tbaa !68
   %54 = trunc nuw nsw i64 %indvars.iv.i to i32
   %55 = srem i32 %54, %29
@@ -1359,7 +1359,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn20CorrelationLayerImpl7forwardERKNS_1
   %59 = mul nsw i32 %58, %25
   %60 = add nsw i32 %59, %51
   %61 = sext i32 %60 to i64
-  %62 = getelementptr inbounds float, ptr %39, i64 %61
+  %62 = getelementptr inbounds [4 x i8], ptr %39, i64 %61
   store float %53, ptr %62, align 4, !tbaa !68
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %43
@@ -1418,13 +1418,13 @@ _ZN2cv3dnn20CorrelationLayerImpl20blobRearrangeKernel2ERKNS_3MatERS2_.exit: ; pr
   %indvars.iv55.i20 = phi i64 [ %indvars.iv.next56.i29, %._crit_edge.us.us.us.i28 ], [ 0, %.preheader43.us.us.i17 ]
   %89 = add nuw nsw i64 %indvars.iv55.i20, %85
   %90 = mul nuw nsw i64 %89, %83
-  %invariant.gep.i21 = getelementptr inbounds nuw float, ptr %77, i64 %90
+  %invariant.gep.i21 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %90
   %91 = trunc nuw nsw i64 %indvars.iv55.i20 to i32
   br label %92
 
 92:                                               ; preds = %92, %.preheader.us.us.us.i19
   %indvars.iv.i22 = phi i64 [ %indvars.iv.next.i26, %92 ], [ 0, %.preheader.us.us.us.i19 ]
-  %gep.i23 = getelementptr inbounds nuw float, ptr %invariant.gep.i21, i64 %indvars.iv.i22
+  %gep.i23 = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep.i21, i64 %indvars.iv.i22
   %93 = load float, ptr %gep.i23, align 4, !tbaa !68
   %94 = trunc nuw nsw i64 %indvars.iv.i22 to i32
   %95 = srem i32 %94, %72
@@ -1436,7 +1436,7 @@ _ZN2cv3dnn20CorrelationLayerImpl20blobRearrangeKernel2ERKNS_3MatERS2_.exit: ; pr
   %99 = mul nsw i32 %98, %68
   %100 = add nsw i32 %99, %91
   %101 = sext i32 %100 to i64
-  %102 = getelementptr inbounds float, ptr %79, i64 %101
+  %102 = getelementptr inbounds [4 x i8], ptr %79, i64 %101
   store float %93, ptr %102, align 4, !tbaa !68
   %indvars.iv.next.i26 = add nuw nsw i64 %indvars.iv.i22, 1
   %exitcond.not.i27 = icmp eq i64 %indvars.iv.next.i26, %83
@@ -2184,14 +2184,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %46, %
 55:                                               ; preds = %51
   %56 = zext nneg i32 %54 to i64
   %57 = load ptr, ptr %52, align 8, !tbaa !86
-  %58 = getelementptr inbounds nuw i64, ptr %57, i64 %56
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %56
   %59 = load i64, ptr %58, align 8, !tbaa !54
   br label %98
 
 60:                                               ; preds = %51
   %61 = zext nneg i32 %54 to i64
   %62 = load ptr, ptr %52, align 8, !tbaa !88
-  %63 = getelementptr inbounds nuw double, ptr %62, i64 %61
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %61
   %64 = load double, ptr %63, align 8, !tbaa !91
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %65 = call double @modf(double noundef %64, ptr noundef nonnull %7) #23
@@ -2243,7 +2243,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35: ; preds = %72,
 79:                                               ; preds = %51
   %80 = zext nneg i32 %54 to i64
   %81 = load ptr, ptr %52, align 8, !tbaa !93
-  %82 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %81, i64 %80
+  %82 = getelementptr inbounds nuw [32 x i8], ptr %81, i64 %80
   %83 = load ptr, ptr %82, align 8, !tbaa !33
   %84 = tail call i64 @strtol(ptr noundef nonnull captures(none) %83, ptr noundef null, i32 noundef 10) #23
   %sext = shl i64 %84, 32
@@ -2721,7 +2721,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit:            ; preds = %.noexc111, %_ZNSt6v
   %74 = mul i32 %21, %73
   %75 = add i32 %78, %74
   %76 = sext i32 %75 to i64
-  %77 = getelementptr inbounds float, ptr %36, i64 %76
+  %77 = getelementptr inbounds [4 x i8], ptr %36, i64 %76
   store float %72, ptr %77, align 4, !tbaa !68
   %indvars.iv.next265 = add nuw nsw i64 %indvars.iv264, 1
   %exitcond268.not = icmp eq i64 %indvars.iv.next265, %wide.trip.count267
@@ -2748,15 +2748,15 @@ _ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit:            ; preds = %.noexc111, %_ZNSt6v
   %.reass119.reass.us.us.us.us.us.us = add i32 %invariant.op124.us.us.us.us.us, %84
   %85 = mul nsw i32 %.reass119.reass.us.us.us.us.us.us, %13
   %86 = sext i32 %85 to i64
-  %invariant.gep288 = getelementptr float, ptr %32, i64 %86
-  %invariant.gep290 = getelementptr float, ptr %.sroa.0112.0, i64 %83
+  %invariant.gep288 = getelementptr [4 x i8], ptr %32, i64 %86
+  %invariant.gep290 = getelementptr [4 x i8], ptr %.sroa.0112.0, i64 %83
   br label %87
 
 87:                                               ; preds = %87, %.lr.ph.us.us.us.us.us.us
   %indvars.iv234 = phi i64 [ %indvars.iv.next235, %87 ], [ 0, %.lr.ph.us.us.us.us.us.us ]
-  %gep289 = getelementptr float, ptr %invariant.gep288, i64 %indvars.iv234
+  %gep289 = getelementptr [4 x i8], ptr %invariant.gep288, i64 %indvars.iv234
   %88 = load float, ptr %gep289, align 4, !tbaa !68
-  %gep291 = getelementptr float, ptr %invariant.gep290, i64 %indvars.iv234
+  %gep291 = getelementptr [4 x i8], ptr %invariant.gep290, i64 %indvars.iv234
   store float %88, ptr %gep291, align 4, !tbaa !68
   %indvars.iv.next235 = add nuw nsw i64 %indvars.iv234, 1
   %exitcond238.not = icmp eq i64 %indvars.iv.next235, %wide.trip.count237
@@ -2797,16 +2797,16 @@ _ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit:            ; preds = %.noexc111, %_ZNSt6v
   %.reass.reass.us.us147.us.us.us.us = add i32 %invariant.op140.us.us.us.us.us, %96
   %97 = mul nsw i32 %.reass.reass.us.us147.us.us.us.us, %13
   %98 = sext i32 %97 to i64
-  %invariant.gep292 = getelementptr float, ptr %.sroa.0112.0, i64 %95
-  %invariant.gep294 = getelementptr float, ptr %34, i64 %98
+  %invariant.gep292 = getelementptr [4 x i8], ptr %.sroa.0112.0, i64 %95
+  %invariant.gep294 = getelementptr [4 x i8], ptr %34, i64 %98
   br label %99
 
 99:                                               ; preds = %99, %.lr.ph.us.us.us150.us.us.us
   %indvars.iv249 = phi i64 [ %indvars.iv.next250, %99 ], [ 0, %.lr.ph.us.us.us150.us.us.us ]
   %.2133.us.us.us.us.us.us = phi float [ %102, %99 ], [ %.1135.us.us.us.us.us.us, %.lr.ph.us.us.us150.us.us.us ]
-  %gep293 = getelementptr float, ptr %invariant.gep292, i64 %indvars.iv249
+  %gep293 = getelementptr [4 x i8], ptr %invariant.gep292, i64 %indvars.iv249
   %100 = load float, ptr %gep293, align 4, !tbaa !68
-  %gep295 = getelementptr float, ptr %invariant.gep294, i64 %indvars.iv249
+  %gep295 = getelementptr [4 x i8], ptr %invariant.gep294, i64 %indvars.iv249
   %101 = load float, ptr %gep295, align 4, !tbaa !68
   %102 = tail call float @llvm.fmuladd.f32(float %100, float %101, float %.2133.us.us.us.us.us.us)
   %indvars.iv.next250 = add nuw nsw i64 %indvars.iv249, 1
@@ -2874,15 +2874,15 @@ _ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit:            ; preds = %.noexc111, %_ZNSt6v
   %.reass119.reass.us.us.us.us182.us.us.us.us = add i32 %invariant.op124.us.us.us179.us.us.us.us, %114
   %115 = mul nsw i32 %.reass119.reass.us.us.us.us182.us.us.us.us, %13
   %116 = sext i32 %115 to i64
-  %invariant.gep = getelementptr float, ptr %32, i64 %116
-  %invariant.gep286 = getelementptr inbounds nuw float, ptr %.sroa.0112.0, i64 %113
+  %invariant.gep = getelementptr [4 x i8], ptr %32, i64 %116
+  %invariant.gep286 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0112.0, i64 %113
   br label %117
 
 117:                                              ; preds = %117, %.lr.ph.us.us.us.us180.us.us.us.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %117 ], [ 0, %.lr.ph.us.us.us.us180.us.us.us.us ]
-  %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %indvars.iv
   %118 = load float, ptr %gep, align 4, !tbaa !68
-  %gep287 = getelementptr inbounds nuw float, ptr %invariant.gep286, i64 %indvars.iv
+  %gep287 = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep286, i64 %indvars.iv
   store float %118, ptr %gep287, align 4, !tbaa !68
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2988,7 +2988,7 @@ _ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EED2Ev.exit.i: ; preds = %_ZNSt12_Vec
   resume { ptr, i32 } %18
 
 _ZNSt6vectorIS_IiSaIiEESaIS1_EEC2EmRKS1_RKS2_.exit: ; preds = %_ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EEC2EmRKS3_.exit.i
-  %19 = getelementptr inbounds nuw %"class.std::vector.23", ptr %16, i64 %1
+  %19 = getelementptr inbounds nuw [24 x i8], ptr %16, i64 %1
   %20 = load ptr, ptr %0, align 8, !tbaa !78
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !75

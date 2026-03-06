@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.diff_queue_struct = type { ptr, i32, i32 }
-%struct.bloom_filter = type { ptr, i64, i32, ptr }
 %struct.diff_options = type { ptr, ptr, i32, i32, ptr, i32, ptr, i64, i64, ptr, ptr, ptr, ptr, %struct.diff_flags, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32, ptr, i32, i32, ptr, i64, i64, i32, i32, i32, i32, ptr, i32, i32, ptr, i32, i32, ptr, ptr, i32, [3 x i8], %struct.pathspec, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, i32, i32, ptr, ptr, i32 }
 %struct.diff_flags = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
 %struct.pathspec = type { i32, i8, i32, i32, ptr }
@@ -448,7 +447,7 @@ murmur3_seeded_v2.exit34:                         ; preds = %._crit_edge.i20, %8
   %108 = trunc nuw nsw i64 %indvars.iv to i32
   %109 = mul i32 %.0, %108
   %110 = add i32 %109, %.018
-  %111 = getelementptr inbounds nuw i32, ptr %106, i64 %indvars.iv
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %106, i64 %indvars.iv
   store i32 %110, ptr %111, align 4, !tbaa !38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %112 = load i32, ptr %103, align 4, !tbaa !35
@@ -592,7 +591,7 @@ define dso_local void @add_key_to_filter(ptr noundef readonly captures(none) %0,
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %3 ]
   %9 = load ptr, ptr %0, align 8, !tbaa !36
-  %10 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4, !tbaa !38
   %12 = zext i32 %11 to i64
   %13 = urem i64 %12, %6
@@ -643,7 +642,7 @@ define dso_local void @deinit_bloom_filters() local_unnamed_addr #7 {
   %4 = phi i32 [ %.pre.i, %.lr.ph3.preheader.i ], [ %25, %.loopexit.i ]
   %5 = phi i32 [ %.pre.i, %.lr.ph3.preheader.i ], [ %26, %.loopexit.i ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph3.preheader.i ], [ %indvars.iv.next.i, %.loopexit.i ]
-  %6 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.i
   %7 = load ptr, ptr %6, align 8, !tbaa !46
   %.not.i = icmp ne ptr %7, null
   %8 = icmp ne i32 %5, 0
@@ -655,7 +654,7 @@ define dso_local void @deinit_bloom_filters() local_unnamed_addr #7 {
   %9 = phi i32 [ %19, %free_one_bloom_filter.exit.i ], [ %4, %.lr.ph3.i ]
   %10 = phi ptr [ %20, %free_one_bloom_filter.exit.i ], [ %.pre10.i, %.lr.ph3.i ]
   %.01.i = phi i32 [ %21, %free_one_bloom_filter.exit.i ], [ 0, %.lr.ph3.i ]
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i
   %12 = load ptr, ptr %11, align 8, !tbaa !46
   %.not.i.i = icmp eq ptr %12, null
   br i1 %.not.i.i, label %free_one_bloom_filter.exit.i, label %13
@@ -664,7 +663,7 @@ define dso_local void @deinit_bloom_filters() local_unnamed_addr #7 {
   %.b = load i1, ptr @bloom_filters.1, align 4
   %14 = zext i32 %.01.i to i64
   %15 = select i1 %.b, i64 %14, i64 0
-  %16 = getelementptr inbounds nuw %struct.bloom_filter, ptr %12, i64 %15
+  %16 = getelementptr inbounds nuw [32 x i8], ptr %12, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %18 = load ptr, ptr %17, align 8, !tbaa !33
   tail call void @free(ptr noundef %18) #15
@@ -708,7 +707,7 @@ free_one_bloom_filter.exit.i:                     ; preds = %13, %.lr.ph.split.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %.lr.ph.i.i.preheader ]
-  %33 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv.i.i
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv.i.i
   %34 = load ptr, ptr %33, align 8, !tbaa !46
   tail call void @free(ptr noundef %34) #15
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -796,7 +795,7 @@ define dso_local noundef ptr @get_or_compute_bloom_filter(ptr noundef %0, ptr no
 .lr.ph.i.i:                                       ; preds = %18, %.lr.ph.i.i
   %.0302.i.i = phi i32 [ %26, %.lr.ph.i.i ], [ %23, %18 ]
   %24 = zext i32 %.0302.i.i to i64
-  %25 = getelementptr inbounds nuw ptr, ptr %22, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %24
   store ptr null, ptr %25, align 8, !tbaa !46
   %26 = add i32 %.0302.i.i, 1
   %.not33.i.i = icmp ugt i32 %26, %15
@@ -809,7 +808,7 @@ define dso_local noundef ptr @get_or_compute_bloom_filter(ptr noundef %0, ptr no
 27:                                               ; preds = %._crit_edge.i.i, %13
   %28 = phi ptr [ %22, %._crit_edge.i.i ], [ %.pre.i.i, %13 ]
   %29 = zext nneg i32 %15 to i64
-  %30 = getelementptr inbounds nuw ptr, ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !46
   %.not34.i.i = icmp eq ptr %31, null
   br i1 %.not34.i.i, label %32, label %bloom_filter_slab_at.exit
@@ -821,7 +820,7 @@ define dso_local noundef ptr @get_or_compute_bloom_filter(ptr noundef %0, ptr no
   %34 = select i1 %.b177, i64 32, i64 0
   %35 = tail call ptr @xcalloc(i64 noundef %33, i64 noundef %34) #15
   %36 = load ptr, ptr @bloom_filters.3, align 8, !tbaa !45
-  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %29
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %29
   store ptr %35, ptr %37, align 8, !tbaa !46
   br label %bloom_filter_slab_at.exit
 
@@ -830,7 +829,7 @@ bloom_filter_slab_at.exit:                        ; preds = %27, %32
   %.b178 = load i1, ptr @bloom_filters.1, align 4
   %39 = zext nneg i32 %16 to i64
   %40 = select i1 %.b178, i64 %39, i64 0
-  %41 = getelementptr inbounds nuw %struct.bloom_filter, ptr %38, i64 %40
+  %41 = getelementptr inbounds nuw [32 x i8], ptr %38, i64 %40
   %42 = load ptr, ptr %41, align 8, !tbaa !28
   %.not93 = icmp eq ptr %42, null
   br i1 %.not93, label %43, label %.thread
@@ -976,7 +975,7 @@ upgrade_filter.exit:                              ; preds = %72, %commit_tree_ha
 .lr.ph:                                           ; preds = %97, %123
   %indvars.iv = phi i64 [ %indvars.iv.next, %123 ], [ 0, %97 ]
   %99 = load ptr, ptr @diff_queued_diff, align 8, !tbaa !110
-  %100 = getelementptr inbounds nuw ptr, ptr %99, i64 %indvars.iv
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %99, i64 %indvars.iv
   %101 = load ptr, ptr %100, align 8, !tbaa !111
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
   %103 = load ptr, ptr %102, align 8, !tbaa !113
@@ -1143,7 +1142,7 @@ hashmap_get_size.exit118:                         ; preds = %97, %hashmap_get_si
 
 .lr.ph.i:                                         ; preds = %160, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %160 ]
-  %166 = getelementptr inbounds nuw i32, ptr %.pre, i64 %indvars.iv.i
+  %166 = getelementptr inbounds nuw [4 x i8], ptr %.pre, i64 %indvars.iv.i
   %167 = load i32, ptr %166, align 4, !tbaa !38
   %168 = zext i32 %167 to i64
   %169 = urem i64 %168, %164
@@ -1280,7 +1279,7 @@ define dso_local range(i32 -1, 2) i32 @bloom_filter_contains(ptr noundef readonl
 
 12:                                               ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
-  %13 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4, !tbaa !38
   %15 = zext i32 %14 to i64
   %16 = urem i64 %15, %6

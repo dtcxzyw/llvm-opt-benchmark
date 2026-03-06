@@ -891,7 +891,7 @@ copy_address.exit1585:                            ; preds = %copy_address.exit15
 
 .lr.ph1668:                                       ; preds = %295, %322
   %indvars.iv1684 = phi i64 [ %indvars.iv.next1685, %322 ], [ 1, %295 ]
-  %309 = getelementptr ptr, ptr %63, i64 %indvars.iv1684
+  %309 = getelementptr [8 x i8], ptr %63, i64 %indvars.iv1684
   %310 = load ptr, ptr %309, align 8
   %311 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %310, i32 noundef 0)
   switch i16 %311, label %322 [
@@ -957,11 +957,11 @@ copy_address.exit1585:                            ; preds = %copy_address.exit15
   %or.cond20 = or i1 %340, %or.cond14
   %spec.store.select = select i1 %or.cond20, i8 %335, i8 -2
   %341 = zext i8 %spec.store.select to i64
-  %342 = getelementptr i32, ptr %165, i64 %341
+  %342 = getelementptr [4 x i8], ptr %165, i64 %341
   %343 = load i32, ptr %342, align 4
   %344 = add i32 %343, 1
   store i32 %344, ptr %342, align 4
-  %345 = getelementptr i32, ptr %166, i64 %341
+  %345 = getelementptr [4 x i8], ptr %166, i64 %341
   %346 = load i32, ptr %345, align 4
   %347 = add i32 %346, 1
   store i32 %347, ptr %345, align 4
@@ -1138,17 +1138,17 @@ copy_address.exit1585:                            ; preds = %copy_address.exit15
   %or.cond35 = or i1 %449, %or.cond29
   %spec.store.select85 = select i1 %or.cond35, i8 %444, i8 -2
   %450 = zext i8 %spec.store.select85 to i64
-  %451 = getelementptr i32, ptr %165, i64 %450
+  %451 = getelementptr [4 x i8], ptr %165, i64 %450
   %452 = load i32, ptr %451, align 4
   %453 = add i32 %452, 1
   store i32 %453, ptr %451, align 4
-  %454 = getelementptr i32, ptr %166, i64 %450
+  %454 = getelementptr [4 x i8], ptr %166, i64 %450
   %455 = load i32, ptr %454, align 4
   %456 = add i32 %455, 1
   store i32 %456, ptr %454, align 4
   %457 = zext i8 %spec.store.select85 to i32
   %458 = call fastcc ptr @add_chunk_count(ptr noundef nonnull %93, ptr noundef %90, i32 noundef 1, i32 noundef %457)
-  %459 = getelementptr ptr, ptr %63, i64 %indvars.iv1682
+  %459 = getelementptr [8 x i8], ptr %63, i64 %indvars.iv1682
   %460 = load ptr, ptr %459, align 8
   %461 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %460, i32 noundef 0)
   %462 = icmp eq i8 %461, 0
@@ -1647,7 +1647,7 @@ copy_address.exit1587:                            ; preds = %copy_address.exit15
 
 .lr.ph1671:                                       ; preds = %.preheader, %.lr.ph1671
   %indvars.iv1687 = phi i64 [ %indvars.iv.next1688, %.lr.ph1671 ], [ 0, %.preheader ]
-  %722 = getelementptr ptr, ptr %63, i64 %indvars.iv1687
+  %722 = getelementptr [8 x i8], ptr %63, i64 %indvars.iv1687
   %723 = load ptr, ptr %722, align 8
   %724 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %723, i32 noundef 0)
   %725 = zext i8 %724 to i32
@@ -2128,7 +2128,7 @@ copy_address.exit1593:                            ; preds = %898, %901
   %spec.store.select86 = select i1 %or.cond54, i8 %970, i8 -2
   %976 = getelementptr inbounds nuw i8, ptr %79, i64 384
   %977 = zext i8 %spec.store.select86 to i64
-  %978 = getelementptr i32, ptr %976, i64 %977
+  %978 = getelementptr [4 x i8], ptr %976, i64 %977
   %979 = load i32, ptr %978, align 4
   %980 = add i32 %979, 1
   store i32 %980, ptr %978, align 4
@@ -2136,7 +2136,7 @@ copy_address.exit1593:                            ; preds = %898, %901
   %982 = icmp eq i16 %981, 1
   %.1907 = select i1 %982, i64 1408, i64 2432
   %983 = getelementptr inbounds nuw i8, ptr %79, i64 %.1907
-  %984 = getelementptr i32, ptr %983, i64 %977
+  %984 = getelementptr [4 x i8], ptr %983, i64 %977
   %985 = load i32, ptr %984, align 4
   %986 = add i32 %985, 1
   store i32 %986, ptr %984, align 4
@@ -2150,7 +2150,7 @@ copy_address.exit1593:                            ; preds = %898, %901
 
 .lr.ph1654:                                       ; preds = %968, %1006
   %indvars.iv1676 = phi i64 [ %indvars.iv.next1677, %1006 ], [ 1, %968 ]
-  %993 = getelementptr ptr, ptr %63, i64 %indvars.iv1676
+  %993 = getelementptr [8 x i8], ptr %63, i64 %indvars.iv1676
   %994 = load ptr, ptr %993, align 8
   %995 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %994, i32 noundef 0)
   switch i16 %995, label %1006 [
@@ -2496,7 +2496,7 @@ copy_address.exit1593:                            ; preds = %898, %901
   %.414171649 = phi i1 [ false, %.lr.ph ], [ %.51418, %1575 ]
   %.414241648 = phi i8 [ 0, %.lr.ph ], [ %.51425, %1575 ]
   %.414301647 = phi i8 [ 0, %.lr.ph ], [ %spec.select, %1575 ]
-  %1211 = getelementptr ptr, ptr %63, i64 %indvars.iv
+  %1211 = getelementptr [8 x i8], ptr %63, i64 %indvars.iv
   %1212 = load ptr, ptr %1211, align 8
   %1213 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1212, i32 noundef 0)
   %1214 = icmp ult i8 %1213, 17
@@ -2509,7 +2509,7 @@ copy_address.exit1593:                            ; preds = %898, %901
   %or.cond69 = or i1 %1218, %or.cond63
   %spec.store.select87 = select i1 %or.cond69, i8 %1213, i8 -2
   %1219 = zext i8 %spec.store.select87 to i64
-  %1220 = getelementptr i32, ptr %1164, i64 %1219
+  %1220 = getelementptr [4 x i8], ptr %1164, i64 %1219
   %1221 = load i32, ptr %1220, align 4
   %1222 = add i32 %1221, 1
   store i32 %1222, ptr %1220, align 4
@@ -2517,7 +2517,7 @@ copy_address.exit1593:                            ; preds = %898, %901
   %1224 = icmp eq i16 %1223, 1
   %.1908.v = select i1 %1224, i64 1408, i64 2432
   %.1908 = getelementptr inbounds nuw i8, ptr %79, i64 %.1908.v
-  %1225 = getelementptr i32, ptr %.1908, i64 %1219
+  %1225 = getelementptr [4 x i8], ptr %.1908, i64 %1219
   %1226 = load i32, ptr %1225, align 4
   %1227 = add i32 %1226, 1
   store i32 %1227, ptr %1225, align 4
@@ -3922,7 +3922,7 @@ define internal fastcc noundef ptr @add_chunk_count(ptr noundef readonly capture
 39:                                               ; preds = %32
   %40 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %41 = zext nneg i32 %3 to i64
-  %42 = getelementptr i32, ptr %40, i64 %41
+  %42 = getelementptr [4 x i8], ptr %40, i64 %41
   %43 = load i32, ptr %42, align 4
   %44 = add i32 %43, 1
   store i32 %44, ptr %42, align 4
@@ -3982,7 +3982,7 @@ copy_address.exit:                                ; preds = %._crit_edge, %57
 
 70:                                               ; preds = %copy_address.exit
   %71 = zext nneg i32 %3 to i64
-  %72 = getelementptr i32, ptr %63, i64 %71
+  %72 = getelementptr [4 x i8], ptr %63, i64 %71
   %73 = load i32, ptr %72, align 4
   %74 = add i32 %73, 1
   store i32 %74, ptr %72, align 4

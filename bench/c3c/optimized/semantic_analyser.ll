@@ -15,21 +15,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.anon.88 = type { ptr, ptr, ptr, ptr }
 %struct.anon.89 = type { ptr, ptr, i32, i8 }
 %struct.anon.90 = type { ptr, ptr }
-%struct.Decl_ = type { ptr, ptr, %union.SourceSpan, i64, %union.anon, i32, %union.anon.0, i64, ptr, ptr, ptr, %union.anon.1 }
-%union.anon = type { ptr }
-%union.anon.0 = type { i16 }
-%union.anon.1 = type { %struct.FuncDecl }
-%struct.FuncDecl = type { i32, [4 x i8], %struct.Signature_, i32, i32, %union.anon.8 }
-%struct.Signature_ = type <{ %struct.CalleeAttributes, i16, i8, i32, i32, [4 x i8], ptr }>
-%struct.CalleeAttributes = type { i8 }
-%union.anon.8 = type { %struct.anon.9 }
-%struct.anon.9 = type { i16, %union.anon.10 }
-%union.anon.10 = type { ptr }
-%struct.Ast_ = type { %union.SourceSpan, i32, i8, %union.anon.62 }
-%union.anon.62 = type { %struct.AstDocDirective_ }
-%struct.AstDocDirective_ = type { i8, %union.anon.65 }
-%union.anon.65 = type { %struct.anon.66 }
-%struct.anon.66 = type { ptr, %union.SourceSpan, i8 }
 
 @.str = private unnamed_addr constant [36 x i8] c"FATAL ERROR %s -> in %s @ in %s:%d \00", align 1
 @.str.1 = private unnamed_addr constant [26 x i8] c"Too deeply nested scopes.\00", align 1
@@ -221,7 +206,7 @@ context_change_scope_with_flags.exit:             ; preds = %8
 18:                                               ; preds = %context_change_scope_with_flags.exit
   %19 = load ptr, ptr @decl_arena, align 8
   %20 = zext i32 %1 to i64
-  %21 = getelementptr inbounds nuw %struct.Decl_, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [136 x i8], ptr %19, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 80
   store i32 %12, ptr %22, align 8
   %23 = tail call zeroext i1 @sema_add_local(ptr noundef nonnull %0, ptr noundef nonnull %21) #10
@@ -262,7 +247,7 @@ define dso_local i32 @context_get_defers(ptr noundef readnone captures(none) %0,
 7:                                                ; preds = %14, %.lr.ph.us
   %.016.us.us = phi i32 [ %.0.ph21.us, %.lr.ph.us ], [ %15, %14 ]
   %8 = zext i32 %.016.us.us to i64
-  %9 = getelementptr inbounds nuw %struct.Ast_, ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw [48 x i8], ptr %6, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load i8, ptr %10, align 8
   %12 = and i8 %11, 2
@@ -279,7 +264,7 @@ define dso_local i32 @context_get_defers(ptr noundef readnone captures(none) %0,
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 20
   %17 = load i32, ptr %16, align 4
   %18 = zext i32 %17 to i64
-  %19 = getelementptr inbounds nuw %struct.Ast_, ptr %6, i64 %18
+  %19 = getelementptr inbounds nuw [48 x i8], ptr %6, i64 %18
   %20 = tail call ptr @copy_ast_defer(ptr noundef %19) #10
   %21 = load ptr, ptr @ast_arena, align 8
   %22 = ptrtoint ptr %20 to i64
@@ -302,7 +287,7 @@ define dso_local i32 @context_get_defers(ptr noundef readnone captures(none) %0,
 .critedge:                                        ; preds = %.lr.ph, %36
   %.016 = phi i32 [ %.0.ph21, %.lr.ph ], [ %37, %36 ]
   %30 = zext i32 %.016 to i64
-  %31 = getelementptr inbounds nuw %struct.Ast_, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [48 x i8], ptr %29, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %33 = load i8, ptr %32, align 8
   %34 = trunc i8 %33 to i1
@@ -318,7 +303,7 @@ define dso_local i32 @context_get_defers(ptr noundef readnone captures(none) %0,
   %38 = getelementptr inbounds nuw i8, ptr %31, i64 20
   %39 = load i32, ptr %38, align 4
   %40 = zext i32 %39 to i64
-  %41 = getelementptr inbounds nuw %struct.Ast_, ptr %29, i64 %40
+  %41 = getelementptr inbounds nuw [48 x i8], ptr %29, i64 %40
   %42 = tail call ptr @copy_ast_defer(ptr noundef %41) #10
   %43 = load ptr, ptr @ast_arena, align 8
   %44 = ptrtoint ptr %42 to i64
@@ -368,7 +353,7 @@ define dso_local void @context_pop_defers(ptr noundef captures(none) %0, ptr nou
   %.01422 = phi i32 [ %.014, %31 ], [ %.01419, %.lr.ph.preheader ]
   %.021 = phi ptr [ %.1, %31 ], [ %1, %.lr.ph.preheader ]
   %12 = zext i32 %.01422 to i64
-  %13 = getelementptr inbounds nuw %struct.Ast_, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [48 x i8], ptr %11, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %16 = load i8, ptr %15, align 8
@@ -380,7 +365,7 @@ define dso_local void @context_pop_defers(ptr noundef captures(none) %0, ptr nou
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 20
   %20 = load i32, ptr %19, align 4
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw %struct.Ast_, ptr %11, i64 %21
+  %22 = getelementptr inbounds nuw [48 x i8], ptr %11, i64 %21
   %23 = tail call ptr @copy_ast_defer(ptr noundef %22) #10
   %24 = load ptr, ptr @ast_arena, align 8
   %25 = ptrtoint ptr %23 to i64
@@ -433,7 +418,7 @@ define dso_local void @context_pop_defers_and_replace_ast(ptr noundef captures(n
   %.01422.i = phi i32 [ %.014.i, %31 ], [ %.01419.i, %.lr.ph.preheader.i ]
   %.021.i = phi ptr [ %.1.i, %31 ], [ %3, %.lr.ph.preheader.i ]
   %12 = zext i32 %.01422.i to i64
-  %13 = getelementptr inbounds nuw %struct.Ast_, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [48 x i8], ptr %11, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %16 = load i8, ptr %15, align 8
@@ -445,7 +430,7 @@ define dso_local void @context_pop_defers_and_replace_ast(ptr noundef captures(n
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 20
   %20 = load i32, ptr %19, align 4
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw %struct.Ast_, ptr %11, i64 %21
+  %22 = getelementptr inbounds nuw [48 x i8], ptr %11, i64 %21
   %23 = tail call ptr @copy_ast_defer(ptr noundef %22) #10
   %24 = load ptr, ptr @ast_arena, align 8
   %25 = ptrtoint ptr %23 to i64
@@ -683,7 +668,7 @@ define dso_local void @sema_analysis_run() local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %analyze_generic_module.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %analyze_generic_module.exit ]
-  %28 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 56
   %31 = load ptr, ptr %30, align 8
@@ -703,7 +688,7 @@ define dso_local void @sema_analysis_run() local_unnamed_addr #0 {
 .lr.ph.i:                                         ; preds = %register_generic_decls.exit23.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %register_generic_decls.exit23.i ]
   %35 = load ptr, ptr %30, align 8
-  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv.i
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv.i
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 176
   %39 = load ptr, ptr %38, align 8
@@ -722,7 +707,7 @@ define dso_local void @sema_analysis_run() local_unnamed_addr #0 {
 
 .lr.ph.i.i:                                       ; preds = %63, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %63 ]
-  %43 = getelementptr inbounds nuw ptr, ptr %39, i64 %indvars.iv.i.i
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %indvars.iv.i.i
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 24
   %46 = load i64, ptr %45, align 8
@@ -793,7 +778,7 @@ register_generic_decls.exit.i:                    ; preds = %63, %40, %.lr.ph.i
 
 .lr.ph.i19.i:                                     ; preds = %89, %.lr.ph.preheader.i17.i
   %indvars.iv.i20.i = phi i64 [ 0, %.lr.ph.preheader.i17.i ], [ %indvars.iv.next.i21.i, %89 ]
-  %69 = getelementptr inbounds nuw ptr, ptr %65, i64 %indvars.iv.i20.i
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %indvars.iv.i20.i
   %70 = load ptr, ptr %69, align 8
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 24
   %72 = load i64, ptr %71, align 8
@@ -887,7 +872,7 @@ analyze_generic_module.exit:                      ; preds = %register_generic_de
 .lr.ph.i59:                                       ; preds = %.lr.ph.i59, %.lr.ph.preheader.i57
   %indvars.iv.i60 = phi i64 [ 0, %.lr.ph.preheader.i57 ], [ %indvars.iv.next.i61, %.lr.ph.i59 ]
   %98 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 32), align 8
-  %99 = getelementptr inbounds nuw ptr, ptr %98, i64 %indvars.iv.i60
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %indvars.iv.i60
   %100 = load ptr, ptr %99, align 8
   tail call void @sema_analyze_stage(ptr noundef %100, i32 noundef range(i32 0, 13) %.04476)
   %indvars.iv.next.i61 = add nuw nsw i64 %indvars.iv.i60, 1
@@ -912,7 +897,7 @@ analyze_generic_module.exit:                      ; preds = %register_generic_de
 .lr.ph27.i:                                       ; preds = %.lr.ph27.i, %.lr.ph27.preheader.i
   %indvars.iv31.i = phi i64 [ 0, %.lr.ph27.preheader.i ], [ %indvars.iv.next32.i, %.lr.ph27.i ]
   %105 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 24), align 8
-  %106 = getelementptr inbounds nuw ptr, ptr %105, i64 %indvars.iv31.i
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %105, i64 %indvars.iv31.i
   %107 = load ptr, ptr %106, align 8
   tail call void @sema_analyze_stage(ptr noundef %107, i32 noundef range(i32 0, 13) %.04476)
   %indvars.iv.next32.i = add nuw nsw i64 %indvars.iv31.i, 1
@@ -946,7 +931,7 @@ analyze_generic_module.exit:                      ; preds = %register_generic_de
 .lr.ph79:                                         ; preds = %.lr.ph79.preheader, %.critedge
   %indvars.iv85 = phi i64 [ 0, %.lr.ph79.preheader ], [ %indvars.iv.next86, %.critedge ]
   %.04377 = phi i1 [ false, %.lr.ph79.preheader ], [ %.1, %.critedge ]
-  %114 = getelementptr inbounds nuw ptr, ptr %110, i64 %indvars.iv85
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %110, i64 %indvars.iv85
   %115 = load ptr, ptr %114, align 8
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 112
   %117 = load ptr, ptr %116, align 8
@@ -1382,7 +1367,7 @@ define dso_local void @sema_context_init(ptr noundef writeonly captures(none) in
 11:                                               ; preds = %4
   %12 = add i32 %6, -1
   %13 = zext i32 %12 to i64
-  %14 = getelementptr inbounds nuw ptr, ptr %3, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %13
   %15 = load ptr, ptr %14, align 8
   store i32 %12, ptr %5, align 4
   %.not.i.i = icmp eq ptr %15, null
@@ -1415,7 +1400,7 @@ global_context_acquire_locals_list.exit:          ; preds = %.critedge.i, %11, %
 26:                                               ; preds = %19
   %27 = add i32 %21, -1
   %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %18, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %28
   %30 = load ptr, ptr %29, align 8
   store i32 %27, ptr %20, align 4
   %.not.i.i6 = icmp eq ptr %30, null
@@ -1468,7 +1453,7 @@ define dso_local ptr @global_context_acquire_locals_list() local_unnamed_addr #0
 9:                                                ; preds = %2
   %10 = add i32 %4, -1
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw ptr, ptr %1, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %11
   %13 = load ptr, ptr %12, align 8
   store i32 %10, ptr %3, align 4
   %.not.i = icmp eq ptr %13, null
@@ -1580,7 +1565,7 @@ generic_context_release_locals_list.exit:         ; preds = %13, %17
   %34 = load i32, ptr %.1.i.i, align 4
   %35 = add i32 %34, -1
   %36 = zext i32 %35 to i64
-  %37 = getelementptr inbounds nuw ptr, ptr %33, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %36
   store ptr %6, ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %39 = load ptr, ptr %38, align 8
@@ -1637,7 +1622,7 @@ generic_context_release_locals_list.exit9:        ; preds = %46, %50
   %67 = load i32, ptr %.1.i.i7, align 4
   %68 = add i32 %67, -1
   %69 = zext i32 %68 to i64
-  %70 = getelementptr inbounds nuw ptr, ptr %66, i64 %69
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %69
   store ptr %39, ptr %70, align 8
   br label %71
 
@@ -1700,7 +1685,7 @@ define dso_local void @generic_context_release_locals_list(ptr noundef %0) local
   %30 = load i32, ptr %.1.i, align 4
   %31 = add i32 %30, -1
   %32 = zext i32 %31 to i64
-  %33 = getelementptr inbounds nuw ptr, ptr %29, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %32
   store ptr %0, ptr %33, align 8
   ret void
 }
@@ -1733,7 +1718,7 @@ define dso_local noundef ptr @context_transform_for_eval(ptr noundef readonly ca
 16:                                               ; preds = %9
   %17 = add i32 %11, -1
   %18 = zext i32 %17 to i64
-  %19 = getelementptr inbounds nuw ptr, ptr %8, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %18
   %20 = load ptr, ptr %19, align 8
   store i32 %17, ptr %10, align 4
   %.not.i.i.i = icmp eq ptr %20, null
@@ -1766,7 +1751,7 @@ global_context_acquire_locals_list.exit.i:        ; preds = %21, %16, %.critedge
 31:                                               ; preds = %24
   %32 = add i32 %26, -1
   %33 = zext i32 %32 to i64
-  %34 = getelementptr inbounds nuw ptr, ptr %23, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %33
   %35 = load ptr, ptr %34, align 8
   store i32 %32, ptr %25, align 4
   %.not.i.i6.i = icmp eq ptr %35, null

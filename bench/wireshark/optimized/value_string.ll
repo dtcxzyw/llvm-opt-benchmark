@@ -3,12 +3,6 @@ source_filename = "bench/wireshark/original/value_string.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct._value_string = type { i32, ptr }
-%struct._val64_string = type { i64, ptr }
-%struct._string_string = type { ptr, ptr }
-%struct._range_string = type { i64, i64, ptr }
-%struct._bytes_string = type { ptr, i64, ptr }
-
 @.str = private unnamed_addr constant [29 x i8] c"%s:%u: failed assertion \22%s\22\00", align 1
 @.str.1 = private unnamed_addr constant [20 x i8] c"epan/value_string.c\00", align 1
 @.str.2 = private unnamed_addr constant [18 x i8] c"fmt != ((void*)0)\00", align 1
@@ -75,7 +69,7 @@ define ptr @val_to_str(i32 noundef %0, ptr noundef readonly captures(address_is_
   %.020.i.i13 = phi i32 [ %12, %.lr.ph.i.i ], [ 0, %.lr.ph.i.i.preheader ]
   %12 = add i32 %.020.i.i13, 1
   %13 = sext i32 %12 to i64
-  %14 = getelementptr %struct._value_string, ptr %1, i64 %13
+  %14 = getelementptr [16 x i8], ptr %1, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not16.i.i = icmp eq ptr %16, null
@@ -119,7 +113,7 @@ define ptr @try_val_to_str(i32 noundef %0, ptr noundef readonly captures(address
   %.020.i5 = phi i32 [ %9, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
   %9 = add i32 %.020.i5, 1
   %10 = sext i32 %9 to i64
-  %11 = getelementptr %struct._value_string, ptr %1, i64 %10
+  %11 = getelementptr [16 x i8], ptr %1, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   %.not16.i = icmp eq ptr %13, null
@@ -172,7 +166,7 @@ define noalias ptr @val_to_str_wmem(ptr noundef %0, i32 noundef %1, ptr noundef 
   %.020.i.i15 = phi i32 [ %13, %.lr.ph.i.i ], [ 0, %.lr.ph.i.i.preheader ]
   %13 = add i32 %.020.i.i15, 1
   %14 = sext i32 %13 to i64
-  %15 = getelementptr %struct._value_string, ptr %2, i64 %14
+  %15 = getelementptr [16 x i8], ptr %2, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
   %.not16.i.i = icmp eq ptr %17, null
@@ -228,7 +222,7 @@ define nonnull ptr @val_to_str_const(i32 noundef %0, ptr noundef readonly captur
   %.020.i.i9 = phi i32 [ %12, %.lr.ph.i.i ], [ 0, %.lr.ph.i.i.preheader ]
   %12 = add i32 %.020.i.i9, 1
   %13 = sext i32 %12 to i64
-  %14 = getelementptr %struct._value_string, ptr %1, i64 %13
+  %14 = getelementptr [16 x i8], ptr %1, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not16.i.i = icmp eq ptr %16, null
@@ -279,7 +273,7 @@ define ptr @try_val_to_str_idx(i32 noundef %0, ptr noundef readonly captures(add
 14:                                               ; preds = %.lr.ph
   %15 = add i32 %.020, 1
   %16 = sext i32 %15 to i64
-  %17 = getelementptr %struct._value_string, ptr %1, i64 %16
+  %17 = getelementptr [16 x i8], ptr %1, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
   %.not16 = icmp eq ptr %19, null
@@ -330,7 +324,7 @@ define ptr @char_val_to_str(i8 noundef signext %0, ptr noundef readonly captures
   %.020.i.i13 = phi i32 [ %14, %.lr.ph.i.i ], [ 0, %.lr.ph.i.i.preheader ]
   %14 = add i32 %.020.i.i13, 1
   %15 = sext i32 %14 to i64
-  %16 = getelementptr %struct._value_string, ptr %1, i64 %15
+  %16 = getelementptr [16 x i8], ptr %1, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8
   %.not16.i.i = icmp eq ptr %18, null
@@ -384,7 +378,7 @@ define ptr @val64_to_str(i64 noundef %0, ptr noundef readonly captures(address_i
   %.020.i.i13 = phi i32 [ %12, %.lr.ph.i.i ], [ 0, %.lr.ph.i.i.preheader ]
   %12 = add i32 %.020.i.i13, 1
   %13 = sext i32 %12 to i64
-  %14 = getelementptr %struct._val64_string, ptr %1, i64 %13
+  %14 = getelementptr [16 x i8], ptr %1, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not16.i.i = icmp eq ptr %16, null
@@ -425,7 +419,7 @@ define ptr @try_val64_to_str(i64 noundef %0, ptr noundef readonly captures(addre
   %.020.i5 = phi i32 [ %9, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
   %9 = add i32 %.020.i5, 1
   %10 = sext i32 %9 to i64
-  %11 = getelementptr %struct._val64_string, ptr %1, i64 %10
+  %11 = getelementptr [16 x i8], ptr %1, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   %.not16.i = icmp eq ptr %13, null
@@ -472,7 +466,7 @@ define nonnull ptr @val64_to_str_const(i64 noundef %0, ptr noundef readonly capt
   %.020.i.i9 = phi i32 [ %12, %.lr.ph.i.i ], [ 0, %.lr.ph.i.i.preheader ]
   %12 = add i32 %.020.i.i9, 1
   %13 = sext i32 %12 to i64
-  %14 = getelementptr %struct._val64_string, ptr %1, i64 %13
+  %14 = getelementptr [16 x i8], ptr %1, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not16.i.i = icmp eq ptr %16, null
@@ -523,7 +517,7 @@ define ptr @try_val64_to_str_idx(i64 noundef %0, ptr noundef readonly captures(a
 14:                                               ; preds = %.lr.ph
   %15 = add i32 %.020, 1
   %16 = sext i32 %15 to i64
-  %17 = getelementptr %struct._val64_string, ptr %1, i64 %16
+  %17 = getelementptr [16 x i8], ptr %1, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
   %.not16 = icmp eq ptr %19, null
@@ -559,7 +553,7 @@ define i32 @str_to_val(ptr noundef readonly captures(none) %0, ptr noundef reado
 9:                                                ; preds = %.lr.ph.i
   %10 = add i32 %.012.i, 1
   %11 = sext i32 %10 to i64
-  %12 = getelementptr %struct._value_string, ptr %1, i64 %11
+  %12 = getelementptr [16 x i8], ptr %1, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
   %.not10.i = icmp eq ptr %14, null
@@ -571,7 +565,7 @@ str_to_val_idx.exit:                              ; preds = %.lr.ph.i
 
 16:                                               ; preds = %str_to_val_idx.exit
   %17 = zext nneg i32 %.012.i to i64
-  %18 = getelementptr %struct._value_string, ptr %1, i64 %17
+  %18 = getelementptr [16 x i8], ptr %1, i64 %17
   %19 = load i32, ptr %18, align 8
   br label %str_to_val_idx.exit.thread
 
@@ -601,7 +595,7 @@ define i32 @str_to_val_idx(ptr noundef readonly captures(none) %0, ptr noundef r
 8:                                                ; preds = %.lr.ph
   %9 = add i32 %.012, 1
   %10 = sext i32 %9 to i64
-  %11 = getelementptr %struct._value_string, ptr %1, i64 %10
+  %11 = getelementptr [16 x i8], ptr %1, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   %.not10 = icmp eq ptr %13, null
@@ -635,7 +629,7 @@ define noalias noundef ptr @value_string_ext_new(ptr noundef %0, i32 noundef %1,
 7:                                                ; preds = %5
   %8 = add i32 %1, -1
   %9 = zext i32 %8 to i64
-  %10 = getelementptr %struct._value_string, ptr %0, i64 %9
+  %10 = getelementptr [16 x i8], ptr %0, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
@@ -673,7 +667,7 @@ define ptr @_try_val_to_str_ext_init(i32 noundef %0, ptr noundef %1) #1 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %6 = load i32, ptr %5, align 4
   %7 = zext i32 %6 to i64
-  %8 = getelementptr %struct._value_string, ptr %4, i64 %7
+  %8 = getelementptr [16 x i8], ptr %4, i64 %7
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %15
@@ -700,7 +694,7 @@ define ptr @_try_val_to_str_ext_init(i32 noundef %0, ptr noundef %1) #1 {
   %.05174 = phi i32 [ %.259, %35 ], [ 2, %16 ]
   %.05273 = phi i32 [ %.pre, %35 ], [ %17, %16 ]
   %indvars84 = trunc i64 %indvars.iv to i32
-  %19 = getelementptr %struct._value_string, ptr %4, i64 %indvars.iv
+  %19 = getelementptr [16 x i8], ptr %4, i64 %indvars.iv
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load ptr, ptr %20, align 8
   %.not = icmp eq ptr %21, null
@@ -948,7 +942,7 @@ define internal noundef ptr @_try_val_to_str_linear(i32 noundef %0, ptr noundef 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %7 ]
-  %8 = getelementptr %struct._value_string, ptr %4, i64 %indvars.iv
+  %8 = getelementptr [16 x i8], ptr %4, i64 %indvars.iv
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, %0
   br i1 %10, label %._crit_edge, label %7
@@ -1019,7 +1013,7 @@ define internal ptr @_try_val_to_str_index(i32 noundef %0, ptr noundef readonly 
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = zext i32 %5 to i64
-  %13 = getelementptr %struct._value_string, ptr %11, i64 %12
+  %13 = getelementptr [16 x i8], ptr %11, i64 %12
   br label %14
 
 14:                                               ; preds = %2, %9
@@ -1047,7 +1041,7 @@ define noalias noundef ptr @val64_string_ext_new(ptr noundef %0, i32 noundef %1,
 7:                                                ; preds = %5
   %8 = add i32 %1, -1
   %9 = zext i32 %8 to i64
-  %10 = getelementptr %struct._val64_string, ptr %0, i64 %9
+  %10 = getelementptr [16 x i8], ptr %0, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
@@ -1079,7 +1073,7 @@ define ptr @_try_val64_to_str_ext_init(i64 noundef %0, ptr noundef %1) #1 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
   %7 = zext i32 %6 to i64
-  %8 = getelementptr %struct._val64_string, ptr %4, i64 %7
+  %8 = getelementptr [16 x i8], ptr %4, i64 %7
   %9 = load i64, ptr %8, align 8
   %10 = icmp eq i64 %9, 0
   br i1 %10, label %11, label %15
@@ -1105,7 +1099,7 @@ define ptr @_try_val64_to_str_ext_init(i64 noundef %0, ptr noundef %1) #1 {
   %indvars.iv = phi i64 [ %indvars.iv.next, %37 ], [ 0, %16 ]
   %.05174 = phi i32 [ %.259, %37 ], [ 2, %16 ]
   %.05273 = phi i64 [ %.pre, %37 ], [ %17, %16 ]
-  %19 = getelementptr %struct._val64_string, ptr %4, i64 %indvars.iv
+  %19 = getelementptr [16 x i8], ptr %4, i64 %indvars.iv
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load ptr, ptr %20, align 8
   %.not = icmp eq ptr %21, null
@@ -1349,7 +1343,7 @@ define internal noundef ptr @_try_val64_to_str_linear(i64 noundef %0, ptr nounde
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %7 ]
-  %8 = getelementptr %struct._val64_string, ptr %4, i64 %indvars.iv
+  %8 = getelementptr [16 x i8], ptr %4, i64 %indvars.iv
   %9 = load i64, ptr %8, align 8
   %10 = icmp eq i64 %9, %0
   br i1 %10, label %._crit_edge, label %7
@@ -1420,7 +1414,7 @@ define internal ptr @_try_val64_to_str_index(i64 noundef %0, ptr noundef readonl
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr %struct._val64_string, ptr %12, i64 %5
+  %13 = getelementptr [16 x i8], ptr %12, i64 %5
   br label %14
 
 14:                                               ; preds = %2, %10
@@ -1463,7 +1457,7 @@ define ptr @str_to_str(ptr noundef %0, ptr noundef readonly captures(address_is_
   %.018.i.i15 = phi i32 [ %12, %.lr.ph.i.i ], [ 0, %.lr.ph.i.i.preheader ]
   %12 = add i32 %.018.i.i15, 1
   %13 = sext i32 %12 to i64
-  %14 = getelementptr %struct._string_string, ptr %1, i64 %13
+  %14 = getelementptr [16 x i8], ptr %1, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not13.i.i = icmp eq ptr %16, null
@@ -1506,7 +1500,7 @@ define ptr @try_str_to_str(ptr noundef readonly captures(none) %0, ptr noundef r
   %.018.i7 = phi i32 [ %9, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
   %9 = add i32 %.018.i7, 1
   %10 = sext i32 %9 to i64
-  %11 = getelementptr %struct._string_string, ptr %1, i64 %10
+  %11 = getelementptr [16 x i8], ptr %1, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   %.not13.i = icmp eq ptr %13, null
@@ -1548,7 +1542,7 @@ define ptr @try_str_to_str_idx(ptr noundef readonly captures(none) %0, ptr nound
 12:                                               ; preds = %.lr.ph
   %13 = add i32 %.018, 1
   %14 = sext i32 %13 to i64
-  %15 = getelementptr %struct._string_string, ptr %1, i64 %14
+  %15 = getelementptr [16 x i8], ptr %1, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
   %.not13 = icmp eq ptr %17, null
@@ -1603,7 +1597,7 @@ define ptr @rval_to_str(i32 noundef %0, ptr noundef readonly captures(address_is
 16:                                               ; preds = %13, %9
   %17 = add i32 %.023.i.i, 1
   %18 = sext i32 %17 to i64
-  %19 = getelementptr %struct._range_string, ptr %1, i64 %18
+  %19 = getelementptr [24 x i8], ptr %1, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load ptr, ptr %20, align 8
   %.not17.i.i = icmp eq ptr %21, null
@@ -1651,7 +1645,7 @@ define ptr @try_rval_to_str(i32 noundef %0, ptr noundef readonly captures(addres
 13:                                               ; preds = %10, %6
   %14 = add i32 %.023.i, 1
   %15 = sext i32 %14 to i64
-  %16 = getelementptr %struct._range_string, ptr %1, i64 %15
+  %16 = getelementptr [24 x i8], ptr %1, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load ptr, ptr %17, align 8
   %.not17.i = icmp eq ptr %18, null
@@ -1702,7 +1696,7 @@ define nonnull ptr @rval_to_str_const(i32 noundef %0, ptr noundef readonly captu
 16:                                               ; preds = %13, %9
   %17 = add i32 %.023.i.i, 1
   %18 = sext i32 %17 to i64
-  %19 = getelementptr %struct._range_string, ptr %1, i64 %18
+  %19 = getelementptr [24 x i8], ptr %1, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load ptr, ptr %20, align 8
   %.not17.i.i = icmp eq ptr %21, null
@@ -1752,7 +1746,7 @@ define ptr @try_rval_to_str_idx(i32 noundef %0, ptr noundef readonly captures(ad
 16:                                               ; preds = %10, %7
   %17 = add i32 %.023, 1
   %18 = sext i32 %17 to i64
-  %19 = getelementptr %struct._range_string, ptr %1, i64 %18
+  %19 = getelementptr [24 x i8], ptr %1, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load ptr, ptr %20, align 8
   %.not17 = icmp eq ptr %21, null
@@ -1800,7 +1794,7 @@ define ptr @try_rval64_to_str_idx(i64 noundef %0, ptr noundef readonly captures(
 14:                                               ; preds = %8, %.lr.ph
   %15 = add i32 %.023, 1
   %16 = sext i32 %15 to i64
-  %17 = getelementptr %struct._range_string, ptr %1, i64 %16
+  %17 = getelementptr [24 x i8], ptr %1, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
   %.not17 = icmp eq ptr %19, null
@@ -1843,7 +1837,7 @@ define ptr @try_rval64_to_str(i64 noundef %0, ptr noundef readonly captures(addr
 11:                                               ; preds = %8, %.lr.ph.i
   %12 = add i32 %.023.i, 1
   %13 = sext i32 %12 to i64
-  %14 = getelementptr %struct._range_string, ptr %1, i64 %13
+  %14 = getelementptr [24 x i8], ptr %1, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
   %.not17.i = icmp eq ptr %16, null
@@ -1891,7 +1885,7 @@ define ptr @bytesval_to_str(ptr noundef readonly captures(none) %0, i64 noundef 
 16:                                               ; preds = %14, %.lr.ph.i
   %17 = add i32 %.019.i, 1
   %18 = zext i32 %17 to i64
-  %19 = getelementptr %struct._bytes_string, ptr %2, i64 %18
+  %19 = getelementptr [24 x i8], ptr %2, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load ptr, ptr %20, align 8
   %.not16.i = icmp eq ptr %21, null
@@ -1936,7 +1930,7 @@ define ptr @try_bytesval_to_str(ptr noundef readonly captures(none) %0, i64 noun
 13:                                               ; preds = %11, %.lr.ph
   %14 = add i32 %.019, 1
   %15 = zext i32 %14 to i64
-  %16 = getelementptr %struct._bytes_string, ptr %2, i64 %15
+  %16 = getelementptr [24 x i8], ptr %2, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load ptr, ptr %17, align 8
   %.not16 = icmp eq ptr %18, null
@@ -1984,7 +1978,7 @@ define ptr @bytesprefix_to_str(ptr noundef readonly captures(none) %0, i64 nound
 15:                                               ; preds = %13, %.lr.ph.i
   %16 = add i32 %.021.i, 1
   %17 = zext i32 %16 to i64
-  %18 = getelementptr %struct._bytes_string, ptr %2, i64 %17
+  %18 = getelementptr [24 x i8], ptr %2, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8
   %.not17.i = icmp eq ptr %20, null
@@ -2029,7 +2023,7 @@ define ptr @try_bytesprefix_to_str(ptr noundef readonly captures(none) %0, i64 n
 12:                                               ; preds = %10, %.lr.ph
   %13 = add i32 %.021, 1
   %14 = zext i32 %13 to i64
-  %15 = getelementptr %struct._bytes_string, ptr %2, i64 %14
+  %15 = getelementptr [24 x i8], ptr %2, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load ptr, ptr %16, align 8
   %.not17 = icmp eq ptr %17, null

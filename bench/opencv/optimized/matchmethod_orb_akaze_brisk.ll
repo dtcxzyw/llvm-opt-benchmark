@@ -60,9 +60,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.cv::Ptr.46" = type { %"class.std::shared_ptr.47" }
 %"class.std::shared_ptr.47" = type { %"class.std::__shared_ptr.48" }
 %"class.std::__shared_ptr.48" = type { ptr, %"class.std::__shared_count" }
-%"class.cv::DMatch" = type { i32, i32, i32, float }
-%"class.cv::KeyPoint" = type { %"class.cv::Point_.51", float, float, float, i32, i32 }
-%"class.cv::Point_.51" = type { float, float }
 
 $_ZNSt12__shared_ptrIN2cv17DescriptorMatcherELN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
 
@@ -2528,7 +2525,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit437: ; preds = %_ZSt
 
 949:                                              ; preds = %.lr.ph, %949
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %949 ]
-  %950 = getelementptr inbounds nuw %"class.cv::DMatch", ptr %941, i64 %indvars.iv
+  %950 = getelementptr inbounds nuw [16 x i8], ptr %941, i64 %indvars.iv
   %951 = getelementptr inbounds nuw i8, ptr %950, i64 12
   %952 = load float, ptr %951, align 4, !tbaa !96
   %953 = mul i64 %944, %indvars.iv
@@ -2577,7 +2574,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit437: ; preds = %_ZSt
   %965 = load i32, ptr %964, align 4, !tbaa !64
   %966 = sext i32 %965 to i64
   %967 = load ptr, ptr %34, align 8, !tbaa !87
-  %968 = getelementptr inbounds nuw %"class.cv::DMatch", ptr %967, i64 %966
+  %968 = getelementptr inbounds nuw [16 x i8], ptr %967, i64 %966
   %969 = load ptr, ptr %498, align 8, !tbaa !102
   %.not.i = icmp eq ptr %959, %969
   br i1 %.not.i, label %973, label %970
@@ -2645,7 +2642,7 @@ _ZNSt6vectorIN2cv6DMatchESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i: ; pred
 _ZNSt6vectorIN2cv6DMatchESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %991, %_ZNSt6vectorIN2cv6DMatchESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i
   store ptr %986, ptr %61, align 8, !tbaa !87
   store ptr %990, ptr %497, align 8, !tbaa !84
-  %992 = getelementptr inbounds nuw %"class.cv::DMatch", ptr %986, i64 %984
+  %992 = getelementptr inbounds nuw [16 x i8], ptr %986, i64 %984
   store ptr %992, ptr %498, align 8, !tbaa !102
   br label %_ZNSt6vectorIN2cv6DMatchESaIS1_EE9push_backERKS1_.exit
 
@@ -3587,13 +3584,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i57
   %1248 = load ptr, ptr %35, align 8, !tbaa !151
   %1249 = load i32, ptr %.sroa.0731.0986, align 4, !tbaa !148
   %1250 = sext i32 %1249 to i64
-  %1251 = getelementptr inbounds nuw %"class.cv::KeyPoint", ptr %1248, i64 %1250
+  %1251 = getelementptr inbounds nuw [28 x i8], ptr %1248, i64 %1250
   %1252 = getelementptr i8, ptr %1251, i64 4
   %.val179 = load float, ptr %1252, align 4, !tbaa !154
   %1253 = load ptr, ptr %36, align 8, !tbaa !151
   %1254 = load i32, ptr %1247, align 4, !tbaa !149
   %1255 = sext i32 %1254 to i64
-  %1256 = getelementptr inbounds nuw %"class.cv::KeyPoint", ptr %1253, i64 %1255
+  %1256 = getelementptr inbounds nuw [28 x i8], ptr %1253, i64 %1255
   %1257 = getelementptr i8, ptr %1256, i64 4
   %.val181 = load float, ptr %1257, align 4, !tbaa !154
   %.val = load float, ptr %1251, align 4, !tbaa !156
@@ -3661,7 +3658,7 @@ _ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit16.i.i: ; preds = %1281, %.no
   br label %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i
 
 _ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i: ; preds = %1282, %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit16.i.i
-  %1283 = getelementptr inbounds nuw double, ptr %1278, i64 %1276
+  %1283 = getelementptr inbounds nuw [8 x i8], ptr %1278, i64 %1276
   br label %_ZNSt6vectorIdSaIdEE9push_backERKd.exit
 
 _ZNSt6vectorIdSaIdEE9push_backERKd.exit:          ; preds = %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i, %1265
@@ -3920,7 +3917,7 @@ _ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit16.i.i.i: ; preds = %1358, %.
   br label %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i: ; preds = %1359, %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit16.i.i.i
-  %1360 = getelementptr inbounds nuw double, ptr %1355, i64 %1353
+  %1360 = getelementptr inbounds nuw [8 x i8], ptr %1355, i64 %1353
   br label %_ZNSt6vectorIdSaIdEE9push_backEOd.exit
 
 _ZNSt6vectorIdSaIdEE9push_backEOd.exit:           ; preds = %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i, %1342
@@ -4298,7 +4295,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit640: ; preds = %_ZSt
 .lr.ph1050:                                       ; preds = %.lr.ph1050.preheader, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit645
   %indvars.iv1209 = phi i64 [ %1460, %.lr.ph1050.preheader ], [ %indvars.iv.next1210, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit645 ]
   %.sroa.0718.01048 = phi ptr [ %1458, %.lr.ph1050.preheader ], [ %1467, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit645 ]
-  %1463 = getelementptr inbounds nuw double, ptr %.sroa.0765.0.lcssa, i64 %indvars.iv1209
+  %1463 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0765.0.lcssa, i64 %indvars.iv1209
   %1464 = load double, ptr %1463, align 8, !tbaa !110
   %1465 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, double noundef %1464)
           to label %_ZNSolsEd.exit unwind label %.thread
@@ -5043,7 +5040,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %22, ptr %0, align 8, !tbaa !39
   store ptr %.0.lcssa.i.i.i.i25, ptr %4, align 8, !tbaa !16
-  %70 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %70 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %70, ptr %69, align 8, !tbaa !19
   ret void
 }

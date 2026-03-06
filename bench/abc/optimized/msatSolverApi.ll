@@ -52,7 +52,7 @@ define i32 @Msat_SolverReadVarValue(ptr noundef readonly captures(none) %0, i32 
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = load ptr, ptr %3, align 8, !tbaa !27
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds i32, ptr %4, i64 %5
+  %6 = getelementptr inbounds [4 x i8], ptr %4, i64 %5
   %7 = load i32, ptr %6, align 4, !tbaa !28
   ret i32 %7
 }
@@ -286,7 +286,7 @@ define noundef ptr @Msat_SolverAlloc(i32 noundef %0, double noundef %1, double n
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %26 = getelementptr inbounds nuw float, ptr %21, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %indvars.iv
   store float 1.000000e+00, ptr %26, align 4, !tbaa !52
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %24
@@ -331,7 +331,7 @@ define noundef ptr @Msat_SolverAlloc(i32 noundef %0, double noundef %1, double n
   %indvars.iv114 = phi i64 [ %indvars.iv.next115, %.lr.ph97 ], [ 0, %._crit_edge94 ]
   %46 = tail call ptr @Msat_ClauseVecAlloc(i32 noundef 16) #11
   %47 = load ptr, ptr %44, align 8, !tbaa !30
-  %48 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv114
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %indvars.iv114
   store ptr %46, ptr %48, align 8, !tbaa !57
   %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
   %49 = load i32, ptr %7, align 4, !tbaa !23
@@ -504,9 +504,9 @@ define void @Msat_SolverResize(ptr noundef captures(none) %0, i32 noundef %1) lo
 
 30:                                               ; preds = %.lr.ph, %30
   %indvars.iv = phi i64 [ %29, %.lr.ph ], [ %indvars.iv.next, %30 ]
-  %31 = getelementptr inbounds double, ptr %28, i64 %indvars.iv
+  %31 = getelementptr inbounds [8 x i8], ptr %28, i64 %indvars.iv
   store double 0.000000e+00, ptr %31, align 8, !tbaa !51
-  %32 = getelementptr inbounds float, ptr %26, i64 %indvars.iv
+  %32 = getelementptr inbounds [4 x i8], ptr %26, i64 %indvars.iv
   store float 1.000000e+00, ptr %32, align 4, !tbaa !52
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -562,7 +562,7 @@ define void @Msat_SolverResize(ptr noundef captures(none) %0, i32 noundef %1) lo
 
 58:                                               ; preds = %.lr.ph119, %58
   %indvars.iv144 = phi i64 [ %57, %.lr.ph119 ], [ %indvars.iv.next145, %58 ]
-  %59 = getelementptr inbounds i32, ptr %56, i64 %indvars.iv144
+  %59 = getelementptr inbounds [4 x i8], ptr %56, i64 %indvars.iv144
   store i32 -1, ptr %59, align 4, !tbaa !28
   %indvars.iv.next145 = add nsw i64 %indvars.iv144, 1
   %60 = load i32, ptr %3, align 4, !tbaa !23
@@ -609,7 +609,7 @@ define void @Msat_SolverResize(ptr noundef captures(none) %0, i32 noundef %1) lo
   %indvars.iv147 = phi i64 [ %80, %.lr.ph124.preheader ], [ %indvars.iv.next148, %.lr.ph124 ]
   %81 = tail call ptr @Msat_ClauseVecAlloc(i32 noundef 16) #11
   %82 = load ptr, ptr %65, align 8, !tbaa !30
-  %83 = getelementptr inbounds ptr, ptr %82, i64 %indvars.iv147
+  %83 = getelementptr inbounds [8 x i8], ptr %82, i64 %indvars.iv147
   store ptr %81, ptr %83, align 8, !tbaa !57
   %indvars.iv.next148 = add nsw i64 %indvars.iv147, 1
   %84 = load i32, ptr %3, align 4, !tbaa !23
@@ -676,9 +676,9 @@ define void @Msat_SolverResize(ptr noundef captures(none) %0, i32 noundef %1) lo
 
 118:                                              ; preds = %.lr.ph128, %118
   %indvars.iv150 = phi i64 [ %117, %.lr.ph128 ], [ %indvars.iv.next151, %118 ]
-  %119 = getelementptr inbounds ptr, ptr %116, i64 %indvars.iv150
+  %119 = getelementptr inbounds [8 x i8], ptr %116, i64 %indvars.iv150
   store ptr null, ptr %119, align 8, !tbaa !69
-  %120 = getelementptr inbounds i32, ptr %114, i64 %indvars.iv150
+  %120 = getelementptr inbounds [4 x i8], ptr %114, i64 %indvars.iv150
   store i32 -1, ptr %120, align 4, !tbaa !28
   %indvars.iv.next151 = add nsw i64 %indvars.iv150, 1
   %exitcond154.not = icmp eq i64 %indvars.iv.next151, %wide.trip.count153
@@ -781,7 +781,7 @@ define void @Msat_SolverClean(ptr noundef initializes((0, 4), (96, 100)) %0, i32
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %10 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !69
   tail call void @Msat_ClauseFree(ptr noundef nonnull %0, ptr noundef %11, i32 noundef 0) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -805,7 +805,7 @@ define void @Msat_SolverClean(ptr noundef initializes((0, 4), (96, 100)) %0, i32
 
 .lr.ph59:                                         ; preds = %.lr.ph59.preheader, %.lr.ph59
   %indvars.iv80 = phi i64 [ 0, %.lr.ph59.preheader ], [ %indvars.iv.next81, %.lr.ph59 ]
-  %19 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv80
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv80
   %20 = load ptr, ptr %19, align 8, !tbaa !69
   tail call void @Msat_ClauseFree(ptr noundef nonnull %0, ptr noundef %20, i32 noundef 0) #11
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
@@ -842,7 +842,7 @@ define void @Msat_SolverClean(ptr noundef initializes((0, 4), (96, 100)) %0, i32
 33:                                               ; preds = %.lr.ph67, %33
   %indvars.iv88 = phi i64 [ 0, %.lr.ph67 ], [ %indvars.iv.next89, %33 ]
   %34 = load ptr, ptr %32, align 8, !tbaa !30
-  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv88
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv88
   %36 = load ptr, ptr %35, align 8, !tbaa !57
   tail call void @Msat_ClauseVecClear(ptr noundef %36) #11
   %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
@@ -867,7 +867,7 @@ define void @Msat_SolverClean(ptr noundef initializes((0, 4), (96, 100)) %0, i32
 
 47:                                               ; preds = %.lr.ph71, %47
   %indvars.iv91 = phi i64 [ 0, %.lr.ph71 ], [ %indvars.iv.next92, %47 ]
-  %48 = getelementptr inbounds nuw i32, ptr %46, i64 %indvars.iv91
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %indvars.iv91
   store i32 -1, ptr %48, align 4, !tbaa !28
   %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
   %49 = load i32, ptr %3, align 8, !tbaa !3
@@ -903,7 +903,7 @@ define void @Msat_SolverClean(ptr noundef initializes((0, 4), (96, 100)) %0, i32
 
 65:                                               ; preds = %.lr.ph75, %65
   %indvars.iv94 = phi i64 [ 0, %.lr.ph75 ], [ %indvars.iv.next95, %65 ]
-  %66 = getelementptr inbounds nuw i32, ptr %64, i64 %indvars.iv94
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %indvars.iv94
   store i32 -1, ptr %66, align 4, !tbaa !28
   %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
   %67 = load i32, ptr %3, align 8, !tbaa !3
@@ -958,7 +958,7 @@ define void @Msat_SolverFree(ptr noundef %0) local_unnamed_addr #1 {
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8, !tbaa !69
   tail call void @Msat_ClauseFree(ptr noundef nonnull %0, ptr noundef %9, i32 noundef 0) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -982,7 +982,7 @@ define void @Msat_SolverFree(ptr noundef %0) local_unnamed_addr #1 {
 
 .lr.ph85:                                         ; preds = %.lr.ph85.preheader, %.lr.ph85
   %indvars.iv96 = phi i64 [ 0, %.lr.ph85.preheader ], [ %indvars.iv.next97, %.lr.ph85 ]
-  %17 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv96
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv96
   %18 = load ptr, ptr %17, align 8, !tbaa !69
   tail call void @Msat_ClauseFree(ptr noundef nonnull %0, ptr noundef %18, i32 noundef 0) #11
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
@@ -1029,7 +1029,7 @@ define void @Msat_SolverFree(ptr noundef %0) local_unnamed_addr #1 {
 34:                                               ; preds = %.lr.ph89, %34
   %indvars.iv101 = phi i64 [ 0, %.lr.ph89 ], [ %indvars.iv.next102, %34 ]
   %35 = load ptr, ptr %33, align 8, !tbaa !30
-  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv101
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv101
   %37 = load ptr, ptr %36, align 8, !tbaa !57
   tail call void @Msat_ClauseVecFree(ptr noundef %37) #11
   %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
@@ -1121,7 +1121,7 @@ define void @Msat_SolverFree(ptr noundef %0) local_unnamed_addr #1 {
 
 .lr.ph93:                                         ; preds = %.lr.ph93.preheader, %.lr.ph93
   %indvars.iv104 = phi i64 [ 0, %.lr.ph93.preheader ], [ %indvars.iv.next105, %.lr.ph93 ]
-  %76 = getelementptr inbounds nuw ptr, ptr %74, i64 %indvars.iv104
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %indvars.iv104
   %77 = load ptr, ptr %76, align 8, !tbaa !69
   tail call void @Msat_IntVecFree(ptr noundef %77) #11
   %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
@@ -1189,13 +1189,13 @@ define void @Msat_SolverPrepare(ptr noundef captures(none) %0, ptr noundef %1) l
 
 14:                                               ; preds = %.lr.ph, %14
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %14 ]
-  %15 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv
   store i32 -1, ptr %15, align 4, !tbaa !28
-  %16 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   store ptr null, ptr %16, align 8, !tbaa !69
-  %17 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   store i32 -1, ptr %17, align 4, !tbaa !28
-  %18 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   store double 0.000000e+00, ptr %18, align 8, !tbaa !51
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %19 = load i32, ptr %3, align 4, !tbaa !23

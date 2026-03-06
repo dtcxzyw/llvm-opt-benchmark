@@ -143,7 +143,7 @@ define internal noundef range(i32 -28, 1) i32 @cgrp_css_online(ptr noundef reado
 28:                                               ; preds = %24
   %29 = getelementptr inbounds nuw i8, ptr %21, i64 20
   %30 = sext i32 %22 to i64
-  %31 = getelementptr i32, ptr %29, i64 %30
+  %31 = getelementptr [4 x i8], ptr %29, i64 %30
   %32 = load i32, ptr %31, align 4
   br label %33
 
@@ -301,7 +301,7 @@ define internal fastcc noundef range(i32 -28, 1) i32 @netprio_set_prio(i32 %.80.
   %41 = phi ptr [ %4, %.thread ], [ %26, %38 ], [ %.pre8, %29 ], [ %4, %8 ]
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 20
   %43 = sext i32 %.80.val to i64
-  %44 = getelementptr i32, ptr %42, i64 %43
+  %44 = getelementptr [4 x i8], ptr %42, i64 %43
   store i32 %1, ptr %44, align 4
   br label %45
 
@@ -399,7 +399,7 @@ define internal noundef i32 @read_priomap(ptr noundef %0, ptr readnone captures(
 21:                                               ; preds = %17
   %22 = getelementptr inbounds nuw i8, ptr %13, i64 20
   %23 = sext i32 %15 to i64
-  %24 = getelementptr i32, ptr %22, i64 %23
+  %24 = getelementptr [4 x i8], ptr %22, i64 %23
   %25 = load i32, ptr %24, align 4
   br label %26
 

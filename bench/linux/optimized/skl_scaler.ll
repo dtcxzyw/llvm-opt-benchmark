@@ -13,8 +13,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.static_call_key = type { ptr, %union.anon.79 }
 %union.anon.79 = type { i64 }
 %struct.cpumask = type { [1 x i64] }
-%struct.intel_scaler = type { i32, i32 }
-%struct.__drm_planes_state = type { ptr, ptr, ptr, ptr }
 %struct.drm_rect = type { i32, i32, i32, i32 }
 
 @.str = private unnamed_addr constant [49 x i8] c"[PLANE:%d:%s] scaling with color key not allowed\00", align 1
@@ -171,7 +169,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @skl_update_scaler(ptr noun
   store i32 %60, ptr %58, align 4
   %61 = load i32, ptr %3, align 4
   %62 = sext i32 %61 to i64
-  %63 = getelementptr %struct.intel_scaler, ptr %12, i64 %62
+  %63 = getelementptr [8 x i8], ptr %12, i64 %62
   store i32 0, ptr %63, align 4
   %64 = icmp eq ptr %14, null
   br i1 %64, label %68, label %65
@@ -551,7 +549,7 @@ define dso_local i32 @intel_atomic_setup_scalers(ptr noundef %0, ptr noundef rea
 
 38:                                               ; preds = %36
   %39 = load ptr, ptr %14, align 8
-  %40 = getelementptr %struct.__drm_planes_state, ptr %39, i64 %30
+  %40 = getelementptr [32 x i8], ptr %39, i64 %30
   %41 = load ptr, ptr %40, align 8
   %42 = icmp eq ptr %41, null
   br i1 %42, label %43, label %58
@@ -620,7 +618,7 @@ define dso_local i32 @intel_atomic_setup_scalers(ptr noundef %0, ptr noundef rea
   %78 = getelementptr inbounds nuw i8, ptr %59, i64 1228
   %79 = load i32, ptr %78, align 4
   %80 = zext i32 %79 to i64
-  %.split = getelementptr %struct.__drm_planes_state, ptr %77, i64 %80
+  %.split = getelementptr [32 x i8], ptr %77, i64 %80
   %81 = getelementptr i8, ptr %.split, i64 24
   %82 = load ptr, ptr %81, align 8
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 392
@@ -648,13 +646,13 @@ define dso_local i32 @intel_atomic_setup_scalers(ptr noundef %0, ptr noundef rea
 
 98:                                               ; preds = %106, %96
   %99 = phi i64 [ 0, %96 ], [ %107, %106 ]
-  %100 = getelementptr %struct.intel_scaler, ptr %4, i64 %99
+  %100 = getelementptr [8 x i8], ptr %4, i64 %99
   %101 = load i32, ptr %100, align 4
   %102 = icmp eq i32 %101, 0
   br i1 %102, label %103, label %106
 
 103:                                              ; preds = %98
-  %104 = getelementptr %struct.intel_scaler, ptr %4, i64 %99
+  %104 = getelementptr [8 x i8], ptr %4, i64 %99
   %105 = trunc i64 %99 to i32
   store i32 %105, ptr %86, align 4
   store i32 1, ptr %104, align 4
@@ -762,7 +760,7 @@ define dso_local i32 @intel_atomic_setup_scalers(ptr noundef %0, ptr noundef rea
 
 165:                                              ; preds = %162
   %166 = zext nneg i32 %121 to i64
-  %167 = getelementptr %struct.intel_scaler, ptr %4, i64 %166
+  %167 = getelementptr [8 x i8], ptr %4, i64 %166
   store i32 0, ptr %167, align 4
   store i32 0, ptr %86, align 4
   store i32 1, ptr %4, align 4
@@ -2006,7 +2004,7 @@ define dso_local void @skl_detach_scalers(ptr noundef readonly captures(none) %0
 .preheader:                                       ; preds = %1, %14
   %7 = phi i32 [ %15, %14 ], [ %5, %1 ]
   %8 = phi i64 [ %16, %14 ], [ 0, %1 ]
-  %9 = getelementptr %struct.intel_scaler, ptr %3, i64 %8
+  %9 = getelementptr [8 x i8], ptr %3, i64 %8
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %14
@@ -2300,7 +2298,7 @@ define dso_local void @skl_scaler_get_config(ptr noundef captures(none) %0) loca
   store i32 %50, ptr %15, align 8
   %51 = add nuw nsw i32 %49, %47
   store i32 %51, ptr %16, align 4
-  %52 = getelementptr %struct.intel_scaler, ptr %3, i64 %23
+  %52 = getelementptr [8 x i8], ptr %3, i64 %23
   store i32 1, ptr %52, align 4
   br label %.loopexit
 

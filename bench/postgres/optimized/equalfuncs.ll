@@ -3,8 +3,6 @@ source_filename = "bench/postgres/original/equalfuncs.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%union.ListCell = type { ptr }
-
 @.str = private unnamed_addr constant [27 x i8] c"unrecognized node type: %d\00", align 1
 @.str.1 = private unnamed_addr constant [13 x i8] c"equalfuncs.c\00", align 1
 @__func__.equal = private unnamed_addr constant [6 x i8] c"equal\00", align 1
@@ -15367,7 +15365,7 @@ define internal fastcc noundef zeroext i1 @_equalList(ptr noundef nonnull readon
 
 26:                                               ; preds = %22
   %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds nuw %union.ListCell, ptr %27, i64 %indvars.iv151
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv151
   br label %29
 
 29:                                               ; preds = %26, %22
@@ -15385,7 +15383,7 @@ define internal fastcc noundef zeroext i1 @_equalList(ptr noundef nonnull readon
   br i1 %.not109, label %.critedge, label %38
 
 38:                                               ; preds = %34
-  %39 = getelementptr inbounds nuw %union.ListCell, ptr %35, i64 %indvars.iv151
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv151
   %40 = load ptr, ptr %30, align 8
   %41 = load ptr, ptr %39, align 8
   %42 = tail call zeroext i1 @equal(ptr noundef %40, ptr noundef %41)
@@ -15399,7 +15397,7 @@ define internal fastcc noundef zeroext i1 @_equalList(ptr noundef nonnull readon
 
 45:                                               ; preds = %43
   %46 = load ptr, ptr %17, align 8
-  %47 = getelementptr inbounds nuw %union.ListCell, ptr %46, i64 %indvars.iv145
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv145
   br label %48
 
 48:                                               ; preds = %45, %43
@@ -15415,7 +15413,7 @@ define internal fastcc noundef zeroext i1 @_equalList(ptr noundef nonnull readon
   br i1 %.not106, label %.critedge, label %54
 
 54:                                               ; preds = %50
-  %55 = getelementptr inbounds nuw %union.ListCell, ptr %51, i64 %indvars.iv145
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %indvars.iv145
   %56 = load i32, ptr %49, align 8
   %57 = load i32, ptr %55, align 8
   %.not103 = icmp eq i32 %56, %57
@@ -15429,7 +15427,7 @@ define internal fastcc noundef zeroext i1 @_equalList(ptr noundef nonnull readon
 
 60:                                               ; preds = %58
   %61 = load ptr, ptr %14, align 8
-  %62 = getelementptr inbounds nuw %union.ListCell, ptr %61, i64 %indvars.iv139
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %indvars.iv139
   br label %63
 
 63:                                               ; preds = %60, %58
@@ -15445,7 +15443,7 @@ define internal fastcc noundef zeroext i1 @_equalList(ptr noundef nonnull readon
   br i1 %.not102, label %.critedge, label %69
 
 69:                                               ; preds = %65
-  %70 = getelementptr inbounds nuw %union.ListCell, ptr %66, i64 %indvars.iv139
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %indvars.iv139
   %71 = load i32, ptr %64, align 8
   %72 = load i32, ptr %70, align 8
   %.not99 = icmp eq i32 %71, %72
@@ -15459,7 +15457,7 @@ define internal fastcc noundef zeroext i1 @_equalList(ptr noundef nonnull readon
 
 75:                                               ; preds = %73
   %76 = load ptr, ptr %11, align 8
-  %77 = getelementptr inbounds nuw %union.ListCell, ptr %76, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %indvars.iv
   br label %78
 
 78:                                               ; preds = %75, %73
@@ -15475,7 +15473,7 @@ define internal fastcc noundef zeroext i1 @_equalList(ptr noundef nonnull readon
   br i1 %.not98, label %.critedge, label %84
 
 84:                                               ; preds = %80
-  %85 = getelementptr inbounds nuw %union.ListCell, ptr %81, i64 %indvars.iv
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %indvars.iv
   %86 = load i32, ptr %79, align 8
   %87 = load i32, ptr %85, align 8
   %.not95 = icmp eq i32 %86, %87

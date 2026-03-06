@@ -166,7 +166,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.core_hashtable.81 = type <{ ptr, i32, i32, i32, [4 x i8] }>
 %class.drup_checker = type { ptr, %class.svector.26, %class.svector.26 }
 %"struct.dimacs::drat_pp" = type { ptr, ptr }
-%"struct.std::pair" = type { %"class.sat::literal", ptr }
 %"class.std::allocator" = type { i8 }
 
 $_ZN10statisticsD2Ev = comdat any
@@ -1072,7 +1071,7 @@ _ZNK6vectorISt4pairIN3sat7literalEPNS1_6clauseEELb0EjE4sizeEv.exit.i: ; preds = 
   br i1 %19, label %20, label %_ZN12drup_checker9add_unitsEv.exit
 
 20:                                               ; preds = %_ZNK6vectorISt4pairIN3sat7literalEPNS1_6clauseEELb0EjE4sizeEv.exit.i
-  %21 = getelementptr inbounds nuw %"struct.std::pair", ptr %14, i64 %indvars.iv.i
+  %21 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %indvars.iv.i
   %22 = icmp eq ptr %15, null
   br i1 %22, label %29, label %23
 
@@ -1098,7 +1097,7 @@ _ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit.i: ; preds = %29, %23
   %32 = phi i32 [ %.pre2.i.i, %29 ], [ %25, %23 ]
   %33 = getelementptr inbounds i8, ptr %31, i64 -4
   %34 = zext i32 %32 to i64
-  %35 = getelementptr inbounds nuw %"class.sat::literal", ptr %31, i64 %34
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %34
   %36 = load i32, ptr %21, align 4, !tbaa !44
   store i32 %36, ptr %35, align 4, !tbaa !44
   %37 = add i32 %32, 1
@@ -1176,7 +1175,7 @@ _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit:     ; preds = %2
   br label %10
 
 10:                                               ; preds = %8, %.lr.ph.i
-  %11 = getelementptr inbounds nuw %"class.sat::literal", ptr %3, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv.i
   %.sroa.0.0.copyload.i = load i32, ptr %11, align 4, !tbaa !44
   %12 = icmp eq i32 %.sroa.0.0.copyload.i, -2
   br i1 %12, label %13, label %15
@@ -1516,7 +1515,7 @@ _ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i.i.i.i.i:  ; preds = %4
 
 11:                                               ; preds = %_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i.i.i.i.i
   %12 = zext nneg i32 %.val2 to i64
-  %13 = getelementptr inbounds nuw %class.symbol, ptr %6, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %12
   br label %"_ZSt10__invoke_rI6symbolRZ9read_dratPKcE3$_1JiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit"
 
 "_ZSt10__invoke_rI6symbolRZ9read_dratPKcE3$_1JiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit": ; preds = %2, %4, %_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i.i.i.i.i, %11

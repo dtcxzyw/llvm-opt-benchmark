@@ -12,13 +12,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._libc_fpstate = type { i16, i16, i16, i16, i64, i64, i32, i32, [8 x %struct._libc_fpxreg], [16 x %struct._libc_xmmreg], [24 x i32] }
 %struct._libc_fpxreg = type { [4 x i16], i16, [3 x i16] }
 %struct._libc_xmmreg = type { [4 x i32] }
-%"struct.folly::symbolizer::SymbolizedFrame" = type { i8, i64, ptr, %"struct.folly::symbolizer::LocationInfo", %"class.std::shared_ptr" }
-%"struct.folly::symbolizer::LocationInfo" = type { i8, i8, %"class.folly::symbolizer::Path", %"class.folly::symbolizer::Path", i64 }
-%"class.folly::symbolizer::Path" = type { %"class.folly::Range", %"class.folly::Range", %"class.folly::Range" }
-%"class.folly::Range" = type { ptr, ptr }
-%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
-%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
 
 $_ZN5folly10symbolizer21SafeStackTracePrinterD0Ev = comdat any
 
@@ -548,7 +541,7 @@ _ZN5folly10symbolizer17getStackTraceSafeILm100EEEbRNS0_10FrameArrayIXT_EEE.exit:
 
 10:                                               ; preds = %10, %.lr.ph.i
   %.011.i = phi i64 [ 0, %.lr.ph.i ], [ %12, %10 ]
-  %11 = getelementptr inbounds nuw %"struct.folly::symbolizer::SymbolizedFrame", ptr %9, i64 %.011.i
+  %11 = getelementptr inbounds nuw [152 x i8], ptr %9, i64 %.011.i
   store i8 0, ptr %11, align 8, !tbaa !65
   %12 = add nuw i64 %.011.i, 1
   %exitcond.not.i = icmp eq i64 %12, %7
@@ -619,7 +612,7 @@ _ZN5folly10symbolizer22getAsyncStackTraceSafeILm100EEEbRNS0_10FrameArrayIXT_EEE.
 
 40:                                               ; preds = %40, %.lr.ph.i10
   %.011.i11 = phi i64 [ 0, %.lr.ph.i10 ], [ %42, %40 ]
-  %41 = getelementptr inbounds nuw %"struct.folly::symbolizer::SymbolizedFrame", ptr %39, i64 %.011.i11
+  %41 = getelementptr inbounds nuw [152 x i8], ptr %39, i64 %.011.i11
   store i8 0, ptr %41, align 8, !tbaa !65
   %42 = add nuw i64 %.011.i11, 1
   %exitcond.not.i12 = icmp eq i64 %42, %37
@@ -691,7 +684,7 @@ _ZN5folly10symbolizer6detail13fixFrameArrayILm100EEEbRNS0_10FrameArrayIXT_EEEl.e
   %70 = add i64 %.014.i2.i.i.i.i, -2
   %71 = lshr i64 %.0.i3.i.i.i.i, 8
   %72 = and i64 %.0.i3.i.i.i.i, 255
-  %73 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm16ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %72
+  %73 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14to_ascii_tableILm16ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %72
   %74 = load i16, ptr %73, align 2, !tbaa !77
   %75 = getelementptr inbounds nuw i8, ptr %3, i64 %70
   store i16 %74, ptr %75, align 1
@@ -701,7 +694,7 @@ _ZN5folly10symbolizer6detail13fixFrameArrayILm100EEEbRNS0_10FrameArrayIXT_EEEl.e
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %.noexc17
   %.014.i.lcssa.i.i.i.i = phi i64 [ %.0.i1.i.i.i.i, %.noexc17 ], [ %70, %.lr.ph.i.i.i.i ]
   %.0.i.lcssa.i.i.i.i = phi i64 [ %65, %.noexc17 ], [ %71, %.lr.ph.i.i.i.i ]
-  %77 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm16ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %.0.i.lcssa.i.i.i.i
+  %77 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14to_ascii_tableILm16ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %.0.i.lcssa.i.i.i.i
   %78 = load i16, ptr %77, align 2, !tbaa !77
   %79 = icmp eq i64 %.014.i.lcssa.i.i.i.i, 2
   br i1 %79, label %80, label %81, !prof !23
@@ -759,7 +752,7 @@ _ZN5folly10symbolizer6detail13fixFrameArrayILm100EEEbRNS0_10FrameArrayIXT_EEEl.e
   %102 = add i64 %.014.i2.i.i.i42.i, -2
   %103 = lshr i64 %.0.i3.i.i.i41.i, 8
   %104 = and i64 %.0.i3.i.i.i41.i, 255
-  %105 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm16ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %104
+  %105 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14to_ascii_tableILm16ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %104
   %106 = load i16, ptr %105, align 2, !tbaa !77
   %107 = getelementptr inbounds nuw i8, ptr %3, i64 %102
   store i16 %106, ptr %107, align 1
@@ -769,7 +762,7 @@ _ZN5folly10symbolizer6detail13fixFrameArrayILm100EEEbRNS0_10FrameArrayIXT_EEEl.e
 ._crit_edge.i.i.i36.i:                            ; preds = %.lr.ph.i.i.i40.i, %.noexc20
   %.014.i.lcssa.i.i.i37.i = phi i64 [ %.0.i1.i.i.i35.i, %.noexc20 ], [ %102, %.lr.ph.i.i.i40.i ]
   %.0.i.lcssa.i.i.i38.i = phi i64 [ %97, %.noexc20 ], [ %103, %.lr.ph.i.i.i40.i ]
-  %109 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm16ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %.0.i.lcssa.i.i.i38.i
+  %109 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14to_ascii_tableILm16ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %.0.i.lcssa.i.i.i38.i
   %110 = load i16, ptr %109, align 2, !tbaa !77
   %111 = icmp eq i64 %.014.i.lcssa.i.i.i37.i, 2
   br i1 %111, label %112, label %113, !prof !23
@@ -861,7 +854,7 @@ _ZN5folly10symbolizer6detail13fixFrameArrayILm100EEEbRNS0_10FrameArrayIXT_EEEl.e
   %148 = add i64 %.014.i2.i.i.i58.i, -2
   %149 = lshr i64 %.0.i3.i.i.i57.i, 8
   %150 = and i64 %.0.i3.i.i.i57.i, 255
-  %151 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm16ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %150
+  %151 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14to_ascii_tableILm16ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %150
   %152 = load i16, ptr %151, align 2, !tbaa !77
   %153 = getelementptr inbounds nuw i8, ptr %3, i64 %148
   store i16 %152, ptr %153, align 1
@@ -871,7 +864,7 @@ _ZN5folly10symbolizer6detail13fixFrameArrayILm100EEEbRNS0_10FrameArrayIXT_EEEl.e
 ._crit_edge.i.i.i52.i:                            ; preds = %.lr.ph.i.i.i56.i, %146
   %.014.i.lcssa.i.i.i53.i = phi i64 [ %144, %146 ], [ %148, %.lr.ph.i.i.i56.i ]
   %.0.i.lcssa.i.i.i54.i = phi i64 [ %.fr.i, %146 ], [ %149, %.lr.ph.i.i.i56.i ]
-  %155 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm16ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %.0.i.lcssa.i.i.i54.i
+  %155 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14to_ascii_tableILm16ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %.0.i.lcssa.i.i.i54.i
   %156 = load i16, ptr %155, align 2, !tbaa !77
   %157 = icmp eq i64 %.014.i.lcssa.i.i.i53.i, 2
   br i1 %157, label %158, label %159, !prof !88
@@ -934,7 +927,7 @@ _ZN5folly10symbolizer6detail13fixFrameArrayILm100EEEbRNS0_10FrameArrayIXT_EEEl.e
   %183 = add i64 %.014.i2.i.i.i69.i, -2
   %184 = lshr i64 %.0.i3.i.i.i68.i, 8
   %185 = and i64 %.0.i3.i.i.i68.i, 255
-  %186 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm16ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %185
+  %186 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14to_ascii_tableILm16ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %185
   %187 = load i16, ptr %186, align 2, !tbaa !77
   %188 = getelementptr inbounds nuw i8, ptr %3, i64 %183
   store i16 %187, ptr %188, align 1
@@ -944,7 +937,7 @@ _ZN5folly10symbolizer6detail13fixFrameArrayILm100EEEbRNS0_10FrameArrayIXT_EEEl.e
 ._crit_edge.i.i.i63.i:                            ; preds = %.lr.ph.i.i.i67.i, %.noexc30
   %.014.i.lcssa.i.i.i64.i = phi i64 [ %.0.i1.i.i.i62.i, %.noexc30 ], [ %183, %.lr.ph.i.i.i67.i ]
   %.0.i.lcssa.i.i.i65.i = phi i64 [ %178, %.noexc30 ], [ %184, %.lr.ph.i.i.i67.i ]
-  %190 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm16ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %.0.i.lcssa.i.i.i65.i
+  %190 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14to_ascii_tableILm16ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %.0.i.lcssa.i.i.i65.i
   %191 = load i16, ptr %190, align 2, !tbaa !77
   %192 = icmp eq i64 %.014.i.lcssa.i.i.i64.i, 2
   br i1 %192, label %193, label %194, !prof !23
@@ -1013,7 +1006,7 @@ _ZN5folly10symbolizer6detail13fixFrameArrayILm100EEEbRNS0_10FrameArrayIXT_EEEl.e
   %218 = add i64 %.014.i2.i.i.i80.i, -2
   %219 = lshr i64 %.0.i3.i.i.i79.i, 8
   %220 = and i64 %.0.i3.i.i.i79.i, 255
-  %221 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm16ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %220
+  %221 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14to_ascii_tableILm16ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %220
   %222 = load i16, ptr %221, align 2, !tbaa !77
   %223 = getelementptr inbounds nuw i8, ptr %3, i64 %218
   store i16 %222, ptr %223, align 1
@@ -1023,7 +1016,7 @@ _ZN5folly10symbolizer6detail13fixFrameArrayILm100EEEbRNS0_10FrameArrayIXT_EEEl.e
 ._crit_edge.i.i.i74.i:                            ; preds = %.lr.ph.i.i.i78.i, %216
   %.014.i.lcssa.i.i.i75.i = phi i64 [ %214, %216 ], [ %218, %.lr.ph.i.i.i78.i ]
   %.0.i.lcssa.i.i.i76.i = phi i64 [ %.fr89.i, %216 ], [ %219, %.lr.ph.i.i.i78.i ]
-  %225 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm16ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %.0.i.lcssa.i.i.i76.i
+  %225 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14to_ascii_tableILm16ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %.0.i.lcssa.i.i.i76.i
   %226 = load i16, ptr %225, align 2, !tbaa !77
   %227 = icmp eq i64 %.014.i.lcssa.i.i.i75.i, 2
   br i1 %227, label %228, label %229, !prof !92

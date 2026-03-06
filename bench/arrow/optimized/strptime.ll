@@ -46,7 +46,7 @@ define ptr @arrow_strptime(ptr noalias noundef %0, ptr noalias noundef %1, ptr n
   %18 = tail call ptr @__ctype_b_loc() #7
   %19 = load ptr, ptr %18, align 8, !tbaa !8
   %20 = sext i8 %16 to i64
-  %21 = getelementptr inbounds i16, ptr %19, i64 %20
+  %21 = getelementptr inbounds [2 x i8], ptr %19, i64 %20
   %22 = load i16, ptr %21, align 2, !tbaa !11
   %23 = and i16 %22, 8192
   %.not194 = icmp eq i16 %23, 0
@@ -61,7 +61,7 @@ define ptr @arrow_strptime(ptr noalias noundef %0, ptr noalias noundef %1, ptr n
   %25 = phi i8 [ %32, %30 ], [ %24, %.preheader ]
   %.1155210 = phi ptr [ %31, %30 ], [ %.0154, %.preheader ]
   %26 = sext i8 %25 to i64
-  %27 = getelementptr inbounds i16, ptr %19, i64 %26
+  %27 = getelementptr inbounds [2 x i8], ptr %19, i64 %26
   %28 = load i16, ptr %27, align 2, !tbaa !11
   %29 = and i16 %28, 8192
   %.not197 = icmp eq i16 %29, 0
@@ -96,7 +96,7 @@ define ptr @arrow_strptime(ptr noalias noundef %0, ptr noalias noundef %1, ptr n
   %43 = load ptr, ptr %42, align 8, !tbaa !8
   %44 = load i8, ptr %spec.select, align 1, !tbaa !7
   %45 = sext i8 %44 to i64
-  %46 = getelementptr inbounds i16, ptr %43, i64 %45
+  %46 = getelementptr inbounds [2 x i8], ptr %43, i64 %45
   %47 = load i16, ptr %46, align 2, !tbaa !11
   %48 = and i16 %47, 2048
   %.not173 = icmp eq i16 %48, 0
@@ -200,7 +200,7 @@ define ptr @arrow_strptime(ptr noalias noundef %0, ptr noalias noundef %1, ptr n
   %75 = phi i8 [ %72, %.lr.ph215 ], [ %82, %80 ]
   %.4214 = phi ptr [ %.0154, %.lr.ph215 ], [ %81, %80 ]
   %76 = sext i8 %75 to i64
-  %77 = getelementptr inbounds i16, ptr %73, i64 %76
+  %77 = getelementptr inbounds [2 x i8], ptr %73, i64 %76
   %78 = load i16, ptr %77, align 2, !tbaa !11
   %79 = and i16 %78, 8192
   %.not183 = icmp eq i16 %79, 0
@@ -298,7 +298,7 @@ define ptr @arrow_strptime(ptr noalias noundef %0, ptr noalias noundef %1, ptr n
   %123 = load ptr, ptr %42, align 8, !tbaa !8
   %124 = load i8, ptr %.0154, align 1, !tbaa !7
   %125 = sext i8 %124 to i64
-  %126 = getelementptr inbounds i16, ptr %123, i64 %125
+  %126 = getelementptr inbounds [2 x i8], ptr %123, i64 %125
   %127 = load i16, ptr %126, align 2, !tbaa !11
   %128 = and i16 %127, 2048
   %.not185 = icmp eq i16 %128, 0
@@ -315,7 +315,7 @@ define ptr @arrow_strptime(ptr noalias noundef %0, ptr noalias noundef %1, ptr n
   %.5219 = phi ptr [ %.0154, %129 ], [ %141, %138 ]
   %133 = load i8, ptr %.5219, align 1, !tbaa !7
   %134 = sext i8 %133 to i64
-  %135 = getelementptr inbounds i16, ptr %123, i64 %134
+  %135 = getelementptr inbounds [2 x i8], ptr %123, i64 %134
   %136 = load i16, ptr %135, align 2, !tbaa !11
   %137 = and i16 %136, 2048
   %.not187 = icmp eq i16 %137, 0
@@ -369,7 +369,7 @@ define ptr @arrow_strptime(ptr noalias noundef %0, ptr noalias noundef %1, ptr n
   %156 = load ptr, ptr %42, align 8, !tbaa !8
   %157 = load i8, ptr %.6, align 1, !tbaa !7
   %158 = sext i8 %157 to i64
-  %159 = getelementptr inbounds i16, ptr %156, i64 %158
+  %159 = getelementptr inbounds [2 x i8], ptr %156, i64 %158
   %160 = load i16, ptr %159, align 2, !tbaa !11
   %161 = and i16 %160, 2048
   %.not189 = icmp eq i16 %161, 0
@@ -386,7 +386,7 @@ define ptr @arrow_strptime(ptr noalias noundef %0, ptr noalias noundef %1, ptr n
   %.7221 = phi ptr [ %173, %170 ], [ %.6, %162 ]
   %165 = load i8, ptr %.7221, align 1, !tbaa !7
   %166 = sext i8 %165 to i64
-  %167 = getelementptr inbounds i16, ptr %156, i64 %166
+  %167 = getelementptr inbounds [2 x i8], ptr %156, i64 %166
   %168 = load i16, ptr %167, align 2, !tbaa !11
   %169 = and i16 %168, 2048
   %.not190 = icmp eq i16 %169, 0

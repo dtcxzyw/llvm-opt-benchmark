@@ -3,13 +3,6 @@ source_filename = "bench/nuttx/original/lib_fopen.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.file_struct = type { ptr, %struct.rmutex_s, %struct.cookie_io_functions_t, ptr, ptr, ptr, ptr, ptr, [64 x i8], i16, i8, i8, [2 x i8] }
-%struct.rmutex_s = type { %struct.mutex_s, i32 }
-%struct.mutex_s = type { %struct.sem_s, i32 }
-%struct.sem_s = type { i16, i8, %struct.dq_queue_s, ptr }
-%struct.dq_queue_s = type { ptr, ptr }
-%struct.cookie_io_functions_t = type { ptr, ptr, ptr, ptr }
-
 ; Function Attrs: nounwind uwtable
 define noalias ptr @fdopen(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @lib_get_streams() #6
@@ -61,7 +54,7 @@ define noalias ptr @fdopen(i32 noundef %0, ptr noundef readonly captures(none) %
 25:                                               ; preds = %6
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %27 = sext i32 %0 to i64
-  %28 = getelementptr inbounds %struct.file_struct, ptr %26, i64 %27
+  %28 = getelementptr inbounds [200 x i8], ptr %26, i64 %27
   br label %29
 
 29:                                               ; preds = %25, %21

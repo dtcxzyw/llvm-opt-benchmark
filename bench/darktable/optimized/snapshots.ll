@@ -13,7 +13,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.dt_sys_resources_t = type { i64, i64, ptr, ptr, i32 }
 %struct.dt_backthumb_t = type { double, double, i32, i32, i32, i32 }
 %struct.dt_gimp_t = type { i32, ptr, ptr, i32, i32 }
-%struct.dt_lib_snapshot_t = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, i32, i32, i32, ptr, float, i64, i64, float, float }
 %struct._PangoRectangle = type { i32, i32, i32, i32 }
 
 @.str = private unnamed_addr constant [10 x i8] c"snapshots\00", align 1
@@ -129,7 +128,7 @@ define void @gui_post_expose(ptr noundef readonly captures(none) %0, ptr noundef
 26:                                               ; preds = %22
   %27 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %28 = zext nneg i32 %24 to i64
-  %29 = getelementptr inbounds nuw %struct.dt_lib_snapshot_t, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [136 x i8], ptr %27, i64 %28
   %30 = tail call i64 @dt_view_get_context_hash() #15
   %31 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %32 = load i32, ptr %31, align 4, !tbaa !64
@@ -931,7 +930,7 @@ define internal fastcc void @_clear_snapshots(ptr captures(none) initializes((8,
 
 10:                                               ; preds = %.lr.ph, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
-  %11 = getelementptr inbounds nuw %struct.dt_lib_snapshot_t, ptr %7, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [136 x i8], ptr %7, i64 %indvars.iv
   %12 = trunc nuw i64 %indvars.iv to i32
   %13 = or i32 %12, -256
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 88
@@ -1030,7 +1029,7 @@ define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_
 
 51:                                               ; preds = %1, %51
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %51 ]
-  %52 = getelementptr inbounds nuw %struct.dt_lib_snapshot_t, ptr %23, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [136 x i8], ptr %23, i64 %indvars.iv
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 88
   %54 = trunc i64 %indvars.iv to i32
   %55 = or i32 %54, -256
@@ -1162,7 +1161,7 @@ define internal void @_lib_snapshots_add_button_clicked_callback(ptr readnone ca
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %9 = load i32, ptr %8, align 4, !tbaa !159
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw %struct.dt_lib_snapshot_t, ptr %7, i64 %10
+  %11 = getelementptr inbounds nuw [136 x i8], ptr %7, i64 %10
   %12 = or i32 %9, -256
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 88
   store i32 %12, ptr %13, align 8, !tbaa !71
@@ -1281,7 +1280,7 @@ define internal void @_lib_snapshots_add_button_clicked_callback(ptr readnone ca
 
 .lr.ph:                                           ; preds = %35, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %35 ]
-  %82 = getelementptr inbounds nuw %struct.dt_lib_snapshot_t, ptr %7, i64 %indvars.iv
+  %82 = getelementptr inbounds nuw [136 x i8], ptr %7, i64 %indvars.iv
   %83 = load ptr, ptr %82, align 8, !tbaa !161
   call void @gtk_widget_show(ptr noundef %83) #15
   %84 = getelementptr inbounds nuw i8, ptr %82, i64 40
@@ -1499,7 +1498,7 @@ dt_action_lib.exit:                               ; preds = %.lr.ph.i, %1
   %11 = add i32 %9, -1
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %13 = sext i32 %11 to i64
-  %14 = getelementptr inbounds %struct.dt_lib_snapshot_t, ptr %12, i64 %13
+  %14 = getelementptr inbounds [136 x i8], ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !161
   %16 = tail call i64 @gtk_toggle_button_get_type() #16
   %17 = tail call ptr @g_type_check_instance_cast(ptr noundef %15, i64 noundef %16) #15
@@ -1563,7 +1562,7 @@ define internal void @_signal_image_changed(ptr readnone captures(none) %0, ptr 
 
 12:                                               ; preds = %2, %40
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %40 ]
-  %13 = getelementptr inbounds nuw %struct.dt_lib_snapshot_t, ptr %10, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [136 x i8], ptr %10, i64 %indvars.iv
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 80
   %15 = load i32, ptr %14, align 8, !tbaa !69
   %16 = icmp sgt i32 %15, 0
@@ -1627,7 +1626,7 @@ define internal void @_signal_image_removed(ptr readnone captures(none) %0, i32 
 6:                                                ; preds = %3, %29
   %.08 = phi i32 [ 0, %3 ], [ %.1, %29 ]
   %7 = zext nneg i32 %.08 to i64
-  %8 = getelementptr inbounds nuw %struct.dt_lib_snapshot_t, ptr %5, i64 %7
+  %8 = getelementptr inbounds nuw [136 x i8], ptr %5, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 104
   %10 = load i32, ptr %9, align 8, !tbaa !69
   %11 = icmp eq i32 %10, %1
@@ -1636,7 +1635,7 @@ define internal void @_signal_image_removed(ptr readnone captures(none) %0, i32 
 12:                                               ; preds = %6
   %13 = load ptr, ptr %4, align 8, !tbaa !6
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %15 = getelementptr inbounds nuw %struct.dt_lib_snapshot_t, ptr %14, i64 %7
+  %15 = getelementptr inbounds nuw [136 x i8], ptr %14, i64 %7
   tail call fastcc void @_clear_snapshot_entry(ptr noundef nonnull %15)
   %.not = icmp eq i32 %.08, 9
   br i1 %.not, label %._crit_edge.i, label %.lr.ph.i
@@ -1656,9 +1655,9 @@ define internal void @_signal_image_removed(ptr readnone captures(none) %0, i32 
 
 .lr.ph.i:                                         ; preds = %12, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ %7, %12 ]
-  %23 = getelementptr inbounds nuw %struct.dt_lib_snapshot_t, ptr %14, i64 %indvars.iv.i
+  %23 = getelementptr inbounds nuw [136 x i8], ptr %14, i64 %indvars.iv.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %24 = getelementptr inbounds nuw %struct.dt_lib_snapshot_t, ptr %14, i64 %indvars.iv.next.i
+  %24 = getelementptr inbounds nuw [136 x i8], ptr %14, i64 %indvars.iv.next.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %23, ptr noundef nonnull align 8 dereferenceable(136) %24, i64 136, i1 false)
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 9
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i
@@ -1778,7 +1777,7 @@ define internal void @_lib_snapshots_toggled_callback(ptr noundef %0, ptr nounde
 
 .lr.ph.i:                                         ; preds = %24, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %24 ]
-  %17 = getelementptr inbounds nuw %struct.dt_lib_snapshot_t, ptr %14, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw [136 x i8], ptr %14, i64 %indvars.iv.i
   %18 = load ptr, ptr %17, align 8, !tbaa !161
   %19 = icmp eq ptr %13, %18
   br i1 %19, label %._crit_edge.loopexit.split.loop.exit.i, label %20
@@ -1823,7 +1822,7 @@ _lib_snapshots_get_activated.exit:                ; preds = %24, %11, %._crit_ed
   br i1 %.not18, label %39, label %34
 
 34:                                               ; preds = %30
-  %35 = getelementptr inbounds nuw %struct.dt_lib_snapshot_t, ptr %29, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [136 x i8], ptr %29, i64 %indvars.iv
   %36 = load ptr, ptr %35, align 8, !tbaa !161
   %37 = tail call i64 @gtk_toggle_button_get_type() #16
   %38 = tail call ptr @g_type_check_instance_cast(ptr noundef %36, i64 noundef %37) #15
@@ -1883,7 +1882,7 @@ define internal i32 @_lib_button_button_pressed_callback(ptr noundef %0, ptr nou
 
 .split.us.i:                                      ; preds = %10, %3
   %indvars.iv7.i = phi i64 [ %indvars.iv.next8.i, %10 ], [ 0, %3 ]
-  %7 = getelementptr inbounds nuw %struct.dt_lib_snapshot_t, ptr %6, i64 %indvars.iv7.i
+  %7 = getelementptr inbounds nuw [136 x i8], ptr %6, i64 %indvars.iv7.i
   %8 = load ptr, ptr %7, align 8, !tbaa !194
   %9 = icmp eq ptr %8, %0
   br i1 %9, label %.split3.us.loopexit.split.loop.exit.i, label %10
@@ -1910,7 +1909,7 @@ _look_for_widget.exit:                            ; preds = %10, %.split3.us.loo
   br i1 %.not, label %18, label %25
 
 18:                                               ; preds = %_look_for_widget.exit
-  %19 = getelementptr inbounds %struct.dt_lib_snapshot_t, ptr %6, i64 %.us-phi.i
+  %19 = getelementptr inbounds [136 x i8], ptr %6, i64 %.us-phi.i
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load ptr, ptr %20, align 8, !tbaa !168
   tail call void @gtk_widget_hide(ptr noundef %21) #15
@@ -1923,7 +1922,7 @@ _look_for_widget.exit:                            ; preds = %10, %.split3.us.loo
 
 25:                                               ; preds = %18, %_look_for_widget.exit
   tail call void @gtk_widget_set_focus_on_click(ptr noundef %0, i32 noundef 0) #15
-  %26 = getelementptr %struct.dt_lib_snapshot_t, ptr %5, i64 %.us-phi.i
+  %26 = getelementptr [136 x i8], ptr %5, i64 %.us-phi.i
   %27 = getelementptr i8, ptr %26, i64 56
   %28 = load ptr, ptr %27, align 8, !tbaa !169
   %29 = tail call i32 @gtk_widget_has_focus(ptr noundef %28) #15
@@ -1951,7 +1950,7 @@ define internal void @_entry_activated_callback(ptr noundef readnone captures(ad
 
 .split.i:                                         ; preds = %9, %2
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %9 ], [ 0, %2 ]
-  %5 = getelementptr inbounds nuw %struct.dt_lib_snapshot_t, ptr %4, i64 %indvars.iv.i
+  %5 = getelementptr inbounds nuw [136 x i8], ptr %4, i64 %indvars.iv.i
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %7 = load ptr, ptr %6, align 8, !tbaa !194
   %8 = icmp eq ptr %7, %0
@@ -1970,7 +1969,7 @@ define internal void @_entry_activated_callback(ptr noundef readnone captures(ad
 _look_for_widget.exit:                            ; preds = %9, %.split3.us.loopexit11.split.loop.exit.i
   %.us-phi.i = phi i64 [ %10, %.split3.us.loopexit11.split.loop.exit.i ], [ 0, %9 ]
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %12 = getelementptr inbounds %struct.dt_lib_snapshot_t, ptr %11, i64 %.us-phi.i
+  %12 = getelementptr inbounds [136 x i8], ptr %11, i64 %.us-phi.i
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %14 = load ptr, ptr %13, align 8, !tbaa !169
   %15 = tail call i64 @gtk_entry_get_type() #16
@@ -2017,7 +2016,7 @@ define internal void @_lib_snapshots_restore_callback(ptr noundef %0, ptr nounde
 
 .lr.ph.i:                                         ; preds = %17, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %17 ]
-  %10 = getelementptr inbounds nuw %struct.dt_lib_snapshot_t, ptr %7, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw [136 x i8], ptr %7, i64 %indvars.iv.i
   %11 = load ptr, ptr %10, align 8, !tbaa !161
   %12 = icmp eq ptr %6, %11
   br i1 %12, label %_lib_snapshots_get_activated.exit.loopexit, label %13
@@ -2042,7 +2041,7 @@ _lib_snapshots_get_activated.exit.loopexit:       ; preds = %17, %.lr.ph.i, %13
 _lib_snapshots_get_activated.exit:                ; preds = %_lib_snapshots_get_activated.exit.loopexit, %2
   %spec.select.i = phi i64 [ -1, %2 ], [ %19, %_lib_snapshots_get_activated.exit.loopexit ]
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %21 = getelementptr inbounds %struct.dt_lib_snapshot_t, ptr %20, i64 %spec.select.i
+  %21 = getelementptr inbounds [136 x i8], ptr %20, i64 %spec.select.i
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 80
   %23 = load i32, ptr %22, align 8, !tbaa !69
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 88

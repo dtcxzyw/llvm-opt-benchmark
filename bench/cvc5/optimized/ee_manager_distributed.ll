@@ -496,7 +496,7 @@ _ZN4cvc58internal6theory11EeSetupInfoD2Ev.exit:   ; preds = %102, %_ZNKSt7__cxx1
   %109 = load ptr, ptr %91, align 8, !tbaa !43
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 24
   %111 = zext i32 %108 to i64
-  %112 = getelementptr inbounds nuw ptr, ptr %110, i64 %111
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %110, i64 %111
   %113 = load ptr, ptr %112, align 8, !tbaa !174
   %114 = icmp eq ptr %113, null
   br i1 %114, label %163, label %115

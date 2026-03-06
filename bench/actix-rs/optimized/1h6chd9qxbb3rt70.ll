@@ -4038,7 +4038,7 @@ _ZN4core4hash11BuildHasher8hash_one17h3cd19baf41154f68E.exit: ; preds = %26, %36
   %64 = add i64 %.sroa.01.0.i.i.i, %61
   %65 = and i64 %64, %49
   %66 = sub nsw i64 0, %65
-  %67 = getelementptr inbounds { { { ptr, [3 x i64] } }, { { { i64, [20 x i64] }, i64 } } }, ptr %50, i64 %66
+  %67 = getelementptr inbounds [208 x i8], ptr %50, i64 %66
   %68 = getelementptr inbounds i8, ptr %67, i64 -208
   %69 = call noundef zeroext i1 @"_ZN74_$LT$http..header..name..Repr$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1ce5c251be72188bE.llvm.18274090894404857403"(ptr noundef nonnull align 8 %1, ptr noundef nonnull align 8 %68), !noalias !663
   br i1 %69, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$3get17hb470d048622776cfE.llvm.14700172292964297094.exit", label %55
@@ -4095,7 +4095,7 @@ define hidden noundef align 8 ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$3get
   %22 = add i64 %.sroa.01.0.i.i, %19
   %23 = and i64 %22, %7
   %24 = sub nsw i64 0, %23
-  %25 = getelementptr inbounds { { { ptr, [3 x i64] } }, { { { i64, [20 x i64] }, i64 } } }, ptr %8, i64 %24
+  %25 = getelementptr inbounds [208 x i8], ptr %8, i64 %24
   %26 = getelementptr inbounds i8, ptr %25, i64 -208
   %27 = tail call noundef zeroext i1 @"_ZN74_$LT$http..header..name..Repr$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1ce5c251be72188bE.llvm.18274090894404857403"(ptr noundef nonnull align 8 %2, ptr noundef nonnull align 8 %26), !noalias !676
   br i1 %27, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17hb15899ed4b43fde8E.llvm.14700172292964297094.exit", label %13
@@ -4154,7 +4154,7 @@ define hidden noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17hb158
   %22 = add i64 %.sroa.01.0.i, %19
   %23 = and i64 %22, %7
   %24 = sub nsw i64 0, %23
-  %25 = getelementptr inbounds { { { ptr, [3 x i64] } }, { { { i64, [20 x i64] }, i64 } } }, ptr %8, i64 %24
+  %25 = getelementptr inbounds [208 x i8], ptr %8, i64 %24
   %26 = getelementptr inbounds i8, ptr %25, i64 -208
   %27 = tail call noundef zeroext i1 @"_ZN74_$LT$http..header..name..Repr$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1ce5c251be72188bE.llvm.18274090894404857403"(ptr noundef nonnull align 8 %2, ptr noundef nonnull align 8 %26), !noalias !685
   br i1 %27, label %_ZN9hashbrown3raw13RawTableInner10find_inner17heaf636810d0ea7b2E.exit.thread, label %13

@@ -247,7 +247,7 @@ define dso_local zeroext i1 @acpi_duplicate_processor_id(i32 noundef %0) local_u
   br i1 %8, label %.split.loop.exit3, label %9, !llvm.loop !6
 
 9:                                                ; preds = %.preheader
-  %10 = getelementptr i32, ptr @duplicate_processor_ids, i64 %indvars.iv.next
+  %10 = getelementptr [4 x i8], ptr @duplicate_processor_ids, i64 %indvars.iv.next
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, %0
   br i1 %12, label %.split.loop.exit, label %.preheader, !llvm.loop !6
@@ -432,7 +432,7 @@ define dso_local noundef range(i32 -19, 1) i32 @acpi_processor_evaluate_cst(ptr 
 
 46:                                               ; preds = %41
   %47 = load ptr, ptr %21, align 8
-  %48 = getelementptr %union.acpi_object, ptr %47, i64 %42
+  %48 = getelementptr [24 x i8], ptr %47, i64 %42
   %49 = load i32, ptr %48, align 8
   %50 = icmp eq i32 %49, 4
   br i1 %50, label %52, label %51
@@ -575,7 +575,7 @@ define dso_local noundef range(i32 -19, 1) i32 @acpi_processor_evaluate_cst(ptr 
 
 120:                                              ; preds = %111
   %121 = sext i32 %82 to i64
-  %122 = getelementptr %struct.acpi_processor_cx, ptr %35, i64 %121
+  %122 = getelementptr [52 x i8], ptr %35, i64 %121
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(52) %122, ptr noundef nonnull align 4 dereferenceable(52) %5, i64 52, i1 false)
   br label %37
 
@@ -829,7 +829,7 @@ define internal fastcc void @processor_validated_ids_update(i32 noundef %0) unna
 
 .preheader6:                                      ; preds = %.preheader6.preheader, %10
   %indvars.iv = phi i64 [ 0, %.preheader6.preheader ], [ %indvars.iv.next, %10 ]
-  %14 = getelementptr i32, ptr @duplicate_processor_ids, i64 %indvars.iv
+  %14 = getelementptr [4 x i8], ptr @duplicate_processor_ids, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, %0
   br i1 %16, label %.loopexit7, label %10
@@ -841,7 +841,7 @@ define internal fastcc void @processor_validated_ids_update(i32 noundef %0) unna
 
 .preheader:                                       ; preds = %.preheader.preheader, %17
   %indvars.iv12 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next13, %17 ]
-  %19 = getelementptr i32, ptr @unique_processor_ids, i64 %indvars.iv12
+  %19 = getelementptr [4 x i8], ptr @unique_processor_ids, i64 %indvars.iv12
   %20 = load i32, ptr %19, align 4
   %21 = icmp eq i32 %20, %0
   br i1 %21, label %.loopexit, label %17
@@ -851,7 +851,7 @@ define internal fastcc void @processor_validated_ids_update(i32 noundef %0) unna
   %23 = phi ptr [ @unique_processor_ids, %.loopexit8 ], [ @duplicate_processor_ids, %.preheader ], [ @unique_processor_ids, %17 ]
   %24 = phi ptr [ @nr_unique_ids, %.loopexit8 ], [ @nr_duplicate_ids, %.preheader ], [ @nr_unique_ids, %17 ]
   %25 = sext i32 %22 to i64
-  %26 = getelementptr i32, ptr %23, i64 %25
+  %26 = getelementptr [4 x i8], ptr %23, i64 %25
   store i32 %0, ptr %26, align 4
   %27 = add i32 %22, 1
   store i32 %27, ptr %24, align 4
@@ -1038,7 +1038,7 @@ define internal i32 @acpi_processor_add(ptr noundef %0, ptr readnone captures(no
   br i1 %97, label %.thread, label %98, !llvm.loop !6
 
 98:                                               ; preds = %94
-  %99 = getelementptr i32, ptr @duplicate_processor_ids, i64 %96
+  %99 = getelementptr [4 x i8], ptr @duplicate_processor_ids, i64 %96
   %100 = load i32, ptr %99, align 4
   %101 = icmp eq i32 %100, %84
   br i1 %101, label %102, label %94, !llvm.loop !6
@@ -1248,7 +1248,7 @@ thread-pre-split:                                 ; preds = %129, %132, %139
 
 208:                                              ; preds = %200
   %209 = zext i32 %203 to i64
-  %210 = getelementptr i64, ptr @__per_cpu_offset, i64 %209
+  %210 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %209
   %211 = load i64, ptr %210, align 8
   %212 = add i64 %211, ptrtoint (ptr @processor_device_array to i64)
   %213 = inttoptr i64 %212 to ptr
@@ -1267,7 +1267,7 @@ thread-pre-split:                                 ; preds = %129, %132, %139
   store ptr %0, ptr %213, align 8
   %221 = load i32, ptr %118, align 8
   %222 = zext i32 %221 to i64
-  %223 = getelementptr i64, ptr @__per_cpu_offset, i64 %222
+  %223 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %222
   %224 = load i64, ptr %223, align 8
   %225 = add i64 %224, ptrtoint (ptr @processors to i64)
   %226 = inttoptr i64 %225 to ptr
@@ -1299,7 +1299,7 @@ thread-pre-split:                                 ; preds = %129, %132, %139
   store ptr null, ptr %19, align 8
   %241 = load i32, ptr %118, align 8
   %242 = zext i32 %241 to i64
-  %243 = getelementptr i64, ptr @__per_cpu_offset, i64 %242
+  %243 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %242
   %244 = load i64, ptr %243, align 8
   %245 = add i64 %244, ptrtoint (ptr @processors to i64)
   %246 = inttoptr i64 %245 to ptr
@@ -1350,14 +1350,14 @@ define internal void @acpi_processor_remove(ptr noundef readonly captures(addres
   %16 = tail call i32 @acpi_unbind_one(ptr noundef %15) #14
   %17 = load i32, ptr %8, align 8
   %18 = zext i32 %17 to i64
-  %19 = getelementptr i64, ptr @__per_cpu_offset, i64 %18
+  %19 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %18
   %20 = load i64, ptr %19, align 8
   %21 = add i64 %20, ptrtoint (ptr @processor_device_array to i64)
   %22 = inttoptr i64 %21 to ptr
   store ptr null, ptr %22, align 8
   %23 = load i32, ptr %8, align 8
   %24 = zext i32 %23 to i64
-  %25 = getelementptr i64, ptr @__per_cpu_offset, i64 %24
+  %25 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %24
   %26 = load i64, ptr %25, align 8
   %27 = add i64 %26, ptrtoint (ptr @processors to i64)
   %28 = inttoptr i64 %27 to ptr

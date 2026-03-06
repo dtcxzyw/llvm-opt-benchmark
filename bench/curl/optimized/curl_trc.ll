@@ -6,8 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.Curl_cftype = type { ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.curl_trc_feat = type { ptr, i32 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
-%struct.trc_cft_def = type { ptr, i32 }
-%struct.trc_feat_def = type { ptr, i32 }
 
 @Curl_debug.s_infotype = internal constant [7 x [3 x i8]] [[3 x i8] c"* \00", [3 x i8] c"< \00", [3 x i8] c"> \00", [3 x i8] c"{ \00", [3 x i8] c"} \00", [3 x i8] c"{ \00", [3 x i8] c"} \00"], align 16
 @.str = private unnamed_addr constant [6 x i8] c"[%s] \00", align 1
@@ -871,7 +869,7 @@ define hidden range(i32 0, 28) i32 @Curl_trc_opt(ptr noundef %0) local_unnamed_a
 
 .split.us.i.i:                                    ; preds = %13, %.split.us.i.i
   %.019.us.i.i = phi i64 [ %18, %.split.us.i.i ], [ 0, %13 ]
-  %15 = getelementptr inbounds nuw %struct.trc_cft_def, ptr @trc_cfts, i64 %.019.us.i.i
+  %15 = getelementptr inbounds nuw [16 x i8], ptr @trc_cfts, i64 %.019.us.i.i
   %16 = load ptr, ptr %15, align 16, !tbaa !92
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 12
   store i32 %.0.i, ptr %17, align 4, !tbaa !87
@@ -881,7 +879,7 @@ define hidden range(i32 0, 28) i32 @Curl_trc_opt(ptr noundef %0) local_unnamed_a
 
 .preheader.split21.us.i.i:                        ; preds = %.split.us.i.i, %.preheader.split21.us.i.i
   %.120.us.i.i = phi i64 [ %22, %.preheader.split21.us.i.i ], [ 0, %.split.us.i.i ]
-  %19 = getelementptr inbounds nuw %struct.trc_feat_def, ptr @trc_feats, i64 %.120.us.i.i
+  %19 = getelementptr inbounds nuw [16 x i8], ptr @trc_feats, i64 %.120.us.i.i
   %20 = load ptr, ptr %19, align 16, !tbaa !96
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i32 %.0.i, ptr %21, align 8, !tbaa !80
@@ -902,7 +900,7 @@ define hidden range(i32 0, 28) i32 @Curl_trc_opt(ptr noundef %0) local_unnamed_a
   ]
 
 25:                                               ; preds = %.split.i.i, %.split.i.i
-  %26 = getelementptr inbounds nuw %struct.trc_cft_def, ptr @trc_cfts, i64 %.019.i.i
+  %26 = getelementptr inbounds nuw [16 x i8], ptr @trc_cfts, i64 %.019.i.i
   %27 = load ptr, ptr %26, align 16, !tbaa !92
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 12
   store i32 %.0.i, ptr %28, align 4, !tbaa !87
@@ -921,7 +919,7 @@ define hidden range(i32 0, 28) i32 @Curl_trc_opt(ptr noundef %0) local_unnamed_a
   br i1 %.not16.i.not.i, label %33, label %37
 
 33:                                               ; preds = %.preheader.split21.i.i
-  %34 = getelementptr inbounds nuw %struct.trc_feat_def, ptr @trc_feats, i64 %.120.i.i
+  %34 = getelementptr inbounds nuw [16 x i8], ptr @trc_feats, i64 %.120.i.i
   %35 = load ptr, ptr %34, align 16, !tbaa !96
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store i32 %.0.i, ptr %36, align 8, !tbaa !80
@@ -945,7 +943,7 @@ define hidden range(i32 0, 28) i32 @Curl_trc_opt(ptr noundef %0) local_unnamed_a
   br i1 %.not18.i29.not.i, label %43, label %47
 
 43:                                               ; preds = %.split.i27.i
-  %44 = getelementptr inbounds nuw %struct.trc_cft_def, ptr @trc_cfts, i64 %.019.i28.i
+  %44 = getelementptr inbounds nuw [16 x i8], ptr @trc_cfts, i64 %.019.i28.i
   %45 = load ptr, ptr %44, align 16, !tbaa !92
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 12
   store i32 %.0.i, ptr %46, align 4, !tbaa !87
@@ -964,7 +962,7 @@ define hidden range(i32 0, 28) i32 @Curl_trc_opt(ptr noundef %0) local_unnamed_a
   ]
 
 49:                                               ; preds = %.preheader.split21.i32.i, %.preheader.split21.i32.i
-  %50 = getelementptr inbounds nuw %struct.trc_feat_def, ptr @trc_feats, i64 %.120.i33.i
+  %50 = getelementptr inbounds nuw [16 x i8], ptr @trc_feats, i64 %.120.i33.i
   %51 = load ptr, ptr %50, align 16, !tbaa !96
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   store i32 %.0.i, ptr %52, align 8, !tbaa !80
@@ -987,7 +985,7 @@ define hidden range(i32 0, 28) i32 @Curl_trc_opt(ptr noundef %0) local_unnamed_a
   br i1 %.not18.i39.i, label %62, label %58
 
 58:                                               ; preds = %.split.i37.i
-  %59 = getelementptr inbounds nuw %struct.trc_cft_def, ptr @trc_cfts, i64 %.019.i38.i
+  %59 = getelementptr inbounds nuw [16 x i8], ptr @trc_cfts, i64 %.019.i38.i
   %60 = load ptr, ptr %59, align 16, !tbaa !92
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 12
   store i32 %.0.i, ptr %61, align 4, !tbaa !87
@@ -1005,7 +1003,7 @@ define hidden range(i32 0, 28) i32 @Curl_trc_opt(ptr noundef %0) local_unnamed_a
 
 .preheader.i:                                     ; preds = %55, %64
   %.014.i.i = phi i64 [ %65, %64 ], [ 0, %55 ]
-  %66 = getelementptr inbounds nuw %struct.trc_cft_def, ptr @trc_cfts, i64 %.014.i.i
+  %66 = getelementptr inbounds nuw [16 x i8], ptr @trc_cfts, i64 %.014.i.i
   %67 = load ptr, ptr %66, align 16, !tbaa !92
   %68 = load ptr, ptr %67, align 8, !tbaa !90
   %69 = call i32 @curl_strequal(ptr noundef nonnull %.1.i, ptr noundef %68) #8
@@ -1027,7 +1025,7 @@ define hidden range(i32 0, 28) i32 @Curl_trc_opt(ptr noundef %0) local_unnamed_a
 
 .loopexit12.i.i:                                  ; preds = %.loopexit12.i.i.preheader, %72
   %.115.i.i = phi i64 [ %73, %72 ], [ 0, %.loopexit12.i.i.preheader ]
-  %74 = getelementptr inbounds nuw %struct.trc_feat_def, ptr @trc_feats, i64 %.115.i.i
+  %74 = getelementptr inbounds nuw [16 x i8], ptr @trc_feats, i64 %.115.i.i
   %75 = load ptr, ptr %74, align 16, !tbaa !96
   %76 = load ptr, ptr %75, align 8, !tbaa !82
   %77 = call i32 @curl_strequal(ptr noundef nonnull %.1.i, ptr noundef %76) #8

@@ -9,9 +9,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.HeapTupleData = type { i32, %struct.ItemPointerData, i32, ptr }
 %struct.ItemPointerData = type { %struct.BlockIdData, i16 }
 %struct.BlockIdData = type { i16, i16 }
-%struct.ItemIdData = type { i32 }
-%struct.CompactAttribute = type { i32, i16, i8, i8, i8, i8, i8, i8, i8 }
-%struct.MultiXactMember = type { i32, i32 }
 %struct.xl_heap_insert = type { i16, i8 }
 %struct.xl_heap_header = type { i16, i16, i8 }
 %struct.xl_heap_new_cid = type { i32, i32, i32, i32, %struct.RelFileLocator, %struct.ItemPointerData }
@@ -29,9 +26,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.HeapTupleFreeze = type { i32, i16, i16, i8, i8, i16 }
 %struct.VacuumCutoffs = type { i32, i32, i32, i32, i32, i32 }
 %struct.HeapPageFreeze = type { i8, i32, i32, i32, i32 }
-%struct.TM_IndexDelete = type { %struct.ItemPointerData, i16 }
-%struct.TM_IndexStatus = type { i16, i8, i8, i16 }
-%struct.IndexDeleteCounts = type { i16, i16, i16 }
 %struct.xl_heap_visible = type { i32, i8 }
 
 @.str = private unnamed_addr constant [26 x i8] c"only heap AM is supported\00", align 1
@@ -151,7 +145,7 @@ define dso_local void @heap_prepare_pagescan(ptr noundef captures(none) %0) loca
   %14 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %15 = xor i32 %6, -1
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds nuw ptr, ptr %14, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %16
   %18 = load ptr, ptr %17, align 8
   br label %BufferGetPage.exit
 
@@ -226,7 +220,7 @@ BufferGetPage.exit:                               ; preds = %13, %19
   %.025.i68 = phi i32 [ 0, %.lr.ph ], [ %.1.i, %67 ]
   %.026.i67 = phi i16 [ 1, %.lr.ph ], [ %68, %67 ]
   %58 = zext i16 %.026.i67 to i64
-  %59 = getelementptr %struct.ItemIdData, ptr %43, i64 %58
+  %59 = getelementptr [4 x i8], ptr %43, i64 %58
   %60 = load i32, ptr %59, align 4
   %61 = and i32 %60, 98304
   %62 = icmp eq i32 %61, 32768
@@ -234,7 +228,7 @@ BufferGetPage.exit:                               ; preds = %13, %19
 
 63:                                               ; preds = %57
   %64 = sext i32 %.025.i68 to i64
-  %65 = getelementptr inbounds i16, ptr %44, i64 %64
+  %65 = getelementptr inbounds [2 x i8], ptr %44, i64 %64
   store i16 %.026.i67, ptr %65, align 2
   %66 = add i32 %.025.i68, 1
   br label %67
@@ -249,7 +243,7 @@ BufferGetPage.exit:                               ; preds = %13, %19
   %.025.i4571 = phi i32 [ 0, %.lr.ph72 ], [ %.1.i47, %86 ]
   %.026.i4470 = phi i16 [ 1, %.lr.ph72 ], [ %87, %86 ]
   %70 = zext i16 %.026.i4470 to i64
-  %71 = getelementptr %struct.ItemIdData, ptr %46, i64 %70
+  %71 = getelementptr [4 x i8], ptr %46, i64 %70
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %72 = load i32, ptr %71, align 4
   %73 = and i32 %72, 98304
@@ -272,7 +266,7 @@ BufferGetPage.exit:                               ; preds = %13, %19
   store i16 %.026.i4470, ptr %54, align 8
   call void @HeapCheckForSerializableConflictOut(i1 noundef zeroext true, ptr noundef %80, ptr noundef nonnull %4, i32 noundef %6, ptr noundef %10)
   %83 = sext i32 %.025.i4571 to i64
-  %84 = getelementptr inbounds i16, ptr %55, i64 %83
+  %84 = getelementptr inbounds [2 x i8], ptr %55, i64 %83
   store i16 %.026.i4470, ptr %84, align 2
   %85 = add i32 %.025.i4571, 1
   br label %86
@@ -309,7 +303,7 @@ BufferGetPage.exit:                               ; preds = %13, %19
   %.025.i5076 = phi i32 [ 0, %.lr.ph77 ], [ %.1.i52, %120 ]
   %.026.i4975 = phi i16 [ 1, %.lr.ph77 ], [ %121, %120 ]
   %102 = zext i16 %.026.i4975 to i64
-  %103 = getelementptr %struct.ItemIdData, ptr %90, i64 %102
+  %103 = getelementptr [4 x i8], ptr %90, i64 %102
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %104 = load i32, ptr %103, align 4
   %105 = and i32 %104, 98304
@@ -335,7 +329,7 @@ BufferGetPage.exit:                               ; preds = %13, %19
 
 116:                                              ; preds = %107
   %117 = sext i32 %.025.i5076 to i64
-  %118 = getelementptr inbounds i16, ptr %99, i64 %117
+  %118 = getelementptr inbounds [2 x i8], ptr %99, i64 %117
   store i16 %.026.i4975, ptr %118, align 2
   %119 = add i32 %.025.i5076, 1
   br label %120
@@ -369,7 +363,7 @@ BufferGetPage.exit:                               ; preds = %13, %19
   %.025.i5581 = phi i32 [ 0, %.lr.ph82 ], [ %.1.i57, %154 ]
   %.026.i5480 = phi i16 [ 1, %.lr.ph82 ], [ %155, %154 ]
   %135 = zext i16 %.026.i5480 to i64
-  %136 = getelementptr %struct.ItemIdData, ptr %123, i64 %135
+  %136 = getelementptr [4 x i8], ptr %123, i64 %135
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %137 = load i32, ptr %136, align 4
   %138 = and i32 %137, 98304
@@ -397,7 +391,7 @@ BufferGetPage.exit:                               ; preds = %13, %19
 
 150:                                              ; preds = %140
   %151 = sext i32 %.025.i5581 to i64
-  %152 = getelementptr inbounds i16, ptr %132, i64 %151
+  %152 = getelementptr inbounds [2 x i8], ptr %132, i64 %151
   store i16 %.026.i5480, ptr %152, align 2
   %153 = add i32 %.025.i5581, 1
   br label %154
@@ -1199,7 +1193,7 @@ define internal fastcc void @heapgettup_pagemode(ptr noundef %0, i32 noundef %1,
   %15 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %16 = xor i32 %12, -1
   %17 = zext nneg i32 %16 to i64
-  %18 = getelementptr inbounds nuw ptr, ptr %15, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %17
   %19 = load ptr, ptr %18, align 8
   br label %BufferGetPage.exit
 
@@ -1288,7 +1282,7 @@ heap_fetch_next_buffer.exit:                      ; preds = %49
   %59 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %60 = xor i32 %56, -1
   %61 = zext nneg i32 %60 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %59, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %61
   %63 = load ptr, ptr %62, align 8
   br label %BufferGetPage.exit54
 
@@ -1333,10 +1327,10 @@ BufferGetPage.exit54:                             ; preds = %58, %64
   %.165 = phi i32 [ %203, %HeapKeyTest.exit ], [ %.048, %.lr.ph ]
   %.264 = phi i32 [ %202, %HeapKeyTest.exit ], [ %.150, %.lr.ph ]
   %83 = zext i32 %.165 to i64
-  %84 = getelementptr inbounds nuw i16, ptr %76, i64 %83
+  %84 = getelementptr inbounds nuw [2 x i8], ptr %76, i64 %83
   %85 = load i16, ptr %84, align 2
   %86 = zext i16 %85 to i64
-  %87 = getelementptr %struct.ItemIdData, ptr %77, i64 %86
+  %87 = getelementptr [4 x i8], ptr %77, i64 %86
   %.val = load i32, ptr %87, align 4
   %88 = and i32 %.val, 32767
   %89 = zext nneg i32 %88 to i64
@@ -1400,7 +1394,7 @@ BufferGetPage.exit54:                             ; preds = %58, %64
 
 121:                                              ; preds = %118
   %122 = zext nneg i32 %108 to i64
-  %123 = getelementptr %struct.CompactAttribute, ptr %99, i64 %122
+  %123 = getelementptr [16 x i8], ptr %99, i64 %122
   %124 = getelementptr i8, ptr %123, i64 8
   %125 = load i32, ptr %124, align 4
   %126 = icmp sgt i32 %125, -1
@@ -1517,10 +1511,10 @@ heap_getattr.exit:                                ; preds = %116, %144, %147, %1
 
 .critedge.sink.split:                             ; preds = %.lr.ph
   %187 = zext i32 %.048 to i64
-  %188 = getelementptr inbounds nuw i16, ptr %76, i64 %187
+  %188 = getelementptr inbounds nuw [2 x i8], ptr %76, i64 %187
   %189 = load i16, ptr %188, align 2
   %190 = zext i16 %189 to i64
-  %191 = getelementptr %struct.ItemIdData, ptr %77, i64 %190
+  %191 = getelementptr [4 x i8], ptr %77, i64 %190
   %.val.us69 = load i32, ptr %191, align 4
   %192 = and i32 %.val.us69, 32767
   %193 = zext nneg i32 %192 to i64
@@ -1586,7 +1580,7 @@ define internal fastcc void @heapgettup(ptr noundef %0, i32 noundef %1, i32 noun
   %16 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %17 = xor i32 %13, -1
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds nuw ptr, ptr %16, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %18
   %20 = load ptr, ptr %19, align 8
   br label %BufferGetPage.exit.i
 
@@ -1699,7 +1693,7 @@ heap_fetch_next_buffer.exit:                      ; preds = %69
   %78 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %79 = xor i32 %.val47, -1
   %80 = zext nneg i32 %79 to i64
-  %81 = getelementptr inbounds nuw ptr, ptr %78, i64 %80
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %80
   %82 = load ptr, ptr %81, align 8
   br label %heapgettup_start_page.exit
 
@@ -1750,7 +1744,7 @@ heapgettup_continue_page.exit:                    ; preds = %41, %28, %heapgettu
   %.170.us = phi i32 [ %128, %HeapKeyTest.exit.us ], [ %.0, %.lr.ph ]
   %.15768.us = phi i16 [ %129, %HeapKeyTest.exit.us ], [ %.056, %.lr.ph ]
   %107 = zext i16 %.15768.us to i64
-  %108 = getelementptr %struct.ItemIdData, ptr %98, i64 %107
+  %108 = getelementptr [4 x i8], ptr %98, i64 %107
   %109 = load i32, ptr %108, align 4
   %110 = and i32 %109, 98304
   %111 = icmp eq i32 %110, 32768
@@ -1794,7 +1788,7 @@ HeapKeyTest.exit.us:                              ; preds = %112, %.lr.ph.split.
   %.170.us72 = phi i32 [ %152, %HeapKeyTest.exit.us74 ], [ %.0, %.lr.ph.split ]
   %.15768.us73 = phi i16 [ %153, %HeapKeyTest.exit.us74 ], [ %.056, %.lr.ph.split ]
   %131 = zext i16 %.15768.us73 to i64
-  %132 = getelementptr %struct.ItemIdData, ptr %98, i64 %131
+  %132 = getelementptr [4 x i8], ptr %98, i64 %131
   %133 = load i32, ptr %132, align 4
   %134 = and i32 %133, 98304
   %135 = icmp eq i32 %134, 32768
@@ -1834,7 +1828,7 @@ HeapKeyTest.exit.us74:                            ; preds = %136, %.lr.ph.split.
   %.170 = phi i32 [ %268, %HeapKeyTest.exit ], [ %.0, %.lr.ph.split ]
   %.15768 = phi i16 [ %269, %HeapKeyTest.exit ], [ %.056, %.lr.ph.split ]
   %155 = zext i16 %.15768 to i64
-  %156 = getelementptr %struct.ItemIdData, ptr %98, i64 %155
+  %156 = getelementptr [4 x i8], ptr %98, i64 %155
   %157 = load i32, ptr %156, align 4
   %158 = and i32 %157, 98304
   %159 = icmp eq i32 %158, 32768
@@ -1913,7 +1907,7 @@ HeapKeyTest.exit.us74:                            ; preds = %136, %.lr.ph.split.
 
 200:                                              ; preds = %197
   %201 = zext nneg i32 %187 to i64
-  %202 = getelementptr %struct.CompactAttribute, ptr %178, i64 %201
+  %202 = getelementptr [16 x i8], ptr %178, i64 %201
   %203 = getelementptr i8, ptr %202, i64 8
   %204 = load i32, ptr %203, align 4
   %205 = icmp sgt i32 %204, -1
@@ -2437,7 +2431,7 @@ define dso_local noundef zeroext i1 @heap_fetch(ptr noundef %0, ptr noundef %1, 
   %15 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %16 = xor i32 %12, -1
   %17 = zext nneg i32 %16 to i64
-  %18 = getelementptr inbounds nuw ptr, ptr %15, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %17
   %19 = load ptr, ptr %18, align 8
   br label %BufferGetPage.exit
 
@@ -2479,7 +2473,7 @@ BufferGetPage.exit:                               ; preds = %14, %20
 38:                                               ; preds = %28
   %39 = zext i16 %.val54 to i64
   %40 = getelementptr i8, ptr %.0.i.i, i64 20
-  %41 = getelementptr %struct.ItemIdData, ptr %40, i64 %39
+  %41 = getelementptr [4 x i8], ptr %40, i64 %39
   %42 = load i32, ptr %41, align 4
   %43 = and i32 %42, 98304
   %44 = icmp eq i32 %43, 32768
@@ -2615,7 +2609,7 @@ define dso_local void @HeapCheckForSerializableConflictOut(i1 noundef zeroext %0
 
 31:                                               ; preds = %30, %.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %30 ]
-  %32 = getelementptr inbounds nuw %struct.MultiXactMember, ptr %29, i64 %indvars.iv.i.i.i
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv.i.i.i
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %34 = load i32, ptr %33, align 4
   %35 = icmp ugt i32 %34, 3
@@ -2701,7 +2695,7 @@ define dso_local noundef zeroext i1 @heap_hot_search_buffer(ptr noundef captures
   %12 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %13 = xor i32 %2, -1
   %14 = zext nneg i32 %13 to i64
-  %15 = getelementptr inbounds nuw ptr, ptr %12, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %14
   %16 = load ptr, ptr %15, align 8
   br label %BufferGetPage.exit
 
@@ -2761,7 +2755,7 @@ BufferGetPage.exit:                               ; preds = %11, %17
 
 45:                                               ; preds = %37
   %46 = zext i16 %.072112 to i64
-  %47 = getelementptr %struct.ItemIdData, ptr %30, i64 %46
+  %47 = getelementptr [4 x i8], ptr %30, i64 %46
   %48 = load i32, ptr %47, align 4
   %49 = lshr i32 %48, 15
   %50 = and i32 %49, 3
@@ -2920,7 +2914,7 @@ HeapTupleHeaderGetXmin.exit90:                    ; preds = %78, %83
 
 116:                                              ; preds = %115, %.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %115 ]
-  %117 = getelementptr inbounds nuw %struct.MultiXactMember, ptr %114, i64 %indvars.iv.i.i.i
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %114, i64 %indvars.iv.i.i.i
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 4
   %119 = load i32, ptr %118, align 4
   %120 = icmp ugt i32 %119, 3
@@ -2996,7 +2990,7 @@ define dso_local void @heap_get_latest_tid(ptr noundef readonly captures(none) %
   %20 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %21 = xor i32 %17, -1
   %22 = zext nneg i32 %21 to i64
-  %23 = getelementptr inbounds nuw ptr, ptr %20, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %22
   %24 = load ptr, ptr %23, align 8
   br label %BufferGetPage.exit
 
@@ -3028,7 +3022,7 @@ BufferGetPage.exit:                               ; preds = %19, %25
 40:                                               ; preds = %32
   %41 = zext i16 %.sroa.8.0 to i64
   %42 = getelementptr i8, ptr %.0.i.i, i64 20
-  %43 = getelementptr %struct.ItemIdData, ptr %42, i64 %41
+  %43 = getelementptr [4 x i8], ptr %42, i64 %41
   %44 = load i32, ptr %43, align 4
   %45 = and i32 %44, 98304
   %46 = icmp eq i32 %45, 32768
@@ -3148,7 +3142,7 @@ HeapTupleHeaderIndicatesMovedPartitions.exit.thread: ; preds = %71, %HeapTupleHe
 
 96:                                               ; preds = %95, %.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %95 ]
-  %97 = getelementptr inbounds nuw %struct.MultiXactMember, ptr %94, i64 %indvars.iv.i.i.i
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %indvars.iv.i.i.i
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 4
   %99 = load i32, ptr %98, align 4
   %100 = icmp ugt i32 %99, 3
@@ -3271,7 +3265,7 @@ BufferGetPage.exit:                               ; preds = %5
   %19 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %20 = xor i32 %13, -1
   %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr inbounds nuw ptr, ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %21
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr i8, ptr %23, i64 10
   %.val81 = load i16, ptr %24, align 2
@@ -3345,7 +3339,7 @@ BufferGetPage.exit87:                             ; preds = %BufferGetPage.exit.
   %63 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %64 = xor i32 %13, -1
   %65 = zext nneg i32 %64 to i64
-  %66 = getelementptr inbounds nuw ptr, ptr %63, i64 %65
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %65
   %67 = load ptr, ptr %66, align 8
   br label %BufferGetPage.exit89
 
@@ -3846,7 +3840,7 @@ define dso_local void @heap_multi_insert(ptr noundef %0, ptr noundef readonly ca
 
 79:                                               ; preds = %.lr.ph, %79
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %79 ]
-  %80 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %81 = load ptr, ptr %80, align 8
   %82 = tail call ptr @ExecFetchSlotHeapTuple(ptr noundef %81, i1 noundef zeroext true, ptr noundef null) #13
   %83 = load i32, ptr %78, align 8
@@ -3859,7 +3853,7 @@ define dso_local void @heap_multi_insert(ptr noundef %0, ptr noundef readonly ca
   %89 = getelementptr inbounds nuw i8, ptr %82, i64 12
   store i32 %88, ptr %89, align 4
   %90 = tail call fastcc ptr @heap_prepare_insert(ptr noundef nonnull %0, ptr noundef %82, i32 noundef %10, i32 noundef %3, i32 noundef %4)
-  %91 = getelementptr inbounds nuw ptr, ptr %76, i64 %indvars.iv
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %indvars.iv
   store ptr %90, ptr %91, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -3912,7 +3906,7 @@ define dso_local void @heap_multi_insert(ptr noundef %0, ptr noundef readonly ca
   %indvars.iv.i = phi i64 [ %107, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.019.i = phi i64 [ %92, %.lr.ph.preheader.i ], [ %117, %.lr.ph.i ]
   %.01417.i = phi i32 [ 1, %.lr.ph.preheader.i ], [ %spec.select.i, %.lr.ph.i ]
-  %108 = getelementptr inbounds ptr, ptr %76, i64 %indvars.iv.i
+  %108 = getelementptr inbounds [8 x i8], ptr %76, i64 %indvars.iv.i
   %109 = load ptr, ptr %108, align 8
   %110 = load i32, ptr %109, align 8
   %111 = zext i32 %110 to i64
@@ -3937,7 +3931,7 @@ heap_multi_insert_pages.exit:                     ; preds = %.lr.ph.i, %118
   %.pre-phi = phi i64 [ %.pre, %118 ], [ %107, %.lr.ph.i ]
   %.1193 = phi i32 [ %119, %118 ], [ 0, %.lr.ph.i ]
   %.1189 = phi i32 [ %.0188238, %118 ], [ %spec.select.i, %.lr.ph.i ]
-  %120 = getelementptr inbounds ptr, ptr %76, i64 %.pre-phi
+  %120 = getelementptr inbounds [8 x i8], ptr %76, i64 %.pre-phi
   %121 = load ptr, ptr %120, align 8
   %122 = load i32, ptr %121, align 8
   %123 = zext i32 %122 to i64
@@ -3950,7 +3944,7 @@ heap_multi_insert_pages.exit:                     ; preds = %.lr.ph.i, %118
   %128 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %129 = xor i32 %125, -1
   %130 = zext nneg i32 %129 to i64
-  %131 = getelementptr inbounds nuw ptr, ptr %128, i64 %130
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %128, i64 %130
   %132 = load ptr, ptr %131, align 8
   br label %BufferGetPage.exit
 
@@ -3998,7 +3992,7 @@ BufferGetPage.exit:                               ; preds = %127, %133
 .lr.ph225:                                        ; preds = %.lr.ph225.preheader, %193
   %indvars.iv253 = phi i64 [ %154, %.lr.ph225.preheader ], [ %indvars.iv.next254, %193 ]
   %.0197223 = phi i32 [ 1, %.lr.ph225.preheader ], [ %194, %193 ]
-  %156 = getelementptr inbounds ptr, ptr %76, i64 %indvars.iv253
+  %156 = getelementptr inbounds [8 x i8], ptr %76, i64 %indvars.iv253
   %157 = load ptr, ptr %156, align 8
   %158 = call i64 @PageGetHeapFreeSpace(ptr noundef %.0.i.i) #13
   %159 = load i32, ptr %157, align 8
@@ -4140,14 +4134,14 @@ log_heap_new_cid.exit:                            ; preds = %175, %191
   %213 = trunc nuw nsw i64 %indvars.iv257 to i32
   %214 = add i32 %.0184240, %213
   %215 = sext i32 %214 to i64
-  %216 = getelementptr inbounds ptr, ptr %76, i64 %215
+  %216 = getelementptr inbounds [8 x i8], ptr %76, i64 %215
   %217 = load ptr, ptr %216, align 8
   br i1 %145, label %221, label %218
 
 218:                                              ; preds = %.lr.ph234
   %219 = getelementptr i8, ptr %217, i64 8
   %.val219 = load i16, ptr %219, align 2
-  %220 = getelementptr inbounds nuw i16, ptr %99, i64 %indvars.iv257
+  %220 = getelementptr inbounds nuw [2 x i8], ptr %99, i64 %indvars.iv257
   store i16 %.val219, ptr %220, align 2
   br label %221
 
@@ -4268,7 +4262,7 @@ log_heap_new_cid.exit:                            ; preds = %175, %191
 
 .lr.ph245:                                        ; preds = %.lr.ph245.preheader, %.lr.ph245
   %indvars.iv262 = phi i64 [ 0, %.lr.ph245.preheader ], [ %indvars.iv.next263, %.lr.ph245 ]
-  %280 = getelementptr inbounds nuw ptr, ptr %76, i64 %indvars.iv262
+  %280 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %indvars.iv262
   %281 = load ptr, ptr %280, align 8
   call void @CacheInvalidateHeapTuple(ptr noundef nonnull %0, ptr noundef %281, ptr noundef null) #13
   %indvars.iv.next263 = add nuw nsw i64 %indvars.iv262, 1
@@ -4284,10 +4278,10 @@ log_heap_new_cid.exit:                            ; preds = %175, %191
 
 .lr.ph248:                                        ; preds = %.lr.ph248.preheader, %.lr.ph248
   %indvars.iv267 = phi i64 [ 0, %.lr.ph248.preheader ], [ %indvars.iv.next268, %.lr.ph248 ]
-  %282 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv267
+  %282 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv267
   %283 = load ptr, ptr %282, align 8
   %284 = getelementptr inbounds nuw i8, ptr %283, i64 48
-  %285 = getelementptr inbounds nuw ptr, ptr %76, i64 %indvars.iv267
+  %285 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %indvars.iv267
   %286 = load ptr, ptr %285, align 8
   %287 = getelementptr inbounds nuw i8, ptr %286, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %284, ptr noundef nonnull align 4 dereferenceable(6) %287, i64 6, i1 false)
@@ -4372,7 +4366,7 @@ define dso_local i32 @heap_delete(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %35 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %36 = xor i32 %32, -1
   %37 = zext nneg i32 %36 to i64
-  %38 = getelementptr inbounds nuw ptr, ptr %35, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %37
   %39 = load ptr, ptr %38, align 8
   br label %BufferGetPage.exit
 
@@ -4402,7 +4396,7 @@ BufferGetPage.exit:                               ; preds = %34, %40
   %.val157 = load i16, ptr %50, align 2
   %51 = zext i16 %.val157 to i64
   %52 = getelementptr i8, ptr %.0.i.i, i64 20
-  %53 = getelementptr %struct.ItemIdData, ptr %52, i64 %51
+  %53 = getelementptr [4 x i8], ptr %52, i64 %51
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %55 = load i32, ptr %54, align 8
   %56 = getelementptr inbounds nuw i8, ptr %10, i64 12
@@ -4693,7 +4687,7 @@ UpdateXmaxHintBits.exit:                          ; preds = %112, %142, %141, %1
 
 175:                                              ; preds = %174, %.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %174 ]
-  %176 = getelementptr inbounds nuw %struct.MultiXactMember, ptr %173, i64 %indvars.iv.i.i.i
+  %176 = getelementptr inbounds nuw [8 x i8], ptr %173, i64 %indvars.iv.i.i.i
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 4
   %178 = load i32, ptr %177, align 4
   %179 = icmp ugt i32 %178, 3
@@ -5084,7 +5078,7 @@ define internal fastcc zeroext i1 @DoesMultiXactIdConflict(i32 noundef %0, i16 n
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = zext i32 %2 to i64
-  %7 = getelementptr inbounds nuw %struct.anon.3, ptr @tupleLockExtraInfo, i64 %6
+  %7 = getelementptr inbounds nuw [12 x i8], ptr @tupleLockExtraInfo, i64 %6
   %8 = load i32, ptr %7, align 4
   %9 = and i16 %1, 4304
   %10 = icmp eq i16 %9, 4224
@@ -5118,14 +5112,14 @@ define internal fastcc zeroext i1 @DoesMultiXactIdConflict(i32 noundef %0, i16 n
 
 22:                                               ; preds = %.lr.ph.split.us.split.us
   %23 = load ptr, ptr %5, align 8
-  %24 = getelementptr inbounds nuw %struct.MultiXactMember, ptr %23, i64 %indvars.iv49
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv49
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %26 = load i32, ptr %25, align 4
   %27 = zext i32 %26 to i64
-  %28 = getelementptr inbounds nuw i32, ptr @MultiXactStatusLock, i64 %27
+  %28 = getelementptr inbounds nuw [4 x i8], ptr @MultiXactStatusLock, i64 %27
   %29 = load i32, ptr %28, align 4
   %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds %struct.anon.3, ptr @tupleLockExtraInfo, i64 %30
+  %31 = getelementptr inbounds [12 x i8], ptr @tupleLockExtraInfo, i64 %30
   %32 = load i32, ptr %31, align 4
   %33 = load i32, ptr %24, align 4
   %34 = call zeroext i1 @TransactionIdIsCurrentTransactionId(i32 noundef %33) #13
@@ -5137,7 +5131,7 @@ define internal fastcc zeroext i1 @DoesMultiXactIdConflict(i32 noundef %0, i16 n
 
 37:                                               ; preds = %35
   %38 = load ptr, ptr %5, align 8
-  %39 = getelementptr inbounds nuw %struct.MultiXactMember, ptr %38, i64 %indvars.iv49
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv49
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 4
   %41 = load i32, ptr %40, align 4
   %42 = icmp ugt i32 %41, 3
@@ -5173,14 +5167,14 @@ define internal fastcc zeroext i1 @DoesMultiXactIdConflict(i32 noundef %0, i16 n
 
 53:                                               ; preds = %50, %.lr.ph.split.split
   %54 = load ptr, ptr %5, align 8
-  %55 = getelementptr inbounds nuw %struct.MultiXactMember, ptr %54, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %indvars.iv
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 4
   %57 = load i32, ptr %56, align 4
   %58 = zext i32 %57 to i64
-  %59 = getelementptr inbounds nuw i32, ptr @MultiXactStatusLock, i64 %58
+  %59 = getelementptr inbounds nuw [4 x i8], ptr @MultiXactStatusLock, i64 %58
   %60 = load i32, ptr %59, align 4
   %61 = sext i32 %60 to i64
-  %62 = getelementptr inbounds %struct.anon.3, ptr @tupleLockExtraInfo, i64 %61
+  %62 = getelementptr inbounds [12 x i8], ptr @tupleLockExtraInfo, i64 %61
   %63 = load i32, ptr %62, align 4
   %64 = load i32, ptr %55, align 4
   %65 = call zeroext i1 @TransactionIdIsCurrentTransactionId(i32 noundef %64) #13
@@ -5199,7 +5193,7 @@ define internal fastcc zeroext i1 @DoesMultiXactIdConflict(i32 noundef %0, i16 n
 
 70:                                               ; preds = %68
   %71 = load ptr, ptr %5, align 8
-  %72 = getelementptr inbounds nuw %struct.MultiXactMember, ptr %71, i64 %indvars.iv
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %indvars.iv
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 4
   %74 = load i32, ptr %73, align 4
   %75 = icmp ugt i32 %74, 3
@@ -5444,7 +5438,7 @@ define internal fastcc void @compute_new_xmax_infomask(i32 noundef %0, i16 nound
 
 42:                                               ; preds = %41, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %41 ]
-  %43 = getelementptr inbounds nuw %struct.MultiXactMember, ptr %40, i64 %indvars.iv.i
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv.i
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
   %45 = load i32, ptr %44, align 4
   %46 = icmp ugt i32 %45, 3
@@ -5467,7 +5461,7 @@ MultiXactIdGetUpdateXid.exit:                     ; preds = %37, %.loopexit.i
 
 50:                                               ; preds = %MultiXactIdGetUpdateXid.exit, %32
   %51 = zext i32 %4 to i64
-  %52 = getelementptr inbounds nuw %struct.anon.3, ptr @tupleLockExtraInfo, i64 %51
+  %52 = getelementptr inbounds nuw [12 x i8], ptr @tupleLockExtraInfo, i64 %51
   %.0.in.v.i = select i1 %5, i64 8, i64 4
   %.0.in.i = getelementptr inbounds nuw i8, ptr %52, i64 %.0.in.v.i
   %.0.i = load i32, ptr %.0.in.i, align 4
@@ -5498,11 +5492,11 @@ get_mxact_status_for_lock.exit:                   ; preds = %50
   %.02539.i = phi i32 [ 0, %.lr.ph.i ], [ %spec.select.i, %74 ]
   %.02638.i = phi i1 [ false, %.lr.ph.i ], [ %.127.i, %74 ]
   %.02837.i = phi i16 [ 0, %.lr.ph.i ], [ %.129.i, %74 ]
-  %63 = getelementptr inbounds nuw %struct.MultiXactMember, ptr %61, i64 %indvars.iv.i100
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %indvars.iv.i100
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 4
   %65 = load i32, ptr %64, align 4
   %66 = zext i32 %65 to i64
-  %67 = getelementptr inbounds nuw i32, ptr @MultiXactStatusLock, i64 %66
+  %67 = getelementptr inbounds nuw [4 x i8], ptr @MultiXactStatusLock, i64 %66
   %68 = load i32, ptr %67, align 4
   %.fr.i = freeze i32 %68
   %spec.select.i = call i32 @llvm.umax.i32(i32 %.fr.i, i32 %.02539.i)
@@ -5564,7 +5558,7 @@ get_mxact_status_for_lock.exit:                   ; preds = %50
 
 84:                                               ; preds = %82
   %85 = zext i32 %4 to i64
-  %86 = getelementptr inbounds nuw %struct.anon.3, ptr @tupleLockExtraInfo, i64 %85
+  %86 = getelementptr inbounds nuw [12 x i8], ptr @tupleLockExtraInfo, i64 %85
   %.0.in.v.i103 = select i1 %5, i64 8, i64 4
   %.0.in.i104 = getelementptr inbounds nuw i8, ptr %86, i64 %.0.in.v.i103
   %.0.i105 = load i32, ptr %.0.in.i104, align 4
@@ -5595,11 +5589,11 @@ get_mxact_status_for_lock.exit106:                ; preds = %84
   %.02539.i111 = phi i32 [ 0, %.lr.ph.i108 ], [ %spec.select.i115, %108 ]
   %.02638.i112 = phi i1 [ false, %.lr.ph.i108 ], [ %.127.i117, %108 ]
   %.02837.i113 = phi i16 [ 0, %.lr.ph.i108 ], [ %.129.i116, %108 ]
-  %97 = getelementptr inbounds nuw %struct.MultiXactMember, ptr %95, i64 %indvars.iv.i110
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %indvars.iv.i110
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 4
   %99 = load i32, ptr %98, align 4
   %100 = zext i32 %99 to i64
-  %101 = getelementptr inbounds nuw i32, ptr @MultiXactStatusLock, i64 %100
+  %101 = getelementptr inbounds nuw [4 x i8], ptr @MultiXactStatusLock, i64 %100
   %102 = load i32, ptr %101, align 4
   %.fr.i114 = freeze i32 %102
   %spec.select.i115 = call i32 @llvm.umax.i32(i32 %.fr.i114, i32 %.02539.i111)
@@ -5700,14 +5694,14 @@ GetMultiXactIdHintBits.exit126:                   ; preds = %get_mxact_status_fo
 
 133:                                              ; preds = %132
   %134 = zext nneg i32 %.079 to i64
-  %135 = getelementptr inbounds nuw i32, ptr @MultiXactStatusLock, i64 %134
+  %135 = getelementptr inbounds nuw [4 x i8], ptr @MultiXactStatusLock, i64 %134
   %136 = load i32, ptr %135, align 4
   %spec.select = tail call i32 @llvm.umax.i32(i32 %4, i32 %136)
   br label %.outer._crit_edge
 
 137:                                              ; preds = %132
   %138 = zext i32 %4 to i64
-  %139 = getelementptr inbounds nuw %struct.anon.3, ptr @tupleLockExtraInfo, i64 %138
+  %139 = getelementptr inbounds nuw [12 x i8], ptr @tupleLockExtraInfo, i64 %138
   %.0.in.v.i127 = select i1 %5, i64 8, i64 4
   %.0.in.i128 = getelementptr inbounds nuw i8, ptr %139, i64 %.0.in.v.i127
   %.0.i129 = load i32, ptr %.0.in.i128, align 4
@@ -5738,11 +5732,11 @@ get_mxact_status_for_lock.exit130:                ; preds = %137
   %.02539.i135 = phi i32 [ 0, %.lr.ph.i132 ], [ %spec.select.i139, %161 ]
   %.02638.i136 = phi i1 [ false, %.lr.ph.i132 ], [ %.127.i141, %161 ]
   %.02837.i137 = phi i16 [ 0, %.lr.ph.i132 ], [ %.129.i140, %161 ]
-  %150 = getelementptr inbounds nuw %struct.MultiXactMember, ptr %148, i64 %indvars.iv.i134
+  %150 = getelementptr inbounds nuw [8 x i8], ptr %148, i64 %indvars.iv.i134
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 4
   %152 = load i32, ptr %151, align 4
   %153 = zext i32 %152 to i64
-  %154 = getelementptr inbounds nuw i32, ptr @MultiXactStatusLock, i64 %153
+  %154 = getelementptr inbounds nuw [4 x i8], ptr @MultiXactStatusLock, i64 %153
   %155 = load i32, ptr %154, align 4
   %.fr.i138 = freeze i32 %155
   %spec.select.i139 = call i32 @llvm.umax.i32(i32 %.fr.i138, i32 %.02539.i135)
@@ -5806,7 +5800,7 @@ get_mxact_status_for_lock.exit130:                ; preds = %137
 
 172:                                              ; preds = %170
   %173 = zext i32 %4 to i64
-  %174 = getelementptr inbounds nuw %struct.anon.3, ptr @tupleLockExtraInfo, i64 %173
+  %174 = getelementptr inbounds nuw [12 x i8], ptr @tupleLockExtraInfo, i64 %173
   %.0.in.v.i151 = select i1 %5, i64 8, i64 4
   %.0.in.i152 = getelementptr inbounds nuw i8, ptr %174, i64 %.0.in.v.i151
   %.0.i153 = load i32, ptr %.0.in.i152, align 4
@@ -5837,11 +5831,11 @@ get_mxact_status_for_lock.exit154:                ; preds = %172
   %.02539.i159 = phi i32 [ 0, %.lr.ph.i156 ], [ %spec.select.i163, %196 ]
   %.02638.i160 = phi i1 [ false, %.lr.ph.i156 ], [ %.127.i165, %196 ]
   %.02837.i161 = phi i16 [ 0, %.lr.ph.i156 ], [ %.129.i164, %196 ]
-  %185 = getelementptr inbounds nuw %struct.MultiXactMember, ptr %183, i64 %indvars.iv.i158
+  %185 = getelementptr inbounds nuw [8 x i8], ptr %183, i64 %indvars.iv.i158
   %186 = getelementptr inbounds nuw i8, ptr %185, i64 4
   %187 = load i32, ptr %186, align 4
   %188 = zext i32 %187 to i64
-  %189 = getelementptr inbounds nuw i32, ptr @MultiXactStatusLock, i64 %188
+  %189 = getelementptr inbounds nuw [4 x i8], ptr @MultiXactStatusLock, i64 %188
   %190 = load i32, ptr %189, align 4
   %.fr.i162 = freeze i32 %190
   %spec.select.i163 = call i32 @llvm.umax.i32(i32 %.fr.i162, i32 %.02539.i159)
@@ -6029,7 +6023,7 @@ define dso_local range(i32 2, 1) i32 @heap_update(ptr noundef %0, ptr noundef re
   %59 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %60 = xor i32 %56, -1
   %61 = zext nneg i32 %60 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %59, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %61
   %63 = load ptr, ptr %62, align 8
   br label %BufferGetPage.exit
 
@@ -6059,7 +6053,7 @@ BufferGetPage.exit:                               ; preds = %58, %64
   %.val361 = load i16, ptr %74, align 2
   %75 = zext i16 %.val361 to i64
   %76 = getelementptr i8, ptr %.0.i.i, i64 20
-  %77 = getelementptr %struct.ItemIdData, ptr %76, i64 %75
+  %77 = getelementptr [4 x i8], ptr %76, i64 %75
   %78 = load i32, ptr %77, align 4
   %79 = and i32 %78, 98304
   %80 = icmp eq i32 %79, 32768
@@ -6155,7 +6149,7 @@ BufferGetPage.exit:                               ; preds = %58, %64
 
 125:                                              ; preds = %119
   %126 = zext nneg i32 %104 to i64
-  %127 = getelementptr %struct.CompactAttribute, ptr %.val364, i64 %126
+  %127 = getelementptr [16 x i8], ptr %.val364, i64 %126
   %128 = getelementptr i8, ptr %127, i64 14
   %129 = load i8, ptr %128, align 2, !range !6, !noundef !7
   %130 = trunc nuw i8 %129 to i1
@@ -6185,7 +6179,7 @@ heap_attr_equals.exit.i:                          ; preds = %113
 
 140:                                              ; preds = %137
   %141 = zext nneg i32 %104 to i64
-  %142 = getelementptr %struct.CompactAttribute, ptr %.val364, i64 %141
+  %142 = getelementptr [16 x i8], ptr %.val364, i64 %141
   %143 = getelementptr i8, ptr %142, i64 12
   %144 = load i16, ptr %143, align 4
   %.not.i = icmp eq i16 %144, -1
@@ -6289,7 +6283,7 @@ HeapDetermineColumnsInfo.exit:                    ; preds = %151, %87
 182:                                              ; preds = %180
   %183 = load i32, ptr %7, align 4
   %184 = zext i32 %183 to i64
-  %185 = getelementptr inbounds nuw %struct.anon.3, ptr @tupleLockExtraInfo, i64 %184
+  %185 = getelementptr inbounds nuw [12 x i8], ptr @tupleLockExtraInfo, i64 %184
   %186 = load i32, ptr %185, align 4
   call void @LockTuple(ptr noundef %0, ptr noundef nonnull %97, i32 noundef %186) #13
   br label %heap_acquire_tuplock.exit
@@ -6351,7 +6345,7 @@ heap_acquire_tuplock.exit:                        ; preds = %182, %180, %177
 
 213:                                              ; preds = %212, %.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next.i.i, %212 ]
-  %214 = getelementptr inbounds nuw %struct.MultiXactMember, ptr %211, i64 %indvars.iv.i.i
+  %214 = getelementptr inbounds nuw [8 x i8], ptr %211, i64 %indvars.iv.i.i
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 4
   %216 = load i32, ptr %215, align 4
   %217 = icmp ugt i32 %216, 3
@@ -6408,7 +6402,7 @@ heap_acquire_tuplock.exit:                        ; preds = %182, %180, %177
 232:                                              ; preds = %230
   %233 = load i32, ptr %7, align 4
   %234 = zext i32 %233 to i64
-  %235 = getelementptr inbounds nuw %struct.anon.3, ptr @tupleLockExtraInfo, i64 %234
+  %235 = getelementptr inbounds nuw [12 x i8], ptr @tupleLockExtraInfo, i64 %234
   %236 = load i32, ptr %235, align 4
   call void @LockTuple(ptr noundef %0, ptr noundef nonnull %97, i32 noundef %236) #13
   br label %heap_acquire_tuplock.exit372
@@ -6519,7 +6513,7 @@ heap_acquire_tuplock.exit372:                     ; preds = %230, %232
 
 281:                                              ; preds = %280, %.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %280 ]
-  %282 = getelementptr inbounds nuw %struct.MultiXactMember, ptr %279, i64 %indvars.iv.i.i.i
+  %282 = getelementptr inbounds nuw [8 x i8], ptr %279, i64 %indvars.iv.i.i.i
   %283 = getelementptr inbounds nuw i8, ptr %282, i64 4
   %284 = load i32, ptr %283, align 4
   %285 = icmp ugt i32 %284, 3
@@ -6562,7 +6556,7 @@ HeapTupleHeaderGetUpdateXid.exit:                 ; preds = %.thread450, %HeapTu
 296:                                              ; preds = %293
   %297 = load i32, ptr %7, align 4
   %298 = zext i32 %297 to i64
-  %299 = getelementptr inbounds nuw %struct.anon.3, ptr @tupleLockExtraInfo, i64 %298
+  %299 = getelementptr inbounds nuw [12 x i8], ptr @tupleLockExtraInfo, i64 %298
   %300 = load i32, ptr %299, align 4
   call void @UnlockTuple(ptr noundef %0, ptr noundef nonnull %97, i32 noundef %300) #13
   br label %301
@@ -6655,11 +6649,11 @@ HeapTupleHeaderGetUpdateXid.exit:                 ; preds = %.thread450, %HeapTu
   %.02539.i = phi i32 [ 0, %.lr.ph.i375 ], [ %spec.select.i, %348 ]
   %.02638.i = phi i1 [ false, %.lr.ph.i375 ], [ %.127.i, %348 ]
   %.02837.i = phi i16 [ 0, %.lr.ph.i375 ], [ %.129.i, %348 ]
-  %337 = getelementptr inbounds nuw %struct.MultiXactMember, ptr %335, i64 %indvars.iv.i
+  %337 = getelementptr inbounds nuw [8 x i8], ptr %335, i64 %indvars.iv.i
   %338 = getelementptr inbounds nuw i8, ptr %337, i64 4
   %339 = load i32, ptr %338, align 4
   %340 = zext i32 %339 to i64
-  %341 = getelementptr inbounds nuw i32, ptr @MultiXactStatusLock, i64 %340
+  %341 = getelementptr inbounds nuw [4 x i8], ptr @MultiXactStatusLock, i64 %340
   %342 = load i32, ptr %341, align 4
   %.fr.i = freeze i32 %342
   %spec.select.i = call i32 @llvm.umax.i32(i32 %.fr.i, i32 %.02539.i)
@@ -7144,7 +7138,7 @@ BufferGetPage.exit380:                            ; preds = %566
   %599 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %600 = xor i32 %56, -1
   %601 = zext nneg i32 %600 to i64
-  %602 = getelementptr inbounds nuw ptr, ptr %599, i64 %601
+  %602 = getelementptr inbounds nuw [8 x i8], ptr %599, i64 %601
   %603 = load ptr, ptr %602, align 8
   %604 = getelementptr i8, ptr %603, i64 10
   %.val345 = load i16, ptr %604, align 2
@@ -7188,7 +7182,7 @@ BufferGetPage.exit384:                            ; preds = %621
   %623 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %624 = xor i32 %.1312, -1
   %625 = zext nneg i32 %624 to i64
-  %626 = getelementptr inbounds nuw ptr, ptr %623, i64 %625
+  %626 = getelementptr inbounds nuw [8 x i8], ptr %623, i64 %625
   %627 = load ptr, ptr %626, align 8
   %628 = getelementptr i8, ptr %627, i64 10
   %.val = load i16, ptr %628, align 2
@@ -7300,7 +7294,7 @@ BufferGetPage.exit386:                            ; preds = %BufferGetPage.exit3
   %677 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %678 = xor i32 %.1312, -1
   %679 = zext nneg i32 %678 to i64
-  %680 = getelementptr inbounds nuw ptr, ptr %677, i64 %679
+  %680 = getelementptr inbounds nuw [8 x i8], ptr %677, i64 %679
   %681 = load ptr, ptr %680, align 8
   br label %BufferGetPage.exit.i
 
@@ -7694,7 +7688,7 @@ log_heap_update.exit:                             ; preds = %874, %876
   %894 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %895 = xor i32 %.1312, -1
   %896 = zext nneg i32 %895 to i64
-  %897 = getelementptr inbounds nuw ptr, ptr %894, i64 %896
+  %897 = getelementptr inbounds nuw [8 x i8], ptr %894, i64 %896
   %898 = load ptr, ptr %897, align 8
   br label %BufferGetPage.exit398
 
@@ -7723,7 +7717,7 @@ BufferGetPage.exit398:                            ; preds = %893, %899
   %911 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %912 = xor i32 %56, -1
   %913 = zext nneg i32 %912 to i64
-  %914 = getelementptr inbounds nuw ptr, ptr %911, i64 %913
+  %914 = getelementptr inbounds nuw [8 x i8], ptr %911, i64 %913
   %915 = load ptr, ptr %914, align 8
   br label %BufferGetPage.exit400
 
@@ -7789,7 +7783,7 @@ BufferGetPage.exit400:                            ; preds = %910, %916
 938:                                              ; preds = %936
   %939 = load i32, ptr %7, align 4
   %940 = zext i32 %939 to i64
-  %941 = getelementptr inbounds nuw %struct.anon.3, ptr @tupleLockExtraInfo, i64 %940
+  %941 = getelementptr inbounds nuw [12 x i8], ptr @tupleLockExtraInfo, i64 %940
   %942 = load i32, ptr %941, align 4
   call void @UnlockTuple(ptr noundef %0, ptr noundef nonnull %97, i32 noundef %942) #13
   br label %943
@@ -7874,7 +7868,7 @@ define dso_local i32 @HeapTupleGetUpdateXid(ptr noundef readonly captures(none) 
 
 8:                                                ; preds = %7, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %7 ]
-  %9 = getelementptr inbounds nuw %struct.MultiXactMember, ptr %6, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv.i
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = icmp ugt i32 %11, 3
@@ -7984,7 +7978,7 @@ define dso_local i32 @heap_lock_tuple(ptr noundef %0, ptr noundef initializes((0
   %30 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %31 = xor i32 %23, -1
   %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr inbounds nuw ptr, ptr %30, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %32
   %34 = load ptr, ptr %33, align 8
   br label %BufferGetPage.exit
 
@@ -8020,7 +8014,7 @@ BufferGetPage.exit:                               ; preds = %29, %35
   %49 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %50 = xor i32 %46, -1
   %51 = zext nneg i32 %50 to i64
-  %52 = getelementptr inbounds nuw ptr, ptr %49, i64 %51
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %51
   %53 = load ptr, ptr %52, align 8
   br label %BufferGetPage.exit281
 
@@ -8038,7 +8032,7 @@ BufferGetPage.exit281:                            ; preds = %48, %54
   %.val279 = load i16, ptr %60, align 2
   %61 = zext i16 %.val279 to i64
   %62 = getelementptr i8, ptr %.0.i.i280, i64 20
-  %63 = getelementptr %struct.ItemIdData, ptr %62, i64 %61
+  %63 = getelementptr [4 x i8], ptr %62, i64 %61
   %.val267 = load i32, ptr %63, align 4
   %64 = and i32 %.val267, 32767
   %65 = zext nneg i32 %64 to i64
@@ -8060,7 +8054,7 @@ BufferGetPage.exit281:                            ; preds = %48, %54
 .lr.ph436:                                        ; preds = %BufferGetPage.exit281
   %not. = xor i1 %5, true
   %76 = zext i32 %3 to i64
-  %77 = getelementptr inbounds nuw %struct.anon.3, ptr @tupleLockExtraInfo, i64 %76
+  %77 = getelementptr inbounds nuw [12 x i8], ptr @tupleLockExtraInfo, i64 %76
   %.0.in.i = getelementptr inbounds nuw i8, ptr %77, i64 4
   %78 = getelementptr i8, ptr %.0.i.i280, i64 10
   br label %79
@@ -8110,18 +8104,18 @@ BufferGetPage.exit281:                            ; preds = %48, %54
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %109 ]
   %.2226432 = phi i1 [ %.0224434, %.lr.ph.preheader ], [ %.3227, %109 ]
   %97 = load ptr, ptr %15, align 8
-  %98 = getelementptr inbounds nuw %struct.MultiXactMember, ptr %97, i64 %indvars.iv
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %97, i64 %indvars.iv
   %99 = load i32, ptr %98, align 4
   %100 = call zeroext i1 @TransactionIdIsCurrentTransactionId(i32 noundef %99) #13
   br i1 %100, label %101, label %109
 
 101:                                              ; preds = %.lr.ph
   %102 = load ptr, ptr %15, align 8
-  %103 = getelementptr inbounds nuw %struct.MultiXactMember, ptr %102, i64 %indvars.iv
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %102, i64 %indvars.iv
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 4
   %105 = load i32, ptr %104, align 4
   %106 = zext i32 %105 to i64
-  %107 = getelementptr inbounds nuw i32, ptr @MultiXactStatusLock, i64 %106
+  %107 = getelementptr inbounds nuw [4 x i8], ptr @MultiXactStatusLock, i64 %106
   %108 = load i32, ptr %107, align 4
   %.not251 = icmp ult i32 %108, %3
   br i1 %.not251, label %109, label %112
@@ -8626,7 +8620,7 @@ UpdateXmaxHintBits.exit:                          ; preds = %279, %280, %292, %2
 
 324:                                              ; preds = %323, %.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %323 ]
-  %325 = getelementptr inbounds nuw %struct.MultiXactMember, ptr %322, i64 %indvars.iv.i.i.i
+  %325 = getelementptr inbounds nuw [8 x i8], ptr %322, i64 %indvars.iv.i.i.i
   %326 = getelementptr inbounds nuw i8, ptr %325, i64 4
   %327 = load i32, ptr %326, align 4
   %328 = icmp ugt i32 %327, 3
@@ -8872,7 +8866,7 @@ HeapTupleHeaderGetUpdateXid.exit:                 ; preds = %.loopexit414, %Heap
 
 458:                                              ; preds = %456
   %459 = zext i32 %3 to i64
-  %460 = getelementptr inbounds nuw %struct.anon.3, ptr @tupleLockExtraInfo, i64 %459
+  %460 = getelementptr inbounds nuw [12 x i8], ptr @tupleLockExtraInfo, i64 %459
   %461 = load i32, ptr %460, align 4
   call void @UnlockTuple(ptr noundef %0, ptr noundef nonnull %17, i32 noundef %461) #13
   br label %462
@@ -8990,7 +8984,7 @@ HeapTupleHeaderIndicatesMovedPartitions.exit.thread: ; preds = %5, %HeapTupleHea
 
 55:                                               ; preds = %54
   %56 = load ptr, ptr @LocalBufferBlockPointers, align 8
-  %57 = getelementptr inbounds nuw ptr, ptr %56, i64 %50
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %50
   %58 = load ptr, ptr %57, align 8
   br label %BufferGetPage.exit.i
 
@@ -9013,7 +9007,7 @@ BufferGetPage.exit.i:                             ; preds = %59, %55
 
 64:                                               ; preds = %.critedge.i
   %65 = load ptr, ptr @LocalBufferBlockPointers, align 8
-  %66 = getelementptr inbounds nuw ptr, ptr %65, i64 %50
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %50
   %67 = load ptr, ptr %66, align 8
   br label %BufferGetPage.exit91.i
 
@@ -9111,7 +9105,7 @@ HeapTupleHeaderGetXmin.exit94.i:                  ; preds = %81, %._crit_edge235
 .lr.ph.i:                                         ; preds = %99, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %99 ]
   %100 = load ptr, ptr %14, align 8
-  %101 = getelementptr inbounds nuw %struct.MultiXactMember, ptr %100, i64 %indvars.iv.i
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %100, i64 %indvars.iv.i
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 4
   %103 = load i32, ptr %102, align 4
   %104 = load i32, ptr %101, align 4
@@ -9127,7 +9121,7 @@ HeapTupleHeaderGetXmin.exit94.i:                  ; preds = %81, %._crit_edge235
 110:                                              ; preds = %107
   call void @LockBuffer(i32 noundef %44, i32 noundef 0) #13
   %111 = load ptr, ptr %14, align 8
-  %112 = getelementptr inbounds nuw %struct.MultiXactMember, ptr %111, i64 %indvars.iv.i
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %111, i64 %indvars.iv.i
   %113 = load i32, ptr %112, align 4
   call void @XactLockTableWait(i32 noundef %113, ptr noundef %0, ptr noundef nonnull %30, i32 noundef 4) #13
   br label %.thread.i
@@ -9250,7 +9244,7 @@ HeapTupleHeaderGetXmin.exit94.i:                  ; preds = %81, %._crit_edge235
 
 144:                                              ; preds = %.loopexit126.i
   %145 = load ptr, ptr @LocalBufferBlockPointers, align 8
-  %146 = getelementptr inbounds nuw ptr, ptr %145, i64 %50
+  %146 = getelementptr inbounds nuw [8 x i8], ptr %145, i64 %50
   %147 = load ptr, ptr %146, align 8
   br label %BufferGetPage.exit96.i
 
@@ -9332,7 +9326,7 @@ BufferGetPage.exit96.i:                           ; preds = %148, %144
 
 194:                                              ; preds = %193
   %195 = load ptr, ptr @LocalBufferBlockPointers, align 8
-  %196 = getelementptr inbounds nuw ptr, ptr %195, i64 %50
+  %196 = getelementptr inbounds nuw [8 x i8], ptr %195, i64 %50
   %197 = load ptr, ptr %196, align 8
   br label %BufferGetPage.exit98.i
 
@@ -9447,7 +9441,7 @@ HeapTupleHeaderIndicatesMovedPartitions.exit.thread.i: ; preds = %HeapTupleHeade
 
 253:                                              ; preds = %252, %.preheader.i.i.i.i
   %indvars.iv.i.i.i.i = phi i64 [ 0, %.preheader.i.i.i.i ], [ %indvars.iv.next.i.i.i.i, %252 ]
-  %254 = getelementptr inbounds nuw %struct.MultiXactMember, ptr %251, i64 %indvars.iv.i.i.i.i
+  %254 = getelementptr inbounds nuw [8 x i8], ptr %251, i64 %indvars.iv.i.i.i.i
   %255 = getelementptr inbounds nuw i8, ptr %254, i64 4
   %256 = load i32, ptr %255, align 4
   %257 = icmp ugt i32 %256, 3
@@ -9543,7 +9537,7 @@ define dso_local void @heap_finish_speculative(ptr noundef %0, ptr noundef reado
   %12 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %13 = xor i32 %9, -1
   %14 = zext nneg i32 %13 to i64
-  %15 = getelementptr inbounds nuw ptr, ptr %12, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %14
   %16 = load ptr, ptr %15, align 8
   br label %BufferGetPage.exit
 
@@ -9573,7 +9567,7 @@ BufferGetPage.exit:                               ; preds = %11, %17
 30:                                               ; preds = %BufferGetPage.exit
   %31 = zext i16 %.val28 to i64
   %32 = getelementptr i8, ptr %.0.i.i, i64 20
-  %33 = getelementptr %struct.ItemIdData, ptr %32, i64 %31
+  %33 = getelementptr [4 x i8], ptr %32, i64 %31
   %34 = load i32, ptr %33, align 4
   %35 = and i32 %34, 98304
   %36 = icmp eq i32 %35, 32768
@@ -9666,7 +9660,7 @@ define dso_local void @heap_abort_speculative(ptr noundef %0, ptr noundef readon
   %14 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %15 = xor i32 %11, -1
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds nuw ptr, ptr %14, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %16
   %18 = load ptr, ptr %17, align 8
   br label %BufferGetPage.exit
 
@@ -9685,7 +9679,7 @@ BufferGetPage.exit:                               ; preds = %13, %19
   %.val39 = load i16, ptr %25, align 2
   %26 = zext i16 %.val39 to i64
   %27 = getelementptr i8, ptr %.0.i.i, i64 20
-  %28 = getelementptr %struct.ItemIdData, ptr %27, i64 %26
+  %28 = getelementptr [4 x i8], ptr %27, i64 %26
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %30 = load i32, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 12
@@ -10041,7 +10035,7 @@ define dso_local void @heap_inplace_update_and_unlock(ptr noundef %0, ptr nounde
   %63 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %64 = xor i32 %3, -1
   %65 = zext nneg i32 %64 to i64
-  %66 = getelementptr inbounds nuw ptr, ptr %63, i64 %65
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %65
   %67 = load ptr, ptr %66, align 8
   br label %BufferGetPage.exit
 
@@ -10321,7 +10315,7 @@ HeapTupleHeaderGetXvac.exit.thread:               ; preds = %HeapTupleHeaderGetX
 
 77:                                               ; preds = %76, %.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next.i.i, %76 ]
-  %78 = getelementptr inbounds nuw %struct.MultiXactMember, ptr %75, i64 %indvars.iv.i.i
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %indvars.iv.i.i
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 4
   %80 = load i32, ptr %79, align 4
   %81 = icmp ugt i32 %80, 3
@@ -10385,7 +10379,7 @@ MultiXactIdGetUpdateXid.exit.i:                   ; preds = %.loopexit.i.i, %72
   %indvars.iv.i = phi i64 [ 0, %105 ], [ %indvars.iv.next.i, %115 ]
   %.0122169.i = phi i32 [ %107, %105 ], [ %spec.select.i, %115 ]
   %110 = load ptr, ptr %8, align 8
-  %111 = getelementptr inbounds nuw %struct.MultiXactMember, ptr %110, i64 %indvars.iv.i
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %110, i64 %indvars.iv.i
   %112 = load i32, ptr %111, align 4
   %113 = load i32, ptr %108, align 4
   %114 = call zeroext i1 @TransactionIdPrecedes(i32 noundef %112, i32 noundef %113) #13
@@ -10440,7 +10434,7 @@ FreezeMultiXactId.exit.thread130:                 ; preds = %121, %125
   %.0129172.i = phi i32 [ 0, %.lr.ph.i ], [ %.1130.i, %177 ]
   %.0132171.i = phi i1 [ false, %.lr.ph.i ], [ %.2134.i, %177 ]
   %133 = load ptr, ptr %8, align 8
-  %134 = getelementptr inbounds nuw %struct.MultiXactMember, ptr %133, i64 %indvars.iv188.i
+  %134 = getelementptr inbounds nuw [8 x i8], ptr %133, i64 %indvars.iv188.i
   %135 = load i32, ptr %134, align 4
   %136 = getelementptr inbounds nuw i8, ptr %134, i64 4
   %137 = load i32, ptr %136, align 4
@@ -10512,9 +10506,9 @@ FreezeMultiXactId.exit.thread130:                 ; preds = %121, %125
   %.1127.ph.i = phi i1 [ %.0126173.i, %143 ], [ %.2128.i, %163 ]
   %171 = add i32 %.0118174.i, 1
   %172 = sext i32 %.0118174.i to i64
-  %173 = getelementptr inbounds %struct.MultiXactMember, ptr %128, i64 %172
+  %173 = getelementptr inbounds [8 x i8], ptr %128, i64 %172
   %174 = load ptr, ptr %8, align 8
-  %175 = getelementptr inbounds nuw %struct.MultiXactMember, ptr %174, i64 %indvars.iv188.i
+  %175 = getelementptr inbounds nuw [8 x i8], ptr %174, i64 %indvars.iv188.i
   %176 = load i64, ptr %175, align 4
   store i64 %176, ptr %173, align 4
   br label %177
@@ -10598,11 +10592,11 @@ FreezeMultiXactId.exit.thread:                    ; preds = %46, %71, %95, %91, 
   %.02539.i = phi i32 [ 0, %.lr.ph.i105 ], [ %spec.select.i108, %213 ]
   %.02638.i = phi i1 [ false, %.lr.ph.i105 ], [ %.127.i, %213 ]
   %.02837.i = phi i16 [ 0, %.lr.ph.i105 ], [ %.129.i, %213 ]
-  %202 = getelementptr inbounds nuw %struct.MultiXactMember, ptr %200, i64 %indvars.iv.i107
+  %202 = getelementptr inbounds nuw [8 x i8], ptr %200, i64 %indvars.iv.i107
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 4
   %204 = load i32, ptr %203, align 4
   %205 = zext i32 %204 to i64
-  %206 = getelementptr inbounds nuw i32, ptr @MultiXactStatusLock, i64 %205
+  %206 = getelementptr inbounds nuw [4 x i8], ptr @MultiXactStatusLock, i64 %205
   %207 = load i32, ptr %206, align 4
   %.fr.i = freeze i32 %207
   %spec.select.i108 = call i32 @llvm.umax.i32(i32 %.fr.i, i32 %.02539.i)
@@ -10892,7 +10886,7 @@ HeapTupleHeaderGetXmin.exit.thread:               ; preds = %4, %14, %HeapTupleH
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %63 ]
   %.362 = phi i1 [ %spec.select60, %.lr.ph ], [ %spec.select61, %63 ]
   %57 = load ptr, ptr %5, align 8
-  %58 = getelementptr inbounds nuw %struct.MultiXactMember, ptr %57, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %indvars.iv
   %59 = load i32, ptr %58, align 4
   %60 = load i32, ptr %2, align 4
   %61 = call zeroext i1 @TransactionIdPrecedes(i32 noundef %59, i32 noundef %60) #13
@@ -10955,7 +10949,7 @@ define dso_local void @heap_pre_freeze_checks(i32 noundef %0, ptr noundef readon
   %6 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %7 = xor i32 %0, -1
   %8 = zext nneg i32 %7 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %8
   %10 = load ptr, ptr %9, align 8
   br label %BufferGetPage.exit
 
@@ -10982,11 +10976,11 @@ BufferGetPage.exit:                               ; preds = %5, %11
 
 19:                                               ; preds = %.lr.ph, %47
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %47 ]
-  %20 = getelementptr inbounds nuw %struct.HeapTupleFreeze, ptr %1, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [12 x i8], ptr %1, i64 %indvars.iv
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 10
   %22 = load i16, ptr %21, align 2
   %23 = zext i16 %22 to i64
-  %24 = getelementptr %struct.ItemIdData, ptr %18, i64 %23
+  %24 = getelementptr [4 x i8], ptr %18, i64 %23
   %.val = load i32, ptr %24, align 4
   %25 = and i32 %.val, 32767
   %26 = zext nneg i32 %25 to i64
@@ -11049,7 +11043,7 @@ define dso_local void @heap_freeze_prepared_tuples(i32 noundef %0, ptr noundef r
   %6 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %7 = xor i32 %0, -1
   %8 = zext nneg i32 %7 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %8
   %10 = load ptr, ptr %9, align 8
   br label %BufferGetPage.exit
 
@@ -11076,11 +11070,11 @@ BufferGetPage.exit:                               ; preds = %5, %11
 
 19:                                               ; preds = %.lr.ph, %heap_execute_freeze_tuple.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %heap_execute_freeze_tuple.exit ]
-  %20 = getelementptr inbounds nuw %struct.HeapTupleFreeze, ptr %1, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [12 x i8], ptr %1, i64 %indvars.iv
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 10
   %22 = load i16, ptr %21, align 2
   %23 = zext i16 %22 to i64
-  %24 = getelementptr %struct.ItemIdData, ptr %18, i64 %23
+  %24 = getelementptr [4 x i8], ptr %18, i64 %23
   %.val = load i32, ptr %24, align 4
   %25 = and i32 %.val, 32767
   %26 = zext nneg i32 %25 to i64
@@ -11289,7 +11283,7 @@ HeapTupleHeaderGetXmin.exit:                      ; preds = %2, %7
 
 16:                                               ; preds = %15, %.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %15 ]
-  %17 = getelementptr inbounds nuw %struct.MultiXactMember, ptr %14, i64 %indvars.iv.i.i.i
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv.i.i.i
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %19 = load i32, ptr %18, align 4
   %20 = icmp ugt i32 %19, 3
@@ -11388,7 +11382,7 @@ define dso_local i32 @heap_index_delete_tuples(ptr noundef %0, ptr noundef captu
 
 14:                                               ; preds = %._crit_edge.i, %2
   %indvars.iv8.i = phi i64 [ 0, %2 ], [ %indvars.iv.next9.i, %._crit_edge.i ]
-  %15 = getelementptr inbounds nuw i32, ptr @__const.index_delete_sort.gaps, i64 %indvars.iv8.i
+  %15 = getelementptr inbounds nuw [4 x i8], ptr @__const.index_delete_sort.gaps, i64 %indvars.iv8.i
   %16 = load i32, ptr %15, align 4
   %17 = icmp slt i32 %16, %.val146
   br i1 %17, label %.lr.ph5.preheader.i, label %._crit_edge.i
@@ -11404,7 +11398,7 @@ define dso_local i32 @heap_index_delete_tuples(ptr noundef %0, ptr noundef captu
 
 .lr.ph5.i:                                        ; preds = %.critedge.i, %.lr.ph5.preheader.i
   %indvars.iv.i = phi i64 [ %18, %.lr.ph5.preheader.i ], [ %indvars.iv.next.i, %.critedge.i ]
-  %19 = getelementptr inbounds %struct.TM_IndexDelete, ptr %.val147, i64 %indvars.iv.i
+  %19 = getelementptr inbounds [8 x i8], ptr %.val147, i64 %indvars.iv.i
   %20 = load i64, ptr %19, align 2
   %.sroa.6.0.extract.shift.i = lshr i64 %20, 32
   %.sroa.6.0.extract.trunc.i = trunc i64 %.sroa.6.0.extract.shift.i to i16
@@ -11421,7 +11415,7 @@ define dso_local i32 @heap_index_delete_tuples(ptr noundef %0, ptr noundef captu
   %.02.i = phi i32 [ %21, %.lr.ph.i ], [ %25, %38 ]
   %25 = sub i32 %.02.i, %16
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds %struct.TM_IndexDelete, ptr %.val147, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %.val147, i64 %26
   %.val25.i.i = load i16, ptr %27, align 2
   %28 = getelementptr i8, ptr %27, i64 2
   %.val26.i.i = load i16, ptr %28, align 2
@@ -11447,7 +11441,7 @@ index_delete_sort_cmp.exit.i:                     ; preds = %35, %24
 
 38:                                               ; preds = %index_delete_sort_cmp.exit.i
   %39 = sext i32 %.02.i to i64
-  %40 = getelementptr inbounds %struct.TM_IndexDelete, ptr %.val147, i64 %39
+  %40 = getelementptr inbounds [8 x i8], ptr %.val147, i64 %39
   %41 = load i64, ptr %27, align 2
   store i64 %41, ptr %40, align 2
   %.not.i = icmp slt i32 %25, %16
@@ -11456,7 +11450,7 @@ index_delete_sort_cmp.exit.i:                     ; preds = %35, %24
 .critedge.i:                                      ; preds = %38, %index_delete_sort_cmp.exit.i, %.lr.ph5.i
   %.0.lcssa.i = phi i32 [ %21, %.lr.ph5.i ], [ %.02.i, %index_delete_sort_cmp.exit.i ], [ %25, %38 ]
   %42 = sext i32 %.0.lcssa.i to i64
-  %43 = getelementptr inbounds %struct.TM_IndexDelete, ptr %.val147, i64 %42
+  %43 = getelementptr inbounds [8 x i8], ptr %.val147, i64 %42
   store i64 %20, ptr %43, align 2
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -11494,12 +11488,12 @@ index_delete_sort.exit:                           ; preds = %._crit_edge.i
   %.076.i = phi i32 [ -1, %.lr.ph.i150 ], [ %.1.i, %92 ]
   %.06375.i = phi i32 [ 0, %.lr.ph.i150 ], [ %.164.i, %92 ]
   %56 = load ptr, ptr %13, align 8
-  %57 = getelementptr inbounds nuw %struct.TM_IndexDelete, ptr %56, i64 %indvars.iv.i151
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %indvars.iv.i151
   %58 = load ptr, ptr %53, align 8
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 6
   %60 = load i16, ptr %59, align 2
   %61 = sext i16 %60 to i64
-  %62 = getelementptr inbounds %struct.TM_IndexStatus, ptr %58, i64 %61
+  %62 = getelementptr inbounds [6 x i8], ptr %58, i64 %61
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 3
   %64 = load i8, ptr %63, align 1, !range !6, !noundef !7
   %65 = trunc nuw i8 %64 to i1
@@ -11517,7 +11511,7 @@ index_delete_sort.exit:                           ; preds = %._crit_edge.i
   %72 = add i32 %.06375.i, 1
   %73 = trunc i64 %indvars.iv.i151 to i16
   %74 = sext i32 %.06375.i to i64
-  %75 = getelementptr inbounds %struct.IndexDeleteCounts, ptr %50, i64 %74
+  %75 = getelementptr inbounds [6 x i8], ptr %50, i64 %74
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 4
   store i16 %73, ptr %76, align 2
   %77 = getelementptr inbounds nuw i8, ptr %75, i64 2
@@ -11528,7 +11522,7 @@ index_delete_sort.exit:                           ; preds = %._crit_edge.i
 78:                                               ; preds = %55
   %79 = add i32 %.06375.i, -1
   %80 = sext i32 %79 to i64
-  %81 = getelementptr inbounds %struct.IndexDeleteCounts, ptr %50, i64 %80
+  %81 = getelementptr inbounds [6 x i8], ptr %50, i64 %80
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 2
   %83 = load i16, ptr %82, align 2
   %84 = add i16 %83, 1
@@ -11543,7 +11537,7 @@ index_delete_sort.exit:                           ; preds = %._crit_edge.i
 86:                                               ; preds = %85
   %87 = add i32 %.164.i, -1
   %88 = sext i32 %87 to i64
-  %89 = getelementptr inbounds %struct.IndexDeleteCounts, ptr %50, i64 %88
+  %89 = getelementptr inbounds [6 x i8], ptr %50, i64 %88
   %90 = load i16, ptr %89, align 2
   %91 = add i16 %90, 1
   store i16 %91, ptr %89, align 2
@@ -11576,11 +11570,11 @@ index_delete_sort.exit:                           ; preds = %._crit_edge.i
 .lr.ph.i.i:                                       ; preds = %.lr.ph._crit_edge.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph._crit_edge.i.i ]
   %.030.i.i = phi i64 [ -1, %.lr.ph.preheader.i.i ], [ %.pre.i.i, %.lr.ph._crit_edge.i.i ]
-  %104 = getelementptr inbounds nuw %struct.IndexDeleteCounts, ptr %50, i64 %indvars.iv.i.i
+  %104 = getelementptr inbounds nuw [6 x i8], ptr %50, i64 %indvars.iv.i.i
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 4
   %106 = load i16, ptr %105, align 2
   %107 = sext i16 %106 to i64
-  %108 = getelementptr inbounds %struct.TM_IndexDelete, ptr %103, i64 %107
+  %108 = getelementptr inbounds [8 x i8], ptr %103, i64 %107
   %.val.i.i = load i16, ptr %108, align 2
   %109 = getelementptr i8, ptr %108, i64 2
   %.val22.i.i = load i16, ptr %109, align 2
@@ -11614,7 +11608,7 @@ bottomup_nblocksfavorable.exit.i:                 ; preds = %.lr.ph._crit_edge.i
 
 .lr.ph78.i:                                       ; preds = %130, %.lr.ph78.preheader.i
   %indvars.iv86.i = phi i64 [ 0, %.lr.ph78.preheader.i ], [ %indvars.iv.next87.i, %130 ]
-  %118 = getelementptr inbounds nuw %struct.IndexDeleteCounts, ptr %50, i64 %indvars.iv86.i
+  %118 = getelementptr inbounds nuw [6 x i8], ptr %50, i64 %indvars.iv86.i
   %119 = load i16, ptr %118, align 2
   %120 = icmp slt i16 %119, 5
   br i1 %120, label %130, label %121
@@ -11644,14 +11638,14 @@ bottomup_nblocksfavorable.exit.i:                 ; preds = %.lr.ph._crit_edge.i
 .lr.ph81.i:                                       ; preds = %.lr.ph81.i, %bottomup_nblocksfavorable.exit.i
   %indvars.iv89.i = phi i64 [ 0, %bottomup_nblocksfavorable.exit.i ], [ %indvars.iv.next90.i, %.lr.ph81.i ]
   %.06679.i = phi i32 [ 0, %bottomup_nblocksfavorable.exit.i ], [ %145, %.lr.ph81.i ]
-  %131 = getelementptr inbounds nuw %struct.IndexDeleteCounts, ptr %50, i64 %indvars.iv89.i
+  %131 = getelementptr inbounds nuw [6 x i8], ptr %50, i64 %indvars.iv89.i
   %132 = load ptr, ptr %13, align 8
   %133 = getelementptr inbounds nuw i8, ptr %131, i64 4
   %134 = load i16, ptr %133, align 2
   %135 = sext i16 %134 to i64
-  %136 = getelementptr inbounds %struct.TM_IndexDelete, ptr %132, i64 %135
+  %136 = getelementptr inbounds [8 x i8], ptr %132, i64 %135
   %137 = sext i32 %.06679.i to i64
-  %138 = getelementptr inbounds %struct.TM_IndexDelete, ptr %101, i64 %137
+  %138 = getelementptr inbounds [8 x i8], ptr %101, i64 %137
   %139 = getelementptr inbounds nuw i8, ptr %131, i64 2
   %140 = load i16, ptr %139, align 2
   %141 = sext i16 %140 to i64
@@ -11715,7 +11709,7 @@ bottomup_sort_and_shrink.exit:                    ; preds = %._crit_edge.i148, %
   %indvars.iv.i159 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i163, %173 ]
   %.029.i = phi i32 [ -1, %.lr.ph.preheader.i ], [ %.1.i162, %173 ]
   %.02128.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.122.i, %173 ]
-  %169 = getelementptr inbounds nuw %struct.TM_IndexDelete, ptr %151, i64 %indvars.iv.i159
+  %169 = getelementptr inbounds nuw [8 x i8], ptr %151, i64 %indvars.iv.i159
   %170 = icmp ne i32 %.029.i, -1
   %.val.pre.i = load i16, ptr %169, align 2
   %.phi.trans.insert.i = getelementptr i8, ptr %169, i64 2
@@ -11774,12 +11768,12 @@ index_delete_prefetch_buffer.exit:                ; preds = %161, %._crit_edge.l
   %.sroa.0.0248 = phi i32 [ %.0.lcssa.i157, %.lr.ph263 ], [ %.sroa.0.1, %383 ]
   %.sroa.7.0247 = phi i32 [ %.023.lcssa.i, %.lr.ph263 ], [ %.sroa.7.1, %383 ]
   %183 = load ptr, ptr %13, align 8
-  %184 = getelementptr inbounds %struct.TM_IndexDelete, ptr %183, i64 %indvars.iv
+  %184 = getelementptr inbounds [8 x i8], ptr %183, i64 %indvars.iv
   %185 = load ptr, ptr %180, align 8
   %186 = getelementptr inbounds nuw i8, ptr %184, i64 6
   %187 = load i16, ptr %186, align 2
   %188 = sext i16 %187 to i64
-  %189 = getelementptr inbounds %struct.TM_IndexStatus, ptr %185, i64 %188
+  %189 = getelementptr inbounds [6 x i8], ptr %185, i64 %188
   %190 = icmp eq i32 %.0262, -1
   br i1 %190, label %197, label %191
 
@@ -11851,7 +11845,7 @@ index_delete_prefetch_buffer.exit:                ; preds = %161, %._crit_edge.l
 
 .lr.ph.i168:                                      ; preds = %225, %.lr.ph.preheader.i167
   %indvars.iv.i169 = phi i64 [ %221, %.lr.ph.preheader.i167 ], [ %indvars.iv.next.i184, %225 ]
-  %223 = getelementptr inbounds %struct.TM_IndexDelete, ptr %151, i64 %indvars.iv.i169
+  %223 = getelementptr inbounds [8 x i8], ptr %151, i64 %indvars.iv.i169
   %.val.pre.i172 = load i16, ptr %223, align 2
   %.phi.trans.insert.i173 = getelementptr i8, ptr %223, i64 2
   %.val24.pre.i174 = load i16, ptr %.phi.trans.insert.i173, align 2
@@ -11891,7 +11885,7 @@ index_delete_prefetch_buffer.exit186:             ; preds = %212, %._crit_edge.l
   %231 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %232 = xor i32 %218, -1
   %233 = zext nneg i32 %232 to i64
-  %234 = getelementptr inbounds nuw ptr, ptr %231, i64 %233
+  %234 = getelementptr inbounds nuw [8 x i8], ptr %231, i64 %233
   %235 = load ptr, ptr %234, align 8
   br label %BufferGetPage.exit
 
@@ -11957,7 +11951,7 @@ BufferGetPage.exit:                               ; preds = %230, %236
 269:                                              ; preds = %248
   %270 = zext i16 %.val31.i to i64
   %271 = getelementptr i8, ptr %.191, i64 20
-  %272 = getelementptr %struct.ItemIdData, ptr %271, i64 %270
+  %272 = getelementptr [4 x i8], ptr %271, i64 %270
   %273 = load i32, ptr %272, align 4
   %274 = and i32 %273, 98304
   %.not.i187 = icmp eq i32 %274, 0
@@ -12076,7 +12070,7 @@ index_delete_check_htid.exit:                     ; preds = %293, %294
   %.088241 = phi i16 [ %.189, %HeapTupleHeaderGetUpdateXid.exit ], [ %.val145, %332 ]
   %.096240 = phi i32 [ %.197, %HeapTupleHeaderGetUpdateXid.exit ], [ 0, %332 ]
   %334 = zext i16 %.088241 to i64
-  %335 = getelementptr %struct.ItemIdData, ptr %271, i64 %334
+  %335 = getelementptr [4 x i8], ptr %271, i64 %334
   %336 = load i32, ptr %335, align 4
   %337 = lshr i32 %336, 15
   %338 = and i32 %337, 3
@@ -12158,7 +12152,7 @@ HeapTupleHeaderGetXmin.exit:                      ; preds = %346, %350
 
 373:                                              ; preds = %372, %.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %372 ]
-  %374 = getelementptr inbounds nuw %struct.MultiXactMember, ptr %371, i64 %indvars.iv.i.i.i
+  %374 = getelementptr inbounds nuw [8 x i8], ptr %371, i64 %indvars.iv.i.i.i
   %375 = getelementptr inbounds nuw i8, ptr %374, i64 4
   %376 = load i32, ptr %375, align 4
   %377 = icmp ugt i32 %376, 3
@@ -12389,7 +12383,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef range(i32 -
 
 19:                                               ; preds = %16
   %20 = zext nneg i32 %1 to i64
-  %21 = getelementptr %struct.CompactAttribute, ptr %2, i64 %20
+  %21 = getelementptr [16 x i8], ptr %2, i64 %20
   %22 = getelementptr i8, ptr %21, i64 8
   %23 = load i32, ptr %22, align 4
   %24 = icmp sgt i32 %23, -1
@@ -12521,7 +12515,7 @@ define internal fastcc range(i32 0, 5) i32 @test_lockmode_for_conflict(i32 nound
 get_mxact_status_for_lock.exit:
   store i8 0, ptr %4, align 1
   %5 = zext i32 %2 to i64
-  %6 = getelementptr inbounds nuw %struct.anon.3, ptr @tupleLockExtraInfo, i64 %5
+  %6 = getelementptr inbounds nuw [12 x i8], ptr @tupleLockExtraInfo, i64 %5
   %.0.in.i = getelementptr inbounds nuw i8, ptr %6, i64 4
   %.0.i = load i32, ptr %.0.in.i, align 4
   %7 = tail call zeroext i1 @TransactionIdIsCurrentTransactionId(i32 noundef %1) #13
@@ -12533,16 +12527,16 @@ get_mxact_status_for_lock.exit:
 
 10:                                               ; preds = %8
   %11 = zext i32 %0 to i64
-  %12 = getelementptr inbounds nuw i32, ptr @MultiXactStatusLock, i64 %11
+  %12 = getelementptr inbounds nuw [4 x i8], ptr @MultiXactStatusLock, i64 %11
   %13 = load i32, ptr %12, align 4
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds %struct.anon.3, ptr @tupleLockExtraInfo, i64 %14
+  %15 = getelementptr inbounds [12 x i8], ptr @tupleLockExtraInfo, i64 %14
   %16 = load i32, ptr %15, align 4
   %17 = zext i32 %.0.i to i64
-  %18 = getelementptr inbounds nuw i32, ptr @MultiXactStatusLock, i64 %17
+  %18 = getelementptr inbounds nuw [4 x i8], ptr @MultiXactStatusLock, i64 %17
   %19 = load i32, ptr %18, align 4
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds %struct.anon.3, ptr @tupleLockExtraInfo, i64 %20
+  %21 = getelementptr inbounds [12 x i8], ptr @tupleLockExtraInfo, i64 %20
   %22 = load i32, ptr %21, align 4
   %23 = tail call zeroext i1 @DoLockModesConflict(i32 noundef %16, i32 noundef %22) #13
   br i1 %23, label %24, label %50
@@ -12563,16 +12557,16 @@ get_mxact_status_for_lock.exit:
 
 30:                                               ; preds = %27
   %31 = zext i32 %0 to i64
-  %32 = getelementptr inbounds nuw i32, ptr @MultiXactStatusLock, i64 %31
+  %32 = getelementptr inbounds nuw [4 x i8], ptr @MultiXactStatusLock, i64 %31
   %33 = load i32, ptr %32, align 4
   %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds %struct.anon.3, ptr @tupleLockExtraInfo, i64 %34
+  %35 = getelementptr inbounds [12 x i8], ptr @tupleLockExtraInfo, i64 %34
   %36 = load i32, ptr %35, align 4
   %37 = zext i32 %.0.i to i64
-  %38 = getelementptr inbounds nuw i32, ptr @MultiXactStatusLock, i64 %37
+  %38 = getelementptr inbounds nuw [4 x i8], ptr @MultiXactStatusLock, i64 %37
   %39 = load i32, ptr %38, align 4
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds %struct.anon.3, ptr @tupleLockExtraInfo, i64 %40
+  %41 = getelementptr inbounds [12 x i8], ptr @tupleLockExtraInfo, i64 %40
   %42 = load i32, ptr %41, align 4
   %43 = tail call zeroext i1 @DoLockModesConflict(i32 noundef %36, i32 noundef %42) #13
   br i1 %43, label %44, label %50
@@ -12622,7 +12616,7 @@ define internal fastcc noundef zeroext i1 @Do_MultiXactIdWait(i32 noundef %0, i3
 
 .lr.ph:                                           ; preds = %.preheader
   %22 = zext nneg i32 %1 to i64
-  %23 = getelementptr inbounds nuw i32, ptr @MultiXactStatusLock, i64 %22
+  %23 = getelementptr inbounds nuw [4 x i8], ptr @MultiXactStatusLock, i64 %22
   %.not = icmp eq ptr %7, null
   %wide.trip.count87 = zext nneg i32 %19 to i64
   br i1 %3, label %.lr.ph.split.us, label %.lr.ph.split
@@ -12634,7 +12628,7 @@ define internal fastcc noundef zeroext i1 @Do_MultiXactIdWait(i32 noundef %0, i3
   %indvars.iv84 = phi i64 [ %indvars.iv.next85, %select.unfold.us.us ], [ 0, %.lr.ph.split.us ]
   %.12945.us.us = phi i32 [ %.331.ph.us.us, %select.unfold.us.us ], [ 0, %.lr.ph.split.us ]
   %24 = load ptr, ptr %9, align 8
-  %25 = getelementptr inbounds nuw %struct.MultiXactMember, ptr %24, i64 %indvars.iv84
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv84
   %26 = load i32, ptr %25, align 4
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %28 = load i32, ptr %27, align 4
@@ -12643,14 +12637,14 @@ define internal fastcc noundef zeroext i1 @Do_MultiXactIdWait(i32 noundef %0, i3
 
 30:                                               ; preds = %.lr.ph.split.us.split.us
   %31 = zext i32 %28 to i64
-  %32 = getelementptr inbounds nuw i32, ptr @MultiXactStatusLock, i64 %31
+  %32 = getelementptr inbounds nuw [4 x i8], ptr @MultiXactStatusLock, i64 %31
   %33 = load i32, ptr %32, align 4
   %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds %struct.anon.3, ptr @tupleLockExtraInfo, i64 %34
+  %35 = getelementptr inbounds [12 x i8], ptr @tupleLockExtraInfo, i64 %34
   %36 = load i32, ptr %35, align 4
   %37 = load i32, ptr %23, align 4
   %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds %struct.anon.3, ptr @tupleLockExtraInfo, i64 %38
+  %39 = getelementptr inbounds [12 x i8], ptr @tupleLockExtraInfo, i64 %38
   %40 = load i32, ptr %39, align 4
   %41 = call zeroext i1 @DoLockModesConflict(i32 noundef %36, i32 noundef %40) #13
   br i1 %41, label %42, label %select.unfold.us.us
@@ -12673,7 +12667,7 @@ select.unfold.us.us:                              ; preds = %30, %44, %42
   %indvars.iv79 = phi i64 [ %indvars.iv.next80, %select.unfold.us ], [ 0, %.lr.ph.split.us ]
   %.12945.us = phi i32 [ %.331.ph.us, %select.unfold.us ], [ 0, %.lr.ph.split.us ]
   %46 = load ptr, ptr %9, align 8
-  %47 = getelementptr inbounds nuw %struct.MultiXactMember, ptr %46, i64 %indvars.iv79
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv79
   %48 = load i32, ptr %47, align 4
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 4
   %50 = load i32, ptr %49, align 4
@@ -12682,14 +12676,14 @@ select.unfold.us.us:                              ; preds = %30, %44, %42
 
 52:                                               ; preds = %.lr.ph.split.us.split
   %53 = zext i32 %50 to i64
-  %54 = getelementptr inbounds nuw i32, ptr @MultiXactStatusLock, i64 %53
+  %54 = getelementptr inbounds nuw [4 x i8], ptr @MultiXactStatusLock, i64 %53
   %55 = load i32, ptr %54, align 4
   %56 = sext i32 %55 to i64
-  %57 = getelementptr inbounds %struct.anon.3, ptr @tupleLockExtraInfo, i64 %56
+  %57 = getelementptr inbounds [12 x i8], ptr @tupleLockExtraInfo, i64 %56
   %58 = load i32, ptr %57, align 4
   %59 = load i32, ptr %23, align 4
   %60 = sext i32 %59 to i64
-  %61 = getelementptr inbounds %struct.anon.3, ptr @tupleLockExtraInfo, i64 %60
+  %61 = getelementptr inbounds [12 x i8], ptr @tupleLockExtraInfo, i64 %60
   %62 = load i32, ptr %61, align 4
   %63 = call zeroext i1 @DoLockModesConflict(i32 noundef %58, i32 noundef %62) #13
   br i1 %63, label %67, label %64
@@ -12721,7 +12715,7 @@ select.unfold.us:                                 ; preds = %69, %67, %64
   %indvars.iv74 = phi i64 [ %indvars.iv.next75, %select.unfold.us55 ], [ 0, %.lr.ph.split ]
   %.12945.us53 = phi i32 [ %.331.ph.us56, %select.unfold.us55 ], [ 0, %.lr.ph.split ]
   %71 = load ptr, ptr %9, align 8
-  %72 = getelementptr inbounds nuw %struct.MultiXactMember, ptr %71, i64 %indvars.iv74
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %indvars.iv74
   %73 = load i32, ptr %72, align 4
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 4
   %75 = load i32, ptr %74, align 4
@@ -12730,14 +12724,14 @@ select.unfold.us:                                 ; preds = %69, %67, %64
 
 77:                                               ; preds = %.lr.ph.split.split.us
   %78 = zext i32 %75 to i64
-  %79 = getelementptr inbounds nuw i32, ptr @MultiXactStatusLock, i64 %78
+  %79 = getelementptr inbounds nuw [4 x i8], ptr @MultiXactStatusLock, i64 %78
   %80 = load i32, ptr %79, align 4
   %81 = sext i32 %80 to i64
-  %82 = getelementptr inbounds %struct.anon.3, ptr @tupleLockExtraInfo, i64 %81
+  %82 = getelementptr inbounds [12 x i8], ptr @tupleLockExtraInfo, i64 %81
   %83 = load i32, ptr %82, align 4
   %84 = load i32, ptr %23, align 4
   %85 = sext i32 %84 to i64
-  %86 = getelementptr inbounds %struct.anon.3, ptr @tupleLockExtraInfo, i64 %85
+  %86 = getelementptr inbounds [12 x i8], ptr @tupleLockExtraInfo, i64 %85
   %87 = load i32, ptr %86, align 4
   %88 = call zeroext i1 @DoLockModesConflict(i32 noundef %83, i32 noundef %87) #13
   br i1 %88, label %89, label %select.unfold.us55
@@ -12760,7 +12754,7 @@ select.unfold.us55:                               ; preds = %77, %90, %89
   %indvars.iv = phi i64 [ %indvars.iv.next, %select.unfold ], [ 0, %.lr.ph.split ]
   %.12945 = phi i32 [ %.331.ph, %select.unfold ], [ 0, %.lr.ph.split ]
   %92 = load ptr, ptr %9, align 8
-  %93 = getelementptr inbounds nuw %struct.MultiXactMember, ptr %92, i64 %indvars.iv
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %92, i64 %indvars.iv
   %94 = load i32, ptr %93, align 4
   %95 = getelementptr inbounds nuw i8, ptr %93, i64 4
   %96 = load i32, ptr %95, align 4
@@ -12773,14 +12767,14 @@ select.unfold.us55:                               ; preds = %77, %90, %89
 
 100:                                              ; preds = %.lr.ph.split.split
   %101 = zext i32 %96 to i64
-  %102 = getelementptr inbounds nuw i32, ptr @MultiXactStatusLock, i64 %101
+  %102 = getelementptr inbounds nuw [4 x i8], ptr @MultiXactStatusLock, i64 %101
   %103 = load i32, ptr %102, align 4
   %104 = sext i32 %103 to i64
-  %105 = getelementptr inbounds %struct.anon.3, ptr @tupleLockExtraInfo, i64 %104
+  %105 = getelementptr inbounds [12 x i8], ptr @tupleLockExtraInfo, i64 %104
   %106 = load i32, ptr %105, align 4
   %107 = load i32, ptr %23, align 4
   %108 = sext i32 %107 to i64
-  %109 = getelementptr inbounds %struct.anon.3, ptr @tupleLockExtraInfo, i64 %108
+  %109 = getelementptr inbounds [12 x i8], ptr @tupleLockExtraInfo, i64 %108
   %110 = load i32, ptr %109, align 4
   %111 = call zeroext i1 @DoLockModesConflict(i32 noundef %106, i32 noundef %110) #13
   br i1 %111, label %115, label %112

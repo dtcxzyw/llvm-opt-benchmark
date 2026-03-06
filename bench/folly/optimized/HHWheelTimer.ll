@@ -16,16 +16,16 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000>>>::Callback, boost::intrusive::list_node_traits<void *>, boost::intrusive::auto_unlink, boost::intrusive::dft_tag, 1>, unsigned long, false, void>::root_plus_size" = type { %"struct.boost::intrusive::detail::default_header_holder" }
 %"struct.boost::intrusive::detail::default_header_holder" = type { %"struct.boost::intrusive::list_node" }
 %"struct.boost::intrusive::list_node" = type { ptr, ptr }
-%"class.boost::intrusive::list.12" = type { %"class.boost::intrusive::list_impl.13" }
-%"class.boost::intrusive::list_impl.13" = type { %"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000000>>>::Callback, boost::intrusive::list_node_traits<void *>, boost::intrusive::auto_unlink, boost::intrusive::dft_tag, 1>, unsigned long, false, void>::data_t" }
-%"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000000>>>::Callback, boost::intrusive::list_node_traits<void *>, boost::intrusive::auto_unlink, boost::intrusive::dft_tag, 1>, unsigned long, false, void>::data_t" = type { %"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000000>>>::Callback, boost::intrusive::list_node_traits<void *>, boost::intrusive::auto_unlink, boost::intrusive::dft_tag, 1>, unsigned long, false, void>::root_plus_size" }
-%"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000000>>>::Callback, boost::intrusive::list_node_traits<void *>, boost::intrusive::auto_unlink, boost::intrusive::dft_tag, 1>, unsigned long, false, void>::root_plus_size" = type { %"struct.boost::intrusive::detail::default_header_holder" }
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
 %"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
 %"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.23" }
 %"struct.std::_Head_base.23" = type { ptr }
+%"class.boost::intrusive::list.12" = type { %"class.boost::intrusive::list_impl.13" }
+%"class.boost::intrusive::list_impl.13" = type { %"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000000>>>::Callback, boost::intrusive::list_node_traits<void *>, boost::intrusive::auto_unlink, boost::intrusive::dft_tag, 1>, unsigned long, false, void>::data_t" }
+%"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000000>>>::Callback, boost::intrusive::list_node_traits<void *>, boost::intrusive::auto_unlink, boost::intrusive::dft_tag, 1>, unsigned long, false, void>::data_t" = type { %"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000000>>>::Callback, boost::intrusive::list_node_traits<void *>, boost::intrusive::auto_unlink, boost::intrusive::dft_tag, 1>, unsigned long, false, void>::root_plus_size" }
+%"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000000>>>::Callback, boost::intrusive::list_node_traits<void *>, boost::intrusive::auto_unlink, boost::intrusive::dft_tag, 1>, unsigned long, false, void>::root_plus_size" = type { %"struct.boost::intrusive::detail::default_header_holder" }
 %"class.std::unique_ptr.32" = type { %"struct.std::__uniq_ptr_data.33" }
 %"struct.std::__uniq_ptr_data.33" = type { %"class.std::__uniq_ptr_impl.34" }
 %"class.std::__uniq_ptr_impl.34" = type { %"class.std::tuple.35" }
@@ -417,7 +417,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %17
   %54 = lshr i64 %33, 6
   %.zext = and i64 %54, 3
   %55 = and i64 %33, 63
-  %56 = getelementptr i64, ptr %22, i64 %.zext
+  %56 = getelementptr [8 x i8], ptr %22, i64 %.zext
   %57 = shl nuw i64 1, %55
   %58 = xor i64 %57, -1
   %59 = load i64, ptr %56, align 8, !tbaa !7
@@ -425,7 +425,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %17
   store i64 %60, ptr %56, align 8, !tbaa !7
   %61 = add nsw i64 %53, 1
   store i64 %61, ptr %19, align 8, !tbaa !54
-  %62 = getelementptr inbounds nuw %"class.boost::intrusive::list", ptr %23, i64 %34
+  %62 = getelementptr inbounds nuw [16 x i8], ptr %23, i64 %34
   %63 = load ptr, ptr %62, align 8, !tbaa !57
   %.not.i.i45 = icmp eq ptr %63, null
   %64 = icmp eq ptr %63, %62
@@ -716,7 +716,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %17
   %54 = lshr i64 %33, 6
   %.zext = and i64 %54, 3
   %55 = and i64 %33, 63
-  %56 = getelementptr i64, ptr %22, i64 %.zext
+  %56 = getelementptr [8 x i8], ptr %22, i64 %.zext
   %57 = shl nuw i64 1, %55
   %58 = xor i64 %57, -1
   %59 = load i64, ptr %56, align 8, !tbaa !7
@@ -724,7 +724,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %17
   store i64 %60, ptr %56, align 8, !tbaa !7
   %61 = add nsw i64 %53, 1
   store i64 %61, ptr %19, align 8, !tbaa !79
-  %62 = getelementptr inbounds nuw %"class.boost::intrusive::list.12", ptr %23, i64 %34
+  %62 = getelementptr inbounds nuw [16 x i8], ptr %23, i64 %34
   %63 = load ptr, ptr %62, align 8, !tbaa !57
   %.not.i.i45 = icmp eq ptr %63, null
   %64 = icmp eq ptr %63, %62
@@ -944,7 +944,7 @@ _ZN5boost9intrusive12generic_hookILNS0_10algo_typesE0ENS0_16list_node_traitsIPvE
   %19 = load ptr, ptr %2, align 8, !tbaa !89
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 248
   %21 = sext i32 %17 to i64
-  %22 = getelementptr inbounds %"class.boost::intrusive::list", ptr %20, i64 %21
+  %22 = getelementptr inbounds [16 x i8], ptr %20, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !57
   %.not.i.i1.i.i = icmp eq ptr %23, null
   %24 = icmp eq ptr %23, %22
@@ -956,7 +956,7 @@ _ZN5boost9intrusive12generic_hookILNS0_10algo_typesE0ENS0_16list_node_traitsIPvE
   %28 = sdiv i32 %17, 64
   %.sext.i.i = sext i32 %28 to i64
   %29 = and i64 %21, 63
-  %30 = getelementptr i64, ptr %27, i64 %.sext.i.i
+  %30 = getelementptr [8 x i8], ptr %27, i64 %.sext.i.i
   %31 = shl nuw i64 1, %29
   %32 = xor i64 %31, -1
   %33 = load i64, ptr %30, align 8, !tbaa !7
@@ -1096,7 +1096,7 @@ _ZN5boost9intrusive12generic_hookILNS0_10algo_typesE0ENS0_16list_node_traitsIPvE
   %21 = load ptr, ptr %2, align 8, !tbaa !89
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 248
   %23 = sext i32 %19 to i64
-  %24 = getelementptr inbounds %"class.boost::intrusive::list", ptr %22, i64 %23
+  %24 = getelementptr inbounds [16 x i8], ptr %22, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !57
   %.not.i.i1.i = icmp eq ptr %25, null
   %26 = icmp eq ptr %25, %24
@@ -1108,7 +1108,7 @@ _ZN5boost9intrusive12generic_hookILNS0_10algo_typesE0ENS0_16list_node_traitsIPvE
   %30 = sdiv i32 %19, 64
   %.sext.i = sext i32 %30 to i64
   %31 = and i64 %23, 63
-  %32 = getelementptr i64, ptr %29, i64 %.sext.i
+  %32 = getelementptr [8 x i8], ptr %29, i64 %.sext.i
   %33 = shl nuw i64 1, %31
   %34 = xor i64 %33, -1
   %35 = load i64, ptr %32, align 8, !tbaa !7
@@ -1164,7 +1164,7 @@ _ZN5boost9intrusive12generic_hookILNS0_10algo_typesE0ENS0_16list_node_traitsIPvE
   %19 = load ptr, ptr %2, align 8, !tbaa !89
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 248
   %21 = sext i32 %17 to i64
-  %22 = getelementptr inbounds %"class.boost::intrusive::list", ptr %20, i64 %21
+  %22 = getelementptr inbounds [16 x i8], ptr %20, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !57
   %.not.i.i1 = icmp eq ptr %23, null
   %24 = icmp eq ptr %23, %22
@@ -1176,7 +1176,7 @@ _ZN5boost9intrusive12generic_hookILNS0_10algo_typesE0ENS0_16list_node_traitsIPvE
   %28 = sdiv i32 %17, 64
   %.sext = sext i32 %28 to i64
   %29 = and i64 %21, 63
-  %30 = getelementptr i64, ptr %27, i64 %.sext
+  %30 = getelementptr [8 x i8], ptr %27, i64 %.sext
   %31 = shl nuw i64 1, %29
   %32 = xor i64 %31, -1
   %33 = load i64, ptr %30, align 8, !tbaa !7
@@ -1416,7 +1416,7 @@ _ZSt11make_uniqueIA_N5boost9intrusive4listIN5folly16HHWheelTimerBaseINSt6chrono8
 _ZNK5boost9intrusive9list_implINS0_8bhtraitsIN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8CallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvE4sizeEv.exit: ; preds = %.preheader79
   %20 = add i64 %.0.i.i, %.285
   %21 = add i64 %.13584, 1
-  %22 = getelementptr inbounds nuw %"class.boost::intrusive::list", ptr %.ptr5.i, i64 %.13584
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %.ptr5.i, i64 %.13584
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %2, ptr %2, align 8, !tbaa !57
   store ptr %2, ptr %14, align 8, !tbaa !58
@@ -1611,7 +1611,7 @@ select.unfold:                                    ; preds = %.loopexit, %.lr.ph
 .lr.ph94:                                         ; preds = %.preheader, %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE22cancelTimeoutsFromListERN5boost9intrusive4listINS6_8CallbackEJNS8_18constant_time_sizeILb0EEEEEE.exit
   %.093 = phi i64 [ %130, %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE22cancelTimeoutsFromListERN5boost9intrusive4listINS6_8CallbackEJNS8_18constant_time_sizeILb0EEEEEE.exit ], [ 0, %.preheader ]
   %84 = load ptr, ptr %3, align 8, !tbaa !99
-  %85 = getelementptr inbounds nuw %"class.boost::intrusive::list", ptr %84, i64 %.093
+  %85 = getelementptr inbounds nuw [16 x i8], ptr %84, i64 %.093
   %86 = load ptr, ptr %85, align 8, !tbaa !57
   %.not.i.i6.i = icmp eq ptr %86, null
   %87 = icmp eq ptr %86, %85
@@ -1662,7 +1662,7 @@ _ZN5boost9intrusive12generic_hookILNS0_10algo_typesE0ENS0_16list_node_traitsIPvE
   %108 = load ptr, ptr %91, align 8, !tbaa !89
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 248
   %110 = sext i32 %106 to i64
-  %111 = getelementptr inbounds %"class.boost::intrusive::list", ptr %109, i64 %110
+  %111 = getelementptr inbounds [16 x i8], ptr %109, i64 %110
   %112 = load ptr, ptr %111, align 8, !tbaa !57
   %.not.i.i1.i.i.i = icmp eq ptr %112, null
   %113 = icmp eq ptr %112, %111
@@ -1674,7 +1674,7 @@ _ZN5boost9intrusive12generic_hookILNS0_10algo_typesE0ENS0_16list_node_traitsIPvE
   %117 = sdiv i32 %106, 64
   %.sext.i.i.i = sext i32 %117 to i64
   %118 = and i64 %110, 63
-  %119 = getelementptr i64, ptr %116, i64 %.sext.i.i.i
+  %119 = getelementptr [8 x i8], ptr %116, i64 %.sext.i.i.i
   %120 = shl nuw i64 1, %118
   %121 = xor i64 %120, -1
   %122 = load i64, ptr %119, align 8, !tbaa !7
@@ -1810,7 +1810,7 @@ _ZN5boost9intrusive12generic_hookILNS0_10algo_typesE0ENS0_16list_node_traitsIPvE
   %172 = load ptr, ptr %155, align 8, !tbaa !89
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 248
   %174 = sext i32 %170 to i64
-  %175 = getelementptr inbounds %"class.boost::intrusive::list", ptr %173, i64 %174
+  %175 = getelementptr inbounds [16 x i8], ptr %173, i64 %174
   %176 = load ptr, ptr %175, align 8, !tbaa !57
   %.not.i.i1.i.i.i58 = icmp eq ptr %176, null
   %177 = icmp eq ptr %176, %175
@@ -1822,7 +1822,7 @@ _ZN5boost9intrusive12generic_hookILNS0_10algo_typesE0ENS0_16list_node_traitsIPvE
   %181 = sdiv i32 %170, 64
   %.sext.i.i.i63 = sext i32 %181 to i64
   %182 = and i64 %174, 63
-  %183 = getelementptr i64, ptr %180, i64 %.sext.i.i.i63
+  %183 = getelementptr [8 x i8], ptr %180, i64 %.sext.i.i.i63
   %184 = shl nuw i64 1, %182
   %185 = xor i64 %184, -1
   %186 = load i64, ptr %183, align 8, !tbaa !7
@@ -1993,7 +1993,7 @@ _ZN5boost9intrusive12generic_hookILNS0_10algo_typesE0ENS0_16list_node_traitsIPvE
   %27 = load ptr, ptr %9, align 8, !tbaa !89
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 248
   %29 = sext i32 %25 to i64
-  %30 = getelementptr inbounds %"class.boost::intrusive::list", ptr %28, i64 %29
+  %30 = getelementptr inbounds [16 x i8], ptr %28, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !57
   %.not.i.i1.i.i = icmp eq ptr %31, null
   %32 = icmp eq ptr %31, %30
@@ -2005,7 +2005,7 @@ _ZN5boost9intrusive12generic_hookILNS0_10algo_typesE0ENS0_16list_node_traitsIPvE
   %36 = sdiv i32 %25, 64
   %.sext.i.i = sext i32 %36 to i64
   %37 = and i64 %29, 63
-  %38 = getelementptr i64, ptr %35, i64 %.sext.i.i
+  %38 = getelementptr [8 x i8], ptr %35, i64 %.sext.i.i
   %39 = shl nuw i64 1, %37
   %40 = xor i64 %39, -1
   %41 = load i64, ptr %38, align 8, !tbaa !7
@@ -2153,7 +2153,7 @@ _ZN5boost9intrusive12generic_hookILNS0_10algo_typesE0ENS0_16list_node_traitsIPvE
   %25 = load ptr, ptr %6, align 8, !tbaa !89
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 248
   %27 = sext i32 %23 to i64
-  %28 = getelementptr inbounds %"class.boost::intrusive::list", ptr %26, i64 %27
+  %28 = getelementptr inbounds [16 x i8], ptr %26, i64 %27
   %29 = load ptr, ptr %28, align 8, !tbaa !57
   %.not.i.i1.i.i = icmp eq ptr %29, null
   %30 = icmp eq ptr %29, %28
@@ -2165,7 +2165,7 @@ _ZN5boost9intrusive12generic_hookILNS0_10algo_typesE0ENS0_16list_node_traitsIPvE
   %34 = sdiv i32 %23, 64
   %.sext.i.i = sext i32 %34 to i64
   %35 = and i64 %27, 63
-  %36 = getelementptr i64, ptr %33, i64 %.sext.i.i
+  %36 = getelementptr [8 x i8], ptr %33, i64 %.sext.i.i
   %37 = shl nuw i64 1, %35
   %38 = xor i64 %37, -1
   %39 = load i64, ptr %36, align 8, !tbaa !7
@@ -2300,11 +2300,11 @@ _ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.e
 104:                                              ; preds = %96
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %106 = and i64 %85, 255
-  %107 = getelementptr inbounds nuw %"class.boost::intrusive::list", ptr %105, i64 %106
+  %107 = getelementptr inbounds nuw [16 x i8], ptr %105, i64 %106
   %108 = lshr i64 %85, 6
   %.zext.i = and i64 %108, 3
   %109 = and i64 %85, 63
-  %110 = getelementptr i64, ptr %102, i64 %.zext.i
+  %110 = getelementptr [8 x i8], ptr %102, i64 %.zext.i
   %111 = shl nuw i64 1, %109
   %112 = load i64, ptr %110, align 8, !tbaa !7
   %113 = or i64 %112, %111
@@ -2321,11 +2321,11 @@ _ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.e
 118:                                              ; preds = %116
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %120 = and i64 %100, 255
-  %121 = getelementptr inbounds nuw %"class.boost::intrusive::list", ptr %119, i64 %120
+  %121 = getelementptr inbounds nuw [16 x i8], ptr %119, i64 %120
   %122 = lshr i64 %100, 6
   %.zext44.i = and i64 %122, 3
   %123 = and i64 %100, 63
-  %124 = getelementptr i64, ptr %102, i64 %.zext44.i
+  %124 = getelementptr [8 x i8], ptr %102, i64 %.zext44.i
   %125 = shl nuw i64 1, %123
   %126 = load i64, ptr %124, align 8, !tbaa !7
   %127 = or i64 %126, %125
@@ -2343,7 +2343,7 @@ _ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.e
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 4344
   %134 = lshr i64 %100, 8
   %135 = and i64 %134, 255
-  %136 = getelementptr inbounds nuw %"class.boost::intrusive::list", ptr %133, i64 %135
+  %136 = getelementptr inbounds nuw [16 x i8], ptr %133, i64 %135
   br label %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE19scheduleTimeoutImplEPNS6_8CallbackElll.exit
 
 137:                                              ; preds = %130
@@ -2354,7 +2354,7 @@ _ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.e
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 8440
   %141 = lshr i64 %100, 16
   %142 = and i64 %141, 255
-  %143 = getelementptr inbounds nuw %"class.boost::intrusive::list", ptr %140, i64 %142
+  %143 = getelementptr inbounds nuw [16 x i8], ptr %140, i64 %142
   br label %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE19scheduleTimeoutImplEPNS6_8CallbackElll.exit
 
 144:                                              ; preds = %137
@@ -2364,7 +2364,7 @@ _ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.e
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 12536
   %148 = lshr i64 %spec.select.i, 24
   %149 = and i64 %148, 255
-  %150 = getelementptr inbounds nuw %"class.boost::intrusive::list", ptr %147, i64 %149
+  %150 = getelementptr inbounds nuw [16 x i8], ptr %147, i64 %149
   br label %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE19scheduleTimeoutImplEPNS6_8CallbackElll.exit
 
 _ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE19scheduleTimeoutImplEPNS6_8CallbackElll.exit: ; preds = %104, %118, %132, %139, %144
@@ -2586,11 +2586,11 @@ define weak_odr void @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioI
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %11 = and i64 %4, 255
-  %12 = getelementptr inbounds nuw %"class.boost::intrusive::list", ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %11
   %13 = lshr i64 %4, 6
   %.zext = and i64 %13, 3
   %14 = and i64 %4, 63
-  %15 = getelementptr i64, ptr %7, i64 %.zext
+  %15 = getelementptr [8 x i8], ptr %7, i64 %.zext
   %16 = shl nuw i64 1, %14
   %17 = load i64, ptr %15, align 8, !tbaa !7
   %18 = or i64 %17, %16
@@ -2607,11 +2607,11 @@ define weak_odr void @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioI
 23:                                               ; preds = %21
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %25 = and i64 %2, 255
-  %26 = getelementptr inbounds nuw %"class.boost::intrusive::list", ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %24, i64 %25
   %27 = lshr i64 %2, 6
   %.zext44 = and i64 %27, 3
   %28 = and i64 %2, 63
-  %29 = getelementptr i64, ptr %7, i64 %.zext44
+  %29 = getelementptr [8 x i8], ptr %7, i64 %.zext44
   %30 = shl nuw i64 1, %28
   %31 = load i64, ptr %29, align 8, !tbaa !7
   %32 = or i64 %31, %30
@@ -2629,7 +2629,7 @@ define weak_odr void @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioI
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 4344
   %39 = lshr i64 %2, 8
   %40 = and i64 %39, 255
-  %41 = getelementptr inbounds nuw %"class.boost::intrusive::list", ptr %38, i64 %40
+  %41 = getelementptr inbounds nuw [16 x i8], ptr %38, i64 %40
   br label %56
 
 42:                                               ; preds = %35
@@ -2640,7 +2640,7 @@ define weak_odr void @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioI
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 8440
   %46 = lshr i64 %2, 16
   %47 = and i64 %46, 255
-  %48 = getelementptr inbounds nuw %"class.boost::intrusive::list", ptr %45, i64 %47
+  %48 = getelementptr inbounds nuw [16 x i8], ptr %45, i64 %47
   br label %56
 
 49:                                               ; preds = %42
@@ -2650,7 +2650,7 @@ define weak_odr void @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioI
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 12536
   %53 = lshr i64 %spec.select, 24
   %54 = and i64 %53, 255
-  %55 = getelementptr inbounds nuw %"class.boost::intrusive::list", ptr %52, i64 %54
+  %55 = getelementptr inbounds nuw [16 x i8], ptr %52, i64 %54
   br label %56
 
 56:                                               ; preds = %23, %44, %49, %37, %9
@@ -3019,9 +3019,9 @@ define weak_odr noundef zeroext i1 @_ZN5folly16HHWheelTimerBaseINSt6chrono8durat
   store ptr %5, ptr %6, align 8, !tbaa !58
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %8 = sext i32 %1 to i64
-  %9 = getelementptr inbounds [256 x %"class.boost::intrusive::list"], ptr %7, i64 %8
+  %9 = getelementptr inbounds [4096 x i8], ptr %7, i64 %8
   %10 = sext i32 %2 to i64
-  %11 = getelementptr inbounds %"class.boost::intrusive::list", ptr %9, i64 %10
+  %11 = getelementptr inbounds [16 x i8], ptr %9, i64 %10
   %12 = icmp eq ptr %11, %5
   br i1 %12, label %_ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8CallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvE4swapERSI_.exit, label %13
 
@@ -3088,11 +3088,11 @@ _ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly16HHWheelTimerBaseINSt6chrono
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 8440
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 4344
   %42 = and i64 %33, 255
-  %43 = getelementptr inbounds nuw %"class.boost::intrusive::list", ptr %7, i64 %42
+  %43 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %42
   %44 = lshr i64 %33, 6
   %.zext.i = and i64 %44, 3
   %45 = and i64 %33, 63
-  %46 = getelementptr i64, ptr %38, i64 %.zext.i
+  %46 = getelementptr [8 x i8], ptr %38, i64 %.zext.i
   %47 = shl nuw i64 1, %45
   %48 = trunc nuw nsw i64 %42 to i32
   br label %49
@@ -3140,11 +3140,11 @@ _ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly16HHWheelTimerBaseINSt6chrono
 
 72:                                               ; preds = %70
   %73 = and i64 %62, 255
-  %74 = getelementptr inbounds nuw %"class.boost::intrusive::list", ptr %7, i64 %73
+  %74 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %73
   %75 = lshr i64 %62, 6
   %.zext44.i = and i64 %75, 3
   %76 = and i64 %62, 63
-  %77 = getelementptr i64, ptr %38, i64 %.zext44.i
+  %77 = getelementptr [8 x i8], ptr %38, i64 %.zext44.i
   %78 = shl nuw i64 1, %76
   %79 = load i64, ptr %77, align 8, !tbaa !7
   %80 = or i64 %79, %78
@@ -3161,7 +3161,7 @@ _ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly16HHWheelTimerBaseINSt6chrono
 85:                                               ; preds = %83
   %86 = lshr i64 %62, 8
   %87 = and i64 %86, 255
-  %88 = getelementptr inbounds nuw %"class.boost::intrusive::list", ptr %41, i64 %87
+  %88 = getelementptr inbounds nuw [16 x i8], ptr %41, i64 %87
   br label %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE19scheduleTimeoutImplEPNS6_8CallbackElll.exit
 
 89:                                               ; preds = %83
@@ -3171,7 +3171,7 @@ _ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly16HHWheelTimerBaseINSt6chrono
 91:                                               ; preds = %89
   %92 = lshr i64 %62, 16
   %93 = and i64 %92, 255
-  %94 = getelementptr inbounds nuw %"class.boost::intrusive::list", ptr %40, i64 %93
+  %94 = getelementptr inbounds nuw [16 x i8], ptr %40, i64 %93
   br label %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE19scheduleTimeoutImplEPNS6_8CallbackElll.exit
 
 95:                                               ; preds = %89
@@ -3180,7 +3180,7 @@ _ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly16HHWheelTimerBaseINSt6chrono
   %spec.select.i = select i1 %96, i64 %97, i64 %62
   %98 = lshr i64 %spec.select.i, 24
   %99 = and i64 %98, 255
-  %100 = getelementptr inbounds nuw %"class.boost::intrusive::list", ptr %39, i64 %99
+  %100 = getelementptr inbounds nuw [16 x i8], ptr %39, i64 %99
   br label %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE19scheduleTimeoutImplEPNS6_8CallbackElll.exit
 
 _ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE19scheduleTimeoutImplEPNS6_8CallbackElll.exit: ; preds = %66, %72, %85, %91, %95
@@ -3559,7 +3559,7 @@ _ZN5boost9intrusive12generic_hookILNS0_10algo_typesE0ENS0_16list_node_traitsIPvE
   %19 = load ptr, ptr %2, align 8, !tbaa !130
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 248
   %21 = sext i32 %17 to i64
-  %22 = getelementptr inbounds %"class.boost::intrusive::list.12", ptr %20, i64 %21
+  %22 = getelementptr inbounds [16 x i8], ptr %20, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !57
   %.not.i.i1.i.i = icmp eq ptr %23, null
   %24 = icmp eq ptr %23, %22
@@ -3571,7 +3571,7 @@ _ZN5boost9intrusive12generic_hookILNS0_10algo_typesE0ENS0_16list_node_traitsIPvE
   %28 = sdiv i32 %17, 64
   %.sext.i.i = sext i32 %28 to i64
   %29 = and i64 %21, 63
-  %30 = getelementptr i64, ptr %27, i64 %.sext.i.i
+  %30 = getelementptr [8 x i8], ptr %27, i64 %.sext.i.i
   %31 = shl nuw i64 1, %29
   %32 = xor i64 %31, -1
   %33 = load i64, ptr %30, align 8, !tbaa !7
@@ -3711,7 +3711,7 @@ _ZN5boost9intrusive12generic_hookILNS0_10algo_typesE0ENS0_16list_node_traitsIPvE
   %21 = load ptr, ptr %2, align 8, !tbaa !130
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 248
   %23 = sext i32 %19 to i64
-  %24 = getelementptr inbounds %"class.boost::intrusive::list.12", ptr %22, i64 %23
+  %24 = getelementptr inbounds [16 x i8], ptr %22, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !57
   %.not.i.i1.i = icmp eq ptr %25, null
   %26 = icmp eq ptr %25, %24
@@ -3723,7 +3723,7 @@ _ZN5boost9intrusive12generic_hookILNS0_10algo_typesE0ENS0_16list_node_traitsIPvE
   %30 = sdiv i32 %19, 64
   %.sext.i = sext i32 %30 to i64
   %31 = and i64 %23, 63
-  %32 = getelementptr i64, ptr %29, i64 %.sext.i
+  %32 = getelementptr [8 x i8], ptr %29, i64 %.sext.i
   %33 = shl nuw i64 1, %31
   %34 = xor i64 %33, -1
   %35 = load i64, ptr %32, align 8, !tbaa !7
@@ -3779,7 +3779,7 @@ _ZN5boost9intrusive12generic_hookILNS0_10algo_typesE0ENS0_16list_node_traitsIPvE
   %19 = load ptr, ptr %2, align 8, !tbaa !130
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 248
   %21 = sext i32 %17 to i64
-  %22 = getelementptr inbounds %"class.boost::intrusive::list.12", ptr %20, i64 %21
+  %22 = getelementptr inbounds [16 x i8], ptr %20, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !57
   %.not.i.i1 = icmp eq ptr %23, null
   %24 = icmp eq ptr %23, %22
@@ -3791,7 +3791,7 @@ _ZN5boost9intrusive12generic_hookILNS0_10algo_typesE0ENS0_16list_node_traitsIPvE
   %28 = sdiv i32 %17, 64
   %.sext = sext i32 %28 to i64
   %29 = and i64 %21, 63
-  %30 = getelementptr i64, ptr %27, i64 %.sext
+  %30 = getelementptr [8 x i8], ptr %27, i64 %.sext
   %31 = shl nuw i64 1, %29
   %32 = xor i64 %31, -1
   %33 = load i64, ptr %30, align 8, !tbaa !7
@@ -3975,7 +3975,7 @@ _ZSt11make_uniqueIA_N5boost9intrusive4listIN5folly16HHWheelTimerBaseINSt6chrono8
 _ZNK5boost9intrusive9list_implINS0_8bhtraitsIN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE8CallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvE4sizeEv.exit: ; preds = %.preheader79
   %20 = add i64 %.0.i.i, %.285
   %21 = add i64 %.13584, 1
-  %22 = getelementptr inbounds nuw %"class.boost::intrusive::list.12", ptr %.ptr5.i, i64 %.13584
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %.ptr5.i, i64 %.13584
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %2, ptr %2, align 8, !tbaa !57
   store ptr %2, ptr %14, align 8, !tbaa !58
@@ -4170,7 +4170,7 @@ select.unfold:                                    ; preds = %.loopexit, %.lr.ph
 .lr.ph94:                                         ; preds = %.preheader, %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE22cancelTimeoutsFromListERN5boost9intrusive4listINS6_8CallbackEJNS8_18constant_time_sizeILb0EEEEEE.exit
   %.093 = phi i64 [ %130, %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE22cancelTimeoutsFromListERN5boost9intrusive4listINS6_8CallbackEJNS8_18constant_time_sizeILb0EEEEEE.exit ], [ 0, %.preheader ]
   %84 = load ptr, ptr %3, align 8, !tbaa !134
-  %85 = getelementptr inbounds nuw %"class.boost::intrusive::list.12", ptr %84, i64 %.093
+  %85 = getelementptr inbounds nuw [16 x i8], ptr %84, i64 %.093
   %86 = load ptr, ptr %85, align 8, !tbaa !57
   %.not.i.i6.i = icmp eq ptr %86, null
   %87 = icmp eq ptr %86, %85
@@ -4221,7 +4221,7 @@ _ZN5boost9intrusive12generic_hookILNS0_10algo_typesE0ENS0_16list_node_traitsIPvE
   %108 = load ptr, ptr %91, align 8, !tbaa !130
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 248
   %110 = sext i32 %106 to i64
-  %111 = getelementptr inbounds %"class.boost::intrusive::list.12", ptr %109, i64 %110
+  %111 = getelementptr inbounds [16 x i8], ptr %109, i64 %110
   %112 = load ptr, ptr %111, align 8, !tbaa !57
   %.not.i.i1.i.i.i = icmp eq ptr %112, null
   %113 = icmp eq ptr %112, %111
@@ -4233,7 +4233,7 @@ _ZN5boost9intrusive12generic_hookILNS0_10algo_typesE0ENS0_16list_node_traitsIPvE
   %117 = sdiv i32 %106, 64
   %.sext.i.i.i = sext i32 %117 to i64
   %118 = and i64 %110, 63
-  %119 = getelementptr i64, ptr %116, i64 %.sext.i.i.i
+  %119 = getelementptr [8 x i8], ptr %116, i64 %.sext.i.i.i
   %120 = shl nuw i64 1, %118
   %121 = xor i64 %120, -1
   %122 = load i64, ptr %119, align 8, !tbaa !7
@@ -4369,7 +4369,7 @@ _ZN5boost9intrusive12generic_hookILNS0_10algo_typesE0ENS0_16list_node_traitsIPvE
   %172 = load ptr, ptr %155, align 8, !tbaa !130
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 248
   %174 = sext i32 %170 to i64
-  %175 = getelementptr inbounds %"class.boost::intrusive::list.12", ptr %173, i64 %174
+  %175 = getelementptr inbounds [16 x i8], ptr %173, i64 %174
   %176 = load ptr, ptr %175, align 8, !tbaa !57
   %.not.i.i1.i.i.i58 = icmp eq ptr %176, null
   %177 = icmp eq ptr %176, %175
@@ -4381,7 +4381,7 @@ _ZN5boost9intrusive12generic_hookILNS0_10algo_typesE0ENS0_16list_node_traitsIPvE
   %181 = sdiv i32 %170, 64
   %.sext.i.i.i63 = sext i32 %181 to i64
   %182 = and i64 %174, 63
-  %183 = getelementptr i64, ptr %180, i64 %.sext.i.i.i63
+  %183 = getelementptr [8 x i8], ptr %180, i64 %.sext.i.i.i63
   %184 = shl nuw i64 1, %182
   %185 = xor i64 %184, -1
   %186 = load i64, ptr %183, align 8, !tbaa !7
@@ -4552,7 +4552,7 @@ _ZN5boost9intrusive12generic_hookILNS0_10algo_typesE0ENS0_16list_node_traitsIPvE
   %27 = load ptr, ptr %9, align 8, !tbaa !130
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 248
   %29 = sext i32 %25 to i64
-  %30 = getelementptr inbounds %"class.boost::intrusive::list.12", ptr %28, i64 %29
+  %30 = getelementptr inbounds [16 x i8], ptr %28, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !57
   %.not.i.i1.i.i = icmp eq ptr %31, null
   %32 = icmp eq ptr %31, %30
@@ -4564,7 +4564,7 @@ _ZN5boost9intrusive12generic_hookILNS0_10algo_typesE0ENS0_16list_node_traitsIPvE
   %36 = sdiv i32 %25, 64
   %.sext.i.i = sext i32 %36 to i64
   %37 = and i64 %29, 63
-  %38 = getelementptr i64, ptr %35, i64 %.sext.i.i
+  %38 = getelementptr [8 x i8], ptr %35, i64 %.sext.i.i
   %39 = shl nuw i64 1, %37
   %40 = xor i64 %39, -1
   %41 = load i64, ptr %38, align 8, !tbaa !7
@@ -4706,7 +4706,7 @@ _ZN5boost9intrusive12generic_hookILNS0_10algo_typesE0ENS0_16list_node_traitsIPvE
   %25 = load ptr, ptr %6, align 8, !tbaa !130
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 248
   %27 = sext i32 %23 to i64
-  %28 = getelementptr inbounds %"class.boost::intrusive::list.12", ptr %26, i64 %27
+  %28 = getelementptr inbounds [16 x i8], ptr %26, i64 %27
   %29 = load ptr, ptr %28, align 8, !tbaa !57
   %.not.i.i1.i.i = icmp eq ptr %29, null
   %30 = icmp eq ptr %29, %28
@@ -4718,7 +4718,7 @@ _ZN5boost9intrusive12generic_hookILNS0_10algo_typesE0ENS0_16list_node_traitsIPvE
   %34 = sdiv i32 %23, 64
   %.sext.i.i = sext i32 %34 to i64
   %35 = and i64 %27, 63
-  %36 = getelementptr i64, ptr %33, i64 %.sext.i.i
+  %36 = getelementptr [8 x i8], ptr %33, i64 %.sext.i.i
   %37 = shl nuw i64 1, %35
   %38 = xor i64 %37, -1
   %39 = load i64, ptr %36, align 8, !tbaa !7
@@ -4853,11 +4853,11 @@ _ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.e
 104:                                              ; preds = %96
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %106 = and i64 %85, 255
-  %107 = getelementptr inbounds nuw %"class.boost::intrusive::list.12", ptr %105, i64 %106
+  %107 = getelementptr inbounds nuw [16 x i8], ptr %105, i64 %106
   %108 = lshr i64 %85, 6
   %.zext.i = and i64 %108, 3
   %109 = and i64 %85, 63
-  %110 = getelementptr i64, ptr %102, i64 %.zext.i
+  %110 = getelementptr [8 x i8], ptr %102, i64 %.zext.i
   %111 = shl nuw i64 1, %109
   %112 = load i64, ptr %110, align 8, !tbaa !7
   %113 = or i64 %112, %111
@@ -4874,11 +4874,11 @@ _ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.e
 118:                                              ; preds = %116
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %120 = and i64 %100, 255
-  %121 = getelementptr inbounds nuw %"class.boost::intrusive::list.12", ptr %119, i64 %120
+  %121 = getelementptr inbounds nuw [16 x i8], ptr %119, i64 %120
   %122 = lshr i64 %100, 6
   %.zext44.i = and i64 %122, 3
   %123 = and i64 %100, 63
-  %124 = getelementptr i64, ptr %102, i64 %.zext44.i
+  %124 = getelementptr [8 x i8], ptr %102, i64 %.zext44.i
   %125 = shl nuw i64 1, %123
   %126 = load i64, ptr %124, align 8, !tbaa !7
   %127 = or i64 %126, %125
@@ -4896,7 +4896,7 @@ _ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.e
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 4344
   %134 = lshr i64 %100, 8
   %135 = and i64 %134, 255
-  %136 = getelementptr inbounds nuw %"class.boost::intrusive::list.12", ptr %133, i64 %135
+  %136 = getelementptr inbounds nuw [16 x i8], ptr %133, i64 %135
   br label %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE19scheduleTimeoutImplEPNS6_8CallbackElll.exit
 
 137:                                              ; preds = %130
@@ -4907,7 +4907,7 @@ _ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.e
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 8440
   %141 = lshr i64 %100, 16
   %142 = and i64 %141, 255
-  %143 = getelementptr inbounds nuw %"class.boost::intrusive::list.12", ptr %140, i64 %142
+  %143 = getelementptr inbounds nuw [16 x i8], ptr %140, i64 %142
   br label %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE19scheduleTimeoutImplEPNS6_8CallbackElll.exit
 
 144:                                              ; preds = %137
@@ -4917,7 +4917,7 @@ _ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.e
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 12536
   %148 = lshr i64 %spec.select.i, 24
   %149 = and i64 %148, 255
-  %150 = getelementptr inbounds nuw %"class.boost::intrusive::list.12", ptr %147, i64 %149
+  %150 = getelementptr inbounds nuw [16 x i8], ptr %147, i64 %149
   br label %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE19scheduleTimeoutImplEPNS6_8CallbackElll.exit
 
 _ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE19scheduleTimeoutImplEPNS6_8CallbackElll.exit: ; preds = %104, %118, %132, %139, %144
@@ -5137,11 +5137,11 @@ define weak_odr void @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioI
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %11 = and i64 %4, 255
-  %12 = getelementptr inbounds nuw %"class.boost::intrusive::list.12", ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %11
   %13 = lshr i64 %4, 6
   %.zext = and i64 %13, 3
   %14 = and i64 %4, 63
-  %15 = getelementptr i64, ptr %7, i64 %.zext
+  %15 = getelementptr [8 x i8], ptr %7, i64 %.zext
   %16 = shl nuw i64 1, %14
   %17 = load i64, ptr %15, align 8, !tbaa !7
   %18 = or i64 %17, %16
@@ -5158,11 +5158,11 @@ define weak_odr void @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioI
 23:                                               ; preds = %21
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %25 = and i64 %2, 255
-  %26 = getelementptr inbounds nuw %"class.boost::intrusive::list.12", ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %24, i64 %25
   %27 = lshr i64 %2, 6
   %.zext44 = and i64 %27, 3
   %28 = and i64 %2, 63
-  %29 = getelementptr i64, ptr %7, i64 %.zext44
+  %29 = getelementptr [8 x i8], ptr %7, i64 %.zext44
   %30 = shl nuw i64 1, %28
   %31 = load i64, ptr %29, align 8, !tbaa !7
   %32 = or i64 %31, %30
@@ -5180,7 +5180,7 @@ define weak_odr void @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioI
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 4344
   %39 = lshr i64 %2, 8
   %40 = and i64 %39, 255
-  %41 = getelementptr inbounds nuw %"class.boost::intrusive::list.12", ptr %38, i64 %40
+  %41 = getelementptr inbounds nuw [16 x i8], ptr %38, i64 %40
   br label %56
 
 42:                                               ; preds = %35
@@ -5191,7 +5191,7 @@ define weak_odr void @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioI
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 8440
   %46 = lshr i64 %2, 16
   %47 = and i64 %46, 255
-  %48 = getelementptr inbounds nuw %"class.boost::intrusive::list.12", ptr %45, i64 %47
+  %48 = getelementptr inbounds nuw [16 x i8], ptr %45, i64 %47
   br label %56
 
 49:                                               ; preds = %42
@@ -5201,7 +5201,7 @@ define weak_odr void @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioI
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 12536
   %53 = lshr i64 %spec.select, 24
   %54 = and i64 %53, 255
-  %55 = getelementptr inbounds nuw %"class.boost::intrusive::list.12", ptr %52, i64 %54
+  %55 = getelementptr inbounds nuw [16 x i8], ptr %52, i64 %54
   br label %56
 
 56:                                               ; preds = %23, %44, %49, %37, %9
@@ -5499,9 +5499,9 @@ define weak_odr noundef zeroext i1 @_ZN5folly16HHWheelTimerBaseINSt6chrono8durat
   store ptr %5, ptr %6, align 8, !tbaa !58
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %8 = sext i32 %1 to i64
-  %9 = getelementptr inbounds [256 x %"class.boost::intrusive::list.12"], ptr %7, i64 %8
+  %9 = getelementptr inbounds [4096 x i8], ptr %7, i64 %8
   %10 = sext i32 %2 to i64
-  %11 = getelementptr inbounds %"class.boost::intrusive::list.12", ptr %9, i64 %10
+  %11 = getelementptr inbounds [16 x i8], ptr %9, i64 %10
   %12 = icmp eq ptr %11, %5
   br i1 %12, label %_ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE8CallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvE4swapERSI_.exit, label %13
 
@@ -5568,11 +5568,11 @@ _ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly16HHWheelTimerBaseINSt6chrono
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 8440
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 4344
   %42 = and i64 %33, 255
-  %43 = getelementptr inbounds nuw %"class.boost::intrusive::list.12", ptr %7, i64 %42
+  %43 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %42
   %44 = lshr i64 %33, 6
   %.zext.i = and i64 %44, 3
   %45 = and i64 %33, 63
-  %46 = getelementptr i64, ptr %38, i64 %.zext.i
+  %46 = getelementptr [8 x i8], ptr %38, i64 %.zext.i
   %47 = shl nuw i64 1, %45
   %48 = trunc nuw nsw i64 %42 to i32
   br label %49
@@ -5620,11 +5620,11 @@ _ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly16HHWheelTimerBaseINSt6chrono
 
 72:                                               ; preds = %70
   %73 = and i64 %62, 255
-  %74 = getelementptr inbounds nuw %"class.boost::intrusive::list.12", ptr %7, i64 %73
+  %74 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %73
   %75 = lshr i64 %62, 6
   %.zext44.i = and i64 %75, 3
   %76 = and i64 %62, 63
-  %77 = getelementptr i64, ptr %38, i64 %.zext44.i
+  %77 = getelementptr [8 x i8], ptr %38, i64 %.zext44.i
   %78 = shl nuw i64 1, %76
   %79 = load i64, ptr %77, align 8, !tbaa !7
   %80 = or i64 %79, %78
@@ -5641,7 +5641,7 @@ _ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly16HHWheelTimerBaseINSt6chrono
 85:                                               ; preds = %83
   %86 = lshr i64 %62, 8
   %87 = and i64 %86, 255
-  %88 = getelementptr inbounds nuw %"class.boost::intrusive::list.12", ptr %41, i64 %87
+  %88 = getelementptr inbounds nuw [16 x i8], ptr %41, i64 %87
   br label %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE19scheduleTimeoutImplEPNS6_8CallbackElll.exit
 
 89:                                               ; preds = %83
@@ -5651,7 +5651,7 @@ _ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly16HHWheelTimerBaseINSt6chrono
 91:                                               ; preds = %89
   %92 = lshr i64 %62, 16
   %93 = and i64 %92, 255
-  %94 = getelementptr inbounds nuw %"class.boost::intrusive::list.12", ptr %40, i64 %93
+  %94 = getelementptr inbounds nuw [16 x i8], ptr %40, i64 %93
   br label %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE19scheduleTimeoutImplEPNS6_8CallbackElll.exit
 
 95:                                               ; preds = %89
@@ -5660,7 +5660,7 @@ _ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly16HHWheelTimerBaseINSt6chrono
   %spec.select.i = select i1 %96, i64 %97, i64 %62
   %98 = lshr i64 %spec.select.i, 24
   %99 = and i64 %98, 255
-  %100 = getelementptr inbounds nuw %"class.boost::intrusive::list.12", ptr %39, i64 %99
+  %100 = getelementptr inbounds nuw [16 x i8], ptr %39, i64 %99
   br label %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE19scheduleTimeoutImplEPNS6_8CallbackElll.exit
 
 _ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE19scheduleTimeoutImplEPNS6_8CallbackElll.exit: ; preds = %66, %72, %85, %91, %95

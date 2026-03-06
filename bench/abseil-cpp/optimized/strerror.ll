@@ -41,7 +41,7 @@ define dso_local void @_ZN4absl13base_internal8StrErrorB5cxx11Ei(ptr dead_on_unw
 15:                                               ; preds = %13
   %16 = zext nneg i32 %1 to i64
   %17 = load ptr, ptr @_ZZN4absl13base_internal8StrErrorB5cxx11EiE5tableB5cxx11, align 8, !tbaa !9
-  %18 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %17, i64 %16
+  %18 = getelementptr inbounds nuw [32 x i8], ptr %17, i64 %16
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %19, ptr %0, align 8, !tbaa !12
   %20 = load ptr, ptr %18, align 8, !tbaa !15
@@ -147,7 +147,7 @@ _ZNSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm135EEC2Ev.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %11 = trunc nuw nsw i64 %.06 to i32
   call fastcc void @_ZN4absl13base_internal12_GLOBAL__N_116StrErrorInternalB5cxx11Ei(ptr dead_on_unwind noalias nonnull writable align 8 %1, i32 noundef %11)
-  %12 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %2, i64 %.06
+  %12 = getelementptr inbounds nuw [32 x i8], ptr %2, i64 %.06
   %13 = load ptr, ptr %12, align 8, !tbaa !15
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %15 = icmp eq ptr %13, %14

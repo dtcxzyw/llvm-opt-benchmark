@@ -133,7 +133,7 @@ _ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIfSaI
 
 .noexc68:                                         ; preds = %31
   store ptr %33, ptr %7, align 8, !tbaa !14
-  %34 = getelementptr inbounds nuw float, ptr %33, i64 %28
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %28
   %35 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %34, ptr %35, align 8, !tbaa !17
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %33, i8 0, i64 %32, i1 false), !tbaa !18
@@ -193,7 +193,7 @@ _ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIfSaI
   %61 = trunc nuw nsw i64 %60 to i32
   %62 = uitofp nneg i32 %61 to float
   %63 = fadd float %62, 5.000000e-01
-  %64 = getelementptr inbounds nuw float, ptr %48, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %indvars.iv
   store float %63, ptr %64, align 4, !tbaa !18
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 4
   store float %56, ptr %65, align 4, !tbaa !18
@@ -424,7 +424,7 @@ _ZN5zxing12ErrorHandlerD2Ev.exit73:               ; preds = %139, %_ZNKSt7__cxx1
   %indvars.iv96 = phi i64 [ 0, %.lr.ph88 ], [ %indvars.iv.next97, %182 ]
   %150 = load ptr, ptr %2, align 8, !tbaa !10
   %151 = load ptr, ptr %7, align 8, !tbaa !14
-  %152 = getelementptr inbounds nuw float, ptr %151, i64 %indvars.iv96
+  %152 = getelementptr inbounds nuw [4 x i8], ptr %151, i64 %indvars.iv96
   %153 = load float, ptr %152, align 4, !tbaa !18
   %154 = fptosi float %153 to i32
   %155 = getelementptr inbounds nuw i8, ptr %152, i64 4
@@ -449,7 +449,7 @@ _ZN5zxing12ErrorHandlerD2Ev.exit73:               ; preds = %139, %_ZNKSt7__cxx1
   %171 = load ptr, ptr %42, align 8, !tbaa !70
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 16
   %173 = load ptr, ptr %172, align 8, !tbaa !71
-  %174 = getelementptr inbounds nuw i32, ptr %173, i64 %indvars.iv99
+  %174 = getelementptr inbounds nuw [4 x i8], ptr %173, i64 %indvars.iv99
   %175 = load i32, ptr %174, align 4, !tbaa !74
   %176 = sext i32 %175 to i64
   %177 = load ptr, ptr %43, align 8, !tbaa !67
@@ -634,10 +634,10 @@ _ZN5zxing12ErrorHandlerD2Ev.exit80:               ; preds = %37, %_ZNKSt7__cxx11
 43:                                               ; preds = %.lr.ph, %87
   %.05493 = phi i64 [ 0, %.lr.ph ], [ %88, %87 ]
   %.05692 = phi i32 [ 0, %.lr.ph ], [ %.258, %87 ]
-  %44 = getelementptr inbounds nuw float, ptr %9, i64 %.05493
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %.05493
   %45 = load float, ptr %44, align 4, !tbaa !18
   %46 = fptosi float %45 to i32
-  %47 = getelementptr inbounds nuw float, ptr %9, i64 %.05493
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %.05493
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 4
   %49 = load float, ptr %48, align 4, !tbaa !18
   %50 = fptosi float %49 to i32

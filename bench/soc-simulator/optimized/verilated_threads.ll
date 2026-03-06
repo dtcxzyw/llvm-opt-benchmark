@@ -634,7 +634,7 @@ _ZNSt6vectorIN14VlWorkerThread7ExecRecESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit
 _ZNSt6vectorIN14VlWorkerThread7ExecRecESaIS1_EE17_M_realloc_insertIJRPFvPvbERS5_RbEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %44, %_ZNSt6vectorIN14VlWorkerThread7ExecRecESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit34.i.i
   store ptr %37, ptr %14, align 8
   store ptr %43, ptr %15, align 8
-  %45 = getelementptr inbounds nuw %"struct.VlWorkerThread::ExecRec", ptr %37, i64 %35
+  %45 = getelementptr inbounds nuw [24 x i8], ptr %37, i64 %35
   store ptr %45, ptr %17, align 8
   br label %_ZNSt6vectorIN14VlWorkerThread7ExecRecESaIS1_EE12emplace_backIJRPFvPvbERS5_RbEEERS1_DpOT_.exit
 
@@ -1049,7 +1049,7 @@ _ZNSt6vectorIP14VlWorkerThreadSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i:
 _ZNSt6vectorIP14VlWorkerThreadSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %34, %_ZNSt6vectorIP14VlWorkerThreadSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
   store ptr %29, ptr %4, align 8
   store ptr %33, ptr %5, align 8
-  %35 = getelementptr inbounds nuw ptr, ptr %29, i64 %27
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %27
   store ptr %35, ptr %6, align 8
   br label %_ZNSt6vectorIP14VlWorkerThreadSaIS1_EE9push_backEOS1_.exit
 

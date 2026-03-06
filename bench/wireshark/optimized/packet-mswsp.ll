@@ -11,7 +11,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._e_guid_t = type { i32, i16, i16, [8 x i8] }
 %struct.CFullPropSpec = type { %struct._e_guid_t, i32, %union.anon.2 }
 %union.anon.2 = type { ptr }
-%struct.CTableColumn = type { i32, i8, i8, i8, i16, i16, i8, i16, i8, i16, [255 x i8] }
 %struct.message_data = type { i32, i32, i16, i8, i32, %union.anon }
 %union.anon = type { %struct.CPMSetBindingsIn }
 %struct.CPMSetBindingsIn = type { i32, i32, i32, i32, i32, ptr }
@@ -21,7 +20,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.vt_array = type { %struct.vt_vector, i16, i16, i32, ptr }
 %struct.vt_vector = type { i32, %union.anon.0 }
 %union.anon.0 = type { ptr }
-%struct.vtype_data = type { i32, ptr, i32, ptr, ptr, ptr }
 %struct.CRestriction = type { i32, i32, %union.anon.1 }
 %union.anon.1 = type { ptr }
 %struct.CRowVariant = type { i16, i16, i32, %union.anon.3 }
@@ -1775,7 +1773,7 @@ define hidden void @proto_register_mswsp() local_unnamed_addr #0 {
 
 4:                                                ; preds = %0, %4
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %4 ]
-  %5 = getelementptr %struct.GuidPropertySet, ptr @GuidPropertySet, i64 %indvars.iv
+  %5 = getelementptr [40 x i8], ptr @GuidPropertySet, i64 %indvars.iv
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
   tail call void @guids_add_guid(ptr noundef %5, ptr noundef %7)
@@ -2881,7 +2879,7 @@ get_create_converstation_data.exit.i154:          ; preds = %461, %458, %456
   %.07884.i = phi i32 [ 36, %.lr.ph.preheader.i ], [ %471, %.lr.ph.i156 ]
   %468 = trunc nuw nsw i64 %indvars.iv.i to i32
   %469 = call i32 (ptr, i32, i32, ptr, ptr, ...) @parse_padding(ptr noundef %0, i32 noundef %.07884.i, i32 noundef 4, ptr noundef %432, ptr noundef nonnull @.str.1400, i32 noundef %468)
-  %470 = getelementptr %struct.CTableColumn, ptr %467, i64 %indvars.iv.i
+  %470 = getelementptr [276 x i8], ptr %467, i64 %indvars.iv.i
   %471 = call i32 (ptr, ptr, i32, ptr, ptr, ptr, ptr, ...) @parse_CTableColumn(ptr noundef %0, ptr noundef %1, i32 noundef %469, ptr noundef %430, ptr noundef %432, ptr noundef %470, ptr nonnull poison, i32 noundef %468)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i157 = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -3661,7 +3659,7 @@ define internal noundef i32 @parse_CDbPropSet(ptr noundef %0, ptr noundef %1, i3
 
 16:                                               ; preds = %15, %6
   %indvars.iv.i = phi i64 [ 0, %6 ], [ %indvars.iv.next.i, %15 ]
-  %17 = getelementptr %struct.GuidPropertySet, ptr @GuidPropertySet, i64 %indvars.iv.i
+  %17 = getelementptr [40 x i8], ptr @GuidPropertySet, i64 %indvars.iv.i
   %18 = call i32 @guid_cmp(ptr noundef %17, ptr noundef nonnull %7)
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %GuidPropertySet_find_guid.exit, label %15
@@ -3817,7 +3815,7 @@ define internal noundef i32 @parse_CDbProp(ptr noundef %0, ptr noundef %1, i32 n
 
 43:                                               ; preds = %16
   %44 = zext nneg i32 %41 to i64
-  %45 = getelementptr ptr, ptr @parse_CDbColId.KIND, i64 %44
+  %45 = getelementptr [8 x i8], ptr @parse_CDbColId.KIND, i64 %44
   %46 = load ptr, ptr %45, align 8
   br label %47
 
@@ -3921,7 +3919,7 @@ vType_get_type.exit.thread:                       ; preds = %13
 
 15:                                               ; preds = %13, %6
   %indvars.iv.i = phi i64 [ 0, %6 ], [ %indvars.iv.next.i, %13 ]
-  %16 = getelementptr %struct.vtype_data, ptr @VT_TYPE, i64 %indvars.iv.i
+  %16 = getelementptr [48 x i8], ptr @VT_TYPE, i64 %indvars.iv.i
   %17 = load i32, ptr %16, align 16
   %18 = icmp eq i32 %17, %12
   br i1 %18, label %vType_get_type.exit, label %13
@@ -5294,7 +5292,7 @@ define internal i32 @parse_CFullPropSpec(ptr noundef %0, i32 noundef %1, ptr nou
 
 16:                                               ; preds = %15, %6
   %indvars.iv.i = phi i64 [ 0, %6 ], [ %indvars.iv.next.i, %15 ]
-  %17 = getelementptr %struct.GuidPropertySet, ptr @GuidPropertySet, i64 %indvars.iv.i
+  %17 = getelementptr [40 x i8], ptr @GuidPropertySet, i64 %indvars.iv.i
   %18 = call i32 @guid_cmp(ptr noundef %17, ptr noundef %4)
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %GuidPropertySet_find_guid.exit, label %15
@@ -6137,7 +6135,7 @@ define internal noundef i32 @parse_RowsBufferCol(ptr noundef %0, ptr noundef %1,
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %19 = load ptr, ptr %18, align 8
   %20 = zext i32 %4 to i64
-  %21 = getelementptr %struct.CTableColumn, ptr %19, i64 %20
+  %21 = getelementptr [276 x i8], ptr %19, i64 %20
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.va_start.p0(ptr nonnull %12)
   %22 = call ptr @wmem_packet_scope()
@@ -6253,7 +6251,7 @@ define internal void @parse_VariantCol(ptr noundef %0, ptr noundef %1, i32 nound
 
 22:                                               ; preds = %21, %9
   %indvars.iv.i = phi i64 [ 0, %9 ], [ %indvars.iv.next.i, %21 ]
-  %23 = getelementptr %struct.vtype_data, ptr @VT_TYPE, i64 %indvars.iv.i
+  %23 = getelementptr [48 x i8], ptr @VT_TYPE, i64 %indvars.iv.i
   %24 = load i32, ptr %23, align 16
   %25 = icmp eq i32 %24, %20
   br i1 %25, label %vType_get_type.exit, label %21
@@ -6318,7 +6316,7 @@ vType_get_type.exit:                              ; preds = %21, %22
 
 56:                                               ; preds = %55, %36
   %indvars.iv.i.i = phi i64 [ 0, %36 ], [ %indvars.iv.next.i.i, %55 ]
-  %57 = getelementptr %struct.vtype_data, ptr @VT_TYPE, i64 %indvars.iv.i.i
+  %57 = getelementptr [48 x i8], ptr @VT_TYPE, i64 %indvars.iv.i.i
   %58 = load i32, ptr %57, align 16
   %59 = icmp eq i32 %58, %54
   br i1 %59, label %vType_get_type.exit.i, label %55
@@ -6615,7 +6613,7 @@ define internal noundef i32 @parse_CTableColumn(ptr noundef %0, ptr noundef %1, 
 
 18:                                               ; preds = %17, %7
   %indvars.iv.i.i = phi i64 [ 0, %7 ], [ %indvars.iv.next.i.i, %17 ]
-  %19 = getelementptr %struct.GuidPropertySet, ptr @GuidPropertySet, i64 %indvars.iv.i.i
+  %19 = getelementptr [40 x i8], ptr @GuidPropertySet, i64 %indvars.iv.i.i
   %20 = call i32 @guid_cmp(ptr noundef %19, ptr noundef nonnull %10)
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %GuidPropertySet_find_guid.exit.i, label %17
@@ -6712,7 +6710,7 @@ get_name_from_fullpropspec.exit:                  ; preds = %28, %41, %45, %49
 
 60:                                               ; preds = %59, %57
   %indvars.iv.i = phi i64 [ 0, %57 ], [ %indvars.iv.next.i, %59 ]
-  %61 = getelementptr %struct.vtype_data, ptr @VT_TYPE, i64 %indvars.iv.i
+  %61 = getelementptr [48 x i8], ptr @VT_TYPE, i64 %indvars.iv.i
   %62 = load i32, ptr %61, align 16
   %63 = icmp eq i32 %62, %58
   br i1 %63, label %vType_get_type.exit, label %59

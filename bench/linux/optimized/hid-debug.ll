@@ -16,10 +16,8 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_hid_dump_inp
 %union.anon.22 = type { %struct.anon.23, [16 x i8] }
 %struct.anon.23 = type { ptr, i32, i32, i64, i64, ptr, i16, i8 }
 %struct.lock_class_key = type {}
-%struct.hid_usage = type { i32, i32, i32, i8, i8, i16, i8, i8, i8, i8, i16 }
-%struct.hid_report_enum = type { i32, %struct.list_head, [256 x ptr] }
-%struct.list_head = type { ptr, ptr }
 %struct.wait_queue_entry = type { i32, ptr, ptr, %struct.list_head }
+%struct.list_head = type { ptr, ptr }
 
 @.str = private unnamed_addr constant [42 x i8] c"\013hid: error allocating HID debug buffer\0A\00", align 1
 @.str.1 = private unnamed_addr constant [2 x i8] c".\00", align 1
@@ -1252,7 +1250,7 @@ define dso_local void @hid_dump_field(ptr noundef readonly captures(none) %0, i3
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %2, ptr noundef nonnull @.str.490, i32 noundef %29, ptr noundef nonnull @.str.40) #9
   %33 = load ptr, ptr %30, align 8
   %34 = sext i32 %32 to i64
-  %35 = getelementptr %struct.hid_usage, ptr %33, i64 %34
+  %35 = getelementptr [24 x i8], ptr %33, i64 %34
   %36 = load i32, ptr %35, align 4
   %37 = tail call ptr @hid_resolv_usage(i32 noundef %36, ptr noundef %2)
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %2, ptr noundef nonnull @.str.9) #9
@@ -1321,10 +1319,10 @@ define dso_local void @hid_dump_field(ptr noundef readonly captures(none) %0, i3
 
 71:                                               ; preds = %68
   %72 = zext nneg i32 %69 to i64
-  %73 = getelementptr ptr, ptr @hid_dump_field.systems, i64 %72
+  %73 = getelementptr [8 x i8], ptr @hid_dump_field.systems, i64 %72
   %74 = load ptr, ptr %73, align 8
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %2, ptr noundef nonnull @.str.32, ptr noundef %74) #9
-  %.split = getelementptr [8 x ptr], ptr @hid_dump_field.units, i64 %72
+  %.split = getelementptr [64 x i8], ptr @hid_dump_field.units, i64 %72
   br label %75
 
 75:                                               ; preds = %96, %71
@@ -1346,7 +1344,7 @@ define dso_local void @hid_dump_field(ptr noundef readonly captures(none) %0, i3
   br label %86
 
 86:                                               ; preds = %85, %82
-  %87 = getelementptr ptr, ptr %.split, i64 %76
+  %87 = getelementptr [8 x i8], ptr %.split, i64 %76
   %88 = load ptr, ptr %87, align 8
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %2, ptr noundef nonnull @.str.2, ptr noundef %88) #9
   %89 = icmp eq i32 %80, 1
@@ -1443,7 +1441,7 @@ define dso_local void @hid_dump_device(ptr noundef readonly captures(address) %0
   br i1 %8, label %.loopexit5, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr ptr, ptr @hid_dump_device.table, i64 %5
+  %10 = getelementptr [8 x i8], ptr @hid_dump_device.table, i64 %5
   br label %13
 
 .loopexit:                                        ; preds = %31, %20
@@ -1469,7 +1467,7 @@ define dso_local void @hid_dump_device(ptr noundef readonly captures(address) %0
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 52
   %22 = load i32, ptr %21, align 4
   %23 = zext i32 %22 to i64
-  %24 = getelementptr ptr, ptr @hid_dump_device.table, i64 %23
+  %24 = getelementptr [8 x i8], ptr @hid_dump_device.table, i64 %23
   %25 = load ptr, ptr %24, align 8
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %1, ptr noundef nonnull @.str.55, ptr noundef %25) #9
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %1, ptr noundef nonnull @.str.9) #9
@@ -1487,7 +1485,7 @@ define dso_local void @hid_dump_device(ptr noundef readonly captures(address) %0
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %1, ptr noundef nonnull @.str.490, i32 noundef 4, ptr noundef nonnull @.str.40) #9
   %33 = trunc nuw i64 %32 to i32
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %1, ptr noundef nonnull @.str.56, i32 noundef %33) #9
-  %34 = getelementptr ptr, ptr %30, i64 %32
+  %34 = getelementptr [8 x i8], ptr %30, i64 %32
   %35 = load ptr, ptr %34, align 8
   tail call void @hid_dump_field(ptr noundef %35, i32 noundef 6, ptr noundef %1)
   %36 = add nuw nsw i64 %32, 1
@@ -1550,7 +1548,7 @@ define dso_local void @hid_dump_report(ptr noundef %0, i32 noundef %1, ptr nound
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %10 = sext i32 %1 to i64
-  %11 = getelementptr %struct.hid_report_enum, ptr %9, i64 %10
+  %11 = getelementptr [2072 x i8], ptr %9, i64 %10
   %12 = load i32, ptr %11, align 8
   %13 = icmp eq i32 %12, 0
   %14 = select i1 %13, ptr @.str.58, ptr @.str.40
@@ -1841,7 +1839,7 @@ define internal noundef i32 @hid_debug_rdesc_show(ptr noundef %0, ptr readnone c
   %43 = phi i32 [ %38, %40 ], [ %85, %.loopexit ]
   %44 = phi i32 [ 0, %40 ], [ %86, %.loopexit ]
   %45 = sext i32 %44 to i64
-  %46 = getelementptr ptr, ptr %41, i64 %45
+  %46 = getelementptr [8 x i8], ptr %41, i64 %45
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %49 = load i32, ptr %48, align 8
@@ -1854,14 +1852,14 @@ define internal noundef i32 @hid_debug_rdesc_show(ptr noundef %0, ptr readnone c
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %54 = load ptr, ptr %53, align 8
   %55 = sext i32 %52 to i64
-  %56 = getelementptr %struct.hid_usage, ptr %54, i64 %55
+  %56 = getelementptr [24 x i8], ptr %54, i64 %55
   %57 = load i32, ptr %56, align 4
   %58 = tail call ptr @hid_resolv_usage(i32 noundef %57, ptr noundef %0)
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.494) #9
   %59 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %60 = load i8, ptr %59, align 4
   %61 = zext i8 %60 to i64
-  %62 = getelementptr ptr, ptr @events, i64 %61
+  %62 = getelementptr [8 x i8], ptr @events, i64 %61
   %63 = load ptr, ptr %62, align 8
   %64 = shl nuw i64 1, %61
   %65 = and i64 %64, 4293525472
@@ -1869,12 +1867,12 @@ define internal noundef i32 @hid_debug_rdesc_show(ptr noundef %0, ptr readnone c
   br i1 %.not, label %66, label %76
 
 66:                                               ; preds = %.preheader
-  %67 = getelementptr ptr, ptr @names, i64 %61
+  %67 = getelementptr [8 x i8], ptr @names, i64 %61
   %68 = load ptr, ptr %67, align 8
   %69 = getelementptr inbounds nuw i8, ptr %56, i64 14
   %70 = load i16, ptr %69, align 2
   %71 = zext i16 %70 to i64
-  %72 = getelementptr ptr, ptr %68, i64 %71
+  %72 = getelementptr [8 x i8], ptr %68, i64 %71
   %73 = load ptr, ptr %72, align 8
   %74 = icmp eq ptr %73, null
   %75 = select i1 %74, ptr @.str.496, ptr %73

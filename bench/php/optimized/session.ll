@@ -1968,7 +1968,7 @@ define dso_local range(i32 -1, 1) i32 @php_session_register_serializer(ptr nound
 
 5:                                                ; preds = %3, %4
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %4 ]
-  %6 = getelementptr inbounds nuw %struct.ps_serializer_struct, ptr @ps_serializers, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [24 x i8], ptr @ps_serializers, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8, !tbaa !92
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %4
@@ -1999,13 +1999,13 @@ define dso_local range(i32 -1, 1) i32 @php_session_register_module(ptr noundef %
 
 3:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %4 = getelementptr inbounds nuw ptr, ptr @ps_modules, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [8 x i8], ptr @ps_modules, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 8, !tbaa !96
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %2
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds nuw ptr, ptr @ps_modules, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr @ps_modules, i64 %indvars.iv
   store ptr %0, ptr %7, align 8, !tbaa !96
   br label %.loopexit
 
@@ -10163,14 +10163,14 @@ define internal void @_php_cache_limiter_public() #0 {
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %16 = load i32, ptr %15, align 8, !tbaa !209
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds ptr, ptr @week_days, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr @week_days, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !83
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %21 = load i32, ptr %20, align 4, !tbaa !211
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %23 = load i32, ptr %22, align 8, !tbaa !212
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds ptr, ptr @month_names, i64 %24
+  %25 = getelementptr inbounds [8 x i8], ptr @month_names, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !83
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %28 = load i32, ptr %27, align 4, !tbaa !213
@@ -10279,14 +10279,14 @@ define internal fastcc void @last_modified() unnamed_addr #17 {
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %16 = load i32, ptr %15, align 8, !tbaa !209
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds ptr, ptr @week_days, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr @week_days, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !83
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %21 = load i32, ptr %20, align 4, !tbaa !211
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %23 = load i32, ptr %22, align 8, !tbaa !212
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds ptr, ptr @month_names, i64 %24
+  %25 = getelementptr inbounds [8 x i8], ptr @month_names, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !83
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %28 = load i32, ptr %27, align 4, !tbaa !213

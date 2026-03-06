@@ -76,7 +76,7 @@ define hidden range(i32 0, 20) i32 @busmaster_lex(ptr noundef %0) local_unnamed_
 23:                                               ; preds = %20
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %25 = load i64, ptr %24, align 8
-  %26 = getelementptr ptr, ptr %22, i64 %25
+  %26 = getelementptr [8 x i8], ptr %22, i64 %25
   %27 = load ptr, ptr %26, align 8
   %.not275 = icmp eq ptr %27, null
   br i1 %.not275, label %28, label %35
@@ -88,11 +88,11 @@ define hidden range(i32 0, 20) i32 @busmaster_lex(ptr noundef %0) local_unnamed_
   %31 = load ptr, ptr %21, align 8
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %33 = load i64, ptr %32, align 8
-  %34 = getelementptr ptr, ptr %31, i64 %33
+  %34 = getelementptr [8 x i8], ptr %31, i64 %33
   store ptr %30, ptr %34, align 8
   %.pre = load ptr, ptr %21, align 8
   %.pre742 = load i64, ptr %32, align 8
-  %.phi.trans.insert743 = getelementptr ptr, ptr %.pre, i64 %.pre742
+  %.phi.trans.insert743 = getelementptr [8 x i8], ptr %.pre, i64 %.pre742
   %.pre744 = load ptr, ptr %.phi.trans.insert743, align 8
   br label %35
 
@@ -100,7 +100,7 @@ define hidden range(i32 0, 20) i32 @busmaster_lex(ptr noundef %0) local_unnamed_
   %36 = phi ptr [ %.pre744, %28 ], [ %27, %23 ]
   %37 = phi i64 [ %.pre742, %28 ], [ %25, %23 ]
   %38 = phi ptr [ %.pre, %28 ], [ %22, %23 ]
-  %39 = getelementptr ptr, ptr %38, i64 %37
+  %39 = getelementptr [8 x i8], ptr %38, i64 %37
   %40 = getelementptr inbounds nuw i8, ptr %36, i64 28
   %41 = load i32, ptr %40, align 4
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 52
@@ -156,7 +156,7 @@ define hidden range(i32 0, 20) i32 @busmaster_lex(ptr noundef %0) local_unnamed_
   %72 = getelementptr i8, ptr @yy_ec, i64 %71
   %73 = load i8, ptr %72, align 1
   %74 = sext i32 %.1246 to i64
-  %75 = getelementptr i16, ptr @yy_accept, i64 %74
+  %75 = getelementptr [2 x i8], ptr @yy_accept, i64 %74
   %76 = load i16, ptr %75, align 2
   %.not276 = icmp eq i16 %76, 0
   br i1 %.not276, label %78, label %77
@@ -167,12 +167,12 @@ define hidden range(i32 0, 20) i32 @busmaster_lex(ptr noundef %0) local_unnamed_
   br label %78
 
 78:                                               ; preds = %77, %69
-  %79 = getelementptr i16, ptr @yy_base, i64 %74
+  %79 = getelementptr [2 x i8], ptr @yy_base, i64 %74
   %80 = load i16, ptr %79, align 2
   %81 = sext i16 %80 to i64
   %82 = zext i8 %73 to i64
   %83 = add nsw i64 %81, %82
-  %84 = getelementptr i16, ptr @yy_chk, i64 %83
+  %84 = getelementptr [2 x i8], ptr @yy_chk, i64 %83
   %85 = load i16, ptr %84, align 2
   %86 = sext i16 %85 to i32
   %.not277611 = icmp eq i32 %.1246, %86
@@ -182,7 +182,7 @@ define hidden range(i32 0, 20) i32 @busmaster_lex(ptr noundef %0) local_unnamed_
   %87 = phi i64 [ %100, %95 ], [ %82, %78 ]
   %88 = phi i64 [ %96, %95 ], [ %74, %78 ]
   %.0250612 = phi i8 [ %.1251, %95 ], [ %73, %78 ]
-  %89 = getelementptr i16, ptr @yy_def, i64 %88
+  %89 = getelementptr [2 x i8], ptr @yy_def, i64 %88
   %90 = load i16, ptr %89, align 2
   %91 = icmp sgt i16 %90, 450
   br i1 %91, label %92, label %95
@@ -195,19 +195,19 @@ define hidden range(i32 0, 20) i32 @busmaster_lex(ptr noundef %0) local_unnamed_
 95:                                               ; preds = %92, %.lr.ph
   %.1251 = phi i8 [ %94, %92 ], [ %.0250612, %.lr.ph ]
   %96 = sext i16 %90 to i64
-  %97 = getelementptr i16, ptr @yy_base, i64 %96
+  %97 = getelementptr [2 x i8], ptr @yy_base, i64 %96
   %98 = load i16, ptr %97, align 2
   %99 = sext i16 %98 to i64
   %100 = zext i8 %.1251 to i64
   %101 = add nsw i64 %99, %100
-  %102 = getelementptr i16, ptr @yy_chk, i64 %101
+  %102 = getelementptr [2 x i8], ptr @yy_chk, i64 %101
   %103 = load i16, ptr %102, align 2
   %.not277 = icmp eq i16 %90, %103
   br i1 %.not277, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %95, %78
   %.lcssa = phi i64 [ %83, %78 ], [ %101, %95 ]
-  %104 = getelementptr i16, ptr @yy_nxt, i64 %.lcssa
+  %104 = getelementptr [2 x i8], ptr @yy_nxt, i64 %.lcssa
   %105 = load i16, ptr %104, align 2
   %106 = sext i16 %105 to i32
   %107 = getelementptr i8, ptr %.1253, i64 1
@@ -225,7 +225,7 @@ define hidden range(i32 0, 20) i32 @busmaster_lex(ptr noundef %0) local_unnamed_
   %.2254 = phi ptr [ %108, %.backedge.sink.split987 ], [ %836, %.backedge.backedge ]
   %.3 = phi i32 [ %109, %.backedge.sink.split987 ], [ %.3.be, %.backedge.backedge ]
   %110 = sext i32 %.3 to i64
-  %111 = getelementptr i16, ptr @yy_accept, i64 %110
+  %111 = getelementptr [2 x i8], ptr @yy_accept, i64 %110
   %112 = load i16, ptr %111, align 2
   %113 = sext i16 %112 to i32
   store ptr %.1261, ptr %58, align 8
@@ -915,7 +915,7 @@ define hidden range(i32 0, 20) i32 @busmaster_lex(ptr noundef %0) local_unnamed_
   store i8 %522, ptr %.2254, align 1
   %523 = load ptr, ptr %60, align 8
   %524 = load i64, ptr %61, align 8
-  %525 = getelementptr ptr, ptr %523, i64 %524
+  %525 = getelementptr [8 x i8], ptr %523, i64 %524
   %526 = load ptr, ptr %525, align 8
   %527 = getelementptr inbounds nuw i8, ptr %526, i64 56
   %528 = load i32, ptr %527, align 8
@@ -931,13 +931,13 @@ define hidden range(i32 0, 20) i32 @busmaster_lex(ptr noundef %0) local_unnamed_
   store ptr %533, ptr %534, align 8
   %535 = load ptr, ptr %60, align 8
   %536 = load i64, ptr %61, align 8
-  %537 = getelementptr ptr, ptr %535, i64 %536
+  %537 = getelementptr [8 x i8], ptr %535, i64 %536
   %538 = load ptr, ptr %537, align 8
   %539 = getelementptr inbounds nuw i8, ptr %538, i64 56
   store i32 1, ptr %539, align 8
   %.pre745 = load ptr, ptr %60, align 8
   %.pre746 = load i64, ptr %61, align 8
-  %.phi.trans.insert747 = getelementptr ptr, ptr %.pre745, i64 %.pre746
+  %.phi.trans.insert747 = getelementptr [8 x i8], ptr %.pre745, i64 %.pre746
   %.pre748 = load ptr, ptr %.phi.trans.insert747, align 8
   br label %540
 
@@ -984,7 +984,7 @@ define hidden range(i32 0, 20) i32 @busmaster_lex(ptr noundef %0) local_unnamed_
 565:                                              ; preds = %561, %.lr.ph31.i
   %566 = phi i8 [ %564, %561 ], [ 1, %.lr.ph31.i ]
   %567 = sext i32 %.02129.i to i64
-  %568 = getelementptr i16, ptr @yy_accept, i64 %567
+  %568 = getelementptr [2 x i8], ptr @yy_accept, i64 %567
   %569 = load i16, ptr %568, align 2
   %.not24.i = icmp eq i16 %569, 0
   br i1 %.not24.i, label %571, label %570
@@ -995,12 +995,12 @@ define hidden range(i32 0, 20) i32 @busmaster_lex(ptr noundef %0) local_unnamed_
   br label %571
 
 571:                                              ; preds = %570, %565
-  %572 = getelementptr i16, ptr @yy_base, i64 %567
+  %572 = getelementptr [2 x i8], ptr @yy_base, i64 %567
   %573 = load i16, ptr %572, align 2
   %574 = sext i16 %573 to i64
   %575 = zext i8 %566 to i64
   %576 = add nsw i64 %574, %575
-  %577 = getelementptr i16, ptr @yy_chk, i64 %576
+  %577 = getelementptr [2 x i8], ptr @yy_chk, i64 %576
   %578 = load i16, ptr %577, align 2
   %579 = sext i16 %578 to i32
   %.not2526.i = icmp eq i32 %.02129.i, %579
@@ -1010,7 +1010,7 @@ define hidden range(i32 0, 20) i32 @busmaster_lex(ptr noundef %0) local_unnamed_
   %580 = phi i64 [ %593, %588 ], [ %575, %571 ]
   %581 = phi i64 [ %589, %588 ], [ %567, %571 ]
   %.027.i = phi i8 [ %.1.i, %588 ], [ %566, %571 ]
-  %582 = getelementptr i16, ptr @yy_def, i64 %581
+  %582 = getelementptr [2 x i8], ptr @yy_def, i64 %581
   %583 = load i16, ptr %582, align 2
   %584 = icmp sgt i16 %583, 450
   br i1 %584, label %585, label %588
@@ -1023,19 +1023,19 @@ define hidden range(i32 0, 20) i32 @busmaster_lex(ptr noundef %0) local_unnamed_
 588:                                              ; preds = %585, %.lr.ph.i
   %.1.i = phi i8 [ %587, %585 ], [ %.027.i, %.lr.ph.i ]
   %589 = sext i16 %583 to i64
-  %590 = getelementptr i16, ptr @yy_base, i64 %589
+  %590 = getelementptr [2 x i8], ptr @yy_base, i64 %589
   %591 = load i16, ptr %590, align 2
   %592 = sext i16 %591 to i64
   %593 = zext i8 %.1.i to i64
   %594 = add nsw i64 %592, %593
-  %595 = getelementptr i16, ptr @yy_chk, i64 %594
+  %595 = getelementptr [2 x i8], ptr @yy_chk, i64 %594
   %596 = load i16, ptr %595, align 2
   %.not25.i = icmp eq i16 %583, %596
   br i1 %.not25.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %588, %571
   %.lcssa.i = phi i64 [ %576, %571 ], [ %594, %588 ]
-  %597 = getelementptr i16, ptr @yy_nxt, i64 %.lcssa.i
+  %597 = getelementptr [2 x i8], ptr @yy_nxt, i64 %.lcssa.i
   %598 = load i16, ptr %597, align 2
   %599 = sext i16 %598 to i32
   %600 = getelementptr i8, ptr %.02328.i, i64 1
@@ -1045,7 +1045,7 @@ define hidden range(i32 0, 20) i32 @busmaster_lex(ptr noundef %0) local_unnamed_
 yy_get_previous_state.exit:                       ; preds = %._crit_edge.i, %550
   %.021.lcssa.i = phi i32 [ %558, %550 ], [ %599, %._crit_edge.i ]
   %601 = sext i32 %.021.lcssa.i to i64
-  %602 = getelementptr i16, ptr @yy_accept, i64 %601
+  %602 = getelementptr [2 x i8], ptr @yy_accept, i64 %601
   %603 = load i16, ptr %602, align 2
   %.not.i289 = icmp eq i16 %603, 0
   br i1 %.not.i289, label %605, label %604
@@ -1056,11 +1056,11 @@ yy_get_previous_state.exit:                       ; preds = %._crit_edge.i, %550
   br label %605
 
 605:                                              ; preds = %604, %yy_get_previous_state.exit
-  %606 = getelementptr i16, ptr @yy_base, i64 %601
+  %606 = getelementptr [2 x i8], ptr @yy_base, i64 %601
   %607 = load i16, ptr %606, align 2
   %608 = sext i16 %607 to i64
   %609 = add nsw i64 %608, 1
-  %610 = getelementptr i16, ptr @yy_chk, i64 %609
+  %610 = getelementptr [2 x i8], ptr @yy_chk, i64 %609
   %611 = load i16, ptr %610, align 2
   %612 = sext i16 %611 to i32
   %.not1819.i = icmp eq i32 %.021.lcssa.i, %612
@@ -1068,21 +1068,21 @@ yy_get_previous_state.exit:                       ; preds = %._crit_edge.i, %550
 
 .lr.ph.i290:                                      ; preds = %605, %.lr.ph.i290
   %613 = phi i64 [ %616, %.lr.ph.i290 ], [ %601, %605 ]
-  %614 = getelementptr i16, ptr @yy_def, i64 %613
+  %614 = getelementptr [2 x i8], ptr @yy_def, i64 %613
   %615 = load i16, ptr %614, align 2
   %616 = sext i16 %615 to i64
-  %617 = getelementptr i16, ptr @yy_base, i64 %616
+  %617 = getelementptr [2 x i8], ptr @yy_base, i64 %616
   %618 = load i16, ptr %617, align 2
   %619 = sext i16 %618 to i64
   %620 = add nsw i64 %619, 1
-  %621 = getelementptr i16, ptr @yy_chk, i64 %620
+  %621 = getelementptr [2 x i8], ptr @yy_chk, i64 %620
   %622 = load i16, ptr %621, align 2
   %.not18.i = icmp eq i16 %615, %622
   br i1 %.not18.i, label %yy_try_NUL_trans.exit, label %.lr.ph.i290, !llvm.loop !11
 
 yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i290, %605
   %.lcssa.i292 = phi i64 [ %609, %605 ], [ %620, %.lr.ph.i290 ]
-  %623 = getelementptr i16, ptr @yy_nxt, i64 %.lcssa.i292
+  %623 = getelementptr [2 x i8], ptr @yy_nxt, i64 %.lcssa.i292
   %624 = load i16, ptr %623, align 2
   %625 = icmp eq i16 %624, 450
   %626 = and i64 %.lcssa.i292, 9223372036854775807
@@ -1153,7 +1153,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i290, %605
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i295
   %.pre.i = load ptr, ptr %60, align 8
   %.pre129.i = load i64, ptr %61, align 8
-  %.phi.trans.insert.i = getelementptr ptr, ptr %.pre.i, i64 %.pre129.i
+  %.phi.trans.insert.i = getelementptr [8 x i8], ptr %.pre.i, i64 %.pre129.i
   %.pre130.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %._crit_edge.i293
 
@@ -1167,7 +1167,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i290, %605
   br i1 %660, label %661, label %663
 
 661:                                              ; preds = %._crit_edge.i293
-  %662 = getelementptr ptr, ptr %657, i64 %656
+  %662 = getelementptr [8 x i8], ptr %657, i64 %656
   store i32 0, ptr %62, align 4
   br label %713
 
@@ -1233,7 +1233,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i290, %605
   store ptr %689, ptr %53, align 8
   %690 = load ptr, ptr %60, align 8
   %691 = load i64, ptr %61, align 8
-  %692 = getelementptr ptr, ptr %690, i64 %691
+  %692 = getelementptr [8 x i8], ptr %690, i64 %691
   %693 = load ptr, ptr %692, align 8
   %.pn.in.i = getelementptr inbounds nuw i8, ptr %693, i64 24
   %.pn.i = load i32, ptr %.pn.in.i, align 8
@@ -1269,7 +1269,7 @@ busmaster_yyinput.exit.i:                         ; preds = %705, %._crit_edge12
   store i32 %.0.i.i, ptr %62, align 4
   %710 = load ptr, ptr %60, align 8
   %711 = load i64, ptr %61, align 8
-  %712 = getelementptr ptr, ptr %710, i64 %711
+  %712 = getelementptr [8 x i8], ptr %710, i64 %711
   br label %713
 
 713:                                              ; preds = %busmaster_yyinput.exit.i, %661
@@ -1294,7 +1294,7 @@ busmaster_yyinput.exit.i:                         ; preds = %705, %._crit_edge12
 721:                                              ; preds = %717
   %722 = load ptr, ptr %60, align 8
   %723 = load i64, ptr %61, align 8
-  %724 = getelementptr ptr, ptr %722, i64 %723
+  %724 = getelementptr [8 x i8], ptr %722, i64 %723
   %725 = load ptr, ptr %724, align 8
   %726 = getelementptr inbounds nuw i8, ptr %725, i64 56
   store i32 2, ptr %726, align 8
@@ -1306,7 +1306,7 @@ busmaster_yyinput.exit.i:                         ; preds = %705, %._crit_edge12
   %729 = add i32 %728, %649
   %730 = load ptr, ptr %60, align 8
   %731 = load i64, ptr %61, align 8
-  %732 = getelementptr ptr, ptr %730, i64 %731
+  %732 = getelementptr [8 x i8], ptr %730, i64 %731
   %733 = load ptr, ptr %732, align 8
   %734 = getelementptr inbounds nuw i8, ptr %733, i64 24
   %735 = load i32, ptr %734, align 8
@@ -1322,13 +1322,13 @@ busmaster_yyinput.exit.i:                         ; preds = %705, %._crit_edge12
   %743 = tail call ptr @realloc(ptr noundef %741, i64 noundef %742) #22
   %744 = load ptr, ptr %60, align 8
   %745 = load i64, ptr %61, align 8
-  %746 = getelementptr ptr, ptr %744, i64 %745
+  %746 = getelementptr [8 x i8], ptr %744, i64 %745
   %747 = load ptr, ptr %746, align 8
   %748 = getelementptr inbounds nuw i8, ptr %747, i64 8
   store ptr %743, ptr %748, align 8
   %749 = load ptr, ptr %60, align 8
   %750 = load i64, ptr %61, align 8
-  %751 = getelementptr ptr, ptr %749, i64 %750
+  %751 = getelementptr [8 x i8], ptr %749, i64 %750
   %752 = load ptr, ptr %751, align 8
   %753 = getelementptr inbounds nuw i8, ptr %752, i64 8
   %754 = load ptr, ptr %753, align 8
@@ -1354,7 +1354,7 @@ yy_get_next_buffer.exit:                          ; preds = %727, %756
   %759 = phi i64 [ %.pre134.i, %756 ], [ %731, %727 ]
   %760 = phi ptr [ %.pre133.i, %756 ], [ %730, %727 ]
   store i32 %.pre-phi.i, ptr %62, align 4
-  %761 = getelementptr ptr, ptr %760, i64 %759
+  %761 = getelementptr [8 x i8], ptr %760, i64 %759
   %762 = load ptr, ptr %761, align 8
   %763 = getelementptr inbounds nuw i8, ptr %762, i64 8
   %764 = load ptr, ptr %763, align 8
@@ -1363,7 +1363,7 @@ yy_get_next_buffer.exit:                          ; preds = %727, %756
   store i8 0, ptr %766, align 1
   %767 = load ptr, ptr %60, align 8
   %768 = load i64, ptr %61, align 8
-  %769 = getelementptr ptr, ptr %767, i64 %768
+  %769 = getelementptr [8 x i8], ptr %767, i64 %768
   %770 = load ptr, ptr %769, align 8
   %771 = getelementptr inbounds nuw i8, ptr %770, i64 8
   %772 = load ptr, ptr %771, align 8
@@ -1374,7 +1374,7 @@ yy_get_next_buffer.exit:                          ; preds = %727, %756
   store i8 0, ptr %776, align 1
   %777 = load ptr, ptr %60, align 8
   %778 = load i64, ptr %61, align 8
-  %779 = getelementptr ptr, ptr %777, i64 %778
+  %779 = getelementptr [8 x i8], ptr %777, i64 %778
   %780 = load ptr, ptr %779, align 8
   %781 = getelementptr inbounds nuw i8, ptr %780, i64 8
   %782 = load ptr, ptr %781, align 8
@@ -1386,7 +1386,7 @@ yy_get_next_buffer.exit:                          ; preds = %727, %756
   ]
 
 yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread328_crit_edge: ; preds = %yy_get_next_buffer.exit
-  %783 = getelementptr ptr, ptr %777, i64 %778
+  %783 = getelementptr [8 x i8], ptr %777, i64 %778
   %.pre749 = load ptr, ptr %783, align 8
   %.phi.trans.insert750 = getelementptr inbounds nuw i8, ptr %.pre749, i64 8
   %.pre751 = load ptr, ptr %.phi.trans.insert750, align 8
@@ -1423,7 +1423,7 @@ yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread328_crit_edge: ; preds = %
 798:                                              ; preds = %794, %.lr.ph31.i298
   %799 = phi i8 [ %797, %794 ], [ 1, %.lr.ph31.i298 ]
   %800 = sext i32 %.02129.i299 to i64
-  %801 = getelementptr i16, ptr @yy_accept, i64 %800
+  %801 = getelementptr [2 x i8], ptr @yy_accept, i64 %800
   %802 = load i16, ptr %801, align 2
   %.not24.i302 = icmp eq i16 %802, 0
   br i1 %.not24.i302, label %804, label %803
@@ -1434,12 +1434,12 @@ yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread328_crit_edge: ; preds = %
   br label %804
 
 804:                                              ; preds = %803, %798
-  %805 = getelementptr i16, ptr @yy_base, i64 %800
+  %805 = getelementptr [2 x i8], ptr @yy_base, i64 %800
   %806 = load i16, ptr %805, align 2
   %807 = sext i16 %806 to i64
   %808 = zext i8 %799 to i64
   %809 = add nsw i64 %807, %808
-  %810 = getelementptr i16, ptr @yy_chk, i64 %809
+  %810 = getelementptr [2 x i8], ptr @yy_chk, i64 %809
   %811 = load i16, ptr %810, align 2
   %812 = sext i16 %811 to i32
   %.not2526.i303 = icmp eq i32 %.02129.i299, %812
@@ -1449,7 +1449,7 @@ yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread328_crit_edge: ; preds = %
   %813 = phi i64 [ %826, %821 ], [ %808, %804 ]
   %814 = phi i64 [ %822, %821 ], [ %800, %804 ]
   %.027.i305 = phi i8 [ %.1.i306, %821 ], [ %799, %804 ]
-  %815 = getelementptr i16, ptr @yy_def, i64 %814
+  %815 = getelementptr [2 x i8], ptr @yy_def, i64 %814
   %816 = load i16, ptr %815, align 2
   %817 = icmp sgt i16 %816, 450
   br i1 %817, label %818, label %821
@@ -1462,19 +1462,19 @@ yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread328_crit_edge: ; preds = %
 821:                                              ; preds = %818, %.lr.ph.i304
   %.1.i306 = phi i8 [ %820, %818 ], [ %.027.i305, %.lr.ph.i304 ]
   %822 = sext i16 %816 to i64
-  %823 = getelementptr i16, ptr @yy_base, i64 %822
+  %823 = getelementptr [2 x i8], ptr @yy_base, i64 %822
   %824 = load i16, ptr %823, align 2
   %825 = sext i16 %824 to i64
   %826 = zext i8 %.1.i306 to i64
   %827 = add nsw i64 %825, %826
-  %828 = getelementptr i16, ptr @yy_chk, i64 %827
+  %828 = getelementptr [2 x i8], ptr @yy_chk, i64 %827
   %829 = load i16, ptr %828, align 2
   %.not25.i307 = icmp eq i16 %816, %829
   br i1 %.not25.i307, label %._crit_edge.i308, label %.lr.ph.i304, !llvm.loop !9
 
 ._crit_edge.i308:                                 ; preds = %821, %804
   %.lcssa.i309 = phi i64 [ %809, %804 ], [ %827, %821 ]
-  %830 = getelementptr i16, ptr @yy_nxt, i64 %.lcssa.i309
+  %830 = getelementptr [2 x i8], ptr @yy_nxt, i64 %.lcssa.i309
   %831 = load i16, ptr %830, align 2
   %832 = sext i16 %831 to i32
   %833 = getelementptr i8, ptr %.02328.i300, i64 1
@@ -1511,7 +1511,7 @@ yy_get_next_buffer.exit.thread328:                ; preds = %643, %yy_get_next_b
 844:                                              ; preds = %840, %.lr.ph31.i313
   %845 = phi i8 [ %843, %840 ], [ 1, %.lr.ph31.i313 ]
   %846 = sext i32 %.02129.i314 to i64
-  %847 = getelementptr i16, ptr @yy_accept, i64 %846
+  %847 = getelementptr [2 x i8], ptr @yy_accept, i64 %846
   %848 = load i16, ptr %847, align 2
   %.not24.i317 = icmp eq i16 %848, 0
   br i1 %.not24.i317, label %850, label %849
@@ -1522,12 +1522,12 @@ yy_get_next_buffer.exit.thread328:                ; preds = %643, %yy_get_next_b
   br label %850
 
 850:                                              ; preds = %849, %844
-  %851 = getelementptr i16, ptr @yy_base, i64 %846
+  %851 = getelementptr [2 x i8], ptr @yy_base, i64 %846
   %852 = load i16, ptr %851, align 2
   %853 = sext i16 %852 to i64
   %854 = zext i8 %845 to i64
   %855 = add nsw i64 %853, %854
-  %856 = getelementptr i16, ptr @yy_chk, i64 %855
+  %856 = getelementptr [2 x i8], ptr @yy_chk, i64 %855
   %857 = load i16, ptr %856, align 2
   %858 = sext i16 %857 to i32
   %.not2526.i318 = icmp eq i32 %.02129.i314, %858
@@ -1537,7 +1537,7 @@ yy_get_next_buffer.exit.thread328:                ; preds = %643, %yy_get_next_b
   %859 = phi i64 [ %872, %867 ], [ %854, %850 ]
   %860 = phi i64 [ %868, %867 ], [ %846, %850 ]
   %.027.i320 = phi i8 [ %.1.i321, %867 ], [ %845, %850 ]
-  %861 = getelementptr i16, ptr @yy_def, i64 %860
+  %861 = getelementptr [2 x i8], ptr @yy_def, i64 %860
   %862 = load i16, ptr %861, align 2
   %863 = icmp sgt i16 %862, 450
   br i1 %863, label %864, label %867
@@ -1550,19 +1550,19 @@ yy_get_next_buffer.exit.thread328:                ; preds = %643, %yy_get_next_b
 867:                                              ; preds = %864, %.lr.ph.i319
   %.1.i321 = phi i8 [ %866, %864 ], [ %.027.i320, %.lr.ph.i319 ]
   %868 = sext i16 %862 to i64
-  %869 = getelementptr i16, ptr @yy_base, i64 %868
+  %869 = getelementptr [2 x i8], ptr @yy_base, i64 %868
   %870 = load i16, ptr %869, align 2
   %871 = sext i16 %870 to i64
   %872 = zext i8 %.1.i321 to i64
   %873 = add nsw i64 %871, %872
-  %874 = getelementptr i16, ptr @yy_chk, i64 %873
+  %874 = getelementptr [2 x i8], ptr @yy_chk, i64 %873
   %875 = load i16, ptr %874, align 2
   %.not25.i322 = icmp eq i16 %862, %875
   br i1 %.not25.i322, label %._crit_edge.i323, label %.lr.ph.i319, !llvm.loop !9
 
 ._crit_edge.i323:                                 ; preds = %867, %850
   %.lcssa.i324 = phi i64 [ %855, %850 ], [ %873, %867 ]
-  %876 = getelementptr i16, ptr @yy_nxt, i64 %.lcssa.i324
+  %876 = getelementptr [2 x i8], ptr @yy_nxt, i64 %.lcssa.i324
   %877 = load i16, ptr %876, align 2
   %878 = sext i16 %877 to i32
   %879 = getelementptr i8, ptr %.02328.i315, i64 1
@@ -1640,7 +1640,7 @@ define internal fastcc void @busmaster_ensure_buffer_stack(ptr noundef captures(
 21:                                               ; preds = %16
   %22 = load i64, ptr %13, align 8
   %.idx = shl i64 %22, 3
-  %23 = getelementptr ptr, ptr %19, i64 %22
+  %23 = getelementptr [8 x i8], ptr %19, i64 %22
   %24 = tail call i64 @llvm.usub.sat.i64(i64 %18, i64 %.idx)
   %25 = tail call ptr @__memset_chk(ptr noundef %23, i32 noundef 0, i64 noundef 64, i64 noundef %24) #21
   store i64 %17, ptr %13, align 8
@@ -1699,7 +1699,7 @@ define hidden nonnull ptr @busmaster__create_buffer(ptr noundef %0, i32 noundef 
 24:                                               ; preds = %13
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %26 = load i64, ptr %25, align 8
-  %27 = getelementptr ptr, ptr %23, i64 %26
+  %27 = getelementptr [8 x i8], ptr %23, i64 %26
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %4, %28
   br i1 %29, label %30, label %45
@@ -1737,7 +1737,7 @@ busmaster__flush_buffer.exit.i:                   ; preds = %13
   store i32 1, ptr %46, align 4
   %47 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %48 = load i64, ptr %47, align 8
-  %49 = getelementptr ptr, ptr %23, i64 %48
+  %49 = getelementptr [8 x i8], ptr %23, i64 %48
   %50 = load ptr, ptr %49, align 8
   %.not14.i = icmp eq ptr %4, %50
   br i1 %.not14.i, label %busmaster__init_buffer.exit, label %.thread
@@ -1777,7 +1777,7 @@ define hidden void @busmaster_restart(ptr noundef %0, ptr noundef captures(none)
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr ptr, ptr %4, i64 %7
+  %8 = getelementptr [8 x i8], ptr %4, i64 %7
   %9 = load ptr, ptr %8, align 8
   %.not16 = icmp eq ptr %9, null
   br i1 %.not16, label %10, label %.thread25
@@ -1790,7 +1790,7 @@ define hidden void @busmaster_restart(ptr noundef %0, ptr noundef captures(none)
   %14 = load ptr, ptr %3, align 8
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %16 = load i64, ptr %15, align 8
-  %17 = getelementptr ptr, ptr %14, i64 %16
+  %17 = getelementptr [8 x i8], ptr %14, i64 %16
   store ptr %13, ptr %17, align 8
   %.pre = load ptr, ptr %3, align 8
   %.not17 = icmp eq ptr %.pre, null
@@ -1805,7 +1805,7 @@ define hidden void @busmaster_restart(ptr noundef %0, ptr noundef captures(none)
   %20 = phi ptr [ %.pre, %10 ], [ %4, %5 ]
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %22 = load i64, ptr %21, align 8
-  %23 = getelementptr ptr, ptr %20, i64 %22
+  %23 = getelementptr [8 x i8], ptr %20, i64 %22
   %24 = load ptr, ptr %23, align 8
   %25 = tail call ptr @__errno_location() #24
   %26 = load i32, ptr %25, align 4
@@ -1834,7 +1834,7 @@ define hidden void @busmaster_restart(ptr noundef %0, ptr noundef captures(none)
 
 38:                                               ; preds = %27
   %39 = load i64, ptr %21, align 8
-  %40 = getelementptr ptr, ptr %37, i64 %39
+  %40 = getelementptr [8 x i8], ptr %37, i64 %39
   %41 = load ptr, ptr %40, align 8
   %42 = icmp eq ptr %24, %41
   br i1 %42, label %43, label %busmaster__flush_buffer.exit.i
@@ -1874,7 +1874,7 @@ busmaster__flush_buffer.exit.i:                   ; preds = %.thread, %43, %38, 
 62:                                               ; preds = %busmaster__flush_buffer.exit.i
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %64 = load i64, ptr %63, align 8
-  %65 = getelementptr ptr, ptr %61, i64 %64
+  %65 = getelementptr [8 x i8], ptr %61, i64 %64
   %66 = load ptr, ptr %65, align 8
   br label %67
 
@@ -1897,7 +1897,7 @@ busmaster__init_buffer.exit:                      ; preds = %67, %69
   %73 = load ptr, ptr %3, align 8
   %74 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %75 = load i64, ptr %74, align 8
-  %76 = getelementptr ptr, ptr %73, i64 %75
+  %76 = getelementptr [8 x i8], ptr %73, i64 %75
   %77 = load ptr, ptr %76, align 8
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 28
   %79 = load i32, ptr %78, align 4
@@ -1935,7 +1935,7 @@ define hidden void @busmaster__switch_to_buffer(ptr noundef %0, ptr noundef capt
 .thread:                                          ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr ptr, ptr %4, i64 %8
+  %9 = getelementptr [8 x i8], ptr %4, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, %0
   br i1 %11, label %54, label %12
@@ -1953,7 +1953,7 @@ define hidden void @busmaster__switch_to_buffer(ptr noundef %0, ptr noundef capt
   %18 = load ptr, ptr %16, align 8
   %19 = load ptr, ptr %3, align 8
   %20 = load i64, ptr %7, align 8
-  %21 = getelementptr ptr, ptr %19, i64 %20
+  %21 = getelementptr [8 x i8], ptr %19, i64 %20
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store ptr %18, ptr %23, align 8
@@ -1961,7 +1961,7 @@ define hidden void @busmaster__switch_to_buffer(ptr noundef %0, ptr noundef capt
   %25 = load i32, ptr %24, align 4
   %26 = load ptr, ptr %3, align 8
   %27 = load i64, ptr %7, align 8
-  %28 = getelementptr ptr, ptr %26, i64 %27
+  %28 = getelementptr [8 x i8], ptr %26, i64 %27
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 28
   store i32 %25, ptr %30, align 4
@@ -1972,11 +1972,11 @@ define hidden void @busmaster__switch_to_buffer(ptr noundef %0, ptr noundef capt
   %32 = phi ptr [ null, %5 ], [ %.pre, %13 ], [ %4, %12 ]
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %34 = load i64, ptr %33, align 8
-  %35 = getelementptr ptr, ptr %32, i64 %34
+  %35 = getelementptr [8 x i8], ptr %32, i64 %34
   store ptr %0, ptr %35, align 8
   %36 = load ptr, ptr %3, align 8
   %37 = load i64, ptr %33, align 8
-  %38 = getelementptr ptr, ptr %36, i64 %37
+  %38 = getelementptr [8 x i8], ptr %36, i64 %37
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 28
   %41 = load i32, ptr %40, align 4
@@ -2021,7 +2021,7 @@ define hidden void @busmaster__delete_buffer(ptr noundef captures(address) %0, p
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr ptr, ptr %5, i64 %8
+  %9 = getelementptr [8 x i8], ptr %5, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %0, %10
   br i1 %11, label %12, label %.critedge
@@ -2082,7 +2082,7 @@ define hidden void @busmaster__flush_buffer(ptr noundef captures(address) %0, pt
 15:                                               ; preds = %3
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %17 = load i64, ptr %16, align 8
-  %18 = getelementptr ptr, ptr %14, i64 %17
+  %18 = getelementptr [8 x i8], ptr %14, i64 %17
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %0, %19
   br i1 %20, label %21, label %.critedge
@@ -2127,7 +2127,7 @@ define hidden void @busmaster_push_buffer_state(ptr noundef %0, ptr noundef capt
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr ptr, ptr %6, i64 %9
+  %10 = getelementptr [8 x i8], ptr %6, i64 %9
   %11 = load ptr, ptr %10, align 8
   %.not25 = icmp eq ptr %11, null
   br i1 %.not25, label %.thread31, label %12
@@ -2141,7 +2141,7 @@ define hidden void @busmaster_push_buffer_state(ptr noundef %0, ptr noundef capt
   %17 = load ptr, ptr %15, align 8
   %18 = load ptr, ptr %5, align 8
   %19 = load i64, ptr %8, align 8
-  %20 = getelementptr ptr, ptr %18, i64 %19
+  %20 = getelementptr [8 x i8], ptr %18, i64 %19
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %17, ptr %22, align 8
@@ -2149,7 +2149,7 @@ define hidden void @busmaster_push_buffer_state(ptr noundef %0, ptr noundef capt
   %24 = load i32, ptr %23, align 4
   %25 = load ptr, ptr %5, align 8
   %26 = load i64, ptr %8, align 8
-  %27 = getelementptr ptr, ptr %25, i64 %26
+  %27 = getelementptr [8 x i8], ptr %25, i64 %26
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 28
   store i32 %24, ptr %29, align 4
@@ -2160,7 +2160,7 @@ define hidden void @busmaster_push_buffer_state(ptr noundef %0, ptr noundef capt
 .thread31:                                        ; preds = %7, %12
   %.pr34 = phi ptr [ %.pr.pre, %12 ], [ %6, %7 ]
   %30 = load i64, ptr %8, align 8
-  %31 = getelementptr ptr, ptr %.pr34, i64 %30
+  %31 = getelementptr [8 x i8], ptr %.pr34, i64 %30
   %32 = load ptr, ptr %31, align 8
   %.not27 = icmp eq ptr %32, null
   br i1 %.not27, label %.thread, label %33
@@ -2174,11 +2174,11 @@ define hidden void @busmaster_push_buffer_state(ptr noundef %0, ptr noundef capt
   %35 = phi ptr [ %.pr34, %.thread31 ], [ null, %12 ], [ %.pr34, %33 ], [ null, %4 ]
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %37 = load i64, ptr %36, align 8
-  %38 = getelementptr ptr, ptr %35, i64 %37
+  %38 = getelementptr [8 x i8], ptr %35, i64 %37
   store ptr %0, ptr %38, align 8
   %39 = load ptr, ptr %5, align 8
   %40 = load i64, ptr %36, align 8
-  %41 = getelementptr ptr, ptr %39, i64 %40
+  %41 = getelementptr [8 x i8], ptr %39, i64 %40
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 28
   %44 = load i32, ptr %43, align 4
@@ -2216,7 +2216,7 @@ define hidden void @busmaster_pop_buffer_state(ptr noundef captures(none) %0) lo
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr ptr, ptr %3, i64 %6
+  %7 = getelementptr [8 x i8], ptr %3, i64 %6
   %8 = load ptr, ptr %7, align 8
   %.not20 = icmp eq ptr %8, null
   br i1 %.not20, label %41, label %.critedge.i
@@ -2238,7 +2238,7 @@ busmaster__delete_buffer.exit:                    ; preds = %.critedge.i, %11
   tail call void @free(ptr noundef nonnull %8) #21
   %14 = load ptr, ptr %2, align 8
   %15 = load i64, ptr %5, align 8
-  %16 = getelementptr ptr, ptr %14, i64 %15
+  %16 = getelementptr [8 x i8], ptr %14, i64 %15
   store ptr null, ptr %16, align 8
   %17 = load i64, ptr %5, align 8
   %.not21 = icmp eq i64 %17, 0
@@ -2256,7 +2256,7 @@ busmaster__delete_buffer.exit:                    ; preds = %.critedge.i, %11
   br i1 %.not22, label %41, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr ptr, ptr %22, i64 %21
+  %24 = getelementptr [8 x i8], ptr %22, i64 %21
   %25 = load ptr, ptr %24, align 8
   %.not23 = icmp eq ptr %25, null
   br i1 %.not23, label %41, label %26
@@ -2304,7 +2304,7 @@ define hidden i32 @busmaster_get_lineno(ptr noundef readonly captures(none) %0) 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr ptr, ptr %3, i64 %6
+  %7 = getelementptr [8 x i8], ptr %3, i64 %6
   %8 = load ptr, ptr %7, align 8
   %.not8 = icmp eq ptr %8, null
   br i1 %.not8, label %12, label %9
@@ -2329,7 +2329,7 @@ define hidden i32 @busmaster_get_column(ptr noundef readonly captures(none) %0) 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr ptr, ptr %3, i64 %6
+  %7 = getelementptr [8 x i8], ptr %3, i64 %6
   %8 = load ptr, ptr %7, align 8
   %.not8 = icmp eq ptr %8, null
   br i1 %.not8, label %12, label %9
@@ -2388,7 +2388,7 @@ define hidden void @busmaster_set_lineno(i32 noundef %0, ptr noundef readonly ca
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr ptr, ptr %4, i64 %7
+  %8 = getelementptr [8 x i8], ptr %4, i64 %7
   %9 = load ptr, ptr %8, align 8
   %.not8 = icmp eq ptr %9, null
   br i1 %.not8, label %10, label %11
@@ -2413,7 +2413,7 @@ define hidden void @busmaster_set_column(i32 noundef %0, ptr noundef readonly ca
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr ptr, ptr %4, i64 %7
+  %8 = getelementptr [8 x i8], ptr %4, i64 %7
   %9 = load ptr, ptr %8, align 8
   %.not8 = icmp eq ptr %9, null
   br i1 %.not8, label %10, label %11
@@ -2527,7 +2527,7 @@ define hidden noundef i32 @busmaster_lex_destroy(ptr noundef captures(none) %0) 
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %11 = load i64, ptr %2, align 8
-  %12 = getelementptr ptr, ptr %4, i64 %11
+  %12 = getelementptr [8 x i8], ptr %4, i64 %11
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %.critedge, label %.critedge.i
@@ -2551,7 +2551,7 @@ busmaster__delete_buffer.exit:                    ; preds = %.critedge.i, %19
   tail call void @free(ptr noundef nonnull %15) #21
   %22 = load ptr, ptr %3, align 8
   %23 = load i64, ptr %2, align 8
-  %24 = getelementptr ptr, ptr %22, i64 %23
+  %24 = getelementptr [8 x i8], ptr %22, i64 %23
   store ptr null, ptr %24, align 8
   %25 = load ptr, ptr %3, align 8
   %.not.i20 = icmp eq ptr %25, null
@@ -2559,7 +2559,7 @@ busmaster__delete_buffer.exit:                    ; preds = %.critedge.i, %19
 
 26:                                               ; preds = %busmaster__delete_buffer.exit
   %27 = load i64, ptr %2, align 8
-  %28 = getelementptr ptr, ptr %25, i64 %27
+  %28 = getelementptr [8 x i8], ptr %25, i64 %27
   %29 = load ptr, ptr %28, align 8
   %.not20.i = icmp eq ptr %29, null
   br i1 %.not20.i, label %busmaster_pop_buffer_state.exit, label %.critedge.i.i
@@ -2581,7 +2581,7 @@ busmaster__delete_buffer.exit.i:                  ; preds = %32, %.critedge.i.i
   tail call void @free(ptr noundef nonnull %29) #21
   %35 = load ptr, ptr %3, align 8
   %36 = load i64, ptr %2, align 8
-  %37 = getelementptr ptr, ptr %35, i64 %36
+  %37 = getelementptr [8 x i8], ptr %35, i64 %36
   store ptr null, ptr %37, align 8
   %38 = load i64, ptr %2, align 8
   %.not21.i = icmp eq i64 %38, 0
@@ -2599,7 +2599,7 @@ busmaster__delete_buffer.exit.i:                  ; preds = %32, %.critedge.i.i
   br i1 %.not22.i, label %.critedge, label %44
 
 44:                                               ; preds = %41
-  %45 = getelementptr ptr, ptr %43, i64 %42
+  %45 = getelementptr [8 x i8], ptr %43, i64 %42
   %46 = load ptr, ptr %45, align 8
   %.not23.i = icmp eq ptr %46, null
   br i1 %.not23.i, label %busmaster_pop_buffer_state.exit, label %47
@@ -2624,7 +2624,7 @@ busmaster__delete_buffer.exit.i:                  ; preds = %32, %.critedge.i.i
 busmaster_pop_buffer_state.exit:                  ; preds = %26, %44, %47
   %56 = phi ptr [ %43, %44 ], [ %25, %26 ], [ %43, %47 ]
   %57 = load i64, ptr %2, align 8
-  %58 = getelementptr ptr, ptr %56, i64 %57
+  %58 = getelementptr [8 x i8], ptr %56, i64 %57
   %59 = load ptr, ptr %58, align 8
   %60 = icmp eq ptr %59, null
   br i1 %60, label %.critedge, label %.critedge.i, !llvm.loop !14

@@ -578,7 +578,7 @@ define dso_local noundef ptr @_ZNK4i18n12phonenumbers26PhoneNumberOfflineGeocode
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load i32, ptr %7, align 8, !tbaa !38
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds ptr, ptr %6, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %6, i64 %9
   %11 = load ptr, ptr %1, align 8, !tbaa !51
   %12 = icmp sgt i32 %8, 0
   br i1 %12, label %_ZSt7advanceIPPKclEvRT_T0_.exit.i.i, label %_ZSt11lower_boundIPPKcS1_PFbS1_S1_EET_S5_S5_RKT0_T1_.exit
@@ -587,7 +587,7 @@ _ZSt7advanceIPPKclEvRT_T0_.exit.i.i:              ; preds = %2, %_ZSt7advanceIPP
   %.017.i.i = phi ptr [ %.1.i.i, %_ZSt7advanceIPPKclEvRT_T0_.exit.i.i ], [ %6, %2 ]
   %.01116.i.i = phi i64 [ %.112.i.i, %_ZSt7advanceIPPKclEvRT_T0_.exit.i.i ], [ %9, %2 ]
   %13 = lshr i64 %.01116.i.i, 1
-  %14 = getelementptr inbounds nuw ptr, ptr %.017.i.i, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %.017.i.i, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !54
   %16 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %15, ptr noundef nonnull readonly dereferenceable(1) %11) #23
   %17 = icmp slt i32 %16, 0

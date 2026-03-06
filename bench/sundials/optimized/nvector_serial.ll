@@ -277,9 +277,9 @@ define void @N_VLinearSum_Serial(double noundef %0, ptr noundef readonly capture
 
 .lr.ph9.i:                                        ; preds = %.preheader.i, %.lr.ph9.i
   %.08.i = phi i64 [ %18, %.lr.ph9.i ], [ 0, %.preheader.i ]
-  %13 = getelementptr inbounds nuw double, ptr %.val.val103, i64 %.08.i
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %.val.val103, i64 %.08.i
   %14 = load double, ptr %13, align 8, !tbaa !64
-  %15 = getelementptr inbounds nuw double, ptr %.val99.val, i64 %.08.i
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %.val99.val, i64 %.08.i
   %16 = load double, ptr %15, align 8, !tbaa !64
   %17 = fadd double %14, %16
   store double %17, ptr %15, align 8, !tbaa !64
@@ -300,9 +300,9 @@ define void @N_VLinearSum_Serial(double noundef %0, ptr noundef readonly capture
 
 .lr.ph7.i:                                        ; preds = %.preheader1.i, %.lr.ph7.i
   %.16.i = phi i64 [ %27, %.lr.ph7.i ], [ 0, %.preheader1.i ]
-  %22 = getelementptr inbounds nuw double, ptr %.val.val103, i64 %.16.i
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %.val.val103, i64 %.16.i
   %23 = load double, ptr %22, align 8, !tbaa !64
-  %24 = getelementptr inbounds nuw double, ptr %.val99.val, i64 %.16.i
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.val99.val, i64 %.16.i
   %25 = load double, ptr %24, align 8, !tbaa !64
   %26 = fsub double %25, %23
   store double %26, ptr %24, align 8, !tbaa !64
@@ -312,9 +312,9 @@ define void @N_VLinearSum_Serial(double noundef %0, ptr noundef readonly capture
 
 .lr.ph.i:                                         ; preds = %.preheader3.i, %.lr.ph.i
   %.25.i = phi i64 [ %33, %.lr.ph.i ], [ 0, %.preheader3.i ]
-  %28 = getelementptr inbounds nuw double, ptr %.val.val103, i64 %.25.i
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %.val.val103, i64 %.25.i
   %29 = load double, ptr %28, align 8, !tbaa !64
-  %30 = getelementptr inbounds nuw double, ptr %.val99.val, i64 %.25.i
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %.val99.val, i64 %.25.i
   %31 = load double, ptr %30, align 8, !tbaa !64
   %32 = tail call double @llvm.fmuladd.f64(double %0, double %29, double %31)
   store double %32, ptr %30, align 8, !tbaa !64
@@ -344,9 +344,9 @@ define void @N_VLinearSum_Serial(double noundef %0, ptr noundef readonly capture
 
 .lr.ph9.i137:                                     ; preds = %.preheader.i136, %.lr.ph9.i137
   %.08.i138 = phi i64 [ %46, %.lr.ph9.i137 ], [ 0, %.preheader.i136 ]
-  %41 = getelementptr inbounds nuw double, ptr %.val100.val102, i64 %.08.i138
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %.val100.val102, i64 %.08.i138
   %42 = load double, ptr %41, align 8, !tbaa !64
-  %43 = getelementptr inbounds nuw double, ptr %.val101.val, i64 %.08.i138
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %.val101.val, i64 %.08.i138
   %44 = load double, ptr %43, align 8, !tbaa !64
   %45 = fadd double %42, %44
   store double %45, ptr %43, align 8, !tbaa !64
@@ -367,9 +367,9 @@ define void @N_VLinearSum_Serial(double noundef %0, ptr noundef readonly capture
 
 .lr.ph7.i133:                                     ; preds = %.preheader1.i132, %.lr.ph7.i133
   %.16.i134 = phi i64 [ %55, %.lr.ph7.i133 ], [ 0, %.preheader1.i132 ]
-  %50 = getelementptr inbounds nuw double, ptr %.val100.val102, i64 %.16.i134
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %.val100.val102, i64 %.16.i134
   %51 = load double, ptr %50, align 8, !tbaa !64
-  %52 = getelementptr inbounds nuw double, ptr %.val101.val, i64 %.16.i134
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %.val101.val, i64 %.16.i134
   %53 = load double, ptr %52, align 8, !tbaa !64
   %54 = fsub double %53, %51
   store double %54, ptr %52, align 8, !tbaa !64
@@ -379,9 +379,9 @@ define void @N_VLinearSum_Serial(double noundef %0, ptr noundef readonly capture
 
 .lr.ph.i129:                                      ; preds = %.preheader3.i128, %.lr.ph.i129
   %.25.i130 = phi i64 [ %61, %.lr.ph.i129 ], [ 0, %.preheader3.i128 ]
-  %56 = getelementptr inbounds nuw double, ptr %.val100.val102, i64 %.25.i130
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %.val100.val102, i64 %.25.i130
   %57 = load double, ptr %56, align 8, !tbaa !64
-  %58 = getelementptr inbounds nuw double, ptr %.val101.val, i64 %.25.i130
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %.val101.val, i64 %.25.i130
   %59 = load double, ptr %58, align 8, !tbaa !64
   %60 = tail call double @llvm.fmuladd.f64(double %2, double %57, double %59)
   store double %60, ptr %58, align 8, !tbaa !64
@@ -409,12 +409,12 @@ define void @N_VLinearSum_Serial(double noundef %0, ptr noundef readonly capture
 
 .lr.ph.i141:                                      ; preds = %63, %.lr.ph.i141
   %.01.i = phi i64 [ %74, %.lr.ph.i141 ], [ 0, %63 ]
-  %68 = getelementptr inbounds nuw double, ptr %.val104.val107, i64 %.01.i
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %.val104.val107, i64 %.01.i
   %69 = load double, ptr %68, align 8, !tbaa !64
-  %70 = getelementptr inbounds nuw double, ptr %.val105.val, i64 %.01.i
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %.val105.val, i64 %.01.i
   %71 = load double, ptr %70, align 8, !tbaa !64
   %72 = fadd double %69, %71
-  %73 = getelementptr inbounds nuw double, ptr %.val106.val, i64 %.01.i
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %.val106.val, i64 %.01.i
   store double %72, ptr %73, align 8, !tbaa !64
   %74 = add nuw nsw i64 %.01.i, 1
   %exitcond.not.i142 = icmp eq i64 %74, %.val104.val
@@ -448,12 +448,12 @@ define void @N_VLinearSum_Serial(double noundef %0, ptr noundef readonly capture
 
 .lr.ph.i143:                                      ; preds = %80, %.lr.ph.i143
   %.01.i144 = phi i64 [ %93, %.lr.ph.i143 ], [ 0, %80 ]
-  %87 = getelementptr inbounds nuw double, ptr %.val108.val111, i64 %.01.i144
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %.val108.val111, i64 %.01.i144
   %88 = load double, ptr %87, align 8, !tbaa !64
-  %89 = getelementptr inbounds nuw double, ptr %.val109.val, i64 %.01.i144
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %.val109.val, i64 %.01.i144
   %90 = load double, ptr %89, align 8, !tbaa !64
   %91 = fsub double %88, %90
-  %92 = getelementptr inbounds nuw double, ptr %.val110.val, i64 %.01.i144
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %.val110.val, i64 %.01.i144
   store double %91, ptr %92, align 8, !tbaa !64
   %93 = add nuw nsw i64 %.01.i144, 1
   %exitcond.not.i145 = icmp eq i64 %93, %.val108.val
@@ -482,12 +482,12 @@ define void @N_VLinearSum_Serial(double noundef %0, ptr noundef readonly capture
 
 .lr.ph.i146:                                      ; preds = %95, %.lr.ph.i146
   %.01.i147 = phi i64 [ %109, %.lr.ph.i146 ], [ 0, %95 ]
-  %103 = getelementptr inbounds nuw double, ptr %.val112.val115, i64 %.01.i147
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %.val112.val115, i64 %.01.i147
   %104 = load double, ptr %103, align 8, !tbaa !64
-  %105 = getelementptr inbounds nuw double, ptr %.val113.val, i64 %.01.i147
+  %105 = getelementptr inbounds nuw [8 x i8], ptr %.val113.val, i64 %.01.i147
   %106 = load double, ptr %105, align 8, !tbaa !64
   %107 = tail call double @llvm.fmuladd.f64(double %96, double %104, double %106)
-  %108 = getelementptr inbounds nuw double, ptr %.val114.val, i64 %.01.i147
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %.val114.val, i64 %.01.i147
   store double %107, ptr %108, align 8, !tbaa !64
   %109 = add nuw nsw i64 %.01.i147, 1
   %exitcond.not.i148 = icmp eq i64 %109, %.val112.val
@@ -516,13 +516,13 @@ define void @N_VLinearSum_Serial(double noundef %0, ptr noundef readonly capture
 
 .lr.ph.i149:                                      ; preds = %111, %.lr.ph.i149
   %.01.i150 = phi i64 [ %126, %.lr.ph.i149 ], [ 0, %111 ]
-  %119 = getelementptr inbounds nuw double, ptr %.val116.val119, i64 %.01.i150
+  %119 = getelementptr inbounds nuw [8 x i8], ptr %.val116.val119, i64 %.01.i150
   %120 = load double, ptr %119, align 8, !tbaa !64
-  %121 = getelementptr inbounds nuw double, ptr %.val117.val, i64 %.01.i150
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %.val117.val, i64 %.01.i150
   %122 = load double, ptr %121, align 8, !tbaa !64
   %123 = fneg double %122
   %124 = tail call double @llvm.fmuladd.f64(double %112, double %120, double %123)
-  %125 = getelementptr inbounds nuw double, ptr %.val118.val, i64 %.01.i150
+  %125 = getelementptr inbounds nuw [8 x i8], ptr %.val118.val, i64 %.01.i150
   store double %124, ptr %125, align 8, !tbaa !64
   %126 = add nuw nsw i64 %.01.i150, 1
   %exitcond.not.i151 = icmp eq i64 %126, %.val116.val
@@ -548,13 +548,13 @@ define void @N_VLinearSum_Serial(double noundef %0, ptr noundef readonly capture
 
 .lr.ph.i152:                                      ; preds = %129, %.lr.ph.i152
   %.01.i153 = phi i64 [ %141, %.lr.ph.i152 ], [ 0, %129 ]
-  %134 = getelementptr inbounds nuw double, ptr %.val120.val123, i64 %.01.i153
+  %134 = getelementptr inbounds nuw [8 x i8], ptr %.val120.val123, i64 %.01.i153
   %135 = load double, ptr %134, align 8, !tbaa !64
-  %136 = getelementptr inbounds nuw double, ptr %.val121.val, i64 %.01.i153
+  %136 = getelementptr inbounds nuw [8 x i8], ptr %.val121.val, i64 %.01.i153
   %137 = load double, ptr %136, align 8, !tbaa !64
   %138 = fadd double %135, %137
   %139 = fmul double %0, %138
-  %140 = getelementptr inbounds nuw double, ptr %.val122.val, i64 %.01.i153
+  %140 = getelementptr inbounds nuw [8 x i8], ptr %.val122.val, i64 %.01.i153
   store double %139, ptr %140, align 8, !tbaa !64
   %141 = add nuw nsw i64 %.01.i153, 1
   %exitcond.not.i154 = icmp eq i64 %141, %.val120.val
@@ -581,13 +581,13 @@ define void @N_VLinearSum_Serial(double noundef %0, ptr noundef readonly capture
 
 .lr.ph.i155:                                      ; preds = %145, %.lr.ph.i155
   %.01.i156 = phi i64 [ %157, %.lr.ph.i155 ], [ 0, %145 ]
-  %150 = getelementptr inbounds nuw double, ptr %.val124.val127, i64 %.01.i156
+  %150 = getelementptr inbounds nuw [8 x i8], ptr %.val124.val127, i64 %.01.i156
   %151 = load double, ptr %150, align 8, !tbaa !64
-  %152 = getelementptr inbounds nuw double, ptr %.val125.val, i64 %.01.i156
+  %152 = getelementptr inbounds nuw [8 x i8], ptr %.val125.val, i64 %.01.i156
   %153 = load double, ptr %152, align 8, !tbaa !64
   %154 = fsub double %151, %153
   %155 = fmul double %0, %154
-  %156 = getelementptr inbounds nuw double, ptr %.val126.val, i64 %.01.i156
+  %156 = getelementptr inbounds nuw [8 x i8], ptr %.val126.val, i64 %.01.i156
   store double %155, ptr %156, align 8, !tbaa !64
   %157 = add nuw nsw i64 %.01.i156, 1
   %exitcond.not.i157 = icmp eq i64 %157, %.val124.val
@@ -608,13 +608,13 @@ define void @N_VLinearSum_Serial(double noundef %0, ptr noundef readonly capture
 
 .lr.ph:                                           ; preds = %158, %.lr.ph
   %.0170 = phi i64 [ %176, %.lr.ph ], [ 0, %158 ]
-  %169 = getelementptr inbounds nuw double, ptr %161, i64 %.0170
+  %169 = getelementptr inbounds nuw [8 x i8], ptr %161, i64 %.0170
   %170 = load double, ptr %169, align 8, !tbaa !64
-  %171 = getelementptr inbounds nuw double, ptr %164, i64 %.0170
+  %171 = getelementptr inbounds nuw [8 x i8], ptr %164, i64 %.0170
   %172 = load double, ptr %171, align 8, !tbaa !64
   %173 = fmul double %2, %172
   %174 = tail call double @llvm.fmuladd.f64(double %0, double %170, double %173)
-  %175 = getelementptr inbounds nuw double, ptr %167, i64 %.0170
+  %175 = getelementptr inbounds nuw [8 x i8], ptr %167, i64 %.0170
   store double %174, ptr %175, align 8, !tbaa !64
   %176 = add nuw nsw i64 %.0170, 1
   %exitcond.not = icmp eq i64 %176, %159
@@ -635,7 +635,7 @@ define void @N_VConst_Serial(double noundef %0, ptr noundef readonly captures(no
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.07 = phi i64 [ %9, %.lr.ph ], [ 0, %2 ]
-  %8 = getelementptr inbounds nuw double, ptr %6, i64 %.07
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.07
   store double %0, ptr %8, align 8, !tbaa !64
   %9 = add nuw nsw i64 %.07, 1
   %exitcond.not = icmp eq i64 %9, %4
@@ -662,12 +662,12 @@ define void @N_VProd_Serial(ptr noundef readonly captures(none) %0, ptr noundef 
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.012 = phi i64 [ %21, %.lr.ph ], [ 0, %3 ]
-  %15 = getelementptr inbounds nuw double, ptr %7, i64 %.012
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.012
   %16 = load double, ptr %15, align 8, !tbaa !64
-  %17 = getelementptr inbounds nuw double, ptr %10, i64 %.012
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.012
   %18 = load double, ptr %17, align 8, !tbaa !64
   %19 = fmul double %16, %18
-  %20 = getelementptr inbounds nuw double, ptr %13, i64 %.012
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.012
   store double %19, ptr %20, align 8, !tbaa !64
   %21 = add nuw nsw i64 %.012, 1
   %exitcond.not = icmp eq i64 %21, %5
@@ -694,12 +694,12 @@ define void @N_VDiv_Serial(ptr noundef readonly captures(none) %0, ptr noundef r
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.012 = phi i64 [ %21, %.lr.ph ], [ 0, %3 ]
-  %15 = getelementptr inbounds nuw double, ptr %7, i64 %.012
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.012
   %16 = load double, ptr %15, align 8, !tbaa !64
-  %17 = getelementptr inbounds nuw double, ptr %10, i64 %.012
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.012
   %18 = load double, ptr %17, align 8, !tbaa !64
   %19 = fdiv double %16, %18
-  %20 = getelementptr inbounds nuw double, ptr %13, i64 %.012
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.012
   store double %19, ptr %20, align 8, !tbaa !64
   %21 = add nuw nsw i64 %.012, 1
   %exitcond.not = icmp eq i64 %21, %5
@@ -724,7 +724,7 @@ define void @N_VScale_Serial(double noundef %0, ptr noundef readonly captures(ad
 
 .lr.ph.i:                                         ; preds = %5, %.lr.ph.i
   %.01.i = phi i64 [ %11, %.lr.ph.i ], [ 0, %5 ]
-  %8 = getelementptr inbounds nuw double, ptr %.val.val23, i64 %.01.i
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %.val.val23, i64 %.01.i
   %9 = load double, ptr %8, align 8, !tbaa !64
   %10 = fmul double %0, %9
   store double %10, ptr %8, align 8, !tbaa !64
@@ -749,9 +749,9 @@ define void @N_VScale_Serial(double noundef %0, ptr noundef readonly captures(ad
 
 .lr.ph.i30:                                       ; preds = %14, %.lr.ph.i30
   %.01.i31 = phi i64 [ %21, %.lr.ph.i30 ], [ 0, %14 ]
-  %18 = getelementptr inbounds nuw double, ptr %.val24.val26, i64 %.01.i31
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.val24.val26, i64 %.01.i31
   %19 = load double, ptr %18, align 8, !tbaa !64
-  %20 = getelementptr inbounds nuw double, ptr %.val25.val, i64 %.01.i31
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %.val25.val, i64 %.01.i31
   store double %19, ptr %20, align 8, !tbaa !64
   %21 = add nuw nsw i64 %.01.i31, 1
   %exitcond.not.i32 = icmp eq i64 %21, %.val24.val
@@ -774,10 +774,10 @@ define void @N_VScale_Serial(double noundef %0, ptr noundef readonly captures(ad
 
 .lr.ph.i33:                                       ; preds = %24, %.lr.ph.i33
   %.01.i34 = phi i64 [ %32, %.lr.ph.i33 ], [ 0, %24 ]
-  %28 = getelementptr inbounds nuw double, ptr %.val27.val29, i64 %.01.i34
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %.val27.val29, i64 %.01.i34
   %29 = load double, ptr %28, align 8, !tbaa !64
   %30 = fneg double %29
-  %31 = getelementptr inbounds nuw double, ptr %.val28.val, i64 %.01.i34
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %.val28.val, i64 %.01.i34
   store double %30, ptr %31, align 8, !tbaa !64
   %32 = add nuw nsw i64 %.01.i34, 1
   %exitcond.not.i35 = icmp eq i64 %32, %.val27.val
@@ -795,10 +795,10 @@ define void @N_VScale_Serial(double noundef %0, ptr noundef readonly captures(ad
 
 .lr.ph:                                           ; preds = %33, %.lr.ph
   %.039 = phi i64 [ %45, %.lr.ph ], [ 0, %33 ]
-  %41 = getelementptr inbounds nuw double, ptr %36, i64 %.039
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %.039
   %42 = load double, ptr %41, align 8, !tbaa !64
   %43 = fmul double %0, %42
-  %44 = getelementptr inbounds nuw double, ptr %39, i64 %.039
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %.039
   store double %43, ptr %44, align 8, !tbaa !64
   %45 = add nuw nsw i64 %.039, 1
   %exitcond.not = icmp eq i64 %45, %34
@@ -822,10 +822,10 @@ define void @N_VAbs_Serial(ptr noundef readonly captures(none) %0, ptr noundef r
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.09 = phi i64 [ %15, %.lr.ph ], [ 0, %2 ]
-  %11 = getelementptr inbounds nuw double, ptr %6, i64 %.09
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.09
   %12 = load double, ptr %11, align 8, !tbaa !64
   %13 = tail call double @llvm.fabs.f64(double %12)
-  %14 = getelementptr inbounds nuw double, ptr %9, i64 %.09
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.09
   store double %13, ptr %14, align 8, !tbaa !64
   %15 = add nuw nsw i64 %.09, 1
   %exitcond.not = icmp eq i64 %15, %4
@@ -849,10 +849,10 @@ define void @N_VInv_Serial(ptr noundef readonly captures(none) %0, ptr noundef r
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.09 = phi i64 [ %15, %.lr.ph ], [ 0, %2 ]
-  %11 = getelementptr inbounds nuw double, ptr %6, i64 %.09
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.09
   %12 = load double, ptr %11, align 8, !tbaa !64
   %13 = fdiv double 1.000000e+00, %12
-  %14 = getelementptr inbounds nuw double, ptr %9, i64 %.09
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.09
   store double %13, ptr %14, align 8, !tbaa !64
   %15 = add nuw nsw i64 %.09, 1
   %exitcond.not = icmp eq i64 %15, %4
@@ -876,10 +876,10 @@ define void @N_VAddConst_Serial(ptr noundef readonly captures(none) %0, double n
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.010 = phi i64 [ %16, %.lr.ph ], [ 0, %3 ]
-  %12 = getelementptr inbounds nuw double, ptr %7, i64 %.010
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.010
   %13 = load double, ptr %12, align 8, !tbaa !64
   %14 = fadd double %1, %13
-  %15 = getelementptr inbounds nuw double, ptr %10, i64 %.010
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.010
   store double %14, ptr %15, align 8, !tbaa !64
   %16 = add nuw nsw i64 %.010, 1
   %exitcond.not = icmp eq i64 %16, %5
@@ -904,9 +904,9 @@ define double @N_VDotProd_Serial(ptr noundef readonly captures(none) %0, ptr nou
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.013 = phi double [ %15, %.lr.ph ], [ 0.000000e+00, %2 ]
   %.01112 = phi i64 [ %16, %.lr.ph ], [ 0, %2 ]
-  %11 = getelementptr inbounds nuw double, ptr %6, i64 %.01112
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.01112
   %12 = load double, ptr %11, align 8, !tbaa !64
-  %13 = getelementptr inbounds nuw double, ptr %9, i64 %.01112
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.01112
   %14 = load double, ptr %13, align 8, !tbaa !64
   %15 = tail call double @llvm.fmuladd.f64(double %12, double %14, double %.013)
   %16 = add nuw nsw i64 %.01112, 1
@@ -930,7 +930,7 @@ define double @N_VMaxNorm_Serial(ptr noundef readonly captures(none) %0) #8 {
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.013 = phi double [ %.1, %.lr.ph ], [ 0.000000e+00, %1 ]
   %.01012 = phi i64 [ %11, %.lr.ph ], [ 0, %1 ]
-  %7 = getelementptr inbounds nuw double, ptr %5, i64 %.01012
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.01012
   %8 = load double, ptr %7, align 8, !tbaa !64
   %9 = tail call double @llvm.fabs.f64(double %8)
   %10 = fcmp ogt double %9, %.013
@@ -962,15 +962,15 @@ define double @N_VWrmsNormMask_Serial(ptr noundef readonly captures(none) %0, pt
 .lr.ph.i:                                         ; preds = %3, %25
   %.018.i = phi i64 [ %26, %25 ], [ 0, %3 ]
   %.01617.i = phi double [ %.1.i, %25 ], [ 0.000000e+00, %3 ]
-  %15 = getelementptr inbounds nuw double, ptr %13, i64 %.018.i
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.018.i
   %16 = load double, ptr %15, align 8, !tbaa !64
   %17 = fcmp ogt double %16, 0.000000e+00
   br i1 %17, label %18, label %25
 
 18:                                               ; preds = %.lr.ph.i
-  %19 = getelementptr inbounds nuw double, ptr %7, i64 %.018.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.018.i
   %20 = load double, ptr %19, align 8, !tbaa !64
-  %21 = getelementptr inbounds nuw double, ptr %10, i64 %.018.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.018.i
   %22 = load double, ptr %21, align 8, !tbaa !64
   %23 = fmul double %20, %22
   %24 = tail call double @llvm.fmuladd.f64(double %23, double %23, double %.01617.i)
@@ -1013,9 +1013,9 @@ define double @N_VWrmsNorm_Serial(ptr noundef readonly captures(none) %0, ptr no
 .lr.ph.i:                                         ; preds = %2, %.lr.ph.i
   %.015.i = phi i64 [ %17, %.lr.ph.i ], [ 0, %2 ]
   %.01314.i = phi double [ %16, %.lr.ph.i ], [ 0.000000e+00, %2 ]
-  %11 = getelementptr inbounds nuw double, ptr %6, i64 %.015.i
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.015.i
   %12 = load double, ptr %11, align 8, !tbaa !64
-  %13 = getelementptr inbounds nuw double, ptr %9, i64 %.015.i
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.015.i
   %14 = load double, ptr %13, align 8, !tbaa !64
   %15 = fmul double %12, %14
   %16 = tail call double @llvm.fmuladd.f64(double %15, double %15, double %.01314.i)
@@ -1052,7 +1052,7 @@ define double @N_VMin_Serial(ptr noundef readonly captures(none) %0) #8 {
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.014 = phi double [ %.1, %.lr.ph ], [ %6, %1 ]
   %.01113 = phi i64 [ %11, %.lr.ph ], [ 1, %1 ]
-  %8 = getelementptr inbounds nuw double, ptr %5, i64 %.01113
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.01113
   %9 = load double, ptr %8, align 8, !tbaa !64
   %10 = fcmp olt double %9, %.014
   %.1 = select i1 %10, double %9, double %.014
@@ -1080,9 +1080,9 @@ define double @N_VWL2Norm_Serial(ptr noundef readonly captures(none) %0, ptr nou
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.016 = phi i64 [ %17, %.lr.ph ], [ 0, %2 ]
   %.01415 = phi double [ %16, %.lr.ph ], [ 0.000000e+00, %2 ]
-  %11 = getelementptr inbounds nuw double, ptr %6, i64 %.016
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.016
   %12 = load double, ptr %11, align 8, !tbaa !64
-  %13 = getelementptr inbounds nuw double, ptr %9, i64 %.016
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.016
   %14 = load double, ptr %13, align 8, !tbaa !64
   %15 = fmul double %12, %14
   %16 = tail call double @llvm.fmuladd.f64(double %15, double %15, double %.01415)
@@ -1115,7 +1115,7 @@ define double @N_VL1Norm_Serial(ptr noundef readonly captures(none) %0) #8 {
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.010 = phi double [ %10, %.lr.ph ], [ 0.000000e+00, %1 ]
   %.089 = phi i64 [ %11, %.lr.ph ], [ 0, %1 ]
-  %7 = getelementptr inbounds nuw double, ptr %5, i64 %.089
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.089
   %8 = load double, ptr %7, align 8, !tbaa !64
   %9 = tail call double @llvm.fabs.f64(double %8)
   %10 = fadd double %.010, %9
@@ -1142,12 +1142,12 @@ define void @N_VCompare_Serial(double noundef %0, ptr noundef readonly captures(
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.010 = phi i64 [ %18, %.lr.ph ], [ 0, %3 ]
-  %12 = getelementptr inbounds nuw double, ptr %7, i64 %.010
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.010
   %13 = load double, ptr %12, align 8, !tbaa !64
   %14 = tail call double @llvm.fabs.f64(double %13)
   %15 = fcmp oge double %14, %0
   %16 = select i1 %15, double 1.000000e+00, double 0.000000e+00
-  %17 = getelementptr inbounds nuw double, ptr %10, i64 %.010
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.010
   store double %16, ptr %17, align 8, !tbaa !64
   %18 = add nuw nsw i64 %.010, 1
   %exitcond.not = icmp eq i64 %18, %5
@@ -1172,14 +1172,14 @@ define range(i32 0, 2) i32 @N_VInvTest_Serial(ptr noundef readonly captures(none
 .lr.ph:                                           ; preds = %2, %17
   %.015 = phi i32 [ %.1, %17 ], [ 1, %2 ]
   %.01214 = phi i64 [ %18, %17 ], [ 0, %2 ]
-  %11 = getelementptr inbounds nuw double, ptr %6, i64 %.01214
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.01214
   %12 = load double, ptr %11, align 8, !tbaa !64
   %13 = fcmp oeq double %12, 0.000000e+00
   br i1 %13, label %17, label %14
 
 14:                                               ; preds = %.lr.ph
   %15 = fdiv double 1.000000e+00, %12
-  %16 = getelementptr inbounds nuw double, ptr %9, i64 %.01214
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.01214
   store double %15, ptr %16, align 8, !tbaa !64
   br label %17
 
@@ -1212,9 +1212,9 @@ define range(i32 0, 2) i32 @N_VConstrMask_Serial(ptr noundef readonly captures(n
 .lr.ph:                                           ; preds = %3, %.critedge29
   %.031 = phi i64 [ %34, %.critedge29 ], [ 0, %3 ]
   %.02630 = phi double [ %.1, %.critedge29 ], [ 0.000000e+00, %3 ]
-  %15 = getelementptr inbounds nuw double, ptr %13, i64 %.031
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.031
   store double 0.000000e+00, ptr %15, align 8, !tbaa !64
-  %16 = getelementptr inbounds nuw double, ptr %10, i64 %.031
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.031
   %17 = load double, ptr %16, align 8, !tbaa !64
   %18 = fcmp oeq double %17, 0.000000e+00
   br i1 %18, label %.critedge29, label %19
@@ -1225,7 +1225,7 @@ define range(i32 0, 2) i32 @N_VConstrMask_Serial(ptr noundef readonly captures(n
   br i1 %21, label %22, label %27
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds nuw double, ptr %7, i64 %.031
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.031
   %24 = load double, ptr %23, align 8, !tbaa !64
   %25 = fmul double %17, %24
   %26 = fcmp ugt double %25, 0.000000e+00
@@ -1236,7 +1236,7 @@ define range(i32 0, 2) i32 @N_VConstrMask_Serial(ptr noundef readonly captures(n
   br i1 %28, label %29, label %.critedge29
 
 29:                                               ; preds = %27
-  %30 = getelementptr inbounds nuw double, ptr %7, i64 %.031
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.031
   %31 = load double, ptr %30, align 8, !tbaa !64
   %32 = fmul double %17, %31
   %33 = fcmp olt double %32, 0.000000e+00
@@ -1278,14 +1278,14 @@ define double @N_VMinQuotient_Serial(ptr noundef readonly captures(none) %0, ptr
   %.030 = phi double [ %.1, %20 ], [ 0x7FEFFFFFFFFFFFFF, %2 ]
   %.02329 = phi i32 [ %.124, %20 ], [ 1, %2 ]
   %.02528 = phi i64 [ %21, %20 ], [ 0, %2 ]
-  %11 = getelementptr inbounds nuw double, ptr %9, i64 %.02528
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.02528
   %12 = load double, ptr %11, align 8, !tbaa !64
   %13 = fcmp oeq double %12, 0.000000e+00
   br i1 %13, label %20, label %14
 
 14:                                               ; preds = %.lr.ph
   %.not = icmp eq i32 %.02329, 0
-  %15 = getelementptr inbounds nuw double, ptr %6, i64 %.02528
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.02528
   %16 = load double, ptr %15, align 8, !tbaa !64
   %17 = fdiv double %16, %12
   br i1 %.not, label %18, label %20
@@ -1322,9 +1322,9 @@ define double @N_VWSqrSumLocal_Serial(ptr noundef readonly captures(none) %0, pt
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.015 = phi i64 [ %17, %.lr.ph ], [ 0, %2 ]
   %.01314 = phi double [ %16, %.lr.ph ], [ 0.000000e+00, %2 ]
-  %11 = getelementptr inbounds nuw double, ptr %6, i64 %.015
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.015
   %12 = load double, ptr %11, align 8, !tbaa !64
-  %13 = getelementptr inbounds nuw double, ptr %9, i64 %.015
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.015
   %14 = load double, ptr %13, align 8, !tbaa !64
   %15 = fmul double %12, %14
   %16 = tail call double @llvm.fmuladd.f64(double %15, double %15, double %.01314)
@@ -1355,15 +1355,15 @@ define double @N_VWSqrSumMaskLocal_Serial(ptr noundef readonly captures(none) %0
 .lr.ph:                                           ; preds = %3, %25
   %.018 = phi i64 [ %26, %25 ], [ 0, %3 ]
   %.01617 = phi double [ %.1, %25 ], [ 0.000000e+00, %3 ]
-  %15 = getelementptr inbounds nuw double, ptr %13, i64 %.018
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.018
   %16 = load double, ptr %15, align 8, !tbaa !64
   %17 = fcmp ogt double %16, 0.000000e+00
   br i1 %17, label %18, label %25
 
 18:                                               ; preds = %.lr.ph
-  %19 = getelementptr inbounds nuw double, ptr %7, i64 %.018
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.018
   %20 = load double, ptr %19, align 8, !tbaa !64
-  %21 = getelementptr inbounds nuw double, ptr %10, i64 %.018
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.018
   %22 = load double, ptr %21, align 8, !tbaa !64
   %23 = fmul double %20, %22
   %24 = tail call double @llvm.fmuladd.f64(double %23, double %23, double %.01617)
@@ -1400,9 +1400,9 @@ define noundef i32 @N_VDotProdMulti_Serial(i32 noundef %0, ptr noundef readonly 
 .lr.ph.i:                                         ; preds = %6, %.lr.ph.i
   %.013.i = phi double [ %20, %.lr.ph.i ], [ 0.000000e+00, %6 ]
   %.01112.i = phi i64 [ %21, %.lr.ph.i ], [ 0, %6 ]
-  %16 = getelementptr inbounds nuw double, ptr %11, i64 %.01112.i
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.01112.i
   %17 = load double, ptr %16, align 8, !tbaa !64
-  %18 = getelementptr inbounds nuw double, ptr %14, i64 %.01112.i
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.01112.i
   %19 = load double, ptr %18, align 8, !tbaa !64
   %20 = tail call double @llvm.fmuladd.f64(double %17, double %19, double %.013.i)
   %21 = add nuw nsw i64 %.01112.i, 1
@@ -1434,21 +1434,21 @@ N_VDotProd_Serial.exit:                           ; preds = %.lr.ph.i, %6
 
 .lr.ph.us:                                        ; preds = %.lr.ph28, %._crit_edge.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge.us ], [ 0, %.lr.ph28 ]
-  %30 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %31 = load ptr, ptr %30, align 8, !tbaa !67
   %32 = load ptr, ptr %31, align 8, !tbaa !54
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %34 = load ptr, ptr %33, align 8, !tbaa !61
-  %35 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   store double 0.000000e+00, ptr %35, align 8, !tbaa !64
   br label %36
 
 36:                                               ; preds = %.lr.ph.us, %36
   %37 = phi double [ 0.000000e+00, %.lr.ph.us ], [ %42, %36 ]
   %.02325.us = phi i64 [ 0, %.lr.ph.us ], [ %43, %36 ]
-  %38 = getelementptr inbounds nuw double, ptr %26, i64 %.02325.us
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %.02325.us
   %39 = load double, ptr %38, align 8, !tbaa !64
-  %40 = getelementptr inbounds nuw double, ptr %34, i64 %.02325.us
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %.02325.us
   %41 = load double, ptr %40, align 8, !tbaa !64
   %42 = tail call double @llvm.fmuladd.f64(double %39, double %41, double %37)
   store double %42, ptr %35, align 8, !tbaa !64
@@ -1485,9 +1485,9 @@ define noundef i32 @N_VBufPack_Serial(ptr noundef readonly captures(none) %0, pt
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.010 = phi i64 [ %11, %.lr.ph ], [ 0, %2 ]
-  %8 = getelementptr inbounds nuw double, ptr %6, i64 %.010
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.010
   %9 = load double, ptr %8, align 8, !tbaa !64
-  %10 = getelementptr inbounds nuw double, ptr %1, i64 %.010
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.010
   store double %9, ptr %10, align 8, !tbaa !64
   %11 = add nuw nsw i64 %.010, 1
   %exitcond.not = icmp eq i64 %11, %4
@@ -1508,9 +1508,9 @@ define noundef i32 @N_VBufUnpack_Serial(ptr noundef readonly captures(none) %0, 
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.010 = phi i64 [ %11, %.lr.ph ], [ 0, %2 ]
-  %8 = getelementptr inbounds nuw double, ptr %1, i64 %.010
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.010
   %9 = load double, ptr %8, align 8, !tbaa !64
-  %10 = getelementptr inbounds nuw double, ptr %6, i64 %.010
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.010
   store double %9, ptr %10, align 8, !tbaa !64
   %11 = add nuw nsw i64 %.010, 1
   %exitcond.not = icmp eq i64 %11, %4
@@ -1532,7 +1532,7 @@ define void @N_VPrint_Serial(ptr noundef readonly captures(none) %0) #11 {
 
 .lr.ph.i:                                         ; preds = %1, %.lr.ph.i
   %.08.i = phi i64 [ %11, %.lr.ph.i ], [ 0, %1 ]
-  %8 = getelementptr inbounds nuw double, ptr %6, i64 %.08.i
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.08.i
   %9 = load double, ptr %8, align 8, !tbaa !64
   %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str, double noundef %9) #22
   %11 = add nuw nsw i64 %.08.i, 1
@@ -1555,7 +1555,7 @@ define void @N_VPrintFile_Serial(ptr noundef readonly captures(none) %0, ptr nou
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.08 = phi i64 [ %11, %.lr.ph ], [ 0, %2 ]
-  %8 = getelementptr inbounds nuw double, ptr %6, i64 %.08
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.08
   %9 = load double, ptr %8, align 8, !tbaa !64
   %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str, double noundef %9) #22
   %11 = add nuw nsw i64 %.08, 1
@@ -1822,7 +1822,7 @@ define noundef i32 @N_VLinearCombination_Serial(i32 noundef %0, ptr noundef read
 
 .lr.ph.i.i:                                       ; preds = %9, %.lr.ph.i.i
   %.01.i.i = phi i64 [ %15, %.lr.ph.i.i ], [ 0, %9 ]
-  %12 = getelementptr inbounds nuw double, ptr %.val.val23.i, i64 %.01.i.i
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %.val.val23.i, i64 %.01.i.i
   %13 = load double, ptr %12, align 8, !tbaa !64
   %14 = fmul double %7, %13
   store double %14, ptr %12, align 8, !tbaa !64
@@ -1847,9 +1847,9 @@ define noundef i32 @N_VLinearCombination_Serial(i32 noundef %0, ptr noundef read
 
 .lr.ph.i30.i:                                     ; preds = %18, %.lr.ph.i30.i
   %.01.i31.i = phi i64 [ %25, %.lr.ph.i30.i ], [ 0, %18 ]
-  %22 = getelementptr inbounds nuw double, ptr %.val24.val26.i, i64 %.01.i31.i
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %.val24.val26.i, i64 %.01.i31.i
   %23 = load double, ptr %22, align 8, !tbaa !64
-  %24 = getelementptr inbounds nuw double, ptr %.val25.val.i, i64 %.01.i31.i
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.val25.val.i, i64 %.01.i31.i
   store double %23, ptr %24, align 8, !tbaa !64
   %25 = add nuw nsw i64 %.01.i31.i, 1
   %exitcond.not.i32.i = icmp eq i64 %25, %.val24.val.i
@@ -1872,10 +1872,10 @@ define noundef i32 @N_VLinearCombination_Serial(i32 noundef %0, ptr noundef read
 
 .lr.ph.i33.i:                                     ; preds = %28, %.lr.ph.i33.i
   %.01.i34.i = phi i64 [ %36, %.lr.ph.i33.i ], [ 0, %28 ]
-  %32 = getelementptr inbounds nuw double, ptr %.val27.val29.i, i64 %.01.i34.i
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %.val27.val29.i, i64 %.01.i34.i
   %33 = load double, ptr %32, align 8, !tbaa !64
   %34 = fneg double %33
-  %35 = getelementptr inbounds nuw double, ptr %.val28.val.i, i64 %.01.i34.i
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %.val28.val.i, i64 %.01.i34.i
   store double %34, ptr %35, align 8, !tbaa !64
   %36 = add nuw nsw i64 %.01.i34.i, 1
   %exitcond.not.i35.i = icmp eq i64 %36, %.val27.val.i
@@ -1893,10 +1893,10 @@ define noundef i32 @N_VLinearCombination_Serial(i32 noundef %0, ptr noundef read
 
 .lr.ph.i:                                         ; preds = %37, %.lr.ph.i
   %.039.i = phi i64 [ %49, %.lr.ph.i ], [ 0, %37 ]
-  %45 = getelementptr inbounds nuw double, ptr %40, i64 %.039.i
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %.039.i
   %46 = load double, ptr %45, align 8, !tbaa !64
   %47 = fmul double %7, %46
-  %48 = getelementptr inbounds nuw double, ptr %43, i64 %.039.i
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %.039.i
   store double %47, ptr %48, align 8, !tbaa !64
   %49 = add nuw nsw i64 %.039.i, 1
   %exitcond.not.i = icmp eq i64 %49, %38
@@ -1940,20 +1940,20 @@ define noundef i32 @N_VLinearCombination_Serial(i32 noundef %0, ptr noundef read
 
 .lr.ph104.us:                                     ; preds = %.lr.ph104.us.preheader, %._crit_edge.us107
   %indvars.iv128 = phi i64 [ 1, %.lr.ph104.us.preheader ], [ %indvars.iv.next129, %._crit_edge.us107 ]
-  %68 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv128
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv128
   %69 = load ptr, ptr %68, align 8, !tbaa !67
   %70 = load ptr, ptr %69, align 8, !tbaa !54
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %72 = load ptr, ptr %71, align 8, !tbaa !61
-  %73 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv128
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv128
   br label %74
 
 74:                                               ; preds = %.lr.ph104.us, %74
   %.075103.us = phi i64 [ 0, %.lr.ph104.us ], [ %81, %74 ]
   %75 = load double, ptr %73, align 8, !tbaa !64
-  %76 = getelementptr inbounds nuw double, ptr %72, i64 %.075103.us
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %.075103.us
   %77 = load double, ptr %76, align 8, !tbaa !64
-  %78 = getelementptr inbounds nuw double, ptr %60, i64 %.075103.us
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %.075103.us
   %79 = load double, ptr %78, align 8, !tbaa !64
   %80 = tail call double @llvm.fmuladd.f64(double %75, double %77, double %79)
   store double %80, ptr %78, align 8, !tbaa !64
@@ -1976,20 +1976,20 @@ define noundef i32 @N_VLinearCombination_Serial(i32 noundef %0, ptr noundef read
 
 .lr.ph99.us:                                      ; preds = %.lr.ph99.us.preheader, %._crit_edge.us102
   %indvars.iv122 = phi i64 [ 1, %.lr.ph99.us.preheader ], [ %indvars.iv.next123, %._crit_edge.us102 ]
-  %83 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv122
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv122
   %84 = load ptr, ptr %83, align 8, !tbaa !67
   %85 = load ptr, ptr %84, align 8, !tbaa !54
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 16
   %87 = load ptr, ptr %86, align 8, !tbaa !61
-  %88 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv122
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv122
   br label %89
 
 89:                                               ; preds = %.lr.ph99.us, %89
   %.298.us = phi i64 [ 0, %.lr.ph99.us ], [ %96, %89 ]
   %90 = load double, ptr %88, align 8, !tbaa !64
-  %91 = getelementptr inbounds nuw double, ptr %87, i64 %.298.us
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %87, i64 %.298.us
   %92 = load double, ptr %91, align 8, !tbaa !64
-  %93 = getelementptr inbounds nuw double, ptr %60, i64 %.298.us
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %.298.us
   %94 = load double, ptr %93, align 8, !tbaa !64
   %95 = tail call double @llvm.fmuladd.f64(double %90, double %92, double %94)
   store double %95, ptr %93, align 8, !tbaa !64
@@ -2005,7 +2005,7 @@ define noundef i32 @N_VLinearCombination_Serial(i32 noundef %0, ptr noundef read
 .lr.ph97:                                         ; preds = %.preheader84, %.lr.ph97
   %.196 = phi i64 [ %101, %.lr.ph97 ], [ 0, %.preheader84 ]
   %97 = load double, ptr %1, align 8, !tbaa !64
-  %98 = getelementptr inbounds nuw double, ptr %60, i64 %.196
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %.196
   %99 = load double, ptr %98, align 8, !tbaa !64
   %100 = fmul double %97, %99
   store double %100, ptr %98, align 8, !tbaa !64
@@ -2030,20 +2030,20 @@ define noundef i32 @N_VLinearCombination_Serial(i32 noundef %0, ptr noundef read
 
 .lr.ph93.us:                                      ; preds = %.lr.ph93.us.preheader, %._crit_edge.us
   %indvars.iv = phi i64 [ 1, %.lr.ph93.us.preheader ], [ %indvars.iv.next, %._crit_edge.us ]
-  %108 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %109 = load ptr, ptr %108, align 8, !tbaa !67
   %110 = load ptr, ptr %109, align 8, !tbaa !54
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 16
   %112 = load ptr, ptr %111, align 8, !tbaa !61
-  %113 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   br label %114
 
 114:                                              ; preds = %.lr.ph93.us, %114
   %.492.us = phi i64 [ 0, %.lr.ph93.us ], [ %121, %114 ]
   %115 = load double, ptr %113, align 8, !tbaa !64
-  %116 = getelementptr inbounds nuw double, ptr %112, i64 %.492.us
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %112, i64 %.492.us
   %117 = load double, ptr %116, align 8, !tbaa !64
-  %118 = getelementptr inbounds nuw double, ptr %60, i64 %.492.us
+  %118 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %.492.us
   %119 = load double, ptr %118, align 8, !tbaa !64
   %120 = tail call double @llvm.fmuladd.f64(double %115, double %117, double %119)
   store double %120, ptr %118, align 8, !tbaa !64
@@ -2059,10 +2059,10 @@ define noundef i32 @N_VLinearCombination_Serial(i32 noundef %0, ptr noundef read
 .lr.ph:                                           ; preds = %102, %.lr.ph
   %.391 = phi i64 [ %127, %.lr.ph ], [ 0, %102 ]
   %122 = load double, ptr %1, align 8, !tbaa !64
-  %123 = getelementptr inbounds nuw double, ptr %105, i64 %.391
+  %123 = getelementptr inbounds nuw [8 x i8], ptr %105, i64 %.391
   %124 = load double, ptr %123, align 8, !tbaa !64
   %125 = fmul double %122, %124
-  %126 = getelementptr inbounds nuw double, ptr %60, i64 %.391
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %.391
   store double %125, ptr %126, align 8, !tbaa !64
   %127 = add nuw nsw i64 %.391, 1
   %exitcond.not = icmp eq i64 %127, %58
@@ -2104,28 +2104,28 @@ define noundef i32 @N_VScaleAddMulti_Serial(i32 noundef %0, ptr noundef readonly
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
   %indvars.iv = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next, %._crit_edge.us ]
-  %19 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8, !tbaa !67
   %21 = load ptr, ptr %20, align 8, !tbaa !54
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8, !tbaa !61
-  %24 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8, !tbaa !67
   %26 = load ptr, ptr %25, align 8, !tbaa !54
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load ptr, ptr %27, align 8, !tbaa !61
-  %29 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   br label %30
 
 30:                                               ; preds = %.lr.ph.us, %30
   %.150.us = phi i64 [ 0, %.lr.ph.us ], [ %38, %30 ]
   %31 = load double, ptr %29, align 8, !tbaa !64
-  %32 = getelementptr inbounds nuw double, ptr %15, i64 %.150.us
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %.150.us
   %33 = load double, ptr %32, align 8, !tbaa !64
-  %34 = getelementptr inbounds nuw double, ptr %23, i64 %.150.us
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %.150.us
   %35 = load double, ptr %34, align 8, !tbaa !64
   %36 = tail call double @llvm.fmuladd.f64(double %31, double %33, double %35)
-  %37 = getelementptr inbounds nuw double, ptr %28, i64 %.150.us
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %.150.us
   store double %36, ptr %37, align 8, !tbaa !64
   %38 = add nuw nsw i64 %.150.us, 1
   %exitcond.not = icmp eq i64 %38, %13
@@ -2145,20 +2145,20 @@ define noundef i32 @N_VScaleAddMulti_Serial(i32 noundef %0, ptr noundef readonly
 
 .lr.ph.us56:                                      ; preds = %.lr.ph.us56.preheader, %._crit_edge.us57
   %indvars.iv64 = phi i64 [ 0, %.lr.ph.us56.preheader ], [ %indvars.iv.next65, %._crit_edge.us57 ]
-  %39 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv64
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv64
   %40 = load ptr, ptr %39, align 8, !tbaa !67
   %41 = load ptr, ptr %40, align 8, !tbaa !54
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load ptr, ptr %42, align 8, !tbaa !61
-  %44 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv64
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv64
   br label %45
 
 45:                                               ; preds = %.lr.ph.us56, %45
   %.04253.us = phi i64 [ 0, %.lr.ph.us56 ], [ %52, %45 ]
   %46 = load double, ptr %44, align 8, !tbaa !64
-  %47 = getelementptr inbounds nuw double, ptr %15, i64 %.04253.us
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %.04253.us
   %48 = load double, ptr %47, align 8, !tbaa !64
-  %49 = getelementptr inbounds nuw double, ptr %43, i64 %.04253.us
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %.04253.us
   %50 = load double, ptr %49, align 8, !tbaa !64
   %51 = tail call double @llvm.fmuladd.f64(double %46, double %48, double %50)
   store double %51, ptr %49, align 8, !tbaa !64
@@ -2226,17 +2226,17 @@ define noundef i32 @N_VLinearSumVectorArray_Serial(i32 noundef %0, double nounde
 
 .lr.ph.us.i:                                      ; preds = %._crit_edge.us.i, %.lr.ph.us.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next.i, %._crit_edge.us.i ]
-  %27 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.i
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.i
   %28 = load ptr, ptr %27, align 8, !tbaa !67
   %29 = load ptr, ptr %28, align 8, !tbaa !54
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %31 = load ptr, ptr %30, align 8, !tbaa !61
-  %32 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.i
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i
   %33 = load ptr, ptr %32, align 8, !tbaa !67
   %34 = load ptr, ptr %33, align 8, !tbaa !54
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8, !tbaa !61
-  %37 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv.i
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.i
   %38 = load ptr, ptr %37, align 8, !tbaa !67
   %39 = load ptr, ptr %38, align 8, !tbaa !54
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
@@ -2245,12 +2245,12 @@ define noundef i32 @N_VLinearSumVectorArray_Serial(i32 noundef %0, double nounde
 
 42:                                               ; preds = %42, %.lr.ph.us.i
   %.01819.us.i = phi i64 [ 0, %.lr.ph.us.i ], [ %49, %42 ]
-  %43 = getelementptr inbounds nuw double, ptr %31, i64 %.01819.us.i
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %.01819.us.i
   %44 = load double, ptr %43, align 8, !tbaa !64
-  %45 = getelementptr inbounds nuw double, ptr %36, i64 %.01819.us.i
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %.01819.us.i
   %46 = load double, ptr %45, align 8, !tbaa !64
   %47 = fadd double %44, %46
-  %48 = getelementptr inbounds nuw double, ptr %41, i64 %.01819.us.i
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %.01819.us.i
   store double %47, ptr %48, align 8, !tbaa !64
   %49 = add nuw nsw i64 %.01819.us.i, 1
   %exitcond.not.i = icmp eq i64 %49, %24
@@ -2288,17 +2288,17 @@ define noundef i32 @N_VLinearSumVectorArray_Serial(i32 noundef %0, double nounde
 
 .lr.ph.us.i126:                                   ; preds = %._crit_edge.us.i130, %.lr.ph.us.preheader.i124
   %indvars.iv.i127 = phi i64 [ 0, %.lr.ph.us.preheader.i124 ], [ %indvars.iv.next.i131, %._crit_edge.us.i130 ]
-  %63 = getelementptr inbounds nuw ptr, ptr %56, i64 %indvars.iv.i127
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %indvars.iv.i127
   %64 = load ptr, ptr %63, align 8, !tbaa !67
   %65 = load ptr, ptr %64, align 8, !tbaa !54
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %67 = load ptr, ptr %66, align 8, !tbaa !61
-  %68 = getelementptr inbounds nuw ptr, ptr %57, i64 %indvars.iv.i127
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %indvars.iv.i127
   %69 = load ptr, ptr %68, align 8, !tbaa !67
   %70 = load ptr, ptr %69, align 8, !tbaa !54
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %72 = load ptr, ptr %71, align 8, !tbaa !61
-  %73 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv.i127
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.i127
   %74 = load ptr, ptr %73, align 8, !tbaa !67
   %75 = load ptr, ptr %74, align 8, !tbaa !54
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 16
@@ -2307,12 +2307,12 @@ define noundef i32 @N_VLinearSumVectorArray_Serial(i32 noundef %0, double nounde
 
 78:                                               ; preds = %78, %.lr.ph.us.i126
   %.01819.us.i128 = phi i64 [ 0, %.lr.ph.us.i126 ], [ %85, %78 ]
-  %79 = getelementptr inbounds nuw double, ptr %67, i64 %.01819.us.i128
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %.01819.us.i128
   %80 = load double, ptr %79, align 8, !tbaa !64
-  %81 = getelementptr inbounds nuw double, ptr %72, i64 %.01819.us.i128
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %.01819.us.i128
   %82 = load double, ptr %81, align 8, !tbaa !64
   %83 = fsub double %80, %82
-  %84 = getelementptr inbounds nuw double, ptr %77, i64 %.01819.us.i128
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %.01819.us.i128
   store double %83, ptr %84, align 8, !tbaa !64
   %85 = add nuw nsw i64 %.01819.us.i128, 1
   %exitcond.not.i129 = icmp eq i64 %85, %60
@@ -2377,17 +2377,17 @@ define noundef i32 @N_VLinearSumVectorArray_Serial(i32 noundef %0, double nounde
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
   %indvars.iv = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next, %._crit_edge.us ]
-  %109 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %110 = load ptr, ptr %109, align 8, !tbaa !67
   %111 = load ptr, ptr %110, align 8, !tbaa !54
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 16
   %113 = load ptr, ptr %112, align 8, !tbaa !61
-  %114 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %115 = load ptr, ptr %114, align 8, !tbaa !67
   %116 = load ptr, ptr %115, align 8, !tbaa !54
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 16
   %118 = load ptr, ptr %117, align 8, !tbaa !61
-  %119 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %119 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %120 = load ptr, ptr %119, align 8, !tbaa !67
   %121 = load ptr, ptr %120, align 8, !tbaa !54
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 16
@@ -2396,13 +2396,13 @@ define noundef i32 @N_VLinearSumVectorArray_Serial(i32 noundef %0, double nounde
 
 124:                                              ; preds = %.lr.ph.us, %124
   %.0115135.us = phi i64 [ 0, %.lr.ph.us ], [ %132, %124 ]
-  %125 = getelementptr inbounds nuw double, ptr %113, i64 %.0115135.us
+  %125 = getelementptr inbounds nuw [8 x i8], ptr %113, i64 %.0115135.us
   %126 = load double, ptr %125, align 8, !tbaa !64
-  %127 = getelementptr inbounds nuw double, ptr %118, i64 %.0115135.us
+  %127 = getelementptr inbounds nuw [8 x i8], ptr %118, i64 %.0115135.us
   %128 = load double, ptr %127, align 8, !tbaa !64
   %129 = fmul double %3, %128
   %130 = tail call double @llvm.fmuladd.f64(double %1, double %126, double %129)
-  %131 = getelementptr inbounds nuw double, ptr %123, i64 %.0115135.us
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %123, i64 %.0115135.us
   store double %130, ptr %131, align 8, !tbaa !64
   %132 = add nuw nsw i64 %.0115135.us, 1
   %exitcond.not = icmp eq i64 %132, %106
@@ -2437,12 +2437,12 @@ define internal fastcc void @VaxpyVectorArray_Serial(i32 noundef range(i32 2, 1)
 
 .lr.ph.us64:                                      ; preds = %.lr.ph.us64.preheader, %._crit_edge.us65
   %indvars.iv80 = phi i64 [ 0, %.lr.ph.us64.preheader ], [ %indvars.iv.next81, %._crit_edge.us65 ]
-  %11 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv80
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv80
   %12 = load ptr, ptr %11, align 8, !tbaa !67
   %13 = load ptr, ptr %12, align 8, !tbaa !54
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8, !tbaa !61
-  %16 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv80
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv80
   %17 = load ptr, ptr %16, align 8, !tbaa !67
   %18 = load ptr, ptr %17, align 8, !tbaa !54
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
@@ -2451,9 +2451,9 @@ define internal fastcc void @VaxpyVectorArray_Serial(i32 noundef range(i32 2, 1)
 
 21:                                               ; preds = %.lr.ph.us64, %21
   %.04561.us = phi i64 [ 0, %.lr.ph.us64 ], [ %27, %21 ]
-  %22 = getelementptr inbounds nuw double, ptr %15, i64 %.04561.us
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %.04561.us
   %23 = load double, ptr %22, align 8, !tbaa !64
-  %24 = getelementptr inbounds nuw double, ptr %20, i64 %.04561.us
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %.04561.us
   %25 = load double, ptr %24, align 8, !tbaa !64
   %26 = fadd double %23, %25
   store double %26, ptr %24, align 8, !tbaa !64
@@ -2482,12 +2482,12 @@ define internal fastcc void @VaxpyVectorArray_Serial(i32 noundef range(i32 2, 1)
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
   %indvars.iv = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next, %._crit_edge.us ]
-  %32 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %33 = load ptr, ptr %32, align 8, !tbaa !67
   %34 = load ptr, ptr %33, align 8, !tbaa !54
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8, !tbaa !61
-  %37 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %38 = load ptr, ptr %37, align 8, !tbaa !67
   %39 = load ptr, ptr %38, align 8, !tbaa !54
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
@@ -2496,9 +2496,9 @@ define internal fastcc void @VaxpyVectorArray_Serial(i32 noundef range(i32 2, 1)
 
 42:                                               ; preds = %.lr.ph.us, %42
   %.24753.us = phi i64 [ 0, %.lr.ph.us ], [ %48, %42 ]
-  %43 = getelementptr inbounds nuw double, ptr %36, i64 %.24753.us
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %.24753.us
   %44 = load double, ptr %43, align 8, !tbaa !64
-  %45 = getelementptr inbounds nuw double, ptr %41, i64 %.24753.us
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %.24753.us
   %46 = load double, ptr %45, align 8, !tbaa !64
   %47 = tail call double @llvm.fmuladd.f64(double %1, double %44, double %46)
   store double %47, ptr %45, align 8, !tbaa !64
@@ -2520,12 +2520,12 @@ define internal fastcc void @VaxpyVectorArray_Serial(i32 noundef range(i32 2, 1)
 
 .lr.ph.us59:                                      ; preds = %.lr.ph.us59.preheader, %._crit_edge.us60
   %indvars.iv74 = phi i64 [ 0, %.lr.ph.us59.preheader ], [ %indvars.iv.next75, %._crit_edge.us60 ]
-  %49 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv74
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv74
   %50 = load ptr, ptr %49, align 8, !tbaa !67
   %51 = load ptr, ptr %50, align 8, !tbaa !54
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %53 = load ptr, ptr %52, align 8, !tbaa !61
-  %54 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv74
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv74
   %55 = load ptr, ptr %54, align 8, !tbaa !67
   %56 = load ptr, ptr %55, align 8, !tbaa !54
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
@@ -2534,9 +2534,9 @@ define internal fastcc void @VaxpyVectorArray_Serial(i32 noundef range(i32 2, 1)
 
 59:                                               ; preds = %.lr.ph.us59, %59
   %.14656.us = phi i64 [ 0, %.lr.ph.us59 ], [ %65, %59 ]
-  %60 = getelementptr inbounds nuw double, ptr %53, i64 %.14656.us
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %.14656.us
   %61 = load double, ptr %60, align 8, !tbaa !64
-  %62 = getelementptr inbounds nuw double, ptr %58, i64 %.14656.us
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %.14656.us
   %63 = load double, ptr %62, align 8, !tbaa !64
   %64 = fsub double %63, %61
   store double %64, ptr %62, align 8, !tbaa !64
@@ -2569,17 +2569,17 @@ define internal fastcc void @VLin1VectorArray_Serial(i32 noundef range(i32 2, 1)
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
   %indvars.iv = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next, %._crit_edge.us ]
-  %11 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !67
   %13 = load ptr, ptr %12, align 8, !tbaa !54
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8, !tbaa !61
-  %16 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8, !tbaa !67
   %18 = load ptr, ptr %17, align 8, !tbaa !54
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8, !tbaa !61
-  %21 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8, !tbaa !67
   %23 = load ptr, ptr %22, align 8, !tbaa !54
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
@@ -2588,12 +2588,12 @@ define internal fastcc void @VLin1VectorArray_Serial(i32 noundef range(i32 2, 1)
 
 26:                                               ; preds = %.lr.ph.us, %26
   %.01920.us = phi i64 [ 0, %.lr.ph.us ], [ %33, %26 ]
-  %27 = getelementptr inbounds nuw double, ptr %15, i64 %.01920.us
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %.01920.us
   %28 = load double, ptr %27, align 8, !tbaa !64
-  %29 = getelementptr inbounds nuw double, ptr %20, i64 %.01920.us
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %.01920.us
   %30 = load double, ptr %29, align 8, !tbaa !64
   %31 = tail call double @llvm.fmuladd.f64(double %1, double %28, double %30)
-  %32 = getelementptr inbounds nuw double, ptr %25, i64 %.01920.us
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %.01920.us
   store double %31, ptr %32, align 8, !tbaa !64
   %33 = add nuw nsw i64 %.01920.us, 1
   %exitcond.not = icmp eq i64 %33, %8
@@ -2624,17 +2624,17 @@ define internal fastcc void @VLin2VectorArray_Serial(i32 noundef range(i32 2, 1)
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
   %indvars.iv = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next, %._crit_edge.us ]
-  %11 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !67
   %13 = load ptr, ptr %12, align 8, !tbaa !54
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8, !tbaa !61
-  %16 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8, !tbaa !67
   %18 = load ptr, ptr %17, align 8, !tbaa !54
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8, !tbaa !61
-  %21 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8, !tbaa !67
   %23 = load ptr, ptr %22, align 8, !tbaa !54
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
@@ -2643,13 +2643,13 @@ define internal fastcc void @VLin2VectorArray_Serial(i32 noundef range(i32 2, 1)
 
 26:                                               ; preds = %.lr.ph.us, %26
   %.01920.us = phi i64 [ 0, %.lr.ph.us ], [ %34, %26 ]
-  %27 = getelementptr inbounds nuw double, ptr %15, i64 %.01920.us
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %.01920.us
   %28 = load double, ptr %27, align 8, !tbaa !64
-  %29 = getelementptr inbounds nuw double, ptr %20, i64 %.01920.us
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %.01920.us
   %30 = load double, ptr %29, align 8, !tbaa !64
   %31 = fneg double %30
   %32 = tail call double @llvm.fmuladd.f64(double %1, double %28, double %31)
-  %33 = getelementptr inbounds nuw double, ptr %25, i64 %.01920.us
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %.01920.us
   store double %32, ptr %33, align 8, !tbaa !64
   %34 = add nuw nsw i64 %.01920.us, 1
   %exitcond.not = icmp eq i64 %34, %8
@@ -2680,17 +2680,17 @@ define internal fastcc void @VScaleSumVectorArray_Serial(i32 noundef range(i32 2
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
   %indvars.iv = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next, %._crit_edge.us ]
-  %11 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !67
   %13 = load ptr, ptr %12, align 8, !tbaa !54
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8, !tbaa !61
-  %16 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8, !tbaa !67
   %18 = load ptr, ptr %17, align 8, !tbaa !54
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8, !tbaa !61
-  %21 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8, !tbaa !67
   %23 = load ptr, ptr %22, align 8, !tbaa !54
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
@@ -2699,13 +2699,13 @@ define internal fastcc void @VScaleSumVectorArray_Serial(i32 noundef range(i32 2
 
 26:                                               ; preds = %.lr.ph.us, %26
   %.01920.us = phi i64 [ 0, %.lr.ph.us ], [ %34, %26 ]
-  %27 = getelementptr inbounds nuw double, ptr %15, i64 %.01920.us
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %.01920.us
   %28 = load double, ptr %27, align 8, !tbaa !64
-  %29 = getelementptr inbounds nuw double, ptr %20, i64 %.01920.us
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %.01920.us
   %30 = load double, ptr %29, align 8, !tbaa !64
   %31 = fadd double %28, %30
   %32 = fmul double %1, %31
-  %33 = getelementptr inbounds nuw double, ptr %25, i64 %.01920.us
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %.01920.us
   store double %32, ptr %33, align 8, !tbaa !64
   %34 = add nuw nsw i64 %.01920.us, 1
   %exitcond.not = icmp eq i64 %34, %8
@@ -2736,17 +2736,17 @@ define internal fastcc void @VScaleDiffVectorArray_Serial(i32 noundef range(i32 
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
   %indvars.iv = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next, %._crit_edge.us ]
-  %11 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !67
   %13 = load ptr, ptr %12, align 8, !tbaa !54
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8, !tbaa !61
-  %16 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8, !tbaa !67
   %18 = load ptr, ptr %17, align 8, !tbaa !54
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8, !tbaa !61
-  %21 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8, !tbaa !67
   %23 = load ptr, ptr %22, align 8, !tbaa !54
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
@@ -2755,13 +2755,13 @@ define internal fastcc void @VScaleDiffVectorArray_Serial(i32 noundef range(i32 
 
 26:                                               ; preds = %.lr.ph.us, %26
   %.01920.us = phi i64 [ 0, %.lr.ph.us ], [ %34, %26 ]
-  %27 = getelementptr inbounds nuw double, ptr %15, i64 %.01920.us
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %.01920.us
   %28 = load double, ptr %27, align 8, !tbaa !64
-  %29 = getelementptr inbounds nuw double, ptr %20, i64 %.01920.us
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %.01920.us
   %30 = load double, ptr %29, align 8, !tbaa !64
   %31 = fsub double %28, %30
   %32 = fmul double %1, %31
-  %33 = getelementptr inbounds nuw double, ptr %25, i64 %.01920.us
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %.01920.us
   store double %32, ptr %33, align 8, !tbaa !64
   %34 = add nuw nsw i64 %.01920.us, 1
   %exitcond.not = icmp eq i64 %34, %8
@@ -2798,7 +2798,7 @@ define noundef i32 @N_VScaleVectorArray_Serial(i32 noundef %0, ptr noundef reado
 
 .lr.ph.i.i:                                       ; preds = %11, %.lr.ph.i.i
   %.01.i.i = phi i64 [ %17, %.lr.ph.i.i ], [ 0, %11 ]
-  %14 = getelementptr inbounds nuw double, ptr %.val.val23.i, i64 %.01.i.i
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %.val.val23.i, i64 %.01.i.i
   %15 = load double, ptr %14, align 8, !tbaa !64
   %16 = fmul double %8, %15
   store double %16, ptr %14, align 8, !tbaa !64
@@ -2823,9 +2823,9 @@ define noundef i32 @N_VScaleVectorArray_Serial(i32 noundef %0, ptr noundef reado
 
 .lr.ph.i30.i:                                     ; preds = %20, %.lr.ph.i30.i
   %.01.i31.i = phi i64 [ %27, %.lr.ph.i30.i ], [ 0, %20 ]
-  %24 = getelementptr inbounds nuw double, ptr %.val24.val26.i, i64 %.01.i31.i
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.val24.val26.i, i64 %.01.i31.i
   %25 = load double, ptr %24, align 8, !tbaa !64
-  %26 = getelementptr inbounds nuw double, ptr %.val25.val.i, i64 %.01.i31.i
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %.val25.val.i, i64 %.01.i31.i
   store double %25, ptr %26, align 8, !tbaa !64
   %27 = add nuw nsw i64 %.01.i31.i, 1
   %exitcond.not.i32.i = icmp eq i64 %27, %.val24.val.i
@@ -2848,10 +2848,10 @@ define noundef i32 @N_VScaleVectorArray_Serial(i32 noundef %0, ptr noundef reado
 
 .lr.ph.i33.i:                                     ; preds = %30, %.lr.ph.i33.i
   %.01.i34.i = phi i64 [ %38, %.lr.ph.i33.i ], [ 0, %30 ]
-  %34 = getelementptr inbounds nuw double, ptr %.val27.val29.i, i64 %.01.i34.i
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %.val27.val29.i, i64 %.01.i34.i
   %35 = load double, ptr %34, align 8, !tbaa !64
   %36 = fneg double %35
-  %37 = getelementptr inbounds nuw double, ptr %.val28.val.i, i64 %.01.i34.i
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %.val28.val.i, i64 %.01.i34.i
   store double %36, ptr %37, align 8, !tbaa !64
   %38 = add nuw nsw i64 %.01.i34.i, 1
   %exitcond.not.i35.i = icmp eq i64 %38, %.val27.val.i
@@ -2869,10 +2869,10 @@ define noundef i32 @N_VScaleVectorArray_Serial(i32 noundef %0, ptr noundef reado
 
 .lr.ph.i:                                         ; preds = %39, %.lr.ph.i
   %.039.i = phi i64 [ %51, %.lr.ph.i ], [ 0, %39 ]
-  %47 = getelementptr inbounds nuw double, ptr %42, i64 %.039.i
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %.039.i
   %48 = load double, ptr %47, align 8, !tbaa !64
   %49 = fmul double %8, %48
-  %50 = getelementptr inbounds nuw double, ptr %45, i64 %.039.i
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %.039.i
   store double %49, ptr %50, align 8, !tbaa !64
   %51 = add nuw nsw i64 %.039.i, 1
   %exitcond.not.i = icmp eq i64 %51, %40
@@ -2897,26 +2897,26 @@ define noundef i32 @N_VScaleVectorArray_Serial(i32 noundef %0, ptr noundef reado
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
   %indvars.iv = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next, %._crit_edge.us ]
-  %59 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %60 = load ptr, ptr %59, align 8, !tbaa !67
   %61 = load ptr, ptr %60, align 8, !tbaa !54
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %63 = load ptr, ptr %62, align 8, !tbaa !61
-  %64 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %65 = load ptr, ptr %64, align 8, !tbaa !67
   %66 = load ptr, ptr %65, align 8, !tbaa !54
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 16
   %68 = load ptr, ptr %67, align 8, !tbaa !61
-  %69 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   br label %70
 
 70:                                               ; preds = %.lr.ph.us, %70
   %.148.us = phi i64 [ 0, %.lr.ph.us ], [ %76, %70 ]
   %71 = load double, ptr %69, align 8, !tbaa !64
-  %72 = getelementptr inbounds nuw double, ptr %63, i64 %.148.us
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %.148.us
   %73 = load double, ptr %72, align 8, !tbaa !64
   %74 = fmul double %71, %73
-  %75 = getelementptr inbounds nuw double, ptr %68, i64 %.148.us
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %.148.us
   store double %74, ptr %75, align 8, !tbaa !64
   %76 = add nuw nsw i64 %.148.us, 1
   %exitcond.not = icmp eq i64 %76, %55
@@ -2936,18 +2936,18 @@ define noundef i32 @N_VScaleVectorArray_Serial(i32 noundef %0, ptr noundef reado
 
 .lr.ph.us54:                                      ; preds = %.lr.ph.us54.preheader, %._crit_edge.us55
   %indvars.iv66 = phi i64 [ 0, %.lr.ph.us54.preheader ], [ %indvars.iv.next67, %._crit_edge.us55 ]
-  %77 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv66
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv66
   %78 = load ptr, ptr %77, align 8, !tbaa !67
   %79 = load ptr, ptr %78, align 8, !tbaa !54
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 16
   %81 = load ptr, ptr %80, align 8, !tbaa !61
-  %82 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv66
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv66
   br label %83
 
 83:                                               ; preds = %.lr.ph.us54, %83
   %.03651.us = phi i64 [ 0, %.lr.ph.us54 ], [ %88, %83 ]
   %84 = load double, ptr %82, align 8, !tbaa !64
-  %85 = getelementptr inbounds nuw double, ptr %81, i64 %.03651.us
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %.03651.us
   %86 = load double, ptr %85, align 8, !tbaa !64
   %87 = fmul double %84, %86
   store double %87, ptr %85, align 8, !tbaa !64
@@ -2980,7 +2980,7 @@ define noundef i32 @N_VConstVectorArray_Serial(i32 noundef %0, double noundef %1
 
 .lr.ph.i:                                         ; preds = %8, %.lr.ph.i
   %.07.i = phi i64 [ %13, %.lr.ph.i ], [ 0, %8 ]
-  %12 = getelementptr inbounds nuw double, ptr %10, i64 %.07.i
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.07.i
   store double %1, ptr %12, align 8, !tbaa !64
   %13 = add nuw nsw i64 %.07.i, 1
   %exitcond.not.i = icmp eq i64 %13, %7
@@ -2998,7 +2998,7 @@ define noundef i32 @N_VConstVectorArray_Serial(i32 noundef %0, double noundef %1
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
   %indvars.iv = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next, %._crit_edge.us ]
-  %17 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8, !tbaa !67
   %19 = load ptr, ptr %18, align 8, !tbaa !54
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
@@ -3007,7 +3007,7 @@ define noundef i32 @N_VConstVectorArray_Serial(i32 noundef %0, double noundef %1
 
 22:                                               ; preds = %.lr.ph.us, %22
   %.01619.us = phi i64 [ 0, %.lr.ph.us ], [ %24, %22 ]
-  %23 = getelementptr inbounds nuw double, ptr %21, i64 %.01619.us
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %.01619.us
   store double %1, ptr %23, align 8, !tbaa !64
   %24 = add nuw nsw i64 %.01619.us, 1
   %exitcond.not = icmp eq i64 %24, %7
@@ -3043,9 +3043,9 @@ define noundef i32 @N_VWrmsNormVectorArray_Serial(i32 noundef %0, ptr noundef re
 .lr.ph.i.i:                                       ; preds = %7, %.lr.ph.i.i
   %.015.i.i = phi i64 [ %23, %.lr.ph.i.i ], [ 0, %7 ]
   %.01314.i.i = phi double [ %22, %.lr.ph.i.i ], [ 0.000000e+00, %7 ]
-  %17 = getelementptr inbounds nuw double, ptr %12, i64 %.015.i.i
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.015.i.i
   %18 = load double, ptr %17, align 8, !tbaa !64
-  %19 = getelementptr inbounds nuw double, ptr %15, i64 %.015.i.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %.015.i.i
   %20 = load double, ptr %19, align 8, !tbaa !64
   %21 = fmul double %18, %20
   %22 = tail call double @llvm.fmuladd.f64(double %21, double %21, double %.01314.i.i)
@@ -3088,17 +3088,17 @@ N_VWrmsNorm_Serial.exit:                          ; preds = %N_VWSqrSumLocal_Ser
 
 .lr.ph.us:                                        ; preds = %.lr.ph43, %51
   %indvars.iv47 = phi i64 [ %indvars.iv.next48, %51 ], [ 0, %.lr.ph43 ]
-  %38 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv47
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv47
   %39 = load ptr, ptr %38, align 8, !tbaa !67
   %40 = load ptr, ptr %39, align 8, !tbaa !54
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = load ptr, ptr %41, align 8, !tbaa !61
-  %43 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv47
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv47
   %44 = load ptr, ptr %43, align 8, !tbaa !67
   %45 = load ptr, ptr %44, align 8, !tbaa !54
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %47 = load ptr, ptr %46, align 8, !tbaa !61
-  %48 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv47
   store double 0.000000e+00, ptr %48, align 8, !tbaa !64
   br label %53
 
@@ -3116,9 +3116,9 @@ N_VWrmsNorm_Serial.exit:                          ; preds = %N_VWSqrSumLocal_Ser
 53:                                               ; preds = %.lr.ph.us, %53
   %54 = phi double [ 0.000000e+00, %.lr.ph.us ], [ %60, %53 ]
   %.03640.us = phi i64 [ 0, %.lr.ph.us ], [ %61, %53 ]
-  %55 = getelementptr inbounds nuw double, ptr %42, i64 %.03640.us
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %.03640.us
   %56 = load double, ptr %55, align 8, !tbaa !64
-  %57 = getelementptr inbounds nuw double, ptr %47, i64 %.03640.us
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %.03640.us
   %58 = load double, ptr %57, align 8, !tbaa !64
   %59 = fmul double %56, %58
   %60 = tail call double @llvm.fmuladd.f64(double %59, double %59, double %54)
@@ -3134,7 +3134,7 @@ N_VWrmsNorm_Serial.exit:                          ; preds = %N_VWSqrSumLocal_Ser
 
 .lr.ph43.split:                                   ; preds = %.lr.ph43.split.preheader, %67
   %indvars.iv = phi i64 [ 0, %.lr.ph43.split.preheader ], [ %indvars.iv.next, %67 ]
-  %64 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   br i1 %37, label %65, label %67
 
 65:                                               ; preds = %.lr.ph43.split
@@ -3176,15 +3176,15 @@ define noundef i32 @N_VWrmsNormMaskVectorArray_Serial(i32 noundef %0, ptr nounde
 .lr.ph.i.i:                                       ; preds = %8, %31
   %.018.i.i = phi i64 [ %32, %31 ], [ 0, %8 ]
   %.01617.i.i = phi double [ %.1.i.i, %31 ], [ 0.000000e+00, %8 ]
-  %21 = getelementptr inbounds nuw double, ptr %19, i64 %.018.i.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.018.i.i
   %22 = load double, ptr %21, align 8, !tbaa !64
   %23 = fcmp ogt double %22, 0.000000e+00
   br i1 %23, label %24, label %31
 
 24:                                               ; preds = %.lr.ph.i.i
-  %25 = getelementptr inbounds nuw double, ptr %13, i64 %.018.i.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.018.i.i
   %26 = load double, ptr %25, align 8, !tbaa !64
-  %27 = getelementptr inbounds nuw double, ptr %16, i64 %.018.i.i
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.018.i.i
   %28 = load double, ptr %27, align 8, !tbaa !64
   %29 = fmul double %26, %28
   %30 = tail call double @llvm.fmuladd.f64(double %29, double %29, double %.01617.i.i)
@@ -3234,17 +3234,17 @@ N_VWrmsNormMask_Serial.exit:                      ; preds = %N_VWSqrSumMaskLocal
 
 .lr.ph.us:                                        ; preds = %.lr.ph47, %63
   %indvars.iv51 = phi i64 [ %indvars.iv.next52, %63 ], [ 0, %.lr.ph47 ]
-  %50 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv51
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv51
   %51 = load ptr, ptr %50, align 8, !tbaa !67
   %52 = load ptr, ptr %51, align 8, !tbaa !54
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %54 = load ptr, ptr %53, align 8, !tbaa !61
-  %55 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv51
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv51
   %56 = load ptr, ptr %55, align 8, !tbaa !67
   %57 = load ptr, ptr %56, align 8, !tbaa !54
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %59 = load ptr, ptr %58, align 8, !tbaa !61
-  %60 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv51
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv51
   store double 0.000000e+00, ptr %60, align 8, !tbaa !64
   br label %65
 
@@ -3262,15 +3262,15 @@ N_VWrmsNormMask_Serial.exit:                      ; preds = %N_VWSqrSumMaskLocal
 65:                                               ; preds = %.lr.ph.us, %77
   %66 = phi double [ 0.000000e+00, %.lr.ph.us ], [ %78, %77 ]
   %.04044.us = phi i64 [ 0, %.lr.ph.us ], [ %79, %77 ]
-  %67 = getelementptr inbounds nuw double, ptr %44, i64 %.04044.us
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %.04044.us
   %68 = load double, ptr %67, align 8, !tbaa !64
   %69 = fcmp ogt double %68, 0.000000e+00
   br i1 %69, label %70, label %77
 
 70:                                               ; preds = %65
-  %71 = getelementptr inbounds nuw double, ptr %54, i64 %.04044.us
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %.04044.us
   %72 = load double, ptr %71, align 8, !tbaa !64
-  %73 = getelementptr inbounds nuw double, ptr %59, i64 %.04044.us
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %.04044.us
   %74 = load double, ptr %73, align 8, !tbaa !64
   %75 = fmul double %72, %74
   %76 = tail call double @llvm.fmuladd.f64(double %75, double %75, double %66)
@@ -3290,7 +3290,7 @@ N_VWrmsNormMask_Serial.exit:                      ; preds = %N_VWSqrSumMaskLocal
 
 .lr.ph47.split:                                   ; preds = %.lr.ph47.split.preheader, %85
   %indvars.iv = phi i64 [ 0, %.lr.ph47.split.preheader ], [ %indvars.iv.next, %85 ]
-  %82 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   br i1 %49, label %83, label %85
 
 83:                                               ; preds = %.lr.ph47.split
@@ -3341,15 +3341,15 @@ define noundef i32 @N_VScaleAddMultiVectorArray_Serial(i32 noundef %0, i32 nound
 
 .lr.ph116:                                        ; preds = %.lr.ph116.preheader, %.lr.ph116
   %indvars.iv141 = phi i64 [ 0, %.lr.ph116.preheader ], [ %indvars.iv.next142, %.lr.ph116 ]
-  %23 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv141
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv141
   %24 = load ptr, ptr %23, align 8, !tbaa !71
   %25 = load ptr, ptr %24, align 8, !tbaa !67
-  %26 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv141
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv141
   store ptr %25, ptr %26, align 8, !tbaa !67
-  %27 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv141
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv141
   %28 = load ptr, ptr %27, align 8, !tbaa !71
   %29 = load ptr, ptr %28, align 8, !tbaa !67
-  %30 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv141
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv141
   store ptr %29, ptr %30, align 8, !tbaa !67
   %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
   %exitcond145.not = icmp eq i64 %indvars.iv.next142, %wide.trip.count144
@@ -3374,28 +3374,28 @@ define noundef i32 @N_VScaleAddMultiVectorArray_Serial(i32 noundef %0, i32 nound
 
 .lr.ph.us.i:                                      ; preds = %._crit_edge.us.i, %.lr.ph.us.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next.i, %._crit_edge.us.i ]
-  %37 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv.i
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv.i
   %38 = load ptr, ptr %37, align 8, !tbaa !67
   %39 = load ptr, ptr %38, align 8, !tbaa !54
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %41 = load ptr, ptr %40, align 8, !tbaa !61
-  %42 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv.i
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv.i
   %43 = load ptr, ptr %42, align 8, !tbaa !67
   %44 = load ptr, ptr %43, align 8, !tbaa !54
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load ptr, ptr %45, align 8, !tbaa !61
-  %47 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv.i
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.i
   br label %48
 
 48:                                               ; preds = %48, %.lr.ph.us.i
   %.150.us.i = phi i64 [ 0, %.lr.ph.us.i ], [ %56, %48 ]
   %49 = load double, ptr %47, align 8, !tbaa !64
-  %50 = getelementptr inbounds nuw double, ptr %34, i64 %.150.us.i
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %.150.us.i
   %51 = load double, ptr %50, align 8, !tbaa !64
-  %52 = getelementptr inbounds nuw double, ptr %41, i64 %.150.us.i
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %.150.us.i
   %53 = load double, ptr %52, align 8, !tbaa !64
   %54 = tail call double @llvm.fmuladd.f64(double %49, double %51, double %53)
-  %55 = getelementptr inbounds nuw double, ptr %46, i64 %.150.us.i
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %.150.us.i
   store double %54, ptr %55, align 8, !tbaa !64
   %56 = add nuw nsw i64 %.150.us.i, 1
   %exitcond.not.i = icmp eq i64 %56, %32
@@ -3415,20 +3415,20 @@ define noundef i32 @N_VScaleAddMultiVectorArray_Serial(i32 noundef %0, i32 nound
 
 .lr.ph.us56.i:                                    ; preds = %._crit_edge.us57.i, %.lr.ph.us56.preheader.i
   %indvars.iv64.i = phi i64 [ 0, %.lr.ph.us56.preheader.i ], [ %indvars.iv.next65.i, %._crit_edge.us57.i ]
-  %57 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv64.i
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv64.i
   %58 = load ptr, ptr %57, align 8, !tbaa !67
   %59 = load ptr, ptr %58, align 8, !tbaa !54
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %61 = load ptr, ptr %60, align 8, !tbaa !61
-  %62 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv64.i
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv64.i
   br label %63
 
 63:                                               ; preds = %63, %.lr.ph.us56.i
   %.04253.us.i = phi i64 [ 0, %.lr.ph.us56.i ], [ %70, %63 ]
   %64 = load double, ptr %62, align 8, !tbaa !64
-  %65 = getelementptr inbounds nuw double, ptr %34, i64 %.04253.us.i
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %.04253.us.i
   %66 = load double, ptr %65, align 8, !tbaa !64
-  %67 = getelementptr inbounds nuw double, ptr %61, i64 %.04253.us.i
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %.04253.us.i
   %68 = load double, ptr %67, align 8, !tbaa !64
   %69 = tail call double @llvm.fmuladd.f64(double %64, double %66, double %68)
   store double %69, ptr %67, align 8, !tbaa !64
@@ -3477,7 +3477,7 @@ N_VScaleAddMulti_Serial.exit:                     ; preds = %._crit_edge.us.i, %
 
 .lr.ph97.us.us:                                   ; preds = %.lr.ph97.us.us.preheader, %._crit_edge98.split.us.us.us
   %indvars.iv125 = phi i64 [ 0, %.lr.ph97.us.us.preheader ], [ %indvars.iv.next126, %._crit_edge98.split.us.us.us ]
-  %84 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv125
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv125
   %85 = load ptr, ptr %84, align 8, !tbaa !67
   %86 = load ptr, ptr %85, align 8, !tbaa !54
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 16
@@ -3486,32 +3486,32 @@ N_VScaleAddMulti_Serial.exit:                     ; preds = %._crit_edge.us.i, %
 
 .lr.ph.us.us.us:                                  ; preds = %._crit_edge.us.us.us, %.lr.ph97.us.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge.us.us.us ], [ 0, %.lr.ph97.us.us ]
-  %89 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %90 = load ptr, ptr %89, align 8, !tbaa !71
-  %91 = getelementptr inbounds nuw ptr, ptr %90, i64 %indvars.iv125
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %indvars.iv125
   %92 = load ptr, ptr %91, align 8, !tbaa !67
   %93 = load ptr, ptr %92, align 8, !tbaa !54
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 16
   %95 = load ptr, ptr %94, align 8, !tbaa !61
-  %96 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %97 = load ptr, ptr %96, align 8, !tbaa !71
-  %98 = getelementptr inbounds nuw ptr, ptr %97, i64 %indvars.iv125
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %97, i64 %indvars.iv125
   %99 = load ptr, ptr %98, align 8, !tbaa !67
   %100 = load ptr, ptr %99, align 8, !tbaa !54
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 16
   %102 = load ptr, ptr %101, align 8, !tbaa !61
-  %103 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   br label %104
 
 104:                                              ; preds = %104, %.lr.ph.us.us.us
   %.18594.us.us.us = phi i64 [ 0, %.lr.ph.us.us.us ], [ %112, %104 ]
   %105 = load double, ptr %103, align 8, !tbaa !64
-  %106 = getelementptr inbounds nuw double, ptr %88, i64 %.18594.us.us.us
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %.18594.us.us.us
   %107 = load double, ptr %106, align 8, !tbaa !64
-  %108 = getelementptr inbounds nuw double, ptr %95, i64 %.18594.us.us.us
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %.18594.us.us.us
   %109 = load double, ptr %108, align 8, !tbaa !64
   %110 = tail call double @llvm.fmuladd.f64(double %105, double %107, double %109)
-  %111 = getelementptr inbounds nuw double, ptr %102, i64 %.18594.us.us.us
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %102, i64 %.18594.us.us.us
   store double %110, ptr %111, align 8, !tbaa !64
   %112 = add nuw nsw i64 %.18594.us.us.us, 1
   %exitcond.not = icmp eq i64 %112, %79
@@ -3537,7 +3537,7 @@ N_VScaleAddMulti_Serial.exit:                     ; preds = %._crit_edge.us.i, %
 
 .lr.ph107.us.us:                                  ; preds = %.lr.ph107.us.us.preheader, %._crit_edge108.split.us.us.us
   %indvars.iv136 = phi i64 [ 0, %.lr.ph107.us.us.preheader ], [ %indvars.iv.next137, %._crit_edge108.split.us.us.us ]
-  %113 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv136
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv136
   %114 = load ptr, ptr %113, align 8, !tbaa !67
   %115 = load ptr, ptr %114, align 8, !tbaa !54
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 16
@@ -3546,22 +3546,22 @@ N_VScaleAddMulti_Serial.exit:                     ; preds = %._crit_edge.us.i, %
 
 .lr.ph104.us.us.us:                               ; preds = %._crit_edge.us.us.us114, %.lr.ph107.us.us
   %indvars.iv131 = phi i64 [ %indvars.iv.next132, %._crit_edge.us.us.us114 ], [ 0, %.lr.ph107.us.us ]
-  %118 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv131
+  %118 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv131
   %119 = load ptr, ptr %118, align 8, !tbaa !71
-  %120 = getelementptr inbounds nuw ptr, ptr %119, i64 %indvars.iv136
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %119, i64 %indvars.iv136
   %121 = load ptr, ptr %120, align 8, !tbaa !67
   %122 = load ptr, ptr %121, align 8, !tbaa !54
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 16
   %124 = load ptr, ptr %123, align 8, !tbaa !61
-  %125 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv131
+  %125 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv131
   br label %126
 
 126:                                              ; preds = %126, %.lr.ph104.us.us.us
   %.084103.us.us.us = phi i64 [ 0, %.lr.ph104.us.us.us ], [ %133, %126 ]
   %127 = load double, ptr %125, align 8, !tbaa !64
-  %128 = getelementptr inbounds nuw double, ptr %117, i64 %.084103.us.us.us
+  %128 = getelementptr inbounds nuw [8 x i8], ptr %117, i64 %.084103.us.us.us
   %129 = load double, ptr %128, align 8, !tbaa !64
-  %130 = getelementptr inbounds nuw double, ptr %124, i64 %.084103.us.us.us
+  %130 = getelementptr inbounds nuw [8 x i8], ptr %124, i64 %.084103.us.us.us
   %131 = load double, ptr %130, align 8, !tbaa !64
   %132 = tail call double @llvm.fmuladd.f64(double %127, double %129, double %131)
   store double %132, ptr %130, align 8, !tbaa !64
@@ -3612,7 +3612,7 @@ define noundef i32 @N_VLinearCombinationVectorArray_Serial(i32 noundef %0, i32 n
 
 .lr.ph.i.i:                                       ; preds = %14, %.lr.ph.i.i
   %.01.i.i = phi i64 [ %20, %.lr.ph.i.i ], [ 0, %14 ]
-  %17 = getelementptr inbounds nuw double, ptr %.val.val23.i, i64 %.01.i.i
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %.val.val23.i, i64 %.01.i.i
   %18 = load double, ptr %17, align 8, !tbaa !64
   %19 = fmul double %11, %18
   store double %19, ptr %17, align 8, !tbaa !64
@@ -3637,9 +3637,9 @@ define noundef i32 @N_VLinearCombinationVectorArray_Serial(i32 noundef %0, i32 n
 
 .lr.ph.i30.i:                                     ; preds = %23, %.lr.ph.i30.i
   %.01.i31.i = phi i64 [ %30, %.lr.ph.i30.i ], [ 0, %23 ]
-  %27 = getelementptr inbounds nuw double, ptr %.val24.val26.i, i64 %.01.i31.i
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %.val24.val26.i, i64 %.01.i31.i
   %28 = load double, ptr %27, align 8, !tbaa !64
-  %29 = getelementptr inbounds nuw double, ptr %.val25.val.i, i64 %.01.i31.i
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %.val25.val.i, i64 %.01.i31.i
   store double %28, ptr %29, align 8, !tbaa !64
   %30 = add nuw nsw i64 %.01.i31.i, 1
   %exitcond.not.i32.i = icmp eq i64 %30, %.val24.val.i
@@ -3662,10 +3662,10 @@ define noundef i32 @N_VLinearCombinationVectorArray_Serial(i32 noundef %0, i32 n
 
 .lr.ph.i33.i:                                     ; preds = %33, %.lr.ph.i33.i
   %.01.i34.i = phi i64 [ %41, %.lr.ph.i33.i ], [ 0, %33 ]
-  %37 = getelementptr inbounds nuw double, ptr %.val27.val29.i, i64 %.01.i34.i
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %.val27.val29.i, i64 %.01.i34.i
   %38 = load double, ptr %37, align 8, !tbaa !64
   %39 = fneg double %38
-  %40 = getelementptr inbounds nuw double, ptr %.val28.val.i, i64 %.01.i34.i
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %.val28.val.i, i64 %.01.i34.i
   store double %39, ptr %40, align 8, !tbaa !64
   %41 = add nuw nsw i64 %.01.i34.i, 1
   %exitcond.not.i35.i = icmp eq i64 %41, %.val27.val.i
@@ -3683,10 +3683,10 @@ define noundef i32 @N_VLinearCombinationVectorArray_Serial(i32 noundef %0, i32 n
 
 .lr.ph.i:                                         ; preds = %42, %.lr.ph.i
   %.039.i = phi i64 [ %54, %.lr.ph.i ], [ 0, %42 ]
-  %50 = getelementptr inbounds nuw double, ptr %45, i64 %.039.i
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %.039.i
   %51 = load double, ptr %50, align 8, !tbaa !64
   %52 = fmul double %11, %51
-  %53 = getelementptr inbounds nuw double, ptr %48, i64 %.039.i
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %.039.i
   store double %52, ptr %53, align 8, !tbaa !64
   %54 = add nuw nsw i64 %.039.i, 1
   %exitcond.not.i = icmp eq i64 %54, %43
@@ -3716,10 +3716,10 @@ define noundef i32 @N_VLinearCombinationVectorArray_Serial(i32 noundef %0, i32 n
 
 .lr.ph192:                                        ; preds = %.lr.ph192.preheader, %.lr.ph192
   %indvars.iv240 = phi i64 [ 0, %.lr.ph192.preheader ], [ %indvars.iv.next241, %.lr.ph192 ]
-  %68 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv240
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv240
   %69 = load ptr, ptr %68, align 8, !tbaa !71
   %70 = load ptr, ptr %69, align 8, !tbaa !67
-  %71 = getelementptr inbounds nuw ptr, ptr %66, i64 %indvars.iv240
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %indvars.iv240
   store ptr %70, ptr %71, align 8, !tbaa !67
   %indvars.iv.next241 = add nuw nsw i64 %indvars.iv240, 1
   %exitcond244.not = icmp eq i64 %indvars.iv.next241, %wide.trip.count243
@@ -3751,7 +3751,7 @@ define noundef i32 @N_VLinearCombinationVectorArray_Serial(i32 noundef %0, i32 n
 
 81:                                               ; preds = %.lr.ph, %81
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %81 ]
-  %82 = getelementptr inbounds nuw double, ptr %78, i64 %indvars.iv
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %indvars.iv
   store double %80, ptr %82, align 8, !tbaa !64
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -3819,7 +3819,7 @@ define noundef i32 @N_VLinearCombinationVectorArray_Serial(i32 noundef %0, i32 n
 
 .lr.ph183.us.us:                                  ; preds = %.lr.ph183.us.us.preheader, %._crit_edge184.split.us.us.us
   %indvars.iv235 = phi i64 [ 0, %.lr.ph183.us.us.preheader ], [ %indvars.iv.next236, %._crit_edge184.split.us.us.us ]
-  %107 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv235
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv235
   %108 = load ptr, ptr %107, align 8, !tbaa !67
   %109 = load ptr, ptr %108, align 8, !tbaa !54
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 16
@@ -3828,22 +3828,22 @@ define noundef i32 @N_VLinearCombinationVectorArray_Serial(i32 noundef %0, i32 n
 
 .lr.ph179.us.us.us:                               ; preds = %._crit_edge180.us.us.us, %.lr.ph183.us.us
   %indvars.iv230 = phi i64 [ %indvars.iv.next231, %._crit_edge180.us.us.us ], [ 1, %.lr.ph183.us.us ]
-  %112 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv230
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv230
   %113 = load ptr, ptr %112, align 8, !tbaa !71
-  %114 = getelementptr inbounds nuw ptr, ptr %113, i64 %indvars.iv235
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %113, i64 %indvars.iv235
   %115 = load ptr, ptr %114, align 8, !tbaa !67
   %116 = load ptr, ptr %115, align 8, !tbaa !54
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 16
   %118 = load ptr, ptr %117, align 8, !tbaa !61
-  %119 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv230
+  %119 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv230
   br label %120
 
 120:                                              ; preds = %120, %.lr.ph179.us.us.us
   %.0132177.us.us.us = phi i64 [ 0, %.lr.ph179.us.us.us ], [ %127, %120 ]
   %121 = load double, ptr %119, align 8, !tbaa !64
-  %122 = getelementptr inbounds nuw double, ptr %118, i64 %.0132177.us.us.us
+  %122 = getelementptr inbounds nuw [8 x i8], ptr %118, i64 %.0132177.us.us.us
   %123 = load double, ptr %122, align 8, !tbaa !64
-  %124 = getelementptr inbounds nuw double, ptr %111, i64 %.0132177.us.us.us
+  %124 = getelementptr inbounds nuw [8 x i8], ptr %111, i64 %.0132177.us.us.us
   %125 = load double, ptr %124, align 8, !tbaa !64
   %126 = tail call double @llvm.fmuladd.f64(double %121, double %123, double %125)
   store double %126, ptr %124, align 8, !tbaa !64
@@ -3863,7 +3863,7 @@ define noundef i32 @N_VLinearCombinationVectorArray_Serial(i32 noundef %0, i32 n
 
 128:                                              ; preds = %.lr.ph176, %._crit_edge174
   %indvars.iv224 = phi i64 [ 0, %.lr.ph176 ], [ %indvars.iv.next225, %._crit_edge174 ]
-  %129 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv224
+  %129 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv224
   %130 = load ptr, ptr %129, align 8, !tbaa !67
   %131 = load ptr, ptr %130, align 8, !tbaa !54
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 16
@@ -3875,22 +3875,22 @@ define noundef i32 @N_VLinearCombinationVectorArray_Serial(i32 noundef %0, i32 n
 
 .lr.ph170.us:                                     ; preds = %.preheader147, %._crit_edge171.us
   %indvars.iv219 = phi i64 [ %indvars.iv.next220, %._crit_edge171.us ], [ 1, %.preheader147 ]
-  %134 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv219
+  %134 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv219
   %135 = load ptr, ptr %134, align 8, !tbaa !71
-  %136 = getelementptr inbounds nuw ptr, ptr %135, i64 %indvars.iv224
+  %136 = getelementptr inbounds nuw [8 x i8], ptr %135, i64 %indvars.iv224
   %137 = load ptr, ptr %136, align 8, !tbaa !67
   %138 = load ptr, ptr %137, align 8, !tbaa !54
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 16
   %140 = load ptr, ptr %139, align 8, !tbaa !61
-  %141 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv219
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv219
   br label %142
 
 142:                                              ; preds = %.lr.ph170.us, %142
   %.2134168.us = phi i64 [ 0, %.lr.ph170.us ], [ %149, %142 ]
   %143 = load double, ptr %141, align 8, !tbaa !64
-  %144 = getelementptr inbounds nuw double, ptr %140, i64 %.2134168.us
+  %144 = getelementptr inbounds nuw [8 x i8], ptr %140, i64 %.2134168.us
   %145 = load double, ptr %144, align 8, !tbaa !64
-  %146 = getelementptr inbounds nuw double, ptr %133, i64 %.2134168.us
+  %146 = getelementptr inbounds nuw [8 x i8], ptr %133, i64 %.2134168.us
   %147 = load double, ptr %146, align 8, !tbaa !64
   %148 = tail call double @llvm.fmuladd.f64(double %143, double %145, double %147)
   store double %148, ptr %146, align 8, !tbaa !64
@@ -3906,7 +3906,7 @@ define noundef i32 @N_VLinearCombinationVectorArray_Serial(i32 noundef %0, i32 n
 .lr.ph167:                                        ; preds = %128, %.lr.ph167
   %.1133165 = phi i64 [ %154, %.lr.ph167 ], [ 0, %128 ]
   %150 = load double, ptr %2, align 8, !tbaa !64
-  %151 = getelementptr inbounds nuw double, ptr %133, i64 %.1133165
+  %151 = getelementptr inbounds nuw [8 x i8], ptr %133, i64 %.1133165
   %152 = load double, ptr %151, align 8, !tbaa !64
   %153 = fmul double %150, %152
   store double %153, ptr %151, align 8, !tbaa !64
@@ -3921,12 +3921,12 @@ define noundef i32 @N_VLinearCombinationVectorArray_Serial(i32 noundef %0, i32 n
 
 155:                                              ; preds = %.lr.ph164, %.critedge
   %indvars.iv212 = phi i64 [ 0, %.lr.ph164 ], [ %indvars.iv.next213, %.critedge ]
-  %156 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv212
+  %156 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv212
   %157 = load ptr, ptr %156, align 8, !tbaa !67
   %158 = load ptr, ptr %157, align 8, !tbaa !54
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 16
   %160 = load ptr, ptr %159, align 8, !tbaa !61
-  %161 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv212
+  %161 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv212
   %162 = load ptr, ptr %161, align 8, !tbaa !67
   %163 = load ptr, ptr %162, align 8, !tbaa !54
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 16
@@ -3938,22 +3938,22 @@ define noundef i32 @N_VLinearCombinationVectorArray_Serial(i32 noundef %0, i32 n
 
 .lr.ph158.us:                                     ; preds = %.preheader150, %._crit_edge159.us
   %indvars.iv207 = phi i64 [ %indvars.iv.next208, %._crit_edge159.us ], [ 1, %.preheader150 ]
-  %166 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv207
+  %166 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv207
   %167 = load ptr, ptr %166, align 8, !tbaa !71
-  %168 = getelementptr inbounds nuw ptr, ptr %167, i64 %indvars.iv212
+  %168 = getelementptr inbounds nuw [8 x i8], ptr %167, i64 %indvars.iv212
   %169 = load ptr, ptr %168, align 8, !tbaa !67
   %170 = load ptr, ptr %169, align 8, !tbaa !54
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 16
   %172 = load ptr, ptr %171, align 8, !tbaa !61
-  %173 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv207
+  %173 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv207
   br label %174
 
 174:                                              ; preds = %.lr.ph158.us, %174
   %.4156.us = phi i64 [ 0, %.lr.ph158.us ], [ %181, %174 ]
   %175 = load double, ptr %173, align 8, !tbaa !64
-  %176 = getelementptr inbounds nuw double, ptr %172, i64 %.4156.us
+  %176 = getelementptr inbounds nuw [8 x i8], ptr %172, i64 %.4156.us
   %177 = load double, ptr %176, align 8, !tbaa !64
-  %178 = getelementptr inbounds nuw double, ptr %165, i64 %.4156.us
+  %178 = getelementptr inbounds nuw [8 x i8], ptr %165, i64 %.4156.us
   %179 = load double, ptr %178, align 8, !tbaa !64
   %180 = tail call double @llvm.fmuladd.f64(double %175, double %177, double %179)
   store double %180, ptr %178, align 8, !tbaa !64
@@ -3969,10 +3969,10 @@ define noundef i32 @N_VLinearCombinationVectorArray_Serial(i32 noundef %0, i32 n
 .lr.ph155:                                        ; preds = %155, %.lr.ph155
   %.3135153 = phi i64 [ %187, %.lr.ph155 ], [ 0, %155 ]
   %182 = load double, ptr %2, align 8, !tbaa !64
-  %183 = getelementptr inbounds nuw double, ptr %160, i64 %.3135153
+  %183 = getelementptr inbounds nuw [8 x i8], ptr %160, i64 %.3135153
   %184 = load double, ptr %183, align 8, !tbaa !64
   %185 = fmul double %182, %184
-  %186 = getelementptr inbounds nuw double, ptr %165, i64 %.3135153
+  %186 = getelementptr inbounds nuw [8 x i8], ptr %165, i64 %.3135153
   store double %185, ptr %186, align 8, !tbaa !64
   %187 = add nuw nsw i64 %.3135153, 1
   %exitcond205.not = icmp eq i64 %187, %94

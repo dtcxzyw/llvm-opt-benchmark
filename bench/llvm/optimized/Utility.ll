@@ -920,7 +920,7 @@ _ZN4llvmneENS_9StringRefES0_.exit.thread17.i:     ; preds = %_ZN4llvmneENS_9Stri
 111:                                              ; preds = %111, %_ZN4llvmneENS_9StringRefES0_.exit.thread17.i
   %indvars.iv.i.i = phi i64 [ 0, %_ZN4llvmneENS_9StringRefES0_.exit.thread17.i ], [ %indvars.iv.next.i.i, %111 ]
   %112 = trunc i64 %indvars.iv.i.i to i8
-  %113 = getelementptr inbounds nuw %"struct.llvm::msgpack::KindAndDocument", ptr %77, i64 %indvars.iv.i.i
+  %113 = getelementptr inbounds nuw [16 x i8], ptr %77, i64 %indvars.iv.i.i
   store ptr %14, ptr %113, align 8, !tbaa !218, !noalias !195
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %113, i64 8
   store i8 %112, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !tbaa !220, !noalias !195
@@ -1282,7 +1282,7 @@ _ZN4llvm7msgpack7DocNode8getArrayEb.exit.i11.i.i.i: ; preds = %228, %_ZZN12_GLOB
   %233 = load i64, ptr %232, align 8, !tbaa !141, !noalias !249
   %234 = trunc i64 %233 to i32
   %indvars.iv.next.i18.i.i.i = add nuw nsw i64 %indvars.iv.i16.i.i.i, 1
-  %235 = getelementptr inbounds nuw i32, ptr %90, i64 %indvars.iv.i16.i.i.i
+  %235 = getelementptr inbounds nuw [4 x i8], ptr %90, i64 %indvars.iv.i16.i.i.i
   store i32 %234, ptr %235, align 4, !noalias !241
   %236 = getelementptr inbounds nuw i8, ptr %.sroa.01.07.i17.i.i.i, i64 24
   %.not.i19.i.i.i = icmp eq ptr %236, %231
@@ -1319,7 +1319,7 @@ _ZN4llvm7msgpack7DocNode8getArrayEb.exit.i.i.i.i: ; preds = %241, %_ZZN12_GLOBAL
   %246 = load i64, ptr %245, align 8, !tbaa !141, !noalias !249
   %247 = trunc i64 %246 to i32
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %248 = getelementptr inbounds nuw i32, ptr %89, i64 %indvars.iv.i.i.i.i
+  %248 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %indvars.iv.i.i.i.i
   store i32 %247, ptr %248, align 4, !noalias !241
   %249 = getelementptr inbounds nuw i8, ptr %.sroa.01.07.i.i.i.i, i64 24
   %.not.i9.i.i.i = icmp eq ptr %249, %244
@@ -1782,7 +1782,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4llvm9StringMapINS_10offloading6amdgp
   %6 = tail call noundef i32 @_ZN4llvm13StringMapImpl15LookupBucketForENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, i32 noundef %3) #15
   %7 = load ptr, ptr %0, align 8, !tbaa !282
   %8 = zext i32 %6 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !283
   %magicptr = ptrtoint ptr %10 to i64
   switch i64 %magicptr, label %.preheader.i.i [
@@ -1836,7 +1836,7 @@ _ZN4llvm14StringMapEntryINS_10offloading6amdgpu20AMDGPUKernelMetaDataEE6createIN
   %27 = tail call noundef i32 @_ZN4llvm13StringMapImpl11RehashTableEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %6) #15
   %28 = load ptr, ptr %0, align 8, !tbaa !282
   %29 = zext i32 %27 to i64
-  %30 = getelementptr inbounds nuw ptr, ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %29
   br label %.preheader.i.i24
 
 .preheader.i.i24:                                 ; preds = %.critedge.i.i.i26, %_ZN4llvm14StringMapEntryINS_10offloading6amdgpu20AMDGPUKernelMetaDataEE6createINS_15MallocAllocatorEJS3_EEEPS4_NS_9StringRefERT_DpOT0_.exit

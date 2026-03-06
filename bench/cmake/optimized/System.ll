@@ -117,7 +117,7 @@ define dso_local noalias noundef ptr @cmsysSystem_Parse_CommandForUnix(ptr nound
   %41 = tail call ptr @__ctype_b_loc() #9
   %42 = load ptr, ptr %41, align 8, !tbaa !14
   %43 = zext i8 %16 to i64
-  %44 = getelementptr inbounds nuw i16, ptr %42, i64 %43
+  %44 = getelementptr inbounds nuw [2 x i8], ptr %42, i64 %43
   %45 = load i16, ptr %44, align 2, !tbaa !16
   %46 = and i16 %45, 8192
   %.not57.i = icmp eq i16 %46, 0

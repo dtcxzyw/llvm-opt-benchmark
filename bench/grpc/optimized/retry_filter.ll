@@ -39,12 +39,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon.5 = type { i64, [8 x i8] }
 %"class.grpc_core::RefCountedPtr" = type { ptr }
-%"class.std::unique_ptr.54" = type { %"struct.std::__uniq_ptr_data.55" }
-%"struct.std::__uniq_ptr_data.55" = type { %"class.std::__uniq_ptr_impl.56" }
-%"class.std::__uniq_ptr_impl.56" = type { %"class.std::tuple.57" }
-%"class.std::tuple.57" = type { %"struct.std::_Tuple_impl.58" }
-%"struct.std::_Tuple_impl.58" = type { %"struct.std::_Head_base.61" }
-%"struct.std::_Head_base.61" = type { ptr }
 %"class.absl::lts_20240722::log_internal::LogMessageFatal" = type { %"class.absl::lts_20240722::log_internal::LogMessage" }
 %"class.absl::lts_20240722::log_internal::LogMessage" = type { %"class.absl::lts_20240722::base_internal::ErrnoSaver", %"class.std::unique_ptr.62" }
 %"class.absl::lts_20240722::base_internal::ErrnoSaver" = type { i32 }
@@ -827,7 +821,7 @@ define noundef ptr @_ZN9grpc_core11RetryFilter14GetRetryPolicyEPNS_5ArenaE(ptr n
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %4 = load i16, ptr @_ZN9grpc_core12arena_detail18ArenaContextTraitsINS_21ServiceConfigCallDataEE3id_E, align 2, !tbaa !52
   %5 = zext i16 %4 to i64
-  %6 = getelementptr inbounds nuw ptr, ptr %3, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !54
   %8 = icmp eq ptr %7, null
   br i1 %8, label %_ZNK9grpc_core21ServiceConfigCallData21GetMethodParsedConfigEm.exit, label %9
@@ -842,7 +836,7 @@ define noundef ptr @_ZN9grpc_core11RetryFilter14GetRetryPolicyEPNS_5ArenaE(ptr n
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = load i64, ptr %14, align 8, !tbaa !20
   %16 = load ptr, ptr %11, align 8, !tbaa !63
-  %17 = getelementptr inbounds nuw %"class.std::unique_ptr.54", ptr %16, i64 %15
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %15
   %18 = load ptr, ptr %17, align 8, !tbaa !66
   br label %_ZNK9grpc_core21ServiceConfigCallData21GetMethodParsedConfigEm.exit
 
@@ -1047,7 +1041,7 @@ _ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds = %2
 _ZNSt6vectorIPFvPvESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %30, %_ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %25, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, align 8, !tbaa !86
   store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 8), align 8, !tbaa !83
-  %31 = getelementptr inbounds nuw ptr, ptr %25, i64 %23
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %23
   store ptr %31, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 16), align 8, !tbaa !87
   br label %_ZNSt6vectorIPFvPvESaIS2_EE9push_backERKS2_.exit
 

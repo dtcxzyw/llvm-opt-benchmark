@@ -13,7 +13,7 @@ define void @dgtts2_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %16 = load i32, ptr %9, align 4, !tbaa !3
   %narrow = xor i32 %16, -1
   %17 = sext i32 %narrow to i64
-  %18 = getelementptr inbounds double, ptr %8, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %8, i64 %17
   %19 = load i32, ptr %1, align 4, !tbaa !3
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %.loopexit, label %21
@@ -33,24 +33,24 @@ define void @dgtts2_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 
 29:                                               ; preds = %24
   %30 = sext i32 %19 to i64
-  %31 = getelementptr inbounds double, ptr %12, i64 %30
+  %31 = getelementptr inbounds [8 x i8], ptr %12, i64 %30
   br i1 %27, label %41, label %.preheader355
 
 .preheader355:                                    ; preds = %29
   %32 = add nsw i32 %19, -1
   %33 = zext nneg i32 %32 to i64
-  %34 = getelementptr inbounds nuw double, ptr %13, i64 %33
-  %35 = getelementptr inbounds nuw double, ptr %12, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %33
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %33
   %36 = add i32 %19, -2
   %37 = icmp sgt i32 %19, 2
   %38 = sext i32 %36 to i64
   %39 = sext i32 %32 to i64
   %40 = add nuw i32 %22, 1
   %wide.trip.count431 = zext i32 %40 to i64
-  %invariant.gep490 = getelementptr double, ptr %18, i64 %30
+  %invariant.gep490 = getelementptr [8 x i8], ptr %18, i64 %30
   %wide.trip.count423 = zext nneg i32 %19 to i64
-  %invariant.gep492 = getelementptr double, ptr %18, i64 %30
-  %invariant.gep494 = getelementptr double, ptr %18, i64 %39
+  %invariant.gep492 = getelementptr [8 x i8], ptr %18, i64 %30
+  %invariant.gep494 = getelementptr [8 x i8], ptr %18, i64 %39
   br label %.preheader354
 
 41:                                               ; preds = %29
@@ -58,22 +58,22 @@ define void @dgtts2_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %43 = icmp sgt i32 %19, 2
   %44 = add nsw i32 %19, -1
   %45 = zext nneg i32 %44 to i64
-  %46 = getelementptr inbounds nuw double, ptr %13, i64 %45
-  %47 = getelementptr inbounds nuw double, ptr %12, i64 %45
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %45
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %45
   %48 = sext i32 %42 to i64
   %49 = sext i32 %44 to i64
-  %invariant.gep496 = getelementptr double, ptr %18, i64 %28
+  %invariant.gep496 = getelementptr [8 x i8], ptr %18, i64 %28
   br i1 %.not353.not386, label %.lr.ph389, label %.thread
 
 .lr.ph389:                                        ; preds = %41
   %wide.trip.count436 = zext nneg i32 %19 to i64
-  %invariant.gep498 = getelementptr double, ptr %18, i64 %28
-  %invariant.gep500 = getelementptr double, ptr %18, i64 %28
+  %invariant.gep498 = getelementptr [8 x i8], ptr %18, i64 %28
+  %invariant.gep500 = getelementptr [8 x i8], ptr %18, i64 %28
   br label %50
 
 50:                                               ; preds = %.lr.ph389, %50
   %indvars.iv433 = phi i64 [ 1, %.lr.ph389 ], [ %indvars.iv.next434, %50 ]
-  %51 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv433
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv433
   %52 = load i32, ptr %51, align 4, !tbaa !3
   %indvars.iv.next434 = add nuw nsw i64 %indvars.iv433, 1
   %53 = trunc nuw nsw i64 %indvars.iv433 to i32
@@ -82,25 +82,25 @@ define void @dgtts2_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %56 = add i32 %54, %55
   %57 = sub i32 %56, %52
   %58 = sext i32 %57 to i64
-  %59 = getelementptr inbounds double, ptr %18, i64 %58
+  %59 = getelementptr inbounds [8 x i8], ptr %18, i64 %58
   %60 = load double, ptr %59, align 8, !tbaa !7
-  %61 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv433
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv433
   %62 = load double, ptr %61, align 8, !tbaa !7
   %63 = sext i32 %52 to i64
-  %gep497 = getelementptr double, ptr %invariant.gep496, i64 %63
+  %gep497 = getelementptr [8 x i8], ptr %invariant.gep496, i64 %63
   %64 = load double, ptr %gep497, align 8, !tbaa !7
   %65 = fneg double %62
   %66 = tail call double @llvm.fmuladd.f64(double %65, double %64, double %60)
-  %gep499 = getelementptr double, ptr %invariant.gep498, i64 %indvars.iv433
+  %gep499 = getelementptr [8 x i8], ptr %invariant.gep498, i64 %indvars.iv433
   store double %64, ptr %gep499, align 8, !tbaa !7
-  %gep501 = getelementptr double, ptr %invariant.gep500, i64 %indvars.iv.next434
+  %gep501 = getelementptr [8 x i8], ptr %invariant.gep500, i64 %indvars.iv.next434
   store double %66, ptr %gep501, align 8, !tbaa !7
   %exitcond437.not = icmp eq i64 %indvars.iv.next434, %wide.trip.count436
   br i1 %exitcond437.not, label %71, label %50, !llvm.loop !9
 
 .thread:                                          ; preds = %41
   %67 = load double, ptr %31, align 8, !tbaa !7
-  %68 = getelementptr double, ptr %invariant.gep496, i64 %30
+  %68 = getelementptr [8 x i8], ptr %invariant.gep496, i64 %30
   %69 = load double, ptr %68, align 8, !tbaa !7
   %70 = fdiv double %69, %67
   store double %70, ptr %68, align 8, !tbaa !7
@@ -108,13 +108,13 @@ define void @dgtts2_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 
 71:                                               ; preds = %50
   %72 = load double, ptr %31, align 8, !tbaa !7
-  %73 = getelementptr double, ptr %18, i64 %28
-  %74 = getelementptr double, ptr %73, i64 %30
+  %73 = getelementptr [8 x i8], ptr %18, i64 %28
+  %74 = getelementptr [8 x i8], ptr %73, i64 %30
   %75 = load double, ptr %74, align 8, !tbaa !7
   %76 = fdiv double %75, %72
   store double %76, ptr %74, align 8, !tbaa !7
-  %77 = getelementptr double, ptr %18, i64 %28
-  %78 = getelementptr double, ptr %77, i64 %49
+  %77 = getelementptr [8 x i8], ptr %18, i64 %28
+  %78 = getelementptr [8 x i8], ptr %77, i64 %49
   %79 = load double, ptr %78, align 8, !tbaa !7
   %80 = load double, ptr %46, align 8, !tbaa !7
   %81 = fneg double %80
@@ -127,31 +127,31 @@ define void @dgtts2_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 .lr.ph393:                                        ; preds = %71
   %85 = add i32 %16, 1
   %86 = add i32 %16, 2
-  %invariant.gep502 = getelementptr double, ptr %18, i64 %28
+  %invariant.gep502 = getelementptr [8 x i8], ptr %18, i64 %28
   br label %87
 
 87:                                               ; preds = %.lr.ph393, %87
   %indvars.iv438 = phi i64 [ %48, %.lr.ph393 ], [ %indvars.iv.next439, %87 ]
-  %gep503 = getelementptr double, ptr %invariant.gep502, i64 %indvars.iv438
+  %gep503 = getelementptr [8 x i8], ptr %invariant.gep502, i64 %indvars.iv438
   %88 = load double, ptr %gep503, align 8, !tbaa !7
-  %89 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv438
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv438
   %90 = load double, ptr %89, align 8, !tbaa !7
   %91 = trunc nuw nsw i64 %indvars.iv438 to i32
   %92 = add i32 %85, %91
   %93 = sext i32 %92 to i64
-  %94 = getelementptr inbounds double, ptr %18, i64 %93
+  %94 = getelementptr inbounds [8 x i8], ptr %18, i64 %93
   %95 = load double, ptr %94, align 8, !tbaa !7
   %96 = fneg double %90
   %97 = tail call double @llvm.fmuladd.f64(double %96, double %95, double %88)
-  %98 = getelementptr inbounds nuw double, ptr %14, i64 %indvars.iv438
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv438
   %99 = load double, ptr %98, align 8, !tbaa !7
   %100 = add i32 %86, %91
   %101 = sext i32 %100 to i64
-  %102 = getelementptr inbounds double, ptr %18, i64 %101
+  %102 = getelementptr inbounds [8 x i8], ptr %18, i64 %101
   %103 = load double, ptr %102, align 8, !tbaa !7
   %104 = fneg double %99
   %105 = tail call double @llvm.fmuladd.f64(double %104, double %103, double %97)
-  %106 = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv438
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv438
   %107 = load double, ptr %106, align 8, !tbaa !7
   %108 = fdiv double %105, %107
   store double %108, ptr %gep503, align 8, !tbaa !7
@@ -166,7 +166,7 @@ define void @dgtts2_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 
 ._crit_edge380.thread:                            ; preds = %.preheader354
   %111 = load double, ptr %31, align 8, !tbaa !7
-  %gep491 = getelementptr double, ptr %invariant.gep490, i64 %110
+  %gep491 = getelementptr [8 x i8], ptr %invariant.gep490, i64 %110
   %112 = load double, ptr %gep491, align 8, !tbaa !7
   %113 = fdiv double %112, %111
   store double %113, ptr %gep491, align 8, !tbaa !7
@@ -175,27 +175,27 @@ define void @dgtts2_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 .lr.ph379:                                        ; preds = %.preheader354
   %114 = trunc nsw i64 %110 to i32
   %115 = add i32 %114, 1
-  %invariant.gep484 = getelementptr double, ptr %18, i64 %110
-  %invariant.gep486 = getelementptr double, ptr %18, i64 %110
+  %invariant.gep484 = getelementptr [8 x i8], ptr %18, i64 %110
+  %invariant.gep486 = getelementptr [8 x i8], ptr %18, i64 %110
   br label %116
 
 116:                                              ; preds = %.lr.ph379, %143
   %indvars.iv420 = phi i64 [ 1, %.lr.ph379 ], [ %indvars.iv.next421, %143 ]
-  %117 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv420
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv420
   %118 = load i32, ptr %117, align 4, !tbaa !3
   %119 = zext i32 %118 to i64
   %120 = icmp eq i64 %indvars.iv420, %119
   br i1 %120, label %121, label %132
 
 121:                                              ; preds = %116
-  %122 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv420
+  %122 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv420
   %123 = load double, ptr %122, align 8, !tbaa !7
-  %gep487 = getelementptr double, ptr %invariant.gep486, i64 %indvars.iv420
+  %gep487 = getelementptr [8 x i8], ptr %invariant.gep486, i64 %indvars.iv420
   %124 = load double, ptr %gep487, align 8, !tbaa !7
   %125 = trunc nuw nsw i64 %indvars.iv420 to i32
   %126 = add i32 %115, %125
   %127 = sext i32 %126 to i64
-  %128 = getelementptr inbounds double, ptr %18, i64 %127
+  %128 = getelementptr inbounds [8 x i8], ptr %18, i64 %127
   %129 = load double, ptr %128, align 8, !tbaa !7
   %130 = fneg double %123
   %131 = tail call double @llvm.fmuladd.f64(double %130, double %124, double %129)
@@ -203,15 +203,15 @@ define void @dgtts2_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   br label %143
 
 132:                                              ; preds = %116
-  %gep485 = getelementptr double, ptr %invariant.gep484, i64 %indvars.iv420
+  %gep485 = getelementptr [8 x i8], ptr %invariant.gep484, i64 %indvars.iv420
   %133 = load double, ptr %gep485, align 8, !tbaa !7
   %134 = trunc nuw nsw i64 %indvars.iv420 to i32
   %135 = add i32 %115, %134
   %136 = sext i32 %135 to i64
-  %137 = getelementptr inbounds double, ptr %18, i64 %136
+  %137 = getelementptr inbounds [8 x i8], ptr %18, i64 %136
   %138 = load double, ptr %137, align 8, !tbaa !7
   store double %138, ptr %gep485, align 8, !tbaa !7
-  %139 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv420
+  %139 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv420
   %140 = load double, ptr %139, align 8, !tbaa !7
   %141 = fneg double %140
   %142 = tail call double @llvm.fmuladd.f64(double %141, double %138, double %133)
@@ -225,11 +225,11 @@ define void @dgtts2_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 
 ._crit_edge380:                                   ; preds = %143
   %144 = load double, ptr %31, align 8, !tbaa !7
-  %gep493 = getelementptr double, ptr %invariant.gep492, i64 %110
+  %gep493 = getelementptr [8 x i8], ptr %invariant.gep492, i64 %110
   %145 = load double, ptr %gep493, align 8, !tbaa !7
   %146 = fdiv double %145, %144
   store double %146, ptr %gep493, align 8, !tbaa !7
-  %gep495 = getelementptr double, ptr %invariant.gep494, i64 %110
+  %gep495 = getelementptr [8 x i8], ptr %invariant.gep494, i64 %110
   %147 = load double, ptr %gep495, align 8, !tbaa !7
   %148 = load double, ptr %34, align 8, !tbaa !7
   %149 = fneg double %148
@@ -242,14 +242,14 @@ define void @dgtts2_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 .lr.ph383:                                        ; preds = %._crit_edge380
   %153 = add i64 %110, 1
   %154 = add i64 %110, 2
-  %invariant.gep488 = getelementptr double, ptr %18, i64 %110
+  %invariant.gep488 = getelementptr [8 x i8], ptr %18, i64 %110
   br label %155
 
 155:                                              ; preds = %.lr.ph383, %155
   %indvars.iv425 = phi i64 [ %38, %.lr.ph383 ], [ %indvars.iv.next426, %155 ]
-  %gep489 = getelementptr double, ptr %invariant.gep488, i64 %indvars.iv425
+  %gep489 = getelementptr [8 x i8], ptr %invariant.gep488, i64 %indvars.iv425
   %156 = load double, ptr %gep489, align 8, !tbaa !7
-  %157 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv425
+  %157 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv425
   %158 = load double, ptr %157, align 8, !tbaa !7
   %159 = add i64 %153, %indvars.iv425
   %sext = shl i64 %159, 32
@@ -258,7 +258,7 @@ define void @dgtts2_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %162 = load double, ptr %161, align 8, !tbaa !7
   %163 = fneg double %158
   %164 = tail call double @llvm.fmuladd.f64(double %163, double %162, double %156)
-  %165 = getelementptr inbounds nuw double, ptr %14, i64 %indvars.iv425
+  %165 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv425
   %166 = load double, ptr %165, align 8, !tbaa !7
   %167 = add i64 %154, %indvars.iv425
   %sext450 = shl i64 %167, 32
@@ -267,7 +267,7 @@ define void @dgtts2_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %170 = load double, ptr %169, align 8, !tbaa !7
   %171 = fneg double %166
   %172 = tail call double @llvm.fmuladd.f64(double %171, double %170, double %164)
-  %173 = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv425
+  %173 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv425
   %174 = load double, ptr %173, align 8, !tbaa !7
   %175 = fdiv double %172, %174
   store double %175, ptr %gep489, align 8, !tbaa !7
@@ -300,7 +300,7 @@ define void @dgtts2_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 
 187:                                              ; preds = %177
   %188 = load double, ptr %4, align 8, !tbaa !7
-  %189 = getelementptr double, ptr %18, i64 %28
+  %189 = getelementptr [8 x i8], ptr %18, i64 %28
   %190 = getelementptr i8, ptr %189, i64 8
   %191 = load double, ptr %190, align 8, !tbaa !7
   %192 = fdiv double %191, %188
@@ -322,8 +322,8 @@ define void @dgtts2_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 
 .lr.ph373.preheader:                              ; preds = %193
   %wide.trip.count410 = zext i32 %178 to i64
-  %invariant.gep472 = getelementptr double, ptr %18, i64 %28
-  %invariant.gep476 = getelementptr double, ptr %18, i64 %28
+  %invariant.gep472 = getelementptr [8 x i8], ptr %18, i64 %28
+  %invariant.gep476 = getelementptr [8 x i8], ptr %18, i64 %28
   %202 = add nsw i64 %28, %17
   %203 = shl nsw i64 %202, 3
   %204 = getelementptr i8, ptr %8, i64 %203
@@ -332,29 +332,29 @@ define void @dgtts2_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   br label %.lr.ph373
 
 .lr.ph375.preheader:                              ; preds = %.lr.ph373, %193
-  %invariant.gep478 = getelementptr double, ptr %18, i64 %28
-  %invariant.gep480 = getelementptr double, ptr %18, i64 %28
-  %invariant.gep482 = getelementptr double, ptr %18, i64 %28
+  %invariant.gep478 = getelementptr [8 x i8], ptr %18, i64 %28
+  %invariant.gep480 = getelementptr [8 x i8], ptr %18, i64 %28
+  %invariant.gep482 = getelementptr [8 x i8], ptr %18, i64 %28
   br label %.lr.ph375
 
 .lr.ph373:                                        ; preds = %.lr.ph373.preheader, %.lr.ph373
   %store_forwarded = phi double [ %load_initial, %.lr.ph373.preheader ], [ %219, %.lr.ph373 ]
   %indvars.iv407 = phi i64 [ 3, %.lr.ph373.preheader ], [ %indvars.iv.next408, %.lr.ph373 ]
-  %gep473 = getelementptr double, ptr %invariant.gep472, i64 %indvars.iv407
+  %gep473 = getelementptr [8 x i8], ptr %invariant.gep472, i64 %indvars.iv407
   %205 = load double, ptr %gep473, align 8, !tbaa !7
-  %206 = getelementptr double, ptr %13, i64 %indvars.iv407
+  %206 = getelementptr [8 x i8], ptr %13, i64 %indvars.iv407
   %207 = getelementptr i8, ptr %206, i64 -8
   %208 = load double, ptr %207, align 8, !tbaa !7
   %209 = fneg double %208
   %210 = tail call double @llvm.fmuladd.f64(double %209, double %store_forwarded, double %205)
   %211 = add nsw i64 %indvars.iv407, -2
-  %212 = getelementptr inbounds double, ptr %14, i64 %211
+  %212 = getelementptr inbounds [8 x i8], ptr %14, i64 %211
   %213 = load double, ptr %212, align 8, !tbaa !7
-  %gep477 = getelementptr double, ptr %invariant.gep476, i64 %211
+  %gep477 = getelementptr [8 x i8], ptr %invariant.gep476, i64 %211
   %214 = load double, ptr %gep477, align 8, !tbaa !7
   %215 = fneg double %213
   %216 = tail call double @llvm.fmuladd.f64(double %215, double %214, double %210)
-  %217 = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv407
+  %217 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv407
   %218 = load double, ptr %217, align 8, !tbaa !7
   %219 = fdiv double %216, %218
   store double %219, ptr %gep473, align 8, !tbaa !7
@@ -365,18 +365,18 @@ define void @dgtts2_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 .lr.ph375:                                        ; preds = %.lr.ph375.preheader, %.lr.ph375
   %indvars.iv412 = phi i64 [ %179, %.lr.ph375.preheader ], [ %indvars.iv.next413, %.lr.ph375 ]
   %indvars.iv.next413 = add nsw i64 %indvars.iv412, -1
-  %220 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv.next413
+  %220 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv.next413
   %221 = load i32, ptr %220, align 4, !tbaa !3
-  %gep479 = getelementptr double, ptr %invariant.gep478, i64 %indvars.iv.next413
+  %gep479 = getelementptr [8 x i8], ptr %invariant.gep478, i64 %indvars.iv.next413
   %222 = load double, ptr %gep479, align 8, !tbaa !7
-  %223 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv.next413
+  %223 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv.next413
   %224 = load double, ptr %223, align 8, !tbaa !7
-  %gep481 = getelementptr double, ptr %invariant.gep480, i64 %indvars.iv412
+  %gep481 = getelementptr [8 x i8], ptr %invariant.gep480, i64 %indvars.iv412
   %225 = load double, ptr %gep481, align 8, !tbaa !7
   %226 = fneg double %224
   %227 = tail call double @llvm.fmuladd.f64(double %226, double %225, double %222)
   %228 = sext i32 %221 to i64
-  %gep483 = getelementptr double, ptr %invariant.gep482, i64 %228
+  %gep483 = getelementptr [8 x i8], ptr %invariant.gep482, i64 %228
   %229 = load double, ptr %gep483, align 8, !tbaa !7
   store double %229, ptr %gep479, align 8, !tbaa !7
   store double %227, ptr %gep483, align 8, !tbaa !7
@@ -390,7 +390,7 @@ define void @dgtts2_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %scevgep507 = getelementptr i8, ptr %186, i64 %232
   %233 = load double, ptr %4, align 8, !tbaa !7
   %234 = mul nsw i64 %indvars.iv402, %28
-  %235 = getelementptr double, ptr %18, i64 %234
+  %235 = getelementptr [8 x i8], ptr %18, i64 %234
   %236 = getelementptr i8, ptr %235, i64 8
   %237 = load double, ptr %236, align 8, !tbaa !7
   %238 = fdiv double %237, %233
@@ -409,36 +409,36 @@ define void @dgtts2_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   br i1 %.not349363, label %.lr.ph368.preheader, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %239
-  %invariant.gep = getelementptr double, ptr %18, i64 %234
-  %invariant.gep462 = getelementptr double, ptr %18, i64 %234
+  %invariant.gep = getelementptr [8 x i8], ptr %18, i64 %234
+  %invariant.gep462 = getelementptr [8 x i8], ptr %18, i64 %234
   %load_initial508 = load double, ptr %scevgep507, align 8
   br label %.lr.ph
 
 .lr.ph368.preheader:                              ; preds = %.lr.ph, %239
-  %invariant.gep464 = getelementptr double, ptr %18, i64 %234
-  %invariant.gep466 = getelementptr double, ptr %18, i64 %234
-  %invariant.gep468 = getelementptr double, ptr %18, i64 %234
-  %invariant.gep470 = getelementptr double, ptr %18, i64 %234
+  %invariant.gep464 = getelementptr [8 x i8], ptr %18, i64 %234
+  %invariant.gep466 = getelementptr [8 x i8], ptr %18, i64 %234
+  %invariant.gep468 = getelementptr [8 x i8], ptr %18, i64 %234
+  %invariant.gep470 = getelementptr [8 x i8], ptr %18, i64 %234
   br label %.lr.ph368
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %store_forwarded509 = phi double [ %load_initial508, %.lr.ph.preheader ], [ %261, %.lr.ph ]
   %indvars.iv = phi i64 [ 3, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %gep = getelementptr double, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %indvars.iv
   %247 = load double, ptr %gep, align 8, !tbaa !7
-  %248 = getelementptr double, ptr %13, i64 %indvars.iv
+  %248 = getelementptr [8 x i8], ptr %13, i64 %indvars.iv
   %249 = getelementptr i8, ptr %248, i64 -8
   %250 = load double, ptr %249, align 8, !tbaa !7
   %251 = fneg double %250
   %252 = tail call double @llvm.fmuladd.f64(double %251, double %store_forwarded509, double %247)
   %253 = add nsw i64 %indvars.iv, -2
-  %254 = getelementptr inbounds double, ptr %14, i64 %253
+  %254 = getelementptr inbounds [8 x i8], ptr %14, i64 %253
   %255 = load double, ptr %254, align 8, !tbaa !7
-  %gep463 = getelementptr double, ptr %invariant.gep462, i64 %253
+  %gep463 = getelementptr [8 x i8], ptr %invariant.gep462, i64 %253
   %256 = load double, ptr %gep463, align 8, !tbaa !7
   %257 = fneg double %255
   %258 = tail call double @llvm.fmuladd.f64(double %257, double %256, double %252)
-  %259 = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv
+  %259 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   %260 = load double, ptr %259, align 8, !tbaa !7
   %261 = fdiv double %258, %260
   store double %261, ptr %gep, align 8, !tbaa !7
@@ -449,18 +449,18 @@ define void @dgtts2_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 .lr.ph368:                                        ; preds = %.lr.ph368.preheader, %280
   %indvars.iv399 = phi i64 [ %179, %.lr.ph368.preheader ], [ %indvars.iv.next400, %280 ]
   %indvars.iv.next400 = add nsw i64 %indvars.iv399, -1
-  %262 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv.next400
+  %262 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv.next400
   %263 = load i32, ptr %262, align 4, !tbaa !3
   %264 = zext i32 %263 to i64
   %265 = icmp eq i64 %indvars.iv.next400, %264
   br i1 %265, label %266, label %273
 
 266:                                              ; preds = %.lr.ph368
-  %267 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv.next400
+  %267 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv.next400
   %268 = load double, ptr %267, align 8, !tbaa !7
-  %gep469 = getelementptr double, ptr %invariant.gep468, i64 %indvars.iv399
+  %gep469 = getelementptr [8 x i8], ptr %invariant.gep468, i64 %indvars.iv399
   %269 = load double, ptr %gep469, align 8, !tbaa !7
-  %gep471 = getelementptr double, ptr %invariant.gep470, i64 %indvars.iv.next400
+  %gep471 = getelementptr [8 x i8], ptr %invariant.gep470, i64 %indvars.iv.next400
   %270 = load double, ptr %gep471, align 8, !tbaa !7
   %271 = fneg double %268
   %272 = tail call double @llvm.fmuladd.f64(double %271, double %269, double %270)
@@ -468,11 +468,11 @@ define void @dgtts2_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   br label %280
 
 273:                                              ; preds = %.lr.ph368
-  %gep465 = getelementptr double, ptr %invariant.gep464, i64 %indvars.iv399
+  %gep465 = getelementptr [8 x i8], ptr %invariant.gep464, i64 %indvars.iv399
   %274 = load double, ptr %gep465, align 8, !tbaa !7
-  %gep467 = getelementptr double, ptr %invariant.gep466, i64 %indvars.iv.next400
+  %gep467 = getelementptr [8 x i8], ptr %invariant.gep466, i64 %indvars.iv.next400
   %275 = load double, ptr %gep467, align 8, !tbaa !7
-  %276 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv.next400
+  %276 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv.next400
   %277 = load double, ptr %276, align 8, !tbaa !7
   %278 = fneg double %277
   %279 = tail call double @llvm.fmuladd.f64(double %278, double %274, double %275)

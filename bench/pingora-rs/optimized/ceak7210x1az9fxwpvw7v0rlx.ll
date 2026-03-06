@@ -10953,7 +10953,7 @@ _ZN5bytes5bytes5Bytes5clear17h6281e9edc76546e0E.exit.i.i: ; preds = %265, %.noex
 
 340:                                              ; preds = %340, %317
   %341 = phi i64 [ 0, %317 ], [ %343, %340 ]
-  %342 = getelementptr inbounds nuw { { ptr, i64 }, { ptr, i64 } }, ptr %56, i64 %341
+  %342 = getelementptr inbounds nuw [32 x i8], ptr %56, i64 %341
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %342, ptr noundef nonnull align 8 dereferenceable(32) @anon.3e79bfb729eb4cf250c196fc7f304528.124, i64 32, i1 false), !noalias !848
   %343 = add nuw nsw i64 %341, 1
   %exitcond.not.i.i = icmp eq i64 %343, 256
@@ -11110,7 +11110,7 @@ _ZN5bytes5bytes5Bytes5clear17h6281e9edc76546e0E.exit.i.i: ; preds = %265, %.noex
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h491575f50e405af4E.exit.i.i.i": ; preds = %406, %.noexc133.i.i
   %407 = load ptr, ptr %380, align 8, !alias.scope !916, !noalias !919, !nonnull !4, !noundef !4
-  %408 = getelementptr inbounds nuw { { i64, i64 }, { i64, i64 } }, ptr %407, i64 %403
+  %408 = getelementptr inbounds nuw [32 x i8], ptr %407, i64 %403
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %408, ptr noundef nonnull readonly align 8 dereferenceable(32) %26, i64 32, i1 false), !noalias !913
   %409 = add i64 %403, 1
   store i64 %409, ptr %381, align 8, !alias.scope !916, !noalias !919

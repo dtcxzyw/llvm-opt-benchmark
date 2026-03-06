@@ -3201,7 +3201,7 @@ if.then.i.i.i:                                    ; preds = %entry
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 3
   %idx.neg.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i
-  %add.ptr.i.i.i = getelementptr inbounds i64, ptr %1, i64 %idx.neg.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds [8 x i8], ptr %1, i64 %idx.neg.i.i.i
   tail call void @_ZdlPv(ptr noundef %add.ptr.i.i.i) #18
   store ptr null, ptr %constantArguments_, align 8
   %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -4148,12 +4148,12 @@ for.body.lr.ph:                                   ; preds = %entry
   %rank_ = getelementptr inbounds nuw i8, ptr %this, i64 88
   %8 = sext i32 %resultOffset to i64
   %wide.trip.count = and i64 %div6, 2147483647
-  %invariant.gep = getelementptr i64, ptr %call9, i64 %8
+  %invariant.gep = getelementptr [8 x i8], ptr %call9, i64 %8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %if.end ]
-  %arrayidx = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   %9 = load i32, ptr %arrayidx, align 4
   %10 = load i32, ptr %currentPeerGroupStart_, align 8
   %cmp10.not = icmp eq i32 %9, %10
@@ -4171,7 +4171,7 @@ if.then:                                          ; preds = %for.body
 
 if.end:                                           ; preds = %if.then, %for.body
   %12 = phi i64 [ %add, %if.then ], [ %.pre, %for.body ]
-  %gep = getelementptr i64, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %indvars.iv
   store i64 %12, ptr %gep, align 8
   %13 = load i32, ptr %previousPeerCount_, align 4
   %add19 = add nsw i32 %13, 1
@@ -5033,12 +5033,12 @@ for.body.lr.ph:                                   ; preds = %entry
   %rank_ = getelementptr inbounds nuw i8, ptr %this, i64 88
   %8 = sext i32 %resultOffset to i64
   %wide.trip.count = and i64 %div6, 2147483647
-  %invariant.gep = getelementptr i32, ptr %call9, i64 %8
+  %invariant.gep = getelementptr [4 x i8], ptr %call9, i64 %8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %if.end ]
-  %arrayidx = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   %9 = load i32, ptr %arrayidx, align 4
   %10 = load i32, ptr %currentPeerGroupStart_, align 8
   %cmp10.not = icmp eq i32 %9, %10
@@ -5057,7 +5057,7 @@ if.then:                                          ; preds = %for.body
 if.end:                                           ; preds = %if.then, %for.body
   %12 = phi i64 [ %add, %if.then ], [ %.pre, %for.body ]
   %conv15 = trunc i64 %12 to i32
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %indvars.iv
   store i32 %conv15, ptr %gep, align 4
   %13 = load i32, ptr %previousPeerCount_, align 4
   %add20 = add nsw i32 %13, 1
@@ -5618,12 +5618,12 @@ for.body.lr.ph:                                   ; preds = %entry
   %rank_ = getelementptr inbounds nuw i8, ptr %this, i64 88
   %8 = sext i32 %resultOffset to i64
   %wide.trip.count = and i64 %div6, 2147483647
-  %invariant.gep = getelementptr i64, ptr %call9, i64 %8
+  %invariant.gep = getelementptr [8 x i8], ptr %call9, i64 %8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end15
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %if.end15 ]
-  %arrayidx = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   %9 = load i32, ptr %arrayidx, align 4
   %10 = load i32, ptr %currentPeerGroupStart_, align 8
   %cmp10.not = icmp eq i32 %9, %10
@@ -5647,7 +5647,7 @@ if.end:                                           ; preds = %if.then13, %if.then
 
 if.end15:                                         ; preds = %if.end, %for.body
   %13 = load i64, ptr %rank_, align 8
-  %gep = getelementptr i64, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %indvars.iv
   store i64 %13, ptr %gep, align 8
   %14 = load i32, ptr %previousPeerCount_, align 4
   %add20 = add nsw i32 %14, 1
@@ -5988,12 +5988,12 @@ for.body.lr.ph:                                   ; preds = %entry
   %rank_ = getelementptr inbounds nuw i8, ptr %this, i64 88
   %8 = sext i32 %resultOffset to i64
   %wide.trip.count = and i64 %div6, 2147483647
-  %invariant.gep = getelementptr i32, ptr %call9, i64 %8
+  %invariant.gep = getelementptr [4 x i8], ptr %call9, i64 %8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end15
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %if.end15 ]
-  %arrayidx = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   %9 = load i32, ptr %arrayidx, align 4
   %10 = load i32, ptr %currentPeerGroupStart_, align 8
   %cmp10.not = icmp eq i32 %9, %10
@@ -6018,7 +6018,7 @@ if.end:                                           ; preds = %if.then13, %if.then
 if.end15:                                         ; preds = %if.end, %for.body
   %13 = load i64, ptr %rank_, align 8
   %conv17 = trunc i64 %13 to i32
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %indvars.iv
   store i32 %conv17, ptr %gep, align 4
   %14 = load i32, ptr %previousPeerCount_, align 4
   %add21 = add nsw i32 %14, 1
@@ -6360,12 +6360,12 @@ for.body.lr.ph:                                   ; preds = %entry
   %numPartitionRows_ = getelementptr inbounds nuw i8, ptr %this, i64 96
   %8 = sext i32 %resultOffset to i64
   %wide.trip.count = and i64 %div7, 2147483647
-  %invariant.gep = getelementptr double, ptr %call9, i64 %8
+  %invariant.gep = getelementptr [8 x i8], ptr %call9, i64 %8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %cond.end
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %cond.end ]
-  %arrayidx = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   %9 = load i32, ptr %arrayidx, align 4
   %10 = load i32, ptr %currentPeerGroupStart_, align 8
   %cmp10.not = icmp eq i32 %9, %10
@@ -6397,7 +6397,7 @@ cond.false:                                       ; preds = %if.end
 
 cond.end:                                         ; preds = %if.end, %cond.false
   %cond = phi double [ %div20, %cond.false ], [ 0.000000e+00, %if.end ]
-  %gep = getelementptr double, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %indvars.iv
   store double %cond, ptr %gep, align 8
   %15 = load i32, ptr %previousPeerCount_, align 4
   %add25 = add nsw i32 %15, 1

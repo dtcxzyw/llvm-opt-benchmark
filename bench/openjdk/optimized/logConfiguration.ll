@@ -206,7 +206,7 @@ define hidden void @_ZN16LogConfiguration15post_initializeEv() local_unnamed_add
 
 6:                                                ; preds = %.lr.ph, %6
   %.04 = phi i64 [ 0, %.lr.ph ], [ %10, %6 ]
-  %7 = getelementptr inbounds ptr, ptr %5, i64 %.04
+  %7 = getelementptr inbounds [8 x i8], ptr %5, i64 %.04
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i8 0, ptr %9, align 8
@@ -252,14 +252,14 @@ define hidden void @_ZN16LogConfiguration15post_initializeEv() local_unnamed_add
   %.09.i = phi i64 [ %33, %32 ], [ 0, %12 ]
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.28, i64 noundef %.09.i) #11
   %19 = load ptr, ptr @_ZN16LogConfiguration8_outputsE, align 8
-  %20 = getelementptr inbounds ptr, ptr %19, i64 %.09.i
+  %20 = getelementptr inbounds [8 x i8], ptr %19, i64 %.09.i
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %24 = load ptr, ptr %23, align 8
   call void %24(ptr noundef nonnull align 8 dereferenceable(156) %21, ptr noundef nonnull %2) #11
   %25 = load ptr, ptr @_ZN16LogConfiguration8_outputsE, align 8
-  %26 = getelementptr inbounds ptr, ptr %25, i64 %.09.i
+  %26 = getelementptr inbounds [8 x i8], ptr %25, i64 %.09.i
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load i8, ptr %28, align 8
@@ -307,7 +307,7 @@ define hidden void @_ZN16LogConfiguration18describe_availableEP12outputStream(pt
   %.019 = phi i64 [ 0, %1 ], [ %7, %2 ]
   %3 = icmp eq i64 %.019, 0
   %4 = select i1 %3, ptr @.str.22, ptr @.str.23
-  %5 = getelementptr inbounds nuw ptr, ptr @_ZN8LogLevel5_nameE, i64 %.019
+  %5 = getelementptr inbounds nuw [8 x i8], ptr @_ZN8LogLevel5_nameE, i64 %.019
   %6 = load ptr, ptr %5, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.21, ptr noundef nonnull %4, ptr noundef %6) #11
   %7 = add nuw nsw i64 %.019, 1
@@ -323,7 +323,7 @@ define hidden void @_ZN16LogConfiguration18describe_availableEP12outputStream(pt
   %.01820 = phi i64 [ 0, %8 ], [ %16, %9 ]
   %10 = icmp eq i64 %.01820, 0
   %11 = select i1 %10, ptr @.str.22, ptr @.str.23
-  %12 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN13LogDecorators5_nameE, i64 %.01820
+  %12 = getelementptr inbounds nuw [16 x i8], ptr @_ZN13LogDecorators5_nameE, i64 %.01820
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %15 = load ptr, ptr %14, align 8
@@ -353,14 +353,14 @@ define hidden void @_ZN16LogConfiguration30describe_current_configurationEP12out
   %.09 = phi i64 [ %17, %16 ], [ 0, %1 ]
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.28, i64 noundef %.09) #11
   %3 = load ptr, ptr @_ZN16LogConfiguration8_outputsE, align 8
-  %4 = getelementptr inbounds ptr, ptr %3, i64 %.09
+  %4 = getelementptr inbounds [8 x i8], ptr %3, i64 %.09
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(156) %5, ptr noundef nonnull %0) #11
   %9 = load ptr, ptr @_ZN16LogConfiguration8_outputsE, align 8
-  %10 = getelementptr inbounds ptr, ptr %9, i64 %.09
+  %10 = getelementptr inbounds [8 x i8], ptr %9, i64 %.09
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load i8, ptr %12, align 8
@@ -500,7 +500,7 @@ define hidden void @_ZN16LogConfiguration15disable_outputsEv() local_unnamed_add
   %3 = add i64 %.014, -1
   %4 = icmp ugt i64 %3, 1
   %5 = load ptr, ptr @_ZN16LogConfiguration8_outputsE, align 8
-  %6 = getelementptr inbounds ptr, ptr %5, i64 %3
+  %6 = getelementptr inbounds [8 x i8], ptr %5, i64 %3
   %7 = load ptr, ptr %6, align 8
   br i1 %4, label %8, label %22
 
@@ -508,7 +508,7 @@ define hidden void @_ZN16LogConfiguration15disable_outputsEv() local_unnamed_add
   %9 = load i64, ptr @_ZN16LogConfiguration10_n_outputsE, align 8
   %10 = add i64 %9, -1
   store i64 %10, ptr @_ZN16LogConfiguration10_n_outputsE, align 8
-  %11 = getelementptr inbounds ptr, ptr %5, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %5, i64 %10
   %12 = load ptr, ptr %11, align 8
   store ptr %12, ptr %6, align 8
   %13 = load ptr, ptr @_ZN16LogConfiguration8_outputsE, align 8
@@ -549,7 +549,7 @@ define hidden noundef i64 @_ZN16LogConfiguration11find_outputEPKc(ptr noundef re
 .lr.ph:                                           ; preds = %1, %12
   %.06 = phi i64 [ %13, %12 ], [ 0, %1 ]
   %3 = load ptr, ptr @_ZN16LogConfiguration8_outputsE, align 8
-  %4 = getelementptr inbounds ptr, ptr %3, i64 %.06
+  %4 = getelementptr inbounds [8 x i8], ptr %3, i64 %.06
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
@@ -626,7 +626,7 @@ define hidden noundef i64 @_ZN16LogConfiguration10add_outputEP9LogOutput(ptr nou
   %5 = shl i64 %3, 3
   %6 = tail call noundef ptr @_Z14ReallocateHeapPcm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(ptr noundef %4, i64 noundef %5, i8 noundef zeroext 17, i32 noundef 0) #11
   store ptr %6, ptr @_ZN16LogConfiguration8_outputsE, align 8
-  %7 = getelementptr inbounds ptr, ptr %6, i64 %2
+  %7 = getelementptr inbounds [8 x i8], ptr %6, i64 %2
   store ptr %0, ptr %7, align 8
   ret i64 %2
 }
@@ -636,12 +636,12 @@ declare noundef ptr @_Z14ReallocateHeapPcm8MEMFLAGSN17AllocFailStrategy13AllocFa
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN16LogConfiguration13delete_outputEm(i64 noundef %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr @_ZN16LogConfiguration8_outputsE, align 8
-  %3 = getelementptr inbounds ptr, ptr %2, i64 %0
+  %3 = getelementptr inbounds [8 x i8], ptr %2, i64 %0
   %4 = load ptr, ptr %3, align 8
   %5 = load i64, ptr @_ZN16LogConfiguration10_n_outputsE, align 8
   %6 = add i64 %5, -1
   store i64 %6, ptr @_ZN16LogConfiguration10_n_outputsE, align 8
-  %7 = getelementptr inbounds ptr, ptr %2, i64 %6
+  %7 = getelementptr inbounds [8 x i8], ptr %2, i64 %6
   %8 = load ptr, ptr %7, align 8
   store ptr %8, ptr %3, align 8
   %9 = load ptr, ptr @_ZN16LogConfiguration8_outputsE, align 8
@@ -667,7 +667,7 @@ define hidden void @_ZN16LogConfiguration13delete_outputEm(i64 noundef %0) local
 define hidden void @_ZN16LogConfiguration16configure_outputEmRK16LogSelectionListRK13LogDecorators(i64 noundef %0, ptr noundef nonnull align 8 dereferenceable(15368) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca [6 x i64], align 16
   %5 = load ptr, ptr @_ZN16LogConfiguration8_outputsE, align 8
-  %6 = getelementptr inbounds ptr, ptr %5, i64 %0
+  %6 = getelementptr inbounds [8 x i8], ptr %5, i64 %0
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i8 1, ptr %8, align 8
@@ -728,7 +728,7 @@ _ZNK9LogTagSet9level_forEPK9LogOutput.exit:       ; preds = %23, %17
 _ZNK9LogTagSet9level_forEPK9LogOutput.exit.thread: ; preds = %_ZNK9LogTagSet9level_forEPK9LogOutput.exit, %19
   %.03247 = phi i64 [ %27, %_ZNK9LogTagSet9level_forEPK9LogOutput.exit ], [ 0, %19 ]
   %28 = phi i1 [ %spec.select, %_ZNK9LogTagSet9level_forEPK9LogOutput.exit ], [ %.03451, %19 ]
-  %29 = getelementptr inbounds nuw i64, ptr %4, i64 %.03247
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.03247
   %30 = load i64, ptr %29, align 8
   %31 = add i64 %30, 1
   store i64 %31, ptr %29, align 8
@@ -764,12 +764,12 @@ _ZNK9LogTagSet9level_forEPK9LogOutput.exit.thread: ; preds = %_ZNK9LogTagSet9lev
 
 36:                                               ; preds = %._crit_edge59
   %37 = load ptr, ptr @_ZN16LogConfiguration8_outputsE, align 8
-  %38 = getelementptr inbounds ptr, ptr %37, i64 %0
+  %38 = getelementptr inbounds [8 x i8], ptr %37, i64 %0
   %39 = load ptr, ptr %38, align 8
   %40 = load i64, ptr @_ZN16LogConfiguration10_n_outputsE, align 8
   %41 = add i64 %40, -1
   store i64 %41, ptr @_ZN16LogConfiguration10_n_outputsE, align 8
-  %42 = getelementptr inbounds ptr, ptr %37, i64 %41
+  %42 = getelementptr inbounds [8 x i8], ptr %37, i64 %41
   %43 = load ptr, ptr %42, align 8
   store ptr %43, ptr %38, align 8
   %44 = load ptr, ptr @_ZN16LogConfiguration8_outputsE, align 8
@@ -831,7 +831,7 @@ define hidden void @_ZN16LogConfiguration15disable_loggingEv() local_unnamed_add
 .lr.ph.i:                                         ; preds = %._crit_edge, %.lr.ph.i
   %.03.i = phi i64 [ %5, %.lr.ph.i ], [ 0, %._crit_edge ]
   %2 = load ptr, ptr @_ZN16LogConfiguration19_listener_callbacksE, align 8
-  %3 = getelementptr inbounds ptr, ptr %2, i64 %.03.i
+  %3 = getelementptr inbounds [8 x i8], ptr %2, i64 %.03.i
   %4 = load ptr, ptr %3, align 8
   tail call void %4() #11
   %5 = add nuw i64 %.03.i, 1
@@ -853,7 +853,7 @@ define hidden void @_ZN16LogConfiguration23notify_update_listenersEv() local_unn
 .lr.ph:                                           ; preds = %0, %.lr.ph
   %.03 = phi i64 [ %5, %.lr.ph ], [ 0, %0 ]
   %2 = load ptr, ptr @_ZN16LogConfiguration19_listener_callbacksE, align 8
-  %3 = getelementptr inbounds ptr, ptr %2, i64 %.03
+  %3 = getelementptr inbounds [8 x i8], ptr %2, i64 %.03
   %4 = load ptr, ptr %3, align 8
   tail call void %4() #11
   %5 = add nuw i64 %.03, 1
@@ -903,7 +903,7 @@ define hidden void @_ZN16LogConfiguration16configure_stdoutEN8LogLevel4typeEiz(i
   %22 = phi i32 [ %17, %14 ], [ %12, %18 ]
   %23 = phi ptr [ %16, %14 ], [ %11, %18 ]
   %24 = load i32, ptr %23, align 4
-  %25 = getelementptr inbounds nuw i32, ptr %4, i64 %.08
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.08
   store i32 %24, ptr %25, align 4
   %26 = icmp eq i32 %24, 0
   %27 = add nuw nsw i64 %.08, 1
@@ -941,7 +941,7 @@ _ZN16LogSelectionListC2ERK12LogSelection.exit:    ; preds = %29
 .lr.ph.i:                                         ; preds = %_ZN16LogSelectionListC2ERK12LogSelection.exit, %.lr.ph.i
   %.03.i = phi i64 [ %38, %.lr.ph.i ], [ 0, %_ZN16LogSelectionListC2ERK12LogSelection.exit ]
   %35 = load ptr, ptr @_ZN16LogConfiguration19_listener_callbacksE, align 8
-  %36 = getelementptr inbounds ptr, ptr %35, i64 %.03.i
+  %36 = getelementptr inbounds [8 x i8], ptr %35, i64 %.03.i
   %37 = load ptr, ptr %36, align 8
   call void %37() #11
   %38 = add nuw i64 %.03.i, 1
@@ -974,7 +974,7 @@ define hidden noundef zeroext i1 @_ZN16LogConfiguration28parse_command_line_argu
 6:                                                ; preds = %1, %.critedge
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %.critedge ]
   %.04778 = phi ptr [ %5, %1 ], [ %22, %.critedge ]
-  %7 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   store ptr %.04778, ptr %7, align 8
   %8 = tail call noundef ptr @strpbrk(ptr noundef %.04778, ptr noundef nonnull @.str.9) #12
   %.not74 = icmp eq ptr %8, null
@@ -1371,7 +1371,7 @@ _ZN16LogSelectionListC2Ev.exit:                   ; preds = %14
 .lr.ph.i:                                         ; preds = %85, %97
   %.06.i = phi i64 [ %98, %97 ], [ 0, %85 ]
   %88 = load ptr, ptr @_ZN16LogConfiguration8_outputsE, align 8
-  %89 = getelementptr inbounds ptr, ptr %88, i64 %.06.i
+  %89 = getelementptr inbounds [8 x i8], ptr %88, i64 %.06.i
   %90 = load ptr, ptr %89, align 8
   %91 = load ptr, ptr %90, align 8
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 32
@@ -1434,7 +1434,7 @@ _ZN16LogSelectionListC2Ev.exit:                   ; preds = %14
 .lr.ph.i45:                                       ; preds = %.thread61, %.lr.ph.i45
   %.03.i = phi i64 [ %115, %.lr.ph.i45 ], [ 0, %.thread61 ]
   %112 = load ptr, ptr @_ZN16LogConfiguration19_listener_callbacksE, align 8
-  %113 = getelementptr inbounds ptr, ptr %112, i64 %.03.i
+  %113 = getelementptr inbounds [8 x i8], ptr %112, i64 %.03.i
   %114 = load ptr, ptr %113, align 8
   call void %114() #11
   %115 = add nuw i64 %.03.i, 1
@@ -1498,14 +1498,14 @@ define hidden void @_ZN16LogConfiguration8describeEP12outputStream(ptr noundef n
   %.09.i = phi i64 [ %17, %16 ], [ 0, %1 ]
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.28, i64 noundef %.09.i) #11
   %3 = load ptr, ptr @_ZN16LogConfiguration8_outputsE, align 8
-  %4 = getelementptr inbounds ptr, ptr %3, i64 %.09.i
+  %4 = getelementptr inbounds [8 x i8], ptr %3, i64 %.09.i
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(156) %5, ptr noundef nonnull %0) #11
   %9 = load ptr, ptr @_ZN16LogConfiguration8_outputsE, align 8
-  %10 = getelementptr inbounds ptr, ptr %9, i64 %.09.i
+  %10 = getelementptr inbounds [8 x i8], ptr %9, i64 %.09.i
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load i8, ptr %12, align 8
@@ -1541,7 +1541,7 @@ define hidden void @_ZN16LogConfiguration23print_command_line_helpEP12outputStre
   %.082 = phi i64 [ 0, %1 ], [ %7, %2 ]
   %3 = icmp eq i64 %.082, 0
   %4 = select i1 %3, ptr @.str.22, ptr @.str.23
-  %5 = getelementptr inbounds nuw ptr, ptr @_ZN8LogLevel5_nameE, i64 %.082
+  %5 = getelementptr inbounds nuw [8 x i8], ptr @_ZN8LogLevel5_nameE, i64 %.082
   %6 = load ptr, ptr %5, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.21, ptr noundef nonnull %4, ptr noundef %6) #11
   %7 = add nuw nsw i64 %.082, 1
@@ -1558,7 +1558,7 @@ define hidden void @_ZN16LogConfiguration23print_command_line_helpEP12outputStre
   %.08183 = phi i64 [ 0, %8 ], [ %16, %9 ]
   %10 = icmp eq i64 %.08183, 0
   %11 = select i1 %10, ptr @.str.22, ptr @.str.23
-  %12 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN13LogDecorators5_nameE, i64 %.08183
+  %12 = getelementptr inbounds nuw [16 x i8], ptr @_ZN13LogDecorators5_nameE, i64 %.08183
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %15 = load ptr, ptr %14, align 8
@@ -1642,7 +1642,7 @@ define hidden void @_ZN16LogConfiguration18rotate_all_outputsEv() local_unnamed_
 .lr.ph:                                           ; preds = %0, %.lr.ph
   %.03 = phi i64 [ %9, %.lr.ph ], [ 2, %0 ]
   %3 = load ptr, ptr @_ZN16LogConfiguration8_outputsE, align 8
-  %4 = getelementptr inbounds ptr, ptr %3, i64 %.03
+  %4 = getelementptr inbounds [8 x i8], ptr %3, i64 %.03
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -1667,7 +1667,7 @@ define hidden void @_ZN16LogConfiguration24register_update_listenerEPFvvE(ptr no
   %5 = shl i64 %3, 3
   %6 = tail call noundef ptr @_Z14ReallocateHeapPcm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(ptr noundef %4, i64 noundef %5, i8 noundef zeroext 17, i32 noundef 0) #11
   store ptr %6, ptr @_ZN16LogConfiguration19_listener_callbacksE, align 8
-  %7 = getelementptr inbounds ptr, ptr %6, i64 %2
+  %7 = getelementptr inbounds [8 x i8], ptr %6, i64 %2
   store ptr %0, ptr %7, align 8
   tail call void @_ZN14PosixSemaphore6signalEj(ptr noundef nonnull align 8 dereferenceable(32) @_ZN17ConfigurationLock10_semaphoreE, i32 noundef 1) #11
   ret void

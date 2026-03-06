@@ -149,7 +149,7 @@ define dso_local noundef i32 @user_top(i32 noundef %0, ptr noundef readonly capt
 45:                                               ; preds = %142, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %142 ]
   %.0109145.i = phi i32 [ %18, %.lr.ph.i ], [ %.1.i, %142 ]
-  %46 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.i
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.i
   %47 = load ptr, ptr %46, align 8
   %48 = tail call i32 @parse_option_end(ptr noundef %47) #9
   %.not124.i = icmp eq i32 %48, 0

@@ -15,7 +15,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.access_mask_info = type { ptr, ptr, ptr, ptr }
 %struct.smb_saved_info_key_t = type { i32, i32 }
 %struct.nstime_t = type { i64, i32 }
-%struct.dst_table = type { i64, i64, i32 }
 %struct.tm = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, ptr }
 
 @eosmb_take_name_as_fid = hidden global i8 0, align 1
@@ -8310,7 +8309,7 @@ define internal fastcc void @dissect_smb_command(ptr noundef %0, ptr noundef %1,
   %41 = load i8, ptr %25, align 1, !range !8, !noundef !9
   %42 = trunc nuw i8 %41 to i1
   %43 = zext i8 %4 to i64
-  %44 = getelementptr %struct._smb_function, ptr @smb_dissector, i64 %43
+  %44 = getelementptr [16 x i8], ptr @smb_dissector, i64 %43
   %.in.idx = select i1 %42, i64 0, i64 8
   %.in = getelementptr inbounds nuw i8, ptr %44, i64 %.in.idx
   %45 = load ptr, ptr %.in, align 8
@@ -18340,7 +18339,7 @@ define internal i32 @dissect_negprot_request(ptr noundef %0, ptr noundef readonl
   %81 = add i32 %80, 1
   store i32 %81, ptr %.082, align 8
   %82 = sext i32 %80 to i64
-  %83 = getelementptr ptr, ptr %43, i64 %82
+  %83 = getelementptr [8 x i8], ptr %43, i64 %82
   store ptr %79, ptr %83, align 8
   br label %84
 
@@ -18407,7 +18406,7 @@ define internal i32 @dissect_negprot_response(ptr noundef %0, ptr noundef %1, pt
 32:                                               ; preds = %26
   %33 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %34 = zext i16 %19 to i64
-  %35 = getelementptr ptr, ptr %33, i64 %34
+  %35 = getelementptr [8 x i8], ptr %33, i64 %34
   %36 = load ptr, ptr %35, align 8
   br label %37
 
@@ -22657,7 +22656,7 @@ define internal fastcc i32 @TimeZoneFaster(i64 noundef range(i64 -2147483648, 64
 
 9:                                                ; preds = %.lr.ph, %15
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr %struct.dst_table, ptr %8, i64 %indvars.iv
+  %10 = getelementptr [24 x i8], ptr %8, i64 %indvars.iv
   %11 = load i64, ptr %10, align 8
   %.not = icmp slt i64 %.050, %11
   br i1 %.not, label %15, label %12
@@ -22675,7 +22674,7 @@ define internal fastcc i32 @TimeZoneFaster(i64 noundef range(i64 -2147483648, 64
 
 16:                                               ; preds = %12
   %17 = and i64 %indvars.iv, 4294967295
-  %18 = getelementptr %struct.dst_table, ptr %8, i64 %17
+  %18 = getelementptr [24 x i8], ptr %8, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load i32, ptr %19, align 8
   br label %.loopexit
@@ -22716,7 +22715,7 @@ define internal fastcc i32 @TimeZoneFaster(i64 noundef range(i64 -2147483648, 64
   %37 = add i32 %36, 1
   store i32 %37, ptr @TimeZoneFaster.table_size, align 4
   %38 = zext nneg i32 %.049.lcssa to i64
-  %39 = getelementptr %struct.dst_table, ptr %storemerge, i64 %38
+  %39 = getelementptr [24 x i8], ptr %storemerge, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
   store i32 %21, ptr %40, align 8
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 8
@@ -22731,7 +22730,7 @@ define internal fastcc i32 @TimeZoneFaster(i64 noundef range(i64 -2147483648, 64
   br label %.lr.ph64
 
 .preheader.loopexit:                              ; preds = %62
-  %45 = getelementptr %struct.dst_table, ptr %.pre, i64 %38
+  %45 = getelementptr [24 x i8], ptr %.pre, i64 %38
   %.phi.trans.insert71 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %.pre72 = load i64, ptr %.phi.trans.insert71, align 8
   br label %.preheader
@@ -22763,7 +22762,7 @@ define internal fastcc i32 @TimeZoneFaster(i64 noundef range(i64 -2147483648, 64
   %58 = tail call fastcc i32 @TimeZone(i64 noundef %.151)
   %59 = icmp eq i32 %58, %21
   %.pre = load ptr, ptr @TimeZoneFaster.dst_table, align 8
-  %60 = getelementptr %struct.dst_table, ptr %.pre, i64 %38
+  %60 = getelementptr [24 x i8], ptr %.pre, i64 %38
   br i1 %59, label %61, label %._crit_edge69
 
 ._crit_edge69:                                    ; preds = %57
@@ -22802,7 +22801,7 @@ define internal fastcc i32 @TimeZoneFaster(i64 noundef range(i64 -2147483648, 64
   %74 = tail call fastcc i32 @TimeZone(i64 noundef %.2)
   %75 = icmp eq i32 %74, %21
   %.pre73 = load ptr, ptr @TimeZoneFaster.dst_table, align 8
-  %76 = getelementptr %struct.dst_table, ptr %.pre73, i64 %38
+  %76 = getelementptr [24 x i8], ptr %.pre73, i64 %38
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
   br i1 %75, label %78, label %._crit_edge74
 
@@ -23375,14 +23374,14 @@ define internal fastcc noundef i32 @dissect_smb_datetime(ptr noundef %0, ptr nou
 
 56:                                               ; preds = %51
   %57 = zext nneg i32 %38 to i64
-  %58 = getelementptr i32, ptr @dissect_smb_datetime.mday_leap, i64 %57
+  %58 = getelementptr [4 x i8], ptr @dissect_smb_datetime.mday_leap, i64 %57
   %59 = load i32, ptr %58, align 4
   %60 = icmp sgt i32 %34, %59
   br i1 %60, label %69, label %66
 
 61:                                               ; preds = %51, %48
   %62 = zext nneg i32 %38 to i64
-  %63 = getelementptr i32, ptr @dissect_smb_datetime.mday_noleap, i64 %62
+  %63 = getelementptr [4 x i8], ptr @dissect_smb_datetime.mday_noleap, i64 %62
   %64 = load i32, ptr %63, align 4
   %65 = icmp sgt i32 %34, %64
   br i1 %65, label %69, label %66

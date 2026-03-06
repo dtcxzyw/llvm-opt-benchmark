@@ -1011,7 +1011,7 @@ define internal fastcc noundef zeroext i1 @parse_line(ptr noundef readonly captu
   %14 = getelementptr i8, ptr %0, i64 %indvars.iv
   %15 = load i8, ptr %14, align 1
   %16 = zext i8 %15 to i64
-  %17 = getelementptr i16, ptr %11, i64 %16
+  %17 = getelementptr [2 x i8], ptr %11, i64 %16
   %18 = load i16, ptr %17, align 2
   %19 = and i16 %18, 8
   %.not = icmp eq i16 %19, 0
@@ -1035,7 +1035,7 @@ define internal fastcc noundef zeroext i1 @parse_line(ptr noundef readonly captu
   %indvars.iv271 = phi i64 [ %indvars.iv.next272, %31 ], [ 0, %.preheader183 ]
   %26 = phi i8 [ %34, %31 ], [ %25, %.preheader183 ]
   %27 = zext i8 %26 to i64
-  %28 = getelementptr i16, ptr %11, i64 %27
+  %28 = getelementptr [2 x i8], ptr %11, i64 %27
   %29 = load i16, ptr %28, align 2
   %30 = and i16 %29, 8
   %.not167 = icmp eq i16 %30, 0
@@ -1111,7 +1111,7 @@ define internal fastcc noundef zeroext i1 @parse_line(ptr noundef readonly captu
   %indvars.iv278 = phi i64 [ %indvars.iv.next279, %64 ], [ %44, %.preheader181 ]
   %59 = phi i8 [ %67, %64 ], [ %46, %.preheader181 ]
   %60 = zext i8 %59 to i64
-  %61 = getelementptr i16, ptr %11, i64 %60
+  %61 = getelementptr [2 x i8], ptr %11, i64 %60
   %62 = load i16, ptr %61, align 2
   %63 = and i16 %62, 8
   %.not166 = icmp eq i16 %63, 0
@@ -1198,7 +1198,7 @@ define internal fastcc noundef zeroext i1 @parse_line(ptr noundef readonly captu
   %indvars.iv285 = phi i64 [ %indvars.iv.next286, %111 ], [ 0, %100 ]
   %107 = phi i8 [ %114, %111 ], [ %104, %100 ]
   %108 = zext i8 %107 to i64
-  %109 = getelementptr i16, ptr %11, i64 %108
+  %109 = getelementptr [2 x i8], ptr %11, i64 %108
   %110 = load i16, ptr %109, align 2
   %.fr = freeze i16 %110
   %.not162 = trunc i16 %.fr to i1
@@ -1263,7 +1263,7 @@ switch.early.test:                                ; preds = %.lr.ph238
   %130 = getelementptr i8, ptr %0, i64 %indvars.iv.next290
   %131 = load i8, ptr %130, align 1
   %132 = zext i8 %131 to i64
-  %133 = getelementptr i16, ptr %11, i64 %132
+  %133 = getelementptr [2 x i8], ptr %11, i64 %132
   %134 = load i16, ptr %133, align 2
   %135 = and i16 %134, 1
   %.not154 = icmp eq i16 %135, 0

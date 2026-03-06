@@ -2839,7 +2839,7 @@ define internal fastcc i64 @vba_normalize(ptr noundef captures(none) %0, i64 nou
   %39 = tail call ptr @__ctype_tolower_loc() #18
   %40 = load ptr, ptr %39, align 8, !tbaa !50
   %41 = zext nneg i8 %4 to i64
-  %42 = getelementptr inbounds nuw i32, ptr %40, i64 %41
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %41
   %.074 = load i32, ptr %42, align 4, !tbaa !11
   %43 = trunc i32 %.074 to i8
   br label %44
@@ -3139,7 +3139,7 @@ define noundef ptr @cli_vba_readdir(ptr noundef %0, ptr noundef %1, i32 noundef 
   %.0111238 = phi i16 [ 0, %.lr.ph ], [ %.2113, %.thread213 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %124 = load ptr, ptr %119, align 8, !tbaa !52
-  %125 = getelementptr inbounds nuw i32, ptr %124, i64 %indvars.iv
+  %125 = getelementptr inbounds nuw [4 x i8], ptr %124, i64 %indvars.iv
   store i32 0, ptr %125, align 4, !tbaa !11
   %126 = call i64 @cli_readn(i32 noundef %24, ptr noundef nonnull %12, i64 noundef 2) #16
   %.not.i158 = icmp eq i64 %126, 2
@@ -3204,7 +3204,7 @@ define noundef ptr @cli_vba_readdir(ptr noundef %0, ptr noundef %1, i32 noundef 
 153:                                              ; preds = %148
   %154 = load i32, ptr %11, align 4, !tbaa !11
   %155 = load ptr, ptr %119, align 8, !tbaa !52
-  %156 = getelementptr inbounds nuw i32, ptr %155, i64 %indvars.iv
+  %156 = getelementptr inbounds nuw [4 x i8], ptr %155, i64 %indvars.iv
   store i32 %154, ptr %156, align 4, !tbaa !11
   %157 = icmp eq i32 %154, 0
   %158 = load ptr, ptr %10, align 8, !tbaa !3
@@ -3220,7 +3220,7 @@ define noundef ptr @cli_vba_readdir(ptr noundef %0, ptr noundef %1, i32 noundef 
   call void @free(ptr noundef nonnull %146) #16
   %161 = load ptr, ptr %10, align 8, !tbaa !3
   %162 = load ptr, ptr %116, align 8, !tbaa !56
-  %163 = getelementptr inbounds nuw ptr, ptr %162, i64 %indvars.iv
+  %163 = getelementptr inbounds nuw [8 x i8], ptr %162, i64 %indvars.iv
   store ptr %161, ptr %163, align 8, !tbaa !3
   %164 = call i64 @cli_readn(i32 noundef %24, ptr noundef nonnull %12, i64 noundef 2) #16
   %.not.i164 = icmp eq i64 %164, 2
@@ -3289,7 +3289,7 @@ define noundef ptr @cli_vba_readdir(ptr noundef %0, ptr noundef %1, i32 noundef 
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.141, i32 noundef %.0.i.i191) #16
   %192 = load i32, ptr %7, align 4, !tbaa !11
   %193 = load ptr, ptr %120, align 8, !tbaa !57
-  %194 = getelementptr inbounds nuw i32, ptr %193, i64 %indvars.iv
+  %194 = getelementptr inbounds nuw [4 x i8], ptr %193, i64 %indvars.iv
   store i32 %192, ptr %194, align 4, !tbaa !11
   %195 = call i64 @lseek(i32 noundef %24, i64 noundef 2, i32 noundef 1) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -3687,7 +3687,7 @@ define internal fastcc ptr @get_unicode_name(ptr noundef readonly captures(addre
   %26 = tail call ptr @__ctype_b_loc() #18
   %27 = load ptr, ptr %26, align 8, !tbaa !61
   %28 = zext nneg i8 %24 to i64
-  %29 = getelementptr inbounds nuw i16, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [2 x i8], ptr %27, i64 %28
   %30 = load i16, ptr %29, align 2, !tbaa !48
   %31 = and i16 %30, 16384
   %.not71 = icmp eq i16 %31, 0
@@ -3696,7 +3696,7 @@ define internal fastcc ptr @get_unicode_name(ptr noundef readonly captures(addre
 32:                                               ; preds = %25
   %33 = tail call ptr @__ctype_tolower_loc() #18
   %34 = load ptr, ptr %33, align 8, !tbaa !50
-  %35 = getelementptr inbounds nuw i32, ptr %34, i64 %28
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %28
   %36 = load i32, ptr %35, align 4, !tbaa !11
   %37 = trunc i32 %36 to i8
   store i8 %37, ptr %.06279, align 1, !tbaa !10
@@ -4816,11 +4816,11 @@ word_read_macro_info.exit:                        ; preds = %word_skip_macro_int
   %212 = getelementptr inbounds nuw i8, ptr %.0105, i64 4
   %213 = load i32, ptr %212, align 4, !tbaa !91
   %214 = load ptr, ptr %210, align 8, !tbaa !57
-  %215 = getelementptr inbounds nuw i32, ptr %214, i64 %indvars.iv
+  %215 = getelementptr inbounds nuw [4 x i8], ptr %214, i64 %indvars.iv
   store i32 %213, ptr %215, align 4, !tbaa !11
   %216 = load i32, ptr %.0105, align 4, !tbaa !89
   %217 = load ptr, ptr %201, align 8, !tbaa !92
-  %218 = getelementptr inbounds nuw i32, ptr %217, i64 %indvars.iv
+  %218 = getelementptr inbounds nuw [4 x i8], ptr %217, i64 %indvars.iv
   store i32 %216, ptr %218, align 4, !tbaa !11
   %219 = getelementptr inbounds nuw i8, ptr %.0105, i64 8
   %220 = load i8, ptr %219, align 4, !tbaa !86

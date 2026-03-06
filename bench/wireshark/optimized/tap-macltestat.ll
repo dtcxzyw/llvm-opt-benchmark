@@ -528,7 +528,7 @@ update_ueid_rnti_counts.exit.thread:              ; preds = %121, %170, %165, %1
 234:                                              ; preds = %.preheader, %234
   %indvars.iv167 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next168, %234 ]
   %235 = phi i32 [ %.promoted162, %.preheader ], [ %238, %234 ]
-  %236 = getelementptr i32, ptr %226, i64 %indvars.iv167
+  %236 = getelementptr [4 x i8], ptr %226, i64 %indvars.iv167
   %237 = load i32, ptr %236, align 4
   %238 = add i32 %235, %237
   store i32 %238, ptr %227, align 4
@@ -619,7 +619,7 @@ update_ueid_rnti_counts.exit.thread:              ; preds = %121, %170, %165, %1
 287:                                              ; preds = %.preheader156, %287
   %indvars.iv = phi i64 [ 0, %.preheader156 ], [ %indvars.iv.next, %287 ]
   %288 = phi i32 [ %.promoted, %.preheader156 ], [ %291, %287 ]
-  %289 = getelementptr i32, ptr %279, i64 %indvars.iv
+  %289 = getelementptr [4 x i8], ptr %279, i64 %indvars.iv
   %290 = load i32, ptr %289, align 4
   %291 = add i32 %288, %290
   store i32 %291, ptr %280, align 4
@@ -700,7 +700,7 @@ define internal void @mac_lte_stat_draw(ptr noundef readonly captures(none) %0) 
 
 50:                                               ; preds = %._crit_edge, %50
   %indvars.iv = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next, %50 ]
-  %51 = getelementptr ptr, ptr @ue_titles, i64 %indvars.iv
+  %51 = getelementptr [8 x i8], ptr @ue_titles, i64 %indvars.iv
   %52 = load ptr, ptr %51, align 8
   %53 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.19, ptr noundef %52)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

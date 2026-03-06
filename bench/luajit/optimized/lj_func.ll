@@ -3,9 +3,6 @@ source_filename = "bench/luajit/original/lj_func.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.GCRef = type { i64 }
-%union.TValue = type { i64 }
-
 ; Function Attrs: nounwind uwtable
 define hidden void @lj_func_freeproto(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -229,7 +226,7 @@ define hidden ptr @lj_func_newL_empty(ptr noundef %0, ptr noundef %1, ptr nounde
   store i64 %36, ptr %37, align 8, !tbaa !31
   %38 = load i64, ptr %27, align 8, !tbaa !41
   %39 = inttoptr i64 %38 to ptr
-  %40 = getelementptr inbounds nuw i16, ptr %39, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [2 x i8], ptr %39, i64 %indvars.iv
   %41 = load i16, ptr %40, align 2, !tbaa !42
   %42 = zext i16 %41 to i32
   %43 = lshr i16 %41, 14
@@ -242,7 +239,7 @@ define hidden ptr @lj_func_newL_empty(ptr noundef %0, ptr noundef %1, ptr nounde
   %49 = getelementptr inbounds nuw i8, ptr %32, i64 40
   store i32 %48, ptr %49, align 8, !tbaa !44
   %50 = ptrtoint ptr %32 to i64
-  %51 = getelementptr inbounds nuw %struct.GCRef, ptr %30, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv
   store i64 %50, ptr %51, align 8, !tbaa !33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -318,7 +315,7 @@ define hidden ptr @lj_func_newL_gc(ptr noundef %0, ptr noundef %1, ptr noundef r
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %108 ]
   %45 = load i64, ptr %40, align 8, !tbaa !41
   %46 = inttoptr i64 %45 to ptr
-  %47 = getelementptr inbounds nuw i16, ptr %46, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [2 x i8], ptr %46, i64 %indvars.iv
   %48 = load i16, ptr %47, align 2, !tbaa !42
   %.not31 = icmp sgt i16 %48, -1
   br i1 %.not31, label %104, label %49
@@ -327,7 +324,7 @@ define hidden ptr @lj_func_newL_gc(ptr noundef %0, ptr noundef %1, ptr noundef r
   %50 = zext i16 %48 to i32
   %51 = and i32 %50, 255
   %52 = zext nneg i32 %51 to i64
-  %53 = getelementptr inbounds nuw %union.TValue, ptr %39, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %52
   %54 = load i64, ptr %4, align 8, !tbaa !27
   %55 = inttoptr i64 %54 to ptr
   br label %56
@@ -416,13 +413,13 @@ func_finduv.exit:                                 ; preds = %65, %73, %.critedge
 
 104:                                              ; preds = %44
   %105 = zext nneg i16 %48 to i64
-  %106 = getelementptr inbounds nuw %struct.GCRef, ptr %36, i64 %105
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %105
   %107 = load i64, ptr %106, align 8, !tbaa !51
   br label %108
 
 108:                                              ; preds = %104, %func_finduv.exit
   %.0 = phi i64 [ %103, %func_finduv.exit ], [ %107, %104 ]
-  %109 = getelementptr inbounds nuw %struct.GCRef, ptr %43, i64 %indvars.iv
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv
   store i64 %.0, ptr %109, align 8, !tbaa !33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

@@ -77,13 +77,13 @@ define hidden range(i32 0, 2) i32 @asn1_utctime_to_tm(ptr noundef %0, ptr nounde
   br i1 %32, label %.thread, label %33
 
 33:                                               ; preds = %26
-  %34 = getelementptr inbounds nuw i32, ptr @asn1_utctime_to_tm.min, i64 %indvars.iv175
+  %34 = getelementptr inbounds nuw [4 x i8], ptr @asn1_utctime_to_tm.min, i64 %indvars.iv175
   %35 = load i32, ptr %34, align 4, !tbaa !17
   %36 = icmp slt i32 %31, %35
   br i1 %36, label %.thread, label %37
 
 37:                                               ; preds = %33
-  %38 = getelementptr inbounds nuw i32, ptr @asn1_utctime_to_tm.max, i64 %indvars.iv175
+  %38 = getelementptr inbounds nuw [4 x i8], ptr @asn1_utctime_to_tm.max, i64 %indvars.iv175
   %39 = load i32, ptr %38, align 4, !tbaa !17
   %40 = icmp sgt i32 %31, %39
   br i1 %40, label %.thread, label %41
@@ -144,13 +144,13 @@ define hidden range(i32 0, 2) i32 @asn1_utctime_to_tm(ptr noundef %0, ptr nounde
   br i1 %58, label %.thread, label %59
 
 59:                                               ; preds = %52
-  %60 = getelementptr inbounds nuw i32, ptr @asn1_utctime_to_tm.min, i64 %indvars.iv168
+  %60 = getelementptr inbounds nuw [4 x i8], ptr @asn1_utctime_to_tm.min, i64 %indvars.iv168
   %61 = load i32, ptr %60, align 4, !tbaa !17
   %62 = icmp slt i32 %57, %61
   br i1 %62, label %.thread, label %63
 
 63:                                               ; preds = %59
-  %64 = getelementptr inbounds nuw i32, ptr @asn1_utctime_to_tm.max, i64 %indvars.iv168
+  %64 = getelementptr inbounds nuw [4 x i8], ptr @asn1_utctime_to_tm.max, i64 %indvars.iv168
   %65 = load i32, ptr %64, align 4, !tbaa !17
   %66 = icmp sgt i32 %57, %65
   br i1 %66, label %.thread, label %67
@@ -250,13 +250,13 @@ default.unreachable:                              ; preds = %67
   %100 = sext i8 %99 to i32
   %101 = add nsw i32 %100, -16
   %102 = add nsw i32 %101, %98
-  %103 = getelementptr inbounds nuw i32, ptr @asn1_utctime_to_tm.min, i64 %indvars.iv191
+  %103 = getelementptr inbounds nuw [4 x i8], ptr @asn1_utctime_to_tm.min, i64 %indvars.iv191
   %104 = load i32, ptr %103, align 4, !tbaa !17
   %105 = icmp slt i32 %102, %104
   br i1 %105, label %.thread, label %106
 
 106:                                              ; preds = %97
-  %107 = getelementptr inbounds nuw i32, ptr @asn1_utctime_to_tm.max, i64 %indvars.iv191
+  %107 = getelementptr inbounds nuw [4 x i8], ptr @asn1_utctime_to_tm.max, i64 %indvars.iv191
   %108 = load i32, ptr %107, align 4, !tbaa !17
   %109 = icmp sgt i32 %102, %108
   br i1 %109, label %.thread, label %110
@@ -294,13 +294,13 @@ default.unreachable:                              ; preds = %67
   %122 = sext i8 %121 to i32
   %123 = add nsw i32 %122, -16
   %124 = add nsw i32 %123, %120
-  %125 = getelementptr inbounds nuw i32, ptr @asn1_utctime_to_tm.min, i64 %indvars.iv183
+  %125 = getelementptr inbounds nuw [4 x i8], ptr @asn1_utctime_to_tm.min, i64 %indvars.iv183
   %126 = load i32, ptr %125, align 4, !tbaa !17
   %127 = icmp slt i32 %124, %126
   br i1 %127, label %.thread, label %128
 
 128:                                              ; preds = %119
-  %129 = getelementptr inbounds nuw i32, ptr @asn1_utctime_to_tm.max, i64 %indvars.iv183
+  %129 = getelementptr inbounds nuw [4 x i8], ptr @asn1_utctime_to_tm.max, i64 %indvars.iv183
   %130 = load i32, ptr %129, align 4, !tbaa !17
   %131 = icmp sgt i32 %124, %130
   br i1 %131, label %.thread, label %132

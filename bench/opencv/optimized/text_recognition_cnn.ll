@@ -52,7 +52,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.cv::Ptr.13" = type { %"class.std::shared_ptr.14" }
 %"class.std::shared_ptr.14" = type { %"class.std::__shared_ptr.15" }
 %"class.std::__shared_ptr.15" = type { ptr, %"class.std::__shared_count" }
-%"class.cv::Rect_" = type { i32, i32, i32, i32 }
 
 $_ZNSt12__shared_ptrIN2cv4text25OCRHolisticWordRecognizerELN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
 
@@ -588,11 +587,11 @@ _ZNSolsEPFRSoS_E.exit124:                         ; preds = %.noexc224
   br i1 %221, label %222, label %279
 
 222:                                              ; preds = %217
-  %223 = getelementptr inbounds nuw i32, ptr %218, i64 %.068.i
+  %223 = getelementptr inbounds nuw [4 x i8], ptr %218, i64 %.068.i
   %224 = load i32, ptr %223, align 4, !tbaa !66
   %225 = sext i32 %224 to i64
   %226 = load ptr, ptr %31, align 8, !tbaa !67
-  %227 = getelementptr inbounds nuw %"class.cv::Rect_", ptr %226, i64 %225
+  %227 = getelementptr inbounds nuw [16 x i8], ptr %226, i64 %225
   %.sroa.060.0.copyload.i = load i64, ptr %227, align 4
   %.sroa.060.sroa.0.0.extract.trunc.i = trunc i64 %.sroa.060.0.copyload.i to i32
   %.sroa.060.sroa.9.0.extract.shift.i = lshr i64 %.sroa.060.0.copyload.i, 32
@@ -617,11 +616,11 @@ _ZNSolsEPFRSoS_E.exit124:                         ; preds = %.noexc224
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %228 = load ptr, ptr %34, align 8, !tbaa !58
-  %229 = getelementptr inbounds nuw i32, ptr %228, i64 %.068.i
+  %229 = getelementptr inbounds nuw [4 x i8], ptr %228, i64 %.068.i
   %230 = load i32, ptr %229, align 4, !tbaa !66
   %231 = sext i32 %230 to i64
   %232 = load ptr, ptr %32, align 8, !tbaa !72
-  %233 = getelementptr inbounds nuw float, ptr %232, i64 %231
+  %233 = getelementptr inbounds nuw [4 x i8], ptr %232, i64 %231
   %234 = load float, ptr %233, align 4, !tbaa !75
   %235 = fpext float %234 to double
   invoke void (ptr, ptr, ...) @_ZN2cv6formatB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %9, ptr noundef nonnull @.str.21, double noundef %235)
@@ -676,11 +675,11 @@ _ZN2cvlsIiEERSoS1_RKNS_5Rect_IT_EE.exit.i:        ; preds = %.noexc42.i
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit45.i: ; preds = %_ZN2cvlsIiEERSoS1_RKNS_5Rect_IT_EE.exit.i
   %247 = load ptr, ptr %34, align 8, !tbaa !58
-  %248 = getelementptr inbounds nuw i32, ptr %247, i64 %.068.i
+  %248 = getelementptr inbounds nuw [4 x i8], ptr %247, i64 %.068.i
   %249 = load i32, ptr %248, align 4, !tbaa !66
   %250 = sext i32 %249 to i64
   %251 = load ptr, ptr %32, align 8, !tbaa !72
-  %252 = getelementptr inbounds nuw float, ptr %251, i64 %250
+  %252 = getelementptr inbounds nuw [4 x i8], ptr %251, i64 %250
   %253 = load float, ptr %252, align 4, !tbaa !75
   %254 = fpext float %253 to double
   %255 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %244, double noundef %254)
@@ -800,7 +799,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit51.i: ; preds = %2
   store i32 50397184, ptr %15, align 8, !tbaa !53
   store ptr %36, ptr %201, align 8, !tbaa !55
   %280 = load ptr, ptr %31, align 8, !tbaa !67
-  %281 = getelementptr inbounds nuw %"class.cv::Rect_", ptr %280, i64 %.068.i
+  %281 = getelementptr inbounds nuw [16 x i8], ptr %280, i64 %.068.i
   %.sroa.0.0.copyload.i = load i64, ptr %281, align 4
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %281, i64 8
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 4
@@ -1175,11 +1174,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit175: ; preds = %_Z
   call void @llvm.lifetime.start.p0(ptr nonnull %45)
   call void @llvm.lifetime.start.p0(ptr nonnull %46)
   %401 = load ptr, ptr %34, align 8, !tbaa !58
-  %402 = getelementptr inbounds nuw i32, ptr %401, i64 %.049255
+  %402 = getelementptr inbounds nuw [4 x i8], ptr %401, i64 %.049255
   %403 = load i32, ptr %402, align 4, !tbaa !66
   %404 = sext i32 %403 to i64
   %405 = load ptr, ptr %31, align 8, !tbaa !67
-  %406 = getelementptr inbounds nuw %"class.cv::Rect_", ptr %405, i64 %404
+  %406 = getelementptr inbounds nuw [16 x i8], ptr %405, i64 %404
   invoke void @_ZN2cv3MatC1ERKS0_RKNS_5Rect_IiEE(ptr noundef nonnull align 8 dereferenceable(96) %46, ptr noundef nonnull align 8 dereferenceable(96) %28, ptr noundef nonnull align 4 dereferenceable(16) %406)
           to label %407 unwind label %441
 
@@ -1215,11 +1214,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit175: ; preds = %_Z
 
 413:                                              ; preds = %408
   %414 = load ptr, ptr %34, align 8, !tbaa !58
-  %415 = getelementptr inbounds nuw i32, ptr %414, i64 %.049255
+  %415 = getelementptr inbounds nuw [4 x i8], ptr %414, i64 %.049255
   %416 = load i32, ptr %415, align 4, !tbaa !66
   %417 = sext i32 %416 to i64
   %418 = load ptr, ptr %31, align 8, !tbaa !67
-  %419 = getelementptr inbounds nuw %"class.cv::Rect_", ptr %418, i64 %417
+  %419 = getelementptr inbounds nuw [16 x i8], ptr %418, i64 %417
   %.sroa.0235.0.copyload = load i64, ptr %419, align 4
   %.sroa.0235.sroa.8.0.extract.shift = lshr i64 %.sroa.0235.0.copyload, 32
   %.sroa.0235.sroa.8.0.extract.trunc = trunc nuw i64 %.sroa.0235.sroa.8.0.extract.shift to i32

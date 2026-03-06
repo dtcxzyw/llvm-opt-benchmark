@@ -62,10 +62,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::DebugLoc" = type { %"class.llvm::TypedTrackingMDRef" }
 %"class.llvm::TypedTrackingMDRef" = type { %"class.llvm::TrackingMDRef" }
 %"class.llvm::TrackingMDRef" = type { ptr }
-%"class.llvm::MCInstrDesc" = type { i16, i16, i8, i8, i16, i8, i8, i16, i16, i64, i64 }
-%"class.llvm::MCOperandInfo" = type { i16, i8, i8, i16 }
-%"class.llvm::MDOperand" = type { ptr }
-%"struct.(anonymous namespace)::X86InsertPrefetch::PrefetchInfo" = type { i32, i64 }
 %"class.llvm::MD5" = type { %struct.anon.362 }
 %struct.anon.362 = type { i32, i32, i32, i32, i32, i32, [64 x i8], [16 x i32] }
 %"struct.llvm::MD5::MD5Result" = type { %"struct.std::array.363" }
@@ -78,7 +74,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Optional_payload.356" = type { %"struct.std::_Optional_payload_base.base.358", [7 x i8] }
 %"struct.std::_Optional_payload_base.base.358" = type <{ %"union.std::_Optional_payload_base<llvm::StringRef>::_Storage", i8 }>
 %"union.std::_Optional_payload_base<llvm::StringRef>::_Storage" = type { %"class.llvm::StringRef" }
-%"struct.llvm::sampleprof::SampleContextFrame" = type { %"class.llvm::sampleprof::FunctionId", %"struct.llvm::sampleprof::LineLocation" }
 %"struct.llvm::sampleprof::LineLocation" = type { i32, i32 }
 %"struct.llvm::cl::desc" = type { %"class.llvm::StringRef" }
 
@@ -200,7 +195,7 @@ _ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE.exit: ; preds 
   %26 = phi i32 [ %21, %4 ], [ %.pre.i.i, %23 ]
   %27 = load ptr, ptr %10, align 8, !tbaa !25
   %28 = zext i32 %26 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %28
   %30 = ptrtoint ptr %20 to i64
   store i64 %30, ptr %29, align 1
   %31 = load i32, ptr %12, align 8, !tbaa !26
@@ -915,11 +910,11 @@ _ZN4llvm11SmallVectorIN12_GLOBAL__N_117X86InsertPrefetch12PrefetchInfoELj4EED2Ev
 80:                                               ; preds = %78
   %81 = load i16, ptr %72, align 8, !tbaa !360
   %82 = zext i16 %81 to i64
-  %83 = getelementptr inbounds nuw %"class.llvm::MCInstrDesc", ptr %72, i64 %82
+  %83 = getelementptr inbounds nuw [32 x i8], ptr %72, i64 %82
   %84 = getelementptr inbounds nuw i8, ptr %72, i64 12
   %85 = load i16, ptr %84, align 4, !tbaa !361
   %86 = zext i16 %85 to i64
-  %87 = getelementptr inbounds nuw %"class.llvm::MCOperandInfo", ptr %83, i64 %86
+  %87 = getelementptr inbounds nuw [6 x i8], ptr %83, i64 %86
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 42
   %89 = load i16, ptr %88, align 2, !tbaa !362
   %90 = and i16 %89, 241
@@ -947,11 +942,11 @@ _ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit.
 98:                                               ; preds = %96
   %99 = load i16, ptr %72, align 8, !tbaa !360
   %100 = zext i16 %99 to i64
-  %101 = getelementptr inbounds nuw %"class.llvm::MCInstrDesc", ptr %72, i64 %100
+  %101 = getelementptr inbounds nuw [32 x i8], ptr %72, i64 %100
   %102 = getelementptr inbounds nuw i8, ptr %72, i64 12
   %103 = load i16, ptr %102, align 4, !tbaa !361
   %104 = zext i16 %103 to i64
-  %105 = getelementptr inbounds nuw %"class.llvm::MCOperandInfo", ptr %101, i64 %104
+  %105 = getelementptr inbounds nuw [6 x i8], ptr %101, i64 %104
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 48
   %107 = load i16, ptr %106, align 2, !tbaa !362
   %108 = and i16 %107, 241
@@ -985,12 +980,12 @@ _ZN4llvm5X86II14getOperandBiasERKNS_11MCInstrDescE.exit: ; preds = %71, %80, %92
   %118 = getelementptr i8, ptr %.sroa.085.0112, i64 32
   %.val55 = load ptr, ptr %118, align 8, !tbaa !364
   %119 = zext i32 %117 to i64
-  %120 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %.val55, i64 %119
+  %120 = getelementptr inbounds nuw [32 x i8], ptr %.val55, i64 %119
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 4
   %122 = load i32, ptr %121, align 4, !tbaa !38
   %123 = add nuw nsw i32 %117, 2
   %124 = zext i32 %123 to i64
-  %125 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %.val55, i64 %124
+  %125 = getelementptr inbounds nuw [32 x i8], ptr %.val55, i64 %124
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 4
   %127 = load i32, ptr %126, align 4, !tbaa !38
   %128 = icmp eq i32 %122, 0
@@ -1112,7 +1107,7 @@ _ZN12_GLOBAL__N_129IsMemOpCompatibleWithPrefetchERKN4llvm12MachineInstrEi.exit.t
   %194 = lshr i64 %188, 2
   %195 = and i64 %194, 15
   %196 = sub nsw i64 0, %195
-  %197 = getelementptr inbounds %"class.llvm::MDOperand", ptr %187, i64 %196
+  %197 = getelementptr inbounds [8 x i8], ptr %187, i64 %196
   br label %_ZNK4llvm10DILocation8getScopeEv.exit.i.i.i.i
 
 _ZNK4llvm10DILocation8getScopeEv.exit.i.i.i.i:    ; preds = %193, %190
@@ -1290,7 +1285,7 @@ _ZN4llvm15SmallVectorImplIN12_GLOBAL__N_117X86InsertPrefetch12PrefetchInfoEE7res
 
 .lr.ph.preheader.i.i.i:                           ; preds = %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_117X86InsertPrefetch12PrefetchInfoEE7reserveEm.exit.i.i.i
   %.val11.i.i.i = load ptr, ptr %12, align 8, !tbaa !25
-  %265 = getelementptr %"struct.(anonymous namespace)::X86InsertPrefetch::PrefetchInfo", ptr %.val11.i.i.i, i64 %.pre-phi.i.i.i
+  %265 = getelementptr [16 x i8], ptr %.val11.i.i.i, i64 %.pre-phi.i.i.i
   %266 = sub nsw i64 %261, %.pre-phi.i.i.i
   %267 = shl nsw i64 %266, 4
   call void @llvm.memset.p0.i64(ptr align 8 %265, i8 0, i64 %267, i1 false)
@@ -1303,7 +1298,7 @@ _ZN4llvm15SmallVectorImplIN12_GLOBAL__N_117X86InsertPrefetch12PrefetchInfoEE7res
 
 _ZN4llvm15SmallVectorImplIN12_GLOBAL__N_117X86InsertPrefetch12PrefetchInfoEE6resizeEm.exit.i: ; preds = %.sink.split.i.i.i, %_ZN4llvm9StringRef14consumeIntegerIhEEbjRT_.exit.i
   %.val.i = load ptr, ptr %12, align 8, !tbaa !25
-  %269 = getelementptr inbounds nuw %"struct.(anonymous namespace)::X86InsertPrefetch::PrefetchInfo", ptr %.val.i, i64 %257
+  %269 = getelementptr inbounds nuw [16 x i8], ptr %.val.i, i64 %257
   store i32 %254, ptr %269, align 8, !tbaa !157
   %.sroa.45.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %269, i64 8
   store i64 %244, ptr %.sroa.45.0..sroa_idx.i, align 8, !tbaa !47
@@ -1351,7 +1346,7 @@ _ZNK12_GLOBAL__N_117X86InsertPrefetch16findPrefetchInfoEPKN4llvm10sampleprof15Fu
   %284 = load ptr, ptr %42, align 8, !tbaa !397
   %285 = zext i32 %281 to i64
   %286 = sub nsw i64 0, %285
-  %287 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %284, i64 %286
+  %287 = getelementptr inbounds [32 x i8], ptr %284, i64 %286
   %288 = load ptr, ptr %178, align 8, !tbaa !369
   store ptr %288, ptr %13, align 8, !tbaa !369
   %.not.i.i.i.i59 = icmp eq ptr %288, null
@@ -1373,7 +1368,7 @@ _ZN4llvm8DebugLocC2ERKS0_.exit:                   ; preds = %280, %289
 
 _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %_ZN4llvm8DebugLocC2ERKS0_.exit, %293
   %294 = load ptr, ptr %118, align 8, !tbaa !364
-  %295 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %294, i64 %119
+  %295 = getelementptr inbounds nuw [32 x i8], ptr %294, i64 %119
   %296 = getelementptr inbounds nuw i8, ptr %295, i64 4
   %297 = load i32, ptr %296, align 4, !tbaa !38
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -1384,7 +1379,7 @@ _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %_ZN4llvm8DebugLocC2
   call void @_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %291, ptr noundef nonnull align 8 dereferenceable(1065) %1, ptr noundef nonnull align 8 dereferenceable(32) %7) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %298 = load ptr, ptr %118, align 8, !tbaa !364
-  %299 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %298, i64 %274
+  %299 = getelementptr inbounds nuw [32 x i8], ptr %298, i64 %274
   %300 = getelementptr inbounds nuw i8, ptr %299, i64 16
   %301 = load i64, ptr %300, align 8, !tbaa !38
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -1394,7 +1389,7 @@ _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %_ZN4llvm8DebugLocC2
   call void @_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %291, ptr noundef nonnull align 8 dereferenceable(1065) %1, ptr noundef nonnull align 8 dereferenceable(32) %6) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %302 = load ptr, ptr %118, align 8, !tbaa !364
-  %303 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %302, i64 %124
+  %303 = getelementptr inbounds nuw [32 x i8], ptr %302, i64 %124
   %304 = getelementptr inbounds nuw i8, ptr %303, i64 4
   %305 = load i32, ptr %304, align 4, !tbaa !38
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -1405,7 +1400,7 @@ _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %_ZN4llvm8DebugLocC2
   call void @_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %291, ptr noundef nonnull align 8 dereferenceable(1065) %1, ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %306 = load ptr, ptr %118, align 8, !tbaa !364
-  %307 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %306, i64 %276
+  %307 = getelementptr inbounds nuw [32 x i8], ptr %306, i64 %276
   %308 = getelementptr inbounds nuw i8, ptr %307, i64 16
   %309 = load i64, ptr %308, align 8, !tbaa !38
   %310 = add nsw i64 %309, %283
@@ -1416,7 +1411,7 @@ _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %_ZN4llvm8DebugLocC2
   call void @_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %291, ptr noundef nonnull align 8 dereferenceable(1065) %1, ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %311 = load ptr, ptr %118, align 8, !tbaa !364
-  %312 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %311, i64 %278
+  %312 = getelementptr inbounds nuw [32 x i8], ptr %311, i64 %278
   %313 = getelementptr inbounds nuw i8, ptr %312, i64 4
   %314 = load i32, ptr %313, align 4, !tbaa !38
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -1824,7 +1819,7 @@ _ZN4llvm10sampleprof10hash_valueERKNS0_10FunctionIdE.exit.i.thread: ; preds = %2
   %31 = load i64, ptr %30, align 8, !tbaa !439
   %32 = urem i64 %.0.i.i.i48, %31
   %33 = load ptr, ptr %17, align 8, !tbaa !440
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %32
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %32
   %35 = load ptr, ptr %34, align 8, !tbaa !441
   %.not.i.i.i.i.i = icmp eq ptr %35, null
   br i1 %.not.i.i.i.i.i, label %.thread, label %36
@@ -2071,7 +2066,7 @@ define linkonce_odr hidden ptr @_ZN4llvm10sampleprof10HashKeyMapISt13unordered_m
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %8, align 8, !tbaa !457
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.2.0.copyload.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !tbaa !47
-  %9 = getelementptr inbounds nuw %"struct.llvm::sampleprof::SampleContextFrame", ptr %.sroa.0.0.copyload.i.i.i, i64 %.sroa.2.0.copyload.i.i.i
+  %9 = getelementptr inbounds nuw [24 x i8], ptr %.sroa.0.0.copyload.i.i.i, i64 %.sroa.2.0.copyload.i.i.i
   %10 = tail call i64 @_ZN4llvm7hashing6detail23hash_combine_range_implIPKNS_10sampleprof18SampleContextFrameEEENS_9hash_codeET_S8_(ptr noundef %.sroa.0.0.copyload.i.i.i, ptr noundef %9)
   br label %_ZN4llvm10sampleprofL10hash_valueERKNS0_13SampleContextE.exit
 
@@ -2121,7 +2116,7 @@ _ZN4llvm10sampleprofL10hash_valueERKNS0_13SampleContextE.exit: ; preds = %7, %11
   %24 = load i64, ptr %23, align 8, !tbaa !462
   %25 = urem i64 %.0.i.i, %24
   %26 = load ptr, ptr %0, align 8, !tbaa !463
-  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %25
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %25
   %28 = load ptr, ptr %27, align 8, !tbaa !441
   %.not.i.i.i.i = icmp eq ptr %28, null
   br i1 %.not.i.i.i.i, label %_ZNSt13unordered_mapIN4llvm9hash_codeENS0_10sampleprof15FunctionSamplesESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S3_EEE4findERS9_.exit, label %29
@@ -2839,7 +2834,7 @@ define linkonce_odr hidden void @_ZNK4llvm10sampleprof15FunctionSamples19findCal
   %26 = load i64, ptr %25, align 8, !tbaa !500
   %27 = urem i64 %24, %26
   %28 = load ptr, ptr %8, align 8, !tbaa !501
-  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %27
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %27
   %30 = load ptr, ptr %29, align 8, !tbaa !441
   %.not.i.i.i.i.i = icmp eq ptr %30, null
   %31 = trunc i64 %24 to i32

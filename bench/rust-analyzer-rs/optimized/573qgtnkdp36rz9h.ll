@@ -1198,7 +1198,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN3vfs3Vfs9file_path17h
 _ZN3vfs13path_interner12PathInterner6lookup17h9b03c2c42fdeecaaE.exit: ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !alias.scope !308, !nonnull !22
-  %9 = getelementptr inbounds nuw { { { i64, [3 x i64] } }, i64, {} }, ptr %8, i64 %3
+  %9 = getelementptr inbounds nuw [40 x i8], ptr %8, i64 %3
   ret ptr %9
 }
 
@@ -1467,7 +1467,7 @@ _ZN3vfs13path_interner12PathInterner6intern17h820e0cb538e82916E.exit.i: ; preds 
   %87 = phi i64 [ %.pre.i, %.noexc50 ], [ %83, %79 ]
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %89 = load ptr, ptr %88, align 8, !alias.scope !347, !nonnull !22, !noundef !22
-  %90 = getelementptr inbounds i32, ptr %89, i64 %87
+  %90 = getelementptr inbounds [4 x i8], ptr %89, i64 %87
   store i32 %64, ptr %90, align 4
   %91 = load i64, ptr %82, align 8, !alias.scope !347, !noundef !22
   %92 = add i64 %91, 1
@@ -1536,7 +1536,7 @@ _ZN3vfs13path_interner12PathInterner6intern17h820e0cb538e82916E.exit.i: ; preds 
   %116 = phi i64 [ %.pre.i51, %._crit_edge.i ], [ %105, %99 ]
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %118 = load ptr, ptr %117, align 8, !alias.scope !350, !noalias !353, !nonnull !22, !noundef !22
-  %119 = getelementptr inbounds { { i64, [3 x i64] }, i32, [1 x i32] }, ptr %118, i64 %116
+  %119 = getelementptr inbounds [40 x i8], ptr %118, i64 %116
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %119, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false)
   %120 = load i64, ptr %104, align 8, !alias.scope !350, !noalias !353, !noundef !22
   %121 = add i64 %120, 1
@@ -1674,9 +1674,9 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %21, %.thread,
   store i64 %39, ptr %32, align 8, !alias.scope !361, !noalias !364
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %42 = load ptr, ptr %41, align 8, !alias.scope !361, !noalias !364, !nonnull !22, !noundef !22
-  %43 = getelementptr inbounds i32, ptr %42, i64 %39
+  %43 = getelementptr inbounds [4 x i8], ptr %42, i64 %39
   %44 = sub i64 %33, %40
-  %45 = getelementptr inbounds i32, ptr %42, i64 %40
+  %45 = getelementptr inbounds [4 x i8], ptr %42, i64 %40
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %43, ptr %3, align 8
   %.sroa.2.0..sroa_idx30 = getelementptr inbounds nuw i8, ptr %3, i64 8

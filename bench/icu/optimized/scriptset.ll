@@ -56,9 +56,9 @@ define noundef zeroext i1 @_ZNK6icu_779ScriptSeteqERKS0_(ptr noundef nonnull rea
 
 3:                                                ; preds = %3, %2
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %3 ]
-  %4 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %5 = load i32, ptr %4, align 4, !tbaa !3
-  %6 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4, !tbaa !3
   %.not = icmp eq i32 %5, %7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -88,7 +88,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_779ScriptSet4testE11UScriptCo
   %9 = lshr i32 %1, 5
   %10 = and i32 %1, 31
   %11 = zext nneg i32 %9 to i64
-  %12 = getelementptr inbounds nuw i32, ptr %0, i64 %11
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !3
   %14 = lshr i32 %13, %10
   %15 = trunc i32 %14 to i8
@@ -119,7 +119,7 @@ define noundef nonnull align 4 dereferenceable(28) ptr @_ZN6icu_779ScriptSet3set
   %10 = and i32 %1, 31
   %11 = shl nuw i32 1, %10
   %12 = zext nneg i32 %9 to i64
-  %13 = getelementptr inbounds nuw i32, ptr %0, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !3
   %15 = or i32 %14, %11
   store i32 %15, ptr %13, align 4, !tbaa !3
@@ -149,7 +149,7 @@ define noundef nonnull align 4 dereferenceable(28) ptr @_ZN6icu_779ScriptSet5res
   %11 = shl nuw i32 1, %10
   %12 = xor i32 %11, -1
   %13 = zext nneg i32 %9 to i64
-  %14 = getelementptr inbounds nuw i32, ptr %0, i64 %13
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !3
   %16 = and i32 %15, %12
   store i32 %16, ptr %14, align 4, !tbaa !3
@@ -168,9 +168,9 @@ define noundef nonnull align 4 dereferenceable(28) ptr @_ZN6icu_779ScriptSet5Uni
 
 4:                                                ; preds = %2, %4
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %4 ]
-  %5 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %6 = load i32, ptr %5, align 4, !tbaa !3
-  %7 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %8 = load i32, ptr %7, align 4, !tbaa !3
   %9 = or i32 %8, %6
   store i32 %9, ptr %7, align 4, !tbaa !3
@@ -188,9 +188,9 @@ define noundef nonnull align 4 dereferenceable(28) ptr @_ZN6icu_779ScriptSet9int
 
 4:                                                ; preds = %2, %4
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %4 ]
-  %5 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %6 = load i32, ptr %5, align 4, !tbaa !3
-  %7 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %8 = load i32, ptr %7, align 4, !tbaa !3
   %9 = and i32 %8, %6
   store i32 %9, ptr %7, align 4, !tbaa !3
@@ -221,7 +221,7 @@ define noundef nonnull align 4 dereferenceable(28) ptr @_ZN6icu_779ScriptSet9int
   %10 = and i32 %1, 31
   %11 = shl nuw i32 1, %10
   %12 = zext nneg i32 %9 to i64
-  %13 = getelementptr inbounds nuw i32, ptr %4, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !3
   %15 = or i32 %14, %11
   store i32 %15, ptr %13, align 4, !tbaa !3
@@ -229,9 +229,9 @@ define noundef nonnull align 4 dereferenceable(28) ptr @_ZN6icu_779ScriptSet9int
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader ], [ 0, %.preheader.preheader ]
-  %16 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i
   %17 = load i32, ptr %16, align 4, !tbaa !3
-  %18 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv.i
   %19 = load i32, ptr %18, align 4, !tbaa !3
   %20 = and i32 %19, %17
   store i32 %20, ptr %18, align 4, !tbaa !3
@@ -258,9 +258,9 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_779ScriptSet10intersectsERKS0
 
 4:                                                ; preds = %2, %3
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %3 ]
-  %5 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %6 = load i32, ptr %5, align 4, !tbaa !3
-  %7 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %8 = load i32, ptr %7, align 4, !tbaa !3
   %9 = and i32 %8, %6
   %.not = icmp eq i32 %9, 0
@@ -280,9 +280,9 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_779ScriptSet8containsERKS0_(p
 
 4:                                                ; preds = %4, %2
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %4 ]
-  %5 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i
+  %5 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv.i
   %6 = load i32, ptr %5, align 4, !tbaa !3
-  %7 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv.i
   %8 = load i32, ptr %7, align 4, !tbaa !3
   %9 = and i32 %8, %6
   store i32 %9, ptr %7, align 4, !tbaa !3
@@ -292,9 +292,9 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_779ScriptSet8containsERKS0_(p
 
 _ZN6icu_779ScriptSet9intersectERKS0_.exit:        ; preds = %4, %_ZN6icu_779ScriptSet9intersectERKS0_.exit
   %indvars.iv.i3 = phi i64 [ %indvars.iv.next.i4, %_ZN6icu_779ScriptSet9intersectERKS0_.exit ], [ 0, %4 ]
-  %10 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i3
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv.i3
   %11 = load i32, ptr %10, align 4, !tbaa !3
-  %12 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i3
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv.i3
   %13 = load i32, ptr %12, align 4, !tbaa !3
   %.not.i = icmp eq i32 %11, %13
   %indvars.iv.next.i4 = add nuw nsw i64 %indvars.iv.i3, 1
@@ -331,7 +331,7 @@ define noundef range(i32 -2147483647, -2147483648) i32 @_ZNK6icu_779ScriptSet12c
 3:                                                ; preds = %1, %._crit_edge
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %._crit_edge ]
   %.0913 = phi i32 [ 0, %1 ], [ %.1.lcssa, %._crit_edge ]
-  %4 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %5 = load i32, ptr %4, align 4, !tbaa !3
   %.not10 = icmp eq i32 %5, 0
   br i1 %.not10, label %._crit_edge, label %.lr.ph
@@ -362,7 +362,7 @@ define noundef i32 @_ZNK6icu_779ScriptSet8hashCodeEv(ptr noundef nonnull readonl
 3:                                                ; preds = %1, %3
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %3 ]
   %.056 = phi i32 [ 0, %1 ], [ %6, %3 ]
-  %4 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %5 = load i32, ptr %4, align 4, !tbaa !3
   %6 = xor i32 %5, %.056
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -380,7 +380,7 @@ _ZNK6icu_779ScriptSet4testE11UScriptCodeR10UErrorCode.exit: ; preds = %2, %_ZNK6
   %3 = lshr i32 %.0816, 5
   %4 = and i32 %.0816, 31
   %5 = zext nneg i32 %3 to i64
-  %6 = getelementptr inbounds nuw i32, ptr %0, i64 %5
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %5
   %7 = load i32, ptr %6, align 4, !tbaa !3
   %8 = shl nuw i32 1, %4
   %9 = and i32 %7, %8
@@ -408,7 +408,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_779ScriptSet7isEmptyEv(ptr no
 
 3:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %4 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %5 = load i32, ptr %4, align 4, !tbaa !3
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %2, label %6
@@ -429,7 +429,7 @@ _ZNK6icu_779ScriptSet4testE11UScriptCodeR10UErrorCode.exit.i: ; preds = %_ZNK6ic
   %5 = lshr i32 %.0816.i, 5
   %6 = and i32 %.0816.i, 31
   %7 = zext nneg i32 %5 to i64
-  %8 = getelementptr inbounds nuw i32, ptr %0, i64 %7
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %7
   %9 = load i32, ptr %8, align 4, !tbaa !3
   %10 = shl nuw i32 1, %6
   %11 = and i32 %10, %9
@@ -489,7 +489,7 @@ _ZNK6icu_779ScriptSet4testE11UScriptCodeR10UErrorCode.exit.i11: ; preds = %_ZNK6
   %27 = lshr i32 %.0816.i12, 5
   %28 = and i32 %.0816.i12, 31
   %29 = zext nneg i32 %27 to i64
-  %30 = getelementptr inbounds nuw i32, ptr %0, i64 %29
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %29
   %31 = load i32, ptr %30, align 4, !tbaa !3
   %32 = shl nuw i32 1, %28
   %33 = and i32 %32, %31
@@ -643,7 +643,7 @@ select.unfold:                                    ; preds = %60
   %63 = and i32 %50, 31
   %64 = shl nuw i32 1, %63
   %65 = zext nneg i32 %62 to i64
-  %66 = getelementptr inbounds nuw i32, ptr %0, i64 %65
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %65
   %67 = load i32, ptr %66, align 4, !tbaa !3
   %68 = or i32 %67, %64
   store i32 %68, ptr %66, align 4, !tbaa !3
@@ -782,7 +782,7 @@ _ZN6icu_7715MaybeStackArrayI11UScriptCodeLi20EE6resizeEii.exit: ; preds = %25, %
   %38 = and i32 %46, 31
   %39 = shl nuw i32 1, %38
   %40 = zext nneg i32 %37 to i64
-  %41 = getelementptr inbounds nuw i32, ptr %0, i64 %40
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %40
   %42 = load i32, ptr %41, align 4, !tbaa !3
   %43 = or i32 %42, %39
   store i32 %43, ptr %41, align 4, !tbaa !3
@@ -792,7 +792,7 @@ _ZN6icu_7715MaybeStackArrayI11UScriptCodeLi20EE6resizeEii.exit: ; preds = %25, %
 
 44:                                               ; preds = %.lr.ph, %36
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %36 ]
-  %45 = getelementptr inbounds nuw i32, ptr %34, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %indvars.iv
   %46 = load i32, ptr %45, align 4, !tbaa !32
   br i1 %35, label %47, label %.loopexit
 
@@ -862,9 +862,9 @@ define signext range(i8 0, 2) i8 @uhash_equalsScriptSet_77(ptr readonly captures
 
 3:                                                ; preds = %3, %2
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %3 ]
-  %4 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv.i
+  %4 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv.i
   %5 = load i32, ptr %4, align 4, !tbaa !3
-  %6 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv.i
   %7 = load i32, ptr %6, align 4, !tbaa !3
   %.not.i = icmp eq i32 %5, %7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -884,7 +884,7 @@ define i32 @uhash_compareScriptSet_77(ptr readonly captures(none) %0, ptr readon
 3:                                                ; preds = %._crit_edge.i, %2
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %._crit_edge.i ]
   %.0913.i = phi i32 [ 0, %2 ], [ %.1.lcssa.i, %._crit_edge.i ]
-  %4 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv.i
+  %4 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv.i
   %5 = load i32, ptr %4, align 4, !tbaa !3
   %.not10.i = icmp eq i32 %5, 0
   br i1 %.not10.i, label %._crit_edge.i, label %.lr.ph.i
@@ -907,7 +907,7 @@ define i32 @uhash_compareScriptSet_77(ptr readonly captures(none) %0, ptr readon
 _ZNK6icu_779ScriptSet12countMembersEv.exit:       ; preds = %._crit_edge.i, %._crit_edge.i25
   %indvars.iv.i18 = phi i64 [ %indvars.iv.next.i27, %._crit_edge.i25 ], [ 0, %._crit_edge.i ]
   %.0913.i19 = phi i32 [ %.1.lcssa.i26, %._crit_edge.i25 ], [ 0, %._crit_edge.i ]
-  %9 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i18
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv.i18
   %10 = load i32, ptr %9, align 4, !tbaa !3
   %.not10.i20 = icmp eq i32 %10, 0
   br i1 %.not10.i20, label %._crit_edge.i25, label %.lr.ph.i21
@@ -937,7 +937,7 @@ _ZNK6icu_779ScriptSet4testE11UScriptCodeR10UErrorCode.exit.i: ; preds = %_ZNK6ic
   %15 = lshr i32 %.0816.i, 5
   %16 = and i32 %.0816.i, 31
   %17 = zext nneg i32 %15 to i64
-  %18 = getelementptr inbounds nuw i32, ptr %0, i64 %17
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !3
   %20 = shl nuw i32 1, %16
   %21 = and i32 %20, %19
@@ -958,7 +958,7 @@ _ZNK6icu_779ScriptSet4testE11UScriptCodeR10UErrorCode.exit.i31: ; preds = %_ZNK6
   %23 = lshr i32 %.0816.i32, 5
   %24 = and i32 %.0816.i32, 31
   %25 = zext nneg i32 %23 to i64
-  %26 = getelementptr inbounds nuw i32, ptr %1, i64 %25
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %25
   %27 = load i32, ptr %26, align 4, !tbaa !3
   %28 = shl nuw i32 1, %24
   %29 = and i32 %28, %27
@@ -993,7 +993,7 @@ _ZNK6icu_779ScriptSet4testE11UScriptCodeR10UErrorCode.exit.i38: ; preds = %_ZNK6
   %36 = lshr i32 %.0816.i39, 5
   %37 = and i32 %.0816.i39, 31
   %38 = zext nneg i32 %36 to i64
-  %39 = getelementptr inbounds nuw i32, ptr %0, i64 %38
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %38
   %40 = load i32, ptr %39, align 4, !tbaa !3
   %41 = shl nuw i32 1, %37
   %42 = and i32 %41, %40
@@ -1016,7 +1016,7 @@ _ZNK6icu_779ScriptSet4testE11UScriptCodeR10UErrorCode.exit.i46: ; preds = %_ZNK6
   %45 = lshr i32 %.0816.i47, 5
   %46 = and i32 %.0816.i47, 31
   %47 = zext nneg i32 %45 to i64
-  %48 = getelementptr inbounds nuw i32, ptr %1, i64 %47
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %47
   %49 = load i32, ptr %48, align 4, !tbaa !3
   %50 = shl nuw i32 1, %46
   %51 = and i32 %50, %49
@@ -1048,7 +1048,7 @@ define i32 @uhash_hashScriptSet_77(ptr readonly captures(none) %0) local_unnamed
 2:                                                ; preds = %2, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %2 ]
   %.056.i = phi i32 [ 0, %1 ], [ %5, %2 ]
-  %3 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv.i
+  %3 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv.i
   %4 = load i32, ptr %3, align 4, !tbaa !3
   %5 = xor i32 %4, %.056.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1

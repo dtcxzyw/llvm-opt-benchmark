@@ -2065,7 +2065,7 @@ _ZNSt6vectorIPN3zmq6pipe_tESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i: ; 
 _ZNSt6vectorIPN3zmq6pipe_tESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %31, %_ZNSt6vectorIPN3zmq6pipe_tESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
   store ptr %26, ptr %5, align 8, !tbaa !115
   store ptr %30, ptr %.phi.trans.insert.i, align 8, !tbaa !133
-  %32 = getelementptr inbounds nuw ptr, ptr %26, i64 %24
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %24
   store ptr %32, ptr %13, align 8, !tbaa !136
   br label %_ZN3zmq7array_tINS_6pipe_tELi3EE9push_backEPS1_.exit
 
@@ -2191,7 +2191,7 @@ _ZN3zmq22scoped_optional_lock_tC2EPNS_7mutex_tE.exit: ; preds = %4, %11, %13
 50:                                               ; preds = %.noexc14, %.lr.ph.i
   %.09.i = phi i64 [ 0, %.lr.ph.i ], [ %61, %.noexc14 ]
   %51 = load ptr, ptr %41, align 8, !tbaa !115
-  %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %.09.i
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %.09.i
   %53 = load ptr, ptr %52, align 8, !tbaa !3
   %54 = load i32, ptr %49, align 4, !tbaa !139
   %55 = load i32, ptr %36, align 8, !tbaa !140
@@ -2200,7 +2200,7 @@ _ZN3zmq22scoped_optional_lock_tC2EPNS_7mutex_tE.exit: ; preds = %4, %11, %13
 
 .noexc:                                           ; preds = %50
   %56 = load ptr, ptr %41, align 8, !tbaa !115
-  %57 = getelementptr inbounds nuw ptr, ptr %56, i64 %.09.i
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %.09.i
   %58 = load ptr, ptr %57, align 8, !tbaa !3
   %59 = load i32, ptr %36, align 8, !tbaa !140
   %60 = load i32, ptr %49, align 4, !tbaa !139
@@ -2270,13 +2270,13 @@ define void @_ZN3zmq13socket_base_t19update_pipe_optionsEi(ptr noundef nonnull r
 15:                                               ; preds = %.lr.ph, %15
   %.09 = phi i64 [ 0, %.lr.ph ], [ %26, %15 ]
   %16 = load ptr, ptr %5, align 8, !tbaa !115
-  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %.09
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.09
   %18 = load ptr, ptr %17, align 8, !tbaa !3
   %19 = load i32, ptr %14, align 4, !tbaa !139
   %20 = load i32, ptr %13, align 8, !tbaa !140
   tail call void @_ZN3zmq6pipe_t8set_hwmsEii(ptr noundef nonnull align 8 dereferenceable(328) %18, i32 noundef %19, i32 noundef %20)
   %21 = load ptr, ptr %5, align 8, !tbaa !115
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %.09
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %.09
   %23 = load ptr, ptr %22, align 8, !tbaa !3
   %24 = load i32, ptr %13, align 8, !tbaa !140
   %25 = load i32, ptr %14, align 4, !tbaa !139
@@ -9104,11 +9104,11 @@ define void @_ZN3zmq13socket_base_t12process_termEi(ptr noundef nonnull align 8 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.07 = phi i64 [ %20, %.lr.ph ], [ 0, %2 ]
   %14 = load ptr, ptr %3, align 8, !tbaa !115
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %.07
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.07
   %16 = load ptr, ptr %15, align 8, !tbaa !3
   tail call void @_ZN3zmq6pipe_t19send_disconnect_msgEv(ptr noundef nonnull align 8 dereferenceable(328) %16)
   %17 = load ptr, ptr %3, align 8, !tbaa !115
-  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %.07
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %.07
   %19 = load ptr, ptr %18, align 8, !tbaa !3
   tail call void @_ZN3zmq6pipe_t9terminateEb(ptr noundef nonnull align 8 dereferenceable(328) %19, i1 noundef zeroext false)
   %20 = add i64 %.07, 1
@@ -9307,7 +9307,7 @@ _ZN3zmq13scoped_lock_tD2Ev.exit:                  ; preds = %15, %17
 .lr.ph:                                           ; preds = %26, %.lr.ph
   %.0611 = phi i64 [ %41, %.lr.ph ], [ 0, %26 ]
   %38 = load ptr, ptr %27, align 8, !tbaa !115
-  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0611
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %.0611
   %40 = load ptr, ptr %39, align 8, !tbaa !3
   tail call void @_ZN3zmq6pipe_t18send_stats_to_peerEPNS_5own_tE(ptr noundef nonnull align 8 dereferenceable(328) %40, ptr noundef nonnull %0)
   %41 = add i64 %.0611, 1
@@ -9701,7 +9701,7 @@ _ZN3zmq13socket_base_t9inprocs_t10erase_pipeEPKNS_6pipe_tE.exit: ; preds = %21, 
   %33 = load ptr, ptr %32, align 8, !tbaa !3, !nonnull !98, !noundef !98
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 64
   store i32 %30, ptr %34, align 8, !tbaa !134
-  %35 = getelementptr inbounds nuw ptr, ptr %24, i64 %31
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %31
   store ptr %33, ptr %35, align 8, !tbaa !3
   store ptr %32, ptr %25, align 8, !tbaa !133
   br label %_ZN3zmq7array_tINS_6pipe_tELi3EE5eraseEPS1_.exit
@@ -10307,7 +10307,7 @@ define void @_ZNK3zmq13socket_base_t13monitor_eventEmPKmmRKNS_19endpoint_uri_pai
   %.028 = phi i64 [ %80, %.lr.ph ], [ 0, %50 ]
   %74 = call i32 @zmq_msg_init_size(ptr noundef nonnull %6, i64 noundef 8)
   %75 = call ptr @zmq_msg_data(ptr noundef nonnull %6)
-  %76 = getelementptr inbounds nuw i64, ptr %2, i64 %.028
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.028
   %77 = load i64, ptr %76, align 8
   store i64 %77, ptr %75, align 1
   %78 = load ptr, ptr %7, align 8, !tbaa !117

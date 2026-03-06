@@ -110,7 +110,7 @@ define noundef zeroext i1 @_ZN5boost4urls6detail12segment_iter7measureERm(ptr no
   %18 = load i8, ptr %.01927.i, align 1, !tbaa !24
   %19 = and i8 %18, 3
   %20 = zext nneg i8 %19 to i64
-  %21 = getelementptr inbounds nuw i64, ptr %_ZN5boost4urls6detailL14nocolon_pcharsE._ZN5boost4urlsL6pcharsE, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %_ZN5boost4urls6detailL14nocolon_pcharsE._ZN5boost4urlsL6pcharsE, i64 %20
   %22 = load i64, ptr %21, align 8, !tbaa !7
   %23 = lshr i8 %18, 2
   %24 = zext nneg i8 %23 to i64
@@ -129,7 +129,7 @@ define noundef zeroext i1 @_ZN5boost4urls6detail12segment_iter7measureERm(ptr no
   %28 = load i8, ptr %.12030.i, align 1, !tbaa !24
   %29 = and i8 %28, 3
   %30 = zext nneg i8 %29 to i64
-  %31 = getelementptr inbounds nuw i64, ptr %_ZN5boost4urls6detailL14nocolon_pcharsE._ZN5boost4urlsL6pcharsE, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %_ZN5boost4urls6detailL14nocolon_pcharsE._ZN5boost4urlsL6pcharsE, i64 %30
   %32 = load i64, ptr %31, align 8, !tbaa !7
   %33 = lshr i8 %28, 2
   %34 = zext nneg i8 %33 to i64
@@ -193,7 +193,7 @@ define linkonce_odr hidden noundef i64 @_ZN5boost4urls6encodeINS0_7grammar9lut_c
   %7 = lshr i24 %5, 8
   %.lobit = and i24 %7, 1
   %8 = zext nneg i24 %.lobit to i64
-  %9 = getelementptr inbounds nuw ptr, ptr @_ZN5boost4urls6detailL7hexdigsE, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5boost4urls6detailL7hexdigsE, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !3
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 %3
@@ -211,7 +211,7 @@ define linkonce_odr hidden noundef i64 @_ZN5boost4urls6encodeINS0_7grammar9lut_c
   %15 = load i8, ptr %.03173, align 1, !tbaa !24
   %16 = and i8 %15, 3
   %17 = zext nneg i8 %16 to i64
-  %18 = getelementptr inbounds nuw i64, ptr %4, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %17
   %19 = load i64, ptr %18, align 8, !tbaa !7
   %20 = lshr i8 %15, 2
   %21 = zext nneg i8 %20 to i64
@@ -284,7 +284,7 @@ define linkonce_odr hidden noundef i64 @_ZN5boost4urls6encodeINS0_7grammar9lut_c
   %53 = load i8, ptr %.176, align 1, !tbaa !24
   %54 = and i8 %53, 3
   %55 = zext nneg i8 %54 to i64
-  %56 = getelementptr inbounds nuw i64, ptr %4, i64 %55
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %55
   %57 = load i64, ptr %56, align 8, !tbaa !7
   %58 = lshr i8 %53, 2
   %59 = zext nneg i8 %58 to i64
@@ -393,7 +393,7 @@ define void @_ZN5boost4urls6detail18segments_iter_base12measure_implERmNS_4core1
   %12 = load i8, ptr %.01927.i, align 1, !tbaa !24
   %13 = and i8 %12, 3
   %14 = zext nneg i8 %13 to i64
-  %15 = getelementptr inbounds nuw i64, ptr %_ZN5boost4urls6detailL14nocolon_pcharsE._ZN5boost4urlsL6pcharsE, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %_ZN5boost4urls6detailL14nocolon_pcharsE._ZN5boost4urlsL6pcharsE, i64 %14
   %16 = load i64, ptr %15, align 8, !tbaa !7
   %17 = lshr i8 %12, 2
   %18 = zext nneg i8 %17 to i64
@@ -412,7 +412,7 @@ define void @_ZN5boost4urls6detail18segments_iter_base12measure_implERmNS_4core1
   %22 = load i8, ptr %.12030.i, align 1, !tbaa !24
   %23 = and i8 %22, 3
   %24 = zext nneg i8 %23 to i64
-  %25 = getelementptr inbounds nuw i64, ptr %_ZN5boost4urls6detailL14nocolon_pcharsE._ZN5boost4urlsL6pcharsE, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %_ZN5boost4urls6detailL14nocolon_pcharsE._ZN5boost4urlsL6pcharsE, i64 %24
   %26 = load i64, ptr %25, align 8, !tbaa !7
   %27 = lshr i8 %22, 2
   %28 = zext nneg i8 %27 to i64
@@ -512,7 +512,7 @@ define noundef zeroext i1 @_ZN5boost4urls6detail20segment_encoded_iter7measureER
 13:                                               ; preds = %.lr.ph.i
   %14 = and i8 %12, 3
   %15 = zext nneg i8 %14 to i64
-  %16 = getelementptr inbounds nuw i64, ptr %_ZN5boost4urls6detailL14nocolon_pcharsE._ZN5boost4urlsL6pcharsE, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %_ZN5boost4urls6detailL14nocolon_pcharsE._ZN5boost4urlsL6pcharsE, i64 %15
   %17 = load i64, ptr %16, align 8, !tbaa !7
   %18 = lshr i8 %12, 2
   %19 = zext nneg i8 %18 to i64
@@ -568,7 +568,7 @@ define void @_ZN5boost4urls6detail20segment_encoded_iter4copyERPcPKc(ptr noundef
 11:                                               ; preds = %.lr.ph.i
   %12 = and i8 %10, 3
   %13 = zext nneg i8 %12 to i64
-  %14 = getelementptr inbounds nuw i64, ptr %_ZN5boost4urls6detailL14nocolon_pcharsE._ZN5boost4urlsL6pcharsE, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %_ZN5boost4urls6detailL14nocolon_pcharsE._ZN5boost4urlsL6pcharsE, i64 %13
   %15 = load i64, ptr %14, align 8, !tbaa !7
   %16 = lshr i8 %10, 2
   %17 = zext nneg i8 %16 to i64
@@ -647,7 +647,7 @@ define void @_ZN5boost4urls6detail26segments_encoded_iter_base12measure_implERmN
 7:                                                ; preds = %.lr.ph.i
   %8 = and i8 %6, 3
   %9 = zext nneg i8 %8 to i64
-  %10 = getelementptr inbounds nuw i64, ptr %_ZN5boost4urls6detailL14nocolon_pcharsE._ZN5boost4urlsL6pcharsE, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %_ZN5boost4urls6detailL14nocolon_pcharsE._ZN5boost4urlsL6pcharsE, i64 %9
   %11 = load i64, ptr %10, align 8, !tbaa !7
   %12 = lshr i8 %6, 2
   %13 = zext nneg i8 %12 to i64
@@ -691,7 +691,7 @@ define void @_ZN5boost4urls6detail26segments_encoded_iter_base9copy_implERPcPKcN
 9:                                                ; preds = %.lr.ph.i
   %10 = and i8 %8, 3
   %11 = zext nneg i8 %10 to i64
-  %12 = getelementptr inbounds nuw i64, ptr %_ZN5boost4urls6detailL14nocolon_pcharsE._ZN5boost4urlsL6pcharsE, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %_ZN5boost4urls6detailL14nocolon_pcharsE._ZN5boost4urlsL6pcharsE, i64 %11
   %13 = load i64, ptr %12, align 8, !tbaa !7
   %14 = lshr i8 %8, 2
   %15 = zext nneg i8 %14 to i64

@@ -2323,7 +2323,7 @@ define noundef ptr @_ZN15live_kit_client4test10TestServer15set_track_muted17h291
   %83 = add i64 %.sroa.01.0.i.i.i, %82
   %84 = and i64 %83, %74
   %85 = sub nsw i64 0, %84
-  %86 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } } }, ptr %75, i64 %85
+  %86 = getelementptr inbounds [136 x i8], ptr %75, i64 %85
   %87 = getelementptr i8, ptr %86, i64 -120
   %.val5.i.i.i = load i64, ptr %87, align 8, !alias.scope !524, !noalias !531, !noundef !5
   %.not.i.i.i.i.i.i.i = icmp eq i64 %62, %.val5.i.i.i
@@ -3164,7 +3164,7 @@ define internal fastcc void @_ZN15live_kit_client4test10TestServer12audio_tracks
   %89 = add i64 %.sroa.01.0.i.i.i, %88
   %90 = and i64 %89, %80
   %91 = sub nsw i64 0, %90
-  %92 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } } }, ptr %81, i64 %91
+  %92 = getelementptr inbounds [136 x i8], ptr %81, i64 %91
   %93 = getelementptr i8, ptr %92, i64 -120
   %.val5.i.i.i = load i64, ptr %93, align 8, !alias.scope !741, !noalias !748, !noundef !5
   %.not.i.i.i.i.i.i.i = icmp eq i64 %68, %.val5.i.i.i
@@ -3261,7 +3261,7 @@ select.unfold:                                    ; preds = %._crit_edge.i.i, %6
   %135 = add i64 %.sroa.01.0.i.i.i66, %134
   %136 = and i64 %135, %126
   %137 = sub nsw i64 0, %136
-  %138 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, ptr }, ptr %127, i64 %137
+  %138 = getelementptr inbounds [32 x i8], ptr %127, i64 %137
   %139 = getelementptr i8, ptr %138, i64 -16
   %.val5.i.i.i70 = load i64, ptr %139, align 8, !alias.scope !797, !noalias !804, !noundef !5
   %.not.i.i.i.i.i.i.i71 = icmp eq i64 %113, %.val5.i.i.i70
@@ -3312,7 +3312,7 @@ select.unfold110:                                 ; preds = %._crit_edge.i.i72, 
   %158 = load ptr, ptr %157, align 8, !nonnull !5, !noundef !5
   %159 = getelementptr inbounds i8, ptr %92, i64 -72
   %160 = load i64, ptr %159, align 8, !noundef !5
-  %161 = getelementptr inbounds ptr, ptr %158, i64 %160
+  %161 = getelementptr inbounds [8 x i8], ptr %158, i64 %160
   store ptr %158, ptr %17, align 8
   %162 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %161, ptr %162, align 8
@@ -4275,7 +4275,7 @@ define void @_ZN15live_kit_client4test4Room19remote_audio_tracks17hfb80c324e9294
   %.sroa.56.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
   %.sroa.56.0.copyload = load i64, ptr %.sroa.56.0..sroa_idx, align 8, !alias.scope !996, !noalias !997
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %39 = getelementptr inbounds ptr, ptr %.sroa.45.0.copyload, i64 %.sroa.56.0.copyload
+  %39 = getelementptr inbounds [8 x i8], ptr %.sroa.45.0.copyload, i64 %.sroa.56.0.copyload
   store ptr %.sroa.45.0.copyload, ptr %9, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %.sroa.45.0.copyload, ptr %.sroa.4.0..sroa_idx, align 8
@@ -4410,7 +4410,7 @@ define void @_ZN15live_kit_client4test4Room31remote_audio_track_publications17ha
   %.sroa.58.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
   %.sroa.58.0.copyload = load i64, ptr %.sroa.58.0..sroa_idx, align 8, !alias.scope !1020, !noalias !1021
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %39 = getelementptr inbounds ptr, ptr %.sroa.47.0.copyload, i64 %.sroa.58.0.copyload
+  %39 = getelementptr inbounds [8 x i8], ptr %.sroa.47.0.copyload, i64 %.sroa.58.0.copyload
   store ptr %.sroa.47.0.copyload, ptr %9, align 8
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %.sroa.47.0.copyload, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
@@ -4688,7 +4688,7 @@ define void @_ZN15live_kit_client4test4Room19remote_video_tracks17h57bcaab18cb7c
   %108 = add i64 %.sroa.01.0.i.i.i.i, %107
   %109 = and i64 %108, %99
   %110 = sub nsw i64 0, %109
-  %111 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } } }, ptr %100, i64 %110
+  %111 = getelementptr inbounds [136 x i8], ptr %100, i64 %110
   %112 = getelementptr i8, ptr %111, i64 -120
   %.val5.i.i.i.i = load i64, ptr %112, align 8, !alias.scope !1076, !noalias !1083, !noundef !5
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %87, %.val5.i.i.i.i
@@ -4785,7 +4785,7 @@ select.unfold.i:                                  ; preds = %._crit_edge.i.i.i, 
   %154 = add i64 %.sroa.01.0.i.i.i64.i, %153
   %155 = and i64 %154, %145
   %156 = sub nsw i64 0, %155
-  %157 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, ptr }, ptr %146, i64 %156
+  %157 = getelementptr inbounds [32 x i8], ptr %146, i64 %156
   %158 = getelementptr i8, ptr %157, i64 -16
   %.val5.i.i.i68.i = load i64, ptr %158, align 8, !alias.scope !1132, !noalias !1139, !noundef !5
   %.not.i.i.i.i.i.i.i69.i = icmp eq i64 %132, %.val5.i.i.i68.i
@@ -4835,7 +4835,7 @@ select.unfold108.i:                               ; preds = %._crit_edge.i.i70.i
   %175 = load ptr, ptr %174, align 8, !noalias !1039, !nonnull !5, !noundef !5
   %176 = getelementptr inbounds i8, ptr %111, i64 -96
   %177 = load i64, ptr %176, align 8, !noalias !1039, !noundef !5
-  %178 = getelementptr inbounds ptr, ptr %175, i64 %177
+  %178 = getelementptr inbounds [8 x i8], ptr %175, i64 %177
   invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17hd1254ae7ca156e38E.llvm.11160460214623557874"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %18, ptr noundef nonnull %175, ptr noundef nonnull %178)
           to label %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hec7c6db1ada3c32bE.exit.i" unwind label %123, !noalias !1039
 
@@ -5246,7 +5246,7 @@ _ZN15live_kit_client4test10TestServer12video_tracks17h05cf27f1b1e4950fE.exit: ; 
 
 321:                                              ; preds = %_ZN15live_kit_client4test10TestServer12video_tracks17h05cf27f1b1e4950fE.exit
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.7.0.copyload) ]
-  %322 = getelementptr inbounds ptr, ptr %.sroa.7.0.copyload, i64 %.sroa.11.0.copyload
+  %322 = getelementptr inbounds [8 x i8], ptr %.sroa.7.0.copyload, i64 %.sroa.11.0.copyload
   store ptr %.sroa.7.0.copyload, ptr %26, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 8
   store ptr %.sroa.7.0.copyload, ptr %.sroa.4.0..sroa_idx, align 8
@@ -6237,7 +6237,7 @@ define noundef zeroext i1 @_ZN15live_kit_client4test21LocalTrackPublication8is_m
   %100 = add i64 %.sroa.01.0.i.i.i.i, %99
   %101 = and i64 %100, %91
   %102 = sub nsw i64 0, %101
-  %103 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } } }, ptr %92, i64 %102
+  %103 = getelementptr inbounds [136 x i8], ptr %92, i64 %102
   %104 = getelementptr i8, ptr %103, i64 -120
   %.val5.i.i.i.i = load i64, ptr %104, align 8, !alias.scope !1413, !noalias !1420, !noundef !5
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %79, %.val5.i.i.i.i
@@ -7164,7 +7164,7 @@ define noundef zeroext i1 @_ZN15live_kit_client4test16RemoteAudioTrack10is_playi
   %52 = add i64 %.sroa.01.0.i.i.i, %51
   %53 = and i64 %52, %43
   %54 = sub nsw i64 0, %53
-  %55 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, {} }, ptr %44, i64 %54
+  %55 = getelementptr inbounds [24 x i8], ptr %44, i64 %54
   %56 = getelementptr inbounds i8, ptr %55, i64 -24
   %57 = invoke noundef zeroext i1 @"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h89ac582eba0858d7E.llvm.10033526470412775129"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %26, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %56)
           to label %.noexc10 unwind label %.loopexit
@@ -8820,7 +8820,7 @@ default.unreachable66:                            ; preds = %59, %2
   %100 = add i64 %.sroa.01.0.i.i.i.i.i, %99
   %101 = and i64 %100, %91
   %102 = sub nsw i64 0, %101
-  %103 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } } }, ptr %92, i64 %102
+  %103 = getelementptr inbounds [136 x i8], ptr %92, i64 %102
   %104 = getelementptr inbounds i8, ptr %103, i64 -136
   %105 = invoke noundef zeroext i1 @"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h89ac582eba0858d7E.llvm.10033526470412775129"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(136) %104)
           to label %.noexc23.i unwind label %.loopexit.i
@@ -9655,7 +9655,7 @@ default.unreachable67:                            ; preds = %59, %2
   %100 = add i64 %.sroa.01.0.i.i.i.i.i, %99
   %101 = and i64 %100, %91
   %102 = sub nsw i64 0, %101
-  %103 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } } }, ptr %92, i64 %102
+  %103 = getelementptr inbounds [136 x i8], ptr %92, i64 %102
   %104 = getelementptr inbounds i8, ptr %103, i64 -136
   %105 = invoke noundef zeroext i1 @"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h89ac582eba0858d7E.llvm.10033526470412775129"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(136) %104)
           to label %.noexc23.i unwind label %.loopexit.i

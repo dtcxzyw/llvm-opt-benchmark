@@ -42,43 +42,6 @@ module asm ".previous"
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %"class.std::allocator.20" = type { i8 }
-%class.CVertexO = type { %"class.vcg::Vertex.base", [4 x i8] }
-%"class.vcg::Vertex.base" = type { %"class.vcg::VertexArityMax.base" }
-%"class.vcg::VertexArityMax.base" = type { %"class.vcg::Arity12.base" }
-%"class.vcg::Arity12.base" = type { %"class.vcg::DefaultDeriver.base" }
-%"class.vcg::DefaultDeriver.base" = type { %"class.vcg::Arity11.base" }
-%"class.vcg::Arity11.base" = type { %"class.vcg::vertex::RadiusmOcf.base" }
-%"class.vcg::vertex::RadiusmOcf.base" = type { %"class.vcg::vertex::RadiusOcf.base" }
-%"class.vcg::vertex::RadiusOcf.base" = type { %"class.vcg::Arity10.base" }
-%"class.vcg::Arity10.base" = type { %"class.vcg::vertex::CurvatureDirmOcf.base" }
-%"class.vcg::vertex::CurvatureDirmOcf.base" = type { %"class.vcg::vertex::CurvatureDirOcf.base" }
-%"class.vcg::vertex::CurvatureDirOcf.base" = type { %"class.vcg::Arity9.base" }
-%"class.vcg::Arity9.base" = type { %"class.vcg::vertex::TexCoordfOcf.base" }
-%"class.vcg::vertex::TexCoordfOcf.base" = type { %"class.vcg::vertex::TexCoordOcf.base" }
-%"class.vcg::vertex::TexCoordOcf.base" = type { %"class.vcg::Arity8.base" }
-%"class.vcg::Arity8.base" = type { %"class.vcg::vertex::MarkOcf.base" }
-%"class.vcg::vertex::MarkOcf.base" = type { %"class.vcg::Arity7.base" }
-%"class.vcg::Arity7.base" = type { %"class.vcg::vertex::VFAdjOcf.base" }
-%"class.vcg::vertex::VFAdjOcf.base" = type { %"class.vcg::Arity6.base" }
-%"class.vcg::Arity6.base" = type { %"class.vcg::vertex::Color4b.base" }
-%"class.vcg::vertex::Color4b.base" = type { %"class.vcg::vertex::Color.base" }
-%"class.vcg::vertex::Color.base" = type { %"class.vcg::Arity5", %"class.vcg::Color4" }
-%"class.vcg::Arity5" = type { %"class.vcg::vertex::Qualitym" }
-%"class.vcg::vertex::Qualitym" = type { %"class.vcg::vertex::Quality" }
-%"class.vcg::vertex::Quality" = type { %"class.vcg::Arity4.base", float }
-%"class.vcg::Arity4.base" = type { %"class.vcg::vertex::Normal3m.base" }
-%"class.vcg::vertex::Normal3m.base" = type { %"class.vcg::vertex::Normal.base" }
-%"class.vcg::vertex::Normal.base" = type { %"class.vcg::Arity3", %"class.vcg::Point3" }
-%"class.vcg::Arity3" = type { %"class.vcg::vertex::BitFlags" }
-%"class.vcg::vertex::BitFlags" = type { %"class.vcg::Arity2.base", i32 }
-%"class.vcg::Arity2.base" = type { %"class.vcg::vertex::Coord3m.base" }
-%"class.vcg::vertex::Coord3m.base" = type { %"class.vcg::vertex::Coord.base" }
-%"class.vcg::vertex::Coord.base" = type <{ %"class.vcg::Arity1", %"class.vcg::Point3" }>
-%"class.vcg::Arity1" = type { %"class.vcg::vertex::InfoOcf" }
-%"class.vcg::vertex::InfoOcf" = type { ptr }
-%"class.vcg::Point3" = type { [3 x float] }
-%"class.vcg::Color4" = type { %"class.vcg::Point4" }
-%"class.vcg::Point4" = type { [4 x i8] }
 %"class.glw::detail::ObjectSharedPointer.226" = type { %"class.glw::detail::ObjectSharedPointer.27" }
 %"class.glw::ReadFramebufferBindingParams" = type { %"class.glw::FramebufferBindingParams" }
 %"class.glw::FramebufferBindingParams" = type { %"class.glw::ObjectBindingParams" }
@@ -4854,7 +4817,7 @@ _ZN3glw6detail19ObjectSharedPointerINS_24BoundReadDrawFramebufferENS0_14DefaultD
   %.sroa.22.0.copyload.i = load float, ptr %.sroa.22.0..sroa_idx.i, align 4
   %346 = getelementptr inbounds nuw i8, ptr %343, i64 8
   %347 = load ptr, ptr %346, align 8
-  %348 = getelementptr inbounds nuw %class.CVertexO, ptr %347, i64 %indvars.iv
+  %348 = getelementptr inbounds nuw [48 x i8], ptr %347, i64 %indvars.iv
   %349 = getelementptr inbounds nuw i8, ptr %348, i64 8
   %.sroa.0129.0.vec.extract = extractelement <2 x float> %.sroa.01.0.copyload.i, i64 0
   %350 = load float, ptr %349, align 4
@@ -5380,19 +5343,19 @@ define linkonce_odr void @_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE7SetViewERK
 .preheader19.i.i.i.i:                             ; preds = %31, %3
   %indvars.iv29.i.i.i.i = phi i64 [ 0, %3 ], [ %indvars.iv.next30.i.i.i.i, %31 ]
   %25 = shl nuw nsw i64 %indvars.iv29.i.i.i.i, 2
-  %invariant.gep.i.i.i.i = getelementptr inbounds nuw float, ptr %5, i64 %25
-  %invariant.gep35.i.i.i.i = getelementptr inbounds nuw float, ptr %7, i64 %25
+  %invariant.gep.i.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %25
+  %invariant.gep35.i.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %25
   br label %.preheader.i.i.i.i
 
 .preheader.i.i.i.i:                               ; preds = %30, %.preheader19.i.i.i.i
   %indvars.iv25.i.i.i.i = phi i64 [ 0, %.preheader19.i.i.i.i ], [ %indvars.iv.next26.i.i.i.i, %30 ]
-  %invariant.gep33.i.i.i.i = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv25.i.i.i.i
+  %invariant.gep33.i.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv25.i.i.i.i
   br label %26
 
 26:                                               ; preds = %26, %.preheader.i.i.i.i
   %indvars.iv.i4.i.i.i = phi i64 [ 0, %.preheader.i.i.i.i ], [ %indvars.iv.next.i5.i.i.i, %26 ]
   %.01620.i.i.i.i = phi float [ 0.000000e+00, %.preheader.i.i.i.i ], [ %29, %26 ]
-  %gep.i.i.i.i = getelementptr inbounds nuw float, ptr %invariant.gep.i.i.i.i, i64 %indvars.iv.i4.i.i.i
+  %gep.i.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep.i.i.i.i, i64 %indvars.iv.i4.i.i.i
   %27 = load float, ptr %gep.i.i.i.i, align 4, !noalias !59
   %.idx.i.i.i.i = shl nuw nsw i64 %indvars.iv.i4.i.i.i, 4
   %gep34.i.i.i.i = getelementptr inbounds nuw i8, ptr %invariant.gep33.i.i.i.i, i64 %.idx.i.i.i.i
@@ -5403,7 +5366,7 @@ define linkonce_odr void @_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE7SetViewERK
   br i1 %exitcond.not.i6.i.i.i, label %30, label %26, !llvm.loop !62
 
 30:                                               ; preds = %26
-  %gep36.i.i.i.i = getelementptr inbounds nuw float, ptr %invariant.gep35.i.i.i.i, i64 %indvars.iv25.i.i.i.i
+  %gep36.i.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep35.i.i.i.i, i64 %indvars.iv25.i.i.i.i
   store float %29, ptr %gep36.i.i.i.i, align 4
   %indvars.iv.next26.i.i.i.i = add nuw nsw i64 %indvars.iv25.i.i.i.i, 1
   %exitcond28.not.i.i.i.i = icmp eq i64 %indvars.iv.next26.i.i.i.i, 4
@@ -5425,12 +5388,12 @@ define linkonce_odr void @_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE7SetViewERK
   %indvars.iv15.i.i.i.i = phi i64 [ 1, %32 ], [ %indvars.iv.next16.i.i.i.i, %36 ]
   %.idx.i.i.i3.i = shl nuw nsw i64 %indvars.iv15.i.i.i.i, 4
   %invariant.gep.i.i.i4.i = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i.i.i3.i
-  %invariant.gep20.i.i.i.i = getelementptr float, ptr %4, i64 %indvars.iv15.i.i.i.i
+  %invariant.gep20.i.i.i.i = getelementptr [4 x i8], ptr %4, i64 %indvars.iv15.i.i.i.i
   br label %33
 
 33:                                               ; preds = %33, %.preheader.i.i.i2.i
   %indvars.iv.i.i.i.i = phi i64 [ 0, %.preheader.i.i.i2.i ], [ %indvars.iv.next.i.i.i.i, %33 ]
-  %gep.i.i.i5.i = getelementptr inbounds nuw float, ptr %invariant.gep.i.i.i4.i, i64 %indvars.iv.i.i.i.i
+  %gep.i.i.i5.i = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep.i.i.i4.i, i64 %indvars.iv.i.i.i.i
   %.idx19.i.i.i.i = shl i64 %indvars.iv.i.i.i.i, 4
   %gep21.i.i.i.i = getelementptr i8, ptr %invariant.gep20.i.i.i.i, i64 %.idx19.i.i.i.i
   %34 = load float, ptr %gep.i.i.i5.i, align 4, !alias.scope !65
@@ -8928,7 +8891,7 @@ _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i: ; preds = %_ZNSt12_Vector
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %19, ptr %4, align 8
   store ptr %19, ptr %20, align 8
-  %21 = getelementptr inbounds nuw i32, ptr %19, i64 %10
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %10
   store ptr %21, ptr %17, align 8
   br label %_ZNSt6vectorIjSaIjEE7reserveEm.exit
 
@@ -8983,7 +8946,7 @@ _ZNSt6vectorIjSaIjEE7reserveEm.exit:              ; preds = %_ZNSt12_Vector_base
   br i1 %48, label %49, label %_ZNSt6vectorIjSaIjEE6resizeEmRKj.exit
 
 49:                                               ; preds = %47
-  %50 = getelementptr inbounds nuw i32, ptr %35, i64 %43
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %43
   %.not.i.i = icmp eq ptr %34, %50
   br i1 %.not.i.i, label %_ZNSt6vectorIjSaIjEE6resizeEmRKj.exit, label %51
 
@@ -9016,7 +8979,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %52, %54
 
 _ZNSt6vectorIjSaIjEE6resizeEmRKj.exit:            ; preds = %._ZNSt6vectorIjSaIjEE6resizeEmRKj.exit_crit_edge, %51, %49, %47, %28
   %55 = phi ptr [ %.pre, %._ZNSt6vectorIjSaIjEE6resizeEmRKj.exit_crit_edge ], [ %35, %51 ], [ %35, %49 ], [ %35, %47 ], [ %35, %28 ]
-  %56 = getelementptr inbounds nuw i32, ptr %55, i64 %40
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %40
   store i32 %33, ptr %56, align 4
   %57 = load i32, ptr %29, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -9120,7 +9083,7 @@ define linkonce_odr void @_ZNSt6vectorIjSaIjEE14_M_fill_insertEN9__gnu_cxx17__no
 
 _ZSt22__uninitialized_move_aIPjS0_SaIjEET0_T_S3_S2_RT1_.exit: ; preds = %23, %20
   %24 = phi ptr [ %.pre, %23 ], [ %9, %20 ]
-  %25 = getelementptr inbounds i32, ptr %24, i64 %2
+  %25 = getelementptr inbounds [4 x i8], ptr %24, i64 %2
   store ptr %25, ptr %8, align 8
   %.not.i.i.i.i.i = icmp eq ptr %21, %1
   br i1 %.not.i.i.i.i.i, label %_ZSt13move_backwardIPjS0_ET0_T_S2_S1_.exit, label %26
@@ -9129,7 +9092,7 @@ _ZSt22__uninitialized_move_aIPjS0_SaIjEET0_T_S3_S2_RT1_.exit: ; preds = %23, %20
   %27 = sub i64 %22, %16
   %28 = ashr exact i64 %27, 2
   %29 = sub nsw i64 0, %28
-  %30 = getelementptr inbounds i32, ptr %9, i64 %29
+  %30 = getelementptr inbounds [4 x i8], ptr %9, i64 %29
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %30, ptr align 4 %1, i64 %27, i1 false)
   br label %_ZSt13move_backwardIPjS0_ET0_T_S2_S1_.exit
 
@@ -9240,7 +9203,7 @@ _ZSt24__uninitialized_fill_n_aIPjmjjET_S1_T0_RKT1_RSaIT2_E.exit80: ; preds = %.l
   br label %_ZSt34__uninitialized_move_if_noexcept_aIPjS0_SaIjEET0_T_S3_S2_RT1_.exit
 
 _ZSt34__uninitialized_move_if_noexcept_aIPjS0_SaIjEET0_T_S3_S2_RT1_.exit: ; preds = %67, %_ZSt24__uninitialized_fill_n_aIPjmjjET_S1_T0_RKT1_RSaIT2_E.exit80
-  %68 = getelementptr inbounds nuw i32, ptr %63, i64 %2
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %2
   %69 = sub i64 %11, %56
   %.not.i.i.i.i.i.i.i.i.i82 = icmp eq ptr %9, %1
   br i1 %.not.i.i.i.i.i.i.i.i.i82, label %71, label %70
@@ -9261,7 +9224,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPjS0_SaIjEET0_T_S3_S2_RT1_.exit: ; pred
 _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit: ; preds = %71, %73
   store ptr %62, ptr %0, align 8
   store ptr %72, ptr %8, align 8
-  %74 = getelementptr inbounds nuw i32, ptr %62, i64 %55
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %55
   store ptr %74, ptr %6, align 8
   br label %_ZSt4fillIPjjEvT_S1_RKT0_.exit
 
@@ -10302,7 +10265,7 @@ define noundef zeroext i1 @_ZN23VisibilityCheck_VMV20029iterationERSt6vectorIhSa
   %24 = load ptr, ptr %3, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds nuw %class.CVertexO, ptr %26, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [48 x i8], ptr %26, i64 %indvars.iv
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   tail call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %28)
   %.pre = load ptr, ptr %3, align 8
@@ -11107,19 +11070,19 @@ _ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEE
 .preheader19.i.i:                                 ; preds = %105, %_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEERfSA_.exit
   %indvars.iv29.i.i = phi i64 [ 0, %_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEERfSA_.exit ], [ %indvars.iv.next30.i.i, %105 ]
   %99 = shl nuw nsw i64 %indvars.iv29.i.i, 2
-  %invariant.gep.i.i = getelementptr inbounds nuw float, ptr %2, i64 %99
-  %invariant.gep35.i.i = getelementptr inbounds nuw float, ptr %4, i64 %99
+  %invariant.gep.i.i = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %99
+  %invariant.gep35.i.i = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %99
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %104, %.preheader19.i.i
   %indvars.iv25.i.i = phi i64 [ 0, %.preheader19.i.i ], [ %indvars.iv.next26.i.i, %104 ]
-  %invariant.gep33.i.i = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv25.i.i
+  %invariant.gep33.i.i = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv25.i.i
   br label %100
 
 100:                                              ; preds = %100, %.preheader.i.i
   %indvars.iv.i4.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next.i5.i, %100 ]
   %.01620.i.i = phi float [ 0.000000e+00, %.preheader.i.i ], [ %103, %100 ]
-  %gep.i.i = getelementptr inbounds nuw float, ptr %invariant.gep.i.i, i64 %indvars.iv.i4.i
+  %gep.i.i = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep.i.i, i64 %indvars.iv.i4.i
   %101 = load float, ptr %gep.i.i, align 4, !noalias !92
   %.idx.i.i = shl nuw nsw i64 %indvars.iv.i4.i, 4
   %gep34.i.i = getelementptr inbounds nuw i8, ptr %invariant.gep33.i.i, i64 %.idx.i.i
@@ -11130,7 +11093,7 @@ _ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEE
   br i1 %exitcond.not.i6.i, label %104, label %100, !llvm.loop !62
 
 104:                                              ; preds = %100
-  %gep36.i.i = getelementptr inbounds nuw float, ptr %invariant.gep35.i.i, i64 %indvars.iv25.i.i
+  %gep36.i.i = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep35.i.i, i64 %indvars.iv25.i.i
   store float %103, ptr %gep36.i.i, align 4
   %indvars.iv.next26.i.i = add nuw nsw i64 %indvars.iv25.i.i, 1
   %exitcond28.not.i.i = icmp eq i64 %indvars.iv.next26.i.i, 4
@@ -11150,12 +11113,12 @@ _ZNK3vcg4ShotIfNS_8Matrix44IfEEE26GetWorldToExtrinsicsMatrixEv.exit: ; preds = %
   %indvars.iv15.i.i = phi i64 [ 1, %_ZNK3vcg4ShotIfNS_8Matrix44IfEEE26GetWorldToExtrinsicsMatrixEv.exit ], [ %indvars.iv.next16.i.i, %109 ]
   %.idx.i.i10 = shl nuw nsw i64 %indvars.iv15.i.i, 4
   %invariant.gep.i.i11 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i.i10
-  %invariant.gep20.i.i = getelementptr float, ptr %4, i64 %indvars.iv15.i.i
+  %invariant.gep20.i.i = getelementptr [4 x i8], ptr %4, i64 %indvars.iv15.i.i
   br label %106
 
 106:                                              ; preds = %106, %.preheader.i.i9
   %indvars.iv.i.i = phi i64 [ 0, %.preheader.i.i9 ], [ %indvars.iv.next.i.i, %106 ]
-  %gep.i.i12 = getelementptr inbounds nuw float, ptr %invariant.gep.i.i11, i64 %indvars.iv.i.i
+  %gep.i.i12 = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep.i.i11, i64 %indvars.iv.i.i
   %.idx19.i.i = shl i64 %indvars.iv.i.i, 4
   %gep21.i.i = getelementptr i8, ptr %invariant.gep20.i.i, i64 %.idx19.i.i
   %107 = load float, ptr %gep.i.i12, align 4
@@ -11180,19 +11143,19 @@ _ZNK3vcg8Matrix44IfE9transposeEv.exit:            ; preds = %109
 .preheader19.i:                                   ; preds = %117, %_ZNK3vcg8Matrix44IfE9transposeEv.exit
   %indvars.iv29.i = phi i64 [ 0, %_ZNK3vcg8Matrix44IfE9transposeEv.exit ], [ %indvars.iv.next30.i, %117 ]
   %111 = shl nuw nsw i64 %indvars.iv29.i, 2
-  %invariant.gep.i = getelementptr inbounds nuw float, ptr %110, i64 %111
-  %invariant.gep35.i = getelementptr inbounds nuw float, ptr %6, i64 %111
+  %invariant.gep.i = getelementptr inbounds nuw [4 x i8], ptr %110, i64 %111
+  %invariant.gep35.i = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %111
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %116, %.preheader19.i
   %indvars.iv25.i = phi i64 [ 0, %.preheader19.i ], [ %indvars.iv.next26.i, %116 ]
-  %invariant.gep33.i = getelementptr inbounds nuw float, ptr %62, i64 %indvars.iv25.i
+  %invariant.gep33.i = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %indvars.iv25.i
   br label %112
 
 112:                                              ; preds = %112, %.preheader.i
   %indvars.iv.i14 = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i15, %112 ]
   %.01620.i = phi float [ 0.000000e+00, %.preheader.i ], [ %115, %112 ]
-  %gep.i = getelementptr inbounds nuw float, ptr %invariant.gep.i, i64 %indvars.iv.i14
+  %gep.i = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep.i, i64 %indvars.iv.i14
   %113 = load float, ptr %gep.i, align 4, !noalias !95
   %.idx.i = shl nuw nsw i64 %indvars.iv.i14, 4
   %gep34.i = getelementptr inbounds nuw i8, ptr %invariant.gep33.i, i64 %.idx.i
@@ -11203,7 +11166,7 @@ _ZNK3vcg8Matrix44IfE9transposeEv.exit:            ; preds = %109
   br i1 %exitcond.not.i16, label %116, label %112, !llvm.loop !62
 
 116:                                              ; preds = %112
-  %gep36.i = getelementptr inbounds nuw float, ptr %invariant.gep35.i, i64 %indvars.iv25.i
+  %gep36.i = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep35.i, i64 %indvars.iv25.i
   store float %115, ptr %gep36.i, align 4, !alias.scope !95
   %indvars.iv.next26.i = add nuw nsw i64 %indvars.iv25.i, 1
   %exitcond28.not.i = icmp eq i64 %indvars.iv.next26.i, 4
@@ -11221,19 +11184,19 @@ _ZNK3vcg8Matrix44IfEmlERKS1_.exit.preheader:      ; preds = %117
 .preheader19.i20:                                 ; preds = %124, %_ZNK3vcg8Matrix44IfEmlERKS1_.exit.preheader
   %indvars.iv29.i21 = phi i64 [ 0, %_ZNK3vcg8Matrix44IfEmlERKS1_.exit.preheader ], [ %indvars.iv.next30.i37, %124 ]
   %118 = shl nuw nsw i64 %indvars.iv29.i21, 2
-  %invariant.gep.i22 = getelementptr inbounds nuw float, ptr %6, i64 %118
-  %invariant.gep35.i23 = getelementptr inbounds nuw float, ptr %5, i64 %118
+  %invariant.gep.i22 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %118
+  %invariant.gep35.i23 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %118
   br label %.preheader.i24
 
 .preheader.i24:                                   ; preds = %123, %.preheader19.i20
   %indvars.iv25.i25 = phi i64 [ 0, %.preheader19.i20 ], [ %indvars.iv.next26.i35, %123 ]
-  %invariant.gep33.i26 = getelementptr inbounds nuw float, ptr @__const._ZN25VisibilityCheck_ShadowMap18shadowProjMatricesEv.biasMatData, i64 %indvars.iv25.i25
+  %invariant.gep33.i26 = getelementptr inbounds nuw [4 x i8], ptr @__const._ZN25VisibilityCheck_ShadowMap18shadowProjMatricesEv.biasMatData, i64 %indvars.iv25.i25
   br label %119
 
 119:                                              ; preds = %119, %.preheader.i24
   %indvars.iv.i27 = phi i64 [ 0, %.preheader.i24 ], [ %indvars.iv.next.i32, %119 ]
   %.01620.i28 = phi float [ 0.000000e+00, %.preheader.i24 ], [ %122, %119 ]
-  %gep.i29 = getelementptr inbounds nuw float, ptr %invariant.gep.i22, i64 %indvars.iv.i27
+  %gep.i29 = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep.i22, i64 %indvars.iv.i27
   %120 = load float, ptr %gep.i29, align 4, !noalias !98
   %.idx.i30 = shl nuw nsw i64 %indvars.iv.i27, 4
   %gep34.i31 = getelementptr inbounds nuw i8, ptr %invariant.gep33.i26, i64 %.idx.i30
@@ -11244,7 +11207,7 @@ _ZNK3vcg8Matrix44IfEmlERKS1_.exit.preheader:      ; preds = %117
   br i1 %exitcond.not.i33, label %123, label %119, !llvm.loop !62
 
 123:                                              ; preds = %119
-  %gep36.i34 = getelementptr inbounds nuw float, ptr %invariant.gep35.i23, i64 %indvars.iv25.i25
+  %gep36.i34 = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep35.i23, i64 %indvars.iv25.i25
   store float %122, ptr %gep36.i34, align 4, !alias.scope !98
   %indvars.iv.next26.i35 = add nuw nsw i64 %indvars.iv25.i25, 1
   %exitcond28.not.i36 = icmp eq i64 %indvars.iv.next26.i35, 4
@@ -12399,12 +12362,12 @@ define void @_ZN25VisibilityCheck_ShadowMap19updateShadowTextureEv(ptr noundef n
   %indvars.iv15.i.i = phi i64 [ 1, %1 ], [ %indvars.iv.next16.i.i, %24 ]
   %.idx.i.i = shl nuw nsw i64 %indvars.iv15.i.i, 4
   %invariant.gep.i.i = getelementptr inbounds nuw i8, ptr %5, i64 %.idx.i.i
-  %invariant.gep20.i.i = getelementptr float, ptr %5, i64 %indvars.iv15.i.i
+  %invariant.gep20.i.i = getelementptr [4 x i8], ptr %5, i64 %indvars.iv15.i.i
   br label %21
 
 21:                                               ; preds = %21, %.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next.i.i, %21 ]
-  %gep.i.i = getelementptr inbounds nuw float, ptr %invariant.gep.i.i, i64 %indvars.iv.i.i
+  %gep.i.i = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep.i.i, i64 %indvars.iv.i.i
   %.idx19.i.i = shl i64 %indvars.iv.i.i, 4
   %gep21.i.i = getelementptr i8, ptr %invariant.gep20.i.i, i64 %.idx19.i.i
   %22 = load float, ptr %gep.i.i, align 4, !alias.scope !113
@@ -12429,12 +12392,12 @@ _ZNK3vcg8Matrix44IfE9transposeEv.exit.preheader:  ; preds = %24
   %indvars.iv15.i.i.i = phi i64 [ 1, %_ZNK3vcg8Matrix44IfE9transposeEv.exit.preheader ], [ %indvars.iv.next16.i.i.i, %28 ]
   %.idx.i.i.i = shl nuw nsw i64 %indvars.iv15.i.i.i, 4
   %invariant.gep.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i.i.i
-  %invariant.gep20.i.i.i = getelementptr float, ptr %4, i64 %indvars.iv15.i.i.i
+  %invariant.gep20.i.i.i = getelementptr [4 x i8], ptr %4, i64 %indvars.iv15.i.i.i
   br label %25
 
 25:                                               ; preds = %25, %.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %25 ]
-  %gep.i.i.i = getelementptr inbounds nuw float, ptr %invariant.gep.i.i.i, i64 %indvars.iv.i.i.i
+  %gep.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep.i.i.i, i64 %indvars.iv.i.i.i
   %.idx19.i.i.i = shl i64 %indvars.iv.i.i.i, 4
   %gep21.i.i.i = getelementptr i8, ptr %invariant.gep20.i.i.i, i64 %.idx19.i.i.i
   %26 = load float, ptr %gep.i.i.i, align 4, !alias.scope !116
@@ -12463,12 +12426,12 @@ _ZNK3vcg8Matrix44IfE9transposeEv.exit.i:          ; preds = %28
   %indvars.iv15.i.i28 = phi i64 [ 1, %_ZNK3vcg8Matrix44IfE9transposeEv.exit.i ], [ %indvars.iv.next16.i.i38, %33 ]
   %.idx.i.i29 = shl nuw nsw i64 %indvars.iv15.i.i28, 4
   %invariant.gep.i.i30 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx.i.i29
-  %invariant.gep20.i.i31 = getelementptr float, ptr %6, i64 %indvars.iv15.i.i28
+  %invariant.gep20.i.i31 = getelementptr [4 x i8], ptr %6, i64 %indvars.iv15.i.i28
   br label %30
 
 30:                                               ; preds = %30, %.preheader.i.i27
   %indvars.iv.i.i32 = phi i64 [ 0, %.preheader.i.i27 ], [ %indvars.iv.next.i.i36, %30 ]
-  %gep.i.i33 = getelementptr inbounds nuw float, ptr %invariant.gep.i.i30, i64 %indvars.iv.i.i32
+  %gep.i.i33 = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep.i.i30, i64 %indvars.iv.i.i32
   %.idx19.i.i34 = shl i64 %indvars.iv.i.i32, 4
   %gep21.i.i35 = getelementptr i8, ptr %invariant.gep20.i.i31, i64 %.idx19.i.i34
   %31 = load float, ptr %gep.i.i33, align 4, !alias.scope !119
@@ -12493,12 +12456,12 @@ _ZNK3vcg8Matrix44IfE9transposeEv.exit40.preheader: ; preds = %33
   %indvars.iv15.i.i.i46 = phi i64 [ 1, %_ZNK3vcg8Matrix44IfE9transposeEv.exit40.preheader ], [ %indvars.iv.next16.i.i.i56, %37 ]
   %.idx.i.i.i47 = shl nuw nsw i64 %indvars.iv15.i.i.i46, 4
   %invariant.gep.i.i.i48 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i.i.i47
-  %invariant.gep20.i.i.i49 = getelementptr float, ptr %3, i64 %indvars.iv15.i.i.i46
+  %invariant.gep20.i.i.i49 = getelementptr [4 x i8], ptr %3, i64 %indvars.iv15.i.i.i46
   br label %34
 
 34:                                               ; preds = %34, %.preheader.i.i.i45
   %indvars.iv.i.i.i50 = phi i64 [ 0, %.preheader.i.i.i45 ], [ %indvars.iv.next.i.i.i54, %34 ]
-  %gep.i.i.i51 = getelementptr inbounds nuw float, ptr %invariant.gep.i.i.i48, i64 %indvars.iv.i.i.i50
+  %gep.i.i.i51 = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep.i.i.i48, i64 %indvars.iv.i.i.i50
   %.idx19.i.i.i52 = shl i64 %indvars.iv.i.i.i50, 4
   %gep21.i.i.i53 = getelementptr i8, ptr %invariant.gep20.i.i.i49, i64 %.idx19.i.i.i52
   %35 = load float, ptr %gep.i.i.i51, align 4, !alias.scope !122
@@ -14846,7 +14809,7 @@ _ZNSt12_Vector_baseIN3glw6detail19ObjectSharedPointerINS0_10SafeShaderENS1_14Def
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i.i36, ptr %4, align 8
-  %57 = getelementptr inbounds nuw %"class.glw::detail::ObjectSharedPointer.281", ptr %20, i64 %16
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %16
   store ptr %57, ptr %56, align 8
   ret void
 }
@@ -16035,7 +15998,7 @@ _ZN3glw6Object7destroyEv.exit:                    ; preds = %2, %9
 .lr.ph:                                           ; preds = %_ZN3glw6Object7destroyEv.exit, %_ZNK3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEEcvbEv.exit.thread
   %35 = phi ptr [ %60, %_ZNK3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEEcvbEv.exit.thread ], [ %34, %_ZN3glw6Object7destroyEv.exit ]
   %.01938 = phi i64 [ %58, %_ZNK3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEEcvbEv.exit.thread ], [ 0, %_ZN3glw6Object7destroyEv.exit ]
-  %36 = getelementptr inbounds %"class.glw::detail::ObjectSharedPointer.281", ptr %35, i64 %.01938
+  %36 = getelementptr inbounds [8 x i8], ptr %35, i64 %.01938
   %37 = load ptr, ptr %36, align 8
   %38 = icmp eq ptr %37, null
   br i1 %38, label %_ZNK3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEEcvbEv.exit.thread, label %_ZNK3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEEcvbEv.exit
@@ -16121,9 +16084,9 @@ _ZNK3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EEN
 .lr.ph46:                                         ; preds = %.lr.ph46.preheader, %.lr.ph46
   %.044 = phi i64 [ %91, %.lr.ph46 ], [ 0, %.lr.ph46.preheader ]
   %87 = load ptr, ptr %19, align 8
-  %88 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %87, i64 %.044
+  %88 = getelementptr inbounds [32 x i8], ptr %87, i64 %.044
   %89 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %88) #22
-  %90 = getelementptr inbounds ptr, ptr %86, i64 %.044
+  %90 = getelementptr inbounds [8 x i8], ptr %86, i64 %.044
   store ptr %89, ptr %90, align 8
   %91 = add nuw i64 %.044, 1
   %exitcond.not = icmp eq i64 %91, %82
@@ -17980,9 +17943,9 @@ define void @_ZN25VisibilityCheck_ShadowMap16initMeshTexturesEv(ptr noundef nonn
 
 27:                                               ; preds = %.lr.ph, %27
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %27 ]
-  %28 = getelementptr inbounds nuw %class.CVertexO, ptr %.pre, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [48 x i8], ptr %.pre, i64 %indvars.iv
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 24
-  %30 = getelementptr inbounds nuw %"class.vcg::Point3", ptr %23, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [12 x i8], ptr %23, i64 %indvars.iv
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %30, ptr noundef nonnull align 4 dereferenceable(12) %29, i64 12, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %31 = icmp samesign ult i64 %indvars.iv.next, %26
@@ -18148,9 +18111,9 @@ _ZN3glw14BoundTexture2D13setSampleModeERKNS_17TextureSampleModeE.exit: ; preds =
 91:                                               ; preds = %.lr.ph64, %91
   %indvars.iv67 = phi i64 [ 0, %.lr.ph64 ], [ %indvars.iv.next68, %91 ]
   %92 = load ptr, ptr %90, align 8
-  %93 = getelementptr inbounds nuw %class.CVertexO, ptr %92, i64 %indvars.iv67
+  %93 = getelementptr inbounds nuw [48 x i8], ptr %92, i64 %indvars.iv67
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 8
-  %95 = getelementptr inbounds nuw %"class.vcg::Point3", ptr %23, i64 %indvars.iv67
+  %95 = getelementptr inbounds nuw [12 x i8], ptr %23, i64 %indvars.iv67
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %95, ptr noundef nonnull align 4 dereferenceable(12) %94, i64 12, i1 false)
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %96 = load i32, ptr %87, align 8

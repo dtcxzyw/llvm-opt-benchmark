@@ -84,7 +84,7 @@ define dso_local void @_help_fields_msg() local_unnamed_addr #0 {
   %6 = load ptr, ptr %2, align 8
   %7 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, ptr noundef %6)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %8 = getelementptr inbounds nuw %struct.print_field, ptr @fields, i64 %indvars.iv.next
+  %8 = getelementptr inbounds nuw [32 x i8], ptr @fields, i64 %indvars.iv.next
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
@@ -150,7 +150,7 @@ define dso_local void @_do_help() local_unnamed_addr #0 {
   %10 = phi ptr [ %.pre, %.sink.split.i ], [ %5, %8 ]
   %11 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, ptr noundef %10)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %12 = getelementptr inbounds nuw %struct.print_field, ptr @fields, i64 %indvars.iv.next.i
+  %12 = getelementptr inbounds nuw [32 x i8], ptr @fields, i64 %indvars.iv.next.i
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
   %.not.i = icmp eq ptr %14, null
@@ -386,7 +386,7 @@ _addto_job_list.exit:                             ; preds = %14, %17
 
 42:                                               ; preds = %39
   %43 = sext i32 %40 to i64
-  %44 = getelementptr inbounds ptr, ptr %1, i64 %43
+  %44 = getelementptr inbounds [8 x i8], ptr %1, i64 %43
   %45 = load ptr, ptr %44, align 8
   store ptr %45, ptr @optarg, align 8
   %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @params, i64 24), align 8
@@ -507,7 +507,7 @@ _addto_job_list.exit56:                           ; preds = %42, %47
   %.1 = phi ptr [ %.03269, %89 ], [ %97, %91 ]
   %92 = load i8, ptr %.1, align 1
   %93 = sext i8 %92 to i64
-  %94 = getelementptr inbounds i16, ptr %90, i64 %93
+  %94 = getelementptr inbounds [2 x i8], ptr %90, i64 %93
   %95 = load i16, ptr %94, align 2
   %96 = and i16 %95, 8192
   %.not47 = icmp eq i16 %96, 0
@@ -544,7 +544,7 @@ _addto_job_list.exit56:                           ; preds = %42, %47
 
 108:                                              ; preds = %112
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %109 = getelementptr inbounds nuw %struct.print_field, ptr @fields, i64 %indvars.iv.next
+  %109 = getelementptr inbounds nuw [32 x i8], ptr @fields, i64 %indvars.iv.next
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 8
   %111 = load ptr, ptr %110, align 8
   %.not51 = icmp eq ptr %111, null
@@ -563,7 +563,7 @@ _addto_job_list.exit56:                           ; preds = %42, %47
   unreachable
 
 116:                                              ; preds = %112
-  %117 = getelementptr inbounds nuw %struct.print_field, ptr @fields, i64 %indvars.iv
+  %117 = getelementptr inbounds nuw [32 x i8], ptr @fields, i64 %indvars.iv
   %.not53 = icmp eq i32 %.0, 0
   br i1 %.not53, label %119, label %118
 

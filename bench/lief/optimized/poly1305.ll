@@ -494,7 +494,7 @@ define hidden range(i32 -1, 1) i32 @mbedtls_poly1305_self_test(i32 noundef %0) l
   %indvars.iv26 = phi i64 [ 1, %11 ], [ 0, %1 ]
   %4 = getelementptr inbounds nuw [32 x i8], ptr @test_keys, i64 %indvars.iv26
   %5 = getelementptr inbounds nuw [127 x i8], ptr @test_data, i64 %indvars.iv26
-  %6 = getelementptr inbounds nuw i64, ptr @test_data_len, i64 %indvars.iv26
+  %6 = getelementptr inbounds nuw [8 x i8], ptr @test_data_len, i64 %indvars.iv26
   %7 = load i64, ptr %6, align 8, !tbaa !13
   %8 = call i32 @mbedtls_poly1305_mac(ptr noundef nonnull %4, ptr noundef nonnull %5, i64 noundef %7, ptr noundef nonnull %2)
   %9 = getelementptr inbounds nuw [16 x i8], ptr @test_mac, i64 %indvars.iv26
@@ -512,7 +512,7 @@ define hidden range(i32 -1, 1) i32 @mbedtls_poly1305_self_test(i32 noundef %0) l
   %14 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %13)
   %15 = getelementptr inbounds nuw [32 x i8], ptr @test_keys, i64 %indvars.iv
   %16 = getelementptr inbounds nuw [127 x i8], ptr @test_data, i64 %indvars.iv
-  %17 = getelementptr inbounds nuw i64, ptr @test_data_len, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr @test_data_len, i64 %indvars.iv
   %18 = load i64, ptr %17, align 8, !tbaa !13
   %19 = call i32 @mbedtls_poly1305_mac(ptr noundef nonnull %15, ptr noundef nonnull %16, i64 noundef %18, ptr noundef nonnull %2)
   %20 = getelementptr inbounds nuw [16 x i8], ptr @test_mac, i64 %indvars.iv

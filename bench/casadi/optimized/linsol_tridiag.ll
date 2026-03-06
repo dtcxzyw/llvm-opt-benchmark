@@ -311,7 +311,7 @@ define noundef range(i32 0, 2) i32 @_ZNK6casadi13LinsolTridiag8init_memEPv(ptr n
   br i1 %19, label %20, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds nuw double, ptr %10, i64 %7
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %7
   %.not.i.i = icmp eq ptr %9, %21
   br i1 %.not.i.i, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit, label %22
 
@@ -342,7 +342,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %16, %18, %20, %22
   br i1 %36, label %37, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit7
 
 37:                                               ; preds = %35
-  %38 = getelementptr inbounds nuw double, ptr %27, i64 %24
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %24
   %.not.i.i6 = icmp eq ptr %26, %38
   br i1 %.not.i.i6, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit7, label %39
 
@@ -373,7 +373,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit7:              ; preds = %33, %35, %37, %39
   br i1 %53, label %54, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit9
 
 54:                                               ; preds = %52
-  %55 = getelementptr inbounds nuw double, ptr %44, i64 %41
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %41
   %.not.i.i8 = icmp eq ptr %43, %55
   br i1 %.not.i.i8, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit9, label %56
 
@@ -417,7 +417,7 @@ define noundef i32 @_ZNK6casadi13LinsolTridiag5solveEPvPKdPdxb(ptr noundef nonnu
 
 14:                                               ; preds = %10
   %15 = load i64, ptr %9, align 8, !tbaa !47
-  %16 = getelementptr double, ptr %2, i64 %15
+  %16 = getelementptr [8 x i8], ptr %2, i64 %15
   %17 = getelementptr i8, ptr %16, i64 8
   %18 = load double, ptr %17, align 8, !tbaa !49
   %19 = load double, ptr %16, align 8, !tbaa !49
@@ -431,14 +431,14 @@ define noundef i32 @_ZNK6casadi13LinsolTridiag5solveEPvPKdPdxb(ptr noundef nonnu
 
 .lr.ph151:                                        ; preds = %14, %.lr.ph151
   %.0145149 = phi i64 [ %40, %.lr.ph151 ], [ 1, %14 ]
-  %25 = getelementptr inbounds nuw i64, ptr %9, i64 %.0145149
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.0145149
   %26 = load i64, ptr %25, align 8, !tbaa !47
-  %27 = getelementptr double, ptr %2, i64 %26
+  %27 = getelementptr [8 x i8], ptr %2, i64 %26
   %28 = getelementptr i8, ptr %27, i64 8
   %29 = load double, ptr %28, align 8, !tbaa !49
   %30 = load double, ptr %27, align 8, !tbaa !49
   %31 = load ptr, ptr %21, align 8, !tbaa !25
-  %32 = getelementptr double, ptr %31, i64 %.0145149
+  %32 = getelementptr [8 x i8], ptr %31, i64 %.0145149
   %33 = getelementptr i8, ptr %32, i64 -8
   %34 = load double, ptr %33, align 8, !tbaa !49
   %35 = fneg double %30
@@ -465,10 +465,10 @@ define noundef i32 @_ZNK6casadi13LinsolTridiag5solveEPvPKdPdxb(ptr noundef nonnu
 47:                                               ; preds = %43
   %48 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %49 = load i64, ptr %48, align 8, !tbaa !47
-  %50 = getelementptr inbounds double, ptr %2, i64 %49
+  %50 = getelementptr inbounds [8 x i8], ptr %2, i64 %49
   %51 = load double, ptr %50, align 8, !tbaa !49
   %52 = load i64, ptr %9, align 8, !tbaa !47
-  %53 = getelementptr inbounds double, ptr %2, i64 %52
+  %53 = getelementptr inbounds [8 x i8], ptr %2, i64 %52
   %54 = load double, ptr %53, align 8, !tbaa !49
   %55 = fdiv double %51, %54
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -482,7 +482,7 @@ define noundef i32 @_ZNK6casadi13LinsolTridiag5solveEPvPKdPdxb(ptr noundef nonnu
   %63 = tail call double @llvm.fmuladd.f64(double %62, double %55, double %59)
   %64 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %65 = load i64, ptr %64, align 8, !tbaa !47
-  %66 = getelementptr inbounds double, ptr %2, i64 %65
+  %66 = getelementptr inbounds [8 x i8], ptr %2, i64 %65
   %67 = load double, ptr %66, align 8, !tbaa !49
   %68 = fdiv double %67, %63
   %69 = getelementptr inbounds nuw i8, ptr %57, i64 8
@@ -493,29 +493,29 @@ define noundef i32 @_ZNK6casadi13LinsolTridiag5solveEPvPKdPdxb(ptr noundef nonnu
 
 .lr.ph:                                           ; preds = %47, %.lr.ph
   %.1148 = phi i64 [ %88, %.lr.ph ], [ 2, %47 ]
-  %72 = getelementptr inbounds nuw i64, ptr %9, i64 %.1148
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.1148
   %73 = load i64, ptr %72, align 8, !tbaa !47
-  %74 = getelementptr double, ptr %2, i64 %73
+  %74 = getelementptr [8 x i8], ptr %2, i64 %73
   %75 = getelementptr i8, ptr %74, i64 8
   %76 = load double, ptr %75, align 8, !tbaa !49
   %77 = add nsw i64 %.1148, -1
-  %78 = getelementptr inbounds i64, ptr %9, i64 %77
+  %78 = getelementptr inbounds [8 x i8], ptr %9, i64 %77
   %79 = load i64, ptr %78, align 8, !tbaa !47
-  %80 = getelementptr double, ptr %2, i64 %79
+  %80 = getelementptr [8 x i8], ptr %2, i64 %79
   %81 = getelementptr i8, ptr %80, i64 16
   %82 = load double, ptr %81, align 8, !tbaa !49
   %83 = load ptr, ptr %56, align 8, !tbaa !25
-  %84 = getelementptr inbounds nuw double, ptr %83, i64 %77
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %77
   %85 = load double, ptr %84, align 8, !tbaa !49
   %86 = fneg double %82
   %87 = tail call double @llvm.fmuladd.f64(double %86, double %85, double %76)
   %88 = add nuw nsw i64 %.1148, 1
-  %89 = getelementptr inbounds nuw i64, ptr %9, i64 %88
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %88
   %90 = load i64, ptr %89, align 8, !tbaa !47
-  %91 = getelementptr inbounds double, ptr %2, i64 %90
+  %91 = getelementptr inbounds [8 x i8], ptr %2, i64 %90
   %92 = load double, ptr %91, align 8, !tbaa !49
   %93 = fdiv double %92, %87
-  %94 = getelementptr inbounds nuw double, ptr %83, i64 %.1148
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %.1148
   store double %93, ptr %94, align 8, !tbaa !49
   %95 = tail call noundef i64 @_ZNK6casadi8Sparsity5size1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
   %96 = icmp slt i64 %88, %95
@@ -541,7 +541,7 @@ define noundef i32 @_ZNK6casadi13LinsolTridiag5solveEPvPKdPdxb(ptr noundef nonnu
   %.0146167.us = phi i64 [ %155, %.loopexit.us ], [ 0, %.lr.ph171 ]
   %103 = load double, ptr %.0168.us, align 8, !tbaa !49
   %104 = load i64, ptr %9, align 8, !tbaa !47
-  %105 = getelementptr inbounds double, ptr %2, i64 %104
+  %105 = getelementptr inbounds [8 x i8], ptr %2, i64 %104
   %106 = load double, ptr %105, align 8, !tbaa !49
   %107 = fdiv double %103, %106
   %108 = load ptr, ptr %99, align 8, !tbaa !25
@@ -553,11 +553,11 @@ define noundef i32 @_ZNK6casadi13LinsolTridiag5solveEPvPKdPdxb(ptr noundef nonnu
 ._crit_edge163.us:                                ; preds = %.lr.ph162.us, %.lr.ph171.split.us
   %111 = tail call noundef i64 @_ZNK6casadi8Sparsity5size1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
   %112 = load ptr, ptr %99, align 8, !tbaa !25
-  %113 = getelementptr double, ptr %112, i64 %111
+  %113 = getelementptr [8 x i8], ptr %112, i64 %111
   %114 = getelementptr i8, ptr %113, i64 -8
   %115 = load double, ptr %114, align 8, !tbaa !49
   %116 = tail call noundef i64 @_ZNK6casadi8Sparsity5size1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
-  %117 = getelementptr double, ptr %.0168.us, i64 %116
+  %117 = getelementptr [8 x i8], ptr %.0168.us, i64 %116
   %118 = getelementptr i8, ptr %117, i64 -8
   store double %115, ptr %118, align 8, !tbaa !49
   %119 = tail call noundef i64 @_ZNK6casadi8Sparsity5size1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
@@ -567,11 +567,11 @@ define noundef i32 @_ZNK6casadi13LinsolTridiag5solveEPvPKdPdxb(ptr noundef nonnu
 121:                                              ; preds = %.lr.ph166.us, %121
   %store_forwarded = phi double [ %load_initial, %.lr.ph166.us ], [ %128, %121 ]
   %.3164.us = phi i64 [ %156, %.lr.ph166.us ], [ %129, %121 ]
-  %122 = getelementptr inbounds nuw double, ptr %157, i64 %.3164.us
+  %122 = getelementptr inbounds nuw [8 x i8], ptr %157, i64 %.3164.us
   %123 = load double, ptr %122, align 8, !tbaa !49
-  %124 = getelementptr inbounds nuw double, ptr %158, i64 %.3164.us
+  %124 = getelementptr inbounds nuw [8 x i8], ptr %158, i64 %.3164.us
   %125 = load double, ptr %124, align 8, !tbaa !49
-  %126 = getelementptr inbounds nuw double, ptr %.0168.us, i64 %.3164.us
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %.0168.us, i64 %.3164.us
   %127 = fneg double %125
   %128 = tail call double @llvm.fmuladd.f64(double %127, double %store_forwarded, double %123)
   store double %128, ptr %126, align 8, !tbaa !49
@@ -581,26 +581,26 @@ define noundef i32 @_ZNK6casadi13LinsolTridiag5solveEPvPKdPdxb(ptr noundef nonnu
 
 .lr.ph162.us:                                     ; preds = %.lr.ph171.split.us, %.lr.ph162.us
   %.2160.us = phi i64 [ %150, %.lr.ph162.us ], [ 1, %.lr.ph171.split.us ]
-  %130 = getelementptr inbounds nuw i64, ptr %9, i64 %.2160.us
+  %130 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.2160.us
   %131 = load i64, ptr %130, align 8, !tbaa !47
-  %132 = getelementptr double, ptr %2, i64 %131
+  %132 = getelementptr [8 x i8], ptr %2, i64 %131
   %133 = getelementptr i8, ptr %132, i64 8
   %134 = load double, ptr %133, align 8, !tbaa !49
   %135 = load double, ptr %132, align 8, !tbaa !49
   %136 = add nsw i64 %.2160.us, -1
   %137 = load ptr, ptr %102, align 8, !tbaa !25
-  %138 = getelementptr inbounds nuw double, ptr %137, i64 %136
+  %138 = getelementptr inbounds nuw [8 x i8], ptr %137, i64 %136
   %139 = load double, ptr %138, align 8, !tbaa !49
   %140 = fneg double %135
   %141 = tail call double @llvm.fmuladd.f64(double %140, double %139, double %134)
-  %142 = getelementptr inbounds nuw double, ptr %.0168.us, i64 %.2160.us
+  %142 = getelementptr inbounds nuw [8 x i8], ptr %.0168.us, i64 %.2160.us
   %143 = load double, ptr %142, align 8, !tbaa !49
   %144 = load ptr, ptr %99, align 8, !tbaa !25
-  %145 = getelementptr inbounds nuw double, ptr %144, i64 %136
+  %145 = getelementptr inbounds nuw [8 x i8], ptr %144, i64 %136
   %146 = load double, ptr %145, align 8, !tbaa !49
   %147 = tail call double @llvm.fmuladd.f64(double %140, double %146, double %143)
   %148 = fdiv double %147, %141
-  %149 = getelementptr inbounds nuw double, ptr %144, i64 %.2160.us
+  %149 = getelementptr inbounds nuw [8 x i8], ptr %144, i64 %.2160.us
   store double %148, ptr %149, align 8, !tbaa !49
   %150 = add nuw nsw i64 %.2160.us, 1
   %151 = tail call noundef i64 @_ZNK6casadi8Sparsity5size1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
@@ -609,7 +609,7 @@ define noundef i32 @_ZNK6casadi13LinsolTridiag5solveEPvPKdPdxb(ptr noundef nonnu
 
 .loopexit.us:                                     ; preds = %121, %._crit_edge163.us
   %153 = tail call noundef i64 @_ZNK6casadi8Sparsity5size2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
-  %154 = getelementptr inbounds double, ptr %.0168.us, i64 %153
+  %154 = getelementptr inbounds [8 x i8], ptr %.0168.us, i64 %153
   %155 = add nuw nsw i64 %.0146167.us, 1
   %exitcond174.not = icmp eq i64 %155, %4
   br i1 %exitcond174.not, label %._crit_edge172, label %.lr.ph171.split.us, !llvm.loop !56
@@ -629,13 +629,13 @@ define noundef i32 @_ZNK6casadi13LinsolTridiag5solveEPvPKdPdxb(ptr noundef nonnu
   %.0146167 = phi i64 [ %235, %.loopexit147 ], [ 0, %.lr.ph171 ]
   %160 = load double, ptr %.0168, align 8, !tbaa !49
   %161 = load i64, ptr %9, align 8, !tbaa !47
-  %162 = getelementptr inbounds double, ptr %2, i64 %161
+  %162 = getelementptr inbounds [8 x i8], ptr %2, i64 %161
   %163 = load double, ptr %162, align 8, !tbaa !49
   %164 = fdiv double %160, %163
   %165 = load ptr, ptr %99, align 8, !tbaa !25
   store double %164, ptr %165, align 8, !tbaa !49
   %166 = load i64, ptr %100, align 8, !tbaa !47
-  %167 = getelementptr double, ptr %2, i64 %166
+  %167 = getelementptr [8 x i8], ptr %2, i64 %166
   %168 = getelementptr i8, ptr %167, i64 8
   %169 = load double, ptr %168, align 8, !tbaa !49
   %170 = getelementptr i8, ptr %162, i64 8
@@ -656,30 +656,30 @@ define noundef i32 @_ZNK6casadi13LinsolTridiag5solveEPvPKdPdxb(ptr noundef nonnu
 
 .lr.ph155:                                        ; preds = %.lr.ph171.split, %.lr.ph155
   %.4153 = phi i64 [ %207, %.lr.ph155 ], [ 2, %.lr.ph171.split ]
-  %183 = getelementptr inbounds nuw i64, ptr %9, i64 %.4153
+  %183 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.4153
   %184 = load i64, ptr %183, align 8, !tbaa !47
-  %185 = getelementptr double, ptr %2, i64 %184
+  %185 = getelementptr [8 x i8], ptr %2, i64 %184
   %186 = getelementptr i8, ptr %185, i64 8
   %187 = load double, ptr %186, align 8, !tbaa !49
   %188 = add nsw i64 %.4153, -1
-  %189 = getelementptr inbounds i64, ptr %9, i64 %188
+  %189 = getelementptr inbounds [8 x i8], ptr %9, i64 %188
   %190 = load i64, ptr %189, align 8, !tbaa !47
-  %191 = getelementptr double, ptr %2, i64 %190
+  %191 = getelementptr [8 x i8], ptr %2, i64 %190
   %192 = getelementptr i8, ptr %191, i64 16
   %193 = load double, ptr %192, align 8, !tbaa !49
   %194 = load ptr, ptr %101, align 8, !tbaa !25
-  %195 = getelementptr inbounds nuw double, ptr %194, i64 %188
+  %195 = getelementptr inbounds nuw [8 x i8], ptr %194, i64 %188
   %196 = load double, ptr %195, align 8, !tbaa !49
   %197 = fneg double %193
   %198 = tail call double @llvm.fmuladd.f64(double %197, double %196, double %187)
-  %199 = getelementptr inbounds nuw double, ptr %.0168, i64 %.4153
+  %199 = getelementptr inbounds nuw [8 x i8], ptr %.0168, i64 %.4153
   %200 = load double, ptr %199, align 8, !tbaa !49
   %201 = load ptr, ptr %99, align 8, !tbaa !25
-  %202 = getelementptr inbounds nuw double, ptr %201, i64 %188
+  %202 = getelementptr inbounds nuw [8 x i8], ptr %201, i64 %188
   %203 = load double, ptr %202, align 8, !tbaa !49
   %204 = tail call double @llvm.fmuladd.f64(double %197, double %203, double %200)
   %205 = fdiv double %204, %198
-  %206 = getelementptr inbounds nuw double, ptr %201, i64 %.4153
+  %206 = getelementptr inbounds nuw [8 x i8], ptr %201, i64 %.4153
   store double %205, ptr %206, align 8, !tbaa !49
   %207 = add nuw nsw i64 %.4153, 1
   %208 = tail call noundef i64 @_ZNK6casadi8Sparsity5size1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
@@ -689,11 +689,11 @@ define noundef i32 @_ZNK6casadi13LinsolTridiag5solveEPvPKdPdxb(ptr noundef nonnu
 ._crit_edge156:                                   ; preds = %.lr.ph155, %.lr.ph171.split
   %210 = tail call noundef i64 @_ZNK6casadi8Sparsity5size1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
   %211 = load ptr, ptr %99, align 8, !tbaa !25
-  %212 = getelementptr double, ptr %211, i64 %210
+  %212 = getelementptr [8 x i8], ptr %211, i64 %210
   %213 = getelementptr i8, ptr %212, i64 -8
   %214 = load double, ptr %213, align 8, !tbaa !49
   %215 = tail call noundef i64 @_ZNK6casadi8Sparsity5size1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
-  %216 = getelementptr double, ptr %.0168, i64 %215
+  %216 = getelementptr [8 x i8], ptr %.0168, i64 %215
   %217 = getelementptr i8, ptr %216, i64 -8
   store double %214, ptr %217, align 8, !tbaa !49
   %218 = tail call noundef i64 @_ZNK6casadi8Sparsity5size1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
@@ -713,11 +713,11 @@ define noundef i32 @_ZNK6casadi13LinsolTridiag5solveEPvPKdPdxb(ptr noundef nonnu
 224:                                              ; preds = %.lr.ph159, %224
   %store_forwarded186 = phi double [ %load_initial185, %.lr.ph159 ], [ %231, %224 ]
   %.5157 = phi i64 [ %220, %.lr.ph159 ], [ %232, %224 ]
-  %225 = getelementptr inbounds nuw double, ptr %221, i64 %.5157
+  %225 = getelementptr inbounds nuw [8 x i8], ptr %221, i64 %.5157
   %226 = load double, ptr %225, align 8, !tbaa !49
-  %227 = getelementptr inbounds nuw double, ptr %222, i64 %.5157
+  %227 = getelementptr inbounds nuw [8 x i8], ptr %222, i64 %.5157
   %228 = load double, ptr %227, align 8, !tbaa !49
-  %229 = getelementptr inbounds nuw double, ptr %.0168, i64 %.5157
+  %229 = getelementptr inbounds nuw [8 x i8], ptr %.0168, i64 %.5157
   %230 = fneg double %228
   %231 = tail call double @llvm.fmuladd.f64(double %230, double %store_forwarded186, double %226)
   store double %231, ptr %229, align 8, !tbaa !49
@@ -727,7 +727,7 @@ define noundef i32 @_ZNK6casadi13LinsolTridiag5solveEPvPKdPdxb(ptr noundef nonnu
 
 .loopexit147:                                     ; preds = %224, %._crit_edge156
   %233 = tail call noundef i64 @_ZNK6casadi8Sparsity5size2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
-  %234 = getelementptr inbounds double, ptr %.0168, i64 %233
+  %234 = getelementptr inbounds [8 x i8], ptr %.0168, i64 %233
   %235 = add nuw nsw i64 %.0146167, 1
   %exitcond.not = icmp eq i64 %235, %4
   br i1 %exitcond.not, label %._crit_edge172, label %.lr.ph171.split, !llvm.loop !56
@@ -3733,9 +3733,9 @@ _ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit36: ; preds = %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !25
-  %39 = getelementptr inbounds nuw double, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !22
-  %40 = getelementptr inbounds nuw double, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !82
   br label %41
 

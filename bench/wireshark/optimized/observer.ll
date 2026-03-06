@@ -239,7 +239,7 @@ observer_to_wtap_encap.exit:                      ; preds = %87
 
 switch.lookup:                                    ; preds = %87
   %93 = zext nneg i8 %89 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.observer_open, i64 %93
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.observer_open, i64 %93
   %switch.load = load i32, ptr %switch.gep, align 4
   %94 = zext nneg i8 %89 to i64
   %switch.gep163 = getelementptr inbounds nuw i8, ptr @switch.table.observer_open.1, i64 %94
@@ -798,7 +798,7 @@ define internal fastcc noundef zeroext i1 @process_packet_header(ptr noundef rea
 
 switch.lookup:                                    ; preds = %5
   %14 = zext nneg i8 %12 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.process_packet_header, i64 %14
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.process_packet_header, i64 %14
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %observer_to_wtap_encap.exit
 

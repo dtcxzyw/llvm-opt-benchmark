@@ -7,13 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.folly::c_array.0" = type { [100 x i16] }
 %"struct.std::array" = type { [8 x ptr] }
 %"class.folly::symbolizer::AddressFormatter" = type { [23 x i8] }
-%"struct.folly::symbolizer::SymbolizedFrame" = type { i8, i64, ptr, %"struct.folly::symbolizer::LocationInfo", %"class.std::shared_ptr" }
-%"struct.folly::symbolizer::LocationInfo" = type { i8, i8, %"class.folly::symbolizer::Path", %"class.folly::symbolizer::Path", i64 }
-%"class.folly::symbolizer::Path" = type { %"class.folly::Range", %"class.folly::Range", %"class.folly::Range" }
-%"class.folly::Range" = type { ptr, ptr }
-%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
-%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
 %"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
 %"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
@@ -749,7 +742,7 @@ _ZN5folly10symbolizer16SymbolizePrinter5colorENS1_5ColorE.exit49: ; preds = %140
 
 178:                                              ; preds = %182, %175
   %.08.i5.i.i.i = phi i64 [ 0, %175 ], [ %183, %182 ]
-  %179 = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i5.i.i.i
+  %179 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i5.i.i.i
   %180 = load i64, ptr %179, align 8, !tbaa !60
   %181 = icmp ult i64 %177, %180
   br i1 %181, label %.loopexit.i.i.i, label %182, !prof !61
@@ -774,7 +767,7 @@ _ZN5folly10symbolizer16SymbolizePrinter5colorENS1_5ColorE.exit49: ; preds = %140
   %187 = add i64 %.014.i6.i.i.i, -2
   %188 = udiv i64 %.0.i7.i.i.i, 100
   %189 = urem i64 %.0.i7.i.i.i, 100
-  %190 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %189
+  %190 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %189
   %191 = load i16, ptr %190, align 2, !tbaa !64
   %192 = getelementptr inbounds nuw i8, ptr %9, i64 %187
   store i16 %191, ptr %192, align 1
@@ -785,7 +778,7 @@ _ZN5folly10symbolizer16SymbolizePrinter5colorENS1_5ColorE.exit49: ; preds = %140
   %194 = phi i64 [ %184, %.loopexit.i.i.i ], [ %186, %.lr.ph.i.i.i ]
   %.014.i.lcssa.i.i.i = phi i64 [ %184, %.loopexit.i.i.i ], [ %187, %.lr.ph.i.i.i ]
   %.0.i.lcssa.i.i.i = phi i64 [ %177, %.loopexit.i.i.i ], [ %188, %.lr.ph.i.i.i ]
-  %195 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %.0.i.lcssa.i.i.i
+  %195 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %.0.i.lcssa.i.i.i
   %196 = load i16, ptr %195, align 2, !tbaa !64
   %197 = icmp eq i64 %.014.i.lcssa.i.i.i, 2
   br i1 %197, label %198, label %199, !prof !61
@@ -1059,7 +1052,7 @@ define void @_ZN5folly10symbolizer16SymbolizePrinter5colorENS1_5ColorE(ptr nound
 
 14:                                               ; preds = %7, %13
   %15 = zext nneg i32 %1 to i64
-  %16 = getelementptr inbounds nuw ptr, ptr @_ZN5folly10symbolizer16SymbolizePrinter9kColorMapE, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5folly10symbolizer16SymbolizePrinter9kColorMapE, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !69
   %18 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #31
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 %18
@@ -1159,7 +1152,7 @@ define void @_ZN5folly10symbolizer16SymbolizePrinter7printlnEPKNS0_15SymbolizedF
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.05 = phi i64 [ %8, %.lr.ph ], [ 0, %3 ]
-  %4 = getelementptr inbounds nuw %"struct.folly::symbolizer::SymbolizedFrame", ptr %1, i64 %.05
+  %4 = getelementptr inbounds nuw [152 x i8], ptr %1, i64 %.05
   tail call void @_ZN5folly10symbolizer16SymbolizePrinter5printERKNS0_15SymbolizedFrameE(ptr noundef nonnull align 8 dereferenceable(13) %0, ptr noundef nonnull align 8 dereferenceable(152) %4)
   %5 = load ptr, ptr %0, align 8, !tbaa !7
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24

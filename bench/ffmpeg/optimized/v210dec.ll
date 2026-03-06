@@ -445,20 +445,20 @@ define internal noundef i32 @v210_decode_slice(ptr noundef readonly captures(non
   %24 = mul nsw i32 %23, %13
   %25 = sdiv i32 %24, 2
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds i16, ptr %22, i64 %26
+  %27 = getelementptr inbounds [2 x i8], ptr %22, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !51
   %30 = load i32, ptr %18, align 4, !tbaa !58
   %31 = mul nsw i32 %30, %13
   %32 = sdiv i32 %31, 2
   %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds i16, ptr %29, i64 %33
+  %34 = getelementptr inbounds [2 x i8], ptr %29, i64 %33
   %35 = load ptr, ptr %7, align 8, !tbaa !51
   %36 = load i32, ptr %17, align 8, !tbaa !58
   %37 = mul nsw i32 %36, %13
   %38 = sdiv i32 %37, 2
   %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds i16, ptr %35, i64 %39
+  %40 = getelementptr inbounds [2 x i8], ptr %35, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %42 = load ptr, ptr %41, align 8, !tbaa !48
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -487,15 +487,15 @@ define internal noundef i32 @v210_decode_slice(ptr noundef readonly captures(non
   %55 = load i32, ptr %17, align 8, !tbaa !58
   %56 = sdiv i32 %55, 2
   %57 = sext i32 %56 to i64
-  %58 = getelementptr inbounds i16, ptr %.04144, i64 %57
+  %58 = getelementptr inbounds [2 x i8], ptr %.04144, i64 %57
   %59 = load i32, ptr %18, align 4, !tbaa !58
   %60 = sdiv i32 %59, 2
   %61 = sext i32 %60 to i64
-  %62 = getelementptr inbounds i16, ptr %.04045, i64 %61
+  %62 = getelementptr inbounds [2 x i8], ptr %.04045, i64 %61
   %63 = load i32, ptr %19, align 8, !tbaa !58
   %64 = sdiv i32 %63, 2
   %65 = sext i32 %64 to i64
-  %66 = getelementptr inbounds i16, ptr %.03946, i64 %65
+  %66 = getelementptr inbounds [2 x i8], ptr %.03946, i64 %65
   %67 = add i32 %.047, 1
   %exitcond.not = icmp eq i32 %67, %16
   br i1 %exitcond.not, label %._crit_edge, label %51, !llvm.loop !62
@@ -511,15 +511,15 @@ define internal fastcc void @decode_row(ptr noundef %0, ptr noundef %1, ptr noun
   %10 = sub nuw nsw i32 %8, %9
   tail call void %5(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %10) #6
   %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr inbounds nuw i16, ptr %1, i64 %11
+  %12 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %11
   %13 = lshr i32 %10, 1
   %14 = zext nneg i32 %13 to i64
-  %15 = getelementptr inbounds nuw i16, ptr %2, i64 %14
-  %16 = getelementptr inbounds nuw i16, ptr %3, i64 %14
+  %15 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %14
+  %16 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %14
   %17 = shl nuw i32 %10, 1
   %18 = sdiv i32 %17, 3
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds i32, ptr %0, i64 %19
+  %20 = getelementptr inbounds [4 x i8], ptr %0, i64 %19
   %21 = add nsw i32 %4, -5
   %22 = icmp slt i32 %10, %21
   br i1 %22, label %.lr.ph, label %._crit_edge

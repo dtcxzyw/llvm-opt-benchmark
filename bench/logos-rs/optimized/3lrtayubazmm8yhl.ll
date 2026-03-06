@@ -187,7 +187,7 @@ define hidden void @_ZN13logos_codegen5graph4fork4Fork10add_branch17h9a6dba12fc6
   %14 = extractvalue { i1, i8 } %13, 1
   %15 = zext i8 %14 to i64
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds nuw i32, ptr %16, i64 %15
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %15
   %18 = load i32, ptr %17, align 4
   %.not = icmp eq i32 %18, 0
   %.not5 = icmp eq i32 %18, %3
@@ -331,7 +331,7 @@ define hidden i32 @_ZN13logos_codegen5graph4fork4Fork8contains17hcb608de847491c2
   %13 = extractvalue { i1, i8 } %10, 1
   %14 = zext i8 %13 to i64
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds nuw i32, ptr %15, i64 %14
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %14
   %17 = load i32, ptr %16, align 4
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %.loopexit, label %19
@@ -352,7 +352,7 @@ define hidden i32 @_ZN13logos_codegen5graph4fork4Fork8contains17hcb608de847491c2
 26:                                               ; preds = %23
   %27 = extractvalue { i1, i8 } %24, 1
   %28 = zext i8 %27 to i64
-  %29 = getelementptr inbounds nuw i32, ptr %15, i64 %28
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %28
   %30 = load i32, ptr %29, align 4
   %.not = icmp eq i32 %17, %30
   br i1 %.not, label %23, label %.loopexit
@@ -408,7 +408,7 @@ define hidden { ptr, i32 } @_ZN13logos_codegen5graph4fork4Fork6branch17hd9705e15
 23:                                               ; preds = %18
   %24 = extractvalue { i1, i8 } %17, 1
   %25 = zext i8 %24 to i64
-  %26 = getelementptr inbounds nuw i32, ptr %0, i64 %25
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %25
   %27 = load i32, ptr %26, align 4
   %.not = icmp eq i32 %27, 0
   %.not5 = icmp eq i32 %27, %4

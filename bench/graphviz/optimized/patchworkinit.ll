@@ -3,7 +3,6 @@ source_filename = "bench/graphviz/original/patchworkinit.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.rdata = type { ptr }
 %struct.clist_t = type { ptr, i64, i64, i64 }
 
 @.str = private unnamed_addr constant [6 x i8] c"shape\00", align 1
@@ -93,7 +92,7 @@ gv_calloc.exit25.i.i:                             ; preds = %25
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %._crit_edge.i.i ], [ 0, %gv_calloc.exit25.i.i ]
   %.030.i.i = phi ptr [ %49, %._crit_edge.i.i ], [ %35, %gv_calloc.exit25.i.i ]
   %36 = tail call ptr @agbindrec(ptr noundef nonnull %.030.i.i, ptr noundef nonnull @.str.6, i32 noundef 472, i32 noundef 1) #13
-  %37 = getelementptr inbounds nuw %struct.rdata, ptr %13, i64 %indvars.iv.i.i
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv.i.i
   %38 = getelementptr inbounds nuw i8, ptr %.030.i.i, i64 16
   %39 = load ptr, ptr %38, align 8, !tbaa !8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 152
@@ -102,7 +101,7 @@ gv_calloc.exit25.i.i:                             ; preds = %25
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 184
   %43 = load ptr, ptr %42, align 8, !tbaa !37
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %44 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv.i.i
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv.i.i
   store ptr %.030.i.i, ptr %44, align 8, !tbaa !45
   %45 = tail call i32 @agset(ptr noundef nonnull %.030.i.i, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #13
   %46 = tail call ptr @agfstout(ptr noundef nonnull %0, ptr noundef nonnull %.030.i.i) #13
@@ -291,7 +290,7 @@ clist_append.exit:                                ; preds = %5
 
 27:                                               ; preds = %22
   %28 = load i64, ptr %.0.sroa.phi2, align 8, !tbaa !55
-  %29 = getelementptr inbounds nuw ptr, ptr %25, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %28
   %30 = sub i64 %spec.select.i.i24, %28
   %31 = shl i64 %30, 3
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %29, i8 0, i64 %31, i1 false)
@@ -304,8 +303,8 @@ clist_append.exit:                                ; preds = %5
 36:                                               ; preds = %27
   %37 = sub i64 %28, %32
   %38 = sub i64 %spec.select.i.i24, %37
-  %39 = getelementptr inbounds nuw ptr, ptr %25, i64 %38
-  %40 = getelementptr inbounds nuw ptr, ptr %25, i64 %32
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %38
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %32
   %41 = shl i64 %37, 3
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %39, ptr nonnull align 8 %40, i64 %41, i1 false)
   store i64 %38, ptr %.0.sroa.phi5, align 8, !tbaa !58
@@ -332,7 +331,7 @@ clist_append.exit27:                              ; preds = %._crit_edge.i.i20, 
   %51 = phi i64 [ %.pre.i.i22, %._crit_edge.i.i20 ], [ %43, %42 ]
   %52 = add i64 %51, %50
   %53 = urem i64 %52, %49
-  %54 = getelementptr inbounds nuw ptr, ptr %48, i64 %53
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %53
   store ptr %.01712, ptr %54, align 8, !tbaa !56
   %55 = add i64 %50, 1
   store i64 %55, ptr %.0.sroa.phi, align 8, !tbaa !57
@@ -388,7 +387,7 @@ clist_append.exit27:                              ; preds = %._crit_edge.i.i20, 
   %.015.i.i = phi ptr [ %69, %.lr.ph.i.i ], [ %73, %71 ]
   %.011.in14.i.i = phi i64 [ %67, %.lr.ph.i.i ], [ %.011.i.i, %71 ]
   %.011.i.i = add i64 %.011.in14.i.i, -1
-  %72 = getelementptr inbounds nuw ptr, ptr %66, i64 %.011.i.i
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %.011.i.i
   %73 = load ptr, ptr %72, align 8, !tbaa !56
   store ptr %.015.i.i, ptr %72, align 8, !tbaa !56
   %.not12.i.i = icmp eq i64 %.011.i.i, 0

@@ -33,7 +33,7 @@ define i64 @bandGBTRF(ptr noundef readonly captures(none) %0, i64 noundef %1, i6
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %.lr.ph.us
   %.0116149.us = phi i64 [ %13, %.lr.ph.us ], [ 0, %.lr.ph.us.preheader ]
-  %11 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0116149.us
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.0116149.us
   %12 = load ptr, ptr %11, align 8, !tbaa !16
   tail call void @llvm.memset.p0.i64(ptr align 8 %12, i8 0, i64 %10, i1 false), !tbaa !17
   %13 = add nuw nsw i64 %.0116149.us, 1
@@ -56,9 +56,9 @@ define i64 @bandGBTRF(ptr noundef readonly captures(none) %0, i64 noundef %1, i6
   %.0126173 = phi i64 [ 0, %.lr.ph176.preheader ], [ %23, %._crit_edge172 ]
   %smin187 = tail call i64 @llvm.smin.i64(i64 %indvars.iv185, i64 %14)
   %smin183 = tail call i64 @llvm.smin.i64(i64 %indvars.iv, i64 %14)
-  %16 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0126173
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.0126173
   %17 = load ptr, ptr %16, align 8, !tbaa !16
-  %18 = getelementptr inbounds double, ptr %17, i64 %4
+  %18 = getelementptr inbounds [8 x i8], ptr %17, i64 %4
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = add nsw i64 %.0126173, %3
   %. = tail call i64 @llvm.smin.i64(i64 %20, i64 %14)
@@ -95,8 +95,8 @@ define i64 @bandGBTRF(ptr noundef readonly captures(none) %0, i64 noundef %1, i6
   %.0127.lcssa = phi i64 [ %.0126173, %.lr.ph176 ], [ %.1128, %30 ]
   %33 = sub nsw i64 %.0127.lcssa, %.0126173
   store i64 %.0127.lcssa, ptr %.0115174, align 8, !tbaa !22
-  %34 = getelementptr double, ptr %17, i64 %33
-  %35 = getelementptr double, ptr %34, i64 %4
+  %34 = getelementptr [8 x i8], ptr %17, i64 %33
+  %35 = getelementptr [8 x i8], ptr %34, i64 %4
   %36 = load double, ptr %35, align 8, !tbaa !17
   %37 = fcmp oeq double %36, 0.000000e+00
   br i1 %37, label %.loopexit143, label %38
@@ -135,18 +135,18 @@ define i64 @bandGBTRF(ptr noundef readonly captures(none) %0, i64 noundef %1, i6
 
 .lr.ph171:                                        ; preds = %._crit_edge161, %.loopexit
   %.0125169 = phi i64 [ %70, %.loopexit ], [ %23, %._crit_edge161 ]
-  %48 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0125169
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.0125169
   %49 = load ptr, ptr %48, align 8, !tbaa !16
   %50 = sub nsw i64 %.0127.lcssa, %.0125169
-  %51 = getelementptr double, ptr %49, i64 %50
-  %52 = getelementptr double, ptr %51, i64 %4
+  %51 = getelementptr [8 x i8], ptr %49, i64 %50
+  %52 = getelementptr [8 x i8], ptr %51, i64 %4
   %53 = load double, ptr %52, align 8, !tbaa !17
   br i1 %.not137, label %59, label %54
 
 54:                                               ; preds = %.lr.ph171
   %55 = sub nsw i64 %.0126173, %.0125169
-  %56 = getelementptr double, ptr %49, i64 %55
-  %57 = getelementptr double, ptr %56, i64 %4
+  %56 = getelementptr [8 x i8], ptr %49, i64 %55
+  %57 = getelementptr [8 x i8], ptr %56, i64 %4
   %58 = load double, ptr %57, align 8, !tbaa !17
   store double %58, ptr %52, align 8, !tbaa !17
   store double %53, ptr %57, align 8, !tbaa !17
@@ -159,8 +159,8 @@ define i64 @bandGBTRF(ptr noundef readonly captures(none) %0, i64 noundef %1, i6
 
 .lr.ph167.preheader:                              ; preds = %59
   %61 = sub nsw i64 %23, %.0125169
-  %62 = getelementptr double, ptr %49, i64 %61
-  %63 = getelementptr double, ptr %62, i64 %4
+  %62 = getelementptr [8 x i8], ptr %49, i64 %61
+  %63 = getelementptr [8 x i8], ptr %62, i64 %4
   br label %.lr.ph167
 
 .lr.ph167:                                        ; preds = %.lr.ph167.preheader, %.lr.ph167
@@ -192,9 +192,9 @@ define i64 @bandGBTRF(ptr noundef readonly captures(none) %0, i64 noundef %1, i6
 ._crit_edge177:                                   ; preds = %._crit_edge172, %.loopexit144
   %.0115.lcssa = phi ptr [ %5, %.loopexit144 ], [ %71, %._crit_edge172 ]
   store i64 %14, ptr %.0115.lcssa, align 8, !tbaa !22
-  %72 = getelementptr inbounds ptr, ptr %0, i64 %14
+  %72 = getelementptr inbounds [8 x i8], ptr %0, i64 %14
   %73 = load ptr, ptr %72, align 8, !tbaa !16
-  %74 = getelementptr inbounds double, ptr %73, i64 %4
+  %74 = getelementptr inbounds [8 x i8], ptr %73, i64 %4
   %75 = load double, ptr %74, align 8, !tbaa !17
   %76 = fcmp oeq double %75, 0.000000e+00
   %.142 = select i1 %76, i64 %1, i64 0
@@ -232,24 +232,24 @@ define void @BandGBTRS(ptr noundef readonly captures(none) %0, ptr noundef reado
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.loopexit.i ], [ %11, %3 ]
   %.067.i = phi i64 [ %27, %.loopexit.i ], [ 0, %3 ]
   %smin.i = tail call i64 @llvm.smin.i64(i64 %indvars.iv.i, i64 %12)
-  %15 = getelementptr inbounds nuw i64, ptr %1, i64 %.067.i
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.067.i
   %16 = load i64, ptr %15, align 8, !tbaa !22
-  %17 = getelementptr inbounds double, ptr %2, i64 %16
+  %17 = getelementptr inbounds [8 x i8], ptr %2, i64 %16
   %18 = load double, ptr %17, align 8, !tbaa !17
   %.not.i = icmp eq i64 %16, %.067.i
   br i1 %.not.i, label %22, label %19
 
 19:                                               ; preds = %.lr.ph68.i
-  %20 = getelementptr inbounds nuw double, ptr %2, i64 %.067.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.067.i
   %21 = load double, ptr %20, align 8, !tbaa !17
   store double %21, ptr %17, align 8, !tbaa !17
   store double %18, ptr %20, align 8, !tbaa !17
   br label %22
 
 22:                                               ; preds = %19, %.lr.ph68.i
-  %23 = getelementptr inbounds nuw ptr, ptr %5, i64 %.067.i
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.067.i
   %24 = load ptr, ptr %23, align 8, !tbaa !16
-  %25 = getelementptr inbounds double, ptr %24, i64 %9
+  %25 = getelementptr inbounds [8 x i8], ptr %24, i64 %9
   %26 = add nsw i64 %.067.i, %11
   %..i = tail call i64 @llvm.smin.i64(i64 %26, i64 %12)
   %27 = add nuw nsw i64 %.067.i, 1
@@ -259,9 +259,9 @@ define void @BandGBTRS(ptr noundef readonly captures(none) %0, ptr noundef reado
 .lr.ph.i:                                         ; preds = %22, %.lr.ph.i
   %.05966.i = phi i64 [ %34, %.lr.ph.i ], [ %27, %22 ]
   %28 = sub nuw nsw i64 %.05966.i, %.067.i
-  %29 = getelementptr inbounds double, ptr %25, i64 %28
+  %29 = getelementptr inbounds [8 x i8], ptr %25, i64 %28
   %30 = load double, ptr %29, align 8, !tbaa !17
-  %31 = getelementptr inbounds nuw double, ptr %2, i64 %.05966.i
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.05966.i
   %32 = load double, ptr %31, align 8, !tbaa !17
   %33 = tail call double @llvm.fmuladd.f64(double %18, double %30, double %32)
   store double %33, ptr %31, align 8, !tbaa !17
@@ -271,13 +271,13 @@ define void @BandGBTRS(ptr noundef readonly captures(none) %0, ptr noundef reado
 
 .lr.ph73.i:                                       ; preds = %.preheader.i, %._crit_edge.i
   %.172.i = phi i64 [ %52, %._crit_edge.i ], [ %12, %.preheader.i ]
-  %35 = getelementptr inbounds nuw ptr, ptr %5, i64 %.172.i
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.172.i
   %36 = load ptr, ptr %35, align 8, !tbaa !16
-  %37 = getelementptr inbounds double, ptr %36, i64 %9
+  %37 = getelementptr inbounds [8 x i8], ptr %36, i64 %9
   %38 = sub nsw i64 %.172.i, %9
   %39 = tail call i64 @llvm.smax.i64(i64 %38, i64 0)
   %40 = load double, ptr %37, align 8, !tbaa !17
-  %41 = getelementptr inbounds nuw double, ptr %2, i64 %.172.i
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.172.i
   %42 = load double, ptr %41, align 8, !tbaa !17
   %43 = fdiv double %42, %40
   store double %43, ptr %41, align 8, !tbaa !17
@@ -288,9 +288,9 @@ define void @BandGBTRS(ptr noundef readonly captures(none) %0, ptr noundef reado
 .lr.ph71.i:                                       ; preds = %.lr.ph73.i, %.lr.ph71.i
   %.16070.i = phi i64 [ %51, %.lr.ph71.i ], [ %39, %.lr.ph73.i ]
   %45 = sub nsw i64 %.16070.i, %.172.i
-  %46 = getelementptr inbounds double, ptr %37, i64 %45
+  %46 = getelementptr inbounds [8 x i8], ptr %37, i64 %45
   %47 = load double, ptr %46, align 8, !tbaa !17
-  %48 = getelementptr inbounds nuw double, ptr %2, i64 %.16070.i
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.16070.i
   %49 = load double, ptr %48, align 8, !tbaa !17
   %50 = tail call double @llvm.fmuladd.f64(double %44, double %47, double %49)
   store double %50, ptr %48, align 8, !tbaa !17
@@ -326,24 +326,24 @@ define void @bandGBTRS(ptr noundef readonly captures(none) %0, i64 noundef %1, i
   %indvars.iv = phi i64 [ %indvars.iv.next, %.loopexit ], [ %3, %6 ]
   %.067 = phi i64 [ %22, %.loopexit ], [ 0, %6 ]
   %smin = tail call i64 @llvm.smin.i64(i64 %indvars.iv, i64 %7)
-  %10 = getelementptr inbounds nuw i64, ptr %4, i64 %.067
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.067
   %11 = load i64, ptr %10, align 8, !tbaa !22
-  %12 = getelementptr inbounds double, ptr %5, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %5, i64 %11
   %13 = load double, ptr %12, align 8, !tbaa !17
   %.not = icmp eq i64 %11, %.067
   br i1 %.not, label %17, label %14
 
 14:                                               ; preds = %.lr.ph68
-  %15 = getelementptr inbounds nuw double, ptr %5, i64 %.067
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.067
   %16 = load double, ptr %15, align 8, !tbaa !17
   store double %16, ptr %12, align 8, !tbaa !17
   store double %13, ptr %15, align 8, !tbaa !17
   br label %17
 
 17:                                               ; preds = %14, %.lr.ph68
-  %18 = getelementptr inbounds nuw ptr, ptr %0, i64 %.067
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.067
   %19 = load ptr, ptr %18, align 8, !tbaa !16
-  %20 = getelementptr inbounds double, ptr %19, i64 %2
+  %20 = getelementptr inbounds [8 x i8], ptr %19, i64 %2
   %21 = add nsw i64 %.067, %3
   %. = tail call i64 @llvm.smin.i64(i64 %21, i64 %7)
   %22 = add nuw nsw i64 %.067, 1
@@ -353,9 +353,9 @@ define void @bandGBTRS(ptr noundef readonly captures(none) %0, i64 noundef %1, i
 .lr.ph:                                           ; preds = %17, %.lr.ph
   %.05966 = phi i64 [ %29, %.lr.ph ], [ %22, %17 ]
   %23 = sub nuw nsw i64 %.05966, %.067
-  %24 = getelementptr inbounds double, ptr %20, i64 %23
+  %24 = getelementptr inbounds [8 x i8], ptr %20, i64 %23
   %25 = load double, ptr %24, align 8, !tbaa !17
-  %26 = getelementptr inbounds nuw double, ptr %5, i64 %.05966
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.05966
   %27 = load double, ptr %26, align 8, !tbaa !17
   %28 = tail call double @llvm.fmuladd.f64(double %13, double %25, double %27)
   store double %28, ptr %26, align 8, !tbaa !17
@@ -365,13 +365,13 @@ define void @bandGBTRS(ptr noundef readonly captures(none) %0, i64 noundef %1, i
 
 .lr.ph73:                                         ; preds = %.preheader, %._crit_edge
   %.172 = phi i64 [ %47, %._crit_edge ], [ %7, %.preheader ]
-  %30 = getelementptr inbounds nuw ptr, ptr %0, i64 %.172
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.172
   %31 = load ptr, ptr %30, align 8, !tbaa !16
-  %32 = getelementptr inbounds double, ptr %31, i64 %2
+  %32 = getelementptr inbounds [8 x i8], ptr %31, i64 %2
   %33 = sub nsw i64 %.172, %2
   %34 = tail call i64 @llvm.smax.i64(i64 %33, i64 0)
   %35 = load double, ptr %32, align 8, !tbaa !17
-  %36 = getelementptr inbounds nuw double, ptr %5, i64 %.172
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.172
   %37 = load double, ptr %36, align 8, !tbaa !17
   %38 = fdiv double %37, %35
   store double %38, ptr %36, align 8, !tbaa !17
@@ -382,9 +382,9 @@ define void @bandGBTRS(ptr noundef readonly captures(none) %0, i64 noundef %1, i
 .lr.ph71:                                         ; preds = %.lr.ph73, %.lr.ph71
   %.16070 = phi i64 [ %46, %.lr.ph71 ], [ %34, %.lr.ph73 ]
   %40 = sub nsw i64 %.16070, %.172
-  %41 = getelementptr inbounds double, ptr %32, i64 %40
+  %41 = getelementptr inbounds [8 x i8], ptr %32, i64 %40
   %42 = load double, ptr %41, align 8, !tbaa !17
-  %43 = getelementptr inbounds nuw double, ptr %5, i64 %.16070
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.16070
   %44 = load double, ptr %43, align 8, !tbaa !17
   %45 = tail call double @llvm.fmuladd.f64(double %39, double %42, double %44)
   store double %45, ptr %43, align 8, !tbaa !17
@@ -424,21 +424,21 @@ define void @BandCopy(ptr noundef readonly captures(none) %0, ptr noundef readon
 
 .lr.ph.i:                                         ; preds = %.lr.ph24.i, %._crit_edge.i
   %.01922.i = phi i64 [ %31, %._crit_edge.i ], [ 0, %.lr.ph24.i ]
-  %18 = getelementptr inbounds nuw ptr, ptr %6, i64 %.01922.i
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.01922.i
   %19 = load ptr, ptr %18, align 8, !tbaa !16
-  %20 = getelementptr inbounds double, ptr %19, i64 %12
-  %21 = getelementptr inbounds double, ptr %20, i64 %17
-  %22 = getelementptr inbounds nuw ptr, ptr %8, i64 %.01922.i
+  %20 = getelementptr inbounds [8 x i8], ptr %19, i64 %12
+  %21 = getelementptr inbounds [8 x i8], ptr %20, i64 %17
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.01922.i
   %23 = load ptr, ptr %22, align 8, !tbaa !16
-  %24 = getelementptr inbounds double, ptr %23, i64 %14
-  %25 = getelementptr inbounds double, ptr %24, i64 %17
+  %24 = getelementptr inbounds [8 x i8], ptr %23, i64 %14
+  %25 = getelementptr inbounds [8 x i8], ptr %24, i64 %17
   br label %26
 
 26:                                               ; preds = %26, %.lr.ph.i
   %.021.i = phi i64 [ 0, %.lr.ph.i ], [ %30, %26 ]
-  %27 = getelementptr inbounds nuw double, ptr %21, i64 %.021.i
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %.021.i
   %28 = load double, ptr %27, align 8, !tbaa !17
-  %29 = getelementptr inbounds nuw double, ptr %25, i64 %.021.i
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %.021.i
   store double %28, ptr %29, align 8, !tbaa !17
   %30 = add nuw i64 %.021.i, 1
   %exitcond.not.i = icmp eq i64 %.021.i, %15
@@ -466,21 +466,21 @@ define void @bandCopy(ptr noundef readonly captures(none) %0, ptr noundef readon
 
 .lr.ph:                                           ; preds = %.lr.ph24, %._crit_edge
   %.01922 = phi i64 [ %24, %._crit_edge ], [ 0, %.lr.ph24 ]
-  %11 = getelementptr inbounds nuw ptr, ptr %0, i64 %.01922
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.01922
   %12 = load ptr, ptr %11, align 8, !tbaa !16
-  %13 = getelementptr inbounds double, ptr %12, i64 %3
-  %14 = getelementptr inbounds double, ptr %13, i64 %10
-  %15 = getelementptr inbounds nuw ptr, ptr %1, i64 %.01922
+  %13 = getelementptr inbounds [8 x i8], ptr %12, i64 %3
+  %14 = getelementptr inbounds [8 x i8], ptr %13, i64 %10
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.01922
   %16 = load ptr, ptr %15, align 8, !tbaa !16
-  %17 = getelementptr inbounds double, ptr %16, i64 %4
-  %18 = getelementptr inbounds double, ptr %17, i64 %10
+  %17 = getelementptr inbounds [8 x i8], ptr %16, i64 %4
+  %18 = getelementptr inbounds [8 x i8], ptr %17, i64 %10
   br label %19
 
 19:                                               ; preds = %.lr.ph, %19
   %.021 = phi i64 [ 0, %.lr.ph ], [ %23, %19 ]
-  %20 = getelementptr inbounds nuw double, ptr %14, i64 %.021
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.021
   %21 = load double, ptr %20, align 8, !tbaa !17
-  %22 = getelementptr inbounds nuw double, ptr %18, i64 %.021
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %.021
   store double %21, ptr %22, align 8, !tbaa !17
   %23 = add nuw i64 %.021, 1
   %exitcond.not = icmp eq i64 %.021, %8
@@ -518,15 +518,15 @@ define void @BandScale(double noundef %0, ptr noundef readonly captures(none) %1
 
 .lr.ph.i:                                         ; preds = %.lr.ph19.i, %._crit_edge.i
   %.01417.i = phi i64 [ %25, %._crit_edge.i ], [ 0, %.lr.ph19.i ]
-  %16 = getelementptr inbounds nuw ptr, ptr %4, i64 %.01417.i
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.01417.i
   %17 = load ptr, ptr %16, align 8, !tbaa !16
-  %18 = getelementptr inbounds double, ptr %17, i64 %12
-  %19 = getelementptr inbounds double, ptr %18, i64 %15
+  %18 = getelementptr inbounds [8 x i8], ptr %17, i64 %12
+  %19 = getelementptr inbounds [8 x i8], ptr %18, i64 %15
   br label %20
 
 20:                                               ; preds = %20, %.lr.ph.i
   %.016.i = phi i64 [ 0, %.lr.ph.i ], [ %24, %20 ]
-  %21 = getelementptr inbounds nuw double, ptr %19, i64 %.016.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.016.i
   %22 = load double, ptr %21, align 8, !tbaa !17
   %23 = fmul double %0, %22
   store double %23, ptr %21, align 8, !tbaa !17
@@ -556,15 +556,15 @@ define void @bandScale(double noundef %0, ptr noundef readonly captures(none) %1
 
 .lr.ph:                                           ; preds = %.lr.ph19, %._crit_edge
   %.01417 = phi i64 [ %19, %._crit_edge ], [ 0, %.lr.ph19 ]
-  %10 = getelementptr inbounds nuw ptr, ptr %1, i64 %.01417
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.01417
   %11 = load ptr, ptr %10, align 8, !tbaa !16
-  %12 = getelementptr inbounds double, ptr %11, i64 %5
-  %13 = getelementptr inbounds double, ptr %12, i64 %9
+  %12 = getelementptr inbounds [8 x i8], ptr %11, i64 %5
+  %13 = getelementptr inbounds [8 x i8], ptr %12, i64 %9
   br label %14
 
 14:                                               ; preds = %.lr.ph, %14
   %.016 = phi i64 [ 0, %.lr.ph ], [ %18, %14 ]
-  %15 = getelementptr inbounds nuw double, ptr %13, i64 %.016
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.016
   %16 = load double, ptr %15, align 8, !tbaa !17
   %17 = fmul double %0, %16
   store double %17, ptr %15, align 8, !tbaa !17
@@ -604,9 +604,9 @@ define void @BandMatvec(ptr noundef readonly captures(none) %0, ptr noundef read
 
 17:                                               ; preds = %._crit_edge.i, %.lr.ph43.i
   %.03342.i = phi i64 [ 0, %.lr.ph43.i ], [ %35, %._crit_edge.i ]
-  %18 = getelementptr inbounds nuw ptr, ptr %5, i64 %.03342.i
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.03342.i
   %19 = load ptr, ptr %18, align 8, !tbaa !16
-  %20 = getelementptr inbounds double, ptr %19, i64 %13
+  %20 = getelementptr inbounds [8 x i8], ptr %19, i64 %13
   %21 = sub nsw i64 %.03342.i, %9
   %22 = tail call i64 @llvm.smax.i64(i64 %21, i64 0)
   %23 = add nsw i64 %.03342.i, %11
@@ -615,16 +615,16 @@ define void @BandMatvec(ptr noundef readonly captures(none) %0, ptr noundef read
   br i1 %.not3739.i, label %._crit_edge.i, label %.lr.ph41.i
 
 .lr.ph41.i:                                       ; preds = %17
-  %25 = getelementptr inbounds nuw double, ptr %1, i64 %.03342.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.03342.i
   br label %26
 
 26:                                               ; preds = %26, %.lr.ph41.i
   %.140.i = phi i64 [ %22, %.lr.ph41.i ], [ %34, %26 ]
   %27 = sub nsw i64 %.140.i, %.03342.i
-  %28 = getelementptr inbounds double, ptr %20, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %20, i64 %27
   %29 = load double, ptr %28, align 8, !tbaa !17
   %30 = load double, ptr %25, align 8, !tbaa !17
-  %31 = getelementptr inbounds nuw double, ptr %2, i64 %.140.i
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.140.i
   %32 = load double, ptr %31, align 8, !tbaa !17
   %33 = tail call double @llvm.fmuladd.f64(double %29, double %30, double %32)
   store double %33, ptr %31, align 8, !tbaa !17
@@ -654,9 +654,9 @@ define void @bandMatvec(ptr noundef readonly captures(none) %0, ptr noundef read
 
 11:                                               ; preds = %.lr.ph43, %._crit_edge
   %.03342 = phi i64 [ 0, %.lr.ph43 ], [ %29, %._crit_edge ]
-  %12 = getelementptr inbounds nuw ptr, ptr %0, i64 %.03342
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.03342
   %13 = load ptr, ptr %12, align 8, !tbaa !16
-  %14 = getelementptr inbounds double, ptr %13, i64 %6
+  %14 = getelementptr inbounds [8 x i8], ptr %13, i64 %6
   %15 = sub nsw i64 %.03342, %4
   %16 = tail call i64 @llvm.smax.i64(i64 %15, i64 0)
   %17 = add nsw i64 %.03342, %5
@@ -665,16 +665,16 @@ define void @bandMatvec(ptr noundef readonly captures(none) %0, ptr noundef read
   br i1 %.not3739, label %._crit_edge, label %.lr.ph41
 
 .lr.ph41:                                         ; preds = %11
-  %19 = getelementptr inbounds nuw double, ptr %1, i64 %.03342
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.03342
   br label %20
 
 20:                                               ; preds = %.lr.ph41, %20
   %.140 = phi i64 [ %16, %.lr.ph41 ], [ %28, %20 ]
   %21 = sub nsw i64 %.140, %.03342
-  %22 = getelementptr inbounds double, ptr %14, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %14, i64 %21
   %23 = load double, ptr %22, align 8, !tbaa !17
   %24 = load double, ptr %19, align 8, !tbaa !17
-  %25 = getelementptr inbounds nuw double, ptr %2, i64 %.140
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.140
   %26 = load double, ptr %25, align 8, !tbaa !17
   %27 = tail call double @llvm.fmuladd.f64(double %23, double %24, double %26)
   store double %27, ptr %25, align 8, !tbaa !17
@@ -703,9 +703,9 @@ define void @bandAddIdentity(ptr noundef readonly captures(none) %0, i64 noundef
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.05 = phi i64 [ %10, %.lr.ph ], [ 0, %3 ]
-  %5 = getelementptr inbounds nuw ptr, ptr %0, i64 %.05
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.05
   %6 = load ptr, ptr %5, align 8, !tbaa !16
-  %7 = getelementptr inbounds double, ptr %6, i64 %2
+  %7 = getelementptr inbounds [8 x i8], ptr %6, i64 %2
   %8 = load double, ptr %7, align 8, !tbaa !17
   %9 = fadd double %8, 1.000000e+00
   store double %9, ptr %7, align 8, !tbaa !17

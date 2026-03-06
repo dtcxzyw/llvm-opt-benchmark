@@ -36,7 +36,7 @@ define hidden void @jIIDCT(ptr noundef %0) local_unnamed_addr #0 {
   %17 = getelementptr inbounds nuw i8, ptr %.017, i64 88
   store ptr %16, ptr %17, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %16, i8 0, i64 256, i1 false)
-  %18 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv
   store i32 -1, ptr %18, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %19 = getelementptr inbounds nuw i8, ptr %.017, i64 96
@@ -121,14 +121,14 @@ define internal void @start_pass(ptr noundef %0) #0 {
 
 switch.lookup:                                    ; preds = %20
   %36 = zext nneg i32 %21 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.start_pass, i64 %36
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.start_pass, i64 %36
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %37
 
 37:                                               ; preds = %switch.lookup, %.split, %23, %28, %19, %18
   %.165 = phi ptr [ %.06475, %28 ], [ %switch.load, %switch.lookup ], [ @jRD2x2, %18 ], [ @jRD4x4, %19 ], [ %.06475, %23 ], [ @jRD1x1, %.split ]
   %.163 = phi i32 [ %.06276, %28 ], [ %21, %switch.lookup ], [ 0, %18 ], [ 0, %19 ], [ %.06276, %23 ], [ %17, %.split ]
-  %38 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv98
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv98
   store ptr %.165, ptr %38, align 8
   %39 = getelementptr inbounds nuw i8, ptr %.06177, i64 48
   %40 = load i32, ptr %39, align 8
@@ -136,7 +136,7 @@ switch.lookup:                                    ; preds = %20
   br i1 %.not, label %.loopexit, label %41
 
 41:                                               ; preds = %37
-  %42 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv98
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv98
   %43 = load i32, ptr %42, align 4
   %44 = icmp eq i32 %43, %.163
   br i1 %44, label %.loopexit, label %45
@@ -159,10 +159,10 @@ switch.lookup:                                    ; preds = %20
 
 .preheader104:                                    ; preds = %49, %.preheader104
   %indvars.iv94 = phi i64 [ %indvars.iv.next95, %.preheader104 ], [ 0, %49 ]
-  %52 = getelementptr inbounds nuw i16, ptr %47, i64 %indvars.iv94
+  %52 = getelementptr inbounds nuw [2 x i8], ptr %47, i64 %indvars.iv94
   %53 = load i16, ptr %52, align 2
   %54 = zext i16 %53 to i32
-  %55 = getelementptr inbounds nuw i32, ptr %51, i64 %indvars.iv94
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %indvars.iv94
   store i32 %54, ptr %55, align 4
   %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
   %exitcond97.not = icmp eq i64 %indvars.iv.next95, 64
@@ -170,16 +170,16 @@ switch.lookup:                                    ; preds = %20
 
 .preheader105:                                    ; preds = %49, %.preheader105
   %indvars.iv90 = phi i64 [ %indvars.iv.next91, %.preheader105 ], [ 0, %49 ]
-  %56 = getelementptr inbounds nuw i16, ptr %47, i64 %indvars.iv90
+  %56 = getelementptr inbounds nuw [2 x i8], ptr %47, i64 %indvars.iv90
   %57 = load i16, ptr %56, align 2
   %58 = zext i16 %57 to i32
-  %59 = getelementptr inbounds nuw i16, ptr @start_pass.aanscales, i64 %indvars.iv90
+  %59 = getelementptr inbounds nuw [2 x i8], ptr @start_pass.aanscales, i64 %indvars.iv90
   %60 = load i16, ptr %59, align 2
   %61 = sext i16 %60 to i32
   %62 = mul nsw i32 %61, %58
   %63 = add nsw i32 %62, 2048
   %64 = ashr i32 %63, 12
-  %65 = getelementptr inbounds nuw i32, ptr %51, i64 %indvars.iv90
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %indvars.iv90
   store i32 %64, ptr %65, align 4
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
   %exitcond93.not = icmp eq i64 %indvars.iv.next91, 64
@@ -188,7 +188,7 @@ switch.lookup:                                    ; preds = %20
 .preheader:                                       ; preds = %49, %79
   %indvars.iv86 = phi i64 [ %indvars.iv.next87, %79 ], [ 0, %49 ]
   %.271 = phi i64 [ %indvars.iv.next82, %79 ], [ 0, %49 ]
-  %66 = getelementptr inbounds nuw double, ptr @start_pass.aanscalefactor, i64 %indvars.iv86
+  %66 = getelementptr inbounds nuw [8 x i8], ptr @start_pass.aanscalefactor, i64 %indvars.iv86
   %67 = load double, ptr %66, align 8
   %sext = shl i64 %.271, 32
   %68 = ashr exact i64 %sext, 32
@@ -197,15 +197,15 @@ switch.lookup:                                    ; preds = %20
 69:                                               ; preds = %.preheader, %69
   %indvars.iv81 = phi i64 [ %68, %.preheader ], [ %indvars.iv.next82, %69 ]
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %69 ]
-  %70 = getelementptr inbounds i16, ptr %47, i64 %indvars.iv81
+  %70 = getelementptr inbounds [2 x i8], ptr %47, i64 %indvars.iv81
   %71 = load i16, ptr %70, align 2
   %72 = uitofp i16 %71 to double
   %73 = fmul double %67, %72
-  %74 = getelementptr inbounds nuw double, ptr @start_pass.aanscalefactor, i64 %indvars.iv
+  %74 = getelementptr inbounds nuw [8 x i8], ptr @start_pass.aanscalefactor, i64 %indvars.iv
   %75 = load double, ptr %74, align 8
   %76 = fmul double %73, %75
   %77 = fptrunc double %76 to float
-  %78 = getelementptr inbounds float, ptr %51, i64 %indvars.iv81
+  %78 = getelementptr inbounds [4 x i8], ptr %51, i64 %indvars.iv81
   store float %77, ptr %78, align 4
   %indvars.iv.next82 = add nsw i64 %indvars.iv81, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %union.TValue = type { i64 }
-%struct.GCRef = type { i64 }
 
 @.str.1 = private unnamed_addr constant [3 x i8] c"=?\00", align 1
 @.str.2 = private unnamed_addr constant [9 x i8] c"(binary)\00", align 1
@@ -140,7 +139,7 @@ define hidden ptr @lj_bcread_proto(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %82 = getelementptr inbounds nuw i32, ptr %69, i64 %indvars.iv.i
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %69, i64 %indvars.iv.i
   %83 = load i32, ptr %82, align 4, !tbaa !39
   %84 = tail call i32 @llvm.bswap.i32(i32 %83)
   store i32 %84, ptr %82, align 4, !tbaa !39
@@ -169,7 +168,7 @@ bcread_bytecode.exit:                             ; preds = %.lr.ph.i, %27
 
 .preheader.i:                                     ; preds = %.preheader.i, %.preheader.preheader.i
   %indvars.iv.i101 = phi i64 [ 0, %.preheader.preheader.i ], [ %indvars.iv.next.i102, %.preheader.i ]
-  %91 = getelementptr inbounds nuw i16, ptr %53, i64 %indvars.iv.i101
+  %91 = getelementptr inbounds nuw [2 x i8], ptr %53, i64 %indvars.iv.i101
   %92 = load i16, ptr %91, align 2, !tbaa !43
   %93 = tail call i16 @llvm.bswap.i16(i16 %92)
   store i16 %93, ptr %91, align 2, !tbaa !43
@@ -186,7 +185,7 @@ bcread_uv.exit:                                   ; preds = %.preheader.i, %bcre
   %94 = inttoptr i64 %.val to ptr
   %95 = zext i32 %15 to i64
   %96 = sub nsw i64 0, %95
-  %97 = getelementptr inbounds %struct.GCRef, ptr %94, i64 %96
+  %97 = getelementptr inbounds [8 x i8], ptr %94, i64 %96
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %99 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %100
@@ -596,7 +595,7 @@ bcread_knum.exit:                                 ; preds = %267, %bcread_kgc.ex
 
 .lr.ph30.i:                                       ; preds = %.lr.ph30.i, %.lr.ph30.preheader.i
   %indvars.iv35.i = phi i64 [ 0, %.lr.ph30.preheader.i ], [ %indvars.iv.next36.i, %.lr.ph30.i ]
-  %298 = getelementptr inbounds nuw i16, ptr %279, i64 %indvars.iv35.i
+  %298 = getelementptr inbounds nuw [2 x i8], ptr %279, i64 %indvars.iv35.i
   %299 = load i16, ptr %298, align 2, !tbaa !43
   %300 = call i16 @llvm.bswap.i16(i16 %299)
   store i16 %300, ptr %298, align 2, !tbaa !43
@@ -606,7 +605,7 @@ bcread_knum.exit:                                 ; preds = %267, %bcread_kgc.ex
 
 .lr.ph.i114:                                      ; preds = %.lr.ph.i114, %.lr.ph.preheader.i112
   %indvars.iv.i115 = phi i64 [ 0, %.lr.ph.preheader.i112 ], [ %indvars.iv.next.i116, %.lr.ph.i114 ]
-  %301 = getelementptr inbounds nuw i32, ptr %279, i64 %indvars.iv.i115
+  %301 = getelementptr inbounds nuw [4 x i8], ptr %279, i64 %indvars.iv.i115
   %302 = load i32, ptr %301, align 4, !tbaa !39
   %303 = call i32 @llvm.bswap.i32(i32 %302)
   store i32 %303, ptr %301, align 4, !tbaa !39

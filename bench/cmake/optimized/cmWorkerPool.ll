@@ -32,12 +32,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::thread" = type { %"class.std::thread::id" }
 %"class.std::thread::id" = type { i64 }
 %"struct.std::_Deque_iterator" = type { ptr, ptr, ptr, ptr }
-%"class.std::unique_ptr.73" = type { %"struct.std::__uniq_ptr_data.74" }
-%"struct.std::__uniq_ptr_data.74" = type { %"class.std::__uniq_ptr_impl.75" }
-%"class.std::__uniq_ptr_impl.75" = type { %"class.std::tuple.76" }
-%"class.std::tuple.76" = type { %"struct.std::_Tuple_impl.77" }
-%"struct.std::_Tuple_impl.77" = type { %"struct.std::_Head_base.80" }
-%"struct.std::_Head_base.80" = type { ptr }
 
 $_ZNSt6vectorIcSaIcEE6resizeEm = comdat any
 
@@ -872,7 +866,7 @@ _ZNSt12_Vector_baseIPKcSaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %47, %_ZN
   store ptr %44, ptr %22, align 8, !tbaa !91
   %48 = getelementptr inbounds nuw i8, ptr %44, i64 %42
   store ptr %48, ptr %39, align 8, !tbaa !92
-  %49 = getelementptr inbounds nuw ptr, ptr %44, i64 %27
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %27
   store ptr %49, ptr %31, align 8, !tbaa !90
   br label %_ZNSt6vectorIPKcSaIS1_EE7reserveEm.exit
 
@@ -943,7 +937,7 @@ _ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ; preds = %75
 _ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %77, %_ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
   store ptr %72, ptr %22, align 8, !tbaa !91
   store ptr %76, ptr %57, align 8, !tbaa !92
-  %78 = getelementptr inbounds nuw ptr, ptr %72, i64 %70
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %70
   store ptr %78, ptr %31, align 8, !tbaa !90
   br label %_ZNSt6vectorIPKcSaIS1_EE9push_backEOS1_.exit
 
@@ -1005,7 +999,7 @@ _ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i27: ; preds = %
 _ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i29: ; preds = %102, %_ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i27
   store ptr %97, ptr %22, align 8, !tbaa !91
   store ptr %101, ptr %.phi.trans.insert, align 8, !tbaa !92
-  %103 = getelementptr inbounds nuw ptr, ptr %97, i64 %95
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %97, i64 %95
   store ptr %103, ptr %31, align 8, !tbaa !90
   br label %_ZNSt6vectorIPKcSaIS1_EE9push_backEOS1_.exit30
 
@@ -3448,7 +3442,7 @@ _ZNSt12_Vector_baseISt10unique_ptrI18cmWorkerPoolWorkerSt14default_deleteIS1_EES
   store ptr %25, ptr %10, align 8, !tbaa !216
   %30 = getelementptr inbounds nuw i8, ptr %25, i64 %23
   store ptr %30, ptr %20, align 8, !tbaa !217
-  %31 = getelementptr inbounds nuw %"class.std::unique_ptr.65", ptr %25, i64 %11
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %11
   store ptr %31, ptr %12, align 8, !tbaa !219
   br label %_ZNSt6vectorISt10unique_ptrI18cmWorkerPoolWorkerSt14default_deleteIS1_EESaIS4_EE7reserveEm.exit
 
@@ -3570,7 +3564,7 @@ _ZNSt6vectorISt10unique_ptrI18cmWorkerPoolWorkerSt14default_deleteIS1_EESaIS4_EE
 _ZNSt6vectorISt10unique_ptrI18cmWorkerPoolWorkerSt14default_deleteIS1_EESaIS4_EE12emplace_backIJS4_EEERS4_DpOT_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrI18cmWorkerPoolWorkerSt14default_deleteIS1_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i, %67
   store ptr %61, ptr %10, align 8, !tbaa !216
   store ptr %66, ptr %32, align 8, !tbaa !217
-  %68 = getelementptr inbounds nuw %"class.std::unique_ptr.65", ptr %61, i64 %59
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %59
   store ptr %68, ptr %12, align 8, !tbaa !219
   br label %_ZNSt10unique_ptrI18cmWorkerPoolWorkerSt14default_deleteIS0_EED2Ev.exit
 
@@ -3605,7 +3599,7 @@ _ZNSt10unique_ptrI18cmWorkerPoolWorkerSt14default_deleteIS0_EED2Ev.exit: ; preds
   %storemerge43 = phi i32 [ %94, %_ZNSt6threadD2Ev.exit ], [ 0, %_ZNSt10unique_ptrI18cmWorkerPoolWorkerSt14default_deleteIS0_EED2Ev.exit ]
   %72 = zext i32 %storemerge43 to i64
   %73 = load ptr, ptr %10, align 8, !tbaa !216
-  %74 = getelementptr inbounds nuw %"class.std::unique_ptr.65", ptr %73, i64 %72
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %72
   %75 = load ptr, ptr %74, align 8, !tbaa !163
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -4202,7 +4196,7 @@ define dso_local noundef zeroext i1 @_ZN12cmWorkerPool4JobT10RunProcessERNS_14Pr
   unreachable
 
 _ZNSt6vectorISt10unique_ptrI18cmWorkerPoolWorkerSt14default_deleteIS1_EESaIS4_EE2atEm.exit: ; preds = %4
-  %21 = getelementptr inbounds nuw %"class.std::unique_ptr.65", ptr %15, i64 %12
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %12
   %22 = load ptr, ptr %21, align 8, !tbaa !163
   %23 = tail call noundef zeroext i1 @_ZN18cmWorkerPoolWorker10RunProcessERN12cmWorkerPool14ProcessResultTERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EERKS9_(ptr noundef nonnull align 8 dereferenceable(120) %22, ptr noundef nonnull align 8 dereferenceable(112) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(32) %3)
   ret i1 %23
@@ -4731,7 +4725,7 @@ _ZNSt11_Deque_baseISt10unique_ptrIN12cmWorkerPool4JobTESt14default_deleteIS2_EES
   store ptr %7, ptr %0, align 8, !tbaa !235
   %8 = sub nsw i64 %.sroa.speculated, %3
   %9 = lshr i64 %8, 1
-  %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %9
   %.idx = shl nuw nsw i64 %3, 3
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   br label %.lr.ph.i
@@ -4825,7 +4819,7 @@ _ZNSt11_Deque_baseISt10unique_ptrIN12cmWorkerPool4JobTESt14default_deleteIS2_EES
   store ptr %48, ptr %49, align 8, !tbaa !224
   store ptr %39, ptr %37, align 8, !tbaa !286
   %50 = and i64 %1, 63
-  %51 = getelementptr inbounds nuw %"class.std::unique_ptr.73", ptr %46, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %50
   store ptr %51, ptr %43, align 8, !tbaa !298
   ret void
 
@@ -4951,9 +4945,9 @@ define linkonce_odr dso_local void @_ZNSt5dequeISt10unique_ptrIN12cmWorkerPool4J
   %19 = load ptr, ptr %0, align 8, !tbaa !235
   %20 = sub i64 %15, %13
   %21 = lshr i64 %20, 1
-  %22 = getelementptr inbounds nuw ptr, ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %21
   %23 = select i1 %2, i64 %1, i64 0
-  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %23
   %25 = icmp ult ptr %24, %7
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %26, %7
@@ -4972,12 +4966,12 @@ define linkonce_odr dso_local void @_ZNSt5dequeISt10unique_ptrIN12cmWorkerPool4J
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIPPSt10unique_ptrIN12cmWorkerPool4JobTESt14default_deleteIS2_EES7_ET0_T_S9_S8_.exit, label %32
 
 32:                                               ; preds = %31
-  %33 = getelementptr inbounds nuw ptr, ptr %24, i64 %12
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %12
   %34 = ptrtoint ptr %26 to i64
   %35 = sub i64 %34, %9
   %36 = ashr exact i64 %35, 3
   %37 = sub nsw i64 0, %36
-  %38 = getelementptr inbounds ptr, ptr %33, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %33, i64 %37
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %38, ptr align 8 %7, i64 %35, i1 false)
   br label %_ZSt4copyIPPSt10unique_ptrIN12cmWorkerPool4JobTESt14default_deleteIS2_EES7_ET0_T_S9_S8_.exit
 
@@ -5005,9 +4999,9 @@ _ZNSt11_Deque_baseISt10unique_ptrIN12cmWorkerPool4JobTESt14default_deleteIS2_EES
   %46 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %45) #27
   %47 = sub i64 %41, %13
   %48 = lshr i64 %47, 1
-  %49 = getelementptr inbounds nuw ptr, ptr %46, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %48
   %50 = select i1 %2, i64 %1, i64 0
-  %51 = getelementptr inbounds nuw ptr, ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i25 = icmp eq ptr %52, %7
   br i1 %.not.i.i.i.i.i25, label %_ZSt4copyIPPSt10unique_ptrIN12cmWorkerPool4JobTESt14default_deleteIS2_EES7_ET0_T_S9_S8_.exit26, label %53
@@ -5035,7 +5029,7 @@ _ZSt4copyIPPSt10unique_ptrIN12cmWorkerPool4JobTESt14default_deleteIS2_EES7_ET0_T
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 512
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %60, ptr %61, align 8, !tbaa !224
-  %62 = getelementptr inbounds nuw ptr, ptr %.0, i64 %12
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %.0, i64 %12
   %63 = getelementptr inbounds i8, ptr %62, i64 -8
   store ptr %63, ptr %4, align 8, !tbaa !225
   %64 = load ptr, ptr %63, align 8, !tbaa !230

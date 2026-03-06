@@ -17,52 +17,10 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
 %"struct.std::_Head_base.1" = type { ptr }
-%"class.evmone::ExecutionState" = type { i64, %"class.evmone::Memory", ptr, %"class.evmc::HostContext", i32, %"class.std::__cxx11::basic_string", %"class.std::basic_string_view", i32, i64, i64, %"class.std::optional", %struct.evmc_tx_context, %"class.std::optional.15", %union.anon.32, %"class.std::vector.33", %"class.evmone::StackSpace" }
-%"class.evmone::Memory" = type { %"class.std::unique_ptr.2", i64, i64 }
-%"class.std::unique_ptr.2" = type { %"struct.std::__uniq_ptr_data.3" }
-%"struct.std::__uniq_ptr_data.3" = type { %"class.std::__uniq_ptr_impl.4" }
-%"class.std::__uniq_ptr_impl.4" = type { %"class.std::tuple.5" }
-%"class.std::tuple.5" = type { %"struct.std::_Tuple_impl.6" }
-%"struct.std::_Tuple_impl.6" = type { %"struct.std::_Head_base.9" }
-%"struct.std::_Head_base.9" = type { ptr }
-%"class.evmc::HostContext" = type { %"class.evmc::HostInterface", ptr, ptr }
-%"class.evmc::HostInterface" = type { ptr }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<unsigned char, evmc::byte_traits<unsigned char>>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<unsigned char, evmc::byte_traits<unsigned char>>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
-%"class.std::basic_string_view" = type { i64, ptr }
-%"class.std::optional" = type { %"struct.std::_Optional_base" }
-%"struct.std::_Optional_base" = type { %"struct.std::_Optional_payload" }
-%"struct.std::_Optional_payload" = type { %"struct.std::_Optional_payload.base", [7 x i8] }
-%"struct.std::_Optional_payload.base" = type { %"struct.std::_Optional_payload_base.base" }
-%"struct.std::_Optional_payload_base.base" = type <{ %"union.std::_Optional_payload_base<std::__cxx11::basic_string<unsigned char, evmc::byte_traits<unsigned char>>>::_Storage", i8 }>
-%"union.std::_Optional_payload_base<std::__cxx11::basic_string<unsigned char, evmc::byte_traits<unsigned char>>>::_Storage" = type { %"class.std::__cxx11::basic_string" }
-%struct.evmc_tx_context = type { %struct.evmc_bytes32, %struct.evmc_address, %struct.evmc_address, i64, i64, i64, %struct.evmc_bytes32, %struct.evmc_bytes32, %struct.evmc_bytes32, %struct.evmc_bytes32, ptr, i64, ptr, i64 }
-%struct.evmc_bytes32 = type { [32 x i8] }
-%"class.std::optional.15" = type { %"struct.std::_Optional_base.16" }
-%"struct.std::_Optional_base.16" = type { %"struct.std::_Optional_payload.18" }
-%"struct.std::_Optional_payload.18" = type { %"struct.std::_Optional_payload.base.29", [7 x i8] }
-%"struct.std::_Optional_payload.base.29" = type { %"struct.std::_Optional_payload_base.base.28" }
-%"struct.std::_Optional_payload_base.base.28" = type <{ %"union.std::_Optional_payload_base<std::unordered_map<evmc::bytes32, evmone::TransactionInitcode>>::_Storage", i8 }>
-%"union.std::_Optional_payload_base<std::unordered_map<evmc::bytes32, evmone::TransactionInitcode>>::_Storage" = type { %"class.std::unordered_map" }
-%"class.std::unordered_map" = type { %"class.std::_Hashtable" }
-%"class.std::_Hashtable" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"struct.std::__detail::_Hash_node_base" = type { ptr }
-%"struct.std::__detail::_Prime_rehash_policy" = type { float, i64 }
-%union.anon.32 = type { ptr }
-%"class.std::vector.33" = type { %"struct.std::_Vector_base.34" }
-%"struct.std::_Vector_base.34" = type { %"struct.std::_Vector_base<const unsigned char *, std::allocator<const unsigned char *>>::_Vector_impl" }
-%"struct.std::_Vector_base<const unsigned char *, std::allocator<const unsigned char *>>::_Vector_impl" = type { %"struct.std::_Vector_base<const unsigned char *, std::allocator<const unsigned char *>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<const unsigned char *, std::allocator<const unsigned char *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.evmone::StackSpace" = type { %"class.std::unique_ptr.38" }
-%"class.std::unique_ptr.38" = type { %"struct.std::__uniq_ptr_data.39" }
-%"struct.std::__uniq_ptr_data.39" = type { %"class.std::__uniq_ptr_impl.40" }
-%"class.std::__uniq_ptr_impl.40" = type { %"class.std::tuple.41" }
-%"class.std::tuple.41" = type { %"struct.std::_Tuple_impl.42" }
-%"struct.std::_Tuple_impl.42" = type { %"struct.std::_Head_base.47" }
-%"struct.std::_Head_base.47" = type { ptr }
 %"struct.evmc::bytes32" = type { %struct.evmc_bytes32 }
+%struct.evmc_bytes32 = type { [32 x i8] }
 %"class.evmc::Result" = type { %struct.evmc_result }
+%struct.evmc_tx_context = type { %struct.evmc_bytes32, %struct.evmc_address, %struct.evmc_address, i64, i64, i64, %struct.evmc_bytes32, %struct.evmc_bytes32, %struct.evmc_bytes32, %struct.evmc_bytes32, ptr, i64, ptr, i64 }
 
 $_ZN6evmone14ExecutionStateD2Ev = comdat any
 
@@ -437,7 +395,7 @@ define hidden noundef nonnull align 8 dereferenceable(544) ptr @_ZN6evmone2VM19g
   br i1 %17, label %18, label %_ZNSt6vectorIN6evmone14ExecutionStateESaIS1_EE6resizeEm.exit
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds nuw %"class.evmone::ExecutionState", ptr %6, i64 %12
+  %19 = getelementptr inbounds nuw [544 x i8], ptr %6, i64 %12
   %.not.i.i = icmp eq ptr %5, %19
   br i1 %.not.i.i, label %_ZNSt6vectorIN6evmone14ExecutionStateESaIS1_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i
 
@@ -454,7 +412,7 @@ _ZSt8_DestroyIPN6evmone14ExecutionStateES1_EvT_S3_RSaIT0_E.exit.i.i: ; preds = %
 
 _ZNSt6vectorIN6evmone14ExecutionStateESaIS1_EE6resizeEm.exit: ; preds = %_ZSt8_DestroyIPN6evmone14ExecutionStateES1_EvT_S3_RSaIT0_E.exit.i.i, %18, %16, %14, %2
   %21 = load ptr, ptr %3, align 8, !tbaa !32
-  %22 = getelementptr inbounds nuw %"class.evmone::ExecutionState", ptr %21, i64 %1
+  %22 = getelementptr inbounds nuw [544 x i8], ptr %21, i64 %1
   ret ptr %22
 }
 
@@ -805,7 +763,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIhN4evmc11byte_traitsIhEESaIhEEEEC2EOS7_
   %93 = xor i64 %90, %92
   %94 = mul i64 %93, 1099511628211
   %95 = urem i64 %94, %61
-  %96 = getelementptr inbounds nuw ptr, ptr %77, i64 %95
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %95
   store ptr %62, ptr %96, align 8, !tbaa !125
   br label %_ZNSt22_Optional_payload_baseISt13unordered_mapIN4evmc7bytes32EN6evmone19TransactionInitcodeESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEEE12_M_constructIJSD_EEEvDpOT_.exit.i.i.i.i.i
 
@@ -1254,9 +1212,9 @@ _ZNSt6vectorIN6evmone14ExecutionStateESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit:
 
 _ZNSt12_Vector_baseIN6evmone14ExecutionStateESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN6evmone14ExecutionStateESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %70
   store ptr %44, ptr %0, align 8, !tbaa !32
-  %75 = getelementptr inbounds nuw %"class.evmone::ExecutionState", ptr %45, i64 %1
+  %75 = getelementptr inbounds nuw [544 x i8], ptr %45, i64 %1
   store ptr %75, ptr %4, align 8, !tbaa !33
-  %76 = getelementptr inbounds nuw %"class.evmone::ExecutionState", ptr %44, i64 %42
+  %76 = getelementptr inbounds nuw [544 x i8], ptr %44, i64 %42
   store ptr %76, ptr %11, align 8, !tbaa !36
   br label %77
 

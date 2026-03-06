@@ -343,17 +343,17 @@ define internal fastcc void @SetInitialProfiles(ptr noundef %0, ptr noundef %1, 
   %34 = uitofp nneg i64 %33 to double
   %35 = tail call double @llvm.fmuladd.f64(double %34, double %27, double 1.000000e+01)
   %36 = or disjoint i64 %.060, %29
-  %37 = getelementptr inbounds nuw double, ptr %5, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %36
   store double %35, ptr %37, align 8, !tbaa !27
-  %38 = getelementptr inbounds nuw double, ptr %7, i64 %36
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %36
   store double 1.000000e+00, ptr %38, align 8, !tbaa !27
   br label %43
 
 39:                                               ; preds = %30
   %40 = or disjoint i64 %.060, %29
-  %41 = getelementptr inbounds nuw double, ptr %5, i64 %40
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %40
   store double 1.000000e+05, ptr %41, align 8, !tbaa !27
-  %42 = getelementptr inbounds nuw double, ptr %7, i64 %40
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %40
   store double 0.000000e+00, ptr %42, align 8, !tbaa !27
   %.pre = add nuw nsw i64 %.060, 1
   br label %43
@@ -434,7 +434,7 @@ define internal noundef i32 @resweb(double %0, ptr noundef readonly captures(non
   %.036 = phi i64 [ 0, %10 ], [ %32, %31 ]
   %13 = shl nuw nsw i64 %.036, 1
   %14 = add nuw nsw i64 %13, %11
-  %15 = getelementptr inbounds nuw double, ptr %7, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %14
   br label %16
 
 16:                                               ; preds = %12, %30
@@ -445,16 +445,16 @@ define internal noundef i32 @resweb(double %0, ptr noundef readonly captures(non
 
 19:                                               ; preds = %16
   %20 = or disjoint i64 %.03435, %14
-  %21 = getelementptr inbounds nuw double, ptr %6, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %20
   %22 = load double, ptr %21, align 8, !tbaa !27
-  %23 = getelementptr inbounds nuw double, ptr %7, i64 %20
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %20
   %24 = load double, ptr %23, align 8, !tbaa !27
   %25 = fsub double %22, %24
   store double %25, ptr %23, align 8, !tbaa !27
   br label %30
 
 26:                                               ; preds = %16
-  %27 = getelementptr inbounds nuw double, ptr %15, i64 %.03435
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %.03435
   %28 = load double, ptr %27, align 8, !tbaa !27
   %29 = fneg double %28
   store double %29, ptr %27, align 8, !tbaa !27
@@ -750,14 +750,14 @@ define internal fastcc void @Fweb(ptr noundef readonly captures(none) %0, ptr no
   %31 = load double, ptr %5, align 8, !tbaa !22
   %32 = shl nuw nsw i64 %.066, 1
   %33 = add nuw nsw i64 %32, %28
-  %34 = getelementptr inbounds nuw double, ptr %8, i64 %33
-  %35 = getelementptr inbounds nuw double, ptr %13, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %33
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %33
   br label %36
 
 36:                                               ; preds = %dotprod.exit.i, %30
   %37 = phi i1 [ true, %30 ], [ false, %dotprod.exit.i ]
   %indvars.iv.i = phi i64 [ 0, %30 ], [ 1, %dotprod.exit.i ]
-  %38 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv.i
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv.i
   %39 = load ptr, ptr %38, align 8, !tbaa !25
   br label %40
 
@@ -774,7 +774,7 @@ define internal fastcc void @Fweb(ptr noundef readonly captures(none) %0, ptr no
   br i1 %41, label %40, label %dotprod.exit.i
 
 dotprod.exit.i:                                   ; preds = %40
-  %47 = getelementptr inbounds nuw double, ptr %35, i64 %indvars.iv.i
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv.i
   store double %46, ptr %47, align 8, !tbaa !27
   br i1 %37, label %36, label %WebRates.exit.preheader.critedge
 
@@ -806,42 +806,42 @@ WebRates.exit.preheader.critedge:                 ; preds = %dotprod.exit.i
   %69 = select i1 %.not62, i64 -2, i64 2
   %.not63 = icmp eq i64 %.066, 0
   %.neg64 = select i1 %.not63, i64 2, i64 -2
-  %70 = getelementptr inbounds nuw double, ptr %16, i64 %33
-  %71 = getelementptr inbounds double, ptr %34, i64 %.neg
-  %72 = getelementptr inbounds double, ptr %34, i64 %27
-  %73 = getelementptr inbounds double, ptr %34, i64 %.neg64
-  %74 = getelementptr inbounds double, ptr %34, i64 %69
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %33
+  %71 = getelementptr inbounds [8 x i8], ptr %34, i64 %.neg
+  %72 = getelementptr inbounds [8 x i8], ptr %34, i64 %27
+  %73 = getelementptr inbounds [8 x i8], ptr %34, i64 %.neg64
+  %74 = getelementptr inbounds [8 x i8], ptr %34, i64 %69
   br label %WebRates.exit
 
 WebRates.exit:                                    ; preds = %WebRates.exit.preheader.critedge, %WebRates.exit
   %75 = phi i1 [ true, %WebRates.exit.preheader.critedge ], [ false, %WebRates.exit ]
   %.06065 = phi i64 [ 0, %WebRates.exit.preheader.critedge ], [ 1, %WebRates.exit ]
-  %76 = getelementptr inbounds nuw double, ptr %34, i64 %.06065
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %.06065
   %77 = load double, ptr %76, align 8, !tbaa !27
-  %78 = getelementptr inbounds nuw double, ptr %71, i64 %.06065
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %.06065
   %79 = load double, ptr %78, align 8, !tbaa !27
   %80 = fsub double %77, %79
-  %81 = getelementptr inbounds nuw double, ptr %72, i64 %.06065
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %.06065
   %82 = load double, ptr %81, align 8, !tbaa !27
   %83 = fsub double %82, %77
-  %84 = getelementptr inbounds nuw double, ptr %73, i64 %.06065
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %.06065
   %85 = load double, ptr %84, align 8, !tbaa !27
   %86 = fsub double %77, %85
-  %87 = getelementptr inbounds nuw double, ptr %74, i64 %.06065
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %.06065
   %88 = load double, ptr %87, align 8, !tbaa !27
   %89 = fsub double %88, %77
-  %90 = getelementptr inbounds nuw double, ptr %20, i64 %.06065
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %.06065
   %91 = load double, ptr %90, align 8, !tbaa !27
   %92 = fsub double %83, %80
-  %93 = getelementptr inbounds nuw double, ptr %21, i64 %.06065
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %.06065
   %94 = load double, ptr %93, align 8, !tbaa !27
   %95 = fsub double %89, %86
   %96 = fmul double %94, %95
   %97 = tail call double @llvm.fmuladd.f64(double %91, double %92, double %96)
-  %98 = getelementptr inbounds nuw double, ptr %35, i64 %.06065
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %.06065
   %99 = load double, ptr %98, align 8, !tbaa !27
   %100 = fadd double %99, %97
-  %101 = getelementptr inbounds nuw double, ptr %70, i64 %.06065
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %.06065
   store double %100, ptr %101, align 8, !tbaa !27
   br i1 %75, label %WebRates.exit, label %102
 

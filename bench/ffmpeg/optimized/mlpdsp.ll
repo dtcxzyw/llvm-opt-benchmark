@@ -31,10 +31,10 @@ define void @ff_mlp_rematrix_channel(ptr noundef captures(none) %0, ptr noundef 
 20:                                               ; preds = %20, %.preheader.us
   %indvars.iv46 = phi i64 [ %indvars.iv.next47, %20 ], [ 0, %.preheader.us ]
   %.036.us = phi i64 [ %28, %20 ], [ 0, %.preheader.us ]
-  %21 = getelementptr inbounds nuw i32, ptr %.02740.us, i64 %indvars.iv46
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %.02740.us, i64 %indvars.iv46
   %22 = load i32, ptr %21, align 4, !tbaa !4
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv46
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv46
   %25 = load i32, ptr %24, align 4, !tbaa !4
   %26 = sext i32 %25 to i64
   %27 = mul nsw i64 %26, %23
@@ -50,7 +50,7 @@ define void @ff_mlp_rematrix_channel(ptr noundef captures(none) %0, ptr noundef 
   %33 = zext i8 %32 to i64
   %34 = add nuw nsw i64 %31, %33
   %35 = trunc i64 %34 to i32
-  %36 = getelementptr inbounds nuw i32, ptr %.02740.us, i64 %18
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %.02740.us, i64 %18
   store i32 %35, ptr %36, align 4, !tbaa !4
   %37 = getelementptr inbounds nuw i8, ptr %.03038.us, i64 8
   %38 = getelementptr inbounds nuw i8, ptr %.02740.us, i64 32
@@ -68,10 +68,10 @@ define void @ff_mlp_rematrix_channel(ptr noundef captures(none) %0, ptr noundef 
 40:                                               ; preds = %.preheader, %40
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %40 ]
   %.036 = phi i64 [ 0, %.preheader ], [ %48, %40 ]
-  %41 = getelementptr inbounds nuw i32, ptr %.02740, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %.02740, i64 %indvars.iv
   %42 = load i32, ptr %41, align 4, !tbaa !4
   %43 = sext i32 %42 to i64
-  %44 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %45 = load i32, ptr %44, align 4, !tbaa !4
   %46 = sext i32 %45 to i64
   %47 = mul nsw i64 %46, %43
@@ -96,7 +96,7 @@ define void @ff_mlp_rematrix_channel(ptr noundef captures(none) %0, ptr noundef 
   %62 = zext i8 %61 to i64
   %63 = add nuw nsw i64 %60, %62
   %64 = trunc i64 %63 to i32
-  %65 = getelementptr inbounds nuw i32, ptr %.02740, i64 %18
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %.02740, i64 %18
   store i32 %64, ptr %65, align 4, !tbaa !4
   %66 = getelementptr inbounds nuw i8, ptr %.03038, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %.02740, i64 32
@@ -123,7 +123,7 @@ define i32 @ff_mlp_pack_output(i32 noundef %0, i16 noundef zeroext %1, ptr nound
   %indvars.iv58 = phi i64 [ %indvars.iv.next59, %.split.us.us ], [ 0, %.preheader.lr.ph ]
   %.040.us = phi i32 [ %24, %.split.us.us ], [ %0, %.preheader.lr.ph ]
   %.02438.us = phi ptr [ %27, %.split.us.us ], [ %3, %.preheader.lr.ph ]
-  %10 = getelementptr inbounds nuw [8 x i32], ptr %2, i64 %indvars.iv58
+  %10 = getelementptr inbounds nuw [32 x i8], ptr %2, i64 %indvars.iv58
   br label %11
 
 11:                                               ; preds = %11, %.preheader.us
@@ -134,7 +134,7 @@ define i32 @ff_mlp_pack_output(i32 noundef %0, i16 noundef zeroext %1, ptr nound
   %13 = load i8, ptr %12, align 1, !tbaa !10
   %14 = zext nneg i8 %13 to i32
   %15 = zext i8 %13 to i64
-  %16 = getelementptr inbounds nuw i32, ptr %10, i64 %15
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %15
   %17 = load i32, ptr %16, align 4, !tbaa !4
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 %15
   %19 = load i8, ptr %18, align 1, !tbaa !10
@@ -160,7 +160,7 @@ define i32 @ff_mlp_pack_output(i32 noundef %0, i16 noundef zeroext %1, ptr nound
   %indvars.iv48 = phi i64 [ %indvars.iv.next49, %.split ], [ 0, %.preheader.lr.ph ]
   %.040 = phi i32 [ %42, %.split ], [ %0, %.preheader.lr.ph ]
   %.02637 = phi ptr [ %44, %.split ], [ %3, %.preheader.lr.ph ]
-  %28 = getelementptr inbounds nuw [8 x i32], ptr %2, i64 %indvars.iv48
+  %28 = getelementptr inbounds nuw [32 x i8], ptr %2, i64 %indvars.iv48
   br label %29
 
 29:                                               ; preds = %.preheader, %29
@@ -171,7 +171,7 @@ define i32 @ff_mlp_pack_output(i32 noundef %0, i16 noundef zeroext %1, ptr nound
   %31 = load i8, ptr %30, align 1, !tbaa !10
   %32 = zext nneg i8 %31 to i32
   %33 = zext i8 %31 to i64
-  %34 = getelementptr inbounds nuw i32, ptr %28, i64 %33
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %33
   %35 = load i32, ptr %34, align 4, !tbaa !4
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 %33
   %37 = load i8, ptr %36, align 1, !tbaa !10
@@ -239,10 +239,10 @@ define internal void @mlp_filter_channel(ptr noundef captures(none) %0, ptr noun
 ..preheader_crit_edge.us.us:                      ; preds = %22, %..preheader_crit_edge.us.us
   %indvars.iv74 = phi i64 [ %indvars.iv.next75, %..preheader_crit_edge.us.us ], [ 0, %22 ]
   %.145.us.us = phi i64 [ %21, %..preheader_crit_edge.us.us ], [ %30, %22 ]
-  %14 = getelementptr inbounds nuw i32, ptr %.04148.us.us, i64 %indvars.iv74
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %.04148.us.us, i64 %indvars.iv74
   %15 = load i32, ptr %14, align 4, !tbaa !4
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv74
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv74
   %18 = load i32, ptr %17, align 4, !tbaa !4
   %19 = sext i32 %18 to i64
   %20 = mul nsw i64 %19, %16
@@ -254,10 +254,10 @@ define internal void @mlp_filter_channel(ptr noundef captures(none) %0, ptr noun
 22:                                               ; preds = %22, %.lr.ph.us.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %22 ], [ 0, %.lr.ph.us.us ]
   %.03643.us.us = phi i64 [ %30, %22 ], [ 0, %.lr.ph.us.us ]
-  %23 = getelementptr inbounds nuw i32, ptr %.03950.us.us, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %.03950.us.us, i64 %indvars.iv
   %24 = load i32, ptr %23, align 4, !tbaa !4
   %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %27 = load i32, ptr %26, align 4, !tbaa !4
   %28 = sext i32 %27 to i64
   %29 = mul nsw i64 %28, %25
@@ -293,10 +293,10 @@ define internal void @mlp_filter_channel(ptr noundef captures(none) %0, ptr noun
 41:                                               ; preds = %.lr.ph.us, %41
   %indvars.iv80 = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next81, %41 ]
   %.03643.us = phi i64 [ 0, %.lr.ph.us ], [ %49, %41 ]
-  %42 = getelementptr inbounds nuw i32, ptr %.03950.us, i64 %indvars.iv80
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %.03950.us, i64 %indvars.iv80
   %43 = load i32, ptr %42, align 4, !tbaa !4
   %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv80
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv80
   %46 = load i32, ptr %45, align 4, !tbaa !4
   %47 = sext i32 %46 to i64
   %48 = mul nsw i64 %47, %44
@@ -339,10 +339,10 @@ define internal void @mlp_filter_channel(ptr noundef captures(none) %0, ptr noun
 60:                                               ; preds = %.preheader.us55, %60
   %indvars.iv86 = phi i64 [ 0, %.preheader.us55 ], [ %indvars.iv.next87, %60 ]
   %.145.us61 = phi i64 [ 0, %.preheader.us55 ], [ %68, %60 ]
-  %61 = getelementptr inbounds nuw i32, ptr %.04148.us59, i64 %indvars.iv86
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %.04148.us59, i64 %indvars.iv86
   %62 = load i32, ptr %61, align 4, !tbaa !4
   %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv86
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv86
   %65 = load i32, ptr %64, align 4, !tbaa !4
   %66 = sext i32 %65 to i64
   %67 = mul nsw i64 %66, %63

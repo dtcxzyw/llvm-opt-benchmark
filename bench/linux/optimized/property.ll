@@ -13,8 +13,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_is_acpi_data
 %struct.fwnode_operations = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.guid_t = type { [16 x i8] }
 %struct.acpi_buffer = type { i64, ptr }
-%union.acpi_object = type { %struct.anon.8 }
-%struct.anon.8 = type { i32, i32, i64, i32 }
 %struct.fwnode_reference_args = type { ptr, i32, [8 x i64] }
 
 @.str = private unnamed_addr constant [8 x i8] c"PRP0001\00", align 1
@@ -183,7 +181,7 @@ define dso_local void @acpi_init_properties(ptr noundef %0) local_unnamed_addr #
   br i1 %58, label %.critedge.backedge, label %59, !llvm.loop !8
 
 59:                                               ; preds = %.lr.ph
-  %.split = getelementptr %union.acpi_object, ptr %45, i64 %57
+  %.split = getelementptr [24 x i8], ptr %45, i64 %57
   %60 = getelementptr i8, ptr %.split, i64 8
   %61 = load ptr, ptr %60, align 8
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
@@ -228,7 +226,7 @@ define dso_local void @acpi_init_properties(ptr noundef %0) local_unnamed_addr #
 85:                                               ; preds = %82, %79
   %86 = phi i32 [ 0, %79 ], [ %83, %82 ]
   %87 = sext i32 %86 to i64
-  %88 = getelementptr %union.acpi_object, ptr %81, i64 %87
+  %88 = getelementptr [24 x i8], ptr %81, i64 %87
   %89 = load i32, ptr %88, align 8
   %90 = icmp eq i32 %89, 2
   br i1 %90, label %82, label %.thread18
@@ -283,7 +281,7 @@ define dso_local void @acpi_init_properties(ptr noundef %0) local_unnamed_addr #
   br i1 %117, label %.critedge26.backedge, label %118, !llvm.loop !8
 
 118:                                              ; preds = %.lr.ph57
-  %.split16 = getelementptr %union.acpi_object, ptr %104, i64 %116
+  %.split16 = getelementptr [24 x i8], ptr %104, i64 %116
   %119 = getelementptr i8, ptr %.split16, i64 8
   %120 = load ptr, ptr %119, align 8
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 8
@@ -429,7 +427,7 @@ define internal fastcc zeroext i1 @acpi_extract_properties(ptr noundef %0, ptr n
   %17 = phi i32 [ 0, %12 ], [ %176, %.thread10 ]
   %18 = load ptr, ptr %10, align 8
   %19 = sext i32 %17 to i64
-  %20 = getelementptr %union.acpi_object, ptr %18, i64 %19
+  %20 = getelementptr [24 x i8], ptr %18, i64 %19
   %21 = getelementptr i8, ptr %20, i64 24
   %22 = load i32, ptr %20, align 8
   %23 = icmp eq i32 %22, 3
@@ -475,7 +473,7 @@ define internal fastcc zeroext i1 @acpi_extract_properties(ptr noundef %0, ptr n
   store ptr %48, ptr %49, align 8
   %50 = load i32, ptr %40, align 4
   %51 = zext i32 %50 to i64
-  %52 = getelementptr ptr, ptr %48, i64 %51
+  %52 = getelementptr [8 x i8], ptr %48, i64 %51
   %53 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store ptr %52, ptr %53, align 8
   store i32 4, ptr %52, align 8
@@ -499,7 +497,7 @@ define internal fastcc zeroext i1 @acpi_extract_properties(ptr noundef %0, ptr n
   store i64 -1, ptr %4, align 8
   store ptr null, ptr %15, align 8
   %64 = load ptr, ptr %60, align 8
-  %65 = getelementptr %union.acpi_object, ptr %64, i64 %62
+  %65 = getelementptr [24 x i8], ptr %64, i64 %62
   %66 = load i32, ptr %65, align 8
   %67 = icmp eq i32 %66, 4
   %68 = getelementptr inbounds nuw i8, ptr %65, i64 4
@@ -559,7 +557,7 @@ define internal fastcc zeroext i1 @acpi_extract_properties(ptr noundef %0, ptr n
   store ptr %97, ptr %81, align 8
   %98 = load ptr, ptr %15, align 8
   %99 = load ptr, ptr %49, align 8
-  %100 = getelementptr ptr, ptr %99, i64 %62
+  %100 = getelementptr [8 x i8], ptr %99, i64 %62
   store ptr %98, ptr %100, align 8
   %101 = getelementptr i8, ptr %63, i64 24
   %102 = load i32, ptr %56, align 4
@@ -603,7 +601,7 @@ define internal fastcc zeroext i1 @acpi_extract_properties(ptr noundef %0, ptr n
   br i1 %119, label %.thread10, label %120, !llvm.loop !12
 
 120:                                              ; preds = %.preheader
-  %121 = getelementptr %struct.guid_t, ptr @prp_guids, i64 %118
+  %121 = getelementptr [16 x i8], ptr @prp_guids, i64 %118
   %122 = call i32 @bcmp(ptr noundef dereferenceable(16) %33, ptr noundef dereferenceable(16) %121, i64 16)
   %123 = icmp eq i32 %122, 0
   br i1 %123, label %124, label %.preheader, !llvm.loop !12
@@ -627,7 +625,7 @@ define internal fastcc zeroext i1 @acpi_extract_properties(ptr noundef %0, ptr n
   %134 = phi i1 [ false, %130 ], [ %165, %.loopexit11 ]
   %135 = phi i32 [ 0, %130 ], [ %164, %.loopexit11 ]
   %136 = sext i32 %135 to i64
-  %137 = getelementptr %union.acpi_object, ptr %132, i64 %136
+  %137 = getelementptr [24 x i8], ptr %132, i64 %136
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 4
   %139 = load i32, ptr %138, align 4
   %140 = icmp eq i32 %139, 2
@@ -664,7 +662,7 @@ define internal fastcc zeroext i1 @acpi_extract_properties(ptr noundef %0, ptr n
 156:                                              ; preds = %161, %153
   %157 = phi i32 [ 0, %153 ], [ %162, %161 ]
   %158 = sext i32 %157 to i64
-  %159 = getelementptr %union.acpi_object, ptr %155, i64 %158
+  %159 = getelementptr [24 x i8], ptr %155, i64 %158
   %160 = load i32, ptr %159, align 8
   switch i32 %160, label %.loopexit [
     i32 1, label %161
@@ -747,7 +745,7 @@ define internal fastcc zeroext i1 @acpi_enumerate_nondev_subnodes(ptr noundef %0
 18:                                               ; preds = %106, %11
   %19 = phi i32 [ 0, %11 ], [ %107, %106 ]
   %20 = sext i32 %19 to i64
-  %21 = getelementptr %union.acpi_object, ptr %17, i64 %20
+  %21 = getelementptr [24 x i8], ptr %17, i64 %20
   %22 = getelementptr i8, ptr %21, i64 24
   %23 = load i32, ptr %21, align 8
   %24 = icmp eq i32 %23, 3
@@ -787,7 +785,7 @@ define internal fastcc zeroext i1 @acpi_enumerate_nondev_subnodes(ptr noundef %0
   %46 = phi i8 [ 0, %41 ], [ %102, %100 ]
   %47 = load ptr, ptr %42, align 8
   %48 = sext i32 %45 to i64
-  %49 = getelementptr %union.acpi_object, ptr %47, i64 %48
+  %49 = getelementptr [24 x i8], ptr %47, i64 %48
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 4
   %51 = load i32, ptr %50, align 4
   %52 = icmp eq i32 %51, 2
@@ -1017,7 +1015,7 @@ define dso_local void @acpi_free_properties(ptr noundef %0) local_unnamed_addr #
 .preheader:                                       ; preds = %18, %.preheader
   %24 = phi i64 [ %28, %.preheader ], [ 0, %18 ]
   %25 = load ptr, ptr %15, align 8
-  %26 = getelementptr ptr, ptr %25, i64 %24
+  %26 = getelementptr [8 x i8], ptr %25, i64 %24
   %27 = load ptr, ptr %26, align 8
   tail call void @kfree(ptr noundef %27) #17
   %28 = add nuw nsw i64 %24, 1
@@ -1100,7 +1098,7 @@ define internal fastcc void @acpi_destroy_nondev_subnodes(ptr noundef %0) unname
 .preheader:                                       ; preds = %31, %.preheader
   %37 = phi i64 [ %41, %.preheader ], [ 0, %31 ]
   %38 = load ptr, ptr %28, align 8
-  %39 = getelementptr ptr, ptr %38, i64 %37
+  %39 = getelementptr [8 x i8], ptr %38, i64 %37
   %40 = load ptr, ptr %39, align 8
   tail call void @kfree(ptr noundef %40) #17
   %41 = add nuw nsw i64 %37, 1
@@ -1171,7 +1169,7 @@ define dso_local range(i32 -71, 1) i32 @acpi_dev_get_property(ptr noundef %0, pt
 
 28:                                               ; preds = %25, %21
   %29 = phi i64 [ 0, %21 ], [ %26, %25 ]
-  %.split = getelementptr %union.acpi_object, ptr %23, i64 %29
+  %.split = getelementptr [24 x i8], ptr %23, i64 %29
   %30 = getelementptr i8, ptr %.split, i64 8
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
@@ -1266,7 +1264,7 @@ define dso_local noundef range(i32 -22, 1) i32 @acpi_node_prop_get(ptr noundef %
 
 37:                                               ; preds = %44, %.split14.us.us
   %38 = phi i64 [ 0, %.split14.us.us ], [ %45, %44 ]
-  %.split.us.us = getelementptr %union.acpi_object, ptr %33, i64 %38
+  %.split.us.us = getelementptr [24 x i8], ptr %33, i64 %38
   %39 = getelementptr i8, ptr %.split.us.us, i64 8
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
@@ -1307,7 +1305,7 @@ define dso_local noundef range(i32 -22, 1) i32 @acpi_node_prop_get(ptr noundef %
 
 60:                                               ; preds = %57, %.split14
   %61 = phi i64 [ 0, %.split14 ], [ %58, %57 ]
-  %.split = getelementptr %union.acpi_object, ptr %55, i64 %61
+  %.split = getelementptr [24 x i8], ptr %55, i64 %61
   %62 = getelementptr i8, ptr %.split, i64 8
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
@@ -1410,7 +1408,7 @@ select.unfold:                                    ; preds = %19, %17
 
 54:                                               ; preds = %51
   %55 = add nuw nsw i64 %52, 1
-  %.split = getelementptr %union.acpi_object, ptr %41, i64 %55
+  %.split = getelementptr [24 x i8], ptr %41, i64 %55
   %56 = getelementptr i8, ptr %.split, i64 8
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
@@ -1517,7 +1515,7 @@ select.unfold34:                                  ; preds = %88, %92
 106:                                              ; preds = %101
   %107 = getelementptr i8, ptr %.lcssa120.lcssa.sink, i64 32
   %108 = load ptr, ptr %107, align 8
-  %109 = getelementptr %union.acpi_object, ptr %108, i64 %104
+  %109 = getelementptr [24 x i8], ptr %108, i64 %104
   %110 = icmp ult ptr %108, %109
   br i1 %110, label %111, label %.thread
 
@@ -1566,7 +1564,7 @@ select.unfold34:                                  ; preds = %88, %92
 134:                                              ; preds = %.preheader
   %135 = add i32 %132, 1
   %136 = zext i32 %135 to i64
-  %137 = getelementptr %union.acpi_object, ptr %124, i64 %136
+  %137 = getelementptr [24 x i8], ptr %124, i64 %136
   %138 = icmp ult ptr %137, %109
   %139 = icmp ugt i64 %3, %136
   %140 = and i1 %139, %138
@@ -1609,7 +1607,7 @@ select.unfold34:                                  ; preds = %88, %92
   %156 = getelementptr i8, ptr %124, i64 %.idx28
   %157 = getelementptr i8, ptr %156, i64 8
   %158 = load i64, ptr %157, align 8
-  %159 = getelementptr i64, ptr %152, i64 %155
+  %159 = getelementptr [8 x i8], ptr %152, i64 %155
   store i64 %158, ptr %159, align 8
   %160 = add nuw nsw i64 %155, 1
   %161 = icmp eq i64 %160, %153
@@ -1618,7 +1616,7 @@ select.unfold34:                                  ; preds = %88, %92
 .loopexit:                                        ; preds = %154, %144, %148, %.thread38, %.thread39
   %162 = phi i32 [ 0, %.thread38 ], [ 0, %.thread39 ], [ 0, %148 ], [ %142, %144 ], [ %142, %154 ]
   %163 = zext nneg i32 %162 to i64
-  %164 = getelementptr %union.acpi_object, ptr %124, i64 %163
+  %164 = getelementptr [24 x i8], ptr %124, i64 %163
   br i1 %126, label %.thread, label %232
 
 165:                                              ; preds = %114
@@ -1686,7 +1684,7 @@ select.unfold42:                                  ; preds = %175, %179
 196:                                              ; preds = %.preheader54
   %197 = add i32 %194, 1
   %198 = zext i32 %197 to i64
-  %199 = getelementptr %union.acpi_object, ptr %187, i64 %198
+  %199 = getelementptr [24 x i8], ptr %187, i64 %198
   %200 = icmp ult ptr %199, %109
   %201 = icmp ugt i64 %3, %198
   %202 = and i1 %201, %200
@@ -1729,7 +1727,7 @@ select.unfold42:                                  ; preds = %175, %179
   %218 = getelementptr i8, ptr %187, i64 %.idx
   %219 = getelementptr i8, ptr %218, i64 8
   %220 = load i64, ptr %219, align 8
-  %221 = getelementptr i64, ptr %214, i64 %217
+  %221 = getelementptr [8 x i8], ptr %214, i64 %217
   store i64 %220, ptr %221, align 8
   %222 = add nuw nsw i64 %217, 1
   %223 = icmp eq i64 %222, %215
@@ -1738,7 +1736,7 @@ select.unfold42:                                  ; preds = %175, %179
 .loopexit53:                                      ; preds = %216, %206, %210, %.thread46, %.thread47
   %224 = phi i32 [ 0, %.thread46 ], [ 0, %.thread47 ], [ 0, %210 ], [ %204, %206 ], [ %204, %216 ]
   %225 = zext nneg i32 %224 to i64
-  %226 = getelementptr %union.acpi_object, ptr %187, i64 %225
+  %226 = getelementptr [24 x i8], ptr %187, i64 %225
   br i1 %189, label %.thread, label %232
 
 227:                                              ; preds = %114
@@ -2091,7 +2089,7 @@ define internal noundef zeroext i1 @acpi_fwnode_property_present(ptr noundef %0,
 
 45:                                               ; preds = %42
   %46 = add nuw nsw i64 %43, 1
-  %.split = getelementptr %union.acpi_object, ptr %32, i64 %46
+  %.split = getelementptr [24 x i8], ptr %32, i64 %46
   %47 = getelementptr i8, ptr %.split, i64 8
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
@@ -2848,7 +2846,7 @@ define internal fastcc i32 @acpi_node_prop_read(ptr noundef %0, ptr noundef read
   br i1 %59, label %.critedge.backedge, label %60, !llvm.loop !8
 
 60:                                               ; preds = %.lr.ph137
-  %.split47 = getelementptr %union.acpi_object, ptr %46, i64 %58
+  %.split47 = getelementptr [24 x i8], ptr %46, i64 %58
   %61 = getelementptr i8, ptr %.split47, i64 8
   %62 = load ptr, ptr %61, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -2925,7 +2923,7 @@ define internal fastcc i32 @acpi_node_prop_read(ptr noundef %0, ptr noundef read
   br i1 %104, label %.critedge64.backedge, label %105, !llvm.loop !8
 
 105:                                              ; preds = %.lr.ph
-  %.split = getelementptr %union.acpi_object, ptr %91, i64 %103
+  %.split = getelementptr [24 x i8], ptr %91, i64 %103
   %106 = getelementptr i8, ptr %.split, i64 8
   %107 = load ptr, ptr %106, align 8
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 8
@@ -3094,7 +3092,7 @@ default.unreachable273:                           ; preds = %279, %121
   br i1 %193, label %.critedge66.backedge, label %194, !llvm.loop !8
 
 194:                                              ; preds = %.lr.ph147
-  %.split49 = getelementptr %union.acpi_object, ptr %179, i64 %192
+  %.split49 = getelementptr [24 x i8], ptr %179, i64 %192
   %195 = getelementptr i8, ptr %.split49, i64 8
   %196 = load ptr, ptr %195, align 8
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 8
@@ -3183,7 +3181,7 @@ default.unreachable273:                           ; preds = %279, %121
   br i1 %244, label %.critedge68.backedge, label %245, !llvm.loop !8
 
 245:                                              ; preds = %.lr.ph159
-  %.split51 = getelementptr %union.acpi_object, ptr %231, i64 %243
+  %.split51 = getelementptr [24 x i8], ptr %231, i64 %243
   %246 = getelementptr i8, ptr %.split51, i64 8
   %247 = load ptr, ptr %246, align 8
   %248 = getelementptr inbounds nuw i8, ptr %247, i64 8
@@ -3286,7 +3284,7 @@ default.unreachable273:                           ; preds = %279, %121
   br label %308
 
 298:                                              ; preds = %290
-  %299 = getelementptr %union.acpi_object, ptr %288, i64 %291
+  %299 = getelementptr [24 x i8], ptr %288, i64 %291
   %300 = load i32, ptr %299, align 8
   %301 = icmp eq i32 %300, 1
   br i1 %301, label %302, label %.thread55
@@ -3323,7 +3321,7 @@ default.unreachable273:                           ; preds = %279, %121
   br label %332
 
 322:                                              ; preds = %313
-  %323 = getelementptr %union.acpi_object, ptr %281, i64 %314
+  %323 = getelementptr [24 x i8], ptr %281, i64 %314
   %324 = load i32, ptr %323, align 8
   %325 = icmp eq i32 %324, 1
   br i1 %325, label %326, label %.thread55
@@ -3340,7 +3338,7 @@ default.unreachable273:                           ; preds = %279, %121
 
 332:                                              ; preds = %330, %317
   %333 = phi i16 [ %331, %330 ], [ %321, %317 ]
-  %334 = getelementptr i16, ptr %3, i64 %314
+  %334 = getelementptr [2 x i8], ptr %3, i64 %314
   store i16 %333, ptr %334, align 2
   %335 = add nuw i64 %314, 1
   %336 = icmp eq i64 %335, %4
@@ -3360,7 +3358,7 @@ default.unreachable273:                           ; preds = %279, %121
   br label %356
 
 346:                                              ; preds = %337
-  %347 = getelementptr %union.acpi_object, ptr %281, i64 %338
+  %347 = getelementptr [24 x i8], ptr %281, i64 %338
   %348 = load i32, ptr %347, align 8
   %349 = icmp eq i32 %348, 1
   br i1 %349, label %350, label %.thread55
@@ -3377,7 +3375,7 @@ default.unreachable273:                           ; preds = %279, %121
 
 356:                                              ; preds = %354, %341
   %357 = phi i32 [ %355, %354 ], [ %345, %341 ]
-  %358 = getelementptr i32, ptr %3, i64 %338
+  %358 = getelementptr [4 x i8], ptr %3, i64 %338
   store i32 %357, ptr %358, align 4
   %359 = add nuw i64 %338, 1
   %360 = icmp eq i64 %359, %4
@@ -3397,7 +3395,7 @@ default.unreachable273:                           ; preds = %279, %121
   br label %377
 
 370:                                              ; preds = %361
-  %371 = getelementptr %union.acpi_object, ptr %281, i64 %362
+  %371 = getelementptr [24 x i8], ptr %281, i64 %362
   %372 = load i32, ptr %371, align 8
   %373 = icmp eq i32 %372, 1
   br i1 %373, label %374, label %.thread55
@@ -3409,7 +3407,7 @@ default.unreachable273:                           ; preds = %279, %121
 
 377:                                              ; preds = %374, %365
   %378 = phi i64 [ %376, %374 ], [ %369, %365 ]
-  %379 = getelementptr i64, ptr %3, i64 %362
+  %379 = getelementptr [8 x i8], ptr %3, i64 %362
   store i64 %378, ptr %379, align 8
   %380 = add nuw i64 %362, 1
   %381 = icmp eq i64 %380, %4
@@ -3427,7 +3425,7 @@ default.unreachable273:                           ; preds = %279, %121
 .preheader:                                       ; preds = %382, %394
   %389 = phi i64 [ %399, %394 ], [ 0, %382 ]
   %390 = phi i32 [ %398, %394 ], [ 0, %382 ]
-  %391 = getelementptr %union.acpi_object, ptr %281, i64 %389
+  %391 = getelementptr [24 x i8], ptr %281, i64 %389
   %392 = load i32, ptr %391, align 8
   %393 = icmp eq i32 %392, 2
   br i1 %393, label %394, label %.thread55
@@ -3435,7 +3433,7 @@ default.unreachable273:                           ; preds = %279, %121
 394:                                              ; preds = %.preheader
   %395 = getelementptr inbounds nuw i8, ptr %391, i64 8
   %396 = load ptr, ptr %395, align 8
-  %397 = getelementptr ptr, ptr %3, i64 %389
+  %397 = getelementptr [8 x i8], ptr %3, i64 %389
   store ptr %396, ptr %397, align 8
   %398 = add nuw i32 %390, 1
   %399 = sext i32 %398 to i64

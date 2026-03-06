@@ -364,7 +364,7 @@ decode_skip_count.exit.thread251:                 ; preds = %52, %56
   %164 = add nsw i32 %163, %152
   %165 = tail call i32 @llvm.smax.i32(i32 %164, i32 0)
   %166 = tail call i32 @llvm.umin.i32(i32 %165, i32 63)
-  %167 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %167 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   store i32 %166, ptr %167, align 4, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -427,7 +427,7 @@ decode_skip_count.exit.thread251:                 ; preds = %52, %56
 
 206:                                              ; preds = %205, %206
   %indvars.iv298 = phi i64 [ 0, %205 ], [ %indvars.iv.next299, %206 ]
-  %207 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv298
+  %207 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv298
   store i32 %.3176, ptr %207, align 4, !tbaa !34
   %indvars.iv.next299 = add nuw nsw i64 %indvars.iv298, 1
   %exitcond301.not = icmp eq i64 %indvars.iv.next299, 4

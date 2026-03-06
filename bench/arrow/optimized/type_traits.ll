@@ -95,7 +95,7 @@ _ZN5arrow6StatusD2Ev.exit6:                       ; preds = %18, %21, %25
 
 switch.lookup:                                    ; preds = %8
   %26 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5arrow31RequiredValueAlignmentForBufferENS_4Type4typeEi, i64 %26
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5arrow31RequiredValueAlignmentForBufferENS_4Type4typeEi, i64 %26
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %27
 

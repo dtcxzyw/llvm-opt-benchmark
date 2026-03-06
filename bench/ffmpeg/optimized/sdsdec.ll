@@ -204,7 +204,7 @@ define internal void @byte2_read(ptr noundef readonly captures(none) %0, ptr nou
   %11 = shl nuw nsw i32 %10, 18
   %12 = add i32 %11, %7
   %13 = lshr exact i64 %indvars.iv, 1
-  %14 = getelementptr inbounds nuw i32, ptr %1, i64 %13
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %13
   store i32 %12, ptr %14, align 4, !tbaa !50
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %15 = icmp samesign ult i64 %indvars.iv, 118
@@ -237,7 +237,7 @@ define internal void @byte3_read(ptr noundef readonly captures(none) %0, ptr nou
   %.lhs.trunc = trunc nuw nsw i64 %indvars.iv to i8
   %18 = udiv i8 %.lhs.trunc, 3
   %19 = zext nneg i8 %18 to i64
-  %20 = getelementptr inbounds nuw i32, ptr %1, i64 %19
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %19
   store i32 %17, ptr %20, align 4, !tbaa !50
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 3
   %21 = icmp samesign ult i64 %indvars.iv, 117

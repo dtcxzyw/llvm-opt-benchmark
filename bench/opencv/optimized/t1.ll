@@ -3,19 +3,6 @@ source_filename = "bench/opencv/original/t1.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.opj_tcd_resolution = type { i32, i32, i32, i32, i32, i32, i32, [3 x %struct.opj_tcd_band], i32, i32, i32, i32 }
-%struct.opj_tcd_band = type { i32, i32, i32, i32, i32, ptr, i32, i32, float }
-%struct.opj_tcd_precinct = type { i32, i32, i32, i32, i32, i32, %union.anon, i32, ptr, ptr }
-%union.anon = type { ptr }
-%struct.opj_tcd_cblk_dec = type { ptr, ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32 }
-%struct.opj_tcd_seg_data_chunk = type { ptr, i32 }
-%struct.opj_tcd_seg = type { i32, i32, i32, i32, i32, i32 }
-%struct.opj_tcd_tilecomp = type { i32, i32, i32, i32, i32, i32, i32, ptr, i32, ptr, i32, i64, i64, ptr, i32, i32, i32, i32, i64 }
-%struct.opj_tccp = type { i32, i32, i32, i32, i32, i32, i32, [97 x %struct.opj_stepsize], i32, i32, [33 x i32], [33 x i32], i32 }
-%struct.opj_stepsize = type { i32, i32 }
-%struct.opj_tcd_cblk_enc = type { ptr, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
-%struct.opj_tcd_pass = type { i32, double, i32, i8 }
-
 @.str = private unnamed_addr constant [36 x i8] c"Cannot allocate cblk->decoded_data\0A\00", align 1
 @.str.1 = private unnamed_addr constant [31 x i8] c"Cannot allocate Tier 1 handle\0A\00", align 1
 @.str.2 = private unnamed_addr constant [32 x i8] c"Unable to set t1 handle as TLS\0A\00", align 1
@@ -108,7 +95,7 @@ define hidden void @opj_t1_decode_cblks(ptr noundef %0, ptr noundef %1, ptr noun
   %16 = phi i32 [ %11, %.lr.ph143 ], [ %131, %.critedge ]
   %indvars.iv160 = phi i64 [ 0, %.lr.ph143 ], [ %indvars.iv.next161, %.critedge ]
   %17 = load ptr, ptr %12, align 8, !tbaa !28
-  %18 = getelementptr inbounds nuw %struct.opj_tcd_resolution, ptr %17, i64 %indvars.iv160
+  %18 = getelementptr inbounds nuw [192 x i8], ptr %17, i64 %indvars.iv160
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %20 = load i32, ptr %19, align 8, !tbaa !29
   %.not108139.not = icmp eq i32 %20, 0
@@ -128,7 +115,7 @@ define hidden void @opj_t1_decode_cblks(ptr noundef %0, ptr noundef %1, ptr noun
   %27 = phi i32 [ %.pre163, %.lr.ph141 ], [ %128, %.thread123 ]
   %28 = phi i32 [ %.pre, %.lr.ph141 ], [ %129, %.thread123 ]
   %indvars.iv157 = phi i64 [ 0, %.lr.ph141 ], [ %indvars.iv.next158, %.thread123 ]
-  %29 = getelementptr inbounds nuw %struct.opj_tcd_band, ptr %21, i64 %indvars.iv157
+  %29 = getelementptr inbounds nuw [48 x i8], ptr %21, i64 %indvars.iv157
   %30 = mul i32 %27, %28
   %.not145 = icmp eq i32 %30, 0
   br i1 %.not145, label %.thread123, label %.lr.ph138
@@ -141,7 +128,7 @@ define hidden void @opj_t1_decode_cblks(ptr noundef %0, ptr noundef %1, ptr noun
 33:                                               ; preds = %.lr.ph138, %.thread119
   %indvars.iv154 = phi i64 [ 0, %.lr.ph138 ], [ %indvars.iv.next155, %.thread119 ]
   %34 = load ptr, ptr %31, align 8, !tbaa !33
-  %35 = getelementptr inbounds nuw %struct.opj_tcd_precinct, ptr %34, i64 %indvars.iv154
+  %35 = getelementptr inbounds nuw [56 x i8], ptr %34, i64 %indvars.iv154
   %36 = load i32, ptr %13, align 8, !tbaa !37
   %37 = load i32, ptr %32, align 8, !tbaa !38
   %38 = load i32, ptr %35, align 8, !tbaa !39
@@ -180,7 +167,7 @@ define hidden void @opj_t1_decode_cblks(ptr noundef %0, ptr noundef %1, ptr noun
   %55 = phi i32 [ %48, %.lr.ph136 ], [ %63, %61 ]
   %indvars.iv151 = phi i64 [ 0, %.lr.ph136 ], [ %indvars.iv.next152, %61 ]
   %56 = load ptr, ptr %52, align 8, !tbaa !47
-  %57 = getelementptr inbounds nuw %struct.opj_tcd_cblk_dec, ptr %56, i64 %indvars.iv151
+  %57 = getelementptr inbounds nuw [88 x i8], ptr %56, i64 %indvars.iv151
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 72
   %59 = load ptr, ptr %58, align 8, !tbaa !48
   %.not101 = icmp eq ptr %59, null
@@ -205,7 +192,7 @@ define hidden void @opj_t1_decode_cblks(ptr noundef %0, ptr noundef %1, ptr noun
 67:                                               ; preds = %.lr.ph, %.thread113
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.thread113 ]
   %68 = load ptr, ptr %51, align 8, !tbaa !47
-  %69 = getelementptr inbounds nuw %struct.opj_tcd_cblk_dec, ptr %68, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw [88 x i8], ptr %68, i64 %indvars.iv
   %70 = load i32, ptr %13, align 8, !tbaa !37
   %71 = load i32, ptr %32, align 8, !tbaa !38
   %72 = getelementptr inbounds nuw i8, ptr %69, i64 16
@@ -429,7 +416,7 @@ define internal void @opj_t1_clbl_decode_processor(ptr noundef %0, ptr noundef %
   %53 = load i32, ptr %52, align 8, !tbaa !24
   %54 = add i32 %53, -1
   %55 = zext i32 %54 to i64
-  %56 = getelementptr inbounds nuw %struct.opj_tcd_resolution, ptr %51, i64 %55
+  %56 = getelementptr inbounds nuw [192 x i8], ptr %51, i64 %55
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %58 = load i32, ptr %57, align 8, !tbaa !82
   %59 = load i32, ptr %56, align 8, !tbaa !83
@@ -595,7 +582,7 @@ opj_t1_destroy.exit:                              ; preds = %83, %86
 146:                                              ; preds = %146, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %146 ]
   %.0139277.i = phi i32 [ 0, %.lr.ph.i ], [ %150, %146 ]
-  %147 = getelementptr inbounds nuw %struct.opj_tcd_seg_data_chunk, ptr %145, i64 %indvars.iv.i
+  %147 = getelementptr inbounds nuw [16 x i8], ptr %145, i64 %indvars.iv.i
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 8
   %149 = load i32, ptr %148, align 8, !tbaa !93
   %150 = add i32 %149, %.0139277.i
@@ -644,14 +631,14 @@ opj_t1_destroy.exit:                              ; preds = %83, %86
   %.1140279.i = phi i32 [ 0, %.lr.ph281.i ], [ %179, %166 ]
   %168 = zext i32 %.1140279.i to i64
   %169 = getelementptr inbounds nuw i8, ptr %165, i64 %168
-  %170 = getelementptr inbounds nuw %struct.opj_tcd_seg_data_chunk, ptr %167, i64 %indvars.iv369.i
+  %170 = getelementptr inbounds nuw [16 x i8], ptr %167, i64 %indvars.iv369.i
   %171 = load ptr, ptr %170, align 8, !tbaa !97
   %172 = getelementptr inbounds nuw i8, ptr %170, i64 8
   %173 = load i32, ptr %172, align 8, !tbaa !93
   %174 = zext i32 %173 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %169, ptr align 1 %171, i64 %174, i1 false)
   %175 = load ptr, ptr %144, align 8, !tbaa !92
-  %176 = getelementptr inbounds nuw %struct.opj_tcd_seg_data_chunk, ptr %175, i64 %indvars.iv369.i
+  %176 = getelementptr inbounds nuw [16 x i8], ptr %175, i64 %indvars.iv369.i
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 8
   %178 = load i32, ptr %177, align 8, !tbaa !93
   %179 = add i32 %178, %.1140279.i
@@ -715,7 +702,7 @@ opj_t1_destroy.exit:                              ; preds = %83, %86
   %.0150291.i = phi i32 [ 2, %.lr.ph295.i ], [ %.1151.lcssa.i, %._crit_edge287.i ]
   %.0152290.i = phi i32 [ %128, %.lr.ph295.i ], [ %.1153.lcssa.i, %._crit_edge287.i ]
   %212 = load ptr, ptr %4, align 8, !tbaa !100
-  %213 = getelementptr inbounds nuw %struct.opj_tcd_seg, ptr %212, i64 %indvars.iv372.i
+  %213 = getelementptr inbounds nuw [24 x i8], ptr %212, i64 %indvars.iv372.i
   %214 = load i32, ptr %126, align 4, !tbaa !89
   %215 = add nsw i32 %214, -4
   %216 = icmp sgt i32 %.0152290.i, %215
@@ -768,7 +755,7 @@ opj_t1_destroy.exit:                              ; preds = %83, %86
   %235 = load i32, ptr %200, align 8, !tbaa !104
   %236 = add i32 %235, 3
   %237 = zext i32 %236 to i64
-  %238 = getelementptr inbounds nuw i32, ptr %234, i64 %237
+  %238 = getelementptr inbounds nuw [4 x i8], ptr %234, i64 %237
   %239 = shl nuw nsw i32 1, %.1153282.i
   %240 = lshr exact i32 %239, 1
   %241 = or i32 %240, %239
@@ -914,7 +901,7 @@ opj_mqc_raw_decode.exit21.i.us.i.i:               ; preds = %289, %286, %281, %2
   %308 = add i32 %296, 2
   %309 = zext i32 %308 to i64
   %310 = sub nsw i64 0, %309
-  %311 = getelementptr inbounds i32, ptr %.161115.us.i.i, i64 %310
+  %311 = getelementptr inbounds [4 x i8], ptr %.161115.us.i.i, i64 %310
   %312 = shl nuw i32 %294, 31
   %313 = or disjoint i32 %312, 65536
   %314 = load i32, ptr %311, align 4, !tbaa !59
@@ -938,7 +925,7 @@ opj_t1_update_flags.exit.i.us.i.i:                ; preds = %307, %opj_mqc_raw_d
 
 opj_t1_dec_sigpass_step_raw.exit.us.i.i:          ; preds = %opj_t1_update_flags.exit.i.us.i.i, %251
   %324 = phi i32 [ %323, %opj_t1_update_flags.exit.i.us.i.i ], [ %250, %251 ]
-  %325 = getelementptr inbounds nuw i32, ptr %.163112.us.i.i, i64 %244
+  %325 = getelementptr inbounds nuw [4 x i8], ptr %.163112.us.i.i, i64 %244
   %326 = and i32 %324, 16777344
   %327 = icmp ne i32 %326, 0
   %328 = and i32 %324, 3960
@@ -1058,7 +1045,7 @@ opj_t1_update_flags.exit.i76.us.i.i:              ; preds = %opj_mqc_raw_decode.
 
 opj_t1_dec_sigpass_step_raw.exit77.us.i.i:        ; preds = %opj_t1_update_flags.exit.i76.us.i.i, %opj_t1_dec_sigpass_step_raw.exit.us.i.i
   %382 = phi i32 [ %381, %opj_t1_update_flags.exit.i76.us.i.i ], [ %324, %opj_t1_dec_sigpass_step_raw.exit.us.i.i ]
-  %383 = getelementptr inbounds nuw i32, ptr %.163112.us.i.i, i64 %246
+  %383 = getelementptr inbounds nuw [4 x i8], ptr %.163112.us.i.i, i64 %246
   %384 = and i32 %382, 134218752
   %385 = icmp ne i32 %384, 0
   %386 = and i32 %382, 31680
@@ -1178,7 +1165,7 @@ opj_t1_update_flags.exit.i85.us.i.i:              ; preds = %opj_mqc_raw_decode.
 
 opj_t1_dec_sigpass_step_raw.exit86.us.i.i:        ; preds = %opj_t1_update_flags.exit.i85.us.i.i, %opj_t1_dec_sigpass_step_raw.exit77.us.i.i
   %440 = phi i32 [ %439, %opj_t1_update_flags.exit.i85.us.i.i ], [ %382, %opj_t1_dec_sigpass_step_raw.exit77.us.i.i ]
-  %441 = getelementptr inbounds nuw i32, ptr %.163112.us.i.i, i64 %248
+  %441 = getelementptr inbounds nuw [4 x i8], ptr %.163112.us.i.i, i64 %248
   %442 = and i32 %440, 1073750016
   %443 = icmp ne i32 %442, 0
   %444 = and i32 %440, 253440
@@ -1288,7 +1275,7 @@ opj_mqc_raw_decode.exit21.i92.us.i.i:             ; preds = %479, %476, %471, %4
   %497 = or i32 %496, 4096
   store i32 %497, ptr %495, align 4, !tbaa !59
   %498 = zext i32 %487 to i64
-  %499 = getelementptr inbounds nuw i32, ptr %.161115.us.i.i, i64 %498
+  %499 = getelementptr inbounds nuw [4 x i8], ptr %.161115.us.i.i, i64 %498
   %500 = shl nuw nsw i32 %484, 18
   %501 = or disjoint i32 %500, 2
   %502 = load i32, ptr %499, align 4, !tbaa !59
@@ -1320,7 +1307,7 @@ opj_t1_dec_sigpass_step_raw.exit95.us.i.i:        ; preds = %opj_t1_update_flags
 ._crit_edge.us.i.i:                               ; preds = %opj_t1_dec_sigpass_step_raw.exit95.us.i.i
   %515 = add nuw i32 %.065118.us.i.i, 4
   %516 = getelementptr inbounds nuw i8, ptr %.161115.us.i.i, i64 12
-  %517 = getelementptr inbounds nuw i32, ptr %514, i64 %248
+  %517 = getelementptr inbounds nuw [4 x i8], ptr %514, i64 %248
   %518 = load i32, ptr %201, align 4, !tbaa !105
   %519 = and i32 %518, -4
   %520 = icmp ult i32 %515, %519
@@ -1362,7 +1349,7 @@ opj_t1_dec_sigpass_step_raw.exit95.us.i.i:        ; preds = %opj_t1_update_flags
   %531 = trunc nuw i64 %indvars.iv.i.i to i32
   %532 = mul i32 %235, %531
   %533 = zext i32 %532 to i64
-  %534 = getelementptr inbounds nuw i32, ptr %.264131.i.i, i64 %533
+  %534 = getelementptr inbounds nuw [4 x i8], ptr %.264131.i.i, i64 %533
   %535 = mul i32 %531, 3
   %536 = shl i32 2097168, %535
   %537 = and i32 %536, %530
@@ -1484,7 +1471,7 @@ opj_mqc_raw_decode.exit21.i101.i.i:               ; preds = %574, %571, %570, %5
 597:                                              ; preds = %opj_mqc_raw_decode.exit21.i101.i.i
   %598 = zext i32 %584 to i64
   %599 = sub nsw i64 0, %598
-  %600 = getelementptr inbounds i32, ptr %.2132.i.i, i64 %599
+  %600 = getelementptr inbounds [4 x i8], ptr %.2132.i.i, i64 %599
   %601 = shl nuw i32 %581, 31
   %602 = or disjoint i32 %601, 65536
   %603 = load i32, ptr %600, align 4, !tbaa !59
@@ -1506,7 +1493,7 @@ opj_mqc_raw_decode.exit21.i101.i.i:               ; preds = %574, %571, %570, %5
 
 613:                                              ; preds = %611
   %614 = zext i32 %584 to i64
-  %615 = getelementptr inbounds nuw i32, ptr %.2132.i.i, i64 %614
+  %615 = getelementptr inbounds nuw [4 x i8], ptr %.2132.i.i, i64 %614
   %616 = shl nuw nsw i32 %581, 18
   %617 = or disjoint i32 %616, 2
   %618 = load i32, ptr %615, align 4, !tbaa !59
@@ -1561,7 +1548,7 @@ opj_t1_dec_sigpass_step_raw.exit105.i.i:          ; preds = %opj_t1_update_flags
   %644 = load i32, ptr %200, align 8, !tbaa !104
   %645 = add i32 %644, 3
   %646 = zext i32 %645 to i64
-  %647 = getelementptr inbounds nuw i32, ptr %643, i64 %646
+  %647 = getelementptr inbounds nuw [4 x i8], ptr %643, i64 %646
   %648 = shl nuw nsw i32 1, %.1153282.i
   %649 = lshr exact i32 %648, 1
   %650 = load i32, ptr %201, align 4, !tbaa !105
@@ -1651,7 +1638,7 @@ opj_mqc_raw_decode.exit.i.us.i197.i:              ; preds = %677, %674, %669, %6
 
 opj_t1_dec_refpass_step_raw.exit.us.i.i:          ; preds = %opj_mqc_raw_decode.exit.i.us.i197.i, %659
   %688 = phi i32 [ %687, %opj_mqc_raw_decode.exit.i.us.i197.i ], [ %658, %659 ]
-  %689 = getelementptr inbounds nuw i32, ptr %.15988.us.i.i, i64 %652
+  %689 = getelementptr inbounds nuw [4 x i8], ptr %.15988.us.i.i, i64 %652
   %690 = and i32 %688, 16777344
   %691 = icmp eq i32 %690, 128
   br i1 %691, label %692, label %opj_t1_dec_refpass_step_raw.exit69.us.i.i
@@ -1710,7 +1697,7 @@ opj_mqc_raw_decode.exit.i66.us.i.i:               ; preds = %707, %704, %699, %6
 
 opj_t1_dec_refpass_step_raw.exit69.us.i.i:        ; preds = %opj_mqc_raw_decode.exit.i66.us.i.i, %opj_t1_dec_refpass_step_raw.exit.us.i.i
   %718 = phi i32 [ %717, %opj_mqc_raw_decode.exit.i66.us.i.i ], [ %688, %opj_t1_dec_refpass_step_raw.exit.us.i.i ]
-  %719 = getelementptr inbounds nuw i32, ptr %.15988.us.i.i, i64 %654
+  %719 = getelementptr inbounds nuw [4 x i8], ptr %.15988.us.i.i, i64 %654
   %720 = and i32 %718, 134218752
   %721 = icmp eq i32 %720, 1024
   br i1 %721, label %722, label %opj_t1_dec_refpass_step_raw.exit74.us.i.i
@@ -1769,7 +1756,7 @@ opj_mqc_raw_decode.exit.i71.us.i195.i:            ; preds = %737, %734, %729, %7
 
 opj_t1_dec_refpass_step_raw.exit74.us.i.i:        ; preds = %opj_mqc_raw_decode.exit.i71.us.i195.i, %opj_t1_dec_refpass_step_raw.exit69.us.i.i
   %748 = phi i32 [ %747, %opj_mqc_raw_decode.exit.i71.us.i195.i ], [ %718, %opj_t1_dec_refpass_step_raw.exit69.us.i.i ]
-  %749 = getelementptr inbounds nuw i32, ptr %.15988.us.i.i, i64 %656
+  %749 = getelementptr inbounds nuw [4 x i8], ptr %.15988.us.i.i, i64 %656
   %750 = and i32 %748, 1073750016
   %751 = icmp eq i32 %750, 8192
   br i1 %751, label %752, label %opj_t1_dec_refpass_step_raw.exit79.us.i.i
@@ -1836,7 +1823,7 @@ opj_t1_dec_refpass_step_raw.exit79.us.i.i:        ; preds = %opj_mqc_raw_decode.
 ._crit_edge.us.i183.i:                            ; preds = %opj_t1_dec_refpass_step_raw.exit79.us.i.i
   %781 = add nuw i32 %.06193.us.i.i, 4
   %782 = getelementptr inbounds nuw i8, ptr %.15790.us.i.i, i64 12
-  %783 = getelementptr inbounds nuw i32, ptr %780, i64 %656
+  %783 = getelementptr inbounds nuw [4 x i8], ptr %780, i64 %656
   %784 = load i32, ptr %201, align 4, !tbaa !105
   %785 = and i32 %784, -4
   %786 = icmp ult i32 %781, %785
@@ -1876,7 +1863,7 @@ opj_t1_dec_refpass_step_raw.exit79.us.i.i:        ; preds = %opj_mqc_raw_decode.
   %794 = trunc nuw i64 %indvars.iv.i190.i to i32
   %795 = mul i32 %644, %794
   %796 = zext i32 %795 to i64
-  %797 = getelementptr inbounds nuw i32, ptr %.260105.i.i, i64 %796
+  %797 = getelementptr inbounds nuw [4 x i8], ptr %.260105.i.i, i64 %796
   %798 = mul i32 %794, 3
   %799 = shl i32 2097168, %798
   %800 = and i32 %799, %793
@@ -2011,7 +1998,7 @@ opj_t1_dec_refpass_step_raw.exit84.i.i:           ; preds = %opj_mqc_raw_decode.
   %864 = and i32 %857, 1048576
   %.not4.i.i.i.i = icmp eq i32 %864, 0
   %865 = select i1 %.not4.i.i.i.i, i64 %863, i64 16
-  %866 = getelementptr inbounds nuw ptr, ptr %206, i64 %865
+  %866 = getelementptr inbounds nuw [8 x i8], ptr %206, i64 %865
   %867 = load ptr, ptr %866, align 8, !tbaa !119
   %868 = load i32, ptr %867, align 8, !tbaa !121
   %869 = sub i32 %.1332497.i.i.i, %868
@@ -2190,7 +2177,7 @@ opj_t1_dec_refpass_step_raw.exit84.i.i:           ; preds = %opj_mqc_raw_decode.
   %954 = and i32 %.0401.i.i.i, 8388608
   %.not4.i461.i.i.i = icmp eq i32 %954, 0
   %955 = select i1 %.not4.i461.i.i.i, i64 %953, i64 16
-  %956 = getelementptr inbounds nuw ptr, ptr %206, i64 %955
+  %956 = getelementptr inbounds nuw [8 x i8], ptr %206, i64 %955
   %957 = load ptr, ptr %956, align 8, !tbaa !119
   %958 = load i32, ptr %957, align 8, !tbaa !121
   %959 = sub i32 %.3334.i.i.i, %958
@@ -2370,7 +2357,7 @@ opj_t1_dec_refpass_step_raw.exit84.i.i:           ; preds = %opj_mqc_raw_decode.
   %1045 = and i32 %.1402.i.i.i, 67108864
   %.not4.i463.i.i.i = icmp eq i32 %1045, 0
   %1046 = select i1 %.not4.i463.i.i.i, i64 %1044, i64 16
-  %1047 = getelementptr inbounds nuw ptr, ptr %206, i64 %1046
+  %1047 = getelementptr inbounds nuw [8 x i8], ptr %206, i64 %1046
   %1048 = load ptr, ptr %1047, align 8, !tbaa !119
   %1049 = load i32, ptr %1048, align 8, !tbaa !121
   %1050 = sub i32 %.8339.i.i.i, %1049
@@ -2550,7 +2537,7 @@ opj_t1_dec_refpass_step_raw.exit84.i.i:           ; preds = %opj_mqc_raw_decode.
   %1136 = and i32 %.2403.i.i.i, 536870912
   %.not4.i465.i.i.i = icmp eq i32 %1136, 0
   %1137 = select i1 %.not4.i465.i.i.i, i64 %1135, i64 16
-  %1138 = getelementptr inbounds nuw ptr, ptr %206, i64 %1137
+  %1138 = getelementptr inbounds nuw [8 x i8], ptr %206, i64 %1137
   %1139 = load ptr, ptr %1138, align 8, !tbaa !119
   %1140 = load i32, ptr %1139, align 8, !tbaa !121
   %1141 = sub i32 %.13344.i.i.i, %1140
@@ -2750,7 +2737,7 @@ opj_t1_dec_refpass_mqc_64x64.exit.i.i:            ; preds = %1226
 ._crit_edge.i200.i:                               ; preds = %840
   %1231 = add i32 %841, 3
   %1232 = zext i32 %1231 to i64
-  %1233 = getelementptr inbounds nuw i32, ptr %846, i64 %1232
+  %1233 = getelementptr inbounds nuw [4 x i8], ptr %846, i64 %1232
   %1234 = load ptr, ptr %204, align 8, !tbaa !117
   %1235 = load i32, ptr %.0254, align 8, !tbaa !107
   %1236 = load i32, ptr %205, align 4, !tbaa !118
@@ -2804,7 +2791,7 @@ opj_t1_dec_refpass_mqc_64x64.exit.i.i:            ; preds = %1226
   %1254 = and i32 %1247, 1048576
   %.not4.i.us.i.i.i = icmp eq i32 %1254, 0
   %1255 = select i1 %.not4.i.us.i.i.i, i64 %1253, i64 16
-  %1256 = getelementptr inbounds nuw ptr, ptr %206, i64 %1255
+  %1256 = getelementptr inbounds nuw [8 x i8], ptr %206, i64 %1255
   %1257 = load ptr, ptr %1256, align 8, !tbaa !119
   %1258 = load i32, ptr %1257, align 8, !tbaa !121
   %1259 = sub i32 %.1349524.us.i.i.i, %1258
@@ -2983,7 +2970,7 @@ opj_t1_dec_refpass_mqc_64x64.exit.i.i:            ; preds = %1226
   %1344 = and i32 %.0418.us.i.i.i, 8388608
   %.not4.i481.us.i.i.i = icmp eq i32 %1344, 0
   %1345 = select i1 %.not4.i481.us.i.i.i, i64 %1343, i64 16
-  %1346 = getelementptr inbounds nuw ptr, ptr %206, i64 %1345
+  %1346 = getelementptr inbounds nuw [8 x i8], ptr %206, i64 %1345
   %1347 = load ptr, ptr %1346, align 8, !tbaa !119
   %1348 = load i32, ptr %1347, align 8, !tbaa !121
   %1349 = sub i32 %.3351.us.i.i.i, %1348
@@ -3136,7 +3123,7 @@ opj_t1_dec_refpass_mqc_64x64.exit.i.i:            ; preds = %1226
   %.15386.us.i.i.i = phi i32 [ %.3374.us.i.i.i, %1357 ], [ %1420, %.loopexit493.us.i.loopexit.i.i ], [ %1389, %.loopexit493.us.i.loopexit77.i.i ]
   %.11359.us.i.i.i = phi i32 [ %1349, %1357 ], [ %1418, %.loopexit493.us.i.loopexit.i.i ], [ %1387, %.loopexit493.us.i.loopexit77.i.i ]
   %.15.us.i.i.i = phi i32 [ %1354, %1357 ], [ %1419, %.loopexit493.us.i.loopexit.i.i ], [ %1388, %.loopexit493.us.i.loopexit77.i.i ]
-  %1424 = getelementptr inbounds nuw i32, ptr %.1334528.us.i.i.i, i64 %1241
+  %1424 = getelementptr inbounds nuw [4 x i8], ptr %.1334528.us.i.i.i, i64 %1241
   %1425 = load i32, ptr %1424, align 4, !tbaa !59
   %.lobit466.us.i.i.i = lshr i32 %1425, 31
   %.not467.us.i.i.i = icmp eq i32 %.4410.us.i.i.i, %.lobit466.us.i.i.i
@@ -3163,7 +3150,7 @@ opj_t1_dec_refpass_mqc_64x64.exit.i.i:            ; preds = %1226
   %1435 = and i32 %.1419.us.i.i.i, 67108864
   %.not4.i483.us.i.i.i = icmp eq i32 %1435, 0
   %1436 = select i1 %.not4.i483.us.i.i.i, i64 %1434, i64 16
-  %1437 = getelementptr inbounds nuw ptr, ptr %206, i64 %1436
+  %1437 = getelementptr inbounds nuw [8 x i8], ptr %206, i64 %1436
   %1438 = load ptr, ptr %1437, align 8, !tbaa !119
   %1439 = load i32, ptr %1438, align 8, !tbaa !121
   %1440 = sub i32 %.8356.us.i.i.i, %1439
@@ -3316,7 +3303,7 @@ opj_t1_dec_refpass_mqc_64x64.exit.i.i:            ; preds = %1226
   %.23394.us.i.i.i = phi i32 [ %.11382.us.i.i.i, %1448 ], [ %1511, %.loopexit491.us.i.loopexit.i.i ], [ %1480, %.loopexit491.us.i.loopexit76.i.i ]
   %.16364.us.i.i.i = phi i32 [ %1440, %1448 ], [ %1509, %.loopexit491.us.i.loopexit.i.i ], [ %1478, %.loopexit491.us.i.loopexit76.i.i ]
   %.23.us.i.i.i = phi i32 [ %1445, %1448 ], [ %1510, %.loopexit491.us.i.loopexit.i.i ], [ %1479, %.loopexit491.us.i.loopexit76.i.i ]
-  %1515 = getelementptr inbounds nuw i32, ptr %.1334528.us.i.i.i, i64 %1243
+  %1515 = getelementptr inbounds nuw [4 x i8], ptr %.1334528.us.i.i.i, i64 %1243
   %1516 = load i32, ptr %1515, align 4, !tbaa !59
   %.lobit472.us.i.i.i = lshr i32 %1516, 31
   %.not473.us.i.i.i = icmp eq i32 %.7413.us.i.i.i, %.lobit472.us.i.i.i
@@ -3343,7 +3330,7 @@ opj_t1_dec_refpass_mqc_64x64.exit.i.i:            ; preds = %1226
   %1526 = and i32 %.2420.us.i.i.i, 536870912
   %.not4.i485.us.i.i.i = icmp eq i32 %1526, 0
   %1527 = select i1 %.not4.i485.us.i.i.i, i64 %1525, i64 16
-  %1528 = getelementptr inbounds nuw ptr, ptr %206, i64 %1527
+  %1528 = getelementptr inbounds nuw [8 x i8], ptr %206, i64 %1527
   %1529 = load ptr, ptr %1528, align 8, !tbaa !119
   %1530 = load i32, ptr %1529, align 8, !tbaa !121
   %1531 = sub i32 %.13361.us.i.i.i, %1530
@@ -3496,7 +3483,7 @@ opj_t1_dec_refpass_mqc_64x64.exit.i.i:            ; preds = %1226
   %.31402.us.i.i.i = phi i32 [ %.19390.us.i.i.i, %1539 ], [ %1602, %.loopexit489.us.i.loopexit.i.i ], [ %1571, %.loopexit489.us.i.loopexit75.i.i ]
   %.21369.us.i.i.i = phi i32 [ %1531, %1539 ], [ %1600, %.loopexit489.us.i.loopexit.i.i ], [ %1569, %.loopexit489.us.i.loopexit75.i.i ]
   %.31.us.i.i.i = phi i32 [ %1536, %1539 ], [ %1601, %.loopexit489.us.i.loopexit.i.i ], [ %1570, %.loopexit489.us.i.loopexit75.i.i ]
-  %1606 = getelementptr inbounds nuw i32, ptr %.1334528.us.i.i.i, i64 %1245
+  %1606 = getelementptr inbounds nuw [4 x i8], ptr %.1334528.us.i.i.i, i64 %1245
   %1607 = load i32, ptr %1606, align 4, !tbaa !59
   %.lobit478.us.i.i.i = lshr i32 %1607, 31
   %.not479.us.i.i.i = icmp eq i32 %.10416.us.i.i.i, %.lobit478.us.i.i.i
@@ -3528,7 +3515,7 @@ opj_t1_dec_refpass_mqc_64x64.exit.i.i:            ; preds = %1226
 
 ._crit_edge.us.i.i.i:                             ; preds = %1612
   %1616 = add nuw i32 %.0332541.us.i.i.i, 4
-  %1617 = getelementptr inbounds nuw i32, ptr %1614, i64 %1245
+  %1617 = getelementptr inbounds nuw [4 x i8], ptr %1614, i64 %1245
   %1618 = getelementptr inbounds nuw i8, ptr %.1336527.us.i.i.i, i64 12
   %1619 = load i32, ptr %201, align 4, !tbaa !105
   %1620 = and i32 %1619, -4
@@ -3591,7 +3578,7 @@ opj_t1_dec_refpass_mqc_64x64.exit.i.i:            ; preds = %1226
   %1638 = trunc nuw i64 %indvars.iv.i.i.i to i32
   %1639 = mul i32 %841, %1638
   %1640 = zext i32 %1639 to i64
-  %1641 = getelementptr inbounds nuw i32, ptr %.2560.i.i.i, i64 %1640
+  %1641 = getelementptr inbounds nuw [4 x i8], ptr %.2560.i.i.i, i64 %1640
   %1642 = mul i32 %1638, 3
   %1643 = shl i32 2097168, %1642
   %1644 = and i32 %1643, %1637
@@ -3607,7 +3594,7 @@ opj_t1_dec_refpass_mqc_64x64.exit.i.i:            ; preds = %1226
   %1651 = and i32 %1648, 1048576
   %.not4.i.i.i.i.i = icmp eq i32 %1651, 0
   %1652 = select i1 %.not4.i.i.i.i.i, i64 %1650, i64 16
-  %1653 = getelementptr inbounds nuw ptr, ptr %206, i64 %1652
+  %1653 = getelementptr inbounds nuw [8 x i8], ptr %206, i64 %1652
   store ptr %1653, ptr %204, align 8, !tbaa !117
   %1654 = load ptr, ptr %1653, align 8, !tbaa !119
   %1655 = load i32, ptr %1654, align 8, !tbaa !121
@@ -3938,7 +3925,7 @@ opj_t1_decode_cblk.exit:                          ; preds = %1809, %1807, %183, 
   %1824 = load ptr, ptr %50, align 8, !tbaa !28
   %1825 = add i32 %43, -1
   %1826 = zext i32 %1825 to i64
-  %1827 = getelementptr inbounds nuw %struct.opj_tcd_resolution, ptr %1824, i64 %1826
+  %1827 = getelementptr inbounds nuw [192 x i8], ptr %1824, i64 %1826
   %1828 = getelementptr inbounds nuw i8, ptr %1827, i64 8
   %1829 = load i32, ptr %1828, align 8, !tbaa !82
   %1830 = load i32, ptr %1827, align 8, !tbaa !83
@@ -3956,7 +3943,7 @@ opj_t1_decode_cblk.exit:                          ; preds = %1809, %1807, %183, 
   %1836 = load ptr, ptr %50, align 8, !tbaa !28
   %1837 = add i32 %43, -1
   %1838 = zext i32 %1837 to i64
-  %1839 = getelementptr inbounds nuw %struct.opj_tcd_resolution, ptr %1836, i64 %1838
+  %1839 = getelementptr inbounds nuw [192 x i8], ptr %1836, i64 %1838
   %1840 = getelementptr inbounds nuw i8, ptr %1839, i64 12
   %1841 = load i32, ptr %1840, align 4, !tbaa !155
   %1842 = getelementptr inbounds nuw i8, ptr %1839, i64 4
@@ -4012,7 +3999,7 @@ opj_t1_decode_cblk.exit:                          ; preds = %1809, %1807, %183, 
   %1864 = trunc nuw i64 %indvars.iv to i32
   %1865 = add i32 %1862, %1864
   %1866 = zext i32 %1865 to i64
-  %1867 = getelementptr inbounds nuw i32, ptr %1853, i64 %1866
+  %1867 = getelementptr inbounds nuw [4 x i8], ptr %1853, i64 %1866
   %1868 = load i32, ptr %1867, align 4, !tbaa !59
   %1869 = tail call i32 @llvm.abs.i32(i32 %1868, i1 true)
   %.highbits.us = lshr i32 %1869, %1859
@@ -4055,7 +4042,7 @@ opj_t1_decode_cblk.exit:                          ; preds = %1809, %1807, %183, 
   %1880 = trunc nuw i64 %indvars.iv483 to i32
   %1881 = add i32 %1878, %1880
   %1882 = zext i32 %1881 to i64
-  %1883 = getelementptr inbounds nuw i32, ptr %1853, i64 %1882
+  %1883 = getelementptr inbounds nuw [4 x i8], ptr %1853, i64 %1882
   store i32 0, ptr %1883, align 4, !tbaa !59
   %indvars.iv.next484 = add nuw nsw i64 %indvars.iv483, 1
   %exitcond487.not = icmp eq i64 %indvars.iv.next484, %wide.trip.count486
@@ -4086,7 +4073,7 @@ opj_t1_decode_cblk.exit:                          ; preds = %1809, %1807, %183, 
 
 .lr.ph376:                                        ; preds = %.lr.ph376.preheader, %.lr.ph376
   %indvars.iv490 = phi i64 [ 0, %.lr.ph376.preheader ], [ %indvars.iv.next491, %.lr.ph376 ]
-  %1890 = getelementptr inbounds nuw i32, ptr %1853, i64 %indvars.iv490
+  %1890 = getelementptr inbounds nuw [4 x i8], ptr %1853, i64 %indvars.iv490
   %1891 = load i32, ptr %1890, align 4, !tbaa !59
   %1892 = sdiv i32 %1891, 2
   store i32 %1892, ptr %1890, align 4, !tbaa !59
@@ -4166,8 +4153,8 @@ opj_t1_decode_cblk.exit:                          ; preds = %1809, %1807, %183, 
   %1933 = sext i32 %.0245 to i64
   %1934 = mul nsw i64 %1933, %1929
   %1935 = sext i32 %.0244 to i64
-  %1936 = getelementptr i32, ptr %1932, i64 %1934
-  %1937 = getelementptr i32, ptr %1936, i64 %1935
+  %1936 = getelementptr [4 x i8], ptr %1932, i64 %1934
+  %1937 = getelementptr [4 x i8], ptr %1936, i64 %1935
   %.not400 = icmp eq i32 %1857, 0
   br i1 %.not400, label %.loopexit, label %.preheader283.lr.ph
 
@@ -4187,7 +4174,7 @@ opj_t1_decode_cblk.exit:                          ; preds = %1809, %1807, %183, 
   %1940 = trunc nuw i64 %indvars.iv505 to i32
   %1941 = mul i32 %1855, %1940
   %1942 = mul nuw i64 %indvars.iv505, %1929
-  %1943 = getelementptr inbounds nuw i32, ptr %1937, i64 %1942
+  %1943 = getelementptr inbounds nuw [4 x i8], ptr %1937, i64 %1942
   br label %1951
 
 .preheader.loopexit:                              ; preds = %1951
@@ -4203,7 +4190,7 @@ opj_t1_decode_cblk.exit:                          ; preds = %1809, %1807, %183, 
   %1946 = trunc nuw i64 %indvars.iv505 to i32
   %1947 = mul i32 %1855, %1946
   %1948 = mul nuw i64 %indvars.iv505, %1929
-  %1949 = getelementptr inbounds nuw i32, ptr %1937, i64 %1948
+  %1949 = getelementptr inbounds nuw [4 x i8], ptr %1937, i64 %1948
   %1950 = zext i32 %.5.lcssa to i64
   br label %1978
 
@@ -4212,22 +4199,22 @@ opj_t1_decode_cblk.exit:                          ; preds = %1809, %1807, %183, 
   %1952 = trunc nuw i64 %indvars.iv497 to i32
   %1953 = add i32 %1941, %1952
   %1954 = zext i32 %1953 to i64
-  %1955 = getelementptr inbounds nuw i32, ptr %1853, i64 %1954
+  %1955 = getelementptr inbounds nuw [4 x i8], ptr %1853, i64 %1954
   %1956 = load i32, ptr %1955, align 4, !tbaa !59
   %1957 = add i32 %1953, 1
   %1958 = zext i32 %1957 to i64
-  %1959 = getelementptr inbounds nuw i32, ptr %1853, i64 %1958
+  %1959 = getelementptr inbounds nuw [4 x i8], ptr %1853, i64 %1958
   %1960 = load i32, ptr %1959, align 4, !tbaa !59
   %1961 = add i32 %1953, 2
   %1962 = zext i32 %1961 to i64
-  %1963 = getelementptr inbounds nuw i32, ptr %1853, i64 %1962
+  %1963 = getelementptr inbounds nuw [4 x i8], ptr %1853, i64 %1962
   %1964 = load i32, ptr %1963, align 4, !tbaa !59
   %1965 = add i32 %1953, 3
   %1966 = zext i32 %1965 to i64
-  %1967 = getelementptr inbounds nuw i32, ptr %1853, i64 %1966
+  %1967 = getelementptr inbounds nuw [4 x i8], ptr %1853, i64 %1966
   %1968 = load i32, ptr %1967, align 4, !tbaa !59
   %1969 = sdiv i32 %1956, 2
-  %1970 = getelementptr inbounds nuw i32, ptr %1943, i64 %indvars.iv497
+  %1970 = getelementptr inbounds nuw [4 x i8], ptr %1943, i64 %indvars.iv497
   store i32 %1969, ptr %1970, align 4, !tbaa !59
   %1971 = sdiv i32 %1960, 2
   %1972 = getelementptr inbounds nuw i8, ptr %1970, i64 4
@@ -4247,10 +4234,10 @@ opj_t1_decode_cblk.exit:                          ; preds = %1809, %1807, %183, 
   %1979 = trunc nuw i64 %indvars.iv500 to i32
   %1980 = add i32 %1947, %1979
   %1981 = zext i32 %1980 to i64
-  %1982 = getelementptr inbounds nuw i32, ptr %1853, i64 %1981
+  %1982 = getelementptr inbounds nuw [4 x i8], ptr %1853, i64 %1981
   %1983 = load i32, ptr %1982, align 4, !tbaa !59
   %1984 = sdiv i32 %1983, 2
-  %1985 = getelementptr inbounds nuw i32, ptr %1949, i64 %indvars.iv500
+  %1985 = getelementptr inbounds nuw [4 x i8], ptr %1949, i64 %indvars.iv500
   store i32 %1984, ptr %1985, align 4, !tbaa !59
   %indvars.iv.next501 = add nuw nsw i64 %indvars.iv500, 1
   %exitcond504.not = icmp eq i64 %indvars.iv.next501, %wide.trip.count503
@@ -4275,9 +4262,9 @@ opj_t1_decode_cblk.exit:                          ; preds = %1809, %1807, %183, 
   %1991 = load ptr, ptr %1990, align 8, !tbaa !166
   %1992 = sext i32 %.0245 to i64
   %1993 = mul nsw i64 %1992, %1929
-  %1994 = getelementptr i32, ptr %1991, i64 %1993
+  %1994 = getelementptr [4 x i8], ptr %1991, i64 %1993
   %1995 = sext i32 %.0244 to i64
-  %1996 = getelementptr i32, ptr %1994, i64 %1995
+  %1996 = getelementptr [4 x i8], ptr %1994, i64 %1995
   br label %.preheader284.us
 
 .preheader284.us:                                 ; preds = %.preheader284.us.preheader, %._crit_edge.us385
@@ -4301,7 +4288,7 @@ opj_t1_decode_cblk.exit:                          ; preds = %1809, %1807, %183, 
   br i1 %exitcond495.not, label %._crit_edge.us385, label %1997, !llvm.loop !171
 
 ._crit_edge.us385:                                ; preds = %1997
-  %2004 = getelementptr inbounds nuw float, ptr %.0243383.us, i64 %1929
+  %2004 = getelementptr inbounds nuw [4 x i8], ptr %.0243383.us, i64 %1929
   %2005 = add nuw i32 %.3253382.us, 1
   %exitcond496.not = icmp eq i32 %2005, %1857
   br i1 %exitcond496.not, label %.loopexit, label %.preheader284.us, !llvm.loop !172
@@ -4341,9 +4328,9 @@ define hidden i32 @opj_t1_encode_cblks(ptr noundef readonly captures(none) %0, p
   %16 = phi i32 [ %12, %.lr.ph101 ], [ %86, %._crit_edge98 ]
   %indvars.iv117 = phi i64 [ 0, %.lr.ph101 ], [ %indvars.iv.next118, %._crit_edge98 ]
   %17 = load ptr, ptr %13, align 8, !tbaa !177
-  %18 = getelementptr inbounds nuw %struct.opj_tcd_tilecomp, ptr %17, i64 %indvars.iv117
+  %18 = getelementptr inbounds nuw [112 x i8], ptr %17, i64 %indvars.iv117
   %19 = load ptr, ptr %14, align 8, !tbaa !178
-  %20 = getelementptr inbounds nuw %struct.opj_tccp, ptr %19, i64 %indvars.iv117
+  %20 = getelementptr inbounds nuw [1080 x i8], ptr %19, i64 %indvars.iv117
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 20
   %22 = load i32, ptr %21, align 4, !tbaa !185
   %.not103 = icmp eq i32 %22, 0
@@ -4358,7 +4345,7 @@ define hidden i32 @opj_t1_encode_cblks(ptr noundef readonly captures(none) %0, p
   %26 = phi i32 [ %22, %.lr.ph97 ], [ %82, %._crit_edge94 ]
   %indvars.iv114 = phi i64 [ 0, %.lr.ph97 ], [ %indvars.iv.next115, %._crit_edge94 ]
   %27 = load ptr, ptr %23, align 8, !tbaa !28
-  %28 = getelementptr inbounds nuw %struct.opj_tcd_resolution, ptr %27, i64 %indvars.iv114
+  %28 = getelementptr inbounds nuw [192 x i8], ptr %27, i64 %indvars.iv114
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %30 = load i32, ptr %29, align 8, !tbaa !29
   %.not104 = icmp eq i32 %30, 0
@@ -4373,7 +4360,7 @@ define hidden i32 @opj_t1_encode_cblks(ptr noundef readonly captures(none) %0, p
 
 35:                                               ; preds = %.lr.ph93, %.loopexit
   %indvars.iv111 = phi i64 [ 0, %.lr.ph93 ], [ %indvars.iv.next112, %.loopexit ]
-  %36 = getelementptr inbounds nuw %struct.opj_tcd_band, ptr %31, i64 %indvars.iv111
+  %36 = getelementptr inbounds nuw [48 x i8], ptr %31, i64 %indvars.iv111
   %37 = call i32 @opj_tcd_is_band_empty(ptr noundef nonnull %36) #12
   %.not = icmp eq i32 %37, 0
   br i1 %.not, label %.preheader, label %.loopexit
@@ -4394,7 +4381,7 @@ define hidden i32 @opj_t1_encode_cblks(ptr noundef readonly captures(none) %0, p
   %44 = phi i32 [ %38, %.lr.ph90 ], [ %75, %._crit_edge ]
   %indvars.iv108 = phi i64 [ 0, %.lr.ph90 ], [ %indvars.iv.next109, %._crit_edge ]
   %45 = load ptr, ptr %41, align 8, !tbaa !33
-  %46 = getelementptr inbounds nuw %struct.opj_tcd_precinct, ptr %45, i64 %indvars.iv108
+  %46 = getelementptr inbounds nuw [56 x i8], ptr %45, i64 %indvars.iv108
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 20
   %49 = load i32, ptr %47, align 8, !tbaa !45
@@ -4415,7 +4402,7 @@ define hidden i32 @opj_t1_encode_cblks(ptr noundef readonly captures(none) %0, p
   br i1 %.not74.not, label %85, label %56
 
 56:                                               ; preds = %53
-  %57 = getelementptr inbounds nuw %struct.opj_tcd_cblk_enc, ptr %54, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [64 x i8], ptr %54, i64 %indvars.iv
   store i32 %24, ptr %55, align 8, !tbaa !186
   %58 = getelementptr inbounds nuw i8, ptr %55, i64 16
   store ptr %1, ptr %58, align 8, !tbaa !190
@@ -4576,7 +4563,7 @@ opj_t1_create.exit:                               ; preds = %32, %34
   %43 = load ptr, ptr %42, align 8, !tbaa !28
   %44 = add i32 %12, -1
   %45 = zext i32 %44 to i64
-  %46 = getelementptr inbounds nuw %struct.opj_tcd_resolution, ptr %43, i64 %45
+  %46 = getelementptr inbounds nuw [192 x i8], ptr %43, i64 %45
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %48 = load i32, ptr %47, align 8, !tbaa !82
   %49 = load i32, ptr %46, align 8, !tbaa !83
@@ -4595,7 +4582,7 @@ opj_t1_create.exit:                               ; preds = %32, %34
   %56 = load ptr, ptr %55, align 8, !tbaa !28
   %57 = add i32 %12, -1
   %58 = zext i32 %57 to i64
-  %59 = getelementptr inbounds nuw %struct.opj_tcd_resolution, ptr %56, i64 %58
+  %59 = getelementptr inbounds nuw [192 x i8], ptr %56, i64 %58
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 12
   %61 = load i32, ptr %60, align 4, !tbaa !155
   %62 = getelementptr inbounds nuw i8, ptr %59, i64 4
@@ -4634,8 +4621,8 @@ opj_t1_create.exit:                               ; preds = %32, %34
   %86 = zext i32 %16 to i64
   %87 = mul nsw i64 %85, %86
   %88 = sext i32 %.0168 to i64
-  %89 = getelementptr i32, ptr %84, i64 %87
-  %90 = getelementptr i32, ptr %89, i64 %88
+  %89 = getelementptr [4 x i8], ptr %84, i64 %87
+  %90 = getelementptr [4 x i8], ptr %89, i64 %88
   %91 = getelementptr inbounds nuw i8, ptr %10, i64 20
   %92 = load i32, ptr %91, align 4, !tbaa !161
   %93 = icmp eq i32 %92, 1
@@ -4674,27 +4661,27 @@ opj_t1_create.exit:                               ; preds = %32, %34
   %106 = trunc nuw i64 %indvars.iv432 to i32
   %107 = add i32 %98, %106
   %108 = zext i32 %107 to i64
-  %109 = getelementptr inbounds nuw i32, ptr %90, i64 %108
+  %109 = getelementptr inbounds nuw [4 x i8], ptr %90, i64 %108
   %110 = load i32, ptr %109, align 4, !tbaa !59
   %111 = shl i32 %110, 6
   store i32 %111, ptr %.1163298.us, align 4, !tbaa !59
   %112 = add i32 %100, %106
   %113 = zext i32 %112 to i64
-  %114 = getelementptr inbounds nuw i32, ptr %90, i64 %113
+  %114 = getelementptr inbounds nuw [4 x i8], ptr %90, i64 %113
   %115 = load i32, ptr %114, align 4, !tbaa !59
   %116 = shl i32 %115, 6
   %117 = getelementptr inbounds nuw i8, ptr %.1163298.us, i64 4
   store i32 %116, ptr %117, align 4, !tbaa !59
   %118 = add i32 %102, %106
   %119 = zext i32 %118 to i64
-  %120 = getelementptr inbounds nuw i32, ptr %90, i64 %119
+  %120 = getelementptr inbounds nuw [4 x i8], ptr %90, i64 %119
   %121 = load i32, ptr %120, align 4, !tbaa !59
   %122 = shl i32 %121, 6
   %123 = getelementptr inbounds nuw i8, ptr %.1163298.us, i64 8
   store i32 %122, ptr %123, align 4, !tbaa !59
   %124 = add i32 %104, %106
   %125 = zext i32 %124 to i64
-  %126 = getelementptr inbounds nuw i32, ptr %90, i64 %125
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %90, i64 %125
   %127 = load i32, ptr %126, align 4, !tbaa !59
   %128 = shl i32 %127, 6
   %129 = getelementptr inbounds nuw i8, ptr %.1163298.us, i64 12
@@ -4734,7 +4721,7 @@ opj_t1_create.exit:                               ; preds = %32, %34
   %138 = mul i32 %16, %137
   %139 = add i32 %138, %.1158312.us
   %140 = zext i32 %139 to i64
-  %141 = getelementptr inbounds nuw i32, ptr %90, i64 %140
+  %141 = getelementptr inbounds nuw [4 x i8], ptr %90, i64 %140
   %142 = load i32, ptr %141, align 4, !tbaa !59
   %143 = shl i32 %142, 6
   store i32 %143, ptr %.3165309.us, align 4, !tbaa !59
@@ -4779,7 +4766,7 @@ opj_t1_create.exit:                               ; preds = %32, %34
   %157 = trunc nuw i64 %indvars.iv to i32
   %158 = add i32 %149, %157
   %159 = zext i32 %158 to i64
-  %160 = getelementptr inbounds nuw float, ptr %90, i64 %159
+  %160 = getelementptr inbounds nuw [4 x i8], ptr %90, i64 %159
   %161 = load float, ptr %160, align 4, !tbaa !170
   %162 = fdiv float %161, %148
   %163 = fmul float %162, 6.400000e+01
@@ -4788,7 +4775,7 @@ opj_t1_create.exit:                               ; preds = %32, %34
   store i32 %165, ptr %.1285.us, align 4, !tbaa !59
   %166 = add i32 %151, %157
   %167 = zext i32 %166 to i64
-  %168 = getelementptr inbounds nuw float, ptr %90, i64 %167
+  %168 = getelementptr inbounds nuw [4 x i8], ptr %90, i64 %167
   %169 = load float, ptr %168, align 4, !tbaa !170
   %170 = fdiv float %169, %148
   %171 = fmul float %170, 6.400000e+01
@@ -4798,7 +4785,7 @@ opj_t1_create.exit:                               ; preds = %32, %34
   store i32 %173, ptr %174, align 4, !tbaa !59
   %175 = add i32 %153, %157
   %176 = zext i32 %175 to i64
-  %177 = getelementptr inbounds nuw float, ptr %90, i64 %176
+  %177 = getelementptr inbounds nuw [4 x i8], ptr %90, i64 %176
   %178 = load float, ptr %177, align 4, !tbaa !170
   %179 = fdiv float %178, %148
   %180 = fmul float %179, 6.400000e+01
@@ -4808,7 +4795,7 @@ opj_t1_create.exit:                               ; preds = %32, %34
   store i32 %182, ptr %183, align 4, !tbaa !59
   %184 = add i32 %155, %157
   %185 = zext i32 %184 to i64
-  %186 = getelementptr inbounds nuw float, ptr %90, i64 %185
+  %186 = getelementptr inbounds nuw [4 x i8], ptr %90, i64 %185
   %187 = load float, ptr %186, align 4, !tbaa !170
   %188 = fdiv float %187, %148
   %189 = fmul float %188, 6.400000e+01
@@ -4852,7 +4839,7 @@ opj_t1_create.exit:                               ; preds = %32, %34
   %203 = mul i32 %16, %202
   %204 = add i32 %203, %.3160294.us
   %205 = zext i32 %204 to i64
-  %206 = getelementptr inbounds nuw float, ptr %90, i64 %205
+  %206 = getelementptr inbounds nuw [4 x i8], ptr %90, i64 %205
   %207 = load float, ptr %206, align 4, !tbaa !170
   %208 = fdiv float %207, %199
   %209 = fmul float %208, 6.400000e+01
@@ -5021,7 +5008,7 @@ opj_t1_create.exit:                               ; preds = %32, %34
   %284 = icmp ult i32 %215, %230
   %or.cond.i269.i = and i1 %.not.i268.i, %284
   %285 = zext i32 %215 to i64
-  %286 = getelementptr inbounds nuw double, ptr %228, i64 %285
+  %286 = getelementptr inbounds nuw [8 x i8], ptr %228, i64 %285
   %287 = icmp eq i32 %220, 1
   %288 = icmp eq i32 %214, 0
   %289 = icmp eq i32 %214, 3
@@ -5046,7 +5033,7 @@ opj_t1_create.exit:                               ; preds = %32, %34
   %.0135402.i = phi i32 [ 2, %.lr.ph408.i ], [ %spec.select.i, %2558 ]
   %299 = load ptr, ptr %270, align 8, !tbaa !228
   %300 = zext i32 %.0131405.i to i64
-  %301 = getelementptr inbounds nuw %struct.opj_tcd_pass, ptr %299, i64 %300
+  %301 = getelementptr inbounds nuw [24 x i8], ptr %299, i64 %300
   %302 = load i32, ptr %265, align 8, !tbaa !225
   %303 = add nsw i32 %302, -4
   %304 = icmp slt i32 %.0133404.i, %303
@@ -5059,7 +5046,7 @@ opj_t1_create.exit:                               ; preds = %32, %34
 307:                                              ; preds = %298
   %308 = add i32 %.0131405.i, -1
   %309 = zext i32 %308 to i64
-  %310 = getelementptr inbounds nuw %struct.opj_tcd_pass, ptr %299, i64 %309
+  %310 = getelementptr inbounds nuw [24 x i8], ptr %299, i64 %309
   %311 = getelementptr inbounds nuw i8, ptr %310, i64 20
   %312 = load i8, ptr %311, align 4
   %313 = and i8 %312, 1
@@ -5093,7 +5080,7 @@ opj_t1_create.exit:                               ; preds = %32, %34
   %322 = load i32, ptr %79, align 8, !tbaa !104
   %323 = add i32 %322, 3
   %324 = zext i32 %323 to i64
-  %325 = getelementptr inbounds nuw i32, ptr %321, i64 %324
+  %325 = getelementptr inbounds nuw [4 x i8], ptr %321, i64 %324
   %326 = load ptr, ptr %273, align 8, !tbaa !117
   %327 = load i32, ptr %.0, align 8, !tbaa !107
   %328 = load i32, ptr %274, align 4, !tbaa !118
@@ -5163,7 +5150,7 @@ opj_t1_create.exit:                               ; preds = %32, %34
   %.not1023.i.i = icmp ne i32 %351, 0
   %352 = zext i1 %.not1023.i.i to i32
   %353 = zext i8 %349 to i64
-  %354 = getelementptr inbounds nuw ptr, ptr %279, i64 %353
+  %354 = getelementptr inbounds nuw [8 x i8], ptr %279, i64 %353
   br i1 %.not1024.i.i, label %369, label %355
 
 355:                                              ; preds = %346
@@ -5307,16 +5294,16 @@ opj_t1_create.exit:                               ; preds = %32, %34
   %434 = lshr i32 %433, %.0133404.i
   %435 = and i32 %434, 127
   %436 = zext nneg i32 %435 to i64
-  %437 = getelementptr inbounds nuw i16, ptr @lut_nmsedec_sig, i64 %436
+  %437 = getelementptr inbounds nuw [2 x i8], ptr @lut_nmsedec_sig, i64 %436
   %438 = and i32 %431, 127
   %439 = zext nneg i32 %438 to i64
-  %440 = getelementptr inbounds nuw i16, ptr @lut_nmsedec_sig0, i64 %439
+  %440 = getelementptr inbounds nuw [2 x i8], ptr @lut_nmsedec_sig0, i64 %439
   %.0.in.i.i.i = select i1 %.not.i.i.i, ptr %440, ptr %437
   %.0.i1050.i.i = load i16, ptr %.0.in.i.i.i, align 2, !tbaa !233
   %441 = sext i16 %.0.i1050.i.i to i32
   %442 = add nsw i32 %.2288.i, %441
   %443 = zext i8 %430 to i64
-  %444 = getelementptr inbounds nuw ptr, ptr %279, i64 %443
+  %444 = getelementptr inbounds nuw [8 x i8], ptr %279, i64 %443
   br i1 %.not1024.i.i, label %459, label %445
 
 445:                                              ; preds = %413
@@ -5452,7 +5439,7 @@ opj_t1_create.exit:                               ; preds = %32, %34
   %517 = add i32 %507, 2
   %518 = zext i32 %517 to i64
   %519 = sub nsw i64 0, %518
-  %520 = getelementptr inbounds i32, ptr %.17481125.i.i, i64 %519
+  %520 = getelementptr inbounds [4 x i8], ptr %.17481125.i.i, i64 %519
   %521 = and i32 %431, -2147483648
   %522 = load i32, ptr %520, align 4, !tbaa !59
   %523 = or i32 %521, %522
@@ -5507,7 +5494,7 @@ opj_t1_update_flags.exit.i.i:                     ; preds = %516, %.loopexit1095
   %.not1026.i.i = icmp ne i32 %546, 0
   %547 = zext i1 %.not1026.i.i to i32
   %548 = zext i8 %544 to i64
-  %549 = getelementptr inbounds nuw ptr, ptr %279, i64 %548
+  %549 = getelementptr inbounds nuw [8 x i8], ptr %279, i64 %548
   br i1 %.not1024.i.i, label %564, label %550
 
 550:                                              ; preds = %539
@@ -5652,16 +5639,16 @@ opj_t1_update_flags.exit.i.i:                     ; preds = %516, %.loopexit1095
   %630 = lshr i32 %629, %.0133404.i
   %631 = and i32 %630, 127
   %632 = zext nneg i32 %631 to i64
-  %633 = getelementptr inbounds nuw i16, ptr @lut_nmsedec_sig, i64 %632
+  %633 = getelementptr inbounds nuw [2 x i8], ptr @lut_nmsedec_sig, i64 %632
   %634 = and i32 %627, 127
   %635 = zext nneg i32 %634 to i64
-  %636 = getelementptr inbounds nuw i16, ptr @lut_nmsedec_sig0, i64 %635
+  %636 = getelementptr inbounds nuw [2 x i8], ptr @lut_nmsedec_sig0, i64 %635
   %.0.in.i1055.i.i = select i1 %.not.i.i.i, ptr %636, ptr %633
   %.0.i1056.i.i = load i16, ptr %.0.in.i1055.i.i, align 2, !tbaa !233
   %637 = sext i16 %.0.i1056.i.i to i32
   %638 = add nsw i32 %.4.i, %637
   %639 = zext i8 %626 to i64
-  %640 = getelementptr inbounds nuw ptr, ptr %279, i64 %639
+  %640 = getelementptr inbounds nuw [8 x i8], ptr %279, i64 %639
   br i1 %.not1024.i.i, label %655, label %641
 
 641:                                              ; preds = %608
@@ -5829,7 +5816,7 @@ opj_t1_update_flags.exit.i.i:                     ; preds = %516, %.loopexit1095
   %.not1029.i.i = icmp ne i32 %727, 0
   %728 = zext i1 %.not1029.i.i to i32
   %729 = zext i8 %725 to i64
-  %730 = getelementptr inbounds nuw ptr, ptr %279, i64 %729
+  %730 = getelementptr inbounds nuw [8 x i8], ptr %279, i64 %729
   br i1 %.not1024.i.i, label %745, label %731
 
 731:                                              ; preds = %720
@@ -5974,16 +5961,16 @@ opj_t1_update_flags.exit.i.i:                     ; preds = %516, %.loopexit1095
   %811 = lshr i32 %810, %.0133404.i
   %812 = and i32 %811, 127
   %813 = zext nneg i32 %812 to i64
-  %814 = getelementptr inbounds nuw i16, ptr @lut_nmsedec_sig, i64 %813
+  %814 = getelementptr inbounds nuw [2 x i8], ptr @lut_nmsedec_sig, i64 %813
   %815 = and i32 %808, 127
   %816 = zext nneg i32 %815 to i64
-  %817 = getelementptr inbounds nuw i16, ptr @lut_nmsedec_sig0, i64 %816
+  %817 = getelementptr inbounds nuw [2 x i8], ptr @lut_nmsedec_sig0, i64 %816
   %.0.in.i1061.i.i = select i1 %.not.i.i.i, ptr %817, ptr %814
   %.0.i1062.i.i = load i16, ptr %.0.in.i1061.i.i, align 2, !tbaa !233
   %818 = sext i16 %.0.i1062.i.i to i32
   %819 = add nsw i32 %.6.i, %818
   %820 = zext i8 %807 to i64
-  %821 = getelementptr inbounds nuw ptr, ptr %279, i64 %820
+  %821 = getelementptr inbounds nuw [8 x i8], ptr %279, i64 %820
   br i1 %.not1024.i.i, label %836, label %822
 
 822:                                              ; preds = %789
@@ -6151,7 +6138,7 @@ opj_t1_update_flags.exit.i.i:                     ; preds = %516, %.loopexit1095
   %.not1032.i.i = icmp ne i32 %908, 0
   %909 = zext i1 %.not1032.i.i to i32
   %910 = zext i8 %906 to i64
-  %911 = getelementptr inbounds nuw ptr, ptr %279, i64 %910
+  %911 = getelementptr inbounds nuw [8 x i8], ptr %279, i64 %910
   br i1 %.not1024.i.i, label %926, label %912
 
 912:                                              ; preds = %901
@@ -6296,16 +6283,16 @@ opj_t1_update_flags.exit.i.i:                     ; preds = %516, %.loopexit1095
   %992 = lshr i32 %991, %.0133404.i
   %993 = and i32 %992, 127
   %994 = zext nneg i32 %993 to i64
-  %995 = getelementptr inbounds nuw i16, ptr @lut_nmsedec_sig, i64 %994
+  %995 = getelementptr inbounds nuw [2 x i8], ptr @lut_nmsedec_sig, i64 %994
   %996 = and i32 %989, 127
   %997 = zext nneg i32 %996 to i64
-  %998 = getelementptr inbounds nuw i16, ptr @lut_nmsedec_sig0, i64 %997
+  %998 = getelementptr inbounds nuw [2 x i8], ptr @lut_nmsedec_sig0, i64 %997
   %.0.in.i1067.i.i = select i1 %.not.i.i.i, ptr %998, ptr %995
   %.0.i1068.i.i = load i16, ptr %.0.in.i1067.i.i, align 2, !tbaa !233
   %999 = sext i16 %.0.i1068.i.i to i32
   %1000 = add nsw i32 %.8.i, %999
   %1001 = zext i8 %988 to i64
-  %1002 = getelementptr inbounds nuw ptr, ptr %279, i64 %1001
+  %1002 = getelementptr inbounds nuw [8 x i8], ptr %279, i64 %1001
   br i1 %.not1024.i.i, label %1017, label %1003
 
 1003:                                             ; preds = %970
@@ -6437,7 +6424,7 @@ opj_t1_update_flags.exit.i.i:                     ; preds = %516, %.loopexit1095
   %1074 = or i32 %1073, 4096
   store i32 %1074, ptr %973, align 4, !tbaa !59
   %1075 = zext i32 %1066 to i64
-  %1076 = getelementptr inbounds nuw i32, ptr %.17481125.i.i, i64 %1075
+  %1076 = getelementptr inbounds nuw [4 x i8], ptr %.17481125.i.i, i64 %1075
   %1077 = shl nuw nsw i32 %990, 18
   %1078 = or disjoint i32 %1077, 2
   %1079 = load i32, ptr %1076, align 4, !tbaa !59
@@ -6549,7 +6536,7 @@ opj_t1_update_flags.exit.i.i:                     ; preds = %516, %.loopexit1095
 1112:                                             ; preds = %1102
   %1113 = sub i32 %1104, %.0746.lcssa.i.i
   %1114 = zext i32 %1113 to i64
-  %1115 = getelementptr inbounds nuw i32, ptr %.29251171.i.i, i64 %1114
+  %1115 = getelementptr inbounds nuw [4 x i8], ptr %.29251171.i.i, i64 %1114
   br label %.loopexit1080.i.i
 
 1116:                                             ; preds = %1344, %.lr.ph1165.i.i
@@ -6591,7 +6578,7 @@ opj_t1_update_flags.exit.i.i:                     ; preds = %516, %.loopexit1095
   %.not1020.i.i = icmp ne i32 %1138, 0
   %1139 = zext i1 %.not1020.i.i to i32
   %1140 = zext i8 %1136 to i64
-  %1141 = getelementptr inbounds nuw ptr, ptr %279, i64 %1140
+  %1141 = getelementptr inbounds nuw [8 x i8], ptr %279, i64 %1140
   br i1 %.not1021.i.i, label %1156, label %1142
 
 1142:                                             ; preds = %1131
@@ -6739,16 +6726,16 @@ opj_t1_update_flags.exit.i.i:                     ; preds = %516, %.loopexit1095
   %1225 = lshr i32 %1224, %.0133404.i
   %1226 = and i32 %1225, 127
   %1227 = zext nneg i32 %1226 to i64
-  %1228 = getelementptr inbounds nuw i16, ptr @lut_nmsedec_sig, i64 %1227
+  %1228 = getelementptr inbounds nuw [2 x i8], ptr @lut_nmsedec_sig, i64 %1227
   %1229 = and i32 %1222, 127
   %1230 = zext nneg i32 %1229 to i64
-  %1231 = getelementptr inbounds nuw i16, ptr @lut_nmsedec_sig0, i64 %1230
+  %1231 = getelementptr inbounds nuw [2 x i8], ptr @lut_nmsedec_sig0, i64 %1230
   %.0.in.i1073.i.i = select i1 %.not.i1072.i.i, ptr %1231, ptr %1228
   %.0.i1074.i.i = load i16, ptr %.0.in.i1073.i.i, align 2, !tbaa !233
   %1232 = sext i16 %.0.i1074.i.i to i32
   %1233 = add nsw i32 %.15.i, %1232
   %1234 = zext i8 %1221 to i64
-  %1235 = getelementptr inbounds nuw ptr, ptr %279, i64 %1234
+  %1235 = getelementptr inbounds nuw [8 x i8], ptr %279, i64 %1234
   br i1 %.not1021.i.i, label %1250, label %1236
 
 1236:                                             ; preds = %1200
@@ -6889,7 +6876,7 @@ opj_t1_update_flags.exit.i.i:                     ; preds = %516, %.loopexit1095
 1312:                                             ; preds = %.loopexit.i.i
   %1313 = zext i32 %1299 to i64
   %1314 = sub nsw i64 0, %1313
-  %1315 = getelementptr inbounds i32, ptr %.21176.i.i, i64 %1314
+  %1315 = getelementptr inbounds [4 x i8], ptr %.21176.i.i, i64 %1314
   %1316 = and i32 %1222, -2147483648
   %1317 = load i32, ptr %1315, align 4, !tbaa !59
   %1318 = or i32 %1316, %1317
@@ -6911,7 +6898,7 @@ opj_t1_update_flags.exit.i.i:                     ; preds = %516, %.loopexit1095
 
 1328:                                             ; preds = %1326
   %1329 = zext i32 %1299 to i64
-  %1330 = getelementptr inbounds nuw i32, ptr %.21176.i.i, i64 %1329
+  %1330 = getelementptr inbounds nuw [4 x i8], ptr %.21176.i.i, i64 %1329
   %1331 = shl nuw nsw i32 %1223, 18
   %1332 = or disjoint i32 %1331, 2
   %1333 = load i32, ptr %1330, align 4, !tbaa !59
@@ -6991,7 +6978,7 @@ opj_t1_enc_sigpass.exit.i:                        ; preds = %.loopexit1080.i.i, 
   %1360 = load i32, ptr %79, align 8, !tbaa !104
   %1361 = add i32 %1360, 3
   %1362 = zext i32 %1361 to i64
-  %1363 = getelementptr inbounds nuw i32, ptr %1359, i64 %1362
+  %1363 = getelementptr inbounds nuw [4 x i8], ptr %1359, i64 %1362
   %1364 = load ptr, ptr %273, align 8, !tbaa !117
   %1365 = load i32, ptr %.0, align 8, !tbaa !107
   %1366 = load i32, ptr %274, align 4, !tbaa !118
@@ -7055,10 +7042,10 @@ opj_t1_enc_sigpass.exit.i:                        ; preds = %.loopexit1080.i.i, 
   %1388 = lshr i32 %1387, %.0133404.i
   %1389 = and i32 %1388, 127
   %1390 = zext nneg i32 %1389 to i64
-  %1391 = getelementptr inbounds nuw i16, ptr @lut_nmsedec_ref, i64 %1390
+  %1391 = getelementptr inbounds nuw [2 x i8], ptr @lut_nmsedec_ref, i64 %1390
   %1392 = and i32 %1386, 127
   %1393 = zext nneg i32 %1392 to i64
-  %1394 = getelementptr inbounds nuw i16, ptr @lut_nmsedec_ref0, i64 %1393
+  %1394 = getelementptr inbounds nuw [2 x i8], ptr @lut_nmsedec_ref0, i64 %1393
   %.0.in.i.i199.i = select i1 %.not.i548.i.i, ptr %1394, ptr %1391
   %.0.i.i200.i = load i16, ptr %.0.in.i.i199.i, align 2, !tbaa !233
   %1395 = sext i16 %.0.i.i200.i to i32
@@ -7066,7 +7053,7 @@ opj_t1_enc_sigpass.exit.i:                        ; preds = %.loopexit1080.i.i, 
   %1397 = and i32 %1387, %318
   %.not539.i.i = icmp ne i32 %1397, 0
   %1398 = zext i1 %.not539.i.i to i32
-  %1399 = getelementptr inbounds nuw ptr, ptr %279, i64 %1385
+  %1399 = getelementptr inbounds nuw [8 x i8], ptr %279, i64 %1385
   br i1 %.not540.i.i, label %1414, label %1400
 
 1400:                                             ; preds = %1381
@@ -7207,10 +7194,10 @@ opj_t1_enc_sigpass.exit.i:                        ; preds = %.loopexit1080.i.i, 
   %1470 = lshr i32 %1469, %.0133404.i
   %1471 = and i32 %1470, 127
   %1472 = zext nneg i32 %1471 to i64
-  %1473 = getelementptr inbounds nuw i16, ptr @lut_nmsedec_ref, i64 %1472
+  %1473 = getelementptr inbounds nuw [2 x i8], ptr @lut_nmsedec_ref, i64 %1472
   %1474 = and i32 %1468, 127
   %1475 = zext nneg i32 %1474 to i64
-  %1476 = getelementptr inbounds nuw i16, ptr @lut_nmsedec_ref0, i64 %1475
+  %1476 = getelementptr inbounds nuw [2 x i8], ptr @lut_nmsedec_ref0, i64 %1475
   %.0.in.i552.i.i = select i1 %.not.i548.i.i, ptr %1476, ptr %1473
   %.0.i553.i.i = load i16, ptr %.0.in.i552.i.i, align 2, !tbaa !233
   %1477 = sext i16 %.0.i553.i.i to i32
@@ -7218,7 +7205,7 @@ opj_t1_enc_sigpass.exit.i:                        ; preds = %.loopexit1080.i.i, 
   %1479 = and i32 %1469, %318
   %.not541.i.i = icmp ne i32 %1479, 0
   %1480 = zext i1 %.not541.i.i to i32
-  %1481 = getelementptr inbounds nuw ptr, ptr %279, i64 %1466
+  %1481 = getelementptr inbounds nuw [8 x i8], ptr %279, i64 %1466
   br i1 %.not540.i.i, label %1496, label %1482
 
 1482:                                             ; preds = %1462
@@ -7359,10 +7346,10 @@ opj_t1_enc_sigpass.exit.i:                        ; preds = %.loopexit1080.i.i, 
   %1552 = lshr i32 %1551, %.0133404.i
   %1553 = and i32 %1552, 127
   %1554 = zext nneg i32 %1553 to i64
-  %1555 = getelementptr inbounds nuw i16, ptr @lut_nmsedec_ref, i64 %1554
+  %1555 = getelementptr inbounds nuw [2 x i8], ptr @lut_nmsedec_ref, i64 %1554
   %1556 = and i32 %1550, 127
   %1557 = zext nneg i32 %1556 to i64
-  %1558 = getelementptr inbounds nuw i16, ptr @lut_nmsedec_ref0, i64 %1557
+  %1558 = getelementptr inbounds nuw [2 x i8], ptr @lut_nmsedec_ref0, i64 %1557
   %.0.in.i557.i.i = select i1 %.not.i548.i.i, ptr %1558, ptr %1555
   %.0.i558.i.i = load i16, ptr %.0.in.i557.i.i, align 2, !tbaa !233
   %1559 = sext i16 %.0.i558.i.i to i32
@@ -7370,7 +7357,7 @@ opj_t1_enc_sigpass.exit.i:                        ; preds = %.loopexit1080.i.i, 
   %1561 = and i32 %1551, %318
   %.not543.i.i = icmp ne i32 %1561, 0
   %1562 = zext i1 %.not543.i.i to i32
-  %1563 = getelementptr inbounds nuw ptr, ptr %279, i64 %1548
+  %1563 = getelementptr inbounds nuw [8 x i8], ptr %279, i64 %1548
   br i1 %.not540.i.i, label %1578, label %1564
 
 1564:                                             ; preds = %1544
@@ -7511,10 +7498,10 @@ opj_t1_enc_sigpass.exit.i:                        ; preds = %.loopexit1080.i.i, 
   %1634 = lshr i32 %1633, %.0133404.i
   %1635 = and i32 %1634, 127
   %1636 = zext nneg i32 %1635 to i64
-  %1637 = getelementptr inbounds nuw i16, ptr @lut_nmsedec_ref, i64 %1636
+  %1637 = getelementptr inbounds nuw [2 x i8], ptr @lut_nmsedec_ref, i64 %1636
   %1638 = and i32 %1632, 127
   %1639 = zext nneg i32 %1638 to i64
-  %1640 = getelementptr inbounds nuw i16, ptr @lut_nmsedec_ref0, i64 %1639
+  %1640 = getelementptr inbounds nuw [2 x i8], ptr @lut_nmsedec_ref0, i64 %1639
   %.0.in.i562.i.i = select i1 %.not.i548.i.i, ptr %1640, ptr %1637
   %.0.i563.i.i = load i16, ptr %.0.in.i562.i.i, align 2, !tbaa !233
   %1641 = sext i16 %.0.i563.i.i to i32
@@ -7522,7 +7509,7 @@ opj_t1_enc_sigpass.exit.i:                        ; preds = %.loopexit1080.i.i, 
   %1643 = and i32 %1633, %318
   %.not545.i.i = icmp ne i32 %1643, 0
   %1644 = zext i1 %.not545.i.i to i32
-  %1645 = getelementptr inbounds nuw ptr, ptr %279, i64 %1630
+  %1645 = getelementptr inbounds nuw [8 x i8], ptr %279, i64 %1630
   br i1 %.not540.i.i, label %1660, label %1646
 
 1646:                                             ; preds = %1626
@@ -7725,7 +7712,7 @@ opj_t1_enc_sigpass.exit.i:                        ; preds = %.loopexit1080.i.i, 
   br i1 %1727, label %1728, label %.preheader.us.us.i.i
 
 1728:                                             ; preds = %.lr.ph653.split.us.split.us.i.i
-  %1729 = getelementptr inbounds nuw i32, ptr %.2485643.us.us.i.i, i64 %1723
+  %1729 = getelementptr inbounds nuw [4 x i8], ptr %.2485643.us.us.i.i, i64 %1723
   br label %..loopexit570_crit_edge.split.us.us.us.i.i
 
 ..loopexit570_crit_edge.split.us.us.us.loopexit.i.i: ; preds = %1806
@@ -7774,10 +7761,10 @@ opj_t1_enc_sigpass.exit.i:                        ; preds = %.loopexit1080.i.i, 
   %1748 = lshr i32 %1747, %.0133404.i
   %1749 = and i32 %1748, 127
   %1750 = zext nneg i32 %1749 to i64
-  %1751 = getelementptr inbounds nuw i16, ptr @lut_nmsedec_ref, i64 %1750
+  %1751 = getelementptr inbounds nuw [2 x i8], ptr @lut_nmsedec_ref, i64 %1750
   %1752 = and i32 %1746, 127
   %1753 = zext nneg i32 %1752 to i64
-  %1754 = getelementptr inbounds nuw i16, ptr @lut_nmsedec_ref0, i64 %1753
+  %1754 = getelementptr inbounds nuw [2 x i8], ptr @lut_nmsedec_ref0, i64 %1753
   %.0.in.i567.us.us.us.i.i = select i1 %.not.i566.i.i, ptr %1754, ptr %1751
   %.0.i568.us.us.us.i.i = load i16, ptr %.0.in.i567.us.us.us.i.i, align 2, !tbaa !233
   %1755 = sext i16 %.0.i568.us.us.us.i.i to i32
@@ -7785,7 +7772,7 @@ opj_t1_enc_sigpass.exit.i:                        ; preds = %.loopexit1080.i.i, 
   %1757 = and i32 %1747, %318
   %.not.us.us.us.i.i = icmp ne i32 %1757, 0
   %1758 = zext i1 %.not.us.us.us.i.i to i32
-  %1759 = getelementptr inbounds nuw ptr, ptr %279, i64 %1745
+  %1759 = getelementptr inbounds nuw [8 x i8], ptr %279, i64 %1745
   %1760 = load ptr, ptr %1759, align 8, !tbaa !119
   %1761 = getelementptr inbounds nuw i8, ptr %1760, i64 4
   %1762 = load i32, ptr %1761, align 4, !tbaa !123
@@ -7936,13 +7923,13 @@ opj_t1_enc_sigpass.exit.i:                        ; preds = %.loopexit1080.i.i, 
   %1826 = load i32, ptr %.4487626.us662.i.us.i, align 4, !tbaa !59
   %1827 = and i32 %1826, 127
   %1828 = zext nneg i32 %1827 to i64
-  %1829 = getelementptr inbounds nuw i16, ptr @lut_nmsedec_ref0, i64 %1828
+  %1829 = getelementptr inbounds nuw [2 x i8], ptr @lut_nmsedec_ref0, i64 %1828
   %.0.i568.us666.i.us.i = load i16, ptr %1829, align 2, !tbaa !233
   %1830 = sext i16 %.0.i568.us666.i.us.i to i32
   %1831 = add nsw i32 %.29.us.i, %1830
   %.reass.i = lshr i32 %1826, 6
   %.reass.lobit.i = and i32 %.reass.i, 1
-  %1832 = getelementptr inbounds nuw ptr, ptr %279, i64 %1825
+  %1832 = getelementptr inbounds nuw [8 x i8], ptr %279, i64 %1825
   %1833 = icmp eq i32 %.30476627.us661.i.us.i, -559038737
   %1834 = add i32 %.30476627.us661.i.us.i, -1
   %1835 = select i1 %1833, i32 7, i32 %1834
@@ -8012,14 +7999,14 @@ opj_t1_enc_sigpass.exit.i:                        ; preds = %.loopexit1080.i.i, 
   %1868 = lshr i32 %1867, %.0133404.i
   %1869 = and i32 %1868, 127
   %1870 = zext nneg i32 %1869 to i64
-  %1871 = getelementptr inbounds nuw i16, ptr @lut_nmsedec_ref, i64 %1870
+  %1871 = getelementptr inbounds nuw [2 x i8], ptr @lut_nmsedec_ref, i64 %1870
   %.0.i568.us666.i.i = load i16, ptr %1871, align 2, !tbaa !233
   %1872 = sext i16 %.0.i568.us666.i.i to i32
   %1873 = add nsw i32 %.29.i, %1872
   %1874 = and i32 %1867, %318
   %.not.us667.i.i = icmp ne i32 %1874, 0
   %1875 = zext i1 %.not.us667.i.i to i32
-  %1876 = getelementptr inbounds nuw ptr, ptr %279, i64 %1865
+  %1876 = getelementptr inbounds nuw [8 x i8], ptr %279, i64 %1865
   %1877 = icmp eq i32 %.30476627.us661.i.i, -559038737
   %1878 = add i32 %.30476627.us661.i.i, -1
   %1879 = select i1 %1877, i32 7, i32 %1878
@@ -8062,7 +8049,7 @@ opj_t1_enc_sigpass.exit.i:                        ; preds = %.loopexit1080.i.i, 
   br i1 %exitcond.not.i176.i, label %..loopexit570_crit_edge.split.us673.loopexit.i.i, label %.preheader.us.i.i, !llvm.loop !270
 
 1898:                                             ; preds = %.lr.ph653.split.us.split.i.i
-  %1899 = getelementptr inbounds nuw i32, ptr %.2485643.us.i.i, i64 %1723
+  %1899 = getelementptr inbounds nuw [4 x i8], ptr %.2485643.us.i.i, i64 %1723
   br label %..loopexit570_crit_edge.split.us673.i.i
 
 ..loopexit570_crit_edge.split.us673.loopexit.i.i: ; preds = %1894, %1850
@@ -8108,7 +8095,7 @@ opj_t1_enc_refpass.exit.i:                        ; preds = %..loopexit570_crit_
   %1911 = load i32, ptr %79, align 8, !tbaa !104
   %1912 = add i32 %1911, 3
   %1913 = zext i32 %1912 to i64
-  %1914 = getelementptr inbounds nuw i32, ptr %1910, i64 %1913
+  %1914 = getelementptr inbounds nuw [4 x i8], ptr %1910, i64 %1913
   br i1 %.not1184.i.i, label %._crit_edge735.i.i, label %.preheader685.lr.ph.i.i
 
 .preheader685.lr.ph.i.i:                          ; preds = %1904
@@ -8525,7 +8512,7 @@ opj_t1_enc_refpass.exit.i:                        ; preds = %..loopexit570_crit_
   %2089 = getelementptr inbounds nuw i8, ptr %.val635.i.i, i64 %2088
   %2090 = load i8, ptr %2089, align 1, !tbaa !47
   %2091 = zext i8 %2090 to i64
-  %2092 = getelementptr inbounds nuw ptr, ptr %279, i64 %2091
+  %2092 = getelementptr inbounds nuw [8 x i8], ptr %279, i64 %2091
   %2093 = load i32, ptr %.0569703.i.i, align 4, !tbaa !59
   %2094 = and i32 %2093, %1915
   %.not633.i.i = icmp ne i32 %2094, 0
@@ -8657,10 +8644,10 @@ opj_t1_enc_refpass.exit.i:                        ; preds = %..loopexit570_crit_
   %2160 = lshr i32 %2159, %.0133404.i
   %2161 = and i32 %2160, 127
   %2162 = zext nneg i32 %2161 to i64
-  %2163 = getelementptr inbounds nuw i16, ptr @lut_nmsedec_sig, i64 %2162
+  %2163 = getelementptr inbounds nuw [2 x i8], ptr @lut_nmsedec_sig, i64 %2162
   %2164 = and i32 %2158, 127
   %2165 = zext nneg i32 %2164 to i64
-  %2166 = getelementptr inbounds nuw i16, ptr @lut_nmsedec_sig0, i64 %2165
+  %2166 = getelementptr inbounds nuw [2 x i8], ptr @lut_nmsedec_sig0, i64 %2165
   %.0.in.i.i244.i = select i1 %.not.i.i203.i, ptr %2166, ptr %2163
   %.0.i636.i.i = load i16, ptr %.0.in.i.i244.i, align 2, !tbaa !233
   %2167 = sext i16 %.0.i636.i.i to i32
@@ -8669,7 +8656,7 @@ opj_t1_enc_refpass.exit.i:                        ; preds = %..loopexit570_crit_
   %2170 = getelementptr inbounds nuw i8, ptr @lut_ctxno_sc, i64 %2169
   %2171 = load i8, ptr %2170, align 1, !tbaa !47
   %2172 = zext i8 %2171 to i64
-  %2173 = getelementptr inbounds nuw ptr, ptr %279, i64 %2172
+  %2173 = getelementptr inbounds nuw [8 x i8], ptr %279, i64 %2172
   %2174 = lshr i32 %2158, 31
   %2175 = getelementptr inbounds nuw i8, ptr @lut_spb, i64 %2169
   %2176 = load i8, ptr %2175, align 1, !tbaa !47
@@ -8789,7 +8776,7 @@ opj_t1_enc_refpass.exit.i:                        ; preds = %..loopexit570_crit_
 2238:                                             ; preds = %.loopexit672.i.i
   %2239 = zext i32 %2225 to i64
   %2240 = sub nsw i64 0, %2239
-  %2241 = getelementptr inbounds i32, ptr %.1564712.i.i, i64 %2240
+  %2241 = getelementptr inbounds [4 x i8], ptr %.1564712.i.i, i64 %2240
   %2242 = and i32 %2158, -2147483648
   %2243 = load i32, ptr %2241, align 4, !tbaa !59
   %2244 = or i32 %2242, %2243
@@ -8811,7 +8798,7 @@ opj_t1_enc_refpass.exit.i:                        ; preds = %..loopexit570_crit_
 
 2254:                                             ; preds = %2252
   %2255 = zext i32 %2225 to i64
-  %2256 = getelementptr inbounds nuw i32, ptr %.1564712.i.i, i64 %2255
+  %2256 = getelementptr inbounds nuw [4 x i8], ptr %.1564712.i.i, i64 %2255
   %2257 = shl nuw nsw i32 %2174, 18
   %2258 = or disjoint i32 %2257, 2
   %2259 = load i32, ptr %2256, align 4, !tbaa !59
@@ -8864,7 +8851,7 @@ opj_t1_update_flags.exit.i206.i:                  ; preds = %2254, %2252, %.loop
   %.4.i210.i = phi ptr [ %278, %2070 ], [ %.4.ph.i.i, %.loopexit677.sink.split.i.i ], [ %278, %.preheader676.i.i ], [ %.7.i208.i, %opj_t1_update_flags.exit.i206.i ]
   %2273 = sub nsw i32 4, %.1567843.i.i
   %2274 = zext i32 %2273 to i64
-  %2275 = getelementptr inbounds nuw i32, ptr %.4560846.i.i, i64 %2274
+  %2275 = getelementptr inbounds nuw [4 x i8], ptr %.4560846.i.i, i64 %2274
   br label %2276
 
 2276:                                             ; preds = %.loopexit677.i.i, %.loopexit682.i.i
@@ -8975,7 +8962,7 @@ opj_t1_update_flags.exit.i206.i:                  ; preds = %2254, %2252, %.loop
   %2309 = getelementptr inbounds nuw i8, ptr %.val.i220.i, i64 %2308
   %2310 = load i8, ptr %2309, align 1, !tbaa !47
   %2311 = zext i8 %2310 to i64
-  %2312 = getelementptr inbounds nuw ptr, ptr %279, i64 %2311
+  %2312 = getelementptr inbounds nuw [8 x i8], ptr %279, i64 %2311
   %2313 = load i32, ptr %.0555752.i.i, align 4, !tbaa !59
   %2314 = and i32 %2290, %2313
   %.not628.i.i = icmp ne i32 %2314, 0
@@ -9100,10 +9087,10 @@ opj_t1_update_flags.exit.i206.i:                  ; preds = %2254, %2252, %.loop
   %2381 = lshr i32 %2380, %.0133404.i
   %2382 = and i32 %2381, 127
   %2383 = zext nneg i32 %2382 to i64
-  %2384 = getelementptr inbounds nuw i16, ptr @lut_nmsedec_sig, i64 %2383
+  %2384 = getelementptr inbounds nuw [2 x i8], ptr @lut_nmsedec_sig, i64 %2383
   %2385 = and i32 %2379, 127
   %2386 = zext nneg i32 %2385 to i64
-  %2387 = getelementptr inbounds nuw i16, ptr @lut_nmsedec_sig0, i64 %2386
+  %2387 = getelementptr inbounds nuw [2 x i8], ptr @lut_nmsedec_sig0, i64 %2386
   %.0.in.i642.i.i = select i1 %.not.i641.i.i, ptr %2387, ptr %2384
   %.0.i643.i.i = load i16, ptr %.0.in.i642.i.i, align 2, !tbaa !233
   %2388 = sext i16 %.0.i643.i.i to i32
@@ -9112,7 +9099,7 @@ opj_t1_update_flags.exit.i206.i:                  ; preds = %2254, %2252, %.loop
   %2391 = getelementptr inbounds nuw i8, ptr @lut_ctxno_sc, i64 %2390
   %2392 = load i8, ptr %2391, align 1, !tbaa !47
   %2393 = zext i8 %2392 to i64
-  %2394 = getelementptr inbounds nuw ptr, ptr %279, i64 %2393
+  %2394 = getelementptr inbounds nuw [8 x i8], ptr %279, i64 %2393
   %2395 = lshr i32 %2379, 31
   %2396 = getelementptr inbounds nuw i8, ptr @lut_spb, i64 %2390
   %2397 = load i8, ptr %2396, align 1, !tbaa !47
@@ -9232,7 +9219,7 @@ opj_t1_update_flags.exit.i206.i:                  ; preds = %2254, %2252, %.loop
 2459:                                             ; preds = %.loopexit.i227.i
   %2460 = zext i32 %2446 to i64
   %2461 = sub nsw i64 0, %2460
-  %2462 = getelementptr inbounds i32, ptr %.2565762.i.i, i64 %2461
+  %2462 = getelementptr inbounds [4 x i8], ptr %.2565762.i.i, i64 %2461
   %2463 = and i32 %2379, -2147483648
   %2464 = load i32, ptr %2462, align 4, !tbaa !59
   %2465 = or i32 %2463, %2464
@@ -9254,7 +9241,7 @@ opj_t1_update_flags.exit.i206.i:                  ; preds = %2254, %2252, %.loop
 
 2475:                                             ; preds = %2473
   %2476 = zext i32 %2446 to i64
-  %2477 = getelementptr inbounds nuw i32, ptr %.2565762.i.i, i64 %2476
+  %2477 = getelementptr inbounds nuw [4 x i8], ptr %.2565762.i.i, i64 %2476
   %2478 = shl nuw nsw i32 %2395, 18
   %2479 = or disjoint i32 %2478, 2
   %2480 = load i32, ptr %2477, align 4, !tbaa !59
@@ -9297,7 +9284,7 @@ opj_t1_update_flags.exit645.i.i:                  ; preds = %2475, %2473, %.loop
   %.10.i219.i = phi ptr [ %.9769.i.i, %2298 ], [ %.9769.i.i, %.preheader.i215.i ], [ %.13.i217.i, %opj_t1_update_flags.exit645.i.i ]
   %2498 = sub i32 %2497, %.0440.lcssa.i.i
   %2499 = zext i32 %2498 to i64
-  %2500 = getelementptr inbounds nuw i32, ptr %.5561764.i.i, i64 %2499
+  %2500 = getelementptr inbounds nuw [4 x i8], ptr %.5561764.i.i, i64 %2499
   %2501 = add nuw i32 %.1770.i.i, 1
   %2502 = getelementptr inbounds nuw i8, ptr %.2565762.i.i, i64 4
   %2503 = load i32, ptr %79, align 8, !tbaa !104
@@ -9465,7 +9452,7 @@ opj_t1_enc_is_term_pass.exit.i:                   ; preds = %2532, %2527
   %indvars.iv.i = phi i64 [ %2566, %.lr.ph416.i ], [ %2568, %2573 ]
   %.0129414.i = phi i32 [ %2563, %.lr.ph416.i ], [ %.1.i, %2573 ]
   %2568 = add nsw i64 %indvars.iv.i, -1
-  %2569 = getelementptr inbounds nuw %struct.opj_tcd_pass, ptr %2565, i64 %2568
+  %2569 = getelementptr inbounds nuw [24 x i8], ptr %2565, i64 %2568
   %2570 = load i32, ptr %2569, align 8, !tbaa !294
   %2571 = icmp ugt i32 %2570, %.0129414.i
   br i1 %2571, label %2572, label %2573
@@ -9485,7 +9472,7 @@ opj_t1_enc_is_term_pass.exit.i:                   ; preds = %2532, %2527
 
 2575:                                             ; preds = %2590, %.loopexit294.i
   %indvars.iv520.i = phi i64 [ 0, %.loopexit294.i ], [ %indvars.iv.next521.i, %2590 ]
-  %2576 = getelementptr inbounds nuw %struct.opj_tcd_pass, ptr %2565, i64 %indvars.iv520.i
+  %2576 = getelementptr inbounds nuw [24 x i8], ptr %2565, i64 %indvars.iv520.i
   %2577 = load i32, ptr %2576, align 8, !tbaa !294
   %2578 = add i32 %2577, -1
   %2579 = zext i32 %2578 to i64
@@ -9706,7 +9693,7 @@ define internal fastcc range(i32 0, 2) i32 @opj_t1_allocate_buffers(ptr noundef 
   %40 = add nuw nsw i32 %22, 1
   %41 = mul i32 %40, %20
   %42 = zext i32 %41 to i64
-  %43 = getelementptr inbounds nuw i32, ptr %37, i64 %42
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %42
   br label %.lr.ph88
 
 .lr.ph88:                                         ; preds = %.lr.ph88.preheader, %.lr.ph88
@@ -9730,7 +9717,7 @@ define internal fastcc range(i32 0, 2) i32 @opj_t1_allocate_buffers(ptr noundef 
   %switch.select82120 = select i1 %switch.selectcmp81119, i32 1224736768, i32 %switch.select118
   %47 = mul i32 %22, %20
   %48 = zext i32 %47 to i64
-  %49 = getelementptr inbounds nuw i32, ptr %37, i64 %48
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %48
   br label %.lr.ph93
 
 .lr.ph93:                                         ; preds = %.lr.ph93.preheader, %.lr.ph93
@@ -9838,7 +9825,7 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %41 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %40
   %42 = load i8, ptr %41, align 1, !tbaa !47
   %43 = zext i8 %42 to i64
-  %44 = getelementptr inbounds nuw ptr, ptr %29, i64 %43
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %43
   %45 = load ptr, ptr %44, align 8, !tbaa !119
   %46 = load i32, ptr %45, align 8, !tbaa !121
   %47 = sub i32 %.1635962.i, %46
@@ -10019,7 +10006,7 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %141 = load i8, ptr %140, align 1, !tbaa !47
   %142 = zext i8 %141 to i32
   %143 = zext i8 %139 to i64
-  %144 = getelementptr inbounds nuw ptr, ptr %29, i64 %143
+  %144 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %143
   %145 = load ptr, ptr %144, align 8, !tbaa !119
   %146 = load i32, ptr %145, align 8, !tbaa !121
   %147 = sub i32 %.6640.i, %146
@@ -10217,7 +10204,7 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %241 = getelementptr inbounds nuw i8, ptr %.val887.i, i64 %240
   %242 = load i8, ptr %241, align 1, !tbaa !47
   %243 = zext i8 %242 to i64
-  %244 = getelementptr inbounds nuw ptr, ptr %29, i64 %243
+  %244 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %243
   %245 = load ptr, ptr %244, align 8, !tbaa !119
   %246 = load i32, ptr %245, align 8, !tbaa !121
   %247 = sub i32 %.3637.i, %246
@@ -10398,7 +10385,7 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %341 = load i8, ptr %340, align 1, !tbaa !47
   %342 = zext i8 %341 to i32
   %343 = zext i8 %339 to i64
-  %344 = getelementptr inbounds nuw ptr, ptr %29, i64 %343
+  %344 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %343
   %345 = load ptr, ptr %344, align 8, !tbaa !119
   %346 = load i32, ptr %345, align 8, !tbaa !121
   %347 = sub i32 %.16650.i, %346
@@ -10597,7 +10584,7 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %442 = getelementptr inbounds nuw i8, ptr %.val888.i, i64 %441
   %443 = load i8, ptr %442, align 1, !tbaa !47
   %444 = zext i8 %443 to i64
-  %445 = getelementptr inbounds nuw ptr, ptr %29, i64 %444
+  %445 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %444
   %446 = load ptr, ptr %445, align 8, !tbaa !119
   %447 = load i32, ptr %446, align 8, !tbaa !121
   %448 = sub i32 %.13647.i, %447
@@ -10778,7 +10765,7 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %542 = load i8, ptr %541, align 1, !tbaa !47
   %543 = zext i8 %542 to i32
   %544 = zext i8 %540 to i64
-  %545 = getelementptr inbounds nuw ptr, ptr %29, i64 %544
+  %545 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %544
   %546 = load ptr, ptr %545, align 8, !tbaa !119
   %547 = load i32, ptr %546, align 8, !tbaa !121
   %548 = sub i32 %.26660.i, %547
@@ -10977,7 +10964,7 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %643 = getelementptr inbounds nuw i8, ptr %.val889.i, i64 %642
   %644 = load i8, ptr %643, align 1, !tbaa !47
   %645 = zext i8 %644 to i64
-  %646 = getelementptr inbounds nuw ptr, ptr %29, i64 %645
+  %646 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %645
   %647 = load ptr, ptr %646, align 8, !tbaa !119
   %648 = load i32, ptr %647, align 8, !tbaa !121
   %649 = sub i32 %.23657.i, %648
@@ -11158,7 +11145,7 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %743 = load i8, ptr %742, align 1, !tbaa !47
   %744 = zext i8 %743 to i32
   %745 = zext i8 %741 to i64
-  %746 = getelementptr inbounds nuw ptr, ptr %29, i64 %745
+  %746 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %745
   %747 = load ptr, ptr %746, align 8, !tbaa !119
   %748 = load i32, ptr %747, align 8, !tbaa !121
   %749 = sub i32 %.36670.i, %748
@@ -11413,7 +11400,7 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %865 = getelementptr inbounds nuw i8, ptr %.val.i15, i64 %864
   %866 = load i8, ptr %865, align 1, !tbaa !47
   %867 = zext i8 %866 to i64
-  %868 = getelementptr inbounds nuw ptr, ptr %29, i64 %867
+  %868 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %867
   %869 = load ptr, ptr %868, align 8, !tbaa !119
   %870 = load i32, ptr %869, align 8, !tbaa !121
   %871 = sub i32 %.1640967.i, %870
@@ -11594,7 +11581,7 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %965 = load i8, ptr %964, align 1, !tbaa !47
   %966 = zext i8 %965 to i32
   %967 = zext i8 %963 to i64
-  %968 = getelementptr inbounds nuw ptr, ptr %29, i64 %967
+  %968 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %967
   %969 = load ptr, ptr %968, align 8, !tbaa !119
   %970 = load i32, ptr %969, align 8, !tbaa !121
   %971 = sub i32 %.6645.i, %970
@@ -11806,7 +11793,7 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %1076 = getelementptr inbounds nuw i8, ptr %.val892.i, i64 %1075
   %1077 = load i8, ptr %1076, align 1, !tbaa !47
   %1078 = zext i8 %1077 to i64
-  %1079 = getelementptr inbounds nuw ptr, ptr %29, i64 %1078
+  %1079 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %1078
   %1080 = load ptr, ptr %1079, align 8, !tbaa !119
   %1081 = load i32, ptr %1080, align 8, !tbaa !121
   %1082 = sub i32 %.3642.i, %1081
@@ -11987,7 +11974,7 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %1176 = load i8, ptr %1175, align 1, !tbaa !47
   %1177 = zext i8 %1176 to i32
   %1178 = zext i8 %1174 to i64
-  %1179 = getelementptr inbounds nuw ptr, ptr %29, i64 %1178
+  %1179 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %1178
   %1180 = load ptr, ptr %1179, align 8, !tbaa !119
   %1181 = load i32, ptr %1180, align 8, !tbaa !121
   %1182 = sub i32 %.16655.i, %1181
@@ -12186,7 +12173,7 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %1277 = getelementptr inbounds nuw i8, ptr %.val893.i, i64 %1276
   %1278 = load i8, ptr %1277, align 1, !tbaa !47
   %1279 = zext i8 %1278 to i64
-  %1280 = getelementptr inbounds nuw ptr, ptr %29, i64 %1279
+  %1280 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %1279
   %1281 = load ptr, ptr %1280, align 8, !tbaa !119
   %1282 = load i32, ptr %1281, align 8, !tbaa !121
   %1283 = sub i32 %.13652.i, %1282
@@ -12367,7 +12354,7 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %1377 = load i8, ptr %1376, align 1, !tbaa !47
   %1378 = zext i8 %1377 to i32
   %1379 = zext i8 %1375 to i64
-  %1380 = getelementptr inbounds nuw ptr, ptr %29, i64 %1379
+  %1380 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %1379
   %1381 = load ptr, ptr %1380, align 8, !tbaa !119
   %1382 = load i32, ptr %1381, align 8, !tbaa !121
   %1383 = sub i32 %.26665.i, %1382
@@ -12566,7 +12553,7 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %1478 = getelementptr inbounds nuw i8, ptr %.val894.i, i64 %1477
   %1479 = load i8, ptr %1478, align 1, !tbaa !47
   %1480 = zext i8 %1479 to i64
-  %1481 = getelementptr inbounds nuw ptr, ptr %29, i64 %1480
+  %1481 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %1480
   %1482 = load ptr, ptr %1481, align 8, !tbaa !119
   %1483 = load i32, ptr %1482, align 8, !tbaa !121
   %1484 = sub i32 %.23662.i, %1483
@@ -12747,7 +12734,7 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %1578 = load i8, ptr %1577, align 1, !tbaa !47
   %1579 = zext i8 %1578 to i32
   %1580 = zext i8 %1576 to i64
-  %1581 = getelementptr inbounds nuw ptr, ptr %29, i64 %1580
+  %1581 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %1580
   %1582 = load ptr, ptr %1581, align 8, !tbaa !119
   %1583 = load i32, ptr %1582, align 8, !tbaa !121
   %1584 = sub i32 %.36675.i, %1583
@@ -12975,7 +12962,7 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %1697 = load ptr, ptr %1696, align 8, !tbaa !15
   %1698 = add i32 %5, 3
   %1699 = zext i32 %1698 to i64
-  %1700 = getelementptr inbounds nuw i32, ptr %1697, i64 %1699
+  %1700 = getelementptr inbounds nuw [4 x i8], ptr %1697, i64 %1699
   %1701 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %1702 = load ptr, ptr %1701, align 8, !tbaa !117
   %1703 = load i32, ptr %0, align 8, !tbaa !107
@@ -13044,7 +13031,7 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %1732 = getelementptr inbounds nuw i8, ptr %.val.us.i, i64 %1731
   %1733 = load i8, ptr %1732, align 1, !tbaa !47
   %1734 = zext i8 %1733 to i64
-  %1735 = getelementptr inbounds nuw ptr, ptr %1715, i64 %1734
+  %1735 = getelementptr inbounds nuw [8 x i8], ptr %1715, i64 %1734
   %1736 = load ptr, ptr %1735, align 8, !tbaa !119
   %1737 = load i32, ptr %1736, align 8, !tbaa !121
   %1738 = sub i32 %.1650985.us.i, %1737
@@ -13225,7 +13212,7 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %1832 = load i8, ptr %1831, align 1, !tbaa !47
   %1833 = zext i8 %1832 to i32
   %1834 = zext i8 %1830 to i64
-  %1835 = getelementptr inbounds nuw ptr, ptr %1715, i64 %1834
+  %1835 = getelementptr inbounds nuw [8 x i8], ptr %1715, i64 %1834
   %1836 = load ptr, ptr %1835, align 8, !tbaa !119
   %1837 = load i32, ptr %1836, align 8, !tbaa !121
   %1838 = sub i32 %.6655.us.i, %1837
@@ -13423,7 +13410,7 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %1932 = getelementptr inbounds nuw i8, ptr %.val905.us.i, i64 %1931
   %1933 = load i8, ptr %1932, align 1, !tbaa !47
   %1934 = zext i8 %1933 to i64
-  %1935 = getelementptr inbounds nuw ptr, ptr %1715, i64 %1934
+  %1935 = getelementptr inbounds nuw [8 x i8], ptr %1715, i64 %1934
   %1936 = load ptr, ptr %1935, align 8, !tbaa !119
   %1937 = load i32, ptr %1936, align 8, !tbaa !121
   %1938 = sub i32 %.3652.us.i, %1937
@@ -13604,7 +13591,7 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %2032 = load i8, ptr %2031, align 1, !tbaa !47
   %2033 = zext i8 %2032 to i32
   %2034 = zext i8 %2030 to i64
-  %2035 = getelementptr inbounds nuw ptr, ptr %1715, i64 %2034
+  %2035 = getelementptr inbounds nuw [8 x i8], ptr %1715, i64 %2034
   %2036 = load ptr, ptr %2035, align 8, !tbaa !119
   %2037 = load i32, ptr %2036, align 8, !tbaa !121
   %2038 = sub i32 %.16665.us.i, %2037
@@ -13760,7 +13747,7 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %2113 = xor i32 %.10769.us.i, %2033
   %.not879.us.i = icmp eq i32 %.10769.us.i, %2033
   %2114 = select i1 %.not879.us.i, i32 %1710, i32 %1718
-  %2115 = getelementptr inbounds nuw i32, ptr %.1631989.us.i, i64 %1719
+  %2115 = getelementptr inbounds nuw [4 x i8], ptr %.1631989.us.i, i64 %1719
   store i32 %2114, ptr %2115, align 4, !tbaa !59
   %2116 = load i32, ptr %2014, align 4, !tbaa !59
   %2117 = or i32 %2116, 256
@@ -13803,7 +13790,7 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %2133 = getelementptr inbounds nuw i8, ptr %.val906.us.i, i64 %2132
   %2134 = load i8, ptr %2133, align 1, !tbaa !47
   %2135 = zext i8 %2134 to i64
-  %2136 = getelementptr inbounds nuw ptr, ptr %1715, i64 %2135
+  %2136 = getelementptr inbounds nuw [8 x i8], ptr %1715, i64 %2135
   %2137 = load ptr, ptr %2136, align 8, !tbaa !119
   %2138 = load i32, ptr %2137, align 8, !tbaa !121
   %2139 = sub i32 %.13662.us.i, %2138
@@ -13984,7 +13971,7 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %2233 = load i8, ptr %2232, align 1, !tbaa !47
   %2234 = zext i8 %2233 to i32
   %2235 = zext i8 %2231 to i64
-  %2236 = getelementptr inbounds nuw ptr, ptr %1715, i64 %2235
+  %2236 = getelementptr inbounds nuw [8 x i8], ptr %1715, i64 %2235
   %2237 = load ptr, ptr %2236, align 8, !tbaa !119
   %2238 = load i32, ptr %2237, align 8, !tbaa !121
   %2239 = sub i32 %.26675.us.i, %2238
@@ -14140,7 +14127,7 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %2314 = xor i32 %.16775.us.i, %2234
   %.not890.us.i = icmp eq i32 %.16775.us.i, %2234
   %2315 = select i1 %.not890.us.i, i32 %1710, i32 %1718
-  %2316 = getelementptr inbounds nuw i32, ptr %.1631989.us.i, i64 %1721
+  %2316 = getelementptr inbounds nuw [4 x i8], ptr %.1631989.us.i, i64 %1721
   store i32 %2315, ptr %2316, align 4, !tbaa !59
   %2317 = load i32, ptr %2215, align 4, !tbaa !59
   %2318 = or i32 %2317, 2048
@@ -14183,7 +14170,7 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %2334 = getelementptr inbounds nuw i8, ptr %.val907.us.i, i64 %2333
   %2335 = load i8, ptr %2334, align 1, !tbaa !47
   %2336 = zext i8 %2335 to i64
-  %2337 = getelementptr inbounds nuw ptr, ptr %1715, i64 %2336
+  %2337 = getelementptr inbounds nuw [8 x i8], ptr %1715, i64 %2336
   %2338 = load ptr, ptr %2337, align 8, !tbaa !119
   %2339 = load i32, ptr %2338, align 8, !tbaa !121
   %2340 = sub i32 %.23672.us.i, %2339
@@ -14364,7 +14351,7 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %2434 = load i8, ptr %2433, align 1, !tbaa !47
   %2435 = zext i8 %2434 to i32
   %2436 = zext i8 %2432 to i64
-  %2437 = getelementptr inbounds nuw ptr, ptr %1715, i64 %2436
+  %2437 = getelementptr inbounds nuw [8 x i8], ptr %1715, i64 %2436
   %2438 = load ptr, ptr %2437, align 8, !tbaa !119
   %2439 = load i32, ptr %2438, align 8, !tbaa !121
   %2440 = sub i32 %.36685.us.i, %2439
@@ -14520,7 +14507,7 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %2515 = xor i32 %.22781.us.i, %2435
   %.not901.us.i = icmp eq i32 %.22781.us.i, %2435
   %2516 = select i1 %.not901.us.i, i32 %1710, i32 %1718
-  %2517 = getelementptr inbounds nuw i32, ptr %.1631989.us.i, i64 %1723
+  %2517 = getelementptr inbounds nuw [4 x i8], ptr %.1631989.us.i, i64 %1723
   store i32 %2516, ptr %2517, align 4, !tbaa !59
   %2518 = load i32, ptr %2416, align 4, !tbaa !59
   %2519 = or i32 %2518, 16384
@@ -14534,7 +14521,7 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %2525 = load i32, ptr %4, align 8, !tbaa !104
   %2526 = add i32 %2525, 2
   %2527 = zext i32 %2526 to i64
-  %2528 = getelementptr inbounds nuw i32, ptr %.1633988.us.i, i64 %2527
+  %2528 = getelementptr inbounds nuw [4 x i8], ptr %.1633988.us.i, i64 %2527
   %2529 = shl i32 %2515, 18
   %2530 = or disjoint i32 %2529, 2
   %2531 = load i32, ptr %2528, align 4, !tbaa !59
@@ -14581,7 +14568,7 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
 
 ._crit_edge.us.i:                                 ; preds = %2542
   %2546 = add nuw i32 %.06291002.us.i, 4
-  %2547 = getelementptr inbounds nuw i32, ptr %2544, i64 %1723
+  %2547 = getelementptr inbounds nuw [4 x i8], ptr %2544, i64 %1723
   %2548 = getelementptr inbounds nuw i8, ptr %.1633988.us.i, i64 12
   %2549 = load i32, ptr %1711, align 4, !tbaa !105
   %2550 = and i32 %2549, -4
@@ -14633,7 +14620,7 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %2564 = trunc nuw i64 %indvars.iv.i to i32
   %2565 = mul i32 %5, %2564
   %2566 = zext i32 %2565 to i64
-  %2567 = getelementptr inbounds nuw i32, ptr %.21021.i, i64 %2566
+  %2567 = getelementptr inbounds nuw [4 x i8], ptr %.21021.i, i64 %2566
   %2568 = load i32, ptr %4, align 8, !tbaa !104
   %2569 = add i32 %2568, 2
   tail call fastcc void @opj_t1_dec_sigpass_step_mqc(ptr noundef nonnull %0, ptr noundef %.26341020.i, ptr noundef %2567, i32 noundef %1710, i32 noundef %2564, i32 noundef %2569, i32 noundef 1)
@@ -14705,7 +14692,7 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %2597 = getelementptr inbounds nuw i8, ptr %.val.us.i118, i64 %2596
   %2598 = load i8, ptr %2597, align 1, !tbaa !47
   %2599 = zext i8 %2598 to i64
-  %2600 = getelementptr inbounds nuw ptr, ptr %2580, i64 %2599
+  %2600 = getelementptr inbounds nuw [8 x i8], ptr %2580, i64 %2599
   %2601 = load ptr, ptr %2600, align 8, !tbaa !119
   %2602 = load i32, ptr %2601, align 8, !tbaa !121
   %2603 = sub i32 %.1656991.us.i, %2602
@@ -14886,7 +14873,7 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %2697 = load i8, ptr %2696, align 1, !tbaa !47
   %2698 = zext i8 %2697 to i32
   %2699 = zext i8 %2695 to i64
-  %2700 = getelementptr inbounds nuw ptr, ptr %2580, i64 %2699
+  %2700 = getelementptr inbounds nuw [8 x i8], ptr %2580, i64 %2699
   %2701 = load ptr, ptr %2700, align 8, !tbaa !119
   %2702 = load i32, ptr %2701, align 8, !tbaa !121
   %2703 = sub i32 %.6661.us.i, %2702
@@ -15056,7 +15043,7 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %2788 = add i32 %2787, 2
   %2789 = zext i32 %2788 to i64
   %2790 = sub nsw i64 0, %2789
-  %2791 = getelementptr inbounds i32, ptr %.1639994.us.i, i64 %2790
+  %2791 = getelementptr inbounds [4 x i8], ptr %.1639994.us.i, i64 %2790
   %2792 = shl i32 %2778, 31
   %2793 = or disjoint i32 %2792, 65536
   %2794 = load i32, ptr %2791, align 4, !tbaa !59
@@ -15102,7 +15089,7 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %2812 = getelementptr inbounds nuw i8, ptr %.val911.us.i, i64 %2811
   %2813 = load i8, ptr %2812, align 1, !tbaa !47
   %2814 = zext i8 %2813 to i64
-  %2815 = getelementptr inbounds nuw ptr, ptr %2580, i64 %2814
+  %2815 = getelementptr inbounds nuw [8 x i8], ptr %2580, i64 %2814
   %2816 = load ptr, ptr %2815, align 8, !tbaa !119
   %2817 = load i32, ptr %2816, align 8, !tbaa !121
   %2818 = sub i32 %.3658.us.i, %2817
@@ -15283,7 +15270,7 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %2912 = load i8, ptr %2911, align 1, !tbaa !47
   %2913 = zext i8 %2912 to i32
   %2914 = zext i8 %2910 to i64
-  %2915 = getelementptr inbounds nuw ptr, ptr %2580, i64 %2914
+  %2915 = getelementptr inbounds nuw [8 x i8], ptr %2580, i64 %2914
   %2916 = load ptr, ptr %2915, align 8, !tbaa !119
   %2917 = load i32, ptr %2916, align 8, !tbaa !121
   %2918 = sub i32 %.16671.us.i, %2917
@@ -15439,7 +15426,7 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %2993 = xor i32 %.10775.us.i, %2913
   %.not885.us.i135 = icmp eq i32 %.10775.us.i, %2913
   %2994 = select i1 %.not885.us.i135, i32 %1710, i32 %2583
-  %2995 = getelementptr inbounds nuw i32, ptr %.1637995.us.i, i64 %2584
+  %2995 = getelementptr inbounds nuw [4 x i8], ptr %.1637995.us.i, i64 %2584
   store i32 %2994, ptr %2995, align 4, !tbaa !59
   %2996 = load i32, ptr %2894, align 4, !tbaa !59
   %2997 = or i32 %2996, 256
@@ -15482,7 +15469,7 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %3013 = getelementptr inbounds nuw i8, ptr %.val912.us.i, i64 %3012
   %3014 = load i8, ptr %3013, align 1, !tbaa !47
   %3015 = zext i8 %3014 to i64
-  %3016 = getelementptr inbounds nuw ptr, ptr %2580, i64 %3015
+  %3016 = getelementptr inbounds nuw [8 x i8], ptr %2580, i64 %3015
   %3017 = load ptr, ptr %3016, align 8, !tbaa !119
   %3018 = load i32, ptr %3017, align 8, !tbaa !121
   %3019 = sub i32 %.13668.us.i, %3018
@@ -15663,7 +15650,7 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %3113 = load i8, ptr %3112, align 1, !tbaa !47
   %3114 = zext i8 %3113 to i32
   %3115 = zext i8 %3111 to i64
-  %3116 = getelementptr inbounds nuw ptr, ptr %2580, i64 %3115
+  %3116 = getelementptr inbounds nuw [8 x i8], ptr %2580, i64 %3115
   %3117 = load ptr, ptr %3116, align 8, !tbaa !119
   %3118 = load i32, ptr %3117, align 8, !tbaa !121
   %3119 = sub i32 %.26681.us.i, %3118
@@ -15819,7 +15806,7 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %3194 = xor i32 %.16781.us.i, %3114
   %.not896.us.i145 = icmp eq i32 %.16781.us.i, %3114
   %3195 = select i1 %.not896.us.i145, i32 %1710, i32 %2583
-  %3196 = getelementptr inbounds nuw i32, ptr %.1637995.us.i, i64 %2586
+  %3196 = getelementptr inbounds nuw [4 x i8], ptr %.1637995.us.i, i64 %2586
   store i32 %3195, ptr %3196, align 4, !tbaa !59
   %3197 = load i32, ptr %3095, align 4, !tbaa !59
   %3198 = or i32 %3197, 2048
@@ -15862,7 +15849,7 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %3214 = getelementptr inbounds nuw i8, ptr %.val913.us.i, i64 %3213
   %3215 = load i8, ptr %3214, align 1, !tbaa !47
   %3216 = zext i8 %3215 to i64
-  %3217 = getelementptr inbounds nuw ptr, ptr %2580, i64 %3216
+  %3217 = getelementptr inbounds nuw [8 x i8], ptr %2580, i64 %3216
   %3218 = load ptr, ptr %3217, align 8, !tbaa !119
   %3219 = load i32, ptr %3218, align 8, !tbaa !121
   %3220 = sub i32 %.23678.us.i, %3219
@@ -16043,7 +16030,7 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %3314 = load i8, ptr %3313, align 1, !tbaa !47
   %3315 = zext i8 %3314 to i32
   %3316 = zext i8 %3312 to i64
-  %3317 = getelementptr inbounds nuw ptr, ptr %2580, i64 %3316
+  %3317 = getelementptr inbounds nuw [8 x i8], ptr %2580, i64 %3316
   %3318 = load ptr, ptr %3317, align 8, !tbaa !119
   %3319 = load i32, ptr %3318, align 8, !tbaa !121
   %3320 = sub i32 %.36691.us.i, %3319
@@ -16199,7 +16186,7 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %3395 = xor i32 %.22787.us.i, %3315
   %.not907.us.i = icmp eq i32 %.22787.us.i, %3315
   %3396 = select i1 %.not907.us.i, i32 %1710, i32 %2583
-  %3397 = getelementptr inbounds nuw i32, ptr %.1637995.us.i, i64 %2588
+  %3397 = getelementptr inbounds nuw [4 x i8], ptr %.1637995.us.i, i64 %2588
   store i32 %3396, ptr %3397, align 4, !tbaa !59
   %3398 = load i32, ptr %3296, align 4, !tbaa !59
   %3399 = or i32 %3398, 16384
@@ -16213,7 +16200,7 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %3405 = load i32, ptr %4, align 8, !tbaa !104
   %3406 = add i32 %3405, 2
   %3407 = zext i32 %3406 to i64
-  %3408 = getelementptr inbounds nuw i32, ptr %.1639994.us.i, i64 %3407
+  %3408 = getelementptr inbounds nuw [4 x i8], ptr %.1639994.us.i, i64 %3407
   %3409 = shl i32 %3395, 18
   %3410 = or disjoint i32 %3409, 2
   %3411 = load i32, ptr %3408, align 4, !tbaa !59
@@ -16260,7 +16247,7 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
 
 ._crit_edge.us.i159:                              ; preds = %3422
   %3426 = add nuw i32 %.06351008.us.i, 4
-  %3427 = getelementptr inbounds nuw i32, ptr %3424, i64 %2588
+  %3427 = getelementptr inbounds nuw [4 x i8], ptr %3424, i64 %2588
   %3428 = getelementptr inbounds nuw i8, ptr %.1639994.us.i, i64 12
   %3429 = load i32, ptr %1711, align 4, !tbaa !105
   %3430 = and i32 %3429, -4
@@ -16312,7 +16299,7 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %3444 = trunc nuw i64 %indvars.iv.i166 to i32
   %3445 = mul i32 %5, %3444
   %3446 = zext i32 %3445 to i64
-  %3447 = getelementptr inbounds nuw i32, ptr %.21027.i, i64 %3446
+  %3447 = getelementptr inbounds nuw [4 x i8], ptr %.21027.i, i64 %3446
   %3448 = load i32, ptr %4, align 8, !tbaa !104
   %3449 = add i32 %3448, 2
   tail call fastcc void @opj_t1_dec_sigpass_step_mqc(ptr noundef nonnull %0, ptr noundef %.26401026.i, ptr noundef %3447, i32 noundef %1710, i32 noundef %3444, i32 noundef %3449, i32 noundef 0)
@@ -16892,7 +16879,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %284 = getelementptr inbounds nuw i8, ptr @lut_ctxno_sc, i64 %283
   %285 = load i8, ptr %284, align 1, !tbaa !47
   %286 = zext i8 %285 to i64
-  %287 = getelementptr inbounds nuw ptr, ptr %29, i64 %286
+  %287 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %286
   %288 = load ptr, ptr %287, align 8, !tbaa !119
   %289 = load i32, ptr %288, align 8, !tbaa !121
   %290 = sub i32 %.131310.i, %289
@@ -17064,7 +17051,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %376 = getelementptr inbounds nuw i8, ptr %.val1852.i, i64 2
   %377 = load i8, ptr %376, align 1, !tbaa !47
   %378 = zext i8 %377 to i64
-  %379 = getelementptr inbounds nuw ptr, ptr %29, i64 %378
+  %379 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %378
   %380 = load ptr, ptr %379, align 8, !tbaa !119
   %381 = load i32, ptr %380, align 8, !tbaa !121
   %382 = sub i32 %.181315.i, %381
@@ -17247,7 +17234,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %473 = getelementptr inbounds nuw i8, ptr @lut_ctxno_sc, i64 %472
   %474 = load i8, ptr %473, align 1, !tbaa !47
   %475 = zext i8 %474 to i64
-  %476 = getelementptr inbounds nuw ptr, ptr %29, i64 %475
+  %476 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %475
   %477 = load ptr, ptr %476, align 8, !tbaa !119
   %478 = load i32, ptr %477, align 8, !tbaa !121
   %479 = sub i32 %.211318.i, %478
@@ -17432,7 +17419,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %571 = getelementptr inbounds nuw i8, ptr %.val1851.i, i64 %570
   %572 = load i8, ptr %571, align 1, !tbaa !47
   %573 = zext i8 %572 to i64
-  %574 = getelementptr inbounds nuw ptr, ptr %29, i64 %573
+  %574 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %573
   %575 = load ptr, ptr %574, align 8, !tbaa !119
   %576 = load i32, ptr %575, align 8, !tbaa !121
   %577 = sub i32 %.311328.ph.i, %576
@@ -17615,7 +17602,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %668 = getelementptr inbounds nuw i8, ptr @lut_ctxno_sc, i64 %667
   %669 = load i8, ptr %668, align 1, !tbaa !47
   %670 = zext i8 %669 to i64
-  %671 = getelementptr inbounds nuw ptr, ptr %29, i64 %670
+  %671 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %670
   %672 = load ptr, ptr %671, align 8, !tbaa !119
   %673 = load i32, ptr %672, align 8, !tbaa !121
   %674 = sub i32 %.321329.i, %673
@@ -17800,7 +17787,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %766 = getelementptr inbounds nuw i8, ptr %.val1850.i, i64 %765
   %767 = load i8, ptr %766, align 1, !tbaa !47
   %768 = zext i8 %767 to i64
-  %769 = getelementptr inbounds nuw ptr, ptr %29, i64 %768
+  %769 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %768
   %770 = load ptr, ptr %769, align 8, !tbaa !119
   %771 = load i32, ptr %770, align 8, !tbaa !121
   %772 = sub i32 %.421339.ph.i, %771
@@ -17983,7 +17970,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %863 = getelementptr inbounds nuw i8, ptr @lut_ctxno_sc, i64 %862
   %864 = load i8, ptr %863, align 1, !tbaa !47
   %865 = zext i8 %864 to i64
-  %866 = getelementptr inbounds nuw ptr, ptr %29, i64 %865
+  %866 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %865
   %867 = load ptr, ptr %866, align 8, !tbaa !119
   %868 = load i32, ptr %867, align 8, !tbaa !121
   %869 = sub i32 %.431340.i, %868
@@ -18166,7 +18153,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %961 = getelementptr inbounds nuw i8, ptr %.val1849.i, i64 %960
   %962 = load i8, ptr %961, align 1, !tbaa !47
   %963 = zext i8 %962 to i64
-  %964 = getelementptr inbounds nuw ptr, ptr %29, i64 %963
+  %964 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %963
   %965 = load ptr, ptr %964, align 8, !tbaa !119
   %966 = load i32, ptr %965, align 8, !tbaa !121
   %967 = sub i32 %.112982049.i, %966
@@ -18344,7 +18331,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %1058 = getelementptr inbounds nuw i8, ptr @lut_ctxno_sc, i64 %1057
   %1059 = load i8, ptr %1058, align 1, !tbaa !47
   %1060 = zext i8 %1059 to i64
-  %1061 = getelementptr inbounds nuw ptr, ptr %29, i64 %1060
+  %1061 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %1060
   %1062 = load ptr, ptr %1061, align 8, !tbaa !119
   %1063 = load i32, ptr %1062, align 8, !tbaa !121
   %1064 = sub i32 %.571354.i, %1063
@@ -18533,7 +18520,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %1157 = getelementptr inbounds nuw i8, ptr %.val1848.i, i64 %1156
   %1158 = load i8, ptr %1157, align 1, !tbaa !47
   %1159 = zext i8 %1158 to i64
-  %1160 = getelementptr inbounds nuw ptr, ptr %29, i64 %1159
+  %1160 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %1159
   %1161 = load ptr, ptr %1160, align 8, !tbaa !119
   %1162 = load i32, ptr %1161, align 8, !tbaa !121
   %1163 = sub i32 %.541351.i, %1162
@@ -18711,7 +18698,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %1254 = getelementptr inbounds nuw i8, ptr @lut_ctxno_sc, i64 %1253
   %1255 = load i8, ptr %1254, align 1, !tbaa !47
   %1256 = zext i8 %1255 to i64
-  %1257 = getelementptr inbounds nuw ptr, ptr %29, i64 %1256
+  %1257 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %1256
   %1258 = load ptr, ptr %1257, align 8, !tbaa !119
   %1259 = load i32, ptr %1258, align 8, !tbaa !121
   %1260 = sub i32 %.661363.i, %1259
@@ -18901,7 +18888,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %1354 = getelementptr inbounds nuw i8, ptr %.val1847.i, i64 %1353
   %1355 = load i8, ptr %1354, align 1, !tbaa !47
   %1356 = zext i8 %1355 to i64
-  %1357 = getelementptr inbounds nuw ptr, ptr %29, i64 %1356
+  %1357 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %1356
   %1358 = load ptr, ptr %1357, align 8, !tbaa !119
   %1359 = load i32, ptr %1358, align 8, !tbaa !121
   %1360 = sub i32 %.631360.i, %1359
@@ -19079,7 +19066,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %1451 = getelementptr inbounds nuw i8, ptr @lut_ctxno_sc, i64 %1450
   %1452 = load i8, ptr %1451, align 1, !tbaa !47
   %1453 = zext i8 %1452 to i64
-  %1454 = getelementptr inbounds nuw ptr, ptr %29, i64 %1453
+  %1454 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %1453
   %1455 = load ptr, ptr %1454, align 8, !tbaa !119
   %1456 = load i32, ptr %1455, align 8, !tbaa !121
   %1457 = sub i32 %.751372.i, %1456
@@ -19269,7 +19256,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %1551 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %1550
   %1552 = load i8, ptr %1551, align 1, !tbaa !47
   %1553 = zext i8 %1552 to i64
-  %1554 = getelementptr inbounds nuw ptr, ptr %29, i64 %1553
+  %1554 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %1553
   %1555 = load ptr, ptr %1554, align 8, !tbaa !119
   %1556 = load i32, ptr %1555, align 8, !tbaa !121
   %1557 = sub i32 %.721369.i, %1556
@@ -19447,7 +19434,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %1648 = getelementptr inbounds nuw i8, ptr @lut_ctxno_sc, i64 %1647
   %1649 = load i8, ptr %1648, align 1, !tbaa !47
   %1650 = zext i8 %1649 to i64
-  %1651 = getelementptr inbounds nuw ptr, ptr %29, i64 %1650
+  %1651 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %1650
   %1652 = load ptr, ptr %1651, align 8, !tbaa !119
   %1653 = load i32, ptr %1652, align 8, !tbaa !121
   %1654 = sub i32 %.831380.i, %1653
@@ -20176,7 +20163,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %2011 = getelementptr inbounds nuw i8, ptr @lut_ctxno_sc, i64 %2010
   %2012 = load i8, ptr %2011, align 1, !tbaa !47
   %2013 = zext i8 %2012 to i64
-  %2014 = getelementptr inbounds nuw ptr, ptr %29, i64 %2013
+  %2014 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %2013
   %2015 = load ptr, ptr %2014, align 8, !tbaa !119
   %2016 = load i32, ptr %2015, align 8, !tbaa !121
   %2017 = sub i32 %.131320.i, %2016
@@ -20362,7 +20349,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %2114 = getelementptr inbounds nuw i8, ptr %.val1862.i, i64 2
   %2115 = load i8, ptr %2114, align 1, !tbaa !47
   %2116 = zext i8 %2115 to i64
-  %2117 = getelementptr inbounds nuw ptr, ptr %29, i64 %2116
+  %2117 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %2116
   %2118 = load ptr, ptr %2117, align 8, !tbaa !119
   %2119 = load i32, ptr %2118, align 8, !tbaa !121
   %2120 = sub i32 %.181325.i, %2119
@@ -20545,7 +20532,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %2211 = getelementptr inbounds nuw i8, ptr @lut_ctxno_sc, i64 %2210
   %2212 = load i8, ptr %2211, align 1, !tbaa !47
   %2213 = zext i8 %2212 to i64
-  %2214 = getelementptr inbounds nuw ptr, ptr %29, i64 %2213
+  %2214 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %2213
   %2215 = load ptr, ptr %2214, align 8, !tbaa !119
   %2216 = load i32, ptr %2215, align 8, !tbaa !121
   %2217 = sub i32 %.211328.i, %2216
@@ -20730,7 +20717,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %2309 = getelementptr inbounds nuw i8, ptr %.val1861.i, i64 %2308
   %2310 = load i8, ptr %2309, align 1, !tbaa !47
   %2311 = zext i8 %2310 to i64
-  %2312 = getelementptr inbounds nuw ptr, ptr %29, i64 %2311
+  %2312 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %2311
   %2313 = load ptr, ptr %2312, align 8, !tbaa !119
   %2314 = load i32, ptr %2313, align 8, !tbaa !121
   %2315 = sub i32 %.311338.ph.i, %2314
@@ -20913,7 +20900,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %2406 = getelementptr inbounds nuw i8, ptr @lut_ctxno_sc, i64 %2405
   %2407 = load i8, ptr %2406, align 1, !tbaa !47
   %2408 = zext i8 %2407 to i64
-  %2409 = getelementptr inbounds nuw ptr, ptr %29, i64 %2408
+  %2409 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %2408
   %2410 = load ptr, ptr %2409, align 8, !tbaa !119
   %2411 = load i32, ptr %2410, align 8, !tbaa !121
   %2412 = sub i32 %.321339.i, %2411
@@ -21098,7 +21085,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %2504 = getelementptr inbounds nuw i8, ptr %.val1860.i, i64 %2503
   %2505 = load i8, ptr %2504, align 1, !tbaa !47
   %2506 = zext i8 %2505 to i64
-  %2507 = getelementptr inbounds nuw ptr, ptr %29, i64 %2506
+  %2507 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %2506
   %2508 = load ptr, ptr %2507, align 8, !tbaa !119
   %2509 = load i32, ptr %2508, align 8, !tbaa !121
   %2510 = sub i32 %.421349.ph.i, %2509
@@ -21281,7 +21268,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %2601 = getelementptr inbounds nuw i8, ptr @lut_ctxno_sc, i64 %2600
   %2602 = load i8, ptr %2601, align 1, !tbaa !47
   %2603 = zext i8 %2602 to i64
-  %2604 = getelementptr inbounds nuw ptr, ptr %29, i64 %2603
+  %2604 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %2603
   %2605 = load ptr, ptr %2604, align 8, !tbaa !119
   %2606 = load i32, ptr %2605, align 8, !tbaa !121
   %2607 = sub i32 %.431350.i, %2606
@@ -21464,7 +21451,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %2699 = getelementptr inbounds nuw i8, ptr %.val1859.i, i64 %2698
   %2700 = load i8, ptr %2699, align 1, !tbaa !47
   %2701 = zext i8 %2700 to i64
-  %2702 = getelementptr inbounds nuw ptr, ptr %29, i64 %2701
+  %2702 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %2701
   %2703 = load ptr, ptr %2702, align 8, !tbaa !119
   %2704 = load i32, ptr %2703, align 8, !tbaa !121
   %2705 = sub i32 %.113082059.i, %2704
@@ -21642,7 +21629,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %2796 = getelementptr inbounds nuw i8, ptr @lut_ctxno_sc, i64 %2795
   %2797 = load i8, ptr %2796, align 1, !tbaa !47
   %2798 = zext i8 %2797 to i64
-  %2799 = getelementptr inbounds nuw ptr, ptr %29, i64 %2798
+  %2799 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %2798
   %2800 = load ptr, ptr %2799, align 8, !tbaa !119
   %2801 = load i32, ptr %2800, align 8, !tbaa !121
   %2802 = sub i32 %.571364.i, %2801
@@ -21845,7 +21832,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %2906 = getelementptr inbounds nuw i8, ptr %.val1858.i, i64 %2905
   %2907 = load i8, ptr %2906, align 1, !tbaa !47
   %2908 = zext i8 %2907 to i64
-  %2909 = getelementptr inbounds nuw ptr, ptr %29, i64 %2908
+  %2909 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %2908
   %2910 = load ptr, ptr %2909, align 8, !tbaa !119
   %2911 = load i32, ptr %2910, align 8, !tbaa !121
   %2912 = sub i32 %.541361.i, %2911
@@ -22023,7 +22010,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %3003 = getelementptr inbounds nuw i8, ptr @lut_ctxno_sc, i64 %3002
   %3004 = load i8, ptr %3003, align 1, !tbaa !47
   %3005 = zext i8 %3004 to i64
-  %3006 = getelementptr inbounds nuw ptr, ptr %29, i64 %3005
+  %3006 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %3005
   %3007 = load ptr, ptr %3006, align 8, !tbaa !119
   %3008 = load i32, ptr %3007, align 8, !tbaa !121
   %3009 = sub i32 %.661373.i, %3008
@@ -22213,7 +22200,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %3103 = getelementptr inbounds nuw i8, ptr %.val1857.i, i64 %3102
   %3104 = load i8, ptr %3103, align 1, !tbaa !47
   %3105 = zext i8 %3104 to i64
-  %3106 = getelementptr inbounds nuw ptr, ptr %29, i64 %3105
+  %3106 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %3105
   %3107 = load ptr, ptr %3106, align 8, !tbaa !119
   %3108 = load i32, ptr %3107, align 8, !tbaa !121
   %3109 = sub i32 %.631370.i, %3108
@@ -22391,7 +22378,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %3200 = getelementptr inbounds nuw i8, ptr @lut_ctxno_sc, i64 %3199
   %3201 = load i8, ptr %3200, align 1, !tbaa !47
   %3202 = zext i8 %3201 to i64
-  %3203 = getelementptr inbounds nuw ptr, ptr %29, i64 %3202
+  %3203 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %3202
   %3204 = load ptr, ptr %3203, align 8, !tbaa !119
   %3205 = load i32, ptr %3204, align 8, !tbaa !121
   %3206 = sub i32 %.751382.i, %3205
@@ -22581,7 +22568,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %3300 = getelementptr inbounds nuw i8, ptr %.val.i30, i64 %3299
   %3301 = load i8, ptr %3300, align 1, !tbaa !47
   %3302 = zext i8 %3301 to i64
-  %3303 = getelementptr inbounds nuw ptr, ptr %29, i64 %3302
+  %3303 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %3302
   %3304 = load ptr, ptr %3303, align 8, !tbaa !119
   %3305 = load i32, ptr %3304, align 8, !tbaa !121
   %3306 = sub i32 %.721379.i, %3305
@@ -22759,7 +22746,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %3397 = getelementptr inbounds nuw i8, ptr @lut_ctxno_sc, i64 %3396
   %3398 = load i8, ptr %3397, align 1, !tbaa !47
   %3399 = zext i8 %3398 to i64
-  %3400 = getelementptr inbounds nuw ptr, ptr %29, i64 %3399
+  %3400 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %3399
   %3401 = load ptr, ptr %3400, align 8, !tbaa !119
   %3402 = load i32, ptr %3401, align 8, !tbaa !121
   %3403 = sub i32 %.831390.i, %3402
@@ -22991,7 +22978,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %3516 = load ptr, ptr %3515, align 8, !tbaa !15
   %3517 = add i32 %5, 3
   %3518 = zext i32 %3517 to i64
-  %3519 = getelementptr inbounds nuw i32, ptr %3516, i64 %3518
+  %3519 = getelementptr inbounds nuw [4 x i8], ptr %3516, i64 %3518
   %3520 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3521 = load ptr, ptr %3520, align 8, !tbaa !117
   %3522 = load i32, ptr %0, align 8, !tbaa !107
@@ -23060,7 +23047,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %3553 = getelementptr inbounds nuw i8, ptr %.val1871.us.i, i64 %3552
   %3554 = load i8, ptr %3553, align 1, !tbaa !47
   %3555 = zext i8 %3554 to i64
-  %3556 = getelementptr inbounds nuw ptr, ptr %3534, i64 %3555
+  %3556 = getelementptr inbounds nuw [8 x i8], ptr %3534, i64 %3555
   %3557 = load ptr, ptr %3556, align 8, !tbaa !119
   %3558 = load i32, ptr %3557, align 8, !tbaa !121
   %3559 = sub i32 %.113172076.us.i, %3558
@@ -23238,7 +23225,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %3650 = getelementptr inbounds nuw i8, ptr @lut_ctxno_sc, i64 %3649
   %3651 = load i8, ptr %3650, align 1, !tbaa !47
   %3652 = zext i8 %3651 to i64
-  %3653 = getelementptr inbounds nuw ptr, ptr %3534, i64 %3652
+  %3653 = getelementptr inbounds nuw [8 x i8], ptr %3534, i64 %3652
   %3654 = load ptr, ptr %3653, align 8, !tbaa !119
   %3655 = load i32, ptr %3654, align 8, !tbaa !121
   %3656 = sub i32 %.571373.us.i, %3655
@@ -23427,7 +23414,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %3749 = getelementptr inbounds nuw i8, ptr %.val1870.us.i, i64 %3748
   %3750 = load i8, ptr %3749, align 1, !tbaa !47
   %3751 = zext i8 %3750 to i64
-  %3752 = getelementptr inbounds nuw ptr, ptr %3534, i64 %3751
+  %3752 = getelementptr inbounds nuw [8 x i8], ptr %3534, i64 %3751
   %3753 = load ptr, ptr %3752, align 8, !tbaa !119
   %3754 = load i32, ptr %3753, align 8, !tbaa !121
   %3755 = sub i32 %.541370.us.i, %3754
@@ -23605,7 +23592,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %3846 = getelementptr inbounds nuw i8, ptr @lut_ctxno_sc, i64 %3845
   %3847 = load i8, ptr %3846, align 1, !tbaa !47
   %3848 = zext i8 %3847 to i64
-  %3849 = getelementptr inbounds nuw ptr, ptr %3534, i64 %3848
+  %3849 = getelementptr inbounds nuw [8 x i8], ptr %3534, i64 %3848
   %3850 = load ptr, ptr %3849, align 8, !tbaa !119
   %3851 = load i32, ptr %3850, align 8, !tbaa !121
   %3852 = sub i32 %.661382.us.i, %3851
@@ -23764,7 +23751,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %3930 = xor i32 %.371585.us.i, %3929
   %.not1789.us.i = icmp eq i32 %.371585.us.i, %3929
   %3931 = select i1 %.not1789.us.i, i32 %3529, i32 %3537
-  %3932 = getelementptr inbounds nuw i32, ptr %.112992080.us.i, i64 %3538
+  %3932 = getelementptr inbounds nuw [4 x i8], ptr %.112992080.us.i, i64 %3538
   store i32 %3931, ptr %3932, align 4, !tbaa !59
   %3933 = load i32, ptr %3831, align 4, !tbaa !59
   %3934 = or i32 %3933, 256
@@ -23795,7 +23782,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %3946 = getelementptr inbounds nuw i8, ptr %.val1869.us.i, i64 %3945
   %3947 = load i8, ptr %3946, align 1, !tbaa !47
   %3948 = zext i8 %3947 to i64
-  %3949 = getelementptr inbounds nuw ptr, ptr %3534, i64 %3948
+  %3949 = getelementptr inbounds nuw [8 x i8], ptr %3534, i64 %3948
   %3950 = load ptr, ptr %3949, align 8, !tbaa !119
   %3951 = load i32, ptr %3950, align 8, !tbaa !121
   %3952 = sub i32 %.631379.us.i, %3951
@@ -23973,7 +23960,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %4043 = getelementptr inbounds nuw i8, ptr @lut_ctxno_sc, i64 %4042
   %4044 = load i8, ptr %4043, align 1, !tbaa !47
   %4045 = zext i8 %4044 to i64
-  %4046 = getelementptr inbounds nuw ptr, ptr %3534, i64 %4045
+  %4046 = getelementptr inbounds nuw [8 x i8], ptr %3534, i64 %4045
   %4047 = load ptr, ptr %4046, align 8, !tbaa !119
   %4048 = load i32, ptr %4047, align 8, !tbaa !121
   %4049 = sub i32 %.751391.us.i, %4048
@@ -24132,7 +24119,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %4127 = xor i32 %.431591.us.i, %4126
   %.not1800.us.i = icmp eq i32 %.431591.us.i, %4126
   %4128 = select i1 %.not1800.us.i, i32 %3529, i32 %3537
-  %4129 = getelementptr inbounds nuw i32, ptr %.112992080.us.i, i64 %3540
+  %4129 = getelementptr inbounds nuw [4 x i8], ptr %.112992080.us.i, i64 %3540
   store i32 %4128, ptr %4129, align 4, !tbaa !59
   %4130 = load i32, ptr %4028, align 4, !tbaa !59
   %4131 = or i32 %4130, 2048
@@ -24163,7 +24150,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %4143 = getelementptr inbounds nuw i8, ptr %.val.us.i, i64 %4142
   %4144 = load i8, ptr %4143, align 1, !tbaa !47
   %4145 = zext i8 %4144 to i64
-  %4146 = getelementptr inbounds nuw ptr, ptr %3534, i64 %4145
+  %4146 = getelementptr inbounds nuw [8 x i8], ptr %3534, i64 %4145
   %4147 = load ptr, ptr %4146, align 8, !tbaa !119
   %4148 = load i32, ptr %4147, align 8, !tbaa !121
   %4149 = sub i32 %.721388.us.i, %4148
@@ -24341,7 +24328,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %4240 = getelementptr inbounds nuw i8, ptr @lut_ctxno_sc, i64 %4239
   %4241 = load i8, ptr %4240, align 1, !tbaa !47
   %4242 = zext i8 %4241 to i64
-  %4243 = getelementptr inbounds nuw ptr, ptr %3534, i64 %4242
+  %4243 = getelementptr inbounds nuw [8 x i8], ptr %3534, i64 %4242
   %4244 = load ptr, ptr %4243, align 8, !tbaa !119
   %4245 = load i32, ptr %4244, align 8, !tbaa !121
   %4246 = sub i32 %.831399.us.i, %4245
@@ -24500,7 +24487,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %4324 = xor i32 %.491597.us.i, %4323
   %.not1811.us.i = icmp eq i32 %.491597.us.i, %4323
   %4325 = select i1 %.not1811.us.i, i32 %3529, i32 %3537
-  %4326 = getelementptr inbounds nuw i32, ptr %.112992080.us.i, i64 %3542
+  %4326 = getelementptr inbounds nuw [4 x i8], ptr %.112992080.us.i, i64 %3542
   store i32 %4325, ptr %4326, align 4, !tbaa !59
   %4327 = load i32, ptr %4225, align 4, !tbaa !59
   %4328 = or i32 %4327, 16384
@@ -24996,7 +24983,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %4579 = getelementptr inbounds nuw i8, ptr @lut_ctxno_sc, i64 %4578
   %4580 = load i8, ptr %4579, align 1, !tbaa !47
   %4581 = zext i8 %4580 to i64
-  %4582 = getelementptr inbounds nuw ptr, ptr %3534, i64 %4581
+  %4582 = getelementptr inbounds nuw [8 x i8], ptr %3534, i64 %4581
   %4583 = load ptr, ptr %4582, align 8, !tbaa !119
   %4584 = load i32, ptr %4583, align 8, !tbaa !121
   %4585 = sub i32 %.131329.us.i, %4584
@@ -25168,7 +25155,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %4671 = getelementptr inbounds nuw i8, ptr %.val1874.us.i, i64 2
   %4672 = load i8, ptr %4671, align 1, !tbaa !47
   %4673 = zext i8 %4672 to i64
-  %4674 = getelementptr inbounds nuw ptr, ptr %3534, i64 %4673
+  %4674 = getelementptr inbounds nuw [8 x i8], ptr %3534, i64 %4673
   %4675 = load ptr, ptr %4674, align 8, !tbaa !119
   %4676 = load i32, ptr %4675, align 8, !tbaa !121
   %4677 = sub i32 %.181334.us.i, %4676
@@ -25351,7 +25338,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %4768 = getelementptr inbounds nuw i8, ptr @lut_ctxno_sc, i64 %4767
   %4769 = load i8, ptr %4768, align 1, !tbaa !47
   %4770 = zext i8 %4769 to i64
-  %4771 = getelementptr inbounds nuw ptr, ptr %3534, i64 %4770
+  %4771 = getelementptr inbounds nuw [8 x i8], ptr %3534, i64 %4770
   %4772 = load ptr, ptr %4771, align 8, !tbaa !119
   %4773 = load i32, ptr %4772, align 8, !tbaa !121
   %4774 = sub i32 %.211337.us.i, %4773
@@ -25510,7 +25497,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %4852 = xor i32 %.131561.us.i, %4851
   %.not1840.us.i = icmp eq i32 %.131561.us.i, %4851
   %4853 = select i1 %.not1840.us.i, i32 %3529, i32 %3537
-  %4854 = getelementptr inbounds nuw i32, ptr %.112992080.us.i, i64 %3538
+  %4854 = getelementptr inbounds nuw [4 x i8], ptr %.112992080.us.i, i64 %3538
   store i32 %4853, ptr %4854, align 4, !tbaa !59
   %4855 = load i32, ptr %4752, align 4, !tbaa !59
   %4856 = or i32 %4855, 256
@@ -25536,7 +25523,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %4866 = getelementptr inbounds nuw i8, ptr %.val1873.us.i, i64 %4865
   %4867 = load i8, ptr %4866, align 1, !tbaa !47
   %4868 = zext i8 %4867 to i64
-  %4869 = getelementptr inbounds nuw ptr, ptr %3534, i64 %4868
+  %4869 = getelementptr inbounds nuw [8 x i8], ptr %3534, i64 %4868
   %4870 = load ptr, ptr %4869, align 8, !tbaa !119
   %4871 = load i32, ptr %4870, align 8, !tbaa !121
   %4872 = sub i32 %.311347.ph.us.i, %4871
@@ -25719,7 +25706,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %4963 = getelementptr inbounds nuw i8, ptr @lut_ctxno_sc, i64 %4962
   %4964 = load i8, ptr %4963, align 1, !tbaa !47
   %4965 = zext i8 %4964 to i64
-  %4966 = getelementptr inbounds nuw ptr, ptr %3534, i64 %4965
+  %4966 = getelementptr inbounds nuw [8 x i8], ptr %3534, i64 %4965
   %4967 = load ptr, ptr %4966, align 8, !tbaa !119
   %4968 = load i32, ptr %4967, align 8, !tbaa !121
   %4969 = sub i32 %.321348.us.i, %4968
@@ -25878,7 +25865,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %5047 = xor i32 %.191567.us.i, %5046
   %.not1851.us.i = icmp eq i32 %.191567.us.i, %5046
   %5048 = select i1 %.not1851.us.i, i32 %3529, i32 %3537
-  %5049 = getelementptr inbounds nuw i32, ptr %.112992080.us.i, i64 %3540
+  %5049 = getelementptr inbounds nuw [4 x i8], ptr %.112992080.us.i, i64 %3540
   store i32 %5048, ptr %5049, align 4, !tbaa !59
   %5050 = load i32, ptr %4947, align 4, !tbaa !59
   %5051 = or i32 %5050, 2048
@@ -25904,7 +25891,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %5061 = getelementptr inbounds nuw i8, ptr %.val1872.us.i, i64 %5060
   %5062 = load i8, ptr %5061, align 1, !tbaa !47
   %5063 = zext i8 %5062 to i64
-  %5064 = getelementptr inbounds nuw ptr, ptr %3534, i64 %5063
+  %5064 = getelementptr inbounds nuw [8 x i8], ptr %3534, i64 %5063
   %5065 = load ptr, ptr %5064, align 8, !tbaa !119
   %5066 = load i32, ptr %5065, align 8, !tbaa !121
   %5067 = sub i32 %.421358.ph.us.i, %5066
@@ -26087,7 +26074,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %5158 = getelementptr inbounds nuw i8, ptr @lut_ctxno_sc, i64 %5157
   %5159 = load i8, ptr %5158, align 1, !tbaa !47
   %5160 = zext i8 %5159 to i64
-  %5161 = getelementptr inbounds nuw ptr, ptr %3534, i64 %5160
+  %5161 = getelementptr inbounds nuw [8 x i8], ptr %3534, i64 %5160
   %5162 = load ptr, ptr %5161, align 8, !tbaa !119
   %5163 = load i32, ptr %5162, align 8, !tbaa !121
   %5164 = sub i32 %.431359.us.i, %5163
@@ -26246,7 +26233,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %5242 = xor i32 %.251573.us.i, %5241
   %.not1862.us.i = icmp eq i32 %.251573.us.i, %5241
   %5243 = select i1 %.not1862.us.i, i32 %3529, i32 %3537
-  %5244 = getelementptr inbounds nuw i32, ptr %.112992080.us.i, i64 %3542
+  %5244 = getelementptr inbounds nuw [4 x i8], ptr %.112992080.us.i, i64 %3542
   store i32 %5243, ptr %5244, align 4, !tbaa !59
   %5245 = load i32, ptr %5142, align 4, !tbaa !59
   %5246 = or i32 %5245, 16384
@@ -26269,7 +26256,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %5251 = load i32, ptr %4, align 8, !tbaa !104
   %5252 = add i32 %5251, 2
   %5253 = zext i32 %5252 to i64
-  %5254 = getelementptr inbounds nuw i32, ptr %.113022079.us.i, i64 %5253
+  %5254 = getelementptr inbounds nuw [4 x i8], ptr %.113022079.us.i, i64 %5253
   %5255 = shl i32 %.sink2552.i, 18
   %5256 = or disjoint i32 %5255, 2
   %5257 = load i32, ptr %5254, align 4, !tbaa !59
@@ -26308,7 +26295,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
 
 ._crit_edge.us.i:                                 ; preds = %.thread1922.us.i
   %5270 = add nuw i32 %.012972093.us.i, 4
-  %5271 = getelementptr inbounds nuw i32, ptr %5268, i64 %3542
+  %5271 = getelementptr inbounds nuw [4 x i8], ptr %5268, i64 %3542
   %5272 = getelementptr inbounds nuw i8, ptr %.113022079.us.i, i64 12
   %5273 = load i32, ptr %3530, align 4, !tbaa !105
   %5274 = and i32 %5273, -4
@@ -26360,7 +26347,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %5288 = trunc nuw i64 %indvars.iv.i to i32
   %5289 = mul i32 %5, %5288
   %5290 = zext i32 %5289 to i64
-  %5291 = getelementptr inbounds nuw i32, ptr %.213002112.i, i64 %5290
+  %5291 = getelementptr inbounds nuw [4 x i8], ptr %.213002112.i, i64 %5290
   tail call fastcc void @opj_t1_dec_clnpass_step(ptr noundef nonnull %0, ptr noundef %.213032111.i, ptr noundef %5291, i32 noundef %3529, i32 noundef %5288, i32 noundef 1)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %5292 = load i32, ptr %3530, align 4, !tbaa !105
@@ -26432,7 +26419,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %5322 = getelementptr inbounds nuw i8, ptr %.val1883.us.i, i64 %5321
   %5323 = load i8, ptr %5322, align 1, !tbaa !47
   %5324 = zext i8 %5323 to i64
-  %5325 = getelementptr inbounds nuw ptr, ptr %5303, i64 %5324
+  %5325 = getelementptr inbounds nuw [8 x i8], ptr %5303, i64 %5324
   %5326 = load ptr, ptr %5325, align 8, !tbaa !119
   %5327 = load i32, ptr %5326, align 8, !tbaa !121
   %5328 = sub i32 %.113292088.us.i, %5327
@@ -26610,7 +26597,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %5419 = getelementptr inbounds nuw i8, ptr @lut_ctxno_sc, i64 %5418
   %5420 = load i8, ptr %5419, align 1, !tbaa !47
   %5421 = zext i8 %5420 to i64
-  %5422 = getelementptr inbounds nuw ptr, ptr %5303, i64 %5421
+  %5422 = getelementptr inbounds nuw [8 x i8], ptr %5303, i64 %5421
   %5423 = load ptr, ptr %5422, align 8, !tbaa !119
   %5424 = load i32, ptr %5423, align 8, !tbaa !121
   %5425 = sub i32 %.571385.us.i, %5424
@@ -26783,7 +26770,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %5513 = add i32 %5512, 2
   %5514 = zext i32 %5513 to i64
   %5515 = sub nsw i64 0, %5514
-  %5516 = getelementptr inbounds i32, ptr %.113142091.us.i, i64 %5515
+  %5516 = getelementptr inbounds [4 x i8], ptr %.113142091.us.i, i64 %5515
   %5517 = shl i32 %5503, 31
   %5518 = or disjoint i32 %5517, 65536
   %5519 = load i32, ptr %5516, align 4, !tbaa !59
@@ -26817,7 +26804,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %5533 = getelementptr inbounds nuw i8, ptr %.val1882.us.i, i64 %5532
   %5534 = load i8, ptr %5533, align 1, !tbaa !47
   %5535 = zext i8 %5534 to i64
-  %5536 = getelementptr inbounds nuw ptr, ptr %5303, i64 %5535
+  %5536 = getelementptr inbounds nuw [8 x i8], ptr %5303, i64 %5535
   %5537 = load ptr, ptr %5536, align 8, !tbaa !119
   %5538 = load i32, ptr %5537, align 8, !tbaa !121
   %5539 = sub i32 %.541382.us.i, %5538
@@ -26995,7 +26982,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %5630 = getelementptr inbounds nuw i8, ptr @lut_ctxno_sc, i64 %5629
   %5631 = load i8, ptr %5630, align 1, !tbaa !47
   %5632 = zext i8 %5631 to i64
-  %5633 = getelementptr inbounds nuw ptr, ptr %5303, i64 %5632
+  %5633 = getelementptr inbounds nuw [8 x i8], ptr %5303, i64 %5632
   %5634 = load ptr, ptr %5633, align 8, !tbaa !119
   %5635 = load i32, ptr %5634, align 8, !tbaa !121
   %5636 = sub i32 %.661394.us.i, %5635
@@ -27154,7 +27141,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %5714 = xor i32 %.371597.us.i, %5713
   %.not1801.us.i267 = icmp eq i32 %.371597.us.i, %5713
   %5715 = select i1 %.not1801.us.i267, i32 %3529, i32 %5306
-  %5716 = getelementptr inbounds nuw i32, ptr %.113112092.us.i, i64 %5307
+  %5716 = getelementptr inbounds nuw [4 x i8], ptr %.113112092.us.i, i64 %5307
   store i32 %5715, ptr %5716, align 4, !tbaa !59
   %5717 = load i32, ptr %5615, align 4, !tbaa !59
   %5718 = or i32 %5717, 256
@@ -27185,7 +27172,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %5730 = getelementptr inbounds nuw i8, ptr %.val1881.us.i, i64 %5729
   %5731 = load i8, ptr %5730, align 1, !tbaa !47
   %5732 = zext i8 %5731 to i64
-  %5733 = getelementptr inbounds nuw ptr, ptr %5303, i64 %5732
+  %5733 = getelementptr inbounds nuw [8 x i8], ptr %5303, i64 %5732
   %5734 = load ptr, ptr %5733, align 8, !tbaa !119
   %5735 = load i32, ptr %5734, align 8, !tbaa !121
   %5736 = sub i32 %.631391.us.i, %5735
@@ -27363,7 +27350,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %5827 = getelementptr inbounds nuw i8, ptr @lut_ctxno_sc, i64 %5826
   %5828 = load i8, ptr %5827, align 1, !tbaa !47
   %5829 = zext i8 %5828 to i64
-  %5830 = getelementptr inbounds nuw ptr, ptr %5303, i64 %5829
+  %5830 = getelementptr inbounds nuw [8 x i8], ptr %5303, i64 %5829
   %5831 = load ptr, ptr %5830, align 8, !tbaa !119
   %5832 = load i32, ptr %5831, align 8, !tbaa !121
   %5833 = sub i32 %.751403.us.i, %5832
@@ -27522,7 +27509,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %5911 = xor i32 %.431603.us.i, %5910
   %.not1812.us.i = icmp eq i32 %.431603.us.i, %5910
   %5912 = select i1 %.not1812.us.i, i32 %3529, i32 %5306
-  %5913 = getelementptr inbounds nuw i32, ptr %.113112092.us.i, i64 %5309
+  %5913 = getelementptr inbounds nuw [4 x i8], ptr %.113112092.us.i, i64 %5309
   store i32 %5912, ptr %5913, align 4, !tbaa !59
   %5914 = load i32, ptr %5812, align 4, !tbaa !59
   %5915 = or i32 %5914, 2048
@@ -27553,7 +27540,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %5927 = getelementptr inbounds nuw i8, ptr %.val.us.i226, i64 %5926
   %5928 = load i8, ptr %5927, align 1, !tbaa !47
   %5929 = zext i8 %5928 to i64
-  %5930 = getelementptr inbounds nuw ptr, ptr %5303, i64 %5929
+  %5930 = getelementptr inbounds nuw [8 x i8], ptr %5303, i64 %5929
   %5931 = load ptr, ptr %5930, align 8, !tbaa !119
   %5932 = load i32, ptr %5931, align 8, !tbaa !121
   %5933 = sub i32 %.721400.us.i, %5932
@@ -27731,7 +27718,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %6024 = getelementptr inbounds nuw i8, ptr @lut_ctxno_sc, i64 %6023
   %6025 = load i8, ptr %6024, align 1, !tbaa !47
   %6026 = zext i8 %6025 to i64
-  %6027 = getelementptr inbounds nuw ptr, ptr %5303, i64 %6026
+  %6027 = getelementptr inbounds nuw [8 x i8], ptr %5303, i64 %6026
   %6028 = load ptr, ptr %6027, align 8, !tbaa !119
   %6029 = load i32, ptr %6028, align 8, !tbaa !121
   %6030 = sub i32 %.831411.us.i, %6029
@@ -27890,7 +27877,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %6108 = xor i32 %.491609.us.i, %6107
   %.not1823.us.i232 = icmp eq i32 %.491609.us.i, %6107
   %6109 = select i1 %.not1823.us.i232, i32 %3529, i32 %5306
-  %6110 = getelementptr inbounds nuw i32, ptr %.113112092.us.i, i64 %5311
+  %6110 = getelementptr inbounds nuw [4 x i8], ptr %.113112092.us.i, i64 %5311
   store i32 %6109, ptr %6110, align 4, !tbaa !59
   %6111 = load i32, ptr %6009, align 4, !tbaa !59
   %6112 = or i32 %6111, 16384
@@ -28386,7 +28373,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %6363 = getelementptr inbounds nuw i8, ptr @lut_ctxno_sc, i64 %6362
   %6364 = load i8, ptr %6363, align 1, !tbaa !47
   %6365 = zext i8 %6364 to i64
-  %6366 = getelementptr inbounds nuw ptr, ptr %5303, i64 %6365
+  %6366 = getelementptr inbounds nuw [8 x i8], ptr %5303, i64 %6365
   %6367 = load ptr, ptr %6366, align 8, !tbaa !119
   %6368 = load i32, ptr %6367, align 8, !tbaa !121
   %6369 = sub i32 %.131341.us.i, %6368
@@ -28558,7 +28545,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %6456 = add i32 %6455, 2
   %6457 = zext i32 %6456 to i64
   %6458 = sub nsw i64 0, %6457
-  %6459 = getelementptr inbounds i32, ptr %.113142091.us.i, i64 %6458
+  %6459 = getelementptr inbounds [4 x i8], ptr %.113142091.us.i, i64 %6458
   %6460 = shl i32 %6447, 31
   %6461 = or disjoint i32 %6460, 65536
   %6462 = load i32, ptr %6459, align 4, !tbaa !59
@@ -28576,7 +28563,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %6470 = getelementptr inbounds nuw i8, ptr %.val1886.us.i, i64 2
   %6471 = load i8, ptr %6470, align 1, !tbaa !47
   %6472 = zext i8 %6471 to i64
-  %6473 = getelementptr inbounds nuw ptr, ptr %5303, i64 %6472
+  %6473 = getelementptr inbounds nuw [8 x i8], ptr %5303, i64 %6472
   %6474 = load ptr, ptr %6473, align 8, !tbaa !119
   %6475 = load i32, ptr %6474, align 8, !tbaa !121
   %6476 = sub i32 %.181346.us.i, %6475
@@ -28759,7 +28746,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %6567 = getelementptr inbounds nuw i8, ptr @lut_ctxno_sc, i64 %6566
   %6568 = load i8, ptr %6567, align 1, !tbaa !47
   %6569 = zext i8 %6568 to i64
-  %6570 = getelementptr inbounds nuw ptr, ptr %5303, i64 %6569
+  %6570 = getelementptr inbounds nuw [8 x i8], ptr %5303, i64 %6569
   %6571 = load ptr, ptr %6570, align 8, !tbaa !119
   %6572 = load i32, ptr %6571, align 8, !tbaa !121
   %6573 = sub i32 %.211349.us.i, %6572
@@ -28918,7 +28905,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %6651 = xor i32 %.131573.us.i, %6650
   %.not1852.us.i = icmp eq i32 %.131573.us.i, %6650
   %6652 = select i1 %.not1852.us.i, i32 %3529, i32 %5306
-  %6653 = getelementptr inbounds nuw i32, ptr %.113112092.us.i, i64 %5307
+  %6653 = getelementptr inbounds nuw [4 x i8], ptr %.113112092.us.i, i64 %5307
   store i32 %6652, ptr %6653, align 4, !tbaa !59
   %6654 = load i32, ptr %6551, align 4, !tbaa !59
   %6655 = or i32 %6654, 256
@@ -28944,7 +28931,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %6665 = getelementptr inbounds nuw i8, ptr %.val1885.us.i, i64 %6664
   %6666 = load i8, ptr %6665, align 1, !tbaa !47
   %6667 = zext i8 %6666 to i64
-  %6668 = getelementptr inbounds nuw ptr, ptr %5303, i64 %6667
+  %6668 = getelementptr inbounds nuw [8 x i8], ptr %5303, i64 %6667
   %6669 = load ptr, ptr %6668, align 8, !tbaa !119
   %6670 = load i32, ptr %6669, align 8, !tbaa !121
   %6671 = sub i32 %.311359.ph.us.i, %6670
@@ -29127,7 +29114,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %6762 = getelementptr inbounds nuw i8, ptr @lut_ctxno_sc, i64 %6761
   %6763 = load i8, ptr %6762, align 1, !tbaa !47
   %6764 = zext i8 %6763 to i64
-  %6765 = getelementptr inbounds nuw ptr, ptr %5303, i64 %6764
+  %6765 = getelementptr inbounds nuw [8 x i8], ptr %5303, i64 %6764
   %6766 = load ptr, ptr %6765, align 8, !tbaa !119
   %6767 = load i32, ptr %6766, align 8, !tbaa !121
   %6768 = sub i32 %.321360.us.i, %6767
@@ -29286,7 +29273,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %6846 = xor i32 %.191579.us.i, %6845
   %.not1863.us.i = icmp eq i32 %.191579.us.i, %6845
   %6847 = select i1 %.not1863.us.i, i32 %3529, i32 %5306
-  %6848 = getelementptr inbounds nuw i32, ptr %.113112092.us.i, i64 %5309
+  %6848 = getelementptr inbounds nuw [4 x i8], ptr %.113112092.us.i, i64 %5309
   store i32 %6847, ptr %6848, align 4, !tbaa !59
   %6849 = load i32, ptr %6746, align 4, !tbaa !59
   %6850 = or i32 %6849, 2048
@@ -29312,7 +29299,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %6860 = getelementptr inbounds nuw i8, ptr %.val1884.us.i, i64 %6859
   %6861 = load i8, ptr %6860, align 1, !tbaa !47
   %6862 = zext i8 %6861 to i64
-  %6863 = getelementptr inbounds nuw ptr, ptr %5303, i64 %6862
+  %6863 = getelementptr inbounds nuw [8 x i8], ptr %5303, i64 %6862
   %6864 = load ptr, ptr %6863, align 8, !tbaa !119
   %6865 = load i32, ptr %6864, align 8, !tbaa !121
   %6866 = sub i32 %.421370.ph.us.i, %6865
@@ -29495,7 +29482,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %6957 = getelementptr inbounds nuw i8, ptr @lut_ctxno_sc, i64 %6956
   %6958 = load i8, ptr %6957, align 1, !tbaa !47
   %6959 = zext i8 %6958 to i64
-  %6960 = getelementptr inbounds nuw ptr, ptr %5303, i64 %6959
+  %6960 = getelementptr inbounds nuw [8 x i8], ptr %5303, i64 %6959
   %6961 = load ptr, ptr %6960, align 8, !tbaa !119
   %6962 = load i32, ptr %6961, align 8, !tbaa !121
   %6963 = sub i32 %.431371.us.i, %6962
@@ -29654,7 +29641,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %7041 = xor i32 %.251585.us.i, %7040
   %.not1874.us.i = icmp eq i32 %.251585.us.i, %7040
   %7042 = select i1 %.not1874.us.i, i32 %3529, i32 %5306
-  %7043 = getelementptr inbounds nuw i32, ptr %.113112092.us.i, i64 %5311
+  %7043 = getelementptr inbounds nuw [4 x i8], ptr %.113112092.us.i, i64 %5311
   store i32 %7042, ptr %7043, align 4, !tbaa !59
   %7044 = load i32, ptr %6941, align 4, !tbaa !59
   %7045 = or i32 %7044, 16384
@@ -29677,7 +29664,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %7050 = load i32, ptr %4, align 8, !tbaa !104
   %7051 = add i32 %7050, 2
   %7052 = zext i32 %7051 to i64
-  %7053 = getelementptr inbounds nuw i32, ptr %.113142091.us.i, i64 %7052
+  %7053 = getelementptr inbounds nuw [4 x i8], ptr %.113142091.us.i, i64 %7052
   %7054 = shl i32 %.sink2564.i, 18
   %7055 = or disjoint i32 %7054, 2
   %7056 = load i32, ptr %7053, align 4, !tbaa !59
@@ -29716,7 +29703,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
 
 ._crit_edge.us.i217:                              ; preds = %.thread1934.us.i
   %7069 = add nuw i32 %.013092105.us.i, 4
-  %7070 = getelementptr inbounds nuw i32, ptr %7067, i64 %5311
+  %7070 = getelementptr inbounds nuw [4 x i8], ptr %7067, i64 %5311
   %7071 = getelementptr inbounds nuw i8, ptr %.113142091.us.i, i64 12
   %7072 = load i32, ptr %3530, align 4, !tbaa !105
   %7073 = and i32 %7072, -4
@@ -29768,7 +29755,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %7087 = trunc nuw i64 %indvars.iv.i223 to i32
   %7088 = mul i32 %5, %7087
   %7089 = zext i32 %7088 to i64
-  %7090 = getelementptr inbounds nuw i32, ptr %.213122124.i, i64 %7089
+  %7090 = getelementptr inbounds nuw [4 x i8], ptr %.213122124.i, i64 %7089
   tail call fastcc void @opj_t1_dec_clnpass_step(ptr noundef nonnull %0, ptr noundef %.213152123.i, ptr noundef %7090, i32 noundef %3529, i32 noundef %7087, i32 noundef 0)
   %indvars.iv.next.i224 = add nuw nsw i64 %indvars.iv.i223, 1
   %7091 = load i32, ptr %3530, align 4, !tbaa !105
@@ -30422,7 +30409,7 @@ define internal fastcc void @opj_t1_dec_sigpass_step_mqc(ptr noundef nonnull %0,
   %22 = load i8, ptr %21, align 1, !tbaa !47
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %24 = zext i8 %22 to i64
-  %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store ptr %25, ptr %26, align 8, !tbaa !117
   %27 = load ptr, ptr %25, align 8, !tbaa !119
@@ -30626,7 +30613,7 @@ define internal fastcc void @opj_t1_dec_sigpass_step_mqc(ptr noundef nonnull %0,
   %150 = load i8, ptr %149, align 1, !tbaa !47
   %151 = zext i8 %150 to i32
   %152 = zext i8 %148 to i64
-  %153 = getelementptr inbounds nuw ptr, ptr %23, i64 %152
+  %153 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %152
   store ptr %153, ptr %26, align 8, !tbaa !117
   %154 = load ptr, ptr %153, align 8, !tbaa !119
   %155 = load i32, ptr %154, align 8, !tbaa !121
@@ -30814,7 +30801,7 @@ define internal fastcc void @opj_t1_dec_sigpass_step_mqc(ptr noundef nonnull %0,
 262:                                              ; preds = %.loopexit
   %263 = zext i32 %5 to i64
   %264 = sub nsw i64 0, %263
-  %265 = getelementptr inbounds i32, ptr %1, i64 %264
+  %265 = getelementptr inbounds [4 x i8], ptr %1, i64 %264
   %266 = shl i32 %247, 31
   %267 = or disjoint i32 %266, 65536
   %268 = load i32, ptr %265, align 4, !tbaa !59
@@ -30836,7 +30823,7 @@ define internal fastcc void @opj_t1_dec_sigpass_step_mqc(ptr noundef nonnull %0,
 
 278:                                              ; preds = %276
   %279 = zext i32 %5 to i64
-  %280 = getelementptr inbounds nuw i32, ptr %1, i64 %279
+  %280 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %279
   %281 = shl i32 %247, 18
   %282 = or disjoint i32 %281, 2
   %283 = load i32, ptr %280, align 4, !tbaa !59
@@ -30882,7 +30869,7 @@ define internal fastcc void @opj_t1_dec_clnpass_step(ptr noundef nonnull %0, ptr
   %17 = load i8, ptr %16, align 1, !tbaa !47
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %19 = zext i8 %17 to i64
-  %20 = getelementptr inbounds nuw ptr, ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store ptr %20, ptr %21, align 8, !tbaa !117
   %22 = load ptr, ptr %20, align 8, !tbaa !119
@@ -31083,7 +31070,7 @@ define internal fastcc void @opj_t1_dec_clnpass_step(ptr noundef nonnull %0, ptr
   %142 = getelementptr inbounds nuw i8, ptr @lut_ctxno_sc, i64 %141
   %143 = load i8, ptr %142, align 1, !tbaa !47
   %144 = zext i8 %143 to i64
-  %145 = getelementptr inbounds nuw ptr, ptr %18, i64 %144
+  %145 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %144
   store ptr %145, ptr %21, align 8, !tbaa !117
   %146 = load ptr, ptr %145, align 8, !tbaa !119
   %147 = load i32, ptr %146, align 8, !tbaa !121
@@ -31277,7 +31264,7 @@ define internal fastcc void @opj_t1_dec_clnpass_step(ptr noundef nonnull %0, ptr
   %260 = add i32 %259, 2
   %261 = zext i32 %260 to i64
   %262 = sub nsw i64 0, %261
-  %263 = getelementptr inbounds i32, ptr %1, i64 %262
+  %263 = getelementptr inbounds [4 x i8], ptr %1, i64 %262
   %264 = shl i32 %242, 31
   %265 = or disjoint i32 %264, 65536
   %266 = load i32, ptr %263, align 4, !tbaa !59
@@ -31302,7 +31289,7 @@ define internal fastcc void @opj_t1_dec_clnpass_step(ptr noundef nonnull %0, ptr
   %278 = load i32, ptr %277, align 8, !tbaa !104
   %279 = add i32 %278, 2
   %280 = zext i32 %279 to i64
-  %281 = getelementptr inbounds nuw i32, ptr %1, i64 %280
+  %281 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %280
   %282 = shl i32 %242, 18
   %283 = or disjoint i32 %282, 2
   %284 = load i32, ptr %281, align 4, !tbaa !59

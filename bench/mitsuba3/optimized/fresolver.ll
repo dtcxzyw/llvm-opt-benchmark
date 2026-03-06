@@ -869,7 +869,7 @@ _ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEElsB8ne190000EPFRS3_S4_E.exit: ; p
 
 _ZNSt3__1lsB8ne190000INS_11char_traitsIcEEEERNS_13basic_ostreamIcT_EES6_PKc.exit6: ; preds = %51
   %53 = load ptr, ptr %42, align 8
-  %54 = getelementptr inbounds %"class.mitsuba::filesystem::path", ptr %53, i64 %.0
+  %54 = getelementptr inbounds [32 x i8], ptr %53, i64 %.0
   %55 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN7mitsuba10filesystemlsERNSt3__113basic_ostreamIcNS1_11char_traitsIcEEEERKNS0_4pathE(ptr noundef nonnull align 8 dereferenceable(8) %52, ptr noundef nonnull align 8 dereferenceable(25) %54)
           to label %56 unwind label %.loopexit
 
@@ -1184,7 +1184,7 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_12basic_stringIcNS_11c
   store ptr %11, ptr %0, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %11, ptr %13, align 8
-  %14 = getelementptr inbounds nuw %"class.std::__1::basic_string", ptr %11, i64 %3
+  %14 = getelementptr inbounds nuw [24 x i8], ptr %11, i64 %3
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %14, ptr %15, align 8
   %.not26.i.i.i = icmp eq ptr %1, %2
@@ -1401,7 +1401,7 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIN7mitsuba10filesystem4pat
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %28, ptr %30, align 8
-  %31 = getelementptr inbounds %"class.mitsuba::filesystem::path", ptr %storemerge.i, i64 %.0.i
+  %31 = getelementptr inbounds [32 x i8], ptr %storemerge.i, i64 %.0.i
   store ptr %31, ptr %19, align 8
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %33 = getelementptr inbounds nuw i8, ptr %28, i64 16
@@ -1428,7 +1428,7 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIN7mitsuba10filesystem4pat
   %48 = sub i64 %46, %47
   %49 = ashr exact i64 %48, 5
   %50 = sub nsw i64 0, %49
-  %51 = getelementptr inbounds %"class.mitsuba::filesystem::path", ptr %28, i64 %50
+  %51 = getelementptr inbounds [32 x i8], ptr %28, i64 %50
   invoke void @_ZNSt3__134__uninitialized_allocator_relocateB8ne190000INS_9allocatorIN7mitsuba10filesystem4pathEEES4_EEvRT_PT0_S9_S9_(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef %45, ptr noundef %44, ptr noundef nonnull %51)
           to label %_ZNSt3__114__split_bufferIN7mitsuba10filesystem4pathERNS_9allocatorIS3_EEE5clearB8ne190000Ev.exit.i unwind label %54
 
@@ -1694,7 +1694,7 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIN7mitsuba10filesystem4pat
   store ptr %14, ptr %0, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %14, ptr %16, align 8
-  %17 = getelementptr inbounds nuw %"class.mitsuba::filesystem::path", ptr %14, i64 %3
+  %17 = getelementptr inbounds nuw [32 x i8], ptr %14, i64 %3
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %17, ptr %18, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)

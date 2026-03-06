@@ -174,7 +174,7 @@ define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN15cmVariabl
 20:                                               ; preds = %18, %10, %1
   %spec.store.select = call i32 @llvm.umin.i32(i32 %0, i32 5)
   %21 = zext nneg i32 %spec.store.select to i64
-  %22 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr @_ZZN15cmVariableWatch17GetAccessAsStringB5cxx11EiE28cmVariableWatchAccessStringsB5cxx11, i64 %21
+  %22 = getelementptr inbounds nuw [32 x i8], ptr @_ZZN15cmVariableWatch17GetAccessAsStringB5cxx11EiE28cmVariableWatchAccessStringsB5cxx11, i64 %21
   ret ptr %22
 
 .thread:                                          ; preds = %12
@@ -2026,7 +2026,7 @@ _ZNSt6vectorISt10shared_ptrIN15cmVariableWatch4PairEESaIS3_EE11_S_relocateEPS3_S
 _ZNSt12_Vector_baseISt10shared_ptrIN15cmVariableWatch4PairEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorISt10shared_ptrIN15cmVariableWatch4PairEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22, %40
   store ptr %20, ptr %0, align 8, !tbaa !79
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !50
-  %44 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %20, i64 %16
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %44, ptr %39, align 8, !tbaa !48
   ret void
 }

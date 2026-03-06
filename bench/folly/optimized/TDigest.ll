@@ -312,7 +312,7 @@ _ZNSt6vectorIN5folly7TDigest8CentroidESaIS2_EE7reserveEm.exit: ; preds = %_ZNSt1
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %24, ptr %4, align 8, !tbaa !24
   store ptr %24, ptr %25, align 8, !tbaa !23
-  %26 = getelementptr inbounds nuw %"class.folly::TDigest::Centroid", ptr %24, i64 %13
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %24, i64 %13
   store ptr %26, ptr %22, align 8, !tbaa !25
   %27 = ptrtoint ptr %2 to i64
   %28 = ptrtoint ptr %1 to i64
@@ -334,7 +334,7 @@ _ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.i: ; preds = %_ZNSt6vectorIN5fol
           to label %.lr.ph331 unwind label %.body.thread
 
 .lr.ph331:                                        ; preds = %_ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.i
-  %35 = getelementptr inbounds nuw i64, ptr %34, i64 %30
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %30
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %46
 
@@ -427,7 +427,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i: ; preds = %69, %.no
   br label %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i
 
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i: ; preds = %70, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i
-  %71 = getelementptr inbounds nuw i64, ptr %66, i64 %64
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %64
   br label %_ZNSt6vectorImSaImEE9push_backEOm.exit
 
 _ZNSt6vectorImSaImEE9push_backEOm.exit:           ; preds = %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i, %53
@@ -525,7 +525,7 @@ _ZNSt12_Vector_baseIN5folly7TDigest8CentroidESaIS2_EE11_M_allocateEm.exit.i118: 
           to label %_ZNSt12_Vector_baseIN5folly7TDigest8CentroidESaIS2_EE13_M_deallocateEPS2_m.exit.i126 unwind label %.thread
 
 _ZNSt12_Vector_baseIN5folly7TDigest8CentroidESaIS2_EE13_M_deallocateEPS2_m.exit.i126: ; preds = %_ZNSt12_Vector_baseIN5folly7TDigest8CentroidESaIS2_EE11_M_allocateEm.exit.i118
-  %109 = getelementptr inbounds nuw %"class.folly::TDigest::Centroid", ptr %108, i64 %99
+  %109 = getelementptr inbounds nuw [16 x i8], ptr %108, i64 %99
   br label %_ZNSt6vectorIN5folly7TDigest8CentroidESaIS2_EE7reserveEm.exit129
 
 110:                                              ; preds = %_ZSt13inplace_mergeIN9__gnu_cxx17__normal_iteratorIPN5folly7TDigest8CentroidESt6vectorIS4_SaIS4_EEEEEvT_SA_SA_.exit
@@ -543,16 +543,16 @@ _ZNSt12_Vector_baseIN5folly7TDigest8CentroidESaIS2_EE13_M_deallocateEPS2_m.exit.
   br label %_ZSt13inplace_mergeIN9__gnu_cxx17__normal_iteratorIPN5folly7TDigest8CentroidESt6vectorIS4_SaIS4_EEEEEvT_SA_SA_.exit
 
 115:                                              ; preds = %112
-  %116 = getelementptr inbounds nuw i64, ptr %.sroa.0232.4, i64 %.094339
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0232.4, i64 %.094339
   %117 = load i64, ptr %116, align 8, !tbaa !26
-  %118 = getelementptr inbounds nuw i64, ptr %.sroa.0232.4, i64 %113
+  %118 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0232.4, i64 %113
   %119 = load i64, ptr %118, align 8, !tbaa !26
   %120 = add i64 %.094339, %97
   %121 = icmp ult i64 %120, %40
   br i1 %121, label %122, label %125
 
 122:                                              ; preds = %115
-  %123 = getelementptr inbounds nuw i64, ptr %.sroa.0232.4, i64 %120
+  %123 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0232.4, i64 %120
   %124 = load i64, ptr %123, align 8, !tbaa !26
   %.pre = load ptr, ptr %4, align 8, !tbaa !28
   br label %132
@@ -768,7 +768,7 @@ _ZNSt6vectorIN5folly7TDigest8CentroidESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit2
   br label %_ZNSt6vectorIN5folly7TDigest8CentroidESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
 
 _ZNSt6vectorIN5folly7TDigest8CentroidESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %193, %_ZNSt6vectorIN5folly7TDigest8CentroidESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i
-  %194 = getelementptr inbounds nuw %"class.folly::TDigest::Centroid", ptr %189, i64 %187
+  %194 = getelementptr inbounds nuw [16 x i8], ptr %189, i64 %187
   br label %_ZNSt6vectorIN5folly7TDigest8CentroidESaIS2_EE9push_backERKS2_.exit
 
 .thread:                                          ; preds = %105, %_ZNSt12_Vector_baseIN5folly7TDigest8CentroidESaIS2_EE11_M_allocateEm.exit.i118
@@ -871,7 +871,7 @@ _ZNSt6vectorIN5folly7TDigest8CentroidESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit2
   br label %_ZNSt6vectorIN5folly7TDigest8CentroidESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i145
 
 _ZNSt6vectorIN5folly7TDigest8CentroidESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i145: ; preds = %227, %_ZNSt6vectorIN5folly7TDigest8CentroidESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i142
-  %228 = getelementptr inbounds nuw %"class.folly::TDigest::Centroid", ptr %223, i64 %221
+  %228 = getelementptr inbounds nuw [16 x i8], ptr %223, i64 %221
   br label %_ZNSt6vectorIN5folly7TDigest8CentroidESaIS2_EE9push_backERKS2_.exit148
 
 _ZNSt6vectorIN5folly7TDigest8CentroidESaIS2_EE9push_backERKS2_.exit148: ; preds = %_ZNSt6vectorIN5folly7TDigest8CentroidESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i145, %210
@@ -1314,7 +1314,7 @@ _ZNSt12_Vector_baseIN5folly7TDigest8CentroidESaIS2_EE13_M_deallocateEPS2_m.exit.
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %41, ptr %5, align 8, !tbaa !24
   store ptr %41, ptr %42, align 8, !tbaa !23
-  %43 = getelementptr inbounds nuw %"class.folly::TDigest::Centroid", ptr %41, i64 %31
+  %43 = getelementptr inbounds nuw [16 x i8], ptr %41, i64 %31
   store ptr %43, ptr %39, align 8, !tbaa !25
   br label %_ZNSt6vectorIN5folly7TDigest8CentroidESaIS2_EE7reserveEm.exit
 
@@ -1625,7 +1625,7 @@ _ZNSt6vectorIN5folly7TDigest8CentroidESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__
   %.pre137 = phi i64 [ %.pre137.pre, %97 ], [ %.pre137144.ph, %_ZNSt6vectorIN5folly7TDigest8CentroidESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i ]
   store ptr %92, ptr %4, align 8, !tbaa !24
   store ptr %96, ptr %28, align 8, !tbaa !23
-  %98 = getelementptr inbounds nuw %"class.folly::TDigest::Centroid", ptr %92, i64 %90
+  %98 = getelementptr inbounds nuw [16 x i8], ptr %92, i64 %90
   store ptr %98, ptr %55, align 8, !tbaa !25
   br label %_ZNSt6vectorIN5folly7TDigest8CentroidESaIS2_EE9push_backERKS2_.exit
 
@@ -1725,7 +1725,7 @@ _ZNSt6vectorIN5folly7TDigest8CentroidESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit2
 _ZNSt6vectorIN5folly7TDigest8CentroidESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i73: ; preds = %138, %_ZNSt6vectorIN5folly7TDigest8CentroidESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i70
   store ptr %133, ptr %4, align 8, !tbaa !24
   store ptr %137, ptr %28, align 8, !tbaa !23
-  %139 = getelementptr inbounds nuw %"class.folly::TDigest::Centroid", ptr %133, i64 %131
+  %139 = getelementptr inbounds nuw [16 x i8], ptr %133, i64 %131
   store ptr %139, ptr %55, align 8, !tbaa !25
   br label %_ZNSt6vectorIN5folly7TDigest8CentroidESaIS2_EE9push_backERKS2_.exit74
 
@@ -1832,13 +1832,13 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
   %25 = and i64 %.fr.i21.lcssa, 16
   %26 = icmp eq i64 %25, 0
   %27 = or disjoint i64 %21, 1
-  %28 = getelementptr inbounds nuw %"class.folly::TDigest::Centroid", ptr %.fr22, i64 %27
-  %29 = getelementptr inbounds nuw %"class.folly::TDigest::Centroid", ptr %.fr22, i64 %22
+  %28 = getelementptr inbounds nuw [16 x i8], ptr %.fr22, i64 %27
+  %29 = getelementptr inbounds nuw [16 x i8], ptr %.fr22, i64 %22
   br label %30
 
 30:                                               ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5folly7TDigest8CentroidESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_less_iterEEvT_T0_SD_T1_T2_.exit.i.i, %._crit_edge
   %.09.i.i = phi i64 [ %22, %._crit_edge ], [ %55, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5folly7TDigest8CentroidESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_less_iterEEvT_T0_SD_T1_T2_.exit.i.i ]
-  %31 = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %.fr22, i64 %.09.i.i
+  %31 = getelementptr inbounds [16 x i8], ptr %.fr22, i64 %.09.i.i
   %.sroa.02.0.copyload.i.i = load double, ptr %31, align 8, !tbaa !27
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %31, i64 8
   %.sroa.4.0.copyload.i.i = load double, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !tbaa !27
@@ -1849,15 +1849,15 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
   %.037.i.i.i = phi i64 [ %spec.select.i.i.i, %.lr.ph.i.i.i ], [ %.09.i.i, %30 ]
   %33 = shl i64 %.037.i.i.i, 1
   %34 = add i64 %33, 2
-  %35 = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %.fr22, i64 %34
+  %35 = getelementptr inbounds [16 x i8], ptr %.fr22, i64 %34
   %36 = or disjoint i64 %33, 1
-  %37 = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %.fr22, i64 %36
+  %37 = getelementptr inbounds [16 x i8], ptr %.fr22, i64 %36
   %38 = load double, ptr %35, align 8, !tbaa !42
   %39 = load double, ptr %37, align 8, !tbaa !42
   %40 = fcmp olt double %38, %39
   %spec.select.i.i.i = select i1 %40, i64 %36, i64 %34
-  %41 = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %.fr22, i64 %spec.select.i.i.i
-  %42 = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %.fr22, i64 %.037.i.i.i
+  %41 = getelementptr inbounds [16 x i8], ptr %.fr22, i64 %spec.select.i.i.i
+  %42 = getelementptr inbounds [16 x i8], ptr %.fr22, i64 %.037.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, ptr noundef nonnull align 8 dereferenceable(16) %41, i64 16, i1 false), !tbaa.struct !32
   %43 = icmp slt i64 %spec.select.i.i.i, %24
   br i1 %43, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !60
@@ -1881,20 +1881,20 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
   %.019.i.i.i.i = phi i64 [ %.0920.i.i.i.i, %51 ], [ %.1.i.i.i, %46 ]
   %.0920.in.i.i.i.i = add nsw i64 %.019.i.i.i.i, -1
   %.0920.i.i.i.i = sdiv i64 %.0920.in.i.i.i.i, 2
-  %48 = getelementptr inbounds nuw %"class.folly::TDigest::Centroid", ptr %.fr22, i64 %.0920.i.i.i.i
+  %48 = getelementptr inbounds nuw [16 x i8], ptr %.fr22, i64 %.0920.i.i.i.i
   %49 = load double, ptr %48, align 8, !tbaa !42
   %50 = fcmp olt double %49, %.sroa.02.0.copyload.i.i
   br i1 %50, label %51, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5folly7TDigest8CentroidESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_less_iterEEvT_T0_SD_T1_T2_.exit.i.i
 
 51:                                               ; preds = %.lr.ph.i.i.i.i11
-  %52 = getelementptr inbounds nuw %"class.folly::TDigest::Centroid", ptr %.fr22, i64 %.019.i.i.i.i
+  %52 = getelementptr inbounds nuw [16 x i8], ptr %.fr22, i64 %.019.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %52, ptr noundef nonnull align 8 dereferenceable(16) %48, i64 16, i1 false), !tbaa.struct !32
   %53 = icmp sgt i64 %.0920.i.i.i.i, %.09.i.i
   br i1 %53, label %.lr.ph.i.i.i.i11, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5folly7TDigest8CentroidESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_less_iterEEvT_T0_SD_T1_T2_.exit.i.i, !llvm.loop !61
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5folly7TDigest8CentroidESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_less_iterEEvT_T0_SD_T1_T2_.exit.i.i: ; preds = %51, %.lr.ph.i.i.i.i11, %46
   %.0.lcssa.i.i.i.i10 = phi i64 [ %.1.i.i.i, %46 ], [ %.0920.i.i.i.i, %51 ], [ %.019.i.i.i.i, %.lr.ph.i.i.i.i11 ]
-  %54 = getelementptr inbounds nuw %"class.folly::TDigest::Centroid", ptr %.fr22, i64 %.0.lcssa.i.i.i.i10
+  %54 = getelementptr inbounds nuw [16 x i8], ptr %.fr22, i64 %.0.lcssa.i.i.i.i10
   store double %.sroa.02.0.copyload.i.i, ptr %54, align 8, !tbaa !27
   %.sroa.3.0..sroa.0.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %54, i64 8
   store double %.sroa.4.0.copyload.i.i, ptr %.sroa.3.0..sroa.0.0..sroa_idx.i.i.i.i, align 8, !tbaa !27
@@ -1925,15 +1925,15 @@ _ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN5folly7TDigest8CentroidESt6
   %.037.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ 0, %.lr.ph.i.i ]
   %64 = shl i64 %.037.i.i.i.i, 1
   %65 = add i64 %64, 2
-  %66 = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %.fr22, i64 %65
+  %66 = getelementptr inbounds [16 x i8], ptr %.fr22, i64 %65
   %67 = or disjoint i64 %64, 1
-  %68 = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %.fr22, i64 %67
+  %68 = getelementptr inbounds [16 x i8], ptr %.fr22, i64 %67
   %69 = load double, ptr %66, align 8, !tbaa !42
   %70 = load double, ptr %68, align 8, !tbaa !42
   %71 = fcmp olt double %69, %70
   %spec.select.i.i.i.i = select i1 %71, i64 %67, i64 %65
-  %72 = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %.fr22, i64 %spec.select.i.i.i.i
-  %73 = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %.fr22, i64 %.037.i.i.i.i
+  %72 = getelementptr inbounds [16 x i8], ptr %.fr22, i64 %spec.select.i.i.i.i
+  %73 = getelementptr inbounds [16 x i8], ptr %.fr22, i64 %.037.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %73, ptr noundef nonnull align 8 dereferenceable(16) %72, i64 16, i1 false), !tbaa.struct !32
   %74 = icmp slt i64 %spec.select.i.i.i.i, %62
   br i1 %74, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !60
@@ -1953,8 +1953,8 @@ _ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN5folly7TDigest8CentroidESt6
 .thread.i.i.i:                                    ; preds = %77
   %81 = shl nuw nsw i64 %.0.lcssa.i.i.i.i, 1
   %82 = or disjoint i64 %81, 1
-  %83 = getelementptr inbounds nuw %"class.folly::TDigest::Centroid", ptr %.fr22, i64 %82
-  %84 = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %.fr22, i64 %.0.lcssa.i.i.i.i
+  %83 = getelementptr inbounds nuw [16 x i8], ptr %.fr22, i64 %82
+  %84 = getelementptr inbounds [16 x i8], ptr %.fr22, i64 %.0.lcssa.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %84, ptr noundef nonnull align 8 dereferenceable(16) %83, i64 16, i1 false), !tbaa.struct !32
   br label %.lr.ph.i.i.i.i.i.preheader
 
@@ -1970,20 +1970,20 @@ _ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN5folly7TDigest8CentroidESt6
   %.019.i.i.i.i.i = phi i64 [ %.0920.i.i78.i.i.i, %89 ], [ %.019.i.i.i.i.i.ph, %.lr.ph.i.i.i.i.i.preheader ]
   %.0920.in.i.i.i.i.i = add nsw i64 %.019.i.i.i.i.i, -1
   %.0920.i.i78.i.i.i = lshr i64 %.0920.in.i.i.i.i.i, 1
-  %86 = getelementptr inbounds nuw %"class.folly::TDigest::Centroid", ptr %.fr22, i64 %.0920.i.i78.i.i.i
+  %86 = getelementptr inbounds nuw [16 x i8], ptr %.fr22, i64 %.0920.i.i78.i.i.i
   %87 = load double, ptr %86, align 8, !tbaa !42
   %88 = fcmp olt double %87, %.sroa.02.0.copyload.i.i.i
   br i1 %88, label %89, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5folly7TDigest8CentroidESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_RT0_.exit.i.i
 
 89:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %90 = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %.fr22, i64 %.019.i.i.i.i.i
+  %90 = getelementptr inbounds [16 x i8], ptr %.fr22, i64 %.019.i.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %90, ptr noundef nonnull align 8 dereferenceable(16) %86, i64 16, i1 false), !tbaa.struct !32
   %.not9.i.i.i = icmp eq i64 %.0920.i.i78.i.i.i, 0
   br i1 %.not9.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5folly7TDigest8CentroidESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_RT0_.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !61
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5folly7TDigest8CentroidESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_RT0_.exit.i.i: ; preds = %89, %.lr.ph.i.i.i.i.i, %85
   %.0.lcssa.i.i.i.i.i = phi i64 [ 0, %85 ], [ %.019.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ 0, %89 ]
-  %91 = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %.fr22, i64 %.0.lcssa.i.i.i.i.i
+  %91 = getelementptr inbounds [16 x i8], ptr %.fr22, i64 %.0.lcssa.i.i.i.i.i
   store double %.sroa.02.0.copyload.i.i.i, ptr %91, align 8, !tbaa !27
   %.sroa.3.0..sroa.0.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %91, i64 8
   store double %.sroa.4.0.copyload.i.i.i, ptr %.sroa.3.0..sroa.0.0..sroa_idx.i.i.i.i.i, align 8, !tbaa !27
@@ -1996,7 +1996,7 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5folly7TDigest8CentroidESt6vec
   %93 = phi i64 [ %128, %18 ], [ %14, %.lr.ph ]
   %94 = add nsw i64 %.02042, -1
   %95 = lshr i64 %93, 1
-  %96 = getelementptr inbounds nuw %"class.folly::TDigest::Centroid", ptr %.fr22, i64 %95
+  %96 = getelementptr inbounds nuw [16 x i8], ptr %.fr22, i64 %95
   %97 = getelementptr inbounds i8, ptr %storemerge1943, i64 -16
   %98 = load double, ptr %16, align 8, !tbaa !42
   %99 = load double, ptr %96, align 8, !tbaa !42
@@ -2230,7 +2230,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5folly7TDigest8CentroidESt6
   %32 = sub i64 %31, %6
   %33 = ashr exact i64 %32, 4
   %34 = sub nsw i64 0, %33
-  %35 = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %30, i64 %34
+  %35 = getelementptr inbounds [16 x i8], ptr %30, i64 %34
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %35, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !32
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -2403,7 +2403,7 @@ _ZNSt12_Vector_baseIN5folly7TDigest8CentroidESaIS2_EE13_M_deallocateEPS2_m.exit.
   store ptr %25, ptr %3, align 8, !tbaa !24
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 %23
   store ptr %29, ptr %20, align 8, !tbaa !23
-  %30 = getelementptr inbounds nuw %"class.folly::TDigest::Centroid", ptr %25, i64 %8
+  %30 = getelementptr inbounds nuw [16 x i8], ptr %25, i64 %8
   store ptr %30, ptr %12, align 8, !tbaa !25
   br label %_ZNSt6vectorIN5folly7TDigest8CentroidESaIS2_EE7reserveEm.exit
 
@@ -2468,7 +2468,7 @@ _ZSt22__uninitialized_move_aIPN5folly7TDigest8CentroidES3_SaIS2_EET0_T_S6_S5_RT1
   %30 = sub i64 %29, %18
   %31 = ashr exact i64 %30, 4
   %32 = sub nsw i64 0, %31
-  %33 = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %13, i64 %32
+  %33 = getelementptr inbounds [16 x i8], ptr %13, i64 %32
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %33, ptr align 8 %1, i64 %30, i1 false)
   br label %_ZSt13move_backwardIPN5folly7TDigest8CentroidES3_ET0_T_S5_S4_.exit
 
@@ -2497,7 +2497,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN5folly7TDigest8Ce
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN5folly7TDigest8CentroidESt6vectorIS4_SaIS4_EEEEPS4_S4_ET0_T_SD_SC_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN5folly7TDigest8CentroidESt6vectorIS4_SaIS4_EEEEPS4_S4_ET0_T_SD_SC_RSaIT1_E.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN5folly7TDigest8CentroidESt6vectorIS4_SaIS4_EEEEmEvRT_T0_.exit
   %37 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN5folly7TDigest8CentroidESt6vectorIS4_SaIS4_EEEEPS4_S4_ET0_T_SD_SC_RSaIT1_E.exit.loopexit ], [ %13, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN5folly7TDigest8CentroidESt6vectorIS4_SaIS4_EEEEmEvRT_T0_.exit ]
   %38 = sub nuw nsw i64 %9, %20
-  %39 = getelementptr inbounds nuw %"class.folly::TDigest::Centroid", ptr %37, i64 %38
+  %39 = getelementptr inbounds nuw [16 x i8], ptr %37, i64 %38
   store ptr %39, ptr %12, align 8, !tbaa !23
   %.not11.i.i.i.i.i53 = icmp eq ptr %1, %13
   br i1 %.not11.i.i.i.i.i53, label %_ZSt22__uninitialized_move_aIPN5folly7TDigest8CentroidES3_SaIS2_EET0_T_S6_S5_RT1_.exit59, label %.lr.ph.i.i.i.i.i54
@@ -2608,7 +2608,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN5folly7TDigest8CentroidES3_SaIS2_EET0
 _ZNSt12_Vector_baseIN5folly7TDigest8CentroidESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN5folly7TDigest8CentroidES3_SaIS2_EET0_T_S6_S5_RT1_.exit81, %67
   store ptr %60, ptr %0, align 8, !tbaa !24
   store ptr %.0.lcssa.i.i.i.i.i80, ptr %12, align 8, !tbaa !23
-  %71 = getelementptr inbounds nuw %"class.folly::TDigest::Centroid", ptr %60, i64 %56
+  %71 = getelementptr inbounds nuw [16 x i8], ptr %60, i64 %56
   store ptr %71, ptr %10, align 8, !tbaa !25
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN5folly7TDigest8CentroidESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit
 
@@ -2661,7 +2661,7 @@ define linkonce_odr void @_ZSt22__merge_without_bufferIN9__gnu_cxx17__normal_ite
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5folly7TDigest8CentroidESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit: ; preds = %21
   %24 = sdiv i64 %.tr6876, 2
-  %25 = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %.tr74, i64 %24
+  %25 = getelementptr inbounds [16 x i8], ptr %.tr74, i64 %24
   %26 = sub i64 %12, %23
   %27 = ashr exact i64 %26, 4
   %28 = icmp sgt i64 %27, 0
@@ -2675,7 +2675,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5folly7TDigest8CentroidESt6vectorI
   %.013.i = phi i64 [ %27, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5folly7TDigest8CentroidESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5folly7TDigest8CentroidESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i ]
   %.sroa.011.012.i = phi ptr [ %.tr6675, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5folly7TDigest8CentroidESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.lr.ph.i ], [ %.sroa.011.1.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5folly7TDigest8CentroidESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i ]
   %30 = lshr i64 %.013.i, 1
-  %31 = getelementptr inbounds nuw %"class.folly::TDigest::Centroid", ptr %.sroa.011.012.i, i64 %30
+  %31 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.011.012.i, i64 %30
   %32 = load double, ptr %31, align 8, !tbaa !42
   %33 = fcmp olt double %32, %29
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 16
@@ -2699,7 +2699,7 @@ _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN5folly7TDigest8CentroidESt6
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5folly7TDigest8CentroidESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit49: ; preds = %21
   %40 = sdiv i64 %.tr6977, 2
-  %41 = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %.tr6675, i64 %40
+  %41 = getelementptr inbounds [16 x i8], ptr %.tr6675, i64 %40
   %42 = ptrtoint ptr %.tr74 to i64
   %43 = sub i64 %23, %42
   %44 = ashr exact i64 %43, 4
@@ -2714,7 +2714,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5folly7TDigest8CentroidESt6vectorI
   %.013.i53 = phi i64 [ %44, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5folly7TDigest8CentroidESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.lr.ph.i51 ], [ %.1.i58, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5folly7TDigest8CentroidESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i52 ]
   %.sroa.011.012.i54 = phi ptr [ %.tr74, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5folly7TDigest8CentroidESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.lr.ph.i51 ], [ %.sroa.011.1.i57, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5folly7TDigest8CentroidESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i52 ]
   %47 = lshr i64 %.013.i53, 1
-  %48 = getelementptr inbounds nuw %"class.folly::TDigest::Centroid", ptr %.sroa.011.012.i54, i64 %47
+  %48 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.011.012.i54, i64 %47
   %49 = load double, ptr %48, align 8, !tbaa !42
   %50 = fcmp olt double %46, %49
   %51 = getelementptr inbounds nuw i8, ptr %48, i64 16
@@ -2791,7 +2791,7 @@ _ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN5folly7TDigest8CentroidESt6
   br i1 %80, label %.lr.ph66.preheader.i.i, label %._crit_edge67.i.i
 
 .lr.ph66.preheader.i.i:                           ; preds = %79
-  %81 = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %.sroa.026.0.i.i, i64 %.0.i.i
+  %81 = getelementptr inbounds [16 x i8], ptr %.sroa.026.0.i.i, i64 %.0.i.i
   br label %.lr.ph66.i.i
 
 ._crit_edge67.i.i:                                ; preds = %.lr.ph66.i.i, %79
@@ -2820,9 +2820,9 @@ _ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN5folly7TDigest8CentroidESt6
   br label %.backedge
 
 88:                                               ; preds = %76
-  %89 = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %.sroa.026.0.i.i, i64 %.056.i.i
+  %89 = getelementptr inbounds [16 x i8], ptr %.sroa.026.0.i.i, i64 %.056.i.i
   %90 = sub i64 0, %77
-  %91 = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %89, i64 %90
+  %91 = getelementptr inbounds [16 x i8], ptr %89, i64 %90
   %92 = icmp sgt i64 %.0.i.i, 0
   br i1 %92, label %.lr.ph.i.i, label %._crit_edge.i.i
 
@@ -2997,7 +2997,7 @@ _ZSt13move_backwardIPN5folly7TDigest8CentroidEN9__gnu_cxx17__normal_iteratorIS3_
   %49 = sub i64 %47, %48
   %50 = ashr exact i64 %49, 4
   %51 = sub nsw i64 0, %50
-  %52 = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %.lcssa.sink.i, i64 %51
+  %52 = getelementptr inbounds [16 x i8], ptr %.lcssa.sink.i, i64 %51
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %52, ptr align 8 %5, i64 %49, i1 false)
   br label %_ZSt21__move_merge_adaptiveIPN5folly7TDigest8CentroidEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEES9_NS4_5__ops15_Iter_less_iterEEvT_SC_T0_SD_T1_T2_.exit
 
@@ -3007,7 +3007,7 @@ _ZSt13move_backwardIPN5folly7TDigest8CentroidEN9__gnu_cxx17__normal_iteratorIS3_
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5folly7TDigest8CentroidESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit: ; preds = %53
   %55 = sdiv i64 %.tr96112, 2
-  %56 = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %.tr110, i64 %55
+  %56 = getelementptr inbounds [16 x i8], ptr %.tr110, i64 %55
   %57 = sub i64 %8, %54
   %58 = ashr exact i64 %57, 4
   %59 = icmp sgt i64 %58, 0
@@ -3021,7 +3021,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5folly7TDigest8CentroidESt6vectorI
   %.013.i = phi i64 [ %58, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5folly7TDigest8CentroidESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i73, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5folly7TDigest8CentroidESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i ]
   %.sroa.011.012.i = phi ptr [ %.tr94111, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5folly7TDigest8CentroidESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.lr.ph.i ], [ %.sroa.011.1.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5folly7TDigest8CentroidESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i ]
   %61 = lshr i64 %.013.i, 1
-  %62 = getelementptr inbounds nuw %"class.folly::TDigest::Centroid", ptr %.sroa.011.012.i, i64 %61
+  %62 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.011.012.i, i64 %61
   %63 = load double, ptr %62, align 8, !tbaa !42
   %64 = fcmp olt double %63, %60
   %65 = getelementptr inbounds nuw i8, ptr %62, i64 16
@@ -3045,7 +3045,7 @@ _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN5folly7TDigest8CentroidESt6
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5folly7TDigest8CentroidESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit77: ; preds = %53
   %71 = sdiv i64 %.tr97113, 2
-  %72 = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %.tr94111, i64 %71
+  %72 = getelementptr inbounds [16 x i8], ptr %.tr94111, i64 %71
   %73 = ptrtoint ptr %.tr110 to i64
   %74 = sub i64 %54, %73
   %75 = ashr exact i64 %74, 4
@@ -3060,7 +3060,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5folly7TDigest8CentroidESt6vectorI
   %.013.i81 = phi i64 [ %75, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5folly7TDigest8CentroidESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.lr.ph.i79 ], [ %.1.i86, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5folly7TDigest8CentroidESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i80 ]
   %.sroa.011.012.i82 = phi ptr [ %.tr110, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5folly7TDigest8CentroidESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.lr.ph.i79 ], [ %.sroa.011.1.i85, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5folly7TDigest8CentroidESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i80 ]
   %78 = lshr i64 %.013.i81, 1
-  %79 = getelementptr inbounds nuw %"class.folly::TDigest::Centroid", ptr %.sroa.011.012.i82, i64 %78
+  %79 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.011.012.i82, i64 %78
   %80 = load double, ptr %79, align 8, !tbaa !42
   %81 = fcmp olt double %77, %80
   %82 = getelementptr inbounds nuw i8, ptr %79, i64 16
@@ -3137,7 +3137,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5folly7TDigest8CentroidESt6vectorIS4_
   %20 = sub i64 %15, %19
   %21 = ashr exact i64 %20, 4
   %22 = sub nsw i64 0, %21
-  %23 = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %2, i64 %22
+  %23 = getelementptr inbounds [16 x i8], ptr %2, i64 %22
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %23, ptr align 8 %0, i64 %20, i1 false)
   br label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5folly7TDigest8CentroidESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit
 
@@ -3187,13 +3187,13 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5folly7TDigest8CentroidESt6vectorIS4_
 36:                                               ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5folly7TDigest8CentroidESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit
   %37 = ashr exact i64 %31, 4
   %38 = sub nsw i64 0, %37
-  %39 = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %2, i64 %38
+  %39 = getelementptr inbounds [16 x i8], ptr %2, i64 %38
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %39, ptr align 8 %5, i64 %31, i1 false)
   br label %_ZSt13move_backwardIPN5folly7TDigest8CentroidEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit
 
 _ZSt13move_backwardIPN5folly7TDigest8CentroidEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5folly7TDigest8CentroidESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit, %36
   %.pre-phi.i.i.i.i.i43 = phi i64 [ %38, %36 ], [ 0, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5folly7TDigest8CentroidESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit ]
-  %40 = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %2, i64 %.pre-phi.i.i.i.i.i43
+  %40 = getelementptr inbounds [16 x i8], ptr %2, i64 %.pre-phi.i.i.i.i.i43
   br label %_ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPN5folly7TDigest8CentroidESt6vectorIS5_SaIS5_EEEEEET_SB_SB_SB_.exit
 
 41:                                               ; preds = %26
@@ -3247,7 +3247,7 @@ _ZSt13move_backwardIPN5folly7TDigest8CentroidEN9__gnu_cxx17__normal_iteratorIS3_
   br i1 %64, label %.lr.ph66.preheader.i.i, label %._crit_edge67.i.i
 
 .lr.ph66.preheader.i.i:                           ; preds = %63
-  %65 = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %.sroa.026.0.i.i, i64 %.0.i.i
+  %65 = getelementptr inbounds [16 x i8], ptr %.sroa.026.0.i.i, i64 %.0.i.i
   br label %.lr.ph66.i.i
 
 ._crit_edge67.i.i:                                ; preds = %.lr.ph66.i.i, %63
@@ -3276,9 +3276,9 @@ _ZSt13move_backwardIPN5folly7TDigest8CentroidEN9__gnu_cxx17__normal_iteratorIS3_
   br label %.backedge
 
 72:                                               ; preds = %60
-  %73 = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %.sroa.026.0.i.i, i64 %.056.i.i
+  %73 = getelementptr inbounds [16 x i8], ptr %.sroa.026.0.i.i, i64 %.056.i.i
   %74 = sub i64 0, %61
-  %75 = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %73, i64 %74
+  %75 = getelementptr inbounds [16 x i8], ptr %73, i64 %74
   %76 = icmp sgt i64 %.0.i.i, 0
   br i1 %76, label %.lr.ph.i.i, label %._crit_edge.i.i
 
@@ -3441,7 +3441,7 @@ define noundef double @_ZNK5folly7TDigest16estimateQuantileEd(ptr noundef nonnul
   br i1 %71, label %72, label %78
 
 72:                                               ; preds = %69
-  %73 = getelementptr %"class.folly::TDigest::Centroid", ptr %3, i64 %70
+  %73 = getelementptr [16 x i8], ptr %3, i64 %70
   %74 = load double, ptr %73, align 8, !tbaa !42
   %75 = getelementptr i8, ptr %73, i64 -16
   %76 = load double, ptr %75, align 8, !tbaa !42
@@ -3449,7 +3449,7 @@ define noundef double @_ZNK5folly7TDigest16estimateQuantileEd(ptr noundef nonnul
   br label %86
 
 78:                                               ; preds = %69
-  %79 = getelementptr %"class.folly::TDigest::Centroid", ptr %3, i64 %.136
+  %79 = getelementptr [16 x i8], ptr %3, i64 %.136
   %80 = getelementptr i8, ptr %79, i64 16
   %81 = load double, ptr %80, align 8, !tbaa !42
   %82 = getelementptr i8, ptr %79, i64 -16
@@ -3464,7 +3464,7 @@ define noundef double @_ZNK5folly7TDigest16estimateQuantileEd(ptr noundef nonnul
   %.034 = phi double [ %68, %.thread59 ], [ %77, %72 ], [ %85, %78 ], [ 0.000000e+00, %.loopexit ], [ 0.000000e+00, %.thread ]
   %.033 = phi double [ %64, %.thread59 ], [ %76, %72 ], [ %83, %78 ], [ %50, %.loopexit ], [ %55, %.thread ]
   %.032 = phi double [ %66, %.thread59 ], [ %52, %72 ], [ %81, %78 ], [ %52, %.loopexit ], [ %57, %.thread ]
-  %87 = getelementptr inbounds nuw %"class.folly::TDigest::Centroid", ptr %3, i64 %.13658
+  %87 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %.13658
   %88 = load double, ptr %87, align 8, !tbaa !42
   %89 = fsub double %10, %.23955
   %90 = getelementptr inbounds nuw i8, ptr %87, i64 8

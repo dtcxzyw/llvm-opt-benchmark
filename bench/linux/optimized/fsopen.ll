@@ -47,7 +47,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @fscontext_read(ptr nound
   %23 = zext nneg i8 %22 to i32
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %25 = zext nneg i8 %22 to i64
-  %26 = getelementptr ptr, ptr %24, i64 %25
+  %26 = getelementptr [8 x i8], ptr %24, i64 %25
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 6
   %29 = load i8, ptr %28, align 2

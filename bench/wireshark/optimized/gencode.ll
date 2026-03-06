@@ -68,7 +68,7 @@ define hidden void @dfw_gencode(ptr noundef initializes((32, 64)) %0) local_unna
   %.03340.fr.i = freeze ptr %.03340.i
   %28 = load ptr, ptr %3, align 8
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr ptr, ptr %29, i64 %indvars.iv.i
+  %30 = getelementptr [8 x i8], ptr %29, i64 %indvars.iv.i
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 4
   %33 = load i32, ptr %32, align 4
@@ -105,7 +105,7 @@ define hidden void @dfw_gencode(ptr noundef initializes((32, 64)) %0) local_unna
 .split.us.i:                                      ; preds = %43, %.split.us.i.backedge
   %.034.us.i = phi i32 [ %.034.us.i.be, %.split.us.i.backedge ], [ %38, %43 ]
   %48 = sext i32 %.034.us.i to i64
-  %49 = getelementptr ptr, ptr %29, i64 %48
+  %49 = getelementptr [8 x i8], ptr %29, i64 %48
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 4
   %52 = load i32, ptr %51, align 4
@@ -134,7 +134,7 @@ define hidden void @dfw_gencode(ptr noundef initializes((32, 64)) %0) local_unna
 .split.i:                                         ; preds = %43, %.split.i.backedge
   %.034.i = phi i32 [ %.034.i.be, %.split.i.backedge ], [ %38, %43 ]
   %63 = sext i32 %.034.i to i64
-  %64 = getelementptr ptr, ptr %29, i64 %63
+  %64 = getelementptr [8 x i8], ptr %29, i64 %63
   %65 = load ptr, ptr %64, align 8
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 4
   %67 = load i32, ptr %66, align 4
@@ -629,7 +629,7 @@ define internal void @get_hash_key(ptr noundef readonly captures(none) %0, ptr r
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr %2, align 8
   %8 = sext i32 %7 to i64
-  %9 = getelementptr i32, ptr %6, i64 %8
+  %9 = getelementptr [4 x i8], ptr %6, i64 %8
   store i32 %4, ptr %9, align 4
   %10 = load i32, ptr %2, align 8
   %11 = add i32 %10, 1

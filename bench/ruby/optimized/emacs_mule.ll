@@ -46,7 +46,7 @@ define internal range(i32 -2147483647, -2147483648) i32 @mbc_enc_len(ptr noundef
   br i1 %15, label %16, label %20
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds nuw i32, ptr @EncLen_EmacsMule, i64 %6
+  %17 = getelementptr inbounds nuw [4 x i8], ptr @EncLen_EmacsMule, i64 %6
   %18 = load i32, ptr %17, align 4, !tbaa !9
   %19 = sub nsw i32 0, %18
   br label %64
@@ -72,7 +72,7 @@ define internal range(i32 -2147483647, -2147483648) i32 @mbc_enc_len(ptr noundef
   br i1 %33, label %34, label %38
 
 34:                                               ; preds = %32
-  %35 = getelementptr inbounds nuw i32, ptr @EncLen_EmacsMule, i64 %6
+  %35 = getelementptr inbounds nuw [4 x i8], ptr @EncLen_EmacsMule, i64 %6
   %36 = load i32, ptr %35, align 4, !tbaa !9
   %37 = sub nsw i32 1, %36
   br label %64
@@ -98,7 +98,7 @@ define internal range(i32 -2147483647, -2147483648) i32 @mbc_enc_len(ptr noundef
   br i1 %51, label %52, label %56
 
 52:                                               ; preds = %50
-  %53 = getelementptr inbounds nuw i32, ptr @EncLen_EmacsMule, i64 %6
+  %53 = getelementptr inbounds nuw [4 x i8], ptr @EncLen_EmacsMule, i64 %6
   %54 = load i32, ptr %53, align 4, !tbaa !9
   %55 = sub nsw i32 2, %54
   br label %64
@@ -354,7 +354,7 @@ define internal range(i32 -2147483647, -2147483648) i32 @mbc_case_fold(i32 %0, p
 
 mbc_enc_len.exit:                                 ; preds = %50, %37, %24
   %.sink = phi i32 [ 1, %37 ], [ 0, %24 ], [ 2, %50 ]
-  %59 = getelementptr inbounds nuw i32, ptr @EncLen_EmacsMule, i64 %17
+  %59 = getelementptr inbounds nuw [4 x i8], ptr @EncLen_EmacsMule, i64 %17
   %60 = load i32, ptr %59, align 4, !tbaa !9
   %61 = sub nsw i32 %.sink, %60
   %62 = icmp sgt i32 %61, 0
@@ -407,7 +407,7 @@ define internal range(i32 0, 2) i32 @is_code_ctype(i32 noundef %0, i32 noundef %
 
 5:                                                ; preds = %3
   %6 = zext nneg i32 %0 to i64
-  %7 = getelementptr inbounds nuw i16, ptr @OnigEncAsciiCtypeTable, i64 %6
+  %7 = getelementptr inbounds nuw [2 x i8], ptr @OnigEncAsciiCtypeTable, i64 %6
   %8 = load i16, ptr %7, align 2, !tbaa !20
   %9 = zext i16 %8 to i32
   %10 = lshr i32 %9, %1

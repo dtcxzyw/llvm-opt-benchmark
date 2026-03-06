@@ -56,7 +56,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple.395" = type { %"struct.std::_Tuple_impl.396" }
 %"struct.std::_Tuple_impl.396" = type { %"struct.std::_Head_base.399" }
 %"struct.std::_Head_base.399" = type { ptr }
-%struct.wallcc_t = type { i32, i64, i64 }
 %"class.std::unique_ptr.54" = type { %"struct.std::__uniq_ptr_data.55" }
 %"struct.std::__uniq_ptr_data.55" = type { %"class.std::__uniq_ptr_impl.56" }
 %"class.std::__uniq_ptr_impl.56" = type { %"class.std::tuple.57" }
@@ -94,8 +93,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.gmx::KeyValueTreeUniformArrayBuilder" = type { %"class.gmx::KeyValueTreeArrayBuilderBase" }
 %"class.gmx::KeyValueTreeObjectArrayBuilder" = type { %"class.gmx::KeyValueTreeArrayBuilderBase" }
 %"struct.std::pair.290" = type { %"class.std::__cxx11::basic_string", %"class.gmx::KeyValueTreeValue" }
-%"class.gmx::KeyValueTreeProperty" = type { %"struct.std::_Rb_tree_const_iterator" }
-%"struct.std::_Rb_tree_const_iterator" = type { ptr }
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, gmx::KeyValueTreeValue>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, gmx::KeyValueTreeValue>>, std::less<std::__cxx11::basic_string<char>>>::_Auto_node" = type { ptr, ptr }
 %"class.gmx::KeyValueTreeArray" = type { %"class.std::vector.314" }
 %"class.std::vector.314" = type { %"struct.std::_Vector_base.315" }
@@ -1362,7 +1359,7 @@ define void @_ZN3gmx19StatePropagatorData7Element24trajectoryWriterTeardownEP10g
   %39 = load i32, ptr %38, align 4, !tbaa !192
   %40 = mul nsw i32 %39, 60
   %41 = sext i32 %40 to i64
-  %42 = getelementptr %struct.wallcc_t, ptr %28, i64 %41
+  %42 = getelementptr [24 x i8], ptr %28, i64 %41
   %43 = getelementptr i8, ptr %42, i64 1128
   %44 = load i32, ptr %43, align 8, !tbaa !193
   %45 = add nsw i32 %44, 1
@@ -2699,13 +2696,13 @@ _ZN3gmx19StatePropagatorData12copyPositionEv.exit: ; preds = %159
 
 222:                                              ; preds = %.lr.ph, %.loopexit
   %indvars.iv97 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next98, %.loopexit ]
-  %223 = getelementptr inbounds nuw i32, ptr %218, i64 %indvars.iv97
+  %223 = getelementptr inbounds nuw [4 x i8], ptr %218, i64 %indvars.iv97
   %224 = load i32, ptr %223, align 4, !tbaa !392
   %225 = icmp eq i32 %224, 2
   br i1 %225, label %226, label %230
 
 226:                                              ; preds = %222
-  %227 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %213, i64 %indvars.iv97
+  %227 = getelementptr inbounds nuw [12 x i8], ptr %213, i64 %indvars.iv97
   store float 0.000000e+00, ptr %227, align 4, !tbaa !135
   %228 = getelementptr inbounds nuw i8, ptr %227, i64 4
   store float 0.000000e+00, ptr %228, align 4, !tbaa !135
@@ -2721,22 +2718,22 @@ _ZN3gmx19StatePropagatorData12copyPositionEv.exit: ; preds = %159
 
 .preheader:                                       ; preds = %230
   %234 = load ptr, ptr %221, align 8, !tbaa !395
-  %235 = getelementptr inbounds nuw i16, ptr %231, i64 %indvars.iv97
+  %235 = getelementptr inbounds nuw [2 x i8], ptr %231, i64 %indvars.iv97
   %236 = load i16, ptr %235, align 2, !tbaa !396
   %237 = zext i16 %236 to i64
-  %238 = getelementptr inbounds nuw [3 x i32], ptr %234, i64 %237
-  %239 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %213, i64 %indvars.iv97
+  %238 = getelementptr inbounds nuw [12 x i8], ptr %234, i64 %237
+  %239 = getelementptr inbounds nuw [12 x i8], ptr %213, i64 %indvars.iv97
   br label %240
 
 240:                                              ; preds = %.preheader, %245
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %245 ]
-  %241 = getelementptr inbounds nuw i32, ptr %238, i64 %indvars.iv
+  %241 = getelementptr inbounds nuw [4 x i8], ptr %238, i64 %indvars.iv
   %242 = load i32, ptr %241, align 4, !tbaa !276
   %.not = icmp eq i32 %242, 0
   br i1 %.not, label %245, label %243
 
 243:                                              ; preds = %240
-  %244 = getelementptr inbounds nuw float, ptr %239, i64 %indvars.iv
+  %244 = getelementptr inbounds nuw [4 x i8], ptr %239, i64 %indvars.iv
   store float 0.000000e+00, ptr %244, align 4, !tbaa !135
   br label %245
 
@@ -3158,7 +3155,7 @@ _ZN3gmx6detail17computePaddedSizeINS_11BasicVectorIfEEEEll.exit: ; preds = %2, %
   br i1 %22, label %23, label %_ZNSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEE6resizeEm.exit
 
 23:                                               ; preds = %21
-  %24 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %13, i64 %1
+  %24 = getelementptr inbounds nuw [12 x i8], ptr %13, i64 %1
   %.not.i.i = icmp eq ptr %12, %24
   br i1 %.not.i.i, label %_ZNSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEE6resizeEm.exit, label %25
 
@@ -3184,7 +3181,7 @@ _ZNSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_20HostAllocationPolicyE
   call void @_ZNSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS2_S6_EEmRKS2_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %33, i64 noundef %30, ptr noundef nonnull align 4 dereferenceable(12) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %34 = load ptr, ptr %10, align 8, !tbaa !95
-  %35 = getelementptr inbounds %"class.gmx::BasicVector", ptr %34, i64 %1
+  %35 = getelementptr inbounds [12 x i8], ptr %34, i64 %1
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %35, ptr %36, align 8, !tbaa !95
   ret void
@@ -3567,7 +3564,7 @@ _ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIfSaI
 
 .noexc10:                                         ; preds = %29
   store ptr %30, ptr %22, align 8, !tbaa !416
-  %31 = getelementptr inbounds nuw float, ptr %30, i64 %10
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %10
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %31, ptr %32, align 8, !tbaa !417
   store float 0.000000e+00, ptr %30, align 4, !tbaa !135
@@ -3830,7 +3827,7 @@ _ZNSt12_Vector_baseIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_20HostAllocation
   store ptr %21, ptr %6, align 8, !tbaa !124
   %31 = getelementptr inbounds nuw i8, ptr %21, i64 %19
   store ptr %31, ptr %16, align 8, !tbaa !407
-  %32 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %21, i64 %1
+  %32 = getelementptr inbounds nuw [12 x i8], ptr %21, i64 %1
   store ptr %32, ptr %7, align 8, !tbaa !409
   br label %33
 
@@ -3918,9 +3915,9 @@ _ZNSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_20HostAllocationPolicyE
 
 _ZNSt12_Vector_baseIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEE13_M_deallocateEPS2_m.exit32: ; preds = %_ZNSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEE11_S_relocateEPS2_S7_S7_RS5_.exit, %36
   store ptr %28, ptr %4, align 8, !tbaa !124
-  %37 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %33, i64 %1
+  %37 = getelementptr inbounds nuw [12 x i8], ptr %33, i64 %1
   store ptr %37, ptr %5, align 8, !tbaa !407
-  %38 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %28, i64 %26
+  %38 = getelementptr inbounds nuw [12 x i8], ptr %28, i64 %26
   store ptr %38, ptr %12, align 8, !tbaa !409
   br label %39
 
@@ -3979,7 +3976,7 @@ _ZSt22__uninitialized_move_aIPN3gmx11BasicVectorIfEES3_NS0_9AllocatorIS2_NS0_20H
 
 _ZSt22__uninitialized_move_aIPN3gmx11BasicVectorIfEES3_NS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEET0_T_S8_S7_RT1_.exit: ; preds = %_ZSt22__uninitialized_move_aIPN3gmx11BasicVectorIfEES3_NS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEET0_T_S8_S7_RT1_.exit.loopexit, %20
   %24 = phi ptr [ %.pre, %_ZSt22__uninitialized_move_aIPN3gmx11BasicVectorIfEES3_NS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEET0_T_S8_S7_RT1_.exit.loopexit ], [ %10, %20 ]
-  %25 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %24, i64 %2
+  %25 = getelementptr inbounds nuw [12 x i8], ptr %24, i64 %2
   store ptr %25, ptr %9, align 8, !tbaa !407
   %.not.i.i.i.i.i = icmp eq ptr %21, %1
   br i1 %.not.i.i.i.i.i, label %_ZSt13move_backwardIPN3gmx11BasicVectorIfEES3_ET0_T_S5_S4_.exit, label %26
@@ -3988,7 +3985,7 @@ _ZSt22__uninitialized_move_aIPN3gmx11BasicVectorIfEES3_NS0_9AllocatorIS2_NS0_20H
   %27 = ptrtoint ptr %21 to i64
   %28 = sub i64 %27, %16
   %.neg.i.i.i.i.i = sdiv exact i64 %28, -12
-  %29 = getelementptr inbounds %"class.gmx::BasicVector", ptr %10, i64 %.neg.i.i.i.i.i
+  %29 = getelementptr inbounds [12 x i8], ptr %10, i64 %.neg.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %29, ptr align 4 %1, i64 %28, i1 false)
   br label %_ZSt13move_backwardIPN3gmx11BasicVectorIfEES3_ET0_T_S5_S4_.exit
 
@@ -4126,7 +4123,7 @@ _ZSt24__uninitialized_fill_n_aIPN3gmx11BasicVectorIfEEmS2_NS0_9AllocatorIS2_NS0_
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN3gmx11BasicVectorIfEES3_NS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEET0_T_S8_S7_RT1_.exit: ; preds = %.lr.ph.i.i89, %_ZSt24__uninitialized_fill_n_aIPN3gmx11BasicVectorIfEEmS2_NS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEET_S7_T0_RKT1_RT2_.exit87
   %.0.lcssa.i.i93 = phi ptr [ %63, %_ZSt24__uninitialized_fill_n_aIPN3gmx11BasicVectorIfEEmS2_NS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEET_S7_T0_RKT1_RT2_.exit87 ], [ %68, %.lr.ph.i.i89 ]
-  %69 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %.0.lcssa.i.i93, i64 %2
+  %69 = getelementptr inbounds nuw [12 x i8], ptr %.0.lcssa.i.i93, i64 %2
   %.not13.i.i94 = icmp eq ptr %1, %10
   br i1 %.not13.i.i94, label %_ZSt34__uninitialized_move_if_noexcept_aIPN3gmx11BasicVectorIfEES3_NS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEET0_T_S8_S7_RT1_.exit100, label %.lr.ph.i.i95
 
@@ -4151,7 +4148,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN3gmx11BasicVectorIfEES3_NS0_9Allocato
 _ZNSt12_Vector_baseIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEE13_M_deallocateEPS2_m.exit: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN3gmx11BasicVectorIfEES3_NS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEET0_T_S8_S7_RT1_.exit100, %72
   store ptr %63, ptr %6, align 8, !tbaa !124
   store ptr %.0.lcssa.i.i99, ptr %9, align 8, !tbaa !407
-  %73 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %63, i64 %54
+  %73 = getelementptr inbounds nuw [12 x i8], ptr %63, i64 %54
   store ptr %73, ptr %7, align 8, !tbaa !409
   br label %74
 
@@ -5095,9 +5092,9 @@ define internal void @_ZN3gmx19StatePropagatorData12copyPositionEv.omp_outlined(
 30:                                               ; preds = %30, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %29, %.lr.ph.i ], [ %indvars.iv.next.i, %30 ]
   %31 = load ptr, ptr %20, align 8, !tbaa !124
-  %32 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %31, i64 %indvars.iv.i
+  %32 = getelementptr inbounds nuw [12 x i8], ptr %31, i64 %indvars.iv.i
   %33 = load ptr, ptr %21, align 8, !tbaa !124
-  %34 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %33, i64 %indvars.iv.i
+  %34 = getelementptr inbounds nuw [12 x i8], ptr %33, i64 %indvars.iv.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %34, ptr noundef nonnull align 4 dereferenceable(12) %32, i64 12, i1 false), !tbaa.struct !428
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -5153,9 +5150,9 @@ define void @_ZN3gmx19StatePropagatorData12copyPositionEii(ptr noundef nonnull r
 8:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ %7, %.lr.ph ], [ %indvars.iv.next, %8 ]
   %9 = load ptr, ptr %5, align 8, !tbaa !124
-  %10 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [12 x i8], ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %6, align 8, !tbaa !124
-  %12 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [12 x i8], ptr %11, i64 %indvars.iv
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %10, i64 12, i1 false), !tbaa.struct !428
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -5253,13 +5250,13 @@ _ZSt4copyIN3gmx12ArrayRefIterIKfEEN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSa
 
 38:                                               ; preds = %.lr.ph, %38
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %38 ]
-  %39 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %40 = load float, ptr %39, align 4, !tbaa !135
-  %41 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   %42 = load float, ptr %41, align 4, !tbaa !135
   %43 = fdiv float %40, %42
   %44 = tail call noundef float @sqrtf(float noundef %43) #21, !tbaa !276
-  %45 = getelementptr inbounds nuw float, ptr %13, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv
   store float %44, ptr %45, align 4, !tbaa !135
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %46 = load i32, ptr %0, align 8, !tbaa !419
@@ -5340,7 +5337,7 @@ define internal void @_ZN3gmx19StatePropagatorData26ReferenceTemperatureHelper26
   %indvars.iv27 = phi i64 [ %indvars.iv.next28, %.lr.ph.split.us ], [ %39, %.lr.ph ]
   %40 = load i64, ptr %4, align 8
   %41 = inttoptr i64 %40 to ptr
-  %42 = getelementptr inbounds %"class.gmx::BasicVector", ptr %41, i64 %indvars.iv27
+  %42 = getelementptr inbounds [12 x i8], ptr %41, i64 %indvars.iv27
   %43 = load float, ptr %38, align 4, !tbaa !135
   %44 = load float, ptr %42, align 4, !tbaa !135
   %45 = fmul float %43, %44
@@ -5369,13 +5366,13 @@ define internal void @_ZN3gmx19StatePropagatorData26ReferenceTemperatureHelper26
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ %39, %.lr.ph ]
-  %56 = getelementptr inbounds nuw i16, ptr %34, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw [2 x i8], ptr %34, i64 %indvars.iv
   %57 = load i16, ptr %56, align 2, !tbaa !396
   %58 = zext i16 %57 to i64
-  %59 = getelementptr inbounds nuw float, ptr %38, i64 %58
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %58
   %60 = load i64, ptr %4, align 8
   %61 = inttoptr i64 %60 to ptr
-  %62 = getelementptr inbounds %"class.gmx::BasicVector", ptr %61, i64 %indvars.iv
+  %62 = getelementptr inbounds [12 x i8], ptr %61, i64 %indvars.iv
   %63 = load float, ptr %59, align 4, !tbaa !135
   %64 = load float, ptr %62, align 4, !tbaa !135
   %65 = fmul float %63, %64
@@ -6133,7 +6130,7 @@ define void @_ZN3gmx19StatePropagatorData7Element5writeEP10gmx_mdoutfld(ptr noun
   %29 = load i32, ptr %28, align 4, !tbaa !192
   %30 = mul nsw i32 %29, 60
   %31 = sext i32 %30 to i64
-  %32 = getelementptr %struct.wallcc_t, ptr %18, i64 %31
+  %32 = getelementptr [24 x i8], ptr %18, i64 %31
   %33 = getelementptr i8, ptr %32, i64 1128
   %34 = load i32, ptr %33, align 8, !tbaa !193
   %35 = add nsw i32 %34, 1
@@ -7344,7 +7341,7 @@ _ZNSt6vectorIN3gmx17KeyValueTreeValueESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit2
 .noexc.i19:                                       ; preds = %51, %_ZNSt6vectorIN3gmx17KeyValueTreeValueESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i
   store ptr %45, ptr %21, align 8, !tbaa !553
   store ptr %50, ptr %22, align 8, !tbaa !549
-  %52 = getelementptr inbounds nuw %"class.gmx::KeyValueTreeValue", ptr %45, i64 %43
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %43
   store ptr %52, ptr %23, align 8, !tbaa !552
   br label %.noexc15
 
@@ -7566,7 +7563,7 @@ _ZNSt12_Vector_baseIN3gmx20KeyValueTreePropertyESaIS1_EE13_M_deallocateEPS1_m.ex
   store ptr %52, ptr %33, align 8, !tbaa !98
   %57 = getelementptr inbounds nuw i8, ptr %52, i64 %39
   store ptr %57, ptr %34, align 8, !tbaa !564
-  %58 = getelementptr inbounds nuw %"class.gmx::KeyValueTreeProperty", ptr %52, i64 %41
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %41
   store ptr %58, ptr %45, align 8, !tbaa !99
   br label %_ZNSt6vectorIN3gmx20KeyValueTreePropertyESaIS1_EE7reserveEm.exit
 
@@ -7719,7 +7716,7 @@ _ZNSt6vectorIN3gmx20KeyValueTreePropertyESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.ex
 _ZNSt6vectorIN3gmx20KeyValueTreePropertyESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %116, %_ZNSt6vectorIN3gmx20KeyValueTreePropertyESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i
   store ptr %109, ptr %88, align 8, !tbaa !98
   store ptr %115, ptr %89, align 8, !tbaa !564
-  %117 = getelementptr inbounds nuw %"class.gmx::KeyValueTreeProperty", ptr %109, i64 %107
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %109, i64 %107
   store ptr %117, ptr %91, align 8, !tbaa !99
   br label %_ZNSt6vectorIN3gmx20KeyValueTreePropertyESaIS1_EE9push_backEOS1_.exit
 
@@ -8595,7 +8592,7 @@ _ZNSt6vectorIN3gmx17KeyValueTreeValueESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit2
   %.pre.i = phi ptr [ %.pre.i.pre, %42 ], [ %16, %_ZNSt6vectorIN3gmx17KeyValueTreeValueESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i ]
   store ptr %36, ptr %16, align 8, !tbaa !553
   store ptr %41, ptr %17, align 8, !tbaa !549
-  %43 = getelementptr inbounds nuw %"class.gmx::KeyValueTreeValue", ptr %36, i64 %34
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %34
   store ptr %43, ptr %19, align 8, !tbaa !552
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.pre.i, i64 8
   %.pre2.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !618
@@ -9350,7 +9347,7 @@ _ZNSt6vectorIN3gmx20KeyValueTreePropertyESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.ex
 _ZNSt6vectorIN3gmx20KeyValueTreePropertyESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %84, %_ZNSt6vectorIN3gmx20KeyValueTreePropertyESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i
   store ptr %77, ptr %10, align 8, !tbaa !98
   store ptr %83, ptr %18, align 8, !tbaa !564
-  %85 = getelementptr inbounds nuw %"class.gmx::KeyValueTreeProperty", ptr %77, i64 %75
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %75
   store ptr %85, ptr %19, align 8, !tbaa !99
   br label %_ZNSt6vectorIN3gmx20KeyValueTreePropertyESaIS1_EE9push_backEOS1_.exit
 
@@ -9650,7 +9647,7 @@ _ZNSt6vectorIN3gmx17KeyValueTreeValueESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit2
 .noexc:                                           ; preds = %33, %_ZNSt6vectorIN3gmx17KeyValueTreeValueESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i
   store ptr %27, ptr %7, align 8, !tbaa !553
   store ptr %32, ptr %8, align 8, !tbaa !549
-  %34 = getelementptr inbounds nuw %"class.gmx::KeyValueTreeValue", ptr %27, i64 %25
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %25
   store ptr %34, ptr %10, align 8, !tbaa !552
   br label %_ZN3gmx17KeyValueTreeValueD2Ev.exit
 
@@ -9877,7 +9874,7 @@ _ZNSt6vectorIN3gmx17KeyValueTreeValueESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit2
 .noexc:                                           ; preds = %33, %_ZNSt6vectorIN3gmx17KeyValueTreeValueESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i
   store ptr %27, ptr %7, align 8, !tbaa !553
   store ptr %32, ptr %8, align 8, !tbaa !549
-  %34 = getelementptr inbounds nuw %"class.gmx::KeyValueTreeValue", ptr %27, i64 %25
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %25
   store ptr %34, ptr %10, align 8, !tbaa !552
   br label %_ZN3gmx17KeyValueTreeValueD2Ev.exit
 

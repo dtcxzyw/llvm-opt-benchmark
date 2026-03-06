@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
-%struct.DecodedBkpBlock = type { i8, %struct.RelFileLocator, i32, i32, i32, i8, i8, i8, ptr, i16, i16, i16, i8, i8, ptr, i16, i16 }
-%struct.RelFileLocator = type { i32, i32, i32 }
 %union.PGAlignedBlock = type { double, [8184 x i8] }
 
 @.str = private unnamed_addr constant [66 x i8] c"invalid magic number %04X in WAL segment %s, LSN %X/%X, offset %u\00", align 1
@@ -1977,7 +1975,7 @@ define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr noundef captures(none)
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %49, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %50 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %16, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [64 x i8], ptr %16, i64 %indvars.iv
   store i8 0, ptr %50, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
@@ -1996,7 +1994,7 @@ define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr noundef captures(none)
 57:                                               ; preds = %._crit_edge
   store i32 %21, ptr %13, align 4
   %58 = zext nneg i8 %.0.copyload78 to i64
-  %59 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %16, i64 %58
+  %59 = getelementptr inbounds nuw [64 x i8], ptr %16, i64 %58
   store i8 1, ptr %59, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 30
   store i8 0, ptr %60, align 2
@@ -2300,7 +2298,7 @@ define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr noundef captures(none)
   %.0239443 = phi ptr [ %.1240, %252 ], [ %217, %212 ]
   %.0264442 = phi i8 [ %253, %252 ], [ 0, %212 ]
   %218 = zext i8 %.0264442 to i64
-  %219 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %213, i64 %218
+  %219 = getelementptr inbounds nuw [64 x i8], ptr %213, i64 %218
   %220 = load i8, ptr %219, align 8, !range !4, !noundef !5
   %221 = trunc nuw i8 %220 to i1
   br i1 %221, label %222, label %252
@@ -2425,7 +2423,7 @@ define dso_local void @XLogRecGetBlockTag(ptr noundef readonly captures(none) %0
 11:                                               ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %13 = zext i8 %1 to i64
-  %14 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [64 x i8], ptr %12, i64 %13
   %15 = load i8, ptr %14, align 8, !range !4, !noundef !5
   %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %17, label %XLogRecGetBlockTagExtended.exit
@@ -2481,7 +2479,7 @@ define dso_local noundef zeroext i1 @XLogRecGetBlockTagExtended(ptr noundef read
 12:                                               ; preds = %6
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 88
   %14 = zext i8 %1 to i64
-  %15 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [64 x i8], ptr %13, i64 %14
   %16 = load i8, ptr %15, align 8, !range !4, !noundef !5
   %17 = trunc nuw i8 %16 to i1
   br i1 %17, label %18, label %33
@@ -2548,7 +2546,7 @@ define dso_local ptr @XLogRecGetBlockData(ptr noundef readonly captures(none) %0
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 88
   %12 = zext i8 %1 to i64
-  %13 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [64 x i8], ptr %11, i64 %12
   %14 = load i8, ptr %13, align 8, !range !4, !noundef !5
   %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %16, label %30
@@ -2603,7 +2601,7 @@ define dso_local noundef zeroext i1 @RestoreBlockImage(ptr noundef captures(none
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 88
   %14 = zext i8 %1 to i64
-  %15 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [64 x i8], ptr %13, i64 %14
   %16 = load i8, ptr %15, align 8, !range !4, !noundef !5
   %17 = trunc nuw i8 %16 to i1
   br i1 %17, label %24, label %18

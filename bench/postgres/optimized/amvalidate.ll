@@ -167,7 +167,7 @@ define dso_local ptr @identify_opfamily_groups(ptr noundef readonly captures(non
 
 79:                                               ; preds = %76
   %80 = sext i32 %.1105.us128.us to i64
-  %81 = getelementptr inbounds ptr, ptr %39, i64 %80
+  %81 = getelementptr inbounds [8 x i8], ptr %39, i64 %80
   %82 = load ptr, ptr %81, align 8
   %83 = getelementptr i8, ptr %82, i64 80
   %.val86.us.us = load ptr, ptr %83, align 8
@@ -212,7 +212,7 @@ define dso_local ptr @identify_opfamily_groups(ptr noundef readonly captures(non
 
 103:                                              ; preds = %100
   %104 = sext i32 %.168.ph90239 to i64
-  %105 = getelementptr inbounds ptr, ptr %40, i64 %104
+  %105 = getelementptr inbounds [8 x i8], ptr %40, i64 %104
   %106 = load ptr, ptr %105, align 8
   %107 = getelementptr i8, ptr %106, i64 80
   %.val85 = load ptr, ptr %107, align 8
@@ -267,7 +267,7 @@ define dso_local ptr @identify_opfamily_groups(ptr noundef readonly captures(non
 
 138:                                              ; preds = %135
   %139 = sext i32 %.1105 to i64
-  %140 = getelementptr inbounds ptr, ptr %39, i64 %139
+  %140 = getelementptr inbounds [8 x i8], ptr %39, i64 %139
   %141 = load ptr, ptr %140, align 8
   %142 = getelementptr i8, ptr %141, i64 80
   %.val86 = load ptr, ptr %142, align 8
@@ -464,7 +464,7 @@ define dso_local zeroext i1 @check_amproc_signature(i32 noundef %0, i32 noundef 
 
 43:                                               ; preds = %.lr.ph.split.us.split.us
   %44 = load i32, ptr %41, align 4
-  %45 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv39
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %indvars.iv39
   %46 = load i32, ptr %45, align 4
   %.not30.us.us = icmp eq i32 %44, %46
   %spec.select = select i1 %.not30.us.us, i1 %.133.us.us, i1 false
@@ -506,7 +506,7 @@ define dso_local zeroext i1 @check_amproc_signature(i32 noundef %0, i32 noundef 
 
 62:                                               ; preds = %57
   %63 = load i32, ptr %59, align 4
-  %64 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv43
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %indvars.iv43
   %65 = load i32, ptr %64, align 4
   %.not30.us = icmp eq i32 %63, %65
   %spec.select35 = select i1 %.not30.us, i1 %.133.us, i1 false
@@ -548,7 +548,7 @@ define dso_local zeroext i1 @check_amproc_signature(i32 noundef %0, i32 noundef 
 
 81:                                               ; preds = %77
   %82 = load i32, ptr %78, align 4
-  %83 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %indvars.iv
   %84 = load i32, ptr %83, align 4
   %85 = call zeroext i1 @IsBinaryCoercible(i32 noundef %82, i32 noundef %84) #7
   %spec.select36 = select i1 %85, i1 %.133, i1 false
@@ -654,7 +654,7 @@ define dso_local i32 @opclass_for_family_datatype(i32 noundef %0, i32 noundef %1
 
 10:                                               ; preds = %.lr.ph, %27
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %27 ]
-  %11 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr i8, ptr %12, i64 80
   %.val = load ptr, ptr %13, align 8
@@ -707,7 +707,7 @@ define dso_local zeroext i1 @opfamily_can_sort_type(i32 noundef %0, i32 noundef 
 
 8:                                                ; preds = %26, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %26 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv.i
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr i8, ptr %10, i64 80
   %.val.i = load ptr, ptr %11, align 8

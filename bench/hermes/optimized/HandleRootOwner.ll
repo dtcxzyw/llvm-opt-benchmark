@@ -198,7 +198,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes2vm17PinnedHermesValueELb1EE9push_bac
   %4 = phi i32 [ %.pre.i, %if.then.i ], [ %2, %if.then ]
   %5 = load ptr, ptr %chunks_, align 8
   %conv.i3.i = zext i32 %4 to i64
-  %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %5, i64 %conv.i3.i
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %conv.i3.i
   %6 = ptrtoint ptr %call.i to i64
   store i64 %6, ptr %add.ptr.i.i, align 1
   %7 = load i32, ptr %Size.i, align 8
@@ -206,14 +206,14 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes2vm17PinnedHermesValueELb1EE9push_bac
   store i32 %add.i, ptr %Size.i, align 8
   %8 = load ptr, ptr %chunks_, align 8
   %conv.i.i = zext i32 %add.i to i64
-  %add.ptr.i.i2 = getelementptr inbounds nuw ptr, ptr %8, i64 %conv.i.i
+  %add.ptr.i.i2 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %conv.i.i
   %arrayidx.i3 = getelementptr inbounds i8, ptr %add.ptr.i.i2, i64 -8
   br label %if.end
 
 if.else:                                          ; preds = %entry
   %conv = zext i32 %inc to i64
   %9 = load ptr, ptr %chunks_, align 8
-  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %9, i64 %conv
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %conv
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes2vm17PinnedHermesValueELb1EE9push_backERKS4_.exit

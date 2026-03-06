@@ -3831,7 +3831,7 @@ define void @_ZN2cv5utils5trace7details12TraceManagerD2Ev(ptr noundef nonnull al
   %.03064 = phi i64 [ %.1, %39 ], [ 0, %.lr.ph.preheader ]
   %.03263 = phi i64 [ %.133, %39 ], [ 0, %.lr.ph.preheader ]
   %.03462 = phi i64 [ %40, %39 ], [ 0, %.lr.ph.preheader ]
-  %29 = getelementptr inbounds nuw ptr, ptr %21, i64 %.03462
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %.03462
   %30 = load ptr, ptr %29, align 8, !tbaa !204
   %.not41 = icmp eq ptr %30, null
   br i1 %.not41, label %39, label %31
@@ -4368,7 +4368,7 @@ _ZNSt12_Vector_baseIPN2cv5utils5trace7details23TraceManagerThreadLocalESaIS5_EE1
   store ptr %64, ptr %1, align 8, !tbaa !200
   %68 = getelementptr inbounds nuw i8, ptr %64, i64 %43
   store ptr %68, ptr %22, align 8, !tbaa !203
-  %69 = getelementptr inbounds nuw ptr, ptr %64, i64 %53
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %53
   store ptr %69, ptr %57, align 8, !tbaa !231
   %.pre = load ptr, ptr %45, align 8, !tbaa !230
   %.pre34 = load ptr, ptr %46, align 8, !tbaa !230
@@ -4455,7 +4455,7 @@ _ZNSt6vectorIPN2cv5utils5trace7details23TraceManagerThreadLocalESaIS5_EE11_S_rel
 _ZNSt6vectorIPN2cv5utils5trace7details23TraceManagerThreadLocalESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i: ; preds = %100, %_ZNSt6vectorIPN2cv5utils5trace7details23TraceManagerThreadLocalESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit16.i.i.i
   store ptr %95, ptr %1, align 8, !tbaa !200
   store ptr %99, ptr %22, align 8, !tbaa !203
-  %101 = getelementptr inbounds nuw ptr, ptr %95, i64 %93
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %93
   store ptr %101, ptr %57, align 8, !tbaa !231
   br label %_ZNSt6vectorIPN2cv5utils5trace7details23TraceManagerThreadLocalESaIS5_EE9push_backEOS5_.exit
 
@@ -4934,7 +4934,7 @@ _ZNSt6vectorIPN2cv5utils5trace7details23TraceManagerThreadLocalESaIS5_EED2Ev.exi
 45:                                               ; preds = %.lr.ph, %79
   %.045 = phi i64 [ 0, %.lr.ph ], [ %80, %79 ]
   %.sroa.037.043 = phi i32 [ 0, %.lr.ph ], [ %.sroa.037.1, %79 ]
-  %46 = getelementptr inbounds nuw ptr, ptr %30, i64 %.045
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %.045
   %47 = load ptr, ptr %46, align 8, !tbaa !204
   %.not = icmp eq ptr %47, null
   br i1 %.not, label %79, label %48
@@ -5659,9 +5659,9 @@ define linkonce_odr hidden void @_ZNSt5dequeIN2cv5utils5trace7details23TraceMana
   %19 = load ptr, ptr %0, align 8, !tbaa !154
   %20 = sub i64 %15, %13
   %21 = lshr i64 %20, 1
-  %22 = getelementptr inbounds nuw ptr, ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %21
   %23 = select i1 %2, i64 %1, i64 0
-  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %23
   %25 = icmp ult ptr %24, %7
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %26, %7
@@ -5680,12 +5680,12 @@ define linkonce_odr hidden void @_ZNSt5dequeIN2cv5utils5trace7details23TraceMana
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIPPN2cv5utils5trace7details23TraceManagerThreadLocal10StackEntryES7_ET0_T_S9_S8_.exit, label %32
 
 32:                                               ; preds = %31
-  %33 = getelementptr inbounds nuw ptr, ptr %24, i64 %12
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %12
   %34 = ptrtoint ptr %26 to i64
   %35 = sub i64 %34, %9
   %36 = ashr exact i64 %35, 3
   %37 = sub nsw i64 0, %36
-  %38 = getelementptr inbounds ptr, ptr %33, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %33, i64 %37
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %38, ptr align 8 %7, i64 %35, i1 false)
   br label %_ZSt4copyIPPN2cv5utils5trace7details23TraceManagerThreadLocal10StackEntryES7_ET0_T_S9_S8_.exit
 
@@ -5713,9 +5713,9 @@ _ZNSt11_Deque_baseIN2cv5utils5trace7details23TraceManagerThreadLocal10StackEntry
   %46 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %45) #26
   %47 = sub i64 %41, %13
   %48 = lshr i64 %47, 1
-  %49 = getelementptr inbounds nuw ptr, ptr %46, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %48
   %50 = select i1 %2, i64 %1, i64 0
-  %51 = getelementptr inbounds nuw ptr, ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i25 = icmp eq ptr %52, %7
   br i1 %.not.i.i.i.i.i25, label %_ZSt4copyIPPN2cv5utils5trace7details23TraceManagerThreadLocal10StackEntryES7_ET0_T_S9_S8_.exit26, label %53
@@ -5742,7 +5742,7 @@ _ZSt4copyIPPN2cv5utils5trace7details23TraceManagerThreadLocal10StackEntryES7_ET0
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 504
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %59, ptr %60, align 8, !tbaa !109
-  %61 = getelementptr inbounds nuw ptr, ptr %.0, i64 %12
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %.0, i64 %12
   %62 = getelementptr inbounds i8, ptr %61, i64 -8
   store ptr %62, ptr %4, align 8, !tbaa !102
   %63 = load ptr, ptr %62, align 8, !tbaa !103
@@ -6496,7 +6496,7 @@ _ZNSt6vectorIPN2cv5utils5trace7details23TraceManagerThreadLocalESaIS5_EE11_S_rel
 _ZNSt6vectorIPN2cv5utils5trace7details23TraceManagerThreadLocalESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i: ; preds = %74, %_ZNSt6vectorIPN2cv5utils5trace7details23TraceManagerThreadLocalESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit16.i.i.i
   store ptr %69, ptr %49, align 8, !tbaa !200
   store ptr %73, ptr %50, align 8, !tbaa !203
-  %75 = getelementptr inbounds nuw ptr, ptr %69, i64 %67
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %67
   store ptr %75, ptr %52, align 8, !tbaa !231
   br label %_ZNSt6vectorIPN2cv5utils5trace7details23TraceManagerThreadLocalESaIS5_EE9push_backEOS5_.exit
 
@@ -6716,7 +6716,7 @@ _ZNSt11_Deque_baseIN2cv5utils5trace7details23TraceManagerThreadLocal10StackEntry
   store ptr %8, ptr %0, align 8, !tbaa !154
   %9 = sub nsw i64 %.sroa.speculated, %4
   %10 = lshr i64 %9, 1
-  %11 = getelementptr inbounds nuw ptr, ptr %8, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %10
   %.idx = shl nuw nsw i64 %4, 3
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx
   br label %.lr.ph.i
@@ -6807,7 +6807,7 @@ _ZNSt11_Deque_baseIN2cv5utils5trace7details23TraceManagerThreadLocal10StackEntry
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %47, ptr %48, align 8, !tbaa !109
   store ptr %38, ptr %36, align 8, !tbaa !254
-  %49 = getelementptr inbounds nuw %"struct.cv::utils::trace::details::TraceManagerThreadLocal::StackEntry", ptr %45, i64 %3
+  %49 = getelementptr inbounds nuw [24 x i8], ptr %45, i64 %3
   store ptr %49, ptr %42, align 8, !tbaa !113
   ret void
 

@@ -18,15 +18,10 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.cv::Scalar_" = type { %"class.cv::Vec" }
 %"class.cv::Vec" = type { %"class.cv::Matx" }
 %"class.cv::Matx" = type { [4 x double] }
-%"struct.cv::GMM" = type { float, float }
-%"class.cv::Vec.10" = type { %"class.cv::Matx.11" }
-%"class.cv::Matx.11" = type { [1 x i8] }
 %"class.cv::Vec.12" = type { %"class.cv::Matx.13" }
 %"class.cv::Matx.13" = type { [3 x float] }
 %"class.cv::Vec.14" = type { %"class.cv::Matx.15" }
 %"class.cv::Matx.15" = type { [3 x i8] }
-%"class.cv::Vec.8" = type { %"class.cv::Matx.9" }
-%"class.cv::Matx.9" = type { [1 x float] }
 %"struct.cv::Ptr" = type { %"class.std::shared_ptr" }
 %"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
 %"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
@@ -797,7 +792,7 @@ define linkonce_odr hidden void @_ZNK2cv28BackgroundSubtractorMOG2Impl25getBackg
   %17 = load i32, ptr %16, align 8, !tbaa !45
   %18 = mul nsw i32 %15, %17
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds %"struct.cv::GMM", ptr %11, i64 %19
+  %20 = getelementptr inbounds [8 x i8], ptr %11, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %22 = load i32, ptr %21, align 8, !tbaa !40
   %23 = icmp sgt i32 %22, 0
@@ -876,9 +871,9 @@ define linkonce_odr hidden void @_ZNK2cv28BackgroundSubtractorMOG2Impl25getBackg
   %indvars.iv = phi i64 [ %indvars.iv.next, %55 ], [ %53, %.lr.ph ]
   %.04356 = phi float [ %60, %55 ], [ 0.000000e+00, %.lr.ph ]
   %.sroa.053.255 = phi float [ %59, %55 ], [ 0.000000e+00, %.lr.ph ]
-  %56 = getelementptr inbounds %"struct.cv::GMM", ptr %11, i64 %indvars.iv
+  %56 = getelementptr inbounds [8 x i8], ptr %11, i64 %indvars.iv
   %.sroa.0.0.copyload = load float, ptr %56, align 4, !tbaa !94
-  %57 = getelementptr inbounds nuw float, ptr %20, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv
   %58 = load float, ptr %57, align 4, !tbaa !94
   %59 = call float @llvm.fmuladd.f32(float %.sroa.0.0.copyload, float %58, float %.sroa.053.255)
   %60 = fadd float %.04356, %.sroa.0.0.copyload
@@ -906,7 +901,7 @@ define linkonce_odr hidden void @_ZNK2cv28BackgroundSubtractorMOG2Impl25getBackg
   %74 = load i64, ptr %73, align 8, !tbaa !92
   %75 = mul i64 %74, %indvars.iv77
   %76 = getelementptr inbounds nuw i8, ptr %72, i64 %75
-  %77 = getelementptr inbounds nuw %"class.cv::Vec.10", ptr %76, i64 %indvars.iv74
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 %indvars.iv74
   store i8 %71, ptr %77, align 1
   %78 = load i32, ptr %16, align 8, !tbaa !45
   %79 = add nsw i32 %78, %.14163
@@ -979,7 +974,7 @@ define linkonce_odr hidden void @_ZNK2cv28BackgroundSubtractorMOG2Impl25getBackg
   %20 = load i32, ptr %19, align 8, !tbaa !45
   %21 = mul nsw i32 %18, %20
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds %"struct.cv::GMM", ptr %14, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr %14, i64 %22
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store float 0.000000e+00, ptr %6, align 4, !tbaa !94
   %scevgep.i.i = getelementptr inbounds nuw i8, ptr %6, i64 4
@@ -1062,7 +1057,7 @@ define linkonce_odr hidden void @_ZNK2cv28BackgroundSubtractorMOG2Impl25getBackg
 58:                                               ; preds = %61, %.lr.ph
   %indvars.iv69 = phi i64 [ %indvars.iv.next70, %61 ], [ %56, %.lr.ph ]
   %.04354 = phi float [ %62, %61 ], [ 0.000000e+00, %.lr.ph ]
-  %59 = getelementptr inbounds %"struct.cv::GMM", ptr %14, i64 %indvars.iv69
+  %59 = getelementptr inbounds [8 x i8], ptr %14, i64 %indvars.iv69
   %.sroa.0.0.copyload = load float, ptr %59, align 4, !tbaa !94
   %.idx = mul i64 %indvars.iv69, 12
   %60 = getelementptr i8, ptr %23, i64 %.idx
@@ -1078,9 +1073,9 @@ define linkonce_odr hidden void @_ZNK2cv28BackgroundSubtractorMOG2Impl25getBackg
 
 65:                                               ; preds = %58, %65
   %indvars.iv = phi i64 [ 0, %58 ], [ %indvars.iv.next, %65 ]
-  %66 = getelementptr float, ptr %60, i64 %indvars.iv
+  %66 = getelementptr [4 x i8], ptr %60, i64 %indvars.iv
   %67 = load float, ptr %66, align 4, !tbaa !94
-  %68 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   %69 = load float, ptr %68, align 4, !tbaa !94
   %70 = call float @llvm.fmuladd.f32(float %.sroa.0.0.copyload, float %67, float %69)
   store float %70, ptr %68, align 4, !tbaa !94
@@ -1101,10 +1096,10 @@ define linkonce_odr hidden void @_ZNK2cv28BackgroundSubtractorMOG2Impl25getBackg
 
 74:                                               ; preds = %74, %._crit_edge
   %indvars.iv.i.i.i = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next.i.i.i, %74 ]
-  %75 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv.i.i.i
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv.i.i.i
   %76 = load float, ptr %75, align 4, !tbaa !94, !noalias !100
   %77 = fmul float %.0, %76
-  %78 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv.i.i.i
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv.i.i.i
   store float %77, ptr %78, align 4, !tbaa !94, !alias.scope !100
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 3
@@ -1117,7 +1112,7 @@ _ZN2cvmlIfLi3EEENS_3VecIT_XT0_EEERKS3_f.exit:     ; preds = %74
 
 79:                                               ; preds = %79, %_ZN2cvmlIfLi3EEENS_3VecIT_XT0_EEERKS3_f.exit
   %indvars.iv.i = phi i64 [ 0, %_ZN2cvmlIfLi3EEENS_3VecIT_XT0_EEERKS3_f.exit ], [ %indvars.iv.next.i, %79 ]
-  %80 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv.i
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv.i
   %81 = load float, ptr %80, align 4, !tbaa !94, !noalias !104
   %82 = insertelement <4 x float> poison, float %81, i64 0
   %83 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %82)
@@ -1136,7 +1131,7 @@ _ZN2cvmlIfLi3EEENS_3VecIT_XT0_EEERKS3_f.exit:     ; preds = %74
   %91 = load i64, ptr %90, align 8, !tbaa !92
   %92 = mul i64 %91, %indvars.iv75
   %93 = getelementptr inbounds nuw i8, ptr %89, i64 %92
-  %94 = getelementptr inbounds nuw %"class.cv::Vec.14", ptr %93, i64 %indvars.iv72
+  %94 = getelementptr inbounds nuw [3 x i8], ptr %93, i64 %indvars.iv72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %94, ptr noundef nonnull align 1 dereferenceable(3) %7, i64 3, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -1211,7 +1206,7 @@ define linkonce_odr hidden void @_ZNK2cv28BackgroundSubtractorMOG2Impl25getBackg
   %17 = load i32, ptr %16, align 8, !tbaa !45
   %18 = mul nsw i32 %15, %17
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds %"struct.cv::GMM", ptr %11, i64 %19
+  %20 = getelementptr inbounds [8 x i8], ptr %11, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %22 = load i32, ptr %21, align 8, !tbaa !40
   %23 = icmp sgt i32 %22, 0
@@ -1290,9 +1285,9 @@ define linkonce_odr hidden void @_ZNK2cv28BackgroundSubtractorMOG2Impl25getBackg
   %indvars.iv = phi i64 [ %indvars.iv.next, %55 ], [ %53, %.lr.ph ]
   %.04355 = phi float [ %60, %55 ], [ 0.000000e+00, %.lr.ph ]
   %.sroa.052.254 = phi float [ %59, %55 ], [ 0.000000e+00, %.lr.ph ]
-  %56 = getelementptr inbounds %"struct.cv::GMM", ptr %11, i64 %indvars.iv
+  %56 = getelementptr inbounds [8 x i8], ptr %11, i64 %indvars.iv
   %.sroa.0.0.copyload = load float, ptr %56, align 4, !tbaa !94
-  %57 = getelementptr inbounds nuw float, ptr %20, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv
   %58 = load float, ptr %57, align 4, !tbaa !94
   %59 = call float @llvm.fmuladd.f32(float %.sroa.0.0.copyload, float %58, float %.sroa.052.254)
   %60 = fadd float %.04355, %.sroa.0.0.copyload
@@ -1315,7 +1310,7 @@ define linkonce_odr hidden void @_ZNK2cv28BackgroundSubtractorMOG2Impl25getBackg
   %69 = load i64, ptr %68, align 8, !tbaa !92
   %70 = mul i64 %69, %indvars.iv76
   %71 = getelementptr inbounds nuw i8, ptr %67, i64 %70
-  %72 = getelementptr inbounds nuw %"class.cv::Vec.8", ptr %71, i64 %indvars.iv73
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %71, i64 %indvars.iv73
   store float %66, ptr %72, align 4
   %73 = load i32, ptr %16, align 8, !tbaa !45
   %74 = add nsw i32 %73, %.14162
@@ -1387,7 +1382,7 @@ define linkonce_odr hidden void @_ZNK2cv28BackgroundSubtractorMOG2Impl25getBackg
   %19 = load i32, ptr %18, align 8, !tbaa !45
   %20 = mul nsw i32 %17, %19
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds %"struct.cv::GMM", ptr %13, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %13, i64 %21
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store float 0.000000e+00, ptr %6, align 4, !tbaa !94
   %scevgep.i.i = getelementptr inbounds nuw i8, ptr %6, i64 4
@@ -1470,7 +1465,7 @@ define linkonce_odr hidden void @_ZNK2cv28BackgroundSubtractorMOG2Impl25getBackg
 57:                                               ; preds = %60, %.lr.ph
   %indvars.iv69 = phi i64 [ %indvars.iv.next70, %60 ], [ %55, %.lr.ph ]
   %.04354 = phi float [ %61, %60 ], [ 0.000000e+00, %.lr.ph ]
-  %58 = getelementptr inbounds %"struct.cv::GMM", ptr %13, i64 %indvars.iv69
+  %58 = getelementptr inbounds [8 x i8], ptr %13, i64 %indvars.iv69
   %.sroa.0.0.copyload = load float, ptr %58, align 4, !tbaa !94
   %.idx = mul i64 %indvars.iv69, 12
   %59 = getelementptr i8, ptr %22, i64 %.idx
@@ -1486,9 +1481,9 @@ define linkonce_odr hidden void @_ZNK2cv28BackgroundSubtractorMOG2Impl25getBackg
 
 64:                                               ; preds = %57, %64
   %indvars.iv = phi i64 [ 0, %57 ], [ %indvars.iv.next, %64 ]
-  %65 = getelementptr float, ptr %59, i64 %indvars.iv
+  %65 = getelementptr [4 x i8], ptr %59, i64 %indvars.iv
   %66 = load float, ptr %65, align 4, !tbaa !94
-  %67 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   %68 = load float, ptr %67, align 4, !tbaa !94
   %69 = call float @llvm.fmuladd.f32(float %.sroa.0.0.copyload, float %66, float %68)
   store float %69, ptr %67, align 4, !tbaa !94
@@ -1508,10 +1503,10 @@ define linkonce_odr hidden void @_ZNK2cv28BackgroundSubtractorMOG2Impl25getBackg
 
 73:                                               ; preds = %73, %._crit_edge
   %indvars.iv.i.i.i = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next.i.i.i, %73 ]
-  %74 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv.i.i.i
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv.i.i.i
   %75 = load float, ptr %74, align 4, !tbaa !94, !noalias !115
   %76 = fmul float %.0, %75
-  %77 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv.i.i.i
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv.i.i.i
   store float %76, ptr %77, align 4, !tbaa !94, !alias.scope !115
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 3
@@ -1523,7 +1518,7 @@ define linkonce_odr hidden void @_ZNK2cv28BackgroundSubtractorMOG2Impl25getBackg
   %81 = load i64, ptr %80, align 8, !tbaa !92
   %82 = mul i64 %81, %indvars.iv75
   %83 = getelementptr inbounds nuw i8, ptr %79, i64 %82
-  %84 = getelementptr inbounds nuw %"class.cv::Vec.12", ptr %83, i64 %indvars.iv72
+  %84 = getelementptr inbounds nuw [12 x i8], ptr %83, i64 %indvars.iv72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %84, ptr noundef nonnull align 4 dereferenceable(12) %7, i64 12, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store float 0.000000e+00, ptr %6, align 4
@@ -3469,12 +3464,12 @@ _ZN2cv10AutoBufferIfLm264EED2Ev.exit235:          ; preds = %88, %85
   %111 = mul nsw i32 %110, %16
   %112 = sext i32 %111 to i64
   %113 = mul nsw i64 %indvars.iv348, %112
-  %114 = getelementptr inbounds %"struct.cv::GMM", ptr %109, i64 %113
+  %114 = getelementptr inbounds [8 x i8], ptr %109, i64 %113
   %115 = load ptr, ptr %40, align 8, !tbaa !69
   %116 = mul i32 %.pre-phi, %20
   %117 = mul i32 %116, %111
   %118 = sext i32 %117 to i64
-  %119 = getelementptr inbounds float, ptr %115, i64 %118
+  %119 = getelementptr inbounds [4 x i8], ptr %115, i64 %118
   br label %.lr.ph292
 
 ._crit_edge293:                                   ; preds = %_ZN2cvL15detectShadowGMMEPKfiiPKNS_3GMMES1_fff.exit.thread, %97
@@ -3521,7 +3516,7 @@ _ZN2cv10AutoBufferIfLm264EED2Ev.exit235:          ; preds = %88, %85
   %.0202260 = phi i32 [ %122, %.lr.ph265 ], [ %.1203, %.loopexit244 ]
   %.0205259 = phi i8 [ 0, %.lr.ph265 ], [ %.1206, %.loopexit244 ]
   %.0208258 = phi i1 [ false, %.lr.ph265 ], [ %.1209, %.loopexit244 ]
-  %132 = getelementptr inbounds nuw %"struct.cv::GMM", ptr %.0218286, i64 %indvars.iv314
+  %132 = getelementptr inbounds nuw [8 x i8], ptr %.0218286, i64 %indvars.iv314
   %133 = load float, ptr %132, align 4, !tbaa !152
   %134 = call float @llvm.fmuladd.f32(float %33, float %133, float %131)
   %135 = trunc nuw i8 %.0205259 to i1
@@ -3555,12 +3550,12 @@ _ZN2cv10AutoBufferIfLm264EED2Ev.exit235:          ; preds = %88, %85
 .preheader:                                       ; preds = %136, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %136 ]
   %.1250 = phi float [ %160, %.preheader ], [ 0.000000e+00, %136 ]
-  %154 = getelementptr inbounds nuw float, ptr %.0200262, i64 %indvars.iv
+  %154 = getelementptr inbounds nuw [4 x i8], ptr %.0200262, i64 %indvars.iv
   %155 = load float, ptr %154, align 4, !tbaa !94
-  %156 = getelementptr inbounds nuw float, ptr %.1193289, i64 %indvars.iv
+  %156 = getelementptr inbounds nuw [4 x i8], ptr %.1193289, i64 %indvars.iv
   %157 = load float, ptr %156, align 4, !tbaa !94
   %158 = fsub float %155, %157
-  %159 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv
+  %159 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   store float %158, ptr %159, align 4, !tbaa !94
   %160 = call float @llvm.fmuladd.f32(float %158, float %158, float %.1250)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3615,9 +3610,9 @@ _ZN2cv10AutoBufferIfLm264EED2Ev.exit235:          ; preds = %88, %85
 
 186:                                              ; preds = %172, %186
   %indvars.iv304 = phi i64 [ 0, %172 ], [ %indvars.iv.next305, %186 ]
-  %187 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv304
+  %187 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv304
   %188 = load float, ptr %187, align 4, !tbaa !94
-  %189 = getelementptr inbounds nuw float, ptr %.0200262, i64 %indvars.iv304
+  %189 = getelementptr inbounds nuw [4 x i8], ptr %.0200262, i64 %indvars.iv304
   %190 = load float, ptr %189, align 4, !tbaa !94
   %191 = call float @llvm.fmuladd.f32(float %176, float %188, float %190)
   store float %191, ptr %189, align 4, !tbaa !94
@@ -3635,27 +3630,27 @@ _ZN2cv10AutoBufferIfLm264EED2Ev.exit235:          ; preds = %88, %85
   %indvars.iv316 = phi i64 [ %indvars.iv314, %.lr.ph.preheader ], [ %indvars.iv.next317, %.loopexit ]
   %.2254 = phi i32 [ 0, %.lr.ph.preheader ], [ %192, %.loopexit ]
   %indvars.iv.next317 = add nsw i64 %indvars.iv316, -1
-  %194 = getelementptr inbounds nuw %"struct.cv::GMM", ptr %.0218286, i64 %indvars.iv.next317
+  %194 = getelementptr inbounds nuw [8 x i8], ptr %.0218286, i64 %indvars.iv.next317
   %195 = load float, ptr %194, align 4, !tbaa !152
   %196 = fcmp olt float %174, %195
   br i1 %196, label %.loopexit244, label %197
 
 197:                                              ; preds = %.lr.ph
-  %198 = getelementptr inbounds nuw %"struct.cv::GMM", ptr %.0218286, i64 %indvars.iv316
+  %198 = getelementptr inbounds nuw [8 x i8], ptr %.0218286, i64 %indvars.iv316
   %199 = load i64, ptr %198, align 4
   %200 = load i64, ptr %194, align 4
   store i64 %200, ptr %198, align 4
   store i64 %199, ptr %194, align 4
   %201 = mul nuw nsw i64 %indvars.iv316, %60
   %202 = mul nsw i64 %indvars.iv.next317, %60
-  %invariant.gep = getelementptr float, ptr %.0219285, i64 %201
-  %invariant.gep378 = getelementptr float, ptr %.0219285, i64 %202
+  %invariant.gep = getelementptr [4 x i8], ptr %.0219285, i64 %201
+  %invariant.gep378 = getelementptr [4 x i8], ptr %.0219285, i64 %202
   br label %203
 
 203:                                              ; preds = %197, %203
   %indvars.iv309 = phi i64 [ 0, %197 ], [ %indvars.iv.next310, %203 ]
-  %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv309
-  %gep379 = getelementptr float, ptr %invariant.gep378, i64 %indvars.iv309
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %indvars.iv309
+  %gep379 = getelementptr [4 x i8], ptr %invariant.gep378, i64 %indvars.iv309
   %204 = load float, ptr %gep, align 4, !tbaa !94
   %205 = load float, ptr %gep379, align 4, !tbaa !94
   store float %205, ptr %gep, align 4, !tbaa !94
@@ -3678,11 +3673,11 @@ _ZN2cv10AutoBufferIfLm264EED2Ev.exit235:          ; preds = %88, %85
   %210 = trunc nuw nsw i64 %indvars.iv314 to i32
   %211 = sub nsw i32 %210, %.0194
   %212 = sext i32 %211 to i64
-  %213 = getelementptr inbounds %"struct.cv::GMM", ptr %.0218286, i64 %212
+  %213 = getelementptr inbounds [8 x i8], ptr %.0218286, i64 %212
   store float %.2198, ptr %213, align 4, !tbaa !152
   %214 = fadd float %.0201261, %.2198
   %indvars.iv.next315 = add nuw nsw i64 %indvars.iv314, 1
-  %215 = getelementptr inbounds nuw float, ptr %.0200262, i64 %55
+  %215 = getelementptr inbounds nuw [4 x i8], ptr %.0200262, i64 %55
   %216 = sext i32 %.1203 to i64
   %217 = icmp slt i64 %indvars.iv.next315, %216
   br i1 %217, label %130, label %._crit_edge, !llvm.loop !159
@@ -3698,7 +3693,7 @@ _ZN2cv10AutoBufferIfLm264EED2Ev.exit235:          ; preds = %88, %85
 
 .lr.ph272:                                        ; preds = %.lr.ph272.preheader, %.lr.ph272
   %indvars.iv320 = phi i64 [ 0, %.lr.ph272.preheader ], [ %indvars.iv.next321, %.lr.ph272 ]
-  %220 = getelementptr inbounds nuw %"struct.cv::GMM", ptr %.0218286, i64 %indvars.iv320
+  %220 = getelementptr inbounds nuw [8 x i8], ptr %.0218286, i64 %indvars.iv320
   %221 = load float, ptr %220, align 4, !tbaa !152
   %222 = fmul float %.0186, %221
   store float %222, ptr %220, align 4, !tbaa !152
@@ -3715,7 +3710,7 @@ _ZN2cv10AutoBufferIfLm264EED2Ev.exit235:          ; preds = %88, %85
   %228 = select i1 %225, i32 %.0202.lcssa373, i32 %226
   %229 = icmp eq i32 %.3, 1
   %230 = sext i32 %228 to i64
-  %231 = getelementptr inbounds %"struct.cv::GMM", ptr %.0218286, i64 %230
+  %231 = getelementptr inbounds [8 x i8], ptr %.0218286, i64 %230
   br i1 %229, label %232, label %233
 
 232:                                              ; preds = %223
@@ -3734,7 +3729,7 @@ _ZN2cv10AutoBufferIfLm264EED2Ev.exit235:          ; preds = %88, %85
 
 .lr.ph276:                                        ; preds = %.lr.ph276.preheader, %.lr.ph276
   %indvars.iv325 = phi i64 [ 0, %.lr.ph276.preheader ], [ %indvars.iv.next326, %.lr.ph276 ]
-  %236 = getelementptr inbounds nuw %"struct.cv::GMM", ptr %.0218286, i64 %indvars.iv325
+  %236 = getelementptr inbounds nuw [8 x i8], ptr %.0218286, i64 %indvars.iv325
   %237 = load float, ptr %236, align 4, !tbaa !152
   %238 = fmul float %33, %237
   store float %238, ptr %236, align 4, !tbaa !152
@@ -3745,13 +3740,13 @@ _ZN2cv10AutoBufferIfLm264EED2Ev.exit235:          ; preds = %88, %85
 .loopexit247:                                     ; preds = %.lr.ph276, %233, %232
   %239 = mul nsw i32 %228, %20
   %240 = sext i32 %239 to i64
-  %invariant.gep380 = getelementptr float, ptr %.0219285, i64 %240
+  %invariant.gep380 = getelementptr [4 x i8], ptr %.0219285, i64 %240
   br label %250
 
 241:                                              ; preds = %250
   %242 = load float, ptr %56, align 4, !tbaa !76
   %243 = sext i32 %228 to i64
-  %244 = getelementptr inbounds %"struct.cv::GMM", ptr %.0218286, i64 %243
+  %244 = getelementptr inbounds [8 x i8], ptr %.0218286, i64 %243
   %245 = getelementptr inbounds nuw i8, ptr %244, i64 4
   store float %242, ptr %245, align 4, !tbaa !154
   %246 = icmp sgt i32 %.3, 1
@@ -3765,9 +3760,9 @@ _ZN2cv10AutoBufferIfLm264EED2Ev.exit235:          ; preds = %88, %85
 
 250:                                              ; preds = %.loopexit247, %250
   %indvars.iv330 = phi i64 [ 0, %.loopexit247 ], [ %indvars.iv.next331, %250 ]
-  %251 = getelementptr inbounds nuw float, ptr %.1193289, i64 %indvars.iv330
+  %251 = getelementptr inbounds nuw [4 x i8], ptr %.1193289, i64 %indvars.iv330
   %252 = load float, ptr %251, align 4, !tbaa !94
-  %gep381 = getelementptr float, ptr %invariant.gep380, i64 %indvars.iv330
+  %gep381 = getelementptr [4 x i8], ptr %invariant.gep380, i64 %indvars.iv330
   store float %252, ptr %gep381, align 4, !tbaa !94
   %indvars.iv.next331 = add nuw nsw i64 %indvars.iv330, 1
   %exitcond334.not = icmp eq i64 %indvars.iv.next331, %55
@@ -3782,27 +3777,27 @@ _ZN2cv10AutoBufferIfLm264EED2Ev.exit235:          ; preds = %88, %85
   %indvars.iv.next341 = add nsw i64 %indvars.iv340, -1
   %254 = load float, ptr %31, align 4, !tbaa !72
   %255 = add nsw i64 %indvars.iv340, -2
-  %256 = getelementptr inbounds nuw %"struct.cv::GMM", ptr %.0218286, i64 %255
+  %256 = getelementptr inbounds nuw [8 x i8], ptr %.0218286, i64 %255
   %257 = load float, ptr %256, align 4, !tbaa !152
   %258 = fcmp olt float %254, %257
   br i1 %258, label %.loopexit246, label %259
 
 259:                                              ; preds = %.lr.ph283
-  %260 = getelementptr inbounds nuw %"struct.cv::GMM", ptr %.0218286, i64 %indvars.iv.next341
+  %260 = getelementptr inbounds nuw [8 x i8], ptr %.0218286, i64 %indvars.iv.next341
   %261 = load i64, ptr %260, align 4
   %262 = load i64, ptr %256, align 4
   store i64 %262, ptr %260, align 4
   store i64 %261, ptr %256, align 4
   %263 = mul nsw i64 %indvars.iv.next341, %60
   %264 = mul nsw i64 %255, %60
-  %invariant.gep382 = getelementptr float, ptr %.0219285, i64 %263
-  %invariant.gep384 = getelementptr float, ptr %.0219285, i64 %264
+  %invariant.gep382 = getelementptr [4 x i8], ptr %.0219285, i64 %263
+  %invariant.gep384 = getelementptr [4 x i8], ptr %.0219285, i64 %264
   br label %265
 
 265:                                              ; preds = %259, %265
   %indvars.iv335 = phi i64 [ 0, %259 ], [ %indvars.iv.next336, %265 ]
-  %gep383 = getelementptr float, ptr %invariant.gep382, i64 %indvars.iv335
-  %gep385 = getelementptr float, ptr %invariant.gep384, i64 %indvars.iv335
+  %gep383 = getelementptr [4 x i8], ptr %invariant.gep382, i64 %indvars.iv335
+  %gep385 = getelementptr [4 x i8], ptr %invariant.gep384, i64 %indvars.iv335
   %266 = load float, ptr %gep383, align 4, !tbaa !94
   %267 = load float, ptr %gep385, align 4, !tbaa !94
   store float %267, ptr %gep383, align 4, !tbaa !94
@@ -3837,7 +3832,7 @@ _ZN2cv10AutoBufferIfLm264EED2Ev.exit235:          ; preds = %88, %85
   %indvars.iv146.i = phi i64 [ 0, %.lr.ph87.i ], [ %indvars.iv.next147.i, %291 ]
   %.05383.us.i = phi ptr [ %.0219285, %.lr.ph87.i ], [ %294, %291 ]
   %.05782.us.i = phi float [ 0.000000e+00, %.lr.ph87.i ], [ %292, %291 ]
-  %276 = getelementptr inbounds nuw %"struct.cv::GMM", ptr %.0218286, i64 %indvars.iv146.i
+  %276 = getelementptr inbounds nuw [8 x i8], ptr %.0218286, i64 %indvars.iv146.i
   %.sroa.0.0.copyload.us.i = load float, ptr %276, align 4, !tbaa !94
   %.sroa.4.0..sroa_idx.us.i = getelementptr inbounds nuw i8, ptr %276, i64 4
   %.sroa.4.0.copyload.us.i = load float, ptr %.sroa.4.0..sroa_idx.us.i, align 4, !tbaa !94
@@ -3861,9 +3856,9 @@ _ZN2cv10AutoBufferIfLm264EED2Ev.exit235:          ; preds = %88, %85
 283:                                              ; preds = %283, %.lr.ph77.us.i
   %indvars.iv141.i = phi i64 [ 0, %.lr.ph77.us.i ], [ %indvars.iv.next142.i, %283 ]
   %.05274.us.i = phi float [ 0.000000e+00, %.lr.ph77.us.i ], [ %290, %283 ]
-  %284 = getelementptr inbounds nuw float, ptr %.05383.us.i, i64 %indvars.iv141.i
+  %284 = getelementptr inbounds nuw [4 x i8], ptr %.05383.us.i, i64 %indvars.iv141.i
   %285 = load float, ptr %284, align 4, !tbaa !94
-  %286 = getelementptr inbounds nuw float, ptr %.1193289, i64 %indvars.iv141.i
+  %286 = getelementptr inbounds nuw [4 x i8], ptr %.1193289, i64 %indvars.iv141.i
   %287 = load float, ptr %286, align 4, !tbaa !94
   %288 = fneg float %287
   %289 = call float @llvm.fmuladd.f32(float %282, float %285, float %288)
@@ -3876,7 +3871,7 @@ _ZN2cv10AutoBufferIfLm264EED2Ev.exit235:          ; preds = %88, %85
   %292 = fadd float %.05782.us.i, %.sroa.0.0.copyload.us.i
   %293 = fcmp ogt float %292, %274
   %indvars.iv.next147.i = add nuw nsw i64 %indvars.iv146.i, 1
-  %294 = getelementptr inbounds nuw float, ptr %.05383.us.i, i64 %55
+  %294 = getelementptr inbounds nuw [4 x i8], ptr %.05383.us.i, i64 %55
   %exitcond149.not.i = icmp eq i64 %indvars.iv.next147.i, %wide.trip.count148.i
   %or.cond.i = select i1 %293, i1 true, i1 %exitcond149.not.i
   br i1 %or.cond.i, label %_ZN2cvL15detectShadowGMMEPKfiiPKNS_3GMMES1_fff.exit.thread, label %.lr.ph.us.preheader.i, !llvm.loop !166
@@ -3885,9 +3880,9 @@ _ZN2cv10AutoBufferIfLm264EED2Ev.exit235:          ; preds = %88, %85
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.us.i ]
   %.05571.us.i = phi float [ 0.000000e+00, %.lr.ph.us.preheader.i ], [ %300, %.lr.ph.us.i ]
   %.05670.us.i = phi float [ 0.000000e+00, %.lr.ph.us.preheader.i ], [ %299, %.lr.ph.us.i ]
-  %295 = getelementptr inbounds nuw float, ptr %.1193289, i64 %indvars.iv.i
+  %295 = getelementptr inbounds nuw [4 x i8], ptr %.1193289, i64 %indvars.iv.i
   %296 = load float, ptr %295, align 4, !tbaa !94
-  %297 = getelementptr inbounds nuw float, ptr %.05383.us.i, i64 %indvars.iv.i
+  %297 = getelementptr inbounds nuw [4 x i8], ptr %.05383.us.i, i64 %indvars.iv.i
   %298 = load float, ptr %297, align 4, !tbaa !94
   %299 = call float @llvm.fmuladd.f32(float %296, float %298, float %.05670.us.i)
   %300 = call float @llvm.fmuladd.f32(float %298, float %298, float %.05571.us.i)
@@ -3911,13 +3906,13 @@ _ZN2cvL15detectShadowGMMEPKfiiPKNS_3GMMES1_fff.exit.thread: ; preds = %._crit_ed
   %307 = getelementptr inbounds nuw i8, ptr %108, i64 %indvars.iv343
   store i8 %306, ptr %307, align 1, !tbaa !93
   %indvars.iv.next344 = add nuw nsw i64 %indvars.iv343, 1
-  %308 = getelementptr inbounds nuw float, ptr %.1193289, i64 %55
+  %308 = getelementptr inbounds nuw [4 x i8], ptr %.1193289, i64 %55
   %309 = load i32, ptr %41, align 8, !tbaa !71
   %310 = sext i32 %309 to i64
-  %311 = getelementptr inbounds %"struct.cv::GMM", ptr %.0218286, i64 %310
+  %311 = getelementptr inbounds [8 x i8], ptr %.0218286, i64 %310
   %312 = mul nsw i32 %309, %20
   %313 = sext i32 %312 to i64
-  %314 = getelementptr inbounds float, ptr %.0219285, i64 %313
+  %314 = getelementptr inbounds [4 x i8], ptr %.0219285, i64 %313
   %exitcond347.not = icmp eq i64 %indvars.iv.next344, %wide.trip.count346
   br i1 %exitcond347.not, label %._crit_edge293, label %.lr.ph292, !llvm.loop !168
 }

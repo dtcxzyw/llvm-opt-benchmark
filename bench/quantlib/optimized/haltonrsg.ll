@@ -91,7 +91,7 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %entry
 if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %dimensionality, 3
   %call5.i.i.i.i2.i.i19 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #19
-  %add.ptr.i.i.i = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i19, i64 %dimensionality
+  %add.ptr.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i19, i64 %dimensionality
   store double 0.000000e+00, ptr %call5.i.i.i.i2.i.i19, align 8, !tbaa !20
   %incdec.ptr.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i19, i64 8
   %sub.i.i.i.i.i = add nsw i64 %dimensionality, -1
@@ -120,7 +120,7 @@ if.end.i.i.i.i.i.i.i22:                           ; preds = %if.end.i.i.i.i.i.i.
 
 call5.i.i.i.i2.i.i.noexc30:                       ; preds = %if.end.i.i.i.i.i.i.i22
   store ptr %call5.i.i.i.i2.i.i31, ptr %randomStart_134, align 8, !tbaa !25
-  %add.ptr.i.i.i24 = getelementptr inbounds nuw i64, ptr %call5.i.i.i.i2.i.i31, i64 %dimensionality
+  %add.ptr.i.i.i24 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i31, i64 %dimensionality
   %_M_end_of_storage.i.i.i25 = getelementptr inbounds nuw i8, ptr %this, i64 64
   store ptr %add.ptr.i.i.i24, ptr %_M_end_of_storage.i.i.i25, align 8, !tbaa !26
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %call5.i.i.i.i2.i.i31, i8 0, i64 %mul.i.i.i.i.i.i, i1 false), !tbaa !27
@@ -134,7 +134,7 @@ call5.i.i.i.i2.i.i.noexc30:                       ; preds = %if.end.i.i.i.i.i.i.
 
 call5.i.i.i.i2.i.i.noexc49:                       ; preds = %call5.i.i.i.i2.i.i.noexc30
   store ptr %call5.i.i.i.i2.i.i50, ptr %randomShift_, align 8, !tbaa !21
-  %add.ptr.i.i.i37 = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i50, i64 %dimensionality
+  %add.ptr.i.i.i37 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i50, i64 %dimensionality
   %_M_end_of_storage.i.i.i38 = getelementptr inbounds nuw i8, ptr %this, i64 88
   store ptr %add.ptr.i.i.i37, ptr %_M_end_of_storage.i.i.i38, align 8, !tbaa !23
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %call5.i.i.i.i2.i.i50, i8 0, i64 %mul.i.i.i.i.i.i, i1 false), !tbaa !20
@@ -380,7 +380,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i: ; preds = %.noexc72
   %24 = phi i64 [ %.pre.i.i, %.noexc72 ], [ %23, %for.body.i ]
   %inc.i.i = add i64 %24, 1
   store i64 %inc.i.i, ptr %mti.i.i, align 8, !tbaa !40, !noalias !36
-  %arrayidx.i.i = getelementptr inbounds nuw i64, ptr %rng_.i, i64 %24
+  %arrayidx.i.i = getelementptr inbounds nuw [8 x i8], ptr %rng_.i, i64 %24
   %25 = load i64, ptr %arrayidx.i.i, align 8, !tbaa !27, !noalias !36
   %shr.i.i = lshr i64 %25, 11
   %xor.i.i = xor i64 %shr.i.i, %25
@@ -393,7 +393,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i: ; preds = %.noexc72
   %shr7.i.i = lshr i64 %xor6.i.i, 18
   %xor8.i.i = xor i64 %shr7.i.i, %xor6.i.i
   %26 = load ptr, ptr %int32Sequence_.i, align 8, !tbaa !25, !noalias !36
-  %add.ptr.i.i = getelementptr inbounds nuw i64, ptr %26, i64 %i.010.i
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %i.010.i
   store i64 %xor8.i.i, ptr %add.ptr.i.i, align 8, !tbaa !27, !noalias !36
   %inc.i = add nuw i64 %i.010.i, 1
   %27 = load i64, ptr %uniformRsg, align 8, !tbaa !33, !noalias !36
@@ -471,7 +471,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng4nextEv.exit.i: ; preds = %.noexc90, %fo
   %35 = phi i64 [ %.pre.i.i.i.i, %.noexc90 ], [ %33, %for.body.i84 ]
   %inc.i.i.i.i = add i64 %35, 1
   store i64 %inc.i.i.i.i, ptr %mti.i.i.i.i, align 8, !tbaa !40
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw i64, ptr %rng_.i82, i64 %35
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %rng_.i82, i64 %35
   %36 = load i64, ptr %arrayidx.i.i.i.i, align 8, !tbaa !27
   %shr.i.i.i.i = lshr i64 %36, 11
   %xor.i.i.i.i = xor i64 %shr.i.i.i.i, %36
@@ -487,7 +487,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng4nextEv.exit.i: ; preds = %.noexc90, %fo
   %add.i.i.i85 = fadd nnan double %conv.i.i.i, 5.000000e-01
   %div.i.i.i = fmul nnan double %add.i.i.i85, 0x3DF0000000000000
   %37 = load ptr, ptr %sequence_.i, align 8, !tbaa !21
-  %add.ptr.i.i86 = getelementptr inbounds nuw double, ptr %37, i64 %i.04.i
+  %add.ptr.i.i86 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %i.04.i
   store double %div.i.i.i, ptr %add.ptr.i.i86, align 8, !tbaa !20
   %inc.i87 = add nuw i64 %i.04.i, 1
   %cmp.i88 = icmp ult i64 %inc.i87, %34
@@ -751,7 +751,7 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %entry
 if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %dimensionality, 3
   %call5.i.i.i.i2.i.i4 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #19
-  %add.ptr.i.i.i = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i4, i64 %dimensionality
+  %add.ptr.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i4, i64 %dimensionality
   store double 0.000000e+00, ptr %call5.i.i.i.i2.i.i4, align 8, !tbaa !20
   %incdec.ptr.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i4, i64 8
   %sub.i.i.i.i.i = add nsw i64 %dimensionality, -1
@@ -788,7 +788,7 @@ if.then.i.i.i.i.i7:                               ; preds = %if.end.i.i.i.i.i.i.
 
 call5.i.i.i.i2.i.i.noexc21:                       ; preds = %if.then.i.i.i.i.i7
   store ptr %call5.i.i.i.i2.i.i22, ptr %int32Sequence_32, align 8, !tbaa !25
-  %add.ptr.i.i.i9 = getelementptr inbounds nuw i64, ptr %call5.i.i.i.i2.i.i22, i64 %dimensionality
+  %add.ptr.i.i.i9 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i22, i64 %dimensionality
   %_M_end_of_storage.i.i.i10 = getelementptr inbounds nuw i8, ptr %this, i64 5056
   store ptr %add.ptr.i.i.i9, ptr %_M_end_of_storage.i.i.i10, align 8, !tbaa !26
   store i64 0, ptr %call5.i.i.i.i2.i.i22, align 8, !tbaa !27
@@ -988,7 +988,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %wh
   %call = tail call noundef i64 @_ZN8QuantLib12PrimeNumbers3getEm(i64 noundef %i.023)
   %2 = load i64, ptr %sequenceCounter_, align 8, !tbaa !19
   %3 = load ptr, ptr %randomStart_, align 8, !tbaa !25
-  %add.ptr.i = getelementptr inbounds nuw i64, ptr %3, i64 %i.023
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %i.023
   %4 = load i64, ptr %add.ptr.i, align 8, !tbaa !27
   %add = add i64 %4, %2
   %cmp4.not18 = icmp eq i64 %add, 0
@@ -1013,11 +1013,11 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 while.end:                                        ; preds = %while.body, %for.body
   %h.0.lcssa = phi double [ 0.000000e+00, %for.body ], [ %5, %while.body ]
   %6 = load ptr, ptr %randomShift_, align 8, !tbaa !21
-  %add.ptr.i14 = getelementptr inbounds nuw double, ptr %6, i64 %i.023
+  %add.ptr.i14 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %i.023
   %7 = load double, ptr %add.ptr.i14, align 8, !tbaa !20
   %add8 = fadd double %h.0.lcssa, %7
   %8 = load ptr, ptr %sequence_, align 8, !tbaa !21
-  %add.ptr.i15 = getelementptr inbounds nuw double, ptr %8, i64 %i.023
+  %add.ptr.i15 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %i.023
   %conv13 = fptosi double %add8 to i64
   %conv14 = sitofp i64 %conv13 to double
   %sub = fsub double %add8, %conv14

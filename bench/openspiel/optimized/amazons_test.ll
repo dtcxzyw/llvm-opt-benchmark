@@ -713,7 +713,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i3: ;
 
 247:                                              ; preds = %247, %244
   %indvars.iv.i = phi i64 [ 0, %244 ], [ %indvars.iv.next.i, %247 ]
-  %248 = getelementptr inbounds nuw i32, ptr %41, i64 %indvars.iv.i
+  %248 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %indvars.iv.i
   store i32 3, ptr %248, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 36
@@ -1022,7 +1022,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i16: 
 
 360:                                              ; preds = %360, %357
   %indvars.iv.i18 = phi i64 [ 0, %357 ], [ %indvars.iv.next.i19, %360 ]
-  %361 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv.i18
+  %361 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %indvars.iv.i18
   store i32 3, ptr %361, align 4
   %indvars.iv.next.i19 = add nuw nsw i64 %indvars.iv.i18, 1
   %exitcond.not.i20 = icmp eq i64 %indvars.iv.next.i19, 36

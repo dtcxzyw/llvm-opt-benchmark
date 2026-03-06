@@ -870,7 +870,7 @@ _ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ; preds = %54
 _ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %56, %_ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
   store ptr %51, ptr %28, align 8, !tbaa !85
   store ptr %55, ptr %30, align 8, !tbaa !105
-  %57 = getelementptr inbounds nuw ptr, ptr %51, i64 %49
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %49
   store ptr %57, ptr %35, align 8, !tbaa !86
   br label %_ZNSt6vectorIPKcSaIS1_EE9push_backEOS1_.exit
 
@@ -941,7 +941,7 @@ _ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i77: ; preds = %
 _ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i79: ; preds = %87, %_ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i77
   store ptr %82, ptr %28, align 8, !tbaa !85
   store ptr %86, ptr %30, align 8, !tbaa !105
-  %88 = getelementptr inbounds nuw ptr, ptr %82, i64 %80
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %82, i64 %80
   store ptr %88, ptr %35, align 8, !tbaa !86
   br label %_ZNSt6vectorIPKcSaIS1_EE9push_backEOS1_.exit80
 
@@ -1009,7 +1009,7 @@ _ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i85: ; preds = %
 _ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i87: ; preds = %113, %_ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i85
   store ptr %108, ptr %28, align 8, !tbaa !85
   store ptr %112, ptr %30, align 8, !tbaa !105
-  %114 = getelementptr inbounds nuw ptr, ptr %108, i64 %106
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %108, i64 %106
   store ptr %114, ptr %35, align 8, !tbaa !86
   br label %_ZNSt6vectorIPKcSaIS1_EE9push_backEOS1_.exit88
 
@@ -3383,7 +3383,7 @@ define dso_local noundef range(i32 0, 6) i32 @_ZNK9cmProcess16GetExitExceptionEv
 
 switch.lookup:                                    ; preds = %1
   %5 = zext nneg i32 %3 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK9cmProcess16GetExitExceptionEv, i64 %5
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK9cmProcess16GetExitExceptionEv, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %6
 
@@ -3415,10 +3415,10 @@ define dso_local void @_ZNK9cmProcess22GetExitExceptionStringB5cxx11Ev(ptr dead_
 
 switch.lookup:                                    ; preds = %2
   %13 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK9cmProcess22GetExitExceptionStringB5cxx11Ev, i64 %13
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK9cmProcess22GetExitExceptionStringB5cxx11Ev, i64 %13
   %switch.load = load ptr, ptr %switch.gep, align 8
   %14 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep53 = getelementptr inbounds nuw i64, ptr @switch.table._ZNK9cmProcess22GetExitExceptionStringB5cxx11Ev.1, i64 %14
+  %switch.gep53 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK9cmProcess22GetExitExceptionStringB5cxx11Ev.1, i64 %14
   %switch.load54 = load i64, ptr %switch.gep53, align 8
   %15 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %switch.load, i64 noundef %switch.load54)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %11

@@ -18,11 +18,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple.71" = type { %"struct.std::_Tuple_impl.72" }
 %"struct.std::_Tuple_impl.72" = type { %"struct.std::_Head_base.75" }
 %"struct.std::_Head_base.75" = type { ptr }
-%"struct.rocksdb::CacheAlignedWrapper" = type { %"class.rocksdb::port::Mutex", [24 x i8] }
-%"class.rocksdb::port::Mutex" = type { %union.pthread_mutex_t }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
 
 $_ZNSt10unique_ptrIN7rocksdb14BlobFileReaderESt14default_deleteIS1_EED2Ev = comdat any
 
@@ -200,7 +195,7 @@ _ZN7rocksdb16CacheHandleGuardINS_14BlobFileReaderEED2Ev.exit: ; preds = %_ZN7roc
   %45 = trunc nuw i128 %44 to i64
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %47 = load ptr, ptr %46, align 8, !tbaa !25
-  %48 = getelementptr inbounds nuw %"struct.rocksdb::CacheAlignedWrapper", ptr %47, i64 %45
+  %48 = getelementptr inbounds nuw [64 x i8], ptr %47, i64 %45
   call void @_ZN7rocksdb4port5Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(40) %48)
   %49 = load ptr, ptr %1, align 8, !tbaa !4
   %50 = load ptr, ptr %49, align 8, !tbaa !46

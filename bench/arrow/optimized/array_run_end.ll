@@ -2783,13 +2783,13 @@ _ZNSt12__shared_ptrIN5arrow5ArrayELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i: ; p
   %87 = getelementptr inbounds nuw i8, ptr %80, i64 16
   %88 = load ptr, ptr %87, align 8, !noalias !127
   %89 = select i1 %86, ptr %88, ptr null, !prof !59
-  %90 = getelementptr inbounds i16, ptr %89, i64 %83
+  %90 = getelementptr inbounds [2 x i8], ptr %89, i64 %83
   br label %_ZNK5arrow9ArrayData9GetValuesIsEEPKT_i.exit.i
 
 _ZNK5arrow9ArrayData9GetValuesIsEEPKT_i.exit.i:   ; preds = %81, %71
   %.0.i.i.i = phi ptr [ %90, %81 ], [ null, %71 ]
   %91 = add nsw i64 %72, -1
-  %92 = getelementptr inbounds i16, ptr %.0.i.i.i, i64 %91
+  %92 = getelementptr inbounds [2 x i8], ptr %.0.i.i.i, i64 %91
   %93 = load i16, ptr %92, align 2, !tbaa !145, !noalias !127
   %94 = sext i16 %93 to i64
   %95 = getelementptr inbounds nuw i8, ptr %73, i64 16
@@ -3066,14 +3066,14 @@ _ZN5arrow9ArrayData16GetMutableValuesIsEEPT_i.exit.i: ; preds = %_ZN5arrow6Resul
   %215 = getelementptr inbounds nuw i8, ptr %205, i64 16
   %216 = load ptr, ptr %215, align 8
   %217 = select i1 %214, ptr %216, ptr null, !prof !59
-  %218 = getelementptr inbounds i16, ptr %217, i64 %207
+  %218 = getelementptr inbounds [2 x i8], ptr %217, i64 %207
   %219 = shl i64 %91, 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 2 %218, ptr align 2 %.0.i.i.i, i64 %219, i1 false)
   %220 = load ptr, ptr %56, align 8, !tbaa !34, !noalias !127
   %221 = getelementptr inbounds nuw i8, ptr %220, i64 16
   %222 = load i64, ptr %221, align 8, !tbaa !144
   %223 = trunc i64 %222 to i16
-  %224 = getelementptr inbounds i16, ptr %218, i64 %91
+  %224 = getelementptr inbounds [2 x i8], ptr %218, i64 %91
   store i16 %223, ptr %224, align 2, !tbaa !145
   call void @llvm.lifetime.start.p0(ptr nonnull %43), !noalias !127
   invoke void @_ZN5arrow9MakeArrayERKSt10shared_ptrINS_9ArrayDataEE(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.7") align 8 %43, ptr noundef nonnull align 8 dereferenceable(16) %38)
@@ -3222,7 +3222,7 @@ _ZNSt12__shared_ptrIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i:
   %286 = getelementptr inbounds nuw i8, ptr %279, i64 16
   %287 = load ptr, ptr %286, align 8, !noalias !127
   %288 = select i1 %285, ptr %287, ptr null, !prof !59
-  %289 = getelementptr inbounds i16, ptr %288, i64 %282
+  %289 = getelementptr inbounds [2 x i8], ptr %288, i64 %282
   br label %_ZNK5arrow9ArrayData9GetValuesIsEEPKT_i.exit116.i
 
 _ZNK5arrow9ArrayData9GetValuesIsEEPKT_i.exit116.i: ; preds = %280, %269
@@ -3347,7 +3347,7 @@ _ZN5arrow6StatusD2Ev.exit121.i:                   ; preds = %_ZN5arrow6StatusD2E
   br i1 %.not148.not.i, label %.critedge80.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %331 = getelementptr i16, ptr %.0.i.i115.i, i64 %270
+  %331 = getelementptr [2 x i8], ptr %.0.i.i115.i, i64 %270
   %332 = getelementptr inbounds nuw i8, ptr %44, i64 112
   %333 = getelementptr inbounds nuw i8, ptr %44, i64 104
   %334 = getelementptr inbounds nuw i8, ptr %44, i64 200
@@ -3356,7 +3356,7 @@ _ZN5arrow6StatusD2Ev.exit121.i:                   ; preds = %_ZN5arrow6StatusD2E
 
 336:                                              ; preds = %_ZN5arrow6StatusD2Ev.exit128.i, %.lr.ph.i
   %.052149.i = phi i64 [ 0, %.lr.ph.i ], [ %382, %_ZN5arrow6StatusD2Ev.exit128.i ]
-  %337 = getelementptr i16, ptr %331, i64 %.052149.i
+  %337 = getelementptr [2 x i8], ptr %331, i64 %.052149.i
   %338 = load i16, ptr %337, align 2, !tbaa !145, !noalias !127
   %339 = load ptr, ptr %56, align 8, !tbaa !34, !noalias !127
   %340 = getelementptr inbounds nuw i8, ptr %339, i64 32
@@ -3722,13 +3722,13 @@ _ZNSt12__shared_ptrIN5arrow5ArrayELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i91: ;
   %508 = getelementptr inbounds nuw i8, ptr %501, i64 16
   %509 = load ptr, ptr %508, align 8, !noalias !210
   %510 = select i1 %507, ptr %509, ptr null, !prof !59
-  %511 = getelementptr inbounds i32, ptr %510, i64 %504
+  %511 = getelementptr inbounds [4 x i8], ptr %510, i64 %504
   br label %_ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit.i
 
 _ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit.i:   ; preds = %502, %492
   %.0.i.i.i51 = phi ptr [ %511, %502 ], [ null, %492 ]
   %512 = add nsw i64 %493, -1
-  %513 = getelementptr inbounds i32, ptr %.0.i.i.i51, i64 %512
+  %513 = getelementptr inbounds [4 x i8], ptr %.0.i.i.i51, i64 %512
   %514 = load i32, ptr %513, align 4, !tbaa !77, !noalias !210
   %515 = sext i32 %514 to i64
   %516 = getelementptr inbounds nuw i8, ptr %494, i64 16
@@ -4005,14 +4005,14 @@ _ZN5arrow9ArrayData16GetMutableValuesIiEEPT_i.exit.i: ; preds = %_ZN5arrow6Resul
   %636 = getelementptr inbounds nuw i8, ptr %626, i64 16
   %637 = load ptr, ptr %636, align 8
   %638 = select i1 %635, ptr %637, ptr null, !prof !59
-  %639 = getelementptr inbounds i32, ptr %638, i64 %628
+  %639 = getelementptr inbounds [4 x i8], ptr %638, i64 %628
   %640 = shl i64 %512, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %639, ptr align 4 %.0.i.i.i51, i64 %640, i1 false)
   %641 = load ptr, ptr %56, align 8, !tbaa !34, !noalias !210
   %642 = getelementptr inbounds nuw i8, ptr %641, i64 16
   %643 = load i64, ptr %642, align 8, !tbaa !144
   %644 = trunc i64 %643 to i32
-  %645 = getelementptr inbounds i32, ptr %639, i64 %512
+  %645 = getelementptr inbounds [4 x i8], ptr %639, i64 %512
   store i32 %644, ptr %645, align 4, !tbaa !77
   call void @llvm.lifetime.start.p0(ptr nonnull %28), !noalias !210
   invoke void @_ZN5arrow9MakeArrayERKSt10shared_ptrINS_9ArrayDataEE(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.7") align 8 %28, ptr noundef nonnull align 8 dereferenceable(16) %23)
@@ -4161,7 +4161,7 @@ _ZNSt12__shared_ptrIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i6
   %707 = getelementptr inbounds nuw i8, ptr %700, i64 16
   %708 = load ptr, ptr %707, align 8, !noalias !210
   %709 = select i1 %706, ptr %708, ptr null, !prof !59
-  %710 = getelementptr inbounds i32, ptr %709, i64 %703
+  %710 = getelementptr inbounds [4 x i8], ptr %709, i64 %703
   br label %_ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit116.i
 
 _ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit116.i: ; preds = %701, %690
@@ -4282,7 +4282,7 @@ _ZN5arrow6StatusD2Ev.exit121.i23:                 ; preds = %_ZN5arrow6StatusD2E
   br i1 %.not148.not.i25, label %.critedge80.i38, label %.lr.ph.i26
 
 .lr.ph.i26:                                       ; preds = %.preheader.i24
-  %752 = getelementptr i32, ptr %.0.i.i115.i5, i64 %691
+  %752 = getelementptr [4 x i8], ptr %.0.i.i115.i5, i64 %691
   %753 = getelementptr inbounds nuw i8, ptr %29, i64 112
   %754 = getelementptr inbounds nuw i8, ptr %29, i64 104
   %755 = getelementptr inbounds nuw i8, ptr %29, i64 200
@@ -4291,7 +4291,7 @@ _ZN5arrow6StatusD2Ev.exit121.i23:                 ; preds = %_ZN5arrow6StatusD2E
 
 757:                                              ; preds = %_ZN5arrow6StatusD2Ev.exit128.i36, %.lr.ph.i26
   %.052149.i27 = phi i64 [ 0, %.lr.ph.i26 ], [ %803, %_ZN5arrow6StatusD2Ev.exit128.i36 ]
-  %758 = getelementptr i32, ptr %752, i64 %.052149.i27
+  %758 = getelementptr [4 x i8], ptr %752, i64 %.052149.i27
   %759 = load i32, ptr %758, align 4, !tbaa !77, !noalias !210
   %760 = load ptr, ptr %56, align 8, !tbaa !34, !noalias !210
   %761 = getelementptr inbounds nuw i8, ptr %760, i64 32
@@ -4657,13 +4657,13 @@ _ZNSt12__shared_ptrIN5arrow5ArrayELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i179: 
   %929 = getelementptr inbounds nuw i8, ptr %922, i64 16
   %930 = load ptr, ptr %929, align 8, !noalias !254
   %931 = select i1 %928, ptr %930, ptr null, !prof !59
-  %932 = getelementptr inbounds i64, ptr %931, i64 %925
+  %932 = getelementptr inbounds [8 x i8], ptr %931, i64 %925
   br label %_ZNK5arrow9ArrayData9GetValuesIlEEPKT_i.exit.i
 
 _ZNK5arrow9ArrayData9GetValuesIlEEPKT_i.exit.i:   ; preds = %923, %913
   %.0.i.i.i139 = phi ptr [ %932, %923 ], [ null, %913 ]
   %933 = add nsw i64 %914, -1
-  %934 = getelementptr inbounds i64, ptr %.0.i.i.i139, i64 %933
+  %934 = getelementptr inbounds [8 x i8], ptr %.0.i.i.i139, i64 %933
   %935 = load i64, ptr %934, align 8, !tbaa !195, !noalias !254
   %936 = getelementptr inbounds nuw i8, ptr %915, i64 16
   %937 = load i64, ptr %936, align 8, !tbaa !144, !noalias !254
@@ -4939,13 +4939,13 @@ _ZN5arrow9ArrayData16GetMutableValuesIlEEPT_i.exit.i: ; preds = %_ZN5arrow6Resul
   %1056 = getelementptr inbounds nuw i8, ptr %1046, i64 16
   %1057 = load ptr, ptr %1056, align 8
   %1058 = select i1 %1055, ptr %1057, ptr null, !prof !59
-  %1059 = getelementptr inbounds i64, ptr %1058, i64 %1048
+  %1059 = getelementptr inbounds [8 x i8], ptr %1058, i64 %1048
   %1060 = shl i64 %933, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %1059, ptr align 8 %.0.i.i.i139, i64 %1060, i1 false)
   %1061 = load ptr, ptr %56, align 8, !tbaa !34, !noalias !254
   %1062 = getelementptr inbounds nuw i8, ptr %1061, i64 16
   %1063 = load i64, ptr %1062, align 8, !tbaa !144
-  %1064 = getelementptr inbounds i64, ptr %1059, i64 %933
+  %1064 = getelementptr inbounds [8 x i8], ptr %1059, i64 %933
   store i64 %1063, ptr %1064, align 8, !tbaa !195
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !254
   invoke void @_ZN5arrow9MakeArrayERKSt10shared_ptrINS_9ArrayDataEE(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.7") align 8 %13, ptr noundef nonnull align 8 dereferenceable(16) %8)
@@ -5094,7 +5094,7 @@ _ZNSt12__shared_ptrIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i1
   %1126 = getelementptr inbounds nuw i8, ptr %1119, i64 16
   %1127 = load ptr, ptr %1126, align 8, !noalias !254
   %1128 = select i1 %1125, ptr %1127, ptr null, !prof !59
-  %1129 = getelementptr inbounds i64, ptr %1128, i64 %1122
+  %1129 = getelementptr inbounds [8 x i8], ptr %1128, i64 %1122
   br label %_ZNK5arrow9ArrayData9GetValuesIlEEPKT_i.exit116.i
 
 _ZNK5arrow9ArrayData9GetValuesIlEEPKT_i.exit116.i: ; preds = %1120, %1109
@@ -5215,7 +5215,7 @@ _ZN5arrow6StatusD2Ev.exit121.i111:                ; preds = %_ZN5arrow6StatusD2E
   br i1 %.not148.not.i113, label %.critedge80.i126, label %.lr.ph.i114
 
 .lr.ph.i114:                                      ; preds = %.preheader.i112
-  %1171 = getelementptr i64, ptr %.0.i.i115.i93, i64 %1110
+  %1171 = getelementptr [8 x i8], ptr %.0.i.i115.i93, i64 %1110
   %1172 = getelementptr inbounds nuw i8, ptr %14, i64 112
   %1173 = getelementptr inbounds nuw i8, ptr %14, i64 104
   %1174 = getelementptr inbounds nuw i8, ptr %14, i64 200
@@ -5224,7 +5224,7 @@ _ZN5arrow6StatusD2Ev.exit121.i111:                ; preds = %_ZN5arrow6StatusD2E
 
 1176:                                             ; preds = %_ZN5arrow6StatusD2Ev.exit128.i124, %.lr.ph.i114
   %.052149.i115 = phi i64 [ 0, %.lr.ph.i114 ], [ %1221, %_ZN5arrow6StatusD2Ev.exit128.i124 ]
-  %1177 = getelementptr i64, ptr %1171, i64 %.052149.i115
+  %1177 = getelementptr [8 x i8], ptr %1171, i64 %.052149.i115
   %1178 = load i64, ptr %1177, align 8, !tbaa !195, !noalias !254
   %1179 = load ptr, ptr %56, align 8, !tbaa !34, !noalias !254
   %1180 = getelementptr inbounds nuw i8, ptr %1179, i64 32
@@ -8086,7 +8086,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %3
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %17
   %24 = lshr i64 %21, 1
-  %25 = getelementptr i16, ptr %19, i64 %24
+  %25 = getelementptr [2 x i8], ptr %19, i64 %24
   call void @llvm.memset.p0.i64(ptr align 2 %25, i8 0, i64 %22, i1 false), !tbaa !145
   br label %_ZN5arrow18TypedBufferBuilderIsvE12UnsafeAppendEls.exit
 
@@ -8212,7 +8212,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %3
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %17
   %24 = lshr i64 %21, 1
-  %25 = getelementptr i16, ptr %19, i64 %24
+  %25 = getelementptr [2 x i8], ptr %19, i64 %24
   call void @llvm.memset.p0.i64(ptr align 2 %25, i8 0, i64 %22, i1 false), !tbaa !145
   br label %_ZN5arrow18TypedBufferBuilderIsvE12UnsafeAppendEls.exit
 
@@ -8236,8 +8236,8 @@ define linkonce_odr void @_ZN5arrow14NumericBuilderINS_9Int16TypeEE16AppendArray
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %10 = load ptr, ptr %9, align 8, !tbaa !387
-  %11 = getelementptr inbounds i16, ptr %10, i64 %7
-  %12 = getelementptr inbounds i16, ptr %11, i64 %3
+  %11 = getelementptr inbounds [2 x i8], ptr %10, i64 %7
+  %12 = getelementptr inbounds [2 x i8], ptr %11, i64 %3
   %13 = load ptr, ptr %8, align 8, !tbaa !387
   %14 = add nsw i64 %7, %3
   tail call void @_ZN5arrow14NumericBuilderINS_9Int16TypeEE12AppendValuesEPKslPKhl(ptr dead_on_unwind writable sret(%"class.arrow::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(216) %1, ptr noundef %12, i64 noundef %4, ptr noundef %13, i64 noundef %14)
@@ -11178,7 +11178,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %3
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %17
   %24 = lshr i64 %21, 2
-  %25 = getelementptr i32, ptr %19, i64 %24
+  %25 = getelementptr [4 x i8], ptr %19, i64 %24
   call void @llvm.memset.p0.i64(ptr align 4 %25, i8 0, i64 %22, i1 false), !tbaa !77
   br label %_ZN5arrow18TypedBufferBuilderIivE12UnsafeAppendEli.exit
 
@@ -11304,7 +11304,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %3
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %17
   %24 = lshr i64 %21, 2
-  %25 = getelementptr i32, ptr %19, i64 %24
+  %25 = getelementptr [4 x i8], ptr %19, i64 %24
   call void @llvm.memset.p0.i64(ptr align 4 %25, i8 0, i64 %22, i1 false), !tbaa !77
   br label %_ZN5arrow18TypedBufferBuilderIivE12UnsafeAppendEli.exit
 
@@ -11324,8 +11324,8 @@ define linkonce_odr void @_ZN5arrow14NumericBuilderINS_9Int32TypeEE16AppendArray
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %10 = load ptr, ptr %9, align 8, !tbaa !387
-  %11 = getelementptr inbounds i32, ptr %10, i64 %7
-  %12 = getelementptr inbounds i32, ptr %11, i64 %3
+  %11 = getelementptr inbounds [4 x i8], ptr %10, i64 %7
+  %12 = getelementptr inbounds [4 x i8], ptr %11, i64 %3
   %13 = load ptr, ptr %8, align 8, !tbaa !387
   %14 = add nsw i64 %7, %3
   tail call void @_ZN5arrow14NumericBuilderINS_9Int32TypeEE12AppendValuesEPKilPKhl(ptr dead_on_unwind writable sret(%"class.arrow::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(216) %1, ptr noundef %12, i64 noundef %4, ptr noundef %13, i64 noundef %14)
@@ -12735,7 +12735,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %3
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %17
   %24 = lshr i64 %21, 3
-  %25 = getelementptr i64, ptr %19, i64 %24
+  %25 = getelementptr [8 x i8], ptr %19, i64 %24
   call void @llvm.memset.p0.i64(ptr align 8 %25, i8 0, i64 %22, i1 false), !tbaa !195
   br label %_ZN5arrow18TypedBufferBuilderIlvE12UnsafeAppendEll.exit
 
@@ -12861,7 +12861,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %3
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %17
   %24 = lshr i64 %21, 3
-  %25 = getelementptr i64, ptr %19, i64 %24
+  %25 = getelementptr [8 x i8], ptr %19, i64 %24
   call void @llvm.memset.p0.i64(ptr align 8 %25, i8 0, i64 %22, i1 false), !tbaa !195
   br label %_ZN5arrow18TypedBufferBuilderIlvE12UnsafeAppendEll.exit
 
@@ -12881,8 +12881,8 @@ define linkonce_odr void @_ZN5arrow14NumericBuilderINS_9Int64TypeEE16AppendArray
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %10 = load ptr, ptr %9, align 8, !tbaa !387
-  %11 = getelementptr inbounds i64, ptr %10, i64 %7
-  %12 = getelementptr inbounds i64, ptr %11, i64 %3
+  %11 = getelementptr inbounds [8 x i8], ptr %10, i64 %7
+  %12 = getelementptr inbounds [8 x i8], ptr %11, i64 %3
   %13 = load ptr, ptr %8, align 8, !tbaa !387
   %14 = add nsw i64 %7, %3
   tail call void @_ZN5arrow14NumericBuilderINS_9Int64TypeEE12AppendValuesEPKllPKhl(ptr dead_on_unwind writable sret(%"class.arrow::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(216) %1, ptr noundef %12, i64 noundef %4, ptr noundef %13, i64 noundef %14)

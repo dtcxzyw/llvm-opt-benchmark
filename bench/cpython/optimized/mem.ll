@@ -586,7 +586,7 @@ Py_DECREF.exit80:                                 ; preds = %Py_DECREF.exit78, %
   br label %Py_DECREF.exit86
 
 35:                                               ; preds = %.preheader
-  %36 = getelementptr ptr, ptr %3, i64 %.049112
+  %36 = getelementptr [8 x i8], ptr %3, i64 %.049112
   store ptr %32, ptr %36, align 8, !tbaa !26
   %37 = tail call i32 @PyThread_acquire_lock(ptr noundef nonnull %32, i32 noundef 1) #4
   %38 = tail call i64 @PyThread_start_new_thread(ptr noundef nonnull @tracemalloc_track_race_thread, ptr noundef nonnull %32) #4
@@ -643,7 +643,7 @@ Py_DECREF.exit84:                                 ; preds = %50, %52, %55
 
 58:                                               ; preds = %Py_DECREF.exit84, %58
   %.051113 = phi i64 [ 0, %Py_DECREF.exit84 ], [ %62, %58 ]
-  %59 = getelementptr ptr, ptr %3, i64 %.051113
+  %59 = getelementptr [8 x i8], ptr %3, i64 %.051113
   %60 = load ptr, ptr %59, align 8, !tbaa !26
   %61 = tail call i32 @PyThread_acquire_lock(ptr noundef %60, i32 noundef 1) #4
   tail call void @PyThread_release_lock(ptr noundef %60) #4
@@ -653,7 +653,7 @@ Py_DECREF.exit84:                                 ; preds = %50, %52, %55
 
 63:                                               ; preds = %57, %63
   %.052114 = phi i64 [ 0, %57 ], [ %66, %63 ]
-  %64 = getelementptr ptr, ptr %3, i64 %.052114
+  %64 = getelementptr [8 x i8], ptr %3, i64 %.052114
   %65 = load ptr, ptr %64, align 8, !tbaa !26
   tail call void @PyThread_free_lock(ptr noundef %65) #4
   %66 = add nuw nsw i64 %.052114, 1
@@ -692,7 +692,7 @@ Py_DECREF.exit88.preheader:                       ; preds = %Py_DECREF.exit88.si
 
 Py_DECREF.exit88:                                 ; preds = %Py_DECREF.exit88.preheader, %79
   %.048115 = phi i64 [ %80, %79 ], [ 0, %Py_DECREF.exit88.preheader ]
-  %76 = getelementptr ptr, ptr %3, i64 %.048115
+  %76 = getelementptr [8 x i8], ptr %3, i64 %.048115
   %77 = load ptr, ptr %76, align 8, !tbaa !26
   %.not76 = icmp eq ptr %77, null
   br i1 %.not76, label %79, label %78

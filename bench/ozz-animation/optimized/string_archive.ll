@@ -3,10 +3,6 @@ source_filename = "bench/ozz-animation/original/string_archive.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char, std::char_traits<char>, ozz::StdAllocator<char>>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char, std::char_traits<char>, ozz::StdAllocator<char>>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
-
 $_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE7reserveEm = comdat any
 
 $__clang_call_terminate = comdat any
@@ -30,7 +26,7 @@ define dso_local void @_ZN3ozz2io6ExternINSt7__cxx1112basic_stringIcSt11char_tra
 
 7:                                                ; preds = %.lr.ph, %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIKcEEEEvRKT_.exit
   %.013 = phi i64 [ 0, %.lr.ph ], [ %37, %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIKcEEEEvRKT_.exit ]
-  %8 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %1, i64 %.013
+  %8 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %.013
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load i64, ptr %9, align 8, !tbaa !4
   %11 = trunc i64 %10 to i32
@@ -102,7 +98,7 @@ define dso_local void @_ZN3ozz2io6ExternINSt7__cxx1112basic_stringIcSt11char_tra
 
 8:                                                ; preds = %.lr.ph22, %._crit_edge
   %.020 = phi i64 [ 0, %.lr.ph22 ], [ %23, %._crit_edge ]
-  %9 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %1, i64 %.020
+  %9 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %.020
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 0, ptr %10, align 8, !tbaa !4
   %11 = load ptr, ptr %9, align 8, !tbaa !23

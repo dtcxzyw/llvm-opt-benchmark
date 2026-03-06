@@ -1169,7 +1169,7 @@ _ZN7measureD2Ev.exit:                             ; preds = %_ZN9QtPrivate8RefCo
 117:                                              ; preds = %.lr.ph, %_ZN7QStringD2Ev.exit93
   %118 = phi ptr [ %115, %.lr.ph ], [ %154, %_ZN7QStringD2Ev.exit93 ]
   %.038214 = phi i64 [ 0, %.lr.ph ], [ %152, %_ZN7QStringD2Ev.exit93 ]
-  %119 = getelementptr inbounds %class.measure, ptr %118, i64 %.038214
+  %119 = getelementptr inbounds [40 x i8], ptr %118, i64 %.038214
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 8
   %.sroa.08.0.copyload = load <2 x float>, ptr %120, align 8
   %.sroa.29.0..sroa_idx = getelementptr inbounds nuw i8, ptr %119, i64 16
@@ -1180,18 +1180,18 @@ _ZN7measureD2Ev.exit:                             ; preds = %_ZN9QtPrivate8RefCo
   %.sroa.27.0.copyload = load float, ptr %.sroa.27.0..sroa_idx, align 4
   call void @_ZN3vcg10Rubberband10RenderLineEP9QGLWidgetNS_6Point3IfEES4_(ptr noundef nonnull align 8 dereferenceable(49) %31, ptr noundef %2, <2 x float> %.sroa.08.0.copyload, float %.sroa.29.0.copyload, <2 x float> %.sroa.06.0.copyload, float %.sroa.27.0.copyload)
   %122 = load ptr, ptr %112, align 8
-  %123 = getelementptr inbounds %class.measure, ptr %122, i64 %.038214
+  %123 = getelementptr inbounds [40 x i8], ptr %122, i64 %.038214
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 20
   %125 = call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.9, i32 noundef 6)
   store ptr %125, ptr %19, align 8
   %126 = load ptr, ptr %112, align 8
-  %127 = getelementptr inbounds %class.measure, ptr %126, i64 %.038214
+  %127 = getelementptr inbounds [40 x i8], ptr %126, i64 %.038214
   invoke void @_ZNK7QString3argERKS_i5QChar(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %18, ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 8 dereferenceable(8) %127, i32 noundef 0, i16 32)
           to label %128 unwind label %160
 
 128:                                              ; preds = %117
   %129 = load ptr, ptr %112, align 8
-  %130 = getelementptr inbounds %class.measure, ptr %129, i64 %.038214
+  %130 = getelementptr inbounds [40 x i8], ptr %129, i64 %.038214
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 32
   %132 = load float, ptr %131, align 8
   %133 = fpext float %132 to double
@@ -1385,13 +1385,13 @@ _ZN7QStringC2EPKc.exit101:                        ; preds = %172
 177:                                              ; preds = %.lr.ph216
   store ptr %176, ptr %24, align 8
   %178 = load ptr, ptr %112, align 8
-  %179 = getelementptr inbounds %class.measure, ptr %178, i64 %.0215
+  %179 = getelementptr inbounds [40 x i8], ptr %178, i64 %.0215
   invoke void @_ZNK7QString3argERKS_i5QChar(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %23, ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull align 8 dereferenceable(8) %179, i32 noundef 0, i16 32)
           to label %180 unwind label %211
 
 180:                                              ; preds = %177
   %181 = load ptr, ptr %112, align 8
-  %182 = getelementptr inbounds %class.measure, ptr %181, i64 %.0215
+  %182 = getelementptr inbounds [40 x i8], ptr %181, i64 %.0215
   %183 = getelementptr inbounds nuw i8, ptr %182, i64 32
   %184 = load float, ptr %183, align 8
   %185 = fpext float %184 to double
@@ -2049,7 +2049,7 @@ _ZNSt12_Vector_baseI7measureSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %_ZNSt
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i22, ptr %4, align 8
-  %47 = getelementptr inbounds nuw %class.measure, ptr %20, i64 %16
+  %47 = getelementptr inbounds nuw [40 x i8], ptr %20, i64 %16
   store ptr %47, ptr %46, align 8
   ret void
 }
@@ -2520,7 +2520,7 @@ _ZNSt6vectorI7measureSaIS0_EE5clearEv.exit:       ; preds = %19, %_ZSt8_DestroyI
 40:                                               ; preds = %.lr.ph, %_ZNK19MeshLabPluginLogger3logIJPKcRfS3_S3_S3_S3_S3_S3_EEEvN11GLLogStream6LevelsES2_DpOT_.exit
   %41 = phi ptr [ %38, %.lr.ph ], [ %74, %_ZNK19MeshLabPluginLogger3logIJPKcRfS3_S3_S3_S3_S3_S3_EEEvN11GLLogStream6LevelsES2_DpOT_.exit ]
   %.03467 = phi i64 [ 0, %.lr.ph ], [ %72, %_ZNK19MeshLabPluginLogger3logIJPKcRfS3_S3_S3_S3_S3_S3_EEEvN11GLLogStream6LevelsES2_DpOT_.exit ]
-  %42 = getelementptr inbounds %class.measure, ptr %41, i64 %.03467
+  %42 = getelementptr inbounds [40 x i8], ptr %41, i64 %.03467
   call void @_ZNK7QString11toStdStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %42)
   %43 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #22
   %44 = load ptr, ptr %39, align 8
@@ -2529,7 +2529,7 @@ _ZNSt6vectorI7measureSaIS0_EE5clearEv.exit:       ; preds = %19, %_ZSt8_DestroyI
 
 45:                                               ; preds = %40
   %46 = load ptr, ptr %35, align 8
-  %47 = getelementptr inbounds %class.measure, ptr %46, i64 %.03467
+  %47 = getelementptr inbounds [40 x i8], ptr %46, i64 %.03467
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 20
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 28
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 24
@@ -2771,7 +2771,7 @@ _ZN7QStringD2Ev.exit60:                           ; preds = %124, %_ZN9QtPrivate
 .lr.ph69:                                         ; preds = %.preheader, %199
   %136 = phi ptr [ %202, %199 ], [ %135, %.preheader ]
   %.068 = phi i64 [ %200, %199 ], [ 0, %.preheader ]
-  %137 = getelementptr inbounds %class.measure, ptr %136, i64 %.068
+  %137 = getelementptr inbounds [40 x i8], ptr %136, i64 %.068
   invoke void @_ZNK7QString11toStdStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %15, ptr noundef nonnull align 8 dereferenceable(8) %137)
           to label %138 unwind label %.loopexit
 
@@ -2786,7 +2786,7 @@ _ZN7QStringD2Ev.exit60:                           ; preds = %124, %_ZN9QtPrivate
 
 143:                                              ; preds = %141
   %144 = load ptr, ptr %132, align 8
-  %145 = getelementptr inbounds %class.measure, ptr %144, i64 %.068
+  %145 = getelementptr inbounds [40 x i8], ptr %144, i64 %.068
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 32
   %147 = load float, ptr %146, align 8
   %148 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN11QTextStreamlsEf(ptr noundef nonnull align 8 dereferenceable(16) %142, float noundef %147)
@@ -2798,7 +2798,7 @@ _ZN7QStringD2Ev.exit60:                           ; preds = %124, %_ZN9QtPrivate
 
 151:                                              ; preds = %149
   %152 = load ptr, ptr %132, align 8
-  %153 = getelementptr inbounds %class.measure, ptr %152, i64 %.068
+  %153 = getelementptr inbounds [40 x i8], ptr %152, i64 %.068
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 8
   %155 = load float, ptr %154, align 4
   %156 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN11QTextStreamlsEf(ptr noundef nonnull align 8 dereferenceable(16) %150, float noundef %155)
@@ -2810,7 +2810,7 @@ _ZN7QStringD2Ev.exit60:                           ; preds = %124, %_ZN9QtPrivate
 
 159:                                              ; preds = %157
   %160 = load ptr, ptr %132, align 8
-  %161 = getelementptr inbounds %class.measure, ptr %160, i64 %.068
+  %161 = getelementptr inbounds [40 x i8], ptr %160, i64 %.068
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 12
   %163 = load float, ptr %162, align 4
   %164 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN11QTextStreamlsEf(ptr noundef nonnull align 8 dereferenceable(16) %158, float noundef %163)
@@ -2822,7 +2822,7 @@ _ZN7QStringD2Ev.exit60:                           ; preds = %124, %_ZN9QtPrivate
 
 167:                                              ; preds = %165
   %168 = load ptr, ptr %132, align 8
-  %169 = getelementptr inbounds %class.measure, ptr %168, i64 %.068
+  %169 = getelementptr inbounds [40 x i8], ptr %168, i64 %.068
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 16
   %171 = load float, ptr %170, align 4
   %172 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN11QTextStreamlsEf(ptr noundef nonnull align 8 dereferenceable(16) %166, float noundef %171)
@@ -2834,7 +2834,7 @@ _ZN7QStringD2Ev.exit60:                           ; preds = %124, %_ZN9QtPrivate
 
 175:                                              ; preds = %173
   %176 = load ptr, ptr %132, align 8
-  %177 = getelementptr inbounds %class.measure, ptr %176, i64 %.068
+  %177 = getelementptr inbounds [40 x i8], ptr %176, i64 %.068
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 20
   %179 = load float, ptr %178, align 4
   %180 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN11QTextStreamlsEf(ptr noundef nonnull align 8 dereferenceable(16) %174, float noundef %179)
@@ -2846,7 +2846,7 @@ _ZN7QStringD2Ev.exit60:                           ; preds = %124, %_ZN9QtPrivate
 
 183:                                              ; preds = %181
   %184 = load ptr, ptr %132, align 8
-  %185 = getelementptr inbounds %class.measure, ptr %184, i64 %.068
+  %185 = getelementptr inbounds [40 x i8], ptr %184, i64 %.068
   %186 = getelementptr inbounds nuw i8, ptr %185, i64 24
   %187 = load float, ptr %186, align 4
   %188 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN11QTextStreamlsEf(ptr noundef nonnull align 8 dereferenceable(16) %182, float noundef %187)
@@ -2858,7 +2858,7 @@ _ZN7QStringD2Ev.exit60:                           ; preds = %124, %_ZN9QtPrivate
 
 191:                                              ; preds = %189
   %192 = load ptr, ptr %132, align 8
-  %193 = getelementptr inbounds %class.measure, ptr %192, i64 %.068
+  %193 = getelementptr inbounds [40 x i8], ptr %192, i64 %.068
   %194 = getelementptr inbounds nuw i8, ptr %193, i64 28
   %195 = load float, ptr %194, align 4
   %196 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN11QTextStreamlsEf(ptr noundef nonnull align 8 dereferenceable(16) %190, float noundef %195)

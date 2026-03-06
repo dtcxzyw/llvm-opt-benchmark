@@ -3,15 +3,9 @@ source_filename = "bench/bullet3/original/btMultiBodyPoint2Point.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.btMultibodyLink = type { float, %class.btVector3, i32, %class.btQuaternion, %class.btVector3, %class.btVector3, %struct.btSpatialMotionVector, %struct.btSpatialMotionVector, [6 x %struct.btSpatialMotionVector], i32, i32, %class.btQuaternion, %class.btVector3, %class.btQuaternion, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, [7 x float], [7 x float], [6 x float], ptr, i32, i32, i32, i32, ptr, %class.btTransform, ptr, ptr, ptr, float, float, float, float, float, float }
-%struct.btSpatialMotionVector = type { %class.btVector3, %class.btVector3 }
-%class.btQuaternion = type { %class.btQuadWord }
-%class.btQuadWord = type { [4 x float] }
 %class.btVector3 = type { [4 x float] }
 %class.btTransform = type { %class.btMatrix3x3, %class.btVector3 }
 %class.btMatrix3x3 = type { [3 x %class.btVector3] }
-%struct.btMultiBodySolverConstraint = type <{ i32, i32, i32, i32, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, float, float, float, float, float, float, float, float, float, [4 x i8], %union.anon.12, i32, i32, i32, [4 x i8], ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8] }>
-%union.anon.12 = type { ptr }
 
 $_ZN21btMultiBodyConstraint11setFrameInBERK11btMatrix3x3 = comdat any
 
@@ -83,8 +77,8 @@ define dso_local void @_ZN22btMultiBodyPoint2PointC2EP11btMultiBodyiP11btRigidBo
 
 23:                                               ; preds = %23, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %23 ]
-  %24 = getelementptr inbounds nuw float, ptr %19, i64 %indvars.iv.i.i.i
-  %25 = getelementptr inbounds nuw float, ptr %22, i64 %indvars.iv.i.i.i
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %indvars.iv.i.i.i
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv.i.i.i
   %26 = load float, ptr %25, align 4, !tbaa !27
   store float %26, ptr %24, align 4, !tbaa !27
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -189,8 +183,8 @@ define dso_local void @_ZN22btMultiBodyPoint2PointC2EP11btMultiBodyiS1_iRK9btVec
 
 23:                                               ; preds = %23, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %23 ]
-  %24 = getelementptr inbounds nuw float, ptr %19, i64 %indvars.iv.i.i.i
-  %25 = getelementptr inbounds nuw float, ptr %22, i64 %indvars.iv.i.i.i
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %indvars.iv.i.i.i
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv.i.i.i
   %26 = load float, ptr %25, align 4, !tbaa !27
   store float %26, ptr %24, align 4, !tbaa !27
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -299,7 +293,7 @@ define dso_local noundef i32 @_ZNK22btMultiBodyPoint2Point12getIslandIdAEv(ptr n
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 192
   %16 = load ptr, ptr %15, align 8, !tbaa !51
   %17 = zext nneg i32 %9 to i64
-  %18 = getelementptr inbounds nuw %struct.btMultibodyLink, ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [688 x i8], ptr %16, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 544
   %20 = load ptr, ptr %19, align 8, !tbaa !52
   %.not10 = icmp eq ptr %20, null
@@ -345,7 +339,7 @@ define dso_local noundef i32 @_ZNK22btMultiBodyPoint2Point12getIslandIdBEv(ptr n
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 192
   %16 = load ptr, ptr %15, align 8, !tbaa !51
   %17 = zext nneg i32 %9 to i64
-  %18 = getelementptr inbounds nuw %struct.btMultibodyLink, ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [688 x i8], ptr %16, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 544
   %20 = load ptr, ptr %19, align 8, !tbaa !52
   %.not10 = icmp eq ptr %20, null
@@ -434,9 +428,9 @@ _ZN20btAlignedObjectArrayI27btMultiBodySolverConstraintE8allocateEi.exit.i.i: ; 
 
 47:                                               ; preds = %47, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %47 ]
-  %48 = getelementptr inbounds nuw %struct.btMultiBodySolverConstraint, ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
+  %48 = getelementptr inbounds nuw [224 x i8], ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
   %49 = load ptr, ptr %11, align 8, !tbaa !72
-  %50 = getelementptr inbounds nuw %struct.btMultiBodySolverConstraint, ptr %49, i64 %indvars.iv.i.i.i
+  %50 = getelementptr inbounds nuw [224 x i8], ptr %49, i64 %indvars.iv.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %48, ptr noundef nonnull align 8 dereferenceable(224) %50, i64 224, i1 false), !tbaa.struct !73
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
@@ -467,7 +461,7 @@ _ZN20btAlignedObjectArrayI27btMultiBodySolverConstraintE21expandNonInitializingE
   store i32 %56, ptr %9, align 4, !tbaa !67
   %57 = load ptr, ptr %11, align 8, !tbaa !72
   %58 = sext i32 %33 to i64
-  %59 = getelementptr inbounds %struct.btMultiBodySolverConstraint, ptr %57, i64 %58
+  %59 = getelementptr inbounds [224 x i8], ptr %57, i64 %58
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 208
   store ptr %0, ptr %60, align 8, !tbaa !80
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 216
@@ -481,7 +475,7 @@ _ZN20btAlignedObjectArrayI27btMultiBodySolverConstraintE21expandNonInitializingE
   %66 = getelementptr inbounds nuw i8, ptr %59, i64 188
   store i32 %64, ptr %66, align 4, !tbaa !87
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %67 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   store float -1.000000e+00, ptr %67, align 4, !tbaa !27
   call void @llvm.lifetime.start.p0(ptr nonnull %6)

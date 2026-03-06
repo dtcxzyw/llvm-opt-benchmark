@@ -2450,10 +2450,10 @@ switch.lookup:                                    ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load i8, ptr %8, align 8, !range !799, !noundef !5
   %10 = zext nneg i8 %9 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN7uu_date18make_format_string17ha7c5bc2f75cd1b70E, i64 %10
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN7uu_date18make_format_string17ha7c5bc2f75cd1b70E, i64 %10
   %switch.load = load i64, ptr %switch.gep, align 8
   %11 = zext nneg i8 %9 to i64
-  %switch.gep5 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN7uu_date18make_format_string17ha7c5bc2f75cd1b70E.5, i64 %11
+  %switch.gep5 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN7uu_date18make_format_string17ha7c5bc2f75cd1b70E.5, i64 %11
   %switch.load6 = load ptr, ptr %switch.gep5, align 8
   br label %22
 
@@ -2461,10 +2461,10 @@ switch.lookup7:                                   ; preds = %1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load i8, ptr %12, align 8, !range !800, !noundef !5
   %14 = zext nneg i8 %13 to i64
-  %switch.gep8 = getelementptr inbounds nuw i64, ptr @switch.table._ZN7uu_date18make_format_string17ha7c5bc2f75cd1b70E.6, i64 %14
+  %switch.gep8 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN7uu_date18make_format_string17ha7c5bc2f75cd1b70E.6, i64 %14
   %switch.load9 = load i64, ptr %switch.gep8, align 8
   %15 = zext nneg i8 %13 to i64
-  %switch.gep10 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN7uu_date18make_format_string17ha7c5bc2f75cd1b70E.7, i64 %15
+  %switch.gep10 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN7uu_date18make_format_string17ha7c5bc2f75cd1b70E.7, i64 %15
   %switch.load11 = load ptr, ptr %switch.gep10, align 8
   br label %22
 

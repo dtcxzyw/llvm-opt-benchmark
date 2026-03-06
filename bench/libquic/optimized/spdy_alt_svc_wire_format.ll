@@ -11,7 +11,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl" }
 %"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.net::SpdyAltSvcWireFormat::AlternativeService" = type { %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i16, i32, %"class.std::vector" }
 
 $_ZSt4findIPKccET_S2_S2_RKT0_ = comdat any
 
@@ -1334,7 +1333,7 @@ _ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit16.i.i: ; preds = %323, %.noe
 _ZNSt6vectorItSaItEE17_M_realloc_insertIJRKtEEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEDpOT_.exit.i: ; preds = %325, %_ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit16.i.i
   store ptr %320, ptr %10, align 8, !tbaa !26
   store ptr %324, ptr %32, align 8, !tbaa !25
-  %326 = getelementptr inbounds nuw i16, ptr %320, i64 %318
+  %326 = getelementptr inbounds nuw [2 x i8], ptr %320, i64 %318
   store ptr %326, ptr %33, align 8, !tbaa !28
   br label %327
 
@@ -2984,7 +2983,7 @@ _ZNSt12_Vector_baseIN3net20SpdyAltSvcWireFormat18AlternativeServiceESaIS2_EE13_M
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %27, ptr %0, align 8, !tbaa !30
   store ptr %.0.lcssa.i.i.i.i.i48, ptr %9, align 8, !tbaa !33
-  %87 = getelementptr inbounds nuw %"struct.net::SpdyAltSvcWireFormat::AlternativeService", ptr %27, i64 %21
+  %87 = getelementptr inbounds nuw [96 x i8], ptr %27, i64 %21
   store ptr %87, ptr %86, align 8, !tbaa !56
   ret void
 

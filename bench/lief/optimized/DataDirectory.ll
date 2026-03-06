@@ -3,13 +3,6 @@ source_filename = "bench/lief/original/DataDirectory.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"class.std::unique_ptr.107" = type { %"struct.std::__uniq_ptr_data.108" }
-%"struct.std::__uniq_ptr_data.108" = type { %"class.std::__uniq_ptr_impl.109" }
-%"class.std::__uniq_ptr_impl.109" = type { %"class.std::tuple.110" }
-%"class.std::tuple.110" = type { %"struct.std::_Tuple_impl.111" }
-%"struct.std::_Tuple_impl.111" = type { %"struct.std::_Head_base.114" }
-%"struct.std::_Head_base.114" = type { ptr }
-
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN4LIEF2PE23init_c_data_directoriesEP11Pe_Binary_tPNS0_6BinaryE(ptr noundef writeonly captures(none) initializes((232, 240)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 408
@@ -38,9 +31,9 @@ _ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE13DataDirectoryESt14defau
 _ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE13DataDirectoryESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEixEm.exit: ; preds = %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE13DataDirectoryESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEixEm.exit.lr.ph, %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE13DataDirectoryESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEixEm.exit
   %.021 = phi i64 [ 0, %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE13DataDirectoryESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEixEm.exit.lr.ph ], [ %24, %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE13DataDirectoryESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEixEm.exit ]
   %15 = tail call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #4
-  %16 = getelementptr inbounds nuw ptr, ptr %11, i64 %.021
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.021
   store ptr %15, ptr %16, align 8, !tbaa !27
-  %17 = getelementptr inbounds %"class.std::unique_ptr.107", ptr %4, i64 %.021
+  %17 = getelementptr inbounds [8 x i8], ptr %4, i64 %.021
   %18 = load ptr, ptr %17, align 8, !tbaa !29
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load i32, ptr %19, align 8, !tbaa !31
@@ -79,7 +72,7 @@ define hidden void @_ZN4LIEF2PE24destroy_data_directoriesEP11Pe_Binary_t(ptr nou
   %.08 = phi i64 [ %7, %.lr.ph ], [ 0, %1 ]
   tail call void @free(ptr noundef nonnull %6) #5
   %7 = add i64 %.08, 1
-  %8 = getelementptr inbounds nuw ptr, ptr %3, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !27
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !42

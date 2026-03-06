@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.PQcommMethods = type { ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.addrinfo = type { i32, i32, i32, i32, i32, ptr, ptr, ptr }
-%union.ListCell = type { ptr }
 %struct.__jmp_buf_tag = type { [8 x i64], i32, %struct.__sigset_t }
 %struct.__sigset_t = type { [16 x i64] }
 %struct.WaitEvent = type { i32, i32, i32, ptr }
@@ -1134,7 +1133,7 @@ Setup_AF_UNIX.exit:                               ; preds = %176, %143, %140
 208:                                              ; preds = %.sink.split161, %205, %202
   %209 = load i32, ptr %5, align 4
   %210 = sext i32 %209 to i64
-  %211 = getelementptr inbounds i32, ptr %4, i64 %210
+  %211 = getelementptr inbounds [4 x i8], ptr %4, i64 %210
   store i32 %83, ptr %211, align 4
   %212 = load i32, ptr %5, align 4
   %213 = add i32 %212, 1
@@ -1254,7 +1253,7 @@ define dso_local void @TouchSocketFiles() local_unnamed_addr #8 {
 .lr.ph11:                                         ; preds = %.lr.ph, %.lr.ph11
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph11 ], [ 0, %.lr.ph ]
   %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds nuw %union.ListCell, ptr %6, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 @utime(ptr noundef %8, ptr noundef null) #20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1286,7 +1285,7 @@ define dso_local void @RemoveSocketFiles() local_unnamed_addr #8 {
 .lr.ph11:                                         ; preds = %.lr.ph, %.lr.ph11
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph11 ], [ 0, %.lr.ph ]
   %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds nuw %union.ListCell, ptr %6, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 @unlink(ptr noundef %8) #20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2508,7 +2507,7 @@ define dso_local noundef zeroext i1 @pq_check_connection() local_unnamed_addr #0
 
 8:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
-  %9 = getelementptr inbounds nuw %struct.WaitEvent, ptr %1, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %indvars.iv
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = and i32 %11, 128

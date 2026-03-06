@@ -8,7 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.anon.15 = type { ptr, ptr, ptr, ptr, [1 x ptr] }
 %struct.rb_vm_tag = type { i64, i64, [5 x ptr], ptr, i32, i32 }
 %struct.rb_trace_arg_struct = type { i32, ptr, ptr, i64, i64, i64, i64, i64, i32, i32, i64 }
-%struct.anon.14 = type { ptr, ptr }
 %struct.ccan_list_head = type { %struct.ccan_list_node }
 %struct.ccan_list_node = type { ptr, ptr }
 
@@ -3248,7 +3247,7 @@ rb_array_len.exit:                                ; preds = %7, %10
 
 RARRAY_AREF.exit:                                 ; preds = %16, %19
   %.0.i.i = phi ptr [ %20, %19 ], [ %14, %16 ]
-  %21 = getelementptr i64, ptr %.0.i.i, i64 %.01045
+  %21 = getelementptr [8 x i8], ptr %.0.i.i, i64 %.01045
   %22 = load i64, ptr %21, align 8, !tbaa !35
   %23 = tail call i64 @rb_to_symbol_type(i64 noundef %22) #4
   %.pr.i.i = load i64, ptr @symbol2event_flag.rbimpl_id, align 8, !tbaa !35
@@ -5479,7 +5478,7 @@ define dso_local range(i32 -1, 32) i32 @rb_postponed_job_preregister(i32 noundef
 
 8:                                                ; preds = %3, %20
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %20 ]
-  %9 = getelementptr %struct.anon.14, ptr %6, i64 %indvars.iv
+  %9 = getelementptr [16 x i8], ptr %6, i64 %indvars.iv
   %10 = cmpxchg volatile ptr %9, i64 0, i64 %7 seq_cst seq_cst, align 8
   %11 = extractvalue { i64, i1 } %10, 0
   %12 = inttoptr i64 %11 to ptr
@@ -5539,7 +5538,7 @@ define dso_local range(i32 0, 2) i32 @rb_postponed_job_register(i32 noundef %0, 
 
 8:                                                ; preds = %15, %3
   %indvars.iv.i.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i.i, %15 ]
-  %9 = getelementptr %struct.anon.14, ptr %6, i64 %indvars.iv.i.i
+  %9 = getelementptr [16 x i8], ptr %6, i64 %indvars.iv.i.i
   %10 = cmpxchg volatile ptr %9, i64 0, i64 %7 seq_cst seq_cst, align 8
   %11 = extractvalue { i64, i1 } %10, 0
   %12 = inttoptr i64 %11 to ptr
@@ -5594,7 +5593,7 @@ define dso_local range(i32 0, 2) i32 @rb_postponed_job_register_one(i32 noundef 
 
 8:                                                ; preds = %15, %3
   %indvars.iv.i.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i.i, %15 ]
-  %9 = getelementptr %struct.anon.14, ptr %6, i64 %indvars.iv.i.i
+  %9 = getelementptr [16 x i8], ptr %6, i64 %indvars.iv.i.i
   %10 = cmpxchg volatile ptr %9, i64 0, i64 %7 seq_cst seq_cst, align 8
   %11 = extractvalue { i64, i1 } %10, 0
   %12 = inttoptr i64 %11 to ptr
@@ -5761,7 +5760,7 @@ rb_ec_vm_lock_rec.exit:                           ; preds = %rb_ec_ractor_ptr.ex
   %56 = zext nneg i32 %55 to i64
   %57 = shl nuw i32 1, %55
   %58 = xor i32 %57, %.149
-  %59 = getelementptr %struct.anon.14, ptr %9, i64 %56
+  %59 = getelementptr [16 x i8], ptr %9, i64 %56
   %60 = load ptr, ptr %59, align 8, !tbaa !174
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %62 = load ptr, ptr %61, align 8, !tbaa !176
@@ -6089,7 +6088,7 @@ define internal void @call_trace_func(i32 noundef %0, i64 noundef %1, i64 nounde
 
 switch.lookup:                                    ; preds = %.split.i
   %13 = zext nneg i32 %11 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.call_trace_func, i64 %13
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.call_trace_func, i64 %13
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %get_event_name.exit
 

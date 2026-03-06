@@ -549,7 +549,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit108: ; preds = %76
   store double 2.550000e+02, ptr %116, align 8, !tbaa !55
   store double 0.000000e+00, ptr %117, align 8, !tbaa !55
   %163 = sext i32 %.040 to i64
-  %164 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr @_ZL5algosB5cxx11, i64 %163
+  %164 = getelementptr inbounds [32 x i8], ptr @_ZL5algosB5cxx11, i64 %163
   invoke void @_ZN2cv7putTextERKNS_17_InputOutputArrayERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6Point_IiEEidNS_7Scalar_IdEEiib(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(32) %164, i64 128849018890, i32 noundef 1, double noundef 2.000000e+00, ptr noundef nonnull %21, i32 noundef 2, i32 noundef 16, i1 noundef zeroext false)
           to label %165 unwind label %179
 
@@ -677,7 +677,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit127: ; preds = %18
   %spec.store.select = select i1 %195, i32 0, i32 %194
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
   %196 = sext i32 %spec.store.select to i64
-  %197 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr @_ZL5algosB5cxx11, i64 %196
+  %197 = getelementptr inbounds [32 x i8], ptr @_ZL5algosB5cxx11, i64 %196
   invoke fastcc void @_ZL24createBGSubtractorByNameRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %27, ptr noundef nonnull align 8 dereferenceable(32) %197)
           to label %198 unwind label %255
 

@@ -380,7 +380,7 @@ get_swf_tag.exit:                                 ; preds = %18, %24
 
 36:                                               ; preds = %.lr.ph528, %47
   %indvars.iv678 = phi i64 [ 0, %.lr.ph528 ], [ %indvars.iv.next679, %47 ]
-  %37 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv678
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv678
   %38 = load ptr, ptr %37, align 8, !tbaa !42
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %40 = load ptr, ptr %39, align 8, !tbaa !44
@@ -436,7 +436,7 @@ get_swf_tag.exit:                                 ; preds = %18, %24
 
 66:                                               ; preds = %.lr.ph523, %77
   %indvars.iv673 = phi i64 [ 0, %.lr.ph523 ], [ %indvars.iv.next674, %77 ]
-  %67 = getelementptr inbounds nuw ptr, ptr %65, i64 %indvars.iv673
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %indvars.iv673
   %68 = load ptr, ptr %67, align 8, !tbaa !42
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 16
   %70 = load ptr, ptr %69, align 8, !tbaa !44
@@ -517,7 +517,7 @@ get_swf_tag.exit:                                 ; preds = %18, %24
 
 110:                                              ; preds = %.lr.ph513, %121
   %indvars.iv668 = phi i64 [ 0, %.lr.ph513 ], [ %indvars.iv.next669, %121 ]
-  %111 = getelementptr inbounds nuw ptr, ptr %109, i64 %indvars.iv668
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %109, i64 %indvars.iv668
   %112 = load ptr, ptr %111, align 8, !tbaa !42
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 16
   %114 = load ptr, ptr %113, align 8, !tbaa !44
@@ -626,7 +626,7 @@ get_swf_tag.exit:                                 ; preds = %18, %24
 
 172:                                              ; preds = %.lr.ph, %213
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %213 ]
-  %173 = getelementptr inbounds nuw ptr, ptr %171, i64 %indvars.iv
+  %173 = getelementptr inbounds nuw [8 x i8], ptr %171, i64 %indvars.iv
   %174 = load ptr, ptr %173, align 8, !tbaa !42
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 16
   %176 = load ptr, ptr %175, align 8, !tbaa !44
@@ -839,7 +839,7 @@ get_swf_tag.exit:                                 ; preds = %18, %24
 
 269:                                              ; preds = %.lr.ph568, %281
   %indvars.iv693 = phi i64 [ 0, %.lr.ph568 ], [ %indvars.iv.next694, %281 ]
-  %270 = getelementptr inbounds nuw ptr, ptr %267, i64 %indvars.iv693
+  %270 = getelementptr inbounds nuw [8 x i8], ptr %267, i64 %indvars.iv693
   %271 = load ptr, ptr %270, align 8, !tbaa !42
   %272 = getelementptr inbounds nuw i8, ptr %271, i64 16
   %273 = load ptr, ptr %272, align 8, !tbaa !44
@@ -970,7 +970,7 @@ get_swf_tag.exit:                                 ; preds = %18, %24
   %337 = or disjoint i32 %329, %323
   %338 = or disjoint i32 %337, %333
   %339 = or disjoint i32 %338, %336
-  %340 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv704
+  %340 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv704
   store i32 %339, ptr %340, align 4, !tbaa !87
   %indvars.iv.next705 = add nuw nsw i64 %indvars.iv704, 1
   %exitcond709.not = icmp eq i64 %indvars.iv.next705, %wide.trip.count708
@@ -993,7 +993,7 @@ get_swf_tag.exit:                                 ; preds = %18, %24
   %353 = or disjoint i32 %345, %349
   %354 = or disjoint i32 %353, %352
   %355 = or disjoint i32 %354, -16777216
-  %356 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv698
+  %356 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv698
   store i32 %355, ptr %356, align 4, !tbaa !87
   %indvars.iv.next699 = add nuw nsw i64 %indvars.iv698, 1
   %exitcond703.not = icmp eq i64 %indvars.iv.next699, %wide.trip.count702
@@ -1067,7 +1067,7 @@ get_swf_tag.exit:                                 ; preds = %18, %24
 
 375:                                              ; preds = %.lr.ph542, %409
   %indvars.iv688 = phi i64 [ 0, %.lr.ph542 ], [ %indvars.iv.next689, %409 ]
-  %376 = getelementptr inbounds nuw ptr, ptr %219, i64 %indvars.iv688
+  %376 = getelementptr inbounds nuw [8 x i8], ptr %219, i64 %indvars.iv688
   %377 = load ptr, ptr %376, align 8, !tbaa !42
   %378 = getelementptr inbounds nuw i8, ptr %377, i64 16
   %379 = load ptr, ptr %378, align 8, !tbaa !44
@@ -1125,7 +1125,7 @@ get_swf_tag.exit:                                 ; preds = %18, %24
 
 410:                                              ; preds = %.lr.ph532, %422
   %indvars.iv683 = phi i64 [ 0, %.lr.ph532 ], [ %indvars.iv.next684, %422 ]
-  %411 = getelementptr inbounds nuw ptr, ptr %217, i64 %indvars.iv683
+  %411 = getelementptr inbounds nuw [8 x i8], ptr %217, i64 %indvars.iv683
   %412 = load ptr, ptr %411, align 8, !tbaa !42
   %413 = getelementptr inbounds nuw i8, ptr %412, i64 16
   %414 = load ptr, ptr %413, align 8, !tbaa !44

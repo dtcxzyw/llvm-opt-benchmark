@@ -127,7 +127,7 @@ define hidden void @_ZN8AgeTableC2Eb(ptr noundef nonnull writeonly align 8 captu
   %30 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %4, i64 noundef 10, ptr noundef nonnull @.str.5, i32 noundef %29) #11
   %31 = call noundef ptr @_ZN15PerfDataManager12counter_nameEPKcS1_(ptr noundef %24, ptr noundef nonnull %4) #11
   %32 = call noundef ptr @_ZN15PerfDataManager20create_long_variableE9CounterNSPKcN8PerfData5UnitsElP10JavaThread(i32 noundef 5, ptr noundef %31, i32 noundef 2, i64 noundef 0, ptr noundef %23) #11
-  %33 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv
   store ptr %32, ptr %33, align 8
   %34 = load ptr, ptr %26, align 8
   %.not = icmp eq ptr %34, null
@@ -185,9 +185,9 @@ define hidden void @_ZN8AgeTable5mergeEPKS_(ptr noundef nonnull align 8 captures
 
 3:                                                ; preds = %2, %3
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %3 ]
-  %4 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %7 = load i64, ptr %6, align 8
   %8 = add i64 %7, %5
   store i64 %8, ptr %6, align 8
@@ -215,7 +215,7 @@ define hidden noundef i32 @_ZN8AgeTable26compute_tenuring_thresholdEm(ptr nounde
 .preheader:                                       ; preds = %2, %13
   %indvars.iv = phi i64 [ %indvars.iv.next, %13 ], [ 1, %2 ]
   %.01215 = phi i64 [ %11, %13 ], [ 0, %2 ]
-  %9 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %10 = load i64, ptr %9, align 8
   %11 = add i64 %10, %.01215
   %12 = icmp ugt i64 %11, %1
@@ -294,7 +294,7 @@ define hidden void @_ZN8AgeTable15print_age_tableEv(ptr noundef nonnull readonly
 14:                                               ; preds = %30, %10
   %indvars.iv.i = phi i64 [ 1, %10 ], [ %indvars.iv.next.i, %30 ]
   %.018.i = phi i64 [ 0, %10 ], [ %17, %30 ]
-  %15 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.i
   %16 = load i64, ptr %15, align 8
   %17 = add i64 %16, %.018.i
   %.not.i = icmp eq i64 %16, 0
@@ -320,7 +320,7 @@ define hidden void @_ZN8AgeTable15print_age_tableEv(ptr noundef nonnull readonly
   br i1 %24, label %25, label %30
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv.i
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv.i
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 40
   %29 = load ptr, ptr %28, align 8
@@ -352,7 +352,7 @@ define hidden void @_ZN8AgeTable8print_onEP12outputStream(ptr noundef nonnull re
 5:                                                ; preds = %2, %21
   %indvars.iv = phi i64 [ 1, %2 ], [ %indvars.iv.next, %21 ]
   %.018 = phi i64 [ 0, %2 ], [ %8, %21 ]
-  %6 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %7 = load i64, ptr %6, align 8
   %8 = add i64 %7, %.018
   %.not = icmp eq i64 %7, 0
@@ -378,7 +378,7 @@ define hidden void @_ZN8AgeTable8print_onEP12outputStream(ptr noundef nonnull re
   br i1 %15, label %16, label %21
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 40
   %20 = load ptr, ptr %19, align 8

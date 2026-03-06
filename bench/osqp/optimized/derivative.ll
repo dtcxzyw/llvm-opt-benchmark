@@ -145,71 +145,71 @@ define i64 @adjoint_derivative_get_mat(ptr noundef readonly captures(address_is_
   %54 = phi i64 [ %.pre, %.lr.ph78 ], [ %57, %.loopexit ]
   %.06576 = phi i64 [ 0, %.lr.ph78 ], [ %55, %.loopexit ]
   %55 = add nuw nsw i64 %.06576, 1
-  %56 = getelementptr inbounds nuw i64, ptr %46, i64 %55
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %55
   %57 = load i64, ptr %56, align 8, !tbaa !42
   %58 = icmp slt i64 %54, %57
   br i1 %58, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %53
   %59 = load ptr, ptr %47, align 8, !tbaa !45
-  %60 = getelementptr inbounds nuw double, ptr %19, i64 %.06576
-  %61 = getelementptr inbounds nuw double, ptr %43, i64 %.06576
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.06576
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %.06576
   %62 = load ptr, ptr %48, align 8, !tbaa !46
   br label %63
 
 63:                                               ; preds = %.lr.ph, %63
   %.072 = phi i64 [ %54, %.lr.ph ], [ %76, %63 ]
-  %64 = getelementptr inbounds i64, ptr %59, i64 %.072
+  %64 = getelementptr inbounds [8 x i8], ptr %59, i64 %.072
   %65 = load i64, ptr %64, align 8, !tbaa !42
-  %66 = getelementptr inbounds double, ptr %43, i64 %65
+  %66 = getelementptr inbounds [8 x i8], ptr %43, i64 %65
   %67 = load double, ptr %66, align 8, !tbaa !47
   %68 = load double, ptr %60, align 8, !tbaa !47
   %69 = load double, ptr %61, align 8, !tbaa !47
-  %70 = getelementptr inbounds double, ptr %19, i64 %65
+  %70 = getelementptr inbounds [8 x i8], ptr %19, i64 %65
   %71 = load double, ptr %70, align 8, !tbaa !47
   %72 = fmul double %69, %71
   %73 = tail call double @llvm.fmuladd.f64(double %67, double %68, double %72)
   %74 = fmul double %73, 5.000000e-01
-  %75 = getelementptr inbounds double, ptr %62, i64 %.072
+  %75 = getelementptr inbounds [8 x i8], ptr %62, i64 %.072
   store double %74, ptr %75, align 8, !tbaa !47
   %76 = add nsw i64 %.072, 1
   %exitcond.not = icmp eq i64 %76, %57
   br i1 %exitcond.not, label %._crit_edge, label %63, !llvm.loop !48
 
 ._crit_edge:                                      ; preds = %63, %53
-  %77 = getelementptr inbounds nuw i64, ptr %50, i64 %.06576
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %.06576
   %78 = load i64, ptr %77, align 8, !tbaa !42
-  %79 = getelementptr inbounds nuw i64, ptr %50, i64 %55
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %55
   %80 = load i64, ptr %79, align 8, !tbaa !42
   %81 = icmp slt i64 %78, %80
   br i1 %81, label %.lr.ph75, label %.loopexit
 
 .lr.ph75:                                         ; preds = %._crit_edge
   %82 = load ptr, ptr %51, align 8, !tbaa !45
-  %83 = getelementptr inbounds nuw double, ptr %43, i64 %.06576
-  %84 = getelementptr inbounds nuw double, ptr %19, i64 %.06576
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %.06576
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.06576
   %85 = load ptr, ptr %52, align 8, !tbaa !46
   br label %86
 
 86:                                               ; preds = %.lr.ph75, %86
   %.173 = phi i64 [ %78, %.lr.ph75 ], [ %104, %86 ]
-  %87 = getelementptr inbounds i64, ptr %82, i64 %.173
+  %87 = getelementptr inbounds [8 x i8], ptr %82, i64 %.173
   %88 = load i64, ptr %87, align 8, !tbaa !42
-  %89 = getelementptr inbounds double, ptr %22, i64 %88
+  %89 = getelementptr inbounds [8 x i8], ptr %22, i64 %88
   %90 = load double, ptr %89, align 8, !tbaa !47
-  %91 = getelementptr inbounds double, ptr %25, i64 %88
+  %91 = getelementptr inbounds [8 x i8], ptr %25, i64 %88
   %92 = load double, ptr %91, align 8, !tbaa !47
   %93 = fsub double %90, %92
   %94 = load double, ptr %83, align 8, !tbaa !47
-  %95 = getelementptr inbounds double, ptr %28, i64 %88
+  %95 = getelementptr inbounds [8 x i8], ptr %28, i64 %88
   %96 = load double, ptr %95, align 8, !tbaa !47
-  %97 = getelementptr inbounds double, ptr %31, i64 %88
+  %97 = getelementptr inbounds [8 x i8], ptr %31, i64 %88
   %98 = load double, ptr %97, align 8, !tbaa !47
   %99 = fsub double %96, %98
   %100 = load double, ptr %84, align 8, !tbaa !47
   %101 = fmul double %99, %100
   %102 = tail call double @llvm.fmuladd.f64(double %93, double %94, double %101)
-  %103 = getelementptr inbounds double, ptr %85, i64 %.173
+  %103 = getelementptr inbounds [8 x i8], ptr %85, i64 %.173
   store double %102, ptr %103, align 8, !tbaa !47
   %104 = add nsw i64 %.173, 1
   %exitcond80.not = icmp eq i64 %104, %80
@@ -289,7 +289,7 @@ define i64 @adjoint_derivative_get_vec(ptr noundef readonly captures(address_is_
 
 .lr.ph:                                           ; preds = %13, %.lr.ph
   %.02632 = phi i64 [ %37, %.lr.ph ], [ 0, %13 ]
-  %34 = getelementptr inbounds nuw double, ptr %3, i64 %.02632
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.02632
   %35 = load double, ptr %34, align 8, !tbaa !47
   %36 = fneg double %35
   store double %36, ptr %34, align 8, !tbaa !47
@@ -444,21 +444,21 @@ define i64 @adjoint_derivative_compute(ptr noundef readonly captures(address_is_
   %.0309330 = phi i64 [ %.1310, %129 ], [ 0, %.thread ]
   %.0311329 = phi i64 [ %.1312, %129 ], [ 0, %.thread ]
   %.0313328 = phi i64 [ %130, %129 ], [ 0, %.thread ]
-  %99 = getelementptr inbounds nuw double, ptr %85, i64 %.0313328
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %.0313328
   %100 = load double, ptr %99, align 8, !tbaa !47
-  %101 = getelementptr inbounds nuw double, ptr %86, i64 %.0313328
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %86, i64 %.0313328
   %102 = load double, ptr %101, align 8, !tbaa !47
   %103 = fcmp olt double %100, %102
   br i1 %103, label %104, label %119
 
 104:                                              ; preds = %.lr.ph
-  %105 = getelementptr inbounds nuw i64, ptr %91, i64 %.0313328
+  %105 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %.0313328
   store i64 0, ptr %105, align 8, !tbaa !42
   %106 = fcmp ogt double %100, -1.000000e+26
   br i1 %106, label %107, label %110
 
 107:                                              ; preds = %104
-  %108 = getelementptr inbounds i64, ptr %93, i64 %.0308331
+  %108 = getelementptr inbounds [8 x i8], ptr %93, i64 %.0308331
   store i64 %.0313328, ptr %108, align 8, !tbaa !42
   %109 = add nsw i64 %.0308331, 1
   br label %110
@@ -466,38 +466,38 @@ define i64 @adjoint_derivative_compute(ptr noundef readonly captures(address_is_
 110:                                              ; preds = %104, %107
   %.sink = phi i64 [ 1, %107 ], [ 0, %104 ]
   %.1 = phi i64 [ %109, %107 ], [ %.0308331, %104 ]
-  %111 = getelementptr inbounds nuw i64, ptr %89, i64 %.0313328
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %89, i64 %.0313328
   store i64 %.sink, ptr %111, align 8, !tbaa !42
   %112 = fcmp olt double %102, 1.000000e+26
   br i1 %112, label %113, label %117
 
 113:                                              ; preds = %110
-  %114 = getelementptr inbounds i64, ptr %94, i64 %.0309330
+  %114 = getelementptr inbounds [8 x i8], ptr %94, i64 %.0309330
   store i64 %.0313328, ptr %114, align 8, !tbaa !42
-  %115 = getelementptr inbounds nuw i64, ptr %90, i64 %.0313328
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %.0313328
   store i64 1, ptr %115, align 8, !tbaa !42
   %116 = add nsw i64 %.0309330, 1
   br label %129
 
 117:                                              ; preds = %110
-  %118 = getelementptr inbounds nuw i64, ptr %90, i64 %.0313328
+  %118 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %.0313328
   store i64 0, ptr %118, align 8, !tbaa !42
   br label %129
 
 119:                                              ; preds = %.lr.ph
-  %120 = getelementptr inbounds i64, ptr %92, i64 %.0311329
+  %120 = getelementptr inbounds [8 x i8], ptr %92, i64 %.0311329
   store i64 %.0313328, ptr %120, align 8, !tbaa !42
-  %121 = getelementptr inbounds nuw i64, ptr %91, i64 %.0313328
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %.0313328
   store i64 1, ptr %121, align 8, !tbaa !42
-  %122 = getelementptr inbounds nuw i64, ptr %89, i64 %.0313328
+  %122 = getelementptr inbounds nuw [8 x i8], ptr %89, i64 %.0313328
   store i64 0, ptr %122, align 8, !tbaa !42
-  %123 = getelementptr inbounds nuw i64, ptr %90, i64 %.0313328
+  %123 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %.0313328
   store i64 0, ptr %123, align 8, !tbaa !42
-  %124 = getelementptr inbounds nuw double, ptr %87, i64 %.0313328
+  %124 = getelementptr inbounds nuw [8 x i8], ptr %87, i64 %.0313328
   %125 = load double, ptr %124, align 8, !tbaa !47
   %126 = fcmp ult double %125, 0.000000e+00
   %.sink362 = select i1 %126, i64 -1, i64 1
-  %127 = getelementptr inbounds i64, ptr %95, i64 %.0311329
+  %127 = getelementptr inbounds [8 x i8], ptr %95, i64 %.0311329
   store i64 %.sink362, ptr %127, align 8, !tbaa !42
   %128 = add nsw i64 %.0311329, 1
   br label %129
@@ -591,7 +591,7 @@ define i64 @adjoint_derivative_compute(ptr noundef readonly captures(address_is_
 
 .lr.ph336:                                        ; preds = %._crit_edge, %181
   %.1314334 = phi i64 [ %182, %181 ], [ 0, %._crit_edge ]
-  %167 = getelementptr inbounds nuw i64, ptr %95, i64 %.1314334
+  %167 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %.1314334
   %168 = load i64, ptr %167, align 8, !tbaa !42
   switch i64 %168, label %181 [
     i64 1, label %169
@@ -599,23 +599,23 @@ define i64 @adjoint_derivative_compute(ptr noundef readonly captures(address_is_
   ]
 
 169:                                              ; preds = %.lr.ph336
-  %170 = getelementptr inbounds nuw i64, ptr %92, i64 %.1314334
+  %170 = getelementptr inbounds nuw [8 x i8], ptr %92, i64 %.1314334
   %171 = load i64, ptr %170, align 8, !tbaa !42
-  %172 = getelementptr inbounds double, ptr %3, i64 %171
+  %172 = getelementptr inbounds [8 x i8], ptr %3, i64 %171
   %173 = load double, ptr %172, align 8, !tbaa !47
   br label %.sink.split
 
 174:                                              ; preds = %.lr.ph336
-  %175 = getelementptr inbounds nuw i64, ptr %92, i64 %.1314334
+  %175 = getelementptr inbounds nuw [8 x i8], ptr %92, i64 %.1314334
   %176 = load i64, ptr %175, align 8, !tbaa !42
-  %177 = getelementptr inbounds double, ptr %2, i64 %176
+  %177 = getelementptr inbounds [8 x i8], ptr %2, i64 %176
   %178 = load double, ptr %177, align 8, !tbaa !47
   %179 = fneg double %178
   br label %.sink.split
 
 .sink.split:                                      ; preds = %174, %169
   %.sink377 = phi double [ %173, %169 ], [ %179, %174 ]
-  %180 = getelementptr inbounds nuw double, ptr %165, i64 %.1314334
+  %180 = getelementptr inbounds nuw [8 x i8], ptr %165, i64 %.1314334
   store double %.sink377, ptr %180, align 8, !tbaa !47
   br label %181
 
@@ -655,17 +655,17 @@ define i64 @adjoint_derivative_compute(ptr noundef readonly captures(address_is_
   br i1 %192, label %.lr.ph346, label %._crit_edge347
 
 .lr.ph346:                                        ; preds = %._crit_edge343
-  %193 = getelementptr double, ptr %187, i64 %190
+  %193 = getelementptr [8 x i8], ptr %187, i64 %190
   br label %194
 
 194:                                              ; preds = %.lr.ph346, %194
   %.4344 = phi i64 [ 0, %.lr.ph346 ], [ %201, %194 ]
-  %195 = getelementptr double, ptr %193, i64 %.4344
+  %195 = getelementptr [8 x i8], ptr %193, i64 %.4344
   %196 = load double, ptr %195, align 8, !tbaa !47
   %197 = fneg double %196
-  %198 = getelementptr inbounds nuw i64, ptr %93, i64 %.4344
+  %198 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %.4344
   %199 = load i64, ptr %198, align 8, !tbaa !42
-  %200 = getelementptr inbounds double, ptr %188, i64 %199
+  %200 = getelementptr inbounds [8 x i8], ptr %188, i64 %199
   store double %197, ptr %200, align 8, !tbaa !47
   %201 = add nuw nsw i64 %.4344, 1
   %exitcond359.not = icmp eq i64 %201, %191
@@ -679,16 +679,16 @@ define i64 @adjoint_derivative_compute(ptr noundef readonly captures(address_is_
   br i1 %204, label %.lr.ph351, label %._crit_edge352
 
 .lr.ph351:                                        ; preds = %._crit_edge347
-  %205 = getelementptr double, ptr %187, i64 %202
+  %205 = getelementptr [8 x i8], ptr %187, i64 %202
   br label %206
 
 206:                                              ; preds = %.lr.ph351, %206
   %.5349 = phi i64 [ 0, %.lr.ph351 ], [ %212, %206 ]
-  %207 = getelementptr double, ptr %205, i64 %.5349
+  %207 = getelementptr [8 x i8], ptr %205, i64 %.5349
   %208 = load double, ptr %207, align 8, !tbaa !47
-  %209 = getelementptr inbounds nuw i64, ptr %94, i64 %.5349
+  %209 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %.5349
   %210 = load i64, ptr %209, align 8, !tbaa !42
-  %211 = getelementptr inbounds double, ptr %189, i64 %210
+  %211 = getelementptr inbounds [8 x i8], ptr %189, i64 %210
   store double %208, ptr %211, align 8, !tbaa !47
   %212 = add nuw nsw i64 %.5349, 1
   %exitcond360.not = icmp eq i64 %212, %203
@@ -701,46 +701,46 @@ define i64 @adjoint_derivative_compute(ptr noundef readonly captures(address_is_
   br i1 %214, label %.lr.ph356, label %._crit_edge357
 
 .lr.ph356:                                        ; preds = %._crit_edge352
-  %215 = getelementptr double, ptr %187, i64 %203
-  %216 = getelementptr double, ptr %215, i64 %202
+  %215 = getelementptr [8 x i8], ptr %187, i64 %203
+  %216 = getelementptr [8 x i8], ptr %215, i64 %202
   br label %217
 
 217:                                              ; preds = %.lr.ph356, %240
   %.6354 = phi i64 [ 0, %.lr.ph356 ], [ %242, %240 ]
-  %218 = getelementptr inbounds nuw i64, ptr %95, i64 %.6354
+  %218 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %.6354
   %219 = load i64, ptr %218, align 8, !tbaa !42
   %220 = icmp eq i64 %219, 1
   br i1 %220, label %221, label %230
 
 221:                                              ; preds = %217
-  %222 = getelementptr inbounds nuw i64, ptr %92, i64 %.6354
+  %222 = getelementptr inbounds nuw [8 x i8], ptr %92, i64 %.6354
   %223 = load i64, ptr %222, align 8, !tbaa !42
-  %224 = getelementptr inbounds double, ptr %188, i64 %223
+  %224 = getelementptr inbounds [8 x i8], ptr %188, i64 %223
   store double 0.000000e+00, ptr %224, align 8, !tbaa !47
-  %225 = getelementptr double, ptr %216, i64 %.6354
+  %225 = getelementptr [8 x i8], ptr %216, i64 %.6354
   %226 = load double, ptr %225, align 8, !tbaa !47
-  %227 = getelementptr inbounds double, ptr %87, i64 %223
+  %227 = getelementptr inbounds [8 x i8], ptr %87, i64 %223
   %228 = load double, ptr %227, align 8, !tbaa !47
   %229 = fdiv double %226, %228
   br label %240
 
 230:                                              ; preds = %217
-  %231 = getelementptr double, ptr %216, i64 %.6354
+  %231 = getelementptr [8 x i8], ptr %216, i64 %.6354
   %232 = load double, ptr %231, align 8, !tbaa !47
   %233 = fneg double %232
-  %234 = getelementptr inbounds nuw i64, ptr %92, i64 %.6354
+  %234 = getelementptr inbounds nuw [8 x i8], ptr %92, i64 %.6354
   %235 = load i64, ptr %234, align 8, !tbaa !42
-  %236 = getelementptr inbounds double, ptr %87, i64 %235
+  %236 = getelementptr inbounds [8 x i8], ptr %87, i64 %235
   %237 = load double, ptr %236, align 8, !tbaa !47
   %238 = fdiv double %233, %237
-  %239 = getelementptr inbounds double, ptr %188, i64 %235
+  %239 = getelementptr inbounds [8 x i8], ptr %188, i64 %235
   store double %238, ptr %239, align 8, !tbaa !47
   br label %240
 
 240:                                              ; preds = %221, %230
   %.sink381 = phi i64 [ %223, %221 ], [ %235, %230 ]
   %.sink379 = phi double [ %229, %221 ], [ 0.000000e+00, %230 ]
-  %241 = getelementptr inbounds double, ptr %189, i64 %.sink381
+  %241 = getelementptr inbounds [8 x i8], ptr %189, i64 %.sink381
   store double %.sink379, ptr %241, align 8, !tbaa !47
   %242 = add nuw nsw i64 %.6354, 1
   %exitcond361.not = icmp eq i64 %242, %213

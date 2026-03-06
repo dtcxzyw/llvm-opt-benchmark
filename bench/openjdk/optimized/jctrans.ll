@@ -87,8 +87,8 @@ define hidden void @jWrtCoefs(ptr noundef %0, ptr noundef %1) local_unnamed_addr
 
 47:                                               ; preds = %47, %34
   %indvars.iv.i.i = phi i64 [ 0, %34 ], [ %indvars.iv.next.i.i, %47 ]
-  %48 = getelementptr inbounds nuw [64 x i16], ptr %45, i64 %indvars.iv.i.i
-  %49 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv.i.i
+  %48 = getelementptr inbounds nuw [128 x i8], ptr %45, i64 %indvars.iv.i.i
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv.i.i
   store ptr %48, ptr %49, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 10
@@ -166,13 +166,13 @@ define hidden void @jCopyCrit(ptr noundef readonly captures(none) %0, ptr nounde
 
 35:                                               ; preds = %13, %49
   %indvars.iv = phi i64 [ 0, %13 ], [ %indvars.iv.next, %49 ]
-  %36 = getelementptr inbounds nuw ptr, ptr %33, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv
   %37 = load ptr, ptr %36, align 8
   %.not106 = icmp eq ptr %37, null
   br i1 %.not106, label %49, label %38
 
 38:                                               ; preds = %35
-  %39 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, null
   br i1 %41, label %42, label %44
@@ -253,7 +253,7 @@ define hidden void @jCopyCrit(ptr noundef readonly captures(none) %0, ptr nounde
 
 80:                                               ; preds = %69
   %81 = zext nneg i32 %78 to i64
-  %82 = getelementptr inbounds nuw ptr, ptr %33, i64 %81
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %81
   %83 = load ptr, ptr %82, align 8
   %84 = icmp eq ptr %83, null
   br i1 %84, label %85, label %._crit_edge121
@@ -269,7 +269,7 @@ define hidden void @jCopyCrit(ptr noundef readonly captures(none) %0, ptr nounde
   %91 = load ptr, ptr %90, align 8
   tail call void %91(ptr noundef nonnull %1) #3
   %.phi.trans.insert = sext i32 %78 to i64
-  %.phi.trans.insert119 = getelementptr inbounds ptr, ptr %33, i64 %.phi.trans.insert
+  %.phi.trans.insert119 = getelementptr inbounds [8 x i8], ptr %33, i64 %.phi.trans.insert
   %.pre120 = load ptr, ptr %.phi.trans.insert119, align 8
   br label %._crit_edge121
 
@@ -282,9 +282,9 @@ define hidden void @jCopyCrit(ptr noundef readonly captures(none) %0, ptr nounde
 
 .preheader:                                       ; preds = %._crit_edge121, %106
   %indvars.iv114 = phi i64 [ %indvars.iv.next115, %106 ], [ 0, %._crit_edge121 ]
-  %95 = getelementptr inbounds nuw i16, ptr %94, i64 %indvars.iv114
+  %95 = getelementptr inbounds nuw [2 x i8], ptr %94, i64 %indvars.iv114
   %96 = load i16, ptr %95, align 2
-  %97 = getelementptr inbounds nuw i16, ptr %92, i64 %indvars.iv114
+  %97 = getelementptr inbounds nuw [2 x i8], ptr %92, i64 %indvars.iv114
   %98 = load i16, ptr %97, align 2
   %.not105 = icmp eq i16 %96, %98
   br i1 %.not105, label %106, label %99
@@ -459,7 +459,7 @@ define internal range(i32 0, 2) i32 @compress_output(ptr noundef %0, ptr readnon
 
 20:                                               ; preds = %.lr.ph, %20
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %20 ]
-  %21 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %17, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 64
@@ -468,14 +468,14 @@ define internal range(i32 0, 2) i32 @compress_output(ptr noundef %0, ptr readnon
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %28 = load i32, ptr %27, align 4
   %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds ptr, ptr %26, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %26, i64 %29
   %31 = load ptr, ptr %30, align 8
   %32 = load i32, ptr %19, align 8
   %33 = getelementptr inbounds nuw i8, ptr %22, i64 12
   %34 = load i32, ptr %33, align 4
   %35 = mul i32 %34, %32
   %36 = tail call ptr %25(ptr noundef nonnull %0, ptr noundef %31, i32 noundef %35, i32 noundef %34, i32 noundef 0) #3
-  %37 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   store ptr %36, ptr %37, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %38 = load i32, ptr %13, align 4
@@ -522,7 +522,7 @@ define internal range(i32 0, 2) i32 @compress_output(ptr noundef %0, ptr readnon
 60:                                               ; preds = %.lr.ph104, %._crit_edge100
   %indvars.iv132 = phi i64 [ 0, %.lr.ph104 ], [ %indvars.iv.next133, %._crit_edge100 ]
   %.077102 = phi i32 [ 0, %.lr.ph104 ], [ %.178.lcssa, %._crit_edge100 ]
-  %61 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv132
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %indvars.iv132
   %62 = load ptr, ptr %61, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 52
   %64 = load i32, ptr %63, align 4
@@ -544,7 +544,7 @@ define internal range(i32 0, 2) i32 @compress_output(ptr noundef %0, ptr readnon
 
 .lr.ph99:                                         ; preds = %69
   %74 = getelementptr inbounds nuw i8, ptr %62, i64 72
-  %75 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv132
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv132
   %76 = zext i32 %65 to i64
   %77 = icmp sgt i32 %.fr112, 0
   br i1 %77, label %.lr.ph99.split.us, label %.lr.ph99.split
@@ -566,9 +566,9 @@ define internal range(i32 0, 2) i32 @compress_output(ptr noundef %0, ptr readnon
 
 .lr.ph88.us:                                      ; preds = %.lr.ph99.split.us, %81
   %85 = load ptr, ptr %75, align 8
-  %86 = getelementptr inbounds ptr, ptr %85, i64 %.pre141
+  %86 = getelementptr inbounds [8 x i8], ptr %85, i64 %.pre141
   %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds nuw [64 x i16], ptr %87, i64 %76
+  %88 = getelementptr inbounds nuw [128 x i8], ptr %87, i64 %76
   %89 = sext i32 %.17896.us to i64
   br label %108
 
@@ -604,9 +604,9 @@ define internal range(i32 0, 2) i32 @compress_output(ptr noundef %0, ptr readnon
 .lr.ph93.us:                                      ; preds = %.lr.ph93.us.preheader, %.lr.ph93.us
   %indvars.iv126 = phi i64 [ %93, %.lr.ph93.us.preheader ], [ %indvars.iv.next127, %.lr.ph93.us ]
   %.291.us = phi i32 [ %.1.us, %.lr.ph93.us.preheader ], [ %105, %.lr.ph93.us ]
-  %99 = getelementptr inbounds ptr, ptr %49, i64 %indvars.iv126
+  %99 = getelementptr inbounds [8 x i8], ptr %49, i64 %indvars.iv126
   %100 = load ptr, ptr %99, align 8
-  %101 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv126
+  %101 = getelementptr inbounds [8 x i8], ptr %4, i64 %indvars.iv126
   store ptr %100, ptr %101, align 8
   %102 = getelementptr i8, ptr %101, i64 -8
   %103 = load ptr, ptr %102, align 8
@@ -624,7 +624,7 @@ define internal range(i32 0, 2) i32 @compress_output(ptr noundef %0, ptr readnon
   %.07485.us = phi i32 [ 0, %.lr.ph88.us ], [ %111, %108 ]
   %109 = getelementptr inbounds nuw i8, ptr %.086.us, i64 128
   %indvars.iv.next124 = add nsw i64 %indvars.iv123, 1
-  %110 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv123
+  %110 = getelementptr inbounds [8 x i8], ptr %4, i64 %indvars.iv123
   store ptr %.086.us, ptr %110, align 8
   %111 = add nuw nsw i32 %.07485.us, 1
   %exitcond.not = icmp eq i32 %111, %.fr112
@@ -645,9 +645,9 @@ define internal range(i32 0, 2) i32 @compress_output(ptr noundef %0, ptr readnon
 .lr.ph93:                                         ; preds = %.lr.ph93.preheader, %.lr.ph93
   %indvars.iv120 = phi i64 [ %115, %.lr.ph93.preheader ], [ %indvars.iv.next121, %.lr.ph93 ]
   %.291 = phi i32 [ 0, %.lr.ph93.preheader ], [ %122, %.lr.ph93 ]
-  %116 = getelementptr inbounds ptr, ptr %49, i64 %indvars.iv120
+  %116 = getelementptr inbounds [8 x i8], ptr %49, i64 %indvars.iv120
   %117 = load ptr, ptr %116, align 8
-  %118 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv120
+  %118 = getelementptr inbounds [8 x i8], ptr %4, i64 %indvars.iv120
   store ptr %117, ptr %118, align 8
   %119 = getelementptr i8, ptr %118, i64 -8
   %120 = load ptr, ptr %119, align 8

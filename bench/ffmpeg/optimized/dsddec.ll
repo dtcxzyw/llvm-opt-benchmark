@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %union.anon = type { ptr }
-%struct.DSDContext = type { [16 x i8], i32 }
 %struct.ThreadData = type { ptr, ptr }
 
 @.str = private unnamed_addr constant [9 x i8] c"dsd_lsbf\00", align 1
@@ -51,7 +50,7 @@ define internal range(i32 -1094995529, 1) i32 @decode_init(ptr noundef captures(
 
 .lr.ph:                                           ; preds = %8, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %8 ]
-  %16 = getelementptr inbounds nuw %struct.DSDContext, ptr %7, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [20 x i8], ptr %7, i64 %indvars.iv
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i32 0, ptr %17, align 4, !tbaa !28
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %16, i8 %13, i64 16, i1 false)
@@ -129,7 +128,7 @@ define internal noundef i32 @dsd_channel(ptr noundef readonly captures(none) %0,
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 96
   %13 = load ptr, ptr %12, align 8, !tbaa !48
   %14 = sext i32 %2 to i64
-  %15 = getelementptr inbounds ptr, ptr %13, i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr %13, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !49
   %.off = add i32 %6, -86091
   %switch = icmp ult i32 %.off, 2
@@ -157,7 +156,7 @@ define internal noundef i32 @dsd_channel(ptr noundef readonly captures(none) %0,
   %27 = and i32 %6, -3
   %narrow = icmp eq i32 %27, 86089
   %28 = zext i1 %narrow to i32
-  %29 = getelementptr inbounds %struct.DSDContext, ptr %8, i64 %14
+  %29 = getelementptr inbounds [20 x i8], ptr %8, i64 %14
   %30 = sext i32 %26 to i64
   %31 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %32 = load ptr, ptr %31, align 8, !tbaa !51

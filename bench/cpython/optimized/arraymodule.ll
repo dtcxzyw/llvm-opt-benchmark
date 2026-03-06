@@ -724,7 +724,7 @@ Py_DECREF.exit.sink.split.i:                      ; preds = %70, %58
   %74 = getelementptr i8, ptr %3, i64 16
   %.val170 = load i64, ptr %74, align 8, !tbaa !40
   %75 = zext nneg i32 %2 to i64
-  %76 = getelementptr %struct.mformatdescr, ptr @mformat_descriptors, i64 %75
+  %76 = getelementptr [16 x i8], ptr @mformat_descriptors, i64 %75
   %77 = load i64, ptr %76, align 16, !tbaa !41
   %78 = urem i64 %.val170, %77
   %79 = udiv i64 %.val170, %77
@@ -805,7 +805,7 @@ Py_DECREF.exit.sink.split.i:                      ; preds = %70, %58
 
 103:                                              ; preds = %92
   %.val177 = load ptr, ptr %91, align 8, !tbaa !43
-  %104 = getelementptr ptr, ptr %.val177, i64 %.012712
+  %104 = getelementptr [8 x i8], ptr %.val177, i64 %.012712
   store ptr %96, ptr %104, align 8, !tbaa !18
   %105 = add nuw nsw i64 %.012712, 1
   %exitcond16.not = icmp eq i64 %105, %86
@@ -854,7 +854,7 @@ Py_DECREF.exit.sink.split.i:                      ; preds = %70, %58
 
 126:                                              ; preds = %115
   %.val178 = load ptr, ptr %114, align 8, !tbaa !43
-  %127 = getelementptr ptr, ptr %.val178, i64 %.012910
+  %127 = getelementptr [8 x i8], ptr %.val178, i64 %.012910
   store ptr %119, ptr %127, align 8, !tbaa !18
   %128 = add nuw nsw i64 %.012910, 1
   %exitcond.not = icmp eq i64 %128, %109
@@ -959,7 +959,7 @@ Py_DECREF.exit.sink.split.i:                      ; preds = %70, %58
 
 174:                                              ; preds = %164
   %.val179 = load ptr, ptr %163, align 8, !tbaa !43
-  %175 = getelementptr ptr, ptr %.val179, i64 %.01289
+  %175 = getelementptr [8 x i8], ptr %.val179, i64 %.01289
   store ptr %167, ptr %175, align 8, !tbaa !18
   %176 = add nuw nsw i64 %.01289, 1
   %177 = icmp slt i64 %176, %79
@@ -1287,7 +1287,7 @@ define internal range(i32 -1, 2) i32 @BB_compareitems(ptr noundef readonly captu
 define internal ptr @u_getitem(ptr noundef readonly captures(none) %0, i64 noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !53
-  %5 = getelementptr i32, ptr %4, i64 %1
+  %5 = getelementptr [4 x i8], ptr %4, i64 %1
   %6 = load i32, ptr %5, align 4, !tbaa !34
   %7 = tail call ptr @PyUnicode_FromOrdinal(i32 noundef %6) #12
   ret ptr %7
@@ -1339,7 +1339,7 @@ define internal range(i32 -1, 1) i32 @u_setitem(ptr noundef readonly captures(no
   %24 = load i32, ptr %4, align 4, !tbaa !34
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %26 = load ptr, ptr %25, align 8, !tbaa !53
-  %27 = getelementptr i32, ptr %26, i64 %1
+  %27 = getelementptr [4 x i8], ptr %26, i64 %1
   store i32 %24, ptr %27, align 4, !tbaa !34
   br label %28
 
@@ -1364,9 +1364,9 @@ define internal range(i32 -1, 2) i32 @u_compareitems(ptr noundef readonly captur
 
 .lr.ph:                                           ; preds = %3, %4
   %.01421 = phi i64 [ %5, %4 ], [ 0, %3 ]
-  %6 = getelementptr i32, ptr %0, i64 %.01421
+  %6 = getelementptr [4 x i8], ptr %0, i64 %.01421
   %7 = load i32, ptr %6, align 4, !tbaa !34
-  %8 = getelementptr i32, ptr %1, i64 %.01421
+  %8 = getelementptr [4 x i8], ptr %1, i64 %.01421
   %9 = load i32, ptr %8, align 4, !tbaa !34
   %.not = icmp eq i32 %7, %9
   br i1 %.not, label %4, label %10
@@ -1385,7 +1385,7 @@ define internal range(i32 -1, 2) i32 @u_compareitems(ptr noundef readonly captur
 define internal ptr @w_getitem(ptr noundef readonly captures(none) %0, i64 noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !53
-  %5 = getelementptr i32, ptr %4, i64 %1
+  %5 = getelementptr [4 x i8], ptr %4, i64 %1
   %6 = load i32, ptr %5, align 4, !tbaa !34
   %7 = tail call ptr @PyUnicode_FromOrdinal(i32 noundef %6) #12
   ret ptr %7
@@ -1498,7 +1498,7 @@ PyUnicode_READ_CHAR.exit:                         ; preds = %_PyUnicode_DATA.exi
   %.0.i = phi i32 [ %28, %_PyUnicode_DATA.exit.i ], [ %35, %_PyUnicode_DATA.exit17.i ], [ %41, %_PyUnicode_DATA.exit25.i ]
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %43 = load ptr, ptr %42, align 8, !tbaa !53
-  %44 = getelementptr i32, ptr %43, i64 %1
+  %44 = getelementptr [4 x i8], ptr %43, i64 %1
   store i32 %.0.i, ptr %44, align 4, !tbaa !34
   br label %45
 
@@ -1519,9 +1519,9 @@ define internal range(i32 -1, 2) i32 @w_compareitems(ptr noundef readonly captur
 
 .lr.ph:                                           ; preds = %3, %4
   %.01421 = phi i64 [ %5, %4 ], [ 0, %3 ]
-  %6 = getelementptr i32, ptr %0, i64 %.01421
+  %6 = getelementptr [4 x i8], ptr %0, i64 %.01421
   %7 = load i32, ptr %6, align 4, !tbaa !34
-  %8 = getelementptr i32, ptr %1, i64 %.01421
+  %8 = getelementptr [4 x i8], ptr %1, i64 %.01421
   %9 = load i32, ptr %8, align 4, !tbaa !34
   %.not = icmp eq i32 %7, %9
   br i1 %.not, label %4, label %10
@@ -1540,7 +1540,7 @@ define internal range(i32 -1, 2) i32 @w_compareitems(ptr noundef readonly captur
 define internal ptr @h_getitem(ptr noundef readonly captures(none) %0, i64 noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !53
-  %5 = getelementptr i16, ptr %4, i64 %1
+  %5 = getelementptr [2 x i8], ptr %4, i64 %1
   %6 = load i16, ptr %5, align 2, !tbaa !33
   %7 = sext i16 %6 to i64
   %8 = tail call ptr @PyLong_FromLong(i64 noundef %7) #12
@@ -1563,7 +1563,7 @@ define internal range(i32 -1, 1) i32 @h_setitem(ptr noundef readonly captures(no
   %9 = load i16, ptr %4, align 2, !tbaa !33
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8, !tbaa !53
-  %12 = getelementptr i16, ptr %11, i64 %1
+  %12 = getelementptr [2 x i8], ptr %11, i64 %1
   store i16 %9, ptr %12, align 2, !tbaa !33
   br label %13
 
@@ -1585,9 +1585,9 @@ define internal range(i32 -1, 2) i32 @h_compareitems(ptr noundef readonly captur
 
 .lr.ph:                                           ; preds = %3, %4
   %.01421 = phi i64 [ %5, %4 ], [ 0, %3 ]
-  %6 = getelementptr i16, ptr %0, i64 %.01421
+  %6 = getelementptr [2 x i8], ptr %0, i64 %.01421
   %7 = load i16, ptr %6, align 2, !tbaa !33
-  %8 = getelementptr i16, ptr %1, i64 %.01421
+  %8 = getelementptr [2 x i8], ptr %1, i64 %.01421
   %9 = load i16, ptr %8, align 2, !tbaa !33
   %.not = icmp eq i16 %7, %9
   br i1 %.not, label %4, label %10
@@ -1606,7 +1606,7 @@ define internal range(i32 -1, 2) i32 @h_compareitems(ptr noundef readonly captur
 define internal ptr @HH_getitem(ptr noundef readonly captures(none) %0, i64 noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !53
-  %5 = getelementptr i16, ptr %4, i64 %1
+  %5 = getelementptr [2 x i8], ptr %4, i64 %1
   %6 = load i16, ptr %5, align 2, !tbaa !33
   %7 = zext i16 %6 to i64
   %8 = tail call ptr @PyLong_FromLong(i64 noundef %7) #12
@@ -1648,7 +1648,7 @@ define internal range(i32 -1, 1) i32 @HH_setitem(ptr noundef readonly captures(n
   %18 = trunc nuw i32 %7 to i16
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %20 = load ptr, ptr %19, align 8, !tbaa !53
-  %21 = getelementptr i16, ptr %20, i64 %1
+  %21 = getelementptr [2 x i8], ptr %20, i64 %1
   store i16 %18, ptr %21, align 2, !tbaa !33
   br label %22
 
@@ -1670,9 +1670,9 @@ define internal range(i32 -1, 2) i32 @HH_compareitems(ptr noundef readonly captu
 
 .lr.ph:                                           ; preds = %3, %4
   %.01421 = phi i64 [ %5, %4 ], [ 0, %3 ]
-  %6 = getelementptr i16, ptr %0, i64 %.01421
+  %6 = getelementptr [2 x i8], ptr %0, i64 %.01421
   %7 = load i16, ptr %6, align 2, !tbaa !33
-  %8 = getelementptr i16, ptr %1, i64 %.01421
+  %8 = getelementptr [2 x i8], ptr %1, i64 %.01421
   %9 = load i16, ptr %8, align 2, !tbaa !33
   %.not = icmp eq i16 %7, %9
   br i1 %.not, label %4, label %10
@@ -1691,7 +1691,7 @@ define internal range(i32 -1, 2) i32 @HH_compareitems(ptr noundef readonly captu
 define internal ptr @i_getitem(ptr noundef readonly captures(none) %0, i64 noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !53
-  %5 = getelementptr i32, ptr %4, i64 %1
+  %5 = getelementptr [4 x i8], ptr %4, i64 %1
   %6 = load i32, ptr %5, align 4, !tbaa !34
   %7 = sext i32 %6 to i64
   %8 = tail call ptr @PyLong_FromLong(i64 noundef %7) #12
@@ -1714,7 +1714,7 @@ define internal range(i32 -1, 1) i32 @i_setitem(ptr noundef readonly captures(no
   %9 = load i32, ptr %4, align 4, !tbaa !34
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8, !tbaa !53
-  %12 = getelementptr i32, ptr %11, i64 %1
+  %12 = getelementptr [4 x i8], ptr %11, i64 %1
   store i32 %9, ptr %12, align 4, !tbaa !34
   br label %13
 
@@ -1736,9 +1736,9 @@ define internal range(i32 -1, 2) i32 @i_compareitems(ptr noundef readonly captur
 
 .lr.ph:                                           ; preds = %3, %4
   %.01421 = phi i64 [ %5, %4 ], [ 0, %3 ]
-  %6 = getelementptr i32, ptr %0, i64 %.01421
+  %6 = getelementptr [4 x i8], ptr %0, i64 %.01421
   %7 = load i32, ptr %6, align 4, !tbaa !34
-  %8 = getelementptr i32, ptr %1, i64 %.01421
+  %8 = getelementptr [4 x i8], ptr %1, i64 %.01421
   %9 = load i32, ptr %8, align 4, !tbaa !34
   %.not = icmp eq i32 %7, %9
   br i1 %.not, label %4, label %10
@@ -1757,7 +1757,7 @@ define internal range(i32 -1, 2) i32 @i_compareitems(ptr noundef readonly captur
 define internal ptr @II_getitem(ptr noundef readonly captures(none) %0, i64 noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !53
-  %5 = getelementptr i32, ptr %4, i64 %1
+  %5 = getelementptr [4 x i8], ptr %4, i64 %1
   %6 = load i32, ptr %5, align 4, !tbaa !34
   %7 = zext i32 %6 to i64
   %8 = tail call ptr @PyLong_FromUnsignedLong(i64 noundef %7) #12
@@ -1832,7 +1832,7 @@ define internal range(i32 -1, 1) i32 @II_setitem(ptr noundef readonly captures(n
   %32 = trunc nuw i64 %11 to i32
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %34 = load ptr, ptr %33, align 8, !tbaa !53
-  %35 = getelementptr i32, ptr %34, i64 %1
+  %35 = getelementptr [4 x i8], ptr %34, i64 %1
   store i32 %32, ptr %35, align 4, !tbaa !34
   br label %36
 
@@ -1872,9 +1872,9 @@ define internal range(i32 -1, 2) i32 @II_compareitems(ptr noundef readonly captu
 
 .lr.ph:                                           ; preds = %3, %4
   %.01421 = phi i64 [ %5, %4 ], [ 0, %3 ]
-  %6 = getelementptr i32, ptr %0, i64 %.01421
+  %6 = getelementptr [4 x i8], ptr %0, i64 %.01421
   %7 = load i32, ptr %6, align 4, !tbaa !34
-  %8 = getelementptr i32, ptr %1, i64 %.01421
+  %8 = getelementptr [4 x i8], ptr %1, i64 %.01421
   %9 = load i32, ptr %8, align 4, !tbaa !34
   %.not = icmp eq i32 %7, %9
   br i1 %.not, label %4, label %10
@@ -1893,7 +1893,7 @@ define internal range(i32 -1, 2) i32 @II_compareitems(ptr noundef readonly captu
 define internal ptr @l_getitem(ptr noundef readonly captures(none) %0, i64 noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !53
-  %5 = getelementptr i64, ptr %4, i64 %1
+  %5 = getelementptr [8 x i8], ptr %4, i64 %1
   %6 = load i64, ptr %5, align 8, !tbaa !64
   %7 = tail call ptr @PyLong_FromLong(i64 noundef %6) #12
   ret ptr %7
@@ -1915,7 +1915,7 @@ define internal range(i32 -1, 1) i32 @l_setitem(ptr noundef readonly captures(no
   %9 = load i64, ptr %4, align 8, !tbaa !64
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8, !tbaa !53
-  %12 = getelementptr i64, ptr %11, i64 %1
+  %12 = getelementptr [8 x i8], ptr %11, i64 %1
   store i64 %9, ptr %12, align 8, !tbaa !64
   br label %13
 
@@ -1937,9 +1937,9 @@ define internal range(i32 -1, 2) i32 @l_compareitems(ptr noundef readonly captur
 
 .lr.ph:                                           ; preds = %3, %4
   %.01421 = phi i64 [ %5, %4 ], [ 0, %3 ]
-  %6 = getelementptr i64, ptr %0, i64 %.01421
+  %6 = getelementptr [8 x i8], ptr %0, i64 %.01421
   %7 = load i64, ptr %6, align 8, !tbaa !64
-  %8 = getelementptr i64, ptr %1, i64 %.01421
+  %8 = getelementptr [8 x i8], ptr %1, i64 %.01421
   %9 = load i64, ptr %8, align 8, !tbaa !64
   %.not = icmp eq i64 %7, %9
   br i1 %.not, label %4, label %10
@@ -1958,7 +1958,7 @@ define internal range(i32 -1, 2) i32 @l_compareitems(ptr noundef readonly captur
 define internal ptr @LL_getitem(ptr noundef readonly captures(none) %0, i64 noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !53
-  %5 = getelementptr i64, ptr %4, i64 %1
+  %5 = getelementptr [8 x i8], ptr %4, i64 %1
   %6 = load i64, ptr %5, align 8, !tbaa !64
   %7 = tail call ptr @PyLong_FromUnsignedLong(i64 noundef %6) #12
   ret ptr %7
@@ -2011,7 +2011,7 @@ define internal range(i32 -1, 1) i32 @LL_setitem(ptr noundef readonly captures(n
 23:                                               ; preds = %21
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %25 = load ptr, ptr %24, align 8, !tbaa !53
-  %26 = getelementptr i64, ptr %25, i64 %1
+  %26 = getelementptr [8 x i8], ptr %25, i64 %1
   store i64 %11, ptr %26, align 8, !tbaa !64
   br label %27
 
@@ -2051,9 +2051,9 @@ define internal range(i32 -1, 2) i32 @LL_compareitems(ptr noundef readonly captu
 
 .lr.ph:                                           ; preds = %3, %4
   %.01421 = phi i64 [ %5, %4 ], [ 0, %3 ]
-  %6 = getelementptr i64, ptr %0, i64 %.01421
+  %6 = getelementptr [8 x i8], ptr %0, i64 %.01421
   %7 = load i64, ptr %6, align 8, !tbaa !64
-  %8 = getelementptr i64, ptr %1, i64 %.01421
+  %8 = getelementptr [8 x i8], ptr %1, i64 %.01421
   %9 = load i64, ptr %8, align 8, !tbaa !64
   %.not = icmp eq i64 %7, %9
   br i1 %.not, label %4, label %10
@@ -2072,7 +2072,7 @@ define internal range(i32 -1, 2) i32 @LL_compareitems(ptr noundef readonly captu
 define internal ptr @q_getitem(ptr noundef readonly captures(none) %0, i64 noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !53
-  %5 = getelementptr i64, ptr %4, i64 %1
+  %5 = getelementptr [8 x i8], ptr %4, i64 %1
   %6 = load i64, ptr %5, align 8, !tbaa !67
   %7 = tail call ptr @PyLong_FromLongLong(i64 noundef %6) #12
   ret ptr %7
@@ -2094,7 +2094,7 @@ define internal range(i32 -1, 1) i32 @q_setitem(ptr noundef readonly captures(no
   %9 = load i64, ptr %4, align 8, !tbaa !67
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8, !tbaa !53
-  %12 = getelementptr i64, ptr %11, i64 %1
+  %12 = getelementptr [8 x i8], ptr %11, i64 %1
   store i64 %9, ptr %12, align 8, !tbaa !67
   br label %13
 
@@ -2116,9 +2116,9 @@ define internal range(i32 -1, 2) i32 @q_compareitems(ptr noundef readonly captur
 
 .lr.ph:                                           ; preds = %3, %4
   %.01421 = phi i64 [ %5, %4 ], [ 0, %3 ]
-  %6 = getelementptr i64, ptr %0, i64 %.01421
+  %6 = getelementptr [8 x i8], ptr %0, i64 %.01421
   %7 = load i64, ptr %6, align 8, !tbaa !67
-  %8 = getelementptr i64, ptr %1, i64 %.01421
+  %8 = getelementptr [8 x i8], ptr %1, i64 %.01421
   %9 = load i64, ptr %8, align 8, !tbaa !67
   %.not = icmp eq i64 %7, %9
   br i1 %.not, label %4, label %10
@@ -2137,7 +2137,7 @@ define internal range(i32 -1, 2) i32 @q_compareitems(ptr noundef readonly captur
 define internal ptr @QQ_getitem(ptr noundef readonly captures(none) %0, i64 noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !53
-  %5 = getelementptr i64, ptr %4, i64 %1
+  %5 = getelementptr [8 x i8], ptr %4, i64 %1
   %6 = load i64, ptr %5, align 8, !tbaa !67
   %7 = tail call ptr @PyLong_FromUnsignedLongLong(i64 noundef %6) #12
   ret ptr %7
@@ -2190,7 +2190,7 @@ define internal range(i32 -1, 1) i32 @QQ_setitem(ptr noundef readonly captures(n
 23:                                               ; preds = %21
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %25 = load ptr, ptr %24, align 8, !tbaa !53
-  %26 = getelementptr i64, ptr %25, i64 %1
+  %26 = getelementptr [8 x i8], ptr %25, i64 %1
   store i64 %11, ptr %26, align 8, !tbaa !67
   br label %27
 
@@ -2230,9 +2230,9 @@ define internal range(i32 -1, 2) i32 @QQ_compareitems(ptr noundef readonly captu
 
 .lr.ph:                                           ; preds = %3, %4
   %.01421 = phi i64 [ %5, %4 ], [ 0, %3 ]
-  %6 = getelementptr i64, ptr %0, i64 %.01421
+  %6 = getelementptr [8 x i8], ptr %0, i64 %.01421
   %7 = load i64, ptr %6, align 8, !tbaa !67
-  %8 = getelementptr i64, ptr %1, i64 %.01421
+  %8 = getelementptr [8 x i8], ptr %1, i64 %.01421
   %9 = load i64, ptr %8, align 8, !tbaa !67
   %.not = icmp eq i64 %7, %9
   br i1 %.not, label %4, label %10
@@ -2251,7 +2251,7 @@ define internal range(i32 -1, 2) i32 @QQ_compareitems(ptr noundef readonly captu
 define internal ptr @f_getitem(ptr noundef readonly captures(none) %0, i64 noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !53
-  %5 = getelementptr float, ptr %4, i64 %1
+  %5 = getelementptr [4 x i8], ptr %4, i64 %1
   %6 = load float, ptr %5, align 4, !tbaa !71
   %7 = fpext float %6 to double
   %8 = tail call ptr @PyFloat_FromDouble(double noundef %7) #12
@@ -2274,7 +2274,7 @@ define internal range(i32 -1, 1) i32 @f_setitem(ptr noundef readonly captures(no
   %9 = load float, ptr %4, align 4, !tbaa !71
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8, !tbaa !53
-  %12 = getelementptr float, ptr %11, i64 %1
+  %12 = getelementptr [4 x i8], ptr %11, i64 %1
   store float %9, ptr %12, align 4, !tbaa !71
   br label %13
 
@@ -2288,7 +2288,7 @@ define internal range(i32 -1, 1) i32 @f_setitem(ptr noundef readonly captures(no
 define internal ptr @d_getitem(ptr noundef readonly captures(none) %0, i64 noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !53
-  %5 = getelementptr double, ptr %4, i64 %1
+  %5 = getelementptr [8 x i8], ptr %4, i64 %1
   %6 = load double, ptr %5, align 8, !tbaa !73
   %7 = tail call ptr @PyFloat_FromDouble(double noundef %6) #12
   ret ptr %7
@@ -2310,7 +2310,7 @@ define internal range(i32 -1, 1) i32 @d_setitem(ptr noundef readonly captures(no
   %9 = load double, ptr %4, align 8, !tbaa !73
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8, !tbaa !53
-  %12 = getelementptr double, ptr %11, i64 %1
+  %12 = getelementptr [8 x i8], ptr %11, i64 %1
   store double %9, ptr %12, align 8, !tbaa !73
   br label %13
 
@@ -3753,7 +3753,7 @@ define internal ptr @array_repr(ptr noundef %0) #0 {
 
 38:                                               ; preds = %32
   %.val20.i = load ptr, ptr %31, align 8, !tbaa !43
-  %39 = getelementptr ptr, ptr %.val20.i, i64 %.01523.i
+  %39 = getelementptr [8 x i8], ptr %.val20.i, i64 %.01523.i
   store ptr %36, ptr %39, align 8, !tbaa !18
   %40 = add nuw nsw i64 %.01523.i, 1
   %.val.i21 = load i64, ptr %3, align 8, !tbaa !40
@@ -6040,7 +6040,7 @@ define internal noundef ptr @array_array_fromlist(ptr noundef %0, ptr noundef %1
 21:                                               ; preds = %.lr.ph, %19
   %.02938 = phi i64 [ 0, %.lr.ph ], [ %20, %19 ]
   %22 = load ptr, ptr %16, align 8, !tbaa !43
-  %23 = getelementptr ptr, ptr %22, i64 %.02938
+  %23 = getelementptr [8 x i8], ptr %22, i64 %.02938
   %24 = load ptr, ptr %23, align 8, !tbaa !18
   %25 = load ptr, ptr %17, align 8, !tbaa !76
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
@@ -6120,7 +6120,7 @@ define internal ptr @array_array_fromunicode(ptr noundef captures(none) %0, ptr 
 24:                                               ; preds = %19
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %26 = load ptr, ptr %25, align 8, !tbaa !53
-  %27 = getelementptr i32, ptr %26, i64 %.val41.i
+  %27 = getelementptr [4 x i8], ptr %26, i64 %.val41.i
   %28 = tail call i64 @PyUnicode_AsWideChar(ptr noundef nonnull %1, ptr noundef %27, i64 noundef %20) #12
   br label %array_array_fromunicode_impl.exit
 
@@ -6144,7 +6144,7 @@ define internal ptr @array_array_fromunicode(ptr noundef captures(none) %0, ptr 
 39:                                               ; preds = %36
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %41 = load ptr, ptr %40, align 8, !tbaa !53
-  %42 = getelementptr i32, ptr %41, i64 %.val.i
+  %42 = getelementptr [4 x i8], ptr %41, i64 %.val.i
   %43 = tail call ptr @PyUnicode_AsUCS4(ptr noundef nonnull %1, ptr noundef %42, i64 noundef %30, i32 noundef 0) #12
   br label %array_array_fromunicode_impl.exit
 
@@ -6688,7 +6688,7 @@ _Py_NewRef.exit.i:                                ; preds = %49, %46
 
 67:                                               ; preds = %61
   %.val20.i.i = load ptr, ptr %60, align 8, !tbaa !43
-  %68 = getelementptr ptr, ptr %.val20.i.i, i64 %.01523.i.i
+  %68 = getelementptr [8 x i8], ptr %.val20.i.i, i64 %.01523.i.i
   store ptr %65, ptr %68, align 8, !tbaa !18
   %69 = add nuw nsw i64 %.01523.i.i, 1
   %.val.i.i = load i64, ptr %55, align 8, !tbaa !40
@@ -7123,7 +7123,7 @@ define internal ptr @array_array_tolist(ptr noundef %0, ptr readnone captures(no
 
 15:                                               ; preds = %9
   %.val20.i = load ptr, ptr %8, align 8, !tbaa !43
-  %16 = getelementptr ptr, ptr %.val20.i, i64 %.01523.i
+  %16 = getelementptr [8 x i8], ptr %.val20.i, i64 %.01523.i
   store ptr %13, ptr %16, align 8, !tbaa !18
   %17 = add nuw nsw i64 %.01523.i, 1
   %.val.i = load i64, ptr %3, align 8, !tbaa !40

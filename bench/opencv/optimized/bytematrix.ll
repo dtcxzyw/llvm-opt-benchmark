@@ -84,7 +84,7 @@ define hidden void @_ZN5zxing10ByteMatrixC2Ei(ptr noundef nonnull writeonly alig
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %store_forwarded = phi i32 [ %load_initial, %.lr.ph.i.preheader ], [ %16, %.lr.ph.i ]
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.i.preheader ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %15 = getelementptr i32, ptr %13, i64 %indvars.iv.i
+  %15 = getelementptr [4 x i8], ptr %13, i64 %indvars.iv.i
   %16 = add nsw i32 %store_forwarded, %1
   store i32 %16, ptr %15, align 4, !tbaa !18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -133,7 +133,7 @@ define hidden void @_ZN5zxing10ByteMatrixC2Eii(ptr noundef nonnull writeonly ali
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %store_forwarded = phi i32 [ %load_initial, %.lr.ph.i.preheader ], [ %19, %.lr.ph.i ]
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.i.preheader ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %18 = getelementptr i32, ptr %15, i64 %indvars.iv.i
+  %18 = getelementptr [4 x i8], ptr %15, i64 %indvars.iv.i
   %19 = add nsw i32 %store_forwarded, %1
   store i32 %19, ptr %18, align 4, !tbaa !18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -186,7 +186,7 @@ define hidden void @_ZN5zxing10ByteMatrixC2EiiNS_8ArrayRefIcEE(ptr noundef nonnu
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %store_forwarded = phi i32 [ %load_initial, %.lr.ph.i.preheader ], [ %20, %.lr.ph.i ]
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.i.preheader ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %19 = getelementptr i32, ptr %16, i64 %indvars.iv.i
+  %19 = getelementptr [4 x i8], ptr %16, i64 %indvars.iv.i
   %20 = add nsw i32 %store_forwarded, %1
   store i32 %20, ptr %19, align 4, !tbaa !18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -326,7 +326,7 @@ _ZN5zxing12ErrorHandlerD2Ev.exit10:               ; preds = %16, %_ZNKSt7__cxx11
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %26 = load ptr, ptr %25, align 8, !tbaa !17
   %27 = zext nneg i32 %1 to i64
-  %28 = getelementptr inbounds nuw i32, ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %27
   %29 = load i32, ptr %28, align 4, !tbaa !18
   %30 = sext i32 %29 to i64
   %31 = getelementptr inbounds i8, ptr %24, i64 %30

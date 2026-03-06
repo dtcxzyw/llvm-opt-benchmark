@@ -20,7 +20,7 @@ define void @dlarge_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %9 = load i32, ptr %2, align 4, !tbaa !3
   %narrow = xor i32 %9, -1
   %10 = sext i32 %narrow to i64
-  %11 = getelementptr inbounds double, ptr %1, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %1, i64 %10
   %12 = getelementptr inbounds i8, ptr %4, i64 -8
   store i32 0, ptr %5, align 4, !tbaa !3
   %13 = load i32, ptr %0, align 4, !tbaa !3
@@ -49,7 +49,7 @@ define void @dlarge_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %23 = zext nneg i32 %13 to i64
   %24 = sext i32 %9 to i64
-  %invariant.gep = getelementptr double, ptr %11, i64 %24
+  %invariant.gep = getelementptr [8 x i8], ptr %11, i64 %24
   br label %25
 
 25:                                               ; preds = %.lr.ph, %44
@@ -92,9 +92,9 @@ define void @dlarge_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %reass.sub90 = sub i32 %45, %27
   %46 = add i32 %reass.sub90, 1
   store i32 %46, ptr %7, align 4, !tbaa !3
-  %gep = getelementptr double, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %indvars.iv
   %47 = sext i32 %45 to i64
-  %48 = getelementptr double, ptr %12, i64 %47
+  %48 = getelementptr [8 x i8], ptr %12, i64 %47
   %49 = getelementptr i8, ptr %48, i64 8
   call void @dgemv_(ptr noundef nonnull @.str.1, ptr noundef nonnull %7, ptr noundef nonnull %0, ptr noundef nonnull @c_b8, ptr noundef %gep, ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef nonnull @c__1, ptr noundef nonnull @c_b10, ptr noundef %49, ptr noundef nonnull @c__1) #4
   %50 = load i32, ptr %0, align 4, !tbaa !3
@@ -104,7 +104,7 @@ define void @dlarge_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %52 = fneg double %.0
   store double %52, ptr %8, align 8, !tbaa !7
   %53 = sext i32 %50 to i64
-  %54 = getelementptr double, ptr %12, i64 %53
+  %54 = getelementptr [8 x i8], ptr %12, i64 %53
   %55 = getelementptr i8, ptr %54, i64 8
   call void @dger_(ptr noundef nonnull %7, ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef nonnull %4, ptr noundef nonnull @c__1, ptr noundef %55, ptr noundef nonnull @c__1, ptr noundef %gep, ptr noundef nonnull %2) #4
   %56 = load i32, ptr %0, align 4, !tbaa !3
@@ -112,10 +112,10 @@ define void @dlarge_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %57 = add i32 %reass.sub92, 1
   store i32 %57, ptr %7, align 4, !tbaa !3
   %58 = mul nsw i64 %indvars.iv, %24
-  %59 = getelementptr double, ptr %11, i64 %58
+  %59 = getelementptr [8 x i8], ptr %11, i64 %58
   %60 = getelementptr i8, ptr %59, i64 8
   %61 = sext i32 %56 to i64
-  %62 = getelementptr double, ptr %12, i64 %61
+  %62 = getelementptr [8 x i8], ptr %12, i64 %61
   %63 = getelementptr i8, ptr %62, i64 8
   call void @dgemv_(ptr noundef nonnull @.str.2, ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef nonnull @c_b8, ptr noundef %60, ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef nonnull @c__1, ptr noundef nonnull @c_b10, ptr noundef %63, ptr noundef nonnull @c__1) #4
   %64 = load i32, ptr %0, align 4, !tbaa !3
@@ -124,7 +124,7 @@ define void @dlarge_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %65, ptr %7, align 4, !tbaa !3
   store double %52, ptr %8, align 8, !tbaa !7
   %66 = sext i32 %64 to i64
-  %67 = getelementptr double, ptr %12, i64 %66
+  %67 = getelementptr [8 x i8], ptr %12, i64 %66
   %68 = getelementptr i8, ptr %67, i64 8
   call void @dger_(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %68, ptr noundef nonnull @c__1, ptr noundef nonnull %4, ptr noundef nonnull @c__1, ptr noundef %60, ptr noundef nonnull %2) #4
   %indvars.iv.next = add nsw i64 %indvars.iv, -1

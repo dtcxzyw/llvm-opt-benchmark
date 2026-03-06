@@ -27,7 +27,7 @@ define dso_local noalias noundef ptr @onig_st_init_table_with_size(ptr noundef %
 
 new_size.exit:                                    ; preds = %3
   %8 = zext nneg i32 %.0710.i to i64
-  %9 = getelementptr inbounds nuw i64, ptr @primes, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr @primes, i64 %8
   %10 = load i64, ptr %9, align 8, !tbaa !6
   %11 = trunc i64 %10 to i32
   %12 = icmp slt i32 %11, 1
@@ -141,7 +141,7 @@ define dso_local noalias noundef ptr @onig_st_init_numtable_with_size(i32 nounde
 
 new_size.exit.i:                                  ; preds = %2
   %7 = zext nneg i32 %.0710.i.i to i64
-  %8 = getelementptr inbounds nuw i64, ptr @primes, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr @primes, i64 %7
   %9 = load i64, ptr %8, align 8, !tbaa !6
   %10 = trunc i64 %9 to i32
   %11 = icmp slt i32 %10, 1
@@ -219,7 +219,7 @@ define dso_local noalias noundef ptr @onig_st_init_strtable_with_size(i32 nounde
 
 new_size.exit.i:                                  ; preds = %2
   %7 = zext nneg i32 %.0710.i.i to i64
-  %8 = getelementptr inbounds nuw i64, ptr @primes, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr @primes, i64 %7
   %9 = load i64, ptr %8, align 8, !tbaa !6
   %10 = trunc i64 %9 to i32
   %11 = icmp slt i32 %10, 1
@@ -267,7 +267,7 @@ define dso_local void @onig_st_free_table(ptr noundef captures(none) %0) local_u
   %7 = phi i32 [ %3, %.lr.ph15 ], [ %13, %._crit_edge ]
   %indvars.iv = phi i64 [ 0, %.lr.ph15 ], [ %indvars.iv.next, %._crit_edge ]
   %8 = load ptr, ptr %5, align 8, !tbaa !18
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !19
   %.not11 = icmp eq ptr %10, null
   br i1 %.not11, label %._crit_edge, label %.lr.ph
@@ -311,7 +311,7 @@ define dso_local range(i32 0, 2) i32 @onig_st_lookup(ptr noundef readonly captur
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8, !tbaa !18
   %13 = zext i32 %10 to i64
-  %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !19
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %.thread46, label %16
@@ -400,7 +400,7 @@ define dso_local range(i32 -5, 2) i32 @onig_st_insert(ptr noundef captures(none)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8, !tbaa !18
   %13 = zext i32 %10 to i64
-  %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !19
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %.thread68, label %16
@@ -487,7 +487,7 @@ define dso_local range(i32 -5, 2) i32 @onig_st_insert(ptr noundef captures(none)
 
 new_size.exit.i:                                  ; preds = %53
   %58 = zext nneg i32 %.0710.i.i to i64
-  %59 = getelementptr inbounds nuw i64, ptr @primes, i64 %58
+  %59 = getelementptr inbounds nuw [8 x i8], ptr @primes, i64 %58
   %60 = load i64, ptr %59, align 8, !tbaa !6
   %61 = trunc i64 %60 to i32
   %62 = icmp slt i32 %61, 1
@@ -510,7 +510,7 @@ new_size.exit.i:                                  ; preds = %53
 
 69:                                               ; preds = %._crit_edge.i, %.lr.ph33.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph33.i ], [ %indvars.iv.next.i, %._crit_edge.i ]
-  %70 = getelementptr inbounds nuw ptr, ptr %68, i64 %indvars.iv.i
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %indvars.iv.i
   %71 = load ptr, ptr %70, align 8, !tbaa !19
   %.not30.i = icmp eq ptr %71, null
   br i1 %.not30.i, label %._crit_edge.i, label %.lr.ph.i
@@ -522,7 +522,7 @@ new_size.exit.i:                                  ; preds = %53
   %74 = load i32, ptr %.031.i, align 8, !tbaa !27
   %75 = urem i32 %74, %61
   %76 = zext nneg i32 %75 to i64
-  %77 = getelementptr inbounds nuw ptr, ptr %65, i64 %76
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %76
   %78 = load ptr, ptr %77, align 8, !tbaa !19
   store ptr %78, ptr %72, align 8, !tbaa !21
   store ptr %.031.i, ptr %77, align 8, !tbaa !19
@@ -559,7 +559,7 @@ rehash.exit:                                      ; preds = %55, %new_size.exit.
   store i64 %2, ptr %85, align 8, !tbaa !31
   %86 = load ptr, ptr %11, align 8, !tbaa !18
   %87 = zext i32 %.052 to i64
-  %88 = getelementptr inbounds nuw ptr, ptr %86, i64 %87
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %86, i64 %87
   %89 = load ptr, ptr %88, align 8, !tbaa !19
   %90 = getelementptr inbounds nuw i8, ptr %82, i64 24
   store ptr %89, ptr %90, align 8, !tbaa !21
@@ -612,7 +612,7 @@ define dso_local void @onig_st_add_direct(ptr noundef captures(none) %0, i64 nou
 
 new_size.exit.i:                                  ; preds = %16
   %21 = zext nneg i32 %.0710.i.i to i64
-  %22 = getelementptr inbounds nuw i64, ptr @primes, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr @primes, i64 %21
   %23 = load i64, ptr %22, align 8, !tbaa !6
   %24 = trunc i64 %23 to i32
   %25 = icmp slt i32 %24, 1
@@ -636,7 +636,7 @@ new_size.exit.i:                                  ; preds = %16
 
 33:                                               ; preds = %._crit_edge.i, %.lr.ph33.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph33.i ], [ %indvars.iv.next.i, %._crit_edge.i ]
-  %34 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv.i
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv.i
   %35 = load ptr, ptr %34, align 8, !tbaa !19
   %.not30.i = icmp eq ptr %35, null
   br i1 %.not30.i, label %._crit_edge.i, label %.lr.ph.i
@@ -648,7 +648,7 @@ new_size.exit.i:                                  ; preds = %16
   %38 = load i32, ptr %.031.i, align 8, !tbaa !27
   %39 = urem i32 %38, %24
   %40 = zext nneg i32 %39 to i64
-  %41 = getelementptr inbounds nuw ptr, ptr %28, i64 %40
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %40
   %42 = load ptr, ptr %41, align 8, !tbaa !19
   store ptr %42, ptr %36, align 8, !tbaa !21
   store ptr %.031.i, ptr %41, align 8, !tbaa !19
@@ -682,7 +682,7 @@ rehash.exit:                                      ; preds = %18, %._crit_edge34.
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %49 = load ptr, ptr %48, align 8, !tbaa !18
   %50 = zext i32 %.023 to i64
-  %51 = getelementptr inbounds nuw ptr, ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %50
   %52 = load ptr, ptr %51, align 8, !tbaa !19
   %53 = getelementptr inbounds nuw i8, ptr %43, i64 24
   store ptr %52, ptr %53, align 8, !tbaa !21
@@ -724,9 +724,9 @@ define dso_local noalias noundef ptr @onig_st_copy(ptr noundef readonly captures
 
 14:                                               ; preds = %.lr.ph37, %._crit_edge
   %indvars.iv = phi i64 [ 0, %.lr.ph37 ], [ %indvars.iv.next, %._crit_edge ]
-  %15 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   store ptr null, ptr %15, align 8, !tbaa !19
-  %16 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %.03033 = load ptr, ptr %16, align 8, !tbaa !19
   %.not34 = icmp eq ptr %.03033, null
   br i1 %.not34, label %._crit_edge, label %.lr.ph
@@ -782,7 +782,7 @@ define dso_local range(i32 0, 2) i32 @onig_st_delete(ptr noundef captures(none) 
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8, !tbaa !18
   %14 = zext i32 %11 to i64
-  %15 = getelementptr inbounds nuw ptr, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !19
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %20
@@ -823,7 +823,7 @@ define dso_local range(i32 0, 2) i32 @onig_st_delete(ptr noundef captures(none) 
   %33 = phi ptr [ %.pre54, %._crit_edge ], [ %13, %20 ]
   %34 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %35 = load ptr, ptr %34, align 8, !tbaa !21
-  %36 = getelementptr inbounds nuw ptr, ptr %33, i64 %14
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %14
   store ptr %35, ptr %36, align 8, !tbaa !19
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %38 = load i32, ptr %37, align 4, !tbaa !16
@@ -910,7 +910,7 @@ define dso_local range(i32 0, 2) i32 @onig_st_delete_safe(ptr noundef captures(n
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8, !tbaa !18
   %15 = zext i32 %12 to i64
-  %16 = getelementptr inbounds nuw ptr, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !19
   %18 = icmp eq ptr %17, null
   br i1 %18, label %19, label %.preheader
@@ -1002,7 +1002,7 @@ define dso_local void @onig_st_cleanup_safe(ptr noundef captures(none) %0, i64 n
   %10 = phi i32 [ %6, %.lr.ph52.i ], [ %32, %._crit_edge.i ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph52.i ], [ %indvars.iv.next.i, %._crit_edge.i ]
   %11 = load ptr, ptr %8, align 8, !tbaa !18
-  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv.i
   %13 = load ptr, ptr %12, align 8, !tbaa !19
   %.not46.i = icmp eq ptr %13, null
   br i1 %.not46.i, label %._crit_edge.i, label %.lr.ph49.i
@@ -1028,7 +1028,7 @@ define dso_local void @onig_st_cleanup_safe(ptr noundef captures(none) %0, i64 n
 
 23:                                               ; preds = %19
   %24 = load ptr, ptr %8, align 8, !tbaa !18
-  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv.i
   store ptr %22, ptr %25, align 8, !tbaa !19
   br label %28
 
@@ -1082,7 +1082,7 @@ define dso_local range(i32 0, 2) i32 @onig_st_foreach(ptr noundef captures(none)
   %10 = phi i32 [ %5, %.lr.ph52 ], [ %44, %._crit_edge ]
   %indvars.iv = phi i64 [ 0, %.lr.ph52 ], [ %indvars.iv.next, %._crit_edge ]
   %11 = load ptr, ptr %7, align 8, !tbaa !18
-  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !19
   %.not46 = icmp eq ptr %13, null
   br i1 %.not46, label %._crit_edge, label %.lr.ph49
@@ -1110,7 +1110,7 @@ define dso_local range(i32 0, 2) i32 @onig_st_foreach(ptr noundef captures(none)
 
 23:                                               ; preds = %19
   %24 = load ptr, ptr %7, align 8, !tbaa !18
-  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv
   %.142 = load ptr, ptr %25, align 8, !tbaa !19
   %.not3843 = icmp eq ptr %.142, null
   br i1 %.not3843, label %.loopexit, label %.lr.ph
@@ -1139,7 +1139,7 @@ define dso_local range(i32 0, 2) i32 @onig_st_foreach(ptr noundef captures(none)
 
 35:                                               ; preds = %31
   %36 = load ptr, ptr %7, align 8, !tbaa !18
-  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv
   store ptr %34, ptr %37, align 8, !tbaa !19
   br label %40
 

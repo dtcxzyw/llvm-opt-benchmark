@@ -775,7 +775,7 @@ define dso_local i64 @pg_get_wal_replay_pause_state(ptr noundef readnone capture
 
 switch.lookup:                                    ; preds = %8
   %11 = zext nneg i32 %9 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.pg_get_wal_replay_pause_state, i64 %11
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.pg_get_wal_replay_pause_state, i64 %11
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %12
 

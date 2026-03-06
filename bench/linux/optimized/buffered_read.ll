@@ -21,7 +21,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_netfs_file_r
 %struct.cpumask = type { [1 x i64] }
 %struct.static_key_false = type { %struct.static_key }
 %struct.xa_state = type { ptr, i64, i8, i8, i8, i8, ptr, ptr, ptr, ptr }
-%struct.bio_vec = type { ptr, i32, i32 }
 %struct.readahead_control = type { ptr, ptr, ptr, i64, i32, i32, i8, i64 }
 
 @__UNIQUE_ID___addressable_netfs_readahead676 = internal global ptr @netfs_readahead, section ".discard.addressable", align 8
@@ -459,7 +458,7 @@ define dso_local void @netfs_rreq_unlock_folios(ptr noundef %0) local_unnamed_ad
 
 242:                                              ; preds = %236
   %243 = zext i8 %237 to i64
-  %244 = getelementptr ptr, ptr %235, i64 %243
+  %244 = getelementptr [8 x i8], ptr %235, i64 %243
   %245 = load volatile ptr, ptr %244, align 8
   %246 = ptrtoint ptr %245 to i64
   %247 = and i64 %246, 3
@@ -1039,7 +1038,7 @@ define dso_local i32 @netfs_read_folio(ptr noundef %0, ptr noundef %1) #0 align 
   %157 = tail call i32 @llvm.umin.i32(i32 %156, i32 4096)
   %158 = add i32 %154, 1
   %159 = zext i32 %154 to i64
-  %160 = getelementptr %struct.bio_vec, ptr %117, i64 %159
+  %160 = getelementptr [16 x i8], ptr %117, i64 %159
   store ptr %120, ptr %160, align 8
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 8
   store i32 %157, ptr %161, align 8
@@ -1058,7 +1057,7 @@ define dso_local i32 @netfs_read_folio(ptr noundef %0, ptr noundef %1) #0 align 
 168:                                              ; preds = %.loopexit
   %169 = add i32 %165, 1
   %170 = zext i32 %165 to i64
-  %171 = getelementptr %struct.bio_vec, ptr %117, i64 %170
+  %171 = getelementptr [16 x i8], ptr %117, i64 %170
   %172 = trunc i64 %113 to i32
   %173 = sub i32 %172, %103
   store ptr %1, ptr %171, align 8

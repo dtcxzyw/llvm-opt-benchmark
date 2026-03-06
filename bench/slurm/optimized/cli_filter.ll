@@ -7,7 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
 %struct.__pthread_internal_list = type { ptr, ptr }
 %struct.slurm_conf_t = type { i64, ptr, i16, ptr, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i16, ptr, ptr, i16, i32, ptr, i32, ptr, i32, i32, ptr, ptr, i64, i64, ptr, i16, i16, ptr, i32, i32, ptr, i32, ptr, i32, i16, i16, i16, ptr, i16, i16, ptr, ptr, i32, i16, i16, ptr, i32, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, i16, i16, ptr, i32, i32, i32, i16, i16, ptr, ptr, i16, ptr, ptr, i32, i32, i32, i32, i32, i64, i32, i32, i16, ptr, ptr, i32, ptr, ptr, ptr, i16, i32, ptr, ptr, i16, ptr, ptr, i32, i16, ptr, ptr, ptr, ptr, i32, i32, i16, i16, i32, ptr, i16, ptr, i32, i32, i32, i32, i32, i32, ptr, i16, ptr, ptr, i32, i16, ptr, i32, i16, i16, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i16, i16, ptr, i16, ptr, i16, ptr, i16, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, i32, ptr, i32, ptr, ptr, i16, ptr, ptr, i32, i16, ptr, ptr, i16, i16, ptr, i16, ptr, ptr, ptr, i32, ptr, i16, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, i32, i16, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, i16, ptr, ptr, ptr, i16, ptr, i16, ptr, i16, i16, ptr }
-%struct.cli_filter_ops = type { ptr, ptr, ptr }
 %struct.timeval = type { i64, i64 }
 
 @.str = private unnamed_addr constant [11 x i8] c"cli_filter\00", align 1
@@ -103,15 +102,15 @@ define dso_local range(i32 -1, 1) i32 @cli_filter_init() local_unnamed_addr #0 {
   %33 = load ptr, ptr @ops, align 8
   %34 = load i32, ptr @g_context_cnt, align 4
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds %struct.cli_filter_ops, ptr %33, i64 %35
+  %36 = getelementptr inbounds [24 x i8], ptr %33, i64 %35
   %37 = call ptr @plugin_context_create(ptr noundef nonnull @.str, ptr noundef %32, ptr noundef %36, ptr noundef nonnull @syms, i64 noundef 24) #9
   %38 = load ptr, ptr @g_context, align 8
   %39 = load i32, ptr @g_context_cnt, align 4
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds ptr, ptr %38, i64 %40
+  %41 = getelementptr inbounds [8 x i8], ptr %38, i64 %40
   store ptr %37, ptr %41, align 8
   %42 = load ptr, ptr @g_context, align 8
-  %43 = getelementptr inbounds ptr, ptr %42, i64 %40
+  %43 = getelementptr inbounds [8 x i8], ptr %42, i64 %40
   %44 = load ptr, ptr %43, align 8
   %.not15 = icmp eq ptr %44, null
   br i1 %.not15, label %45, label %48
@@ -223,7 +222,7 @@ define dso_local i32 @cli_filter_fini() local_unnamed_addr #0 {
   %8 = phi ptr [ %.pre22, %.lr.ph.preheader ], [ %15, %13 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %13 ]
   %.01119 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %13 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %.not16 = icmp eq ptr %10, null
   br i1 %.not16, label %13, label %11
@@ -305,7 +304,7 @@ define dso_local i32 @cli_filter_g_setup_defaults(ptr noundef %0, i1 noundef zer
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %15 = load ptr, ptr @ops, align 8
-  %16 = getelementptr inbounds nuw %struct.cli_filter_ops, ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [24 x i8], ptr %15, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i32 %17(ptr noundef %0, i1 noundef zeroext %1) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -385,7 +384,7 @@ define dso_local i32 @cli_filter_g_pre_submit(ptr noundef %0, i32 noundef %1) lo
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %15 = load ptr, ptr @ops, align 8
-  %16 = getelementptr inbounds nuw %struct.cli_filter_ops, ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [24 x i8], ptr %15, i64 %indvars.iv
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = tail call i32 %18(ptr noundef %0, i32 noundef %1) #9
@@ -458,7 +457,7 @@ define dso_local void @cli_filter_g_post_submit(i32 noundef %0, i32 noundef %1, 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %16 = load ptr, ptr @ops, align 8
-  %17 = getelementptr inbounds nuw %struct.cli_filter_ops, ptr %16, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [24 x i8], ptr %16, i64 %indvars.iv
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
   tail call void %19(i32 noundef %0, i32 noundef %1, i32 noundef %2) #9

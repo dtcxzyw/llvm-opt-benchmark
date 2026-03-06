@@ -3083,7 +3083,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_13Trace
   %40 = load i64, ptr %39, align 8
   %41 = urem i64 %38, %40
   %42 = load ptr, ptr %18, align 8
-  %43 = getelementptr inbounds ptr, ptr %42, i64 %41
+  %43 = getelementptr inbounds [8 x i8], ptr %42, i64 %41
   %44 = load ptr, ptr %43, align 8
   %.not.i.i.i.i = icmp eq ptr %44, null
   br i1 %.not.i.i.i.i, label %.loopexit, label %45
@@ -3712,7 +3712,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_13Trace
   %43 = load i64, ptr %42, align 8
   %44 = urem i64 %41, %43
   %45 = load ptr, ptr %38, align 8
-  %46 = getelementptr inbounds ptr, ptr %45, i64 %44
+  %46 = getelementptr inbounds [8 x i8], ptr %45, i64 %44
   %47 = load ptr, ptr %46, align 8
   %.not.i.i.i.i = icmp eq ptr %47, null
   br i1 %.not.i.i.i.i, label %.loopexit, label %48

@@ -18,7 +18,7 @@ define ptr @createConstrained0LiveCone(ptr noundef %0, ptr noundef readonly capt
   %6 = getelementptr i8, ptr %1, i64 8
   %.val20 = load ptr, ptr %6, align 8, !tbaa !23
   %7 = sext i32 %4 to i64
-  %8 = getelementptr inbounds ptr, ptr %.val20, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr %.val20, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !24
   %10 = ptrtoint ptr %9 to i64
   %11 = and i64 %10, -2
@@ -36,7 +36,7 @@ define ptr @createConstrained0LiveCone(ptr noundef %0, ptr noundef readonly capt
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.023 = phi ptr [ %.val19, %.lr.ph.preheader ], [ %27, %.lr.ph ]
   %.val21 = load ptr, ptr %6, align 8, !tbaa !23
-  %16 = getelementptr inbounds nuw ptr, ptr %.val21, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %.val21, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8, !tbaa !24
   %18 = ptrtoint ptr %17 to i64
   %19 = and i64 %18, -2
@@ -96,12 +96,12 @@ define noalias noundef ptr @collectCSSignals(ptr noundef readonly captures(none)
   %14 = load ptr, ptr %9, align 8, !tbaa !30
   %15 = getelementptr i8, ptr %14, i64 8
   %.val = load ptr, ptr %15, align 8, !tbaa !23
-  %16 = getelementptr inbounds nuw ptr, ptr %.val, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8, !tbaa !24
   %.val19 = load ptr, ptr %10, align 8, !tbaa !31
   %18 = getelementptr i8, ptr %.val19, i64 8
   %.val19.val = load ptr, ptr %18, align 8, !tbaa !23
-  %19 = getelementptr inbounds nuw ptr, ptr %.val19.val, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %.val19.val, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8, !tbaa !24
   %21 = tail call ptr @Abc_ObjName(ptr noundef %20) #9
   %22 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(1) @.str) #11
@@ -169,7 +169,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %48 = add nsw i32 %13, 1
   store i32 %48, ptr %4, align 4, !tbaa !3
   %49 = sext i32 %13 to i64
-  %50 = getelementptr inbounds ptr, ptr %47, i64 %49
+  %50 = getelementptr inbounds [8 x i8], ptr %47, i64 %49
   store ptr %.val21, ptr %50, align 8, !tbaa !24
   br label %59
 
@@ -177,7 +177,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %.val20 = load ptr, ptr %10, align 8, !tbaa !31
   %52 = getelementptr i8, ptr %.val20, i64 8
   %.val20.val = load ptr, ptr %52, align 8, !tbaa !23
-  %53 = getelementptr inbounds nuw ptr, ptr %.val20.val, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %.val20.val, i64 %indvars.iv
   %54 = load ptr, ptr %53, align 8, !tbaa !24
   %55 = tail call ptr @Abc_ObjName(ptr noundef %54) #9
   %56 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %55, ptr noundef nonnull dereferenceable(1) @.str.1) #11
@@ -261,7 +261,7 @@ Vec_PtrPush.exit31:                               ; preds = %.Vec_PtrGrow.exit11
   %88 = add nsw i32 %86, 1
   store i32 %88, ptr %4, align 4, !tbaa !3
   %89 = sext i32 %86 to i64
-  %90 = getelementptr inbounds ptr, ptr %87, i64 %89
+  %90 = getelementptr inbounds [8 x i8], ptr %87, i64 %89
   store ptr %.016.lcssa42, ptr %90, align 8, !tbaa !24
   ret ptr %3
 }
@@ -317,7 +317,7 @@ define noundef ptr @createNewAigWith0LivePo(ptr noundef readonly captures(none) 
   %24 = load ptr, ptr %19, align 8, !tbaa !50
   %25 = getelementptr i8, ptr %24, i64 8
   %.val76 = load ptr, ptr %25, align 8, !tbaa !23
-  %26 = getelementptr inbounds nuw ptr, ptr %.val76, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %.val76, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8, !tbaa !24
   %28 = tail call ptr @Aig_ObjCreateCi(ptr noundef nonnull %6) #9
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 40
@@ -343,7 +343,7 @@ define noundef ptr @createNewAigWith0LivePo(ptr noundef readonly captures(none) 
   %37 = getelementptr i8, ptr %35, i64 8
   %.val75 = load ptr, ptr %37, align 8, !tbaa !23
   %38 = sext i32 %36 to i64
-  %39 = getelementptr inbounds ptr, ptr %.val75, i64 %38
+  %39 = getelementptr inbounds [8 x i8], ptr %.val75, i64 %38
   %40 = load ptr, ptr %39, align 8, !tbaa !24
   %41 = tail call ptr @Aig_ObjCreateCi(ptr noundef nonnull %6) #9
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 40
@@ -368,7 +368,7 @@ define noundef ptr @createNewAigWith0LivePo(ptr noundef readonly captures(none) 
   %indvars.iv116 = phi i64 [ %indvars.iv.next117, %.critedge2 ], [ 0, %.critedge2.preheader ]
   %49 = getelementptr i8, ptr %48, i64 8
   %.val74 = load ptr, ptr %49, align 8, !tbaa !23
-  %50 = getelementptr inbounds nuw ptr, ptr %.val74, i64 %indvars.iv116
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %.val74, i64 %indvars.iv116
   %51 = load ptr, ptr %50, align 8, !tbaa !24
   %52 = icmp eq ptr %51, null
   br i1 %52, label %.critedge2, label %53
@@ -441,7 +441,7 @@ Aig_ObjChild1Copy.exit:                           ; preds = %Aig_ObjChild0Copy.e
   %90 = load ptr, ptr %47, align 8, !tbaa !30
   %91 = getelementptr i8, ptr %90, i64 8
   %.val73 = load ptr, ptr %91, align 8, !tbaa !23
-  %92 = getelementptr inbounds nuw ptr, ptr %.val73, i64 %indvars.iv119
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %.val73, i64 %indvars.iv119
   %93 = load ptr, ptr %92, align 8, !tbaa !24
   %94 = getelementptr i8, ptr %93, i64 8
   %.val86 = load ptr, ptr %94, align 8, !tbaa !43
@@ -484,7 +484,7 @@ Aig_ObjChild0Copy.exit92:                         ; preds = %89, %97
   %113 = getelementptr i8, ptr %1, i64 8
   %.val20.i = load ptr, ptr %113, align 8, !tbaa !23
   %114 = sext i32 %112 to i64
-  %115 = getelementptr inbounds ptr, ptr %.val20.i, i64 %114
+  %115 = getelementptr inbounds [8 x i8], ptr %.val20.i, i64 %114
   %116 = load ptr, ptr %115, align 8, !tbaa !24
   %117 = ptrtoint ptr %116 to i64
   %118 = and i64 %117, -2
@@ -502,7 +502,7 @@ Aig_ObjChild0Copy.exit92:                         ; preds = %89, %97
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.023.i = phi ptr [ %.val19.i, %.lr.ph.preheader.i ], [ %134, %.lr.ph.i ]
   %.val21.i = load ptr, ptr %113, align 8, !tbaa !23
-  %123 = getelementptr inbounds nuw ptr, ptr %.val21.i, i64 %indvars.iv.i
+  %123 = getelementptr inbounds nuw [8 x i8], ptr %.val21.i, i64 %indvars.iv.i
   %124 = load ptr, ptr %123, align 8, !tbaa !24
   %125 = ptrtoint ptr %124 to i64
   %126 = and i64 %125, -2
@@ -546,7 +546,7 @@ createConstrained0LiveCone.exit:                  ; preds = %.lr.ph.i, %.critedg
   %149 = getelementptr i8, ptr %147, i64 8
   %.val72 = load ptr, ptr %149, align 8, !tbaa !23
   %150 = sext i32 %148 to i64
-  %151 = getelementptr inbounds ptr, ptr %.val72, i64 %150
+  %151 = getelementptr inbounds [8 x i8], ptr %.val72, i64 %150
   %152 = load ptr, ptr %151, align 8, !tbaa !24
   %153 = getelementptr i8, ptr %152, i64 8
   %.val87 = load ptr, ptr %153, align 8, !tbaa !43
@@ -620,7 +620,7 @@ define noalias noundef ptr @gatherMonotoneSignals(ptr noundef %0) local_unnamed_
   %indvars.iv = phi i64 [ %indvars.iv.next, %17 ], [ 0, %1 ]
   %7 = getelementptr i8, ptr %6, i64 8
   %.val9 = load ptr, ptr %7, align 8, !tbaa !23
-  %8 = getelementptr inbounds nuw ptr, ptr %.val9, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %.val9, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8, !tbaa !24
   %10 = icmp eq ptr %9, null
   br i1 %10, label %17, label %11

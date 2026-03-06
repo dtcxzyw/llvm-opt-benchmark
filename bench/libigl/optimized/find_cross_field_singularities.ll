@@ -13,10 +13,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::vector<int>, std::allocator<std::vector<int>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::vector<int>, std::allocator<std::vector<int>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::vector<int>, std::allocator<std::vector<int>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::vector<int>, std::allocator<std::vector<int>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.19" = type { %"struct.std::_Vector_base.20" }
-%"struct.std::_Vector_base.20" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" }
-%"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.Eigen::Matrix.24" = type { %"class.Eigen::PlainObjectBase.25" }
 %"class.Eigen::PlainObjectBase.25" = type { %"class.Eigen::DenseStorage.26" }
 %"class.Eigen::DenseStorage.26" = type { ptr, i64 }
@@ -213,7 +209,7 @@ _ZNSt6vectorIS_IiSaIiEESaIS1_EED2Ev.exit65:       ; preds = %_ZSt8_DestroyIPSt6v
   %71 = sub i64 %69, %70
   %72 = ashr exact i64 %71, 3
   %73 = sub nsw i64 0, %72
-  %74 = getelementptr inbounds i64, ptr %68, i64 %73
+  %74 = getelementptr inbounds [8 x i8], ptr %68, i64 %73
   call void @_ZdlPvm(ptr noundef %74, i64 noundef %71) #11
   br label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit
 
@@ -236,7 +232,7 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %_ZNSt6vectorIS_IiSa
   %indvars.iv84 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next85, %122 ]
   %79 = lshr i64 %indvars.iv84, 6
   %.zext = and i64 %79, 67108863
-  %80 = getelementptr inbounds nuw i64, ptr %23, i64 %.zext
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %.zext
   %81 = and i64 %indvars.iv84, 63
   %82 = shl nuw i64 1, %81
   %83 = load i64, ptr %80, align 8, !tbaa !33
@@ -245,7 +241,7 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %_ZNSt6vectorIS_IiSa
   br i1 %.not, label %.preheader71, label %122
 
 .preheader71:                                     ; preds = %78
-  %85 = getelementptr inbounds nuw %"class.std::vector.19", ptr %24, i64 %indvars.iv84
+  %85 = getelementptr inbounds nuw [24 x i8], ptr %24, i64 %indvars.iv84
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
   %87 = load ptr, ptr %86, align 8, !tbaa !34
   %88 = load ptr, ptr %85, align 8, !tbaa !24
@@ -266,17 +262,17 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %_ZNSt6vectorIS_IiSa
 .preheader:                                       ; preds = %.preheader.lr.ph, %108
   %indvars.iv81 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next82, %108 ]
   %.03774 = phi i32 [ 0, %.preheader.lr.ph ], [ %114, %108 ]
-  %97 = getelementptr inbounds nuw i32, ptr %88, i64 %indvars.iv81
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %88, i64 %indvars.iv81
   %98 = load i32, ptr %97, align 4, !tbaa !15
   %99 = sext i32 %98 to i64
-  %100 = getelementptr i32, ptr %93, i64 %99
+  %100 = getelementptr [4 x i8], ptr %93, i64 %99
   br label %101
 
 101:                                              ; preds = %.preheader, %101
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %101 ]
   %.03572 = phi i32 [ -1, %.preheader ], [ %spec.select, %101 ]
   %102 = mul nsw i64 %94, %indvars.iv
-  %103 = getelementptr i32, ptr %100, i64 %102
+  %103 = getelementptr [4 x i8], ptr %100, i64 %102
   %104 = load i32, ptr %103, align 4, !tbaa !15
   %105 = zext i32 %104 to i64
   %106 = icmp eq i64 %indvars.iv84, %105
@@ -289,8 +285,8 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %_ZNSt6vectorIS_IiSa
 108:                                              ; preds = %101
   %109 = sext i32 %spec.select to i64
   %110 = mul nsw i64 %96, %109
-  %111 = getelementptr i32, ptr %95, i64 %99
-  %112 = getelementptr i32, ptr %111, i64 %110
+  %111 = getelementptr [4 x i8], ptr %95, i64 %99
+  %112 = getelementptr [4 x i8], ptr %111, i64 %110
   %113 = load i32, ptr %112, align 4, !tbaa !15
   %114 = add nsw i32 %113, %.03774
   %indvars.iv.next82 = add i64 %indvars.iv81, 1
@@ -304,11 +300,11 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %_ZNSt6vectorIS_IiSa
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader71
   %.037.lcssa = phi i32 [ 0, %.preheader71 ], [ %117, %._crit_edge.loopexit ]
-  %118 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv84
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %indvars.iv84
   %119 = icmp ne i32 %.037.lcssa, 0
   %120 = zext i1 %119 to i32
   store i32 %120, ptr %118, align 4, !tbaa !15
-  %121 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv84
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %indvars.iv84
   store i32 %.037.lcssa, ptr %121, align 4, !tbaa !15
   br label %122
 
@@ -326,7 +322,7 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %_ZNSt6vectorIS_IiSa
   %130 = sub i64 %128, %129
   %131 = ashr exact i64 %130, 3
   %132 = sub nsw i64 0, %131
-  %133 = getelementptr inbounds i64, ptr %127, i64 %132
+  %133 = getelementptr inbounds [8 x i8], ptr %127, i64 %132
   call void @_ZdlPvm(ptr noundef %133, i64 noundef %130) #11
   br label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit70
 
@@ -588,7 +584,7 @@ _ZNSt6vectorIS_IiSaIiEESaIS1_EED2Ev.exit65:       ; preds = %_ZSt8_DestroyIPSt6v
   %71 = sub i64 %69, %70
   %72 = ashr exact i64 %71, 3
   %73 = sub nsw i64 0, %72
-  %74 = getelementptr inbounds i64, ptr %68, i64 %73
+  %74 = getelementptr inbounds [8 x i8], ptr %68, i64 %73
   call void @_ZdlPvm(ptr noundef %74, i64 noundef %71) #11
   br label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit
 
@@ -611,7 +607,7 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %_ZNSt6vectorIS_IiSa
   %indvars.iv84 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next85, %122 ]
   %79 = lshr i64 %indvars.iv84, 6
   %.zext = and i64 %79, 67108863
-  %80 = getelementptr inbounds nuw i64, ptr %23, i64 %.zext
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %.zext
   %81 = and i64 %indvars.iv84, 63
   %82 = shl nuw i64 1, %81
   %83 = load i64, ptr %80, align 8, !tbaa !33
@@ -620,7 +616,7 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %_ZNSt6vectorIS_IiSa
   br i1 %.not, label %.preheader71, label %122
 
 .preheader71:                                     ; preds = %78
-  %85 = getelementptr inbounds nuw %"class.std::vector.19", ptr %24, i64 %indvars.iv84
+  %85 = getelementptr inbounds nuw [24 x i8], ptr %24, i64 %indvars.iv84
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
   %87 = load ptr, ptr %86, align 8, !tbaa !34
   %88 = load ptr, ptr %85, align 8, !tbaa !24
@@ -641,17 +637,17 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %_ZNSt6vectorIS_IiSa
 .preheader:                                       ; preds = %.preheader.lr.ph, %108
   %indvars.iv81 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next82, %108 ]
   %.03774 = phi i32 [ 0, %.preheader.lr.ph ], [ %114, %108 ]
-  %97 = getelementptr inbounds nuw i32, ptr %88, i64 %indvars.iv81
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %88, i64 %indvars.iv81
   %98 = load i32, ptr %97, align 4, !tbaa !15
   %99 = sext i32 %98 to i64
-  %100 = getelementptr i32, ptr %93, i64 %99
+  %100 = getelementptr [4 x i8], ptr %93, i64 %99
   br label %101
 
 101:                                              ; preds = %.preheader, %101
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %101 ]
   %.03572 = phi i32 [ -1, %.preheader ], [ %spec.select, %101 ]
   %102 = mul nsw i64 %94, %indvars.iv
-  %103 = getelementptr i32, ptr %100, i64 %102
+  %103 = getelementptr [4 x i8], ptr %100, i64 %102
   %104 = load i32, ptr %103, align 4, !tbaa !15
   %105 = zext i32 %104 to i64
   %106 = icmp eq i64 %indvars.iv84, %105
@@ -664,8 +660,8 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %_ZNSt6vectorIS_IiSa
 108:                                              ; preds = %101
   %109 = sext i32 %spec.select to i64
   %110 = mul nsw i64 %96, %109
-  %111 = getelementptr i32, ptr %95, i64 %99
-  %112 = getelementptr i32, ptr %111, i64 %110
+  %111 = getelementptr [4 x i8], ptr %95, i64 %99
+  %112 = getelementptr [4 x i8], ptr %111, i64 %110
   %113 = load i32, ptr %112, align 4, !tbaa !15
   %114 = add nsw i32 %113, %.03774
   %indvars.iv.next82 = add i64 %indvars.iv81, 1
@@ -679,11 +675,11 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %_ZNSt6vectorIS_IiSa
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader71
   %.037.lcssa = phi i32 [ 0, %.preheader71 ], [ %117, %._crit_edge.loopexit ]
-  %118 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv84
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %indvars.iv84
   %119 = icmp ne i32 %.037.lcssa, 0
   %120 = zext i1 %119 to i32
   store i32 %120, ptr %118, align 4, !tbaa !15
-  %121 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv84
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %indvars.iv84
   store i32 %.037.lcssa, ptr %121, align 4, !tbaa !15
   br label %122
 
@@ -701,7 +697,7 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %_ZNSt6vectorIS_IiSa
   %130 = sub i64 %128, %129
   %131 = ashr exact i64 %130, 3
   %132 = sub nsw i64 0, %131
-  %133 = getelementptr inbounds i64, ptr %127, i64 %132
+  %133 = getelementptr inbounds [8 x i8], ptr %127, i64 %132
   call void @_ZdlPvm(ptr noundef %133, i64 noundef %130) #11
   br label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit70
 
@@ -917,7 +913,7 @@ _ZNSt6vectorIS_IiSaIiEESaIS1_EED2Ev.exit66:       ; preds = %_ZSt8_DestroyIPSt6v
   %76 = sub i64 %74, %75
   %77 = ashr exact i64 %76, 3
   %78 = sub nsw i64 0, %77
-  %79 = getelementptr inbounds i64, ptr %73, i64 %78
+  %79 = getelementptr inbounds [8 x i8], ptr %73, i64 %78
   call void @_ZdlPvm(ptr noundef %79, i64 noundef %76) #11
   br label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit
 
@@ -940,7 +936,7 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %_ZNSt6vectorIS_IiSa
   %indvars.iv85 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next86, %127 ]
   %84 = lshr i64 %indvars.iv85, 6
   %.zext = and i64 %84, 67108863
-  %85 = getelementptr inbounds nuw i64, ptr %28, i64 %.zext
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %.zext
   %86 = and i64 %indvars.iv85, 63
   %87 = shl nuw i64 1, %86
   %88 = load i64, ptr %85, align 8, !tbaa !33
@@ -949,7 +945,7 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %_ZNSt6vectorIS_IiSa
   br i1 %.not, label %.preheader72, label %127
 
 .preheader72:                                     ; preds = %83
-  %90 = getelementptr inbounds nuw %"class.std::vector.19", ptr %29, i64 %indvars.iv85
+  %90 = getelementptr inbounds nuw [24 x i8], ptr %29, i64 %indvars.iv85
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %92 = load ptr, ptr %91, align 8, !tbaa !34
   %93 = load ptr, ptr %90, align 8, !tbaa !24
@@ -970,17 +966,17 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %_ZNSt6vectorIS_IiSa
 .preheader:                                       ; preds = %.preheader.lr.ph, %113
   %indvars.iv82 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next83, %113 ]
   %.03775 = phi i32 [ 0, %.preheader.lr.ph ], [ %119, %113 ]
-  %102 = getelementptr inbounds nuw i32, ptr %93, i64 %indvars.iv82
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %93, i64 %indvars.iv82
   %103 = load i32, ptr %102, align 4, !tbaa !15
   %104 = sext i32 %103 to i64
-  %105 = getelementptr i32, ptr %98, i64 %104
+  %105 = getelementptr [4 x i8], ptr %98, i64 %104
   br label %106
 
 106:                                              ; preds = %.preheader, %106
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %106 ]
   %.03573 = phi i32 [ -1, %.preheader ], [ %spec.select, %106 ]
   %107 = mul nsw i64 %99, %indvars.iv
-  %108 = getelementptr i32, ptr %105, i64 %107
+  %108 = getelementptr [4 x i8], ptr %105, i64 %107
   %109 = load i32, ptr %108, align 4, !tbaa !15
   %110 = zext i32 %109 to i64
   %111 = icmp eq i64 %indvars.iv85, %110
@@ -993,8 +989,8 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %_ZNSt6vectorIS_IiSa
 113:                                              ; preds = %106
   %114 = sext i32 %spec.select to i64
   %115 = mul nsw i64 %101, %114
-  %116 = getelementptr i32, ptr %100, i64 %104
-  %117 = getelementptr i32, ptr %116, i64 %115
+  %116 = getelementptr [4 x i8], ptr %100, i64 %104
+  %117 = getelementptr [4 x i8], ptr %116, i64 %115
   %118 = load i32, ptr %117, align 4, !tbaa !15
   %119 = add nsw i32 %118, %.03775
   %indvars.iv.next83 = add i64 %indvars.iv82, 1
@@ -1008,11 +1004,11 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %_ZNSt6vectorIS_IiSa
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader72
   %.037.lcssa = phi i32 [ 0, %.preheader72 ], [ %122, %._crit_edge.loopexit ]
-  %123 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv85
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %indvars.iv85
   %124 = icmp ne i32 %.037.lcssa, 0
   %125 = zext i1 %124 to i32
   store i32 %125, ptr %123, align 4, !tbaa !15
-  %126 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv85
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %indvars.iv85
   store i32 %.037.lcssa, ptr %126, align 4, !tbaa !15
   br label %127
 
@@ -1030,7 +1026,7 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %_ZNSt6vectorIS_IiSa
   %135 = sub i64 %133, %134
   %136 = ashr exact i64 %135, 3
   %137 = sub nsw i64 0, %136
-  %138 = getelementptr inbounds i64, ptr %132, i64 %137
+  %138 = getelementptr inbounds [8 x i8], ptr %132, i64 %137
   call void @_ZdlPvm(ptr noundef %138, i64 noundef %135) #11
   br label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit71
 
@@ -1213,7 +1209,7 @@ _ZNSt6vectorIS_IiSaIiEESaIS1_EED2Ev.exit66:       ; preds = %_ZSt8_DestroyIPSt6v
   %76 = sub i64 %74, %75
   %77 = ashr exact i64 %76, 3
   %78 = sub nsw i64 0, %77
-  %79 = getelementptr inbounds i64, ptr %73, i64 %78
+  %79 = getelementptr inbounds [8 x i8], ptr %73, i64 %78
   call void @_ZdlPvm(ptr noundef %79, i64 noundef %76) #11
   br label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit
 
@@ -1236,7 +1232,7 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %_ZNSt6vectorIS_IiSa
   %indvars.iv85 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next86, %127 ]
   %84 = lshr i64 %indvars.iv85, 6
   %.zext = and i64 %84, 67108863
-  %85 = getelementptr inbounds nuw i64, ptr %28, i64 %.zext
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %.zext
   %86 = and i64 %indvars.iv85, 63
   %87 = shl nuw i64 1, %86
   %88 = load i64, ptr %85, align 8, !tbaa !33
@@ -1245,7 +1241,7 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %_ZNSt6vectorIS_IiSa
   br i1 %.not, label %.preheader72, label %127
 
 .preheader72:                                     ; preds = %83
-  %90 = getelementptr inbounds nuw %"class.std::vector.19", ptr %29, i64 %indvars.iv85
+  %90 = getelementptr inbounds nuw [24 x i8], ptr %29, i64 %indvars.iv85
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %92 = load ptr, ptr %91, align 8, !tbaa !34
   %93 = load ptr, ptr %90, align 8, !tbaa !24
@@ -1266,17 +1262,17 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %_ZNSt6vectorIS_IiSa
 .preheader:                                       ; preds = %.preheader.lr.ph, %113
   %indvars.iv82 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next83, %113 ]
   %.03775 = phi i32 [ 0, %.preheader.lr.ph ], [ %119, %113 ]
-  %102 = getelementptr inbounds nuw i32, ptr %93, i64 %indvars.iv82
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %93, i64 %indvars.iv82
   %103 = load i32, ptr %102, align 4, !tbaa !15
   %104 = sext i32 %103 to i64
-  %105 = getelementptr i32, ptr %98, i64 %104
+  %105 = getelementptr [4 x i8], ptr %98, i64 %104
   br label %106
 
 106:                                              ; preds = %.preheader, %106
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %106 ]
   %.03573 = phi i32 [ -1, %.preheader ], [ %spec.select, %106 ]
   %107 = mul nsw i64 %99, %indvars.iv
-  %108 = getelementptr i32, ptr %105, i64 %107
+  %108 = getelementptr [4 x i8], ptr %105, i64 %107
   %109 = load i32, ptr %108, align 4, !tbaa !15
   %110 = zext i32 %109 to i64
   %111 = icmp eq i64 %indvars.iv85, %110
@@ -1289,8 +1285,8 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %_ZNSt6vectorIS_IiSa
 113:                                              ; preds = %106
   %114 = sext i32 %spec.select to i64
   %115 = mul nsw i64 %101, %114
-  %116 = getelementptr i32, ptr %100, i64 %104
-  %117 = getelementptr i32, ptr %116, i64 %115
+  %116 = getelementptr [4 x i8], ptr %100, i64 %104
+  %117 = getelementptr [4 x i8], ptr %116, i64 %115
   %118 = load i32, ptr %117, align 4, !tbaa !15
   %119 = add nsw i32 %118, %.03775
   %indvars.iv.next83 = add i64 %indvars.iv82, 1
@@ -1304,11 +1300,11 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %_ZNSt6vectorIS_IiSa
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader72
   %.037.lcssa = phi i32 [ 0, %.preheader72 ], [ %122, %._crit_edge.loopexit ]
-  %123 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv85
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %indvars.iv85
   %124 = icmp ne i32 %.037.lcssa, 0
   %125 = zext i1 %124 to i32
   store i32 %125, ptr %123, align 4, !tbaa !15
-  %126 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv85
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %indvars.iv85
   store i32 %.037.lcssa, ptr %126, align 4, !tbaa !15
   br label %127
 
@@ -1326,7 +1322,7 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %_ZNSt6vectorIS_IiSa
   %135 = sub i64 %133, %134
   %136 = ashr exact i64 %135, 3
   %137 = sub nsw i64 0, %136
-  %138 = getelementptr inbounds i64, ptr %132, i64 %137
+  %138 = getelementptr inbounds [8 x i8], ptr %132, i64 %137
   call void @_ZdlPvm(ptr noundef %138, i64 noundef %135) #11
   br label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit71
 
@@ -1503,7 +1499,7 @@ _ZNSt6vectorIS_IiSaIiEESaIS1_EED2Ev.exit65:       ; preds = %_ZSt8_DestroyIPSt6v
   %71 = sub i64 %69, %70
   %72 = ashr exact i64 %71, 3
   %73 = sub nsw i64 0, %72
-  %74 = getelementptr inbounds i64, ptr %68, i64 %73
+  %74 = getelementptr inbounds [8 x i8], ptr %68, i64 %73
   call void @_ZdlPvm(ptr noundef %74, i64 noundef %71) #11
   br label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit
 
@@ -1526,7 +1522,7 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %_ZNSt6vectorIS_IiSa
   %indvars.iv84 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next85, %122 ]
   %79 = lshr i64 %indvars.iv84, 6
   %.zext = and i64 %79, 67108863
-  %80 = getelementptr inbounds nuw i64, ptr %23, i64 %.zext
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %.zext
   %81 = and i64 %indvars.iv84, 63
   %82 = shl nuw i64 1, %81
   %83 = load i64, ptr %80, align 8, !tbaa !33
@@ -1535,7 +1531,7 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %_ZNSt6vectorIS_IiSa
   br i1 %.not, label %.preheader71, label %122
 
 .preheader71:                                     ; preds = %78
-  %85 = getelementptr inbounds nuw %"class.std::vector.19", ptr %24, i64 %indvars.iv84
+  %85 = getelementptr inbounds nuw [24 x i8], ptr %24, i64 %indvars.iv84
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
   %87 = load ptr, ptr %86, align 8, !tbaa !34
   %88 = load ptr, ptr %85, align 8, !tbaa !24
@@ -1556,17 +1552,17 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %_ZNSt6vectorIS_IiSa
 .preheader:                                       ; preds = %.preheader.lr.ph, %108
   %indvars.iv81 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next82, %108 ]
   %.03774 = phi i32 [ 0, %.preheader.lr.ph ], [ %114, %108 ]
-  %97 = getelementptr inbounds nuw i32, ptr %88, i64 %indvars.iv81
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %88, i64 %indvars.iv81
   %98 = load i32, ptr %97, align 4, !tbaa !15
   %99 = sext i32 %98 to i64
-  %100 = getelementptr i32, ptr %93, i64 %99
+  %100 = getelementptr [4 x i8], ptr %93, i64 %99
   br label %101
 
 101:                                              ; preds = %.preheader, %101
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %101 ]
   %.03572 = phi i32 [ -1, %.preheader ], [ %spec.select, %101 ]
   %102 = mul nsw i64 %94, %indvars.iv
-  %103 = getelementptr i32, ptr %100, i64 %102
+  %103 = getelementptr [4 x i8], ptr %100, i64 %102
   %104 = load i32, ptr %103, align 4, !tbaa !15
   %105 = zext i32 %104 to i64
   %106 = icmp eq i64 %indvars.iv84, %105
@@ -1579,8 +1575,8 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %_ZNSt6vectorIS_IiSa
 108:                                              ; preds = %101
   %109 = sext i32 %spec.select to i64
   %110 = mul nsw i64 %96, %109
-  %111 = getelementptr i32, ptr %95, i64 %99
-  %112 = getelementptr i32, ptr %111, i64 %110
+  %111 = getelementptr [4 x i8], ptr %95, i64 %99
+  %112 = getelementptr [4 x i8], ptr %111, i64 %110
   %113 = load i32, ptr %112, align 4, !tbaa !15
   %114 = add nsw i32 %113, %.03774
   %indvars.iv.next82 = add i64 %indvars.iv81, 1
@@ -1594,11 +1590,11 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %_ZNSt6vectorIS_IiSa
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader71
   %.037.lcssa = phi i32 [ 0, %.preheader71 ], [ %117, %._crit_edge.loopexit ]
-  %118 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv84
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %indvars.iv84
   %119 = icmp ne i32 %.037.lcssa, 0
   %120 = zext i1 %119 to i32
   store i32 %120, ptr %118, align 4, !tbaa !15
-  %121 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv84
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %indvars.iv84
   store i32 %.037.lcssa, ptr %121, align 4, !tbaa !15
   br label %122
 
@@ -1616,7 +1612,7 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %_ZNSt6vectorIS_IiSa
   %130 = sub i64 %128, %129
   %131 = ashr exact i64 %130, 3
   %132 = sub nsw i64 0, %131
-  %133 = getelementptr inbounds i64, ptr %127, i64 %132
+  %133 = getelementptr inbounds [8 x i8], ptr %127, i64 %132
   call void @_ZdlPvm(ptr noundef %133, i64 noundef %130) #11
   br label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit70
 

@@ -1425,7 +1425,7 @@ define void @_ZN6uu_env13string_parser12StringParser34consume_one_ascii_or_all_n
 42:                                               ; preds = %.noexc32, %32
   %43 = phi i64 [ %.pre.i, %.noexc32 ], [ %38, %32 ]
   %44 = load ptr, ptr %8, align 8, !alias.scope !187, !noalias !190, !nonnull !5, !noundef !5
-  %45 = getelementptr inbounds { ptr, [1 x i64] }, ptr %44, i64 %43
+  %45 = getelementptr inbounds [16 x i8], ptr %44, i64 %43
   store ptr %35, ptr %45, align 8
   %.sroa.439.0..sroa_idx = getelementptr inbounds nuw i8, ptr %45, i64 8
   store i32 %.sroa.4.sroa.0.0.insert.insert, ptr %.sroa.439.0..sroa_idx, align 8

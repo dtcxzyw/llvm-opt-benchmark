@@ -419,7 +419,7 @@ define { i32, i32 } @_ZN3egg5subst5Subst6insert17h001a6dccb19c8f51E(ptr noalias 
   %8 = load ptr, ptr %7, align 8, !noalias !56, !nonnull !4, !align !5, !noundef !4
   %9 = load i64, ptr %8, align 8, !noundef !4
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !56
-  %10 = getelementptr inbounds { { { i32, [1 x i32] } }, i32 }, ptr %6, i64 %9
+  %10 = getelementptr inbounds [12 x i8], ptr %6, i64 %9
   br label %11
 
 11:                                               ; preds = %27, %4
@@ -451,7 +451,7 @@ define { i32, i32 } @_ZN3egg5subst5Subst6insert17h001a6dccb19c8f51E(ptr noalias 
   %23 = phi i64 [ %.pre.i, %20 ], [ %18, %13 ]
   %.sroa.01.0.i = phi ptr [ %22, %20 ], [ %.sink10.i.i, %13 ]
   %.sroa.0.0.i6 = phi ptr [ %21, %20 ], [ %.sink11.i.i, %13 ]
-  %24 = getelementptr inbounds { { { i32, [1 x i32] } }, i32 }, ptr %.sroa.0.0.i6, i64 %23
+  %24 = getelementptr inbounds [12 x i8], ptr %.sroa.0.0.i6, i64 %23
   store i32 %1, ptr %24, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 4
   store i32 %2, ptr %.sroa.4.0..sroa_idx, align 4
@@ -496,7 +496,7 @@ define noundef align 4 dereferenceable_or_null(4) ptr @_ZN3egg5subst5Subst3get17
   %9 = load i64, ptr %8, align 8, !alias.scope !69, !noalias !72
   %.sink14.i = select i1 %5, ptr %7, ptr %6
   %.sink13.i = select i1 %5, i64 %9, i64 %4
-  %10 = getelementptr inbounds { { { i32, [1 x i32] } }, i32 }, ptr %.sink14.i, i64 %.sink13.i
+  %10 = getelementptr inbounds [12 x i8], ptr %.sink14.i, i64 %.sink13.i
   br label %11
 
 11:                                               ; preds = %14, %3
@@ -541,7 +541,7 @@ define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN84_$LT$egg..subst..Su
   %15 = load i64, ptr %14, align 8, !alias.scope !81, !noalias !86
   %.sink14.i.i = select i1 %11, ptr %13, ptr %12
   %.sink13.i.i = select i1 %11, i64 %15, i64 %10
-  %16 = getelementptr inbounds { { { i32, [1 x i32] } }, i32 }, ptr %.sink14.i.i, i64 %.sink13.i.i
+  %16 = getelementptr inbounds [12 x i8], ptr %.sink14.i.i, i64 %.sink13.i.i
   br label %17
 
 17:                                               ; preds = %20, %4
@@ -649,7 +649,7 @@ _ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.llvm.1169273
   unreachable
 
 _ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.llvm.1169273610523334441.exit27: ; preds = %22
-  %28 = getelementptr inbounds { { { i32, [1 x i32] } }, i32 }, ptr %24, i64 %.sroa.012.059
+  %28 = getelementptr inbounds [12 x i8], ptr %24, i64 %.sroa.012.059
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %28, ptr %6, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)

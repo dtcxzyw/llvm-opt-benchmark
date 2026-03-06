@@ -810,7 +810,7 @@ _run_fuzz.exit56:                                 ; preds = %fuzz_sre_compile.ex
 
 .preheader.i:                                     ; preds = %250, %258
   %.01116.i = phi i64 [ %261, %258 ], [ 0, %250 ]
-  %255 = getelementptr ptr, ptr @regex_patterns, i64 %.01116.i
+  %255 = getelementptr [8 x i8], ptr @regex_patterns, i64 %.01116.i
   %256 = load ptr, ptr %255, align 8, !tbaa !16
   %257 = tail call ptr (ptr, ptr, ptr, ...) @PyObject_CallMethod(ptr noundef nonnull %248, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.8, ptr noundef %256) #9
   %.not.not.not.i.not = icmp eq ptr %257, null
@@ -818,7 +818,7 @@ _run_fuzz.exit56:                                 ; preds = %fuzz_sre_compile.ex
 
 258:                                              ; preds = %.preheader.i
   %259 = load ptr, ptr @compiled_patterns, align 8, !tbaa !25
-  %260 = getelementptr ptr, ptr %259, i64 %.01116.i
+  %260 = getelementptr [8 x i8], ptr %259, i64 %.01116.i
   store ptr %257, ptr %260, align 8, !tbaa !20
   %261 = add nuw nsw i64 %.01116.i, 1
   %exitcond.i = icmp eq i64 %261, 24
@@ -846,7 +846,7 @@ init_sre_match.exit:                              ; preds = %258, %_run_fuzz.exi
   %269 = urem i8 %263, 24
   %270 = load ptr, ptr @compiled_patterns, align 8, !tbaa !25
   %271 = zext nneg i8 %269 to i64
-  %272 = getelementptr ptr, ptr %270, i64 %271
+  %272 = getelementptr [8 x i8], ptr %270, i64 %271
   %273 = load ptr, ptr %272, align 8, !tbaa !20
   %274 = tail call ptr @PyObject_GetAttrString(ptr noundef %273, ptr noundef nonnull @.str.33) #9
   %275 = tail call ptr @PyObject_CallOneArg(ptr noundef %274, ptr noundef nonnull %266) #9
@@ -1342,13 +1342,13 @@ _run_fuzz.exit68:                                 ; preds = %fuzz_elementtree_pa
   %447 = load i8, ptr %0, align 1, !tbaa !22
   %448 = urem i8 %447, 3
   %449 = zext nneg i8 %448 to i64
-  %450 = getelementptr i32, ptr @start_vals, i64 %449
+  %450 = getelementptr [4 x i8], ptr @start_vals, i64 %449
   %451 = load i32, ptr %450, align 4, !tbaa !19
   %452 = getelementptr i8, ptr %0, i64 1
   %453 = load i8, ptr %452, align 1, !tbaa !22
   %454 = and i8 %453, 3
   %455 = zext nneg i8 %454 to i64
-  %456 = getelementptr i32, ptr @optimize_vals, i64 %455
+  %456 = getelementptr [4 x i8], ptr @optimize_vals, i64 %455
   %457 = load i32, ptr %456, align 4, !tbaa !19
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %458 = getelementptr i8, ptr %0, i64 2

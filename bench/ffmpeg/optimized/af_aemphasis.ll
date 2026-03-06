@@ -241,13 +241,13 @@ define internal range(i32 -12, 1) i32 @config_input(ptr noundef %0) #1 {
 
 switch.lookup:                                    ; preds = %.thread
   %78 = zext nneg i32 %14 to i64
-  %switch.gep = getelementptr inbounds nuw double, ptr @switch.table.config_input, i64 %78
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.config_input, i64 %78
   %switch.load = load double, ptr %switch.gep, align 8
   %79 = zext nneg i32 %14 to i64
-  %switch.gep235 = getelementptr inbounds nuw double, ptr @switch.table.config_input.1, i64 %79
+  %switch.gep235 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.config_input.1, i64 %79
   %switch.load236 = load double, ptr %switch.gep235, align 8
   %80 = zext nneg i32 %14 to i64
-  %switch.gep237 = getelementptr inbounds nuw double, ptr @switch.table.config_input.2, i64 %80
+  %switch.gep237 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.config_input.2, i64 %80
   %switch.load238 = load double, ptr %switch.gep237, align 8
   br label %.thread167
 
@@ -471,11 +471,11 @@ define internal noundef i32 @filter_channels(ptr noundef readonly captures(none)
 
 .lr.ph.preheader.i54.us.us:                       ; preds = %.lr.ph.split.us, %biquad_process.exit62.loopexit.us.us
   %indvars.iv83 = phi i64 [ %indvars.iv.next84, %biquad_process.exit62.loopexit.us.us ], [ %45, %.lr.ph.split.us ]
-  %46 = getelementptr inbounds ptr, ptr %23, i64 %indvars.iv83
+  %46 = getelementptr inbounds [8 x i8], ptr %23, i64 %indvars.iv83
   %47 = load ptr, ptr %46, align 8, !tbaa !68
-  %48 = getelementptr inbounds ptr, ptr %27, i64 %indvars.iv83
+  %48 = getelementptr inbounds [8 x i8], ptr %27, i64 %indvars.iv83
   %49 = load ptr, ptr %48, align 8, !tbaa !68
-  %50 = getelementptr inbounds ptr, ptr %29, i64 %indvars.iv83
+  %50 = getelementptr inbounds [8 x i8], ptr %29, i64 %indvars.iv83
   %51 = load ptr, ptr %50, align 8, !tbaa !68
   %52 = load double, ptr %30, align 8, !tbaa !55
   %53 = load double, ptr %38, align 8, !tbaa !56
@@ -491,7 +491,7 @@ define internal noundef i32 @filter_channels(ptr noundef readonly captures(none)
   %indvars.iv.i57.us.us = phi i64 [ 0, %.lr.ph.preheader.i54.us.us ], [ %indvars.iv.next.i60.us.us, %.lr.ph.i56.us.us ]
   %.037.i58.us.us = phi double [ %57, %.lr.ph.preheader.i54.us.us ], [ %66, %.lr.ph.i56.us.us ]
   %.03336.i59.us.us = phi double [ %59, %.lr.ph.preheader.i54.us.us ], [ %.037.i58.us.us, %.lr.ph.i56.us.us ]
-  %60 = getelementptr inbounds nuw double, ptr %47, i64 %indvars.iv.i57.us.us
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %indvars.iv.i57.us.us
   %61 = load double, ptr %60, align 8, !tbaa !69
   %62 = fmul nsz double %10, %61
   %63 = fneg nsz double %.037.i58.us.us
@@ -502,7 +502,7 @@ define internal noundef i32 @filter_channels(ptr noundef readonly captures(none)
   %68 = tail call nsz double @llvm.fmuladd.f64(double %66, double %52, double %67)
   %69 = tail call nsz double @llvm.fmuladd.f64(double %.03336.i59.us.us, double %54, double %68)
   %70 = fmul nsz double %8, %69
-  %71 = getelementptr inbounds nuw double, ptr %51, i64 %indvars.iv.i57.us.us
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %indvars.iv.i57.us.us
   store double %70, ptr %71, align 8, !tbaa !69
   %indvars.iv.next.i60.us.us = add nuw nsw i64 %indvars.iv.i57.us.us, 1
   %exitcond.not.i61.us.us = icmp eq i64 %indvars.iv.next.i60.us.us, %wide.trip.count.i55.us
@@ -520,11 +520,11 @@ biquad_process.exit62.loopexit.us.us:             ; preds = %.lr.ph.i56.us.us
 
 .lr.ph.preheader.i.us:                            ; preds = %.lr.ph.split, %biquad_process.exit51.loopexit.us
   %indvars.iv73 = phi i64 [ %indvars.iv.next74, %biquad_process.exit51.loopexit.us ], [ %45, %.lr.ph.split ]
-  %72 = getelementptr inbounds ptr, ptr %23, i64 %indvars.iv73
+  %72 = getelementptr inbounds [8 x i8], ptr %23, i64 %indvars.iv73
   %73 = load ptr, ptr %72, align 8, !tbaa !68
-  %74 = getelementptr inbounds ptr, ptr %27, i64 %indvars.iv73
+  %74 = getelementptr inbounds [8 x i8], ptr %27, i64 %indvars.iv73
   %75 = load ptr, ptr %74, align 8, !tbaa !68
-  %76 = getelementptr inbounds ptr, ptr %29, i64 %indvars.iv73
+  %76 = getelementptr inbounds [8 x i8], ptr %29, i64 %indvars.iv73
   %77 = load ptr, ptr %76, align 8, !tbaa !68
   %78 = getelementptr inbounds nuw i8, ptr %75, i64 16
   %79 = load double, ptr %33, align 8, !tbaa !55
@@ -541,7 +541,7 @@ biquad_process.exit62.loopexit.us.us:             ; preds = %.lr.ph.i56.us.us
   %indvars.iv.i.us = phi i64 [ 0, %.lr.ph.preheader.i.us ], [ %indvars.iv.next.i.us, %.lr.ph.i.us ]
   %.037.i.us = phi double [ %84, %.lr.ph.preheader.i.us ], [ %93, %.lr.ph.i.us ]
   %.03336.i.us = phi double [ %86, %.lr.ph.preheader.i.us ], [ %.037.i.us, %.lr.ph.i.us ]
-  %87 = getelementptr inbounds nuw double, ptr %73, i64 %indvars.iv.i.us
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %indvars.iv.i.us
   %88 = load double, ptr %87, align 8, !tbaa !69
   %89 = fmul nsz double %10, %88
   %90 = fneg nsz double %.037.i.us
@@ -551,7 +551,7 @@ biquad_process.exit62.loopexit.us.us:             ; preds = %.lr.ph.i56.us.us
   %94 = fmul nsz double %80, %.037.i.us
   %95 = tail call nsz double @llvm.fmuladd.f64(double %93, double %79, double %94)
   %96 = tail call nsz double @llvm.fmuladd.f64(double %.03336.i.us, double %81, double %95)
-  %97 = getelementptr inbounds nuw double, ptr %77, i64 %indvars.iv.i.us
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %indvars.iv.i.us
   store double %96, ptr %97, align 8, !tbaa !69
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i55.us
@@ -561,7 +561,7 @@ biquad_process.exit62.loopexit.us.us:             ; preds = %.lr.ph.i56.us.us
   %indvars.iv.i46.us = phi i64 [ 0, %biquad_process.exit.loopexit.us ], [ %indvars.iv.next.i49.us, %.lr.ph.i45.us ]
   %.037.i47.us = phi double [ %113, %biquad_process.exit.loopexit.us ], [ %103, %.lr.ph.i45.us ]
   %.03336.i48.us = phi double [ %115, %biquad_process.exit.loopexit.us ], [ %.037.i47.us, %.lr.ph.i45.us ]
-  %98 = getelementptr inbounds nuw double, ptr %77, i64 %indvars.iv.i46.us
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %indvars.iv.i46.us
   %99 = load double, ptr %98, align 8, !tbaa !69
   %100 = fneg nsz double %.037.i47.us
   %101 = tail call nsz double @llvm.fmuladd.f64(double %100, double %111, double %99)

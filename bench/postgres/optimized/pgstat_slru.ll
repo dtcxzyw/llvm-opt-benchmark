@@ -33,7 +33,7 @@ define dso_local void @pgstat_reset_slru(ptr noundef readonly captures(none) %0)
 
 3:                                                ; preds = %8, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %8 ]
-  %4 = getelementptr inbounds nuw ptr, ptr @slru_names, i64 %indvars.iv.i
+  %4 = getelementptr inbounds nuw [8 x i8], ptr @slru_names, i64 %indvars.iv.i
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull readonly dereferenceable(1) %0) #10
   %7 = icmp eq i32 %6, 0
@@ -55,7 +55,7 @@ pgstat_get_slru_index.exit:                       ; preds = %8, %.split.loop.exi
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 49856
   %12 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %11, i32 noundef 0) #9
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 49872
-  %14 = getelementptr inbounds %struct.PgStat_SLRUStats, ptr %13, i64 %.05.i
+  %14 = getelementptr inbounds [64 x i8], ptr %13, i64 %.05.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %14, i8 0, i64 56, i1 false)
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 56
   store i64 %2, ptr %15, align 8
@@ -71,7 +71,7 @@ define dso_local range(i32 0, 8) i32 @pgstat_get_slru_index(ptr noundef readonly
 
 2:                                                ; preds = %1, %7
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %7 ]
-  %3 = getelementptr inbounds nuw ptr, ptr @slru_names, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [8 x i8], ptr @slru_names, i64 %indvars.iv
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %0) #10
   %6 = icmp eq i32 %5, 0
@@ -95,7 +95,7 @@ define dso_local range(i32 0, 8) i32 @pgstat_get_slru_index(ptr noundef readonly
 define dso_local void @pgstat_count_slru_page_zeroed(i32 noundef %0) local_unnamed_addr #3 {
   store i1 true, ptr @have_slrustats, align 1
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds %struct.PgStat_SLRUStats, ptr @pending_SLRUStats, i64 %2
+  %3 = getelementptr inbounds [64 x i8], ptr @pending_SLRUStats, i64 %2
   %4 = load i64, ptr %3, align 16
   %5 = add i64 %4, 1
   store i64 %5, ptr %3, align 16
@@ -106,7 +106,7 @@ define dso_local void @pgstat_count_slru_page_zeroed(i32 noundef %0) local_unnam
 define dso_local void @pgstat_count_slru_page_hit(i32 noundef %0) local_unnamed_addr #3 {
   store i1 true, ptr @have_slrustats, align 1
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds %struct.PgStat_SLRUStats, ptr @pending_SLRUStats, i64 %2
+  %3 = getelementptr inbounds [64 x i8], ptr @pending_SLRUStats, i64 %2
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = add i64 %5, 1
@@ -118,7 +118,7 @@ define dso_local void @pgstat_count_slru_page_hit(i32 noundef %0) local_unnamed_
 define dso_local void @pgstat_count_slru_page_exists(i32 noundef %0) local_unnamed_addr #3 {
   store i1 true, ptr @have_slrustats, align 1
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds %struct.PgStat_SLRUStats, ptr @pending_SLRUStats, i64 %2
+  %3 = getelementptr inbounds [64 x i8], ptr @pending_SLRUStats, i64 %2
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = load i64, ptr %4, align 16
   %6 = add i64 %5, 1
@@ -130,7 +130,7 @@ define dso_local void @pgstat_count_slru_page_exists(i32 noundef %0) local_unnam
 define dso_local void @pgstat_count_slru_page_read(i32 noundef %0) local_unnamed_addr #3 {
   store i1 true, ptr @have_slrustats, align 1
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds %struct.PgStat_SLRUStats, ptr @pending_SLRUStats, i64 %2
+  %3 = getelementptr inbounds [64 x i8], ptr @pending_SLRUStats, i64 %2
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load i64, ptr %4, align 16
   %6 = add i64 %5, 1
@@ -142,7 +142,7 @@ define dso_local void @pgstat_count_slru_page_read(i32 noundef %0) local_unnamed
 define dso_local void @pgstat_count_slru_page_written(i32 noundef %0) local_unnamed_addr #3 {
   store i1 true, ptr @have_slrustats, align 1
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds %struct.PgStat_SLRUStats, ptr @pending_SLRUStats, i64 %2
+  %3 = getelementptr inbounds [64 x i8], ptr @pending_SLRUStats, i64 %2
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load i64, ptr %4, align 8
   %6 = add i64 %5, 1
@@ -154,7 +154,7 @@ define dso_local void @pgstat_count_slru_page_written(i32 noundef %0) local_unna
 define dso_local void @pgstat_count_slru_flush(i32 noundef %0) local_unnamed_addr #3 {
   store i1 true, ptr @have_slrustats, align 1
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds %struct.PgStat_SLRUStats, ptr @pending_SLRUStats, i64 %2
+  %3 = getelementptr inbounds [64 x i8], ptr @pending_SLRUStats, i64 %2
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %5 = load i64, ptr %4, align 8
   %6 = add i64 %5, 1
@@ -166,7 +166,7 @@ define dso_local void @pgstat_count_slru_flush(i32 noundef %0) local_unnamed_add
 define dso_local void @pgstat_count_slru_truncate(i32 noundef %0) local_unnamed_addr #3 {
   store i1 true, ptr @have_slrustats, align 1
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds %struct.PgStat_SLRUStats, ptr @pending_SLRUStats, i64 %2
+  %3 = getelementptr inbounds [64 x i8], ptr @pending_SLRUStats, i64 %2
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load i64, ptr %4, align 16
   %6 = add i64 %5, 1
@@ -189,7 +189,7 @@ define dso_local ptr @pgstat_get_slru_name(i32 noundef %0) local_unnamed_addr #4
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr inbounds nuw ptr, ptr @slru_names, i64 %4
+  %5 = getelementptr inbounds nuw [8 x i8], ptr @slru_names, i64 %4
   %6 = load ptr, ptr %5, align 8
   br label %7
 
@@ -231,8 +231,8 @@ define dso_local noundef zeroext i1 @pgstat_slru_flush_cb(i1 noundef zeroext %0)
 
 11:                                               ; preds = %9, %11
   %indvars.iv = phi i64 [ 0, %9 ], [ %indvars.iv.next, %11 ]
-  %12 = getelementptr inbounds nuw %struct.PgStat_SLRUStats, ptr %10, i64 %indvars.iv
-  %13 = getelementptr inbounds nuw %struct.PgStat_SLRUStats, ptr @pending_SLRUStats, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [64 x i8], ptr %10, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [64 x i8], ptr @pending_SLRUStats, i64 %indvars.iv
   %14 = load i64, ptr %13, align 16
   %15 = load i64, ptr %12, align 8
   %16 = add i64 %15, %14
@@ -318,7 +318,7 @@ define dso_local void @pgstat_slru_reset_all_cb(i64 noundef %0) local_unnamed_ad
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 49856
   %6 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %5, i32 noundef 0) #9
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 49872
-  %8 = getelementptr inbounds nuw %struct.PgStat_SLRUStats, ptr %7, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 %indvars.iv
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %8, i8 0, i64 56, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 56
   store i64 %0, ptr %9, align 8

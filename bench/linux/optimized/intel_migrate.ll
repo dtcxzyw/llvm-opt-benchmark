@@ -36,7 +36,7 @@ define dso_local i32 @intel_migrate_init(ptr noundef writeonly captures(none) in
 
 10:                                               ; preds = %7, %2
   %11 = phi i64 [ 0, %2 ], [ %8, %7 ]
-  %12 = getelementptr ptr, ptr %6, i64 %11
+  %12 = getelementptr [8 x i8], ptr %6, i64 %11
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %7, label %15
@@ -84,7 +84,7 @@ define dso_local i32 @intel_migrate_init(ptr noundef writeonly captures(none) in
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false), !annotation !8
-  %39 = getelementptr ptr, ptr %6, i64 %37
+  %39 = getelementptr [8 x i8], ptr %6, i64 %37
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, null
   br i1 %41, label %88, label %42
@@ -273,7 +273,7 @@ define dso_local ptr @intel_migrate_create_context(ptr noundef readonly captures
 9:                                                ; preds = %19, %1
   %10 = phi i64 [ 0, %1 ], [ %21, %19 ]
   %11 = phi i32 [ 0, %1 ], [ %20, %19 ]
-  %12 = getelementptr ptr, ptr %8, i64 %10
+  %12 = getelementptr [8 x i8], ptr %8, i64 %10
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %19, label %15
@@ -281,7 +281,7 @@ define dso_local ptr @intel_migrate_create_context(ptr noundef readonly captures
 15:                                               ; preds = %9
   %16 = add i32 %11, 1
   %17 = zext i32 %11 to i64
-  %18 = getelementptr ptr, ptr %2, i64 %17
+  %18 = getelementptr [8 x i8], ptr %2, i64 %17
   store ptr %13, ptr %18, align 8
   br label %19
 
@@ -297,7 +297,7 @@ define dso_local ptr @intel_migrate_create_context(ptr noundef readonly captures
   %26 = zext i32 %20 to i64
   %27 = mul nuw i64 %25, %26
   %28 = ashr i64 %27, 32
-  %29 = getelementptr ptr, ptr %2, i64 %28
+  %29 = getelementptr [8 x i8], ptr %2, i64 %28
   %30 = load ptr, ptr %29, align 8
   %31 = tail call ptr @intel_context_create(ptr noundef %30) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %2)

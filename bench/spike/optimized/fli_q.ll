@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%struct.float128_t = type { [2 x i64] }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -120,12 +119,12 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z16fast_rv32i_fli_qP11pr
   tail call void @_ZNK11float_csr_t18verify_permissionsE6insn_tb(ptr noundef nonnull align 8 dereferenceable(56) %28, i64 %1, i1 noundef zeroext false)
   %29 = lshr i64 %1, 15
   %30 = and i64 %29, 31
-  %31 = getelementptr inbounds nuw i64, ptr @__const._Z18logged_rv64e_fli_qP11processor_t6insn_tm.bits, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr @__const._Z18logged_rv64e_fli_qP11processor_t6insn_tm.bits, i64 %30
   %32 = load i64, ptr %31, align 8, !tbaa !27
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %34 = lshr i64 %1, 7
   %35 = and i64 %34, 31
-  %36 = getelementptr inbounds nuw %struct.float128_t, ptr %33, i64 %35
+  %36 = getelementptr inbounds nuw [16 x i8], ptr %33, i64 %35
   store i64 0, ptr %36, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %36, i64 8
   store i64 %32, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !31
@@ -202,12 +201,12 @@ define noundef i64 @_Z16fast_rv64i_fli_qP11processor_t6insn_tm(ptr noundef captu
   tail call void @_ZNK11float_csr_t18verify_permissionsE6insn_tb(ptr noundef nonnull align 8 dereferenceable(56) %26, i64 %1, i1 noundef zeroext false)
   %27 = lshr i64 %1, 15
   %28 = and i64 %27, 31
-  %29 = getelementptr inbounds nuw i64, ptr @__const._Z18logged_rv64e_fli_qP11processor_t6insn_tm.bits, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr @__const._Z18logged_rv64e_fli_qP11processor_t6insn_tm.bits, i64 %28
   %30 = load i64, ptr %29, align 8, !tbaa !27
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %32 = lshr i64 %1, 7
   %33 = and i64 %32, 31
-  %34 = getelementptr inbounds nuw %struct.float128_t, ptr %31, i64 %33
+  %34 = getelementptr inbounds nuw [16 x i8], ptr %31, i64 %33
   store i64 0, ptr %34, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i64 %30, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !31
@@ -268,7 +267,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18logged_rv32i_fli_qP11
   tail call void @_ZNK11float_csr_t18verify_permissionsE6insn_tb(ptr noundef nonnull align 8 dereferenceable(56) %29, i64 %1, i1 noundef zeroext false)
   %30 = lshr i64 %1, 15
   %31 = and i64 %30, 31
-  %32 = getelementptr inbounds nuw i64, ptr @__const._Z18logged_rv64e_fli_qP11processor_t6insn_tm.bits, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr @__const._Z18logged_rv64e_fli_qP11processor_t6insn_tm.bits, i64 %31
   %33 = load i64, ptr %32, align 8, !tbaa !27
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 3840
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -283,7 +282,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18logged_rv32i_fli_qP11
   store i64 %33, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !31
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  %41 = getelementptr inbounds nuw %struct.float128_t, ptr %40, i64 %36
+  %41 = getelementptr inbounds nuw [16 x i8], ptr %40, i64 %36
   store i64 0, ptr %41, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %41, i64 8
   store i64 %33, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !31
@@ -428,7 +427,7 @@ define noundef i64 @_Z18logged_rv64i_fli_qP11processor_t6insn_tm(ptr noundef %0,
   tail call void @_ZNK11float_csr_t18verify_permissionsE6insn_tb(ptr noundef nonnull align 8 dereferenceable(56) %27, i64 %1, i1 noundef zeroext false)
   %28 = lshr i64 %1, 15
   %29 = and i64 %28, 31
-  %30 = getelementptr inbounds nuw i64, ptr @__const._Z18logged_rv64e_fli_qP11processor_t6insn_tm.bits, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr @__const._Z18logged_rv64e_fli_qP11processor_t6insn_tm.bits, i64 %29
   %31 = load i64, ptr %30, align 8, !tbaa !27
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 3840
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -443,7 +442,7 @@ define noundef i64 @_Z18logged_rv64i_fli_qP11processor_t6insn_tm(ptr noundef %0,
   store i64 %31, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !31
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  %39 = getelementptr inbounds nuw %struct.float128_t, ptr %38, i64 %34
+  %39 = getelementptr inbounds nuw [16 x i8], ptr %38, i64 %34
   store i64 0, ptr %39, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %39, i64 8
   store i64 %31, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !31
@@ -503,12 +502,12 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z16fast_rv32e_fli_qP11pr
   tail call void @_ZNK11float_csr_t18verify_permissionsE6insn_tb(ptr noundef nonnull align 8 dereferenceable(56) %28, i64 %1, i1 noundef zeroext false)
   %29 = lshr i64 %1, 15
   %30 = and i64 %29, 31
-  %31 = getelementptr inbounds nuw i64, ptr @__const._Z18logged_rv64e_fli_qP11processor_t6insn_tm.bits, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr @__const._Z18logged_rv64e_fli_qP11processor_t6insn_tm.bits, i64 %30
   %32 = load i64, ptr %31, align 8, !tbaa !27
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %34 = lshr i64 %1, 7
   %35 = and i64 %34, 31
-  %36 = getelementptr inbounds nuw %struct.float128_t, ptr %33, i64 %35
+  %36 = getelementptr inbounds nuw [16 x i8], ptr %33, i64 %35
   store i64 0, ptr %36, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %36, i64 8
   store i64 %32, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !31
@@ -566,12 +565,12 @@ define noundef i64 @_Z16fast_rv64e_fli_qP11processor_t6insn_tm(ptr noundef captu
   tail call void @_ZNK11float_csr_t18verify_permissionsE6insn_tb(ptr noundef nonnull align 8 dereferenceable(56) %26, i64 %1, i1 noundef zeroext false)
   %27 = lshr i64 %1, 15
   %28 = and i64 %27, 31
-  %29 = getelementptr inbounds nuw i64, ptr @__const._Z18logged_rv64e_fli_qP11processor_t6insn_tm.bits, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr @__const._Z18logged_rv64e_fli_qP11processor_t6insn_tm.bits, i64 %28
   %30 = load i64, ptr %29, align 8, !tbaa !27
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %32 = lshr i64 %1, 7
   %33 = and i64 %32, 31
-  %34 = getelementptr inbounds nuw %struct.float128_t, ptr %31, i64 %33
+  %34 = getelementptr inbounds nuw [16 x i8], ptr %31, i64 %33
   store i64 0, ptr %34, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i64 %30, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !31
@@ -632,7 +631,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18logged_rv32e_fli_qP11
   tail call void @_ZNK11float_csr_t18verify_permissionsE6insn_tb(ptr noundef nonnull align 8 dereferenceable(56) %29, i64 %1, i1 noundef zeroext false)
   %30 = lshr i64 %1, 15
   %31 = and i64 %30, 31
-  %32 = getelementptr inbounds nuw i64, ptr @__const._Z18logged_rv64e_fli_qP11processor_t6insn_tm.bits, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr @__const._Z18logged_rv64e_fli_qP11processor_t6insn_tm.bits, i64 %31
   %33 = load i64, ptr %32, align 8, !tbaa !27
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 3840
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -647,7 +646,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18logged_rv32e_fli_qP11
   store i64 %33, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !31
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  %41 = getelementptr inbounds nuw %struct.float128_t, ptr %40, i64 %36
+  %41 = getelementptr inbounds nuw [16 x i8], ptr %40, i64 %36
   store i64 0, ptr %41, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %41, i64 8
   store i64 %33, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !31
@@ -706,7 +705,7 @@ define noundef i64 @_Z18logged_rv64e_fli_qP11processor_t6insn_tm(ptr noundef %0,
   tail call void @_ZNK11float_csr_t18verify_permissionsE6insn_tb(ptr noundef nonnull align 8 dereferenceable(56) %27, i64 %1, i1 noundef zeroext false)
   %28 = lshr i64 %1, 15
   %29 = and i64 %28, 31
-  %30 = getelementptr inbounds nuw i64, ptr @__const._Z18logged_rv64e_fli_qP11processor_t6insn_tm.bits, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr @__const._Z18logged_rv64e_fli_qP11processor_t6insn_tm.bits, i64 %29
   %31 = load i64, ptr %30, align 8, !tbaa !27
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 3840
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -721,7 +720,7 @@ define noundef i64 @_Z18logged_rv64e_fli_qP11processor_t6insn_tm(ptr noundef %0,
   store i64 %31, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !31
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  %39 = getelementptr inbounds nuw %struct.float128_t, ptr %38, i64 %34
+  %39 = getelementptr inbounds nuw [16 x i8], ptr %38, i64 %34
   store i64 0, ptr %39, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %39, i64 8
   store i64 %31, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !31

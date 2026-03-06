@@ -463,7 +463,7 @@ define dso_local { ptr, i64 } @_ZNK5clang15AnalyzerOptions22getCheckerStringOpti
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %13 = load i32, ptr %12, align 8, !tbaa !42
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw ptr, ptr %11, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %14
   %.sroa.23.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 32
@@ -502,7 +502,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit21:                ; preds = %6, %47
   %31 = zext i32 %30 to i64
   %32 = sext i32 %27 to i64
   %.sroa.0.0.v.i.i = select i1 %28, i64 %31, i64 %32
-  %.sroa.0.0.i.i = getelementptr inbounds ptr, ptr %29, i64 %.sroa.0.0.v.i.i
+  %.sroa.0.0.i.i = getelementptr inbounds [8 x i8], ptr %29, i64 %.sroa.0.0.v.i.i
   %33 = load ptr, ptr %7, align 8, !tbaa !57
   %34 = icmp eq ptr %33, %23
   br i1 %34, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i

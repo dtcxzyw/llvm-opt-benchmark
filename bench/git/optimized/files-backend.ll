@@ -16,7 +16,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.lock_file = type { ptr }
 %struct.expire_reflog_cb = type { ptr, ptr, ptr, %struct.object_id, i8 }
 %struct.fsck_ref_report = type { ptr, ptr, ptr }
-%struct.string_list_item = type { ptr, ptr }
 %struct.rename_cb = type { ptr, i32 }
 
 @.str = private unnamed_addr constant [5 x i8] c"ref:\00", align 1
@@ -558,7 +557,7 @@ files_downcast.exit:                              ; preds = %12
   %30 = phi i64 [ %27, %.lr.ph ], [ %45, %44 ]
   %.067273 = phi i64 [ 0, %.lr.ph ], [ %46, %44 ]
   %31 = load ptr, ptr %28, align 8, !tbaa !44
-  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %.067273
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %.067273
   %33 = load ptr, ptr %32, align 8, !tbaa !45
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 88
   %35 = load i32, ptr %34, align 8, !tbaa !16
@@ -628,7 +627,7 @@ files_downcast.exit:                              ; preds = %12
   %.1286 = phi i64 [ 0, %.lr.ph288 ], [ %309, %308 ]
   %.070285 = phi ptr [ null, %.lr.ph288 ], [ %.171.ph, %308 ]
   %62 = load ptr, ptr %57, align 8, !tbaa !44
-  %63 = getelementptr inbounds nuw ptr, ptr %62, i64 %.1286
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %.1286
   %64 = load ptr, ptr %63, align 8, !tbaa !45
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) @__const.files_fsck_refs_dir.sb, i64 24, i1 false)
@@ -1335,7 +1334,7 @@ files_downcast.exit:                              ; preds = %3
   %20 = phi i64 [ %16, %.lr.ph.i ], [ %31, %30 ]
   %.075142.i = phi i64 [ 0, %.lr.ph.i ], [ %32, %30 ]
   %21 = load ptr, ptr %17, align 8, !tbaa !44
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %.075142.i
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %.075142.i
   %23 = load ptr, ptr %22, align 8, !tbaa !45
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 88
   %25 = load i32, ptr %24, align 8, !tbaa !16
@@ -1391,7 +1390,7 @@ files_downcast.exit:                              ; preds = %3
   %.1144.i = phi ptr [ null, %.lr.ph145.i ], [ %.2.ph.i, %92 ]
   %.176143.i = phi i64 [ 0, %.lr.ph145.i ], [ %93, %92 ]
   %46 = load ptr, ptr %44, align 8, !tbaa !44
-  %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %.176143.i
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %.176143.i
   %48 = load ptr, ptr %47, align 8, !tbaa !45
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 88
   %50 = load i32, ptr %49, align 8, !tbaa !16
@@ -1570,7 +1569,7 @@ files_transaction_finish_initial.exit:            ; preds = %._crit_edge.i, %38,
 121:                                              ; preds = %.lr.ph, %create_ref_symlink.exit.thread
   %.078144 = phi i64 [ 0, %.lr.ph ], [ %183, %create_ref_symlink.exit.thread ]
   %122 = load ptr, ptr %115, align 8, !tbaa !44
-  %123 = getelementptr inbounds nuw ptr, ptr %122, i64 %.078144
+  %123 = getelementptr inbounds nuw [8 x i8], ptr %122, i64 %.078144
   %124 = load ptr, ptr %123, align 8, !tbaa !45
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 96
   %126 = load ptr, ptr %125, align 8, !tbaa !56
@@ -1710,7 +1709,7 @@ create_ref_symlink.exit.thread:                   ; preds = %159, %clear_loose_r
 186:                                              ; preds = %.lr.ph146, %200
   %.1145 = phi i64 [ 0, %.lr.ph146 ], [ %201, %200 ]
   %187 = load ptr, ptr %118, align 8, !tbaa !44
-  %188 = getelementptr inbounds nuw ptr, ptr %187, i64 %.1145
+  %188 = getelementptr inbounds nuw [8 x i8], ptr %187, i64 %.1145
   %189 = load ptr, ptr %188, align 8, !tbaa !45
   %190 = getelementptr inbounds nuw i8, ptr %189, i64 88
   %191 = load i32, ptr %190, align 8, !tbaa !16
@@ -1777,7 +1776,7 @@ strbuf_setlen.exit:                               ; preds = %193, %195
   %213 = phi i64 [ %208, %.lr.ph149 ], [ %234, %233 ]
   %.2147 = phi i64 [ 0, %.lr.ph149 ], [ %235, %233 ]
   %214 = load ptr, ptr %209, align 8, !tbaa !44
-  %215 = getelementptr inbounds nuw ptr, ptr %214, i64 %.2147
+  %215 = getelementptr inbounds nuw [8 x i8], ptr %214, i64 %.2147
   %216 = load ptr, ptr %215, align 8, !tbaa !45
   %217 = getelementptr inbounds nuw i8, ptr %216, i64 96
   %218 = load ptr, ptr %217, align 8, !tbaa !56
@@ -1850,7 +1849,7 @@ clear_loose_ref_cache.exit126:                    ; preds = %strbuf_setlen.exit1
   %243 = phi i64 [ %240, %.lr.ph152 ], [ %253, %252 ]
   %.3151 = phi i64 [ 0, %.lr.ph152 ], [ %254, %252 ]
   %244 = load ptr, ptr %241, align 8, !tbaa !44
-  %245 = getelementptr inbounds nuw ptr, ptr %244, i64 %.3151
+  %245 = getelementptr inbounds nuw [8 x i8], ptr %244, i64 %.3151
   %246 = load ptr, ptr %245, align 8, !tbaa !45
   %247 = getelementptr inbounds nuw i8, ptr %246, i64 88
   %248 = load i32, ptr %247, align 8, !tbaa !16
@@ -3294,7 +3293,7 @@ strbuf_setlen.exit.i.i:                           ; preds = %49, %47
   %.not32.i.i = icmp eq i32 %62, 0
   %spec.select.i.i = select i1 %.not32.i.i, i32 %.24.i.i, i32 -1
   %63 = add nuw nsw i64 %.05.i.i, 1
-  %64 = getelementptr inbounds nuw ptr, ptr @__const.files_fsck_refs.fsck_refs_fn, i64 %63
+  %64 = getelementptr inbounds nuw [8 x i8], ptr @__const.files_fsck_refs.fsck_refs_fn, i64 %63
   %65 = load ptr, ptr %64, align 8, !tbaa !56
   %.not31.i.i = icmp eq i64 %63, 2
   br i1 %.not31.i.i, label %.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !144
@@ -3657,7 +3656,7 @@ define internal fastcc void @files_transaction_cleanup(ptr noundef readonly capt
   %10 = phi i64 [ %7, %.lr.ph ], [ %25, %24 ]
   %.024 = phi i64 [ 0, %.lr.ph ], [ %26, %24 ]
   %11 = load ptr, ptr %8, align 8, !tbaa !44
-  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %.024
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.024
   %13 = load ptr, ptr %12, align 8, !tbaa !45
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 96
   %15 = load ptr, ptr %14, align 8, !tbaa !56
@@ -4656,7 +4655,7 @@ define internal fastcc range(i32 0, 2) i32 @should_pack_ref(ptr noundef readonly
   %21 = load ptr, ptr %20, align 8, !tbaa !165
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %23 = load i64, ptr %22, align 8, !tbaa !168
-  %24 = getelementptr inbounds nuw %struct.string_list_item, ptr %21, i64 %23
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %23
   %25 = icmp ult ptr %19, %24
   br i1 %25, label %.lr.ph29, label %.critedge
 
@@ -4666,7 +4665,7 @@ define internal fastcc range(i32 0, 2) i32 @should_pack_ref(ptr noundef readonly
   %28 = load ptr, ptr %27, align 8, !tbaa !165
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %30 = load i64, ptr %29, align 8, !tbaa !168
-  %31 = getelementptr inbounds nuw %struct.string_list_item, ptr %28, i64 %30
+  %31 = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %30
   %32 = icmp ult ptr %26, %31
   br i1 %32, label %.lr.ph29, label %.critedge
 
@@ -4857,7 +4856,7 @@ strbuf_setlen.exit:                               ; preds = %59, %57, %ends_with
 
 65:                                               ; preds = %75, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %75 ]
-  %66 = getelementptr inbounds nuw ptr, ptr @__const.add_per_worktree_entries_to_dir.prefixes, i64 %indvars.iv.i
+  %66 = getelementptr inbounds nuw [8 x i8], ptr @__const.add_per_worktree_entries_to_dir.prefixes, i64 %indvars.iv.i
   %67 = load ptr, ptr %66, align 8, !tbaa !18
   %68 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %67) #19
   %sext.i = shl i64 %68, 32
@@ -4911,7 +4910,7 @@ define internal fastcc void @loose_fill_ref_dir_regular_file(ptr noundef %0, ptr
 
 12:                                               ; preds = %14, %7
   %.0811.i.i = phi i64 [ 0, %7 ], [ %15, %14 ]
-  %13 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i
+  %13 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %.0811.i.i
   %.not.i.i = icmp eq ptr %11, %13
   br i1 %.not.i.i, label %.split.loop.exit9.i.i, label %14
 
@@ -4969,7 +4968,7 @@ oidclr.exit:                                      ; preds = %14, %.split.loop.ex
 
 31:                                               ; preds = %33, %26
   %.0811.i.i15 = phi i64 [ 0, %26 ], [ %34, %33 ]
-  %32 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i15
+  %32 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %.0811.i.i15
   %.not.i.i16 = icmp eq ptr %30, %32
   br i1 %.not.i.i16, label %.split.loop.exit9.i.i19, label %33
 
@@ -5476,7 +5475,7 @@ files_assert_main_repository.exit:                ; preds = %3
 
 33:                                               ; preds = %35, %28
   %.0811.i.i = phi i64 [ 0, %28 ], [ %36, %35 ]
-  %34 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i
+  %34 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %.0811.i.i
   %.not.i.i = icmp eq ptr %32, %34
   br i1 %.not.i.i, label %.split.loop.exit9.i.i, label %35
 

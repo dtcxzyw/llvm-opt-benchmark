@@ -572,7 +572,7 @@ define dso_local range(i32 0, 2) i32 @copy_note_for_rewrite(ptr noundef readonly
   %12 = select i1 %11, i1 true, i1 %.0912
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %13 = load ptr, ptr %0, align 8, !tbaa !39
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv.next
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv.next
   %15 = load ptr, ptr %14, align 8, !tbaa !40
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %._crit_edge.loopexit, label %7, !llvm.loop !42
@@ -600,16 +600,16 @@ define dso_local void @finish_copy_notes_for_rewrite(ptr noundef %0, ptr noundef
   %6 = phi ptr [ %15, %.lr.ph ], [ %5, %3 ]
   tail call void @commit_notes(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %2)
   %7 = load ptr, ptr %1, align 8, !tbaa !39
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8, !tbaa !40
   tail call void @free_notes(ptr noundef %9) #12
   %10 = load ptr, ptr %1, align 8, !tbaa !39
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !40
   tail call void @free(ptr noundef %12) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %13 = load ptr, ptr %1, align 8, !tbaa !39
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv.next
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv.next
   %15 = load ptr, ptr %14, align 8, !tbaa !40
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !44

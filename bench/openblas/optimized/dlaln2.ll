@@ -34,11 +34,11 @@ define void @dlaln2_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %30 = load i32, ptr %10, align 4, !tbaa !3
   %narrow536 = xor i32 %30, -1
   %31 = sext i32 %narrow536 to i64
-  %32 = getelementptr inbounds double, ptr %9, i64 %31
+  %32 = getelementptr inbounds [8 x i8], ptr %9, i64 %31
   %33 = load i32, ptr %14, align 4, !tbaa !3
   %narrow537 = xor i32 %33, -1
   %34 = sext i32 %narrow537 to i64
-  %35 = getelementptr inbounds double, ptr %13, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %13, i64 %34
   %36 = tail call double @dlamch_(ptr noundef nonnull @.str) #6
   %37 = fmul double %36, 2.000000e+00
   %38 = fdiv double 1.000000e+00, %37
@@ -136,7 +136,7 @@ define void @dlaln2_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %94 = select i1 %92, double %91, double %93
   %95 = shl i32 %30, 1
   %96 = sext i32 %95 to i64
-  %97 = getelementptr double, ptr %32, i64 %96
+  %97 = getelementptr [8 x i8], ptr %32, i64 %96
   %98 = getelementptr i8, ptr %97, i64 8
   %99 = load double, ptr %98, align 8, !tbaa !7
   %100 = fcmp oge double %99, 0.000000e+00
@@ -167,7 +167,7 @@ define void @dlaln2_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   store double %114, ptr %20, align 8, !tbaa !7
   %115 = shl i32 %33, 1
   %116 = sext i32 %115 to i64
-  %117 = getelementptr double, ptr %35, i64 %116
+  %117 = getelementptr [8 x i8], ptr %35, i64 %116
   %118 = getelementptr i8, ptr %117, i64 8
   call void @dladiv_(ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef nonnull %27, ptr noundef nonnull %25, ptr noundef %13, ptr noundef %118) #6
   %119 = load double, ptr %13, align 8, !tbaa !7
@@ -185,7 +185,7 @@ define void @dlaln2_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 128:                                              ; preds = %18
   %narrow = xor i32 %29, -1
   %129 = sext i32 %narrow to i64
-  %130 = getelementptr inbounds double, ptr %5, i64 %129
+  %130 = getelementptr inbounds [8 x i8], ptr %5, i64 %129
   %131 = load double, ptr %4, align 8, !tbaa !7
   %132 = load double, ptr %5, align 8, !tbaa !7
   %133 = load double, ptr %11, align 8, !tbaa !7
@@ -196,7 +196,7 @@ define void @dlaln2_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   store double %137, ptr @dlaln2_.equiv_1, align 16, !tbaa !7
   %138 = shl i32 %29, 1
   %139 = sext i32 %138 to i64
-  %140 = getelementptr double, ptr %130, i64 %139
+  %140 = getelementptr [8 x i8], ptr %130, i64 %139
   %141 = getelementptr i8, ptr %140, i64 16
   %142 = load double, ptr %141, align 8, !tbaa !7
   %143 = load double, ptr %8, align 8, !tbaa !7
@@ -207,7 +207,7 @@ define void @dlaln2_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %147 = load i32, ptr %0, align 4, !tbaa !3
   %.not = icmp eq i32 %147, 0
   %148 = sext i32 %29 to i64
-  %149 = getelementptr double, ptr %130, i64 %148
+  %149 = getelementptr [8 x i8], ptr %130, i64 %148
   %150 = getelementptr i8, ptr %149, i64 16
   %151 = getelementptr i8, ptr %140, i64 8
   %.590 = select i1 %.not, ptr %150, ptr %151
@@ -226,7 +226,7 @@ define void @dlaln2_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %indvars.iv568 = phi i64 [ %indvars.iv.next569, %.preheader ], [ 1, %128 ]
   %.0497564 = phi double [ %.1498, %.preheader ], [ 0.000000e+00, %128 ]
   %.0504563 = phi i32 [ %.1505, %.preheader ], [ 0, %128 ]
-  %154 = getelementptr double, ptr @dlaln2_.equiv_1, i64 %indvars.iv568
+  %154 = getelementptr [8 x i8], ptr @dlaln2_.equiv_1, i64 %indvars.iv568
   %155 = getelementptr i8, ptr %154, i64 -8
   %156 = load double, ptr %155, align 8, !tbaa !7
   %157 = tail call double @llvm.fabs.f64(double %156)
@@ -251,7 +251,7 @@ define void @dlaln2_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %168 = fneg double %166
   %169 = select i1 %167, double %166, double %168
   %170 = sext i32 %30 to i64
-  %171 = getelementptr double, ptr %32, i64 %170
+  %171 = getelementptr [8 x i8], ptr %32, i64 %170
   %172 = getelementptr i8, ptr %171, i64 16
   %173 = load double, ptr %172, align 8, !tbaa !7
   %174 = fcmp oge double %173, 0.000000e+00
@@ -282,7 +282,7 @@ define void @dlaln2_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %190 = load double, ptr %172, align 8, !tbaa !7
   %191 = fmul double %188, %190
   %192 = sext i32 %33 to i64
-  %193 = getelementptr double, ptr %35, i64 %192
+  %193 = getelementptr [8 x i8], ptr %35, i64 %192
   %194 = getelementptr i8, ptr %193, i64 16
   store double %191, ptr %194, align 8, !tbaa !7
   %195 = fmul double %178, %188
@@ -293,27 +293,27 @@ define void @dlaln2_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 196:                                              ; preds = %163
   %197 = add nsw i32 %.1505, -1
   %198 = sext i32 %197 to i64
-  %199 = getelementptr inbounds double, ptr @dlaln2_.equiv_1, i64 %198
+  %199 = getelementptr inbounds [8 x i8], ptr @dlaln2_.equiv_1, i64 %198
   %200 = load double, ptr %199, align 8, !tbaa !7
   %201 = shl nuw nsw i32 %.1505, 2
   %202 = zext nneg i32 %201 to i64
-  %203 = getelementptr i32, ptr @dlaln2_.ipivot, i64 %202
+  %203 = getelementptr [4 x i8], ptr @dlaln2_.ipivot, i64 %202
   %204 = getelementptr i8, ptr %203, i64 -12
   %205 = load i32, ptr %204, align 4, !tbaa !3
   %206 = sext i32 %205 to i64
-  %207 = getelementptr double, ptr @dlaln2_.equiv_1, i64 %206
+  %207 = getelementptr [8 x i8], ptr @dlaln2_.equiv_1, i64 %206
   %208 = getelementptr i8, ptr %207, i64 -8
   %209 = load double, ptr %208, align 8, !tbaa !7
   %210 = getelementptr i8, ptr %203, i64 -8
   %211 = load i32, ptr %210, align 8, !tbaa !3
   %212 = sext i32 %211 to i64
-  %213 = getelementptr double, ptr @dlaln2_.equiv_1, i64 %212
+  %213 = getelementptr [8 x i8], ptr @dlaln2_.equiv_1, i64 %212
   %214 = getelementptr i8, ptr %213, i64 -8
   %215 = load double, ptr %214, align 8, !tbaa !7
   %216 = getelementptr i8, ptr %203, i64 -4
   %217 = load i32, ptr %216, align 4, !tbaa !3
   %218 = sext i32 %217 to i64
-  %219 = getelementptr double, ptr @dlaln2_.equiv_1, i64 %218
+  %219 = getelementptr [8 x i8], ptr @dlaln2_.equiv_1, i64 %218
   %220 = getelementptr i8, ptr %219, i64 -8
   %221 = load double, ptr %220, align 8, !tbaa !7
   %222 = fdiv double 1.000000e+00, %200
@@ -333,7 +333,7 @@ define void @dlaln2_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %231 = and i32 %197, -3
   %.not533 = icmp eq i32 %231, 0
   %232 = sext i32 %30 to i64
-  %233 = getelementptr double, ptr %32, i64 %232
+  %233 = getelementptr [8 x i8], ptr %32, i64 %232
   %234 = getelementptr i8, ptr %233, i64 16
   %storemerge534.in = select i1 %.not533, ptr %234, ptr %9
   %.0494.in = select i1 %.not533, ptr %9, ptr %234
@@ -379,7 +379,7 @@ define void @dlaln2_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %264 = tail call double @llvm.fmuladd.f64(double %261, double %222, double %263)
   %.not535 = icmp ult i32 %197, 2
   %265 = sext i32 %33 to i64
-  %266 = getelementptr double, ptr %35, i64 %265
+  %266 = getelementptr [8 x i8], ptr %35, i64 %265
   %267 = getelementptr i8, ptr %266, i64 16
   %.602 = select i1 %.not535, double %264, double %260
   %.603 = select i1 %.not535, double %260, double %264
@@ -408,7 +408,7 @@ define void @dlaln2_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %283 = fmul double %281, %282
   store double %283, ptr %13, align 8, !tbaa !7
   %284 = sext i32 %33 to i64
-  %285 = getelementptr double, ptr %35, i64 %284
+  %285 = getelementptr [8 x i8], ptr %35, i64 %284
   %286 = getelementptr i8, ptr %285, i64 16
   %287 = load double, ptr %286, align 8, !tbaa !7
   %288 = fmul double %281, %287
@@ -436,12 +436,12 @@ define void @dlaln2_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %.2499560 = phi double [ 0.000000e+00, %293 ], [ %.3, %298 ]
   %.2506559 = phi i32 [ 0, %293 ], [ %.3507, %298 ]
   %299 = add nsw i64 %indvars.iv, -1
-  %300 = getelementptr inbounds double, ptr @dlaln2_.equiv_1, i64 %299
+  %300 = getelementptr inbounds [8 x i8], ptr @dlaln2_.equiv_1, i64 %299
   %301 = load double, ptr %300, align 8, !tbaa !7
   %302 = fcmp oge double %301, 0.000000e+00
   %303 = fneg double %301
   %304 = select i1 %302, double %301, double %303
-  %305 = getelementptr inbounds double, ptr @dlaln2_.equiv_0, i64 %299
+  %305 = getelementptr inbounds [8 x i8], ptr @dlaln2_.equiv_0, i64 %299
   %306 = load double, ptr %305, align 8, !tbaa !7
   %307 = fcmp oge double %306, 0.000000e+00
   %308 = fneg double %306
@@ -466,7 +466,7 @@ define void @dlaln2_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %319 = select i1 %317, double %316, double %318
   %320 = shl i32 %30, 1
   %321 = sext i32 %320 to i64
-  %322 = getelementptr double, ptr %32, i64 %321
+  %322 = getelementptr [8 x i8], ptr %32, i64 %321
   %323 = getelementptr i8, ptr %322, i64 8
   %324 = load double, ptr %323, align 8, !tbaa !7
   %325 = fcmp oge double %324, 0.000000e+00
@@ -474,7 +474,7 @@ define void @dlaln2_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %327 = select i1 %325, double %324, double %326
   %328 = fadd double %319, %327
   %329 = sext i32 %30 to i64
-  %330 = getelementptr double, ptr %32, i64 %329
+  %330 = getelementptr [8 x i8], ptr %32, i64 %329
   %331 = getelementptr i8, ptr %330, i64 16
   %332 = load double, ptr %331, align 8, !tbaa !7
   %333 = fcmp oge double %332, 0.000000e+00
@@ -511,14 +511,14 @@ define void @dlaln2_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %355 = load double, ptr %331, align 8, !tbaa !7
   %356 = fmul double %353, %355
   %357 = sext i32 %33 to i64
-  %358 = getelementptr double, ptr %35, i64 %357
+  %358 = getelementptr [8 x i8], ptr %35, i64 %357
   %359 = getelementptr i8, ptr %358, i64 16
   store double %356, ptr %359, align 8, !tbaa !7
   %360 = load double, ptr %323, align 8, !tbaa !7
   %361 = fmul double %353, %360
   %362 = shl i32 %33, 1
   %363 = sext i32 %362 to i64
-  %364 = getelementptr double, ptr %35, i64 %363
+  %364 = getelementptr [8 x i8], ptr %35, i64 %363
   %365 = getelementptr i8, ptr %364, i64 8
   store double %361, ptr %365, align 8, !tbaa !7
   %366 = load double, ptr %336, align 8, !tbaa !7
@@ -533,32 +533,32 @@ define void @dlaln2_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 370:                                              ; preds = %313
   %371 = add nsw i32 %.3507, -1
   %372 = sext i32 %371 to i64
-  %373 = getelementptr inbounds double, ptr @dlaln2_.equiv_1, i64 %372
+  %373 = getelementptr inbounds [8 x i8], ptr @dlaln2_.equiv_1, i64 %372
   %374 = load double, ptr %373, align 8, !tbaa !7
-  %375 = getelementptr inbounds double, ptr @dlaln2_.equiv_0, i64 %372
+  %375 = getelementptr inbounds [8 x i8], ptr @dlaln2_.equiv_0, i64 %372
   %376 = load double, ptr %375, align 8, !tbaa !7
   %377 = shl nuw nsw i32 %.3507, 2
   %378 = zext nneg i32 %377 to i64
-  %379 = getelementptr i32, ptr @dlaln2_.ipivot, i64 %378
+  %379 = getelementptr [4 x i8], ptr @dlaln2_.ipivot, i64 %378
   %380 = getelementptr i8, ptr %379, i64 -12
   %381 = load i32, ptr %380, align 4, !tbaa !3
   %382 = add nsw i32 %381, -1
   %383 = sext i32 %382 to i64
-  %384 = getelementptr inbounds double, ptr @dlaln2_.equiv_1, i64 %383
+  %384 = getelementptr inbounds [8 x i8], ptr @dlaln2_.equiv_1, i64 %383
   %385 = load double, ptr %384, align 8, !tbaa !7
   %386 = getelementptr i8, ptr %379, i64 -8
   %387 = load i32, ptr %386, align 8, !tbaa !3
   %388 = add nsw i32 %387, -1
   %389 = sext i32 %388 to i64
-  %390 = getelementptr inbounds double, ptr @dlaln2_.equiv_1, i64 %389
+  %390 = getelementptr inbounds [8 x i8], ptr @dlaln2_.equiv_1, i64 %389
   %391 = load double, ptr %390, align 8, !tbaa !7
   %392 = getelementptr i8, ptr %379, i64 -4
   %393 = load i32, ptr %392, align 4, !tbaa !3
   %394 = add nsw i32 %393, -1
   %395 = sext i32 %394 to i64
-  %396 = getelementptr inbounds double, ptr @dlaln2_.equiv_1, i64 %395
+  %396 = getelementptr inbounds [8 x i8], ptr @dlaln2_.equiv_1, i64 %395
   %397 = load double, ptr %396, align 8, !tbaa !7
-  %398 = getelementptr inbounds double, ptr @dlaln2_.equiv_0, i64 %395
+  %398 = getelementptr inbounds [8 x i8], ptr @dlaln2_.equiv_0, i64 %395
   %399 = load double, ptr %398, align 8, !tbaa !7
   switch i32 %.3507, label %425 [
     i32 4, label %400
@@ -602,9 +602,9 @@ define void @dlaln2_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   br label %440
 
 425:                                              ; preds = %370
-  %426 = getelementptr inbounds double, ptr @dlaln2_.equiv_0, i64 %389
+  %426 = getelementptr inbounds [8 x i8], ptr @dlaln2_.equiv_0, i64 %389
   %427 = load double, ptr %426, align 8, !tbaa !7
-  %428 = getelementptr inbounds double, ptr @dlaln2_.equiv_0, i64 %383
+  %428 = getelementptr inbounds [8 x i8], ptr @dlaln2_.equiv_0, i64 %383
   %429 = load double, ptr %428, align 8, !tbaa !7
   %430 = fdiv double 1.000000e+00, %374
   %431 = fmul double %430, %385
@@ -648,11 +648,11 @@ define void @dlaln2_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %452 = and i32 %371, -3
   %.not531 = icmp eq i32 %452, 0
   %453 = sext i32 %30 to i64
-  %454 = getelementptr double, ptr %32, i64 %453
+  %454 = getelementptr [8 x i8], ptr %32, i64 %453
   %455 = getelementptr i8, ptr %454, i64 16
   %456 = shl i32 %30, 1
   %457 = sext i32 %456 to i64
-  %458 = getelementptr double, ptr %32, i64 %457
+  %458 = getelementptr [8 x i8], ptr %32, i64 %457
   %459 = getelementptr i8, ptr %458, i64 8
   %460 = getelementptr i8, ptr %458, i64 16
   %.594 = select i1 %.not531, ptr %455, ptr %9
@@ -735,11 +735,11 @@ define void @dlaln2_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %514 = call double @llvm.fmuladd.f64(double %506, double %508, double %513)
   %.not532 = icmp ult i32 %371, 2
   %515 = sext i32 %33 to i64
-  %516 = getelementptr double, ptr %35, i64 %515
+  %516 = getelementptr [8 x i8], ptr %35, i64 %515
   %517 = getelementptr i8, ptr %516, i64 16
   %518 = shl i32 %33, 1
   %519 = sext i32 %518 to i64
-  %520 = getelementptr double, ptr %35, i64 %519
+  %520 = getelementptr [8 x i8], ptr %35, i64 %519
   %521 = getelementptr i8, ptr %520, i64 8
   %522 = getelementptr i8, ptr %520, i64 16
   %.604 = select i1 %.not532, double %509, double %505
@@ -781,14 +781,14 @@ define void @dlaln2_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %546 = fmul double %544, %545
   store double %546, ptr %13, align 8, !tbaa !7
   %547 = sext i32 %33 to i64
-  %548 = getelementptr double, ptr %35, i64 %547
+  %548 = getelementptr [8 x i8], ptr %35, i64 %547
   %549 = getelementptr i8, ptr %548, i64 16
   %550 = load double, ptr %549, align 8, !tbaa !7
   %551 = fmul double %544, %550
   store double %551, ptr %549, align 8, !tbaa !7
   %552 = shl i32 %33, 1
   %553 = sext i32 %552 to i64
-  %554 = getelementptr double, ptr %35, i64 %553
+  %554 = getelementptr [8 x i8], ptr %35, i64 %553
   %555 = getelementptr i8, ptr %554, i64 8
   %556 = load double, ptr %555, align 8, !tbaa !7
   %557 = fmul double %544, %556

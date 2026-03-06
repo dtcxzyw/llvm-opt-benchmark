@@ -1003,7 +1003,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0
   %18 = phi ptr [ %.pre.i.i, %16 ], [ %8, %10 ]
   %19 = getelementptr inbounds i8, ptr %18, i64 -4
   %20 = zext i32 %17 to i64
-  %21 = getelementptr inbounds nuw ptr, ptr %18, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %20
   store ptr %1, ptr %21, align 8, !tbaa !31
   %22 = add i32 %17, 1
   store i32 %22, ptr %19, align 4, !tbaa !30
@@ -1121,7 +1121,7 @@ define linkonce_odr hidden noundef ptr @_ZNK12solver_na2as14get_assumptionEj(ptr
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = load ptr, ptr %3, align 8, !tbaa !10
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds nuw ptr, ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !31
   ret ptr %7
 }
@@ -2406,7 +2406,7 @@ _ZN23generic_model_converter4hideEP9func_decl.exit: ; preds = %44, %.noexc.i
   %54 = phi ptr [ %.pre.i.i, %.noexc.i ], [ %42, %44 ]
   %55 = getelementptr inbounds i8, ptr %54, i64 -4
   %56 = zext i32 %53 to i64
-  %57 = getelementptr inbounds nuw %"struct.generic_model_converter::entry", ptr %54, i64 %56
+  %57 = getelementptr inbounds nuw [40 x i8], ptr %54, i64 %56
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   store ptr %38, ptr %58, align 8, !tbaa !6
   store ptr %37, ptr %57, align 8, !tbaa !81

@@ -354,7 +354,7 @@ u_posrelat.exit42:                                ; preds = %u_posrelat.exit, %1
 
 64:                                               ; preds = %._crit_edge.i.us
   %65 = zext nneg i32 %.035.lcssa.i.us to i64
-  %66 = getelementptr inbounds nuw i32, ptr @utf8_decode.limits, i64 %65
+  %66 = getelementptr inbounds nuw [4 x i8], ptr @utf8_decode.limits, i64 %65
   %67 = load i32, ptr %66, align 4, !tbaa !12
   %68 = icmp ult i32 %61, %67
   br i1 %68, label %.loopexit.sink.split, label %69
@@ -433,7 +433,7 @@ u_posrelat.exit42:                                ; preds = %u_posrelat.exit, %1
 
 101:                                              ; preds = %._crit_edge.i
   %102 = zext nneg i32 %.035.lcssa.i to i64
-  %103 = getelementptr inbounds nuw i32, ptr @utf8_decode.limits, i64 %102
+  %103 = getelementptr inbounds nuw [4 x i8], ptr @utf8_decode.limits, i64 %102
   %104 = load i32, ptr %103, align 4, !tbaa !12
   %105 = icmp ult i32 %98, %104
   br i1 %105, label %.loopexit.sink.split, label %106
@@ -641,7 +641,7 @@ u_posrelat.exit37:                                ; preds = %u_posrelat.exit, %1
 
 59:                                               ; preds = %._crit_edge.i.us
   %60 = zext nneg i32 %.035.lcssa.i.us to i64
-  %61 = getelementptr inbounds nuw i32, ptr @utf8_decode.limits, i64 %60
+  %61 = getelementptr inbounds nuw [4 x i8], ptr @utf8_decode.limits, i64 %60
   %62 = load i32, ptr %61, align 4, !tbaa !12
   %63 = icmp ult i32 %56, %62
   br i1 %63, label %.thread, label %64
@@ -721,7 +721,7 @@ u_posrelat.exit37:                                ; preds = %u_posrelat.exit, %1
 
 97:                                               ; preds = %._crit_edge.i
   %98 = zext nneg i32 %.035.lcssa.i to i64
-  %99 = getelementptr inbounds nuw i32, ptr @utf8_decode.limits, i64 %98
+  %99 = getelementptr inbounds nuw [4 x i8], ptr @utf8_decode.limits, i64 %98
   %100 = load i32, ptr %99, align 4, !tbaa !12
   %101 = icmp ult i32 %94, %100
   br i1 %101, label %.thread, label %102
@@ -893,7 +893,7 @@ define internal fastcc i32 @iter_aux(ptr noundef %0, i32 noundef range(i32 0, 2)
 
 36:                                               ; preds = %._crit_edge.i
   %37 = zext nneg i32 %.035.lcssa.i to i64
-  %38 = getelementptr inbounds nuw i32, ptr @utf8_decode.limits, i64 %37
+  %38 = getelementptr inbounds nuw [4 x i8], ptr @utf8_decode.limits, i64 %37
   %39 = load i32, ptr %38, align 4, !tbaa !12
   %40 = icmp ult i32 %33, %39
   br i1 %40, label %utf8_decode.exit.thread, label %41

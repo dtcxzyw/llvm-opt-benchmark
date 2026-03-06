@@ -3881,7 +3881,7 @@ _ZNSt6vectorIN9grpc_core12_GLOBAL__N_110JsonReader5ScopeESaIS3_EE11_S_relocateEP
 _ZNSt6vectorIN9grpc_core12_GLOBAL__N_110JsonReader5ScopeESaIS3_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %155, %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_110JsonReader5ScopeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit
   store ptr %89, ptr %9, align 8, !tbaa !143
   store ptr %154, ptr %10, align 8, !tbaa !71
-  %159 = getelementptr inbounds nuw %"struct.grpc_core::(anonymous namespace)::JsonReader::Scope", ptr %89, i64 %87
+  %159 = getelementptr inbounds nuw [88 x i8], ptr %89, i64 %87
   store ptr %159, ptr %69, align 8, !tbaa !145
   br label %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_110JsonReader5ScopeESaIS3_EE12emplace_backIJEEERS3_DpOT_.exit
 
@@ -4836,7 +4836,7 @@ _ZNKSt6vectorIN9grpc_core12experimental4JsonESaIS2_EE12_M_check_lenEmPKc.exit: ;
 _ZNSt12_Vector_baseIN9grpc_core12experimental4JsonESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNKSt6vectorIN9grpc_core12experimental4JsonESaIS2_EE12_M_check_lenEmPKc.exit, %25
   store ptr %19, ptr %0, align 8, !tbaa !66
   store ptr %23, ptr %3, align 8, !tbaa !69
-  %29 = getelementptr inbounds nuw %"class.grpc_core::experimental::Json", ptr %19, i64 %15
+  %29 = getelementptr inbounds nuw [56 x i8], ptr %19, i64 %15
   store ptr %29, ptr %24, align 8, !tbaa !70
   ret void
 }
@@ -6934,7 +6934,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %69
   store ptr %22, ptr %0, align 8, !tbaa !97
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !96
-  %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %73, ptr %68, align 8, !tbaa !104
   ret void
 }

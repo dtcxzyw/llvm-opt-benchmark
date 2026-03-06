@@ -7,7 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon = type { ptr }
 %union.anon.0 = type { ptr }
 %union.anon.2 = type { i64 }
-%struct.ChannelStats = type { i64, i64, float, float, [32769 x i32], [32769 x i32] }
 
 @.str = private unnamed_addr constant [8 x i8] c"drmeter\00", align 1
 @.str.1 = private unnamed_addr constant [29 x i8] c"Measure audio dynamic range.\00", align 1
@@ -45,7 +44,7 @@ define internal void @uninit(ptr noundef %0) #0 {
   %indvars.iv87.i = phi i64 [ 0, %.lr.ph83.i ], [ %indvars.iv.next88.i, %._crit_edge.i ]
   %.05081.i = phi float [ 0.000000e+00, %.lr.ph83.i ], [ %82, %._crit_edge.i ]
   %9 = load ptr, ptr %7, align 8, !tbaa !25
-  %10 = getelementptr inbounds nuw %struct.ChannelStats, ptr %9, i64 %indvars.iv87.i
+  %10 = getelementptr inbounds nuw [262176 x i8], ptr %9, i64 %indvars.iv87.i
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load i64, ptr %11, align 8, !tbaa !26
   %13 = uitofp i64 %12 to float
@@ -81,13 +80,13 @@ define internal void @uninit(ptr noundef %0) #0 {
   %36 = tail call i32 @llvm.umin.i32(i32 %35, i32 32768)
   %37 = getelementptr inbounds nuw i8, ptr %10, i64 131100
   %38 = zext nneg i32 %31 to i64
-  %39 = getelementptr inbounds nuw i32, ptr %37, i64 %38
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %38
   %40 = load i32, ptr %39, align 4, !tbaa !32
   %41 = add i32 %40, 1
   store i32 %41, ptr %39, align 4, !tbaa !32
   %42 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %43 = zext nneg i32 %36 to i64
-  %44 = getelementptr inbounds nuw i32, ptr %42, i64 %43
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %43
   %45 = load i32, ptr %44, align 4, !tbaa !32
   %46 = add i32 %45, 1
   store i32 %46, ptr %44, align 4, !tbaa !32
@@ -101,7 +100,7 @@ define internal void @uninit(ptr noundef %0) #0 {
 48:                                               ; preds = %56, %18
   %indvars.iv.i = phi i64 [ 32768, %18 ], [ %indvars.iv.next.i, %56 ]
   %.05274.i = phi i32 [ 0, %18 ], [ %.153.i, %56 ]
-  %49 = getelementptr inbounds nuw i32, ptr %42, i64 %indvars.iv.i
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %indvars.iv.i
   %50 = load i32, ptr %49, align 4, !tbaa !32
   %.not61.i = icmp eq i32 %50, 0
   br i1 %.not61.i, label %56, label %51
@@ -135,7 +134,7 @@ define internal void @uninit(ptr noundef %0) #0 {
   %.078.i = phi i64 [ %.1.i, %69 ], [ 0, %.loopexit.i ]
   %.04777.i = phi i64 [ %70, %69 ], [ 32768, %.loopexit.i ]
   %.05476.i = phi float [ %.155.i, %69 ], [ 0.000000e+00, %.loopexit.i ]
-  %59 = getelementptr inbounds nuw i32, ptr %37, i64 %.04777.i
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %.04777.i
   %60 = load i32, ptr %59, align 4, !tbaa !32
   %.not64.i = icmp eq i32 %60, 0
   br i1 %.not64.i, label %69, label %61
@@ -230,12 +229,12 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %20 = phi i32 [ %18, %.lr.ph49.split.preheader ], [ %32, %31 ]
   %21 = phi i32 [ %18, %.lr.ph49.split.preheader ], [ %33, %31 ]
   %indvars.iv55 = phi i64 [ 0, %.lr.ph49.split.preheader ], [ %indvars.iv.next56, %31 ]
-  %22 = getelementptr inbounds nuw %struct.ChannelStats, ptr %13, i64 %indvars.iv55
+  %22 = getelementptr inbounds nuw [262176 x i8], ptr %13, i64 %indvars.iv55
   %23 = icmp sgt i32 %21, 0
   br i1 %23, label %.lr.ph, label %31
 
 .lr.ph:                                           ; preds = %.lr.ph49.split
-  %24 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv55
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv55
   %25 = load ptr, ptr %24, align 8, !tbaa !53
   %.val = load i64, ptr %17, align 8, !tbaa !54
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 16
@@ -292,12 +291,12 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %57 = tail call i32 @llvm.smax.i32(i32 %56, i32 0)
   %58 = tail call i32 @llvm.umin.i32(i32 %57, i32 32768)
   %59 = zext nneg i32 %53 to i64
-  %60 = getelementptr inbounds nuw i32, ptr %28, i64 %59
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %59
   %61 = load i32, ptr %60, align 4, !tbaa !32
   %62 = add i32 %61, 1
   store i32 %62, ptr %60, align 4, !tbaa !32
   %63 = zext nneg i32 %58 to i64
-  %64 = getelementptr inbounds nuw i32, ptr %29, i64 %63
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %63
   %65 = load i32, ptr %64, align 4, !tbaa !32
   %66 = add i32 %65, 1
   store i32 %66, ptr %64, align 4, !tbaa !32
@@ -346,7 +345,7 @@ update_stat.exit:                                 ; preds = %34, %44
 87:                                               ; preds = %.preheader38.us, %update_stat.exit37.us
   %indvars.iv = phi i64 [ 0, %.preheader38.us ], [ %indvars.iv.next, %update_stat.exit37.us ]
   %.140.us = phi ptr [ %.03142.us, %.preheader38.us ], [ %127, %update_stat.exit37.us ]
-  %88 = getelementptr inbounds nuw %struct.ChannelStats, ptr %86, i64 %indvars.iv
+  %88 = getelementptr inbounds nuw [262176 x i8], ptr %86, i64 %indvars.iv
   %89 = load float, ptr %.140.us, align 4, !tbaa !57
   %90 = tail call nsz float @llvm.fabs.f32(float %89)
   %91 = getelementptr inbounds nuw i8, ptr %88, i64 16
@@ -380,13 +379,13 @@ update_stat.exit:                                 ; preds = %34, %44
   %113 = tail call i32 @llvm.umin.i32(i32 %112, i32 32768)
   %114 = getelementptr inbounds nuw i8, ptr %88, i64 131100
   %115 = zext nneg i32 %108 to i64
-  %116 = getelementptr inbounds nuw i32, ptr %114, i64 %115
+  %116 = getelementptr inbounds nuw [4 x i8], ptr %114, i64 %115
   %117 = load i32, ptr %116, align 4, !tbaa !32
   %118 = add i32 %117, 1
   store i32 %118, ptr %116, align 4, !tbaa !32
   %119 = getelementptr inbounds nuw i8, ptr %88, i64 24
   %120 = zext nneg i32 %113 to i64
-  %121 = getelementptr inbounds nuw i32, ptr %119, i64 %120
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %119, i64 %120
   %122 = load i32, ptr %121, align 4, !tbaa !32
   %123 = add i32 %122, 1
   store i32 %123, ptr %121, align 4, !tbaa !32

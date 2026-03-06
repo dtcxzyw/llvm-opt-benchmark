@@ -5,8 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
-%struct.hwloc_pci_forced_locality_s = type { i32, i32, i32, ptr }
-%struct.hwloc_info_s = type { ptr, ptr }
 %struct.hwloc_pcidev_attr_s = type { i32, i8, i8, i8, i8, i16, i16, i16, i16, i16, i8, float }
 
 @.str = private unnamed_addr constant [19 x i8] c"HWLOC_PCI_LOCALITY\00", align 1
@@ -336,7 +334,7 @@ define internal fastcc void @hwloc_pci_forced_locality_parse(ptr noundef capture
   %44 = phi ptr [ %.pre.i, %38 ], [ %43, %.thread.i ], [ %37, %36 ]
   %45 = load i32, ptr %3, align 4, !tbaa !39
   %46 = zext i32 %18 to i64
-  %47 = getelementptr inbounds nuw %struct.hwloc_pci_forced_locality_s, ptr %44, i64 %46
+  %47 = getelementptr inbounds nuw [24 x i8], ptr %44, i64 %46
   store i32 %45, ptr %47, align 8, !tbaa !41
   %48 = load i32, ptr %4, align 4, !tbaa !39
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 4
@@ -393,7 +391,7 @@ define hidden void @hwloc_pci_discovery_exit(ptr noundef captures(none) %0) loca
 5:                                                ; preds = %.lr.ph, %5
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %5 ]
   %6 = load ptr, ptr %4, align 8, !tbaa !40
-  %7 = getelementptr inbounds nuw %struct.hwloc_pci_forced_locality_s, ptr %6, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %indvars.iv
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !45
   tail call void @hwloc_bitmap_free(ptr noundef %9) #22
@@ -1072,7 +1070,7 @@ define internal fastcc ptr @hwloc__pci_find_busid_parent(ptr noundef %0, ptr nou
 
 14:                                               ; preds = %.lr.ph, %27
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %27 ]
-  %15 = getelementptr inbounds nuw %struct.hwloc_pci_forced_locality_s, ptr %12, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %indvars.iv
   %16 = load i32, ptr %15, align 8, !tbaa !41
   %17 = icmp eq i32 %10, %16
   br i1 %17, label %18, label %27
@@ -1129,7 +1127,7 @@ define internal fastcc ptr @hwloc__pci_find_busid_parent(ptr noundef %0, ptr nou
 
 37:                                               ; preds = %36, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %36 ]
-  %38 = getelementptr inbounds nuw %struct.hwloc_info_s, ptr %35, i64 %indvars.iv.i.i.i
+  %38 = getelementptr inbounds nuw [16 x i8], ptr %35, i64 %indvars.iv.i.i.i
   %39 = load ptr, ptr %38, align 8, !tbaa !83
   %40 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %39, ptr noundef nonnull dereferenceable(13) @.str.126) #25
   %.not.not.i.i.i = icmp eq i32 %40, 0
@@ -1835,61 +1833,61 @@ define noundef nonnull ptr @hwloc_pci_class_string(i16 noundef zeroext %0) local
 
 switch.lookup:                                    ; preds = %4
   %48 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.hwloc_pci_class_string, i64 %48
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.hwloc_pci_class_string, i64 %48
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %58
 
 switch.lookup17:                                  ; preds = %6
   %49 = zext nneg i16 %switch.tableidx16 to i64
-  %switch.gep18 = getelementptr inbounds nuw ptr, ptr @switch.table.hwloc_pci_class_string.3, i64 %49
+  %switch.gep18 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.hwloc_pci_class_string.3, i64 %49
   %switch.load19 = load ptr, ptr %switch.gep18, align 8
   br label %58
 
 switch.lookup21:                                  ; preds = %8
   %50 = zext nneg i16 %switch.tableidx20 to i64
-  %switch.gep22 = getelementptr inbounds nuw ptr, ptr @switch.table.hwloc_pci_class_string.4, i64 %50
+  %switch.gep22 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.hwloc_pci_class_string.4, i64 %50
   %switch.load23 = load ptr, ptr %switch.gep22, align 8
   br label %58
 
 switch.lookup25:                                  ; preds = %10
   %51 = zext nneg i16 %switch.tableidx24 to i64
-  %switch.gep26 = getelementptr inbounds nuw ptr, ptr @switch.table.hwloc_pci_class_string.5, i64 %51
+  %switch.gep26 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.hwloc_pci_class_string.5, i64 %51
   %switch.load27 = load ptr, ptr %switch.gep26, align 8
   br label %58
 
 switch.lookup29:                                  ; preds = %12
   %52 = zext nneg i16 %switch.tableidx28 to i64
-  %switch.gep30 = getelementptr inbounds nuw ptr, ptr @switch.table.hwloc_pci_class_string.6, i64 %52
+  %switch.gep30 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.hwloc_pci_class_string.6, i64 %52
   %switch.load31 = load ptr, ptr %switch.gep30, align 8
   br label %58
 
 switch.lookup33:                                  ; preds = %14
   %53 = zext nneg i16 %switch.tableidx32 to i64
-  %switch.gep34 = getelementptr inbounds nuw ptr, ptr @switch.table.hwloc_pci_class_string.7, i64 %53
+  %switch.gep34 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.hwloc_pci_class_string.7, i64 %53
   %switch.load35 = load ptr, ptr %switch.gep34, align 8
   br label %58
 
 switch.lookup37:                                  ; preds = %16
   %54 = zext nneg i16 %switch.tableidx36 to i64
-  %switch.gep38 = getelementptr inbounds nuw ptr, ptr @switch.table.hwloc_pci_class_string.8, i64 %54
+  %switch.gep38 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.hwloc_pci_class_string.8, i64 %54
   %switch.load39 = load ptr, ptr %switch.gep38, align 8
   br label %58
 
 switch.lookup41:                                  ; preds = %18
   %55 = zext nneg i16 %switch.tableidx40 to i64
-  %switch.gep42 = getelementptr inbounds nuw ptr, ptr @switch.table.hwloc_pci_class_string.9, i64 %55
+  %switch.gep42 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.hwloc_pci_class_string.9, i64 %55
   %switch.load43 = load ptr, ptr %switch.gep42, align 8
   br label %58
 
 switch.lookup45:                                  ; preds = %20
   %56 = zext nneg i16 %switch.tableidx44 to i64
-  %switch.gep46 = getelementptr inbounds nuw ptr, ptr @switch.table.hwloc_pci_class_string.10, i64 %56
+  %switch.gep46 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.hwloc_pci_class_string.10, i64 %56
   %switch.load47 = load ptr, ptr %switch.gep46, align 8
   br label %58
 
 switch.lookup49:                                  ; preds = %30
   %57 = zext nneg i16 %switch.tableidx48 to i64
-  %switch.gep50 = getelementptr inbounds nuw ptr, ptr @switch.table.hwloc_pci_class_string.11, i64 %57
+  %switch.gep50 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.hwloc_pci_class_string.11, i64 %57
   %switch.load51 = load ptr, ptr %switch.gep50, align 8
   br label %58
 

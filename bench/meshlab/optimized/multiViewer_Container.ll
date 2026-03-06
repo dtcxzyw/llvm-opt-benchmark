@@ -46,8 +46,6 @@ module asm ".previous"
 %"class.QMetaObject::Connection" = type { ptr }
 %class.QList.72 = type { %union.anon.74 }
 %union.anon.74 = type { %struct.QListData }
-%"struct.QList<GLArea *>::Node" = type { ptr }
-%"struct.QList<int>::Node" = type { ptr }
 %class.QPoint = type { i32, i32 }
 %class.QRegion = type { ptr }
 %"class.QtPrivate::QForeachContainer.76" = type <{ %class.QList.61, %"class.QList<QAction *>::const_iterator", %"class.QList<QAction *>::const_iterator", i32, [4 x i8] }>
@@ -773,7 +771,7 @@ _ZN9QtPrivate8RefCount3refEv.exit.i.i.i:          ; preds = %1
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %20 = load i32, ptr %19, align 8
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds ptr, ptr %18, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %18, i64 %21
   %.not.i.i.i.i = icmp eq ptr %22, %16
   br i1 %.not.i.i.i.i, label %_ZN9QtPrivate21qMakeForeachContainerIR5QListIP6GLAreaEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit, label %23
 
@@ -798,14 +796,14 @@ _ZN9QtPrivate21qMakeForeachContainerIR5QListIP6GLAreaEEENS_17QForeachContainerIN
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %34 = load i32, ptr %33, align 8, !noalias !14
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds ptr, ptr %32, i64 %35
+  %36 = getelementptr inbounds [8 x i8], ptr %32, i64 %35
   store ptr %36, ptr %30, align 8, !alias.scope !17
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 16
   call void @llvm.experimental.noalias.scope.decl(metadata !18)
   %38 = getelementptr inbounds nuw i8, ptr %31, i64 12
   %39 = load i32, ptr %38, align 4, !noalias !18
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds ptr, ptr %32, i64 %40
+  %41 = getelementptr inbounds [8 x i8], ptr %32, i64 %40
   store ptr %41, ptr %37, align 8, !alias.scope !21
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 1, ptr %42, align 8
@@ -1494,14 +1492,14 @@ define linkonce_odr void @_ZN5QListIP6GLAreaE6appendERKS1_(ptr noundef nonnull a
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds ptr, ptr %8, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %8, i64 %11
   %13 = call noundef ptr @_ZN9QListData11detach_growEPii(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %3, i32 noundef 1)
   %14 = load ptr, ptr %0, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %17 = load i32, ptr %16, align 8
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds ptr, ptr %15, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %15, i64 %18
   %.not.i.i = icmp ne ptr %12, %19
   %.pre18.i = load i32, ptr %3, align 4
   %20 = icmp sgt i32 %.pre18.i, 0
@@ -1529,7 +1527,7 @@ _ZN5QListIP6GLAreaE9node_copyEPNS2_4NodeES4_S4_.exit.i: ; preds = %21, %7
   %27 = add nsw i64 %.idx1215.i, %26
   %28 = shl nsw i64 %27, 3
   %29 = getelementptr inbounds i8, ptr %25, i64 %28
-  %30 = getelementptr inbounds %"struct.QList<GLArea *>::Node", ptr %12, i64 %26
+  %30 = getelementptr inbounds [8 x i8], ptr %12, i64 %26
   %.not.i6.i = icmp eq ptr %30, %29
   br i1 %.not.i6.i, label %_ZN5QListIP6GLAreaE9node_copyEPNS2_4NodeES4_S4_.exit7.i, label %31
 
@@ -1568,10 +1566,10 @@ _ZN5QListIP6GLAreaE18detach_helper_growEii.exit:  ; preds = %_ZN5QListIP6GLAreaE
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %43 = load i32, ptr %42, align 8
   %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds ptr, ptr %41, i64 %44
+  %45 = getelementptr inbounds [8 x i8], ptr %41, i64 %44
   %46 = load i32, ptr %3, align 4
   %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds ptr, ptr %45, i64 %47
+  %48 = getelementptr inbounds [8 x i8], ptr %45, i64 %47
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %49 = load ptr, ptr %1, align 8
   store ptr %49, ptr %48, align 8
@@ -1672,14 +1670,14 @@ define linkonce_odr void @_ZN5QListIiE6appendERKi(ptr noundef nonnull align 8 de
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds ptr, ptr %8, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %8, i64 %11
   %13 = call noundef ptr @_ZN9QListData11detach_growEPii(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %3, i32 noundef 1)
   %14 = load ptr, ptr %0, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %17 = load i32, ptr %16, align 8
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds ptr, ptr %15, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %15, i64 %18
   %.not.i.i = icmp ne ptr %12, %19
   %.pre18.i = load i32, ptr %3, align 4
   %20 = icmp sgt i32 %.pre18.i, 0
@@ -1707,7 +1705,7 @@ _ZN5QListIiE9node_copyEPNS0_4NodeES2_S2_.exit.i:  ; preds = %21, %7
   %27 = add nsw i64 %.idx1215.i, %26
   %28 = shl nsw i64 %27, 3
   %29 = getelementptr inbounds i8, ptr %25, i64 %28
-  %30 = getelementptr inbounds %"struct.QList<int>::Node", ptr %12, i64 %26
+  %30 = getelementptr inbounds [8 x i8], ptr %12, i64 %26
   %.not.i6.i = icmp eq ptr %30, %29
   br i1 %.not.i6.i, label %_ZN5QListIiE9node_copyEPNS0_4NodeES2_S2_.exit7.i, label %31
 
@@ -1746,10 +1744,10 @@ _ZN5QListIiE18detach_helper_growEii.exit:         ; preds = %_ZN5QListIiE9node_c
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %43 = load i32, ptr %42, align 8
   %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds ptr, ptr %41, i64 %44
+  %45 = getelementptr inbounds [8 x i8], ptr %41, i64 %44
   %46 = load i32, ptr %3, align 4
   %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds ptr, ptr %45, i64 %47
+  %48 = getelementptr inbounds [8 x i8], ptr %45, i64 %47
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %49 = load i32, ptr %1, align 4
   store i32 %49, ptr %48, align 4
@@ -1909,14 +1907,14 @@ define void @_ZN21MultiViewer_Container10removeViewEi(ptr noundef nonnull align 
 .lr.ph:                                           ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %13 = sext i32 %9 to i64
-  %14 = getelementptr inbounds ptr, ptr %12, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %12, i64 %13
   %wide.trip.count = zext nneg i32 %10 to i64
   br label %15
 
 15:                                               ; preds = %.lr.ph, %23
   %16 = phi ptr [ null, %.lr.ph ], [ %24, %23 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %23 ]
-  %17 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %20 = load i32, ptr %19, align 8
@@ -1976,7 +1974,7 @@ define void @_ZN21MultiViewer_Container10removeViewEi(ptr noundef nonnull align 
   %52 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %53 = load i32, ptr %52, align 8, !noalias !24
   %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds ptr, ptr %51, i64 %54
+  %55 = getelementptr inbounds [8 x i8], ptr %51, i64 %54
   %56 = call noundef ptr @_ZN9QListData6detachEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef %50), !noalias !24
   %57 = load ptr, ptr %4, align 8, !noalias !24
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
@@ -2023,7 +2021,7 @@ _ZN5QListIP6GLAreaE5firstEv.exit:                 ; preds = %43, %_ZN5QListIP6GL
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %75 = load i32, ptr %74, align 8, !noalias !24
   %76 = sext i32 %75 to i64
-  %77 = getelementptr inbounds ptr, ptr %73, i64 %76
+  %77 = getelementptr inbounds [8 x i8], ptr %73, i64 %76
   %78 = load ptr, ptr %77, align 8
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 48
   %80 = load i32, ptr %79, align 8
@@ -2078,7 +2076,7 @@ _ZN5QListIP6GLAreaE5firstEv.exit:                 ; preds = %43, %_ZN5QListIP6GL
   %106 = getelementptr inbounds nuw i8, ptr %99, i64 8
   %107 = load i32, ptr %106, align 8, !noalias !27
   %108 = sext i32 %107 to i64
-  %109 = getelementptr inbounds ptr, ptr %105, i64 %108
+  %109 = getelementptr inbounds [8 x i8], ptr %105, i64 %108
   %110 = call noundef ptr @_ZN9QListData6detachEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef %104), !noalias !27
   %111 = load ptr, ptr %4, align 8, !noalias !27
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 16
@@ -2125,7 +2123,7 @@ _ZN5QListIP6GLAreaE5firstEv.exit41:               ; preds = %91, %_ZN5QListIP6GL
   %128 = getelementptr inbounds nuw i8, ptr %126, i64 8
   %129 = load i32, ptr %128, align 8, !noalias !27
   %130 = sext i32 %129 to i64
-  %131 = getelementptr inbounds ptr, ptr %127, i64 %130
+  %131 = getelementptr inbounds [8 x i8], ptr %127, i64 %130
   %132 = load ptr, ptr %131, align 8
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 48
   %134 = load i32, ptr %133, align 8
@@ -2176,7 +2174,7 @@ _ZN5QListIP6GLAreaE5firstEv.exit41:               ; preds = %91, %_ZN5QListIP6GL
   %160 = getelementptr inbounds nuw i8, ptr %153, i64 8
   %161 = load i32, ptr %160, align 8, !noalias !30
   %162 = sext i32 %161 to i64
-  %163 = getelementptr inbounds ptr, ptr %159, i64 %162
+  %163 = getelementptr inbounds [8 x i8], ptr %159, i64 %162
   %164 = call noundef ptr @_ZN9QListData6detachEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef %158), !noalias !30
   %165 = load ptr, ptr %4, align 8, !noalias !30
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 16
@@ -2223,7 +2221,7 @@ _ZN5QListIP6GLAreaE5firstEv.exit52:               ; preds = %143, %_ZN5QListIP6G
   %182 = getelementptr inbounds nuw i8, ptr %180, i64 8
   %183 = load i32, ptr %182, align 8, !noalias !30
   %184 = sext i32 %183 to i64
-  %185 = getelementptr inbounds ptr, ptr %181, i64 %184
+  %185 = getelementptr inbounds [8 x i8], ptr %181, i64 %184
   %186 = load ptr, ptr %185, align 8
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 48
   %188 = load i32, ptr %187, align 8
@@ -2270,10 +2268,10 @@ define linkonce_odr noundef i32 @_ZN5QListIP6GLAreaE9removeAllERKS1_(ptr noundef
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %.pre.i.i, i64 16
   %10 = sext i32 %6 to i64
-  %11 = getelementptr inbounds ptr, ptr %9, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %9, i64 %10
   %12 = getelementptr i8, ptr %11, i64 -8
   %13 = sext i32 %4 to i64
-  %14 = getelementptr inbounds ptr, ptr %9, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %9, i64 %13
   %15 = load ptr, ptr %1, align 8
   br label %16
 
@@ -2567,7 +2565,7 @@ _ZN9QtPrivate8RefCount3refEv.exit.i.i.i:          ; preds = %2
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %21 = load i32, ptr %20, align 8
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds ptr, ptr %19, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr %19, i64 %22
   %.not.i.i.i.i = icmp eq ptr %23, %17
   br i1 %.not.i.i.i.i, label %_ZN9QtPrivate21qMakeForeachContainerIR5QListIP6GLAreaEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit, label %24
 
@@ -2592,14 +2590,14 @@ _ZN9QtPrivate21qMakeForeachContainerIR5QListIP6GLAreaEEENS_17QForeachContainerIN
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %35 = load i32, ptr %34, align 8, !noalias !39
   %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds ptr, ptr %33, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr %33, i64 %36
   store ptr %37, ptr %31, align 8, !alias.scope !42
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.experimental.noalias.scope.decl(metadata !43)
   %39 = getelementptr inbounds nuw i8, ptr %32, i64 12
   %40 = load i32, ptr %39, align 4, !noalias !43
   %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds ptr, ptr %33, i64 %41
+  %42 = getelementptr inbounds [8 x i8], ptr %33, i64 %41
   store ptr %42, ptr %38, align 8, !alias.scope !46
   %43 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 1, ptr %43, align 8
@@ -2709,7 +2707,7 @@ _ZN9QtPrivate8RefCount3refEv.exit.i.i.i:          ; preds = %2
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %24 = load i32, ptr %23, align 8
   %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds ptr, ptr %22, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %22, i64 %25
   %.not.i.i.i.i = icmp eq ptr %26, %20
   br i1 %.not.i.i.i.i, label %_ZN9QtPrivate21qMakeForeachContainerIR5QListIP6GLAreaEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit, label %27
 
@@ -2734,14 +2732,14 @@ _ZN9QtPrivate21qMakeForeachContainerIR5QListIP6GLAreaEEENS_17QForeachContainerIN
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %38 = load i32, ptr %37, align 8, !noalias !51
   %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds ptr, ptr %36, i64 %39
+  %40 = getelementptr inbounds [8 x i8], ptr %36, i64 %39
   store ptr %40, ptr %34, align 8, !alias.scope !54
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @llvm.experimental.noalias.scope.decl(metadata !55)
   %42 = getelementptr inbounds nuw i8, ptr %35, i64 12
   %43 = load i32, ptr %42, align 4, !noalias !55
   %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds ptr, ptr %36, i64 %44
+  %45 = getelementptr inbounds [8 x i8], ptr %36, i64 %44
   store ptr %45, ptr %41, align 8, !alias.scope !58
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i32 1, ptr %46, align 8
@@ -2886,7 +2884,7 @@ _ZN9QtPrivate8RefCount3refEv.exit.i.i.i:          ; preds = %1
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %20 = load i32, ptr %19, align 8
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds ptr, ptr %18, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %18, i64 %21
   %.not.i.i.i.i = icmp eq ptr %22, %16
   br i1 %.not.i.i.i.i, label %_ZN9QtPrivate21qMakeForeachContainerIR5QListIP6GLAreaEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit, label %23
 
@@ -2911,14 +2909,14 @@ _ZN9QtPrivate21qMakeForeachContainerIR5QListIP6GLAreaEEENS_17QForeachContainerIN
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %34 = load i32, ptr %33, align 8, !noalias !63
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds ptr, ptr %32, i64 %35
+  %36 = getelementptr inbounds [8 x i8], ptr %32, i64 %35
   store ptr %36, ptr %30, align 8, !alias.scope !66
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 16
   call void @llvm.experimental.noalias.scope.decl(metadata !67)
   %38 = getelementptr inbounds nuw i8, ptr %31, i64 12
   %39 = load i32, ptr %38, align 4, !noalias !67
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds ptr, ptr %32, i64 %40
+  %41 = getelementptr inbounds [8 x i8], ptr %32, i64 %40
   store ptr %41, ptr %37, align 8, !alias.scope !70
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 1, ptr %42, align 8
@@ -3031,7 +3029,7 @@ _ZN9QtPrivate8RefCount3refEv.exit.i.i.i:          ; preds = %1
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %20 = load i32, ptr %19, align 8
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds ptr, ptr %18, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %18, i64 %21
   %.not.i.i.i.i = icmp eq ptr %22, %16
   br i1 %.not.i.i.i.i, label %_ZN9QtPrivate21qMakeForeachContainerIR5QListIP6GLAreaEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit, label %23
 
@@ -3056,14 +3054,14 @@ _ZN9QtPrivate21qMakeForeachContainerIR5QListIP6GLAreaEEENS_17QForeachContainerIN
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %34 = load i32, ptr %33, align 8, !noalias !75
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds ptr, ptr %32, i64 %35
+  %36 = getelementptr inbounds [8 x i8], ptr %32, i64 %35
   store ptr %36, ptr %30, align 8, !alias.scope !78
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 16
   call void @llvm.experimental.noalias.scope.decl(metadata !79)
   %38 = getelementptr inbounds nuw i8, ptr %31, i64 12
   %39 = load i32, ptr %38, align 4, !noalias !79
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds ptr, ptr %32, i64 %40
+  %41 = getelementptr inbounds [8 x i8], ptr %32, i64 %40
   store ptr %41, ptr %37, align 8, !alias.scope !82
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 1, ptr %42, align 8
@@ -3238,7 +3236,7 @@ _ZN9QtPrivate8RefCount3refEv.exit.i.i.i:          ; preds = %38
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %56 = load i32, ptr %55, align 8
   %57 = sext i32 %56 to i64
-  %58 = getelementptr inbounds ptr, ptr %54, i64 %57
+  %58 = getelementptr inbounds [8 x i8], ptr %54, i64 %57
   %.not.i.i.i.i = icmp eq ptr %58, %52
   br i1 %.not.i.i.i.i, label %_ZN9QtPrivate21qMakeForeachContainerIR5QListIP7QActionEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit, label %59
 
@@ -3262,13 +3260,13 @@ _ZN9QtPrivate21qMakeForeachContainerIR5QListIP7QActionEEENS_17QForeachContainerI
   %68 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %69 = load i32, ptr %68, align 8, !noalias !87
   %70 = sext i32 %69 to i64
-  %71 = getelementptr inbounds ptr, ptr %67, i64 %70
+  %71 = getelementptr inbounds [8 x i8], ptr %67, i64 %70
   store ptr %71, ptr %21, align 8, !alias.scope !90
   call void @llvm.experimental.noalias.scope.decl(metadata !91)
   %72 = getelementptr inbounds nuw i8, ptr %66, i64 12
   %73 = load i32, ptr %72, align 4, !noalias !91
   %74 = sext i32 %73 to i64
-  %75 = getelementptr inbounds ptr, ptr %67, i64 %74
+  %75 = getelementptr inbounds [8 x i8], ptr %67, i64 %74
   store ptr %75, ptr %22, align 8, !alias.scope !94
   store i32 1, ptr %23, align 8
   %.not5051 = icmp eq i32 %69, %73
@@ -3669,7 +3667,7 @@ _ZN9QtPrivate8RefCount3refEv.exit.i:              ; preds = %5
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %26 = load i32, ptr %25, align 8
   %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds ptr, ptr %24, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %24, i64 %27
   %.not.i.i = icmp eq ptr %28, %22
   br i1 %.not.i.i, label %_ZN5QListIP7QActionEC2ERKS2_.exit, label %29
 
@@ -3834,7 +3832,7 @@ _ZN9QtPrivate8RefCount3refEv.exit.i.i.i:          ; preds = %1
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %20 = load i32, ptr %19, align 8
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds ptr, ptr %18, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %18, i64 %21
   %.not.i.i.i.i = icmp eq ptr %22, %16
   br i1 %.not.i.i.i.i, label %_ZN9QtPrivate21qMakeForeachContainerIR5QListIP6GLAreaEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit, label %23
 
@@ -3859,14 +3857,14 @@ _ZN9QtPrivate21qMakeForeachContainerIR5QListIP6GLAreaEEENS_17QForeachContainerIN
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %34 = load i32, ptr %33, align 8, !noalias !101
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds ptr, ptr %32, i64 %35
+  %36 = getelementptr inbounds [8 x i8], ptr %32, i64 %35
   store ptr %36, ptr %30, align 8, !alias.scope !104
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 16
   call void @llvm.experimental.noalias.scope.decl(metadata !105)
   %38 = getelementptr inbounds nuw i8, ptr %31, i64 12
   %39 = load i32, ptr %38, align 4, !noalias !105
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds ptr, ptr %32, i64 %40
+  %41 = getelementptr inbounds [8 x i8], ptr %32, i64 %40
   store ptr %41, ptr %37, align 8, !alias.scope !108
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 1, ptr %42, align 8
@@ -3988,7 +3986,7 @@ _ZN9QtPrivate8RefCount3refEv.exit.i.i.i:          ; preds = %7
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %24 = load i32, ptr %23, align 8
   %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds ptr, ptr %22, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %22, i64 %25
   %.not.i.i.i.i = icmp eq ptr %26, %20
   br i1 %.not.i.i.i.i, label %_ZN9QtPrivate21qMakeForeachContainerIR5QListIP6GLAreaEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit, label %27
 
@@ -4013,14 +4011,14 @@ _ZN9QtPrivate21qMakeForeachContainerIR5QListIP6GLAreaEEENS_17QForeachContainerIN
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %38 = load i32, ptr %37, align 8, !noalias !113
   %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds ptr, ptr %36, i64 %39
+  %40 = getelementptr inbounds [8 x i8], ptr %36, i64 %39
   store ptr %40, ptr %34, align 8, !alias.scope !116
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.experimental.noalias.scope.decl(metadata !117)
   %42 = getelementptr inbounds nuw i8, ptr %35, i64 12
   %43 = load i32, ptr %42, align 4, !noalias !117
   %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds ptr, ptr %36, i64 %44
+  %45 = getelementptr inbounds [8 x i8], ptr %36, i64 %44
   store ptr %45, ptr %41, align 8, !alias.scope !120
   %46 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 1, ptr %46, align 8
@@ -4286,8 +4284,8 @@ _ZN7QStringD2Ev.exit37:                           ; preds = %_ZN7QStringD2Ev.exi
 59:                                               ; preds = %50
   %60 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %61 = sext i32 %55 to i64
-  %62 = getelementptr inbounds ptr, ptr %60, i64 %61
-  %63 = getelementptr inbounds nuw ptr, ptr %62, i64 %indvars.iv
+  %62 = getelementptr inbounds [8 x i8], ptr %60, i64 %61
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %indvars.iv
   %64 = load ptr, ptr %63, align 8
   %65 = call noundef zeroext i1 @_ZN6GLArea12readyToCloseEv(ptr noundef nonnull align 8 dereferenceable(1676) %64)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

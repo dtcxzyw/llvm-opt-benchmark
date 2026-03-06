@@ -46,7 +46,7 @@ define range(i32 -1, 2) i32 @avpriv_mpegaudio_decode_header(ptr noundef writeonl
   %22 = icmp eq i32 %21, 3
   %spec.store.select = select i1 %22, i32 0, i32 %21
   %23 = zext nneg i32 %spec.store.select to i64
-  %24 = getelementptr inbounds nuw i16, ptr @ff_mpa_freq_tab, i64 %23
+  %24 = getelementptr inbounds nuw [2 x i8], ptr @ff_mpa_freq_tab, i64 %23
   %25 = load i16, ptr %24, align 2, !tbaa !10
   %26 = zext i16 %25 to i32
   %27 = add nuw nsw i32 %.sink, %.055
@@ -83,12 +83,12 @@ define range(i32 -1, 2) i32 @avpriv_mpegaudio_decode_header(ptr noundef writeonl
 
 49:                                               ; preds = %11
   %50 = zext nneg i32 %.sink to i64
-  %51 = getelementptr inbounds nuw [3 x [15 x i16]], ptr @ff_mpa_bitrate_tab, i64 %50
+  %51 = getelementptr inbounds nuw [90 x i8], ptr @ff_mpa_bitrate_tab, i64 %50
   %52 = zext nneg i32 %18 to i64
-  %53 = getelementptr [15 x i16], ptr %51, i64 %52
+  %53 = getelementptr [30 x i8], ptr %51, i64 %52
   %54 = getelementptr i8, ptr %53, i64 -30
   %55 = zext nneg i32 %38 to i64
-  %56 = getelementptr inbounds nuw i16, ptr %54, i64 %55
+  %56 = getelementptr inbounds nuw [2 x i8], ptr %54, i64 %55
   %57 = load i16, ptr %56, align 2, !tbaa !10
   %58 = zext i16 %57 to i32
   %59 = mul nuw nsw i32 %58, 1000

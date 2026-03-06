@@ -129,7 +129,7 @@ define dso_local ptr @mpi_read_raw_data(ptr noundef readonly captures(none) %0, 
   %68 = getelementptr i8, ptr %53, i64 1
   %69 = getelementptr i8, ptr %68, i64 %67
   %70 = load ptr, ptr %48, align 8
-  %71 = getelementptr i64, ptr %70, i64 %51
+  %71 = getelementptr [8 x i8], ptr %70, i64 %51
   %72 = getelementptr i8, ptr %71, i64 -8
   store i64 %62, ptr %72, align 8
   %73 = add nsw i64 %51, -1
@@ -335,7 +335,7 @@ define dso_local noundef range(i32 -22, 1) i32 @mpi_fromstr(ptr noundef %0, ptr 
 
 96:                                               ; preds = %87
   %97 = load ptr, ptr %39, align 8
-  %98 = getelementptr i64, ptr %97, i64 %43
+  %98 = getelementptr [8 x i8], ptr %97, i64 %43
   %99 = getelementptr i8, ptr %98, i64 -8
   store i64 %93, ptr %99, align 8
   %100 = add nsw i64 %43, -1
@@ -429,7 +429,7 @@ define dso_local noundef range(i32 -75, 1) i32 @mpi_read_buffer(ptr noundef read
   %27 = phi i32 [ %20, %22 ], [ %35, %33 ]
   %28 = phi i32 [ 0, %22 ], [ %34, %33 ]
   %29 = zext nneg i32 %27 to i64
-  %30 = getelementptr i64, ptr %24, i64 %29
+  %30 = getelementptr [8 x i8], ptr %24, i64 %29
   %31 = load i64, ptr %30, align 8
   %32 = icmp eq i64 %31, 0
   br i1 %32, label %33, label %37
@@ -473,7 +473,7 @@ define dso_local noundef range(i32 -75, 1) i32 @mpi_read_buffer(ptr noundef read
   %57 = phi i32 [ %52, %51 ], [ 0, %55 ]
   %58 = phi ptr [ %1, %51 ], [ %67, %55 ]
   %59 = load ptr, ptr %53, align 8
-  %60 = getelementptr i64, ptr %59, i64 %56
+  %60 = getelementptr [8 x i8], ptr %59, i64 %56
   %61 = load i64, ptr %60, align 8
   %62 = tail call i64 @llvm.bswap.i64(i64 %61)
   store i64 %62, ptr %6, align 8
@@ -546,7 +546,7 @@ define dso_local ptr @mpi_get_buffer(ptr noundef readonly captures(none) %0, ptr
   %30 = phi i32 [ %23, %25 ], [ %38, %36 ]
   %31 = phi i32 [ 0, %25 ], [ %37, %36 ]
   %32 = zext nneg i32 %30 to i64
-  %33 = getelementptr i64, ptr %27, i64 %32
+  %33 = getelementptr [8 x i8], ptr %27, i64 %32
   %34 = load i64, ptr %33, align 8
   %35 = icmp eq i64 %34, 0
   br i1 %35, label %36, label %40
@@ -590,7 +590,7 @@ define dso_local ptr @mpi_get_buffer(ptr noundef readonly captures(none) %0, ptr
   %60 = phi i64 [ %57, %54 ], [ %71, %59 ]
   %61 = phi i32 [ %55, %54 ], [ 0, %59 ]
   %62 = phi ptr [ %12, %54 ], [ %70, %59 ]
-  %63 = getelementptr i64, ptr %58, i64 %60
+  %63 = getelementptr [8 x i8], ptr %58, i64 %60
   %64 = load i64, ptr %63, align 8
   %65 = tail call i64 @llvm.bswap.i64(i64 %64)
   store i64 %65, ptr %4, align 8
@@ -713,7 +713,7 @@ define dso_local noundef range(i32 -75, 1) i32 @mpi_write_to_sgl(ptr noundef rea
   %61 = phi i32 [ %48, %52 ], [ %83, %56 ]
   %62 = phi ptr [ %47, %52 ], [ %82, %56 ]
   %63 = load ptr, ptr %53, align 8
-  %64 = getelementptr i64, ptr %63, i64 %60
+  %64 = getelementptr [8 x i8], ptr %63, i64 %60
   %65 = load i64, ptr %64, align 8
   %66 = call i64 @llvm.bswap.i64(i64 %65)
   store i64 %66, ptr %5, align 8
@@ -916,7 +916,7 @@ define dso_local ptr @mpi_read_raw_from_sgl(ptr noundef %0, i32 noundef %1) #0 a
   %96 = load ptr, ptr %68, align 8
   %97 = add i32 %85, -1
   %98 = sext i32 %85 to i64
-  %99 = getelementptr i64, ptr %96, i64 %98
+  %99 = getelementptr [8 x i8], ptr %96, i64 %98
   store i64 %91, ptr %99, align 8
   br label %100
 

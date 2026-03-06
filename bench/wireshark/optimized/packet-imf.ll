@@ -8,8 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.expert_field = type { i32, i32 }
 %struct.anon = type { ptr, ptr, ptr }
 %struct.anon.0 = type { ptr, ptr, ptr }
-%struct._value_string = type { i32, ptr }
-%struct._header_field_t = type { ptr, ptr, i32, i32 }
 %struct.media_content_info_t = type { i32, ptr, ptr, ptr }
 
 @proto_register_imf.hf = internal global [84 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_imf_date, %struct._header_field_info { ptr @.str, ptr @.str.1, i32 26, i32 0, ptr null, i64 0, ptr @.str.2, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_imf_from, %struct._header_field_info { ptr @.str.3, ptr @.str.4, i32 26, i32 0, ptr null, i64 0, ptr @.str.5, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_imf_sender, %struct._header_field_info { ptr @.str.6, ptr @.str.7, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_imf_reply_to, %struct._header_field_info { ptr @.str.8, ptr @.str.9, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_imf_to, %struct._header_field_info { ptr @.str.10, ptr @.str.11, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_imf_cc, %struct._header_field_info { ptr @.str.12, ptr @.str.13, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_imf_bcc, %struct._header_field_info { ptr @.str.14, ptr @.str.15, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_imf_message_id, %struct._header_field_info { ptr @.str.16, ptr @.str.17, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_imf_in_reply_to, %struct._header_field_info { ptr @.str.18, ptr @.str.19, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_imf_references, %struct._header_field_info { ptr @.str.20, ptr @.str.21, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_imf_subject, %struct._header_field_info { ptr @.str.22, ptr @.str.23, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_imf_comments, %struct._header_field_info { ptr @.str.24, ptr @.str.25, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_imf_user_agent, %struct._header_field_info { ptr @.str.26, ptr @.str.27, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_imf_keywords, %struct._header_field_info { ptr @.str.28, ptr @.str.29, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_imf_resent_date, %struct._header_field_info { ptr @.str.30, ptr @.str.31, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_imf_resent_from, %struct._header_field_info { ptr @.str.32, ptr @.str.33, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_imf_resent_sender, %struct._header_field_info { ptr @.str.34, ptr @.str.35, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_imf_resent_to, %struct._header_field_info { ptr @.str.36, ptr @.str.37, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_imf_resent_cc, %struct._header_field_info { ptr @.str.38, ptr @.str.39, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_imf_resent_bcc, %struct._header_field_info { ptr @.str.40, ptr @.str.41, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_imf_resent_message_id, %struct._header_field_info { ptr @.str.42, ptr @.str.43, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_imf_return_path, %struct._header_field_info { ptr @.str.44, ptr @.str.45, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_imf_received, %struct._header_field_info { ptr @.str.46, ptr @.str.47, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_imf_content_type, %struct._header_field_info { ptr @.str.48, ptr @.str.49, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_imf_content_type_type, %struct._header_field_info { ptr @.str.50, ptr @.str.51, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_imf_content_type_parameters, %struct._header_field_info { ptr @.str.52, ptr @.str.53, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_imf_content_description, %struct._header_field_info { ptr @.str.54, ptr @.str.55, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_imf_content_id, %struct._header_field_info { ptr @.str.56, ptr @.str.57, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_imf_content_transfer_encoding, %struct._header_field_info { ptr @.str.58, ptr @.str.59, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_imf_mime_version, %struct._header_field_info { ptr @.str.60, ptr @.str.61, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_imf_autoforwarded, %struct._header_field_info { ptr @.str.62, ptr @.str.63, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_imf_autosubmitted, %struct._header_field_info { ptr @.str.64, ptr @.str.65, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_imf_x400_content_identifier, %struct._header_field_info { ptr @.str.66, ptr @.str.67, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_imf_content_language, %struct._header_field_info { ptr @.str.68, ptr @.str.69, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_imf_conversion, %struct._header_field_info { ptr @.str.70, ptr @.str.71, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_imf_conversion_with_loss, %struct._header_field_info { ptr @.str.72, ptr @.str.73, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_imf_delivery_date, %struct._header_field_info { ptr @.str.74, ptr @.str.75, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_imf_discarded_x400_ipms_extensions, %struct._header_field_info { ptr @.str.76, ptr @.str.77, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_imf_discarded_x400_mts_extensions, %struct._header_field_info { ptr @.str.78, ptr @.str.79, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_imf_dl_expansion_history, %struct._header_field_info { ptr @.str.80, ptr @.str.81, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_imf_deferred_delivery, %struct._header_field_info { ptr @.str.82, ptr @.str.83, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_imf_expires, %struct._header_field_info { ptr @.str.84, ptr @.str.85, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_imf_importance, %struct._header_field_info { ptr @.str.86, ptr @.str.87, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_imf_incomplete_copy, %struct._header_field_info { ptr @.str.88, ptr @.str.89, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_imf_latest_delivery_time, %struct._header_field_info { ptr @.str.90, ptr @.str.91, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_imf_message_type, %struct._header_field_info { ptr @.str.92, ptr @.str.93, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_imf_original_encoded_information_types, %struct._header_field_info { ptr @.str.94, ptr @.str.95, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_imf_originator_return_address, %struct._header_field_info { ptr @.str.96, ptr @.str.97, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_imf_priority, %struct._header_field_info { ptr @.str.98, ptr @.str.99, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_imf_reply_by, %struct._header_field_info { ptr @.str.100, ptr @.str.101, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_imf_sensitivity, %struct._header_field_info { ptr @.str.102, ptr @.str.103, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_imf_supersedes, %struct._header_field_info { ptr @.str.104, ptr @.str.105, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_imf_x400_content_type, %struct._header_field_info { ptr @.str.106, ptr @.str.107, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_imf_x400_mts_identifier, %struct._header_field_info { ptr @.str.108, ptr @.str.109, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_imf_x400_originator, %struct._header_field_info { ptr @.str.110, ptr @.str.111, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_imf_x400_received, %struct._header_field_info { ptr @.str.112, ptr @.str.113, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_imf_x400_recipients, %struct._header_field_info { ptr @.str.114, ptr @.str.115, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_imf_delivered_to, %struct._header_field_info { ptr @.str.116, ptr @.str.117, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_imf_ext_mailer, %struct._header_field_info { ptr @.str.118, ptr @.str.119, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_imf_ext_mimeole, %struct._header_field_info { ptr @.str.120, ptr @.str.121, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_imf_ext_expiry_date, %struct._header_field_info { ptr @.str.122, ptr @.str.123, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_imf_ext_tnef_correlator, %struct._header_field_info { ptr @.str.124, ptr @.str.125, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_imf_ext_uidl, %struct._header_field_info { ptr @.str.126, ptr @.str.127, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_imf_ext_authentication_warning, %struct._header_field_info { ptr @.str.128, ptr @.str.129, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_imf_ext_virus_scanned, %struct._header_field_info { ptr @.str.130, ptr @.str.131, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_imf_ext_original_to, %struct._header_field_info { ptr @.str.132, ptr @.str.133, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_imf_thread_index, %struct._header_field_info { ptr @.str.134, ptr @.str.135, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_imf_lines, %struct._header_field_info { ptr @.str.136, ptr @.str.137, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_imf_precedence, %struct._header_field_info { ptr @.str.138, ptr @.str.139, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_imf_extension, %struct._header_field_info { ptr @.str.140, ptr @.str.141, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_imf_extension_type, %struct._header_field_info { ptr @.str.50, ptr @.str.142, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_imf_extension_value, %struct._header_field_info { ptr @.str.143, ptr @.str.144, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_imf_display_name, %struct._header_field_info { ptr @.str.145, ptr @.str.146, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_imf_address, %struct._header_field_info { ptr @.str.147, ptr @.str.148, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_imf_address_list_item, %struct._header_field_info { ptr @.str.149, ptr @.str.150, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_imf_mailbox_list_item, %struct._header_field_info { ptr @.str.149, ptr @.str.151, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_imf_siolabel, %struct._header_field_info { ptr @.str.152, ptr @.str.153, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_imf_siolabel_marking, %struct._header_field_info { ptr @.str.154, ptr @.str.155, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_imf_siolabel_fgcolor, %struct._header_field_info { ptr @.str.156, ptr @.str.157, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_imf_siolabel_bgcolor, %struct._header_field_info { ptr @.str.158, ptr @.str.159, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_imf_siolabel_type, %struct._header_field_info { ptr @.str.50, ptr @.str.160, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_imf_siolabel_label, %struct._header_field_info { ptr @.str.161, ptr @.str.162, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_imf_siolabel_unknown, %struct._header_field_info { ptr @.str.163, ptr @.str.164, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_imf_message_text, %struct._header_field_info { ptr @.str.165, ptr @.str.166, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
@@ -626,7 +624,7 @@ define internal void @header_fields_header_format_set_cb(ptr noundef writeonly c
   %.01622 = phi i32 [ %12, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %12 = add i32 %.01622, 1
   %13 = zext i32 %12 to i64
-  %14 = getelementptr %struct._value_string, ptr %3, i64 %13
+  %14 = getelementptr [16 x i8], ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
@@ -666,7 +664,7 @@ define internal void @header_fields_header_format_tostr_cb(ptr noundef readonly 
   %.01520 = phi i32 [ %12, %17 ], [ 0, %.lr.ph ]
   %12 = add i32 %.01520, 1
   %13 = zext i32 %12 to i64
-  %14 = getelementptr %struct._value_string, ptr %3, i64 %13
+  %14 = getelementptr [16 x i8], ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
@@ -716,7 +714,7 @@ define internal void @header_fields_add_to_col_info_set_cb(ptr noundef writeonly
   %.01622 = phi i32 [ %12, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %12 = add i32 %.01622, 1
   %13 = zext i32 %12 to i64
-  %14 = getelementptr %struct._value_string, ptr %3, i64 %13
+  %14 = getelementptr [16 x i8], ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
@@ -756,7 +754,7 @@ define internal void @header_fields_add_to_col_info_tostr_cb(ptr noundef readonl
   %.01520 = phi i32 [ %12, %17 ], [ 0, %.lr.ph ]
   %12 = add i32 %.01520, 1
   %13 = zext i32 %12 to i64
-  %14 = getelementptr %struct._value_string, ptr %3, i64 %13
+  %14 = getelementptr [16 x i8], ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
@@ -885,12 +883,12 @@ define internal void @header_fields_post_update_cb() #0 {
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.preheader.i ]
   %4 = load i32, ptr @proto_imf, align 4
   %5 = load ptr, ptr @dynamic_hf, align 8
-  %6 = getelementptr %struct.hf_register_info, ptr %5, i64 %indvars.iv.i
+  %6 = getelementptr [80 x i8], ptr %5, i64 %indvars.iv.i
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr %7, align 4
   tail call void @proto_deregister_field(i32 noundef %4, i32 noundef %8)
   %9 = load ptr, ptr @dynamic_hf, align 8
-  %10 = getelementptr %struct.hf_register_info, ptr %9, i64 %indvars.iv.i
+  %10 = getelementptr [80 x i8], ptr %9, i64 %indvars.iv.i
   %11 = load ptr, ptr %10, align 8
   tail call void @g_free(ptr noundef %11)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -942,17 +940,17 @@ deregister_header_fields.exit:                    ; preds = %15, %17
   %27 = tail call noalias dereferenceable_or_null(4) ptr @g_malloc(i64 noundef 4) #11
   store i32 -1, ptr %27, align 4
   %28 = load ptr, ptr @header_fields, align 8
-  %29 = getelementptr %struct._header_field_t, ptr %28, i64 %indvars.iv
+  %29 = getelementptr [24 x i8], ptr %28, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8
   %31 = tail call noalias ptr @g_strdup(ptr noundef %30)
   %32 = load ptr, ptr @dynamic_hf, align 8
-  %33 = getelementptr %struct.hf_register_info, ptr %32, i64 %indvars.iv
+  %33 = getelementptr [80 x i8], ptr %32, i64 %indvars.iv
   store ptr %27, ptr %33, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store ptr %31, ptr %34, align 8
   %35 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.200, ptr noundef %31)
   %36 = load ptr, ptr @dynamic_hf, align 8
-  %37 = getelementptr %struct.hf_register_info, ptr %36, i64 %indvars.iv
+  %37 = getelementptr [80 x i8], ptr %36, i64 %indvars.iv
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   store ptr %35, ptr %38, align 8
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 24
@@ -960,12 +958,12 @@ deregister_header_fields.exit:                    ; preds = %15, %17
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 28
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %40, i8 0, i64 20, i1 false)
   %41 = load ptr, ptr @header_fields, align 8
-  %42 = getelementptr %struct._header_field_t, ptr %41, i64 %indvars.iv
+  %42 = getelementptr [24 x i8], ptr %41, i64 %indvars.iv
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load ptr, ptr %43, align 8
   %45 = tail call noalias ptr @g_strdup(ptr noundef %44)
   %46 = load ptr, ptr @dynamic_hf, align 8
-  %47 = getelementptr %struct.hf_register_info, ptr %46, i64 %indvars.iv
+  %47 = getelementptr [80 x i8], ptr %46, i64 %indvars.iv
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 48
   store ptr %45, ptr %48, align 8
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 56
@@ -984,7 +982,7 @@ deregister_header_fields.exit:                    ; preds = %15, %17
   %56 = tail call noalias ptr @g_ascii_strdown(ptr noundef %31, i64 noundef -1)
   store ptr %56, ptr %54, align 8
   %57 = load ptr, ptr @header_fields, align 8
-  %58 = getelementptr %struct._header_field_t, ptr %57, i64 %indvars.iv
+  %58 = getelementptr [24 x i8], ptr %57, i64 %indvars.iv
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
   %60 = load i32, ptr %59, align 8
   switch i32 %60, label %76 [
@@ -1023,7 +1021,7 @@ deregister_header_fields.exit:                    ; preds = %15, %17
 
 71:                                               ; preds = %.lr.ph
   %72 = load ptr, ptr @dynamic_hf, align 8
-  %73 = getelementptr %struct.hf_register_info, ptr %72, i64 %indvars.iv
+  %73 = getelementptr [80 x i8], ptr %72, i64 %indvars.iv
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 24
   store i32 0, ptr %74, align 8
   %75 = getelementptr inbounds nuw i8, ptr %54, i64 16
@@ -1040,7 +1038,7 @@ deregister_header_fields.exit:                    ; preds = %15, %17
 78:                                               ; preds = %76, %71, %69, %67, %65, %63, %61
   %79 = phi ptr [ %56, %76 ], [ %.pre81, %71 ], [ %56, %69 ], [ %56, %67 ], [ %56, %65 ], [ %56, %63 ], [ %56, %61 ]
   %80 = phi ptr [ %57, %76 ], [ %.pre, %71 ], [ %57, %69 ], [ %57, %67 ], [ %57, %65 ], [ %57, %63 ], [ %57, %61 ]
-  %81 = getelementptr %struct._header_field_t, ptr %80, i64 %indvars.iv
+  %81 = getelementptr [24 x i8], ptr %80, i64 %indvars.iv
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 20
   %83 = load i32, ptr %82, align 4
   %84 = icmp ne i32 %83, 0
@@ -1085,12 +1083,12 @@ define internal void @header_fields_reset_cb() #0 {
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.preheader.i ]
   %4 = load i32, ptr @proto_imf, align 4
   %5 = load ptr, ptr @dynamic_hf, align 8
-  %6 = getelementptr %struct.hf_register_info, ptr %5, i64 %indvars.iv.i
+  %6 = getelementptr [80 x i8], ptr %5, i64 %indvars.iv.i
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr %7, align 4
   tail call void @proto_deregister_field(i32 noundef %4, i32 noundef %8)
   %9 = load ptr, ptr @dynamic_hf, align 8
-  %10 = getelementptr %struct.hf_register_info, ptr %9, i64 %indvars.iv.i
+  %10 = getelementptr [80 x i8], ptr %9, i64 %indvars.iv.i
   %11 = load ptr, ptr %10, align 8
   tail call void @g_free(ptr noundef %11)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1230,7 +1228,7 @@ define internal i32 @dissect_imf(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %.0146163 = phi i32 [ %63, %62 ], [ %53, %.preheader ]
   %57 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0146163)
   %58 = zext i8 %57 to i64
-  %59 = getelementptr i16, ptr %29, i64 %58
+  %59 = getelementptr [2 x i8], ptr %29, i64 %58
   %60 = load i16, ptr %59, align 2
   %61 = and i16 %60, 256
   %.not = icmp eq i16 %61, 0
@@ -1338,7 +1336,7 @@ define internal i32 @dissect_imf(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %119 = add i32 %.03337.i, %53
   %120 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %119)
   %121 = zext i8 %120 to i64
-  %122 = getelementptr i16, ptr %29, i64 %121
+  %122 = getelementptr [2 x i8], ptr %29, i64 %121
   %123 = load i16, ptr %122, align 2
   %124 = and i16 %123, 256
   %.not.i = icmp eq i16 %124, 0
@@ -1716,7 +1714,7 @@ define internal void @dissect_imf_mailbox(ptr noundef %0, i32 noundef %1, i32 no
   %.035 = phi i32 [ %1, %.lr.ph ], [ %22, %21 ]
   %16 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.035)
   %17 = zext i8 %16 to i64
-  %18 = getelementptr i16, ptr %11, i64 %17
+  %18 = getelementptr [2 x i8], ptr %11, i64 %17
   %19 = load i16, ptr %18, align 2
   %20 = and i16 %19, 256
   %.not = icmp eq i16 %20, 0
@@ -1789,7 +1787,7 @@ define internal void @dissect_imf_address(ptr noundef %0, i32 noundef %1, i32 no
 20:                                               ; preds = %18
   %21 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0)
   %22 = zext i8 %21 to i64
-  %23 = getelementptr i16, ptr %17, i64 %22
+  %23 = getelementptr [2 x i8], ptr %17, i64 %22
   %24 = load i16, ptr %23, align 2
   %25 = and i16 %24, 256
   %.not = icmp eq i16 %25, 0
@@ -1891,7 +1889,7 @@ define internal void @dissect_imf_siolabel(ptr noundef %0, i32 noundef %1, i32 n
   %.1 = phi i32 [ %.0, %13 ], [ %22, %16 ]
   %17 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.1)
   %18 = zext i8 %17 to i64
-  %19 = getelementptr i16, ptr %12, i64 %18
+  %19 = getelementptr [2 x i8], ptr %12, i64 %18
   %20 = load i16, ptr %19, align 2
   %21 = and i16 %20, 256
   %.not = icmp eq i16 %21, 0
@@ -1923,7 +1921,7 @@ define internal void @dissect_imf_siolabel(ptr noundef %0, i32 noundef %1, i32 n
   %.0120 = add i32 %.0120.in, 1
   %33 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0120)
   %34 = zext i8 %33 to i64
-  %35 = getelementptr i16, ptr %12, i64 %34
+  %35 = getelementptr [2 x i8], ptr %12, i64 %34
   %36 = load i16, ptr %35, align 2
   %37 = and i16 %36, 256
   %.not125 = icmp eq i16 %37, 0
@@ -1939,7 +1937,7 @@ define internal void @dissect_imf_siolabel(ptr noundef %0, i32 noundef %1, i32 n
   %42 = add i32 %.0119, %.0120.in
   %43 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %42)
   %44 = zext i8 %43 to i64
-  %45 = getelementptr i16, ptr %12, i64 %44
+  %45 = getelementptr [2 x i8], ptr %12, i64 %44
   %46 = load i16, ptr %45, align 2
   %47 = and i16 %46, 256
   %.not126 = icmp eq i16 %47, 0

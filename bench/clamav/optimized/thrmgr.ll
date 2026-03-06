@@ -105,7 +105,7 @@ define dso_local noundef i32 @thrmgr_printstats(i32 noundef %0, i8 noundef signe
 
 switch.lookup:                                    ; preds = %13
   %17 = zext nneg i32 %15 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.thrmgr_printstats, i64 %17
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.thrmgr_printstats, i64 %17
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %18
 
@@ -188,7 +188,7 @@ switch.lookup:                                    ; preds = %13
 
 .lr.ph214:                                        ; preds = %.preheader, %69
   %.084213 = phi i64 [ %70, %69 ], [ 0, %.preheader ]
-  %66 = getelementptr inbounds nuw ptr, ptr %.295224, i64 %.084213
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %.295224, i64 %.084213
   %67 = load ptr, ptr %66, align 8, !tbaa !40
   %68 = icmp eq ptr %67, %65
   br i1 %68, label %._crit_edge215, label %69
@@ -211,7 +211,7 @@ switch.lookup:                                    ; preds = %13
 
 75:                                               ; preds = %._crit_edge215.thread
   %76 = load ptr, ptr %64, align 8, !tbaa !39
-  %77 = getelementptr inbounds nuw ptr, ptr %74, i64 %.2124221
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %.2124221
   store ptr %76, ptr %77, align 8, !tbaa !40
   %78 = call i32 @mpool_getstats(ptr noundef %76, ptr noundef nonnull %4, ptr noundef nonnull %5) #13
   %.not151 = icmp eq i32 %78, -1

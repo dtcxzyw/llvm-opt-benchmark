@@ -107,7 +107,7 @@ _ZN5boost7archive6detail18utf8_codecvt_facet20get_cont_octet_countEh.exit: ; pre
   %.0.i.i = phi i32 [ 3, %22 ], [ %26, %24 ], [ 1, %18 ], [ 2, %20 ]
   %27 = zext i8 %12 to i32
   %28 = zext nneg i32 %.0.i.i to i64
-  %29 = getelementptr inbounds nuw i32, ptr @_ZZN5boost7archive6detail6detail25get_octet1_modifier_tableEvE21octet1_modifier_table, i64 %28
+  %29 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN5boost7archive6detail6detail25get_octet1_modifier_tableEvE21octet1_modifier_table, i64 %28
   %30 = load i32, ptr %29, align 4, !tbaa !10
   %31 = sub nsw i32 %27, %30
   %.14967 = getelementptr inbounds nuw i8, ptr %.04875, i64 1
@@ -219,7 +219,7 @@ _ZN5boost7archive6detail18utf8_codecvt_facet24get_cont_octet_out_countEw.exit: ;
   %.0.i.i = phi i32 [ 3, %18 ], [ 0, %.lr.ph64 ], [ 1, %14 ], [ 2, %16 ], [ %..i.i, %20 ]
   %22 = mul nuw nsw i32 %.0.i.i, 6
   %23 = zext nneg i32 %.0.i.i to i64
-  %24 = getelementptr inbounds nuw i32, ptr @_ZZN5boost7archive6detail6detail25get_octet1_modifier_tableEvE21octet1_modifier_table, i64 %23
+  %24 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN5boost7archive6detail6detail25get_octet1_modifier_tableEvE21octet1_modifier_table, i64 %23
   %25 = load i32, ptr %24, align 4, !tbaa !10
   %26 = shl nuw nsw i32 1, %22
   %27 = sdiv i32 %12, %26

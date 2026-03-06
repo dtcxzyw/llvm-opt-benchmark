@@ -978,11 +978,11 @@ convert.exit218:                                  ; preds = %392, %396
   %.sink366 = phi float [ %401, %396 ], [ 0.000000e+00, %392 ]
   %.sink = phi float [ %404, %396 ], [ 0.000000e+00, %392 ]
   %.0.i217 = phi nsz float [ %407, %396 ], [ 0.000000e+00, %392 ]
-  %408 = getelementptr inbounds nuw float, ptr %143, i64 %indvars.iv362
+  %408 = getelementptr inbounds nuw [4 x i8], ptr %143, i64 %indvars.iv362
   store float %.sink366, ptr %408, align 4, !tbaa !20
-  %409 = getelementptr inbounds nuw float, ptr %153, i64 %indvars.iv362
+  %409 = getelementptr inbounds nuw [4 x i8], ptr %153, i64 %indvars.iv362
   store float %.sink, ptr %409, align 4, !tbaa !20
-  %410 = getelementptr inbounds nuw float, ptr %148, i64 %indvars.iv362
+  %410 = getelementptr inbounds nuw [4 x i8], ptr %148, i64 %indvars.iv362
   store float %.0.i217, ptr %410, align 4, !tbaa !20
   %indvars.iv.next363 = add nuw nsw i64 %indvars.iv362, 1
   %exitcond365.not = icmp eq i64 %indvars.iv.next363, %wide.trip.count

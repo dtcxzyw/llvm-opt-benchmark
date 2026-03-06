@@ -276,7 +276,7 @@ thread-pre-split395.thread:                       ; preds = %thread-pre-split395
   %123 = sub nsw i32 %122, %.
   store i32 %123, ptr %12, align 4, !tbaa !3
   %124 = sext i32 %. to i64
-  %125 = getelementptr double, ptr %8, i64 %124
+  %125 = getelementptr [8 x i8], ptr %8, i64 %124
   br i1 %.not379, label %154, label %126
 
 126:                                              ; preds = %118

@@ -48,7 +48,7 @@ define ptr @EVP_PKEY_asn1_get0(i32 noundef %0) local_unnamed_addr #0 {
 
 5:                                                ; preds = %3
   %6 = zext nneg i32 %0 to i64
-  %7 = getelementptr inbounds nuw ptr, ptr @standard_methods, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr @standard_methods, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !8
   br label %13
 
@@ -213,7 +213,7 @@ EVP_PKEY_asn1_get_count.exit:                     ; preds = %18
   br i1 %25, label %26, label %29
 
 26:                                               ; preds = %.lr.ph
-  %27 = getelementptr inbounds nuw ptr, ptr @standard_methods, i64 %indvars.iv.next
+  %27 = getelementptr inbounds nuw [8 x i8], ptr @standard_methods, i64 %indvars.iv.next
   %28 = load ptr, ptr %27, align 8, !tbaa !8
   br label %EVP_PKEY_asn1_get0.exit
 

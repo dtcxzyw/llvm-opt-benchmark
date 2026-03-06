@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.FindPenByDeviceIDData = type { i32, ptr }
 %struct.SDL_PenInfo = type { i32, float, i32, i32, i32 }
-%struct.XIDeviceInfo = type { i32, ptr, i32, i32, i32, i32, ptr }
 
 @X11_XIQueryDevice = external local_unnamed_addr global ptr, align 8
 @X11_XIFreeDeviceInfo = external local_unnamed_addr global ptr, align 8
@@ -123,7 +122,7 @@ define internal fastcc ptr @X11_MaybeAddPen(ptr noundef readonly captures(none) 
 
 30:                                               ; preds = %.critedge.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %.critedge.i ]
-  %31 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv.i
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv.i
   %32 = load ptr, ptr %31, align 8
   %33 = load i32, ptr %32, align 4
   %34 = icmp eq i32 %33, 2
@@ -308,7 +307,7 @@ X11_XInput2PenIsEraser.exit:                      ; preds = %86, %89
   %111 = getelementptr inbounds nuw i8, ptr %104, i64 %indvars.iv11.i.i
   %112 = load i8, ptr %111, align 1
   %113 = sext i8 %112 to i32
-  %114 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv11.i.i
+  %114 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv11.i.i
   store i32 %113, ptr %114, align 4
   %indvars.iv.next12.i.i = add nuw nsw i64 %indvars.iv11.i.i, 1
   %exitcond15.not.i.i = icmp eq i64 %indvars.iv.next12.i.i, %109
@@ -316,10 +315,10 @@ X11_XInput2PenIsEraser.exit:                      ; preds = %86, %89
 
 .preheader5.i.i:                                  ; preds = %108, %.preheader5.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.preheader5.i.i ], [ 0, %108 ]
-  %115 = getelementptr inbounds nuw i16, ptr %104, i64 %indvars.iv.i.i
+  %115 = getelementptr inbounds nuw [2 x i8], ptr %104, i64 %indvars.iv.i.i
   %116 = load i16, ptr %115, align 2
   %117 = sext i16 %116 to i32
-  %118 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv.i.i
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv.i.i
   store i32 %117, ptr %118, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %109
@@ -376,7 +375,7 @@ X11_XInput2PenWacomDeviceID.exit:                 ; preds = %X11_XInput2PenGetIn
   %.06695 = phi i32 [ 0, %.lr.ph ], [ %.167, %168 ]
   %.06994 = phi i32 [ 0, %.lr.ph ], [ %.170, %168 ]
   %134 = load ptr, ptr %27, align 8
-  %135 = getelementptr inbounds nuw ptr, ptr %134, i64 %indvars.iv
+  %135 = getelementptr inbounds nuw [8 x i8], ptr %134, i64 %indvars.iv
   %136 = load ptr, ptr %135, align 8
   %137 = load i32, ptr %136, align 4
   switch i32 %137, label %168 [
@@ -422,11 +421,11 @@ X11_XInput2PenWacomDeviceID.exit:                 ; preds = %X11_XInput2PenGetIn
   %sext = shl i32 %144, 24
   %163 = ashr exact i32 %sext, 24
   %164 = zext nneg i32 %.06489 to i64
-  %165 = getelementptr inbounds nuw i32, ptr %46, i64 %164
+  %165 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %164
   store i32 %163, ptr %165, align 4
-  %166 = getelementptr inbounds nuw float, ptr %51, i64 %164
+  %166 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %164
   store float %149, ptr %166, align 4
-  %167 = getelementptr inbounds nuw float, ptr %52, i64 %164
+  %167 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %164
   store float %152, ptr %167, align 4
   %.pre = load i32, ptr %25, align 4
   br label %168
@@ -553,7 +552,7 @@ define hidden void @X11_InitPen(ptr noundef readonly captures(none) %0) local_un
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
-  %35 = getelementptr inbounds nuw %struct.XIDeviceInfo, ptr %31, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [40 x i8], ptr %31, i64 %indvars.iv
   %36 = call fastcc ptr @X11_MaybeAddPen(ptr noundef nonnull %0, ptr noundef %35)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %37 = load i32, ptr %2, align 4
@@ -595,17 +594,17 @@ define hidden void @X11_PenAxesFromValuators(ptr noundef readonly captures(none)
 
 13:                                               ; preds = %57, %8
   %indvars.iv.i = phi i64 [ 0, %8 ], [ %indvars.iv.next.i, %57 ]
-  %14 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv.i
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, -1
   br i1 %16, label %57, label %17
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i
   %19 = load float, ptr %18, align 4
-  %20 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv.i
   %21 = load float, ptr %20, align 4
-  %22 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv.i
   %23 = load float, ptr %22, align 4
   %24 = icmp eq i64 %indvars.iv.i, 5
   br i1 %24, label %25, label %28
@@ -685,7 +684,7 @@ X11_XInput2NormalizePenAxes.exit:                 ; preds = %57
 
 58:                                               ; preds = %5, %76
   %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %76 ]
-  %59 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   %60 = load i32, ptr %59, align 4
   %61 = icmp ne i32 %60, -1
   %.not = icmp slt i32 %60, %7
@@ -706,14 +705,14 @@ X11_XInput2NormalizePenAxes.exit:                 ; preds = %57
 
 71:                                               ; preds = %62
   %72 = sext i32 %60 to i64
-  %73 = getelementptr inbounds double, ptr %1, i64 %72
+  %73 = getelementptr inbounds [8 x i8], ptr %1, i64 %72
   %74 = load double, ptr %73, align 8
   %75 = fptrunc double %74 to float
   br label %76
 
 76:                                               ; preds = %58, %62, %71
   %.sink = phi float [ %75, %71 ], [ 0.000000e+00, %62 ], [ 0.000000e+00, %58 ]
-  %77 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   store float %.sink, ptr %77, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7

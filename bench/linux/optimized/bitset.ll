@@ -51,7 +51,7 @@ define dso_local range(i32 0, -3) i32 @ethnl_bitset32_size(ptr noundef readonly 
   %14 = phi i32 [ %32, %31 ], [ 0, %.split.us ]
   %15 = lshr i64 %13, 5
   %16 = and i64 %15, 134217727
-  %17 = getelementptr i32, ptr %11, i64 %16
+  %17 = getelementptr [4 x i8], ptr %11, i64 %16
   %18 = load i32, ptr %17, align 4
   %19 = trunc i64 %13 to i32
   %20 = and i32 %19, 31
@@ -61,7 +61,7 @@ define dso_local range(i32 0, -3) i32 @ethnl_bitset32_size(ptr noundef readonly 
   br i1 %23, label %31, label %24
 
 24:                                               ; preds = %.split.us.split.us
-  %25 = getelementptr i32, ptr %0, i64 %16
+  %25 = getelementptr [4 x i8], ptr %0, i64 %16
   %26 = load i32, ptr %25, align 4
   %27 = and i32 %26, %21
   %28 = icmp eq i32 %27, 0
@@ -80,7 +80,7 @@ define dso_local range(i32 0, -3) i32 @ethnl_bitset32_size(ptr noundef readonly 
   %36 = phi i32 [ %spec.select, %.split.us.split ], [ 0, %.split.us ]
   %37 = lshr i64 %35, 5
   %38 = and i64 %37, 134217727
-  %39 = getelementptr i32, ptr %0, i64 %38
+  %39 = getelementptr [4 x i8], ptr %0, i64 %38
   %40 = load i32, ptr %39, align 4
   %41 = trunc i64 %35 to i32
   %42 = and i32 %41, 31
@@ -102,7 +102,7 @@ define dso_local range(i32 0, -3) i32 @ethnl_bitset32_size(ptr noundef readonly 
   %51 = getelementptr [32 x i8], ptr %3, i64 %49
   %52 = lshr i64 %49, 5
   %53 = and i64 %52, 134217727
-  %54 = getelementptr i32, ptr %11, i64 %53
+  %54 = getelementptr [4 x i8], ptr %11, i64 %53
   %55 = load i32, ptr %54, align 4
   %56 = trunc i64 %49 to i32
   %57 = and i32 %56, 31
@@ -124,7 +124,7 @@ define dso_local range(i32 0, -3) i32 @ethnl_bitset32_size(ptr noundef readonly 
 
 68:                                               ; preds = %63, %61
   %69 = phi i32 [ %67, %63 ], [ 8, %61 ]
-  %70 = getelementptr i32, ptr %0, i64 %53
+  %70 = getelementptr [4 x i8], ptr %0, i64 %53
   %71 = load i32, ptr %70, align 4
   %72 = and i32 %71, %58
   %73 = icmp eq i32 %72, 0
@@ -155,7 +155,7 @@ define dso_local range(i32 0, -3) i32 @ethnl_bitset32_size(ptr noundef readonly 
   %91 = getelementptr [32 x i8], ptr %3, i64 %89
   %92 = lshr i64 %89, 5
   %93 = and i64 %92, 134217727
-  %94 = getelementptr i32, ptr %11, i64 %93
+  %94 = getelementptr [4 x i8], ptr %11, i64 %93
   %95 = load i32, ptr %94, align 4
   %96 = trunc i64 %89 to i32
   %97 = and i32 %96, 31
@@ -258,7 +258,7 @@ define dso_local range(i32 -90, 1) i32 @ethnl_put_bitset32(ptr noundef %0, i32 n
   %43 = lshr i32 -1, %42
   %44 = add nsw i32 %32, -1
   %45 = zext i32 %44 to i64
-  %46 = getelementptr i32, ptr %37, i64 %45
+  %46 = getelementptr [4 x i8], ptr %37, i64 %45
   %47 = load i32, ptr %46, align 4
   %48 = and i32 %47, %43
   store i32 %48, ptr %46, align 4
@@ -282,7 +282,7 @@ define dso_local range(i32 -90, 1) i32 @ethnl_put_bitset32(ptr noundef %0, i32 n
   %57 = lshr i32 -1, %56
   %58 = add nsw i32 %32, -1
   %59 = zext i32 %58 to i64
-  %60 = getelementptr i32, ptr %54, i64 %59
+  %60 = getelementptr [4 x i8], ptr %54, i64 %59
   %61 = load i32, ptr %60, align 4
   %62 = and i32 %61, %57
   store i32 %62, ptr %60, align 4
@@ -314,7 +314,7 @@ define dso_local range(i32 -90, 1) i32 @ethnl_put_bitset32(ptr noundef %0, i32 n
   %80 = getelementptr [32 x i8], ptr %5, i64 %79
   %81 = lshr i64 %79, 5
   %82 = and i64 %81, 134217727
-  %83 = getelementptr i32, ptr %76, i64 %82
+  %83 = getelementptr [4 x i8], ptr %76, i64 %82
   %84 = load i32, ptr %83, align 4
   %85 = trunc i64 %79 to i32
   %86 = and i32 %85, 31
@@ -367,7 +367,7 @@ define dso_local range(i32 -90, 1) i32 @ethnl_put_bitset32(ptr noundef %0, i32 n
   br i1 %22, label %124, label %116
 
 116:                                              ; preds = %115
-  %117 = getelementptr i32, ptr %2, i64 %82
+  %117 = getelementptr [4 x i8], ptr %2, i64 %82
   %118 = load i32, ptr %117, align 4
   %119 = and i32 %118, %87
   %120 = icmp eq i32 %119, 0
@@ -620,7 +620,7 @@ define dso_local range(i32 -2147483648, 1) i32 @ethnl_update_bitset32(ptr nounde
 
 62:                                               ; preds = %68, %60
   %63 = phi i64 [ 0, %60 ], [ %69, %68 ]
-  %64 = getelementptr i32, ptr %0, i64 %63
+  %64 = getelementptr [4 x i8], ptr %0, i64 %63
   %65 = load i32, ptr %64, align 4
   %66 = icmp eq i32 %65, 0
   br i1 %66, label %68, label %67
@@ -644,7 +644,7 @@ define dso_local range(i32 -2147483648, 1) i32 @ethnl_update_bitset32(ptr nounde
   %74 = sub nuw nsw i32 32, %71
   %75 = lshr i32 -1, %74
   %76 = zext nneg i32 %56 to i64
-  %77 = getelementptr i32, ptr %0, i64 %76
+  %77 = getelementptr [4 x i8], ptr %0, i64 %76
   %78 = load i32, ptr %77, align 4
   %79 = and i32 %78, %75
   %80 = icmp eq i32 %79, 0
@@ -711,7 +711,7 @@ define dso_local range(i32 -2147483648, 1) i32 @ethnl_update_bitset32(ptr nounde
   %109 = load i32, ptr %8, align 4
   %110 = lshr i32 %109, 5
   %111 = zext nneg i32 %110 to i64
-  %112 = getelementptr i32, ptr %0, i64 %111
+  %112 = getelementptr [4 x i8], ptr %0, i64 %111
   %113 = load i32, ptr %112, align 4
   %114 = and i32 %109, 31
   %115 = load i8, ptr %7, align 1, !range !15, !noundef !16
@@ -886,7 +886,7 @@ define dso_local range(i32 -2147483648, 1) i32 @ethnl_update_bitset32(ptr nounde
   %222 = lshr i32 -1, %221
   %223 = and i32 %217, %222
   %224 = zext nneg i32 %213 to i64
-  %225 = getelementptr i32, ptr %0, i64 %224
+  %225 = getelementptr [4 x i8], ptr %0, i64 %224
   %226 = load i32, ptr %225, align 4
   %227 = and i32 %226, %223
   %228 = icmp eq i32 %227, 0
@@ -901,7 +901,7 @@ define dso_local range(i32 -2147483648, 1) i32 @ethnl_update_bitset32(ptr nounde
 
 232:                                              ; preds = %216
   %233 = zext nneg i32 %212 to i64
-  %234 = getelementptr i32, ptr %0, i64 %233
+  %234 = getelementptr [4 x i8], ptr %0, i64 %233
   %235 = load i32, ptr %234, align 4
   %236 = and i32 %235, %217
   %237 = icmp eq i32 %236, 0
@@ -930,7 +930,7 @@ define dso_local range(i32 -2147483648, 1) i32 @ethnl_update_bitset32(ptr nounde
 
 249:                                              ; preds = %255, %246
   %250 = phi i64 [ %247, %246 ], [ %256, %255 ]
-  %251 = getelementptr i32, ptr %0, i64 %250
+  %251 = getelementptr [4 x i8], ptr %0, i64 %250
   %252 = load i32, ptr %251, align 4
   %253 = icmp eq i32 %252, 0
   br i1 %253, label %255, label %254
@@ -954,7 +954,7 @@ define dso_local range(i32 -2147483648, 1) i32 @ethnl_update_bitset32(ptr nounde
   %261 = sub nuw nsw i32 32, %258
   %262 = lshr i32 -1, %261
   %263 = zext nneg i32 %213 to i64
-  %264 = getelementptr i32, ptr %0, i64 %263
+  %264 = getelementptr [4 x i8], ptr %0, i64 %263
   %265 = load i32, ptr %264, align 4
   %266 = and i32 %265, %262
   %267 = icmp eq i32 %266, 0
@@ -1113,7 +1113,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @ethnl_compact_sanity_check
   %80 = sub nuw nsw i32 32, %79
   %81 = lshr i32 -1, %80
   %82 = zext nneg i32 %71 to i64
-  %83 = getelementptr i32, ptr %70, i64 %82
+  %83 = getelementptr [4 x i8], ptr %70, i64 %82
   %84 = load i32, ptr %83, align 4
   %85 = and i32 %81, %84
   %86 = and i32 %85, %76
@@ -1121,7 +1121,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @ethnl_compact_sanity_check
 
 87:                                               ; preds = %75
   %88 = zext nneg i32 %71 to i64
-  %89 = getelementptr i32, ptr %70, i64 %88
+  %89 = getelementptr [4 x i8], ptr %70, i64 %88
   %90 = load i32, ptr %89, align 4
   %91 = and i32 %90, %76
   %92 = icmp eq i32 %91, 0
@@ -1134,7 +1134,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @ethnl_compact_sanity_check
 95:                                               ; preds = %93, %67
   %96 = phi i32 [ %94, %93 ], [ %71, %67 ]
   %97 = zext nneg i32 %96 to i64
-  %98 = getelementptr i32, ptr %70, i64 %97
+  %98 = getelementptr [4 x i8], ptr %70, i64 %97
   %99 = sub nsw i32 %72, %96
   %100 = zext i32 %99 to i64
   %101 = shl nuw nsw i64 %100, 2
@@ -1147,7 +1147,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @ethnl_compact_sanity_check
 
 107:                                              ; preds = %95
   %108 = zext nneg i32 %72 to i64
-  %109 = getelementptr i32, ptr %70, i64 %108
+  %109 = getelementptr [4 x i8], ptr %70, i64 %108
   %110 = load i32, ptr %109, align 4
   %111 = sub nuw nsw i32 32, %104
   %112 = lshr i32 -1, %111
@@ -1653,7 +1653,7 @@ define dso_local range(i32 0, -3) i32 @ethnl_bitset_size(ptr noundef readonly ca
   %14 = phi i32 [ %32, %31 ], [ 0, %.split.us ]
   %15 = lshr i64 %13, 5
   %16 = and i64 %15, 134217727
-  %17 = getelementptr i32, ptr %11, i64 %16
+  %17 = getelementptr [4 x i8], ptr %11, i64 %16
   %18 = load i32, ptr %17, align 4
   %19 = trunc i64 %13 to i32
   %20 = and i32 %19, 31
@@ -1663,7 +1663,7 @@ define dso_local range(i32 0, -3) i32 @ethnl_bitset_size(ptr noundef readonly ca
   br i1 %23, label %31, label %24
 
 24:                                               ; preds = %.split.us.split.us
-  %25 = getelementptr i32, ptr %0, i64 %16
+  %25 = getelementptr [4 x i8], ptr %0, i64 %16
   %26 = load i32, ptr %25, align 4
   %27 = and i32 %26, %21
   %28 = icmp eq i32 %27, 0
@@ -1682,7 +1682,7 @@ define dso_local range(i32 0, -3) i32 @ethnl_bitset_size(ptr noundef readonly ca
   %36 = phi i32 [ %spec.select, %.split.us.split ], [ 0, %.split.us ]
   %37 = lshr i64 %35, 5
   %38 = and i64 %37, 134217727
-  %39 = getelementptr i32, ptr %0, i64 %38
+  %39 = getelementptr [4 x i8], ptr %0, i64 %38
   %40 = load i32, ptr %39, align 4
   %41 = trunc i64 %35 to i32
   %42 = and i32 %41, 31
@@ -1704,7 +1704,7 @@ define dso_local range(i32 0, -3) i32 @ethnl_bitset_size(ptr noundef readonly ca
   %51 = getelementptr [32 x i8], ptr %3, i64 %49
   %52 = lshr i64 %49, 5
   %53 = and i64 %52, 134217727
-  %54 = getelementptr i32, ptr %11, i64 %53
+  %54 = getelementptr [4 x i8], ptr %11, i64 %53
   %55 = load i32, ptr %54, align 4
   %56 = trunc i64 %49 to i32
   %57 = and i32 %56, 31
@@ -1726,7 +1726,7 @@ define dso_local range(i32 0, -3) i32 @ethnl_bitset_size(ptr noundef readonly ca
 
 68:                                               ; preds = %63, %61
   %69 = phi i32 [ %67, %63 ], [ 8, %61 ]
-  %70 = getelementptr i32, ptr %0, i64 %53
+  %70 = getelementptr [4 x i8], ptr %0, i64 %53
   %71 = load i32, ptr %70, align 4
   %72 = and i32 %71, %58
   %73 = icmp eq i32 %72, 0
@@ -1757,7 +1757,7 @@ define dso_local range(i32 0, -3) i32 @ethnl_bitset_size(ptr noundef readonly ca
   %91 = getelementptr [32 x i8], ptr %3, i64 %89
   %92 = lshr i64 %89, 5
   %93 = and i64 %92, 134217727
-  %94 = getelementptr i32, ptr %11, i64 %93
+  %94 = getelementptr [4 x i8], ptr %11, i64 %93
   %95 = load i32, ptr %94, align 4
   %96 = trunc i64 %89 to i32
   %97 = and i32 %96, 31

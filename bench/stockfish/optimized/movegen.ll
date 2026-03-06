@@ -204,7 +204,7 @@ define weak_odr dso_local noundef ptr @_ZN9Stockfish8generateILNS_7GenTypeE0EEEP
 
 96:                                               ; preds = %._crit_edge.i.i
   %97 = sext i32 %95 to i64
-  %98 = getelementptr inbounds i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish11PawnAttacksE, i64 512), i64 %97
+  %98 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish11PawnAttacksE, i64 512), i64 %97
   %99 = load i64, ptr %98, align 8
   %100 = and i64 %20, %99
   %.not3681.i.i = icmp eq i64 %100, 0
@@ -250,7 +250,7 @@ _ZN9Stockfish12_GLOBAL__N_119generate_pawn_movesILNS_5ColorE0ELNS_7GenTypeE0EEEP
   %118 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.01016.i.i, i1 true)
   %119 = add i64 %.01016.i.i, -1
   %120 = and i64 %119, %.01016.i.i
-  %121 = getelementptr inbounds nuw i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 1024), i64 %118
+  %121 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 1024), i64 %118
   %122 = load i64, ptr %121, align 8
   %123 = and i64 %122, %17
   %.not612.i.i = icmp eq i64 %123, 0
@@ -300,7 +300,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE2ELb0EEE
   %139 = add i64 %.01016.i28.i, -1
   %140 = and i64 %139, %.01016.i28.i
   %141 = load i64, ptr %134, align 8
-  %142 = getelementptr inbounds nuw %"struct.Stockfish::Magic", ptr @_ZN9Stockfish12BishopMagicsE, i64 %138
+  %142 = getelementptr inbounds nuw [32 x i8], ptr @_ZN9Stockfish12BishopMagicsE, i64 %138
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 16
   %144 = load ptr, ptr %143, align 16
   %145 = load i64, ptr %142, align 16
@@ -313,7 +313,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE2ELb0EEE
   %152 = zext nneg i32 %151 to i64
   %153 = lshr i64 %149, %152
   %154 = and i64 %153, 4294967295
-  %155 = getelementptr inbounds nuw i64, ptr %144, i64 %154
+  %155 = getelementptr inbounds nuw [8 x i8], ptr %144, i64 %154
   %156 = load i64, ptr %155, align 8
   %157 = and i64 %156, %17
   %.not612.i29.i = icmp eq i64 %157, 0
@@ -362,7 +362,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE3ELb0EEE
   %172 = add i64 %.01016.i42.i, -1
   %173 = and i64 %172, %.01016.i42.i
   %174 = load i64, ptr %134, align 8
-  %175 = getelementptr inbounds nuw %"struct.Stockfish::Magic", ptr @_ZN9Stockfish10RookMagicsE, i64 %171
+  %175 = getelementptr inbounds nuw [32 x i8], ptr @_ZN9Stockfish10RookMagicsE, i64 %171
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 16
   %177 = load ptr, ptr %176, align 16
   %178 = load i64, ptr %175, align 16
@@ -375,7 +375,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE3ELb0EEE
   %185 = zext nneg i32 %184 to i64
   %186 = lshr i64 %182, %185
   %187 = and i64 %186, 4294967295
-  %188 = getelementptr inbounds nuw i64, ptr %177, i64 %187
+  %188 = getelementptr inbounds nuw [8 x i8], ptr %177, i64 %187
   %189 = load i64, ptr %188, align 8
   %190 = and i64 %189, %17
   %.not612.i43.i = icmp eq i64 %190, 0
@@ -424,7 +424,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE4ELb0EEE
   %205 = add i64 %.01016.i56.i, -1
   %206 = and i64 %205, %.01016.i56.i
   %207 = load i64, ptr %134, align 8
-  %208 = getelementptr inbounds nuw %"struct.Stockfish::Magic", ptr @_ZN9Stockfish12BishopMagicsE, i64 %204
+  %208 = getelementptr inbounds nuw [32 x i8], ptr @_ZN9Stockfish12BishopMagicsE, i64 %204
   %209 = getelementptr inbounds nuw i8, ptr %208, i64 16
   %210 = load ptr, ptr %209, align 16
   %211 = load i64, ptr %208, align 16
@@ -437,9 +437,9 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE4ELb0EEE
   %218 = zext nneg i32 %217 to i64
   %219 = lshr i64 %215, %218
   %220 = and i64 %219, 4294967295
-  %221 = getelementptr inbounds nuw i64, ptr %210, i64 %220
+  %221 = getelementptr inbounds nuw [8 x i8], ptr %210, i64 %220
   %222 = load i64, ptr %221, align 8
-  %223 = getelementptr inbounds nuw %"struct.Stockfish::Magic", ptr @_ZN9Stockfish10RookMagicsE, i64 %204
+  %223 = getelementptr inbounds nuw [32 x i8], ptr @_ZN9Stockfish10RookMagicsE, i64 %204
   %224 = getelementptr inbounds nuw i8, ptr %223, i64 16
   %225 = load ptr, ptr %224, align 16
   %226 = load i64, ptr %223, align 16
@@ -452,7 +452,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE4ELb0EEE
   %233 = zext nneg i32 %232 to i64
   %234 = lshr i64 %230, %233
   %235 = and i64 %234, 4294967295
-  %236 = getelementptr inbounds nuw i64, ptr %225, i64 %235
+  %236 = getelementptr inbounds nuw [8 x i8], ptr %225, i64 %235
   %237 = load i64, ptr %236, align 8
   %238 = or i64 %237, %222
   %239 = and i64 %238, %17
@@ -479,7 +479,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE4ELb0EEE
 
 _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE5ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i: ; preds = %.loopexit.i62.i, %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE4ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i
   %.0.lcssa.i66.i = phi ptr [ %.0.lcssa.i52.i, %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE4ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i ], [ %.1.lcssa.i63.i, %.loopexit.i62.i ]
-  %249 = getelementptr inbounds nuw i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 3072), i64 %14
+  %249 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 3072), i64 %14
   %250 = load i64, ptr %249, align 8
   %251 = and i64 %250, %17
   %.not78.i = icmp eq i64 %251, 0
@@ -667,7 +667,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE5ELb0EEE
 
 346:                                              ; preds = %._crit_edge.i.i39
   %347 = sext i32 %345 to i64
-  %348 = getelementptr inbounds i64, ptr @_ZN9Stockfish11PawnAttacksE, i64 %347
+  %348 = getelementptr inbounds [8 x i8], ptr @_ZN9Stockfish11PawnAttacksE, i64 %347
   %349 = load i64, ptr %348, align 8
   %350 = and i64 %271, %349
   %.not3681.i.i42 = icmp eq i64 %350, 0
@@ -713,7 +713,7 @@ _ZN9Stockfish12_GLOBAL__N_119generate_pawn_movesILNS_5ColorE1ELNS_7GenTypeE0EEEP
   %368 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.01016.i.i51, i1 true)
   %369 = add i64 %.01016.i.i51, -1
   %370 = and i64 %369, %.01016.i.i51
-  %371 = getelementptr inbounds nuw i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 1024), i64 %368
+  %371 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 1024), i64 %368
   %372 = load i64, ptr %371, align 8
   %373 = and i64 %372, %268
   %.not612.i.i52 = icmp eq i64 %373, 0
@@ -763,7 +763,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE2ELb0EEE
   %389 = add i64 %.01016.i28.i65, -1
   %390 = and i64 %389, %.01016.i28.i65
   %391 = load i64, ptr %384, align 8
-  %392 = getelementptr inbounds nuw %"struct.Stockfish::Magic", ptr @_ZN9Stockfish12BishopMagicsE, i64 %388
+  %392 = getelementptr inbounds nuw [32 x i8], ptr @_ZN9Stockfish12BishopMagicsE, i64 %388
   %393 = getelementptr inbounds nuw i8, ptr %392, i64 16
   %394 = load ptr, ptr %393, align 16
   %395 = load i64, ptr %392, align 16
@@ -776,7 +776,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE2ELb0EEE
   %402 = zext nneg i32 %401 to i64
   %403 = lshr i64 %399, %402
   %404 = and i64 %403, 4294967295
-  %405 = getelementptr inbounds nuw i64, ptr %394, i64 %404
+  %405 = getelementptr inbounds nuw [8 x i8], ptr %394, i64 %404
   %406 = load i64, ptr %405, align 8
   %407 = and i64 %406, %268
   %.not612.i29.i66 = icmp eq i64 %407, 0
@@ -825,7 +825,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE3ELb0EEE
   %422 = add i64 %.01016.i42.i79, -1
   %423 = and i64 %422, %.01016.i42.i79
   %424 = load i64, ptr %384, align 8
-  %425 = getelementptr inbounds nuw %"struct.Stockfish::Magic", ptr @_ZN9Stockfish10RookMagicsE, i64 %421
+  %425 = getelementptr inbounds nuw [32 x i8], ptr @_ZN9Stockfish10RookMagicsE, i64 %421
   %426 = getelementptr inbounds nuw i8, ptr %425, i64 16
   %427 = load ptr, ptr %426, align 16
   %428 = load i64, ptr %425, align 16
@@ -838,7 +838,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE3ELb0EEE
   %435 = zext nneg i32 %434 to i64
   %436 = lshr i64 %432, %435
   %437 = and i64 %436, 4294967295
-  %438 = getelementptr inbounds nuw i64, ptr %427, i64 %437
+  %438 = getelementptr inbounds nuw [8 x i8], ptr %427, i64 %437
   %439 = load i64, ptr %438, align 8
   %440 = and i64 %439, %268
   %.not612.i43.i80 = icmp eq i64 %440, 0
@@ -887,7 +887,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE4ELb0EEE
   %455 = add i64 %.01016.i56.i93, -1
   %456 = and i64 %455, %.01016.i56.i93
   %457 = load i64, ptr %384, align 8
-  %458 = getelementptr inbounds nuw %"struct.Stockfish::Magic", ptr @_ZN9Stockfish12BishopMagicsE, i64 %454
+  %458 = getelementptr inbounds nuw [32 x i8], ptr @_ZN9Stockfish12BishopMagicsE, i64 %454
   %459 = getelementptr inbounds nuw i8, ptr %458, i64 16
   %460 = load ptr, ptr %459, align 16
   %461 = load i64, ptr %458, align 16
@@ -900,9 +900,9 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE4ELb0EEE
   %468 = zext nneg i32 %467 to i64
   %469 = lshr i64 %465, %468
   %470 = and i64 %469, 4294967295
-  %471 = getelementptr inbounds nuw i64, ptr %460, i64 %470
+  %471 = getelementptr inbounds nuw [8 x i8], ptr %460, i64 %470
   %472 = load i64, ptr %471, align 8
-  %473 = getelementptr inbounds nuw %"struct.Stockfish::Magic", ptr @_ZN9Stockfish10RookMagicsE, i64 %454
+  %473 = getelementptr inbounds nuw [32 x i8], ptr @_ZN9Stockfish10RookMagicsE, i64 %454
   %474 = getelementptr inbounds nuw i8, ptr %473, i64 16
   %475 = load ptr, ptr %474, align 16
   %476 = load i64, ptr %473, align 16
@@ -915,7 +915,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE4ELb0EEE
   %483 = zext nneg i32 %482 to i64
   %484 = lshr i64 %480, %483
   %485 = and i64 %484, 4294967295
-  %486 = getelementptr inbounds nuw i64, ptr %475, i64 %485
+  %486 = getelementptr inbounds nuw [8 x i8], ptr %475, i64 %485
   %487 = load i64, ptr %486, align 8
   %488 = or i64 %487, %472
   %489 = and i64 %488, %268
@@ -942,7 +942,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE4ELb0EEE
 
 _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE5ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i: ; preds = %.loopexit.i62.i99, %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE4ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i
   %.0.lcssa.i66.i102 = phi ptr [ %.0.lcssa.i52.i89, %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE4ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i ], [ %.1.lcssa.i63.i100, %.loopexit.i62.i99 ]
-  %499 = getelementptr inbounds nuw i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 3072), i64 %266
+  %499 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 3072), i64 %266
   %500 = load i64, ptr %499, align 8
   %501 = and i64 %500, %268
   %.not78.i103 = icmp eq i64 %501, 0
@@ -1092,7 +1092,7 @@ _ZN9Stockfish12_GLOBAL__N_119generate_pawn_movesILNS_5ColorE0ELNS_7GenTypeE1EEEP
   %64 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.01016.i.i, i1 true)
   %65 = add i64 %.01016.i.i, -1
   %66 = and i64 %65, %.01016.i.i
-  %67 = getelementptr inbounds nuw i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 1024), i64 %64
+  %67 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 1024), i64 %64
   %68 = load i64, ptr %67, align 8
   %69 = and i64 %68, %19
   %.not612.i.i = icmp eq i64 %69, 0
@@ -1141,7 +1141,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE2ELb0EEE
   %84 = add i64 %.01016.i46.i, -1
   %85 = and i64 %84, %.01016.i46.i
   %86 = load i64, ptr %9, align 8
-  %87 = getelementptr inbounds nuw %"struct.Stockfish::Magic", ptr @_ZN9Stockfish12BishopMagicsE, i64 %83
+  %87 = getelementptr inbounds nuw [32 x i8], ptr @_ZN9Stockfish12BishopMagicsE, i64 %83
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 16
   %89 = load ptr, ptr %88, align 16
   %90 = load i64, ptr %87, align 16
@@ -1154,7 +1154,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE2ELb0EEE
   %97 = zext nneg i32 %96 to i64
   %98 = lshr i64 %94, %97
   %99 = and i64 %98, 4294967295
-  %100 = getelementptr inbounds nuw i64, ptr %89, i64 %99
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %89, i64 %99
   %101 = load i64, ptr %100, align 8
   %102 = and i64 %101, %19
   %.not612.i47.i = icmp eq i64 %102, 0
@@ -1203,7 +1203,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE3ELb0EEE
   %117 = add i64 %.01016.i60.i, -1
   %118 = and i64 %117, %.01016.i60.i
   %119 = load i64, ptr %9, align 8
-  %120 = getelementptr inbounds nuw %"struct.Stockfish::Magic", ptr @_ZN9Stockfish10RookMagicsE, i64 %116
+  %120 = getelementptr inbounds nuw [32 x i8], ptr @_ZN9Stockfish10RookMagicsE, i64 %116
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 16
   %122 = load ptr, ptr %121, align 16
   %123 = load i64, ptr %120, align 16
@@ -1216,7 +1216,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE3ELb0EEE
   %130 = zext nneg i32 %129 to i64
   %131 = lshr i64 %127, %130
   %132 = and i64 %131, 4294967295
-  %133 = getelementptr inbounds nuw i64, ptr %122, i64 %132
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %122, i64 %132
   %134 = load i64, ptr %133, align 8
   %135 = and i64 %134, %19
   %.not612.i61.i = icmp eq i64 %135, 0
@@ -1265,7 +1265,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE4ELb0EEE
   %150 = add i64 %.01016.i74.i, -1
   %151 = and i64 %150, %.01016.i74.i
   %152 = load i64, ptr %9, align 8
-  %153 = getelementptr inbounds nuw %"struct.Stockfish::Magic", ptr @_ZN9Stockfish12BishopMagicsE, i64 %149
+  %153 = getelementptr inbounds nuw [32 x i8], ptr @_ZN9Stockfish12BishopMagicsE, i64 %149
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 16
   %155 = load ptr, ptr %154, align 16
   %156 = load i64, ptr %153, align 16
@@ -1278,9 +1278,9 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE4ELb0EEE
   %163 = zext nneg i32 %162 to i64
   %164 = lshr i64 %160, %163
   %165 = and i64 %164, 4294967295
-  %166 = getelementptr inbounds nuw i64, ptr %155, i64 %165
+  %166 = getelementptr inbounds nuw [8 x i8], ptr %155, i64 %165
   %167 = load i64, ptr %166, align 8
-  %168 = getelementptr inbounds nuw %"struct.Stockfish::Magic", ptr @_ZN9Stockfish10RookMagicsE, i64 %149
+  %168 = getelementptr inbounds nuw [32 x i8], ptr @_ZN9Stockfish10RookMagicsE, i64 %149
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 16
   %170 = load ptr, ptr %169, align 16
   %171 = load i64, ptr %168, align 16
@@ -1293,7 +1293,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE4ELb0EEE
   %178 = zext nneg i32 %177 to i64
   %179 = lshr i64 %175, %178
   %180 = and i64 %179, 4294967295
-  %181 = getelementptr inbounds nuw i64, ptr %170, i64 %180
+  %181 = getelementptr inbounds nuw [8 x i8], ptr %170, i64 %180
   %182 = load i64, ptr %181, align 8
   %183 = or i64 %182, %167
   %184 = and i64 %183, %19
@@ -1320,7 +1320,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE4ELb0EEE
 
 _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE5ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i: ; preds = %.loopexit.i80.i, %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE4ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i
   %.0.lcssa.i84.i = phi ptr [ %.0.lcssa.i70.i, %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE4ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i ], [ %.1.lcssa.i81.i, %.loopexit.i80.i ]
-  %194 = getelementptr inbounds nuw i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 3072), i64 %16
+  %194 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 3072), i64 %16
   %195 = load i64, ptr %194, align 8
   %196 = and i64 %195, %19
   %.not98.i = icmp eq i64 %196, 0
@@ -1371,7 +1371,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE5ELb0EEE
   %218 = load i32, ptr %.036.ptr.i, align 4
   %219 = load i64, ptr %9, align 8
   %220 = zext i32 %218 to i64
-  %221 = getelementptr inbounds nuw i64, ptr %213, i64 %220
+  %221 = getelementptr inbounds nuw [8 x i8], ptr %213, i64 %220
   %222 = load i64, ptr %221, align 8
   %223 = and i64 %222, %219
   %.not90.i = icmp eq i64 %223, 0
@@ -1386,7 +1386,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE5ELb0EEE
   br i1 %.not91.i, label %236, label %229
 
 229:                                              ; preds = %224
-  %230 = getelementptr inbounds nuw i32, ptr %214, i64 %220
+  %230 = getelementptr inbounds nuw [4 x i8], ptr %214, i64 %220
   %231 = load i32, ptr %230, align 4
   %232 = add i32 %216, %231
   %233 = trunc i32 %232 to i16
@@ -1516,7 +1516,7 @@ _ZN9Stockfish12_GLOBAL__N_119generate_pawn_movesILNS_5ColorE1ELNS_7GenTypeE1EEEP
   %290 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.01016.i.i30, i1 true)
   %291 = add i64 %.01016.i.i30, -1
   %292 = and i64 %291, %.01016.i.i30
-  %293 = getelementptr inbounds nuw i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 1024), i64 %290
+  %293 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 1024), i64 %290
   %294 = load i64, ptr %293, align 8
   %295 = and i64 %294, %245
   %.not612.i.i31 = icmp eq i64 %295, 0
@@ -1565,7 +1565,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE2ELb0EEE
   %310 = add i64 %.01016.i46.i44, -1
   %311 = and i64 %310, %.01016.i46.i44
   %312 = load i64, ptr %9, align 8
-  %313 = getelementptr inbounds nuw %"struct.Stockfish::Magic", ptr @_ZN9Stockfish12BishopMagicsE, i64 %309
+  %313 = getelementptr inbounds nuw [32 x i8], ptr @_ZN9Stockfish12BishopMagicsE, i64 %309
   %314 = getelementptr inbounds nuw i8, ptr %313, i64 16
   %315 = load ptr, ptr %314, align 16
   %316 = load i64, ptr %313, align 16
@@ -1578,7 +1578,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE2ELb0EEE
   %323 = zext nneg i32 %322 to i64
   %324 = lshr i64 %320, %323
   %325 = and i64 %324, 4294967295
-  %326 = getelementptr inbounds nuw i64, ptr %315, i64 %325
+  %326 = getelementptr inbounds nuw [8 x i8], ptr %315, i64 %325
   %327 = load i64, ptr %326, align 8
   %328 = and i64 %327, %245
   %.not612.i47.i45 = icmp eq i64 %328, 0
@@ -1627,7 +1627,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE3ELb0EEE
   %343 = add i64 %.01016.i60.i58, -1
   %344 = and i64 %343, %.01016.i60.i58
   %345 = load i64, ptr %9, align 8
-  %346 = getelementptr inbounds nuw %"struct.Stockfish::Magic", ptr @_ZN9Stockfish10RookMagicsE, i64 %342
+  %346 = getelementptr inbounds nuw [32 x i8], ptr @_ZN9Stockfish10RookMagicsE, i64 %342
   %347 = getelementptr inbounds nuw i8, ptr %346, i64 16
   %348 = load ptr, ptr %347, align 16
   %349 = load i64, ptr %346, align 16
@@ -1640,7 +1640,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE3ELb0EEE
   %356 = zext nneg i32 %355 to i64
   %357 = lshr i64 %353, %356
   %358 = and i64 %357, 4294967295
-  %359 = getelementptr inbounds nuw i64, ptr %348, i64 %358
+  %359 = getelementptr inbounds nuw [8 x i8], ptr %348, i64 %358
   %360 = load i64, ptr %359, align 8
   %361 = and i64 %360, %245
   %.not612.i61.i59 = icmp eq i64 %361, 0
@@ -1689,7 +1689,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE4ELb0EEE
   %376 = add i64 %.01016.i74.i72, -1
   %377 = and i64 %376, %.01016.i74.i72
   %378 = load i64, ptr %9, align 8
-  %379 = getelementptr inbounds nuw %"struct.Stockfish::Magic", ptr @_ZN9Stockfish12BishopMagicsE, i64 %375
+  %379 = getelementptr inbounds nuw [32 x i8], ptr @_ZN9Stockfish12BishopMagicsE, i64 %375
   %380 = getelementptr inbounds nuw i8, ptr %379, i64 16
   %381 = load ptr, ptr %380, align 16
   %382 = load i64, ptr %379, align 16
@@ -1702,9 +1702,9 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE4ELb0EEE
   %389 = zext nneg i32 %388 to i64
   %390 = lshr i64 %386, %389
   %391 = and i64 %390, 4294967295
-  %392 = getelementptr inbounds nuw i64, ptr %381, i64 %391
+  %392 = getelementptr inbounds nuw [8 x i8], ptr %381, i64 %391
   %393 = load i64, ptr %392, align 8
-  %394 = getelementptr inbounds nuw %"struct.Stockfish::Magic", ptr @_ZN9Stockfish10RookMagicsE, i64 %375
+  %394 = getelementptr inbounds nuw [32 x i8], ptr @_ZN9Stockfish10RookMagicsE, i64 %375
   %395 = getelementptr inbounds nuw i8, ptr %394, i64 16
   %396 = load ptr, ptr %395, align 16
   %397 = load i64, ptr %394, align 16
@@ -1717,7 +1717,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE4ELb0EEE
   %404 = zext nneg i32 %403 to i64
   %405 = lshr i64 %401, %404
   %406 = and i64 %405, 4294967295
-  %407 = getelementptr inbounds nuw i64, ptr %396, i64 %406
+  %407 = getelementptr inbounds nuw [8 x i8], ptr %396, i64 %406
   %408 = load i64, ptr %407, align 8
   %409 = or i64 %408, %393
   %410 = and i64 %409, %245
@@ -1744,7 +1744,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE4ELb0EEE
 
 _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE5ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i: ; preds = %.loopexit.i80.i78, %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE4ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i
   %.0.lcssa.i84.i81 = phi ptr [ %.0.lcssa.i70.i68, %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE4ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i ], [ %.1.lcssa.i81.i79, %.loopexit.i80.i78 ]
-  %420 = getelementptr inbounds nuw i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 3072), i64 %242
+  %420 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 3072), i64 %242
   %421 = load i64, ptr %420, align 8
   %422 = and i64 %421, %245
   %.not98.i82 = icmp eq i64 %422, 0
@@ -1795,7 +1795,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE5ELb0EEE
   %444 = load i32, ptr %.036.ptr.i92, align 4
   %445 = load i64, ptr %9, align 8
   %446 = zext i32 %444 to i64
-  %447 = getelementptr inbounds nuw i64, ptr %439, i64 %446
+  %447 = getelementptr inbounds nuw [8 x i8], ptr %439, i64 %446
   %448 = load i64, ptr %447, align 8
   %449 = and i64 %448, %445
   %.not90.i93 = icmp eq i64 %449, 0
@@ -1810,7 +1810,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE5ELb0EEE
   br i1 %.not91.i98, label %462, label %455
 
 455:                                              ; preds = %450
-  %456 = getelementptr inbounds nuw i32, ptr %440, i64 %446
+  %456 = getelementptr inbounds nuw [4 x i8], ptr %440, i64 %446
   %457 = load i32, ptr %456, align 4
   %458 = add i32 %442, %457
   %459 = trunc i32 %458 to i16
@@ -1860,8 +1860,8 @@ define weak_odr dso_local noundef ptr @_ZN9Stockfish8generateILNS_7GenTypeE3EEEP
 
 20:                                               ; preds = %14
   %21 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %11, i1 true)
-  %22 = getelementptr inbounds nuw [64 x i64], ptr @_ZN9Stockfish9BetweenBBE, i64 %18
-  %23 = getelementptr inbounds nuw i64, ptr %22, i64 %21
+  %22 = getelementptr inbounds nuw [512 x i8], ptr @_ZN9Stockfish9BetweenBBE, i64 %18
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %21
   %24 = load i64, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %26 = load i64, ptr %25, align 8
@@ -2082,7 +2082,7 @@ define weak_odr dso_local noundef ptr @_ZN9Stockfish8generateILNS_7GenTypeE3EEEP
 
 140:                                              ; preds = %135
   %141 = sext i32 %134 to i64
-  %142 = getelementptr inbounds i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish11PawnAttacksE, i64 512), i64 %141
+  %142 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish11PawnAttacksE, i64 512), i64 %141
   %143 = load i64, ptr %142, align 8
   %144 = and i64 %143, %32
   %.not56124.i.i = icmp eq i64 %144, 0
@@ -2128,7 +2128,7 @@ _ZN9Stockfish12_GLOBAL__N_119generate_pawn_movesILNS_5ColorE0ELNS_7GenTypeE3EEEP
   %162 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.01016.i.i, i1 true)
   %163 = add i64 %.01016.i.i, -1
   %164 = and i64 %163, %.01016.i.i
-  %165 = getelementptr inbounds nuw i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 1024), i64 %162
+  %165 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 1024), i64 %162
   %166 = load i64, ptr %165, align 8
   %167 = and i64 %166, %24
   %.not612.i.i = icmp eq i64 %167, 0
@@ -2177,7 +2177,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE2ELb0EEE
   %182 = add i64 %.01016.i30.i, -1
   %183 = and i64 %182, %.01016.i30.i
   %184 = load i64, ptr %25, align 8
-  %185 = getelementptr inbounds nuw %"struct.Stockfish::Magic", ptr @_ZN9Stockfish12BishopMagicsE, i64 %181
+  %185 = getelementptr inbounds nuw [32 x i8], ptr @_ZN9Stockfish12BishopMagicsE, i64 %181
   %186 = getelementptr inbounds nuw i8, ptr %185, i64 16
   %187 = load ptr, ptr %186, align 16
   %188 = load i64, ptr %185, align 16
@@ -2190,7 +2190,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE2ELb0EEE
   %195 = zext nneg i32 %194 to i64
   %196 = lshr i64 %192, %195
   %197 = and i64 %196, 4294967295
-  %198 = getelementptr inbounds nuw i64, ptr %187, i64 %197
+  %198 = getelementptr inbounds nuw [8 x i8], ptr %187, i64 %197
   %199 = load i64, ptr %198, align 8
   %200 = and i64 %199, %24
   %.not612.i31.i = icmp eq i64 %200, 0
@@ -2239,7 +2239,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE3ELb0EEE
   %215 = add i64 %.01016.i44.i, -1
   %216 = and i64 %215, %.01016.i44.i
   %217 = load i64, ptr %25, align 8
-  %218 = getelementptr inbounds nuw %"struct.Stockfish::Magic", ptr @_ZN9Stockfish10RookMagicsE, i64 %214
+  %218 = getelementptr inbounds nuw [32 x i8], ptr @_ZN9Stockfish10RookMagicsE, i64 %214
   %219 = getelementptr inbounds nuw i8, ptr %218, i64 16
   %220 = load ptr, ptr %219, align 16
   %221 = load i64, ptr %218, align 16
@@ -2252,7 +2252,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE3ELb0EEE
   %228 = zext nneg i32 %227 to i64
   %229 = lshr i64 %225, %228
   %230 = and i64 %229, 4294967295
-  %231 = getelementptr inbounds nuw i64, ptr %220, i64 %230
+  %231 = getelementptr inbounds nuw [8 x i8], ptr %220, i64 %230
   %232 = load i64, ptr %231, align 8
   %233 = and i64 %232, %24
   %.not612.i45.i = icmp eq i64 %233, 0
@@ -2301,7 +2301,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE4ELb0EEE
   %248 = add i64 %.01016.i58.i, -1
   %249 = and i64 %248, %.01016.i58.i
   %250 = load i64, ptr %25, align 8
-  %251 = getelementptr inbounds nuw %"struct.Stockfish::Magic", ptr @_ZN9Stockfish12BishopMagicsE, i64 %247
+  %251 = getelementptr inbounds nuw [32 x i8], ptr @_ZN9Stockfish12BishopMagicsE, i64 %247
   %252 = getelementptr inbounds nuw i8, ptr %251, i64 16
   %253 = load ptr, ptr %252, align 16
   %254 = load i64, ptr %251, align 16
@@ -2314,9 +2314,9 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE4ELb0EEE
   %261 = zext nneg i32 %260 to i64
   %262 = lshr i64 %258, %261
   %263 = and i64 %262, 4294967295
-  %264 = getelementptr inbounds nuw i64, ptr %253, i64 %263
+  %264 = getelementptr inbounds nuw [8 x i8], ptr %253, i64 %263
   %265 = load i64, ptr %264, align 8
-  %266 = getelementptr inbounds nuw %"struct.Stockfish::Magic", ptr @_ZN9Stockfish10RookMagicsE, i64 %247
+  %266 = getelementptr inbounds nuw [32 x i8], ptr @_ZN9Stockfish10RookMagicsE, i64 %247
   %267 = getelementptr inbounds nuw i8, ptr %266, i64 16
   %268 = load ptr, ptr %267, align 16
   %269 = load i64, ptr %266, align 16
@@ -2329,7 +2329,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE4ELb0EEE
   %276 = zext nneg i32 %275 to i64
   %277 = lshr i64 %273, %276
   %278 = and i64 %277, 4294967295
-  %279 = getelementptr inbounds nuw i64, ptr %268, i64 %278
+  %279 = getelementptr inbounds nuw [8 x i8], ptr %268, i64 %278
   %280 = load i64, ptr %279, align 8
   %281 = or i64 %280, %265
   %282 = and i64 %281, %24
@@ -2361,7 +2361,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE5ELb0EEE
 _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE5ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i: ; preds = %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE5ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i, %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE4ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i, %14
   %292 = phi i64 [ %16, %14 ], [ %243, %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE4ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i ], [ %.pre99.i, %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE5ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i ]
   %.0.i = phi ptr [ %1, %14 ], [ %.0.lcssa.i54.i, %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE4ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i ], [ %.1.lcssa.i65.i, %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE5ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i ]
-  %293 = getelementptr inbounds nuw i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 3072), i64 %18
+  %293 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 3072), i64 %18
   %294 = load i64, ptr %293, align 8
   %295 = xor i64 %292, -1
   %296 = and i64 %294, %295
@@ -2395,8 +2395,8 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE5ELb0EEE
 
 311:                                              ; preds = %305
   %312 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %11, i1 true)
-  %313 = getelementptr inbounds nuw [64 x i64], ptr @_ZN9Stockfish9BetweenBBE, i64 %309
-  %314 = getelementptr inbounds nuw i64, ptr %313, i64 %312
+  %313 = getelementptr inbounds nuw [512 x i8], ptr @_ZN9Stockfish9BetweenBBE, i64 %309
+  %314 = getelementptr inbounds nuw [8 x i8], ptr %313, i64 %312
   %315 = load i64, ptr %314, align 8
   %316 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %317 = load i64, ptr %316, align 8
@@ -2621,7 +2621,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE5ELb0EEE
 
 430:                                              ; preds = %425
   %431 = sext i32 %424 to i64
-  %432 = getelementptr inbounds i64, ptr @_ZN9Stockfish11PawnAttacksE, i64 %431
+  %432 = getelementptr inbounds [8 x i8], ptr @_ZN9Stockfish11PawnAttacksE, i64 %431
   %433 = load i64, ptr %432, align 8
   %434 = and i64 %433, %323
   %.not56124.i.i120 = icmp eq i64 %434, 0
@@ -2667,7 +2667,7 @@ _ZN9Stockfish12_GLOBAL__N_119generate_pawn_movesILNS_5ColorE1ELNS_7GenTypeE3EEEP
   %452 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.01016.i.i61, i1 true)
   %453 = add i64 %.01016.i.i61, -1
   %454 = and i64 %453, %.01016.i.i61
-  %455 = getelementptr inbounds nuw i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 1024), i64 %452
+  %455 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 1024), i64 %452
   %456 = load i64, ptr %455, align 8
   %457 = and i64 %456, %315
   %.not612.i.i62 = icmp eq i64 %457, 0
@@ -2716,7 +2716,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE2ELb0EEE
   %472 = add i64 %.01016.i30.i75, -1
   %473 = and i64 %472, %.01016.i30.i75
   %474 = load i64, ptr %316, align 8
-  %475 = getelementptr inbounds nuw %"struct.Stockfish::Magic", ptr @_ZN9Stockfish12BishopMagicsE, i64 %471
+  %475 = getelementptr inbounds nuw [32 x i8], ptr @_ZN9Stockfish12BishopMagicsE, i64 %471
   %476 = getelementptr inbounds nuw i8, ptr %475, i64 16
   %477 = load ptr, ptr %476, align 16
   %478 = load i64, ptr %475, align 16
@@ -2729,7 +2729,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE2ELb0EEE
   %485 = zext nneg i32 %484 to i64
   %486 = lshr i64 %482, %485
   %487 = and i64 %486, 4294967295
-  %488 = getelementptr inbounds nuw i64, ptr %477, i64 %487
+  %488 = getelementptr inbounds nuw [8 x i8], ptr %477, i64 %487
   %489 = load i64, ptr %488, align 8
   %490 = and i64 %489, %315
   %.not612.i31.i76 = icmp eq i64 %490, 0
@@ -2778,7 +2778,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE3ELb0EEE
   %505 = add i64 %.01016.i44.i89, -1
   %506 = and i64 %505, %.01016.i44.i89
   %507 = load i64, ptr %316, align 8
-  %508 = getelementptr inbounds nuw %"struct.Stockfish::Magic", ptr @_ZN9Stockfish10RookMagicsE, i64 %504
+  %508 = getelementptr inbounds nuw [32 x i8], ptr @_ZN9Stockfish10RookMagicsE, i64 %504
   %509 = getelementptr inbounds nuw i8, ptr %508, i64 16
   %510 = load ptr, ptr %509, align 16
   %511 = load i64, ptr %508, align 16
@@ -2791,7 +2791,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE3ELb0EEE
   %518 = zext nneg i32 %517 to i64
   %519 = lshr i64 %515, %518
   %520 = and i64 %519, 4294967295
-  %521 = getelementptr inbounds nuw i64, ptr %510, i64 %520
+  %521 = getelementptr inbounds nuw [8 x i8], ptr %510, i64 %520
   %522 = load i64, ptr %521, align 8
   %523 = and i64 %522, %315
   %.not612.i45.i90 = icmp eq i64 %523, 0
@@ -2840,7 +2840,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE4ELb0EEE
   %538 = add i64 %.01016.i58.i103, -1
   %539 = and i64 %538, %.01016.i58.i103
   %540 = load i64, ptr %316, align 8
-  %541 = getelementptr inbounds nuw %"struct.Stockfish::Magic", ptr @_ZN9Stockfish12BishopMagicsE, i64 %537
+  %541 = getelementptr inbounds nuw [32 x i8], ptr @_ZN9Stockfish12BishopMagicsE, i64 %537
   %542 = getelementptr inbounds nuw i8, ptr %541, i64 16
   %543 = load ptr, ptr %542, align 16
   %544 = load i64, ptr %541, align 16
@@ -2853,9 +2853,9 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE4ELb0EEE
   %551 = zext nneg i32 %550 to i64
   %552 = lshr i64 %548, %551
   %553 = and i64 %552, 4294967295
-  %554 = getelementptr inbounds nuw i64, ptr %543, i64 %553
+  %554 = getelementptr inbounds nuw [8 x i8], ptr %543, i64 %553
   %555 = load i64, ptr %554, align 8
-  %556 = getelementptr inbounds nuw %"struct.Stockfish::Magic", ptr @_ZN9Stockfish10RookMagicsE, i64 %537
+  %556 = getelementptr inbounds nuw [32 x i8], ptr @_ZN9Stockfish10RookMagicsE, i64 %537
   %557 = getelementptr inbounds nuw i8, ptr %556, i64 16
   %558 = load ptr, ptr %557, align 16
   %559 = load i64, ptr %556, align 16
@@ -2868,7 +2868,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE4ELb0EEE
   %566 = zext nneg i32 %565 to i64
   %567 = lshr i64 %563, %566
   %568 = and i64 %567, 4294967295
-  %569 = getelementptr inbounds nuw i64, ptr %558, i64 %568
+  %569 = getelementptr inbounds nuw [8 x i8], ptr %558, i64 %568
   %570 = load i64, ptr %569, align 8
   %571 = or i64 %570, %555
   %572 = and i64 %571, %315
@@ -2900,7 +2900,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE5ELb0EEE
 _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE5ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i: ; preds = %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE5ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i, %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE4ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i, %305
   %582 = phi i64 [ %307, %305 ], [ %533, %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE4ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i ], [ %.pre99.i112, %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE5ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i ]
   %.0.i113 = phi ptr [ %1, %305 ], [ %.0.lcssa.i54.i99, %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE4ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i ], [ %.1.lcssa.i65.i110, %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE5ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i ]
-  %583 = getelementptr inbounds nuw i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 3072), i64 %309
+  %583 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 3072), i64 %309
   %584 = load i64, ptr %583, align 8
   %585 = xor i64 %582, -1
   %586 = and i64 %584, %585
@@ -2966,7 +2966,7 @@ define weak_odr dso_local noundef ptr @_ZN9Stockfish8generateILNS_7GenTypeE2EEEP
   %33 = shl nuw i64 72340172838076673, %32
   %34 = xor i64 %33, -1
   %35 = and i64 %31, %34
-  %36 = getelementptr inbounds nuw i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish11PawnAttacksE, i64 512), i64 %29
+  %36 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish11PawnAttacksE, i64 512), i64 %29
   %37 = load i64, ptr %36, align 8
   %38 = shl i64 %35, 8
   %39 = or i64 %38, %37
@@ -3035,7 +3035,7 @@ _ZN9Stockfish12_GLOBAL__N_119generate_pawn_movesILNS_5ColorE0ELNS_7GenTypeE2EEEP
   %67 = trunc nuw nsw i64 %66 to i16
   %68 = add i64 %.01522.i.i, -1
   %69 = and i64 %68, %.01522.i.i
-  %70 = getelementptr inbounds nuw i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 1024), i64 %66
+  %70 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 1024), i64 %66
   %71 = load i64, ptr %70, align 8
   %72 = and i64 %71, %20
   %73 = load ptr, ptr %9, align 8
@@ -3100,7 +3100,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE2ELb1EEE
   %97 = add i64 %.01522.i32.i, -1
   %98 = and i64 %97, %.01522.i32.i
   %99 = load i64, ptr %18, align 8
-  %100 = getelementptr inbounds nuw %"struct.Stockfish::Magic", ptr @_ZN9Stockfish12BishopMagicsE, i64 %95
+  %100 = getelementptr inbounds nuw [32 x i8], ptr @_ZN9Stockfish12BishopMagicsE, i64 %95
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 16
   %102 = load ptr, ptr %101, align 16
   %103 = load i64, ptr %100, align 16
@@ -3113,7 +3113,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE2ELb1EEE
   %110 = zext nneg i32 %109 to i64
   %111 = lshr i64 %107, %110
   %112 = and i64 %111, 4294967295
-  %113 = getelementptr inbounds nuw i64, ptr %102, i64 %112
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %102, i64 %112
   %114 = load i64, ptr %113, align 8
   %115 = and i64 %114, %20
   %116 = load ptr, ptr %9, align 8
@@ -3178,7 +3178,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE3ELb1EEE
   %140 = add i64 %.01522.i47.i, -1
   %141 = and i64 %140, %.01522.i47.i
   %142 = load i64, ptr %18, align 8
-  %143 = getelementptr inbounds nuw %"struct.Stockfish::Magic", ptr @_ZN9Stockfish10RookMagicsE, i64 %138
+  %143 = getelementptr inbounds nuw [32 x i8], ptr @_ZN9Stockfish10RookMagicsE, i64 %138
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 16
   %145 = load ptr, ptr %144, align 16
   %146 = load i64, ptr %143, align 16
@@ -3191,7 +3191,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE3ELb1EEE
   %153 = zext nneg i32 %152 to i64
   %154 = lshr i64 %150, %153
   %155 = and i64 %154, 4294967295
-  %156 = getelementptr inbounds nuw i64, ptr %145, i64 %155
+  %156 = getelementptr inbounds nuw [8 x i8], ptr %145, i64 %155
   %157 = load i64, ptr %156, align 8
   %158 = and i64 %157, %20
   %159 = load ptr, ptr %9, align 8
@@ -3255,7 +3255,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE4ELb1EEE
   %182 = add i64 %.01218.i.i, -1
   %183 = and i64 %182, %.01218.i.i
   %184 = load i64, ptr %18, align 8
-  %185 = getelementptr inbounds nuw %"struct.Stockfish::Magic", ptr @_ZN9Stockfish12BishopMagicsE, i64 %181
+  %185 = getelementptr inbounds nuw [32 x i8], ptr @_ZN9Stockfish12BishopMagicsE, i64 %181
   %186 = getelementptr inbounds nuw i8, ptr %185, i64 16
   %187 = load ptr, ptr %186, align 16
   %188 = load i64, ptr %185, align 16
@@ -3268,9 +3268,9 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE4ELb1EEE
   %195 = zext nneg i32 %194 to i64
   %196 = lshr i64 %192, %195
   %197 = and i64 %196, 4294967295
-  %198 = getelementptr inbounds nuw i64, ptr %187, i64 %197
+  %198 = getelementptr inbounds nuw [8 x i8], ptr %187, i64 %197
   %199 = load i64, ptr %198, align 8
-  %200 = getelementptr inbounds nuw %"struct.Stockfish::Magic", ptr @_ZN9Stockfish10RookMagicsE, i64 %181
+  %200 = getelementptr inbounds nuw [32 x i8], ptr @_ZN9Stockfish10RookMagicsE, i64 %181
   %201 = getelementptr inbounds nuw i8, ptr %200, i64 16
   %202 = load ptr, ptr %201, align 16
   %203 = load i64, ptr %200, align 16
@@ -3283,7 +3283,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE4ELb1EEE
   %210 = zext nneg i32 %209 to i64
   %211 = lshr i64 %207, %210
   %212 = and i64 %211, 4294967295
-  %213 = getelementptr inbounds nuw i64, ptr %202, i64 %212
+  %213 = getelementptr inbounds nuw [8 x i8], ptr %202, i64 %212
   %214 = load i64, ptr %213, align 8
   %215 = or i64 %214, %199
   %216 = load ptr, ptr %9, align 8
@@ -3323,13 +3323,13 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE5ELb1EEE
   br i1 %.not.i, label %_ZN9Stockfish12_GLOBAL__N_112generate_allILNS_5ColorE0ELNS_7GenTypeE2EEEPNS_7ExtMoveERKNS_8PositionES5_.exit, label %235
 
 235:                                              ; preds = %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE5ELb1EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i
-  %236 = getelementptr inbounds nuw i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 3072), i64 %16
+  %236 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 3072), i64 %16
   %237 = load i64, ptr %236, align 8
   %238 = load i64, ptr %21, align 8
   %239 = load i64, ptr %13, align 8
   %240 = and i64 %239, %238
   %241 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %240, i1 true)
-  %242 = getelementptr inbounds nuw i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 2560), i64 %241
+  %242 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 2560), i64 %241
   %243 = load i64, ptr %242, align 8
   %244 = or i64 %243, %19
   %245 = xor i64 %244, -1
@@ -3379,7 +3379,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE5ELb1EEE
   %277 = shl nuw i64 72340172838076673, %276
   %278 = xor i64 %277, -1
   %279 = and i64 %275, %278
-  %280 = getelementptr inbounds nuw i64, ptr @_ZN9Stockfish11PawnAttacksE, i64 %273
+  %280 = getelementptr inbounds nuw [8 x i8], ptr @_ZN9Stockfish11PawnAttacksE, i64 %273
   %281 = load i64, ptr %280, align 8
   %282 = lshr i64 %279, 8
   %283 = or i64 %282, %281
@@ -3448,7 +3448,7 @@ _ZN9Stockfish12_GLOBAL__N_119generate_pawn_movesILNS_5ColorE1ELNS_7GenTypeE2EEEP
   %311 = trunc nuw nsw i64 %310 to i16
   %312 = add i64 %.01522.i.i21, -1
   %313 = and i64 %312, %.01522.i.i21
-  %314 = getelementptr inbounds nuw i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 1024), i64 %310
+  %314 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 1024), i64 %310
   %315 = load i64, ptr %314, align 8
   %316 = and i64 %315, %265
   %317 = load ptr, ptr %9, align 8
@@ -3513,7 +3513,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE2ELb1EEE
   %341 = add i64 %.01522.i32.i37, -1
   %342 = and i64 %341, %.01522.i32.i37
   %343 = load i64, ptr %263, align 8
-  %344 = getelementptr inbounds nuw %"struct.Stockfish::Magic", ptr @_ZN9Stockfish12BishopMagicsE, i64 %339
+  %344 = getelementptr inbounds nuw [32 x i8], ptr @_ZN9Stockfish12BishopMagicsE, i64 %339
   %345 = getelementptr inbounds nuw i8, ptr %344, i64 16
   %346 = load ptr, ptr %345, align 16
   %347 = load i64, ptr %344, align 16
@@ -3526,7 +3526,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE2ELb1EEE
   %354 = zext nneg i32 %353 to i64
   %355 = lshr i64 %351, %354
   %356 = and i64 %355, 4294967295
-  %357 = getelementptr inbounds nuw i64, ptr %346, i64 %356
+  %357 = getelementptr inbounds nuw [8 x i8], ptr %346, i64 %356
   %358 = load i64, ptr %357, align 8
   %359 = and i64 %358, %265
   %360 = load ptr, ptr %9, align 8
@@ -3591,7 +3591,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE3ELb1EEE
   %384 = add i64 %.01522.i47.i53, -1
   %385 = and i64 %384, %.01522.i47.i53
   %386 = load i64, ptr %263, align 8
-  %387 = getelementptr inbounds nuw %"struct.Stockfish::Magic", ptr @_ZN9Stockfish10RookMagicsE, i64 %382
+  %387 = getelementptr inbounds nuw [32 x i8], ptr @_ZN9Stockfish10RookMagicsE, i64 %382
   %388 = getelementptr inbounds nuw i8, ptr %387, i64 16
   %389 = load ptr, ptr %388, align 16
   %390 = load i64, ptr %387, align 16
@@ -3604,7 +3604,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE3ELb1EEE
   %397 = zext nneg i32 %396 to i64
   %398 = lshr i64 %394, %397
   %399 = and i64 %398, 4294967295
-  %400 = getelementptr inbounds nuw i64, ptr %389, i64 %399
+  %400 = getelementptr inbounds nuw [8 x i8], ptr %389, i64 %399
   %401 = load i64, ptr %400, align 8
   %402 = and i64 %401, %265
   %403 = load ptr, ptr %9, align 8
@@ -3668,7 +3668,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE4ELb1EEE
   %426 = add i64 %.01218.i.i69, -1
   %427 = and i64 %426, %.01218.i.i69
   %428 = load i64, ptr %263, align 8
-  %429 = getelementptr inbounds nuw %"struct.Stockfish::Magic", ptr @_ZN9Stockfish12BishopMagicsE, i64 %425
+  %429 = getelementptr inbounds nuw [32 x i8], ptr @_ZN9Stockfish12BishopMagicsE, i64 %425
   %430 = getelementptr inbounds nuw i8, ptr %429, i64 16
   %431 = load ptr, ptr %430, align 16
   %432 = load i64, ptr %429, align 16
@@ -3681,9 +3681,9 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE4ELb1EEE
   %439 = zext nneg i32 %438 to i64
   %440 = lshr i64 %436, %439
   %441 = and i64 %440, 4294967295
-  %442 = getelementptr inbounds nuw i64, ptr %431, i64 %441
+  %442 = getelementptr inbounds nuw [8 x i8], ptr %431, i64 %441
   %443 = load i64, ptr %442, align 8
-  %444 = getelementptr inbounds nuw %"struct.Stockfish::Magic", ptr @_ZN9Stockfish10RookMagicsE, i64 %425
+  %444 = getelementptr inbounds nuw [32 x i8], ptr @_ZN9Stockfish10RookMagicsE, i64 %425
   %445 = getelementptr inbounds nuw i8, ptr %444, i64 16
   %446 = load ptr, ptr %445, align 16
   %447 = load i64, ptr %444, align 16
@@ -3696,7 +3696,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE4ELb1EEE
   %454 = zext nneg i32 %453 to i64
   %455 = lshr i64 %451, %454
   %456 = and i64 %455, 4294967295
-  %457 = getelementptr inbounds nuw i64, ptr %446, i64 %456
+  %457 = getelementptr inbounds nuw [8 x i8], ptr %446, i64 %456
   %458 = load i64, ptr %457, align 8
   %459 = or i64 %458, %443
   %460 = load ptr, ptr %9, align 8
@@ -3736,13 +3736,13 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE5ELb1EEE
   br i1 %.not.i79, label %_ZN9Stockfish12_GLOBAL__N_112generate_allILNS_5ColorE0ELNS_7GenTypeE2EEEPNS_7ExtMoveERKNS_8PositionES5_.exit, label %479
 
 479:                                              ; preds = %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE5ELb1EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i
-  %480 = getelementptr inbounds nuw i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 3072), i64 %261
+  %480 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 3072), i64 %261
   %481 = load i64, ptr %480, align 8
   %482 = load i64, ptr %6, align 8
   %483 = load i64, ptr %258, align 8
   %484 = and i64 %483, %482
   %485 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %484, i1 true)
-  %486 = getelementptr inbounds nuw i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 2560), i64 %485
+  %486 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 2560), i64 %485
   %487 = load i64, ptr %486, align 8
   %488 = or i64 %487, %264
   %489 = xor i64 %488, -1
@@ -4002,7 +4002,7 @@ define weak_odr dso_local noundef ptr @_ZN9Stockfish8generateILNS_7GenTypeE4EEEP
 
 127:                                              ; preds = %._crit_edge112.i.i
   %128 = sext i32 %126 to i64
-  %129 = getelementptr inbounds i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish11PawnAttacksE, i64 512), i64 %128
+  %129 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish11PawnAttacksE, i64 512), i64 %128
   %130 = load i64, ptr %129, align 8
   %131 = and i64 %130, %26
   %.not47114.i.i = icmp eq i64 %131, 0
@@ -4048,7 +4048,7 @@ _ZN9Stockfish12_GLOBAL__N_119generate_pawn_movesILNS_5ColorE0ELNS_7GenTypeE4EEEP
   %149 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.01016.i.i, i1 true)
   %150 = add i64 %.01016.i.i, -1
   %151 = and i64 %150, %.01016.i.i
-  %152 = getelementptr inbounds nuw i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 1024), i64 %149
+  %152 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 1024), i64 %149
   %153 = load i64, ptr %152, align 8
   %154 = and i64 %153, %17
   %.not612.i.i = icmp eq i64 %154, 0
@@ -4097,7 +4097,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE2ELb0EEE
   %169 = add i64 %.01016.i46.i, -1
   %170 = and i64 %169, %.01016.i46.i
   %171 = load i64, ptr %18, align 8
-  %172 = getelementptr inbounds nuw %"struct.Stockfish::Magic", ptr @_ZN9Stockfish12BishopMagicsE, i64 %168
+  %172 = getelementptr inbounds nuw [32 x i8], ptr @_ZN9Stockfish12BishopMagicsE, i64 %168
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 16
   %174 = load ptr, ptr %173, align 16
   %175 = load i64, ptr %172, align 16
@@ -4110,7 +4110,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE2ELb0EEE
   %182 = zext nneg i32 %181 to i64
   %183 = lshr i64 %179, %182
   %184 = and i64 %183, 4294967295
-  %185 = getelementptr inbounds nuw i64, ptr %174, i64 %184
+  %185 = getelementptr inbounds nuw [8 x i8], ptr %174, i64 %184
   %186 = load i64, ptr %185, align 8
   %187 = and i64 %186, %17
   %.not612.i47.i = icmp eq i64 %187, 0
@@ -4159,7 +4159,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE3ELb0EEE
   %202 = add i64 %.01016.i60.i, -1
   %203 = and i64 %202, %.01016.i60.i
   %204 = load i64, ptr %18, align 8
-  %205 = getelementptr inbounds nuw %"struct.Stockfish::Magic", ptr @_ZN9Stockfish10RookMagicsE, i64 %201
+  %205 = getelementptr inbounds nuw [32 x i8], ptr @_ZN9Stockfish10RookMagicsE, i64 %201
   %206 = getelementptr inbounds nuw i8, ptr %205, i64 16
   %207 = load ptr, ptr %206, align 16
   %208 = load i64, ptr %205, align 16
@@ -4172,7 +4172,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE3ELb0EEE
   %215 = zext nneg i32 %214 to i64
   %216 = lshr i64 %212, %215
   %217 = and i64 %216, 4294967295
-  %218 = getelementptr inbounds nuw i64, ptr %207, i64 %217
+  %218 = getelementptr inbounds nuw [8 x i8], ptr %207, i64 %217
   %219 = load i64, ptr %218, align 8
   %220 = and i64 %219, %17
   %.not612.i61.i = icmp eq i64 %220, 0
@@ -4221,7 +4221,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE4ELb0EEE
   %235 = add i64 %.01016.i74.i, -1
   %236 = and i64 %235, %.01016.i74.i
   %237 = load i64, ptr %18, align 8
-  %238 = getelementptr inbounds nuw %"struct.Stockfish::Magic", ptr @_ZN9Stockfish12BishopMagicsE, i64 %234
+  %238 = getelementptr inbounds nuw [32 x i8], ptr @_ZN9Stockfish12BishopMagicsE, i64 %234
   %239 = getelementptr inbounds nuw i8, ptr %238, i64 16
   %240 = load ptr, ptr %239, align 16
   %241 = load i64, ptr %238, align 16
@@ -4234,9 +4234,9 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE4ELb0EEE
   %248 = zext nneg i32 %247 to i64
   %249 = lshr i64 %245, %248
   %250 = and i64 %249, 4294967295
-  %251 = getelementptr inbounds nuw i64, ptr %240, i64 %250
+  %251 = getelementptr inbounds nuw [8 x i8], ptr %240, i64 %250
   %252 = load i64, ptr %251, align 8
-  %253 = getelementptr inbounds nuw %"struct.Stockfish::Magic", ptr @_ZN9Stockfish10RookMagicsE, i64 %234
+  %253 = getelementptr inbounds nuw [32 x i8], ptr @_ZN9Stockfish10RookMagicsE, i64 %234
   %254 = getelementptr inbounds nuw i8, ptr %253, i64 16
   %255 = load ptr, ptr %254, align 16
   %256 = load i64, ptr %253, align 16
@@ -4249,7 +4249,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE4ELb0EEE
   %263 = zext nneg i32 %262 to i64
   %264 = lshr i64 %260, %263
   %265 = and i64 %264, 4294967295
-  %266 = getelementptr inbounds nuw i64, ptr %255, i64 %265
+  %266 = getelementptr inbounds nuw [8 x i8], ptr %255, i64 %265
   %267 = load i64, ptr %266, align 8
   %268 = or i64 %267, %252
   %269 = and i64 %268, %17
@@ -4276,7 +4276,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE4ELb0EEE
 
 _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE5ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i: ; preds = %.loopexit.i80.i, %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE4ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i
   %.0.lcssa.i84.i = phi ptr [ %.0.lcssa.i70.i, %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE4ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i ], [ %.1.lcssa.i81.i, %.loopexit.i80.i ]
-  %279 = getelementptr inbounds nuw i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 3072), i64 %15
+  %279 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 3072), i64 %15
   %280 = load i64, ptr %279, align 8
   %281 = and i64 %280, %17
   %.not103.i = icmp eq i64 %281, 0
@@ -4326,7 +4326,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE5ELb0EEE
   %302 = load i32, ptr %.036.ptr.i, align 4
   %303 = load i64, ptr %18, align 8
   %304 = zext i32 %302 to i64
-  %305 = getelementptr inbounds nuw i64, ptr %297, i64 %304
+  %305 = getelementptr inbounds nuw [8 x i8], ptr %297, i64 %304
   %306 = load i64, ptr %305, align 8
   %307 = and i64 %306, %303
   %.not90.i = icmp eq i64 %307, 0
@@ -4341,7 +4341,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE5ELb0EEE
   br i1 %.not91.i, label %320, label %313
 
 313:                                              ; preds = %308
-  %314 = getelementptr inbounds nuw i32, ptr %298, i64 %304
+  %314 = getelementptr inbounds nuw [4 x i8], ptr %298, i64 %304
   %315 = load i32, ptr %314, align 4
   %316 = add i32 %300, %315
   %317 = trunc i32 %316 to i16
@@ -4584,7 +4584,7 @@ _ZN9Stockfish12_GLOBAL__N_112generate_allILNS_5ColorE0ELNS_7GenTypeE4EEEPNS_7Ext
 
 437:                                              ; preds = %._crit_edge112.i.i53
   %438 = sext i32 %436 to i64
-  %439 = getelementptr inbounds i64, ptr @_ZN9Stockfish11PawnAttacksE, i64 %438
+  %439 = getelementptr inbounds [8 x i8], ptr @_ZN9Stockfish11PawnAttacksE, i64 %438
   %440 = load i64, ptr %439, align 8
   %441 = and i64 %440, %337
   %.not47114.i.i56 = icmp eq i64 %441, 0
@@ -4630,7 +4630,7 @@ _ZN9Stockfish12_GLOBAL__N_119generate_pawn_movesILNS_5ColorE1ELNS_7GenTypeE4EEEP
   %459 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.01016.i.i65, i1 true)
   %460 = add i64 %.01016.i.i65, -1
   %461 = and i64 %460, %.01016.i.i65
-  %462 = getelementptr inbounds nuw i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 1024), i64 %459
+  %462 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 1024), i64 %459
   %463 = load i64, ptr %462, align 8
   %464 = and i64 %463, %329
   %.not612.i.i66 = icmp eq i64 %464, 0
@@ -4679,7 +4679,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE2ELb0EEE
   %479 = add i64 %.01016.i46.i79, -1
   %480 = and i64 %479, %.01016.i46.i79
   %481 = load i64, ptr %330, align 8
-  %482 = getelementptr inbounds nuw %"struct.Stockfish::Magic", ptr @_ZN9Stockfish12BishopMagicsE, i64 %478
+  %482 = getelementptr inbounds nuw [32 x i8], ptr @_ZN9Stockfish12BishopMagicsE, i64 %478
   %483 = getelementptr inbounds nuw i8, ptr %482, i64 16
   %484 = load ptr, ptr %483, align 16
   %485 = load i64, ptr %482, align 16
@@ -4692,7 +4692,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE2ELb0EEE
   %492 = zext nneg i32 %491 to i64
   %493 = lshr i64 %489, %492
   %494 = and i64 %493, 4294967295
-  %495 = getelementptr inbounds nuw i64, ptr %484, i64 %494
+  %495 = getelementptr inbounds nuw [8 x i8], ptr %484, i64 %494
   %496 = load i64, ptr %495, align 8
   %497 = and i64 %496, %329
   %.not612.i47.i80 = icmp eq i64 %497, 0
@@ -4741,7 +4741,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE3ELb0EEE
   %512 = add i64 %.01016.i60.i93, -1
   %513 = and i64 %512, %.01016.i60.i93
   %514 = load i64, ptr %330, align 8
-  %515 = getelementptr inbounds nuw %"struct.Stockfish::Magic", ptr @_ZN9Stockfish10RookMagicsE, i64 %511
+  %515 = getelementptr inbounds nuw [32 x i8], ptr @_ZN9Stockfish10RookMagicsE, i64 %511
   %516 = getelementptr inbounds nuw i8, ptr %515, i64 16
   %517 = load ptr, ptr %516, align 16
   %518 = load i64, ptr %515, align 16
@@ -4754,7 +4754,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE3ELb0EEE
   %525 = zext nneg i32 %524 to i64
   %526 = lshr i64 %522, %525
   %527 = and i64 %526, 4294967295
-  %528 = getelementptr inbounds nuw i64, ptr %517, i64 %527
+  %528 = getelementptr inbounds nuw [8 x i8], ptr %517, i64 %527
   %529 = load i64, ptr %528, align 8
   %530 = and i64 %529, %329
   %.not612.i61.i94 = icmp eq i64 %530, 0
@@ -4803,7 +4803,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE4ELb0EEE
   %545 = add i64 %.01016.i74.i107, -1
   %546 = and i64 %545, %.01016.i74.i107
   %547 = load i64, ptr %330, align 8
-  %548 = getelementptr inbounds nuw %"struct.Stockfish::Magic", ptr @_ZN9Stockfish12BishopMagicsE, i64 %544
+  %548 = getelementptr inbounds nuw [32 x i8], ptr @_ZN9Stockfish12BishopMagicsE, i64 %544
   %549 = getelementptr inbounds nuw i8, ptr %548, i64 16
   %550 = load ptr, ptr %549, align 16
   %551 = load i64, ptr %548, align 16
@@ -4816,9 +4816,9 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE4ELb0EEE
   %558 = zext nneg i32 %557 to i64
   %559 = lshr i64 %555, %558
   %560 = and i64 %559, 4294967295
-  %561 = getelementptr inbounds nuw i64, ptr %550, i64 %560
+  %561 = getelementptr inbounds nuw [8 x i8], ptr %550, i64 %560
   %562 = load i64, ptr %561, align 8
-  %563 = getelementptr inbounds nuw %"struct.Stockfish::Magic", ptr @_ZN9Stockfish10RookMagicsE, i64 %544
+  %563 = getelementptr inbounds nuw [32 x i8], ptr @_ZN9Stockfish10RookMagicsE, i64 %544
   %564 = getelementptr inbounds nuw i8, ptr %563, i64 16
   %565 = load ptr, ptr %564, align 16
   %566 = load i64, ptr %563, align 16
@@ -4831,7 +4831,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE4ELb0EEE
   %573 = zext nneg i32 %572 to i64
   %574 = lshr i64 %570, %573
   %575 = and i64 %574, 4294967295
-  %576 = getelementptr inbounds nuw i64, ptr %565, i64 %575
+  %576 = getelementptr inbounds nuw [8 x i8], ptr %565, i64 %575
   %577 = load i64, ptr %576, align 8
   %578 = or i64 %577, %562
   %579 = and i64 %578, %329
@@ -4858,7 +4858,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE4ELb0EEE
 
 _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE5ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i: ; preds = %.loopexit.i80.i113, %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE4ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i
   %.0.lcssa.i84.i116 = phi ptr [ %.0.lcssa.i70.i103, %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE4ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i ], [ %.1.lcssa.i81.i114, %.loopexit.i80.i113 ]
-  %589 = getelementptr inbounds nuw i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 3072), i64 %327
+  %589 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 3072), i64 %327
   %590 = load i64, ptr %589, align 8
   %591 = and i64 %590, %329
   %.not103.i117 = icmp eq i64 %591, 0
@@ -4908,7 +4908,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE5ELb0EEE
   %612 = load i32, ptr %.036.ptr.i127, align 4
   %613 = load i64, ptr %330, align 8
   %614 = zext i32 %612 to i64
-  %615 = getelementptr inbounds nuw i64, ptr %607, i64 %614
+  %615 = getelementptr inbounds nuw [8 x i8], ptr %607, i64 %614
   %616 = load i64, ptr %615, align 8
   %617 = and i64 %616, %613
   %.not90.i128 = icmp eq i64 %617, 0
@@ -4923,7 +4923,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE5ELb0EEE
   br i1 %.not91.i133, label %630, label %623
 
 623:                                              ; preds = %618
-  %624 = getelementptr inbounds nuw i32, ptr %608, i64 %614
+  %624 = getelementptr inbounds nuw [4 x i8], ptr %608, i64 %614
   %625 = load i32, ptr %624, align 4
   %626 = add i32 %610, %625
   %627 = trunc i32 %626 to i16
@@ -4956,10 +4956,10 @@ define dso_local noundef ptr @_ZN9Stockfish8generateILNS_7GenTypeE5EEEPNS_7ExtMo
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %8 = zext i32 %4 to i64
-  %9 = getelementptr inbounds nuw i64, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %8
   %10 = load i64, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %12 = getelementptr inbounds nuw i64, ptr %11, i64 %8
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %8
   %13 = load i64, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %15 = load i64, ptr %14, align 8

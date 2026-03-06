@@ -10,15 +10,12 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.curl_waitfds = type { ptr, i32, i32 }
 %struct.pollfd = type { i32, i16, i16 }
 %struct.curl_pollfds = type { ptr, i32, i32, i8 }
-%struct.curl_waitfd = type { i32, i16, i16 }
 %struct.sigaction = type { %union.anon.2, %struct.__sigset_t, i32, ptr }
 %union.anon.2 = type { ptr }
 %struct.__sigset_t = type { [16 x i64] }
 %struct.sigpipe_ignore = type { %struct.sigaction, i8 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 %struct.multi_run_ctx = type { ptr, %struct.curltime, i64, %struct.sigpipe_ignore, i8 }
-%struct.time_node = type { %struct.Curl_llist_node, %struct.curltime, i32 }
-%struct.Curl_llist_node = type { ptr, ptr, ptr, ptr }
 
 @Curl_ccalloc = external local_unnamed_addr global ptr, align 8
 @Curl_cfree = external local_unnamed_addr global ptr, align 8
@@ -628,7 +625,7 @@ define internal fastcc void @mstate(ptr noundef %0, i32 noundef range(i32 0, 18)
   br i1 %.not12.not, label %35, label %38
 
 35:                                               ; preds = %31
-  %36 = getelementptr inbounds nuw ptr, ptr @mstate.finit, i64 %32
+  %36 = getelementptr inbounds nuw [8 x i8], ptr @mstate.finit, i64 %32
   %37 = load ptr, ptr %36, align 8, !tbaa !4
   tail call void %37(ptr noundef nonnull %0) #20
   br label %38
@@ -1181,7 +1178,7 @@ define dso_local range(i32 0, 9) i32 @curl_multi_fdset(ptr noundef %0, ptr nound
 21:                                               ; preds = %.lr.ph, %51
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %51 ]
   %.146 = phi i32 [ %.03750, %.lr.ph ], [ %.2, %51 ]
-  %22 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %indvars.iv
   %23 = load i32, ptr %22, align 4, !tbaa !25
   %24 = icmp slt i32 %23, 1024
   br i1 %24, label %25, label %51
@@ -1199,7 +1196,7 @@ define dso_local range(i32 0, 9) i32 @curl_multi_fdset(ptr noundef %0, ptr nound
   %32 = shl nuw i64 1, %31
   %33 = sdiv i32 %23, 64
   %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds i64, ptr %1, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %1, i64 %34
   %36 = load i64, ptr %35, align 8, !tbaa !108
   %37 = or i64 %36, %32
   store i64 %37, ptr %35, align 8, !tbaa !108
@@ -1218,7 +1215,7 @@ define dso_local range(i32 0, 9) i32 @curl_multi_fdset(ptr noundef %0, ptr nound
   %44 = shl nuw i64 1, %43
   %45 = sdiv i32 %23, 64
   %46 = sext i32 %45 to i64
-  %47 = getelementptr inbounds i64, ptr %2, i64 %46
+  %47 = getelementptr inbounds [8 x i8], ptr %2, i64 %46
   %48 = load i64, ptr %47, align 8, !tbaa !108
   %49 = or i64 %48, %44
   store i64 %49, ptr %47, align 8, !tbaa !108
@@ -1508,7 +1505,7 @@ define internal fastcc range(i32 0, 13) i32 @multi_wait(ptr noundef %0, ptr noun
 
 .lr.ph134:                                        ; preds = %33, %37
   %.076132 = phi i64 [ %38, %37 ], [ 0, %33 ]
-  %39 = getelementptr inbounds nuw %struct.curl_waitfd, ptr %1, i64 %.076132
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.076132
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 4
   %41 = load i16, ptr %40, align 4, !tbaa !150
   %.280 = and i16 %41, 7
@@ -1561,16 +1558,16 @@ define internal fastcc range(i32 0, 13) i32 @multi_wait(ptr noundef %0, ptr noun
 .lr.ph137:                                        ; preds = %.preheader
   %62 = load ptr, ptr %11, align 8, !tbaa !153
   %63 = zext i32 %35 to i64
-  %invariant.gep = getelementptr inbounds nuw %struct.pollfd, ptr %62, i64 %63
+  %invariant.gep = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %63
   br label %64
 
 64:                                               ; preds = %.lr.ph137, %64
   %.177136 = phi i64 [ 0, %.lr.ph137 ], [ %69, %64 ]
-  %gep = getelementptr inbounds nuw %struct.pollfd, ptr %invariant.gep, i64 %.177136
+  %gep = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep, i64 %.177136
   %65 = getelementptr inbounds nuw i8, ptr %gep, i64 6
   %66 = load i16, ptr %65, align 2, !tbaa !154
   %.2 = and i16 %66, 7
-  %67 = getelementptr inbounds nuw %struct.curl_waitfd, ptr %1, i64 %.177136
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.177136
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 6
   store i16 %.2, ptr %68, align 2, !tbaa !156
   %69 = add nuw nsw i64 %.177136, 1
@@ -1590,7 +1587,7 @@ define internal fastcc range(i32 0, 13) i32 @multi_wait(ptr noundef %0, ptr noun
   %74 = load ptr, ptr %11, align 8, !tbaa !153
   %75 = add i32 %35, %2
   %76 = zext i32 %75 to i64
-  %77 = getelementptr inbounds nuw %struct.pollfd, ptr %74, i64 %76
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %76
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 6
   %79 = load i16, ptr %78, align 2, !tbaa !154
   %80 = and i16 %79, 1
@@ -3029,7 +3026,7 @@ protocol_doing.exit:                              ; preds = %390
   br i1 %.not12.not.i, label %410, label %.thread246.thread
 
 410:                                              ; preds = %406
-  %411 = getelementptr inbounds nuw ptr, ptr @mstate.finit, i64 %407
+  %411 = getelementptr inbounds nuw [8 x i8], ptr @mstate.finit, i64 %407
   %412 = load ptr, ptr %411, align 8, !tbaa !4
   call void %412(ptr noundef nonnull %2) #20
   br label %mstate.exit184thread-pre-split
@@ -3080,7 +3077,7 @@ multi_do_more.exit:                               ; preds = %415
   br i1 %.not12.not.i206, label %432, label %.thread246.thread
 
 432:                                              ; preds = %428
-  %433 = getelementptr inbounds nuw ptr, ptr @mstate.finit, i64 %429
+  %433 = getelementptr inbounds nuw [8 x i8], ptr @mstate.finit, i64 %429
   %434 = load ptr, ptr %433, align 16, !tbaa !4
   call void %434(ptr noundef nonnull %2) #20
   br label %mstate.exit184thread-pre-split
@@ -3837,7 +3834,7 @@ thread-pre-split:                                 ; preds = %Curl_detach_connect
   br i1 %.not12.not.i232, label %763, label %mstate.exit231thread-pre-split
 
 763:                                              ; preds = %759
-  %764 = getelementptr inbounds nuw ptr, ptr @mstate.finit, i64 %760
+  %764 = getelementptr inbounds nuw [8 x i8], ptr @mstate.finit, i64 %760
   %765 = load ptr, ptr %764, align 8, !tbaa !4
   call void %765(ptr noundef nonnull %2) #20
   br label %mstate.exit231thread-pre-split
@@ -4172,7 +4169,7 @@ define dso_local range(i32 0, 12) i32 @Curl_multi_pollset_ev(ptr noundef %0, ptr
   %indvars.iv211 = phi i64 [ 0, %.lr.ph197 ], [ %indvars.iv.next212, %126 ]
   %28 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv211
   %29 = load i8, ptr %28, align 1, !tbaa !93
-  %30 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv211
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv211
   %31 = load i32, ptr %30, align 4, !tbaa !25
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 %31, ptr %9, align 4, !tbaa !25
@@ -4201,7 +4198,7 @@ sh_getentry.exit:                                 ; preds = %27
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %34
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %34 ]
-  %35 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %36 = load i32, ptr %35, align 4, !tbaa !25
   %37 = icmp eq i32 %31, %36
   br i1 %37, label %46, label %34
@@ -4413,7 +4410,7 @@ sh_addentry.exit:                                 ; preds = %sh_getentry.exit.i,
 
 130:                                              ; preds = %.lr.ph201, %.thread175
   %indvars.iv219 = phi i64 [ 0, %.lr.ph201 ], [ %indvars.iv.next220, %.thread175 ]
-  %131 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv219
+  %131 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv219
   %132 = load i32, ptr %131, align 4, !tbaa !25
   %133 = load i32, ptr %11, align 4, !tbaa !140
   %.not205 = icmp eq i32 %133, 0
@@ -4430,7 +4427,7 @@ sh_addentry.exit:                                 ; preds = %sh_getentry.exit.i,
 
 .lr.ph199:                                        ; preds = %.lr.ph199.preheader, %134
   %indvars.iv214 = phi i64 [ 0, %.lr.ph199.preheader ], [ %indvars.iv.next215, %134 ]
-  %135 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv214
+  %135 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv214
   %136 = load i32, ptr %135, align 4, !tbaa !25
   %137 = icmp eq i32 %132, %136
   br i1 %137, label %.thread175, label %134
@@ -5479,7 +5476,7 @@ define internal fastcc void @expire_ex(ptr noundef %0, ptr noundef nonnull reado
 multi_deltimeout.exit:                            ; preds = %.critedge.i, %8, %23
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 3496
   %26 = zext i32 %3 to i64
-  %27 = getelementptr inbounds nuw %struct.time_node, ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [56 x i8], ptr %25, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 32
   store i64 %.sroa.0.0, ptr %28, align 8
   %.sroa.10.0..sroa_idx48 = getelementptr inbounds nuw i8, ptr %27, i64 40
@@ -5752,7 +5749,7 @@ define dso_local ptr @curl_multi_get_handles(ptr noundef %0) local_unnamed_addr 
 16:                                               ; preds = %.lr.ph
   %17 = add i32 %.019, 1
   %18 = zext i32 %.019 to i64
-  %19 = getelementptr inbounds nuw ptr, ptr %8, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %18
   store ptr %12, ptr %19, align 8, !tbaa !4
   br label %20
 
@@ -5768,7 +5765,7 @@ define dso_local ptr @curl_multi_get_handles(ptr noundef %0) local_unnamed_addr 
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %9
   %.0.lcssa = phi i64 [ 0, %9 ], [ %22, %._crit_edge.loopexit ]
-  %23 = getelementptr inbounds nuw ptr, ptr %8, i64 %.0.lcssa
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.0.lcssa
   store ptr null, ptr %23, align 8, !tbaa !4
   br label %24
 
@@ -6610,7 +6607,7 @@ define internal i32 @perform_getsock(ptr noundef %0, ptr noundef %1) #0 {
   %not. = xor i1 %16, true
   %spec.select = zext i1 %not. to i32
   %29 = zext i1 %not. to i64
-  %30 = getelementptr inbounds nuw i32, ptr %1, i64 %29
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %29
   store i32 %26, ptr %30, align 4, !tbaa !25
   %31 = or disjoint i32 %spec.select, 16
   br label %32

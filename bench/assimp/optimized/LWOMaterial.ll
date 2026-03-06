@@ -20,22 +20,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
-%"struct.Assimp::LWO::UVChannel" = type { %"struct.Assimp::LWO::VMapEntry" }
-%"struct.Assimp::LWO::VMapEntry" = type { ptr, %"class.std::__cxx11::basic_string", i32, %"class.std::vector.17", %"class.std::vector.22" }
-%"class.std::vector.17" = type { %"struct.std::_Vector_base.18" }
-%"struct.std::_Vector_base.18" = type { %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl" }
-%"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl" = type { %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.22" = type { %"struct.std::_Bvector_base" }
-%"struct.std::_Bvector_base" = type { %"struct.std::_Bvector_base<std::allocator<bool>>::_Bvector_impl" }
-%"struct.std::_Bvector_base<std::allocator<bool>>::_Bvector_impl" = type { %"struct.std::_Bvector_base<std::allocator<bool>>::_Bvector_impl_data" }
-%"struct.std::_Bvector_base<std::allocator<bool>>::_Bvector_impl_data" = type { %"struct.std::_Bit_iterator", %"struct.std::_Bit_iterator", ptr }
-%"struct.std::_Bit_iterator" = type { %"struct.std::_Bit_iterator_base.base", [4 x i8] }
-%"struct.std::_Bit_iterator_base.base" = type <{ ptr, i32 }>
-%"struct.Assimp::LWO::Face" = type <{ %struct.aiFace, i32, i32, i32, [4 x i8] }>
-%struct.aiFace = type { i32, ptr }
-%"struct.Assimp::LWO::VColorChannel" = type { %"struct.Assimp::LWO::VMapEntry" }
-%class.aiColor4t = type { float, float, float, float }
 %"struct.Assimp::LWO::Texture" = type { %"class.std::__cxx11::basic_string", i32, float, i32, %"class.std::__cxx11::basic_string", i32, i8, i32, i8, i32, i32, float, float, i32, i32, %"class.std::__cxx11::basic_string" }
 %"struct.Assimp::LWO::Shader" = type <{ %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i8, [7 x i8] }>
 %"struct.Assimp::LWO::Surface" = type { %"class.std::__cxx11::basic_string", %struct.aiColor3D, i8, float, float, float, float, float, float, float, %"class.std::__cxx11::basic_string", i32, %"class.std::__cxx11::list.11", %"class.std::__cxx11::list", %"class.std::__cxx11::list", %"class.std::__cxx11::list", %"class.std::__cxx11::list", %"class.std::__cxx11::list", %"class.std::__cxx11::list", %"class.std::__cxx11::list", float, float, i8, float }
@@ -1143,7 +1127,7 @@ define hidden void @_ZN6Assimp11LWOImporter14FindUVChannelsERNS_3LWO7SurfaceERSt
   br i1 %.not228271, label %._crit_edge, label %.lr.ph277
 
 .lr.ph277:                                        ; preds = %.lr.ph285.split
-  %35 = getelementptr inbounds nuw %"struct.Assimp::LWO::UVChannel", ptr %29, i64 %33
+  %35 = getelementptr inbounds nuw [112 x i8], ptr %29, i64 %33
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 72
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 48
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 8
@@ -1181,7 +1165,7 @@ define hidden void @_ZN6Assimp11LWOImporter14FindUVChannelsERNS_3LWO7SurfaceERSt
   %53 = load i32, ptr %.sroa.0205.0272, align 4
   %54 = zext i32 %53 to i64
   %55 = load ptr, ptr %13, align 8
-  %56 = getelementptr inbounds nuw %"struct.Assimp::LWO::Face", ptr %55, i64 %54
+  %56 = getelementptr inbounds nuw [32 x i8], ptr %55, i64 %54
   %57 = load i32, ptr %56, align 8
   %.not289 = icmp eq i32 %57, 0
   br i1 %.not289, label %.loopexit230, label %.lr.ph
@@ -1195,12 +1179,12 @@ define hidden void @_ZN6Assimp11LWOImporter14FindUVChannelsERNS_3LWO7SurfaceERSt
 
 61:                                               ; preds = %.lr.ph, %354
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %354 ]
-  %62 = getelementptr inbounds nuw i32, ptr %59, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %indvars.iv
   %63 = load i32, ptr %62, align 4
   %64 = zext i32 %63 to i64
   %65 = lshr i32 %63, 6
   %.zext = zext nneg i32 %65 to i64
-  %66 = getelementptr inbounds nuw i64, ptr %60, i64 %.zext
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %.zext
   %67 = and i64 %64, 63
   %68 = shl nuw i64 1, %67
   %69 = load i64, ptr %66, align 8
@@ -1210,7 +1194,7 @@ define hidden void @_ZN6Assimp11LWOImporter14FindUVChannelsERNS_3LWO7SurfaceERSt
 
 71:                                               ; preds = %61
   %72 = load ptr, ptr %37, align 8
-  %73 = getelementptr inbounds nuw %class.aiVector2t, ptr %72, i64 %64
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %64
   %74 = load float, ptr %73, align 4
   %75 = fcmp une float %74, 0.000000e+00
   %76 = getelementptr inbounds nuw i8, ptr %73, i64 4
@@ -1922,14 +1906,14 @@ _ZN6Assimp11LWOImporter14FindUVChannelsERNSt7__cxx114listINS_3LWO7TextureESaIS4_
 
 .lr.ph270.preheader:                              ; preds = %340
   %wide.trip.count297 = zext nneg i32 %.1215273 to i64
-  %.phi.trans.insert = getelementptr inbounds nuw i32, ptr %4, i64 %342
+  %.phi.trans.insert = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %342
   %.pre = load i32, ptr %.phi.trans.insert, align 4
   br label %.lr.ph270
 
 .lr.ph270:                                        ; preds = %.lr.ph270.preheader, %.lr.ph270
   %indvars.iv294 = phi i64 [ %342, %.lr.ph270.preheader ], [ %indvars.iv.next295, %.lr.ph270 ]
   %indvars.iv.next295 = add nuw nsw i64 %indvars.iv294, 1
-  %343 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.next295
+  %343 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.next295
   store i32 %.pre, ptr %343, align 4
   %exitcond298.not = icmp eq i64 %indvars.iv.next295, %wide.trip.count297
   br i1 %exitcond298.not, label %.loopexit, label %.lr.ph270, !llvm.loop !24
@@ -1937,14 +1921,14 @@ _ZN6Assimp11LWOImporter14FindUVChannelsERNSt7__cxx114listINS_3LWO7TextureESaIS4_
 .loopexit:                                        ; preds = %.lr.ph270, %340
   %344 = add nuw nsw i32 %.1215273, 1
   %345 = add i32 %.1275, 1
-  %346 = getelementptr inbounds nuw i32, ptr %4, i64 %342
+  %346 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %342
   store i32 %.084281, ptr %346, align 4
   br label %.critedge
 
 347:                                              ; preds = %_ZN6Assimp11LWOImporter14FindUVChannelsERNSt7__cxx114listINS_3LWO7TextureESaIS4_EEERNS3_5LayerERNS3_9UVChannelEj.exit196
   %348 = add nuw nsw i32 %.1215273, 1
   %349 = zext nneg i32 %.1215273 to i64
-  %350 = getelementptr inbounds nuw i32, ptr %4, i64 %349
+  %350 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %349
   store i32 %.084281, ptr %350, align 4
   %351 = add i32 %.177274, 1
   br label %.critedge
@@ -1975,7 +1959,7 @@ _ZN6Assimp11LWOImporter14FindUVChannelsERNSt7__cxx114listINS_3LWO7TextureESaIS4_
 ._crit_edge286.thread:                            ; preds = %.lr.ph285, %5, %._crit_edge286
   %.0214.lcssa338 = phi i32 [ %.1215.lcssa, %._crit_edge286 ], [ 0, %5 ], [ 0, %.lr.ph285 ]
   %357 = zext nneg i32 %.0214.lcssa338 to i64
-  %358 = getelementptr inbounds nuw i32, ptr %4, i64 %357
+  %358 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %357
   store i32 -1, ptr %358, align 4
   br label %359
 
@@ -2147,7 +2131,7 @@ define hidden void @_ZN6Assimp11LWOImporter14FindVCChannelsERKNS_3LWO7SurfaceERS
   %22 = phi i64 [ 0, %.lr.ph108 ], [ %142, %.loopexit70 ]
   %.0106 = phi i32 [ 0, %.lr.ph108 ], [ %141, %.loopexit70 ]
   %.067105 = phi i32 [ 0, %.lr.ph108 ], [ %.1, %.loopexit70 ]
-  %23 = getelementptr inbounds nuw %"struct.Assimp::LWO::VColorChannel", ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [112 x i8], ptr %21, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load i64, ptr %13, align 8
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 16
@@ -2184,7 +2168,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.preheader113, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
   %indvars.iv115 = phi i64 [ 0, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.preheader113 ], [ %indvars.iv.next116, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ]
   %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
-  %36 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.next116
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.next116
   store i32 %.pre, ptr %36, align 4
   %exitcond119.not = icmp eq i64 %indvars.iv.next116, %wide.trip.count118
   br i1 %exitcond119.not, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit._crit_edge, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit, !llvm.loop !40
@@ -2207,7 +2191,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %43 = load i32, ptr %.sroa.058.0100, align 4
   %44 = zext i32 %43 to i64
   %45 = load ptr, ptr %15, align 8
-  %46 = getelementptr inbounds nuw %"struct.Assimp::LWO::Face", ptr %45, i64 %44
+  %46 = getelementptr inbounds nuw [32 x i8], ptr %45, i64 %44
   %47 = load i32, ptr %46, align 8
   %.not111 = icmp eq i32 %47, 0
   br i1 %.not111, label %.loopexit, label %.lr.ph
@@ -2221,12 +2205,12 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 
 51:                                               ; preds = %.lr.ph, %.critedge
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.critedge ]
-  %52 = getelementptr inbounds nuw i32, ptr %49, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %indvars.iv
   %53 = load i32, ptr %52, align 4
   %54 = zext i32 %53 to i64
   %55 = lshr i32 %53, 6
   %.zext = zext nneg i32 %55 to i64
-  %56 = getelementptr inbounds nuw i64, ptr %50, i64 %.zext
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %.zext
   %57 = and i64 %54, 63
   %58 = shl nuw i64 1, %57
   %59 = load i64, ptr %56, align 8
@@ -2236,7 +2220,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 
 61:                                               ; preds = %51
   %62 = load ptr, ptr %40, align 8
-  %63 = getelementptr inbounds nuw %class.aiColor4t, ptr %62, i64 %54
+  %63 = getelementptr inbounds nuw [16 x i8], ptr %62, i64 %54
   %64 = load float, ptr %63, align 4
   %65 = fcmp une float %64, 0.000000e+00
   br i1 %65, label %_ZNK9aiColor4tIfEneERKS0_.exit.thread, label %66
@@ -2452,7 +2436,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit55: ; preds = %_ZN
 133:                                              ; preds = %_ZNK9aiColor4tIfEneERKS0_.exit.thread
   %134 = add nuw nsw i32 %.2101, 1
   %135 = zext nneg i32 %.2101 to i64
-  %136 = getelementptr inbounds nuw i32, ptr %4, i64 %135
+  %136 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %135
   store i32 %.0106, ptr %136, align 4
   br label %.critedge44
 
@@ -2491,7 +2475,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit55: ; preds = %_ZN
 ._crit_edge.thread:                               ; preds = %5, %._crit_edge
   %.067.lcssa142 = phi i32 [ %.1, %._crit_edge ], [ 0, %5 ]
   %150 = zext i32 %.067.lcssa142 to i64
-  %151 = getelementptr inbounds nuw i32, ptr %4, i64 %150
+  %151 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %150
   store i32 -1, ptr %151, align 4
   br label %152
 
@@ -7434,7 +7418,7 @@ _ZSt8_DestroyIPN6Assimp3LWO7SurfaceES2_EvT_S4_RSaIT0_E.exit: ; preds = %.lr.ph.i
 _ZNSt12_Vector_baseIN6Assimp3LWO7SurfaceESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZSt8_DestroyIPN6Assimp3LWO7SurfaceES2_EvT_S4_RSaIT0_E.exit, %49
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i.i39, ptr %4, align 8
-  %53 = getelementptr inbounds nuw %"struct.Assimp::LWO::Surface", ptr %20, i64 %16
+  %53 = getelementptr inbounds nuw [328 x i8], ptr %20, i64 %16
   store ptr %53, ptr %48, align 8
   ret void
 

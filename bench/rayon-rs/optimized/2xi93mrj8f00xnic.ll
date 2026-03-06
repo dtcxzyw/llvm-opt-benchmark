@@ -86,7 +86,7 @@ define hidden { ptr, ptr } @"_ZN15crossbeam_deque5deque15Worker$LT$T$GT$3pop17he
   %27 = load i64, ptr %26, align 8, !noundef !9
   %28 = add i64 %27, -1
   %29 = and i64 %28, %13
-  %30 = getelementptr inbounds { ptr, ptr }, ptr %25, i64 %29
+  %30 = getelementptr inbounds [16 x i8], ptr %25, i64 %29
   %31 = load volatile { ptr, ptr }, ptr %30, align 8
   %32 = extractvalue { ptr, ptr } %31, 0
   %33 = extractvalue { ptr, ptr } %31, 1
@@ -121,7 +121,7 @@ define hidden { ptr, ptr } @"_ZN15crossbeam_deque5deque15Worker$LT$T$GT$3pop17he
   %47 = load i64, ptr %46, align 8, !noundef !9
   %48 = add i64 %47, -1
   %49 = and i64 %48, %17
-  %50 = getelementptr inbounds { ptr, ptr }, ptr %45, i64 %49
+  %50 = getelementptr inbounds [16 x i8], ptr %45, i64 %49
   %51 = load volatile { ptr, ptr }, ptr %50, align 8
   %52 = extractvalue { ptr, ptr } %51, 0
   %53 = extractvalue { ptr, ptr } %51, 1
@@ -182,7 +182,7 @@ define hidden void @"_ZN15crossbeam_deque5deque15Worker$LT$T$GT$4push17h51af731e
   %.sroa.0.0 = load ptr, ptr %16, align 8, !noundef !9
   %17 = add i64 %.sroa.5.0, -1
   %18 = and i64 %17, %6
-  %19 = getelementptr inbounds { ptr, ptr }, ptr %.sroa.0.0, i64 %18
+  %19 = getelementptr inbounds [16 x i8], ptr %.sroa.0.0, i64 %18
   store volatile ptr %1, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store volatile ptr %2, ptr %20, align 8
@@ -245,9 +245,9 @@ define internal fastcc void @"_ZN15crossbeam_deque5deque15Worker$LT$T$GT$6resize
 26:                                               ; preds = %.lr.ph, %26
   %.019 = phi i64 [ %11, %.lr.ph ], [ %31, %26 ]
   %27 = and i64 %.019, %18
-  %28 = getelementptr inbounds { ptr, ptr }, ptr %13, i64 %27
+  %28 = getelementptr inbounds [16 x i8], ptr %13, i64 %27
   %29 = and i64 %.019, %19
-  %30 = getelementptr inbounds { ptr, ptr }, ptr %17, i64 %29
+  %30 = getelementptr inbounds [16 x i8], ptr %17, i64 %29
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 8 dereferenceable(16) %28, i64 16, i1 false)
   %31 = add i64 %.019, 1
   %.not = icmp eq i64 %31, %9
@@ -589,7 +589,7 @@ _ZN15crossbeam_epoch7default11with_handle17he9fc9abe04fa9854E.exit: ; preds = %"
   %35 = load i64, ptr %34, align 8, !noundef !9
   %36 = add i64 %35, -1
   %37 = and i64 %36, %5
-  %38 = getelementptr inbounds { ptr, ptr }, ptr %33, i64 %37
+  %38 = getelementptr inbounds [16 x i8], ptr %33, i64 %37
   %39 = load volatile { ptr, ptr }, ptr %38, align 8
   %40 = extractvalue { ptr, ptr } %39, 0
   %41 = extractvalue { ptr, ptr } %39, 1
@@ -745,7 +745,7 @@ define hidden void @"_ZN15crossbeam_deque5deque17Injector$LT$T$GT$4push17h6dd832
 
 19:                                               ; preds = %18, %19
   %20 = phi i64 [ 0, %18 ], [ %22, %19 ]
-  %21 = getelementptr inbounds nuw { { ptr, ptr }, { i64 } }, ptr %4, i64 %20
+  %21 = getelementptr inbounds nuw [24 x i8], ptr %4, i64 %20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, i8 0, i64 24, i1 false)
   %22 = add nuw nsw i64 %20, 1
   %exitcond.not = icmp eq i64 %22, 63
@@ -809,7 +809,7 @@ define hidden void @"_ZN15crossbeam_deque5deque17Injector$LT$T$GT$4push17h6dd832
 
 44:                                               ; preds = %33
   %45 = getelementptr inbounds nuw i8, ptr %.022.le.le, i64 8
-  %46 = getelementptr inbounds nuw { { ptr, ptr }, { i64 } }, ptr %45, i64 %.lcssa
+  %46 = getelementptr inbounds nuw [24 x i8], ptr %45, i64 %.lcssa
   store ptr %1, ptr %46, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   store ptr %2, ptr %47, align 8
@@ -989,7 +989,7 @@ _ZN15crossbeam_utils7backoff7Backoff6snooze17h2e565c48092f7405E.exit.i: ; preds 
 
 49:                                               ; preds = %32, %"_ZN15crossbeam_deque5deque14Block$LT$T$GT$9wait_next17hc12edd39615fae8bE.exit"
   %50 = getelementptr inbounds nuw i8, ptr %.0.i.le, i64 8
-  %51 = getelementptr inbounds nuw { { ptr, ptr }, { i64 } }, ptr %50, i64 %.lcssa29
+  %51 = getelementptr inbounds nuw [24 x i8], ptr %50, i64 %.lcssa29
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %53 = load atomic i64, ptr %52 acquire, align 8
   %54 = and i64 %53, 1
@@ -1052,7 +1052,7 @@ _ZN15crossbeam_utils7backoff7Backoff6snooze17h2e565c48092f7405E.exit.i20: ; pred
 .lr.ph.i26:                                       ; preds = %.lr.ph.i26.preheader, %82
   %.sroa.5.09.i = phi i64 [ %72, %82 ], [ %.lcssa29, %.lr.ph.i26.preheader ]
   %72 = add nsw i64 %.sroa.5.09.i, -1
-  %73 = getelementptr inbounds nuw { { ptr, ptr }, { i64 } }, ptr %.0.i.le, i64 %72
+  %73 = getelementptr inbounds nuw [24 x i8], ptr %.0.i.le, i64 %72
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 24
   %75 = load atomic i64, ptr %74 acquire, align 8
   %76 = and i64 %75, 2
@@ -1613,7 +1613,7 @@ define hidden void @"_ZN84_$LT$crossbeam_deque..deque..Injector$LT$T$GT$$u20$as$
 
 3:                                                ; preds = %1, %3
   %4 = phi i64 [ 0, %1 ], [ %6, %3 ]
-  %5 = getelementptr inbounds nuw { { ptr, ptr }, { i64 } }, ptr %2, i64 %4
+  %5 = getelementptr inbounds nuw [24 x i8], ptr %2, i64 %4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   %6 = add nuw nsw i64 %4, 1
   %exitcond.not = icmp eq i64 %6, 63

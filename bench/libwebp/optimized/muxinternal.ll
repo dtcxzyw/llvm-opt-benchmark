@@ -56,7 +56,7 @@ define hidden range(i32 11, 10) i32 @ChunkGetIndexFromTag(i32 noundef %0) local_
 
 2:                                                ; preds = %1, %6
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %6 ]
-  %3 = getelementptr inbounds nuw %struct.ChunkInfo, ptr @kChunks, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [12 x i8], ptr @kChunks, i64 %indvars.iv
   %4 = load i32, ptr %3, align 4, !tbaa !15
   %5 = icmp eq i32 %0, %4
   br i1 %5, label %.split.loop.exit10, label %6
@@ -86,7 +86,7 @@ define hidden i32 @ChunkGetIdFromTag(i32 noundef %0) local_unnamed_addr #4 {
 
 3:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %4 = getelementptr inbounds nuw %struct.ChunkInfo, ptr @kChunks, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [12 x i8], ptr @kChunks, i64 %indvars.iv
   %5 = load i32, ptr %4, align 4, !tbaa !15
   %6 = icmp eq i32 %0, %5
   br i1 %6, label %7, label %2
@@ -146,7 +146,7 @@ define hidden i32 @ChunkGetIndexFromFourCC(ptr noundef readonly captures(none) %
 
 19:                                               ; preds = %23, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %23 ]
-  %20 = getelementptr inbounds nuw %struct.ChunkInfo, ptr @kChunks, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw [12 x i8], ptr @kChunks, i64 %indvars.iv.i
   %21 = load i32, ptr %20, align 4, !tbaa !15
   %22 = icmp eq i32 %18, %21
   br i1 %22, label %.split.loop.exit10.i, label %23
@@ -701,7 +701,7 @@ GetChunkListFromId.exit:                          ; preds = %.lr.ph, %5, %7
 
 14:                                               ; preds = %13, %11
   %indvars.iv.i = phi i64 [ 0, %11 ], [ %indvars.iv.next.i, %13 ]
-  %15 = getelementptr inbounds nuw %struct.ChunkInfo, ptr @kChunks, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw [12 x i8], ptr @kChunks, i64 %indvars.iv.i
   %16 = load i32, ptr %15, align 4, !tbaa !15
   %17 = icmp eq i32 %12, %16
   br i1 %17, label %18, label %13
@@ -1223,7 +1223,7 @@ define hidden nonnull ptr @MuxGetChunkListFromId(ptr noundef readnone captures(r
 
 switch.lookup:                                    ; preds = %2
   %4 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.MuxGetChunkListFromId, i64 %4
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.MuxGetChunkListFromId, i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %5
 

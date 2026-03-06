@@ -501,8 +501,8 @@ define dso_local ptr @curl_easy_duphandle(ptr noundef %0) local_unnamed_addr #5 
 
 16:                                               ; preds = %14, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %14 ]
-  %17 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv.i
-  %18 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv.i
   %19 = load ptr, ptr %18, align 8, !tbaa !99
   %20 = tail call i32 @Curl_setstropt(ptr noundef nonnull %17, ptr noundef %19) #12
   %.not55.i = icmp eq i32 %20, 0
@@ -515,8 +515,8 @@ define dso_local ptr @curl_easy_duphandle(ptr noundef %0) local_unnamed_addr #5 
 
 22:                                               ; preds = %21, %.preheader.i
   %indvars.iv65.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next66.i, %21 ]
-  %23 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv65.i
-  %24 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv65.i
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv65.i
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv65.i
   %25 = load ptr, ptr %24, align 8, !tbaa !107
   %26 = tail call i32 @Curl_setblobopt(ptr noundef nonnull %23, ptr noundef %25) #12
   %.not54.i = icmp eq i32 %26, 0

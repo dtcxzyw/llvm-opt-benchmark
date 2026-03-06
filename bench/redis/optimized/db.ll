@@ -18,21 +18,12 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.dictType = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8, ptr, ptr, ptr }
 %struct.sharedObjectsStruct = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, [4 x ptr], [4 x ptr], [4 x ptr], [4 x ptr], ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, [10 x ptr], [10000 x ptr], [32 x ptr], [32 x ptr], [32 x ptr], [32 x ptr], ptr, ptr }
 %struct.ChannelSpecs = type { ptr, i64, i32, i32 }
-%struct.redisDb = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i64, i64, ptr }
 %struct.RedisModuleFlushInfo = type { i64, i32, i32 }
 %struct.rdbSaveInfo = type { i32, i32, [41 x i8], i64 }
 %struct.scanData = type { ptr, ptr, i64, ptr, i64, i32, ptr }
 %struct.redisObject = type { i32, i32, ptr }
 %struct.listIter = type { ptr, i32 }
 %struct.RedisModuleSwapDbInfo = type { i64, i32, i32 }
-%struct.keySpec = type { ptr, i64, i32, %union.anon, i32, %union.anon.2 }
-%union.anon = type { %struct.anon.1 }
-%struct.anon.1 = type { ptr, i32 }
-%union.anon.2 = type { %struct.anon.3 }
-%struct.anon.3 = type { i32, i32, i32 }
-%struct.keyReference = type { i32, i32 }
-%struct.anon.5 = type { ptr, i32 }
-%struct.anon.6 = type { ptr, i32 }
 
 @server = external global %struct.redisServer, align 8
 @.str = private unnamed_addr constant [8 x i8] c"keymiss\00", align 1
@@ -175,9 +166,9 @@ define dso_local void @updateKeysizesHist(ptr noundef readonly captures(none) %0
   br label %22
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds nuw [48 x i64], ptr %9, i64 %.pre30
+  %17 = getelementptr inbounds nuw [384 x i8], ptr %9, i64 %.pre30
   %18 = zext nneg i32 %15 to i64
-  %19 = getelementptr inbounds nuw i64, ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %18
   %20 = load i64, ptr %19, align 8, !tbaa !17
   %21 = add i64 %20, -1
   store i64 %21, ptr %19, align 8, !tbaa !17
@@ -185,8 +176,8 @@ define dso_local void @updateKeysizesHist(ptr noundef readonly captures(none) %0
 
 22:                                               ; preds = %._crit_edge, %16
   %.pre-phi33 = phi i64 [ %.pre32, %._crit_edge ], [ %18, %16 ]
-  %23 = getelementptr inbounds nuw [48 x i64], ptr %11, i64 %.pre30
-  %24 = getelementptr inbounds nuw i64, ptr %23, i64 %.pre-phi33
+  %23 = getelementptr inbounds nuw [384 x i8], ptr %11, i64 %.pre30
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %.pre-phi33
   %25 = load i64, ptr %24, align 8, !tbaa !17
   %26 = add i64 %25, -1
   store i64 %26, ptr %24, align 8, !tbaa !17
@@ -209,9 +200,9 @@ define dso_local void @updateKeysizesHist(ptr noundef readonly captures(none) %0
   br label %38
 
 32:                                               ; preds = %28
-  %33 = getelementptr inbounds nuw [48 x i64], ptr %9, i64 %.pre
+  %33 = getelementptr inbounds nuw [384 x i8], ptr %9, i64 %.pre
   %34 = zext nneg i32 %31 to i64
-  %35 = getelementptr inbounds nuw i64, ptr %33, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %34
   %36 = load i64, ptr %35, align 8, !tbaa !17
   %37 = add i64 %36, 1
   store i64 %37, ptr %35, align 8, !tbaa !17
@@ -219,8 +210,8 @@ define dso_local void @updateKeysizesHist(ptr noundef readonly captures(none) %0
 
 38:                                               ; preds = %._crit_edge27, %32
   %.pre-phi29 = phi i64 [ %.pre28, %._crit_edge27 ], [ %34, %32 ]
-  %39 = getelementptr inbounds nuw [48 x i64], ptr %11, i64 %.pre
-  %40 = getelementptr inbounds nuw i64, ptr %39, i64 %.pre-phi29
+  %39 = getelementptr inbounds nuw [384 x i8], ptr %11, i64 %.pre
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %.pre-phi29
   %41 = load i64, ptr %40, align 8, !tbaa !17
   %42 = add i64 %41, 1
   store i64 %42, ptr %40, align 8, !tbaa !17
@@ -713,9 +704,9 @@ getKeySlot.exit:                                  ; preds = %13, %17
   br label %57
 
 51:                                               ; preds = %47
-  %52 = getelementptr inbounds nuw [48 x i64], ptr %44, i64 %.pre.i
+  %52 = getelementptr inbounds nuw [384 x i8], ptr %44, i64 %.pre.i
   %53 = zext nneg i32 %50 to i64
-  %54 = getelementptr inbounds nuw i64, ptr %52, i64 %53
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %53
   %55 = load i64, ptr %54, align 8, !tbaa !17
   %56 = add i64 %55, 1
   store i64 %56, ptr %54, align 8, !tbaa !17
@@ -723,8 +714,8 @@ getKeySlot.exit:                                  ; preds = %13, %17
 
 57:                                               ; preds = %51, %._crit_edge27.i
   %.pre-phi29.i = phi i64 [ %.pre28.i, %._crit_edge27.i ], [ %53, %51 ]
-  %58 = getelementptr inbounds nuw [48 x i64], ptr %46, i64 %.pre.i
-  %59 = getelementptr inbounds nuw i64, ptr %58, i64 %.pre-phi29.i
+  %58 = getelementptr inbounds nuw [384 x i8], ptr %46, i64 %.pre.i
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %.pre-phi29.i
   %60 = load i64, ptr %59, align 8, !tbaa !17
   %61 = add i64 %60, 1
   store i64 %61, ptr %59, align 8, !tbaa !17
@@ -1005,9 +996,9 @@ getKeySlot.exit:                                  ; preds = %9, %13
   br label %38
 
 32:                                               ; preds = %28
-  %33 = getelementptr inbounds nuw [48 x i64], ptr %25, i64 %.pre.i
+  %33 = getelementptr inbounds nuw [384 x i8], ptr %25, i64 %.pre.i
   %34 = zext nneg i32 %31 to i64
-  %35 = getelementptr inbounds nuw i64, ptr %33, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %34
   %36 = load i64, ptr %35, align 8, !tbaa !17
   %37 = add i64 %36, 1
   store i64 %37, ptr %35, align 8, !tbaa !17
@@ -1015,8 +1006,8 @@ getKeySlot.exit:                                  ; preds = %9, %13
 
 38:                                               ; preds = %32, %._crit_edge27.i
   %.pre-phi29.i = phi i64 [ %.pre28.i, %._crit_edge27.i ], [ %34, %32 ]
-  %39 = getelementptr inbounds nuw [48 x i64], ptr %27, i64 %.pre.i
-  %40 = getelementptr inbounds nuw i64, ptr %39, i64 %.pre-phi29.i
+  %39 = getelementptr inbounds nuw [384 x i8], ptr %27, i64 %.pre.i
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %.pre-phi29.i
   %41 = load i64, ptr %40, align 8, !tbaa !17
   %42 = add i64 %41, 1
   store i64 %42, ptr %40, align 8, !tbaa !17
@@ -1119,9 +1110,9 @@ getKeySlot.exit:                                  ; preds = %13, %17
   br label %44
 
 38:                                               ; preds = %34
-  %39 = getelementptr inbounds nuw [48 x i64], ptr %31, i64 %.pre30.i
+  %39 = getelementptr inbounds nuw [384 x i8], ptr %31, i64 %.pre30.i
   %40 = zext nneg i32 %37 to i64
-  %41 = getelementptr inbounds nuw i64, ptr %39, i64 %40
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %40
   %42 = load i64, ptr %41, align 8, !tbaa !17
   %43 = add i64 %42, -1
   store i64 %43, ptr %41, align 8, !tbaa !17
@@ -1129,8 +1120,8 @@ getKeySlot.exit:                                  ; preds = %13, %17
 
 44:                                               ; preds = %38, %._crit_edge.i
   %.pre-phi33.i = phi i64 [ %.pre32.i, %._crit_edge.i ], [ %40, %38 ]
-  %45 = getelementptr inbounds nuw [48 x i64], ptr %33, i64 %.pre30.i
-  %46 = getelementptr inbounds nuw i64, ptr %45, i64 %.pre-phi33.i
+  %45 = getelementptr inbounds nuw [384 x i8], ptr %33, i64 %.pre30.i
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %.pre-phi33.i
   %47 = load i64, ptr %46, align 8, !tbaa !17
   %48 = add i64 %47, -1
   store i64 %48, ptr %46, align 8, !tbaa !17
@@ -1189,9 +1180,9 @@ updateKeysizesHist.exit:                          ; preds = %29, %44, %.thread
   br label %81
 
 75:                                               ; preds = %71
-  %76 = getelementptr inbounds nuw [48 x i64], ptr %68, i64 %.pre.i
+  %76 = getelementptr inbounds nuw [384 x i8], ptr %68, i64 %.pre.i
   %77 = zext nneg i32 %74 to i64
-  %78 = getelementptr inbounds nuw i64, ptr %76, i64 %77
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %77
   %79 = load i64, ptr %78, align 8, !tbaa !17
   %80 = add i64 %79, 1
   store i64 %80, ptr %78, align 8, !tbaa !17
@@ -1199,8 +1190,8 @@ updateKeysizesHist.exit:                          ; preds = %29, %44, %.thread
 
 81:                                               ; preds = %75, %._crit_edge27.i
   %.pre-phi29.i = phi i64 [ %.pre28.i, %._crit_edge27.i ], [ %77, %75 ]
-  %82 = getelementptr inbounds nuw [48 x i64], ptr %70, i64 %.pre.i
-  %83 = getelementptr inbounds nuw i64, ptr %82, i64 %.pre-phi29.i
+  %82 = getelementptr inbounds nuw [384 x i8], ptr %70, i64 %.pre.i
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %82, i64 %.pre-phi29.i
   %84 = load i64, ptr %83, align 8, !tbaa !17
   %85 = add i64 %84, 1
   store i64 %85, ptr %83, align 8, !tbaa !17
@@ -1613,9 +1604,9 @@ getKeySlot.exit:                                  ; preds = %14, %18
   br label %44
 
 38:                                               ; preds = %34
-  %39 = getelementptr inbounds nuw [48 x i64], ptr %31, i64 %.pre30.i
+  %39 = getelementptr inbounds nuw [384 x i8], ptr %31, i64 %.pre30.i
   %40 = zext nneg i32 %37 to i64
-  %41 = getelementptr inbounds nuw i64, ptr %39, i64 %40
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %40
   %42 = load i64, ptr %41, align 8, !tbaa !17
   %43 = add i64 %42, -1
   store i64 %43, ptr %41, align 8, !tbaa !17
@@ -1623,8 +1614,8 @@ getKeySlot.exit:                                  ; preds = %14, %18
 
 44:                                               ; preds = %38, %._crit_edge.i
   %.pre-phi33.i = phi i64 [ %.pre32.i, %._crit_edge.i ], [ %40, %38 ]
-  %45 = getelementptr inbounds nuw [48 x i64], ptr %33, i64 %.pre30.i
-  %46 = getelementptr inbounds nuw i64, ptr %45, i64 %.pre-phi33.i
+  %45 = getelementptr inbounds nuw [384 x i8], ptr %33, i64 %.pre30.i
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %.pre-phi33.i
   %47 = load i64, ptr %46, align 8, !tbaa !17
   %48 = add i64 %47, -1
   store i64 %48, ptr %46, align 8, !tbaa !17
@@ -1818,7 +1809,7 @@ define dso_local i64 @emptyDbStructure(ptr noundef %0, i32 noundef %1, i32 nound
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %indvars.iv35 = phi i64 [ %indvars.iv.next36, %.lr.ph.split.us ], [ %8, %.lr.ph ]
   %.02630.us = phi i64 [ %13, %.lr.ph.split.us ], [ 0, %.lr.ph ]
-  %10 = getelementptr inbounds %struct.redisDb, ptr %0, i64 %indvars.iv35
+  %10 = getelementptr inbounds [88 x i8], ptr %0, i64 %indvars.iv35
   %11 = load ptr, ptr %10, align 8, !tbaa !6
   %12 = tail call i64 @kvstoreSize(ptr noundef %11) #20
   %13 = add i64 %12, %.02630.us
@@ -1843,7 +1834,7 @@ define dso_local i64 @emptyDbStructure(ptr noundef %0, i32 noundef %1, i32 nound
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ %8, %.lr.ph ]
   %.02630 = phi i64 [ %22, %.lr.ph.split ], [ 0, %.lr.ph ]
-  %19 = getelementptr inbounds %struct.redisDb, ptr %0, i64 %indvars.iv
+  %19 = getelementptr inbounds [88 x i8], ptr %0, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8, !tbaa !6
   %21 = tail call i64 @kvstoreSize(ptr noundef %20) #20
   %22 = add i64 %21, %.02630
@@ -1904,10 +1895,10 @@ define dso_local i64 @emptyData(i32 noundef %0, i32 noundef %1, ptr noundef %2) 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ %18, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 64), align 8, !tbaa !94
-  %21 = getelementptr inbounds nuw %struct.redisDb, ptr %20, i64 %indvars.iv.i
+  %21 = getelementptr inbounds nuw [88 x i8], ptr %20, i64 %indvars.iv.i
   call void @scanDatabaseForDeletedKeys(ptr noundef %21, ptr noundef null)
   %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 64), align 8, !tbaa !94
-  %23 = getelementptr inbounds nuw %struct.redisDb, ptr %22, i64 %indvars.iv.i
+  %23 = getelementptr inbounds nuw [88 x i8], ptr %22, i64 %indvars.iv.i
   call void @touchAllWatchedKeysInDb(ptr noundef %23, ptr noundef null) #20
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next.i to i32
@@ -1973,10 +1964,10 @@ define dso_local void @signalFlushedDb(i32 noundef %0, i32 noundef %1) local_unn
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %6, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 64), align 8, !tbaa !94
-  %9 = getelementptr inbounds %struct.redisDb, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds [88 x i8], ptr %8, i64 %indvars.iv
   tail call void @scanDatabaseForDeletedKeys(ptr noundef %9, ptr noundef null)
   %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 64), align 8, !tbaa !94
-  %11 = getelementptr inbounds %struct.redisDb, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds [88 x i8], ptr %10, i64 %indvars.iv
   tail call void @touchAllWatchedKeysInDb(ptr noundef %11, ptr noundef null) #20
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
@@ -2011,7 +2002,7 @@ define dso_local noalias ptr @initTempDb() local_unnamed_addr #0 {
 
 9:                                                ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
-  %10 = getelementptr inbounds nuw %struct.redisDb, ptr %5, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [88 x i8], ptr %5, i64 %indvars.iv
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %12 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %12, ptr %11, align 8, !tbaa !67
@@ -2046,7 +2037,7 @@ define dso_local void @discardTempDb(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.split.i.preheader, %.lr.ph.split.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.split.i ], [ 0, %.lr.ph.split.i.preheader ]
-  %3 = getelementptr inbounds nuw %struct.redisDb, ptr %0, i64 %indvars.iv.i
+  %3 = getelementptr inbounds nuw [88 x i8], ptr %0, i64 %indvars.iv.i
   %4 = load ptr, ptr %3, align 8, !tbaa !6
   %5 = tail call i64 @kvstoreSize(ptr noundef %4) #20
   tail call void @emptyDbAsync(ptr noundef nonnull %3) #20
@@ -2067,7 +2058,7 @@ emptyDbStructure.exit:                            ; preds = %.lr.ph.split.i
 
 .lr.ph:                                           ; preds = %emptyDbStructure.exit, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %emptyDbStructure.exit ]
-  %9 = getelementptr inbounds nuw %struct.redisDb, ptr %0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [88 x i8], ptr %0, i64 %indvars.iv
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   tail call void @ebDestroy(ptr noundef nonnull %10, ptr noundef nonnull @hashExpireBucketsType, ptr noundef null) #20
   %11 = load ptr, ptr %9, align 8, !tbaa !6
@@ -2097,7 +2088,7 @@ define dso_local range(i32 -1, 1) i32 @selectDb(ptr noundef writeonly captures(n
 5:                                                ; preds = %2
   %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 64), align 8, !tbaa !94
   %7 = zext nneg i32 %1 to i64
-  %8 = getelementptr inbounds nuw %struct.redisDb, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [88 x i8], ptr %6, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %8, ptr %9, align 8, !tbaa !74
   br label %10
@@ -2117,7 +2108,7 @@ define dso_local i64 @dbTotalServerKeyCount() local_unnamed_addr #0 {
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %0 ]
   %.056 = phi i64 [ %7, %.lr.ph ], [ 0, %0 ]
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 64), align 8, !tbaa !94
-  %4 = getelementptr inbounds nuw %struct.redisDb, ptr %3, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [88 x i8], ptr %3, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 8, !tbaa !6
   %6 = tail call i64 @kvstoreSize(ptr noundef %5) #20
   %7 = add i64 %6, %.056
@@ -2678,7 +2669,7 @@ define dso_local void @delGenericCommand(ptr noundef %0, i32 noundef %1) local_u
   %.026.us = phi i32 [ %.1.us, %34 ], [ 0, %.lr.ph ]
   %8 = load ptr, ptr %6, align 8, !tbaa !74
   %9 = load ptr, ptr %7, align 8, !tbaa !104
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv29
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv29
   %11 = load ptr, ptr %10, align 8, !tbaa !105
   %12 = tail call i32 @expireIfNeeded(ptr noundef %8, ptr noundef %11, i32 noundef 0)
   %13 = icmp eq i32 %12, 2
@@ -2687,7 +2678,7 @@ define dso_local void @delGenericCommand(ptr noundef %0, i32 noundef %1) local_u
 14:                                               ; preds = %.lr.ph.split.us
   %15 = load ptr, ptr %6, align 8, !tbaa !74
   %16 = load ptr, ptr %7, align 8, !tbaa !104
-  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv29
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv29
   %18 = load ptr, ptr %17, align 8, !tbaa !105
   %19 = tail call range(i32 0, 2) i32 @dbGenericDelete(ptr noundef %15, ptr noundef %18, i32 noundef 0, i32 noundef 1)
   %.not24.us = icmp eq i32 %19, 0
@@ -2696,12 +2687,12 @@ define dso_local void @delGenericCommand(ptr noundef %0, i32 noundef %1) local_u
 20:                                               ; preds = %14
   %21 = load ptr, ptr %6, align 8, !tbaa !74
   %22 = load ptr, ptr %7, align 8, !tbaa !104
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv29
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv29
   %24 = load ptr, ptr %23, align 8, !tbaa !105
   tail call void @touchWatchedKey(ptr noundef %21, ptr noundef %24) #20
   tail call void @trackingInvalidateKey(ptr noundef nonnull %0, ptr noundef %24, i32 noundef 1) #20
   %25 = load ptr, ptr %7, align 8, !tbaa !104
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv29
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv29
   %27 = load ptr, ptr %26, align 8, !tbaa !105
   %28 = load ptr, ptr %6, align 8, !tbaa !74
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 56
@@ -2726,7 +2717,7 @@ define dso_local void @delGenericCommand(ptr noundef %0, i32 noundef %1) local_u
   %.026 = phi i32 [ %.1, %64 ], [ 0, %.lr.ph ]
   %38 = load ptr, ptr %6, align 8, !tbaa !74
   %39 = load ptr, ptr %7, align 8, !tbaa !104
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %indvars.iv
   %41 = load ptr, ptr %40, align 8, !tbaa !105
   %42 = tail call i32 @expireIfNeeded(ptr noundef %38, ptr noundef %41, i32 noundef 0)
   %43 = icmp eq i32 %42, 2
@@ -2735,7 +2726,7 @@ define dso_local void @delGenericCommand(ptr noundef %0, i32 noundef %1) local_u
 44:                                               ; preds = %.lr.ph.split
   %45 = load ptr, ptr %6, align 8, !tbaa !74
   %46 = load ptr, ptr %7, align 8, !tbaa !104
-  %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv
   %48 = load ptr, ptr %47, align 8, !tbaa !105
   %49 = tail call range(i32 0, 2) i32 @dbGenericDelete(ptr noundef %45, ptr noundef %48, i32 noundef 1, i32 noundef 1)
   %.not24 = icmp eq i32 %49, 0
@@ -2744,12 +2735,12 @@ define dso_local void @delGenericCommand(ptr noundef %0, i32 noundef %1) local_u
 50:                                               ; preds = %44
   %51 = load ptr, ptr %6, align 8, !tbaa !74
   %52 = load ptr, ptr %7, align 8, !tbaa !104
-  %53 = getelementptr inbounds nuw ptr, ptr %52, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %indvars.iv
   %54 = load ptr, ptr %53, align 8, !tbaa !105
   tail call void @touchWatchedKey(ptr noundef %51, ptr noundef %54) #20
   tail call void @trackingInvalidateKey(ptr noundef nonnull %0, ptr noundef %54, i32 noundef 1) #20
   %55 = load ptr, ptr %7, align 8, !tbaa !104
-  %56 = getelementptr inbounds nuw ptr, ptr %55, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %indvars.iv
   %57 = load ptr, ptr %56, align 8, !tbaa !105
   %58 = load ptr, ptr %6, align 8, !tbaa !74
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 56
@@ -2808,7 +2799,7 @@ define dso_local void @existsCommand(ptr noundef %0) local_unnamed_addr #0 {
   %.089 = phi i64 [ 0, %.lr.ph ], [ %spec.select, %7 ]
   %8 = load ptr, ptr %5, align 8, !tbaa !74
   %9 = load ptr, ptr %6, align 8, !tbaa !104
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !105
   %12 = tail call ptr @lookupKey(ptr noundef %8, ptr noundef %11, i32 noundef 1, ptr noundef null)
   %.not = icmp ne ptr %12, null
@@ -2864,7 +2855,7 @@ define dso_local void @selectCommand(ptr noundef %0) local_unnamed_addr #0 {
 18:                                               ; preds = %14
   %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 64), align 8, !tbaa !94
   %20 = zext nneg i32 %11 to i64
-  %21 = getelementptr inbounds nuw %struct.redisDb, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [88 x i8], ptr %19, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %21, ptr %22, align 8, !tbaa !74
   %23 = load ptr, ptr @shared, align 8, !tbaa !115
@@ -3474,7 +3465,7 @@ define dso_local range(i64 9223372036854775807, 7) i64 @getObjectTypeByName(ptr 
 
 2:                                                ; preds = %1, %7
   %.01117 = phi i64 [ 0, %1 ], [ %8, %7 ]
-  %3 = getelementptr inbounds nuw ptr, ptr @obj_type_name, i64 %.01117
+  %3 = getelementptr inbounds nuw [8 x i8], ptr @obj_type_name, i64 %.01117
   %4 = load ptr, ptr %3, align 8, !tbaa !136
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %7, label %5
@@ -3536,7 +3527,7 @@ define dso_local ptr @getObjectTypeName(ptr noundef readonly captures(address_is
 
 15:                                               ; preds = %8
   %16 = zext nneg i32 %5 to i64
-  %17 = getelementptr inbounds nuw ptr, ptr @obj_type_name, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr @obj_type_name, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !136
   br label %19
 
@@ -3600,7 +3591,7 @@ define dso_local void @scanGenericCommand(ptr noundef %0, ptr noundef %1, i64 no
   %29 = sub nsw i32 %28, %.0230387
   %30 = load ptr, ptr %26, align 8, !tbaa !104
   %31 = zext nneg i32 %.0230387 to i64
-  %32 = getelementptr inbounds nuw ptr, ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %31
   %33 = load ptr, ptr %32, align 8, !tbaa !105
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load ptr, ptr %34, align 8, !tbaa !18
@@ -3707,7 +3698,7 @@ sdslen.exit:                                      ; preds = %60, %63, %67, %71, 
 
 92:                                               ; preds = %97, %87
   %.01117.i = phi i64 [ 0, %87 ], [ %98, %97 ]
-  %93 = getelementptr inbounds nuw ptr, ptr @obj_type_name, i64 %.01117.i
+  %93 = getelementptr inbounds nuw [8 x i8], ptr @obj_type_name, i64 %.01117.i
   %94 = load ptr, ptr %93, align 8, !tbaa !136
   %.not.i = icmp eq ptr %94, null
   br i1 %.not.i, label %97, label %95
@@ -4605,7 +4596,7 @@ define dso_local void @typeCommand(ptr noundef %0) local_unnamed_addr #0 {
 
 22:                                               ; preds = %15
   %23 = zext nneg i32 %12 to i64
-  %24 = getelementptr inbounds nuw ptr, ptr @obj_type_name, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr @obj_type_name, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !136
   br label %getObjectTypeName.exit
 
@@ -4634,7 +4625,7 @@ define dso_local void @shutdownCommand(ptr noundef %0) local_unnamed_addr #0 {
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %30 ]
   %.04060 = phi i32 [ 0, %.lr.ph ], [ %.1, %30 ]
   %.04159 = phi i32 [ 0, %.lr.ph ], [ %.142, %30 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8, !tbaa !105
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !18
@@ -5117,7 +5108,7 @@ define dso_local void @moveCommand(ptr noundef %0) local_unnamed_addr #0 {
 20:                                               ; preds = %15
   %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 64), align 8, !tbaa !94
   %22 = zext nneg i32 %16 to i64
-  %23 = getelementptr inbounds nuw %struct.redisDb, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [88 x i8], ptr %21, i64 %22
   store ptr %23, ptr %6, align 8, !tbaa !74
   %24 = icmp sgt i32 %9, -1
   %25 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6376), align 8
@@ -5127,7 +5118,7 @@ define dso_local void @moveCommand(ptr noundef %0) local_unnamed_addr #0 {
 
 26:                                               ; preds = %20
   %27 = zext nneg i32 %9 to i64
-  %28 = getelementptr inbounds nuw %struct.redisDb, ptr %21, i64 %27
+  %28 = getelementptr inbounds nuw [88 x i8], ptr %21, i64 %27
   store ptr %28, ptr %6, align 8, !tbaa !74
   br label %selectDb.exit63
 
@@ -5314,7 +5305,7 @@ define dso_local void @copyCommand(ptr noundef %0) local_unnamed_addr #0 {
   %.085115.us = phi i32 [ %.287.us, %selectDb.exit106.us ], [ 0, %.lr.ph ]
   %16 = load ptr, ptr %11, align 8, !tbaa !104
   %17 = sext i32 %.082116.us to i64
-  %18 = getelementptr inbounds ptr, ptr %16, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %16, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !105
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !18
@@ -5333,7 +5324,7 @@ define dso_local void @copyCommand(ptr noundef %0) local_unnamed_addr #0 {
 28:                                               ; preds = %23
   %29 = add nsw i32 %.082116.us, 1
   %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds ptr, ptr %16, i64 %30
+  %31 = getelementptr inbounds [8 x i8], ptr %16, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !105
   %33 = call i32 @getIntFromObjectOrReply(ptr noundef nonnull %0, ptr noundef %32, ptr noundef nonnull %2, ptr noundef null) #20
   %.not101.us = icmp eq i32 %33, 0
@@ -5350,7 +5341,7 @@ define dso_local void @copyCommand(ptr noundef %0) local_unnamed_addr #0 {
 38:                                               ; preds = %34
   %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 64), align 8, !tbaa !94
   %40 = zext nneg i32 %35 to i64
-  %41 = getelementptr inbounds nuw %struct.redisDb, ptr %39, i64 %40
+  %41 = getelementptr inbounds nuw [88 x i8], ptr %39, i64 %40
   store ptr %41, ptr %4, align 8, !tbaa !74
   %.pre = load i32, ptr %8, align 8, !tbaa !103
   br label %selectDb.exit106.us
@@ -5374,7 +5365,7 @@ selectDb.exit106.us:                              ; preds = %38, %.lr.ph.split.u
   %.085115 = phi i32 [ %.287, %selectDb.exit106 ], [ 0, %.lr.ph ]
   %49 = load ptr, ptr %11, align 8, !tbaa !104
   %50 = sext i32 %.082116 to i64
-  %51 = getelementptr inbounds ptr, ptr %49, i64 %50
+  %51 = getelementptr inbounds [8 x i8], ptr %49, i64 %50
   %52 = load ptr, ptr %51, align 8, !tbaa !105
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %54 = load ptr, ptr %53, align 8, !tbaa !18
@@ -5393,7 +5384,7 @@ selectDb.exit106.us:                              ; preds = %38, %.lr.ph.split.u
 61:                                               ; preds = %56
   %62 = add nsw i32 %.082116, 1
   %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds ptr, ptr %49, i64 %63
+  %64 = getelementptr inbounds [8 x i8], ptr %49, i64 %63
   %65 = load ptr, ptr %64, align 8, !tbaa !105
   %66 = call i32 @getIntFromObjectOrReply(ptr noundef nonnull %0, ptr noundef %65, ptr noundef nonnull %2, ptr noundef null) #20
   %.not101 = icmp eq i32 %66, 0
@@ -5414,14 +5405,14 @@ selectDb.exit106.us:                              ; preds = %38, %.lr.ph.split.u
 71:                                               ; preds = %67
   %72 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 64), align 8, !tbaa !94
   %73 = zext nneg i32 %68 to i64
-  %74 = getelementptr inbounds nuw %struct.redisDb, ptr %72, i64 %73
+  %74 = getelementptr inbounds nuw [88 x i8], ptr %72, i64 %73
   store ptr %74, ptr %4, align 8, !tbaa !74
   %75 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6376), align 8
   %.not.i103 = icmp slt i32 %.fr122, %75
   br i1 %.not.i103, label %76, label %selectDb.exit106
 
 76:                                               ; preds = %71
-  %77 = getelementptr inbounds nuw %struct.redisDb, ptr %72, i64 %13
+  %77 = getelementptr inbounds nuw [88 x i8], ptr %72, i64 %13
   store ptr %77, ptr %4, align 8, !tbaa !74
   br label %selectDb.exit106
 
@@ -5760,7 +5751,7 @@ define dso_local range(i32 -1, 1) i32 @dbSwapDatabases(i32 noundef %0, i32 nound
 10:                                               ; preds = %8
   %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 64), align 8, !tbaa !94
   %12 = zext nneg i32 %0 to i64
-  %13 = getelementptr inbounds nuw %struct.redisDb, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [88 x i8], ptr %11, i64 %12
   %.sroa.0.0.copyload = load ptr, ptr %13, align 8, !tbaa !162
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 8
   %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !162
@@ -5771,7 +5762,7 @@ define dso_local range(i32 -1, 1) i32 @dbSwapDatabases(i32 noundef %0, i32 nound
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 72
   %.sroa.7.0.copyload = load i64, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !17
   %14 = zext nneg i32 %1 to i64
-  %15 = getelementptr inbounds nuw %struct.redisDb, ptr %11, i64 %14
+  %15 = getelementptr inbounds nuw [88 x i8], ptr %11, i64 %14
   tail call void @touchAllWatchedKeysInDb(ptr noundef nonnull %13, ptr noundef %15) #20
   tail call void @touchAllWatchedKeysInDb(ptr noundef %15, ptr noundef nonnull %13) #20
   tail call void @scanDatabaseForDeletedKeys(ptr noundef nonnull %13, ptr noundef %15)
@@ -5821,7 +5812,7 @@ define dso_local void @swapMainDbWithTempDb(ptr noundef %0) local_unnamed_addr #
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %1 ]
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 64), align 8, !tbaa !94
-  %5 = getelementptr inbounds nuw %struct.redisDb, ptr %4, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [88 x i8], ptr %4, i64 %indvars.iv
   %.sroa.0.0.copyload = load ptr, ptr %5, align 8, !tbaa !162
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !162
@@ -5831,7 +5822,7 @@ define dso_local void @swapMainDbWithTempDb(ptr noundef %0) local_unnamed_addr #
   %.sroa.620.0.copyload = load i64, ptr %.sroa.620.0..sroa_idx, align 8, !tbaa !144
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 72
   %.sroa.7.0.copyload = load i64, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !17
-  %6 = getelementptr inbounds nuw %struct.redisDb, ptr %0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [88 x i8], ptr %0, i64 %indvars.iv
   tail call void @touchAllWatchedKeysInDb(ptr noundef nonnull %5, ptr noundef %6) #20
   tail call void @scanDatabaseForDeletedKeys(ptr noundef nonnull %5, ptr noundef %6)
   %7 = load ptr, ptr %6, align 8, !tbaa !6
@@ -6439,7 +6430,7 @@ define dso_local i64 @getAllKeySpecsFlags(ptr noundef readonly captures(none) %0
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %indvars.iv15 = phi i64 [ %indvars.iv.next16, %.lr.ph.split.us ], [ 0, %.lr.ph ]
   %.011.us = phi i64 [ %11, %.lr.ph.split.us ], [ 0, %.lr.ph ]
-  %8 = getelementptr inbounds nuw %struct.keySpec, ptr %7, i64 %indvars.iv15
+  %8 = getelementptr inbounds nuw [56 x i8], ptr %7, i64 %indvars.iv15
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load i64, ptr %9, align 8, !tbaa !181
   %11 = or i64 %10, %.011.us
@@ -6454,7 +6445,7 @@ define dso_local i64 @getAllKeySpecsFlags(ptr noundef readonly captures(none) %0
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
   %.011 = phi i64 [ %16, %.lr.ph.split ], [ 0, %.lr.ph ]
-  %12 = getelementptr inbounds nuw %struct.keySpec, ptr %7, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [56 x i8], ptr %7, i64 %indvars.iv
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load i64, ptr %13, align 8, !tbaa !181
   %15 = xor i64 %14, -1
@@ -6500,7 +6491,7 @@ define dso_local i32 @getKeysUsingKeySpecs(ptr noundef readonly captures(none) %
 23:                                               ; preds = %.lr.ph170, %.thread
   %.099169 = phi i64 [ 0, %.lr.ph170 ], [ %188, %.thread ]
   %24 = load ptr, ptr %12, align 8, !tbaa !180
-  %25 = getelementptr inbounds nuw %struct.keySpec, ptr %24, i64 %.099169
+  %25 = getelementptr inbounds nuw [56 x i8], ptr %24, i64 %.099169
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load i32, ptr %26, align 8, !tbaa !183
   %.not = icmp eq i32 %27, 0
@@ -6558,7 +6549,7 @@ define dso_local i32 @getKeysUsingKeySpecs(ptr noundef readonly captures(none) %
   br i1 %or.cond, label %.thread, label %51
 
 51:                                               ; preds = %48
-  %52 = getelementptr inbounds nuw ptr, ptr %1, i64 %.0100164
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.0100164
   %53 = load ptr, ptr %52, align 8, !tbaa !105
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %55 = load ptr, ptr %54, align 8, !tbaa !18
@@ -6637,8 +6628,8 @@ define dso_local i32 @getKeysUsingKeySpecs(ptr noundef readonly captures(none) %
 
 94:                                               ; preds = %89
   %95 = sext i32 %93 to i64
-  %96 = getelementptr ptr, ptr %1, i64 %.0109
-  %97 = getelementptr ptr, ptr %96, i64 %95
+  %96 = getelementptr [8 x i8], ptr %1, i64 %.0109
+  %97 = getelementptr [8 x i8], ptr %96, i64 %95
   %98 = load ptr, ptr %97, align 8, !tbaa !105
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
   %100 = load ptr, ptr %99, align 8, !tbaa !18
@@ -6804,7 +6795,7 @@ sdslen.exit:                                      ; preds = %94, %105, %108, %11
   %174 = trunc i64 %.1101167 to i32
   %175 = load i32, ptr %4, align 8, !tbaa !177
   %176 = sext i32 %175 to i64
-  %177 = getelementptr inbounds %struct.keyReference, ptr %164, i64 %176
+  %177 = getelementptr inbounds [8 x i8], ptr %164, i64 %176
   store i32 %174, ptr %177, align 4, !tbaa !188
   %178 = load i64, ptr %30, align 8, !tbaa !181
   %179 = trunc i64 %178 to i32
@@ -6867,7 +6858,7 @@ define dso_local i32 @getKeysFromCommandWithSpecs(ptr noundef %0, ptr noundef %1
 .lr.ph.split.i:                                   ; preds = %.lr.ph.split.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.split.i ], [ 0, %.lr.ph.i ]
   %.011.i = phi i64 [ %15, %.lr.ph.split.i ], [ 0, %.lr.ph.i ]
-  %11 = getelementptr inbounds nuw %struct.keySpec, ptr %10, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [56 x i8], ptr %10, i64 %indvars.iv.i
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load i64, ptr %12, align 8, !tbaa !181
   %14 = xor i64 %13, -1
@@ -6879,7 +6870,7 @@ define dso_local i32 @getKeysFromCommandWithSpecs(ptr noundef %0, ptr noundef %1
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i
   %indvars.iv15.i = phi i64 [ %indvars.iv.next16.i, %.lr.ph.split.us.i ], [ 0, %.lr.ph.split.i ]
   %.011.us.i = phi i64 [ %19, %.lr.ph.split.us.i ], [ 0, %.lr.ph.split.i ]
-  %16 = getelementptr inbounds nuw %struct.keySpec, ptr %10, i64 %indvars.iv15.i
+  %16 = getelementptr inbounds nuw [56 x i8], ptr %10, i64 %indvars.iv15.i
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load i64, ptr %17, align 8, !tbaa !181
   %19 = or i64 %18, %.011.us.i
@@ -6957,7 +6948,7 @@ define dso_local range(i32 0, 2) i32 @doesCommandHaveKeys(ptr noundef readonly c
 .lr.ph.split.i:                                   ; preds = %.lr.ph.split.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.split.i ], [ 0, %.lr.ph.i ]
   %.011.i = phi i64 [ %18, %.lr.ph.split.i ], [ 0, %.lr.ph.i ]
-  %14 = getelementptr inbounds nuw %struct.keySpec, ptr %13, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw [56 x i8], ptr %13, i64 %indvars.iv.i
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load i64, ptr %15, align 8, !tbaa !181
   %17 = xor i64 %16, -1
@@ -7148,7 +7139,7 @@ getKeysPrepareResult.exit:                        ; preds = %32, %49
 56:                                               ; preds = %.lr.ph, %56
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %56 ]
   %.043 = phi i32 [ %18, %.lr.ph ], [ %59, %56 ]
-  %57 = getelementptr inbounds nuw %struct.keyReference, ptr %51, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %indvars.iv
   store i32 %.043, ptr %57, align 4, !tbaa !188
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 4
@@ -7275,7 +7266,7 @@ getKeysPrepareResult.exit:                        ; preds = %28, %44
   unreachable
 
 57:                                               ; preds = %.lr.ph
-  %58 = getelementptr inbounds nuw %struct.keyReference, ptr %46, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv
   store i32 %.03548, ptr %58, align 4, !tbaa !188
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 4
@@ -7348,7 +7339,7 @@ define dso_local void @getKeysFreeResult(ptr noundef readonly captures(address) 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, -2147483648) i32 @genericGetKeys(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = sext i32 %1 to i64
-  %9 = getelementptr inbounds ptr, ptr %4, i64 %8
+  %9 = getelementptr inbounds [8 x i8], ptr %4, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !105
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !18
@@ -7436,7 +7427,7 @@ define dso_local range(i32 0, -2147483648) i32 @genericGetKeys(i32 noundef %0, i
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %51 = getelementptr inbounds nuw %struct.keyReference, ptr %50, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %indvars.iv
   %52 = trunc i64 %indvars.iv to i32
   %53 = mul i32 %3, %52
   %54 = add i32 %53, %2
@@ -7452,7 +7443,7 @@ define dso_local range(i32 0, -2147483648) i32 @genericGetKeys(i32 noundef %0, i
 
 56:                                               ; preds = %._crit_edge
   %57 = and i64 %13, 2147483647
-  %58 = getelementptr inbounds nuw %struct.keyReference, ptr %50, i64 %57
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %57
   store i32 %0, ptr %58, align 4, !tbaa !188
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 4
   store i32 0, ptr %59, align 4, !tbaa !190
@@ -7658,7 +7649,7 @@ getKeysPrepareResult.exit:                        ; preds = %12, %27
   %.02742 = phi i32 [ 0, %.preheader.lr.ph ], [ %.128, %.loopexit ]
   %.043.fr = freeze i32 %.043
   %34 = sext i32 %.043.fr to i64
-  %35 = getelementptr inbounds ptr, ptr %1, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %1, i64 %34
   %36 = load ptr, ptr %35, align 8, !tbaa !105
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = load ptr, ptr %37, align 8, !tbaa !18
@@ -7668,7 +7659,7 @@ getKeysPrepareResult.exit:                        ; preds = %12, %27
 
 .preheader.split.us:                              ; preds = %.preheader, %46
   %indvars.iv52 = phi i64 [ %indvars.iv.next53, %46 ], [ 0, %.preheader ]
-  %41 = getelementptr inbounds nuw %struct.anon.5, ptr @__const.sortGetKeys.skiplist, i64 %indvars.iv52
+  %41 = getelementptr inbounds nuw [16 x i8], ptr @__const.sortGetKeys.skiplist, i64 %indvars.iv52
   %42 = load ptr, ptr %41, align 16, !tbaa !205
   %43 = tail call i32 @strcasecmp(ptr noundef %38, ptr noundef %42) #24
   %.not33.us = icmp eq i32 %43, 0
@@ -7691,7 +7682,7 @@ getKeysPrepareResult.exit:                        ; preds = %12, %27
 
 .preheader.split:                                 ; preds = %.preheader, %55
   %indvars.iv = phi i64 [ %indvars.iv.next, %55 ], [ 0, %.preheader ]
-  %47 = getelementptr inbounds nuw %struct.anon.5, ptr @__const.sortGetKeys.skiplist, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [16 x i8], ptr @__const.sortGetKeys.skiplist, i64 %indvars.iv
   %48 = load ptr, ptr %47, align 16, !tbaa !205
   %49 = tail call i32 @strcasecmp(ptr noundef %38, ptr noundef %48) #24
   %.not33 = icmp eq i32 %49, 0
@@ -7699,7 +7690,7 @@ getKeysPrepareResult.exit:                        ; preds = %12, %27
 
 .split.us:                                        ; preds = %.preheader.split, %.preheader.split.us
   %50 = phi i64 [ %indvars.iv52, %.preheader.split.us ], [ %indvars.iv, %.preheader.split ]
-  %51 = getelementptr inbounds nuw %struct.anon.5, ptr @__const.sortGetKeys.skiplist, i64 %50
+  %51 = getelementptr inbounds nuw [16 x i8], ptr @__const.sortGetKeys.skiplist, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %53 = load i32, ptr %52, align 8, !tbaa !208
   %54 = add nsw i32 %53, %.043.fr
@@ -7735,7 +7726,7 @@ define dso_local range(i32 -2147483640, -2147483648) i32 @migrateGetKeys(ptr nou
 .preheader40:                                     ; preds = %4, %.loopexit
   %.045 = phi i32 [ %50, %.loopexit ], [ 6, %4 ]
   %6 = sext i32 %.045 to i64
-  %7 = getelementptr inbounds ptr, ptr %1, i64 %6
+  %7 = getelementptr inbounds [8 x i8], ptr %1, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !105
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !18
@@ -7806,7 +7797,7 @@ sdslen.exit.thread:                               ; preds = %12, %sdslen.exit
 
 .preheader:                                       ; preds = %.preheader40, %42
   %indvars.iv = phi i64 [ %indvars.iv.next, %42 ], [ 0, %.preheader40 ]
-  %43 = getelementptr inbounds nuw %struct.anon.6, ptr @__const.migrateGetKeys.skip_keywords, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [16 x i8], ptr @__const.migrateGetKeys.skip_keywords, i64 %indvars.iv
   %44 = load ptr, ptr %43, align 16, !tbaa !205
   %45 = tail call i32 @strcasecmp(ptr noundef %10, ptr noundef %44) #24
   %.not37 = icmp eq i32 %45, 0
@@ -7896,7 +7887,7 @@ getKeysPrepareResult.exit:                        ; preds = %59, %76
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv50 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next51, %.lr.ph ]
   %80 = add nuw i64 %indvars.iv50, %.030
-  %81 = getelementptr inbounds nuw %struct.keyReference, ptr %78, i64 %indvars.iv50
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %indvars.iv50
   %82 = trunc i64 %80 to i32
   store i32 %82, ptr %81, align 4, !tbaa !188
   %83 = getelementptr inbounds nuw i8, ptr %81, i64 4
@@ -7919,7 +7910,7 @@ define dso_local range(i32 1, 3) i32 @georadiusGetKeys(ptr noundef readnone capt
   %.029 = phi i32 [ %18, %17 ], [ 5, %4 ]
   %.02228 = phi i32 [ %.123, %17 ], [ -1, %4 ]
   %6 = sext i32 %.029 to i64
-  %7 = getelementptr inbounds ptr, ptr %1, i64 %6
+  %7 = getelementptr inbounds [8 x i8], ptr %1, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !105
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !18
@@ -8034,7 +8025,7 @@ define dso_local range(i32 -1073741824, 1073741824) i32 @xreadGetKeys(ptr nounde
 .lr.ph:                                           ; preds = %4, %26
   %.04361 = phi i32 [ %27, %26 ], [ 1, %4 ]
   %6 = sext i32 %.04361 to i64
-  %7 = getelementptr inbounds ptr, ptr %1, i64 %6
+  %7 = getelementptr inbounds [8 x i8], ptr %1, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !105
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !18
@@ -8169,7 +8160,7 @@ getKeysPrepareResult.exit:                        ; preds = %43, %60
   %.3.in63 = phi i32 [ %.04361, %.lr.ph65.preheader ], [ %70, %.lr.ph65 ]
   %67 = sub i32 %.3.in63, %.04361
   %68 = sext i32 %67 to i64
-  %69 = getelementptr inbounds %struct.keyReference, ptr %62, i64 %68
+  %69 = getelementptr inbounds [8 x i8], ptr %62, i64 %68
   %70 = trunc nsw i64 %indvars.iv to i32
   store i32 %70, ptr %69, align 4, !tbaa !188
   %71 = getelementptr inbounds nuw i8, ptr %69, i64 4
@@ -8254,7 +8245,7 @@ getKeysPrepareResult.exit:                        ; preds = %12, %27
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %45
   %indvars.iv = phi i64 [ 3, %.lr.ph.preheader ], [ %indvars.iv.next, %45 ]
-  %30 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %31 = load ptr, ptr %30, align 8, !tbaa !105
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load ptr, ptr %32, align 8, !tbaa !18
@@ -8367,7 +8358,7 @@ getKeysPrepareResult.exit:                        ; preds = %12, %27
   %31 = xor i32 %.03045, -1
   %32 = add i32 %2, %31
   %33 = sext i32 %.03045 to i64
-  %34 = getelementptr inbounds ptr, ptr %1, i64 %33
+  %34 = getelementptr inbounds [8 x i8], ptr %1, i64 %33
   %35 = load ptr, ptr %34, align 8, !tbaa !105
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load ptr, ptr %36, align 8, !tbaa !18

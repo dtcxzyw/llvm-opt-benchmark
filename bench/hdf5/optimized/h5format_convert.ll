@@ -200,7 +200,7 @@ thread-pre-split.i:                               ; preds = %17, %15
 
 37:                                               ; preds = %._crit_edge.i
   %38 = sext i32 %34 to i64
-  %39 = getelementptr inbounds ptr, ptr %1, i64 %38
+  %39 = getelementptr inbounds [8 x i8], ptr %1, i64 %38
   %40 = load ptr, ptr %39, align 8, !tbaa !8
   %41 = tail call noalias ptr @strdup(ptr noundef %40) #10
   store ptr %41, ptr @fname_g, align 8, !tbaa !8

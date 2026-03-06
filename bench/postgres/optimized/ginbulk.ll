@@ -3,11 +3,8 @@ source_filename = "bench/postgres/original/ginbulk.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.ItemPointerData = type { %struct.BlockIdData, i16 }
-%struct.BlockIdData = type { i16, i16 }
 %struct.GinEntryAccumulator = type { %struct.RBTNode, i64, i8, i16, i8, ptr, i32, i32 }
 %struct.RBTNode = type { i8, ptr, ptr, ptr }
-%struct.CompactAttribute = type { i32, i16, i8, i8, i8, i8, i8, i8, i8 }
 
 @.str = private unnamed_addr constant [25 x i8] c"posting list is too long\00", align 1
 @.str.1 = private unnamed_addr constant [31 x i8] c"Reduce \22maintenance_work_mem\22.\00", align 1
@@ -99,7 +96,7 @@ define internal void @ginCombineData(ptr noundef captures(none) %0, ptr noundef 
   br i1 %34, label %39, label %._crit_edge
 
 39:                                               ; preds = %31
-  %40 = getelementptr inbounds nuw %struct.ItemPointerData, ptr %36, i64 %38
+  %40 = getelementptr inbounds nuw [6 x i8], ptr %36, i64 %38
   %41 = getelementptr inbounds i8, ptr %40, i64 -6
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %43 = load ptr, ptr %42, align 8
@@ -135,7 +132,7 @@ define internal void @ginCombineData(ptr noundef captures(none) %0, ptr noundef 
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %31, %39, %63
-  %64 = getelementptr inbounds nuw %struct.ItemPointerData, ptr %36, i64 %38
+  %64 = getelementptr inbounds nuw [6 x i8], ptr %36, i64 %38
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %66 = load ptr, ptr %65, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %64, ptr noundef nonnull align 2 dereferenceable(6) %66, i64 6, i1 false)
@@ -174,7 +171,7 @@ define internal ptr @ginAllocEntryAccumulator(ptr noundef captures(none) %0) #0 
   %17 = phi ptr [ %.pre, %9 ], [ %3, %5 ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = zext nneg i32 %16 to i64
-  %20 = getelementptr inbounds nuw %struct.GinEntryAccumulator, ptr %17, i64 %19
+  %20 = getelementptr inbounds nuw [64 x i8], ptr %17, i64 %19
   %21 = add nuw nsw i32 %16, 1
   store i32 %21, ptr %18, align 8
   ret ptr %20
@@ -224,7 +221,7 @@ define dso_local void @ginInsertBAEntries(ptr noundef captures(none) %0, ptr nou
 
 37:                                               ; preds = %.lr.ph, %ginInsertBAEntry.exit
   %indvars.iv = phi i64 [ %34, %.lr.ph ], [ %indvars.iv.next, %ginInsertBAEntry.exit ]
-  %38 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %39 = load i64, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv
   %41 = load i8, ptr %40, align 1
@@ -249,7 +246,7 @@ define dso_local void @ginInsertBAEntries(ptr noundef captures(none) %0, ptr nou
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %51 = load ptr, ptr %50, align 8
   %52 = getelementptr i8, ptr %51, i64 8
-  %53 = getelementptr %struct.CompactAttribute, ptr %52, i64 %28
+  %53 = getelementptr [16 x i8], ptr %52, i64 %28
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 6
   %55 = load i8, ptr %54, align 2, !range !4, !noundef !5
   %56 = trunc nuw i8 %55 to i1

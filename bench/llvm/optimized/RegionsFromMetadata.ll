@@ -1139,7 +1139,7 @@ _ZNKSt8functionIFSt10unique_ptrIN4llvm9sandboxir10RegionPassESt14default_deleteI
   br i1 %.not.i.i.not.i.i, label %_ZN4llvm9sandboxir11PassManagerINS0_10RegionPassES2_E7addPassESt10unique_ptrIS2_St14default_deleteIS2_EE.exit, label %39, !prof !54
 
 39:                                               ; preds = %31
-  %40 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %.pre3.i.i, i64 %35
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %.pre3.i.i, i64 %35
   %41 = icmp uge ptr %9, %.pre3.i.i
   %42 = icmp ult ptr %9, %40
   %spec.select.i.i.i.i.i.i = and i1 %41, %42
@@ -1166,7 +1166,7 @@ _ZN4llvm9sandboxir11PassManagerINS0_10RegionPassES2_E7addPassESt10unique_ptrIS2_
   %.016.i.i.i.i = phi ptr [ %9, %31 ], [ %48, %43 ], [ %9, %.critedge.i.i.i.i ]
   %51 = load i32, ptr %33, align 8, !tbaa !20
   %52 = zext i32 %51 to i64
-  %53 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %50, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %52
   store i64 %49, ptr %53, align 8, !tbaa !36
   store ptr null, ptr %.016.i.i.i.i, align 8, !tbaa !36
   %54 = add i32 %51, 1

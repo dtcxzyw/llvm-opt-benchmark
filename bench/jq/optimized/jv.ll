@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.jv = type { i8, i8, i16, i32, %union.anon }
 %union.anon = type { ptr }
-%struct.object_slot = type { i32, i32, %struct.jv, %struct.jv }
 %struct.decContext = type { i32, i32, i32, i32, i32, i32, i8 }
 %struct.decNumberDoublePrecision = type { %struct.decNumber, [6 x i16] }
 %struct.decNumber = type { i32, i32, i8, [1 x i16] }
@@ -48,7 +47,7 @@ define dso_local noundef nonnull ptr @jv_kind_name(i32 noundef %0) local_unnamed
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.jv_kind_name, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.jv_kind_name, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -182,7 +181,7 @@ define dso_local void @jv_free(i64 %0, ptr %1) local_unnamed_addr #2 {
 
 12:                                               ; preds = %.lr.ph, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
-  %13 = getelementptr inbounds nuw %struct.jv, ptr %11, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 %indvars.iv
   %14 = load i64, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %16 = load ptr, ptr %15, align 8
@@ -219,7 +218,7 @@ define dso_local void @jv_free(i64 %0, ptr %1) local_unnamed_addr #2 {
 
 28:                                               ; preds = %43, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %43 ]
-  %29 = getelementptr inbounds nuw %struct.object_slot, ptr %27, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw [40 x i8], ptr %27, i64 %indvars.iv.i
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load i64, ptr %30, align 8
   %32 = and i64 %31, 15
@@ -804,7 +803,7 @@ define dso_local { i64, ptr } @jv_array_get(i64 %0, ptr %1, i32 noundef %2) loca
   %9 = lshr i32 %8, 16
   %10 = add nuw nsw i32 %2, %9
   %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr inbounds nuw %struct.jv, ptr %7, i64 %11
+  %12 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %11
   %13 = load i64, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %15 = load ptr, ptr %14, align 8
@@ -901,7 +900,7 @@ define dso_local { i64, ptr } @jv_array_set(i64 %0, ptr %1, i32 noundef %2, i64 
 
 33:                                               ; preds = %33, %.lr.ph64.i
   %indvars.iv70.i = phi i64 [ %26, %.lr.ph64.i ], [ %indvars.iv.next71.i, %33 ]
-  %34 = getelementptr inbounds %struct.jv, ptr %25, i64 %indvars.iv70.i
+  %34 = getelementptr inbounds [16 x i8], ptr %25, i64 %indvars.iv70.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull align 8 dereferenceable(16) @JV_NULL, i64 16, i1 false), !tbaa.struct !36
   %indvars.iv.next71.i = add nsw i64 %indvars.iv70.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next71.i to i32
@@ -930,7 +929,7 @@ define dso_local { i64, ptr } @jv_array_set(i64 %0, ptr %1, i32 noundef %2, i64 
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %48 = lshr i64 %0, 16
   %49 = and i64 %48, 65535
-  %50 = getelementptr inbounds nuw %struct.jv, ptr %47, i64 %49
+  %50 = getelementptr inbounds nuw [16 x i8], ptr %47, i64 %49
   %51 = ashr i64 %0, 32
   %smax = tail call i64 @llvm.smax.i64(i64 %51, i64 1)
   br label %56
@@ -949,8 +948,8 @@ define dso_local { i64, ptr } @jv_array_set(i64 %0, ptr %1, i32 noundef %2, i64 
 
 56:                                               ; preds = %jv_copy.exit.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %jv_copy.exit.i ]
-  %57 = getelementptr inbounds nuw %struct.jv, ptr %46, i64 %indvars.iv.i
-  %58 = getelementptr inbounds nuw %struct.jv, ptr %50, i64 %indvars.iv.i
+  %57 = getelementptr inbounds nuw [16 x i8], ptr %46, i64 %indvars.iv.i
+  %58 = getelementptr inbounds nuw [16 x i8], ptr %50, i64 %indvars.iv.i
   %59 = load i64, ptr %58, align 8
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %61 = load ptr, ptr %60, align 8
@@ -974,7 +973,7 @@ jv_copy.exit.i:                                   ; preds = %63, %56
 
 66:                                               ; preds = %66, %.lr.ph60.i
   %indvars.iv67.i = phi i64 [ %55, %.lr.ph60.i ], [ %indvars.iv.next68.i, %66 ]
-  %67 = getelementptr inbounds nuw %struct.jv, ptr %54, i64 %indvars.iv67.i
+  %67 = getelementptr inbounds nuw [16 x i8], ptr %54, i64 %indvars.iv67.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %67, ptr noundef nonnull align 8 dereferenceable(16) @JV_NULL, i64 16, i1 false), !tbaa.struct !36
   %indvars.iv.next68.i = add nuw nsw i64 %indvars.iv67.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next68.i, %wide.trip.count.i
@@ -1004,7 +1003,7 @@ jv_copy.exit.i:                                   ; preds = %63, %56
 
 74:                                               ; preds = %74, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %74 ]
-  %75 = getelementptr inbounds nuw %struct.jv, ptr %73, i64 %indvars.iv.i.i
+  %75 = getelementptr inbounds nuw [16 x i8], ptr %73, i64 %indvars.iv.i.i
   %76 = load i64, ptr %75, align 8
   %77 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %78 = load ptr, ptr %77, align 8
@@ -1024,7 +1023,7 @@ jvp_array_write.exit:                             ; preds = %._crit_edge.i, %._c
   %.sink81.i = phi i32 [ %17, %._crit_edge65.i ], [ %.0103, %._crit_edge.i.i ], [ %.0103, %._crit_edge.i ]
   %82 = getelementptr inbounds nuw i8, ptr %.sroa.13.0, i64 16
   %83 = zext nneg i32 %.sink81.i to i64
-  %84 = getelementptr inbounds nuw %struct.jv, ptr %82, i64 %83
+  %84 = getelementptr inbounds nuw [16 x i8], ptr %82, i64 %83
   %85 = load i64, ptr %84, align 8
   %86 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %87 = load ptr, ptr %86, align 8
@@ -1091,14 +1090,14 @@ jv_copy.exit28.us.us.preheader:                   ; preds = %.preheader.us
   %6 = lshr i64 %2, 16
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = and i64 %6, 65535
-  %invariant.gep69 = getelementptr inbounds nuw %struct.jv, ptr %7, i64 %8
+  %invariant.gep69 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %8
   br label %9
 
 9:                                                ; preds = %jv_array_append.exit.us.us, %jv_copy.exit28.us.us.preheader
   %indvars.iv56 = phi i64 [ 0, %jv_copy.exit28.us.us.preheader ], [ %indvars.iv.next57, %jv_array_append.exit.us.us ]
   %.sroa.419.141.us.us = phi ptr [ %1, %jv_copy.exit28.us.us.preheader ], [ %24, %jv_array_append.exit.us.us ]
   %.sroa.018.140.us.us = phi i64 [ %0, %jv_copy.exit28.us.us.preheader ], [ %23, %jv_array_append.exit.us.us ]
-  %gep70 = getelementptr inbounds nuw %struct.jv, ptr %invariant.gep69, i64 %indvars.iv56
+  %gep70 = getelementptr inbounds nuw [16 x i8], ptr %invariant.gep69, i64 %indvars.iv56
   %10 = load i64, ptr %gep70, align 8
   %11 = getelementptr inbounds nuw i8, ptr %gep70, i64 8
   %12 = load ptr, ptr %11, align 8
@@ -1149,7 +1148,7 @@ jv_copy.exit28.preheader:                         ; preds = %.preheader
   %27 = lshr i64 %2, 16
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %29 = and i64 %27, 65535
-  %invariant.gep = getelementptr inbounds nuw %struct.jv, ptr %28, i64 %29
+  %invariant.gep = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %29
   br label %30
 
 .split.us:                                        ; preds = %jv_array_append.exit, %jv_array_append.exit.us.us, %.preheader, %.preheader.us
@@ -1167,7 +1166,7 @@ jv_copy.exit28.preheader:                         ; preds = %.preheader
   %31 = load i32, ptr %3, align 4, !tbaa !9
   %32 = add nsw i32 %31, 1
   store i32 %32, ptr %3, align 4, !tbaa !9
-  %gep = getelementptr inbounds nuw %struct.jv, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [16 x i8], ptr %invariant.gep, i64 %indvars.iv
   %33 = load i64, ptr %gep, align 8
   %34 = getelementptr inbounds nuw i8, ptr %gep, i64 8
   %35 = load ptr, ptr %34, align 8
@@ -1278,7 +1277,7 @@ jv_copy.exit.us.i:                                ; preds = %.lr.ph.i, %jv_array
 39:                                               ; preds = %jv_copy.exit.us.i
   %40 = add nuw nsw i32 %.083.us.i, %23
   %41 = zext nneg i32 %40 to i64
-  %42 = getelementptr inbounds nuw %struct.jv, ptr %36, i64 %41
+  %42 = getelementptr inbounds nuw [16 x i8], ptr %36, i64 %41
   %43 = load i64, ptr %42, align 8
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %45 = load ptr, ptr %44, align 8
@@ -1338,7 +1337,7 @@ jv_copy.exit.i:                                   ; preds = %.lr.ph.i, %jv_array
 61:                                               ; preds = %jv_copy.exit.i
   %62 = add nuw nsw i32 %.083.i, %23
   %63 = zext nneg i32 %62 to i64
-  %64 = getelementptr inbounds nuw %struct.jv, ptr %36, i64 %63
+  %64 = getelementptr inbounds nuw [16 x i8], ptr %36, i64 %63
   %65 = load i64, ptr %64, align 8
   %66 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %67 = load ptr, ptr %66, align 8
@@ -1430,8 +1429,8 @@ jv_copy.exit:                                     ; preds = %4, %9
   %18 = and i64 %15, 65535
   %19 = and i64 %17, 65535
   %.not5186 = icmp sgt i32 %.sroa.1.0.extract.trunc.i.i58, 0
-  %invariant.gep = getelementptr inbounds nuw %struct.jv, ptr %14, i64 %18
-  %invariant.gep105 = getelementptr inbounds nuw %struct.jv, ptr %16, i64 %19
+  %invariant.gep = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %18
+  %invariant.gep105 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %19
   br label %20
 
 ._crit_edge:                                      ; preds = %.loopexit.thread, %jv_copy.exit
@@ -1479,7 +1478,7 @@ jv_copy.exit56:                                   ; preds = %20, %21
   br label %jv_copy.exit62
 
 jv_copy.exit62:                                   ; preds = %26, %.lr.ph
-  %gep = getelementptr inbounds nuw %struct.jv, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [16 x i8], ptr %invariant.gep, i64 %indvars.iv
   %29 = load i64, ptr %gep, align 8
   %30 = getelementptr inbounds nuw i8, ptr %gep, i64 8
   %31 = load ptr, ptr %30, align 8
@@ -1510,7 +1509,7 @@ jv_copy.exit68:                                   ; preds = %36, %37
   br i1 %.not, label %42, label %jv_array_get.exit77
 
 42:                                               ; preds = %jv_copy.exit68
-  %gep106 = getelementptr inbounds nuw %struct.jv, ptr %invariant.gep105, i64 %40
+  %gep106 = getelementptr inbounds nuw [16 x i8], ptr %invariant.gep105, i64 %40
   %43 = load i64, ptr %gep106, align 8
   %44 = getelementptr inbounds nuw i8, ptr %gep106, i64 8
   %45 = load ptr, ptr %44, align 8
@@ -1632,13 +1631,13 @@ define dso_local range(i32 0, 2) i32 @jv_equal(i64 %0, ptr %1, i64 %2, ptr %3) l
   %28 = lshr i64 %2, 16
   %29 = and i64 %26, 65535
   %30 = and i64 %28, 65535
-  %invariant.gep = getelementptr inbounds nuw %struct.jv, ptr %25, i64 %29
-  %invariant.gep259 = getelementptr inbounds nuw %struct.jv, ptr %27, i64 %30
+  %invariant.gep = getelementptr inbounds nuw [16 x i8], ptr %25, i64 %29
+  %invariant.gep259 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %30
   br label %31
 
 31:                                               ; preds = %jv_copy.exit, %.lr.ph243
   %indvars.iv251 = phi i64 [ 0, %.lr.ph243 ], [ %indvars.iv.next252, %jv_copy.exit ]
-  %gep = getelementptr inbounds nuw %struct.jv, ptr %invariant.gep, i64 %indvars.iv251
+  %gep = getelementptr inbounds nuw [16 x i8], ptr %invariant.gep, i64 %indvars.iv251
   %32 = load i64, ptr %gep, align 8
   %33 = getelementptr inbounds nuw i8, ptr %gep, i64 8
   %34 = load ptr, ptr %33, align 8
@@ -1653,7 +1652,7 @@ define dso_local range(i32 0, 2) i32 @jv_equal(i64 %0, ptr %1, i64 %2, ptr %3) l
   br label %jv_copy.exit202
 
 jv_copy.exit202:                                  ; preds = %31, %36
-  %gep260 = getelementptr inbounds nuw %struct.jv, ptr %invariant.gep259, i64 %indvars.iv251
+  %gep260 = getelementptr inbounds nuw [16 x i8], ptr %invariant.gep259, i64 %indvars.iv251
   %39 = load i64, ptr %gep260, align 8
   %40 = getelementptr inbounds nuw i8, ptr %gep260, i64 8
   %41 = load ptr, ptr %40, align 8
@@ -1702,7 +1701,7 @@ jv_copy.exit:                                     ; preds = %jv_copy.exit202, %4
 .lr.ph.i:                                         ; preds = %57, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %57 ]
   %.09.i = phi i32 [ %spec.select.i226, %.lr.ph.i ], [ 0, %57 ]
-  %59 = getelementptr inbounds nuw %struct.object_slot, ptr %3, i64 %indvars.iv.i
+  %59 = getelementptr inbounds nuw [40 x i8], ptr %3, i64 %indvars.iv.i
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %61 = load i64, ptr %60, align 8
   %62 = and i64 %61, 15
@@ -1724,7 +1723,7 @@ jvp_object_length.exit:                           ; preds = %.lr.ph.i, %57
 .lr.ph:                                           ; preds = %jvp_object_length.exit, %95
   %indvars.iv = phi i64 [ %indvars.iv.next, %95 ], [ 0, %jvp_object_length.exit ]
   %.022.i234 = phi i32 [ %.224.i, %95 ], [ 0, %jvp_object_length.exit ]
-  %65 = getelementptr inbounds nuw %struct.object_slot, ptr %64, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw [40 x i8], ptr %64, i64 %indvars.iv
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %67 = load i64, ptr %66, align 8
   %68 = and i64 %67, 15
@@ -2494,7 +2493,7 @@ jv_copy.exit:                                     ; preds = %2, %5
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = lshr i64 %0, 16
   %16 = and i64 %15, 65535
-  %invariant.gep = getelementptr inbounds nuw %struct.jv, ptr %14, i64 %16
+  %invariant.gep = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %16
   br label %17
 
 17:                                               ; preds = %.lr.ph, %jv_string_append_codepoint.exit
@@ -2509,7 +2508,7 @@ jv_copy.exit:                                     ; preds = %2, %5
   br label %jv_copy.exit34
 
 jv_copy.exit34:                                   ; preds = %17, %18
-  %gep = getelementptr inbounds nuw %struct.jv, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [16 x i8], ptr %invariant.gep, i64 %indvars.iv
   %21 = load i64, ptr %gep, align 8
   %22 = getelementptr inbounds nuw i8, ptr %gep, i64 8
   %23 = load ptr, ptr %22, align 8
@@ -2671,7 +2670,7 @@ define dso_local range(i64 0, 4294967296) i64 @jv_string_hash(i64 %0, ptr %1) lo
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ %17, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.04953.i = phi i32 [ 1126864963, %.lr.ph.preheader.i ], [ %27, %.lr.ph.i ]
-  %19 = getelementptr inbounds i32, ptr %15, i64 %indvars.iv.i
+  %19 = getelementptr inbounds [4 x i8], ptr %15, i64 %indvars.iv.i
   %20 = load i32, ptr %19, align 4, !tbaa !4
   %21 = mul i32 %20, -862048943
   %22 = tail call i32 @llvm.fshl.i32(i32 %21, i32 %21, i32 15)
@@ -3243,7 +3242,7 @@ define dso_local { i64, ptr } @jv_object() local_unnamed_addr #2 {
 
 3:                                                ; preds = %3, %0
   %indvars.iv.i = phi i64 [ 0, %0 ], [ %indvars.iv.next.i, %3 ]
-  %4 = getelementptr inbounds nuw %struct.object_slot, ptr %2, i64 %indvars.iv.i
+  %4 = getelementptr inbounds nuw [40 x i8], ptr %2, i64 %indvars.iv.i
   %5 = trunc i64 %indvars.iv.i to i32
   %6 = add i32 %5, -1
   store i32 %6, ptr %4, align 8, !tbaa !58
@@ -3363,7 +3362,7 @@ define dso_local { i64, ptr } @jv_object_set(i64 %0, ptr %1, i64 %2, ptr %3, i64
 
 32:                                               ; preds = %32, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %32 ]
-  %33 = getelementptr inbounds nuw %struct.object_slot, ptr %31, i64 %indvars.iv.i.i.i
+  %33 = getelementptr inbounds nuw [40 x i8], ptr %31, i64 %indvars.iv.i.i.i
   %34 = trunc i64 %indvars.iv.i.i.i to i32
   %35 = add i32 %34, -1
   store i32 %35, ptr %33, align 8, !tbaa !58
@@ -3388,7 +3387,7 @@ jvp_object_new.exit.i.i:                          ; preds = %20
 .lr.ph.i.i:                                       ; preds = %32
   %40 = getelementptr inbounds nuw i8, ptr %29, i64 4
   store i32 0, ptr %40, align 4, !tbaa !4
-  %41 = getelementptr %struct.object_slot, ptr %31, i64 %22
+  %41 = getelementptr [40 x i8], ptr %31, i64 %22
   %42 = zext nneg i32 %25 to i64
   %43 = shl nuw nsw i64 %42, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %41, i8 -1, i64 %43, i1 false), !tbaa !4
@@ -3399,7 +3398,7 @@ jvp_object_new.exit.i.i:                          ; preds = %20
 
 45:                                               ; preds = %60, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %60 ]
-  %46 = getelementptr inbounds nuw %struct.object_slot, ptr %44, i64 %indvars.iv.i.i
+  %46 = getelementptr inbounds nuw [40 x i8], ptr %44, i64 %indvars.iv.i.i
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %48 = load i64, ptr %47, align 8
   %49 = and i64 %48, 15
@@ -3492,7 +3491,7 @@ define dso_local { i64, ptr } @jv_object_delete(i64 %0, ptr %1, i64 %2, ptr %3) 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ %23, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %.04953.i.i = phi i32 [ 1126864963, %.lr.ph.preheader.i.i ], [ %33, %.lr.ph.i.i ]
-  %25 = getelementptr inbounds i32, ptr %21, i64 %indvars.iv.i.i
+  %25 = getelementptr inbounds [4 x i8], ptr %21, i64 %indvars.iv.i.i
   %26 = load i32, ptr %25, align 4, !tbaa !4
   %27 = mul i32 %26, -862048943
   %28 = tail call i32 @llvm.fshl.i32(i32 %27, i32 %27, i32 15)
@@ -3570,7 +3569,7 @@ jvp_string_hash.exit.i:                           ; preds = %54, %12
   %.pn.in.i = phi i32 [ %66, %.lr.ph.i ], [ %.025.val.i, %jvp_string_equal.exit.thread.i ]
   %.02747.i = phi ptr [ %8, %.lr.ph.i ], [ %.02548.i, %jvp_string_equal.exit.thread.i ]
   %.pn.i = sext i32 %.pn.in.i to i64
-  %.02548.i = getelementptr inbounds %struct.object_slot, ptr %67, i64 %.pn.i
+  %.02548.i = getelementptr inbounds [40 x i8], ptr %67, i64 %.pn.i
   %72 = getelementptr inbounds nuw i8, ptr %.02548.i, i64 4
   %73 = load i32, ptr %72, align 4, !tbaa !61
   %74 = icmp eq i32 %.047.i.i, %73
@@ -3636,7 +3635,7 @@ define dso_local i32 @jv_object_length(i64 %0, ptr %1) local_unnamed_addr #2 {
 .lr.ph.i:                                         ; preds = %2, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %2 ]
   %.09.i = phi i32 [ %spec.select.i, %.lr.ph.i ], [ 0, %2 ]
-  %4 = getelementptr inbounds nuw %struct.object_slot, ptr %1, i64 %indvars.iv.i
+  %4 = getelementptr inbounds nuw [40 x i8], ptr %1, i64 %indvars.iv.i
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 15
@@ -3667,7 +3666,7 @@ define dso_local { i64, ptr } @jv_object_merge(i64 %0, ptr %1, i64 %2, ptr %3) l
 
 8:                                                ; preds = %7
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
-  %9 = getelementptr %struct.object_slot, ptr %3, i64 %indvars.iv.next.i.i
+  %9 = getelementptr [40 x i8], ptr %3, i64 %indvars.iv.next.i.i
   %10 = getelementptr i8, ptr %9, i64 16
   %11 = load i64, ptr %10, align 8
   %12 = and i64 %11, 15
@@ -3693,7 +3692,7 @@ jv_object_iter.exit:                              ; preds = %8
   %.144 = phi i64 [ %indvars.iv.next.i, %jv_object_iter_next.exit ], [ %indvars.iv.next.i.i, %jv_object_iter.exit ]
   %sext = shl i64 %.144, 32
   %15 = ashr exact i64 %sext, 32
-  %16 = getelementptr inbounds %struct.object_slot, ptr %14, i64 %15
+  %16 = getelementptr inbounds [40 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %.sroa.0.0.copyload.i = load i64, ptr %17, align 8
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -3736,7 +3735,7 @@ jv_object_iter_key.exit:                          ; preds = %.lr.ph, %19
   br i1 %.not.i, label %35, label %.loopexit
 
 35:                                               ; preds = %34
-  %36 = getelementptr %struct.object_slot, ptr %3, i64 %indvars.iv.next.i
+  %36 = getelementptr [40 x i8], ptr %3, i64 %indvars.iv.next.i
   %37 = getelementptr i8, ptr %36, i64 16
   %38 = load i64, ptr %37, align 8
   %39 = and i64 %38, 15
@@ -3762,7 +3761,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @jv_object_iter(i64 %0,
 
 6:                                                ; preds = %5
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
-  %7 = getelementptr %struct.object_slot, ptr %1, i64 %indvars.iv.next.i
+  %7 = getelementptr [40 x i8], ptr %1, i64 %indvars.iv.next.i
   %8 = getelementptr i8, ptr %7, i64 16
   %9 = load i64, ptr %8, align 8
   %10 = and i64 %9, 15
@@ -3789,7 +3788,7 @@ define dso_local range(i32 0, 2) i32 @jv_object_iter_valid(i64 %0, ptr readnone 
 define dso_local { i64, ptr } @jv_object_iter_key(i64 %0, ptr readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #14 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = sext i32 %2 to i64
-  %6 = getelementptr inbounds %struct.object_slot, ptr %4, i64 %5
+  %6 = getelementptr inbounds [40 x i8], ptr %4, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.0.0.copyload = load i64, ptr %7, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -3814,7 +3813,7 @@ jv_copy.exit:                                     ; preds = %3, %9
 define dso_local { i64, ptr } @jv_object_iter_value(i64 %0, ptr readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #14 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = sext i32 %2 to i64
-  %6 = getelementptr inbounds %struct.object_slot, ptr %4, i64 %5
+  %6 = getelementptr inbounds [40 x i8], ptr %4, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 32
@@ -3848,7 +3847,7 @@ define dso_local range(i32 -2147483647, 2147483647) i32 @jv_object_iter_next(i64
   br i1 %.not, label %7, label %.split.loop.exit10
 
 7:                                                ; preds = %6
-  %8 = getelementptr %struct.object_slot, ptr %1, i64 %indvars.iv.next
+  %8 = getelementptr [40 x i8], ptr %1, i64 %indvars.iv.next
   %9 = getelementptr i8, ptr %8, i64 16
   %10 = load i64, ptr %9, align 8
   %11 = and i64 %10, 15
@@ -3878,7 +3877,7 @@ define dso_local { i64, ptr } @jv_object_merge_recursive(i64 %0, ptr %1, i64 %2,
 
 8:                                                ; preds = %7
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
-  %9 = getelementptr %struct.object_slot, ptr %3, i64 %indvars.iv.next.i.i
+  %9 = getelementptr [40 x i8], ptr %3, i64 %indvars.iv.next.i.i
   %10 = getelementptr i8, ptr %9, i64 16
   %11 = load i64, ptr %10, align 8
   %12 = and i64 %11, 15
@@ -3904,7 +3903,7 @@ jv_object_iter.exit:                              ; preds = %8
   %.1114 = phi i64 [ %indvars.iv.next.i, %jv_object_iter_next.exit ], [ %indvars.iv.next.i.i, %jv_object_iter.exit ]
   %sext = shl i64 %.1114, 32
   %15 = ashr exact i64 %sext, 32
-  %16 = getelementptr inbounds %struct.object_slot, ptr %14, i64 %15
+  %16 = getelementptr inbounds [40 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %.sroa.0.0.copyload.i = load i64, ptr %17, align 8
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -3994,7 +3993,7 @@ jv_copy.exit66:                                   ; preds = %jv_copy.exit, %35
 .lr.ph.i.i80:                                     ; preds = %.lr.ph.i.i80, %.lr.ph.preheader.i.i79
   %indvars.iv.i.i81 = phi i64 [ %52, %.lr.ph.preheader.i.i79 ], [ %indvars.iv.next.i.i83, %.lr.ph.i.i80 ]
   %.04953.i.i82 = phi i32 [ 1126864963, %.lr.ph.preheader.i.i79 ], [ %62, %.lr.ph.i.i80 ]
-  %54 = getelementptr inbounds i32, ptr %50, i64 %indvars.iv.i.i81
+  %54 = getelementptr inbounds [4 x i8], ptr %50, i64 %indvars.iv.i.i81
   %55 = load i32, ptr %54, align 4, !tbaa !4
   %56 = mul i32 %55, -862048943
   %57 = tail call i32 @llvm.fshl.i32(i32 %56, i32 %56, i32 15)
@@ -4063,10 +4062,10 @@ jvp_string_hash.exit.i:                           ; preds = %41, %83
   %98 = add nsw i32 %97, -1
   %99 = getelementptr inbounds nuw i8, ptr %.sroa.747.1116, i64 8
   %100 = ashr i64 %.sroa.044.1115, 32
-  %101 = getelementptr inbounds %struct.object_slot, ptr %99, i64 %100
+  %101 = getelementptr inbounds [40 x i8], ptr %99, i64 %100
   %102 = and i32 %96, %98
   %103 = zext i32 %102 to i64
-  %104 = getelementptr inbounds nuw i32, ptr %101, i64 %103
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %101, i64 %103
   %105 = load i32, ptr %104, align 4, !tbaa !4
   %106 = icmp eq i32 %105, -1
   %107 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.copyload.i, i64 16
@@ -4080,7 +4079,7 @@ jvp_string_hash.exit.i:                           ; preds = %41, %83
 .lr.ph.i:                                         ; preds = %jvp_string_equal.exit.thread.i, %.lr.ph.preheader.i
   %.pn.in.i = phi i32 [ %.014.val.i, %jvp_string_equal.exit.thread.i ], [ %105, %.lr.ph.preheader.i ]
   %.pn.i = sext i32 %.pn.in.i to i64
-  %.01425.i = getelementptr inbounds %struct.object_slot, ptr %99, i64 %.pn.i
+  %.01425.i = getelementptr inbounds [40 x i8], ptr %99, i64 %.pn.i
   %110 = getelementptr inbounds nuw i8, ptr %.01425.i, i64 4
   %111 = load i32, ptr %110, align 4, !tbaa !61
   %112 = icmp eq i32 %111, %96
@@ -4158,7 +4157,7 @@ jv_object_get.exit:                               ; preds = %jvp_string_equal.ex
   br i1 %.not.i70, label %141, label %.loopexit
 
 141:                                              ; preds = %140
-  %142 = getelementptr %struct.object_slot, ptr %3, i64 %indvars.iv.next.i
+  %142 = getelementptr [40 x i8], ptr %3, i64 %indvars.iv.next.i
   %143 = getelementptr i8, ptr %142, i64 16
   %144 = load i64, ptr %143, align 8
   %145 = and i64 %144, 15
@@ -4231,7 +4230,7 @@ define dso_local range(i32 0, 2) i32 @jv_contains(i64 %0, ptr %1, i64 %2, ptr %3
 
 12:                                               ; preds = %11
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
-  %13 = getelementptr %struct.object_slot, ptr %3, i64 %indvars.iv.next.i.i
+  %13 = getelementptr [40 x i8], ptr %3, i64 %indvars.iv.next.i.i
   %14 = getelementptr i8, ptr %13, i64 16
   %15 = load i64, ptr %14, align 8
   %16 = and i64 %15, 15
@@ -4253,14 +4252,14 @@ jv_object_iter.exit:                              ; preds = %11, %.split.loop.ex
   %22 = add nsw i32 %21, -1
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = ashr i64 %.fr262, 32
-  %25 = getelementptr inbounds %struct.object_slot, ptr %23, i64 %24
+  %25 = getelementptr inbounds [40 x i8], ptr %23, i64 %24
   %.not203253 = icmp eq i32 %.0.i.i, -2
   br i1 %.not203253, label %jvp_object_contains.exit, label %.lr.ph255
 
 .lr.ph255:                                        ; preds = %jv_object_iter.exit, %jv_object_iter_next.exit
   %.129.i254 = phi i32 [ %137, %jv_object_iter_next.exit ], [ %.0.i.i, %jv_object_iter.exit ]
   %26 = sext i32 %.129.i254 to i64
-  %27 = getelementptr inbounds %struct.object_slot, ptr %19, i64 %26
+  %27 = getelementptr inbounds [40 x i8], ptr %19, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %.sroa.0.0.copyload.i = load i64, ptr %28, align 8
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %27, i64 16
@@ -4339,7 +4338,7 @@ jv_copy.exit122:                                  ; preds = %41, %42
 .lr.ph.i.i170:                                    ; preds = %.lr.ph.i.i170, %.lr.ph.preheader.i.i169
   %indvars.iv.i.i171 = phi i64 [ %59, %.lr.ph.preheader.i.i169 ], [ %indvars.iv.next.i.i173, %.lr.ph.i.i170 ]
   %.04953.i.i172 = phi i32 [ 1126864963, %.lr.ph.preheader.i.i169 ], [ %69, %.lr.ph.i.i170 ]
-  %61 = getelementptr inbounds i32, ptr %57, i64 %indvars.iv.i.i171
+  %61 = getelementptr inbounds [4 x i8], ptr %57, i64 %indvars.iv.i.i171
   %62 = load i32, ptr %61, align 4, !tbaa !4
   %63 = mul i32 %62, -862048943
   %64 = tail call i32 @llvm.fshl.i32(i32 %63, i32 %63, i32 15)
@@ -4404,7 +4403,7 @@ jvp_string_hash.exit.i:                           ; preds = %48, %90
   %103 = phi i32 [ %50, %48 ], [ %99, %90 ]
   %104 = and i32 %103, %22
   %105 = zext i32 %104 to i64
-  %106 = getelementptr inbounds nuw i32, ptr %25, i64 %105
+  %106 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %105
   %107 = load i32, ptr %106, align 4, !tbaa !4
   %108 = icmp eq i32 %107, -1
   %109 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.copyload.i, i64 16
@@ -4418,7 +4417,7 @@ jvp_string_hash.exit.i:                           ; preds = %48, %90
 .lr.ph.i:                                         ; preds = %jvp_string_equal.exit.thread.i, %.lr.ph.preheader.i
   %.pn.in.i = phi i32 [ %.014.val.i, %jvp_string_equal.exit.thread.i ], [ %107, %.lr.ph.preheader.i ]
   %.pn.i = sext i32 %.pn.in.i to i64
-  %.01425.i = getelementptr inbounds %struct.object_slot, ptr %23, i64 %.pn.i
+  %.01425.i = getelementptr inbounds [40 x i8], ptr %23, i64 %.pn.i
   %112 = getelementptr inbounds nuw i8, ptr %.01425.i, i64 4
   %113 = load i32, ptr %112, align 4, !tbaa !61
   %114 = icmp eq i32 %113, %103
@@ -4475,7 +4474,7 @@ jv_object_get.exit:                               ; preds = %jvp_string_equal.ex
   br i1 %.not.i115, label %131, label %jvp_object_contains.exit
 
 131:                                              ; preds = %.preheader
-  %132 = getelementptr %struct.object_slot, ptr %3, i64 %indvars.iv.next.i
+  %132 = getelementptr [40 x i8], ptr %3, i64 %indvars.iv.next.i
   %133 = getelementptr i8, ptr %132, i64 16
   %134 = load i64, ptr %133, align 8
   %135 = and i64 %134, 15
@@ -4519,11 +4518,11 @@ jv_copy.exit160:                                  ; preds = %138, %140
 .lr.ph229.us.preheader:                           ; preds = %.preheader205.us
   %148 = zext nneg i32 %147 to i64
   %149 = zext nneg i32 %144 to i64
-  %invariant.gep332 = getelementptr inbounds nuw %struct.jv, ptr %143, i64 %149
+  %invariant.gep332 = getelementptr inbounds nuw [16 x i8], ptr %143, i64 %149
   %.not50.i214.us.us238.us = icmp sgt i32 %.sroa.1.0.extract.trunc.i.i, 0
-  %invariant.gep328 = getelementptr inbounds nuw %struct.jv, ptr %146, i64 %148
+  %invariant.gep328 = getelementptr inbounds nuw [16 x i8], ptr %146, i64 %148
   %.not50.i214.us.us.us.us = icmp sgt i32 %.sroa.1.0.extract.trunc.i.i, 0
-  %invariant.gep330 = getelementptr inbounds nuw %struct.jv, ptr %146, i64 %148
+  %invariant.gep330 = getelementptr inbounds nuw [16 x i8], ptr %146, i64 %148
   br label %.lr.ph229.us
 
 .lr.ph229.us:                                     ; preds = %.lr.ph229.us.preheader, %.loopexit
@@ -4537,7 +4536,7 @@ jv_copy.exit160:                                  ; preds = %138, %140
   br label %jv_copy.exit154.us.us
 
 jv_copy.exit154.us.us:                            ; preds = %.lr.ph229.us, %150
-  %gep333 = getelementptr inbounds nuw %struct.jv, ptr %invariant.gep332, i64 %indvars.iv288
+  %gep333 = getelementptr inbounds nuw [16 x i8], ptr %invariant.gep332, i64 %indvars.iv288
   %153 = load i64, ptr %gep333, align 8
   %.sroa.07.0.i146.us.us.fr = freeze i64 %153
   %154 = getelementptr inbounds nuw i8, ptr %gep333, i64 8
@@ -4567,7 +4566,7 @@ jv_copy.exit141.us.us:                            ; preds = %157, %jv_copy.exit1
 
 jv_copy.exit137.us.us.us.us.preheader:            ; preds = %jv_copy.exit141.split.us.split.us244.us, %171
   %indvars.iv278 = phi i64 [ %indvars.iv.next279, %171 ], [ 0, %jv_copy.exit141.split.us.split.us244.us ]
-  %gep329 = getelementptr inbounds nuw %struct.jv, ptr %invariant.gep328, i64 %indvars.iv278
+  %gep329 = getelementptr inbounds nuw [16 x i8], ptr %invariant.gep328, i64 %indvars.iv278
   %161 = load i64, ptr %gep329, align 8
   %162 = getelementptr inbounds nuw i8, ptr %gep329, i64 8
   %163 = load ptr, ptr %162, align 8
@@ -4607,7 +4606,7 @@ jv_copy.exit141.split.us.split.us244.us:          ; preds = %jv_copy.exit141.us.
 
 jv_copy.exit137.us.us.us.us.us.us.preheader:      ; preds = %.preheader204.us.us.us.us, %180
   %indvars.iv283 = phi i64 [ %indvars.iv.next284, %180 ], [ 0, %.preheader204.us.us.us.us ]
-  %gep331 = getelementptr inbounds nuw %struct.jv, ptr %invariant.gep330, i64 %indvars.iv283
+  %gep331 = getelementptr inbounds nuw [16 x i8], ptr %invariant.gep330, i64 %indvars.iv283
   %172 = load i64, ptr %gep331, align 8
   %173 = getelementptr inbounds nuw i8, ptr %gep331, i64 8
   %174 = load ptr, ptr %173, align 8
@@ -4638,9 +4637,9 @@ jv_copy.exit130.us.us.us.us.us.us:                ; preds = %176, %jv_copy.exit1
 .lr.ph229.preheader:                              ; preds = %.preheader205
   %181 = zext nneg i32 %147 to i64
   %182 = zext nneg i32 %144 to i64
-  %invariant.gep326 = getelementptr inbounds nuw %struct.jv, ptr %143, i64 %182
+  %invariant.gep326 = getelementptr inbounds nuw [16 x i8], ptr %143, i64 %182
   %.not50.i214 = icmp sgt i32 %.sroa.1.0.extract.trunc.i.i, 0
-  %invariant.gep = getelementptr inbounds nuw %struct.jv, ptr %146, i64 %181
+  %invariant.gep = getelementptr inbounds nuw [16 x i8], ptr %146, i64 %181
   br label %.lr.ph229
 
 .lr.ph229:                                        ; preds = %.lr.ph229.preheader, %211
@@ -4654,7 +4653,7 @@ jv_copy.exit130.us.us.us.us.us.us:                ; preds = %176, %jv_copy.exit1
   br label %jv_copy.exit154
 
 jv_copy.exit154:                                  ; preds = %183, %.lr.ph229
-  %gep327 = getelementptr inbounds nuw %struct.jv, ptr %invariant.gep326, i64 %indvars.iv273
+  %gep327 = getelementptr inbounds nuw [16 x i8], ptr %invariant.gep326, i64 %indvars.iv273
   %186 = load i64, ptr %gep327, align 8
   %187 = getelementptr inbounds nuw i8, ptr %gep327, i64 8
   %188 = load ptr, ptr %187, align 8
@@ -4683,7 +4682,7 @@ jv_copy.exit137.preheader:                        ; preds = %jv_copy.exit141, %2
   %196 = load i32, ptr %1, align 4, !tbaa !9
   %197 = add nsw i32 %196, 1
   store i32 %197, ptr %1, align 4, !tbaa !9
-  %gep = getelementptr inbounds nuw %struct.jv, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [16 x i8], ptr %invariant.gep, i64 %indvars.iv
   %198 = load i64, ptr %gep, align 8
   %199 = getelementptr inbounds nuw i8, ptr %gep, i64 8
   %200 = load ptr, ptr %199, align 8
@@ -4867,7 +4866,7 @@ define internal fastcc nonnull ptr @jvp_object_find_bucket(i64 %0, ptr readnone 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ %18, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.04953.i = phi i32 [ 1126864963, %.lr.ph.preheader.i ], [ %28, %.lr.ph.i ]
-  %20 = getelementptr inbounds i32, ptr %16, i64 %indvars.iv.i
+  %20 = getelementptr inbounds [4 x i8], ptr %16, i64 %indvars.iv.i
   %21 = load i32, ptr %20, align 4, !tbaa !4
   %22 = mul i32 %21, -862048943
   %23 = tail call i32 @llvm.fshl.i32(i32 %22, i32 %22, i32 15)
@@ -4935,10 +4934,10 @@ jvp_string_hash.exit:                             ; preds = %7, %49
   %62 = add nsw i32 %61, -1
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %64 = ashr i64 %0, 32
-  %65 = getelementptr inbounds %struct.object_slot, ptr %63, i64 %64
+  %65 = getelementptr inbounds [40 x i8], ptr %63, i64 %64
   %66 = and i32 %.047.i, %62
   %67 = zext i32 %66 to i64
-  %68 = getelementptr inbounds nuw i32, ptr %65, i64 %67
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %67
   ret ptr %68
 }
 
@@ -4983,7 +4982,7 @@ define internal fastcc ptr @jvp_object_find_slot(ptr readonly captures(ret: addr
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ %18, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.04953.i = phi i32 [ 1126864963, %.lr.ph.preheader.i ], [ %28, %.lr.ph.i ]
-  %20 = getelementptr inbounds i32, ptr %16, i64 %indvars.iv.i
+  %20 = getelementptr inbounds [4 x i8], ptr %16, i64 %indvars.iv.i
   %21 = load i32, ptr %20, align 4, !tbaa !4
   %22 = mul i32 %21, -862048943
   %23 = tail call i32 @llvm.fshl.i32(i32 %22, i32 %22, i32 15)
@@ -5060,7 +5059,7 @@ jvp_string_hash.exit:                             ; preds = %7, %49
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %jvp_string_equal.exit.thread
   %.pn.in = phi i32 [ %.014.val, %jvp_string_equal.exit.thread ], [ %61, %.lr.ph.preheader ]
   %.pn = sext i32 %.pn.in to i64
-  %.01425 = getelementptr inbounds %struct.object_slot, ptr %63, i64 %.pn
+  %.01425 = getelementptr inbounds [40 x i8], ptr %63, i64 %.pn
   %67 = getelementptr inbounds nuw i8, ptr %.01425, i64 4
   %68 = load i32, ptr %67, align 4, !tbaa !61
   %69 = icmp eq i32 %68, %.047.i
@@ -5118,7 +5117,7 @@ define internal fastcc { i64, ptr } @jvp_object_unshare(i64 %0, ptr %1) unnamed_
 
 14:                                               ; preds = %14, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %14 ]
-  %15 = getelementptr inbounds nuw %struct.object_slot, ptr %13, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw [40 x i8], ptr %13, i64 %indvars.iv.i
   %16 = trunc i64 %indvars.iv.i to i32
   %17 = add i32 %16, -1
   store i32 %17, ptr %15, align 8, !tbaa !58
@@ -5144,7 +5143,7 @@ jvp_object_new.exit:                              ; preds = %3
 .lr.ph:                                           ; preds = %14
   %25 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 0, ptr %25, align 4, !tbaa !4
-  %26 = getelementptr %struct.object_slot, ptr %13, i64 %4
+  %26 = getelementptr [40 x i8], ptr %13, i64 %4
   %27 = zext nneg i32 %7 to i64
   %28 = shl nuw nsw i64 %27, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %26, i8 -1, i64 %28, i1 false), !tbaa !4
@@ -5160,9 +5159,9 @@ jvp_object_new.exit:                              ; preds = %3
   %.sroa.0.0.insert.insert.i58.in = and i64 %0, -4294967296
   %.sroa.0.0.insert.insert.i58 = or disjoint i64 %.sroa.0.0.insert.insert.i58.in, 135
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %35 = getelementptr inbounds %struct.object_slot, ptr %34, i64 %4
+  %35 = getelementptr inbounds [40 x i8], ptr %34, i64 %4
   %36 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %37 = getelementptr inbounds %struct.object_slot, ptr %36, i64 %4
+  %37 = getelementptr inbounds [40 x i8], ptr %36, i64 %4
   %38 = shl nsw i64 %4, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %37, ptr nonnull align 4 %35, i64 %38, i1 false)
   %39 = load i32, ptr %1, align 4, !tbaa !9
@@ -5180,7 +5179,7 @@ jvp_object_new.exit:                              ; preds = %3
 
 .lr.ph.i40:                                       ; preds = %.preheader.i, %55
   %indvars.iv.i41 = phi i64 [ %indvars.iv.next.i42, %55 ], [ 0, %.preheader.i ]
-  %41 = getelementptr inbounds nuw %struct.object_slot, ptr %34, i64 %indvars.iv.i41
+  %41 = getelementptr inbounds nuw [40 x i8], ptr %34, i64 %indvars.iv.i41
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = load i64, ptr %42, align 8
   %44 = and i64 %43, 15
@@ -5215,8 +5214,8 @@ jvp_string_free.exit.i:                           ; preds = %50, %45
 
 56:                                               ; preds = %.lr.ph, %79
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %79 ]
-  %57 = getelementptr inbounds nuw %struct.object_slot, ptr %32, i64 %indvars.iv
-  %58 = getelementptr inbounds nuw %struct.object_slot, ptr %33, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [40 x i8], ptr %32, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [40 x i8], ptr %33, i64 %indvars.iv
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %58, ptr noundef nonnull align 8 dereferenceable(40) %57, i64 40, i1 false), !tbaa.struct !70
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %60 = load i64, ptr %59, align 8
@@ -5288,7 +5287,7 @@ define internal fastcc noundef ptr @jvp_object_add_slot(i64 %0, ptr captures(ret
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = sext i32 %7 to i64
-  %12 = getelementptr inbounds %struct.object_slot, ptr %10, i64 %11
+  %12 = getelementptr inbounds [40 x i8], ptr %10, i64 %11
   %13 = add nsw i32 %7, 1
   store i32 %13, ptr %6, align 4, !tbaa !4
   %14 = load i32, ptr %4, align 4, !tbaa !4
@@ -5333,7 +5332,7 @@ define internal fastcc noundef ptr @jvp_object_add_slot(i64 %0, ptr captures(ret
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ %29, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.04953.i = phi i32 [ 1126864963, %.lr.ph.preheader.i ], [ %39, %.lr.ph.i ]
-  %31 = getelementptr inbounds i32, ptr %27, i64 %indvars.iv.i
+  %31 = getelementptr inbounds [4 x i8], ptr %27, i64 %indvars.iv.i
   %32 = load i32, ptr %31, align 4, !tbaa !4
   %33 = mul i32 %32, -862048943
   %34 = tail call i32 @llvm.fshl.i32(i32 %33, i32 %33, i32 15)

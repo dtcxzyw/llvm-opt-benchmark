@@ -4664,7 +4664,7 @@ _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10Eval
 _ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10EvalString9TokenTypeEESaIS9_EE13_M_deallocateEPS9_m.exit: ; preds = %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10EvalString9TokenTypeEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit26, %78
   store ptr %22, ptr %0, align 8, !tbaa !89
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !71
-  %82 = getelementptr inbounds nuw %"struct.std::pair.31", ptr %22, i64 %16
+  %82 = getelementptr inbounds nuw [40 x i8], ptr %22, i64 %16
   store ptr %82, ptr %77, align 8, !tbaa !73
   ret void
 }

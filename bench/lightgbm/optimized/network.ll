@@ -48,12 +48,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Head_base.63" = type { ptr }
 %"class.std::thread" = type { %"class.std::thread::id" }
 %"class.std::thread::id" = type { i64 }
-%"class.std::unique_ptr.12" = type { %"struct.std::__uniq_ptr_data.13" }
-%"struct.std::__uniq_ptr_data.13" = type { %"class.std::__uniq_ptr_impl.14" }
-%"class.std::__uniq_ptr_impl.14" = type { %"class.std::tuple.15" }
-%"class.std::tuple.15" = type { %"struct.std::_Tuple_impl.16" }
-%"struct.std::_Tuple_impl.16" = type { %"struct.std::_Head_base.19" }
-%"struct.std::_Head_base.19" = type { ptr }
 
 $_ZNSt10unique_ptrIN8LightGBM7LinkersESt14default_deleteIS1_EED2Ev = comdat any
 
@@ -443,7 +437,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZNSt10unique_
 .noexc7:                                          ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
   %50 = shl nuw nsw i64 %48, 2
   %51 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %50) #30
-  %52 = getelementptr inbounds nuw i32, ptr %51, i64 %48
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %48
   store i32 0, ptr %51, align 4, !tbaa !69
   %53 = getelementptr i8, ptr %51, i64 4
   %54 = add nsw i64 %48, -1
@@ -492,7 +486,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i8: ; preds = %_ZNSt6vectorI
 .noexc15:                                         ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i8
   %65 = shl nuw nsw i64 %63, 2
   %66 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %65) #30
-  %67 = getelementptr inbounds nuw i32, ptr %66, i64 %63
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %63
   store i32 0, ptr %66, align 4, !tbaa !69
   %68 = getelementptr i8, ptr %66, i64 4
   %69 = add nsw i64 %63, -1
@@ -4177,7 +4171,7 @@ define void @_ZN8LightGBM7Network4InitEiiPFvPciiPKiS3_iS1_iRKPFvPKcS1_iiEEPFvS1_
   %9 = zext nneg i32 %0 to i64
   %10 = shl nuw nsw i64 %9, 2
   %11 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %10) #30
-  %12 = getelementptr inbounds nuw i32, ptr %11, i64 %9
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %9
   store i32 0, ptr %11, align 4, !tbaa !69
   %13 = getelementptr i8, ptr %11, i64 4
   %.idx.i.i.i.i.i.i.i = add nsw i64 %10, -4
@@ -4215,7 +4209,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZNSt6vectorIi
 .noexc15:                                         ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
   %23 = shl nuw nsw i64 %21, 2
   %24 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %23) #30
-  %25 = getelementptr inbounds nuw i32, ptr %24, i64 %21
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %21
   store i32 0, ptr %24, align 4, !tbaa !69
   %26 = getelementptr i8, ptr %24, i64 4
   %27 = add nsw i64 %21, -1
@@ -4379,7 +4373,7 @@ define void @_ZN8LightGBM7Network9AllreduceEPciiS1_RKPFvPKcS1_iiE(ptr noundef %0
   %26 = load i32, ptr %6, align 4, !tbaa !69
   %27 = load ptr, ptr %17, align 8, !tbaa !9
   %28 = sext i32 %26 to i64
-  %29 = getelementptr i32, ptr %27, i64 %28
+  %29 = getelementptr [4 x i8], ptr %27, i64 %28
   %30 = getelementptr i8, ptr %29, i64 -4
   %31 = load i32, ptr %30, align 4, !tbaa !69
   %32 = sub nsw i32 %1, %31
@@ -4387,7 +4381,7 @@ define void @_ZN8LightGBM7Network9AllreduceEPciiS1_RKPFvPKcS1_iiE(ptr noundef %0
   %33 = load i32, ptr %6, align 4, !tbaa !69
   %34 = load ptr, ptr %.pre-phi, align 8, !tbaa !9
   %35 = sext i32 %33 to i64
-  %36 = getelementptr i32, ptr %34, i64 %35
+  %36 = getelementptr [4 x i8], ptr %34, i64 %35
   %37 = getelementptr i8, ptr %36, i64 -4
   store i32 %32, ptr %37, align 4, !tbaa !69
   tail call void @_ZTHN8LightGBM7Network12block_start_E()
@@ -4406,27 +4400,27 @@ define void @_ZN8LightGBM7Network9AllreduceEPciiS1_RKPFvPKcS1_iiE(ptr noundef %0
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %42 ]
   tail call void @_ZTHN8LightGBM7Network12block_start_E()
   %43 = load ptr, ptr %17, align 8, !tbaa !9
-  %44 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv
   %45 = load i32, ptr %44, align 4, !tbaa !69
   %46 = sub nsw i32 %1, %45
   %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %46, i32 %24)
   tail call void @_ZTHN8LightGBM7Network10block_len_E()
   %47 = load ptr, ptr %25, align 8, !tbaa !9
-  %48 = getelementptr inbounds nuw i32, ptr %47, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %indvars.iv
   store i32 %.sroa.speculated, ptr %48, align 4, !tbaa !69
   tail call void @_ZTHN8LightGBM7Network12block_start_E()
   %49 = load ptr, ptr %17, align 8, !tbaa !9
-  %50 = getelementptr inbounds nuw i32, ptr %49, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %indvars.iv
   %51 = load i32, ptr %50, align 4, !tbaa !69
   tail call void @_ZTHN8LightGBM7Network10block_len_E()
   %52 = load ptr, ptr %25, align 8, !tbaa !9
-  %53 = getelementptr inbounds nuw i32, ptr %52, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %indvars.iv
   %54 = load i32, ptr %53, align 4, !tbaa !69
   %55 = add nsw i32 %54, %51
   tail call void @_ZTHN8LightGBM7Network12block_start_E()
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %56 = load ptr, ptr %17, align 8, !tbaa !9
-  %57 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv.next
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %indvars.iv.next
   store i32 %55, ptr %57, align 4, !tbaa !69
   %58 = load i32, ptr %6, align 4, !tbaa !69
   %59 = add nsw i32 %58, -1
@@ -4586,20 +4580,20 @@ define void @_ZN8LightGBM7Network20AllreduceByAllGatherEPciiS1_RKPFvPKcS1_iiE(pt
   tail call void @_ZTHN8LightGBM7Network12block_start_E()
   %23 = add nsw i64 %indvars.iv, -1
   %24 = load ptr, ptr %13, align 8, !tbaa !9
-  %25 = getelementptr inbounds nuw i32, ptr %24, i64 %23
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %23
   %26 = load i32, ptr %25, align 4, !tbaa !69
   tail call void @_ZTHN8LightGBM7Network10block_len_E()
   %27 = load ptr, ptr %15, align 8, !tbaa !9
-  %28 = getelementptr inbounds nuw i32, ptr %27, i64 %23
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %23
   %29 = load i32, ptr %28, align 4, !tbaa !69
   %30 = add nsw i32 %29, %26
   tail call void @_ZTHN8LightGBM7Network12block_start_E()
   %31 = load ptr, ptr %13, align 8, !tbaa !9
-  %32 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv
   store i32 %30, ptr %32, align 4, !tbaa !69
   tail call void @_ZTHN8LightGBM7Network10block_len_E()
   %33 = load ptr, ptr %15, align 8, !tbaa !9
-  %34 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %indvars.iv
   store i32 %1, ptr %34, align 4, !tbaa !69
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %35 = load i32, ptr %6, align 4, !tbaa !69
@@ -4643,7 +4637,7 @@ define void @_ZN8LightGBM7Network20AllreduceByAllGatherEPciiS1_RKPFvPKcS1_iiE(pt
   %51 = load ptr, ptr %.pre-phi, align 8, !tbaa !12
   tail call void @_ZTHN8LightGBM7Network12block_start_E()
   %52 = load ptr, ptr %13, align 8, !tbaa !9
-  %53 = getelementptr inbounds nuw i32, ptr %52, i64 %indvars.iv30
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %indvars.iv30
   %54 = load i32, ptr %53, align 4, !tbaa !69
   %55 = sext i32 %54 to i64
   %56 = getelementptr inbounds i8, ptr %51, i64 %55
@@ -4727,18 +4721,18 @@ define void @_ZN8LightGBM7Network13ReduceScatterEPciiPKiS3_S1_iRKPFvPKcS1_iiE(pt
   tail call void @_ZTHN8LightGBM7Network8linkers_E()
   %39 = load ptr, ptr %37, align 8, !tbaa !4
   %40 = sext i32 %.02829.i to i64
-  %41 = getelementptr inbounds i32, ptr %3, i64 %40
+  %41 = getelementptr inbounds [4 x i8], ptr %3, i64 %40
   %42 = load i32, ptr %41, align 4, !tbaa !69
   %43 = sext i32 %42 to i64
   %44 = getelementptr inbounds i8, ptr %0, i64 %43
-  %45 = getelementptr inbounds i32, ptr %4, i64 %40
+  %45 = getelementptr inbounds [4 x i8], ptr %4, i64 %40
   %46 = load i32, ptr %45, align 4, !tbaa !69
   %47 = sext i32 %.02730.i to i64
-  %48 = getelementptr inbounds i32, ptr %4, i64 %47
+  %48 = getelementptr inbounds [4 x i8], ptr %4, i64 %47
   %49 = load i32, ptr %48, align 4, !tbaa !69
   tail call void @_ZN8LightGBM7Linkers8SendRecvEiPciiS1_i(ptr noundef nonnull align 8 dereferenceable(304) %39, i32 noundef %30, ptr noundef %44, i32 noundef %46, i32 noundef %33, ptr noundef %5, i32 noundef %49)
   %50 = load ptr, ptr %7, align 8, !tbaa !119
-  %51 = getelementptr inbounds i32, ptr %3, i64 %47
+  %51 = getelementptr inbounds [4 x i8], ptr %3, i64 %47
   %52 = load i32, ptr %51, align 4, !tbaa !69
   %53 = sext i32 %52 to i64
   %54 = getelementptr inbounds i8, ptr %0, i64 %53
@@ -4757,11 +4751,11 @@ define void @_ZN8LightGBM7Network13ReduceScatterEPciiPKiS3_S1_iRKPFvPKcS1_iiE(pt
 _ZN8LightGBM7Network17ReduceScatterRingEPciiPKiS3_S1_iRKPFvPKcS1_iiE.exit: ; preds = %25, %._crit_edge.loopexit.i
   %64 = phi i32 [ %.pre.i, %._crit_edge.loopexit.i ], [ %27, %25 ]
   %65 = sext i32 %64 to i64
-  %66 = getelementptr inbounds i32, ptr %3, i64 %65
+  %66 = getelementptr inbounds [4 x i8], ptr %3, i64 %65
   %67 = load i32, ptr %66, align 4, !tbaa !69
   %68 = sext i32 %67 to i64
   %69 = getelementptr inbounds i8, ptr %0, i64 %68
-  %70 = getelementptr inbounds i32, ptr %4, i64 %65
+  %70 = getelementptr inbounds [4 x i8], ptr %4, i64 %65
   %71 = load i32, ptr %70, align 4, !tbaa !69
   %72 = sext i32 %71 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %5, ptr align 1 %69, i64 %72, i1 false)
@@ -4792,7 +4786,7 @@ define void @_ZN8LightGBM7Network9AllgatherEPcPKiS3_S1_i(ptr noundef %0, ptr nou
   %14 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @_ZN8LightGBM7Network5rank_E)
   %15 = load i32, ptr %14, align 4, !tbaa !69
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds i32, ptr %2, i64 %16
+  %17 = getelementptr inbounds [4 x i8], ptr %2, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !69
   %19 = load i32, ptr %6, align 4, !tbaa !69
   tail call void %12(ptr noundef %0, i32 noundef %18, ptr noundef %1, ptr noundef %2, i32 noundef %19, ptr noundef %3, i32 noundef %4)
@@ -4809,11 +4803,11 @@ define void @_ZN8LightGBM7Network9AllgatherEPcPKiS3_S1_i(ptr noundef %0, ptr nou
   %25 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @_ZN8LightGBM7Network5rank_E)
   %26 = load i32, ptr %25, align 4, !tbaa !69
   %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds i32, ptr %1, i64 %27
+  %28 = getelementptr inbounds [4 x i8], ptr %1, i64 %27
   %29 = load i32, ptr %28, align 4, !tbaa !69
   %30 = sext i32 %29 to i64
   %31 = getelementptr inbounds i8, ptr %3, i64 %30
-  %32 = getelementptr inbounds i32, ptr %2, i64 %27
+  %32 = getelementptr inbounds [4 x i8], ptr %2, i64 %27
   %33 = load i32, ptr %32, align 4, !tbaa !69
   %34 = sext i32 %33 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %31, ptr readonly align 1 %0, i64 %34, i1 false)
@@ -4838,18 +4832,18 @@ define void @_ZN8LightGBM7Network9AllgatherEPcPKiS3_S1_i(ptr noundef %0, ptr nou
   tail call void @_ZTHN8LightGBM7Network8linkers_E()
   %45 = load ptr, ptr %43, align 8, !tbaa !4
   %46 = sext i32 %.02122.i to i64
-  %47 = getelementptr inbounds i32, ptr %1, i64 %46
+  %47 = getelementptr inbounds [4 x i8], ptr %1, i64 %46
   %48 = load i32, ptr %47, align 4, !tbaa !69
   %49 = sext i32 %48 to i64
   %50 = getelementptr inbounds i8, ptr %3, i64 %49
-  %51 = getelementptr inbounds i32, ptr %2, i64 %46
+  %51 = getelementptr inbounds [4 x i8], ptr %2, i64 %46
   %52 = load i32, ptr %51, align 4, !tbaa !69
   %53 = sext i32 %.02023.i to i64
-  %54 = getelementptr inbounds i32, ptr %1, i64 %53
+  %54 = getelementptr inbounds [4 x i8], ptr %1, i64 %53
   %55 = load i32, ptr %54, align 4, !tbaa !69
   %56 = sext i32 %55 to i64
   %57 = getelementptr inbounds i8, ptr %3, i64 %56
-  %58 = getelementptr inbounds i32, ptr %2, i64 %53
+  %58 = getelementptr inbounds [4 x i8], ptr %2, i64 %53
   %59 = load i32, ptr %58, align 4, !tbaa !69
   tail call void @_ZN8LightGBM7Linkers8SendRecvEiPciiS1_i(ptr noundef nonnull align 8 dereferenceable(304) %45, i32 noundef %38, ptr noundef %50, i32 noundef %52, i32 noundef %41, ptr noundef %57, i32 noundef %59)
   %60 = load i32, ptr %6, align 4, !tbaa !69
@@ -4874,11 +4868,11 @@ define void @_ZN8LightGBM7Network9AllgatherEPcPKiS3_S1_i(ptr noundef %0, ptr nou
   %74 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @_ZN8LightGBM7Network5rank_E)
   %75 = load i32, ptr %74, align 4, !tbaa !69
   %76 = sext i32 %75 to i64
-  %77 = getelementptr inbounds i32, ptr %1, i64 %76
+  %77 = getelementptr inbounds [4 x i8], ptr %1, i64 %76
   %78 = load i32, ptr %77, align 4, !tbaa !69
   %79 = sext i32 %78 to i64
   %80 = getelementptr inbounds i8, ptr %3, i64 %79
-  %81 = getelementptr inbounds i32, ptr %2, i64 %76
+  %81 = getelementptr inbounds [4 x i8], ptr %2, i64 %76
   %82 = load i32, ptr %81, align 4, !tbaa !69
   %83 = sext i32 %82 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %80, ptr readonly align 1 %0, i64 %83, i1 false)
@@ -4914,8 +4908,8 @@ define void @_ZN8LightGBM7Network9AllgatherEPcPKiS3_S1_i(ptr noundef %0, ptr nou
 .lr.ph.preheader.i:                               ; preds = %88
   %smax.i = tail call i32 @llvm.smax.i32(i32 %89, i32 1)
   %wide.trip.count.i = zext nneg i32 %smax.i to i64
-  %invariant.gep.i = getelementptr i32, ptr %2, i64 %.pre.i
-  %invariant.gep56.i = getelementptr i32, ptr %2, i64 %.pre53.i
+  %invariant.gep.i = getelementptr [4 x i8], ptr %2, i64 %.pre.i
+  %invariant.gep56.i = getelementptr [4 x i8], ptr %2, i64 %.pre53.i
   br label %.lr.ph.i24
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i24, %88
@@ -4923,11 +4917,11 @@ define void @_ZN8LightGBM7Network9AllgatherEPcPKiS3_S1_i(ptr noundef %0, ptr nou
   %.037.lcssa.i = phi i32 [ 0, %88 ], [ %110, %.lr.ph.i24 ]
   tail call void @_ZTHN8LightGBM7Network8linkers_E()
   %95 = load ptr, ptr %87, align 8, !tbaa !4
-  %96 = getelementptr inbounds i32, ptr %1, i64 %.pre.i
+  %96 = getelementptr inbounds [4 x i8], ptr %1, i64 %.pre.i
   %97 = load i32, ptr %96, align 4, !tbaa !69
   %98 = sext i32 %97 to i64
   %99 = getelementptr inbounds i8, ptr %3, i64 %98
-  %100 = getelementptr inbounds i32, ptr %1, i64 %.pre53.i
+  %100 = getelementptr inbounds [4 x i8], ptr %1, i64 %.pre53.i
   %101 = load i32, ptr %100, align 4, !tbaa !69
   %102 = sext i32 %101 to i64
   %103 = getelementptr inbounds i8, ptr %3, i64 %102
@@ -4942,10 +4936,10 @@ define void @_ZN8LightGBM7Network9AllgatherEPcPKiS3_S1_i(ptr noundef %0, ptr nou
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i24 ]
   %.03743.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %110, %.lr.ph.i24 ]
   %.03842.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %108, %.lr.ph.i24 ]
-  %gep.i = getelementptr i32, ptr %invariant.gep.i, i64 %indvars.iv.i
+  %gep.i = getelementptr [4 x i8], ptr %invariant.gep.i, i64 %indvars.iv.i
   %107 = load i32, ptr %gep.i, align 4, !tbaa !69
   %108 = add nsw i32 %107, %.03842.i
-  %gep57.i = getelementptr i32, ptr %invariant.gep56.i, i64 %indvars.iv.i
+  %gep57.i = getelementptr [4 x i8], ptr %invariant.gep56.i, i64 %indvars.iv.i
   %109 = load i32, ptr %gep57.i, align 4, !tbaa !69
   %110 = add nsw i32 %109, %.03743.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -5017,20 +5011,20 @@ define void @_ZN8LightGBM7Network9AllgatherEPciS1_(ptr noundef %0, i32 noundef %
   tail call void @_ZTHN8LightGBM7Network12block_start_E()
   %19 = add nsw i64 %indvars.iv, -1
   %20 = load ptr, ptr %9, align 8, !tbaa !9
-  %21 = getelementptr inbounds nuw i32, ptr %20, i64 %19
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %19
   %22 = load i32, ptr %21, align 4, !tbaa !69
   tail call void @_ZTHN8LightGBM7Network10block_len_E()
   %23 = load ptr, ptr %11, align 8, !tbaa !9
-  %24 = getelementptr inbounds nuw i32, ptr %23, i64 %19
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %19
   %25 = load i32, ptr %24, align 4, !tbaa !69
   %26 = add nsw i32 %25, %22
   tail call void @_ZTHN8LightGBM7Network12block_start_E()
   %27 = load ptr, ptr %9, align 8, !tbaa !9
-  %28 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %indvars.iv
   store i32 %26, ptr %28, align 4, !tbaa !69
   tail call void @_ZTHN8LightGBM7Network10block_len_E()
   %29 = load ptr, ptr %11, align 8, !tbaa !9
-  %30 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %indvars.iv
   store i32 %1, ptr %30, align 4, !tbaa !69
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %31 = load i32, ptr %4, align 4, !tbaa !69
@@ -5047,11 +5041,11 @@ define void @_ZN8LightGBM7Network13AllgatherRingEPcPKiS3_S1_i(ptr noundef readon
   %6 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @_ZN8LightGBM7Network5rank_E)
   %7 = load i32, ptr %6, align 4, !tbaa !69
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds i32, ptr %1, i64 %8
+  %9 = getelementptr inbounds [4 x i8], ptr %1, i64 %8
   %10 = load i32, ptr %9, align 4, !tbaa !69
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds i8, ptr %3, i64 %11
-  %13 = getelementptr inbounds i32, ptr %2, i64 %8
+  %13 = getelementptr inbounds [4 x i8], ptr %2, i64 %8
   %14 = load i32, ptr %13, align 4, !tbaa !69
   %15 = sext i32 %14 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %12, ptr align 1 %0, i64 %15, i1 false)
@@ -5080,18 +5074,18 @@ define void @_ZN8LightGBM7Network13AllgatherRingEPcPKiS3_S1_i(ptr noundef readon
   tail call void @_ZTHN8LightGBM7Network8linkers_E()
   %27 = load ptr, ptr %25, align 8, !tbaa !4
   %28 = sext i32 %.02122 to i64
-  %29 = getelementptr inbounds i32, ptr %1, i64 %28
+  %29 = getelementptr inbounds [4 x i8], ptr %1, i64 %28
   %30 = load i32, ptr %29, align 4, !tbaa !69
   %31 = sext i32 %30 to i64
   %32 = getelementptr inbounds i8, ptr %3, i64 %31
-  %33 = getelementptr inbounds i32, ptr %2, i64 %28
+  %33 = getelementptr inbounds [4 x i8], ptr %2, i64 %28
   %34 = load i32, ptr %33, align 4, !tbaa !69
   %35 = sext i32 %.02023 to i64
-  %36 = getelementptr inbounds i32, ptr %1, i64 %35
+  %36 = getelementptr inbounds [4 x i8], ptr %1, i64 %35
   %37 = load i32, ptr %36, align 4, !tbaa !69
   %38 = sext i32 %37 to i64
   %39 = getelementptr inbounds i8, ptr %3, i64 %38
-  %40 = getelementptr inbounds i32, ptr %2, i64 %35
+  %40 = getelementptr inbounds [4 x i8], ptr %2, i64 %35
   %41 = load i32, ptr %40, align 4, !tbaa !69
   tail call void @_ZN8LightGBM7Linkers8SendRecvEiPciiS1_i(ptr noundef nonnull align 8 dereferenceable(304) %27, i32 noundef %20, ptr noundef %32, i32 noundef %34, i32 noundef %23, ptr noundef %39, i32 noundef %41)
   %42 = add nsw i32 %.02122, -1
@@ -5111,11 +5105,11 @@ define void @_ZN8LightGBM7Network26AllgatherRecursiveDoublingEPcPKiS3_S1_i(ptr n
   %6 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @_ZN8LightGBM7Network5rank_E)
   %7 = load i32, ptr %6, align 4, !tbaa !69
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds i32, ptr %1, i64 %8
+  %9 = getelementptr inbounds [4 x i8], ptr %1, i64 %8
   %10 = load i32, ptr %9, align 4, !tbaa !69
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds i8, ptr %3, i64 %11
-  %13 = getelementptr inbounds i32, ptr %2, i64 %8
+  %13 = getelementptr inbounds [4 x i8], ptr %2, i64 %8
   %14 = load i32, ptr %13, align 4, !tbaa !69
   %15 = sext i32 %14 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %12, ptr align 1 %0, i64 %15, i1 false)
@@ -5154,8 +5148,8 @@ define void @_ZN8LightGBM7Network26AllgatherRecursiveDoublingEPcPKiS3_S1_i(ptr n
 .lr.ph.preheader:                                 ; preds = %20
   %smax = tail call i32 @llvm.smax.i32(i32 %21, i32 1)
   %wide.trip.count = zext nneg i32 %smax to i64
-  %invariant.gep = getelementptr i32, ptr %2, i64 %.pre
-  %invariant.gep56 = getelementptr i32, ptr %2, i64 %.pre53
+  %invariant.gep = getelementptr [4 x i8], ptr %2, i64 %.pre
+  %invariant.gep56 = getelementptr [4 x i8], ptr %2, i64 %.pre53
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %20
@@ -5163,11 +5157,11 @@ define void @_ZN8LightGBM7Network26AllgatherRecursiveDoublingEPcPKiS3_S1_i(ptr n
   %.037.lcssa = phi i32 [ 0, %20 ], [ %42, %.lr.ph ]
   tail call void @_ZTHN8LightGBM7Network8linkers_E()
   %27 = load ptr, ptr %19, align 8, !tbaa !4
-  %28 = getelementptr inbounds i32, ptr %1, i64 %.pre
+  %28 = getelementptr inbounds [4 x i8], ptr %1, i64 %.pre
   %29 = load i32, ptr %28, align 4, !tbaa !69
   %30 = sext i32 %29 to i64
   %31 = getelementptr inbounds i8, ptr %3, i64 %30
-  %32 = getelementptr inbounds i32, ptr %1, i64 %.pre53
+  %32 = getelementptr inbounds [4 x i8], ptr %1, i64 %.pre53
   %33 = load i32, ptr %32, align 4, !tbaa !69
   %34 = sext i32 %33 to i64
   %35 = getelementptr inbounds i8, ptr %3, i64 %34
@@ -5182,10 +5176,10 @@ define void @_ZN8LightGBM7Network26AllgatherRecursiveDoublingEPcPKiS3_S1_i(ptr n
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.03743 = phi i32 [ 0, %.lr.ph.preheader ], [ %42, %.lr.ph ]
   %.03842 = phi i32 [ 0, %.lr.ph.preheader ], [ %40, %.lr.ph ]
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %indvars.iv
   %39 = load i32, ptr %gep, align 4, !tbaa !69
   %40 = add nsw i32 %39, %.03842
-  %gep57 = getelementptr i32, ptr %invariant.gep56, i64 %indvars.iv
+  %gep57 = getelementptr [4 x i8], ptr %invariant.gep56, i64 %indvars.iv
   %41 = load i32, ptr %gep57, align 4, !tbaa !69
   %42 = add nsw i32 %41, %.03743
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -5198,13 +5192,13 @@ define void @_ZN8LightGBM7Network14AllgatherBruckEPcPKiS3_S1_i(ptr noundef reado
   %6 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @_ZN8LightGBM7Network5rank_E)
   %7 = load i32, ptr %6, align 4, !tbaa !69
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds i32, ptr %2, i64 %8
+  %9 = getelementptr inbounds [4 x i8], ptr %2, i64 %8
   %10 = load i32, ptr %9, align 4, !tbaa !69
   %11 = sext i32 %10 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr align 1 %0, i64 %11, i1 false)
   %12 = load i32, ptr %6, align 4, !tbaa !69
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds i32, ptr %2, i64 %13
+  %14 = getelementptr inbounds [4 x i8], ptr %2, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !69
   tail call void @_ZTHN8LightGBM7Network10bruck_map_E()
   %16 = tail call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN8LightGBM7Network10bruck_map_E)
@@ -5241,7 +5235,7 @@ define void @_ZN8LightGBM7Network14AllgatherBruckEPcPKiS3_S1_i(ptr noundef reado
 _ZSt7reverseIPcEvT_S1_.exit:                      ; preds = %.lr.ph.i.i, %._crit_edge73
   %30 = load i32, ptr %6, align 4, !tbaa !69
   %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds i32, ptr %1, i64 %31
+  %32 = getelementptr inbounds [4 x i8], ptr %1, i64 %31
   %33 = load i32, ptr %32, align 4, !tbaa !69
   %34 = sext i32 %33 to i64
   %35 = icmp sgt i32 %33, 1
@@ -5267,7 +5261,7 @@ _ZSt7reverseIPcEvT_S1_.exit:                      ; preds = %.lr.ph.i.i, %._crit
 _ZSt7reverseIPcEvT_S1_.exit53.loopexit:           ; preds = %.lr.ph.i.i49
   %.pre = load i32, ptr %6, align 4, !tbaa !69
   %.phi.trans.insert = sext i32 %.pre to i64
-  %.phi.trans.insert76 = getelementptr inbounds i32, ptr %1, i64 %.phi.trans.insert
+  %.phi.trans.insert76 = getelementptr inbounds [4 x i8], ptr %1, i64 %.phi.trans.insert
   %.pre77 = load i32, ptr %.phi.trans.insert76, align 4, !tbaa !69
   %.pre78 = sext i32 %.pre77 to i64
   br label %_ZSt7reverseIPcEvT_S1_.exit53
@@ -5310,11 +5304,11 @@ _ZSt7reverseIPcEvT_S1_.exit60:                    ; preds = %.lr.ph.i.i56, %_ZSt
   %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %53, i32 %51)
   tail call void @_ZTHN8LightGBM7Network10bruck_map_E()
   %54 = load ptr, ptr %20, align 8, !tbaa !9
-  %55 = getelementptr inbounds nuw i32, ptr %54, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %indvars.iv
   %56 = load i32, ptr %55, align 4, !tbaa !69
   tail call void @_ZTHN8LightGBM7Network10bruck_map_E()
   %57 = load ptr, ptr %21, align 8, !tbaa !9
-  %58 = getelementptr inbounds nuw i32, ptr %57, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %indvars.iv
   %59 = load i32, ptr %58, align 4, !tbaa !69
   %60 = icmp sgt i32 %.sroa.speculated, 0
   br i1 %60, label %.lr.ph, label %._crit_edge
@@ -5349,13 +5343,13 @@ _ZSt7reverseIPcEvT_S1_.exit60:                    ; preds = %.lr.ph.i.i56, %_ZSt
   %72 = add nsw i32 %61, %.066
   %73 = srem i32 %72, %62
   %74 = sext i32 %73 to i64
-  %75 = getelementptr inbounds i32, ptr %2, i64 %74
+  %75 = getelementptr inbounds [4 x i8], ptr %2, i64 %74
   %76 = load i32, ptr %75, align 4, !tbaa !69
   %77 = add nsw i32 %76, %.04264
   %.reass = add i32 %.066, %invariant.op
   %78 = srem i32 %.reass, %62
   %79 = sext i32 %78 to i64
-  %80 = getelementptr inbounds i32, ptr %2, i64 %79
+  %80 = getelementptr inbounds [4 x i8], ptr %2, i64 %79
   %81 = load i32, ptr %80, align 4, !tbaa !69
   %82 = add nsw i32 %81, %.04165
   %83 = add nuw nsw i32 %.066, 1
@@ -5383,7 +5377,7 @@ define linkonce_odr void @_ZN8LightGBM7Linkers8SendRecvEiPciiS1_i(ptr noundef no
 16:                                               ; preds = %_ZN8LightGBM9TcpSocket4SendEPKcii.exit.i, %.preheader.i
   %.010.i = phi i32 [ 0, %.preheader.i ], [ %32, %_ZN8LightGBM9TcpSocket4SendEPKcii.exit.i ]
   %17 = load ptr, ptr %14, align 8, !tbaa !140
-  %18 = getelementptr inbounds nuw %"class.std::unique_ptr.12", ptr %17, i64 %15
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %15
   %19 = load ptr, ptr %18, align 8, !tbaa !141
   %20 = sext i32 %.010.i to i64
   %21 = getelementptr inbounds i8, ptr %2, i64 %20
@@ -5419,7 +5413,7 @@ _ZNK8LightGBM7Linkers4SendEiPci.exit:             ; preds = %_ZN8LightGBM9TcpSoc
 37:                                               ; preds = %_ZN8LightGBM9TcpSocket4RecvEPcii.exit.i, %.lr.ph.i
   %.010.i15 = phi i32 [ 0, %.lr.ph.i ], [ %53, %_ZN8LightGBM9TcpSocket4RecvEPcii.exit.i ]
   %38 = load ptr, ptr %35, align 8, !tbaa !140
-  %39 = getelementptr inbounds nuw %"class.std::unique_ptr.12", ptr %38, i64 %36
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %36
   %40 = load ptr, ptr %39, align 8, !tbaa !141
   %41 = sext i32 %.010.i15 to i64
   %42 = getelementptr inbounds i8, ptr %5, i64 %41
@@ -5505,7 +5499,7 @@ _ZNSt6threadC2IZN8LightGBM7Linkers8SendRecvEiPciiS3_iEUlvE_JEvEEOT_DpOT0_.exit: 
 72:                                               ; preds = %_ZN8LightGBM9TcpSocket4RecvEPcii.exit.i19, %.lr.ph.i16
   %.010.i17 = phi i32 [ 0, %.lr.ph.i16 ], [ %88, %_ZN8LightGBM9TcpSocket4RecvEPcii.exit.i19 ]
   %73 = load ptr, ptr %70, align 8, !tbaa !140
-  %74 = getelementptr inbounds nuw %"class.std::unique_ptr.12", ptr %73, i64 %71
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %71
   %75 = load ptr, ptr %74, align 8, !tbaa !141
   %76 = sext i32 %.010.i17 to i64
   %77 = getelementptr inbounds i8, ptr %5, i64 %76
@@ -5634,7 +5628,7 @@ define linkonce_odr void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN8Li
 13:                                               ; preds = %_ZN8LightGBM9TcpSocket4SendEPKcii.exit.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i
   %.010.i.i.i.i.i.i = phi i32 [ 0, %.preheader.i.i.i.i.i.i ], [ %29, %_ZN8LightGBM9TcpSocket4SendEPKcii.exit.i.i.i.i.i.i ]
   %14 = load ptr, ptr %11, align 8, !tbaa !140
-  %15 = getelementptr inbounds nuw %"class.std::unique_ptr.12", ptr %14, i64 %12
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %12
   %16 = load ptr, ptr %15, align 8, !tbaa !141
   %17 = sext i32 %.010.i.i.i.i.i.i to i64
   %18 = getelementptr inbounds i8, ptr %3, i64 %17
@@ -5696,7 +5690,7 @@ define void @_ZN8LightGBM7Network29ReduceScatterRecursiveHalvingEPciiPKiS3_S1_iR
 25:                                               ; preds = %_ZN8LightGBM9TcpSocket4SendEPKcii.exit.i, %.preheader.i
   %.010.i = phi i32 [ 0, %.preheader.i ], [ %41, %_ZN8LightGBM9TcpSocket4SendEPKcii.exit.i ]
   %26 = load ptr, ptr %23, align 8, !tbaa !140
-  %27 = getelementptr inbounds nuw %"class.std::unique_ptr.12", ptr %26, i64 %24
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %24
   %28 = load ptr, ptr %27, align 8, !tbaa !141
   %29 = sext i32 %.010.i to i64
   %30 = getelementptr inbounds i8, ptr %0, i64 %29
@@ -5744,7 +5738,7 @@ _ZN8LightGBM9TcpSocket4SendEPKcii.exit.i:         ; preds = %37, %25
 54:                                               ; preds = %_ZN8LightGBM9TcpSocket4RecvEPcii.exit.i, %.lr.ph.i
   %.010.i57 = phi i32 [ 0, %.lr.ph.i ], [ %70, %_ZN8LightGBM9TcpSocket4RecvEPcii.exit.i ]
   %55 = load ptr, ptr %52, align 8, !tbaa !140
-  %56 = getelementptr inbounds nuw %"class.std::unique_ptr.12", ptr %55, i64 %53
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %53
   %57 = load ptr, ptr %56, align 8, !tbaa !141
   %58 = sext i32 %.010.i57 to i64
   %59 = getelementptr inbounds i8, ptr %5, i64 %58
@@ -5800,52 +5794,52 @@ _ZNK8LightGBM7Linkers4SendEiPci.exit:             ; preds = %_ZN8LightGBM9TcpSoc
   %indvars.iv81 = phi i64 [ 0, %.lr.ph75 ], [ %indvars.iv.next82, %._crit_edge ]
   tail call void @_ZTHN8LightGBM7Network22recursive_halving_map_E()
   %84 = load ptr, ptr %77, align 8, !tbaa !9
-  %85 = getelementptr inbounds nuw i32, ptr %84, i64 %indvars.iv81
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %84, i64 %indvars.iv81
   %86 = load i32, ptr %85, align 4, !tbaa !69
   tail call void @_ZTHN8LightGBM7Network22recursive_halving_map_E()
   %87 = load ptr, ptr %78, align 8, !tbaa !9
-  %88 = getelementptr inbounds nuw i32, ptr %87, i64 %indvars.iv81
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %87, i64 %indvars.iv81
   %89 = load i32, ptr %88, align 4, !tbaa !69
   tail call void @_ZTHN8LightGBM7Network22recursive_halving_map_E()
   %90 = load ptr, ptr %79, align 8, !tbaa !9
-  %91 = getelementptr inbounds nuw i32, ptr %90, i64 %indvars.iv81
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %90, i64 %indvars.iv81
   %92 = load i32, ptr %91, align 4, !tbaa !69
   tail call void @_ZTHN8LightGBM7Network22recursive_halving_map_E()
   %93 = load ptr, ptr %80, align 8, !tbaa !9
-  %94 = getelementptr inbounds nuw i32, ptr %93, i64 %indvars.iv81
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %93, i64 %indvars.iv81
   %95 = load i32, ptr %94, align 4, !tbaa !69
   %96 = icmp sgt i32 %95, 0
   br i1 %96, label %.lr.ph.preheader, label %.preheader
 
 .lr.ph.preheader:                                 ; preds = %83
   %97 = sext i32 %89 to i64
-  %invariant.gep = getelementptr i32, ptr %4, i64 %97
+  %invariant.gep = getelementptr [4 x i8], ptr %4, i64 %97
   br label %.lr.ph
 
 .preheader:                                       ; preds = %.lr.ph, %83
   %.056.lcssa = phi i32 [ 0, %83 ], [ %104, %.lr.ph ]
   tail call void @_ZTHN8LightGBM7Network22recursive_halving_map_E()
   %98 = load ptr, ptr %81, align 8, !tbaa !9
-  %99 = getelementptr inbounds nuw i32, ptr %98, i64 %indvars.iv81
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %98, i64 %indvars.iv81
   %100 = load i32, ptr %99, align 4, !tbaa !69
   %101 = icmp sgt i32 %100, 0
   %102 = sext i32 %92 to i64
   br i1 %101, label %.lr.ph72.preheader, label %._crit_edge
 
 .lr.ph72.preheader:                               ; preds = %.preheader
-  %invariant.gep91 = getelementptr i32, ptr %4, i64 %102
+  %invariant.gep91 = getelementptr [4 x i8], ptr %4, i64 %102
   br label %.lr.ph72
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.05668 = phi i32 [ 0, %.lr.ph.preheader ], [ %104, %.lr.ph ]
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %indvars.iv
   %103 = load i32, ptr %gep, align 4, !tbaa !69
   %104 = add nsw i32 %103, %.05668
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   tail call void @_ZTHN8LightGBM7Network22recursive_halving_map_E()
   %105 = load ptr, ptr %80, align 8, !tbaa !9
-  %106 = getelementptr inbounds nuw i32, ptr %105, i64 %indvars.iv81
+  %106 = getelementptr inbounds nuw [4 x i8], ptr %105, i64 %indvars.iv81
   %107 = load i32, ptr %106, align 4, !tbaa !69
   %108 = sext i32 %107 to i64
   %109 = icmp slt i64 %indvars.iv.next, %108
@@ -5856,13 +5850,13 @@ _ZNK8LightGBM7Linkers4SendEiPci.exit:             ; preds = %_ZN8LightGBM9TcpSoc
   tail call void @_ZTHN8LightGBM7Network8linkers_E()
   %110 = load ptr, ptr %82, align 8, !tbaa !4
   %111 = sext i32 %89 to i64
-  %112 = getelementptr inbounds i32, ptr %3, i64 %111
+  %112 = getelementptr inbounds [4 x i8], ptr %3, i64 %111
   %113 = load i32, ptr %112, align 4, !tbaa !69
   %114 = sext i32 %113 to i64
   %115 = getelementptr inbounds i8, ptr %0, i64 %114
   tail call void @_ZN8LightGBM7Linkers8SendRecvEiPciiS1_i(ptr noundef nonnull align 8 dereferenceable(304) %110, i32 noundef %86, ptr noundef %115, i32 noundef %.056.lcssa, i32 noundef %86, ptr noundef %5, i32 noundef %.054.lcssa)
   %116 = load ptr, ptr %7, align 8, !tbaa !119
-  %117 = getelementptr inbounds i32, ptr %3, i64 %102
+  %117 = getelementptr inbounds [4 x i8], ptr %3, i64 %102
   %118 = load i32, ptr %117, align 4, !tbaa !69
   %119 = sext i32 %118 to i64
   %120 = getelementptr inbounds i8, ptr %0, i64 %119
@@ -5877,13 +5871,13 @@ _ZNK8LightGBM7Linkers4SendEiPci.exit:             ; preds = %_ZN8LightGBM9TcpSoc
 .lr.ph72:                                         ; preds = %.lr.ph72.preheader, %.lr.ph72
   %indvars.iv78 = phi i64 [ 0, %.lr.ph72.preheader ], [ %indvars.iv.next79, %.lr.ph72 ]
   %.05470 = phi i32 [ 0, %.lr.ph72.preheader ], [ %125, %.lr.ph72 ]
-  %gep92 = getelementptr i32, ptr %invariant.gep91, i64 %indvars.iv78
+  %gep92 = getelementptr [4 x i8], ptr %invariant.gep91, i64 %indvars.iv78
   %124 = load i32, ptr %gep92, align 4, !tbaa !69
   %125 = add nsw i32 %124, %.05470
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
   tail call void @_ZTHN8LightGBM7Network22recursive_halving_map_E()
   %126 = load ptr, ptr %81, align 8, !tbaa !9
-  %127 = getelementptr inbounds nuw i32, ptr %126, i64 %indvars.iv81
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %126, i64 %indvars.iv81
   %128 = load i32, ptr %127, align 4, !tbaa !69
   %129 = sext i32 %128 to i64
   %130 = icmp slt i64 %indvars.iv.next79, %129
@@ -5911,14 +5905,14 @@ _ZNK8LightGBM7Linkers4SendEiPci.exit:             ; preds = %_ZN8LightGBM9TcpSoc
   tail call void @_ZTHN8LightGBM7Network22recursive_halving_map_E()
   %141 = load i32, ptr %139, align 4, !tbaa !159
   %142 = sext i32 %141 to i64
-  %143 = getelementptr inbounds i32, ptr %3, i64 %142
+  %143 = getelementptr inbounds [4 x i8], ptr %3, i64 %142
   %144 = load i32, ptr %143, align 4, !tbaa !69
   %145 = sext i32 %144 to i64
   %146 = getelementptr inbounds i8, ptr %0, i64 %145
   tail call void @_ZTHN8LightGBM7Network22recursive_halving_map_E()
   %147 = load i32, ptr %139, align 4, !tbaa !159
   %148 = sext i32 %147 to i64
-  %149 = getelementptr inbounds i32, ptr %4, i64 %148
+  %149 = getelementptr inbounds [4 x i8], ptr %4, i64 %148
   %150 = load i32, ptr %149, align 4, !tbaa !69
   %151 = icmp slt i32 %150, 1
   br i1 %151, label %_ZNK8LightGBM7Linkers4SendEiPci.exit61, label %.preheader.i58
@@ -5931,7 +5925,7 @@ _ZNK8LightGBM7Linkers4SendEiPci.exit:             ; preds = %_ZN8LightGBM9TcpSoc
 154:                                              ; preds = %_ZN8LightGBM9TcpSocket4SendEPKcii.exit.i60, %.preheader.i58
   %.010.i59 = phi i32 [ 0, %.preheader.i58 ], [ %170, %_ZN8LightGBM9TcpSocket4SendEPKcii.exit.i60 ]
   %155 = load ptr, ptr %152, align 8, !tbaa !140
-  %156 = getelementptr inbounds nuw %"class.std::unique_ptr.12", ptr %155, i64 %153
+  %156 = getelementptr inbounds nuw [8 x i8], ptr %155, i64 %153
   %157 = load ptr, ptr %156, align 8, !tbaa !141
   %158 = sext i32 %.010.i59 to i64
   %159 = getelementptr inbounds i8, ptr %146, i64 %158
@@ -5965,7 +5959,7 @@ _ZN8LightGBM9TcpSocket4SendEPKcii.exit.i60:       ; preds = %166, %154
   %176 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @_ZN8LightGBM7Network5rank_E)
   %177 = load i32, ptr %176, align 4, !tbaa !69
   %178 = sext i32 %177 to i64
-  %179 = getelementptr inbounds i32, ptr %4, i64 %178
+  %179 = getelementptr inbounds [4 x i8], ptr %4, i64 %178
   %180 = load i32, ptr %179, align 4, !tbaa !69
   tail call void @_ZTHN8LightGBM7Network8linkers_E()
   %181 = tail call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN8LightGBM7Network8linkers_E)
@@ -5984,7 +5978,7 @@ _ZN8LightGBM9TcpSocket4SendEPKcii.exit.i60:       ; preds = %166, %154
 188:                                              ; preds = %_ZN8LightGBM9TcpSocket4RecvEPcii.exit.i65, %.lr.ph.i62
   %.010.i63 = phi i32 [ 0, %.lr.ph.i62 ], [ %204, %_ZN8LightGBM9TcpSocket4RecvEPcii.exit.i65 ]
   %189 = load ptr, ptr %186, align 8, !tbaa !140
-  %190 = getelementptr inbounds nuw %"class.std::unique_ptr.12", ptr %189, i64 %187
+  %190 = getelementptr inbounds nuw [8 x i8], ptr %189, i64 %187
   %191 = load ptr, ptr %190, align 8, !tbaa !141
   %192 = sext i32 %.010.i63 to i64
   %193 = getelementptr inbounds i8, ptr %5, i64 %192
@@ -6013,11 +6007,11 @@ _ZNK8LightGBM7Linkers4SendEiPci.exit61:           ; preds = %_ZN8LightGBM9TcpSoc
   %206 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @_ZN8LightGBM7Network5rank_E)
   %207 = load i32, ptr %206, align 4, !tbaa !69
   %208 = sext i32 %207 to i64
-  %209 = getelementptr inbounds i32, ptr %3, i64 %208
+  %209 = getelementptr inbounds [4 x i8], ptr %3, i64 %208
   %210 = load i32, ptr %209, align 4, !tbaa !69
   %211 = sext i32 %210 to i64
   %212 = getelementptr inbounds i8, ptr %0, i64 %211
-  %213 = getelementptr inbounds i32, ptr %4, i64 %208
+  %213 = getelementptr inbounds [4 x i8], ptr %4, i64 %208
   %214 = load i32, ptr %213, align 4, !tbaa !69
   %215 = sext i32 %214 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %5, ptr align 1 %212, i64 %215, i1 false)
@@ -6054,11 +6048,11 @@ define void @_ZN8LightGBM7Network17ReduceScatterRingEPciiPKiS3_S1_iRKPFvPKcS1_ii
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %8
   %22 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %10, %8 ]
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds i32, ptr %3, i64 %23
+  %24 = getelementptr inbounds [4 x i8], ptr %3, i64 %23
   %25 = load i32, ptr %24, align 4, !tbaa !69
   %26 = sext i32 %25 to i64
   %27 = getelementptr inbounds i8, ptr %0, i64 %26
-  %28 = getelementptr inbounds i32, ptr %4, i64 %23
+  %28 = getelementptr inbounds [4 x i8], ptr %4, i64 %23
   %29 = load i32, ptr %28, align 4, !tbaa !69
   %30 = sext i32 %29 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %5, ptr align 1 %27, i64 %30, i1 false)
@@ -6071,18 +6065,18 @@ define void @_ZN8LightGBM7Network17ReduceScatterRingEPciiPKiS3_S1_iRKPFvPKcS1_ii
   tail call void @_ZTHN8LightGBM7Network8linkers_E()
   %32 = load ptr, ptr %21, align 8, !tbaa !4
   %33 = sext i32 %.02829 to i64
-  %34 = getelementptr inbounds i32, ptr %3, i64 %33
+  %34 = getelementptr inbounds [4 x i8], ptr %3, i64 %33
   %35 = load i32, ptr %34, align 4, !tbaa !69
   %36 = sext i32 %35 to i64
   %37 = getelementptr inbounds i8, ptr %0, i64 %36
-  %38 = getelementptr inbounds i32, ptr %4, i64 %33
+  %38 = getelementptr inbounds [4 x i8], ptr %4, i64 %33
   %39 = load i32, ptr %38, align 4, !tbaa !69
   %40 = sext i32 %.02730 to i64
-  %41 = getelementptr inbounds i32, ptr %4, i64 %40
+  %41 = getelementptr inbounds [4 x i8], ptr %4, i64 %40
   %42 = load i32, ptr %41, align 4, !tbaa !69
   tail call void @_ZN8LightGBM7Linkers8SendRecvEiPciiS1_i(ptr noundef nonnull align 8 dereferenceable(304) %32, i32 noundef %14, ptr noundef %37, i32 noundef %39, i32 noundef %17, ptr noundef %5, i32 noundef %42)
   %43 = load ptr, ptr %7, align 8, !tbaa !119
-  %44 = getelementptr inbounds i32, ptr %3, i64 %40
+  %44 = getelementptr inbounds [4 x i8], ptr %3, i64 %40
   %45 = load i32, ptr %44, align 4, !tbaa !69
   %46 = sext i32 %45 to i64
   %47 = getelementptr inbounds i8, ptr %0, i64 %46

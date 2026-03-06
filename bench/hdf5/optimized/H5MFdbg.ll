@@ -67,7 +67,7 @@ define range(i32 -1, 1) i32 @H5MF_sects_debug(ptr noundef %0, i64 noundef %1, pt
 
 20:                                               ; preds = %.preheader, %59
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %59 ]
-  %21 = getelementptr inbounds nuw i64, ptr %19, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv
   %22 = load i64, ptr %21, align 8, !tbaa !3
   %.not = icmp ne i64 %22, -1
   %23 = icmp eq i64 %22, %1
@@ -76,7 +76,7 @@ define range(i32 -1, 1) i32 @H5MF_sects_debug(ptr noundef %0, i64 noundef %1, pt
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %18, i64 1712
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8, !tbaa !22
   %.not33 = icmp eq ptr %27, null
   br i1 %.not33, label %28, label %.thread45
@@ -96,7 +96,7 @@ define range(i32 -1, 1) i32 @H5MF_sects_debug(ptr noundef %0, i64 noundef %1, pt
 36:                                               ; preds = %28
   %.pre = load ptr, ptr %17, align 8, !tbaa !13
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 1712
-  %.phi.trans.insert42 = getelementptr inbounds nuw ptr, ptr %.phi.trans.insert, i64 %indvars.iv
+  %.phi.trans.insert42 = getelementptr inbounds nuw [8 x i8], ptr %.phi.trans.insert, i64 %indvars.iv
   %.pre43 = load ptr, ptr %.phi.trans.insert42, align 8, !tbaa !22
   %.not34 = icmp eq ptr %.pre43, null
   br i1 %.not34, label %.loopexit, label %.thread45
@@ -124,7 +124,7 @@ define range(i32 -1, 1) i32 @H5MF_sects_debug(ptr noundef %0, i64 noundef %1, pt
 47:                                               ; preds = %.thread45
   %48 = load ptr, ptr %17, align 8, !tbaa !13
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 1712
-  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %indvars.iv
   %51 = load ptr, ptr %50, align 8, !tbaa !22
   %52 = call i32 @H5FS_close(ptr noundef nonnull %0, ptr noundef %51) #5
   %53 = icmp slt i32 %52, 0
@@ -186,7 +186,7 @@ define internal range(i32 -1, 1) i32 @H5MF__sects_debug_cb(ptr noundef %0, ptr n
 
 switch.lookup:                                    ; preds = %9
   %19 = zext nneg i32 %17 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.H5MF__sects_debug_cb, i64 %19
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.H5MF__sects_debug_cb, i64 %19
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %20
 

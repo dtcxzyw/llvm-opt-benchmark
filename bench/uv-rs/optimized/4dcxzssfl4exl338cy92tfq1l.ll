@@ -251,7 +251,7 @@ define hidden void @_ZN9hashbrown3raw5inner13RawTableInner13drop_elements17hfea3
   %22 = zext nneg i16 %21 to i64
   %23 = and i16 %20, %.lcssa.i
   %24 = sub nsw i64 0, %22
-  %25 = getelementptr inbounds { { { i64, [10 x i64] }, { { i64, [2 x i64] } } }, { { { i64, [1 x i64] } } } }, ptr %.sroa.05.1, i64 %24
+  %25 = getelementptr inbounds [128 x i8], ptr %.sroa.05.1, i64 %24
   %26 = add i64 %.sroa.107.014, -1
   %27 = getelementptr inbounds i8, ptr %25, i64 -128
   tail call fastcc void @"_ZN4core3ptr242drop_in_place$LT$$LP$$LP$uv_auth..cache..FetchUrl$C$uv_auth..credentials..Username$RP$$C$dashmap..util..SharedValue$LT$uv_once_map..Value$LT$core..option..Option$LT$alloc..sync..Arc$LT$uv_auth..credentials..Credentials$GT$$GT$$GT$$GT$$RP$$GT$17h1f33b2678b9e6a1cE"(ptr noalias noundef nonnull align 8 dereferenceable(128) %27)
@@ -309,7 +309,7 @@ define hidden void @_ZN9hashbrown3raw5inner13RawTableInner16drop_inner_table17hc
   %28 = zext nneg i16 %27 to i64
   %29 = and i16 %26, %.lcssa.i.i
   %30 = sub nsw i64 0, %28
-  %31 = getelementptr inbounds { { { i64, [10 x i64] }, { { i64, [2 x i64] } } }, { { { i64, [1 x i64] } } } }, ptr %.sroa.05.1.i, i64 %30
+  %31 = getelementptr inbounds [128 x i8], ptr %.sroa.05.1.i, i64 %30
   %32 = add i64 %.sroa.107.014.i, -1
   %33 = getelementptr inbounds i8, ptr %31, i64 -128
   tail call fastcc void @"_ZN4core3ptr242drop_in_place$LT$$LP$$LP$uv_auth..cache..FetchUrl$C$uv_auth..credentials..Username$RP$$C$dashmap..util..SharedValue$LT$uv_once_map..Value$LT$core..option..Option$LT$alloc..sync..Arc$LT$uv_auth..credentials..Credentials$GT$$GT$$GT$$GT$$RP$$GT$17h1f33b2678b9e6a1cE"(ptr noalias noundef nonnull align 8 dereferenceable(128) %33), !noalias !66
@@ -607,8 +607,8 @@ _ZN9hashbrown3raw5inner13RawTableInner22fallible_with_capacity17hef4e20cb32eb6af
 
 73:                                               ; preds = %73, %._crit_edge35
   %.sroa.0.05.i.i.i = phi i64 [ 0, %._crit_edge35 ], [ %78, %73 ]
-  %74 = getelementptr inbounds nuw i64, ptr %0, i64 %.sroa.0.05.i.i.i
-  %75 = getelementptr inbounds nuw i64, ptr %.sroa.631.0..sroa_idx.i.i, i64 %.sroa.0.05.i.i.i
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.sroa.0.05.i.i.i
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.631.0..sroa_idx.i.i, i64 %.sroa.0.05.i.i.i
   %76 = load i64, ptr %74, align 8
   %77 = load i64, ptr %75, align 8
   store i64 %77, ptr %74, align 8
@@ -895,7 +895,7 @@ _ZN9hashbrown3raw5inner13RawTableInner20reserve_rehash_inner17hc2c170a3beee1f28E
 define internal fastcc noundef i64 @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14reserve_rehash28_$u7b$$u7b$closure$u7d$$u7d$17h57caef270687ceb1E"(ptr noalias readonly align 8 captures(none) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %1, i64 noundef %2) unnamed_addr #5 personality ptr @rust_eh_personality {
   %4 = load ptr, ptr %1, align 8, !nonnull !9, !noundef !9
   %5 = sub nsw i64 0, %2
-  %6 = getelementptr inbounds { { { i64, [10 x i64] }, { { i64, [2 x i64] } } }, { { { i64, [1 x i64] } } } }, ptr %4, i64 %5
+  %6 = getelementptr inbounds [128 x i8], ptr %4, i64 %5
   %7 = getelementptr inbounds i8, ptr %6, i64 -128
   tail call void @llvm.experimental.noalias.scope.decl(metadata !139)
   %8 = getelementptr inbounds i8, ptr %6, i64 -40

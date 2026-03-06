@@ -71,7 +71,7 @@ define internal void @lv_table_destructor(ptr readnone captures(none) %0, ptr no
   %9 = phi i32 [ %27, %25 ], [ %5, %2 ]
   %10 = phi ptr [ %28, %25 ], [ %.pre36, %2 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %25 ], [ 0, %2 ]
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !23
   %.not29 = icmp eq ptr %12, null
   br i1 %.not29, label %25, label %13
@@ -85,7 +85,7 @@ define internal void @lv_table_destructor(ptr readnone captures(none) %0, ptr no
 16:                                               ; preds = %13
   tail call void @lv_free(ptr noundef nonnull %15) #9
   %17 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !22
-  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !23
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr null, ptr %20, align 8, !tbaa !27
@@ -95,7 +95,7 @@ define internal void @lv_table_destructor(ptr readnone captures(none) %0, ptr no
   %22 = phi ptr [ %19, %16 ], [ %12, %13 ]
   tail call void @lv_free(ptr noundef nonnull %22) #9
   %23 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !22
-  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv
   store ptr null, ptr %24, align 8, !tbaa !23
   %.pre34 = load i32, ptr %3, align 8, !tbaa !3
   %.pre35 = load i32, ptr %4, align 4, !tbaa !18
@@ -196,7 +196,7 @@ define internal void @lv_table_event(ptr readnone captures(none) %0, ptr noundef
 20:                                               ; preds = %.lr.ph, %20
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %20 ]
   %.0115160 = phi i32 [ 0, %.lr.ph ], [ %23, %20 ]
-  %21 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv
   %22 = load i32, ptr %21, align 4, !tbaa !21
   %23 = add nsw i32 %22, %.0115160
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -206,7 +206,7 @@ define internal void @lv_table_event(ptr readnone captures(none) %0, ptr noundef
 24:                                               ; preds = %.lr.ph164, %24
   %indvars.iv183 = phi i64 [ 0, %.lr.ph164 ], [ %indvars.iv.next184, %24 ]
   %.0116162 = phi i32 [ 0, %.lr.ph164 ], [ %27, %24 ]
-  %25 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv183
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %indvars.iv183
   %26 = load i32, ptr %25, align 4, !tbaa !21
   %27 = add nsw i32 %26, %.0116162
   %indvars.iv.next184 = add nuw nsw i64 %indvars.iv183, 1
@@ -293,7 +293,7 @@ define internal void @lv_table_event(ptr readnone captures(none) %0, ptr noundef
 
 66:                                               ; preds = %64
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i166, 1
-  %67 = getelementptr inbounds nuw i32, ptr %59, i64 %indvars.iv.next.i
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %indvars.iv.next.i
   %68 = load i32, ptr %67, align 4, !tbaa !21
   %69 = add nsw i32 %68, %65
   %70 = icmp slt i32 %55, %69
@@ -345,7 +345,7 @@ define internal void @lv_table_event(ptr readnone captures(none) %0, ptr noundef
 
 91:                                               ; preds = %89
   %indvars.iv.next88.i = add nuw nsw i64 %indvars.iv87.i173, 1
-  %92 = getelementptr inbounds nuw i32, ptr %84, i64 %indvars.iv.next88.i
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %84, i64 %indvars.iv.next88.i
   %93 = load i32, ptr %92, align 4, !tbaa !21
   %94 = add nsw i32 %93, %90
   %95 = icmp slt i32 %80, %94
@@ -598,7 +598,7 @@ define void @lv_table_set_cell_value(ptr noundef %0, i32 noundef %1, i32 noundef
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %21 = load ptr, ptr %20, align 8, !tbaa !22
   %22 = zext i32 %19 to i64
-  %23 = getelementptr inbounds nuw ptr, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !23
   %.not54 = icmp eq ptr %24, null
   br i1 %.not54, label %.thread, label %25
@@ -615,11 +615,11 @@ define void @lv_table_set_cell_value(ptr noundef %0, i32 noundef %1, i32 noundef
   %29 = tail call i64 @lv_strlen(ptr noundef nonnull %3) #9
   %30 = add i64 %29, 25
   %31 = load ptr, ptr %20, align 8, !tbaa !22
-  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %22
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %22
   %33 = load ptr, ptr %32, align 8, !tbaa !23
   %34 = tail call ptr @lv_realloc(ptr noundef %33, i64 noundef %30) #9
   %35 = load ptr, ptr %20, align 8, !tbaa !22
-  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %22
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %22
   store ptr %34, ptr %36, align 8, !tbaa !23
   %.not56 = icmp eq ptr %34, null
   br i1 %.not56, label %.preheader60, label %37
@@ -631,7 +631,7 @@ define void @lv_table_set_cell_value(ptr noundef %0, i32 noundef %1, i32 noundef
   %38 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %39 = tail call ptr @lv_strcpy(ptr noundef nonnull %38, ptr noundef nonnull %3) #9
   %40 = load ptr, ptr %20, align 8, !tbaa !22
-  %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %22
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %22
   %42 = load ptr, ptr %41, align 8, !tbaa !23
   store i32 %.058, ptr %42, align 8, !tbaa !41
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
@@ -701,9 +701,9 @@ define void @lv_table_set_column_count(ptr noundef %0, i32 noundef %1) local_unn
   %29 = mul i32 %.fr, %28
   %30 = mul i32 %1, %28
   %31 = zext i32 %30 to i64
-  %32 = getelementptr inbounds nuw ptr, ptr %13, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %31
   %33 = zext i32 %29 to i64
-  %34 = getelementptr inbounds nuw ptr, ptr %27, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %33
   %35 = tail call ptr @lv_memcpy(ptr noundef nonnull %32, ptr noundef %34, i64 noundef %24) #9
   %36 = add i32 %29, %20
   %.pre100 = load ptr, ptr %22, align 8, !tbaa !22
@@ -715,7 +715,7 @@ define void @lv_table_set_column_count(ptr noundef %0, i32 noundef %1) local_unn
   %39 = trunc nuw nsw i64 %indvars.iv89 to i32
   %40 = add i32 %36, %39
   %41 = zext i32 %40 to i64
-  %42 = getelementptr inbounds nuw ptr, ptr %38, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %41
   %43 = load ptr, ptr %42, align 8, !tbaa !23
   %.not74.us = icmp eq ptr %43, null
   br i1 %.not74.us, label %52, label %44
@@ -729,7 +729,7 @@ define void @lv_table_set_column_count(ptr noundef %0, i32 noundef %1) local_unn
 47:                                               ; preds = %44
   tail call void @lv_free(ptr noundef nonnull %46) #9
   %48 = load ptr, ptr %22, align 8, !tbaa !22
-  %49 = getelementptr inbounds nuw ptr, ptr %48, i64 %41
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %41
   %50 = load ptr, ptr %49, align 8, !tbaa !23
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   store ptr null, ptr %51, align 8, !tbaa !27
@@ -739,7 +739,7 @@ define void @lv_table_set_column_count(ptr noundef %0, i32 noundef %1) local_unn
   %53 = phi ptr [ %50, %47 ], [ %43, %44 ], [ null, %37 ]
   tail call void @lv_free(ptr noundef %53) #9
   %54 = load ptr, ptr %22, align 8, !tbaa !22
-  %55 = getelementptr inbounds nuw ptr, ptr %54, i64 %41
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %41
   store ptr null, ptr %55, align 8, !tbaa !23
   %indvars.iv.next90 = add nuw nsw i64 %indvars.iv89, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next90, %wide.trip.count
@@ -758,10 +758,10 @@ define void @lv_table_set_column_count(ptr noundef %0, i32 noundef %1) local_unn
   %60 = mul i32 %.fr, %59
   %61 = mul i32 %1, %59
   %62 = zext i32 %61 to i64
-  %63 = getelementptr inbounds nuw ptr, ptr %13, i64 %62
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %62
   %64 = load ptr, ptr %22, align 8, !tbaa !22
   %65 = zext i32 %60 to i64
-  %66 = getelementptr inbounds nuw ptr, ptr %64, i64 %65
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %65
   %67 = tail call ptr @lv_memcpy(ptr noundef nonnull %63, ptr noundef %66, i64 noundef %24) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %68 = load i32, ptr %8, align 4, !tbaa !18
@@ -796,7 +796,7 @@ define void @lv_table_set_column_count(ptr noundef %0, i32 noundef %1) local_unn
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv95 = phi i64 [ %79, %.lr.ph.preheader ], [ %indvars.iv.next96, %.lr.ph ]
-  %80 = getelementptr inbounds nuw i32, ptr %77, i64 %indvars.iv95
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %indvars.iv95
   store i32 130, ptr %80, align 4, !tbaa !21
   %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
   %exitcond99.not = icmp eq i64 %indvars.iv.next96, %75
@@ -859,7 +859,7 @@ define void @lv_table_set_row_count(ptr noundef %0, i32 noundef %1) local_unname
 23:                                               ; preds = %.lr.ph, %35
   %indvars.iv = phi i64 [ %22, %.lr.ph ], [ %indvars.iv.next, %35 ]
   %24 = load ptr, ptr %21, align 8, !tbaa !22
-  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8, !tbaa !23
   %.not56 = icmp eq ptr %26, null
   br i1 %.not56, label %35, label %27
@@ -873,7 +873,7 @@ define void @lv_table_set_row_count(ptr noundef %0, i32 noundef %1) local_unname
 30:                                               ; preds = %27
   tail call void @lv_free(ptr noundef nonnull %29) #9
   %31 = load ptr, ptr %21, align 8, !tbaa !22
-  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv
   %33 = load ptr, ptr %32, align 8, !tbaa !23
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store ptr null, ptr %34, align 8, !tbaa !27
@@ -917,7 +917,7 @@ define void @lv_table_set_row_count(ptr noundef %0, i32 noundef %1) local_unname
   %50 = mul i32 %49, %5
   %51 = load i32, ptr %4, align 4, !tbaa !18
   %52 = zext i32 %50 to i64
-  %53 = getelementptr inbounds nuw ptr, ptr %45, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %52
   %54 = sub i32 %51, %5
   %55 = mul i32 %54, %49
   %56 = zext i32 %55 to i64
@@ -967,7 +967,7 @@ define internal fastcc void @refr_cell_size(ptr noundef nonnull %0, i32 noundef 
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %24 = load ptr, ptr %23, align 8, !tbaa !20
   %25 = zext i32 %1 to i64
-  %26 = getelementptr inbounds nuw i32, ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %25
   %27 = load i32, ptr %26, align 4, !tbaa !21
   %28 = tail call i32 @llvm.smin.i32(i32 %22, i32 %.sroa.0.0.extract.trunc.i50)
   %. = tail call i32 @llvm.smax.i32(i32 %28, i32 %.sroa.0.0.extract.trunc.i49)
@@ -1042,7 +1042,7 @@ define void @lv_table_set_cell_value_fmt(ptr noundef %0, i32 noundef %1, i32 nou
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %23 = load ptr, ptr %22, align 8, !tbaa !22
   %24 = zext i32 %21 to i64
-  %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !23
   %.not58 = icmp eq ptr %26, null
   br i1 %.not58, label %.thread, label %27
@@ -1063,13 +1063,13 @@ define void @lv_table_set_cell_value_fmt(ptr noundef %0, i32 noundef %1, i32 nou
   %31 = call i32 @lv_vsnprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull %3, ptr noundef nonnull %5) #9
   call void @llvm.va_end.p0(ptr nonnull %5)
   %32 = load ptr, ptr %22, align 8, !tbaa !22
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %24
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %24
   %34 = load ptr, ptr %33, align 8, !tbaa !23
   %35 = zext i32 %31 to i64
   %36 = add nuw nsw i64 %35, 25
   %37 = call ptr @lv_realloc(ptr noundef %34, i64 noundef %36) #9
   %38 = load ptr, ptr %22, align 8, !tbaa !22
-  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %24
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %24
   store ptr %37, ptr %39, align 8, !tbaa !23
   %.not60 = icmp eq ptr %37, null
   br i1 %.not60, label %.preheader64, label %40
@@ -1082,7 +1082,7 @@ define void @lv_table_set_cell_value_fmt(ptr noundef %0, i32 noundef %1, i32 nou
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 %35
   store i8 0, ptr %42, align 1, !tbaa !46
   %43 = load ptr, ptr %22, align 8, !tbaa !22
-  %44 = getelementptr inbounds nuw ptr, ptr %43, i64 %24
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %24
   %45 = load ptr, ptr %44, align 8, !tbaa !23
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %47 = add i32 %31, 1
@@ -1090,7 +1090,7 @@ define void @lv_table_set_cell_value_fmt(ptr noundef %0, i32 noundef %1, i32 nou
   %49 = call i32 @lv_vsnprintf(ptr noundef nonnull %46, i64 noundef %48, ptr noundef nonnull %3, ptr noundef nonnull %6) #9
   call void @llvm.va_end.p0(ptr nonnull %6)
   %50 = load ptr, ptr %22, align 8, !tbaa !22
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %24
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %24
   %52 = load ptr, ptr %51, align 8, !tbaa !23
   store i32 %.062, ptr %52, align 8, !tbaa !41
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
@@ -1157,7 +1157,7 @@ define internal fastcc void @refr_size_form_row(ptr noundef %0) unnamed_addr #0 
   %25 = tail call i32 @llvm.smin.i32(i32 %24, i32 %.sroa.0.0.extract.trunc.i44)
   %. = tail call i32 @llvm.smax.i32(i32 %25, i32 %.sroa.0.0.extract.trunc.i43)
   %26 = load ptr, ptr %21, align 8, !tbaa !20
-  %27 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv
   store i32 %., ptr %27, align 4, !tbaa !21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %28 = load i32, ptr %19, align 4, !tbaa !18
@@ -1198,7 +1198,7 @@ define void @lv_table_set_column_width(ptr noundef %0, i32 noundef %1, i32 nound
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %11 = load ptr, ptr %10, align 8, !tbaa !19
   %12 = zext i32 %1 to i64
-  %13 = getelementptr inbounds nuw i32, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %12
   store i32 %2, ptr %13, align 4, !tbaa !21
   tail call fastcc void @refr_size_form_row(ptr noundef nonnull %0)
   ret void
@@ -1241,7 +1241,7 @@ define void @lv_table_set_cell_ctrl(ptr noundef %0, i32 noundef %1, i32 noundef 
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %20 = load ptr, ptr %19, align 8, !tbaa !22
   %21 = zext i32 %18 to i64
-  %22 = getelementptr inbounds nuw ptr, ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !23
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %32
@@ -1249,7 +1249,7 @@ define void @lv_table_set_cell_ctrl(ptr noundef %0, i32 noundef %1, i32 noundef 
 25:                                               ; preds = %15
   %26 = tail call ptr @lv_malloc(i64 noundef 25) #9
   %27 = load ptr, ptr %19, align 8, !tbaa !22
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %21
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %21
   store ptr %26, ptr %28, align 8, !tbaa !23
   %.not34 = icmp eq ptr %26, null
   br i1 %.not34, label %.preheader35, label %29
@@ -1264,7 +1264,7 @@ define void @lv_table_set_cell_ctrl(ptr noundef %0, i32 noundef %1, i32 noundef 
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 16
   store i8 0, ptr %31, align 8, !tbaa !46
   %.pre = load ptr, ptr %19, align 8, !tbaa !22
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre, i64 %21
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %21
   %.pre36 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !23
   br label %32
 
@@ -1313,7 +1313,7 @@ define void @lv_table_clear_cell_ctrl(ptr noundef %0, i32 noundef %1, i32 nounde
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %20 = load ptr, ptr %19, align 8, !tbaa !22
   %21 = zext i32 %18 to i64
-  %22 = getelementptr inbounds nuw ptr, ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !23
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %32
@@ -1321,7 +1321,7 @@ define void @lv_table_clear_cell_ctrl(ptr noundef %0, i32 noundef %1, i32 nounde
 25:                                               ; preds = %15
   %26 = tail call ptr @lv_malloc(i64 noundef 25) #9
   %27 = load ptr, ptr %19, align 8, !tbaa !22
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %21
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %21
   store ptr %26, ptr %28, align 8, !tbaa !23
   %.not34 = icmp eq ptr %26, null
   br i1 %.not34, label %.preheader35, label %29
@@ -1336,7 +1336,7 @@ define void @lv_table_clear_cell_ctrl(ptr noundef %0, i32 noundef %1, i32 nounde
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 16
   store i8 0, ptr %31, align 8, !tbaa !46
   %.pre = load ptr, ptr %19, align 8, !tbaa !22
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre, i64 %21
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %21
   %.pre36 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !23
   br label %32
 
@@ -1388,7 +1388,7 @@ define void @lv_table_set_cell_user_data(ptr noundef %0, i16 noundef zeroext %1,
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %22 = load ptr, ptr %21, align 8, !tbaa !22
   %23 = zext i32 %20 to i64
-  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !23
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %34
@@ -1396,7 +1396,7 @@ define void @lv_table_set_cell_user_data(ptr noundef %0, i16 noundef zeroext %1,
 27:                                               ; preds = %17
   %28 = tail call ptr @lv_malloc(i64 noundef 25) #9
   %29 = load ptr, ptr %21, align 8, !tbaa !22
-  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %23
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %23
   store ptr %28, ptr %30, align 8, !tbaa !23
   %.not39 = icmp eq ptr %28, null
   br i1 %.not39, label %.preheader41, label %31
@@ -1411,7 +1411,7 @@ define void @lv_table_set_cell_user_data(ptr noundef %0, i16 noundef zeroext %1,
   %33 = getelementptr inbounds nuw i8, ptr %28, i64 16
   store i8 0, ptr %33, align 8, !tbaa !46
   %.pre = load ptr, ptr %21, align 8, !tbaa !22
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre, i64 %23
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %23
   %.pre42 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !23
   br label %34
 
@@ -1425,7 +1425,7 @@ define void @lv_table_set_cell_user_data(ptr noundef %0, i16 noundef zeroext %1,
 38:                                               ; preds = %34
   tail call void @lv_free(ptr noundef nonnull %37) #9
   %.pre43 = load ptr, ptr %21, align 8, !tbaa !22
-  %.phi.trans.insert44 = getelementptr inbounds nuw ptr, ptr %.pre43, i64 %23
+  %.phi.trans.insert44 = getelementptr inbounds nuw [8 x i8], ptr %.pre43, i64 %23
   %.pre45 = load ptr, ptr %.phi.trans.insert44, align 8, !tbaa !23
   br label %39
 
@@ -1590,7 +1590,7 @@ define nonnull ptr @lv_table_get_cell_value(ptr noundef readonly captures(addres
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %14 = load ptr, ptr %13, align 8, !tbaa !22
   %15 = zext i32 %12 to i64
-  %16 = getelementptr inbounds nuw ptr, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !23
   %18 = icmp eq ptr %17, null
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 16
@@ -1648,7 +1648,7 @@ define i32 @lv_table_get_column_width(ptr noundef readonly captures(address_is_n
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %8 = load ptr, ptr %7, align 8, !tbaa !19
   %9 = zext i32 %1 to i64
-  %10 = getelementptr inbounds nuw i32, ptr %8, i64 %9
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !21
   br label %12
 
@@ -1683,7 +1683,7 @@ define zeroext i1 @lv_table_has_cell_ctrl(ptr noundef readonly captures(address_
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %15 = load ptr, ptr %14, align 8, !tbaa !22
   %16 = zext i32 %13 to i64
-  %17 = getelementptr inbounds nuw ptr, ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !23
   %19 = icmp eq ptr %18, null
   br i1 %19, label %24, label %20
@@ -1738,7 +1738,7 @@ define ptr @lv_table_get_cell_user_data(ptr noundef readonly captures(address_is
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %16 = load ptr, ptr %15, align 8, !tbaa !22
   %17 = zext i32 %14 to i64
-  %18 = getelementptr inbounds nuw ptr, ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !23
   %20 = icmp eq ptr %19, null
   br i1 %20, label %24, label %21
@@ -1902,7 +1902,7 @@ define internal fastcc void @draw_main(ptr noundef %0) unnamed_addr #0 {
   %indvars.iv240 = phi i64 [ 0, %.lr.ph226 ], [ %indvars.iv.next241, %._crit_edge221 ]
   %.0146223 = phi i32 [ 0, %.lr.ph226 ], [ %.2148.lcssa, %._crit_edge221 ]
   %94 = load ptr, ptr %50, align 8, !tbaa !20
-  %95 = getelementptr inbounds nuw i32, ptr %94, i64 %indvars.iv240
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %94, i64 %indvars.iv240
   %96 = load i32, ptr %95, align 4, !tbaa !21
   %97 = load i32, ptr %43, align 4, !tbaa !51
   %98 = add nsw i32 %97, 1
@@ -1944,7 +1944,7 @@ define internal fastcc void @draw_main(ptr noundef %0) unnamed_addr #0 {
   %.2148214 = phi i32 [ %.0146223, %.lr.ph220 ], [ %.3, %304 ]
   %114 = load ptr, ptr %65, align 8, !tbaa !22
   %115 = zext i32 %.2148214 to i64
-  %116 = getelementptr inbounds nuw ptr, ptr %114, i64 %115
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %114, i64 %115
   %117 = load ptr, ptr %116, align 8, !tbaa !23
   %.not161 = icmp eq ptr %117, null
   br i1 %.not161, label %122, label %118
@@ -1967,7 +1967,7 @@ define internal fastcc void @draw_main(ptr noundef %0) unnamed_addr #0 {
   %128 = add nsw i32 %127, -1
   store i32 %128, ptr %44, align 4, !tbaa !49
   %129 = load ptr, ptr %66, align 8, !tbaa !19
-  %130 = getelementptr inbounds nuw i32, ptr %129, i64 %123
+  %130 = getelementptr inbounds nuw [4 x i8], ptr %129, i64 %123
   %131 = load i32, ptr %130, align 4, !tbaa !21
   %132 = sub i32 %127, %131
   store i32 %132, ptr %5, align 4, !tbaa !48
@@ -1978,7 +1978,7 @@ define internal fastcc void @draw_main(ptr noundef %0) unnamed_addr #0 {
   %134 = add nsw i32 %133, 1
   store i32 %134, ptr %5, align 4, !tbaa !48
   %135 = load ptr, ptr %66, align 8, !tbaa !19
-  %136 = getelementptr inbounds nuw i32, ptr %135, i64 %123
+  %136 = getelementptr inbounds nuw [4 x i8], ptr %135, i64 %123
   %137 = load i32, ptr %136, align 4, !tbaa !21
   %138 = add i32 %137, %133
   store i32 %138, ptr %44, align 4, !tbaa !49
@@ -2001,7 +2001,7 @@ define internal fastcc void @draw_main(ptr noundef %0) unnamed_addr #0 {
   %145 = trunc nuw i64 %indvars.iv235 to i32
   %146 = add i32 %.2148214, %145
   %147 = zext i32 %146 to i64
-  %148 = getelementptr inbounds nuw ptr, ptr %114, i64 %147
+  %148 = getelementptr inbounds nuw [8 x i8], ptr %114, i64 %147
   %149 = load ptr, ptr %148, align 8, !tbaa !23
   %150 = icmp eq ptr %149, null
   br i1 %150, label %._crit_edge.loopexit.split.loop.exit, label %151
@@ -2013,7 +2013,7 @@ define internal fastcc void @draw_main(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not162.us, label %._crit_edge.loopexit.split.loop.exit281, label %154
 
 154:                                              ; preds = %151
-  %155 = getelementptr inbounds nuw i32, ptr %129, i64 %144
+  %155 = getelementptr inbounds nuw [4 x i8], ptr %129, i64 %144
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 4
   %157 = load i32, ptr %156, align 4, !tbaa !21
   %158 = sub nsw i32 %143, %157
@@ -2030,7 +2030,7 @@ define internal fastcc void @draw_main(ptr noundef %0) unnamed_addr #0 {
   %161 = trunc nuw i64 %indvars.iv to i32
   %162 = add i32 %.2148214, %161
   %163 = zext i32 %162 to i64
-  %164 = getelementptr inbounds nuw ptr, ptr %114, i64 %163
+  %164 = getelementptr inbounds nuw [8 x i8], ptr %114, i64 %163
   %165 = load ptr, ptr %164, align 8, !tbaa !23
   %166 = icmp eq ptr %165, null
   br i1 %166, label %._crit_edge.loopexit267.split.loop.exit, label %167
@@ -2042,7 +2042,7 @@ define internal fastcc void @draw_main(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not162, label %._crit_edge.loopexit267.split.loop.exit271, label %170
 
 170:                                              ; preds = %167
-  %171 = getelementptr inbounds nuw i32, ptr %135, i64 %160
+  %171 = getelementptr inbounds nuw [4 x i8], ptr %135, i64 %160
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 4
   %173 = load i32, ptr %172, align 4, !tbaa !21
   %174 = add nsw i32 %159, %173
@@ -2218,7 +2218,7 @@ define internal fastcc void @draw_main(ptr noundef %0) unnamed_addr #0 {
   store i32 %.0142216, ptr %82, align 8, !tbaa !72
   call void @lv_draw_rect(ptr noundef %14, ptr noundef nonnull %7, ptr noundef nonnull %10) #9
   %250 = load ptr, ptr %65, align 8, !tbaa !22
-  %251 = getelementptr inbounds nuw ptr, ptr %250, i64 %115
+  %251 = getelementptr inbounds nuw [8 x i8], ptr %250, i64 %115
   %252 = load ptr, ptr %251, align 8, !tbaa !23
   %.not173 = icmp eq ptr %252, null
   br i1 %.not173, label %303, label %253
@@ -2256,7 +2256,7 @@ define internal fastcc void @draw_main(ptr noundef %0) unnamed_addr #0 {
   %272 = or i32 %271, 1
   store i32 %272, ptr %86, align 4, !tbaa !73
   %273 = load ptr, ptr %65, align 8, !tbaa !22
-  %274 = getelementptr inbounds nuw ptr, ptr %273, i64 %115
+  %274 = getelementptr inbounds nuw [8 x i8], ptr %273, i64 %115
   %275 = load ptr, ptr %274, align 8, !tbaa !23
   %276 = getelementptr inbounds nuw i8, ptr %275, i64 16
   %277 = load ptr, ptr %87, align 8, !tbaa !74
@@ -2268,7 +2268,7 @@ define internal fastcc void @draw_main(ptr noundef %0) unnamed_addr #0 {
 
 .critedge:                                        ; preds = %253
   %281 = load ptr, ptr %65, align 8, !tbaa !22
-  %282 = getelementptr inbounds nuw ptr, ptr %281, i64 %115
+  %282 = getelementptr inbounds nuw [8 x i8], ptr %281, i64 %115
   %283 = load ptr, ptr %282, align 8, !tbaa !23
   %284 = getelementptr inbounds nuw i8, ptr %283, i64 16
   %285 = load ptr, ptr %87, align 8, !tbaa !74
@@ -2295,7 +2295,7 @@ define internal fastcc void @draw_main(ptr noundef %0) unnamed_addr #0 {
 297:                                              ; preds = %295
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %16, ptr noundef nonnull align 4 dereferenceable(16) %12, i64 16, i1 false), !tbaa.struct !52
   %298 = load ptr, ptr %65, align 8, !tbaa !22
-  %299 = getelementptr inbounds nuw ptr, ptr %298, i64 %115
+  %299 = getelementptr inbounds nuw [8 x i8], ptr %298, i64 %115
   %300 = load ptr, ptr %299, align 8, !tbaa !23
   %301 = getelementptr inbounds nuw i8, ptr %300, i64 16
   store ptr %301, ptr %91, align 8, !tbaa !77
@@ -2407,7 +2407,7 @@ define internal fastcc i32 @get_row_height(ptr noundef readonly captures(none) %
   %.06492 = phi i32 [ 0, %.lr.ph95 ], [ %72, %70 ]
   %25 = load ptr, ptr %19, align 8, !tbaa !22
   %26 = zext i32 %.06193 to i64
-  %27 = getelementptr inbounds nuw ptr, ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !23
   %29 = icmp eq ptr %28, null
   br i1 %29, label %70, label %30
@@ -2415,7 +2415,7 @@ define internal fastcc i32 @get_row_height(ptr noundef readonly captures(none) %
 30:                                               ; preds = %23
   %31 = load ptr, ptr %20, align 8, !tbaa !19
   %32 = zext i32 %.06492 to i64
-  %33 = getelementptr inbounds nuw i32, ptr %31, i64 %32
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %32
   %34 = load i32, ptr %33, align 4, !tbaa !21
   %35 = add i32 %24, -1
   %36 = icmp ult i32 %.06492, %35
@@ -2432,7 +2432,7 @@ define internal fastcc i32 @get_row_height(ptr noundef readonly captures(none) %
   %39 = trunc nuw i64 %indvars.iv to i32
   %40 = add i32 %.06193, %39
   %41 = zext i32 %40 to i64
-  %42 = getelementptr inbounds nuw ptr, ptr %25, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %41
   %43 = load ptr, ptr %42, align 8, !tbaa !23
   %44 = icmp eq ptr %43, null
   br i1 %44, label %.thread.loopexit.split.loop.exit103, label %45
@@ -2444,7 +2444,7 @@ define internal fastcc i32 @get_row_height(ptr noundef readonly captures(none) %
   br i1 %.not, label %.thread.loopexit.split.loop.exit, label %48
 
 48:                                               ; preds = %45
-  %49 = getelementptr inbounds nuw i32, ptr %31, i64 %38
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %38
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 4
   %51 = load i32, ptr %50, align 4, !tbaa !21
   %52 = add nsw i32 %51, %.06880
@@ -2528,7 +2528,7 @@ define internal fastcc void @get_cell_area(ptr noundef %0, i32 noundef %1, i32 n
 7:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
   %8 = phi i32 [ 0, %.lr.ph ], [ %11, %7 ]
-  %9 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4, !tbaa !21
   %11 = add nsw i32 %8, %10
   store i32 %11, ptr %3, align 4, !tbaa !48
@@ -2560,7 +2560,7 @@ define internal fastcc void @get_cell_area(ptr noundef %0, i32 noundef %1, i32 n
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %28 = load ptr, ptr %27, align 8, !tbaa !19
   %29 = zext i32 %2 to i64
-  %30 = getelementptr inbounds nuw i32, ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %29
   %31 = load i32, ptr %30, align 4, !tbaa !21
   %32 = sub nsw i32 %25, %31
   store i32 %32, ptr %3, align 4, !tbaa !48
@@ -2578,7 +2578,7 @@ define internal fastcc void @get_cell_area(ptr noundef %0, i32 noundef %1, i32 n
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %40 = load ptr, ptr %39, align 8, !tbaa !19
   %41 = zext i32 %2 to i64
-  %42 = getelementptr inbounds nuw i32, ptr %40, i64 %41
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %41
   %43 = load i32, ptr %42, align 4, !tbaa !21
   %44 = add i32 %38, -1
   %45 = add i32 %44, %43
@@ -2601,7 +2601,7 @@ define internal fastcc void @get_cell_area(ptr noundef %0, i32 noundef %1, i32 n
 51:                                               ; preds = %.lr.ph53, %51
   %indvars.iv58 = phi i64 [ 0, %.lr.ph53 ], [ %indvars.iv.next59, %51 ]
   %52 = phi i32 [ 0, %.lr.ph53 ], [ %55, %51 ]
-  %53 = getelementptr inbounds nuw i32, ptr %50, i64 %indvars.iv58
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %indvars.iv58
   %54 = load i32, ptr %53, align 4, !tbaa !21
   %55 = add nsw i32 %52, %54
   store i32 %55, ptr %48, align 4, !tbaa !50
@@ -2623,7 +2623,7 @@ define internal fastcc void @get_cell_area(ptr noundef %0, i32 noundef %1, i32 n
   store i32 %62, ptr %48, align 4, !tbaa !50
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %64 = load ptr, ptr %63, align 8, !tbaa !20
-  %65 = getelementptr inbounds nuw i32, ptr %64, i64 %.pre-phi
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %.pre-phi
   %66 = load i32, ptr %65, align 4, !tbaa !21
   %67 = add i32 %62, -1
   %68 = add i32 %67, %66

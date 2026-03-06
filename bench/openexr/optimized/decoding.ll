@@ -3,9 +3,6 @@ source_filename = "bench/openexr/original/decoding.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.exr_coding_channel_info_t = type { ptr, i32, i32, i32, i32, i8, i8, i16, i16, i16, i32, i32, %union.anon }
-%union.anon = type { ptr }
-
 @.str = private unnamed_addr constant [80 x i8] c"Version %d not supported for deepscanline images in this version of the library\00", align 1
 @.str.1 = private unnamed_addr constant [29 x i8] c"Part index (%d) out of range\00", align 1
 @.str.2 = private unnamed_addr constant [71 x i8] c"Cross-wired request for default routines from different context / part\00", align 1
@@ -53,7 +50,7 @@ define i32 @exr_decoding_initialize(ptr noundef %0, i32 noundef %1, ptr noundef 
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %19 = load ptr, ptr %18, align 8, !tbaa !23
   %20 = zext nneg i32 %1 to i64
-  %21 = getelementptr inbounds nuw ptr, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(504) %3, i8 0, i64 504, i1 false)
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
@@ -165,7 +162,7 @@ define i32 @exr_decoding_choose_default_routines(ptr noundef %0, i32 noundef %1,
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %21 = load ptr, ptr %20, align 8, !tbaa !23
   %22 = zext nneg i32 %1 to i64
-  %23 = getelementptr inbounds nuw ptr, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !24
   %.not210 = icmp eq ptr %2, null
   br i1 %.not210, label %25, label %29
@@ -231,7 +228,7 @@ define i32 @exr_decoding_choose_default_routines(ptr noundef %0, i32 noundef %1,
   %.0191323 = phi i32 [ -2, %.lr.ph.split.preheader ], [ %.2193.ph, %120 ]
   %.0195322 = phi i32 [ 0, %.lr.ph.split.preheader ], [ %.2197.ph, %120 ]
   %.0199321 = phi i32 [ 0, %.lr.ph.split.preheader ], [ %.2201.ph, %120 ]
-  %49 = getelementptr inbounds nuw %struct.exr_coding_channel_info_t, ptr %48, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [48 x i8], ptr %48, i64 %indvars.iv
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %51 = load i32, ptr %50, align 8, !tbaa !45
   %52 = icmp eq i32 %51, 0
@@ -560,7 +557,7 @@ define internal i32 @read_uncompressed_direct(ptr noundef readonly captures(none
   %38 = phi i16 [ %32, %.lr.ph ], [ %75, %74 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %74 ]
   %39 = load ptr, ptr %30, align 8, !tbaa !44
-  %40 = getelementptr inbounds nuw %struct.exr_coding_channel_info_t, ptr %39, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [48 x i8], ptr %39, i64 %indvars.iv
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 40
   %42 = load ptr, ptr %41, align 8, !tbaa !27
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 12
@@ -674,7 +671,7 @@ define internal i32 @default_read_chunk(ptr noundef %0) #0 {
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 472
   %23 = load ptr, ptr %22, align 8, !tbaa !23
   %24 = zext nneg i32 %12 to i64
-  %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !24
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %28 = load ptr, ptr %27, align 8, !tbaa !70
@@ -801,7 +798,7 @@ define i32 @exr_decoding_update(ptr noundef %0, i32 noundef %1, ptr noundef %2, 
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %19 = load ptr, ptr %18, align 8, !tbaa !23
   %20 = zext nneg i32 %1 to i64
-  %21 = getelementptr inbounds nuw ptr, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !24
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %24 = load ptr, ptr %23, align 8, !tbaa !38
@@ -856,7 +853,7 @@ define i32 @exr_decoding_run(ptr noundef %0, i32 noundef %1, ptr noundef %2) loc
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %11 = load ptr, ptr %10, align 8, !tbaa !23
   %12 = zext nneg i32 %1 to i64
-  %13 = getelementptr inbounds nuw ptr, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !24
   %.not112 = icmp eq ptr %2, null
   br i1 %.not112, label %15, label %19
@@ -988,7 +985,7 @@ define i32 @exr_decoding_run(ptr noundef %0, i32 noundef %1, ptr noundef %2) loc
   %88 = load ptr, ptr %65, align 8, !tbaa !77
   %89 = load i64, ptr %80, align 8, !tbaa !73
   %90 = lshr i64 %89, 2
-  %91 = getelementptr inbounds nuw i32, ptr %88, i64 %90
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %88, i64 %90
   %92 = sub i64 %77, %89
   tail call void @llvm.memset.p0.i64(ptr align 4 %91, i8 0, i64 %92, i1 false)
   br label %95
@@ -1179,13 +1176,13 @@ define internal fastcc i32 @unpack_sample_table(ptr noundef nonnull %0, ptr noun
   %indvars.iv189 = phi i64 [ 0, %.lr.ph141.us.preheader ], [ %indvars.iv.next190, %._crit_edge142.us ]
   %.082146.us = phi i64 [ 0, %.lr.ph141.us.preheader ], [ %26, %._crit_edge142.us ]
   %18 = mul nuw nsw i64 %indvars.iv189, %17
-  %19 = getelementptr inbounds nuw i32, ptr %8, i64 %18
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %18
   br label %20
 
 20:                                               ; preds = %.lr.ph141.us, %23
   %indvars.iv184 = phi i64 [ 0, %.lr.ph141.us ], [ %indvars.iv.next185, %23 ]
   %.090138.us = phi i32 [ 0, %.lr.ph141.us ], [ %22, %23 ]
-  %21 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv184
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %indvars.iv184
   %22 = load i32, ptr %21, align 4, !tbaa !40
   %.not109.us = icmp slt i32 %22, %.090138.us
   br i1 %.not109.us, label %.thread114.thread, label %23
@@ -1216,7 +1213,7 @@ define internal fastcc i32 @unpack_sample_table(ptr noundef nonnull %0, ptr noun
   %indvars.iv199 = phi i64 [ 0, %.lr.ph158.us.preheader ], [ %indvars.iv.next200, %._crit_edge159.us ]
   %.486162.us = phi i64 [ 0, %.lr.ph158.us.preheader ], [ %35, %._crit_edge159.us ]
   %28 = mul nuw nsw i64 %indvars.iv199, %27
-  %29 = getelementptr inbounds nuw i32, ptr %8, i64 %28
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %28
   br label %31
 
 30:                                               ; preds = %31
@@ -1227,7 +1224,7 @@ define internal fastcc i32 @unpack_sample_table(ptr noundef nonnull %0, ptr noun
 31:                                               ; preds = %.lr.ph158.us, %30
   %indvars.iv194 = phi i64 [ 0, %.lr.ph158.us ], [ %indvars.iv.next195, %30 ]
   %.077155.us = phi i32 [ 0, %.lr.ph158.us ], [ %33, %30 ]
-  %32 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv194
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %indvars.iv194
   %33 = load i32, ptr %32, align 4, !tbaa !40
   %.not106.us = icmp slt i32 %33, %.077155.us
   br i1 %.not106.us, label %.thread114.thread, label %30
@@ -1242,7 +1239,7 @@ define internal fastcc i32 @unpack_sample_table(ptr noundef nonnull %0, ptr noun
 36:                                               ; preds = %.lr.ph, %36
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %36 ]
   %.093136 = phi i64 [ 0, %.lr.ph ], [ %41, %36 ]
-  %37 = getelementptr inbounds nuw %struct.exr_coding_channel_info_t, ptr %13, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [48 x i8], ptr %13, i64 %indvars.iv
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 25
   %39 = load i8, ptr %38, align 1, !tbaa !51
   %40 = sext i8 %39 to i64
@@ -1260,7 +1257,7 @@ define internal fastcc i32 @unpack_sample_table(ptr noundef nonnull %0, ptr noun
   %44 = trunc nuw nsw i64 %.082134 to i32
   %45 = mul nsw i32 %6, %4
   %46 = sext i32 %45 to i64
-  %47 = getelementptr inbounds i32, ptr %8, i64 %46
+  %47 = getelementptr inbounds [4 x i8], ptr %8, i64 %46
   store i32 %44, ptr %47, align 4, !tbaa !40
   br label %49
 

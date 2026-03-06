@@ -7,8 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.lua_TValue = type { %union.Value, [1 x i32], i32 }
 %union.Value = type { ptr }
 %struct.lua_Debug = type { ptr, ptr, ptr, ptr, i32, i32, i8, i8, i8, ptr, [256 x i8] }
-%struct.LuaNode = type { %struct.lua_TValue, %struct.TKey }
-%struct.TKey = type { %union.Value, [1 x i32], i32 }
 
 @_ZN6DFFlag19LuauPopIncompleteCiE = external local_unnamed_addr global %"struct.Luau::FValue", align 8
 @_ZZL12luau_executeILb1EEvP9lua_StateE14kDispatchTable = internal unnamed_addr constant <{ [83 x ptr], [173 x ptr] }> <{ [83 x ptr] [ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %52), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %3803), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %54), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %62), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %75), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %85), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %95), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %106), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %150), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %210), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %231), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %259), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %271), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %599), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %641), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %294), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %456), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %699), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %732), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %781), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %848), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %1042), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %1170), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %1236), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %3463), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %1242), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %1260), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %1278), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %1629), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %1721), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %1455), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %1675), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %1767), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %1813), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %1880), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %1947), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %2043), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %2217), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %2250), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %2280), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %2306), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %2332), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %2389), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %2514), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %2543), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %2584), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %2606), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %2628), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %2650), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %2672), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %2700), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %2720), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %2770), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %2810), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %2840), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %2866), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %2921), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %2961), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %3053), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %3192), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %3755), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %3229), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %3263), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %3276), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %3339), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %3433), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %3479), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %3490), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %3506), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %3559), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %3569), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %3570), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %3596), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %3635), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %3673), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %3714), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %2994), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %3829), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %3846), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %3869), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %3895), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %2139), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %2446)], [173 x ptr] zeroinitializer }>, align 16
@@ -249,7 +247,7 @@ define internal fastcc void @_ZL12luau_executeILb1EEvP9lua_State(ptr noundef %0)
   %47 = load i32, ptr %.12898, align 4, !tbaa !61
   %48 = and i32 %47, 255
   %49 = zext nneg i32 %48 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr @_ZZL12luau_executeILb1EEvP9lua_StateE14kDispatchTable, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr @_ZZL12luau_executeILb1EEvP9lua_StateE14kDispatchTable, i64 %49
   %51 = load ptr, ptr %50, align 8, !tbaa !62
   br label %.backedge.backedge
 
@@ -263,7 +261,7 @@ define internal fastcc void @_ZL12luau_executeILb1EEvP9lua_State(ptr noundef %0)
   %57 = lshr i32 %56, 8
   %58 = and i32 %57, 255
   %59 = zext nneg i32 %58 to i64
-  %60 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %59
+  %60 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %59
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 12
   store i32 0, ptr %61, align 4, !tbaa !63
   br label %.backedge.backedge
@@ -274,7 +272,7 @@ define internal fastcc void @_ZL12luau_executeILb1EEvP9lua_State(ptr noundef %0)
   %65 = lshr i32 %64, 8
   %66 = and i32 %65, 255
   %67 = zext nneg i32 %66 to i64
-  %68 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %67
+  %68 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %67
   %69 = lshr i32 %64, 16
   %70 = and i32 %69, 255
   store i32 %70, ptr %68, align 8, !tbaa !30
@@ -282,7 +280,7 @@ define internal fastcc void @_ZL12luau_executeILb1EEvP9lua_State(ptr noundef %0)
   store i32 1, ptr %71, align 4, !tbaa !63
   %72 = lshr i32 %64, 24
   %73 = zext nneg i32 %72 to i64
-  %74 = getelementptr inbounds nuw i32, ptr %63, i64 %73
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %73
   br label %.backedge.backedge
 
 75:                                               ; preds = %.backedge
@@ -291,7 +289,7 @@ define internal fastcc void @_ZL12luau_executeILb1EEvP9lua_State(ptr noundef %0)
   %78 = lshr i32 %77, 8
   %79 = and i32 %78, 255
   %80 = zext nneg i32 %79 to i64
-  %81 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %80
+  %81 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %80
   %82 = ashr i32 %77, 16
   %83 = sitofp i32 %82 to double
   store double %83, ptr %81, align 8, !tbaa !30
@@ -305,10 +303,10 @@ define internal fastcc void @_ZL12luau_executeILb1EEvP9lua_State(ptr noundef %0)
   %88 = lshr i32 %87, 8
   %89 = and i32 %88, 255
   %90 = zext nneg i32 %89 to i64
-  %91 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %90
+  %91 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %90
   %92 = ashr i32 %87, 16
   %93 = sext i32 %92 to i64
-  %94 = getelementptr inbounds %struct.lua_TValue, ptr %.02896, i64 %93
+  %94 = getelementptr inbounds [16 x i8], ptr %.02896, i64 %93
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %91, ptr noundef nonnull align 8 dereferenceable(16) %94, i64 16, i1 false), !tbaa.struct !64
   br label %.backedge.backedge
 
@@ -318,11 +316,11 @@ define internal fastcc void @_ZL12luau_executeILb1EEvP9lua_State(ptr noundef %0)
   %98 = lshr i32 %97, 8
   %99 = and i32 %98, 255
   %100 = zext nneg i32 %99 to i64
-  %101 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %100
+  %101 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %100
   %102 = lshr i32 %97, 16
   %103 = and i32 %102, 255
   %104 = zext nneg i32 %103 to i64
-  %105 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %104
+  %105 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %104
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %101, ptr noundef nonnull align 8 dereferenceable(16) %105, i64 16, i1 false), !tbaa.struct !64
   br label %.backedge.backedge
 
@@ -332,11 +330,11 @@ define internal fastcc void @_ZL12luau_executeILb1EEvP9lua_State(ptr noundef %0)
   %109 = lshr i32 %108, 8
   %110 = and i32 %109, 255
   %111 = zext nneg i32 %110 to i64
-  %112 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %111
+  %112 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %111
   %113 = getelementptr inbounds nuw i8, ptr %.12898, i64 8
   %114 = load i32, ptr %107, align 4, !tbaa !61
   %115 = zext i32 %114 to i64
-  %116 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.02896, i64 %115
+  %116 = getelementptr inbounds nuw [16 x i8], ptr %.02896, i64 %115
   %117 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %118 = load ptr, ptr %117, align 8, !tbaa !65
   %119 = lshr i32 %108, 24
@@ -347,7 +345,7 @@ define internal fastcc void @_ZL12luau_executeILb1EEvP9lua_State(ptr noundef %0)
   %124 = getelementptr inbounds nuw i8, ptr %118, i64 32
   %125 = load ptr, ptr %124, align 8, !tbaa !69
   %126 = zext nneg i32 %123 to i64
-  %127 = getelementptr inbounds nuw %struct.LuaNode, ptr %125, i64 %126
+  %127 = getelementptr inbounds nuw [32 x i8], ptr %125, i64 %126
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 28
   %129 = load i32, ptr %128, align 4
   %130 = and i32 %129, 15
@@ -394,11 +392,11 @@ define internal fastcc void @_ZL12luau_executeILb1EEvP9lua_State(ptr noundef %0)
   %153 = lshr i32 %152, 8
   %154 = and i32 %153, 255
   %155 = zext nneg i32 %154 to i64
-  %156 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %155
+  %156 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %155
   %157 = getelementptr inbounds nuw i8, ptr %.12898, i64 8
   %158 = load i32, ptr %151, align 4, !tbaa !61
   %159 = zext i32 %158 to i64
-  %160 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.02896, i64 %159
+  %160 = getelementptr inbounds nuw [16 x i8], ptr %.02896, i64 %159
   %161 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %162 = load ptr, ptr %161, align 8, !tbaa !65
   %163 = lshr i32 %152, 24
@@ -409,7 +407,7 @@ define internal fastcc void @_ZL12luau_executeILb1EEvP9lua_State(ptr noundef %0)
   %168 = getelementptr inbounds nuw i8, ptr %162, i64 32
   %169 = load ptr, ptr %168, align 8, !tbaa !69
   %170 = zext nneg i32 %167 to i64
-  %171 = getelementptr inbounds nuw %struct.LuaNode, ptr %169, i64 %170
+  %171 = getelementptr inbounds nuw [32 x i8], ptr %169, i64 %170
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 28
   %173 = load i32, ptr %172, align 4
   %174 = and i32 %173, 15
@@ -484,12 +482,12 @@ define internal fastcc void @_ZL12luau_executeILb1EEvP9lua_State(ptr noundef %0)
   %213 = lshr i32 %212, 8
   %214 = and i32 %213, 255
   %215 = zext nneg i32 %214 to i64
-  %216 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %215
+  %216 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %215
   %217 = getelementptr inbounds nuw i8, ptr %.0, i64 32
   %218 = lshr i32 %212, 16
   %219 = and i32 %218, 255
   %220 = zext nneg i32 %219 to i64
-  %221 = getelementptr inbounds nuw %struct.lua_TValue, ptr %217, i64 %220
+  %221 = getelementptr inbounds nuw [16 x i8], ptr %217, i64 %220
   %222 = getelementptr inbounds nuw i8, ptr %221, i64 12
   %223 = load i32, ptr %222, align 4, !tbaa !63
   %224 = icmp eq i32 %223, 12
@@ -512,12 +510,12 @@ define internal fastcc void @_ZL12luau_executeILb1EEvP9lua_State(ptr noundef %0)
   %234 = lshr i32 %233, 8
   %235 = and i32 %234, 255
   %236 = zext nneg i32 %235 to i64
-  %237 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %236
+  %237 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %236
   %238 = getelementptr inbounds nuw i8, ptr %.0, i64 32
   %239 = lshr i32 %233, 16
   %240 = and i32 %239, 255
   %241 = zext nneg i32 %240 to i64
-  %242 = getelementptr inbounds nuw %struct.lua_TValue, ptr %238, i64 %241
+  %242 = getelementptr inbounds nuw [16 x i8], ptr %238, i64 %241
   %243 = load ptr, ptr %242, align 8, !tbaa !30
   %244 = getelementptr inbounds nuw i8, ptr %243, i64 8
   %245 = load ptr, ptr %244, align 8, !tbaa !77
@@ -552,7 +550,7 @@ define internal fastcc void @_ZL12luau_executeILb1EEvP9lua_State(ptr noundef %0)
   %262 = lshr i32 %261, 8
   %263 = and i32 %262, 255
   %264 = zext nneg i32 %263 to i64
-  %265 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %264
+  %265 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %264
   %266 = load ptr, ptr %18, align 8, !tbaa !78
   %.not3136 = icmp eq ptr %266, null
   br i1 %.not3136, label %.backedge.backedge, label %267
@@ -573,10 +571,10 @@ define internal fastcc void @_ZL12luau_executeILb1EEvP9lua_State(ptr noundef %0)
   %274 = lshr i32 %273, 8
   %275 = and i32 %274, 255
   %276 = zext nneg i32 %275 to i64
-  %277 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %276
+  %277 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %276
   %278 = ashr i32 %273, 16
   %279 = sext i32 %278 to i64
-  %280 = getelementptr inbounds %struct.lua_TValue, ptr %.02896, i64 %279
+  %280 = getelementptr inbounds [16 x i8], ptr %.02896, i64 %279
   %281 = getelementptr inbounds nuw i8, ptr %280, i64 12
   %282 = load i32, ptr %281, align 4, !tbaa !63
   %283 = icmp eq i32 %282, 0
@@ -611,15 +609,15 @@ define internal fastcc void @_ZL12luau_executeILb1EEvP9lua_State(ptr noundef %0)
   %297 = lshr i32 %296, 8
   %298 = and i32 %297, 255
   %299 = zext nneg i32 %298 to i64
-  %300 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %299
+  %300 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %299
   %301 = lshr i32 %296, 16
   %302 = and i32 %301, 255
   %303 = zext nneg i32 %302 to i64
-  %304 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %303
+  %304 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %303
   %305 = getelementptr inbounds nuw i8, ptr %.12898, i64 8
   %306 = load i32, ptr %295, align 4, !tbaa !61
   %307 = zext i32 %306 to i64
-  %308 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.02896, i64 %307
+  %308 = getelementptr inbounds nuw [16 x i8], ptr %.02896, i64 %307
   %309 = getelementptr inbounds nuw i8, ptr %304, i64 12
   %310 = load i32, ptr %309, align 4, !tbaa !63
   switch i32 %310, label %397 [
@@ -637,7 +635,7 @@ define internal fastcc void @_ZL12luau_executeILb1EEvP9lua_State(ptr noundef %0)
   %318 = getelementptr inbounds nuw i8, ptr %312, i64 32
   %319 = load ptr, ptr %318, align 8, !tbaa !69
   %320 = zext nneg i32 %317 to i64
-  %321 = getelementptr inbounds nuw %struct.LuaNode, ptr %319, i64 %320
+  %321 = getelementptr inbounds nuw [32 x i8], ptr %319, i64 %320
   %322 = getelementptr inbounds nuw i8, ptr %321, i64 28
   %323 = load i32, ptr %322, align 4
   %324 = and i32 %323, 15
@@ -792,7 +790,7 @@ thread-pre-split:                                 ; preds = %366, %361, %370, %3
 
 412:                                              ; preds = %408
   %413 = zext nneg i32 %406 to i64
-  %414 = getelementptr inbounds nuw float, ptr %304, i64 %413
+  %414 = getelementptr inbounds nuw [4 x i8], ptr %304, i64 %413
   %415 = load float, ptr %414, align 4, !tbaa !86
   %416 = fpext float %415 to double
   store double %416, ptr %300, align 8, !tbaa !30
@@ -872,15 +870,15 @@ thread-pre-split:                                 ; preds = %366, %361, %370, %3
   %459 = lshr i32 %458, 8
   %460 = and i32 %459, 255
   %461 = zext nneg i32 %460 to i64
-  %462 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %461
+  %462 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %461
   %463 = lshr i32 %458, 16
   %464 = and i32 %463, 255
   %465 = zext nneg i32 %464 to i64
-  %466 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %465
+  %466 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %465
   %467 = getelementptr inbounds nuw i8, ptr %.12898, i64 8
   %468 = load i32, ptr %457, align 4, !tbaa !61
   %469 = zext i32 %468 to i64
-  %470 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.02896, i64 %469
+  %470 = getelementptr inbounds nuw [16 x i8], ptr %.02896, i64 %469
   %471 = getelementptr inbounds nuw i8, ptr %466, i64 12
   %472 = load i32, ptr %471, align 4, !tbaa !63
   switch i32 %472, label %.thread3196 [
@@ -898,7 +896,7 @@ thread-pre-split:                                 ; preds = %366, %361, %370, %3
   %480 = getelementptr inbounds nuw i8, ptr %474, i64 32
   %481 = load ptr, ptr %480, align 8, !tbaa !69
   %482 = zext nneg i32 %479 to i64
-  %483 = getelementptr inbounds nuw %struct.LuaNode, ptr %481, i64 %482
+  %483 = getelementptr inbounds nuw [32 x i8], ptr %481, i64 %482
   %484 = getelementptr inbounds nuw i8, ptr %483, i64 28
   %485 = load i32, ptr %484, align 4
   %486 = and i32 %485, 15
@@ -1106,14 +1104,14 @@ thread-pre-split:                                 ; preds = %366, %361, %370, %3
   %602 = lshr i32 %601, 8
   %603 = and i32 %602, 255
   %604 = zext nneg i32 %603 to i64
-  %605 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %604
+  %605 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %604
   %606 = lshr i32 %601, 16
   %607 = and i32 %606, 255
   %608 = zext nneg i32 %607 to i64
-  %609 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %608
+  %609 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %608
   %610 = lshr i32 %601, 24
   %611 = zext nneg i32 %610 to i64
-  %612 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %611
+  %612 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %611
   %613 = getelementptr inbounds nuw i8, ptr %609, i64 12
   %614 = load i32, ptr %613, align 4, !tbaa !63
   %615 = icmp eq i32 %614, 6
@@ -1148,7 +1146,7 @@ thread-pre-split:                                 ; preds = %366, %361, %370, %3
   %634 = getelementptr inbounds nuw i8, ptr %621, i64 24
   %635 = load ptr, ptr %634, align 8, !tbaa !91
   %636 = zext i32 %624 to i64
-  %637 = getelementptr inbounds nuw %struct.lua_TValue, ptr %635, i64 %636
+  %637 = getelementptr inbounds nuw [16 x i8], ptr %635, i64 %636
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %605, ptr noundef nonnull align 8 dereferenceable(16) %637, i64 16, i1 false), !tbaa.struct !64
   br label %.backedge.backedge
 
@@ -1166,14 +1164,14 @@ thread-pre-split:                                 ; preds = %366, %361, %370, %3
   %644 = lshr i32 %643, 8
   %645 = and i32 %644, 255
   %646 = zext nneg i32 %645 to i64
-  %647 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %646
+  %647 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %646
   %648 = lshr i32 %643, 16
   %649 = and i32 %648, 255
   %650 = zext nneg i32 %649 to i64
-  %651 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %650
+  %651 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %650
   %652 = lshr i32 %643, 24
   %653 = zext nneg i32 %652 to i64
-  %654 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %653
+  %654 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %653
   %655 = getelementptr inbounds nuw i8, ptr %651, i64 12
   %656 = load i32, ptr %655, align 4, !tbaa !63
   %657 = icmp eq i32 %656, 6
@@ -1214,7 +1212,7 @@ thread-pre-split:                                 ; preds = %366, %361, %370, %3
   %679 = getelementptr inbounds nuw i8, ptr %663, i64 24
   %680 = load ptr, ptr %679, align 8, !tbaa !91
   %681 = zext i32 %666 to i64
-  %682 = getelementptr inbounds nuw %struct.lua_TValue, ptr %680, i64 %681
+  %682 = getelementptr inbounds nuw [16 x i8], ptr %680, i64 %681
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %682, ptr noundef nonnull align 8 dereferenceable(16) %647, i64 16, i1 false), !tbaa.struct !64
   %683 = getelementptr inbounds nuw i8, ptr %647, i64 12
   %684 = load i32, ptr %683, align 4, !tbaa !63
@@ -1254,11 +1252,11 @@ thread-pre-split:                                 ; preds = %366, %361, %370, %3
   %702 = lshr i32 %701, 8
   %703 = and i32 %702, 255
   %704 = zext nneg i32 %703 to i64
-  %705 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %704
+  %705 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %704
   %706 = lshr i32 %701, 16
   %707 = and i32 %706, 255
   %708 = zext nneg i32 %707 to i64
-  %709 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %708
+  %709 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %708
   %710 = lshr i32 %701, 24
   %711 = getelementptr inbounds nuw i8, ptr %709, i64 12
   %712 = load i32, ptr %711, align 4, !tbaa !63
@@ -1282,7 +1280,7 @@ thread-pre-split:                                 ; preds = %366, %361, %370, %3
   %723 = getelementptr inbounds nuw i8, ptr %715, i64 24
   %724 = load ptr, ptr %723, align 8, !tbaa !91
   %725 = zext nneg i32 %710 to i64
-  %726 = getelementptr inbounds nuw %struct.lua_TValue, ptr %724, i64 %725
+  %726 = getelementptr inbounds nuw [16 x i8], ptr %724, i64 %725
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %705, ptr noundef nonnull align 8 dereferenceable(16) %726, i64 16, i1 false), !tbaa.struct !64
   br label %.backedge.backedge
 
@@ -1304,11 +1302,11 @@ thread-pre-split:                                 ; preds = %366, %361, %370, %3
   %735 = lshr i32 %734, 8
   %736 = and i32 %735, 255
   %737 = zext nneg i32 %736 to i64
-  %738 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %737
+  %738 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %737
   %739 = lshr i32 %734, 16
   %740 = and i32 %739, 255
   %741 = zext nneg i32 %740 to i64
-  %742 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %741
+  %742 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %741
   %743 = lshr i32 %734, 24
   %744 = getelementptr inbounds nuw i8, ptr %742, i64 12
   %745 = load i32, ptr %744, align 4, !tbaa !63
@@ -1338,7 +1336,7 @@ thread-pre-split:                                 ; preds = %366, %361, %370, %3
   %759 = getelementptr inbounds nuw i8, ptr %748, i64 24
   %760 = load ptr, ptr %759, align 8, !tbaa !91
   %761 = zext nneg i32 %743 to i64
-  %762 = getelementptr inbounds nuw %struct.lua_TValue, ptr %760, i64 %761
+  %762 = getelementptr inbounds nuw [16 x i8], ptr %760, i64 %761
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %762, ptr noundef nonnull align 8 dereferenceable(16) %738, i64 16, i1 false), !tbaa.struct !64
   %763 = getelementptr inbounds nuw i8, ptr %738, i64 12
   %764 = load i32, ptr %763, align 4, !tbaa !63
@@ -1382,14 +1380,14 @@ thread-pre-split:                                 ; preds = %366, %361, %370, %3
   %784 = lshr i32 %783, 8
   %785 = and i32 %784, 255
   %786 = zext nneg i32 %785 to i64
-  %787 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %786
+  %787 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %786
   %788 = getelementptr inbounds nuw i8, ptr %.0, i64 24
   %789 = load ptr, ptr %788, align 8, !tbaa !30
   %790 = getelementptr inbounds nuw i8, ptr %789, i64 24
   %791 = load ptr, ptr %790, align 8, !tbaa !92
   %792 = ashr i32 %783, 16
   %793 = sext i32 %792 to i64
-  %794 = getelementptr inbounds ptr, ptr %791, i64 %793
+  %794 = getelementptr inbounds [8 x i8], ptr %791, i64 %793
   %795 = load ptr, ptr %794, align 8, !tbaa !93
   %796 = load ptr, ptr %6, align 8, !tbaa !21
   %797 = getelementptr inbounds nuw i8, ptr %796, i64 24
@@ -1429,17 +1427,17 @@ thread-pre-split:                                 ; preds = %366, %361, %370, %3
   %813 = lshr i32 %810, 16
   %814 = and i32 %813, 255
   %815 = zext nneg i32 %814 to i64
-  %816 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %815
-  %817 = getelementptr inbounds nuw %struct.lua_TValue, ptr %807, i64 %indvars.iv3441
+  %816 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %815
+  %817 = getelementptr inbounds nuw [16 x i8], ptr %807, i64 %indvars.iv3441
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %817, ptr noundef nonnull align 8 dereferenceable(16) %816, i64 16, i1 false), !tbaa.struct !64
   br label %833
 
 818:                                              ; preds = %808
-  %819 = getelementptr inbounds nuw %struct.lua_TValue, ptr %807, i64 %indvars.iv3441
+  %819 = getelementptr inbounds nuw [16 x i8], ptr %807, i64 %indvars.iv3441
   %820 = lshr i32 %810, 16
   %821 = and i32 %820, 255
   %822 = zext nneg i32 %821 to i64
-  %823 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %822
+  %823 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %822
   %824 = call noundef ptr @_Z14luaF_findupvalP9lua_StateP10lua_TValue(ptr noundef %0, ptr noundef %823)
   store ptr %824, ptr %819, align 8, !tbaa !30
   %825 = getelementptr inbounds nuw i8, ptr %819, i64 12
@@ -1450,8 +1448,8 @@ thread-pre-split:                                 ; preds = %366, %361, %370, %3
   %827 = lshr i32 %810, 16
   %828 = and i32 %827, 255
   %829 = zext nneg i32 %828 to i64
-  %830 = getelementptr inbounds nuw %struct.lua_TValue, ptr %806, i64 %829
-  %831 = getelementptr inbounds nuw %struct.lua_TValue, ptr %807, i64 %indvars.iv3441
+  %830 = getelementptr inbounds nuw [16 x i8], ptr %806, i64 %829
+  %831 = getelementptr inbounds nuw [16 x i8], ptr %807, i64 %indvars.iv3441
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %831, ptr noundef nonnull align 8 dereferenceable(16) %830, i64 16, i1 false), !tbaa.struct !64
   br label %833
 
@@ -1492,15 +1490,15 @@ thread-pre-split:                                 ; preds = %366, %361, %370, %3
   %851 = lshr i32 %850, 8
   %852 = and i32 %851, 255
   %853 = zext nneg i32 %852 to i64
-  %854 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %853
+  %854 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %853
   %855 = lshr i32 %850, 16
   %856 = and i32 %855, 255
   %857 = zext nneg i32 %856 to i64
-  %858 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %857
+  %858 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %857
   %859 = getelementptr inbounds nuw i8, ptr %.12898, i64 8
   %860 = load i32, ptr %849, align 4, !tbaa !61
   %861 = zext i32 %860 to i64
-  %862 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.02896, i64 %861
+  %862 = getelementptr inbounds nuw [16 x i8], ptr %.02896, i64 %861
   %863 = getelementptr inbounds nuw i8, ptr %858, i64 12
   %864 = load i32, ptr %863, align 4, !tbaa !63
   switch i32 %864, label %959 [
@@ -1522,7 +1520,7 @@ thread-pre-split:                                 ; preds = %366, %361, %370, %3
   %875 = xor i32 %notmask, -1
   %876 = and i32 %871, %875
   %877 = zext nneg i32 %876 to i64
-  %878 = getelementptr inbounds nuw %struct.LuaNode, ptr %868, i64 %877
+  %878 = getelementptr inbounds nuw [32 x i8], ptr %868, i64 %877
   %879 = getelementptr inbounds nuw i8, ptr %878, i64 28
   %880 = load i32, ptr %879, align 4
   %881 = and i32 %880, 15
@@ -1588,7 +1586,7 @@ thread-pre-split:                                 ; preds = %366, %361, %370, %3
   %919 = zext i8 %918 to i32
   %920 = and i32 %916, %919
   %921 = zext nneg i32 %920 to i64
-  %922 = getelementptr inbounds nuw %struct.LuaNode, ptr %915, i64 %921
+  %922 = getelementptr inbounds nuw [32 x i8], ptr %915, i64 %921
   %.not3097 = icmp eq ptr %915, null
   br i1 %.not3097, label %.thread3199, label %923
 
@@ -1634,7 +1632,7 @@ thread-pre-split:                                 ; preds = %366, %361, %370, %3
   %947 = and i32 %946, 16777215
   %948 = or disjoint i32 %947, %945
   store i32 %948, ptr %.12898, align 4, !tbaa !61
-  %949 = getelementptr inbounds nuw %struct.lua_TValue, ptr %943, i64 %853
+  %949 = getelementptr inbounds nuw [16 x i8], ptr %943, i64 %853
   %950 = getelementptr inbounds nuw i8, ptr %949, i64 12
   %951 = load i32, ptr %950, align 4, !tbaa !63
   %952 = icmp eq i32 %951, 0
@@ -1655,7 +1653,7 @@ thread-pre-split:                                 ; preds = %366, %361, %370, %3
   %960 = load ptr, ptr %8, align 8, !tbaa !48
   %961 = getelementptr inbounds nuw i8, ptr %960, i64 2856
   %962 = sext i32 %864 to i64
-  %963 = getelementptr inbounds ptr, ptr %961, i64 %962
+  %963 = getelementptr inbounds [8 x i8], ptr %961, i64 %962
   br label %964
 
 964:                                              ; preds = %959, %956
@@ -1721,7 +1719,7 @@ thread-pre-split:                                 ; preds = %366, %361, %370, %3
   %997 = getelementptr inbounds nuw i8, ptr %991, i64 32
   %998 = load ptr, ptr %997, align 8, !tbaa !69
   %999 = zext nneg i32 %996 to i64
-  %1000 = getelementptr inbounds nuw %struct.LuaNode, ptr %998, i64 %999
+  %1000 = getelementptr inbounds nuw [32 x i8], ptr %998, i64 %999
   %1001 = getelementptr inbounds nuw i8, ptr %1000, i64 28
   %1002 = load i32, ptr %1001, align 4
   %1003 = and i32 %1002, 15
@@ -1762,7 +1760,7 @@ thread-pre-split:                                 ; preds = %366, %361, %370, %3
   %1022 = and i32 %1021, 16777215
   %1023 = or disjoint i32 %1022, %1020
   store i32 %1023, ptr %.12898, align 4, !tbaa !61
-  %1024 = getelementptr inbounds nuw %struct.lua_TValue, ptr %1018, i64 %853
+  %1024 = getelementptr inbounds nuw [16 x i8], ptr %1018, i64 %853
   %1025 = getelementptr inbounds nuw i8, ptr %1024, i64 12
   %1026 = load i32, ptr %1025, align 4, !tbaa !63
   %1027 = icmp eq i32 %1026, 0
@@ -1782,7 +1780,7 @@ thread-pre-split:                                 ; preds = %366, %361, %370, %3
   store ptr %859, ptr %1033, align 8, !tbaa !27
   call void @_Z13luaV_gettableP9lua_StatePK10lua_TValuePS1_S4_(ptr noundef %0, ptr noundef nonnull %858, ptr noundef %862, ptr noundef nonnull %854)
   %1034 = load ptr, ptr %7, align 8, !tbaa !4
-  %1035 = getelementptr inbounds nuw %struct.lua_TValue, ptr %1034, i64 %853
+  %1035 = getelementptr inbounds nuw [16 x i8], ptr %1034, i64 %853
   %1036 = getelementptr inbounds nuw i8, ptr %1035, i64 12
   %1037 = load i32, ptr %1036, align 4, !tbaa !63
   %1038 = icmp eq i32 %1037, 0
@@ -1823,7 +1821,7 @@ thread-pre-split:                                 ; preds = %366, %361, %370, %3
   %1054 = lshr i32 %1053, 8
   %1055 = and i32 %1054, 255
   %1056 = zext nneg i32 %1055 to i64
-  %1057 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.3, i64 %1056
+  %1057 = getelementptr inbounds nuw [16 x i8], ptr %.3, i64 %1056
   %1058 = lshr i32 %1053, 16
   %1059 = and i32 %1058, 255
   %1060 = lshr i32 %1053, 24
@@ -1832,7 +1830,7 @@ thread-pre-split:                                 ; preds = %366, %361, %370, %3
   %1063 = icmp eq i32 %1059, 0
   %1064 = getelementptr inbounds nuw i8, ptr %1057, i64 16
   %1065 = zext nneg i32 %1059 to i64
-  %1066 = getelementptr %struct.lua_TValue, ptr %1064, i64 %1065
+  %1066 = getelementptr [16 x i8], ptr %1064, i64 %1065
   %1067 = getelementptr i8, ptr %1066, i64 -16
   %1068 = select i1 %1063, ptr %1062, ptr %1067
   %1069 = getelementptr inbounds nuw i8, ptr %1057, i64 12
@@ -1875,7 +1873,7 @@ thread-pre-split:                                 ; preds = %366, %361, %370, %3
   %1087 = getelementptr inbounds nuw i8, ptr %1076, i64 5
   %1088 = load i8, ptr %1087, align 1, !tbaa !106
   %1089 = zext i8 %1088 to i64
-  %1090 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.02901, i64 %1089
+  %1090 = getelementptr inbounds nuw [16 x i8], ptr %.02901, i64 %1089
   %1091 = getelementptr inbounds nuw i8, ptr %1085, i64 16
   store ptr %1090, ptr %1091, align 8, !tbaa !22
   %1092 = getelementptr inbounds nuw i8, ptr %1085, i64 24
@@ -1931,7 +1929,7 @@ thread-pre-split:                                 ; preds = %366, %361, %370, %3
   %1120 = getelementptr inbounds nuw i8, ptr %1116, i64 4
   %1121 = load i8, ptr %1120, align 4, !tbaa !113
   %1122 = zext i8 %1121 to i64
-  %1123 = getelementptr inbounds nuw %struct.lua_TValue, ptr %1119, i64 %1122
+  %1123 = getelementptr inbounds nuw [16 x i8], ptr %1119, i64 %1122
   %1124 = icmp ult ptr %1118, %1123
   br i1 %1124, label %.lr.ph3347, label %._crit_edge3348
 
@@ -2058,7 +2056,7 @@ thread-pre-split:                                 ; preds = %366, %361, %370, %3
   %1182 = lshr i32 %1181, 8
   %1183 = and i32 %1182, 255
   %1184 = zext nneg i32 %1183 to i64
-  %1185 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.4, i64 %1184
+  %1185 = getelementptr inbounds nuw [16 x i8], ptr %.4, i64 %1184
   %1186 = lshr i32 %1181, 16
   %1187 = and i32 %1186, 255
   %1188 = getelementptr inbounds i8, ptr %1180, i64 -40
@@ -2073,7 +2071,7 @@ thread-pre-split:                                 ; preds = %366, %361, %370, %3
 
 1194:                                             ; preds = %1179
   %1195 = zext nneg i32 %1187 to i64
-  %1196 = getelementptr %struct.lua_TValue, ptr %1185, i64 %1195
+  %1196 = getelementptr [16 x i8], ptr %1185, i64 %1195
   %1197 = getelementptr i8, ptr %1196, i64 -16
   br label %1198
 
@@ -2154,7 +2152,7 @@ thread-pre-split:                                 ; preds = %366, %361, %370, %3
   %1238 = load i32, ptr %.12898, align 4, !tbaa !61
   %1239 = ashr i32 %1238, 16
   %1240 = sext i32 %1239 to i64
-  %1241 = getelementptr inbounds i32, ptr %1237, i64 %1240
+  %1241 = getelementptr inbounds [4 x i8], ptr %1237, i64 %1240
   br label %.backedge.backedge
 
 1242:                                             ; preds = %.backedge
@@ -2163,7 +2161,7 @@ thread-pre-split:                                 ; preds = %366, %361, %370, %3
   %1245 = lshr i32 %1244, 8
   %1246 = and i32 %1245, 255
   %1247 = zext nneg i32 %1246 to i64
-  %1248 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %1247
+  %1248 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %1247
   %1249 = getelementptr inbounds nuw i8, ptr %1248, i64 12
   %1250 = load i32, ptr %1249, align 4, !tbaa !63
   switch i32 %1250, label %1254 [
@@ -2183,7 +2181,7 @@ thread-pre-split:                                 ; preds = %366, %361, %370, %3
 
 1257:                                             ; preds = %1242, %1251, %1254
   %1258 = phi i64 [ %1256, %1254 ], [ 0, %1251 ], [ 0, %1242 ]
-  %1259 = getelementptr inbounds i32, ptr %1243, i64 %1258
+  %1259 = getelementptr inbounds [4 x i8], ptr %1243, i64 %1258
   br label %.backedge.backedge
 
 1260:                                             ; preds = %.backedge
@@ -2192,7 +2190,7 @@ thread-pre-split:                                 ; preds = %366, %361, %370, %3
   %1263 = lshr i32 %1262, 8
   %1264 = and i32 %1263, 255
   %1265 = zext nneg i32 %1264 to i64
-  %1266 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %1265
+  %1266 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %1265
   %1267 = getelementptr inbounds nuw i8, ptr %1266, i64 12
   %1268 = load i32, ptr %1267, align 4, !tbaa !63
   switch i32 %1268, label %1275 [
@@ -2212,7 +2210,7 @@ thread-pre-split:                                 ; preds = %366, %361, %370, %3
 
 1275:                                             ; preds = %1260, %1269, %1272
   %1276 = phi i64 [ %1274, %1272 ], [ 0, %1269 ], [ 0, %1260 ]
-  %1277 = getelementptr inbounds i32, ptr %1261, i64 %1276
+  %1277 = getelementptr inbounds [4 x i8], ptr %1261, i64 %1276
   br label %.backedge.backedge
 
 1278:                                             ; preds = %.backedge
@@ -2222,9 +2220,9 @@ thread-pre-split:                                 ; preds = %366, %361, %370, %3
   %1282 = lshr i32 %1280, 8
   %1283 = and i32 %1282, 255
   %1284 = zext nneg i32 %1283 to i64
-  %1285 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %1284
+  %1285 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %1284
   %1286 = zext i32 %1281 to i64
-  %1287 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %1286
+  %1287 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %1286
   %1288 = getelementptr inbounds nuw i8, ptr %1285, i64 12
   %1289 = load i32, ptr %1288, align 4, !tbaa !63
   %1290 = getelementptr inbounds nuw i8, ptr %1287, i64 12
@@ -2250,7 +2248,7 @@ thread-pre-split:                                 ; preds = %366, %361, %370, %3
 1294:                                             ; preds = %1293
   %1295 = ashr i32 %1280, 16
   %1296 = sext i32 %1295 to i64
-  %1297 = getelementptr inbounds i32, ptr %1279, i64 %1296
+  %1297 = getelementptr inbounds [4 x i8], ptr %1279, i64 %1296
   br label %.backedge.backedge
 
 1298:                                             ; preds = %1293
@@ -2260,7 +2258,7 @@ thread-pre-split:                                 ; preds = %366, %361, %370, %3
   %1302 = ashr i32 %1280, 16
   %1303 = select i1 %1301, i32 %1302, i32 1
   %1304 = sext i32 %1303 to i64
-  %1305 = getelementptr inbounds i32, ptr %1279, i64 %1304
+  %1305 = getelementptr inbounds [4 x i8], ptr %1279, i64 %1304
   br label %.backedge.backedge
 
 1306:                                             ; preds = %1293
@@ -2284,7 +2282,7 @@ thread-pre-split:                                 ; preds = %366, %361, %370, %3
 
 1319:                                             ; preds = %1306, %1310, %1316
   %1320 = phi i64 [ %1318, %1316 ], [ 1, %1310 ], [ 1, %1306 ]
-  %1321 = getelementptr inbounds i32, ptr %1279, i64 %1320
+  %1321 = getelementptr inbounds [4 x i8], ptr %1279, i64 %1320
   br label %.backedge.backedge
 
 1322:                                             ; preds = %1293
@@ -2294,7 +2292,7 @@ thread-pre-split:                                 ; preds = %366, %361, %370, %3
   %1326 = ashr i32 %1280, 16
   %1327 = sext i32 %1326 to i64
   %1328 = select i1 %1325, i64 %1327, i64 1
-  %1329 = getelementptr inbounds i32, ptr %1279, i64 %1328
+  %1329 = getelementptr inbounds [4 x i8], ptr %1279, i64 %1328
   br label %.backedge.backedge
 
 1330:                                             ; preds = %1293
@@ -2325,7 +2323,7 @@ _Z10luai_veceqPKfS0_.exit:                        ; preds = %1334
 
 _Z10luai_veceqPKfS0_.exit.thread:                 ; preds = %_Z10luai_veceqPKfS0_.exit, %1330, %1334
   %1347 = phi i64 [ 1, %1330 ], [ %spec.select, %_Z10luai_veceqPKfS0_.exit ], [ 1, %1334 ]
-  %1348 = getelementptr inbounds i32, ptr %1279, i64 %1347
+  %1348 = getelementptr inbounds [4 x i8], ptr %1279, i64 %1347
   br label %.backedge.backedge
 
 1349:                                             ; preds = %1293, %1293, %1293, %1293
@@ -2335,7 +2333,7 @@ _Z10luai_veceqPKfS0_.exit.thread:                 ; preds = %_Z10luai_veceqPKfS0
   %1353 = ashr i32 %1280, 16
   %1354 = sext i32 %1353 to i64
   %1355 = select i1 %1352, i64 %1354, i64 1
-  %1356 = getelementptr inbounds i32, ptr %1279, i64 %1355
+  %1356 = getelementptr inbounds [4 x i8], ptr %1279, i64 %1355
   br label %.backedge.backedge
 
 1357:                                             ; preds = %1293
@@ -2378,7 +2376,7 @@ _Z10luai_veceqPKfS0_.exit.thread:                 ; preds = %_Z10luai_veceqPKfS0
   %1379 = ashr i32 %1280, 16
   %1380 = sext i32 %1379 to i64
   %1381 = select i1 %1378, i64 %1380, i64 1
-  %1382 = getelementptr inbounds i32, ptr %1279, i64 %1381
+  %1382 = getelementptr inbounds [4 x i8], ptr %1279, i64 %1381
   br label %.backedge.backedge
 
 1383:                                             ; preds = %1293
@@ -2421,7 +2419,7 @@ _Z10luai_veceqPKfS0_.exit.thread:                 ; preds = %_Z10luai_veceqPKfS0
   %1404 = ashr i32 %1280, 16
   %1405 = sext i32 %1404 to i64
   %1406 = select i1 %1403, i64 %1405, i64 1
-  %1407 = getelementptr inbounds i32, ptr %1279, i64 %1406
+  %1407 = getelementptr inbounds [4 x i8], ptr %1279, i64 %1406
   br label %.backedge.backedge
 
 1408:                                             ; preds = %1396
@@ -2458,7 +2456,7 @@ _Z10luai_veceqPKfS0_.exit.thread:                 ; preds = %_Z10luai_veceqPKfS0
   %1428 = load ptr, ptr %7, align 8, !tbaa !4
   %sext3082 = shl i64 %1422, 28
   %1429 = ashr i64 %sext3082, 32
-  %1430 = getelementptr inbounds %struct.lua_TValue, ptr %1428, i64 %1429
+  %1430 = getelementptr inbounds [16 x i8], ptr %1428, i64 %1429
   %1431 = getelementptr inbounds nuw i8, ptr %1430, i64 12
   %1432 = load i32, ptr %1431, align 4, !tbaa !63
   switch i32 %1432, label %1436 [
@@ -2478,7 +2476,7 @@ _Z10luai_veceqPKfS0_.exit.thread:                 ; preds = %_Z10luai_veceqPKfS0
 
 1439:                                             ; preds = %1416, %1433, %1436
   %1440 = phi i64 [ %1438, %1436 ], [ 1, %1433 ], [ 1, %1416 ]
-  %1441 = getelementptr inbounds i32, ptr %1279, i64 %1440
+  %1441 = getelementptr inbounds [4 x i8], ptr %1279, i64 %1440
   br label %.backedge.backedge
 
 1442:                                             ; preds = %1293
@@ -2494,7 +2492,7 @@ _Z10luai_veceqPKfS0_.exit.thread:                 ; preds = %_Z10luai_veceqPKfS0
   %1449 = ashr i32 %1280, 16
   %1450 = select i1 %1448, i32 %1449, i32 1
   %1451 = sext i32 %1450 to i64
-  %1452 = getelementptr inbounds i32, ptr %1279, i64 %1451
+  %1452 = getelementptr inbounds [4 x i8], ptr %1279, i64 %1451
   br label %.backedge.backedge
 
 1453:                                             ; preds = %1278
@@ -2508,9 +2506,9 @@ _Z10luai_veceqPKfS0_.exit.thread:                 ; preds = %_Z10luai_veceqPKfS0
   %1459 = lshr i32 %1457, 8
   %1460 = and i32 %1459, 255
   %1461 = zext nneg i32 %1460 to i64
-  %1462 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %1461
+  %1462 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %1461
   %1463 = zext i32 %1458 to i64
-  %1464 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %1463
+  %1464 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %1463
   %1465 = getelementptr inbounds nuw i8, ptr %1462, i64 12
   %1466 = load i32, ptr %1465, align 4, !tbaa !63
   %1467 = getelementptr inbounds nuw i8, ptr %1464, i64 12
@@ -2544,7 +2542,7 @@ _Z10luai_veceqPKfS0_.exit.thread:                 ; preds = %_Z10luai_veceqPKfS0
   %1476 = ashr i32 %1457, 16
   %1477 = select i1 %.not3078, i32 1, i32 %1476
   %1478 = sext i32 %1477 to i64
-  %1479 = getelementptr inbounds i32, ptr %1456, i64 %1478
+  %1479 = getelementptr inbounds [4 x i8], ptr %1456, i64 %1478
   br label %.backedge.backedge
 
 1480:                                             ; preds = %1470
@@ -2568,7 +2566,7 @@ _Z10luai_veceqPKfS0_.exit.thread:                 ; preds = %_Z10luai_veceqPKfS0
 
 1491:                                             ; preds = %1483, %1488
   %1492 = phi i64 [ %1490, %1488 ], [ 1, %1483 ]
-  %1493 = getelementptr inbounds i32, ptr %1456, i64 %1492
+  %1493 = getelementptr inbounds [4 x i8], ptr %1456, i64 %1492
   br label %.backedge.backedge
 
 1494:                                             ; preds = %1470
@@ -2578,7 +2576,7 @@ _Z10luai_veceqPKfS0_.exit.thread:                 ; preds = %_Z10luai_veceqPKfS0
   %1498 = ashr i32 %1457, 16
   %1499 = sext i32 %1498 to i64
   %1500 = select i1 %1497, i64 %1499, i64 1
-  %1501 = getelementptr inbounds i32, ptr %1456, i64 %1500
+  %1501 = getelementptr inbounds [4 x i8], ptr %1456, i64 %1500
   br label %.backedge.backedge
 
 1502:                                             ; preds = %1470
@@ -2614,7 +2612,7 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
 
 1521:                                             ; preds = %_Z10luai_veceqPKfS0_.exit3190, %_Z10luai_veceqPKfS0_.exit3190.thread
   %1522 = phi i64 [ %1513, %_Z10luai_veceqPKfS0_.exit3190.thread ], [ %spec.select3241, %_Z10luai_veceqPKfS0_.exit3190 ]
-  %1523 = getelementptr inbounds i32, ptr %1456, i64 %1522
+  %1523 = getelementptr inbounds [4 x i8], ptr %1456, i64 %1522
   br label %.backedge.backedge
 
 1524:                                             ; preds = %1470, %1470, %1470, %1470
@@ -2624,7 +2622,7 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
   %1527 = ashr i32 %1457, 16
   %1528 = sext i32 %1527 to i64
   %1529 = select i1 %.not3075, i64 1, i64 %1528
-  %1530 = getelementptr inbounds i32, ptr %1456, i64 %1529
+  %1530 = getelementptr inbounds [4 x i8], ptr %1456, i64 %1529
   br label %.backedge.backedge
 
 1531:                                             ; preds = %1470
@@ -2667,7 +2665,7 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
   %1552 = ashr i32 %1457, 16
   %1553 = sext i32 %1552 to i64
   %1554 = select i1 %.not3074, i64 1, i64 %1553
-  %1555 = getelementptr inbounds i32, ptr %1456, i64 %1554
+  %1555 = getelementptr inbounds [4 x i8], ptr %1456, i64 %1554
   br label %.backedge.backedge
 
 1556:                                             ; preds = %1470
@@ -2710,7 +2708,7 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
   %1576 = ashr i32 %1457, 16
   %1577 = sext i32 %1576 to i64
   %1578 = select i1 %.not3069, i64 1, i64 %1577
-  %1579 = getelementptr inbounds i32, ptr %1456, i64 %1578
+  %1579 = getelementptr inbounds [4 x i8], ptr %1456, i64 %1578
   br label %.backedge.backedge
 
 1580:                                             ; preds = %1569
@@ -2747,7 +2745,7 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
   %1600 = load ptr, ptr %7, align 8, !tbaa !4
   %sext3071 = shl i64 %1594, 28
   %1601 = ashr i64 %sext3071, 32
-  %1602 = getelementptr inbounds %struct.lua_TValue, ptr %1600, i64 %1601
+  %1602 = getelementptr inbounds [16 x i8], ptr %1600, i64 %1601
   %1603 = getelementptr inbounds nuw i8, ptr %1602, i64 12
   %1604 = load i32, ptr %1603, align 4, !tbaa !63
   switch i32 %1604, label %1611 [
@@ -2767,7 +2765,7 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
 
 1611:                                             ; preds = %1588, %1605, %1608
   %1612 = phi i64 [ %1610, %1608 ], [ 1, %1605 ], [ 1, %1588 ]
-  %1613 = getelementptr inbounds i32, ptr %1456, i64 %1612
+  %1613 = getelementptr inbounds [4 x i8], ptr %1456, i64 %1612
   br label %.backedge.backedge
 
 1614:                                             ; preds = %1470
@@ -2783,13 +2781,13 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
   %1621 = ashr i32 %1457, 16
   %1622 = select i1 %1620, i32 %1621, i32 1
   %1623 = sext i32 %1622 to i64
-  %1624 = getelementptr inbounds i32, ptr %1456, i64 %1623
+  %1624 = getelementptr inbounds [4 x i8], ptr %1456, i64 %1623
   br label %.backedge.backedge
 
 1625:                                             ; preds = %1455
   %1626 = ashr i32 %1457, 16
   %1627 = sext i32 %1626 to i64
-  %1628 = getelementptr inbounds i32, ptr %1456, i64 %1627
+  %1628 = getelementptr inbounds [4 x i8], ptr %1456, i64 %1627
   br label %.backedge.backedge
 
 1629:                                             ; preds = %.backedge
@@ -2799,9 +2797,9 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
   %1633 = lshr i32 %1631, 8
   %1634 = and i32 %1633, 255
   %1635 = zext nneg i32 %1634 to i64
-  %1636 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %1635
+  %1636 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %1635
   %1637 = zext i32 %1632 to i64
-  %1638 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %1637
+  %1638 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %1637
   %1639 = getelementptr inbounds nuw i8, ptr %1636, i64 12
   %1640 = load i32, ptr %1639, align 4, !tbaa !63
   switch i32 %1640, label %.critedge3166.thread [
@@ -2822,7 +2820,7 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
   %1649 = ashr i32 %1631, 16
   %1650 = sext i32 %1649 to i64
   %1651 = select i1 %1648, i64 %1650, i64 1
-  %1652 = getelementptr inbounds i32, ptr %1630, i64 %1651
+  %1652 = getelementptr inbounds [4 x i8], ptr %1630, i64 %1651
   br label %.backedge.backedge
 
 1653:                                             ; preds = %1629
@@ -2839,7 +2837,7 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
   %1662 = ashr i32 %1631, 16
   %1663 = select i1 %1661, i32 %1662, i32 1
   %1664 = sext i32 %1663 to i64
-  %1665 = getelementptr inbounds i32, ptr %1630, i64 %1664
+  %1665 = getelementptr inbounds [4 x i8], ptr %1630, i64 %1664
   br label %.backedge.backedge
 
 .critedge3166.thread:                             ; preds = %1629, %1641, %1653
@@ -2852,7 +2850,7 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
   %1671 = ashr i32 %1631, 16
   %1672 = select i1 %1670, i32 %1671, i32 1
   %1673 = sext i32 %1672 to i64
-  %1674 = getelementptr inbounds i32, ptr %1630, i64 %1673
+  %1674 = getelementptr inbounds [4 x i8], ptr %1630, i64 %1673
   br label %.backedge.backedge
 
 1675:                                             ; preds = %.backedge
@@ -2862,9 +2860,9 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
   %1679 = lshr i32 %1677, 8
   %1680 = and i32 %1679, 255
   %1681 = zext nneg i32 %1680 to i64
-  %1682 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %1681
+  %1682 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %1681
   %1683 = zext i32 %1678 to i64
-  %1684 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %1683
+  %1684 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %1683
   %1685 = getelementptr inbounds nuw i8, ptr %1682, i64 12
   %1686 = load i32, ptr %1685, align 4, !tbaa !63
   switch i32 %1686, label %.critedge3168.thread [
@@ -2885,7 +2883,7 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
   %1695 = ashr i32 %1677, 16
   %1696 = sext i32 %1695 to i64
   %1697 = select i1 %1694, i64 1, i64 %1696
-  %1698 = getelementptr inbounds i32, ptr %1676, i64 %1697
+  %1698 = getelementptr inbounds [4 x i8], ptr %1676, i64 %1697
   br label %.backedge.backedge
 
 1699:                                             ; preds = %1675
@@ -2902,7 +2900,7 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
   %1708 = ashr i32 %1677, 16
   %1709 = select i1 %1707, i32 1, i32 %1708
   %1710 = sext i32 %1709 to i64
-  %1711 = getelementptr inbounds i32, ptr %1676, i64 %1710
+  %1711 = getelementptr inbounds [4 x i8], ptr %1676, i64 %1710
   br label %.backedge.backedge
 
 .critedge3168.thread:                             ; preds = %1675, %1687, %1699
@@ -2915,7 +2913,7 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
   %1717 = ashr i32 %1677, 16
   %1718 = select i1 %1716, i32 %1717, i32 1
   %1719 = sext i32 %1718 to i64
-  %1720 = getelementptr inbounds i32, ptr %1676, i64 %1719
+  %1720 = getelementptr inbounds [4 x i8], ptr %1676, i64 %1719
   br label %.backedge.backedge
 
 1721:                                             ; preds = %.backedge
@@ -2925,9 +2923,9 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
   %1725 = lshr i32 %1723, 8
   %1726 = and i32 %1725, 255
   %1727 = zext nneg i32 %1726 to i64
-  %1728 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %1727
+  %1728 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %1727
   %1729 = zext i32 %1724 to i64
-  %1730 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %1729
+  %1730 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %1729
   %1731 = getelementptr inbounds nuw i8, ptr %1728, i64 12
   %1732 = load i32, ptr %1731, align 4, !tbaa !63
   switch i32 %1732, label %.critedge3170.thread [
@@ -2948,7 +2946,7 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
   %1741 = ashr i32 %1723, 16
   %1742 = sext i32 %1741 to i64
   %1743 = select i1 %1740, i64 %1742, i64 1
-  %1744 = getelementptr inbounds i32, ptr %1722, i64 %1743
+  %1744 = getelementptr inbounds [4 x i8], ptr %1722, i64 %1743
   br label %.backedge.backedge
 
 1745:                                             ; preds = %1721
@@ -2965,7 +2963,7 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
   %1754 = ashr i32 %1723, 16
   %1755 = select i1 %1753, i32 %1754, i32 1
   %1756 = sext i32 %1755 to i64
-  %1757 = getelementptr inbounds i32, ptr %1722, i64 %1756
+  %1757 = getelementptr inbounds [4 x i8], ptr %1722, i64 %1756
   br label %.backedge.backedge
 
 .critedge3170.thread:                             ; preds = %1721, %1733, %1745
@@ -2978,7 +2976,7 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
   %1763 = ashr i32 %1723, 16
   %1764 = select i1 %1762, i32 %1763, i32 1
   %1765 = sext i32 %1764 to i64
-  %1766 = getelementptr inbounds i32, ptr %1722, i64 %1765
+  %1766 = getelementptr inbounds [4 x i8], ptr %1722, i64 %1765
   br label %.backedge.backedge
 
 1767:                                             ; preds = %.backedge
@@ -2988,9 +2986,9 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
   %1771 = lshr i32 %1769, 8
   %1772 = and i32 %1771, 255
   %1773 = zext nneg i32 %1772 to i64
-  %1774 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %1773
+  %1774 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %1773
   %1775 = zext i32 %1770 to i64
-  %1776 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %1775
+  %1776 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %1775
   %1777 = getelementptr inbounds nuw i8, ptr %1774, i64 12
   %1778 = load i32, ptr %1777, align 4, !tbaa !63
   switch i32 %1778, label %.critedge3172.thread [
@@ -3011,7 +3009,7 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
   %1787 = ashr i32 %1769, 16
   %1788 = sext i32 %1787 to i64
   %1789 = select i1 %1786, i64 1, i64 %1788
-  %1790 = getelementptr inbounds i32, ptr %1768, i64 %1789
+  %1790 = getelementptr inbounds [4 x i8], ptr %1768, i64 %1789
   br label %.backedge.backedge
 
 1791:                                             ; preds = %1767
@@ -3028,7 +3026,7 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
   %1800 = ashr i32 %1769, 16
   %1801 = select i1 %1799, i32 1, i32 %1800
   %1802 = sext i32 %1801 to i64
-  %1803 = getelementptr inbounds i32, ptr %1768, i64 %1802
+  %1803 = getelementptr inbounds [4 x i8], ptr %1768, i64 %1802
   br label %.backedge.backedge
 
 .critedge3172.thread:                             ; preds = %1767, %1779, %1791
@@ -3041,7 +3039,7 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
   %1809 = ashr i32 %1769, 16
   %1810 = select i1 %1808, i32 %1809, i32 1
   %1811 = sext i32 %1810 to i64
-  %1812 = getelementptr inbounds i32, ptr %1768, i64 %1811
+  %1812 = getelementptr inbounds [4 x i8], ptr %1768, i64 %1811
   br label %.backedge.backedge
 
 1813:                                             ; preds = %.backedge
@@ -3050,14 +3048,14 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
   %1816 = lshr i32 %1815, 8
   %1817 = and i32 %1816, 255
   %1818 = zext nneg i32 %1817 to i64
-  %1819 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %1818
+  %1819 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %1818
   %1820 = lshr i32 %1815, 16
   %1821 = and i32 %1820, 255
   %1822 = zext nneg i32 %1821 to i64
-  %1823 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %1822
+  %1823 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %1822
   %1824 = lshr i32 %1815, 24
   %1825 = zext nneg i32 %1824 to i64
-  %1826 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %1825
+  %1826 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %1825
   %1827 = getelementptr inbounds nuw i8, ptr %1823, i64 12
   %1828 = load i32, ptr %1827, align 4, !tbaa !63
   switch i32 %1828, label %.thread3219 [
@@ -3158,14 +3156,14 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
   %1883 = lshr i32 %1882, 8
   %1884 = and i32 %1883, 255
   %1885 = zext nneg i32 %1884 to i64
-  %1886 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %1885
+  %1886 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %1885
   %1887 = lshr i32 %1882, 16
   %1888 = and i32 %1887, 255
   %1889 = zext nneg i32 %1888 to i64
-  %1890 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %1889
+  %1890 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %1889
   %1891 = lshr i32 %1882, 24
   %1892 = zext nneg i32 %1891 to i64
-  %1893 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %1892
+  %1893 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %1892
   %1894 = getelementptr inbounds nuw i8, ptr %1890, i64 12
   %1895 = load i32, ptr %1894, align 4, !tbaa !63
   switch i32 %1895, label %.thread3221 [
@@ -3266,14 +3264,14 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
   %1950 = lshr i32 %1949, 8
   %1951 = and i32 %1950, 255
   %1952 = zext nneg i32 %1951 to i64
-  %1953 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %1952
+  %1953 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %1952
   %1954 = lshr i32 %1949, 16
   %1955 = and i32 %1954, 255
   %1956 = zext nneg i32 %1955 to i64
-  %1957 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %1956
+  %1957 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %1956
   %1958 = lshr i32 %1949, 24
   %1959 = zext nneg i32 %1958 to i64
-  %1960 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %1959
+  %1960 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %1959
   %1961 = getelementptr inbounds nuw i8, ptr %1957, i64 12
   %1962 = load i32, ptr %1961, align 4, !tbaa !63
   switch i32 %1962, label %.thread3225 [
@@ -3423,14 +3421,14 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
   %2046 = lshr i32 %2045, 8
   %2047 = and i32 %2046, 255
   %2048 = zext nneg i32 %2047 to i64
-  %2049 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %2048
+  %2049 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %2048
   %2050 = lshr i32 %2045, 16
   %2051 = and i32 %2050, 255
   %2052 = zext nneg i32 %2051 to i64
-  %2053 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %2052
+  %2053 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %2052
   %2054 = lshr i32 %2045, 24
   %2055 = zext nneg i32 %2054 to i64
-  %2056 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %2055
+  %2056 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %2055
   %2057 = getelementptr inbounds nuw i8, ptr %2053, i64 12
   %2058 = load i32, ptr %2057, align 4, !tbaa !63
   switch i32 %2058, label %.thread3229 [
@@ -3580,14 +3578,14 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
   %2142 = lshr i32 %2141, 8
   %2143 = and i32 %2142, 255
   %2144 = zext nneg i32 %2143 to i64
-  %2145 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %2144
+  %2145 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %2144
   %2146 = lshr i32 %2141, 16
   %2147 = and i32 %2146, 255
   %2148 = zext nneg i32 %2147 to i64
-  %2149 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %2148
+  %2149 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %2148
   %2150 = lshr i32 %2141, 24
   %2151 = zext nneg i32 %2150 to i64
-  %2152 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %2151
+  %2152 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %2151
   %2153 = getelementptr inbounds nuw i8, ptr %2149, i64 12
   %2154 = load i32, ptr %2153, align 4, !tbaa !63
   switch i32 %2154, label %.critedge3182.thread [
@@ -3701,14 +3699,14 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
   %2220 = lshr i32 %2219, 8
   %2221 = and i32 %2220, 255
   %2222 = zext nneg i32 %2221 to i64
-  %2223 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %2222
+  %2223 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %2222
   %2224 = lshr i32 %2219, 16
   %2225 = and i32 %2224, 255
   %2226 = zext nneg i32 %2225 to i64
-  %2227 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %2226
+  %2227 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %2226
   %2228 = lshr i32 %2219, 24
   %2229 = zext nneg i32 %2228 to i64
-  %2230 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %2229
+  %2230 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %2229
   %2231 = getelementptr inbounds nuw i8, ptr %2227, i64 12
   %2232 = load i32, ptr %2231, align 4, !tbaa !63
   %2233 = icmp eq i32 %2232, 3
@@ -3746,14 +3744,14 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
   %2253 = lshr i32 %2252, 8
   %2254 = and i32 %2253, 255
   %2255 = zext nneg i32 %2254 to i64
-  %2256 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %2255
+  %2256 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %2255
   %2257 = lshr i32 %2252, 16
   %2258 = and i32 %2257, 255
   %2259 = zext nneg i32 %2258 to i64
-  %2260 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %2259
+  %2260 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %2259
   %2261 = lshr i32 %2252, 24
   %2262 = zext nneg i32 %2261 to i64
-  %2263 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %2262
+  %2263 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %2262
   %2264 = getelementptr inbounds nuw i8, ptr %2260, i64 12
   %2265 = load i32, ptr %2264, align 4, !tbaa !63
   %2266 = icmp eq i32 %2265, 3
@@ -3788,14 +3786,14 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
   %2283 = lshr i32 %2282, 8
   %2284 = and i32 %2283, 255
   %2285 = zext nneg i32 %2284 to i64
-  %2286 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %2285
+  %2286 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %2285
   %2287 = lshr i32 %2282, 16
   %2288 = and i32 %2287, 255
   %2289 = zext nneg i32 %2288 to i64
-  %2290 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %2289
+  %2290 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %2289
   %2291 = lshr i32 %2282, 24
   %2292 = zext nneg i32 %2291 to i64
-  %2293 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.02896, i64 %2292
+  %2293 = getelementptr inbounds nuw [16 x i8], ptr %.02896, i64 %2292
   %2294 = getelementptr inbounds nuw i8, ptr %2290, i64 12
   %2295 = load i32, ptr %2294, align 4, !tbaa !63
   %2296 = icmp eq i32 %2295, 3
@@ -3824,14 +3822,14 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
   %2309 = lshr i32 %2308, 8
   %2310 = and i32 %2309, 255
   %2311 = zext nneg i32 %2310 to i64
-  %2312 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %2311
+  %2312 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %2311
   %2313 = lshr i32 %2308, 16
   %2314 = and i32 %2313, 255
   %2315 = zext nneg i32 %2314 to i64
-  %2316 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %2315
+  %2316 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %2315
   %2317 = lshr i32 %2308, 24
   %2318 = zext nneg i32 %2317 to i64
-  %2319 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.02896, i64 %2318
+  %2319 = getelementptr inbounds nuw [16 x i8], ptr %.02896, i64 %2318
   %2320 = getelementptr inbounds nuw i8, ptr %2316, i64 12
   %2321 = load i32, ptr %2320, align 4, !tbaa !63
   %2322 = icmp eq i32 %2321, 3
@@ -3860,14 +3858,14 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
   %2335 = lshr i32 %2334, 8
   %2336 = and i32 %2335, 255
   %2337 = zext nneg i32 %2336 to i64
-  %2338 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %2337
+  %2338 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %2337
   %2339 = lshr i32 %2334, 16
   %2340 = and i32 %2339, 255
   %2341 = zext nneg i32 %2340 to i64
-  %2342 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %2341
+  %2342 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %2341
   %2343 = lshr i32 %2334, 24
   %2344 = zext nneg i32 %2343 to i64
-  %2345 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.02896, i64 %2344
+  %2345 = getelementptr inbounds nuw [16 x i8], ptr %.02896, i64 %2344
   %2346 = getelementptr inbounds nuw i8, ptr %2342, i64 12
   %2347 = load i32, ptr %2346, align 4, !tbaa !63
   switch i32 %2347, label %2385 [
@@ -3953,14 +3951,14 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
   %2392 = lshr i32 %2391, 8
   %2393 = and i32 %2392, 255
   %2394 = zext nneg i32 %2393 to i64
-  %2395 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %2394
+  %2395 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %2394
   %2396 = lshr i32 %2391, 16
   %2397 = and i32 %2396, 255
   %2398 = zext nneg i32 %2397 to i64
-  %2399 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %2398
+  %2399 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %2398
   %2400 = lshr i32 %2391, 24
   %2401 = zext nneg i32 %2400 to i64
-  %2402 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.02896, i64 %2401
+  %2402 = getelementptr inbounds nuw [16 x i8], ptr %.02896, i64 %2401
   %2403 = getelementptr inbounds nuw i8, ptr %2399, i64 12
   %2404 = load i32, ptr %2403, align 4, !tbaa !63
   switch i32 %2404, label %2442 [
@@ -4046,14 +4044,14 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
   %2449 = lshr i32 %2448, 8
   %2450 = and i32 %2449, 255
   %2451 = zext nneg i32 %2450 to i64
-  %2452 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %2451
+  %2452 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %2451
   %2453 = lshr i32 %2448, 16
   %2454 = and i32 %2453, 255
   %2455 = zext nneg i32 %2454 to i64
-  %2456 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %2455
+  %2456 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %2455
   %2457 = lshr i32 %2448, 24
   %2458 = zext nneg i32 %2457 to i64
-  %2459 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.02896, i64 %2458
+  %2459 = getelementptr inbounds nuw [16 x i8], ptr %.02896, i64 %2458
   %2460 = getelementptr inbounds nuw i8, ptr %2456, i64 12
   %2461 = load i32, ptr %2460, align 4, !tbaa !63
   switch i32 %2461, label %2510 [
@@ -4150,14 +4148,14 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
   %2517 = lshr i32 %2516, 8
   %2518 = and i32 %2517, 255
   %2519 = zext nneg i32 %2518 to i64
-  %2520 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %2519
+  %2520 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %2519
   %2521 = lshr i32 %2516, 16
   %2522 = and i32 %2521, 255
   %2523 = zext nneg i32 %2522 to i64
-  %2524 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %2523
+  %2524 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %2523
   %2525 = lshr i32 %2516, 24
   %2526 = zext nneg i32 %2525 to i64
-  %2527 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.02896, i64 %2526
+  %2527 = getelementptr inbounds nuw [16 x i8], ptr %.02896, i64 %2526
   %2528 = getelementptr inbounds nuw i8, ptr %2524, i64 12
   %2529 = load i32, ptr %2528, align 4, !tbaa !63
   %2530 = icmp eq i32 %2529, 3
@@ -4189,14 +4187,14 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
   %2546 = lshr i32 %2545, 8
   %2547 = and i32 %2546, 255
   %2548 = zext nneg i32 %2547 to i64
-  %2549 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %2548
+  %2549 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %2548
   %2550 = lshr i32 %2545, 16
   %2551 = and i32 %2550, 255
   %2552 = zext nneg i32 %2551 to i64
-  %2553 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %2552
+  %2553 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %2552
   %2554 = lshr i32 %2545, 24
   %2555 = zext nneg i32 %2554 to i64
-  %2556 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.02896, i64 %2555
+  %2556 = getelementptr inbounds nuw [16 x i8], ptr %.02896, i64 %2555
   %2557 = getelementptr inbounds nuw i8, ptr %2553, i64 12
   %2558 = load i32, ptr %2557, align 4, !tbaa !63
   %2559 = icmp eq i32 %2558, 3
@@ -4254,14 +4252,14 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
   %2587 = lshr i32 %2586, 8
   %2588 = and i32 %2587, 255
   %2589 = zext nneg i32 %2588 to i64
-  %2590 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %2589
+  %2590 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %2589
   %2591 = lshr i32 %2586, 16
   %2592 = and i32 %2591, 255
   %2593 = zext nneg i32 %2592 to i64
-  %2594 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %2593
+  %2594 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %2593
   %2595 = lshr i32 %2586, 24
   %2596 = zext nneg i32 %2595 to i64
-  %2597 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %2596
+  %2597 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %2596
   %2598 = getelementptr inbounds nuw i8, ptr %2594, i64 12
   %2599 = load i32, ptr %2598, align 4, !tbaa !63
   switch i32 %2599, label %2603 [
@@ -4288,14 +4286,14 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
   %2609 = lshr i32 %2608, 8
   %2610 = and i32 %2609, 255
   %2611 = zext nneg i32 %2610 to i64
-  %2612 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %2611
+  %2612 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %2611
   %2613 = lshr i32 %2608, 16
   %2614 = and i32 %2613, 255
   %2615 = zext nneg i32 %2614 to i64
-  %2616 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %2615
+  %2616 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %2615
   %2617 = lshr i32 %2608, 24
   %2618 = zext nneg i32 %2617 to i64
-  %2619 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %2618
+  %2619 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %2618
   %2620 = getelementptr inbounds nuw i8, ptr %2616, i64 12
   %2621 = load i32, ptr %2620, align 4, !tbaa !63
   switch i32 %2621, label %2625 [
@@ -4322,14 +4320,14 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
   %2631 = lshr i32 %2630, 8
   %2632 = and i32 %2631, 255
   %2633 = zext nneg i32 %2632 to i64
-  %2634 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %2633
+  %2634 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %2633
   %2635 = lshr i32 %2630, 16
   %2636 = and i32 %2635, 255
   %2637 = zext nneg i32 %2636 to i64
-  %2638 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %2637
+  %2638 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %2637
   %2639 = lshr i32 %2630, 24
   %2640 = zext nneg i32 %2639 to i64
-  %2641 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.02896, i64 %2640
+  %2641 = getelementptr inbounds nuw [16 x i8], ptr %.02896, i64 %2640
   %2642 = getelementptr inbounds nuw i8, ptr %2638, i64 12
   %2643 = load i32, ptr %2642, align 4, !tbaa !63
   switch i32 %2643, label %2647 [
@@ -4356,14 +4354,14 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
   %2653 = lshr i32 %2652, 8
   %2654 = and i32 %2653, 255
   %2655 = zext nneg i32 %2654 to i64
-  %2656 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %2655
+  %2656 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %2655
   %2657 = lshr i32 %2652, 16
   %2658 = and i32 %2657, 255
   %2659 = zext nneg i32 %2658 to i64
-  %2660 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %2659
+  %2660 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %2659
   %2661 = lshr i32 %2652, 24
   %2662 = zext nneg i32 %2661 to i64
-  %2663 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.02896, i64 %2662
+  %2663 = getelementptr inbounds nuw [16 x i8], ptr %.02896, i64 %2662
   %2664 = getelementptr inbounds nuw i8, ptr %2660, i64 12
   %2665 = load i32, ptr %2664, align 4, !tbaa !63
   switch i32 %2665, label %2669 [
@@ -4400,9 +4398,9 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
   %2683 = lshr i32 %2674, 8
   %2684 = and i32 %2683, 255
   %2685 = zext nneg i32 %2684 to i64
-  %2686 = getelementptr inbounds nuw %struct.lua_TValue, ptr %2682, i64 %2685
+  %2686 = getelementptr inbounds nuw [16 x i8], ptr %2682, i64 %2685
   %2687 = zext nneg i32 %2676 to i64
-  %2688 = getelementptr inbounds nuw %struct.lua_TValue, ptr %2682, i64 %2687
+  %2688 = getelementptr inbounds nuw [16 x i8], ptr %2682, i64 %2687
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2686, ptr noundef nonnull align 8 dereferenceable(16) %2688, i64 16, i1 false), !tbaa.struct !64
   %2689 = load ptr, ptr %6, align 8, !tbaa !21
   %2690 = getelementptr inbounds nuw i8, ptr %2689, i64 24
@@ -4429,11 +4427,11 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
   %2703 = lshr i32 %2702, 8
   %2704 = and i32 %2703, 255
   %2705 = zext nneg i32 %2704 to i64
-  %2706 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %2705
+  %2706 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %2705
   %2707 = lshr i32 %2702, 16
   %2708 = and i32 %2707, 255
   %2709 = zext nneg i32 %2708 to i64
-  %2710 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %2709
+  %2710 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %2709
   %2711 = getelementptr inbounds nuw i8, ptr %2710, i64 12
   %2712 = load i32, ptr %2711, align 4, !tbaa !63
   switch i32 %2712, label %.fold.split [
@@ -4463,11 +4461,11 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
   %2723 = lshr i32 %2722, 8
   %2724 = and i32 %2723, 255
   %2725 = zext nneg i32 %2724 to i64
-  %2726 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %2725
+  %2726 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %2725
   %2727 = lshr i32 %2722, 16
   %2728 = and i32 %2727, 255
   %2729 = zext nneg i32 %2728 to i64
-  %2730 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %2729
+  %2730 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %2729
   %2731 = getelementptr inbounds nuw i8, ptr %2730, i64 12
   %2732 = load i32, ptr %2731, align 4, !tbaa !63
   switch i32 %2732, label %2766 [
@@ -4548,11 +4546,11 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
   %2773 = lshr i32 %2772, 8
   %2774 = and i32 %2773, 255
   %2775 = zext nneg i32 %2774 to i64
-  %2776 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %2775
+  %2776 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %2775
   %2777 = lshr i32 %2772, 16
   %2778 = and i32 %2777, 255
   %2779 = zext nneg i32 %2778 to i64
-  %2780 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %2779
+  %2780 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %2779
   %2781 = getelementptr inbounds nuw i8, ptr %2780, i64 12
   %2782 = load i32, ptr %2781, align 4, !tbaa !63
   switch i32 %2782, label %2806 [
@@ -4614,7 +4612,7 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
   %2813 = lshr i32 %2812, 8
   %2814 = and i32 %2813, 255
   %2815 = zext nneg i32 %2814 to i64
-  %2816 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %2815
+  %2816 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %2815
   %2817 = lshr i32 %2812, 16
   %2818 = and i32 %2817, 255
   %2819 = getelementptr inbounds nuw i8, ptr %.12898, i64 8
@@ -4655,10 +4653,10 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
   %2843 = lshr i32 %2842, 8
   %2844 = and i32 %2843, 255
   %2845 = zext nneg i32 %2844 to i64
-  %2846 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %2845
+  %2846 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %2845
   %2847 = ashr i32 %2842, 16
   %2848 = sext i32 %2847 to i64
-  %2849 = getelementptr inbounds %struct.lua_TValue, ptr %.02896, i64 %2848
+  %2849 = getelementptr inbounds [16 x i8], ptr %.02896, i64 %2848
   %2850 = load ptr, ptr %6, align 8, !tbaa !21
   %2851 = getelementptr inbounds nuw i8, ptr %2850, i64 24
   store ptr %2841, ptr %2851, align 8, !tbaa !27
@@ -4692,11 +4690,11 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
   %2869 = lshr i32 %2868, 8
   %2870 = and i32 %2869, 255
   %2871 = zext nneg i32 %2870 to i64
-  %2872 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %2871
+  %2872 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %2871
   %2873 = lshr i32 %2868, 16
   %2874 = and i32 %2873, 255
   %2875 = zext nneg i32 %2874 to i64
-  %2876 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %2875
+  %2876 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %2875
   %2877 = lshr i32 %2868, 24
   %2878 = add nsw i32 %2877, -1
   %2879 = getelementptr inbounds nuw i8, ptr %.12898, i64 8
@@ -4752,11 +4750,11 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
 
 2910:                                             ; preds = %.lr.ph3319, %2910
   %indvars.iv3436 = phi i64 [ 0, %.lr.ph3319 ], [ %indvars.iv.next3437, %2910 ]
-  %2911 = getelementptr inbounds nuw %struct.lua_TValue, ptr %2876, i64 %indvars.iv3436
+  %2911 = getelementptr inbounds nuw [16 x i8], ptr %2876, i64 %indvars.iv3436
   %2912 = trunc nuw nsw i64 %indvars.iv3436 to i32
   %2913 = add i32 %2898, %2912
   %2914 = zext i32 %2913 to i64
-  %2915 = getelementptr inbounds nuw %struct.lua_TValue, ptr %2908, i64 %2914
+  %2915 = getelementptr inbounds nuw [16 x i8], ptr %2908, i64 %2914
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2915, ptr noundef nonnull align 8 dereferenceable(16) %2911, i64 16, i1 false), !tbaa.struct !64
   %indvars.iv.next3437 = add nuw nsw i64 %indvars.iv3436, 1
   %exitcond3440.not = icmp eq i64 %indvars.iv.next3437, %wide.trip.count3439
@@ -4780,7 +4778,7 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
   %2924 = lshr i32 %2923, 8
   %2925 = and i32 %2924, 255
   %2926 = zext nneg i32 %2925 to i64
-  %2927 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %2926
+  %2927 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %2926
   %2928 = getelementptr inbounds nuw i8, ptr %2927, i64 12
   %2929 = load i32, ptr %2928, align 4, !tbaa !63
   %2930 = icmp eq i32 %2929, 3
@@ -4831,7 +4829,7 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
 
 2958:                                             ; preds = %2951, %2953, %2955
   %2959 = phi i64 [ %2957, %2955 ], [ 0, %2953 ], [ 0, %2951 ]
-  %2960 = getelementptr inbounds i32, ptr %2922, i64 %2959
+  %2960 = getelementptr inbounds [4 x i8], ptr %2922, i64 %2959
   br label %.backedge.backedge
 
 2961:                                             ; preds = %.backedge
@@ -4859,7 +4857,7 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
   %2974 = lshr i32 %2973, 8
   %2975 = and i32 %2974, 255
   %2976 = zext nneg i32 %2975 to i64
-  %2977 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.5, i64 %2976
+  %2977 = getelementptr inbounds nuw [16 x i8], ptr %.5, i64 %2976
   %2978 = load double, ptr %2977, align 8, !tbaa !30
   %2979 = getelementptr inbounds nuw i8, ptr %2977, i64 16
   %2980 = load double, ptr %2979, align 8, !tbaa !30
@@ -4883,7 +4881,7 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
 2990:                                             ; preds = %2988, %2986
   %2991 = ashr i32 %2973, 16
   %2992 = sext i32 %2991 to i64
-  %2993 = getelementptr inbounds i32, ptr %2972, i64 %2992
+  %2993 = getelementptr inbounds [4 x i8], ptr %2972, i64 %2992
   br label %.backedge.backedge
 
 2994:                                             ; preds = %.backedge
@@ -4892,7 +4890,7 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
   %2997 = lshr i32 %2996, 8
   %2998 = and i32 %2997, 255
   %2999 = zext nneg i32 %2998 to i64
-  %3000 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %2999
+  %3000 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %2999
   %3001 = getelementptr inbounds nuw i8, ptr %3000, i64 12
   %3002 = load i32, ptr %3001, align 4, !tbaa !63
   switch i32 %3002, label %.critedge3184.thread [
@@ -4946,7 +4944,7 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
   %3025 = getelementptr inbounds nuw i8, ptr %3024, i64 16
   %3026 = load ptr, ptr %3025, align 8, !tbaa !22
   store ptr %3026, ptr %10, align 8, !tbaa !20
-  %3027 = getelementptr inbounds nuw %struct.lua_TValue, ptr %3023, i64 %2999
+  %3027 = getelementptr inbounds nuw [16 x i8], ptr %3023, i64 %2999
   %3028 = getelementptr inbounds nuw i8, ptr %3027, i64 12
   %3029 = load i32, ptr %3028, align 4, !tbaa !63
   %3030 = icmp eq i32 %3029, 0
@@ -5000,7 +4998,7 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
   %.6 = phi ptr [ %.1, %2994 ], [ %3023, %3018 ], [ %.1, %3035 ], [ %.1, %3042 ]
   %3050 = ashr i32 %2996, 16
   %3051 = sext i32 %3050 to i64
-  %3052 = getelementptr inbounds i32, ptr %2995, i64 %3051
+  %3052 = getelementptr inbounds [4 x i8], ptr %2995, i64 %3051
   br label %.backedge.backedge
 
 3053:                                             ; preds = %.backedge
@@ -5028,7 +5026,7 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
   %3066 = lshr i32 %3065, 8
   %3067 = and i32 %3066, 255
   %3068 = zext nneg i32 %3067 to i64
-  %3069 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.7, i64 %3068
+  %3069 = getelementptr inbounds nuw [16 x i8], ptr %.7, i64 %3068
   %3070 = load i32, ptr %3064, align 4, !tbaa !61
   %3071 = getelementptr inbounds nuw i8, ptr %3069, i64 12
   %3072 = load i32, ptr %3071, align 4, !tbaa !63
@@ -5059,7 +5057,7 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
 
 .preheader3246:                                   ; preds = %.preheader3246.preheader, %.preheader3246
   %indvars.iv3425 = phi i64 [ 2, %.preheader3246.preheader ], [ %indvars.iv.next3426, %.preheader3246 ]
-  %3088 = getelementptr inbounds nuw %struct.lua_TValue, ptr %3069, i64 %indvars.iv3425
+  %3088 = getelementptr inbounds nuw [16 x i8], ptr %3069, i64 %indvars.iv3425
   %3089 = getelementptr inbounds nuw i8, ptr %3088, i64 60
   store i32 0, ptr %3089, align 4, !tbaa !63
   %indvars.iv.next3426 = add nuw nsw i64 %indvars.iv3425, 1
@@ -5102,7 +5100,7 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
 
 3106:                                             ; preds = %.lr.ph3309, %3125
   %indvars.iv3430 = phi i64 [ %3105, %.lr.ph3309 ], [ %indvars.iv.next3431, %3125 ]
-  %3107 = getelementptr inbounds %struct.lua_TValue, ptr %3104, i64 %indvars.iv3430
+  %3107 = getelementptr inbounds [16 x i8], ptr %3104, i64 %indvars.iv3430
   %3108 = getelementptr inbounds nuw i8, ptr %3107, i64 12
   %3109 = load i32, ptr %3108, align 4, !tbaa !63
   %3110 = icmp eq i32 %3109, 0
@@ -5127,7 +5125,7 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3121, ptr noundef nonnull align 8 dereferenceable(16) %3107, i64 16, i1 false), !tbaa.struct !64
   %3122 = ashr i32 %3065, 16
   %3123 = sext i32 %3122 to i64
-  %3124 = getelementptr inbounds i32, ptr %3064, i64 %3123
+  %3124 = getelementptr inbounds [4 x i8], ptr %3064, i64 %3123
   br label %.backedge.backedge
 
 3125:                                             ; preds = %3106
@@ -5156,7 +5154,7 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
   %indvars.iv3433 = phi i64 [ %3135, %.lr.ph3315 ], [ %indvars.iv.next3434, %3163 ]
   %3137 = phi i32 [ %3131, %.lr.ph3315 ], [ %3165, %3163 ]
   %3138 = sext i32 %3137 to i64
-  %3139 = getelementptr inbounds %struct.LuaNode, ptr %3134, i64 %3138
+  %3139 = getelementptr inbounds [32 x i8], ptr %3134, i64 %3138
   %3140 = getelementptr inbounds nuw i8, ptr %3139, i64 12
   %3141 = load i32, ptr %3140, align 4, !tbaa !71
   %3142 = icmp eq i32 %3141, 0
@@ -5189,7 +5187,7 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3159, ptr noundef nonnull align 8 dereferenceable(16) %3139, i64 16, i1 false), !tbaa.struct !64
   %3160 = ashr i32 %3065, 16
   %3161 = sext i32 %3160 to i64
-  %3162 = getelementptr inbounds i32, ptr %3064, i64 %3161
+  %3162 = getelementptr inbounds [4 x i8], ptr %3064, i64 %3161
   br label %.backedge.backedge
 
 3163:                                             ; preds = %3136
@@ -5225,7 +5223,7 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
   %3180 = getelementptr inbounds nuw i8, ptr %3179, i64 16
   %3181 = load ptr, ptr %3180, align 8, !tbaa !22
   store ptr %3181, ptr %10, align 8, !tbaa !20
-  %3182 = getelementptr inbounds nuw %struct.lua_TValue, ptr %3178, i64 %3068
+  %3182 = getelementptr inbounds nuw [16 x i8], ptr %3178, i64 %3068
   %3183 = getelementptr inbounds nuw i8, ptr %3182, i64 48
   %3184 = getelementptr inbounds nuw i8, ptr %3182, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3184, ptr noundef nonnull align 8 dereferenceable(16) %3183, i64 16, i1 false), !tbaa.struct !64
@@ -5235,7 +5233,7 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
   %3188 = ashr i32 %3065, 16
   %3189 = select i1 %3187, i32 1, i32 %3188
   %3190 = sext i32 %3189 to i64
-  %3191 = getelementptr inbounds i32, ptr %3064, i64 %3190
+  %3191 = getelementptr inbounds [4 x i8], ptr %3064, i64 %3190
   br label %.backedge.backedge
 
 3192:                                             ; preds = %.backedge
@@ -5244,7 +5242,7 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
   %3195 = lshr i32 %3194, 8
   %3196 = and i32 %3195, 255
   %3197 = zext nneg i32 %3196 to i64
-  %3198 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %3197
+  %3198 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %3197
   %3199 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %3200 = load ptr, ptr %3199, align 8, !tbaa !65
   %3201 = getelementptr inbounds nuw i8, ptr %3200, i64 5
@@ -5295,7 +5293,7 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
 3225:                                             ; preds = %3218, %3215
   %3226 = ashr i32 %3194, 16
   %3227 = sext i32 %3226 to i64
-  %3228 = getelementptr inbounds i32, ptr %3193, i64 %3227
+  %3228 = getelementptr inbounds [4 x i8], ptr %3193, i64 %3227
   br label %.backedge.backedge
 
 3229:                                             ; preds = %.backedge
@@ -5304,7 +5302,7 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
   %3232 = lshr i32 %3231, 8
   %3233 = and i32 %3232, 255
   %3234 = zext nneg i32 %3233 to i64
-  %3235 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %3234
+  %3235 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %3234
   %3236 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %3237 = load ptr, ptr %3236, align 8, !tbaa !65
   %3238 = getelementptr inbounds nuw i8, ptr %3237, i64 5
@@ -5350,7 +5348,7 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
 3259:                                             ; preds = %3252, %3248
   %3260 = ashr i32 %3231, 16
   %3261 = sext i32 %3260 to i64
-  %3262 = getelementptr inbounds i32, ptr %3230, i64 %3261
+  %3262 = getelementptr inbounds [4 x i8], ptr %3230, i64 %3261
   br label %.backedge.backedge
 
 3263:                                             ; preds = %.backedge
@@ -5417,20 +5415,20 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
   %3310 = lshr i32 %3278, 8
   %3311 = and i32 %3310, 255
   %3312 = zext nneg i32 %3311 to i64
-  %3313 = getelementptr inbounds nuw %struct.lua_TValue, ptr %3309, i64 %3312
+  %3313 = getelementptr inbounds nuw [16 x i8], ptr %3309, i64 %3312
   %3314 = icmp sgt i32 %.fr, 0
   br i1 %3314, label %.lr.ph3304, label %._crit_edge3305
 
 .lr.ph3304:                                       ; preds = %3308
   %3315 = zext nneg i32 %.fr to i64
   %3316 = sub nsw i64 0, %3315
-  %3317 = getelementptr inbounds %struct.lua_TValue, ptr %3309, i64 %3316
+  %3317 = getelementptr inbounds [16 x i8], ptr %3309, i64 %3316
   br label %3318
 
 3318:                                             ; preds = %.lr.ph3304, %3318
   %indvars.iv3420 = phi i64 [ 0, %.lr.ph3304 ], [ %indvars.iv.next3421, %3318 ]
-  %3319 = getelementptr inbounds nuw %struct.lua_TValue, ptr %3317, i64 %indvars.iv3420
-  %3320 = getelementptr inbounds nuw %struct.lua_TValue, ptr %3313, i64 %indvars.iv3420
+  %3319 = getelementptr inbounds nuw [16 x i8], ptr %3317, i64 %indvars.iv3420
+  %3320 = getelementptr inbounds nuw [16 x i8], ptr %3313, i64 %indvars.iv3420
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3320, ptr noundef nonnull align 8 dereferenceable(16) %3319, i64 16, i1 false), !tbaa.struct !64
   %indvars.iv.next3421 = add nuw nsw i64 %indvars.iv3420, 1
   %exitcond3424.not = icmp eq i64 %indvars.iv.next3421, %3315
@@ -5438,7 +5436,7 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
 
 ._crit_edge3305:                                  ; preds = %3318, %3308
   %3321 = sext i32 %.fr to i64
-  %3322 = getelementptr inbounds %struct.lua_TValue, ptr %3313, i64 %3321
+  %3322 = getelementptr inbounds [16 x i8], ptr %3313, i64 %3321
   store ptr %3322, ptr %10, align 8, !tbaa !20
   br label %.backedge.backedge
 
@@ -5446,7 +5444,7 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
   %3324 = lshr i32 %3278, 8
   %3325 = and i32 %3324, 255
   %3326 = zext nneg i32 %3325 to i64
-  %3327 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %3326
+  %3327 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %3326
   %invariant.smin = call i32 @llvm.smin.i32(i32 %3281, i32 %.fr)
   %3328 = icmp sgt i32 %invariant.smin, 0
   br i1 %3328, label %.lr.ph3299, label %.preheader3247
@@ -5454,7 +5452,7 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
 .lr.ph3299:                                       ; preds = %3323
   %3329 = sext i32 %.fr to i64
   %3330 = sub nsw i64 0, %3329
-  %3331 = getelementptr inbounds %struct.lua_TValue, ptr %.1, i64 %3330
+  %3331 = getelementptr inbounds [16 x i8], ptr %.1, i64 %3330
   %wide.trip.count3413 = zext nneg i32 %invariant.smin to i64
   br label %3334
 
@@ -5477,8 +5475,8 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
 
 3334:                                             ; preds = %.lr.ph3299, %3334
   %indvars.iv3410 = phi i64 [ 0, %.lr.ph3299 ], [ %indvars.iv.next3411, %3334 ]
-  %3335 = getelementptr inbounds nuw %struct.lua_TValue, ptr %3331, i64 %indvars.iv3410
-  %3336 = getelementptr inbounds nuw %struct.lua_TValue, ptr %3327, i64 %indvars.iv3410
+  %3335 = getelementptr inbounds nuw [16 x i8], ptr %3331, i64 %indvars.iv3410
+  %3336 = getelementptr inbounds nuw [16 x i8], ptr %3327, i64 %indvars.iv3410
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3336, ptr noundef nonnull align 8 dereferenceable(16) %3335, i64 16, i1 false), !tbaa.struct !64
   %indvars.iv.next3411 = add nuw nsw i64 %indvars.iv3410, 1
   %exitcond3414.not = icmp eq i64 %indvars.iv.next3411, %wide.trip.count3413
@@ -5486,7 +5484,7 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
 
 .lr.ph3301:                                       ; preds = %.lr.ph3301.preheader, %.lr.ph3301
   %indvars.iv3415 = phi i64 [ %3333, %.lr.ph3301.preheader ], [ %indvars.iv.next3416, %.lr.ph3301 ]
-  %3337 = getelementptr inbounds %struct.lua_TValue, ptr %3327, i64 %indvars.iv3415
+  %3337 = getelementptr inbounds [16 x i8], ptr %3327, i64 %indvars.iv3415
   %3338 = getelementptr inbounds nuw i8, ptr %3337, i64 12
   store i32 0, ptr %3338, align 4, !tbaa !63
   %indvars.iv.next3416 = add nsw i64 %indvars.iv3415, 1
@@ -5499,10 +5497,10 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
   %3342 = lshr i32 %3341, 8
   %3343 = and i32 %3342, 255
   %3344 = zext nneg i32 %3343 to i64
-  %3345 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %3344
+  %3345 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %3344
   %3346 = ashr i32 %3341, 16
   %3347 = sext i32 %3346 to i64
-  %3348 = getelementptr inbounds %struct.lua_TValue, ptr %.02896, i64 %3347
+  %3348 = getelementptr inbounds [16 x i8], ptr %.02896, i64 %3347
   %3349 = load ptr, ptr %3348, align 8, !tbaa !30
   %3350 = load ptr, ptr %6, align 8, !tbaa !21
   %3351 = getelementptr inbounds nuw i8, ptr %3350, i64 24
@@ -5543,7 +5541,7 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
   %.029213292 = phi ptr [ %3365, %.lr.ph3294 ], [ %.12922, %3411 ]
   %.029233291 = phi i32 [ 0, %.lr.ph3294 ], [ %3412, %3411 ]
   %3373 = sext i32 %.029233291 to i64
-  %3374 = getelementptr inbounds i32, ptr %3340, i64 %3373
+  %3374 = getelementptr inbounds [4 x i8], ptr %3340, i64 %3373
   %3375 = load i32, ptr %3374, align 4, !tbaa !61
   %3376 = and i32 %3375, 65280
   %3377 = icmp eq i32 %3376, 0
@@ -5551,13 +5549,13 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
   %3379 = and i32 %3378, 255
   %3380 = zext nneg i32 %3379 to i64
   %.1. = select i1 %3377, ptr %.1, ptr %3369
-  %3381 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1., i64 %3380
+  %3381 = getelementptr inbounds nuw [16 x i8], ptr %.1., i64 %3380
   %3382 = icmp eq ptr %.029213292, %3349
   br i1 %3382, label %3383, label %.critedge3186
 
 3383:                                             ; preds = %3372
   %3384 = getelementptr inbounds nuw i8, ptr %.029213292, i64 32
-  %3385 = getelementptr inbounds %struct.lua_TValue, ptr %3384, i64 %3373
+  %3385 = getelementptr inbounds [16 x i8], ptr %3384, i64 %3373
   %3386 = call noundef i32 @_Z16luaO_rawequalObjPK10lua_TValueS1_(ptr noundef nonnull %3385, ptr noundef %3381)
   %.not3036 = icmp eq i32 %3386, 0
   br i1 %.not3036, label %3387, label %3411
@@ -5579,7 +5577,7 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
 
 .critedge3186:                                    ; preds = %3372, %3387
   %3396 = getelementptr inbounds nuw i8, ptr %.029213292, i64 32
-  %3397 = getelementptr inbounds %struct.lua_TValue, ptr %3396, i64 %3373
+  %3397 = getelementptr inbounds [16 x i8], ptr %3396, i64 %3373
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3397, ptr noundef nonnull align 8 dereferenceable(16) %3381, i64 16, i1 false), !tbaa.struct !64
   %3398 = getelementptr inbounds nuw i8, ptr %3381, i64 12
   %3399 = load i32, ptr %3398, align 4, !tbaa !63
@@ -5648,7 +5646,7 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
   %3430 = phi i8 [ %.pre3445, %3427 ], [ %.pre34453465, %._crit_edge3295 ]
   %.8 = phi ptr [ %3428, %3427 ], [ %.1, %._crit_edge3295 ]
   %3431 = zext i8 %3430 to i64
-  %3432 = getelementptr inbounds nuw i32, ptr %3340, i64 %3431
+  %3432 = getelementptr inbounds nuw [4 x i8], ptr %3340, i64 %3431
   br label %.backedge.backedge
 
 3433:                                             ; preds = %.backedge
@@ -5690,8 +5688,8 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %3455 = getelementptr inbounds nuw %struct.lua_TValue, ptr %3454, i64 %indvars.iv
-  %3456 = getelementptr inbounds nuw %struct.lua_TValue, ptr %3453, i64 %indvars.iv
+  %3455 = getelementptr inbounds nuw [16 x i8], ptr %3454, i64 %indvars.iv
+  %3456 = getelementptr inbounds nuw [16 x i8], ptr %3453, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3456, ptr noundef nonnull align 8 dereferenceable(16) %3455, i64 16, i1 false), !tbaa.struct !64
   %3457 = getelementptr inbounds nuw i8, ptr %3455, i64 12
   store i32 0, ptr %3457, align 4, !tbaa !63
@@ -5704,7 +5702,7 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
   store ptr %3453, ptr %3458, align 8, !tbaa !26
   %3459 = load i8, ptr %3445, align 1, !tbaa !106
   %3460 = zext i8 %3459 to i64
-  %3461 = getelementptr inbounds nuw %struct.lua_TValue, ptr %3453, i64 %3460
+  %3461 = getelementptr inbounds nuw [16 x i8], ptr %3453, i64 %3460
   %3462 = getelementptr inbounds nuw i8, ptr %3458, i64 16
   store ptr %3461, ptr %3462, align 8, !tbaa !22
   store ptr %3453, ptr %7, align 8, !tbaa !4
@@ -5735,7 +5733,7 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
   %3475 = load i32, ptr %.12898, align 4, !tbaa !61
   %3476 = ashr i32 %3475, 16
   %3477 = sext i32 %3476 to i64
-  %3478 = getelementptr inbounds i32, ptr %3474, i64 %3477
+  %3478 = getelementptr inbounds [4 x i8], ptr %3474, i64 %3477
   br label %.backedge.backedge
 
 3479:                                             ; preds = %.backedge
@@ -5744,11 +5742,11 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
   %3482 = lshr i32 %3481, 8
   %3483 = and i32 %3482, 255
   %3484 = zext nneg i32 %3483 to i64
-  %3485 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %3484
+  %3485 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %3484
   %3486 = getelementptr inbounds nuw i8, ptr %.12898, i64 8
   %3487 = load i32, ptr %3480, align 4, !tbaa !61
   %3488 = zext i32 %3487 to i64
-  %3489 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.02896, i64 %3488
+  %3489 = getelementptr inbounds nuw [16 x i8], ptr %.02896, i64 %3488
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3485, ptr noundef nonnull align 8 dereferenceable(16) %3489, i64 16, i1 false), !tbaa.struct !64
   br label %.backedge.backedge
 
@@ -5776,7 +5774,7 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
   %3502 = load i32, ptr %.12898, align 4, !tbaa !61
   %3503 = ashr i32 %3502, 8
   %3504 = sext i32 %3503 to i64
-  %3505 = getelementptr inbounds i32, ptr %3501, i64 %3504
+  %3505 = getelementptr inbounds [4 x i8], ptr %3501, i64 %3504
   br label %.backedge.backedge
 
 3506:                                             ; preds = %.backedge
@@ -5786,12 +5784,12 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
   %3510 = and i32 %3509, 255
   %3511 = lshr i32 %3508, 24
   %3512 = zext nneg i32 %3511 to i64
-  %3513 = getelementptr inbounds nuw i32, ptr %3507, i64 %3512
+  %3513 = getelementptr inbounds nuw [4 x i8], ptr %3507, i64 %3512
   %3514 = load i32, ptr %3513, align 4, !tbaa !61
   %3515 = lshr i32 %3514, 8
   %3516 = and i32 %3515, 255
   %3517 = zext nneg i32 %3516 to i64
-  %3518 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %3517
+  %3518 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %3517
   %3519 = lshr i32 %3514, 16
   %3520 = and i32 %3519, 255
   %3521 = lshr i32 %3514, 24
@@ -5819,7 +5817,7 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
 
 3536:                                             ; preds = %3531
   %3537 = zext nneg i32 %3510 to i64
-  %3538 = getelementptr inbounds nuw ptr, ptr @luauF_table, i64 %3537
+  %3538 = getelementptr inbounds nuw [8 x i8], ptr @luauF_table, i64 %3537
   %3539 = load ptr, ptr %3538, align 8, !tbaa !62
   %3540 = add i32 %.in, -1
   %3541 = load ptr, ptr %6, align 8, !tbaa !21
@@ -5837,7 +5835,7 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
 
 3549:                                             ; preds = %3547
   %3550 = zext nneg i32 %3545 to i64
-  %3551 = getelementptr inbounds nuw %struct.lua_TValue, ptr %3518, i64 %3550
+  %3551 = getelementptr inbounds nuw [16 x i8], ptr %3518, i64 %3550
   br label %3556
 
 3552:                                             ; preds = %3547
@@ -5874,14 +5872,14 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
   %3573 = lshr i32 %3572, 8
   %3574 = and i32 %3573, 255
   %3575 = zext nneg i32 %3574 to i64
-  %3576 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %3575
+  %3576 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %3575
   %3577 = lshr i32 %3572, 16
   %3578 = and i32 %3577, 255
   %3579 = zext nneg i32 %3578 to i64
-  %3580 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.02896, i64 %3579
+  %3580 = getelementptr inbounds nuw [16 x i8], ptr %.02896, i64 %3579
   %3581 = lshr i32 %3572, 24
   %3582 = zext nneg i32 %3581 to i64
-  %3583 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %3582
+  %3583 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %3582
   %3584 = getelementptr inbounds nuw i8, ptr %3583, i64 12
   %3585 = load i32, ptr %3584, align 4, !tbaa !63
   %3586 = icmp eq i32 %3585, 3
@@ -5910,14 +5908,14 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
   %3599 = lshr i32 %3598, 8
   %3600 = and i32 %3599, 255
   %3601 = zext nneg i32 %3600 to i64
-  %3602 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %3601
+  %3602 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %3601
   %3603 = lshr i32 %3598, 16
   %3604 = and i32 %3603, 255
   %3605 = zext nneg i32 %3604 to i64
-  %3606 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.02896, i64 %3605
+  %3606 = getelementptr inbounds nuw [16 x i8], ptr %.02896, i64 %3605
   %3607 = lshr i32 %3598, 24
   %3608 = zext nneg i32 %3607 to i64
-  %3609 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %3608
+  %3609 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %3608
   %3610 = getelementptr inbounds nuw i8, ptr %3609, i64 12
   %3611 = load i32, ptr %3610, align 4, !tbaa !63
   switch i32 %3611, label %3631 [
@@ -5967,12 +5965,12 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
   %3637 = load i32, ptr %.12898, align 4, !tbaa !61
   %3638 = lshr i32 %3637, 24
   %3639 = zext nneg i32 %3638 to i64
-  %3640 = getelementptr inbounds nuw i32, ptr %3636, i64 %3639
+  %3640 = getelementptr inbounds nuw [4 x i8], ptr %3636, i64 %3639
   %3641 = load i32, ptr %3640, align 4, !tbaa !61
   %3642 = lshr i32 %3641, 8
   %3643 = and i32 %3642, 255
   %3644 = zext nneg i32 %3643 to i64
-  %3645 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %3644
+  %3645 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %3644
   %3646 = lshr i32 %3641, 24
   %3647 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %3648 = load ptr, ptr %3647, align 8, !tbaa !65
@@ -5986,12 +5984,12 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
   %3653 = lshr i32 %3637, 8
   %3654 = and i32 %3653, 255
   %3655 = zext nneg i32 %3654 to i64
-  %3656 = getelementptr inbounds nuw ptr, ptr @luauF_table, i64 %3655
+  %3656 = getelementptr inbounds nuw [8 x i8], ptr @luauF_table, i64 %3655
   %3657 = load ptr, ptr %3656, align 8, !tbaa !62
   %3658 = lshr i32 %3637, 16
   %3659 = and i32 %3658, 255
   %3660 = zext nneg i32 %3659 to i64
-  %3661 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %3660
+  %3661 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %3660
   %3662 = load ptr, ptr %6, align 8, !tbaa !21
   %3663 = getelementptr inbounds nuw i8, ptr %3662, i64 24
   store ptr %3636, ptr %3663, align 8, !tbaa !27
@@ -6005,7 +6003,7 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
 
 3668:                                             ; preds = %3666
   %3669 = zext nneg i32 %3664 to i64
-  %3670 = getelementptr inbounds nuw %struct.lua_TValue, ptr %3645, i64 %3669
+  %3670 = getelementptr inbounds nuw [16 x i8], ptr %3645, i64 %3669
   store ptr %3670, ptr %10, align 8, !tbaa !20
   br label %3671
 
@@ -6018,13 +6016,13 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
   %3675 = lshr i32 %3674, 24
   %3676 = getelementptr inbounds nuw i8, ptr %.12898, i64 8
   %3677 = zext nneg i32 %3675 to i64
-  %3678 = getelementptr i32, ptr %3676, i64 %3677
+  %3678 = getelementptr [4 x i8], ptr %3676, i64 %3677
   %3679 = getelementptr i8, ptr %3678, i64 -4
   %3680 = load i32, ptr %3679, align 4, !tbaa !61
   %3681 = lshr i32 %3680, 8
   %3682 = and i32 %3681, 255
   %3683 = zext nneg i32 %3682 to i64
-  %3684 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %3683
+  %3684 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %3683
   %3685 = lshr i32 %3680, 24
   %3686 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %3687 = load ptr, ptr %3686, align 8, !tbaa !65
@@ -6038,16 +6036,16 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
   %3692 = lshr i32 %3674, 8
   %3693 = and i32 %3692, 255
   %3694 = zext nneg i32 %3693 to i64
-  %3695 = getelementptr inbounds nuw ptr, ptr @luauF_table, i64 %3694
+  %3695 = getelementptr inbounds nuw [8 x i8], ptr @luauF_table, i64 %3694
   %3696 = load ptr, ptr %3695, align 8, !tbaa !62
   %3697 = getelementptr inbounds nuw i8, ptr %.12898, i64 4
   %3698 = load i32, ptr %3697, align 4, !tbaa !61
   %3699 = zext i32 %3698 to i64
-  %3700 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %3699
+  %3700 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %3699
   %3701 = lshr i32 %3674, 16
   %3702 = and i32 %3701, 255
   %3703 = zext nneg i32 %3702 to i64
-  %3704 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %3703
+  %3704 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %3703
   %3705 = load ptr, ptr %6, align 8, !tbaa !21
   %3706 = getelementptr inbounds nuw i8, ptr %3705, i64 24
   store ptr %3676, ptr %3706, align 8, !tbaa !27
@@ -6061,7 +6059,7 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
 
 3711:                                             ; preds = %3709
   %3712 = zext nneg i32 %3707 to i64
-  %3713 = getelementptr inbounds nuw %struct.lua_TValue, ptr %3684, i64 %3712
+  %3713 = getelementptr inbounds nuw [16 x i8], ptr %3684, i64 %3712
   store ptr %3713, ptr %10, align 8, !tbaa !20
   br label %.backedge.backedge
 
@@ -6070,13 +6068,13 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
   %3716 = lshr i32 %3715, 24
   %3717 = getelementptr inbounds nuw i8, ptr %.12898, i64 8
   %3718 = zext nneg i32 %3716 to i64
-  %3719 = getelementptr i32, ptr %3717, i64 %3718
+  %3719 = getelementptr [4 x i8], ptr %3717, i64 %3718
   %3720 = getelementptr i8, ptr %3719, i64 -4
   %3721 = load i32, ptr %3720, align 4, !tbaa !61
   %3722 = lshr i32 %3721, 8
   %3723 = and i32 %3722, 255
   %3724 = zext nneg i32 %3723 to i64
-  %3725 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %3724
+  %3725 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %3724
   %3726 = lshr i32 %3721, 24
   %3727 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %3728 = load ptr, ptr %3727, align 8, !tbaa !65
@@ -6090,16 +6088,16 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
   %3733 = lshr i32 %3715, 8
   %3734 = and i32 %3733, 255
   %3735 = zext nneg i32 %3734 to i64
-  %3736 = getelementptr inbounds nuw ptr, ptr @luauF_table, i64 %3735
+  %3736 = getelementptr inbounds nuw [8 x i8], ptr @luauF_table, i64 %3735
   %3737 = load ptr, ptr %3736, align 8, !tbaa !62
   %3738 = getelementptr inbounds nuw i8, ptr %.12898, i64 4
   %3739 = load i32, ptr %3738, align 4, !tbaa !61
   %3740 = zext i32 %3739 to i64
-  %3741 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.02896, i64 %3740
+  %3741 = getelementptr inbounds nuw [16 x i8], ptr %.02896, i64 %3740
   %3742 = lshr i32 %3715, 16
   %3743 = and i32 %3742, 255
   %3744 = zext nneg i32 %3743 to i64
-  %3745 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %3744
+  %3745 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %3744
   %3746 = load ptr, ptr %6, align 8, !tbaa !21
   %3747 = getelementptr inbounds nuw i8, ptr %3746, i64 24
   store ptr %3717, ptr %3747, align 8, !tbaa !27
@@ -6113,7 +6111,7 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
 
 3752:                                             ; preds = %3750
   %3753 = zext nneg i32 %3748 to i64
-  %3754 = getelementptr inbounds nuw %struct.lua_TValue, ptr %3725, i64 %3753
+  %3754 = getelementptr inbounds nuw [16 x i8], ptr %3725, i64 %3753
   store ptr %3754, ptr %10, align 8, !tbaa !20
   br label %.backedge.backedge
 
@@ -6122,13 +6120,13 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
   %3757 = lshr i32 %3756, 24
   %3758 = getelementptr inbounds nuw i8, ptr %.12898, i64 8
   %3759 = zext nneg i32 %3757 to i64
-  %3760 = getelementptr i32, ptr %3758, i64 %3759
+  %3760 = getelementptr [4 x i8], ptr %3758, i64 %3759
   %3761 = getelementptr i8, ptr %3760, i64 -4
   %3762 = load i32, ptr %3761, align 4, !tbaa !61
   %3763 = lshr i32 %3762, 8
   %3764 = and i32 %3763, 255
   %3765 = zext nneg i32 %3764 to i64
-  %3766 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %3765
+  %3766 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %3765
   %3767 = lshr i32 %3762, 24
   %3768 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %3769 = load ptr, ptr %3768, align 8, !tbaa !65
@@ -6142,21 +6140,21 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
   %3774 = lshr i32 %3756, 8
   %3775 = and i32 %3774, 255
   %3776 = zext nneg i32 %3775 to i64
-  %3777 = getelementptr inbounds nuw ptr, ptr @luauF_table, i64 %3776
+  %3777 = getelementptr inbounds nuw [8 x i8], ptr @luauF_table, i64 %3776
   %3778 = load ptr, ptr %3777, align 8, !tbaa !62
   %3779 = getelementptr inbounds nuw i8, ptr %.12898, i64 4
   %3780 = load i32, ptr %3779, align 4, !tbaa !61
   %3781 = lshr i32 %3780, 8
   %3782 = and i32 %3781, 255
   %3783 = zext nneg i32 %3782 to i64
-  %3784 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %3783
+  %3784 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %3783
   %3785 = and i32 %3780, 255
   %3786 = zext nneg i32 %3785 to i64
-  %3787 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %3786
+  %3787 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %3786
   %3788 = lshr i32 %3756, 16
   %3789 = and i32 %3788, 255
   %3790 = zext nneg i32 %3789 to i64
-  %3791 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %3790
+  %3791 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %3790
   %3792 = load ptr, ptr %6, align 8, !tbaa !21
   %3793 = getelementptr inbounds nuw i8, ptr %3792, i64 24
   store ptr %3758, ptr %3793, align 8, !tbaa !27
@@ -6174,7 +6172,7 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
 
 3800:                                             ; preds = %3798
   %3801 = zext nneg i32 %3796 to i64
-  %3802 = getelementptr inbounds nuw %struct.lua_TValue, ptr %3766, i64 %3801
+  %3802 = getelementptr inbounds nuw [16 x i8], ptr %3766, i64 %3801
   store ptr %3802, ptr %10, align 8, !tbaa !20
   br label %.backedge.backedge
 
@@ -6211,7 +6209,7 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
 3825:                                             ; preds = %3820, %3803
   %.11 = phi ptr [ %3823, %3820 ], [ %.1, %3803 ]
   %3826 = zext i8 %3816 to i64
-  %3827 = getelementptr inbounds nuw ptr, ptr @_ZZL12luau_executeILb1EEvP9lua_StateE14kDispatchTable, i64 %3826
+  %3827 = getelementptr inbounds nuw [8 x i8], ptr @_ZZL12luau_executeILb1EEvP9lua_StateE14kDispatchTable, i64 %3826
   %3828 = load ptr, ptr %3827, align 8, !tbaa !62
   br label %.backedge.backedge
 
@@ -6222,7 +6220,7 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
   %3833 = lshr i32 %3831, 8
   %3834 = and i32 %3833, 255
   %3835 = zext nneg i32 %3834 to i64
-  %3836 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %3835
+  %3836 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %3835
   %3837 = getelementptr inbounds nuw i8, ptr %3836, i64 12
   %3838 = load i32, ptr %3837, align 4, !tbaa !63
   %3839 = add nsw i32 %3838, -1
@@ -6231,7 +6229,7 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
   %3842 = ashr i32 %3831, 16
   %3843 = select i1 %3841, i32 %3842, i32 1
   %3844 = sext i32 %3843 to i64
-  %3845 = getelementptr inbounds i32, ptr %3830, i64 %3844
+  %3845 = getelementptr inbounds [4 x i8], ptr %3830, i64 %3844
   br label %.backedge.backedge
 
 3846:                                             ; preds = %.backedge
@@ -6241,7 +6239,7 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
   %3850 = lshr i32 %3848, 8
   %3851 = and i32 %3850, 255
   %3852 = zext nneg i32 %3851 to i64
-  %3853 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %3852
+  %3853 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %3852
   %3854 = getelementptr inbounds nuw i8, ptr %3853, i64 12
   %3855 = load i32, ptr %3854, align 4, !tbaa !63
   %3856 = icmp eq i32 %3855, 1
@@ -6261,7 +6259,7 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
   %3865 = ashr i32 %3848, 16
   %3866 = select i1 %.not3022, i32 1, i32 %3865
   %3867 = sext i32 %3866 to i64
-  %3868 = getelementptr inbounds i32, ptr %3847, i64 %3867
+  %3868 = getelementptr inbounds [4 x i8], ptr %3847, i64 %3867
   br label %.backedge.backedge
 
 3869:                                             ; preds = %.backedge
@@ -6271,7 +6269,7 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
   %3873 = lshr i32 %3871, 8
   %3874 = and i32 %3873, 255
   %3875 = zext nneg i32 %3874 to i64
-  %3876 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %3875
+  %3876 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %3875
   %3877 = getelementptr inbounds nuw i8, ptr %3876, i64 12
   %3878 = load i32, ptr %3877, align 4, !tbaa !63
   %3879 = icmp eq i32 %3878, 3
@@ -6280,7 +6278,7 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
 3880:                                             ; preds = %3869
   %3881 = and i32 %3872, 16777215
   %3882 = zext nneg i32 %3881 to i64
-  %3883 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.02896, i64 %3882
+  %3883 = getelementptr inbounds nuw [16 x i8], ptr %.02896, i64 %3882
   %3884 = load double, ptr %3876, align 8, !tbaa !30
   %3885 = load double, ptr %3883, align 8, !tbaa !30
   %3886 = fcmp oeq double %3884, %3885
@@ -6294,7 +6292,7 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
   %3891 = ashr i32 %3871, 16
   %3892 = select i1 %.not3021, i32 1, i32 %3891
   %3893 = sext i32 %3892 to i64
-  %3894 = getelementptr inbounds i32, ptr %3870, i64 %3893
+  %3894 = getelementptr inbounds [4 x i8], ptr %3870, i64 %3893
   br label %.backedge.backedge
 
 3895:                                             ; preds = %.backedge
@@ -6304,7 +6302,7 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
   %3899 = lshr i32 %3897, 8
   %3900 = and i32 %3899, 255
   %3901 = zext nneg i32 %3900 to i64
-  %3902 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %3901
+  %3902 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %3901
   %3903 = getelementptr inbounds nuw i8, ptr %3902, i64 12
   %3904 = load i32, ptr %3903, align 4, !tbaa !63
   %3905 = icmp eq i32 %3904, 5
@@ -6313,7 +6311,7 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
 3906:                                             ; preds = %3895
   %3907 = and i32 %3898, 16777215
   %3908 = zext nneg i32 %3907 to i64
-  %3909 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.02896, i64 %3908
+  %3909 = getelementptr inbounds nuw [16 x i8], ptr %.02896, i64 %3908
   %3910 = load ptr, ptr %3902, align 8, !tbaa !30
   %3911 = load ptr, ptr %3909, align 8, !tbaa !30
   %3912 = icmp eq ptr %3910, %3911
@@ -6327,7 +6325,7 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
   %3917 = ashr i32 %3897, 16
   %3918 = select i1 %.not3020, i32 1, i32 %3917
   %3919 = sext i32 %3918 to i64
-  %3920 = getelementptr inbounds i32, ptr %3896, i64 %3919
+  %3920 = getelementptr inbounds [4 x i8], ptr %3896, i64 %3919
   br label %.backedge.backedge
 
 .loopexit3249.sink.split.sink.split:              ; preds = %3494, %3467, %3057, %2965
@@ -6437,7 +6435,7 @@ define internal fastcc void @_ZL12luau_executeILb0EEvP9lua_State(ptr noundef %0)
   %60 = lshr i32 %59, 8
   %61 = and i32 %60, 255
   %62 = zext nneg i32 %61 to i64
-  %63 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %62
+  %63 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %62
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 12
   store i32 0, ptr %64, align 4, !tbaa !63
   %65 = load i32, ptr %58, align 4, !tbaa !61
@@ -6451,7 +6449,7 @@ define internal fastcc void @_ZL12luau_executeILb0EEvP9lua_State(ptr noundef %0)
   %71 = lshr i32 %70, 8
   %72 = and i32 %71, 255
   %73 = zext nneg i32 %72 to i64
-  %74 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %73
+  %74 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %73
   %75 = lshr i32 %70, 16
   %76 = and i32 %75, 255
   store i32 %76, ptr %74, align 8, !tbaa !30
@@ -6459,7 +6457,7 @@ define internal fastcc void @_ZL12luau_executeILb0EEvP9lua_State(ptr noundef %0)
   store i32 1, ptr %77, align 4, !tbaa !63
   %78 = lshr i32 %70, 24
   %79 = zext nneg i32 %78 to i64
-  %80 = getelementptr inbounds nuw i32, ptr %69, i64 %79
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %69, i64 %79
   %81 = load i32, ptr %80, align 4, !tbaa !61
   %82 = and i32 %81, 255
   %83 = zext nneg i32 %82 to i64
@@ -6471,7 +6469,7 @@ define internal fastcc void @_ZL12luau_executeILb0EEvP9lua_State(ptr noundef %0)
   %87 = lshr i32 %86, 8
   %88 = and i32 %87, 255
   %89 = zext nneg i32 %88 to i64
-  %90 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %89
+  %90 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %89
   %91 = ashr i32 %86, 16
   %92 = sitofp i32 %91 to double
   store double %92, ptr %90, align 8, !tbaa !30
@@ -6488,10 +6486,10 @@ define internal fastcc void @_ZL12luau_executeILb0EEvP9lua_State(ptr noundef %0)
   %100 = lshr i32 %99, 8
   %101 = and i32 %100, 255
   %102 = zext nneg i32 %101 to i64
-  %103 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %102
+  %103 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %102
   %104 = ashr i32 %99, 16
   %105 = sext i32 %104 to i64
-  %106 = getelementptr inbounds %struct.lua_TValue, ptr %.03076, i64 %105
+  %106 = getelementptr inbounds [16 x i8], ptr %.03076, i64 %105
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %103, ptr noundef nonnull align 8 dereferenceable(16) %106, i64 16, i1 false), !tbaa.struct !64
   %107 = load i32, ptr %98, align 4, !tbaa !61
   %108 = and i32 %107, 255
@@ -6504,11 +6502,11 @@ define internal fastcc void @_ZL12luau_executeILb0EEvP9lua_State(ptr noundef %0)
   %113 = lshr i32 %112, 8
   %114 = and i32 %113, 255
   %115 = zext nneg i32 %114 to i64
-  %116 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %115
+  %116 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %115
   %117 = lshr i32 %112, 16
   %118 = and i32 %117, 255
   %119 = zext nneg i32 %118 to i64
-  %120 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %119
+  %120 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %119
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %116, ptr noundef nonnull align 8 dereferenceable(16) %120, i64 16, i1 false), !tbaa.struct !64
   %121 = load i32, ptr %111, align 4, !tbaa !61
   %122 = and i32 %121, 255
@@ -6521,11 +6519,11 @@ define internal fastcc void @_ZL12luau_executeILb0EEvP9lua_State(ptr noundef %0)
   %127 = lshr i32 %126, 8
   %128 = and i32 %127, 255
   %129 = zext nneg i32 %128 to i64
-  %130 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %129
+  %130 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %129
   %131 = getelementptr inbounds nuw i8, ptr %.13078, i64 8
   %132 = load i32, ptr %125, align 4, !tbaa !61
   %133 = zext i32 %132 to i64
-  %134 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.03076, i64 %133
+  %134 = getelementptr inbounds nuw [16 x i8], ptr %.03076, i64 %133
   %135 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %136 = load ptr, ptr %135, align 8, !tbaa !65
   %137 = lshr i32 %126, 24
@@ -6536,7 +6534,7 @@ define internal fastcc void @_ZL12luau_executeILb0EEvP9lua_State(ptr noundef %0)
   %142 = getelementptr inbounds nuw i8, ptr %136, i64 32
   %143 = load ptr, ptr %142, align 8, !tbaa !69
   %144 = zext nneg i32 %141 to i64
-  %145 = getelementptr inbounds nuw %struct.LuaNode, ptr %143, i64 %144
+  %145 = getelementptr inbounds nuw [32 x i8], ptr %143, i64 %144
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 28
   %147 = load i32, ptr %146, align 4
   %148 = and i32 %147, 15
@@ -6589,11 +6587,11 @@ define internal fastcc void @_ZL12luau_executeILb0EEvP9lua_State(ptr noundef %0)
   %177 = lshr i32 %176, 8
   %178 = and i32 %177, 255
   %179 = zext nneg i32 %178 to i64
-  %180 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %179
+  %180 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %179
   %181 = getelementptr inbounds nuw i8, ptr %.13078, i64 8
   %182 = load i32, ptr %175, align 4, !tbaa !61
   %183 = zext i32 %182 to i64
-  %184 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.03076, i64 %183
+  %184 = getelementptr inbounds nuw [16 x i8], ptr %.03076, i64 %183
   %185 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %186 = load ptr, ptr %185, align 8, !tbaa !65
   %187 = lshr i32 %176, 24
@@ -6604,7 +6602,7 @@ define internal fastcc void @_ZL12luau_executeILb0EEvP9lua_State(ptr noundef %0)
   %192 = getelementptr inbounds nuw i8, ptr %186, i64 32
   %193 = load ptr, ptr %192, align 8, !tbaa !69
   %194 = zext nneg i32 %191 to i64
-  %195 = getelementptr inbounds nuw %struct.LuaNode, ptr %193, i64 %194
+  %195 = getelementptr inbounds nuw [32 x i8], ptr %193, i64 %194
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 28
   %197 = load i32, ptr %196, align 4
   %198 = and i32 %197, 15
@@ -6688,12 +6686,12 @@ define internal fastcc void @_ZL12luau_executeILb0EEvP9lua_State(ptr noundef %0)
   %244 = lshr i32 %243, 8
   %245 = and i32 %244, 255
   %246 = zext nneg i32 %245 to i64
-  %247 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %246
+  %247 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %246
   %248 = getelementptr inbounds nuw i8, ptr %.0, i64 32
   %249 = lshr i32 %243, 16
   %250 = and i32 %249, 255
   %251 = zext nneg i32 %250 to i64
-  %252 = getelementptr inbounds nuw %struct.lua_TValue, ptr %248, i64 %251
+  %252 = getelementptr inbounds nuw [16 x i8], ptr %248, i64 %251
   %253 = getelementptr inbounds nuw i8, ptr %252, i64 12
   %254 = load i32, ptr %253, align 4, !tbaa !63
   %255 = icmp eq i32 %254, 12
@@ -6719,12 +6717,12 @@ define internal fastcc void @_ZL12luau_executeILb0EEvP9lua_State(ptr noundef %0)
   %268 = lshr i32 %267, 8
   %269 = and i32 %268, 255
   %270 = zext nneg i32 %269 to i64
-  %271 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %270
+  %271 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %270
   %272 = getelementptr inbounds nuw i8, ptr %.0, i64 32
   %273 = lshr i32 %267, 16
   %274 = and i32 %273, 255
   %275 = zext nneg i32 %274 to i64
-  %276 = getelementptr inbounds nuw %struct.lua_TValue, ptr %272, i64 %275
+  %276 = getelementptr inbounds nuw [16 x i8], ptr %272, i64 %275
   %277 = load ptr, ptr %276, align 8, !tbaa !30
   %278 = getelementptr inbounds nuw i8, ptr %277, i64 8
   %279 = load ptr, ptr %278, align 8, !tbaa !77
@@ -6765,7 +6763,7 @@ define internal fastcc void @_ZL12luau_executeILb0EEvP9lua_State(ptr noundef %0)
   %300 = lshr i32 %299, 8
   %301 = and i32 %300, 255
   %302 = zext nneg i32 %301 to i64
-  %303 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %302
+  %303 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %302
   %304 = load ptr, ptr %35, align 8, !tbaa !78
   %.not3317 = icmp eq ptr %304, null
   br i1 %.not3317, label %309, label %305
@@ -6792,10 +6790,10 @@ define internal fastcc void @_ZL12luau_executeILb0EEvP9lua_State(ptr noundef %0)
   %316 = lshr i32 %315, 8
   %317 = and i32 %316, 255
   %318 = zext nneg i32 %317 to i64
-  %319 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %318
+  %319 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %318
   %320 = ashr i32 %315, 16
   %321 = sext i32 %320 to i64
-  %322 = getelementptr inbounds %struct.lua_TValue, ptr %.03076, i64 %321
+  %322 = getelementptr inbounds [16 x i8], ptr %.03076, i64 %321
   %323 = getelementptr inbounds nuw i8, ptr %322, i64 12
   %324 = load i32, ptr %323, align 4, !tbaa !63
   %325 = icmp eq i32 %324, 0
@@ -6836,15 +6834,15 @@ define internal fastcc void @_ZL12luau_executeILb0EEvP9lua_State(ptr noundef %0)
   %345 = lshr i32 %344, 8
   %346 = and i32 %345, 255
   %347 = zext nneg i32 %346 to i64
-  %348 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %347
+  %348 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %347
   %349 = lshr i32 %344, 16
   %350 = and i32 %349, 255
   %351 = zext nneg i32 %350 to i64
-  %352 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %351
+  %352 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %351
   %353 = getelementptr inbounds nuw i8, ptr %.13078, i64 8
   %354 = load i32, ptr %343, align 4, !tbaa !61
   %355 = zext i32 %354 to i64
-  %356 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.03076, i64 %355
+  %356 = getelementptr inbounds nuw [16 x i8], ptr %.03076, i64 %355
   %357 = getelementptr inbounds nuw i8, ptr %352, i64 12
   %358 = load i32, ptr %357, align 4, !tbaa !63
   switch i32 %358, label %457 [
@@ -6862,7 +6860,7 @@ define internal fastcc void @_ZL12luau_executeILb0EEvP9lua_State(ptr noundef %0)
   %366 = getelementptr inbounds nuw i8, ptr %360, i64 32
   %367 = load ptr, ptr %366, align 8, !tbaa !69
   %368 = zext nneg i32 %365 to i64
-  %369 = getelementptr inbounds nuw %struct.LuaNode, ptr %367, i64 %368
+  %369 = getelementptr inbounds nuw [32 x i8], ptr %367, i64 %368
   %370 = getelementptr inbounds nuw i8, ptr %369, i64 28
   %371 = load i32, ptr %370, align 4
   %372 = and i32 %371, 15
@@ -7029,7 +7027,7 @@ thread-pre-split:                                 ; preds = %423, %418, %427, %4
 
 472:                                              ; preds = %468
   %473 = zext nneg i32 %466 to i64
-  %474 = getelementptr inbounds nuw float, ptr %352, i64 %473
+  %474 = getelementptr inbounds nuw [4 x i8], ptr %352, i64 %473
   %475 = load float, ptr %474, align 4, !tbaa !86
   %476 = fpext float %475 to double
   store double %476, ptr %348, align 8, !tbaa !30
@@ -7118,15 +7116,15 @@ thread-pre-split:                                 ; preds = %423, %418, %427, %4
   %528 = lshr i32 %527, 8
   %529 = and i32 %528, 255
   %530 = zext nneg i32 %529 to i64
-  %531 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %530
+  %531 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %530
   %532 = lshr i32 %527, 16
   %533 = and i32 %532, 255
   %534 = zext nneg i32 %533 to i64
-  %535 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %534
+  %535 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %534
   %536 = getelementptr inbounds nuw i8, ptr %.13078, i64 8
   %537 = load i32, ptr %526, align 4, !tbaa !61
   %538 = zext i32 %537 to i64
-  %539 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.03076, i64 %538
+  %539 = getelementptr inbounds nuw [16 x i8], ptr %.03076, i64 %538
   %540 = getelementptr inbounds nuw i8, ptr %535, i64 12
   %541 = load i32, ptr %540, align 4, !tbaa !63
   switch i32 %541, label %.thread3377 [
@@ -7144,7 +7142,7 @@ thread-pre-split:                                 ; preds = %423, %418, %427, %4
   %549 = getelementptr inbounds nuw i8, ptr %543, i64 32
   %550 = load ptr, ptr %549, align 8, !tbaa !69
   %551 = zext nneg i32 %548 to i64
-  %552 = getelementptr inbounds nuw %struct.LuaNode, ptr %550, i64 %551
+  %552 = getelementptr inbounds nuw [32 x i8], ptr %550, i64 %551
   %553 = getelementptr inbounds nuw i8, ptr %552, i64 28
   %554 = load i32, ptr %553, align 4
   %555 = and i32 %554, 15
@@ -7368,14 +7366,14 @@ thread-pre-split:                                 ; preds = %423, %418, %427, %4
   %690 = lshr i32 %689, 8
   %691 = and i32 %690, 255
   %692 = zext nneg i32 %691 to i64
-  %693 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %692
+  %693 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %692
   %694 = lshr i32 %689, 16
   %695 = and i32 %694, 255
   %696 = zext nneg i32 %695 to i64
-  %697 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %696
+  %697 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %696
   %698 = lshr i32 %689, 24
   %699 = zext nneg i32 %698 to i64
-  %700 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %699
+  %700 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %699
   %701 = getelementptr inbounds nuw i8, ptr %697, i64 12
   %702 = load i32, ptr %701, align 4, !tbaa !63
   %703 = icmp eq i32 %702, 6
@@ -7410,7 +7408,7 @@ thread-pre-split:                                 ; preds = %423, %418, %427, %4
   %722 = getelementptr inbounds nuw i8, ptr %709, i64 24
   %723 = load ptr, ptr %722, align 8, !tbaa !91
   %724 = zext i32 %712 to i64
-  %725 = getelementptr inbounds nuw %struct.lua_TValue, ptr %723, i64 %724
+  %725 = getelementptr inbounds nuw [16 x i8], ptr %723, i64 %724
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %693, ptr noundef nonnull align 8 dereferenceable(16) %725, i64 16, i1 false), !tbaa.struct !64
   %726 = load i32, ptr %688, align 4, !tbaa !61
   %727 = and i32 %726, 255
@@ -7434,14 +7432,14 @@ thread-pre-split:                                 ; preds = %423, %418, %427, %4
   %738 = lshr i32 %737, 8
   %739 = and i32 %738, 255
   %740 = zext nneg i32 %739 to i64
-  %741 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %740
+  %741 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %740
   %742 = lshr i32 %737, 16
   %743 = and i32 %742, 255
   %744 = zext nneg i32 %743 to i64
-  %745 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %744
+  %745 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %744
   %746 = lshr i32 %737, 24
   %747 = zext nneg i32 %746 to i64
-  %748 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %747
+  %748 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %747
   %749 = getelementptr inbounds nuw i8, ptr %745, i64 12
   %750 = load i32, ptr %749, align 4, !tbaa !63
   %751 = icmp eq i32 %750, 6
@@ -7482,7 +7480,7 @@ thread-pre-split:                                 ; preds = %423, %418, %427, %4
   %773 = getelementptr inbounds nuw i8, ptr %757, i64 24
   %774 = load ptr, ptr %773, align 8, !tbaa !91
   %775 = zext i32 %760 to i64
-  %776 = getelementptr inbounds nuw %struct.lua_TValue, ptr %774, i64 %775
+  %776 = getelementptr inbounds nuw [16 x i8], ptr %774, i64 %775
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %776, ptr noundef nonnull align 8 dereferenceable(16) %741, i64 16, i1 false), !tbaa.struct !64
   %777 = getelementptr inbounds nuw i8, ptr %741, i64 12
   %778 = load i32, ptr %777, align 4, !tbaa !63
@@ -7531,11 +7529,11 @@ thread-pre-split:                                 ; preds = %423, %418, %427, %4
   %803 = lshr i32 %802, 8
   %804 = and i32 %803, 255
   %805 = zext nneg i32 %804 to i64
-  %806 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %805
+  %806 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %805
   %807 = lshr i32 %802, 16
   %808 = and i32 %807, 255
   %809 = zext nneg i32 %808 to i64
-  %810 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %809
+  %810 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %809
   %811 = lshr i32 %802, 24
   %812 = getelementptr inbounds nuw i8, ptr %810, i64 12
   %813 = load i32, ptr %812, align 4, !tbaa !63
@@ -7559,7 +7557,7 @@ thread-pre-split:                                 ; preds = %423, %418, %427, %4
   %824 = getelementptr inbounds nuw i8, ptr %816, i64 24
   %825 = load ptr, ptr %824, align 8, !tbaa !91
   %826 = zext nneg i32 %811 to i64
-  %827 = getelementptr inbounds nuw %struct.lua_TValue, ptr %825, i64 %826
+  %827 = getelementptr inbounds nuw [16 x i8], ptr %825, i64 %826
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %806, ptr noundef nonnull align 8 dereferenceable(16) %827, i64 16, i1 false), !tbaa.struct !64
   %828 = load i32, ptr %801, align 4, !tbaa !61
   %829 = and i32 %828, 255
@@ -7587,11 +7585,11 @@ thread-pre-split:                                 ; preds = %423, %418, %427, %4
   %842 = lshr i32 %841, 8
   %843 = and i32 %842, 255
   %844 = zext nneg i32 %843 to i64
-  %845 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %844
+  %845 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %844
   %846 = lshr i32 %841, 16
   %847 = and i32 %846, 255
   %848 = zext nneg i32 %847 to i64
-  %849 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %848
+  %849 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %848
   %850 = lshr i32 %841, 24
   %851 = getelementptr inbounds nuw i8, ptr %849, i64 12
   %852 = load i32, ptr %851, align 4, !tbaa !63
@@ -7621,7 +7619,7 @@ thread-pre-split:                                 ; preds = %423, %418, %427, %4
   %866 = getelementptr inbounds nuw i8, ptr %855, i64 24
   %867 = load ptr, ptr %866, align 8, !tbaa !91
   %868 = zext nneg i32 %850 to i64
-  %869 = getelementptr inbounds nuw %struct.lua_TValue, ptr %867, i64 %868
+  %869 = getelementptr inbounds nuw [16 x i8], ptr %867, i64 %868
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %869, ptr noundef nonnull align 8 dereferenceable(16) %845, i64 16, i1 false), !tbaa.struct !64
   %870 = getelementptr inbounds nuw i8, ptr %845, i64 12
   %871 = load i32, ptr %870, align 4, !tbaa !63
@@ -7674,14 +7672,14 @@ thread-pre-split:                                 ; preds = %423, %418, %427, %4
   %898 = lshr i32 %897, 8
   %899 = and i32 %898, 255
   %900 = zext nneg i32 %899 to i64
-  %901 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %900
+  %901 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %900
   %902 = getelementptr inbounds nuw i8, ptr %.0, i64 24
   %903 = load ptr, ptr %902, align 8, !tbaa !30
   %904 = getelementptr inbounds nuw i8, ptr %903, i64 24
   %905 = load ptr, ptr %904, align 8, !tbaa !92
   %906 = ashr i32 %897, 16
   %907 = sext i32 %906 to i64
-  %908 = getelementptr inbounds ptr, ptr %905, i64 %907
+  %908 = getelementptr inbounds [8 x i8], ptr %905, i64 %907
   %909 = load ptr, ptr %908, align 8, !tbaa !93
   %910 = load ptr, ptr %6, align 8, !tbaa !21
   %911 = getelementptr inbounds nuw i8, ptr %910, i64 24
@@ -7721,17 +7719,17 @@ thread-pre-split:                                 ; preds = %423, %418, %427, %4
   %927 = lshr i32 %924, 16
   %928 = and i32 %927, 255
   %929 = zext nneg i32 %928 to i64
-  %930 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %929
-  %931 = getelementptr inbounds nuw %struct.lua_TValue, ptr %921, i64 %indvars.iv3629
+  %930 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %929
+  %931 = getelementptr inbounds nuw [16 x i8], ptr %921, i64 %indvars.iv3629
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %931, ptr noundef nonnull align 8 dereferenceable(16) %930, i64 16, i1 false), !tbaa.struct !64
   br label %947
 
 932:                                              ; preds = %922
-  %933 = getelementptr inbounds nuw %struct.lua_TValue, ptr %921, i64 %indvars.iv3629
+  %933 = getelementptr inbounds nuw [16 x i8], ptr %921, i64 %indvars.iv3629
   %934 = lshr i32 %924, 16
   %935 = and i32 %934, 255
   %936 = zext nneg i32 %935 to i64
-  %937 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %936
+  %937 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %936
   %938 = call noundef ptr @_Z14luaF_findupvalP9lua_StateP10lua_TValue(ptr noundef %0, ptr noundef %937)
   store ptr %938, ptr %933, align 8, !tbaa !30
   %939 = getelementptr inbounds nuw i8, ptr %933, i64 12
@@ -7742,8 +7740,8 @@ thread-pre-split:                                 ; preds = %423, %418, %427, %4
   %941 = lshr i32 %924, 16
   %942 = and i32 %941, 255
   %943 = zext nneg i32 %942 to i64
-  %944 = getelementptr inbounds nuw %struct.lua_TValue, ptr %920, i64 %943
-  %945 = getelementptr inbounds nuw %struct.lua_TValue, ptr %921, i64 %indvars.iv3629
+  %944 = getelementptr inbounds nuw [16 x i8], ptr %920, i64 %943
+  %945 = getelementptr inbounds nuw [16 x i8], ptr %921, i64 %indvars.iv3629
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %945, ptr noundef nonnull align 8 dereferenceable(16) %944, i64 16, i1 false), !tbaa.struct !64
   br label %947
 
@@ -7787,15 +7785,15 @@ thread-pre-split:                                 ; preds = %423, %418, %427, %4
   %968 = lshr i32 %967, 8
   %969 = and i32 %968, 255
   %970 = zext nneg i32 %969 to i64
-  %971 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %970
+  %971 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %970
   %972 = lshr i32 %967, 16
   %973 = and i32 %972, 255
   %974 = zext nneg i32 %973 to i64
-  %975 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %974
+  %975 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %974
   %976 = getelementptr inbounds nuw i8, ptr %.13078, i64 8
   %977 = load i32, ptr %966, align 4, !tbaa !61
   %978 = zext i32 %977 to i64
-  %979 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.03076, i64 %978
+  %979 = getelementptr inbounds nuw [16 x i8], ptr %.03076, i64 %978
   %980 = getelementptr inbounds nuw i8, ptr %975, i64 12
   %981 = load i32, ptr %980, align 4, !tbaa !63
   switch i32 %981, label %1076 [
@@ -7817,7 +7815,7 @@ thread-pre-split:                                 ; preds = %423, %418, %427, %4
   %992 = xor i32 %notmask, -1
   %993 = and i32 %988, %992
   %994 = zext nneg i32 %993 to i64
-  %995 = getelementptr inbounds nuw %struct.LuaNode, ptr %985, i64 %994
+  %995 = getelementptr inbounds nuw [32 x i8], ptr %985, i64 %994
   %996 = getelementptr inbounds nuw i8, ptr %995, i64 28
   %997 = load i32, ptr %996, align 4
   %998 = and i32 %997, 15
@@ -7883,7 +7881,7 @@ thread-pre-split:                                 ; preds = %423, %418, %427, %4
   %1036 = zext i8 %1035 to i32
   %1037 = and i32 %1033, %1036
   %1038 = zext nneg i32 %1037 to i64
-  %1039 = getelementptr inbounds nuw %struct.LuaNode, ptr %1032, i64 %1038
+  %1039 = getelementptr inbounds nuw [32 x i8], ptr %1032, i64 %1038
   %.not3278 = icmp eq ptr %1032, null
   br i1 %.not3278, label %.thread3380, label %1040
 
@@ -7929,7 +7927,7 @@ thread-pre-split:                                 ; preds = %423, %418, %427, %4
   %1064 = and i32 %1063, 16777215
   %1065 = or disjoint i32 %1064, %1062
   store i32 %1065, ptr %.13078, align 4, !tbaa !61
-  %1066 = getelementptr inbounds nuw %struct.lua_TValue, ptr %1060, i64 %970
+  %1066 = getelementptr inbounds nuw [16 x i8], ptr %1060, i64 %970
   %1067 = getelementptr inbounds nuw i8, ptr %1066, i64 12
   %1068 = load i32, ptr %1067, align 4, !tbaa !63
   %1069 = icmp eq i32 %1068, 0
@@ -7950,7 +7948,7 @@ thread-pre-split:                                 ; preds = %423, %418, %427, %4
   %1077 = load ptr, ptr %26, align 8, !tbaa !48
   %1078 = getelementptr inbounds nuw i8, ptr %1077, i64 2856
   %1079 = sext i32 %981 to i64
-  %1080 = getelementptr inbounds ptr, ptr %1078, i64 %1079
+  %1080 = getelementptr inbounds [8 x i8], ptr %1078, i64 %1079
   br label %1081
 
 1081:                                             ; preds = %1076, %1073
@@ -8016,7 +8014,7 @@ thread-pre-split:                                 ; preds = %423, %418, %427, %4
   %1114 = getelementptr inbounds nuw i8, ptr %1108, i64 32
   %1115 = load ptr, ptr %1114, align 8, !tbaa !69
   %1116 = zext nneg i32 %1113 to i64
-  %1117 = getelementptr inbounds nuw %struct.LuaNode, ptr %1115, i64 %1116
+  %1117 = getelementptr inbounds nuw [32 x i8], ptr %1115, i64 %1116
   %1118 = getelementptr inbounds nuw i8, ptr %1117, i64 28
   %1119 = load i32, ptr %1118, align 4
   %1120 = and i32 %1119, 15
@@ -8057,7 +8055,7 @@ thread-pre-split:                                 ; preds = %423, %418, %427, %4
   %1139 = and i32 %1138, 16777215
   %1140 = or disjoint i32 %1139, %1137
   store i32 %1140, ptr %.13078, align 4, !tbaa !61
-  %1141 = getelementptr inbounds nuw %struct.lua_TValue, ptr %1135, i64 %970
+  %1141 = getelementptr inbounds nuw [16 x i8], ptr %1135, i64 %970
   %1142 = getelementptr inbounds nuw i8, ptr %1141, i64 12
   %1143 = load i32, ptr %1142, align 4, !tbaa !63
   %1144 = icmp eq i32 %1143, 0
@@ -8077,7 +8075,7 @@ thread-pre-split:                                 ; preds = %423, %418, %427, %4
   store ptr %976, ptr %1150, align 8, !tbaa !27
   call void @_Z13luaV_gettableP9lua_StatePK10lua_TValuePS1_S4_(ptr noundef %0, ptr noundef nonnull %975, ptr noundef %979, ptr noundef nonnull %971)
   %1151 = load ptr, ptr %24, align 8, !tbaa !4
-  %1152 = getelementptr inbounds nuw %struct.lua_TValue, ptr %1151, i64 %970
+  %1152 = getelementptr inbounds nuw [16 x i8], ptr %1151, i64 %970
   %1153 = getelementptr inbounds nuw i8, ptr %1152, i64 12
   %1154 = load i32, ptr %1153, align 4, !tbaa !63
   %1155 = icmp eq i32 %1154, 0
@@ -8116,7 +8114,7 @@ thread-pre-split:                                 ; preds = %423, %418, %427, %4
   %1172 = lshr i32 %1171, 8
   %1173 = and i32 %1172, 255
   %1174 = zext nneg i32 %1173 to i64
-  %1175 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.2, i64 %1174
+  %1175 = getelementptr inbounds nuw [16 x i8], ptr %.2, i64 %1174
   %1176 = lshr i32 %1171, 16
   %1177 = and i32 %1176, 255
   %1178 = lshr i32 %1171, 24
@@ -8125,7 +8123,7 @@ thread-pre-split:                                 ; preds = %423, %418, %427, %4
   %1181 = icmp eq i32 %1177, 0
   %1182 = getelementptr inbounds nuw i8, ptr %1175, i64 16
   %1183 = zext nneg i32 %1177 to i64
-  %1184 = getelementptr %struct.lua_TValue, ptr %1182, i64 %1183
+  %1184 = getelementptr [16 x i8], ptr %1182, i64 %1183
   %1185 = getelementptr i8, ptr %1184, i64 -16
   %1186 = select i1 %1181, ptr %1180, ptr %1185
   %1187 = getelementptr inbounds nuw i8, ptr %1175, i64 12
@@ -8168,7 +8166,7 @@ thread-pre-split:                                 ; preds = %423, %418, %427, %4
   %1206 = getelementptr inbounds nuw i8, ptr %1194, i64 5
   %1207 = load i8, ptr %1206, align 1, !tbaa !106
   %1208 = zext i8 %1207 to i64
-  %1209 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.03081, i64 %1208
+  %1209 = getelementptr inbounds nuw [16 x i8], ptr %.03081, i64 %1208
   %1210 = getelementptr inbounds nuw i8, ptr %1204, i64 16
   store ptr %1209, ptr %1210, align 8, !tbaa !22
   %1211 = getelementptr inbounds nuw i8, ptr %1204, i64 24
@@ -8224,7 +8222,7 @@ thread-pre-split:                                 ; preds = %423, %418, %427, %4
   %1239 = getelementptr inbounds nuw i8, ptr %1235, i64 4
   %1240 = load i8, ptr %1239, align 4, !tbaa !113
   %1241 = zext i8 %1240 to i64
-  %1242 = getelementptr inbounds nuw %struct.lua_TValue, ptr %1238, i64 %1241
+  %1242 = getelementptr inbounds nuw [16 x i8], ptr %1238, i64 %1241
   %1243 = icmp ult ptr %1237, %1242
   br i1 %1243, label %.lr.ph3533, label %._crit_edge3534
 
@@ -8355,7 +8353,7 @@ thread-pre-split:                                 ; preds = %423, %418, %427, %4
   %1307 = lshr i32 %1306, 8
   %1308 = and i32 %1307, 255
   %1309 = zext nneg i32 %1308 to i64
-  %1310 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.3, i64 %1309
+  %1310 = getelementptr inbounds nuw [16 x i8], ptr %.3, i64 %1309
   %1311 = lshr i32 %1306, 16
   %1312 = and i32 %1311, 255
   %1313 = load ptr, ptr %6, align 8, !tbaa !21
@@ -8371,7 +8369,7 @@ thread-pre-split:                                 ; preds = %423, %418, %427, %4
 
 1320:                                             ; preds = %1305
   %1321 = zext nneg i32 %1312 to i64
-  %1322 = getelementptr %struct.lua_TValue, ptr %1310, i64 %1321
+  %1322 = getelementptr [16 x i8], ptr %1310, i64 %1321
   %1323 = getelementptr i8, ptr %1322, i64 -16
   br label %1324
 
@@ -8473,7 +8471,7 @@ thread-pre-split:                                 ; preds = %423, %418, %427, %4
   %1377 = load i32, ptr %.13078, align 4, !tbaa !61
   %1378 = ashr i32 %1377, 16
   %1379 = sext i32 %1378 to i64
-  %1380 = getelementptr inbounds i32, ptr %1376, i64 %1379
+  %1380 = getelementptr inbounds [4 x i8], ptr %1376, i64 %1379
   %1381 = load i32, ptr %1380, align 4, !tbaa !61
   %1382 = and i32 %1381, 255
   %1383 = zext nneg i32 %1382 to i64
@@ -8485,7 +8483,7 @@ thread-pre-split:                                 ; preds = %423, %418, %427, %4
   %1387 = lshr i32 %1386, 8
   %1388 = and i32 %1387, 255
   %1389 = zext nneg i32 %1388 to i64
-  %1390 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %1389
+  %1390 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %1389
   %1391 = getelementptr inbounds nuw i8, ptr %1390, i64 12
   %1392 = load i32, ptr %1391, align 4, !tbaa !63
   switch i32 %1392, label %1396 [
@@ -8505,7 +8503,7 @@ thread-pre-split:                                 ; preds = %423, %418, %427, %4
 
 1399:                                             ; preds = %1384, %1393, %1396
   %1400 = phi i64 [ %1398, %1396 ], [ 0, %1393 ], [ 0, %1384 ]
-  %1401 = getelementptr inbounds i32, ptr %1385, i64 %1400
+  %1401 = getelementptr inbounds [4 x i8], ptr %1385, i64 %1400
   %1402 = load i32, ptr %1401, align 4, !tbaa !61
   %1403 = and i32 %1402, 255
   %1404 = zext nneg i32 %1403 to i64
@@ -8517,7 +8515,7 @@ thread-pre-split:                                 ; preds = %423, %418, %427, %4
   %1408 = lshr i32 %1407, 8
   %1409 = and i32 %1408, 255
   %1410 = zext nneg i32 %1409 to i64
-  %1411 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %1410
+  %1411 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %1410
   %1412 = getelementptr inbounds nuw i8, ptr %1411, i64 12
   %1413 = load i32, ptr %1412, align 4, !tbaa !63
   switch i32 %1413, label %1420 [
@@ -8537,7 +8535,7 @@ thread-pre-split:                                 ; preds = %423, %418, %427, %4
 
 1420:                                             ; preds = %1405, %1414, %1417
   %1421 = phi i64 [ %1419, %1417 ], [ 0, %1414 ], [ 0, %1405 ]
-  %1422 = getelementptr inbounds i32, ptr %1406, i64 %1421
+  %1422 = getelementptr inbounds [4 x i8], ptr %1406, i64 %1421
   %1423 = load i32, ptr %1422, align 4, !tbaa !61
   %1424 = and i32 %1423, 255
   %1425 = zext nneg i32 %1424 to i64
@@ -8550,9 +8548,9 @@ thread-pre-split:                                 ; preds = %423, %418, %427, %4
   %1430 = lshr i32 %1428, 8
   %1431 = and i32 %1430, 255
   %1432 = zext nneg i32 %1431 to i64
-  %1433 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %1432
+  %1433 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %1432
   %1434 = zext i32 %1429 to i64
-  %1435 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %1434
+  %1435 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %1434
   %1436 = getelementptr inbounds nuw i8, ptr %1433, i64 12
   %1437 = load i32, ptr %1436, align 4, !tbaa !63
   %1438 = getelementptr inbounds nuw i8, ptr %1435, i64 12
@@ -8578,7 +8576,7 @@ thread-pre-split:                                 ; preds = %423, %418, %427, %4
 1442:                                             ; preds = %1441
   %1443 = ashr i32 %1428, 16
   %1444 = sext i32 %1443 to i64
-  %1445 = getelementptr inbounds i32, ptr %1427, i64 %1444
+  %1445 = getelementptr inbounds [4 x i8], ptr %1427, i64 %1444
   %1446 = load i32, ptr %1445, align 4, !tbaa !61
   %1447 = and i32 %1446, 255
   %1448 = zext nneg i32 %1447 to i64
@@ -8591,7 +8589,7 @@ thread-pre-split:                                 ; preds = %423, %418, %427, %4
   %1453 = ashr i32 %1428, 16
   %1454 = select i1 %1452, i32 %1453, i32 1
   %1455 = sext i32 %1454 to i64
-  %1456 = getelementptr inbounds i32, ptr %1427, i64 %1455
+  %1456 = getelementptr inbounds [4 x i8], ptr %1427, i64 %1455
   %1457 = load i32, ptr %1456, align 4, !tbaa !61
   %1458 = and i32 %1457, 255
   %1459 = zext nneg i32 %1458 to i64
@@ -8618,7 +8616,7 @@ thread-pre-split:                                 ; preds = %423, %418, %427, %4
 
 1473:                                             ; preds = %1460, %1464, %1470
   %1474 = phi i64 [ %1472, %1470 ], [ 1, %1464 ], [ 1, %1460 ]
-  %1475 = getelementptr inbounds i32, ptr %1427, i64 %1474
+  %1475 = getelementptr inbounds [4 x i8], ptr %1427, i64 %1474
   %1476 = load i32, ptr %1475, align 4, !tbaa !61
   %1477 = and i32 %1476, 255
   %1478 = zext nneg i32 %1477 to i64
@@ -8631,7 +8629,7 @@ thread-pre-split:                                 ; preds = %423, %418, %427, %4
   %1483 = ashr i32 %1428, 16
   %1484 = sext i32 %1483 to i64
   %1485 = select i1 %1482, i64 %1484, i64 1
-  %1486 = getelementptr inbounds i32, ptr %1427, i64 %1485
+  %1486 = getelementptr inbounds [4 x i8], ptr %1427, i64 %1485
   %1487 = load i32, ptr %1486, align 4, !tbaa !61
   %1488 = and i32 %1487, 255
   %1489 = zext nneg i32 %1488 to i64
@@ -8665,7 +8663,7 @@ _Z10luai_veceqPKfS0_.exit:                        ; preds = %1494
 
 _Z10luai_veceqPKfS0_.exit.thread:                 ; preds = %_Z10luai_veceqPKfS0_.exit, %1490, %1494
   %1507 = phi i64 [ 1, %1490 ], [ %spec.select, %_Z10luai_veceqPKfS0_.exit ], [ 1, %1494 ]
-  %1508 = getelementptr inbounds i32, ptr %1427, i64 %1507
+  %1508 = getelementptr inbounds [4 x i8], ptr %1427, i64 %1507
   %1509 = load i32, ptr %1508, align 4, !tbaa !61
   %1510 = and i32 %1509, 255
   %1511 = zext nneg i32 %1510 to i64
@@ -8678,7 +8676,7 @@ _Z10luai_veceqPKfS0_.exit.thread:                 ; preds = %_Z10luai_veceqPKfS0
   %1516 = ashr i32 %1428, 16
   %1517 = sext i32 %1516 to i64
   %1518 = select i1 %1515, i64 %1517, i64 1
-  %1519 = getelementptr inbounds i32, ptr %1427, i64 %1518
+  %1519 = getelementptr inbounds [4 x i8], ptr %1427, i64 %1518
   %1520 = load i32, ptr %1519, align 4, !tbaa !61
   %1521 = and i32 %1520, 255
   %1522 = zext nneg i32 %1521 to i64
@@ -8724,7 +8722,7 @@ _Z10luai_veceqPKfS0_.exit.thread:                 ; preds = %_Z10luai_veceqPKfS0
   %1545 = ashr i32 %1428, 16
   %1546 = sext i32 %1545 to i64
   %1547 = select i1 %1544, i64 %1546, i64 1
-  %1548 = getelementptr inbounds i32, ptr %1427, i64 %1547
+  %1548 = getelementptr inbounds [4 x i8], ptr %1427, i64 %1547
   %1549 = load i32, ptr %1548, align 4, !tbaa !61
   %1550 = and i32 %1549, 255
   %1551 = zext nneg i32 %1550 to i64
@@ -8770,7 +8768,7 @@ _Z10luai_veceqPKfS0_.exit.thread:                 ; preds = %_Z10luai_veceqPKfS0
   %1573 = ashr i32 %1428, 16
   %1574 = sext i32 %1573 to i64
   %1575 = select i1 %1572, i64 %1574, i64 1
-  %1576 = getelementptr inbounds i32, ptr %1427, i64 %1575
+  %1576 = getelementptr inbounds [4 x i8], ptr %1427, i64 %1575
   %1577 = load i32, ptr %1576, align 4, !tbaa !61
   %1578 = and i32 %1577, 255
   %1579 = zext nneg i32 %1578 to i64
@@ -8810,7 +8808,7 @@ _Z10luai_veceqPKfS0_.exit.thread:                 ; preds = %_Z10luai_veceqPKfS0
   %1600 = load ptr, ptr %24, align 8, !tbaa !4
   %sext3262 = shl i64 %1594, 28
   %1601 = ashr i64 %sext3262, 32
-  %1602 = getelementptr inbounds %struct.lua_TValue, ptr %1600, i64 %1601
+  %1602 = getelementptr inbounds [16 x i8], ptr %1600, i64 %1601
   %1603 = getelementptr inbounds nuw i8, ptr %1602, i64 12
   %1604 = load i32, ptr %1603, align 4, !tbaa !63
   switch i32 %1604, label %1608 [
@@ -8830,7 +8828,7 @@ _Z10luai_veceqPKfS0_.exit.thread:                 ; preds = %_Z10luai_veceqPKfS0
 
 1611:                                             ; preds = %1588, %1605, %1608
   %1612 = phi i64 [ %1610, %1608 ], [ 1, %1605 ], [ 1, %1588 ]
-  %1613 = getelementptr inbounds i32, ptr %1427, i64 %1612
+  %1613 = getelementptr inbounds [4 x i8], ptr %1427, i64 %1612
   %1614 = load i32, ptr %1613, align 4, !tbaa !61
   %1615 = and i32 %1614, 255
   %1616 = zext nneg i32 %1615 to i64
@@ -8849,7 +8847,7 @@ _Z10luai_veceqPKfS0_.exit.thread:                 ; preds = %_Z10luai_veceqPKfS0
   %1624 = ashr i32 %1428, 16
   %1625 = select i1 %1623, i32 %1624, i32 1
   %1626 = sext i32 %1625 to i64
-  %1627 = getelementptr inbounds i32, ptr %1427, i64 %1626
+  %1627 = getelementptr inbounds [4 x i8], ptr %1427, i64 %1626
   %1628 = load i32, ptr %1627, align 4, !tbaa !61
   %1629 = and i32 %1628, 255
   %1630 = zext nneg i32 %1629 to i64
@@ -8869,9 +8867,9 @@ _Z10luai_veceqPKfS0_.exit.thread:                 ; preds = %_Z10luai_veceqPKfS0
   %1640 = lshr i32 %1638, 8
   %1641 = and i32 %1640, 255
   %1642 = zext nneg i32 %1641 to i64
-  %1643 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %1642
+  %1643 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %1642
   %1644 = zext i32 %1639 to i64
-  %1645 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %1644
+  %1645 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %1644
   %1646 = getelementptr inbounds nuw i8, ptr %1643, i64 12
   %1647 = load i32, ptr %1646, align 4, !tbaa !63
   %1648 = getelementptr inbounds nuw i8, ptr %1645, i64 12
@@ -8908,7 +8906,7 @@ _Z10luai_veceqPKfS0_.exit.thread:                 ; preds = %_Z10luai_veceqPKfS0
   %1660 = ashr i32 %1638, 16
   %1661 = select i1 %.not3258, i32 1, i32 %1660
   %1662 = sext i32 %1661 to i64
-  %1663 = getelementptr inbounds i32, ptr %1637, i64 %1662
+  %1663 = getelementptr inbounds [4 x i8], ptr %1637, i64 %1662
   %1664 = load i32, ptr %1663, align 4, !tbaa !61
   %1665 = and i32 %1664, 255
   %1666 = zext nneg i32 %1665 to i64
@@ -8935,7 +8933,7 @@ _Z10luai_veceqPKfS0_.exit.thread:                 ; preds = %_Z10luai_veceqPKfS0
 
 1678:                                             ; preds = %1670, %1675
   %1679 = phi i64 [ %1677, %1675 ], [ 1, %1670 ]
-  %1680 = getelementptr inbounds i32, ptr %1637, i64 %1679
+  %1680 = getelementptr inbounds [4 x i8], ptr %1637, i64 %1679
   %1681 = load i32, ptr %1680, align 4, !tbaa !61
   %1682 = and i32 %1681, 255
   %1683 = zext nneg i32 %1682 to i64
@@ -8948,7 +8946,7 @@ _Z10luai_veceqPKfS0_.exit.thread:                 ; preds = %_Z10luai_veceqPKfS0
   %1688 = ashr i32 %1638, 16
   %1689 = sext i32 %1688 to i64
   %1690 = select i1 %1687, i64 %1689, i64 1
-  %1691 = getelementptr inbounds i32, ptr %1637, i64 %1690
+  %1691 = getelementptr inbounds [4 x i8], ptr %1637, i64 %1690
   %1692 = load i32, ptr %1691, align 4, !tbaa !61
   %1693 = and i32 %1692, 255
   %1694 = zext nneg i32 %1693 to i64
@@ -8987,7 +8985,7 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
 
 1714:                                             ; preds = %_Z10luai_veceqPKfS0_.exit3371, %_Z10luai_veceqPKfS0_.exit3371.thread
   %1715 = phi i64 [ %1706, %_Z10luai_veceqPKfS0_.exit3371.thread ], [ %spec.select3422, %_Z10luai_veceqPKfS0_.exit3371 ]
-  %1716 = getelementptr inbounds i32, ptr %1637, i64 %1715
+  %1716 = getelementptr inbounds [4 x i8], ptr %1637, i64 %1715
   %1717 = load i32, ptr %1716, align 4, !tbaa !61
   %1718 = and i32 %1717, 255
   %1719 = zext nneg i32 %1718 to i64
@@ -9000,7 +8998,7 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
   %1723 = ashr i32 %1638, 16
   %1724 = sext i32 %1723 to i64
   %1725 = select i1 %.not3255, i64 1, i64 %1724
-  %1726 = getelementptr inbounds i32, ptr %1637, i64 %1725
+  %1726 = getelementptr inbounds [4 x i8], ptr %1637, i64 %1725
   %1727 = load i32, ptr %1726, align 4, !tbaa !61
   %1728 = and i32 %1727, 255
   %1729 = zext nneg i32 %1728 to i64
@@ -9046,7 +9044,7 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
   %1751 = ashr i32 %1638, 16
   %1752 = sext i32 %1751 to i64
   %1753 = select i1 %.not3254, i64 1, i64 %1752
-  %1754 = getelementptr inbounds i32, ptr %1637, i64 %1753
+  %1754 = getelementptr inbounds [4 x i8], ptr %1637, i64 %1753
   %1755 = load i32, ptr %1754, align 4, !tbaa !61
   %1756 = and i32 %1755, 255
   %1757 = zext nneg i32 %1756 to i64
@@ -9092,7 +9090,7 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
   %1778 = ashr i32 %1638, 16
   %1779 = sext i32 %1778 to i64
   %1780 = select i1 %.not3249, i64 1, i64 %1779
-  %1781 = getelementptr inbounds i32, ptr %1637, i64 %1780
+  %1781 = getelementptr inbounds [4 x i8], ptr %1637, i64 %1780
   %1782 = load i32, ptr %1781, align 4, !tbaa !61
   %1783 = and i32 %1782, 255
   %1784 = zext nneg i32 %1783 to i64
@@ -9132,7 +9130,7 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
   %1805 = load ptr, ptr %24, align 8, !tbaa !4
   %sext3251 = shl i64 %1799, 28
   %1806 = ashr i64 %sext3251, 32
-  %1807 = getelementptr inbounds %struct.lua_TValue, ptr %1805, i64 %1806
+  %1807 = getelementptr inbounds [16 x i8], ptr %1805, i64 %1806
   %1808 = getelementptr inbounds nuw i8, ptr %1807, i64 12
   %1809 = load i32, ptr %1808, align 4, !tbaa !63
   switch i32 %1809, label %1816 [
@@ -9152,7 +9150,7 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
 
 1816:                                             ; preds = %1793, %1810, %1813
   %1817 = phi i64 [ %1815, %1813 ], [ 1, %1810 ], [ 1, %1793 ]
-  %1818 = getelementptr inbounds i32, ptr %1637, i64 %1817
+  %1818 = getelementptr inbounds [4 x i8], ptr %1637, i64 %1817
   %1819 = load i32, ptr %1818, align 4, !tbaa !61
   %1820 = and i32 %1819, 255
   %1821 = zext nneg i32 %1820 to i64
@@ -9171,7 +9169,7 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
   %1829 = ashr i32 %1638, 16
   %1830 = select i1 %1828, i32 %1829, i32 1
   %1831 = sext i32 %1830 to i64
-  %1832 = getelementptr inbounds i32, ptr %1637, i64 %1831
+  %1832 = getelementptr inbounds [4 x i8], ptr %1637, i64 %1831
   %1833 = load i32, ptr %1832, align 4, !tbaa !61
   %1834 = and i32 %1833, 255
   %1835 = zext nneg i32 %1834 to i64
@@ -9180,7 +9178,7 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
 1836:                                             ; preds = %1636
   %1837 = ashr i32 %1638, 16
   %1838 = sext i32 %1837 to i64
-  %1839 = getelementptr inbounds i32, ptr %1637, i64 %1838
+  %1839 = getelementptr inbounds [4 x i8], ptr %1637, i64 %1838
   %1840 = load i32, ptr %1839, align 4, !tbaa !61
   %1841 = and i32 %1840, 255
   %1842 = zext nneg i32 %1841 to i64
@@ -9193,9 +9191,9 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
   %1847 = lshr i32 %1845, 8
   %1848 = and i32 %1847, 255
   %1849 = zext nneg i32 %1848 to i64
-  %1850 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %1849
+  %1850 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %1849
   %1851 = zext i32 %1846 to i64
-  %1852 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %1851
+  %1852 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %1851
   %1853 = getelementptr inbounds nuw i8, ptr %1850, i64 12
   %1854 = load i32, ptr %1853, align 4, !tbaa !63
   switch i32 %1854, label %.critedge3347.thread [
@@ -9216,7 +9214,7 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
   %1863 = ashr i32 %1845, 16
   %1864 = sext i32 %1863 to i64
   %1865 = select i1 %1862, i64 %1864, i64 1
-  %1866 = getelementptr inbounds i32, ptr %1844, i64 %1865
+  %1866 = getelementptr inbounds [4 x i8], ptr %1844, i64 %1865
   %1867 = load i32, ptr %1866, align 4, !tbaa !61
   %1868 = and i32 %1867, 255
   %1869 = zext nneg i32 %1868 to i64
@@ -9236,7 +9234,7 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
   %1879 = ashr i32 %1845, 16
   %1880 = select i1 %1878, i32 %1879, i32 1
   %1881 = sext i32 %1880 to i64
-  %1882 = getelementptr inbounds i32, ptr %1844, i64 %1881
+  %1882 = getelementptr inbounds [4 x i8], ptr %1844, i64 %1881
   %1883 = load i32, ptr %1882, align 4, !tbaa !61
   %1884 = and i32 %1883, 255
   %1885 = zext nneg i32 %1884 to i64
@@ -9252,7 +9250,7 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
   %1891 = ashr i32 %1845, 16
   %1892 = select i1 %1890, i32 %1891, i32 1
   %1893 = sext i32 %1892 to i64
-  %1894 = getelementptr inbounds i32, ptr %1844, i64 %1893
+  %1894 = getelementptr inbounds [4 x i8], ptr %1844, i64 %1893
   %1895 = load i32, ptr %1894, align 4, !tbaa !61
   %1896 = and i32 %1895, 255
   %1897 = zext nneg i32 %1896 to i64
@@ -9265,9 +9263,9 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
   %1902 = lshr i32 %1900, 8
   %1903 = and i32 %1902, 255
   %1904 = zext nneg i32 %1903 to i64
-  %1905 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %1904
+  %1905 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %1904
   %1906 = zext i32 %1901 to i64
-  %1907 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %1906
+  %1907 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %1906
   %1908 = getelementptr inbounds nuw i8, ptr %1905, i64 12
   %1909 = load i32, ptr %1908, align 4, !tbaa !63
   switch i32 %1909, label %.critedge3349.thread [
@@ -9288,7 +9286,7 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
   %1918 = ashr i32 %1900, 16
   %1919 = sext i32 %1918 to i64
   %1920 = select i1 %1917, i64 1, i64 %1919
-  %1921 = getelementptr inbounds i32, ptr %1899, i64 %1920
+  %1921 = getelementptr inbounds [4 x i8], ptr %1899, i64 %1920
   %1922 = load i32, ptr %1921, align 4, !tbaa !61
   %1923 = and i32 %1922, 255
   %1924 = zext nneg i32 %1923 to i64
@@ -9308,7 +9306,7 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
   %1934 = ashr i32 %1900, 16
   %1935 = select i1 %1933, i32 1, i32 %1934
   %1936 = sext i32 %1935 to i64
-  %1937 = getelementptr inbounds i32, ptr %1899, i64 %1936
+  %1937 = getelementptr inbounds [4 x i8], ptr %1899, i64 %1936
   %1938 = load i32, ptr %1937, align 4, !tbaa !61
   %1939 = and i32 %1938, 255
   %1940 = zext nneg i32 %1939 to i64
@@ -9324,7 +9322,7 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
   %1946 = ashr i32 %1900, 16
   %1947 = select i1 %1945, i32 %1946, i32 1
   %1948 = sext i32 %1947 to i64
-  %1949 = getelementptr inbounds i32, ptr %1899, i64 %1948
+  %1949 = getelementptr inbounds [4 x i8], ptr %1899, i64 %1948
   %1950 = load i32, ptr %1949, align 4, !tbaa !61
   %1951 = and i32 %1950, 255
   %1952 = zext nneg i32 %1951 to i64
@@ -9337,9 +9335,9 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
   %1957 = lshr i32 %1955, 8
   %1958 = and i32 %1957, 255
   %1959 = zext nneg i32 %1958 to i64
-  %1960 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %1959
+  %1960 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %1959
   %1961 = zext i32 %1956 to i64
-  %1962 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %1961
+  %1962 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %1961
   %1963 = getelementptr inbounds nuw i8, ptr %1960, i64 12
   %1964 = load i32, ptr %1963, align 4, !tbaa !63
   switch i32 %1964, label %.critedge3351.thread [
@@ -9360,7 +9358,7 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
   %1973 = ashr i32 %1955, 16
   %1974 = sext i32 %1973 to i64
   %1975 = select i1 %1972, i64 %1974, i64 1
-  %1976 = getelementptr inbounds i32, ptr %1954, i64 %1975
+  %1976 = getelementptr inbounds [4 x i8], ptr %1954, i64 %1975
   %1977 = load i32, ptr %1976, align 4, !tbaa !61
   %1978 = and i32 %1977, 255
   %1979 = zext nneg i32 %1978 to i64
@@ -9380,7 +9378,7 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
   %1989 = ashr i32 %1955, 16
   %1990 = select i1 %1988, i32 %1989, i32 1
   %1991 = sext i32 %1990 to i64
-  %1992 = getelementptr inbounds i32, ptr %1954, i64 %1991
+  %1992 = getelementptr inbounds [4 x i8], ptr %1954, i64 %1991
   %1993 = load i32, ptr %1992, align 4, !tbaa !61
   %1994 = and i32 %1993, 255
   %1995 = zext nneg i32 %1994 to i64
@@ -9396,7 +9394,7 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
   %2001 = ashr i32 %1955, 16
   %2002 = select i1 %2000, i32 %2001, i32 1
   %2003 = sext i32 %2002 to i64
-  %2004 = getelementptr inbounds i32, ptr %1954, i64 %2003
+  %2004 = getelementptr inbounds [4 x i8], ptr %1954, i64 %2003
   %2005 = load i32, ptr %2004, align 4, !tbaa !61
   %2006 = and i32 %2005, 255
   %2007 = zext nneg i32 %2006 to i64
@@ -9409,9 +9407,9 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
   %2012 = lshr i32 %2010, 8
   %2013 = and i32 %2012, 255
   %2014 = zext nneg i32 %2013 to i64
-  %2015 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %2014
+  %2015 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %2014
   %2016 = zext i32 %2011 to i64
-  %2017 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %2016
+  %2017 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %2016
   %2018 = getelementptr inbounds nuw i8, ptr %2015, i64 12
   %2019 = load i32, ptr %2018, align 4, !tbaa !63
   switch i32 %2019, label %.critedge3353.thread [
@@ -9432,7 +9430,7 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
   %2028 = ashr i32 %2010, 16
   %2029 = sext i32 %2028 to i64
   %2030 = select i1 %2027, i64 1, i64 %2029
-  %2031 = getelementptr inbounds i32, ptr %2009, i64 %2030
+  %2031 = getelementptr inbounds [4 x i8], ptr %2009, i64 %2030
   %2032 = load i32, ptr %2031, align 4, !tbaa !61
   %2033 = and i32 %2032, 255
   %2034 = zext nneg i32 %2033 to i64
@@ -9452,7 +9450,7 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
   %2044 = ashr i32 %2010, 16
   %2045 = select i1 %2043, i32 1, i32 %2044
   %2046 = sext i32 %2045 to i64
-  %2047 = getelementptr inbounds i32, ptr %2009, i64 %2046
+  %2047 = getelementptr inbounds [4 x i8], ptr %2009, i64 %2046
   %2048 = load i32, ptr %2047, align 4, !tbaa !61
   %2049 = and i32 %2048, 255
   %2050 = zext nneg i32 %2049 to i64
@@ -9468,7 +9466,7 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
   %2056 = ashr i32 %2010, 16
   %2057 = select i1 %2055, i32 %2056, i32 1
   %2058 = sext i32 %2057 to i64
-  %2059 = getelementptr inbounds i32, ptr %2009, i64 %2058
+  %2059 = getelementptr inbounds [4 x i8], ptr %2009, i64 %2058
   %2060 = load i32, ptr %2059, align 4, !tbaa !61
   %2061 = and i32 %2060, 255
   %2062 = zext nneg i32 %2061 to i64
@@ -9480,14 +9478,14 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
   %2066 = lshr i32 %2065, 8
   %2067 = and i32 %2066, 255
   %2068 = zext nneg i32 %2067 to i64
-  %2069 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %2068
+  %2069 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %2068
   %2070 = lshr i32 %2065, 16
   %2071 = and i32 %2070, 255
   %2072 = zext nneg i32 %2071 to i64
-  %2073 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %2072
+  %2073 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %2072
   %2074 = lshr i32 %2065, 24
   %2075 = zext nneg i32 %2074 to i64
-  %2076 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %2075
+  %2076 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %2075
   %2077 = getelementptr inbounds nuw i8, ptr %2073, i64 12
   %2078 = load i32, ptr %2077, align 4, !tbaa !63
   switch i32 %2078, label %.thread3400 [
@@ -9600,14 +9598,14 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
   %2145 = lshr i32 %2144, 8
   %2146 = and i32 %2145, 255
   %2147 = zext nneg i32 %2146 to i64
-  %2148 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %2147
+  %2148 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %2147
   %2149 = lshr i32 %2144, 16
   %2150 = and i32 %2149, 255
   %2151 = zext nneg i32 %2150 to i64
-  %2152 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %2151
+  %2152 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %2151
   %2153 = lshr i32 %2144, 24
   %2154 = zext nneg i32 %2153 to i64
-  %2155 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %2154
+  %2155 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %2154
   %2156 = getelementptr inbounds nuw i8, ptr %2152, i64 12
   %2157 = load i32, ptr %2156, align 4, !tbaa !63
   switch i32 %2157, label %.thread3402 [
@@ -9720,14 +9718,14 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
   %2224 = lshr i32 %2223, 8
   %2225 = and i32 %2224, 255
   %2226 = zext nneg i32 %2225 to i64
-  %2227 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %2226
+  %2227 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %2226
   %2228 = lshr i32 %2223, 16
   %2229 = and i32 %2228, 255
   %2230 = zext nneg i32 %2229 to i64
-  %2231 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %2230
+  %2231 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %2230
   %2232 = lshr i32 %2223, 24
   %2233 = zext nneg i32 %2232 to i64
-  %2234 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %2233
+  %2234 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %2233
   %2235 = getelementptr inbounds nuw i8, ptr %2231, i64 12
   %2236 = load i32, ptr %2235, align 4, !tbaa !63
   switch i32 %2236, label %.thread3406 [
@@ -9895,14 +9893,14 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
   %2338 = lshr i32 %2337, 8
   %2339 = and i32 %2338, 255
   %2340 = zext nneg i32 %2339 to i64
-  %2341 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %2340
+  %2341 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %2340
   %2342 = lshr i32 %2337, 16
   %2343 = and i32 %2342, 255
   %2344 = zext nneg i32 %2343 to i64
-  %2345 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %2344
+  %2345 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %2344
   %2346 = lshr i32 %2337, 24
   %2347 = zext nneg i32 %2346 to i64
-  %2348 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %2347
+  %2348 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %2347
   %2349 = getelementptr inbounds nuw i8, ptr %2345, i64 12
   %2350 = load i32, ptr %2349, align 4, !tbaa !63
   switch i32 %2350, label %.thread3410 [
@@ -10070,14 +10068,14 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
   %2452 = lshr i32 %2451, 8
   %2453 = and i32 %2452, 255
   %2454 = zext nneg i32 %2453 to i64
-  %2455 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %2454
+  %2455 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %2454
   %2456 = lshr i32 %2451, 16
   %2457 = and i32 %2456, 255
   %2458 = zext nneg i32 %2457 to i64
-  %2459 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %2458
+  %2459 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %2458
   %2460 = lshr i32 %2451, 24
   %2461 = zext nneg i32 %2460 to i64
-  %2462 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %2461
+  %2462 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %2461
   %2463 = getelementptr inbounds nuw i8, ptr %2459, i64 12
   %2464 = load i32, ptr %2463, align 4, !tbaa !63
   switch i32 %2464, label %.critedge3363.thread [
@@ -10203,14 +10201,14 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
   %2542 = lshr i32 %2541, 8
   %2543 = and i32 %2542, 255
   %2544 = zext nneg i32 %2543 to i64
-  %2545 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %2544
+  %2545 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %2544
   %2546 = lshr i32 %2541, 16
   %2547 = and i32 %2546, 255
   %2548 = zext nneg i32 %2547 to i64
-  %2549 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %2548
+  %2549 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %2548
   %2550 = lshr i32 %2541, 24
   %2551 = zext nneg i32 %2550 to i64
-  %2552 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %2551
+  %2552 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %2551
   %2553 = getelementptr inbounds nuw i8, ptr %2549, i64 12
   %2554 = load i32, ptr %2553, align 4, !tbaa !63
   %2555 = icmp eq i32 %2554, 3
@@ -10254,14 +10252,14 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
   %2581 = lshr i32 %2580, 8
   %2582 = and i32 %2581, 255
   %2583 = zext nneg i32 %2582 to i64
-  %2584 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %2583
+  %2584 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %2583
   %2585 = lshr i32 %2580, 16
   %2586 = and i32 %2585, 255
   %2587 = zext nneg i32 %2586 to i64
-  %2588 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %2587
+  %2588 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %2587
   %2589 = lshr i32 %2580, 24
   %2590 = zext nneg i32 %2589 to i64
-  %2591 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %2590
+  %2591 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %2590
   %2592 = getelementptr inbounds nuw i8, ptr %2588, i64 12
   %2593 = load i32, ptr %2592, align 4, !tbaa !63
   %2594 = icmp eq i32 %2593, 3
@@ -10302,14 +10300,14 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
   %2617 = lshr i32 %2616, 8
   %2618 = and i32 %2617, 255
   %2619 = zext nneg i32 %2618 to i64
-  %2620 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %2619
+  %2620 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %2619
   %2621 = lshr i32 %2616, 16
   %2622 = and i32 %2621, 255
   %2623 = zext nneg i32 %2622 to i64
-  %2624 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %2623
+  %2624 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %2623
   %2625 = lshr i32 %2616, 24
   %2626 = zext nneg i32 %2625 to i64
-  %2627 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.03076, i64 %2626
+  %2627 = getelementptr inbounds nuw [16 x i8], ptr %.03076, i64 %2626
   %2628 = getelementptr inbounds nuw i8, ptr %2624, i64 12
   %2629 = load i32, ptr %2628, align 4, !tbaa !63
   %2630 = icmp eq i32 %2629, 3
@@ -10344,14 +10342,14 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
   %2649 = lshr i32 %2648, 8
   %2650 = and i32 %2649, 255
   %2651 = zext nneg i32 %2650 to i64
-  %2652 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %2651
+  %2652 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %2651
   %2653 = lshr i32 %2648, 16
   %2654 = and i32 %2653, 255
   %2655 = zext nneg i32 %2654 to i64
-  %2656 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %2655
+  %2656 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %2655
   %2657 = lshr i32 %2648, 24
   %2658 = zext nneg i32 %2657 to i64
-  %2659 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.03076, i64 %2658
+  %2659 = getelementptr inbounds nuw [16 x i8], ptr %.03076, i64 %2658
   %2660 = getelementptr inbounds nuw i8, ptr %2656, i64 12
   %2661 = load i32, ptr %2660, align 4, !tbaa !63
   %2662 = icmp eq i32 %2661, 3
@@ -10386,14 +10384,14 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
   %2681 = lshr i32 %2680, 8
   %2682 = and i32 %2681, 255
   %2683 = zext nneg i32 %2682 to i64
-  %2684 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %2683
+  %2684 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %2683
   %2685 = lshr i32 %2680, 16
   %2686 = and i32 %2685, 255
   %2687 = zext nneg i32 %2686 to i64
-  %2688 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %2687
+  %2688 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %2687
   %2689 = lshr i32 %2680, 24
   %2690 = zext nneg i32 %2689 to i64
-  %2691 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.03076, i64 %2690
+  %2691 = getelementptr inbounds nuw [16 x i8], ptr %.03076, i64 %2690
   %2692 = getelementptr inbounds nuw i8, ptr %2688, i64 12
   %2693 = load i32, ptr %2692, align 4, !tbaa !63
   switch i32 %2693, label %2740 [
@@ -10491,14 +10489,14 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
   %2750 = lshr i32 %2749, 8
   %2751 = and i32 %2750, 255
   %2752 = zext nneg i32 %2751 to i64
-  %2753 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %2752
+  %2753 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %2752
   %2754 = lshr i32 %2749, 16
   %2755 = and i32 %2754, 255
   %2756 = zext nneg i32 %2755 to i64
-  %2757 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %2756
+  %2757 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %2756
   %2758 = lshr i32 %2749, 24
   %2759 = zext nneg i32 %2758 to i64
-  %2760 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.03076, i64 %2759
+  %2760 = getelementptr inbounds nuw [16 x i8], ptr %.03076, i64 %2759
   %2761 = getelementptr inbounds nuw i8, ptr %2757, i64 12
   %2762 = load i32, ptr %2761, align 4, !tbaa !63
   switch i32 %2762, label %2809 [
@@ -10596,14 +10594,14 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
   %2819 = lshr i32 %2818, 8
   %2820 = and i32 %2819, 255
   %2821 = zext nneg i32 %2820 to i64
-  %2822 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %2821
+  %2822 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %2821
   %2823 = lshr i32 %2818, 16
   %2824 = and i32 %2823, 255
   %2825 = zext nneg i32 %2824 to i64
-  %2826 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %2825
+  %2826 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %2825
   %2827 = lshr i32 %2818, 24
   %2828 = zext nneg i32 %2827 to i64
-  %2829 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.03076, i64 %2828
+  %2829 = getelementptr inbounds nuw [16 x i8], ptr %.03076, i64 %2828
   %2830 = getelementptr inbounds nuw i8, ptr %2826, i64 12
   %2831 = load i32, ptr %2830, align 4, !tbaa !63
   switch i32 %2831, label %2889 [
@@ -10712,14 +10710,14 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
   %2899 = lshr i32 %2898, 8
   %2900 = and i32 %2899, 255
   %2901 = zext nneg i32 %2900 to i64
-  %2902 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %2901
+  %2902 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %2901
   %2903 = lshr i32 %2898, 16
   %2904 = and i32 %2903, 255
   %2905 = zext nneg i32 %2904 to i64
-  %2906 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %2905
+  %2906 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %2905
   %2907 = lshr i32 %2898, 24
   %2908 = zext nneg i32 %2907 to i64
-  %2909 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.03076, i64 %2908
+  %2909 = getelementptr inbounds nuw [16 x i8], ptr %.03076, i64 %2908
   %2910 = getelementptr inbounds nuw i8, ptr %2906, i64 12
   %2911 = load i32, ptr %2910, align 4, !tbaa !63
   %2912 = icmp eq i32 %2911, 3
@@ -10757,14 +10755,14 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
   %2934 = lshr i32 %2933, 8
   %2935 = and i32 %2934, 255
   %2936 = zext nneg i32 %2935 to i64
-  %2937 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %2936
+  %2937 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %2936
   %2938 = lshr i32 %2933, 16
   %2939 = and i32 %2938, 255
   %2940 = zext nneg i32 %2939 to i64
-  %2941 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %2940
+  %2941 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %2940
   %2942 = lshr i32 %2933, 24
   %2943 = zext nneg i32 %2942 to i64
-  %2944 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.03076, i64 %2943
+  %2944 = getelementptr inbounds nuw [16 x i8], ptr %.03076, i64 %2943
   %2945 = getelementptr inbounds nuw i8, ptr %2941, i64 12
   %2946 = load i32, ptr %2945, align 4, !tbaa !63
   %2947 = icmp eq i32 %2946, 3
@@ -10828,14 +10826,14 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
   %2981 = lshr i32 %2980, 8
   %2982 = and i32 %2981, 255
   %2983 = zext nneg i32 %2982 to i64
-  %2984 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %2983
+  %2984 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %2983
   %2985 = lshr i32 %2980, 16
   %2986 = and i32 %2985, 255
   %2987 = zext nneg i32 %2986 to i64
-  %2988 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %2987
+  %2988 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %2987
   %2989 = lshr i32 %2980, 24
   %2990 = zext nneg i32 %2989 to i64
-  %2991 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %2990
+  %2991 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %2990
   %2992 = getelementptr inbounds nuw i8, ptr %2988, i64 12
   %2993 = load i32, ptr %2992, align 4, !tbaa !63
   switch i32 %2993, label %2997 [
@@ -10865,14 +10863,14 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
   %3006 = lshr i32 %3005, 8
   %3007 = and i32 %3006, 255
   %3008 = zext nneg i32 %3007 to i64
-  %3009 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %3008
+  %3009 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %3008
   %3010 = lshr i32 %3005, 16
   %3011 = and i32 %3010, 255
   %3012 = zext nneg i32 %3011 to i64
-  %3013 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %3012
+  %3013 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %3012
   %3014 = lshr i32 %3005, 24
   %3015 = zext nneg i32 %3014 to i64
-  %3016 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %3015
+  %3016 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %3015
   %3017 = getelementptr inbounds nuw i8, ptr %3013, i64 12
   %3018 = load i32, ptr %3017, align 4, !tbaa !63
   switch i32 %3018, label %3022 [
@@ -10902,14 +10900,14 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
   %3031 = lshr i32 %3030, 8
   %3032 = and i32 %3031, 255
   %3033 = zext nneg i32 %3032 to i64
-  %3034 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %3033
+  %3034 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %3033
   %3035 = lshr i32 %3030, 16
   %3036 = and i32 %3035, 255
   %3037 = zext nneg i32 %3036 to i64
-  %3038 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %3037
+  %3038 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %3037
   %3039 = lshr i32 %3030, 24
   %3040 = zext nneg i32 %3039 to i64
-  %3041 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.03076, i64 %3040
+  %3041 = getelementptr inbounds nuw [16 x i8], ptr %.03076, i64 %3040
   %3042 = getelementptr inbounds nuw i8, ptr %3038, i64 12
   %3043 = load i32, ptr %3042, align 4, !tbaa !63
   switch i32 %3043, label %3047 [
@@ -10939,14 +10937,14 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
   %3056 = lshr i32 %3055, 8
   %3057 = and i32 %3056, 255
   %3058 = zext nneg i32 %3057 to i64
-  %3059 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %3058
+  %3059 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %3058
   %3060 = lshr i32 %3055, 16
   %3061 = and i32 %3060, 255
   %3062 = zext nneg i32 %3061 to i64
-  %3063 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %3062
+  %3063 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %3062
   %3064 = lshr i32 %3055, 24
   %3065 = zext nneg i32 %3064 to i64
-  %3066 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.03076, i64 %3065
+  %3066 = getelementptr inbounds nuw [16 x i8], ptr %.03076, i64 %3065
   %3067 = getelementptr inbounds nuw i8, ptr %3063, i64 12
   %3068 = load i32, ptr %3067, align 4, !tbaa !63
   switch i32 %3068, label %3072 [
@@ -10986,9 +10984,9 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
   %3089 = lshr i32 %3080, 8
   %3090 = and i32 %3089, 255
   %3091 = zext nneg i32 %3090 to i64
-  %3092 = getelementptr inbounds nuw %struct.lua_TValue, ptr %3088, i64 %3091
+  %3092 = getelementptr inbounds nuw [16 x i8], ptr %3088, i64 %3091
   %3093 = zext nneg i32 %3082 to i64
-  %3094 = getelementptr inbounds nuw %struct.lua_TValue, ptr %3088, i64 %3093
+  %3094 = getelementptr inbounds nuw [16 x i8], ptr %3088, i64 %3093
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3092, ptr noundef nonnull align 8 dereferenceable(16) %3094, i64 16, i1 false), !tbaa.struct !64
   %3095 = load ptr, ptr %6, align 8, !tbaa !21
   %3096 = getelementptr inbounds nuw i8, ptr %3095, i64 24
@@ -11018,11 +11016,11 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
   %3112 = lshr i32 %3111, 8
   %3113 = and i32 %3112, 255
   %3114 = zext nneg i32 %3113 to i64
-  %3115 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %3114
+  %3115 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %3114
   %3116 = lshr i32 %3111, 16
   %3117 = and i32 %3116, 255
   %3118 = zext nneg i32 %3117 to i64
-  %3119 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %3118
+  %3119 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %3118
   %3120 = getelementptr inbounds nuw i8, ptr %3119, i64 12
   %3121 = load i32, ptr %3120, align 4, !tbaa !63
   switch i32 %3121, label %.fold.split [
@@ -11055,11 +11053,11 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
   %3135 = lshr i32 %3134, 8
   %3136 = and i32 %3135, 255
   %3137 = zext nneg i32 %3136 to i64
-  %3138 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %3137
+  %3138 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %3137
   %3139 = lshr i32 %3134, 16
   %3140 = and i32 %3139, 255
   %3141 = zext nneg i32 %3140 to i64
-  %3142 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %3141
+  %3142 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %3141
   %3143 = getelementptr inbounds nuw i8, ptr %3142, i64 12
   %3144 = load i32, ptr %3143, align 4, !tbaa !63
   switch i32 %3144, label %3187 [
@@ -11152,11 +11150,11 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
   %3197 = lshr i32 %3196, 8
   %3198 = and i32 %3197, 255
   %3199 = zext nneg i32 %3198 to i64
-  %3200 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %3199
+  %3200 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %3199
   %3201 = lshr i32 %3196, 16
   %3202 = and i32 %3201, 255
   %3203 = zext nneg i32 %3202 to i64
-  %3204 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %3203
+  %3204 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %3203
   %3205 = getelementptr inbounds nuw i8, ptr %3204, i64 12
   %3206 = load i32, ptr %3205, align 4, !tbaa !63
   switch i32 %3206, label %3239 [
@@ -11230,7 +11228,7 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
   %3249 = lshr i32 %3248, 8
   %3250 = and i32 %3249, 255
   %3251 = zext nneg i32 %3250 to i64
-  %3252 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %3251
+  %3252 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %3251
   %3253 = lshr i32 %3248, 16
   %3254 = and i32 %3253, 255
   %3255 = getelementptr inbounds nuw i8, ptr %.13078, i64 8
@@ -11274,10 +11272,10 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
   %3282 = lshr i32 %3281, 8
   %3283 = and i32 %3282, 255
   %3284 = zext nneg i32 %3283 to i64
-  %3285 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %3284
+  %3285 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %3284
   %3286 = ashr i32 %3281, 16
   %3287 = sext i32 %3286 to i64
-  %3288 = getelementptr inbounds %struct.lua_TValue, ptr %.03076, i64 %3287
+  %3288 = getelementptr inbounds [16 x i8], ptr %.03076, i64 %3287
   %3289 = load ptr, ptr %6, align 8, !tbaa !21
   %3290 = getelementptr inbounds nuw i8, ptr %3289, i64 24
   store ptr %3280, ptr %3290, align 8, !tbaa !27
@@ -11314,11 +11312,11 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
   %3311 = lshr i32 %3310, 8
   %3312 = and i32 %3311, 255
   %3313 = zext nneg i32 %3312 to i64
-  %3314 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %3313
+  %3314 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %3313
   %3315 = lshr i32 %3310, 16
   %3316 = and i32 %3315, 255
   %3317 = zext nneg i32 %3316 to i64
-  %3318 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %3317
+  %3318 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %3317
   %3319 = lshr i32 %3310, 24
   %3320 = add nsw i32 %3319, -1
   %3321 = getelementptr inbounds nuw i8, ptr %.13078, i64 8
@@ -11374,11 +11372,11 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
 
 3352:                                             ; preds = %.lr.ph3505, %3352
   %indvars.iv3624 = phi i64 [ 0, %.lr.ph3505 ], [ %indvars.iv.next3625, %3352 ]
-  %3353 = getelementptr inbounds nuw %struct.lua_TValue, ptr %3318, i64 %indvars.iv3624
+  %3353 = getelementptr inbounds nuw [16 x i8], ptr %3318, i64 %indvars.iv3624
   %3354 = trunc nuw nsw i64 %indvars.iv3624 to i32
   %3355 = add i32 %3340, %3354
   %3356 = zext i32 %3355 to i64
-  %3357 = getelementptr inbounds nuw %struct.lua_TValue, ptr %3350, i64 %3356
+  %3357 = getelementptr inbounds nuw [16 x i8], ptr %3350, i64 %3356
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3357, ptr noundef nonnull align 8 dereferenceable(16) %3353, i64 16, i1 false), !tbaa.struct !64
   %indvars.iv.next3625 = add nuw nsw i64 %indvars.iv3624, 1
   %exitcond3628.not = icmp eq i64 %indvars.iv.next3625, %wide.trip.count3627
@@ -11408,7 +11406,7 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
   %3370 = lshr i32 %3369, 8
   %3371 = and i32 %3370, 255
   %3372 = zext nneg i32 %3371 to i64
-  %3373 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %3372
+  %3373 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %3372
   %3374 = getelementptr inbounds nuw i8, ptr %3373, i64 12
   %3375 = load i32, ptr %3374, align 4, !tbaa !63
   %3376 = icmp eq i32 %3375, 3
@@ -11459,7 +11457,7 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
 
 3404:                                             ; preds = %3397, %3399, %3401
   %3405 = phi i64 [ %3403, %3401 ], [ 0, %3399 ], [ 0, %3397 ]
-  %3406 = getelementptr inbounds i32, ptr %3368, i64 %3405
+  %3406 = getelementptr inbounds [4 x i8], ptr %3368, i64 %3405
   %3407 = load i32, ptr %3406, align 4, !tbaa !61
   %3408 = and i32 %3407, 255
   %3409 = zext nneg i32 %3408 to i64
@@ -11490,7 +11488,7 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
   %3423 = lshr i32 %3422, 8
   %3424 = and i32 %3423, 255
   %3425 = zext nneg i32 %3424 to i64
-  %3426 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.4, i64 %3425
+  %3426 = getelementptr inbounds nuw [16 x i8], ptr %.4, i64 %3425
   %3427 = load double, ptr %3426, align 8, !tbaa !30
   %3428 = getelementptr inbounds nuw i8, ptr %3426, i64 16
   %3429 = load double, ptr %3428, align 8, !tbaa !30
@@ -11514,7 +11512,7 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
 3439:                                             ; preds = %3437, %3435
   %3440 = ashr i32 %3422, 16
   %3441 = sext i32 %3440 to i64
-  %3442 = getelementptr inbounds i32, ptr %3421, i64 %3441
+  %3442 = getelementptr inbounds [4 x i8], ptr %3421, i64 %3441
   %3443 = load i32, ptr %3442, align 4, !tbaa !61
   %3444 = and i32 %3443, 255
   %3445 = zext nneg i32 %3444 to i64
@@ -11532,7 +11530,7 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
   %3453 = lshr i32 %3452, 8
   %3454 = and i32 %3453, 255
   %3455 = zext nneg i32 %3454 to i64
-  %3456 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %3455
+  %3456 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %3455
   %3457 = getelementptr inbounds nuw i8, ptr %3456, i64 12
   %3458 = load i32, ptr %3457, align 4, !tbaa !63
   switch i32 %3458, label %.critedge3365.thread [
@@ -11586,7 +11584,7 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
   %3481 = getelementptr inbounds nuw i8, ptr %3480, i64 16
   %3482 = load ptr, ptr %3481, align 8, !tbaa !22
   store ptr %3482, ptr %25, align 8, !tbaa !20
-  %3483 = getelementptr inbounds nuw %struct.lua_TValue, ptr %3479, i64 %3455
+  %3483 = getelementptr inbounds nuw [16 x i8], ptr %3479, i64 %3455
   %3484 = getelementptr inbounds nuw i8, ptr %3483, i64 12
   %3485 = load i32, ptr %3484, align 4, !tbaa !63
   %3486 = icmp eq i32 %3485, 0
@@ -11640,7 +11638,7 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
   %.5 = phi ptr [ %.1, %3450 ], [ %3479, %3474 ], [ %.1, %3491 ], [ %.1, %3498 ]
   %3506 = ashr i32 %3452, 16
   %3507 = sext i32 %3506 to i64
-  %3508 = getelementptr inbounds i32, ptr %3451, i64 %3507
+  %3508 = getelementptr inbounds [4 x i8], ptr %3451, i64 %3507
   %3509 = load i32, ptr %3508, align 4, !tbaa !61
   %3510 = and i32 %3509, 255
   %3511 = zext nneg i32 %3510 to i64
@@ -11671,7 +11669,7 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
   %3525 = lshr i32 %3524, 8
   %3526 = and i32 %3525, 255
   %3527 = zext nneg i32 %3526 to i64
-  %3528 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.6, i64 %3527
+  %3528 = getelementptr inbounds nuw [16 x i8], ptr %.6, i64 %3527
   %3529 = load i32, ptr %3523, align 4, !tbaa !61
   %3530 = getelementptr inbounds nuw i8, ptr %3528, i64 12
   %3531 = load i32, ptr %3530, align 4, !tbaa !63
@@ -11702,7 +11700,7 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
 
 .preheader3427:                                   ; preds = %.preheader3427.preheader, %.preheader3427
   %indvars.iv3613 = phi i64 [ 2, %.preheader3427.preheader ], [ %indvars.iv.next3614, %.preheader3427 ]
-  %3547 = getelementptr inbounds nuw %struct.lua_TValue, ptr %3528, i64 %indvars.iv3613
+  %3547 = getelementptr inbounds nuw [16 x i8], ptr %3528, i64 %indvars.iv3613
   %3548 = getelementptr inbounds nuw i8, ptr %3547, i64 60
   store i32 0, ptr %3548, align 4, !tbaa !63
   %indvars.iv.next3614 = add nuw nsw i64 %indvars.iv3613, 1
@@ -11748,7 +11746,7 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
 
 3568:                                             ; preds = %.lr.ph3495, %3590
   %indvars.iv3618 = phi i64 [ %3567, %.lr.ph3495 ], [ %indvars.iv.next3619, %3590 ]
-  %3569 = getelementptr inbounds %struct.lua_TValue, ptr %3566, i64 %indvars.iv3618
+  %3569 = getelementptr inbounds [16 x i8], ptr %3566, i64 %indvars.iv3618
   %3570 = getelementptr inbounds nuw i8, ptr %3569, i64 12
   %3571 = load i32, ptr %3570, align 4, !tbaa !63
   %3572 = icmp eq i32 %3571, 0
@@ -11773,7 +11771,7 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3583, ptr noundef nonnull align 8 dereferenceable(16) %3569, i64 16, i1 false), !tbaa.struct !64
   %3584 = ashr i32 %3524, 16
   %3585 = sext i32 %3584 to i64
-  %3586 = getelementptr inbounds i32, ptr %3523, i64 %3585
+  %3586 = getelementptr inbounds [4 x i8], ptr %3523, i64 %3585
   %3587 = load i32, ptr %3586, align 4, !tbaa !61
   %3588 = and i32 %3587, 255
   %3589 = zext nneg i32 %3588 to i64
@@ -11805,7 +11803,7 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
   %indvars.iv3621 = phi i64 [ %3600, %.lr.ph3501 ], [ %indvars.iv.next3622, %3631 ]
   %3602 = phi i32 [ %3596, %.lr.ph3501 ], [ %3633, %3631 ]
   %3603 = sext i32 %3602 to i64
-  %3604 = getelementptr inbounds %struct.LuaNode, ptr %3599, i64 %3603
+  %3604 = getelementptr inbounds [32 x i8], ptr %3599, i64 %3603
   %3605 = getelementptr inbounds nuw i8, ptr %3604, i64 12
   %3606 = load i32, ptr %3605, align 4, !tbaa !71
   %3607 = icmp eq i32 %3606, 0
@@ -11838,7 +11836,7 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3624, ptr noundef nonnull align 8 dereferenceable(16) %3604, i64 16, i1 false), !tbaa.struct !64
   %3625 = ashr i32 %3524, 16
   %3626 = sext i32 %3625 to i64
-  %3627 = getelementptr inbounds i32, ptr %3523, i64 %3626
+  %3627 = getelementptr inbounds [4 x i8], ptr %3523, i64 %3626
   %3628 = load i32, ptr %3627, align 4, !tbaa !61
   %3629 = and i32 %3628, 255
   %3630 = zext nneg i32 %3629 to i64
@@ -11880,7 +11878,7 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
   %3651 = getelementptr inbounds nuw i8, ptr %3650, i64 16
   %3652 = load ptr, ptr %3651, align 8, !tbaa !22
   store ptr %3652, ptr %25, align 8, !tbaa !20
-  %3653 = getelementptr inbounds nuw %struct.lua_TValue, ptr %3649, i64 %3527
+  %3653 = getelementptr inbounds nuw [16 x i8], ptr %3649, i64 %3527
   %3654 = getelementptr inbounds nuw i8, ptr %3653, i64 48
   %3655 = getelementptr inbounds nuw i8, ptr %3653, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3655, ptr noundef nonnull align 8 dereferenceable(16) %3654, i64 16, i1 false), !tbaa.struct !64
@@ -11890,7 +11888,7 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
   %3659 = ashr i32 %3524, 16
   %3660 = select i1 %3658, i32 1, i32 %3659
   %3661 = sext i32 %3660 to i64
-  %3662 = getelementptr inbounds i32, ptr %3523, i64 %3661
+  %3662 = getelementptr inbounds [4 x i8], ptr %3523, i64 %3661
   %3663 = load i32, ptr %3662, align 4, !tbaa !61
   %3664 = and i32 %3663, 255
   %3665 = zext nneg i32 %3664 to i64
@@ -11902,7 +11900,7 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
   %3669 = lshr i32 %3668, 8
   %3670 = and i32 %3669, 255
   %3671 = zext nneg i32 %3670 to i64
-  %3672 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %3671
+  %3672 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %3671
   %3673 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %3674 = load ptr, ptr %3673, align 8, !tbaa !65
   %3675 = getelementptr inbounds nuw i8, ptr %3674, i64 5
@@ -11953,7 +11951,7 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
 3699:                                             ; preds = %3692, %3689
   %3700 = ashr i32 %3668, 16
   %3701 = sext i32 %3700 to i64
-  %3702 = getelementptr inbounds i32, ptr %3667, i64 %3701
+  %3702 = getelementptr inbounds [4 x i8], ptr %3667, i64 %3701
   %3703 = load i32, ptr %3702, align 4, !tbaa !61
   %3704 = and i32 %3703, 255
   %3705 = zext nneg i32 %3704 to i64
@@ -11965,7 +11963,7 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
   %3709 = lshr i32 %3708, 8
   %3710 = and i32 %3709, 255
   %3711 = zext nneg i32 %3710 to i64
-  %3712 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %3711
+  %3712 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %3711
   %3713 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %3714 = load ptr, ptr %3713, align 8, !tbaa !65
   %3715 = getelementptr inbounds nuw i8, ptr %3714, i64 5
@@ -12011,7 +12009,7 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
 3736:                                             ; preds = %3729, %3725
   %3737 = ashr i32 %3708, 16
   %3738 = sext i32 %3737 to i64
-  %3739 = getelementptr inbounds i32, ptr %3707, i64 %3738
+  %3739 = getelementptr inbounds [4 x i8], ptr %3707, i64 %3738
   %3740 = load i32, ptr %3739, align 4, !tbaa !61
   %3741 = and i32 %3740, 255
   %3742 = zext nneg i32 %3741 to i64
@@ -12081,20 +12079,20 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
   %3790 = lshr i32 %3758, 8
   %3791 = and i32 %3790, 255
   %3792 = zext nneg i32 %3791 to i64
-  %3793 = getelementptr inbounds nuw %struct.lua_TValue, ptr %3789, i64 %3792
+  %3793 = getelementptr inbounds nuw [16 x i8], ptr %3789, i64 %3792
   %3794 = icmp sgt i32 %.fr, 0
   br i1 %3794, label %.lr.ph3490, label %._crit_edge3491
 
 .lr.ph3490:                                       ; preds = %3788
   %3795 = zext nneg i32 %.fr to i64
   %3796 = sub nsw i64 0, %3795
-  %3797 = getelementptr inbounds %struct.lua_TValue, ptr %3789, i64 %3796
+  %3797 = getelementptr inbounds [16 x i8], ptr %3789, i64 %3796
   br label %3798
 
 3798:                                             ; preds = %.lr.ph3490, %3798
   %indvars.iv3608 = phi i64 [ 0, %.lr.ph3490 ], [ %indvars.iv.next3609, %3798 ]
-  %3799 = getelementptr inbounds nuw %struct.lua_TValue, ptr %3797, i64 %indvars.iv3608
-  %3800 = getelementptr inbounds nuw %struct.lua_TValue, ptr %3793, i64 %indvars.iv3608
+  %3799 = getelementptr inbounds nuw [16 x i8], ptr %3797, i64 %indvars.iv3608
+  %3800 = getelementptr inbounds nuw [16 x i8], ptr %3793, i64 %indvars.iv3608
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3800, ptr noundef nonnull align 8 dereferenceable(16) %3799, i64 16, i1 false), !tbaa.struct !64
   %indvars.iv.next3609 = add nuw nsw i64 %indvars.iv3608, 1
   %exitcond3612.not = icmp eq i64 %indvars.iv.next3609, %3795
@@ -12102,7 +12100,7 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
 
 ._crit_edge3491:                                  ; preds = %3798, %3788
   %3801 = sext i32 %.fr to i64
-  %3802 = getelementptr inbounds %struct.lua_TValue, ptr %3793, i64 %3801
+  %3802 = getelementptr inbounds [16 x i8], ptr %3793, i64 %3801
   store ptr %3802, ptr %25, align 8, !tbaa !20
   %3803 = load i32, ptr %3757, align 4, !tbaa !61
   %3804 = and i32 %3803, 255
@@ -12113,7 +12111,7 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
   %3807 = lshr i32 %3758, 8
   %3808 = and i32 %3807, 255
   %3809 = zext nneg i32 %3808 to i64
-  %3810 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %3809
+  %3810 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %3809
   %invariant.smin = call i32 @llvm.smin.i32(i32 %3761, i32 %.fr)
   %3811 = icmp sgt i32 %invariant.smin, 0
   br i1 %3811, label %.lr.ph3484, label %.preheader3428
@@ -12121,7 +12119,7 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
 .lr.ph3484:                                       ; preds = %3806
   %3812 = sext i32 %.fr to i64
   %3813 = sub nsw i64 0, %3812
-  %3814 = getelementptr inbounds %struct.lua_TValue, ptr %.1, i64 %3813
+  %3814 = getelementptr inbounds [16 x i8], ptr %.1, i64 %3813
   %wide.trip.count3601 = zext nneg i32 %invariant.smin to i64
   br label %3817
 
@@ -12136,8 +12134,8 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
 
 3817:                                             ; preds = %.lr.ph3484, %3817
   %indvars.iv3598 = phi i64 [ 0, %.lr.ph3484 ], [ %indvars.iv.next3599, %3817 ]
-  %3818 = getelementptr inbounds nuw %struct.lua_TValue, ptr %3814, i64 %indvars.iv3598
-  %3819 = getelementptr inbounds nuw %struct.lua_TValue, ptr %3810, i64 %indvars.iv3598
+  %3818 = getelementptr inbounds nuw [16 x i8], ptr %3814, i64 %indvars.iv3598
+  %3819 = getelementptr inbounds nuw [16 x i8], ptr %3810, i64 %indvars.iv3598
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3819, ptr noundef nonnull align 8 dereferenceable(16) %3818, i64 16, i1 false), !tbaa.struct !64
   %indvars.iv.next3599 = add nuw nsw i64 %indvars.iv3598, 1
   %exitcond3602.not = icmp eq i64 %indvars.iv.next3599, %wide.trip.count3601
@@ -12145,7 +12143,7 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
 
 .lr.ph3486:                                       ; preds = %.lr.ph3486.preheader, %.lr.ph3486
   %indvars.iv3603 = phi i64 [ %3816, %.lr.ph3486.preheader ], [ %indvars.iv.next3604, %.lr.ph3486 ]
-  %3820 = getelementptr inbounds %struct.lua_TValue, ptr %3810, i64 %indvars.iv3603
+  %3820 = getelementptr inbounds [16 x i8], ptr %3810, i64 %indvars.iv3603
   %3821 = getelementptr inbounds nuw i8, ptr %3820, i64 12
   store i32 0, ptr %3821, align 4, !tbaa !63
   %indvars.iv.next3604 = add nsw i64 %indvars.iv3603, 1
@@ -12164,10 +12162,10 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
   %3828 = lshr i32 %3827, 8
   %3829 = and i32 %3828, 255
   %3830 = zext nneg i32 %3829 to i64
-  %3831 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %3830
+  %3831 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %3830
   %3832 = ashr i32 %3827, 16
   %3833 = sext i32 %3832 to i64
-  %3834 = getelementptr inbounds %struct.lua_TValue, ptr %.03076, i64 %3833
+  %3834 = getelementptr inbounds [16 x i8], ptr %.03076, i64 %3833
   %3835 = load ptr, ptr %3834, align 8, !tbaa !30
   %3836 = load ptr, ptr %6, align 8, !tbaa !21
   %3837 = getelementptr inbounds nuw i8, ptr %3836, i64 24
@@ -12208,7 +12206,7 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
   %.031013477 = phi ptr [ %3851, %.lr.ph3479 ], [ %.13102, %3897 ]
   %.031033476 = phi i32 [ 0, %.lr.ph3479 ], [ %3898, %3897 ]
   %3859 = sext i32 %.031033476 to i64
-  %3860 = getelementptr inbounds i32, ptr %3826, i64 %3859
+  %3860 = getelementptr inbounds [4 x i8], ptr %3826, i64 %3859
   %3861 = load i32, ptr %3860, align 4, !tbaa !61
   %3862 = and i32 %3861, 65280
   %3863 = icmp eq i32 %3862, 0
@@ -12216,13 +12214,13 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
   %3865 = and i32 %3864, 255
   %3866 = zext nneg i32 %3865 to i64
   %.1. = select i1 %3863, ptr %.1, ptr %3855
-  %3867 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1., i64 %3866
+  %3867 = getelementptr inbounds nuw [16 x i8], ptr %.1., i64 %3866
   %3868 = icmp eq ptr %.031013477, %3835
   br i1 %3868, label %3869, label %.critedge3367
 
 3869:                                             ; preds = %3858
   %3870 = getelementptr inbounds nuw i8, ptr %.031013477, i64 32
-  %3871 = getelementptr inbounds %struct.lua_TValue, ptr %3870, i64 %3859
+  %3871 = getelementptr inbounds [16 x i8], ptr %3870, i64 %3859
   %3872 = call noundef i32 @_Z16luaO_rawequalObjPK10lua_TValueS1_(ptr noundef nonnull %3871, ptr noundef %3867)
   %.not3216 = icmp eq i32 %3872, 0
   br i1 %.not3216, label %3873, label %3897
@@ -12244,7 +12242,7 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
 
 .critedge3367:                                    ; preds = %3858, %3873
   %3882 = getelementptr inbounds nuw i8, ptr %.031013477, i64 32
-  %3883 = getelementptr inbounds %struct.lua_TValue, ptr %3882, i64 %3859
+  %3883 = getelementptr inbounds [16 x i8], ptr %3882, i64 %3859
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3883, ptr noundef nonnull align 8 dereferenceable(16) %3867, i64 16, i1 false), !tbaa.struct !64
   %3884 = getelementptr inbounds nuw i8, ptr %3867, i64 12
   %3885 = load i32, ptr %3884, align 4, !tbaa !63
@@ -12313,7 +12311,7 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
   %3916 = phi i8 [ %.pre3633, %3913 ], [ %.pre36333646, %._crit_edge3480 ]
   %.7 = phi ptr [ %3914, %3913 ], [ %.1, %._crit_edge3480 ]
   %3917 = zext i8 %3916 to i64
-  %3918 = getelementptr inbounds nuw i32, ptr %3826, i64 %3917
+  %3918 = getelementptr inbounds nuw [4 x i8], ptr %3826, i64 %3917
   %3919 = load i32, ptr %3918, align 4, !tbaa !61
   %3920 = and i32 %3919, 255
   %3921 = zext nneg i32 %3920 to i64
@@ -12358,8 +12356,8 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %3944 = getelementptr inbounds nuw %struct.lua_TValue, ptr %3943, i64 %indvars.iv
-  %3945 = getelementptr inbounds nuw %struct.lua_TValue, ptr %3942, i64 %indvars.iv
+  %3944 = getelementptr inbounds nuw [16 x i8], ptr %3943, i64 %indvars.iv
+  %3945 = getelementptr inbounds nuw [16 x i8], ptr %3942, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3945, ptr noundef nonnull align 8 dereferenceable(16) %3944, i64 16, i1 false), !tbaa.struct !64
   %3946 = getelementptr inbounds nuw i8, ptr %3944, i64 12
   store i32 0, ptr %3946, align 4, !tbaa !63
@@ -12372,7 +12370,7 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
   store ptr %3942, ptr %3947, align 8, !tbaa !26
   %3948 = load i8, ptr %3934, align 1, !tbaa !106
   %3949 = zext i8 %3948 to i64
-  %3950 = getelementptr inbounds nuw %struct.lua_TValue, ptr %3942, i64 %3949
+  %3950 = getelementptr inbounds nuw [16 x i8], ptr %3942, i64 %3949
   %3951 = getelementptr inbounds nuw i8, ptr %3947, i64 16
   store ptr %3950, ptr %3951, align 8, !tbaa !22
   store ptr %3942, ptr %24, align 8, !tbaa !4
@@ -12406,7 +12404,7 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
   %3967 = load i32, ptr %.13078, align 4, !tbaa !61
   %3968 = ashr i32 %3967, 16
   %3969 = sext i32 %3968 to i64
-  %3970 = getelementptr inbounds i32, ptr %3966, i64 %3969
+  %3970 = getelementptr inbounds [4 x i8], ptr %3966, i64 %3969
   %3971 = load i32, ptr %3970, align 4, !tbaa !61
   %3972 = and i32 %3971, 255
   %3973 = zext nneg i32 %3972 to i64
@@ -12418,11 +12416,11 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
   %3977 = lshr i32 %3976, 8
   %3978 = and i32 %3977, 255
   %3979 = zext nneg i32 %3978 to i64
-  %3980 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %3979
+  %3980 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %3979
   %3981 = getelementptr inbounds nuw i8, ptr %.13078, i64 8
   %3982 = load i32, ptr %3975, align 4, !tbaa !61
   %3983 = zext i32 %3982 to i64
-  %3984 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.03076, i64 %3983
+  %3984 = getelementptr inbounds nuw [16 x i8], ptr %.03076, i64 %3983
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3980, ptr noundef nonnull align 8 dereferenceable(16) %3984, i64 16, i1 false), !tbaa.struct !64
   %3985 = load i32, ptr %3981, align 4, !tbaa !61
   %3986 = and i32 %3985, 255
@@ -12453,7 +12451,7 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
   %4000 = load i32, ptr %.13078, align 4, !tbaa !61
   %4001 = ashr i32 %4000, 8
   %4002 = sext i32 %4001 to i64
-  %4003 = getelementptr inbounds i32, ptr %3999, i64 %4002
+  %4003 = getelementptr inbounds [4 x i8], ptr %3999, i64 %4002
   %4004 = load i32, ptr %4003, align 4, !tbaa !61
   %4005 = and i32 %4004, 255
   %4006 = zext nneg i32 %4005 to i64
@@ -12466,12 +12464,12 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
   %4011 = and i32 %4010, 255
   %4012 = lshr i32 %4009, 24
   %4013 = zext nneg i32 %4012 to i64
-  %4014 = getelementptr inbounds nuw i32, ptr %4008, i64 %4013
+  %4014 = getelementptr inbounds nuw [4 x i8], ptr %4008, i64 %4013
   %4015 = load i32, ptr %4014, align 4, !tbaa !61
   %4016 = lshr i32 %4015, 8
   %4017 = and i32 %4016, 255
   %4018 = zext nneg i32 %4017 to i64
-  %4019 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %4018
+  %4019 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %4018
   %4020 = lshr i32 %4015, 16
   %4021 = and i32 %4020, 255
   %4022 = lshr i32 %4015, 24
@@ -12499,7 +12497,7 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
 
 4037:                                             ; preds = %4032
   %4038 = zext nneg i32 %4011 to i64
-  %4039 = getelementptr inbounds nuw ptr, ptr @luauF_table, i64 %4038
+  %4039 = getelementptr inbounds nuw [8 x i8], ptr @luauF_table, i64 %4038
   %4040 = load ptr, ptr %4039, align 8, !tbaa !62
   %4041 = add i32 %.in3209, -1
   %4042 = load ptr, ptr %6, align 8, !tbaa !21
@@ -12517,7 +12515,7 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
 
 4050:                                             ; preds = %4048
   %4051 = zext nneg i32 %4046 to i64
-  %4052 = getelementptr inbounds nuw %struct.lua_TValue, ptr %4019, i64 %4051
+  %4052 = getelementptr inbounds nuw [16 x i8], ptr %4019, i64 %4051
   br label %4057
 
 4053:                                             ; preds = %4048
@@ -12572,14 +12570,14 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
   %4088 = lshr i32 %4087, 8
   %4089 = and i32 %4088, 255
   %4090 = zext nneg i32 %4089 to i64
-  %4091 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %4090
+  %4091 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %4090
   %4092 = lshr i32 %4087, 16
   %4093 = and i32 %4092, 255
   %4094 = zext nneg i32 %4093 to i64
-  %4095 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.03076, i64 %4094
+  %4095 = getelementptr inbounds nuw [16 x i8], ptr %.03076, i64 %4094
   %4096 = lshr i32 %4087, 24
   %4097 = zext nneg i32 %4096 to i64
-  %4098 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %4097
+  %4098 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %4097
   %4099 = getelementptr inbounds nuw i8, ptr %4098, i64 12
   %4100 = load i32, ptr %4099, align 4, !tbaa !63
   %4101 = icmp eq i32 %4100, 3
@@ -12614,14 +12612,14 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
   %4120 = lshr i32 %4119, 8
   %4121 = and i32 %4120, 255
   %4122 = zext nneg i32 %4121 to i64
-  %4123 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %4122
+  %4123 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %4122
   %4124 = lshr i32 %4119, 16
   %4125 = and i32 %4124, 255
   %4126 = zext nneg i32 %4125 to i64
-  %4127 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.03076, i64 %4126
+  %4127 = getelementptr inbounds nuw [16 x i8], ptr %.03076, i64 %4126
   %4128 = lshr i32 %4119, 24
   %4129 = zext nneg i32 %4128 to i64
-  %4130 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %4129
+  %4130 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %4129
   %4131 = getelementptr inbounds nuw i8, ptr %4130, i64 12
   %4132 = load i32, ptr %4131, align 4, !tbaa !63
   switch i32 %4132, label %4158 [
@@ -12680,12 +12678,12 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
   %4167 = load i32, ptr %.13078, align 4, !tbaa !61
   %4168 = lshr i32 %4167, 24
   %4169 = zext nneg i32 %4168 to i64
-  %4170 = getelementptr inbounds nuw i32, ptr %4166, i64 %4169
+  %4170 = getelementptr inbounds nuw [4 x i8], ptr %4166, i64 %4169
   %4171 = load i32, ptr %4170, align 4, !tbaa !61
   %4172 = lshr i32 %4171, 8
   %4173 = and i32 %4172, 255
   %4174 = zext nneg i32 %4173 to i64
-  %4175 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %4174
+  %4175 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %4174
   %4176 = lshr i32 %4171, 24
   %4177 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %4178 = load ptr, ptr %4177, align 8, !tbaa !65
@@ -12699,12 +12697,12 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
   %4183 = lshr i32 %4167, 8
   %4184 = and i32 %4183, 255
   %4185 = zext nneg i32 %4184 to i64
-  %4186 = getelementptr inbounds nuw ptr, ptr @luauF_table, i64 %4185
+  %4186 = getelementptr inbounds nuw [8 x i8], ptr @luauF_table, i64 %4185
   %4187 = load ptr, ptr %4186, align 8, !tbaa !62
   %4188 = lshr i32 %4167, 16
   %4189 = and i32 %4188, 255
   %4190 = zext nneg i32 %4189 to i64
-  %4191 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %4190
+  %4191 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %4190
   %4192 = load ptr, ptr %6, align 8, !tbaa !21
   %4193 = getelementptr inbounds nuw i8, ptr %4192, i64 24
   store ptr %4166, ptr %4193, align 8, !tbaa !27
@@ -12718,7 +12716,7 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
 
 4198:                                             ; preds = %4196
   %4199 = zext nneg i32 %4194 to i64
-  %4200 = getelementptr inbounds nuw %struct.lua_TValue, ptr %4175, i64 %4199
+  %4200 = getelementptr inbounds nuw [16 x i8], ptr %4175, i64 %4199
   store ptr %4200, ptr %25, align 8, !tbaa !20
   br label %4201
 
@@ -12746,13 +12744,13 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
   %4216 = lshr i32 %4215, 24
   %4217 = getelementptr inbounds nuw i8, ptr %.13078, i64 8
   %4218 = zext nneg i32 %4216 to i64
-  %4219 = getelementptr i32, ptr %4217, i64 %4218
+  %4219 = getelementptr [4 x i8], ptr %4217, i64 %4218
   %4220 = getelementptr i8, ptr %4219, i64 -4
   %4221 = load i32, ptr %4220, align 4, !tbaa !61
   %4222 = lshr i32 %4221, 8
   %4223 = and i32 %4222, 255
   %4224 = zext nneg i32 %4223 to i64
-  %4225 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %4224
+  %4225 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %4224
   %4226 = lshr i32 %4221, 24
   %4227 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %4228 = load ptr, ptr %4227, align 8, !tbaa !65
@@ -12766,16 +12764,16 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
   %4233 = lshr i32 %4215, 8
   %4234 = and i32 %4233, 255
   %4235 = zext nneg i32 %4234 to i64
-  %4236 = getelementptr inbounds nuw ptr, ptr @luauF_table, i64 %4235
+  %4236 = getelementptr inbounds nuw [8 x i8], ptr @luauF_table, i64 %4235
   %4237 = load ptr, ptr %4236, align 8, !tbaa !62
   %4238 = getelementptr inbounds nuw i8, ptr %.13078, i64 4
   %4239 = load i32, ptr %4238, align 4, !tbaa !61
   %4240 = zext i32 %4239 to i64
-  %4241 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %4240
+  %4241 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %4240
   %4242 = lshr i32 %4215, 16
   %4243 = and i32 %4242, 255
   %4244 = zext nneg i32 %4243 to i64
-  %4245 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %4244
+  %4245 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %4244
   %4246 = load ptr, ptr %6, align 8, !tbaa !21
   %4247 = getelementptr inbounds nuw i8, ptr %4246, i64 24
   store ptr %4217, ptr %4247, align 8, !tbaa !27
@@ -12789,7 +12787,7 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
 
 4252:                                             ; preds = %4250
   %4253 = zext nneg i32 %4248 to i64
-  %4254 = getelementptr inbounds nuw %struct.lua_TValue, ptr %4225, i64 %4253
+  %4254 = getelementptr inbounds nuw [16 x i8], ptr %4225, i64 %4253
   store ptr %4254, ptr %25, align 8, !tbaa !20
   br label %4255
 
@@ -12816,13 +12814,13 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
   %4269 = lshr i32 %4268, 24
   %4270 = getelementptr inbounds nuw i8, ptr %.13078, i64 8
   %4271 = zext nneg i32 %4269 to i64
-  %4272 = getelementptr i32, ptr %4270, i64 %4271
+  %4272 = getelementptr [4 x i8], ptr %4270, i64 %4271
   %4273 = getelementptr i8, ptr %4272, i64 -4
   %4274 = load i32, ptr %4273, align 4, !tbaa !61
   %4275 = lshr i32 %4274, 8
   %4276 = and i32 %4275, 255
   %4277 = zext nneg i32 %4276 to i64
-  %4278 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %4277
+  %4278 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %4277
   %4279 = lshr i32 %4274, 24
   %4280 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %4281 = load ptr, ptr %4280, align 8, !tbaa !65
@@ -12836,16 +12834,16 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
   %4286 = lshr i32 %4268, 8
   %4287 = and i32 %4286, 255
   %4288 = zext nneg i32 %4287 to i64
-  %4289 = getelementptr inbounds nuw ptr, ptr @luauF_table, i64 %4288
+  %4289 = getelementptr inbounds nuw [8 x i8], ptr @luauF_table, i64 %4288
   %4290 = load ptr, ptr %4289, align 8, !tbaa !62
   %4291 = getelementptr inbounds nuw i8, ptr %.13078, i64 4
   %4292 = load i32, ptr %4291, align 4, !tbaa !61
   %4293 = zext i32 %4292 to i64
-  %4294 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.03076, i64 %4293
+  %4294 = getelementptr inbounds nuw [16 x i8], ptr %.03076, i64 %4293
   %4295 = lshr i32 %4268, 16
   %4296 = and i32 %4295, 255
   %4297 = zext nneg i32 %4296 to i64
-  %4298 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %4297
+  %4298 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %4297
   %4299 = load ptr, ptr %6, align 8, !tbaa !21
   %4300 = getelementptr inbounds nuw i8, ptr %4299, i64 24
   store ptr %4270, ptr %4300, align 8, !tbaa !27
@@ -12859,7 +12857,7 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
 
 4305:                                             ; preds = %4303
   %4306 = zext nneg i32 %4301 to i64
-  %4307 = getelementptr inbounds nuw %struct.lua_TValue, ptr %4278, i64 %4306
+  %4307 = getelementptr inbounds nuw [16 x i8], ptr %4278, i64 %4306
   store ptr %4307, ptr %25, align 8, !tbaa !20
   br label %4308
 
@@ -12886,13 +12884,13 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
   %4322 = lshr i32 %4321, 24
   %4323 = getelementptr inbounds nuw i8, ptr %.13078, i64 8
   %4324 = zext nneg i32 %4322 to i64
-  %4325 = getelementptr i32, ptr %4323, i64 %4324
+  %4325 = getelementptr [4 x i8], ptr %4323, i64 %4324
   %4326 = getelementptr i8, ptr %4325, i64 -4
   %4327 = load i32, ptr %4326, align 4, !tbaa !61
   %4328 = lshr i32 %4327, 8
   %4329 = and i32 %4328, 255
   %4330 = zext nneg i32 %4329 to i64
-  %4331 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %4330
+  %4331 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %4330
   %4332 = lshr i32 %4327, 24
   %4333 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %4334 = load ptr, ptr %4333, align 8, !tbaa !65
@@ -12906,21 +12904,21 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
   %4339 = lshr i32 %4321, 8
   %4340 = and i32 %4339, 255
   %4341 = zext nneg i32 %4340 to i64
-  %4342 = getelementptr inbounds nuw ptr, ptr @luauF_table, i64 %4341
+  %4342 = getelementptr inbounds nuw [8 x i8], ptr @luauF_table, i64 %4341
   %4343 = load ptr, ptr %4342, align 8, !tbaa !62
   %4344 = getelementptr inbounds nuw i8, ptr %.13078, i64 4
   %4345 = load i32, ptr %4344, align 4, !tbaa !61
   %4346 = lshr i32 %4345, 8
   %4347 = and i32 %4346, 255
   %4348 = zext nneg i32 %4347 to i64
-  %4349 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %4348
+  %4349 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %4348
   %4350 = and i32 %4345, 255
   %4351 = zext nneg i32 %4350 to i64
-  %4352 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %4351
+  %4352 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %4351
   %4353 = lshr i32 %4321, 16
   %4354 = and i32 %4353, 255
   %4355 = zext nneg i32 %4354 to i64
-  %4356 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %4355
+  %4356 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %4355
   %4357 = load ptr, ptr %6, align 8, !tbaa !21
   %4358 = getelementptr inbounds nuw i8, ptr %4357, i64 24
   store ptr %4323, ptr %4358, align 8, !tbaa !27
@@ -12938,7 +12936,7 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
 
 4365:                                             ; preds = %4363
   %4366 = zext nneg i32 %4361 to i64
-  %4367 = getelementptr inbounds nuw %struct.lua_TValue, ptr %4331, i64 %4366
+  %4367 = getelementptr inbounds nuw [16 x i8], ptr %4331, i64 %4366
   store ptr %4367, ptr %25, align 8, !tbaa !20
   br label %4368
 
@@ -13002,7 +13000,7 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
   %4408 = lshr i32 %4406, 8
   %4409 = and i32 %4408, 255
   %4410 = zext nneg i32 %4409 to i64
-  %4411 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %4410
+  %4411 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %4410
   %4412 = getelementptr inbounds nuw i8, ptr %4411, i64 12
   %4413 = load i32, ptr %4412, align 4, !tbaa !63
   %4414 = add nsw i32 %4413, -1
@@ -13011,7 +13009,7 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
   %4417 = ashr i32 %4406, 16
   %4418 = select i1 %4416, i32 %4417, i32 1
   %4419 = sext i32 %4418 to i64
-  %4420 = getelementptr inbounds i32, ptr %4405, i64 %4419
+  %4420 = getelementptr inbounds [4 x i8], ptr %4405, i64 %4419
   %4421 = load i32, ptr %4420, align 4, !tbaa !61
   %4422 = and i32 %4421, 255
   %4423 = zext nneg i32 %4422 to i64
@@ -13024,7 +13022,7 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
   %4428 = lshr i32 %4426, 8
   %4429 = and i32 %4428, 255
   %4430 = zext nneg i32 %4429 to i64
-  %4431 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %4430
+  %4431 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %4430
   %4432 = getelementptr inbounds nuw i8, ptr %4431, i64 12
   %4433 = load i32, ptr %4432, align 4, !tbaa !63
   %4434 = icmp eq i32 %4433, 1
@@ -13044,7 +13042,7 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
   %4443 = ashr i32 %4426, 16
   %4444 = select i1 %.not3201, i32 1, i32 %4443
   %4445 = sext i32 %4444 to i64
-  %4446 = getelementptr inbounds i32, ptr %4425, i64 %4445
+  %4446 = getelementptr inbounds [4 x i8], ptr %4425, i64 %4445
   %4447 = load i32, ptr %4446, align 4, !tbaa !61
   %4448 = and i32 %4447, 255
   %4449 = zext nneg i32 %4448 to i64
@@ -13057,7 +13055,7 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
   %4454 = lshr i32 %4452, 8
   %4455 = and i32 %4454, 255
   %4456 = zext nneg i32 %4455 to i64
-  %4457 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %4456
+  %4457 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %4456
   %4458 = getelementptr inbounds nuw i8, ptr %4457, i64 12
   %4459 = load i32, ptr %4458, align 4, !tbaa !63
   %4460 = icmp eq i32 %4459, 3
@@ -13066,7 +13064,7 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
 4461:                                             ; preds = %4450
   %4462 = and i32 %4453, 16777215
   %4463 = zext nneg i32 %4462 to i64
-  %4464 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.03076, i64 %4463
+  %4464 = getelementptr inbounds nuw [16 x i8], ptr %.03076, i64 %4463
   %4465 = load double, ptr %4457, align 8, !tbaa !30
   %4466 = load double, ptr %4464, align 8, !tbaa !30
   %4467 = fcmp oeq double %4465, %4466
@@ -13080,7 +13078,7 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
   %4472 = ashr i32 %4452, 16
   %4473 = select i1 %.not3200, i32 1, i32 %4472
   %4474 = sext i32 %4473 to i64
-  %4475 = getelementptr inbounds i32, ptr %4451, i64 %4474
+  %4475 = getelementptr inbounds [4 x i8], ptr %4451, i64 %4474
   %4476 = load i32, ptr %4475, align 4, !tbaa !61
   %4477 = and i32 %4476, 255
   %4478 = zext nneg i32 %4477 to i64
@@ -13093,7 +13091,7 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
   %4483 = lshr i32 %4481, 8
   %4484 = and i32 %4483, 255
   %4485 = zext nneg i32 %4484 to i64
-  %4486 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1, i64 %4485
+  %4486 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %4485
   %4487 = getelementptr inbounds nuw i8, ptr %4486, i64 12
   %4488 = load i32, ptr %4487, align 4, !tbaa !63
   %4489 = icmp eq i32 %4488, 5
@@ -13102,7 +13100,7 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
 4490:                                             ; preds = %4479
   %4491 = and i32 %4482, 16777215
   %4492 = zext nneg i32 %4491 to i64
-  %4493 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.03076, i64 %4492
+  %4493 = getelementptr inbounds nuw [16 x i8], ptr %.03076, i64 %4492
   %4494 = load ptr, ptr %4486, align 8, !tbaa !30
   %4495 = load ptr, ptr %4493, align 8, !tbaa !30
   %4496 = icmp eq ptr %4494, %4495
@@ -13116,7 +13114,7 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
   %4501 = ashr i32 %4481, 16
   %4502 = select i1 %.not3199, i32 1, i32 %4501
   %4503 = sext i32 %4502 to i64
-  %4504 = getelementptr inbounds i32, ptr %4480, i64 %4503
+  %4504 = getelementptr inbounds [4 x i8], ptr %4480, i64 %4503
   %4505 = load i32, ptr %4504, align 4, !tbaa !61
   %4506 = and i32 %4505, 255
   %4507 = zext nneg i32 %4506 to i64
@@ -13139,7 +13137,7 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1699
   %.03076 = phi ptr [ %48, %.backedge3431 ], [ %.03076.be, %.backedge.backedge ]
   %.1 = phi ptr [ %44, %.backedge3431 ], [ %.1.be, %.backedge.backedge ]
   %.0 = phi ptr [ %43, %.backedge3431 ], [ %.0.be, %.backedge.backedge ]
-  %4512 = getelementptr inbounds nuw ptr, ptr @_ZZL12luau_executeILb0EEvP9lua_StateE14kDispatchTable, i64 %.sink.sink
+  %4512 = getelementptr inbounds nuw [8 x i8], ptr @_ZZL12luau_executeILb0EEvP9lua_StateE14kDispatchTable, i64 %.sink.sink
   %4513 = load ptr, ptr %4512, align 8, !tbaa !62
   indirectbr ptr %4513, [label %52, label %4380, label %57, label %68, label %84, label %97, label %110, label %124, label %174, label %241, label %265, label %297, label %313, label %687, label %735, label %342, label %525, label %800, label %839, label %895, label %965, label %1159, label %1295, label %1375, label %3955, label %1384, label %1405, label %1426, label %1843, label %1953, label %1636, label %1898, label %2008, label %2063, label %2142, label %2221, label %2335, label %2539, label %2578, label %2614, label %2646, label %2678, label %2747, label %2896, label %2931, label %2978, label %3003, label %3028, label %3053, label %3078, label %3109, label %3132, label %3194, label %3246, label %3279, label %3308, label %3367, label %3410, label %3512, label %3666, label %4320, label %3706, label %3743, label %3756, label %3825, label %3922, label %3974, label %3988, label %4007, label %4071, label %4084, label %4085, label %4117, label %4165, label %4214, label %4267, label %3450, label %4404, label %4424, label %4450, label %4479, label %2449, label %2816]
 }
@@ -13184,7 +13182,7 @@ define hidden noundef range(i32 0, 3) i32 @_Z12luau_precallP9lua_StateP10lua_TVa
   %25 = getelementptr inbounds nuw i8, ptr %9, i64 5
   %26 = load i8, ptr %25, align 1, !tbaa !106
   %27 = zext i8 %26 to i64
-  %28 = getelementptr inbounds nuw %struct.lua_TValue, ptr %24, i64 %27
+  %28 = getelementptr inbounds nuw [16 x i8], ptr %24, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store ptr %28, ptr %29, align 8, !tbaa !22
   %30 = getelementptr inbounds nuw i8, ptr %20, i64 24
@@ -13242,7 +13240,7 @@ define hidden noundef range(i32 0, 3) i32 @_Z12luau_precallP9lua_StateP10lua_TVa
   %61 = getelementptr inbounds nuw i8, ptr %57, i64 4
   %62 = load i8, ptr %61, align 4, !tbaa !113
   %63 = zext i8 %62 to i64
-  %64 = getelementptr inbounds nuw %struct.lua_TValue, ptr %60, i64 %63
+  %64 = getelementptr inbounds nuw [16 x i8], ptr %60, i64 %63
   %65 = icmp ult ptr %59, %64
   br i1 %65, label %.lr.ph106, label %._crit_edge107
 

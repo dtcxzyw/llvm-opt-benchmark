@@ -7,7 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.icu_77::MaybeStackArray" = type <{ ptr, i32, i8, [40 x i8], [3 x i8] }>
 %"class.icu_77::Locale" = type <{ %"class.icu_77::UObject", [12 x i8], [6 x i8], [4 x i8], [2 x i8], i32, [4 x i8], ptr, [157 x i8], [3 x i8], ptr, i8, [7 x i8] }>
 %"class.icu_77::UObject" = type { ptr }
-%"struct.icu_77::(anonymous namespace)::LocaleAndWeight" = type { ptr, i32, i32 }
 
 $_ZN6icu_7715MaybeStackArrayIcLi40EEC5Ev = comdat any
 
@@ -1020,7 +1019,7 @@ define noundef zeroext i1 @_ZN6icu_7718LocalePriorityList3addERKNS_6LocaleEiR10U
   %24 = load ptr, ptr %0, align 8, !tbaa !20
   %25 = sext i32 %20 to i64
   %.val = load ptr, ptr %24, align 8, !tbaa !21
-  %26 = getelementptr inbounds %"struct.icu_77::(anonymous namespace)::LocaleAndWeight", ptr %.val, i64 %25
+  %26 = getelementptr inbounds [16 x i8], ptr %.val, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !40
   store ptr null, ptr %26, align 8, !tbaa !40
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
@@ -1145,7 +1144,7 @@ _ZN6icu_7715MaybeStackArrayINS_12_GLOBAL__N_115LocaleAndWeightELi20EE6resizeEii.
   %76 = load i32, ptr %45, align 8, !tbaa !36
   %77 = sext i32 %76 to i64
   %.val42 = load ptr, ptr %75, align 8, !tbaa !21
-  %78 = getelementptr inbounds %"struct.icu_77::(anonymous namespace)::LocaleAndWeight", ptr %.val42, i64 %77
+  %78 = getelementptr inbounds [16 x i8], ptr %.val42, i64 %77
   store ptr %.sroa.0.4, ptr %78, align 8, !tbaa !40
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
   store i32 %2, ptr %79, align 8, !tbaa !43
@@ -1269,7 +1268,7 @@ define void @_ZN6icu_7718LocalePriorityListD2Ev(ptr noundef nonnull readonly ali
   %indvars.iv = phi i64 [ %indvars.iv.next, %16 ], [ 0, %.preheader ]
   %8 = load ptr, ptr %0, align 8, !tbaa !20
   %.val = load ptr, ptr %8, align 8, !tbaa !21
-  %9 = getelementptr inbounds nuw %"struct.icu_77::(anonymous namespace)::LocaleAndWeight", ptr %.val, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %.val, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !40
   %11 = icmp eq ptr %10, null
   br i1 %11, label %16, label %12
@@ -1336,7 +1335,7 @@ define noundef ptr @_ZNK6icu_7718LocalePriorityList8localeAtEi(ptr noundef nonnu
   %3 = load ptr, ptr %0, align 8, !tbaa !20
   %4 = sext i32 %1 to i64
   %.val = load ptr, ptr %3, align 8, !tbaa !21
-  %5 = getelementptr inbounds %"struct.icu_77::(anonymous namespace)::LocaleAndWeight", ptr %.val, i64 %4
+  %5 = getelementptr inbounds [16 x i8], ptr %.val, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !40
   ret ptr %6
 }
@@ -1350,7 +1349,7 @@ define noundef ptr @_ZN6icu_7718LocalePriorityList14orphanLocaleAtEi(ptr noundef
 5:                                                ; preds = %2
   %6 = sext i32 %1 to i64
   %.val = load ptr, ptr %3, align 8, !tbaa !21
-  %7 = getelementptr inbounds %"struct.icu_77::(anonymous namespace)::LocaleAndWeight", ptr %.val, i64 %6
+  %7 = getelementptr inbounds [16 x i8], ptr %.val, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !40
   store ptr null, ptr %7, align 8, !tbaa !40
   br label %9

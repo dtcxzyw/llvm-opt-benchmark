@@ -129,7 +129,7 @@ define i64 @h5tools_get_little_endian_type(i64 noundef %0) local_unnamed_addr #0
   br label %.sink.split
 
 switch.lookup:                                    ; preds = %.split
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.h5tools_get_little_endian_type, i64 %25
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.h5tools_get_little_endian_type, i64 %25
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %.sink.split
 
@@ -239,7 +239,7 @@ define i64 @h5tools_get_big_endian_type(i64 noundef %0) local_unnamed_addr #0 {
   br label %.sink.split
 
 switch.lookup:                                    ; preds = %.split
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.h5tools_get_big_endian_type, i64 %25
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.h5tools_get_big_endian_type, i64 %25
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %.sink.split
 

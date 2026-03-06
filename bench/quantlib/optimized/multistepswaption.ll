@@ -682,7 +682,7 @@ _ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i: ; preds = %do.body31
 invoke.cont80:                                    ; preds = %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i
   %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %this, i64 208
   %_M_finish.i75 = getelementptr inbounds nuw i8, ptr %this, i64 200
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %31, i64 %8
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %8
   %50 = load double, ptr %add.ptr.i, align 8, !tbaa !42
   store double %50, ptr %call5.i.i.i.i.i80, align 8, !tbaa !42
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i80, i64 8

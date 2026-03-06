@@ -3966,7 +3966,7 @@ zend_parse_arg_long_ex.exit:                      ; preds = %27
 
 switch.lookup:                                    ; preds = %57
   %60 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.sqlite3stmt_bind, i64 %60
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.sqlite3stmt_bind, i64 %60
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %.sink.split
 
@@ -4746,7 +4746,7 @@ zend_parse_arg_long_ex.exit:                      ; preds = %14
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 %70
   store i8 0, ptr %78, align 1, !tbaa !8
   %79 = load ptr, ptr %59, align 8, !tbaa !78
-  %80 = getelementptr inbounds nuw ptr, ptr %79, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %79, i64 %indvars.iv
   store ptr %73, ptr %80, align 8, !tbaa !54
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -4808,7 +4808,7 @@ zend_parse_arg_long_ex.exit:                      ; preds = %14
 107:                                              ; preds = %103, %98
   %108 = load ptr, ptr %1, align 8, !tbaa !8
   %109 = load ptr, ptr %85, align 8, !tbaa !78
-  %110 = getelementptr inbounds nuw ptr, ptr %109, i64 %indvars.iv157
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %109, i64 %indvars.iv157
   %111 = load ptr, ptr %110, align 8, !tbaa !54
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 24
@@ -4945,7 +4945,7 @@ define hidden void @zim_SQLite3Result_reset(ptr noundef readonly captures(none) 
   %25 = phi i32 [ %38, %zend_string_release_ex.exit.i ], [ %22, %.preheader.i ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %zend_string_release_ex.exit.i ], [ 0, %.preheader.i ]
   %26 = load ptr, ptr %19, align 8, !tbaa !78
-  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv.i
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv.i
   %28 = load ptr, ptr %27, align 8, !tbaa !54
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %30 = load i32, ptr %29, align 4, !tbaa !8
@@ -5053,7 +5053,7 @@ define hidden void @zim_SQLite3Result_finalize(ptr noundef readonly captures(non
   %25 = phi i32 [ %38, %zend_string_release_ex.exit.i ], [ %22, %.preheader.i ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %zend_string_release_ex.exit.i ], [ 0, %.preheader.i ]
   %26 = load ptr, ptr %19, align 8, !tbaa !78
-  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv.i
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv.i
   %28 = load ptr, ptr %27, align 8, !tbaa !54
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %30 = load i32, ptr %29, align 4, !tbaa !8
@@ -7894,7 +7894,7 @@ define internal void @php_sqlite3_result_object_free_storage(ptr noundef %0) #0 
   %8 = phi i32 [ %21, %zend_string_release_ex.exit.i ], [ %5, %.preheader.i ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %zend_string_release_ex.exit.i ], [ 0, %.preheader.i ]
   %9 = load ptr, ptr %2, align 8, !tbaa !78
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i
   %11 = load ptr, ptr %10, align 8, !tbaa !54
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %13 = load i32, ptr %12, align 4, !tbaa !8
@@ -8129,13 +8129,13 @@ define internal fastcc void @sqlite3_do_callback(ptr noundef readonly captures(n
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %58
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %58 ]
-  %32 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %33 = load ptr, ptr %32, align 8, !tbaa !182
   %34 = tail call i32 @sqlite3_value_type(ptr noundef %33) #17
   %35 = trunc nuw i64 %indvars.iv to i32
   %36 = add i32 %spec.store.select, %35
   %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds nuw %struct._zval_struct, ptr %.0, i64 %37
+  %38 = getelementptr inbounds nuw [16 x i8], ptr %.0, i64 %37
   switch i32 %34, label %zend_string_alloc.exit [
     i32 1, label %39
     i32 2, label %42
@@ -8239,7 +8239,7 @@ zend_call_known_fcc.exit:                         ; preds = %72, %64, %._crit_ed
 
 .lr.ph119:                                        ; preds = %.lr.ph119.preheader, %.lr.ph119
   %indvars.iv123 = phi i64 [ %83, %.lr.ph119.preheader ], [ %indvars.iv.next124, %.lr.ph119 ]
-  %84 = getelementptr inbounds nuw %struct._zval_struct, ptr %.0, i64 %indvars.iv123
+  %84 = getelementptr inbounds nuw [16 x i8], ptr %.0, i64 %indvars.iv123
   call void @zval_ptr_dtor(ptr noundef %84) #17
   %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next124 to i32

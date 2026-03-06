@@ -23,9 +23,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
 %"struct.std::_Head_base.1" = type { ptr }
 %"class.dmlc::LogMessageFatal" = type { i8 }
-%"class.xgboost::RegTree::Node" = type { i32, i32, i32, i32, %"union.xgboost::RegTree::Node::Info" }
-%"union.xgboost::RegTree::Node::Info" = type { float }
-%"class.xgboost::detail::GradientPairInternal" = type { double, double }
 %"struct.dmlc::Error" = type { %"class.std::runtime_error" }
 %"class.std::runtime_error" = type { %"class.std::exception", %"struct.std::__cow_string" }
 %"class.std::exception" = type { ptr }
@@ -268,13 +265,13 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 _ZNK7xgboost7RegTree9LeftChildEi.exit.thread:     ; preds = %46
   %61 = sext i32 %47 to i64
   %62 = load ptr, ptr %45, align 8, !tbaa !30
-  %63 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %62, i64 %61
+  %63 = getelementptr inbounds nuw [20 x i8], ptr %62, i64 %61
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 4
   %.0.i108 = load i32, ptr %64, align 4, !tbaa !33
   br label %79
 
 _ZNK7xgboost7RegTree9LeftChildEi.exit:            ; preds = %49
-  %65 = getelementptr inbounds nuw i32, ptr %55, i64 %52
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %52
   %.pre = load i32, ptr %.sroa.068.084, align 8, !tbaa !21
   %.pre92 = load ptr, ptr %44, align 8, !tbaa !24
   %.0.i = load i32, ptr %65, align 4, !tbaa !33
@@ -300,7 +297,7 @@ _ZNK7xgboost7RegTree9LeftChildEi.exit:            ; preds = %49
   unreachable
 
 _ZNK7xgboost15MultiTargetTree10RightChildEi.exit.i: ; preds = %66
-  %78 = getelementptr inbounds nuw i32, ptr %72, i64 %69
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %69
   br label %_ZNK7xgboost7RegTree10RightChildEi.exit
 
 79:                                               ; preds = %_ZNK7xgboost7RegTree9LeftChildEi.exit.thread, %_ZNK7xgboost7RegTree9LeftChildEi.exit
@@ -308,7 +305,7 @@ _ZNK7xgboost15MultiTargetTree10RightChildEi.exit.i: ; preds = %66
   %80 = phi i32 [ %47, %_ZNK7xgboost7RegTree9LeftChildEi.exit.thread ], [ %.pre, %_ZNK7xgboost7RegTree9LeftChildEi.exit ]
   %81 = sext i32 %80 to i64
   %82 = load ptr, ptr %45, align 8, !tbaa !30
-  %83 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %82, i64 %81
+  %83 = getelementptr inbounds nuw [20 x i8], ptr %82, i64 %81
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
   br label %_ZNK7xgboost7RegTree10RightChildEi.exit
 
@@ -330,7 +327,7 @@ _ZNK7xgboost7RegTree10RightChildEi.exit:          ; preds = %_ZNK7xgboost15Multi
 .lr.ph.i:                                         ; preds = %_ZNK7xgboost7RegTree10RightChildEi.exit, %.lr.ph.i
   %.010.i = phi double [ %96, %.lr.ph.i ], [ 0.000000e+00, %_ZNK7xgboost7RegTree10RightChildEi.exit ]
   %.sroa.05.09.i = phi i64 [ %97, %.lr.ph.i ], [ 0, %_ZNK7xgboost7RegTree10RightChildEi.exit ]
-  %93 = getelementptr inbounds nuw %"class.xgboost::detail::GradientPairInternal", ptr %88, i64 %.sroa.05.09.i
+  %93 = getelementptr inbounds nuw [16 x i8], ptr %88, i64 %.sroa.05.09.i
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 8
   %95 = load double, ptr %94, align 8, !tbaa !38
   %96 = fadd double %.010.i, %95
@@ -354,7 +351,7 @@ _ZNK7xgboost7RegTree10RightChildEi.exit:          ; preds = %_ZNK7xgboost15Multi
 .lr.ph.i53:                                       ; preds = %"_ZSt10accumulateIN7xgboost6common18IndexTransformIterIZNS0_4tree11AssignNodesEPKNS0_7RegTreeERKSt6vectorINS3_16MultiExpandEntryESaIS8_EENS1_4SpanIiLm18446744073709551615EEESE_E3$_0EEdET0_T_SI_SH_.exit", %.lr.ph.i53
   %.010.i55 = phi double [ %109, %.lr.ph.i53 ], [ 0.000000e+00, %"_ZSt10accumulateIN7xgboost6common18IndexTransformIterIZNS0_4tree11AssignNodesEPKNS0_7RegTreeERKSt6vectorINS3_16MultiExpandEntryESaIS8_EENS1_4SpanIiLm18446744073709551615EEESE_E3$_0EEdET0_T_SI_SH_.exit" ]
   %.sroa.05.09.i56 = phi i64 [ %110, %.lr.ph.i53 ], [ 0, %"_ZSt10accumulateIN7xgboost6common18IndexTransformIterIZNS0_4tree11AssignNodesEPKNS0_7RegTreeERKSt6vectorINS3_16MultiExpandEntryESaIS8_EENS1_4SpanIiLm18446744073709551615EEESE_E3$_0EEdET0_T_SI_SH_.exit" ]
-  %106 = getelementptr inbounds nuw %"class.xgboost::detail::GradientPairInternal", ptr %101, i64 %.sroa.05.09.i56
+  %106 = getelementptr inbounds nuw [16 x i8], ptr %101, i64 %.sroa.05.09.i56
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 8
   %108 = load double, ptr %107, align 8, !tbaa !38
   %109 = fadd double %.010.i55, %108
@@ -375,7 +372,7 @@ _ZNK7xgboost7RegTree10RightChildEi.exit:          ; preds = %_ZNK7xgboost15Multi
 
 _ZNK7xgboost6common4SpanIiLm18446744073709551615EEixEm.exit: ; preds = %"_ZSt10accumulateIN7xgboost6common18IndexTransformIterIZNS0_4tree11AssignNodesEPKNS0_7RegTreeERKSt6vectorINS3_16MultiExpandEntryESaIS8_EENS1_4SpanIiLm18446744073709551615EEESE_E3$_1EEdET0_T_SI_SH_.exit"
   %.0 = select i1 %111, i32 %.0.i43, i32 %.0.i110
-  %113 = getelementptr inbounds nuw i32, ptr %3, i64 %.02885
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.02885
   store i32 %.0, ptr %113, align 4, !tbaa !33
   %exitcond91.not = icmp eq i64 %.02885, %4
   br i1 %exitcond91.not, label %114, label %_ZNK7xgboost6common4SpanIiLm18446744073709551615EEixEm.exit59, !prof !44
@@ -385,7 +382,7 @@ _ZNK7xgboost6common4SpanIiLm18446744073709551615EEixEm.exit: ; preds = %"_ZSt10a
   unreachable
 
 _ZNK7xgboost6common4SpanIiLm18446744073709551615EEixEm.exit59: ; preds = %_ZNK7xgboost6common4SpanIiLm18446744073709551615EEixEm.exit
-  %115 = getelementptr inbounds nuw i32, ptr %5, i64 %.02885
+  %115 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.02885
   store i32 %.074, ptr %115, align 4, !tbaa !33
   %116 = add i64 %.02885, 1
   %117 = getelementptr inbounds nuw i8, ptr %.sroa.068.084, i64 104
@@ -564,16 +561,16 @@ _ZNK7xgboost6common4SpanIiLm18446744073709551615EEixEm.exit.us: ; preds = %.lr.p
   %16 = fcmp olt double %13, %15
   %17 = load i32, ptr %.sroa.018.027.us, align 8, !tbaa !49
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %11, i64 %18
+  %19 = getelementptr inbounds nuw [20 x i8], ptr %11, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %21 = load i32, ptr %20, align 4, !tbaa !51
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %23 = load i32, ptr %22, align 4, !tbaa !53
   %.024.us = select i1 %16, i32 %21, i32 %23
   %.025.us = select i1 %16, i32 %23, i32 %21
-  %24 = getelementptr inbounds nuw i32, ptr %3, i64 %.028.us
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.028.us
   store i32 %.025.us, ptr %24, align 4, !tbaa !33
-  %25 = getelementptr inbounds nuw i32, ptr %5, i64 %.028.us
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.028.us
   store i32 %.024.us, ptr %25, align 4, !tbaa !33
   %26 = add i64 %.028.us, 1
   %27 = getelementptr inbounds nuw i8, ptr %.sroa.018.027.us, i64 88
@@ -588,7 +585,7 @@ _ZNK7xgboost6common4SpanIiLm18446744073709551615EEixEm.exit.us: ; preds = %.lr.p
   %.sroa.018.027 = phi ptr [ %44, %_ZNK7xgboost6common4SpanIiLm18446744073709551615EEixEm.exit14 ], [ %7, %.lr.ph ]
   %28 = load i32, ptr %.sroa.018.027, align 8, !tbaa !49
   %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %11, i64 %29
+  %30 = getelementptr inbounds nuw [20 x i8], ptr %11, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %32 = load i32, ptr %31, align 4, !tbaa !51
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 8
@@ -608,7 +605,7 @@ _ZNK7xgboost6common4SpanIiLm18446744073709551615EEixEm.exit.us: ; preds = %.lr.p
 
 _ZNK7xgboost6common4SpanIiLm18446744073709551615EEixEm.exit: ; preds = %.lr.ph.split
   %.025 = select i1 %39, i32 %34, i32 %32
-  %40 = getelementptr inbounds nuw i32, ptr %3, i64 %.028
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.028
   store i32 %.025, ptr %40, align 4, !tbaa !33
   %exitcond31.not = icmp eq i64 %.028, %4
   br i1 %exitcond31.not, label %41, label %_ZNK7xgboost6common4SpanIiLm18446744073709551615EEixEm.exit14, !prof !44
@@ -618,7 +615,7 @@ _ZNK7xgboost6common4SpanIiLm18446744073709551615EEixEm.exit: ; preds = %.lr.ph.s
   unreachable
 
 _ZNK7xgboost6common4SpanIiLm18446744073709551615EEixEm.exit14: ; preds = %_ZNK7xgboost6common4SpanIiLm18446744073709551615EEixEm.exit
-  %42 = getelementptr inbounds nuw i32, ptr %5, i64 %.028
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.028
   store i32 %.024, ptr %42, align 4, !tbaa !33
   %43 = add i64 %.028, 1
   %44 = getelementptr inbounds nuw i8, ptr %.sroa.018.027, i64 88
@@ -865,7 +862,7 @@ _ZNSt6vectorIPvSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i: ; preds = %3
           to label %.noexc27 unwind label %22
 
 .noexc27:                                         ; preds = %8
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %2
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %2
   store ptr null, ptr %10, align 8, !tbaa !77
   %12 = add nsw i64 %2, -1
   %13 = icmp eq i64 %12, 0
@@ -921,7 +918,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %20, %17
 32:                                               ; preds = %.lr.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %indvars.iv = phi i64 [ %31, %.lr.ph ], [ %indvars.iv.next, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %33 = getelementptr inbounds ptr, ptr %26, i64 %indvars.iv
+  %33 = getelementptr inbounds [8 x i8], ptr %26, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8, !tbaa !78
   invoke void @_ZN4dmlc8DemangleB5cxx11EPKc(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef %34)
           to label %35 unwind label %48

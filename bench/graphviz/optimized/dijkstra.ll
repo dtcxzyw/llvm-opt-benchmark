@@ -101,7 +101,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 24:                                               ; preds = %9
   %25 = load i32, ptr @optind, align 4, !tbaa !9
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds ptr, ptr %1, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %1, i64 %26
   %28 = icmp eq i32 %0, %25
   br i1 %28, label %29, label %33
 
@@ -164,15 +164,15 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv36.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next37.i, %.lr.ph.i ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %59 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv36.i
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv36.i
   %60 = load ptr, ptr %59, align 8, !tbaa !4
-  %61 = getelementptr inbounds nuw ptr, ptr %49, i64 %indvars.iv.i
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %indvars.iv.i
   store ptr %60, ptr %61, align 8, !tbaa !4
   %62 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %63 = load ptr, ptr %62, align 8, !tbaa !4
   %.not27.i = icmp eq ptr %63, null
   %spec.select.i = select i1 %.not27.i, ptr @.str.6, ptr %63
-  %64 = getelementptr inbounds nuw ptr, ptr %42, i64 %indvars.iv.i
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv.i
   store ptr %spec.select.i, ptr %64, align 8, !tbaa !4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %indvars.iv.next37.i = add nuw nsw i64 %indvars.iv36.i, 2
@@ -180,9 +180,9 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %exitcond.not.i, label %init.exit, label %.lr.ph.i, !llvm.loop !17
 
 init.exit:                                        ; preds = %.lr.ph.i
-  %65 = getelementptr inbounds nuw ptr, ptr %42, i64 %wide.trip.count.i
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %wide.trip.count.i
   store ptr null, ptr %65, align 8, !tbaa !4
-  %66 = getelementptr inbounds nuw ptr, ptr %49, i64 %wide.trip.count.i
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %wide.trip.count.i
   store ptr null, ptr %66, align 8, !tbaa !4
   %67 = call ptr @newIngraph(ptr noundef nonnull %7, ptr noundef nonnull %42) #13
   %68 = load ptr, ptr @Dtoset, align 8, !tbaa !18
@@ -198,7 +198,7 @@ init.exit:                                        ; preds = %.lr.ph.i
   %72 = load ptr, ptr %69, align 8, !tbaa !19
   %73 = call ptr %72(ptr noundef nonnull %69, ptr noundef null, i32 noundef 64) #13
   %74 = load ptr, ptr @Nodes, align 8, !tbaa !15
-  %75 = getelementptr inbounds nuw ptr, ptr %74, i64 %.022
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %.022
   %76 = load ptr, ptr %75, align 8, !tbaa !4
   %77 = call ptr @agnode(ptr noundef nonnull %71, ptr noundef %76, i32 noundef 0) #13
   %.not17 = icmp eq ptr %77, null
@@ -542,7 +542,7 @@ dijkstra.exit:                                    ; preds = %209, %212
   %216 = load ptr, ptr @stderr, align 8, !tbaa !11
   %217 = load ptr, ptr @CmdName, align 8, !tbaa !4
   %218 = load ptr, ptr @Nodes, align 8, !tbaa !15
-  %219 = getelementptr inbounds nuw ptr, ptr %218, i64 %.022
+  %219 = getelementptr inbounds nuw [8 x i8], ptr %218, i64 %.022
   %220 = load ptr, ptr %219, align 8, !tbaa !4
   %221 = call ptr @agnameof(ptr noundef nonnull %71) #13
   %222 = call ptr @fileName(ptr noundef nonnull %7) #13

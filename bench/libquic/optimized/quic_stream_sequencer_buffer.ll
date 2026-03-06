@@ -15,7 +15,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::pair.11" = type { i64, %"struct.net::QuicStreamSequencerBuffer::FrameInfo" }
 %"struct.net::QuicStreamSequencerBuffer::FrameInfo" = type { i64, %"class.net::QuicTime" }
 %"class.net::QuicTime" = type { i64 }
-%struct.iovec = type { ptr, i64 }
 
 $_ZNSt3mapImN3net25QuicStreamSequencerBuffer9FrameInfoESt4lessImESaISt4pairIKmS2_EEED2Ev = comdat any
 
@@ -190,7 +189,7 @@ define void @_ZN3net25QuicStreamSequencerBuffer5ClearEv(ptr noundef nonnull alig
   %12 = phi i64 [ %18, %17 ], [ %11, %.preheader ]
   %13 = phi ptr [ %19, %17 ], [ %8, %.preheader ]
   %.012 = phi i64 [ %20, %17 ], [ 0, %.preheader ]
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %.012
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.012
   %15 = load ptr, ptr %14, align 8, !tbaa !56
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %17, label %_ZN3net25QuicStreamSequencerBuffer11RetireBlockEm.exit
@@ -198,7 +197,7 @@ define void @_ZN3net25QuicStreamSequencerBuffer5ClearEv(ptr noundef nonnull alig
 _ZN3net25QuicStreamSequencerBuffer11RetireBlockEm.exit: ; preds = %.lr.ph
   tail call void @_ZdlPv(ptr noundef nonnull %15) #24
   %.pre.i = load ptr, ptr %7, align 8, !tbaa !48
-  %16 = getelementptr inbounds nuw ptr, ptr %.pre.i, i64 %.012
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i, i64 %.012
   store ptr null, ptr %16, align 8, !tbaa !56
   %.pre = load i64, ptr %10, align 8, !tbaa !39
   br label %17
@@ -395,7 +394,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #8
 define void @_ZN3net25QuicStreamSequencerBuffer11RetireBlockEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0, i64 noundef %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8, !tbaa !48
-  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %1
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %1
   %6 = load ptr, ptr %5, align 8, !tbaa !56
   %7 = icmp eq ptr %6, null
   br i1 %7, label %9, label %8
@@ -407,7 +406,7 @@ define void @_ZN3net25QuicStreamSequencerBuffer11RetireBlockEm(ptr noundef nonnu
 
 9:                                                ; preds = %8, %2
   %10 = phi ptr [ %.pre, %8 ], [ %4, %2 ]
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %1
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %1
   store ptr null, ptr %11, align 8, !tbaa !56
   ret void
 }
@@ -3041,7 +3040,7 @@ _ZNSt10unique_ptrIA_PN3net25QuicStreamSequencerBuffer11BufferBlockESt14default_d
 
 .loopexit:                                        ; preds = %.lr.ph, %_ZNSt10unique_ptrIA_PN3net25QuicStreamSequencerBuffer11BufferBlockESt14default_deleteIS4_EE5resetIPS3_vEEvT_.exit, %946
   %970 = phi ptr [ %969, %.lr.ph ], [ %969, %_ZNSt10unique_ptrIA_PN3net25QuicStreamSequencerBuffer11BufferBlockESt14default_deleteIS4_EE5resetIPS3_vEEvT_.exit ], [ %965, %946 ]
-  %971 = getelementptr inbounds nuw ptr, ptr %970, i64 %949
+  %971 = getelementptr inbounds nuw [8 x i8], ptr %970, i64 %949
   %972 = load ptr, ptr %971, align 8, !tbaa !56
   %973 = icmp eq ptr %972, null
   br i1 %973, label %974, label %976
@@ -3983,7 +3982,7 @@ define noundef i64 @_ZN3net25QuicStreamSequencerBuffer5ReadvEPK5iovecm(ptr nound
   br i1 %.not29, label %.critedge.thread, label %84
 
 16:                                               ; preds = %11
-  %17 = getelementptr inbounds nuw %struct.iovec, ptr %1, i64 %.02758
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %.02758
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load i64, ptr %18, align 8, !tbaa !137
   %.not3052 = icmp eq i64 %19, 0
@@ -4021,7 +4020,7 @@ define noundef i64 @_ZN3net25QuicStreamSequencerBuffer5ReadvEPK5iovecm(ptr nound
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %37, i64 %26)
   %.sroa.speculated42 = tail call i64 @llvm.umin.i64(i64 %.05053, i64 %.sroa.speculated)
   %38 = load ptr, ptr %7, align 8, !tbaa !48
-  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %29
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %29
   %40 = load ptr, ptr %39, align 8, !tbaa !56
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 %30
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.02854, ptr align 1 %41, i64 %.sroa.speculated42, i1 false)
@@ -4051,7 +4050,7 @@ _ZNK3net25QuicStreamSequencerBuffer5EmptyEv.exit.i: ; preds = %49
 
 56:                                               ; preds = %_ZNK3net25QuicStreamSequencerBuffer5EmptyEv.exit.i
   %57 = load ptr, ptr %7, align 8, !tbaa !48
-  %58 = getelementptr inbounds nuw ptr, ptr %57, i64 %29
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %29
   %59 = load ptr, ptr %58, align 8, !tbaa !56
   %60 = icmp eq ptr %59, null
   br i1 %60, label %.sink.split.i, label %.sink.split.i.sink.split
@@ -4084,7 +4083,7 @@ _ZNK3net25QuicStreamSequencerBuffer5EmptyEv.exit.thread.i: ; preds = %_ZNK3net25
 
 77:                                               ; preds = %73, %69
   %78 = load ptr, ptr %7, align 8, !tbaa !48
-  %79 = getelementptr inbounds nuw ptr, ptr %78, i64 %29
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %29
   %80 = load ptr, ptr %79, align 8, !tbaa !56
   %81 = icmp eq ptr %80, null
   br i1 %81, label %.sink.split.i, label %.sink.split.i.sink.split
@@ -4097,7 +4096,7 @@ _ZNK3net25QuicStreamSequencerBuffer5EmptyEv.exit.thread.i: ; preds = %_ZNK3net25
 
 .sink.split.i:                                    ; preds = %.sink.split.i.sink.split, %77, %56
   %.sink12.i = phi ptr [ %57, %56 ], [ %78, %77 ], [ %.pre.i8.i, %.sink.split.i.sink.split ]
-  %82 = getelementptr inbounds nuw ptr, ptr %.sink12.i, i64 %29
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %.sink12.i, i64 %29
   store ptr null, ptr %82, align 8, !tbaa !56
   br label %_ZN3net25QuicStreamSequencerBuffer18RetireBlockIfEmptyEm.exit
 
@@ -4174,7 +4173,7 @@ _ZNK3net25QuicStreamSequencerBuffer5EmptyEv.exit: ; preds = %2
 13:                                               ; preds = %_ZNK3net25QuicStreamSequencerBuffer5EmptyEv.exit
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %15 = load ptr, ptr %14, align 8, !tbaa !48
-  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %1
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %1
   %17 = load ptr, ptr %16, align 8, !tbaa !56
   %18 = icmp eq ptr %17, null
   br i1 %18, label %.sink.split, label %19
@@ -4217,7 +4216,7 @@ _ZNK3net25QuicStreamSequencerBuffer5EmptyEv.exit.thread: ; preds = %2, %_ZNK3net
 40:                                               ; preds = %36, %30
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %42 = load ptr, ptr %41, align 8, !tbaa !48
-  %43 = getelementptr inbounds nuw ptr, ptr %42, i64 %1
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %1
   %44 = load ptr, ptr %43, align 8, !tbaa !56
   %45 = icmp eq ptr %44, null
   br i1 %45, label %.sink.split, label %46
@@ -4229,7 +4228,7 @@ _ZNK3net25QuicStreamSequencerBuffer5EmptyEv.exit.thread: ; preds = %2, %_ZNK3net
 
 .sink.split:                                      ; preds = %46, %40, %19, %13
   %.sink12 = phi ptr [ %15, %13 ], [ %.pre.i, %19 ], [ %.pre.i8, %46 ], [ %42, %40 ]
-  %47 = getelementptr inbounds nuw ptr, ptr %.sink12, i64 %1
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %.sink12, i64 %1
   store ptr null, ptr %47, align 8, !tbaa !56
   br label %48
 
@@ -4340,7 +4339,7 @@ define noundef range(i32 0, -2147483648) i32 @_ZNK3net25QuicStreamSequencerBuffe
   %or.cond = select i1 %20, i1 true, i1 %.not
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %23 = load ptr, ptr %22, align 8, !tbaa !48
-  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %15
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %15
   %25 = load ptr, ptr %24, align 8, !tbaa !56
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 %21
   store ptr %26, ptr %1, align 8, !tbaa !139
@@ -4380,9 +4379,9 @@ define noundef range(i32 0, -2147483648) i32 @_ZNK3net25QuicStreamSequencerBuffe
 47:                                               ; preds = %.lr.ph, %47
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %47 ]
   %.061 = phi i64 [ %42, %.lr.ph ], [ %59, %47 ]
-  %48 = getelementptr inbounds nuw ptr, ptr %23, i64 %.061
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %.061
   %49 = load ptr, ptr %48, align 8, !tbaa !56
-  %50 = getelementptr inbounds nuw %struct.iovec, ptr %1, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %indvars.iv
   store ptr %49, ptr %50, align 8, !tbaa !139
   %51 = add nuw nsw i64 %.061, 1
   %52 = icmp eq i64 %51, %32
@@ -4410,10 +4409,10 @@ define noundef range(i32 0, -2147483648) i32 @_ZNK3net25QuicStreamSequencerBuffe
 
 64:                                               ; preds = %._crit_edge.loopexit, %._crit_edge
   %.042.lcssa73 = phi i32 [ %63, %._crit_edge.loopexit ], [ 1, %._crit_edge ]
-  %65 = getelementptr inbounds nuw ptr, ptr %23, i64 %19
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %19
   %66 = load ptr, ptr %65, align 8, !tbaa !56
   %67 = zext nneg i32 %.042.lcssa73 to i64
-  %68 = getelementptr inbounds nuw %struct.iovec, ptr %1, i64 %67
+  %68 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %67
   store ptr %66, ptr %68, align 8, !tbaa !139
   %69 = add nuw nsw i64 %18, 1
   %70 = getelementptr inbounds nuw i8, ptr %68, i64 8
@@ -4448,7 +4447,7 @@ define noundef zeroext i1 @_ZNK3net25QuicStreamSequencerBuffer17GetReadableRegio
   %16 = lshr i64 %15, 13
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %18 = load ptr, ptr %17, align 8, !tbaa !48
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %16
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %16
   %20 = load ptr, ptr %19, align 8, !tbaa !56
   %21 = and i64 %15, 8191
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 %21
@@ -4580,7 +4579,7 @@ define noundef zeroext i1 @_ZN3net25QuicStreamSequencerBuffer12MarkConsumedEm(pt
 
 41:                                               ; preds = %37
   %42 = load ptr, ptr %15, align 8, !tbaa !48
-  %43 = getelementptr inbounds nuw ptr, ptr %42, i64 %20
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %20
   %44 = load ptr, ptr %43, align 8, !tbaa !56
   %45 = icmp eq ptr %44, null
   br i1 %45, label %.sink.split.i, label %.sink.split.i.sink.split
@@ -4611,7 +4610,7 @@ _ZNK3net25QuicStreamSequencerBuffer5EmptyEv.exit.thread.i: ; preds = %37
 
 60:                                               ; preds = %57, %53
   %61 = load ptr, ptr %15, align 8, !tbaa !48
-  %62 = getelementptr inbounds nuw ptr, ptr %61, i64 %20
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %20
   %63 = load ptr, ptr %62, align 8, !tbaa !56
   %64 = icmp eq ptr %63, null
   br i1 %64, label %.sink.split.i, label %.sink.split.i.sink.split
@@ -4624,7 +4623,7 @@ _ZNK3net25QuicStreamSequencerBuffer5EmptyEv.exit.thread.i: ; preds = %37
 
 .sink.split.i:                                    ; preds = %.sink.split.i.sink.split, %60, %41
   %.sink12.i = phi ptr [ %42, %41 ], [ %61, %60 ], [ %.pre.i8.i, %.sink.split.i.sink.split ]
-  %65 = getelementptr inbounds nuw ptr, ptr %.sink12.i, i64 %20
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %.sink12.i, i64 %20
   store ptr null, ptr %65, align 8, !tbaa !56
   br label %_ZN3net25QuicStreamSequencerBuffer18RetireBlockIfEmptyEm.exit
 

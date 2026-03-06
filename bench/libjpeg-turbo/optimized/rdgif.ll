@@ -1086,7 +1086,7 @@ SkipDataBlocks.exit:                              ; preds = %ReadByte.exit.i.i, 
   store ptr %105, ptr %3, align 8, !tbaa !71
   store i8 %103, ptr %104, align 1, !tbaa !30
   %106 = load ptr, ptr %98, align 8, !tbaa !58
-  %107 = getelementptr inbounds i16, ptr %106, i64 %101
+  %107 = getelementptr inbounds [2 x i8], ptr %106, i64 %101
   %108 = load i16, ptr %107, align 2, !tbaa !104
   %109 = zext i16 %108 to i32
   %110 = load i32, ptr %14, align 4, !tbaa !66
@@ -1108,7 +1108,7 @@ SkipDataBlocks.exit:                              ; preds = %ReadByte.exit.i.i, 
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %119 = load ptr, ptr %118, align 8, !tbaa !58
   %120 = sext i32 %112 to i64
-  %121 = getelementptr inbounds i16, ptr %119, i64 %120
+  %121 = getelementptr inbounds [2 x i8], ptr %119, i64 %120
   store i16 %117, ptr %121, align 2, !tbaa !104
   %122 = trunc i32 %.2.lcssa to i8
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 400

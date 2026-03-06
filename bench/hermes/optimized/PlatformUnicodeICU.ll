@@ -100,7 +100,7 @@ if.end.i:                                         ; preds = %if.then.i, %entry
 
 for.body.i.i.i.i.i.i.i.i.preheader.i:             ; preds = %if.end.i
   %3 = load ptr, ptr %tzstr, align 8
-  %add.ptr.i.i = getelementptr inbounds nuw i16, ptr %3, i64 %conv.i9.pre-phi.i
+  %add.ptr.i.i = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %conv.i9.pre-phi.i
   %4 = getelementptr i8, ptr %tz, i64 %call9
   %scevgep = getelementptr i8, ptr %4, i64 -1
   br label %for.body.i.i.i.i.i.i.i.i.i
@@ -159,7 +159,7 @@ for.body.preheader.i:                             ; preds = %if.then6.i, %if.end
   %conv.i17.pre-phi.i.in88 = phi i32 [ %.pre.i21, %if.end.i18 ], [ %10, %if.then6.i ]
   %conv.i17.pre-phi.i = zext i32 %conv.i17.pre-phi.i.in88 to i64
   %12 = load ptr, ptr %buf, align 8
-  %add.ptr.i.i19 = getelementptr i16, ptr %12, i64 %conv.i17.pre-phi.i
+  %add.ptr.i.i19 = getelementptr [2 x i8], ptr %12, i64 %conv.i17.pre-phi.i
   %13 = shl nuw nsw i64 %conv.i17.pre-phi.i, 1
   %14 = sub nsw i64 256, %13
   call void @llvm.memset.p0.i64(ptr align 2 %add.ptr.i.i19, i8 0, i64 %14, i1 false)
@@ -207,7 +207,7 @@ if.end.i31:                                       ; preds = %if.then9.i37, %if.t
 for.body.preheader.i34:                           ; preds = %if.end.i31
   %conv.i17.pre-phi.i32 = zext i32 %conv.i17.pre-phi.i32.in to i64
   %18 = load ptr, ptr %buf, align 8
-  %add.ptr.i.i35 = getelementptr i16, ptr %18, i64 %conv.i17.pre-phi.i32
+  %add.ptr.i.i35 = getelementptr [2 x i8], ptr %18, i64 %conv.i17.pre-phi.i32
   %19 = sub nsw i64 %conv18, %conv.i17.pre-phi.i32
   %20 = shl nsw i64 %19, 1
   call void @llvm.memset.p0.i64(ptr align 2 %add.ptr.i.i35, i8 0, i64 %20, i1 false)
@@ -250,7 +250,7 @@ if.end.i51:                                       ; preds = %if.then9.i57, %if.t
 for.body.preheader.i54:                           ; preds = %if.end.i51
   %conv.i17.pre-phi.i52 = zext i32 %conv.i17.pre-phi.i52.in to i64
   %24 = load ptr, ptr %buf, align 8
-  %add.ptr.i.i55 = getelementptr i16, ptr %24, i64 %conv.i17.pre-phi.i52
+  %add.ptr.i.i55 = getelementptr [2 x i8], ptr %24, i64 %conv.i17.pre-phi.i52
   %25 = sub nsw i64 %conv21, %conv.i17.pre-phi.i52
   br label %if.end23.sink.split.sink.split
 
@@ -286,7 +286,7 @@ if.end.i71:                                       ; preds = %if.then9.i77, %if.t
 
 for.body.preheader.i74:                           ; preds = %if.end.i71
   %28 = load ptr, ptr %buf, align 8
-  %add.ptr.i.i75 = getelementptr i16, ptr %28, i64 %conv.i17.pre-phi.i72
+  %add.ptr.i.i75 = getelementptr [2 x i8], ptr %28, i64 %conv.i17.pre-phi.i72
   %29 = sub nsw i64 %conv22, %conv.i17.pre-phi.i72
   br label %if.end23.sink.split.sink.split
 
@@ -384,7 +384,7 @@ if.end.i.for.body.preheader.i_crit_edge:          ; preds = %if.end.i
 for.body.preheader.i:                             ; preds = %if.end.i.for.body.preheader.i_crit_edge, %if.then6.i
   %2 = phi ptr [ %.pre, %if.end.i.for.body.preheader.i_crit_edge ], [ %add.ptr.i.i.i.i.i, %if.then6.i ]
   %conv.i17.pre-phi.i42 = phi i64 [ %.pre22.i, %if.end.i.for.body.preheader.i_crit_edge ], [ 0, %if.then6.i ]
-  %add.ptr.i.i = getelementptr i16, ptr %2, i64 %conv.i17.pre-phi.i42
+  %add.ptr.i.i = getelementptr [2 x i8], ptr %2, i64 %conv.i17.pre-phi.i42
   %3 = sub nsw i64 %conv.i, %conv.i17.pre-phi.i42
   %4 = shl nsw i64 %3, 1
   call void @llvm.memset.p0.i64(ptr align 2 %add.ptr.i.i, i8 0, i64 %4, i1 false)
@@ -428,7 +428,7 @@ if.end.i21:                                       ; preds = %if.then9.i27, %if.t
 
 for.body.preheader.i24:                           ; preds = %if.end.i21
   %8 = load ptr, ptr %dest, align 8
-  %add.ptr.i.i25 = getelementptr i16, ptr %8, i64 %conv.i17.pre-phi.i22
+  %add.ptr.i.i25 = getelementptr [2 x i8], ptr %8, i64 %conv.i17.pre-phi.i22
   %9 = sub nsw i64 %conv9, %conv.i17.pre-phi.i22
   %10 = shl nsw i64 %9, 1
   call void @llvm.memset.p0.i64(ptr align 2 %add.ptr.i.i25, i8 0, i64 %10, i1 false)
@@ -506,7 +506,7 @@ if.then.i.i:                                      ; preds = %if.end28.i
   %add.ptr30.idx.i = shl nuw nsw i64 %CurSize.0.i, 1
   %add.ptr30.i = getelementptr inbounds nuw i8, ptr %20, i64 %add.ptr30.idx.i
   %21 = load ptr, ptr %buf, align 8
-  %add.ptr33.i = getelementptr inbounds nuw i16, ptr %21, i64 %CurSize.0.i
+  %add.ptr33.i = getelementptr inbounds nuw [2 x i8], ptr %21, i64 %CurSize.0.i
   %22 = sub nsw i64 %conv.i35.i, %CurSize.0.i
   %gepdiff.i = shl nsw i64 %22, 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr33.i, ptr align 2 %add.ptr30.i, i64 %gepdiff.i, i1 false)
@@ -595,7 +595,7 @@ if.end.i.for.body.preheader.i_crit_edge:          ; preds = %if.end.i
 for.body.preheader.i:                             ; preds = %if.end.i.for.body.preheader.i_crit_edge, %if.then6.i
   %2 = phi ptr [ %.pre, %if.end.i.for.body.preheader.i_crit_edge ], [ %add.ptr.i.i.i.i.i, %if.then6.i ]
   %conv.i17.pre-phi.i41 = phi i64 [ %.pre22.i, %if.end.i.for.body.preheader.i_crit_edge ], [ 0, %if.then6.i ]
-  %add.ptr.i.i = getelementptr i16, ptr %2, i64 %conv.i17.pre-phi.i41
+  %add.ptr.i.i = getelementptr [2 x i8], ptr %2, i64 %conv.i17.pre-phi.i41
   %3 = sub nsw i64 %conv.i, %conv.i17.pre-phi.i41
   %4 = shl nsw i64 %3, 1
   call void @llvm.memset.p0.i64(ptr align 2 %add.ptr.i.i, i8 0, i64 %4, i1 false)
@@ -639,7 +639,7 @@ if.end.i20:                                       ; preds = %if.then9.i26, %if.t
 
 for.body.preheader.i23:                           ; preds = %if.end.i20
   %8 = load ptr, ptr %dest, align 8
-  %add.ptr.i.i24 = getelementptr i16, ptr %8, i64 %conv.i17.pre-phi.i21
+  %add.ptr.i.i24 = getelementptr [2 x i8], ptr %8, i64 %conv.i17.pre-phi.i21
   %9 = sub nsw i64 %conv12, %conv.i17.pre-phi.i21
   %10 = shl nsw i64 %9, 1
   call void @llvm.memset.p0.i64(ptr align 2 %add.ptr.i.i24, i8 0, i64 %10, i1 false)
@@ -717,7 +717,7 @@ if.then.i.i:                                      ; preds = %if.end28.i
   %add.ptr30.idx.i = shl nuw nsw i64 %CurSize.0.i, 1
   %add.ptr30.i = getelementptr inbounds nuw i8, ptr %20, i64 %add.ptr30.idx.i
   %21 = load ptr, ptr %buf, align 8
-  %add.ptr33.i = getelementptr inbounds nuw i16, ptr %21, i64 %CurSize.0.i
+  %add.ptr33.i = getelementptr inbounds nuw [2 x i8], ptr %21, i64 %CurSize.0.i
   %22 = sub nsw i64 %conv.i35.i, %CurSize.0.i
   %gepdiff.i = shl nsw i64 %22, 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr33.i, ptr align 2 %add.ptr30.i, i64 %gepdiff.i, i1 false)

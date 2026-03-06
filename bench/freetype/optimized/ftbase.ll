@@ -4,21 +4,13 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.FT_Vector_ = type { i64, i64 }
-%struct.FT_SubGlyphRec_ = type { i32, i16, i32, i32, %struct.FT_Matrix_ }
-%struct.FT_Matrix_ = type { i64, i64, i64, i64 }
 %union.FT_Hashkey_ = type { ptr }
 %struct.FT_Open_Args_ = type { i32, ptr, i64, ptr, ptr, ptr, i32, ptr }
-%struct.ft_raccess_guess_rec_ = type { ptr, i32 }
-%struct.FT_Bitmap_Size_ = type { i16, i16, i64, i64, i64 }
 %struct.FT_Size_RequestRec_ = type { i32, i64, i64, i32, i32 }
 %struct.TT_CMapInfo_ = type { i64, i64 }
 %struct.FT_LayerIterator_ = type { i32, i32, ptr }
 %struct.FT_Raster_Params_ = type { ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, %struct.FT_BBox_ }
 %struct.FT_BBox_ = type { i64, i64, i64, i64 }
-%struct.FT_RFork_Ref_ = type { i16, i64 }
-%struct.TT_NameRec_ = type { i16, i16, i16, i16, i16, i64, ptr }
-%struct.TT_LangTagRec_ = type { i16, i64, ptr }
-%struct.FT_Parameter_ = type { i64, ptr }
 
 @.str = private unnamed_addr constant [12 x i8] c"font-format\00", align 1
 @.str.1 = private unnamed_addr constant [7 x i8] c"ot-svg\00", align 1
@@ -159,7 +151,7 @@ define internal fastcc range(i32 0, 37) i32 @ft_face_scale_advances_(ptr noundef
 
 11:                                               ; preds = %9, %11
   %indvars.iv = phi i64 [ 0, %9 ], [ %indvars.iv.next, %11 ]
-  %12 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %13 = load i64, ptr %12, align 8, !tbaa !37
   %.021.i = tail call i64 @llvm.abs.i64(i64 %13, i1 false)
   %14 = mul i64 %.021.i, %.023.i
@@ -265,7 +257,7 @@ define i32 @FT_Get_Advances(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 128
   %47 = load i64, ptr %46, align 8, !tbaa !41
   %48 = shl i64 %47, %40
-  %49 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv77
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv77
   store i64 %48, ptr %49, align 8, !tbaa !37
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
   %exitcond82.not = icmp eq i64 %indvars.iv.next78, %wide.trip.count81
@@ -284,7 +276,7 @@ define i32 @FT_Get_Advances(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 136
   %56 = load i64, ptr %55, align 8, !tbaa !53
   %57 = shl i64 %56, %40
-  %58 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   store i64 %57, ptr %58, align 8, !tbaa !37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count81
@@ -681,7 +673,7 @@ FT_Get_Font_Format.exit:                          ; preds = %111
 219:                                              ; preds = %218, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %218 ]
   %.02536.i = phi i32 [ -1, %.preheader.i ], [ %222, %218 ]
-  %220 = getelementptr inbounds nuw i16, ptr %217, i64 %indvars.iv.i
+  %220 = getelementptr inbounds nuw [2 x i8], ptr %217, i64 %indvars.iv.i
   %221 = load i16, ptr %220, align 2, !tbaa !133
   %222 = zext i16 %221 to i32
   %.not31.i = icmp slt i32 %.02536.i, %222
@@ -2056,9 +2048,9 @@ define hidden i32 @FT_MulAddFix(ptr noundef readonly captures(none) %0, ptr noun
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.010 = phi i64 [ 0, %.lr.ph.preheader ], [ %10, %.lr.ph ]
-  %4 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %5 = load i64, ptr %4, align 8, !tbaa !37
-  %6 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4, !tbaa !168
   %8 = sext i32 %7 to i64
   %9 = mul nsw i64 %5, %8
@@ -2547,7 +2539,7 @@ ft_mem_realloc.exit.thread:                       ; preds = %20, %9
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i8 1, ptr %22, align 4, !tbaa !201
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %.0.i25.i.ph, i64 %23
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %.0.i25.i.ph, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %24, ptr %25, align 8, !tbaa !197
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2564,7 +2556,7 @@ ft_mem_realloc.exit:                              ; preds = %14
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 26
   %31 = load i16, ptr %30, align 2, !tbaa !129
   %32 = zext i16 %31 to i64
-  %33 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %28, i64 %32
+  %33 = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %32
   br label %34
 
 34:                                               ; preds = %29, %ft_mem_realloc.exit.thread
@@ -2595,7 +2587,7 @@ ft_mem_realloc.exit:                              ; preds = %14
 49:                                               ; preds = %44
   %50 = load i16, ptr %26, align 8, !tbaa !130
   %51 = zext i16 %50 to i64
-  %52 = getelementptr inbounds nuw i16, ptr %48, i64 %51
+  %52 = getelementptr inbounds nuw [2 x i8], ptr %48, i64 %51
   br label %FT_GlyphLoader_Adjust_Points.exit
 
 FT_GlyphLoader_Adjust_Points.exit:                ; preds = %49, %44
@@ -2605,10 +2597,10 @@ FT_GlyphLoader_Adjust_Points.exit:                ; preds = %49, %44
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 26
   %56 = load i16, ptr %55, align 2, !tbaa !129
   %57 = zext i16 %56 to i64
-  %58 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %.0.i25.i.ph, i64 %57
+  %58 = getelementptr inbounds nuw [16 x i8], ptr %.0.i25.i.ph, i64 %57
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store ptr %58, ptr %59, align 8, !tbaa !203
-  %60 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %24, i64 %57
+  %60 = getelementptr inbounds nuw [16 x i8], ptr %24, i64 %57
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store ptr %60, ptr %61, align 8, !tbaa !204
   br label %62
@@ -2743,7 +2735,7 @@ ft_mem_realloc.exit.thread.i:                     ; preds = %25, %14
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i8 1, ptr %27, align 4, !tbaa !201
   %28 = zext i32 %26 to i64
-  %29 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %.0.i25.i.ph.i, i64 %28
+  %29 = getelementptr inbounds nuw [16 x i8], ptr %.0.i25.i.ph.i, i64 %28
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %29, ptr %30, align 8, !tbaa !197
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2755,7 +2747,7 @@ ft_mem_realloc.exit.thread.i:                     ; preds = %25, %14
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 26
   %35 = load i16, ptr %34, align 2, !tbaa !129
   %36 = zext i16 %35 to i64
-  %37 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %32, i64 %36
+  %37 = getelementptr inbounds nuw [16 x i8], ptr %32, i64 %36
   br label %38
 
 38:                                               ; preds = %33, %ft_mem_realloc.exit.thread.i
@@ -2786,7 +2778,7 @@ ft_mem_realloc.exit.thread.i:                     ; preds = %25, %14
 53:                                               ; preds = %48
   %54 = load i16, ptr %6, align 8, !tbaa !130
   %55 = zext i16 %54 to i64
-  %56 = getelementptr inbounds nuw i16, ptr %52, i64 %55
+  %56 = getelementptr inbounds nuw [2 x i8], ptr %52, i64 %55
   br label %FT_GlyphLoader_Adjust_Points.exit.i
 
 FT_GlyphLoader_Adjust_Points.exit.i:              ; preds = %53, %48
@@ -2796,10 +2788,10 @@ FT_GlyphLoader_Adjust_Points.exit.i:              ; preds = %53, %48
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 26
   %60 = load i16, ptr %59, align 2, !tbaa !129
   %61 = zext i16 %60 to i64
-  %62 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %.0.i25.i.ph.i, i64 %61
+  %62 = getelementptr inbounds nuw [16 x i8], ptr %.0.i25.i.ph.i, i64 %61
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store ptr %62, ptr %63, align 8, !tbaa !203
-  %64 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %29, i64 %61
+  %64 = getelementptr inbounds nuw [16 x i8], ptr %29, i64 %61
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store ptr %64, ptr %65, align 8, !tbaa !204
   br label %66
@@ -2988,12 +2980,12 @@ ft_mem_realloc.exit99:                            ; preds = %ft_mem_qrealloc.exi
   br i1 %.not80, label %151, label %FT_GlyphLoader_Adjust_Points.exit.thread
 
 151:                                              ; preds = %142
-  %152 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %149, i64 %85
-  %153 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %149, i64 %84
+  %152 = getelementptr inbounds nuw [16 x i8], ptr %149, i64 %85
+  %153 = getelementptr inbounds nuw [16 x i8], ptr %149, i64 %84
   %154 = shl nuw nsw i64 %84, 4
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %152, ptr align 8 %153, i64 %154, i1 false)
   %155 = load ptr, ptr %147, align 8, !tbaa !195
-  %156 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %155, i64 %85
+  %156 = getelementptr inbounds nuw [16 x i8], ptr %155, i64 %85
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %156, ptr %157, align 8, !tbaa !197
   br label %158
@@ -3044,7 +3036,7 @@ ft_mem_realloc.exit.thread.i104:                  ; preds = %177, %166
   %179 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i8 1, ptr %179, align 4, !tbaa !201
   %180 = zext i32 %178 to i64
-  %181 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %.0.i25.i.ph.i105, i64 %180
+  %181 = getelementptr inbounds nuw [16 x i8], ptr %.0.i25.i.ph.i105, i64 %180
   %182 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %181, ptr %182, align 8, !tbaa !197
   %183 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -3055,7 +3047,7 @@ ft_mem_realloc.exit.thread.i104:                  ; preds = %177, %166
 185:                                              ; preds = %ft_mem_realloc.exit.thread.i104
   %186 = load i16, ptr %68, align 2, !tbaa !129
   %187 = zext i16 %186 to i64
-  %188 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %184, i64 %187
+  %188 = getelementptr inbounds nuw [16 x i8], ptr %184, i64 %187
   br label %189
 
 189:                                              ; preds = %185, %ft_mem_realloc.exit.thread.i104
@@ -3085,7 +3077,7 @@ ft_mem_realloc.exit.thread.i104:                  ; preds = %177, %166
 203:                                              ; preds = %198
   %204 = load i16, ptr %6, align 8, !tbaa !130
   %205 = zext i16 %204 to i64
-  %206 = getelementptr inbounds nuw i16, ptr %202, i64 %205
+  %206 = getelementptr inbounds nuw [2 x i8], ptr %202, i64 %205
   br label %FT_GlyphLoader_Adjust_Points.exit.i109
 
 FT_GlyphLoader_Adjust_Points.exit.i109:           ; preds = %203, %198
@@ -3094,10 +3086,10 @@ FT_GlyphLoader_Adjust_Points.exit.i109:           ; preds = %203, %198
   store ptr %207, ptr %208, align 8, !tbaa !131
   %209 = load i16, ptr %68, align 2, !tbaa !129
   %210 = zext i16 %209 to i64
-  %211 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %.0.i25.i.ph.i105, i64 %210
+  %211 = getelementptr inbounds nuw [16 x i8], ptr %.0.i25.i.ph.i105, i64 %210
   %212 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store ptr %211, ptr %212, align 8, !tbaa !203
-  %213 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %181, i64 %210
+  %213 = getelementptr inbounds nuw [16 x i8], ptr %181, i64 %210
   %214 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store ptr %213, ptr %214, align 8, !tbaa !204
   br label %215
@@ -3157,7 +3149,7 @@ FT_GlyphLoader_CreateExtra.exit112:               ; preds = %171, %169
 243:                                              ; preds = %240
   %244 = load i16, ptr %68, align 2, !tbaa !129
   %245 = zext i16 %244 to i64
-  %246 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %242, i64 %245
+  %246 = getelementptr inbounds nuw [16 x i8], ptr %242, i64 %245
   br label %247
 
 247:                                              ; preds = %243, %240
@@ -3187,7 +3179,7 @@ FT_GlyphLoader_CreateExtra.exit112:               ; preds = %171, %169
 261:                                              ; preds = %256
   %262 = load i16, ptr %6, align 8, !tbaa !130
   %263 = zext i16 %262 to i64
-  %264 = getelementptr inbounds nuw i16, ptr %260, i64 %263
+  %264 = getelementptr inbounds nuw [2 x i8], ptr %260, i64 %263
   br label %265
 
 265:                                              ; preds = %261, %256
@@ -3204,12 +3196,12 @@ FT_GlyphLoader_CreateExtra.exit112:               ; preds = %171, %169
   %272 = load ptr, ptr %271, align 8, !tbaa !195
   %273 = load i16, ptr %68, align 2, !tbaa !129
   %274 = zext i16 %273 to i64
-  %275 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %272, i64 %274
+  %275 = getelementptr inbounds nuw [16 x i8], ptr %272, i64 %274
   %276 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store ptr %275, ptr %276, align 8, !tbaa !203
   %277 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %278 = load ptr, ptr %277, align 8, !tbaa !197
-  %279 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %278, i64 %274
+  %279 = getelementptr inbounds nuw [16 x i8], ptr %278, i64 %274
   %280 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store ptr %279, ptr %280, align 8, !tbaa !204
   br label %FT_GlyphLoader_Adjust_Points.exit
@@ -3406,7 +3398,7 @@ ft_mem_realloc.exit:                              ; preds = %ft_mem_qrealloc.exi
 50:                                               ; preds = %49
   %51 = load i32, ptr %4, align 8, !tbaa !187
   %52 = zext i32 %51 to i64
-  %53 = getelementptr inbounds nuw %struct.FT_SubGlyphRec_, ptr %.0.i25.i22, i64 %52
+  %53 = getelementptr inbounds nuw [48 x i8], ptr %.0.i25.i22, i64 %52
   br label %FT_GlyphLoader_Adjust_Subglyphs.exit
 
 FT_GlyphLoader_Adjust_Subglyphs.exit:             ; preds = %49, %50
@@ -3438,7 +3430,7 @@ define hidden void @FT_GlyphLoader_Prepare(ptr noundef captures(none) initialize
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 26
   %10 = load i16, ptr %9, align 2, !tbaa !129
   %11 = zext i16 %10 to i64
-  %12 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %7, i64 %11
+  %12 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %11
   br label %13
 
 13:                                               ; preds = %8, %1
@@ -3469,7 +3461,7 @@ define hidden void @FT_GlyphLoader_Prepare(ptr noundef captures(none) initialize
 28:                                               ; preds = %23
   %29 = load i16, ptr %5, align 8, !tbaa !130
   %30 = zext i16 %29 to i64
-  %31 = getelementptr inbounds nuw i16, ptr %27, i64 %30
+  %31 = getelementptr inbounds nuw [2 x i8], ptr %27, i64 %30
   br label %32
 
 32:                                               ; preds = %28, %23
@@ -3487,12 +3479,12 @@ define hidden void @FT_GlyphLoader_Prepare(ptr noundef captures(none) initialize
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 26
   %41 = load i16, ptr %40, align 2, !tbaa !129
   %42 = zext i16 %41 to i64
-  %43 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %39, i64 %42
+  %43 = getelementptr inbounds nuw [16 x i8], ptr %39, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store ptr %43, ptr %44, align 8, !tbaa !203
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %46 = load ptr, ptr %45, align 8, !tbaa !197
-  %47 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %46, i64 %42
+  %47 = getelementptr inbounds nuw [16 x i8], ptr %46, i64 %42
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store ptr %47, ptr %48, align 8, !tbaa !204
   br label %FT_GlyphLoader_Adjust_Points.exit
@@ -3507,7 +3499,7 @@ FT_GlyphLoader_Adjust_Points.exit:                ; preds = %32, %37
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %53 = load i32, ptr %52, align 8, !tbaa !187
   %54 = zext i32 %53 to i64
-  %55 = getelementptr inbounds nuw %struct.FT_SubGlyphRec_, ptr %50, i64 %54
+  %55 = getelementptr inbounds nuw [48 x i8], ptr %50, i64 %54
   br label %FT_GlyphLoader_Adjust_Subglyphs.exit
 
 FT_GlyphLoader_Adjust_Subglyphs.exit:             ; preds = %FT_GlyphLoader_Adjust_Points.exit, %51
@@ -3538,7 +3530,7 @@ define hidden void @FT_GlyphLoader_Add(ptr noundef captures(address_is_null) %0)
 9:                                                ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
   %10 = load i16, ptr %6, align 2, !tbaa !129
-  %11 = getelementptr inbounds nuw i16, ptr %8, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %indvars.iv
   %12 = load i16, ptr %11, align 2, !tbaa !133
   %13 = add i16 %12, %10
   store i16 %13, ptr %11, align 2, !tbaa !133
@@ -3572,7 +3564,7 @@ define hidden void @FT_GlyphLoader_Add(ptr noundef captures(address_is_null) %0)
   %30 = load ptr, ptr %29, align 8, !tbaa !156
   %.not.i.i = icmp eq ptr %30, null
   %31 = zext i16 %21 to i64
-  %32 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw [16 x i8], ptr %30, i64 %31
   %33 = select i1 %.not.i.i, ptr null, ptr %32
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr %33, ptr %34, align 8, !tbaa !156
@@ -3587,7 +3579,7 @@ define hidden void @FT_GlyphLoader_Add(ptr noundef captures(address_is_null) %0)
   %41 = load ptr, ptr %40, align 8, !tbaa !131
   %.not24.i.i = icmp eq ptr %41, null
   %42 = zext i16 %23 to i64
-  %43 = getelementptr inbounds nuw i16, ptr %41, i64 %42
+  %43 = getelementptr inbounds nuw [2 x i8], ptr %41, i64 %42
   %44 = select i1 %.not24.i.i, ptr null, ptr %43
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %44, ptr %45, align 8, !tbaa !131
@@ -3599,12 +3591,12 @@ define hidden void @FT_GlyphLoader_Add(ptr noundef captures(address_is_null) %0)
 48:                                               ; preds = %._crit_edge
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %50 = load ptr, ptr %49, align 8, !tbaa !195
-  %51 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %50, i64 %31
+  %51 = getelementptr inbounds nuw [16 x i8], ptr %50, i64 %31
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store ptr %51, ptr %52, align 8, !tbaa !203
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %54 = load ptr, ptr %53, align 8, !tbaa !197
-  %55 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %54, i64 %31
+  %55 = getelementptr inbounds nuw [16 x i8], ptr %54, i64 %31
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store ptr %55, ptr %56, align 8, !tbaa !204
   br label %FT_GlyphLoader_Adjust_Points.exit.i
@@ -3614,7 +3606,7 @@ FT_GlyphLoader_Adjust_Points.exit.i:              ; preds = %48, %._crit_edge
   %58 = load ptr, ptr %57, align 8, !tbaa !206
   %.not.i6.i = icmp eq ptr %58, null
   %59 = zext i32 %28 to i64
-  %60 = getelementptr inbounds nuw %struct.FT_SubGlyphRec_, ptr %58, i64 %59
+  %60 = getelementptr inbounds nuw [48 x i8], ptr %58, i64 %59
   %61 = select i1 %.not.i6.i, ptr null, ptr %60
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store ptr %61, ptr %62, align 8, !tbaa !206
@@ -3760,7 +3752,7 @@ define internal fastcc range(i32 0, 65) i32 @hash_insert(ptr %0, i64 noundef %1,
   %13 = load i32, ptr %12, align 4, !tbaa !210
   %14 = zext i32 %13 to i64
   %15 = urem i64 %11, %14
-  %16 = getelementptr inbounds nuw ptr, ptr %8, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %18 = load ptr, ptr %16, align 8, !tbaa !218
   %.not17.i = icmp eq ptr %18, null
@@ -3783,7 +3775,7 @@ define internal fastcc range(i32 0, 65) i32 @hash_insert(ptr %0, i64 noundef %1,
   %26 = load i32, ptr %12, align 4, !tbaa !210
   %27 = add i32 %26, -1
   %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %8, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %28
   br label %30
 
 30:                                               ; preds = %25, %22
@@ -3874,7 +3866,7 @@ ft_mem_realloc.exit.i:                            ; preds = %50
   %62 = load i32, ptr %12, align 4, !tbaa !210
   %63 = zext i32 %62 to i64
   %64 = urem i64 %61, %63
-  %65 = getelementptr inbounds nuw ptr, ptr %59, i64 %64
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %64
   %66 = load ptr, ptr %65, align 8, !tbaa !218
   %.not17.i.i = icmp eq ptr %66, null
   br i1 %.not17.i.i, label %hash_bucket.exit.i, label %.lr.ph.i.i
@@ -3896,7 +3888,7 @@ ft_mem_realloc.exit.i:                            ; preds = %50
   %74 = load i32, ptr %12, align 4, !tbaa !210
   %75 = add i32 %74, -1
   %76 = zext i32 %75 to i64
-  %77 = getelementptr inbounds nuw ptr, ptr %59, i64 %76
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %76
   br label %78
 
 78:                                               ; preds = %73, %70
@@ -3966,7 +3958,7 @@ define hidden ptr @ft_hash_str_lookup(ptr noundef %0, ptr noundef readonly captu
   %10 = load i32, ptr %9, align 4, !tbaa !210
   %11 = zext i32 %10 to i64
   %12 = urem i64 %8, %11
-  %13 = getelementptr inbounds nuw ptr, ptr %5, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load ptr, ptr %13, align 8, !tbaa !218
   %.not17.i.i = icmp eq ptr %15, null
@@ -3989,7 +3981,7 @@ define hidden ptr @ft_hash_str_lookup(ptr noundef %0, ptr noundef readonly captu
   %23 = load i32, ptr %9, align 4, !tbaa !210
   %24 = add i32 %23, -1
   %25 = zext i32 %24 to i64
-  %26 = getelementptr inbounds nuw ptr, ptr %5, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %25
   br label %27
 
 27:                                               ; preds = %22, %19
@@ -4024,7 +4016,7 @@ define hidden ptr @ft_hash_num_lookup(i32 noundef %0, ptr noundef readonly captu
   %11 = load i32, ptr %10, align 4, !tbaa !210
   %12 = zext i32 %11 to i64
   %13 = urem i64 %9, %12
-  %14 = getelementptr inbounds nuw ptr, ptr %6, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %16 = load ptr, ptr %14, align 8, !tbaa !218
   %.not17.i.i = icmp eq ptr %16, null
@@ -4047,7 +4039,7 @@ define hidden ptr @ft_hash_num_lookup(i32 noundef %0, ptr noundef readonly captu
   %24 = load i32, ptr %10, align 4, !tbaa !210
   %25 = add i32 %24, -1
   %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds nuw ptr, ptr %6, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %26
   br label %28
 
 28:                                               ; preds = %23, %20
@@ -5644,7 +5636,7 @@ define range(i32 0, 21) i32 @FT_Outline_Check(ptr noundef readonly captures(addr
 13:                                               ; preds = %.preheader, %12
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %12 ]
   %.02536 = phi i32 [ -1, %.preheader ], [ %16, %12 ]
-  %14 = getelementptr inbounds nuw i16, ptr %11, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [2 x i8], ptr %11, i64 %indvars.iv
   %15 = load i16, ptr %14, align 2, !tbaa !133
   %16 = zext i16 %15 to i32
   %.not31 = icmp slt i32 %.02536, %16
@@ -6457,12 +6449,12 @@ IsMacBinary.exit:                                 ; preds = %151
 
 .split.us.preheader.i.i:                          ; preds = %190, %.split.us.preheader.i.i
   %indvars.iv28.i.i = phi i64 [ %indvars.iv.next29.i.i, %.split.us.preheader.i.i ], [ 0, %190 ]
-  %196 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv28.i.i
+  %196 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv28.i.i
   store ptr null, ptr %196, align 8, !tbaa !190
-  %197 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv28.i.i
-  %198 = getelementptr inbounds nuw %struct.ft_raccess_guess_rec_, ptr @ft_raccess_guess_table, i64 %indvars.iv28.i.i
+  %197 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv28.i.i
+  %198 = getelementptr inbounds nuw [16 x i8], ptr @ft_raccess_guess_table, i64 %indvars.iv28.i.i
   %199 = load ptr, ptr %198, align 16, !tbaa !304
-  %200 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv28.i.i
+  %200 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv28.i.i
   %201 = call i32 %199(ptr noundef nonnull %0, ptr noundef null, ptr noundef %193, ptr noundef nonnull %196, ptr noundef nonnull %200) #35
   store i32 %201, ptr %197, align 4, !tbaa !168
   %indvars.iv.next29.i.i = add nuw nsw i64 %indvars.iv28.i.i, 1
@@ -6471,7 +6463,7 @@ IsMacBinary.exit:                                 ; preds = %151
 
 .split.i.i:                                       ; preds = %190, %213
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %213 ], [ 0, %190 ]
-  %202 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.i.i
+  %202 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv.i.i
   store ptr null, ptr %202, align 8, !tbaa !190
   %203 = load ptr, ptr %194, align 8, !tbaa !302
   %.not.i.i.i = icmp eq ptr %203, null
@@ -6483,17 +6475,17 @@ IsMacBinary.exit:                                 ; preds = %151
   br i1 %.not10.i.i.i, label %207, label %FT_Stream_Seek.exit.i.i
 
 FT_Stream_Seek.exit.i.i:                          ; preds = %204
-  %206 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv.i.i
+  %206 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv.i.i
   store i32 85, ptr %206, align 4, !tbaa !168
   br label %213
 
 207:                                              ; preds = %204, %.split.i.i
   store i64 0, ptr %195, align 8, !tbaa !255
-  %208 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv.i.i
+  %208 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv.i.i
   store i32 0, ptr %208, align 4, !tbaa !168
-  %209 = getelementptr inbounds nuw %struct.ft_raccess_guess_rec_, ptr @ft_raccess_guess_table, i64 %indvars.iv.i.i
+  %209 = getelementptr inbounds nuw [16 x i8], ptr @ft_raccess_guess_table, i64 %indvars.iv.i.i
   %210 = load ptr, ptr %209, align 16, !tbaa !304
-  %211 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv.i.i
+  %211 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i.i
   %212 = call i32 %210(ptr noundef nonnull %0, ptr noundef nonnull %187, ptr noundef %193, ptr noundef nonnull %202, ptr noundef nonnull %211) #35
   store i32 %212, ptr %208, align 4, !tbaa !168
   br label %213
@@ -6510,7 +6502,7 @@ FT_Raccess_Guess.exit.i:                          ; preds = %FT_Raccess_Guess.ex
   %indvars.iv321 = phi i64 [ %indvars.iv.next322, %250 ], [ 0, %FT_Raccess_Guess.exit.i.preheader ]
   %.0.i182308 = phi i8 [ %.1.i185, %250 ], [ 0, %FT_Raccess_Guess.exit.i.preheader ]
   %.033.i307 = phi i32 [ %.235.i, %250 ], [ 2, %FT_Raccess_Guess.exit.i.preheader ]
-  %214 = getelementptr inbounds nuw %struct.ft_raccess_guess_rec_, ptr @ft_raccess_guess_table, i64 %indvars.iv321
+  %214 = getelementptr inbounds nuw [16 x i8], ptr @ft_raccess_guess_table, i64 %indvars.iv321
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 8
   %216 = load i32, ptr %215, align 8, !tbaa !307
   %.off.i.i = add i32 %216, -3
@@ -6520,13 +6512,13 @@ FT_Raccess_Guess.exit.i:                          ; preds = %FT_Raccess_Guess.ex
   br i1 %or.cond.i, label %250, label %218
 
 218:                                              ; preds = %FT_Raccess_Guess.exit.i
-  %219 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv321
+  %219 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv321
   %220 = load i32, ptr %219, align 4, !tbaa !168
   %.not.i184 = icmp eq i32 %220, 0
   br i1 %.not.i184, label %221, label %250
 
 221:                                              ; preds = %218
-  %222 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv321
+  %222 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv321
   %223 = load ptr, ptr %222, align 8, !tbaa !190
   %.not43.i = icmp eq ptr %223, null
   br i1 %.not43.i, label %224, label %226
@@ -6567,7 +6559,7 @@ FT_Stream_New.exit.i.thread:                      ; preds = %ft_mem_free.exit.i.
   br label %250
 
 239:                                              ; preds = %232
-  %240 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv321
+  %240 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv321
   %241 = load i64, ptr %240, align 8, !tbaa !37
   %242 = call fastcc i32 @IsMacResource(ptr noundef nonnull %0, ptr noundef nonnull %231, i64 noundef %241, i64 noundef range(i64 -2147483647, 2147483648) %.092, ptr noundef %3)
   %243 = load ptr, ptr %233, align 8, !tbaa !251
@@ -6605,7 +6597,7 @@ FT_Stream_Free.exit.i:                            ; preds = %239, %246
 
 253:                                              ; preds = %251, %258
   %indvars.iv324 = phi i64 [ 0, %251 ], [ %indvars.iv.next325, %258 ]
-  %254 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv324
+  %254 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv324
   %255 = load ptr, ptr %254, align 8, !tbaa !190
   %.not47.i = icmp eq ptr %255, null
   br i1 %.not47.i, label %258, label %256
@@ -6811,7 +6803,7 @@ FT_List_Add.exit:                                 ; preds = %293, %295
 
 326:                                              ; preds = %.lr.ph311, %350
   %indvars.iv = phi i64 [ 0, %.lr.ph311 ], [ %indvars.iv.next, %350 ]
-  %327 = getelementptr inbounds nuw %struct.FT_Bitmap_Size_, ptr %325, i64 %indvars.iv
+  %327 = getelementptr inbounds nuw [32 x i8], ptr %325, i64 %indvars.iv
   %328 = load i16, ptr %327, align 8, !tbaa !318
   %329 = icmp slt i16 %328, 0
   br i1 %329, label %330, label %333
@@ -7492,7 +7484,7 @@ destroy_size.exit:                                ; preds = %55, %58
 .lr.ph.i43:                                       ; preds = %.preheader.i, %ft_cmap_done_internal.exit.i
   %67 = phi ptr [ %80, %ft_cmap_done_internal.exit.i ], [ %.pre.i, %.preheader.i ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %ft_cmap_done_internal.exit.i ], [ 0, %.preheader.i ]
-  %68 = getelementptr inbounds nuw ptr, ptr %67, i64 %indvars.iv.i
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %indvars.iv.i
   %69 = load ptr, ptr %68, align 8, !tbaa !338
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 16
   %71 = load ptr, ptr %70, align 8, !tbaa !292
@@ -7513,7 +7505,7 @@ ft_cmap_done_internal.exit.i:                     ; preds = %77, %.lr.ph.i43
   %79 = load ptr, ptr %78, align 8, !tbaa !61
   tail call void %79(ptr noundef %74, ptr noundef nonnull %69) #35
   %80 = load ptr, ptr %66, align 8, !tbaa !337
-  %81 = getelementptr inbounds nuw ptr, ptr %80, i64 %indvars.iv.i
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %indvars.iv.i
   store ptr null, ptr %81, align 8, !tbaa !338
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %82 = load i32, ptr %63, align 8, !tbaa !336
@@ -8002,7 +7994,7 @@ define hidden range(i32 0, 36) i32 @FT_Match_Size(ptr noundef readonly captures(
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %49
   %indvars.iv = phi i64 [ %indvars.iv.next, %49 ], [ 0, %.lr.ph ]
-  %44 = getelementptr inbounds nuw %struct.FT_Bitmap_Size_, ptr %43, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [32 x i8], ptr %43, i64 %indvars.iv
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 24
   %46 = load i64, ptr %45, align 8, !tbaa !321
   %47 = add nsw i64 %46, 32
@@ -8017,7 +8009,7 @@ define hidden range(i32 0, 36) i32 @FT_Match_Size(ptr noundef readonly captures(
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %62
   %indvars.iv69 = phi i64 [ %indvars.iv.next70, %62 ], [ 0, %.lr.ph ]
-  %50 = getelementptr inbounds nuw %struct.FT_Bitmap_Size_, ptr %43, i64 %indvars.iv69
+  %50 = getelementptr inbounds nuw [32 x i8], ptr %43, i64 %indvars.iv69
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %52 = load i64, ptr %51, align 8, !tbaa !321
   %53 = add nsw i64 %52, 32
@@ -8096,7 +8088,7 @@ define hidden void @FT_Select_Metrics(ptr noundef readonly captures(none) %0, i6
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load ptr, ptr %6, align 8, !tbaa !317
-  %8 = getelementptr inbounds nuw %struct.FT_Bitmap_Size_, ptr %7, i64 %1
+  %8 = getelementptr inbounds nuw [32 x i8], ptr %7, i64 %1
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load i64, ptr %9, align 8, !tbaa !320
   %11 = add nsw i64 %10, 32
@@ -9204,7 +9196,7 @@ define i32 @FT_Get_Charmap_Index(ptr noundef readonly captures(address) %0) loca
 
 9:                                                ; preds = %.lr.ph, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
-  %10 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !338
   %12 = icmp eq ptr %11, %0
   br i1 %12, label %.loopexit.loopexit.split.loop.exit, label %13
@@ -9246,7 +9238,7 @@ define hidden void @FT_CMap_Done(ptr noundef %0) local_unnamed_addr #0 {
 11:                                               ; preds = %.lr.ph, %60
   %indvars.iv59 = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next60, %60 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %60 ]
-  %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !338
   %14 = icmp eq ptr %13, %0
   br i1 %14, label %15, label %60
@@ -9255,7 +9247,7 @@ define hidden void @FT_CMap_Done(ptr noundef %0) local_unnamed_addr #0 {
   %16 = trunc nuw nsw i64 %indvars.iv to i32
   %17 = add nsw i32 %7, -1
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds nuw ptr, ptr %10, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !338
   %21 = icmp eq i32 %17, 0
   br i1 %21, label %22, label %25
@@ -9309,13 +9301,13 @@ ft_mem_qrealloc.exit.._crit_edge_crit_edge:       ; preds = %ft_mem_qrealloc.exi
   br i1 %39, label %43, label %40
 
 40:                                               ; preds = %38
-  %41 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv62
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv62
   %42 = load ptr, ptr %41, align 8, !tbaa !338
   br label %43
 
 43:                                               ; preds = %38, %40
   %.sink = phi ptr [ %42, %40 ], [ %20, %38 ]
-  %44 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv65
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv65
   store ptr %.sink, ptr %44, align 8, !tbaa !338
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
@@ -9533,7 +9525,7 @@ ft_mem_qrealloc.exit:                             ; preds = %41, %46, %23, %37
   %54 = add nsw i32 %53, 1
   store i32 %54, ptr %24, align 8, !tbaa !336
   %55 = sext i32 %53 to i64
-  %56 = getelementptr inbounds ptr, ptr %.0.i.ph, i64 %55
+  %56 = getelementptr inbounds [8 x i8], ptr %.0.i.ph, i64 %55
   store ptr %.0.i17.i.ph, ptr %56, align 8, !tbaa !338
   br label %ft_mem_alloc.exit
 
@@ -11361,7 +11353,7 @@ define i32 @FT_Add_Module(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
 
 14:                                               ; preds = %.lr.ph, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
-  %15 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8, !tbaa !257
   %17 = load ptr, ptr %16, align 8, !tbaa !88
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
@@ -11471,7 +11463,7 @@ select.unfold:                                    ; preds = %ft_mem_qalloc.exit.
   %63 = add i32 %62, 1
   store i32 %63, ptr %8, align 4, !tbaa !256
   %64 = zext i32 %62 to i64
-  %65 = getelementptr inbounds nuw ptr, ptr %61, i64 %64
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %64
   store ptr %.0.i17.i.ph, ptr %65, align 8, !tbaa !257
   br label %ft_mem_alloc.exit
 
@@ -12318,7 +12310,7 @@ define range(i32 0, 34) i32 @FT_Done_Library(ptr noundef %0) local_unnamed_addr 
   br i1 %.not47, label %._crit_edge, label %.lr.ph42
 
 .lr.ph42:                                         ; preds = %.preheader38
-  %15 = getelementptr inbounds nuw ptr, ptr @__const.FT_Done_Library.driver_name, i64 %indvars.iv51
+  %15 = getelementptr inbounds nuw [8 x i8], ptr @__const.FT_Done_Library.driver_name, i64 %indvars.iv51
   br label %16
 
 .preheader:                                       ; preds = %._crit_edge
@@ -12328,7 +12320,7 @@ define range(i32 0, 34) i32 @FT_Done_Library(ptr noundef %0) local_unnamed_addr 
 16:                                               ; preds = %.lr.ph42, %.loopexit
   %17 = phi i32 [ %12, %.lr.ph42 ], [ %67, %.loopexit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph42 ], [ %indvars.iv.next, %.loopexit ]
-  %18 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !257
   %.pre = load ptr, ptr %19, align 8, !tbaa !88
   br i1 %.not34, label %25, label %20
@@ -12459,7 +12451,7 @@ FT_Done_Face.exit:                                ; preds = %52, %.lr.ph, %35, %
   %72 = phi i32 [ %78, %.lr.ph45 ], [ %70, %.preheader ]
   %73 = add i32 %72, -1
   %74 = zext i32 %73 to i64
-  %75 = getelementptr inbounds nuw ptr, ptr %10, i64 %74
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %74
   %76 = load ptr, ptr %75, align 8, !tbaa !257
   %77 = tail call i32 @FT_Remove_Module(ptr noundef nonnull %0, ptr noundef %76)
   %78 = load i32, ptr %9, align 4, !tbaa !256
@@ -12489,7 +12481,7 @@ define void @FT_Set_Debug_Hook(ptr noundef writeonly captures(address_is_null) %
 7:                                                ; preds = %3
   %8 = zext nneg i32 %1 to i64
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %8
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %8
   store ptr %2, ptr %10, align 8, !tbaa !453
   br label %11
 
@@ -12572,7 +12564,7 @@ define range(i32 0, 7) i32 @FT_Get_SubGlyph_Info(ptr noundef readonly captures(a
 
 19:                                               ; preds = %15
   %20 = zext i32 %1 to i64
-  %21 = getelementptr inbounds nuw %struct.FT_SubGlyphRec_, ptr %10, i64 %20
+  %21 = getelementptr inbounds nuw [48 x i8], ptr %10, i64 %20
   %22 = load i32, ptr %21, align 8, !tbaa !468
   store i32 %22, ptr %2, align 4, !tbaa !168
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 4
@@ -12810,7 +12802,7 @@ define i32 @FT_Outline_Decompose(ptr noundef readonly captures(address_is_null) 
   %indvars.iv = phi i64 [ 0, %.lr.ph213 ], [ %indvars.iv.next, %34 ]
   %.0126211 = phi i32 [ -1, %.lr.ph213 ], [ %42, %34 ]
   %39 = load ptr, ptr %19, align 8, !tbaa !131
-  %40 = getelementptr inbounds nuw i16, ptr %39, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [2 x i8], ptr %39, i64 %indvars.iv
   %41 = load i16, ptr %40, align 2, !tbaa !133
   %42 = zext i16 %41 to i32
   %.not157 = icmp slt i32 %.0126211, %42
@@ -12820,9 +12812,9 @@ define i32 @FT_Outline_Decompose(ptr noundef readonly captures(address_is_null) 
   %44 = add nsw i32 %.0126211, 1
   %45 = load ptr, ptr %20, align 8, !tbaa !156
   %46 = zext i16 %41 to i64
-  %47 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %45, i64 %46
+  %47 = getelementptr inbounds nuw [16 x i8], ptr %45, i64 %46
   %48 = zext nneg i32 %44 to i64
-  %49 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %45, i64 %48
+  %49 = getelementptr inbounds nuw [16 x i8], ptr %45, i64 %48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %49, i64 16, i1 false), !tbaa.struct !281
   %50 = load i64, ptr %5, align 8, !tbaa !157
   %51 = shl i64 %50, %21
@@ -13411,7 +13403,7 @@ define void @FT_Outline_Reverse(ptr noundef captures(address_is_null) %0) local_
   %.03645 = phi i64 [ 4294967295, %.lr.ph47 ], [ %12, %._crit_edge44 ]
   %8 = add nuw nsw i64 %.03645, 2
   %9 = load ptr, ptr %4, align 8, !tbaa !131
-  %10 = getelementptr inbounds nuw i16, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %indvars.iv
   %11 = load i16, ptr %10, align 2, !tbaa !133
   %12 = zext i16 %11 to i64
   %13 = load ptr, ptr %5, align 8, !tbaa !156
@@ -13421,8 +13413,8 @@ define void @FT_Outline_Reverse(ptr noundef captures(address_is_null) %0) local_
   br i1 %15, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %7
-  %16 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %13, i64 %12
-  %17 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %13, i64 %14
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %12
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %14
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -13722,7 +13714,7 @@ define range(i32 0, 21) i32 @FT_Outline_EmboldenXY(ptr noundef readonly captures
   %indvars.iv = phi i64 [ 0, %.lr.ph199 ], [ %indvars.iv.next, %._crit_edge ]
   %.0111197 = phi i32 [ -1, %.lr.ph199 ], [ %29, %._crit_edge ]
   %26 = add nsw i32 %.0111197, 1
-  %27 = getelementptr inbounds nuw i16, ptr %19, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [2 x i8], ptr %19, i64 %indvars.iv
   %28 = load i16, ptr %27, align 2, !tbaa !133
   %29 = zext i16 %28 to i32
   %.not201 = icmp eq i32 %26, %29
@@ -13743,10 +13735,10 @@ define range(i32 0, 21) i32 @FT_Outline_EmboldenXY(ptr noundef readonly captures
 
 30:                                               ; preds = %.lr.ph195
   %31 = sext i32 %.097192 to i64
-  %32 = getelementptr inbounds %struct.FT_Vector_, ptr %16, i64 %31
+  %32 = getelementptr inbounds [16 x i8], ptr %16, i64 %31
   %33 = load i64, ptr %32, align 8, !tbaa !157
   %34 = sext i32 %.098191 to i64
-  %35 = getelementptr inbounds %struct.FT_Vector_, ptr %16, i64 %34
+  %35 = getelementptr inbounds [16 x i8], ptr %16, i64 %34
   %36 = load i64, ptr %35, align 8, !tbaa !157
   %37 = sub nsw i64 %33, %36
   %38 = getelementptr inbounds nuw i8, ptr %32, i64 8
@@ -14049,7 +14041,7 @@ FT_MulDiv.exit163:                                ; preds = %211, %212
 225:                                              ; preds = %.lr.ph, %225
   %.2100181 = phi i32 [ %.098191, %.lr.ph ], [ %235, %225 ]
   %226 = sext i32 %.2100181 to i64
-  %227 = getelementptr inbounds %struct.FT_Vector_, ptr %16, i64 %226
+  %227 = getelementptr inbounds [16 x i8], ptr %16, i64 %226
   %228 = load i64, ptr %227, align 8, !tbaa !157
   %229 = add nsw i64 %223, %228
   store i64 %229, ptr %227, align 8, !tbaa !157
@@ -14180,7 +14172,7 @@ FT_Outline_Get_CBox.exit:                         ; preds = %.lr.ph.i
   %indvars.iv74 = phi i64 [ 0, %.lr.ph69 ], [ %indvars.iv.next75, %._crit_edge ]
   %.067 = phi i64 [ 0, %.lr.ph69 ], [ %.1.lcssa, %._crit_edge ]
   %.04366 = phi i32 [ -1, %.lr.ph69 ], [ %46, %._crit_edge ]
-  %44 = getelementptr inbounds nuw i16, ptr %40, i64 %indvars.iv74
+  %44 = getelementptr inbounds nuw [2 x i8], ptr %40, i64 %indvars.iv74
   %45 = load i16, ptr %44, align 2, !tbaa !133
   %46 = zext i16 %45 to i32
   %.not53.not60 = icmp slt i32 %.04366, %46
@@ -14188,7 +14180,7 @@ FT_Outline_Get_CBox.exit:                         ; preds = %.lr.ph.i
 
 .lr.ph.preheader:                                 ; preds = %43
   %47 = zext i16 %45 to i64
-  %48 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %8, i64 %47
+  %48 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load i64, ptr %49, align 8, !tbaa !158
   %51 = ashr i64 %50, %42
@@ -14204,7 +14196,7 @@ FT_Outline_Get_CBox.exit:                         ; preds = %.lr.ph.i
   %.sroa.023.062 = phi i64 [ %53, %.lr.ph.preheader ], [ %57, %.lr.ph ]
   %.sroa.524.061 = phi i64 [ %51, %.lr.ph.preheader ], [ %60, %.lr.ph ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %55 = getelementptr inbounds %struct.FT_Vector_, ptr %8, i64 %indvars.iv.next
+  %55 = getelementptr inbounds [16 x i8], ptr %8, i64 %indvars.iv.next
   %56 = load i64, ptr %55, align 8, !tbaa !157
   %57 = ashr i64 %56, %41
   %58 = getelementptr inbounds nuw i8, ptr %55, i64 8
@@ -14268,7 +14260,7 @@ define hidden range(i32 0, 13) i32 @ps_property_set(ptr noundef writeonly captur
   %.0114163 = phi ptr [ %2, %9 ], [ %18, %17 ]
   %11 = call i64 @strtol(ptr noundef %.0114163, ptr noundef nonnull %6, i32 noundef 10) #35
   %12 = trunc i64 %11 to i32
-  %13 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   store i32 %12, ptr %13, align 4, !tbaa !168
   %14 = load ptr, ptr %6, align 8, !tbaa !190
   %15 = load i8, ptr %14, align 1, !tbaa !222
@@ -15326,7 +15318,7 @@ ft_mem_qrealloc.exit:                             ; preds = %141
 .lr.ph174:                                        ; preds = %ft_mem_qrealloc.exit, %172
   %indvars.iv = phi i64 [ %indvars.iv.next, %172 ], [ 0, %ft_mem_qrealloc.exit ]
   %148 = call zeroext i16 @FT_Stream_ReadUShort(ptr noundef nonnull %1, ptr noundef nonnull %13)
-  %149 = getelementptr inbounds nuw %struct.FT_RFork_Ref_, ptr %145, i64 %indvars.iv
+  %149 = getelementptr inbounds nuw [16 x i8], ptr %145, i64 %indvars.iv
   store i16 %148, ptr %149, align 8, !tbaa !511
   %150 = load i32, ptr %13, align 4, !tbaa !168
   %.not78 = icmp eq i32 %150, 0
@@ -15428,11 +15420,11 @@ ft_mem_qrealloc.exit130:                          ; preds = %184
 
 .lr.ph177:                                        ; preds = %ft_mem_qrealloc.exit130, %.lr.ph177
   %indvars.iv186 = phi i64 [ %indvars.iv.next187, %.lr.ph177 ], [ 0, %ft_mem_qrealloc.exit130 ]
-  %191 = getelementptr inbounds nuw %struct.FT_RFork_Ref_, ptr %.0.i119224, i64 %indvars.iv186
+  %191 = getelementptr inbounds nuw [16 x i8], ptr %.0.i119224, i64 %indvars.iv186
   %192 = getelementptr inbounds nuw i8, ptr %191, i64 8
   %193 = load i64, ptr %192, align 8, !tbaa !513
   %194 = add nsw i64 %193, %3
-  %195 = getelementptr inbounds nuw i64, ptr %188, i64 %indvars.iv186
+  %195 = getelementptr inbounds nuw [8 x i8], ptr %188, i64 %indvars.iv186
   store i64 %194, ptr %195, align 8, !tbaa !37
   %indvars.iv.next187 = add nuw nsw i64 %indvars.iv186, 1
   %196 = load i64, ptr %7, align 8, !tbaa !37
@@ -15561,13 +15553,13 @@ define hidden void @FT_Raccess_Guess(ptr noundef %0, ptr noundef %1, ptr noundef
 
 .split.us.preheader:                              ; preds = %6, %.split.us.preheader
   %indvars.iv28 = phi i64 [ %indvars.iv.next29, %.split.us.preheader ], [ 0, %6 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv28
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv28
   store ptr null, ptr %9, align 8, !tbaa !190
-  %10 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv28
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv28
   store i32 0, ptr %10, align 4, !tbaa !168
-  %11 = getelementptr inbounds nuw %struct.ft_raccess_guess_rec_, ptr @ft_raccess_guess_table, i64 %indvars.iv28
+  %11 = getelementptr inbounds nuw [16 x i8], ptr @ft_raccess_guess_table, i64 %indvars.iv28
   %12 = load ptr, ptr %11, align 16, !tbaa !304
-  %13 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv28
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv28
   %14 = tail call i32 %12(ptr noundef %0, ptr noundef null, ptr noundef %2, ptr noundef nonnull %9, ptr noundef %13) #35
   store i32 %14, ptr %10, align 4, !tbaa !168
   %indvars.iv.next29 = add nuw nsw i64 %indvars.iv28, 1
@@ -15576,7 +15568,7 @@ define hidden void @FT_Raccess_Guess(ptr noundef %0, ptr noundef %1, ptr noundef
 
 .split:                                           ; preds = %6, %26
   %indvars.iv = phi i64 [ %indvars.iv.next, %26 ], [ 0, %6 ]
-  %15 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   store ptr null, ptr %15, align 8, !tbaa !190
   %16 = load ptr, ptr %7, align 8, !tbaa !302
   %.not.i = icmp eq ptr %16, null
@@ -15588,17 +15580,17 @@ define hidden void @FT_Raccess_Guess(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %.not10.i, label %20, label %FT_Stream_Seek.exit
 
 FT_Stream_Seek.exit:                              ; preds = %17
-  %19 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   store i32 85, ptr %19, align 4, !tbaa !168
   br label %26
 
 20:                                               ; preds = %17, %.split
   store i64 0, ptr %8, align 8, !tbaa !255
-  %21 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   store i32 0, ptr %21, align 4, !tbaa !168
-  %22 = getelementptr inbounds nuw %struct.ft_raccess_guess_rec_, ptr @ft_raccess_guess_table, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [16 x i8], ptr @ft_raccess_guess_table, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 16, !tbaa !304
-  %24 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %25 = tail call i32 %23(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %15, ptr noundef %24) #35
   store i32 %25, ptr %21, align 4, !tbaa !168
   br label %26
@@ -15660,7 +15652,7 @@ define range(i32 0, 7) i32 @FT_Get_Sfnt_Name(ptr noundef readonly captures(addre
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %17 = load ptr, ptr %16, align 8, !tbaa !518
   %18 = zext nneg i32 %1 to i64
-  %19 = getelementptr inbounds nuw %struct.TT_NameRec_, ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [32 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load i16, ptr %20, align 8, !tbaa !519
   %.not38 = icmp eq i16 %21, 0
@@ -15805,7 +15797,7 @@ define range(i32 0, 9) i32 @FT_Get_Sfnt_LangTag(ptr noundef readonly captures(ad
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 600
   %22 = load ptr, ptr %21, align 8, !tbaa !536
   %23 = zext i32 %16 to i64
-  %24 = getelementptr inbounds nuw %struct.TT_LangTagRec_, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [24 x i8], ptr %22, i64 %23
   %25 = load i16, ptr %24, align 8, !tbaa !537
   %.not37 = icmp eq i16 %25, 0
   br i1 %.not37, label %56, label %26
@@ -18142,7 +18134,7 @@ select.unfold:                                    ; preds = %ft_mem_qalloc.exit.
   br i1 %.not58, label %38, label %.critedge
 
 38:                                               ; preds = %36
-  %39 = getelementptr inbounds nuw %struct.FT_Parameter_, ptr %5, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %indvars.iv
   %40 = load i64, ptr %39, align 8, !tbaa !401
   %41 = icmp eq i64 %40, 1768842098
   br i1 %41, label %42, label %45
@@ -18272,7 +18264,7 @@ select.unfold:                                    ; preds = %ft_mem_qalloc.exit.
 .lr.ph.i72:                                       ; preds = %.preheader.i71, %ft_cmap_done_internal.exit.i
   %98 = phi ptr [ %111, %ft_cmap_done_internal.exit.i ], [ %.pre.i, %.preheader.i71 ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %ft_cmap_done_internal.exit.i ], [ 0, %.preheader.i71 ]
-  %99 = getelementptr inbounds nuw ptr, ptr %98, i64 %indvars.iv.i
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %indvars.iv.i
   %100 = load ptr, ptr %99, align 8, !tbaa !338
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 16
   %102 = load ptr, ptr %101, align 8, !tbaa !292
@@ -18293,7 +18285,7 @@ ft_cmap_done_internal.exit.i:                     ; preds = %108, %.lr.ph.i72
   %110 = load ptr, ptr %109, align 8, !tbaa !61
   tail call void %110(ptr noundef %105, ptr noundef nonnull %100) #35
   %111 = load ptr, ptr %97, align 8, !tbaa !337
-  %112 = getelementptr inbounds nuw ptr, ptr %111, i64 %indvars.iv.i
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %111, i64 %indvars.iv.i
   store ptr null, ptr %112, align 8, !tbaa !338
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %113 = load i32, ptr %94, align 8, !tbaa !336
@@ -19024,7 +19016,7 @@ define internal fastcc i32 @IsMacResource(ptr noundef %0, ptr noundef %1, i64 no
 28:                                               ; preds = %.lr.ph, %72
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %72 ]
   %.0116.i113 = phi i64 [ 0, %.lr.ph ], [ %73, %72 ]
-  %29 = getelementptr inbounds nuw i64, ptr %20, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv
   %30 = load i64, ptr %29, align 8, !tbaa !37
   %31 = load ptr, ptr %25, align 8, !tbaa !302
   %.not.i51 = icmp eq ptr %31, null
@@ -19146,7 +19138,7 @@ ft_mem_qalloc.exit:                               ; preds = %72
   %.0113.i118 = phi i64 [ 6, %.lr.ph121 ], [ %.1114.i, %145 ]
   %.0117.i117 = phi i64 [ 0, %.lr.ph121 ], [ %.1118.i, %145 ]
   %.0120.i116 = phi i32 [ 1, %.lr.ph121 ], [ %.1121.i, %145 ]
-  %84 = getelementptr inbounds nuw i64, ptr %20, i64 %indvars.iv132
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv132
   %85 = load i64, ptr %84, align 8, !tbaa !37
   %86 = load ptr, ptr %80, align 8, !tbaa !302
   %.not.i45 = icmp eq ptr %86, null
@@ -19358,7 +19350,7 @@ ft_mem_free.exit:                                 ; preds = %Mac_Read_POST_Resou
   br i1 %.not.i39, label %180, label %Mac_Read_sfnt_Resource.exit
 
 180:                                              ; preds = %175
-  %181 = getelementptr inbounds nuw i64, ptr %178, i64 %spec.select.i
+  %181 = getelementptr inbounds nuw [8 x i8], ptr %178, i64 %spec.select.i
   %182 = load i64, ptr %181, align 8, !tbaa !37
   %183 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %184 = load ptr, ptr %183, align 8, !tbaa !302

@@ -544,7 +544,7 @@ define hidden void @"_ZN6parser6output6Output4iter28_$u7b$$u7b$closure$u7d$$u7d$
 17:                                               ; preds = %7
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %19 = load ptr, ptr %18, align 8, !nonnull !4, !noundef !4
-  %20 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 } }, ptr %19, i64 %10
+  %20 = getelementptr inbounds nuw [24 x i8], ptr %19, i64 %10
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8, !nonnull !4, !noundef !4
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 16

@@ -32,7 +32,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
 %"union.std::_Nocopy_types" = type { { i64, i64 } }
 %"class.std::function.0" = type { %"class.std::_Function_base", ptr }
-%"class.llvm::DWARFDebugInfoEntry" = type { i64, i32, i32, ptr }
 
 $_ZN4llvm13DWARFTypeUnitD0Ev = comdat any
 
@@ -124,7 +123,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm19DWARFDebugInfoEntryESt6vect
   %.014.i.i.i.i = phi i64 [ %.1.i.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm19DWARFDebugInfoEntryESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i.i.i.i ], [ %31, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm19DWARFDebugInfoEntryESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.preheader.i.i.i.i ]
   %.sroa.012.013.i.i.i.i = phi ptr [ %.sroa.012.1.i.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm19DWARFDebugInfoEntryESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i.i.i.i ], [ %24, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm19DWARFDebugInfoEntryESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.preheader.i.i.i.i ]
   %32 = lshr i64 %.014.i.i.i.i, 1
-  %33 = getelementptr inbounds nuw %"class.llvm::DWARFDebugInfoEntry", ptr %.sroa.012.013.i.i.i.i, i64 %32
+  %33 = getelementptr inbounds nuw [24 x i8], ptr %.sroa.012.013.i.i.i.i, i64 %32
   %34 = load i64, ptr %33, align 8, !tbaa !21
   %35 = icmp ult i64 %34, %22
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 24
@@ -150,7 +149,7 @@ _ZN4llvm9DWARFUnit20getDIEIndexForOffsetEm.exit.i: ; preds = %40
   %44 = sub i64 %43, %28
   %45 = sdiv exact i64 %44, 24
   %46 = and i64 %45, 4294967295
-  %47 = getelementptr inbounds nuw %"class.llvm::DWARFDebugInfoEntry", ptr %24, i64 %46
+  %47 = getelementptr inbounds nuw [24 x i8], ptr %24, i64 %46
   br label %_ZN4llvm9DWARFUnit15getDIEForOffsetEm.exit
 
 _ZN4llvm9DWARFUnit15getDIEForOffsetEm.exit:       ; preds = %_ZN4llvm15partition_pointIRSt6vectorINS_19DWARFDebugInfoEntryESaIS2_EEZNS_9DWARFUnit20getDIEIndexForOffsetEmEUlRKS2_E_RS2_EEDaOT_T0_.exit.i.i, %40, %_ZN4llvm9DWARFUnit20getDIEIndexForOffsetEm.exit.i

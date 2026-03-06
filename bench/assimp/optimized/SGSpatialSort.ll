@@ -3,8 +3,8 @@ source_filename = "bench/assimp/original/SGSpatialSort.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"struct.Assimp::SGSpatialSort::Entry" = type { i32, %class.aiVector3t, i32, float }
 %class.aiVector3t = type { float, float, float }
+%"struct.Assimp::SGSpatialSort::Entry" = type { i32, %class.aiVector3t, i32, float }
 
 $_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN6Assimp13SGSpatialSort5EntryESt6vectorIS4_SaIS4_EEEElNS0_5__ops15_Iter_less_iterEEvT_SC_T0_T1_ = comdat any
 
@@ -120,7 +120,7 @@ _ZNSt6vectorIN6Assimp13SGSpatialSort5EntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.
 _ZNSt6vectorIN6Assimp13SGSpatialSort5EntryESaIS2_EE17_M_realloc_insertIJRjRK10aiVector3tIfERfS6_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %50, %_ZNSt6vectorIN6Assimp13SGSpatialSort5EntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit35.i.i
   store ptr %42, ptr %18, align 8
   store ptr %49, ptr %19, align 8
-  %51 = getelementptr inbounds nuw %"struct.Assimp::SGSpatialSort::Entry", ptr %42, i64 %40
+  %51 = getelementptr inbounds nuw [24 x i8], ptr %42, i64 %40
   store ptr %51, ptr %21, align 8
   br label %_ZNSt6vectorIN6Assimp13SGSpatialSort5EntryESaIS2_EE12emplace_backIJRjRK10aiVector3tIfERfS6_EEERS2_DpOT_.exit
 
@@ -228,7 +228,7 @@ _ZNSt6vectorIjSaIjEE5clearEv.exit:                ; preds = %6, %25
   %.0120 = phi i32 [ %.1, %.lr.ph ], [ %46, %.lr.ph.preheader ]
   %.059119 = phi i32 [ %56, %.lr.ph ], [ %48, %.lr.ph.preheader ]
   %50 = zext i32 %.0120 to i64
-  %51 = getelementptr inbounds nuw %"struct.Assimp::SGSpatialSort::Entry", ptr %28, i64 %50
+  %51 = getelementptr inbounds nuw [24 x i8], ptr %28, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 20
   %53 = load float, ptr %52, align 4
   %54 = fcmp olt float %53, %20
@@ -241,7 +241,7 @@ _ZNSt6vectorIjSaIjEE5clearEv.exit:                ; preds = %6, %25
 
 .lr.ph123:                                        ; preds = %.lr.ph123.preheader, %62
   %indvars.iv = phi i64 [ %49, %.lr.ph123.preheader ], [ %indvars.iv.next, %62 ]
-  %58 = getelementptr inbounds nuw %"struct.Assimp::SGSpatialSort::Entry", ptr %28, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [24 x i8], ptr %28, i64 %indvars.iv
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 20
   %60 = load float, ptr %59, align 4
   %61 = fcmp ogt float %60, %20
@@ -273,7 +273,7 @@ _ZNSt6vectorIjSaIjEE5clearEv.exit:                ; preds = %6, %25
 .lr.ph128:                                        ; preds = %.critedge, %68
   %72 = phi i64 [ %70, %68 ], [ %66, %.critedge ]
   %.3127 = phi i32 [ %69, %68 ], [ %.2.lcssa, %.critedge ]
-  %73 = getelementptr inbounds nuw %"struct.Assimp::SGSpatialSort::Entry", ptr %28, i64 %72
+  %73 = getelementptr inbounds nuw [24 x i8], ptr %28, i64 %72
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 20
   %75 = load float, ptr %74, align 4
   %76 = fcmp olt float %75, %20
@@ -282,7 +282,7 @@ _ZNSt6vectorIjSaIjEE5clearEv.exit:                ; preds = %6, %25
 .critedge2:                                       ; preds = %.lr.ph128, %68, %.critedge
   %.lcssa = phi i64 [ %66, %.critedge ], [ %70, %68 ], [ %72, %.lr.ph128 ]
   %77 = fmul float %3, %3
-  %78 = getelementptr inbounds nuw %"struct.Assimp::SGSpatialSort::Entry", ptr %28, i64 %.lcssa
+  %78 = getelementptr inbounds nuw [24 x i8], ptr %28, i64 %.lcssa
   br i1 %5, label %.preheader, label %136
 
 .preheader:                                       ; preds = %.critedge2
@@ -380,7 +380,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i: ; preds = %129, %_ZNK
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i: ; preds = %131, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i
   store ptr %125, ptr %4, align 8
   store ptr %130, ptr %23, align 8
-  %132 = getelementptr inbounds nuw i32, ptr %125, i64 %123
+  %132 = getelementptr inbounds nuw [4 x i8], ptr %125, i64 %123
   store ptr %132, ptr %79, align 8
   br label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit
 
@@ -480,7 +480,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i74: ; preds = %182, %_Z
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i76: ; preds = %184, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i74
   store ptr %178, ptr %4, align 8
   store ptr %183, ptr %23, align 8
-  %185 = getelementptr inbounds nuw i32, ptr %178, i64 %176
+  %185 = getelementptr inbounds nuw [4 x i8], ptr %178, i64 %176
   store ptr %185, ptr %137, align 8
   br label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit77
 
@@ -584,7 +584,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i86: ; preds = %236, %_Z
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i88: ; preds = %238, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i86
   store ptr %232, ptr %4, align 8
   store ptr %237, ptr %23, align 8
-  %239 = getelementptr inbounds nuw i32, ptr %232, i64 %230
+  %239 = getelementptr inbounds nuw [4 x i8], ptr %232, i64 %230
   store ptr %239, ptr %137, align 8
   br label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit89
 
@@ -652,13 +652,13 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
   %27 = and i64 %22, 1
   %28 = icmp eq i64 %27, 0
   %29 = or disjoint i64 %23, 1
-  %30 = getelementptr inbounds nuw %"struct.Assimp::SGSpatialSort::Entry", ptr %0, i64 %29
-  %31 = getelementptr inbounds nuw %"struct.Assimp::SGSpatialSort::Entry", ptr %0, i64 %24
+  %30 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %29
+  %31 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %24
   br label %32
 
 32:                                               ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN6Assimp13SGSpatialSort5EntryESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_less_iterEEvT_T0_SD_T1_T2_.exit.i.i, %21
   %.07.i.i = phi i64 [ %24, %21 ], [ %60, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN6Assimp13SGSpatialSort5EntryESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_less_iterEEvT_T0_SD_T1_T2_.exit.i.i ]
-  %33 = getelementptr inbounds %"struct.Assimp::SGSpatialSort::Entry", ptr %0, i64 %.07.i.i
+  %33 = getelementptr inbounds [24 x i8], ptr %0, i64 %.07.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.013.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.sroa.013.i.i, ptr noundef nonnull align 4 dereferenceable(20) %33, i64 20, i1 false)
   %.sroa.416.0..sroa.0.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %33, i64 20
@@ -670,17 +670,17 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
   %.038.i.i.i = phi i64 [ %spec.select.i.i.i, %.lr.ph.i.i.i ], [ %.07.i.i, %32 ]
   %35 = shl i64 %.038.i.i.i, 1
   %36 = add i64 %35, 2
-  %37 = getelementptr inbounds %"struct.Assimp::SGSpatialSort::Entry", ptr %0, i64 %36
+  %37 = getelementptr inbounds [24 x i8], ptr %0, i64 %36
   %38 = or disjoint i64 %35, 1
-  %39 = getelementptr inbounds %"struct.Assimp::SGSpatialSort::Entry", ptr %0, i64 %38
+  %39 = getelementptr inbounds [24 x i8], ptr %0, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 20
   %41 = load float, ptr %40, align 4
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 20
   %43 = load float, ptr %42, align 4
   %44 = fcmp olt float %41, %43
   %spec.select.i.i.i = select i1 %44, i64 %38, i64 %36
-  %45 = getelementptr inbounds %"struct.Assimp::SGSpatialSort::Entry", ptr %0, i64 %spec.select.i.i.i
-  %46 = getelementptr inbounds %"struct.Assimp::SGSpatialSort::Entry", ptr %0, i64 %.038.i.i.i
+  %45 = getelementptr inbounds [24 x i8], ptr %0, i64 %spec.select.i.i.i
+  %46 = getelementptr inbounds [24 x i8], ptr %0, i64 %.038.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %46, ptr noundef nonnull align 4 dereferenceable(24) %45, i64 24, i1 false)
   %47 = icmp slt i64 %spec.select.i.i.i, %26
   br i1 %47, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !15
@@ -704,21 +704,21 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
   %.018.i.i.i.i = phi i64 [ %.0919.i.i.i.i, %56 ], [ %.1.i.i.i, %50 ]
   %.0919.in.i.i.i.i = add nsw i64 %.018.i.i.i.i, -1
   %.0919.i.i.i.i = sdiv i64 %.0919.in.i.i.i.i, 2
-  %52 = getelementptr inbounds nuw %"struct.Assimp::SGSpatialSort::Entry", ptr %0, i64 %.0919.i.i.i.i
+  %52 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %.0919.i.i.i.i
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 20
   %54 = load float, ptr %53, align 4
   %55 = fcmp olt float %54, %.sroa.416.0.copyload.i.i
   br i1 %55, label %56, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN6Assimp13SGSpatialSort5EntryESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_less_iterEEvT_T0_SD_T1_T2_.exit.i.i
 
 56:                                               ; preds = %.lr.ph.i.i.i.i11
-  %57 = getelementptr inbounds nuw %"struct.Assimp::SGSpatialSort::Entry", ptr %0, i64 %.018.i.i.i.i
+  %57 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %.018.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %57, ptr noundef nonnull align 4 dereferenceable(24) %52, i64 24, i1 false)
   %58 = icmp sgt i64 %.0919.i.i.i.i, %.07.i.i
   br i1 %58, label %.lr.ph.i.i.i.i11, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN6Assimp13SGSpatialSort5EntryESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_less_iterEEvT_T0_SD_T1_T2_.exit.i.i, !llvm.loop !16
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN6Assimp13SGSpatialSort5EntryESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_less_iterEEvT_T0_SD_T1_T2_.exit.i.i: ; preds = %56, %.lr.ph.i.i.i.i11, %50
   %.0.lcssa.i.i.i.i10 = phi i64 [ %.1.i.i.i, %50 ], [ %.0919.i.i.i.i, %56 ], [ %.018.i.i.i.i, %.lr.ph.i.i.i.i11 ]
-  %59 = getelementptr inbounds nuw %"struct.Assimp::SGSpatialSort::Entry", ptr %0, i64 %.0.lcssa.i.i.i.i10
+  %59 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %.0.lcssa.i.i.i.i10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %59, ptr noundef nonnull align 8 dereferenceable(20) %.sroa.013.i.i, i64 20, i1 false)
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %59, i64 20
   store float %.sroa.416.0.copyload.i.i, ptr %.sroa.4.0..sroa_idx.i.i.i, align 4
@@ -747,17 +747,17 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN6Assimp13SGSpatialSort5Entr
   %.038.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ 0, %.lr.ph.i.i ]
   %68 = shl i64 %.038.i.i.i.i, 1
   %69 = add i64 %68, 2
-  %70 = getelementptr inbounds %"struct.Assimp::SGSpatialSort::Entry", ptr %0, i64 %69
+  %70 = getelementptr inbounds [24 x i8], ptr %0, i64 %69
   %71 = or disjoint i64 %68, 1
-  %72 = getelementptr inbounds %"struct.Assimp::SGSpatialSort::Entry", ptr %0, i64 %71
+  %72 = getelementptr inbounds [24 x i8], ptr %0, i64 %71
   %73 = getelementptr inbounds nuw i8, ptr %70, i64 20
   %74 = load float, ptr %73, align 4
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 20
   %76 = load float, ptr %75, align 4
   %77 = fcmp olt float %74, %76
   %spec.select.i.i.i.i = select i1 %77, i64 %71, i64 %69
-  %78 = getelementptr inbounds %"struct.Assimp::SGSpatialSort::Entry", ptr %0, i64 %spec.select.i.i.i.i
-  %79 = getelementptr inbounds %"struct.Assimp::SGSpatialSort::Entry", ptr %0, i64 %.038.i.i.i.i
+  %78 = getelementptr inbounds [24 x i8], ptr %0, i64 %spec.select.i.i.i.i
+  %79 = getelementptr inbounds [24 x i8], ptr %0, i64 %.038.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %79, ptr noundef nonnull align 4 dereferenceable(24) %78, i64 24, i1 false)
   %80 = icmp slt i64 %spec.select.i.i.i.i, %66
   br i1 %80, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !15
@@ -777,8 +777,8 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN6Assimp13SGSpatialSort5Entr
 .thread.i.i.i:                                    ; preds = %83
   %87 = shl nuw nsw i64 %.0.lcssa.i.i.i.i, 1
   %88 = or disjoint i64 %87, 1
-  %89 = getelementptr inbounds nuw %"struct.Assimp::SGSpatialSort::Entry", ptr %0, i64 %88
-  %90 = getelementptr inbounds %"struct.Assimp::SGSpatialSort::Entry", ptr %0, i64 %.0.lcssa.i.i.i.i
+  %89 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %88
+  %90 = getelementptr inbounds [24 x i8], ptr %0, i64 %.0.lcssa.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %90, ptr noundef nonnull align 4 dereferenceable(24) %89, i64 24, i1 false)
   br label %.lr.ph.i.i.i.i.i.preheader
 
@@ -794,21 +794,21 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN6Assimp13SGSpatialSort5Entr
   %.018.i.i.i.i.i = phi i64 [ %.0919.i.i910.i.i.i, %96 ], [ %.018.i.i.i.i.i.ph, %.lr.ph.i.i.i.i.i.preheader ]
   %.0919.in.i.i.i.i.i = add nsw i64 %.018.i.i.i.i.i, -1
   %.0919.i.i910.i.i.i = lshr i64 %.0919.in.i.i.i.i.i, 1
-  %92 = getelementptr inbounds nuw %"struct.Assimp::SGSpatialSort::Entry", ptr %0, i64 %.0919.i.i910.i.i.i
+  %92 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %.0919.i.i910.i.i.i
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 20
   %94 = load float, ptr %93, align 4
   %95 = fcmp olt float %94, %.sroa.48.0.copyload.i.i.i
   br i1 %95, label %96, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN6Assimp13SGSpatialSort5EntryESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_RT0_.exit.i.i
 
 96:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %97 = getelementptr inbounds %"struct.Assimp::SGSpatialSort::Entry", ptr %0, i64 %.018.i.i.i.i.i
+  %97 = getelementptr inbounds [24 x i8], ptr %0, i64 %.018.i.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %97, ptr noundef nonnull align 4 dereferenceable(24) %92, i64 24, i1 false)
   %.not11.i.i.i = icmp eq i64 %.0919.i.i910.i.i.i, 0
   br i1 %.not11.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN6Assimp13SGSpatialSort5EntryESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_RT0_.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !16
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN6Assimp13SGSpatialSort5EntryESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_RT0_.exit.i.i: ; preds = %96, %.lr.ph.i.i.i.i.i, %91
   %.0.lcssa.i.i.i.i.i = phi i64 [ 0, %91 ], [ %.018.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ 0, %96 ]
-  %98 = getelementptr inbounds %"struct.Assimp::SGSpatialSort::Entry", ptr %0, i64 %.0.lcssa.i.i.i.i.i
+  %98 = getelementptr inbounds [24 x i8], ptr %0, i64 %.0.lcssa.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %98, ptr noundef nonnull align 8 dereferenceable(20) %.sroa.05.i.i.i, i64 20, i1 false)
   %.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %98, i64 20
   store float %.sroa.48.0.copyload.i.i.i, ptr %.sroa.4.0..sroa_idx.i.i.i.i, align 4
@@ -819,7 +819,7 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN6Assimp13SGSpatialSort5EntryES
 100:                                              ; preds = %18
   %101 = add nsw i64 %.020, -1
   %102 = udiv i64 %19, 48
-  %103 = getelementptr inbounds nuw %"struct.Assimp::SGSpatialSort::Entry", ptr %0, i64 %102
+  %103 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %102
   %104 = getelementptr inbounds i8, ptr %storemerge19, i64 -24
   %105 = load float, ptr %16, align 4
   %106 = getelementptr inbounds nuw i8, ptr %103, i64 20
@@ -973,7 +973,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN6Assimp13SGSpatialSort5Entr
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %4, ptr noundef nonnull align 4 dereferenceable(24) %.sroa.0.018.i.ptr, i64 24, i1 false)
   %15 = getelementptr inbounds nuw i8, ptr %.pn17.i, i64 48
   %.neg.i.i.i.i.i.i = sdiv exact i64 %.sroa.0.018.i.idx, -24
-  %16 = getelementptr inbounds %"struct.Assimp::SGSpatialSort::Entry", ptr %15, i64 %.neg.i.i.i.i.i.i
+  %16 = getelementptr inbounds [24 x i8], ptr %15, i64 %.neg.i.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %16, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %.sroa.0.018.i.idx, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %0, ptr noundef nonnull align 4 dereferenceable(24) %4, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -1073,7 +1073,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN6Assimp13SGSpatialSort5Entr
   %42 = ptrtoint ptr %.sroa.0.018.i20 to i64
   %43 = sub i64 %42, %6
   %.neg.i.i.i.i.i.i31 = sdiv exact i64 %43, -24
-  %44 = getelementptr inbounds %"struct.Assimp::SGSpatialSort::Entry", ptr %41, i64 %.neg.i.i.i.i.i.i31
+  %44 = getelementptr inbounds [24 x i8], ptr %41, i64 %.neg.i.i.i.i.i.i31
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %44, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %43, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %0, ptr noundef nonnull align 4 dereferenceable(24) %3, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

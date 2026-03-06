@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.UOption = type { ptr, ptr, ptr, ptr, i8, i8, i8 }
-%struct.ULine = type { ptr, i32 }
 %struct.UTimer = type { %struct.timeval, %struct.timeval }
 %struct.timeval = type { i64, i64 }
 
@@ -463,7 +462,7 @@ define noundef ptr @_ZN9UPerfTest8getLinesER10UErrorCode(ptr noundef nonnull ali
   %25 = load ptr, ptr %7, align 8, !tbaa !25
   %26 = load i32, ptr %11, align 8, !tbaa !26
   %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds %struct.ULine, ptr %25, i64 %27
+  %28 = getelementptr inbounds [16 x i8], ptr %25, i64 %27
   store ptr %24, ptr %28, align 8, !tbaa !42
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i32 %19, ptr %29, align 8, !tbaa !44
@@ -546,7 +545,7 @@ define noundef ptr @_ZN9UPerfTest9getBufferERiR10UErrorCode(ptr noundef nonnull 
   %20 = load ptr, ptr %14, align 8, !tbaa !47
   %21 = load i32, ptr %1, align 4, !tbaa !41
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds i16, ptr %20, i64 %22
+  %23 = getelementptr inbounds [2 x i8], ptr %20, i64 %22
   store i16 0, ptr %23, align 2, !tbaa !48
   %24 = load i32, ptr %16, align 8, !tbaa !50
   store i32 %24, ptr %1, align 4, !tbaa !41
@@ -593,7 +592,7 @@ define noundef signext i8 @_ZN9UPerfTest3runEv(ptr noundef nonnull align 8 deref
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %.critedge ]
   %.02233 = phi i8 [ 0, %.lr.ph ], [ %.224, %.critedge ]
   %15 = load ptr, ptr %5, align 8, !tbaa !18
-  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8, !tbaa !52
   %18 = load i8, ptr %17, align 1, !tbaa !53
   %.not = icmp eq i8 %18, 45

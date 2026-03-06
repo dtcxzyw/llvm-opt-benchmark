@@ -10,8 +10,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.anon.68 = type { ptr, i32, i32, i64, i64, ptr, i16, i8 }
 %struct.intel_context_ops = type { i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.list_head = type { ptr, ptr }
-%struct.ve_node = type { %struct.rb_node, i32 }
-%struct.rb_node = type { i64, ptr, ptr }
 
 @.str = private unnamed_addr constant [3 x i8] c"\09\09\00", align 1
 @.str.1 = private unnamed_addr constant [40 x i8] c"\09\09...skipping %d executing requests...\0A\00", align 1
@@ -377,7 +375,7 @@ define dso_local noundef i32 @intel_execlists_submission_setup(ptr noundef %0) l
   %138 = load i8, ptr %137, align 8
   %139 = icmp ugt i8 %138, 10
   %140 = select i1 %139, i64 47, i64 31
-  %141 = getelementptr i32, ptr %134, i64 %140
+  %141 = getelementptr [4 x i8], ptr %134, i64 %140
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 1168
   store ptr %141, ptr %142, align 8
   %143 = load i8, ptr %137, align 8
@@ -521,7 +519,7 @@ define internal void @execlists_submission_tasklet(ptr noundef readonly captures
   %55 = getelementptr inbounds nuw i8, ptr %6, i64 1144
   %56 = load i32, ptr %55, align 8
   %57 = zext i32 %56 to i64
-  %58 = getelementptr ptr, ptr %48, i64 %57
+  %58 = getelementptr [8 x i8], ptr %48, i64 %57
   %59 = getelementptr inbounds nuw i8, ptr %54, i64 4
   call void @_raw_spin_lock(ptr noundef nonnull %59) #17
   %60 = getelementptr inbounds nuw i8, ptr %6, i64 1088
@@ -995,7 +993,7 @@ define internal void @execlists_submission_tasklet(ptr noundef readonly captures
   %370 = getelementptr inbounds nuw i8, ptr %279, i64 6320
   %371 = load i32, ptr %265, align 8
   %372 = zext i32 %371 to i64
-  %373 = getelementptr %struct.ve_node, ptr %370, i64 %372
+  %373 = getelementptr [32 x i8], ptr %370, i64 %372
   %374 = load ptr, ptr %264, align 8
   %375 = icmp eq ptr %374, %373
   br i1 %375, label %376, label %378
@@ -1048,13 +1046,13 @@ define internal void @execlists_submission_tasklet(ptr noundef readonly captures
 
 401:                                              ; preds = %398, %396
   %402 = phi i64 [ 1, %396 ], [ %399, %398 ]
-  %403 = getelementptr ptr, ptr %383, i64 %402
+  %403 = getelementptr [8 x i8], ptr %383, i64 %402
   %404 = load ptr, ptr %403, align 8
   %405 = icmp eq ptr %404, %6
   br i1 %405, label %406, label %398
 
 406:                                              ; preds = %401
-  %407 = getelementptr ptr, ptr %383, i64 %402
+  %407 = getelementptr [8 x i8], ptr %383, i64 %402
   %408 = load ptr, ptr %383, align 8
   store ptr %408, ptr %407, align 8
   store ptr %404, ptr %383, align 8
@@ -1710,7 +1708,7 @@ define internal void @execlists_submission_tasklet(ptr noundef readonly captures
 
 803:                                              ; preds = %877, %799
   %804 = phi i64 [ %802, %799 ], [ %878, %877 ]
-  %805 = getelementptr ptr, ptr %48, i64 %804
+  %805 = getelementptr [8 x i8], ptr %48, i64 %804
   %806 = load ptr, ptr %805, align 8
   %807 = icmp eq ptr %806, null
   br i1 %807, label %856, label %808
@@ -1789,12 +1787,12 @@ define internal void @execlists_submission_tasklet(ptr noundef readonly captures
   %862 = load ptr, ptr %801, align 8
   %863 = shl i64 %804, 1
   %864 = and i64 %863, 4294967294
-  %865 = getelementptr i32, ptr %862, i64 %864
+  %865 = getelementptr [4 x i8], ptr %862, i64 %864
   call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %861, ptr elementtype(i32) %865) #17, !srcloc !37
   %866 = lshr i64 %857, 32
   %867 = trunc nuw i64 %866 to i32
   %868 = load ptr, ptr %801, align 8
-  %869 = getelementptr i32, ptr %868, i64 %864
+  %869 = getelementptr [4 x i8], ptr %868, i64 %864
   %870 = getelementptr i8, ptr %869, i64 4
   call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %867, ptr elementtype(i32) %870) #17, !srcloc !37
   br label %877
@@ -2320,7 +2318,7 @@ define internal fastcc ptr @process_csb(ptr noundef %0, ptr noundef captures(ret
   %28 = icmp eq i8 %27, %7
   %29 = select i1 %28, i8 0, i8 %27
   %30 = zext i8 %29 to i64
-  %31 = getelementptr i64, ptr %5, i64 %30
+  %31 = getelementptr [8 x i8], ptr %5, i64 %30
   %32 = load volatile i64, ptr %31, align 8
   %33 = icmp eq i64 %32, -1
   br i1 %33, label %34, label %36, !prof !18
@@ -4102,7 +4100,7 @@ define internal i32 @execlists_request_alloc(ptr noundef %0) #0 align 16 {
   %41 = load ptr, ptr %33, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 32
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr ptr, ptr %43, i64 %40
+  %44 = getelementptr [8 x i8], ptr %43, i64 %40
   %45 = load ptr, ptr %44, align 8
   %46 = icmp eq ptr %45, null
   br i1 %46, label %47, label %51
@@ -4110,7 +4108,7 @@ define internal i32 @execlists_request_alloc(ptr noundef %0) #0 align 16 {
 47:                                               ; preds = %37
   %48 = load i8, ptr %35, align 1
   %49 = zext i8 %48 to i64
-  %50 = getelementptr ptr, ptr %34, i64 %49
+  %50 = getelementptr [8 x i8], ptr %34, i64 %49
   br label %51
 
 51:                                               ; preds = %47, %37
@@ -5101,7 +5099,7 @@ define internal noundef nonnull ptr @execlists_create_virtual(ptr noundef readon
 
 66:                                               ; preds = %139, %49
   %67 = phi i64 [ 0, %49 ], [ %140, %139 ]
-  %68 = getelementptr ptr, ptr %0, i64 %67
+  %68 = getelementptr [8 x i8], ptr %0, i64 %67
   %69 = load ptr, ptr %68, align 8
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 44
   %71 = load i32, ptr %70, align 4
@@ -5135,14 +5133,14 @@ define internal noundef nonnull ptr @execlists_create_virtual(ptr noundef readon
   %88 = getelementptr inbounds nuw i8, ptr %69, i64 32
   %89 = load i32, ptr %88, align 8
   %90 = zext i32 %89 to i64
-  %91 = getelementptr %struct.ve_node, ptr %53, i64 %90
+  %91 = getelementptr [32 x i8], ptr %53, i64 %90
   %92 = ptrtoint ptr %91 to i64
   store i64 %92, ptr %91, align 8
   %93 = load i32, ptr %55, align 8
   %94 = add i32 %93, 1
   store i32 %94, ptr %55, align 8
   %95 = zext i32 %93 to i64
-  %96 = getelementptr ptr, ptr %54, i64 %95
+  %96 = getelementptr [8 x i8], ptr %54, i64 %95
   store ptr %69, ptr %96, align 8
   %97 = load i32, ptr %70, align 4
   %98 = or i32 %97, %72
@@ -5231,7 +5229,7 @@ define internal noundef nonnull ptr @execlists_create_virtual(ptr noundef readon
 149:                                              ; preds = %.loopexit11
   %150 = getelementptr inbounds nuw i8, ptr %9, i64 7192
   %151 = sext i32 %147 to i64
-  %152 = getelementptr ptr, ptr %150, i64 %151
+  %152 = getelementptr [8 x i8], ptr %150, i64 %151
   %153 = load ptr, ptr %152, align 8
   %154 = load ptr, ptr %150, align 8
   store ptr %154, ptr %152, align 8
@@ -5280,7 +5278,7 @@ define internal ptr @execlists_create_parallel(ptr noundef readonly captures(non
   %5 = phi ptr [ %18, %17 ], [ null, %3 ]
   %6 = phi i32 [ %19, %17 ], [ 0, %3 ]
   %7 = sext i32 %6 to i64
-  %8 = getelementptr ptr, ptr %0, i64 %7
+  %8 = getelementptr [8 x i8], ptr %0, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = tail call ptr @intel_context_create(ptr noundef %9) #17
   %11 = icmp ugt ptr %10, inttoptr (i64 -4096 to ptr)
@@ -5628,12 +5626,12 @@ define internal void @virtual_submission_tasklet(ptr noundef %0) #0 align 16 {
 
 34:                                               ; preds = %29, %26
   %35 = phi i64 [ 0, %26 ], [ %30, %29 ]
-  %36 = getelementptr ptr, ptr %22, i64 %35
+  %36 = getelementptr [8 x i8], ptr %22, i64 %35
   %37 = load volatile ptr, ptr %36, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %39 = load i32, ptr %38, align 8
   %40 = zext i32 %39 to i64
-  %41 = getelementptr %struct.ve_node, ptr %27, i64 %40
+  %41 = getelementptr [32 x i8], ptr %27, i64 %40
   %42 = load volatile ptr, ptr %6, align 8
   %43 = icmp eq ptr %42, null
   br i1 %43, label %.loopexit, label %44
@@ -5836,7 +5834,7 @@ define internal void @virtual_context_enter(ptr noundef readonly captures(none) 
 
 7:                                                ; preds = %.loopexit, %5
   %8 = phi i64 [ 0, %5 ], [ %25, %.loopexit ]
-  %9 = getelementptr ptr, ptr %6, i64 %8
+  %9 = getelementptr [8 x i8], ptr %6, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 352
   %12 = tail call i32 @__SCT__might_resched() #17
@@ -5893,7 +5891,7 @@ define internal void @virtual_context_exit(ptr noundef readonly captures(none) %
 
 9:                                                ; preds = %.loopexit, %7
   %10 = phi i64 [ 0, %7 ], [ %26, %.loopexit ]
-  %11 = getelementptr ptr, ptr %8, i64 %10
+  %11 = getelementptr [8 x i8], ptr %8, i64 %10
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 352
   %14 = tail call i32 @__SCT__might_resched() #17
@@ -5960,7 +5958,7 @@ define internal ptr @virtual_get_sibling(ptr noundef readonly captures(none) %0,
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 7192
   %8 = zext i32 %1 to i64
-  %9 = getelementptr ptr, ptr %7, i64 %8
+  %9 = getelementptr [8 x i8], ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8
   br label %11
 
@@ -6027,12 +6025,12 @@ define internal void @rcu_virtual_context_destroy(ptr noundef %0) #0 align 16 {
 26:                                               ; preds = %55, %23
   %27 = phi i32 [ %21, %23 ], [ %56, %55 ]
   %28 = phi i64 [ 0, %23 ], [ %57, %55 ]
-  %29 = getelementptr ptr, ptr %24, i64 %28
+  %29 = getelementptr [8 x i8], ptr %24, i64 %28
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %32 = load i32, ptr %31, align 8
   %33 = zext i32 %32 to i64
-  %34 = getelementptr %struct.ve_node, ptr %25, i64 %33
+  %34 = getelementptr [32 x i8], ptr %25, i64 %33
   %35 = load i64, ptr %34, align 8
   %36 = ptrtoint ptr %34 to i64
   %37 = icmp eq i64 %35, %36

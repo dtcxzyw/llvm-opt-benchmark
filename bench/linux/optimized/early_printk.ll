@@ -211,7 +211,7 @@ define internal fastcc void @early_serial_init(ptr noundef %0) unnamed_addr #0 s
   %22 = select i1 %19, i1 true, i1 %21
   %23 = and i64 %17, 1
   %24 = select i1 %22, i64 0, i64 %23
-  %25 = getelementptr i32, ptr @early_serial_init.bases, i64 %24
+  %25 = getelementptr [4 x i8], ptr @early_serial_init.bases, i64 %24
   %26 = load i32, ptr %25, align 4
   %27 = sext i32 %26 to i64
   br label %28
@@ -576,7 +576,7 @@ declare dso_local void @write_pci_config(i8 noundef zeroext, i8 noundef zeroext,
 define internal i32 @mem32_serial_in(i64 noundef %0, i32 noundef %1) #2 align 16 {
   %3 = inttoptr i64 %0 to ptr
   %4 = sext i32 %1 to i64
-  %5 = getelementptr i32, ptr %3, i64 %4
+  %5 = getelementptr [4 x i8], ptr %3, i64 %4
   %6 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %5) #6, !srcloc !16
   ret i32 %6
 }
@@ -585,7 +585,7 @@ define internal i32 @mem32_serial_in(i64 noundef %0, i32 noundef %1) #2 align 16
 define internal void @mem32_serial_out(i64 noundef %0, i32 noundef %1, i32 noundef %2) #2 align 16 {
   %4 = inttoptr i64 %0 to ptr
   %5 = sext i32 %1 to i64
-  %6 = getelementptr i32, ptr %4, i64 %5
+  %6 = getelementptr [4 x i8], ptr %4, i64 %5
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %2, ptr elementtype(i32) %6) #6, !srcloc !17
   ret void
 }

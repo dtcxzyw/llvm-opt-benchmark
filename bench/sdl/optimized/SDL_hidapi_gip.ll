@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.GUID = type { i32, i16, i16, [8 x i8] }
-%struct.GIP_Quirks = type { i16, i16, i8, i32, i32, i32, [8 x i32], [8 x i32], i32, i8, i8 }
-%struct.GIP_MessageMetadata = type { i8, i16, i16, i32, i16, i16 }
 %struct.GIP_Metadata = type { i16, i16, %struct.GIP_DeviceMetadata, i8, ptr }
 %struct.GIP_DeviceMetadata = type { i8, i8, i8, i8, [8 x i32], [8 x i32], ptr, ptr, ptr, ptr, i32 }
 
@@ -165,7 +163,7 @@ GIP_EnsureAttachment.exit:                        ; preds = %.GIP_EnsureAttachme
 
 21:                                               ; preds = %71, %GIP_EnsureAttachment.exit
   %.02935.i = phi i64 [ 0, %GIP_EnsureAttachment.exit ], [ %72, %71 ]
-  %22 = getelementptr inbounds nuw %struct.GIP_Quirks, ptr @quirks, i64 %.02935.i
+  %22 = getelementptr inbounds nuw [92 x i8], ptr @quirks, i64 %.02935.i
   %23 = load i16, ptr %22, align 4
   %.not31.i = icmp eq i16 %23, %18
   br i1 %.not31.i, label %24, label %71
@@ -209,15 +207,15 @@ GIP_EnsureAttachment.exit:                        ; preds = %.GIP_EnsureAttachme
 
 50:                                               ; preds = %50, %30
   %.036.i = phi i64 [ 0, %30 ], [ %61, %50 ]
-  %51 = getelementptr inbounds nuw i32, ptr %46, i64 %.036.i
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %.036.i
   %52 = load i32, ptr %51, align 4
-  %53 = getelementptr inbounds nuw i32, ptr %47, i64 %.036.i
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %.036.i
   %54 = load i32, ptr %53, align 4
   %55 = or i32 %54, %52
   store i32 %55, ptr %53, align 4
-  %56 = getelementptr inbounds nuw i32, ptr %48, i64 %.036.i
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %.036.i
   %57 = load i32, ptr %56, align 4
-  %58 = getelementptr inbounds nuw i32, ptr %49, i64 %.036.i
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %.036.i
   %59 = load i32, ptr %58, align 4
   %60 = or i32 %59, %57
   store i32 %60, ptr %58, align 4
@@ -427,7 +425,7 @@ GIP_DecodeLength.exit.i:                          ; preds = %49, %.split.loop.ex
   %.not.i = icmp sgt i8 %37, -1
   %52 = and i8 %37, 7
   %53 = zext nneg i8 %52 to i64
-  %54 = getelementptr inbounds nuw ptr, ptr %20, i64 %53
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %53
   %55 = load ptr, ptr %54, align 8
   %.not.i110.i = icmp eq ptr %55, null
   br i1 %.not.i110.i, label %56, label %GIP_EnsureAttachment.exit.i
@@ -877,7 +875,7 @@ GIP_ReceivePacket.exit:                           ; preds = %33, %GIP_DecodeLeng
 252:                                              ; preds = %242, %308
   %indvars.iv = phi i64 [ 0, %242 ], [ %indvars.iv.next, %308 ]
   %.14577 = phi i1 [ %or.cond.not, %242 ], [ %.2, %308 ]
-  %253 = getelementptr inbounds nuw ptr, ptr %243, i64 %indvars.iv
+  %253 = getelementptr inbounds nuw [8 x i8], ptr %243, i64 %indvars.iv
   %254 = load ptr, ptr %253, align 8
   %.not54 = icmp eq ptr %254, null
   br i1 %.not54, label %308, label %255
@@ -1011,7 +1009,7 @@ GIP_ReceivePacket.exit:                           ; preds = %33, %GIP_DecodeLeng
 
 .preheader:                                       ; preds = %311, %320
   %indvars.iv89 = phi i64 [ %indvars.iv.next90, %320 ], [ 0, %311 ]
-  %315 = getelementptr inbounds nuw ptr, ptr %243, i64 %indvars.iv89
+  %315 = getelementptr inbounds nuw [8 x i8], ptr %243, i64 %indvars.iv89
   %316 = load ptr, ptr %315, align 8
   %.not53 = icmp eq ptr %316, null
   br i1 %.not53, label %320, label %317
@@ -1042,7 +1040,7 @@ define internal zeroext i1 @HIDAPI_DriverGIP_OpenJoystick(ptr noundef readonly c
 
 5:                                                ; preds = %13, %2
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %13 ]
-  %6 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i
   %7 = load ptr, ptr %6, align 8
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %13, label %8
@@ -1192,7 +1190,7 @@ define internal zeroext i1 @HIDAPI_DriverGIP_RumbleJoystick(ptr noundef readonly
 
 7:                                                ; preds = %15, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %15 ]
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv.i
   %9 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %15, label %10
@@ -1252,7 +1250,7 @@ define internal zeroext i1 @HIDAPI_DriverGIP_RumbleJoystickTriggers(ptr noundef 
 
 7:                                                ; preds = %15, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %15 ]
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv.i
   %9 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %15, label %10
@@ -1319,7 +1317,7 @@ define internal range(i32 0, 52) i32 @HIDAPI_DriverGIP_GetJoystickCapabilities(p
 
 5:                                                ; preds = %13, %2
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %13 ]
-  %6 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i
   %7 = load ptr, ptr %6, align 8
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %13, label %8
@@ -1373,7 +1371,7 @@ define internal zeroext i1 @HIDAPI_DriverGIP_SetJoystickLED(ptr noundef readonly
 
 9:                                                ; preds = %17, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %17 ]
-  %10 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i
   %11 = load ptr, ptr %10, align 8
   %.not.i = icmp eq ptr %11, null
   br i1 %.not.i, label %17, label %12
@@ -1478,7 +1476,7 @@ define internal void @HIDAPI_DriverGIP_FreeDevice(ptr noundef readonly captures(
 
 5:                                                ; preds = %1, %18
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %18 ]
-  %6 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %18, label %8
@@ -1575,7 +1573,7 @@ define internal fastcc void @GIP_SetMetadataDefaults(ptr noundef %0) unnamed_add
 
 30:                                               ; preds = %80, %24
   %.02935.i = phi i64 [ 0, %24 ], [ %81, %80 ]
-  %31 = getelementptr inbounds nuw %struct.GIP_Quirks, ptr @quirks, i64 %.02935.i
+  %31 = getelementptr inbounds nuw [92 x i8], ptr @quirks, i64 %.02935.i
   %32 = load i16, ptr %31, align 4
   %.not31.i = icmp eq i16 %32, %28
   br i1 %.not31.i, label %33, label %80
@@ -1619,15 +1617,15 @@ define internal fastcc void @GIP_SetMetadataDefaults(ptr noundef %0) unnamed_add
 
 59:                                               ; preds = %59, %39
   %.036.i = phi i64 [ 0, %39 ], [ %70, %59 ]
-  %60 = getelementptr inbounds nuw i32, ptr %55, i64 %.036.i
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %.036.i
   %61 = load i32, ptr %60, align 4
-  %62 = getelementptr inbounds nuw i32, ptr %56, i64 %.036.i
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %.036.i
   %63 = load i32, ptr %62, align 4
   %64 = or i32 %63, %61
   store i32 %64, ptr %62, align 4
-  %65 = getelementptr inbounds nuw i32, ptr %57, i64 %.036.i
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %.036.i
   %66 = load i32, ptr %65, align 4
-  %67 = getelementptr inbounds nuw i32, ptr %58, i64 %.036.i
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %.036.i
   %68 = load i32, ptr %67, align 4
   %69 = or i32 %68, %66
   store i32 %69, ptr %67, align 4
@@ -1962,7 +1960,7 @@ GIP_SendGuideButtonLED.exit.thread:               ; preds = %GIP_SendGuideButton
 
 114:                                              ; preds = %112, %.lr.ph.i
   %.01316.i = phi i64 [ 0, %.lr.ph.i ], [ %113, %112 ]
-  %115 = getelementptr inbounds nuw %struct.GIP_MessageMetadata, ptr %111, i64 %.01316.i
+  %115 = getelementptr inbounds nuw [16 x i8], ptr %111, i64 %.01316.i
   %116 = load i8, ptr %115, align 4
   %.not.not.i = icmp eq i8 %116, 10
   br i1 %.not.not.i, label %117, label %112
@@ -2019,7 +2017,7 @@ GIP_SupportsVendorMessage.exit.thread:            ; preds = %129, %GIP_SupportsV
 
 136:                                              ; preds = %134, %.lr.ph.i36
   %.01316.i37 = phi i64 [ 0, %.lr.ph.i36 ], [ %135, %134 ]
-  %137 = getelementptr inbounds nuw %struct.GIP_MessageMetadata, ptr %133, i64 %.01316.i37
+  %137 = getelementptr inbounds nuw [16 x i8], ptr %133, i64 %.01316.i37
   %138 = load i8, ptr %137, align 4
   %.not.not.i38 = icmp eq i8 %138, 0
   br i1 %.not.not.i38, label %139, label %134
@@ -2281,7 +2279,7 @@ thread-pre-split.i:                               ; preds = %14, %17, %30, %21
   %36 = zext nneg i32 %35 to i64
   %37 = shl nuw i32 1, %34
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  %39 = getelementptr inbounds nuw i32, ptr %38, i64 %36
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %36
   %40 = load i32, ptr %39, align 4
   %41 = and i32 %40, %37
   %.0.i.not.i = icmp eq i32 %41, 0
@@ -2689,7 +2687,7 @@ thread-pre-split.i:                               ; preds = %14, %17, %30, %21
   %255 = shl nuw i32 1, %254
   %256 = lshr i32 %253, 5
   %257 = zext nneg i32 %256 to i64
-  %258 = getelementptr inbounds nuw i32, ptr %249, i64 %257
+  %258 = getelementptr inbounds nuw [4 x i8], ptr %249, i64 %257
   %259 = load i32, ptr %258, align 4
   %260 = or i32 %255, %259
   store i32 %260, ptr %258, align 4
@@ -2736,7 +2734,7 @@ thread-pre-split.i:                               ; preds = %14, %17, %30, %21
   %277 = shl nuw i32 1, %276
   %278 = lshr i32 %275, 5
   %279 = zext nneg i32 %278 to i64
-  %280 = getelementptr inbounds nuw i32, ptr %271, i64 %279
+  %280 = getelementptr inbounds nuw [4 x i8], ptr %271, i64 %279
   %281 = load i32, ptr %280, align 4
   %282 = or i32 %277, %281
   store i32 %282, ptr %280, align 4
@@ -2792,7 +2790,7 @@ thread-pre-split.i:                               ; preds = %14, %17, %30, %21
   %305 = add nuw nsw i32 %301, 1
   %306 = zext nneg i32 %305 to i64
   %307 = tail call noalias ptr @SDL_calloc_REAL(i64 noundef %306, i64 noundef 1) #11
-  %308 = getelementptr inbounds nuw ptr, ptr %293, i64 %indvars.iv192.i.i.i.i
+  %308 = getelementptr inbounds nuw [8 x i8], ptr %293, i64 %indvars.iv192.i.i.i.i
   store ptr %307, ptr %308, align 8
   %309 = zext nneg i32 %296 to i64
   %310 = getelementptr inbounds nuw i8, ptr %215, i64 %309
@@ -2905,7 +2903,7 @@ thread-pre-split.i:                               ; preds = %14, %17, %30, %21
 .lr.ph.i.i.i:                                     ; preds = %379, %.lr.ph.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %379 ]
   %.05460.i.i.i = phi i32 [ %368, %.lr.ph.preheader.i.i.i ], [ %397, %379 ]
-  %369 = getelementptr inbounds nuw %struct.GIP_MessageMetadata, ptr %366, i64 %indvars.iv.i.i.i
+  %369 = getelementptr inbounds nuw [16 x i8], ptr %366, i64 %indvars.iv.i.i.i
   %370 = zext nneg i32 %.05460.i.i.i to i64
   %371 = getelementptr inbounds nuw i8, ptr %1, i64 %370
   %372 = sub nsw i32 %2, %.05460.i.i.i
@@ -2987,7 +2985,7 @@ GIP_ParseMetadata.exit.i.i:                       ; preds = %379, %360
 
 409:                                              ; preds = %408, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %408 ]
-  %410 = getelementptr inbounds nuw ptr, ptr %312, i64 %indvars.iv.i.i
+  %410 = getelementptr inbounds nuw [8 x i8], ptr %312, i64 %indvars.iv.i.i
   %411 = load ptr, ptr %410, align 8
   %412 = tail call i32 @SDL_strcmp_REAL(ptr noundef %411, ptr noundef nonnull @.str.27) #10
   %413 = icmp eq i32 %412, 0
@@ -3063,7 +3061,7 @@ GIP_ParseMetadata.exit.i.i:                       ; preds = %379, %360
   %indvars.iv32.i.i = phi i64 [ 0, %.lr.ph19.i.i ], [ %indvars.iv.next33.i.i, %463 ]
   %.06518.i.i = phi i1 [ %.not73.i.i, %.lr.ph19.i.i ], [ %.166.i.i, %463 ]
   %.07116.i.i = phi i1 [ false, %.lr.ph19.i.i ], [ %.172.i.i, %463 ]
-  %439 = getelementptr inbounds nuw %struct.GUID, ptr %335, i64 %indvars.iv32.i.i
+  %439 = getelementptr inbounds nuw [16 x i8], ptr %335, i64 %indvars.iv32.i.i
   br i1 %.not73.i.i, label %443, label %440
 
 440:                                              ; preds = %438
@@ -3118,7 +3116,7 @@ GIP_ParseMetadata.exit.i.i:                       ; preds = %379, %360
 
 464:                                              ; preds = %479, %.lr.ph22.i.i
   %indvars.iv36.i.i = phi i64 [ 0, %.lr.ph22.i.i ], [ %indvars.iv.next37.i.i, %479 ]
-  %465 = getelementptr inbounds nuw %struct.GIP_MessageMetadata, ptr %398, i64 %indvars.iv36.i.i
+  %465 = getelementptr inbounds nuw [16 x i8], ptr %398, i64 %indvars.iv36.i.i
   %466 = load i8, ptr %465, align 4
   %467 = icmp eq i8 %466, 9
   br i1 %467, label %468, label %479
@@ -3185,7 +3183,7 @@ GIP_ParseMetadata.exit.i.i:                       ; preds = %379, %360
 
 493:                                              ; preds = %491, %.lr.ph.i77.i.i
   %.01316.i.i.i = phi i64 [ 0, %.lr.ph.i77.i.i ], [ %492, %491 ]
-  %494 = getelementptr inbounds nuw %struct.GIP_MessageMetadata, ptr %490, i64 %.01316.i.i.i
+  %494 = getelementptr inbounds nuw [16 x i8], ptr %490, i64 %.01316.i.i.i
   %495 = load i8, ptr %494, align 4
   %.not.not.i.i.i = icmp eq i8 %495, 14
   br i1 %.not.not.i.i.i, label %496, label %491
@@ -3213,7 +3211,7 @@ GIP_SupportsVendorMessage.exit.thread5.i.i:       ; preds = %GIP_SupportsVendorM
 
 507:                                              ; preds = %553, %GIP_SupportsVendorMessage.exit.thread5.i.i
   %.02935.i.i.i = phi i64 [ 0, %GIP_SupportsVendorMessage.exit.thread5.i.i ], [ %554, %553 ]
-  %508 = getelementptr inbounds nuw %struct.GIP_Quirks, ptr @quirks, i64 %.02935.i.i.i
+  %508 = getelementptr inbounds nuw [92 x i8], ptr @quirks, i64 %.02935.i.i.i
   %509 = load i16, ptr %508, align 4
   %.not31.i.i.i = icmp eq i16 %509, %505
   br i1 %.not31.i.i.i, label %510, label %553
@@ -3253,15 +3251,15 @@ GIP_SupportsVendorMessage.exit.thread5.i.i:       ; preds = %GIP_SupportsVendorM
 
 532:                                              ; preds = %532, %516
   %.036.i.i.i = phi i64 [ 0, %516 ], [ %543, %532 ]
-  %533 = getelementptr inbounds nuw i32, ptr %529, i64 %.036.i.i.i
+  %533 = getelementptr inbounds nuw [4 x i8], ptr %529, i64 %.036.i.i.i
   %534 = load i32, ptr %533, align 4
-  %535 = getelementptr inbounds nuw i32, ptr %38, i64 %.036.i.i.i
+  %535 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %.036.i.i.i
   %536 = load i32, ptr %535, align 4
   %537 = or i32 %536, %534
   store i32 %537, ptr %535, align 4
-  %538 = getelementptr inbounds nuw i32, ptr %530, i64 %.036.i.i.i
+  %538 = getelementptr inbounds nuw [4 x i8], ptr %530, i64 %.036.i.i.i
   %539 = load i32, ptr %538, align 4
-  %540 = getelementptr inbounds nuw i32, ptr %531, i64 %.036.i.i.i
+  %540 = getelementptr inbounds nuw [4 x i8], ptr %531, i64 %.036.i.i.i
   %541 = load i32, ptr %540, align 4
   %542 = or i32 %541, %539
   store i32 %542, ptr %540, align 4
@@ -4370,7 +4368,7 @@ define internal fastcc void @GIP_MetadataFree(ptr noundef captures(none) %0) unn
   %10 = phi i8 [ %16, %15 ], [ %9, %.preheader ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %15 ], [ 0, %.preheader ]
   %11 = load ptr, ptr %6, align 8
-  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
   %.not26 = icmp eq ptr %13, null
   br i1 %.not26, label %15, label %14

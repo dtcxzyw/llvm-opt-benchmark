@@ -299,7 +299,7 @@ define internal fastcc void @"_ZN75_$LT$parquet..format..IntType$u20$as$u20$parq
 38:                                               ; preds = %.noexc, %2
   %39 = phi i64 [ %.pre.i.i, %.noexc ], [ %30, %2 ]
   %40 = load ptr, ptr %1, align 8, !alias.scope !23, !noalias !21, !nonnull !4, !noundef !4
-  %41 = getelementptr inbounds i16, ptr %40, i64 %39
+  %41 = getelementptr inbounds [2 x i8], ptr %40, i64 %39
   store i16 %28, ptr %41, align 2, !noalias !21
   %42 = load i64, ptr %29, align 8, !alias.scope !23, !noalias !21, !noundef !4
   %43 = add i64 %42, 1
@@ -740,7 +740,7 @@ define internal fastcc void @"_ZN75_$LT$parquet..format..MapType$u20$as$u20$parq
 23:                                               ; preds = %.noexc, %2
   %24 = phi i64 [ %.pre.i.i, %.noexc ], [ %16, %2 ]
   %25 = load ptr, ptr %1, align 8, !alias.scope !165, !noalias !163, !nonnull !4, !noundef !4
-  %26 = getelementptr inbounds i16, ptr %25, i64 %24
+  %26 = getelementptr inbounds [2 x i8], ptr %25, i64 %24
   store i16 %14, ptr %26, align 2, !noalias !163
   %27 = load i64, ptr %15, align 8, !alias.scope !165, !noalias !163, !noundef !4
   %28 = add i64 %27, 1
@@ -809,7 +809,7 @@ define internal fastcc void @"_ZN75_$LT$parquet..format..MapType$u20$as$u20$parq
   %48 = icmp ult i64 %46, %47
   tail call void @llvm.assume(i1 %48)
   %49 = load ptr, ptr %1, align 8, !alias.scope !187, !noalias !168, !nonnull !4, !noundef !4
-  %50 = getelementptr inbounds i16, ptr %49, i64 %46
+  %50 = getelementptr inbounds [2 x i8], ptr %49, i64 %46
   %51 = load i16, ptr %50, align 2, !noalias !188, !noundef !4
   store i16 %51, ptr %13, align 8, !alias.scope !171, !noalias !168
   store i64 4, ptr %0, align 8, !alias.scope !168, !noalias !171
@@ -917,7 +917,7 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..BsonType$u20$as$u20$par
 23:                                               ; preds = %.noexc, %2
   %24 = phi i64 [ %.pre.i.i, %.noexc ], [ %16, %2 ]
   %25 = load ptr, ptr %1, align 8, !alias.scope !221, !noalias !219, !nonnull !4, !noundef !4
-  %26 = getelementptr inbounds i16, ptr %25, i64 %24
+  %26 = getelementptr inbounds [2 x i8], ptr %25, i64 %24
   store i16 %14, ptr %26, align 2, !noalias !219
   %27 = load i64, ptr %15, align 8, !alias.scope !221, !noalias !219, !noundef !4
   %28 = add i64 %27, 1
@@ -986,7 +986,7 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..BsonType$u20$as$u20$par
   %48 = icmp ult i64 %46, %47
   tail call void @llvm.assume(i1 %48)
   %49 = load ptr, ptr %1, align 8, !alias.scope !243, !noalias !224, !nonnull !4, !noundef !4
-  %50 = getelementptr inbounds i16, ptr %49, i64 %46
+  %50 = getelementptr inbounds [2 x i8], ptr %49, i64 %46
   %51 = load i16, ptr %50, align 2, !noalias !244, !noundef !4
   store i16 %51, ptr %13, align 8, !alias.scope !227, !noalias !224
   store i64 4, ptr %0, align 8, !alias.scope !224, !noalias !227
@@ -1094,7 +1094,7 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..DateType$u20$as$u20$par
 23:                                               ; preds = %.noexc, %2
   %24 = phi i64 [ %.pre.i.i, %.noexc ], [ %16, %2 ]
   %25 = load ptr, ptr %1, align 8, !alias.scope !277, !noalias !275, !nonnull !4, !noundef !4
-  %26 = getelementptr inbounds i16, ptr %25, i64 %24
+  %26 = getelementptr inbounds [2 x i8], ptr %25, i64 %24
   store i16 %14, ptr %26, align 2, !noalias !275
   %27 = load i64, ptr %15, align 8, !alias.scope !277, !noalias !275, !noundef !4
   %28 = add i64 %27, 1
@@ -1163,7 +1163,7 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..DateType$u20$as$u20$par
   %48 = icmp ult i64 %46, %47
   tail call void @llvm.assume(i1 %48)
   %49 = load ptr, ptr %1, align 8, !alias.scope !299, !noalias !280, !nonnull !4, !noundef !4
-  %50 = getelementptr inbounds i16, ptr %49, i64 %46
+  %50 = getelementptr inbounds [2 x i8], ptr %49, i64 %46
   %51 = load i16, ptr %50, align 2, !noalias !300, !noundef !4
   store i16 %51, ptr %13, align 8, !alias.scope !283, !noalias !280
   store i64 4, ptr %0, align 8, !alias.scope !280, !noalias !283
@@ -1271,7 +1271,7 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..EnumType$u20$as$u20$par
 23:                                               ; preds = %.noexc, %2
   %24 = phi i64 [ %.pre.i.i, %.noexc ], [ %16, %2 ]
   %25 = load ptr, ptr %1, align 8, !alias.scope !333, !noalias !331, !nonnull !4, !noundef !4
-  %26 = getelementptr inbounds i16, ptr %25, i64 %24
+  %26 = getelementptr inbounds [2 x i8], ptr %25, i64 %24
   store i16 %14, ptr %26, align 2, !noalias !331
   %27 = load i64, ptr %15, align 8, !alias.scope !333, !noalias !331, !noundef !4
   %28 = add i64 %27, 1
@@ -1340,7 +1340,7 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..EnumType$u20$as$u20$par
   %48 = icmp ult i64 %46, %47
   tail call void @llvm.assume(i1 %48)
   %49 = load ptr, ptr %1, align 8, !alias.scope !355, !noalias !336, !nonnull !4, !noundef !4
-  %50 = getelementptr inbounds i16, ptr %49, i64 %46
+  %50 = getelementptr inbounds [2 x i8], ptr %49, i64 %46
   %51 = load i16, ptr %50, align 2, !noalias !356, !noundef !4
   store i16 %51, ptr %13, align 8, !alias.scope !339, !noalias !336
   store i64 4, ptr %0, align 8, !alias.scope !336, !noalias !339
@@ -1448,7 +1448,7 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..JsonType$u20$as$u20$par
 23:                                               ; preds = %.noexc, %2
   %24 = phi i64 [ %.pre.i.i, %.noexc ], [ %16, %2 ]
   %25 = load ptr, ptr %1, align 8, !alias.scope !389, !noalias !387, !nonnull !4, !noundef !4
-  %26 = getelementptr inbounds i16, ptr %25, i64 %24
+  %26 = getelementptr inbounds [2 x i8], ptr %25, i64 %24
   store i16 %14, ptr %26, align 2, !noalias !387
   %27 = load i64, ptr %15, align 8, !alias.scope !389, !noalias !387, !noundef !4
   %28 = add i64 %27, 1
@@ -1517,7 +1517,7 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..JsonType$u20$as$u20$par
   %48 = icmp ult i64 %46, %47
   tail call void @llvm.assume(i1 %48)
   %49 = load ptr, ptr %1, align 8, !alias.scope !411, !noalias !392, !nonnull !4, !noundef !4
-  %50 = getelementptr inbounds i16, ptr %49, i64 %46
+  %50 = getelementptr inbounds [2 x i8], ptr %49, i64 %46
   %51 = load i16, ptr %50, align 2, !noalias !412, !noundef !4
   store i16 %51, ptr %13, align 8, !alias.scope !395, !noalias !392
   store i64 4, ptr %0, align 8, !alias.scope !392, !noalias !395
@@ -1644,7 +1644,7 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..KeyValue$u20$as$u20$par
 35:                                               ; preds = %.noexc, %3
   %36 = phi i64 [ %.pre.i.i, %.noexc ], [ %27, %3 ]
   %37 = load ptr, ptr %2, align 8, !alias.scope !445, !noalias !443, !nonnull !4, !noundef !4
-  %38 = getelementptr inbounds i16, ptr %37, i64 %36
+  %38 = getelementptr inbounds [2 x i8], ptr %37, i64 %36
   store i16 %25, ptr %38, align 2, !noalias !443
   %39 = load i64, ptr %26, align 8, !alias.scope !445, !noalias !443, !noundef !4
   %40 = add i64 %39, 1
@@ -2036,7 +2036,7 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..KeyValue$u20$as$u20$par
 35:                                               ; preds = %.noexc, %3
   %36 = phi i64 [ %.pre.i.i, %.noexc ], [ %27, %3 ]
   %37 = load ptr, ptr %2, align 8, !alias.scope !529, !noalias !527, !nonnull !4, !noundef !4
-  %38 = getelementptr inbounds i16, ptr %37, i64 %36
+  %38 = getelementptr inbounds [2 x i8], ptr %37, i64 %36
   store i16 %25, ptr %38, align 2, !noalias !527
   %39 = load i64, ptr %26, align 8, !alias.scope !529, !noalias !527, !noundef !4
   %40 = add i64 %39, 1
@@ -2409,7 +2409,7 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..ListType$u20$as$u20$par
 23:                                               ; preds = %.noexc, %2
   %24 = phi i64 [ %.pre.i.i, %.noexc ], [ %16, %2 ]
   %25 = load ptr, ptr %1, align 8, !alias.scope !613, !noalias !611, !nonnull !4, !noundef !4
-  %26 = getelementptr inbounds i16, ptr %25, i64 %24
+  %26 = getelementptr inbounds [2 x i8], ptr %25, i64 %24
   store i16 %14, ptr %26, align 2, !noalias !611
   %27 = load i64, ptr %15, align 8, !alias.scope !613, !noalias !611, !noundef !4
   %28 = add i64 %27, 1
@@ -2478,7 +2478,7 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..ListType$u20$as$u20$par
   %48 = icmp ult i64 %46, %47
   tail call void @llvm.assume(i1 %48)
   %49 = load ptr, ptr %1, align 8, !alias.scope !635, !noalias !616, !nonnull !4, !noundef !4
-  %50 = getelementptr inbounds i16, ptr %49, i64 %46
+  %50 = getelementptr inbounds [2 x i8], ptr %49, i64 %46
   %51 = load i16, ptr %50, align 2, !noalias !636, !noundef !4
   store i16 %51, ptr %13, align 8, !alias.scope !619, !noalias !616
   store i64 4, ptr %0, align 8, !alias.scope !616, !noalias !619
@@ -2586,7 +2586,7 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..NullType$u20$as$u20$par
 23:                                               ; preds = %.noexc, %2
   %24 = phi i64 [ %.pre.i.i, %.noexc ], [ %16, %2 ]
   %25 = load ptr, ptr %1, align 8, !alias.scope !669, !noalias !667, !nonnull !4, !noundef !4
-  %26 = getelementptr inbounds i16, ptr %25, i64 %24
+  %26 = getelementptr inbounds [2 x i8], ptr %25, i64 %24
   store i16 %14, ptr %26, align 2, !noalias !667
   %27 = load i64, ptr %15, align 8, !alias.scope !669, !noalias !667, !noundef !4
   %28 = add i64 %27, 1
@@ -2655,7 +2655,7 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..NullType$u20$as$u20$par
   %48 = icmp ult i64 %46, %47
   tail call void @llvm.assume(i1 %48)
   %49 = load ptr, ptr %1, align 8, !alias.scope !691, !noalias !672, !nonnull !4, !noundef !4
-  %50 = getelementptr inbounds i16, ptr %49, i64 %46
+  %50 = getelementptr inbounds [2 x i8], ptr %49, i64 %46
   %51 = load i16, ptr %50, align 2, !noalias !692, !noundef !4
   store i16 %51, ptr %13, align 8, !alias.scope !675, !noalias !672
   store i64 4, ptr %0, align 8, !alias.scope !672, !noalias !675
@@ -3005,7 +3005,7 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..RowGroup$u20$as$u20$par
 213:                                              ; preds = %.noexc, %3
   %214 = phi i64 [ %.pre.i.i, %.noexc ], [ %208, %3 ]
   %215 = load ptr, ptr %2, align 8, !alias.scope !725, !noalias !723, !nonnull !4, !noundef !4
-  %216 = getelementptr inbounds i16, ptr %215, i64 %214
+  %216 = getelementptr inbounds [2 x i8], ptr %215, i64 %214
   store i16 %206, ptr %216, align 2, !noalias !723
   %217 = load i64, ptr %207, align 8, !alias.scope !725, !noalias !723, !noundef !4
   %218 = add i64 %217, 1
@@ -3388,7 +3388,7 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..RowGroup$u20$as$u20$par
 382:                                              ; preds = %.noexc.i, %.noexc369
   %383 = phi i64 [ %.pre.i.i.i, %.noexc.i ], [ %378, %.noexc369 ]
   %384 = load ptr, ptr %2, align 8, !alias.scope !781, !noalias !779, !nonnull !4, !noundef !4
-  %385 = getelementptr inbounds i16, ptr %384, i64 %383
+  %385 = getelementptr inbounds [2 x i8], ptr %384, i64 %383
   store i16 %377, ptr %385, align 2, !noalias !779
   %386 = load i64, ptr %207, align 8, !alias.scope !781, !noalias !779, !noundef !4
   %387 = add i64 %386, 1
@@ -3861,7 +3861,7 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..RowGroup$u20$as$u20$par
 499:                                              ; preds = %.noexc.i424, %.noexc426
   %500 = phi i64 [ %.pre.i.i.i425, %.noexc.i424 ], [ %495, %.noexc426 ]
   %501 = load ptr, ptr %2, align 8, !alias.scope !950, !noalias !948, !nonnull !4, !noundef !4
-  %502 = getelementptr inbounds i16, ptr %501, i64 %500
+  %502 = getelementptr inbounds [2 x i8], ptr %501, i64 %500
   store i16 %494, ptr %502, align 2, !noalias !954
   %503 = load i64, ptr %207, align 8, !alias.scope !950, !noalias !948, !noundef !4
   %504 = add i64 %503, 1
@@ -6923,7 +6923,7 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..TimeType$u20$as$u20$par
 36:                                               ; preds = %.noexc, %2
   %37 = phi i64 [ %.pre.i.i, %.noexc ], [ %28, %2 ]
   %38 = load ptr, ptr %1, align 8, !alias.scope !1345, !noalias !1343, !nonnull !4, !noundef !4
-  %39 = getelementptr inbounds i16, ptr %38, i64 %37
+  %39 = getelementptr inbounds [2 x i8], ptr %38, i64 %37
   store i16 %26, ptr %39, align 2, !noalias !1343
   %40 = load i64, ptr %27, align 8, !alias.scope !1345, !noalias !1343, !noundef !4
   %41 = add i64 %40, 1
@@ -7416,7 +7416,7 @@ default.unreachable:                              ; preds = %68
 68:                                               ; preds = %.noexc, %2
   %69 = phi i64 [ %.pre.i.i, %.noexc ], [ %61, %2 ]
   %70 = load ptr, ptr %1, align 8, !alias.scope !1461, !noalias !1459, !nonnull !4, !noundef !4
-  %71 = getelementptr inbounds i16, ptr %70, i64 %69
+  %71 = getelementptr inbounds [2 x i8], ptr %70, i64 %69
   store i16 %59, ptr %71, align 2, !noalias !1459
   %72 = load i64, ptr %60, align 8, !alias.scope !1461, !noalias !1459, !noundef !4
   %73 = add i64 %72, 1
@@ -7583,7 +7583,7 @@ default.unreachable:                              ; preds = %68
 118:                                              ; preds = %.noexc.i, %.noexc155
   %119 = phi i64 [ %.pre.i.i.i, %.noexc.i ], [ %112, %.noexc155 ]
   %120 = load ptr, ptr %1, align 8, !alias.scope !1525, !noalias !1523, !nonnull !4, !noundef !4
-  %121 = getelementptr inbounds i16, ptr %120, i64 %119
+  %121 = getelementptr inbounds [2 x i8], ptr %120, i64 %119
   store i16 %111, ptr %121, align 2, !noalias !1523
   %122 = load i64, ptr %60, align 8, !alias.scope !1525, !noalias !1523, !noundef !4
   %123 = add i64 %122, 1
@@ -7651,7 +7651,7 @@ default.unreachable:                              ; preds = %68
   %143 = icmp ult i64 %141, %142
   call void @llvm.assume(i1 %143)
   %144 = load ptr, ptr %1, align 8, !alias.scope !1548, !noalias !1536, !nonnull !4, !noundef !4
-  %145 = getelementptr inbounds i16, ptr %144, i64 %141
+  %145 = getelementptr inbounds [2 x i8], ptr %144, i64 %141
   %146 = load i16, ptr %145, align 2, !noalias !1549, !noundef !4
   store i16 %146, ptr %58, align 8, !alias.scope !1550, !noalias !1536
   call void @llvm.lifetime.start.p0(ptr nonnull %36), !noalias !1551
@@ -7892,7 +7892,7 @@ default.unreachable:                              ; preds = %68
 218:                                              ; preds = %.noexc.i184, %.noexc186
   %219 = phi i64 [ %.pre.i.i.i185, %.noexc.i184 ], [ %212, %.noexc186 ]
   %220 = load ptr, ptr %1, align 8, !alias.scope !1640, !noalias !1638, !nonnull !4, !noundef !4
-  %221 = getelementptr inbounds i16, ptr %220, i64 %219
+  %221 = getelementptr inbounds [2 x i8], ptr %220, i64 %219
   store i16 %211, ptr %221, align 2, !noalias !1638
   %222 = load i64, ptr %60, align 8, !alias.scope !1640, !noalias !1638, !noundef !4
   %223 = add i64 %222, 1
@@ -7960,7 +7960,7 @@ default.unreachable:                              ; preds = %68
   %243 = icmp ult i64 %241, %242
   call void @llvm.assume(i1 %243)
   %244 = load ptr, ptr %1, align 8, !alias.scope !1663, !noalias !1651, !nonnull !4, !noundef !4
-  %245 = getelementptr inbounds i16, ptr %244, i64 %241
+  %245 = getelementptr inbounds [2 x i8], ptr %244, i64 %241
   %246 = load i16, ptr %245, align 2, !noalias !1664, !noundef !4
   store i16 %246, ptr %58, align 8, !alias.scope !1665, !noalias !1651
   call void @llvm.lifetime.start.p0(ptr nonnull %23), !noalias !1666
@@ -8171,7 +8171,7 @@ default.unreachable:                              ; preds = %68
 308:                                              ; preds = %.noexc.i219, %.noexc221
   %309 = phi i64 [ %.pre.i.i.i220, %.noexc.i219 ], [ %302, %.noexc221 ]
   %310 = load ptr, ptr %1, align 8, !alias.scope !1744, !noalias !1742, !nonnull !4, !noundef !4
-  %311 = getelementptr inbounds i16, ptr %310, i64 %309
+  %311 = getelementptr inbounds [2 x i8], ptr %310, i64 %309
   store i16 %301, ptr %311, align 2, !noalias !1742
   %312 = load i64, ptr %60, align 8, !alias.scope !1744, !noalias !1742, !noundef !4
   %313 = add i64 %312, 1
@@ -8239,7 +8239,7 @@ default.unreachable:                              ; preds = %68
   %333 = icmp ult i64 %331, %332
   call void @llvm.assume(i1 %333)
   %334 = load ptr, ptr %1, align 8, !alias.scope !1767, !noalias !1755, !nonnull !4, !noundef !4
-  %335 = getelementptr inbounds i16, ptr %334, i64 %331
+  %335 = getelementptr inbounds [2 x i8], ptr %334, i64 %331
   %336 = load i16, ptr %335, align 2, !noalias !1768, !noundef !4
   store i16 %336, ptr %58, align 8, !alias.scope !1769, !noalias !1755
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !1770
@@ -8388,7 +8388,7 @@ default.unreachable:                              ; preds = %68
   %372 = icmp ult i64 %370, %371
   call void @llvm.assume(i1 %372)
   %373 = load ptr, ptr %1, align 8, !alias.scope !1815, !noalias !1802, !nonnull !4, !noundef !4
-  %374 = getelementptr inbounds i16, ptr %373, i64 %370
+  %374 = getelementptr inbounds [2 x i8], ptr %373, i64 %370
   %375 = load i16, ptr %374, align 2, !noalias !1816, !noundef !4
   store i16 %375, ptr %58, align 8, !alias.scope !1805, !noalias !1802
   store i64 4, ptr %0, align 8, !alias.scope !1802, !noalias !1805
@@ -8469,7 +8469,7 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..UUIDType$u20$as$u20$par
 23:                                               ; preds = %.noexc, %2
   %24 = phi i64 [ %.pre.i.i, %.noexc ], [ %16, %2 ]
   %25 = load ptr, ptr %1, align 8, !alias.scope !1838, !noalias !1836, !nonnull !4, !noundef !4
-  %26 = getelementptr inbounds i16, ptr %25, i64 %24
+  %26 = getelementptr inbounds [2 x i8], ptr %25, i64 %24
   store i16 %14, ptr %26, align 2, !noalias !1836
   %27 = load i64, ptr %15, align 8, !alias.scope !1838, !noalias !1836, !noundef !4
   %28 = add i64 %27, 1
@@ -8538,7 +8538,7 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..UUIDType$u20$as$u20$par
   %48 = icmp ult i64 %46, %47
   tail call void @llvm.assume(i1 %48)
   %49 = load ptr, ptr %1, align 8, !alias.scope !1860, !noalias !1841, !nonnull !4, !noundef !4
-  %50 = getelementptr inbounds i16, ptr %49, i64 %46
+  %50 = getelementptr inbounds [2 x i8], ptr %49, i64 %46
   %51 = load i16, ptr %50, align 2, !noalias !1861, !noundef !4
   store i16 %51, ptr %13, align 8, !alias.scope !1844, !noalias !1841
   store i64 4, ptr %0, align 8, !alias.scope !1841, !noalias !1844
@@ -8728,7 +8728,7 @@ define internal fastcc void @"_ZN78_$LT$parquet..format..Statistics$u20$as$u20$p
 71:                                               ; preds = %.noexc, %3
   %72 = phi i64 [ %.pre.i.i, %.noexc ], [ %63, %3 ]
   %73 = load ptr, ptr %2, align 8, !alias.scope !1894, !noalias !1892, !nonnull !4, !noundef !4
-  %74 = getelementptr inbounds i16, ptr %73, i64 %72
+  %74 = getelementptr inbounds [2 x i8], ptr %73, i64 %72
   store i16 %61, ptr %74, align 2, !noalias !1892
   %75 = load i64, ptr %62, align 8, !alias.scope !1894, !noalias !1892, !noundef !4
   %76 = add i64 %75, 1
@@ -9900,7 +9900,7 @@ define internal fastcc void @"_ZN78_$LT$parquet..format..Statistics$u20$as$u20$p
 71:                                               ; preds = %.noexc, %3
   %72 = phi i64 [ %.pre.i.i, %.noexc ], [ %63, %3 ]
   %73 = load ptr, ptr %2, align 8, !alias.scope !2082, !noalias !2080, !nonnull !4, !noundef !4
-  %74 = getelementptr inbounds i16, ptr %73, i64 %72
+  %74 = getelementptr inbounds [2 x i8], ptr %73, i64 %72
   store i16 %61, ptr %74, align 2, !noalias !2080
   %75 = load i64, ptr %62, align 8, !alias.scope !2082, !noalias !2080, !noundef !4
   %76 = add i64 %75, 1
@@ -10990,7 +10990,7 @@ define internal fastcc void @"_ZN78_$LT$parquet..format..StringType$u20$as$u20$p
 23:                                               ; preds = %.noexc, %2
   %24 = phi i64 [ %.pre.i.i, %.noexc ], [ %16, %2 ]
   %25 = load ptr, ptr %1, align 8, !alias.scope !2270, !noalias !2268, !nonnull !4, !noundef !4
-  %26 = getelementptr inbounds i16, ptr %25, i64 %24
+  %26 = getelementptr inbounds [2 x i8], ptr %25, i64 %24
   store i16 %14, ptr %26, align 2, !noalias !2268
   %27 = load i64, ptr %15, align 8, !alias.scope !2270, !noalias !2268, !noundef !4
   %28 = add i64 %27, 1
@@ -11059,7 +11059,7 @@ define internal fastcc void @"_ZN78_$LT$parquet..format..StringType$u20$as$u20$p
   %48 = icmp ult i64 %46, %47
   tail call void @llvm.assume(i1 %48)
   %49 = load ptr, ptr %1, align 8, !alias.scope !2292, !noalias !2273, !nonnull !4, !noundef !4
-  %50 = getelementptr inbounds i16, ptr %49, i64 %46
+  %50 = getelementptr inbounds [2 x i8], ptr %49, i64 %46
   %51 = load i16, ptr %50, align 2, !noalias !2293, !noundef !4
   store i16 %51, ptr %13, align 8, !alias.scope !2276, !noalias !2273
   store i64 4, ptr %0, align 8, !alias.scope !2273, !noalias !2276
@@ -11238,7 +11238,7 @@ define hidden void @"_ZN79_$LT$parquet..format..ColumnIndex$u20$as$u20$parquet..
 51:                                               ; preds = %.noexc, %3
   %52 = phi i64 [ %.pre.i.i, %.noexc ], [ %46, %3 ]
   %53 = load ptr, ptr %2, align 8, !alias.scope !2326, !noalias !2324, !nonnull !4, !noundef !4
-  %54 = getelementptr inbounds i16, ptr %53, i64 %52
+  %54 = getelementptr inbounds [2 x i8], ptr %53, i64 %52
   store i16 %44, ptr %54, align 2, !noalias !2324
   %55 = load i64, ptr %45, align 8, !alias.scope !2326, !noalias !2324, !noundef !4
   %56 = add i64 %55, 1
@@ -12066,7 +12066,7 @@ define internal fastcc void @"_ZN79_$LT$parquet..format..ColumnOrder$u20$as$u20$
 38:                                               ; preds = %.noexc, %2
   %39 = phi i64 [ %.pre.i.i, %.noexc ], [ %31, %2 ]
   %40 = load ptr, ptr %1, align 8, !alias.scope !2429, !noalias !2427, !nonnull !4, !noundef !4
-  %41 = getelementptr inbounds i16, ptr %40, i64 %39
+  %41 = getelementptr inbounds [2 x i8], ptr %40, i64 %39
   store i16 %29, ptr %41, align 2, !noalias !2427
   %42 = load i64, ptr %30, align 8, !alias.scope !2429, !noalias !2427, !noundef !4
   %43 = add i64 %42, 1
@@ -12210,7 +12210,7 @@ define internal fastcc void @"_ZN79_$LT$parquet..format..ColumnOrder$u20$as$u20$
 85:                                               ; preds = %.noexc.i, %.noexc73
   %86 = phi i64 [ %.pre.i.i.i, %.noexc.i ], [ %79, %.noexc73 ]
   %87 = load ptr, ptr %1, align 8, !alias.scope !2483, !noalias !2481, !nonnull !4, !noundef !4
-  %88 = getelementptr inbounds i16, ptr %87, i64 %86
+  %88 = getelementptr inbounds [2 x i8], ptr %87, i64 %86
   store i16 %78, ptr %88, align 2, !noalias !2481
   %89 = load i64, ptr %30, align 8, !alias.scope !2483, !noalias !2481, !noundef !4
   %90 = add i64 %89, 1
@@ -12278,7 +12278,7 @@ define internal fastcc void @"_ZN79_$LT$parquet..format..ColumnOrder$u20$as$u20$
   %110 = icmp ult i64 %108, %109
   call void @llvm.assume(i1 %110)
   %111 = load ptr, ptr %1, align 8, !alias.scope !2506, !noalias !2494, !nonnull !4, !noundef !4
-  %112 = getelementptr inbounds i16, ptr %111, i64 %108
+  %112 = getelementptr inbounds [2 x i8], ptr %111, i64 %108
   %113 = load i16, ptr %112, align 2, !noalias !2507, !noundef !4
   store i16 %113, ptr %28, align 8, !alias.scope !2508, !noalias !2494
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !2509
@@ -12431,7 +12431,7 @@ define internal fastcc void @"_ZN79_$LT$parquet..format..ColumnOrder$u20$as$u20$
   %149 = icmp ult i64 %147, %148
   call void @llvm.assume(i1 %149)
   %150 = load ptr, ptr %1, align 8, !alias.scope !2554, !noalias !2541, !nonnull !4, !noundef !4
-  %151 = getelementptr inbounds i16, ptr %150, i64 %147
+  %151 = getelementptr inbounds [2 x i8], ptr %150, i64 %147
   %152 = load i16, ptr %151, align 2, !noalias !2555, !noundef !4
   store i16 %152, ptr %28, align 8, !alias.scope !2544, !noalias !2541
   store i64 4, ptr %0, align 8, !alias.scope !2541, !noalias !2544
@@ -12558,7 +12558,7 @@ define internal fastcc void @"_ZN79_$LT$parquet..format..DecimalType$u20$as$u20$
 36:                                               ; preds = %.noexc, %2
   %37 = phi i64 [ %.pre.i.i, %.noexc ], [ %28, %2 ]
   %38 = load ptr, ptr %1, align 8, !alias.scope !2588, !noalias !2586, !nonnull !4, !noundef !4
-  %39 = getelementptr inbounds i16, ptr %38, i64 %37
+  %39 = getelementptr inbounds [2 x i8], ptr %38, i64 %37
   store i16 %26, ptr %39, align 2, !noalias !2586
   %40 = load i64, ptr %27, align 8, !alias.scope !2588, !noalias !2586, !noundef !4
   %41 = add i64 %40, 1
@@ -12969,7 +12969,7 @@ define internal fastcc void @"_ZN79_$LT$parquet..format..Float16Type$u20$as$u20$
 23:                                               ; preds = %.noexc, %2
   %24 = phi i64 [ %.pre.i.i, %.noexc ], [ %16, %2 ]
   %25 = load ptr, ptr %1, align 8, !alias.scope !2704, !noalias !2702, !nonnull !4, !noundef !4
-  %26 = getelementptr inbounds i16, ptr %25, i64 %24
+  %26 = getelementptr inbounds [2 x i8], ptr %25, i64 %24
   store i16 %14, ptr %26, align 2, !noalias !2702
   %27 = load i64, ptr %15, align 8, !alias.scope !2704, !noalias !2702, !noundef !4
   %28 = add i64 %27, 1
@@ -13038,7 +13038,7 @@ define internal fastcc void @"_ZN79_$LT$parquet..format..Float16Type$u20$as$u20$
   %48 = icmp ult i64 %46, %47
   tail call void @llvm.assume(i1 %48)
   %49 = load ptr, ptr %1, align 8, !alias.scope !2726, !noalias !2707, !nonnull !4, !noundef !4
-  %50 = getelementptr inbounds i16, ptr %49, i64 %46
+  %50 = getelementptr inbounds [2 x i8], ptr %49, i64 %46
   %51 = load i16, ptr %50, align 2, !noalias !2727, !noundef !4
   store i16 %51, ptr %13, align 8, !alias.scope !2710, !noalias !2707
   store i64 4, ptr %0, align 8, !alias.scope !2707, !noalias !2710
@@ -13265,7 +13265,7 @@ default.unreachable743:                           ; preds = %95
 95:                                               ; preds = %.noexc, %3
   %96 = phi i64 [ %.pre.i.i, %.noexc ], [ %87, %3 ]
   %97 = load ptr, ptr %2, align 8, !alias.scope !2760, !noalias !2758, !nonnull !4, !noundef !4
-  %98 = getelementptr inbounds i16, ptr %97, i64 %96
+  %98 = getelementptr inbounds [2 x i8], ptr %97, i64 %96
   store i16 %85, ptr %98, align 2, !noalias !2758
   %99 = load i64, ptr %86, align 8, !alias.scope !2760, !noalias !2758, !noundef !4
   %100 = add i64 %99, 1
@@ -14715,7 +14715,7 @@ default.unreachable743:                           ; preds = %95
   %475 = icmp ult i64 %473, %474
   call void @llvm.assume(i1 %475)
   %476 = load ptr, ptr %2, align 8, !alias.scope !2878, !noalias !2859, !nonnull !4, !noundef !4
-  %477 = getelementptr inbounds i16, ptr %476, i64 %473
+  %477 = getelementptr inbounds [2 x i8], ptr %476, i64 %473
   %478 = load i16, ptr %477, align 2, !noalias !2879, !noundef !4
   store i16 %478, ptr %84, align 8, !alias.scope !2862, !noalias !2859
   store i64 4, ptr %0, align 8, !alias.scope !2859, !noalias !2862
@@ -14857,7 +14857,7 @@ define hidden void @"_ZN79_$LT$parquet..format..OffsetIndex$u20$as$u20$parquet..
 56:                                               ; preds = %.noexc, %3
   %57 = phi i64 [ %.pre.i.i, %.noexc ], [ %51, %3 ]
   %58 = load ptr, ptr %2, align 8, !alias.scope !2901, !noalias !2899, !nonnull !4, !noundef !4
-  %59 = getelementptr inbounds i16, ptr %58, i64 %57
+  %59 = getelementptr inbounds [2 x i8], ptr %58, i64 %57
   store i16 %49, ptr %59, align 2, !noalias !2899
   %60 = load i64, ptr %50, align 8, !alias.scope !2901, !noalias !2899, !noundef !4
   %61 = add i64 %60, 1
@@ -15087,7 +15087,7 @@ define hidden void @"_ZN79_$LT$parquet..format..OffsetIndex$u20$as$u20$parquet..
 139:                                              ; preds = %.noexc.i, %.noexc102
   %140 = phi i64 [ %.pre.i.i.i, %.noexc.i ], [ %135, %.noexc102 ]
   %141 = load ptr, ptr %2, align 8, !alias.scope !2957, !noalias !2955, !nonnull !4, !noundef !4
-  %142 = getelementptr inbounds i16, ptr %141, i64 %140
+  %142 = getelementptr inbounds [2 x i8], ptr %141, i64 %140
   store i16 %134, ptr %142, align 2, !noalias !2955
   %143 = load i64, ptr %50, align 8, !alias.scope !2957, !noalias !2955, !noundef !4
   %144 = add i64 %143, 1
@@ -15884,7 +15884,7 @@ define hidden void @"_ZN80_$LT$parquet..format..FileMetaData$u20$as$u20$parquet.
 138:                                              ; preds = %.noexc, %3
   %139 = phi i64 [ %.pre.i.i, %.noexc ], [ %133, %3 ]
   %140 = load ptr, ptr %2, align 8, !alias.scope !3145, !noalias !3143, !nonnull !4, !noundef !4
-  %141 = getelementptr inbounds i16, ptr %140, i64 %139
+  %141 = getelementptr inbounds [2 x i8], ptr %140, i64 %139
   store i16 %131, ptr %141, align 2, !noalias !3143
   %142 = load i64, ptr %132, align 8, !alias.scope !3145, !noalias !3143, !noundef !4
   %143 = add i64 %142, 1
@@ -16314,7 +16314,7 @@ define hidden void @"_ZN80_$LT$parquet..format..FileMetaData$u20$as$u20$parquet.
 295:                                              ; preds = %.noexc.i, %.noexc529
   %296 = phi i64 [ %.pre.i.i.i, %.noexc.i ], [ %291, %.noexc529 ]
   %297 = load ptr, ptr %2, align 8, !alias.scope !3255, !noalias !3253, !nonnull !4, !noundef !4
-  %298 = getelementptr inbounds i16, ptr %297, i64 %296
+  %298 = getelementptr inbounds [2 x i8], ptr %297, i64 %296
   store i16 %290, ptr %298, align 2, !noalias !3253
   %299 = load i64, ptr %132, align 8, !alias.scope !3255, !noalias !3253, !noundef !4
   %300 = add i64 %299, 1
@@ -18406,7 +18406,7 @@ define internal fastcc void @"_ZN81_$LT$parquet..format..SortingColumn$u20$as$u2
 42:                                               ; preds = %.noexc, %3
   %43 = phi i64 [ %.pre.i.i, %.noexc ], [ %34, %3 ]
   %44 = load ptr, ptr %2, align 8, !alias.scope !3545, !noalias !3543, !nonnull !4, !noundef !4
-  %45 = getelementptr inbounds i16, ptr %44, i64 %43
+  %45 = getelementptr inbounds [2 x i8], ptr %44, i64 %43
   store i16 %32, ptr %45, align 2, !noalias !3543
   %46 = load i64, ptr %33, align 8, !alias.scope !3545, !noalias !3543, !noundef !4
   %47 = add i64 %46, 1
@@ -18936,7 +18936,7 @@ define internal fastcc void @"_ZN81_$LT$parquet..format..TimestampType$u20$as$u2
 36:                                               ; preds = %.noexc, %2
   %37 = phi i64 [ %.pre.i.i, %.noexc ], [ %28, %2 ]
   %38 = load ptr, ptr %1, align 8, !alias.scope !3667, !noalias !3665, !nonnull !4, !noundef !4
-  %39 = getelementptr inbounds i16, ptr %38, i64 %37
+  %39 = getelementptr inbounds [2 x i8], ptr %38, i64 %37
   store i16 %26, ptr %39, align 2, !noalias !3665
   %40 = load i64, ptr %27, align 8, !alias.scope !3667, !noalias !3665, !noundef !4
   %41 = add i64 %40, 1
@@ -19501,7 +19501,7 @@ define hidden void @"_ZN82_$LT$parquet..format..ColumnMetaData$u20$as$u20$parque
 103:                                              ; preds = %.noexc, %3
   %104 = phi i64 [ %.pre.i.i, %.noexc ], [ %98, %3 ]
   %105 = load ptr, ptr %2, align 8, !alias.scope !3783, !noalias !3781, !nonnull !4, !noundef !4
-  %106 = getelementptr inbounds i16, ptr %105, i64 %104
+  %106 = getelementptr inbounds [2 x i8], ptr %105, i64 %104
   store i16 %96, ptr %106, align 2, !noalias !3781
   %107 = load i64, ptr %97, align 8, !alias.scope !3783, !noalias !3781, !noundef !4
   %108 = add i64 %107, 1
@@ -21357,7 +21357,7 @@ define internal fastcc void @"_ZN83_$LT$parquet..format..BloomFilterHash$u20$as$
 38:                                               ; preds = %.noexc, %2
   %39 = phi i64 [ %.pre.i.i, %.noexc ], [ %31, %2 ]
   %40 = load ptr, ptr %1, align 8, !alias.scope !3977, !noalias !3975, !nonnull !4, !noundef !4
-  %41 = getelementptr inbounds i16, ptr %40, i64 %39
+  %41 = getelementptr inbounds [2 x i8], ptr %40, i64 %39
   store i16 %29, ptr %41, align 2, !noalias !3975
   %42 = load i64, ptr %30, align 8, !alias.scope !3977, !noalias !3975, !noundef !4
   %43 = add i64 %42, 1
@@ -21501,7 +21501,7 @@ define internal fastcc void @"_ZN83_$LT$parquet..format..BloomFilterHash$u20$as$
 85:                                               ; preds = %.noexc.i, %.noexc73
   %86 = phi i64 [ %.pre.i.i.i, %.noexc.i ], [ %79, %.noexc73 ]
   %87 = load ptr, ptr %1, align 8, !alias.scope !4031, !noalias !4029, !nonnull !4, !noundef !4
-  %88 = getelementptr inbounds i16, ptr %87, i64 %86
+  %88 = getelementptr inbounds [2 x i8], ptr %87, i64 %86
   store i16 %78, ptr %88, align 2, !noalias !4029
   %89 = load i64, ptr %30, align 8, !alias.scope !4031, !noalias !4029, !noundef !4
   %90 = add i64 %89, 1
@@ -21569,7 +21569,7 @@ define internal fastcc void @"_ZN83_$LT$parquet..format..BloomFilterHash$u20$as$
   %110 = icmp ult i64 %108, %109
   call void @llvm.assume(i1 %110)
   %111 = load ptr, ptr %1, align 8, !alias.scope !4054, !noalias !4042, !nonnull !4, !noundef !4
-  %112 = getelementptr inbounds i16, ptr %111, i64 %108
+  %112 = getelementptr inbounds [2 x i8], ptr %111, i64 %108
   %113 = load i16, ptr %112, align 2, !noalias !4055, !noundef !4
   store i16 %113, ptr %28, align 8, !alias.scope !4056, !noalias !4042
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !4057
@@ -21722,7 +21722,7 @@ define internal fastcc void @"_ZN83_$LT$parquet..format..BloomFilterHash$u20$as$
   %149 = icmp ult i64 %147, %148
   call void @llvm.assume(i1 %149)
   %150 = load ptr, ptr %1, align 8, !alias.scope !4102, !noalias !4089, !nonnull !4, !noundef !4
-  %151 = getelementptr inbounds i16, ptr %150, i64 %147
+  %151 = getelementptr inbounds [2 x i8], ptr %150, i64 %147
   %152 = load i16, ptr %151, align 2, !noalias !4103, !noundef !4
   store i16 %152, ptr %28, align 8, !alias.scope !4092, !noalias !4089
   store i64 4, ptr %0, align 8, !alias.scope !4089, !noalias !4092
@@ -21898,7 +21898,7 @@ define hidden void @"_ZN85_$LT$parquet..format..BloomFilterHeader$u20$as$u20$par
 67:                                               ; preds = %.noexc, %3
   %68 = phi i64 [ %.pre.i.i, %.noexc ], [ %60, %3 ]
   %69 = load ptr, ptr %2, align 8, !alias.scope !4136, !noalias !4134, !nonnull !4, !noundef !4
-  %70 = getelementptr inbounds i16, ptr %69, i64 %68
+  %70 = getelementptr inbounds [2 x i8], ptr %69, i64 %68
   store i16 %58, ptr %70, align 2, !noalias !4134
   %71 = load i64, ptr %59, align 8, !alias.scope !4136, !noalias !4134, !noundef !4
   %72 = add i64 %71, 1
@@ -22198,7 +22198,7 @@ define hidden void @"_ZN85_$LT$parquet..format..BloomFilterHeader$u20$as$u20$par
 161:                                              ; preds = %.noexc.i, %.noexc203
   %162 = phi i64 [ %.pre.i.i.i, %.noexc.i ], [ %155, %.noexc203 ]
   %163 = load ptr, ptr %2, align 8, !alias.scope !4244, !noalias !4242, !nonnull !4, !noundef !4
-  %164 = getelementptr inbounds i16, ptr %163, i64 %162
+  %164 = getelementptr inbounds [2 x i8], ptr %163, i64 %162
   store i16 %154, ptr %164, align 2, !noalias !4242
   %165 = load i64, ptr %59, align 8, !alias.scope !4244, !noalias !4242, !noundef !4
   %166 = add i64 %165, 1
@@ -22339,7 +22339,7 @@ define hidden void @"_ZN85_$LT$parquet..format..BloomFilterHeader$u20$as$u20$par
 208:                                              ; preds = %.noexc.i.i, %.noexc73.i
   %209 = phi i64 [ %.pre.i.i.i.i, %.noexc.i.i ], [ %202, %.noexc73.i ]
   %210 = load ptr, ptr %2, align 8, !alias.scope !4299, !noalias !4297, !nonnull !4, !noundef !4
-  %211 = getelementptr inbounds i16, ptr %210, i64 %209
+  %211 = getelementptr inbounds [2 x i8], ptr %210, i64 %209
   store i16 %201, ptr %211, align 2, !noalias !4297
   %212 = load i64, ptr %59, align 8, !alias.scope !4299, !noalias !4297, !noundef !4
   %213 = add i64 %212, 1
@@ -22406,7 +22406,7 @@ define hidden void @"_ZN85_$LT$parquet..format..BloomFilterHeader$u20$as$u20$par
   %232 = icmp ult i64 %230, %231
   call void @llvm.assume(i1 %232)
   %233 = load ptr, ptr %2, align 8, !alias.scope !4322, !noalias !4310, !nonnull !4, !noundef !4
-  %234 = getelementptr inbounds i16, ptr %233, i64 %230
+  %234 = getelementptr inbounds [2 x i8], ptr %233, i64 %230
   %235 = load i16, ptr %234, align 2, !noalias !4323, !noundef !4
   store i16 %235, ptr %57, align 8, !alias.scope !4324, !noalias !4310
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !4325
@@ -22552,7 +22552,7 @@ define hidden void @"_ZN85_$LT$parquet..format..BloomFilterHeader$u20$as$u20$par
   %271 = icmp ult i64 %269, %270
   call void @llvm.assume(i1 %271)
   %272 = load ptr, ptr %2, align 8, !alias.scope !4371, !noalias !4365, !nonnull !4, !noundef !4
-  %273 = getelementptr inbounds i16, ptr %272, i64 %269
+  %273 = getelementptr inbounds [2 x i8], ptr %272, i64 %269
   %274 = load i16, ptr %273, align 2, !noalias !4372, !noundef !4
   store i16 %274, ptr %57, align 8, !alias.scope !4373, !noalias !4365
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !4374
@@ -22961,7 +22961,7 @@ define internal fastcc void @"_ZN85_$LT$parquet..format..PageEncodingStats$u20$a
 42:                                               ; preds = %.noexc, %3
   %43 = phi i64 [ %.pre.i.i, %.noexc ], [ %34, %3 ]
   %44 = load ptr, ptr %2, align 8, !alias.scope !4429, !noalias !4427, !nonnull !4, !noundef !4
-  %45 = getelementptr inbounds i16, ptr %44, i64 %43
+  %45 = getelementptr inbounds [2 x i8], ptr %44, i64 %43
   store i16 %32, ptr %45, align 2, !noalias !4427
   %46 = load i64, ptr %33, align 8, !alias.scope !4429, !noalias !4427, !noundef !4
   %47 = add i64 %46, 1
@@ -23497,7 +23497,7 @@ define internal fastcc void @"_ZN85_$LT$parquet..format..PageEncodingStats$u20$a
 42:                                               ; preds = %.noexc, %3
   %43 = phi i64 [ %.pre.i.i, %.noexc ], [ %34, %3 ]
   %44 = load ptr, ptr %2, align 8, !alias.scope !4551, !noalias !4549, !nonnull !4, !noundef !4
-  %45 = getelementptr inbounds i16, ptr %44, i64 %43
+  %45 = getelementptr inbounds [2 x i8], ptr %44, i64 %43
   store i16 %32, ptr %45, align 2, !noalias !4549
   %46 = load i64, ptr %33, align 8, !alias.scope !4551, !noalias !4549, !noundef !4
   %47 = add i64 %46, 1
@@ -24139,7 +24139,7 @@ define internal fastcc void @"_ZN87_$LT$parquet..format..EncryptionAlgorithm$u20
 104:                                              ; preds = %.noexc, %3
   %105 = phi i64 [ %.pre.i.i, %.noexc ], [ %97, %3 ]
   %106 = load ptr, ptr %2, align 8, !alias.scope !4673, !noalias !4671, !nonnull !4, !noundef !4
-  %107 = getelementptr inbounds i16, ptr %106, i64 %105
+  %107 = getelementptr inbounds [2 x i8], ptr %106, i64 %105
   store i16 %95, ptr %107, align 2, !noalias !4671
   %108 = load i64, ptr %96, align 8, !alias.scope !4673, !noalias !4671, !noundef !4
   %109 = add i64 %108, 1
@@ -24302,7 +24302,7 @@ define internal fastcc void @"_ZN87_$LT$parquet..format..EncryptionAlgorithm$u20
 156:                                              ; preds = %.noexc.i, %.noexc114
   %157 = phi i64 [ %.pre.i.i.i, %.noexc.i ], [ %149, %.noexc114 ]
   %158 = load ptr, ptr %2, align 8, !alias.scope !4734, !noalias !4732, !nonnull !4, !noundef !4
-  %159 = getelementptr inbounds i16, ptr %158, i64 %157
+  %159 = getelementptr inbounds [2 x i8], ptr %158, i64 %157
   store i16 %148, ptr %159, align 2, !noalias !4732
   %160 = load i64, ptr %96, align 8, !alias.scope !4734, !noalias !4732, !noundef !4
   %161 = add i64 %160, 1
@@ -24833,7 +24833,7 @@ define internal fastcc void @"_ZN87_$LT$parquet..format..EncryptionAlgorithm$u20
   %323 = icmp ult i64 %321, %322
   call void @llvm.assume(i1 %323)
   %324 = load ptr, ptr %2, align 8, !alias.scope !4898, !noalias !4892, !nonnull !4, !noundef !4
-  %325 = getelementptr inbounds i16, ptr %324, i64 %321
+  %325 = getelementptr inbounds [2 x i8], ptr %324, i64 %321
   %326 = load i16, ptr %325, align 2, !noalias !4899, !noundef !4
   store i16 %326, ptr %94, align 8, !alias.scope !4900, !noalias !4892
   call void @llvm.lifetime.start.p0(ptr nonnull %49), !noalias !4901
@@ -25053,7 +25053,7 @@ define internal fastcc void @"_ZN87_$LT$parquet..format..EncryptionAlgorithm$u20
 391:                                              ; preds = %.noexc.i197, %.noexc199
   %392 = phi i64 [ %.pre.i.i.i198, %.noexc.i197 ], [ %384, %.noexc199 ]
   %393 = load ptr, ptr %2, align 8, !alias.scope !4981, !noalias !4979, !nonnull !4, !noundef !4
-  %394 = getelementptr inbounds i16, ptr %393, i64 %392
+  %394 = getelementptr inbounds [2 x i8], ptr %393, i64 %392
   store i16 %383, ptr %394, align 2, !noalias !4979
   %395 = load i64, ptr %96, align 8, !alias.scope !4981, !noalias !4979, !noundef !4
   %396 = add i64 %395, 1
@@ -25584,7 +25584,7 @@ define internal fastcc void @"_ZN87_$LT$parquet..format..EncryptionAlgorithm$u20
   %558 = icmp ult i64 %556, %557
   call void @llvm.assume(i1 %558)
   %559 = load ptr, ptr %2, align 8, !alias.scope !5145, !noalias !5139, !nonnull !4, !noundef !4
-  %560 = getelementptr inbounds i16, ptr %559, i64 %556
+  %560 = getelementptr inbounds [2 x i8], ptr %559, i64 %556
   %561 = load i16, ptr %560, align 2, !noalias !5146, !noundef !4
   store i16 %561, ptr %94, align 8, !alias.scope !5147, !noalias !5139
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !5148
@@ -25706,7 +25706,7 @@ define internal fastcc void @"_ZN87_$LT$parquet..format..EncryptionAlgorithm$u20
   %588 = icmp ult i64 %586, %587
   call void @llvm.assume(i1 %588)
   %589 = load ptr, ptr %2, align 8, !alias.scope !5182, !noalias !5169, !nonnull !4, !noundef !4
-  %590 = getelementptr inbounds i16, ptr %589, i64 %586
+  %590 = getelementptr inbounds [2 x i8], ptr %589, i64 %586
   %591 = load i16, ptr %590, align 2, !noalias !5183, !noundef !4
   store i16 %591, ptr %94, align 8, !alias.scope !5172, !noalias !5169
   store i64 4, ptr %0, align 8, !alias.scope !5169, !noalias !5172
@@ -25853,7 +25853,7 @@ define internal fastcc void @"_ZN88_$LT$parquet..format..ColumnCryptoMetaData$u2
 66:                                               ; preds = %.noexc, %3
   %67 = phi i64 [ %.pre.i.i, %.noexc ], [ %59, %3 ]
   %68 = load ptr, ptr %2, align 8, !alias.scope !5205, !noalias !5203, !nonnull !4, !noundef !4
-  %69 = getelementptr inbounds i16, ptr %68, i64 %67
+  %69 = getelementptr inbounds [2 x i8], ptr %68, i64 %67
   store i16 %57, ptr %69, align 2, !noalias !5203
   %70 = load i64, ptr %58, align 8, !alias.scope !5205, !noalias !5203, !noundef !4
   %71 = add i64 %70, 1
@@ -26010,7 +26010,7 @@ define internal fastcc void @"_ZN88_$LT$parquet..format..ColumnCryptoMetaData$u2
 117:                                              ; preds = %.noexc.i, %.noexc114
   %118 = phi i64 [ %.pre.i.i.i, %.noexc.i ], [ %111, %.noexc114 ]
   %119 = load ptr, ptr %2, align 8, !alias.scope !5264, !noalias !5262, !nonnull !4, !noundef !4
-  %120 = getelementptr inbounds i16, ptr %119, i64 %118
+  %120 = getelementptr inbounds [2 x i8], ptr %119, i64 %118
   store i16 %110, ptr %120, align 2, !noalias !5262
   %121 = load i64, ptr %58, align 8, !alias.scope !5264, !noalias !5262, !noundef !4
   %122 = add i64 %121, 1
@@ -26078,7 +26078,7 @@ define internal fastcc void @"_ZN88_$LT$parquet..format..ColumnCryptoMetaData$u2
   %142 = icmp ult i64 %140, %141
   call void @llvm.assume(i1 %142)
   %143 = load ptr, ptr %2, align 8, !alias.scope !5287, !noalias !5275, !nonnull !4, !noundef !4
-  %144 = getelementptr inbounds i16, ptr %143, i64 %140
+  %144 = getelementptr inbounds [2 x i8], ptr %143, i64 %140
   %145 = load i16, ptr %144, align 2, !noalias !5288, !noundef !4
   store i16 %145, ptr %56, align 8, !alias.scope !5289, !noalias !5275
   call void @llvm.lifetime.start.p0(ptr nonnull %36), !noalias !5290
@@ -26329,7 +26329,7 @@ define internal fastcc void @"_ZN88_$LT$parquet..format..ColumnCryptoMetaData$u2
 216:                                              ; preds = %.noexc.i133, %.noexc135
   %217 = phi i64 [ %.pre.i.i.i134, %.noexc.i133 ], [ %211, %.noexc135 ]
   %218 = load ptr, ptr %2, align 8, !alias.scope !5381, !noalias !5379, !nonnull !4, !noundef !4
-  %219 = getelementptr inbounds i16, ptr %218, i64 %217
+  %219 = getelementptr inbounds [2 x i8], ptr %218, i64 %217
   store i16 %210, ptr %219, align 2, !noalias !5379
   %220 = load i64, ptr %58, align 8, !alias.scope !5381, !noalias !5379, !noundef !4
   %221 = add i64 %220, 1
@@ -26780,7 +26780,7 @@ define internal fastcc void @"_ZN88_$LT$parquet..format..ColumnCryptoMetaData$u2
   %350 = icmp ult i64 %348, %349
   call void @llvm.assume(i1 %350)
   %351 = load ptr, ptr %2, align 8, !alias.scope !5481, !noalias !5468, !nonnull !4, !noundef !4
-  %352 = getelementptr inbounds i16, ptr %351, i64 %348
+  %352 = getelementptr inbounds [2 x i8], ptr %351, i64 %348
   %353 = load i16, ptr %352, align 2, !noalias !5482, !noundef !4
   store i16 %353, ptr %56, align 8, !alias.scope !5471, !noalias !5468
   store i64 4, ptr %0, align 8, !alias.scope !5468, !noalias !5471
@@ -26893,7 +26893,7 @@ define internal fastcc void @"_ZN90_$LT$parquet..format..BloomFilterCompression$
 38:                                               ; preds = %.noexc, %2
   %39 = phi i64 [ %.pre.i.i, %.noexc ], [ %31, %2 ]
   %40 = load ptr, ptr %1, align 8, !alias.scope !5504, !noalias !5502, !nonnull !4, !noundef !4
-  %41 = getelementptr inbounds i16, ptr %40, i64 %39
+  %41 = getelementptr inbounds [2 x i8], ptr %40, i64 %39
   store i16 %29, ptr %41, align 2, !noalias !5502
   %42 = load i64, ptr %30, align 8, !alias.scope !5504, !noalias !5502, !noundef !4
   %43 = add i64 %42, 1
@@ -27037,7 +27037,7 @@ define internal fastcc void @"_ZN90_$LT$parquet..format..BloomFilterCompression$
 85:                                               ; preds = %.noexc.i, %.noexc73
   %86 = phi i64 [ %.pre.i.i.i, %.noexc.i ], [ %79, %.noexc73 ]
   %87 = load ptr, ptr %1, align 8, !alias.scope !5558, !noalias !5556, !nonnull !4, !noundef !4
-  %88 = getelementptr inbounds i16, ptr %87, i64 %86
+  %88 = getelementptr inbounds [2 x i8], ptr %87, i64 %86
   store i16 %78, ptr %88, align 2, !noalias !5556
   %89 = load i64, ptr %30, align 8, !alias.scope !5558, !noalias !5556, !noundef !4
   %90 = add i64 %89, 1
@@ -27105,7 +27105,7 @@ define internal fastcc void @"_ZN90_$LT$parquet..format..BloomFilterCompression$
   %110 = icmp ult i64 %108, %109
   call void @llvm.assume(i1 %110)
   %111 = load ptr, ptr %1, align 8, !alias.scope !5581, !noalias !5569, !nonnull !4, !noundef !4
-  %112 = getelementptr inbounds i16, ptr %111, i64 %108
+  %112 = getelementptr inbounds [2 x i8], ptr %111, i64 %108
   %113 = load i16, ptr %112, align 2, !noalias !5582, !noundef !4
   store i16 %113, ptr %28, align 8, !alias.scope !5583, !noalias !5569
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !5584
@@ -27258,7 +27258,7 @@ define internal fastcc void @"_ZN90_$LT$parquet..format..BloomFilterCompression$
   %149 = icmp ult i64 %147, %148
   call void @llvm.assume(i1 %149)
   %150 = load ptr, ptr %1, align 8, !alias.scope !5629, !noalias !5616, !nonnull !4, !noundef !4
-  %151 = getelementptr inbounds i16, ptr %150, i64 %147
+  %151 = getelementptr inbounds [2 x i8], ptr %150, i64 %147
   %152 = load i16, ptr %151, align 2, !noalias !5630, !noundef !4
   store i16 %152, ptr %28, align 8, !alias.scope !5619, !noalias !5616
   store i64 4, ptr %0, align 8, !alias.scope !5616, !noalias !5619

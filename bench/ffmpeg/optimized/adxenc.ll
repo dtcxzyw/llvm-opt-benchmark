@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %union.anon = type { ptr }
-%struct.ADXChannelState = type { i32, i32 }
 
 @.str = private unnamed_addr constant [10 x i8] c"adpcm_adx\00", align 1
 @.str.1 = private unnamed_addr constant [19 x i8] c"SEGA CRI ADX ADPCM\00", align 1
@@ -158,8 +157,8 @@ define internal range(i32 -2147483648, 1) i32 @adx_encode_frame(ptr noundef %0, 
 65:                                               ; preds = %.lr.ph, %adx_encode.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %adx_encode.exit ]
   %.164 = phi ptr [ %.060, %.lr.ph ], [ %152, %adx_encode.exit ]
-  %66 = getelementptr inbounds nuw i16, ptr %8, i64 %indvars.iv
-  %67 = getelementptr inbounds nuw %struct.ADXChannelState, ptr %61, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %indvars.iv
   %68 = load i32, ptr %67, align 4, !tbaa !38
   %69 = getelementptr inbounds nuw i8, ptr %67, i64 4
   %70 = load i32, ptr %69, align 4, !tbaa !40
@@ -174,7 +173,7 @@ define internal range(i32 -2147483648, 1) i32 @adx_encode_frame(ptr noundef %0, 
   %.06997.i = phi i32 [ %70, %65 ], [ %.07196.i, %73 ]
   %.07196.i = phi i32 [ %68, %65 ], [ %76, %73 ]
   %.07395.i = phi i32 [ 0, %65 ], [ %83, %73 ]
-  %74 = getelementptr inbounds nuw i16, ptr %66, i64 %indvars.iv.i
+  %74 = getelementptr inbounds nuw [2 x i8], ptr %66, i64 %indvars.iv.i
   %75 = load i16, ptr %74, align 2, !tbaa !42
   %76 = sext i16 %75 to i32
   %77 = mul i32 %.07196.i, %71
@@ -232,7 +231,7 @@ define internal range(i32 -2147483648, 1) i32 @adx_encode_frame(ptr noundef %0, 
   %.sroa.0.0103.i = phi i32 [ 0, %88 ], [ %.026.i.i.i.i, %put_sbits.exit.i ]
   %.sroa.11.0102.i = phi i32 [ 32, %88 ], [ %130, %put_sbits.exit.i ]
   %.sroa.19.0.idx101.i = phi i64 [ 2, %88 ], [ %.sroa.19.1.idx.i, %put_sbits.exit.i ]
-  %103 = getelementptr inbounds nuw i16, ptr %66, i64 %indvars.iv112.i
+  %103 = getelementptr inbounds nuw [2 x i8], ptr %66, i64 %indvars.iv112.i
   %104 = load i16, ptr %103, align 2, !tbaa !42
   %105 = sext i16 %104 to i32
   %106 = mul i32 %.172106.i, %102

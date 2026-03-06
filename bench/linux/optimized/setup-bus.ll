@@ -1009,7 +1009,7 @@ define dso_local void @__pci_bus_size_bridges(ptr noundef %0, ptr noundef %1) lo
   %318 = phi i64 [ %311, %.split.us.us ], [ %356, %353 ]
   %319 = phi i64 [ %312, %.split.us.us ], [ %355, %353 ]
   %320 = phi i64 [ %313, %.split.us.us ], [ %354, %353 ]
-  %321 = getelementptr %struct.resource, ptr %314, i64 %317
+  %321 = getelementptr [64 x i8], ptr %314, i64 %317
   %322 = icmp eq ptr %321, null
   br i1 %322, label %.split35.us.us, label %323
 
@@ -1087,7 +1087,7 @@ define dso_local void @__pci_bus_size_bridges(ptr noundef %0, ptr noundef %1) lo
   %374 = phi i64 [ %366, %.split ], [ %432, %429 ]
   %375 = phi i64 [ %367, %.split ], [ %431, %429 ]
   %376 = phi i64 [ %368, %.split ], [ %430, %429 ]
-  %377 = getelementptr %struct.resource, ptr %369, i64 %372
+  %377 = getelementptr [64 x i8], ptr %369, i64 %372
   %378 = icmp eq ptr %377, null
   br i1 %378, label %.split35, label %385
 
@@ -1397,7 +1397,7 @@ define internal fastcc noundef range(i32 -28, 1) i32 @pbus_size_mem(ptr noundef 
   %68 = phi i32 [ %59, %56 ], [ %161, %.thread21 ]
   %69 = phi i64 [ %60, %56 ], [ %160, %.thread21 ]
   %70 = phi i64 [ %61, %56 ], [ %159, %.thread21 ]
-  %71 = getelementptr %struct.resource, ptr %62, i64 %66
+  %71 = getelementptr [64 x i8], ptr %62, i64 %66
   %72 = icmp eq ptr %71, null
   br i1 %72, label %165, label %73
 
@@ -1478,7 +1478,7 @@ define internal fastcc noundef range(i32 -28, 1) i32 @pbus_size_mem(ptr noundef 
   br i1 %124, label %129, label %125
 
 125:                                              ; preds = %121
-  %126 = getelementptr i64, ptr %9, i64 %118
+  %126 = getelementptr [8 x i8], ptr %9, i64 %118
   %127 = load i64, ptr %126, align 8
   %128 = add i64 %127, %113
   store i64 %128, ptr %126, align 8
@@ -1589,7 +1589,7 @@ define internal fastcc noundef range(i32 -28, 1) i32 @pbus_size_mem(ptr noundef 
 
 195:                                              ; preds = %186, %180
   %196 = phi i64 [ %184, %180 ], [ %194, %186 ]
-  %197 = getelementptr i64, ptr %9, i64 %181
+  %197 = getelementptr [8 x i8], ptr %9, i64 %181
   %198 = load i64, ptr %197, align 8
   %199 = add i64 %198, %183
   %200 = add nuw nsw i64 %181, 1
@@ -1759,7 +1759,7 @@ define dso_local void @__pci_bus_assign_resources(ptr noundef readonly captures(
 
 17:                                               ; preds = %.loopexit, %.preheader
   %18 = phi i64 [ 0, %.preheader ], [ %83, %.loopexit ]
-  %19 = getelementptr %struct.resource, ptr %15, i64 %18
+  %19 = getelementptr [64 x i8], ptr %15, i64 %18
   %20 = icmp eq ptr %19, null
   br i1 %20, label %85, label %21
 
@@ -1936,7 +1936,7 @@ define internal fastcc void @pci_bus_allocate_resources(ptr noundef %0) unnamed_
 
 8:                                                ; preds = %21, %5
   %9 = phi i64 [ 7, %5 ], [ %22, %21 ]
-  %10 = getelementptr %struct.resource, ptr %7, i64 %9
+  %10 = getelementptr [64 x i8], ptr %7, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %12 = load i64, ptr %11, align 8
   %13 = icmp eq i64 %12, 0
@@ -1989,7 +1989,7 @@ define internal fastcc void @pci_bus_allocate_dev_resources(ptr noundef readonly
 
 7:                                                ; preds = %20, %.preheader
   %8 = phi i64 [ 0, %.preheader ], [ %21, %20 ]
-  %9 = getelementptr %struct.resource, ptr %6, i64 %8
+  %9 = getelementptr [64 x i8], ptr %6, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load i64, ptr %10, align 8
   %12 = icmp eq i64 %11, 0
@@ -2497,7 +2497,7 @@ define internal fastcc void @pci_bus_release_bridge_resources(ptr noundef %0, i6
 60:                                               ; preds = %53, %._crit_edge, %50, %46
   %61 = phi i32 [ 0, %46 ], [ 1, %50 ], [ 2, %53 ], [ %59, %._crit_edge ]
   %62 = zext nneg i32 %61 to i64
-  %63 = getelementptr %struct.resource, ptr %47, i64 %62
+  %63 = getelementptr [64 x i8], ptr %47, i64 %62
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 40
   %65 = load ptr, ptr %64, align 8
   %66 = icmp eq ptr %65, null
@@ -2933,7 +2933,7 @@ define dso_local range(i32 -28, 1) i32 @pci_reassign_bridge_resources(ptr nounde
 
 13:                                               ; preds = %51, %9
   %14 = phi i64 [ 7, %9 ], [ %52, %51 ]
-  %15 = getelementptr %struct.resource, ptr %11, i64 %14
+  %15 = getelementptr [64 x i8], ptr %11, i64 %14
   %16 = trunc nuw nsw i64 %14 to i32
   %17 = call ptr @pci_resource_name(ptr noundef %10, i32 noundef %16) #13
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 24
@@ -3349,7 +3349,7 @@ define internal fastcc void @__dev_sort_resources(ptr noundef %0, ptr noundef %1
 
 16:                                               ; preds = %93, %13
   %17 = phi i64 [ 0, %13 ], [ %94, %93 ]
-  %18 = getelementptr %struct.resource, ptr %14, i64 %17
+  %18 = getelementptr [64 x i8], ptr %14, i64 %17
   %19 = icmp eq ptr %18, null
   br i1 %19, label %.loopexit, label %20
 
@@ -4690,7 +4690,7 @@ define internal fastcc void @pci_bus_distribute_available_resources(ptr noundef 
   %246 = phi i64 [ %235, %241 ], [ %369, %367 ]
   %247 = phi i64 [ %234, %241 ], [ %370, %367 ]
   %248 = phi i64 [ 0, %241 ], [ %371, %367 ]
-  %249 = getelementptr %struct.resource, ptr %242, i64 %248
+  %249 = getelementptr [64 x i8], ptr %242, i64 %248
   %250 = icmp eq ptr %249, null
   br i1 %250, label %.loopexit, label %251
 

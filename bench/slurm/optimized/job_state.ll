@@ -12,7 +12,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.slurm_selected_step_t = type { ptr, i32, i32, %struct.slurm_step_id_msg }
 %struct.slurm_step_id_msg = type { i64, i32, i32, i32 }
 %struct.job_state_args_t = type { i32, i32, i32, ptr, i8 }
-%struct.job_state_response_job_t = type { i32, i32, i32, ptr, i32, i32 }
 
 @__const.dump_job_state.job_read_lock = private unnamed_addr constant %struct.slurmctld_lock_t { i32 0, i32 1, i32 0, i32 0, i32 0 }, align 8
 @__const.dump_job_state.args = private unnamed_addr constant { i32, i32, i32, [4 x i8], ptr, i8, [7 x i8] } { i32 168554222, i32 0, i32 0, [4 x i8] zeroinitializer, ptr null, i8 1, [7 x i8] zeroinitializer }, align 8
@@ -1006,7 +1005,7 @@ define dso_local i32 @dump_job_state(i32 noundef %0, ptr noundef %1, ptr noundef
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %20 = getelementptr inbounds nuw %struct.slurm_selected_step_t, ptr %1, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw [40 x i8], ptr %1, i64 %indvars.iv.i
   %21 = call i32 @foreach_job_by_id_ro(ptr noundef %20, ptr noundef nonnull @_foreach_job, ptr noundef null, ptr noundef nonnull %7) #9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %22 = load i32, ptr %10, align 4
@@ -1080,7 +1079,7 @@ _dump_job_state_locked.exit:                      ; preds = %.lr.ph.i, %13, %.pr
 
 .lr.ph.i19:                                       ; preds = %.lr.ph.i19, %.lr.ph.preheader.i18
   %indvars.iv.i20 = phi i64 [ 0, %.lr.ph.preheader.i18 ], [ %indvars.iv.next.i21, %.lr.ph.i19 ]
-  %47 = getelementptr inbounds nuw %struct.slurm_selected_step_t, ptr %1, i64 %indvars.iv.i20
+  %47 = getelementptr inbounds nuw [40 x i8], ptr %1, i64 %indvars.iv.i20
   %48 = call i32 @foreach_job_by_id_ro(ptr noundef %47, ptr noundef nonnull @_foreach_job, ptr noundef null, ptr noundef nonnull %7) #9
   %indvars.iv.next.i21 = add nuw nsw i64 %indvars.iv.i20, 1
   %49 = load i32, ptr %37, align 4
@@ -1149,7 +1148,7 @@ define internal fastcc void @_dump_job_state_cached(ptr noundef nonnull %0, i32 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %14 = getelementptr inbounds nuw %struct.slurm_selected_step_t, ptr %2, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [40 x i8], ptr %2, i64 %indvars.iv
   tail call fastcc void @_find_job_state_cached_by_id(ptr noundef %0, ptr noundef %14)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %15 = load i32, ptr %8, align 4
@@ -1618,7 +1617,7 @@ _append_job_state.exit.i:                         ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = sext i32 %5 to i64
-  %13 = getelementptr inbounds %struct.job_state_response_job_t, ptr %11, i64 %12
+  %13 = getelementptr inbounds [32 x i8], ptr %11, i64 %12
   %.not.i = icmp eq ptr %11, null
   br i1 %.not.i, label %_add_cache_job.exit, label %14
 
@@ -1894,7 +1893,7 @@ _append_job_state.exit.i:                         ; preds = %61
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %69 = load ptr, ptr %68, align 8
   %70 = sext i32 %63 to i64
-  %71 = getelementptr inbounds %struct.job_state_response_job_t, ptr %69, i64 %70
+  %71 = getelementptr inbounds [32 x i8], ptr %69, i64 %70
   %.not.i = icmp eq ptr %69, null
   br i1 %.not.i, label %_add_cache_job.exit, label %72
 
@@ -2132,7 +2131,7 @@ _add_cache_job.exit:                              ; preds = %61, %_append_job_st
 _append_job_state.exit.i104:                      ; preds = %196
   %201 = load ptr, ptr %153, align 8
   %202 = sext i32 %197 to i64
-  %203 = getelementptr inbounds %struct.job_state_response_job_t, ptr %201, i64 %202
+  %203 = getelementptr inbounds [32 x i8], ptr %201, i64 %202
   %.not.i105 = icmp eq ptr %201, null
   br i1 %.not.i105, label %_add_cache_job.exit107, label %204
 
@@ -2315,7 +2314,7 @@ _add_cache_job.exit107:                           ; preds = %196, %_append_job_s
 _append_job_state.exit.i108:                      ; preds = %.critedge
   %303 = load ptr, ptr %251, align 8
   %304 = sext i32 %299 to i64
-  %305 = getelementptr inbounds %struct.job_state_response_job_t, ptr %303, i64 %304
+  %305 = getelementptr inbounds [32 x i8], ptr %303, i64 %304
   %.not.i109 = icmp eq ptr %303, null
   br i1 %.not.i109, label %_add_cache_job.exit111, label %306
 
@@ -2439,7 +2438,7 @@ define internal range(i32 1, 4) i32 @_foreach_job(ptr noundef readonly captures(
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = sext i32 %5 to i64
-  %14 = getelementptr inbounds %struct.job_state_response_job_t, ptr %12, i64 %13
+  %14 = getelementptr inbounds [32 x i8], ptr %12, i64 %13
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %_append_job_state.exit.thread, label %15
 

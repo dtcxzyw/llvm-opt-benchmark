@@ -114,7 +114,7 @@ define noundef ptr @dt_culling_new(i32 noundef %0) local_unnamed_addr #0 {
 
 switch.lookup:                                    ; preds = %1
   %9 = zext nneg i32 %6 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dt_culling_force_overlay, i64 %9
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dt_culling_force_overlay, i64 %9
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_thumbs_get_overlays_class.exit
 
@@ -3979,7 +3979,7 @@ define void @dt_culling_set_overlays_mode(ptr noundef captures(address_is_null) 
 
 switch.lookup:                                    ; preds = %3
   %9 = zext nneg i32 %7 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dt_culling_force_overlay, i64 %9
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dt_culling_force_overlay, i64 %9
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_thumbs_get_overlays_class.exit
 
@@ -3991,7 +3991,7 @@ _thumbs_get_overlays_class.exit:                  ; preds = %3, %switch.lookup
 
 switch.lookup52:                                  ; preds = %_thumbs_get_overlays_class.exit
   %12 = zext nneg i32 %1 to i64
-  %switch.gep53 = getelementptr inbounds nuw ptr, ptr @switch.table.dt_culling_force_overlay, i64 %12
+  %switch.gep53 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dt_culling_force_overlay, i64 %12
   %switch.load54 = load ptr, ptr %switch.gep53, align 8
   br label %_thumbs_get_overlays_class.exit46
 
@@ -4091,7 +4091,7 @@ define void @dt_culling_force_overlay(ptr noundef captures(address_is_null) %0, 
 
 switch.lookup:                                    ; preds = %3
   %9 = zext nneg i32 %6 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dt_culling_force_overlay, i64 %9
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dt_culling_force_overlay, i64 %9
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_thumbs_get_overlays_class.exit
 

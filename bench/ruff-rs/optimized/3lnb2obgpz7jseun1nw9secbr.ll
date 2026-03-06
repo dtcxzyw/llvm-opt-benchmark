@@ -241,7 +241,7 @@ define internal fastcc noundef zeroext i1 @_ZN14ruff_formatter14format_element8d
   %40 = add i64 %.sroa.01.0.i.i.i, %39
   %41 = and i64 %40, %32
   %42 = sub nsw i64 0, %41
-  %43 = getelementptr inbounds { ptr, i8, [7 x i8] }, ptr %33, i64 %42
+  %43 = getelementptr inbounds [16 x i8], ptr %33, i64 %42
   %44 = getelementptr inbounds i8, ptr %43, i64 -16
   %45 = call noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17hbf1ef9f2cb84994aE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %25, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %44), !noalias !36
   br i1 %45, label %93, label %49, !prof !39
@@ -276,7 +276,7 @@ define internal fastcc noundef zeroext i1 @_ZN14ruff_formatter14format_element8d
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09c2bcecdc89094cE.exit": ; preds = %55, %60
   %61 = load ptr, ptr %10, align 8, !alias.scope !40, !noalias !43, !nonnull !9, !noundef !9
-  %62 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %61, i64 %57
+  %62 = getelementptr inbounds nuw [16 x i8], ptr %61, i64 %57
   store i8 3, ptr %62, align 8
   %63 = add i64 %57, 1
   store i64 %63, ptr %9, align 8, !alias.scope !40, !noalias !43
@@ -310,7 +310,7 @@ define internal fastcc noundef zeroext i1 @_ZN14ruff_formatter14format_element8d
   br i1 %.not.i54, label %.backedge, label %76
 
 76:                                               ; preds = %73
-  %77 = getelementptr { i8, [15 x i8] }, ptr %74, i64 %75
+  %77 = getelementptr [16 x i8], ptr %74, i64 %75
   %78 = getelementptr i8, ptr %77, i64 -16
   %79 = load i8, ptr %78, align 8, !range !52, !alias.scope !49, !noundef !9
   switch i8 %79, label %.backedge [
@@ -387,7 +387,7 @@ select.unfold:                                    ; preds = %._crit_edge.i.i, %2
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09c2bcecdc89094cE.exit55": ; preds = %108, %113
   %114 = load ptr, ptr %10, align 8, !alias.scope !55, !noalias !58, !nonnull !9, !noundef !9
-  %115 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %114, i64 %110
+  %115 = getelementptr inbounds nuw [16 x i8], ptr %114, i64 %110
   store i8 0, ptr %115, align 8
   %.sroa.460.0..sroa_idx = getelementptr inbounds nuw i8, ptr %115, i64 8
   store ptr %109, ptr %.sroa.460.0..sroa_idx, align 8
@@ -413,7 +413,7 @@ select.unfold:                                    ; preds = %._crit_edge.i.i, %2
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09c2bcecdc89094cE.exit56": ; preds = %120, %125
   %126 = load ptr, ptr %10, align 8, !alias.scope !62, !noalias !65, !nonnull !9, !noundef !9
-  %127 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %126, i64 %122
+  %127 = getelementptr inbounds nuw [16 x i8], ptr %126, i64 %122
   store i8 1, ptr %127, align 8
   %.sroa.465.0..sroa_idx = getelementptr inbounds nuw i8, ptr %127, i64 8
   store ptr %121, ptr %.sroa.465.0..sroa_idx, align 8
@@ -439,7 +439,7 @@ select.unfold:                                    ; preds = %._crit_edge.i.i, %2
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09c2bcecdc89094cE.exit57": ; preds = %132, %137
   %138 = load ptr, ptr %10, align 8, !alias.scope !69, !noalias !72, !nonnull !9, !noundef !9
-  %139 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %138, i64 %134
+  %139 = getelementptr inbounds nuw [16 x i8], ptr %138, i64 %134
   store i8 2, ptr %139, align 8
   %.sroa.469.0..sroa_idx = getelementptr inbounds nuw i8, ptr %139, i64 1
   store i8 %.sroa.0.098, ptr %.sroa.469.0..sroa_idx, align 1
@@ -466,7 +466,7 @@ select.unfold:                                    ; preds = %._crit_edge.i.i, %2
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09c2bcecdc89094cE.exit58": ; preds = %144, %148
   %149 = load ptr, ptr %10, align 8, !alias.scope !76, !noalias !79, !nonnull !9, !noundef !9
-  %150 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %149, i64 %145
+  %150 = getelementptr inbounds nuw [16 x i8], ptr %149, i64 %145
   store i8 4, ptr %150, align 8
   %.sroa.462.0..sroa_idx = getelementptr inbounds nuw i8, ptr %150, i64 1
   store i8 %.sroa.0.098, ptr %.sroa.462.0..sroa_idx, align 1
@@ -488,7 +488,7 @@ select.unfold:                                    ; preds = %._crit_edge.i.i, %2
   %159 = load ptr, ptr %10, align 8, !nonnull !9, !noundef !9
   %160 = icmp ult i64 %118, 576460752303423489
   call void @llvm.assume(i1 %160)
-  %161 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %159, i64 %156
+  %161 = getelementptr inbounds nuw [16 x i8], ptr %159, i64 %156
   %.sroa.043.0.copyload = load i8, ptr %161, align 8
   %162 = icmp eq i8 %.sroa.043.0.copyload, 0
   br i1 %162, label %163, label %.backedge
@@ -512,7 +512,7 @@ select.unfold:                                    ; preds = %._crit_edge.i.i, %2
   %170 = load ptr, ptr %10, align 8, !nonnull !9, !noundef !9
   %171 = icmp ult i64 %130, 576460752303423489
   call void @llvm.assume(i1 %171)
-  %172 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %170, i64 %167
+  %172 = getelementptr inbounds nuw [16 x i8], ptr %170, i64 %167
   %.sroa.037.0.copyload = load i8, ptr %172, align 8
   %173 = icmp eq i8 %.sroa.037.0.copyload, 1
   br i1 %173, label %174, label %.backedge
@@ -536,7 +536,7 @@ select.unfold:                                    ; preds = %._crit_edge.i.i, %2
   %181 = load ptr, ptr %10, align 8, !nonnull !9, !noundef !9
   %182 = icmp ult i64 %142, 576460752303423489
   call void @llvm.assume(i1 %182)
-  %183 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %181, i64 %178
+  %183 = getelementptr inbounds nuw [16 x i8], ptr %181, i64 %178
   %.sroa.034.0.copyload = load i8, ptr %183, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %183, i64 1
   %.sroa.4.0.copyload = load i8, ptr %.sroa.4.0..sroa_idx, align 1
@@ -555,7 +555,7 @@ select.unfold:                                    ; preds = %._crit_edge.i.i, %2
   %190 = load ptr, ptr %10, align 8, !nonnull !9, !noundef !9
   %191 = icmp ult i64 %153, 576460752303423489
   call void @llvm.assume(i1 %191)
-  %192 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %190, i64 %187
+  %192 = getelementptr inbounds nuw [16 x i8], ptr %190, i64 %187
   %.sroa.040.0.copyload = load i8, ptr %192, align 8
   %.sroa.441.0..sroa_idx = getelementptr inbounds nuw i8, ptr %192, i64 1
   %.sroa.441.0.copyload = load i8, ptr %.sroa.441.0..sroa_idx, align 1

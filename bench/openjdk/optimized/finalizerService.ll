@@ -11,7 +11,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.ConcurrentHashTable<FinalizerTableConfig, MEMFLAGS::mtServiceability>::GrowTask" = type { %"class.ConcurrentHashTable<FinalizerTableConfig, MEMFLAGS::mtServiceability>::BucketsOperation.base", [7 x i8] }
 %"class.ConcurrentHashTable<FinalizerTableConfig, MEMFLAGS::mtServiceability>::BucketsOperation.base" = type <{ ptr, %"class.ConcurrentHashTable<FinalizerTableConfig, MEMFLAGS::mtServiceability>::BucketsOperation::InternalTableClaimer", i8 }>
 %"class.ConcurrentHashTable<FinalizerTableConfig, MEMFLAGS::mtServiceability>::BucketsOperation::InternalTableClaimer" = type { i64, i64, i64 }
-%"class.ConcurrentHashTable<FinalizerTableConfig, MEMFLAGS::mtServiceability>::Bucket" = type { ptr }
 %struct.NOP = type { i8 }
 %class.FinalizerEntryLookup = type { ptr }
 %class.FinalizerScan = type { ptr }
@@ -608,7 +607,7 @@ define linkonce_odr hidden void @_ZN19ConcurrentHashTableI20FinalizerTableConfig
 .lr.ph.i:                                         ; preds = %17, %.lr.ph.i
   %.04.i = phi i64 [ %33, %.lr.ph.i ], [ 0, %17 ]
   %31 = load ptr, ptr %21, align 8
-  %32 = getelementptr inbounds %"class.ConcurrentHashTable<FinalizerTableConfig, MEMFLAGS::mtServiceability>::Bucket", ptr %31, i64 %.04.i
+  %32 = getelementptr inbounds [8 x i8], ptr %31, i64 %.04.i
   store volatile ptr null, ptr %32, align 8
   %33 = add nuw i64 %.04.i, 1
   %34 = load i64, ptr %23, align 8
@@ -666,7 +665,7 @@ _ZN19ConcurrentHashTableI20FinalizerTableConfigL8MEMFLAGS23EE8ScopedCSC2EP6Threa
   %24 = load i64, ptr %23, align 8
   %25 = and i64 %24, %20
   %26 = load ptr, ptr %22, align 8
-  %27 = getelementptr inbounds nuw %"class.ConcurrentHashTable<FinalizerTableConfig, MEMFLAGS::mtServiceability>::Bucket", ptr %26, i64 %25
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %25
   %28 = load volatile ptr, ptr %27, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !8
   %29 = ptrtoint ptr %28 to i64
@@ -682,7 +681,7 @@ _ZN19ConcurrentHashTableI20FinalizerTableConfigL8MEMFLAGS23EE8ScopedCSC2EP6Threa
   %35 = load i64, ptr %34, align 8
   %36 = and i64 %35, %20
   %37 = load ptr, ptr %33, align 8
-  %38 = getelementptr inbounds nuw %"class.ConcurrentHashTable<FinalizerTableConfig, MEMFLAGS::mtServiceability>::Bucket", ptr %37, i64 %36
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %36
   br label %_ZNK19ConcurrentHashTableI20FinalizerTableConfigL8MEMFLAGS23EE10get_bucketEm.exit.i.i.i
 
 _ZNK19ConcurrentHashTableI20FinalizerTableConfigL8MEMFLAGS23EE10get_bucketEm.exit.i.i.i: ; preds = %31, %_ZN19ConcurrentHashTableI20FinalizerTableConfigL8MEMFLAGS23EE8ScopedCSC2EP6ThreadPS2_.exit.i.i
@@ -864,7 +863,7 @@ _ZN19ConcurrentHashTableI20FinalizerTableConfigL8MEMFLAGS23EE8ScopedCSC2EP6Threa
   %43 = load i64, ptr %42, align 8
   %44 = and i64 %43, %39
   %45 = load ptr, ptr %41, align 8
-  %46 = getelementptr inbounds nuw %"class.ConcurrentHashTable<FinalizerTableConfig, MEMFLAGS::mtServiceability>::Bucket", ptr %45, i64 %44
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %44
   %47 = load volatile ptr, ptr %46, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !8
   %48 = ptrtoint ptr %47 to i64
@@ -880,7 +879,7 @@ _ZN19ConcurrentHashTableI20FinalizerTableConfigL8MEMFLAGS23EE8ScopedCSC2EP6Threa
   %54 = load i64, ptr %53, align 8
   %55 = and i64 %54, %39
   %56 = load ptr, ptr %52, align 8
-  %57 = getelementptr inbounds nuw %"class.ConcurrentHashTable<FinalizerTableConfig, MEMFLAGS::mtServiceability>::Bucket", ptr %56, i64 %55
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %55
   br label %_ZNK19ConcurrentHashTableI20FinalizerTableConfigL8MEMFLAGS23EE10get_bucketEm.exit.i.i.i.i
 
 _ZNK19ConcurrentHashTableI20FinalizerTableConfigL8MEMFLAGS23EE10get_bucketEm.exit.i.i.i.i: ; preds = %50, %_ZN19ConcurrentHashTableI20FinalizerTableConfigL8MEMFLAGS23EE8ScopedCSC2EP6ThreadPS2_.exit.i.i.i
@@ -975,7 +974,7 @@ _ZN19ConcurrentHashTableI20FinalizerTableConfigL8MEMFLAGS23EE8ScopedCSC2EP6Threa
   %94 = load i64, ptr %93, align 8
   %95 = and i64 %94, %90
   %96 = load ptr, ptr %92, align 8
-  %97 = getelementptr inbounds nuw %"class.ConcurrentHashTable<FinalizerTableConfig, MEMFLAGS::mtServiceability>::Bucket", ptr %96, i64 %95
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %96, i64 %95
   %98 = load volatile ptr, ptr %97, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !8
   %99 = ptrtoint ptr %98 to i64
@@ -991,7 +990,7 @@ _ZN19ConcurrentHashTableI20FinalizerTableConfigL8MEMFLAGS23EE8ScopedCSC2EP6Threa
   %105 = load i64, ptr %104, align 8
   %106 = and i64 %105, %90
   %107 = load ptr, ptr %103, align 8
-  %108 = getelementptr inbounds nuw %"class.ConcurrentHashTable<FinalizerTableConfig, MEMFLAGS::mtServiceability>::Bucket", ptr %107, i64 %106
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %106
   br label %_ZNK19ConcurrentHashTableI20FinalizerTableConfigL8MEMFLAGS23EE10get_bucketEm.exit.i.i.i11.i
 
 _ZNK19ConcurrentHashTableI20FinalizerTableConfigL8MEMFLAGS23EE10get_bucketEm.exit.i.i.i11.i: ; preds = %101, %_ZN19ConcurrentHashTableI20FinalizerTableConfigL8MEMFLAGS23EE8ScopedCSC2EP6ThreadPS2_.exit.i.i9.i
@@ -1226,7 +1225,7 @@ _ZN13GlobalCounter22critical_section_beginEP6Thread.exit.i.i: ; preds = %14, %10
 
 _ZN19ConcurrentHashTableI20FinalizerTableConfigL8MEMFLAGS23EE8ScopedCSC2EP6ThreadPS2_.exit.i: ; preds = %19, %_ZN13GlobalCounter22critical_section_beginEP6Thread.exit.i.i
   %21 = load ptr, ptr %5, align 8
-  %22 = getelementptr inbounds %"class.ConcurrentHashTable<FinalizerTableConfig, MEMFLAGS::mtServiceability>::Bucket", ptr %21, i64 %.0814.i
+  %22 = getelementptr inbounds [8 x i8], ptr %21, i64 %.0814.i
   %23 = load volatile ptr, ptr %22, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !8
   %24 = ptrtoint ptr %23 to i64
@@ -1459,7 +1458,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal15RuntimeDispatchILm5
 _ZN14AccessInternal15BarrierResolverILm548932EPFP7oopDescPvELNS_11BarrierTypeE2EE15resolve_barrierEv.exit: ; preds = %11, %8
   %switch.table._ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.3.sink = phi ptr [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv, %8 ], [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.3, %11 ]
   %14 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep5 = getelementptr inbounds nuw ptr, ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.3.sink, i64 %14
+  %switch.gep5 = getelementptr inbounds nuw [8 x i8], ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.3.sink, i64 %14
   %switch.load6 = load ptr, ptr %switch.gep5, align 8
   store ptr %switch.load6, ptr @_ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
   %15 = tail call noundef ptr %switch.load6(ptr noundef %0) #16
@@ -1689,7 +1688,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier35load_barrier_on_oop_field_
 5:                                                ; preds = %2
   %6 = lshr i64 %1, 12
   %7 = and i64 %6, 15
-  %8 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %7
+  %8 = getelementptr inbounds nuw [4 x i8], ptr @_ZL22ZPointerLoadShiftTable, i64 %7
   %9 = load i32, ptr %8, align 4
   %10 = zext nneg i32 %9 to i64
   %11 = lshr i64 %1, %10
@@ -1703,7 +1702,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier35load_barrier_on_oop_field_
 15:                                               ; preds = %12
   %16 = lshr i64 %1, 12
   %17 = and i64 %16, 15
-  %18 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %17
+  %18 = getelementptr inbounds nuw [4 x i8], ptr @_ZL22ZPointerLoadShiftTable, i64 %17
   %19 = load i32, ptr %18, align 4
   %20 = zext nneg i32 %19 to i64
   %21 = lshr i64 %1, %20
@@ -1743,7 +1742,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier35load_barrier_on_oop_field_
   %41 = lshr i64 %40, 21
   %42 = getelementptr inbounds nuw i8, ptr %38, i64 40
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds nuw ptr, ptr %43, i64 %41
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %41
   %45 = load volatile ptr, ptr %44, align 8
   %.not.i6.i.i = icmp eq ptr %45, null
   %46 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
@@ -1769,7 +1768,7 @@ _Z15color_load_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %50 = load i64, ptr @ZPointerLoadGoodMask, align 8
   %51 = lshr i64 %50, 12
   %52 = and i64 %51, 15
-  %53 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %52
+  %53 = getelementptr inbounds nuw [4 x i8], ptr @_ZL22ZPointerLoadShiftTable, i64 %52
   %54 = load i32, ptr %53, align 4
   %55 = zext nneg i32 %54 to i64
   %56 = shl i64 %47, %55
@@ -1962,7 +1961,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal15RuntimeDispatchILm2
 _ZN14AccessInternal15BarrierResolverILm286790EPFP7oopDescS2_lELNS_11BarrierTypeE3EE15resolve_barrierEv.exit: ; preds = %12, %9
   %switch.table._ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE12load_at_initES2_l.4.sink = phi ptr [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE12load_at_initES2_l, %9 ], [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE12load_at_initES2_l.4, %12 ]
   %15 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep5 = getelementptr inbounds nuw ptr, ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE12load_at_initES2_l.4.sink, i64 %15
+  %switch.gep5 = getelementptr inbounds nuw [8 x i8], ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE12load_at_initES2_l.4.sink, i64 %15
   %switch.load6 = load ptr, ptr %switch.gep5, align 8
   store ptr %switch.load6, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
   %16 = tail call noundef ptr %switch.load6(ptr noundef %0, i64 noundef %1) #16
@@ -2319,7 +2318,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN19ConcurrentHashTableI20Finali
 .lr.ph.i:                                         ; preds = %27, %.lr.ph.i
   %.04.i = phi i64 [ %44, %.lr.ph.i ], [ 0, %27 ]
   %42 = load ptr, ptr %28, align 8
-  %43 = getelementptr inbounds %"class.ConcurrentHashTable<FinalizerTableConfig, MEMFLAGS::mtServiceability>::Bucket", ptr %42, i64 %.04.i
+  %43 = getelementptr inbounds [8 x i8], ptr %42, i64 %.04.i
   store volatile ptr null, ptr %43, align 8
   %44 = add nuw i64 %.04.i, 1
   %45 = load i64, ptr %34, align 8
@@ -2361,7 +2360,7 @@ define linkonce_odr hidden void @_ZN19ConcurrentHashTableI20FinalizerTableConfig
   %.017 = phi i64 [ %2, %.lr.ph ], [ %107, %_ZN19ConcurrentHashTableI20FinalizerTableConfigL8MEMFLAGS23EE12unzip_bucketEP6ThreadPNS2_13InternalTableES6_mm.exit ]
   %10 = load ptr, ptr %6, align 8
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds %"class.ConcurrentHashTable<FinalizerTableConfig, MEMFLAGS::mtServiceability>::Bucket", ptr %11, i64 %.017
+  %12 = getelementptr inbounds [8 x i8], ptr %11, i64 %.017
   br label %13
 
 13:                                               ; preds = %.backedge, %9
@@ -2408,11 +2407,11 @@ _ZN19ConcurrentHashTableI20FinalizerTableConfigL8MEMFLAGS23EE6Bucket4lockEv.exit
   %33 = add i64 %32, %.017
   %34 = load ptr, ptr %7, align 8
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds %"class.ConcurrentHashTable<FinalizerTableConfig, MEMFLAGS::mtServiceability>::Bucket", ptr %35, i64 %.017
+  %36 = getelementptr inbounds [8 x i8], ptr %35, i64 %.017
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %36, ptr nonnull align 8 %12, i64 8, i1 true)
   %37 = load ptr, ptr %7, align 8
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds %"class.ConcurrentHashTable<FinalizerTableConfig, MEMFLAGS::mtServiceability>::Bucket", ptr %38, i64 %33
+  %39 = getelementptr inbounds [8 x i8], ptr %38, i64 %33
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %39, ptr nonnull align 8 %12, i64 8, i1 true)
   %40 = load volatile ptr, ptr %12, align 8
   %41 = ptrtoint ptr %40 to i64
@@ -2423,7 +2422,7 @@ _ZN19ConcurrentHashTableI20FinalizerTableConfigL8MEMFLAGS23EE6Bucket4lockEv.exit
   %44 = load ptr, ptr %6, align 8
   %45 = load ptr, ptr %7, align 8
   %46 = load ptr, ptr %44, align 8
-  %47 = getelementptr inbounds %"class.ConcurrentHashTable<FinalizerTableConfig, MEMFLAGS::mtServiceability>::Bucket", ptr %46, i64 %.017
+  %47 = getelementptr inbounds [8 x i8], ptr %46, i64 %.017
   %48 = load volatile ptr, ptr %47, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !8
   %49 = ptrtoint ptr %48 to i64
@@ -2434,8 +2433,8 @@ _ZN19ConcurrentHashTableI20FinalizerTableConfigL8MEMFLAGS23EE6Bucket4lockEv.exit
 51:                                               ; preds = %_ZN19ConcurrentHashTableI20FinalizerTableConfigL8MEMFLAGS23EE6Bucket4lockEv.exit
   %52 = inttoptr i64 %50 to ptr
   %53 = load ptr, ptr %45, align 8
-  %54 = getelementptr inbounds %"class.ConcurrentHashTable<FinalizerTableConfig, MEMFLAGS::mtServiceability>::Bucket", ptr %53, i64 %.017
-  %55 = getelementptr inbounds %"class.ConcurrentHashTable<FinalizerTableConfig, MEMFLAGS::mtServiceability>::Bucket", ptr %53, i64 %33
+  %54 = getelementptr inbounds [8 x i8], ptr %53, i64 %.017
+  %55 = getelementptr inbounds [8 x i8], ptr %53, i64 %33
   %56 = getelementptr inbounds nuw i8, ptr %45, i64 24
   br label %57
 
@@ -2515,7 +2514,7 @@ _ZN19ConcurrentHashTableI20FinalizerTableConfigL8MEMFLAGS23EE33write_synchonize_
 _ZN19ConcurrentHashTableI20FinalizerTableConfigL8MEMFLAGS23EE12unzip_bucketEP6ThreadPNS2_13InternalTableES6_mm.exit: ; preds = %_ZN19ConcurrentHashTableI20FinalizerTableConfigL8MEMFLAGS23EE33write_synchonize_on_visible_epochEP6Thread.exit.i, %_ZN19ConcurrentHashTableI20FinalizerTableConfigL8MEMFLAGS23EE6Bucket4lockEv.exit
   %93 = load ptr, ptr %7, align 8
   %94 = load ptr, ptr %93, align 8
-  %95 = getelementptr inbounds %"class.ConcurrentHashTable<FinalizerTableConfig, MEMFLAGS::mtServiceability>::Bucket", ptr %94, i64 %.017
+  %95 = getelementptr inbounds [8 x i8], ptr %94, i64 %.017
   %96 = load volatile ptr, ptr %95, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !8
   %97 = ptrtoint ptr %96 to i64
@@ -2525,7 +2524,7 @@ _ZN19ConcurrentHashTableI20FinalizerTableConfigL8MEMFLAGS23EE12unzip_bucketEP6Th
   store volatile ptr %99, ptr %95, align 8
   %100 = load ptr, ptr %7, align 8
   %101 = load ptr, ptr %100, align 8
-  %102 = getelementptr inbounds %"class.ConcurrentHashTable<FinalizerTableConfig, MEMFLAGS::mtServiceability>::Bucket", ptr %101, i64 %33
+  %102 = getelementptr inbounds [8 x i8], ptr %101, i64 %33
   %103 = load volatile ptr, ptr %102, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !8
   %104 = ptrtoint ptr %103 to i64
@@ -2606,7 +2605,7 @@ _ZN19ConcurrentHashTableI20FinalizerTableConfigL8MEMFLAGS23EE8ScopedCSC2EP6Threa
   %34 = load i64, ptr %33, align 8
   %35 = and i64 %34, %13
   %36 = load ptr, ptr %32, align 8
-  %37 = getelementptr inbounds nuw %"class.ConcurrentHashTable<FinalizerTableConfig, MEMFLAGS::mtServiceability>::Bucket", ptr %36, i64 %35
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %35
   %38 = load volatile ptr, ptr %37, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !8
   %39 = ptrtoint ptr %38 to i64
@@ -2621,7 +2620,7 @@ _ZN19ConcurrentHashTableI20FinalizerTableConfigL8MEMFLAGS23EE8ScopedCSC2EP6Threa
   %44 = load i64, ptr %43, align 8
   %45 = and i64 %44, %13
   %46 = load ptr, ptr %42, align 8
-  %47 = getelementptr inbounds nuw %"class.ConcurrentHashTable<FinalizerTableConfig, MEMFLAGS::mtServiceability>::Bucket", ptr %46, i64 %45
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %45
   br label %_ZNK19ConcurrentHashTableI20FinalizerTableConfigL8MEMFLAGS23EE10get_bucketEm.exit
 
 _ZNK19ConcurrentHashTableI20FinalizerTableConfigL8MEMFLAGS23EE10get_bucketEm.exit: ; preds = %_ZN19ConcurrentHashTableI20FinalizerTableConfigL8MEMFLAGS23EE8ScopedCSC2EP6ThreadPS2_.exit, %41
@@ -2778,7 +2777,7 @@ _ZN19ConcurrentHashTableI20FinalizerTableConfigL8MEMFLAGS23EE8ScopedCSC2EP6Threa
   %21 = load i64, ptr %20, align 8
   %22 = and i64 %21, %2
   %23 = load ptr, ptr %19, align 8
-  %24 = getelementptr inbounds %"class.ConcurrentHashTable<FinalizerTableConfig, MEMFLAGS::mtServiceability>::Bucket", ptr %23, i64 %22
+  %24 = getelementptr inbounds [8 x i8], ptr %23, i64 %22
   %25 = load volatile ptr, ptr %24, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !8
   %26 = ptrtoint ptr %25 to i64
@@ -2793,7 +2792,7 @@ _ZN19ConcurrentHashTableI20FinalizerTableConfigL8MEMFLAGS23EE8ScopedCSC2EP6Threa
   %31 = load i64, ptr %30, align 8
   %32 = and i64 %31, %2
   %33 = load ptr, ptr %29, align 8
-  %34 = getelementptr inbounds %"class.ConcurrentHashTable<FinalizerTableConfig, MEMFLAGS::mtServiceability>::Bucket", ptr %33, i64 %32
+  %34 = getelementptr inbounds [8 x i8], ptr %33, i64 %32
   br label %_ZNK19ConcurrentHashTableI20FinalizerTableConfigL8MEMFLAGS23EE10get_bucketEm.exit
 
 _ZNK19ConcurrentHashTableI20FinalizerTableConfigL8MEMFLAGS23EE10get_bucketEm.exit: ; preds = %_ZN19ConcurrentHashTableI20FinalizerTableConfigL8MEMFLAGS23EE8ScopedCSC2EP6ThreadPS2_.exit, %28

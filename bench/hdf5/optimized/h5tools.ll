@@ -2721,7 +2721,7 @@ define range(i64 -1, -9223372036854775808) i64 @h5tools_fopen(ptr noundef %0, i3
 63:                                               ; preds = %.preheader
   store i32 0, ptr %11, align 8, !tbaa !13
   store ptr null, ptr %43, align 8, !tbaa !18
-  %64 = getelementptr inbounds nuw ptr, ptr @drivernames, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw [8 x i8], ptr @drivernames, i64 %indvars.iv
   %65 = load ptr, ptr %64, align 8, !tbaa !16
   store ptr %65, ptr %44, align 8, !tbaa !15
   %66 = call i64 @h5tools_get_new_fapl(i64 noundef %2)
@@ -3949,7 +3949,7 @@ define void @init_acc_pos(i32 noundef %0, ptr noundef readonly captures(none) %1
   tail call void @llvm.memset.p0.i64(ptr align 8 %4, i8 0, i64 %8, i1 false), !tbaa !7
   %9 = add i32 %0, -1
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw i64, ptr %2, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %10
   store i64 1, ptr %11, align 8, !tbaa !7
   %12 = icmp sgt i32 %0, 1
   br i1 %12, label %.lr.ph26.preheader, label %.preheader
@@ -3972,11 +3972,11 @@ define void @init_acc_pos(i32 noundef %0, ptr noundef readonly captures(none) %1
 .lr.ph26:                                         ; preds = %.lr.ph26.preheader, %.lr.ph26
   %store_forwarded = phi i64 [ %load_initial, %.lr.ph26.preheader ], [ %22, %.lr.ph26 ]
   %indvars.iv = phi i64 [ %14, %.lr.ph26.preheader ], [ %indvars.iv.next, %.lr.ph26 ]
-  %19 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load i64, ptr %20, align 8, !tbaa !7
   %22 = mul i64 %21, %store_forwarded
-  %23 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   store i64 %22, ptr %23, align 8, !tbaa !7
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not = icmp eq i64 %indvars.iv, 0
@@ -4002,10 +4002,10 @@ define i64 @calc_acc_pos(i32 noundef %0, i64 noundef %1, ptr noundef readonly ca
   br i1 %.not20, label %14, label %6
 
 6:                                                ; preds = %.lr.ph
-  %7 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %8 = load i64, ptr %7, align 8, !tbaa !7
   %9 = udiv i64 %.022, %8
-  %10 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   store i64 %9, ptr %10, align 8, !tbaa !7
   %11 = load i64, ptr %7, align 8, !tbaa !7
   %12 = mul i64 %11, %9
@@ -4013,7 +4013,7 @@ define i64 @calc_acc_pos(i32 noundef %0, i64 noundef %1, ptr noundef readonly ca
   br label %16
 
 14:                                               ; preds = %.lr.ph
-  %15 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   store i64 0, ptr %15, align 8, !tbaa !7
   br label %16
 
@@ -4400,7 +4400,7 @@ define range(i32 -1, 1) i32 @render_bin_output(ptr noundef captures(none) %0, i6
 .lr.ph337:                                        ; preds = %.lr.ph337.preheader, %.lr.ph337
   %indvars.iv = phi i64 [ 0, %.lr.ph337.preheader ], [ %indvars.iv.next, %.lr.ph337 ]
   %.0209336 = phi i64 [ 1, %.lr.ph337.preheader ], [ %182, %.lr.ph337 ]
-  %180 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv
+  %180 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %181 = load i64, ptr %180, align 8, !tbaa !7
   %182 = mul i64 %181, %.0209336
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -5474,13 +5474,13 @@ define noundef i32 @render_bin_output_region_data_blocks(i64 noundef %0, ptr nou
   %48 = trunc nuw i64 %indvars.iv to i32
   %49 = add i32 %3, %48
   %50 = zext i32 %49 to i64
-  %51 = getelementptr inbounds nuw i64, ptr %6, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %50
   %52 = load i64, ptr %51, align 8, !tbaa !7
-  %53 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %54 = load i64, ptr %53, align 8, !tbaa !7
   %55 = sub i64 %52, %54
   %56 = add i64 %55, 1
-  %57 = getelementptr inbounds nuw i64, ptr %30, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv
   store i64 %56, ptr %57, align 8, !tbaa !7
   %58 = mul i64 %56, %.096151
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

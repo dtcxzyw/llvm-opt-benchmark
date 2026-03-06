@@ -3,8 +3,6 @@ source_filename = "bench/cmake/original/archive_write_set_format_cpio_odc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.anon = type { i64, i32 }
-
 @.str = private unnamed_addr constant [34 x i8] c"archive_write_set_format_cpio_odc\00", align 1
 @.str.1 = private unnamed_addr constant [25 x i8] c"Can't allocate cpio data\00", align 1
 @.str.2 = private unnamed_addr constant [5 x i8] c"cpio\00", align 1
@@ -396,7 +394,7 @@ get_sconv.exit:                                   ; preds = %2, %._crit_edge.i, 
 
 49:                                               ; preds = %47, %.lr.ph.i
   %.03343.i = phi i64 [ 0, %.lr.ph.i ], [ %48, %47 ]
-  %50 = getelementptr inbounds nuw %struct.anon, ptr %41, i64 %.03343.i
+  %50 = getelementptr inbounds nuw [16 x i8], ptr %41, i64 %.03343.i
   %51 = load i64, ptr %50, align 8, !tbaa !39
   %52 = icmp eq i64 %51, %33
   br i1 %52, label %53, label %47
@@ -442,7 +440,7 @@ get_sconv.exit:                                   ; preds = %2, %._crit_edge.i, 
 70:                                               ; preds = %69, %._crit_edge._crit_edge.i
   %71 = phi i64 [ %39, %._crit_edge._crit_edge.i ], [ %.pre46.i, %69 ]
   %72 = phi ptr [ %.pre.i67, %._crit_edge._crit_edge.i ], [ %68, %69 ]
-  %73 = getelementptr inbounds nuw %struct.anon, ptr %72, i64 %71
+  %73 = getelementptr inbounds nuw [16 x i8], ptr %72, i64 %71
   store i64 %33, ptr %73, align 8, !tbaa !39
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
   store i32 %59, ptr %74, align 8, !tbaa !41

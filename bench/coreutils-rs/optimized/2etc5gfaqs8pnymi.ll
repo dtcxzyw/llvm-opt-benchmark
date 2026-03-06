@@ -81,7 +81,7 @@ define hidden noundef align 16 dereferenceable_or_null(112) ptr @"_ZN12clap_buil
 20:                                               ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %22 = load ptr, ptr %21, align 8, !nonnull !4, !noundef !4
-  %23 = getelementptr inbounds nuw { { i128, [2 x i64] }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, i8, i8, [6 x i8] }, ptr %22, i64 %.sroa.8.025
+  %23 = getelementptr inbounds nuw [112 x i8], ptr %22, i64 %.sroa.8.025
   br label %.loopexit
 
 24:                                               ; preds = %16
@@ -135,7 +135,7 @@ define hidden void @_ZN12clap_builder6parser7matches11arg_matches10ArgMatches11t
 22:                                               ; preds = %17
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %24 = load ptr, ptr %23, align 8, !alias.scope !20, !noalias !21, !nonnull !4, !noundef !4
-  %25 = getelementptr inbounds nuw { { i128, [2 x i64] }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, i8, i8, [6 x i8] }, ptr %24, i64 %.sroa.8.025.i.i
+  %25 = getelementptr inbounds nuw [112 x i8], ptr %24, i64 %.sroa.8.025.i.i
   %26 = tail call noundef i128 @_ZN12clap_builder6parser7matches11matched_arg10MatchedArg13infer_type_id17hf290abf4832dccb4E(ptr noalias noundef nonnull readonly align 16 dereferenceable(112) %25, i128 noundef 24503081927999166500772401431235275638), !noalias !34
   %27 = icmp eq i128 %26, 24503081927999166500772401431235275638
   br i1 %27, label %29, label %28
@@ -242,7 +242,7 @@ define hidden void @_ZN12clap_builder6parser7matches11arg_matches10ArgMatches11t
 22:                                               ; preds = %17
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %24 = load ptr, ptr %23, align 8, !alias.scope !52, !noalias !53, !nonnull !4, !noundef !4
-  %25 = getelementptr inbounds nuw { { i128, [2 x i64] }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, i8, i8, [6 x i8] }, ptr %24, i64 %.sroa.8.025.i.i
+  %25 = getelementptr inbounds nuw [112 x i8], ptr %24, i64 %.sroa.8.025.i.i
   %26 = tail call noundef i128 @_ZN12clap_builder6parser7matches11matched_arg10MatchedArg13infer_type_id17hf290abf4832dccb4E(ptr noalias noundef nonnull readonly align 16 dereferenceable(112) %25, i128 noundef -75035133943807973589178565794283963657), !noalias !66
   %27 = icmp eq i128 %26, -75035133943807973589178565794283963657
   br i1 %27, label %29, label %28
@@ -392,7 +392,7 @@ define hidden void @_ZN12clap_builder6parser7matches11arg_matches10ArgMatches13t
 23:                                               ; preds = %17
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %25 = load ptr, ptr %24, align 8, !alias.scope !76, !noalias !79, !nonnull !4, !noundef !4
-  %26 = getelementptr inbounds nuw { { i128, [2 x i64] }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, i8, i8, [6 x i8] }, ptr %25, i64 %.sroa.8.025.i
+  %26 = getelementptr inbounds nuw [112 x i8], ptr %25, i64 %.sroa.8.025.i
   %27 = tail call noundef i128 @_ZN12clap_builder6parser7matches11matched_arg10MatchedArg13infer_type_id17hf290abf4832dccb4E(ptr noalias noundef nonnull readonly align 16 dereferenceable(112) %26, i128 noundef -75035133943807973589178565794283963657), !noalias !89
   %28 = icmp eq i128 %27, -75035133943807973589178565794283963657
   br i1 %28, label %30, label %_ZN12clap_builder6parser7matches11arg_matches10ArgMatches12verify_arg_t17hb3bc49fb19737f68E.llvm.14324550437899031131.exit
@@ -466,7 +466,7 @@ define hidden void @_ZN12clap_builder6parser7matches11arg_matches10ArgMatches13t
 23:                                               ; preds = %17
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %25 = load ptr, ptr %24, align 8, !alias.scope !92, !noalias !95, !nonnull !4, !noundef !4
-  %26 = getelementptr inbounds nuw { { i128, [2 x i64] }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, i8, i8, [6 x i8] }, ptr %25, i64 %.sroa.8.025.i
+  %26 = getelementptr inbounds nuw [112 x i8], ptr %25, i64 %.sroa.8.025.i
   %27 = tail call noundef i128 @_ZN12clap_builder6parser7matches11matched_arg10MatchedArg13infer_type_id17hf290abf4832dccb4E(ptr noalias noundef nonnull readonly align 16 dereferenceable(112) %26, i128 noundef 24503081927999166500772401431235275638), !noalias !105
   %28 = icmp eq i128 %27, 24503081927999166500772401431235275638
   br i1 %28, label %30, label %_ZN12clap_builder6parser7matches11arg_matches10ArgMatches12verify_arg_t17h3e8ab7f218f4a650E.llvm.14324550437899031131.exit

@@ -180,15 +180,15 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
   %82 = trunc nuw nsw i64 %79 to i32
   %83 = add i32 %.neg386, %82
   %84 = sext i32 %83 to i64
-  %85 = getelementptr inbounds i16, ptr %.0307546, i64 %84
+  %85 = getelementptr inbounds [2 x i8], ptr %.0307546, i64 %84
   %86 = load i16, ptr %85, align 2, !tbaa !42
   %87 = zext i16 %86 to i32
   %88 = add nuw nsw i64 %indvars.iv569, %76
-  %89 = getelementptr inbounds nuw i32, ptr @remap, i64 %88
+  %89 = getelementptr inbounds nuw [4 x i8], ptr @remap, i64 %88
   %90 = load i32, ptr %89, align 4, !tbaa !41
   %91 = mul nsw i32 %90, 3
   %92 = sext i32 %91 to i64
-  %invariant.gep = getelementptr i32, ptr %39, i64 %92
+  %invariant.gep = getelementptr [4 x i8], ptr %39, i64 %92
   %.idx = mul nuw nsw i64 %88, 12
   %invariant.gep717 = getelementptr inbounds nuw i8, ptr %40, i64 %.idx
   br label %93
@@ -200,9 +200,9 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
   %96 = add i32 %95, 10
   %97 = lshr i32 %87, %96
   %98 = and i32 %97, 31
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %indvars.iv
   store i32 %98, ptr %gep, align 4, !tbaa !41
-  %gep718 = getelementptr inbounds nuw i32, ptr %invariant.gep717, i64 %indvars.iv
+  %gep718 = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep717, i64 %indvars.iv
   store i32 %98, ptr %gep718, align 4, !tbaa !41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -246,7 +246,7 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
   %109 = getelementptr inbounds i8, ptr %.0308545, i64 %108
   %110 = load i8, ptr %109, align 1, !tbaa !48
   %111 = zext i8 %110 to i32
-  %gep720 = getelementptr inbounds nuw i32, ptr %invariant.gep719, i64 %indvars.iv577
+  %gep720 = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep719, i64 %indvars.iv577
   %112 = load i32, ptr %gep720, align 4, !tbaa !41
   %113 = sub nsw i32 %111, %112
   %114 = mul nsw i32 %113, %113
@@ -299,9 +299,9 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
 128:                                              ; preds = %.preheader444, %128
   %indvars.iv585 = phi i64 [ 0, %.preheader444 ], [ %indvars.iv.next586, %128 ]
   %.2329497 = phi i32 [ %.1328498, %.preheader444 ], [ %134, %128 ]
-  %129 = getelementptr inbounds nuw i32, ptr %42, i64 %indvars.iv585
+  %129 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %indvars.iv585
   %130 = load i32, ptr %129, align 4, !tbaa !41
-  %gep722 = getelementptr inbounds nuw i32, ptr %invariant.gep721, i64 %indvars.iv585
+  %gep722 = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep721, i64 %indvars.iv585
   %131 = load i32, ptr %gep722, align 4, !tbaa !41
   %132 = sub nsw i32 %130, %131
   %133 = mul nsw i32 %132, %132
@@ -337,7 +337,7 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
 
 .preheader462:                                    ; preds = %143, %.preheader462
   %indvars.iv597 = phi i64 [ %indvars.iv.next598, %.preheader462 ], [ 0, %143 ]
-  %145 = getelementptr inbounds nuw i32, ptr %45, i64 %indvars.iv597
+  %145 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %indvars.iv597
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 12
   %147 = load i32, ptr %146, align 4, !tbaa !41
   %148 = load i32, ptr %145, align 4, !tbaa !41
@@ -350,7 +350,7 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
 
 .preheader460:                                    ; preds = %.preheader462, %.preheader460
   %indvars.iv601 = phi i64 [ %indvars.iv.next602, %.preheader460 ], [ 0, %.preheader462 ]
-  %150 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv601
+  %150 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv601
   %151 = load i32, ptr %150, align 4, !tbaa !41
   %152 = xor i32 %151, 1
   store i32 %152, ptr %150, align 4, !tbaa !41
@@ -373,11 +373,11 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
 .preheader443:                                    ; preds = %.preheader449, %163
   %indvars.iv609 = phi i64 [ 0, %.preheader449 ], [ %indvars.iv.next610, %163 ]
   %.4331506 = phi i32 [ %.3330508, %.preheader449 ], [ %162, %163 ]
-  %gep726 = getelementptr inbounds nuw i32, ptr %invariant.gep725, i64 %indvars.iv609
+  %gep726 = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep725, i64 %indvars.iv609
   %153 = load i32, ptr %gep726, align 4, !tbaa !41
   %154 = mul nsw i32 %153, 3
   %155 = sext i32 %154 to i64
-  %invariant.gep723 = getelementptr i32, ptr %45, i64 %155
+  %invariant.gep723 = getelementptr [4 x i8], ptr %45, i64 %155
   %.idx688 = mul nuw nsw i64 %indvars.iv609, 12
   %gep728 = getelementptr inbounds nuw i8, ptr %invariant.gep727, i64 %.idx688
   br label %156
@@ -385,9 +385,9 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
 156:                                              ; preds = %.preheader443, %156
   %indvars.iv605 = phi i64 [ 0, %.preheader443 ], [ %indvars.iv.next606, %156 ]
   %.5332505 = phi i32 [ %.4331506, %.preheader443 ], [ %162, %156 ]
-  %gep724 = getelementptr i32, ptr %invariant.gep723, i64 %indvars.iv605
+  %gep724 = getelementptr [4 x i8], ptr %invariant.gep723, i64 %indvars.iv605
   %157 = load i32, ptr %gep724, align 4, !tbaa !41
-  %158 = getelementptr inbounds nuw i32, ptr %gep728, i64 %indvars.iv605
+  %158 = getelementptr inbounds nuw [4 x i8], ptr %gep728, i64 %indvars.iv605
   %159 = load i32, ptr %158, align 4, !tbaa !41
   %160 = sub nsw i32 %157, %159
   %161 = mul nsw i32 %160, %160
@@ -438,7 +438,7 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
 
 .preheader458:                                    ; preds = %176, %.preheader458
   %indvars.iv621 = phi i64 [ %indvars.iv.next622, %.preheader458 ], [ 0, %176 ]
-  %178 = getelementptr inbounds nuw i32, ptr %47, i64 %indvars.iv621
+  %178 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %indvars.iv621
   %179 = getelementptr inbounds nuw i8, ptr %178, i64 84
   %180 = load i32, ptr %179, align 4, !tbaa !41
   %181 = getelementptr inbounds nuw i8, ptr %178, i64 72
@@ -452,7 +452,7 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
 
 .preheader456:                                    ; preds = %.preheader458, %.preheader456
   %indvars.iv625 = phi i64 [ %indvars.iv.next626, %.preheader456 ], [ 12, %.preheader458 ]
-  %184 = getelementptr inbounds nuw i32, ptr %48, i64 %indvars.iv625
+  %184 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %indvars.iv625
   %185 = load i32, ptr %184, align 4, !tbaa !41
   %186 = xor i32 %185, 1
   store i32 %186, ptr %184, align 4, !tbaa !41
@@ -478,10 +478,10 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
 .preheader442:                                    ; preds = %.preheader448, %206
   %indvars.iv633 = phi i64 [ 0, %.preheader448 ], [ %indvars.iv.next634, %206 ]
   %.7334515 = phi i32 [ %.6333517, %.preheader448 ], [ %205, %206 ]
-  %gep732 = getelementptr inbounds nuw i32, ptr %invariant.gep731, i64 %indvars.iv633
+  %gep732 = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep731, i64 %indvars.iv633
   %189 = load i32, ptr %gep732, align 4, !tbaa !41
   %190 = sext i32 %189 to i64
-  %191 = getelementptr inbounds i32, ptr %48, i64 %190
+  %191 = getelementptr inbounds [4 x i8], ptr %48, i64 %190
   %192 = load i32, ptr %191, align 4, !tbaa !41
   %193 = trunc nuw nsw i64 %indvars.iv633 to i32
   %194 = and i32 %193, 2
@@ -489,7 +489,7 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
   %196 = add i32 %195, %192
   %197 = mul nsw i32 %196, 3
   %198 = sext i32 %197 to i64
-  %invariant.gep729 = getelementptr i32, ptr %47, i64 %198
+  %invariant.gep729 = getelementptr [4 x i8], ptr %47, i64 %198
   %.idx694 = mul nuw nsw i64 %indvars.iv633, 12
   %gep734 = getelementptr inbounds nuw i8, ptr %invariant.gep733, i64 %.idx694
   br label %199
@@ -497,9 +497,9 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
 199:                                              ; preds = %.preheader442, %199
   %indvars.iv629 = phi i64 [ 0, %.preheader442 ], [ %indvars.iv.next630, %199 ]
   %.8335514 = phi i32 [ %.7334515, %.preheader442 ], [ %205, %199 ]
-  %gep730 = getelementptr i32, ptr %invariant.gep729, i64 %indvars.iv629
+  %gep730 = getelementptr [4 x i8], ptr %invariant.gep729, i64 %indvars.iv629
   %200 = load i32, ptr %gep730, align 4, !tbaa !41
-  %201 = getelementptr inbounds nuw i32, ptr %gep734, i64 %indvars.iv629
+  %201 = getelementptr inbounds nuw [4 x i8], ptr %gep734, i64 %indvars.iv629
   %202 = load i32, ptr %201, align 4, !tbaa !41
   %203 = sub nsw i32 %200, %202
   %204 = mul nsw i32 %203, %203
@@ -576,7 +576,7 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
 
 234:                                              ; preds = %.preheader, %234
   %indvars.iv662 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next663, %234 ]
-  %235 = getelementptr inbounds nuw i32, ptr %42, i64 %indvars.iv662
+  %235 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %indvars.iv662
   %236 = load i32, ptr %235, align 4, !tbaa !41
   %237 = trunc i32 %236 to i8
   %238 = load i32, ptr %7, align 8, !tbaa !32
@@ -613,7 +613,7 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
   %indvars.iv654 = phi i64 [ 0, %.preheader446 ], [ %indvars.iv.next655, %268 ]
   %.1337527 = phi i32 [ %.0336529, %.preheader446 ], [ %272, %268 ]
   %250 = add nuw nsw i64 %indvars.iv654, %247
-  %251 = getelementptr inbounds nuw i32, ptr %43, i64 %250
+  %251 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %250
   %252 = load i32, ptr %251, align 4, !tbaa !41
   %253 = add nuw nsw i64 %indvars.iv654, %indvars.iv668
   %254 = trunc nuw nsw i64 %253 to i32
@@ -625,7 +625,7 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
   %257 = mul nsw i32 %256, 3
   %258 = add nsw i32 %257, %.5354526
   %259 = sext i32 %258 to i64
-  %260 = getelementptr inbounds i32, ptr %45, i64 %259
+  %260 = getelementptr inbounds [4 x i8], ptr %45, i64 %259
   %261 = load i32, ptr %260, align 4, !tbaa !41
   %262 = trunc i32 %261 to i8
   %263 = load i32, ptr %7, align 8, !tbaa !32
@@ -694,10 +694,10 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
   %indvars.iv642 = phi i64 [ 0, %.preheader447 ], [ %indvars.iv.next643, %325 ]
   %.3339520 = phi i32 [ %.2338522, %.preheader447 ], [ %329, %325 ]
   %300 = add nuw nsw i64 %indvars.iv642, %295
-  %301 = getelementptr inbounds nuw i32, ptr @remap, i64 %300
+  %301 = getelementptr inbounds nuw [4 x i8], ptr @remap, i64 %300
   %302 = load i32, ptr %301, align 4, !tbaa !41
   %303 = sext i32 %302 to i64
-  %304 = getelementptr inbounds i32, ptr %48, i64 %303
+  %304 = getelementptr inbounds [4 x i8], ptr %48, i64 %303
   %305 = load i32, ptr %304, align 4, !tbaa !41
   %306 = trunc nuw nsw i64 %indvars.iv642 to i32
   %307 = and i32 %306, 2
@@ -713,7 +713,7 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
   %314 = mul nsw i32 %313, 3
   %315 = add nsw i32 %314, %.6355519
   %316 = sext i32 %315 to i64
-  %317 = getelementptr inbounds i32, ptr %47, i64 %316
+  %317 = getelementptr inbounds [4 x i8], ptr %47, i64 %316
   %318 = load i32, ptr %317, align 4, !tbaa !41
   %319 = trunc i32 %318 to i8
   %320 = load i32, ptr %7, align 8, !tbaa !32
@@ -762,7 +762,7 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
 344:                                              ; preds = %331, %344
   %indvars.iv650 = phi i64 [ 3, %331 ], [ %indvars.iv.next651, %344 ]
   %.4420524 = phi ptr [ %343, %331 ], [ %356, %344 ]
-  %345 = getelementptr inbounds nuw i32, ptr %47, i64 %indvars.iv650
+  %345 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %indvars.iv650
   %346 = load i32, ptr %345, align 4, !tbaa !41
   %347 = shl i32 %346, 10
   %348 = getelementptr inbounds nuw i8, ptr %345, i64 4
@@ -809,7 +809,7 @@ default.unreachable:                              ; preds = %221
   %365 = shl i32 %363, 1
   %366 = sext i32 %365 to i64
   %367 = sub nsw i64 0, %366
-  %368 = getelementptr inbounds i16, ptr %.0307546, i64 %367
+  %368 = getelementptr inbounds [2 x i8], ptr %.0307546, i64 %367
   %369 = mul nsw i32 %364, 12
   %370 = sext i32 %369 to i64
   %371 = sub nsw i64 0, %370

@@ -1902,7 +1902,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmSt4lessIS5_ESaISt
 59:                                               ; preds = %.lr.ph, %112
   %.021 = phi i64 [ 0, %.lr.ph ], [ %113, %112 ]
   %60 = load ptr, ptr %11, align 8, !tbaa !54
-  %61 = getelementptr inbounds nuw i64, ptr %60, i64 %.021
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %.021
   %62 = load i64, ptr %61, align 8, !tbaa !9
   %.not = icmp eq i64 %62, 0
   br i1 %.not, label %112, label %63
@@ -1956,7 +1956,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmSt4lessIS5_ESaISt
 
 _ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv.exit: ; preds = %83, %73
   %84 = load ptr, ptr %11, align 8, !tbaa !54
-  %85 = getelementptr inbounds nuw i64, ptr %84, i64 %.021
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %.021
   %86 = invoke { ptr, i8 } @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmSt4lessIS5_ESaISt4pairIKS5_mEEE7emplaceIJS5_RKmEEES8_ISt17_Rb_tree_iteratorISA_EbEDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(8) %85)
           to label %87 unwind label %104
 
@@ -2091,7 +2091,7 @@ _ZN4cvc58internal10safe_printILm3EEEviRAT__Kc.exit15: ; preds = %._crit_edge
   %.022 = phi i1 [ true, %.lr.ph ], [ %.2, %35 ]
   %.01321 = phi i64 [ 0, %.lr.ph ], [ %36, %35 ]
   %17 = load ptr, ptr %5, align 8, !tbaa !54
-  %18 = getelementptr inbounds nuw i64, ptr %17, i64 %.01321
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %.01321
   %19 = load i64, ptr %18, align 8, !tbaa !9
   %.not = icmp eq i64 %19, 0
   br i1 %.not, label %35, label %20
@@ -2133,7 +2133,7 @@ _ZN4cvc58internal10safe_printINS0_4kind6Kind_tEEEviRKT_.exit: ; preds = %_ZN4cvc
 
 _ZN4cvc58internal10safe_printILm3EEEviRAT__Kc.exit20: ; preds = %_ZN4cvc58internal10safe_printINS0_4kind6Kind_tEEEviRKT_.exit
   %33 = load ptr, ptr %5, align 8, !tbaa !54
-  %34 = getelementptr inbounds nuw i64, ptr %33, i64 %.01321
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.01321
   tail call void @_ZN4cvc58internal10safe_printImEEviRKT_(i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %34)
   br label %35
 
@@ -3368,7 +3368,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmSt4lessIS5_ESaISt
 59:                                               ; preds = %.lr.ph, %112
   %.021 = phi i64 [ 0, %.lr.ph ], [ %113, %112 ]
   %60 = load ptr, ptr %11, align 8, !tbaa !54
-  %61 = getelementptr inbounds nuw i64, ptr %60, i64 %.021
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %.021
   %62 = load i64, ptr %61, align 8, !tbaa !9
   %.not = icmp eq i64 %62, 0
   br i1 %.not, label %112, label %63
@@ -3422,7 +3422,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmSt4lessIS5_ESaISt
 
 _ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv.exit: ; preds = %83, %73
   %84 = load ptr, ptr %11, align 8, !tbaa !54
-  %85 = getelementptr inbounds nuw i64, ptr %84, i64 %.021
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %.021
   %86 = invoke { ptr, i8 } @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmSt4lessIS5_ESaISt4pairIKS5_mEEE7emplaceIJS5_RKmEEES8_ISt17_Rb_tree_iteratorISA_EbEDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(8) %85)
           to label %87 unwind label %104
 
@@ -3557,7 +3557,7 @@ _ZN4cvc58internal10safe_printILm3EEEviRAT__Kc.exit15: ; preds = %._crit_edge
   %.022 = phi i1 [ true, %.lr.ph ], [ %.2, %35 ]
   %.01321 = phi i64 [ 0, %.lr.ph ], [ %36, %35 ]
   %17 = load ptr, ptr %5, align 8, !tbaa !54
-  %18 = getelementptr inbounds nuw i64, ptr %17, i64 %.01321
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %.01321
   %19 = load i64, ptr %18, align 8, !tbaa !9
   %.not = icmp eq i64 %19, 0
   br i1 %.not, label %35, label %20
@@ -3599,7 +3599,7 @@ _ZN4cvc58internal10safe_printINS0_6theory7strings7RewriteEEEviRKT_.exit: ; preds
 
 _ZN4cvc58internal10safe_printILm3EEEviRAT__Kc.exit20: ; preds = %_ZN4cvc58internal10safe_printINS0_6theory7strings7RewriteEEEviRKT_.exit
   %33 = load ptr, ptr %5, align 8, !tbaa !54
-  %34 = getelementptr inbounds nuw i64, ptr %33, i64 %.01321
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.01321
   tail call void @_ZN4cvc58internal10safe_printImEEviRKT_(i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %34)
   br label %35
 

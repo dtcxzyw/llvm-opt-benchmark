@@ -3181,7 +3181,7 @@ define internal fastcc void @phar_fancy_stat(ptr noundef nonnull readonly captur
 
 38:                                               ; preds = %.lr.ph, %37
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %37 ]
-  %39 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %indvars.iv
   %40 = load i32, ptr %39, align 4, !tbaa !67
   %41 = icmp eq i32 %36, %40
   br i1 %41, label %._crit_edge, label %37

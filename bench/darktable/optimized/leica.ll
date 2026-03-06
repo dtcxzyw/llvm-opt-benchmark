@@ -628,7 +628,7 @@ define void @_ZN6LibRaw19parseLeicaMakernoteEiij(ptr noundef nonnull align 8 der
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %139 ]
   %141 = call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
   %142 = uitofp i16 %141 to float
-  %143 = getelementptr inbounds nuw float, ptr %83, i64 %indvars.iv
+  %143 = getelementptr inbounds nuw [4 x i8], ptr %83, i64 %indvars.iv
   store float %142, ptr %143, align 4, !tbaa !88
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3

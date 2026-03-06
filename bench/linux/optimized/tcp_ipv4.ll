@@ -131,11 +131,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_tcp_prot: ; 
 %struct.flowi_common = type { i32, i32, i32, i32, i8, i8, i8, i8, i32, %struct.kuid_t, i32, %struct.flowi_tunnel }
 %struct.flowi_tunnel = type { i64 }
 %union.flowi_uli = type { i32 }
-%struct.xfrm_offload = type { %struct.anon.110, i32, i32, i8, i8 }
-%struct.anon.110 = type { i32, i32 }
-%struct.inet_listen_hashbucket = type { %struct.spinlock, %struct.hlist_nulls_head }
-%struct.hlist_nulls_head = type { ptr }
-%struct.inet_ehash_bucket = type { %struct.hlist_nulls_head }
 %struct.anon.102 = type { %struct.tcphdr, [10 x i32] }
 %struct.tcp_md5sig = type { %struct.__kernel_sockaddr_storage, i8, i8, i16, i32, [80 x i8] }
 %struct.__kernel_sockaddr_storage = type { %union.anon.121 }
@@ -1410,7 +1405,7 @@ define dso_local noundef range(i32 -2, 1) i32 @tcp_v4_err(ptr noundef %0, i32 no
 
 170:                                              ; preds = %153
   %171 = zext nneg i8 %18 to i64
-  %172 = getelementptr %struct.icmp_err, ptr @icmp_err_convert, i64 %171
+  %172 = getelementptr [8 x i8], ptr @icmp_err_convert, i64 %171
   %173 = load i32, ptr %172, align 4
   %174 = icmp samesign ult i8 %18, 2
   %175 = select i1 %122, i1 %174, i1 false
@@ -5818,13 +5813,13 @@ nf_reset_ct.exit:                                 ; preds = %326, %335, %337, %3
   %481 = getelementptr inbounds nuw i8, ptr %471, i64 64
   %482 = add i32 %475, -1
   %483 = sext i32 %482 to i64
-  %484 = getelementptr %struct.xfrm_offload, ptr %481, i64 %483
+  %484 = getelementptr [20 x i8], ptr %481, i64 %483
   %485 = icmp eq ptr %484, null
   br i1 %485, label %.thread54, label %486
 
 486:                                              ; preds = %480
   %487 = getelementptr inbounds nuw i8, ptr %471, i64 16
-  %488 = getelementptr ptr, ptr %487, i64 %483
+  %488 = getelementptr [8 x i8], ptr %487, i64 %483
   %489 = load ptr, ptr %488, align 8
   %490 = getelementptr inbounds nuw i8, ptr %489, i64 656
   %491 = load i8, ptr %490, align 8
@@ -6109,7 +6104,7 @@ define internal fastcc i32 @xfrm4_policy_check(ptr noundef %0, ptr noundef %1) u
   %27 = getelementptr inbounds nuw i8, ptr %17, i64 64
   %28 = add i32 %21, -1
   %29 = sext i32 %28 to i64
-  %30 = getelementptr %struct.xfrm_offload, ptr %27, i64 %29
+  %30 = getelementptr [20 x i8], ptr %27, i64 %29
   br label %.thread
 
 .thread:                                          ; preds = %2, %26, %23, %19, %10
@@ -6150,7 +6145,7 @@ define internal fastcc i32 @xfrm4_policy_check(ptr noundef %0, ptr noundef %1) u
   %53 = load i32, ptr %51, align 8
   %54 = add i32 %53, -1
   %55 = sext i32 %54 to i64
-  %56 = getelementptr ptr, ptr %52, i64 %55
+  %56 = getelementptr [8 x i8], ptr %52, i64 %55
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 656
   %59 = load i8, ptr %58, align 8
@@ -7368,7 +7363,7 @@ define internal fastcc ptr @listening_get_next(ptr noundef readonly captures(non
   %61 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %62 = load i32, ptr %61, align 8
   %63 = sext i32 %62 to i64
-  %64 = getelementptr %struct.inet_listen_hashbucket, ptr %60, i64 %63
+  %64 = getelementptr [16 x i8], ptr %60, i64 %63
   tail call void @_raw_spin_unlock(ptr noundef %64) #21
   %65 = load i32, ptr %61, align 8
   %66 = add i32 %65, 1
@@ -7414,12 +7409,12 @@ define internal fastcc ptr @established_get_first(ptr noundef readonly captures(
   %20 = load i32, ptr %15, align 4
   %21 = and i32 %20, %18
   %22 = zext i32 %21 to i64
-  %23 = getelementptr %struct.spinlock, ptr %19, i64 %22
+  %23 = getelementptr [4 x i8], ptr %19, i64 %22
   %24 = tail call i32 @__SCT__cond_resched() #21
   %25 = load ptr, ptr %6, align 64
   %26 = load i32, ptr %8, align 8
   %27 = sext i32 %26 to i64
-  %28 = getelementptr %struct.inet_ehash_bucket, ptr %25, i64 %27
+  %28 = getelementptr [8 x i8], ptr %25, i64 %27
   %29 = load volatile ptr, ptr %28, align 8
   %30 = ptrtoint ptr %29 to i64
   %31 = and i64 %30, 1
@@ -7431,7 +7426,7 @@ define internal fastcc ptr @established_get_first(ptr noundef readonly captures(
   %34 = load ptr, ptr %6, align 64
   %35 = load i32, ptr %8, align 8
   %36 = sext i32 %35 to i64
-  %37 = getelementptr %struct.inet_ehash_bucket, ptr %34, i64 %36
+  %37 = getelementptr [8 x i8], ptr %34, i64 %36
   %38 = load ptr, ptr %37, align 8
   %39 = ptrtoint ptr %38 to i64
   %40 = and i64 %39, 1
@@ -7598,7 +7593,7 @@ define internal fastcc ptr @established_get_next(ptr noundef readonly captures(n
   %63 = load i32, ptr %62, align 4
   %64 = and i32 %63, %59
   %65 = zext i32 %64 to i64
-  %66 = getelementptr %struct.spinlock, ptr %61, i64 %65
+  %66 = getelementptr [4 x i8], ptr %61, i64 %65
   tail call void @_raw_spin_unlock_bh(ptr noundef %66) #21
   %67 = load i32, ptr %58, align 8
   %68 = add i32 %67, 1
@@ -7640,7 +7635,7 @@ define dso_local void @tcp_seq_stop(ptr noundef readonly captures(none) %0, ptr 
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %16 = load i32, ptr %15, align 8
   %17 = sext i32 %16 to i64
-  %18 = getelementptr %struct.inet_listen_hashbucket, ptr %14, i64 %17
+  %18 = getelementptr [16 x i8], ptr %14, i64 %17
   tail call void @_raw_spin_unlock(ptr noundef %18) #21
   br label %31
 
@@ -7657,7 +7652,7 @@ define dso_local void @tcp_seq_stop(ptr noundef readonly captures(none) %0, ptr 
   %27 = load i32, ptr %26, align 4
   %28 = and i32 %27, %23
   %29 = zext i32 %28 to i64
-  %30 = getelementptr %struct.spinlock, ptr %25, i64 %29
+  %30 = getelementptr [4 x i8], ptr %25, i64 %29
   tail call void @_raw_spin_unlock_bh(ptr noundef %30) #21
   br label %31
 
@@ -7821,7 +7816,7 @@ define dso_local void @tcp_v4_init() local_unnamed_addr #9 section ".init.text" 
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 783
   store i8 2, ptr %20, align 1
   %21 = and i64 %9, 63
-  %22 = getelementptr i64, ptr @__per_cpu_offset, i64 %21
+  %22 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %21
   %23 = load i64, ptr %22, align 8
   %24 = add i64 %23, ptrtoint (ptr @ipv4_tcp_sk to i64)
   %25 = inttoptr i64 %24 to ptr
@@ -8383,7 +8378,7 @@ define internal fastcc ptr @listening_get_first(ptr noundef readonly captures(no
   %17 = phi i32 [ %10, %13 ], [ %69, %67 ]
   %18 = load ptr, ptr %14, align 64
   %19 = sext i32 %17 to i64
-  %20 = getelementptr %struct.inet_listen_hashbucket, ptr %18, i64 %19
+  %20 = getelementptr [16 x i8], ptr %18, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load volatile ptr, ptr %21, align 8
   %23 = ptrtoint ptr %22 to i64

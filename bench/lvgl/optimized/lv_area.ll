@@ -3,7 +3,6 @@ source_filename = "bench/lvgl/original/lv_area.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.lv_area_t = type { i32, i32, i32, i32 }
 %struct.lv_point_t = type { i32, i32 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
@@ -250,7 +249,7 @@ define signext range(i8 -1, 5) i8 @lv_area_diff(ptr noundef writeonly captures(n
   %38 = add i32 %29, %24
   %39 = add nuw nsw i8 %.086, 1
   %40 = zext nneg i8 %.086 to i64
-  %41 = getelementptr inbounds nuw %struct.lv_area_t, ptr %0, i64 %40
+  %41 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %40
   store i32 %35, ptr %41, align 4, !tbaa !11
   %.sroa.10.0..sroa_idx23 = getelementptr inbounds nuw i8, ptr %41, i64 4
   store i32 %36, ptr %.sroa.10.0..sroa_idx23, align 4, !tbaa !11
@@ -282,7 +281,7 @@ define signext range(i8 -1, 5) i8 @lv_area_diff(ptr noundef writeonly captures(n
   %53 = add nsw i32 %48, -1
   %54 = add nuw nsw i8 %.1, 1
   %55 = zext nneg i8 %.1 to i64
-  %56 = getelementptr inbounds nuw %struct.lv_area_t, ptr %0, i64 %55
+  %56 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %55
   store i32 %49, ptr %56, align 4, !tbaa !11
   %.sroa.10.0..sroa_idx25 = getelementptr inbounds nuw i8, ptr %56, i64 4
   store i32 %., ptr %.sroa.10.0..sroa_idx25, align 4, !tbaa !11
@@ -307,7 +306,7 @@ define signext range(i8 -1, 5) i8 @lv_area_diff(ptr noundef writeonly captures(n
   %64 = add i32 %58, %23
   %65 = add nuw nsw i8 %.2, 1
   %66 = zext nneg i8 %.2 to i64
-  %67 = getelementptr inbounds nuw %struct.lv_area_t, ptr %0, i64 %66
+  %67 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %66
   store i32 %63, ptr %67, align 4, !tbaa !11
   %.sroa.10.0..sroa_idx27 = getelementptr inbounds nuw i8, ptr %67, i64 4
   store i32 %., ptr %.sroa.10.0..sroa_idx27, align 4, !tbaa !11
@@ -1172,7 +1171,7 @@ define void @lv_point_array_transform(ptr noundef captures(none) %0, i64 noundef
   %13 = phi i64 [ 0, %.lr.ph ], [ %23, %12 ]
   %.0122 = phi i32 [ 0, %.lr.ph ], [ %22, %12 ]
   %14 = load i32, ptr %5, align 4, !tbaa !12
-  %15 = getelementptr inbounds nuw %struct.lv_point_t, ptr %0, i64 %13
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %13
   %16 = load i32, ptr %15, align 4, !tbaa !12
   %17 = sub nsw i32 %16, %14
   store i32 %17, ptr %15, align 4, !tbaa !12
@@ -1199,7 +1198,7 @@ define void @lv_point_array_transform(ptr noundef captures(none) %0, i64 noundef
 26:                                               ; preds = %.lr.ph130, %26
   %27 = phi i64 [ 0, %.lr.ph130 ], [ %41, %26 ]
   %.1129 = phi i32 [ 0, %.lr.ph130 ], [ %40, %26 ]
-  %28 = getelementptr inbounds nuw %struct.lv_point_t, ptr %0, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %27
   %29 = load i32, ptr %28, align 4, !tbaa !12
   %30 = mul nsw i32 %29, %3
   %31 = ashr i32 %30, 8
@@ -1259,7 +1258,7 @@ define void @lv_point_array_transform(ptr noundef captures(none) %0, i64 noundef
 .lr.ph127.split.us:                               ; preds = %.lr.ph127, %.lr.ph127.split.us
   %70 = phi i64 [ %88, %.lr.ph127.split.us ], [ 0, %.lr.ph127 ]
   %.2125.us = phi i32 [ %87, %.lr.ph127.split.us ], [ 0, %.lr.ph127 ]
-  %71 = getelementptr inbounds nuw %struct.lv_point_t, ptr %0, i64 %70
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %70
   %72 = load i32, ptr %71, align 4, !tbaa !12
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 4
   %74 = load i32, ptr %73, align 4, !tbaa !14
@@ -1288,7 +1287,7 @@ define void @lv_point_array_transform(ptr noundef captures(none) %0, i64 noundef
 .lr.ph127.split.split.us:                         ; preds = %.lr.ph127.split, %.lr.ph127.split.split.us
   %90 = phi i64 [ %110, %.lr.ph127.split.split.us ], [ 0, %.lr.ph127.split ]
   %.2125.us128 = phi i32 [ %109, %.lr.ph127.split.split.us ], [ 0, %.lr.ph127.split ]
-  %91 = getelementptr inbounds nuw %struct.lv_point_t, ptr %0, i64 %90
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %90
   %92 = load i32, ptr %91, align 4, !tbaa !12
   %93 = getelementptr inbounds nuw i8, ptr %91, i64 4
   %94 = load i32, ptr %93, align 4, !tbaa !14
@@ -1316,7 +1315,7 @@ define void @lv_point_array_transform(ptr noundef captures(none) %0, i64 noundef
 .lr.ph127.split.split:                            ; preds = %.lr.ph127.split, %.lr.ph127.split.split
   %112 = phi i64 [ %129, %.lr.ph127.split.split ], [ 0, %.lr.ph127.split ]
   %.2125 = phi i32 [ %128, %.lr.ph127.split.split ], [ 0, %.lr.ph127.split ]
-  %113 = getelementptr inbounds nuw %struct.lv_point_t, ptr %0, i64 %112
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %112
   %114 = load i32, ptr %113, align 4, !tbaa !12
   %115 = getelementptr inbounds nuw i8, ptr %113, i64 4
   %116 = load i32, ptr %115, align 4, !tbaa !14

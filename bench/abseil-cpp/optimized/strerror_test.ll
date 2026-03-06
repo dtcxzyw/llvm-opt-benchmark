@@ -5093,7 +5093,7 @@ _ZSt8_DestroyIPN7testing7MatcherIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcE
 _ZNSt12_Vector_baseIN7testing7MatcherIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaISA_EE13_M_deallocateEPSA_m.exit: ; preds = %_ZSt8_DestroyIPN7testing7MatcherIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESA_EvT_SC_RSaIT0_E.exit, %61
   store ptr %20, ptr %0, align 8, !tbaa !158
   store ptr %.0.lcssa.i.i.i.i.i36, ptr %4, align 8, !tbaa !161
-  %65 = getelementptr inbounds nuw %"class.testing::Matcher", ptr %20, i64 %16
+  %65 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %65, ptr %60, align 8, !tbaa !162
   ret void
 }
@@ -5239,7 +5239,7 @@ define linkonce_odr dso_local void @_ZNK7testing8internal16AnyOfMatcherImplIRKNS
 .split9:                                          ; preds = %.lr.ph
   %11 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.36, i64 noundef 6)
   %12 = load ptr, ptr %5, align 8, !tbaa !158
-  %13 = getelementptr inbounds nuw %"class.testing::Matcher", ptr %12, i64 %.010
+  %13 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %.010
   br label %.split
 
 .split:                                           ; preds = %.lr.ph, %.split9
@@ -5308,7 +5308,7 @@ define linkonce_odr dso_local void @_ZNK7testing8internal16AnyOfMatcherImplIRKNS
 .split9:                                          ; preds = %.lr.ph
   %11 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.37, i64 noundef 7)
   %12 = load ptr, ptr %5, align 8, !tbaa !158
-  %13 = getelementptr inbounds nuw %"class.testing::Matcher", ptr %12, i64 %.010
+  %13 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %.010
   br label %.split
 
 .split:                                           ; preds = %.lr.ph, %.split9
@@ -6396,7 +6396,7 @@ define internal void @_ZN12_GLOBAL__N_133StrErrorTest_MultipleThreads_Test8TestB
   %23 = trunc nuw nsw i64 %indvars.iv to i32
   %24 = tail call ptr @strerror(i32 noundef %23) #23
   %25 = load ptr, ptr %2, align 8, !tbaa !255
-  %26 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %25, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [32 x i8], ptr %25, i64 %indvars.iv
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load i64, ptr %27, align 8, !tbaa !75
   %29 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %24) #23
@@ -6539,7 +6539,7 @@ _ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i: ; preds = %
 _ZNSt6vectorISt6threadSaIS0_EE9push_backEOS0_.exit: ; preds = %_ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i, %74
   store ptr %67, ptr %4, align 8, !tbaa !279
   store ptr %73, ptr %20, align 8, !tbaa !271
-  %75 = getelementptr inbounds nuw %"class.std::thread", ptr %67, i64 %65
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %65
   store ptr %75, ptr %21, align 8, !tbaa !280
   %.sroa.0.0.copyload.i.i.pr = load i64, ptr %5, align 8, !tbaa !139
   %.not.i = icmp eq i64 %.sroa.0.0.copyload.i.i.pr, 0
@@ -7681,7 +7681,7 @@ _ZN4absl10StartsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit.thread68
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %74 = load ptr, ptr %20, align 8, !tbaa !323
   %75 = load ptr, ptr %74, align 8, !tbaa !255
-  %76 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %75, i64 %indvars.iv.i.i.i.i.i
+  %76 = getelementptr inbounds nuw [32 x i8], ptr %75, i64 %indvars.iv.i.i.i.i.i
   store ptr %21, ptr %13, align 8, !tbaa !73
   %77 = load ptr, ptr %76, align 8, !tbaa !21
   %78 = getelementptr inbounds nuw i8, ptr %76, i64 8

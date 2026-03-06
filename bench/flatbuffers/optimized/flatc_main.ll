@@ -5293,7 +5293,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit3: ; preds = %_ZNS
   %56 = sub i64 %54, %55
   %57 = ashr exact i64 %56, 3
   %58 = sub nsw i64 0, %57
-  %59 = getelementptr inbounds i64, ptr %53, i64 %58
+  %59 = getelementptr inbounds [8 x i8], ptr %53, i64 %58
   tail call void @_ZdlPvm(ptr noundef %59, i64 noundef %56) #23
   store ptr null, ptr %49, align 8
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 952

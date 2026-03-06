@@ -267,14 +267,14 @@ _ZL18u_scanf_parse_specPKDsP12u_scanf_spec.exit:  ; preds = %.loopexit125.i, %86
   store i32 %102, ptr %4, align 4, !tbaa !3
   %sext = shl i64 %100, 31
   %103 = ashr i64 %sext, 32
-  %104 = getelementptr inbounds i16, ptr %.1, i64 %103
+  %104 = getelementptr inbounds [2 x i8], ptr %.1, i64 %103
   %105 = add i16 %97, -32
   %106 = icmp ult i16 %105, 108
   br i1 %106, label %107, label %.backedge73
 
 107:                                              ; preds = %_ZL18u_scanf_parse_specPKDsP12u_scanf_spec.exit
   %108 = zext nneg i16 %105 to i64
-  %109 = getelementptr inbounds nuw %struct.u_scanf_info, ptr @_ZL15g_u_scanf_infos, i64 %108
+  %109 = getelementptr inbounds nuw [16 x i8], ptr @_ZL15g_u_scanf_infos, i64 %108
   %110 = load i32, ptr %109, align 16, !tbaa !26
   %.not36 = icmp eq i16 %105, 78
   br i1 %.not36, label %113, label %111
@@ -353,7 +353,7 @@ _ZL18u_scanf_parse_specPKDsP12u_scanf_spec.exit:  ; preds = %.loopexit125.i, %86
   %140 = add nuw nsw i32 %136, %.025.ph
   %141 = load i32, ptr %4, align 4, !tbaa !3
   %142 = sext i32 %141 to i64
-  %143 = getelementptr i16, ptr %104, i64 %142
+  %143 = getelementptr [2 x i8], ptr %104, i64 %142
   %144 = getelementptr i8, ptr %143, i64 -2
   br label %.outer, !llvm.loop !35
 
@@ -533,7 +533,7 @@ _ZL23u_scanf_skip_leading_wsP5UFILEDs.exit:       ; preds = %14, %.critedge.i
   %70 = load i32, ptr %8, align 4, !tbaa !3
   %71 = load ptr, ptr %26, align 8, !tbaa !47
   %72 = sext i32 %70 to i64
-  %73 = getelementptr inbounds i16, ptr %71, i64 %72
+  %73 = getelementptr inbounds [2 x i8], ptr %71, i64 %72
   store ptr %73, ptr %26, align 8, !tbaa !47
   %74 = zext i1 %.not44 to i32
   store i32 %74, ptr %5, align 4, !tbaa !3
@@ -636,7 +636,7 @@ _ZL23u_scanf_skip_leading_wsP5UFILEDs.exit:       ; preds = %14, %.critedge.i
   %.57 = call i32 @llvm.smax.i32(i32 %48, i32 %49)
   %51 = load ptr, ptr %26, align 8, !tbaa !47
   %52 = sext i32 %.57 to i64
-  %53 = getelementptr inbounds i16, ptr %51, i64 %52
+  %53 = getelementptr inbounds [2 x i8], ptr %51, i64 %52
   store ptr %53, ptr %26, align 8, !tbaa !47
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %55 = load i8, ptr %54, align 4, !tbaa !19
@@ -766,7 +766,7 @@ _ZL23u_scanf_skip_leading_wsP5UFILEDs.exit:       ; preds = %.critedge2.i, %.cri
   %44 = load i32, ptr %8, align 4, !tbaa !3
   %45 = load ptr, ptr %22, align 8, !tbaa !47
   %46 = sext i32 %44 to i64
-  %47 = getelementptr inbounds i16, ptr %45, i64 %46
+  %47 = getelementptr inbounds [2 x i8], ptr %45, i64 %46
   store ptr %47, ptr %22, align 8, !tbaa !47
   %48 = zext i1 %.not27 to i32
   store i32 %48, ptr %5, align 4, !tbaa !3
@@ -1016,7 +1016,7 @@ _ZL23u_scanf_skip_leading_wsP5UFILEDs.exit:       ; preds = %12, %.critedge.i
   %45 = load i32, ptr %8, align 4, !tbaa !3
   %46 = load ptr, ptr %24, align 8, !tbaa !47
   %47 = sext i32 %45 to i64
-  %48 = getelementptr inbounds i16, ptr %46, i64 %47
+  %48 = getelementptr inbounds [2 x i8], ptr %46, i64 %47
   store ptr %48, ptr %24, align 8, !tbaa !47
   %49 = zext i1 %.not26 to i32
   store i32 %49, ptr %5, align 4, !tbaa !3
@@ -1119,7 +1119,7 @@ _ZL23u_scanf_skip_leading_wsP5UFILEDs.exit:       ; preds = %12, %.critedge.i
   %48 = load i32, ptr %8, align 4, !tbaa !3
   %49 = load ptr, ptr %24, align 8, !tbaa !47
   %50 = sext i32 %48 to i64
-  %51 = getelementptr inbounds i16, ptr %49, i64 %50
+  %51 = getelementptr inbounds [2 x i8], ptr %49, i64 %50
   store ptr %51, ptr %24, align 8, !tbaa !47
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %53 = load i8, ptr %52, align 4, !tbaa !19
@@ -1247,7 +1247,7 @@ define internal noundef range(i32 -2147483647, -2147483648) i32 @_ZL23u_scanf_sc
 
 .critedge.thread:                                 ; preds = %33, %29
   %.038 = phi i64 [ 1, %29 ], [ 2, %33 ]
-  %41 = getelementptr inbounds nuw i16, ptr %.14380, i64 %.038
+  %41 = getelementptr inbounds nuw [2 x i8], ptr %.14380, i64 %.038
   br label %42
 
 42:                                               ; preds = %.critedge.thread, %25
@@ -1446,7 +1446,7 @@ _ZL23u_scanf_skip_leading_wsP5UFILEDs.exit:       ; preds = %13, %.critedge.i
   %65 = load i32, ptr %8, align 4, !tbaa !3
   %66 = load ptr, ptr %25, align 8, !tbaa !47
   %67 = sext i32 %65 to i64
-  %68 = getelementptr inbounds i16, ptr %66, i64 %67
+  %68 = getelementptr inbounds [2 x i8], ptr %66, i64 %67
   store ptr %68, ptr %25, align 8, !tbaa !47
   call void @unum_close_77(ptr noundef %39)
   %69 = load i8, ptr %51, align 4, !tbaa !19
@@ -1570,7 +1570,7 @@ _ZL23u_scanf_skip_leading_wsP5UFILEDs.exit:       ; preds = %12, %.critedge.i
   %58 = load i32, ptr %8, align 4, !tbaa !3
   %59 = load ptr, ptr %24, align 8, !tbaa !47
   %60 = sext i32 %58 to i64
-  %61 = getelementptr inbounds i16, ptr %59, i64 %60
+  %61 = getelementptr inbounds [2 x i8], ptr %59, i64 %60
   store ptr %61, ptr %24, align 8, !tbaa !47
   %62 = zext i1 %.not35 to i32
   store i32 %62, ptr %5, align 4, !tbaa !3
@@ -1694,7 +1694,7 @@ _ZL23u_scanf_skip_leading_wsP5UFILEDs.exit:       ; preds = %12, %.critedge.i
   %37 = load i32, ptr %8, align 4, !tbaa !3
   %38 = load ptr, ptr %24, align 8, !tbaa !47
   %39 = sext i32 %37 to i64
-  %40 = getelementptr inbounds i16, ptr %38, i64 %39
+  %40 = getelementptr inbounds [2 x i8], ptr %38, i64 %39
   store ptr %40, ptr %24, align 8, !tbaa !47
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %42 = load i8, ptr %41, align 4, !tbaa !19
@@ -1821,7 +1821,7 @@ _ZL23u_scanf_skip_leading_wsP5UFILEDs.exit:       ; preds = %12, %.critedge.i
   %45 = load i32, ptr %8, align 4, !tbaa !3
   %46 = load ptr, ptr %24, align 8, !tbaa !47
   %47 = sext i32 %45 to i64
-  %48 = getelementptr inbounds i16, ptr %46, i64 %47
+  %48 = getelementptr inbounds [2 x i8], ptr %46, i64 %47
   store ptr %48, ptr %24, align 8, !tbaa !47
   %49 = zext i1 %.not17 to i32
   store i32 %49, ptr %5, align 4, !tbaa !3
@@ -2097,7 +2097,7 @@ define internal fastcc noundef i32 @_ZL34u_scanf_skip_leading_positive_signP5UFI
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %19 ]
   %15 = load i16, ptr %3, align 2, !tbaa !7
-  %16 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %indvars.iv
   %17 = load i16, ptr %16, align 2, !tbaa !7
   %18 = icmp eq i16 %15, %17
   br i1 %18, label %19, label %.critedge.thread.loopexit

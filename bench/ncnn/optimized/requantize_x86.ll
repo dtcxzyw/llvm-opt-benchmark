@@ -425,7 +425,7 @@ define internal void @_ZNK4ncnn14Requantize_x867forwardERKNS_3MatERS1_RKNS_6Opti
   %34 = load i32, ptr %5, align 4, !tbaa !20
   %35 = mul nsw i32 %34, %32
   %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds i32, ptr %33, i64 %36
+  %37 = getelementptr inbounds [4 x i8], ptr %33, i64 %36
   %38 = load ptr, ptr %6, align 8, !tbaa !16
   %39 = getelementptr inbounds i8, ptr %38, i64 %36
   %40 = load i32, ptr %7, align 4, !tbaa !20

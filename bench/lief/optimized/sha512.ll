@@ -113,7 +113,7 @@ define hidden noundef i32 @mbedtls_internal_sha512_process(ptr noundef captures(
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 %7
   %.0.copyload.i = load i64, ptr %8, align 1
   %9 = tail call i64 @llvm.bswap.i64(i64 %.0.copyload.i)
-  %10 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   store i64 %9, ptr %10, align 8, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
@@ -139,7 +139,7 @@ define hidden noundef i32 @mbedtls_internal_sha512_process(ptr noundef captures(
 
 .lr.ph:                                           ; preds = %6, %.lr.ph
   %indvars.iv73 = phi i64 [ %indvars.iv.next74, %.lr.ph ], [ 16, %6 ]
-  %18 = getelementptr i64, ptr %5, i64 %indvars.iv73
+  %18 = getelementptr [8 x i8], ptr %5, i64 %indvars.iv73
   %19 = getelementptr i8, ptr %18, i64 -16
   %20 = load i64, ptr %19, align 8, !tbaa !9
   %21 = tail call i64 @llvm.fshl.i64(i64 %20, i64 %20, i64 45)
@@ -185,9 +185,9 @@ define hidden noundef i32 @mbedtls_internal_sha512_process(ptr noundef captures(
   %55 = xor i64 %45, %46
   %56 = and i64 %55, %47
   %57 = xor i64 %56, %46
-  %58 = getelementptr inbounds nuw i64, ptr @K, i64 %indvars.iv77
+  %58 = getelementptr inbounds nuw [8 x i8], ptr @K, i64 %indvars.iv77
   %59 = load i64, ptr %58, align 16, !tbaa !9
-  %60 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv77
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv77
   %61 = load i64, ptr %60, align 8, !tbaa !9
   %62 = add i64 %54, %59
   %63 = add i64 %62, %61
@@ -215,9 +215,9 @@ define hidden noundef i32 @mbedtls_internal_sha512_process(ptr noundef captures(
   %83 = xor i64 %45, %47
   %84 = and i64 %75, %83
   %85 = xor i64 %84, %45
-  %86 = getelementptr inbounds nuw i64, ptr @K, i64 %77
+  %86 = getelementptr inbounds nuw [8 x i8], ptr @K, i64 %77
   %87 = load i64, ptr %86, align 8, !tbaa !9
-  %88 = getelementptr inbounds nuw i64, ptr %5, i64 %77
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %77
   %89 = load i64, ptr %88, align 8, !tbaa !9
   %90 = add i64 %85, %46
   %91 = add i64 %90, %87
@@ -246,9 +246,9 @@ define hidden noundef i32 @mbedtls_internal_sha512_process(ptr noundef captures(
   %112 = xor i64 %75, %47
   %113 = and i64 %104, %112
   %114 = xor i64 %113, %47
-  %115 = getelementptr inbounds nuw i64, ptr @K, i64 %106
+  %115 = getelementptr inbounds nuw [8 x i8], ptr @K, i64 %106
   %116 = load i64, ptr %115, align 16, !tbaa !9
-  %117 = getelementptr inbounds nuw i64, ptr %5, i64 %106
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %106
   %118 = load i64, ptr %117, align 8, !tbaa !9
   %119 = add i64 %116, %45
   %120 = add i64 %119, %118
@@ -277,9 +277,9 @@ define hidden noundef i32 @mbedtls_internal_sha512_process(ptr noundef captures(
   %141 = xor i64 %104, %75
   %142 = and i64 %133, %141
   %143 = xor i64 %142, %75
-  %144 = getelementptr inbounds nuw i64, ptr @K, i64 %135
+  %144 = getelementptr inbounds nuw [8 x i8], ptr @K, i64 %135
   %145 = load i64, ptr %144, align 8, !tbaa !9
-  %146 = getelementptr inbounds nuw i64, ptr %5, i64 %135
+  %146 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %135
   %147 = load i64, ptr %146, align 8, !tbaa !9
   %148 = add i64 %145, %47
   %149 = add i64 %148, %147
@@ -308,9 +308,9 @@ define hidden noundef i32 @mbedtls_internal_sha512_process(ptr noundef captures(
   %170 = xor i64 %133, %104
   %171 = and i64 %162, %170
   %172 = xor i64 %171, %104
-  %173 = getelementptr inbounds nuw i64, ptr @K, i64 %164
+  %173 = getelementptr inbounds nuw [8 x i8], ptr @K, i64 %164
   %174 = load i64, ptr %173, align 16, !tbaa !9
-  %175 = getelementptr inbounds nuw i64, ptr %5, i64 %164
+  %175 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %164
   %176 = load i64, ptr %175, align 8, !tbaa !9
   %177 = add i64 %174, %75
   %178 = add i64 %177, %176
@@ -339,9 +339,9 @@ define hidden noundef i32 @mbedtls_internal_sha512_process(ptr noundef captures(
   %199 = xor i64 %162, %133
   %200 = and i64 %191, %199
   %201 = xor i64 %200, %133
-  %202 = getelementptr inbounds nuw i64, ptr @K, i64 %193
+  %202 = getelementptr inbounds nuw [8 x i8], ptr @K, i64 %193
   %203 = load i64, ptr %202, align 8, !tbaa !9
-  %204 = getelementptr inbounds nuw i64, ptr %5, i64 %193
+  %204 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %193
   %205 = load i64, ptr %204, align 8, !tbaa !9
   %206 = add i64 %203, %104
   %207 = add i64 %206, %205
@@ -370,9 +370,9 @@ define hidden noundef i32 @mbedtls_internal_sha512_process(ptr noundef captures(
   %228 = xor i64 %191, %162
   %229 = and i64 %220, %228
   %230 = xor i64 %229, %162
-  %231 = getelementptr inbounds nuw i64, ptr @K, i64 %222
+  %231 = getelementptr inbounds nuw [8 x i8], ptr @K, i64 %222
   %232 = load i64, ptr %231, align 16, !tbaa !9
-  %233 = getelementptr inbounds nuw i64, ptr %5, i64 %222
+  %233 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %222
   %234 = load i64, ptr %233, align 8, !tbaa !9
   %235 = add i64 %232, %133
   %236 = add i64 %235, %234
@@ -401,9 +401,9 @@ define hidden noundef i32 @mbedtls_internal_sha512_process(ptr noundef captures(
   %257 = xor i64 %220, %191
   %258 = and i64 %249, %257
   %259 = xor i64 %258, %191
-  %260 = getelementptr inbounds nuw i64, ptr @K, i64 %251
+  %260 = getelementptr inbounds nuw [8 x i8], ptr @K, i64 %251
   %261 = load i64, ptr %260, align 8, !tbaa !9
-  %262 = getelementptr inbounds nuw i64, ptr %5, i64 %251
+  %262 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %251
   %263 = load i64, ptr %262, align 8, !tbaa !9
   %264 = add i64 %261, %162
   %265 = add i64 %264, %263
@@ -435,9 +435,9 @@ define hidden noundef i32 @mbedtls_internal_sha512_process(ptr noundef captures(
 
 282:                                              ; preds = %.preheader, %282
   %indvars.iv80 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next81, %282 ]
-  %283 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv80
+  %283 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv80
   %284 = load i64, ptr %283, align 8, !tbaa !9
-  %285 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv80
+  %285 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv80
   %286 = load i64, ptr %285, align 8, !tbaa !9
   %287 = add i64 %286, %284
   store i64 %287, ptr %285, align 8, !tbaa !9
@@ -894,7 +894,7 @@ mbedtls_sha512_update.exit:                       ; preds = %._crit_edge.thread.
 
 ._crit_edge.thread.i56:                           ; preds = %33
   %64 = getelementptr inbounds nuw [113 x i8], ptr @sha_test_buf, i64 %indvars.iv
-  %65 = getelementptr inbounds nuw i64, ptr @sha_test_buflen, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw [8 x i8], ptr @sha_test_buflen, i64 %indvars.iv
   %66 = load i64, ptr %65, align 8, !tbaa !9
   store i64 %66, ptr %4, align 8, !tbaa !9
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %23, ptr nonnull align 1 %64, i64 %66, i1 false)

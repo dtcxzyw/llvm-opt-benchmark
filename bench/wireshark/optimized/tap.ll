@@ -149,7 +149,7 @@ define void @tap_queue_packet(i32 noundef %0, ptr noundef %1, ptr noundef %2) lo
 
 8:                                                ; preds = %4
   %9 = zext nneg i32 %5 to i64
-  %10 = getelementptr %struct._tap_packet_t, ptr @tap_packet_array, i64 %9
+  %10 = getelementptr [24 x i8], ptr @tap_packet_array, i64 %9
   store i32 %0, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 276
@@ -315,7 +315,7 @@ define hidden void @tap_push_tapped_queue(ptr noundef %0) local_unnamed_addr #0 
   br i1 %.not3443, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %7 = getelementptr %struct._tap_packet_t, ptr @tap_packet_array, i64 %indvars.iv
+  %7 = getelementptr [24 x i8], ptr @tap_packet_array, i64 %indvars.iv
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -459,7 +459,7 @@ define ptr @fetch_tapped_data(i32 noundef %0, i32 noundef %1) local_unnamed_addr
 .preheader:                                       ; preds = %.preheader.preheader, %12
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %12 ]
   %.0810 = phi i32 [ %1, %.preheader.preheader ], [ %.1, %12 ]
-  %4 = getelementptr %struct._tap_packet_t, ptr @tap_packet_array, i64 %indvars.iv
+  %4 = getelementptr [24 x i8], ptr @tap_packet_array, i64 %indvars.iv
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, %0
   br i1 %6, label %7, label %12

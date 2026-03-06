@@ -1134,7 +1134,7 @@ define noundef i32 @rb_Digest_SHA1_Finish(ptr noundef %0, ptr noundef writeonly 
   %.025 = phi i64 [ 0, %2 ], [ %16, %5 ]
   %6 = icmp samesign ult i64 %.025, 4
   %7 = zext i1 %6 to i64
-  %8 = getelementptr inbounds nuw i32, ptr %4, i64 %7
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %7
   %9 = load i32, ptr %8, align 4, !tbaa !6
   %.0.tr = trunc nuw nsw i64 %.025 to i32
   %10 = shl nuw nsw i32 %.0.tr, 3
@@ -1256,7 +1256,7 @@ rb_Digest_SHA1_Update.exit24:                     ; preds = %._crit_edge, %61
 .preheader:                                       ; preds = %rb_Digest_SHA1_Update.exit24, %.preheader
   %.127 = phi i64 [ %76, %.preheader ], [ 0, %rb_Digest_SHA1_Update.exit24 ]
   %67 = lshr i64 %.127, 2
-  %68 = getelementptr inbounds nuw i32, ptr %0, i64 %67
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %67
   %69 = load i32, ptr %68, align 4, !tbaa !6
   %.1.tr = trunc nuw nsw i64 %.127 to i32
   %70 = shl nuw nsw i32 %.1.tr, 3

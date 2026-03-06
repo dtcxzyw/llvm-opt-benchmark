@@ -194,13 +194,13 @@ hwloc_cuda_cores_per_MP.exit.thread.fold.split:   ; preds = %68
 
 switch.lookup:                                    ; preds = %70
   %74 = zext nneg i32 %66 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.hwloc_cuda_discover, i64 %74
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.hwloc_cuda_discover, i64 %74
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %hwloc_cuda_cores_per_MP.exit.thread
 
 switch.lookup91:                                  ; preds = %72
   %75 = zext nneg i32 %66 to i64
-  %switch.gep92 = getelementptr inbounds nuw i32, ptr @switch.table.hwloc_cuda_discover.3, i64 %75
+  %switch.gep92 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.hwloc_cuda_discover.3, i64 %75
   %switch.load93 = load i32, ptr %switch.gep92, align 4
   br label %hwloc_cuda_cores_per_MP.exit.thread
 

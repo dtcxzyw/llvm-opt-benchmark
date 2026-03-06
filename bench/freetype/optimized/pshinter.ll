@@ -7,19 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.FT_Module_Class_ = type { i64, i64, ptr, i64, i64, ptr, ptr, ptr, ptr }
 %struct.PSH_GlyphRec_ = type { i32, i32, ptr, ptr, ptr, ptr, ptr, [2 x %struct.PSH_Hint_TableRec_], i8, i8, i8, i8, i8 }
 %struct.PSH_Hint_TableRec_ = type { i32, i32, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr }
-%struct.PSH_PointRec_ = type { ptr, ptr, ptr, i32, i32, i32, i32, ptr, i64, i64, i64 }
-%struct.FT_Vector_ = type { i64, i64 }
-%struct.PSH_ContourRec_ = type { ptr, i32 }
-%struct.PSH_DimensionRec_ = type { %struct.PSH_WidthsRec_, i64, i64 }
-%struct.PSH_WidthsRec_ = type { i32, [16 x %struct.PSH_WidthRec_] }
-%struct.PSH_WidthRec_ = type { i32, i64, i64 }
-%struct.PSH_HintRec_ = type { i32, i32, i64, i64, i32, ptr, i32 }
-%struct.PSH_Blue_ZoneRec_ = type { i32, i32, i32, i32, i64, i64, i64, i64 }
-%struct.PS_DimensionRec_ = type { %struct.PS_Hint_TableRec_, %struct.PS_Mask_TableRec_, %struct.PS_Mask_TableRec_ }
-%struct.PS_Hint_TableRec_ = type { i32, i32, ptr }
-%struct.PS_Mask_TableRec_ = type { i32, i32, ptr }
 %struct.PS_MaskRec_ = type { i32, i32, ptr, i32 }
-%struct.PS_HintRec_ = type { i32, i32, i32 }
 
 @.str = private unnamed_addr constant [9 x i8] c"pshinter\00", align 1
 @pshinter_interface = internal constant %struct.PSHinter_Interface_ { ptr @pshinter_get_globals_funcs, ptr @pshinter_get_t1_funcs, ptr @pshinter_get_t2_funcs }, align 8
@@ -86,13 +74,13 @@ define hidden i32 @ps_hints_apply(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %indvars.iv.i = phi i64 [ 0, %.lr.ph153.i ], [ %indvars.iv.next.i, %55 ]
   %.0151.i = phi i32 [ 0, %.lr.ph153.i ], [ %39, %55 ]
   %.0112149.i = phi ptr [ %23, %.lr.ph153.i ], [ %56, %55 ]
-  %36 = getelementptr inbounds nuw i16, ptr %34, i64 %indvars.iv.i
+  %36 = getelementptr inbounds nuw [2 x i8], ptr %34, i64 %indvars.iv.i
   %37 = load i16, ptr %36, align 2, !tbaa !32
   %38 = zext i16 %37 to i32
   %39 = add nuw nsw i32 %38, 1
   %40 = sub nsw i32 %39, %.0151.i
   %41 = zext nneg i32 %.0151.i to i64
-  %42 = getelementptr inbounds nuw %struct.PSH_PointRec_, ptr %32, i64 %41
+  %42 = getelementptr inbounds nuw [72 x i8], ptr %32, i64 %41
   store ptr %42, ptr %.0112149.i, align 8, !tbaa !33
   %43 = getelementptr inbounds nuw i8, ptr %.0112149.i, i64 8
   store i32 %40, ptr %43, align 8, !tbaa !35
@@ -101,7 +89,7 @@ define hidden i32 @ps_hints_apply(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 44:                                               ; preds = %35
   %45 = zext nneg i32 %39 to i64
-  %46 = getelementptr inbounds nuw %struct.PSH_PointRec_, ptr %32, i64 %45
+  %46 = getelementptr inbounds nuw [72 x i8], ptr %32, i64 %45
   %47 = getelementptr inbounds i8, ptr %46, i64 -72
   store ptr %47, ptr %42, align 8, !tbaa !36
   %48 = getelementptr inbounds nuw i8, ptr %42, i64 16
@@ -173,7 +161,7 @@ define hidden i32 @ps_hints_apply(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %78 = xor i8 %77, 1
   %spec.store.select.i = zext nneg i8 %78 to i32
   store i32 %spec.store.select.i, ptr %73, align 8
-  %79 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %58, i64 %indvars.iv183.i
+  %79 = getelementptr inbounds nuw [16 x i8], ptr %58, i64 %indvars.iv183.i
   %80 = load i64, ptr %79, align 8, !tbaa !50
   %sext.i = shl i64 %67, 32
   %81 = ashr exact i64 %sext.i, 28
@@ -323,7 +311,7 @@ psh_glyph_load_points.exit.i:                     ; preds = %.lr.ph.split.us.i.i
 .lr.ph.i129.i:                                    ; preds = %psh_glyph_load_points.exit.i, %.loopexit.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.loopexit.i.i ], [ 0, %psh_glyph_load_points.exit.i ]
   %153 = load ptr, ptr %24, align 8, !tbaa !28
-  %154 = getelementptr inbounds nuw %struct.PSH_ContourRec_, ptr %153, i64 %indvars.iv.i.i
+  %154 = getelementptr inbounds nuw [16 x i8], ptr %153, i64 %indvars.iv.i.i
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 8
   %156 = load i32, ptr %155, align 8, !tbaa !35
   %157 = icmp ult i32 %156, 4
@@ -633,7 +621,7 @@ psh_glyph_load_points.exit:                       ; preds = %.lr.ph.split.i, %.l
 
 320:                                              ; preds = %.loopexit87.i, %.lr.ph.i86
   %indvars.iv.i88 = phi i64 [ 0, %.lr.ph.i86 ], [ %indvars.iv.next.i90, %.loopexit87.i ]
-  %321 = getelementptr inbounds nuw %struct.PSH_ContourRec_, ptr %319, i64 %indvars.iv.i88
+  %321 = getelementptr inbounds nuw [16 x i8], ptr %319, i64 %indvars.iv.i88
   %322 = load ptr, ptr %321, align 8, !tbaa !33
   %323 = getelementptr inbounds nuw i8, ptr %321, i64 8
   %324 = load i32, ptr %323, align 8, !tbaa !35
@@ -727,7 +715,7 @@ psh_glyph_load_points.exit:                       ; preds = %.lr.ph.split.i, %.l
 365:                                              ; preds = %.loopexit90.i
   %366 = load ptr, ptr %18, align 8, !tbaa !26
   %367 = zext i32 %.2.i to i64
-  %368 = getelementptr inbounds nuw %struct.PSH_PointRec_, ptr %366, i64 %367
+  %368 = getelementptr inbounds nuw [72 x i8], ptr %366, i64 %367
   %369 = getelementptr inbounds nuw i8, ptr %368, i64 28
   %370 = load i32, ptr %369, align 4, !tbaa !56
   %371 = and i32 %370, 64
@@ -796,7 +784,7 @@ psh_glyph_load_points.exit:                       ; preds = %.lr.ph.split.i, %.l
   br label %.loopexit90.i, !llvm.loop !85
 
 psh_glyph_compute_extrema.exit:                   ; preds = %.loopexit90.i
-  %399 = getelementptr inbounds nuw %struct.PSH_Hint_TableRec_, ptr %233, i64 %indvars.iv
+  %399 = getelementptr inbounds nuw [72 x i8], ptr %233, i64 %indvars.iv
   %400 = load ptr, ptr %242, align 8, !tbaa !46
   %.val = load i32, ptr %399, align 8, !tbaa !86
   %401 = getelementptr i8, ptr %399, i64 8
@@ -829,7 +817,7 @@ psh_hint_table_align_hints.exit:                  ; preds = %psh_hint_table_alig
   %409 = load ptr, ptr %408, align 8, !tbaa !94
   %410 = load i32, ptr %407, align 8, !tbaa !97
   %411 = select i1 %291, i32 3, i32 12
-  %412 = getelementptr inbounds nuw %struct.PSH_DimensionRec_, ptr %405, i64 %indvars.iv
+  %412 = getelementptr inbounds nuw [408 x i8], ptr %405, i64 %indvars.iv
   %413 = getelementptr inbounds nuw i8, ptr %412, i64 400
   %414 = load i64, ptr %413, align 8, !tbaa !68
   %415 = call i64 @FT_DivFix(i64 noundef 32, i64 noundef %414) #13
@@ -867,7 +855,7 @@ psh_hint_table_align_hints.exit:                  ; preds = %psh_hint_table_alig
   %430 = sub nuw i32 %.69.i, %.058118.i
   %431 = load ptr, ptr %18, align 8, !tbaa !26
   %432 = zext i32 %.058118.i to i64
-  %433 = getelementptr inbounds nuw %struct.PSH_PointRec_, ptr %431, i64 %432
+  %433 = getelementptr inbounds nuw [72 x i8], ptr %431, i64 %432
   %.056.val.i = load i32, ptr %.056121.i, align 8, !tbaa !100
   %434 = getelementptr i8, ptr %.pn120.i, i64 32
   %.056.val70.i = load ptr, ptr %434, align 8, !tbaa !101
@@ -931,7 +919,7 @@ psh_hint_table_deactivate.exit.i.i:               ; preds = %.lr.ph.i.i.i, %429
 
 449:                                              ; preds = %447
   %450 = load ptr, ptr %401, align 8, !tbaa !91
-  %451 = getelementptr inbounds nuw %struct.PSH_HintRec_, ptr %450, i64 %indvars.iv.i.i100
+  %451 = getelementptr inbounds nuw [48 x i8], ptr %450, i64 %indvars.iv.i.i100
   %452 = getelementptr inbounds nuw i8, ptr %451, i64 24
   %453 = load i32, ptr %452, align 8, !tbaa !102
   %454 = and i32 %453, 4
@@ -948,7 +936,7 @@ psh_hint_table_deactivate.exit.i.i:               ; preds = %.lr.ph.i.i.i, %429
   %459 = load ptr, ptr %422, align 8, !tbaa !107
   %460 = add nuw i32 %.0491.i.i, 1
   %461 = zext i32 %.0491.i.i to i64
-  %462 = getelementptr inbounds nuw ptr, ptr %459, i64 %461
+  %462 = getelementptr inbounds nuw [8 x i8], ptr %459, i64 %461
   store ptr %451, ptr %462, align 8, !tbaa !108
   br label %463
 
@@ -971,7 +959,7 @@ psh_hint_table_deactivate.exit.i.i:               ; preds = %.lr.ph.i.i.i, %429
 
 .lr.ph10.i.i:                                     ; preds = %._crit_edge11.i.i, %.lr.ph15.preheader.i.i
   %indvars.iv20.i.i = phi i64 [ 1, %.lr.ph15.preheader.i.i ], [ %indvars.iv.next21.i.i, %._crit_edge11.i.i ]
-  %467 = getelementptr inbounds nuw ptr, ptr %465, i64 %indvars.iv20.i.i
+  %467 = getelementptr inbounds nuw [8 x i8], ptr %465, i64 %indvars.iv20.i.i
   %468 = load ptr, ptr %467, align 8, !tbaa !108
   %469 = load i32, ptr %468, align 8, !tbaa !110
   %470 = trunc i64 %indvars.iv20.i.i to i32
@@ -982,7 +970,7 @@ psh_hint_table_deactivate.exit.i.i:               ; preds = %.lr.ph.i.i.i, %429
   %.0468.i.i = phi i32 [ %471, %.lr.ph10.i.i ], [ %.046.i.i, %478 ]
   %.046.in7.i.i = phi i32 [ %470, %.lr.ph10.i.i ], [ %.0468.i.i, %478 ]
   %473 = zext i32 %.0468.i.i to i64
-  %474 = getelementptr inbounds nuw ptr, ptr %465, i64 %473
+  %474 = getelementptr inbounds nuw [8 x i8], ptr %465, i64 %473
   %475 = load ptr, ptr %474, align 8, !tbaa !108
   %476 = load i32, ptr %475, align 8, !tbaa !110
   %477 = icmp slt i32 %476, %469
@@ -990,7 +978,7 @@ psh_hint_table_deactivate.exit.i.i:               ; preds = %.lr.ph.i.i.i, %429
 
 478:                                              ; preds = %472
   %479 = zext i32 %.046.in7.i.i to i64
-  %480 = getelementptr inbounds nuw ptr, ptr %465, i64 %479
+  %480 = getelementptr inbounds nuw [8 x i8], ptr %465, i64 %479
   store ptr %475, ptr %480, align 8, !tbaa !108
   store ptr %468, ptr %474, align 8, !tbaa !108
   %.046.i.i = add i32 %.0468.i.i, -1
@@ -1089,7 +1077,7 @@ psh_hint_table_deactivate.exit.i84.i:             ; preds = %.lr.ph.i.i80.i, %.t
 
 509:                                              ; preds = %507
   %510 = load ptr, ptr %401, align 8, !tbaa !91
-  %511 = getelementptr inbounds nuw %struct.PSH_HintRec_, ptr %510, i64 %indvars.iv.i88.i
+  %511 = getelementptr inbounds nuw [48 x i8], ptr %510, i64 %indvars.iv.i88.i
   %512 = getelementptr inbounds nuw i8, ptr %511, i64 24
   %513 = load i32, ptr %512, align 8, !tbaa !102
   %514 = and i32 %513, 4
@@ -1106,7 +1094,7 @@ psh_hint_table_deactivate.exit.i84.i:             ; preds = %.lr.ph.i.i80.i, %.t
   %519 = load ptr, ptr %500, align 8, !tbaa !107
   %520 = add nuw i32 %.0491.i92.i, 1
   %521 = zext i32 %.0491.i92.i to i64
-  %522 = getelementptr inbounds nuw ptr, ptr %519, i64 %521
+  %522 = getelementptr inbounds nuw [8 x i8], ptr %519, i64 %521
   store ptr %511, ptr %522, align 8, !tbaa !108
   br label %523
 
@@ -1130,7 +1118,7 @@ psh_hint_table_deactivate.exit.i84.i:             ; preds = %.lr.ph.i.i80.i, %.t
 
 .lr.ph10.i104.i:                                  ; preds = %._crit_edge11.i109.i, %.lr.ph15.preheader.i102.i
   %indvars.iv20.i105.i = phi i64 [ 1, %.lr.ph15.preheader.i102.i ], [ %indvars.iv.next21.i110.i, %._crit_edge11.i109.i ]
-  %528 = getelementptr inbounds nuw ptr, ptr %526, i64 %indvars.iv20.i105.i
+  %528 = getelementptr inbounds nuw [8 x i8], ptr %526, i64 %indvars.iv20.i105.i
   %529 = load ptr, ptr %528, align 8, !tbaa !108
   %530 = load i32, ptr %529, align 8, !tbaa !110
   %531 = trunc i64 %indvars.iv20.i105.i to i32
@@ -1141,7 +1129,7 @@ psh_hint_table_deactivate.exit.i84.i:             ; preds = %.lr.ph.i.i80.i, %.t
   %.0468.i106.i = phi i32 [ %532, %.lr.ph10.i104.i ], [ %.046.i108.i, %539 ]
   %.046.in7.i107.i = phi i32 [ %531, %.lr.ph10.i104.i ], [ %.0468.i106.i, %539 ]
   %534 = zext i32 %.0468.i106.i to i64
-  %535 = getelementptr inbounds nuw ptr, ptr %526, i64 %534
+  %535 = getelementptr inbounds nuw [8 x i8], ptr %526, i64 %534
   %536 = load ptr, ptr %535, align 8, !tbaa !108
   %537 = load i32, ptr %536, align 8, !tbaa !110
   %538 = icmp slt i32 %537, %530
@@ -1149,7 +1137,7 @@ psh_hint_table_deactivate.exit.i84.i:             ; preds = %.lr.ph.i.i80.i, %.t
 
 539:                                              ; preds = %533
   %540 = zext i32 %.046.in7.i107.i to i64
-  %541 = getelementptr inbounds nuw ptr, ptr %526, i64 %540
+  %541 = getelementptr inbounds nuw [8 x i8], ptr %526, i64 %540
   store ptr %536, ptr %541, align 8, !tbaa !108
   store ptr %529, ptr %535, align 8, !tbaa !108
   %.046.i108.i = add i32 %.0468.i106.i, -1
@@ -1229,7 +1217,7 @@ psh_glyph_find_strong_points.exit:                ; preds = %552, %418, %.thread
   %.01718.us.i = phi ptr [ %575, %573 ], [ %561, %.lr.ph.i104 ]
   %563 = getelementptr inbounds nuw i8, ptr %.01718.us.i, i64 64
   %564 = load i64, ptr %563, align 8, !tbaa !115
-  %565 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %557, i64 %indvars.iv23.i
+  %565 = getelementptr inbounds nuw [16 x i8], ptr %557, i64 %indvars.iv23.i
   store i64 %564, ptr %565, align 8, !tbaa !50
   %566 = getelementptr inbounds nuw i8, ptr %.01718.us.i, i64 28
   %567 = load i32, ptr %566, align 4, !tbaa !56
@@ -1351,7 +1339,7 @@ psh_glyph_find_strong_points.exit:                ; preds = %552, %418, %.thread
 
 .lr.ph13.i:                                       ; preds = %._crit_edge.i111
   %625 = zext i32 %624 to i64
-  %626 = getelementptr inbounds nuw %struct.PSH_Blue_ZoneRec_, ptr %248, i64 %625
+  %626 = getelementptr inbounds nuw [48 x i8], ptr %248, i64 %625
   %627 = getelementptr inbounds nuw i8, ptr %626, i64 736
   %628 = load i32, ptr %286, align 8, !tbaa !118
   %629 = sub nsw i32 0, %628
@@ -1433,7 +1421,7 @@ psh_glyph_find_blue_points.exit:                  ; preds = %.loopexit.i108, %.s
   %.01718.i = phi ptr [ %681, %679 ], [ %666, %.lr.ph.i116 ]
   %668 = getelementptr inbounds nuw i8, ptr %.01718.i, i64 64
   %669 = load i64, ptr %668, align 8, !tbaa !115
-  %670 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %662, i64 %indvars.iv.i118
+  %670 = getelementptr inbounds nuw [16 x i8], ptr %662, i64 %indvars.iv.i118
   %671 = getelementptr inbounds nuw i8, ptr %670, i64 8
   store i64 %669, ptr %671, align 8, !tbaa !52
   %672 = getelementptr inbounds nuw i8, ptr %.01718.i, i64 28
@@ -1910,7 +1898,7 @@ define internal fastcc void @psh_glyph_interpolate_strong_points(ptr noundef non
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8, !tbaa !46
   %8 = zext nneg i32 %1 to i64
-  %9 = getelementptr inbounds nuw %struct.PSH_DimensionRec_, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [408 x i8], ptr %7, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 400
   %11 = load i64, ptr %10, align 8, !tbaa !68
   %sext = shl i64 %11, 32
@@ -2037,7 +2025,7 @@ define internal fastcc void @psh_glyph_interpolate_normal_points(ptr noundef non
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8, !tbaa !46
   %7 = zext nneg i32 %1 to i64
-  %8 = getelementptr inbounds nuw %struct.PSH_DimensionRec_, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [408 x i8], ptr %6, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 400
   %10 = load i64, ptr %9, align 8, !tbaa !68
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2092,7 +2080,7 @@ define internal fastcc void @psh_glyph_interpolate_normal_points(ptr noundef non
   %32 = zext i32 %.3 to i64
   %33 = add i32 %.3, -1
   %34 = zext i32 %33 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr %.0, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %.0, i64 %34
   br label %55
 
 .lr.ph139:                                        ; preds = %.lr.ph139.preheader, %52
@@ -2192,7 +2180,7 @@ define internal fastcc void @psh_glyph_interpolate_normal_points(ptr noundef non
 79:                                               ; preds = %.lr.ph143, %86
   %.099141 = phi i32 [ 0, %.lr.ph143 ], [ %87, %86 ]
   %80 = zext i32 %.099141 to i64
-  %81 = getelementptr inbounds nuw ptr, ptr %.0, i64 %80
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %.0, i64 %80
   %82 = load ptr, ptr %81, align 8, !tbaa !155
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 48
   %84 = load i64, ptr %83, align 8, !tbaa !58
@@ -2234,7 +2222,7 @@ define internal fastcc void @psh_glyph_interpolate_normal_points(ptr noundef non
   %.099.lcssa170 = phi i32 [ %.099141, %._crit_edge144 ], [ %.3, %86 ]
   %106 = add i32 %.099.lcssa170, -1
   %107 = zext i32 %106 to i64
-  %108 = getelementptr inbounds nuw ptr, ptr %.0, i64 %107
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %.0, i64 %107
   %109 = load ptr, ptr %108, align 8, !tbaa !155
   %110 = getelementptr inbounds nuw i8, ptr %.2148, i64 48
   %111 = load i64, ptr %110, align 8, !tbaa !58
@@ -2247,7 +2235,7 @@ define internal fastcc void @psh_glyph_interpolate_normal_points(ptr noundef non
 
 113:                                              ; preds = %112
   %114 = add nsw i64 %indvars.iv, -1
-  %115 = getelementptr inbounds nuw ptr, ptr %.0, i64 %114
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %.0, i64 %114
   %116 = load ptr, ptr %115, align 8, !tbaa !155
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 48
   %118 = load i64, ptr %117, align 8, !tbaa !58
@@ -2286,7 +2274,7 @@ define internal fastcc void @psh_glyph_interpolate_normal_points(ptr noundef non
 
 139:                                              ; preds = %.split.loop.exit172
   %140 = zext i32 %.1.lcssa to i64
-  %141 = getelementptr inbounds nuw ptr, ptr %.0, i64 %140
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %.0, i64 %140
   %142 = load ptr, ptr %141, align 8, !tbaa !155
   %143 = getelementptr inbounds nuw i8, ptr %109, i64 48
   %144 = load i64, ptr %143, align 8, !tbaa !58
@@ -2366,7 +2354,7 @@ define internal fastcc void @psh_glyph_interpolate_other_points(ptr noundef nonn
   %8 = load ptr, ptr %7, align 8, !tbaa !46
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = zext nneg i32 %1 to i64
-  %11 = getelementptr inbounds nuw %struct.PSH_DimensionRec_, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [408 x i8], ptr %9, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 400
   %13 = load i64, ptr %12, align 8, !tbaa !132
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 392
@@ -2712,7 +2700,7 @@ define internal fastcc i32 @psh_hint_table_init(ptr noundef nonnull captures(non
   store i32 %6, ptr %0, align 8, !tbaa !86
   %24 = load ptr, ptr %10, align 8, !tbaa !107
   %.not58 = icmp eq ptr %24, null
-  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %13
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %13
   %spec.select = select i1 %.not58, ptr null, ptr %25
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %spec.select, ptr %26, align 8, !tbaa !131
@@ -2803,7 +2791,7 @@ define internal fastcc i32 @psh_hint_table_init(ptr noundef nonnull captures(non
 
 59:                                               ; preds = %57
   %60 = load ptr, ptr %15, align 8, !tbaa !91
-  %61 = getelementptr inbounds nuw %struct.PSH_HintRec_, ptr %60, i64 %indvars.iv.i
+  %61 = getelementptr inbounds nuw [48 x i8], ptr %60, i64 %indvars.iv.i
   %.not.i.i = icmp samesign ult i64 %indvars.iv.i, %13
   br i1 %.not.i.i, label %62, label %psh_hint_table_record.exit.i
 
@@ -2862,7 +2850,7 @@ psh_hint_overlap.exit.thread.i.i:                 ; preds = %psh_hint_overlap.ex
   %82 = add nuw i32 %51, 1
   store i32 %82, ptr %27, align 4, !tbaa !106
   %83 = zext i32 %51 to i64
-  %84 = getelementptr inbounds nuw ptr, ptr %25, i64 %83
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %83
   store ptr %61, ptr %84, align 8, !tbaa !108
   br label %psh_hint_table_record.exit.i
 
@@ -2891,7 +2879,7 @@ psh_hint_table_record_mask.exit:                  ; preds = %psh_hint_table_reco
   %92 = phi i32 [ %117, %psh_hint_table_record.exit ], [ %90, %.loopexit1 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %psh_hint_table_record.exit ], [ 0, %.loopexit1 ]
   %93 = load ptr, ptr %15, align 8, !tbaa !91
-  %94 = getelementptr inbounds nuw %struct.PSH_HintRec_, ptr %93, i64 %indvars.iv
+  %94 = getelementptr inbounds nuw [48 x i8], ptr %93, i64 %indvars.iv
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 24
   %96 = load i32, ptr %95, align 8, !tbaa !102
   %97 = and i32 %96, 4
@@ -2946,7 +2934,7 @@ psh_hint_overlap.exit.thread.i:                   ; preds = %psh_hint_overlap.ex
   %114 = add nuw i32 %92, 1
   store i32 %114, ptr %27, align 4, !tbaa !106
   %115 = zext i32 %92 to i64
-  %116 = getelementptr inbounds nuw ptr, ptr %25, i64 %115
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %115
   store ptr %94, ptr %116, align 8, !tbaa !108
   br label %psh_hint_table_record.exit
 
@@ -2968,7 +2956,7 @@ declare hidden i32 @ft_corner_orientation(i64 noundef, i64 noundef, i64 noundef,
 define internal fastcc void @psh_hint_align(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef range(i32 0, 2) %2, ptr noundef nonnull readonly captures(none) %3) unnamed_addr #5 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = zext nneg i32 %2 to i64
-  %7 = getelementptr inbounds nuw %struct.PSH_DimensionRec_, ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [408 x i8], ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load i32, ptr %8, align 8, !tbaa !102
   %10 = and i32 %9, 8
@@ -3105,7 +3093,7 @@ psh_blues_snap_stem.exit.thread:                  ; preds = %37
 
 .lr.ph61.i:                                       ; preds = %.loopexit50.i
   %88 = zext i32 %87 to i64
-  %89 = getelementptr inbounds nuw %struct.PSH_Blue_ZoneRec_, ptr %53, i64 %88
+  %89 = getelementptr inbounds nuw [48 x i8], ptr %53, i64 %88
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 736
   %91 = getelementptr inbounds nuw i8, ptr %1, i64 3944
   %92 = load i32, ptr %91, align 8, !tbaa !118
@@ -3438,7 +3426,7 @@ define internal fastcc void @psh_hint_table_find_strong_points(i32 %.4.val, ptr 
 
 .lr.ph:                                           ; preds = %.preheader21, %21
   %indvars.iv = phi i64 [ %indvars.iv.next, %21 ], [ 0, %.preheader21 ]
-  %22 = getelementptr inbounds nuw ptr, ptr %.16.val, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %.16.val, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8, !tbaa !108
   %24 = load i32, ptr %23, align 8, !tbaa !110
   %25 = sext i32 %24 to i64
@@ -3469,7 +3457,7 @@ define internal fastcc void @psh_hint_table_find_strong_points(i32 %.4.val, ptr 
 
 .lr.ph29:                                         ; preds = %.preheader19, %33
   %indvars.iv64 = phi i64 [ %indvars.iv.next65, %33 ], [ 0, %.preheader19 ]
-  %34 = getelementptr inbounds nuw ptr, ptr %.16.val, i64 %indvars.iv64
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %.16.val, i64 %indvars.iv64
   %35 = load ptr, ptr %34, align 8, !tbaa !108
   %36 = load i32, ptr %35, align 8, !tbaa !110
   %37 = sext i32 %36 to i64
@@ -3510,7 +3498,7 @@ define internal fastcc void @psh_hint_table_find_strong_points(i32 %.4.val, ptr 
 
 .lr.ph32:                                         ; preds = %.preheader17, %52
   %indvars.iv69 = phi i64 [ %indvars.iv.next70, %52 ], [ 0, %.preheader17 ]
-  %53 = getelementptr inbounds nuw ptr, ptr %.16.val, i64 %indvars.iv69
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %.16.val, i64 %indvars.iv69
   %54 = load ptr, ptr %53, align 8, !tbaa !108
   %55 = load i32, ptr %54, align 8, !tbaa !110
   %56 = sext i32 %55 to i64
@@ -3533,7 +3521,7 @@ define internal fastcc void @psh_hint_table_find_strong_points(i32 %.4.val, ptr 
 
 .lr.ph35:                                         ; preds = %60, %62
   %indvars.iv74 = phi i64 [ %indvars.iv.next75, %62 ], [ 0, %60 ]
-  %63 = getelementptr inbounds nuw ptr, ptr %.16.val, i64 %indvars.iv74
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %.16.val, i64 %indvars.iv74
   %64 = load ptr, ptr %63, align 8, !tbaa !108
   %65 = load i32, ptr %64, align 8, !tbaa !110
   %66 = sext i32 %65 to i64
@@ -3565,7 +3553,7 @@ define internal fastcc void @psh_hint_table_find_strong_points(i32 %.4.val, ptr 
 
 .lr.ph38:                                         ; preds = %.loopexit16, %88
   %indvars.iv79 = phi i64 [ %indvars.iv.next80, %88 ], [ 0, %.loopexit16 ]
-  %78 = getelementptr inbounds nuw ptr, ptr %.16.val, i64 %indvars.iv79
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %.16.val, i64 %indvars.iv79
   %79 = load ptr, ptr %78, align 8, !tbaa !108
   %80 = load i32, ptr %79, align 8, !tbaa !110
   %81 = sext i32 %80 to i64
@@ -3729,7 +3717,7 @@ define internal i32 @psh_globals_new(ptr noundef %0, ptr noundef readonly captur
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.012.i = phi i16 [ 1, %.lr.ph.preheader.i ], [ %spec.select.i, %.lr.ph.i ]
-  %62 = getelementptr inbounds nuw i16, ptr %44, i64 %indvars.iv.i
+  %62 = getelementptr inbounds nuw [2 x i8], ptr %44, i64 %indvars.iv.i
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 2
   %64 = load i16, ptr %63, align 2, !tbaa !32
   %65 = load i16, ptr %62, align 2, !tbaa !32
@@ -3752,7 +3740,7 @@ psh_calc_max_height.exit:                         ; preds = %.lr.ph.i, %._crit_e
 .lr.ph.i82:                                       ; preds = %.lr.ph.i82, %.lr.ph.preheader.i81
   %indvars.iv.i83 = phi i64 [ 0, %.lr.ph.preheader.i81 ], [ %indvars.iv.next.i86, %.lr.ph.i82 ]
   %.012.i84 = phi i16 [ %.0.lcssa.i, %.lr.ph.preheader.i81 ], [ %spec.select.i85, %.lr.ph.i82 ]
-  %70 = getelementptr inbounds nuw i16, ptr %48, i64 %indvars.iv.i83
+  %70 = getelementptr inbounds nuw [2 x i8], ptr %48, i64 %indvars.iv.i83
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 2
   %72 = load i16, ptr %71, align 2, !tbaa !32
   %73 = load i16, ptr %70, align 2, !tbaa !32
@@ -3775,7 +3763,7 @@ psh_calc_max_height.exit88:                       ; preds = %.lr.ph.i82, %psh_ca
 .lr.ph.i91:                                       ; preds = %.lr.ph.i91, %.lr.ph.preheader.i90
   %indvars.iv.i92 = phi i64 [ 0, %.lr.ph.preheader.i90 ], [ %indvars.iv.next.i95, %.lr.ph.i91 ]
   %.012.i93 = phi i16 [ %.0.lcssa.i87, %.lr.ph.preheader.i90 ], [ %spec.select.i94, %.lr.ph.i91 ]
-  %78 = getelementptr inbounds nuw i16, ptr %54, i64 %indvars.iv.i92
+  %78 = getelementptr inbounds nuw [2 x i8], ptr %54, i64 %indvars.iv.i92
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 2
   %80 = load i16, ptr %79, align 2, !tbaa !32
   %81 = load i16, ptr %78, align 2, !tbaa !32
@@ -3798,7 +3786,7 @@ psh_calc_max_height.exit97:                       ; preds = %.lr.ph.i91, %psh_ca
 .lr.ph.i100:                                      ; preds = %.lr.ph.i100, %.lr.ph.preheader.i99
   %indvars.iv.i101 = phi i64 [ 0, %.lr.ph.preheader.i99 ], [ %indvars.iv.next.i104, %.lr.ph.i100 ]
   %.012.i102 = phi i16 [ %.0.lcssa.i96, %.lr.ph.preheader.i99 ], [ %spec.select.i103, %.lr.ph.i100 ]
-  %86 = getelementptr inbounds nuw i16, ptr %58, i64 %indvars.iv.i101
+  %86 = getelementptr inbounds nuw [2 x i8], ptr %58, i64 %indvars.iv.i101
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 2
   %88 = load i16, ptr %87, align 2, !tbaa !32
   %89 = load i16, ptr %86, align 2, !tbaa !32
@@ -3943,9 +3931,9 @@ define internal fastcc void @psh_blues_set_zones(ptr noundef %0, i32 noundef ran
 
 .lr.ph13.i:                                       ; preds = %.lr.ph13.i, %.lr.ph13.preheader.i
   %indvars.iv.i = phi i64 [ %29, %.lr.ph13.preheader.i ], [ %31, %.lr.ph13.i ]
-  %30 = getelementptr inbounds nuw %struct.PSH_Blue_ZoneRec_, ptr %.0565.i, i64 %indvars.iv.i
+  %30 = getelementptr inbounds nuw [48 x i8], ptr %.0565.i, i64 %indvars.iv.i
   %31 = add nsw i64 %indvars.iv.i, -1
-  %32 = getelementptr inbounds nuw %struct.PSH_Blue_ZoneRec_, ptr %.0565.i, i64 %31
+  %32 = getelementptr inbounds nuw [48 x i8], ptr %.0565.i, i64 %31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %30, ptr noundef nonnull align 8 dereferenceable(48) %32, i64 48, i1 false), !tbaa.struct !241
   %.not68.wide.i = icmp eq i64 %31, 0
   br i1 %.not68.wide.i, label %._crit_edge14.i, label %.lr.ph13.i, !llvm.loop !243
@@ -4043,9 +4031,9 @@ psh_blues_set_zones_0.exit:                       ; preds = %38, %7
 
 .lr.ph13.i137:                                    ; preds = %.lr.ph13.i137, %.lr.ph13.preheader.i136
   %indvars.iv.i138 = phi i64 [ %63, %.lr.ph13.preheader.i136 ], [ %65, %.lr.ph13.i137 ]
-  %64 = getelementptr inbounds nuw %struct.PSH_Blue_ZoneRec_, ptr %.0565.i129, i64 %indvars.iv.i138
+  %64 = getelementptr inbounds nuw [48 x i8], ptr %.0565.i129, i64 %indvars.iv.i138
   %65 = add nsw i64 %indvars.iv.i138, -1
-  %66 = getelementptr inbounds nuw %struct.PSH_Blue_ZoneRec_, ptr %.0565.i129, i64 %65
+  %66 = getelementptr inbounds nuw [48 x i8], ptr %.0565.i129, i64 %65
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %64, ptr noundef nonnull align 8 dereferenceable(48) %66, i64 48, i1 false), !tbaa.struct !241
   %.not68.wide.i139 = icmp eq i64 %65, 0
   br i1 %.not68.wide.i139, label %._crit_edge14.i132, label %.lr.ph13.i137, !llvm.loop !243
@@ -4293,7 +4281,7 @@ define internal void @t1_hints_stem(ptr noundef captures(none) %0, i32 noundef %
   %14 = icmp ne i32 %1, 0
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = zext i1 %14 to i64
-  %17 = getelementptr inbounds nuw %struct.PS_DimensionRec_, ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [48 x i8], ptr %15, i64 %16
   %18 = load ptr, ptr %0, align 8, !tbaa !177
   %19 = trunc i64 %13 to i32
   %20 = trunc i64 %12 to i32
@@ -4327,7 +4315,7 @@ define internal void @ps_hints_t1stem3(ptr noundef captures(none) %0, i32 nounde
   %13 = icmp ne i32 %1, 0
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = zext i1 %13 to i64
-  %16 = getelementptr inbounds nuw %struct.PS_DimensionRec_, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [48 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load i32, ptr %17, align 8, !tbaa !249
   %19 = icmp eq i32 %18, 1
@@ -4345,7 +4333,7 @@ define internal void @ps_hints_t1stem3(ptr noundef captures(none) %0, i32 nounde
   %26 = call i64 @FT_RoundFix(i64 noundef %25) #13
   %27 = lshr i64 %26, 16
   %28 = trunc i64 %27 to i32
-  %29 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   %30 = call fastcc i32 @ps_dimension_add_t1stem(ptr noundef nonnull %16, i32 noundef %23, i32 noundef %28, ptr noundef %12, ptr noundef nonnull %29)
   %.not30 = icmp eq i32 %30, 0
   br i1 %.not30, label %31, label %ps_dimension_add_counter.exit.thread
@@ -4470,7 +4458,7 @@ ps_mask_table_ensure.exit.thread.i.i:             ; preds = %81
 90:                                               ; preds = %ps_mask_table_ensure.exit.thread.i.i, %._crit_edge.i.i
   %91 = phi ptr [ %.pre.i.i, %._crit_edge.i.i ], [ %88, %ps_mask_table_ensure.exit.thread.i.i ]
   %92 = zext i32 %77 to i64
-  %93 = getelementptr inbounds nuw %struct.PS_MaskRec_, ptr %91, i64 %92
+  %93 = getelementptr inbounds nuw [24 x i8], ptr %91, i64 %92
   %94 = getelementptr inbounds i8, ptr %93, i64 -24
   store i32 0, ptr %94, align 8, !tbaa !100
   %95 = getelementptr inbounds i8, ptr %93, i64 -8
@@ -4700,7 +4688,7 @@ define internal void @ps_hints_t1reset(ptr noundef captures(none) %0, i32 nounde
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %17 = load ptr, ptr %16, align 8, !tbaa !259
   %18 = zext i32 %14 to i64
-  %19 = getelementptr inbounds nuw %struct.PS_MaskRec_, ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [24 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds i8, ptr %19, i64 -8
   store i32 %1, ptr %20, align 8, !tbaa !98
   br label %ps_dimension_end_mask.exit.i
@@ -4740,7 +4728,7 @@ ps_mask_table_ensure.exit.thread.i.i:             ; preds = %25
 34:                                               ; preds = %ps_mask_table_ensure.exit.thread.i.i, %._crit_edge.i.i
   %35 = phi ptr [ %.pre.i.i, %._crit_edge.i.i ], [ %32, %ps_mask_table_ensure.exit.thread.i.i ]
   %36 = zext i32 %21 to i64
-  %37 = getelementptr inbounds nuw %struct.PS_MaskRec_, ptr %35, i64 %36
+  %37 = getelementptr inbounds nuw [24 x i8], ptr %35, i64 %36
   %38 = getelementptr inbounds i8, ptr %37, i64 -24
   store i32 0, ptr %38, align 8, !tbaa !100
   %39 = getelementptr inbounds i8, ptr %37, i64 -8
@@ -4773,7 +4761,7 @@ ps_dimension_reset_mask.exit:                     ; preds = %25
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %52 = load ptr, ptr %51, align 8, !tbaa !259
   %53 = zext i32 %49 to i64
-  %54 = getelementptr inbounds nuw %struct.PS_MaskRec_, ptr %52, i64 %53
+  %54 = getelementptr inbounds nuw [24 x i8], ptr %52, i64 %53
   %55 = getelementptr inbounds i8, ptr %54, i64 -8
   store i32 %1, ptr %55, align 8, !tbaa !98
   br label %ps_dimension_end_mask.exit.i22
@@ -4813,7 +4801,7 @@ ps_mask_table_ensure.exit.thread.i.i30:           ; preds = %60
 69:                                               ; preds = %ps_mask_table_ensure.exit.thread.i.i30, %._crit_edge.i.i23
   %70 = phi ptr [ %.pre.i.i25, %._crit_edge.i.i23 ], [ %67, %ps_mask_table_ensure.exit.thread.i.i30 ]
   %71 = zext i32 %56 to i64
-  %72 = getelementptr inbounds nuw %struct.PS_MaskRec_, ptr %70, i64 %71
+  %72 = getelementptr inbounds nuw [24 x i8], ptr %70, i64 %71
   %73 = getelementptr inbounds i8, ptr %72, i64 -24
   store i32 0, ptr %73, align 8, !tbaa !100
   %74 = getelementptr inbounds i8, ptr %72, i64 -8
@@ -4867,7 +4855,7 @@ define internal fastcc i32 @ps_dimension_end(ptr noundef captures(none) %0, i32 
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8, !tbaa !259
   %11 = zext i32 %7 to i64
-  %12 = getelementptr inbounds nuw %struct.PS_MaskRec_, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [24 x i8], ptr %10, i64 %11
   %13 = getelementptr inbounds i8, ptr %12, i64 -8
   store i32 %1, ptr %13, align 8, !tbaa !98
   br label %ps_dimension_end_mask.exit
@@ -4894,7 +4882,7 @@ ps_dimension_end_mask.exit:                       ; preds = %3, %8
 .lr.ph.i:                                         ; preds = %17
   %.val.i = load ptr, ptr %16, align 8, !tbaa !94
   %21 = zext i32 %.01742.i to i64
-  %22 = getelementptr inbounds nuw %struct.PS_MaskRec_, ptr %.val.i, i64 %21
+  %22 = getelementptr inbounds nuw [24 x i8], ptr %.val.i, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !101
   %25 = load i32, ptr %22, align 8, !tbaa !100
@@ -4903,7 +4891,7 @@ ps_dimension_end_mask.exit:                       ; preds = %3, %8
 26:                                               ; preds = %ps_mask_table_test_intersect.exit.thread.i, %.lr.ph.i
   %.01639.i = phi i32 [ %19, %.lr.ph.i ], [ %104, %ps_mask_table_test_intersect.exit.thread.i ]
   %27 = zext i32 %.01639.i to i64
-  %28 = getelementptr inbounds nuw %struct.PS_MaskRec_, ptr %.val.i, i64 %27
+  %28 = getelementptr inbounds nuw [24 x i8], ptr %.val.i, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8, !tbaa !101
   %31 = load i32, ptr %28, align 8, !tbaa !100
@@ -4963,9 +4951,9 @@ ps_mask_table_test_intersect.exit.thread27.i:     ; preds = %ps_mask_table_test_
 
 53:                                               ; preds = %ps_mask_table_test_intersect.exit.thread27.i
   %54 = zext i32 %spec.select68.i.i to i64
-  %55 = getelementptr inbounds nuw %struct.PS_MaskRec_, ptr %.val.i, i64 %54
+  %55 = getelementptr inbounds nuw [24 x i8], ptr %.val.i, i64 %54
   %56 = zext i32 %spec.select.i.i to i64
-  %57 = getelementptr inbounds nuw %struct.PS_MaskRec_, ptr %.val.i, i64 %56
+  %57 = getelementptr inbounds nuw [24 x i8], ptr %.val.i, i64 %56
   %58 = load i32, ptr %57, align 8, !tbaa !100
   %.not.i21.i = icmp eq i32 %58, 0
   br i1 %.not.i21.i, label %.thread.i.i, label %59
@@ -5057,7 +5045,7 @@ ps_mask_table_test_intersect.exit.thread27.i:     ; preds = %ps_mask_table_test_
   %98 = zext i32 %95 to i64
   %99 = mul nuw nsw i64 %98, 24
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %57, ptr nonnull align 8 %97, i64 %99, i1 false)
-  %100 = getelementptr inbounds nuw %struct.PS_MaskRec_, ptr %57, i64 %98
+  %100 = getelementptr inbounds nuw [24 x i8], ptr %57, i64 %98
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %100, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !tbaa.struct !262
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.pre.i.i = load i32, ptr %14, align 8, !tbaa !97
@@ -5164,7 +5152,7 @@ ps_hint_table_alloc.exit:                         ; preds = %28
 35:                                               ; preds = %ps_hint_table_ensure.exit.thread.i, %._crit_edge
   %36 = phi ptr [ %33, %ps_hint_table_ensure.exit.thread.i ], [ %14, %._crit_edge ]
   %37 = zext i32 %24 to i64
-  %38 = getelementptr inbounds nuw %struct.PS_HintRec_, ptr %36, i64 %37
+  %38 = getelementptr inbounds nuw [12 x i8], ptr %36, i64 %37
   %39 = getelementptr inbounds i8, ptr %38, i64 -12
   store i32 %24, ptr %0, align 8, !tbaa !196
   store i32 %.036, ptr %39, align 4, !tbaa !201
@@ -5234,7 +5222,7 @@ ps_mask_table_ensure.exit.thread.i.i:             ; preds = %49
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %67 = load ptr, ptr %66, align 8, !tbaa !94
   %68 = zext i32 %43 to i64
-  %69 = getelementptr inbounds nuw %struct.PS_MaskRec_, ptr %67, i64 %68
+  %69 = getelementptr inbounds nuw [24 x i8], ptr %67, i64 %68
   %70 = getelementptr inbounds i8, ptr %69, i64 -24
   br label %71
 
@@ -5368,7 +5356,7 @@ define internal void @t2_hints_stems(ptr noundef captures(none) %0, i32 noundef 
   %8 = icmp ne i32 %1, 0
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = zext i1 %8 to i64
-  %11 = getelementptr inbounds nuw %struct.PS_DimensionRec_, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [48 x i8], ptr %9, i64 %10
   br label %12
 
 12:                                               ; preds = %.lr.ph, %ps_hints_stem.exit
@@ -5382,12 +5370,12 @@ define internal void @t2_hints_stems(ptr noundef captures(none) %0, i32 noundef 
 15:                                               ; preds = %12, %15
   %indvars.iv = phi i64 [ 0, %12 ], [ %indvars.iv.next, %15 ]
   %.12428 = phi i64 [ %.02331, %12 ], [ %18, %15 ]
-  %16 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %17 = load i64, ptr %16, align 8, !tbaa !242
   %18 = add i64 %17, %.12428
   %19 = tail call i64 @FT_RoundFix(i64 noundef %18) #13
   %20 = ashr i64 %19, 16
-  %21 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   store i64 %20, ptr %21, align 8, !tbaa !242
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -5395,7 +5383,7 @@ define internal void @t2_hints_stems(ptr noundef captures(none) %0, i32 noundef 
 
 .preheader:                                       ; preds = %15, %.preheader
   %indvars.iv37 = phi i64 [ %indvars.iv.next38, %.preheader ], [ 0, %15 ]
-  %22 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv37
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv37
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load i64, ptr %23, align 8, !tbaa !242
   %25 = load i64, ptr %22, align 16, !tbaa !242
@@ -5535,7 +5523,7 @@ define internal fastcc i32 @ps_dimension_set_mask_bits(ptr noundef captures(none
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load ptr, ptr %13, align 8, !tbaa !259
   %15 = zext i32 %11 to i64
-  %16 = getelementptr inbounds nuw %struct.PS_MaskRec_, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [24 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds i8, ptr %16, i64 -8
   store i32 %4, ptr %17, align 8, !tbaa !98
   br label %ps_dimension_end_mask.exit.i
@@ -5575,7 +5563,7 @@ ps_mask_table_ensure.exit.thread.i.i:             ; preds = %22
 31:                                               ; preds = %ps_mask_table_ensure.exit.thread.i.i, %._crit_edge.i.i
   %32 = phi ptr [ %.pre.i.i, %._crit_edge.i.i ], [ %29, %ps_mask_table_ensure.exit.thread.i.i ]
   %33 = zext i32 %18 to i64
-  %34 = getelementptr inbounds nuw %struct.PS_MaskRec_, ptr %32, i64 %33
+  %34 = getelementptr inbounds nuw [24 x i8], ptr %32, i64 %33
   %35 = getelementptr inbounds i8, ptr %34, i64 -24
   store i32 0, ptr %35, align 8, !tbaa !100
   %36 = getelementptr inbounds i8, ptr %34, i64 -8
@@ -5653,7 +5641,7 @@ ps_mask_table_ensure.exit.thread.i.i.i:           ; preds = %49
 65:                                               ; preds = %44
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %67 = load ptr, ptr %66, align 8, !tbaa !94
-  %68 = getelementptr inbounds nuw %struct.PS_MaskRec_, ptr %67, i64 %33
+  %68 = getelementptr inbounds nuw [24 x i8], ptr %67, i64 %33
   %69 = getelementptr inbounds i8, ptr %68, i64 -24
   br label %70
 

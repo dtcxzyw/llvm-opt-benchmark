@@ -3,7 +3,6 @@ source_filename = "bench/zstd/original/fse_decompress.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.FSE_decode_t = type { i16, i8, i8 }
 %struct.BIT_DStream_t = type { i64, i32, ptr, ptr, ptr }
 %struct.FSE_DState_t = type { i64, ptr }
 
@@ -19,7 +18,7 @@ define range(i64 -46, 1) i64 @FSE_buildDTable_wksp(ptr noundef captures(none) %0
 define internal fastcc range(i64 -46, 1) i64 @FSE_buildDTable_internal(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef captures(none) %4, i64 noundef %5) unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %8 = zext i32 %2 to i64
-  %9 = getelementptr inbounds nuw i16, ptr %4, i64 %8
+  %9 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 2
   %11 = add i32 %2, 1
   %12 = shl nuw i32 1, %3
@@ -49,7 +48,7 @@ define internal fastcc range(i64 -46, 1) i64 @FSE_buildDTable_internal(ptr nound
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %38 ]
   %.0113141 = phi i32 [ %13, %.lr.ph ], [ %.1114, %38 ]
   %.sroa.4.0140 = phi i16 [ 1, %.lr.ph ], [ %.sroa.4.2, %38 ]
-  %27 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv
   %28 = load i16, ptr %27, align 2, !tbaa !3
   %29 = icmp eq i16 %28, -1
   br i1 %29, label %30, label %36
@@ -58,7 +57,7 @@ define internal fastcc range(i64 -46, 1) i64 @FSE_buildDTable_internal(ptr nound
   %31 = trunc i64 %indvars.iv to i8
   %32 = add i32 %.0113141, -1
   %33 = zext i32 %.0113141 to i64
-  %34 = getelementptr inbounds nuw %struct.FSE_decode_t, ptr %7, i64 %33
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %33
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 2
   store i8 %31, ptr %35, align 2, !tbaa !7
   br label %38
@@ -73,7 +72,7 @@ define internal fastcc range(i64 -46, 1) i64 @FSE_buildDTable_internal(ptr nound
   %.sink = phi i16 [ 1, %30 ], [ %28, %36 ]
   %.sroa.4.2 = phi i16 [ %.sroa.4.0140, %30 ], [ %spec.select, %36 ]
   %.1114 = phi i32 [ %32, %30 ], [ %.0113141, %36 ]
-  %39 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %indvars.iv
   store i16 %.sink, ptr %39, align 2, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %14
@@ -105,7 +104,7 @@ define internal fastcc range(i64 -46, 1) i64 @FSE_buildDTable_internal(ptr nound
   %indvars.iv174 = phi i64 [ 0, %.lr.ph160.preheader ], [ %indvars.iv.next175, %._crit_edge155 ]
   %.0123158 = phi i64 [ 0, %.lr.ph160.preheader ], [ %57, %._crit_edge155 ]
   %.0126157 = phi i64 [ 0, %.lr.ph160.preheader ], [ %58, %._crit_edge155 ]
-  %49 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv174
+  %49 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv174
   %50 = load i16, ptr %49, align 2, !tbaa !3
   %51 = getelementptr inbounds nuw i8, ptr %10, i64 %.0123158
   store i64 %.0126157, ptr %51, align 1, !tbaa !11
@@ -138,14 +137,14 @@ define internal fastcc range(i64 -46, 1) i64 @FSE_buildDTable_internal(ptr nound
   %59 = getelementptr inbounds nuw i8, ptr %10, i64 %.0124163
   %60 = and i64 %.0125162, %42
   %61 = load i8, ptr %59, align 1, !tbaa !15
-  %62 = getelementptr inbounds nuw %struct.FSE_decode_t, ptr %7, i64 %60
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %60
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 2
   store i8 %61, ptr %63, align 2, !tbaa !7
   %64 = add nuw nsw i64 %.0125162, %46
   %65 = and i64 %64, %42
   %66 = getelementptr inbounds nuw i8, ptr %59, i64 1
   %67 = load i8, ptr %66, align 1, !tbaa !15
-  %68 = getelementptr inbounds nuw %struct.FSE_decode_t, ptr %7, i64 %65
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %65
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 2
   store i8 %67, ptr %69, align 2, !tbaa !7
   %70 = add nuw nsw i64 %.0125162, %48
@@ -164,7 +163,7 @@ define internal fastcc range(i64 -46, 1) i64 @FSE_buildDTable_internal(ptr nound
 .preheader138:                                    ; preds = %.preheader138.lr.ph, %._crit_edge146
   %indvars.iv166 = phi i64 [ 0, %.preheader138.lr.ph ], [ %indvars.iv.next167, %._crit_edge146 ]
   %.0117149 = phi i32 [ 0, %.preheader138.lr.ph ], [ %.1118.lcssa, %._crit_edge146 ]
-  %77 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv166
+  %77 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv166
   %78 = load i16, ptr %77, align 2, !tbaa !3
   %79 = sext i16 %78 to i32
   %80 = icmp sgt i16 %78, 0
@@ -178,7 +177,7 @@ define internal fastcc range(i64 -46, 1) i64 @FSE_buildDTable_internal(ptr nound
   %.0116144 = phi i32 [ 0, %.lr.ph145 ], [ %89, %88 ]
   %.1118143 = phi i32 [ %.0117149, %.lr.ph145 ], [ %.2, %88 ]
   %83 = zext nneg i32 %.1118143 to i64
-  %84 = getelementptr inbounds nuw %struct.FSE_decode_t, ptr %7, i64 %83
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %83
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 2
   store i8 %81, ptr %85, align 2, !tbaa !7
   br label %86
@@ -215,11 +214,11 @@ define internal fastcc range(i64 -46, 1) i64 @FSE_buildDTable_internal(ptr nound
 
 90:                                               ; preds = %.loopexit137, %90
   %indvars.iv180 = phi i64 [ 0, %.loopexit137 ], [ %indvars.iv.next181, %90 ]
-  %91 = getelementptr inbounds nuw %struct.FSE_decode_t, ptr %7, i64 %indvars.iv180
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv180
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 2
   %93 = load i8, ptr %92, align 2, !tbaa !7
   %94 = zext i8 %93 to i64
-  %95 = getelementptr inbounds nuw i16, ptr %4, i64 %94
+  %95 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %94
   %96 = load i16, ptr %95, align 2, !tbaa !3
   %97 = add i16 %96, 1
   store i16 %97, ptr %95, align 2, !tbaa !3
@@ -596,7 +595,7 @@ BIT_reloadDStream.exit29.i:                       ; preds = %188, %183
   br i1 %206, label %FSE_decompress_usingDTable_generic.exit13.i, label %.lr.ph.i
 
 207:                                              ; preds = %BIT_reloadDStream.exit29.i
-  %208 = getelementptr inbounds nuw %struct.FSE_decode_t, ptr %176, i64 %180
+  %208 = getelementptr inbounds nuw [4 x i8], ptr %176, i64 %180
   %.sroa.0.0.copyload.i.i = load i16, ptr %208, align 2, !tbaa !3
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %208, i64 2
   %.sroa.4.0.copyload.i.i = load i8, ptr %.sroa.4.0..sroa_idx.i.i, align 2, !tbaa !15
@@ -613,7 +612,7 @@ BIT_reloadDStream.exit29.i:                       ; preds = %188, %183
   %217 = add i32 %.promoted229.i, %209
   %218 = zext i16 %.sroa.0.0.copyload.i.i to i64
   store i8 %.sroa.4.0.copyload.i.i, ptr %.038.i10.i47, align 1, !tbaa !15
-  %219 = getelementptr inbounds nuw %struct.FSE_decode_t, ptr %175, i64 %181
+  %219 = getelementptr inbounds nuw [4 x i8], ptr %175, i64 %181
   %.sroa.0.0.copyload.i71.i = load i16, ptr %219, align 2, !tbaa !3
   %.sroa.4.0..sroa_idx.i72.i = getelementptr inbounds nuw i8, ptr %219, i64 2
   %.sroa.4.0.copyload.i73.i = load i8, ptr %.sroa.4.0..sroa_idx.i72.i, align 2, !tbaa !15
@@ -631,8 +630,8 @@ BIT_reloadDStream.exit29.i:                       ; preds = %188, %183
   %229 = zext i16 %.sroa.0.0.copyload.i71.i to i64
   %230 = getelementptr inbounds nuw i8, ptr %.038.i10.i47, i64 1
   store i8 %.sroa.4.0.copyload.i73.i, ptr %230, align 1, !tbaa !15
-  %231 = getelementptr %struct.FSE_decode_t, ptr %176, i64 %216
-  %232 = getelementptr %struct.FSE_decode_t, ptr %231, i64 %218
+  %231 = getelementptr [4 x i8], ptr %176, i64 %216
+  %232 = getelementptr [4 x i8], ptr %231, i64 %218
   %.sroa.0.0.copyload.i78.i = load i16, ptr %232, align 2, !tbaa !3
   %.sroa.4.0..sroa_idx.i79.i = getelementptr inbounds nuw i8, ptr %232, i64 2
   %.sroa.4.0.copyload.i80.i = load i8, ptr %.sroa.4.0..sroa_idx.i79.i, align 2, !tbaa !15
@@ -651,8 +650,8 @@ BIT_reloadDStream.exit29.i:                       ; preds = %188, %183
   %243 = add i64 %240, %242
   %244 = getelementptr inbounds nuw i8, ptr %.038.i10.i47, i64 2
   store i8 %.sroa.4.0.copyload.i80.i, ptr %244, align 1, !tbaa !15
-  %245 = getelementptr %struct.FSE_decode_t, ptr %175, i64 %227
-  %246 = getelementptr %struct.FSE_decode_t, ptr %245, i64 %229
+  %245 = getelementptr [4 x i8], ptr %175, i64 %227
+  %246 = getelementptr [4 x i8], ptr %245, i64 %229
   %.sroa.0.0.copyload.i85.i = load i16, ptr %246, align 2, !tbaa !3
   %.sroa.4.0..sroa_idx.i86.i = getelementptr inbounds nuw i8, ptr %246, i64 2
   %.sroa.4.0.copyload.i87.i = load i8, ptr %.sroa.4.0..sroa_idx.i86.i, align 2, !tbaa !15
@@ -682,7 +681,7 @@ BIT_reloadDStream.exit29.i:                       ; preds = %188, %183
   %.val.i.i106.i = phi i64 [ %.val.i.i115227.i, %BIT_reloadDStream.exit.i ], [ %.val.i.i68.sink.i43, %.preheader196.i ]
   %263 = phi i32 [ %336, %BIT_reloadDStream.exit.i ], [ %.promoted229406.i, %.preheader196.i ]
   %264 = phi i64 [ %315, %BIT_reloadDStream.exit.i ], [ %.lcssa42, %.preheader196.i ]
-  %265 = getelementptr inbounds nuw %struct.FSE_decode_t, ptr %202, i64 %262
+  %265 = getelementptr inbounds nuw [4 x i8], ptr %202, i64 %262
   %.sroa.0.0.copyload.i92.i = load i16, ptr %265, align 2, !tbaa !3
   %.sroa.4.0..sroa_idx.i93.i = getelementptr inbounds nuw i8, ptr %265, i64 2
   %.sroa.4.0.copyload.i94.i = load i8, ptr %.sroa.4.0..sroa_idx.i93.i, align 2, !tbaa !15
@@ -732,7 +731,7 @@ BIT_reloadDStream.exit29.i:                       ; preds = %188, %183
   br label %.sink.split.i
 
 296:                                              ; preds = %.lr.ph.i
-  %297 = getelementptr inbounds nuw %struct.FSE_decode_t, ptr %201, i64 %264
+  %297 = getelementptr inbounds nuw [4 x i8], ptr %201, i64 %264
   %.sroa.4.0..sroa_idx.i102.i = getelementptr inbounds nuw i8, ptr %297, i64 2
   %.sroa.4.0.copyload.i103.i = load i8, ptr %.sroa.4.0..sroa_idx.i102.i, align 2, !tbaa !15
   %298 = getelementptr inbounds nuw i8, ptr %.139.i11235.i, i64 2
@@ -757,7 +756,7 @@ BIT_reloadDStream.exit29.i:                       ; preds = %188, %183
   br i1 %302, label %FSE_decompress_usingDTable_generic.exit13.i, label %303
 
 303:                                              ; preds = %299
-  %304 = getelementptr inbounds nuw %struct.FSE_decode_t, ptr %201, i64 %264
+  %304 = getelementptr inbounds nuw [4 x i8], ptr %201, i64 %264
   %.sroa.0.0.copyload.i108.i = load i16, ptr %304, align 2, !tbaa !3
   %.sroa.4.0..sroa_idx.i109.i = getelementptr inbounds nuw i8, ptr %304, i64 2
   %.sroa.4.0.copyload.i110.i = load i8, ptr %.sroa.4.0..sroa_idx.i109.i, align 2, !tbaa !15
@@ -824,7 +823,7 @@ BIT_reloadDStream.exit.i:                         ; preds = %BIT_reloadDStream.e
   br i1 %337, label %FSE_decompress_usingDTable_generic.exit13.i, label %.lr.ph.i
 
 338:                                              ; preds = %303
-  %339 = getelementptr inbounds nuw %struct.FSE_decode_t, ptr %202, i64 %276
+  %339 = getelementptr inbounds nuw [4 x i8], ptr %202, i64 %276
   %.sroa.4.0..sroa_idx.i118.i = getelementptr inbounds nuw i8, ptr %339, i64 2
   %.sroa.4.0.copyload.i119.i = load i8, ptr %.sroa.4.0..sroa_idx.i118.i, align 2, !tbaa !15
   %340 = getelementptr inbounds nuw i8, ptr %.139.i11235.i, i64 3
@@ -1011,7 +1010,7 @@ BIT_reloadDStream.exit57.i:                       ; preds = %406, %401
   br i1 %428, label %FSE_decompress_usingDTable_generic.exit.i, label %.lr.ph268.i
 
 429:                                              ; preds = %BIT_reloadDStream.exit57.i
-  %430 = getelementptr inbounds nuw %struct.FSE_decode_t, ptr %393, i64 %398
+  %430 = getelementptr inbounds nuw [4 x i8], ptr %393, i64 %398
   %.sroa.0.0.copyload.i128.i = load i16, ptr %430, align 2, !tbaa !3
   %.sroa.4.0..sroa_idx.i129.i = getelementptr inbounds nuw i8, ptr %430, i64 2
   %.sroa.4.0.copyload.i130.i = load i8, ptr %.sroa.4.0..sroa_idx.i129.i, align 2, !tbaa !15
@@ -1029,7 +1028,7 @@ BIT_reloadDStream.exit57.i:                       ; preds = %406, %401
   %439 = and i64 %436, %438
   %440 = zext i16 %.sroa.0.0.copyload.i128.i to i64
   store i8 %.sroa.4.0.copyload.i130.i, ptr %.038.i.i69, align 1, !tbaa !15
-  %441 = getelementptr inbounds nuw %struct.FSE_decode_t, ptr %392, i64 %399
+  %441 = getelementptr inbounds nuw [4 x i8], ptr %392, i64 %399
   %.sroa.0.0.copyload.i133.i = load i16, ptr %441, align 2, !tbaa !3
   %.sroa.4.0..sroa_idx.i134.i = getelementptr inbounds nuw i8, ptr %441, i64 2
   %.sroa.4.0.copyload.i135.i = load i8, ptr %.sroa.4.0..sroa_idx.i134.i, align 2, !tbaa !15
@@ -1048,8 +1047,8 @@ BIT_reloadDStream.exit57.i:                       ; preds = %406, %401
   %451 = zext i16 %.sroa.0.0.copyload.i133.i to i64
   %452 = getelementptr inbounds nuw i8, ptr %.038.i.i69, i64 1
   store i8 %.sroa.4.0.copyload.i135.i, ptr %452, align 1, !tbaa !15
-  %453 = getelementptr inbounds nuw %struct.FSE_decode_t, ptr %393, i64 %439
-  %454 = getelementptr inbounds nuw %struct.FSE_decode_t, ptr %453, i64 %440
+  %453 = getelementptr inbounds nuw [4 x i8], ptr %393, i64 %439
+  %454 = getelementptr inbounds nuw [4 x i8], ptr %453, i64 %440
   %.sroa.0.0.copyload.i139.i = load i16, ptr %454, align 2, !tbaa !3
   %.sroa.4.0..sroa_idx.i140.i = getelementptr inbounds nuw i8, ptr %454, i64 2
   %.sroa.4.0.copyload.i141.i = load i8, ptr %.sroa.4.0..sroa_idx.i140.i, align 2, !tbaa !15
@@ -1069,8 +1068,8 @@ BIT_reloadDStream.exit57.i:                       ; preds = %406, %401
   %465 = add nuw i64 %463, %464
   %466 = getelementptr inbounds nuw i8, ptr %.038.i.i69, i64 2
   store i8 %.sroa.4.0.copyload.i141.i, ptr %466, align 1, !tbaa !15
-  %467 = getelementptr inbounds nuw %struct.FSE_decode_t, ptr %392, i64 %450
-  %468 = getelementptr inbounds nuw %struct.FSE_decode_t, ptr %467, i64 %451
+  %467 = getelementptr inbounds nuw [4 x i8], ptr %392, i64 %450
+  %468 = getelementptr inbounds nuw [4 x i8], ptr %467, i64 %451
   %.sroa.0.0.copyload.i145.i = load i16, ptr %468, align 2, !tbaa !3
   %.sroa.4.0..sroa_idx.i146.i = getelementptr inbounds nuw i8, ptr %468, i64 2
   %.sroa.4.0.copyload.i147.i = load i8, ptr %.sroa.4.0..sroa_idx.i146.i, align 2, !tbaa !15
@@ -1101,7 +1100,7 @@ BIT_reloadDStream.exit57.i:                       ; preds = %406, %401
   %.val.i.i171255266.i = phi i64 [ %.val.i.i171256.i, %BIT_reloadDStream.exit43.i ], [ %426, %.preheader.i ]
   %485 = phi i32 [ %570, %BIT_reloadDStream.exit43.i ], [ %425, %.preheader.i ]
   %486 = phi i64 [ %543, %BIT_reloadDStream.exit43.i ], [ %.lcssa28, %.preheader.i ]
-  %487 = getelementptr inbounds nuw %struct.FSE_decode_t, ptr %422, i64 %484
+  %487 = getelementptr inbounds nuw [4 x i8], ptr %422, i64 %484
   %.sroa.0.0.copyload.i151.i = load i16, ptr %487, align 2, !tbaa !3
   %.sroa.4.0..sroa_idx.i152.i = getelementptr inbounds nuw i8, ptr %487, i64 2
   %.sroa.4.0.copyload.i153.i = load i8, ptr %.sroa.4.0..sroa_idx.i152.i, align 2, !tbaa !15
@@ -1160,7 +1159,7 @@ BIT_reloadDStream.exit57.i:                       ; preds = %406, %401
   br label %527
 
 524:                                              ; preds = %.lr.ph268.i
-  %525 = getelementptr inbounds nuw %struct.FSE_decode_t, ptr %421, i64 %486
+  %525 = getelementptr inbounds nuw [4 x i8], ptr %421, i64 %486
   %.sroa.4.0..sroa_idx.i160.i = getelementptr inbounds nuw i8, ptr %525, i64 2
   %.sroa.4.0.copyload.i161.i = load i8, ptr %.sroa.4.0..sroa_idx.i160.i, align 2, !tbaa !15
   %526 = getelementptr inbounds nuw i8, ptr %.139.i267.i, i64 2
@@ -1175,7 +1174,7 @@ BIT_reloadDStream.exit57.i:                       ; preds = %406, %401
   br i1 %530, label %FSE_decompress_usingDTable_generic.exit.i, label %531
 
 531:                                              ; preds = %527
-  %532 = getelementptr inbounds nuw %struct.FSE_decode_t, ptr %421, i64 %486
+  %532 = getelementptr inbounds nuw [4 x i8], ptr %421, i64 %486
   %.sroa.0.0.copyload.i165.i = load i16, ptr %532, align 2, !tbaa !3
   %.sroa.4.0..sroa_idx.i166.i = getelementptr inbounds nuw i8, ptr %532, i64 2
   %.sroa.4.0.copyload.i167.i = load i8, ptr %.sroa.4.0..sroa_idx.i166.i, align 2, !tbaa !15
@@ -1241,7 +1240,7 @@ BIT_reloadDStream.exit43.i:                       ; preds = %555, %553, %547
   br i1 %571, label %FSE_decompress_usingDTable_generic.exit.i, label %.lr.ph268.i
 
 572:                                              ; preds = %531
-  %573 = getelementptr inbounds nuw %struct.FSE_decode_t, ptr %422, i64 %498
+  %573 = getelementptr inbounds nuw [4 x i8], ptr %422, i64 %498
   %.sroa.4.0..sroa_idx.i174.i = getelementptr inbounds nuw i8, ptr %573, i64 2
   %.sroa.4.0.copyload.i175.i = load i8, ptr %.sroa.4.0..sroa_idx.i174.i, align 2, !tbaa !15
   %574 = getelementptr inbounds nuw i8, ptr %.139.i267.i, i64 3
@@ -1609,7 +1608,7 @@ BIT_reloadDStream.exit29:                         ; preds = %172, %177
   br i1 %191, label %FSE_decompress_usingDTable_generic.exit13, label %.lr.ph
 
 192:                                              ; preds = %BIT_reloadDStream.exit29
-  %193 = getelementptr inbounds nuw %struct.FSE_decode_t, ptr %164, i64 %169
+  %193 = getelementptr inbounds nuw [4 x i8], ptr %164, i64 %169
   %.sroa.0.0.copyload.i = load i16, ptr %193, align 2, !tbaa !3
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %193, i64 2
   %.sroa.4.0.copyload.i = load i8, ptr %.sroa.4.0..sroa_idx.i, align 2, !tbaa !15
@@ -1626,7 +1625,7 @@ BIT_reloadDStream.exit29:                         ; preds = %172, %177
   %202 = add i32 %.promoted229, %194
   %203 = zext i16 %.sroa.0.0.copyload.i to i64
   store i8 %.sroa.4.0.copyload.i, ptr %.038.i10487, align 1, !tbaa !15
-  %204 = getelementptr inbounds nuw %struct.FSE_decode_t, ptr %166, i64 %170
+  %204 = getelementptr inbounds nuw [4 x i8], ptr %166, i64 %170
   %.sroa.0.0.copyload.i71 = load i16, ptr %204, align 2, !tbaa !3
   %.sroa.4.0..sroa_idx.i72 = getelementptr inbounds nuw i8, ptr %204, i64 2
   %.sroa.4.0.copyload.i73 = load i8, ptr %.sroa.4.0..sroa_idx.i72, align 2, !tbaa !15
@@ -1644,8 +1643,8 @@ BIT_reloadDStream.exit29:                         ; preds = %172, %177
   %214 = zext i16 %.sroa.0.0.copyload.i71 to i64
   %215 = getelementptr inbounds nuw i8, ptr %.038.i10487, i64 1
   store i8 %.sroa.4.0.copyload.i73, ptr %215, align 1, !tbaa !15
-  %216 = getelementptr %struct.FSE_decode_t, ptr %164, i64 %201
-  %217 = getelementptr %struct.FSE_decode_t, ptr %216, i64 %203
+  %216 = getelementptr [4 x i8], ptr %164, i64 %201
+  %217 = getelementptr [4 x i8], ptr %216, i64 %203
   %.sroa.0.0.copyload.i78 = load i16, ptr %217, align 2, !tbaa !3
   %.sroa.4.0..sroa_idx.i79 = getelementptr inbounds nuw i8, ptr %217, i64 2
   %.sroa.4.0.copyload.i80 = load i8, ptr %.sroa.4.0..sroa_idx.i79, align 2, !tbaa !15
@@ -1664,8 +1663,8 @@ BIT_reloadDStream.exit29:                         ; preds = %172, %177
   %228 = add i64 %225, %227
   %229 = getelementptr inbounds nuw i8, ptr %.038.i10487, i64 2
   store i8 %.sroa.4.0.copyload.i80, ptr %229, align 1, !tbaa !15
-  %230 = getelementptr %struct.FSE_decode_t, ptr %166, i64 %212
-  %231 = getelementptr %struct.FSE_decode_t, ptr %230, i64 %214
+  %230 = getelementptr [4 x i8], ptr %166, i64 %212
+  %231 = getelementptr [4 x i8], ptr %230, i64 %214
   %.sroa.0.0.copyload.i85 = load i16, ptr %231, align 2, !tbaa !3
   %.sroa.4.0..sroa_idx.i86 = getelementptr inbounds nuw i8, ptr %231, i64 2
   %.sroa.4.0.copyload.i87 = load i8, ptr %.sroa.4.0..sroa_idx.i86, align 2, !tbaa !15
@@ -1695,7 +1694,7 @@ BIT_reloadDStream.exit29:                         ; preds = %172, %177
   %.val.i.i106 = phi i64 [ %.val.i.i115227, %BIT_reloadDStream.exit ], [ %.promoted225405, %.preheader196 ]
   %248 = phi i32 [ %321, %BIT_reloadDStream.exit ], [ %.promoted229406, %.preheader196 ]
   %249 = phi i64 [ %300, %BIT_reloadDStream.exit ], [ %.lcssa485, %.preheader196 ]
-  %250 = getelementptr inbounds nuw %struct.FSE_decode_t, ptr %164, i64 %247
+  %250 = getelementptr inbounds nuw [4 x i8], ptr %164, i64 %247
   %.sroa.0.0.copyload.i92 = load i16, ptr %250, align 2, !tbaa !3
   %.sroa.4.0..sroa_idx.i93 = getelementptr inbounds nuw i8, ptr %250, i64 2
   %.sroa.4.0.copyload.i94 = load i8, ptr %.sroa.4.0..sroa_idx.i93, align 2, !tbaa !15
@@ -1745,7 +1744,7 @@ BIT_reloadDStream.exit29:                         ; preds = %172, %177
   br label %.sink.split
 
 281:                                              ; preds = %.lr.ph
-  %282 = getelementptr inbounds nuw %struct.FSE_decode_t, ptr %166, i64 %249
+  %282 = getelementptr inbounds nuw [4 x i8], ptr %166, i64 %249
   %.sroa.4.0..sroa_idx.i102 = getelementptr inbounds nuw i8, ptr %282, i64 2
   %.sroa.4.0.copyload.i103 = load i8, ptr %.sroa.4.0..sroa_idx.i102, align 2, !tbaa !15
   %283 = getelementptr inbounds nuw i8, ptr %.139.i11235, i64 2
@@ -1770,7 +1769,7 @@ BIT_reloadDStream.exit29:                         ; preds = %172, %177
   br i1 %287, label %FSE_decompress_usingDTable_generic.exit13, label %288
 
 288:                                              ; preds = %284
-  %289 = getelementptr inbounds nuw %struct.FSE_decode_t, ptr %166, i64 %249
+  %289 = getelementptr inbounds nuw [4 x i8], ptr %166, i64 %249
   %.sroa.0.0.copyload.i108 = load i16, ptr %289, align 2, !tbaa !3
   %.sroa.4.0..sroa_idx.i109 = getelementptr inbounds nuw i8, ptr %289, i64 2
   %.sroa.4.0.copyload.i110 = load i8, ptr %.sroa.4.0..sroa_idx.i109, align 2, !tbaa !15
@@ -1837,7 +1836,7 @@ BIT_reloadDStream.exit:                           ; preds = %BIT_reloadDStream.e
   br i1 %322, label %FSE_decompress_usingDTable_generic.exit13, label %.lr.ph
 
 323:                                              ; preds = %288
-  %324 = getelementptr inbounds nuw %struct.FSE_decode_t, ptr %164, i64 %261
+  %324 = getelementptr inbounds nuw [4 x i8], ptr %164, i64 %261
   %.sroa.4.0..sroa_idx.i118 = getelementptr inbounds nuw i8, ptr %324, i64 2
   %.sroa.4.0.copyload.i119 = load i8, ptr %.sroa.4.0..sroa_idx.i118, align 2, !tbaa !15
   %325 = getelementptr inbounds nuw i8, ptr %.139.i11235, i64 3
@@ -2001,7 +2000,7 @@ BIT_reloadDStream.exit57:                         ; preds = %379, %384
   br i1 %402, label %FSE_decompress_usingDTable_generic.exit, label %.lr.ph268
 
 403:                                              ; preds = %BIT_reloadDStream.exit57
-  %404 = getelementptr inbounds nuw %struct.FSE_decode_t, ptr %370, i64 %376
+  %404 = getelementptr inbounds nuw [4 x i8], ptr %370, i64 %376
   %.sroa.0.0.copyload.i128 = load i16, ptr %404, align 2, !tbaa !3
   %.sroa.4.0..sroa_idx.i129 = getelementptr inbounds nuw i8, ptr %404, i64 2
   %.sroa.4.0.copyload.i130 = load i8, ptr %.sroa.4.0..sroa_idx.i129, align 2, !tbaa !15
@@ -2019,7 +2018,7 @@ BIT_reloadDStream.exit57:                         ; preds = %379, %384
   %413 = and i64 %410, %412
   %414 = zext i16 %.sroa.0.0.copyload.i128 to i64
   store i8 %.sroa.4.0.copyload.i130, ptr %.038.i507, align 1, !tbaa !15
-  %415 = getelementptr inbounds nuw %struct.FSE_decode_t, ptr %372, i64 %377
+  %415 = getelementptr inbounds nuw [4 x i8], ptr %372, i64 %377
   %.sroa.0.0.copyload.i133 = load i16, ptr %415, align 2, !tbaa !3
   %.sroa.4.0..sroa_idx.i134 = getelementptr inbounds nuw i8, ptr %415, i64 2
   %.sroa.4.0.copyload.i135 = load i8, ptr %.sroa.4.0..sroa_idx.i134, align 2, !tbaa !15
@@ -2038,8 +2037,8 @@ BIT_reloadDStream.exit57:                         ; preds = %379, %384
   %425 = zext i16 %.sroa.0.0.copyload.i133 to i64
   %426 = getelementptr inbounds nuw i8, ptr %.038.i507, i64 1
   store i8 %.sroa.4.0.copyload.i135, ptr %426, align 1, !tbaa !15
-  %427 = getelementptr inbounds nuw %struct.FSE_decode_t, ptr %370, i64 %413
-  %428 = getelementptr inbounds nuw %struct.FSE_decode_t, ptr %427, i64 %414
+  %427 = getelementptr inbounds nuw [4 x i8], ptr %370, i64 %413
+  %428 = getelementptr inbounds nuw [4 x i8], ptr %427, i64 %414
   %.sroa.0.0.copyload.i139 = load i16, ptr %428, align 2, !tbaa !3
   %.sroa.4.0..sroa_idx.i140 = getelementptr inbounds nuw i8, ptr %428, i64 2
   %.sroa.4.0.copyload.i141 = load i8, ptr %.sroa.4.0..sroa_idx.i140, align 2, !tbaa !15
@@ -2059,8 +2058,8 @@ BIT_reloadDStream.exit57:                         ; preds = %379, %384
   %439 = add nuw i64 %437, %438
   %440 = getelementptr inbounds nuw i8, ptr %.038.i507, i64 2
   store i8 %.sroa.4.0.copyload.i141, ptr %440, align 1, !tbaa !15
-  %441 = getelementptr inbounds nuw %struct.FSE_decode_t, ptr %372, i64 %424
-  %442 = getelementptr inbounds nuw %struct.FSE_decode_t, ptr %441, i64 %425
+  %441 = getelementptr inbounds nuw [4 x i8], ptr %372, i64 %424
+  %442 = getelementptr inbounds nuw [4 x i8], ptr %441, i64 %425
   %.sroa.0.0.copyload.i145 = load i16, ptr %442, align 2, !tbaa !3
   %.sroa.4.0..sroa_idx.i146 = getelementptr inbounds nuw i8, ptr %442, i64 2
   %.sroa.4.0.copyload.i147 = load i8, ptr %.sroa.4.0..sroa_idx.i146, align 2, !tbaa !15
@@ -2091,7 +2090,7 @@ BIT_reloadDStream.exit57:                         ; preds = %379, %384
   %.val.i.i171255266 = phi i64 [ %.val.i.i171256, %BIT_reloadDStream.exit43 ], [ %400, %.preheader ]
   %459 = phi i32 [ %544, %BIT_reloadDStream.exit43 ], [ %399, %.preheader ]
   %460 = phi i64 [ %517, %BIT_reloadDStream.exit43 ], [ %.lcssa471, %.preheader ]
-  %461 = getelementptr inbounds nuw %struct.FSE_decode_t, ptr %370, i64 %458
+  %461 = getelementptr inbounds nuw [4 x i8], ptr %370, i64 %458
   %.sroa.0.0.copyload.i151 = load i16, ptr %461, align 2, !tbaa !3
   %.sroa.4.0..sroa_idx.i152 = getelementptr inbounds nuw i8, ptr %461, i64 2
   %.sroa.4.0.copyload.i153 = load i8, ptr %.sroa.4.0..sroa_idx.i152, align 2, !tbaa !15
@@ -2150,7 +2149,7 @@ BIT_reloadDStream.exit57:                         ; preds = %379, %384
   br label %501
 
 498:                                              ; preds = %.lr.ph268
-  %499 = getelementptr inbounds nuw %struct.FSE_decode_t, ptr %372, i64 %460
+  %499 = getelementptr inbounds nuw [4 x i8], ptr %372, i64 %460
   %.sroa.4.0..sroa_idx.i160 = getelementptr inbounds nuw i8, ptr %499, i64 2
   %.sroa.4.0.copyload.i161 = load i8, ptr %.sroa.4.0..sroa_idx.i160, align 2, !tbaa !15
   %500 = getelementptr inbounds nuw i8, ptr %.139.i267, i64 2
@@ -2165,7 +2164,7 @@ BIT_reloadDStream.exit57:                         ; preds = %379, %384
   br i1 %504, label %FSE_decompress_usingDTable_generic.exit, label %505
 
 505:                                              ; preds = %501
-  %506 = getelementptr inbounds nuw %struct.FSE_decode_t, ptr %372, i64 %460
+  %506 = getelementptr inbounds nuw [4 x i8], ptr %372, i64 %460
   %.sroa.0.0.copyload.i165 = load i16, ptr %506, align 2, !tbaa !3
   %.sroa.4.0..sroa_idx.i166 = getelementptr inbounds nuw i8, ptr %506, i64 2
   %.sroa.4.0.copyload.i167 = load i8, ptr %.sroa.4.0..sroa_idx.i166, align 2, !tbaa !15
@@ -2231,7 +2230,7 @@ BIT_reloadDStream.exit43:                         ; preds = %527, %521, %529
   br i1 %545, label %FSE_decompress_usingDTable_generic.exit, label %.lr.ph268
 
 546:                                              ; preds = %505
-  %547 = getelementptr inbounds nuw %struct.FSE_decode_t, ptr %370, i64 %472
+  %547 = getelementptr inbounds nuw [4 x i8], ptr %370, i64 %472
   %.sroa.4.0..sroa_idx.i174 = getelementptr inbounds nuw i8, ptr %547, i64 2
   %.sroa.4.0.copyload.i175 = load i8, ptr %.sroa.4.0..sroa_idx.i174, align 2, !tbaa !15
   %548 = getelementptr inbounds nuw i8, ptr %.139.i267, i64 3

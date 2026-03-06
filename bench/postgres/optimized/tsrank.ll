@@ -4,14 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.WordEntryPosVector1 = type { i16, [1 x i16] }
-%struct.WordEntry = type { i32 }
 %struct.QueryRepresentation = type { ptr, ptr }
-%union.QueryItem = type { %struct.QueryOperand }
-%struct.QueryOperand = type { i8, i8, i8, i32, i32 }
-%struct.DocRepresentation = type { %union.anon.0, i16 }
-%union.anon.0 = type { %struct.anon }
-%struct.anon = type { ptr, i16 }
-%struct.QueryRepresentationOperand = type { i8, i8, i32, [16384 x i16] }
 
 @default_weights = internal constant [4 x float] [float 0x3FB99999A0000000, float 0x3FC99999A0000000, float 0x3FD99999A0000000, float 1.000000e+00], align 16
 @.str = private unnamed_addr constant [40 x i8] c"array of weight must be one-dimensional\00", align 1
@@ -146,19 +139,19 @@ define internal fastcc void @getWeights(ptr noundef %0, ptr noundef nonnull writ
 
 37:                                               ; preds = %33, %36
   %indvars.iv = phi i64 [ 0, %33 ], [ %indvars.iv.next, %36 ]
-  %38 = getelementptr inbounds nuw float, ptr %35, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %indvars.iv
   %39 = load float, ptr %38, align 4
   %40 = fcmp ult float %39, 0.000000e+00
   br i1 %40, label %41, label %44
 
 41:                                               ; preds = %37
-  %42 = getelementptr inbounds nuw float, ptr @default_weights, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [4 x i8], ptr @default_weights, i64 %indvars.iv
   %43 = load float, ptr %42, align 4
   br label %44
 
 44:                                               ; preds = %37, %41
   %45 = phi float [ %43, %41 ], [ %39, %37 ]
-  %46 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   store float %45, ptr %46, align 4
   %47 = fcmp ogt float %45, 1.000000e+00
   br i1 %47, label %48, label %36
@@ -234,7 +227,7 @@ define internal fastcc float @calc_rank(ptr noundef readonly captures(none) %0, 
 33:                                               ; preds = %.loopexit86.i, %26
   %indvars.iv127.i = phi i64 [ 0, %26 ], [ %indvars.iv.next128.i, %.loopexit86.i ]
   %.074107.i = phi float [ -1.000000e+00, %26 ], [ %.1.i, %.loopexit86.i ]
-  %34 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv127.i
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv127.i
   %35 = load ptr, ptr %34, align 8
   %36 = call fastcc ptr @find_wordentry(ptr noundef %1, ptr noundef nonnull %2, ptr noundef %35, ptr noundef %6)
   %.not.i = icmp eq ptr %36, null
@@ -248,7 +241,7 @@ define internal fastcc float @calc_rank(ptr noundef readonly captures(none) %0, 
   br i1 %40, label %.lr.ph102.i, label %.loopexit86.i
 
 .lr.ph102.i:                                      ; preds = %.preheader85.i
-  %41 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv127.i
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv127.i
   %.not136.i = icmp eq i64 %indvars.iv127.i, 0
   br i1 %.not136.i, label %.lr.ph102.split.i, label %.lr.ph102.split.us.i
 
@@ -263,7 +256,7 @@ define internal fastcc float @calc_rank(ptr noundef readonly captures(none) %0, 
 44:                                               ; preds = %.lr.ph102.split.us.i
   %45 = load i32, ptr %9, align 4
   %46 = sext i32 %45 to i64
-  %47 = getelementptr inbounds %struct.WordEntry, ptr %32, i64 %46
+  %47 = getelementptr inbounds [4 x i8], ptr %32, i64 %46
   %48 = lshr i32 %42, 12
   %49 = lshr i32 %42, 1
   %50 = and i32 %49, 2047
@@ -299,7 +292,7 @@ define internal fastcc float @calc_rank(ptr noundef readonly captures(none) %0, 
 .lr.ph.split.us.us.i:                             ; preds = %..loopexit_crit_edge.us.us.i, %.lr.ph.split.us.us.preheader.i
   %indvars.iv122.i = phi i64 [ 0, %.lr.ph.split.us.us.preheader.i ], [ %indvars.iv.next123.i, %..loopexit_crit_edge.us.us.i ]
   %.393.us.us.i = phi float [ %.2101.us.i, %.lr.ph.split.us.us.preheader.i ], [ %.4.us.us.i, %..loopexit_crit_edge.us.us.i ]
-  %62 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv122.i
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv122.i
   %63 = load ptr, ptr %62, align 8
   %.not83.us.us.i = icmp eq ptr %63, null
   br i1 %.not83.us.us.i, label %..loopexit_crit_edge.us.us.i, label %.preheader.lr.ph.us.us.i
@@ -323,7 +316,7 @@ define internal fastcc float @calc_rank(ptr noundef readonly captures(none) %0, 
 .preheader.us.us.us.i:                            ; preds = %._crit_edge.us.us.us.i, %.preheader.us.us.us.preheader.i
   %indvars.iv117.i = phi i64 [ 0, %.preheader.us.us.us.preheader.i ], [ %indvars.iv.next118.i, %._crit_edge.us.us.us.i ]
   %.590.us.us.us.i = phi float [ %.393.us.us.i, %.preheader.us.us.us.preheader.i ], [ %.7.us.us.us.i, %._crit_edge.us.us.us.i ]
-  %66 = getelementptr inbounds nuw i16, ptr %56, i64 %indvars.iv117.i
+  %66 = getelementptr inbounds nuw [2 x i8], ptr %56, i64 %indvars.iv117.i
   br label %67
 
 67:                                               ; preds = %112, %.preheader.us.us.us.i
@@ -332,7 +325,7 @@ define internal fastcc float @calc_rank(ptr noundef readonly captures(none) %0, 
   %68 = load i16, ptr %66, align 2
   %69 = and i16 %68, 16383
   %70 = zext nneg i16 %69 to i32
-  %71 = getelementptr inbounds nuw i16, ptr %65, i64 %indvars.iv.i
+  %71 = getelementptr inbounds nuw [2 x i8], ptr %65, i64 %indvars.iv.i
   %72 = load i16, ptr %71, align 2
   %73 = and i16 %72, 16383
   %74 = zext nneg i16 %73 to i32
@@ -355,11 +348,11 @@ define internal fastcc float @calc_rank(ptr noundef readonly captures(none) %0, 
   %spec.store.select.us.us.us.i = phi i32 [ 16384, %80 ], [ 16384, %77 ], [ %76, %67 ]
   %84 = lshr i16 %68, 14
   %85 = zext nneg i16 %84 to i64
-  %86 = getelementptr inbounds nuw float, ptr %0, i64 %85
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %85
   %87 = load float, ptr %86, align 4
   %88 = lshr i16 %72, 14
   %89 = zext nneg i16 %88 to i64
-  %90 = getelementptr inbounds nuw float, ptr %0, i64 %89
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %89
   %91 = load float, ptr %90, align 4
   %92 = fmul float %87, %91
   %93 = icmp samesign ugt i32 %spec.store.select.us.us.us.i, 100
@@ -413,7 +406,7 @@ word_distance.exit.us.us.us.i:                    ; preds = %94, %83
 115:                                              ; preds = %.lr.ph102.split.i
   %116 = load i32, ptr %9, align 4
   %117 = sext i32 %116 to i64
-  %118 = getelementptr inbounds %struct.WordEntry, ptr %32, i64 %117
+  %118 = getelementptr inbounds [4 x i8], ptr %32, i64 %117
   %119 = lshr i32 %113, 12
   %120 = lshr i32 %113, 1
   %121 = and i32 %120, 2047
@@ -812,13 +805,13 @@ define internal fastcc float @calc_rank_cd(ptr noundef readonly captures(none) %
 
 8:                                                ; preds = %4, %22
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %22 ]
-  %9 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %10 = load float, ptr %9, align 4
   %11 = fcmp ult float %10, 0.000000e+00
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds nuw float, ptr @default_weights, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [4 x i8], ptr @default_weights, i64 %indvars.iv
   %14 = load float, ptr %13, align 4
   br label %15
 
@@ -835,7 +828,7 @@ define internal fastcc float @calc_rank_cd(ptr noundef readonly captures(none) %
   unreachable
 
 22:                                               ; preds = %15
-  %23 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %24 = fpext float %16 to double
   %25 = fdiv double 1.000000e+00, %24
   store double %25, ptr %23, align 8
@@ -874,7 +867,7 @@ define internal fastcc float @calc_rank_cd(ptr noundef readonly captures(none) %
   %.094143.i = phi ptr [ %38, %.lr.ph145.i ], [ %.195.i, %.loopexit.i ]
   %.096142.i = phi i32 [ 0, %.lr.ph145.i ], [ %.197.i, %.loopexit.i ]
   %.0100141.i = phi i32 [ %35, %.lr.ph145.i ], [ %.1101.i, %.loopexit.i ]
-  %45 = getelementptr inbounds nuw %union.QueryItem, ptr %33, i64 %indvars.iv175.i
+  %45 = getelementptr inbounds nuw [12 x i8], ptr %33, i64 %indvars.iv175.i
   %46 = load i8, ptr %45, align 4
   %.not.i = icmp eq i8 %46, 1
   br i1 %.not.i, label %47, label %.loopexit.i
@@ -914,7 +907,7 @@ define internal fastcc float @calc_rank_cd(ptr noundef readonly captures(none) %
 59:                                               ; preds = %56
   %60 = load i32, ptr %42, align 4
   %61 = sext i32 %60 to i64
-  %62 = getelementptr inbounds %struct.WordEntry, ptr %41, i64 %61
+  %62 = getelementptr inbounds [4 x i8], ptr %41, i64 %61
   %63 = lshr i32 %57, 12
   %64 = lshr i32 %57, 1
   %65 = and i32 %64, 2047
@@ -925,7 +918,7 @@ define internal fastcc float @calc_rank_cd(ptr noundef readonly captures(none) %
   %69 = getelementptr inbounds nuw i8, ptr %62, i64 %68
   %70 = load i16, ptr %69, align 2
   %71 = zext i16 %70 to i32
-  %72 = getelementptr %struct.WordEntry, ptr %1, i64 %61
+  %72 = getelementptr [4 x i8], ptr %1, i64 %61
   %73 = getelementptr i8, ptr %72, i64 %68
   %74 = getelementptr i8, ptr %73, i64 10
   %75 = add i32 %.298.ph135.i, %71
@@ -968,13 +961,13 @@ define internal fastcc float @calc_rank_cd(ptr noundef readonly captures(none) %
   br i1 %87, label %.lr.ph131._crit_edge.i, label %88
 
 .lr.ph131._crit_edge.i:                           ; preds = %.lr.ph131.i
-  %.phi.trans.insert.i = getelementptr inbounds nuw i16, ptr %74, i64 %indvars.iv.i
+  %.phi.trans.insert.i = getelementptr inbounds nuw [2 x i8], ptr %74, i64 %indvars.iv.i
   %.pre.i = load i16, ptr %.phi.trans.insert.i, align 2
   br label %96
 
 88:                                               ; preds = %.lr.ph131.i
   %89 = zext i8 %86 to i32
-  %90 = getelementptr inbounds nuw i16, ptr %74, i64 %indvars.iv.i
+  %90 = getelementptr inbounds nuw [2 x i8], ptr %74, i64 %indvars.iv.i
   %91 = load i16, ptr %90, align 2
   %92 = lshr i16 %91, 14
   %93 = zext nneg i16 %92 to i32
@@ -986,7 +979,7 @@ define internal fastcc float @calc_rank_cd(ptr noundef readonly captures(none) %
 96:                                               ; preds = %88, %.lr.ph131._crit_edge.i
   %97 = phi i16 [ %.pre.i, %.lr.ph131._crit_edge.i ], [ %91, %88 ]
   %98 = sext i32 %.399130.i to i64
-  %99 = getelementptr inbounds %struct.DocRepresentation, ptr %.3.lcssa.i, i64 %98
+  %99 = getelementptr inbounds [24 x i8], ptr %.3.lcssa.i, i64 %98
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 16
   store i16 %97, ptr %100, align 8
   %101 = getelementptr inbounds nuw i8, ptr %99, i64 8
@@ -1081,7 +1074,7 @@ define internal fastcc float @calc_rank_cd(ptr noundef readonly captures(none) %
 139:                                              ; preds = %133
   %140 = load ptr, ptr %.092155.i, align 8
   %141 = sext i16 %.sroa.9.0153.i to i64
-  %142 = getelementptr inbounds ptr, ptr %.sroa.0.0154.i, i64 %141
+  %142 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0154.i, i64 %141
   store ptr %140, ptr %142, align 8
   %143 = add i16 %.sroa.9.0153.i, 1
   br label %154
@@ -1167,14 +1160,14 @@ tailrecurse.i:                                    ; preds = %.loopexit.i108.thre
 .lr.ph.i.i:                                       ; preds = %tailrecurse.i, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %tailrecurse.i ]
   %172 = load ptr, ptr %32, align 8
-  %173 = getelementptr inbounds nuw %struct.QueryRepresentationOperand, ptr %172, i64 %indvars.iv.i.i
+  %173 = getelementptr inbounds nuw [32776 x i8], ptr %172, i64 %indvars.iv.i.i
   store i8 0, ptr %173, align 4
   %174 = load ptr, ptr %32, align 8
-  %175 = getelementptr inbounds nuw %struct.QueryRepresentationOperand, ptr %174, i64 %indvars.iv.i.i
+  %175 = getelementptr inbounds nuw [32776 x i8], ptr %174, i64 %indvars.iv.i.i
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 1
   store i8 0, ptr %176, align 1
   %177 = load ptr, ptr %32, align 8
-  %178 = getelementptr inbounds nuw %struct.QueryRepresentationOperand, ptr %177, i64 %indvars.iv.i.i
+  %178 = getelementptr inbounds nuw [32776 x i8], ptr %177, i64 %indvars.iv.i.i
   %179 = getelementptr inbounds nuw i8, ptr %178, i64 4
   store i32 0, ptr %179, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -1190,7 +1183,7 @@ resetQueryRepresentation.exit.i:                  ; preds = %.lr.ph.i.i, %tailre
   br i1 %185, label %.lr.ph.preheader.i, label %.loopexit
 
 .lr.ph.preheader.i:                               ; preds = %resetQueryRepresentation.exit.i
-  %186 = getelementptr inbounds %struct.DocRepresentation, ptr %.195.i, i64 %indvars.iv194
+  %186 = getelementptr inbounds [24 x i8], ptr %.195.i, i64 %indvars.iv194
   br label %.lr.ph.i106
 
 .lr.ph.i106:                                      ; preds = %265, %.lr.ph.preheader.i
@@ -1208,7 +1201,7 @@ resetQueryRepresentation.exit.i:                  ; preds = %.lr.ph.i.i, %tailre
 192:                                              ; preds = %234, %.lr.ph.i56.i
   %indvars.iv.i57.i = phi i64 [ 0, %.lr.ph.i56.i ], [ %indvars.iv.next.i58.i, %234 ]
   %193 = load ptr, ptr %.05183.i, align 8
-  %194 = getelementptr inbounds nuw ptr, ptr %193, i64 %indvars.iv.i57.i
+  %194 = getelementptr inbounds nuw [8 x i8], ptr %193, i64 %indvars.iv.i57.i
   %195 = load ptr, ptr %194, align 8
   %196 = load i8, ptr %195, align 4
   %.not.i.i = icmp eq i8 %196, 1
@@ -1222,7 +1215,7 @@ resetQueryRepresentation.exit.i:                  ; preds = %.lr.ph.i.i, %tailre
   %202 = ptrtoint ptr %200 to i64
   %203 = sub i64 %201, %202
   %204 = sdiv exact i64 %203, 12
-  %205 = getelementptr inbounds %struct.QueryRepresentationOperand, ptr %198, i64 %204
+  %205 = getelementptr inbounds [32776 x i8], ptr %198, i64 %204
   store i8 1, ptr %205, align 4
   %206 = getelementptr inbounds nuw i8, ptr %205, i64 4
   %207 = load i32, ptr %206, align 4
@@ -1236,7 +1229,7 @@ resetQueryRepresentation.exit.i:                  ; preds = %.lr.ph.i.i, %tailre
   %213 = load i16, ptr %191, align 8
   %214 = getelementptr inbounds nuw i8, ptr %205, i64 8
   %215 = select i1 %211, i64 16383, i64 0
-  %216 = getelementptr inbounds nuw i16, ptr %214, i64 %215
+  %216 = getelementptr inbounds nuw [2 x i8], ptr %214, i64 %215
   store i16 %213, ptr %216, align 2
   br label %.sink.split.i.i
 
@@ -1246,7 +1239,7 @@ resetQueryRepresentation.exit.i:                  ; preds = %.lr.ph.i.i, %tailre
   %220 = select i1 %211, i32 %218, i32 %219
   %221 = getelementptr inbounds nuw i8, ptr %205, i64 8
   %222 = sext i32 %220 to i64
-  %223 = getelementptr inbounds i16, ptr %221, i64 %222
+  %223 = getelementptr inbounds [2 x i8], ptr %221, i64 %222
   %224 = load i16, ptr %223, align 2
   %225 = load i16, ptr %191, align 8
   %226 = xor i16 %225, %224
@@ -1258,7 +1251,7 @@ resetQueryRepresentation.exit.i:                  ; preds = %.lr.ph.i.i, %tailre
   %229 = sub i32 16383, %207
   %spec.select.i.i = select i1 %211, i32 %229, i32 %207
   %230 = sext i32 %spec.select.i.i to i64
-  %231 = getelementptr inbounds i16, ptr %221, i64 %230
+  %231 = getelementptr inbounds [2 x i8], ptr %221, i64 %230
   store i16 %225, ptr %231, align 2
   %232 = load i32, ptr %206, align 4
   %233 = add i32 %232, 1
@@ -1299,14 +1292,14 @@ fillQueryRepresentationData.exit.i:               ; preds = %234, %.lr.ph.i106
 .lr.ph.i59.i:                                     ; preds = %245, %.lr.ph.i59.i
   %indvars.iv.i60.i = phi i64 [ %indvars.iv.next.i61.i, %.lr.ph.i59.i ], [ 0, %245 ]
   %250 = load ptr, ptr %32, align 8
-  %251 = getelementptr inbounds nuw %struct.QueryRepresentationOperand, ptr %250, i64 %indvars.iv.i60.i
+  %251 = getelementptr inbounds nuw [32776 x i8], ptr %250, i64 %indvars.iv.i60.i
   store i8 0, ptr %251, align 4
   %252 = load ptr, ptr %32, align 8
-  %253 = getelementptr inbounds nuw %struct.QueryRepresentationOperand, ptr %252, i64 %indvars.iv.i60.i
+  %253 = getelementptr inbounds nuw [32776 x i8], ptr %252, i64 %indvars.iv.i60.i
   %254 = getelementptr inbounds nuw i8, ptr %253, i64 1
   store i8 1, ptr %254, align 1
   %255 = load ptr, ptr %32, align 8
-  %256 = getelementptr inbounds nuw %struct.QueryRepresentationOperand, ptr %255, i64 %indvars.iv.i60.i
+  %256 = getelementptr inbounds nuw [32776 x i8], ptr %255, i64 %indvars.iv.i60.i
   %257 = getelementptr inbounds nuw i8, ptr %256, i64 4
   store i32 0, ptr %257, align 4
   %indvars.iv.next.i61.i = add nuw nsw i64 %indvars.iv.i60.i, 1
@@ -1324,7 +1317,7 @@ resetQueryRepresentation.exit62.i:                ; preds = %.lr.ph.i59.i, %245
   br i1 %.not84.i, label %.loopexit.i108.thread, label %.lr.ph86.i.preheader
 
 .lr.ph86.i.preheader:                             ; preds = %resetQueryRepresentation.exit62.i
-  %264 = getelementptr inbounds %struct.DocRepresentation, ptr %.195.i, i64 %263
+  %264 = getelementptr inbounds [24 x i8], ptr %.195.i, i64 %263
   br label %.lr.ph86.i
 
 265:                                              ; preds = %fillQueryRepresentationData.exit.i
@@ -1349,7 +1342,7 @@ resetQueryRepresentation.exit62.i:                ; preds = %.lr.ph.i59.i, %245
 275:                                              ; preds = %317, %.lr.ph.i63.i
   %indvars.iv.i64.i = phi i64 [ 0, %.lr.ph.i63.i ], [ %indvars.iv.next.i66.i, %317 ]
   %276 = load ptr, ptr %.185.i, align 8
-  %277 = getelementptr inbounds nuw ptr, ptr %276, i64 %indvars.iv.i64.i
+  %277 = getelementptr inbounds nuw [8 x i8], ptr %276, i64 %indvars.iv.i64.i
   %278 = load ptr, ptr %277, align 8
   %279 = load i8, ptr %278, align 4
   %.not.i65.i = icmp eq i8 %279, 1
@@ -1363,7 +1356,7 @@ resetQueryRepresentation.exit62.i:                ; preds = %.lr.ph.i59.i, %245
   %285 = ptrtoint ptr %283 to i64
   %286 = sub i64 %284, %285
   %287 = sdiv exact i64 %286, 12
-  %288 = getelementptr inbounds %struct.QueryRepresentationOperand, ptr %281, i64 %287
+  %288 = getelementptr inbounds [32776 x i8], ptr %281, i64 %287
   store i8 1, ptr %288, align 4
   %289 = getelementptr inbounds nuw i8, ptr %288, i64 4
   %290 = load i32, ptr %289, align 4
@@ -1377,7 +1370,7 @@ resetQueryRepresentation.exit62.i:                ; preds = %.lr.ph.i59.i, %245
   %296 = load i16, ptr %274, align 8
   %297 = getelementptr inbounds nuw i8, ptr %288, i64 8
   %298 = select i1 %294, i64 16383, i64 0
-  %299 = getelementptr inbounds nuw i16, ptr %297, i64 %298
+  %299 = getelementptr inbounds nuw [2 x i8], ptr %297, i64 %298
   store i16 %296, ptr %299, align 2
   br label %.sink.split.i69.i
 
@@ -1387,7 +1380,7 @@ resetQueryRepresentation.exit62.i:                ; preds = %.lr.ph.i59.i, %245
   %303 = select i1 %294, i32 %301, i32 %302
   %304 = getelementptr inbounds nuw i8, ptr %288, i64 8
   %305 = sext i32 %303 to i64
-  %306 = getelementptr inbounds i16, ptr %304, i64 %305
+  %306 = getelementptr inbounds [2 x i8], ptr %304, i64 %305
   %307 = load i16, ptr %306, align 2
   %308 = load i16, ptr %274, align 8
   %309 = xor i16 %308, %307
@@ -1399,7 +1392,7 @@ resetQueryRepresentation.exit62.i:                ; preds = %.lr.ph.i59.i, %245
   %312 = sub i32 16383, %290
   %spec.select.i68.i = select i1 %294, i32 %312, i32 %290
   %313 = sext i32 %spec.select.i68.i to i64
-  %314 = getelementptr inbounds i16, ptr %304, i64 %313
+  %314 = getelementptr inbounds [2 x i8], ptr %304, i64 %313
   store i16 %308, ptr %314, align 2
   %315 = load i32, ptr %289, align 4
   %316 = add i32 %315, 1
@@ -1456,7 +1449,7 @@ fillQueryRepresentationData.exit71.i:             ; preds = %317, %.lr.ph86.i
   %337 = load i16, ptr %336, align 8
   %338 = lshr i16 %337, 14
   %339 = zext nneg i16 %338 to i64
-  %340 = getelementptr inbounds nuw double, ptr %6, i64 %339
+  %340 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %339
   %341 = load double, ptr %340, align 8
   %342 = fadd double %.083159, %341
   %343 = getelementptr inbounds nuw i8, ptr %.0160, i64 24
@@ -1831,7 +1824,7 @@ define internal fastcc float @calc_rank_or(ptr noundef readonly captures(none) %
 15:                                               ; preds = %.lr.ph75, %.loopexit
   %indvars.iv82 = phi i64 [ 0, %.lr.ph75 ], [ %indvars.iv.next83, %.loopexit ]
   %.05173 = phi float [ 0.000000e+00, %.lr.ph75 ], [ %.152, %.loopexit ]
-  %16 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv82
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv82
   %17 = load ptr, ptr %16, align 8
   %18 = call fastcc ptr @find_wordentry(ptr noundef %1, ptr noundef %2, ptr noundef %17, ptr noundef %5)
   %.not = icmp eq ptr %18, null
@@ -1855,7 +1848,7 @@ define internal fastcc float @calc_rank_or(ptr noundef readonly captures(none) %
 25:                                               ; preds = %.lr.ph70
   %26 = load i32, ptr %14, align 4
   %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds %struct.WordEntry, ptr %13, i64 %27
+  %28 = getelementptr inbounds [4 x i8], ptr %13, i64 %27
   %29 = lshr i32 %23, 12
   %30 = lshr i32 %23, 1
   %31 = and i32 %30, 2047
@@ -1864,7 +1857,7 @@ define internal fastcc float @calc_rank_or(ptr noundef readonly captures(none) %
   %33 = and i32 %narrow, 4194302
   %34 = zext nneg i32 %33 to i64
   %35 = getelementptr inbounds nuw i8, ptr %28, i64 %34
-  %36 = getelementptr %struct.WordEntry, ptr %1, i64 %27
+  %36 = getelementptr [4 x i8], ptr %1, i64 %27
   %37 = getelementptr i8, ptr %36, i64 %34
   %38 = getelementptr i8, ptr %37, i64 10
   br label %39
@@ -1885,11 +1878,11 @@ define internal fastcc float @calc_rank_or(ptr noundef readonly captures(none) %
   %.065 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %.lr.ph ]
   %.04764 = phi float [ -1.000000e+00, %.lr.ph.preheader ], [ %.148, %.lr.ph ]
   %.04963 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %50, %.lr.ph ]
-  %40 = getelementptr inbounds nuw i16, ptr %.056, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [2 x i8], ptr %.056, i64 %indvars.iv
   %41 = load i16, ptr %40, align 2
   %42 = lshr i16 %41, 14
   %43 = zext nneg i16 %42 to i64
-  %44 = getelementptr inbounds nuw float, ptr %0, i64 %43
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %43
   %45 = load float, ptr %44, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %46 = trunc nuw nsw i64 %indvars.iv.next to i32
@@ -2091,7 +2084,7 @@ define internal fastcc ptr @find_wordentry(ptr noundef %0, ptr noundef %1, ptr n
   %17 = sub i64 %15, %16
   %18 = ashr exact i64 %17, 2
   %19 = sdiv i64 %18, 2
-  %20 = getelementptr inbounds %struct.WordEntry, ptr %.055, i64 %19
+  %20 = getelementptr inbounds [4 x i8], ptr %.055, i64 %19
   %21 = load i32, ptr %12, align 4
   %22 = sext i32 %21 to i64
   %23 = mul nsw i64 %22, 12
@@ -2103,7 +2096,7 @@ define internal fastcc ptr @find_wordentry(ptr noundef %0, ptr noundef %1, ptr n
   %29 = and i32 %25, 4095
   %30 = load i32, ptr %6, align 4
   %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds %struct.WordEntry, ptr %5, i64 %31
+  %32 = getelementptr inbounds [4 x i8], ptr %5, i64 %31
   %33 = load i32, ptr %20, align 4
   %34 = lshr i32 %33, 12
   %35 = zext nneg i32 %34 to i64
@@ -2143,7 +2136,7 @@ define internal fastcc ptr @find_wordentry(ptr noundef %0, ptr noundef %1, ptr n
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %52 = load i32, ptr %6, align 4
   %53 = sext i32 %52 to i64
-  %54 = getelementptr inbounds %struct.WordEntry, ptr %5, i64 %53
+  %54 = getelementptr inbounds [4 x i8], ptr %5, i64 %53
   %55 = icmp ult ptr %spec.select, %54
   br i1 %55, label %.lr.ph59, label %.critedge
 
@@ -2154,7 +2147,7 @@ define internal fastcc ptr @find_wordentry(ptr noundef %0, ptr noundef %1, ptr n
 57:                                               ; preds = %.lr.ph59, %77
   %58 = phi i64 [ %53, %.lr.ph59 ], [ %82, %77 ]
   %.358 = phi ptr [ %spec.select, %.lr.ph59 ], [ %80, %77 ]
-  %59 = getelementptr inbounds %struct.WordEntry, ptr %5, i64 %58
+  %59 = getelementptr inbounds [4 x i8], ptr %5, i64 %58
   %60 = load i32, ptr %51, align 4
   %61 = sext i32 %60 to i64
   %62 = mul nsw i64 %61, 12
@@ -2181,7 +2174,7 @@ define internal fastcc ptr @find_wordentry(ptr noundef %0, ptr noundef %1, ptr n
   %80 = getelementptr inbounds nuw i8, ptr %.358, i64 4
   %81 = load i32, ptr %6, align 4
   %82 = sext i32 %81 to i64
-  %83 = getelementptr inbounds %struct.WordEntry, ptr %5, i64 %82
+  %83 = getelementptr inbounds [4 x i8], ptr %5, i64 %82
   %84 = icmp ult ptr %80, %83
   br i1 %84, label %57, label %.critedge, !llvm.loop !32
 
@@ -2292,7 +2285,7 @@ define internal range(i32 0, 2) i32 @checkcondition_QueryOperand(ptr noundef rea
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
   %11 = sdiv exact i64 %10, 12
-  %12 = getelementptr inbounds %struct.QueryRepresentationOperand, ptr %5, i64 %11
+  %12 = getelementptr inbounds [32776 x i8], ptr %5, i64 %11
   %13 = load i8, ptr %12, align 4, !range !19, !noundef !20
   %14 = trunc nuw i8 %13 to i1
   br i1 %14, label %15, label %29
@@ -2317,7 +2310,7 @@ define internal range(i32 0, 2) i32 @checkcondition_QueryOperand(ptr noundef rea
   %25 = load i32, ptr %17, align 4
   %26 = sub i32 16384, %25
   %27 = zext i32 %26 to i64
-  %28 = getelementptr inbounds nuw i16, ptr %19, i64 %27
+  %28 = getelementptr inbounds nuw [2 x i8], ptr %19, i64 %27
   store ptr %28, ptr %20, align 8
   br label %29
 

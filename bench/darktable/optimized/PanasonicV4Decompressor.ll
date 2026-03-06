@@ -8,8 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.rawspeed::DataBuffer.base" = type { %"class.rawspeed::Buffer.base", i16 }
 %"class.rawspeed::Buffer.base" = type <{ ptr, i32 }>
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
-%"struct.rawspeed::PanasonicV4Decompressor::Block" = type { %"class.rawspeed::ByteStream", %"class.rawspeed::iPoint2D", %"class.rawspeed::iPoint2D" }
-%"class.rawspeed::iPoint2D" = type { i32, i32 }
 %"class.rawspeed::PanasonicV4Decompressor::ProxyStream" = type <{ %"class.rawspeed::ByteStream", i32, [4 x i8], %"class.std::vector.45", i32, [4 x i8] }>
 %"class.std::vector.45" = type { %"struct.std::_Vector_base.46" }
 %"struct.std::_Vector_base.46" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" }
@@ -360,7 +358,7 @@ _ZNSt12_Vector_baseIN8rawspeed23PanasonicV4Decompressor5BlockESaIS2_EE13_M_deall
   store ptr %30, ptr %16, align 8, !tbaa !110
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 %28
   store ptr %34, ptr %25, align 8, !tbaa !113
-  %35 = getelementptr inbounds nuw %"struct.rawspeed::PanasonicV4Decompressor::Block", ptr %30, i64 %15
+  %35 = getelementptr inbounds nuw [40 x i8], ptr %30, i64 %15
   store ptr %35, ptr %17, align 8, !tbaa !111
   br label %_ZNSt6vectorIN8rawspeed23PanasonicV4Decompressor5BlockESaIS2_EE7reserveEm.exit
 
@@ -493,7 +491,7 @@ _ZNSt6vectorIN8rawspeed23PanasonicV4Decompressor5BlockESaIS2_EE11_S_relocateEPS2
 _ZNSt6vectorIN8rawspeed23PanasonicV4Decompressor5BlockESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i.i: ; preds = %85, %_ZNSt6vectorIN8rawspeed23PanasonicV4Decompressor5BlockESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i.i.i
   store ptr %80, ptr %16, align 8, !tbaa !110
   store ptr %84, ptr %37, align 8, !tbaa !113
-  %86 = getelementptr inbounds nuw %"struct.rawspeed::PanasonicV4Decompressor::Block", ptr %80, i64 %78
+  %86 = getelementptr inbounds nuw [40 x i8], ptr %80, i64 %78
   store ptr %86, ptr %17, align 8, !tbaa !111
   br label %_ZNSt20back_insert_iteratorISt6vectorIN8rawspeed23PanasonicV4Decompressor5BlockESaIS3_EEEaSEOS3_.exit.i
 
@@ -717,7 +715,7 @@ _ZNSt5arrayIiLm2EE4fillERKi.exit:
   tail call void @llvm.assume(i1 %24)
   %25 = mul nuw nsw i32 %19, %2
   %26 = zext nneg i32 %25 to i64
-  %27 = getelementptr inbounds nuw i16, ptr %9, i64 %26
+  %27 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -767,7 +765,7 @@ _ZNSt5arrayIiLm2EE4fillERKi.exit:
   %.139 = phi i32 [ -1, %41 ], [ %.03871, %38 ]
   %.1 = phi i32 [ %56, %41 ], [ %.03673, %38 ]
   %58 = zext nneg i32 %39 to i64
-  %59 = getelementptr inbounds nuw i32, ptr %6, i64 %58
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %58
   %60 = load i32, ptr %59, align 4, !tbaa !145
   %.not = icmp eq i32 %60, 0
   %61 = load i32, ptr %29, align 8, !tbaa !165
@@ -792,7 +790,7 @@ _ZNSt5arrayIiLm2EE4fillERKi.exit:
 
 75:                                               ; preds = %74
   %.neg = shl nsw i32 -128, %.1
-  %76 = getelementptr inbounds nuw i32, ptr %5, i64 %58
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %58
   %77 = load i32, ptr %76, align 4, !tbaa !145
   %78 = add i32 %77, %.neg
   %79 = icmp slt i32 %78, 0
@@ -829,16 +827,16 @@ _ZNSt5arrayIiLm2EE4fillERKi.exit:
   %99 = lshr i32 %97, %98
   %100 = and i32 %99, 15
   %101 = or disjoint i32 %100, %89
-  %102 = getelementptr inbounds nuw i32, ptr %5, i64 %58
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %58
   store i32 %101, ptr %102, align 4, !tbaa !145
   br label %103
 
 103:                                              ; preds = %74, %75, %88, %85
-  %104 = getelementptr inbounds nuw i32, ptr %5, i64 %58
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %58
   %105 = load i32, ptr %104, align 4, !tbaa !145
   %106 = icmp samesign ult i64 %indvars.iv, %35
   tail call void @llvm.assume(i1 %106)
-  %107 = getelementptr inbounds nuw i16, ptr %27, i64 %indvars.iv
+  %107 = getelementptr inbounds nuw [2 x i8], ptr %27, i64 %indvars.iv
   %108 = trunc i32 %105 to i16
   store i16 %108, ptr %107, align 2, !tbaa !166
   %109 = load i8, ptr %28, align 8, !tbaa !25, !range !168, !noundef !169
@@ -911,7 +909,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i: ; preds = %135, %.n
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i: ; preds = %137, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i
   store ptr %132, ptr %4, align 8, !tbaa !172
   store ptr %136, ptr %32, align 8, !tbaa !170
-  %138 = getelementptr inbounds nuw i32, ptr %132, i64 %130
+  %138 = getelementptr inbounds nuw [4 x i8], ptr %132, i64 %130
   store ptr %138, ptr %33, align 8, !tbaa !171
   br label %_ZNSt6vectorIjSaIjEE9push_backEOj.exit
 
@@ -1531,7 +1529,7 @@ _ZSt22__uninitialized_move_aIPjS0_SaIjEET0_T_S3_S2_RT1_.exit: ; preds = %18
   %28 = sub i64 %27, %19
   %29 = ashr exact i64 %28, 2
   %30 = sub nsw i64 0, %29
-  %31 = getelementptr inbounds i32, ptr %14, i64 %30
+  %31 = getelementptr inbounds [4 x i8], ptr %14, i64 %30
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %31, ptr align 4 %1, i64 %28, i1 false)
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEES6_ET0_T_S8_S7_.exit
 
@@ -1554,7 +1552,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEmEvRT_T0_.exit:
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEES2_jET0_T_S8_S7_RSaIT1_E.exit: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEmEvRT_T0_.exit, %33
   %36 = phi ptr [ %14, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEmEvRT_T0_.exit ], [ %.pre, %33 ]
   %37 = sub nuw nsw i64 %10, %21
-  %38 = getelementptr inbounds nuw i32, ptr %36, i64 %37
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %37
   store ptr %38, ptr %13, align 8, !tbaa !170
   %.not.i.i.i.i.i.i.i.i.i52 = icmp eq ptr %14, %1
   br i1 %.not.i.i.i.i.i.i.i.i.i52, label %_ZSt22__uninitialized_move_aIPjS0_SaIjEET0_T_S3_S2_RT1_.exit53, label %39
@@ -1638,7 +1636,7 @@ _ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit:  ; preds = %_ZNKSt6vectorIjSaIj
 _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit: ; preds = %67, %69
   store ptr %58, ptr %0, align 8, !tbaa !172
   store ptr %68, ptr %13, align 8, !tbaa !170
-  %71 = getelementptr inbounds nuw i32, ptr %58, i64 %54
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %54
   store ptr %71, ptr %11, align 8, !tbaa !171
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEES6_ET0_T_S8_S7_.exit55
 

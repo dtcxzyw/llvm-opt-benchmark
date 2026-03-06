@@ -764,13 +764,13 @@ invoke.cont:                                      ; preds = %_ZNSt6vectorIdSaIdE
 for.body:                                         ; preds = %invoke.cont, %invoke.cont6
   %i.016 = phi i64 [ %inc, %invoke.cont6 ], [ 0, %invoke.cont ]
   %7 = load ptr, ptr %prob, align 8, !tbaa !34
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %7, i64 %i.016
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %i.016
   %8 = load double, ptr %add.ptr.i, align 8, !tbaa !36
   %call7 = invoke noundef double @_ZNK8QuantLib15OneFactorCopula22conditionalProbabilityEdd(ptr noundef nonnull align 8 dereferenceable(104) %this, double noundef %8, double noundef %m)
           to label %invoke.cont6 unwind label %eh.resume
 
 invoke.cont6:                                     ; preds = %for.body
-  %add.ptr.i12 = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i6, i64 %i.016
+  %add.ptr.i12 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i6, i64 %i.016
   store double %call7, ptr %add.ptr.i12, align 8, !tbaa !36
   %inc = add nuw i64 %i.016, 1
   %exitcond.not = icmp eq i64 %inc, %sub.ptr.div.i11
@@ -957,7 +957,7 @@ if.then28:                                        ; preds = %do.end
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %i.060 = phi i64 [ %inc, %for.inc ], [ 0, %for.body.preheader ]
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %1, i64 %i.060
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %i.060
   %23 = load double, ptr %add.ptr.i, align 8, !tbaa !36
   %cmp36 = fcmp ogt double %23, %y
   br i1 %cmp36, label %cleanup, label %for.inc
@@ -972,12 +972,12 @@ cleanup:                                          ; preds = %for.body
   %cumulativeY_40 = getelementptr inbounds nuw i8, ptr %this, i64 80
   %sub41 = add i64 %i.060, -1
   %24 = load ptr, ptr %cumulativeY_40, align 8, !tbaa !34
-  %add.ptr.i32 = getelementptr inbounds nuw double, ptr %24, i64 %sub41
+  %add.ptr.i32 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %sub41
   %25 = load double, ptr %add.ptr.i32, align 8, !tbaa !36
-  %add.ptr.i33 = getelementptr inbounds nuw double, ptr %1, i64 %sub41
+  %add.ptr.i33 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %sub41
   %26 = load double, ptr %add.ptr.i33, align 8, !tbaa !36
   %sub46 = fsub double %y, %26
-  %add.ptr.i34 = getelementptr inbounds nuw double, ptr %24, i64 %i.060
+  %add.ptr.i34 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %i.060
   %27 = load double, ptr %add.ptr.i34, align 8, !tbaa !36
   %mul49 = fmul double %sub46, %27
   %28 = tail call double @llvm.fmuladd.f64(double %sub, double %25, double %mul49)
@@ -1177,7 +1177,7 @@ if.then27:                                        ; preds = %do.end
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %i.060 = phi i64 [ %inc, %for.inc ], [ 0, %for.body.preheader ]
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %20, i64 %i.060
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %i.060
   %24 = load double, ptr %add.ptr.i, align 8, !tbaa !36
   %cmp36 = fcmp ogt double %24, %x
   br i1 %cmp36, label %cleanup, label %for.inc
@@ -1190,12 +1190,12 @@ for.inc:                                          ; preds = %for.body
 cleanup:                                          ; preds = %for.body
   %sub = fsub double %24, %x
   %sub41 = add i64 %i.060, -1
-  %add.ptr.i32 = getelementptr inbounds nuw double, ptr %1, i64 %sub41
+  %add.ptr.i32 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %sub41
   %25 = load double, ptr %add.ptr.i32, align 8, !tbaa !36
-  %add.ptr.i33 = getelementptr inbounds nuw double, ptr %20, i64 %sub41
+  %add.ptr.i33 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %sub41
   %26 = load double, ptr %add.ptr.i33, align 8, !tbaa !36
   %sub46 = fsub double %x, %26
-  %add.ptr.i34 = getelementptr inbounds nuw double, ptr %1, i64 %i.060
+  %add.ptr.i34 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %i.060
   %27 = load double, ptr %add.ptr.i34, align 8, !tbaa !36
   %mul49 = fmul double %sub46, %27
   %28 = tail call double @llvm.fmuladd.f64(double %sub, double %25, double %mul49)

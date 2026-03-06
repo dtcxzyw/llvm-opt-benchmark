@@ -13,12 +13,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.absl::lts_20240722::AlphaNum" = type { %"class.std::basic_string_view", [32 x i8] }
-%"struct.grpc_core::XdsEndpointResource::Priority" = type { %"class.std::map" }
-%"class.std::map" = type { %"class.std::_Rb_tree" }
-%"class.std::_Rb_tree" = type { %"struct.std::_Rb_tree<grpc_core::XdsLocalityName *, std::pair<grpc_core::XdsLocalityName *const, grpc_core::XdsEndpointResource::Priority::Locality>, std::_Select1st<std::pair<grpc_core::XdsLocalityName *const, grpc_core::XdsEndpointResource::Priority::Locality>>, grpc_core::XdsLocalityName::Less>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<grpc_core::XdsLocalityName *, std::pair<grpc_core::XdsLocalityName *const, grpc_core::XdsEndpointResource::Priority::Locality>, std::_Select1st<std::pair<grpc_core::XdsLocalityName *const, grpc_core::XdsEndpointResource::Priority::Locality>>, grpc_core::XdsLocalityName::Less>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
-%"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
 %"class.absl::lts_20240722::random_internal::FastUniformBits" = type { i8 }
 
 $_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev = comdat any
@@ -610,7 +604,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %16, ptr %3, align 8, !tbaa !65
   store ptr %16, ptr %17, align 8, !tbaa !8
-  %18 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %16, i64 %10
+  %18 = getelementptr inbounds nuw [32 x i8], ptr %16, i64 %10
   store ptr %18, ptr %14, align 8, !tbaa !11
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE7reserveEm.exit
 
@@ -1462,7 +1456,7 @@ define void @_ZNK9grpc_core19XdsEndpointResource8ToStringB5cxx11Ev(ptr dead_on_u
           to label %39 unwind label %77
 
 39:                                               ; preds = %36
-  %40 = getelementptr inbounds nuw %"struct.grpc_core::XdsEndpointResource::Priority", ptr %37, i64 %.02768
+  %40 = getelementptr inbounds nuw [48 x i8], ptr %37, i64 %.02768
   %41 = ptrtoint ptr %38 to i64
   %42 = sub i64 %41, %26
   store i64 %42, ptr %6, align 8, !tbaa !38
@@ -2061,7 +2055,7 @@ _ZN4absl12lts_2024072215random_internal15FastUniformBitsIjEclINS1_17NonsecureURB
   %25 = load i64, ptr %14, align 8, !tbaa !170
   %26 = add i64 %25, 1
   store i64 %26, ptr %14, align 8, !tbaa !170
-  %27 = getelementptr inbounds nuw i64, ptr %13, i64 %25
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %25
   %28 = load i64, ptr %27, align 8, !tbaa !63
   %29 = add i32 %10, 1
   %30 = and i32 %29, %10
@@ -2138,7 +2132,7 @@ _ZN4absl12lts_2024072215random_internal15FastUniformBitsIjE8GenerateINS1_17Nonse
   %17 = load i64, ptr %6, align 8, !tbaa !170
   %18 = add i64 %17, 1
   store i64 %18, ptr %6, align 8, !tbaa !170
-  %19 = getelementptr inbounds nuw i64, ptr %5, i64 %17
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %17
   %20 = load i64, ptr %19, align 8, !tbaa !63
   %21 = trunc i64 %20 to i32
   ret i32 %21
@@ -2333,7 +2327,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %69
   store ptr %22, ptr %0, align 8, !tbaa !65
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !8
-  %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %73, ptr %68, align 8, !tbaa !11
   ret void
 }

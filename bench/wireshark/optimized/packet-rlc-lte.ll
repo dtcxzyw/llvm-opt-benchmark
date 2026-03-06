@@ -18,7 +18,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.except_t = type { %struct.except_id_t, ptr, ptr }
 %struct.__jmp_buf_tag = type { [8 x i64], i32, %struct.__sigset_t }
 %struct.__sigset_t = type { [16 x i64] }
-%struct.rlc_segment = type { i32, i16, ptr, i16 }
 
 @ue_parameters_tree = internal unnamed_addr global ptr null, align 8
 @sequence_analysis_channel_hash = internal unnamed_addr global ptr null, align 8
@@ -1755,7 +1754,7 @@ proto_item_set_generated.exit.i:                  ; preds = %302, %299, %298
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %show_PDU_in_info.exit.us.i
   %indvars.iv212.i = phi i64 [ %indvars.iv.next213.i, %show_PDU_in_info.exit.us.i ], [ 0, %.lr.ph.i ]
   %.3185.us.i = phi i32 [ %316, %show_PDU_in_info.exit.us.i ], [ %.1152.i, %.lr.ph.i ]
-  %308 = getelementptr i16, ptr @s_lengths, i64 %indvars.iv212.i
+  %308 = getelementptr [2 x i8], ptr @s_lengths, i64 %indvars.iv212.i
   %309 = load i16, ptr %308, align 2
   %.not183.us.i = icmp eq i16 %309, 0
   br i1 %.not183.us.i, label %313, label %310
@@ -1784,7 +1783,7 @@ show_PDU_in_info.exit.us.i:                       ; preds = %313, %310
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %show_PDU_in_info.exit.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %show_PDU_in_info.exit.i ], [ 0, %.lr.ph.i ]
   %.3185.i = phi i32 [ %328, %show_PDU_in_info.exit.i ], [ %.1152.i, %.lr.ph.i ]
-  %320 = getelementptr i16, ptr @s_lengths, i64 %indvars.iv.i
+  %320 = getelementptr [2 x i8], ptr @s_lengths, i64 %indvars.iv.i
   %321 = load i16, ptr %320, align 2
   %.not202.i = icmp eq i64 %indvars.iv.i, 0
   %.not183.i = icmp eq i16 %321, 0
@@ -1905,7 +1904,7 @@ thread-pre-split.i:                               ; preds = %358
 373:                                              ; preds = %373, %.preheader184.i
   %indvars.iv215.i = phi i64 [ 0, %.preheader184.i ], [ %indvars.iv.next216.i, %373 ]
   %.1189.i = phi i16 [ %371, %.preheader184.i ], [ %376, %373 ]
-  %374 = getelementptr i16, ptr @s_lengths, i64 %indvars.iv215.i
+  %374 = getelementptr [2 x i8], ptr @s_lengths, i64 %indvars.iv215.i
   %375 = load i16, ptr %374, align 2
   %376 = add i16 %375, %.1189.i
   %indvars.iv.next216.i = add nuw nsw i64 %indvars.iv215.i, 1
@@ -1969,7 +1968,7 @@ thread-pre-split.i:                               ; preds = %358
 .lr.ph193.i:                                      ; preds = %389, %show_PDU_in_info.exit175.i
   %indvars.iv217.i = phi i64 [ %indvars.iv.next218.i, %show_PDU_in_info.exit175.i ], [ 0, %389 ]
   %.5191.i = phi i32 [ %431, %show_PDU_in_info.exit175.i ], [ %.2.i, %389 ]
-  %413 = getelementptr i16, ptr @s_lengths, i64 %indvars.iv217.i
+  %413 = getelementptr [2 x i8], ptr @s_lengths, i64 %indvars.iv217.i
   %414 = load i16, ptr %413, align 2
   %415 = zext i16 %414 to i32
   %416 = icmp ne i64 %indvars.iv217.i, 0
@@ -2188,7 +2187,7 @@ proto_item_set_hidden.exit.i172:                  ; preds = %457, %454, %451
   %525 = trunc i64 %524 to i32
   %526 = and i32 %525, 65535
   %527 = zext nneg i16 %.0109.i.i to i64
-  %528 = getelementptr i32, ptr %498, i64 %527
+  %528 = getelementptr [4 x i8], ptr %498, i64 %527
   store i32 %526, ptr %528, align 4
   br label %529
 
@@ -2443,7 +2442,7 @@ thread-pre-split.i.i:                             ; preds = %595
 .preheader.us.i.i.i:                              ; preds = %._crit_edge.us.i.i.i, %.preheader.us.preheader.i.i.i
   %indvars.iv102.i.i.i = phi i64 [ 0, %.preheader.us.preheader.i.i.i ], [ %indvars.iv.next103.i.i.i, %._crit_edge.us.i.i.i ]
   %.06786.us.i.i.i = phi i16 [ 0, %.preheader.us.preheader.i.i.i ], [ %.2.us.i.i.i, %._crit_edge.us.i.i.i ]
-  %668 = getelementptr i16, ptr %667, i64 %indvars.iv102.i.i.i
+  %668 = getelementptr [2 x i8], ptr %667, i64 %indvars.iv102.i.i.i
   %669 = load i16, ptr %668, align 2
   %670 = zext i16 %669 to i32
   br label %671
@@ -2451,7 +2450,7 @@ thread-pre-split.i.i:                             ; preds = %595
 671:                                              ; preds = %685, %.preheader.us.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.preheader.us.i.i.i ], [ %indvars.iv.next.i.i.i, %685 ]
   %.16884.us.i.i.i = phi i16 [ %.06786.us.i.i.i, %.preheader.us.i.i.i ], [ %.2.us.i.i.i, %685 ]
-  %672 = getelementptr i32, ptr %498, i64 %indvars.iv.i.i.i
+  %672 = getelementptr [4 x i8], ptr %498, i64 %indvars.iv.i.i.i
   %673 = load i32, ptr %672, align 4
   %674 = icmp eq i32 %673, %670
   br i1 %674, label %675, label %685
@@ -2464,7 +2463,7 @@ thread-pre-split.i.i:                             ; preds = %595
   %678 = zext i16 %.16884.us.i.i.i to i64
   %679 = add nuw nsw i64 %678, 4294967295
   %680 = and i64 %679, 4294967295
-  %681 = getelementptr i16, ptr %7, i64 %680
+  %681 = getelementptr [2 x i8], ptr %7, i64 %680
   %682 = load i16, ptr %681, align 2
   %.not78.us.i.i.i = icmp eq i16 %682, %669
   br i1 %.not78.us.i.i.i, label %685, label %._crit_edge112.i.i.i
@@ -2472,7 +2471,7 @@ thread-pre-split.i.i:                             ; preds = %595
 ._crit_edge112.i.i.i:                             ; preds = %677, %675
   %.pre-phi.i.i.i = phi i64 [ %678, %677 ], [ 0, %675 ]
   %683 = add i16 %.16884.us.i.i.i, 1
-  %684 = getelementptr i16, ptr %7, i64 %.pre-phi.i.i.i
+  %684 = getelementptr [2 x i8], ptr %7, i64 %.pre-phi.i.i.i
   store i16 %669, ptr %684, align 2
   br label %685
 
@@ -2501,13 +2500,13 @@ thread-pre-split.i.i:                             ; preds = %595
 
 688:                                              ; preds = %688, %.lr.ph.i.i.i
   %indvars.iv106.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next107.i.i.i, %688 ]
-  %689 = getelementptr i32, ptr %498, i64 %indvars.iv106.i.i.i
+  %689 = getelementptr [4 x i8], ptr %498, i64 %indvars.iv106.i.i.i
   %690 = load i32, ptr %689, align 4
   %691 = trunc i32 %690 to i16
   %indvars.iv.next107.i.i.i = add nuw nsw i64 %indvars.iv106.i.i.i, 1
   %692 = trunc nuw nsw i64 %indvars.iv.next107.i.i.i to i16
   store i16 %692, ptr %.069.i.i.i, align 4
-  %693 = getelementptr i16, ptr %686, i64 %indvars.iv106.i.i.i
+  %693 = getelementptr [2 x i8], ptr %686, i64 %indvars.iv106.i.i.i
   store i16 %691, ptr %693, align 2
   %694 = icmp samesign ult i64 %indvars.iv.next107.i.i.i, %687
   br i1 %694, label %688, label %._crit_edge.i.i.i.loopexit, !llvm.loop !20
@@ -2942,7 +2941,7 @@ proto_item_set_generated.exit.i182:               ; preds = %937, %934, %933
 .lr.ph.i183:                                      ; preds = %proto_item_set_generated.exit.i182, %show_PDU_in_info.exit.i185
   %indvars.iv.i184 = phi i64 [ %indvars.iv.next.i186, %show_PDU_in_info.exit.i185 ], [ 0, %proto_item_set_generated.exit.i182 ]
   %.4243.i = phi i32 [ %954, %show_PDU_in_info.exit.i185 ], [ %.2.i174, %proto_item_set_generated.exit.i182 ]
-  %943 = getelementptr i16, ptr @s_lengths, i64 %indvars.iv.i184
+  %943 = getelementptr [2 x i8], ptr @s_lengths, i64 %indvars.iv.i184
   %944 = load i16, ptr %943, align 2
   %945 = icmp ne i64 %indvars.iv.i184, 0
   %946 = select i1 %945, i1 true, i1 %922
@@ -3057,7 +3056,7 @@ thread-pre-split.i180:                            ; preds = %980
 995:                                              ; preds = %995, %.preheader242.i
   %indvars.iv262.i = phi i64 [ 0, %.preheader242.i ], [ %indvars.iv.next263.i, %995 ]
   %.0197246.i = phi i16 [ %993, %.preheader242.i ], [ %998, %995 ]
-  %996 = getelementptr i16, ptr @s_lengths, i64 %indvars.iv262.i
+  %996 = getelementptr [2 x i8], ptr @s_lengths, i64 %indvars.iv262.i
   %997 = load i16, ptr %996, align 2
   %998 = add i16 %997, %.0197246.i
   %indvars.iv.next263.i = add nuw nsw i64 %indvars.iv262.i, 1
@@ -3128,7 +3127,7 @@ thread-pre-split.i180:                            ; preds = %980
 .lr.ph250.i:                                      ; preds = %1034, %show_PDU_in_info.exit235.i
   %indvars.iv264.i = phi i64 [ %indvars.iv.next265.i, %show_PDU_in_info.exit235.i ], [ 0, %1034 ]
   %.6248.i = phi i32 [ %1054, %show_PDU_in_info.exit235.i ], [ %.3.i, %1034 ]
-  %1036 = getelementptr i16, ptr @s_lengths, i64 %indvars.iv264.i
+  %1036 = getelementptr [2 x i8], ptr @s_lengths, i64 %indvars.iv264.i
   %1037 = load i16, ptr %1036, align 2
   %1038 = zext i16 %1037 to i32
   %1039 = icmp ne i64 %indvars.iv264.i, 0
@@ -3616,7 +3615,7 @@ define internal fastcc i32 @dissect_rlc_lte_extension_header(ptr noundef %0, ptr
   %41 = add i8 %40, 1
   store i8 %41, ptr @s_number_of_extensions, align 1
   %42 = zext i8 %40 to i64
-  %43 = getelementptr i16, ptr @s_lengths, i64 %42
+  %43 = getelementptr [2 x i8], ptr @s_lengths, i64 %42
   store i16 %39, ptr %43, align 2
   %44 = load i64, ptr %4, align 8
   %45 = icmp ne i64 %44, 0
@@ -3907,18 +3906,18 @@ define internal fastcc i32 @checkChannelSequenceInfo(ptr noundef %0, ptr noundef
   %170 = load ptr, ptr %158, align 8
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 8
   %172 = zext nneg i16 %161 to i64
-  %173 = getelementptr %struct.rlc_segment, ptr %171, i64 %172
+  %173 = getelementptr [24 x i8], ptr %171, i64 %172
   store i32 %166, ptr %173, align 8
   %174 = load ptr, ptr %158, align 8
-  %175 = getelementptr %struct.rlc_segment, ptr %174, i64 %172
+  %175 = getelementptr [24 x i8], ptr %174, i64 %172
   %176 = getelementptr i8, ptr %175, i64 12
   store i16 %7, ptr %176, align 4
   %177 = load ptr, ptr %158, align 8
-  %178 = getelementptr %struct.rlc_segment, ptr %177, i64 %172
+  %178 = getelementptr [24 x i8], ptr %177, i64 %172
   %179 = getelementptr i8, ptr %178, i64 16
   store ptr %169, ptr %179, align 8
   %180 = load ptr, ptr %158, align 8
-  %181 = getelementptr %struct.rlc_segment, ptr %180, i64 %172
+  %181 = getelementptr [24 x i8], ptr %180, i64 %172
   %182 = getelementptr i8, ptr %181, i64 24
   store i16 %5, ptr %182, align 8
   %183 = load ptr, ptr %158, align 8
@@ -4002,18 +4001,18 @@ reassembly_add_segment.exit:                      ; preds = %163, %164
   %231 = load ptr, ptr %158, align 8
   %232 = getelementptr inbounds nuw i8, ptr %231, i64 8
   %233 = zext nneg i16 %220 to i64
-  %234 = getelementptr %struct.rlc_segment, ptr %232, i64 %233
+  %234 = getelementptr [24 x i8], ptr %232, i64 %233
   store i32 %226, ptr %234, align 8
   %235 = load ptr, ptr %158, align 8
-  %236 = getelementptr %struct.rlc_segment, ptr %235, i64 %233
+  %236 = getelementptr [24 x i8], ptr %235, i64 %233
   %237 = getelementptr i8, ptr %236, i64 12
   store i16 %7, ptr %237, align 4
   %238 = load ptr, ptr %158, align 8
-  %239 = getelementptr %struct.rlc_segment, ptr %238, i64 %233
+  %239 = getelementptr [24 x i8], ptr %238, i64 %233
   %240 = getelementptr i8, ptr %239, i64 16
   store ptr %230, ptr %240, align 8
   %241 = load ptr, ptr %158, align 8
-  %242 = getelementptr %struct.rlc_segment, ptr %241, i64 %233
+  %242 = getelementptr [24 x i8], ptr %241, i64 %233
   %243 = getelementptr i8, ptr %242, i64 24
   store i16 %225, ptr %243, align 8
   %244 = load ptr, ptr %158, align 8
@@ -4160,18 +4159,18 @@ reassembly_add_segment.exit304:                   ; preds = %223, %222, %213, %2
   %331 = load ptr, ptr %319, align 8
   %332 = getelementptr inbounds nuw i8, ptr %331, i64 8
   %333 = zext nneg i16 %322 to i64
-  %334 = getelementptr %struct.rlc_segment, ptr %332, i64 %333
+  %334 = getelementptr [24 x i8], ptr %332, i64 %333
   store i32 %327, ptr %334, align 8
   %335 = load ptr, ptr %319, align 8
-  %336 = getelementptr %struct.rlc_segment, ptr %335, i64 %333
+  %336 = getelementptr [24 x i8], ptr %335, i64 %333
   %337 = getelementptr i8, ptr %336, i64 12
   store i16 %7, ptr %337, align 4
   %338 = load ptr, ptr %319, align 8
-  %339 = getelementptr %struct.rlc_segment, ptr %338, i64 %333
+  %339 = getelementptr [24 x i8], ptr %338, i64 %333
   %340 = getelementptr i8, ptr %339, i64 16
   store ptr %330, ptr %340, align 8
   %341 = load ptr, ptr %319, align 8
-  %342 = getelementptr %struct.rlc_segment, ptr %341, i64 %333
+  %342 = getelementptr [24 x i8], ptr %341, i64 %333
   %343 = getelementptr i8, ptr %342, i64 24
   store i16 %5, ptr %343, align 8
   %344 = load ptr, ptr %319, align 8
@@ -5914,19 +5913,19 @@ define internal fastcc void @reassembly_add_segment(ptr noundef captures(none) %
   %16 = load ptr, ptr %7, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = zext nneg i16 %9 to i64
-  %19 = getelementptr %struct.rlc_segment, ptr %17, i64 %18
+  %19 = getelementptr [24 x i8], ptr %17, i64 %18
   store i32 %2, ptr %19, align 8
   %20 = load ptr, ptr %7, align 8
-  %21 = getelementptr %struct.rlc_segment, ptr %20, i64 %18
+  %21 = getelementptr [24 x i8], ptr %20, i64 %18
   %22 = getelementptr i8, ptr %21, i64 12
   store i16 %1, ptr %22, align 4
   %23 = load ptr, ptr %7, align 8
-  %24 = getelementptr %struct.rlc_segment, ptr %23, i64 %18
+  %24 = getelementptr [24 x i8], ptr %23, i64 %18
   %25 = getelementptr i8, ptr %24, i64 16
   store ptr %15, ptr %25, align 8
   %26 = trunc nuw i32 %5 to i16
   %27 = load ptr, ptr %7, align 8
-  %28 = getelementptr %struct.rlc_segment, ptr %27, i64 %18
+  %28 = getelementptr [24 x i8], ptr %27, i64 %18
   %29 = getelementptr i8, ptr %28, i64 24
   store i16 %26, ptr %29, align 8
   %30 = load ptr, ptr %7, align 8
@@ -6001,7 +6000,7 @@ define internal fastcc noundef ptr @reassembly_get_reassembled_tvb(ptr noundef n
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.02729 = phi i32 [ 0, %.lr.ph.preheader ], [ %9, %.lr.ph ]
-  %5 = getelementptr %struct.rlc_segment, ptr %0, i64 %indvars.iv
+  %5 = getelementptr [24 x i8], ptr %0, i64 %indvars.iv
   %6 = getelementptr i8, ptr %5, i64 24
   %7 = load i16, ptr %6, align 8
   %8 = zext i16 %7 to i32
@@ -6028,7 +6027,7 @@ define internal fastcc noundef ptr @reassembly_get_reassembled_tvb(ptr noundef n
 16:                                               ; preds = %.lr.ph34, %16
   %indvars.iv40 = phi i64 [ 0, %.lr.ph34 ], [ %indvars.iv.next41, %16 ]
   %.02831 = phi i32 [ 0, %.lr.ph34 ], [ %31, %16 ]
-  %17 = getelementptr %struct.rlc_segment, ptr %15, i64 %indvars.iv40
+  %17 = getelementptr [24 x i8], ptr %15, i64 %indvars.iv40
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 16
@@ -6090,7 +6089,7 @@ proto_item_set_generated.exit:                    ; preds = %4, %9, %12
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.05575 = phi i32 [ 0, %.lr.ph.preheader ], [ %22, %.lr.ph ]
-  %18 = getelementptr %struct.rlc_segment, ptr %0, i64 %indvars.iv
+  %18 = getelementptr [24 x i8], ptr %0, i64 %indvars.iv
   %19 = getelementptr i8, ptr %18, i64 24
   %20 = load i16, ptr %19, align 8
   %21 = zext i16 %20 to i32
@@ -6152,7 +6151,7 @@ proto_item_set_generated.exit62:                  ; preds = %proto_item_set_gene
 
 45:                                               ; preds = %.lr.ph79, %proto_item_set_generated.exit74
   %indvars.iv83 = phi i64 [ 0, %.lr.ph79 ], [ %indvars.iv.next84, %proto_item_set_generated.exit74 ]
-  %46 = getelementptr %struct.rlc_segment, ptr %44, i64 %indvars.iv83
+  %46 = getelementptr [24 x i8], ptr %44, i64 %indvars.iv83
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 4
   %48 = load i16, ptr %47, align 4
   %49 = zext i16 %48 to i32
@@ -6348,7 +6347,7 @@ proto_item_set_generated.exit28:                  ; preds = %proto_item_set_gene
 30:                                               ; preds = %.lr.ph, %proto_item_set_generated.exit31
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %proto_item_set_generated.exit31 ]
   %31 = load i32, ptr @hf_rlc_lte_sequence_analysis_repeated_nack, align 4
-  %32 = getelementptr i16, ptr %27, i64 %indvars.iv
+  %32 = getelementptr [2 x i8], ptr %27, i64 %indvars.iv
   %33 = load i16, ptr %32, align 2
   %34 = zext i16 %33 to i32
   %35 = tail call ptr @proto_tree_add_uint(ptr noundef %9, i32 noundef %31, ptr noundef %4, i32 noundef 0, i32 noundef 0, i32 noundef %34)

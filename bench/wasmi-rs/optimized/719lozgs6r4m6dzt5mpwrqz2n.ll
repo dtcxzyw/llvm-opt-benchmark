@@ -614,7 +614,7 @@ define hidden noundef nonnull align 1 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13n
 define hidden void @"_ZN5alloc5boxed4iter112_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$alloc..boxed..Box$LT$$u5b$I$u5d$$C$A$GT$$GT$9into_iter17hf89feb9fd6e6382dE"(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) initializes((0, 32)) %0, ptr noalias noundef nonnull align 8 %1, i64 noundef %2) unnamed_addr #3 {
   %4 = icmp ult i64 %2, 576460752303423488
   tail call void @llvm.assume(i1 %4)
-  %5 = getelementptr inbounds nuw { i64, i64 }, ptr %1, i64 %2
+  %5 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %2
   store ptr %1, ptr %0, align 8, !alias.scope !46, !noalias !49
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %2, ptr %6, align 8, !alias.scope !46, !noalias !49
@@ -979,7 +979,7 @@ define hidden { ptr, i64 } @"_ZN79_$LT$alloc..boxed..Box$LT$$u5b$T$u5d$$C$A$GT$$
   %15 = icmp ule i64 %6, %10
   tail call void @llvm.assume(i1 %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !285
-  %16 = getelementptr inbounds nuw { i8, [23 x i8] }, ptr %4, i64 %6
+  %16 = getelementptr inbounds nuw [24 x i8], ptr %4, i64 %6
   %17 = icmp eq i64 %10, 0
   br i1 %17, label %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17hd891e1577b5b639cE.exit", label %.lr.ph.i
 
@@ -994,7 +994,7 @@ define hidden { ptr, i64 } @"_ZN79_$LT$alloc..boxed..Box$LT$$u5b$T$u5d$$C$A$GT$$
   %20 = add i64 %.sroa.10.020.i, -1
   %21 = add nuw nsw i64 %.sroa.7.018.i, 1
   %22 = getelementptr inbounds nuw i8, ptr %.sroa.011.019.i, i64 24
-  %23 = getelementptr inbounds nuw { [3 x i64] }, ptr %14, i64 %.sroa.7.018.i
+  %23 = getelementptr inbounds nuw [24 x i8], ptr %14, i64 %.sroa.7.018.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.011.019.i, i64 24, i1 false), !noalias !290
   %24 = icmp eq i64 %20, 0
   br i1 %24, label %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17hd891e1577b5b639cE.exit", label %.lr.ph.i

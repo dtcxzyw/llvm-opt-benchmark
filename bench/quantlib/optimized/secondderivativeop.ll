@@ -220,7 +220,7 @@ invoke.cont30:                                    ; preds = %invoke.cont25
   %mul34 = fmul double %call31, %add
   %20 = load i64, ptr %direction_, align 8, !tbaa !28
   %21 = load ptr, ptr %coordinates_.i57, align 8, !tbaa !26
-  %add.ptr.i = getelementptr inbounds nuw i64, ptr %21, i64 %20
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %20
   %22 = load i64, ptr %add.ptr.i, align 8, !tbaa !43
   %cmp = icmp eq i64 %22, 0
   br i1 %cmp, label %if.then, label %lor.lhs.false
@@ -257,7 +257,7 @@ invoke.cont44:                                    ; preds = %.noexc67, %invoke.c
   %26 = phi ptr [ %25, %invoke.cont40 ], [ %.pre.i66, %.noexc67 ]
   %dim_.i68 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %27 = load ptr, ptr %dim_.i68, align 8, !tbaa !26
-  %add.ptr.i69 = getelementptr inbounds nuw i64, ptr %27, i64 %direction
+  %add.ptr.i69 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %direction
   %28 = load i64, ptr %add.ptr.i69, align 8, !tbaa !43
   %sub = add i64 %28, -1
   %cmp49 = icmp eq i64 %22, %sub
@@ -265,10 +265,10 @@ invoke.cont44:                                    ; preds = %.noexc67, %invoke.c
 
 if.then:                                          ; preds = %invoke.cont44, %invoke.cont30
   %29 = load ptr, ptr %upper_64, align 8, !tbaa !44
-  %arrayidx.i = getelementptr inbounds nuw double, ptr %29, i64 %11
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %11
   store double 0.000000e+00, ptr %arrayidx.i, align 8, !tbaa !45
   %30 = load ptr, ptr %diag_60, align 8, !tbaa !44
-  %arrayidx.i70 = getelementptr inbounds nuw double, ptr %30, i64 %11
+  %arrayidx.i70 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %11
   store double 0.000000e+00, ptr %arrayidx.i70, align 8, !tbaa !45
   br label %if.end
 
@@ -290,11 +290,11 @@ lpad35:                                           ; preds = %cond.false.i65, %co
 if.else:                                          ; preds = %invoke.cont44
   %div = fdiv double 2.000000e+00, %mul
   %34 = load ptr, ptr %lower_56, align 8, !tbaa !44
-  %arrayidx.i72 = getelementptr inbounds nuw double, ptr %34, i64 %11
+  %arrayidx.i72 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %11
   store double %div, ptr %arrayidx.i72, align 8, !tbaa !45
   %div59 = fdiv double -2.000000e+00, %mul32
   %35 = load ptr, ptr %diag_60, align 8, !tbaa !44
-  %arrayidx.i73 = getelementptr inbounds nuw double, ptr %35, i64 %11
+  %arrayidx.i73 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %11
   store double %div59, ptr %arrayidx.i73, align 8, !tbaa !45
   %div63 = fdiv double 2.000000e+00, %mul34
   br label %if.end
@@ -303,7 +303,7 @@ if.end:                                           ; preds = %if.else, %if.then
   %.sink.in = phi ptr [ %upper_64, %if.else ], [ %lower_56, %if.then ]
   %div63.sink = phi double [ %div63, %if.else ], [ 0.000000e+00, %if.then ]
   %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !44
-  %arrayidx.i74 = getelementptr inbounds nuw double, ptr %.sink, i64 %11
+  %arrayidx.i74 = getelementptr inbounds nuw [8 x i8], ptr %.sink, i64 %11
   store double %div63.sink, ptr %arrayidx.i74, align 8, !tbaa !45
   %36 = load i64, ptr %__begin1, align 8, !tbaa !24
   %inc.i = add i64 %36, 1
@@ -323,11 +323,11 @@ for.body.lr.ph.i:                                 ; preds = %if.end
 
 for.body.i:                                       ; preds = %if.then.i, %for.body.lr.ph.i
   %i.08.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc9.i, %if.then.i ]
-  %add.ptr.i.i = getelementptr inbounds nuw i64, ptr %39, i64 %i.08.i
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %i.08.i
   %40 = load i64, ptr %add.ptr.i.i, align 8, !tbaa !43
   %inc3.i = add i64 %40, 1
   store i64 %inc3.i, ptr %add.ptr.i.i, align 8, !tbaa !43
-  %add.ptr.i5.i = getelementptr inbounds nuw i64, ptr %38, i64 %i.08.i
+  %add.ptr.i5.i = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %i.08.i
   %41 = load i64, ptr %add.ptr.i5.i, align 8, !tbaa !43
   %cmp6.i = icmp eq i64 %inc3.i, %41
   br i1 %cmp6.i, label %if.then.i, label %_ZN8QuantLib19FdmLinearOpIteratorppEv.exit.loopexit

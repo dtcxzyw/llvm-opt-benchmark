@@ -12,7 +12,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.JPEGReadContext = type { %struct.jpeg_source_mgr, ptr, i64 }
 %struct.jpeg_source_mgr = type { ptr, i64, ptr, ptr, ptr, ptr, ptr }
 %struct.ICCPSegment = type { ptr, i64, i32 }
-%struct.anon = type { i32, ptr, i64, i64 }
 
 @stderr = external local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [33 x i8] c"Error extracting JPEG metadata!\0A\00", align 1
@@ -335,7 +334,7 @@ define internal fastcc range(i32 0, 2) i32 @ExtractMetadataFromJPEG(ptr noundef 
 37:                                               ; preds = %33, %31
   %.269.i = phi i32 [ %.067116.i, %33 ], [ %23, %31 ]
   %38 = zext i8 %19 to i64
-  %39 = getelementptr inbounds nuw %struct.ICCPSegment, ptr %3, i64 %38
+  %39 = getelementptr inbounds nuw [24 x i8], ptr %3, i64 %38
   %40 = getelementptr inbounds i8, ptr %39, i64 -16
   %41 = load i64, ptr %40, align 8, !tbaa !71
   %.not90.i = icmp eq i64 %41, 0
@@ -407,7 +406,7 @@ define internal fastcc range(i32 0, 2) i32 @ExtractMetadataFromJPEG(ptr noundef 
   %.0122.i = phi i64 [ 0, %.lr.ph124.preheader.i ], [ %73, %.lr.ph124.i ]
   %66 = load ptr, ptr %4, align 8, !tbaa !76
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 %.0122.i
-  %68 = getelementptr inbounds nuw %struct.ICCPSegment, ptr %3, i64 %indvars.iv.i
+  %68 = getelementptr inbounds nuw [24 x i8], ptr %3, i64 %indvars.iv.i
   %69 = load ptr, ptr %68, align 8, !tbaa !73
   %70 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %71 = load i64, ptr %70, align 8, !tbaa !71
@@ -487,7 +486,7 @@ define internal fastcc range(i32 0, 2) i32 @ExtractMetadataFromJPEG(ptr noundef 
   br label %.critedge
 
 .critedge:                                        ; preds = %103, %99, %77, %83, %89
-  %106 = getelementptr inbounds nuw %struct.anon, ptr @ExtractMetadataFromJPEG.kJPEGMetadataMap, i64 %indvars.iv
+  %106 = getelementptr inbounds nuw [32 x i8], ptr @ExtractMetadataFromJPEG.kJPEGMetadataMap, i64 %indvars.iv
   br i1 %.not39, label %.critedge43.loopexit, label %77, !llvm.loop !86
 
 .loopexit.sink.split:                             ; preds = %42, %34, %58, %54, %61, %27, %2

@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.xl_brin_samepage_update = type { i16 }
 %struct.xl_brin_update = type { i16, %struct.xl_brin_insert }
 %struct.xl_brin_insert = type { i32, i32, i16 }
-%struct.ItemIdData = type { i32 }
 
 @.str = private unnamed_addr constant [54 x i8] c"index row size %zu exceeds maximum %zu for index \22%s\22\00", align 1
 @.str.1 = private unnamed_addr constant [15 x i8] c"brin_pageops.c\00", align 1
@@ -72,7 +71,7 @@ define dso_local noundef zeroext i1 @brin_doupdate(ptr noundef %0, i32 noundef %
   %34 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %35 = xor i32 %4, -1
   %36 = zext nneg i32 %35 to i64
-  %37 = getelementptr inbounds nuw ptr, ptr %34, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %36
   %38 = load ptr, ptr %37, align 8
   br label %BufferGetPage.exit
 
@@ -88,7 +87,7 @@ BufferGetPage.exit:                               ; preds = %33, %39
   %.0.i.i = phi ptr [ %38, %33 ], [ %44, %39 ]
   %45 = zext i16 %5 to i64
   %46 = getelementptr i8, ptr %.0.i.i, i64 20
-  %47 = getelementptr %struct.ItemIdData, ptr %46, i64 %45
+  %47 = getelementptr [4 x i8], ptr %46, i64 %45
   %48 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
   %49 = load i16, ptr %48, align 4
   %50 = zext i16 %49 to i64
@@ -188,7 +187,7 @@ BufferGetPage.exit:                               ; preds = %33, %39
   %99 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %100 = xor i32 %4, -1
   %101 = zext nneg i32 %100 to i64
-  %102 = getelementptr inbounds nuw ptr, ptr %99, i64 %101
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %99, i64 %101
   %103 = load ptr, ptr %102, align 8
   br label %brin_can_do_samepage_update.exit
 
@@ -304,7 +303,7 @@ brin_can_do_samepage_update.exit.thread:          ; preds = %96, %brin_can_do_sa
   %157 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %158 = xor i32 %.0125, -1
   %159 = zext nneg i32 %158 to i64
-  %160 = getelementptr inbounds nuw ptr, ptr %157, i64 %159
+  %160 = getelementptr inbounds nuw [8 x i8], ptr %157, i64 %159
   %161 = load ptr, ptr %160, align 8
   br label %BufferGetPage.exit132
 
@@ -446,7 +445,7 @@ br_page_get_freespace.exit:                       ; preds = %198, %194, %186, %1
   %234 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %235 = xor i32 %168, -1
   %236 = zext nneg i32 %235 to i64
-  %237 = getelementptr inbounds nuw ptr, ptr %234, i64 %236
+  %237 = getelementptr inbounds nuw [8 x i8], ptr %234, i64 %236
   %238 = load ptr, ptr %237, align 8
   br label %BufferGetPage.exit136
 
@@ -594,7 +593,7 @@ define internal fastcc i32 @brin_getinsertbuffer(ptr noundef %0, i32 noundef %1,
 
 46:                                               ; preds = %45
   %47 = load ptr, ptr @LocalBufferBlockPointers, align 8
-  %48 = getelementptr inbounds nuw ptr, ptr %47, i64 %24
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %24
   %49 = load ptr, ptr %48, align 8
   br label %BufferGetPage.exit92
 
@@ -659,7 +658,7 @@ BufferGetPage.exit92:                             ; preds = %46, %50
   %76 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %77 = xor i32 %.073, -1
   %78 = zext nneg i32 %77 to i64
-  %79 = getelementptr inbounds nuw ptr, ptr %76, i64 %78
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %78
   %80 = load ptr, ptr %79, align 8
   br label %BufferGetPage.exit94
 
@@ -790,7 +789,7 @@ define internal fastcc void @brin_initialize_empty_new_buffer(ptr noundef %0, i3
   %7 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %8 = xor i32 %1, -1
   %9 = zext nneg i32 %8 to i64
-  %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %9
   %11 = load ptr, ptr %10, align 8
   br label %BufferGetPage.exit
 
@@ -861,7 +860,7 @@ define dso_local zeroext i1 @brin_can_do_samepage_update(i32 noundef %0, i64 nou
   %7 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %8 = xor i32 %0, -1
   %9 = zext nneg i32 %8 to i64
-  %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %9
   %11 = load ptr, ptr %10, align 8
   br label %BufferGetPage.exit
 
@@ -959,7 +958,7 @@ define dso_local zeroext range(i16 1, 0) i16 @brin_doinsert(ptr noundef %0, i32 
   %24 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %25 = xor i32 %21, -1
   %26 = zext nneg i32 %25 to i64
-  %27 = getelementptr inbounds nuw ptr, ptr %24, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %26
   %28 = load ptr, ptr %27, align 8
   br label %BufferGetPage.exit
 
@@ -1031,7 +1030,7 @@ thread-pre-split:                                 ; preds = %br_page_get_freespa
   %58 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %59 = xor i32 %55, -1
   %60 = zext nneg i32 %59 to i64
-  %61 = getelementptr inbounds nuw ptr, ptr %58, i64 %60
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %60
   %62 = load ptr, ptr %61, align 8
   br label %BufferGetPage.exit60
 
@@ -1167,7 +1166,7 @@ br_page_get_freespace.exit63:                     ; preds = %100, %96, %88, %86
   %135 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %136 = xor i32 %54, -1
   %137 = zext nneg i32 %136 to i64
-  %138 = getelementptr inbounds nuw ptr, ptr %135, i64 %137
+  %138 = getelementptr inbounds nuw [8 x i8], ptr %135, i64 %137
   %139 = load ptr, ptr %138, align 8
   br label %BufferGetPage.exit65
 
@@ -1241,7 +1240,7 @@ define dso_local noundef zeroext i1 @brin_start_evacuating_page(ptr noundef read
   %5 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %6 = xor i32 %1, -1
   %7 = zext nneg i32 %6 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %5, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %7
   %9 = load ptr, ptr %8, align 8
   br label %BufferGetPage.exit
 
@@ -1284,7 +1283,7 @@ BufferGetPage.exit:                               ; preds = %4, %10
 .critedge:                                        ; preds = %.critedge.lr.ph, %26
   %.01519 = phi i16 [ 1, %.critedge.lr.ph ], [ %27, %26 ]
   %28 = zext i16 %.01519 to i64
-  %29 = getelementptr %struct.ItemIdData, ptr %25, i64 %28
+  %29 = getelementptr [4 x i8], ptr %25, i64 %28
   %30 = load i32, ptr %29, align 4
   %31 = and i32 %30, 98304
   %.not16 = icmp eq i32 %31, 0
@@ -1321,7 +1320,7 @@ define dso_local void @brin_evacuate_page(ptr noundef %0, i32 noundef %1, ptr no
   %8 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %9 = xor i32 %3, -1
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr %8, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %10
   %12 = load ptr, ptr %11, align 8
   br label %BufferGetPage.exit
 
@@ -1363,7 +1362,7 @@ BufferGetPage.exit:                               ; preds = %7, %13
 
 30:                                               ; preds = %29, %27
   %31 = zext i16 %.03140 to i64
-  %32 = getelementptr %struct.ItemIdData, ptr %25, i64 %31
+  %32 = getelementptr [4 x i8], ptr %25, i64 %31
   %33 = load i32, ptr %32, align 4
   %34 = and i32 %33, 98304
   %.not33 = icmp eq i32 %34, 0
@@ -1416,7 +1415,7 @@ define dso_local void @brin_page_cleanup(ptr noundef %0, i32 noundef %1) local_u
   %5 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %6 = xor i32 %1, -1
   %7 = zext nneg i32 %6 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %5, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %7
   %9 = load ptr, ptr %8, align 8
   br label %BufferGetPage.exit
 
@@ -1459,7 +1458,7 @@ BufferGetPage.exit22:                             ; preds = %22
   %23 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %24 = xor i32 %1, -1
   %25 = zext nneg i32 %24 to i64
-  %26 = getelementptr inbounds nuw ptr, ptr %23, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %25
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = load i16, ptr %28, align 4

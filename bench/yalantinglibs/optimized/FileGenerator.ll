@@ -27,8 +27,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::tuple.13" = type { %"struct.std::_Tuple_impl.14" }
 %"struct.std::_Tuple_impl.14" = type { %"struct.std::_Head_base.17" }
 %"struct.std::_Head_base.17" = type { ptr }
-%"class.google::protobuf::Descriptor" = type <{ ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, i8, i8, i8, i8 }>
-%"class.google::protobuf::EnumDescriptor" = type { ptr, ptr, ptr, ptr, ptr, i8, i8, i32, ptr, i32, i32, ptr, ptr }
 %"class.struct_pb::compiler::Formatter" = type { ptr, %"class.std::map.44" }
 %"class.std::map.44" = type { %"class.std::_Rb_tree.45" }
 %"class.std::_Rb_tree.45" = type { %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" }
@@ -387,7 +385,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %8 = phi ptr [ %file, %for.body.lr.ph ], [ %18, %_ZNSt10unique_ptrIN9struct_pb8compiler16MessageGeneratorESt14default_deleteIS2_EED2Ev.exit ]
   %message_types_.i = getelementptr inbounds nuw i8, ptr %8, i64 104
   %9 = load ptr, ptr %message_types_.i, align 8
-  %add.ptr.i = getelementptr inbounds nuw %"class.google::protobuf::Descriptor", ptr %9, i64 %indvars.iv
+  %add.ptr.i = getelementptr inbounds nuw [144 x i8], ptr %9, i64 %indvars.iv
   store ptr %add.ptr.i, ptr %ref.tmp6, align 8
   invoke void @_ZSt11make_uniqueIN9struct_pb8compiler16MessageGeneratorEJPKN6google8protobuf10DescriptorER7OptionsEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr nonnull sret(%"class.std::unique_ptr") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp6, ptr noundef nonnull align 8 dereferenceable(48) %options)
           to label %invoke.cont10 unwind label %lpad3.loopexit.split-lp
@@ -468,7 +466,7 @@ if.then.i20.i.i.i:                                ; preds = %_ZNSt6vectorISt10un
 invoke.cont12:                                    ; preds = %_ZNSt6vectorISt10unique_ptrIN9struct_pb8compiler16MessageGeneratorESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit19.i.i.i, %if.then.i20.i.i.i
   store ptr %call5.i.i.i.i.i.i11, ptr %message_generators_, align 8
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i, align 8
-  %add.ptr19.i.i.i = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %call5.i.i.i.i.i.i11, i64 %cond.i.i.i.i
+  %add.ptr19.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i11, i64 %cond.i.i.i.i
   store ptr %add.ptr19.i.i.i, ptr %_M_end_of_storage.i.i, align 8
   %.pr = load ptr, ptr %ref.tmp, align 8
   %cmp.not.i = icmp eq ptr %.pr, null
@@ -523,7 +521,7 @@ lpad11:                                           ; preds = %lpad11.loopexit.spl
 for.body18:                                       ; preds = %for.body18.lr.ph, %_ZNSt10unique_ptrIN9struct_pb8compiler13EnumGeneratorESt14default_deleteIS2_EED2Ev.exit
   %indvars.iv64 = phi i64 [ 0, %for.body18.lr.ph ], [ %indvars.iv.next65, %_ZNSt10unique_ptrIN9struct_pb8compiler13EnumGeneratorESt14default_deleteIS2_EED2Ev.exit ]
   %22 = load ptr, ptr %enum_types_.i, align 8
-  %add.ptr.i13 = getelementptr inbounds nuw %"class.google::protobuf::EnumDescriptor", ptr %22, i64 %indvars.iv64
+  %add.ptr.i13 = getelementptr inbounds nuw [80 x i8], ptr %22, i64 %indvars.iv64
   store ptr %add.ptr.i13, ptr %ref.tmp21, align 8
   invoke void @_ZSt11make_uniqueIN9struct_pb8compiler13EnumGeneratorEJPKN6google8protobuf14EnumDescriptorER7OptionsEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr nonnull sret(%"class.std::unique_ptr.10") align 8 %ref.tmp20, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp21, ptr noundef nonnull align 8 dereferenceable(48) %options)
           to label %invoke.cont24 unwind label %lpad3.loopexit
@@ -604,7 +602,7 @@ if.then.i20.i.i.i42:                              ; preds = %_ZNSt6vectorISt10un
 invoke.cont26:                                    ; preds = %_ZNSt6vectorISt10unique_ptrIN9struct_pb8compiler13EnumGeneratorESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit19.i.i.i, %if.then.i20.i.i.i42
   store ptr %call5.i.i.i.i.i.i47, ptr %enum_generators_, align 8
   store ptr %incdec.ptr.i.i.i40, ptr %_M_finish.i.i14, align 8
-  %add.ptr19.i.i.i43 = getelementptr inbounds nuw %"class.std::unique_ptr.10", ptr %call5.i.i.i.i.i.i47, i64 %cond.i.i.i.i28
+  %add.ptr19.i.i.i43 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i47, i64 %cond.i.i.i.i28
   store ptr %add.ptr19.i.i.i43, ptr %_M_end_of_storage.i.i15, align 8
   %.pr50 = load ptr, ptr %ref.tmp20, align 8
   %cmp.not.i48 = icmp eq ptr %.pr50, null
@@ -1009,7 +1007,7 @@ entry:
 for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %entry ]
   %2 = phi ptr [ %5, %for.body ], [ %1, %entry ]
-  %add.ptr.i = getelementptr inbounds nuw %"class.std::unique_ptr.10", ptr %2, i64 %indvars.iv
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %3 = load ptr, ptr %add.ptr.i, align 8
   tail call void @_ZN9struct_pb8compiler13EnumGenerator19generate_definitionEPN6google8protobuf2io7PrinterE(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef %p)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1041,7 +1039,7 @@ entry:
 for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %entry ]
   %2 = phi ptr [ %5, %for.body ], [ %1, %entry ]
-  %add.ptr.i = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %2, i64 %indvars.iv
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %3 = load ptr, ptr %add.ptr.i, align 8
   tail call void @_ZN9struct_pb8compiler16MessageGenerator26generate_struct_definitionEPN6google8protobuf2io7PrinterE(ptr noundef nonnull align 8 dereferenceable(256) %3, ptr noundef %p)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1074,7 +1072,7 @@ entry:
 for.body.i:                                       ; preds = %entry, %for.body.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %entry ]
   %2 = phi ptr [ %5, %for.body.i ], [ %1, %entry ]
-  %add.ptr.i.i = getelementptr inbounds nuw %"class.std::unique_ptr.10", ptr %2, i64 %indvars.iv.i
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.i
   %3 = load ptr, ptr %add.ptr.i.i, align 8
   tail call void @_ZN9struct_pb8compiler13EnumGenerator19generate_definitionEPN6google8protobuf2io7PrinterE(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef %p)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1098,7 +1096,7 @@ _ZN9struct_pb8compiler13FileGenerator25generate_enum_definitionsEPN6google8proto
 for.body.i5:                                      ; preds = %_ZN9struct_pb8compiler13FileGenerator25generate_enum_definitionsEPN6google8protobuf2io7PrinterE.exit, %for.body.i5
   %indvars.iv.i6 = phi i64 [ %indvars.iv.next.i8, %for.body.i5 ], [ 0, %_ZN9struct_pb8compiler13FileGenerator25generate_enum_definitionsEPN6google8protobuf2io7PrinterE.exit ]
   %8 = phi ptr [ %11, %for.body.i5 ], [ %7, %_ZN9struct_pb8compiler13FileGenerator25generate_enum_definitionsEPN6google8protobuf2io7PrinterE.exit ]
-  %add.ptr.i.i7 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %8, i64 %indvars.iv.i6
+  %add.ptr.i.i7 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i6
   %9 = load ptr, ptr %add.ptr.i.i7, align 8
   tail call void @_ZN9struct_pb8compiler16MessageGenerator26generate_struct_definitionEPN6google8protobuf2io7PrinterE(ptr noundef nonnull align 8 dereferenceable(256) %9, ptr noundef %p)
   %indvars.iv.next.i8 = add nuw nsw i64 %indvars.iv.i6, 1
@@ -1147,7 +1145,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %4 = phi ptr [ %1, %for.body.lr.ph ], [ %8, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   %message_types_.i = getelementptr inbounds nuw i8, ptr %4, i64 104
   %5 = load ptr, ptr %message_types_.i, align 8
-  %add.ptr.i = getelementptr inbounds nuw %"class.google::protobuf::Descriptor", ptr %5, i64 %indvars.iv
+  %add.ptr.i = getelementptr inbounds nuw [144 x i8], ptr %5, i64 %indvars.iv
   %6 = load ptr, ptr %add.ptr.i, align 8
   invoke void @_ZN9struct_pb8compiler15resolve_keywordERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %invoke.cont7 unwind label %lpad
@@ -1343,7 +1341,7 @@ _ZN9struct_pb8compiler13FileGenerator16generate_ns_openEPN6google8protobuf2io7Pr
 for.body.i.i14:                                   ; preds = %_ZN9struct_pb8compiler13FileGenerator16generate_ns_openEPN6google8protobuf2io7PrinterE.exit, %for.body.i.i14
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.body.i.i14 ], [ 0, %_ZN9struct_pb8compiler13FileGenerator16generate_ns_openEPN6google8protobuf2io7PrinterE.exit ]
   %16 = phi ptr [ %19, %for.body.i.i14 ], [ %15, %_ZN9struct_pb8compiler13FileGenerator16generate_ns_openEPN6google8protobuf2io7PrinterE.exit ]
-  %add.ptr.i.i.i = getelementptr inbounds nuw %"class.std::unique_ptr.10", ptr %16, i64 %indvars.iv.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv.i.i
   %17 = load ptr, ptr %add.ptr.i.i.i, align 8
   call void @_ZN9struct_pb8compiler13EnumGenerator19generate_definitionEPN6google8protobuf2io7PrinterE(ptr noundef nonnull align 8 dereferenceable(56) %17, ptr noundef nonnull %p)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -1367,7 +1365,7 @@ _ZN9struct_pb8compiler13FileGenerator25generate_enum_definitionsEPN6google8proto
 for.body.i5.i:                                    ; preds = %_ZN9struct_pb8compiler13FileGenerator25generate_enum_definitionsEPN6google8protobuf2io7PrinterE.exit.i, %for.body.i5.i
   %indvars.iv.i6.i = phi i64 [ %indvars.iv.next.i8.i, %for.body.i5.i ], [ 0, %_ZN9struct_pb8compiler13FileGenerator25generate_enum_definitionsEPN6google8protobuf2io7PrinterE.exit.i ]
   %22 = phi ptr [ %25, %for.body.i5.i ], [ %21, %_ZN9struct_pb8compiler13FileGenerator25generate_enum_definitionsEPN6google8protobuf2io7PrinterE.exit.i ]
-  %add.ptr.i.i7.i = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %22, i64 %indvars.iv.i6.i
+  %add.ptr.i.i7.i = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv.i6.i
   %23 = load ptr, ptr %add.ptr.i.i7.i, align 8
   call void @_ZN9struct_pb8compiler16MessageGenerator26generate_struct_definitionEPN6google8protobuf2io7PrinterE(ptr noundef nonnull align 8 dereferenceable(256) %23, ptr noundef nonnull %p)
   %indvars.iv.next.i8.i = add nuw nsw i64 %indvars.iv.i6.i, 1
@@ -1690,7 +1688,7 @@ for.body.lr.ph.i.i:                               ; preds = %entry
 for.body.i.i:                                     ; preds = %.noexc.i, %for.body.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %indvars.iv.next.i.i, %.noexc.i ]
   %2 = load ptr, ptr %message_types_.i.i.i, align 8, !noalias !26
-  %add.ptr.i.i.i = getelementptr inbounds nuw %"class.google::protobuf::Descriptor", ptr %2, i64 %indvars.iv.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [144 x i8], ptr %2, i64 %indvars.iv.i.i
   store ptr %result.addr.i.i, ptr %ref.tmp.i.i, align 8, !noalias !26
   invoke void @_ZN9struct_pb8compiler16for_each_messageIZNS0_24flatten_messages_in_fileEPKN6google8protobuf14FileDescriptorEPSt6vectorIPKNS3_10DescriptorESaISA_EEEUlSA_E_EEvSA_OT_(ptr noundef %add.ptr.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i)
           to label %.noexc.i unwind label %lpad.i
@@ -4516,7 +4514,7 @@ for.body.lr.ph.i.i:                               ; preds = %entry
 for.body.i.i:                                     ; preds = %.noexc.i, %for.body.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %indvars.iv.next.i.i, %.noexc.i ]
   %2 = load ptr, ptr %message_types_.i.i.i, align 8, !noalias !36
-  %add.ptr.i.i.i = getelementptr inbounds nuw %"class.google::protobuf::Descriptor", ptr %2, i64 %indvars.iv.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [144 x i8], ptr %2, i64 %indvars.iv.i.i
   store ptr %result.addr.i.i, ptr %ref.tmp.i.i, align 8, !noalias !36
   invoke void @_ZN9struct_pb8compiler16for_each_messageIZNS0_24flatten_messages_in_fileEPKN6google8protobuf14FileDescriptorEPSt6vectorIPKNS3_10DescriptorESaISA_EEEUlSA_E_EEvSA_OT_(ptr noundef %add.ptr.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i)
           to label %.noexc.i unwind label %lpad.i
@@ -6318,7 +6316,7 @@ for.body.lr.ph:                                   ; preds = %entry
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
   %1 = load ptr, ptr %nested_types_.i, align 8
-  %add.ptr.i = getelementptr inbounds nuw %"class.google::protobuf::Descriptor", ptr %1, i64 %indvars.iv
+  %add.ptr.i = getelementptr inbounds nuw [144 x i8], ptr %1, i64 %indvars.iv
   tail call void @_ZN9struct_pb8compiler16for_each_messageIZNS0_24flatten_messages_in_fileEPKN6google8protobuf14FileDescriptorEPSt6vectorIPKNS3_10DescriptorESaISA_EEEUlSA_E_EEvSA_OT_(ptr noundef %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(8) %func)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %2 = load i32, ptr %nested_type_count_.i, align 4
@@ -6395,7 +6393,7 @@ if.then.i18.i.i.i:                                ; preds = %_ZNSt6vectorIPKN6go
 _ZNSt6vectorIPKN6google8protobuf10DescriptorESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i: ; preds = %if.then.i18.i.i.i, %_ZNSt6vectorIPKN6google8protobuf10DescriptorESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit17.i.i.i
   store ptr %call5.i.i.i.i.i.i, ptr %7, align 8
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i, align 8
-  %add.ptr19.i.i.i = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
+  %add.ptr19.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
   store ptr %add.ptr19.i.i.i, ptr %_M_end_of_storage.i.i, align 8
   br label %_ZZN9struct_pb8compiler24flatten_messages_in_fileEPKN6google8protobuf14FileDescriptorEPSt6vectorIPKNS2_10DescriptorESaIS9_EEENKUlS9_E_clES9_.exit
 

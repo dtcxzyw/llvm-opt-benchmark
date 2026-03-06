@@ -264,7 +264,7 @@ define void @pmix_close_open_file_descriptors(i32 noundef %0) local_unnamed_addr
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 19
   %14 = load i8, ptr %13, align 1, !tbaa !16
   %15 = sext i8 %14 to i64
-  %16 = getelementptr inbounds i16, ptr %12, i64 %15
+  %16 = getelementptr inbounds [2 x i8], ptr %12, i64 %15
   %17 = load i16, ptr %16, align 2, !tbaa !17
   %18 = and i16 %17, 2048
   %.not27 = icmp eq i16 %18, 0

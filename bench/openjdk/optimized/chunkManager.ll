@@ -6,8 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.LogTagSet = type { ptr, i64, [5 x i32], [4 x i8], %class.LogOutputList, %class.LogDecorators, ptr }
 %class.LogOutputList = type <{ [6 x ptr], i32, [4 x i8] }>
 %class.LogDecorators = type { i32 }
-%"class.metaspace::FreeChunkList" = type <{ ptr, ptr, %"class.metaspace::AbstractCounter", [4 x i8] }>
-%"class.metaspace::AbstractCounter" = type { i32 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 %class.LogStream = type { %class.LogStreamImpl }
 %class.LogStreamImpl = type { %class.LogStreamImplBase, %class.LogTargetHandle }
@@ -88,7 +86,7 @@ define hidden void @_ZN9metaspace12ChunkManager26return_chunk_simple_lockedEPNS_
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i8, ptr %4, align 8
   %6 = sext i8 %5 to i64
-  %7 = getelementptr inbounds %"class.metaspace::FreeChunkList", ptr %3, i64 %6
+  %7 = getelementptr inbounds [24 x i8], ptr %3, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i64, ptr %8, align 8
   %10 = icmp eq i64 %9, 0
@@ -559,7 +557,7 @@ define hidden void @_ZN9metaspace12ChunkManager19return_chunk_lockedEPNS_9Metach
   %44 = getelementptr inbounds nuw i8, ptr %.018, i64 24
   %45 = load i8, ptr %44, align 8
   %46 = sext i8 %45 to i64
-  %47 = getelementptr inbounds %"class.metaspace::FreeChunkList", ptr %43, i64 %46
+  %47 = getelementptr inbounds [24 x i8], ptr %43, i64 %46
   %48 = getelementptr inbounds nuw i8, ptr %.018, i64 16
   %49 = load i64, ptr %48, align 8
   %50 = icmp eq i64 %49, 0
@@ -735,7 +733,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %1, %4
 18:                                               ; preds = %.lr.ph27, %._crit_edge
   %.025 = phi i8 [ 0, %.lr.ph27 ], [ %22, %._crit_edge ]
   %19 = sext i8 %.025 to i64
-  %20 = getelementptr inbounds %"class.metaspace::FreeChunkList", ptr %17, i64 %19
+  %20 = getelementptr inbounds [24 x i8], ptr %17, i64 %19
   %.01521 = load ptr, ptr %20, align 8
   %.not1622 = icmp eq ptr %.01521, null
   br i1 %.not1622, label %._crit_edge, label %.lr.ph
@@ -944,16 +942,16 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %2, %4
 
 7:                                                ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit, %7
   %indvars.iv = phi i64 [ 0, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit ], [ %indvars.iv.next, %7 ]
-  %8 = getelementptr inbounds nuw %"class.metaspace::FreeChunkList", ptr %5, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %indvars.iv
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %12 = load i32, ptr %11, align 4
   %13 = add nsw i32 %12, %10
   store i32 %13, ptr %11, align 4
   %14 = trunc nuw nsw i64 %indvars.iv to i8
   %15 = tail call noundef i64 @_ZNK9metaspace19FreeChunkListVector33calc_committed_word_size_at_levelEa(ptr noundef nonnull align 8 dereferenceable(360) %5, i8 noundef signext %14) #10
-  %16 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %17 = load i64, ptr %16, align 8
   %18 = add i64 %17, %15
   store i64 %18, ptr %16, align 8

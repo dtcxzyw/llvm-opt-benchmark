@@ -85,7 +85,7 @@ define internal void @lv_line_event(ptr readnone captures(none) %0, ptr noundef 
   %indvars.iv124 = phi i64 [ 0, %.lr.ph119 ], [ %indvars.iv.next125, %50 ]
   %.082118 = phi i32 [ 0, %.lr.ph119 ], [ %.183, %50 ]
   %.085117 = phi i32 [ 0, %.lr.ph119 ], [ %.186, %50 ]
-  %29 = getelementptr inbounds nuw %struct.lv_point_precise_t, ptr %27, i64 %indvars.iv124
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv124
   %30 = load float, ptr %29, align 4, !tbaa !18
   %31 = fptosi float %30 to i32
   %32 = and i32 %31, 1610612736
@@ -183,7 +183,7 @@ define internal void @lv_line_event(ptr readnone captures(none) %0, ptr noundef 
   %80 = call i32 @lv_obj_get_width(ptr noundef nonnull %8) #5
   %81 = call i32 @lv_obj_get_height(ptr noundef nonnull %8) #5
   %82 = load ptr, ptr %58, align 8, !tbaa !16
-  %83 = getelementptr inbounds nuw %struct.lv_point_precise_t, ptr %82, i64 %indvars.iv
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %82, i64 %indvars.iv
   %84 = load float, ptr %83, align 4, !tbaa !18
   %85 = fptosi float %84 to i32
   %86 = and i32 %85, 1610612736
@@ -237,7 +237,7 @@ resolve_point_coord.exit104:                      ; preds = %resolve_point_coord
   %.0.i100 = phi float [ %111, %.thread25.i102 ], [ %99, %103 ], [ %99, %resolve_point_coord.exit ]
   store float %.0.i100, ptr %73, align 4, !tbaa !36
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %112 = getelementptr inbounds nuw %struct.lv_point_precise_t, ptr %82, i64 %indvars.iv.next
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %82, i64 %indvars.iv.next
   %113 = load float, ptr %112, align 4, !tbaa !18
   %114 = fptosi float %113 to i32
   %115 = and i32 %114, 1610612736

@@ -224,7 +224,7 @@ define internal fastcc void @"_ZN105_$LT$rand..distr..uniform..int..UniformInt$L
 14:                                               ; preds = %8
   %15 = add nuw nsw i64 %11, 2
   store i64 %15, ptr %10, align 16, !alias.scope !9, !noalias !3
-  %16 = getelementptr inbounds nuw i32, ptr %3, i64 %11
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %11
   %17 = load i64, ptr %16, align 4, !alias.scope !16, !noalias !3
   br label %_ZN4rand3rng3Rng6random17hbca510b40e2d9573E.exit9.i
 
@@ -272,7 +272,7 @@ _ZN4rand3rng3Rng6random17hbca510b40e2d9573E.exit9.i: ; preds = %27, %18, %14
 42:                                               ; preds = %39
   %43 = add nuw nsw i64 %30, 2
   store i64 %43, ptr %10, align 16, !alias.scope !28, !noalias !3
-  %44 = getelementptr inbounds nuw i32, ptr %3, i64 %30
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %30
   %45 = load i64, ptr %44, align 4, !alias.scope !35, !noalias !3
   br label %_ZN4rand3rng3Rng6random17hbca510b40e2d9573E.exit12.i
 
@@ -1640,7 +1640,7 @@ define hidden noundef i8 @_ZN4rand3rng3Rng12random_range17h25bdde16237601cfE(ptr
 
 _ZN4rand3rng3Rng6random17h72bb2cef5bbbd342E.exit.i.i.i: ; preds = %12, %6
   %14 = phi i64 [ %10, %6 ], [ 0, %12 ]
-  %15 = getelementptr inbounds nuw i32, ptr %0, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %14
   %16 = load i32, ptr %15, align 4, !alias.scope !242, !noundef !8
   %17 = add nuw nsw i64 %14, 1
   store i64 %17, ptr %9, align 16, !alias.scope !242
@@ -1665,7 +1665,7 @@ _ZN4rand3rng3Rng6random17h72bb2cef5bbbd342E.exit.i.i.i: ; preds = %12, %6
 
 _ZN4rand3rng3Rng6random17h72bb2cef5bbbd342E.exit9.i.i.i: ; preds = %28, %26
   %30 = phi i64 [ %17, %26 ], [ 0, %28 ]
-  %31 = getelementptr inbounds nuw i32, ptr %0, i64 %30
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %30
   %32 = load i32, ptr %31, align 4, !alias.scope !249, !noundef !8
   %33 = add nuw nsw i64 %30, 1
   store i64 %33, ptr %9, align 16, !alias.scope !249
@@ -1733,7 +1733,7 @@ define hidden noundef i64 @_ZN4rand3rng3Rng12random_range17h33dfc3fb5ed2e9eeE(pt
 
 _ZN4rand3rng3Rng6random17h72bb2cef5bbbd342E.exit11.i.i.i.i: ; preds = %19, %14
   %21 = phi i64 [ %17, %14 ], [ 0, %19 ]
-  %22 = getelementptr inbounds nuw i32, ptr %0, i64 %21
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %21
   %23 = load i32, ptr %22, align 4, !alias.scope !270, !noalias !267, !noundef !8
   %24 = add nuw nsw i64 %21, 1
   store i64 %24, ptr %16, align 16, !alias.scope !270, !noalias !267
@@ -1757,7 +1757,7 @@ _ZN4rand3rng3Rng6random17h72bb2cef5bbbd342E.exit11.i.i.i.i: ; preds = %19, %14
 
 _ZN4rand3rng3Rng6random17h72bb2cef5bbbd342E.exit12.i.i.i.i: ; preds = %34, %32
   %36 = phi i64 [ %24, %32 ], [ 0, %34 ]
-  %37 = getelementptr inbounds nuw i32, ptr %0, i64 %36
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %36
   %38 = load i32, ptr %37, align 4, !alias.scope !277, !noalias !267, !noundef !8
   %39 = add nuw nsw i64 %36, 1
   store i64 %39, ptr %16, align 16, !alias.scope !277, !noalias !267
@@ -1850,7 +1850,7 @@ define hidden noundef i64 @_ZN4rand3rng3Rng12random_range17h580b024593bcc821E(pt
 
 _ZN4rand3rng3Rng6random17h72bb2cef5bbbd342E.exit11.i.i.i.i: ; preds = %15, %10
   %17 = phi i64 [ %13, %10 ], [ 0, %15 ]
-  %18 = getelementptr inbounds nuw i32, ptr %0, i64 %17
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %17
   %19 = load i32, ptr %18, align 4, !alias.scope !304, !noalias !301, !noundef !8
   %20 = add nuw nsw i64 %17, 1
   store i64 %20, ptr %12, align 16, !alias.scope !304, !noalias !301
@@ -1873,7 +1873,7 @@ _ZN4rand3rng3Rng6random17h72bb2cef5bbbd342E.exit11.i.i.i.i: ; preds = %15, %10
 
 _ZN4rand3rng3Rng6random17h72bb2cef5bbbd342E.exit12.i.i.i.i: ; preds = %29, %27
   %31 = phi i64 [ %20, %27 ], [ 0, %29 ]
-  %32 = getelementptr inbounds nuw i32, ptr %0, i64 %31
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %31
   %33 = load i32, ptr %32, align 4, !alias.scope !311, !noalias !301, !noundef !8
   %34 = add nuw nsw i64 %31, 1
   store i64 %34, ptr %12, align 16, !alias.scope !311, !noalias !301
@@ -1948,7 +1948,7 @@ define hidden noundef i32 @_ZN4rand3rng3Rng12random_range17h8d499f0d6dc27f9eE(pt
 
 _ZN4rand3rng3Rng6random17h7940f555716dc8bcE.exit13.i.i.i: ; preds = %10, %6
   %12 = phi i64 [ %8, %6 ], [ 0, %10 ]
-  %13 = getelementptr inbounds nuw i32, ptr %.val6, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %.val6, i64 %12
   %14 = load i32, ptr %13, align 4, !alias.scope !324, !noundef !8
   %15 = add nuw nsw i64 %12, 1
   store i64 %15, ptr %7, align 16, !alias.scope !324
@@ -1972,7 +1972,7 @@ _ZN4rand3rng3Rng6random17h7940f555716dc8bcE.exit13.i.i.i: ; preds = %10, %6
 
 _ZN4rand3rng3Rng6random17h7940f555716dc8bcE.exit14.i.i.i: ; preds = %25, %23
   %27 = phi i64 [ %15, %23 ], [ 0, %25 ]
-  %28 = getelementptr inbounds nuw i32, ptr %.val6, i64 %27
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %.val6, i64 %27
   %29 = load i32, ptr %28, align 4, !alias.scope !327, !noundef !8
   %30 = add nuw nsw i64 %27, 1
   store i64 %30, ptr %7, align 16, !alias.scope !327
@@ -2024,7 +2024,7 @@ define hidden noundef zeroext i1 @_ZN4rand3rng3Rng6sample17hc49022507cd871c1E(pt
 9:                                                ; preds = %4
   %10 = add nuw nsw i64 %6, 2
   store i64 %10, ptr %5, align 16, !alias.scope !330
-  %11 = getelementptr inbounds nuw i32, ptr %0, i64 %6
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %6
   %12 = load i64, ptr %11, align 4, !alias.scope !339
   br label %_ZN4rand3rng3Rng6random17hbca510b40e2d9573E.exit.i
 
@@ -6257,7 +6257,7 @@ define { ptr, ptr } @"_ZN88_$LT$quinn_proto..crypto..rustls..TlsSession$u20$as$u
   %9 = getelementptr inbounds nuw i8, ptr %.sroa.02.0, i64 752
   %10 = load i64, ptr %9, align 8, !noundef !8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %11 = getelementptr inbounds nuw { { { i64, [2 x i64] } } }, ptr %8, i64 %10
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %8, i64 %10
   call void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h09703e79969de4bcE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull %8, ptr noundef nonnull %11, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.2245126a2ad8437c5367a35deb4c33ec.13)
   %12 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !666
   %13 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @_RNvCshjvJWTf7CV5_7___rustc12___rust_alloc(i64 noundef range(i64 1, 0) 24, i64 noundef range(i64 1, -9223372036854775807) 8) #29, !noalias !666
@@ -8042,7 +8042,7 @@ _ZN11quinn_proto6crypto6rustls16QuicClientConfig5inner17h1fbed018a14c4212E.exit:
   %47 = load ptr, ptr %46, align 8, !noalias !855, !nonnull !8, !noundef !8
   %48 = getelementptr inbounds nuw i8, ptr %.val, i64 32
   %49 = load i64, ptr %48, align 8, !noalias !855, !noundef !8
-  %50 = getelementptr inbounds nuw ptr, ptr %47, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %49
   br label %"_ZN11quinn_proto6crypto6rustls27initial_suite_from_provider28_$u7b$$u7b$closure$u7d$$u7d$17h6e5d3a28e74227d6E.exit.i.i"
 
 "_ZN11quinn_proto6crypto6rustls27initial_suite_from_provider28_$u7b$$u7b$closure$u7d$$u7d$17h6e5d3a28e74227d6E.exit.i.i": ; preds = %53, %_ZN11quinn_proto6crypto6rustls16QuicClientConfig5inner17h1fbed018a14c4212E.exit
@@ -8678,7 +8678,7 @@ define void @"_ZN137_$LT$quinn_proto..crypto..rustls..QuicClientConfig$u20$as$u2
   %18 = load ptr, ptr %17, align 8, !noalias !968, !nonnull !8, !noundef !8
   %19 = getelementptr inbounds nuw i8, ptr %.val.i, i64 32
   %20 = load i64, ptr %19, align 8, !noalias !968, !noundef !8
-  %21 = getelementptr inbounds nuw ptr, ptr %18, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %20
   br label %"_ZN11quinn_proto6crypto6rustls27initial_suite_from_provider28_$u7b$$u7b$closure$u7d$$u7d$17h6e5d3a28e74227d6E.exit.i.i.i"
 
 "_ZN11quinn_proto6crypto6rustls27initial_suite_from_provider28_$u7b$$u7b$closure$u7d$$u7d$17h6e5d3a28e74227d6E.exit.i.i.i": ; preds = %24, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h9eb27ba8767419f2E.exit"
@@ -8740,7 +8740,7 @@ define void @"_ZN161_$LT$quinn_proto..crypto..rustls..QuicClientConfig$u20$as$u2
   %6 = load ptr, ptr %5, align 8, !noalias !983, !nonnull !8, !noundef !8
   %7 = getelementptr inbounds nuw i8, ptr %.val, i64 32
   %8 = load i64, ptr %7, align 8, !noalias !983, !noundef !8
-  %9 = getelementptr inbounds nuw ptr, ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %8
   br label %"_ZN11quinn_proto6crypto6rustls27initial_suite_from_provider28_$u7b$$u7b$closure$u7d$$u7d$17h6e5d3a28e74227d6E.exit.i.i"
 
 "_ZN11quinn_proto6crypto6rustls27initial_suite_from_provider28_$u7b$$u7b$closure$u7d$$u7d$17h6e5d3a28e74227d6E.exit.i.i": ; preds = %12, %2
@@ -8985,7 +8985,7 @@ common.resume:                                    ; preds = %80, %72, %45
   %50 = load ptr, ptr %49, align 8, !noalias !1018, !nonnull !8, !noundef !8
   %51 = getelementptr inbounds nuw i8, ptr %.val, i64 32
   %52 = load i64, ptr %51, align 8, !noalias !1018, !noundef !8
-  %53 = getelementptr inbounds nuw ptr, ptr %50, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %52
   br label %"_ZN11quinn_proto6crypto6rustls27initial_suite_from_provider28_$u7b$$u7b$closure$u7d$$u7d$17h6e5d3a28e74227d6E.exit.i.i"
 
 "_ZN11quinn_proto6crypto6rustls27initial_suite_from_provider28_$u7b$$u7b$closure$u7d$$u7d$17h6e5d3a28e74227d6E.exit.i.i": ; preds = %56, %47
@@ -9159,7 +9159,7 @@ define void @"_ZN137_$LT$quinn_proto..crypto..rustls..QuicServerConfig$u20$as$u2
   %18 = load ptr, ptr %17, align 8, !noalias !1042, !nonnull !8, !noundef !8
   %19 = getelementptr inbounds nuw i8, ptr %.val.i, i64 32
   %20 = load i64, ptr %19, align 8, !noalias !1042, !noundef !8
-  %21 = getelementptr inbounds nuw ptr, ptr %18, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %20
   br label %"_ZN11quinn_proto6crypto6rustls27initial_suite_from_provider28_$u7b$$u7b$closure$u7d$$u7d$17h6e5d3a28e74227d6E.exit.i.i.i"
 
 "_ZN11quinn_proto6crypto6rustls27initial_suite_from_provider28_$u7b$$u7b$closure$u7d$$u7d$17h6e5d3a28e74227d6E.exit.i.i.i": ; preds = %24, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h3db2be1357e04549E.exit"
@@ -9221,7 +9221,7 @@ define void @"_ZN161_$LT$quinn_proto..crypto..rustls..QuicServerConfig$u20$as$u2
   %6 = load ptr, ptr %5, align 8, !noalias !1057, !nonnull !8, !noundef !8
   %7 = getelementptr inbounds nuw i8, ptr %.val, i64 32
   %8 = load i64, ptr %7, align 8, !noalias !1057, !noundef !8
-  %9 = getelementptr inbounds nuw ptr, ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %8
   br label %"_ZN11quinn_proto6crypto6rustls27initial_suite_from_provider28_$u7b$$u7b$closure$u7d$$u7d$17h6e5d3a28e74227d6E.exit.i.i"
 
 "_ZN11quinn_proto6crypto6rustls27initial_suite_from_provider28_$u7b$$u7b$closure$u7d$$u7d$17h6e5d3a28e74227d6E.exit.i.i": ; preds = %12, %2

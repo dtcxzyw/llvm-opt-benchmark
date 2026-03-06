@@ -94,7 +94,7 @@ select.unfold.i.i:                                ; preds = %.sink.split.i.i.i, 
   %.val.i.i = load ptr, ptr %25, align 8, !noalias !10, !nonnull !11, !noundef !11
   %26 = getelementptr i8, ptr %9, i64 16
   %.val5.i.i = load i64, ptr %26, align 8, !noalias !10, !noundef !11
-  %27 = getelementptr inbounds { { { { ptr, ptr } }, {}, {} }, i128 }, ptr %.val.i.i, i64 %.val5.i.i
+  %27 = getelementptr inbounds [32 x i8], ptr %.val.i.i, i64 %.val5.i.i
   store ptr %.val.i.i, ptr %3, align 8, !alias.scope !10
   store ptr %27, ptr %4, align 8, !alias.scope !10
   br label %7
@@ -167,7 +167,7 @@ select.unfold.i:                                  ; preds = %.sink.split.i.i, %6
   %.val.i = load ptr, ptr %24, align 8, !noalias !38, !nonnull !11, !noundef !11
   %25 = getelementptr i8, ptr %8, i64 16
   %.val5.i = load i64, ptr %25, align 8, !noalias !38, !noundef !11
-  %26 = getelementptr inbounds { { { { ptr, ptr } }, {}, {} }, i128 }, ptr %.val.i, i64 %.val5.i
+  %26 = getelementptr inbounds [32 x i8], ptr %.val.i, i64 %.val5.i
   store ptr %.val.i, ptr %2, align 8, !alias.scope !38
   store ptr %26, ptr %3, align 8, !alias.scope !38
   br label %6
@@ -235,7 +235,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h8acc63121a3e26d4E.exit: ; pr
   %.val = load ptr, ptr %24, align 8, !nonnull !11, !noundef !11
   %25 = getelementptr i8, ptr %8, i64 16
   %.val5 = load i64, ptr %25, align 8, !noundef !11
-  %26 = getelementptr inbounds { { { { ptr, ptr } }, {}, {} }, i128 }, ptr %.val, i64 %.val5
+  %26 = getelementptr inbounds [32 x i8], ptr %.val, i64 %.val5
   store ptr %.val, ptr %2, align 8
   store ptr %26, ptr %3, align 8
   br label %6
@@ -298,7 +298,7 @@ select.unfold.i.i.i:                              ; preds = %.sink.split.i.i.i.i
   %.val.i.i.i = load ptr, ptr %25, align 8, !noalias !82, !nonnull !11, !noundef !11
   %26 = getelementptr i8, ptr %9, i64 16
   %.val5.i.i.i = load i64, ptr %26, align 8, !noalias !82, !noundef !11
-  %27 = getelementptr inbounds { { { { ptr, ptr } }, {}, {} }, i128 }, ptr %.val.i.i.i, i64 %.val5.i.i.i
+  %27 = getelementptr inbounds [32 x i8], ptr %.val.i.i.i, i64 %.val5.i.i.i
   store ptr %.val.i.i.i, ptr %3, align 8, !alias.scope !82
   store ptr %27, ptr %4, align 8, !alias.scope !82
   br label %7
@@ -423,7 +423,7 @@ define hidden void @_ZN12clap_builder6parser7matches11arg_matches10ArgMatches12t
   %16 = load ptr, ptr %15, align 16, !nonnull !11, !noundef !11
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %18 = load i64, ptr %17, align 8, !noundef !11
-  %19 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %16, i64 %18
+  %19 = getelementptr inbounds [24 x i8], ptr %16, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @"_ZN12clap_builder6parser7matches11arg_matches49unwrap_downcast_ref$u7b$$u7b$reify.shim$u7d$$u7d$17hb0fdf38941ea3524E", ptr %20, align 8
   %.sroa.47.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1176,14 +1176,14 @@ _ZN12clap_builder6parser5error12MatchesError6unwrap17h4ec7f269a9a62422E.exit146.
   br i1 %163, label %switch.lookup, label %173
 
 switch.lookup:                                    ; preds = %_ZN12clap_builder6parser5error12MatchesError6unwrap17h4ec7f269a9a62422E.exit146.thread
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN8uu_split9filenames6Suffix4from17hdfe9b0fbe74a9db0E, i64 %162
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN8uu_split9filenames6Suffix4from17hdfe9b0fbe74a9db0E, i64 %162
   %switch.load = load i64, ptr %switch.gep, align 8
   %164 = getelementptr inbounds nuw i8, ptr %2, i64 %switch.load
   %.0.i = load i64, ptr %164, align 8, !alias.scope !315, !noundef !11
   %165 = add i64 %.0.i, %.2120
   %166 = uitofp i64 %165 to double
   %167 = zext nneg i8 %.0 to i64
-  %switch.gep266 = getelementptr inbounds nuw double, ptr @switch.table._ZN8uu_split9filenames6Suffix4from17hdfe9b0fbe74a9db0E.9, i64 %167
+  %switch.gep266 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN8uu_split9filenames6Suffix4from17hdfe9b0fbe74a9db0E.9, i64 %167
   %switch.load267 = load double, ptr %switch.gep266, align 8
   %168 = tail call noundef double @llvm.log.f64(double %166)
   %169 = fdiv double %168, %switch.load267

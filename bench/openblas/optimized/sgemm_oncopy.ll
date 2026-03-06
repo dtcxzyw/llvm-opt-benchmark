@@ -21,9 +21,9 @@ define noundef i32 @sgemm_oncopy(i64 noundef %0, i64 noundef %1, ptr noalias nou
   %.1174.us = phi ptr [ %.4177.us, %.loopexit202.us ], [ %4, %.preheader205 ]
   %.1153.us = phi ptr [ %53, %.loopexit202.us ], [ %2, %.preheader205 ]
   %.0151.us = phi i64 [ %51, %.loopexit202.us ], [ %6, %.preheader205 ]
-  %11 = getelementptr inbounds float, ptr %.1153.us, i64 %3
-  %12 = getelementptr inbounds float, ptr %11, i64 %3
-  %13 = getelementptr inbounds float, ptr %12, i64 %3
+  %11 = getelementptr inbounds [4 x i8], ptr %.1153.us, i64 %3
+  %12 = getelementptr inbounds [4 x i8], ptr %11, i64 %3
+  %13 = getelementptr inbounds [4 x i8], ptr %12, i64 %3
   br label %14
 
 14:                                               ; preds = %.preheader203.us, %14
@@ -111,9 +111,9 @@ define noundef i32 @sgemm_oncopy(i64 noundef %0, i64 noundef %1, ptr noalias nou
   %.1174 = phi ptr [ %71, %.loopexit202 ], [ %4, %.preheader205.split ]
   %.1153 = phi ptr [ %74, %.loopexit202 ], [ %2, %.preheader205.split ]
   %.0151 = phi i64 [ %75, %.loopexit202 ], [ %6, %.preheader205.split ]
-  %56 = getelementptr inbounds float, ptr %.1153, i64 %3
-  %57 = getelementptr inbounds float, ptr %56, i64 %3
-  %58 = getelementptr inbounds float, ptr %57, i64 %3
+  %56 = getelementptr inbounds [4 x i8], ptr %.1153, i64 %3
+  %57 = getelementptr inbounds [4 x i8], ptr %56, i64 %3
+  %58 = getelementptr inbounds [4 x i8], ptr %57, i64 %3
   br label %59
 
 59:                                               ; preds = %.preheader201, %59
@@ -157,7 +157,7 @@ define noundef i32 @sgemm_oncopy(i64 noundef %0, i64 noundef %1, ptr noalias nou
   br i1 %.not190, label %.loopexit198, label %78
 
 78:                                               ; preds = %.loopexit206
-  %79 = getelementptr inbounds float, ptr %.0152, i64 %3
+  %79 = getelementptr inbounds [4 x i8], ptr %.0152, i64 %3
   %.idx191 = shl nsw i64 %3, 3
   %80 = getelementptr inbounds i8, ptr %.0152, i64 %.idx191
   %81 = ashr i64 %0, 2

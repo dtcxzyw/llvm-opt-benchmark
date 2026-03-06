@@ -62,15 +62,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.cv::Ptr.83" = type { %"class.std::shared_ptr.84" }
 %"class.std::shared_ptr.84" = type { %"class.std::__shared_ptr.85" }
 %"class.std::__shared_ptr.85" = type { ptr, %"class.std::__shared_count" }
-%"class.cv::detail::tracking::feature::CvHaarEvaluator::FeatureHaar" = type { i32, i32, %"class.std::vector.91", float, float, %"class.std::vector.96", %"class.cv::Size_", %"class.cv::Size_", float, float, %"class.std::vector.96", %"class.std::vector.91" }
-%"class.std::vector.96" = type { %"struct.std::_Vector_base.97" }
-%"struct.std::_Vector_base.97" = type { %"struct.std::_Vector_base<cv::Rect_<int>, std::allocator<cv::Rect_<int>>>::_Vector_impl" }
-%"struct.std::_Vector_base<cv::Rect_<int>, std::allocator<cv::Rect_<int>>>::_Vector_impl" = type { %"struct.std::_Vector_base<cv::Rect_<int>, std::allocator<cv::Rect_<int>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<cv::Rect_<int>, std::allocator<cv::Rect_<int>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.91" = type { %"struct.std::_Vector_base.92" }
-%"struct.std::_Vector_base.92" = type { %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl" }
-%"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl" = type { %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 
 $_ZNSt6vectorIN2cv6detail8tracking7feature15CvHaarEvaluator11FeatureHaarESaIS5_EEC2ERKS7_ = comdat any
 
@@ -5577,7 +5568,7 @@ define linkonce_odr hidden void @_ZNK2cv6detail8tracking8internal16Parallel_comp
 
 .lr.ph:                                           ; preds = %.lr.ph19.split
   %23 = load ptr, ptr %8, align 8, !tbaa !61
-  %24 = getelementptr inbounds nuw %"class.cv::Mat", ptr %23, i64 %indvars.iv23
+  %24 = getelementptr inbounds nuw [96 x i8], ptr %23, i64 %indvars.iv23
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load i32, ptr %25, align 8, !tbaa !279
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 12
@@ -5607,9 +5598,9 @@ define linkonce_odr hidden void @_ZNK2cv6detail8tracking8internal16Parallel_comp
   store float 0.000000e+00, ptr %3, align 4, !tbaa !82
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 240
   %35 = load ptr, ptr %34, align 8, !tbaa !67
-  %36 = getelementptr inbounds nuw %"class.cv::detail::tracking::feature::CvHaarEvaluator::FeatureHaar", ptr %35, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [136 x i8], ptr %35, i64 %indvars.iv
   %37 = load ptr, ptr %8, align 8, !tbaa !61
-  %38 = getelementptr inbounds nuw %"class.cv::Mat", ptr %37, i64 %indvars.iv23
+  %38 = getelementptr inbounds nuw [96 x i8], ptr %37, i64 %indvars.iv23
   %39 = call noundef zeroext i1 @_ZNK2cv6detail8tracking7feature15CvHaarEvaluator11FeatureHaar4evalERKNS_3MatENS_5Rect_IiEEPf(ptr noundef nonnull align 8 dereferenceable(136) %36, ptr noundef nonnull align 8 dereferenceable(96) %38, i64 0, i64 %.sroa.3.8.insert.insert, ptr noundef nonnull %3)
   %40 = load float, ptr %3, align 4, !tbaa !82
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -5633,7 +5624,7 @@ _ZN2cv4Mat_IfEC2ERKNS_3MatE.exit:                 ; preds = %32
   %49 = load i64, ptr %48, align 8, !tbaa !286
   %50 = mul i64 %49, %indvars.iv
   %51 = getelementptr inbounds nuw i8, ptr %47, i64 %50
-  %52 = getelementptr inbounds float, ptr %51, i64 %indvars.iv23
+  %52 = getelementptr inbounds [4 x i8], ptr %51, i64 %indvars.iv23
   store float %40, ptr %52, align 4, !tbaa !82
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

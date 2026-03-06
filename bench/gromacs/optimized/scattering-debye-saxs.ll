@@ -168,7 +168,7 @@ define noundef double @_ZN3gmx9SaxsDebye19getScatteringLengthEid(ptr noundef non
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %6 = sext i32 %1 to i64
   %7 = load ptr, ptr %5, align 8, !tbaa !23
-  %8 = getelementptr inbounds nuw i32, ptr %7, i64 %6
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %6
   %9 = load i32, ptr %8, align 4, !tbaa !26
   store i32 %9, ptr %4, align 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -374,9 +374,9 @@ _ZNSt6vectorIN3gmx21AtomicStructureFactorESaIS1_EED2Ev.exit: ; preds = %_ZSt8_De
 82:                                               ; preds = %72, %82
   %indvars.iv = phi i64 [ 0, %72 ], [ %indvars.iv.next, %82 ]
   %.02157 = phi double [ %77, %72 ], [ %91, %82 ]
-  %83 = getelementptr inbounds nuw double, ptr %32, i64 %indvars.iv
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv
   %84 = load double, ptr %83, align 8, !tbaa !28
-  %85 = getelementptr inbounds nuw double, ptr %34, i64 %indvars.iv
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv
   %86 = load double, ptr %85, align 8, !tbaa !28
   %87 = fneg double %86
   %88 = fmul double %58, %87
@@ -411,7 +411,7 @@ _ZNKSt8__detail15_Hash_code_baseISt4pairIidES1_IKS2_dENS_10_Select1stEN3gmx8pair
   %101 = load i64, ptr %19, align 8, !tbaa !22
   %102 = urem i64 %100, %101
   %103 = load ptr, ptr %17, align 8, !tbaa !21
-  %104 = getelementptr inbounds nuw ptr, ptr %103, i64 %102
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %103, i64 %102
   %105 = load ptr, ptr %104, align 8, !tbaa !70
   %.not.i.i.i31 = icmp eq ptr %105, null
   br i1 %.not.i.i.i31, label %.loopexit.i, label %106
@@ -810,7 +810,7 @@ _ZNKSt8__detail15_Hash_code_baseISt4pairIidES1_IKS2_dENS_10_Select1stEN3gmx8pair
   %17 = load i64, ptr %16, align 8, !tbaa !22
   %18 = urem i64 %15, %17
   %19 = load ptr, ptr %0, align 8, !tbaa !21
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %18
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %18
   %21 = load ptr, ptr %20, align 8, !tbaa !70
   %.not.i.i = icmp eq ptr %21, null
   br i1 %.not.i.i, label %.loopexit, label %22
@@ -930,7 +930,7 @@ _ZNSt10_HashtableISt4pairIidES0_IKS1_dESaIS3_ENSt8__detail10_Select1stESt8equal_
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i64 %2, ptr %32, align 8, !tbaa !71
   %33 = load ptr, ptr %0, align 8, !tbaa !21
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %.0
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.0
   %35 = load ptr, ptr %34, align 8, !tbaa !70
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %39, label %36
@@ -956,7 +956,7 @@ _ZNSt10_HashtableISt4pairIidES0_IKS1_dESaIS3_ENSt8__detail10_Select1stESt8equal_
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 32
   %46 = load i64, ptr %45, align 8, !tbaa !71
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %33, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !70
   br label %49
 
@@ -1035,7 +1035,7 @@ _ZNSt10_HashtableISt4pairIidES0_IKS1_dESaIS3_ENSt8__detail10_Select1stESt8equal_
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 32
   %16 = load i64, ptr %15, align 8, !tbaa !71
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !70
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -1050,7 +1050,7 @@ _ZNSt10_HashtableISt4pairIidES0_IKS1_dESaIS3_ENSt8__detail10_Select1stESt8equal_
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8, !tbaa !70
   br label %28
 

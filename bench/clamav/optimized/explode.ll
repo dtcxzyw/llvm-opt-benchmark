@@ -440,7 +440,7 @@ define range(i32 0, 2) i32 @explode(ptr noundef %0) local_unnamed_addr #1 {
 
 175:                                              ; preds = %179, %159
   %indvars.iv.i = phi i64 [ 0, %159 ], [ %indvars.iv.next.i, %179 ]
-  %176 = getelementptr inbounds nuw i32, ptr %169, i64 %indvars.iv.i
+  %176 = getelementptr inbounds nuw [4 x i8], ptr %169, i64 %indvars.iv.i
   %177 = load i32, ptr %176, align 4, !tbaa !23
   %178 = icmp eq i32 %177, %174
   br i1 %178, label %lookup_tree.exit, label %179
@@ -746,7 +746,7 @@ lookup_tree.exit.thread:                          ; preds = %179
 
 350:                                              ; preds = %354, %334
   %indvars.iv.i440 = phi i64 [ 0, %334 ], [ %indvars.iv.next.i441, %354 ]
-  %351 = getelementptr inbounds nuw i32, ptr %344, i64 %indvars.iv.i440
+  %351 = getelementptr inbounds nuw [4 x i8], ptr %344, i64 %indvars.iv.i440
   %352 = load i32, ptr %351, align 4, !tbaa !23
   %353 = icmp eq i32 %352, %349
   br i1 %353, label %lookup_tree.exit445, label %354
@@ -870,7 +870,7 @@ lookup_tree.exit445.thread:                       ; preds = %354
 
 416:                                              ; preds = %420, %400
   %indvars.iv.i446 = phi i64 [ 0, %400 ], [ %indvars.iv.next.i447, %420 ]
-  %417 = getelementptr inbounds nuw i32, ptr %410, i64 %indvars.iv.i446
+  %417 = getelementptr inbounds nuw [4 x i8], ptr %410, i64 %indvars.iv.i446
   %418 = load i32, ptr %417, align 4, !tbaa !23
   %419 = icmp eq i32 %418, %415
   br i1 %419, label %lookup_tree.exit451, label %420
@@ -1251,7 +1251,7 @@ bs.exit:                                          ; preds = %._crit_edge.i, %._c
   %83 = and i32 %72, 65535
   %84 = shl nuw nsw i32 %79, 16
   %85 = or disjoint i32 %84, %83
-  %86 = getelementptr inbounds nuw i32, ptr %1, i64 %75
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %75
   store i32 %85, ptr %86, align 4, !tbaa !23
   %.not55 = icmp eq i64 %indvars.iv82, 0
   %indvars.iv.next83 = add nsw i64 %indvars.iv82, -1

@@ -1830,7 +1830,7 @@ _ZNSt6vectorIN5vcpkg4PathESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26: ; preds =
 _ZNSt12_Vector_baseIN5vcpkg4PathESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN5vcpkg4PathESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26, %69
   store ptr %22, ptr %0, align 8, !tbaa !48
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !33
-  %73 = getelementptr inbounds nuw %"struct.vcpkg::Path", ptr %22, i64 %16
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %73, ptr %68, align 8, !tbaa !35
   ret void
 }

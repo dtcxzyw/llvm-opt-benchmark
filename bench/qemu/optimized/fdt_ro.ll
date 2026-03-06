@@ -3,8 +3,6 @@ source_filename = "bench/qemu/original/fdt_ro.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.fdt_reserve_entry = type { i64, i64 }
-
 @.str = private unnamed_addr constant [8 x i8] c"phandle\00", align 1
 @.str.1 = private unnamed_addr constant [14 x i8] c"linux,phandle\00", align 1
 @.str.2 = private unnamed_addr constant [9 x i8] c"/aliases\00", align 1
@@ -474,7 +472,7 @@ define dso_local range(i32 -2147483648, 1) i32 @fdt_get_mem_rsv(ptr noundef %0, 
   %61 = zext i8 %24 to i64
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 %61
   %63 = sext i32 %1 to i64
-  %64 = getelementptr inbounds %struct.fdt_reserve_entry, ptr %62, i64 %63
+  %64 = getelementptr inbounds [16 x i8], ptr %62, i64 %63
   %.val = load i64, ptr %64, align 8
   %65 = tail call noundef i64 @llvm.bswap.i64(i64 %.val)
   store i64 %65, ptr %2, align 8
@@ -551,7 +549,7 @@ define dso_local i32 @fdt_num_mem_rsv(ptr noundef readonly captures(none) %0) lo
 
 52:                                               ; preds = %.split
   %53 = sext i32 %.09 to i64
-  %54 = getelementptr inbounds %struct.fdt_reserve_entry, ptr %48, i64 %53
+  %54 = getelementptr inbounds [16 x i8], ptr %48, i64 %53
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %.val = load i64, ptr %55, align 8
   %56 = icmp eq i64 %.val, 0

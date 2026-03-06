@@ -145,7 +145,7 @@ define internal fastcc noundef zeroext i1 @_ZN14arrow_vendored17double_conversio
 _ZN14arrow_vendored17double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit.i: ; preds = %._crit_edge.loopexit.i.i, %16
   %.0.lcssa.i.i = phi double [ 0.000000e+00, %16 ], [ %29, %._crit_edge.loopexit.i.i ]
   %30 = zext nneg i32 %17 to i64
-  %31 = getelementptr inbounds nuw double, ptr @_ZN14arrow_vendored17double_conversionL19exact_powers_of_tenE, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr @_ZN14arrow_vendored17double_conversionL19exact_powers_of_tenE, i64 %30
   %32 = load double, ptr %31, align 8, !tbaa !3
   %33 = fdiv double %.0.lcssa.i.i, %32
   br label %.sink.split
@@ -184,7 +184,7 @@ _ZN14arrow_vendored17double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit.i: ;
 _ZN14arrow_vendored17double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit40.i: ; preds = %._crit_edge.loopexit.i39.i, %35
   %.0.lcssa.i33.i = phi double [ 0.000000e+00, %35 ], [ %47, %._crit_edge.loopexit.i39.i ]
   %48 = zext nneg i32 %2 to i64
-  %49 = getelementptr inbounds nuw double, ptr @_ZN14arrow_vendored17double_conversionL19exact_powers_of_tenE, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr @_ZN14arrow_vendored17double_conversionL19exact_powers_of_tenE, i64 %48
   %50 = load double, ptr %49, align 8, !tbaa !3
   %51 = fmul double %.0.lcssa.i33.i, %50
   br label %.sink.split
@@ -229,11 +229,11 @@ _ZN14arrow_vendored17double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit40.i:
 _ZN14arrow_vendored17double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit49.i: ; preds = %._crit_edge.loopexit.i48.i, %58
   %.0.lcssa.i42.i = phi double [ 0.000000e+00, %58 ], [ %70, %._crit_edge.loopexit.i48.i ]
   %71 = zext nneg i32 %54 to i64
-  %72 = getelementptr inbounds nuw double, ptr @_ZN14arrow_vendored17double_conversionL19exact_powers_of_tenE, i64 %71
+  %72 = getelementptr inbounds nuw [8 x i8], ptr @_ZN14arrow_vendored17double_conversionL19exact_powers_of_tenE, i64 %71
   %73 = load double, ptr %72, align 8, !tbaa !3
   %74 = fmul double %.0.lcssa.i42.i, %73
   %75 = sext i32 %56 to i64
-  %76 = getelementptr inbounds double, ptr @_ZN14arrow_vendored17double_conversionL19exact_powers_of_tenE, i64 %75
+  %76 = getelementptr inbounds [8 x i8], ptr @_ZN14arrow_vendored17double_conversionL19exact_powers_of_tenE, i64 %75
   %77 = load double, ptr %76, align 8, !tbaa !3
   %78 = fmul double %74, %77
   br label %.sink.split
@@ -342,10 +342,10 @@ _ZN14arrow_vendored17double_conversion5DiyFp9NormalizeEv.exit.i: ; preds = %.lr.
 switch.lookup:                                    ; preds = %116
   %switch.tableidx = add nsw i32 %117, -1
   %120 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN14arrow_vendored17double_conversionL12ComputeGuessENS0_6VectorIKcEEiPd, i64 %120
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN14arrow_vendored17double_conversionL12ComputeGuessENS0_6VectorIKcEEiPd, i64 %120
   %switch.load = load i32, ptr %switch.gep, align 4
   %121 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep96 = getelementptr inbounds nuw i64, ptr @switch.table._ZN14arrow_vendored17double_conversionL12ComputeGuessENS0_6VectorIKcEEiPd.1, i64 %121
+  %switch.gep96 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN14arrow_vendored17double_conversionL12ComputeGuessENS0_6VectorIKcEEiPd.1, i64 %121
   %switch.load97 = load i64, ptr %switch.gep96, align 8
   %122 = lshr i64 %.1.lcssa.i.i, 32
   %123 = and i64 %.1.lcssa.i.i, 4294967295

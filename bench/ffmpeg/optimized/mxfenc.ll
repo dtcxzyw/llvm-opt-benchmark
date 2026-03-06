@@ -15,9 +15,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.RangeCoder = type { i32, i32, i32, i32, [256 x i8], [256 x i8], ptr, ptr, ptr, i32 }
 %struct.H264SPS = type { i8, i8, i8, i8, i8, i8, i8, i8, %struct.AVRational }
 %struct.AVRational = type { i32, i32 }
-%struct.anon = type { i16, i8, [16 x i8] }
-%struct.anon.3 = type { [16 x i8], i32, i8, i8, i8 }
-%struct.MXFIndexEntry = type { i64, i32, i16, i8 }
 %struct.tm = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, ptr }
 %struct.MXFPackage = type { ptr, i32, i32, ptr }
 
@@ -199,7 +196,7 @@ define internal range(i32 -2147483648, 1) i32 @mxf_write_packet(ptr noundef %0, 
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %14 = load i32, ptr %13, align 4, !tbaa !26
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds ptr, ptr %12, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %12, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !31
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %19 = load ptr, ptr %18, align 8, !tbaa !33
@@ -544,7 +541,7 @@ mxf_get_mpeg2_codec_ul.exit.thread.i:             ; preds = %mxf_get_mpeg2_codec
 
 185:                                              ; preds = %190, %179
   %indvars.iv.i164 = phi i64 [ 0, %179 ], [ %indvars.iv.next.i165, %190 ]
-  %186 = getelementptr inbounds nuw %struct.anon, ptr @mxf_dnxhd_codec_uls, i64 %indvars.iv.i164
+  %186 = getelementptr inbounds nuw [20 x i8], ptr @mxf_dnxhd_codec_uls, i64 %indvars.iv.i164
   %187 = load i16, ptr %186, align 4, !tbaa !69
   %188 = zext i16 %187 to i32
   %189 = icmp eq i32 %184, %188
@@ -624,7 +621,7 @@ switch.lookup.i:                                  ; preds = %191
 
 226:                                              ; preds = %230, %223
   %indvars.iv.i170 = phi i64 [ 0, %223 ], [ %indvars.iv.next.i171, %230 ]
-  %227 = getelementptr inbounds nuw %struct.anon.1, ptr @mxf_prores_codec_uls, i64 %indvars.iv.i170
+  %227 = getelementptr inbounds nuw [20 x i8], ptr @mxf_prores_codec_uls, i64 %indvars.iv.i170
   %228 = load i32, ptr %227, align 4, !tbaa !75
   %229 = icmp eq i32 %225, %228
   br i1 %229, label %231, label %230
@@ -724,7 +721,7 @@ mxf_parse_prores_frame.exit:                      ; preds = %230
 278:                                              ; preds = %275, %273, %271, %270, %268
   %.032.i = phi i32 [ %spec.select.i, %275 ], [ %274, %273 ], [ %269, %270 ], [ %269, %268 ], [ %272, %271 ]
   %279 = zext nneg i32 %.032.i to i64
-  %280 = getelementptr inbounds nuw %struct.anon.2, ptr @mxf_dv_uls, i64 %279
+  %280 = getelementptr inbounds nuw [32 x i8], ptr @mxf_dv_uls, i64 %279
   %281 = getelementptr inbounds nuw i8, ptr %.val154, i64 40
   store ptr %280, ptr %281, align 8, !tbaa !78
   %282 = getelementptr inbounds nuw i8, ptr %280, i64 16
@@ -978,7 +975,7 @@ get_ue_golomb_long.exit.i:                        ; preds = %383, %380, %348
 
 .split.us.i:                                      ; preds = %435, %.split.us.preheader.i
   %indvars.iv144.i = phi i64 [ 0, %.split.us.preheader.i ], [ %indvars.iv.next145.i, %435 ]
-  %427 = getelementptr inbounds nuw %struct.anon.3, ptr @mxf_h264_codec_uls, i64 %indvars.iv144.i
+  %427 = getelementptr inbounds nuw [24 x i8], ptr @mxf_h264_codec_uls, i64 %indvars.iv144.i
   %428 = getelementptr inbounds nuw i8, ptr %427, i64 16
   %429 = load i32, ptr %428, align 8, !tbaa !88
   %430 = icmp eq i32 %425, %429
@@ -998,7 +995,7 @@ get_ue_golomb_long.exit.i:                        ; preds = %383, %380, %348
 .split.i:                                         ; preds = %479, %.split.preheader.i
   %indvars.iv.i179 = phi i64 [ 0, %.split.preheader.i ], [ %indvars.iv.next.i181, %479 ]
   %.088128.i = phi ptr [ null, %.split.preheader.i ], [ %.2.i180, %479 ]
-  %436 = getelementptr inbounds nuw %struct.anon.3, ptr @mxf_h264_codec_uls, i64 %indvars.iv.i179
+  %436 = getelementptr inbounds nuw [24 x i8], ptr @mxf_h264_codec_uls, i64 %indvars.iv.i179
   %437 = getelementptr inbounds nuw i8, ptr %436, i64 16
   %438 = load i32, ptr %437, align 8, !tbaa !88
   %439 = icmp eq i32 %412, %438
@@ -1519,7 +1516,7 @@ mxf_parse_mpeg2_frame.exit:                       ; preds = %220, %231, %661, %6
 701:                                              ; preds = %701, %.lr.ph.i190
   %indvars.iv.i191 = phi i64 [ 0, %.lr.ph.i190 ], [ %indvars.iv.next.i192, %701 ]
   %702 = phi i32 [ 512, %.lr.ph.i190 ], [ %717, %701 ]
-  %703 = getelementptr inbounds nuw ptr, ptr %700, i64 %indvars.iv.i191
+  %703 = getelementptr inbounds nuw [8 x i8], ptr %700, i64 %indvars.iv.i191
   %704 = load ptr, ptr %703, align 8, !tbaa !31
   %705 = getelementptr inbounds nuw i8, ptr %704, i64 24
   %706 = load ptr, ptr %705, align 8, !tbaa !33
@@ -1616,7 +1613,7 @@ mxf_write_klv_fill.exit.i:                        ; preds = %738, %729
   %755 = getelementptr inbounds nuw i8, ptr %722, i64 40
   %756 = load i32, ptr %755, align 8, !tbaa !47
   %757 = zext i32 %756 to i64
-  %758 = getelementptr inbounds nuw %struct.MXFIndexEntry, ptr %754, i64 %757
+  %758 = getelementptr inbounds nuw [16 x i8], ptr %754, i64 %757
   store i64 %752, ptr %758, align 8, !tbaa !126
   %759 = getelementptr inbounds nuw i8, ptr %758, i64 14
   store i8 %.sroa.6.0, ptr %759, align 2, !tbaa !128
@@ -1778,7 +1775,7 @@ mxf_write_klv_fill.exit202:                       ; preds = %817, %826
 842:                                              ; preds = %852, %.lr.ph.i204
   %indvars.iv.i206 = phi i64 [ 0, %.lr.ph.i204 ], [ %indvars.iv.next.i208, %852 ]
   %.04244.i = phi i32 [ 88, %.lr.ph.i204 ], [ %.1.i207, %852 ]
-  %843 = getelementptr inbounds nuw ptr, ptr %841, i64 %indvars.iv.i206
+  %843 = getelementptr inbounds nuw [8 x i8], ptr %841, i64 %indvars.iv.i206
   %844 = load ptr, ptr %843, align 8, !tbaa !31
   %845 = getelementptr inbounds nuw i8, ptr %844, i64 16
   %846 = load ptr, ptr %845, align 8, !tbaa !48
@@ -1872,7 +1869,7 @@ mxf_write_system_item.exit._crit_edge:            ; preds = %mxf_write_system_it
   %882 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %883 = load i32, ptr %882, align 8, !tbaa !47
   %884 = zext i32 %883 to i64
-  %885 = getelementptr inbounds nuw %struct.MXFIndexEntry, ptr %881, i64 %884
+  %885 = getelementptr inbounds nuw [16 x i8], ptr %881, i64 %884
   store i64 %879, ptr %885, align 8, !tbaa !126
   %886 = getelementptr inbounds nuw i8, ptr %885, i64 14
   store i8 %.sroa.6.0, ptr %886, align 2, !tbaa !128
@@ -1911,7 +1908,7 @@ mxf_write_system_item.exit._crit_edge:            ; preds = %mxf_write_system_it
   %903 = load ptr, ptr %902, align 8, !tbaa !125
   %904 = add i32 %897, -1
   %905 = zext i32 %904 to i64
-  %906 = getelementptr inbounds nuw %struct.MXFIndexEntry, ptr %903, i64 %905
+  %906 = getelementptr inbounds nuw [16 x i8], ptr %903, i64 %905
   %907 = load i64, ptr %906, align 8, !tbaa !126
   %908 = sub i64 %901, %907
   %909 = trunc i64 %908 to i32
@@ -2313,7 +2310,7 @@ klv_encode_ber_length.exit.i:                     ; preds = %104, %klv_ber_lengt
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %119 ]
   tail call void @avio_wb32(ptr noundef %80, i32 noundef 1) #14
   %120 = load ptr, ptr %118, align 8, !tbaa !141
-  %121 = getelementptr inbounds nuw i64, ptr %120, i64 %indvars.iv.i
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %120, i64 %indvars.iv.i
   %122 = load i64, ptr %121, align 8, !tbaa !146
   tail call void @avio_wb64(ptr noundef %80, i64 noundef %122) #14
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -2416,7 +2413,7 @@ mxf_write_klv_fill.exit63:                        ; preds = %155, %164
 177:                                              ; preds = %.lr.ph, %177
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %177 ]
   %178 = load ptr, ptr %176, align 8, !tbaa !141
-  %179 = getelementptr inbounds nuw i64, ptr %178, i64 %indvars.iv
+  %179 = getelementptr inbounds nuw [8 x i8], ptr %178, i64 %indvars.iv
   %180 = load i64, ptr %179, align 8, !tbaa !146
   %181 = add i64 %180, 44
   %182 = tail call i64 @avio_seek(ptr noundef %5, i64 noundef %181, i32 noundef 0) #14
@@ -2445,7 +2442,7 @@ define internal range(i32 -2147483648, 2) i32 @mxf_interleave(ptr noundef %0, pt
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %10 = load i32, ptr %9, align 4, !tbaa !26
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds ptr, ptr %8, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %8, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !31
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8, !tbaa !33
@@ -2475,7 +2472,7 @@ define internal range(i32 -2147483648, 2) i32 @mxf_interleave(ptr noundef %0, pt
 27:                                               ; preds = %27, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %27 ]
   %.04058.i = phi i32 [ 0, %.lr.ph.i ], [ %34, %27 ]
-  %28 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv.i
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv.i
   %29 = load ptr, ptr %28, align 8, !tbaa !31
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 784
   %31 = load ptr, ptr %30, align 8, !tbaa !154
@@ -2524,7 +2521,7 @@ define internal range(i32 -2147483648, 2) i32 @mxf_interleave(ptr noundef %0, pt
   %48 = phi ptr [ %56, %.lr.ph62.i ], [ %40, %.lr.ph62.i.preheader ]
   %.14160.i18 = phi i32 [ %57, %.lr.ph62.i ], [ %34, %.lr.ph62.i.preheader ]
   %49 = sext i32 %47 to i64
-  %50 = getelementptr inbounds ptr, ptr %26, i64 %49
+  %50 = getelementptr inbounds [8 x i8], ptr %26, i64 %49
   %51 = load ptr, ptr %50, align 8, !tbaa !31
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 784
   %53 = load ptr, ptr %52, align 8, !tbaa !154
@@ -2590,7 +2587,7 @@ define internal range(i32 -2147483648, 2) i32 @mxf_interleave(ptr noundef %0, pt
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 44
   %68 = load i32, ptr %67, align 4, !tbaa !173
   %69 = sext i32 %68 to i64
-  %70 = getelementptr inbounds ptr, ptr %65, i64 %69
+  %70 = getelementptr inbounds [8 x i8], ptr %65, i64 %69
   %71 = load ptr, ptr %70, align 8, !tbaa !31
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 784
   %73 = load ptr, ptr %72, align 8, !tbaa !154
@@ -2688,7 +2685,7 @@ define internal range(i32 -2147483648, 1) i32 @mxf_init(ptr noundef %0) #0 {
 37:                                               ; preds = %.lr.ph, %340
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %340 ]
   %38 = load ptr, ptr %25, align 8, !tbaa !25
-  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv
   %40 = load ptr, ptr %39, align 8, !tbaa !31
   %41 = call noalias ptr @av_mallocz(i64 noundef 184) #14
   %.not246 = icmp eq ptr %41, null
@@ -3209,13 +3206,13 @@ mxf_get_essence_container_ul_index.exit.thread:   ; preds = %298
 
 300:                                              ; preds = %298, %294
   %indvars.iv.i = phi i64 [ 0, %294 ], [ %indvars.iv.next.i, %298 ]
-  %301 = getelementptr inbounds nuw %struct.anon.5, ptr @mxf_essence_mappings, i64 %indvars.iv.i
+  %301 = getelementptr inbounds nuw [8 x i8], ptr @mxf_essence_mappings, i64 %indvars.iv.i
   %302 = load i32, ptr %301, align 8, !tbaa !207
   %303 = icmp eq i32 %302, %297
   br i1 %303, label %mxf_get_essence_container_ul_index.exit, label %298
 
 mxf_get_essence_container_ul_index.exit:          ; preds = %300
-  %304 = getelementptr inbounds nuw %struct.anon.5, ptr @mxf_essence_mappings, i64 %indvars.iv.i
+  %304 = getelementptr inbounds nuw [8 x i8], ptr @mxf_essence_mappings, i64 %indvars.iv.i
   %305 = getelementptr inbounds nuw i8, ptr %304, i64 4
   %306 = load i32, ptr %305, align 4, !tbaa !209
   store i32 %306, ptr %44, align 8, !tbaa !180
@@ -3230,7 +3227,7 @@ mxf_get_essence_container_ul_index.exit:          ; preds = %300
 
 311:                                              ; preds = %307
   %312 = sext i32 %308 to i64
-  %313 = getelementptr inbounds %struct.MXFContainerEssenceEntry, ptr @mxf_essence_container_uls, i64 %312
+  %313 = getelementptr inbounds [56 x i8], ptr @mxf_essence_container_uls, i64 %312
   %314 = getelementptr inbounds nuw i8, ptr %313, i64 32
   store ptr %314, ptr %309, align 8, !tbaa !68
   br label %315
@@ -3243,13 +3240,13 @@ mxf_get_essence_container_ul_index.exit:          ; preds = %300
   br i1 %.not262, label %319, label %._crit_edge383
 
 319:                                              ; preds = %315
-  %320 = getelementptr inbounds %struct.MXFContainerEssenceEntry, ptr @mxf_essence_container_uls, i64 %318
+  %320 = getelementptr inbounds [56 x i8], ptr @mxf_essence_container_uls, i64 %318
   store ptr %320, ptr %316, align 8, !tbaa !78
   br label %._crit_edge383
 
 ._crit_edge383:                                   ; preds = %315, %319
   %321 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  %322 = getelementptr inbounds %struct.MXFContainerEssenceEntry, ptr @mxf_essence_container_uls, i64 %318
+  %322 = getelementptr inbounds [56 x i8], ptr @mxf_essence_container_uls, i64 %318
   %323 = getelementptr inbounds nuw i8, ptr %322, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %321, ptr noundef nonnull align 8 dereferenceable(15) %323, i64 15, i1 false)
   %324 = getelementptr inbounds i8, ptr %4, i64 %318
@@ -3340,7 +3337,7 @@ mxf_get_essence_container_ul_index.exit:          ; preds = %300
 368:                                              ; preds = %.lr.ph348, %387
   %indvars.iv378 = phi i64 [ 0, %.lr.ph348 ], [ %indvars.iv.next379, %387 ]
   %369 = load ptr, ptr %367, align 8, !tbaa !25
-  %370 = getelementptr inbounds nuw ptr, ptr %369, i64 %indvars.iv378
+  %370 = getelementptr inbounds nuw [8 x i8], ptr %369, i64 %indvars.iv378
   %371 = load ptr, ptr %370, align 8, !tbaa !31
   %372 = getelementptr inbounds nuw i8, ptr %371, i64 24
   %373 = load ptr, ptr %372, align 8, !tbaa !33
@@ -3600,7 +3597,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @mxf_write_partition(ptr no
   %44 = add i32 %43, 1
   store i32 %44, ptr %34, align 8, !tbaa !144
   %45 = zext i32 %43 to i64
-  %46 = getelementptr inbounds nuw i64, ptr %42, i64 %45
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %45
   store i64 %10, ptr %46, align 8, !tbaa !146
   br label %.critedge
 
@@ -3657,7 +3654,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @mxf_write_partition(ptr no
   %.sink139.in = getelementptr inbounds nuw i8, ptr %7, i64 64
   %.sink139 = load ptr, ptr %.sink139.in, align 8, !tbaa !141
   %67 = zext i32 %.sink141 to i64
-  %68 = getelementptr inbounds nuw i64, ptr %.sink139, i64 %67
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %.sink139, i64 %67
   %69 = load i64, ptr %68, align 8, !tbaa !146
   br label %.critedge113
 
@@ -3760,7 +3757,7 @@ mxf_write_klv_fill.exit:                          ; preds = %92, %101
   %.073229.i = phi i32 [ 0, %.lr.ph.i ], [ %.174.i, %128 ]
   %.075228.i = phi i32 [ 0, %.lr.ph.i ], [ %spec.select88.i, %128 ]
   %.077227.i = phi i32 [ 0, %.lr.ph.i ], [ %.178.i, %128 ]
-  %116 = getelementptr inbounds nuw ptr, ptr %115, i64 %indvars.iv.i
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %115, i64 %indvars.iv.i
   %117 = load ptr, ptr %116, align 8, !tbaa !31
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 16
   %119 = load ptr, ptr %118, align 8, !tbaa !48
@@ -3788,7 +3785,7 @@ mxf_write_klv_fill.exit:                          ; preds = %92, %101
   %.not87.i = icmp eq ptr %133, null
   %spec.select88.i = select i1 %.not87.i, i32 %.075228.i, i32 1
   %134 = load ptr, ptr %113, align 8, !tbaa !25
-  %135 = getelementptr inbounds nuw ptr, ptr %134, i64 %indvars.iv.i
+  %135 = getelementptr inbounds nuw [8 x i8], ptr %134, i64 %indvars.iv.i
   %136 = load ptr, ptr %135, align 8, !tbaa !31
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 16
   %138 = load ptr, ptr %137, align 8, !tbaa !48
@@ -3957,7 +3954,7 @@ klv_encode_ber_length.exit.i:                     ; preds = %195, %klv_ber_lengt
   br i1 %204, label %205, label %209
 
 205:                                              ; preds = %201
-  %206 = getelementptr inbounds nuw %struct.MXFLocalTagPair, ptr @mxf_local_tag_batch, i64 %indvars.iv242.i
+  %206 = getelementptr inbounds nuw [20 x i8], ptr @mxf_local_tag_batch, i64 %indvars.iv242.i
   %207 = load i32, ptr %206, align 4, !tbaa !227
   tail call void @avio_wb16(ptr noundef %110, i32 noundef %207) #14
   %208 = getelementptr inbounds nuw i8, ptr %206, i64 4
@@ -4169,7 +4166,7 @@ define internal fastcc void @mxf_write_index_table_segment(ptr noundef %0) unnam
   %.0160207 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %71 ]
   %.0166206 = phi i32 [ 0, %.lr.ph ], [ %.1167, %71 ]
   %42 = load ptr, ptr %40, align 8, !tbaa !25
-  %43 = getelementptr inbounds nuw ptr, ptr %42, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv
   %44 = load ptr, ptr %43, align 8, !tbaa !31
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 24
   %46 = load ptr, ptr %45, align 8, !tbaa !33
@@ -4273,7 +4270,7 @@ define internal fastcc void @mxf_write_index_table_segment(ptr noundef %0) unnam
   %.0164215 = phi i32 [ 0, %.lr.ph219 ], [ %.1165, %166 ]
   %indvars232 = trunc nuw i64 %indvars.iv230 to i32
   %93 = load ptr, ptr %88, align 8, !tbaa !125
-  %94 = getelementptr inbounds nuw %struct.MXFIndexEntry, ptr %93, i64 %indvars.iv230
+  %94 = getelementptr inbounds nuw [16 x i8], ptr %93, i64 %indvars.iv230
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 14
   %96 = load i8, ptr %95, align 2, !tbaa !128
   %97 = and i8 %96, 51
@@ -4311,7 +4308,7 @@ define internal fastcc void @mxf_write_index_table_segment(ptr noundef %0) unnam
 
 .lr.ph210:                                        ; preds = %.lr.ph210.preheader, %115
   %indvars.iv227 = phi i64 [ %109, %.lr.ph210.preheader ], [ %indvars.iv.next228, %115 ]
-  %110 = getelementptr inbounds %struct.MXFIndexEntry, ptr %93, i64 %indvars.iv227
+  %110 = getelementptr inbounds [16 x i8], ptr %93, i64 %indvars.iv227
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 12
   %112 = load i16, ptr %111, align 4, !tbaa !129
   %113 = zext i16 %112 to i32
@@ -4347,7 +4344,7 @@ define internal fastcc void @mxf_write_index_table_segment(ptr noundef %0) unnam
   %.0157 = phi i32 [ 0, %102 ], [ %121, %120 ], [ 0, %103 ]
   tail call void @avio_w8(ptr noundef %5, i32 noundef %.0157) #14
   %123 = load ptr, ptr %88, align 8, !tbaa !125
-  %124 = getelementptr inbounds nuw %struct.MXFIndexEntry, ptr %123, i64 %indvars.iv230
+  %124 = getelementptr inbounds nuw [16 x i8], ptr %123, i64 %indvars.iv230
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 14
   %126 = load i8, ptr %125, align 2, !tbaa !128
   %127 = and i8 %126, 48
@@ -4363,7 +4360,7 @@ define internal fastcc void @mxf_write_index_table_segment(ptr noundef %0) unnam
   %133 = sub nsw i32 %132, %indvars232
   tail call void @avio_w8(ptr noundef %5, i32 noundef %133) #14
   %.pre = load ptr, ptr %88, align 8, !tbaa !125
-  %.phi.trans.insert = getelementptr inbounds nuw %struct.MXFIndexEntry, ptr %.pre, i64 %indvars.iv230
+  %.phi.trans.insert = getelementptr inbounds nuw [16 x i8], ptr %.pre, i64 %indvars.iv230
   %.phi.trans.insert233 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert, i64 14
   %.pre234 = load i8, ptr %.phi.trans.insert233, align 2, !tbaa !128
   br label %142
@@ -4372,7 +4369,7 @@ define internal fastcc void @mxf_write_index_table_segment(ptr noundef %0) unnam
   %135 = sub nsw i32 %.1163, %indvars232
   tail call void @avio_w8(ptr noundef %5, i32 noundef %135) #14
   %136 = load ptr, ptr %88, align 8, !tbaa !125
-  %137 = getelementptr inbounds nuw %struct.MXFIndexEntry, ptr %136, i64 %indvars.iv230
+  %137 = getelementptr inbounds nuw [16 x i8], ptr %136, i64 %indvars.iv230
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 14
   %139 = load i8, ptr %138, align 2, !tbaa !128
   %140 = and i8 %139, 32
@@ -4387,7 +4384,7 @@ define internal fastcc void @mxf_write_index_table_segment(ptr noundef %0) unnam
   %143 = phi i8 [ %.pre234, %129 ], [ %139, %141 ], [ %139, %134 ]
   %144 = phi ptr [ %.pre, %129 ], [ %136, %141 ], [ %136, %134 ]
   %.1165 = phi i32 [ %.0164215, %129 ], [ %indvars232, %141 ], [ %indvars232, %134 ]
-  %145 = getelementptr inbounds nuw %struct.MXFIndexEntry, ptr %144, i64 %indvars.iv230
+  %145 = getelementptr inbounds nuw [16 x i8], ptr %144, i64 %indvars.iv230
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 14
   %147 = zext i8 %143 to i32
   %148 = and i32 %147, 51
@@ -4411,7 +4408,7 @@ define internal fastcc void @mxf_write_index_table_segment(ptr noundef %0) unnam
   %.pre-phi = phi i32 [ %.pre235, %153 ], [ %147, %149 ], [ %147, %142 ]
   tail call void @avio_w8(ptr noundef %5, i32 noundef %.pre-phi) #14
   %156 = load ptr, ptr %88, align 8, !tbaa !125
-  %157 = getelementptr inbounds nuw %struct.MXFIndexEntry, ptr %156, i64 %indvars.iv230
+  %157 = getelementptr inbounds nuw [16 x i8], ptr %156, i64 %indvars.iv230
   %158 = load i64, ptr %157, align 8, !tbaa !126
   tail call void @avio_wb64(ptr noundef %5, i64 noundef %158) #14
   %159 = load i32, ptr %33, align 4, !tbaa !121
@@ -4420,7 +4417,7 @@ define internal fastcc void @mxf_write_index_table_segment(ptr noundef %0) unnam
 
 161:                                              ; preds = %155
   %162 = load ptr, ptr %88, align 8, !tbaa !125
-  %163 = getelementptr inbounds nuw %struct.MXFIndexEntry, ptr %162, i64 %indvars.iv230
+  %163 = getelementptr inbounds nuw [16 x i8], ptr %162, i64 %indvars.iv230
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 8
   %165 = load i32, ptr %164, align 8, !tbaa !135
   br label %166
@@ -4890,7 +4887,7 @@ define internal fastcc void @mxf_write_essence_container_refs(ptr noundef %0) un
   %16 = phi i32 [ %13, %.lr.ph ], [ %30, %29 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %29 ]
   %17 = load ptr, ptr %14, align 8, !tbaa !25
-  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !31
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load ptr, ptr %20, align 8, !tbaa !33
@@ -4985,7 +4982,7 @@ define internal fastcc void @mxf_write_header_metadata_sets(ptr noundef %0) unna
 26:                                               ; preds = %.lr.ph, %22
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %22 ]
   %27 = load ptr, ptr %21, align 8, !tbaa !25
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8, !tbaa !31
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 80
   %31 = load ptr, ptr %30, align 8, !tbaa !203
@@ -5645,7 +5642,7 @@ mxf_write_identification.exit:                    ; preds = %261, %klv_ber_lengt
 
 275:                                              ; preds = %275, %mxf_write_identification.exit
   %indvars.iv.i = phi i64 [ 0, %mxf_write_identification.exit ], [ %indvars.iv.next.i, %275 ]
-  %276 = getelementptr inbounds nuw %struct.MXFPackage, ptr %2, i64 %indvars.iv.i
+  %276 = getelementptr inbounds nuw [24 x i8], ptr %2, i64 %indvars.iv.i
   %277 = getelementptr inbounds nuw i8, ptr %276, i64 8
   %278 = load i32, ptr %277, align 8, !tbaa !239
   %279 = getelementptr inbounds nuw i8, ptr %276, i64 12
@@ -5676,7 +5673,7 @@ mxf_write_content_storage.exit:                   ; preds = %275
 284:                                              ; preds = %mxf_write_content_storage.exit, %.loopexit
   %285 = phi i32 [ %.pre, %mxf_write_content_storage.exit ], [ %801, %.loopexit ]
   %indvars.iv257 = phi i64 [ 0, %mxf_write_content_storage.exit ], [ %indvars.iv.next258, %.loopexit ]
-  %286 = getelementptr inbounds nuw %struct.MXFPackage, ptr %2, i64 %indvars.iv257
+  %286 = getelementptr inbounds nuw [24 x i8], ptr %2, i64 %indvars.iv257
   %287 = load ptr, ptr %3, align 8, !tbaa !4
   %288 = load ptr, ptr %46, align 8, !tbaa !24
   %289 = add i32 %285, 1
@@ -6507,7 +6504,7 @@ mxf_write_multi_descriptor.exit.i:                ; preds = %.lr.ph.i153.i, %mxf
 mxf_lookup_local_tag.exit.i162:                   ; preds = %.lr.ph186.i, %.thread163.i
   %indvars.iv.i85 = phi i64 [ 0, %.lr.ph186.i ], [ %indvars.iv.next.i86, %.thread163.i ]
   %634 = load ptr, ptr %283, align 8, !tbaa !25
-  %635 = getelementptr inbounds nuw ptr, ptr %634, i64 %indvars.iv.i85
+  %635 = getelementptr inbounds nuw [8 x i8], ptr %634, i64 %indvars.iv.i85
   %636 = load ptr, ptr %635, align 8, !tbaa !31
   call fastcc void @mxf_write_track(ptr noundef nonnull %0, ptr noundef %636, ptr noundef nonnull readonly %286)
   %637 = load ptr, ptr %3, align 8, !tbaa !4
@@ -6877,7 +6874,7 @@ mxf_write_structural_component.exit.i:            ; preds = %776, %774
   %790 = getelementptr inbounds nuw i8, ptr %789, i64 24
   %791 = load i32, ptr %790, align 8, !tbaa !180
   %792 = sext i32 %791 to i64
-  %793 = getelementptr inbounds %struct.MXFContainerEssenceEntry, ptr @mxf_essence_container_uls, i64 %792
+  %793 = getelementptr inbounds [56 x i8], ptr @mxf_essence_container_uls, i64 %792
   %794 = getelementptr inbounds nuw i8, ptr %793, i64 48
   %795 = load ptr, ptr %794, align 8, !tbaa !262
   %796 = call i32 %795(ptr noundef nonnull %0, ptr noundef %636) #14
@@ -6957,7 +6954,7 @@ define internal fastcc void @mxf_write_local_tag(ptr readonly captures(none) %.2
 
 4:                                                ; preds = %3, %2
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %3 ]
-  %5 = getelementptr inbounds nuw %struct.MXFLocalTagPair, ptr @mxf_local_tag_batch, i64 %indvars.iv.i
+  %5 = getelementptr inbounds nuw [20 x i8], ptr @mxf_local_tag_batch, i64 %indvars.iv.i
   %6 = load i32, ptr %5, align 4, !tbaa !227
   %7 = icmp eq i32 %6, %1
   br i1 %7, label %mxf_lookup_local_tag.exit, label %3
@@ -8660,14 +8657,14 @@ define internal range(i32 0, 2) i32 @mxf_compare_timestamps(ptr noundef readonly
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %7 = load i32, ptr %6, align 4, !tbaa !26
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds ptr, ptr %5, i64 %8
+  %9 = getelementptr inbounds [8 x i8], ptr %5, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !31
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %12 = load ptr, ptr %11, align 8, !tbaa !33
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %14 = load i32, ptr %13, align 4, !tbaa !26
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds ptr, ptr %5, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %5, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !31
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %19 = load ptr, ptr %18, align 8, !tbaa !33

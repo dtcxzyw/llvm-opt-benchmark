@@ -188,13 +188,13 @@ define dso_local noundef ptr @kwsincr(ptr noundef %0, ptr noundef readonly captu
   br i1 %.not220, label %.critedge232, label %29
 
 29:                                               ; preds = %.lr.ph
-  %30 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   store ptr %.0205270, ptr %30, align 8, !tbaa !31
   %31 = icmp uge i8 %24, %28
   %spec.select = zext i1 %31 to i32
   %spec.select350.idx = select i1 %31, i64 8, i64 0
   %spec.select350 = getelementptr inbounds nuw i8, ptr %.0205270, i64 %spec.select350.idx
-  %32 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   store i32 %spec.select, ptr %32, align 4, !tbaa !32
   %.1206 = load ptr, ptr %spec.select350, align 8, !tbaa !31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -340,10 +340,10 @@ define dso_local noundef ptr @kwsincr(ptr noundef %0, ptr noundef readonly captu
   %110 = getelementptr inbounds nuw i8, ptr %44, i64 25
   store i8 0, ptr %110, align 1, !tbaa !41
   %111 = zext nneg i32 %.0207.lcssa to i64
-  %112 = getelementptr inbounds nuw i32, ptr %5, i64 %111
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %111
   %113 = load i32, ptr %112, align 4, !tbaa !32
   %114 = icmp eq i32 %113, 0
-  %115 = getelementptr inbounds nuw ptr, ptr %4, i64 %111
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %111
   %116 = load ptr, ptr %115, align 8, !tbaa !31
   br i1 %114, label %117, label %118
 
@@ -362,12 +362,12 @@ define dso_local noundef ptr @kwsincr(ptr noundef %0, ptr noundef readonly captu
 
 .lr.ph273:                                        ; preds = %120, %127
   %indvars.iv308 = phi i64 [ %indvars.iv.next309, %127 ], [ %111, %120 ]
-  %121 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv308
+  %121 = getelementptr inbounds [8 x i8], ptr %4, i64 %indvars.iv308
   %122 = load ptr, ptr %121, align 8, !tbaa !31
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 25
   %124 = load i8, ptr %123, align 1, !tbaa !41
   %.not224 = icmp eq i8 %124, 0
-  %125 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv308
+  %125 = getelementptr inbounds [4 x i8], ptr %5, i64 %indvars.iv308
   %126 = load i32, ptr %125, align 4, !tbaa !32
   br i1 %.not224, label %127, label %.critedge2
 
@@ -380,7 +380,7 @@ define dso_local noundef ptr @kwsincr(ptr noundef %0, ptr noundef readonly captu
   br i1 %129, label %.critedge232, label %.lr.ph273, !llvm.loop !44
 
 .critedge2:                                       ; preds = %.lr.ph273
-  %130 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv308
+  %130 = getelementptr inbounds [4 x i8], ptr %5, i64 %indvars.iv308
   switch i32 %126, label %.critedge232 [
     i32 0, label %131
     i32 1, label %133
@@ -508,10 +508,10 @@ define dso_local noundef ptr @kwsincr(ptr noundef %0, ptr noundef readonly captu
   %183 = shl i64 %indvars.iv308, 32
   %sext = add i64 %183, -4294967296
   %184 = ashr exact i64 %sext, 32
-  %185 = getelementptr inbounds i32, ptr %5, i64 %184
+  %185 = getelementptr inbounds [4 x i8], ptr %5, i64 %184
   %186 = load i32, ptr %185, align 4, !tbaa !32
   %187 = icmp eq i32 %186, 0
-  %188 = getelementptr inbounds ptr, ptr %4, i64 %184
+  %188 = getelementptr inbounds [8 x i8], ptr %4, i64 %184
   %189 = load ptr, ptr %188, align 8, !tbaa !31
   br i1 %187, label %190, label %191
 
@@ -908,9 +908,9 @@ define dso_local noundef ptr @kwsprep(ptr noundef %0) local_unnamed_addr #0 {
   %162 = getelementptr inbounds nuw i8, ptr %145, i64 %indvars.iv
   %163 = load i8, ptr %162, align 1, !tbaa !29
   %164 = zext i8 %163 to i64
-  %165 = getelementptr inbounds nuw ptr, ptr %4, i64 %164
+  %165 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %164
   %166 = load ptr, ptr %165, align 8, !tbaa !28
-  %167 = getelementptr inbounds nuw ptr, ptr %146, i64 %indvars.iv
+  %167 = getelementptr inbounds nuw [8 x i8], ptr %146, i64 %indvars.iv
   store ptr %166, ptr %167, align 8, !tbaa !28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
@@ -1140,7 +1140,7 @@ common.ret8:                                      ; preds = %2, %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load i8, ptr %9, align 8, !tbaa !33
   %11 = zext i8 %10 to i64
-  %12 = getelementptr inbounds nuw ptr, ptr %1, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %11
   store ptr %8, ptr %12, align 8, !tbaa !28
   br label %common.ret8
 }
@@ -1640,7 +1640,7 @@ bmexec.exit:                                      ; preds = %12, %21, %.preheade
 
 .split.us.us.us.i:                                ; preds = %305
   %312 = getelementptr inbounds i8, ptr %306, i64 -1
-  %313 = getelementptr inbounds nuw ptr, ptr %290, i64 %309
+  %313 = getelementptr inbounds nuw [8 x i8], ptr %290, i64 %309
   %314 = load ptr, ptr %313, align 8, !tbaa !28
   %315 = load i32, ptr %314, align 8, !tbaa !21
   %.not182.us.us.i = icmp eq i32 %315, 0
@@ -1763,7 +1763,7 @@ bmexec.exit:                                      ; preds = %12, %21, %.preheade
 
 .split.us.us.i:                                   ; preds = %346
   %353 = getelementptr inbounds i8, ptr %347, i64 -1
-  %354 = getelementptr inbounds nuw ptr, ptr %290, i64 %350
+  %354 = getelementptr inbounds nuw [8 x i8], ptr %290, i64 %350
   %355 = load ptr, ptr %354, align 8, !tbaa !28
   %356 = load i32, ptr %355, align 8, !tbaa !21
   %.not182.us.i = icmp eq i32 %356, 0
@@ -1853,7 +1853,7 @@ bmexec.exit:                                      ; preds = %12, %21, %.preheade
 .split.i:                                         ; preds = %399
   %400 = getelementptr inbounds i8, ptr %.3131.i, i64 -1
   %401 = zext i8 %.0139.i to i64
-  %402 = getelementptr inbounds nuw ptr, ptr %290, i64 %401
+  %402 = getelementptr inbounds nuw [8 x i8], ptr %290, i64 %401
   %403 = load ptr, ptr %402, align 8, !tbaa !28
   %404 = load i32, ptr %403, align 8, !tbaa !21
   %.not182.i = icmp eq i32 %404, 0
@@ -2003,7 +2003,7 @@ bmexec.exit:                                      ; preds = %12, %21, %.preheade
   br i1 %.not189.us.us.i, label %453, label %.backedge.us.us.i
 
 453:                                              ; preds = %444
-  %454 = getelementptr inbounds nuw ptr, ptr %290, i64 %449
+  %454 = getelementptr inbounds nuw [8 x i8], ptr %290, i64 %449
   %455 = load ptr, ptr %454, align 8, !tbaa !28
   %.not190.us.us.i = icmp eq ptr %455, null
   br i1 %.not190.us.us.i, label %.backedge.us.us.i, label %456
@@ -2144,7 +2144,7 @@ bmexec.exit:                                      ; preds = %12, %21, %.preheade
   br i1 %.not187.i, label %.outer._crit_edge.i, label %495, !llvm.loop !72
 
 506:                                              ; preds = %495
-  %507 = getelementptr inbounds nuw ptr, ptr %290, i64 %500
+  %507 = getelementptr inbounds nuw [8 x i8], ptr %290, i64 %500
   %508 = load ptr, ptr %507, align 8, !tbaa !28
   %.not190.i = icmp eq ptr %508, null
   br i1 %.not190.i, label %.backedge.i24, label %509

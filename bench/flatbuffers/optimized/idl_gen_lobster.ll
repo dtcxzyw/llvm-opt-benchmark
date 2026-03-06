@@ -1595,7 +1595,7 @@ _ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
 
 34:                                               ; preds = %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_NS_9_IdentityESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE15_M_hash_code_trIS6_EEmRKT_.exit
   %35 = load ptr, ptr %0, align 8, !tbaa !20
-  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %31
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %31
   %37 = load ptr, ptr %36, align 8, !tbaa !68
   %.not.i.i = icmp eq ptr %37, null
   %.pre55 = load ptr, ptr %1, align 8, !tbaa !16
@@ -1781,7 +1781,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_E
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %2, ptr %32, align 8, !tbaa !69
   %33 = load ptr, ptr %0, align 8, !tbaa !20
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %.0
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.0
   %35 = load ptr, ptr %34, align 8, !tbaa !68
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %39, label %36
@@ -1807,7 +1807,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_E
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 40
   %46 = load i64, ptr %45, align 8, !tbaa !69
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %33, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !68
   br label %49
 
@@ -1911,7 +1911,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_E
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 40
   %16 = load i64, ptr %15, align 8, !tbaa !69
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !68
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -1926,7 +1926,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_E
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8, !tbaa !68
   br label %28
 
@@ -4421,7 +4421,7 @@ _ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   %29 = load i64, ptr %28, align 8, !tbaa !27
   %30 = urem i64 %24, %29
   %31 = load ptr, ptr %0, align 8, !tbaa !20
-  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %30
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %30
   %33 = load ptr, ptr %32, align 8, !tbaa !68
   %.not.i.i = icmp eq ptr %33, null
   br i1 %.not.i.i, label %_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ESt4hashIS5_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_find_nodeEmRKS5_m.exit, label %34
@@ -19179,7 +19179,7 @@ define linkonce_odr dso_local void @_ZN11flatbuffers7lobster16LobsterGenerator11
 
 switch.lookup:                                    ; preds = %3
   %7 = zext nneg i32 %5 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN11flatbuffers7lobster16LobsterGenerator11GenTypeNameB5cxx11ERKNS_4TypeE, i64 %7
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN11flatbuffers7lobster16LobsterGenerator11GenTypeNameB5cxx11ERKNS_4TypeE, i64 %7
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZN11flatbuffers6SizeOfENS_8BaseTypeE.exit
 
@@ -19211,7 +19211,7 @@ _ZN11flatbuffers6SizeOfENS_8BaseTypeE.exit:       ; preds = %3, %switch.lookup
 
 switch.lookup26:                                  ; preds = %11
   %21 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep27 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11flatbuffers7lobster16LobsterGenerator11GenTypeNameB5cxx11ERKNS_4TypeE.11, i64 %21
+  %switch.gep27 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN11flatbuffers7lobster16LobsterGenerator11GenTypeNameB5cxx11ERKNS_4TypeE.11, i64 %21
   %switch.load28 = load ptr, ptr %switch.gep27, align 8
   br label %.invoke
 
@@ -21710,7 +21710,7 @@ define linkonce_odr dso_local void @_ZN11flatbuffers7lobster16LobsterGenerator9G
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !685)
   %11 = zext nneg i32 %7 to i64
-  %12 = getelementptr inbounds nuw ptr, ptr @_ZZN11flatbuffers7lobster16LobsterGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE9ctypename, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN11flatbuffers7lobster16LobsterGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE9ctypename, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !65, !noalias !685
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %14, ptr %6, align 8, !tbaa !4, !alias.scope !685

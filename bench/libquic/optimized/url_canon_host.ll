@@ -402,7 +402,7 @@ define internal fastcc void @_ZN3url12_GLOBAL__N_16DoHostIttEEvPKT_RKNS_9Compone
 
 .lr.ph.i:                                         ; preds = %20, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ %13, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %20 ]
-  %15 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv.i
+  %15 = getelementptr inbounds [2 x i8], ptr %0, i64 %indvars.iv.i
   %16 = load i16, ptr %15, align 2, !tbaa !30
   %17 = icmp ugt i16 %16, 127
   br i1 %17, label %.sink.split.i, label %18
@@ -429,7 +429,7 @@ _ZN3url12_GLOBAL__N_112ScanHostnameIttEEvPKT_RKNS_9ComponentEPbS8_.exit: ; preds
   %.0..0..0. = load i8, ptr %6, align 1, !range !22
   %25 = trunc nuw i8 %.0..0..0. to i1
   %or.cond = select i1 %24, i1 true, i1 %25
-  %26 = getelementptr inbounds i16, ptr %0, i64 %13
+  %26 = getelementptr inbounds [2 x i8], ptr %0, i64 %13
   br i1 %or.cond, label %166, label %.lr.ph.i33
 
 .lr.ph.i33:                                       ; preds = %_ZN3url12_GLOBAL__N_112ScanHostnameIttEEvPKT_RKNS_9ComponentEPbS8_.exit
@@ -443,7 +443,7 @@ _ZN3url12_GLOBAL__N_112ScanHostnameIttEEvPKT_RKNS_9ComponentEPbS8_.exit: ; preds
   %.054.i = phi i1 [ true, %.lr.ph.i33 ], [ %.1.i, %_ZN3url17AppendEscapedCharIccEEvT_PNS_12CanonOutputTIT0_EE.exit.i ]
   %storemerge53.i = phi i32 [ 0, %.lr.ph.i33 ], [ %164, %_ZN3url17AppendEscapedCharIccEEvT_PNS_12CanonOutputTIT0_EE.exit.i ]
   %31 = sext i32 %storemerge53.i to i64
-  %32 = getelementptr inbounds i16, ptr %26, i64 %31
+  %32 = getelementptr inbounds [2 x i8], ptr %26, i64 %31
   %33 = load i16, ptr %32, align 2, !tbaa !30
   %.sroa.0.0.extract.trunc.i = trunc i16 %33 to i8
   %34 = and i16 %33, -256
@@ -1744,7 +1744,7 @@ define internal fastcc void @_ZN3url12_GLOBAL__N_19DoIDNHostEPKtiPNS_12CanonOutp
   %20 = phi i32 [ 0, %.lr.ph.i ], [ %257, %_ZN3url17AppendEscapedCharIctEEvT_PNS_12CanonOutputTIT0_EE.exit.i ]
   %storemerge140.i = phi i32 [ 0, %.lr.ph.i ], [ %258, %_ZN3url17AppendEscapedCharIctEEvT_PNS_12CanonOutputTIT0_EE.exit.i ]
   %21 = sext i32 %storemerge140.i to i64
-  %22 = getelementptr inbounds i16, ptr %0, i64 %21
+  %22 = getelementptr inbounds [2 x i8], ptr %0, i64 %21
   %23 = load i16, ptr %22, align 2, !tbaa !30
   %.sroa.0.0.extract.trunc.i = trunc i16 %23 to i8
   %24 = and i16 %23, -256
@@ -1842,7 +1842,7 @@ _ZN3url12CanonOutputTItE4GrowEi.exit.sink.split.i.i.i: ; preds = %.noexc, %62
   %.pre.i.i = phi i32 [ %.pre.pre.i.i, %.noexc ], [ %63, %62 ]
   %.sink.i.i.i = phi i32 [ %73, %.noexc ], [ %16, %62 ]
   %74 = sext i32 %.sink.i.i.i to i64
-  %75 = getelementptr inbounds i16, ptr %.sink5.i.i.i, i64 %74
+  %75 = getelementptr inbounds [2 x i8], ptr %.sink5.i.i.i, i64 %74
   store i16 37, ptr %75, align 2, !tbaa !30
   %76 = add nsw i32 %.sink.i.i.i, 1
   store i32 %76, ptr %10, align 4, !tbaa !39
@@ -1899,7 +1899,7 @@ _ZN3url12CanonOutputTItE4GrowEi.exit.sink.split.i9.i.i: ; preds = %.noexc11, %_Z
   %.pre32.i.i = phi i32 [ %.pre32.pre.i.i, %.noexc11 ], [ %78, %_ZN3url12CanonOutputTItE9push_backEt.exit.i.i ]
   %.sink.i10.i.i = phi i32 [ %88, %.noexc11 ], [ %77, %_ZN3url12CanonOutputTItE9push_backEt.exit.i.i ]
   %89 = sext i32 %.sink.i10.i.i to i64
-  %90 = getelementptr inbounds i16, ptr %.sink5.i12.i.i, i64 %89
+  %90 = getelementptr inbounds [2 x i8], ptr %.sink5.i12.i.i, i64 %89
   store i16 %12, ptr %90, align 2, !tbaa !30
   %91 = add nsw i32 %.sink.i10.i.i, 1
   store i32 %91, ptr %10, align 4, !tbaa !39
@@ -2011,7 +2011,7 @@ _ZN3url12CanonOutputTItE4GrowEi.exit.sink.split.i.i46.i: ; preds = %.noexc13, %1
   %.pre.i47.i = phi i32 [ %.pre.pre.i45.i, %.noexc13 ], [ %112, %111 ]
   %.sink.i.i48.i = phi i32 [ %122, %.noexc13 ], [ %18, %111 ]
   %123 = sext i32 %.sink.i.i48.i to i64
-  %124 = getelementptr inbounds i16, ptr %.sink5.i.i50.i, i64 %123
+  %124 = getelementptr inbounds [2 x i8], ptr %.sink5.i.i50.i, i64 %123
   store i16 37, ptr %124, align 2, !tbaa !30
   %125 = add nsw i32 %.sink.i.i48.i, 1
   store i32 %125, ptr %10, align 4, !tbaa !39
@@ -2079,7 +2079,7 @@ _ZN3url12CanonOutputTItE4GrowEi.exit.sink.split.i9.i39.i: ; preds = %.noexc14, %
   %.pre32.i40.i = phi i32 [ %.pre32.pre.i38.i, %.noexc14 ], [ %129, %_ZN3url12CanonOutputTItE9push_backEt.exit.i22.i ]
   %.sink.i10.i41.i = phi i32 [ %144, %.noexc14 ], [ %128, %_ZN3url12CanonOutputTItE9push_backEt.exit.i22.i ]
   %145 = sext i32 %.sink.i10.i41.i to i64
-  %146 = getelementptr inbounds i16, ptr %.sink5.i12.i43.i, i64 %145
+  %146 = getelementptr inbounds [2 x i8], ptr %.sink5.i12.i43.i, i64 %145
   store i16 %134, ptr %146, align 2, !tbaa !30
   %147 = add nsw i32 %.sink.i10.i41.i, 1
   store i32 %147, ptr %10, align 4, !tbaa !39
@@ -2183,7 +2183,7 @@ _ZN3url12CanonOutputTItE4GrowEi.exit.sink.split.i.i79.i: ; preds = %.noexc16, %1
   %.pre.i80.i = phi i32 [ %.pre.pre.i78.i, %.noexc16 ], [ %168, %167 ]
   %.sink.i.i81.i = phi i32 [ %178, %.noexc16 ], [ %19, %167 ]
   %179 = sext i32 %.sink.i.i81.i to i64
-  %180 = getelementptr inbounds i16, ptr %.sink5.i.i83.i, i64 %179
+  %180 = getelementptr inbounds [2 x i8], ptr %.sink5.i.i83.i, i64 %179
   store i16 37, ptr %180, align 2, !tbaa !30
   %181 = add nsw i32 %.sink.i.i81.i, 1
   store i32 %181, ptr %10, align 4, !tbaa !39
@@ -2255,7 +2255,7 @@ _ZN3url12CanonOutputTItE4GrowEi.exit.sink.split.i9.i72.i: ; preds = %.noexc17, %
   %.pre32.i73.i = phi i32 [ %.pre32.pre.i71.i, %.noexc17 ], [ %186, %_ZN3url12CanonOutputTItE9push_backEt.exit.i55.i ]
   %.sink.i10.i74.i = phi i32 [ %201, %.noexc17 ], [ %185, %_ZN3url12CanonOutputTItE9push_backEt.exit.i55.i ]
   %202 = sext i32 %.sink.i10.i74.i to i64
-  %203 = getelementptr inbounds i16, ptr %.sink5.i12.i76.i, i64 %202
+  %203 = getelementptr inbounds [2 x i8], ptr %.sink5.i12.i76.i, i64 %202
   store i16 %191, ptr %203, align 2, !tbaa !30
   %204 = add nsw i32 %.sink.i10.i74.i, 1
   store i32 %204, ptr %10, align 4, !tbaa !39
@@ -2394,7 +2394,7 @@ _ZN3url17AppendEscapedCharIctEEvT_PNS_12CanonOutputTIT0_EE.exit.i.sink.split: ; 
   %.sink5.i.i83.i93.ph = phi ptr [ %.sink5.i.i175, %225 ], [ %.sink5.i22.i69.i109, %_ZN3url12CanonOutputTItE9push_backEt.exit13.i60.i ], [ %.sink5.i22.i36.i153, %_ZN3url12CanonOutputTItE9push_backEt.exit13.i27.i ], [ %.sink5.i22.i.i225, %_ZN3url12CanonOutputTItE9push_backEt.exit13.i.i ], [ %.sink5.i22.i.i.pre, %.noexc12 ], [ %.sink5.i22.i36.i.pre, %.noexc15 ], [ %.sink5.i22.i69.i.pre, %.noexc18 ], [ %.sink5.i.i.pre, %.noexc19 ], [ %.sink5.i95.i.pre, %.noexc20 ], [ %.sink5.i.i83.i92, %238 ]
   %.1101.i.ph = phi i32 [ %.0100.i, %225 ], [ %.0100.i, %_ZN3url12CanonOutputTItE9push_backEt.exit13.i60.i ], [ %.0100.i, %_ZN3url12CanonOutputTItE9push_backEt.exit13.i27.i ], [ %storemerge140.i, %_ZN3url12CanonOutputTItE9push_backEt.exit13.i.i ], [ %storemerge140.i, %.noexc12 ], [ %.0100.i, %.noexc15 ], [ %.0100.i, %.noexc18 ], [ %.0100.i, %.noexc19 ], [ %.0100.i, %.noexc20 ], [ %.0100.i, %238 ]
   %250 = sext i32 %.sink.i93.i.sink338 to i64
-  %251 = getelementptr inbounds i16, ptr %.sink5.i95.i.sink, i64 %250
+  %251 = getelementptr inbounds [2 x i8], ptr %.sink5.i95.i.sink, i64 %250
   store i16 %.sroa.0.0.insert.insert126.i.sink, ptr %251, align 2, !tbaa !30
   %252 = add nsw i32 %.sink.i93.i.sink338, 1
   store i32 %252, ptr %10, align 4, !tbaa !39

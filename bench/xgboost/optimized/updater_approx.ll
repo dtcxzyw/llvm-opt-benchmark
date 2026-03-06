@@ -49,7 +49,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Head_base.32" = type { ptr }
 %"class.xgboost::linalg::Tensor.256" = type <{ %"class.xgboost::HostDeviceVector.257", [2 x i64], i8, [7 x i8] }>
 %"class.xgboost::HostDeviceVector.257" = type { ptr }
-%"class.xgboost::HostDeviceVector.38" = type { ptr }
 %"class.xgboost::linalg::TensorView" = type <{ [2 x i64], [2 x i64], %"class.xgboost::common::Span.33", ptr, i64, %"struct.xgboost::DeviceOrd", [4 x i8] }>
 %"class.xgboost::common::Span.33" = type { i64, ptr }
 %"struct.xgboost::DeviceOrd" = type { i16, i16 }
@@ -60,7 +59,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon.170 = type { ptr }
 %struct.tm = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, ptr }
 %"class.dmlc::DateLogger" = type { [9 x i8] }
-%"struct.std::pair.187" = type { %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string" }
 %"class.xgboost::JsonString" = type { %"class.xgboost::Value", %"class.std::__cxx11::basic_string" }
 %"struct.dmlc::ParamFieldInfo" = type { %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string" }
 %"class.std::set" = type { %"class.std::_Rb_tree.201" }
@@ -69,6 +67,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::map.229" = type { %"class.std::_Rb_tree.230" }
 %"class.std::_Rb_tree.230" = type { %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" }
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
+%"struct.std::pair.187" = type { %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string" }
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::__cxx11::basic_string<char>>>::_Auto_node" = type { ptr, ptr }
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, xgboost::Json>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, xgboost::Json>>, std::less<void>>::_Auto_node" = type { ptr, ptr }
 %"class.xgboost::linalg::TensorView.289" = type <{ [1 x i64], [1 x i64], %"class.xgboost::common::Span.290", ptr, i64, %"struct.xgboost::DeviceOrd", [4 x i8] }>
@@ -116,33 +115,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__shared_ptr.425" = type { ptr, %"class.std::__shared_count" }
 %"struct.xgboost::BatchParam" = type { i32, %"class.xgboost::common::Span.124", i8, i8, double, i8, i32 }
 %"class.xgboost::common::Span.124" = type { i64, ptr }
-%"class.xgboost::tree::CommonRowPartitioner" = type { i64, %"class.xgboost::common::PartitionBuilder", %"class.xgboost::common::RowSetCollection", i8, %"class.xgboost::tree::ColumnSplitHelper" }
-%"class.xgboost::common::PartitionBuilder" = type { %"class.std::vector.60", %"class.std::vector.65", %"class.std::vector.70", i64 }
-%"class.std::vector.60" = type { %"struct.std::_Vector_base.61" }
-%"struct.std::_Vector_base.61" = type { %"struct.std::_Vector_base<std::pair<unsigned long, unsigned long>, std::allocator<std::pair<unsigned long, unsigned long>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::pair<unsigned long, unsigned long>, std::allocator<std::pair<unsigned long, unsigned long>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::pair<unsigned long, unsigned long>, std::allocator<std::pair<unsigned long, unsigned long>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::pair<unsigned long, unsigned long>, std::allocator<std::pair<unsigned long, unsigned long>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.65" = type { %"struct.std::_Vector_base.66" }
-%"struct.std::_Vector_base.66" = type { %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.70" = type { %"struct.std::_Vector_base.71" }
-%"struct.std::_Vector_base.71" = type { %"struct.std::_Vector_base<std::shared_ptr<xgboost::common::PartitionBuilder<2048>::BlockInfo>, std::allocator<std::shared_ptr<xgboost::common::PartitionBuilder<2048>::BlockInfo>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::shared_ptr<xgboost::common::PartitionBuilder<2048>::BlockInfo>, std::allocator<std::shared_ptr<xgboost::common::PartitionBuilder<2048>::BlockInfo>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::shared_ptr<xgboost::common::PartitionBuilder<2048>::BlockInfo>, std::allocator<std::shared_ptr<xgboost::common::PartitionBuilder<2048>::BlockInfo>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::shared_ptr<xgboost::common::PartitionBuilder<2048>::BlockInfo>, std::allocator<std::shared_ptr<xgboost::common::PartitionBuilder<2048>::BlockInfo>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.xgboost::common::RowSetCollection" = type { %"class.std::vector.65", %"class.std::vector.75" }
-%"class.std::vector.75" = type { %"struct.std::_Vector_base.76" }
-%"struct.std::_Vector_base.76" = type { %"struct.std::_Vector_base<xgboost::common::RowSetCollection::Elem, std::allocator<xgboost::common::RowSetCollection::Elem>>::_Vector_impl" }
-%"struct.std::_Vector_base<xgboost::common::RowSetCollection::Elem, std::allocator<xgboost::common::RowSetCollection::Elem>>::_Vector_impl" = type { %"struct.std::_Vector_base<xgboost::common::RowSetCollection::Elem, std::allocator<xgboost::common::RowSetCollection::Elem>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<xgboost::common::RowSetCollection::Elem, std::allocator<xgboost::common::RowSetCollection::Elem>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.xgboost::tree::ColumnSplitHelper" = type { %"class.std::vector.80", %"struct.xgboost::BitFieldContainer", %"class.std::vector.80", %"struct.xgboost::BitFieldContainer", %"class.std::vector.80", %"class.std::vector.80", ptr, ptr }
-%"struct.xgboost::BitFieldContainer" = type { ptr, i64 }
-%"class.std::vector.80" = type { %"struct.std::_Vector_base.81" }
-%"struct.std::_Vector_base.81" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.xgboost::RegTree::Node" = type { i32, i32, i32, i32, %"union.xgboost::RegTree::Node::Info" }
-%"union.xgboost::RegTree::Node::Info" = type { float }
 %"class.std::shared_ptr.306" = type { %"class.std::__shared_ptr.307" }
 %"class.std::__shared_ptr.307" = type { ptr, %"class.std::__shared_count" }
 %"class.std::vector.261" = type { %"struct.std::_Vector_base.262" }
@@ -167,13 +139,11 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
 %struct.__pthread_internal_list = type { ptr, ptr }
 %class.anon.383 = type { ptr, ptr, ptr, ptr, ptr, ptr }
-%"class.xgboost::detail::GradientPairInternal" = type { float, float }
 %"class.xgboost::linalg::TensorView.460" = type <{ [1 x i64], [1 x i64], %"class.xgboost::common::Span.461", ptr, i64, %"struct.xgboost::DeviceOrd", [4 x i8] }>
 %"class.xgboost::common::Span.461" = type { i64, ptr }
 %"class.xgboost::linalg::TensorView.376" = type <{ [2 x i64], [2 x i64], %"class.xgboost::common::Span.375", ptr, i64, %"struct.xgboost::DeviceOrd", [4 x i8] }>
 %"class.xgboost::common::Span.375" = type { i64, ptr }
 %"struct.xgboost::tree::TreeEvaluator::SplitEvaluator" = type { ptr, ptr, ptr, i8 }
-%"struct.xgboost::tree::HistEvaluator::NodeEntry" = type <{ %"struct.xgboost::tree::GradStats", float, [4 x i8] }>
 %"class.xgboost::common::Span.438" = type { i64, ptr }
 %"class.std::vector.739" = type { %"struct.std::_Vector_base.740" }
 %"struct.std::_Vector_base.740" = type { %"struct.std::_Vector_base<std::shared_ptr<xgboost::HostDeviceVector<unsigned int>>, std::allocator<std::shared_ptr<xgboost::HostDeviceVector<unsigned int>>>>::_Vector_impl" }
@@ -184,41 +154,20 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.466" = type { %"struct.std::_Vector_base<xgboost::common::Range1d, std::allocator<xgboost::common::Range1d>>::_Vector_impl" }
 %"struct.std::_Vector_base<xgboost::common::Range1d, std::allocator<xgboost::common::Range1d>>::_Vector_impl" = type { %"struct.std::_Vector_base<xgboost::common::Range1d, std::allocator<xgboost::common::Range1d>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<xgboost::common::Range1d, std::allocator<xgboost::common::Range1d>>::_Vector_impl_data" = type { ptr, ptr, ptr }
+%"class.std::vector.65" = type { %"struct.std::_Vector_base.66" }
+%"struct.std::_Vector_base.66" = type { %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl" }
+%"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data" }
+%"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %class.anon.744 = type { ptr }
 %class.anon.745 = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %class.anon.780 = type { ptr, ptr, ptr, ptr, ptr }
 %class.anon.779 = type { ptr, ptr }
-%"class.xgboost::tree::HistogramBuilder" = type <{ %"class.xgboost::tree::BoundedHistCollection", %"class.xgboost::common::ParallelGHistBuilder", %"struct.xgboost::BatchParam", i32, i8, i8, [2 x i8] }>
-%"class.xgboost::tree::BoundedHistCollection" = type <{ %"class.std::map.88", i64, %"class.std::unique_ptr.94", i32, [4 x i8], i64, i8, [7 x i8] }>
-%"class.std::map.88" = type { %"class.std::_Rb_tree.89" }
-%"class.std::_Rb_tree.89" = type { %"struct.std::_Rb_tree<int, std::pair<const int, unsigned long>, std::_Select1st<std::pair<const int, unsigned long>>, std::less<int>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<int, std::pair<const int, unsigned long>, std::_Select1st<std::pair<const int, unsigned long>>, std::less<int>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
-%"class.std::unique_ptr.94" = type { %"struct.std::__uniq_ptr_data.95" }
-%"struct.std::__uniq_ptr_data.95" = type { %"class.std::__uniq_ptr_impl.96" }
-%"class.std::__uniq_ptr_impl.96" = type { %"class.std::tuple.97" }
-%"class.std::tuple.97" = type { %"struct.std::_Tuple_impl.98" }
-%"struct.std::_Tuple_impl.98" = type { %"struct.std::_Head_base.101" }
-%"struct.std::_Head_base.101" = type { ptr }
-%"class.xgboost::common::ParallelGHistBuilder" = type { i64, i64, i64, %"class.xgboost::common::HistCollection", %"class.std::vector.107", %"class.std::vector.112", %"class.std::vector.113", %"class.std::map.118" }
-%"class.xgboost::common::HistCollection" = type { i32, i32, %"class.std::vector.102", %"class.std::vector.65" }
-%"class.std::vector.102" = type { %"struct.std::_Vector_base.103" }
-%"struct.std::_Vector_base.103" = type { %"struct.std::_Vector_base<std::vector<xgboost::detail::GradientPairInternal<double>>, std::allocator<std::vector<xgboost::detail::GradientPairInternal<double>>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::vector<xgboost::detail::GradientPairInternal<double>>, std::allocator<std::vector<xgboost::detail::GradientPairInternal<double>>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::vector<xgboost::detail::GradientPairInternal<double>>, std::allocator<std::vector<xgboost::detail::GradientPairInternal<double>>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::vector<xgboost::detail::GradientPairInternal<double>>, std::allocator<std::vector<xgboost::detail::GradientPairInternal<double>>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.112" = type { %"struct.std::_Bvector_base" }
-%"struct.std::_Bvector_base" = type { %"struct.std::_Bvector_base<std::allocator<bool>>::_Bvector_impl" }
-%"struct.std::_Bvector_base<std::allocator<bool>>::_Bvector_impl" = type { %"struct.std::_Bvector_base<std::allocator<bool>>::_Bvector_impl_data" }
-%"struct.std::_Bvector_base<std::allocator<bool>>::_Bvector_impl_data" = type { %"struct.std::_Bit_iterator", %"struct.std::_Bit_iterator", ptr }
-%"struct.std::_Bit_iterator" = type { %"struct.std::_Bit_iterator_base.base", [4 x i8] }
-%"struct.std::_Bit_iterator_base.base" = type <{ ptr, i32 }>
-%"class.std::vector.113" = type { %"struct.std::_Vector_base.114" }
-%"struct.std::_Vector_base.114" = type { %"struct.std::_Vector_base<xgboost::common::Span<xgboost::detail::GradientPairInternal<double>>, std::allocator<xgboost::common::Span<xgboost::detail::GradientPairInternal<double>>>>::_Vector_impl" }
-%"struct.std::_Vector_base<xgboost::common::Span<xgboost::detail::GradientPairInternal<double>>, std::allocator<xgboost::common::Span<xgboost::detail::GradientPairInternal<double>>>>::_Vector_impl" = type { %"struct.std::_Vector_base<xgboost::common::Span<xgboost::detail::GradientPairInternal<double>>, std::allocator<xgboost::common::Span<xgboost::detail::GradientPairInternal<double>>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<xgboost::common::Span<xgboost::detail::GradientPairInternal<double>>, std::allocator<xgboost::common::Span<xgboost::detail::GradientPairInternal<double>>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::map.118" = type { %"class.std::_Rb_tree.119" }
-%"class.std::_Rb_tree.119" = type { %"struct.std::_Rb_tree<std::pair<unsigned long, unsigned long>, std::pair<const std::pair<unsigned long, unsigned long>, int>, std::_Select1st<std::pair<const std::pair<unsigned long, unsigned long>, int>>, std::less<std::pair<unsigned long, unsigned long>>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<std::pair<unsigned long, unsigned long>, std::pair<const std::pair<unsigned long, unsigned long>, int>, std::_Select1st<std::pair<const std::pair<unsigned long, unsigned long>, int>>, std::less<std::pair<unsigned long, unsigned long>>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
-%"struct.xgboost::common::RowSetCollection::Elem" = type <{ ptr, ptr, i32, [4 x i8] }>
+%"class.xgboost::tree::ColumnSplitHelper" = type { %"class.std::vector.80", %"struct.xgboost::BitFieldContainer", %"class.std::vector.80", %"struct.xgboost::BitFieldContainer", %"class.std::vector.80", %"class.std::vector.80", ptr, ptr }
+%"struct.xgboost::BitFieldContainer" = type { ptr, i64 }
+%"class.std::vector.80" = type { %"struct.std::_Vector_base.81" }
+%"struct.std::_Vector_base.81" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" }
+%"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" }
+%"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.xgboost::common::RefResourceView" = type { ptr, i64, %"class.std::shared_ptr.138" }
 %"class.std::shared_ptr.138" = type { %"class.std::__shared_ptr.139" }
 %"class.std::__shared_ptr.139" = type { ptr, %"class.std::__shared_count" }
@@ -231,17 +180,16 @@ target triple = "x86_64-pc-linux-gnu"
 %class.anon.473 = type { ptr }
 %class.anon.502 = type { ptr, ptr, ptr, ptr, ptr, ptr }
 %class.anon.497 = type { ptr, ptr, ptr, ptr, ptr, ptr }
-%"class.xgboost::common::Span.486" = type { i64, ptr }
+%"class.std::vector.113" = type { %"struct.std::_Vector_base.114" }
+%"struct.std::_Vector_base.114" = type { %"struct.std::_Vector_base<xgboost::common::Span<xgboost::detail::GradientPairInternal<double>>, std::allocator<xgboost::common::Span<xgboost::detail::GradientPairInternal<double>>>>::_Vector_impl" }
+%"struct.std::_Vector_base<xgboost::common::Span<xgboost::detail::GradientPairInternal<double>>, std::allocator<xgboost::common::Span<xgboost::detail::GradientPairInternal<double>>>>::_Vector_impl" = type { %"struct.std::_Vector_base<xgboost::common::Span<xgboost::detail::GradientPairInternal<double>>, std::allocator<xgboost::common::Span<xgboost::detail::GradientPairInternal<double>>>>::_Vector_impl_data" }
+%"struct.std::_Vector_base<xgboost::common::Span<xgboost::detail::GradientPairInternal<double>>, std::allocator<xgboost::common::Span<xgboost::detail::GradientPairInternal<double>>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %class.anon.504 = type { ptr }
 %class.anon.505 = type { ptr }
 %class.anon.506 = type { ptr }
 %class.anon.507 = type { ptr, ptr, ptr }
-%"class.xgboost::common::Range1d" = type { i64, i64 }
-%"class.std::vector.131" = type { %"struct.std::_Vector_base.132" }
-%"struct.std::_Vector_base.132" = type { %"struct.std::_Vector_base<xgboost::detail::GradientPairInternal<double>, std::allocator<xgboost::detail::GradientPairInternal<double>>>::_Vector_impl" }
-%"struct.std::_Vector_base<xgboost::detail::GradientPairInternal<double>, std::allocator<xgboost::detail::GradientPairInternal<double>>>::_Vector_impl" = type { %"struct.std::_Vector_base<xgboost::detail::GradientPairInternal<double>, std::allocator<xgboost::detail::GradientPairInternal<double>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<xgboost::detail::GradientPairInternal<double>, std::allocator<xgboost::detail::GradientPairInternal<double>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %class.anon.498 = type { ptr, ptr, ptr, ptr }
+%"class.xgboost::common::Span.486" = type { i64, ptr }
 %class.anon.503 = type { ptr, ptr, ptr, ptr }
 %class.anon.508 = type { ptr, ptr, ptr, ptr }
 %class.anon.511 = type { ptr, ptr, ptr, ptr }
@@ -254,9 +202,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.anon.723 = type { ptr, ptr }
 %class.anon.725 = type { ptr, ptr, ptr, ptr, ptr, ptr }
 %class.anon.726 = type { ptr, ptr }
-%"class.std::shared_ptr.85" = type { %"class.std::__shared_ptr.86" }
-%"class.std::__shared_ptr.86" = type { ptr, %"class.std::__shared_count" }
-%"struct.std::pair.129" = type { i64, i64 }
 %class.anon.521 = type { ptr, ptr }
 %class.anon.523 = type { ptr, ptr, ptr, ptr, ptr, ptr }
 %class.anon.524 = type { ptr, ptr }
@@ -271,7 +216,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.anon.540 = type { ptr, ptr, ptr, ptr }
 %"class.xgboost::common::Span.513" = type { i64, ptr }
 %class.anon.533 = type { ptr, ptr, ptr, ptr, ptr, ptr }
-%"struct.xgboost::RegTree::CategoricalSplitMatrix::Segment" = type { i64, i64 }
 %class.anon.545 = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %"class.xgboost::common::SparseColumnIter" = type { %"class.xgboost::common::Column.base", %"class.xgboost::common::Span.499", i64 }
 %"class.xgboost::common::Column.base" = type <{ ptr, %"class.xgboost::common::Span.534", i32 }>
@@ -422,10 +366,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Rb_tree<int, std::pair<const int, std::shared_ptr<xgboost::HostDeviceVector<unsigned int>>>, std::_Select1st<std::pair<const int, std::shared_ptr<xgboost::HostDeviceVector<unsigned int>>>>, std::less<int>>::_Auto_node" = type { ptr, ptr }
 %class.anon.753 = type { ptr, ptr, ptr }
 %"class.xgboost::common::Span.509" = type { i64, ptr }
-%"class.std::unordered_set" = type { %"class.std::_Hashtable" }
-%"class.std::_Hashtable" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"struct.std::__detail::_Hash_node_base" = type { ptr }
-%"struct.std::__detail::_Prime_rehash_policy" = type { float, i64 }
 %"struct.__gnu_cxx::__ops::_Iter_comp_iter.755" = type { %class.anon.753 }
 %"struct.__gnu_cxx::__ops::_Val_comp_iter" = type { %class.anon.753 }
 %"struct.__gnu_cxx::__ops::_Iter_comp_val.758" = type { %class.anon.753 }
@@ -2175,7 +2115,7 @@ _ZNSt6vectorIPKN7xgboost14TreeUpdaterRegESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.ex
 _ZNSt6vectorIPKN7xgboost14TreeUpdaterRegESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %74, %_ZNSt6vectorIPKN7xgboost14TreeUpdaterRegESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
   store ptr %69, ptr %50, align 8, !tbaa !29
   store ptr %73, ptr %51, align 8, !tbaa !24
-  %75 = getelementptr inbounds nuw ptr, ptr %69, i64 %67
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %67
   store ptr %75, ptr %53, align 8, !tbaa !28
   br label %_ZNSt6vectorIPKN7xgboost14TreeUpdaterRegESaIS3_EE9push_backERKS3_.exit
 
@@ -2243,7 +2183,7 @@ _ZNSt6vectorIPN7xgboost14TreeUpdaterRegESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exi
 _ZNSt6vectorIPN7xgboost14TreeUpdaterRegESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %99, %_ZNSt6vectorIPN7xgboost14TreeUpdaterRegESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %94, ptr %0, align 8, !tbaa !33
   store ptr %98, ptr %76, align 8, !tbaa !30
-  %100 = getelementptr inbounds nuw ptr, ptr %94, i64 %92
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %92
   store ptr %100, ptr %78, align 8, !tbaa !32
   br label %_ZNSt6vectorIPN7xgboost14TreeUpdaterRegESaIS2_EE9push_backERKS2_.exit
 
@@ -3859,7 +3799,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZNK7xgboost6l
           to label %.noexc31 unwind label %128
 
 .noexc31:                                         ; preds = %96
-  %99 = getelementptr inbounds nuw float, ptr %98, i64 %93
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %98, i64 %93
   store float 0.000000e+00, ptr %98, align 4, !tbaa !134
   %100 = getelementptr i8, ptr %98, i64 4
   %101 = add nsw i64 %93, -1
@@ -3962,7 +3902,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %._crit_edge, %120
 
 _ZNK7xgboost6common4SpanINS_16HostDeviceVectorIiEELm18446744073709551615EEixEm.exit: ; preds = %132
   %135 = load ptr, ptr %87, align 8, !tbaa !92
-  %136 = getelementptr inbounds nuw %"class.xgboost::HostDeviceVector.38", ptr %5, i64 %.02352
+  %136 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.02352
   invoke void @_ZN7xgboost4tree19GlobalApproxBuilder10UpdateTreeEPNS_7DMatrixERKSt6vectorINS_6detail20GradientPairInternalIfEESaIS7_EENS_6common4SpanIfLm18446744073709551615EEEPNS_7RegTreeEPNS_16HostDeviceVectorIiEE(ptr noundef nonnull align 8 dereferenceable(368) %135, ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(24) %104, i64 %119, ptr %.sroa.041.0, ptr noundef %133, ptr noundef nonnull %136)
           to label %137 unwind label %142
 
@@ -4837,7 +4777,7 @@ _ZNSt6vectorIN7xgboost6common4SpanINS0_6detail20GradientPairInternalIdEELm184467
   %23 = sub i64 %21, %22
   %24 = ashr exact i64 %23, 3
   %25 = sub nsw i64 0, %24
-  %26 = getelementptr inbounds i64, ptr %20, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %20, i64 %25
   tail call void @_ZdlPvm(ptr noundef %26, i64 noundef %23) #41
   store ptr null, ptr %16, align 8
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -6416,7 +6356,7 @@ _ZNSt6vectorIPvSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i: ; preds = %3
           to label %.noexc27 unwind label %22
 
 .noexc27:                                         ; preds = %8
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %2
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %2
   store ptr null, ptr %10, align 8, !tbaa !53
   %12 = add nsw i64 %2, -1
   %13 = icmp eq i64 %12, 0
@@ -6472,7 +6412,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %20, %17
 32:                                               ; preds = %.lr.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %indvars.iv = phi i64 [ %31, %.lr.ph ], [ %indvars.iv.next, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %33 = getelementptr inbounds ptr, ptr %26, i64 %indvars.iv
+  %33 = getelementptr inbounds [8 x i8], ptr %26, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8, !tbaa !273
   invoke void @_ZN4dmlc8DemangleB5cxx11EPKc(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef %34)
           to label %35 unwind label %48
@@ -7678,7 +7618,7 @@ _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaI
 _ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE13_M_deallocateEPS7_m.exit: ; preds = %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit41, %85
   store ptr %21, ptr %0, align 8, !tbaa !104
   store ptr %.0.lcssa.i.i.i40, ptr %5, align 8, !tbaa !107
-  %89 = getelementptr inbounds nuw %"struct.std::pair.187", ptr %21, i64 %17
+  %89 = getelementptr inbounds nuw [64 x i8], ptr %21, i64 %17
   store ptr %89, ptr %84, align 8, !tbaa !109
   ret void
 
@@ -8684,7 +8624,7 @@ define linkonce_odr void @_ZNK4dmlc9parameter12ParamManager14PrintDocStringERSo(
   %21 = phi ptr [ %9, %.lr.ph ], [ %82, %_ZN4dmlc14ParamFieldInfoD2Ev.exit ]
   %.018 = phi i64 [ 0, %.lr.ph ], [ %80, %_ZN4dmlc14ParamFieldInfoD2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %.018
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %.018
   %23 = load ptr, ptr %22, align 8, !tbaa !324
   %24 = load ptr, ptr %23, align 8, !tbaa !57
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 48
@@ -9042,7 +8982,7 @@ _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaI
 _ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE13_M_deallocateEPS7_m.exit: ; preds = %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit40, %84
   store ptr %20, ptr %0, align 8, !tbaa !104
   store ptr %.0.lcssa.i.i.i39, ptr %4, align 8, !tbaa !107
-  %88 = getelementptr inbounds nuw %"struct.std::pair.187", ptr %20, i64 %16
+  %88 = getelementptr inbounds nuw [64 x i8], ptr %20, i64 %16
   store ptr %88, ptr %83, align 8, !tbaa !109
   ret void
 
@@ -10307,7 +10247,7 @@ _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaI
 _ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE13_M_deallocateEPS7_m.exit: ; preds = %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit30, %114
   store ptr %22, ptr %0, align 8, !tbaa !104
   store ptr %.0.lcssa.i.i.i29, ptr %4, align 8, !tbaa !107
-  %118 = getelementptr inbounds nuw %"struct.std::pair.187", ptr %22, i64 %16
+  %118 = getelementptr inbounds nuw [64 x i8], ptr %22, i64 %16
   store ptr %118, ptr %113, align 8, !tbaa !109
   ret void
 }
@@ -12696,7 +12636,7 @@ _ZNK7xgboost13BatchIteratorINS_16GHistIndexMatrixEEdeEv.exit: ; preds = %379
   unreachable
 
 394:                                              ; preds = %_ZNK7xgboost13BatchIteratorINS_16GHistIndexMatrixEEdeEv.exit
-  %395 = getelementptr inbounds nuw %"class.xgboost::tree::CommonRowPartitioner", ptr %388, i64 %.072
+  %395 = getelementptr inbounds nuw [288 x i8], ptr %388, i64 %.072
   %396 = load ptr, ptr %83, align 8, !tbaa !477
   %397 = invoke noundef nonnull align 8 dereferenceable(218) ptr @_ZNK7xgboost16GHistIndexMatrix9TransposeEv(ptr noundef nonnull align 8 dereferenceable(233) %383)
           to label %.noexc143 unwind label %.loopexit350
@@ -12911,7 +12851,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit165: ; preds = %43
   %440 = load i32, ptr %.sroa.0312.0557, align 8, !tbaa !535
   %441 = sext i32 %440 to i64
   %442 = load ptr, ptr %117, align 8, !tbaa !536
-  %443 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %442, i64 %441
+  %443 = getelementptr inbounds nuw [20 x i8], ptr %442, i64 %441
   %444 = getelementptr inbounds nuw i8, ptr %443, i64 4
   %445 = load i32, ptr %444, align 4, !tbaa !539
   %446 = getelementptr inbounds nuw i8, ptr %443, i64 8
@@ -12923,7 +12863,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit165: ; preds = %43
 
 .preheader.i:                                     ; preds = %.lr.ph
   %449 = sext i32 %445 to i64
-  %450 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %442, i64 %449
+  %450 = getelementptr inbounds nuw [20 x i8], ptr %442, i64 %449
   %451 = load i32, ptr %450, align 4, !tbaa !544
   %452 = icmp eq i32 %451, -1
   br i1 %452, label %.loopexit326, label %.lr.ph.i
@@ -12949,7 +12889,7 @@ _ZNK7xgboost15MultiTargetTree6ParentEi.exit.i:    ; preds = %.noexc288, %.noexc2
   %464 = phi ptr [ %486, %.noexc292 ], [ %459, %.noexc288 ]
   %465 = phi i64 [ %483, %.noexc292 ], [ %456, %.noexc288 ]
   %.016.i = phi i32 [ %482, %.noexc292 ], [ 0, %.noexc288 ]
-  %466 = getelementptr inbounds nuw i32, ptr %464, i64 %465
+  %466 = getelementptr inbounds nuw [4 x i8], ptr %464, i64 %465
   %467 = load i32, ptr %466, align 4, !tbaa !99
   %.not.i286 = icmp eq i32 %467, -1
   br i1 %.not.i286, label %.loopexit326.loopexit561, label %468
@@ -12979,7 +12919,7 @@ _ZNK7xgboost15MultiTargetTree6ParentEi.exit.i:    ; preds = %.noexc288, %.noexc2
   unreachable
 
 _ZNK7xgboost15MultiTargetTree6ParentEi.exit6.i:   ; preds = %.noexc290
-  %479 = getelementptr inbounds nuw i32, ptr %472, i64 %465
+  %479 = getelementptr inbounds nuw [4 x i8], ptr %472, i64 %465
   %480 = load i32, ptr %479, align 4, !tbaa !99
   %481 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7xgboost16HostDeviceVectorIiE15ConstHostVectorEv(ptr noundef nonnull align 8 dereferenceable(8) %454)
           to label %.noexc292 unwind label %.loopexit328
@@ -13003,7 +12943,7 @@ _ZNK7xgboost15MultiTargetTree6ParentEi.exit6.i:   ; preds = %.noexc290
   %492 = add nuw nsw i32 %.08.i, 1
   %493 = and i32 %491, 2147483647
   %494 = zext nneg i32 %493 to i64
-  %495 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %442, i64 %494
+  %495 = getelementptr inbounds nuw [20 x i8], ptr %442, i64 %494
   %496 = load i32, ptr %495, align 4, !tbaa !544
   %497 = icmp eq i32 %496, -1
   br i1 %497, label %.loopexit326, label %.lr.ph.i, !llvm.loop !547
@@ -13029,7 +12969,7 @@ _ZNK7xgboost15MultiTargetTree6ParentEi.exit6.i:   ; preds = %.noexc290
 .preheader.i170:                                  ; preds = %.loopexit326
   %499 = load ptr, ptr %117, align 8, !tbaa !536
   %500 = sext i32 %447 to i64
-  %501 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %499, i64 %500
+  %501 = getelementptr inbounds nuw [20 x i8], ptr %499, i64 %500
   %502 = load i32, ptr %501, align 4, !tbaa !544
   %503 = icmp eq i32 %502, -1
   br i1 %503, label %.loopexit, label %.lr.ph.i171
@@ -13055,7 +12995,7 @@ _ZNK7xgboost15MultiTargetTree6ParentEi.exit.i297: ; preds = %.noexc303, %.noexc3
   %515 = phi ptr [ %537, %.noexc307 ], [ %510, %.noexc303 ]
   %516 = phi i64 [ %534, %.noexc307 ], [ %507, %.noexc303 ]
   %.016.i298 = phi i32 [ %533, %.noexc307 ], [ 0, %.noexc303 ]
-  %517 = getelementptr inbounds nuw i32, ptr %515, i64 %516
+  %517 = getelementptr inbounds nuw [4 x i8], ptr %515, i64 %516
   %518 = load i32, ptr %517, align 4, !tbaa !99
   %.not.i299 = icmp eq i32 %518, -1
   br i1 %.not.i299, label %.loopexit, label %519
@@ -13085,7 +13025,7 @@ _ZNK7xgboost15MultiTargetTree6ParentEi.exit.i297: ; preds = %.noexc303, %.noexc3
   unreachable
 
 _ZNK7xgboost15MultiTargetTree6ParentEi.exit6.i301: ; preds = %.noexc305
-  %530 = getelementptr inbounds nuw i32, ptr %523, i64 %516
+  %530 = getelementptr inbounds nuw [4 x i8], ptr %523, i64 %516
   %531 = load i32, ptr %530, align 4, !tbaa !99
   %532 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7xgboost16HostDeviceVectorIiE15ConstHostVectorEv(ptr noundef nonnull align 8 dereferenceable(8) %505)
           to label %.noexc307 unwind label %.loopexit325
@@ -13109,7 +13049,7 @@ _ZNK7xgboost15MultiTargetTree6ParentEi.exit6.i301: ; preds = %.noexc305
   %543 = add nuw nsw i32 %.08.i172, 1
   %544 = and i32 %542, 2147483647
   %545 = zext nneg i32 %544 to i64
-  %546 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %499, i64 %545
+  %546 = getelementptr inbounds nuw [20 x i8], ptr %499, i64 %545
   %547 = load i32, ptr %546, align 4, !tbaa !544
   %548 = icmp eq i32 %547, -1
   br i1 %548, label %.loopexit, label %.lr.ph.i171, !llvm.loop !547
@@ -13857,10 +13797,10 @@ define linkonce_odr noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm39
 6:                                                ; preds = %6, %5
   %7 = phi i64 [ %.pre.i, %5 ], [ %12, %6 ]
   %.021.i = phi i64 [ 0, %5 ], [ %10, %6 ]
-  %8 = getelementptr inbounds nuw i64, ptr %0, i64 %.021.i
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.021.i
   %9 = and i64 %7, -2147483648
   %10 = add nuw nsw i64 %.021.i, 1
-  %11 = getelementptr inbounds nuw i64, ptr %0, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %10
   %12 = load i64, ptr %11, align 8, !tbaa !44
   %13 = and i64 %12, 2147483646
   %14 = or disjoint i64 %13, %9
@@ -13884,10 +13824,10 @@ define linkonce_odr noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm39
 .preheader.i:                                     ; preds = %.preheader.i, %.preheader.preheader.i
   %22 = phi i64 [ %27, %.preheader.i ], [ %.pre24.i, %.preheader.preheader.i ]
   %.01822.i = phi i64 [ %25, %.preheader.i ], [ 227, %.preheader.preheader.i ]
-  %23 = getelementptr inbounds nuw i64, ptr %0, i64 %.01822.i
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.01822.i
   %24 = and i64 %22, -2147483648
   %25 = add nuw nsw i64 %.01822.i, 1
-  %26 = getelementptr inbounds nuw i64, ptr %0, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %25
   %27 = load i64, ptr %26, align 8, !tbaa !44
   %28 = and i64 %27, 2147483646
   %29 = or disjoint i64 %28, %24
@@ -13925,7 +13865,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %51 = phi i64 [ 0, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit ], [ %3, %1 ]
   %52 = add nuw nsw i64 %51, 1
   store i64 %52, ptr %2, align 8, !tbaa !565
-  %53 = getelementptr inbounds nuw i64, ptr %0, i64 %51
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %51
   %54 = load i64, ptr %53, align 8, !tbaa !44
   %55 = lshr i64 %54, 11
   %56 = and i64 %55, 4294967295
@@ -14262,7 +14202,7 @@ define linkonce_odr void @_ZN7xgboost6common13ColumnSamplerC2Ej(ptr noundef nonn
 14:                                               ; preds = %14, %9
   %store_forwarded12 = phi i64 [ 5489, %9 ], [ %20, %14 ]
   %.011.i.i.i = phi i64 [ 1, %9 ], [ %21, %14 ]
-  %15 = getelementptr i64, ptr %13, i64 %.011.i.i.i
+  %15 = getelementptr [8 x i8], ptr %13, i64 %.011.i.i.i
   %16 = lshr i64 %store_forwarded12, 30
   %17 = xor i64 %16, %store_forwarded12
   %18 = mul nuw nsw i64 %17, 1812433253
@@ -14293,7 +14233,7 @@ define linkonce_odr void @_ZN7xgboost6common13ColumnSamplerC2Ej(ptr noundef nonn
 29:                                               ; preds = %29, %27
   %store_forwarded = phi i64 [ %28, %27 ], [ %35, %29 ]
   %.011.i = phi i64 [ 1, %27 ], [ %36, %29 ]
-  %30 = getelementptr i64, ptr %13, i64 %.011.i
+  %30 = getelementptr [8 x i8], ptr %13, i64 %.011.i
   %31 = lshr i64 %store_forwarded, 30
   %32 = xor i64 %31, %store_forwarded
   %33 = mul nuw nsw i64 %32, 1812433253
@@ -14996,7 +14936,7 @@ define linkonce_odr void @_ZN7xgboost4tree13TreeEvaluatorC2ERKNS0_10TrainParamEj
   br i1 %49, label %50, label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit
 
 50:                                               ; preds = %48
-  %51 = getelementptr inbounds nuw i32, ptr %40, i64 %37
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %37
   %.not.i.i = icmp eq ptr %39, %51
   br i1 %.not.i.i, label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit, label %52
 
@@ -15165,7 +15105,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   br i1 %108, label %109, label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit41
 
 109:                                              ; preds = %107
-  %110 = getelementptr inbounds nuw i32, ptr %99, i64 %96
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %99, i64 %96
   %.not.i.i39 = icmp eq ptr %98, %110
   br i1 %.not.i.i39, label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit41, label %111
 
@@ -15843,7 +15783,7 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE14_M_fill_insertEN9__gnu_cxx17__no
 
 _ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit: ; preds = %23, %20
   %24 = phi ptr [ %.pre, %23 ], [ %9, %20 ]
-  %25 = getelementptr inbounds nuw i32, ptr %24, i64 %2
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %2
   store ptr %25, ptr %8, align 8, !tbaa !545
   %.not.i.i.i.i.i = icmp eq ptr %21, %1
   br i1 %.not.i.i.i.i.i, label %_ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit, label %26
@@ -15852,7 +15792,7 @@ _ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit: ; preds = %23, %20
   %27 = sub i64 %22, %16
   %28 = ashr exact i64 %27, 2
   %29 = sub nsw i64 0, %28
-  %30 = getelementptr inbounds i32, ptr %9, i64 %29
+  %30 = getelementptr inbounds [4 x i8], ptr %9, i64 %29
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %30, ptr align 4 %1, i64 %27, i1 false)
   br label %_ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit
 
@@ -15963,7 +15903,7 @@ _ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit80: ; preds = %.l
   br label %_ZSt34__uninitialized_move_if_noexcept_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit
 
 _ZSt34__uninitialized_move_if_noexcept_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit: ; preds = %67, %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit80
-  %68 = getelementptr inbounds nuw i32, ptr %63, i64 %2
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %2
   %69 = sub i64 %11, %56
   %.not.i.i.i.i.i.i.i.i.i82 = icmp eq ptr %9, %1
   br i1 %.not.i.i.i.i.i.i.i.i.i82, label %71, label %70
@@ -15985,7 +15925,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit: ; pred
 _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit: ; preds = %71, %73
   store ptr %62, ptr %0, align 8, !tbaa !194
   store ptr %72, ptr %8, align 8, !tbaa !545
-  %75 = getelementptr inbounds nuw i32, ptr %62, i64 %55
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %55
   store ptr %75, ptr %6, align 8, !tbaa !197
   br label %_ZSt4fillIPiiEvT_S1_RKT0_.exit
 
@@ -16326,9 +16266,9 @@ define linkonce_odr void @_ZN7xgboost4tree14SampleGradientEPKNS_7ContextENS0_10T
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm2EEELb1EEdeEv.exit.i.i.i: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm2EEELb1EEdeEv.exit.i.i.i, %23
   %.sroa.6.021.i.i.i = phi i64 [ %31, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm2EEELb1EEdeEv.exit.i.i.i ], [ 0, %23 ]
-  %27 = getelementptr inbounds nuw i64, ptr %2, i64 %.sroa.6.021.i.i.i
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.sroa.6.021.i.i.i
   %28 = load i64, ptr %27, align 8, !tbaa !44
-  %29 = getelementptr inbounds nuw i64, ptr %6, i64 %.sroa.6.021.i.i.i
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.sroa.6.021.i.i.i
   %30 = load i64, ptr %29, align 8, !tbaa !44
   %.not4.i.i.i = icmp eq i64 %28, %30
   %31 = add nuw nsw i64 %.sroa.6.021.i.i.i, 1
@@ -16351,9 +16291,9 @@ _ZNK7xgboost6linalg10TensorViewINS_6detail20GradientPairInternalIfEELi2EE11CCont
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm2EEELb1EEdeEv.exit.i.i1.i: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm2EEELb1EEdeEv.exit.i.i1.i, %32
   %.sroa.6.021.i.i2.i = phi i64 [ %40, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm2EEELb1EEdeEv.exit.i.i1.i ], [ 0, %32 ]
-  %36 = getelementptr inbounds nuw i64, ptr %2, i64 %.sroa.6.021.i.i2.i
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.sroa.6.021.i.i2.i
   %37 = load i64, ptr %36, align 8, !tbaa !44
-  %38 = getelementptr inbounds nuw i64, ptr %5, i64 %.sroa.6.021.i.i2.i
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.sroa.6.021.i.i2.i
   %39 = load i64, ptr %38, align 8, !tbaa !44
   %.not4.i.i3.i = icmp eq i64 %37, %39
   %40 = add nuw nsw i64 %.sroa.6.021.i.i2.i, 1
@@ -17166,8 +17106,8 @@ _ZNSt22bernoulli_distributionclISt26linear_congruential_engineImLm16807ELm0ELm92
   %55 = mul i64 %54, %storemerge1245
   %56 = getelementptr inbounds nuw i8, ptr %50, i64 48
   %57 = load ptr, ptr %56, align 8, !tbaa !416
-  %58 = getelementptr %"class.xgboost::detail::GradientPairInternal", ptr %57, i64 %52
-  %59 = getelementptr %"class.xgboost::detail::GradientPairInternal", ptr %58, i64 %55
+  %58 = getelementptr [8 x i8], ptr %57, i64 %52
+  %59 = getelementptr [8 x i8], ptr %58, i64 %55
   store i32 0, ptr %59, align 4
   %.sroa_idx25 = getelementptr inbounds nuw i8, ptr %59, i64 4
   store i32 0, ptr %.sroa_idx25, align 4
@@ -17224,7 +17164,7 @@ _ZNSt22bernoulli_distributionclISt26linear_congruential_engineImLm16807ELm0ELm92
   %84 = mul i64 %83, %storemerge44
   %85 = getelementptr inbounds nuw i8, ptr %82, i64 48
   %86 = load ptr, ptr %85, align 8, !tbaa !416
-  %87 = getelementptr %"class.xgboost::detail::GradientPairInternal", ptr %86, i64 %84
+  %87 = getelementptr [8 x i8], ptr %86, i64 %84
   store i32 0, ptr %87, align 4
   %.sroa_idx22 = getelementptr inbounds nuw i8, ptr %87, i64 4
   store i32 0, ptr %.sroa_idx22, align 4
@@ -19681,13 +19621,13 @@ _ZN7xgboost4tree10CalcWeightINS0_10TrainParamENS0_9GradStatsEEEfRKT_T0_.exit.i: 
 
 77:                                               ; preds = %_ZN7xgboost4tree10CalcWeightINS0_10TrainParamENS0_9GradStatsEEEfRKT_T0_.exit.i
   %78 = sext i32 %38 to i64
-  %79 = getelementptr inbounds float, ptr %27, i64 %78
+  %79 = getelementptr inbounds [4 x i8], ptr %27, i64 %78
   %80 = load float, ptr %79, align 4, !tbaa !134
   %81 = fcmp ogt float %80, %74
   br i1 %81, label %_ZNK7xgboost4tree13TreeEvaluator14SplitEvaluatorINS0_10TrainParamEE10CalcWeightINS0_9GradStatsEEEfiRKS3_RKT_.exit, label %82
 
 82:                                               ; preds = %77
-  %83 = getelementptr inbounds float, ptr %.sink3.i, i64 %78
+  %83 = getelementptr inbounds [4 x i8], ptr %.sink3.i, i64 %78
   %84 = load float, ptr %83, align 4, !tbaa !134
   %85 = fcmp olt float %84, %74
   %..i = select i1 %85, float %84, float %74
@@ -19751,13 +19691,13 @@ _ZN7xgboost4tree10CalcWeightINS0_10TrainParamENS0_9GradStatsEEEfRKT_T0_.exit.i64
 
 117:                                              ; preds = %_ZN7xgboost4tree10CalcWeightINS0_10TrainParamENS0_9GradStatsEEEfRKT_T0_.exit.i64
   %118 = sext i32 %38 to i64
-  %119 = getelementptr inbounds float, ptr %27, i64 %118
+  %119 = getelementptr inbounds [4 x i8], ptr %27, i64 %118
   %120 = load float, ptr %119, align 4, !tbaa !134
   %121 = fcmp ogt float %120, %116
   br i1 %121, label %_ZNK7xgboost4tree13TreeEvaluator14SplitEvaluatorINS0_10TrainParamEE10CalcWeightINS0_9GradStatsEEEfiRKS3_RKT_.exit69, label %122
 
 122:                                              ; preds = %117
-  %123 = getelementptr inbounds float, ptr %.sink3.i, i64 %118
+  %123 = getelementptr inbounds [4 x i8], ptr %.sink3.i, i64 %118
   %124 = load float, ptr %123, align 4, !tbaa !134
   %125 = fcmp olt float %124, %116
   %..i68 = select i1 %125, float %124, float %116
@@ -19821,13 +19761,13 @@ _ZN7xgboost4tree10CalcWeightINS0_10TrainParamENS0_9GradStatsEEEfRKT_T0_.exit.i76
 
 157:                                              ; preds = %_ZN7xgboost4tree10CalcWeightINS0_10TrainParamENS0_9GradStatsEEEfRKT_T0_.exit.i76
   %158 = sext i32 %38 to i64
-  %159 = getelementptr inbounds float, ptr %27, i64 %158
+  %159 = getelementptr inbounds [4 x i8], ptr %27, i64 %158
   %160 = load float, ptr %159, align 4, !tbaa !134
   %161 = fcmp ogt float %160, %156
   br i1 %161, label %_ZNK7xgboost4tree13TreeEvaluator14SplitEvaluatorINS0_10TrainParamEE10CalcWeightINS0_9GradStatsEEEfiRKS3_RKT_.exit81, label %162
 
 162:                                              ; preds = %157
-  %163 = getelementptr inbounds float, ptr %.sink3.i, i64 %158
+  %163 = getelementptr inbounds [4 x i8], ptr %.sink3.i, i64 %158
   %164 = load float, ptr %163, align 4, !tbaa !134
   %165 = fcmp olt float %164, %156
   %..i80 = select i1 %165, float %164, float %156
@@ -19884,7 +19824,7 @@ _ZNK7xgboost4tree13TreeEvaluator14SplitEvaluatorINS0_10TrainParamEE10CalcWeightI
   %204 = getelementptr inbounds nuw i8, ptr %2, i64 160
   %205 = sext i32 %203 to i64
   %206 = load ptr, ptr %204, align 8, !tbaa !536
-  %207 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %206, i64 %205
+  %207 = getelementptr inbounds nuw [20 x i8], ptr %206, i64 %205
   %208 = getelementptr inbounds nuw i8, ptr %207, i64 4
   %209 = load i32, ptr %208, align 4, !tbaa !539
   %210 = getelementptr inbounds nuw i8, ptr %207, i64 8
@@ -19955,7 +19895,7 @@ _ZNK7xgboost4tree13TreeEvaluator12GetEvaluatorINS0_10TrainParamEEEDav.exit85: ; 
   br i1 %249, label %250, label %_ZNSt6vectorIN7xgboost4tree13HistEvaluator9NodeEntryESaIS3_EE6resizeEm.exit
 
 250:                                              ; preds = %248
-  %251 = getelementptr inbounds nuw %"struct.xgboost::tree::HistEvaluator::NodeEntry", ptr %240, i64 %237
+  %251 = getelementptr inbounds nuw [24 x i8], ptr %240, i64 %237
   %.not.i.i = icmp eq ptr %239, %251
   br i1 %.not.i.i, label %_ZNSt6vectorIN7xgboost4tree13HistEvaluator9NodeEntryESaIS3_EE6resizeEm.exit, label %252
 
@@ -19979,7 +19919,7 @@ _ZNSt6vectorIN7xgboost4tree13HistEvaluator9NodeEntryESaIS3_EE6resizeEm.exit: ; p
   unreachable
 
 _ZNSt6vectorIN7xgboost4tree13HistEvaluator9NodeEntryESaIS3_EE2atEm.exit: ; preds = %_ZNSt6vectorIN7xgboost4tree13HistEvaluator9NodeEntryESaIS3_EE6resizeEm.exit
-  %260 = getelementptr inbounds nuw %"struct.xgboost::tree::HistEvaluator::NodeEntry", ptr %253, i64 %255
+  %260 = getelementptr inbounds nuw [24 x i8], ptr %253, i64 %255
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %260, ptr noundef nonnull align 8 dereferenceable(16) %31, i64 16, i1 false), !tbaa.struct !816
   %261 = load i32, ptr %1, align 8, !tbaa !535
   %262 = load ptr, ptr %39, align 8, !tbaa !624
@@ -20000,7 +19940,7 @@ _ZNSt6vectorIN7xgboost4tree13HistEvaluator9NodeEntryESaIS3_EE2atEm.exit: ; preds
   unreachable
 
 _ZNSt6vectorIN7xgboost4tree13HistEvaluator9NodeEntryESaIS3_EE2atEm.exit88: ; preds = %_ZNSt6vectorIN7xgboost4tree13HistEvaluator9NodeEntryESaIS3_EE2atEm.exit
-  %271 = getelementptr inbounds nuw %"struct.xgboost::tree::HistEvaluator::NodeEntry", ptr %265, i64 %255
+  %271 = getelementptr inbounds nuw [24 x i8], ptr %265, i64 %255
   %272 = getelementptr inbounds nuw i8, ptr %271, i64 16
   store float %263, ptr %272, align 8, !tbaa !817
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -20013,7 +19953,7 @@ _ZNSt6vectorIN7xgboost4tree13HistEvaluator9NodeEntryESaIS3_EE2atEm.exit88: ; pre
   unreachable
 
 _ZNSt6vectorIN7xgboost4tree13HistEvaluator9NodeEntryESaIS3_EE2atEm.exit90: ; preds = %_ZNSt6vectorIN7xgboost4tree13HistEvaluator9NodeEntryESaIS3_EE2atEm.exit88
-  %275 = getelementptr inbounds nuw %"struct.xgboost::tree::HistEvaluator::NodeEntry", ptr %265, i64 %273
+  %275 = getelementptr inbounds nuw [24 x i8], ptr %265, i64 %273
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %275, ptr noundef nonnull align 8 dereferenceable(16) %32, i64 16, i1 false), !tbaa.struct !816
   %276 = load i32, ptr %1, align 8, !tbaa !535
   %277 = load ptr, ptr %39, align 8, !tbaa !624
@@ -20034,7 +19974,7 @@ _ZNSt6vectorIN7xgboost4tree13HistEvaluator9NodeEntryESaIS3_EE2atEm.exit90: ; pre
   unreachable
 
 _ZNSt6vectorIN7xgboost4tree13HistEvaluator9NodeEntryESaIS3_EE2atEm.exit92: ; preds = %_ZNSt6vectorIN7xgboost4tree13HistEvaluator9NodeEntryESaIS3_EE2atEm.exit90
-  %286 = getelementptr inbounds nuw %"struct.xgboost::tree::HistEvaluator::NodeEntry", ptr %280, i64 %273
+  %286 = getelementptr inbounds nuw [24 x i8], ptr %280, i64 %273
   %287 = getelementptr inbounds nuw i8, ptr %286, i64 16
   store float %278, ptr %287, align 8, !tbaa !817
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -20048,7 +19988,7 @@ _ZNSt6vectorIN7xgboost4tree13HistEvaluator9NodeEntryESaIS3_EE2atEm.exit92: ; pre
   %293 = load ptr, ptr %204, align 8, !tbaa !536
   %294 = load i32, ptr %1, align 8, !tbaa !535
   %295 = sext i32 %294 to i64
-  %296 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %293, i64 %295
+  %296 = getelementptr inbounds nuw [20 x i8], ptr %293, i64 %295
   %297 = getelementptr inbounds nuw i8, ptr %296, i64 12
   %298 = load i32, ptr %297, align 4, !tbaa !810
   %299 = and i32 %298, 2147483647
@@ -20502,7 +20442,7 @@ _ZNSt6vectorISt10shared_ptrIN7xgboost16HostDeviceVectorIjEEESaIS4_EE17_S_check_i
   %32 = shl nuw nsw i64 %28, 4
   %33 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %32) #40
   store ptr %33, ptr %10, align 8, !tbaa !825
-  %34 = getelementptr inbounds nuw %"class.std::shared_ptr.333", ptr %33, i64 %28
+  %34 = getelementptr inbounds nuw [16 x i8], ptr %33, i64 %28
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %33, i8 0, i64 %32, i1 false)
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %33, i64 %32
   %35 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -20524,7 +20464,7 @@ _ZNSt6vectorISt10shared_ptrIN7xgboost16HostDeviceVectorIjEEESaIS4_EE17_S_check_i
 42:                                               ; preds = %.lr.ph, %_ZNSt12__shared_ptrIN7xgboost16HostDeviceVectorIjEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
   %43 = phi ptr [ %24, %.lr.ph ], [ %114, %_ZNSt12__shared_ptrIN7xgboost16HostDeviceVectorIjEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ]
   %.064200 = phi i64 [ 0, %.lr.ph ], [ %112, %_ZNSt12__shared_ptrIN7xgboost16HostDeviceVectorIjEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ]
-  %44 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %43, i64 %.064200
+  %44 = getelementptr inbounds nuw [88 x i8], ptr %43, i64 %.064200
   %45 = load i32, ptr %44, align 8, !tbaa !535
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %46 = load ptr, ptr %37, align 8, !tbaa !128
@@ -20535,7 +20475,7 @@ _ZNSt6vectorISt10shared_ptrIN7xgboost16HostDeviceVectorIjEEESaIS4_EE17_S_check_i
 .preheader.i:                                     ; preds = %42
   %48 = load ptr, ptr %39, align 8, !tbaa !536
   %49 = sext i32 %45 to i64
-  %50 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [20 x i8], ptr %48, i64 %49
   %51 = load i32, ptr %50, align 4, !tbaa !544
   %52 = icmp eq i32 %51, -1
   br i1 %52, label %_ZNK7xgboost7RegTree8GetDepthEi.exit, label %.lr.ph.i
@@ -20550,7 +20490,7 @@ _ZNSt6vectorISt10shared_ptrIN7xgboost16HostDeviceVectorIjEEESaIS4_EE17_S_check_i
   %56 = add nuw nsw i32 %.08.i, 1
   %57 = and i32 %55, 2147483647
   %58 = zext nneg i32 %57 to i64
-  %59 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %48, i64 %58
+  %59 = getelementptr inbounds nuw [20 x i8], ptr %48, i64 %58
   %60 = load i32, ptr %59, align 4, !tbaa !544
   %61 = icmp eq i32 %60, -1
   br i1 %61, label %_ZNK7xgboost7RegTree8GetDepthEi.exit, label %.lr.ph.i, !llvm.loop !547
@@ -20562,7 +20502,7 @@ _ZNK7xgboost7RegTree8GetDepthEi.exit:             ; preds = %.lr.ph.i, %.prehead
 
 62:                                               ; preds = %_ZNK7xgboost7RegTree8GetDepthEi.exit
   %63 = load ptr, ptr %10, align 8, !tbaa !825
-  %64 = getelementptr inbounds nuw %"class.std::shared_ptr.333", ptr %63, i64 %.064200
+  %64 = getelementptr inbounds nuw [16 x i8], ptr %63, i64 %.064200
   %65 = load ptr, ptr %11, align 8, !tbaa !654
   %66 = load ptr, ptr %40, align 8, !tbaa !94
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
@@ -20791,7 +20731,7 @@ _ZNSt6vectorIN7xgboost4tree14CPUExpandEntryESaIS2_EE17_S_check_init_lenEmRKS3_.e
 
 .noexc95:                                         ; preds = %.lr.ph.preheader.i.i.i.i.i90
   store ptr %164, ptr %15, align 8, !tbaa !562
-  %165 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %164, i64 %160
+  %165 = getelementptr inbounds nuw [88 x i8], ptr %164, i64 %160
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %164, i8 0, i64 %163, i1 false)
   %scevgep.i.i.i.i.i91 = getelementptr i8, ptr %164, i64 %163
   br label %_ZNSt12_Vector_baseIN7xgboost4tree14CPUExpandEntryESaIS2_EEC2EmRKS3_.exit.thread.i
@@ -20904,12 +20844,12 @@ _ZNSt12_Vector_baseIN7xgboost4tree14CPUExpandEntryESaIS2_EEC2EmRKS3_.exit.thread
   %indvars.iv = phi i64 [ %indvars.iv.next, %265 ], [ 0, %.preheader194 ]
   %211 = phi i32 [ %266, %265 ], [ %172, %.preheader194 ]
   %212 = load ptr, ptr %6, align 8, !tbaa !562
-  %213 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %212, i64 %.053204
+  %213 = getelementptr inbounds nuw [88 x i8], ptr %212, i64 %.053204
   %214 = sext i32 %211 to i64
   %215 = mul i64 %.053204, %214
   %216 = load ptr, ptr %15, align 8, !tbaa !562
-  %217 = getelementptr %"struct.xgboost::tree::CPUExpandEntry", ptr %216, i64 %215
-  %218 = getelementptr %"struct.xgboost::tree::CPUExpandEntry", ptr %217, i64 %indvars.iv
+  %217 = getelementptr [88 x i8], ptr %216, i64 %215
+  %218 = getelementptr [88 x i8], ptr %217, i64 %indvars.iv
   %219 = load i64, ptr %213, align 8
   store i64 %219, ptr %218, align 8
   %220 = getelementptr inbounds nuw i8, ptr %218, i64 8
@@ -21150,13 +21090,13 @@ _ZNK7xgboost6common13HistogramCuts4PtrsEv.exit:   ; preds = %271
   %315 = phi i32 [ %393, %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateERKS3_.exit ], [ %291, %.preheader188 ]
   %.049206 = phi i32 [ %394, %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateERKS3_.exit ], [ 0, %.preheader188 ]
   %316 = load ptr, ptr %6, align 8, !tbaa !562
-  %317 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %316, i64 %292
+  %317 = getelementptr inbounds nuw [88 x i8], ptr %316, i64 %292
   %318 = getelementptr inbounds nuw i8, ptr %317, i64 8
   %319 = mul i32 %315, %.050209
   %320 = add i32 %319, %.049206
   %321 = zext i32 %320 to i64
   %322 = load ptr, ptr %15, align 8, !tbaa !562
-  %323 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %322, i64 %321
+  %323 = getelementptr inbounds nuw [88 x i8], ptr %322, i64 %321
   %324 = getelementptr inbounds nuw i8, ptr %323, i64 8
   %325 = load float, ptr %324, align 8, !tbaa !548
   %326 = getelementptr inbounds nuw i8, ptr %323, i64 12
@@ -21423,12 +21363,12 @@ _ZNSt6vectorIN7xgboost4tree14CPUExpandEntryESaIS2_EED2Ev.exit: ; preds = %_ZSt8_
   %432 = phi ptr [ %400, %.lr.ph212 ], [ %510, %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateERKS3_.exit113 ]
   %433 = phi i64 [ %405, %.lr.ph212 ], [ %515, %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateERKS3_.exit113 ]
   %.0211 = phi i64 [ 0, %.lr.ph212 ], [ %511, %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateERKS3_.exit113 ]
-  %434 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %431, i64 %.0211
+  %434 = getelementptr inbounds nuw [88 x i8], ptr %431, i64 %.0211
   %435 = getelementptr inbounds nuw i8, ptr %434, i64 8
   %436 = mul i64 %433, %indvars.iv221
   %437 = load ptr, ptr %18, align 8, !tbaa !562
-  %438 = getelementptr %"struct.xgboost::tree::CPUExpandEntry", ptr %437, i64 %436
-  %439 = getelementptr %"struct.xgboost::tree::CPUExpandEntry", ptr %438, i64 %.0211
+  %438 = getelementptr [88 x i8], ptr %437, i64 %436
+  %439 = getelementptr [88 x i8], ptr %438, i64 %.0211
   %440 = getelementptr inbounds nuw i8, ptr %439, i64 8
   %441 = load float, ptr %440, align 8, !tbaa !548
   %442 = getelementptr inbounds nuw i8, ptr %439, i64 12
@@ -21947,7 +21887,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18: ; preds = %27,
   br i1 %45, label %46, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 46:                                               ; preds = %44
-  %47 = getelementptr inbounds nuw i32, ptr %36, i64 %2
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %2
   %.not.i.i = icmp eq ptr %35, %47
   br i1 %.not.i.i, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit, label %48
 
@@ -22257,7 +22197,7 @@ define linkonce_odr void @_ZN7xgboost4tree21MultiHistogramBuilder5ResetEPKNS_7Co
   br i1 %26, label %27, label %_ZNSt6vectorIN7xgboost4tree16HistogramBuilderESaIS2_EE6resizeEm.exit
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds nuw %"class.xgboost::tree::HistogramBuilder", ptr %17, i64 %14
+  %28 = getelementptr inbounds nuw [360 x i8], ptr %17, i64 %14
   %.not.i.i = icmp eq ptr %16, %28
   br i1 %.not.i.i, label %_ZNSt6vectorIN7xgboost4tree16HistogramBuilderESaIS2_EE6resizeEm.exit, label %29
 
@@ -22595,7 +22535,7 @@ _ZNSt16allocator_traitsISaIN7xgboost4tree20CommonRowPartitionerEEE9constructIS2_
 _ZNSt12_Vector_baseIN7xgboost4tree20CommonRowPartitionerESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt16allocator_traitsISaIN7xgboost4tree20CommonRowPartitionerEEE9constructIS2_JRPKNS0_7ContextEmRKmbEEEvRS3_PT_DpOT0_.exit, %37
   store ptr %23, ptr %0, align 8, !tbaa !146
   store ptr %35, ptr %7, align 8, !tbaa !149
-  %41 = getelementptr inbounds nuw %"class.xgboost::tree::CommonRowPartitioner", ptr %23, i64 %19
+  %41 = getelementptr inbounds nuw [288 x i8], ptr %23, i64 %19
   store ptr %41, ptr %36, align 8, !tbaa !151
   ret void
 
@@ -22661,7 +22601,7 @@ define linkonce_odr void @_ZN7xgboost4tree20CommonRowPartitioner5ResetEPKNS_7Con
   br i1 %21, label %22, label %_ZNSt6vectorImSaImEE6resizeEm.exit
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds nuw i64, ptr %12, i64 %2
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %2
   %.not.i.i = icmp eq ptr %11, %23
   br i1 %.not.i.i, label %_ZNSt6vectorImSaImEE6resizeEm.exit, label %24
 
@@ -22686,7 +22626,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %18, %20, %22, %24
   %.011.i.i.i = phi i64 [ %36, %.lr.ph.i.i.i ], [ 0, %_ZNSt6vectorImSaImEE6resizeEm.exit ]
   %33 = load i64, ptr %0, align 8, !tbaa !44
   %34 = add i64 %33, %.011.i.i.i
-  %35 = getelementptr inbounds nuw i64, ptr %25, i64 %.011.i.i.i
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %.011.i.i.i
   store i64 %34, ptr %35, align 8, !tbaa !44
   %36 = add nuw i64 %.011.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %36, %.sroa.speculated.i.i.i
@@ -22998,7 +22938,7 @@ _ZNSt6vectorIN7xgboost6common16RowSetCollection4ElemESaIS3_EE11_S_relocateEPS3_S
 _ZNSt6vectorIN7xgboost6common16RowSetCollection4ElemESaIS3_EE17_M_realloc_insertIJRKPmS9_iEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %45, %_ZNSt6vectorIN7xgboost6common16RowSetCollection4ElemESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit34.i.i
   store ptr %40, ptr %3, align 8, !tbaa !164
   store ptr %44, ptr %5, align 8, !tbaa !908
-  %46 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %40, i64 %38
+  %46 = getelementptr inbounds nuw [24 x i8], ptr %40, i64 %38
   store ptr %46, ptr %23, align 8, !tbaa !167
   br label %_ZNSt6vectorIN7xgboost6common16RowSetCollection4ElemESaIS3_EE12emplace_backIJRKPmS9_iEEERS3_DpOT_.exit
 
@@ -23077,7 +23017,7 @@ _ZNSt6vectorIN7xgboost6common16RowSetCollection4ElemESaIS3_EE11_S_relocateEPS3_S
 _ZNSt6vectorIN7xgboost6common16RowSetCollection4ElemESaIS3_EE17_M_realloc_insertIJRPmS8_iEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %79, %_ZNSt6vectorIN7xgboost6common16RowSetCollection4ElemESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit34.i.i12
   store ptr %72, ptr %3, align 8, !tbaa !164
   store ptr %78, ptr %5, align 8, !tbaa !908
-  %80 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %72, i64 %70
+  %80 = getelementptr inbounds nuw [24 x i8], ptr %72, i64 %70
   store ptr %80, ptr %53, align 8, !tbaa !167
   br label %_ZNSt6vectorIN7xgboost6common16RowSetCollection4ElemESaIS3_EE12emplace_backIJRKPmS9_iEEERS3_DpOT_.exit
 
@@ -23287,9 +23227,9 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit36: ; preds = %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !168
-  %39 = getelementptr inbounds nuw i64, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !906
-  %40 = getelementptr inbounds nuw i64, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !171
   br label %41
 
@@ -23775,9 +23715,9 @@ _ZNSt6vectorIN7xgboost4tree16HistogramBuilderESaIS2_EE11_S_relocateEPS2_S5_S5_RS
 
 _ZNSt12_Vector_baseIN7xgboost4tree16HistogramBuilderESaIS2_EE13_M_deallocateEPS2_m.exit31: ; preds = %_ZNSt6vectorIN7xgboost4tree16HistogramBuilderESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %38
   store ptr %27, ptr %0, align 8, !tbaa !152
-  %42 = getelementptr inbounds nuw %"class.xgboost::tree::HistogramBuilder", ptr %28, i64 %1
+  %42 = getelementptr inbounds nuw [360 x i8], ptr %28, i64 %1
   store ptr %42, ptr %4, align 8, !tbaa !155
-  %43 = getelementptr inbounds nuw %"class.xgboost::tree::HistogramBuilder", ptr %27, i64 %25
+  %43 = getelementptr inbounds nuw [360 x i8], ptr %27, i64 %25
   store ptr %43, ptr %11, align 8, !tbaa !156
   br label %44
 
@@ -25281,7 +25221,7 @@ define linkonce_odr void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN7xg
 
 23:                                               ; preds = %_ZN7xgboost4tree14CPUExpandEntryD2Ev.exit14, %11
   %.011 = phi i64 [ %13, %11 ], [ %61, %_ZN7xgboost4tree14CPUExpandEntryD2Ev.exit14 ]
-  %24 = getelementptr inbounds %"struct.xgboost::tree::CPUExpandEntry", ptr %0, i64 %.011
+  %24 = getelementptr inbounds [88 x i8], ptr %0, i64 %.011
   %25 = load i64, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %14, ptr noundef nonnull align 8 dereferenceable(12) %26, i64 12, i1 false)
@@ -25422,13 +25362,13 @@ define linkonce_odr void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7
   %.040 = phi i64 [ %spec.select, %_ZN7xgboost4tree14CPUExpandEntryaSEOS1_.exit ], [ %1, %5 ]
   %11 = shl i64 %.040, 1
   %12 = add i64 %11, 2
-  %13 = getelementptr inbounds %"struct.xgboost::tree::CPUExpandEntry", ptr %0, i64 %12
+  %13 = getelementptr inbounds [88 x i8], ptr %0, i64 %12
   %14 = or disjoint i64 %11, 1
-  %15 = getelementptr inbounds %"struct.xgboost::tree::CPUExpandEntry", ptr %0, i64 %14
+  %15 = getelementptr inbounds [88 x i8], ptr %0, i64 %14
   %16 = tail call noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbN7xgboost4tree14CPUExpandEntryES5_EEEclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEESF_EEbT_T0_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr %13, ptr nonnull %15)
   %spec.select = select i1 %16, i64 %14, i64 %12
-  %17 = getelementptr inbounds %"struct.xgboost::tree::CPUExpandEntry", ptr %0, i64 %spec.select
-  %18 = getelementptr inbounds %"struct.xgboost::tree::CPUExpandEntry", ptr %0, i64 %.040
+  %17 = getelementptr inbounds [88 x i8], ptr %0, i64 %spec.select
+  %18 = getelementptr inbounds [88 x i8], ptr %0, i64 %.040
   %19 = load i64, ptr %17, align 8
   store i64 %19, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
@@ -25481,8 +25421,8 @@ _ZN7xgboost4tree14CPUExpandEntryaSEOS1_.exit:     ; preds = %.lr.ph, %33
 46:                                               ; preds = %42
   %47 = shl nsw i64 %.0.lcssa, 1
   %48 = or disjoint i64 %47, 1
-  %49 = getelementptr inbounds %"struct.xgboost::tree::CPUExpandEntry", ptr %0, i64 %48
-  %50 = getelementptr inbounds %"struct.xgboost::tree::CPUExpandEntry", ptr %0, i64 %.0.lcssa
+  %49 = getelementptr inbounds [88 x i8], ptr %0, i64 %48
+  %50 = getelementptr inbounds [88 x i8], ptr %0, i64 %.0.lcssa
   %51 = load i64, ptr %49, align 8
   store i64 %51, ptr %50, align 8
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 8
@@ -25843,12 +25783,12 @@ define linkonce_odr void @_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN7xg
   %.020 = phi i64 [ %.0921, %_ZN7xgboost4tree14CPUExpandEntryaSEOS1_.exit ], [ %1, %5 ]
   %.0921.in = add nsw i64 %.020, -1
   %.0921 = sdiv i64 %.0921.in, 2
-  %7 = getelementptr inbounds %"struct.xgboost::tree::CPUExpandEntry", ptr %0, i64 %.0921
+  %7 = getelementptr inbounds [88 x i8], ptr %0, i64 %.0921
   %8 = tail call noundef zeroext i1 @_ZN9__gnu_cxx5__ops14_Iter_comp_valISt8functionIFbN7xgboost4tree14CPUExpandEntryES5_EEEclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEES5_EEbT_RT0_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr %7, ptr noundef nonnull align 8 dereferenceable(88) %3)
   br i1 %8, label %9, label %.critedge
 
 9:                                                ; preds = %.lr.ph
-  %10 = getelementptr inbounds %"struct.xgboost::tree::CPUExpandEntry", ptr %0, i64 %.020
+  %10 = getelementptr inbounds [88 x i8], ptr %0, i64 %.020
   %11 = load i64, ptr %7, align 8
   store i64 %11, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -25888,7 +25828,7 @@ _ZN7xgboost4tree14CPUExpandEntryaSEOS1_.exit:     ; preds = %9, %25
 
 .critedge:                                        ; preds = %.lr.ph, %_ZN7xgboost4tree14CPUExpandEntryaSEOS1_.exit, %5
   %.0.lcssa = phi i64 [ %1, %5 ], [ %.0921, %_ZN7xgboost4tree14CPUExpandEntryaSEOS1_.exit ], [ %.020, %.lr.ph ]
-  %32 = getelementptr inbounds %"struct.xgboost::tree::CPUExpandEntry", ptr %0, i64 %.0.lcssa
+  %32 = getelementptr inbounds [88 x i8], ptr %0, i64 %.0.lcssa
   %33 = load i64, ptr %3, align 8
   store i64 %33, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 8
@@ -26795,7 +26735,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 .lr.ph:                                           ; preds = %.preheader152, %136
   %indvars.iv = phi i64 [ %indvars.iv.next, %136 ], [ 0, %.preheader152 ]
   %134 = load ptr, ptr %0, align 8, !tbaa !152
-  %135 = getelementptr inbounds nuw %"class.xgboost::tree::HistogramBuilder", ptr %134, i64 %indvars.iv
+  %135 = getelementptr inbounds nuw [360 x i8], ptr %134, i64 %indvars.iv
   invoke void @_ZN7xgboost4tree16HistogramBuilder11AddHistRowsEPKNS_7RegTreeEPSt6vectorIiSaIiEES8_b(ptr noundef nonnull align 8 dereferenceable(358) %135, ptr noundef nonnull %2, ptr noundef nonnull %19, ptr noundef nonnull %20, i1 noundef zeroext false)
           to label %136 unwind label %140
 
@@ -26948,9 +26888,9 @@ _ZN7xgboost8BatchSetINS_16GHistIndexMatrixEE3endEv.exit.us.us: ; preds = %_ZN7xg
 .lr.ph155.us.us:                                  ; preds = %.preheader.us.us, %192
   %indvars.iv208 = phi i64 [ %indvars.iv.next209, %192 ], [ 0, %.preheader.us.us ]
   %187 = load ptr, ptr %0, align 8, !tbaa !152
-  %188 = getelementptr inbounds nuw %"class.xgboost::tree::HistogramBuilder", ptr %187, i64 %indvars.iv208
+  %188 = getelementptr inbounds nuw [360 x i8], ptr %187, i64 %indvars.iv208
   %189 = load ptr, ptr %3, align 8, !tbaa !146
-  %190 = getelementptr inbounds nuw %"class.xgboost::tree::CommonRowPartitioner", ptr %189, i64 %.040.us.us
+  %190 = getelementptr inbounds nuw [288 x i8], ptr %189, i64 %.040.us.us
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 88
   store i64 %171, ptr %26, align 8, !tbaa !23
   store i64 %172, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !23
@@ -27019,12 +26959,12 @@ _ZN7xgboost8BatchSetINS_16GHistIndexMatrixEE3endEv.exit.us175: ; preds = %_ZN7xg
 207:                                              ; preds = %.lr.ph155.us178
   %208 = icmp eq i64 %.fr190, %206
   %209 = sub nuw i64 %.fr190, %206
-  %210 = getelementptr inbounds nuw %"class.xgboost::detail::GradientPairInternal", ptr %.fr, i64 %206
+  %210 = getelementptr inbounds nuw [8 x i8], ptr %.fr, i64 %206
   %.sink.i.i.i.us163.us = select i1 %208, i64 0, i64 %172
   %211 = load ptr, ptr %0, align 8, !tbaa !152
-  %212 = getelementptr inbounds nuw %"class.xgboost::tree::HistogramBuilder", ptr %211, i64 %indvars.iv205
+  %212 = getelementptr inbounds nuw [360 x i8], ptr %211, i64 %indvars.iv205
   %213 = load ptr, ptr %3, align 8, !tbaa !146
-  %214 = getelementptr inbounds nuw %"class.xgboost::tree::CommonRowPartitioner", ptr %213, i64 %.040.us176
+  %214 = getelementptr inbounds nuw [288 x i8], ptr %213, i64 %.040.us176
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 88
   store i64 %171, ptr %26, align 8, !tbaa !23
   store i64 %172, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !23
@@ -27343,7 +27283,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit128:                 ; preds = %_ZNSt6vectorIiSaIiE
 .lr.ph187:                                        ; preds = %_ZN7xgboost8BatchSetINS_16GHistIndexMatrixEED2Ev.exit, %334
   %indvars.iv211 = phi i64 [ %indvars.iv.next212, %334 ], [ 0, %_ZN7xgboost8BatchSetINS_16GHistIndexMatrixEED2Ev.exit ]
   %331 = load ptr, ptr %0, align 8, !tbaa !152
-  %332 = getelementptr inbounds nuw %"class.xgboost::tree::HistogramBuilder", ptr %331, i64 %indvars.iv211
+  %332 = getelementptr inbounds nuw [360 x i8], ptr %331, i64 %indvars.iv211
   %333 = load ptr, ptr %154, align 8, !tbaa !897
   invoke void @_ZN7xgboost4tree16HistogramBuilder13SyncHistogramEPKNS_7ContextEPKNS_7RegTreeERKSt6vectorIiSaIiEESC_(ptr noundef nonnull align 8 dereferenceable(358) %332, ptr noundef %333, ptr noundef nonnull %2, ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(24) %20)
           to label %334 unwind label %338
@@ -27923,7 +27863,7 @@ _ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %3
   %14 = shl nuw nsw i64 %11, 1
   %15 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %14) #40
   store ptr %15, ptr %4, align 8, !tbaa !168
-  %16 = getelementptr inbounds nuw i64, ptr %15, i64 %12
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %12
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %16, ptr %17, align 8, !tbaa !171
   %18 = shl i64 %9, 1
@@ -27964,7 +27904,7 @@ _ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %3
   %.sroa.024.035 = phi ptr [ %8, %.preheader ], [ %46, %32 ]
   %33 = load i32, ptr %.sroa.024.035, align 4, !tbaa !99
   %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %30, i64 %34
+  %35 = getelementptr inbounds nuw [24 x i8], ptr %30, i64 %34
   %36 = load ptr, ptr %35, align 8, !tbaa !917
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %38 = load ptr, ptr %37, align 8, !tbaa !919
@@ -27972,7 +27912,7 @@ _ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %3
   %40 = ptrtoint ptr %36 to i64
   %41 = sub i64 %39, %40
   %42 = ashr exact i64 %41, 3
-  %43 = getelementptr inbounds nuw i64, ptr %15, i64 %.01736
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %.01736
   %44 = load i64, ptr %43, align 8, !tbaa !44
   %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %44, i64 %42)
   store i64 %.sroa.speculated, ptr %43, align 8, !tbaa !44
@@ -28295,14 +28235,14 @@ _ZNSt6vectorIiSaIiEEaSEOS1_.exit:                 ; preds = %._crit_edge, %85
   unreachable
 
 _ZNK7xgboost15MultiTargetTree6ParentEi.exit.i:    ; preds = %.noexc
-  %116 = getelementptr inbounds nuw i32, ptr %110, i64 %107
+  %116 = getelementptr inbounds nuw [4 x i8], ptr %110, i64 %107
   %117 = load i32, ptr %116, align 4, !tbaa !99
   br label %_ZNK7xgboost7RegTree6ParentEi.exit
 
 118:                                              ; preds = %101
   %119 = sext i32 %102 to i64
   %120 = load ptr, ptr %78, align 8, !tbaa !536
-  %121 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %120, i64 %119
+  %121 = getelementptr inbounds nuw [20 x i8], ptr %120, i64 %119
   %122 = load i32, ptr %121, align 4, !tbaa !544
   %123 = and i32 %122, 2147483647
   br label %_ZNK7xgboost7RegTree6ParentEi.exit
@@ -28394,7 +28334,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i: ; preds = %151, %.noe
   br label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i
 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i: ; preds = %153, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i
-  %154 = getelementptr inbounds nuw i32, ptr %147, i64 %145
+  %154 = getelementptr inbounds nuw [4 x i8], ptr %147, i64 %145
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
 
 _ZNK7xgboost4tree21BoundedHistCollection15HistogramExistsEi.exit.thread: ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKimESt10_Select1stIS2_ESt4lessIiESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, %_ZNK7xgboost7RegTree6ParentEi.exit, %_ZNK7xgboost4tree21BoundedHistCollection15HistogramExistsEi.exit
@@ -28461,7 +28401,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i55: ; preds = %177, %.n
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i57: ; preds = %179, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i55
   store ptr %173, ptr %2, align 8, !tbaa !194
   store ptr %178, ptr %27, align 8, !tbaa !545
-  %180 = getelementptr inbounds nuw i32, ptr %173, i64 %171
+  %180 = getelementptr inbounds nuw [4 x i8], ptr %173, i64 %171
   store ptr %180, ptr %81, align 8, !tbaa !197
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
 
@@ -28602,7 +28542,7 @@ _ZNSt6vectorIN7xgboost6common4SpanINS0_6detail20GradientPairInternalIdEELm184467
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph.preheader.i.i.i.i.i
   store ptr %45, ptr %16, align 8, !tbaa !185
-  %46 = getelementptr inbounds nuw %"class.xgboost::common::Span.486", ptr %45, i64 %40
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %45, i64 %40
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %45, i8 0, i64 %44, i1 false)
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %45, i64 %44
   %47 = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -28628,7 +28568,7 @@ _ZNSt6vectorIN7xgboost6common4SpanINS0_6detail20GradientPairInternalIdEELm184467
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %61
   %.02837 = phi i64 [ %65, %61 ], [ 0, %.lr.ph.preheader ]
   %56 = load ptr, ptr %5, align 8, !tbaa !194
-  %57 = getelementptr inbounds nuw i32, ptr %56, i64 %.02837
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %.02837
   %58 = load i32, ptr %57, align 4, !tbaa !99
   %59 = sext i32 %58 to i64
   %60 = invoke { i64, ptr } @_ZN7xgboost4tree21BoundedHistCollectionixEm(ptr noundef nonnull align 8 dereferenceable(81) %0, i64 noundef %59)
@@ -28637,7 +28577,7 @@ _ZNSt6vectorIN7xgboost6common4SpanINS0_6detail20GradientPairInternalIdEELm184467
 61:                                               ; preds = %.lr.ph
   %62 = extractvalue { i64, ptr } %60, 0
   %63 = extractvalue { i64, ptr } %60, 1
-  %64 = getelementptr inbounds nuw %"class.xgboost::common::Span.486", ptr %45, i64 %.02837
+  %64 = getelementptr inbounds nuw [16 x i8], ptr %45, i64 %.02837
   store i64 %62, ptr %64, align 8, !tbaa !44
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %64, i64 8
   store ptr %63, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !1048
@@ -29269,7 +29209,7 @@ define linkonce_odr void @_ZN7xgboost6common14BlockedSpace2dC2IZNS_4tree18Constr
   %.036 = phi i64 [ 0, %.lr.ph38 ], [ %22, %._crit_edge ]
   %12 = load ptr, ptr %2, align 8, !tbaa !1083
   %13 = load ptr, ptr %12, align 8, !tbaa !168
-  %14 = getelementptr inbounds nuw i64, ptr %13, i64 %.036
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.036
   %15 = load i64, ptr %14, align 8, !tbaa !44
   %16 = udiv i64 %15, %3
   %17 = urem i64 %15, %3
@@ -29354,7 +29294,7 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIP
   %.pre = phi ptr [ %.pre.pre, %47 ], [ %23, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i ]
   store ptr %42, ptr %5, align 8, !tbaa !168
   store ptr %46, ptr %6, align 8, !tbaa !906
-  %48 = getelementptr inbounds nuw i64, ptr %42, i64 %40
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %40
   store ptr %48, ptr %7, align 8, !tbaa !171
   br label %_ZNSt6vectorImSaImEE9push_backERKm.exit.i
 
@@ -29454,7 +29394,7 @@ _ZNSt6vectorIN7xgboost6common7Range1dESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit3
 .noexc22:                                         ; preds = %71, %_ZNSt6vectorIN7xgboost6common7Range1dESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit33.i
   store ptr %66, ptr %0, align 8, !tbaa !861
   store ptr %70, ptr %8, align 8, !tbaa !1078
-  %85 = getelementptr inbounds nuw %"class.xgboost::common::Range1d", ptr %66, i64 %64
+  %85 = getelementptr inbounds nuw [16 x i8], ptr %66, i64 %64
   store ptr %85, ptr %9, align 8, !tbaa !864
   br label %_ZN7xgboost6common14BlockedSpace2d8AddBlockEmmm.exit
 
@@ -29648,7 +29588,7 @@ define linkonce_odr void @_ZN7xgboost4tree21BoundedHistCollection18AllocateHisto
   br i1 %.not50, label %._crit_edge, label %.lr.ph
 
 26:                                               ; preds = %.lr.ph
-  %27 = getelementptr inbounds nuw i32, ptr %2, i64 %.sroa.643.051
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.sroa.643.051
   %28 = load i32, ptr %27, align 4, !tbaa !99
   store i32 %28, ptr %7, align 4, !tbaa !99
   %29 = load i64, ptr %16, align 8, !tbaa !993
@@ -29683,7 +29623,7 @@ define linkonce_odr void @_ZN7xgboost4tree21BoundedHistCollection18AllocateHisto
   unreachable
 
 37:                                               ; preds = %.lr.ph55
-  %38 = getelementptr inbounds nuw i32, ptr %4, i64 %.sroa.6.053
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.sroa.6.053
   %39 = load i32, ptr %38, align 4, !tbaa !99
   store i32 %39, ptr %8, align 4, !tbaa !99
   %40 = load i64, ptr %16, align 8, !tbaa !993
@@ -30573,7 +30513,7 @@ _ZN7xgboost6common4SpanINS_6detail20GradientPairInternalIdEELm184467440737095516
   unreachable
 
 _ZNK7xgboost6common4SpanINS_6detail20GradientPairInternalIdEELm18446744073709551615EE7subspanEmm.exit: ; preds = %36
-  %41 = getelementptr inbounds nuw %"class.xgboost::detail::GradientPairInternal.445", ptr %19, i64 %16
+  %41 = getelementptr inbounds nuw [16 x i8], ptr %19, i64 %16
   %.fca.0.insert.i = insertvalue { i64, ptr } poison, i64 %37, 0
   %.fca.1.insert.i = insertvalue { i64, ptr } %.fca.0.insert.i, ptr %41, 1
   ret { i64, ptr } %.fca.1.insert.i
@@ -30802,7 +30742,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %87 = mul i64 %.01322.us.i, %83
   %88 = add i64 %87, %.01524.us.i
   %89 = sdiv i64 %88, 64
-  %90 = getelementptr inbounds i64, ptr %85, i64 %89
+  %90 = getelementptr inbounds [8 x i8], ptr %85, i64 %89
   %91 = and i64 %88, -9223372036854775745
   %92 = icmp ugt i64 %91, -9223372036854775808
   %storemerge.idx.i.i.i.i.i.us.i = select i1 %92, i64 -8, i64 0
@@ -30866,7 +30806,7 @@ _ZN7xgboost6common20ParallelGHistBuilder28AllocateAdditionalHistogramsEv.exit: ;
   br i1 %119, label %120, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 120:                                              ; preds = %118
-  %121 = getelementptr inbounds nuw i32, ptr %110, i64 %107
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %110, i64 %107
   %.not.i.i = icmp eq ptr %109, %121
   br i1 %.not.i.i, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit, label %122
 
@@ -31053,7 +30993,7 @@ define linkonce_odr void @_ZN7xgboost6common20ParallelGHistBuilder19MatchThreads
 
 _ZNSt6vectorIbSaIbEE6resizeEmb.exit.thread:       ; preds = %2
   %33 = sdiv i64 %20, 64
-  %34 = getelementptr inbounds i64, ptr %25, i64 %33
+  %34 = getelementptr inbounds [8 x i8], ptr %25, i64 %33
   %35 = and i64 %20, -9223372036854775745
   %36 = icmp ugt i64 %35, -9223372036854775808
   %storemerge.idx.i.i.i.i = select i1 %36, i64 -8, i64 0
@@ -31102,7 +31042,7 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit:              ; preds = %2
   %51 = mul i64 %50, %.01826
   %52 = add i64 %51, %.025
   %53 = sdiv i64 %52, 64
-  %54 = getelementptr inbounds i64, ptr %48, i64 %53
+  %54 = getelementptr inbounds [8 x i8], ptr %48, i64 %53
   %55 = and i64 %52, -9223372036854775745
   %56 = icmp ugt i64 %55, -9223372036854775808
   %storemerge.idx.i.i.i.i.i = select i1 %56, i64 -8, i64 0
@@ -31173,7 +31113,7 @@ define linkonce_odr void @_ZN7xgboost6common20ParallelGHistBuilder22MatchNodeNid
   %19 = add i64 %18, %storemerge47
   %20 = load ptr, ptr %5, align 8, !tbaa !189
   %21 = sdiv i64 %19, 64
-  %22 = getelementptr inbounds i64, ptr %20, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %20, i64 %21
   %23 = and i64 %19, -9223372036854775745
   %24 = icmp ugt i64 %23, -9223372036854775808
   %storemerge.idx.i.i.i.i.i = select i1 %24, i64 -8, i64 0
@@ -31553,7 +31493,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %39 = load i64, ptr %3, align 8, !tbaa !44
   %40 = load ptr, ptr %7, align 8, !tbaa !168
-  %41 = getelementptr inbounds nuw i64, ptr %40, i64 %39
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %39
   %42 = load i64, ptr %41, align 8, !tbaa !44
   ret i64 %42
 
@@ -31607,7 +31547,7 @@ _ZNSt13_Bit_iteratormmEv.exit.i.i.i.i.i.preheader: ; preds = %25
   %34 = trunc i64 %33 to i32
   %35 = and i32 %34, 63
   %36 = sdiv i64 %33, 64
-  %37 = getelementptr inbounds i64, ptr %16, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr %16, i64 %36
   %38 = and i64 %33, -9223372036854775745
   %39 = icmp ugt i64 %38, -9223372036854775808
   %storemerge.idx.i.i.i = select i1 %39, i64 -8, i64 0
@@ -31762,7 +31702,7 @@ _ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit:    ; preds = %77, %_ZSt14__fill_b
   %107 = add nsw i64 %3, %106
   %108 = sdiv i64 %107, 64
   %109 = load ptr, ptr %15, align 8, !tbaa !189
-  %110 = getelementptr inbounds i64, ptr %109, i64 %108
+  %110 = getelementptr inbounds [8 x i8], ptr %109, i64 %108
   %111 = and i64 %107, -9223372036854775745
   %112 = icmp ugt i64 %111, -9223372036854775808
   %storemerge.idx.i.i = select i1 %112, i64 -8, i64 0
@@ -32023,13 +31963,13 @@ _ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit:  ; preds = %_ZNSt14_Bit_referen
   %231 = sub i64 %229, %230
   %232 = ashr exact i64 %231, 3
   %233 = sub nsw i64 0, %232
-  %234 = getelementptr inbounds i64, ptr %228, i64 %233
+  %234 = getelementptr inbounds [8 x i8], ptr %228, i64 %233
   tail call void @_ZdlPvm(ptr noundef %234, i64 noundef %231) #41
   br label %_ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit
 
 _ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit: ; preds = %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit, %227
   %235 = lshr i64 %123, 6
-  %236 = getelementptr inbounds nuw i64, ptr %126, i64 %235
+  %236 = getelementptr inbounds nuw [8 x i8], ptr %126, i64 %235
   store ptr %236, ptr %8, align 8, !tbaa !191
   store ptr %126, ptr %0, align 8
   %.sroa.5138.0..sroa_idx139 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -32085,7 +32025,7 @@ define linkonce_odr void @_ZN7xgboost6common14HistCollection10AddHistRowEj(ptr n
   br i1 %23, label %24, label %_ZNSt6vectorImSaImEE6resizeEmRKm.exit
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds nuw i64, ptr %11, i64 %18
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %18
   %.not.i.i = icmp eq ptr %10, %25
   br i1 %.not.i.i, label %_ZNSt6vectorImSaImEE6resizeEmRKm.exit, label %26
 
@@ -32101,7 +32041,7 @@ _ZNSt6vectorImSaImEE6resizeEmRKm.exit:            ; preds = %20, %22, %24, %26
 27:                                               ; preds = %_ZNSt6vectorImSaImEE6resizeEmRKm.exit, %2
   %28 = phi ptr [ %.pre, %_ZNSt6vectorImSaImEE6resizeEmRKm.exit ], [ %11, %2 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %29 = getelementptr inbounds nuw i64, ptr %28, i64 %7
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %7
   %30 = load i64, ptr %29, align 8, !tbaa !44, !noalias !1136
   %31 = icmp eq i64 %30, 4294967295
   br i1 %31, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit, label %_ZN4dmlc11LogCheck_EQImjEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS7_EERKT_RKT0_.exit
@@ -32215,7 +32155,7 @@ _ZNSt6vectorIS_IN7xgboost6detail20GradientPairInternalIdEESaIS3_EESaIS5_EE6resiz
   %69 = load i32, ptr %68, align 4, !tbaa !970
   %70 = zext i32 %69 to i64
   %71 = load ptr, ptr %8, align 8, !tbaa !168
-  %72 = getelementptr inbounds nuw i64, ptr %71, i64 %7
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %7
   store i64 %70, ptr %72, align 8, !tbaa !44
   %73 = add i32 %69, 1
   store i32 %73, ptr %68, align 4, !tbaa !970
@@ -32270,7 +32210,7 @@ define linkonce_odr void @_ZNSt6vectorImSaImEE14_M_fill_insertEN9__gnu_cxx17__no
 
 _ZSt22__uninitialized_move_aIPmS0_SaImEET0_T_S3_S2_RT1_.exit: ; preds = %23, %20
   %24 = phi ptr [ %.pre, %23 ], [ %9, %20 ]
-  %25 = getelementptr inbounds nuw i64, ptr %24, i64 %2
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %2
   store ptr %25, ptr %8, align 8, !tbaa !906
   %.not.i.i.i.i.i = icmp eq ptr %21, %1
   br i1 %.not.i.i.i.i.i, label %_ZSt13move_backwardIPmS0_ET0_T_S2_S1_.exit, label %26
@@ -32279,7 +32219,7 @@ _ZSt22__uninitialized_move_aIPmS0_SaImEET0_T_S3_S2_RT1_.exit: ; preds = %23, %20
   %27 = sub i64 %22, %16
   %28 = ashr exact i64 %27, 3
   %29 = sub nsw i64 0, %28
-  %30 = getelementptr inbounds i64, ptr %9, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %9, i64 %29
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %30, ptr align 8 %1, i64 %27, i1 false)
   br label %_ZSt13move_backwardIPmS0_ET0_T_S2_S1_.exit
 
@@ -32390,7 +32330,7 @@ _ZSt24__uninitialized_fill_n_aIPmmmmET_S1_T0_RKT1_RSaIT2_E.exit80: ; preds = %.l
   br label %_ZSt34__uninitialized_move_if_noexcept_aIPmS0_SaImEET0_T_S3_S2_RT1_.exit
 
 _ZSt34__uninitialized_move_if_noexcept_aIPmS0_SaImEET0_T_S3_S2_RT1_.exit: ; preds = %67, %_ZSt24__uninitialized_fill_n_aIPmmmmET_S1_T0_RKT1_RSaIT2_E.exit80
-  %68 = getelementptr inbounds nuw i64, ptr %63, i64 %2
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %2
   %69 = sub i64 %11, %56
   %.not.i.i.i.i.i.i.i.i.i82 = icmp eq ptr %9, %1
   br i1 %.not.i.i.i.i.i.i.i.i.i82, label %71, label %70
@@ -32412,7 +32352,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPmS0_SaImEET0_T_S3_S2_RT1_.exit: ; pred
 _ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit: ; preds = %71, %73
   store ptr %62, ptr %0, align 8, !tbaa !168
   store ptr %72, ptr %8, align 8, !tbaa !906
-  %75 = getelementptr inbounds nuw i64, ptr %62, i64 %55
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %55
   store ptr %75, ptr %6, align 8, !tbaa !171
   br label %_ZSt4fillIPmmEvT_S1_RKT0_.exit
 
@@ -32507,9 +32447,9 @@ _ZNSt6vectorIS_IN7xgboost6detail20GradientPairInternalIdEESaIS3_EESaIS5_EE11_S_r
 
 _ZNSt12_Vector_baseISt6vectorIN7xgboost6detail20GradientPairInternalIdEESaIS4_EESaIS6_EE13_M_deallocateEPS6_m.exit37: ; preds = %_ZNSt6vectorIS_IN7xgboost6detail20GradientPairInternalIdEESaIS3_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %38
   store ptr %26, ptr %0, align 8, !tbaa !198
-  %42 = getelementptr inbounds nuw %"class.std::vector.131", ptr %27, i64 %1
+  %42 = getelementptr inbounds nuw [24 x i8], ptr %27, i64 %1
   store ptr %42, ptr %4, align 8, !tbaa !201
-  %43 = getelementptr inbounds nuw %"class.std::vector.131", ptr %26, i64 %24
+  %43 = getelementptr inbounds nuw [24 x i8], ptr %26, i64 %24
   store ptr %43, ptr %11, align 8, !tbaa !207
   br label %44
 
@@ -32978,9 +32918,9 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit36: ; preds = %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !194
-  %39 = getelementptr inbounds nuw i32, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !545
-  %40 = getelementptr inbounds nuw i32, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !197
   br label %41
 
@@ -33381,14 +33321,14 @@ define linkonce_odr void @_ZZN7xgboost6common13ParallelFor2dIZNS_4tree16Histogra
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %24 = load ptr, ptr %17, align 8, !tbaa !1158
   %25 = load ptr, ptr %24, align 8, !tbaa !194
-  %26 = getelementptr inbounds nuw i32, ptr %25, i64 %19
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %19
   %27 = load i32, ptr %26, align 4, !tbaa !99
   %28 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !1159
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %31 = sext i32 %27 to i64
   %32 = load ptr, ptr %30, align 8, !tbaa !164
-  %33 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %32, i64 %31
+  %33 = getelementptr inbounds nuw [24 x i8], ptr %32, i64 %31
   %34 = load ptr, ptr %33, align 8, !tbaa !917
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %36 = load ptr, ptr %35, align 8, !tbaa !919
@@ -33546,7 +33486,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %38 = load i64, ptr %3, align 8, !tbaa !44
   %39 = load ptr, ptr %0, align 8, !tbaa !861
-  %40 = getelementptr inbounds nuw %"class.xgboost::common::Range1d", ptr %39, i64 %38
+  %40 = getelementptr inbounds nuw [16 x i8], ptr %39, i64 %38
   %.sroa.0.0.copyload = load i64, ptr %40, align 8, !tbaa !44
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %40, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !44
@@ -33828,10 +33768,10 @@ _ZNSt3mapISt4pairImmEiSt4lessIS1_ESaIS0_IKS1_iEEE2atERS4_.exit: ; preds = %83, %
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %94 = zext nneg i32 %89 to i64
   %95 = load ptr, ptr %93, align 8, !tbaa !168
-  %96 = getelementptr inbounds nuw i64, ptr %95, i64 %94
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %94
   %97 = load i64, ptr %96, align 8, !tbaa !44
   %98 = load ptr, ptr %92, align 8, !tbaa !198
-  %99 = getelementptr inbounds nuw %"class.std::vector.131", ptr %98, i64 %97
+  %99 = getelementptr inbounds nuw [24 x i8], ptr %98, i64 %97
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 8
   %101 = load ptr, ptr %100, align 8, !tbaa !1145
   %102 = load ptr, ptr %99, align 8, !tbaa !202
@@ -33862,7 +33802,7 @@ _ZN7xgboost6common14HistCollection12AllocateDataEj.exit: ; preds = %_ZNSt3mapISt
 110:                                              ; preds = %_ZN7xgboost6common14HistCollection12AllocateDataEj.exit
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %112 = load ptr, ptr %111, align 8, !tbaa !185
-  %113 = getelementptr inbounds nuw %"class.xgboost::common::Span.486", ptr %112, i64 %65
+  %113 = getelementptr inbounds nuw [16 x i8], ptr %112, i64 %65
   %.sroa.045.0.copyload = load i64, ptr %113, align 8, !tbaa !44
   %.sroa.446.0..sroa_idx = getelementptr inbounds nuw i8, ptr %113, i64 8
   %.sroa.446.0.copyload = load ptr, ptr %.sroa.446.0..sroa_idx, align 8, !tbaa !1048
@@ -33886,8 +33826,8 @@ _ZN7xgboost6common14HistCollection12AllocateDataEj.exit.thread: ; preds = %91, %
   %122 = load i64, ptr %11, align 8, !tbaa !1116
   %123 = mul i64 %122, %120
   %124 = load ptr, ptr %121, align 8, !tbaa !194
-  %125 = getelementptr i32, ptr %124, i64 %123
-  %126 = getelementptr i32, ptr %125, i64 %119
+  %125 = getelementptr [4 x i8], ptr %124, i64 %123
+  %126 = getelementptr [4 x i8], ptr %125, i64 %119
   %127 = load i32, ptr %126, align 4, !tbaa !99
   %.not = icmp eq i32 %127, 0
   br i1 %.not, label %128, label %136
@@ -33917,8 +33857,8 @@ _ZSt6fill_nIPN7xgboost6detail20GradientPairInternalIdEEmS3_ET_S5_T0_RKT1_.exit.l
 _ZSt6fill_nIPN7xgboost6detail20GradientPairInternalIdEEmS3_ET_S5_T0_RKT1_.exit: ; preds = %_ZSt6fill_nIPN7xgboost6detail20GradientPairInternalIdEEmS3_ET_S5_T0_RKT1_.exit.loopexit, %128
   %.pre-phi = phi i64 [ %.pre59, %_ZSt6fill_nIPN7xgboost6detail20GradientPairInternalIdEEmS3_ET_S5_T0_RKT1_.exit.loopexit ], [ %123, %128 ]
   %133 = phi ptr [ %.pre58, %_ZSt6fill_nIPN7xgboost6detail20GradientPairInternalIdEEmS3_ET_S5_T0_RKT1_.exit.loopexit ], [ %124, %128 ]
-  %134 = getelementptr i32, ptr %133, i64 %.pre-phi
-  %135 = getelementptr i32, ptr %134, i64 %119
+  %134 = getelementptr [4 x i8], ptr %133, i64 %.pre-phi
+  %135 = getelementptr [4 x i8], ptr %134, i64 %119
   store i32 1, ptr %135, align 4, !tbaa !99
   br label %136
 
@@ -33967,7 +33907,7 @@ define linkonce_odr { i64, ptr } @_ZNK7xgboost6common14HistCollectionixEj(ptr no
   unreachable
 
 _ZNKSt6vectorImSaImEE2atEm.exit:                  ; preds = %2
-  %17 = getelementptr inbounds nuw i64, ptr %11, i64 %8
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %8
   %18 = load i64, ptr %17, align 8, !tbaa !44
   store i64 %18, ptr %4, align 8, !tbaa !44
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -34064,7 +34004,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %43 = load i64, ptr %4, align 8, !tbaa !44
   %44 = load ptr, ptr %42, align 8, !tbaa !198
-  %45 = getelementptr inbounds nuw %"class.std::vector.131", ptr %44, i64 %43
+  %45 = getelementptr inbounds nuw [24 x i8], ptr %44, i64 %43
   %46 = load ptr, ptr %45, align 8, !tbaa !202
   %47 = load i32, ptr %0, align 8, !tbaa !969
   %48 = icmp ne ptr %46, null
@@ -34142,7 +34082,7 @@ _ZSt22__uninitialized_move_aIPN7xgboost6detail20GradientPairInternalIdEES4_SaIS3
 
 _ZSt22__uninitialized_move_aIPN7xgboost6detail20GradientPairInternalIdEES4_SaIS3_EET0_T_S7_S6_RT1_.exit: ; preds = %_ZSt22__uninitialized_move_aIPN7xgboost6detail20GradientPairInternalIdEES4_SaIS3_EET0_T_S7_S6_RT1_.exit.loopexit, %19
   %23 = phi ptr [ %.pre, %_ZSt22__uninitialized_move_aIPN7xgboost6detail20GradientPairInternalIdEES4_SaIS3_EET0_T_S7_S6_RT1_.exit.loopexit ], [ %9, %19 ]
-  %24 = getelementptr inbounds nuw %"class.xgboost::detail::GradientPairInternal.445", ptr %23, i64 %2
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %23, i64 %2
   store ptr %24, ptr %8, align 8, !tbaa !1145
   %.not.i.i.i.i.i68 = icmp eq ptr %20, %1
   br i1 %.not.i.i.i.i.i68, label %_ZSt13move_backwardIPN7xgboost6detail20GradientPairInternalIdEES4_ET0_T_S6_S5_.exit, label %25
@@ -34152,7 +34092,7 @@ _ZSt22__uninitialized_move_aIPN7xgboost6detail20GradientPairInternalIdEES4_SaIS3
   %27 = sub i64 %26, %15
   %28 = ashr exact i64 %27, 4
   %29 = sub nsw i64 0, %28
-  %30 = getelementptr inbounds %"class.xgboost::detail::GradientPairInternal.445", ptr %9, i64 %29
+  %30 = getelementptr inbounds [16 x i8], ptr %9, i64 %29
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %30, ptr align 8 %1, i64 %27, i1 false)
   br label %_ZSt13move_backwardIPN7xgboost6detail20GradientPairInternalIdEES4_ET0_T_S6_S5_.exit
 
@@ -34283,7 +34223,7 @@ _ZSt24__uninitialized_fill_n_aIPN7xgboost6detail20GradientPairInternalIdEEmS3_S3
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN7xgboost6detail20GradientPairInternalIdEES4_SaIS3_EET0_T_S7_S6_RT1_.exit: ; preds = %.lr.ph.i.i.i.i.i89, %_ZSt24__uninitialized_fill_n_aIPN7xgboost6detail20GradientPairInternalIdEEmS3_S3_ET_S5_T0_RKT1_RSaIT2_E.exit87
   %.0.lcssa.i.i.i.i.i93 = phi ptr [ %61, %_ZSt24__uninitialized_fill_n_aIPN7xgboost6detail20GradientPairInternalIdEEmS3_S3_ET_S5_T0_RKT1_RSaIT2_E.exit87 ], [ %66, %.lr.ph.i.i.i.i.i89 ]
-  %67 = getelementptr inbounds nuw %"class.xgboost::detail::GradientPairInternal.445", ptr %.0.lcssa.i.i.i.i.i93, i64 %2
+  %67 = getelementptr inbounds nuw [16 x i8], ptr %.0.lcssa.i.i.i.i.i93, i64 %2
   %.not11.i.i.i.i.i94 = icmp eq ptr %1, %9
   br i1 %.not11.i.i.i.i.i94, label %_ZSt34__uninitialized_move_if_noexcept_aIPN7xgboost6detail20GradientPairInternalIdEES4_SaIS3_EET0_T_S7_S6_RT1_.exit100, label %.lr.ph.i.i.i.i.i95
 
@@ -34311,7 +34251,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN7xgboost6detail20GradientPairInternal
 _ZNSt12_Vector_baseIN7xgboost6detail20GradientPairInternalIdEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN7xgboost6detail20GradientPairInternalIdEES4_SaIS3_EET0_T_S7_S6_RT1_.exit100, %70
   store ptr %61, ptr %0, align 8, !tbaa !202
   store ptr %.0.lcssa.i.i.i.i.i99, ptr %8, align 8, !tbaa !1145
-  %74 = getelementptr inbounds nuw %"class.xgboost::detail::GradientPairInternal.445", ptr %61, i64 %55
+  %74 = getelementptr inbounds nuw [16 x i8], ptr %61, i64 %55
   store ptr %74, ptr %6, align 8, !tbaa !205
   br label %75
 
@@ -34712,14 +34652,14 @@ define linkonce_odr void @_ZZN7xgboost6common13ParallelFor2dIZNS_4tree16Histogra
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %24 = load ptr, ptr %17, align 8, !tbaa !1181
   %25 = load ptr, ptr %24, align 8, !tbaa !194
-  %26 = getelementptr inbounds nuw i32, ptr %25, i64 %19
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %19
   %27 = load i32, ptr %26, align 4, !tbaa !99
   %28 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !1182
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %31 = sext i32 %27 to i64
   %32 = load ptr, ptr %30, align 8, !tbaa !164
-  %33 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %32, i64 %31
+  %33 = getelementptr inbounds nuw [24 x i8], ptr %32, i64 %31
   %34 = load ptr, ptr %33, align 8, !tbaa !917
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %36 = load ptr, ptr %35, align 8, !tbaa !919
@@ -34873,7 +34813,7 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIP
   %.pre = phi ptr [ %.pre.pre, %46 ], [ %22, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i ]
   store ptr %41, ptr %5, align 8, !tbaa !168
   store ptr %45, ptr %6, align 8, !tbaa !906
-  %47 = getelementptr inbounds nuw i64, ptr %41, i64 %39
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %39
   store ptr %47, ptr %7, align 8, !tbaa !171
   br label %_ZNSt6vectorImSaImEE9push_backERKm.exit.i
 
@@ -34973,7 +34913,7 @@ _ZNSt6vectorIN7xgboost6common7Range1dESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit3
 .noexc22:                                         ; preds = %70, %_ZNSt6vectorIN7xgboost6common7Range1dESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit33.i
   store ptr %65, ptr %0, align 8, !tbaa !861
   store ptr %69, ptr %8, align 8, !tbaa !1078
-  %84 = getelementptr inbounds nuw %"class.xgboost::common::Range1d", ptr %65, i64 %63
+  %84 = getelementptr inbounds nuw [16 x i8], ptr %65, i64 %63
   store ptr %84, ptr %9, align 8, !tbaa !864
   br label %_ZN7xgboost6common14BlockedSpace2d8AddBlockEmmm.exit
 
@@ -35327,7 +35267,7 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIP
   %.pre = phi ptr [ %.pre.pre, %46 ], [ %22, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i ]
   store ptr %41, ptr %5, align 8, !tbaa !168
   store ptr %45, ptr %6, align 8, !tbaa !906
-  %47 = getelementptr inbounds nuw i64, ptr %41, i64 %39
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %39
   store ptr %47, ptr %7, align 8, !tbaa !171
   br label %_ZNSt6vectorImSaImEE9push_backERKm.exit.i
 
@@ -35427,7 +35367,7 @@ _ZNSt6vectorIN7xgboost6common7Range1dESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit3
 .noexc22:                                         ; preds = %70, %_ZNSt6vectorIN7xgboost6common7Range1dESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit33.i
   store ptr %65, ptr %0, align 8, !tbaa !861
   store ptr %69, ptr %8, align 8, !tbaa !1078
-  %84 = getelementptr inbounds nuw %"class.xgboost::common::Range1d", ptr %65, i64 %63
+  %84 = getelementptr inbounds nuw [16 x i8], ptr %65, i64 %63
   store ptr %84, ptr %9, align 8, !tbaa !864
   br label %_ZN7xgboost6common14BlockedSpace2d8AddBlockEmmm.exit
 
@@ -36069,7 +36009,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %64 = load i64, ptr %5, align 8, !tbaa !44
   %65 = load ptr, ptr %63, align 8, !tbaa !185
-  %66 = getelementptr inbounds nuw %"class.xgboost::common::Span.486", ptr %65, i64 %64
+  %66 = getelementptr inbounds nuw [16 x i8], ptr %65, i64 %64
   %.sroa.047.0.copyload = load i64, ptr %66, align 8, !tbaa !44
   %.sroa.448.0..sroa_idx = getelementptr inbounds nuw i8, ptr %66, i64 8
   %.sroa.448.0.copyload = load ptr, ptr %.sroa.448.0..sroa_idx, align 8, !tbaa !1048
@@ -36095,8 +36035,8 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %75 = mul i64 %74, %storemerge61
   %76 = load i64, ptr %5, align 8, !tbaa !44
   %77 = load ptr, ptr %69, align 8, !tbaa !194
-  %78 = getelementptr i32, ptr %77, i64 %75
-  %79 = getelementptr i32, ptr %78, i64 %76
+  %78 = getelementptr [4 x i8], ptr %77, i64 %75
+  %79 = getelementptr [4 x i8], ptr %78, i64 %76
   %80 = load i32, ptr %79, align 4, !tbaa !99
   %.not = icmp eq i32 %80, 0
   br i1 %.not, label %116, label %81
@@ -36167,7 +36107,7 @@ _ZNKSt3mapISt4pairImmEiSt4lessIS1_ESaIS0_IKS1_iEEE2atERS4_.exit: ; preds = %97, 
 
 105:                                              ; preds = %_ZNKSt3mapISt4pairImmEiSt4lessIS1_ESaIS0_IKS1_iEEE2atERS4_.exit
   %106 = load ptr, ptr %63, align 8, !tbaa !185
-  %107 = getelementptr inbounds nuw %"class.xgboost::common::Span.486", ptr %106, i64 %76
+  %107 = getelementptr inbounds nuw [16 x i8], ptr %106, i64 %76
   %.sroa.043.0.copyload = load i64, ptr %107, align 8, !tbaa !44
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %107, i64 8
   %.sroa.5.0.copyload = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !1048
@@ -36201,12 +36141,12 @@ _ZNKSt3mapISt4pairImmEiSt4lessIS1_ESaIS0_IKS1_iEEE2atERS4_.exit: ; preds = %97, 
 .critedge:                                        ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit42, %._crit_edge
   %120 = load i64, ptr %6, align 8, !tbaa !44
   %121 = load i64, ptr %7, align 8, !tbaa !44
-  %122 = getelementptr inbounds nuw %"class.xgboost::detail::GradientPairInternal.445", ptr %.sroa.448.0.copyload, i64 %121
+  %122 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.448.0.copyload, i64 %121
   %.not5.i.i.i = icmp samesign eq i64 %120, %121
   br i1 %.not5.i.i.i, label %_ZSt4fillIPN7xgboost6detail20GradientPairInternalIdEES3_EvT_S5_RKT0_.exit, label %.lr.ph.i.i.i.preheader
 
 .lr.ph.i.i.i.preheader:                           ; preds = %.critedge
-  %123 = getelementptr inbounds nuw %"class.xgboost::detail::GradientPairInternal.445", ptr %.sroa.448.0.copyload, i64 %120
+  %123 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.448.0.copyload, i64 %120
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i.preheader, %.lr.ph.i.i.i
@@ -36435,7 +36375,7 @@ define linkonce_odr void @_ZZN7xgboost4tree16HistogramBuilder13SyncHistogramEPKN
   %6 = load ptr, ptr %5, align 8, !tbaa !1081
   %7 = load ptr, ptr %0, align 8, !tbaa !1226
   %8 = load ptr, ptr %7, align 8, !tbaa !194
-  %9 = getelementptr inbounds nuw i32, ptr %8, i64 %1
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %1
   %10 = load i32, ptr %9, align 4, !tbaa !99
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !1227
@@ -36464,7 +36404,7 @@ define linkonce_odr void @_ZZN7xgboost4tree16HistogramBuilder13SyncHistogramEPKN
   unreachable
 
 _ZNK7xgboost15MultiTargetTree6ParentEi.exit.i:    ; preds = %16
-  %28 = getelementptr inbounds nuw i32, ptr %22, i64 %19
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %19
   %29 = load i32, ptr %28, align 4, !tbaa !99
   %.pre = load ptr, ptr %11, align 8, !tbaa !1227
   %.pre24 = load ptr, ptr %.pre, align 8, !tbaa !142
@@ -36474,7 +36414,7 @@ _ZNK7xgboost15MultiTargetTree6ParentEi.exit.i:    ; preds = %16
   %31 = getelementptr inbounds nuw i8, ptr %13, i64 160
   %32 = sext i32 %10 to i64
   %33 = load ptr, ptr %31, align 8, !tbaa !536
-  %34 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %33, i64 %32
+  %34 = getelementptr inbounds nuw [20 x i8], ptr %33, i64 %32
   %35 = load i32, ptr %34, align 4, !tbaa !544
   %36 = and i32 %35, 2147483647
   br label %_ZNK7xgboost7RegTree6ParentEi.exit
@@ -36512,14 +36452,14 @@ _ZNK7xgboost7RegTree6ParentEi.exit:               ; preds = %_ZNK7xgboost15Multi
   unreachable
 
 _ZNK7xgboost15MultiTargetTree10RightChildEi.exit.i: ; preds = %44
-  %56 = getelementptr inbounds nuw i32, ptr %50, i64 %47
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %47
   br label %_ZNK7xgboost7RegTree10RightChildEi.exit
 
 57:                                               ; preds = %43
   %58 = getelementptr inbounds nuw i8, ptr %40, i64 160
   %59 = sext i32 %.0.i to i64
   %60 = load ptr, ptr %58, align 8, !tbaa !536
-  %61 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %60, i64 %59
+  %61 = getelementptr inbounds nuw [20 x i8], ptr %60, i64 %59
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   br label %_ZNK7xgboost7RegTree10RightChildEi.exit
 
@@ -36545,14 +36485,14 @@ _ZNK7xgboost15MultiTargetTree10RightChildEi.exit.i: ; preds = %44
   unreachable
 
 _ZNK7xgboost15MultiTargetTree9LeftChildEi.exit.i: ; preds = %64
-  %76 = getelementptr inbounds nuw i32, ptr %70, i64 %67
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %70, i64 %67
   br label %_ZNK7xgboost7RegTree10RightChildEi.exit
 
 77:                                               ; preds = %63
   %78 = getelementptr inbounds nuw i8, ptr %40, i64 160
   %79 = sext i32 %.0.i to i64
   %80 = load ptr, ptr %78, align 8, !tbaa !536
-  %81 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %80, i64 %79
+  %81 = getelementptr inbounds nuw [20 x i8], ptr %80, i64 %79
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 4
   br label %_ZNK7xgboost7RegTree10RightChildEi.exit
 
@@ -36706,7 +36646,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   unreachable
 
 _ZNK7xgboost15MultiTargetTree6ParentEi.exit:      ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
-  %45 = getelementptr inbounds nuw i32, ptr %39, i64 %36
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %36
   %46 = load i32, ptr %45, align 4, !tbaa !99
   %47 = load ptr, ptr %7, align 8, !tbaa !542
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
@@ -36727,7 +36667,7 @@ _ZNK7xgboost15MultiTargetTree6ParentEi.exit:      ; preds = %_ZNSt10unique_ptrIN
   unreachable
 
 _ZNK7xgboost15MultiTargetTree9LeftChildEi.exit:   ; preds = %_ZNK7xgboost15MultiTargetTree6ParentEi.exit
-  %59 = getelementptr inbounds nuw i32, ptr %53, i64 %50
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %50
   %60 = load i32, ptr %59, align 4, !tbaa !99
   %61 = icmp eq i32 %1, %60
   br label %69
@@ -36736,7 +36676,7 @@ _ZNK7xgboost15MultiTargetTree9LeftChildEi.exit:   ; preds = %_ZNK7xgboost15Multi
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %64 = sext i32 %1 to i64
   %65 = load ptr, ptr %63, align 8, !tbaa !536
-  %66 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %65, i64 %64
+  %66 = getelementptr inbounds nuw [20 x i8], ptr %65, i64 %64
   %67 = load i32, ptr %66, align 4, !tbaa !544
   %68 = icmp slt i32 %67, 0
   br label %69
@@ -36826,7 +36766,7 @@ _ZN7xgboost4tree10CalcWeightINS0_10TrainParamENS0_9GradStatsEEEfRKT_T0_.exit.i: 
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %45 = load ptr, ptr %44, align 8, !tbaa !802
   %46 = sext i32 %1 to i64
-  %47 = getelementptr inbounds float, ptr %45, i64 %46
+  %47 = getelementptr inbounds [4 x i8], ptr %45, i64 %46
   %48 = load float, ptr %47, align 4, !tbaa !134
   %49 = fcmp ogt float %48, %38
   br i1 %49, label %_ZNK7xgboost4tree13TreeEvaluator14SplitEvaluatorINS0_10TrainParamEE10CalcWeightINS0_9GradStatsEEEfiRKS3_RKT_.exit, label %50
@@ -36834,7 +36774,7 @@ _ZN7xgboost4tree10CalcWeightINS0_10TrainParamENS0_9GradStatsEEEfRKT_T0_.exit.i: 
 50:                                               ; preds = %43
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %52 = load ptr, ptr %51, align 8, !tbaa !841
-  %53 = getelementptr inbounds float, ptr %52, i64 %46
+  %53 = getelementptr inbounds [4 x i8], ptr %52, i64 %46
   %54 = load float, ptr %53, align 4, !tbaa !134
   %55 = fcmp olt float %54, %38
   %..i = select i1 %55, float %54, float %38
@@ -36977,9 +36917,9 @@ _ZNSt6vectorIN7xgboost4tree13HistEvaluator9NodeEntryESaIS3_EE11_S_relocateEPS3_S
 
 _ZNSt12_Vector_baseIN7xgboost4tree13HistEvaluator9NodeEntryESaIS3_EE13_M_deallocateEPS3_m.exit37: ; preds = %_ZNSt6vectorIN7xgboost4tree13HistEvaluator9NodeEntryESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %31
   store ptr %26, ptr %0, align 8, !tbaa !157
-  %33 = getelementptr inbounds nuw %"struct.xgboost::tree::HistEvaluator::NodeEntry", ptr %27, i64 %1
+  %33 = getelementptr inbounds nuw [24 x i8], ptr %27, i64 %1
   store ptr %33, ptr %4, align 8, !tbaa !815
-  %34 = getelementptr inbounds nuw %"struct.xgboost::tree::HistEvaluator::NodeEntry", ptr %26, i64 %24
+  %34 = getelementptr inbounds nuw [24 x i8], ptr %26, i64 %24
   store ptr %34, ptr %11, align 8, !tbaa !160
   br label %35
 
@@ -37515,7 +37455,7 @@ _ZNSt6vectorIN7xgboost4tree14CPUExpandEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_
 _ZNSt12_Vector_baseIN7xgboost4tree14CPUExpandEntryESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN7xgboost4tree14CPUExpandEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit33, %82
   store ptr %20, ptr %0, align 8, !tbaa !562
   store ptr %.0.lcssa.i.i.i32, ptr %4, align 8, !tbaa !455
-  %86 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %20, i64 %16
+  %86 = getelementptr inbounds nuw [88 x i8], ptr %20, i64 %16
   store ptr %86, ptr %81, align 8, !tbaa !457
   ret void
 
@@ -38412,7 +38352,7 @@ define linkonce_odr void @_ZZN7xgboost4tree13TreeEvaluator8AddSplitILb0EEEviiijf
   unreachable
 
 _ZNK7xgboost6common4SpanIfLm18446744073709551615EEixEm.exit: ; preds = %7
-  %13 = getelementptr inbounds nuw float, ptr %3, i64 %10
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %10
   %14 = load i32, ptr %0, align 4, !tbaa !1284
   %15 = sext i32 %14 to i64
   %16 = icmp ugt i64 %2, %15
@@ -38424,7 +38364,7 @@ _ZNK7xgboost6common4SpanIfLm18446744073709551615EEixEm.exit: ; preds = %7
 
 _ZNK7xgboost6common4SpanIfLm18446744073709551615EEixEm.exit7: ; preds = %_ZNK7xgboost6common4SpanIfLm18446744073709551615EEixEm.exit
   %18 = load float, ptr %13, align 4, !tbaa !134
-  %19 = getelementptr inbounds nuw float, ptr %3, i64 %15
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %15
   store float %18, ptr %19, align 4, !tbaa !134
   %20 = icmp ugt i64 %4, %10
   br i1 %20, label %_ZNK7xgboost6common4SpanIfLm18446744073709551615EEixEm.exit8, label %21, !prof !127
@@ -38434,7 +38374,7 @@ _ZNK7xgboost6common4SpanIfLm18446744073709551615EEixEm.exit7: ; preds = %_ZNK7xg
   unreachable
 
 _ZNK7xgboost6common4SpanIfLm18446744073709551615EEixEm.exit8: ; preds = %_ZNK7xgboost6common4SpanIfLm18446744073709551615EEixEm.exit7
-  %22 = getelementptr inbounds nuw float, ptr %5, i64 %10
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %10
   %23 = icmp ugt i64 %4, %15
   br i1 %23, label %_ZNK7xgboost6common4SpanIfLm18446744073709551615EEixEm.exit10, label %24, !prof !127
 
@@ -38444,7 +38384,7 @@ _ZNK7xgboost6common4SpanIfLm18446744073709551615EEixEm.exit8: ; preds = %_ZNK7xg
 
 _ZNK7xgboost6common4SpanIfLm18446744073709551615EEixEm.exit10: ; preds = %_ZNK7xgboost6common4SpanIfLm18446744073709551615EEixEm.exit8
   %25 = load float, ptr %22, align 4, !tbaa !134
-  %26 = getelementptr inbounds nuw float, ptr %5, i64 %15
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %15
   store float %25, ptr %26, align 4, !tbaa !134
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = load i32, ptr %27, align 4, !tbaa !1285
@@ -38458,7 +38398,7 @@ _ZNK7xgboost6common4SpanIfLm18446744073709551615EEixEm.exit10: ; preds = %_ZNK7x
 
 _ZNK7xgboost6common4SpanIfLm18446744073709551615EEixEm.exit12: ; preds = %_ZNK7xgboost6common4SpanIfLm18446744073709551615EEixEm.exit10
   %32 = load float, ptr %13, align 4, !tbaa !134
-  %33 = getelementptr inbounds nuw float, ptr %3, i64 %29
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %29
   store float %32, ptr %33, align 4, !tbaa !134
   %34 = icmp ugt i64 %4, %29
   br i1 %34, label %_ZNK7xgboost6common4SpanIfLm18446744073709551615EEixEm.exit13, label %35, !prof !127
@@ -38469,7 +38409,7 @@ _ZNK7xgboost6common4SpanIfLm18446744073709551615EEixEm.exit12: ; preds = %_ZNK7x
 
 _ZNK7xgboost6common4SpanIfLm18446744073709551615EEixEm.exit13: ; preds = %_ZNK7xgboost6common4SpanIfLm18446744073709551615EEixEm.exit12
   %36 = load float, ptr %22, align 4, !tbaa !134
-  %37 = getelementptr inbounds nuw float, ptr %5, i64 %29
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %29
   store float %36, ptr %37, align 4, !tbaa !134
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %39 = load i32, ptr %38, align 4, !tbaa !1286
@@ -38485,7 +38425,7 @@ _ZNK7xgboost6common4SpanIfLm18446744073709551615EEixEm.exit13: ; preds = %_ZNK7x
 _ZNK7xgboost6common4SpanIiLm18446744073709551615EEixEm.exit: ; preds = %_ZNK7xgboost6common4SpanIfLm18446744073709551615EEixEm.exit13
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %45 = load ptr, ptr %44, align 8, !tbaa !1289
-  %46 = getelementptr inbounds nuw i32, ptr %45, i64 %40
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %40
   %47 = load i32, ptr %46, align 4, !tbaa !99
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %49 = load float, ptr %48, align 4, !tbaa !1290
@@ -38699,7 +38639,7 @@ _ZNSt6vectorIN7xgboost4tree14CPUExpandEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_
 _ZNSt12_Vector_baseIN7xgboost4tree14CPUExpandEntryESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN7xgboost4tree14CPUExpandEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit33, %82
   store ptr %20, ptr %0, align 8, !tbaa !562
   store ptr %.0.lcssa.i.i.i32, ptr %4, align 8, !tbaa !455
-  %86 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %20, i64 %16
+  %86 = getelementptr inbounds nuw [88 x i8], ptr %20, i64 %16
   store ptr %86, ptr %81, align 8, !tbaa !457
   ret void
 
@@ -39045,7 +38985,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %.noexc50
 
 _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit36.i: ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i, %.noexc50
   store ptr %31, ptr %8, align 8, !tbaa !194
-  %35 = getelementptr inbounds nuw i32, ptr %31, i64 %21
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %21
   store ptr %35, ptr %25, align 8, !tbaa !545
   store ptr %35, ptr %27, align 8, !tbaa !197
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
@@ -39262,10 +39202,10 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 116:                                              ; preds = %._crit_edge35.i, %.lr.ph39.i
   %.01637.i = phi i64 [ 0, %.lr.ph39.i ], [ %119, %._crit_edge35.i ]
-  %117 = getelementptr inbounds nuw i64, ptr %107, i64 %.01637.i
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %.01637.i
   %118 = load i64, ptr %117, align 8, !tbaa !44
   %119 = add nuw i64 %.01637.i, 1
-  %120 = getelementptr inbounds nuw i64, ptr %107, i64 %119
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %119
   %121 = load i64, ptr %120, align 8, !tbaa !44
   %122 = icmp ult i64 %118, %121
   br i1 %122, label %.lr.ph.i, label %._crit_edge35.i
@@ -39278,7 +39218,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 .lr.ph.i:                                         ; preds = %116, %.lr.ph.i
   %.01528.i = phi i64 [ %129, %.lr.ph.i ], [ %118, %116 ]
   %.02327.i = phi i64 [ %128, %.lr.ph.i ], [ 0, %116 ]
-  %124 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %114, i64 %.01528.i
+  %124 = getelementptr inbounds nuw [16 x i8], ptr %114, i64 %.01528.i
   %125 = load ptr, ptr %124, align 8, !tbaa !1314
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 16
   store i64 %.02327.i, ptr %126, align 8, !tbaa !1317
@@ -39292,7 +39232,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 ._crit_edge35.i:                                  ; preds = %.lr.ph34.i, %._crit_edge.i, %116
   %.023.lcssa48.i = phi i64 [ %128, %._crit_edge.i ], [ 0, %116 ], [ %128, %.lr.ph34.i ]
   %.024.lcssa.i = phi i64 [ 0, %._crit_edge.i ], [ 0, %116 ], [ %140, %.lr.ph34.i ]
-  %132 = getelementptr inbounds nuw %"struct.std::pair.129", ptr %115, i64 %.01637.i
+  %132 = getelementptr inbounds nuw [16 x i8], ptr %115, i64 %.01637.i
   store i64 %.023.lcssa48.i, ptr %132, align 8, !tbaa !1126
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 8
   store i64 %.024.lcssa.i, ptr %133, align 8, !tbaa !1128
@@ -39303,7 +39243,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %.032.i = phi i64 [ %141, %.lr.ph34.i ], [ %.pre.i, %._crit_edge.i ]
   %.02431.i = phi i64 [ %140, %.lr.ph34.i ], [ 0, %._crit_edge.i ]
   %134 = add i64 %.02431.i, %128
-  %135 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %114, i64 %.032.i
+  %135 = getelementptr inbounds nuw [16 x i8], ptr %114, i64 %.032.i
   %136 = load ptr, ptr %135, align 8, !tbaa !1314
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 24
   store i64 %134, ptr %137, align 8, !tbaa !1322
@@ -39596,7 +39536,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %.noexc50
 
 _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit36.i: ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i, %.noexc50
   store ptr %31, ptr %8, align 8, !tbaa !194
-  %35 = getelementptr inbounds nuw i32, ptr %31, i64 %21
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %21
   store ptr %35, ptr %25, align 8, !tbaa !545
   store ptr %35, ptr %27, align 8, !tbaa !197
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
@@ -39813,10 +39753,10 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 116:                                              ; preds = %._crit_edge35.i, %.lr.ph39.i
   %.01637.i = phi i64 [ 0, %.lr.ph39.i ], [ %119, %._crit_edge35.i ]
-  %117 = getelementptr inbounds nuw i64, ptr %107, i64 %.01637.i
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %.01637.i
   %118 = load i64, ptr %117, align 8, !tbaa !44
   %119 = add nuw i64 %.01637.i, 1
-  %120 = getelementptr inbounds nuw i64, ptr %107, i64 %119
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %119
   %121 = load i64, ptr %120, align 8, !tbaa !44
   %122 = icmp ult i64 %118, %121
   br i1 %122, label %.lr.ph.i, label %._crit_edge35.i
@@ -39829,7 +39769,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 .lr.ph.i:                                         ; preds = %116, %.lr.ph.i
   %.01528.i = phi i64 [ %129, %.lr.ph.i ], [ %118, %116 ]
   %.02327.i = phi i64 [ %128, %.lr.ph.i ], [ 0, %116 ]
-  %124 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %114, i64 %.01528.i
+  %124 = getelementptr inbounds nuw [16 x i8], ptr %114, i64 %.01528.i
   %125 = load ptr, ptr %124, align 8, !tbaa !1314
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 16
   store i64 %.02327.i, ptr %126, align 8, !tbaa !1317
@@ -39843,7 +39783,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 ._crit_edge35.i:                                  ; preds = %.lr.ph34.i, %._crit_edge.i, %116
   %.023.lcssa48.i = phi i64 [ %128, %._crit_edge.i ], [ 0, %116 ], [ %128, %.lr.ph34.i ]
   %.024.lcssa.i = phi i64 [ 0, %._crit_edge.i ], [ 0, %116 ], [ %140, %.lr.ph34.i ]
-  %132 = getelementptr inbounds nuw %"struct.std::pair.129", ptr %115, i64 %.01637.i
+  %132 = getelementptr inbounds nuw [16 x i8], ptr %115, i64 %.01637.i
   store i64 %.023.lcssa48.i, ptr %132, align 8, !tbaa !1126
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 8
   store i64 %.024.lcssa.i, ptr %133, align 8, !tbaa !1128
@@ -39854,7 +39794,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %.032.i = phi i64 [ %141, %.lr.ph34.i ], [ %.pre.i, %._crit_edge.i ]
   %.02431.i = phi i64 [ %140, %.lr.ph34.i ], [ 0, %._crit_edge.i ]
   %134 = add i64 %.02431.i, %128
-  %135 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %114, i64 %.032.i
+  %135 = getelementptr inbounds nuw [16 x i8], ptr %114, i64 %.032.i
   %136 = load ptr, ptr %135, align 8, !tbaa !1314
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 24
   store i64 %134, ptr %137, align 8, !tbaa !1322
@@ -40002,7 +39942,7 @@ define linkonce_odr void @_ZN7xgboost4tree20CommonRowPartitioner19FindSplitCondi
 18:                                               ; preds = %.lr.ph49, %._crit_edge
   %19 = phi ptr [ %15, %.lr.ph49 ], [ %86, %._crit_edge ]
   %.03047 = phi i64 [ 0, %.lr.ph49 ], [ %84, %._crit_edge ]
-  %20 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %19, i64 %.03047
+  %20 = getelementptr inbounds nuw [88 x i8], ptr %19, i64 %.03047
   %21 = load i32, ptr %20, align 8, !tbaa !535
   %22 = load ptr, ptr %16, align 8, !tbaa !542
   %.not.i = icmp eq ptr %22, null
@@ -40011,7 +39951,7 @@ define linkonce_odr void @_ZN7xgboost4tree20CommonRowPartitioner19FindSplitCondi
 _ZNK7xgboost7RegTree10SplitIndexEi.exit.thread:   ; preds = %18
   %23 = sext i32 %21 to i64
   %24 = load ptr, ptr %17, align 8, !tbaa !536
-  %25 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %24, i64 %23
+  %25 = getelementptr inbounds nuw [20 x i8], ptr %24, i64 %23
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 12
   %27 = load i32, ptr %26, align 4, !tbaa !810
   %28 = and i32 %27, 2147483647
@@ -40022,7 +39962,7 @@ _ZNK7xgboost7RegTree10SplitIndexEi.exit:          ; preds = %18
   %30 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7xgboost16HostDeviceVectorIjE15ConstHostVectorEv(ptr noundef nonnull align 8 dereferenceable(8) %29)
   %31 = sext i32 %21 to i64
   %32 = load ptr, ptr %30, align 8, !tbaa !449
-  %33 = getelementptr inbounds nuw i32, ptr %32, i64 %31
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %31
   %34 = load i32, ptr %33, align 4, !tbaa !99
   %.pre = load ptr, ptr %16, align 8, !tbaa !542
   %.not.i32 = icmp eq ptr %.pre, null
@@ -40033,14 +39973,14 @@ _ZNK7xgboost7RegTree10SplitIndexEi.exit:          ; preds = %18
   %37 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7xgboost16HostDeviceVectorIfE15ConstHostVectorEv(ptr noundef nonnull align 8 dereferenceable(8) %36)
   %38 = sext i32 %21 to i64
   %39 = load ptr, ptr %37, align 8, !tbaa !643
-  %40 = getelementptr inbounds nuw float, ptr %39, i64 %38
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %38
   br label %_ZNK7xgboost7RegTree9SplitCondEi.exit
 
 41:                                               ; preds = %_ZNK7xgboost7RegTree10SplitIndexEi.exit.thread, %_ZNK7xgboost7RegTree10SplitIndexEi.exit
   %.0.i63 = phi i32 [ %28, %_ZNK7xgboost7RegTree10SplitIndexEi.exit.thread ], [ %34, %_ZNK7xgboost7RegTree10SplitIndexEi.exit ]
   %42 = sext i32 %21 to i64
   %43 = load ptr, ptr %17, align 8, !tbaa !536
-  %44 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %43, i64 %42
+  %44 = getelementptr inbounds nuw [20 x i8], ptr %43, i64 %42
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   br label %_ZNK7xgboost7RegTree9SplitCondEi.exit
 
@@ -40050,12 +39990,12 @@ _ZNK7xgboost7RegTree9SplitCondEi.exit:            ; preds = %35, %41
   %.0.i33 = load float, ptr %.0.in.i, align 4, !tbaa !23
   %46 = zext i32 %.0.i62 to i64
   %47 = load ptr, ptr %10, align 8, !tbaa !449
-  %48 = getelementptr inbounds nuw i32, ptr %47, i64 %46
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %46
   %49 = load i32, ptr %48, align 4, !tbaa !99
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %50 = add i32 %.0.i62, 1
   %51 = zext i32 %50 to i64
-  %52 = getelementptr inbounds nuw i32, ptr %47, i64 %51
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %51
   %53 = load i32, ptr %52, align 4, !tbaa !99
   store i32 %53, ptr %5, align 4, !tbaa !99
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -40168,7 +40108,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 ._crit_edge:                                      ; preds = %92, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
   %.029.lcssa = phi i32 [ -1, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit ], [ %.1, %92 ]
   %82 = load ptr, ptr %3, align 8, !tbaa !194
-  %83 = getelementptr inbounds nuw i32, ptr %82, i64 %.03047
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %82, i64 %.03047
   store i32 %.029.lcssa, ptr %83, align 4, !tbaa !99
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %84 = add nuw i64 %.03047, 1
@@ -40184,7 +40124,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 92:                                               ; preds = %.lr.ph, %92
   %indvars.iv = phi i64 [ %81, %.lr.ph ], [ %indvars.iv.next, %92 ]
   %.02945 = phi i32 [ -1, %.lr.ph ], [ %.1, %92 ]
-  %93 = getelementptr inbounds nuw float, ptr %80, i64 %indvars.iv
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %80, i64 %indvars.iv
   %94 = load float, ptr %93, align 4, !tbaa !134
   %95 = fcmp oeq float %.0.i33, %94
   %96 = trunc nuw i64 %indvars.iv to i32
@@ -40225,12 +40165,12 @@ define linkonce_odr void @_ZN7xgboost6common14BlockedSpace2dC2IZNS_4tree20Common
   %13 = load ptr, ptr %6, align 8, !tbaa !1332
   %14 = load ptr, ptr %2, align 8, !tbaa !1343
   %15 = load ptr, ptr %14, align 8, !tbaa !562
-  %16 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %15, i64 %.039
+  %16 = getelementptr inbounds nuw [88 x i8], ptr %15, i64 %.039
   %17 = load i32, ptr %16, align 8, !tbaa !535
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 112
   %19 = sext i32 %17 to i64
   %20 = load ptr, ptr %18, align 8, !tbaa !164
-  %21 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %20, i64 %19
+  %21 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %19
   %22 = load ptr, ptr %21, align 8, !tbaa !917
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !919
@@ -40321,7 +40261,7 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIP
   %.pre = phi ptr [ %.pre.pre, %60 ], [ %36, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i ]
   store ptr %55, ptr %5, align 8, !tbaa !168
   store ptr %59, ptr %7, align 8, !tbaa !906
-  %61 = getelementptr inbounds nuw i64, ptr %55, i64 %53
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %53
   store ptr %61, ptr %8, align 8, !tbaa !171
   br label %_ZNSt6vectorImSaImEE9push_backERKm.exit.i
 
@@ -40421,7 +40361,7 @@ _ZNSt6vectorIN7xgboost6common7Range1dESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit3
 .noexc25:                                         ; preds = %84, %_ZNSt6vectorIN7xgboost6common7Range1dESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit33.i
   store ptr %79, ptr %0, align 8, !tbaa !861
   store ptr %83, ptr %9, align 8, !tbaa !1078
-  %98 = getelementptr inbounds nuw %"class.xgboost::common::Range1d", ptr %79, i64 %77
+  %98 = getelementptr inbounds nuw [16 x i8], ptr %79, i64 %77
   store ptr %98, ptr %10, align 8, !tbaa !864
   br label %_ZN7xgboost6common14BlockedSpace2d8AddBlockEmmm.exit
 
@@ -40494,7 +40434,7 @@ define linkonce_odr void @_ZN7xgboost6common16PartitionBuilderILm2048EE4InitIZNS
   br i1 %17, label %18, label %_ZNSt6vectorISt4pairImmESaIS1_EE6resizeEm.exit
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds nuw %"struct.std::pair.129", ptr %8, i64 %2
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %2
   %.not.i.i = icmp eq ptr %7, %19
   br i1 %.not.i.i, label %_ZNSt6vectorISt4pairImmESaIS1_EE6resizeEm.exit, label %20
 
@@ -40526,7 +40466,7 @@ _ZNSt6vectorISt4pairImmESaIS1_EE6resizeEm.exit:   ; preds = %14, %16, %18, %20
   br i1 %34, label %35, label %_ZNSt6vectorImSaImEE6resizeEm.exit
 
 35:                                               ; preds = %33
-  %36 = getelementptr inbounds nuw i64, ptr %25, i64 %22
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %22
   %.not.i.i12 = icmp eq ptr %24, %36
   br i1 %.not.i.i12, label %_ZNSt6vectorImSaImEE6resizeEm.exit, label %37
 
@@ -40555,11 +40495,11 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %31, %33, %35, %37
 46:                                               ; preds = %.lr.ph, %46
   %47 = phi i64 [ 0, %.lr.ph ], [ %65, %46 ]
   %.014 = phi i64 [ 1, %.lr.ph ], [ %67, %46 ]
-  %48 = getelementptr %"struct.xgboost::tree::CPUExpandEntry", ptr %40, i64 %.014
+  %48 = getelementptr [88 x i8], ptr %40, i64 %.014
   %49 = getelementptr i8, ptr %48, i64 -88
   %50 = load i32, ptr %49, align 8, !tbaa !535
   %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %42, i64 %51
+  %52 = getelementptr inbounds nuw [24 x i8], ptr %42, i64 %51
   %53 = load ptr, ptr %52, align 8, !tbaa !917
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %55 = load ptr, ptr %54, align 8, !tbaa !919
@@ -40573,7 +40513,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %31, %33, %35, %37
   %63 = zext i1 %62 to i64
   %64 = add i64 %60, %47
   %65 = add i64 %64, %63
-  %66 = getelementptr inbounds nuw i64, ptr %38, i64 %.014
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %.014
   store i64 %65, ptr %66, align 8, !tbaa !44
   %67 = add nuw i64 %.014, 1
   %exitcond.not = icmp eq i64 %.014, %2
@@ -40601,7 +40541,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %31, %33, %35, %37
   br i1 %81, label %82, label %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit
 
 82:                                               ; preds = %80
-  %83 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %72, i64 %1
+  %83 = getelementptr inbounds nuw [16 x i8], ptr %72, i64 %1
   %.not.i.i13 = icmp eq ptr %71, %83
   br i1 %.not.i.i13, label %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i
 
@@ -41743,11 +41683,11 @@ define linkonce_odr void @_ZN7xgboost4tree20CommonRowPartitioner17AddSplitsToRow
   %20 = phi i64 [ 0, %.lr.ph ], [ %131, %_ZNK7xgboost7RegTree10RightChildEi.exit49 ]
   %.02259 = phi i32 [ 0, %.lr.ph ], [ %130, %_ZNK7xgboost7RegTree10RightChildEi.exit49 ]
   %21 = load ptr, ptr %1, align 8, !tbaa !562
-  %22 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %21, i64 %20
+  %22 = getelementptr inbounds nuw [88 x i8], ptr %21, i64 %20
   %23 = load i32, ptr %22, align 8, !tbaa !535
   %24 = sext i32 %.02259 to i64
   %25 = load ptr, ptr %15, align 8, !tbaa !178
-  %26 = getelementptr inbounds nuw %"struct.std::pair.129", ptr %25, i64 %24
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %25, i64 %24
   %27 = load i64, ptr %26, align 8, !tbaa !1126
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %29 = load i64, ptr %28, align 8, !tbaa !1128
@@ -41777,14 +41717,14 @@ define linkonce_odr void @_ZN7xgboost4tree20CommonRowPartitioner17AddSplitsToRow
 _ZNK7xgboost7RegTree9LeftChildEi.exit.thread:     ; preds = %19
   %43 = sext i32 %23 to i64
   %44 = load ptr, ptr %17, align 8, !tbaa !536
-  %45 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %44, i64 %43
+  %45 = getelementptr inbounds nuw [20 x i8], ptr %44, i64 %43
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 4
   %.0.i87 = load i32, ptr %46, align 4, !tbaa !99
   %47 = add nsw i32 %.0.i87, 1
   br label %63
 
 _ZNK7xgboost7RegTree9LeftChildEi.exit:            ; preds = %31
-  %48 = getelementptr inbounds nuw i32, ptr %37, i64 %34
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %34
   %.pre = load ptr, ptr %16, align 8, !tbaa !542
   %.0.i = load i32, ptr %48, align 4, !tbaa !99
   %49 = add nsw i32 %.0.i, 1
@@ -41810,14 +41750,14 @@ _ZNK7xgboost7RegTree9LeftChildEi.exit:            ; preds = %31
   unreachable
 
 _ZNK7xgboost15MultiTargetTree10RightChildEi.exit.i: ; preds = %50
-  %62 = getelementptr inbounds nuw i32, ptr %56, i64 %53
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %53
   br label %_ZNK7xgboost7RegTree10RightChildEi.exit
 
 63:                                               ; preds = %_ZNK7xgboost7RegTree9LeftChildEi.exit.thread, %_ZNK7xgboost7RegTree9LeftChildEi.exit
   %64 = phi i32 [ %47, %_ZNK7xgboost7RegTree9LeftChildEi.exit.thread ], [ %49, %_ZNK7xgboost7RegTree9LeftChildEi.exit ]
   %65 = sext i32 %23 to i64
   %66 = load ptr, ptr %17, align 8, !tbaa !536
-  %67 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %66, i64 %65
+  %67 = getelementptr inbounds nuw [20 x i8], ptr %66, i64 %65
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
   br label %_ZNK7xgboost7RegTree10RightChildEi.exit
 
@@ -41949,13 +41889,13 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 _ZNK7xgboost7RegTree9LeftChildEi.exit43.thread:   ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
   %107 = sext i32 %23 to i64
   %108 = load ptr, ptr %17, align 8, !tbaa !536
-  %109 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %108, i64 %107
+  %109 = getelementptr inbounds nuw [20 x i8], ptr %108, i64 %107
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 4
   %.0.i4290 = load i32, ptr %110, align 4, !tbaa !99
   br label %125
 
 _ZNK7xgboost7RegTree9LeftChildEi.exit43:          ; preds = %95
-  %111 = getelementptr inbounds nuw i32, ptr %101, i64 %98
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %101, i64 %98
   %.pre68 = load ptr, ptr %16, align 8, !tbaa !542
   %.0.i42 = load i32, ptr %111, align 4, !tbaa !99
   %.not.i44 = icmp eq ptr %.pre68, null
@@ -41980,14 +41920,14 @@ _ZNK7xgboost7RegTree9LeftChildEi.exit43:          ; preds = %95
   unreachable
 
 _ZNK7xgboost15MultiTargetTree10RightChildEi.exit.i46: ; preds = %112
-  %124 = getelementptr inbounds nuw i32, ptr %118, i64 %115
+  %124 = getelementptr inbounds nuw [4 x i8], ptr %118, i64 %115
   br label %_ZNK7xgboost7RegTree10RightChildEi.exit49
 
 125:                                              ; preds = %_ZNK7xgboost7RegTree9LeftChildEi.exit43.thread, %_ZNK7xgboost7RegTree9LeftChildEi.exit43
   %.0.i4293 = phi i32 [ %.0.i4290, %_ZNK7xgboost7RegTree9LeftChildEi.exit43.thread ], [ %.0.i42, %_ZNK7xgboost7RegTree9LeftChildEi.exit43 ]
   %126 = sext i32 %23 to i64
   %127 = load ptr, ptr %17, align 8, !tbaa !536
-  %128 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %127, i64 %126
+  %128 = getelementptr inbounds nuw [20 x i8], ptr %127, i64 %126
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 8
   br label %_ZNK7xgboost7RegTree10RightChildEi.exit49
 
@@ -42210,9 +42150,9 @@ _ZNSt6vectorISt4pairImmESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.l
 
 _ZNSt12_Vector_baseISt4pairImmESaIS1_EE13_M_deallocateEPS1_m.exit37: ; preds = %_ZNSt6vectorISt4pairImmESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %31
   store ptr %26, ptr %0, align 8, !tbaa !178
-  %33 = getelementptr inbounds nuw %"struct.std::pair.129", ptr %27, i64 %1
+  %33 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %1
   store ptr %33, ptr %4, align 8, !tbaa !932
-  %34 = getelementptr inbounds nuw %"struct.std::pair.129", ptr %26, i64 %24
+  %34 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %24
   store ptr %34, ptr %11, align 8, !tbaa !181
   br label %35
 
@@ -42302,9 +42242,9 @@ _ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInf
 
 _ZNSt12_Vector_baseISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE13_M_deallocateEPS6_m.exit37: ; preds = %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit, %35
   store ptr %26, ptr %0, align 8, !tbaa !172
-  %37 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %27, i64 %1
+  %37 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %1
   store ptr %37, ptr %4, align 8, !tbaa !175
-  %38 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %26, i64 %24
+  %38 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %24
   store ptr %38, ptr %11, align 8, !tbaa !177
   br label %39
 
@@ -42910,7 +42850,7 @@ define linkonce_odr void @_ZZN7xgboost4tree17ColumnSplitHelper9PartitionItLb1ELb
   %8 = load ptr, ptr %7, align 8, !tbaa !1354
   %9 = load ptr, ptr %0, align 8, !tbaa !1430
   %10 = load ptr, ptr %9, align 8, !tbaa !562
-  %11 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %10, i64 %1
+  %11 = getelementptr inbounds nuw [88 x i8], ptr %10, i64 %1
   %12 = load i32, ptr %11, align 8, !tbaa !535
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -42999,7 +42939,7 @@ _ZZN7xgboost4tree17ColumnSplitHelper9PartitionItLb1ELb1ENS0_14CPUExpandEntryEEEv
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %61 = load ptr, ptr %60, align 8, !tbaa !1433
   %62 = load ptr, ptr %61, align 8, !tbaa !194
-  %63 = getelementptr inbounds nuw i32, ptr %62, i64 %1
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %1
   %64 = load i32, ptr %63, align 4, !tbaa !99
   br label %65
 
@@ -43017,7 +42957,7 @@ _ZZN7xgboost4tree17ColumnSplitHelper9PartitionItLb1ELb1ENS0_14CPUExpandEntryEEEv
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 24
   %77 = sext i32 %12 to i64
   %78 = load ptr, ptr %76, align 8, !tbaa !164
-  %79 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %78, i64 %77
+  %79 = getelementptr inbounds nuw [24 x i8], ptr %78, i64 %77
   %80 = load ptr, ptr %79, align 8, !tbaa !917
   call void @_ZN7xgboost6common16PartitionBuilderILm2048EE8MaskRowsItLb1ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmPNS_17BitFieldContainerIhNS_11RBitsPolicyIhEELb0EEESS_(ptr noundef nonnull align 8 dereferenceable(80) %68, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %2, i64 %3, i32 noundef %66, ptr noundef nonnull align 8 dereferenceable(233) %70, ptr noundef nonnull align 8 dereferenceable(218) %56, ptr noundef nonnull align 8 dereferenceable(312) %73, ptr noundef %80, ptr noundef nonnull %5, ptr noundef nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -43038,7 +42978,7 @@ _ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_S4_.exit:
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx101
   %18 = sub nsw i64 %4, %3
   %19 = load ptr, ptr %2, align 8, !tbaa !562
-  %20 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %19, i64 %1
+  %20 = getelementptr inbounds nuw [88 x i8], ptr %19, i64 %1
   %21 = load i32, ptr %20, align 8, !tbaa !535
   %22 = sext i32 %21 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
@@ -43051,14 +42991,14 @@ _ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_S4_.exit:
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %27 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7xgboost16HostDeviceVectorIjE15ConstHostVectorEv(ptr noundef nonnull align 8 dereferenceable(8) %26)
   %28 = load ptr, ptr %27, align 8, !tbaa !449
-  %29 = getelementptr inbounds nuw i32, ptr %28, i64 %22
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %22
   %30 = load i32, ptr %29, align 4, !tbaa !99
   br label %_ZNK7xgboost7RegTree10SplitIndexEi.exit
 
 31:                                               ; preds = %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_S4_.exit
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 160
   %33 = load ptr, ptr %32, align 8, !tbaa !536
-  %34 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %33, i64 %22
+  %34 = getelementptr inbounds nuw [20 x i8], ptr %33, i64 %22
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 12
   %36 = load i32, ptr %35, align 4, !tbaa !810
   %37 = and i32 %36, 2147483647
@@ -43100,7 +43040,7 @@ _ZNK7xgboost7RegTree10SplitIndexEi.exit:          ; preds = %25, %31
   unreachable
 
 _ZNK7xgboost6common4SpanIKNS_7RegTree22CategoricalSplitMatrix7SegmentELm18446744073709551615EEixEm.exit.i: ; preds = %_ZNK7xgboost7RegTree10SplitIndexEi.exit
-  %63 = getelementptr inbounds nuw %"struct.xgboost::RegTree::CategoricalSplitMatrix::Segment", ptr %55, i64 %22
+  %63 = getelementptr inbounds nuw [16 x i8], ptr %55, i64 %22
   %.sroa.0.0.copyload.i = load i64, ptr %63, align 8, !tbaa !44
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %63, i64 8
   %.sroa.4.0.copyload.i = load i64, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !44
@@ -43136,7 +43076,7 @@ _ZNK7xgboost6common4SpanIKNS_7RegTree22CategoricalSplitMatrix7SegmentELm18446744
   unreachable
 
 _ZNK7xgboost7RegTree8NodeCatsEi.exit:             ; preds = %71
-  %77 = getelementptr inbounds nuw i32, ptr %48, i64 %.sroa.0.0.copyload.i
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %.sroa.0.0.copyload.i
   store i64 %72, ptr %15, align 8
   %78 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %77, ptr %78, align 8
@@ -43185,7 +43125,7 @@ _ZNK7xgboost7RegTree8NodeCatsEi.exit:             ; preds = %71
   unreachable
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit: ; preds = %97
-  %99 = getelementptr inbounds nuw i64, ptr %17, i64 %.sroa.695.0108
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %.sroa.695.0108
   %100 = load i64, ptr %99, align 8, !tbaa !44
   %101 = load i32, ptr %13, align 4, !tbaa !99
   %102 = zext i32 %101 to i64
@@ -43202,7 +43142,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
   %.sroa.24.0.copyload = load ptr, ptr %78, align 8, !tbaa !459
   %109 = zext nneg i32 %103 to i64
   %110 = load ptr, ptr %80, align 8, !tbaa !643
-  %111 = getelementptr inbounds nuw float, ptr %110, i64 %109
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %110, i64 %109
   %112 = load float, ptr %111, align 4, !tbaa !134
   %113 = fcmp olt float %112, 0.000000e+00
   %114 = fcmp oge float %112, 0x4170000000000000
@@ -43219,10 +43159,10 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
 119:                                              ; preds = %105
   %120 = zext nneg i32 %103 to i64
   %121 = load ptr, ptr %80, align 8, !tbaa !643
-  %122 = getelementptr inbounds nuw float, ptr %121, i64 %120
+  %122 = getelementptr inbounds nuw [4 x i8], ptr %121, i64 %120
   %123 = load float, ptr %122, align 4, !tbaa !134
   %124 = load ptr, ptr %2, align 8, !tbaa !562
-  %125 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %124, i64 %1
+  %125 = getelementptr inbounds nuw [88 x i8], ptr %124, i64 %1
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 16
   %127 = load float, ptr %126, align 8, !tbaa !809
   %128 = fcmp ugt float %123, %127
@@ -43234,7 +43174,7 @@ _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit: ; preds
   %131 = lshr i64 %130, 5
   %132 = and i32 %129, 31
   %133 = xor i32 %132, 31
-  %134 = getelementptr inbounds nuw i32, ptr %.sroa.24.0.copyload, i64 %131
+  %134 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.24.0.copyload, i64 %131
   %135 = load i32, ptr %134, align 4, !tbaa !99
   %136 = shl nuw i32 1, %133
   %137 = and i32 %135, %136
@@ -43265,11 +43205,11 @@ _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit: ; preds
 150:                                              ; preds = %138
   %151 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %152 = load ptr, ptr %151, align 8, !tbaa !1452, !noalias !1453
-  %153 = getelementptr inbounds nuw i64, ptr %152, i64 %145
+  %153 = getelementptr inbounds nuw [8 x i8], ptr %152, i64 %145
   %154 = load i64, ptr %153, align 8, !tbaa !44, !noalias !1453
   %155 = add i32 %38, 1
   %156 = zext i32 %155 to i64
-  %157 = getelementptr inbounds nuw i64, ptr %152, i64 %156
+  %157 = getelementptr inbounds nuw [8 x i8], ptr %152, i64 %156
   %158 = load i64, ptr %157, align 8, !tbaa !44, !noalias !1453
   %159 = load ptr, ptr %7, align 8, !tbaa !1456, !noalias !1453
   %160 = icmp ne ptr %159, null
@@ -43289,7 +43229,7 @@ _ZNK7xgboost6common12ColumnMatrix11DenseColumnItLb1EEEDaj.exit: ; preds = %150
   %168 = getelementptr inbounds nuw i8, ptr %159, i64 %167
   %169 = getelementptr inbounds nuw i8, ptr %7, i64 160
   %170 = load ptr, ptr %169, align 8, !tbaa !1457, !noalias !1453
-  %171 = getelementptr inbounds nuw i32, ptr %170, i64 %145
+  %171 = getelementptr inbounds nuw [4 x i8], ptr %170, i64 %145
   %172 = load i32, ptr %171, align 4, !tbaa !99, !noalias !1453
   %173 = getelementptr inbounds nuw i8, ptr %7, i64 168
   %.sroa.0.0.copyload.i66 = load ptr, ptr %173, align 8, !tbaa !459, !noalias !1453
@@ -43318,14 +43258,14 @@ _ZNK7xgboost6common12ColumnMatrix11DenseColumnItLb1EEEDaj.exit: ; preds = %150
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i: ; preds = %_ZNK7xgboost6common12ColumnMatrix11DenseColumnItLb1EEEDaj.exit, %184
   %.sroa.6.025.i = phi i64 [ %185, %184 ], [ 0, %_ZNK7xgboost6common12ColumnMatrix11DenseColumnItLb1EEEDaj.exit ]
-  %186 = getelementptr inbounds nuw i64, ptr %17, i64 %.sroa.6.025.i
+  %186 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %.sroa.6.025.i
   %187 = load i64, ptr %186, align 8, !tbaa !44
   %188 = sub i64 %187, %175
   %189 = add i64 %188, %154
   %190 = lshr i64 %189, 5
   %191 = and i64 %189, 31
   %192 = xor i64 %191, 31
-  %193 = getelementptr inbounds nuw i32, ptr %.sroa.0.0.copyload.i66, i64 %190
+  %193 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0.0.copyload.i66, i64 %190
   %194 = load i32, ptr %193, align 4, !tbaa !99
   %195 = shl nuw nsw i64 1, %192
   %196 = trunc nuw i64 %195 to i32
@@ -43334,7 +43274,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
   br i1 %.not.i.i67, label %_ZNK7xgboost6common15DenseColumnIterItLb1EEixEm.exit.i, label %.sink.split.i
 
 _ZNK7xgboost6common15DenseColumnIterItLb1EEixEm.exit.i: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i
-  %198 = getelementptr inbounds nuw i16, ptr %168, i64 %188
+  %198 = getelementptr inbounds nuw [2 x i8], ptr %168, i64 %188
   %199 = load i16, ptr %198, align 2, !tbaa !1458
   %200 = zext i16 %199 to i32
   %201 = add nsw i32 %172, %200
@@ -43360,11 +43300,11 @@ _ZNK7xgboost6common4SpanIKmLm18446744073709551615EE5frontEv.exit: ; preds = %_ZN
   %208 = sub i64 %205, %207
   %209 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %210 = load ptr, ptr %209, align 8, !tbaa !1452, !noalias !1459
-  %211 = getelementptr inbounds nuw i64, ptr %210, i64 %145
+  %211 = getelementptr inbounds nuw [8 x i8], ptr %210, i64 %145
   %212 = load i64, ptr %211, align 8, !tbaa !44, !noalias !1459
   %213 = add i32 %38, 1
   %214 = zext i32 %213 to i64
-  %215 = getelementptr inbounds nuw i64, ptr %210, i64 %214
+  %215 = getelementptr inbounds nuw [8 x i8], ptr %210, i64 %214
   %216 = load i64, ptr %215, align 8, !tbaa !44, !noalias !1459
   %217 = sub i64 %216, %212
   %218 = getelementptr inbounds nuw i8, ptr %7, i64 216
@@ -43385,7 +43325,7 @@ _ZNK7xgboost6common4SpanIKmLm18446744073709551615EE5frontEv.exit: ; preds = %_ZN
 _ZN7xgboost6common4SpanIKtLm18446744073709551615EEC2EPS2_m.exit.i: ; preds = %_ZNK7xgboost6common4SpanIKmLm18446744073709551615EE5frontEv.exit
   %228 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %229 = load ptr, ptr %228, align 8, !tbaa !1452, !noalias !1459
-  %230 = getelementptr inbounds nuw i64, ptr %229, i64 %212
+  %230 = getelementptr inbounds nuw [8 x i8], ptr %229, i64 %212
   %231 = icmp ne ptr %229, null
   %232 = or i1 %225, %231
   br i1 %232, label %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i, label %233, !prof !127
@@ -43397,7 +43337,7 @@ _ZN7xgboost6common4SpanIKtLm18446744073709551615EEC2EPS2_m.exit.i: ; preds = %_Z
 _ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i: ; preds = %_ZN7xgboost6common4SpanIKtLm18446744073709551615EEC2EPS2_m.exit.i
   %234 = getelementptr inbounds nuw i8, ptr %7, i64 160
   %235 = load ptr, ptr %234, align 8, !tbaa !1457, !noalias !1459
-  %236 = getelementptr inbounds nuw i32, ptr %235, i64 %145
+  %236 = getelementptr inbounds nuw [4 x i8], ptr %235, i64 %145
   %237 = load i32, ptr %236, align 4, !tbaa !99, !noalias !1459
   %238 = icmp sgt i64 %217, 0
   br i1 %238, label %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i, label %.lr.ph.i81
@@ -43406,7 +43346,7 @@ _ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i:           ; preds = %_ZN7xgboost6common4
   %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i ], [ %230, %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i ]
   %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i ], [ %217, %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i ]
   %239 = lshr i64 %.01116.i.i.i.i, 1
-  %240 = getelementptr inbounds nuw i64, ptr %.017.i.i.i.i, i64 %239
+  %240 = getelementptr inbounds nuw [8 x i8], ptr %.017.i.i.i.i, i64 %239
   %241 = load i64, ptr %240, align 8, !tbaa !44, !noalias !1459
   %242 = icmp ult i64 %241, %208
   %243 = getelementptr inbounds nuw i8, ptr %240, i64 8
@@ -43456,7 +43396,7 @@ _ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i:           ; preds = %_ZN7xgboost6common4
   unreachable
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i83: ; preds = %261
-  %263 = getelementptr inbounds nuw i64, ptr %17, i64 %.sroa.6.028.i
+  %263 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %.sroa.6.028.i
   %264 = load i64, ptr %263, align 8, !tbaa !44
   %265 = sub i64 %264, %207
   %266 = icmp ult i64 %.sroa.13.0, %217
@@ -43464,7 +43404,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
 
 .lr.ph.i.i:                                       ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i83, %270
   %.sroa.13.3 = phi i64 [ %271, %270 ], [ %.sroa.13.0, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i83 ]
-  %267 = getelementptr inbounds nuw i64, ptr %230, i64 %.sroa.13.3
+  %267 = getelementptr inbounds nuw [8 x i8], ptr %230, i64 %.sroa.13.3
   %268 = load i64, ptr %267, align 8, !tbaa !44
   %269 = icmp ult i64 %268, %265
   br i1 %269, label %270, label %272
@@ -43479,7 +43419,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
   br i1 %273, label %_ZN7xgboost6common16SparseColumnIterItEixEm.exit.i, label %.sink.split.i84
 
 _ZN7xgboost6common16SparseColumnIterItEixEm.exit.i: ; preds = %272
-  %274 = getelementptr inbounds nuw i16, ptr %223, i64 %.sroa.13.3
+  %274 = getelementptr inbounds nuw [2 x i8], ptr %223, i64 %.sroa.13.3
   %275 = load i16, ptr %274, align 2, !tbaa !1458
   %276 = zext i16 %275 to i32
   %277 = add nsw i32 %237, %276
@@ -43630,7 +43570,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %46 = load ptr, ptr %45, align 8, !tbaa !1472
   %47 = sext i32 %18 to i64
   %48 = load ptr, ptr %46, align 8, !tbaa !643
-  %49 = getelementptr inbounds nuw float, ptr %48, i64 %47
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %47
   %50 = load float, ptr %49, align 4, !tbaa !134
   %51 = fcmp olt float %50, 0.000000e+00
   %52 = fcmp oge float %50, 0x4170000000000000
@@ -43650,7 +43590,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %60 = lshr i64 %59, 5
   %61 = and i32 %58, 31
   %62 = xor i32 %61, 31
-  %63 = getelementptr inbounds nuw i32, ptr %.sroa.2.0.copyload, i64 %60
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.2.0.copyload, i64 %60
   %64 = load i32, ptr %63, align 4, !tbaa !99
   %65 = shl nuw i32 1, %62
   %66 = and i32 %64, %65
@@ -44162,7 +44102,7 @@ define linkonce_odr void @_ZZN7xgboost6common13ParallelFor2dIZNS_4tree17ColumnSp
   %24 = load ptr, ptr %23, align 8, !tbaa !1388
   %25 = load ptr, ptr %16, align 8, !tbaa !1492
   %26 = load ptr, ptr %25, align 8, !tbaa !562
-  %27 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %26, i64 %18
+  %27 = getelementptr inbounds nuw [88 x i8], ptr %26, i64 %18
   %28 = load i32, ptr %27, align 8, !tbaa !535
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 128
   %30 = load ptr, ptr %29, align 8, !tbaa !925
@@ -44175,8 +44115,8 @@ define linkonce_odr void @_ZZN7xgboost6common13ParallelFor2dIZNS_4tree17ColumnSp
   %36 = lshr i64 %21, 11
   %37 = getelementptr inbounds nuw i8, ptr %30, i64 48
   %38 = load ptr, ptr %37, align 8, !tbaa !172
-  %39 = getelementptr %"class.std::shared_ptr.85", ptr %38, i64 %35
-  %40 = getelementptr %"class.std::shared_ptr.85", ptr %39, i64 %36
+  %39 = getelementptr [16 x i8], ptr %38, i64 %35
+  %40 = getelementptr [16 x i8], ptr %39, i64 %36
   %41 = load ptr, ptr %40, align 8, !tbaa !1314
   %42 = icmp eq ptr %41, null
   br i1 %42, label %_ZN4dmlc11LogCheck_NEIPN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoES6_EESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISD_EERKT_RKT0_.exit.i.i, label %_ZZN7xgboost4tree17ColumnSplitHelper9PartitionItLb1ELb1ENS0_14CPUExpandEntryEEEvPKNS_7ContextERKNS_6common14BlockedSpace2dEiRKNS_16GHistIndexMatrixERKNS7_12ColumnMatrixERKSt6vectorIT2_SaISI_EERKSH_IiSaIiEEPKNS_7RegTreeEENKUlmNS7_7Range1dEE0_clEmSU_.exit
@@ -44201,7 +44141,7 @@ _ZZN7xgboost4tree17ColumnSplitHelper9PartitionItLb1ELb1ENS0_14CPUExpandEntryEEEv
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 24
   %54 = sext i32 %28 to i64
   %55 = load ptr, ptr %53, align 8, !tbaa !164
-  %56 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %55, i64 %54
+  %56 = getelementptr inbounds nuw [24 x i8], ptr %55, i64 %54
   %57 = load ptr, ptr %56, align 8, !tbaa !917
   %58 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %59 = getelementptr inbounds nuw i8, ptr %24, i64 64
@@ -44221,7 +44161,7 @@ _ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_S4_.exit:
   %sext = shl i64 %1, 32
   %13 = ashr exact i64 %sext, 32
   %14 = load ptr, ptr %12, align 8, !tbaa !168
-  %15 = getelementptr inbounds nuw i64, ptr %14, i64 %13
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %13
   %16 = load i64, ptr %15, align 8, !tbaa !44
   %17 = lshr i64 %3, 11
   %18 = add i64 %16, %17
@@ -44241,12 +44181,12 @@ _ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_S4_.exit:
   unreachable
 
 _ZN7xgboost6common16PartitionBuilderILm2048EE14GetRightBufferEimm.exit: ; preds = %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_S4_.exit
-  %28 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %22, i64 %18
+  %28 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %18
   %29 = load ptr, ptr %28, align 8, !tbaa !1314
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 16416
   %32 = load ptr, ptr %2, align 8, !tbaa !562
-  %33 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %32, i64 %1
+  %33 = getelementptr inbounds nuw [88 x i8], ptr %32, i64 %1
   %34 = load i32, ptr %33, align 8, !tbaa !535
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 304
   %36 = load ptr, ptr %35, align 8, !tbaa !542
@@ -44267,7 +44207,7 @@ _ZN7xgboost6common16PartitionBuilderILm2048EE14GetRightBufferEimm.exit: ; preds 
   %46 = getelementptr inbounds nuw i8, ptr %6, i64 160
   %47 = sext i32 %34 to i64
   %48 = load ptr, ptr %46, align 8, !tbaa !536
-  %49 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %48, i64 %47
+  %49 = getelementptr inbounds nuw [20 x i8], ptr %48, i64 %47
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 12
   %51 = load i32, ptr %50, align 4, !tbaa !810
   %52 = icmp slt i32 %51, 0
@@ -44295,7 +44235,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
   %.029.i = phi i64 [ 0, %.lr.ph.i ], [ %.1.i, %56 ]
   %.sroa.6.028.i = phi i64 [ 0, %.lr.ph.i ], [ %57, %56 ]
   %.02027.i = phi i64 [ 0, %.lr.ph.i ], [ %.121.i, %56 ]
-  %58 = getelementptr inbounds nuw i64, ptr %10, i64 %.sroa.6.028.i
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.sroa.6.028.i
   %59 = load i64, ptr %58, align 8, !tbaa !44
   %60 = load i64, ptr %53, align 8, !tbaa !1443
   %61 = sub i64 %59, %60
@@ -44321,13 +44261,13 @@ _ZZN7xgboost6common16PartitionBuilderILm2048EE15PartitionByMaskINS_4tree14CPUExp
 
 73:                                               ; preds = %69, %_ZZN7xgboost6common16PartitionBuilderILm2048EE15PartitionByMaskINS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT_SaIS7_EENS0_7Range1dERKNS_16GHistIndexMatrixERKNS_7RegTreeEPKmRKNS_17BitFieldContainerIhNS_11RBitsPolicyIhEELb0EEESQ_ENKUlS7_E_clImEEDaS7_.exit.i
   %74 = add i64 %.029.i, 1
-  %75 = getelementptr inbounds nuw i64, ptr %30, i64 %.029.i
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %.029.i
   store i64 %59, ptr %75, align 8, !tbaa !44
   br label %56
 
 76:                                               ; preds = %69, %_ZZN7xgboost6common16PartitionBuilderILm2048EE15PartitionByMaskINS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT_SaIS7_EENS0_7Range1dERKNS_16GHistIndexMatrixERKNS_7RegTreeEPKmRKNS_17BitFieldContainerIhNS_11RBitsPolicyIhEELb0EEESQ_ENKUlS7_E_clImEEDaS7_.exit.i
   %77 = add i64 %.02027.i, 1
-  %78 = getelementptr inbounds nuw i64, ptr %31, i64 %.02027.i
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %.02027.i
   store i64 %59, ptr %78, align 8, !tbaa !44
   br label %56
 
@@ -44335,7 +44275,7 @@ _ZN7xgboost6common16PartitionBuilderILm2048EE20PartitionRangeKernelIZNS2_15Parti
   %.020.lcssa.i = phi i64 [ 0, %_ZNK7xgboost7RegTree11DefaultLeftEi.exit ], [ %.121.i, %56 ]
   %.0.lcssa.i = phi i64 [ 0, %_ZNK7xgboost7RegTree11DefaultLeftEi.exit ], [ %.1.i, %56 ]
   %79 = load ptr, ptr %12, align 8, !tbaa !168
-  %80 = getelementptr inbounds nuw i64, ptr %79, i64 %13
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %79, i64 %13
   %81 = load i64, ptr %80, align 8, !tbaa !44
   %82 = add i64 %81, %17
   %83 = load ptr, ptr %20, align 8, !tbaa !175
@@ -44352,7 +44292,7 @@ _ZN7xgboost6common16PartitionBuilderILm2048EE20PartitionRangeKernelIZNS2_15Parti
   unreachable
 
 _ZN7xgboost6common16PartitionBuilderILm2048EE13SetNLeftElemsEimm.exit: ; preds = %_ZN7xgboost6common16PartitionBuilderILm2048EE20PartitionRangeKernelIZNS2_15PartitionByMaskINS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT_SaIS8_EENS0_7Range1dERKNS_16GHistIndexMatrixERKNS_7RegTreeEPKmRKNS_17BitFieldContainerIhNS_11RBitsPolicyIhEELb0EEESR_EUlS8_E_EESt4pairImmENS0_4SpanISK_Lm18446744073709551615EEENSV_ImLm18446744073709551615EEESX_S8_.exit
-  %90 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %84, i64 %82
+  %90 = getelementptr inbounds nuw [16 x i8], ptr %84, i64 %82
   %91 = load ptr, ptr %90, align 8, !tbaa !1314
   store i64 %.0.lcssa.i, ptr %91, align 8, !tbaa !1319
   %92 = load i64, ptr %80, align 8, !tbaa !44
@@ -44365,7 +44305,7 @@ _ZN7xgboost6common16PartitionBuilderILm2048EE13SetNLeftElemsEimm.exit: ; preds =
   unreachable
 
 _ZN7xgboost6common16PartitionBuilderILm2048EE14SetNRightElemsEimm.exit: ; preds = %_ZN7xgboost6common16PartitionBuilderILm2048EE13SetNLeftElemsEimm.exit
-  %95 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %84, i64 %93
+  %95 = getelementptr inbounds nuw [16 x i8], ptr %84, i64 %93
   %96 = load ptr, ptr %95, align 8, !tbaa !1314
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
   store i64 %.020.lcssa.i, ptr %97, align 8, !tbaa !1323
@@ -44711,7 +44651,7 @@ define linkonce_odr void @_ZZN7xgboost6common13ParallelFor2dIZNS_4tree20CommonRo
   %24 = load ptr, ptr %23, align 8, !tbaa !1337
   %25 = load ptr, ptr %16, align 8, !tbaa !1504
   %26 = load ptr, ptr %25, align 8, !tbaa !562
-  %27 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %26, i64 %18
+  %27 = getelementptr inbounds nuw [88 x i8], ptr %26, i64 %18
   %28 = load i32, ptr %27, align 8, !tbaa !535
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %sext.i = shl i64 %18, 32
@@ -44722,8 +44662,8 @@ define linkonce_odr void @_ZZN7xgboost6common13ParallelFor2dIZNS_4tree20CommonRo
   %34 = lshr i64 %21, 11
   %35 = getelementptr inbounds nuw i8, ptr %24, i64 56
   %36 = load ptr, ptr %35, align 8, !tbaa !172
-  %37 = getelementptr %"class.std::shared_ptr.85", ptr %36, i64 %33
-  %38 = getelementptr %"class.std::shared_ptr.85", ptr %37, i64 %34
+  %37 = getelementptr [16 x i8], ptr %36, i64 %33
+  %38 = getelementptr [16 x i8], ptr %37, i64 %34
   %39 = load ptr, ptr %38, align 8, !tbaa !1314
   %40 = icmp eq ptr %39, null
   br i1 %40, label %_ZN4dmlc11LogCheck_NEIPN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoES6_EESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISD_EERKT_RKT0_.exit.i.i, label %_ZN7xgboost6common16PartitionBuilderILm2048EE15AllocateForTaskEm.exit.i
@@ -44745,7 +44685,7 @@ _ZN7xgboost6common16PartitionBuilderILm2048EE15AllocateForTaskEm.exit.i: ; preds
   %47 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %48 = load ptr, ptr %47, align 8, !tbaa !1506
   %49 = load ptr, ptr %48, align 8, !tbaa !194
-  %50 = getelementptr inbounds nuw i32, ptr %49, i64 %18
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %18
   %51 = load i32, ptr %50, align 4, !tbaa !99
   br label %_ZZN7xgboost4tree20CommonRowPartitioner14UpdatePositionItLb1ELb1ENS0_14CPUExpandEntryEEEvPKNS_7ContextERKNS_16GHistIndexMatrixERKNS_6common12ColumnMatrixERKSt6vectorIT2_SaISF_EEPKNS_7RegTreeEENKUlmNSA_7Range1dEE_clEmSN_.exit
 
@@ -44761,7 +44701,7 @@ _ZZN7xgboost4tree20CommonRowPartitioner14UpdatePositionItLb1ELb1ENS0_14CPUExpand
   %60 = getelementptr inbounds nuw i8, ptr %24, i64 112
   %61 = sext i32 %28 to i64
   %62 = load ptr, ptr %60, align 8, !tbaa !164
-  %63 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %62, i64 %61
+  %63 = getelementptr inbounds nuw [24 x i8], ptr %62, i64 %61
   %64 = load ptr, ptr %63, align 8, !tbaa !917
   tail call void @_ZN7xgboost6common16PartitionBuilderILm2048EE9PartitionItLb1ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKm(ptr noundef nonnull align 8 dereferenceable(80) %53, i64 noundef %18, ptr noundef nonnull align 8 dereferenceable(24) %54, i64 %21, i64 %22, i32 noundef %52, ptr noundef nonnull align 8 dereferenceable(233) %56, ptr noundef nonnull align 8 dereferenceable(218) %43, ptr noundef nonnull align 8 dereferenceable(312) %59, ptr noundef %64)
   %65 = add nuw i64 %.011, 1
@@ -44789,7 +44729,7 @@ _ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_S4_.exit:
   %sext = shl i64 %1, 32
   %22 = ashr exact i64 %sext, 32
   %23 = load ptr, ptr %21, align 8, !tbaa !168
-  %24 = getelementptr inbounds nuw i64, ptr %23, i64 %22
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %22
   %25 = load i64, ptr %24, align 8, !tbaa !44
   %26 = lshr i64 %3, 11
   %27 = add i64 %25, %26
@@ -44809,12 +44749,12 @@ _ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_S4_.exit:
   unreachable
 
 _ZN7xgboost6common16PartitionBuilderILm2048EE14GetRightBufferEimm.exit: ; preds = %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_S4_.exit
-  %37 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %31, i64 %27
+  %37 = getelementptr inbounds nuw [16 x i8], ptr %31, i64 %27
   %38 = load ptr, ptr %37, align 8, !tbaa !1314
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 32
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 16416
   %41 = load ptr, ptr %2, align 8, !tbaa !562
-  %42 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %41, i64 %1
+  %42 = getelementptr inbounds nuw [88 x i8], ptr %41, i64 %1
   %43 = load i32, ptr %42, align 8, !tbaa !535
   %44 = sext i32 %43 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -44826,7 +44766,7 @@ _ZN7xgboost6common16PartitionBuilderILm2048EE14GetRightBufferEimm.exit: ; preds 
 _ZNK7xgboost7RegTree10SplitIndexEi.exit.thread:   ; preds = %_ZN7xgboost6common16PartitionBuilderILm2048EE14GetRightBufferEimm.exit
   %47 = getelementptr inbounds nuw i8, ptr %8, i64 160
   %48 = load ptr, ptr %47, align 8, !tbaa !536
-  %49 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %48, i64 %44
+  %49 = getelementptr inbounds nuw [20 x i8], ptr %48, i64 %44
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 12
   %51 = load i32, ptr %50, align 4, !tbaa !810
   %52 = and i32 %51, 2147483647
@@ -44838,7 +44778,7 @@ _ZNK7xgboost7RegTree10SplitIndexEi.exit:          ; preds = %_ZN7xgboost6common1
   %53 = getelementptr inbounds nuw i8, ptr %46, i64 40
   %54 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7xgboost16HostDeviceVectorIjE15ConstHostVectorEv(ptr noundef nonnull align 8 dereferenceable(8) %53)
   %55 = load ptr, ptr %54, align 8, !tbaa !449
-  %56 = getelementptr inbounds nuw i32, ptr %55, i64 %44
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %44
   %57 = load i32, ptr %56, align 4, !tbaa !99
   %.pre = load ptr, ptr %45, align 8, !tbaa !542
   store i32 %57, ptr %11, align 4, !tbaa !99
@@ -44859,7 +44799,7 @@ _ZNK7xgboost7RegTree10SplitIndexEi.exit:          ; preds = %_ZN7xgboost6common1
   %66 = phi i32 [ %52, %_ZNK7xgboost7RegTree10SplitIndexEi.exit.thread ], [ %57, %_ZNK7xgboost7RegTree10SplitIndexEi.exit ]
   %67 = getelementptr inbounds nuw i8, ptr %8, i64 160
   %68 = load ptr, ptr %67, align 8, !tbaa !536
-  %69 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %68, i64 %44
+  %69 = getelementptr inbounds nuw [20 x i8], ptr %68, i64 %44
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 12
   %71 = load i32, ptr %70, align 4, !tbaa !810
   %72 = icmp slt i32 %71, 0
@@ -44903,7 +44843,7 @@ _ZNK7xgboost7RegTree11DefaultLeftEi.exit:         ; preds = %58, %65
   unreachable
 
 _ZNK7xgboost6common4SpanIKNS_7RegTree22CategoricalSplitMatrix7SegmentELm18446744073709551615EEixEm.exit.i: ; preds = %_ZNK7xgboost7RegTree11DefaultLeftEi.exit
-  %99 = getelementptr inbounds nuw %"struct.xgboost::RegTree::CategoricalSplitMatrix::Segment", ptr %91, i64 %44
+  %99 = getelementptr inbounds nuw [16 x i8], ptr %91, i64 %44
   %.sroa.0.0.copyload.i = load i64, ptr %99, align 8, !tbaa !44
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %99, i64 8
   %.sroa.4.0.copyload.i = load i64, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !44
@@ -44939,7 +44879,7 @@ _ZNK7xgboost6common4SpanIKNS_7RegTree22CategoricalSplitMatrix7SegmentELm18446744
   unreachable
 
 _ZNK7xgboost7RegTree8NodeCatsEi.exit:             ; preds = %107
-  %113 = getelementptr inbounds nuw i32, ptr %84, i64 %.sroa.0.0.copyload.i
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %84, i64 %.sroa.0.0.copyload.i
   store i64 %108, ptr %14, align 8
   %114 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %113, ptr %114, align 8
@@ -44979,7 +44919,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
   %.029.i = phi i64 [ %.1.i, %126 ], [ 0, %125 ]
   %.sroa.6.028.i = phi i64 [ %127, %126 ], [ 0, %125 ]
   %.01927.i = phi i64 [ %.120.i, %126 ], [ 0, %125 ]
-  %128 = getelementptr inbounds nuw i64, ptr %19, i64 %.sroa.6.028.i
+  %128 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.sroa.6.028.i
   %129 = load i64, ptr %128, align 8, !tbaa !44
   %130 = load i32, ptr %11, align 4, !tbaa !99
   %131 = zext i32 %130 to i64
@@ -44997,7 +44937,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
   %.sroa.2.0.copyload.i.i = load ptr, ptr %114, align 8, !tbaa !459
   %139 = zext nneg i32 %132 to i64
   %140 = load ptr, ptr %116, align 8, !tbaa !643
-  %141 = getelementptr inbounds nuw float, ptr %140, i64 %139
+  %141 = getelementptr inbounds nuw [4 x i8], ptr %140, i64 %139
   %142 = load float, ptr %141, align 4, !tbaa !134
   %143 = fcmp olt float %142, 0.000000e+00
   %144 = fcmp oge float %142, 0x4170000000000000
@@ -45017,7 +44957,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
   %152 = lshr i64 %151, 5
   %153 = and i32 %150, 31
   %154 = xor i32 %153, 31
-  %155 = getelementptr inbounds nuw i32, ptr %.sroa.2.0.copyload.i.i, i64 %152
+  %155 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.2.0.copyload.i.i, i64 %152
   %156 = load i32, ptr %155, align 4, !tbaa !99
   %157 = xor i32 %156, -1
   %158 = lshr i32 %157, %154
@@ -45027,10 +44967,10 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
 160:                                              ; preds = %135
   %161 = zext nneg i32 %132 to i64
   %162 = load ptr, ptr %116, align 8, !tbaa !643
-  %163 = getelementptr inbounds nuw float, ptr %162, i64 %161
+  %163 = getelementptr inbounds nuw [4 x i8], ptr %162, i64 %161
   %164 = load float, ptr %163, align 4, !tbaa !134
   %165 = load ptr, ptr %2, align 8, !tbaa !562
-  %166 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %165, i64 %1
+  %166 = getelementptr inbounds nuw [88 x i8], ptr %165, i64 %1
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 16
   %168 = load float, ptr %167, align 8, !tbaa !809
   %169 = fcmp ole float %164, %168
@@ -45044,13 +44984,13 @@ _ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionItLb1ELb1ENS_4tree14CPUE
 
 _ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionItLb1ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_E_clImEEDaSO_.exit.thread.i: ; preds = %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionItLb1ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_E_clImEEDaSO_.exit.i, %146, %138
   %172 = add i64 %.029.i, 1
-  %173 = getelementptr inbounds nuw i64, ptr %39, i64 %.029.i
+  %173 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %.029.i
   store i64 %129, ptr %173, align 8, !tbaa !44
   br label %126
 
 174:                                              ; preds = %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionItLb1ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_E_clImEEDaSO_.exit.i
   %175 = add i64 %.01927.i, 1
-  %176 = getelementptr inbounds nuw i64, ptr %40, i64 %.01927.i
+  %176 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %.01927.i
   store i64 %129, ptr %176, align 8, !tbaa !44
   br label %126
 
@@ -45066,11 +45006,11 @@ _ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionItLb1ELb1ENS_4tree14CPUE
 184:                                              ; preds = %177
   %185 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %186 = load ptr, ptr %185, align 8, !tbaa !1452, !noalias !1513
-  %187 = getelementptr inbounds nuw i64, ptr %186, i64 %179
+  %187 = getelementptr inbounds nuw [8 x i8], ptr %186, i64 %179
   %188 = load i64, ptr %187, align 8, !tbaa !44, !noalias !1513
   %189 = add i32 %73, 1
   %190 = zext i32 %189 to i64
-  %191 = getelementptr inbounds nuw i64, ptr %186, i64 %190
+  %191 = getelementptr inbounds nuw [8 x i8], ptr %186, i64 %190
   %192 = load i64, ptr %191, align 8, !tbaa !44, !noalias !1513
   %193 = load ptr, ptr %7, align 8, !tbaa !1456, !noalias !1513
   %194 = icmp ne ptr %193, null
@@ -45090,7 +45030,7 @@ _ZNK7xgboost6common12ColumnMatrix11DenseColumnItLb1EEEDaj.exit: ; preds = %184
   %202 = getelementptr inbounds nuw i8, ptr %193, i64 %201
   %203 = getelementptr inbounds nuw i8, ptr %7, i64 160
   %204 = load ptr, ptr %203, align 8, !tbaa !1457, !noalias !1513
-  %205 = getelementptr inbounds nuw i32, ptr %204, i64 %179
+  %205 = getelementptr inbounds nuw [4 x i8], ptr %204, i64 %179
   %206 = load i32, ptr %205, align 4, !tbaa !99, !noalias !1513
   %207 = getelementptr inbounds nuw i8, ptr %7, i64 168
   %.sroa.0.0.copyload.i89 = load ptr, ptr %207, align 8, !tbaa !459, !noalias !1513
@@ -45106,14 +45046,14 @@ _ZNK7xgboost6common12ColumnMatrix11DenseColumnItLb1EEEDaj.exit: ; preds = %184
   %.032.i = phi i64 [ %268, %267 ], [ 0, %210 ]
   %.02631.i = phi i64 [ %.1.i92, %267 ], [ 0, %210 ]
   %.02730.i = phi i64 [ %.128.i, %267 ], [ 0, %210 ]
-  %211 = getelementptr inbounds nuw i64, ptr %19, i64 %.032.i
+  %211 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.032.i
   %212 = load i64, ptr %211, align 8, !tbaa !44
   %213 = sub i64 %212, %209
   %214 = add i64 %213, %188
   %215 = lshr i64 %214, 5
   %216 = and i64 %214, 31
   %217 = xor i64 %216, 31
-  %218 = getelementptr inbounds nuw i32, ptr %.sroa.0.0.copyload.i89, i64 %215
+  %218 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0.0.copyload.i89, i64 %215
   %219 = load i32, ptr %218, align 4, !tbaa !99
   %220 = shl nuw nsw i64 1, %217
   %221 = trunc nuw i64 %220 to i32
@@ -45122,7 +45062,7 @@ _ZNK7xgboost6common12ColumnMatrix11DenseColumnItLb1EEEDaj.exit: ; preds = %184
   br i1 %.not.i.i91, label %_ZNK7xgboost6common15DenseColumnIterItLb1EEixEm.exit.i, label %_ZNK7xgboost6common15DenseColumnIterItLb1EEixEm.exit.thread.i
 
 _ZNK7xgboost6common15DenseColumnIterItLb1EEixEm.exit.i: ; preds = %.lr.ph.i90
-  %223 = getelementptr inbounds nuw i16, ptr %202, i64 %213
+  %223 = getelementptr inbounds nuw [2 x i8], ptr %202, i64 %213
   %224 = load i16, ptr %223, align 2, !tbaa !1458
   %225 = zext i16 %224 to i32
   %226 = add nsw i32 %206, %225
@@ -45131,7 +45071,7 @@ _ZNK7xgboost6common15DenseColumnIterItLb1EEixEm.exit.i: ; preds = %.lr.ph.i90
 
 _ZNK7xgboost6common15DenseColumnIterItLb1EEixEm.exit.thread.i: ; preds = %_ZNK7xgboost6common15DenseColumnIterItLb1EEixEm.exit.i, %.lr.ph.i90
   %228 = add i64 %.02730.i, 1
-  %229 = getelementptr inbounds nuw i64, ptr %39, i64 %.02730.i
+  %229 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %.02730.i
   store i64 %212, ptr %229, align 8, !tbaa !44
   br label %267
 
@@ -45152,7 +45092,7 @@ _ZNK7xgboost6common15DenseColumnIterItLb1EEixEm.exit.thread.i: ; preds = %_ZNK7x
   %.sroa.2.0.copyload.i.i98 = load ptr, ptr %114, align 8, !tbaa !459
   %239 = zext nneg i32 %235 to i64
   %240 = load ptr, ptr %116, align 8, !tbaa !643
-  %241 = getelementptr inbounds nuw float, ptr %240, i64 %239
+  %241 = getelementptr inbounds nuw [4 x i8], ptr %240, i64 %239
   %242 = load float, ptr %241, align 4, !tbaa !134
   %243 = fcmp olt float %242, 0.000000e+00
   %244 = fcmp oge float %242, 0x4170000000000000
@@ -45172,7 +45112,7 @@ _ZNK7xgboost6common15DenseColumnIterItLb1EEixEm.exit.thread.i: ; preds = %_ZNK7x
   %252 = lshr i64 %251, 5
   %253 = and i32 %250, 31
   %254 = xor i32 %253, 31
-  %255 = getelementptr inbounds nuw i32, ptr %.sroa.2.0.copyload.i.i98, i64 %252
+  %255 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.2.0.copyload.i.i98, i64 %252
   %256 = load i32, ptr %255, align 4, !tbaa !99
   %257 = xor i32 %256, -1
   %258 = lshr i32 %257, %254
@@ -45191,13 +45131,13 @@ _ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionItLb1ELb1ENS_4tree14CPUE
 
 _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.thread.i: ; preds = %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionItLb1ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_T0_E_clImiEEDaSO_SP_.exit.i, %_ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.i, %246, %238
   %262 = add i64 %.02730.i, 1
-  %263 = getelementptr inbounds nuw i64, ptr %39, i64 %.02730.i
+  %263 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %.02730.i
   store i64 %212, ptr %263, align 8, !tbaa !44
   br label %267
 
 264:                                              ; preds = %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionItLb1ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_T0_E_clImiEEDaSO_SP_.exit.i, %_ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.i
   %265 = add i64 %.02631.i, 1
-  %266 = getelementptr inbounds nuw i64, ptr %40, i64 %.02631.i
+  %266 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %.02631.i
   store i64 %212, ptr %266, align 8, !tbaa !44
   br label %267
 
@@ -45215,14 +45155,14 @@ _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.thread
   %.032.i103 = phi i64 [ %327, %326 ], [ 0, %269 ]
   %.02631.i104 = phi i64 [ %.1.i109, %326 ], [ 0, %269 ]
   %.02730.i105 = phi i64 [ %.128.i108, %326 ], [ 0, %269 ]
-  %270 = getelementptr inbounds nuw i64, ptr %19, i64 %.032.i103
+  %270 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.032.i103
   %271 = load i64, ptr %270, align 8, !tbaa !44
   %272 = sub i64 %271, %209
   %273 = add i64 %272, %188
   %274 = lshr i64 %273, 5
   %275 = and i64 %273, 31
   %276 = xor i64 %275, 31
-  %277 = getelementptr inbounds nuw i32, ptr %.sroa.0.0.copyload.i89, i64 %274
+  %277 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0.0.copyload.i89, i64 %274
   %278 = load i32, ptr %277, align 4, !tbaa !99
   %279 = shl nuw nsw i64 1, %276
   %280 = trunc nuw i64 %279 to i32
@@ -45231,7 +45171,7 @@ _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.thread
   br i1 %.not.i.i106, label %_ZNK7xgboost6common15DenseColumnIterItLb1EEixEm.exit.i115, label %_ZNK7xgboost6common15DenseColumnIterItLb1EEixEm.exit.thread.i107
 
 _ZNK7xgboost6common15DenseColumnIterItLb1EEixEm.exit.i115: ; preds = %.lr.ph.i102
-  %282 = getelementptr inbounds nuw i16, ptr %202, i64 %272
+  %282 = getelementptr inbounds nuw [2 x i8], ptr %202, i64 %272
   %283 = load i16, ptr %282, align 2, !tbaa !1458
   %284 = zext i16 %283 to i32
   %285 = add nsw i32 %206, %284
@@ -45240,7 +45180,7 @@ _ZNK7xgboost6common15DenseColumnIterItLb1EEixEm.exit.i115: ; preds = %.lr.ph.i10
 
 _ZNK7xgboost6common15DenseColumnIterItLb1EEixEm.exit.thread.i107: ; preds = %_ZNK7xgboost6common15DenseColumnIterItLb1EEixEm.exit.i115, %.lr.ph.i102
   %287 = add i64 %.02631.i104, 1
-  %288 = getelementptr inbounds nuw i64, ptr %40, i64 %.02631.i104
+  %288 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %.02631.i104
   store i64 %271, ptr %288, align 8, !tbaa !44
   br label %326
 
@@ -45261,7 +45201,7 @@ _ZNK7xgboost6common15DenseColumnIterItLb1EEixEm.exit.thread.i107: ; preds = %_ZN
   %.sroa.2.0.copyload.i.i122 = load ptr, ptr %114, align 8, !tbaa !459
   %298 = zext nneg i32 %294 to i64
   %299 = load ptr, ptr %116, align 8, !tbaa !643
-  %300 = getelementptr inbounds nuw float, ptr %299, i64 %298
+  %300 = getelementptr inbounds nuw [4 x i8], ptr %299, i64 %298
   %301 = load float, ptr %300, align 4, !tbaa !134
   %302 = fcmp olt float %301, 0.000000e+00
   %303 = fcmp oge float %301, 0x4170000000000000
@@ -45281,7 +45221,7 @@ _ZNK7xgboost6common15DenseColumnIterItLb1EEixEm.exit.thread.i107: ; preds = %_ZN
   %311 = lshr i64 %310, 5
   %312 = and i32 %309, 31
   %313 = xor i32 %312, 31
-  %314 = getelementptr inbounds nuw i32, ptr %.sroa.2.0.copyload.i.i122, i64 %311
+  %314 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.2.0.copyload.i.i122, i64 %311
   %315 = load i32, ptr %314, align 4, !tbaa !99
   %316 = xor i32 %315, -1
   %317 = lshr i32 %316, %313
@@ -45300,13 +45240,13 @@ _ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionItLb1ELb1ENS_4tree14CPUE
 
 _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.thread.i118: ; preds = %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionItLb1ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_T0_E_clImiEEDaSO_SP_.exit.i116, %_ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.i119, %305, %297
   %321 = add i64 %.02730.i105, 1
-  %322 = getelementptr inbounds nuw i64, ptr %39, i64 %.02730.i105
+  %322 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %.02730.i105
   store i64 %271, ptr %322, align 8, !tbaa !44
   br label %326
 
 323:                                              ; preds = %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionItLb1ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_T0_E_clImiEEDaSO_SP_.exit.i116, %_ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.i119
   %324 = add i64 %.02631.i104, 1
-  %325 = getelementptr inbounds nuw i64, ptr %40, i64 %.02631.i104
+  %325 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %.02631.i104
   store i64 %271, ptr %325, align 8, !tbaa !44
   br label %326
 
@@ -45334,11 +45274,11 @@ _ZNK7xgboost6common4SpanIKmLm18446744073709551615EE5frontEv.exit: ; preds = %_ZN
   call void @llvm.experimental.noalias.scope.decl(metadata !1518)
   %333 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %334 = load ptr, ptr %333, align 8, !tbaa !1452, !noalias !1518
-  %335 = getelementptr inbounds nuw i64, ptr %334, i64 %179
+  %335 = getelementptr inbounds nuw [8 x i8], ptr %334, i64 %179
   %336 = load i64, ptr %335, align 8, !tbaa !44, !noalias !1518
   %337 = add i32 %73, 1
   %338 = zext i32 %337 to i64
-  %339 = getelementptr inbounds nuw i64, ptr %334, i64 %338
+  %339 = getelementptr inbounds nuw [8 x i8], ptr %334, i64 %338
   %340 = load i64, ptr %339, align 8, !tbaa !44, !noalias !1518
   %341 = sub i64 %340, %336
   %342 = getelementptr inbounds nuw i8, ptr %7, i64 216
@@ -45359,7 +45299,7 @@ _ZNK7xgboost6common4SpanIKmLm18446744073709551615EE5frontEv.exit: ; preds = %_ZN
 _ZN7xgboost6common4SpanIKtLm18446744073709551615EEC2EPS2_m.exit.i: ; preds = %_ZNK7xgboost6common4SpanIKmLm18446744073709551615EE5frontEv.exit
   %352 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %353 = load ptr, ptr %352, align 8, !tbaa !1452, !noalias !1518
-  %354 = getelementptr inbounds nuw i64, ptr %353, i64 %336
+  %354 = getelementptr inbounds nuw [8 x i8], ptr %353, i64 %336
   %355 = icmp ne ptr %353, null
   %356 = or i1 %349, %355
   br i1 %356, label %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i, label %357, !prof !127
@@ -45371,7 +45311,7 @@ _ZN7xgboost6common4SpanIKtLm18446744073709551615EEC2EPS2_m.exit.i: ; preds = %_Z
 _ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i: ; preds = %_ZN7xgboost6common4SpanIKtLm18446744073709551615EEC2EPS2_m.exit.i
   %358 = getelementptr inbounds nuw i8, ptr %7, i64 160
   %359 = load ptr, ptr %358, align 8, !tbaa !1457, !noalias !1518
-  %360 = getelementptr inbounds nuw i32, ptr %359, i64 %179
+  %360 = getelementptr inbounds nuw [4 x i8], ptr %359, i64 %179
   %361 = load i32, ptr %360, align 4, !tbaa !99, !noalias !1518
   %362 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i64 %341, ptr %362, align 8, !tbaa !44, !alias.scope !1518
@@ -45391,7 +45331,7 @@ _ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i:           ; preds = %_ZN7xgboost6common4
   %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i ], [ %354, %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i ]
   %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i ], [ %341, %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i ]
   %366 = lshr i64 %.01116.i.i.i.i, 1
-  %367 = getelementptr inbounds nuw i64, ptr %.017.i.i.i.i, i64 %366
+  %367 = getelementptr inbounds nuw [8 x i8], ptr %.017.i.i.i.i, i64 %366
   %368 = load i64, ptr %367, align 8, !tbaa !44, !noalias !1518
   %369 = icmp ult i64 %368, %332
   %370 = getelementptr inbounds nuw i8, ptr %367, i64 8
@@ -45437,7 +45377,7 @@ _ZN7xgboost6common16PartitionBuilderILm2048EE20PartitionRangeKernelIZNS2_9Partit
   %.sroa.10.0 = phi i64 [ %.1.i92, %267 ], [ %.sroa.10.2, %383 ], [ %.120.i, %126 ], [ 0, %125 ], [ 0, %210 ], [ 0, %269 ], [ %.1.i109, %326 ]
   %.sroa.0167.0 = phi i64 [ %.128.i, %267 ], [ %.sroa.0167.2, %383 ], [ %.1.i, %126 ], [ 0, %125 ], [ 0, %210 ], [ 0, %269 ], [ %.128.i108, %326 ]
   %384 = load ptr, ptr %21, align 8, !tbaa !168
-  %385 = getelementptr inbounds nuw i64, ptr %384, i64 %22
+  %385 = getelementptr inbounds nuw [8 x i8], ptr %384, i64 %22
   %386 = load i64, ptr %385, align 8, !tbaa !44
   %387 = add i64 %386, %26
   %388 = load ptr, ptr %29, align 8, !tbaa !175
@@ -45454,7 +45394,7 @@ _ZN7xgboost6common16PartitionBuilderILm2048EE20PartitionRangeKernelIZNS2_9Partit
   unreachable
 
 _ZN7xgboost6common16PartitionBuilderILm2048EE13SetNLeftElemsEimm.exit: ; preds = %_ZN7xgboost6common16PartitionBuilderILm2048EE20PartitionRangeKernelIZNS2_9PartitionItLb1ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS8_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmEUlT_E_EESt4pairImmENS0_4SpanISN_Lm18446744073709551615EEENST_ImLm18446744073709551615EEESV_SP_.exit
-  %395 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %389, i64 %387
+  %395 = getelementptr inbounds nuw [16 x i8], ptr %389, i64 %387
   %396 = load ptr, ptr %395, align 8, !tbaa !1314
   store i64 %.sroa.0167.0, ptr %396, align 8, !tbaa !1319
   %397 = load i64, ptr %385, align 8, !tbaa !44
@@ -45467,7 +45407,7 @@ _ZN7xgboost6common16PartitionBuilderILm2048EE13SetNLeftElemsEimm.exit: ; preds =
   unreachable
 
 _ZN7xgboost6common16PartitionBuilderILm2048EE14SetNRightElemsEimm.exit: ; preds = %_ZN7xgboost6common16PartitionBuilderILm2048EE13SetNLeftElemsEimm.exit
-  %400 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %389, i64 %398
+  %400 = getelementptr inbounds nuw [16 x i8], ptr %389, i64 %398
   %401 = load ptr, ptr %400, align 8, !tbaa !1314
   %402 = getelementptr inbounds nuw i8, ptr %401, i64 8
   store i64 %.sroa.10.0, ptr %402, align 8, !tbaa !1323
@@ -45511,7 +45451,7 @@ define linkonce_odr { i64, i64 } @_ZN7xgboost6common16PartitionBuilderILm2048EE1
   %.037 = phi i64 [ 0, %.lr.ph ], [ %95, %94 ]
   %.02736 = phi i64 [ 0, %.lr.ph ], [ %.1, %94 ]
   %.02835 = phi i64 [ 0, %.lr.ph ], [ %.129, %94 ]
-  %24 = getelementptr inbounds nuw i64, ptr %3, i64 %.037
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.037
   %25 = load i64, ptr %24, align 8, !tbaa !44
   %26 = sub i64 %25, %7
   %27 = load i64, ptr %12, align 8, !tbaa !1531
@@ -45525,7 +45465,7 @@ define linkonce_odr { i64, i64 } @_ZN7xgboost6common16PartitionBuilderILm2048EE1
 
 31:                                               ; preds = %36, %.lr.ph.i
   %32 = phi i64 [ %28, %.lr.ph.i ], [ %37, %36 ]
-  %33 = getelementptr inbounds nuw i64, ptr %30, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %32
   %34 = load i64, ptr %33, align 8, !tbaa !44
   %35 = icmp ult i64 %34, %26
   br i1 %35, label %36, label %38
@@ -45543,7 +45483,7 @@ define linkonce_odr { i64, i64 } @_ZN7xgboost6common16PartitionBuilderILm2048EE1
 _ZN7xgboost6common16SparseColumnIterItEixEm.exit: ; preds = %38
   %40 = load i32, ptr %15, align 8, !tbaa !1523
   %41 = load ptr, ptr %16, align 8, !tbaa !1533
-  %42 = getelementptr inbounds nuw i16, ptr %41, i64 %32
+  %42 = getelementptr inbounds nuw [2 x i8], ptr %41, i64 %32
   %43 = load i16, ptr %42, align 2, !tbaa !1458
   %44 = zext i16 %43 to i32
   %45 = add nsw i32 %40, %44
@@ -45552,7 +45492,7 @@ _ZN7xgboost6common16SparseColumnIterItEixEm.exit: ; preds = %38
 
 _ZN7xgboost6common16SparseColumnIterItEixEm.exit.thread: ; preds = %36, %38, %23, %_ZN7xgboost6common16SparseColumnIterItEixEm.exit
   %47 = add i64 %.02835, 1
-  %48 = getelementptr inbounds nuw i64, ptr %5, i64 %.02835
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.02835
   store i64 %25, ptr %48, align 8, !tbaa !44
   br label %94
 
@@ -45580,7 +45520,7 @@ _ZN7xgboost6common16SparseColumnIterItEixEm.exit.thread: ; preds = %36, %38, %23
   %64 = load ptr, ptr %22, align 8, !tbaa !1540
   %65 = zext nneg i32 %58 to i64
   %66 = load ptr, ptr %64, align 8, !tbaa !643
-  %67 = getelementptr inbounds nuw float, ptr %66, i64 %65
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %65
   %68 = load float, ptr %67, align 4, !tbaa !134
   %69 = fcmp olt float %68, 0.000000e+00
   %70 = fcmp oge float %68, 0x4170000000000000
@@ -45600,7 +45540,7 @@ _ZN7xgboost6common16SparseColumnIterItEixEm.exit.thread: ; preds = %36, %38, %23
   %78 = lshr i64 %77, 5
   %79 = and i32 %76, 31
   %80 = xor i32 %79, 31
-  %81 = getelementptr inbounds nuw i32, ptr %.sroa.2.0.copyload.i, i64 %78
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.2.0.copyload.i, i64 %78
   %82 = load i32, ptr %81, align 4, !tbaa !99
   %83 = xor i32 %82, -1
   %84 = lshr i32 %83, %80
@@ -45620,13 +45560,13 @@ _ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionItLb1ELb1ENS_4tree14CPUE
 
 _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.thread: ; preds = %72, %62, %_ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i, %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionItLb1ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_T0_E_clImiEEDaSO_SP_.exit
   %89 = add i64 %.02835, 1
-  %90 = getelementptr inbounds nuw i64, ptr %5, i64 %.02835
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.02835
   store i64 %25, ptr %90, align 8, !tbaa !44
   br label %94
 
 91:                                               ; preds = %_ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i, %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionItLb1ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_T0_E_clImiEEDaSO_SP_.exit
   %92 = add i64 %.02736, 1
-  %93 = getelementptr inbounds nuw i64, ptr %11, i64 %.02736
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.02736
   store i64 %25, ptr %93, align 8, !tbaa !44
   br label %94
 
@@ -45670,7 +45610,7 @@ define linkonce_odr { i64, i64 } @_ZN7xgboost6common16PartitionBuilderILm2048EE1
   %.037 = phi i64 [ 0, %.lr.ph ], [ %95, %94 ]
   %.02736 = phi i64 [ 0, %.lr.ph ], [ %.1, %94 ]
   %.02835 = phi i64 [ 0, %.lr.ph ], [ %.129, %94 ]
-  %24 = getelementptr inbounds nuw i64, ptr %3, i64 %.037
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.037
   %25 = load i64, ptr %24, align 8, !tbaa !44
   %26 = sub i64 %25, %7
   %27 = load i64, ptr %12, align 8, !tbaa !1531
@@ -45684,7 +45624,7 @@ define linkonce_odr { i64, i64 } @_ZN7xgboost6common16PartitionBuilderILm2048EE1
 
 31:                                               ; preds = %36, %.lr.ph.i
   %32 = phi i64 [ %28, %.lr.ph.i ], [ %37, %36 ]
-  %33 = getelementptr inbounds nuw i64, ptr %30, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %32
   %34 = load i64, ptr %33, align 8, !tbaa !44
   %35 = icmp ult i64 %34, %26
   br i1 %35, label %36, label %38
@@ -45702,7 +45642,7 @@ define linkonce_odr { i64, i64 } @_ZN7xgboost6common16PartitionBuilderILm2048EE1
 _ZN7xgboost6common16SparseColumnIterItEixEm.exit: ; preds = %38
   %40 = load i32, ptr %15, align 8, !tbaa !1523
   %41 = load ptr, ptr %16, align 8, !tbaa !1533
-  %42 = getelementptr inbounds nuw i16, ptr %41, i64 %32
+  %42 = getelementptr inbounds nuw [2 x i8], ptr %41, i64 %32
   %43 = load i16, ptr %42, align 2, !tbaa !1458
   %44 = zext i16 %43 to i32
   %45 = add nsw i32 %40, %44
@@ -45711,7 +45651,7 @@ _ZN7xgboost6common16SparseColumnIterItEixEm.exit: ; preds = %38
 
 _ZN7xgboost6common16SparseColumnIterItEixEm.exit.thread: ; preds = %36, %38, %23, %_ZN7xgboost6common16SparseColumnIterItEixEm.exit
   %47 = add i64 %.02736, 1
-  %48 = getelementptr inbounds nuw i64, ptr %11, i64 %.02736
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.02736
   store i64 %25, ptr %48, align 8, !tbaa !44
   br label %94
 
@@ -45739,7 +45679,7 @@ _ZN7xgboost6common16SparseColumnIterItEixEm.exit.thread: ; preds = %36, %38, %23
   %64 = load ptr, ptr %22, align 8, !tbaa !1540
   %65 = zext nneg i32 %58 to i64
   %66 = load ptr, ptr %64, align 8, !tbaa !643
-  %67 = getelementptr inbounds nuw float, ptr %66, i64 %65
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %65
   %68 = load float, ptr %67, align 4, !tbaa !134
   %69 = fcmp olt float %68, 0.000000e+00
   %70 = fcmp oge float %68, 0x4170000000000000
@@ -45759,7 +45699,7 @@ _ZN7xgboost6common16SparseColumnIterItEixEm.exit.thread: ; preds = %36, %38, %23
   %78 = lshr i64 %77, 5
   %79 = and i32 %76, 31
   %80 = xor i32 %79, 31
-  %81 = getelementptr inbounds nuw i32, ptr %.sroa.2.0.copyload.i, i64 %78
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.2.0.copyload.i, i64 %78
   %82 = load i32, ptr %81, align 4, !tbaa !99
   %83 = xor i32 %82, -1
   %84 = lshr i32 %83, %80
@@ -45779,13 +45719,13 @@ _ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionItLb1ELb1ENS_4tree14CPUE
 
 _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.thread: ; preds = %72, %62, %_ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i, %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionItLb1ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_T0_E_clImiEEDaSO_SP_.exit
   %89 = add i64 %.02835, 1
-  %90 = getelementptr inbounds nuw i64, ptr %5, i64 %.02835
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.02835
   store i64 %25, ptr %90, align 8, !tbaa !44
   br label %94
 
 91:                                               ; preds = %_ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i, %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionItLb1ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_T0_E_clImiEEDaSO_SP_.exit
   %92 = add i64 %.02736, 1
-  %93 = getelementptr inbounds nuw i64, ptr %11, i64 %.02736
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.02736
   store i64 %25, ptr %93, align 8, !tbaa !44
   br label %94
 
@@ -45840,12 +45780,12 @@ define linkonce_odr void @_ZN4dmlc12OMPException3RunIZN7xgboost6common13Parallel
   %27 = load ptr, ptr %22, align 8, !tbaa !1339
   %28 = load ptr, ptr %20, align 8, !tbaa !1549
   %29 = load ptr, ptr %28, align 8, !tbaa !562
-  %30 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %29, i64 %24
+  %30 = getelementptr inbounds nuw [88 x i8], ptr %29, i64 %24
   %31 = load i32, ptr %30, align 8, !tbaa !535
   %32 = getelementptr inbounds nuw i8, ptr %27, i64 112
   %33 = sext i32 %31 to i64
   %34 = load ptr, ptr %32, align 8, !tbaa !164
-  %35 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %34, i64 %33
+  %35 = getelementptr inbounds nuw [24 x i8], ptr %34, i64 %33
   %36 = load ptr, ptr %35, align 8, !tbaa !917
   %37 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %sext.i.i = shl i64 %24, 32
@@ -45857,11 +45797,11 @@ define linkonce_odr void @_ZN4dmlc12OMPException3RunIZN7xgboost6common13Parallel
   %43 = add i64 %41, %42
   %44 = getelementptr inbounds nuw i8, ptr %27, i64 56
   %45 = load ptr, ptr %44, align 8, !tbaa !172
-  %46 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %45, i64 %43
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %45, i64 %43
   %47 = load ptr, ptr %46, align 8, !tbaa !1314
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %49 = load i64, ptr %48, align 8, !tbaa !1322
-  %50 = getelementptr inbounds nuw i64, ptr %36, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %47, i64 16416
   %52 = load i64, ptr %47, align 8, !tbaa !1319
   %53 = icmp eq i64 %52, 0
@@ -45871,11 +45811,11 @@ _ZSt8__copy_nIPKmmPmET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i.i.i: ; p
   %54 = getelementptr inbounds nuw i8, ptr %47, i64 32
   %55 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %56 = load i64, ptr %55, align 8, !tbaa !1317
-  %57 = getelementptr inbounds nuw i64, ptr %36, i64 %56
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %56
   %.idx.i.i.i.i.i = shl nuw nsw i64 %52, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %57, ptr nonnull align 8 %54, i64 %.idx.i.i.i.i.i, i1 false)
   %.pre.i.i.i = load ptr, ptr %44, align 8, !tbaa !172
-  %.phi.trans.insert.i.i.i = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %.pre.i.i.i, i64 %43
+  %.phi.trans.insert.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %.pre.i.i.i, i64 %43
   %.pre18.i.i.i = load ptr, ptr %.phi.trans.insert.i.i.i, align 8, !tbaa !1314
   br label %_ZSt6copy_nIPKmmPmET1_T_T0_S3_.exit.i.i.i
 
@@ -46071,7 +46011,7 @@ define linkonce_odr void @_ZN7xgboost6common16RowSetCollection8AddSplitEiiimm(pt
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %28 = sext i32 %1 to i64
   %29 = load ptr, ptr %27, align 8, !tbaa !164
-  %30 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %29, i64 %28
+  %30 = getelementptr inbounds nuw [24 x i8], ptr %29, i64 %28
   %31 = load ptr, ptr %30, align 8, !tbaa !917
   %32 = icmp eq ptr %31, null
   br i1 %32, label %33, label %83
@@ -46403,7 +46343,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %124 = load i64, ptr %7, align 8, !tbaa !44
-  %125 = getelementptr inbounds nuw i64, ptr %.033, i64 %124
+  %125 = getelementptr inbounds nuw [8 x i8], ptr %.033, i64 %124
   store ptr %125, ptr %20, align 8, !tbaa !679
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %126 = load ptr, ptr %96, align 8, !tbaa !919
@@ -46506,9 +46446,9 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   %150 = load i64, ptr %7, align 8, !tbaa !44
-  %151 = getelementptr inbounds nuw i64, ptr %.033, i64 %150
+  %151 = getelementptr inbounds nuw [8 x i8], ptr %.033, i64 %150
   %152 = load i64, ptr %8, align 8, !tbaa !44
-  %153 = getelementptr inbounds nuw i64, ptr %151, i64 %152
+  %153 = getelementptr inbounds nuw [8 x i8], ptr %151, i64 %152
   store ptr %153, ptr %24, align 8, !tbaa !679
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   %154 = load ptr, ptr %96, align 8, !tbaa !919
@@ -46638,7 +46578,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   br i1 %194, label %195, label %_ZNSt6vectorIN7xgboost6common16RowSetCollection4ElemESaIS3_EE6resizeEm.exit
 
 195:                                              ; preds = %193
-  %196 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %181, i64 %189
+  %196 = getelementptr inbounds nuw [24 x i8], ptr %181, i64 %189
   %.not.i.i = icmp eq ptr %180, %196
   br i1 %.not.i.i, label %_ZNSt6vectorIN7xgboost6common16RowSetCollection4ElemESaIS3_EE6resizeEm.exit, label %197
 
@@ -46674,7 +46614,7 @@ _ZNSt6vectorIN7xgboost6common16RowSetCollection4ElemESaIS3_EE6resizeEm.exit: ; p
   br i1 %211, label %212, label %_ZNSt6vectorIN7xgboost6common16RowSetCollection4ElemESaIS3_EE6resizeEm.exit130
 
 212:                                              ; preds = %210
-  %213 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %198, i64 %206
+  %213 = getelementptr inbounds nuw [24 x i8], ptr %198, i64 %206
   %.not.i.i129 = icmp eq ptr %199, %213
   br i1 %.not.i.i129, label %_ZNSt6vectorIN7xgboost6common16RowSetCollection4ElemESaIS3_EE6resizeEm.exit130, label %214
 
@@ -46685,22 +46625,22 @@ _ZNSt6vectorIN7xgboost6common16RowSetCollection4ElemESaIS3_EE6resizeEm.exit: ; p
 _ZNSt6vectorIN7xgboost6common16RowSetCollection4ElemESaIS3_EE6resizeEm.exit130: ; preds = %214, %212, %210, %208, %_ZNSt6vectorIN7xgboost6common16RowSetCollection4ElemESaIS3_EE6resizeEm.exit
   %215 = phi ptr [ %198, %214 ], [ %198, %212 ], [ %198, %210 ], [ %.pre171, %208 ], [ %198, %_ZNSt6vectorIN7xgboost6common16RowSetCollection4ElemESaIS3_EE6resizeEm.exit ]
   %216 = load i64, ptr %7, align 8, !tbaa !44
-  %217 = getelementptr inbounds nuw i64, ptr %.033, i64 %216
+  %217 = getelementptr inbounds nuw [8 x i8], ptr %.033, i64 %216
   %218 = sext i32 %2 to i64
-  %219 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %215, i64 %218
+  %219 = getelementptr inbounds nuw [24 x i8], ptr %215, i64 %218
   store ptr %.033, ptr %219, align 8, !tbaa !679
   %.sroa.4136.0..sroa_idx = getelementptr inbounds nuw i8, ptr %219, i64 8
   store ptr %217, ptr %.sroa.4136.0..sroa_idx, align 8, !tbaa !679
   %.sroa.5137.0..sroa_idx = getelementptr inbounds nuw i8, ptr %219, i64 16
   store i32 %2, ptr %.sroa.5137.0..sroa_idx, align 8, !tbaa !99
   %220 = sext i32 %3 to i64
-  %221 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %215, i64 %220
+  %221 = getelementptr inbounds nuw [24 x i8], ptr %215, i64 %220
   store ptr %217, ptr %221, align 8, !tbaa !679
   %.sroa.4132.0..sroa_idx = getelementptr inbounds nuw i8, ptr %221, i64 8
   store ptr %.032, ptr %.sroa.4132.0..sroa_idx, align 8, !tbaa !679
   %.sroa.5133.0..sroa_idx = getelementptr inbounds nuw i8, ptr %221, i64 16
   store i32 %3, ptr %.sroa.5133.0..sroa_idx, align 8, !tbaa !99
-  %222 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %215, i64 %28
+  %222 = getelementptr inbounds nuw [24 x i8], ptr %215, i64 %28
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %222, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %222, i8 0, i64 16, i1 false)
   store i32 -1, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !99
@@ -47059,9 +46999,9 @@ _ZNSt6vectorIN7xgboost6common16RowSetCollection4ElemESaIS3_EE11_S_relocateEPS3_S
 
 _ZNSt12_Vector_baseIN7xgboost6common16RowSetCollection4ElemESaIS3_EE13_M_deallocateEPS3_m.exit41: ; preds = %_ZNSt6vectorIN7xgboost6common16RowSetCollection4ElemESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %35
   store ptr %28, ptr %0, align 8, !tbaa !164
-  %37 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %29, i64 %1
+  %37 = getelementptr inbounds nuw [24 x i8], ptr %29, i64 %1
   store ptr %37, ptr %4, align 8, !tbaa !908
-  %38 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %28, i64 %26
+  %38 = getelementptr inbounds nuw [24 x i8], ptr %28, i64 %26
   store ptr %38, ptr %11, align 8, !tbaa !167
   br label %39
 
@@ -47130,7 +47070,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %.noexc50
 
 _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit36.i: ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i, %.noexc50
   store ptr %31, ptr %8, align 8, !tbaa !194
-  %35 = getelementptr inbounds nuw i32, ptr %31, i64 %21
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %21
   store ptr %35, ptr %25, align 8, !tbaa !545
   store ptr %35, ptr %27, align 8, !tbaa !197
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
@@ -47347,10 +47287,10 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 116:                                              ; preds = %._crit_edge35.i, %.lr.ph39.i
   %.01637.i = phi i64 [ 0, %.lr.ph39.i ], [ %119, %._crit_edge35.i ]
-  %117 = getelementptr inbounds nuw i64, ptr %107, i64 %.01637.i
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %.01637.i
   %118 = load i64, ptr %117, align 8, !tbaa !44
   %119 = add nuw i64 %.01637.i, 1
-  %120 = getelementptr inbounds nuw i64, ptr %107, i64 %119
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %119
   %121 = load i64, ptr %120, align 8, !tbaa !44
   %122 = icmp ult i64 %118, %121
   br i1 %122, label %.lr.ph.i, label %._crit_edge35.i
@@ -47363,7 +47303,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 .lr.ph.i:                                         ; preds = %116, %.lr.ph.i
   %.01528.i = phi i64 [ %129, %.lr.ph.i ], [ %118, %116 ]
   %.02327.i = phi i64 [ %128, %.lr.ph.i ], [ 0, %116 ]
-  %124 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %114, i64 %.01528.i
+  %124 = getelementptr inbounds nuw [16 x i8], ptr %114, i64 %.01528.i
   %125 = load ptr, ptr %124, align 8, !tbaa !1314
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 16
   store i64 %.02327.i, ptr %126, align 8, !tbaa !1317
@@ -47377,7 +47317,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 ._crit_edge35.i:                                  ; preds = %.lr.ph34.i, %._crit_edge.i, %116
   %.023.lcssa48.i = phi i64 [ %128, %._crit_edge.i ], [ 0, %116 ], [ %128, %.lr.ph34.i ]
   %.024.lcssa.i = phi i64 [ 0, %._crit_edge.i ], [ 0, %116 ], [ %140, %.lr.ph34.i ]
-  %132 = getelementptr inbounds nuw %"struct.std::pair.129", ptr %115, i64 %.01637.i
+  %132 = getelementptr inbounds nuw [16 x i8], ptr %115, i64 %.01637.i
   store i64 %.023.lcssa48.i, ptr %132, align 8, !tbaa !1126
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 8
   store i64 %.024.lcssa.i, ptr %133, align 8, !tbaa !1128
@@ -47388,7 +47328,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %.032.i = phi i64 [ %141, %.lr.ph34.i ], [ %.pre.i, %._crit_edge.i ]
   %.02431.i = phi i64 [ %140, %.lr.ph34.i ], [ 0, %._crit_edge.i ]
   %134 = add i64 %.02431.i, %128
-  %135 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %114, i64 %.032.i
+  %135 = getelementptr inbounds nuw [16 x i8], ptr %114, i64 %.032.i
   %136 = load ptr, ptr %135, align 8, !tbaa !1314
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 24
   store i64 %134, ptr %137, align 8, !tbaa !1322
@@ -47533,12 +47473,12 @@ define linkonce_odr void @_ZN7xgboost6common14BlockedSpace2dC2IZNS_4tree20Common
   %13 = load ptr, ptr %6, align 8, !tbaa !1573
   %14 = load ptr, ptr %2, align 8, !tbaa !1582
   %15 = load ptr, ptr %14, align 8, !tbaa !562
-  %16 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %15, i64 %.039
+  %16 = getelementptr inbounds nuw [88 x i8], ptr %15, i64 %.039
   %17 = load i32, ptr %16, align 8, !tbaa !535
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 112
   %19 = sext i32 %17 to i64
   %20 = load ptr, ptr %18, align 8, !tbaa !164
-  %21 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %20, i64 %19
+  %21 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %19
   %22 = load ptr, ptr %21, align 8, !tbaa !917
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !919
@@ -47629,7 +47569,7 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIP
   %.pre = phi ptr [ %.pre.pre, %60 ], [ %36, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i ]
   store ptr %55, ptr %5, align 8, !tbaa !168
   store ptr %59, ptr %7, align 8, !tbaa !906
-  %61 = getelementptr inbounds nuw i64, ptr %55, i64 %53
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %53
   store ptr %61, ptr %8, align 8, !tbaa !171
   br label %_ZNSt6vectorImSaImEE9push_backERKm.exit.i
 
@@ -47729,7 +47669,7 @@ _ZNSt6vectorIN7xgboost6common7Range1dESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit3
 .noexc25:                                         ; preds = %84, %_ZNSt6vectorIN7xgboost6common7Range1dESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit33.i
   store ptr %79, ptr %0, align 8, !tbaa !861
   store ptr %83, ptr %9, align 8, !tbaa !1078
-  %98 = getelementptr inbounds nuw %"class.xgboost::common::Range1d", ptr %79, i64 %77
+  %98 = getelementptr inbounds nuw [16 x i8], ptr %79, i64 %77
   store ptr %98, ptr %10, align 8, !tbaa !864
   br label %_ZN7xgboost6common14BlockedSpace2d8AddBlockEmmm.exit
 
@@ -47802,7 +47742,7 @@ define linkonce_odr void @_ZN7xgboost6common16PartitionBuilderILm2048EE4InitIZNS
   br i1 %17, label %18, label %_ZNSt6vectorISt4pairImmESaIS1_EE6resizeEm.exit
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds nuw %"struct.std::pair.129", ptr %8, i64 %2
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %2
   %.not.i.i = icmp eq ptr %7, %19
   br i1 %.not.i.i, label %_ZNSt6vectorISt4pairImmESaIS1_EE6resizeEm.exit, label %20
 
@@ -47834,7 +47774,7 @@ _ZNSt6vectorISt4pairImmESaIS1_EE6resizeEm.exit:   ; preds = %14, %16, %18, %20
   br i1 %34, label %35, label %_ZNSt6vectorImSaImEE6resizeEm.exit
 
 35:                                               ; preds = %33
-  %36 = getelementptr inbounds nuw i64, ptr %25, i64 %22
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %22
   %.not.i.i12 = icmp eq ptr %24, %36
   br i1 %.not.i.i12, label %_ZNSt6vectorImSaImEE6resizeEm.exit, label %37
 
@@ -47863,11 +47803,11 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %31, %33, %35, %37
 46:                                               ; preds = %.lr.ph, %46
   %47 = phi i64 [ 0, %.lr.ph ], [ %65, %46 ]
   %.014 = phi i64 [ 1, %.lr.ph ], [ %67, %46 ]
-  %48 = getelementptr %"struct.xgboost::tree::CPUExpandEntry", ptr %40, i64 %.014
+  %48 = getelementptr [88 x i8], ptr %40, i64 %.014
   %49 = getelementptr i8, ptr %48, i64 -88
   %50 = load i32, ptr %49, align 8, !tbaa !535
   %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %42, i64 %51
+  %52 = getelementptr inbounds nuw [24 x i8], ptr %42, i64 %51
   %53 = load ptr, ptr %52, align 8, !tbaa !917
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %55 = load ptr, ptr %54, align 8, !tbaa !919
@@ -47881,7 +47821,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %31, %33, %35, %37
   %63 = zext i1 %62 to i64
   %64 = add i64 %60, %47
   %65 = add i64 %64, %63
-  %66 = getelementptr inbounds nuw i64, ptr %38, i64 %.014
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %.014
   store i64 %65, ptr %66, align 8, !tbaa !44
   %67 = add nuw i64 %.014, 1
   %exitcond.not = icmp eq i64 %.014, %2
@@ -47909,7 +47849,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %31, %33, %35, %37
   br i1 %81, label %82, label %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit
 
 82:                                               ; preds = %80
-  %83 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %72, i64 %1
+  %83 = getelementptr inbounds nuw [16 x i8], ptr %72, i64 %1
   %.not.i.i13 = icmp eq ptr %71, %83
   br i1 %.not.i.i13, label %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i
 
@@ -49619,7 +49559,7 @@ define linkonce_odr void @_ZZN7xgboost4tree17ColumnSplitHelper9PartitionIjLb1ELb
   %8 = load ptr, ptr %7, align 8, !tbaa !1592
   %9 = load ptr, ptr %0, align 8, !tbaa !1645
   %10 = load ptr, ptr %9, align 8, !tbaa !562
-  %11 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %10, i64 %1
+  %11 = getelementptr inbounds nuw [88 x i8], ptr %10, i64 %1
   %12 = load i32, ptr %11, align 8, !tbaa !535
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -49708,7 +49648,7 @@ _ZZN7xgboost4tree17ColumnSplitHelper9PartitionIjLb1ELb1ENS0_14CPUExpandEntryEEEv
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %61 = load ptr, ptr %60, align 8, !tbaa !1648
   %62 = load ptr, ptr %61, align 8, !tbaa !194
-  %63 = getelementptr inbounds nuw i32, ptr %62, i64 %1
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %1
   %64 = load i32, ptr %63, align 4, !tbaa !99
   br label %65
 
@@ -49726,7 +49666,7 @@ _ZZN7xgboost4tree17ColumnSplitHelper9PartitionIjLb1ELb1ENS0_14CPUExpandEntryEEEv
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 24
   %77 = sext i32 %12 to i64
   %78 = load ptr, ptr %76, align 8, !tbaa !164
-  %79 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %78, i64 %77
+  %79 = getelementptr inbounds nuw [24 x i8], ptr %78, i64 %77
   %80 = load ptr, ptr %79, align 8, !tbaa !917
   call void @_ZN7xgboost6common16PartitionBuilderILm2048EE8MaskRowsIjLb1ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmPNS_17BitFieldContainerIhNS_11RBitsPolicyIhEELb0EEESS_(ptr noundef nonnull align 8 dereferenceable(80) %68, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %2, i64 %3, i32 noundef %66, ptr noundef nonnull align 8 dereferenceable(233) %70, ptr noundef nonnull align 8 dereferenceable(218) %56, ptr noundef nonnull align 8 dereferenceable(312) %73, ptr noundef %80, ptr noundef nonnull %5, ptr noundef nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -49747,7 +49687,7 @@ _ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_S4_.exit:
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx101
   %18 = sub nsw i64 %4, %3
   %19 = load ptr, ptr %2, align 8, !tbaa !562
-  %20 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %19, i64 %1
+  %20 = getelementptr inbounds nuw [88 x i8], ptr %19, i64 %1
   %21 = load i32, ptr %20, align 8, !tbaa !535
   %22 = sext i32 %21 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
@@ -49760,14 +49700,14 @@ _ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_S4_.exit:
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %27 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7xgboost16HostDeviceVectorIjE15ConstHostVectorEv(ptr noundef nonnull align 8 dereferenceable(8) %26)
   %28 = load ptr, ptr %27, align 8, !tbaa !449
-  %29 = getelementptr inbounds nuw i32, ptr %28, i64 %22
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %22
   %30 = load i32, ptr %29, align 4, !tbaa !99
   br label %_ZNK7xgboost7RegTree10SplitIndexEi.exit
 
 31:                                               ; preds = %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_S4_.exit
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 160
   %33 = load ptr, ptr %32, align 8, !tbaa !536
-  %34 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %33, i64 %22
+  %34 = getelementptr inbounds nuw [20 x i8], ptr %33, i64 %22
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 12
   %36 = load i32, ptr %35, align 4, !tbaa !810
   %37 = and i32 %36, 2147483647
@@ -49809,7 +49749,7 @@ _ZNK7xgboost7RegTree10SplitIndexEi.exit:          ; preds = %25, %31
   unreachable
 
 _ZNK7xgboost6common4SpanIKNS_7RegTree22CategoricalSplitMatrix7SegmentELm18446744073709551615EEixEm.exit.i: ; preds = %_ZNK7xgboost7RegTree10SplitIndexEi.exit
-  %63 = getelementptr inbounds nuw %"struct.xgboost::RegTree::CategoricalSplitMatrix::Segment", ptr %55, i64 %22
+  %63 = getelementptr inbounds nuw [16 x i8], ptr %55, i64 %22
   %.sroa.0.0.copyload.i = load i64, ptr %63, align 8, !tbaa !44
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %63, i64 8
   %.sroa.4.0.copyload.i = load i64, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !44
@@ -49845,7 +49785,7 @@ _ZNK7xgboost6common4SpanIKNS_7RegTree22CategoricalSplitMatrix7SegmentELm18446744
   unreachable
 
 _ZNK7xgboost7RegTree8NodeCatsEi.exit:             ; preds = %71
-  %77 = getelementptr inbounds nuw i32, ptr %48, i64 %.sroa.0.0.copyload.i
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %.sroa.0.0.copyload.i
   store i64 %72, ptr %15, align 8
   %78 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %77, ptr %78, align 8
@@ -49894,7 +49834,7 @@ _ZNK7xgboost7RegTree8NodeCatsEi.exit:             ; preds = %71
   unreachable
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit: ; preds = %97
-  %99 = getelementptr inbounds nuw i64, ptr %17, i64 %.sroa.695.0108
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %.sroa.695.0108
   %100 = load i64, ptr %99, align 8, !tbaa !44
   %101 = load i32, ptr %13, align 4, !tbaa !99
   %102 = zext i32 %101 to i64
@@ -49911,7 +49851,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
   %.sroa.24.0.copyload = load ptr, ptr %78, align 8, !tbaa !459
   %109 = zext nneg i32 %103 to i64
   %110 = load ptr, ptr %80, align 8, !tbaa !643
-  %111 = getelementptr inbounds nuw float, ptr %110, i64 %109
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %110, i64 %109
   %112 = load float, ptr %111, align 4, !tbaa !134
   %113 = fcmp olt float %112, 0.000000e+00
   %114 = fcmp oge float %112, 0x4170000000000000
@@ -49928,10 +49868,10 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
 119:                                              ; preds = %105
   %120 = zext nneg i32 %103 to i64
   %121 = load ptr, ptr %80, align 8, !tbaa !643
-  %122 = getelementptr inbounds nuw float, ptr %121, i64 %120
+  %122 = getelementptr inbounds nuw [4 x i8], ptr %121, i64 %120
   %123 = load float, ptr %122, align 4, !tbaa !134
   %124 = load ptr, ptr %2, align 8, !tbaa !562
-  %125 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %124, i64 %1
+  %125 = getelementptr inbounds nuw [88 x i8], ptr %124, i64 %1
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 16
   %127 = load float, ptr %126, align 8, !tbaa !809
   %128 = fcmp ugt float %123, %127
@@ -49943,7 +49883,7 @@ _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit: ; preds
   %131 = lshr i64 %130, 5
   %132 = and i32 %129, 31
   %133 = xor i32 %132, 31
-  %134 = getelementptr inbounds nuw i32, ptr %.sroa.24.0.copyload, i64 %131
+  %134 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.24.0.copyload, i64 %131
   %135 = load i32, ptr %134, align 4, !tbaa !99
   %136 = shl nuw i32 1, %133
   %137 = and i32 %135, %136
@@ -49974,11 +49914,11 @@ _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit: ; preds
 150:                                              ; preds = %138
   %151 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %152 = load ptr, ptr %151, align 8, !tbaa !1452, !noalias !1654
-  %153 = getelementptr inbounds nuw i64, ptr %152, i64 %145
+  %153 = getelementptr inbounds nuw [8 x i8], ptr %152, i64 %145
   %154 = load i64, ptr %153, align 8, !tbaa !44, !noalias !1654
   %155 = add i32 %38, 1
   %156 = zext i32 %155 to i64
-  %157 = getelementptr inbounds nuw i64, ptr %152, i64 %156
+  %157 = getelementptr inbounds nuw [8 x i8], ptr %152, i64 %156
   %158 = load i64, ptr %157, align 8, !tbaa !44, !noalias !1654
   %159 = load ptr, ptr %7, align 8, !tbaa !1456, !noalias !1654
   %160 = icmp ne ptr %159, null
@@ -49998,7 +49938,7 @@ _ZNK7xgboost6common12ColumnMatrix11DenseColumnIjLb1EEEDaj.exit: ; preds = %150
   %168 = getelementptr inbounds nuw i8, ptr %159, i64 %167
   %169 = getelementptr inbounds nuw i8, ptr %7, i64 160
   %170 = load ptr, ptr %169, align 8, !tbaa !1457, !noalias !1654
-  %171 = getelementptr inbounds nuw i32, ptr %170, i64 %145
+  %171 = getelementptr inbounds nuw [4 x i8], ptr %170, i64 %145
   %172 = load i32, ptr %171, align 4, !tbaa !99, !noalias !1654
   %173 = getelementptr inbounds nuw i8, ptr %7, i64 168
   %.sroa.0.0.copyload.i66 = load ptr, ptr %173, align 8, !tbaa !459, !noalias !1654
@@ -50027,14 +49967,14 @@ _ZNK7xgboost6common12ColumnMatrix11DenseColumnIjLb1EEEDaj.exit: ; preds = %150
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i: ; preds = %_ZNK7xgboost6common12ColumnMatrix11DenseColumnIjLb1EEEDaj.exit, %184
   %.sroa.6.025.i = phi i64 [ %185, %184 ], [ 0, %_ZNK7xgboost6common12ColumnMatrix11DenseColumnIjLb1EEEDaj.exit ]
-  %186 = getelementptr inbounds nuw i64, ptr %17, i64 %.sroa.6.025.i
+  %186 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %.sroa.6.025.i
   %187 = load i64, ptr %186, align 8, !tbaa !44
   %188 = sub i64 %187, %175
   %189 = add i64 %188, %154
   %190 = lshr i64 %189, 5
   %191 = and i64 %189, 31
   %192 = xor i64 %191, 31
-  %193 = getelementptr inbounds nuw i32, ptr %.sroa.0.0.copyload.i66, i64 %190
+  %193 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0.0.copyload.i66, i64 %190
   %194 = load i32, ptr %193, align 4, !tbaa !99
   %195 = shl nuw nsw i64 1, %192
   %196 = trunc nuw i64 %195 to i32
@@ -50043,7 +49983,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
   br i1 %.not.i.i67, label %_ZNK7xgboost6common15DenseColumnIterIjLb1EEixEm.exit.i, label %.sink.split.i
 
 _ZNK7xgboost6common15DenseColumnIterIjLb1EEixEm.exit.i: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i
-  %198 = getelementptr inbounds nuw i32, ptr %168, i64 %188
+  %198 = getelementptr inbounds nuw [4 x i8], ptr %168, i64 %188
   %199 = load i32, ptr %198, align 4, !tbaa !99
   %200 = add nsw i32 %199, %172
   %201 = icmp eq i32 %200, -1
@@ -50068,11 +50008,11 @@ _ZNK7xgboost6common4SpanIKmLm18446744073709551615EE5frontEv.exit: ; preds = %_ZN
   %207 = sub i64 %204, %206
   %208 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %209 = load ptr, ptr %208, align 8, !tbaa !1452, !noalias !1657
-  %210 = getelementptr inbounds nuw i64, ptr %209, i64 %145
+  %210 = getelementptr inbounds nuw [8 x i8], ptr %209, i64 %145
   %211 = load i64, ptr %210, align 8, !tbaa !44, !noalias !1657
   %212 = add i32 %38, 1
   %213 = zext i32 %212 to i64
-  %214 = getelementptr inbounds nuw i64, ptr %209, i64 %213
+  %214 = getelementptr inbounds nuw [8 x i8], ptr %209, i64 %213
   %215 = load i64, ptr %214, align 8, !tbaa !44, !noalias !1657
   %216 = sub i64 %215, %211
   %217 = getelementptr inbounds nuw i8, ptr %7, i64 216
@@ -50093,7 +50033,7 @@ _ZNK7xgboost6common4SpanIKmLm18446744073709551615EE5frontEv.exit: ; preds = %_ZN
 _ZN7xgboost6common4SpanIKjLm18446744073709551615EEC2EPS2_m.exit.i: ; preds = %_ZNK7xgboost6common4SpanIKmLm18446744073709551615EE5frontEv.exit
   %227 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %228 = load ptr, ptr %227, align 8, !tbaa !1452, !noalias !1657
-  %229 = getelementptr inbounds nuw i64, ptr %228, i64 %211
+  %229 = getelementptr inbounds nuw [8 x i8], ptr %228, i64 %211
   %230 = icmp ne ptr %228, null
   %231 = or i1 %224, %230
   br i1 %231, label %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i, label %232, !prof !127
@@ -50105,7 +50045,7 @@ _ZN7xgboost6common4SpanIKjLm18446744073709551615EEC2EPS2_m.exit.i: ; preds = %_Z
 _ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i: ; preds = %_ZN7xgboost6common4SpanIKjLm18446744073709551615EEC2EPS2_m.exit.i
   %233 = getelementptr inbounds nuw i8, ptr %7, i64 160
   %234 = load ptr, ptr %233, align 8, !tbaa !1457, !noalias !1657
-  %235 = getelementptr inbounds nuw i32, ptr %234, i64 %145
+  %235 = getelementptr inbounds nuw [4 x i8], ptr %234, i64 %145
   %236 = load i32, ptr %235, align 4, !tbaa !99, !noalias !1657
   %237 = icmp sgt i64 %216, 0
   br i1 %237, label %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i, label %.lr.ph.i81
@@ -50114,7 +50054,7 @@ _ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i:           ; preds = %_ZN7xgboost6common4
   %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i ], [ %229, %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i ]
   %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i ], [ %216, %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i ]
   %238 = lshr i64 %.01116.i.i.i.i, 1
-  %239 = getelementptr inbounds nuw i64, ptr %.017.i.i.i.i, i64 %238
+  %239 = getelementptr inbounds nuw [8 x i8], ptr %.017.i.i.i.i, i64 %238
   %240 = load i64, ptr %239, align 8, !tbaa !44, !noalias !1657
   %241 = icmp ult i64 %240, %207
   %242 = getelementptr inbounds nuw i8, ptr %239, i64 8
@@ -50164,7 +50104,7 @@ _ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i:           ; preds = %_ZN7xgboost6common4
   unreachable
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i83: ; preds = %260
-  %262 = getelementptr inbounds nuw i64, ptr %17, i64 %.sroa.6.028.i
+  %262 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %.sroa.6.028.i
   %263 = load i64, ptr %262, align 8, !tbaa !44
   %264 = sub i64 %263, %206
   %265 = icmp ult i64 %.sroa.13.0, %216
@@ -50172,7 +50112,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
 
 .lr.ph.i.i:                                       ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i83, %269
   %.sroa.13.3 = phi i64 [ %270, %269 ], [ %.sroa.13.0, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i83 ]
-  %266 = getelementptr inbounds nuw i64, ptr %229, i64 %.sroa.13.3
+  %266 = getelementptr inbounds nuw [8 x i8], ptr %229, i64 %.sroa.13.3
   %267 = load i64, ptr %266, align 8, !tbaa !44
   %268 = icmp ult i64 %267, %264
   br i1 %268, label %269, label %271
@@ -50187,7 +50127,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
   br i1 %272, label %_ZN7xgboost6common16SparseColumnIterIjEixEm.exit.i, label %.sink.split.i84
 
 _ZN7xgboost6common16SparseColumnIterIjEixEm.exit.i: ; preds = %271
-  %273 = getelementptr inbounds nuw i32, ptr %222, i64 %.sroa.13.3
+  %273 = getelementptr inbounds nuw [4 x i8], ptr %222, i64 %.sroa.13.3
   %274 = load i32, ptr %273, align 4, !tbaa !99
   %275 = add nsw i32 %274, %236
   %276 = icmp eq i32 %275, -1
@@ -50335,7 +50275,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %46 = load ptr, ptr %45, align 8, !tbaa !1669
   %47 = sext i32 %18 to i64
   %48 = load ptr, ptr %46, align 8, !tbaa !643
-  %49 = getelementptr inbounds nuw float, ptr %48, i64 %47
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %47
   %50 = load float, ptr %49, align 4, !tbaa !134
   %51 = fcmp olt float %50, 0.000000e+00
   %52 = fcmp oge float %50, 0x4170000000000000
@@ -50355,7 +50295,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %60 = lshr i64 %59, 5
   %61 = and i32 %58, 31
   %62 = xor i32 %61, 31
-  %63 = getelementptr inbounds nuw i32, ptr %.sroa.2.0.copyload, i64 %60
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.2.0.copyload, i64 %60
   %64 = load i32, ptr %63, align 4, !tbaa !99
   %65 = shl nuw i32 1, %62
   %66 = and i32 %64, %65
@@ -50582,7 +50522,7 @@ define linkonce_odr void @_ZZN7xgboost6common13ParallelFor2dIZNS_4tree17ColumnSp
   %24 = load ptr, ptr %23, align 8, !tbaa !1625
   %25 = load ptr, ptr %16, align 8, !tbaa !1676
   %26 = load ptr, ptr %25, align 8, !tbaa !562
-  %27 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %26, i64 %18
+  %27 = getelementptr inbounds nuw [88 x i8], ptr %26, i64 %18
   %28 = load i32, ptr %27, align 8, !tbaa !535
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 128
   %30 = load ptr, ptr %29, align 8, !tbaa !925
@@ -50595,8 +50535,8 @@ define linkonce_odr void @_ZZN7xgboost6common13ParallelFor2dIZNS_4tree17ColumnSp
   %36 = lshr i64 %21, 11
   %37 = getelementptr inbounds nuw i8, ptr %30, i64 48
   %38 = load ptr, ptr %37, align 8, !tbaa !172
-  %39 = getelementptr %"class.std::shared_ptr.85", ptr %38, i64 %35
-  %40 = getelementptr %"class.std::shared_ptr.85", ptr %39, i64 %36
+  %39 = getelementptr [16 x i8], ptr %38, i64 %35
+  %40 = getelementptr [16 x i8], ptr %39, i64 %36
   %41 = load ptr, ptr %40, align 8, !tbaa !1314
   %42 = icmp eq ptr %41, null
   br i1 %42, label %_ZN4dmlc11LogCheck_NEIPN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoES6_EESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISD_EERKT_RKT0_.exit.i.i, label %_ZZN7xgboost4tree17ColumnSplitHelper9PartitionIjLb1ELb1ENS0_14CPUExpandEntryEEEvPKNS_7ContextERKNS_6common14BlockedSpace2dEiRKNS_16GHistIndexMatrixERKNS7_12ColumnMatrixERKSt6vectorIT2_SaISI_EERKSH_IiSaIiEEPKNS_7RegTreeEENKUlmNS7_7Range1dEE0_clEmSU_.exit
@@ -50621,7 +50561,7 @@ _ZZN7xgboost4tree17ColumnSplitHelper9PartitionIjLb1ELb1ENS0_14CPUExpandEntryEEEv
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 24
   %54 = sext i32 %28 to i64
   %55 = load ptr, ptr %53, align 8, !tbaa !164
-  %56 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %55, i64 %54
+  %56 = getelementptr inbounds nuw [24 x i8], ptr %55, i64 %54
   %57 = load ptr, ptr %56, align 8, !tbaa !917
   %58 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %59 = getelementptr inbounds nuw i8, ptr %24, i64 64
@@ -50826,7 +50766,7 @@ define linkonce_odr void @_ZZN7xgboost6common13ParallelFor2dIZNS_4tree20CommonRo
   %24 = load ptr, ptr %23, align 8, !tbaa !1578
   %25 = load ptr, ptr %16, align 8, !tbaa !1685
   %26 = load ptr, ptr %25, align 8, !tbaa !562
-  %27 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %26, i64 %18
+  %27 = getelementptr inbounds nuw [88 x i8], ptr %26, i64 %18
   %28 = load i32, ptr %27, align 8, !tbaa !535
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %sext.i = shl i64 %18, 32
@@ -50837,8 +50777,8 @@ define linkonce_odr void @_ZZN7xgboost6common13ParallelFor2dIZNS_4tree20CommonRo
   %34 = lshr i64 %21, 11
   %35 = getelementptr inbounds nuw i8, ptr %24, i64 56
   %36 = load ptr, ptr %35, align 8, !tbaa !172
-  %37 = getelementptr %"class.std::shared_ptr.85", ptr %36, i64 %33
-  %38 = getelementptr %"class.std::shared_ptr.85", ptr %37, i64 %34
+  %37 = getelementptr [16 x i8], ptr %36, i64 %33
+  %38 = getelementptr [16 x i8], ptr %37, i64 %34
   %39 = load ptr, ptr %38, align 8, !tbaa !1314
   %40 = icmp eq ptr %39, null
   br i1 %40, label %_ZN4dmlc11LogCheck_NEIPN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoES6_EESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISD_EERKT_RKT0_.exit.i.i, label %_ZN7xgboost6common16PartitionBuilderILm2048EE15AllocateForTaskEm.exit.i
@@ -50860,7 +50800,7 @@ _ZN7xgboost6common16PartitionBuilderILm2048EE15AllocateForTaskEm.exit.i: ; preds
   %47 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %48 = load ptr, ptr %47, align 8, !tbaa !1687
   %49 = load ptr, ptr %48, align 8, !tbaa !194
-  %50 = getelementptr inbounds nuw i32, ptr %49, i64 %18
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %18
   %51 = load i32, ptr %50, align 4, !tbaa !99
   br label %_ZZN7xgboost4tree20CommonRowPartitioner14UpdatePositionIjLb1ELb1ENS0_14CPUExpandEntryEEEvPKNS_7ContextERKNS_16GHistIndexMatrixERKNS_6common12ColumnMatrixERKSt6vectorIT2_SaISF_EEPKNS_7RegTreeEENKUlmNSA_7Range1dEE_clEmSN_.exit
 
@@ -50876,7 +50816,7 @@ _ZZN7xgboost4tree20CommonRowPartitioner14UpdatePositionIjLb1ELb1ENS0_14CPUExpand
   %60 = getelementptr inbounds nuw i8, ptr %24, i64 112
   %61 = sext i32 %28 to i64
   %62 = load ptr, ptr %60, align 8, !tbaa !164
-  %63 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %62, i64 %61
+  %63 = getelementptr inbounds nuw [24 x i8], ptr %62, i64 %61
   %64 = load ptr, ptr %63, align 8, !tbaa !917
   tail call void @_ZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIjLb1ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKm(ptr noundef nonnull align 8 dereferenceable(80) %53, i64 noundef %18, ptr noundef nonnull align 8 dereferenceable(24) %54, i64 %21, i64 %22, i32 noundef %52, ptr noundef nonnull align 8 dereferenceable(233) %56, ptr noundef nonnull align 8 dereferenceable(218) %43, ptr noundef nonnull align 8 dereferenceable(312) %59, ptr noundef %64)
   %65 = add nuw i64 %.011, 1
@@ -50904,7 +50844,7 @@ _ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_S4_.exit:
   %sext = shl i64 %1, 32
   %22 = ashr exact i64 %sext, 32
   %23 = load ptr, ptr %21, align 8, !tbaa !168
-  %24 = getelementptr inbounds nuw i64, ptr %23, i64 %22
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %22
   %25 = load i64, ptr %24, align 8, !tbaa !44
   %26 = lshr i64 %3, 11
   %27 = add i64 %25, %26
@@ -50924,12 +50864,12 @@ _ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_S4_.exit:
   unreachable
 
 _ZN7xgboost6common16PartitionBuilderILm2048EE14GetRightBufferEimm.exit: ; preds = %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_S4_.exit
-  %37 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %31, i64 %27
+  %37 = getelementptr inbounds nuw [16 x i8], ptr %31, i64 %27
   %38 = load ptr, ptr %37, align 8, !tbaa !1314
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 32
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 16416
   %41 = load ptr, ptr %2, align 8, !tbaa !562
-  %42 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %41, i64 %1
+  %42 = getelementptr inbounds nuw [88 x i8], ptr %41, i64 %1
   %43 = load i32, ptr %42, align 8, !tbaa !535
   %44 = sext i32 %43 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -50941,7 +50881,7 @@ _ZN7xgboost6common16PartitionBuilderILm2048EE14GetRightBufferEimm.exit: ; preds 
 _ZNK7xgboost7RegTree10SplitIndexEi.exit.thread:   ; preds = %_ZN7xgboost6common16PartitionBuilderILm2048EE14GetRightBufferEimm.exit
   %47 = getelementptr inbounds nuw i8, ptr %8, i64 160
   %48 = load ptr, ptr %47, align 8, !tbaa !536
-  %49 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %48, i64 %44
+  %49 = getelementptr inbounds nuw [20 x i8], ptr %48, i64 %44
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 12
   %51 = load i32, ptr %50, align 4, !tbaa !810
   %52 = and i32 %51, 2147483647
@@ -50953,7 +50893,7 @@ _ZNK7xgboost7RegTree10SplitIndexEi.exit:          ; preds = %_ZN7xgboost6common1
   %53 = getelementptr inbounds nuw i8, ptr %46, i64 40
   %54 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7xgboost16HostDeviceVectorIjE15ConstHostVectorEv(ptr noundef nonnull align 8 dereferenceable(8) %53)
   %55 = load ptr, ptr %54, align 8, !tbaa !449
-  %56 = getelementptr inbounds nuw i32, ptr %55, i64 %44
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %44
   %57 = load i32, ptr %56, align 4, !tbaa !99
   %.pre = load ptr, ptr %45, align 8, !tbaa !542
   store i32 %57, ptr %11, align 4, !tbaa !99
@@ -50974,7 +50914,7 @@ _ZNK7xgboost7RegTree10SplitIndexEi.exit:          ; preds = %_ZN7xgboost6common1
   %66 = phi i32 [ %52, %_ZNK7xgboost7RegTree10SplitIndexEi.exit.thread ], [ %57, %_ZNK7xgboost7RegTree10SplitIndexEi.exit ]
   %67 = getelementptr inbounds nuw i8, ptr %8, i64 160
   %68 = load ptr, ptr %67, align 8, !tbaa !536
-  %69 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %68, i64 %44
+  %69 = getelementptr inbounds nuw [20 x i8], ptr %68, i64 %44
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 12
   %71 = load i32, ptr %70, align 4, !tbaa !810
   %72 = icmp slt i32 %71, 0
@@ -51018,7 +50958,7 @@ _ZNK7xgboost7RegTree11DefaultLeftEi.exit:         ; preds = %58, %65
   unreachable
 
 _ZNK7xgboost6common4SpanIKNS_7RegTree22CategoricalSplitMatrix7SegmentELm18446744073709551615EEixEm.exit.i: ; preds = %_ZNK7xgboost7RegTree11DefaultLeftEi.exit
-  %99 = getelementptr inbounds nuw %"struct.xgboost::RegTree::CategoricalSplitMatrix::Segment", ptr %91, i64 %44
+  %99 = getelementptr inbounds nuw [16 x i8], ptr %91, i64 %44
   %.sroa.0.0.copyload.i = load i64, ptr %99, align 8, !tbaa !44
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %99, i64 8
   %.sroa.4.0.copyload.i = load i64, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !44
@@ -51054,7 +50994,7 @@ _ZNK7xgboost6common4SpanIKNS_7RegTree22CategoricalSplitMatrix7SegmentELm18446744
   unreachable
 
 _ZNK7xgboost7RegTree8NodeCatsEi.exit:             ; preds = %107
-  %113 = getelementptr inbounds nuw i32, ptr %84, i64 %.sroa.0.0.copyload.i
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %84, i64 %.sroa.0.0.copyload.i
   store i64 %108, ptr %14, align 8
   %114 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %113, ptr %114, align 8
@@ -51094,7 +51034,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
   %.029.i = phi i64 [ %.1.i, %126 ], [ 0, %125 ]
   %.sroa.6.028.i = phi i64 [ %127, %126 ], [ 0, %125 ]
   %.01927.i = phi i64 [ %.120.i, %126 ], [ 0, %125 ]
-  %128 = getelementptr inbounds nuw i64, ptr %19, i64 %.sroa.6.028.i
+  %128 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.sroa.6.028.i
   %129 = load i64, ptr %128, align 8, !tbaa !44
   %130 = load i32, ptr %11, align 4, !tbaa !99
   %131 = zext i32 %130 to i64
@@ -51112,7 +51052,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
   %.sroa.2.0.copyload.i.i = load ptr, ptr %114, align 8, !tbaa !459
   %139 = zext nneg i32 %132 to i64
   %140 = load ptr, ptr %116, align 8, !tbaa !643
-  %141 = getelementptr inbounds nuw float, ptr %140, i64 %139
+  %141 = getelementptr inbounds nuw [4 x i8], ptr %140, i64 %139
   %142 = load float, ptr %141, align 4, !tbaa !134
   %143 = fcmp olt float %142, 0.000000e+00
   %144 = fcmp oge float %142, 0x4170000000000000
@@ -51132,7 +51072,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
   %152 = lshr i64 %151, 5
   %153 = and i32 %150, 31
   %154 = xor i32 %153, 31
-  %155 = getelementptr inbounds nuw i32, ptr %.sroa.2.0.copyload.i.i, i64 %152
+  %155 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.2.0.copyload.i.i, i64 %152
   %156 = load i32, ptr %155, align 4, !tbaa !99
   %157 = xor i32 %156, -1
   %158 = lshr i32 %157, %154
@@ -51142,10 +51082,10 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
 160:                                              ; preds = %135
   %161 = zext nneg i32 %132 to i64
   %162 = load ptr, ptr %116, align 8, !tbaa !643
-  %163 = getelementptr inbounds nuw float, ptr %162, i64 %161
+  %163 = getelementptr inbounds nuw [4 x i8], ptr %162, i64 %161
   %164 = load float, ptr %163, align 4, !tbaa !134
   %165 = load ptr, ptr %2, align 8, !tbaa !562
-  %166 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %165, i64 %1
+  %166 = getelementptr inbounds nuw [88 x i8], ptr %165, i64 %1
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 16
   %168 = load float, ptr %167, align 8, !tbaa !809
   %169 = fcmp ole float %164, %168
@@ -51159,13 +51099,13 @@ _ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIjLb1ELb1ENS_4tree14CPUE
 
 _ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIjLb1ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_E_clImEEDaSO_.exit.thread.i: ; preds = %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIjLb1ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_E_clImEEDaSO_.exit.i, %146, %138
   %172 = add i64 %.029.i, 1
-  %173 = getelementptr inbounds nuw i64, ptr %39, i64 %.029.i
+  %173 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %.029.i
   store i64 %129, ptr %173, align 8, !tbaa !44
   br label %126
 
 174:                                              ; preds = %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIjLb1ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_E_clImEEDaSO_.exit.i
   %175 = add i64 %.01927.i, 1
-  %176 = getelementptr inbounds nuw i64, ptr %40, i64 %.01927.i
+  %176 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %.01927.i
   store i64 %129, ptr %176, align 8, !tbaa !44
   br label %126
 
@@ -51181,11 +51121,11 @@ _ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIjLb1ELb1ENS_4tree14CPUE
 184:                                              ; preds = %177
   %185 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %186 = load ptr, ptr %185, align 8, !tbaa !1452, !noalias !1694
-  %187 = getelementptr inbounds nuw i64, ptr %186, i64 %179
+  %187 = getelementptr inbounds nuw [8 x i8], ptr %186, i64 %179
   %188 = load i64, ptr %187, align 8, !tbaa !44, !noalias !1694
   %189 = add i32 %73, 1
   %190 = zext i32 %189 to i64
-  %191 = getelementptr inbounds nuw i64, ptr %186, i64 %190
+  %191 = getelementptr inbounds nuw [8 x i8], ptr %186, i64 %190
   %192 = load i64, ptr %191, align 8, !tbaa !44, !noalias !1694
   %193 = load ptr, ptr %7, align 8, !tbaa !1456, !noalias !1694
   %194 = icmp ne ptr %193, null
@@ -51205,7 +51145,7 @@ _ZNK7xgboost6common12ColumnMatrix11DenseColumnIjLb1EEEDaj.exit: ; preds = %184
   %202 = getelementptr inbounds nuw i8, ptr %193, i64 %201
   %203 = getelementptr inbounds nuw i8, ptr %7, i64 160
   %204 = load ptr, ptr %203, align 8, !tbaa !1457, !noalias !1694
-  %205 = getelementptr inbounds nuw i32, ptr %204, i64 %179
+  %205 = getelementptr inbounds nuw [4 x i8], ptr %204, i64 %179
   %206 = load i32, ptr %205, align 4, !tbaa !99, !noalias !1694
   %207 = getelementptr inbounds nuw i8, ptr %7, i64 168
   %.sroa.0.0.copyload.i89 = load ptr, ptr %207, align 8, !tbaa !459, !noalias !1694
@@ -51221,14 +51161,14 @@ _ZNK7xgboost6common12ColumnMatrix11DenseColumnIjLb1EEEDaj.exit: ; preds = %184
   %.032.i = phi i64 [ %267, %266 ], [ 0, %210 ]
   %.02631.i = phi i64 [ %.1.i92, %266 ], [ 0, %210 ]
   %.02730.i = phi i64 [ %.128.i, %266 ], [ 0, %210 ]
-  %211 = getelementptr inbounds nuw i64, ptr %19, i64 %.032.i
+  %211 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.032.i
   %212 = load i64, ptr %211, align 8, !tbaa !44
   %213 = sub i64 %212, %209
   %214 = add i64 %213, %188
   %215 = lshr i64 %214, 5
   %216 = and i64 %214, 31
   %217 = xor i64 %216, 31
-  %218 = getelementptr inbounds nuw i32, ptr %.sroa.0.0.copyload.i89, i64 %215
+  %218 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0.0.copyload.i89, i64 %215
   %219 = load i32, ptr %218, align 4, !tbaa !99
   %220 = shl nuw nsw i64 1, %217
   %221 = trunc nuw i64 %220 to i32
@@ -51237,7 +51177,7 @@ _ZNK7xgboost6common12ColumnMatrix11DenseColumnIjLb1EEEDaj.exit: ; preds = %184
   br i1 %.not.i.i91, label %_ZNK7xgboost6common15DenseColumnIterIjLb1EEixEm.exit.i, label %_ZNK7xgboost6common15DenseColumnIterIjLb1EEixEm.exit.thread.i
 
 _ZNK7xgboost6common15DenseColumnIterIjLb1EEixEm.exit.i: ; preds = %.lr.ph.i90
-  %223 = getelementptr inbounds nuw i32, ptr %202, i64 %213
+  %223 = getelementptr inbounds nuw [4 x i8], ptr %202, i64 %213
   %224 = load i32, ptr %223, align 4, !tbaa !99
   %225 = add nsw i32 %224, %206
   %226 = icmp eq i32 %225, -1
@@ -51245,7 +51185,7 @@ _ZNK7xgboost6common15DenseColumnIterIjLb1EEixEm.exit.i: ; preds = %.lr.ph.i90
 
 _ZNK7xgboost6common15DenseColumnIterIjLb1EEixEm.exit.thread.i: ; preds = %_ZNK7xgboost6common15DenseColumnIterIjLb1EEixEm.exit.i, %.lr.ph.i90
   %227 = add i64 %.02730.i, 1
-  %228 = getelementptr inbounds nuw i64, ptr %39, i64 %.02730.i
+  %228 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %.02730.i
   store i64 %212, ptr %228, align 8, !tbaa !44
   br label %266
 
@@ -51266,7 +51206,7 @@ _ZNK7xgboost6common15DenseColumnIterIjLb1EEixEm.exit.thread.i: ; preds = %_ZNK7x
   %.sroa.2.0.copyload.i.i98 = load ptr, ptr %114, align 8, !tbaa !459
   %238 = zext nneg i32 %234 to i64
   %239 = load ptr, ptr %116, align 8, !tbaa !643
-  %240 = getelementptr inbounds nuw float, ptr %239, i64 %238
+  %240 = getelementptr inbounds nuw [4 x i8], ptr %239, i64 %238
   %241 = load float, ptr %240, align 4, !tbaa !134
   %242 = fcmp olt float %241, 0.000000e+00
   %243 = fcmp oge float %241, 0x4170000000000000
@@ -51286,7 +51226,7 @@ _ZNK7xgboost6common15DenseColumnIterIjLb1EEixEm.exit.thread.i: ; preds = %_ZNK7x
   %251 = lshr i64 %250, 5
   %252 = and i32 %249, 31
   %253 = xor i32 %252, 31
-  %254 = getelementptr inbounds nuw i32, ptr %.sroa.2.0.copyload.i.i98, i64 %251
+  %254 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.2.0.copyload.i.i98, i64 %251
   %255 = load i32, ptr %254, align 4, !tbaa !99
   %256 = xor i32 %255, -1
   %257 = lshr i32 %256, %253
@@ -51305,13 +51245,13 @@ _ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIjLb1ELb1ENS_4tree14CPUE
 
 _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.thread.i: ; preds = %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIjLb1ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_T0_E_clImiEEDaSO_SP_.exit.i, %_ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.i, %245, %237
   %261 = add i64 %.02730.i, 1
-  %262 = getelementptr inbounds nuw i64, ptr %39, i64 %.02730.i
+  %262 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %.02730.i
   store i64 %212, ptr %262, align 8, !tbaa !44
   br label %266
 
 263:                                              ; preds = %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIjLb1ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_T0_E_clImiEEDaSO_SP_.exit.i, %_ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.i
   %264 = add i64 %.02631.i, 1
-  %265 = getelementptr inbounds nuw i64, ptr %40, i64 %.02631.i
+  %265 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %.02631.i
   store i64 %212, ptr %265, align 8, !tbaa !44
   br label %266
 
@@ -51329,14 +51269,14 @@ _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.thread
   %.032.i103 = phi i64 [ %325, %324 ], [ 0, %268 ]
   %.02631.i104 = phi i64 [ %.1.i109, %324 ], [ 0, %268 ]
   %.02730.i105 = phi i64 [ %.128.i108, %324 ], [ 0, %268 ]
-  %269 = getelementptr inbounds nuw i64, ptr %19, i64 %.032.i103
+  %269 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.032.i103
   %270 = load i64, ptr %269, align 8, !tbaa !44
   %271 = sub i64 %270, %209
   %272 = add i64 %271, %188
   %273 = lshr i64 %272, 5
   %274 = and i64 %272, 31
   %275 = xor i64 %274, 31
-  %276 = getelementptr inbounds nuw i32, ptr %.sroa.0.0.copyload.i89, i64 %273
+  %276 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0.0.copyload.i89, i64 %273
   %277 = load i32, ptr %276, align 4, !tbaa !99
   %278 = shl nuw nsw i64 1, %275
   %279 = trunc nuw i64 %278 to i32
@@ -51345,7 +51285,7 @@ _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.thread
   br i1 %.not.i.i106, label %_ZNK7xgboost6common15DenseColumnIterIjLb1EEixEm.exit.i115, label %_ZNK7xgboost6common15DenseColumnIterIjLb1EEixEm.exit.thread.i107
 
 _ZNK7xgboost6common15DenseColumnIterIjLb1EEixEm.exit.i115: ; preds = %.lr.ph.i102
-  %281 = getelementptr inbounds nuw i32, ptr %202, i64 %271
+  %281 = getelementptr inbounds nuw [4 x i8], ptr %202, i64 %271
   %282 = load i32, ptr %281, align 4, !tbaa !99
   %283 = add nsw i32 %282, %206
   %284 = icmp eq i32 %283, -1
@@ -51353,7 +51293,7 @@ _ZNK7xgboost6common15DenseColumnIterIjLb1EEixEm.exit.i115: ; preds = %.lr.ph.i10
 
 _ZNK7xgboost6common15DenseColumnIterIjLb1EEixEm.exit.thread.i107: ; preds = %_ZNK7xgboost6common15DenseColumnIterIjLb1EEixEm.exit.i115, %.lr.ph.i102
   %285 = add i64 %.02631.i104, 1
-  %286 = getelementptr inbounds nuw i64, ptr %40, i64 %.02631.i104
+  %286 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %.02631.i104
   store i64 %270, ptr %286, align 8, !tbaa !44
   br label %324
 
@@ -51374,7 +51314,7 @@ _ZNK7xgboost6common15DenseColumnIterIjLb1EEixEm.exit.thread.i107: ; preds = %_ZN
   %.sroa.2.0.copyload.i.i122 = load ptr, ptr %114, align 8, !tbaa !459
   %296 = zext nneg i32 %292 to i64
   %297 = load ptr, ptr %116, align 8, !tbaa !643
-  %298 = getelementptr inbounds nuw float, ptr %297, i64 %296
+  %298 = getelementptr inbounds nuw [4 x i8], ptr %297, i64 %296
   %299 = load float, ptr %298, align 4, !tbaa !134
   %300 = fcmp olt float %299, 0.000000e+00
   %301 = fcmp oge float %299, 0x4170000000000000
@@ -51394,7 +51334,7 @@ _ZNK7xgboost6common15DenseColumnIterIjLb1EEixEm.exit.thread.i107: ; preds = %_ZN
   %309 = lshr i64 %308, 5
   %310 = and i32 %307, 31
   %311 = xor i32 %310, 31
-  %312 = getelementptr inbounds nuw i32, ptr %.sroa.2.0.copyload.i.i122, i64 %309
+  %312 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.2.0.copyload.i.i122, i64 %309
   %313 = load i32, ptr %312, align 4, !tbaa !99
   %314 = xor i32 %313, -1
   %315 = lshr i32 %314, %311
@@ -51413,13 +51353,13 @@ _ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIjLb1ELb1ENS_4tree14CPUE
 
 _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.thread.i118: ; preds = %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIjLb1ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_T0_E_clImiEEDaSO_SP_.exit.i116, %_ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.i119, %303, %295
   %319 = add i64 %.02730.i105, 1
-  %320 = getelementptr inbounds nuw i64, ptr %39, i64 %.02730.i105
+  %320 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %.02730.i105
   store i64 %270, ptr %320, align 8, !tbaa !44
   br label %324
 
 321:                                              ; preds = %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIjLb1ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_T0_E_clImiEEDaSO_SP_.exit.i116, %_ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.i119
   %322 = add i64 %.02631.i104, 1
-  %323 = getelementptr inbounds nuw i64, ptr %40, i64 %.02631.i104
+  %323 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %.02631.i104
   store i64 %270, ptr %323, align 8, !tbaa !44
   br label %324
 
@@ -51447,11 +51387,11 @@ _ZNK7xgboost6common4SpanIKmLm18446744073709551615EE5frontEv.exit: ; preds = %_ZN
   call void @llvm.experimental.noalias.scope.decl(metadata !1699)
   %331 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %332 = load ptr, ptr %331, align 8, !tbaa !1452, !noalias !1699
-  %333 = getelementptr inbounds nuw i64, ptr %332, i64 %179
+  %333 = getelementptr inbounds nuw [8 x i8], ptr %332, i64 %179
   %334 = load i64, ptr %333, align 8, !tbaa !44, !noalias !1699
   %335 = add i32 %73, 1
   %336 = zext i32 %335 to i64
-  %337 = getelementptr inbounds nuw i64, ptr %332, i64 %336
+  %337 = getelementptr inbounds nuw [8 x i8], ptr %332, i64 %336
   %338 = load i64, ptr %337, align 8, !tbaa !44, !noalias !1699
   %339 = sub i64 %338, %334
   %340 = getelementptr inbounds nuw i8, ptr %7, i64 216
@@ -51472,7 +51412,7 @@ _ZNK7xgboost6common4SpanIKmLm18446744073709551615EE5frontEv.exit: ; preds = %_ZN
 _ZN7xgboost6common4SpanIKjLm18446744073709551615EEC2EPS2_m.exit.i: ; preds = %_ZNK7xgboost6common4SpanIKmLm18446744073709551615EE5frontEv.exit
   %350 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %351 = load ptr, ptr %350, align 8, !tbaa !1452, !noalias !1699
-  %352 = getelementptr inbounds nuw i64, ptr %351, i64 %334
+  %352 = getelementptr inbounds nuw [8 x i8], ptr %351, i64 %334
   %353 = icmp ne ptr %351, null
   %354 = or i1 %347, %353
   br i1 %354, label %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i, label %355, !prof !127
@@ -51484,7 +51424,7 @@ _ZN7xgboost6common4SpanIKjLm18446744073709551615EEC2EPS2_m.exit.i: ; preds = %_Z
 _ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i: ; preds = %_ZN7xgboost6common4SpanIKjLm18446744073709551615EEC2EPS2_m.exit.i
   %356 = getelementptr inbounds nuw i8, ptr %7, i64 160
   %357 = load ptr, ptr %356, align 8, !tbaa !1457, !noalias !1699
-  %358 = getelementptr inbounds nuw i32, ptr %357, i64 %179
+  %358 = getelementptr inbounds nuw [4 x i8], ptr %357, i64 %179
   %359 = load i32, ptr %358, align 4, !tbaa !99, !noalias !1699
   %360 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i64 %339, ptr %360, align 8, !tbaa !44, !alias.scope !1699
@@ -51504,7 +51444,7 @@ _ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i:           ; preds = %_ZN7xgboost6common4
   %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i ], [ %352, %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i ]
   %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i ], [ %339, %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i ]
   %364 = lshr i64 %.01116.i.i.i.i, 1
-  %365 = getelementptr inbounds nuw i64, ptr %.017.i.i.i.i, i64 %364
+  %365 = getelementptr inbounds nuw [8 x i8], ptr %.017.i.i.i.i, i64 %364
   %366 = load i64, ptr %365, align 8, !tbaa !44, !noalias !1699
   %367 = icmp ult i64 %366, %330
   %368 = getelementptr inbounds nuw i8, ptr %365, i64 8
@@ -51550,7 +51490,7 @@ _ZN7xgboost6common16PartitionBuilderILm2048EE20PartitionRangeKernelIZNS2_9Partit
   %.sroa.10.0 = phi i64 [ %.1.i92, %266 ], [ %.sroa.10.2, %381 ], [ %.120.i, %126 ], [ 0, %125 ], [ 0, %210 ], [ 0, %268 ], [ %.1.i109, %324 ]
   %.sroa.0167.0 = phi i64 [ %.128.i, %266 ], [ %.sroa.0167.2, %381 ], [ %.1.i, %126 ], [ 0, %125 ], [ 0, %210 ], [ 0, %268 ], [ %.128.i108, %324 ]
   %382 = load ptr, ptr %21, align 8, !tbaa !168
-  %383 = getelementptr inbounds nuw i64, ptr %382, i64 %22
+  %383 = getelementptr inbounds nuw [8 x i8], ptr %382, i64 %22
   %384 = load i64, ptr %383, align 8, !tbaa !44
   %385 = add i64 %384, %26
   %386 = load ptr, ptr %29, align 8, !tbaa !175
@@ -51567,7 +51507,7 @@ _ZN7xgboost6common16PartitionBuilderILm2048EE20PartitionRangeKernelIZNS2_9Partit
   unreachable
 
 _ZN7xgboost6common16PartitionBuilderILm2048EE13SetNLeftElemsEimm.exit: ; preds = %_ZN7xgboost6common16PartitionBuilderILm2048EE20PartitionRangeKernelIZNS2_9PartitionIjLb1ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS8_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmEUlT_E_EESt4pairImmENS0_4SpanISN_Lm18446744073709551615EEENST_ImLm18446744073709551615EEESV_SP_.exit
-  %393 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %387, i64 %385
+  %393 = getelementptr inbounds nuw [16 x i8], ptr %387, i64 %385
   %394 = load ptr, ptr %393, align 8, !tbaa !1314
   store i64 %.sroa.0167.0, ptr %394, align 8, !tbaa !1319
   %395 = load i64, ptr %383, align 8, !tbaa !44
@@ -51580,7 +51520,7 @@ _ZN7xgboost6common16PartitionBuilderILm2048EE13SetNLeftElemsEimm.exit: ; preds =
   unreachable
 
 _ZN7xgboost6common16PartitionBuilderILm2048EE14SetNRightElemsEimm.exit: ; preds = %_ZN7xgboost6common16PartitionBuilderILm2048EE13SetNLeftElemsEimm.exit
-  %398 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %387, i64 %396
+  %398 = getelementptr inbounds nuw [16 x i8], ptr %387, i64 %396
   %399 = load ptr, ptr %398, align 8, !tbaa !1314
   %400 = getelementptr inbounds nuw i8, ptr %399, i64 8
   store i64 %.sroa.10.0, ptr %400, align 8, !tbaa !1323
@@ -51624,7 +51564,7 @@ define linkonce_odr { i64, i64 } @_ZN7xgboost6common16PartitionBuilderILm2048EE1
   %.037 = phi i64 [ 0, %.lr.ph ], [ %94, %93 ]
   %.02736 = phi i64 [ 0, %.lr.ph ], [ %.1, %93 ]
   %.02835 = phi i64 [ 0, %.lr.ph ], [ %.129, %93 ]
-  %24 = getelementptr inbounds nuw i64, ptr %3, i64 %.037
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.037
   %25 = load i64, ptr %24, align 8, !tbaa !44
   %26 = sub i64 %25, %7
   %27 = load i64, ptr %12, align 8, !tbaa !1707
@@ -51638,7 +51578,7 @@ define linkonce_odr { i64, i64 } @_ZN7xgboost6common16PartitionBuilderILm2048EE1
 
 31:                                               ; preds = %36, %.lr.ph.i
   %32 = phi i64 [ %28, %.lr.ph.i ], [ %37, %36 ]
-  %33 = getelementptr inbounds nuw i64, ptr %30, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %32
   %34 = load i64, ptr %33, align 8, !tbaa !44
   %35 = icmp ult i64 %34, %26
   br i1 %35, label %36, label %38
@@ -51656,7 +51596,7 @@ define linkonce_odr { i64, i64 } @_ZN7xgboost6common16PartitionBuilderILm2048EE1
 _ZN7xgboost6common16SparseColumnIterIjEixEm.exit: ; preds = %38
   %40 = load i32, ptr %15, align 8, !tbaa !1702
   %41 = load ptr, ptr %16, align 8, !tbaa !1708
-  %42 = getelementptr inbounds nuw i32, ptr %41, i64 %32
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %32
   %43 = load i32, ptr %42, align 4, !tbaa !99
   %44 = add nsw i32 %43, %40
   %45 = icmp eq i32 %44, -1
@@ -51664,7 +51604,7 @@ _ZN7xgboost6common16SparseColumnIterIjEixEm.exit: ; preds = %38
 
 _ZN7xgboost6common16SparseColumnIterIjEixEm.exit.thread: ; preds = %36, %38, %23, %_ZN7xgboost6common16SparseColumnIterIjEixEm.exit
   %46 = add i64 %.02835, 1
-  %47 = getelementptr inbounds nuw i64, ptr %5, i64 %.02835
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.02835
   store i64 %25, ptr %47, align 8, !tbaa !44
   br label %93
 
@@ -51692,7 +51632,7 @@ _ZN7xgboost6common16SparseColumnIterIjEixEm.exit.thread: ; preds = %36, %38, %23
   %63 = load ptr, ptr %22, align 8, !tbaa !1715
   %64 = zext nneg i32 %57 to i64
   %65 = load ptr, ptr %63, align 8, !tbaa !643
-  %66 = getelementptr inbounds nuw float, ptr %65, i64 %64
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %64
   %67 = load float, ptr %66, align 4, !tbaa !134
   %68 = fcmp olt float %67, 0.000000e+00
   %69 = fcmp oge float %67, 0x4170000000000000
@@ -51712,7 +51652,7 @@ _ZN7xgboost6common16SparseColumnIterIjEixEm.exit.thread: ; preds = %36, %38, %23
   %77 = lshr i64 %76, 5
   %78 = and i32 %75, 31
   %79 = xor i32 %78, 31
-  %80 = getelementptr inbounds nuw i32, ptr %.sroa.2.0.copyload.i, i64 %77
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.2.0.copyload.i, i64 %77
   %81 = load i32, ptr %80, align 4, !tbaa !99
   %82 = xor i32 %81, -1
   %83 = lshr i32 %82, %79
@@ -51732,13 +51672,13 @@ _ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIjLb1ELb1ENS_4tree14CPUE
 
 _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.thread: ; preds = %71, %61, %_ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i, %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIjLb1ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_T0_E_clImiEEDaSO_SP_.exit
   %88 = add i64 %.02835, 1
-  %89 = getelementptr inbounds nuw i64, ptr %5, i64 %.02835
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.02835
   store i64 %25, ptr %89, align 8, !tbaa !44
   br label %93
 
 90:                                               ; preds = %_ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i, %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIjLb1ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_T0_E_clImiEEDaSO_SP_.exit
   %91 = add i64 %.02736, 1
-  %92 = getelementptr inbounds nuw i64, ptr %11, i64 %.02736
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.02736
   store i64 %25, ptr %92, align 8, !tbaa !44
   br label %93
 
@@ -51782,7 +51722,7 @@ define linkonce_odr { i64, i64 } @_ZN7xgboost6common16PartitionBuilderILm2048EE1
   %.037 = phi i64 [ 0, %.lr.ph ], [ %94, %93 ]
   %.02736 = phi i64 [ 0, %.lr.ph ], [ %.1, %93 ]
   %.02835 = phi i64 [ 0, %.lr.ph ], [ %.129, %93 ]
-  %24 = getelementptr inbounds nuw i64, ptr %3, i64 %.037
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.037
   %25 = load i64, ptr %24, align 8, !tbaa !44
   %26 = sub i64 %25, %7
   %27 = load i64, ptr %12, align 8, !tbaa !1707
@@ -51796,7 +51736,7 @@ define linkonce_odr { i64, i64 } @_ZN7xgboost6common16PartitionBuilderILm2048EE1
 
 31:                                               ; preds = %36, %.lr.ph.i
   %32 = phi i64 [ %28, %.lr.ph.i ], [ %37, %36 ]
-  %33 = getelementptr inbounds nuw i64, ptr %30, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %32
   %34 = load i64, ptr %33, align 8, !tbaa !44
   %35 = icmp ult i64 %34, %26
   br i1 %35, label %36, label %38
@@ -51814,7 +51754,7 @@ define linkonce_odr { i64, i64 } @_ZN7xgboost6common16PartitionBuilderILm2048EE1
 _ZN7xgboost6common16SparseColumnIterIjEixEm.exit: ; preds = %38
   %40 = load i32, ptr %15, align 8, !tbaa !1702
   %41 = load ptr, ptr %16, align 8, !tbaa !1708
-  %42 = getelementptr inbounds nuw i32, ptr %41, i64 %32
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %32
   %43 = load i32, ptr %42, align 4, !tbaa !99
   %44 = add nsw i32 %43, %40
   %45 = icmp eq i32 %44, -1
@@ -51822,7 +51762,7 @@ _ZN7xgboost6common16SparseColumnIterIjEixEm.exit: ; preds = %38
 
 _ZN7xgboost6common16SparseColumnIterIjEixEm.exit.thread: ; preds = %36, %38, %23, %_ZN7xgboost6common16SparseColumnIterIjEixEm.exit
   %46 = add i64 %.02736, 1
-  %47 = getelementptr inbounds nuw i64, ptr %11, i64 %.02736
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.02736
   store i64 %25, ptr %47, align 8, !tbaa !44
   br label %93
 
@@ -51850,7 +51790,7 @@ _ZN7xgboost6common16SparseColumnIterIjEixEm.exit.thread: ; preds = %36, %38, %23
   %63 = load ptr, ptr %22, align 8, !tbaa !1715
   %64 = zext nneg i32 %57 to i64
   %65 = load ptr, ptr %63, align 8, !tbaa !643
-  %66 = getelementptr inbounds nuw float, ptr %65, i64 %64
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %64
   %67 = load float, ptr %66, align 4, !tbaa !134
   %68 = fcmp olt float %67, 0.000000e+00
   %69 = fcmp oge float %67, 0x4170000000000000
@@ -51870,7 +51810,7 @@ _ZN7xgboost6common16SparseColumnIterIjEixEm.exit.thread: ; preds = %36, %38, %23
   %77 = lshr i64 %76, 5
   %78 = and i32 %75, 31
   %79 = xor i32 %78, 31
-  %80 = getelementptr inbounds nuw i32, ptr %.sroa.2.0.copyload.i, i64 %77
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.2.0.copyload.i, i64 %77
   %81 = load i32, ptr %80, align 4, !tbaa !99
   %82 = xor i32 %81, -1
   %83 = lshr i32 %82, %79
@@ -51890,13 +51830,13 @@ _ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIjLb1ELb1ENS_4tree14CPUE
 
 _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.thread: ; preds = %71, %61, %_ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i, %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIjLb1ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_T0_E_clImiEEDaSO_SP_.exit
   %88 = add i64 %.02835, 1
-  %89 = getelementptr inbounds nuw i64, ptr %5, i64 %.02835
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.02835
   store i64 %25, ptr %89, align 8, !tbaa !44
   br label %93
 
 90:                                               ; preds = %_ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i, %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIjLb1ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_T0_E_clImiEEDaSO_SP_.exit
   %91 = add i64 %.02736, 1
-  %92 = getelementptr inbounds nuw i64, ptr %11, i64 %.02736
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.02736
   store i64 %25, ptr %92, align 8, !tbaa !44
   br label %93
 
@@ -51951,12 +51891,12 @@ define linkonce_odr void @_ZN4dmlc12OMPException3RunIZN7xgboost6common13Parallel
   %27 = load ptr, ptr %22, align 8, !tbaa !1580
   %28 = load ptr, ptr %20, align 8, !tbaa !1724
   %29 = load ptr, ptr %28, align 8, !tbaa !562
-  %30 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %29, i64 %24
+  %30 = getelementptr inbounds nuw [88 x i8], ptr %29, i64 %24
   %31 = load i32, ptr %30, align 8, !tbaa !535
   %32 = getelementptr inbounds nuw i8, ptr %27, i64 112
   %33 = sext i32 %31 to i64
   %34 = load ptr, ptr %32, align 8, !tbaa !164
-  %35 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %34, i64 %33
+  %35 = getelementptr inbounds nuw [24 x i8], ptr %34, i64 %33
   %36 = load ptr, ptr %35, align 8, !tbaa !917
   %37 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %sext.i.i = shl i64 %24, 32
@@ -51968,11 +51908,11 @@ define linkonce_odr void @_ZN4dmlc12OMPException3RunIZN7xgboost6common13Parallel
   %43 = add i64 %41, %42
   %44 = getelementptr inbounds nuw i8, ptr %27, i64 56
   %45 = load ptr, ptr %44, align 8, !tbaa !172
-  %46 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %45, i64 %43
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %45, i64 %43
   %47 = load ptr, ptr %46, align 8, !tbaa !1314
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %49 = load i64, ptr %48, align 8, !tbaa !1322
-  %50 = getelementptr inbounds nuw i64, ptr %36, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %47, i64 16416
   %52 = load i64, ptr %47, align 8, !tbaa !1319
   %53 = icmp eq i64 %52, 0
@@ -51982,11 +51922,11 @@ _ZSt8__copy_nIPKmmPmET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i.i.i: ; p
   %54 = getelementptr inbounds nuw i8, ptr %47, i64 32
   %55 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %56 = load i64, ptr %55, align 8, !tbaa !1317
-  %57 = getelementptr inbounds nuw i64, ptr %36, i64 %56
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %56
   %.idx.i.i.i.i.i = shl nuw nsw i64 %52, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %57, ptr nonnull align 8 %54, i64 %.idx.i.i.i.i.i, i1 false)
   %.pre.i.i.i = load ptr, ptr %44, align 8, !tbaa !172
-  %.phi.trans.insert.i.i.i = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %.pre.i.i.i, i64 %43
+  %.phi.trans.insert.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %.pre.i.i.i, i64 %43
   %.pre18.i.i.i = load ptr, ptr %.phi.trans.insert.i.i.i, align 8, !tbaa !1314
   br label %_ZSt6copy_nIPKmmPmET1_T_T0_S3_.exit.i.i.i
 
@@ -52327,7 +52267,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %.noexc50
 
 _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit36.i: ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i, %.noexc50
   store ptr %31, ptr %8, align 8, !tbaa !194
-  %35 = getelementptr inbounds nuw i32, ptr %31, i64 %21
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %21
   store ptr %35, ptr %25, align 8, !tbaa !545
   store ptr %35, ptr %27, align 8, !tbaa !197
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
@@ -52544,10 +52484,10 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 116:                                              ; preds = %._crit_edge35.i, %.lr.ph39.i
   %.01637.i = phi i64 [ 0, %.lr.ph39.i ], [ %119, %._crit_edge35.i ]
-  %117 = getelementptr inbounds nuw i64, ptr %107, i64 %.01637.i
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %.01637.i
   %118 = load i64, ptr %117, align 8, !tbaa !44
   %119 = add nuw i64 %.01637.i, 1
-  %120 = getelementptr inbounds nuw i64, ptr %107, i64 %119
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %119
   %121 = load i64, ptr %120, align 8, !tbaa !44
   %122 = icmp ult i64 %118, %121
   br i1 %122, label %.lr.ph.i, label %._crit_edge35.i
@@ -52560,7 +52500,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 .lr.ph.i:                                         ; preds = %116, %.lr.ph.i
   %.01528.i = phi i64 [ %129, %.lr.ph.i ], [ %118, %116 ]
   %.02327.i = phi i64 [ %128, %.lr.ph.i ], [ 0, %116 ]
-  %124 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %114, i64 %.01528.i
+  %124 = getelementptr inbounds nuw [16 x i8], ptr %114, i64 %.01528.i
   %125 = load ptr, ptr %124, align 8, !tbaa !1314
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 16
   store i64 %.02327.i, ptr %126, align 8, !tbaa !1317
@@ -52574,7 +52514,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 ._crit_edge35.i:                                  ; preds = %.lr.ph34.i, %._crit_edge.i, %116
   %.023.lcssa48.i = phi i64 [ %128, %._crit_edge.i ], [ 0, %116 ], [ %128, %.lr.ph34.i ]
   %.024.lcssa.i = phi i64 [ 0, %._crit_edge.i ], [ 0, %116 ], [ %140, %.lr.ph34.i ]
-  %132 = getelementptr inbounds nuw %"struct.std::pair.129", ptr %115, i64 %.01637.i
+  %132 = getelementptr inbounds nuw [16 x i8], ptr %115, i64 %.01637.i
   store i64 %.023.lcssa48.i, ptr %132, align 8, !tbaa !1126
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 8
   store i64 %.024.lcssa.i, ptr %133, align 8, !tbaa !1128
@@ -52585,7 +52525,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %.032.i = phi i64 [ %141, %.lr.ph34.i ], [ %.pre.i, %._crit_edge.i ]
   %.02431.i = phi i64 [ %140, %.lr.ph34.i ], [ 0, %._crit_edge.i ]
   %134 = add i64 %.02431.i, %128
-  %135 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %114, i64 %.032.i
+  %135 = getelementptr inbounds nuw [16 x i8], ptr %114, i64 %.032.i
   %136 = load ptr, ptr %135, align 8, !tbaa !1314
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 24
   store i64 %134, ptr %137, align 8, !tbaa !1322
@@ -52730,12 +52670,12 @@ define linkonce_odr void @_ZN7xgboost6common14BlockedSpace2dC2IZNS_4tree20Common
   %13 = load ptr, ptr %6, align 8, !tbaa !1731
   %14 = load ptr, ptr %2, align 8, !tbaa !1740
   %15 = load ptr, ptr %14, align 8, !tbaa !562
-  %16 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %15, i64 %.039
+  %16 = getelementptr inbounds nuw [88 x i8], ptr %15, i64 %.039
   %17 = load i32, ptr %16, align 8, !tbaa !535
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 112
   %19 = sext i32 %17 to i64
   %20 = load ptr, ptr %18, align 8, !tbaa !164
-  %21 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %20, i64 %19
+  %21 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %19
   %22 = load ptr, ptr %21, align 8, !tbaa !917
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !919
@@ -52826,7 +52766,7 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIP
   %.pre = phi ptr [ %.pre.pre, %60 ], [ %36, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i ]
   store ptr %55, ptr %5, align 8, !tbaa !168
   store ptr %59, ptr %7, align 8, !tbaa !906
-  %61 = getelementptr inbounds nuw i64, ptr %55, i64 %53
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %53
   store ptr %61, ptr %8, align 8, !tbaa !171
   br label %_ZNSt6vectorImSaImEE9push_backERKm.exit.i
 
@@ -52926,7 +52866,7 @@ _ZNSt6vectorIN7xgboost6common7Range1dESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit3
 .noexc25:                                         ; preds = %84, %_ZNSt6vectorIN7xgboost6common7Range1dESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit33.i
   store ptr %79, ptr %0, align 8, !tbaa !861
   store ptr %83, ptr %9, align 8, !tbaa !1078
-  %98 = getelementptr inbounds nuw %"class.xgboost::common::Range1d", ptr %79, i64 %77
+  %98 = getelementptr inbounds nuw [16 x i8], ptr %79, i64 %77
   store ptr %98, ptr %10, align 8, !tbaa !864
   br label %_ZN7xgboost6common14BlockedSpace2d8AddBlockEmmm.exit
 
@@ -52999,7 +52939,7 @@ define linkonce_odr void @_ZN7xgboost6common16PartitionBuilderILm2048EE4InitIZNS
   br i1 %17, label %18, label %_ZNSt6vectorISt4pairImmESaIS1_EE6resizeEm.exit
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds nuw %"struct.std::pair.129", ptr %8, i64 %2
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %2
   %.not.i.i = icmp eq ptr %7, %19
   br i1 %.not.i.i, label %_ZNSt6vectorISt4pairImmESaIS1_EE6resizeEm.exit, label %20
 
@@ -53031,7 +52971,7 @@ _ZNSt6vectorISt4pairImmESaIS1_EE6resizeEm.exit:   ; preds = %14, %16, %18, %20
   br i1 %34, label %35, label %_ZNSt6vectorImSaImEE6resizeEm.exit
 
 35:                                               ; preds = %33
-  %36 = getelementptr inbounds nuw i64, ptr %25, i64 %22
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %22
   %.not.i.i12 = icmp eq ptr %24, %36
   br i1 %.not.i.i12, label %_ZNSt6vectorImSaImEE6resizeEm.exit, label %37
 
@@ -53060,11 +53000,11 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %31, %33, %35, %37
 46:                                               ; preds = %.lr.ph, %46
   %47 = phi i64 [ 0, %.lr.ph ], [ %65, %46 ]
   %.014 = phi i64 [ 1, %.lr.ph ], [ %67, %46 ]
-  %48 = getelementptr %"struct.xgboost::tree::CPUExpandEntry", ptr %40, i64 %.014
+  %48 = getelementptr [88 x i8], ptr %40, i64 %.014
   %49 = getelementptr i8, ptr %48, i64 -88
   %50 = load i32, ptr %49, align 8, !tbaa !535
   %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %42, i64 %51
+  %52 = getelementptr inbounds nuw [24 x i8], ptr %42, i64 %51
   %53 = load ptr, ptr %52, align 8, !tbaa !917
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %55 = load ptr, ptr %54, align 8, !tbaa !919
@@ -53078,7 +53018,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %31, %33, %35, %37
   %63 = zext i1 %62 to i64
   %64 = add i64 %60, %47
   %65 = add i64 %64, %63
-  %66 = getelementptr inbounds nuw i64, ptr %38, i64 %.014
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %.014
   store i64 %65, ptr %66, align 8, !tbaa !44
   %67 = add nuw i64 %.014, 1
   %exitcond.not = icmp eq i64 %.014, %2
@@ -53106,7 +53046,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %31, %33, %35, %37
   br i1 %81, label %82, label %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit
 
 82:                                               ; preds = %80
-  %83 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %72, i64 %1
+  %83 = getelementptr inbounds nuw [16 x i8], ptr %72, i64 %1
   %.not.i.i13 = icmp eq ptr %71, %83
   br i1 %.not.i.i13, label %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i
 
@@ -54816,7 +54756,7 @@ define linkonce_odr void @_ZZN7xgboost4tree17ColumnSplitHelper9PartitionIhLb0ELb
   %8 = load ptr, ptr %7, align 8, !tbaa !1750
   %9 = load ptr, ptr %0, align 8, !tbaa !1803
   %10 = load ptr, ptr %9, align 8, !tbaa !562
-  %11 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %10, i64 %1
+  %11 = getelementptr inbounds nuw [88 x i8], ptr %10, i64 %1
   %12 = load i32, ptr %11, align 8, !tbaa !535
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -54905,7 +54845,7 @@ _ZZN7xgboost4tree17ColumnSplitHelper9PartitionIhLb0ELb1ENS0_14CPUExpandEntryEEEv
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %61 = load ptr, ptr %60, align 8, !tbaa !1806
   %62 = load ptr, ptr %61, align 8, !tbaa !194
-  %63 = getelementptr inbounds nuw i32, ptr %62, i64 %1
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %1
   %64 = load i32, ptr %63, align 4, !tbaa !99
   br label %65
 
@@ -54923,7 +54863,7 @@ _ZZN7xgboost4tree17ColumnSplitHelper9PartitionIhLb0ELb1ENS0_14CPUExpandEntryEEEv
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 24
   %77 = sext i32 %12 to i64
   %78 = load ptr, ptr %76, align 8, !tbaa !164
-  %79 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %78, i64 %77
+  %79 = getelementptr inbounds nuw [24 x i8], ptr %78, i64 %77
   %80 = load ptr, ptr %79, align 8, !tbaa !917
   call void @_ZN7xgboost6common16PartitionBuilderILm2048EE8MaskRowsIhLb0ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmPNS_17BitFieldContainerIhNS_11RBitsPolicyIhEELb0EEESS_(ptr noundef nonnull align 8 dereferenceable(80) %68, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %2, i64 %3, i32 noundef %66, ptr noundef nonnull align 8 dereferenceable(233) %70, ptr noundef nonnull align 8 dereferenceable(218) %56, ptr noundef nonnull align 8 dereferenceable(312) %73, ptr noundef %80, ptr noundef nonnull %5, ptr noundef nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -54948,7 +54888,7 @@ _ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_S4_.exit:
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx99
   %22 = sub nsw i64 %4, %3
   %23 = load ptr, ptr %2, align 8, !tbaa !562
-  %24 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %23, i64 %1
+  %24 = getelementptr inbounds nuw [88 x i8], ptr %23, i64 %1
   %25 = load i32, ptr %24, align 8, !tbaa !535
   %26 = sext i32 %25 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
@@ -54961,14 +54901,14 @@ _ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_S4_.exit:
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 40
   %31 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7xgboost16HostDeviceVectorIjE15ConstHostVectorEv(ptr noundef nonnull align 8 dereferenceable(8) %30)
   %32 = load ptr, ptr %31, align 8, !tbaa !449
-  %33 = getelementptr inbounds nuw i32, ptr %32, i64 %26
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %26
   %34 = load i32, ptr %33, align 4, !tbaa !99
   br label %_ZNK7xgboost7RegTree10SplitIndexEi.exit
 
 35:                                               ; preds = %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_S4_.exit
   %36 = getelementptr inbounds nuw i8, ptr %8, i64 160
   %37 = load ptr, ptr %36, align 8, !tbaa !536
-  %38 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %37, i64 %26
+  %38 = getelementptr inbounds nuw [20 x i8], ptr %37, i64 %26
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 12
   %40 = load i32, ptr %39, align 4, !tbaa !810
   %41 = and i32 %40, 2147483647
@@ -55010,7 +54950,7 @@ _ZNK7xgboost7RegTree10SplitIndexEi.exit:          ; preds = %29, %35
   unreachable
 
 _ZNK7xgboost6common4SpanIKNS_7RegTree22CategoricalSplitMatrix7SegmentELm18446744073709551615EEixEm.exit.i: ; preds = %_ZNK7xgboost7RegTree10SplitIndexEi.exit
-  %67 = getelementptr inbounds nuw %"struct.xgboost::RegTree::CategoricalSplitMatrix::Segment", ptr %59, i64 %26
+  %67 = getelementptr inbounds nuw [16 x i8], ptr %59, i64 %26
   %.sroa.0.0.copyload.i = load i64, ptr %67, align 8, !tbaa !44
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %67, i64 8
   %.sroa.4.0.copyload.i = load i64, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !44
@@ -55046,7 +54986,7 @@ _ZNK7xgboost6common4SpanIKNS_7RegTree22CategoricalSplitMatrix7SegmentELm18446744
   unreachable
 
 _ZNK7xgboost7RegTree8NodeCatsEi.exit:             ; preds = %75
-  %81 = getelementptr inbounds nuw i32, ptr %52, i64 %.sroa.0.0.copyload.i
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %.sroa.0.0.copyload.i
   store i64 %76, ptr %15, align 8
   %82 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %81, ptr %82, align 8
@@ -55095,7 +55035,7 @@ _ZNK7xgboost7RegTree8NodeCatsEi.exit:             ; preds = %75
   unreachable
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit: ; preds = %101
-  %103 = getelementptr inbounds nuw i64, ptr %21, i64 %.sroa.693.0107
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %.sroa.693.0107
   %104 = load i64, ptr %103, align 8, !tbaa !44
   %105 = load i32, ptr %13, align 4, !tbaa !99
   %106 = zext i32 %105 to i64
@@ -55112,7 +55052,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
   %.sroa.24.0.copyload = load ptr, ptr %82, align 8, !tbaa !459
   %113 = zext nneg i32 %107 to i64
   %114 = load ptr, ptr %84, align 8, !tbaa !643
-  %115 = getelementptr inbounds nuw float, ptr %114, i64 %113
+  %115 = getelementptr inbounds nuw [4 x i8], ptr %114, i64 %113
   %116 = load float, ptr %115, align 4, !tbaa !134
   %117 = fcmp olt float %116, 0.000000e+00
   %118 = fcmp oge float %116, 0x4170000000000000
@@ -55129,10 +55069,10 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
 123:                                              ; preds = %109
   %124 = zext nneg i32 %107 to i64
   %125 = load ptr, ptr %84, align 8, !tbaa !643
-  %126 = getelementptr inbounds nuw float, ptr %125, i64 %124
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %125, i64 %124
   %127 = load float, ptr %126, align 4, !tbaa !134
   %128 = load ptr, ptr %2, align 8, !tbaa !562
-  %129 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %128, i64 %1
+  %129 = getelementptr inbounds nuw [88 x i8], ptr %128, i64 %1
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 16
   %131 = load float, ptr %130, align 8, !tbaa !809
   %132 = fcmp ugt float %127, %131
@@ -55144,7 +55084,7 @@ _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit: ; preds
   %135 = lshr i64 %134, 5
   %136 = and i32 %133, 31
   %137 = xor i32 %136, 31
-  %138 = getelementptr inbounds nuw i32, ptr %.sroa.24.0.copyload, i64 %135
+  %138 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.24.0.copyload, i64 %135
   %139 = load i32, ptr %138, align 4, !tbaa !99
   %140 = shl nuw i32 1, %137
   %141 = and i32 %139, %140
@@ -55175,11 +55115,11 @@ _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit: ; preds
 154:                                              ; preds = %142
   %155 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %156 = load ptr, ptr %155, align 8, !tbaa !1452, !noalias !1812
-  %157 = getelementptr inbounds nuw i64, ptr %156, i64 %149
+  %157 = getelementptr inbounds nuw [8 x i8], ptr %156, i64 %149
   %158 = load i64, ptr %157, align 8, !tbaa !44, !noalias !1812
   %159 = add i32 %42, 1
   %160 = zext i32 %159 to i64
-  %161 = getelementptr inbounds nuw i64, ptr %156, i64 %160
+  %161 = getelementptr inbounds nuw [8 x i8], ptr %156, i64 %160
   %162 = load i64, ptr %161, align 8, !tbaa !44, !noalias !1812
   %163 = load ptr, ptr %7, align 8, !tbaa !1456, !noalias !1812
   %164 = icmp ne ptr %163, null
@@ -55199,7 +55139,7 @@ _ZNK7xgboost6common12ColumnMatrix11DenseColumnIhLb0EEEDaj.exit: ; preds = %154
   %172 = getelementptr inbounds nuw i8, ptr %163, i64 %171
   %173 = getelementptr inbounds nuw i8, ptr %7, i64 160
   %174 = load ptr, ptr %173, align 8, !tbaa !1457, !noalias !1812
-  %175 = getelementptr inbounds nuw i32, ptr %174, i64 %149
+  %175 = getelementptr inbounds nuw [4 x i8], ptr %174, i64 %149
   %176 = load i32, ptr %175, align 4, !tbaa !99, !noalias !1812
   %177 = getelementptr inbounds nuw i8, ptr %6, i64 192
   %178 = load i64, ptr %177, align 8, !tbaa !1443
@@ -55213,7 +55153,7 @@ _ZNK7xgboost6common12ColumnMatrix11DenseColumnIhLb0EEEDaj.exit: ; preds = %154
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i: ; preds = %_ZNK7xgboost6common12ColumnMatrix11DenseColumnIhLb0EEEDaj.exit, %179
   %.sroa.6.020.i = phi i64 [ %180, %179 ], [ 0, %_ZNK7xgboost6common12ColumnMatrix11DenseColumnIhLb0EEEDaj.exit ]
-  %181 = getelementptr inbounds nuw i64, ptr %21, i64 %.sroa.6.020.i
+  %181 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %.sroa.6.020.i
   %182 = load i64, ptr %181, align 8, !tbaa !44
   %183 = sub i64 %182, %178
   %184 = getelementptr inbounds nuw i8, ptr %172, i64 %183
@@ -55347,11 +55287,11 @@ _ZNK7xgboost6common4SpanIKmLm18446744073709551615EE5frontEv.exit: ; preds = %_ZN
   %228 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %229 = zext i32 %223 to i64
   %230 = load ptr, ptr %228, align 8, !tbaa !1452, !noalias !1815
-  %231 = getelementptr inbounds nuw i64, ptr %230, i64 %229
+  %231 = getelementptr inbounds nuw [8 x i8], ptr %230, i64 %229
   %232 = load i64, ptr %231, align 8, !tbaa !44, !noalias !1815
   %233 = add i32 %223, 1
   %234 = zext i32 %233 to i64
-  %235 = getelementptr inbounds nuw i64, ptr %230, i64 %234
+  %235 = getelementptr inbounds nuw [8 x i8], ptr %230, i64 %234
   %236 = load i64, ptr %235, align 8, !tbaa !44, !noalias !1815
   %237 = sub i64 %236, %232
   %238 = getelementptr inbounds nuw i8, ptr %7, i64 216
@@ -55372,7 +55312,7 @@ _ZNK7xgboost6common4SpanIKmLm18446744073709551615EE5frontEv.exit: ; preds = %_ZN
 _ZN7xgboost6common4SpanIKhLm18446744073709551615EEC2EPS2_m.exit.i: ; preds = %_ZNK7xgboost6common4SpanIKmLm18446744073709551615EE5frontEv.exit
   %248 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %249 = load ptr, ptr %248, align 8, !tbaa !1452, !noalias !1815
-  %250 = getelementptr inbounds nuw i64, ptr %249, i64 %232
+  %250 = getelementptr inbounds nuw [8 x i8], ptr %249, i64 %232
   %251 = icmp ne ptr %249, null
   %252 = or i1 %245, %251
   br i1 %252, label %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i, label %253, !prof !127
@@ -55384,7 +55324,7 @@ _ZN7xgboost6common4SpanIKhLm18446744073709551615EEC2EPS2_m.exit.i: ; preds = %_Z
 _ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i: ; preds = %_ZN7xgboost6common4SpanIKhLm18446744073709551615EEC2EPS2_m.exit.i
   %254 = getelementptr inbounds nuw i8, ptr %7, i64 160
   %255 = load ptr, ptr %254, align 8, !tbaa !1457, !noalias !1815
-  %256 = getelementptr inbounds nuw i32, ptr %255, i64 %229
+  %256 = getelementptr inbounds nuw [4 x i8], ptr %255, i64 %229
   %257 = load i32, ptr %256, align 4, !tbaa !99, !noalias !1815
   %258 = icmp sgt i64 %237, 0
   br i1 %258, label %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i, label %.lr.ph.i80
@@ -55393,7 +55333,7 @@ _ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i:           ; preds = %_ZN7xgboost6common4
   %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i ], [ %250, %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i ]
   %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i ], [ %237, %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i ]
   %259 = lshr i64 %.01116.i.i.i.i, 1
-  %260 = getelementptr inbounds nuw i64, ptr %.017.i.i.i.i, i64 %259
+  %260 = getelementptr inbounds nuw [8 x i8], ptr %.017.i.i.i.i, i64 %259
   %261 = load i64, ptr %260, align 8, !tbaa !44, !noalias !1815
   %262 = icmp ult i64 %261, %227
   %263 = getelementptr inbounds nuw i8, ptr %260, i64 8
@@ -55428,7 +55368,7 @@ _ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i:           ; preds = %_ZN7xgboost6common4
   unreachable
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i82: ; preds = %273
-  %275 = getelementptr inbounds nuw i64, ptr %21, i64 %.sroa.6.023.i
+  %275 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %.sroa.6.023.i
   %276 = load i64, ptr %275, align 8, !tbaa !44
   %277 = sub i64 %276, %226
   %278 = icmp ult i64 %.sroa.13.0, %237
@@ -55436,7 +55376,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
 
 .lr.ph.i.i:                                       ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i82, %282
   %.sroa.13.2 = phi i64 [ %283, %282 ], [ %.sroa.13.0, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i82 ]
-  %279 = getelementptr inbounds nuw i64, ptr %250, i64 %.sroa.13.2
+  %279 = getelementptr inbounds nuw [8 x i8], ptr %250, i64 %.sroa.13.2
   %280 = load i64, ptr %279, align 8, !tbaa !44
   %281 = icmp ult i64 %280, %277
   br i1 %281, label %282, label %284
@@ -55626,7 +55566,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %46 = load ptr, ptr %45, align 8, !tbaa !1827
   %47 = sext i32 %18 to i64
   %48 = load ptr, ptr %46, align 8, !tbaa !643
-  %49 = getelementptr inbounds nuw float, ptr %48, i64 %47
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %47
   %50 = load float, ptr %49, align 4, !tbaa !134
   %51 = fcmp olt float %50, 0.000000e+00
   %52 = fcmp oge float %50, 0x4170000000000000
@@ -55646,7 +55586,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %60 = lshr i64 %59, 5
   %61 = and i32 %58, 31
   %62 = xor i32 %61, 31
-  %63 = getelementptr inbounds nuw i32, ptr %.sroa.2.0.copyload, i64 %60
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.2.0.copyload, i64 %60
   %64 = load i32, ptr %63, align 4, !tbaa !99
   %65 = shl nuw i32 1, %62
   %66 = and i32 %64, %65
@@ -55873,7 +55813,7 @@ define linkonce_odr void @_ZZN7xgboost6common13ParallelFor2dIZNS_4tree17ColumnSp
   %24 = load ptr, ptr %23, align 8, !tbaa !1783
   %25 = load ptr, ptr %16, align 8, !tbaa !1834
   %26 = load ptr, ptr %25, align 8, !tbaa !562
-  %27 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %26, i64 %18
+  %27 = getelementptr inbounds nuw [88 x i8], ptr %26, i64 %18
   %28 = load i32, ptr %27, align 8, !tbaa !535
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 128
   %30 = load ptr, ptr %29, align 8, !tbaa !925
@@ -55886,8 +55826,8 @@ define linkonce_odr void @_ZZN7xgboost6common13ParallelFor2dIZNS_4tree17ColumnSp
   %36 = lshr i64 %21, 11
   %37 = getelementptr inbounds nuw i8, ptr %30, i64 48
   %38 = load ptr, ptr %37, align 8, !tbaa !172
-  %39 = getelementptr %"class.std::shared_ptr.85", ptr %38, i64 %35
-  %40 = getelementptr %"class.std::shared_ptr.85", ptr %39, i64 %36
+  %39 = getelementptr [16 x i8], ptr %38, i64 %35
+  %40 = getelementptr [16 x i8], ptr %39, i64 %36
   %41 = load ptr, ptr %40, align 8, !tbaa !1314
   %42 = icmp eq ptr %41, null
   br i1 %42, label %_ZN4dmlc11LogCheck_NEIPN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoES6_EESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISD_EERKT_RKT0_.exit.i.i, label %_ZZN7xgboost4tree17ColumnSplitHelper9PartitionIhLb0ELb1ENS0_14CPUExpandEntryEEEvPKNS_7ContextERKNS_6common14BlockedSpace2dEiRKNS_16GHistIndexMatrixERKNS7_12ColumnMatrixERKSt6vectorIT2_SaISI_EERKSH_IiSaIiEEPKNS_7RegTreeEENKUlmNS7_7Range1dEE0_clEmSU_.exit
@@ -55912,7 +55852,7 @@ _ZZN7xgboost4tree17ColumnSplitHelper9PartitionIhLb0ELb1ENS0_14CPUExpandEntryEEEv
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 24
   %54 = sext i32 %28 to i64
   %55 = load ptr, ptr %53, align 8, !tbaa !164
-  %56 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %55, i64 %54
+  %56 = getelementptr inbounds nuw [24 x i8], ptr %55, i64 %54
   %57 = load ptr, ptr %56, align 8, !tbaa !917
   %58 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %59 = getelementptr inbounds nuw i8, ptr %24, i64 64
@@ -56117,7 +56057,7 @@ define linkonce_odr void @_ZZN7xgboost6common13ParallelFor2dIZNS_4tree20CommonRo
   %24 = load ptr, ptr %23, align 8, !tbaa !1736
   %25 = load ptr, ptr %16, align 8, !tbaa !1843
   %26 = load ptr, ptr %25, align 8, !tbaa !562
-  %27 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %26, i64 %18
+  %27 = getelementptr inbounds nuw [88 x i8], ptr %26, i64 %18
   %28 = load i32, ptr %27, align 8, !tbaa !535
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %sext.i = shl i64 %18, 32
@@ -56128,8 +56068,8 @@ define linkonce_odr void @_ZZN7xgboost6common13ParallelFor2dIZNS_4tree20CommonRo
   %34 = lshr i64 %21, 11
   %35 = getelementptr inbounds nuw i8, ptr %24, i64 56
   %36 = load ptr, ptr %35, align 8, !tbaa !172
-  %37 = getelementptr %"class.std::shared_ptr.85", ptr %36, i64 %33
-  %38 = getelementptr %"class.std::shared_ptr.85", ptr %37, i64 %34
+  %37 = getelementptr [16 x i8], ptr %36, i64 %33
+  %38 = getelementptr [16 x i8], ptr %37, i64 %34
   %39 = load ptr, ptr %38, align 8, !tbaa !1314
   %40 = icmp eq ptr %39, null
   br i1 %40, label %_ZN4dmlc11LogCheck_NEIPN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoES6_EESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISD_EERKT_RKT0_.exit.i.i, label %_ZN7xgboost6common16PartitionBuilderILm2048EE15AllocateForTaskEm.exit.i
@@ -56151,7 +56091,7 @@ _ZN7xgboost6common16PartitionBuilderILm2048EE15AllocateForTaskEm.exit.i: ; preds
   %47 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %48 = load ptr, ptr %47, align 8, !tbaa !1845
   %49 = load ptr, ptr %48, align 8, !tbaa !194
-  %50 = getelementptr inbounds nuw i32, ptr %49, i64 %18
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %18
   %51 = load i32, ptr %50, align 4, !tbaa !99
   br label %_ZZN7xgboost4tree20CommonRowPartitioner14UpdatePositionIhLb0ELb1ENS0_14CPUExpandEntryEEEvPKNS_7ContextERKNS_16GHistIndexMatrixERKNS_6common12ColumnMatrixERKSt6vectorIT2_SaISF_EEPKNS_7RegTreeEENKUlmNSA_7Range1dEE_clEmSN_.exit
 
@@ -56167,7 +56107,7 @@ _ZZN7xgboost4tree20CommonRowPartitioner14UpdatePositionIhLb0ELb1ENS0_14CPUExpand
   %60 = getelementptr inbounds nuw i8, ptr %24, i64 112
   %61 = sext i32 %28 to i64
   %62 = load ptr, ptr %60, align 8, !tbaa !164
-  %63 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %62, i64 %61
+  %63 = getelementptr inbounds nuw [24 x i8], ptr %62, i64 %61
   %64 = load ptr, ptr %63, align 8, !tbaa !917
   tail call void @_ZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIhLb0ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKm(ptr noundef nonnull align 8 dereferenceable(80) %53, i64 noundef %18, ptr noundef nonnull align 8 dereferenceable(24) %54, i64 %21, i64 %22, i32 noundef %52, ptr noundef nonnull align 8 dereferenceable(233) %56, ptr noundef nonnull align 8 dereferenceable(218) %43, ptr noundef nonnull align 8 dereferenceable(312) %59, ptr noundef %64)
   %65 = add nuw i64 %.011, 1
@@ -56199,7 +56139,7 @@ _ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_S4_.exit:
   %sext = shl i64 %1, 32
   %26 = ashr exact i64 %sext, 32
   %27 = load ptr, ptr %25, align 8, !tbaa !168
-  %28 = getelementptr inbounds nuw i64, ptr %27, i64 %26
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %26
   %29 = load i64, ptr %28, align 8, !tbaa !44
   %30 = lshr i64 %3, 11
   %31 = add i64 %29, %30
@@ -56219,12 +56159,12 @@ _ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_S4_.exit:
   unreachable
 
 _ZN7xgboost6common16PartitionBuilderILm2048EE14GetRightBufferEimm.exit: ; preds = %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_S4_.exit
-  %41 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %35, i64 %31
+  %41 = getelementptr inbounds nuw [16 x i8], ptr %35, i64 %31
   %42 = load ptr, ptr %41, align 8, !tbaa !1314
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 32
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 16416
   %45 = load ptr, ptr %2, align 8, !tbaa !562
-  %46 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %45, i64 %1
+  %46 = getelementptr inbounds nuw [88 x i8], ptr %45, i64 %1
   %47 = load i32, ptr %46, align 8, !tbaa !535
   %48 = sext i32 %47 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -56236,7 +56176,7 @@ _ZN7xgboost6common16PartitionBuilderILm2048EE14GetRightBufferEimm.exit: ; preds 
 _ZNK7xgboost7RegTree10SplitIndexEi.exit.thread:   ; preds = %_ZN7xgboost6common16PartitionBuilderILm2048EE14GetRightBufferEimm.exit
   %51 = getelementptr inbounds nuw i8, ptr %8, i64 160
   %52 = load ptr, ptr %51, align 8, !tbaa !536
-  %53 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %52, i64 %48
+  %53 = getelementptr inbounds nuw [20 x i8], ptr %52, i64 %48
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 12
   %55 = load i32, ptr %54, align 4, !tbaa !810
   %56 = and i32 %55, 2147483647
@@ -56248,7 +56188,7 @@ _ZNK7xgboost7RegTree10SplitIndexEi.exit:          ; preds = %_ZN7xgboost6common1
   %57 = getelementptr inbounds nuw i8, ptr %50, i64 40
   %58 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7xgboost16HostDeviceVectorIjE15ConstHostVectorEv(ptr noundef nonnull align 8 dereferenceable(8) %57)
   %59 = load ptr, ptr %58, align 8, !tbaa !449
-  %60 = getelementptr inbounds nuw i32, ptr %59, i64 %48
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %48
   %61 = load i32, ptr %60, align 4, !tbaa !99
   %.pre = load ptr, ptr %49, align 8, !tbaa !542
   store i32 %61, ptr %11, align 4, !tbaa !99
@@ -56269,7 +56209,7 @@ _ZNK7xgboost7RegTree10SplitIndexEi.exit:          ; preds = %_ZN7xgboost6common1
   %70 = phi i32 [ %56, %_ZNK7xgboost7RegTree10SplitIndexEi.exit.thread ], [ %61, %_ZNK7xgboost7RegTree10SplitIndexEi.exit ]
   %71 = getelementptr inbounds nuw i8, ptr %8, i64 160
   %72 = load ptr, ptr %71, align 8, !tbaa !536
-  %73 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %72, i64 %48
+  %73 = getelementptr inbounds nuw [20 x i8], ptr %72, i64 %48
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 12
   %75 = load i32, ptr %74, align 4, !tbaa !810
   %76 = icmp slt i32 %75, 0
@@ -56313,7 +56253,7 @@ _ZNK7xgboost7RegTree11DefaultLeftEi.exit:         ; preds = %62, %69
   unreachable
 
 _ZNK7xgboost6common4SpanIKNS_7RegTree22CategoricalSplitMatrix7SegmentELm18446744073709551615EEixEm.exit.i: ; preds = %_ZNK7xgboost7RegTree11DefaultLeftEi.exit
-  %103 = getelementptr inbounds nuw %"struct.xgboost::RegTree::CategoricalSplitMatrix::Segment", ptr %95, i64 %48
+  %103 = getelementptr inbounds nuw [16 x i8], ptr %95, i64 %48
   %.sroa.0.0.copyload.i = load i64, ptr %103, align 8, !tbaa !44
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %103, i64 8
   %.sroa.4.0.copyload.i = load i64, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !44
@@ -56349,7 +56289,7 @@ _ZNK7xgboost6common4SpanIKNS_7RegTree22CategoricalSplitMatrix7SegmentELm18446744
   unreachable
 
 _ZNK7xgboost7RegTree8NodeCatsEi.exit:             ; preds = %111
-  %117 = getelementptr inbounds nuw i32, ptr %88, i64 %.sroa.0.0.copyload.i
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %88, i64 %.sroa.0.0.copyload.i
   store i64 %112, ptr %14, align 8
   %118 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %117, ptr %118, align 8
@@ -56389,7 +56329,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
   %.029.i = phi i64 [ %.1.i, %130 ], [ 0, %129 ]
   %.sroa.6.028.i = phi i64 [ %131, %130 ], [ 0, %129 ]
   %.01927.i = phi i64 [ %.120.i, %130 ], [ 0, %129 ]
-  %132 = getelementptr inbounds nuw i64, ptr %23, i64 %.sroa.6.028.i
+  %132 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %.sroa.6.028.i
   %133 = load i64, ptr %132, align 8, !tbaa !44
   %134 = load i32, ptr %11, align 4, !tbaa !99
   %135 = zext i32 %134 to i64
@@ -56407,7 +56347,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
   %.sroa.2.0.copyload.i.i = load ptr, ptr %118, align 8, !tbaa !459
   %143 = zext nneg i32 %136 to i64
   %144 = load ptr, ptr %120, align 8, !tbaa !643
-  %145 = getelementptr inbounds nuw float, ptr %144, i64 %143
+  %145 = getelementptr inbounds nuw [4 x i8], ptr %144, i64 %143
   %146 = load float, ptr %145, align 4, !tbaa !134
   %147 = fcmp olt float %146, 0.000000e+00
   %148 = fcmp oge float %146, 0x4170000000000000
@@ -56427,7 +56367,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
   %156 = lshr i64 %155, 5
   %157 = and i32 %154, 31
   %158 = xor i32 %157, 31
-  %159 = getelementptr inbounds nuw i32, ptr %.sroa.2.0.copyload.i.i, i64 %156
+  %159 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.2.0.copyload.i.i, i64 %156
   %160 = load i32, ptr %159, align 4, !tbaa !99
   %161 = xor i32 %160, -1
   %162 = lshr i32 %161, %158
@@ -56437,10 +56377,10 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
 164:                                              ; preds = %139
   %165 = zext nneg i32 %136 to i64
   %166 = load ptr, ptr %120, align 8, !tbaa !643
-  %167 = getelementptr inbounds nuw float, ptr %166, i64 %165
+  %167 = getelementptr inbounds nuw [4 x i8], ptr %166, i64 %165
   %168 = load float, ptr %167, align 4, !tbaa !134
   %169 = load ptr, ptr %2, align 8, !tbaa !562
-  %170 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %169, i64 %1
+  %170 = getelementptr inbounds nuw [88 x i8], ptr %169, i64 %1
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 16
   %172 = load float, ptr %171, align 8, !tbaa !809
   %173 = fcmp ole float %168, %172
@@ -56454,13 +56394,13 @@ _ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIhLb0ELb1ENS_4tree14CPUE
 
 _ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIhLb0ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_E_clImEEDaSO_.exit.thread.i: ; preds = %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIhLb0ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_E_clImEEDaSO_.exit.i, %150, %142
   %176 = add i64 %.029.i, 1
-  %177 = getelementptr inbounds nuw i64, ptr %43, i64 %.029.i
+  %177 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %.029.i
   store i64 %133, ptr %177, align 8, !tbaa !44
   br label %130
 
 178:                                              ; preds = %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIhLb0ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_E_clImEEDaSO_.exit.i
   %179 = add i64 %.01927.i, 1
-  %180 = getelementptr inbounds nuw i64, ptr %44, i64 %.01927.i
+  %180 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %.01927.i
   store i64 %133, ptr %180, align 8, !tbaa !44
   br label %130
 
@@ -56478,11 +56418,11 @@ _ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIhLb0ELb1ENS_4tree14CPUE
   call void @llvm.experimental.noalias.scope.decl(metadata !1852)
   %189 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %190 = load ptr, ptr %189, align 8, !tbaa !1452, !noalias !1852
-  %191 = getelementptr inbounds nuw i64, ptr %190, i64 %183
+  %191 = getelementptr inbounds nuw [8 x i8], ptr %190, i64 %183
   %192 = load i64, ptr %191, align 8, !tbaa !44, !noalias !1852
   %193 = add i32 %77, 1
   %194 = zext i32 %193 to i64
-  %195 = getelementptr inbounds nuw i64, ptr %190, i64 %194
+  %195 = getelementptr inbounds nuw [8 x i8], ptr %190, i64 %194
   %196 = load i64, ptr %195, align 8, !tbaa !44, !noalias !1852
   %197 = load ptr, ptr %7, align 8, !tbaa !1456, !noalias !1852
   %198 = icmp ne ptr %197, null
@@ -56503,7 +56443,7 @@ _ZNK7xgboost6common12ColumnMatrix11DenseColumnIhLb0EEEDaj.exit: ; preds = %188
   %207 = getelementptr inbounds nuw i8, ptr %197, i64 %206
   %208 = getelementptr inbounds nuw i8, ptr %7, i64 160
   %209 = load ptr, ptr %208, align 8, !tbaa !1457, !noalias !1852
-  %210 = getelementptr inbounds nuw i32, ptr %209, i64 %183
+  %210 = getelementptr inbounds nuw [4 x i8], ptr %209, i64 %183
   %211 = load i32, ptr %210, align 4, !tbaa !99, !noalias !1852
   %212 = getelementptr inbounds nuw i8, ptr %7, i64 168
   %.sroa.0.0.copyload.i89 = load ptr, ptr %212, align 8, !tbaa !459, !noalias !1852
@@ -56671,11 +56611,11 @@ _ZNK7xgboost6common4SpanIKmLm18446744073709551615EE5frontEv.exit: ; preds = %_ZN
   %260 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %261 = zext i32 %255 to i64
   %262 = load ptr, ptr %260, align 8, !tbaa !1452, !noalias !1860
-  %263 = getelementptr inbounds nuw i64, ptr %262, i64 %261
+  %263 = getelementptr inbounds nuw [8 x i8], ptr %262, i64 %261
   %264 = load i64, ptr %263, align 8, !tbaa !44, !noalias !1860
   %265 = add i32 %255, 1
   %266 = zext i32 %265 to i64
-  %267 = getelementptr inbounds nuw i64, ptr %262, i64 %266
+  %267 = getelementptr inbounds nuw [8 x i8], ptr %262, i64 %266
   %268 = load i64, ptr %267, align 8, !tbaa !44, !noalias !1860
   %269 = sub i64 %268, %264
   %270 = getelementptr inbounds nuw i8, ptr %7, i64 216
@@ -56696,7 +56636,7 @@ _ZNK7xgboost6common4SpanIKmLm18446744073709551615EE5frontEv.exit: ; preds = %_ZN
 _ZN7xgboost6common4SpanIKhLm18446744073709551615EEC2EPS2_m.exit.i: ; preds = %_ZNK7xgboost6common4SpanIKmLm18446744073709551615EE5frontEv.exit
   %280 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %281 = load ptr, ptr %280, align 8, !tbaa !1452, !noalias !1860
-  %282 = getelementptr inbounds nuw i64, ptr %281, i64 %264
+  %282 = getelementptr inbounds nuw [8 x i8], ptr %281, i64 %264
   %283 = icmp ne ptr %281, null
   %284 = or i1 %277, %283
   br i1 %284, label %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i, label %285, !prof !127
@@ -56708,7 +56648,7 @@ _ZN7xgboost6common4SpanIKhLm18446744073709551615EEC2EPS2_m.exit.i: ; preds = %_Z
 _ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i: ; preds = %_ZN7xgboost6common4SpanIKhLm18446744073709551615EEC2EPS2_m.exit.i
   %286 = getelementptr inbounds nuw i8, ptr %7, i64 160
   %287 = load ptr, ptr %286, align 8, !tbaa !1457, !noalias !1860
-  %288 = getelementptr inbounds nuw i32, ptr %287, i64 %261
+  %288 = getelementptr inbounds nuw [4 x i8], ptr %287, i64 %261
   %289 = load i32, ptr %288, align 4, !tbaa !99, !noalias !1860
   %290 = icmp sgt i64 %269, 0
   br i1 %290, label %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i, label %_ZNK7xgboost6common12ColumnMatrix12SparseColumnIhEEDajm.exit
@@ -56717,7 +56657,7 @@ _ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i:           ; preds = %_ZN7xgboost6common4
   %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i ], [ %282, %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i ]
   %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i ], [ %269, %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i ]
   %291 = lshr i64 %.01116.i.i.i.i, 1
-  %292 = getelementptr inbounds nuw i64, ptr %.017.i.i.i.i, i64 %291
+  %292 = getelementptr inbounds nuw [8 x i8], ptr %.017.i.i.i.i, i64 %291
   %293 = load i64, ptr %292, align 8, !tbaa !44, !noalias !1860
   %294 = icmp ult i64 %293, %259
   %295 = getelementptr inbounds nuw i8, ptr %292, i64 8
@@ -56743,7 +56683,7 @@ _ZNK7xgboost6common12ColumnMatrix12SparseColumnIhEEDajm.exit: ; preds = %_ZSt7ad
   %.031.i = phi i64 [ %358, %357 ], [ 0, %_ZNK7xgboost6common12ColumnMatrix12SparseColumnIhEEDajm.exit ]
   %.02230.i = phi i64 [ %.1.i104, %357 ], [ 0, %_ZNK7xgboost6common12ColumnMatrix12SparseColumnIhEEDajm.exit ]
   %.02329.i = phi i64 [ %.124.i, %357 ], [ 0, %_ZNK7xgboost6common12ColumnMatrix12SparseColumnIhEEDajm.exit ]
-  %305 = getelementptr inbounds nuw i64, ptr %23, i64 %.031.i
+  %305 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %.031.i
   %306 = load i64, ptr %305, align 8, !tbaa !44
   %307 = sub i64 %306, %258
   %308 = icmp ult i64 %.sroa.17.0, %269
@@ -56751,7 +56691,7 @@ _ZNK7xgboost6common12ColumnMatrix12SparseColumnIhEEDajm.exit: ; preds = %_ZSt7ad
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i101, %312
   %.sroa.17.2 = phi i64 [ %313, %312 ], [ %.sroa.17.0, %.lr.ph.i101 ]
-  %309 = getelementptr inbounds nuw i64, ptr %282, i64 %.sroa.17.2
+  %309 = getelementptr inbounds nuw [8 x i8], ptr %282, i64 %.sroa.17.2
   %310 = load i64, ptr %309, align 8, !tbaa !44
   %311 = icmp ult i64 %310, %307
   br i1 %311, label %312, label %314
@@ -56791,7 +56731,7 @@ _ZN7xgboost6common16SparseColumnIterIhEixEm.exit.i: ; preds = %312, %316, %314, 
   %.sroa.2.0.copyload.i.i109 = load ptr, ptr %118, align 8, !tbaa !459
   %329 = zext nneg i32 %325 to i64
   %330 = load ptr, ptr %120, align 8, !tbaa !643
-  %331 = getelementptr inbounds nuw float, ptr %330, i64 %329
+  %331 = getelementptr inbounds nuw [4 x i8], ptr %330, i64 %329
   %332 = load float, ptr %331, align 4, !tbaa !134
   %333 = fcmp olt float %332, 0.000000e+00
   %334 = fcmp oge float %332, 0x4170000000000000
@@ -56811,7 +56751,7 @@ _ZN7xgboost6common16SparseColumnIterIhEixEm.exit.i: ; preds = %312, %316, %314, 
   %342 = lshr i64 %341, 5
   %343 = and i32 %340, 31
   %344 = xor i32 %343, 31
-  %345 = getelementptr inbounds nuw i32, ptr %.sroa.2.0.copyload.i.i109, i64 %342
+  %345 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.2.0.copyload.i.i109, i64 %342
   %346 = load i32, ptr %345, align 4, !tbaa !99
   %347 = xor i32 %346, -1
   %348 = lshr i32 %347, %344
@@ -56830,13 +56770,13 @@ _ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIhLb0ELb1ENS_4tree14CPUE
 
 _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.thread.i: ; preds = %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIhLb0ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_T0_E_clImiEEDaSO_SP_.exit.i, %_ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.i, %336, %328
   %352 = add i64 %.02329.i, 1
-  %353 = getelementptr inbounds nuw i64, ptr %43, i64 %.02329.i
+  %353 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %.02329.i
   store i64 %306, ptr %353, align 8, !tbaa !44
   br label %357
 
 354:                                              ; preds = %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIhLb0ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_T0_E_clImiEEDaSO_SP_.exit.i, %_ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.i
   %355 = add i64 %.02230.i, 1
-  %356 = getelementptr inbounds nuw i64, ptr %44, i64 %.02230.i
+  %356 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %.02230.i
   store i64 %306, ptr %356, align 8, !tbaa !44
   br label %357
 
@@ -56852,7 +56792,7 @@ _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.thread
   %.031.i115 = phi i64 [ %412, %411 ], [ 0, %_ZNK7xgboost6common12ColumnMatrix12SparseColumnIhEEDajm.exit ]
   %.02230.i116 = phi i64 [ %.1.i124, %411 ], [ 0, %_ZNK7xgboost6common12ColumnMatrix12SparseColumnIhEEDajm.exit ]
   %.02329.i117 = phi i64 [ %.124.i123, %411 ], [ 0, %_ZNK7xgboost6common12ColumnMatrix12SparseColumnIhEEDajm.exit ]
-  %359 = getelementptr inbounds nuw i64, ptr %23, i64 %.031.i115
+  %359 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %.031.i115
   %360 = load i64, ptr %359, align 8, !tbaa !44
   %361 = sub i64 %360, %258
   %362 = icmp ult i64 %.sroa.17.3, %269
@@ -56860,7 +56800,7 @@ _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.thread
 
 .lr.ph.i.i136:                                    ; preds = %.lr.ph.i114, %366
   %.sroa.17.5 = phi i64 [ %367, %366 ], [ %.sroa.17.3, %.lr.ph.i114 ]
-  %363 = getelementptr inbounds nuw i64, ptr %282, i64 %.sroa.17.5
+  %363 = getelementptr inbounds nuw [8 x i8], ptr %282, i64 %.sroa.17.5
   %364 = load i64, ptr %363, align 8, !tbaa !44
   %365 = icmp ult i64 %364, %361
   br i1 %365, label %366, label %368
@@ -56900,7 +56840,7 @@ _ZN7xgboost6common16SparseColumnIterIhEixEm.exit.i118: ; preds = %366, %370, %36
   %.sroa.2.0.copyload.i.i133 = load ptr, ptr %118, align 8, !tbaa !459
   %383 = zext nneg i32 %379 to i64
   %384 = load ptr, ptr %120, align 8, !tbaa !643
-  %385 = getelementptr inbounds nuw float, ptr %384, i64 %383
+  %385 = getelementptr inbounds nuw [4 x i8], ptr %384, i64 %383
   %386 = load float, ptr %385, align 4, !tbaa !134
   %387 = fcmp olt float %386, 0.000000e+00
   %388 = fcmp oge float %386, 0x4170000000000000
@@ -56920,7 +56860,7 @@ _ZN7xgboost6common16SparseColumnIterIhEixEm.exit.i118: ; preds = %366, %370, %36
   %396 = lshr i64 %395, 5
   %397 = and i32 %394, 31
   %398 = xor i32 %397, 31
-  %399 = getelementptr inbounds nuw i32, ptr %.sroa.2.0.copyload.i.i133, i64 %396
+  %399 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.2.0.copyload.i.i133, i64 %396
   %400 = load i32, ptr %399, align 4, !tbaa !99
   %401 = xor i32 %400, -1
   %402 = lshr i32 %401, %398
@@ -56939,13 +56879,13 @@ _ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIhLb0ELb1ENS_4tree14CPUE
 
 _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.thread.i122: ; preds = %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIhLb0ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_T0_E_clImiEEDaSO_SP_.exit.i120, %_ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.i130, %390, %382
   %406 = add i64 %.02329.i117, 1
-  %407 = getelementptr inbounds nuw i64, ptr %43, i64 %.02329.i117
+  %407 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %.02329.i117
   store i64 %360, ptr %407, align 8, !tbaa !44
   br label %411
 
 408:                                              ; preds = %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIhLb0ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_T0_E_clImiEEDaSO_SP_.exit.i120, %_ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.i130
   %409 = add i64 %.02230.i116, 1
-  %410 = getelementptr inbounds nuw i64, ptr %44, i64 %.02230.i116
+  %410 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %.02230.i116
   store i64 %360, ptr %410, align 8, !tbaa !44
   br label %411
 
@@ -56960,7 +56900,7 @@ _ZN7xgboost6common16PartitionBuilderILm2048EE20PartitionRangeKernelIZNS2_9Partit
   %.sroa.10169.0 = phi i64 [ %.sroa.10169.1, %228 ], [ %.1.i104, %357 ], [ %.120.i, %130 ], [ 0, %129 ], [ %.1.i124, %411 ]
   %.sroa.0168.0 = phi i64 [ %.sroa.0168.1, %228 ], [ %.124.i, %357 ], [ %.1.i, %130 ], [ 0, %129 ], [ %.124.i123, %411 ]
   %413 = load ptr, ptr %25, align 8, !tbaa !168
-  %414 = getelementptr inbounds nuw i64, ptr %413, i64 %26
+  %414 = getelementptr inbounds nuw [8 x i8], ptr %413, i64 %26
   %415 = load i64, ptr %414, align 8, !tbaa !44
   %416 = add i64 %415, %30
   %417 = load ptr, ptr %33, align 8, !tbaa !175
@@ -56977,7 +56917,7 @@ _ZN7xgboost6common16PartitionBuilderILm2048EE20PartitionRangeKernelIZNS2_9Partit
   unreachable
 
 _ZN7xgboost6common16PartitionBuilderILm2048EE13SetNLeftElemsEimm.exit: ; preds = %_ZN7xgboost6common16PartitionBuilderILm2048EE20PartitionRangeKernelIZNS2_9PartitionIhLb0ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS8_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmEUlT_E_EESt4pairImmENS0_4SpanISN_Lm18446744073709551615EEENST_ImLm18446744073709551615EEESV_SP_.exit
-  %424 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %418, i64 %416
+  %424 = getelementptr inbounds nuw [16 x i8], ptr %418, i64 %416
   %425 = load ptr, ptr %424, align 8, !tbaa !1314
   store i64 %.sroa.0168.0, ptr %425, align 8, !tbaa !1319
   %426 = load i64, ptr %414, align 8, !tbaa !44
@@ -56990,7 +56930,7 @@ _ZN7xgboost6common16PartitionBuilderILm2048EE13SetNLeftElemsEimm.exit: ; preds =
   unreachable
 
 _ZN7xgboost6common16PartitionBuilderILm2048EE14SetNRightElemsEimm.exit: ; preds = %_ZN7xgboost6common16PartitionBuilderILm2048EE13SetNLeftElemsEimm.exit
-  %429 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %418, i64 %427
+  %429 = getelementptr inbounds nuw [16 x i8], ptr %418, i64 %427
   %430 = load ptr, ptr %429, align 8, !tbaa !1314
   %431 = getelementptr inbounds nuw i8, ptr %430, i64 8
   store i64 %.sroa.10169.0, ptr %431, align 8, !tbaa !1323
@@ -57050,7 +56990,7 @@ _ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIhLb0ELb1ENS_4tree14CPUE
   %.027.us = phi i64 [ 0, %.lr.ph.split.us ], [ %40, %39 ]
   %.02126.us = phi i64 [ 0, %.lr.ph.split.us ], [ %.1.us, %39 ]
   %.02225.us = phi i64 [ 0, %.lr.ph.split.us ], [ %.123.us, %39 ]
-  %27 = getelementptr inbounds nuw i64, ptr %3, i64 %.027.us
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.027.us
   %28 = load i64, ptr %27, align 8, !tbaa !44
   %29 = sub i64 %28, %7
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 %29
@@ -57062,13 +57002,13 @@ _ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIhLb0ELb1ENS_4tree14CPUE
 
 34:                                               ; preds = %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIhLb0ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_T0_E_clImiEEDaSO_SP_.exit.us
   %35 = add i64 %.02126.us, 1
-  %36 = getelementptr inbounds nuw i64, ptr %11, i64 %.02126.us
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.02126.us
   store i64 %28, ptr %36, align 8, !tbaa !44
   br label %39
 
 _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.thread.us: ; preds = %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIhLb0ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_T0_E_clImiEEDaSO_SP_.exit.us
   %37 = add i64 %.02225.us, 1
-  %38 = getelementptr inbounds nuw i64, ptr %5, i64 %.02225.us
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.02225.us
   store i64 %28, ptr %38, align 8, !tbaa !44
   br label %39
 
@@ -57090,7 +57030,7 @@ _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.thread
   %.027 = phi i64 [ %95, %94 ], [ 0, %.lr.ph ]
   %.02126 = phi i64 [ %.1, %94 ], [ 0, %.lr.ph ]
   %.02225 = phi i64 [ %.123, %94 ], [ 0, %.lr.ph ]
-  %41 = getelementptr inbounds nuw i64, ptr %3, i64 %.027
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.027
   %42 = load i64, ptr %41, align 8, !tbaa !44
   %43 = load ptr, ptr %8, align 8, !tbaa !1865
   %44 = load i8, ptr %43, align 1, !tbaa !758, !range !114, !noundef !115
@@ -57115,7 +57055,7 @@ _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.thread
   %57 = load ptr, ptr %19, align 8, !tbaa !1874
   %58 = zext nneg i32 %51 to i64
   %59 = load ptr, ptr %57, align 8, !tbaa !643
-  %60 = getelementptr inbounds nuw float, ptr %59, i64 %58
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %58
   %61 = load float, ptr %60, align 4, !tbaa !134
   %62 = fcmp olt float %61, 0.000000e+00
   %63 = fcmp oge float %61, 0x4170000000000000
@@ -57135,7 +57075,7 @@ _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.thread
   %71 = lshr i64 %70, 5
   %72 = and i32 %69, 31
   %73 = xor i32 %72, 31
-  %74 = getelementptr inbounds nuw i32, ptr %.sroa.2.0.copyload.i, i64 %71
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.2.0.copyload.i, i64 %71
   %75 = load i32, ptr %74, align 4, !tbaa !99
   %76 = xor i32 %75, -1
   %77 = lshr i32 %76, %73
@@ -57162,13 +57102,13 @@ _ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIhLb0ELb1ENS_4tree14CPUE
 
 _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.thread: ; preds = %65, %55, %_ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i, %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIhLb0ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_T0_E_clImiEEDaSO_SP_.exit
   %89 = add i64 %.02225, 1
-  %90 = getelementptr inbounds nuw i64, ptr %5, i64 %.02225
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.02225
   store i64 %42, ptr %90, align 8, !tbaa !44
   br label %94
 
 91:                                               ; preds = %_ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i, %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIhLb0ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_T0_E_clImiEEDaSO_SP_.exit
   %92 = add i64 %.02126, 1
-  %93 = getelementptr inbounds nuw i64, ptr %11, i64 %.02126
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.02126
   store i64 %42, ptr %93, align 8, !tbaa !44
   br label %94
 
@@ -57212,7 +57152,7 @@ _ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIhLb0ELb1ENS_4tree14CPUE
   %.027.us = phi i64 [ 0, %.lr.ph.split.us ], [ %40, %39 ]
   %.02126.us = phi i64 [ 0, %.lr.ph.split.us ], [ %.1.us, %39 ]
   %.02225.us = phi i64 [ 0, %.lr.ph.split.us ], [ %.123.us, %39 ]
-  %27 = getelementptr inbounds nuw i64, ptr %3, i64 %.027.us
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.027.us
   %28 = load i64, ptr %27, align 8, !tbaa !44
   %29 = sub i64 %28, %7
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 %29
@@ -57224,13 +57164,13 @@ _ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIhLb0ELb1ENS_4tree14CPUE
 
 34:                                               ; preds = %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIhLb0ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_T0_E_clImiEEDaSO_SP_.exit.us
   %35 = add i64 %.02126.us, 1
-  %36 = getelementptr inbounds nuw i64, ptr %11, i64 %.02126.us
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.02126.us
   store i64 %28, ptr %36, align 8, !tbaa !44
   br label %39
 
 _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.thread.us: ; preds = %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIhLb0ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_T0_E_clImiEEDaSO_SP_.exit.us
   %37 = add i64 %.02225.us, 1
-  %38 = getelementptr inbounds nuw i64, ptr %5, i64 %.02225.us
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.02225.us
   store i64 %28, ptr %38, align 8, !tbaa !44
   br label %39
 
@@ -57252,7 +57192,7 @@ _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.thread
   %.027 = phi i64 [ %95, %94 ], [ 0, %.lr.ph ]
   %.02126 = phi i64 [ %.1, %94 ], [ 0, %.lr.ph ]
   %.02225 = phi i64 [ %.123, %94 ], [ 0, %.lr.ph ]
-  %41 = getelementptr inbounds nuw i64, ptr %3, i64 %.027
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.027
   %42 = load i64, ptr %41, align 8, !tbaa !44
   %43 = load ptr, ptr %8, align 8, !tbaa !1865
   %44 = load i8, ptr %43, align 1, !tbaa !758, !range !114, !noundef !115
@@ -57277,7 +57217,7 @@ _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.thread
   %57 = load ptr, ptr %19, align 8, !tbaa !1874
   %58 = zext nneg i32 %51 to i64
   %59 = load ptr, ptr %57, align 8, !tbaa !643
-  %60 = getelementptr inbounds nuw float, ptr %59, i64 %58
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %58
   %61 = load float, ptr %60, align 4, !tbaa !134
   %62 = fcmp olt float %61, 0.000000e+00
   %63 = fcmp oge float %61, 0x4170000000000000
@@ -57297,7 +57237,7 @@ _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.thread
   %71 = lshr i64 %70, 5
   %72 = and i32 %69, 31
   %73 = xor i32 %72, 31
-  %74 = getelementptr inbounds nuw i32, ptr %.sroa.2.0.copyload.i, i64 %71
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.2.0.copyload.i, i64 %71
   %75 = load i32, ptr %74, align 4, !tbaa !99
   %76 = xor i32 %75, -1
   %77 = lshr i32 %76, %73
@@ -57324,13 +57264,13 @@ _ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIhLb0ELb1ENS_4tree14CPUE
 
 _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.thread: ; preds = %65, %55, %_ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i, %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIhLb0ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_T0_E_clImiEEDaSO_SP_.exit
   %89 = add i64 %.02225, 1
-  %90 = getelementptr inbounds nuw i64, ptr %5, i64 %.02225
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.02225
   store i64 %42, ptr %90, align 8, !tbaa !44
   br label %94
 
 91:                                               ; preds = %_ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i, %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIhLb0ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_T0_E_clImiEEDaSO_SP_.exit
   %92 = add i64 %.02126, 1
-  %93 = getelementptr inbounds nuw i64, ptr %11, i64 %.02126
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.02126
   store i64 %42, ptr %93, align 8, !tbaa !44
   br label %94
 
@@ -57385,12 +57325,12 @@ define linkonce_odr void @_ZN4dmlc12OMPException3RunIZN7xgboost6common13Parallel
   %27 = load ptr, ptr %22, align 8, !tbaa !1738
   %28 = load ptr, ptr %20, align 8, !tbaa !1883
   %29 = load ptr, ptr %28, align 8, !tbaa !562
-  %30 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %29, i64 %24
+  %30 = getelementptr inbounds nuw [88 x i8], ptr %29, i64 %24
   %31 = load i32, ptr %30, align 8, !tbaa !535
   %32 = getelementptr inbounds nuw i8, ptr %27, i64 112
   %33 = sext i32 %31 to i64
   %34 = load ptr, ptr %32, align 8, !tbaa !164
-  %35 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %34, i64 %33
+  %35 = getelementptr inbounds nuw [24 x i8], ptr %34, i64 %33
   %36 = load ptr, ptr %35, align 8, !tbaa !917
   %37 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %sext.i.i = shl i64 %24, 32
@@ -57402,11 +57342,11 @@ define linkonce_odr void @_ZN4dmlc12OMPException3RunIZN7xgboost6common13Parallel
   %43 = add i64 %41, %42
   %44 = getelementptr inbounds nuw i8, ptr %27, i64 56
   %45 = load ptr, ptr %44, align 8, !tbaa !172
-  %46 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %45, i64 %43
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %45, i64 %43
   %47 = load ptr, ptr %46, align 8, !tbaa !1314
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %49 = load i64, ptr %48, align 8, !tbaa !1322
-  %50 = getelementptr inbounds nuw i64, ptr %36, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %47, i64 16416
   %52 = load i64, ptr %47, align 8, !tbaa !1319
   %53 = icmp eq i64 %52, 0
@@ -57416,11 +57356,11 @@ _ZSt8__copy_nIPKmmPmET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i.i.i: ; p
   %54 = getelementptr inbounds nuw i8, ptr %47, i64 32
   %55 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %56 = load i64, ptr %55, align 8, !tbaa !1317
-  %57 = getelementptr inbounds nuw i64, ptr %36, i64 %56
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %56
   %.idx.i.i.i.i.i = shl nuw nsw i64 %52, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %57, ptr nonnull align 8 %54, i64 %.idx.i.i.i.i.i, i1 false)
   %.pre.i.i.i = load ptr, ptr %44, align 8, !tbaa !172
-  %.phi.trans.insert.i.i.i = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %.pre.i.i.i, i64 %43
+  %.phi.trans.insert.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %.pre.i.i.i, i64 %43
   %.pre18.i.i.i = load ptr, ptr %.phi.trans.insert.i.i.i, align 8, !tbaa !1314
   br label %_ZSt6copy_nIPKmmPmET1_T_T0_S3_.exit.i.i.i
 
@@ -57650,7 +57590,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %.noexc50
 
 _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit36.i: ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i, %.noexc50
   store ptr %31, ptr %8, align 8, !tbaa !194
-  %35 = getelementptr inbounds nuw i32, ptr %31, i64 %21
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %21
   store ptr %35, ptr %25, align 8, !tbaa !545
   store ptr %35, ptr %27, align 8, !tbaa !197
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
@@ -57867,10 +57807,10 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 116:                                              ; preds = %._crit_edge35.i, %.lr.ph39.i
   %.01637.i = phi i64 [ 0, %.lr.ph39.i ], [ %119, %._crit_edge35.i ]
-  %117 = getelementptr inbounds nuw i64, ptr %107, i64 %.01637.i
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %.01637.i
   %118 = load i64, ptr %117, align 8, !tbaa !44
   %119 = add nuw i64 %.01637.i, 1
-  %120 = getelementptr inbounds nuw i64, ptr %107, i64 %119
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %119
   %121 = load i64, ptr %120, align 8, !tbaa !44
   %122 = icmp ult i64 %118, %121
   br i1 %122, label %.lr.ph.i, label %._crit_edge35.i
@@ -57883,7 +57823,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 .lr.ph.i:                                         ; preds = %116, %.lr.ph.i
   %.01528.i = phi i64 [ %129, %.lr.ph.i ], [ %118, %116 ]
   %.02327.i = phi i64 [ %128, %.lr.ph.i ], [ 0, %116 ]
-  %124 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %114, i64 %.01528.i
+  %124 = getelementptr inbounds nuw [16 x i8], ptr %114, i64 %.01528.i
   %125 = load ptr, ptr %124, align 8, !tbaa !1314
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 16
   store i64 %.02327.i, ptr %126, align 8, !tbaa !1317
@@ -57897,7 +57837,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 ._crit_edge35.i:                                  ; preds = %.lr.ph34.i, %._crit_edge.i, %116
   %.023.lcssa48.i = phi i64 [ %128, %._crit_edge.i ], [ 0, %116 ], [ %128, %.lr.ph34.i ]
   %.024.lcssa.i = phi i64 [ 0, %._crit_edge.i ], [ 0, %116 ], [ %140, %.lr.ph34.i ]
-  %132 = getelementptr inbounds nuw %"struct.std::pair.129", ptr %115, i64 %.01637.i
+  %132 = getelementptr inbounds nuw [16 x i8], ptr %115, i64 %.01637.i
   store i64 %.023.lcssa48.i, ptr %132, align 8, !tbaa !1126
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 8
   store i64 %.024.lcssa.i, ptr %133, align 8, !tbaa !1128
@@ -57908,7 +57848,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %.032.i = phi i64 [ %141, %.lr.ph34.i ], [ %.pre.i, %._crit_edge.i ]
   %.02431.i = phi i64 [ %140, %.lr.ph34.i ], [ 0, %._crit_edge.i ]
   %134 = add i64 %.02431.i, %128
-  %135 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %114, i64 %.032.i
+  %135 = getelementptr inbounds nuw [16 x i8], ptr %114, i64 %.032.i
   %136 = load ptr, ptr %135, align 8, !tbaa !1314
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 24
   store i64 %134, ptr %137, align 8, !tbaa !1322
@@ -58053,12 +57993,12 @@ define linkonce_odr void @_ZN7xgboost6common14BlockedSpace2dC2IZNS_4tree20Common
   %13 = load ptr, ptr %6, align 8, !tbaa !1885
   %14 = load ptr, ptr %2, align 8, !tbaa !1894
   %15 = load ptr, ptr %14, align 8, !tbaa !562
-  %16 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %15, i64 %.039
+  %16 = getelementptr inbounds nuw [88 x i8], ptr %15, i64 %.039
   %17 = load i32, ptr %16, align 8, !tbaa !535
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 112
   %19 = sext i32 %17 to i64
   %20 = load ptr, ptr %18, align 8, !tbaa !164
-  %21 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %20, i64 %19
+  %21 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %19
   %22 = load ptr, ptr %21, align 8, !tbaa !917
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !919
@@ -58149,7 +58089,7 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIP
   %.pre = phi ptr [ %.pre.pre, %60 ], [ %36, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i ]
   store ptr %55, ptr %5, align 8, !tbaa !168
   store ptr %59, ptr %7, align 8, !tbaa !906
-  %61 = getelementptr inbounds nuw i64, ptr %55, i64 %53
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %53
   store ptr %61, ptr %8, align 8, !tbaa !171
   br label %_ZNSt6vectorImSaImEE9push_backERKm.exit.i
 
@@ -58249,7 +58189,7 @@ _ZNSt6vectorIN7xgboost6common7Range1dESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit3
 .noexc25:                                         ; preds = %84, %_ZNSt6vectorIN7xgboost6common7Range1dESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit33.i
   store ptr %79, ptr %0, align 8, !tbaa !861
   store ptr %83, ptr %9, align 8, !tbaa !1078
-  %98 = getelementptr inbounds nuw %"class.xgboost::common::Range1d", ptr %79, i64 %77
+  %98 = getelementptr inbounds nuw [16 x i8], ptr %79, i64 %77
   store ptr %98, ptr %10, align 8, !tbaa !864
   br label %_ZN7xgboost6common14BlockedSpace2d8AddBlockEmmm.exit
 
@@ -58322,7 +58262,7 @@ define linkonce_odr void @_ZN7xgboost6common16PartitionBuilderILm2048EE4InitIZNS
   br i1 %17, label %18, label %_ZNSt6vectorISt4pairImmESaIS1_EE6resizeEm.exit
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds nuw %"struct.std::pair.129", ptr %8, i64 %2
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %2
   %.not.i.i = icmp eq ptr %7, %19
   br i1 %.not.i.i, label %_ZNSt6vectorISt4pairImmESaIS1_EE6resizeEm.exit, label %20
 
@@ -58354,7 +58294,7 @@ _ZNSt6vectorISt4pairImmESaIS1_EE6resizeEm.exit:   ; preds = %14, %16, %18, %20
   br i1 %34, label %35, label %_ZNSt6vectorImSaImEE6resizeEm.exit
 
 35:                                               ; preds = %33
-  %36 = getelementptr inbounds nuw i64, ptr %25, i64 %22
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %22
   %.not.i.i12 = icmp eq ptr %24, %36
   br i1 %.not.i.i12, label %_ZNSt6vectorImSaImEE6resizeEm.exit, label %37
 
@@ -58383,11 +58323,11 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %31, %33, %35, %37
 46:                                               ; preds = %.lr.ph, %46
   %47 = phi i64 [ 0, %.lr.ph ], [ %65, %46 ]
   %.014 = phi i64 [ 1, %.lr.ph ], [ %67, %46 ]
-  %48 = getelementptr %"struct.xgboost::tree::CPUExpandEntry", ptr %40, i64 %.014
+  %48 = getelementptr [88 x i8], ptr %40, i64 %.014
   %49 = getelementptr i8, ptr %48, i64 -88
   %50 = load i32, ptr %49, align 8, !tbaa !535
   %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %42, i64 %51
+  %52 = getelementptr inbounds nuw [24 x i8], ptr %42, i64 %51
   %53 = load ptr, ptr %52, align 8, !tbaa !917
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %55 = load ptr, ptr %54, align 8, !tbaa !919
@@ -58401,7 +58341,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %31, %33, %35, %37
   %63 = zext i1 %62 to i64
   %64 = add i64 %60, %47
   %65 = add i64 %64, %63
-  %66 = getelementptr inbounds nuw i64, ptr %38, i64 %.014
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %.014
   store i64 %65, ptr %66, align 8, !tbaa !44
   %67 = add nuw i64 %.014, 1
   %exitcond.not = icmp eq i64 %.014, %2
@@ -58429,7 +58369,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %31, %33, %35, %37
   br i1 %81, label %82, label %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit
 
 82:                                               ; preds = %80
-  %83 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %72, i64 %1
+  %83 = getelementptr inbounds nuw [16 x i8], ptr %72, i64 %1
   %.not.i.i13 = icmp eq ptr %71, %83
   br i1 %.not.i.i13, label %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i
 
@@ -60139,7 +60079,7 @@ define linkonce_odr void @_ZZN7xgboost4tree17ColumnSplitHelper9PartitionItLb0ELb
   %8 = load ptr, ptr %7, align 8, !tbaa !1904
   %9 = load ptr, ptr %0, align 8, !tbaa !1957
   %10 = load ptr, ptr %9, align 8, !tbaa !562
-  %11 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %10, i64 %1
+  %11 = getelementptr inbounds nuw [88 x i8], ptr %10, i64 %1
   %12 = load i32, ptr %11, align 8, !tbaa !535
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -60228,7 +60168,7 @@ _ZZN7xgboost4tree17ColumnSplitHelper9PartitionItLb0ELb1ENS0_14CPUExpandEntryEEEv
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %61 = load ptr, ptr %60, align 8, !tbaa !1960
   %62 = load ptr, ptr %61, align 8, !tbaa !194
-  %63 = getelementptr inbounds nuw i32, ptr %62, i64 %1
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %1
   %64 = load i32, ptr %63, align 4, !tbaa !99
   br label %65
 
@@ -60246,7 +60186,7 @@ _ZZN7xgboost4tree17ColumnSplitHelper9PartitionItLb0ELb1ENS0_14CPUExpandEntryEEEv
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 24
   %77 = sext i32 %12 to i64
   %78 = load ptr, ptr %76, align 8, !tbaa !164
-  %79 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %78, i64 %77
+  %79 = getelementptr inbounds nuw [24 x i8], ptr %78, i64 %77
   %80 = load ptr, ptr %79, align 8, !tbaa !917
   call void @_ZN7xgboost6common16PartitionBuilderILm2048EE8MaskRowsItLb0ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmPNS_17BitFieldContainerIhNS_11RBitsPolicyIhEELb0EEESS_(ptr noundef nonnull align 8 dereferenceable(80) %68, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %2, i64 %3, i32 noundef %66, ptr noundef nonnull align 8 dereferenceable(233) %70, ptr noundef nonnull align 8 dereferenceable(218) %56, ptr noundef nonnull align 8 dereferenceable(312) %73, ptr noundef %80, ptr noundef nonnull %5, ptr noundef nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -60271,7 +60211,7 @@ _ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_S4_.exit:
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx99
   %22 = sub nsw i64 %4, %3
   %23 = load ptr, ptr %2, align 8, !tbaa !562
-  %24 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %23, i64 %1
+  %24 = getelementptr inbounds nuw [88 x i8], ptr %23, i64 %1
   %25 = load i32, ptr %24, align 8, !tbaa !535
   %26 = sext i32 %25 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
@@ -60284,14 +60224,14 @@ _ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_S4_.exit:
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 40
   %31 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7xgboost16HostDeviceVectorIjE15ConstHostVectorEv(ptr noundef nonnull align 8 dereferenceable(8) %30)
   %32 = load ptr, ptr %31, align 8, !tbaa !449
-  %33 = getelementptr inbounds nuw i32, ptr %32, i64 %26
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %26
   %34 = load i32, ptr %33, align 4, !tbaa !99
   br label %_ZNK7xgboost7RegTree10SplitIndexEi.exit
 
 35:                                               ; preds = %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_S4_.exit
   %36 = getelementptr inbounds nuw i8, ptr %8, i64 160
   %37 = load ptr, ptr %36, align 8, !tbaa !536
-  %38 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %37, i64 %26
+  %38 = getelementptr inbounds nuw [20 x i8], ptr %37, i64 %26
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 12
   %40 = load i32, ptr %39, align 4, !tbaa !810
   %41 = and i32 %40, 2147483647
@@ -60333,7 +60273,7 @@ _ZNK7xgboost7RegTree10SplitIndexEi.exit:          ; preds = %29, %35
   unreachable
 
 _ZNK7xgboost6common4SpanIKNS_7RegTree22CategoricalSplitMatrix7SegmentELm18446744073709551615EEixEm.exit.i: ; preds = %_ZNK7xgboost7RegTree10SplitIndexEi.exit
-  %67 = getelementptr inbounds nuw %"struct.xgboost::RegTree::CategoricalSplitMatrix::Segment", ptr %59, i64 %26
+  %67 = getelementptr inbounds nuw [16 x i8], ptr %59, i64 %26
   %.sroa.0.0.copyload.i = load i64, ptr %67, align 8, !tbaa !44
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %67, i64 8
   %.sroa.4.0.copyload.i = load i64, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !44
@@ -60369,7 +60309,7 @@ _ZNK7xgboost6common4SpanIKNS_7RegTree22CategoricalSplitMatrix7SegmentELm18446744
   unreachable
 
 _ZNK7xgboost7RegTree8NodeCatsEi.exit:             ; preds = %75
-  %81 = getelementptr inbounds nuw i32, ptr %52, i64 %.sroa.0.0.copyload.i
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %.sroa.0.0.copyload.i
   store i64 %76, ptr %15, align 8
   %82 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %81, ptr %82, align 8
@@ -60418,7 +60358,7 @@ _ZNK7xgboost7RegTree8NodeCatsEi.exit:             ; preds = %75
   unreachable
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit: ; preds = %101
-  %103 = getelementptr inbounds nuw i64, ptr %21, i64 %.sroa.693.0107
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %.sroa.693.0107
   %104 = load i64, ptr %103, align 8, !tbaa !44
   %105 = load i32, ptr %13, align 4, !tbaa !99
   %106 = zext i32 %105 to i64
@@ -60435,7 +60375,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
   %.sroa.24.0.copyload = load ptr, ptr %82, align 8, !tbaa !459
   %113 = zext nneg i32 %107 to i64
   %114 = load ptr, ptr %84, align 8, !tbaa !643
-  %115 = getelementptr inbounds nuw float, ptr %114, i64 %113
+  %115 = getelementptr inbounds nuw [4 x i8], ptr %114, i64 %113
   %116 = load float, ptr %115, align 4, !tbaa !134
   %117 = fcmp olt float %116, 0.000000e+00
   %118 = fcmp oge float %116, 0x4170000000000000
@@ -60452,10 +60392,10 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
 123:                                              ; preds = %109
   %124 = zext nneg i32 %107 to i64
   %125 = load ptr, ptr %84, align 8, !tbaa !643
-  %126 = getelementptr inbounds nuw float, ptr %125, i64 %124
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %125, i64 %124
   %127 = load float, ptr %126, align 4, !tbaa !134
   %128 = load ptr, ptr %2, align 8, !tbaa !562
-  %129 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %128, i64 %1
+  %129 = getelementptr inbounds nuw [88 x i8], ptr %128, i64 %1
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 16
   %131 = load float, ptr %130, align 8, !tbaa !809
   %132 = fcmp ugt float %127, %131
@@ -60467,7 +60407,7 @@ _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit: ; preds
   %135 = lshr i64 %134, 5
   %136 = and i32 %133, 31
   %137 = xor i32 %136, 31
-  %138 = getelementptr inbounds nuw i32, ptr %.sroa.24.0.copyload, i64 %135
+  %138 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.24.0.copyload, i64 %135
   %139 = load i32, ptr %138, align 4, !tbaa !99
   %140 = shl nuw i32 1, %137
   %141 = and i32 %139, %140
@@ -60498,11 +60438,11 @@ _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit: ; preds
 154:                                              ; preds = %142
   %155 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %156 = load ptr, ptr %155, align 8, !tbaa !1452, !noalias !1966
-  %157 = getelementptr inbounds nuw i64, ptr %156, i64 %149
+  %157 = getelementptr inbounds nuw [8 x i8], ptr %156, i64 %149
   %158 = load i64, ptr %157, align 8, !tbaa !44, !noalias !1966
   %159 = add i32 %42, 1
   %160 = zext i32 %159 to i64
-  %161 = getelementptr inbounds nuw i64, ptr %156, i64 %160
+  %161 = getelementptr inbounds nuw [8 x i8], ptr %156, i64 %160
   %162 = load i64, ptr %161, align 8, !tbaa !44, !noalias !1966
   %163 = load ptr, ptr %7, align 8, !tbaa !1456, !noalias !1966
   %164 = icmp ne ptr %163, null
@@ -60522,7 +60462,7 @@ _ZNK7xgboost6common12ColumnMatrix11DenseColumnItLb0EEEDaj.exit: ; preds = %154
   %172 = getelementptr inbounds nuw i8, ptr %163, i64 %171
   %173 = getelementptr inbounds nuw i8, ptr %7, i64 160
   %174 = load ptr, ptr %173, align 8, !tbaa !1457, !noalias !1966
-  %175 = getelementptr inbounds nuw i32, ptr %174, i64 %149
+  %175 = getelementptr inbounds nuw [4 x i8], ptr %174, i64 %149
   %176 = load i32, ptr %175, align 4, !tbaa !99, !noalias !1966
   %177 = getelementptr inbounds nuw i8, ptr %6, i64 192
   %178 = load i64, ptr %177, align 8, !tbaa !1443
@@ -60536,10 +60476,10 @@ _ZNK7xgboost6common12ColumnMatrix11DenseColumnItLb0EEEDaj.exit: ; preds = %154
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i: ; preds = %_ZNK7xgboost6common12ColumnMatrix11DenseColumnItLb0EEEDaj.exit, %179
   %.sroa.6.020.i = phi i64 [ %180, %179 ], [ 0, %_ZNK7xgboost6common12ColumnMatrix11DenseColumnItLb0EEEDaj.exit ]
-  %181 = getelementptr inbounds nuw i64, ptr %21, i64 %.sroa.6.020.i
+  %181 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %.sroa.6.020.i
   %182 = load i64, ptr %181, align 8, !tbaa !44
   %183 = sub i64 %182, %178
-  %184 = getelementptr inbounds nuw i16, ptr %172, i64 %183
+  %184 = getelementptr inbounds nuw [2 x i8], ptr %172, i64 %183
   %185 = load i16, ptr %184, align 2, !tbaa !1458
   %186 = zext i16 %185 to i32
   %187 = add nsw i32 %176, %186
@@ -60670,11 +60610,11 @@ _ZNK7xgboost6common4SpanIKmLm18446744073709551615EE5frontEv.exit: ; preds = %_ZN
   %228 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %229 = zext i32 %223 to i64
   %230 = load ptr, ptr %228, align 8, !tbaa !1452, !noalias !1969
-  %231 = getelementptr inbounds nuw i64, ptr %230, i64 %229
+  %231 = getelementptr inbounds nuw [8 x i8], ptr %230, i64 %229
   %232 = load i64, ptr %231, align 8, !tbaa !44, !noalias !1969
   %233 = add i32 %223, 1
   %234 = zext i32 %233 to i64
-  %235 = getelementptr inbounds nuw i64, ptr %230, i64 %234
+  %235 = getelementptr inbounds nuw [8 x i8], ptr %230, i64 %234
   %236 = load i64, ptr %235, align 8, !tbaa !44, !noalias !1969
   %237 = sub i64 %236, %232
   %238 = getelementptr inbounds nuw i8, ptr %7, i64 216
@@ -60695,7 +60635,7 @@ _ZNK7xgboost6common4SpanIKmLm18446744073709551615EE5frontEv.exit: ; preds = %_ZN
 _ZN7xgboost6common4SpanIKtLm18446744073709551615EEC2EPS2_m.exit.i: ; preds = %_ZNK7xgboost6common4SpanIKmLm18446744073709551615EE5frontEv.exit
   %248 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %249 = load ptr, ptr %248, align 8, !tbaa !1452, !noalias !1969
-  %250 = getelementptr inbounds nuw i64, ptr %249, i64 %232
+  %250 = getelementptr inbounds nuw [8 x i8], ptr %249, i64 %232
   %251 = icmp ne ptr %249, null
   %252 = or i1 %245, %251
   br i1 %252, label %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i, label %253, !prof !127
@@ -60707,7 +60647,7 @@ _ZN7xgboost6common4SpanIKtLm18446744073709551615EEC2EPS2_m.exit.i: ; preds = %_Z
 _ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i: ; preds = %_ZN7xgboost6common4SpanIKtLm18446744073709551615EEC2EPS2_m.exit.i
   %254 = getelementptr inbounds nuw i8, ptr %7, i64 160
   %255 = load ptr, ptr %254, align 8, !tbaa !1457, !noalias !1969
-  %256 = getelementptr inbounds nuw i32, ptr %255, i64 %229
+  %256 = getelementptr inbounds nuw [4 x i8], ptr %255, i64 %229
   %257 = load i32, ptr %256, align 4, !tbaa !99, !noalias !1969
   %258 = icmp sgt i64 %237, 0
   br i1 %258, label %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i, label %.lr.ph.i80
@@ -60716,7 +60656,7 @@ _ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i:           ; preds = %_ZN7xgboost6common4
   %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i ], [ %250, %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i ]
   %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i ], [ %237, %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i ]
   %259 = lshr i64 %.01116.i.i.i.i, 1
-  %260 = getelementptr inbounds nuw i64, ptr %.017.i.i.i.i, i64 %259
+  %260 = getelementptr inbounds nuw [8 x i8], ptr %.017.i.i.i.i, i64 %259
   %261 = load i64, ptr %260, align 8, !tbaa !44, !noalias !1969
   %262 = icmp ult i64 %261, %227
   %263 = getelementptr inbounds nuw i8, ptr %260, i64 8
@@ -60751,7 +60691,7 @@ _ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i:           ; preds = %_ZN7xgboost6common4
   unreachable
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i82: ; preds = %273
-  %275 = getelementptr inbounds nuw i64, ptr %21, i64 %.sroa.6.023.i
+  %275 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %.sroa.6.023.i
   %276 = load i64, ptr %275, align 8, !tbaa !44
   %277 = sub i64 %276, %226
   %278 = icmp ult i64 %.sroa.13.0, %237
@@ -60759,7 +60699,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
 
 .lr.ph.i.i:                                       ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i82, %282
   %.sroa.13.2 = phi i64 [ %283, %282 ], [ %.sroa.13.0, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i82 ]
-  %279 = getelementptr inbounds nuw i64, ptr %250, i64 %.sroa.13.2
+  %279 = getelementptr inbounds nuw [8 x i8], ptr %250, i64 %.sroa.13.2
   %280 = load i64, ptr %279, align 8, !tbaa !44
   %281 = icmp ult i64 %280, %277
   br i1 %281, label %282, label %284
@@ -60774,7 +60714,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
   br i1 %285, label %286, label %_ZN7xgboost6common16SparseColumnIterItEixEm.exit.i
 
 286:                                              ; preds = %284
-  %287 = getelementptr inbounds nuw i16, ptr %243, i64 %.sroa.13.2
+  %287 = getelementptr inbounds nuw [2 x i8], ptr %243, i64 %.sroa.13.2
   %288 = load i16, ptr %287, align 2, !tbaa !1458
   %289 = zext i16 %288 to i32
   %290 = add nsw i32 %257, %289
@@ -60954,7 +60894,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %46 = load ptr, ptr %45, align 8, !tbaa !1980
   %47 = sext i32 %18 to i64
   %48 = load ptr, ptr %46, align 8, !tbaa !643
-  %49 = getelementptr inbounds nuw float, ptr %48, i64 %47
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %47
   %50 = load float, ptr %49, align 4, !tbaa !134
   %51 = fcmp olt float %50, 0.000000e+00
   %52 = fcmp oge float %50, 0x4170000000000000
@@ -60974,7 +60914,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %60 = lshr i64 %59, 5
   %61 = and i32 %58, 31
   %62 = xor i32 %61, 31
-  %63 = getelementptr inbounds nuw i32, ptr %.sroa.2.0.copyload, i64 %60
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.2.0.copyload, i64 %60
   %64 = load i32, ptr %63, align 4, !tbaa !99
   %65 = shl nuw i32 1, %62
   %66 = and i32 %64, %65
@@ -61195,7 +61135,7 @@ define linkonce_odr void @_ZZN7xgboost6common13ParallelFor2dIZNS_4tree17ColumnSp
   %24 = load ptr, ptr %23, align 8, !tbaa !1937
   %25 = load ptr, ptr %16, align 8, !tbaa !1987
   %26 = load ptr, ptr %25, align 8, !tbaa !562
-  %27 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %26, i64 %18
+  %27 = getelementptr inbounds nuw [88 x i8], ptr %26, i64 %18
   %28 = load i32, ptr %27, align 8, !tbaa !535
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 128
   %30 = load ptr, ptr %29, align 8, !tbaa !925
@@ -61208,8 +61148,8 @@ define linkonce_odr void @_ZZN7xgboost6common13ParallelFor2dIZNS_4tree17ColumnSp
   %36 = lshr i64 %21, 11
   %37 = getelementptr inbounds nuw i8, ptr %30, i64 48
   %38 = load ptr, ptr %37, align 8, !tbaa !172
-  %39 = getelementptr %"class.std::shared_ptr.85", ptr %38, i64 %35
-  %40 = getelementptr %"class.std::shared_ptr.85", ptr %39, i64 %36
+  %39 = getelementptr [16 x i8], ptr %38, i64 %35
+  %40 = getelementptr [16 x i8], ptr %39, i64 %36
   %41 = load ptr, ptr %40, align 8, !tbaa !1314
   %42 = icmp eq ptr %41, null
   br i1 %42, label %_ZN4dmlc11LogCheck_NEIPN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoES6_EESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISD_EERKT_RKT0_.exit.i.i, label %_ZZN7xgboost4tree17ColumnSplitHelper9PartitionItLb0ELb1ENS0_14CPUExpandEntryEEEvPKNS_7ContextERKNS_6common14BlockedSpace2dEiRKNS_16GHistIndexMatrixERKNS7_12ColumnMatrixERKSt6vectorIT2_SaISI_EERKSH_IiSaIiEEPKNS_7RegTreeEENKUlmNS7_7Range1dEE0_clEmSU_.exit
@@ -61234,7 +61174,7 @@ _ZZN7xgboost4tree17ColumnSplitHelper9PartitionItLb0ELb1ENS0_14CPUExpandEntryEEEv
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 24
   %54 = sext i32 %28 to i64
   %55 = load ptr, ptr %53, align 8, !tbaa !164
-  %56 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %55, i64 %54
+  %56 = getelementptr inbounds nuw [24 x i8], ptr %55, i64 %54
   %57 = load ptr, ptr %56, align 8, !tbaa !917
   %58 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %59 = getelementptr inbounds nuw i8, ptr %24, i64 64
@@ -61439,7 +61379,7 @@ define linkonce_odr void @_ZZN7xgboost6common13ParallelFor2dIZNS_4tree20CommonRo
   %24 = load ptr, ptr %23, align 8, !tbaa !1890
   %25 = load ptr, ptr %16, align 8, !tbaa !1996
   %26 = load ptr, ptr %25, align 8, !tbaa !562
-  %27 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %26, i64 %18
+  %27 = getelementptr inbounds nuw [88 x i8], ptr %26, i64 %18
   %28 = load i32, ptr %27, align 8, !tbaa !535
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %sext.i = shl i64 %18, 32
@@ -61450,8 +61390,8 @@ define linkonce_odr void @_ZZN7xgboost6common13ParallelFor2dIZNS_4tree20CommonRo
   %34 = lshr i64 %21, 11
   %35 = getelementptr inbounds nuw i8, ptr %24, i64 56
   %36 = load ptr, ptr %35, align 8, !tbaa !172
-  %37 = getelementptr %"class.std::shared_ptr.85", ptr %36, i64 %33
-  %38 = getelementptr %"class.std::shared_ptr.85", ptr %37, i64 %34
+  %37 = getelementptr [16 x i8], ptr %36, i64 %33
+  %38 = getelementptr [16 x i8], ptr %37, i64 %34
   %39 = load ptr, ptr %38, align 8, !tbaa !1314
   %40 = icmp eq ptr %39, null
   br i1 %40, label %_ZN4dmlc11LogCheck_NEIPN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoES6_EESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISD_EERKT_RKT0_.exit.i.i, label %_ZN7xgboost6common16PartitionBuilderILm2048EE15AllocateForTaskEm.exit.i
@@ -61473,7 +61413,7 @@ _ZN7xgboost6common16PartitionBuilderILm2048EE15AllocateForTaskEm.exit.i: ; preds
   %47 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %48 = load ptr, ptr %47, align 8, !tbaa !1998
   %49 = load ptr, ptr %48, align 8, !tbaa !194
-  %50 = getelementptr inbounds nuw i32, ptr %49, i64 %18
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %18
   %51 = load i32, ptr %50, align 4, !tbaa !99
   br label %_ZZN7xgboost4tree20CommonRowPartitioner14UpdatePositionItLb0ELb1ENS0_14CPUExpandEntryEEEvPKNS_7ContextERKNS_16GHistIndexMatrixERKNS_6common12ColumnMatrixERKSt6vectorIT2_SaISF_EEPKNS_7RegTreeEENKUlmNSA_7Range1dEE_clEmSN_.exit
 
@@ -61489,7 +61429,7 @@ _ZZN7xgboost4tree20CommonRowPartitioner14UpdatePositionItLb0ELb1ENS0_14CPUExpand
   %60 = getelementptr inbounds nuw i8, ptr %24, i64 112
   %61 = sext i32 %28 to i64
   %62 = load ptr, ptr %60, align 8, !tbaa !164
-  %63 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %62, i64 %61
+  %63 = getelementptr inbounds nuw [24 x i8], ptr %62, i64 %61
   %64 = load ptr, ptr %63, align 8, !tbaa !917
   tail call void @_ZN7xgboost6common16PartitionBuilderILm2048EE9PartitionItLb0ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKm(ptr noundef nonnull align 8 dereferenceable(80) %53, i64 noundef %18, ptr noundef nonnull align 8 dereferenceable(24) %54, i64 %21, i64 %22, i32 noundef %52, ptr noundef nonnull align 8 dereferenceable(233) %56, ptr noundef nonnull align 8 dereferenceable(218) %43, ptr noundef nonnull align 8 dereferenceable(312) %59, ptr noundef %64)
   %65 = add nuw i64 %.011, 1
@@ -61521,7 +61461,7 @@ _ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_S4_.exit:
   %sext = shl i64 %1, 32
   %26 = ashr exact i64 %sext, 32
   %27 = load ptr, ptr %25, align 8, !tbaa !168
-  %28 = getelementptr inbounds nuw i64, ptr %27, i64 %26
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %26
   %29 = load i64, ptr %28, align 8, !tbaa !44
   %30 = lshr i64 %3, 11
   %31 = add i64 %29, %30
@@ -61541,12 +61481,12 @@ _ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_S4_.exit:
   unreachable
 
 _ZN7xgboost6common16PartitionBuilderILm2048EE14GetRightBufferEimm.exit: ; preds = %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_S4_.exit
-  %41 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %35, i64 %31
+  %41 = getelementptr inbounds nuw [16 x i8], ptr %35, i64 %31
   %42 = load ptr, ptr %41, align 8, !tbaa !1314
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 32
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 16416
   %45 = load ptr, ptr %2, align 8, !tbaa !562
-  %46 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %45, i64 %1
+  %46 = getelementptr inbounds nuw [88 x i8], ptr %45, i64 %1
   %47 = load i32, ptr %46, align 8, !tbaa !535
   %48 = sext i32 %47 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -61558,7 +61498,7 @@ _ZN7xgboost6common16PartitionBuilderILm2048EE14GetRightBufferEimm.exit: ; preds 
 _ZNK7xgboost7RegTree10SplitIndexEi.exit.thread:   ; preds = %_ZN7xgboost6common16PartitionBuilderILm2048EE14GetRightBufferEimm.exit
   %51 = getelementptr inbounds nuw i8, ptr %8, i64 160
   %52 = load ptr, ptr %51, align 8, !tbaa !536
-  %53 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %52, i64 %48
+  %53 = getelementptr inbounds nuw [20 x i8], ptr %52, i64 %48
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 12
   %55 = load i32, ptr %54, align 4, !tbaa !810
   %56 = and i32 %55, 2147483647
@@ -61570,7 +61510,7 @@ _ZNK7xgboost7RegTree10SplitIndexEi.exit:          ; preds = %_ZN7xgboost6common1
   %57 = getelementptr inbounds nuw i8, ptr %50, i64 40
   %58 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7xgboost16HostDeviceVectorIjE15ConstHostVectorEv(ptr noundef nonnull align 8 dereferenceable(8) %57)
   %59 = load ptr, ptr %58, align 8, !tbaa !449
-  %60 = getelementptr inbounds nuw i32, ptr %59, i64 %48
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %48
   %61 = load i32, ptr %60, align 4, !tbaa !99
   %.pre = load ptr, ptr %49, align 8, !tbaa !542
   store i32 %61, ptr %11, align 4, !tbaa !99
@@ -61591,7 +61531,7 @@ _ZNK7xgboost7RegTree10SplitIndexEi.exit:          ; preds = %_ZN7xgboost6common1
   %70 = phi i32 [ %56, %_ZNK7xgboost7RegTree10SplitIndexEi.exit.thread ], [ %61, %_ZNK7xgboost7RegTree10SplitIndexEi.exit ]
   %71 = getelementptr inbounds nuw i8, ptr %8, i64 160
   %72 = load ptr, ptr %71, align 8, !tbaa !536
-  %73 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %72, i64 %48
+  %73 = getelementptr inbounds nuw [20 x i8], ptr %72, i64 %48
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 12
   %75 = load i32, ptr %74, align 4, !tbaa !810
   %76 = icmp slt i32 %75, 0
@@ -61635,7 +61575,7 @@ _ZNK7xgboost7RegTree11DefaultLeftEi.exit:         ; preds = %62, %69
   unreachable
 
 _ZNK7xgboost6common4SpanIKNS_7RegTree22CategoricalSplitMatrix7SegmentELm18446744073709551615EEixEm.exit.i: ; preds = %_ZNK7xgboost7RegTree11DefaultLeftEi.exit
-  %103 = getelementptr inbounds nuw %"struct.xgboost::RegTree::CategoricalSplitMatrix::Segment", ptr %95, i64 %48
+  %103 = getelementptr inbounds nuw [16 x i8], ptr %95, i64 %48
   %.sroa.0.0.copyload.i = load i64, ptr %103, align 8, !tbaa !44
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %103, i64 8
   %.sroa.4.0.copyload.i = load i64, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !44
@@ -61671,7 +61611,7 @@ _ZNK7xgboost6common4SpanIKNS_7RegTree22CategoricalSplitMatrix7SegmentELm18446744
   unreachable
 
 _ZNK7xgboost7RegTree8NodeCatsEi.exit:             ; preds = %111
-  %117 = getelementptr inbounds nuw i32, ptr %88, i64 %.sroa.0.0.copyload.i
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %88, i64 %.sroa.0.0.copyload.i
   store i64 %112, ptr %14, align 8
   %118 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %117, ptr %118, align 8
@@ -61711,7 +61651,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
   %.029.i = phi i64 [ %.1.i, %130 ], [ 0, %129 ]
   %.sroa.6.028.i = phi i64 [ %131, %130 ], [ 0, %129 ]
   %.01927.i = phi i64 [ %.120.i, %130 ], [ 0, %129 ]
-  %132 = getelementptr inbounds nuw i64, ptr %23, i64 %.sroa.6.028.i
+  %132 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %.sroa.6.028.i
   %133 = load i64, ptr %132, align 8, !tbaa !44
   %134 = load i32, ptr %11, align 4, !tbaa !99
   %135 = zext i32 %134 to i64
@@ -61729,7 +61669,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
   %.sroa.2.0.copyload.i.i = load ptr, ptr %118, align 8, !tbaa !459
   %143 = zext nneg i32 %136 to i64
   %144 = load ptr, ptr %120, align 8, !tbaa !643
-  %145 = getelementptr inbounds nuw float, ptr %144, i64 %143
+  %145 = getelementptr inbounds nuw [4 x i8], ptr %144, i64 %143
   %146 = load float, ptr %145, align 4, !tbaa !134
   %147 = fcmp olt float %146, 0.000000e+00
   %148 = fcmp oge float %146, 0x4170000000000000
@@ -61749,7 +61689,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
   %156 = lshr i64 %155, 5
   %157 = and i32 %154, 31
   %158 = xor i32 %157, 31
-  %159 = getelementptr inbounds nuw i32, ptr %.sroa.2.0.copyload.i.i, i64 %156
+  %159 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.2.0.copyload.i.i, i64 %156
   %160 = load i32, ptr %159, align 4, !tbaa !99
   %161 = xor i32 %160, -1
   %162 = lshr i32 %161, %158
@@ -61759,10 +61699,10 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
 164:                                              ; preds = %139
   %165 = zext nneg i32 %136 to i64
   %166 = load ptr, ptr %120, align 8, !tbaa !643
-  %167 = getelementptr inbounds nuw float, ptr %166, i64 %165
+  %167 = getelementptr inbounds nuw [4 x i8], ptr %166, i64 %165
   %168 = load float, ptr %167, align 4, !tbaa !134
   %169 = load ptr, ptr %2, align 8, !tbaa !562
-  %170 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %169, i64 %1
+  %170 = getelementptr inbounds nuw [88 x i8], ptr %169, i64 %1
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 16
   %172 = load float, ptr %171, align 8, !tbaa !809
   %173 = fcmp ole float %168, %172
@@ -61776,13 +61716,13 @@ _ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionItLb0ELb1ENS_4tree14CPUE
 
 _ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionItLb0ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_E_clImEEDaSO_.exit.thread.i: ; preds = %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionItLb0ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_E_clImEEDaSO_.exit.i, %150, %142
   %176 = add i64 %.029.i, 1
-  %177 = getelementptr inbounds nuw i64, ptr %43, i64 %.029.i
+  %177 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %.029.i
   store i64 %133, ptr %177, align 8, !tbaa !44
   br label %130
 
 178:                                              ; preds = %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionItLb0ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_E_clImEEDaSO_.exit.i
   %179 = add i64 %.01927.i, 1
-  %180 = getelementptr inbounds nuw i64, ptr %44, i64 %.01927.i
+  %180 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %.01927.i
   store i64 %133, ptr %180, align 8, !tbaa !44
   br label %130
 
@@ -61800,11 +61740,11 @@ _ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionItLb0ELb1ENS_4tree14CPUE
   call void @llvm.experimental.noalias.scope.decl(metadata !2005)
   %189 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %190 = load ptr, ptr %189, align 8, !tbaa !1452, !noalias !2005
-  %191 = getelementptr inbounds nuw i64, ptr %190, i64 %183
+  %191 = getelementptr inbounds nuw [8 x i8], ptr %190, i64 %183
   %192 = load i64, ptr %191, align 8, !tbaa !44, !noalias !2005
   %193 = add i32 %77, 1
   %194 = zext i32 %193 to i64
-  %195 = getelementptr inbounds nuw i64, ptr %190, i64 %194
+  %195 = getelementptr inbounds nuw [8 x i8], ptr %190, i64 %194
   %196 = load i64, ptr %195, align 8, !tbaa !44, !noalias !2005
   %197 = load ptr, ptr %7, align 8, !tbaa !1456, !noalias !2005
   %198 = icmp ne ptr %197, null
@@ -61825,7 +61765,7 @@ _ZNK7xgboost6common12ColumnMatrix11DenseColumnItLb0EEEDaj.exit: ; preds = %188
   %207 = getelementptr inbounds nuw i8, ptr %197, i64 %206
   %208 = getelementptr inbounds nuw i8, ptr %7, i64 160
   %209 = load ptr, ptr %208, align 8, !tbaa !1457, !noalias !2005
-  %210 = getelementptr inbounds nuw i32, ptr %209, i64 %183
+  %210 = getelementptr inbounds nuw [4 x i8], ptr %209, i64 %183
   %211 = load i32, ptr %210, align 4, !tbaa !99, !noalias !2005
   %212 = getelementptr inbounds nuw i8, ptr %7, i64 168
   %.sroa.0.0.copyload.i89 = load ptr, ptr %212, align 8, !tbaa !459, !noalias !2005
@@ -61993,11 +61933,11 @@ _ZNK7xgboost6common4SpanIKmLm18446744073709551615EE5frontEv.exit: ; preds = %_ZN
   %260 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %261 = zext i32 %255 to i64
   %262 = load ptr, ptr %260, align 8, !tbaa !1452, !noalias !2010
-  %263 = getelementptr inbounds nuw i64, ptr %262, i64 %261
+  %263 = getelementptr inbounds nuw [8 x i8], ptr %262, i64 %261
   %264 = load i64, ptr %263, align 8, !tbaa !44, !noalias !2010
   %265 = add i32 %255, 1
   %266 = zext i32 %265 to i64
-  %267 = getelementptr inbounds nuw i64, ptr %262, i64 %266
+  %267 = getelementptr inbounds nuw [8 x i8], ptr %262, i64 %266
   %268 = load i64, ptr %267, align 8, !tbaa !44, !noalias !2010
   %269 = sub i64 %268, %264
   %270 = getelementptr inbounds nuw i8, ptr %7, i64 216
@@ -62018,7 +61958,7 @@ _ZNK7xgboost6common4SpanIKmLm18446744073709551615EE5frontEv.exit: ; preds = %_ZN
 _ZN7xgboost6common4SpanIKtLm18446744073709551615EEC2EPS2_m.exit.i: ; preds = %_ZNK7xgboost6common4SpanIKmLm18446744073709551615EE5frontEv.exit
   %280 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %281 = load ptr, ptr %280, align 8, !tbaa !1452, !noalias !2010
-  %282 = getelementptr inbounds nuw i64, ptr %281, i64 %264
+  %282 = getelementptr inbounds nuw [8 x i8], ptr %281, i64 %264
   %283 = icmp ne ptr %281, null
   %284 = or i1 %277, %283
   br i1 %284, label %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i, label %285, !prof !127
@@ -62030,7 +61970,7 @@ _ZN7xgboost6common4SpanIKtLm18446744073709551615EEC2EPS2_m.exit.i: ; preds = %_Z
 _ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i: ; preds = %_ZN7xgboost6common4SpanIKtLm18446744073709551615EEC2EPS2_m.exit.i
   %286 = getelementptr inbounds nuw i8, ptr %7, i64 160
   %287 = load ptr, ptr %286, align 8, !tbaa !1457, !noalias !2010
-  %288 = getelementptr inbounds nuw i32, ptr %287, i64 %261
+  %288 = getelementptr inbounds nuw [4 x i8], ptr %287, i64 %261
   %289 = load i32, ptr %288, align 4, !tbaa !99, !noalias !2010
   %290 = icmp sgt i64 %269, 0
   br i1 %290, label %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i, label %_ZNK7xgboost6common12ColumnMatrix12SparseColumnItEEDajm.exit
@@ -62039,7 +61979,7 @@ _ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i:           ; preds = %_ZN7xgboost6common4
   %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i ], [ %282, %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i ]
   %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i ], [ %269, %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i ]
   %291 = lshr i64 %.01116.i.i.i.i, 1
-  %292 = getelementptr inbounds nuw i64, ptr %.017.i.i.i.i, i64 %291
+  %292 = getelementptr inbounds nuw [8 x i8], ptr %.017.i.i.i.i, i64 %291
   %293 = load i64, ptr %292, align 8, !tbaa !44, !noalias !2010
   %294 = icmp ult i64 %293, %259
   %295 = getelementptr inbounds nuw i8, ptr %292, i64 8
@@ -62065,7 +62005,7 @@ _ZNK7xgboost6common12ColumnMatrix12SparseColumnItEEDajm.exit: ; preds = %_ZSt7ad
   %.031.i = phi i64 [ %358, %357 ], [ 0, %_ZNK7xgboost6common12ColumnMatrix12SparseColumnItEEDajm.exit ]
   %.02230.i = phi i64 [ %.1.i104, %357 ], [ 0, %_ZNK7xgboost6common12ColumnMatrix12SparseColumnItEEDajm.exit ]
   %.02329.i = phi i64 [ %.124.i, %357 ], [ 0, %_ZNK7xgboost6common12ColumnMatrix12SparseColumnItEEDajm.exit ]
-  %305 = getelementptr inbounds nuw i64, ptr %23, i64 %.031.i
+  %305 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %.031.i
   %306 = load i64, ptr %305, align 8, !tbaa !44
   %307 = sub i64 %306, %258
   %308 = icmp ult i64 %.sroa.17.0, %269
@@ -62073,7 +62013,7 @@ _ZNK7xgboost6common12ColumnMatrix12SparseColumnItEEDajm.exit: ; preds = %_ZSt7ad
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i101, %312
   %.sroa.17.2 = phi i64 [ %313, %312 ], [ %.sroa.17.0, %.lr.ph.i101 ]
-  %309 = getelementptr inbounds nuw i64, ptr %282, i64 %.sroa.17.2
+  %309 = getelementptr inbounds nuw [8 x i8], ptr %282, i64 %.sroa.17.2
   %310 = load i64, ptr %309, align 8, !tbaa !44
   %311 = icmp ult i64 %310, %307
   br i1 %311, label %312, label %314
@@ -62088,7 +62028,7 @@ _ZNK7xgboost6common12ColumnMatrix12SparseColumnItEEDajm.exit: ; preds = %_ZSt7ad
   br i1 %315, label %316, label %_ZN7xgboost6common16SparseColumnIterItEixEm.exit.i
 
 316:                                              ; preds = %314
-  %317 = getelementptr inbounds nuw i16, ptr %275, i64 %.sroa.17.2
+  %317 = getelementptr inbounds nuw [2 x i8], ptr %275, i64 %.sroa.17.2
   %318 = load i16, ptr %317, align 2, !tbaa !1458
   %319 = zext i16 %318 to i32
   %320 = add nsw i32 %289, %319
@@ -62113,7 +62053,7 @@ _ZN7xgboost6common16SparseColumnIterItEixEm.exit.i: ; preds = %312, %316, %314, 
   %.sroa.2.0.copyload.i.i109 = load ptr, ptr %118, align 8, !tbaa !459
   %329 = zext nneg i32 %325 to i64
   %330 = load ptr, ptr %120, align 8, !tbaa !643
-  %331 = getelementptr inbounds nuw float, ptr %330, i64 %329
+  %331 = getelementptr inbounds nuw [4 x i8], ptr %330, i64 %329
   %332 = load float, ptr %331, align 4, !tbaa !134
   %333 = fcmp olt float %332, 0.000000e+00
   %334 = fcmp oge float %332, 0x4170000000000000
@@ -62133,7 +62073,7 @@ _ZN7xgboost6common16SparseColumnIterItEixEm.exit.i: ; preds = %312, %316, %314, 
   %342 = lshr i64 %341, 5
   %343 = and i32 %340, 31
   %344 = xor i32 %343, 31
-  %345 = getelementptr inbounds nuw i32, ptr %.sroa.2.0.copyload.i.i109, i64 %342
+  %345 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.2.0.copyload.i.i109, i64 %342
   %346 = load i32, ptr %345, align 4, !tbaa !99
   %347 = xor i32 %346, -1
   %348 = lshr i32 %347, %344
@@ -62152,13 +62092,13 @@ _ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionItLb0ELb1ENS_4tree14CPUE
 
 _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.thread.i: ; preds = %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionItLb0ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_T0_E_clImiEEDaSO_SP_.exit.i, %_ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.i, %336, %328
   %352 = add i64 %.02329.i, 1
-  %353 = getelementptr inbounds nuw i64, ptr %43, i64 %.02329.i
+  %353 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %.02329.i
   store i64 %306, ptr %353, align 8, !tbaa !44
   br label %357
 
 354:                                              ; preds = %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionItLb0ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_T0_E_clImiEEDaSO_SP_.exit.i, %_ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.i
   %355 = add i64 %.02230.i, 1
-  %356 = getelementptr inbounds nuw i64, ptr %44, i64 %.02230.i
+  %356 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %.02230.i
   store i64 %306, ptr %356, align 8, !tbaa !44
   br label %357
 
@@ -62174,7 +62114,7 @@ _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.thread
   %.031.i115 = phi i64 [ %412, %411 ], [ 0, %_ZNK7xgboost6common12ColumnMatrix12SparseColumnItEEDajm.exit ]
   %.02230.i116 = phi i64 [ %.1.i124, %411 ], [ 0, %_ZNK7xgboost6common12ColumnMatrix12SparseColumnItEEDajm.exit ]
   %.02329.i117 = phi i64 [ %.124.i123, %411 ], [ 0, %_ZNK7xgboost6common12ColumnMatrix12SparseColumnItEEDajm.exit ]
-  %359 = getelementptr inbounds nuw i64, ptr %23, i64 %.031.i115
+  %359 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %.031.i115
   %360 = load i64, ptr %359, align 8, !tbaa !44
   %361 = sub i64 %360, %258
   %362 = icmp ult i64 %.sroa.17.3, %269
@@ -62182,7 +62122,7 @@ _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.thread
 
 .lr.ph.i.i136:                                    ; preds = %.lr.ph.i114, %366
   %.sroa.17.5 = phi i64 [ %367, %366 ], [ %.sroa.17.3, %.lr.ph.i114 ]
-  %363 = getelementptr inbounds nuw i64, ptr %282, i64 %.sroa.17.5
+  %363 = getelementptr inbounds nuw [8 x i8], ptr %282, i64 %.sroa.17.5
   %364 = load i64, ptr %363, align 8, !tbaa !44
   %365 = icmp ult i64 %364, %361
   br i1 %365, label %366, label %368
@@ -62197,7 +62137,7 @@ _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.thread
   br i1 %369, label %370, label %_ZN7xgboost6common16SparseColumnIterItEixEm.exit.i118
 
 370:                                              ; preds = %368
-  %371 = getelementptr inbounds nuw i16, ptr %275, i64 %.sroa.17.5
+  %371 = getelementptr inbounds nuw [2 x i8], ptr %275, i64 %.sroa.17.5
   %372 = load i16, ptr %371, align 2, !tbaa !1458
   %373 = zext i16 %372 to i32
   %374 = add nsw i32 %289, %373
@@ -62222,7 +62162,7 @@ _ZN7xgboost6common16SparseColumnIterItEixEm.exit.i118: ; preds = %366, %370, %36
   %.sroa.2.0.copyload.i.i133 = load ptr, ptr %118, align 8, !tbaa !459
   %383 = zext nneg i32 %379 to i64
   %384 = load ptr, ptr %120, align 8, !tbaa !643
-  %385 = getelementptr inbounds nuw float, ptr %384, i64 %383
+  %385 = getelementptr inbounds nuw [4 x i8], ptr %384, i64 %383
   %386 = load float, ptr %385, align 4, !tbaa !134
   %387 = fcmp olt float %386, 0.000000e+00
   %388 = fcmp oge float %386, 0x4170000000000000
@@ -62242,7 +62182,7 @@ _ZN7xgboost6common16SparseColumnIterItEixEm.exit.i118: ; preds = %366, %370, %36
   %396 = lshr i64 %395, 5
   %397 = and i32 %394, 31
   %398 = xor i32 %397, 31
-  %399 = getelementptr inbounds nuw i32, ptr %.sroa.2.0.copyload.i.i133, i64 %396
+  %399 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.2.0.copyload.i.i133, i64 %396
   %400 = load i32, ptr %399, align 4, !tbaa !99
   %401 = xor i32 %400, -1
   %402 = lshr i32 %401, %398
@@ -62261,13 +62201,13 @@ _ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionItLb0ELb1ENS_4tree14CPUE
 
 _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.thread.i122: ; preds = %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionItLb0ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_T0_E_clImiEEDaSO_SP_.exit.i120, %_ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.i130, %390, %382
   %406 = add i64 %.02329.i117, 1
-  %407 = getelementptr inbounds nuw i64, ptr %43, i64 %.02329.i117
+  %407 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %.02329.i117
   store i64 %360, ptr %407, align 8, !tbaa !44
   br label %411
 
 408:                                              ; preds = %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionItLb0ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_T0_E_clImiEEDaSO_SP_.exit.i120, %_ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.i130
   %409 = add i64 %.02230.i116, 1
-  %410 = getelementptr inbounds nuw i64, ptr %44, i64 %.02230.i116
+  %410 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %.02230.i116
   store i64 %360, ptr %410, align 8, !tbaa !44
   br label %411
 
@@ -62282,7 +62222,7 @@ _ZN7xgboost6common16PartitionBuilderILm2048EE20PartitionRangeKernelIZNS2_9Partit
   %.sroa.10169.0 = phi i64 [ %.sroa.10169.1, %228 ], [ %.1.i104, %357 ], [ %.120.i, %130 ], [ 0, %129 ], [ %.1.i124, %411 ]
   %.sroa.0168.0 = phi i64 [ %.sroa.0168.1, %228 ], [ %.124.i, %357 ], [ %.1.i, %130 ], [ 0, %129 ], [ %.124.i123, %411 ]
   %413 = load ptr, ptr %25, align 8, !tbaa !168
-  %414 = getelementptr inbounds nuw i64, ptr %413, i64 %26
+  %414 = getelementptr inbounds nuw [8 x i8], ptr %413, i64 %26
   %415 = load i64, ptr %414, align 8, !tbaa !44
   %416 = add i64 %415, %30
   %417 = load ptr, ptr %33, align 8, !tbaa !175
@@ -62299,7 +62239,7 @@ _ZN7xgboost6common16PartitionBuilderILm2048EE20PartitionRangeKernelIZNS2_9Partit
   unreachable
 
 _ZN7xgboost6common16PartitionBuilderILm2048EE13SetNLeftElemsEimm.exit: ; preds = %_ZN7xgboost6common16PartitionBuilderILm2048EE20PartitionRangeKernelIZNS2_9PartitionItLb0ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS8_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmEUlT_E_EESt4pairImmENS0_4SpanISN_Lm18446744073709551615EEENST_ImLm18446744073709551615EEESV_SP_.exit
-  %424 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %418, i64 %416
+  %424 = getelementptr inbounds nuw [16 x i8], ptr %418, i64 %416
   %425 = load ptr, ptr %424, align 8, !tbaa !1314
   store i64 %.sroa.0168.0, ptr %425, align 8, !tbaa !1319
   %426 = load i64, ptr %414, align 8, !tbaa !44
@@ -62312,7 +62252,7 @@ _ZN7xgboost6common16PartitionBuilderILm2048EE13SetNLeftElemsEimm.exit: ; preds =
   unreachable
 
 _ZN7xgboost6common16PartitionBuilderILm2048EE14SetNRightElemsEimm.exit: ; preds = %_ZN7xgboost6common16PartitionBuilderILm2048EE13SetNLeftElemsEimm.exit
-  %429 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %418, i64 %427
+  %429 = getelementptr inbounds nuw [16 x i8], ptr %418, i64 %427
   %430 = load ptr, ptr %429, align 8, !tbaa !1314
   %431 = getelementptr inbounds nuw i8, ptr %430, i64 8
   store i64 %.sroa.10169.0, ptr %431, align 8, !tbaa !1323
@@ -62372,10 +62312,10 @@ _ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionItLb0ELb1ENS_4tree14CPUE
   %.027.us = phi i64 [ 0, %.lr.ph.split.us ], [ %40, %39 ]
   %.02126.us = phi i64 [ 0, %.lr.ph.split.us ], [ %.1.us, %39 ]
   %.02225.us = phi i64 [ 0, %.lr.ph.split.us ], [ %.123.us, %39 ]
-  %27 = getelementptr inbounds nuw i64, ptr %3, i64 %.027.us
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.027.us
   %28 = load i64, ptr %27, align 8, !tbaa !44
   %29 = sub i64 %28, %7
-  %30 = getelementptr inbounds nuw i16, ptr %24, i64 %29
+  %30 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %29
   %31 = load i16, ptr %30, align 2, !tbaa !1458
   %32 = zext i16 %31 to i32
   %33 = add nsw i32 %23, %32
@@ -62384,13 +62324,13 @@ _ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionItLb0ELb1ENS_4tree14CPUE
 
 34:                                               ; preds = %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionItLb0ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_T0_E_clImiEEDaSO_SP_.exit.us
   %35 = add i64 %.02126.us, 1
-  %36 = getelementptr inbounds nuw i64, ptr %11, i64 %.02126.us
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.02126.us
   store i64 %28, ptr %36, align 8, !tbaa !44
   br label %39
 
 _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.thread.us: ; preds = %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionItLb0ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_T0_E_clImiEEDaSO_SP_.exit.us
   %37 = add i64 %.02225.us, 1
-  %38 = getelementptr inbounds nuw i64, ptr %5, i64 %.02225.us
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.02225.us
   store i64 %28, ptr %38, align 8, !tbaa !44
   br label %39
 
@@ -62412,7 +62352,7 @@ _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.thread
   %.027 = phi i64 [ %95, %94 ], [ 0, %.lr.ph ]
   %.02126 = phi i64 [ %.1, %94 ], [ 0, %.lr.ph ]
   %.02225 = phi i64 [ %.123, %94 ], [ 0, %.lr.ph ]
-  %41 = getelementptr inbounds nuw i64, ptr %3, i64 %.027
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.027
   %42 = load i64, ptr %41, align 8, !tbaa !44
   %43 = load ptr, ptr %8, align 8, !tbaa !2015
   %44 = load i8, ptr %43, align 1, !tbaa !758, !range !114, !noundef !115
@@ -62437,7 +62377,7 @@ _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.thread
   %57 = load ptr, ptr %19, align 8, !tbaa !2023
   %58 = zext nneg i32 %51 to i64
   %59 = load ptr, ptr %57, align 8, !tbaa !643
-  %60 = getelementptr inbounds nuw float, ptr %59, i64 %58
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %58
   %61 = load float, ptr %60, align 4, !tbaa !134
   %62 = fcmp olt float %61, 0.000000e+00
   %63 = fcmp oge float %61, 0x4170000000000000
@@ -62457,7 +62397,7 @@ _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.thread
   %71 = lshr i64 %70, 5
   %72 = and i32 %69, 31
   %73 = xor i32 %72, 31
-  %74 = getelementptr inbounds nuw i32, ptr %.sroa.2.0.copyload.i, i64 %71
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.2.0.copyload.i, i64 %71
   %75 = load i32, ptr %74, align 4, !tbaa !99
   %76 = xor i32 %75, -1
   %77 = lshr i32 %76, %73
@@ -62473,7 +62413,7 @@ _ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionItLb0ELb1ENS_4tree14CPUE
   %80 = load i32, ptr %12, align 8, !tbaa !1523
   %81 = load ptr, ptr %13, align 8, !tbaa !1533
   %82 = sub i64 %42, %7
-  %83 = getelementptr inbounds nuw i16, ptr %81, i64 %82
+  %83 = getelementptr inbounds nuw [2 x i8], ptr %81, i64 %82
   %84 = load i16, ptr %83, align 2, !tbaa !1458
   %85 = zext i16 %84 to i32
   %86 = add nsw i32 %80, %85
@@ -62484,13 +62424,13 @@ _ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionItLb0ELb1ENS_4tree14CPUE
 
 _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.thread: ; preds = %65, %55, %_ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i, %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionItLb0ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_T0_E_clImiEEDaSO_SP_.exit
   %89 = add i64 %.02225, 1
-  %90 = getelementptr inbounds nuw i64, ptr %5, i64 %.02225
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.02225
   store i64 %42, ptr %90, align 8, !tbaa !44
   br label %94
 
 91:                                               ; preds = %_ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i, %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionItLb0ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_T0_E_clImiEEDaSO_SP_.exit
   %92 = add i64 %.02126, 1
-  %93 = getelementptr inbounds nuw i64, ptr %11, i64 %.02126
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.02126
   store i64 %42, ptr %93, align 8, !tbaa !44
   br label %94
 
@@ -62534,10 +62474,10 @@ _ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionItLb0ELb1ENS_4tree14CPUE
   %.027.us = phi i64 [ 0, %.lr.ph.split.us ], [ %40, %39 ]
   %.02126.us = phi i64 [ 0, %.lr.ph.split.us ], [ %.1.us, %39 ]
   %.02225.us = phi i64 [ 0, %.lr.ph.split.us ], [ %.123.us, %39 ]
-  %27 = getelementptr inbounds nuw i64, ptr %3, i64 %.027.us
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.027.us
   %28 = load i64, ptr %27, align 8, !tbaa !44
   %29 = sub i64 %28, %7
-  %30 = getelementptr inbounds nuw i16, ptr %24, i64 %29
+  %30 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %29
   %31 = load i16, ptr %30, align 2, !tbaa !1458
   %32 = zext i16 %31 to i32
   %33 = add nsw i32 %23, %32
@@ -62546,13 +62486,13 @@ _ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionItLb0ELb1ENS_4tree14CPUE
 
 34:                                               ; preds = %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionItLb0ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_T0_E_clImiEEDaSO_SP_.exit.us
   %35 = add i64 %.02126.us, 1
-  %36 = getelementptr inbounds nuw i64, ptr %11, i64 %.02126.us
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.02126.us
   store i64 %28, ptr %36, align 8, !tbaa !44
   br label %39
 
 _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.thread.us: ; preds = %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionItLb0ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_T0_E_clImiEEDaSO_SP_.exit.us
   %37 = add i64 %.02225.us, 1
-  %38 = getelementptr inbounds nuw i64, ptr %5, i64 %.02225.us
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.02225.us
   store i64 %28, ptr %38, align 8, !tbaa !44
   br label %39
 
@@ -62574,7 +62514,7 @@ _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.thread
   %.027 = phi i64 [ %95, %94 ], [ 0, %.lr.ph ]
   %.02126 = phi i64 [ %.1, %94 ], [ 0, %.lr.ph ]
   %.02225 = phi i64 [ %.123, %94 ], [ 0, %.lr.ph ]
-  %41 = getelementptr inbounds nuw i64, ptr %3, i64 %.027
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.027
   %42 = load i64, ptr %41, align 8, !tbaa !44
   %43 = load ptr, ptr %8, align 8, !tbaa !2015
   %44 = load i8, ptr %43, align 1, !tbaa !758, !range !114, !noundef !115
@@ -62599,7 +62539,7 @@ _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.thread
   %57 = load ptr, ptr %19, align 8, !tbaa !2023
   %58 = zext nneg i32 %51 to i64
   %59 = load ptr, ptr %57, align 8, !tbaa !643
-  %60 = getelementptr inbounds nuw float, ptr %59, i64 %58
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %58
   %61 = load float, ptr %60, align 4, !tbaa !134
   %62 = fcmp olt float %61, 0.000000e+00
   %63 = fcmp oge float %61, 0x4170000000000000
@@ -62619,7 +62559,7 @@ _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.thread
   %71 = lshr i64 %70, 5
   %72 = and i32 %69, 31
   %73 = xor i32 %72, 31
-  %74 = getelementptr inbounds nuw i32, ptr %.sroa.2.0.copyload.i, i64 %71
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.2.0.copyload.i, i64 %71
   %75 = load i32, ptr %74, align 4, !tbaa !99
   %76 = xor i32 %75, -1
   %77 = lshr i32 %76, %73
@@ -62635,7 +62575,7 @@ _ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionItLb0ELb1ENS_4tree14CPUE
   %80 = load i32, ptr %12, align 8, !tbaa !1523
   %81 = load ptr, ptr %13, align 8, !tbaa !1533
   %82 = sub i64 %42, %7
-  %83 = getelementptr inbounds nuw i16, ptr %81, i64 %82
+  %83 = getelementptr inbounds nuw [2 x i8], ptr %81, i64 %82
   %84 = load i16, ptr %83, align 2, !tbaa !1458
   %85 = zext i16 %84 to i32
   %86 = add nsw i32 %80, %85
@@ -62646,13 +62586,13 @@ _ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionItLb0ELb1ENS_4tree14CPUE
 
 _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.thread: ; preds = %65, %55, %_ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i, %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionItLb0ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_T0_E_clImiEEDaSO_SP_.exit
   %89 = add i64 %.02225, 1
-  %90 = getelementptr inbounds nuw i64, ptr %5, i64 %.02225
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.02225
   store i64 %42, ptr %90, align 8, !tbaa !44
   br label %94
 
 91:                                               ; preds = %_ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i, %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionItLb0ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_T0_E_clImiEEDaSO_SP_.exit
   %92 = add i64 %.02126, 1
-  %93 = getelementptr inbounds nuw i64, ptr %11, i64 %.02126
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.02126
   store i64 %42, ptr %93, align 8, !tbaa !44
   br label %94
 
@@ -62707,12 +62647,12 @@ define linkonce_odr void @_ZN4dmlc12OMPException3RunIZN7xgboost6common13Parallel
   %27 = load ptr, ptr %22, align 8, !tbaa !1892
   %28 = load ptr, ptr %20, align 8, !tbaa !2032
   %29 = load ptr, ptr %28, align 8, !tbaa !562
-  %30 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %29, i64 %24
+  %30 = getelementptr inbounds nuw [88 x i8], ptr %29, i64 %24
   %31 = load i32, ptr %30, align 8, !tbaa !535
   %32 = getelementptr inbounds nuw i8, ptr %27, i64 112
   %33 = sext i32 %31 to i64
   %34 = load ptr, ptr %32, align 8, !tbaa !164
-  %35 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %34, i64 %33
+  %35 = getelementptr inbounds nuw [24 x i8], ptr %34, i64 %33
   %36 = load ptr, ptr %35, align 8, !tbaa !917
   %37 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %sext.i.i = shl i64 %24, 32
@@ -62724,11 +62664,11 @@ define linkonce_odr void @_ZN4dmlc12OMPException3RunIZN7xgboost6common13Parallel
   %43 = add i64 %41, %42
   %44 = getelementptr inbounds nuw i8, ptr %27, i64 56
   %45 = load ptr, ptr %44, align 8, !tbaa !172
-  %46 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %45, i64 %43
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %45, i64 %43
   %47 = load ptr, ptr %46, align 8, !tbaa !1314
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %49 = load i64, ptr %48, align 8, !tbaa !1322
-  %50 = getelementptr inbounds nuw i64, ptr %36, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %47, i64 16416
   %52 = load i64, ptr %47, align 8, !tbaa !1319
   %53 = icmp eq i64 %52, 0
@@ -62738,11 +62678,11 @@ _ZSt8__copy_nIPKmmPmET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i.i.i: ; p
   %54 = getelementptr inbounds nuw i8, ptr %47, i64 32
   %55 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %56 = load i64, ptr %55, align 8, !tbaa !1317
-  %57 = getelementptr inbounds nuw i64, ptr %36, i64 %56
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %56
   %.idx.i.i.i.i.i = shl nuw nsw i64 %52, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %57, ptr nonnull align 8 %54, i64 %.idx.i.i.i.i.i, i1 false)
   %.pre.i.i.i = load ptr, ptr %44, align 8, !tbaa !172
-  %.phi.trans.insert.i.i.i = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %.pre.i.i.i, i64 %43
+  %.phi.trans.insert.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %.pre.i.i.i, i64 %43
   %.pre18.i.i.i = load ptr, ptr %.phi.trans.insert.i.i.i, align 8, !tbaa !1314
   br label %_ZSt6copy_nIPKmmPmET1_T_T0_S3_.exit.i.i.i
 
@@ -62972,7 +62912,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %.noexc50
 
 _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit36.i: ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i, %.noexc50
   store ptr %31, ptr %8, align 8, !tbaa !194
-  %35 = getelementptr inbounds nuw i32, ptr %31, i64 %21
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %21
   store ptr %35, ptr %25, align 8, !tbaa !545
   store ptr %35, ptr %27, align 8, !tbaa !197
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
@@ -63189,10 +63129,10 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 116:                                              ; preds = %._crit_edge35.i, %.lr.ph39.i
   %.01637.i = phi i64 [ 0, %.lr.ph39.i ], [ %119, %._crit_edge35.i ]
-  %117 = getelementptr inbounds nuw i64, ptr %107, i64 %.01637.i
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %.01637.i
   %118 = load i64, ptr %117, align 8, !tbaa !44
   %119 = add nuw i64 %.01637.i, 1
-  %120 = getelementptr inbounds nuw i64, ptr %107, i64 %119
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %119
   %121 = load i64, ptr %120, align 8, !tbaa !44
   %122 = icmp ult i64 %118, %121
   br i1 %122, label %.lr.ph.i, label %._crit_edge35.i
@@ -63205,7 +63145,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 .lr.ph.i:                                         ; preds = %116, %.lr.ph.i
   %.01528.i = phi i64 [ %129, %.lr.ph.i ], [ %118, %116 ]
   %.02327.i = phi i64 [ %128, %.lr.ph.i ], [ 0, %116 ]
-  %124 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %114, i64 %.01528.i
+  %124 = getelementptr inbounds nuw [16 x i8], ptr %114, i64 %.01528.i
   %125 = load ptr, ptr %124, align 8, !tbaa !1314
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 16
   store i64 %.02327.i, ptr %126, align 8, !tbaa !1317
@@ -63219,7 +63159,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 ._crit_edge35.i:                                  ; preds = %.lr.ph34.i, %._crit_edge.i, %116
   %.023.lcssa48.i = phi i64 [ %128, %._crit_edge.i ], [ 0, %116 ], [ %128, %.lr.ph34.i ]
   %.024.lcssa.i = phi i64 [ 0, %._crit_edge.i ], [ 0, %116 ], [ %140, %.lr.ph34.i ]
-  %132 = getelementptr inbounds nuw %"struct.std::pair.129", ptr %115, i64 %.01637.i
+  %132 = getelementptr inbounds nuw [16 x i8], ptr %115, i64 %.01637.i
   store i64 %.023.lcssa48.i, ptr %132, align 8, !tbaa !1126
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 8
   store i64 %.024.lcssa.i, ptr %133, align 8, !tbaa !1128
@@ -63230,7 +63170,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %.032.i = phi i64 [ %141, %.lr.ph34.i ], [ %.pre.i, %._crit_edge.i ]
   %.02431.i = phi i64 [ %140, %.lr.ph34.i ], [ 0, %._crit_edge.i ]
   %134 = add i64 %.02431.i, %128
-  %135 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %114, i64 %.032.i
+  %135 = getelementptr inbounds nuw [16 x i8], ptr %114, i64 %.032.i
   %136 = load ptr, ptr %135, align 8, !tbaa !1314
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 24
   store i64 %134, ptr %137, align 8, !tbaa !1322
@@ -63375,12 +63315,12 @@ define linkonce_odr void @_ZN7xgboost6common14BlockedSpace2dC2IZNS_4tree20Common
   %13 = load ptr, ptr %6, align 8, !tbaa !2034
   %14 = load ptr, ptr %2, align 8, !tbaa !2043
   %15 = load ptr, ptr %14, align 8, !tbaa !562
-  %16 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %15, i64 %.039
+  %16 = getelementptr inbounds nuw [88 x i8], ptr %15, i64 %.039
   %17 = load i32, ptr %16, align 8, !tbaa !535
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 112
   %19 = sext i32 %17 to i64
   %20 = load ptr, ptr %18, align 8, !tbaa !164
-  %21 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %20, i64 %19
+  %21 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %19
   %22 = load ptr, ptr %21, align 8, !tbaa !917
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !919
@@ -63471,7 +63411,7 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIP
   %.pre = phi ptr [ %.pre.pre, %60 ], [ %36, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i ]
   store ptr %55, ptr %5, align 8, !tbaa !168
   store ptr %59, ptr %7, align 8, !tbaa !906
-  %61 = getelementptr inbounds nuw i64, ptr %55, i64 %53
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %53
   store ptr %61, ptr %8, align 8, !tbaa !171
   br label %_ZNSt6vectorImSaImEE9push_backERKm.exit.i
 
@@ -63571,7 +63511,7 @@ _ZNSt6vectorIN7xgboost6common7Range1dESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit3
 .noexc25:                                         ; preds = %84, %_ZNSt6vectorIN7xgboost6common7Range1dESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit33.i
   store ptr %79, ptr %0, align 8, !tbaa !861
   store ptr %83, ptr %9, align 8, !tbaa !1078
-  %98 = getelementptr inbounds nuw %"class.xgboost::common::Range1d", ptr %79, i64 %77
+  %98 = getelementptr inbounds nuw [16 x i8], ptr %79, i64 %77
   store ptr %98, ptr %10, align 8, !tbaa !864
   br label %_ZN7xgboost6common14BlockedSpace2d8AddBlockEmmm.exit
 
@@ -63644,7 +63584,7 @@ define linkonce_odr void @_ZN7xgboost6common16PartitionBuilderILm2048EE4InitIZNS
   br i1 %17, label %18, label %_ZNSt6vectorISt4pairImmESaIS1_EE6resizeEm.exit
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds nuw %"struct.std::pair.129", ptr %8, i64 %2
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %2
   %.not.i.i = icmp eq ptr %7, %19
   br i1 %.not.i.i, label %_ZNSt6vectorISt4pairImmESaIS1_EE6resizeEm.exit, label %20
 
@@ -63676,7 +63616,7 @@ _ZNSt6vectorISt4pairImmESaIS1_EE6resizeEm.exit:   ; preds = %14, %16, %18, %20
   br i1 %34, label %35, label %_ZNSt6vectorImSaImEE6resizeEm.exit
 
 35:                                               ; preds = %33
-  %36 = getelementptr inbounds nuw i64, ptr %25, i64 %22
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %22
   %.not.i.i12 = icmp eq ptr %24, %36
   br i1 %.not.i.i12, label %_ZNSt6vectorImSaImEE6resizeEm.exit, label %37
 
@@ -63705,11 +63645,11 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %31, %33, %35, %37
 46:                                               ; preds = %.lr.ph, %46
   %47 = phi i64 [ 0, %.lr.ph ], [ %65, %46 ]
   %.014 = phi i64 [ 1, %.lr.ph ], [ %67, %46 ]
-  %48 = getelementptr %"struct.xgboost::tree::CPUExpandEntry", ptr %40, i64 %.014
+  %48 = getelementptr [88 x i8], ptr %40, i64 %.014
   %49 = getelementptr i8, ptr %48, i64 -88
   %50 = load i32, ptr %49, align 8, !tbaa !535
   %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %42, i64 %51
+  %52 = getelementptr inbounds nuw [24 x i8], ptr %42, i64 %51
   %53 = load ptr, ptr %52, align 8, !tbaa !917
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %55 = load ptr, ptr %54, align 8, !tbaa !919
@@ -63723,7 +63663,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %31, %33, %35, %37
   %63 = zext i1 %62 to i64
   %64 = add i64 %60, %47
   %65 = add i64 %64, %63
-  %66 = getelementptr inbounds nuw i64, ptr %38, i64 %.014
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %.014
   store i64 %65, ptr %66, align 8, !tbaa !44
   %67 = add nuw i64 %.014, 1
   %exitcond.not = icmp eq i64 %.014, %2
@@ -63751,7 +63691,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %31, %33, %35, %37
   br i1 %81, label %82, label %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit
 
 82:                                               ; preds = %80
-  %83 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %72, i64 %1
+  %83 = getelementptr inbounds nuw [16 x i8], ptr %72, i64 %1
   %.not.i.i13 = icmp eq ptr %71, %83
   br i1 %.not.i.i13, label %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i
 
@@ -65461,7 +65401,7 @@ define linkonce_odr void @_ZZN7xgboost4tree17ColumnSplitHelper9PartitionIjLb0ELb
   %8 = load ptr, ptr %7, align 8, !tbaa !2053
   %9 = load ptr, ptr %0, align 8, !tbaa !2106
   %10 = load ptr, ptr %9, align 8, !tbaa !562
-  %11 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %10, i64 %1
+  %11 = getelementptr inbounds nuw [88 x i8], ptr %10, i64 %1
   %12 = load i32, ptr %11, align 8, !tbaa !535
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -65550,7 +65490,7 @@ _ZZN7xgboost4tree17ColumnSplitHelper9PartitionIjLb0ELb1ENS0_14CPUExpandEntryEEEv
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %61 = load ptr, ptr %60, align 8, !tbaa !2109
   %62 = load ptr, ptr %61, align 8, !tbaa !194
-  %63 = getelementptr inbounds nuw i32, ptr %62, i64 %1
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %1
   %64 = load i32, ptr %63, align 4, !tbaa !99
   br label %65
 
@@ -65568,7 +65508,7 @@ _ZZN7xgboost4tree17ColumnSplitHelper9PartitionIjLb0ELb1ENS0_14CPUExpandEntryEEEv
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 24
   %77 = sext i32 %12 to i64
   %78 = load ptr, ptr %76, align 8, !tbaa !164
-  %79 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %78, i64 %77
+  %79 = getelementptr inbounds nuw [24 x i8], ptr %78, i64 %77
   %80 = load ptr, ptr %79, align 8, !tbaa !917
   call void @_ZN7xgboost6common16PartitionBuilderILm2048EE8MaskRowsIjLb0ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmPNS_17BitFieldContainerIhNS_11RBitsPolicyIhEELb0EEESS_(ptr noundef nonnull align 8 dereferenceable(80) %68, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %2, i64 %3, i32 noundef %66, ptr noundef nonnull align 8 dereferenceable(233) %70, ptr noundef nonnull align 8 dereferenceable(218) %56, ptr noundef nonnull align 8 dereferenceable(312) %73, ptr noundef %80, ptr noundef nonnull %5, ptr noundef nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -65593,7 +65533,7 @@ _ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_S4_.exit:
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx99
   %22 = sub nsw i64 %4, %3
   %23 = load ptr, ptr %2, align 8, !tbaa !562
-  %24 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %23, i64 %1
+  %24 = getelementptr inbounds nuw [88 x i8], ptr %23, i64 %1
   %25 = load i32, ptr %24, align 8, !tbaa !535
   %26 = sext i32 %25 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
@@ -65606,14 +65546,14 @@ _ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_S4_.exit:
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 40
   %31 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7xgboost16HostDeviceVectorIjE15ConstHostVectorEv(ptr noundef nonnull align 8 dereferenceable(8) %30)
   %32 = load ptr, ptr %31, align 8, !tbaa !449
-  %33 = getelementptr inbounds nuw i32, ptr %32, i64 %26
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %26
   %34 = load i32, ptr %33, align 4, !tbaa !99
   br label %_ZNK7xgboost7RegTree10SplitIndexEi.exit
 
 35:                                               ; preds = %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_S4_.exit
   %36 = getelementptr inbounds nuw i8, ptr %8, i64 160
   %37 = load ptr, ptr %36, align 8, !tbaa !536
-  %38 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %37, i64 %26
+  %38 = getelementptr inbounds nuw [20 x i8], ptr %37, i64 %26
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 12
   %40 = load i32, ptr %39, align 4, !tbaa !810
   %41 = and i32 %40, 2147483647
@@ -65655,7 +65595,7 @@ _ZNK7xgboost7RegTree10SplitIndexEi.exit:          ; preds = %29, %35
   unreachable
 
 _ZNK7xgboost6common4SpanIKNS_7RegTree22CategoricalSplitMatrix7SegmentELm18446744073709551615EEixEm.exit.i: ; preds = %_ZNK7xgboost7RegTree10SplitIndexEi.exit
-  %67 = getelementptr inbounds nuw %"struct.xgboost::RegTree::CategoricalSplitMatrix::Segment", ptr %59, i64 %26
+  %67 = getelementptr inbounds nuw [16 x i8], ptr %59, i64 %26
   %.sroa.0.0.copyload.i = load i64, ptr %67, align 8, !tbaa !44
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %67, i64 8
   %.sroa.4.0.copyload.i = load i64, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !44
@@ -65691,7 +65631,7 @@ _ZNK7xgboost6common4SpanIKNS_7RegTree22CategoricalSplitMatrix7SegmentELm18446744
   unreachable
 
 _ZNK7xgboost7RegTree8NodeCatsEi.exit:             ; preds = %75
-  %81 = getelementptr inbounds nuw i32, ptr %52, i64 %.sroa.0.0.copyload.i
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %.sroa.0.0.copyload.i
   store i64 %76, ptr %15, align 8
   %82 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %81, ptr %82, align 8
@@ -65740,7 +65680,7 @@ _ZNK7xgboost7RegTree8NodeCatsEi.exit:             ; preds = %75
   unreachable
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit: ; preds = %101
-  %103 = getelementptr inbounds nuw i64, ptr %21, i64 %.sroa.693.0107
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %.sroa.693.0107
   %104 = load i64, ptr %103, align 8, !tbaa !44
   %105 = load i32, ptr %13, align 4, !tbaa !99
   %106 = zext i32 %105 to i64
@@ -65757,7 +65697,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
   %.sroa.24.0.copyload = load ptr, ptr %82, align 8, !tbaa !459
   %113 = zext nneg i32 %107 to i64
   %114 = load ptr, ptr %84, align 8, !tbaa !643
-  %115 = getelementptr inbounds nuw float, ptr %114, i64 %113
+  %115 = getelementptr inbounds nuw [4 x i8], ptr %114, i64 %113
   %116 = load float, ptr %115, align 4, !tbaa !134
   %117 = fcmp olt float %116, 0.000000e+00
   %118 = fcmp oge float %116, 0x4170000000000000
@@ -65774,10 +65714,10 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
 123:                                              ; preds = %109
   %124 = zext nneg i32 %107 to i64
   %125 = load ptr, ptr %84, align 8, !tbaa !643
-  %126 = getelementptr inbounds nuw float, ptr %125, i64 %124
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %125, i64 %124
   %127 = load float, ptr %126, align 4, !tbaa !134
   %128 = load ptr, ptr %2, align 8, !tbaa !562
-  %129 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %128, i64 %1
+  %129 = getelementptr inbounds nuw [88 x i8], ptr %128, i64 %1
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 16
   %131 = load float, ptr %130, align 8, !tbaa !809
   %132 = fcmp ugt float %127, %131
@@ -65789,7 +65729,7 @@ _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit: ; preds
   %135 = lshr i64 %134, 5
   %136 = and i32 %133, 31
   %137 = xor i32 %136, 31
-  %138 = getelementptr inbounds nuw i32, ptr %.sroa.24.0.copyload, i64 %135
+  %138 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.24.0.copyload, i64 %135
   %139 = load i32, ptr %138, align 4, !tbaa !99
   %140 = shl nuw i32 1, %137
   %141 = and i32 %139, %140
@@ -65820,11 +65760,11 @@ _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit: ; preds
 154:                                              ; preds = %142
   %155 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %156 = load ptr, ptr %155, align 8, !tbaa !1452, !noalias !2115
-  %157 = getelementptr inbounds nuw i64, ptr %156, i64 %149
+  %157 = getelementptr inbounds nuw [8 x i8], ptr %156, i64 %149
   %158 = load i64, ptr %157, align 8, !tbaa !44, !noalias !2115
   %159 = add i32 %42, 1
   %160 = zext i32 %159 to i64
-  %161 = getelementptr inbounds nuw i64, ptr %156, i64 %160
+  %161 = getelementptr inbounds nuw [8 x i8], ptr %156, i64 %160
   %162 = load i64, ptr %161, align 8, !tbaa !44, !noalias !2115
   %163 = load ptr, ptr %7, align 8, !tbaa !1456, !noalias !2115
   %164 = icmp ne ptr %163, null
@@ -65844,7 +65784,7 @@ _ZNK7xgboost6common12ColumnMatrix11DenseColumnIjLb0EEEDaj.exit: ; preds = %154
   %172 = getelementptr inbounds nuw i8, ptr %163, i64 %171
   %173 = getelementptr inbounds nuw i8, ptr %7, i64 160
   %174 = load ptr, ptr %173, align 8, !tbaa !1457, !noalias !2115
-  %175 = getelementptr inbounds nuw i32, ptr %174, i64 %149
+  %175 = getelementptr inbounds nuw [4 x i8], ptr %174, i64 %149
   %176 = load i32, ptr %175, align 4, !tbaa !99, !noalias !2115
   %177 = getelementptr inbounds nuw i8, ptr %6, i64 192
   %178 = load i64, ptr %177, align 8, !tbaa !1443
@@ -65858,10 +65798,10 @@ _ZNK7xgboost6common12ColumnMatrix11DenseColumnIjLb0EEEDaj.exit: ; preds = %154
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i: ; preds = %_ZNK7xgboost6common12ColumnMatrix11DenseColumnIjLb0EEEDaj.exit, %179
   %.sroa.6.020.i = phi i64 [ %180, %179 ], [ 0, %_ZNK7xgboost6common12ColumnMatrix11DenseColumnIjLb0EEEDaj.exit ]
-  %181 = getelementptr inbounds nuw i64, ptr %21, i64 %.sroa.6.020.i
+  %181 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %.sroa.6.020.i
   %182 = load i64, ptr %181, align 8, !tbaa !44
   %183 = sub i64 %182, %178
-  %184 = getelementptr inbounds nuw i32, ptr %172, i64 %183
+  %184 = getelementptr inbounds nuw [4 x i8], ptr %172, i64 %183
   %185 = load i32, ptr %184, align 4, !tbaa !99
   %186 = add nsw i32 %185, %176
   %187 = call noundef zeroext i1 @_ZZN7xgboost6common16PartitionBuilderILm2048EE8MaskRowsIjLb0ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmPNS_17BitFieldContainerIhNS_11RBitsPolicyIhEELb0EEESS_ENKUlT_T0_E_clImiEEDaST_SU_(ptr noundef nonnull align 8 dereferenceable(48) %16, i64 noundef %182, i32 noundef %186)
@@ -65991,11 +65931,11 @@ _ZNK7xgboost6common4SpanIKmLm18446744073709551615EE5frontEv.exit: ; preds = %_ZN
   %227 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %228 = zext i32 %222 to i64
   %229 = load ptr, ptr %227, align 8, !tbaa !1452, !noalias !2118
-  %230 = getelementptr inbounds nuw i64, ptr %229, i64 %228
+  %230 = getelementptr inbounds nuw [8 x i8], ptr %229, i64 %228
   %231 = load i64, ptr %230, align 8, !tbaa !44, !noalias !2118
   %232 = add i32 %222, 1
   %233 = zext i32 %232 to i64
-  %234 = getelementptr inbounds nuw i64, ptr %229, i64 %233
+  %234 = getelementptr inbounds nuw [8 x i8], ptr %229, i64 %233
   %235 = load i64, ptr %234, align 8, !tbaa !44, !noalias !2118
   %236 = sub i64 %235, %231
   %237 = getelementptr inbounds nuw i8, ptr %7, i64 216
@@ -66016,7 +65956,7 @@ _ZNK7xgboost6common4SpanIKmLm18446744073709551615EE5frontEv.exit: ; preds = %_ZN
 _ZN7xgboost6common4SpanIKjLm18446744073709551615EEC2EPS2_m.exit.i: ; preds = %_ZNK7xgboost6common4SpanIKmLm18446744073709551615EE5frontEv.exit
   %247 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %248 = load ptr, ptr %247, align 8, !tbaa !1452, !noalias !2118
-  %249 = getelementptr inbounds nuw i64, ptr %248, i64 %231
+  %249 = getelementptr inbounds nuw [8 x i8], ptr %248, i64 %231
   %250 = icmp ne ptr %248, null
   %251 = or i1 %244, %250
   br i1 %251, label %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i, label %252, !prof !127
@@ -66028,7 +65968,7 @@ _ZN7xgboost6common4SpanIKjLm18446744073709551615EEC2EPS2_m.exit.i: ; preds = %_Z
 _ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i: ; preds = %_ZN7xgboost6common4SpanIKjLm18446744073709551615EEC2EPS2_m.exit.i
   %253 = getelementptr inbounds nuw i8, ptr %7, i64 160
   %254 = load ptr, ptr %253, align 8, !tbaa !1457, !noalias !2118
-  %255 = getelementptr inbounds nuw i32, ptr %254, i64 %228
+  %255 = getelementptr inbounds nuw [4 x i8], ptr %254, i64 %228
   %256 = load i32, ptr %255, align 4, !tbaa !99, !noalias !2118
   %257 = icmp sgt i64 %236, 0
   br i1 %257, label %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i, label %.lr.ph.i80
@@ -66037,7 +65977,7 @@ _ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i:           ; preds = %_ZN7xgboost6common4
   %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i ], [ %249, %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i ]
   %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i ], [ %236, %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i ]
   %258 = lshr i64 %.01116.i.i.i.i, 1
-  %259 = getelementptr inbounds nuw i64, ptr %.017.i.i.i.i, i64 %258
+  %259 = getelementptr inbounds nuw [8 x i8], ptr %.017.i.i.i.i, i64 %258
   %260 = load i64, ptr %259, align 8, !tbaa !44, !noalias !2118
   %261 = icmp ult i64 %260, %226
   %262 = getelementptr inbounds nuw i8, ptr %259, i64 8
@@ -66072,7 +66012,7 @@ _ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i:           ; preds = %_ZN7xgboost6common4
   unreachable
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i82: ; preds = %272
-  %274 = getelementptr inbounds nuw i64, ptr %21, i64 %.sroa.6.023.i
+  %274 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %.sroa.6.023.i
   %275 = load i64, ptr %274, align 8, !tbaa !44
   %276 = sub i64 %275, %225
   %277 = icmp ult i64 %.sroa.13.0, %236
@@ -66080,7 +66020,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
 
 .lr.ph.i.i:                                       ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i82, %281
   %.sroa.13.2 = phi i64 [ %282, %281 ], [ %.sroa.13.0, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i82 ]
-  %278 = getelementptr inbounds nuw i64, ptr %249, i64 %.sroa.13.2
+  %278 = getelementptr inbounds nuw [8 x i8], ptr %249, i64 %.sroa.13.2
   %279 = load i64, ptr %278, align 8, !tbaa !44
   %280 = icmp ult i64 %279, %276
   br i1 %280, label %281, label %283
@@ -66095,7 +66035,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
   br i1 %284, label %285, label %_ZN7xgboost6common16SparseColumnIterIjEixEm.exit.i
 
 285:                                              ; preds = %283
-  %286 = getelementptr inbounds nuw i32, ptr %242, i64 %.sroa.13.2
+  %286 = getelementptr inbounds nuw [4 x i8], ptr %242, i64 %.sroa.13.2
   %287 = load i32, ptr %286, align 4, !tbaa !99
   %288 = add nsw i32 %287, %256
   br label %_ZN7xgboost6common16SparseColumnIterIjEixEm.exit.i
@@ -66274,7 +66214,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %46 = load ptr, ptr %45, align 8, !tbaa !2129
   %47 = sext i32 %18 to i64
   %48 = load ptr, ptr %46, align 8, !tbaa !643
-  %49 = getelementptr inbounds nuw float, ptr %48, i64 %47
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %47
   %50 = load float, ptr %49, align 4, !tbaa !134
   %51 = fcmp olt float %50, 0.000000e+00
   %52 = fcmp oge float %50, 0x4170000000000000
@@ -66294,7 +66234,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %60 = lshr i64 %59, 5
   %61 = and i32 %58, 31
   %62 = xor i32 %61, 31
-  %63 = getelementptr inbounds nuw i32, ptr %.sroa.2.0.copyload, i64 %60
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.2.0.copyload, i64 %60
   %64 = load i32, ptr %63, align 4, !tbaa !99
   %65 = shl nuw i32 1, %62
   %66 = and i32 %64, %65
@@ -66515,7 +66455,7 @@ define linkonce_odr void @_ZZN7xgboost6common13ParallelFor2dIZNS_4tree17ColumnSp
   %24 = load ptr, ptr %23, align 8, !tbaa !2086
   %25 = load ptr, ptr %16, align 8, !tbaa !2136
   %26 = load ptr, ptr %25, align 8, !tbaa !562
-  %27 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %26, i64 %18
+  %27 = getelementptr inbounds nuw [88 x i8], ptr %26, i64 %18
   %28 = load i32, ptr %27, align 8, !tbaa !535
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 128
   %30 = load ptr, ptr %29, align 8, !tbaa !925
@@ -66528,8 +66468,8 @@ define linkonce_odr void @_ZZN7xgboost6common13ParallelFor2dIZNS_4tree17ColumnSp
   %36 = lshr i64 %21, 11
   %37 = getelementptr inbounds nuw i8, ptr %30, i64 48
   %38 = load ptr, ptr %37, align 8, !tbaa !172
-  %39 = getelementptr %"class.std::shared_ptr.85", ptr %38, i64 %35
-  %40 = getelementptr %"class.std::shared_ptr.85", ptr %39, i64 %36
+  %39 = getelementptr [16 x i8], ptr %38, i64 %35
+  %40 = getelementptr [16 x i8], ptr %39, i64 %36
   %41 = load ptr, ptr %40, align 8, !tbaa !1314
   %42 = icmp eq ptr %41, null
   br i1 %42, label %_ZN4dmlc11LogCheck_NEIPN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoES6_EESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISD_EERKT_RKT0_.exit.i.i, label %_ZZN7xgboost4tree17ColumnSplitHelper9PartitionIjLb0ELb1ENS0_14CPUExpandEntryEEEvPKNS_7ContextERKNS_6common14BlockedSpace2dEiRKNS_16GHistIndexMatrixERKNS7_12ColumnMatrixERKSt6vectorIT2_SaISI_EERKSH_IiSaIiEEPKNS_7RegTreeEENKUlmNS7_7Range1dEE0_clEmSU_.exit
@@ -66554,7 +66494,7 @@ _ZZN7xgboost4tree17ColumnSplitHelper9PartitionIjLb0ELb1ENS0_14CPUExpandEntryEEEv
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 24
   %54 = sext i32 %28 to i64
   %55 = load ptr, ptr %53, align 8, !tbaa !164
-  %56 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %55, i64 %54
+  %56 = getelementptr inbounds nuw [24 x i8], ptr %55, i64 %54
   %57 = load ptr, ptr %56, align 8, !tbaa !917
   %58 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %59 = getelementptr inbounds nuw i8, ptr %24, i64 64
@@ -66759,7 +66699,7 @@ define linkonce_odr void @_ZZN7xgboost6common13ParallelFor2dIZNS_4tree20CommonRo
   %24 = load ptr, ptr %23, align 8, !tbaa !2039
   %25 = load ptr, ptr %16, align 8, !tbaa !2145
   %26 = load ptr, ptr %25, align 8, !tbaa !562
-  %27 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %26, i64 %18
+  %27 = getelementptr inbounds nuw [88 x i8], ptr %26, i64 %18
   %28 = load i32, ptr %27, align 8, !tbaa !535
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %sext.i = shl i64 %18, 32
@@ -66770,8 +66710,8 @@ define linkonce_odr void @_ZZN7xgboost6common13ParallelFor2dIZNS_4tree20CommonRo
   %34 = lshr i64 %21, 11
   %35 = getelementptr inbounds nuw i8, ptr %24, i64 56
   %36 = load ptr, ptr %35, align 8, !tbaa !172
-  %37 = getelementptr %"class.std::shared_ptr.85", ptr %36, i64 %33
-  %38 = getelementptr %"class.std::shared_ptr.85", ptr %37, i64 %34
+  %37 = getelementptr [16 x i8], ptr %36, i64 %33
+  %38 = getelementptr [16 x i8], ptr %37, i64 %34
   %39 = load ptr, ptr %38, align 8, !tbaa !1314
   %40 = icmp eq ptr %39, null
   br i1 %40, label %_ZN4dmlc11LogCheck_NEIPN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoES6_EESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISD_EERKT_RKT0_.exit.i.i, label %_ZN7xgboost6common16PartitionBuilderILm2048EE15AllocateForTaskEm.exit.i
@@ -66793,7 +66733,7 @@ _ZN7xgboost6common16PartitionBuilderILm2048EE15AllocateForTaskEm.exit.i: ; preds
   %47 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %48 = load ptr, ptr %47, align 8, !tbaa !2147
   %49 = load ptr, ptr %48, align 8, !tbaa !194
-  %50 = getelementptr inbounds nuw i32, ptr %49, i64 %18
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %18
   %51 = load i32, ptr %50, align 4, !tbaa !99
   br label %_ZZN7xgboost4tree20CommonRowPartitioner14UpdatePositionIjLb0ELb1ENS0_14CPUExpandEntryEEEvPKNS_7ContextERKNS_16GHistIndexMatrixERKNS_6common12ColumnMatrixERKSt6vectorIT2_SaISF_EEPKNS_7RegTreeEENKUlmNSA_7Range1dEE_clEmSN_.exit
 
@@ -66809,7 +66749,7 @@ _ZZN7xgboost4tree20CommonRowPartitioner14UpdatePositionIjLb0ELb1ENS0_14CPUExpand
   %60 = getelementptr inbounds nuw i8, ptr %24, i64 112
   %61 = sext i32 %28 to i64
   %62 = load ptr, ptr %60, align 8, !tbaa !164
-  %63 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %62, i64 %61
+  %63 = getelementptr inbounds nuw [24 x i8], ptr %62, i64 %61
   %64 = load ptr, ptr %63, align 8, !tbaa !917
   tail call void @_ZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIjLb0ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKm(ptr noundef nonnull align 8 dereferenceable(80) %53, i64 noundef %18, ptr noundef nonnull align 8 dereferenceable(24) %54, i64 %21, i64 %22, i32 noundef %52, ptr noundef nonnull align 8 dereferenceable(233) %56, ptr noundef nonnull align 8 dereferenceable(218) %43, ptr noundef nonnull align 8 dereferenceable(312) %59, ptr noundef %64)
   %65 = add nuw i64 %.011, 1
@@ -66841,7 +66781,7 @@ _ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_S4_.exit:
   %sext = shl i64 %1, 32
   %26 = ashr exact i64 %sext, 32
   %27 = load ptr, ptr %25, align 8, !tbaa !168
-  %28 = getelementptr inbounds nuw i64, ptr %27, i64 %26
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %26
   %29 = load i64, ptr %28, align 8, !tbaa !44
   %30 = lshr i64 %3, 11
   %31 = add i64 %29, %30
@@ -66861,12 +66801,12 @@ _ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_S4_.exit:
   unreachable
 
 _ZN7xgboost6common16PartitionBuilderILm2048EE14GetRightBufferEimm.exit: ; preds = %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_S4_.exit
-  %41 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %35, i64 %31
+  %41 = getelementptr inbounds nuw [16 x i8], ptr %35, i64 %31
   %42 = load ptr, ptr %41, align 8, !tbaa !1314
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 32
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 16416
   %45 = load ptr, ptr %2, align 8, !tbaa !562
-  %46 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %45, i64 %1
+  %46 = getelementptr inbounds nuw [88 x i8], ptr %45, i64 %1
   %47 = load i32, ptr %46, align 8, !tbaa !535
   %48 = sext i32 %47 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -66878,7 +66818,7 @@ _ZN7xgboost6common16PartitionBuilderILm2048EE14GetRightBufferEimm.exit: ; preds 
 _ZNK7xgboost7RegTree10SplitIndexEi.exit.thread:   ; preds = %_ZN7xgboost6common16PartitionBuilderILm2048EE14GetRightBufferEimm.exit
   %51 = getelementptr inbounds nuw i8, ptr %8, i64 160
   %52 = load ptr, ptr %51, align 8, !tbaa !536
-  %53 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %52, i64 %48
+  %53 = getelementptr inbounds nuw [20 x i8], ptr %52, i64 %48
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 12
   %55 = load i32, ptr %54, align 4, !tbaa !810
   %56 = and i32 %55, 2147483647
@@ -66890,7 +66830,7 @@ _ZNK7xgboost7RegTree10SplitIndexEi.exit:          ; preds = %_ZN7xgboost6common1
   %57 = getelementptr inbounds nuw i8, ptr %50, i64 40
   %58 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7xgboost16HostDeviceVectorIjE15ConstHostVectorEv(ptr noundef nonnull align 8 dereferenceable(8) %57)
   %59 = load ptr, ptr %58, align 8, !tbaa !449
-  %60 = getelementptr inbounds nuw i32, ptr %59, i64 %48
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %48
   %61 = load i32, ptr %60, align 4, !tbaa !99
   %.pre = load ptr, ptr %49, align 8, !tbaa !542
   store i32 %61, ptr %11, align 4, !tbaa !99
@@ -66911,7 +66851,7 @@ _ZNK7xgboost7RegTree10SplitIndexEi.exit:          ; preds = %_ZN7xgboost6common1
   %70 = phi i32 [ %56, %_ZNK7xgboost7RegTree10SplitIndexEi.exit.thread ], [ %61, %_ZNK7xgboost7RegTree10SplitIndexEi.exit ]
   %71 = getelementptr inbounds nuw i8, ptr %8, i64 160
   %72 = load ptr, ptr %71, align 8, !tbaa !536
-  %73 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %72, i64 %48
+  %73 = getelementptr inbounds nuw [20 x i8], ptr %72, i64 %48
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 12
   %75 = load i32, ptr %74, align 4, !tbaa !810
   %76 = icmp slt i32 %75, 0
@@ -66955,7 +66895,7 @@ _ZNK7xgboost7RegTree11DefaultLeftEi.exit:         ; preds = %62, %69
   unreachable
 
 _ZNK7xgboost6common4SpanIKNS_7RegTree22CategoricalSplitMatrix7SegmentELm18446744073709551615EEixEm.exit.i: ; preds = %_ZNK7xgboost7RegTree11DefaultLeftEi.exit
-  %103 = getelementptr inbounds nuw %"struct.xgboost::RegTree::CategoricalSplitMatrix::Segment", ptr %95, i64 %48
+  %103 = getelementptr inbounds nuw [16 x i8], ptr %95, i64 %48
   %.sroa.0.0.copyload.i = load i64, ptr %103, align 8, !tbaa !44
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %103, i64 8
   %.sroa.4.0.copyload.i = load i64, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !44
@@ -66991,7 +66931,7 @@ _ZNK7xgboost6common4SpanIKNS_7RegTree22CategoricalSplitMatrix7SegmentELm18446744
   unreachable
 
 _ZNK7xgboost7RegTree8NodeCatsEi.exit:             ; preds = %111
-  %117 = getelementptr inbounds nuw i32, ptr %88, i64 %.sroa.0.0.copyload.i
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %88, i64 %.sroa.0.0.copyload.i
   store i64 %112, ptr %14, align 8
   %118 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %117, ptr %118, align 8
@@ -67031,7 +66971,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
   %.029.i = phi i64 [ %.1.i, %130 ], [ 0, %129 ]
   %.sroa.6.028.i = phi i64 [ %131, %130 ], [ 0, %129 ]
   %.01927.i = phi i64 [ %.120.i, %130 ], [ 0, %129 ]
-  %132 = getelementptr inbounds nuw i64, ptr %23, i64 %.sroa.6.028.i
+  %132 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %.sroa.6.028.i
   %133 = load i64, ptr %132, align 8, !tbaa !44
   %134 = load i32, ptr %11, align 4, !tbaa !99
   %135 = zext i32 %134 to i64
@@ -67049,7 +66989,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
   %.sroa.2.0.copyload.i.i = load ptr, ptr %118, align 8, !tbaa !459
   %143 = zext nneg i32 %136 to i64
   %144 = load ptr, ptr %120, align 8, !tbaa !643
-  %145 = getelementptr inbounds nuw float, ptr %144, i64 %143
+  %145 = getelementptr inbounds nuw [4 x i8], ptr %144, i64 %143
   %146 = load float, ptr %145, align 4, !tbaa !134
   %147 = fcmp olt float %146, 0.000000e+00
   %148 = fcmp oge float %146, 0x4170000000000000
@@ -67069,7 +67009,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
   %156 = lshr i64 %155, 5
   %157 = and i32 %154, 31
   %158 = xor i32 %157, 31
-  %159 = getelementptr inbounds nuw i32, ptr %.sroa.2.0.copyload.i.i, i64 %156
+  %159 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.2.0.copyload.i.i, i64 %156
   %160 = load i32, ptr %159, align 4, !tbaa !99
   %161 = xor i32 %160, -1
   %162 = lshr i32 %161, %158
@@ -67079,10 +67019,10 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
 164:                                              ; preds = %139
   %165 = zext nneg i32 %136 to i64
   %166 = load ptr, ptr %120, align 8, !tbaa !643
-  %167 = getelementptr inbounds nuw float, ptr %166, i64 %165
+  %167 = getelementptr inbounds nuw [4 x i8], ptr %166, i64 %165
   %168 = load float, ptr %167, align 4, !tbaa !134
   %169 = load ptr, ptr %2, align 8, !tbaa !562
-  %170 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %169, i64 %1
+  %170 = getelementptr inbounds nuw [88 x i8], ptr %169, i64 %1
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 16
   %172 = load float, ptr %171, align 8, !tbaa !809
   %173 = fcmp ole float %168, %172
@@ -67096,13 +67036,13 @@ _ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIjLb0ELb1ENS_4tree14CPUE
 
 _ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIjLb0ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_E_clImEEDaSO_.exit.thread.i: ; preds = %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIjLb0ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_E_clImEEDaSO_.exit.i, %150, %142
   %176 = add i64 %.029.i, 1
-  %177 = getelementptr inbounds nuw i64, ptr %43, i64 %.029.i
+  %177 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %.029.i
   store i64 %133, ptr %177, align 8, !tbaa !44
   br label %130
 
 178:                                              ; preds = %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIjLb0ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_E_clImEEDaSO_.exit.i
   %179 = add i64 %.01927.i, 1
-  %180 = getelementptr inbounds nuw i64, ptr %44, i64 %.01927.i
+  %180 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %.01927.i
   store i64 %133, ptr %180, align 8, !tbaa !44
   br label %130
 
@@ -67120,11 +67060,11 @@ _ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIjLb0ELb1ENS_4tree14CPUE
   call void @llvm.experimental.noalias.scope.decl(metadata !2154)
   %189 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %190 = load ptr, ptr %189, align 8, !tbaa !1452, !noalias !2154
-  %191 = getelementptr inbounds nuw i64, ptr %190, i64 %183
+  %191 = getelementptr inbounds nuw [8 x i8], ptr %190, i64 %183
   %192 = load i64, ptr %191, align 8, !tbaa !44, !noalias !2154
   %193 = add i32 %77, 1
   %194 = zext i32 %193 to i64
-  %195 = getelementptr inbounds nuw i64, ptr %190, i64 %194
+  %195 = getelementptr inbounds nuw [8 x i8], ptr %190, i64 %194
   %196 = load i64, ptr %195, align 8, !tbaa !44, !noalias !2154
   %197 = load ptr, ptr %7, align 8, !tbaa !1456, !noalias !2154
   %198 = icmp ne ptr %197, null
@@ -67145,7 +67085,7 @@ _ZNK7xgboost6common12ColumnMatrix11DenseColumnIjLb0EEEDaj.exit: ; preds = %188
   %207 = getelementptr inbounds nuw i8, ptr %197, i64 %206
   %208 = getelementptr inbounds nuw i8, ptr %7, i64 160
   %209 = load ptr, ptr %208, align 8, !tbaa !1457, !noalias !2154
-  %210 = getelementptr inbounds nuw i32, ptr %209, i64 %183
+  %210 = getelementptr inbounds nuw [4 x i8], ptr %209, i64 %183
   %211 = load i32, ptr %210, align 4, !tbaa !99, !noalias !2154
   %212 = getelementptr inbounds nuw i8, ptr %7, i64 168
   %.sroa.0.0.copyload.i89 = load ptr, ptr %212, align 8, !tbaa !459, !noalias !2154
@@ -67313,11 +67253,11 @@ _ZNK7xgboost6common4SpanIKmLm18446744073709551615EE5frontEv.exit: ; preds = %_ZN
   %260 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %261 = zext i32 %255 to i64
   %262 = load ptr, ptr %260, align 8, !tbaa !1452, !noalias !2159
-  %263 = getelementptr inbounds nuw i64, ptr %262, i64 %261
+  %263 = getelementptr inbounds nuw [8 x i8], ptr %262, i64 %261
   %264 = load i64, ptr %263, align 8, !tbaa !44, !noalias !2159
   %265 = add i32 %255, 1
   %266 = zext i32 %265 to i64
-  %267 = getelementptr inbounds nuw i64, ptr %262, i64 %266
+  %267 = getelementptr inbounds nuw [8 x i8], ptr %262, i64 %266
   %268 = load i64, ptr %267, align 8, !tbaa !44, !noalias !2159
   %269 = sub i64 %268, %264
   %270 = getelementptr inbounds nuw i8, ptr %7, i64 216
@@ -67338,7 +67278,7 @@ _ZNK7xgboost6common4SpanIKmLm18446744073709551615EE5frontEv.exit: ; preds = %_ZN
 _ZN7xgboost6common4SpanIKjLm18446744073709551615EEC2EPS2_m.exit.i: ; preds = %_ZNK7xgboost6common4SpanIKmLm18446744073709551615EE5frontEv.exit
   %280 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %281 = load ptr, ptr %280, align 8, !tbaa !1452, !noalias !2159
-  %282 = getelementptr inbounds nuw i64, ptr %281, i64 %264
+  %282 = getelementptr inbounds nuw [8 x i8], ptr %281, i64 %264
   %283 = icmp ne ptr %281, null
   %284 = or i1 %277, %283
   br i1 %284, label %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i, label %285, !prof !127
@@ -67350,7 +67290,7 @@ _ZN7xgboost6common4SpanIKjLm18446744073709551615EEC2EPS2_m.exit.i: ; preds = %_Z
 _ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i: ; preds = %_ZN7xgboost6common4SpanIKjLm18446744073709551615EEC2EPS2_m.exit.i
   %286 = getelementptr inbounds nuw i8, ptr %7, i64 160
   %287 = load ptr, ptr %286, align 8, !tbaa !1457, !noalias !2159
-  %288 = getelementptr inbounds nuw i32, ptr %287, i64 %261
+  %288 = getelementptr inbounds nuw [4 x i8], ptr %287, i64 %261
   %289 = load i32, ptr %288, align 4, !tbaa !99, !noalias !2159
   %290 = icmp sgt i64 %269, 0
   br i1 %290, label %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i, label %_ZNK7xgboost6common12ColumnMatrix12SparseColumnIjEEDajm.exit
@@ -67359,7 +67299,7 @@ _ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i:           ; preds = %_ZN7xgboost6common4
   %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i ], [ %282, %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i ]
   %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i ], [ %269, %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i ]
   %291 = lshr i64 %.01116.i.i.i.i, 1
-  %292 = getelementptr inbounds nuw i64, ptr %.017.i.i.i.i, i64 %291
+  %292 = getelementptr inbounds nuw [8 x i8], ptr %.017.i.i.i.i, i64 %291
   %293 = load i64, ptr %292, align 8, !tbaa !44, !noalias !2159
   %294 = icmp ult i64 %293, %259
   %295 = getelementptr inbounds nuw i8, ptr %292, i64 8
@@ -67385,7 +67325,7 @@ _ZNK7xgboost6common12ColumnMatrix12SparseColumnIjEEDajm.exit: ; preds = %_ZSt7ad
   %.031.i = phi i64 [ %357, %356 ], [ 0, %_ZNK7xgboost6common12ColumnMatrix12SparseColumnIjEEDajm.exit ]
   %.02230.i = phi i64 [ %.1.i104, %356 ], [ 0, %_ZNK7xgboost6common12ColumnMatrix12SparseColumnIjEEDajm.exit ]
   %.02329.i = phi i64 [ %.124.i, %356 ], [ 0, %_ZNK7xgboost6common12ColumnMatrix12SparseColumnIjEEDajm.exit ]
-  %305 = getelementptr inbounds nuw i64, ptr %23, i64 %.031.i
+  %305 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %.031.i
   %306 = load i64, ptr %305, align 8, !tbaa !44
   %307 = sub i64 %306, %258
   %308 = icmp ult i64 %.sroa.17.0, %269
@@ -67393,7 +67333,7 @@ _ZNK7xgboost6common12ColumnMatrix12SparseColumnIjEEDajm.exit: ; preds = %_ZSt7ad
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i101, %312
   %.sroa.17.2 = phi i64 [ %313, %312 ], [ %.sroa.17.0, %.lr.ph.i101 ]
-  %309 = getelementptr inbounds nuw i64, ptr %282, i64 %.sroa.17.2
+  %309 = getelementptr inbounds nuw [8 x i8], ptr %282, i64 %.sroa.17.2
   %310 = load i64, ptr %309, align 8, !tbaa !44
   %311 = icmp ult i64 %310, %307
   br i1 %311, label %312, label %314
@@ -67408,7 +67348,7 @@ _ZNK7xgboost6common12ColumnMatrix12SparseColumnIjEEDajm.exit: ; preds = %_ZSt7ad
   br i1 %315, label %316, label %_ZN7xgboost6common16SparseColumnIterIjEixEm.exit.i
 
 316:                                              ; preds = %314
-  %317 = getelementptr inbounds nuw i32, ptr %275, i64 %.sroa.17.2
+  %317 = getelementptr inbounds nuw [4 x i8], ptr %275, i64 %.sroa.17.2
   %318 = load i32, ptr %317, align 4, !tbaa !99
   %319 = add nsw i32 %318, %289
   br label %_ZN7xgboost6common16SparseColumnIterIjEixEm.exit.i
@@ -67432,7 +67372,7 @@ _ZN7xgboost6common16SparseColumnIterIjEixEm.exit.i: ; preds = %312, %316, %314, 
   %.sroa.2.0.copyload.i.i109 = load ptr, ptr %118, align 8, !tbaa !459
   %328 = zext nneg i32 %324 to i64
   %329 = load ptr, ptr %120, align 8, !tbaa !643
-  %330 = getelementptr inbounds nuw float, ptr %329, i64 %328
+  %330 = getelementptr inbounds nuw [4 x i8], ptr %329, i64 %328
   %331 = load float, ptr %330, align 4, !tbaa !134
   %332 = fcmp olt float %331, 0.000000e+00
   %333 = fcmp oge float %331, 0x4170000000000000
@@ -67452,7 +67392,7 @@ _ZN7xgboost6common16SparseColumnIterIjEixEm.exit.i: ; preds = %312, %316, %314, 
   %341 = lshr i64 %340, 5
   %342 = and i32 %339, 31
   %343 = xor i32 %342, 31
-  %344 = getelementptr inbounds nuw i32, ptr %.sroa.2.0.copyload.i.i109, i64 %341
+  %344 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.2.0.copyload.i.i109, i64 %341
   %345 = load i32, ptr %344, align 4, !tbaa !99
   %346 = xor i32 %345, -1
   %347 = lshr i32 %346, %343
@@ -67471,13 +67411,13 @@ _ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIjLb0ELb1ENS_4tree14CPUE
 
 _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.thread.i: ; preds = %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIjLb0ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_T0_E_clImiEEDaSO_SP_.exit.i, %_ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.i, %335, %327
   %351 = add i64 %.02329.i, 1
-  %352 = getelementptr inbounds nuw i64, ptr %43, i64 %.02329.i
+  %352 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %.02329.i
   store i64 %306, ptr %352, align 8, !tbaa !44
   br label %356
 
 353:                                              ; preds = %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIjLb0ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_T0_E_clImiEEDaSO_SP_.exit.i, %_ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.i
   %354 = add i64 %.02230.i, 1
-  %355 = getelementptr inbounds nuw i64, ptr %44, i64 %.02230.i
+  %355 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %.02230.i
   store i64 %306, ptr %355, align 8, !tbaa !44
   br label %356
 
@@ -67493,7 +67433,7 @@ _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.thread
   %.031.i115 = phi i64 [ %410, %409 ], [ 0, %_ZNK7xgboost6common12ColumnMatrix12SparseColumnIjEEDajm.exit ]
   %.02230.i116 = phi i64 [ %.1.i124, %409 ], [ 0, %_ZNK7xgboost6common12ColumnMatrix12SparseColumnIjEEDajm.exit ]
   %.02329.i117 = phi i64 [ %.124.i123, %409 ], [ 0, %_ZNK7xgboost6common12ColumnMatrix12SparseColumnIjEEDajm.exit ]
-  %358 = getelementptr inbounds nuw i64, ptr %23, i64 %.031.i115
+  %358 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %.031.i115
   %359 = load i64, ptr %358, align 8, !tbaa !44
   %360 = sub i64 %359, %258
   %361 = icmp ult i64 %.sroa.17.3, %269
@@ -67501,7 +67441,7 @@ _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.thread
 
 .lr.ph.i.i136:                                    ; preds = %.lr.ph.i114, %365
   %.sroa.17.5 = phi i64 [ %366, %365 ], [ %.sroa.17.3, %.lr.ph.i114 ]
-  %362 = getelementptr inbounds nuw i64, ptr %282, i64 %.sroa.17.5
+  %362 = getelementptr inbounds nuw [8 x i8], ptr %282, i64 %.sroa.17.5
   %363 = load i64, ptr %362, align 8, !tbaa !44
   %364 = icmp ult i64 %363, %360
   br i1 %364, label %365, label %367
@@ -67516,7 +67456,7 @@ _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.thread
   br i1 %368, label %369, label %_ZN7xgboost6common16SparseColumnIterIjEixEm.exit.i118
 
 369:                                              ; preds = %367
-  %370 = getelementptr inbounds nuw i32, ptr %275, i64 %.sroa.17.5
+  %370 = getelementptr inbounds nuw [4 x i8], ptr %275, i64 %.sroa.17.5
   %371 = load i32, ptr %370, align 4, !tbaa !99
   %372 = add nsw i32 %371, %289
   br label %_ZN7xgboost6common16SparseColumnIterIjEixEm.exit.i118
@@ -67540,7 +67480,7 @@ _ZN7xgboost6common16SparseColumnIterIjEixEm.exit.i118: ; preds = %365, %369, %36
   %.sroa.2.0.copyload.i.i133 = load ptr, ptr %118, align 8, !tbaa !459
   %381 = zext nneg i32 %377 to i64
   %382 = load ptr, ptr %120, align 8, !tbaa !643
-  %383 = getelementptr inbounds nuw float, ptr %382, i64 %381
+  %383 = getelementptr inbounds nuw [4 x i8], ptr %382, i64 %381
   %384 = load float, ptr %383, align 4, !tbaa !134
   %385 = fcmp olt float %384, 0.000000e+00
   %386 = fcmp oge float %384, 0x4170000000000000
@@ -67560,7 +67500,7 @@ _ZN7xgboost6common16SparseColumnIterIjEixEm.exit.i118: ; preds = %365, %369, %36
   %394 = lshr i64 %393, 5
   %395 = and i32 %392, 31
   %396 = xor i32 %395, 31
-  %397 = getelementptr inbounds nuw i32, ptr %.sroa.2.0.copyload.i.i133, i64 %394
+  %397 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.2.0.copyload.i.i133, i64 %394
   %398 = load i32, ptr %397, align 4, !tbaa !99
   %399 = xor i32 %398, -1
   %400 = lshr i32 %399, %396
@@ -67579,13 +67519,13 @@ _ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIjLb0ELb1ENS_4tree14CPUE
 
 _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.thread.i122: ; preds = %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIjLb0ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_T0_E_clImiEEDaSO_SP_.exit.i120, %_ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.i130, %388, %380
   %404 = add i64 %.02329.i117, 1
-  %405 = getelementptr inbounds nuw i64, ptr %43, i64 %.02329.i117
+  %405 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %.02329.i117
   store i64 %359, ptr %405, align 8, !tbaa !44
   br label %409
 
 406:                                              ; preds = %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIjLb0ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_T0_E_clImiEEDaSO_SP_.exit.i120, %_ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.i130
   %407 = add i64 %.02230.i116, 1
-  %408 = getelementptr inbounds nuw i64, ptr %44, i64 %.02230.i116
+  %408 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %.02230.i116
   store i64 %359, ptr %408, align 8, !tbaa !44
   br label %409
 
@@ -67600,7 +67540,7 @@ _ZN7xgboost6common16PartitionBuilderILm2048EE20PartitionRangeKernelIZNS2_9Partit
   %.sroa.10169.0 = phi i64 [ %.sroa.10169.1, %228 ], [ %.1.i104, %356 ], [ %.120.i, %130 ], [ 0, %129 ], [ %.1.i124, %409 ]
   %.sroa.0168.0 = phi i64 [ %.sroa.0168.1, %228 ], [ %.124.i, %356 ], [ %.1.i, %130 ], [ 0, %129 ], [ %.124.i123, %409 ]
   %411 = load ptr, ptr %25, align 8, !tbaa !168
-  %412 = getelementptr inbounds nuw i64, ptr %411, i64 %26
+  %412 = getelementptr inbounds nuw [8 x i8], ptr %411, i64 %26
   %413 = load i64, ptr %412, align 8, !tbaa !44
   %414 = add i64 %413, %30
   %415 = load ptr, ptr %33, align 8, !tbaa !175
@@ -67617,7 +67557,7 @@ _ZN7xgboost6common16PartitionBuilderILm2048EE20PartitionRangeKernelIZNS2_9Partit
   unreachable
 
 _ZN7xgboost6common16PartitionBuilderILm2048EE13SetNLeftElemsEimm.exit: ; preds = %_ZN7xgboost6common16PartitionBuilderILm2048EE20PartitionRangeKernelIZNS2_9PartitionIjLb0ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS8_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmEUlT_E_EESt4pairImmENS0_4SpanISN_Lm18446744073709551615EEENST_ImLm18446744073709551615EEESV_SP_.exit
-  %422 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %416, i64 %414
+  %422 = getelementptr inbounds nuw [16 x i8], ptr %416, i64 %414
   %423 = load ptr, ptr %422, align 8, !tbaa !1314
   store i64 %.sroa.0168.0, ptr %423, align 8, !tbaa !1319
   %424 = load i64, ptr %412, align 8, !tbaa !44
@@ -67630,7 +67570,7 @@ _ZN7xgboost6common16PartitionBuilderILm2048EE13SetNLeftElemsEimm.exit: ; preds =
   unreachable
 
 _ZN7xgboost6common16PartitionBuilderILm2048EE14SetNRightElemsEimm.exit: ; preds = %_ZN7xgboost6common16PartitionBuilderILm2048EE13SetNLeftElemsEimm.exit
-  %427 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %416, i64 %425
+  %427 = getelementptr inbounds nuw [16 x i8], ptr %416, i64 %425
   %428 = load ptr, ptr %427, align 8, !tbaa !1314
   %429 = getelementptr inbounds nuw i8, ptr %428, i64 8
   store i64 %.sroa.10169.0, ptr %429, align 8, !tbaa !1323
@@ -67690,10 +67630,10 @@ _ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIjLb0ELb1ENS_4tree14CPUE
   %.027.us = phi i64 [ 0, %.lr.ph.split.us ], [ %39, %38 ]
   %.02126.us = phi i64 [ 0, %.lr.ph.split.us ], [ %.1.us, %38 ]
   %.02225.us = phi i64 [ 0, %.lr.ph.split.us ], [ %.123.us, %38 ]
-  %27 = getelementptr inbounds nuw i64, ptr %3, i64 %.027.us
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.027.us
   %28 = load i64, ptr %27, align 8, !tbaa !44
   %29 = sub i64 %28, %7
-  %30 = getelementptr inbounds nuw i32, ptr %23, i64 %29
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %29
   %31 = load i32, ptr %30, align 4, !tbaa !99
   %32 = add nsw i32 %24, %31
   %.not.us = icmp sgt i32 %32, %26
@@ -67701,13 +67641,13 @@ _ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIjLb0ELb1ENS_4tree14CPUE
 
 33:                                               ; preds = %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIjLb0ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_T0_E_clImiEEDaSO_SP_.exit.us
   %34 = add i64 %.02126.us, 1
-  %35 = getelementptr inbounds nuw i64, ptr %11, i64 %.02126.us
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.02126.us
   store i64 %28, ptr %35, align 8, !tbaa !44
   br label %38
 
 _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.thread.us: ; preds = %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIjLb0ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_T0_E_clImiEEDaSO_SP_.exit.us
   %36 = add i64 %.02225.us, 1
-  %37 = getelementptr inbounds nuw i64, ptr %5, i64 %.02225.us
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.02225.us
   store i64 %28, ptr %37, align 8, !tbaa !44
   br label %38
 
@@ -67729,7 +67669,7 @@ _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.thread
   %.027 = phi i64 [ %93, %92 ], [ 0, %.lr.ph ]
   %.02126 = phi i64 [ %.1, %92 ], [ 0, %.lr.ph ]
   %.02225 = phi i64 [ %.123, %92 ], [ 0, %.lr.ph ]
-  %40 = getelementptr inbounds nuw i64, ptr %3, i64 %.027
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.027
   %41 = load i64, ptr %40, align 8, !tbaa !44
   %42 = load ptr, ptr %8, align 8, !tbaa !2164
   %43 = load i8, ptr %42, align 1, !tbaa !758, !range !114, !noundef !115
@@ -67754,7 +67694,7 @@ _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.thread
   %56 = load ptr, ptr %19, align 8, !tbaa !2172
   %57 = zext nneg i32 %50 to i64
   %58 = load ptr, ptr %56, align 8, !tbaa !643
-  %59 = getelementptr inbounds nuw float, ptr %58, i64 %57
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %57
   %60 = load float, ptr %59, align 4, !tbaa !134
   %61 = fcmp olt float %60, 0.000000e+00
   %62 = fcmp oge float %60, 0x4170000000000000
@@ -67774,7 +67714,7 @@ _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.thread
   %70 = lshr i64 %69, 5
   %71 = and i32 %68, 31
   %72 = xor i32 %71, 31
-  %73 = getelementptr inbounds nuw i32, ptr %.sroa.2.0.copyload.i, i64 %70
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.2.0.copyload.i, i64 %70
   %74 = load i32, ptr %73, align 4, !tbaa !99
   %75 = xor i32 %74, -1
   %76 = lshr i32 %75, %72
@@ -67789,7 +67729,7 @@ _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i: ; pre
 _ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIjLb0ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_T0_E_clImiEEDaSO_SP_.exit: ; preds = %.lr.ph.split
   %79 = load ptr, ptr %12, align 8, !tbaa !1708
   %80 = sub i64 %41, %7
-  %81 = getelementptr inbounds nuw i32, ptr %79, i64 %80
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %79, i64 %80
   %82 = load i32, ptr %81, align 4, !tbaa !99
   %83 = load i32, ptr %13, align 8, !tbaa !1702
   %84 = add nsw i32 %83, %82
@@ -67800,13 +67740,13 @@ _ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIjLb0ELb1ENS_4tree14CPUE
 
 _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.thread: ; preds = %64, %54, %_ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i, %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIjLb0ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_T0_E_clImiEEDaSO_SP_.exit
   %87 = add i64 %.02225, 1
-  %88 = getelementptr inbounds nuw i64, ptr %5, i64 %.02225
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.02225
   store i64 %41, ptr %88, align 8, !tbaa !44
   br label %92
 
 89:                                               ; preds = %_ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i, %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIjLb0ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_T0_E_clImiEEDaSO_SP_.exit
   %90 = add i64 %.02126, 1
-  %91 = getelementptr inbounds nuw i64, ptr %11, i64 %.02126
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.02126
   store i64 %41, ptr %91, align 8, !tbaa !44
   br label %92
 
@@ -67850,10 +67790,10 @@ _ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIjLb0ELb1ENS_4tree14CPUE
   %.027.us = phi i64 [ 0, %.lr.ph.split.us ], [ %39, %38 ]
   %.02126.us = phi i64 [ 0, %.lr.ph.split.us ], [ %.1.us, %38 ]
   %.02225.us = phi i64 [ 0, %.lr.ph.split.us ], [ %.123.us, %38 ]
-  %27 = getelementptr inbounds nuw i64, ptr %3, i64 %.027.us
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.027.us
   %28 = load i64, ptr %27, align 8, !tbaa !44
   %29 = sub i64 %28, %7
-  %30 = getelementptr inbounds nuw i32, ptr %23, i64 %29
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %29
   %31 = load i32, ptr %30, align 4, !tbaa !99
   %32 = add nsw i32 %24, %31
   %.not.us = icmp sgt i32 %32, %26
@@ -67861,13 +67801,13 @@ _ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIjLb0ELb1ENS_4tree14CPUE
 
 33:                                               ; preds = %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIjLb0ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_T0_E_clImiEEDaSO_SP_.exit.us
   %34 = add i64 %.02126.us, 1
-  %35 = getelementptr inbounds nuw i64, ptr %11, i64 %.02126.us
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.02126.us
   store i64 %28, ptr %35, align 8, !tbaa !44
   br label %38
 
 _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.thread.us: ; preds = %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIjLb0ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_T0_E_clImiEEDaSO_SP_.exit.us
   %36 = add i64 %.02225.us, 1
-  %37 = getelementptr inbounds nuw i64, ptr %5, i64 %.02225.us
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.02225.us
   store i64 %28, ptr %37, align 8, !tbaa !44
   br label %38
 
@@ -67889,7 +67829,7 @@ _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.thread
   %.027 = phi i64 [ %93, %92 ], [ 0, %.lr.ph ]
   %.02126 = phi i64 [ %.1, %92 ], [ 0, %.lr.ph ]
   %.02225 = phi i64 [ %.123, %92 ], [ 0, %.lr.ph ]
-  %40 = getelementptr inbounds nuw i64, ptr %3, i64 %.027
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.027
   %41 = load i64, ptr %40, align 8, !tbaa !44
   %42 = load ptr, ptr %8, align 8, !tbaa !2164
   %43 = load i8, ptr %42, align 1, !tbaa !758, !range !114, !noundef !115
@@ -67914,7 +67854,7 @@ _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.thread
   %56 = load ptr, ptr %19, align 8, !tbaa !2172
   %57 = zext nneg i32 %50 to i64
   %58 = load ptr, ptr %56, align 8, !tbaa !643
-  %59 = getelementptr inbounds nuw float, ptr %58, i64 %57
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %57
   %60 = load float, ptr %59, align 4, !tbaa !134
   %61 = fcmp olt float %60, 0.000000e+00
   %62 = fcmp oge float %60, 0x4170000000000000
@@ -67934,7 +67874,7 @@ _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.thread
   %70 = lshr i64 %69, 5
   %71 = and i32 %68, 31
   %72 = xor i32 %71, 31
-  %73 = getelementptr inbounds nuw i32, ptr %.sroa.2.0.copyload.i, i64 %70
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.2.0.copyload.i, i64 %70
   %74 = load i32, ptr %73, align 4, !tbaa !99
   %75 = xor i32 %74, -1
   %76 = lshr i32 %75, %72
@@ -67949,7 +67889,7 @@ _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i: ; pre
 _ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIjLb0ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_T0_E_clImiEEDaSO_SP_.exit: ; preds = %.lr.ph.split
   %79 = load ptr, ptr %12, align 8, !tbaa !1708
   %80 = sub i64 %41, %7
-  %81 = getelementptr inbounds nuw i32, ptr %79, i64 %80
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %79, i64 %80
   %82 = load i32, ptr %81, align 4, !tbaa !99
   %83 = load i32, ptr %13, align 8, !tbaa !1702
   %84 = add nsw i32 %83, %82
@@ -67960,13 +67900,13 @@ _ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIjLb0ELb1ENS_4tree14CPUE
 
 _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.thread: ; preds = %64, %54, %_ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i, %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIjLb0ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_T0_E_clImiEEDaSO_SP_.exit
   %87 = add i64 %.02225, 1
-  %88 = getelementptr inbounds nuw i64, ptr %5, i64 %.02225
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.02225
   store i64 %41, ptr %88, align 8, !tbaa !44
   br label %92
 
 89:                                               ; preds = %_ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i, %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIjLb0ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_T0_E_clImiEEDaSO_SP_.exit
   %90 = add i64 %.02126, 1
-  %91 = getelementptr inbounds nuw i64, ptr %11, i64 %.02126
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.02126
   store i64 %41, ptr %91, align 8, !tbaa !44
   br label %92
 
@@ -68021,12 +67961,12 @@ define linkonce_odr void @_ZN4dmlc12OMPException3RunIZN7xgboost6common13Parallel
   %27 = load ptr, ptr %22, align 8, !tbaa !2041
   %28 = load ptr, ptr %20, align 8, !tbaa !2181
   %29 = load ptr, ptr %28, align 8, !tbaa !562
-  %30 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %29, i64 %24
+  %30 = getelementptr inbounds nuw [88 x i8], ptr %29, i64 %24
   %31 = load i32, ptr %30, align 8, !tbaa !535
   %32 = getelementptr inbounds nuw i8, ptr %27, i64 112
   %33 = sext i32 %31 to i64
   %34 = load ptr, ptr %32, align 8, !tbaa !164
-  %35 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %34, i64 %33
+  %35 = getelementptr inbounds nuw [24 x i8], ptr %34, i64 %33
   %36 = load ptr, ptr %35, align 8, !tbaa !917
   %37 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %sext.i.i = shl i64 %24, 32
@@ -68038,11 +67978,11 @@ define linkonce_odr void @_ZN4dmlc12OMPException3RunIZN7xgboost6common13Parallel
   %43 = add i64 %41, %42
   %44 = getelementptr inbounds nuw i8, ptr %27, i64 56
   %45 = load ptr, ptr %44, align 8, !tbaa !172
-  %46 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %45, i64 %43
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %45, i64 %43
   %47 = load ptr, ptr %46, align 8, !tbaa !1314
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %49 = load i64, ptr %48, align 8, !tbaa !1322
-  %50 = getelementptr inbounds nuw i64, ptr %36, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %47, i64 16416
   %52 = load i64, ptr %47, align 8, !tbaa !1319
   %53 = icmp eq i64 %52, 0
@@ -68052,11 +67992,11 @@ _ZSt8__copy_nIPKmmPmET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i.i.i: ; p
   %54 = getelementptr inbounds nuw i8, ptr %47, i64 32
   %55 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %56 = load i64, ptr %55, align 8, !tbaa !1317
-  %57 = getelementptr inbounds nuw i64, ptr %36, i64 %56
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %56
   %.idx.i.i.i.i.i = shl nuw nsw i64 %52, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %57, ptr nonnull align 8 %54, i64 %.idx.i.i.i.i.i, i1 false)
   %.pre.i.i.i = load ptr, ptr %44, align 8, !tbaa !172
-  %.phi.trans.insert.i.i.i = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %.pre.i.i.i, i64 %43
+  %.phi.trans.insert.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %.pre.i.i.i, i64 %43
   %.pre18.i.i.i = load ptr, ptr %.phi.trans.insert.i.i.i, align 8, !tbaa !1314
   br label %_ZSt6copy_nIPKmmPmET1_T_T0_S3_.exit.i.i.i
 
@@ -68397,7 +68337,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %.noexc50
 
 _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit36.i: ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i, %.noexc50
   store ptr %31, ptr %8, align 8, !tbaa !194
-  %35 = getelementptr inbounds nuw i32, ptr %31, i64 %21
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %21
   store ptr %35, ptr %25, align 8, !tbaa !545
   store ptr %35, ptr %27, align 8, !tbaa !197
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
@@ -68614,10 +68554,10 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 116:                                              ; preds = %._crit_edge35.i, %.lr.ph39.i
   %.01637.i = phi i64 [ 0, %.lr.ph39.i ], [ %119, %._crit_edge35.i ]
-  %117 = getelementptr inbounds nuw i64, ptr %107, i64 %.01637.i
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %.01637.i
   %118 = load i64, ptr %117, align 8, !tbaa !44
   %119 = add nuw i64 %.01637.i, 1
-  %120 = getelementptr inbounds nuw i64, ptr %107, i64 %119
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %119
   %121 = load i64, ptr %120, align 8, !tbaa !44
   %122 = icmp ult i64 %118, %121
   br i1 %122, label %.lr.ph.i, label %._crit_edge35.i
@@ -68630,7 +68570,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 .lr.ph.i:                                         ; preds = %116, %.lr.ph.i
   %.01528.i = phi i64 [ %129, %.lr.ph.i ], [ %118, %116 ]
   %.02327.i = phi i64 [ %128, %.lr.ph.i ], [ 0, %116 ]
-  %124 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %114, i64 %.01528.i
+  %124 = getelementptr inbounds nuw [16 x i8], ptr %114, i64 %.01528.i
   %125 = load ptr, ptr %124, align 8, !tbaa !1314
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 16
   store i64 %.02327.i, ptr %126, align 8, !tbaa !1317
@@ -68644,7 +68584,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 ._crit_edge35.i:                                  ; preds = %.lr.ph34.i, %._crit_edge.i, %116
   %.023.lcssa48.i = phi i64 [ %128, %._crit_edge.i ], [ 0, %116 ], [ %128, %.lr.ph34.i ]
   %.024.lcssa.i = phi i64 [ 0, %._crit_edge.i ], [ 0, %116 ], [ %140, %.lr.ph34.i ]
-  %132 = getelementptr inbounds nuw %"struct.std::pair.129", ptr %115, i64 %.01637.i
+  %132 = getelementptr inbounds nuw [16 x i8], ptr %115, i64 %.01637.i
   store i64 %.023.lcssa48.i, ptr %132, align 8, !tbaa !1126
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 8
   store i64 %.024.lcssa.i, ptr %133, align 8, !tbaa !1128
@@ -68655,7 +68595,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %.032.i = phi i64 [ %141, %.lr.ph34.i ], [ %.pre.i, %._crit_edge.i ]
   %.02431.i = phi i64 [ %140, %.lr.ph34.i ], [ 0, %._crit_edge.i ]
   %134 = add i64 %.02431.i, %128
-  %135 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %114, i64 %.032.i
+  %135 = getelementptr inbounds nuw [16 x i8], ptr %114, i64 %.032.i
   %136 = load ptr, ptr %135, align 8, !tbaa !1314
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 24
   store i64 %134, ptr %137, align 8, !tbaa !1322
@@ -68800,12 +68740,12 @@ define linkonce_odr void @_ZN7xgboost6common14BlockedSpace2dC2IZNS_4tree20Common
   %13 = load ptr, ptr %6, align 8, !tbaa !2188
   %14 = load ptr, ptr %2, align 8, !tbaa !2197
   %15 = load ptr, ptr %14, align 8, !tbaa !562
-  %16 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %15, i64 %.039
+  %16 = getelementptr inbounds nuw [88 x i8], ptr %15, i64 %.039
   %17 = load i32, ptr %16, align 8, !tbaa !535
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 112
   %19 = sext i32 %17 to i64
   %20 = load ptr, ptr %18, align 8, !tbaa !164
-  %21 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %20, i64 %19
+  %21 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %19
   %22 = load ptr, ptr %21, align 8, !tbaa !917
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !919
@@ -68896,7 +68836,7 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIP
   %.pre = phi ptr [ %.pre.pre, %60 ], [ %36, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i ]
   store ptr %55, ptr %5, align 8, !tbaa !168
   store ptr %59, ptr %7, align 8, !tbaa !906
-  %61 = getelementptr inbounds nuw i64, ptr %55, i64 %53
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %53
   store ptr %61, ptr %8, align 8, !tbaa !171
   br label %_ZNSt6vectorImSaImEE9push_backERKm.exit.i
 
@@ -68996,7 +68936,7 @@ _ZNSt6vectorIN7xgboost6common7Range1dESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit3
 .noexc25:                                         ; preds = %84, %_ZNSt6vectorIN7xgboost6common7Range1dESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit33.i
   store ptr %79, ptr %0, align 8, !tbaa !861
   store ptr %83, ptr %9, align 8, !tbaa !1078
-  %98 = getelementptr inbounds nuw %"class.xgboost::common::Range1d", ptr %79, i64 %77
+  %98 = getelementptr inbounds nuw [16 x i8], ptr %79, i64 %77
   store ptr %98, ptr %10, align 8, !tbaa !864
   br label %_ZN7xgboost6common14BlockedSpace2d8AddBlockEmmm.exit
 
@@ -69069,7 +69009,7 @@ define linkonce_odr void @_ZN7xgboost6common16PartitionBuilderILm2048EE4InitIZNS
   br i1 %17, label %18, label %_ZNSt6vectorISt4pairImmESaIS1_EE6resizeEm.exit
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds nuw %"struct.std::pair.129", ptr %8, i64 %2
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %2
   %.not.i.i = icmp eq ptr %7, %19
   br i1 %.not.i.i, label %_ZNSt6vectorISt4pairImmESaIS1_EE6resizeEm.exit, label %20
 
@@ -69101,7 +69041,7 @@ _ZNSt6vectorISt4pairImmESaIS1_EE6resizeEm.exit:   ; preds = %14, %16, %18, %20
   br i1 %34, label %35, label %_ZNSt6vectorImSaImEE6resizeEm.exit
 
 35:                                               ; preds = %33
-  %36 = getelementptr inbounds nuw i64, ptr %25, i64 %22
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %22
   %.not.i.i12 = icmp eq ptr %24, %36
   br i1 %.not.i.i12, label %_ZNSt6vectorImSaImEE6resizeEm.exit, label %37
 
@@ -69130,11 +69070,11 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %31, %33, %35, %37
 46:                                               ; preds = %.lr.ph, %46
   %47 = phi i64 [ 0, %.lr.ph ], [ %65, %46 ]
   %.014 = phi i64 [ 1, %.lr.ph ], [ %67, %46 ]
-  %48 = getelementptr %"struct.xgboost::tree::CPUExpandEntry", ptr %40, i64 %.014
+  %48 = getelementptr [88 x i8], ptr %40, i64 %.014
   %49 = getelementptr i8, ptr %48, i64 -88
   %50 = load i32, ptr %49, align 8, !tbaa !535
   %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %42, i64 %51
+  %52 = getelementptr inbounds nuw [24 x i8], ptr %42, i64 %51
   %53 = load ptr, ptr %52, align 8, !tbaa !917
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %55 = load ptr, ptr %54, align 8, !tbaa !919
@@ -69148,7 +69088,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %31, %33, %35, %37
   %63 = zext i1 %62 to i64
   %64 = add i64 %60, %47
   %65 = add i64 %64, %63
-  %66 = getelementptr inbounds nuw i64, ptr %38, i64 %.014
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %.014
   store i64 %65, ptr %66, align 8, !tbaa !44
   %67 = add nuw i64 %.014, 1
   %exitcond.not = icmp eq i64 %.014, %2
@@ -69176,7 +69116,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %31, %33, %35, %37
   br i1 %81, label %82, label %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit
 
 82:                                               ; preds = %80
-  %83 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %72, i64 %1
+  %83 = getelementptr inbounds nuw [16 x i8], ptr %72, i64 %1
   %.not.i.i13 = icmp eq ptr %71, %83
   br i1 %.not.i.i13, label %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i
 
@@ -70886,7 +70826,7 @@ define linkonce_odr void @_ZZN7xgboost4tree17ColumnSplitHelper9PartitionIhLb1ELb
   %8 = load ptr, ptr %7, align 8, !tbaa !2207
   %9 = load ptr, ptr %0, align 8, !tbaa !2260
   %10 = load ptr, ptr %9, align 8, !tbaa !562
-  %11 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %10, i64 %1
+  %11 = getelementptr inbounds nuw [88 x i8], ptr %10, i64 %1
   %12 = load i32, ptr %11, align 8, !tbaa !535
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -70975,7 +70915,7 @@ _ZZN7xgboost4tree17ColumnSplitHelper9PartitionIhLb1ELb0ENS0_14CPUExpandEntryEEEv
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %61 = load ptr, ptr %60, align 8, !tbaa !2263
   %62 = load ptr, ptr %61, align 8, !tbaa !194
-  %63 = getelementptr inbounds nuw i32, ptr %62, i64 %1
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %1
   %64 = load i32, ptr %63, align 4, !tbaa !99
   br label %65
 
@@ -70993,7 +70933,7 @@ _ZZN7xgboost4tree17ColumnSplitHelper9PartitionIhLb1ELb0ENS0_14CPUExpandEntryEEEv
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 24
   %77 = sext i32 %12 to i64
   %78 = load ptr, ptr %76, align 8, !tbaa !164
-  %79 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %78, i64 %77
+  %79 = getelementptr inbounds nuw [24 x i8], ptr %78, i64 %77
   %80 = load ptr, ptr %79, align 8, !tbaa !917
   call void @_ZN7xgboost6common16PartitionBuilderILm2048EE8MaskRowsIhLb1ELb0ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmPNS_17BitFieldContainerIhNS_11RBitsPolicyIhEELb0EEESS_(ptr noundef nonnull align 8 dereferenceable(80) %68, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %2, i64 %3, i32 noundef %66, ptr noundef nonnull align 8 dereferenceable(233) %70, ptr noundef nonnull align 8 dereferenceable(218) %56, ptr noundef nonnull align 8 dereferenceable(312) %73, ptr noundef %80, ptr noundef nonnull %5, ptr noundef nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -71008,7 +70948,7 @@ _ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_S4_.exit:
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx113
   %13 = sub nsw i64 %4, %3
   %14 = load ptr, ptr %2, align 8, !tbaa !562
-  %15 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %14, i64 %1
+  %15 = getelementptr inbounds nuw [88 x i8], ptr %14, i64 %1
   %16 = load i32, ptr %15, align 8, !tbaa !535
   %17 = sext i32 %16 to i64
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 304
@@ -71020,14 +70960,14 @@ _ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_S4_.exit:
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 40
   %22 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7xgboost16HostDeviceVectorIjE15ConstHostVectorEv(ptr noundef nonnull align 8 dereferenceable(8) %21)
   %23 = load ptr, ptr %22, align 8, !tbaa !449
-  %24 = getelementptr inbounds nuw i32, ptr %23, i64 %17
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %17
   %25 = load i32, ptr %24, align 4, !tbaa !99
   br label %_ZNK7xgboost7RegTree10SplitIndexEi.exit
 
 26:                                               ; preds = %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_S4_.exit
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 160
   %28 = load ptr, ptr %27, align 8, !tbaa !536
-  %29 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %28, i64 %17
+  %29 = getelementptr inbounds nuw [20 x i8], ptr %28, i64 %17
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 12
   %31 = load i32, ptr %30, align 4, !tbaa !810
   %32 = and i32 %31, 2147483647
@@ -71064,7 +71004,7 @@ _ZNK7xgboost7RegTree10SplitIndexEi.exit:          ; preds = %20, %26
   unreachable
 
 _ZNK7xgboost6common4SpanIKNS_7RegTree22CategoricalSplitMatrix7SegmentELm18446744073709551615EEixEm.exit.i: ; preds = %_ZNK7xgboost7RegTree10SplitIndexEi.exit
-  %56 = getelementptr inbounds nuw %"struct.xgboost::RegTree::CategoricalSplitMatrix::Segment", ptr %48, i64 %17
+  %56 = getelementptr inbounds nuw [16 x i8], ptr %48, i64 %17
   %.sroa.0.0.copyload.i = load i64, ptr %56, align 8, !tbaa !44
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %56, i64 8
   %.sroa.4.0.copyload.i = load i64, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !44
@@ -71100,7 +71040,7 @@ _ZNK7xgboost6common4SpanIKNS_7RegTree22CategoricalSplitMatrix7SegmentELm18446744
   unreachable
 
 _ZNK7xgboost7RegTree8NodeCatsEi.exit:             ; preds = %64
-  %70 = getelementptr inbounds nuw i32, ptr %41, i64 %.sroa.0.0.copyload.i
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %.sroa.0.0.copyload.i
   %71 = getelementptr inbounds nuw i8, ptr %6, i64 160
   %72 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7xgboost16HostDeviceVectorIfE15ConstHostVectorEv(ptr noundef nonnull align 8 dereferenceable(8) %71)
   %73 = getelementptr inbounds nuw i8, ptr %7, i64 40
@@ -71147,7 +71087,7 @@ _ZNK7xgboost7RegTree8NodeCatsEi.exit:             ; preds = %64
   unreachable
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit: ; preds = %90
-  %92 = getelementptr inbounds nuw i64, ptr %12, i64 %.sroa.6101.0121
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.sroa.6101.0121
   %93 = load i64, ptr %92, align 8, !tbaa !44
   %94 = tail call noundef i32 @_ZNK7xgboost16GHistIndexMatrix9GetGindexEmm(ptr noundef nonnull align 8 dereferenceable(233) %6, i64 noundef %93, i64 noundef %76)
   %95 = icmp sgt i32 %94, -1
@@ -71156,7 +71096,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
 96:                                               ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit
   %97 = zext nneg i32 %94 to i64
   %98 = load ptr, ptr %72, align 8, !tbaa !643
-  %99 = getelementptr inbounds nuw float, ptr %98, i64 %97
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %98, i64 %97
   %100 = load float, ptr %99, align 4, !tbaa !134
   br i1 %37, label %101, label %108
 
@@ -71174,7 +71114,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
 
 108:                                              ; preds = %96
   %109 = load ptr, ptr %2, align 8, !tbaa !562
-  %110 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %109, i64 %1
+  %110 = getelementptr inbounds nuw [88 x i8], ptr %109, i64 %1
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 16
   %112 = load float, ptr %111, align 8, !tbaa !809
   %113 = fcmp ugt float %100, %112
@@ -71186,7 +71126,7 @@ _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit: ; preds
   %116 = lshr i64 %115, 5
   %117 = and i32 %114, 31
   %118 = xor i32 %117, 31
-  %119 = getelementptr inbounds nuw i32, ptr %70, i64 %116
+  %119 = getelementptr inbounds nuw [4 x i8], ptr %70, i64 %116
   %120 = load i32, ptr %119, align 4, !tbaa !99
   %121 = shl nuw i32 1, %118
   %122 = and i32 %120, %121
@@ -71205,11 +71145,11 @@ _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit: ; preds
 130:                                              ; preds = %123
   %131 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %132 = load ptr, ptr %131, align 8, !tbaa !1452, !noalias !2269
-  %133 = getelementptr inbounds nuw i64, ptr %132, i64 %125
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %132, i64 %125
   %134 = load i64, ptr %133, align 8, !tbaa !44, !noalias !2269
   %135 = add i32 %.0.i, 1
   %136 = zext i32 %135 to i64
-  %137 = getelementptr inbounds nuw i64, ptr %132, i64 %136
+  %137 = getelementptr inbounds nuw [8 x i8], ptr %132, i64 %136
   %138 = load i64, ptr %137, align 8, !tbaa !44, !noalias !2269
   %139 = load ptr, ptr %7, align 8, !tbaa !1456, !noalias !2269
   %140 = icmp ne ptr %139, null
@@ -71229,7 +71169,7 @@ _ZNK7xgboost6common12ColumnMatrix11DenseColumnIhLb1EEEDaj.exit: ; preds = %130
   %148 = getelementptr inbounds nuw i8, ptr %139, i64 %147
   %149 = getelementptr inbounds nuw i8, ptr %7, i64 160
   %150 = load ptr, ptr %149, align 8, !tbaa !1457, !noalias !2269
-  %151 = getelementptr inbounds nuw i32, ptr %150, i64 %125
+  %151 = getelementptr inbounds nuw [4 x i8], ptr %150, i64 %125
   %152 = load i32, ptr %151, align 4, !tbaa !99, !noalias !2269
   %153 = getelementptr inbounds nuw i8, ptr %7, i64 168
   %.sroa.0.0.copyload.i66 = load ptr, ptr %153, align 8, !tbaa !459, !noalias !2269
@@ -71258,14 +71198,14 @@ _ZNK7xgboost6common12ColumnMatrix11DenseColumnIhLb1EEEDaj.exit: ; preds = %130
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i: ; preds = %_ZNK7xgboost6common12ColumnMatrix11DenseColumnIhLb1EEEDaj.exit, %164
   %.sroa.6.026.i = phi i64 [ %165, %164 ], [ 0, %_ZNK7xgboost6common12ColumnMatrix11DenseColumnIhLb1EEEDaj.exit ]
-  %166 = getelementptr inbounds nuw i64, ptr %12, i64 %.sroa.6.026.i
+  %166 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.sroa.6.026.i
   %167 = load i64, ptr %166, align 8, !tbaa !44
   %168 = sub i64 %167, %155
   %169 = add i64 %168, %134
   %170 = lshr i64 %169, 5
   %171 = and i64 %169, 31
   %172 = xor i64 %171, 31
-  %173 = getelementptr inbounds nuw i32, ptr %.sroa.0.0.copyload.i66, i64 %170
+  %173 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0.0.copyload.i66, i64 %170
   %174 = load i32, ptr %173, align 4, !tbaa !99
   %175 = shl nuw nsw i64 1, %172
   %176 = trunc nuw i64 %175 to i32
@@ -71300,11 +71240,11 @@ _ZNK7xgboost6common4SpanIKmLm18446744073709551615EE5frontEv.exit: ; preds = %_ZN
   %188 = sub i64 %185, %187
   %189 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %190 = load ptr, ptr %189, align 8, !tbaa !1452, !noalias !2272
-  %191 = getelementptr inbounds nuw i64, ptr %190, i64 %125
+  %191 = getelementptr inbounds nuw [8 x i8], ptr %190, i64 %125
   %192 = load i64, ptr %191, align 8, !tbaa !44, !noalias !2272
   %193 = add i32 %.0.i, 1
   %194 = zext i32 %193 to i64
-  %195 = getelementptr inbounds nuw i64, ptr %190, i64 %194
+  %195 = getelementptr inbounds nuw [8 x i8], ptr %190, i64 %194
   %196 = load i64, ptr %195, align 8, !tbaa !44, !noalias !2272
   %197 = sub i64 %196, %192
   %198 = getelementptr inbounds nuw i8, ptr %7, i64 216
@@ -71325,7 +71265,7 @@ _ZNK7xgboost6common4SpanIKmLm18446744073709551615EE5frontEv.exit: ; preds = %_ZN
 _ZN7xgboost6common4SpanIKhLm18446744073709551615EEC2EPS2_m.exit.i: ; preds = %_ZNK7xgboost6common4SpanIKmLm18446744073709551615EE5frontEv.exit
   %208 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %209 = load ptr, ptr %208, align 8, !tbaa !1452, !noalias !2272
-  %210 = getelementptr inbounds nuw i64, ptr %209, i64 %192
+  %210 = getelementptr inbounds nuw [8 x i8], ptr %209, i64 %192
   %211 = icmp ne ptr %209, null
   %212 = or i1 %205, %211
   br i1 %212, label %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i, label %213, !prof !127
@@ -71337,7 +71277,7 @@ _ZN7xgboost6common4SpanIKhLm18446744073709551615EEC2EPS2_m.exit.i: ; preds = %_Z
 _ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i: ; preds = %_ZN7xgboost6common4SpanIKhLm18446744073709551615EEC2EPS2_m.exit.i
   %214 = getelementptr inbounds nuw i8, ptr %7, i64 160
   %215 = load ptr, ptr %214, align 8, !tbaa !1457, !noalias !2272
-  %216 = getelementptr inbounds nuw i32, ptr %215, i64 %125
+  %216 = getelementptr inbounds nuw [4 x i8], ptr %215, i64 %125
   %217 = load i32, ptr %216, align 4, !tbaa !99, !noalias !2272
   %218 = icmp sgt i64 %197, 0
   br i1 %218, label %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i, label %.lr.ph.i80
@@ -71346,7 +71286,7 @@ _ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i:           ; preds = %_ZN7xgboost6common4
   %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i ], [ %210, %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i ]
   %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i ], [ %197, %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i ]
   %219 = lshr i64 %.01116.i.i.i.i, 1
-  %220 = getelementptr inbounds nuw i64, ptr %.017.i.i.i.i, i64 %219
+  %220 = getelementptr inbounds nuw [8 x i8], ptr %.017.i.i.i.i, i64 %219
   %221 = load i64, ptr %220, align 8, !tbaa !44, !noalias !2272
   %222 = icmp ult i64 %221, %188
   %223 = getelementptr inbounds nuw i8, ptr %220, i64 8
@@ -71396,7 +71336,7 @@ _ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i:           ; preds = %_ZN7xgboost6common4
   unreachable
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i82: ; preds = %241
-  %243 = getelementptr inbounds nuw i64, ptr %12, i64 %.sroa.6.029.i
+  %243 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.sroa.6.029.i
   %244 = load i64, ptr %243, align 8, !tbaa !44
   %245 = sub i64 %244, %187
   %246 = icmp ult i64 %.sroa.13.0, %197
@@ -71404,7 +71344,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
 
 .lr.ph.i.i:                                       ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i82, %250
   %.sroa.13.3 = phi i64 [ %251, %250 ], [ %.sroa.13.0, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i82 ]
-  %247 = getelementptr inbounds nuw i64, ptr %210, i64 %.sroa.13.3
+  %247 = getelementptr inbounds nuw [8 x i8], ptr %210, i64 %.sroa.13.3
   %248 = load i64, ptr %247, align 8, !tbaa !44
   %249 = icmp ult i64 %248, %245
   br i1 %249, label %250, label %252
@@ -71634,7 +71574,7 @@ define linkonce_odr void @_ZZN7xgboost6common13ParallelFor2dIZNS_4tree17ColumnSp
   %24 = load ptr, ptr %23, align 8, !tbaa !2240
   %25 = load ptr, ptr %16, align 8, !tbaa !2280
   %26 = load ptr, ptr %25, align 8, !tbaa !562
-  %27 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %26, i64 %18
+  %27 = getelementptr inbounds nuw [88 x i8], ptr %26, i64 %18
   %28 = load i32, ptr %27, align 8, !tbaa !535
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 128
   %30 = load ptr, ptr %29, align 8, !tbaa !925
@@ -71647,8 +71587,8 @@ define linkonce_odr void @_ZZN7xgboost6common13ParallelFor2dIZNS_4tree17ColumnSp
   %36 = lshr i64 %21, 11
   %37 = getelementptr inbounds nuw i8, ptr %30, i64 48
   %38 = load ptr, ptr %37, align 8, !tbaa !172
-  %39 = getelementptr %"class.std::shared_ptr.85", ptr %38, i64 %35
-  %40 = getelementptr %"class.std::shared_ptr.85", ptr %39, i64 %36
+  %39 = getelementptr [16 x i8], ptr %38, i64 %35
+  %40 = getelementptr [16 x i8], ptr %39, i64 %36
   %41 = load ptr, ptr %40, align 8, !tbaa !1314
   %42 = icmp eq ptr %41, null
   br i1 %42, label %_ZN4dmlc11LogCheck_NEIPN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoES6_EESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISD_EERKT_RKT0_.exit.i.i, label %_ZZN7xgboost4tree17ColumnSplitHelper9PartitionIhLb1ELb0ENS0_14CPUExpandEntryEEEvPKNS_7ContextERKNS_6common14BlockedSpace2dEiRKNS_16GHistIndexMatrixERKNS7_12ColumnMatrixERKSt6vectorIT2_SaISI_EERKSH_IiSaIiEEPKNS_7RegTreeEENKUlmNS7_7Range1dEE0_clEmSU_.exit
@@ -71673,7 +71613,7 @@ _ZZN7xgboost4tree17ColumnSplitHelper9PartitionIhLb1ELb0ENS0_14CPUExpandEntryEEEv
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 24
   %54 = sext i32 %28 to i64
   %55 = load ptr, ptr %53, align 8, !tbaa !164
-  %56 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %55, i64 %54
+  %56 = getelementptr inbounds nuw [24 x i8], ptr %55, i64 %54
   %57 = load ptr, ptr %56, align 8, !tbaa !917
   %58 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %59 = getelementptr inbounds nuw i8, ptr %24, i64 64
@@ -71878,7 +71818,7 @@ define linkonce_odr void @_ZZN7xgboost6common13ParallelFor2dIZNS_4tree20CommonRo
   %24 = load ptr, ptr %23, align 8, !tbaa !2193
   %25 = load ptr, ptr %16, align 8, !tbaa !2289
   %26 = load ptr, ptr %25, align 8, !tbaa !562
-  %27 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %26, i64 %18
+  %27 = getelementptr inbounds nuw [88 x i8], ptr %26, i64 %18
   %28 = load i32, ptr %27, align 8, !tbaa !535
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %sext.i = shl i64 %18, 32
@@ -71889,8 +71829,8 @@ define linkonce_odr void @_ZZN7xgboost6common13ParallelFor2dIZNS_4tree20CommonRo
   %34 = lshr i64 %21, 11
   %35 = getelementptr inbounds nuw i8, ptr %24, i64 56
   %36 = load ptr, ptr %35, align 8, !tbaa !172
-  %37 = getelementptr %"class.std::shared_ptr.85", ptr %36, i64 %33
-  %38 = getelementptr %"class.std::shared_ptr.85", ptr %37, i64 %34
+  %37 = getelementptr [16 x i8], ptr %36, i64 %33
+  %38 = getelementptr [16 x i8], ptr %37, i64 %34
   %39 = load ptr, ptr %38, align 8, !tbaa !1314
   %40 = icmp eq ptr %39, null
   br i1 %40, label %_ZN4dmlc11LogCheck_NEIPN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoES6_EESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISD_EERKT_RKT0_.exit.i.i, label %_ZN7xgboost6common16PartitionBuilderILm2048EE15AllocateForTaskEm.exit.i
@@ -71912,7 +71852,7 @@ _ZN7xgboost6common16PartitionBuilderILm2048EE15AllocateForTaskEm.exit.i: ; preds
   %47 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %48 = load ptr, ptr %47, align 8, !tbaa !2291
   %49 = load ptr, ptr %48, align 8, !tbaa !194
-  %50 = getelementptr inbounds nuw i32, ptr %49, i64 %18
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %18
   %51 = load i32, ptr %50, align 4, !tbaa !99
   br label %_ZZN7xgboost4tree20CommonRowPartitioner14UpdatePositionIhLb1ELb0ENS0_14CPUExpandEntryEEEvPKNS_7ContextERKNS_16GHistIndexMatrixERKNS_6common12ColumnMatrixERKSt6vectorIT2_SaISF_EEPKNS_7RegTreeEENKUlmNSA_7Range1dEE_clEmSN_.exit
 
@@ -71928,7 +71868,7 @@ _ZZN7xgboost4tree20CommonRowPartitioner14UpdatePositionIhLb1ELb0ENS0_14CPUExpand
   %60 = getelementptr inbounds nuw i8, ptr %24, i64 112
   %61 = sext i32 %28 to i64
   %62 = load ptr, ptr %60, align 8, !tbaa !164
-  %63 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %62, i64 %61
+  %63 = getelementptr inbounds nuw [24 x i8], ptr %62, i64 %61
   %64 = load ptr, ptr %63, align 8, !tbaa !917
   tail call void @_ZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIhLb1ELb0ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKm(ptr noundef nonnull align 8 dereferenceable(80) %53, i64 noundef %18, ptr noundef nonnull align 8 dereferenceable(24) %54, i64 %21, i64 %22, i32 noundef %52, ptr noundef nonnull align 8 dereferenceable(233) %56, ptr noundef nonnull align 8 dereferenceable(218) %43, ptr noundef nonnull align 8 dereferenceable(312) %59, ptr noundef %64)
   %65 = add nuw i64 %.011, 1
@@ -71946,7 +71886,7 @@ _ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_S4_.exit:
   %sext = shl i64 %1, 32
   %13 = ashr exact i64 %sext, 32
   %14 = load ptr, ptr %12, align 8, !tbaa !168
-  %15 = getelementptr inbounds nuw i64, ptr %14, i64 %13
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %13
   %16 = load i64, ptr %15, align 8, !tbaa !44
   %17 = lshr i64 %3, 11
   %18 = add i64 %16, %17
@@ -71966,12 +71906,12 @@ _ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_S4_.exit:
   unreachable
 
 _ZN7xgboost6common16PartitionBuilderILm2048EE14GetRightBufferEimm.exit: ; preds = %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_S4_.exit
-  %28 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %22, i64 %18
+  %28 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %18
   %29 = load ptr, ptr %28, align 8, !tbaa !1314
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 16416
   %32 = load ptr, ptr %2, align 8, !tbaa !562
-  %33 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %32, i64 %1
+  %33 = getelementptr inbounds nuw [88 x i8], ptr %32, i64 %1
   %34 = load i32, ptr %33, align 8, !tbaa !535
   %35 = sext i32 %34 to i64
   %36 = getelementptr inbounds nuw i8, ptr %8, i64 304
@@ -71982,7 +71922,7 @@ _ZN7xgboost6common16PartitionBuilderILm2048EE14GetRightBufferEimm.exit: ; preds 
 _ZNK7xgboost7RegTree10SplitIndexEi.exit.thread:   ; preds = %_ZN7xgboost6common16PartitionBuilderILm2048EE14GetRightBufferEimm.exit
   %38 = getelementptr inbounds nuw i8, ptr %8, i64 160
   %39 = load ptr, ptr %38, align 8, !tbaa !536
-  %40 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %39, i64 %35
+  %40 = getelementptr inbounds nuw [20 x i8], ptr %39, i64 %35
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 12
   %42 = load i32, ptr %41, align 4, !tbaa !810
   %43 = and i32 %42, 2147483647
@@ -71992,7 +71932,7 @@ _ZNK7xgboost7RegTree10SplitIndexEi.exit:          ; preds = %_ZN7xgboost6common1
   %44 = getelementptr inbounds nuw i8, ptr %37, i64 40
   %45 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7xgboost16HostDeviceVectorIjE15ConstHostVectorEv(ptr noundef nonnull align 8 dereferenceable(8) %44)
   %46 = load ptr, ptr %45, align 8, !tbaa !449
-  %47 = getelementptr inbounds nuw i32, ptr %46, i64 %35
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %35
   %48 = load i32, ptr %47, align 4, !tbaa !99
   %.pre = load ptr, ptr %36, align 8, !tbaa !542
   %.not.i83 = icmp eq ptr %.pre, null
@@ -72011,7 +71951,7 @@ _ZNK7xgboost7RegTree10SplitIndexEi.exit:          ; preds = %_ZN7xgboost6common1
   %.0.i307 = phi i32 [ %43, %_ZNK7xgboost7RegTree10SplitIndexEi.exit.thread ], [ %48, %_ZNK7xgboost7RegTree10SplitIndexEi.exit ]
   %57 = getelementptr inbounds nuw i8, ptr %8, i64 160
   %58 = load ptr, ptr %57, align 8, !tbaa !536
-  %59 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %58, i64 %35
+  %59 = getelementptr inbounds nuw [20 x i8], ptr %58, i64 %35
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 12
   %61 = load i32, ptr %60, align 4, !tbaa !810
   %62 = icmp slt i32 %61, 0
@@ -72049,7 +71989,7 @@ _ZNK7xgboost7RegTree11DefaultLeftEi.exit:         ; preds = %49, %56
   unreachable
 
 _ZNK7xgboost6common4SpanIKNS_7RegTree22CategoricalSplitMatrix7SegmentELm18446744073709551615EEixEm.exit.i: ; preds = %_ZNK7xgboost7RegTree11DefaultLeftEi.exit
-  %86 = getelementptr inbounds nuw %"struct.xgboost::RegTree::CategoricalSplitMatrix::Segment", ptr %78, i64 %35
+  %86 = getelementptr inbounds nuw [16 x i8], ptr %78, i64 %35
   %.sroa.0.0.copyload.i = load i64, ptr %86, align 8, !tbaa !44
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %86, i64 8
   %.sroa.4.0.copyload.i = load i64, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !44
@@ -72085,7 +72025,7 @@ _ZNK7xgboost6common4SpanIKNS_7RegTree22CategoricalSplitMatrix7SegmentELm18446744
   unreachable
 
 _ZNK7xgboost7RegTree8NodeCatsEi.exit:             ; preds = %94
-  %100 = getelementptr inbounds nuw i32, ptr %71, i64 %.sroa.0.0.copyload.i
+  %100 = getelementptr inbounds nuw [4 x i8], ptr %71, i64 %.sroa.0.0.copyload.i
   %101 = getelementptr inbounds nuw i8, ptr %6, i64 160
   %102 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7xgboost16HostDeviceVectorIfE15ConstHostVectorEv(ptr noundef nonnull align 8 dereferenceable(8) %101)
   %103 = getelementptr inbounds nuw i8, ptr %7, i64 40
@@ -72112,7 +72052,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
   %.029.i = phi i64 [ %.1.i, %107 ], [ 0, %.lr.ph.i.preheader ]
   %.sroa.6.028.i = phi i64 [ %108, %107 ], [ 0, %.lr.ph.i.preheader ]
   %.01927.i = phi i64 [ %.120.i, %107 ], [ 0, %.lr.ph.i.preheader ]
-  %109 = getelementptr inbounds nuw i64, ptr %10, i64 %.sroa.6.028.i
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.sroa.6.028.i
   %110 = load i64, ptr %109, align 8, !tbaa !44
   %111 = tail call noundef i32 @_ZNK7xgboost16GHistIndexMatrix9GetGindexEmm(ptr noundef nonnull align 8 dereferenceable(233) %6, i64 noundef %110, i64 noundef %106)
   %112 = icmp sgt i32 %111, -1
@@ -72121,7 +72061,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
 113:                                              ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i
   %114 = zext nneg i32 %111 to i64
   %115 = load ptr, ptr %102, align 8, !tbaa !643
-  %116 = getelementptr inbounds nuw float, ptr %115, i64 %114
+  %116 = getelementptr inbounds nuw [4 x i8], ptr %115, i64 %114
   %117 = load float, ptr %116, align 4, !tbaa !134
   br i1 %67, label %118, label %136
 
@@ -72143,7 +72083,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
   %128 = lshr i64 %127, 5
   %129 = and i32 %126, 31
   %130 = xor i32 %129, 31
-  %131 = getelementptr inbounds nuw i32, ptr %100, i64 %128
+  %131 = getelementptr inbounds nuw [4 x i8], ptr %100, i64 %128
   %132 = load i32, ptr %131, align 4, !tbaa !99
   %133 = xor i32 %132, -1
   %134 = lshr i32 %133, %130
@@ -72152,7 +72092,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
 
 136:                                              ; preds = %113
   %137 = load ptr, ptr %2, align 8, !tbaa !562
-  %138 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %137, i64 %1
+  %138 = getelementptr inbounds nuw [88 x i8], ptr %137, i64 %1
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 16
   %140 = load float, ptr %139, align 8, !tbaa !809
   %141 = fcmp ugt float %117, %140
@@ -72163,13 +72103,13 @@ _ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIhLb1ELb0ENS_4tree14CPUE
 
 _ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIhLb1ELb0ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_E_clImEEDaSO_.exit.thread.i: ; preds = %125, %136, %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIhLb1ELb0ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_E_clImEEDaSO_.exit.i, %122, %118
   %142 = add i64 %.029.i, 1
-  %143 = getelementptr inbounds nuw i64, ptr %30, i64 %.029.i
+  %143 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %.029.i
   store i64 %110, ptr %143, align 8, !tbaa !44
   br label %107
 
 144:                                              ; preds = %125, %136, %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIhLb1ELb0ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_E_clImEEDaSO_.exit.i
   %145 = add i64 %.01927.i, 1
-  %146 = getelementptr inbounds nuw i64, ptr %31, i64 %.01927.i
+  %146 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %.01927.i
   store i64 %110, ptr %146, align 8, !tbaa !44
   br label %107
 
@@ -72185,11 +72125,11 @@ _ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIhLb1ELb0ENS_4tree14CPUE
 154:                                              ; preds = %147
   %155 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %156 = load ptr, ptr %155, align 8, !tbaa !1452, !noalias !2298
-  %157 = getelementptr inbounds nuw i64, ptr %156, i64 %149
+  %157 = getelementptr inbounds nuw [8 x i8], ptr %156, i64 %149
   %158 = load i64, ptr %157, align 8, !tbaa !44, !noalias !2298
   %159 = add i32 %.0.i306, 1
   %160 = zext i32 %159 to i64
-  %161 = getelementptr inbounds nuw i64, ptr %156, i64 %160
+  %161 = getelementptr inbounds nuw [8 x i8], ptr %156, i64 %160
   %162 = load i64, ptr %161, align 8, !tbaa !44, !noalias !2298
   %163 = load ptr, ptr %7, align 8, !tbaa !1456, !noalias !2298
   %164 = icmp ne ptr %163, null
@@ -72209,7 +72149,7 @@ _ZNK7xgboost6common12ColumnMatrix11DenseColumnIhLb1EEEDaj.exit: ; preds = %154
   %172 = getelementptr inbounds nuw i8, ptr %163, i64 %171
   %173 = getelementptr inbounds nuw i8, ptr %7, i64 160
   %174 = load ptr, ptr %173, align 8, !tbaa !1457, !noalias !2298
-  %175 = getelementptr inbounds nuw i32, ptr %174, i64 %149
+  %175 = getelementptr inbounds nuw [4 x i8], ptr %174, i64 %149
   %176 = load i32, ptr %175, align 4, !tbaa !99, !noalias !2298
   %177 = getelementptr inbounds nuw i8, ptr %7, i64 168
   %.sroa.0.0.copyload.i89 = load ptr, ptr %177, align 8, !tbaa !459, !noalias !2298
@@ -72225,14 +72165,14 @@ _ZNK7xgboost6common12ColumnMatrix11DenseColumnIhLb1EEEDaj.exit: ; preds = %154
   %.031.i = phi i64 [ %208, %207 ], [ 0, %180 ]
   %.02630.i = phi i64 [ %.1.i92, %207 ], [ 0, %180 ]
   %.02729.i = phi i64 [ %.128.i, %207 ], [ 0, %180 ]
-  %181 = getelementptr inbounds nuw i64, ptr %10, i64 %.031.i
+  %181 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.031.i
   %182 = load i64, ptr %181, align 8, !tbaa !44
   %183 = sub i64 %182, %179
   %184 = add i64 %183, %158
   %185 = lshr i64 %184, 5
   %186 = and i64 %184, 31
   %187 = xor i64 %186, 31
-  %188 = getelementptr inbounds nuw i32, ptr %.sroa.0.0.copyload.i89, i64 %185
+  %188 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0.0.copyload.i89, i64 %185
   %189 = load i32, ptr %188, align 4, !tbaa !99
   %190 = shl nuw nsw i64 1, %187
   %191 = trunc nuw i64 %190 to i32
@@ -72250,7 +72190,7 @@ _ZNK7xgboost6common15DenseColumnIterIhLb1EEixEm.exit.i: ; preds = %.lr.ph.i90
 
 _ZNK7xgboost6common15DenseColumnIterIhLb1EEixEm.exit.thread.i: ; preds = %_ZNK7xgboost6common15DenseColumnIterIhLb1EEixEm.exit.i, %.lr.ph.i90
   %198 = add i64 %.02729.i, 1
-  %199 = getelementptr inbounds nuw i64, ptr %30, i64 %.02729.i
+  %199 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %.02729.i
   store i64 %182, ptr %199, align 8, !tbaa !44
   br label %207
 
@@ -72260,13 +72200,13 @@ _ZNK7xgboost6common15DenseColumnIterIhLb1EEixEm.exit.thread.i: ; preds = %_ZNK7x
 
 201:                                              ; preds = %200
   %202 = add i64 %.02729.i, 1
-  %203 = getelementptr inbounds nuw i64, ptr %30, i64 %.02729.i
+  %203 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %.02729.i
   store i64 %182, ptr %203, align 8, !tbaa !44
   br label %207
 
 204:                                              ; preds = %200
   %205 = add i64 %.02630.i, 1
-  %206 = getelementptr inbounds nuw i64, ptr %31, i64 %.02630.i
+  %206 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %.02630.i
   store i64 %182, ptr %206, align 8, !tbaa !44
   br label %207
 
@@ -72284,14 +72224,14 @@ _ZNK7xgboost6common15DenseColumnIterIhLb1EEixEm.exit.thread.i: ; preds = %_ZNK7x
   %.031.i99 = phi i64 [ %237, %236 ], [ 0, %209 ]
   %.02630.i100 = phi i64 [ %.1.i105, %236 ], [ 0, %209 ]
   %.02729.i101 = phi i64 [ %.128.i104, %236 ], [ 0, %209 ]
-  %210 = getelementptr inbounds nuw i64, ptr %10, i64 %.031.i99
+  %210 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.031.i99
   %211 = load i64, ptr %210, align 8, !tbaa !44
   %212 = sub i64 %211, %179
   %213 = add i64 %212, %158
   %214 = lshr i64 %213, 5
   %215 = and i64 %213, 31
   %216 = xor i64 %215, 31
-  %217 = getelementptr inbounds nuw i32, ptr %.sroa.0.0.copyload.i89, i64 %214
+  %217 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0.0.copyload.i89, i64 %214
   %218 = load i32, ptr %217, align 4, !tbaa !99
   %219 = shl nuw nsw i64 1, %216
   %220 = trunc nuw i64 %219 to i32
@@ -72309,7 +72249,7 @@ _ZNK7xgboost6common15DenseColumnIterIhLb1EEixEm.exit.i111: ; preds = %.lr.ph.i98
 
 _ZNK7xgboost6common15DenseColumnIterIhLb1EEixEm.exit.thread.i103: ; preds = %_ZNK7xgboost6common15DenseColumnIterIhLb1EEixEm.exit.i111, %.lr.ph.i98
   %227 = add i64 %.02630.i100, 1
-  %228 = getelementptr inbounds nuw i64, ptr %31, i64 %.02630.i100
+  %228 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %.02630.i100
   store i64 %211, ptr %228, align 8, !tbaa !44
   br label %236
 
@@ -72319,13 +72259,13 @@ _ZNK7xgboost6common15DenseColumnIterIhLb1EEixEm.exit.thread.i103: ; preds = %_ZN
 
 230:                                              ; preds = %229
   %231 = add i64 %.02729.i101, 1
-  %232 = getelementptr inbounds nuw i64, ptr %30, i64 %.02729.i101
+  %232 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %.02729.i101
   store i64 %211, ptr %232, align 8, !tbaa !44
   br label %236
 
 233:                                              ; preds = %229
   %234 = add i64 %.02630.i100, 1
-  %235 = getelementptr inbounds nuw i64, ptr %31, i64 %.02630.i100
+  %235 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %.02630.i100
   store i64 %211, ptr %235, align 8, !tbaa !44
   br label %236
 
@@ -72351,11 +72291,11 @@ _ZNK7xgboost6common4SpanIKmLm18446744073709551615EE5frontEv.exit: ; preds = %_ZN
   %242 = sub i64 %239, %241
   %243 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %244 = load ptr, ptr %243, align 8, !tbaa !1452, !noalias !2303
-  %245 = getelementptr inbounds nuw i64, ptr %244, i64 %149
+  %245 = getelementptr inbounds nuw [8 x i8], ptr %244, i64 %149
   %246 = load i64, ptr %245, align 8, !tbaa !44, !noalias !2303
   %247 = add i32 %.0.i306, 1
   %248 = zext i32 %247 to i64
-  %249 = getelementptr inbounds nuw i64, ptr %244, i64 %248
+  %249 = getelementptr inbounds nuw [8 x i8], ptr %244, i64 %248
   %250 = load i64, ptr %249, align 8, !tbaa !44, !noalias !2303
   %251 = sub i64 %250, %246
   %252 = getelementptr inbounds nuw i8, ptr %7, i64 216
@@ -72376,7 +72316,7 @@ _ZNK7xgboost6common4SpanIKmLm18446744073709551615EE5frontEv.exit: ; preds = %_ZN
 _ZN7xgboost6common4SpanIKhLm18446744073709551615EEC2EPS2_m.exit.i: ; preds = %_ZNK7xgboost6common4SpanIKmLm18446744073709551615EE5frontEv.exit
   %262 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %263 = load ptr, ptr %262, align 8, !tbaa !1452, !noalias !2303
-  %264 = getelementptr inbounds nuw i64, ptr %263, i64 %246
+  %264 = getelementptr inbounds nuw [8 x i8], ptr %263, i64 %246
   %265 = icmp ne ptr %263, null
   %266 = or i1 %259, %265
   br i1 %266, label %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i, label %267, !prof !127
@@ -72388,7 +72328,7 @@ _ZN7xgboost6common4SpanIKhLm18446744073709551615EEC2EPS2_m.exit.i: ; preds = %_Z
 _ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i: ; preds = %_ZN7xgboost6common4SpanIKhLm18446744073709551615EEC2EPS2_m.exit.i
   %268 = getelementptr inbounds nuw i8, ptr %7, i64 160
   %269 = load ptr, ptr %268, align 8, !tbaa !1457, !noalias !2303
-  %270 = getelementptr inbounds nuw i32, ptr %269, i64 %149
+  %270 = getelementptr inbounds nuw [4 x i8], ptr %269, i64 %149
   %271 = load i32, ptr %270, align 4, !tbaa !99, !noalias !2303
   %272 = icmp sgt i64 %251, 0
   br i1 %272, label %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i, label %_ZNK7xgboost6common12ColumnMatrix12SparseColumnIhEEDajm.exit
@@ -72397,7 +72337,7 @@ _ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i:           ; preds = %_ZN7xgboost6common4
   %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i ], [ %264, %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i ]
   %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i ], [ %251, %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i ]
   %273 = lshr i64 %.01116.i.i.i.i, 1
-  %274 = getelementptr inbounds nuw i64, ptr %.017.i.i.i.i, i64 %273
+  %274 = getelementptr inbounds nuw [8 x i8], ptr %.017.i.i.i.i, i64 %273
   %275 = load i64, ptr %274, align 8, !tbaa !44, !noalias !2303
   %276 = icmp ult i64 %275, %242
   %277 = getelementptr inbounds nuw i8, ptr %274, i64 8
@@ -72421,7 +72361,7 @@ _ZNK7xgboost6common12ColumnMatrix12SparseColumnIhEEDajm.exit: ; preds = %_ZSt7ad
   %.035.i = phi i64 [ %311, %310 ], [ 0, %_ZNK7xgboost6common12ColumnMatrix12SparseColumnIhEEDajm.exit ]
   %.02634.i = phi i64 [ %.1.i126, %310 ], [ 0, %_ZNK7xgboost6common12ColumnMatrix12SparseColumnIhEEDajm.exit ]
   %.02733.i = phi i64 [ %.128.i125, %310 ], [ 0, %_ZNK7xgboost6common12ColumnMatrix12SparseColumnIhEEDajm.exit ]
-  %285 = getelementptr inbounds nuw i64, ptr %10, i64 %.035.i
+  %285 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.035.i
   %286 = load i64, ptr %285, align 8, !tbaa !44
   %287 = sub i64 %286, %241
   %288 = icmp ult i64 %.sroa.17.0, %251
@@ -72429,7 +72369,7 @@ _ZNK7xgboost6common12ColumnMatrix12SparseColumnIhEEDajm.exit: ; preds = %_ZSt7ad
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i124, %292
   %.sroa.17.3 = phi i64 [ %293, %292 ], [ %.sroa.17.0, %.lr.ph.i124 ]
-  %289 = getelementptr inbounds nuw i64, ptr %264, i64 %.sroa.17.3
+  %289 = getelementptr inbounds nuw [8 x i8], ptr %264, i64 %.sroa.17.3
   %290 = load i64, ptr %289, align 8, !tbaa !44
   %291 = icmp ult i64 %290, %287
   br i1 %291, label %292, label %294
@@ -72454,7 +72394,7 @@ _ZN7xgboost6common16SparseColumnIterIhEixEm.exit.i: ; preds = %294
 _ZN7xgboost6common16SparseColumnIterIhEixEm.exit.thread.i: ; preds = %292, %_ZN7xgboost6common16SparseColumnIterIhEixEm.exit.i, %294, %.lr.ph.i124
   %.sroa.17.1 = phi i64 [ %.sroa.17.0, %.lr.ph.i124 ], [ %.sroa.17.3, %_ZN7xgboost6common16SparseColumnIterIhEixEm.exit.i ], [ %.sroa.17.3, %294 ], [ %251, %292 ]
   %301 = add i64 %.02733.i, 1
-  %302 = getelementptr inbounds nuw i64, ptr %30, i64 %.02733.i
+  %302 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %.02733.i
   store i64 %286, ptr %302, align 8, !tbaa !44
   br label %310
 
@@ -72464,13 +72404,13 @@ _ZN7xgboost6common16SparseColumnIterIhEixEm.exit.thread.i: ; preds = %292, %_ZN7
 
 304:                                              ; preds = %303
   %305 = add i64 %.02733.i, 1
-  %306 = getelementptr inbounds nuw i64, ptr %30, i64 %.02733.i
+  %306 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %.02733.i
   store i64 %286, ptr %306, align 8, !tbaa !44
   br label %310
 
 307:                                              ; preds = %303
   %308 = add i64 %.02634.i, 1
-  %309 = getelementptr inbounds nuw i64, ptr %31, i64 %.02634.i
+  %309 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %.02634.i
   store i64 %286, ptr %309, align 8, !tbaa !44
   br label %310
 
@@ -72487,7 +72427,7 @@ _ZN7xgboost6common16SparseColumnIterIhEixEm.exit.thread.i: ; preds = %292, %_ZN7
   %.035.i135 = phi i64 [ %338, %337 ], [ 0, %_ZNK7xgboost6common12ColumnMatrix12SparseColumnIhEEDajm.exit ]
   %.02634.i136 = phi i64 [ %.1.i140, %337 ], [ 0, %_ZNK7xgboost6common12ColumnMatrix12SparseColumnIhEEDajm.exit ]
   %.02733.i137 = phi i64 [ %.128.i139, %337 ], [ 0, %_ZNK7xgboost6common12ColumnMatrix12SparseColumnIhEEDajm.exit ]
-  %312 = getelementptr inbounds nuw i64, ptr %10, i64 %.035.i135
+  %312 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.035.i135
   %313 = load i64, ptr %312, align 8, !tbaa !44
   %314 = sub i64 %313, %241
   %315 = icmp ult i64 %.sroa.17.4, %251
@@ -72495,7 +72435,7 @@ _ZN7xgboost6common16SparseColumnIterIhEixEm.exit.thread.i: ; preds = %292, %_ZN7
 
 .lr.ph.i.i146:                                    ; preds = %.lr.ph.i134, %319
   %.sroa.17.7 = phi i64 [ %320, %319 ], [ %.sroa.17.4, %.lr.ph.i134 ]
-  %316 = getelementptr inbounds nuw i64, ptr %264, i64 %.sroa.17.7
+  %316 = getelementptr inbounds nuw [8 x i8], ptr %264, i64 %.sroa.17.7
   %317 = load i64, ptr %316, align 8, !tbaa !44
   %318 = icmp ult i64 %317, %314
   br i1 %318, label %319, label %321
@@ -72520,7 +72460,7 @@ _ZN7xgboost6common16SparseColumnIterIhEixEm.exit.i147: ; preds = %321
 _ZN7xgboost6common16SparseColumnIterIhEixEm.exit.thread.i138: ; preds = %319, %_ZN7xgboost6common16SparseColumnIterIhEixEm.exit.i147, %321, %.lr.ph.i134
   %.sroa.17.5 = phi i64 [ %.sroa.17.4, %.lr.ph.i134 ], [ %.sroa.17.7, %_ZN7xgboost6common16SparseColumnIterIhEixEm.exit.i147 ], [ %.sroa.17.7, %321 ], [ %251, %319 ]
   %328 = add i64 %.02634.i136, 1
-  %329 = getelementptr inbounds nuw i64, ptr %31, i64 %.02634.i136
+  %329 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %.02634.i136
   store i64 %313, ptr %329, align 8, !tbaa !44
   br label %337
 
@@ -72530,13 +72470,13 @@ _ZN7xgboost6common16SparseColumnIterIhEixEm.exit.thread.i138: ; preds = %319, %_
 
 331:                                              ; preds = %330
   %332 = add i64 %.02733.i137, 1
-  %333 = getelementptr inbounds nuw i64, ptr %30, i64 %.02733.i137
+  %333 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %.02733.i137
   store i64 %313, ptr %333, align 8, !tbaa !44
   br label %337
 
 334:                                              ; preds = %330
   %335 = add i64 %.02634.i136, 1
-  %336 = getelementptr inbounds nuw i64, ptr %31, i64 %.02634.i136
+  %336 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %.02634.i136
   store i64 %313, ptr %336, align 8, !tbaa !44
   br label %337
 
@@ -72552,7 +72492,7 @@ _ZN7xgboost6common16PartitionBuilderILm2048EE20PartitionRangeKernelIZNS2_9Partit
   %.sroa.10193.0 = phi i64 [ %.1.i92, %207 ], [ %.1.i126, %310 ], [ %.1.i105, %236 ], [ %.120.i, %107 ], [ 0, %105 ], [ 0, %180 ], [ 0, %209 ], [ %.1.i140, %337 ]
   %.sroa.0192.0 = phi i64 [ %.128.i, %207 ], [ %.128.i125, %310 ], [ %.128.i104, %236 ], [ %.1.i, %107 ], [ 0, %105 ], [ 0, %180 ], [ 0, %209 ], [ %.128.i139, %337 ]
   %339 = load ptr, ptr %12, align 8, !tbaa !168
-  %340 = getelementptr inbounds nuw i64, ptr %339, i64 %13
+  %340 = getelementptr inbounds nuw [8 x i8], ptr %339, i64 %13
   %341 = load i64, ptr %340, align 8, !tbaa !44
   %342 = add i64 %341, %17
   %343 = load ptr, ptr %20, align 8, !tbaa !175
@@ -72569,7 +72509,7 @@ _ZN7xgboost6common16PartitionBuilderILm2048EE20PartitionRangeKernelIZNS2_9Partit
   unreachable
 
 _ZN7xgboost6common16PartitionBuilderILm2048EE13SetNLeftElemsEimm.exit: ; preds = %_ZN7xgboost6common16PartitionBuilderILm2048EE20PartitionRangeKernelIZNS2_9PartitionIhLb1ELb0ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS8_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmEUlT_E_EESt4pairImmENS0_4SpanISN_Lm18446744073709551615EEENST_ImLm18446744073709551615EEESV_SP_.exit
-  %350 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %344, i64 %342
+  %350 = getelementptr inbounds nuw [16 x i8], ptr %344, i64 %342
   %351 = load ptr, ptr %350, align 8, !tbaa !1314
   store i64 %.sroa.0192.0, ptr %351, align 8, !tbaa !1319
   %352 = load i64, ptr %340, align 8, !tbaa !44
@@ -72582,7 +72522,7 @@ _ZN7xgboost6common16PartitionBuilderILm2048EE13SetNLeftElemsEimm.exit: ; preds =
   unreachable
 
 _ZN7xgboost6common16PartitionBuilderILm2048EE14SetNRightElemsEimm.exit: ; preds = %_ZN7xgboost6common16PartitionBuilderILm2048EE13SetNLeftElemsEimm.exit
-  %355 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %344, i64 %353
+  %355 = getelementptr inbounds nuw [16 x i8], ptr %344, i64 %353
   %356 = load ptr, ptr %355, align 8, !tbaa !1314
   %357 = getelementptr inbounds nuw i8, ptr %356, i64 8
   store i64 %.sroa.10193.0, ptr %357, align 8, !tbaa !1323
@@ -72632,12 +72572,12 @@ define linkonce_odr void @_ZN4dmlc12OMPException3RunIZN7xgboost6common13Parallel
   %27 = load ptr, ptr %22, align 8, !tbaa !2195
   %28 = load ptr, ptr %20, align 8, !tbaa !2313
   %29 = load ptr, ptr %28, align 8, !tbaa !562
-  %30 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %29, i64 %24
+  %30 = getelementptr inbounds nuw [88 x i8], ptr %29, i64 %24
   %31 = load i32, ptr %30, align 8, !tbaa !535
   %32 = getelementptr inbounds nuw i8, ptr %27, i64 112
   %33 = sext i32 %31 to i64
   %34 = load ptr, ptr %32, align 8, !tbaa !164
-  %35 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %34, i64 %33
+  %35 = getelementptr inbounds nuw [24 x i8], ptr %34, i64 %33
   %36 = load ptr, ptr %35, align 8, !tbaa !917
   %37 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %sext.i.i = shl i64 %24, 32
@@ -72649,11 +72589,11 @@ define linkonce_odr void @_ZN4dmlc12OMPException3RunIZN7xgboost6common13Parallel
   %43 = add i64 %41, %42
   %44 = getelementptr inbounds nuw i8, ptr %27, i64 56
   %45 = load ptr, ptr %44, align 8, !tbaa !172
-  %46 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %45, i64 %43
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %45, i64 %43
   %47 = load ptr, ptr %46, align 8, !tbaa !1314
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %49 = load i64, ptr %48, align 8, !tbaa !1322
-  %50 = getelementptr inbounds nuw i64, ptr %36, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %47, i64 16416
   %52 = load i64, ptr %47, align 8, !tbaa !1319
   %53 = icmp eq i64 %52, 0
@@ -72663,11 +72603,11 @@ _ZSt8__copy_nIPKmmPmET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i.i.i: ; p
   %54 = getelementptr inbounds nuw i8, ptr %47, i64 32
   %55 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %56 = load i64, ptr %55, align 8, !tbaa !1317
-  %57 = getelementptr inbounds nuw i64, ptr %36, i64 %56
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %56
   %.idx.i.i.i.i.i = shl nuw nsw i64 %52, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %57, ptr nonnull align 8 %54, i64 %.idx.i.i.i.i.i, i1 false)
   %.pre.i.i.i = load ptr, ptr %44, align 8, !tbaa !172
-  %.phi.trans.insert.i.i.i = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %.pre.i.i.i, i64 %43
+  %.phi.trans.insert.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %.pre.i.i.i, i64 %43
   %.pre18.i.i.i = load ptr, ptr %.phi.trans.insert.i.i.i, align 8, !tbaa !1314
   br label %_ZSt6copy_nIPKmmPmET1_T_T0_S3_.exit.i.i.i
 
@@ -72897,7 +72837,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %.noexc50
 
 _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit36.i: ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i, %.noexc50
   store ptr %31, ptr %8, align 8, !tbaa !194
-  %35 = getelementptr inbounds nuw i32, ptr %31, i64 %21
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %21
   store ptr %35, ptr %25, align 8, !tbaa !545
   store ptr %35, ptr %27, align 8, !tbaa !197
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
@@ -73114,10 +73054,10 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 116:                                              ; preds = %._crit_edge35.i, %.lr.ph39.i
   %.01637.i = phi i64 [ 0, %.lr.ph39.i ], [ %119, %._crit_edge35.i ]
-  %117 = getelementptr inbounds nuw i64, ptr %107, i64 %.01637.i
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %.01637.i
   %118 = load i64, ptr %117, align 8, !tbaa !44
   %119 = add nuw i64 %.01637.i, 1
-  %120 = getelementptr inbounds nuw i64, ptr %107, i64 %119
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %119
   %121 = load i64, ptr %120, align 8, !tbaa !44
   %122 = icmp ult i64 %118, %121
   br i1 %122, label %.lr.ph.i, label %._crit_edge35.i
@@ -73130,7 +73070,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 .lr.ph.i:                                         ; preds = %116, %.lr.ph.i
   %.01528.i = phi i64 [ %129, %.lr.ph.i ], [ %118, %116 ]
   %.02327.i = phi i64 [ %128, %.lr.ph.i ], [ 0, %116 ]
-  %124 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %114, i64 %.01528.i
+  %124 = getelementptr inbounds nuw [16 x i8], ptr %114, i64 %.01528.i
   %125 = load ptr, ptr %124, align 8, !tbaa !1314
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 16
   store i64 %.02327.i, ptr %126, align 8, !tbaa !1317
@@ -73144,7 +73084,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 ._crit_edge35.i:                                  ; preds = %.lr.ph34.i, %._crit_edge.i, %116
   %.023.lcssa48.i = phi i64 [ %128, %._crit_edge.i ], [ 0, %116 ], [ %128, %.lr.ph34.i ]
   %.024.lcssa.i = phi i64 [ 0, %._crit_edge.i ], [ 0, %116 ], [ %140, %.lr.ph34.i ]
-  %132 = getelementptr inbounds nuw %"struct.std::pair.129", ptr %115, i64 %.01637.i
+  %132 = getelementptr inbounds nuw [16 x i8], ptr %115, i64 %.01637.i
   store i64 %.023.lcssa48.i, ptr %132, align 8, !tbaa !1126
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 8
   store i64 %.024.lcssa.i, ptr %133, align 8, !tbaa !1128
@@ -73155,7 +73095,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %.032.i = phi i64 [ %141, %.lr.ph34.i ], [ %.pre.i, %._crit_edge.i ]
   %.02431.i = phi i64 [ %140, %.lr.ph34.i ], [ 0, %._crit_edge.i ]
   %134 = add i64 %.02431.i, %128
-  %135 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %114, i64 %.032.i
+  %135 = getelementptr inbounds nuw [16 x i8], ptr %114, i64 %.032.i
   %136 = load ptr, ptr %135, align 8, !tbaa !1314
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 24
   store i64 %134, ptr %137, align 8, !tbaa !1322
@@ -73300,12 +73240,12 @@ define linkonce_odr void @_ZN7xgboost6common14BlockedSpace2dC2IZNS_4tree20Common
   %13 = load ptr, ptr %6, align 8, !tbaa !2315
   %14 = load ptr, ptr %2, align 8, !tbaa !2324
   %15 = load ptr, ptr %14, align 8, !tbaa !562
-  %16 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %15, i64 %.039
+  %16 = getelementptr inbounds nuw [88 x i8], ptr %15, i64 %.039
   %17 = load i32, ptr %16, align 8, !tbaa !535
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 112
   %19 = sext i32 %17 to i64
   %20 = load ptr, ptr %18, align 8, !tbaa !164
-  %21 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %20, i64 %19
+  %21 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %19
   %22 = load ptr, ptr %21, align 8, !tbaa !917
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !919
@@ -73396,7 +73336,7 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIP
   %.pre = phi ptr [ %.pre.pre, %60 ], [ %36, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i ]
   store ptr %55, ptr %5, align 8, !tbaa !168
   store ptr %59, ptr %7, align 8, !tbaa !906
-  %61 = getelementptr inbounds nuw i64, ptr %55, i64 %53
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %53
   store ptr %61, ptr %8, align 8, !tbaa !171
   br label %_ZNSt6vectorImSaImEE9push_backERKm.exit.i
 
@@ -73496,7 +73436,7 @@ _ZNSt6vectorIN7xgboost6common7Range1dESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit3
 .noexc25:                                         ; preds = %84, %_ZNSt6vectorIN7xgboost6common7Range1dESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit33.i
   store ptr %79, ptr %0, align 8, !tbaa !861
   store ptr %83, ptr %9, align 8, !tbaa !1078
-  %98 = getelementptr inbounds nuw %"class.xgboost::common::Range1d", ptr %79, i64 %77
+  %98 = getelementptr inbounds nuw [16 x i8], ptr %79, i64 %77
   store ptr %98, ptr %10, align 8, !tbaa !864
   br label %_ZN7xgboost6common14BlockedSpace2d8AddBlockEmmm.exit
 
@@ -73569,7 +73509,7 @@ define linkonce_odr void @_ZN7xgboost6common16PartitionBuilderILm2048EE4InitIZNS
   br i1 %17, label %18, label %_ZNSt6vectorISt4pairImmESaIS1_EE6resizeEm.exit
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds nuw %"struct.std::pair.129", ptr %8, i64 %2
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %2
   %.not.i.i = icmp eq ptr %7, %19
   br i1 %.not.i.i, label %_ZNSt6vectorISt4pairImmESaIS1_EE6resizeEm.exit, label %20
 
@@ -73601,7 +73541,7 @@ _ZNSt6vectorISt4pairImmESaIS1_EE6resizeEm.exit:   ; preds = %14, %16, %18, %20
   br i1 %34, label %35, label %_ZNSt6vectorImSaImEE6resizeEm.exit
 
 35:                                               ; preds = %33
-  %36 = getelementptr inbounds nuw i64, ptr %25, i64 %22
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %22
   %.not.i.i12 = icmp eq ptr %24, %36
   br i1 %.not.i.i12, label %_ZNSt6vectorImSaImEE6resizeEm.exit, label %37
 
@@ -73630,11 +73570,11 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %31, %33, %35, %37
 46:                                               ; preds = %.lr.ph, %46
   %47 = phi i64 [ 0, %.lr.ph ], [ %65, %46 ]
   %.014 = phi i64 [ 1, %.lr.ph ], [ %67, %46 ]
-  %48 = getelementptr %"struct.xgboost::tree::CPUExpandEntry", ptr %40, i64 %.014
+  %48 = getelementptr [88 x i8], ptr %40, i64 %.014
   %49 = getelementptr i8, ptr %48, i64 -88
   %50 = load i32, ptr %49, align 8, !tbaa !535
   %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %42, i64 %51
+  %52 = getelementptr inbounds nuw [24 x i8], ptr %42, i64 %51
   %53 = load ptr, ptr %52, align 8, !tbaa !917
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %55 = load ptr, ptr %54, align 8, !tbaa !919
@@ -73648,7 +73588,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %31, %33, %35, %37
   %63 = zext i1 %62 to i64
   %64 = add i64 %60, %47
   %65 = add i64 %64, %63
-  %66 = getelementptr inbounds nuw i64, ptr %38, i64 %.014
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %.014
   store i64 %65, ptr %66, align 8, !tbaa !44
   %67 = add nuw i64 %.014, 1
   %exitcond.not = icmp eq i64 %.014, %2
@@ -73676,7 +73616,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %31, %33, %35, %37
   br i1 %81, label %82, label %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit
 
 82:                                               ; preds = %80
-  %83 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %72, i64 %1
+  %83 = getelementptr inbounds nuw [16 x i8], ptr %72, i64 %1
   %.not.i.i13 = icmp eq ptr %71, %83
   br i1 %.not.i.i13, label %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i
 
@@ -75386,7 +75326,7 @@ define linkonce_odr void @_ZZN7xgboost4tree17ColumnSplitHelper9PartitionItLb1ELb
   %8 = load ptr, ptr %7, align 8, !tbaa !2334
   %9 = load ptr, ptr %0, align 8, !tbaa !2387
   %10 = load ptr, ptr %9, align 8, !tbaa !562
-  %11 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %10, i64 %1
+  %11 = getelementptr inbounds nuw [88 x i8], ptr %10, i64 %1
   %12 = load i32, ptr %11, align 8, !tbaa !535
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -75475,7 +75415,7 @@ _ZZN7xgboost4tree17ColumnSplitHelper9PartitionItLb1ELb0ENS0_14CPUExpandEntryEEEv
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %61 = load ptr, ptr %60, align 8, !tbaa !2390
   %62 = load ptr, ptr %61, align 8, !tbaa !194
-  %63 = getelementptr inbounds nuw i32, ptr %62, i64 %1
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %1
   %64 = load i32, ptr %63, align 4, !tbaa !99
   br label %65
 
@@ -75493,7 +75433,7 @@ _ZZN7xgboost4tree17ColumnSplitHelper9PartitionItLb1ELb0ENS0_14CPUExpandEntryEEEv
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 24
   %77 = sext i32 %12 to i64
   %78 = load ptr, ptr %76, align 8, !tbaa !164
-  %79 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %78, i64 %77
+  %79 = getelementptr inbounds nuw [24 x i8], ptr %78, i64 %77
   %80 = load ptr, ptr %79, align 8, !tbaa !917
   call void @_ZN7xgboost6common16PartitionBuilderILm2048EE8MaskRowsItLb1ELb0ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmPNS_17BitFieldContainerIhNS_11RBitsPolicyIhEELb0EEESS_(ptr noundef nonnull align 8 dereferenceable(80) %68, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %2, i64 %3, i32 noundef %66, ptr noundef nonnull align 8 dereferenceable(233) %70, ptr noundef nonnull align 8 dereferenceable(218) %56, ptr noundef nonnull align 8 dereferenceable(312) %73, ptr noundef %80, ptr noundef nonnull %5, ptr noundef nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -75508,7 +75448,7 @@ _ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_S4_.exit:
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx113
   %13 = sub nsw i64 %4, %3
   %14 = load ptr, ptr %2, align 8, !tbaa !562
-  %15 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %14, i64 %1
+  %15 = getelementptr inbounds nuw [88 x i8], ptr %14, i64 %1
   %16 = load i32, ptr %15, align 8, !tbaa !535
   %17 = sext i32 %16 to i64
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 304
@@ -75520,14 +75460,14 @@ _ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_S4_.exit:
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 40
   %22 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7xgboost16HostDeviceVectorIjE15ConstHostVectorEv(ptr noundef nonnull align 8 dereferenceable(8) %21)
   %23 = load ptr, ptr %22, align 8, !tbaa !449
-  %24 = getelementptr inbounds nuw i32, ptr %23, i64 %17
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %17
   %25 = load i32, ptr %24, align 4, !tbaa !99
   br label %_ZNK7xgboost7RegTree10SplitIndexEi.exit
 
 26:                                               ; preds = %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_S4_.exit
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 160
   %28 = load ptr, ptr %27, align 8, !tbaa !536
-  %29 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %28, i64 %17
+  %29 = getelementptr inbounds nuw [20 x i8], ptr %28, i64 %17
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 12
   %31 = load i32, ptr %30, align 4, !tbaa !810
   %32 = and i32 %31, 2147483647
@@ -75564,7 +75504,7 @@ _ZNK7xgboost7RegTree10SplitIndexEi.exit:          ; preds = %20, %26
   unreachable
 
 _ZNK7xgboost6common4SpanIKNS_7RegTree22CategoricalSplitMatrix7SegmentELm18446744073709551615EEixEm.exit.i: ; preds = %_ZNK7xgboost7RegTree10SplitIndexEi.exit
-  %56 = getelementptr inbounds nuw %"struct.xgboost::RegTree::CategoricalSplitMatrix::Segment", ptr %48, i64 %17
+  %56 = getelementptr inbounds nuw [16 x i8], ptr %48, i64 %17
   %.sroa.0.0.copyload.i = load i64, ptr %56, align 8, !tbaa !44
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %56, i64 8
   %.sroa.4.0.copyload.i = load i64, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !44
@@ -75600,7 +75540,7 @@ _ZNK7xgboost6common4SpanIKNS_7RegTree22CategoricalSplitMatrix7SegmentELm18446744
   unreachable
 
 _ZNK7xgboost7RegTree8NodeCatsEi.exit:             ; preds = %64
-  %70 = getelementptr inbounds nuw i32, ptr %41, i64 %.sroa.0.0.copyload.i
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %.sroa.0.0.copyload.i
   %71 = getelementptr inbounds nuw i8, ptr %6, i64 160
   %72 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7xgboost16HostDeviceVectorIfE15ConstHostVectorEv(ptr noundef nonnull align 8 dereferenceable(8) %71)
   %73 = getelementptr inbounds nuw i8, ptr %7, i64 40
@@ -75647,7 +75587,7 @@ _ZNK7xgboost7RegTree8NodeCatsEi.exit:             ; preds = %64
   unreachable
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit: ; preds = %90
-  %92 = getelementptr inbounds nuw i64, ptr %12, i64 %.sroa.6101.0121
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.sroa.6101.0121
   %93 = load i64, ptr %92, align 8, !tbaa !44
   %94 = tail call noundef i32 @_ZNK7xgboost16GHistIndexMatrix9GetGindexEmm(ptr noundef nonnull align 8 dereferenceable(233) %6, i64 noundef %93, i64 noundef %76)
   %95 = icmp sgt i32 %94, -1
@@ -75656,7 +75596,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
 96:                                               ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit
   %97 = zext nneg i32 %94 to i64
   %98 = load ptr, ptr %72, align 8, !tbaa !643
-  %99 = getelementptr inbounds nuw float, ptr %98, i64 %97
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %98, i64 %97
   %100 = load float, ptr %99, align 4, !tbaa !134
   br i1 %37, label %101, label %108
 
@@ -75674,7 +75614,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
 
 108:                                              ; preds = %96
   %109 = load ptr, ptr %2, align 8, !tbaa !562
-  %110 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %109, i64 %1
+  %110 = getelementptr inbounds nuw [88 x i8], ptr %109, i64 %1
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 16
   %112 = load float, ptr %111, align 8, !tbaa !809
   %113 = fcmp ugt float %100, %112
@@ -75686,7 +75626,7 @@ _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit: ; preds
   %116 = lshr i64 %115, 5
   %117 = and i32 %114, 31
   %118 = xor i32 %117, 31
-  %119 = getelementptr inbounds nuw i32, ptr %70, i64 %116
+  %119 = getelementptr inbounds nuw [4 x i8], ptr %70, i64 %116
   %120 = load i32, ptr %119, align 4, !tbaa !99
   %121 = shl nuw i32 1, %118
   %122 = and i32 %120, %121
@@ -75705,11 +75645,11 @@ _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit: ; preds
 130:                                              ; preds = %123
   %131 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %132 = load ptr, ptr %131, align 8, !tbaa !1452, !noalias !2396
-  %133 = getelementptr inbounds nuw i64, ptr %132, i64 %125
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %132, i64 %125
   %134 = load i64, ptr %133, align 8, !tbaa !44, !noalias !2396
   %135 = add i32 %.0.i, 1
   %136 = zext i32 %135 to i64
-  %137 = getelementptr inbounds nuw i64, ptr %132, i64 %136
+  %137 = getelementptr inbounds nuw [8 x i8], ptr %132, i64 %136
   %138 = load i64, ptr %137, align 8, !tbaa !44, !noalias !2396
   %139 = load ptr, ptr %7, align 8, !tbaa !1456, !noalias !2396
   %140 = icmp ne ptr %139, null
@@ -75729,7 +75669,7 @@ _ZNK7xgboost6common12ColumnMatrix11DenseColumnItLb1EEEDaj.exit: ; preds = %130
   %148 = getelementptr inbounds nuw i8, ptr %139, i64 %147
   %149 = getelementptr inbounds nuw i8, ptr %7, i64 160
   %150 = load ptr, ptr %149, align 8, !tbaa !1457, !noalias !2396
-  %151 = getelementptr inbounds nuw i32, ptr %150, i64 %125
+  %151 = getelementptr inbounds nuw [4 x i8], ptr %150, i64 %125
   %152 = load i32, ptr %151, align 4, !tbaa !99, !noalias !2396
   %153 = getelementptr inbounds nuw i8, ptr %7, i64 168
   %.sroa.0.0.copyload.i66 = load ptr, ptr %153, align 8, !tbaa !459, !noalias !2396
@@ -75758,14 +75698,14 @@ _ZNK7xgboost6common12ColumnMatrix11DenseColumnItLb1EEEDaj.exit: ; preds = %130
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i: ; preds = %_ZNK7xgboost6common12ColumnMatrix11DenseColumnItLb1EEEDaj.exit, %164
   %.sroa.6.026.i = phi i64 [ %165, %164 ], [ 0, %_ZNK7xgboost6common12ColumnMatrix11DenseColumnItLb1EEEDaj.exit ]
-  %166 = getelementptr inbounds nuw i64, ptr %12, i64 %.sroa.6.026.i
+  %166 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.sroa.6.026.i
   %167 = load i64, ptr %166, align 8, !tbaa !44
   %168 = sub i64 %167, %155
   %169 = add i64 %168, %134
   %170 = lshr i64 %169, 5
   %171 = and i64 %169, 31
   %172 = xor i64 %171, 31
-  %173 = getelementptr inbounds nuw i32, ptr %.sroa.0.0.copyload.i66, i64 %170
+  %173 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0.0.copyload.i66, i64 %170
   %174 = load i32, ptr %173, align 4, !tbaa !99
   %175 = shl nuw nsw i64 1, %172
   %176 = trunc nuw i64 %175 to i32
@@ -75774,7 +75714,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
   br i1 %.not.i.i67, label %_ZNK7xgboost6common15DenseColumnIterItLb1EEixEm.exit.i, label %.sink.split.i
 
 _ZNK7xgboost6common15DenseColumnIterItLb1EEixEm.exit.i: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i
-  %178 = getelementptr inbounds nuw i16, ptr %148, i64 %168
+  %178 = getelementptr inbounds nuw [2 x i8], ptr %148, i64 %168
   %179 = load i16, ptr %178, align 2, !tbaa !1458
   %180 = zext i16 %179 to i32
   %181 = add nsw i32 %152, %180
@@ -75800,11 +75740,11 @@ _ZNK7xgboost6common4SpanIKmLm18446744073709551615EE5frontEv.exit: ; preds = %_ZN
   %188 = sub i64 %185, %187
   %189 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %190 = load ptr, ptr %189, align 8, !tbaa !1452, !noalias !2399
-  %191 = getelementptr inbounds nuw i64, ptr %190, i64 %125
+  %191 = getelementptr inbounds nuw [8 x i8], ptr %190, i64 %125
   %192 = load i64, ptr %191, align 8, !tbaa !44, !noalias !2399
   %193 = add i32 %.0.i, 1
   %194 = zext i32 %193 to i64
-  %195 = getelementptr inbounds nuw i64, ptr %190, i64 %194
+  %195 = getelementptr inbounds nuw [8 x i8], ptr %190, i64 %194
   %196 = load i64, ptr %195, align 8, !tbaa !44, !noalias !2399
   %197 = sub i64 %196, %192
   %198 = getelementptr inbounds nuw i8, ptr %7, i64 216
@@ -75825,7 +75765,7 @@ _ZNK7xgboost6common4SpanIKmLm18446744073709551615EE5frontEv.exit: ; preds = %_ZN
 _ZN7xgboost6common4SpanIKtLm18446744073709551615EEC2EPS2_m.exit.i: ; preds = %_ZNK7xgboost6common4SpanIKmLm18446744073709551615EE5frontEv.exit
   %208 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %209 = load ptr, ptr %208, align 8, !tbaa !1452, !noalias !2399
-  %210 = getelementptr inbounds nuw i64, ptr %209, i64 %192
+  %210 = getelementptr inbounds nuw [8 x i8], ptr %209, i64 %192
   %211 = icmp ne ptr %209, null
   %212 = or i1 %205, %211
   br i1 %212, label %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i, label %213, !prof !127
@@ -75837,7 +75777,7 @@ _ZN7xgboost6common4SpanIKtLm18446744073709551615EEC2EPS2_m.exit.i: ; preds = %_Z
 _ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i: ; preds = %_ZN7xgboost6common4SpanIKtLm18446744073709551615EEC2EPS2_m.exit.i
   %214 = getelementptr inbounds nuw i8, ptr %7, i64 160
   %215 = load ptr, ptr %214, align 8, !tbaa !1457, !noalias !2399
-  %216 = getelementptr inbounds nuw i32, ptr %215, i64 %125
+  %216 = getelementptr inbounds nuw [4 x i8], ptr %215, i64 %125
   %217 = load i32, ptr %216, align 4, !tbaa !99, !noalias !2399
   %218 = icmp sgt i64 %197, 0
   br i1 %218, label %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i, label %.lr.ph.i80
@@ -75846,7 +75786,7 @@ _ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i:           ; preds = %_ZN7xgboost6common4
   %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i ], [ %210, %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i ]
   %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i ], [ %197, %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i ]
   %219 = lshr i64 %.01116.i.i.i.i, 1
-  %220 = getelementptr inbounds nuw i64, ptr %.017.i.i.i.i, i64 %219
+  %220 = getelementptr inbounds nuw [8 x i8], ptr %.017.i.i.i.i, i64 %219
   %221 = load i64, ptr %220, align 8, !tbaa !44, !noalias !2399
   %222 = icmp ult i64 %221, %188
   %223 = getelementptr inbounds nuw i8, ptr %220, i64 8
@@ -75896,7 +75836,7 @@ _ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i:           ; preds = %_ZN7xgboost6common4
   unreachable
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i82: ; preds = %241
-  %243 = getelementptr inbounds nuw i64, ptr %12, i64 %.sroa.6.029.i
+  %243 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.sroa.6.029.i
   %244 = load i64, ptr %243, align 8, !tbaa !44
   %245 = sub i64 %244, %187
   %246 = icmp ult i64 %.sroa.13.0, %197
@@ -75904,7 +75844,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
 
 .lr.ph.i.i:                                       ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i82, %250
   %.sroa.13.3 = phi i64 [ %251, %250 ], [ %.sroa.13.0, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i82 ]
-  %247 = getelementptr inbounds nuw i64, ptr %210, i64 %.sroa.13.3
+  %247 = getelementptr inbounds nuw [8 x i8], ptr %210, i64 %.sroa.13.3
   %248 = load i64, ptr %247, align 8, !tbaa !44
   %249 = icmp ult i64 %248, %245
   br i1 %249, label %250, label %252
@@ -75919,7 +75859,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
   br i1 %253, label %_ZN7xgboost6common16SparseColumnIterItEixEm.exit.i, label %.sink.split.i83
 
 _ZN7xgboost6common16SparseColumnIterItEixEm.exit.i: ; preds = %252
-  %254 = getelementptr inbounds nuw i16, ptr %203, i64 %.sroa.13.3
+  %254 = getelementptr inbounds nuw [2 x i8], ptr %203, i64 %.sroa.13.3
   %255 = load i16, ptr %254, align 2, !tbaa !1458
   %256 = zext i16 %255 to i32
   %257 = add nsw i32 %217, %256
@@ -76129,7 +76069,7 @@ define linkonce_odr void @_ZZN7xgboost6common13ParallelFor2dIZNS_4tree17ColumnSp
   %24 = load ptr, ptr %23, align 8, !tbaa !2367
   %25 = load ptr, ptr %16, align 8, !tbaa !2407
   %26 = load ptr, ptr %25, align 8, !tbaa !562
-  %27 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %26, i64 %18
+  %27 = getelementptr inbounds nuw [88 x i8], ptr %26, i64 %18
   %28 = load i32, ptr %27, align 8, !tbaa !535
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 128
   %30 = load ptr, ptr %29, align 8, !tbaa !925
@@ -76142,8 +76082,8 @@ define linkonce_odr void @_ZZN7xgboost6common13ParallelFor2dIZNS_4tree17ColumnSp
   %36 = lshr i64 %21, 11
   %37 = getelementptr inbounds nuw i8, ptr %30, i64 48
   %38 = load ptr, ptr %37, align 8, !tbaa !172
-  %39 = getelementptr %"class.std::shared_ptr.85", ptr %38, i64 %35
-  %40 = getelementptr %"class.std::shared_ptr.85", ptr %39, i64 %36
+  %39 = getelementptr [16 x i8], ptr %38, i64 %35
+  %40 = getelementptr [16 x i8], ptr %39, i64 %36
   %41 = load ptr, ptr %40, align 8, !tbaa !1314
   %42 = icmp eq ptr %41, null
   br i1 %42, label %_ZN4dmlc11LogCheck_NEIPN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoES6_EESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISD_EERKT_RKT0_.exit.i.i, label %_ZZN7xgboost4tree17ColumnSplitHelper9PartitionItLb1ELb0ENS0_14CPUExpandEntryEEEvPKNS_7ContextERKNS_6common14BlockedSpace2dEiRKNS_16GHistIndexMatrixERKNS7_12ColumnMatrixERKSt6vectorIT2_SaISI_EERKSH_IiSaIiEEPKNS_7RegTreeEENKUlmNS7_7Range1dEE0_clEmSU_.exit
@@ -76168,7 +76108,7 @@ _ZZN7xgboost4tree17ColumnSplitHelper9PartitionItLb1ELb0ENS0_14CPUExpandEntryEEEv
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 24
   %54 = sext i32 %28 to i64
   %55 = load ptr, ptr %53, align 8, !tbaa !164
-  %56 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %55, i64 %54
+  %56 = getelementptr inbounds nuw [24 x i8], ptr %55, i64 %54
   %57 = load ptr, ptr %56, align 8, !tbaa !917
   %58 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %59 = getelementptr inbounds nuw i8, ptr %24, i64 64
@@ -76373,7 +76313,7 @@ define linkonce_odr void @_ZZN7xgboost6common13ParallelFor2dIZNS_4tree20CommonRo
   %24 = load ptr, ptr %23, align 8, !tbaa !2320
   %25 = load ptr, ptr %16, align 8, !tbaa !2416
   %26 = load ptr, ptr %25, align 8, !tbaa !562
-  %27 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %26, i64 %18
+  %27 = getelementptr inbounds nuw [88 x i8], ptr %26, i64 %18
   %28 = load i32, ptr %27, align 8, !tbaa !535
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %sext.i = shl i64 %18, 32
@@ -76384,8 +76324,8 @@ define linkonce_odr void @_ZZN7xgboost6common13ParallelFor2dIZNS_4tree20CommonRo
   %34 = lshr i64 %21, 11
   %35 = getelementptr inbounds nuw i8, ptr %24, i64 56
   %36 = load ptr, ptr %35, align 8, !tbaa !172
-  %37 = getelementptr %"class.std::shared_ptr.85", ptr %36, i64 %33
-  %38 = getelementptr %"class.std::shared_ptr.85", ptr %37, i64 %34
+  %37 = getelementptr [16 x i8], ptr %36, i64 %33
+  %38 = getelementptr [16 x i8], ptr %37, i64 %34
   %39 = load ptr, ptr %38, align 8, !tbaa !1314
   %40 = icmp eq ptr %39, null
   br i1 %40, label %_ZN4dmlc11LogCheck_NEIPN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoES6_EESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISD_EERKT_RKT0_.exit.i.i, label %_ZN7xgboost6common16PartitionBuilderILm2048EE15AllocateForTaskEm.exit.i
@@ -76407,7 +76347,7 @@ _ZN7xgboost6common16PartitionBuilderILm2048EE15AllocateForTaskEm.exit.i: ; preds
   %47 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %48 = load ptr, ptr %47, align 8, !tbaa !2418
   %49 = load ptr, ptr %48, align 8, !tbaa !194
-  %50 = getelementptr inbounds nuw i32, ptr %49, i64 %18
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %18
   %51 = load i32, ptr %50, align 4, !tbaa !99
   br label %_ZZN7xgboost4tree20CommonRowPartitioner14UpdatePositionItLb1ELb0ENS0_14CPUExpandEntryEEEvPKNS_7ContextERKNS_16GHistIndexMatrixERKNS_6common12ColumnMatrixERKSt6vectorIT2_SaISF_EEPKNS_7RegTreeEENKUlmNSA_7Range1dEE_clEmSN_.exit
 
@@ -76423,7 +76363,7 @@ _ZZN7xgboost4tree20CommonRowPartitioner14UpdatePositionItLb1ELb0ENS0_14CPUExpand
   %60 = getelementptr inbounds nuw i8, ptr %24, i64 112
   %61 = sext i32 %28 to i64
   %62 = load ptr, ptr %60, align 8, !tbaa !164
-  %63 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %62, i64 %61
+  %63 = getelementptr inbounds nuw [24 x i8], ptr %62, i64 %61
   %64 = load ptr, ptr %63, align 8, !tbaa !917
   tail call void @_ZN7xgboost6common16PartitionBuilderILm2048EE9PartitionItLb1ELb0ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKm(ptr noundef nonnull align 8 dereferenceable(80) %53, i64 noundef %18, ptr noundef nonnull align 8 dereferenceable(24) %54, i64 %21, i64 %22, i32 noundef %52, ptr noundef nonnull align 8 dereferenceable(233) %56, ptr noundef nonnull align 8 dereferenceable(218) %43, ptr noundef nonnull align 8 dereferenceable(312) %59, ptr noundef %64)
   %65 = add nuw i64 %.011, 1
@@ -76441,7 +76381,7 @@ _ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_S4_.exit:
   %sext = shl i64 %1, 32
   %13 = ashr exact i64 %sext, 32
   %14 = load ptr, ptr %12, align 8, !tbaa !168
-  %15 = getelementptr inbounds nuw i64, ptr %14, i64 %13
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %13
   %16 = load i64, ptr %15, align 8, !tbaa !44
   %17 = lshr i64 %3, 11
   %18 = add i64 %16, %17
@@ -76461,12 +76401,12 @@ _ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_S4_.exit:
   unreachable
 
 _ZN7xgboost6common16PartitionBuilderILm2048EE14GetRightBufferEimm.exit: ; preds = %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_S4_.exit
-  %28 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %22, i64 %18
+  %28 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %18
   %29 = load ptr, ptr %28, align 8, !tbaa !1314
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 16416
   %32 = load ptr, ptr %2, align 8, !tbaa !562
-  %33 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %32, i64 %1
+  %33 = getelementptr inbounds nuw [88 x i8], ptr %32, i64 %1
   %34 = load i32, ptr %33, align 8, !tbaa !535
   %35 = sext i32 %34 to i64
   %36 = getelementptr inbounds nuw i8, ptr %8, i64 304
@@ -76477,7 +76417,7 @@ _ZN7xgboost6common16PartitionBuilderILm2048EE14GetRightBufferEimm.exit: ; preds 
 _ZNK7xgboost7RegTree10SplitIndexEi.exit.thread:   ; preds = %_ZN7xgboost6common16PartitionBuilderILm2048EE14GetRightBufferEimm.exit
   %38 = getelementptr inbounds nuw i8, ptr %8, i64 160
   %39 = load ptr, ptr %38, align 8, !tbaa !536
-  %40 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %39, i64 %35
+  %40 = getelementptr inbounds nuw [20 x i8], ptr %39, i64 %35
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 12
   %42 = load i32, ptr %41, align 4, !tbaa !810
   %43 = and i32 %42, 2147483647
@@ -76487,7 +76427,7 @@ _ZNK7xgboost7RegTree10SplitIndexEi.exit:          ; preds = %_ZN7xgboost6common1
   %44 = getelementptr inbounds nuw i8, ptr %37, i64 40
   %45 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7xgboost16HostDeviceVectorIjE15ConstHostVectorEv(ptr noundef nonnull align 8 dereferenceable(8) %44)
   %46 = load ptr, ptr %45, align 8, !tbaa !449
-  %47 = getelementptr inbounds nuw i32, ptr %46, i64 %35
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %35
   %48 = load i32, ptr %47, align 4, !tbaa !99
   %.pre = load ptr, ptr %36, align 8, !tbaa !542
   %.not.i83 = icmp eq ptr %.pre, null
@@ -76506,7 +76446,7 @@ _ZNK7xgboost7RegTree10SplitIndexEi.exit:          ; preds = %_ZN7xgboost6common1
   %.0.i307 = phi i32 [ %43, %_ZNK7xgboost7RegTree10SplitIndexEi.exit.thread ], [ %48, %_ZNK7xgboost7RegTree10SplitIndexEi.exit ]
   %57 = getelementptr inbounds nuw i8, ptr %8, i64 160
   %58 = load ptr, ptr %57, align 8, !tbaa !536
-  %59 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %58, i64 %35
+  %59 = getelementptr inbounds nuw [20 x i8], ptr %58, i64 %35
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 12
   %61 = load i32, ptr %60, align 4, !tbaa !810
   %62 = icmp slt i32 %61, 0
@@ -76544,7 +76484,7 @@ _ZNK7xgboost7RegTree11DefaultLeftEi.exit:         ; preds = %49, %56
   unreachable
 
 _ZNK7xgboost6common4SpanIKNS_7RegTree22CategoricalSplitMatrix7SegmentELm18446744073709551615EEixEm.exit.i: ; preds = %_ZNK7xgboost7RegTree11DefaultLeftEi.exit
-  %86 = getelementptr inbounds nuw %"struct.xgboost::RegTree::CategoricalSplitMatrix::Segment", ptr %78, i64 %35
+  %86 = getelementptr inbounds nuw [16 x i8], ptr %78, i64 %35
   %.sroa.0.0.copyload.i = load i64, ptr %86, align 8, !tbaa !44
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %86, i64 8
   %.sroa.4.0.copyload.i = load i64, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !44
@@ -76580,7 +76520,7 @@ _ZNK7xgboost6common4SpanIKNS_7RegTree22CategoricalSplitMatrix7SegmentELm18446744
   unreachable
 
 _ZNK7xgboost7RegTree8NodeCatsEi.exit:             ; preds = %94
-  %100 = getelementptr inbounds nuw i32, ptr %71, i64 %.sroa.0.0.copyload.i
+  %100 = getelementptr inbounds nuw [4 x i8], ptr %71, i64 %.sroa.0.0.copyload.i
   %101 = getelementptr inbounds nuw i8, ptr %6, i64 160
   %102 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7xgboost16HostDeviceVectorIfE15ConstHostVectorEv(ptr noundef nonnull align 8 dereferenceable(8) %101)
   %103 = getelementptr inbounds nuw i8, ptr %7, i64 40
@@ -76607,7 +76547,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
   %.029.i = phi i64 [ %.1.i, %107 ], [ 0, %.lr.ph.i.preheader ]
   %.sroa.6.028.i = phi i64 [ %108, %107 ], [ 0, %.lr.ph.i.preheader ]
   %.01927.i = phi i64 [ %.120.i, %107 ], [ 0, %.lr.ph.i.preheader ]
-  %109 = getelementptr inbounds nuw i64, ptr %10, i64 %.sroa.6.028.i
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.sroa.6.028.i
   %110 = load i64, ptr %109, align 8, !tbaa !44
   %111 = tail call noundef i32 @_ZNK7xgboost16GHistIndexMatrix9GetGindexEmm(ptr noundef nonnull align 8 dereferenceable(233) %6, i64 noundef %110, i64 noundef %106)
   %112 = icmp sgt i32 %111, -1
@@ -76616,7 +76556,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
 113:                                              ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i
   %114 = zext nneg i32 %111 to i64
   %115 = load ptr, ptr %102, align 8, !tbaa !643
-  %116 = getelementptr inbounds nuw float, ptr %115, i64 %114
+  %116 = getelementptr inbounds nuw [4 x i8], ptr %115, i64 %114
   %117 = load float, ptr %116, align 4, !tbaa !134
   br i1 %67, label %118, label %136
 
@@ -76638,7 +76578,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
   %128 = lshr i64 %127, 5
   %129 = and i32 %126, 31
   %130 = xor i32 %129, 31
-  %131 = getelementptr inbounds nuw i32, ptr %100, i64 %128
+  %131 = getelementptr inbounds nuw [4 x i8], ptr %100, i64 %128
   %132 = load i32, ptr %131, align 4, !tbaa !99
   %133 = xor i32 %132, -1
   %134 = lshr i32 %133, %130
@@ -76647,7 +76587,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
 
 136:                                              ; preds = %113
   %137 = load ptr, ptr %2, align 8, !tbaa !562
-  %138 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %137, i64 %1
+  %138 = getelementptr inbounds nuw [88 x i8], ptr %137, i64 %1
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 16
   %140 = load float, ptr %139, align 8, !tbaa !809
   %141 = fcmp ugt float %117, %140
@@ -76658,13 +76598,13 @@ _ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionItLb1ELb0ENS_4tree14CPUE
 
 _ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionItLb1ELb0ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_E_clImEEDaSO_.exit.thread.i: ; preds = %125, %136, %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionItLb1ELb0ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_E_clImEEDaSO_.exit.i, %122, %118
   %142 = add i64 %.029.i, 1
-  %143 = getelementptr inbounds nuw i64, ptr %30, i64 %.029.i
+  %143 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %.029.i
   store i64 %110, ptr %143, align 8, !tbaa !44
   br label %107
 
 144:                                              ; preds = %125, %136, %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionItLb1ELb0ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_E_clImEEDaSO_.exit.i
   %145 = add i64 %.01927.i, 1
-  %146 = getelementptr inbounds nuw i64, ptr %31, i64 %.01927.i
+  %146 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %.01927.i
   store i64 %110, ptr %146, align 8, !tbaa !44
   br label %107
 
@@ -76680,11 +76620,11 @@ _ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionItLb1ELb0ENS_4tree14CPUE
 154:                                              ; preds = %147
   %155 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %156 = load ptr, ptr %155, align 8, !tbaa !1452, !noalias !2425
-  %157 = getelementptr inbounds nuw i64, ptr %156, i64 %149
+  %157 = getelementptr inbounds nuw [8 x i8], ptr %156, i64 %149
   %158 = load i64, ptr %157, align 8, !tbaa !44, !noalias !2425
   %159 = add i32 %.0.i306, 1
   %160 = zext i32 %159 to i64
-  %161 = getelementptr inbounds nuw i64, ptr %156, i64 %160
+  %161 = getelementptr inbounds nuw [8 x i8], ptr %156, i64 %160
   %162 = load i64, ptr %161, align 8, !tbaa !44, !noalias !2425
   %163 = load ptr, ptr %7, align 8, !tbaa !1456, !noalias !2425
   %164 = icmp ne ptr %163, null
@@ -76704,7 +76644,7 @@ _ZNK7xgboost6common12ColumnMatrix11DenseColumnItLb1EEEDaj.exit: ; preds = %154
   %172 = getelementptr inbounds nuw i8, ptr %163, i64 %171
   %173 = getelementptr inbounds nuw i8, ptr %7, i64 160
   %174 = load ptr, ptr %173, align 8, !tbaa !1457, !noalias !2425
-  %175 = getelementptr inbounds nuw i32, ptr %174, i64 %149
+  %175 = getelementptr inbounds nuw [4 x i8], ptr %174, i64 %149
   %176 = load i32, ptr %175, align 4, !tbaa !99, !noalias !2425
   %177 = getelementptr inbounds nuw i8, ptr %7, i64 168
   %.sroa.0.0.copyload.i89 = load ptr, ptr %177, align 8, !tbaa !459, !noalias !2425
@@ -76720,14 +76660,14 @@ _ZNK7xgboost6common12ColumnMatrix11DenseColumnItLb1EEEDaj.exit: ; preds = %154
   %.031.i = phi i64 [ %208, %207 ], [ 0, %180 ]
   %.02630.i = phi i64 [ %.1.i92, %207 ], [ 0, %180 ]
   %.02729.i = phi i64 [ %.128.i, %207 ], [ 0, %180 ]
-  %181 = getelementptr inbounds nuw i64, ptr %10, i64 %.031.i
+  %181 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.031.i
   %182 = load i64, ptr %181, align 8, !tbaa !44
   %183 = sub i64 %182, %179
   %184 = add i64 %183, %158
   %185 = lshr i64 %184, 5
   %186 = and i64 %184, 31
   %187 = xor i64 %186, 31
-  %188 = getelementptr inbounds nuw i32, ptr %.sroa.0.0.copyload.i89, i64 %185
+  %188 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0.0.copyload.i89, i64 %185
   %189 = load i32, ptr %188, align 4, !tbaa !99
   %190 = shl nuw nsw i64 1, %187
   %191 = trunc nuw i64 %190 to i32
@@ -76736,7 +76676,7 @@ _ZNK7xgboost6common12ColumnMatrix11DenseColumnItLb1EEEDaj.exit: ; preds = %154
   br i1 %.not.i.i91, label %_ZNK7xgboost6common15DenseColumnIterItLb1EEixEm.exit.i, label %_ZNK7xgboost6common15DenseColumnIterItLb1EEixEm.exit.thread.i
 
 _ZNK7xgboost6common15DenseColumnIterItLb1EEixEm.exit.i: ; preds = %.lr.ph.i90
-  %193 = getelementptr inbounds nuw i16, ptr %172, i64 %183
+  %193 = getelementptr inbounds nuw [2 x i8], ptr %172, i64 %183
   %194 = load i16, ptr %193, align 2, !tbaa !1458
   %195 = zext i16 %194 to i32
   %196 = add nsw i32 %176, %195
@@ -76745,7 +76685,7 @@ _ZNK7xgboost6common15DenseColumnIterItLb1EEixEm.exit.i: ; preds = %.lr.ph.i90
 
 _ZNK7xgboost6common15DenseColumnIterItLb1EEixEm.exit.thread.i: ; preds = %_ZNK7xgboost6common15DenseColumnIterItLb1EEixEm.exit.i, %.lr.ph.i90
   %198 = add i64 %.02729.i, 1
-  %199 = getelementptr inbounds nuw i64, ptr %30, i64 %.02729.i
+  %199 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %.02729.i
   store i64 %182, ptr %199, align 8, !tbaa !44
   br label %207
 
@@ -76755,13 +76695,13 @@ _ZNK7xgboost6common15DenseColumnIterItLb1EEixEm.exit.thread.i: ; preds = %_ZNK7x
 
 201:                                              ; preds = %200
   %202 = add i64 %.02729.i, 1
-  %203 = getelementptr inbounds nuw i64, ptr %30, i64 %.02729.i
+  %203 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %.02729.i
   store i64 %182, ptr %203, align 8, !tbaa !44
   br label %207
 
 204:                                              ; preds = %200
   %205 = add i64 %.02630.i, 1
-  %206 = getelementptr inbounds nuw i64, ptr %31, i64 %.02630.i
+  %206 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %.02630.i
   store i64 %182, ptr %206, align 8, !tbaa !44
   br label %207
 
@@ -76779,14 +76719,14 @@ _ZNK7xgboost6common15DenseColumnIterItLb1EEixEm.exit.thread.i: ; preds = %_ZNK7x
   %.031.i99 = phi i64 [ %237, %236 ], [ 0, %209 ]
   %.02630.i100 = phi i64 [ %.1.i105, %236 ], [ 0, %209 ]
   %.02729.i101 = phi i64 [ %.128.i104, %236 ], [ 0, %209 ]
-  %210 = getelementptr inbounds nuw i64, ptr %10, i64 %.031.i99
+  %210 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.031.i99
   %211 = load i64, ptr %210, align 8, !tbaa !44
   %212 = sub i64 %211, %179
   %213 = add i64 %212, %158
   %214 = lshr i64 %213, 5
   %215 = and i64 %213, 31
   %216 = xor i64 %215, 31
-  %217 = getelementptr inbounds nuw i32, ptr %.sroa.0.0.copyload.i89, i64 %214
+  %217 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0.0.copyload.i89, i64 %214
   %218 = load i32, ptr %217, align 4, !tbaa !99
   %219 = shl nuw nsw i64 1, %216
   %220 = trunc nuw i64 %219 to i32
@@ -76795,7 +76735,7 @@ _ZNK7xgboost6common15DenseColumnIterItLb1EEixEm.exit.thread.i: ; preds = %_ZNK7x
   br i1 %.not.i.i102, label %_ZNK7xgboost6common15DenseColumnIterItLb1EEixEm.exit.i111, label %_ZNK7xgboost6common15DenseColumnIterItLb1EEixEm.exit.thread.i103
 
 _ZNK7xgboost6common15DenseColumnIterItLb1EEixEm.exit.i111: ; preds = %.lr.ph.i98
-  %222 = getelementptr inbounds nuw i16, ptr %172, i64 %212
+  %222 = getelementptr inbounds nuw [2 x i8], ptr %172, i64 %212
   %223 = load i16, ptr %222, align 2, !tbaa !1458
   %224 = zext i16 %223 to i32
   %225 = add nsw i32 %176, %224
@@ -76804,7 +76744,7 @@ _ZNK7xgboost6common15DenseColumnIterItLb1EEixEm.exit.i111: ; preds = %.lr.ph.i98
 
 _ZNK7xgboost6common15DenseColumnIterItLb1EEixEm.exit.thread.i103: ; preds = %_ZNK7xgboost6common15DenseColumnIterItLb1EEixEm.exit.i111, %.lr.ph.i98
   %227 = add i64 %.02630.i100, 1
-  %228 = getelementptr inbounds nuw i64, ptr %31, i64 %.02630.i100
+  %228 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %.02630.i100
   store i64 %211, ptr %228, align 8, !tbaa !44
   br label %236
 
@@ -76814,13 +76754,13 @@ _ZNK7xgboost6common15DenseColumnIterItLb1EEixEm.exit.thread.i103: ; preds = %_ZN
 
 230:                                              ; preds = %229
   %231 = add i64 %.02729.i101, 1
-  %232 = getelementptr inbounds nuw i64, ptr %30, i64 %.02729.i101
+  %232 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %.02729.i101
   store i64 %211, ptr %232, align 8, !tbaa !44
   br label %236
 
 233:                                              ; preds = %229
   %234 = add i64 %.02630.i100, 1
-  %235 = getelementptr inbounds nuw i64, ptr %31, i64 %.02630.i100
+  %235 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %.02630.i100
   store i64 %211, ptr %235, align 8, !tbaa !44
   br label %236
 
@@ -76846,11 +76786,11 @@ _ZNK7xgboost6common4SpanIKmLm18446744073709551615EE5frontEv.exit: ; preds = %_ZN
   %242 = sub i64 %239, %241
   %243 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %244 = load ptr, ptr %243, align 8, !tbaa !1452, !noalias !2430
-  %245 = getelementptr inbounds nuw i64, ptr %244, i64 %149
+  %245 = getelementptr inbounds nuw [8 x i8], ptr %244, i64 %149
   %246 = load i64, ptr %245, align 8, !tbaa !44, !noalias !2430
   %247 = add i32 %.0.i306, 1
   %248 = zext i32 %247 to i64
-  %249 = getelementptr inbounds nuw i64, ptr %244, i64 %248
+  %249 = getelementptr inbounds nuw [8 x i8], ptr %244, i64 %248
   %250 = load i64, ptr %249, align 8, !tbaa !44, !noalias !2430
   %251 = sub i64 %250, %246
   %252 = getelementptr inbounds nuw i8, ptr %7, i64 216
@@ -76871,7 +76811,7 @@ _ZNK7xgboost6common4SpanIKmLm18446744073709551615EE5frontEv.exit: ; preds = %_ZN
 _ZN7xgboost6common4SpanIKtLm18446744073709551615EEC2EPS2_m.exit.i: ; preds = %_ZNK7xgboost6common4SpanIKmLm18446744073709551615EE5frontEv.exit
   %262 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %263 = load ptr, ptr %262, align 8, !tbaa !1452, !noalias !2430
-  %264 = getelementptr inbounds nuw i64, ptr %263, i64 %246
+  %264 = getelementptr inbounds nuw [8 x i8], ptr %263, i64 %246
   %265 = icmp ne ptr %263, null
   %266 = or i1 %259, %265
   br i1 %266, label %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i, label %267, !prof !127
@@ -76883,7 +76823,7 @@ _ZN7xgboost6common4SpanIKtLm18446744073709551615EEC2EPS2_m.exit.i: ; preds = %_Z
 _ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i: ; preds = %_ZN7xgboost6common4SpanIKtLm18446744073709551615EEC2EPS2_m.exit.i
   %268 = getelementptr inbounds nuw i8, ptr %7, i64 160
   %269 = load ptr, ptr %268, align 8, !tbaa !1457, !noalias !2430
-  %270 = getelementptr inbounds nuw i32, ptr %269, i64 %149
+  %270 = getelementptr inbounds nuw [4 x i8], ptr %269, i64 %149
   %271 = load i32, ptr %270, align 4, !tbaa !99, !noalias !2430
   %272 = icmp sgt i64 %251, 0
   br i1 %272, label %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i, label %_ZNK7xgboost6common12ColumnMatrix12SparseColumnItEEDajm.exit
@@ -76892,7 +76832,7 @@ _ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i:           ; preds = %_ZN7xgboost6common4
   %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i ], [ %264, %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i ]
   %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i ], [ %251, %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i ]
   %273 = lshr i64 %.01116.i.i.i.i, 1
-  %274 = getelementptr inbounds nuw i64, ptr %.017.i.i.i.i, i64 %273
+  %274 = getelementptr inbounds nuw [8 x i8], ptr %.017.i.i.i.i, i64 %273
   %275 = load i64, ptr %274, align 8, !tbaa !44, !noalias !2430
   %276 = icmp ult i64 %275, %242
   %277 = getelementptr inbounds nuw i8, ptr %274, i64 8
@@ -76916,7 +76856,7 @@ _ZNK7xgboost6common12ColumnMatrix12SparseColumnItEEDajm.exit: ; preds = %_ZSt7ad
   %.035.i = phi i64 [ %311, %310 ], [ 0, %_ZNK7xgboost6common12ColumnMatrix12SparseColumnItEEDajm.exit ]
   %.02634.i = phi i64 [ %.1.i126, %310 ], [ 0, %_ZNK7xgboost6common12ColumnMatrix12SparseColumnItEEDajm.exit ]
   %.02733.i = phi i64 [ %.128.i125, %310 ], [ 0, %_ZNK7xgboost6common12ColumnMatrix12SparseColumnItEEDajm.exit ]
-  %285 = getelementptr inbounds nuw i64, ptr %10, i64 %.035.i
+  %285 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.035.i
   %286 = load i64, ptr %285, align 8, !tbaa !44
   %287 = sub i64 %286, %241
   %288 = icmp ult i64 %.sroa.17.0, %251
@@ -76924,7 +76864,7 @@ _ZNK7xgboost6common12ColumnMatrix12SparseColumnItEEDajm.exit: ; preds = %_ZSt7ad
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i124, %292
   %.sroa.17.3 = phi i64 [ %293, %292 ], [ %.sroa.17.0, %.lr.ph.i124 ]
-  %289 = getelementptr inbounds nuw i64, ptr %264, i64 %.sroa.17.3
+  %289 = getelementptr inbounds nuw [8 x i8], ptr %264, i64 %.sroa.17.3
   %290 = load i64, ptr %289, align 8, !tbaa !44
   %291 = icmp ult i64 %290, %287
   br i1 %291, label %292, label %294
@@ -76939,7 +76879,7 @@ _ZNK7xgboost6common12ColumnMatrix12SparseColumnItEEDajm.exit: ; preds = %_ZSt7ad
   br i1 %295, label %_ZN7xgboost6common16SparseColumnIterItEixEm.exit.i, label %_ZN7xgboost6common16SparseColumnIterItEixEm.exit.thread.i
 
 _ZN7xgboost6common16SparseColumnIterItEixEm.exit.i: ; preds = %294
-  %296 = getelementptr inbounds nuw i16, ptr %257, i64 %.sroa.17.3
+  %296 = getelementptr inbounds nuw [2 x i8], ptr %257, i64 %.sroa.17.3
   %297 = load i16, ptr %296, align 2, !tbaa !1458
   %298 = zext i16 %297 to i32
   %299 = add nsw i32 %271, %298
@@ -76949,7 +76889,7 @@ _ZN7xgboost6common16SparseColumnIterItEixEm.exit.i: ; preds = %294
 _ZN7xgboost6common16SparseColumnIterItEixEm.exit.thread.i: ; preds = %292, %_ZN7xgboost6common16SparseColumnIterItEixEm.exit.i, %294, %.lr.ph.i124
   %.sroa.17.1 = phi i64 [ %.sroa.17.0, %.lr.ph.i124 ], [ %.sroa.17.3, %_ZN7xgboost6common16SparseColumnIterItEixEm.exit.i ], [ %.sroa.17.3, %294 ], [ %251, %292 ]
   %301 = add i64 %.02733.i, 1
-  %302 = getelementptr inbounds nuw i64, ptr %30, i64 %.02733.i
+  %302 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %.02733.i
   store i64 %286, ptr %302, align 8, !tbaa !44
   br label %310
 
@@ -76959,13 +76899,13 @@ _ZN7xgboost6common16SparseColumnIterItEixEm.exit.thread.i: ; preds = %292, %_ZN7
 
 304:                                              ; preds = %303
   %305 = add i64 %.02733.i, 1
-  %306 = getelementptr inbounds nuw i64, ptr %30, i64 %.02733.i
+  %306 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %.02733.i
   store i64 %286, ptr %306, align 8, !tbaa !44
   br label %310
 
 307:                                              ; preds = %303
   %308 = add i64 %.02634.i, 1
-  %309 = getelementptr inbounds nuw i64, ptr %31, i64 %.02634.i
+  %309 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %.02634.i
   store i64 %286, ptr %309, align 8, !tbaa !44
   br label %310
 
@@ -76982,7 +76922,7 @@ _ZN7xgboost6common16SparseColumnIterItEixEm.exit.thread.i: ; preds = %292, %_ZN7
   %.035.i135 = phi i64 [ %338, %337 ], [ 0, %_ZNK7xgboost6common12ColumnMatrix12SparseColumnItEEDajm.exit ]
   %.02634.i136 = phi i64 [ %.1.i140, %337 ], [ 0, %_ZNK7xgboost6common12ColumnMatrix12SparseColumnItEEDajm.exit ]
   %.02733.i137 = phi i64 [ %.128.i139, %337 ], [ 0, %_ZNK7xgboost6common12ColumnMatrix12SparseColumnItEEDajm.exit ]
-  %312 = getelementptr inbounds nuw i64, ptr %10, i64 %.035.i135
+  %312 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.035.i135
   %313 = load i64, ptr %312, align 8, !tbaa !44
   %314 = sub i64 %313, %241
   %315 = icmp ult i64 %.sroa.17.4, %251
@@ -76990,7 +76930,7 @@ _ZN7xgboost6common16SparseColumnIterItEixEm.exit.thread.i: ; preds = %292, %_ZN7
 
 .lr.ph.i.i146:                                    ; preds = %.lr.ph.i134, %319
   %.sroa.17.7 = phi i64 [ %320, %319 ], [ %.sroa.17.4, %.lr.ph.i134 ]
-  %316 = getelementptr inbounds nuw i64, ptr %264, i64 %.sroa.17.7
+  %316 = getelementptr inbounds nuw [8 x i8], ptr %264, i64 %.sroa.17.7
   %317 = load i64, ptr %316, align 8, !tbaa !44
   %318 = icmp ult i64 %317, %314
   br i1 %318, label %319, label %321
@@ -77005,7 +76945,7 @@ _ZN7xgboost6common16SparseColumnIterItEixEm.exit.thread.i: ; preds = %292, %_ZN7
   br i1 %322, label %_ZN7xgboost6common16SparseColumnIterItEixEm.exit.i147, label %_ZN7xgboost6common16SparseColumnIterItEixEm.exit.thread.i138
 
 _ZN7xgboost6common16SparseColumnIterItEixEm.exit.i147: ; preds = %321
-  %323 = getelementptr inbounds nuw i16, ptr %257, i64 %.sroa.17.7
+  %323 = getelementptr inbounds nuw [2 x i8], ptr %257, i64 %.sroa.17.7
   %324 = load i16, ptr %323, align 2, !tbaa !1458
   %325 = zext i16 %324 to i32
   %326 = add nsw i32 %271, %325
@@ -77015,7 +76955,7 @@ _ZN7xgboost6common16SparseColumnIterItEixEm.exit.i147: ; preds = %321
 _ZN7xgboost6common16SparseColumnIterItEixEm.exit.thread.i138: ; preds = %319, %_ZN7xgboost6common16SparseColumnIterItEixEm.exit.i147, %321, %.lr.ph.i134
   %.sroa.17.5 = phi i64 [ %.sroa.17.4, %.lr.ph.i134 ], [ %.sroa.17.7, %_ZN7xgboost6common16SparseColumnIterItEixEm.exit.i147 ], [ %.sroa.17.7, %321 ], [ %251, %319 ]
   %328 = add i64 %.02634.i136, 1
-  %329 = getelementptr inbounds nuw i64, ptr %31, i64 %.02634.i136
+  %329 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %.02634.i136
   store i64 %313, ptr %329, align 8, !tbaa !44
   br label %337
 
@@ -77025,13 +76965,13 @@ _ZN7xgboost6common16SparseColumnIterItEixEm.exit.thread.i138: ; preds = %319, %_
 
 331:                                              ; preds = %330
   %332 = add i64 %.02733.i137, 1
-  %333 = getelementptr inbounds nuw i64, ptr %30, i64 %.02733.i137
+  %333 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %.02733.i137
   store i64 %313, ptr %333, align 8, !tbaa !44
   br label %337
 
 334:                                              ; preds = %330
   %335 = add i64 %.02634.i136, 1
-  %336 = getelementptr inbounds nuw i64, ptr %31, i64 %.02634.i136
+  %336 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %.02634.i136
   store i64 %313, ptr %336, align 8, !tbaa !44
   br label %337
 
@@ -77047,7 +76987,7 @@ _ZN7xgboost6common16PartitionBuilderILm2048EE20PartitionRangeKernelIZNS2_9Partit
   %.sroa.10193.0 = phi i64 [ %.1.i92, %207 ], [ %.1.i126, %310 ], [ %.1.i105, %236 ], [ %.120.i, %107 ], [ 0, %105 ], [ 0, %180 ], [ 0, %209 ], [ %.1.i140, %337 ]
   %.sroa.0192.0 = phi i64 [ %.128.i, %207 ], [ %.128.i125, %310 ], [ %.128.i104, %236 ], [ %.1.i, %107 ], [ 0, %105 ], [ 0, %180 ], [ 0, %209 ], [ %.128.i139, %337 ]
   %339 = load ptr, ptr %12, align 8, !tbaa !168
-  %340 = getelementptr inbounds nuw i64, ptr %339, i64 %13
+  %340 = getelementptr inbounds nuw [8 x i8], ptr %339, i64 %13
   %341 = load i64, ptr %340, align 8, !tbaa !44
   %342 = add i64 %341, %17
   %343 = load ptr, ptr %20, align 8, !tbaa !175
@@ -77064,7 +77004,7 @@ _ZN7xgboost6common16PartitionBuilderILm2048EE20PartitionRangeKernelIZNS2_9Partit
   unreachable
 
 _ZN7xgboost6common16PartitionBuilderILm2048EE13SetNLeftElemsEimm.exit: ; preds = %_ZN7xgboost6common16PartitionBuilderILm2048EE20PartitionRangeKernelIZNS2_9PartitionItLb1ELb0ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS8_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmEUlT_E_EESt4pairImmENS0_4SpanISN_Lm18446744073709551615EEENST_ImLm18446744073709551615EEESV_SP_.exit
-  %350 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %344, i64 %342
+  %350 = getelementptr inbounds nuw [16 x i8], ptr %344, i64 %342
   %351 = load ptr, ptr %350, align 8, !tbaa !1314
   store i64 %.sroa.0192.0, ptr %351, align 8, !tbaa !1319
   %352 = load i64, ptr %340, align 8, !tbaa !44
@@ -77077,7 +77017,7 @@ _ZN7xgboost6common16PartitionBuilderILm2048EE13SetNLeftElemsEimm.exit: ; preds =
   unreachable
 
 _ZN7xgboost6common16PartitionBuilderILm2048EE14SetNRightElemsEimm.exit: ; preds = %_ZN7xgboost6common16PartitionBuilderILm2048EE13SetNLeftElemsEimm.exit
-  %355 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %344, i64 %353
+  %355 = getelementptr inbounds nuw [16 x i8], ptr %344, i64 %353
   %356 = load ptr, ptr %355, align 8, !tbaa !1314
   %357 = getelementptr inbounds nuw i8, ptr %356, i64 8
   store i64 %.sroa.10193.0, ptr %357, align 8, !tbaa !1323
@@ -77127,12 +77067,12 @@ define linkonce_odr void @_ZN4dmlc12OMPException3RunIZN7xgboost6common13Parallel
   %27 = load ptr, ptr %22, align 8, !tbaa !2322
   %28 = load ptr, ptr %20, align 8, !tbaa !2440
   %29 = load ptr, ptr %28, align 8, !tbaa !562
-  %30 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %29, i64 %24
+  %30 = getelementptr inbounds nuw [88 x i8], ptr %29, i64 %24
   %31 = load i32, ptr %30, align 8, !tbaa !535
   %32 = getelementptr inbounds nuw i8, ptr %27, i64 112
   %33 = sext i32 %31 to i64
   %34 = load ptr, ptr %32, align 8, !tbaa !164
-  %35 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %34, i64 %33
+  %35 = getelementptr inbounds nuw [24 x i8], ptr %34, i64 %33
   %36 = load ptr, ptr %35, align 8, !tbaa !917
   %37 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %sext.i.i = shl i64 %24, 32
@@ -77144,11 +77084,11 @@ define linkonce_odr void @_ZN4dmlc12OMPException3RunIZN7xgboost6common13Parallel
   %43 = add i64 %41, %42
   %44 = getelementptr inbounds nuw i8, ptr %27, i64 56
   %45 = load ptr, ptr %44, align 8, !tbaa !172
-  %46 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %45, i64 %43
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %45, i64 %43
   %47 = load ptr, ptr %46, align 8, !tbaa !1314
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %49 = load i64, ptr %48, align 8, !tbaa !1322
-  %50 = getelementptr inbounds nuw i64, ptr %36, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %47, i64 16416
   %52 = load i64, ptr %47, align 8, !tbaa !1319
   %53 = icmp eq i64 %52, 0
@@ -77158,11 +77098,11 @@ _ZSt8__copy_nIPKmmPmET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i.i.i: ; p
   %54 = getelementptr inbounds nuw i8, ptr %47, i64 32
   %55 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %56 = load i64, ptr %55, align 8, !tbaa !1317
-  %57 = getelementptr inbounds nuw i64, ptr %36, i64 %56
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %56
   %.idx.i.i.i.i.i = shl nuw nsw i64 %52, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %57, ptr nonnull align 8 %54, i64 %.idx.i.i.i.i.i, i1 false)
   %.pre.i.i.i = load ptr, ptr %44, align 8, !tbaa !172
-  %.phi.trans.insert.i.i.i = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %.pre.i.i.i, i64 %43
+  %.phi.trans.insert.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %.pre.i.i.i, i64 %43
   %.pre18.i.i.i = load ptr, ptr %.phi.trans.insert.i.i.i, align 8, !tbaa !1314
   br label %_ZSt6copy_nIPKmmPmET1_T_T0_S3_.exit.i.i.i
 
@@ -77392,7 +77332,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %.noexc50
 
 _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit36.i: ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i, %.noexc50
   store ptr %31, ptr %8, align 8, !tbaa !194
-  %35 = getelementptr inbounds nuw i32, ptr %31, i64 %21
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %21
   store ptr %35, ptr %25, align 8, !tbaa !545
   store ptr %35, ptr %27, align 8, !tbaa !197
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
@@ -77609,10 +77549,10 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 116:                                              ; preds = %._crit_edge35.i, %.lr.ph39.i
   %.01637.i = phi i64 [ 0, %.lr.ph39.i ], [ %119, %._crit_edge35.i ]
-  %117 = getelementptr inbounds nuw i64, ptr %107, i64 %.01637.i
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %.01637.i
   %118 = load i64, ptr %117, align 8, !tbaa !44
   %119 = add nuw i64 %.01637.i, 1
-  %120 = getelementptr inbounds nuw i64, ptr %107, i64 %119
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %119
   %121 = load i64, ptr %120, align 8, !tbaa !44
   %122 = icmp ult i64 %118, %121
   br i1 %122, label %.lr.ph.i, label %._crit_edge35.i
@@ -77625,7 +77565,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 .lr.ph.i:                                         ; preds = %116, %.lr.ph.i
   %.01528.i = phi i64 [ %129, %.lr.ph.i ], [ %118, %116 ]
   %.02327.i = phi i64 [ %128, %.lr.ph.i ], [ 0, %116 ]
-  %124 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %114, i64 %.01528.i
+  %124 = getelementptr inbounds nuw [16 x i8], ptr %114, i64 %.01528.i
   %125 = load ptr, ptr %124, align 8, !tbaa !1314
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 16
   store i64 %.02327.i, ptr %126, align 8, !tbaa !1317
@@ -77639,7 +77579,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 ._crit_edge35.i:                                  ; preds = %.lr.ph34.i, %._crit_edge.i, %116
   %.023.lcssa48.i = phi i64 [ %128, %._crit_edge.i ], [ 0, %116 ], [ %128, %.lr.ph34.i ]
   %.024.lcssa.i = phi i64 [ 0, %._crit_edge.i ], [ 0, %116 ], [ %140, %.lr.ph34.i ]
-  %132 = getelementptr inbounds nuw %"struct.std::pair.129", ptr %115, i64 %.01637.i
+  %132 = getelementptr inbounds nuw [16 x i8], ptr %115, i64 %.01637.i
   store i64 %.023.lcssa48.i, ptr %132, align 8, !tbaa !1126
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 8
   store i64 %.024.lcssa.i, ptr %133, align 8, !tbaa !1128
@@ -77650,7 +77590,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %.032.i = phi i64 [ %141, %.lr.ph34.i ], [ %.pre.i, %._crit_edge.i ]
   %.02431.i = phi i64 [ %140, %.lr.ph34.i ], [ 0, %._crit_edge.i ]
   %134 = add i64 %.02431.i, %128
-  %135 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %114, i64 %.032.i
+  %135 = getelementptr inbounds nuw [16 x i8], ptr %114, i64 %.032.i
   %136 = load ptr, ptr %135, align 8, !tbaa !1314
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 24
   store i64 %134, ptr %137, align 8, !tbaa !1322
@@ -77795,12 +77735,12 @@ define linkonce_odr void @_ZN7xgboost6common14BlockedSpace2dC2IZNS_4tree20Common
   %13 = load ptr, ptr %6, align 8, !tbaa !2442
   %14 = load ptr, ptr %2, align 8, !tbaa !2451
   %15 = load ptr, ptr %14, align 8, !tbaa !562
-  %16 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %15, i64 %.039
+  %16 = getelementptr inbounds nuw [88 x i8], ptr %15, i64 %.039
   %17 = load i32, ptr %16, align 8, !tbaa !535
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 112
   %19 = sext i32 %17 to i64
   %20 = load ptr, ptr %18, align 8, !tbaa !164
-  %21 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %20, i64 %19
+  %21 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %19
   %22 = load ptr, ptr %21, align 8, !tbaa !917
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !919
@@ -77891,7 +77831,7 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIP
   %.pre = phi ptr [ %.pre.pre, %60 ], [ %36, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i ]
   store ptr %55, ptr %5, align 8, !tbaa !168
   store ptr %59, ptr %7, align 8, !tbaa !906
-  %61 = getelementptr inbounds nuw i64, ptr %55, i64 %53
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %53
   store ptr %61, ptr %8, align 8, !tbaa !171
   br label %_ZNSt6vectorImSaImEE9push_backERKm.exit.i
 
@@ -77991,7 +77931,7 @@ _ZNSt6vectorIN7xgboost6common7Range1dESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit3
 .noexc25:                                         ; preds = %84, %_ZNSt6vectorIN7xgboost6common7Range1dESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit33.i
   store ptr %79, ptr %0, align 8, !tbaa !861
   store ptr %83, ptr %9, align 8, !tbaa !1078
-  %98 = getelementptr inbounds nuw %"class.xgboost::common::Range1d", ptr %79, i64 %77
+  %98 = getelementptr inbounds nuw [16 x i8], ptr %79, i64 %77
   store ptr %98, ptr %10, align 8, !tbaa !864
   br label %_ZN7xgboost6common14BlockedSpace2d8AddBlockEmmm.exit
 
@@ -78064,7 +78004,7 @@ define linkonce_odr void @_ZN7xgboost6common16PartitionBuilderILm2048EE4InitIZNS
   br i1 %17, label %18, label %_ZNSt6vectorISt4pairImmESaIS1_EE6resizeEm.exit
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds nuw %"struct.std::pair.129", ptr %8, i64 %2
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %2
   %.not.i.i = icmp eq ptr %7, %19
   br i1 %.not.i.i, label %_ZNSt6vectorISt4pairImmESaIS1_EE6resizeEm.exit, label %20
 
@@ -78096,7 +78036,7 @@ _ZNSt6vectorISt4pairImmESaIS1_EE6resizeEm.exit:   ; preds = %14, %16, %18, %20
   br i1 %34, label %35, label %_ZNSt6vectorImSaImEE6resizeEm.exit
 
 35:                                               ; preds = %33
-  %36 = getelementptr inbounds nuw i64, ptr %25, i64 %22
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %22
   %.not.i.i12 = icmp eq ptr %24, %36
   br i1 %.not.i.i12, label %_ZNSt6vectorImSaImEE6resizeEm.exit, label %37
 
@@ -78125,11 +78065,11 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %31, %33, %35, %37
 46:                                               ; preds = %.lr.ph, %46
   %47 = phi i64 [ 0, %.lr.ph ], [ %65, %46 ]
   %.014 = phi i64 [ 1, %.lr.ph ], [ %67, %46 ]
-  %48 = getelementptr %"struct.xgboost::tree::CPUExpandEntry", ptr %40, i64 %.014
+  %48 = getelementptr [88 x i8], ptr %40, i64 %.014
   %49 = getelementptr i8, ptr %48, i64 -88
   %50 = load i32, ptr %49, align 8, !tbaa !535
   %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %42, i64 %51
+  %52 = getelementptr inbounds nuw [24 x i8], ptr %42, i64 %51
   %53 = load ptr, ptr %52, align 8, !tbaa !917
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %55 = load ptr, ptr %54, align 8, !tbaa !919
@@ -78143,7 +78083,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %31, %33, %35, %37
   %63 = zext i1 %62 to i64
   %64 = add i64 %60, %47
   %65 = add i64 %64, %63
-  %66 = getelementptr inbounds nuw i64, ptr %38, i64 %.014
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %.014
   store i64 %65, ptr %66, align 8, !tbaa !44
   %67 = add nuw i64 %.014, 1
   %exitcond.not = icmp eq i64 %.014, %2
@@ -78171,7 +78111,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %31, %33, %35, %37
   br i1 %81, label %82, label %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit
 
 82:                                               ; preds = %80
-  %83 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %72, i64 %1
+  %83 = getelementptr inbounds nuw [16 x i8], ptr %72, i64 %1
   %.not.i.i13 = icmp eq ptr %71, %83
   br i1 %.not.i.i13, label %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i
 
@@ -79881,7 +79821,7 @@ define linkonce_odr void @_ZZN7xgboost4tree17ColumnSplitHelper9PartitionIjLb1ELb
   %8 = load ptr, ptr %7, align 8, !tbaa !2461
   %9 = load ptr, ptr %0, align 8, !tbaa !2514
   %10 = load ptr, ptr %9, align 8, !tbaa !562
-  %11 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %10, i64 %1
+  %11 = getelementptr inbounds nuw [88 x i8], ptr %10, i64 %1
   %12 = load i32, ptr %11, align 8, !tbaa !535
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -79970,7 +79910,7 @@ _ZZN7xgboost4tree17ColumnSplitHelper9PartitionIjLb1ELb0ENS0_14CPUExpandEntryEEEv
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %61 = load ptr, ptr %60, align 8, !tbaa !2517
   %62 = load ptr, ptr %61, align 8, !tbaa !194
-  %63 = getelementptr inbounds nuw i32, ptr %62, i64 %1
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %1
   %64 = load i32, ptr %63, align 4, !tbaa !99
   br label %65
 
@@ -79988,7 +79928,7 @@ _ZZN7xgboost4tree17ColumnSplitHelper9PartitionIjLb1ELb0ENS0_14CPUExpandEntryEEEv
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 24
   %77 = sext i32 %12 to i64
   %78 = load ptr, ptr %76, align 8, !tbaa !164
-  %79 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %78, i64 %77
+  %79 = getelementptr inbounds nuw [24 x i8], ptr %78, i64 %77
   %80 = load ptr, ptr %79, align 8, !tbaa !917
   call void @_ZN7xgboost6common16PartitionBuilderILm2048EE8MaskRowsIjLb1ELb0ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmPNS_17BitFieldContainerIhNS_11RBitsPolicyIhEELb0EEESS_(ptr noundef nonnull align 8 dereferenceable(80) %68, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %2, i64 %3, i32 noundef %66, ptr noundef nonnull align 8 dereferenceable(233) %70, ptr noundef nonnull align 8 dereferenceable(218) %56, ptr noundef nonnull align 8 dereferenceable(312) %73, ptr noundef %80, ptr noundef nonnull %5, ptr noundef nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -80003,7 +79943,7 @@ _ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_S4_.exit:
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx113
   %13 = sub nsw i64 %4, %3
   %14 = load ptr, ptr %2, align 8, !tbaa !562
-  %15 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %14, i64 %1
+  %15 = getelementptr inbounds nuw [88 x i8], ptr %14, i64 %1
   %16 = load i32, ptr %15, align 8, !tbaa !535
   %17 = sext i32 %16 to i64
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 304
@@ -80015,14 +79955,14 @@ _ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_S4_.exit:
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 40
   %22 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7xgboost16HostDeviceVectorIjE15ConstHostVectorEv(ptr noundef nonnull align 8 dereferenceable(8) %21)
   %23 = load ptr, ptr %22, align 8, !tbaa !449
-  %24 = getelementptr inbounds nuw i32, ptr %23, i64 %17
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %17
   %25 = load i32, ptr %24, align 4, !tbaa !99
   br label %_ZNK7xgboost7RegTree10SplitIndexEi.exit
 
 26:                                               ; preds = %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_S4_.exit
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 160
   %28 = load ptr, ptr %27, align 8, !tbaa !536
-  %29 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %28, i64 %17
+  %29 = getelementptr inbounds nuw [20 x i8], ptr %28, i64 %17
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 12
   %31 = load i32, ptr %30, align 4, !tbaa !810
   %32 = and i32 %31, 2147483647
@@ -80059,7 +79999,7 @@ _ZNK7xgboost7RegTree10SplitIndexEi.exit:          ; preds = %20, %26
   unreachable
 
 _ZNK7xgboost6common4SpanIKNS_7RegTree22CategoricalSplitMatrix7SegmentELm18446744073709551615EEixEm.exit.i: ; preds = %_ZNK7xgboost7RegTree10SplitIndexEi.exit
-  %56 = getelementptr inbounds nuw %"struct.xgboost::RegTree::CategoricalSplitMatrix::Segment", ptr %48, i64 %17
+  %56 = getelementptr inbounds nuw [16 x i8], ptr %48, i64 %17
   %.sroa.0.0.copyload.i = load i64, ptr %56, align 8, !tbaa !44
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %56, i64 8
   %.sroa.4.0.copyload.i = load i64, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !44
@@ -80095,7 +80035,7 @@ _ZNK7xgboost6common4SpanIKNS_7RegTree22CategoricalSplitMatrix7SegmentELm18446744
   unreachable
 
 _ZNK7xgboost7RegTree8NodeCatsEi.exit:             ; preds = %64
-  %70 = getelementptr inbounds nuw i32, ptr %41, i64 %.sroa.0.0.copyload.i
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %.sroa.0.0.copyload.i
   %71 = getelementptr inbounds nuw i8, ptr %6, i64 160
   %72 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7xgboost16HostDeviceVectorIfE15ConstHostVectorEv(ptr noundef nonnull align 8 dereferenceable(8) %71)
   %73 = getelementptr inbounds nuw i8, ptr %7, i64 40
@@ -80142,7 +80082,7 @@ _ZNK7xgboost7RegTree8NodeCatsEi.exit:             ; preds = %64
   unreachable
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit: ; preds = %90
-  %92 = getelementptr inbounds nuw i64, ptr %12, i64 %.sroa.6101.0121
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.sroa.6101.0121
   %93 = load i64, ptr %92, align 8, !tbaa !44
   %94 = tail call noundef i32 @_ZNK7xgboost16GHistIndexMatrix9GetGindexEmm(ptr noundef nonnull align 8 dereferenceable(233) %6, i64 noundef %93, i64 noundef %76)
   %95 = icmp sgt i32 %94, -1
@@ -80151,7 +80091,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
 96:                                               ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit
   %97 = zext nneg i32 %94 to i64
   %98 = load ptr, ptr %72, align 8, !tbaa !643
-  %99 = getelementptr inbounds nuw float, ptr %98, i64 %97
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %98, i64 %97
   %100 = load float, ptr %99, align 4, !tbaa !134
   br i1 %37, label %101, label %108
 
@@ -80169,7 +80109,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
 
 108:                                              ; preds = %96
   %109 = load ptr, ptr %2, align 8, !tbaa !562
-  %110 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %109, i64 %1
+  %110 = getelementptr inbounds nuw [88 x i8], ptr %109, i64 %1
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 16
   %112 = load float, ptr %111, align 8, !tbaa !809
   %113 = fcmp ugt float %100, %112
@@ -80181,7 +80121,7 @@ _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit: ; preds
   %116 = lshr i64 %115, 5
   %117 = and i32 %114, 31
   %118 = xor i32 %117, 31
-  %119 = getelementptr inbounds nuw i32, ptr %70, i64 %116
+  %119 = getelementptr inbounds nuw [4 x i8], ptr %70, i64 %116
   %120 = load i32, ptr %119, align 4, !tbaa !99
   %121 = shl nuw i32 1, %118
   %122 = and i32 %120, %121
@@ -80200,11 +80140,11 @@ _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit: ; preds
 130:                                              ; preds = %123
   %131 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %132 = load ptr, ptr %131, align 8, !tbaa !1452, !noalias !2523
-  %133 = getelementptr inbounds nuw i64, ptr %132, i64 %125
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %132, i64 %125
   %134 = load i64, ptr %133, align 8, !tbaa !44, !noalias !2523
   %135 = add i32 %.0.i, 1
   %136 = zext i32 %135 to i64
-  %137 = getelementptr inbounds nuw i64, ptr %132, i64 %136
+  %137 = getelementptr inbounds nuw [8 x i8], ptr %132, i64 %136
   %138 = load i64, ptr %137, align 8, !tbaa !44, !noalias !2523
   %139 = load ptr, ptr %7, align 8, !tbaa !1456, !noalias !2523
   %140 = icmp ne ptr %139, null
@@ -80224,7 +80164,7 @@ _ZNK7xgboost6common12ColumnMatrix11DenseColumnIjLb1EEEDaj.exit: ; preds = %130
   %148 = getelementptr inbounds nuw i8, ptr %139, i64 %147
   %149 = getelementptr inbounds nuw i8, ptr %7, i64 160
   %150 = load ptr, ptr %149, align 8, !tbaa !1457, !noalias !2523
-  %151 = getelementptr inbounds nuw i32, ptr %150, i64 %125
+  %151 = getelementptr inbounds nuw [4 x i8], ptr %150, i64 %125
   %152 = load i32, ptr %151, align 4, !tbaa !99, !noalias !2523
   %153 = getelementptr inbounds nuw i8, ptr %7, i64 168
   %.sroa.0.0.copyload.i66 = load ptr, ptr %153, align 8, !tbaa !459, !noalias !2523
@@ -80253,14 +80193,14 @@ _ZNK7xgboost6common12ColumnMatrix11DenseColumnIjLb1EEEDaj.exit: ; preds = %130
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i: ; preds = %_ZNK7xgboost6common12ColumnMatrix11DenseColumnIjLb1EEEDaj.exit, %164
   %.sroa.6.026.i = phi i64 [ %165, %164 ], [ 0, %_ZNK7xgboost6common12ColumnMatrix11DenseColumnIjLb1EEEDaj.exit ]
-  %166 = getelementptr inbounds nuw i64, ptr %12, i64 %.sroa.6.026.i
+  %166 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.sroa.6.026.i
   %167 = load i64, ptr %166, align 8, !tbaa !44
   %168 = sub i64 %167, %155
   %169 = add i64 %168, %134
   %170 = lshr i64 %169, 5
   %171 = and i64 %169, 31
   %172 = xor i64 %171, 31
-  %173 = getelementptr inbounds nuw i32, ptr %.sroa.0.0.copyload.i66, i64 %170
+  %173 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0.0.copyload.i66, i64 %170
   %174 = load i32, ptr %173, align 4, !tbaa !99
   %175 = shl nuw nsw i64 1, %172
   %176 = trunc nuw i64 %175 to i32
@@ -80269,7 +80209,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
   br i1 %.not.i.i67, label %_ZNK7xgboost6common15DenseColumnIterIjLb1EEixEm.exit.i, label %.sink.split.i
 
 _ZNK7xgboost6common15DenseColumnIterIjLb1EEixEm.exit.i: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i
-  %178 = getelementptr inbounds nuw i32, ptr %148, i64 %168
+  %178 = getelementptr inbounds nuw [4 x i8], ptr %148, i64 %168
   %179 = load i32, ptr %178, align 4, !tbaa !99
   %180 = add nsw i32 %179, %152
   %181 = icmp eq i32 %180, -1
@@ -80294,11 +80234,11 @@ _ZNK7xgboost6common4SpanIKmLm18446744073709551615EE5frontEv.exit: ; preds = %_ZN
   %187 = sub i64 %184, %186
   %188 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %189 = load ptr, ptr %188, align 8, !tbaa !1452, !noalias !2526
-  %190 = getelementptr inbounds nuw i64, ptr %189, i64 %125
+  %190 = getelementptr inbounds nuw [8 x i8], ptr %189, i64 %125
   %191 = load i64, ptr %190, align 8, !tbaa !44, !noalias !2526
   %192 = add i32 %.0.i, 1
   %193 = zext i32 %192 to i64
-  %194 = getelementptr inbounds nuw i64, ptr %189, i64 %193
+  %194 = getelementptr inbounds nuw [8 x i8], ptr %189, i64 %193
   %195 = load i64, ptr %194, align 8, !tbaa !44, !noalias !2526
   %196 = sub i64 %195, %191
   %197 = getelementptr inbounds nuw i8, ptr %7, i64 216
@@ -80319,7 +80259,7 @@ _ZNK7xgboost6common4SpanIKmLm18446744073709551615EE5frontEv.exit: ; preds = %_ZN
 _ZN7xgboost6common4SpanIKjLm18446744073709551615EEC2EPS2_m.exit.i: ; preds = %_ZNK7xgboost6common4SpanIKmLm18446744073709551615EE5frontEv.exit
   %207 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %208 = load ptr, ptr %207, align 8, !tbaa !1452, !noalias !2526
-  %209 = getelementptr inbounds nuw i64, ptr %208, i64 %191
+  %209 = getelementptr inbounds nuw [8 x i8], ptr %208, i64 %191
   %210 = icmp ne ptr %208, null
   %211 = or i1 %204, %210
   br i1 %211, label %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i, label %212, !prof !127
@@ -80331,7 +80271,7 @@ _ZN7xgboost6common4SpanIKjLm18446744073709551615EEC2EPS2_m.exit.i: ; preds = %_Z
 _ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i: ; preds = %_ZN7xgboost6common4SpanIKjLm18446744073709551615EEC2EPS2_m.exit.i
   %213 = getelementptr inbounds nuw i8, ptr %7, i64 160
   %214 = load ptr, ptr %213, align 8, !tbaa !1457, !noalias !2526
-  %215 = getelementptr inbounds nuw i32, ptr %214, i64 %125
+  %215 = getelementptr inbounds nuw [4 x i8], ptr %214, i64 %125
   %216 = load i32, ptr %215, align 4, !tbaa !99, !noalias !2526
   %217 = icmp sgt i64 %196, 0
   br i1 %217, label %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i, label %.lr.ph.i80
@@ -80340,7 +80280,7 @@ _ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i:           ; preds = %_ZN7xgboost6common4
   %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i ], [ %209, %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i ]
   %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i ], [ %196, %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i ]
   %218 = lshr i64 %.01116.i.i.i.i, 1
-  %219 = getelementptr inbounds nuw i64, ptr %.017.i.i.i.i, i64 %218
+  %219 = getelementptr inbounds nuw [8 x i8], ptr %.017.i.i.i.i, i64 %218
   %220 = load i64, ptr %219, align 8, !tbaa !44, !noalias !2526
   %221 = icmp ult i64 %220, %187
   %222 = getelementptr inbounds nuw i8, ptr %219, i64 8
@@ -80390,7 +80330,7 @@ _ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i:           ; preds = %_ZN7xgboost6common4
   unreachable
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i82: ; preds = %240
-  %242 = getelementptr inbounds nuw i64, ptr %12, i64 %.sroa.6.029.i
+  %242 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.sroa.6.029.i
   %243 = load i64, ptr %242, align 8, !tbaa !44
   %244 = sub i64 %243, %186
   %245 = icmp ult i64 %.sroa.13.0, %196
@@ -80398,7 +80338,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
 
 .lr.ph.i.i:                                       ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i82, %249
   %.sroa.13.3 = phi i64 [ %250, %249 ], [ %.sroa.13.0, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i82 ]
-  %246 = getelementptr inbounds nuw i64, ptr %209, i64 %.sroa.13.3
+  %246 = getelementptr inbounds nuw [8 x i8], ptr %209, i64 %.sroa.13.3
   %247 = load i64, ptr %246, align 8, !tbaa !44
   %248 = icmp ult i64 %247, %244
   br i1 %248, label %249, label %251
@@ -80413,7 +80353,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
   br i1 %252, label %_ZN7xgboost6common16SparseColumnIterIjEixEm.exit.i, label %.sink.split.i83
 
 _ZN7xgboost6common16SparseColumnIterIjEixEm.exit.i: ; preds = %251
-  %253 = getelementptr inbounds nuw i32, ptr %202, i64 %.sroa.13.3
+  %253 = getelementptr inbounds nuw [4 x i8], ptr %202, i64 %.sroa.13.3
   %254 = load i32, ptr %253, align 4, !tbaa !99
   %255 = add nsw i32 %254, %216
   %256 = icmp eq i32 %255, -1
@@ -80622,7 +80562,7 @@ define linkonce_odr void @_ZZN7xgboost6common13ParallelFor2dIZNS_4tree17ColumnSp
   %24 = load ptr, ptr %23, align 8, !tbaa !2494
   %25 = load ptr, ptr %16, align 8, !tbaa !2534
   %26 = load ptr, ptr %25, align 8, !tbaa !562
-  %27 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %26, i64 %18
+  %27 = getelementptr inbounds nuw [88 x i8], ptr %26, i64 %18
   %28 = load i32, ptr %27, align 8, !tbaa !535
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 128
   %30 = load ptr, ptr %29, align 8, !tbaa !925
@@ -80635,8 +80575,8 @@ define linkonce_odr void @_ZZN7xgboost6common13ParallelFor2dIZNS_4tree17ColumnSp
   %36 = lshr i64 %21, 11
   %37 = getelementptr inbounds nuw i8, ptr %30, i64 48
   %38 = load ptr, ptr %37, align 8, !tbaa !172
-  %39 = getelementptr %"class.std::shared_ptr.85", ptr %38, i64 %35
-  %40 = getelementptr %"class.std::shared_ptr.85", ptr %39, i64 %36
+  %39 = getelementptr [16 x i8], ptr %38, i64 %35
+  %40 = getelementptr [16 x i8], ptr %39, i64 %36
   %41 = load ptr, ptr %40, align 8, !tbaa !1314
   %42 = icmp eq ptr %41, null
   br i1 %42, label %_ZN4dmlc11LogCheck_NEIPN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoES6_EESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISD_EERKT_RKT0_.exit.i.i, label %_ZZN7xgboost4tree17ColumnSplitHelper9PartitionIjLb1ELb0ENS0_14CPUExpandEntryEEEvPKNS_7ContextERKNS_6common14BlockedSpace2dEiRKNS_16GHistIndexMatrixERKNS7_12ColumnMatrixERKSt6vectorIT2_SaISI_EERKSH_IiSaIiEEPKNS_7RegTreeEENKUlmNS7_7Range1dEE0_clEmSU_.exit
@@ -80661,7 +80601,7 @@ _ZZN7xgboost4tree17ColumnSplitHelper9PartitionIjLb1ELb0ENS0_14CPUExpandEntryEEEv
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 24
   %54 = sext i32 %28 to i64
   %55 = load ptr, ptr %53, align 8, !tbaa !164
-  %56 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %55, i64 %54
+  %56 = getelementptr inbounds nuw [24 x i8], ptr %55, i64 %54
   %57 = load ptr, ptr %56, align 8, !tbaa !917
   %58 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %59 = getelementptr inbounds nuw i8, ptr %24, i64 64
@@ -80866,7 +80806,7 @@ define linkonce_odr void @_ZZN7xgboost6common13ParallelFor2dIZNS_4tree20CommonRo
   %24 = load ptr, ptr %23, align 8, !tbaa !2447
   %25 = load ptr, ptr %16, align 8, !tbaa !2543
   %26 = load ptr, ptr %25, align 8, !tbaa !562
-  %27 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %26, i64 %18
+  %27 = getelementptr inbounds nuw [88 x i8], ptr %26, i64 %18
   %28 = load i32, ptr %27, align 8, !tbaa !535
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %sext.i = shl i64 %18, 32
@@ -80877,8 +80817,8 @@ define linkonce_odr void @_ZZN7xgboost6common13ParallelFor2dIZNS_4tree20CommonRo
   %34 = lshr i64 %21, 11
   %35 = getelementptr inbounds nuw i8, ptr %24, i64 56
   %36 = load ptr, ptr %35, align 8, !tbaa !172
-  %37 = getelementptr %"class.std::shared_ptr.85", ptr %36, i64 %33
-  %38 = getelementptr %"class.std::shared_ptr.85", ptr %37, i64 %34
+  %37 = getelementptr [16 x i8], ptr %36, i64 %33
+  %38 = getelementptr [16 x i8], ptr %37, i64 %34
   %39 = load ptr, ptr %38, align 8, !tbaa !1314
   %40 = icmp eq ptr %39, null
   br i1 %40, label %_ZN4dmlc11LogCheck_NEIPN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoES6_EESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISD_EERKT_RKT0_.exit.i.i, label %_ZN7xgboost6common16PartitionBuilderILm2048EE15AllocateForTaskEm.exit.i
@@ -80900,7 +80840,7 @@ _ZN7xgboost6common16PartitionBuilderILm2048EE15AllocateForTaskEm.exit.i: ; preds
   %47 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %48 = load ptr, ptr %47, align 8, !tbaa !2545
   %49 = load ptr, ptr %48, align 8, !tbaa !194
-  %50 = getelementptr inbounds nuw i32, ptr %49, i64 %18
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %18
   %51 = load i32, ptr %50, align 4, !tbaa !99
   br label %_ZZN7xgboost4tree20CommonRowPartitioner14UpdatePositionIjLb1ELb0ENS0_14CPUExpandEntryEEEvPKNS_7ContextERKNS_16GHistIndexMatrixERKNS_6common12ColumnMatrixERKSt6vectorIT2_SaISF_EEPKNS_7RegTreeEENKUlmNSA_7Range1dEE_clEmSN_.exit
 
@@ -80916,7 +80856,7 @@ _ZZN7xgboost4tree20CommonRowPartitioner14UpdatePositionIjLb1ELb0ENS0_14CPUExpand
   %60 = getelementptr inbounds nuw i8, ptr %24, i64 112
   %61 = sext i32 %28 to i64
   %62 = load ptr, ptr %60, align 8, !tbaa !164
-  %63 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %62, i64 %61
+  %63 = getelementptr inbounds nuw [24 x i8], ptr %62, i64 %61
   %64 = load ptr, ptr %63, align 8, !tbaa !917
   tail call void @_ZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIjLb1ELb0ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKm(ptr noundef nonnull align 8 dereferenceable(80) %53, i64 noundef %18, ptr noundef nonnull align 8 dereferenceable(24) %54, i64 %21, i64 %22, i32 noundef %52, ptr noundef nonnull align 8 dereferenceable(233) %56, ptr noundef nonnull align 8 dereferenceable(218) %43, ptr noundef nonnull align 8 dereferenceable(312) %59, ptr noundef %64)
   %65 = add nuw i64 %.011, 1
@@ -80934,7 +80874,7 @@ _ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_S4_.exit:
   %sext = shl i64 %1, 32
   %13 = ashr exact i64 %sext, 32
   %14 = load ptr, ptr %12, align 8, !tbaa !168
-  %15 = getelementptr inbounds nuw i64, ptr %14, i64 %13
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %13
   %16 = load i64, ptr %15, align 8, !tbaa !44
   %17 = lshr i64 %3, 11
   %18 = add i64 %16, %17
@@ -80954,12 +80894,12 @@ _ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_S4_.exit:
   unreachable
 
 _ZN7xgboost6common16PartitionBuilderILm2048EE14GetRightBufferEimm.exit: ; preds = %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_S4_.exit
-  %28 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %22, i64 %18
+  %28 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %18
   %29 = load ptr, ptr %28, align 8, !tbaa !1314
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 16416
   %32 = load ptr, ptr %2, align 8, !tbaa !562
-  %33 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %32, i64 %1
+  %33 = getelementptr inbounds nuw [88 x i8], ptr %32, i64 %1
   %34 = load i32, ptr %33, align 8, !tbaa !535
   %35 = sext i32 %34 to i64
   %36 = getelementptr inbounds nuw i8, ptr %8, i64 304
@@ -80970,7 +80910,7 @@ _ZN7xgboost6common16PartitionBuilderILm2048EE14GetRightBufferEimm.exit: ; preds 
 _ZNK7xgboost7RegTree10SplitIndexEi.exit.thread:   ; preds = %_ZN7xgboost6common16PartitionBuilderILm2048EE14GetRightBufferEimm.exit
   %38 = getelementptr inbounds nuw i8, ptr %8, i64 160
   %39 = load ptr, ptr %38, align 8, !tbaa !536
-  %40 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %39, i64 %35
+  %40 = getelementptr inbounds nuw [20 x i8], ptr %39, i64 %35
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 12
   %42 = load i32, ptr %41, align 4, !tbaa !810
   %43 = and i32 %42, 2147483647
@@ -80980,7 +80920,7 @@ _ZNK7xgboost7RegTree10SplitIndexEi.exit:          ; preds = %_ZN7xgboost6common1
   %44 = getelementptr inbounds nuw i8, ptr %37, i64 40
   %45 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7xgboost16HostDeviceVectorIjE15ConstHostVectorEv(ptr noundef nonnull align 8 dereferenceable(8) %44)
   %46 = load ptr, ptr %45, align 8, !tbaa !449
-  %47 = getelementptr inbounds nuw i32, ptr %46, i64 %35
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %35
   %48 = load i32, ptr %47, align 4, !tbaa !99
   %.pre = load ptr, ptr %36, align 8, !tbaa !542
   %.not.i83 = icmp eq ptr %.pre, null
@@ -80999,7 +80939,7 @@ _ZNK7xgboost7RegTree10SplitIndexEi.exit:          ; preds = %_ZN7xgboost6common1
   %.0.i307 = phi i32 [ %43, %_ZNK7xgboost7RegTree10SplitIndexEi.exit.thread ], [ %48, %_ZNK7xgboost7RegTree10SplitIndexEi.exit ]
   %57 = getelementptr inbounds nuw i8, ptr %8, i64 160
   %58 = load ptr, ptr %57, align 8, !tbaa !536
-  %59 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %58, i64 %35
+  %59 = getelementptr inbounds nuw [20 x i8], ptr %58, i64 %35
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 12
   %61 = load i32, ptr %60, align 4, !tbaa !810
   %62 = icmp slt i32 %61, 0
@@ -81037,7 +80977,7 @@ _ZNK7xgboost7RegTree11DefaultLeftEi.exit:         ; preds = %49, %56
   unreachable
 
 _ZNK7xgboost6common4SpanIKNS_7RegTree22CategoricalSplitMatrix7SegmentELm18446744073709551615EEixEm.exit.i: ; preds = %_ZNK7xgboost7RegTree11DefaultLeftEi.exit
-  %86 = getelementptr inbounds nuw %"struct.xgboost::RegTree::CategoricalSplitMatrix::Segment", ptr %78, i64 %35
+  %86 = getelementptr inbounds nuw [16 x i8], ptr %78, i64 %35
   %.sroa.0.0.copyload.i = load i64, ptr %86, align 8, !tbaa !44
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %86, i64 8
   %.sroa.4.0.copyload.i = load i64, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !44
@@ -81073,7 +81013,7 @@ _ZNK7xgboost6common4SpanIKNS_7RegTree22CategoricalSplitMatrix7SegmentELm18446744
   unreachable
 
 _ZNK7xgboost7RegTree8NodeCatsEi.exit:             ; preds = %94
-  %100 = getelementptr inbounds nuw i32, ptr %71, i64 %.sroa.0.0.copyload.i
+  %100 = getelementptr inbounds nuw [4 x i8], ptr %71, i64 %.sroa.0.0.copyload.i
   %101 = getelementptr inbounds nuw i8, ptr %6, i64 160
   %102 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7xgboost16HostDeviceVectorIfE15ConstHostVectorEv(ptr noundef nonnull align 8 dereferenceable(8) %101)
   %103 = getelementptr inbounds nuw i8, ptr %7, i64 40
@@ -81100,7 +81040,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
   %.029.i = phi i64 [ %.1.i, %107 ], [ 0, %.lr.ph.i.preheader ]
   %.sroa.6.028.i = phi i64 [ %108, %107 ], [ 0, %.lr.ph.i.preheader ]
   %.01927.i = phi i64 [ %.120.i, %107 ], [ 0, %.lr.ph.i.preheader ]
-  %109 = getelementptr inbounds nuw i64, ptr %10, i64 %.sroa.6.028.i
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.sroa.6.028.i
   %110 = load i64, ptr %109, align 8, !tbaa !44
   %111 = tail call noundef i32 @_ZNK7xgboost16GHistIndexMatrix9GetGindexEmm(ptr noundef nonnull align 8 dereferenceable(233) %6, i64 noundef %110, i64 noundef %106)
   %112 = icmp sgt i32 %111, -1
@@ -81109,7 +81049,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
 113:                                              ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i
   %114 = zext nneg i32 %111 to i64
   %115 = load ptr, ptr %102, align 8, !tbaa !643
-  %116 = getelementptr inbounds nuw float, ptr %115, i64 %114
+  %116 = getelementptr inbounds nuw [4 x i8], ptr %115, i64 %114
   %117 = load float, ptr %116, align 4, !tbaa !134
   br i1 %67, label %118, label %136
 
@@ -81131,7 +81071,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
   %128 = lshr i64 %127, 5
   %129 = and i32 %126, 31
   %130 = xor i32 %129, 31
-  %131 = getelementptr inbounds nuw i32, ptr %100, i64 %128
+  %131 = getelementptr inbounds nuw [4 x i8], ptr %100, i64 %128
   %132 = load i32, ptr %131, align 4, !tbaa !99
   %133 = xor i32 %132, -1
   %134 = lshr i32 %133, %130
@@ -81140,7 +81080,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
 
 136:                                              ; preds = %113
   %137 = load ptr, ptr %2, align 8, !tbaa !562
-  %138 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %137, i64 %1
+  %138 = getelementptr inbounds nuw [88 x i8], ptr %137, i64 %1
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 16
   %140 = load float, ptr %139, align 8, !tbaa !809
   %141 = fcmp ugt float %117, %140
@@ -81151,13 +81091,13 @@ _ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIjLb1ELb0ENS_4tree14CPUE
 
 _ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIjLb1ELb0ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_E_clImEEDaSO_.exit.thread.i: ; preds = %125, %136, %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIjLb1ELb0ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_E_clImEEDaSO_.exit.i, %122, %118
   %142 = add i64 %.029.i, 1
-  %143 = getelementptr inbounds nuw i64, ptr %30, i64 %.029.i
+  %143 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %.029.i
   store i64 %110, ptr %143, align 8, !tbaa !44
   br label %107
 
 144:                                              ; preds = %125, %136, %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIjLb1ELb0ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_E_clImEEDaSO_.exit.i
   %145 = add i64 %.01927.i, 1
-  %146 = getelementptr inbounds nuw i64, ptr %31, i64 %.01927.i
+  %146 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %.01927.i
   store i64 %110, ptr %146, align 8, !tbaa !44
   br label %107
 
@@ -81173,11 +81113,11 @@ _ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIjLb1ELb0ENS_4tree14CPUE
 154:                                              ; preds = %147
   %155 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %156 = load ptr, ptr %155, align 8, !tbaa !1452, !noalias !2552
-  %157 = getelementptr inbounds nuw i64, ptr %156, i64 %149
+  %157 = getelementptr inbounds nuw [8 x i8], ptr %156, i64 %149
   %158 = load i64, ptr %157, align 8, !tbaa !44, !noalias !2552
   %159 = add i32 %.0.i306, 1
   %160 = zext i32 %159 to i64
-  %161 = getelementptr inbounds nuw i64, ptr %156, i64 %160
+  %161 = getelementptr inbounds nuw [8 x i8], ptr %156, i64 %160
   %162 = load i64, ptr %161, align 8, !tbaa !44, !noalias !2552
   %163 = load ptr, ptr %7, align 8, !tbaa !1456, !noalias !2552
   %164 = icmp ne ptr %163, null
@@ -81197,7 +81137,7 @@ _ZNK7xgboost6common12ColumnMatrix11DenseColumnIjLb1EEEDaj.exit: ; preds = %154
   %172 = getelementptr inbounds nuw i8, ptr %163, i64 %171
   %173 = getelementptr inbounds nuw i8, ptr %7, i64 160
   %174 = load ptr, ptr %173, align 8, !tbaa !1457, !noalias !2552
-  %175 = getelementptr inbounds nuw i32, ptr %174, i64 %149
+  %175 = getelementptr inbounds nuw [4 x i8], ptr %174, i64 %149
   %176 = load i32, ptr %175, align 4, !tbaa !99, !noalias !2552
   %177 = getelementptr inbounds nuw i8, ptr %7, i64 168
   %.sroa.0.0.copyload.i89 = load ptr, ptr %177, align 8, !tbaa !459, !noalias !2552
@@ -81213,14 +81153,14 @@ _ZNK7xgboost6common12ColumnMatrix11DenseColumnIjLb1EEEDaj.exit: ; preds = %154
   %.031.i = phi i64 [ %207, %206 ], [ 0, %180 ]
   %.02630.i = phi i64 [ %.1.i92, %206 ], [ 0, %180 ]
   %.02729.i = phi i64 [ %.128.i, %206 ], [ 0, %180 ]
-  %181 = getelementptr inbounds nuw i64, ptr %10, i64 %.031.i
+  %181 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.031.i
   %182 = load i64, ptr %181, align 8, !tbaa !44
   %183 = sub i64 %182, %179
   %184 = add i64 %183, %158
   %185 = lshr i64 %184, 5
   %186 = and i64 %184, 31
   %187 = xor i64 %186, 31
-  %188 = getelementptr inbounds nuw i32, ptr %.sroa.0.0.copyload.i89, i64 %185
+  %188 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0.0.copyload.i89, i64 %185
   %189 = load i32, ptr %188, align 4, !tbaa !99
   %190 = shl nuw nsw i64 1, %187
   %191 = trunc nuw i64 %190 to i32
@@ -81229,7 +81169,7 @@ _ZNK7xgboost6common12ColumnMatrix11DenseColumnIjLb1EEEDaj.exit: ; preds = %154
   br i1 %.not.i.i91, label %_ZNK7xgboost6common15DenseColumnIterIjLb1EEixEm.exit.i, label %_ZNK7xgboost6common15DenseColumnIterIjLb1EEixEm.exit.thread.i
 
 _ZNK7xgboost6common15DenseColumnIterIjLb1EEixEm.exit.i: ; preds = %.lr.ph.i90
-  %193 = getelementptr inbounds nuw i32, ptr %172, i64 %183
+  %193 = getelementptr inbounds nuw [4 x i8], ptr %172, i64 %183
   %194 = load i32, ptr %193, align 4, !tbaa !99
   %195 = add nsw i32 %194, %176
   %196 = icmp eq i32 %195, -1
@@ -81237,7 +81177,7 @@ _ZNK7xgboost6common15DenseColumnIterIjLb1EEixEm.exit.i: ; preds = %.lr.ph.i90
 
 _ZNK7xgboost6common15DenseColumnIterIjLb1EEixEm.exit.thread.i: ; preds = %_ZNK7xgboost6common15DenseColumnIterIjLb1EEixEm.exit.i, %.lr.ph.i90
   %197 = add i64 %.02729.i, 1
-  %198 = getelementptr inbounds nuw i64, ptr %30, i64 %.02729.i
+  %198 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %.02729.i
   store i64 %182, ptr %198, align 8, !tbaa !44
   br label %206
 
@@ -81247,13 +81187,13 @@ _ZNK7xgboost6common15DenseColumnIterIjLb1EEixEm.exit.thread.i: ; preds = %_ZNK7x
 
 200:                                              ; preds = %199
   %201 = add i64 %.02729.i, 1
-  %202 = getelementptr inbounds nuw i64, ptr %30, i64 %.02729.i
+  %202 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %.02729.i
   store i64 %182, ptr %202, align 8, !tbaa !44
   br label %206
 
 203:                                              ; preds = %199
   %204 = add i64 %.02630.i, 1
-  %205 = getelementptr inbounds nuw i64, ptr %31, i64 %.02630.i
+  %205 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %.02630.i
   store i64 %182, ptr %205, align 8, !tbaa !44
   br label %206
 
@@ -81271,14 +81211,14 @@ _ZNK7xgboost6common15DenseColumnIterIjLb1EEixEm.exit.thread.i: ; preds = %_ZNK7x
   %.031.i99 = phi i64 [ %235, %234 ], [ 0, %208 ]
   %.02630.i100 = phi i64 [ %.1.i105, %234 ], [ 0, %208 ]
   %.02729.i101 = phi i64 [ %.128.i104, %234 ], [ 0, %208 ]
-  %209 = getelementptr inbounds nuw i64, ptr %10, i64 %.031.i99
+  %209 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.031.i99
   %210 = load i64, ptr %209, align 8, !tbaa !44
   %211 = sub i64 %210, %179
   %212 = add i64 %211, %158
   %213 = lshr i64 %212, 5
   %214 = and i64 %212, 31
   %215 = xor i64 %214, 31
-  %216 = getelementptr inbounds nuw i32, ptr %.sroa.0.0.copyload.i89, i64 %213
+  %216 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0.0.copyload.i89, i64 %213
   %217 = load i32, ptr %216, align 4, !tbaa !99
   %218 = shl nuw nsw i64 1, %215
   %219 = trunc nuw i64 %218 to i32
@@ -81287,7 +81227,7 @@ _ZNK7xgboost6common15DenseColumnIterIjLb1EEixEm.exit.thread.i: ; preds = %_ZNK7x
   br i1 %.not.i.i102, label %_ZNK7xgboost6common15DenseColumnIterIjLb1EEixEm.exit.i111, label %_ZNK7xgboost6common15DenseColumnIterIjLb1EEixEm.exit.thread.i103
 
 _ZNK7xgboost6common15DenseColumnIterIjLb1EEixEm.exit.i111: ; preds = %.lr.ph.i98
-  %221 = getelementptr inbounds nuw i32, ptr %172, i64 %211
+  %221 = getelementptr inbounds nuw [4 x i8], ptr %172, i64 %211
   %222 = load i32, ptr %221, align 4, !tbaa !99
   %223 = add nsw i32 %222, %176
   %224 = icmp eq i32 %223, -1
@@ -81295,7 +81235,7 @@ _ZNK7xgboost6common15DenseColumnIterIjLb1EEixEm.exit.i111: ; preds = %.lr.ph.i98
 
 _ZNK7xgboost6common15DenseColumnIterIjLb1EEixEm.exit.thread.i103: ; preds = %_ZNK7xgboost6common15DenseColumnIterIjLb1EEixEm.exit.i111, %.lr.ph.i98
   %225 = add i64 %.02630.i100, 1
-  %226 = getelementptr inbounds nuw i64, ptr %31, i64 %.02630.i100
+  %226 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %.02630.i100
   store i64 %210, ptr %226, align 8, !tbaa !44
   br label %234
 
@@ -81305,13 +81245,13 @@ _ZNK7xgboost6common15DenseColumnIterIjLb1EEixEm.exit.thread.i103: ; preds = %_ZN
 
 228:                                              ; preds = %227
   %229 = add i64 %.02729.i101, 1
-  %230 = getelementptr inbounds nuw i64, ptr %30, i64 %.02729.i101
+  %230 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %.02729.i101
   store i64 %210, ptr %230, align 8, !tbaa !44
   br label %234
 
 231:                                              ; preds = %227
   %232 = add i64 %.02630.i100, 1
-  %233 = getelementptr inbounds nuw i64, ptr %31, i64 %.02630.i100
+  %233 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %.02630.i100
   store i64 %210, ptr %233, align 8, !tbaa !44
   br label %234
 
@@ -81337,11 +81277,11 @@ _ZNK7xgboost6common4SpanIKmLm18446744073709551615EE5frontEv.exit: ; preds = %_ZN
   %240 = sub i64 %237, %239
   %241 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %242 = load ptr, ptr %241, align 8, !tbaa !1452, !noalias !2557
-  %243 = getelementptr inbounds nuw i64, ptr %242, i64 %149
+  %243 = getelementptr inbounds nuw [8 x i8], ptr %242, i64 %149
   %244 = load i64, ptr %243, align 8, !tbaa !44, !noalias !2557
   %245 = add i32 %.0.i306, 1
   %246 = zext i32 %245 to i64
-  %247 = getelementptr inbounds nuw i64, ptr %242, i64 %246
+  %247 = getelementptr inbounds nuw [8 x i8], ptr %242, i64 %246
   %248 = load i64, ptr %247, align 8, !tbaa !44, !noalias !2557
   %249 = sub i64 %248, %244
   %250 = getelementptr inbounds nuw i8, ptr %7, i64 216
@@ -81362,7 +81302,7 @@ _ZNK7xgboost6common4SpanIKmLm18446744073709551615EE5frontEv.exit: ; preds = %_ZN
 _ZN7xgboost6common4SpanIKjLm18446744073709551615EEC2EPS2_m.exit.i: ; preds = %_ZNK7xgboost6common4SpanIKmLm18446744073709551615EE5frontEv.exit
   %260 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %261 = load ptr, ptr %260, align 8, !tbaa !1452, !noalias !2557
-  %262 = getelementptr inbounds nuw i64, ptr %261, i64 %244
+  %262 = getelementptr inbounds nuw [8 x i8], ptr %261, i64 %244
   %263 = icmp ne ptr %261, null
   %264 = or i1 %257, %263
   br i1 %264, label %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i, label %265, !prof !127
@@ -81374,7 +81314,7 @@ _ZN7xgboost6common4SpanIKjLm18446744073709551615EEC2EPS2_m.exit.i: ; preds = %_Z
 _ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i: ; preds = %_ZN7xgboost6common4SpanIKjLm18446744073709551615EEC2EPS2_m.exit.i
   %266 = getelementptr inbounds nuw i8, ptr %7, i64 160
   %267 = load ptr, ptr %266, align 8, !tbaa !1457, !noalias !2557
-  %268 = getelementptr inbounds nuw i32, ptr %267, i64 %149
+  %268 = getelementptr inbounds nuw [4 x i8], ptr %267, i64 %149
   %269 = load i32, ptr %268, align 4, !tbaa !99, !noalias !2557
   %270 = icmp sgt i64 %249, 0
   br i1 %270, label %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i, label %_ZNK7xgboost6common12ColumnMatrix12SparseColumnIjEEDajm.exit
@@ -81383,7 +81323,7 @@ _ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i:           ; preds = %_ZN7xgboost6common4
   %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i ], [ %262, %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i ]
   %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i ], [ %249, %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i ]
   %271 = lshr i64 %.01116.i.i.i.i, 1
-  %272 = getelementptr inbounds nuw i64, ptr %.017.i.i.i.i, i64 %271
+  %272 = getelementptr inbounds nuw [8 x i8], ptr %.017.i.i.i.i, i64 %271
   %273 = load i64, ptr %272, align 8, !tbaa !44, !noalias !2557
   %274 = icmp ult i64 %273, %240
   %275 = getelementptr inbounds nuw i8, ptr %272, i64 8
@@ -81407,7 +81347,7 @@ _ZNK7xgboost6common12ColumnMatrix12SparseColumnIjEEDajm.exit: ; preds = %_ZSt7ad
   %.035.i = phi i64 [ %308, %307 ], [ 0, %_ZNK7xgboost6common12ColumnMatrix12SparseColumnIjEEDajm.exit ]
   %.02634.i = phi i64 [ %.1.i126, %307 ], [ 0, %_ZNK7xgboost6common12ColumnMatrix12SparseColumnIjEEDajm.exit ]
   %.02733.i = phi i64 [ %.128.i125, %307 ], [ 0, %_ZNK7xgboost6common12ColumnMatrix12SparseColumnIjEEDajm.exit ]
-  %283 = getelementptr inbounds nuw i64, ptr %10, i64 %.035.i
+  %283 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.035.i
   %284 = load i64, ptr %283, align 8, !tbaa !44
   %285 = sub i64 %284, %239
   %286 = icmp ult i64 %.sroa.17.0, %249
@@ -81415,7 +81355,7 @@ _ZNK7xgboost6common12ColumnMatrix12SparseColumnIjEEDajm.exit: ; preds = %_ZSt7ad
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i124, %290
   %.sroa.17.3 = phi i64 [ %291, %290 ], [ %.sroa.17.0, %.lr.ph.i124 ]
-  %287 = getelementptr inbounds nuw i64, ptr %262, i64 %.sroa.17.3
+  %287 = getelementptr inbounds nuw [8 x i8], ptr %262, i64 %.sroa.17.3
   %288 = load i64, ptr %287, align 8, !tbaa !44
   %289 = icmp ult i64 %288, %285
   br i1 %289, label %290, label %292
@@ -81430,7 +81370,7 @@ _ZNK7xgboost6common12ColumnMatrix12SparseColumnIjEEDajm.exit: ; preds = %_ZSt7ad
   br i1 %293, label %_ZN7xgboost6common16SparseColumnIterIjEixEm.exit.i, label %_ZN7xgboost6common16SparseColumnIterIjEixEm.exit.thread.i
 
 _ZN7xgboost6common16SparseColumnIterIjEixEm.exit.i: ; preds = %292
-  %294 = getelementptr inbounds nuw i32, ptr %255, i64 %.sroa.17.3
+  %294 = getelementptr inbounds nuw [4 x i8], ptr %255, i64 %.sroa.17.3
   %295 = load i32, ptr %294, align 4, !tbaa !99
   %296 = add nsw i32 %295, %269
   %297 = icmp eq i32 %296, -1
@@ -81439,7 +81379,7 @@ _ZN7xgboost6common16SparseColumnIterIjEixEm.exit.i: ; preds = %292
 _ZN7xgboost6common16SparseColumnIterIjEixEm.exit.thread.i: ; preds = %290, %_ZN7xgboost6common16SparseColumnIterIjEixEm.exit.i, %292, %.lr.ph.i124
   %.sroa.17.1 = phi i64 [ %.sroa.17.0, %.lr.ph.i124 ], [ %.sroa.17.3, %_ZN7xgboost6common16SparseColumnIterIjEixEm.exit.i ], [ %.sroa.17.3, %292 ], [ %249, %290 ]
   %298 = add i64 %.02733.i, 1
-  %299 = getelementptr inbounds nuw i64, ptr %30, i64 %.02733.i
+  %299 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %.02733.i
   store i64 %284, ptr %299, align 8, !tbaa !44
   br label %307
 
@@ -81449,13 +81389,13 @@ _ZN7xgboost6common16SparseColumnIterIjEixEm.exit.thread.i: ; preds = %290, %_ZN7
 
 301:                                              ; preds = %300
   %302 = add i64 %.02733.i, 1
-  %303 = getelementptr inbounds nuw i64, ptr %30, i64 %.02733.i
+  %303 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %.02733.i
   store i64 %284, ptr %303, align 8, !tbaa !44
   br label %307
 
 304:                                              ; preds = %300
   %305 = add i64 %.02634.i, 1
-  %306 = getelementptr inbounds nuw i64, ptr %31, i64 %.02634.i
+  %306 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %.02634.i
   store i64 %284, ptr %306, align 8, !tbaa !44
   br label %307
 
@@ -81472,7 +81412,7 @@ _ZN7xgboost6common16SparseColumnIterIjEixEm.exit.thread.i: ; preds = %290, %_ZN7
   %.035.i135 = phi i64 [ %334, %333 ], [ 0, %_ZNK7xgboost6common12ColumnMatrix12SparseColumnIjEEDajm.exit ]
   %.02634.i136 = phi i64 [ %.1.i140, %333 ], [ 0, %_ZNK7xgboost6common12ColumnMatrix12SparseColumnIjEEDajm.exit ]
   %.02733.i137 = phi i64 [ %.128.i139, %333 ], [ 0, %_ZNK7xgboost6common12ColumnMatrix12SparseColumnIjEEDajm.exit ]
-  %309 = getelementptr inbounds nuw i64, ptr %10, i64 %.035.i135
+  %309 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.035.i135
   %310 = load i64, ptr %309, align 8, !tbaa !44
   %311 = sub i64 %310, %239
   %312 = icmp ult i64 %.sroa.17.4, %249
@@ -81480,7 +81420,7 @@ _ZN7xgboost6common16SparseColumnIterIjEixEm.exit.thread.i: ; preds = %290, %_ZN7
 
 .lr.ph.i.i146:                                    ; preds = %.lr.ph.i134, %316
   %.sroa.17.7 = phi i64 [ %317, %316 ], [ %.sroa.17.4, %.lr.ph.i134 ]
-  %313 = getelementptr inbounds nuw i64, ptr %262, i64 %.sroa.17.7
+  %313 = getelementptr inbounds nuw [8 x i8], ptr %262, i64 %.sroa.17.7
   %314 = load i64, ptr %313, align 8, !tbaa !44
   %315 = icmp ult i64 %314, %311
   br i1 %315, label %316, label %318
@@ -81495,7 +81435,7 @@ _ZN7xgboost6common16SparseColumnIterIjEixEm.exit.thread.i: ; preds = %290, %_ZN7
   br i1 %319, label %_ZN7xgboost6common16SparseColumnIterIjEixEm.exit.i147, label %_ZN7xgboost6common16SparseColumnIterIjEixEm.exit.thread.i138
 
 _ZN7xgboost6common16SparseColumnIterIjEixEm.exit.i147: ; preds = %318
-  %320 = getelementptr inbounds nuw i32, ptr %255, i64 %.sroa.17.7
+  %320 = getelementptr inbounds nuw [4 x i8], ptr %255, i64 %.sroa.17.7
   %321 = load i32, ptr %320, align 4, !tbaa !99
   %322 = add nsw i32 %321, %269
   %323 = icmp eq i32 %322, -1
@@ -81504,7 +81444,7 @@ _ZN7xgboost6common16SparseColumnIterIjEixEm.exit.i147: ; preds = %318
 _ZN7xgboost6common16SparseColumnIterIjEixEm.exit.thread.i138: ; preds = %316, %_ZN7xgboost6common16SparseColumnIterIjEixEm.exit.i147, %318, %.lr.ph.i134
   %.sroa.17.5 = phi i64 [ %.sroa.17.4, %.lr.ph.i134 ], [ %.sroa.17.7, %_ZN7xgboost6common16SparseColumnIterIjEixEm.exit.i147 ], [ %.sroa.17.7, %318 ], [ %249, %316 ]
   %324 = add i64 %.02634.i136, 1
-  %325 = getelementptr inbounds nuw i64, ptr %31, i64 %.02634.i136
+  %325 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %.02634.i136
   store i64 %310, ptr %325, align 8, !tbaa !44
   br label %333
 
@@ -81514,13 +81454,13 @@ _ZN7xgboost6common16SparseColumnIterIjEixEm.exit.thread.i138: ; preds = %316, %_
 
 327:                                              ; preds = %326
   %328 = add i64 %.02733.i137, 1
-  %329 = getelementptr inbounds nuw i64, ptr %30, i64 %.02733.i137
+  %329 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %.02733.i137
   store i64 %310, ptr %329, align 8, !tbaa !44
   br label %333
 
 330:                                              ; preds = %326
   %331 = add i64 %.02634.i136, 1
-  %332 = getelementptr inbounds nuw i64, ptr %31, i64 %.02634.i136
+  %332 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %.02634.i136
   store i64 %310, ptr %332, align 8, !tbaa !44
   br label %333
 
@@ -81536,7 +81476,7 @@ _ZN7xgboost6common16PartitionBuilderILm2048EE20PartitionRangeKernelIZNS2_9Partit
   %.sroa.10193.0 = phi i64 [ %.1.i92, %206 ], [ %.1.i126, %307 ], [ %.1.i105, %234 ], [ %.120.i, %107 ], [ 0, %105 ], [ 0, %180 ], [ 0, %208 ], [ %.1.i140, %333 ]
   %.sroa.0192.0 = phi i64 [ %.128.i, %206 ], [ %.128.i125, %307 ], [ %.128.i104, %234 ], [ %.1.i, %107 ], [ 0, %105 ], [ 0, %180 ], [ 0, %208 ], [ %.128.i139, %333 ]
   %335 = load ptr, ptr %12, align 8, !tbaa !168
-  %336 = getelementptr inbounds nuw i64, ptr %335, i64 %13
+  %336 = getelementptr inbounds nuw [8 x i8], ptr %335, i64 %13
   %337 = load i64, ptr %336, align 8, !tbaa !44
   %338 = add i64 %337, %17
   %339 = load ptr, ptr %20, align 8, !tbaa !175
@@ -81553,7 +81493,7 @@ _ZN7xgboost6common16PartitionBuilderILm2048EE20PartitionRangeKernelIZNS2_9Partit
   unreachable
 
 _ZN7xgboost6common16PartitionBuilderILm2048EE13SetNLeftElemsEimm.exit: ; preds = %_ZN7xgboost6common16PartitionBuilderILm2048EE20PartitionRangeKernelIZNS2_9PartitionIjLb1ELb0ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS8_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmEUlT_E_EESt4pairImmENS0_4SpanISN_Lm18446744073709551615EEENST_ImLm18446744073709551615EEESV_SP_.exit
-  %346 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %340, i64 %338
+  %346 = getelementptr inbounds nuw [16 x i8], ptr %340, i64 %338
   %347 = load ptr, ptr %346, align 8, !tbaa !1314
   store i64 %.sroa.0192.0, ptr %347, align 8, !tbaa !1319
   %348 = load i64, ptr %336, align 8, !tbaa !44
@@ -81566,7 +81506,7 @@ _ZN7xgboost6common16PartitionBuilderILm2048EE13SetNLeftElemsEimm.exit: ; preds =
   unreachable
 
 _ZN7xgboost6common16PartitionBuilderILm2048EE14SetNRightElemsEimm.exit: ; preds = %_ZN7xgboost6common16PartitionBuilderILm2048EE13SetNLeftElemsEimm.exit
-  %351 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %340, i64 %349
+  %351 = getelementptr inbounds nuw [16 x i8], ptr %340, i64 %349
   %352 = load ptr, ptr %351, align 8, !tbaa !1314
   %353 = getelementptr inbounds nuw i8, ptr %352, i64 8
   store i64 %.sroa.10193.0, ptr %353, align 8, !tbaa !1323
@@ -81616,12 +81556,12 @@ define linkonce_odr void @_ZN4dmlc12OMPException3RunIZN7xgboost6common13Parallel
   %27 = load ptr, ptr %22, align 8, !tbaa !2449
   %28 = load ptr, ptr %20, align 8, !tbaa !2567
   %29 = load ptr, ptr %28, align 8, !tbaa !562
-  %30 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %29, i64 %24
+  %30 = getelementptr inbounds nuw [88 x i8], ptr %29, i64 %24
   %31 = load i32, ptr %30, align 8, !tbaa !535
   %32 = getelementptr inbounds nuw i8, ptr %27, i64 112
   %33 = sext i32 %31 to i64
   %34 = load ptr, ptr %32, align 8, !tbaa !164
-  %35 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %34, i64 %33
+  %35 = getelementptr inbounds nuw [24 x i8], ptr %34, i64 %33
   %36 = load ptr, ptr %35, align 8, !tbaa !917
   %37 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %sext.i.i = shl i64 %24, 32
@@ -81633,11 +81573,11 @@ define linkonce_odr void @_ZN4dmlc12OMPException3RunIZN7xgboost6common13Parallel
   %43 = add i64 %41, %42
   %44 = getelementptr inbounds nuw i8, ptr %27, i64 56
   %45 = load ptr, ptr %44, align 8, !tbaa !172
-  %46 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %45, i64 %43
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %45, i64 %43
   %47 = load ptr, ptr %46, align 8, !tbaa !1314
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %49 = load i64, ptr %48, align 8, !tbaa !1322
-  %50 = getelementptr inbounds nuw i64, ptr %36, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %47, i64 16416
   %52 = load i64, ptr %47, align 8, !tbaa !1319
   %53 = icmp eq i64 %52, 0
@@ -81647,11 +81587,11 @@ _ZSt8__copy_nIPKmmPmET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i.i.i: ; p
   %54 = getelementptr inbounds nuw i8, ptr %47, i64 32
   %55 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %56 = load i64, ptr %55, align 8, !tbaa !1317
-  %57 = getelementptr inbounds nuw i64, ptr %36, i64 %56
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %56
   %.idx.i.i.i.i.i = shl nuw nsw i64 %52, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %57, ptr nonnull align 8 %54, i64 %.idx.i.i.i.i.i, i1 false)
   %.pre.i.i.i = load ptr, ptr %44, align 8, !tbaa !172
-  %.phi.trans.insert.i.i.i = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %.pre.i.i.i, i64 %43
+  %.phi.trans.insert.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %.pre.i.i.i, i64 %43
   %.pre18.i.i.i = load ptr, ptr %.phi.trans.insert.i.i.i, align 8, !tbaa !1314
   br label %_ZSt6copy_nIPKmmPmET1_T_T0_S3_.exit.i.i.i
 
@@ -81992,7 +81932,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %.noexc50
 
 _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit36.i: ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i, %.noexc50
   store ptr %31, ptr %8, align 8, !tbaa !194
-  %35 = getelementptr inbounds nuw i32, ptr %31, i64 %21
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %21
   store ptr %35, ptr %25, align 8, !tbaa !545
   store ptr %35, ptr %27, align 8, !tbaa !197
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
@@ -82209,10 +82149,10 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 116:                                              ; preds = %._crit_edge35.i, %.lr.ph39.i
   %.01637.i = phi i64 [ 0, %.lr.ph39.i ], [ %119, %._crit_edge35.i ]
-  %117 = getelementptr inbounds nuw i64, ptr %107, i64 %.01637.i
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %.01637.i
   %118 = load i64, ptr %117, align 8, !tbaa !44
   %119 = add nuw i64 %.01637.i, 1
-  %120 = getelementptr inbounds nuw i64, ptr %107, i64 %119
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %119
   %121 = load i64, ptr %120, align 8, !tbaa !44
   %122 = icmp ult i64 %118, %121
   br i1 %122, label %.lr.ph.i, label %._crit_edge35.i
@@ -82225,7 +82165,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 .lr.ph.i:                                         ; preds = %116, %.lr.ph.i
   %.01528.i = phi i64 [ %129, %.lr.ph.i ], [ %118, %116 ]
   %.02327.i = phi i64 [ %128, %.lr.ph.i ], [ 0, %116 ]
-  %124 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %114, i64 %.01528.i
+  %124 = getelementptr inbounds nuw [16 x i8], ptr %114, i64 %.01528.i
   %125 = load ptr, ptr %124, align 8, !tbaa !1314
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 16
   store i64 %.02327.i, ptr %126, align 8, !tbaa !1317
@@ -82239,7 +82179,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 ._crit_edge35.i:                                  ; preds = %.lr.ph34.i, %._crit_edge.i, %116
   %.023.lcssa48.i = phi i64 [ %128, %._crit_edge.i ], [ 0, %116 ], [ %128, %.lr.ph34.i ]
   %.024.lcssa.i = phi i64 [ 0, %._crit_edge.i ], [ 0, %116 ], [ %140, %.lr.ph34.i ]
-  %132 = getelementptr inbounds nuw %"struct.std::pair.129", ptr %115, i64 %.01637.i
+  %132 = getelementptr inbounds nuw [16 x i8], ptr %115, i64 %.01637.i
   store i64 %.023.lcssa48.i, ptr %132, align 8, !tbaa !1126
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 8
   store i64 %.024.lcssa.i, ptr %133, align 8, !tbaa !1128
@@ -82250,7 +82190,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %.032.i = phi i64 [ %141, %.lr.ph34.i ], [ %.pre.i, %._crit_edge.i ]
   %.02431.i = phi i64 [ %140, %.lr.ph34.i ], [ 0, %._crit_edge.i ]
   %134 = add i64 %.02431.i, %128
-  %135 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %114, i64 %.032.i
+  %135 = getelementptr inbounds nuw [16 x i8], ptr %114, i64 %.032.i
   %136 = load ptr, ptr %135, align 8, !tbaa !1314
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 24
   store i64 %134, ptr %137, align 8, !tbaa !1322
@@ -82395,12 +82335,12 @@ define linkonce_odr void @_ZN7xgboost6common14BlockedSpace2dC2IZNS_4tree20Common
   %13 = load ptr, ptr %6, align 8, !tbaa !2574
   %14 = load ptr, ptr %2, align 8, !tbaa !2583
   %15 = load ptr, ptr %14, align 8, !tbaa !562
-  %16 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %15, i64 %.039
+  %16 = getelementptr inbounds nuw [88 x i8], ptr %15, i64 %.039
   %17 = load i32, ptr %16, align 8, !tbaa !535
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 112
   %19 = sext i32 %17 to i64
   %20 = load ptr, ptr %18, align 8, !tbaa !164
-  %21 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %20, i64 %19
+  %21 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %19
   %22 = load ptr, ptr %21, align 8, !tbaa !917
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !919
@@ -82491,7 +82431,7 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIP
   %.pre = phi ptr [ %.pre.pre, %60 ], [ %36, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i ]
   store ptr %55, ptr %5, align 8, !tbaa !168
   store ptr %59, ptr %7, align 8, !tbaa !906
-  %61 = getelementptr inbounds nuw i64, ptr %55, i64 %53
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %53
   store ptr %61, ptr %8, align 8, !tbaa !171
   br label %_ZNSt6vectorImSaImEE9push_backERKm.exit.i
 
@@ -82591,7 +82531,7 @@ _ZNSt6vectorIN7xgboost6common7Range1dESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit3
 .noexc25:                                         ; preds = %84, %_ZNSt6vectorIN7xgboost6common7Range1dESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit33.i
   store ptr %79, ptr %0, align 8, !tbaa !861
   store ptr %83, ptr %9, align 8, !tbaa !1078
-  %98 = getelementptr inbounds nuw %"class.xgboost::common::Range1d", ptr %79, i64 %77
+  %98 = getelementptr inbounds nuw [16 x i8], ptr %79, i64 %77
   store ptr %98, ptr %10, align 8, !tbaa !864
   br label %_ZN7xgboost6common14BlockedSpace2d8AddBlockEmmm.exit
 
@@ -82664,7 +82604,7 @@ define linkonce_odr void @_ZN7xgboost6common16PartitionBuilderILm2048EE4InitIZNS
   br i1 %17, label %18, label %_ZNSt6vectorISt4pairImmESaIS1_EE6resizeEm.exit
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds nuw %"struct.std::pair.129", ptr %8, i64 %2
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %2
   %.not.i.i = icmp eq ptr %7, %19
   br i1 %.not.i.i, label %_ZNSt6vectorISt4pairImmESaIS1_EE6resizeEm.exit, label %20
 
@@ -82696,7 +82636,7 @@ _ZNSt6vectorISt4pairImmESaIS1_EE6resizeEm.exit:   ; preds = %14, %16, %18, %20
   br i1 %34, label %35, label %_ZNSt6vectorImSaImEE6resizeEm.exit
 
 35:                                               ; preds = %33
-  %36 = getelementptr inbounds nuw i64, ptr %25, i64 %22
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %22
   %.not.i.i12 = icmp eq ptr %24, %36
   br i1 %.not.i.i12, label %_ZNSt6vectorImSaImEE6resizeEm.exit, label %37
 
@@ -82725,11 +82665,11 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %31, %33, %35, %37
 46:                                               ; preds = %.lr.ph, %46
   %47 = phi i64 [ 0, %.lr.ph ], [ %65, %46 ]
   %.014 = phi i64 [ 1, %.lr.ph ], [ %67, %46 ]
-  %48 = getelementptr %"struct.xgboost::tree::CPUExpandEntry", ptr %40, i64 %.014
+  %48 = getelementptr [88 x i8], ptr %40, i64 %.014
   %49 = getelementptr i8, ptr %48, i64 -88
   %50 = load i32, ptr %49, align 8, !tbaa !535
   %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %42, i64 %51
+  %52 = getelementptr inbounds nuw [24 x i8], ptr %42, i64 %51
   %53 = load ptr, ptr %52, align 8, !tbaa !917
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %55 = load ptr, ptr %54, align 8, !tbaa !919
@@ -82743,7 +82683,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %31, %33, %35, %37
   %63 = zext i1 %62 to i64
   %64 = add i64 %60, %47
   %65 = add i64 %64, %63
-  %66 = getelementptr inbounds nuw i64, ptr %38, i64 %.014
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %.014
   store i64 %65, ptr %66, align 8, !tbaa !44
   %67 = add nuw i64 %.014, 1
   %exitcond.not = icmp eq i64 %.014, %2
@@ -82771,7 +82711,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %31, %33, %35, %37
   br i1 %81, label %82, label %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit
 
 82:                                               ; preds = %80
-  %83 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %72, i64 %1
+  %83 = getelementptr inbounds nuw [16 x i8], ptr %72, i64 %1
   %.not.i.i13 = icmp eq ptr %71, %83
   br i1 %.not.i.i13, label %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i
 
@@ -84481,7 +84421,7 @@ define linkonce_odr void @_ZZN7xgboost4tree17ColumnSplitHelper9PartitionIhLb0ELb
   %8 = load ptr, ptr %7, align 8, !tbaa !2593
   %9 = load ptr, ptr %0, align 8, !tbaa !2646
   %10 = load ptr, ptr %9, align 8, !tbaa !562
-  %11 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %10, i64 %1
+  %11 = getelementptr inbounds nuw [88 x i8], ptr %10, i64 %1
   %12 = load i32, ptr %11, align 8, !tbaa !535
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -84570,7 +84510,7 @@ _ZZN7xgboost4tree17ColumnSplitHelper9PartitionIhLb0ELb0ENS0_14CPUExpandEntryEEEv
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %61 = load ptr, ptr %60, align 8, !tbaa !2649
   %62 = load ptr, ptr %61, align 8, !tbaa !194
-  %63 = getelementptr inbounds nuw i32, ptr %62, i64 %1
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %1
   %64 = load i32, ptr %63, align 4, !tbaa !99
   br label %65
 
@@ -84588,7 +84528,7 @@ _ZZN7xgboost4tree17ColumnSplitHelper9PartitionIhLb0ELb0ENS0_14CPUExpandEntryEEEv
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 24
   %77 = sext i32 %12 to i64
   %78 = load ptr, ptr %76, align 8, !tbaa !164
-  %79 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %78, i64 %77
+  %79 = getelementptr inbounds nuw [24 x i8], ptr %78, i64 %77
   %80 = load ptr, ptr %79, align 8, !tbaa !917
   call void @_ZN7xgboost6common16PartitionBuilderILm2048EE8MaskRowsIhLb0ELb0ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmPNS_17BitFieldContainerIhNS_11RBitsPolicyIhEELb0EEESS_(ptr noundef nonnull align 8 dereferenceable(80) %68, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %2, i64 %3, i32 noundef %66, ptr noundef nonnull align 8 dereferenceable(233) %70, ptr noundef nonnull align 8 dereferenceable(218) %56, ptr noundef nonnull align 8 dereferenceable(312) %73, ptr noundef %80, ptr noundef nonnull %5, ptr noundef nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -84607,7 +84547,7 @@ _ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_S4_.exit:
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx111
   %17 = sub nsw i64 %4, %3
   %18 = load ptr, ptr %2, align 8, !tbaa !562
-  %19 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %18, i64 %1
+  %19 = getelementptr inbounds nuw [88 x i8], ptr %18, i64 %1
   %20 = load i32, ptr %19, align 8, !tbaa !535
   %21 = sext i32 %20 to i64
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 304
@@ -84619,14 +84559,14 @@ _ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_S4_.exit:
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 40
   %26 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7xgboost16HostDeviceVectorIjE15ConstHostVectorEv(ptr noundef nonnull align 8 dereferenceable(8) %25)
   %27 = load ptr, ptr %26, align 8, !tbaa !449
-  %28 = getelementptr inbounds nuw i32, ptr %27, i64 %21
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %21
   %29 = load i32, ptr %28, align 4, !tbaa !99
   br label %_ZNK7xgboost7RegTree10SplitIndexEi.exit
 
 30:                                               ; preds = %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_S4_.exit
   %31 = getelementptr inbounds nuw i8, ptr %8, i64 160
   %32 = load ptr, ptr %31, align 8, !tbaa !536
-  %33 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %32, i64 %21
+  %33 = getelementptr inbounds nuw [20 x i8], ptr %32, i64 %21
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 12
   %35 = load i32, ptr %34, align 4, !tbaa !810
   %36 = and i32 %35, 2147483647
@@ -84663,7 +84603,7 @@ _ZNK7xgboost7RegTree10SplitIndexEi.exit:          ; preds = %24, %30
   unreachable
 
 _ZNK7xgboost6common4SpanIKNS_7RegTree22CategoricalSplitMatrix7SegmentELm18446744073709551615EEixEm.exit.i: ; preds = %_ZNK7xgboost7RegTree10SplitIndexEi.exit
-  %60 = getelementptr inbounds nuw %"struct.xgboost::RegTree::CategoricalSplitMatrix::Segment", ptr %52, i64 %21
+  %60 = getelementptr inbounds nuw [16 x i8], ptr %52, i64 %21
   %.sroa.0.0.copyload.i = load i64, ptr %60, align 8, !tbaa !44
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %60, i64 8
   %.sroa.4.0.copyload.i = load i64, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !44
@@ -84699,7 +84639,7 @@ _ZNK7xgboost6common4SpanIKNS_7RegTree22CategoricalSplitMatrix7SegmentELm18446744
   unreachable
 
 _ZNK7xgboost7RegTree8NodeCatsEi.exit:             ; preds = %68
-  %74 = getelementptr inbounds nuw i32, ptr %45, i64 %.sroa.0.0.copyload.i
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %.sroa.0.0.copyload.i
   %75 = getelementptr inbounds nuw i8, ptr %6, i64 160
   %76 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7xgboost16HostDeviceVectorIfE15ConstHostVectorEv(ptr noundef nonnull align 8 dereferenceable(8) %75)
   %77 = getelementptr inbounds nuw i8, ptr %7, i64 40
@@ -84746,7 +84686,7 @@ _ZNK7xgboost7RegTree8NodeCatsEi.exit:             ; preds = %68
   unreachable
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit: ; preds = %94
-  %96 = getelementptr inbounds nuw i64, ptr %16, i64 %.sroa.699.0120
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.sroa.699.0120
   %97 = load i64, ptr %96, align 8, !tbaa !44
   %98 = tail call noundef i32 @_ZNK7xgboost16GHistIndexMatrix9GetGindexEmm(ptr noundef nonnull align 8 dereferenceable(233) %6, i64 noundef %97, i64 noundef %80)
   %99 = icmp sgt i32 %98, -1
@@ -84755,7 +84695,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
 100:                                              ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit
   %101 = zext nneg i32 %98 to i64
   %102 = load ptr, ptr %76, align 8, !tbaa !643
-  %103 = getelementptr inbounds nuw float, ptr %102, i64 %101
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %102, i64 %101
   %104 = load float, ptr %103, align 4, !tbaa !134
   br i1 %41, label %105, label %112
 
@@ -84773,7 +84713,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
 
 112:                                              ; preds = %100
   %113 = load ptr, ptr %2, align 8, !tbaa !562
-  %114 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %113, i64 %1
+  %114 = getelementptr inbounds nuw [88 x i8], ptr %113, i64 %1
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 16
   %116 = load float, ptr %115, align 8, !tbaa !809
   %117 = fcmp ugt float %104, %116
@@ -84785,7 +84725,7 @@ _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit: ; preds
   %120 = lshr i64 %119, 5
   %121 = and i32 %118, 31
   %122 = xor i32 %121, 31
-  %123 = getelementptr inbounds nuw i32, ptr %74, i64 %120
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %74, i64 %120
   %124 = load i32, ptr %123, align 4, !tbaa !99
   %125 = shl nuw i32 1, %122
   %126 = and i32 %124, %125
@@ -84804,11 +84744,11 @@ _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit: ; preds
 134:                                              ; preds = %127
   %135 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %136 = load ptr, ptr %135, align 8, !tbaa !1452, !noalias !2655
-  %137 = getelementptr inbounds nuw i64, ptr %136, i64 %129
+  %137 = getelementptr inbounds nuw [8 x i8], ptr %136, i64 %129
   %138 = load i64, ptr %137, align 8, !tbaa !44, !noalias !2655
   %139 = add i32 %.0.i, 1
   %140 = zext i32 %139 to i64
-  %141 = getelementptr inbounds nuw i64, ptr %136, i64 %140
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %136, i64 %140
   %142 = load i64, ptr %141, align 8, !tbaa !44, !noalias !2655
   %143 = load ptr, ptr %7, align 8, !tbaa !1456, !noalias !2655
   %144 = icmp ne ptr %143, null
@@ -84828,7 +84768,7 @@ _ZNK7xgboost6common12ColumnMatrix11DenseColumnIhLb0EEEDaj.exit: ; preds = %134
   %152 = getelementptr inbounds nuw i8, ptr %143, i64 %151
   %153 = getelementptr inbounds nuw i8, ptr %7, i64 160
   %154 = load ptr, ptr %153, align 8, !tbaa !1457, !noalias !2655
-  %155 = getelementptr inbounds nuw i32, ptr %154, i64 %129
+  %155 = getelementptr inbounds nuw [4 x i8], ptr %154, i64 %129
   %156 = load i32, ptr %155, align 4, !tbaa !99, !noalias !2655
   %157 = getelementptr inbounds nuw i8, ptr %6, i64 192
   %158 = load i64, ptr %157, align 8, !tbaa !1443
@@ -84842,7 +84782,7 @@ _ZNK7xgboost6common12ColumnMatrix11DenseColumnIhLb0EEEDaj.exit: ; preds = %134
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i: ; preds = %_ZNK7xgboost6common12ColumnMatrix11DenseColumnIhLb0EEEDaj.exit, %159
   %.sroa.6.021.i = phi i64 [ %160, %159 ], [ 0, %_ZNK7xgboost6common12ColumnMatrix11DenseColumnIhLb0EEEDaj.exit ]
-  %161 = getelementptr inbounds nuw i64, ptr %16, i64 %.sroa.6.021.i
+  %161 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.sroa.6.021.i
   %162 = load i64, ptr %161, align 8, !tbaa !44
   %163 = sub i64 %162, %158
   %164 = getelementptr inbounds nuw i8, ptr %152, i64 %163
@@ -84970,11 +84910,11 @@ _ZNK7xgboost6common4SpanIKmLm18446744073709551615EE5frontEv.exit: ; preds = %_ZN
   %205 = sub i64 %202, %204
   %206 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %207 = load ptr, ptr %206, align 8, !tbaa !1452, !noalias !2658
-  %208 = getelementptr inbounds nuw i64, ptr %207, i64 %129
+  %208 = getelementptr inbounds nuw [8 x i8], ptr %207, i64 %129
   %209 = load i64, ptr %208, align 8, !tbaa !44, !noalias !2658
   %210 = add i32 %.0.i, 1
   %211 = zext i32 %210 to i64
-  %212 = getelementptr inbounds nuw i64, ptr %207, i64 %211
+  %212 = getelementptr inbounds nuw [8 x i8], ptr %207, i64 %211
   %213 = load i64, ptr %212, align 8, !tbaa !44, !noalias !2658
   %214 = sub i64 %213, %209
   %215 = getelementptr inbounds nuw i8, ptr %7, i64 216
@@ -84995,7 +84935,7 @@ _ZNK7xgboost6common4SpanIKmLm18446744073709551615EE5frontEv.exit: ; preds = %_ZN
 _ZN7xgboost6common4SpanIKhLm18446744073709551615EEC2EPS2_m.exit.i: ; preds = %_ZNK7xgboost6common4SpanIKmLm18446744073709551615EE5frontEv.exit
   %225 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %226 = load ptr, ptr %225, align 8, !tbaa !1452, !noalias !2658
-  %227 = getelementptr inbounds nuw i64, ptr %226, i64 %209
+  %227 = getelementptr inbounds nuw [8 x i8], ptr %226, i64 %209
   %228 = icmp ne ptr %226, null
   %229 = or i1 %222, %228
   br i1 %229, label %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i, label %230, !prof !127
@@ -85007,7 +84947,7 @@ _ZN7xgboost6common4SpanIKhLm18446744073709551615EEC2EPS2_m.exit.i: ; preds = %_Z
 _ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i: ; preds = %_ZN7xgboost6common4SpanIKhLm18446744073709551615EEC2EPS2_m.exit.i
   %231 = getelementptr inbounds nuw i8, ptr %7, i64 160
   %232 = load ptr, ptr %231, align 8, !tbaa !1457, !noalias !2658
-  %233 = getelementptr inbounds nuw i32, ptr %232, i64 %129
+  %233 = getelementptr inbounds nuw [4 x i8], ptr %232, i64 %129
   %234 = load i32, ptr %233, align 4, !tbaa !99, !noalias !2658
   %235 = icmp sgt i64 %214, 0
   br i1 %235, label %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i, label %.lr.ph.i79
@@ -85016,7 +84956,7 @@ _ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i:           ; preds = %_ZN7xgboost6common4
   %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i ], [ %227, %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i ]
   %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i ], [ %214, %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i ]
   %236 = lshr i64 %.01116.i.i.i.i, 1
-  %237 = getelementptr inbounds nuw i64, ptr %.017.i.i.i.i, i64 %236
+  %237 = getelementptr inbounds nuw [8 x i8], ptr %.017.i.i.i.i, i64 %236
   %238 = load i64, ptr %237, align 8, !tbaa !44, !noalias !2658
   %239 = icmp ult i64 %238, %205
   %240 = getelementptr inbounds nuw i8, ptr %237, i64 8
@@ -85051,7 +84991,7 @@ _ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i:           ; preds = %_ZN7xgboost6common4
   unreachable
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i81: ; preds = %250
-  %252 = getelementptr inbounds nuw i64, ptr %16, i64 %.sroa.6.024.i
+  %252 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.sroa.6.024.i
   %253 = load i64, ptr %252, align 8, !tbaa !44
   %254 = sub i64 %253, %204
   %255 = icmp ult i64 %.sroa.13.0, %214
@@ -85059,7 +84999,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
 
 .lr.ph.i.i:                                       ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i81, %259
   %.sroa.13.2 = phi i64 [ %260, %259 ], [ %.sroa.13.0, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i81 ]
-  %256 = getelementptr inbounds nuw i64, ptr %227, i64 %.sroa.13.2
+  %256 = getelementptr inbounds nuw [8 x i8], ptr %227, i64 %.sroa.13.2
   %257 = load i64, ptr %256, align 8, !tbaa !44
   %258 = icmp ult i64 %257, %254
   br i1 %258, label %259, label %261
@@ -85304,7 +85244,7 @@ define linkonce_odr void @_ZZN7xgboost6common13ParallelFor2dIZNS_4tree17ColumnSp
   %24 = load ptr, ptr %23, align 8, !tbaa !2626
   %25 = load ptr, ptr %16, align 8, !tbaa !2666
   %26 = load ptr, ptr %25, align 8, !tbaa !562
-  %27 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %26, i64 %18
+  %27 = getelementptr inbounds nuw [88 x i8], ptr %26, i64 %18
   %28 = load i32, ptr %27, align 8, !tbaa !535
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 128
   %30 = load ptr, ptr %29, align 8, !tbaa !925
@@ -85317,8 +85257,8 @@ define linkonce_odr void @_ZZN7xgboost6common13ParallelFor2dIZNS_4tree17ColumnSp
   %36 = lshr i64 %21, 11
   %37 = getelementptr inbounds nuw i8, ptr %30, i64 48
   %38 = load ptr, ptr %37, align 8, !tbaa !172
-  %39 = getelementptr %"class.std::shared_ptr.85", ptr %38, i64 %35
-  %40 = getelementptr %"class.std::shared_ptr.85", ptr %39, i64 %36
+  %39 = getelementptr [16 x i8], ptr %38, i64 %35
+  %40 = getelementptr [16 x i8], ptr %39, i64 %36
   %41 = load ptr, ptr %40, align 8, !tbaa !1314
   %42 = icmp eq ptr %41, null
   br i1 %42, label %_ZN4dmlc11LogCheck_NEIPN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoES6_EESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISD_EERKT_RKT0_.exit.i.i, label %_ZZN7xgboost4tree17ColumnSplitHelper9PartitionIhLb0ELb0ENS0_14CPUExpandEntryEEEvPKNS_7ContextERKNS_6common14BlockedSpace2dEiRKNS_16GHistIndexMatrixERKNS7_12ColumnMatrixERKSt6vectorIT2_SaISI_EERKSH_IiSaIiEEPKNS_7RegTreeEENKUlmNS7_7Range1dEE0_clEmSU_.exit
@@ -85343,7 +85283,7 @@ _ZZN7xgboost4tree17ColumnSplitHelper9PartitionIhLb0ELb0ENS0_14CPUExpandEntryEEEv
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 24
   %54 = sext i32 %28 to i64
   %55 = load ptr, ptr %53, align 8, !tbaa !164
-  %56 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %55, i64 %54
+  %56 = getelementptr inbounds nuw [24 x i8], ptr %55, i64 %54
   %57 = load ptr, ptr %56, align 8, !tbaa !917
   %58 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %59 = getelementptr inbounds nuw i8, ptr %24, i64 64
@@ -85548,7 +85488,7 @@ define linkonce_odr void @_ZZN7xgboost6common13ParallelFor2dIZNS_4tree20CommonRo
   %24 = load ptr, ptr %23, align 8, !tbaa !2579
   %25 = load ptr, ptr %16, align 8, !tbaa !2675
   %26 = load ptr, ptr %25, align 8, !tbaa !562
-  %27 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %26, i64 %18
+  %27 = getelementptr inbounds nuw [88 x i8], ptr %26, i64 %18
   %28 = load i32, ptr %27, align 8, !tbaa !535
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %sext.i = shl i64 %18, 32
@@ -85559,8 +85499,8 @@ define linkonce_odr void @_ZZN7xgboost6common13ParallelFor2dIZNS_4tree20CommonRo
   %34 = lshr i64 %21, 11
   %35 = getelementptr inbounds nuw i8, ptr %24, i64 56
   %36 = load ptr, ptr %35, align 8, !tbaa !172
-  %37 = getelementptr %"class.std::shared_ptr.85", ptr %36, i64 %33
-  %38 = getelementptr %"class.std::shared_ptr.85", ptr %37, i64 %34
+  %37 = getelementptr [16 x i8], ptr %36, i64 %33
+  %38 = getelementptr [16 x i8], ptr %37, i64 %34
   %39 = load ptr, ptr %38, align 8, !tbaa !1314
   %40 = icmp eq ptr %39, null
   br i1 %40, label %_ZN4dmlc11LogCheck_NEIPN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoES6_EESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISD_EERKT_RKT0_.exit.i.i, label %_ZN7xgboost6common16PartitionBuilderILm2048EE15AllocateForTaskEm.exit.i
@@ -85582,7 +85522,7 @@ _ZN7xgboost6common16PartitionBuilderILm2048EE15AllocateForTaskEm.exit.i: ; preds
   %47 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %48 = load ptr, ptr %47, align 8, !tbaa !2677
   %49 = load ptr, ptr %48, align 8, !tbaa !194
-  %50 = getelementptr inbounds nuw i32, ptr %49, i64 %18
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %18
   %51 = load i32, ptr %50, align 4, !tbaa !99
   br label %_ZZN7xgboost4tree20CommonRowPartitioner14UpdatePositionIhLb0ELb0ENS0_14CPUExpandEntryEEEvPKNS_7ContextERKNS_16GHistIndexMatrixERKNS_6common12ColumnMatrixERKSt6vectorIT2_SaISF_EEPKNS_7RegTreeEENKUlmNSA_7Range1dEE_clEmSN_.exit
 
@@ -85598,7 +85538,7 @@ _ZZN7xgboost4tree20CommonRowPartitioner14UpdatePositionIhLb0ELb0ENS0_14CPUExpand
   %60 = getelementptr inbounds nuw i8, ptr %24, i64 112
   %61 = sext i32 %28 to i64
   %62 = load ptr, ptr %60, align 8, !tbaa !164
-  %63 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %62, i64 %61
+  %63 = getelementptr inbounds nuw [24 x i8], ptr %62, i64 %61
   %64 = load ptr, ptr %63, align 8, !tbaa !917
   tail call void @_ZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIhLb0ELb0ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKm(ptr noundef nonnull align 8 dereferenceable(80) %53, i64 noundef %18, ptr noundef nonnull align 8 dereferenceable(24) %54, i64 %21, i64 %22, i32 noundef %52, ptr noundef nonnull align 8 dereferenceable(233) %56, ptr noundef nonnull align 8 dereferenceable(218) %43, ptr noundef nonnull align 8 dereferenceable(312) %59, ptr noundef %64)
   %65 = add nuw i64 %.011, 1
@@ -85620,7 +85560,7 @@ _ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_S4_.exit:
   %sext = shl i64 %1, 32
   %17 = ashr exact i64 %sext, 32
   %18 = load ptr, ptr %16, align 8, !tbaa !168
-  %19 = getelementptr inbounds nuw i64, ptr %18, i64 %17
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %17
   %20 = load i64, ptr %19, align 8, !tbaa !44
   %21 = lshr i64 %3, 11
   %22 = add i64 %20, %21
@@ -85640,12 +85580,12 @@ _ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_S4_.exit:
   unreachable
 
 _ZN7xgboost6common16PartitionBuilderILm2048EE14GetRightBufferEimm.exit: ; preds = %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_S4_.exit
-  %32 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %26, i64 %22
+  %32 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %22
   %33 = load ptr, ptr %32, align 8, !tbaa !1314
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 16416
   %36 = load ptr, ptr %2, align 8, !tbaa !562
-  %37 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %36, i64 %1
+  %37 = getelementptr inbounds nuw [88 x i8], ptr %36, i64 %1
   %38 = load i32, ptr %37, align 8, !tbaa !535
   %39 = sext i32 %38 to i64
   %40 = getelementptr inbounds nuw i8, ptr %8, i64 304
@@ -85656,7 +85596,7 @@ _ZN7xgboost6common16PartitionBuilderILm2048EE14GetRightBufferEimm.exit: ; preds 
 _ZNK7xgboost7RegTree10SplitIndexEi.exit.thread:   ; preds = %_ZN7xgboost6common16PartitionBuilderILm2048EE14GetRightBufferEimm.exit
   %42 = getelementptr inbounds nuw i8, ptr %8, i64 160
   %43 = load ptr, ptr %42, align 8, !tbaa !536
-  %44 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %43, i64 %39
+  %44 = getelementptr inbounds nuw [20 x i8], ptr %43, i64 %39
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 12
   %46 = load i32, ptr %45, align 4, !tbaa !810
   %47 = and i32 %46, 2147483647
@@ -85666,7 +85606,7 @@ _ZNK7xgboost7RegTree10SplitIndexEi.exit:          ; preds = %_ZN7xgboost6common1
   %48 = getelementptr inbounds nuw i8, ptr %41, i64 40
   %49 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7xgboost16HostDeviceVectorIjE15ConstHostVectorEv(ptr noundef nonnull align 8 dereferenceable(8) %48)
   %50 = load ptr, ptr %49, align 8, !tbaa !449
-  %51 = getelementptr inbounds nuw i32, ptr %50, i64 %39
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %39
   %52 = load i32, ptr %51, align 4, !tbaa !99
   %.pre = load ptr, ptr %40, align 8, !tbaa !542
   %.not.i83 = icmp eq ptr %.pre, null
@@ -85685,7 +85625,7 @@ _ZNK7xgboost7RegTree10SplitIndexEi.exit:          ; preds = %_ZN7xgboost6common1
   %.0.i303 = phi i32 [ %47, %_ZNK7xgboost7RegTree10SplitIndexEi.exit.thread ], [ %52, %_ZNK7xgboost7RegTree10SplitIndexEi.exit ]
   %61 = getelementptr inbounds nuw i8, ptr %8, i64 160
   %62 = load ptr, ptr %61, align 8, !tbaa !536
-  %63 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %62, i64 %39
+  %63 = getelementptr inbounds nuw [20 x i8], ptr %62, i64 %39
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 12
   %65 = load i32, ptr %64, align 4, !tbaa !810
   %66 = icmp slt i32 %65, 0
@@ -85723,7 +85663,7 @@ _ZNK7xgboost7RegTree11DefaultLeftEi.exit:         ; preds = %53, %60
   unreachable
 
 _ZNK7xgboost6common4SpanIKNS_7RegTree22CategoricalSplitMatrix7SegmentELm18446744073709551615EEixEm.exit.i: ; preds = %_ZNK7xgboost7RegTree11DefaultLeftEi.exit
-  %90 = getelementptr inbounds nuw %"struct.xgboost::RegTree::CategoricalSplitMatrix::Segment", ptr %82, i64 %39
+  %90 = getelementptr inbounds nuw [16 x i8], ptr %82, i64 %39
   %.sroa.0.0.copyload.i = load i64, ptr %90, align 8, !tbaa !44
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %90, i64 8
   %.sroa.4.0.copyload.i = load i64, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !44
@@ -85759,7 +85699,7 @@ _ZNK7xgboost6common4SpanIKNS_7RegTree22CategoricalSplitMatrix7SegmentELm18446744
   unreachable
 
 _ZNK7xgboost7RegTree8NodeCatsEi.exit:             ; preds = %98
-  %104 = getelementptr inbounds nuw i32, ptr %75, i64 %.sroa.0.0.copyload.i
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %75, i64 %.sroa.0.0.copyload.i
   %105 = getelementptr inbounds nuw i8, ptr %6, i64 160
   %106 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7xgboost16HostDeviceVectorIfE15ConstHostVectorEv(ptr noundef nonnull align 8 dereferenceable(8) %105)
   %107 = getelementptr inbounds nuw i8, ptr %7, i64 40
@@ -85786,7 +85726,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
   %.029.i = phi i64 [ %.1.i, %111 ], [ 0, %.lr.ph.i.preheader ]
   %.sroa.6.028.i = phi i64 [ %112, %111 ], [ 0, %.lr.ph.i.preheader ]
   %.01927.i = phi i64 [ %.120.i, %111 ], [ 0, %.lr.ph.i.preheader ]
-  %113 = getelementptr inbounds nuw i64, ptr %14, i64 %.sroa.6.028.i
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.sroa.6.028.i
   %114 = load i64, ptr %113, align 8, !tbaa !44
   %115 = tail call noundef i32 @_ZNK7xgboost16GHistIndexMatrix9GetGindexEmm(ptr noundef nonnull align 8 dereferenceable(233) %6, i64 noundef %114, i64 noundef %110)
   %116 = icmp sgt i32 %115, -1
@@ -85795,7 +85735,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
 117:                                              ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i
   %118 = zext nneg i32 %115 to i64
   %119 = load ptr, ptr %106, align 8, !tbaa !643
-  %120 = getelementptr inbounds nuw float, ptr %119, i64 %118
+  %120 = getelementptr inbounds nuw [4 x i8], ptr %119, i64 %118
   %121 = load float, ptr %120, align 4, !tbaa !134
   br i1 %71, label %122, label %140
 
@@ -85817,7 +85757,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
   %132 = lshr i64 %131, 5
   %133 = and i32 %130, 31
   %134 = xor i32 %133, 31
-  %135 = getelementptr inbounds nuw i32, ptr %104, i64 %132
+  %135 = getelementptr inbounds nuw [4 x i8], ptr %104, i64 %132
   %136 = load i32, ptr %135, align 4, !tbaa !99
   %137 = xor i32 %136, -1
   %138 = lshr i32 %137, %134
@@ -85826,7 +85766,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
 
 140:                                              ; preds = %117
   %141 = load ptr, ptr %2, align 8, !tbaa !562
-  %142 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %141, i64 %1
+  %142 = getelementptr inbounds nuw [88 x i8], ptr %141, i64 %1
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 16
   %144 = load float, ptr %143, align 8, !tbaa !809
   %145 = fcmp ugt float %121, %144
@@ -85837,13 +85777,13 @@ _ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIhLb0ELb0ENS_4tree14CPUE
 
 _ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIhLb0ELb0ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_E_clImEEDaSO_.exit.thread.i: ; preds = %129, %140, %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIhLb0ELb0ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_E_clImEEDaSO_.exit.i, %126, %122
   %146 = add i64 %.029.i, 1
-  %147 = getelementptr inbounds nuw i64, ptr %34, i64 %.029.i
+  %147 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %.029.i
   store i64 %114, ptr %147, align 8, !tbaa !44
   br label %111
 
 148:                                              ; preds = %129, %140, %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIhLb0ELb0ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_E_clImEEDaSO_.exit.i
   %149 = add i64 %.01927.i, 1
-  %150 = getelementptr inbounds nuw i64, ptr %35, i64 %.01927.i
+  %150 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %.01927.i
   store i64 %114, ptr %150, align 8, !tbaa !44
   br label %111
 
@@ -85859,11 +85799,11 @@ _ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIhLb0ELb0ENS_4tree14CPUE
 158:                                              ; preds = %151
   %159 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %160 = load ptr, ptr %159, align 8, !tbaa !1452, !noalias !2684
-  %161 = getelementptr inbounds nuw i64, ptr %160, i64 %153
+  %161 = getelementptr inbounds nuw [8 x i8], ptr %160, i64 %153
   %162 = load i64, ptr %161, align 8, !tbaa !44, !noalias !2684
   %163 = add i32 %.0.i302, 1
   %164 = zext i32 %163 to i64
-  %165 = getelementptr inbounds nuw i64, ptr %160, i64 %164
+  %165 = getelementptr inbounds nuw [8 x i8], ptr %160, i64 %164
   %166 = load i64, ptr %165, align 8, !tbaa !44, !noalias !2684
   %167 = load ptr, ptr %7, align 8, !tbaa !1456, !noalias !2684
   %168 = icmp ne ptr %167, null
@@ -85883,7 +85823,7 @@ _ZNK7xgboost6common12ColumnMatrix11DenseColumnIhLb0EEEDaj.exit: ; preds = %158
   %176 = getelementptr inbounds nuw i8, ptr %167, i64 %175
   %177 = getelementptr inbounds nuw i8, ptr %7, i64 160
   %178 = load ptr, ptr %177, align 8, !tbaa !1457, !noalias !2684
-  %179 = getelementptr inbounds nuw i32, ptr %178, i64 %153
+  %179 = getelementptr inbounds nuw [4 x i8], ptr %178, i64 %153
   %180 = load i32, ptr %179, align 4, !tbaa !99, !noalias !2684
   %181 = getelementptr inbounds nuw i8, ptr %6, i64 192
   %182 = load i64, ptr %181, align 8, !tbaa !1443
@@ -85897,7 +85837,7 @@ _ZNK7xgboost6common12ColumnMatrix11DenseColumnIhLb0EEEDaj.exit: ; preds = %158
   %.026.i = phi i64 [ %198, %197 ], [ 0, %183 ]
   %.02125.i = phi i64 [ %.1.i92, %197 ], [ 0, %183 ]
   %.02224.i = phi i64 [ %.123.i, %197 ], [ 0, %183 ]
-  %184 = getelementptr inbounds nuw i64, ptr %14, i64 %.026.i
+  %184 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.026.i
   %185 = load i64, ptr %184, align 8, !tbaa !44
   %186 = sub i64 %185, %182
   %187 = getelementptr inbounds nuw i8, ptr %176, i64 %186
@@ -85909,13 +85849,13 @@ _ZNK7xgboost6common12ColumnMatrix11DenseColumnIhLb0EEEDaj.exit: ; preds = %158
 
 191:                                              ; preds = %.lr.ph.i90
   %192 = add i64 %.02224.i, 1
-  %193 = getelementptr inbounds nuw i64, ptr %34, i64 %.02224.i
+  %193 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %.02224.i
   store i64 %185, ptr %193, align 8, !tbaa !44
   br label %197
 
 194:                                              ; preds = %.lr.ph.i90
   %195 = add i64 %.02125.i, 1
-  %196 = getelementptr inbounds nuw i64, ptr %35, i64 %.02125.i
+  %196 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %.02125.i
   store i64 %185, ptr %196, align 8, !tbaa !44
   br label %197
 
@@ -85933,7 +85873,7 @@ _ZNK7xgboost6common12ColumnMatrix11DenseColumnIhLb0EEEDaj.exit: ; preds = %158
   %.026.i98 = phi i64 [ %214, %213 ], [ 0, %199 ]
   %.02125.i99 = phi i64 [ %.1.i103, %213 ], [ 0, %199 ]
   %.02224.i100 = phi i64 [ %.123.i102, %213 ], [ 0, %199 ]
-  %200 = getelementptr inbounds nuw i64, ptr %14, i64 %.026.i98
+  %200 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.026.i98
   %201 = load i64, ptr %200, align 8, !tbaa !44
   %202 = sub i64 %201, %182
   %203 = getelementptr inbounds nuw i8, ptr %176, i64 %202
@@ -85945,13 +85885,13 @@ _ZNK7xgboost6common12ColumnMatrix11DenseColumnIhLb0EEEDaj.exit: ; preds = %158
 
 207:                                              ; preds = %.lr.ph.i97
   %208 = add i64 %.02224.i100, 1
-  %209 = getelementptr inbounds nuw i64, ptr %34, i64 %.02224.i100
+  %209 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %.02224.i100
   store i64 %201, ptr %209, align 8, !tbaa !44
   br label %213
 
 210:                                              ; preds = %.lr.ph.i97
   %211 = add i64 %.02125.i99, 1
-  %212 = getelementptr inbounds nuw i64, ptr %35, i64 %.02125.i99
+  %212 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %.02125.i99
   store i64 %201, ptr %212, align 8, !tbaa !44
   br label %213
 
@@ -86068,11 +86008,11 @@ _ZNK7xgboost6common4SpanIKmLm18446744073709551615EE5frontEv.exit: ; preds = %_ZN
   %243 = sub i64 %240, %242
   %244 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %245 = load ptr, ptr %244, align 8, !tbaa !1452, !noalias !2689
-  %246 = getelementptr inbounds nuw i64, ptr %245, i64 %153
+  %246 = getelementptr inbounds nuw [8 x i8], ptr %245, i64 %153
   %247 = load i64, ptr %246, align 8, !tbaa !44, !noalias !2689
   %248 = add i32 %.0.i302, 1
   %249 = zext i32 %248 to i64
-  %250 = getelementptr inbounds nuw i64, ptr %245, i64 %249
+  %250 = getelementptr inbounds nuw [8 x i8], ptr %245, i64 %249
   %251 = load i64, ptr %250, align 8, !tbaa !44, !noalias !2689
   %252 = sub i64 %251, %247
   %253 = getelementptr inbounds nuw i8, ptr %7, i64 216
@@ -86093,7 +86033,7 @@ _ZNK7xgboost6common4SpanIKmLm18446744073709551615EE5frontEv.exit: ; preds = %_ZN
 _ZN7xgboost6common4SpanIKhLm18446744073709551615EEC2EPS2_m.exit.i: ; preds = %_ZNK7xgboost6common4SpanIKmLm18446744073709551615EE5frontEv.exit
   %263 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %264 = load ptr, ptr %263, align 8, !tbaa !1452, !noalias !2689
-  %265 = getelementptr inbounds nuw i64, ptr %264, i64 %247
+  %265 = getelementptr inbounds nuw [8 x i8], ptr %264, i64 %247
   %266 = icmp ne ptr %264, null
   %267 = or i1 %260, %266
   br i1 %267, label %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i, label %268, !prof !127
@@ -86105,7 +86045,7 @@ _ZN7xgboost6common4SpanIKhLm18446744073709551615EEC2EPS2_m.exit.i: ; preds = %_Z
 _ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i: ; preds = %_ZN7xgboost6common4SpanIKhLm18446744073709551615EEC2EPS2_m.exit.i
   %269 = getelementptr inbounds nuw i8, ptr %7, i64 160
   %270 = load ptr, ptr %269, align 8, !tbaa !1457, !noalias !2689
-  %271 = getelementptr inbounds nuw i32, ptr %270, i64 %153
+  %271 = getelementptr inbounds nuw [4 x i8], ptr %270, i64 %153
   %272 = load i32, ptr %271, align 4, !tbaa !99, !noalias !2689
   %273 = icmp sgt i64 %252, 0
   br i1 %273, label %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i, label %_ZNK7xgboost6common12ColumnMatrix12SparseColumnIhEEDajm.exit
@@ -86114,7 +86054,7 @@ _ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i:           ; preds = %_ZN7xgboost6common4
   %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i ], [ %265, %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i ]
   %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i ], [ %252, %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i ]
   %274 = lshr i64 %.01116.i.i.i.i, 1
-  %275 = getelementptr inbounds nuw i64, ptr %.017.i.i.i.i, i64 %274
+  %275 = getelementptr inbounds nuw [8 x i8], ptr %.017.i.i.i.i, i64 %274
   %276 = load i64, ptr %275, align 8, !tbaa !44, !noalias !2689
   %277 = icmp ult i64 %276, %243
   %278 = getelementptr inbounds nuw i8, ptr %275, i64 8
@@ -86138,7 +86078,7 @@ _ZNK7xgboost6common12ColumnMatrix12SparseColumnIhEEDajm.exit: ; preds = %_ZSt7ad
   %.029.i121 = phi i64 [ %309, %308 ], [ 0, %_ZNK7xgboost6common12ColumnMatrix12SparseColumnIhEEDajm.exit ]
   %.02128.i = phi i64 [ %.1.i125, %308 ], [ 0, %_ZNK7xgboost6common12ColumnMatrix12SparseColumnIhEEDajm.exit ]
   %.02227.i = phi i64 [ %.123.i124, %308 ], [ 0, %_ZNK7xgboost6common12ColumnMatrix12SparseColumnIhEEDajm.exit ]
-  %286 = getelementptr inbounds nuw i64, ptr %14, i64 %.029.i121
+  %286 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.029.i121
   %287 = load i64, ptr %286, align 8, !tbaa !44
   %288 = sub i64 %287, %242
   %289 = icmp ult i64 %.sroa.17.0, %252
@@ -86146,7 +86086,7 @@ _ZNK7xgboost6common12ColumnMatrix12SparseColumnIhEEDajm.exit: ; preds = %_ZSt7ad
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i120, %293
   %.sroa.17.2 = phi i64 [ %294, %293 ], [ %.sroa.17.0, %.lr.ph.i120 ]
-  %290 = getelementptr inbounds nuw i64, ptr %265, i64 %.sroa.17.2
+  %290 = getelementptr inbounds nuw [8 x i8], ptr %265, i64 %.sroa.17.2
   %291 = load i64, ptr %290, align 8, !tbaa !44
   %292 = icmp ult i64 %291, %288
   br i1 %292, label %293, label %295
@@ -86175,13 +86115,13 @@ _ZN7xgboost6common16SparseColumnIterIhEixEm.exit.i: ; preds = %293, %297, %295, 
 
 302:                                              ; preds = %_ZN7xgboost6common16SparseColumnIterIhEixEm.exit.i
   %303 = add i64 %.02227.i, 1
-  %304 = getelementptr inbounds nuw i64, ptr %34, i64 %.02227.i
+  %304 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %.02227.i
   store i64 %287, ptr %304, align 8, !tbaa !44
   br label %308
 
 305:                                              ; preds = %_ZN7xgboost6common16SparseColumnIterIhEixEm.exit.i
   %306 = add i64 %.02128.i, 1
-  %307 = getelementptr inbounds nuw i64, ptr %35, i64 %.02128.i
+  %307 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %.02128.i
   store i64 %287, ptr %307, align 8, !tbaa !44
   br label %308
 
@@ -86197,7 +86137,7 @@ _ZN7xgboost6common16SparseColumnIterIhEixEm.exit.i: ; preds = %293, %297, %295, 
   %.029.i133 = phi i64 [ %333, %332 ], [ 0, %_ZNK7xgboost6common12ColumnMatrix12SparseColumnIhEEDajm.exit ]
   %.02128.i134 = phi i64 [ %.1.i140, %332 ], [ 0, %_ZNK7xgboost6common12ColumnMatrix12SparseColumnIhEEDajm.exit ]
   %.02227.i135 = phi i64 [ %.123.i139, %332 ], [ 0, %_ZNK7xgboost6common12ColumnMatrix12SparseColumnIhEEDajm.exit ]
-  %310 = getelementptr inbounds nuw i64, ptr %14, i64 %.029.i133
+  %310 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.029.i133
   %311 = load i64, ptr %310, align 8, !tbaa !44
   %312 = sub i64 %311, %242
   %313 = icmp ult i64 %.sroa.17.3, %252
@@ -86205,7 +86145,7 @@ _ZN7xgboost6common16SparseColumnIterIhEixEm.exit.i: ; preds = %293, %297, %295, 
 
 .lr.ph.i.i146:                                    ; preds = %.lr.ph.i132, %317
   %.sroa.17.5 = phi i64 [ %318, %317 ], [ %.sroa.17.3, %.lr.ph.i132 ]
-  %314 = getelementptr inbounds nuw i64, ptr %265, i64 %.sroa.17.5
+  %314 = getelementptr inbounds nuw [8 x i8], ptr %265, i64 %.sroa.17.5
   %315 = load i64, ptr %314, align 8, !tbaa !44
   %316 = icmp ult i64 %315, %312
   br i1 %316, label %317, label %319
@@ -86234,13 +86174,13 @@ _ZN7xgboost6common16SparseColumnIterIhEixEm.exit.i136: ; preds = %317, %321, %31
 
 326:                                              ; preds = %_ZN7xgboost6common16SparseColumnIterIhEixEm.exit.i136
   %327 = add i64 %.02227.i135, 1
-  %328 = getelementptr inbounds nuw i64, ptr %34, i64 %.02227.i135
+  %328 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %.02227.i135
   store i64 %311, ptr %328, align 8, !tbaa !44
   br label %332
 
 329:                                              ; preds = %_ZN7xgboost6common16SparseColumnIterIhEixEm.exit.i136
   %330 = add i64 %.02128.i134, 1
-  %331 = getelementptr inbounds nuw i64, ptr %35, i64 %.02128.i134
+  %331 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %.02128.i134
   store i64 %311, ptr %331, align 8, !tbaa !44
   br label %332
 
@@ -86255,7 +86195,7 @@ _ZN7xgboost6common16PartitionBuilderILm2048EE20PartitionRangeKernelIZNS2_9Partit
   %.sroa.10189.0 = phi i64 [ %.1.i92, %197 ], [ %.1.i125, %308 ], [ %.1.i103, %213 ], [ %.120.i, %111 ], [ 0, %109 ], [ 0, %183 ], [ 0, %199 ], [ %.1.i140, %332 ]
   %.sroa.0188.0 = phi i64 [ %.123.i, %197 ], [ %.123.i124, %308 ], [ %.123.i102, %213 ], [ %.1.i, %111 ], [ 0, %109 ], [ 0, %183 ], [ 0, %199 ], [ %.123.i139, %332 ]
   %334 = load ptr, ptr %16, align 8, !tbaa !168
-  %335 = getelementptr inbounds nuw i64, ptr %334, i64 %17
+  %335 = getelementptr inbounds nuw [8 x i8], ptr %334, i64 %17
   %336 = load i64, ptr %335, align 8, !tbaa !44
   %337 = add i64 %336, %21
   %338 = load ptr, ptr %24, align 8, !tbaa !175
@@ -86272,7 +86212,7 @@ _ZN7xgboost6common16PartitionBuilderILm2048EE20PartitionRangeKernelIZNS2_9Partit
   unreachable
 
 _ZN7xgboost6common16PartitionBuilderILm2048EE13SetNLeftElemsEimm.exit: ; preds = %_ZN7xgboost6common16PartitionBuilderILm2048EE20PartitionRangeKernelIZNS2_9PartitionIhLb0ELb0ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS8_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmEUlT_E_EESt4pairImmENS0_4SpanISN_Lm18446744073709551615EEENST_ImLm18446744073709551615EEESV_SP_.exit
-  %345 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %339, i64 %337
+  %345 = getelementptr inbounds nuw [16 x i8], ptr %339, i64 %337
   %346 = load ptr, ptr %345, align 8, !tbaa !1314
   store i64 %.sroa.0188.0, ptr %346, align 8, !tbaa !1319
   %347 = load i64, ptr %335, align 8, !tbaa !44
@@ -86285,7 +86225,7 @@ _ZN7xgboost6common16PartitionBuilderILm2048EE13SetNLeftElemsEimm.exit: ; preds =
   unreachable
 
 _ZN7xgboost6common16PartitionBuilderILm2048EE14SetNRightElemsEimm.exit: ; preds = %_ZN7xgboost6common16PartitionBuilderILm2048EE13SetNLeftElemsEimm.exit
-  %350 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %339, i64 %348
+  %350 = getelementptr inbounds nuw [16 x i8], ptr %339, i64 %348
   %351 = load ptr, ptr %350, align 8, !tbaa !1314
   %352 = getelementptr inbounds nuw i8, ptr %351, i64 8
   store i64 %.sroa.10189.0, ptr %352, align 8, !tbaa !1323
@@ -86342,12 +86282,12 @@ define linkonce_odr void @_ZN4dmlc12OMPException3RunIZN7xgboost6common13Parallel
   %27 = load ptr, ptr %22, align 8, !tbaa !2581
   %28 = load ptr, ptr %20, align 8, !tbaa !2699
   %29 = load ptr, ptr %28, align 8, !tbaa !562
-  %30 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %29, i64 %24
+  %30 = getelementptr inbounds nuw [88 x i8], ptr %29, i64 %24
   %31 = load i32, ptr %30, align 8, !tbaa !535
   %32 = getelementptr inbounds nuw i8, ptr %27, i64 112
   %33 = sext i32 %31 to i64
   %34 = load ptr, ptr %32, align 8, !tbaa !164
-  %35 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %34, i64 %33
+  %35 = getelementptr inbounds nuw [24 x i8], ptr %34, i64 %33
   %36 = load ptr, ptr %35, align 8, !tbaa !917
   %37 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %sext.i.i = shl i64 %24, 32
@@ -86359,11 +86299,11 @@ define linkonce_odr void @_ZN4dmlc12OMPException3RunIZN7xgboost6common13Parallel
   %43 = add i64 %41, %42
   %44 = getelementptr inbounds nuw i8, ptr %27, i64 56
   %45 = load ptr, ptr %44, align 8, !tbaa !172
-  %46 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %45, i64 %43
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %45, i64 %43
   %47 = load ptr, ptr %46, align 8, !tbaa !1314
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %49 = load i64, ptr %48, align 8, !tbaa !1322
-  %50 = getelementptr inbounds nuw i64, ptr %36, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %47, i64 16416
   %52 = load i64, ptr %47, align 8, !tbaa !1319
   %53 = icmp eq i64 %52, 0
@@ -86373,11 +86313,11 @@ _ZSt8__copy_nIPKmmPmET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i.i.i: ; p
   %54 = getelementptr inbounds nuw i8, ptr %47, i64 32
   %55 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %56 = load i64, ptr %55, align 8, !tbaa !1317
-  %57 = getelementptr inbounds nuw i64, ptr %36, i64 %56
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %56
   %.idx.i.i.i.i.i = shl nuw nsw i64 %52, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %57, ptr nonnull align 8 %54, i64 %.idx.i.i.i.i.i, i1 false)
   %.pre.i.i.i = load ptr, ptr %44, align 8, !tbaa !172
-  %.phi.trans.insert.i.i.i = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %.pre.i.i.i, i64 %43
+  %.phi.trans.insert.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %.pre.i.i.i, i64 %43
   %.pre18.i.i.i = load ptr, ptr %.phi.trans.insert.i.i.i, align 8, !tbaa !1314
   br label %_ZSt6copy_nIPKmmPmET1_T_T0_S3_.exit.i.i.i
 
@@ -86607,7 +86547,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %.noexc50
 
 _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit36.i: ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i, %.noexc50
   store ptr %31, ptr %8, align 8, !tbaa !194
-  %35 = getelementptr inbounds nuw i32, ptr %31, i64 %21
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %21
   store ptr %35, ptr %25, align 8, !tbaa !545
   store ptr %35, ptr %27, align 8, !tbaa !197
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
@@ -86824,10 +86764,10 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 116:                                              ; preds = %._crit_edge35.i, %.lr.ph39.i
   %.01637.i = phi i64 [ 0, %.lr.ph39.i ], [ %119, %._crit_edge35.i ]
-  %117 = getelementptr inbounds nuw i64, ptr %107, i64 %.01637.i
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %.01637.i
   %118 = load i64, ptr %117, align 8, !tbaa !44
   %119 = add nuw i64 %.01637.i, 1
-  %120 = getelementptr inbounds nuw i64, ptr %107, i64 %119
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %119
   %121 = load i64, ptr %120, align 8, !tbaa !44
   %122 = icmp ult i64 %118, %121
   br i1 %122, label %.lr.ph.i, label %._crit_edge35.i
@@ -86840,7 +86780,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 .lr.ph.i:                                         ; preds = %116, %.lr.ph.i
   %.01528.i = phi i64 [ %129, %.lr.ph.i ], [ %118, %116 ]
   %.02327.i = phi i64 [ %128, %.lr.ph.i ], [ 0, %116 ]
-  %124 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %114, i64 %.01528.i
+  %124 = getelementptr inbounds nuw [16 x i8], ptr %114, i64 %.01528.i
   %125 = load ptr, ptr %124, align 8, !tbaa !1314
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 16
   store i64 %.02327.i, ptr %126, align 8, !tbaa !1317
@@ -86854,7 +86794,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 ._crit_edge35.i:                                  ; preds = %.lr.ph34.i, %._crit_edge.i, %116
   %.023.lcssa48.i = phi i64 [ %128, %._crit_edge.i ], [ 0, %116 ], [ %128, %.lr.ph34.i ]
   %.024.lcssa.i = phi i64 [ 0, %._crit_edge.i ], [ 0, %116 ], [ %140, %.lr.ph34.i ]
-  %132 = getelementptr inbounds nuw %"struct.std::pair.129", ptr %115, i64 %.01637.i
+  %132 = getelementptr inbounds nuw [16 x i8], ptr %115, i64 %.01637.i
   store i64 %.023.lcssa48.i, ptr %132, align 8, !tbaa !1126
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 8
   store i64 %.024.lcssa.i, ptr %133, align 8, !tbaa !1128
@@ -86865,7 +86805,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %.032.i = phi i64 [ %141, %.lr.ph34.i ], [ %.pre.i, %._crit_edge.i ]
   %.02431.i = phi i64 [ %140, %.lr.ph34.i ], [ 0, %._crit_edge.i ]
   %134 = add i64 %.02431.i, %128
-  %135 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %114, i64 %.032.i
+  %135 = getelementptr inbounds nuw [16 x i8], ptr %114, i64 %.032.i
   %136 = load ptr, ptr %135, align 8, !tbaa !1314
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 24
   store i64 %134, ptr %137, align 8, !tbaa !1322
@@ -87010,12 +86950,12 @@ define linkonce_odr void @_ZN7xgboost6common14BlockedSpace2dC2IZNS_4tree20Common
   %13 = load ptr, ptr %6, align 8, !tbaa !2701
   %14 = load ptr, ptr %2, align 8, !tbaa !2710
   %15 = load ptr, ptr %14, align 8, !tbaa !562
-  %16 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %15, i64 %.039
+  %16 = getelementptr inbounds nuw [88 x i8], ptr %15, i64 %.039
   %17 = load i32, ptr %16, align 8, !tbaa !535
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 112
   %19 = sext i32 %17 to i64
   %20 = load ptr, ptr %18, align 8, !tbaa !164
-  %21 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %20, i64 %19
+  %21 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %19
   %22 = load ptr, ptr %21, align 8, !tbaa !917
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !919
@@ -87106,7 +87046,7 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIP
   %.pre = phi ptr [ %.pre.pre, %60 ], [ %36, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i ]
   store ptr %55, ptr %5, align 8, !tbaa !168
   store ptr %59, ptr %7, align 8, !tbaa !906
-  %61 = getelementptr inbounds nuw i64, ptr %55, i64 %53
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %53
   store ptr %61, ptr %8, align 8, !tbaa !171
   br label %_ZNSt6vectorImSaImEE9push_backERKm.exit.i
 
@@ -87206,7 +87146,7 @@ _ZNSt6vectorIN7xgboost6common7Range1dESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit3
 .noexc25:                                         ; preds = %84, %_ZNSt6vectorIN7xgboost6common7Range1dESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit33.i
   store ptr %79, ptr %0, align 8, !tbaa !861
   store ptr %83, ptr %9, align 8, !tbaa !1078
-  %98 = getelementptr inbounds nuw %"class.xgboost::common::Range1d", ptr %79, i64 %77
+  %98 = getelementptr inbounds nuw [16 x i8], ptr %79, i64 %77
   store ptr %98, ptr %10, align 8, !tbaa !864
   br label %_ZN7xgboost6common14BlockedSpace2d8AddBlockEmmm.exit
 
@@ -87279,7 +87219,7 @@ define linkonce_odr void @_ZN7xgboost6common16PartitionBuilderILm2048EE4InitIZNS
   br i1 %17, label %18, label %_ZNSt6vectorISt4pairImmESaIS1_EE6resizeEm.exit
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds nuw %"struct.std::pair.129", ptr %8, i64 %2
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %2
   %.not.i.i = icmp eq ptr %7, %19
   br i1 %.not.i.i, label %_ZNSt6vectorISt4pairImmESaIS1_EE6resizeEm.exit, label %20
 
@@ -87311,7 +87251,7 @@ _ZNSt6vectorISt4pairImmESaIS1_EE6resizeEm.exit:   ; preds = %14, %16, %18, %20
   br i1 %34, label %35, label %_ZNSt6vectorImSaImEE6resizeEm.exit
 
 35:                                               ; preds = %33
-  %36 = getelementptr inbounds nuw i64, ptr %25, i64 %22
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %22
   %.not.i.i12 = icmp eq ptr %24, %36
   br i1 %.not.i.i12, label %_ZNSt6vectorImSaImEE6resizeEm.exit, label %37
 
@@ -87340,11 +87280,11 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %31, %33, %35, %37
 46:                                               ; preds = %.lr.ph, %46
   %47 = phi i64 [ 0, %.lr.ph ], [ %65, %46 ]
   %.014 = phi i64 [ 1, %.lr.ph ], [ %67, %46 ]
-  %48 = getelementptr %"struct.xgboost::tree::CPUExpandEntry", ptr %40, i64 %.014
+  %48 = getelementptr [88 x i8], ptr %40, i64 %.014
   %49 = getelementptr i8, ptr %48, i64 -88
   %50 = load i32, ptr %49, align 8, !tbaa !535
   %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %42, i64 %51
+  %52 = getelementptr inbounds nuw [24 x i8], ptr %42, i64 %51
   %53 = load ptr, ptr %52, align 8, !tbaa !917
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %55 = load ptr, ptr %54, align 8, !tbaa !919
@@ -87358,7 +87298,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %31, %33, %35, %37
   %63 = zext i1 %62 to i64
   %64 = add i64 %60, %47
   %65 = add i64 %64, %63
-  %66 = getelementptr inbounds nuw i64, ptr %38, i64 %.014
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %.014
   store i64 %65, ptr %66, align 8, !tbaa !44
   %67 = add nuw i64 %.014, 1
   %exitcond.not = icmp eq i64 %.014, %2
@@ -87386,7 +87326,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %31, %33, %35, %37
   br i1 %81, label %82, label %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit
 
 82:                                               ; preds = %80
-  %83 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %72, i64 %1
+  %83 = getelementptr inbounds nuw [16 x i8], ptr %72, i64 %1
   %.not.i.i13 = icmp eq ptr %71, %83
   br i1 %.not.i.i13, label %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i
 
@@ -89096,7 +89036,7 @@ define linkonce_odr void @_ZZN7xgboost4tree17ColumnSplitHelper9PartitionItLb0ELb
   %8 = load ptr, ptr %7, align 8, !tbaa !2720
   %9 = load ptr, ptr %0, align 8, !tbaa !2773
   %10 = load ptr, ptr %9, align 8, !tbaa !562
-  %11 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %10, i64 %1
+  %11 = getelementptr inbounds nuw [88 x i8], ptr %10, i64 %1
   %12 = load i32, ptr %11, align 8, !tbaa !535
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -89185,7 +89125,7 @@ _ZZN7xgboost4tree17ColumnSplitHelper9PartitionItLb0ELb0ENS0_14CPUExpandEntryEEEv
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %61 = load ptr, ptr %60, align 8, !tbaa !2776
   %62 = load ptr, ptr %61, align 8, !tbaa !194
-  %63 = getelementptr inbounds nuw i32, ptr %62, i64 %1
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %1
   %64 = load i32, ptr %63, align 4, !tbaa !99
   br label %65
 
@@ -89203,7 +89143,7 @@ _ZZN7xgboost4tree17ColumnSplitHelper9PartitionItLb0ELb0ENS0_14CPUExpandEntryEEEv
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 24
   %77 = sext i32 %12 to i64
   %78 = load ptr, ptr %76, align 8, !tbaa !164
-  %79 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %78, i64 %77
+  %79 = getelementptr inbounds nuw [24 x i8], ptr %78, i64 %77
   %80 = load ptr, ptr %79, align 8, !tbaa !917
   call void @_ZN7xgboost6common16PartitionBuilderILm2048EE8MaskRowsItLb0ELb0ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmPNS_17BitFieldContainerIhNS_11RBitsPolicyIhEELb0EEESS_(ptr noundef nonnull align 8 dereferenceable(80) %68, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %2, i64 %3, i32 noundef %66, ptr noundef nonnull align 8 dereferenceable(233) %70, ptr noundef nonnull align 8 dereferenceable(218) %56, ptr noundef nonnull align 8 dereferenceable(312) %73, ptr noundef %80, ptr noundef nonnull %5, ptr noundef nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -89222,7 +89162,7 @@ _ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_S4_.exit:
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx111
   %17 = sub nsw i64 %4, %3
   %18 = load ptr, ptr %2, align 8, !tbaa !562
-  %19 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %18, i64 %1
+  %19 = getelementptr inbounds nuw [88 x i8], ptr %18, i64 %1
   %20 = load i32, ptr %19, align 8, !tbaa !535
   %21 = sext i32 %20 to i64
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 304
@@ -89234,14 +89174,14 @@ _ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_S4_.exit:
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 40
   %26 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7xgboost16HostDeviceVectorIjE15ConstHostVectorEv(ptr noundef nonnull align 8 dereferenceable(8) %25)
   %27 = load ptr, ptr %26, align 8, !tbaa !449
-  %28 = getelementptr inbounds nuw i32, ptr %27, i64 %21
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %21
   %29 = load i32, ptr %28, align 4, !tbaa !99
   br label %_ZNK7xgboost7RegTree10SplitIndexEi.exit
 
 30:                                               ; preds = %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_S4_.exit
   %31 = getelementptr inbounds nuw i8, ptr %8, i64 160
   %32 = load ptr, ptr %31, align 8, !tbaa !536
-  %33 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %32, i64 %21
+  %33 = getelementptr inbounds nuw [20 x i8], ptr %32, i64 %21
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 12
   %35 = load i32, ptr %34, align 4, !tbaa !810
   %36 = and i32 %35, 2147483647
@@ -89278,7 +89218,7 @@ _ZNK7xgboost7RegTree10SplitIndexEi.exit:          ; preds = %24, %30
   unreachable
 
 _ZNK7xgboost6common4SpanIKNS_7RegTree22CategoricalSplitMatrix7SegmentELm18446744073709551615EEixEm.exit.i: ; preds = %_ZNK7xgboost7RegTree10SplitIndexEi.exit
-  %60 = getelementptr inbounds nuw %"struct.xgboost::RegTree::CategoricalSplitMatrix::Segment", ptr %52, i64 %21
+  %60 = getelementptr inbounds nuw [16 x i8], ptr %52, i64 %21
   %.sroa.0.0.copyload.i = load i64, ptr %60, align 8, !tbaa !44
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %60, i64 8
   %.sroa.4.0.copyload.i = load i64, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !44
@@ -89314,7 +89254,7 @@ _ZNK7xgboost6common4SpanIKNS_7RegTree22CategoricalSplitMatrix7SegmentELm18446744
   unreachable
 
 _ZNK7xgboost7RegTree8NodeCatsEi.exit:             ; preds = %68
-  %74 = getelementptr inbounds nuw i32, ptr %45, i64 %.sroa.0.0.copyload.i
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %.sroa.0.0.copyload.i
   %75 = getelementptr inbounds nuw i8, ptr %6, i64 160
   %76 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7xgboost16HostDeviceVectorIfE15ConstHostVectorEv(ptr noundef nonnull align 8 dereferenceable(8) %75)
   %77 = getelementptr inbounds nuw i8, ptr %7, i64 40
@@ -89361,7 +89301,7 @@ _ZNK7xgboost7RegTree8NodeCatsEi.exit:             ; preds = %68
   unreachable
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit: ; preds = %94
-  %96 = getelementptr inbounds nuw i64, ptr %16, i64 %.sroa.699.0120
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.sroa.699.0120
   %97 = load i64, ptr %96, align 8, !tbaa !44
   %98 = tail call noundef i32 @_ZNK7xgboost16GHistIndexMatrix9GetGindexEmm(ptr noundef nonnull align 8 dereferenceable(233) %6, i64 noundef %97, i64 noundef %80)
   %99 = icmp sgt i32 %98, -1
@@ -89370,7 +89310,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
 100:                                              ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit
   %101 = zext nneg i32 %98 to i64
   %102 = load ptr, ptr %76, align 8, !tbaa !643
-  %103 = getelementptr inbounds nuw float, ptr %102, i64 %101
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %102, i64 %101
   %104 = load float, ptr %103, align 4, !tbaa !134
   br i1 %41, label %105, label %112
 
@@ -89388,7 +89328,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
 
 112:                                              ; preds = %100
   %113 = load ptr, ptr %2, align 8, !tbaa !562
-  %114 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %113, i64 %1
+  %114 = getelementptr inbounds nuw [88 x i8], ptr %113, i64 %1
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 16
   %116 = load float, ptr %115, align 8, !tbaa !809
   %117 = fcmp ugt float %104, %116
@@ -89400,7 +89340,7 @@ _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit: ; preds
   %120 = lshr i64 %119, 5
   %121 = and i32 %118, 31
   %122 = xor i32 %121, 31
-  %123 = getelementptr inbounds nuw i32, ptr %74, i64 %120
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %74, i64 %120
   %124 = load i32, ptr %123, align 4, !tbaa !99
   %125 = shl nuw i32 1, %122
   %126 = and i32 %124, %125
@@ -89419,11 +89359,11 @@ _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit: ; preds
 134:                                              ; preds = %127
   %135 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %136 = load ptr, ptr %135, align 8, !tbaa !1452, !noalias !2782
-  %137 = getelementptr inbounds nuw i64, ptr %136, i64 %129
+  %137 = getelementptr inbounds nuw [8 x i8], ptr %136, i64 %129
   %138 = load i64, ptr %137, align 8, !tbaa !44, !noalias !2782
   %139 = add i32 %.0.i, 1
   %140 = zext i32 %139 to i64
-  %141 = getelementptr inbounds nuw i64, ptr %136, i64 %140
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %136, i64 %140
   %142 = load i64, ptr %141, align 8, !tbaa !44, !noalias !2782
   %143 = load ptr, ptr %7, align 8, !tbaa !1456, !noalias !2782
   %144 = icmp ne ptr %143, null
@@ -89443,7 +89383,7 @@ _ZNK7xgboost6common12ColumnMatrix11DenseColumnItLb0EEEDaj.exit: ; preds = %134
   %152 = getelementptr inbounds nuw i8, ptr %143, i64 %151
   %153 = getelementptr inbounds nuw i8, ptr %7, i64 160
   %154 = load ptr, ptr %153, align 8, !tbaa !1457, !noalias !2782
-  %155 = getelementptr inbounds nuw i32, ptr %154, i64 %129
+  %155 = getelementptr inbounds nuw [4 x i8], ptr %154, i64 %129
   %156 = load i32, ptr %155, align 4, !tbaa !99, !noalias !2782
   %157 = getelementptr inbounds nuw i8, ptr %6, i64 192
   %158 = load i64, ptr %157, align 8, !tbaa !1443
@@ -89457,10 +89397,10 @@ _ZNK7xgboost6common12ColumnMatrix11DenseColumnItLb0EEEDaj.exit: ; preds = %134
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i: ; preds = %_ZNK7xgboost6common12ColumnMatrix11DenseColumnItLb0EEEDaj.exit, %159
   %.sroa.6.021.i = phi i64 [ %160, %159 ], [ 0, %_ZNK7xgboost6common12ColumnMatrix11DenseColumnItLb0EEEDaj.exit ]
-  %161 = getelementptr inbounds nuw i64, ptr %16, i64 %.sroa.6.021.i
+  %161 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.sroa.6.021.i
   %162 = load i64, ptr %161, align 8, !tbaa !44
   %163 = sub i64 %162, %158
-  %164 = getelementptr inbounds nuw i16, ptr %152, i64 %163
+  %164 = getelementptr inbounds nuw [2 x i8], ptr %152, i64 %163
   %165 = load i16, ptr %164, align 2, !tbaa !1458
   %166 = zext i16 %165 to i32
   %167 = add nsw i32 %156, %166
@@ -89585,11 +89525,11 @@ _ZNK7xgboost6common4SpanIKmLm18446744073709551615EE5frontEv.exit: ; preds = %_ZN
   %205 = sub i64 %202, %204
   %206 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %207 = load ptr, ptr %206, align 8, !tbaa !1452, !noalias !2785
-  %208 = getelementptr inbounds nuw i64, ptr %207, i64 %129
+  %208 = getelementptr inbounds nuw [8 x i8], ptr %207, i64 %129
   %209 = load i64, ptr %208, align 8, !tbaa !44, !noalias !2785
   %210 = add i32 %.0.i, 1
   %211 = zext i32 %210 to i64
-  %212 = getelementptr inbounds nuw i64, ptr %207, i64 %211
+  %212 = getelementptr inbounds nuw [8 x i8], ptr %207, i64 %211
   %213 = load i64, ptr %212, align 8, !tbaa !44, !noalias !2785
   %214 = sub i64 %213, %209
   %215 = getelementptr inbounds nuw i8, ptr %7, i64 216
@@ -89610,7 +89550,7 @@ _ZNK7xgboost6common4SpanIKmLm18446744073709551615EE5frontEv.exit: ; preds = %_ZN
 _ZN7xgboost6common4SpanIKtLm18446744073709551615EEC2EPS2_m.exit.i: ; preds = %_ZNK7xgboost6common4SpanIKmLm18446744073709551615EE5frontEv.exit
   %225 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %226 = load ptr, ptr %225, align 8, !tbaa !1452, !noalias !2785
-  %227 = getelementptr inbounds nuw i64, ptr %226, i64 %209
+  %227 = getelementptr inbounds nuw [8 x i8], ptr %226, i64 %209
   %228 = icmp ne ptr %226, null
   %229 = or i1 %222, %228
   br i1 %229, label %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i, label %230, !prof !127
@@ -89622,7 +89562,7 @@ _ZN7xgboost6common4SpanIKtLm18446744073709551615EEC2EPS2_m.exit.i: ; preds = %_Z
 _ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i: ; preds = %_ZN7xgboost6common4SpanIKtLm18446744073709551615EEC2EPS2_m.exit.i
   %231 = getelementptr inbounds nuw i8, ptr %7, i64 160
   %232 = load ptr, ptr %231, align 8, !tbaa !1457, !noalias !2785
-  %233 = getelementptr inbounds nuw i32, ptr %232, i64 %129
+  %233 = getelementptr inbounds nuw [4 x i8], ptr %232, i64 %129
   %234 = load i32, ptr %233, align 4, !tbaa !99, !noalias !2785
   %235 = icmp sgt i64 %214, 0
   br i1 %235, label %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i, label %.lr.ph.i79
@@ -89631,7 +89571,7 @@ _ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i:           ; preds = %_ZN7xgboost6common4
   %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i ], [ %227, %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i ]
   %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i ], [ %214, %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i ]
   %236 = lshr i64 %.01116.i.i.i.i, 1
-  %237 = getelementptr inbounds nuw i64, ptr %.017.i.i.i.i, i64 %236
+  %237 = getelementptr inbounds nuw [8 x i8], ptr %.017.i.i.i.i, i64 %236
   %238 = load i64, ptr %237, align 8, !tbaa !44, !noalias !2785
   %239 = icmp ult i64 %238, %205
   %240 = getelementptr inbounds nuw i8, ptr %237, i64 8
@@ -89666,7 +89606,7 @@ _ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i:           ; preds = %_ZN7xgboost6common4
   unreachable
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i81: ; preds = %250
-  %252 = getelementptr inbounds nuw i64, ptr %16, i64 %.sroa.6.024.i
+  %252 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.sroa.6.024.i
   %253 = load i64, ptr %252, align 8, !tbaa !44
   %254 = sub i64 %253, %204
   %255 = icmp ult i64 %.sroa.13.0, %214
@@ -89674,7 +89614,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
 
 .lr.ph.i.i:                                       ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i81, %259
   %.sroa.13.2 = phi i64 [ %260, %259 ], [ %.sroa.13.0, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i81 ]
-  %256 = getelementptr inbounds nuw i64, ptr %227, i64 %.sroa.13.2
+  %256 = getelementptr inbounds nuw [8 x i8], ptr %227, i64 %.sroa.13.2
   %257 = load i64, ptr %256, align 8, !tbaa !44
   %258 = icmp ult i64 %257, %254
   br i1 %258, label %259, label %261
@@ -89689,7 +89629,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
   br i1 %262, label %263, label %_ZN7xgboost6common16SparseColumnIterItEixEm.exit.i
 
 263:                                              ; preds = %261
-  %264 = getelementptr inbounds nuw i16, ptr %220, i64 %.sroa.13.2
+  %264 = getelementptr inbounds nuw [2 x i8], ptr %220, i64 %.sroa.13.2
   %265 = load i16, ptr %264, align 2, !tbaa !1458
   %266 = zext i16 %265 to i32
   %267 = add nsw i32 %234, %266
@@ -89919,7 +89859,7 @@ define linkonce_odr void @_ZZN7xgboost6common13ParallelFor2dIZNS_4tree17ColumnSp
   %24 = load ptr, ptr %23, align 8, !tbaa !2753
   %25 = load ptr, ptr %16, align 8, !tbaa !2793
   %26 = load ptr, ptr %25, align 8, !tbaa !562
-  %27 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %26, i64 %18
+  %27 = getelementptr inbounds nuw [88 x i8], ptr %26, i64 %18
   %28 = load i32, ptr %27, align 8, !tbaa !535
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 128
   %30 = load ptr, ptr %29, align 8, !tbaa !925
@@ -89932,8 +89872,8 @@ define linkonce_odr void @_ZZN7xgboost6common13ParallelFor2dIZNS_4tree17ColumnSp
   %36 = lshr i64 %21, 11
   %37 = getelementptr inbounds nuw i8, ptr %30, i64 48
   %38 = load ptr, ptr %37, align 8, !tbaa !172
-  %39 = getelementptr %"class.std::shared_ptr.85", ptr %38, i64 %35
-  %40 = getelementptr %"class.std::shared_ptr.85", ptr %39, i64 %36
+  %39 = getelementptr [16 x i8], ptr %38, i64 %35
+  %40 = getelementptr [16 x i8], ptr %39, i64 %36
   %41 = load ptr, ptr %40, align 8, !tbaa !1314
   %42 = icmp eq ptr %41, null
   br i1 %42, label %_ZN4dmlc11LogCheck_NEIPN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoES6_EESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISD_EERKT_RKT0_.exit.i.i, label %_ZZN7xgboost4tree17ColumnSplitHelper9PartitionItLb0ELb0ENS0_14CPUExpandEntryEEEvPKNS_7ContextERKNS_6common14BlockedSpace2dEiRKNS_16GHistIndexMatrixERKNS7_12ColumnMatrixERKSt6vectorIT2_SaISI_EERKSH_IiSaIiEEPKNS_7RegTreeEENKUlmNS7_7Range1dEE0_clEmSU_.exit
@@ -89958,7 +89898,7 @@ _ZZN7xgboost4tree17ColumnSplitHelper9PartitionItLb0ELb0ENS0_14CPUExpandEntryEEEv
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 24
   %54 = sext i32 %28 to i64
   %55 = load ptr, ptr %53, align 8, !tbaa !164
-  %56 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %55, i64 %54
+  %56 = getelementptr inbounds nuw [24 x i8], ptr %55, i64 %54
   %57 = load ptr, ptr %56, align 8, !tbaa !917
   %58 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %59 = getelementptr inbounds nuw i8, ptr %24, i64 64
@@ -90163,7 +90103,7 @@ define linkonce_odr void @_ZZN7xgboost6common13ParallelFor2dIZNS_4tree20CommonRo
   %24 = load ptr, ptr %23, align 8, !tbaa !2706
   %25 = load ptr, ptr %16, align 8, !tbaa !2802
   %26 = load ptr, ptr %25, align 8, !tbaa !562
-  %27 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %26, i64 %18
+  %27 = getelementptr inbounds nuw [88 x i8], ptr %26, i64 %18
   %28 = load i32, ptr %27, align 8, !tbaa !535
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %sext.i = shl i64 %18, 32
@@ -90174,8 +90114,8 @@ define linkonce_odr void @_ZZN7xgboost6common13ParallelFor2dIZNS_4tree20CommonRo
   %34 = lshr i64 %21, 11
   %35 = getelementptr inbounds nuw i8, ptr %24, i64 56
   %36 = load ptr, ptr %35, align 8, !tbaa !172
-  %37 = getelementptr %"class.std::shared_ptr.85", ptr %36, i64 %33
-  %38 = getelementptr %"class.std::shared_ptr.85", ptr %37, i64 %34
+  %37 = getelementptr [16 x i8], ptr %36, i64 %33
+  %38 = getelementptr [16 x i8], ptr %37, i64 %34
   %39 = load ptr, ptr %38, align 8, !tbaa !1314
   %40 = icmp eq ptr %39, null
   br i1 %40, label %_ZN4dmlc11LogCheck_NEIPN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoES6_EESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISD_EERKT_RKT0_.exit.i.i, label %_ZN7xgboost6common16PartitionBuilderILm2048EE15AllocateForTaskEm.exit.i
@@ -90197,7 +90137,7 @@ _ZN7xgboost6common16PartitionBuilderILm2048EE15AllocateForTaskEm.exit.i: ; preds
   %47 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %48 = load ptr, ptr %47, align 8, !tbaa !2804
   %49 = load ptr, ptr %48, align 8, !tbaa !194
-  %50 = getelementptr inbounds nuw i32, ptr %49, i64 %18
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %18
   %51 = load i32, ptr %50, align 4, !tbaa !99
   br label %_ZZN7xgboost4tree20CommonRowPartitioner14UpdatePositionItLb0ELb0ENS0_14CPUExpandEntryEEEvPKNS_7ContextERKNS_16GHistIndexMatrixERKNS_6common12ColumnMatrixERKSt6vectorIT2_SaISF_EEPKNS_7RegTreeEENKUlmNSA_7Range1dEE_clEmSN_.exit
 
@@ -90213,7 +90153,7 @@ _ZZN7xgboost4tree20CommonRowPartitioner14UpdatePositionItLb0ELb0ENS0_14CPUExpand
   %60 = getelementptr inbounds nuw i8, ptr %24, i64 112
   %61 = sext i32 %28 to i64
   %62 = load ptr, ptr %60, align 8, !tbaa !164
-  %63 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %62, i64 %61
+  %63 = getelementptr inbounds nuw [24 x i8], ptr %62, i64 %61
   %64 = load ptr, ptr %63, align 8, !tbaa !917
   tail call void @_ZN7xgboost6common16PartitionBuilderILm2048EE9PartitionItLb0ELb0ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKm(ptr noundef nonnull align 8 dereferenceable(80) %53, i64 noundef %18, ptr noundef nonnull align 8 dereferenceable(24) %54, i64 %21, i64 %22, i32 noundef %52, ptr noundef nonnull align 8 dereferenceable(233) %56, ptr noundef nonnull align 8 dereferenceable(218) %43, ptr noundef nonnull align 8 dereferenceable(312) %59, ptr noundef %64)
   %65 = add nuw i64 %.011, 1
@@ -90235,7 +90175,7 @@ _ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_S4_.exit:
   %sext = shl i64 %1, 32
   %17 = ashr exact i64 %sext, 32
   %18 = load ptr, ptr %16, align 8, !tbaa !168
-  %19 = getelementptr inbounds nuw i64, ptr %18, i64 %17
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %17
   %20 = load i64, ptr %19, align 8, !tbaa !44
   %21 = lshr i64 %3, 11
   %22 = add i64 %20, %21
@@ -90255,12 +90195,12 @@ _ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_S4_.exit:
   unreachable
 
 _ZN7xgboost6common16PartitionBuilderILm2048EE14GetRightBufferEimm.exit: ; preds = %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_S4_.exit
-  %32 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %26, i64 %22
+  %32 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %22
   %33 = load ptr, ptr %32, align 8, !tbaa !1314
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 16416
   %36 = load ptr, ptr %2, align 8, !tbaa !562
-  %37 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %36, i64 %1
+  %37 = getelementptr inbounds nuw [88 x i8], ptr %36, i64 %1
   %38 = load i32, ptr %37, align 8, !tbaa !535
   %39 = sext i32 %38 to i64
   %40 = getelementptr inbounds nuw i8, ptr %8, i64 304
@@ -90271,7 +90211,7 @@ _ZN7xgboost6common16PartitionBuilderILm2048EE14GetRightBufferEimm.exit: ; preds 
 _ZNK7xgboost7RegTree10SplitIndexEi.exit.thread:   ; preds = %_ZN7xgboost6common16PartitionBuilderILm2048EE14GetRightBufferEimm.exit
   %42 = getelementptr inbounds nuw i8, ptr %8, i64 160
   %43 = load ptr, ptr %42, align 8, !tbaa !536
-  %44 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %43, i64 %39
+  %44 = getelementptr inbounds nuw [20 x i8], ptr %43, i64 %39
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 12
   %46 = load i32, ptr %45, align 4, !tbaa !810
   %47 = and i32 %46, 2147483647
@@ -90281,7 +90221,7 @@ _ZNK7xgboost7RegTree10SplitIndexEi.exit:          ; preds = %_ZN7xgboost6common1
   %48 = getelementptr inbounds nuw i8, ptr %41, i64 40
   %49 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7xgboost16HostDeviceVectorIjE15ConstHostVectorEv(ptr noundef nonnull align 8 dereferenceable(8) %48)
   %50 = load ptr, ptr %49, align 8, !tbaa !449
-  %51 = getelementptr inbounds nuw i32, ptr %50, i64 %39
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %39
   %52 = load i32, ptr %51, align 4, !tbaa !99
   %.pre = load ptr, ptr %40, align 8, !tbaa !542
   %.not.i83 = icmp eq ptr %.pre, null
@@ -90300,7 +90240,7 @@ _ZNK7xgboost7RegTree10SplitIndexEi.exit:          ; preds = %_ZN7xgboost6common1
   %.0.i303 = phi i32 [ %47, %_ZNK7xgboost7RegTree10SplitIndexEi.exit.thread ], [ %52, %_ZNK7xgboost7RegTree10SplitIndexEi.exit ]
   %61 = getelementptr inbounds nuw i8, ptr %8, i64 160
   %62 = load ptr, ptr %61, align 8, !tbaa !536
-  %63 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %62, i64 %39
+  %63 = getelementptr inbounds nuw [20 x i8], ptr %62, i64 %39
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 12
   %65 = load i32, ptr %64, align 4, !tbaa !810
   %66 = icmp slt i32 %65, 0
@@ -90338,7 +90278,7 @@ _ZNK7xgboost7RegTree11DefaultLeftEi.exit:         ; preds = %53, %60
   unreachable
 
 _ZNK7xgboost6common4SpanIKNS_7RegTree22CategoricalSplitMatrix7SegmentELm18446744073709551615EEixEm.exit.i: ; preds = %_ZNK7xgboost7RegTree11DefaultLeftEi.exit
-  %90 = getelementptr inbounds nuw %"struct.xgboost::RegTree::CategoricalSplitMatrix::Segment", ptr %82, i64 %39
+  %90 = getelementptr inbounds nuw [16 x i8], ptr %82, i64 %39
   %.sroa.0.0.copyload.i = load i64, ptr %90, align 8, !tbaa !44
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %90, i64 8
   %.sroa.4.0.copyload.i = load i64, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !44
@@ -90374,7 +90314,7 @@ _ZNK7xgboost6common4SpanIKNS_7RegTree22CategoricalSplitMatrix7SegmentELm18446744
   unreachable
 
 _ZNK7xgboost7RegTree8NodeCatsEi.exit:             ; preds = %98
-  %104 = getelementptr inbounds nuw i32, ptr %75, i64 %.sroa.0.0.copyload.i
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %75, i64 %.sroa.0.0.copyload.i
   %105 = getelementptr inbounds nuw i8, ptr %6, i64 160
   %106 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7xgboost16HostDeviceVectorIfE15ConstHostVectorEv(ptr noundef nonnull align 8 dereferenceable(8) %105)
   %107 = getelementptr inbounds nuw i8, ptr %7, i64 40
@@ -90401,7 +90341,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
   %.029.i = phi i64 [ %.1.i, %111 ], [ 0, %.lr.ph.i.preheader ]
   %.sroa.6.028.i = phi i64 [ %112, %111 ], [ 0, %.lr.ph.i.preheader ]
   %.01927.i = phi i64 [ %.120.i, %111 ], [ 0, %.lr.ph.i.preheader ]
-  %113 = getelementptr inbounds nuw i64, ptr %14, i64 %.sroa.6.028.i
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.sroa.6.028.i
   %114 = load i64, ptr %113, align 8, !tbaa !44
   %115 = tail call noundef i32 @_ZNK7xgboost16GHistIndexMatrix9GetGindexEmm(ptr noundef nonnull align 8 dereferenceable(233) %6, i64 noundef %114, i64 noundef %110)
   %116 = icmp sgt i32 %115, -1
@@ -90410,7 +90350,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
 117:                                              ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i
   %118 = zext nneg i32 %115 to i64
   %119 = load ptr, ptr %106, align 8, !tbaa !643
-  %120 = getelementptr inbounds nuw float, ptr %119, i64 %118
+  %120 = getelementptr inbounds nuw [4 x i8], ptr %119, i64 %118
   %121 = load float, ptr %120, align 4, !tbaa !134
   br i1 %71, label %122, label %140
 
@@ -90432,7 +90372,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
   %132 = lshr i64 %131, 5
   %133 = and i32 %130, 31
   %134 = xor i32 %133, 31
-  %135 = getelementptr inbounds nuw i32, ptr %104, i64 %132
+  %135 = getelementptr inbounds nuw [4 x i8], ptr %104, i64 %132
   %136 = load i32, ptr %135, align 4, !tbaa !99
   %137 = xor i32 %136, -1
   %138 = lshr i32 %137, %134
@@ -90441,7 +90381,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
 
 140:                                              ; preds = %117
   %141 = load ptr, ptr %2, align 8, !tbaa !562
-  %142 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %141, i64 %1
+  %142 = getelementptr inbounds nuw [88 x i8], ptr %141, i64 %1
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 16
   %144 = load float, ptr %143, align 8, !tbaa !809
   %145 = fcmp ugt float %121, %144
@@ -90452,13 +90392,13 @@ _ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionItLb0ELb0ENS_4tree14CPUE
 
 _ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionItLb0ELb0ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_E_clImEEDaSO_.exit.thread.i: ; preds = %129, %140, %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionItLb0ELb0ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_E_clImEEDaSO_.exit.i, %126, %122
   %146 = add i64 %.029.i, 1
-  %147 = getelementptr inbounds nuw i64, ptr %34, i64 %.029.i
+  %147 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %.029.i
   store i64 %114, ptr %147, align 8, !tbaa !44
   br label %111
 
 148:                                              ; preds = %129, %140, %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionItLb0ELb0ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_E_clImEEDaSO_.exit.i
   %149 = add i64 %.01927.i, 1
-  %150 = getelementptr inbounds nuw i64, ptr %35, i64 %.01927.i
+  %150 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %.01927.i
   store i64 %114, ptr %150, align 8, !tbaa !44
   br label %111
 
@@ -90474,11 +90414,11 @@ _ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionItLb0ELb0ENS_4tree14CPUE
 158:                                              ; preds = %151
   %159 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %160 = load ptr, ptr %159, align 8, !tbaa !1452, !noalias !2811
-  %161 = getelementptr inbounds nuw i64, ptr %160, i64 %153
+  %161 = getelementptr inbounds nuw [8 x i8], ptr %160, i64 %153
   %162 = load i64, ptr %161, align 8, !tbaa !44, !noalias !2811
   %163 = add i32 %.0.i302, 1
   %164 = zext i32 %163 to i64
-  %165 = getelementptr inbounds nuw i64, ptr %160, i64 %164
+  %165 = getelementptr inbounds nuw [8 x i8], ptr %160, i64 %164
   %166 = load i64, ptr %165, align 8, !tbaa !44, !noalias !2811
   %167 = load ptr, ptr %7, align 8, !tbaa !1456, !noalias !2811
   %168 = icmp ne ptr %167, null
@@ -90498,7 +90438,7 @@ _ZNK7xgboost6common12ColumnMatrix11DenseColumnItLb0EEEDaj.exit: ; preds = %158
   %176 = getelementptr inbounds nuw i8, ptr %167, i64 %175
   %177 = getelementptr inbounds nuw i8, ptr %7, i64 160
   %178 = load ptr, ptr %177, align 8, !tbaa !1457, !noalias !2811
-  %179 = getelementptr inbounds nuw i32, ptr %178, i64 %153
+  %179 = getelementptr inbounds nuw [4 x i8], ptr %178, i64 %153
   %180 = load i32, ptr %179, align 4, !tbaa !99, !noalias !2811
   %181 = getelementptr inbounds nuw i8, ptr %6, i64 192
   %182 = load i64, ptr %181, align 8, !tbaa !1443
@@ -90512,10 +90452,10 @@ _ZNK7xgboost6common12ColumnMatrix11DenseColumnItLb0EEEDaj.exit: ; preds = %158
   %.026.i = phi i64 [ %198, %197 ], [ 0, %183 ]
   %.02125.i = phi i64 [ %.1.i92, %197 ], [ 0, %183 ]
   %.02224.i = phi i64 [ %.123.i, %197 ], [ 0, %183 ]
-  %184 = getelementptr inbounds nuw i64, ptr %14, i64 %.026.i
+  %184 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.026.i
   %185 = load i64, ptr %184, align 8, !tbaa !44
   %186 = sub i64 %185, %182
-  %187 = getelementptr inbounds nuw i16, ptr %176, i64 %186
+  %187 = getelementptr inbounds nuw [2 x i8], ptr %176, i64 %186
   %188 = load i16, ptr %187, align 2, !tbaa !1458
   %189 = zext i16 %188 to i32
   %190 = add nsw i32 %180, %189
@@ -90524,13 +90464,13 @@ _ZNK7xgboost6common12ColumnMatrix11DenseColumnItLb0EEEDaj.exit: ; preds = %158
 
 191:                                              ; preds = %.lr.ph.i90
   %192 = add i64 %.02224.i, 1
-  %193 = getelementptr inbounds nuw i64, ptr %34, i64 %.02224.i
+  %193 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %.02224.i
   store i64 %185, ptr %193, align 8, !tbaa !44
   br label %197
 
 194:                                              ; preds = %.lr.ph.i90
   %195 = add i64 %.02125.i, 1
-  %196 = getelementptr inbounds nuw i64, ptr %35, i64 %.02125.i
+  %196 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %.02125.i
   store i64 %185, ptr %196, align 8, !tbaa !44
   br label %197
 
@@ -90548,10 +90488,10 @@ _ZNK7xgboost6common12ColumnMatrix11DenseColumnItLb0EEEDaj.exit: ; preds = %158
   %.026.i98 = phi i64 [ %214, %213 ], [ 0, %199 ]
   %.02125.i99 = phi i64 [ %.1.i103, %213 ], [ 0, %199 ]
   %.02224.i100 = phi i64 [ %.123.i102, %213 ], [ 0, %199 ]
-  %200 = getelementptr inbounds nuw i64, ptr %14, i64 %.026.i98
+  %200 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.026.i98
   %201 = load i64, ptr %200, align 8, !tbaa !44
   %202 = sub i64 %201, %182
-  %203 = getelementptr inbounds nuw i16, ptr %176, i64 %202
+  %203 = getelementptr inbounds nuw [2 x i8], ptr %176, i64 %202
   %204 = load i16, ptr %203, align 2, !tbaa !1458
   %205 = zext i16 %204 to i32
   %206 = add nsw i32 %180, %205
@@ -90560,13 +90500,13 @@ _ZNK7xgboost6common12ColumnMatrix11DenseColumnItLb0EEEDaj.exit: ; preds = %158
 
 207:                                              ; preds = %.lr.ph.i97
   %208 = add i64 %.02224.i100, 1
-  %209 = getelementptr inbounds nuw i64, ptr %34, i64 %.02224.i100
+  %209 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %.02224.i100
   store i64 %201, ptr %209, align 8, !tbaa !44
   br label %213
 
 210:                                              ; preds = %.lr.ph.i97
   %211 = add i64 %.02125.i99, 1
-  %212 = getelementptr inbounds nuw i64, ptr %35, i64 %.02125.i99
+  %212 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %.02125.i99
   store i64 %201, ptr %212, align 8, !tbaa !44
   br label %213
 
@@ -90683,11 +90623,11 @@ _ZNK7xgboost6common4SpanIKmLm18446744073709551615EE5frontEv.exit: ; preds = %_ZN
   %243 = sub i64 %240, %242
   %244 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %245 = load ptr, ptr %244, align 8, !tbaa !1452, !noalias !2816
-  %246 = getelementptr inbounds nuw i64, ptr %245, i64 %153
+  %246 = getelementptr inbounds nuw [8 x i8], ptr %245, i64 %153
   %247 = load i64, ptr %246, align 8, !tbaa !44, !noalias !2816
   %248 = add i32 %.0.i302, 1
   %249 = zext i32 %248 to i64
-  %250 = getelementptr inbounds nuw i64, ptr %245, i64 %249
+  %250 = getelementptr inbounds nuw [8 x i8], ptr %245, i64 %249
   %251 = load i64, ptr %250, align 8, !tbaa !44, !noalias !2816
   %252 = sub i64 %251, %247
   %253 = getelementptr inbounds nuw i8, ptr %7, i64 216
@@ -90708,7 +90648,7 @@ _ZNK7xgboost6common4SpanIKmLm18446744073709551615EE5frontEv.exit: ; preds = %_ZN
 _ZN7xgboost6common4SpanIKtLm18446744073709551615EEC2EPS2_m.exit.i: ; preds = %_ZNK7xgboost6common4SpanIKmLm18446744073709551615EE5frontEv.exit
   %263 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %264 = load ptr, ptr %263, align 8, !tbaa !1452, !noalias !2816
-  %265 = getelementptr inbounds nuw i64, ptr %264, i64 %247
+  %265 = getelementptr inbounds nuw [8 x i8], ptr %264, i64 %247
   %266 = icmp ne ptr %264, null
   %267 = or i1 %260, %266
   br i1 %267, label %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i, label %268, !prof !127
@@ -90720,7 +90660,7 @@ _ZN7xgboost6common4SpanIKtLm18446744073709551615EEC2EPS2_m.exit.i: ; preds = %_Z
 _ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i: ; preds = %_ZN7xgboost6common4SpanIKtLm18446744073709551615EEC2EPS2_m.exit.i
   %269 = getelementptr inbounds nuw i8, ptr %7, i64 160
   %270 = load ptr, ptr %269, align 8, !tbaa !1457, !noalias !2816
-  %271 = getelementptr inbounds nuw i32, ptr %270, i64 %153
+  %271 = getelementptr inbounds nuw [4 x i8], ptr %270, i64 %153
   %272 = load i32, ptr %271, align 4, !tbaa !99, !noalias !2816
   %273 = icmp sgt i64 %252, 0
   br i1 %273, label %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i, label %_ZNK7xgboost6common12ColumnMatrix12SparseColumnItEEDajm.exit
@@ -90729,7 +90669,7 @@ _ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i:           ; preds = %_ZN7xgboost6common4
   %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i ], [ %265, %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i ]
   %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i ], [ %252, %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i ]
   %274 = lshr i64 %.01116.i.i.i.i, 1
-  %275 = getelementptr inbounds nuw i64, ptr %.017.i.i.i.i, i64 %274
+  %275 = getelementptr inbounds nuw [8 x i8], ptr %.017.i.i.i.i, i64 %274
   %276 = load i64, ptr %275, align 8, !tbaa !44, !noalias !2816
   %277 = icmp ult i64 %276, %243
   %278 = getelementptr inbounds nuw i8, ptr %275, i64 8
@@ -90753,7 +90693,7 @@ _ZNK7xgboost6common12ColumnMatrix12SparseColumnItEEDajm.exit: ; preds = %_ZSt7ad
   %.029.i121 = phi i64 [ %309, %308 ], [ 0, %_ZNK7xgboost6common12ColumnMatrix12SparseColumnItEEDajm.exit ]
   %.02128.i = phi i64 [ %.1.i125, %308 ], [ 0, %_ZNK7xgboost6common12ColumnMatrix12SparseColumnItEEDajm.exit ]
   %.02227.i = phi i64 [ %.123.i124, %308 ], [ 0, %_ZNK7xgboost6common12ColumnMatrix12SparseColumnItEEDajm.exit ]
-  %286 = getelementptr inbounds nuw i64, ptr %14, i64 %.029.i121
+  %286 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.029.i121
   %287 = load i64, ptr %286, align 8, !tbaa !44
   %288 = sub i64 %287, %242
   %289 = icmp ult i64 %.sroa.17.0, %252
@@ -90761,7 +90701,7 @@ _ZNK7xgboost6common12ColumnMatrix12SparseColumnItEEDajm.exit: ; preds = %_ZSt7ad
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i120, %293
   %.sroa.17.2 = phi i64 [ %294, %293 ], [ %.sroa.17.0, %.lr.ph.i120 ]
-  %290 = getelementptr inbounds nuw i64, ptr %265, i64 %.sroa.17.2
+  %290 = getelementptr inbounds nuw [8 x i8], ptr %265, i64 %.sroa.17.2
   %291 = load i64, ptr %290, align 8, !tbaa !44
   %292 = icmp ult i64 %291, %288
   br i1 %292, label %293, label %295
@@ -90776,7 +90716,7 @@ _ZNK7xgboost6common12ColumnMatrix12SparseColumnItEEDajm.exit: ; preds = %_ZSt7ad
   br i1 %296, label %297, label %_ZN7xgboost6common16SparseColumnIterItEixEm.exit.i
 
 297:                                              ; preds = %295
-  %298 = getelementptr inbounds nuw i16, ptr %258, i64 %.sroa.17.2
+  %298 = getelementptr inbounds nuw [2 x i8], ptr %258, i64 %.sroa.17.2
   %299 = load i16, ptr %298, align 2, !tbaa !1458
   %300 = zext i16 %299 to i32
   %301 = add nsw i32 %272, %300
@@ -90790,13 +90730,13 @@ _ZN7xgboost6common16SparseColumnIterItEixEm.exit.i: ; preds = %293, %297, %295, 
 
 302:                                              ; preds = %_ZN7xgboost6common16SparseColumnIterItEixEm.exit.i
   %303 = add i64 %.02227.i, 1
-  %304 = getelementptr inbounds nuw i64, ptr %34, i64 %.02227.i
+  %304 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %.02227.i
   store i64 %287, ptr %304, align 8, !tbaa !44
   br label %308
 
 305:                                              ; preds = %_ZN7xgboost6common16SparseColumnIterItEixEm.exit.i
   %306 = add i64 %.02128.i, 1
-  %307 = getelementptr inbounds nuw i64, ptr %35, i64 %.02128.i
+  %307 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %.02128.i
   store i64 %287, ptr %307, align 8, !tbaa !44
   br label %308
 
@@ -90812,7 +90752,7 @@ _ZN7xgboost6common16SparseColumnIterItEixEm.exit.i: ; preds = %293, %297, %295, 
   %.029.i133 = phi i64 [ %333, %332 ], [ 0, %_ZNK7xgboost6common12ColumnMatrix12SparseColumnItEEDajm.exit ]
   %.02128.i134 = phi i64 [ %.1.i140, %332 ], [ 0, %_ZNK7xgboost6common12ColumnMatrix12SparseColumnItEEDajm.exit ]
   %.02227.i135 = phi i64 [ %.123.i139, %332 ], [ 0, %_ZNK7xgboost6common12ColumnMatrix12SparseColumnItEEDajm.exit ]
-  %310 = getelementptr inbounds nuw i64, ptr %14, i64 %.029.i133
+  %310 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.029.i133
   %311 = load i64, ptr %310, align 8, !tbaa !44
   %312 = sub i64 %311, %242
   %313 = icmp ult i64 %.sroa.17.3, %252
@@ -90820,7 +90760,7 @@ _ZN7xgboost6common16SparseColumnIterItEixEm.exit.i: ; preds = %293, %297, %295, 
 
 .lr.ph.i.i146:                                    ; preds = %.lr.ph.i132, %317
   %.sroa.17.5 = phi i64 [ %318, %317 ], [ %.sroa.17.3, %.lr.ph.i132 ]
-  %314 = getelementptr inbounds nuw i64, ptr %265, i64 %.sroa.17.5
+  %314 = getelementptr inbounds nuw [8 x i8], ptr %265, i64 %.sroa.17.5
   %315 = load i64, ptr %314, align 8, !tbaa !44
   %316 = icmp ult i64 %315, %312
   br i1 %316, label %317, label %319
@@ -90835,7 +90775,7 @@ _ZN7xgboost6common16SparseColumnIterItEixEm.exit.i: ; preds = %293, %297, %295, 
   br i1 %320, label %321, label %_ZN7xgboost6common16SparseColumnIterItEixEm.exit.i136
 
 321:                                              ; preds = %319
-  %322 = getelementptr inbounds nuw i16, ptr %258, i64 %.sroa.17.5
+  %322 = getelementptr inbounds nuw [2 x i8], ptr %258, i64 %.sroa.17.5
   %323 = load i16, ptr %322, align 2, !tbaa !1458
   %324 = zext i16 %323 to i32
   %325 = add nsw i32 %272, %324
@@ -90849,13 +90789,13 @@ _ZN7xgboost6common16SparseColumnIterItEixEm.exit.i136: ; preds = %317, %321, %31
 
 326:                                              ; preds = %_ZN7xgboost6common16SparseColumnIterItEixEm.exit.i136
   %327 = add i64 %.02227.i135, 1
-  %328 = getelementptr inbounds nuw i64, ptr %34, i64 %.02227.i135
+  %328 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %.02227.i135
   store i64 %311, ptr %328, align 8, !tbaa !44
   br label %332
 
 329:                                              ; preds = %_ZN7xgboost6common16SparseColumnIterItEixEm.exit.i136
   %330 = add i64 %.02128.i134, 1
-  %331 = getelementptr inbounds nuw i64, ptr %35, i64 %.02128.i134
+  %331 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %.02128.i134
   store i64 %311, ptr %331, align 8, !tbaa !44
   br label %332
 
@@ -90870,7 +90810,7 @@ _ZN7xgboost6common16PartitionBuilderILm2048EE20PartitionRangeKernelIZNS2_9Partit
   %.sroa.10189.0 = phi i64 [ %.1.i92, %197 ], [ %.1.i125, %308 ], [ %.1.i103, %213 ], [ %.120.i, %111 ], [ 0, %109 ], [ 0, %183 ], [ 0, %199 ], [ %.1.i140, %332 ]
   %.sroa.0188.0 = phi i64 [ %.123.i, %197 ], [ %.123.i124, %308 ], [ %.123.i102, %213 ], [ %.1.i, %111 ], [ 0, %109 ], [ 0, %183 ], [ 0, %199 ], [ %.123.i139, %332 ]
   %334 = load ptr, ptr %16, align 8, !tbaa !168
-  %335 = getelementptr inbounds nuw i64, ptr %334, i64 %17
+  %335 = getelementptr inbounds nuw [8 x i8], ptr %334, i64 %17
   %336 = load i64, ptr %335, align 8, !tbaa !44
   %337 = add i64 %336, %21
   %338 = load ptr, ptr %24, align 8, !tbaa !175
@@ -90887,7 +90827,7 @@ _ZN7xgboost6common16PartitionBuilderILm2048EE20PartitionRangeKernelIZNS2_9Partit
   unreachable
 
 _ZN7xgboost6common16PartitionBuilderILm2048EE13SetNLeftElemsEimm.exit: ; preds = %_ZN7xgboost6common16PartitionBuilderILm2048EE20PartitionRangeKernelIZNS2_9PartitionItLb0ELb0ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS8_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmEUlT_E_EESt4pairImmENS0_4SpanISN_Lm18446744073709551615EEENST_ImLm18446744073709551615EEESV_SP_.exit
-  %345 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %339, i64 %337
+  %345 = getelementptr inbounds nuw [16 x i8], ptr %339, i64 %337
   %346 = load ptr, ptr %345, align 8, !tbaa !1314
   store i64 %.sroa.0188.0, ptr %346, align 8, !tbaa !1319
   %347 = load i64, ptr %335, align 8, !tbaa !44
@@ -90900,7 +90840,7 @@ _ZN7xgboost6common16PartitionBuilderILm2048EE13SetNLeftElemsEimm.exit: ; preds =
   unreachable
 
 _ZN7xgboost6common16PartitionBuilderILm2048EE14SetNRightElemsEimm.exit: ; preds = %_ZN7xgboost6common16PartitionBuilderILm2048EE13SetNLeftElemsEimm.exit
-  %350 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %339, i64 %348
+  %350 = getelementptr inbounds nuw [16 x i8], ptr %339, i64 %348
   %351 = load ptr, ptr %350, align 8, !tbaa !1314
   %352 = getelementptr inbounds nuw i8, ptr %351, i64 8
   store i64 %.sroa.10189.0, ptr %352, align 8, !tbaa !1323
@@ -90957,12 +90897,12 @@ define linkonce_odr void @_ZN4dmlc12OMPException3RunIZN7xgboost6common13Parallel
   %27 = load ptr, ptr %22, align 8, !tbaa !2708
   %28 = load ptr, ptr %20, align 8, !tbaa !2826
   %29 = load ptr, ptr %28, align 8, !tbaa !562
-  %30 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %29, i64 %24
+  %30 = getelementptr inbounds nuw [88 x i8], ptr %29, i64 %24
   %31 = load i32, ptr %30, align 8, !tbaa !535
   %32 = getelementptr inbounds nuw i8, ptr %27, i64 112
   %33 = sext i32 %31 to i64
   %34 = load ptr, ptr %32, align 8, !tbaa !164
-  %35 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %34, i64 %33
+  %35 = getelementptr inbounds nuw [24 x i8], ptr %34, i64 %33
   %36 = load ptr, ptr %35, align 8, !tbaa !917
   %37 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %sext.i.i = shl i64 %24, 32
@@ -90974,11 +90914,11 @@ define linkonce_odr void @_ZN4dmlc12OMPException3RunIZN7xgboost6common13Parallel
   %43 = add i64 %41, %42
   %44 = getelementptr inbounds nuw i8, ptr %27, i64 56
   %45 = load ptr, ptr %44, align 8, !tbaa !172
-  %46 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %45, i64 %43
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %45, i64 %43
   %47 = load ptr, ptr %46, align 8, !tbaa !1314
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %49 = load i64, ptr %48, align 8, !tbaa !1322
-  %50 = getelementptr inbounds nuw i64, ptr %36, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %47, i64 16416
   %52 = load i64, ptr %47, align 8, !tbaa !1319
   %53 = icmp eq i64 %52, 0
@@ -90988,11 +90928,11 @@ _ZSt8__copy_nIPKmmPmET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i.i.i: ; p
   %54 = getelementptr inbounds nuw i8, ptr %47, i64 32
   %55 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %56 = load i64, ptr %55, align 8, !tbaa !1317
-  %57 = getelementptr inbounds nuw i64, ptr %36, i64 %56
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %56
   %.idx.i.i.i.i.i = shl nuw nsw i64 %52, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %57, ptr nonnull align 8 %54, i64 %.idx.i.i.i.i.i, i1 false)
   %.pre.i.i.i = load ptr, ptr %44, align 8, !tbaa !172
-  %.phi.trans.insert.i.i.i = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %.pre.i.i.i, i64 %43
+  %.phi.trans.insert.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %.pre.i.i.i, i64 %43
   %.pre18.i.i.i = load ptr, ptr %.phi.trans.insert.i.i.i, align 8, !tbaa !1314
   br label %_ZSt6copy_nIPKmmPmET1_T_T0_S3_.exit.i.i.i
 
@@ -91222,7 +91162,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %.noexc50
 
 _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit36.i: ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i, %.noexc50
   store ptr %31, ptr %8, align 8, !tbaa !194
-  %35 = getelementptr inbounds nuw i32, ptr %31, i64 %21
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %21
   store ptr %35, ptr %25, align 8, !tbaa !545
   store ptr %35, ptr %27, align 8, !tbaa !197
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
@@ -91439,10 +91379,10 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 116:                                              ; preds = %._crit_edge35.i, %.lr.ph39.i
   %.01637.i = phi i64 [ 0, %.lr.ph39.i ], [ %119, %._crit_edge35.i ]
-  %117 = getelementptr inbounds nuw i64, ptr %107, i64 %.01637.i
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %.01637.i
   %118 = load i64, ptr %117, align 8, !tbaa !44
   %119 = add nuw i64 %.01637.i, 1
-  %120 = getelementptr inbounds nuw i64, ptr %107, i64 %119
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %119
   %121 = load i64, ptr %120, align 8, !tbaa !44
   %122 = icmp ult i64 %118, %121
   br i1 %122, label %.lr.ph.i, label %._crit_edge35.i
@@ -91455,7 +91395,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 .lr.ph.i:                                         ; preds = %116, %.lr.ph.i
   %.01528.i = phi i64 [ %129, %.lr.ph.i ], [ %118, %116 ]
   %.02327.i = phi i64 [ %128, %.lr.ph.i ], [ 0, %116 ]
-  %124 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %114, i64 %.01528.i
+  %124 = getelementptr inbounds nuw [16 x i8], ptr %114, i64 %.01528.i
   %125 = load ptr, ptr %124, align 8, !tbaa !1314
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 16
   store i64 %.02327.i, ptr %126, align 8, !tbaa !1317
@@ -91469,7 +91409,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 ._crit_edge35.i:                                  ; preds = %.lr.ph34.i, %._crit_edge.i, %116
   %.023.lcssa48.i = phi i64 [ %128, %._crit_edge.i ], [ 0, %116 ], [ %128, %.lr.ph34.i ]
   %.024.lcssa.i = phi i64 [ 0, %._crit_edge.i ], [ 0, %116 ], [ %140, %.lr.ph34.i ]
-  %132 = getelementptr inbounds nuw %"struct.std::pair.129", ptr %115, i64 %.01637.i
+  %132 = getelementptr inbounds nuw [16 x i8], ptr %115, i64 %.01637.i
   store i64 %.023.lcssa48.i, ptr %132, align 8, !tbaa !1126
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 8
   store i64 %.024.lcssa.i, ptr %133, align 8, !tbaa !1128
@@ -91480,7 +91420,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %.032.i = phi i64 [ %141, %.lr.ph34.i ], [ %.pre.i, %._crit_edge.i ]
   %.02431.i = phi i64 [ %140, %.lr.ph34.i ], [ 0, %._crit_edge.i ]
   %134 = add i64 %.02431.i, %128
-  %135 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %114, i64 %.032.i
+  %135 = getelementptr inbounds nuw [16 x i8], ptr %114, i64 %.032.i
   %136 = load ptr, ptr %135, align 8, !tbaa !1314
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 24
   store i64 %134, ptr %137, align 8, !tbaa !1322
@@ -91625,12 +91565,12 @@ define linkonce_odr void @_ZN7xgboost6common14BlockedSpace2dC2IZNS_4tree20Common
   %13 = load ptr, ptr %6, align 8, !tbaa !2828
   %14 = load ptr, ptr %2, align 8, !tbaa !2837
   %15 = load ptr, ptr %14, align 8, !tbaa !562
-  %16 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %15, i64 %.039
+  %16 = getelementptr inbounds nuw [88 x i8], ptr %15, i64 %.039
   %17 = load i32, ptr %16, align 8, !tbaa !535
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 112
   %19 = sext i32 %17 to i64
   %20 = load ptr, ptr %18, align 8, !tbaa !164
-  %21 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %20, i64 %19
+  %21 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %19
   %22 = load ptr, ptr %21, align 8, !tbaa !917
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !919
@@ -91721,7 +91661,7 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIP
   %.pre = phi ptr [ %.pre.pre, %60 ], [ %36, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i ]
   store ptr %55, ptr %5, align 8, !tbaa !168
   store ptr %59, ptr %7, align 8, !tbaa !906
-  %61 = getelementptr inbounds nuw i64, ptr %55, i64 %53
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %53
   store ptr %61, ptr %8, align 8, !tbaa !171
   br label %_ZNSt6vectorImSaImEE9push_backERKm.exit.i
 
@@ -91821,7 +91761,7 @@ _ZNSt6vectorIN7xgboost6common7Range1dESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit3
 .noexc25:                                         ; preds = %84, %_ZNSt6vectorIN7xgboost6common7Range1dESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit33.i
   store ptr %79, ptr %0, align 8, !tbaa !861
   store ptr %83, ptr %9, align 8, !tbaa !1078
-  %98 = getelementptr inbounds nuw %"class.xgboost::common::Range1d", ptr %79, i64 %77
+  %98 = getelementptr inbounds nuw [16 x i8], ptr %79, i64 %77
   store ptr %98, ptr %10, align 8, !tbaa !864
   br label %_ZN7xgboost6common14BlockedSpace2d8AddBlockEmmm.exit
 
@@ -91894,7 +91834,7 @@ define linkonce_odr void @_ZN7xgboost6common16PartitionBuilderILm2048EE4InitIZNS
   br i1 %17, label %18, label %_ZNSt6vectorISt4pairImmESaIS1_EE6resizeEm.exit
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds nuw %"struct.std::pair.129", ptr %8, i64 %2
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %2
   %.not.i.i = icmp eq ptr %7, %19
   br i1 %.not.i.i, label %_ZNSt6vectorISt4pairImmESaIS1_EE6resizeEm.exit, label %20
 
@@ -91926,7 +91866,7 @@ _ZNSt6vectorISt4pairImmESaIS1_EE6resizeEm.exit:   ; preds = %14, %16, %18, %20
   br i1 %34, label %35, label %_ZNSt6vectorImSaImEE6resizeEm.exit
 
 35:                                               ; preds = %33
-  %36 = getelementptr inbounds nuw i64, ptr %25, i64 %22
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %22
   %.not.i.i12 = icmp eq ptr %24, %36
   br i1 %.not.i.i12, label %_ZNSt6vectorImSaImEE6resizeEm.exit, label %37
 
@@ -91955,11 +91895,11 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %31, %33, %35, %37
 46:                                               ; preds = %.lr.ph, %46
   %47 = phi i64 [ 0, %.lr.ph ], [ %65, %46 ]
   %.014 = phi i64 [ 1, %.lr.ph ], [ %67, %46 ]
-  %48 = getelementptr %"struct.xgboost::tree::CPUExpandEntry", ptr %40, i64 %.014
+  %48 = getelementptr [88 x i8], ptr %40, i64 %.014
   %49 = getelementptr i8, ptr %48, i64 -88
   %50 = load i32, ptr %49, align 8, !tbaa !535
   %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %42, i64 %51
+  %52 = getelementptr inbounds nuw [24 x i8], ptr %42, i64 %51
   %53 = load ptr, ptr %52, align 8, !tbaa !917
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %55 = load ptr, ptr %54, align 8, !tbaa !919
@@ -91973,7 +91913,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %31, %33, %35, %37
   %63 = zext i1 %62 to i64
   %64 = add i64 %60, %47
   %65 = add i64 %64, %63
-  %66 = getelementptr inbounds nuw i64, ptr %38, i64 %.014
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %.014
   store i64 %65, ptr %66, align 8, !tbaa !44
   %67 = add nuw i64 %.014, 1
   %exitcond.not = icmp eq i64 %.014, %2
@@ -92001,7 +91941,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %31, %33, %35, %37
   br i1 %81, label %82, label %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit
 
 82:                                               ; preds = %80
-  %83 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %72, i64 %1
+  %83 = getelementptr inbounds nuw [16 x i8], ptr %72, i64 %1
   %.not.i.i13 = icmp eq ptr %71, %83
   br i1 %.not.i.i13, label %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i
 
@@ -93711,7 +93651,7 @@ define linkonce_odr void @_ZZN7xgboost4tree17ColumnSplitHelper9PartitionIjLb0ELb
   %8 = load ptr, ptr %7, align 8, !tbaa !2847
   %9 = load ptr, ptr %0, align 8, !tbaa !2900
   %10 = load ptr, ptr %9, align 8, !tbaa !562
-  %11 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %10, i64 %1
+  %11 = getelementptr inbounds nuw [88 x i8], ptr %10, i64 %1
   %12 = load i32, ptr %11, align 8, !tbaa !535
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -93800,7 +93740,7 @@ _ZZN7xgboost4tree17ColumnSplitHelper9PartitionIjLb0ELb0ENS0_14CPUExpandEntryEEEv
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %61 = load ptr, ptr %60, align 8, !tbaa !2903
   %62 = load ptr, ptr %61, align 8, !tbaa !194
-  %63 = getelementptr inbounds nuw i32, ptr %62, i64 %1
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %1
   %64 = load i32, ptr %63, align 4, !tbaa !99
   br label %65
 
@@ -93818,7 +93758,7 @@ _ZZN7xgboost4tree17ColumnSplitHelper9PartitionIjLb0ELb0ENS0_14CPUExpandEntryEEEv
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 24
   %77 = sext i32 %12 to i64
   %78 = load ptr, ptr %76, align 8, !tbaa !164
-  %79 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %78, i64 %77
+  %79 = getelementptr inbounds nuw [24 x i8], ptr %78, i64 %77
   %80 = load ptr, ptr %79, align 8, !tbaa !917
   call void @_ZN7xgboost6common16PartitionBuilderILm2048EE8MaskRowsIjLb0ELb0ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmPNS_17BitFieldContainerIhNS_11RBitsPolicyIhEELb0EEESS_(ptr noundef nonnull align 8 dereferenceable(80) %68, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %2, i64 %3, i32 noundef %66, ptr noundef nonnull align 8 dereferenceable(233) %70, ptr noundef nonnull align 8 dereferenceable(218) %56, ptr noundef nonnull align 8 dereferenceable(312) %73, ptr noundef %80, ptr noundef nonnull %5, ptr noundef nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -93837,7 +93777,7 @@ _ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_S4_.exit:
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx111
   %17 = sub nsw i64 %4, %3
   %18 = load ptr, ptr %2, align 8, !tbaa !562
-  %19 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %18, i64 %1
+  %19 = getelementptr inbounds nuw [88 x i8], ptr %18, i64 %1
   %20 = load i32, ptr %19, align 8, !tbaa !535
   %21 = sext i32 %20 to i64
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 304
@@ -93849,14 +93789,14 @@ _ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_S4_.exit:
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 40
   %26 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7xgboost16HostDeviceVectorIjE15ConstHostVectorEv(ptr noundef nonnull align 8 dereferenceable(8) %25)
   %27 = load ptr, ptr %26, align 8, !tbaa !449
-  %28 = getelementptr inbounds nuw i32, ptr %27, i64 %21
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %21
   %29 = load i32, ptr %28, align 4, !tbaa !99
   br label %_ZNK7xgboost7RegTree10SplitIndexEi.exit
 
 30:                                               ; preds = %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_S4_.exit
   %31 = getelementptr inbounds nuw i8, ptr %8, i64 160
   %32 = load ptr, ptr %31, align 8, !tbaa !536
-  %33 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %32, i64 %21
+  %33 = getelementptr inbounds nuw [20 x i8], ptr %32, i64 %21
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 12
   %35 = load i32, ptr %34, align 4, !tbaa !810
   %36 = and i32 %35, 2147483647
@@ -93893,7 +93833,7 @@ _ZNK7xgboost7RegTree10SplitIndexEi.exit:          ; preds = %24, %30
   unreachable
 
 _ZNK7xgboost6common4SpanIKNS_7RegTree22CategoricalSplitMatrix7SegmentELm18446744073709551615EEixEm.exit.i: ; preds = %_ZNK7xgboost7RegTree10SplitIndexEi.exit
-  %60 = getelementptr inbounds nuw %"struct.xgboost::RegTree::CategoricalSplitMatrix::Segment", ptr %52, i64 %21
+  %60 = getelementptr inbounds nuw [16 x i8], ptr %52, i64 %21
   %.sroa.0.0.copyload.i = load i64, ptr %60, align 8, !tbaa !44
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %60, i64 8
   %.sroa.4.0.copyload.i = load i64, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !44
@@ -93929,7 +93869,7 @@ _ZNK7xgboost6common4SpanIKNS_7RegTree22CategoricalSplitMatrix7SegmentELm18446744
   unreachable
 
 _ZNK7xgboost7RegTree8NodeCatsEi.exit:             ; preds = %68
-  %74 = getelementptr inbounds nuw i32, ptr %45, i64 %.sroa.0.0.copyload.i
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %.sroa.0.0.copyload.i
   %75 = getelementptr inbounds nuw i8, ptr %6, i64 160
   %76 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7xgboost16HostDeviceVectorIfE15ConstHostVectorEv(ptr noundef nonnull align 8 dereferenceable(8) %75)
   %77 = getelementptr inbounds nuw i8, ptr %7, i64 40
@@ -93976,7 +93916,7 @@ _ZNK7xgboost7RegTree8NodeCatsEi.exit:             ; preds = %68
   unreachable
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit: ; preds = %94
-  %96 = getelementptr inbounds nuw i64, ptr %16, i64 %.sroa.699.0120
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.sroa.699.0120
   %97 = load i64, ptr %96, align 8, !tbaa !44
   %98 = tail call noundef i32 @_ZNK7xgboost16GHistIndexMatrix9GetGindexEmm(ptr noundef nonnull align 8 dereferenceable(233) %6, i64 noundef %97, i64 noundef %80)
   %99 = icmp sgt i32 %98, -1
@@ -93985,7 +93925,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
 100:                                              ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit
   %101 = zext nneg i32 %98 to i64
   %102 = load ptr, ptr %76, align 8, !tbaa !643
-  %103 = getelementptr inbounds nuw float, ptr %102, i64 %101
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %102, i64 %101
   %104 = load float, ptr %103, align 4, !tbaa !134
   br i1 %41, label %105, label %112
 
@@ -94003,7 +93943,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
 
 112:                                              ; preds = %100
   %113 = load ptr, ptr %2, align 8, !tbaa !562
-  %114 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %113, i64 %1
+  %114 = getelementptr inbounds nuw [88 x i8], ptr %113, i64 %1
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 16
   %116 = load float, ptr %115, align 8, !tbaa !809
   %117 = fcmp ugt float %104, %116
@@ -94015,7 +93955,7 @@ _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit: ; preds
   %120 = lshr i64 %119, 5
   %121 = and i32 %118, 31
   %122 = xor i32 %121, 31
-  %123 = getelementptr inbounds nuw i32, ptr %74, i64 %120
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %74, i64 %120
   %124 = load i32, ptr %123, align 4, !tbaa !99
   %125 = shl nuw i32 1, %122
   %126 = and i32 %124, %125
@@ -94034,11 +93974,11 @@ _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit: ; preds
 134:                                              ; preds = %127
   %135 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %136 = load ptr, ptr %135, align 8, !tbaa !1452, !noalias !2909
-  %137 = getelementptr inbounds nuw i64, ptr %136, i64 %129
+  %137 = getelementptr inbounds nuw [8 x i8], ptr %136, i64 %129
   %138 = load i64, ptr %137, align 8, !tbaa !44, !noalias !2909
   %139 = add i32 %.0.i, 1
   %140 = zext i32 %139 to i64
-  %141 = getelementptr inbounds nuw i64, ptr %136, i64 %140
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %136, i64 %140
   %142 = load i64, ptr %141, align 8, !tbaa !44, !noalias !2909
   %143 = load ptr, ptr %7, align 8, !tbaa !1456, !noalias !2909
   %144 = icmp ne ptr %143, null
@@ -94058,7 +93998,7 @@ _ZNK7xgboost6common12ColumnMatrix11DenseColumnIjLb0EEEDaj.exit: ; preds = %134
   %152 = getelementptr inbounds nuw i8, ptr %143, i64 %151
   %153 = getelementptr inbounds nuw i8, ptr %7, i64 160
   %154 = load ptr, ptr %153, align 8, !tbaa !1457, !noalias !2909
-  %155 = getelementptr inbounds nuw i32, ptr %154, i64 %129
+  %155 = getelementptr inbounds nuw [4 x i8], ptr %154, i64 %129
   %156 = load i32, ptr %155, align 4, !tbaa !99, !noalias !2909
   %157 = getelementptr inbounds nuw i8, ptr %6, i64 192
   %158 = load i64, ptr %157, align 8, !tbaa !1443
@@ -94072,10 +94012,10 @@ _ZNK7xgboost6common12ColumnMatrix11DenseColumnIjLb0EEEDaj.exit: ; preds = %134
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i: ; preds = %_ZNK7xgboost6common12ColumnMatrix11DenseColumnIjLb0EEEDaj.exit, %159
   %.sroa.6.021.i = phi i64 [ %160, %159 ], [ 0, %_ZNK7xgboost6common12ColumnMatrix11DenseColumnIjLb0EEEDaj.exit ]
-  %161 = getelementptr inbounds nuw i64, ptr %16, i64 %.sroa.6.021.i
+  %161 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.sroa.6.021.i
   %162 = load i64, ptr %161, align 8, !tbaa !44
   %163 = sub i64 %162, %158
-  %164 = getelementptr inbounds nuw i32, ptr %152, i64 %163
+  %164 = getelementptr inbounds nuw [4 x i8], ptr %152, i64 %163
   %165 = load i32, ptr %164, align 4, !tbaa !99
   %166 = add nsw i32 %165, %156
   %.not19.i = icmp sgt i32 %166, %5
@@ -94199,11 +94139,11 @@ _ZNK7xgboost6common4SpanIKmLm18446744073709551615EE5frontEv.exit: ; preds = %_ZN
   %204 = sub i64 %201, %203
   %205 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %206 = load ptr, ptr %205, align 8, !tbaa !1452, !noalias !2912
-  %207 = getelementptr inbounds nuw i64, ptr %206, i64 %129
+  %207 = getelementptr inbounds nuw [8 x i8], ptr %206, i64 %129
   %208 = load i64, ptr %207, align 8, !tbaa !44, !noalias !2912
   %209 = add i32 %.0.i, 1
   %210 = zext i32 %209 to i64
-  %211 = getelementptr inbounds nuw i64, ptr %206, i64 %210
+  %211 = getelementptr inbounds nuw [8 x i8], ptr %206, i64 %210
   %212 = load i64, ptr %211, align 8, !tbaa !44, !noalias !2912
   %213 = sub i64 %212, %208
   %214 = getelementptr inbounds nuw i8, ptr %7, i64 216
@@ -94224,7 +94164,7 @@ _ZNK7xgboost6common4SpanIKmLm18446744073709551615EE5frontEv.exit: ; preds = %_ZN
 _ZN7xgboost6common4SpanIKjLm18446744073709551615EEC2EPS2_m.exit.i: ; preds = %_ZNK7xgboost6common4SpanIKmLm18446744073709551615EE5frontEv.exit
   %224 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %225 = load ptr, ptr %224, align 8, !tbaa !1452, !noalias !2912
-  %226 = getelementptr inbounds nuw i64, ptr %225, i64 %208
+  %226 = getelementptr inbounds nuw [8 x i8], ptr %225, i64 %208
   %227 = icmp ne ptr %225, null
   %228 = or i1 %221, %227
   br i1 %228, label %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i, label %229, !prof !127
@@ -94236,7 +94176,7 @@ _ZN7xgboost6common4SpanIKjLm18446744073709551615EEC2EPS2_m.exit.i: ; preds = %_Z
 _ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i: ; preds = %_ZN7xgboost6common4SpanIKjLm18446744073709551615EEC2EPS2_m.exit.i
   %230 = getelementptr inbounds nuw i8, ptr %7, i64 160
   %231 = load ptr, ptr %230, align 8, !tbaa !1457, !noalias !2912
-  %232 = getelementptr inbounds nuw i32, ptr %231, i64 %129
+  %232 = getelementptr inbounds nuw [4 x i8], ptr %231, i64 %129
   %233 = load i32, ptr %232, align 4, !tbaa !99, !noalias !2912
   %234 = icmp sgt i64 %213, 0
   br i1 %234, label %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i, label %.lr.ph.i79
@@ -94245,7 +94185,7 @@ _ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i:           ; preds = %_ZN7xgboost6common4
   %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i ], [ %226, %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i ]
   %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i ], [ %213, %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i ]
   %235 = lshr i64 %.01116.i.i.i.i, 1
-  %236 = getelementptr inbounds nuw i64, ptr %.017.i.i.i.i, i64 %235
+  %236 = getelementptr inbounds nuw [8 x i8], ptr %.017.i.i.i.i, i64 %235
   %237 = load i64, ptr %236, align 8, !tbaa !44, !noalias !2912
   %238 = icmp ult i64 %237, %204
   %239 = getelementptr inbounds nuw i8, ptr %236, i64 8
@@ -94280,7 +94220,7 @@ _ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i:           ; preds = %_ZN7xgboost6common4
   unreachable
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i81: ; preds = %249
-  %251 = getelementptr inbounds nuw i64, ptr %16, i64 %.sroa.6.024.i
+  %251 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.sroa.6.024.i
   %252 = load i64, ptr %251, align 8, !tbaa !44
   %253 = sub i64 %252, %203
   %254 = icmp ult i64 %.sroa.13.0, %213
@@ -94288,7 +94228,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
 
 .lr.ph.i.i:                                       ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i81, %258
   %.sroa.13.2 = phi i64 [ %259, %258 ], [ %.sroa.13.0, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i81 ]
-  %255 = getelementptr inbounds nuw i64, ptr %226, i64 %.sroa.13.2
+  %255 = getelementptr inbounds nuw [8 x i8], ptr %226, i64 %.sroa.13.2
   %256 = load i64, ptr %255, align 8, !tbaa !44
   %257 = icmp ult i64 %256, %253
   br i1 %257, label %258, label %260
@@ -94303,7 +94243,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
   br i1 %261, label %262, label %_ZN7xgboost6common16SparseColumnIterIjEixEm.exit.i
 
 262:                                              ; preds = %260
-  %263 = getelementptr inbounds nuw i32, ptr %219, i64 %.sroa.13.2
+  %263 = getelementptr inbounds nuw [4 x i8], ptr %219, i64 %.sroa.13.2
   %264 = load i32, ptr %263, align 4, !tbaa !99
   %265 = add nsw i32 %264, %233
   br label %_ZN7xgboost6common16SparseColumnIterIjEixEm.exit.i
@@ -94532,7 +94472,7 @@ define linkonce_odr void @_ZZN7xgboost6common13ParallelFor2dIZNS_4tree17ColumnSp
   %24 = load ptr, ptr %23, align 8, !tbaa !2880
   %25 = load ptr, ptr %16, align 8, !tbaa !2920
   %26 = load ptr, ptr %25, align 8, !tbaa !562
-  %27 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %26, i64 %18
+  %27 = getelementptr inbounds nuw [88 x i8], ptr %26, i64 %18
   %28 = load i32, ptr %27, align 8, !tbaa !535
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 128
   %30 = load ptr, ptr %29, align 8, !tbaa !925
@@ -94545,8 +94485,8 @@ define linkonce_odr void @_ZZN7xgboost6common13ParallelFor2dIZNS_4tree17ColumnSp
   %36 = lshr i64 %21, 11
   %37 = getelementptr inbounds nuw i8, ptr %30, i64 48
   %38 = load ptr, ptr %37, align 8, !tbaa !172
-  %39 = getelementptr %"class.std::shared_ptr.85", ptr %38, i64 %35
-  %40 = getelementptr %"class.std::shared_ptr.85", ptr %39, i64 %36
+  %39 = getelementptr [16 x i8], ptr %38, i64 %35
+  %40 = getelementptr [16 x i8], ptr %39, i64 %36
   %41 = load ptr, ptr %40, align 8, !tbaa !1314
   %42 = icmp eq ptr %41, null
   br i1 %42, label %_ZN4dmlc11LogCheck_NEIPN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoES6_EESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISD_EERKT_RKT0_.exit.i.i, label %_ZZN7xgboost4tree17ColumnSplitHelper9PartitionIjLb0ELb0ENS0_14CPUExpandEntryEEEvPKNS_7ContextERKNS_6common14BlockedSpace2dEiRKNS_16GHistIndexMatrixERKNS7_12ColumnMatrixERKSt6vectorIT2_SaISI_EERKSH_IiSaIiEEPKNS_7RegTreeEENKUlmNS7_7Range1dEE0_clEmSU_.exit
@@ -94571,7 +94511,7 @@ _ZZN7xgboost4tree17ColumnSplitHelper9PartitionIjLb0ELb0ENS0_14CPUExpandEntryEEEv
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 24
   %54 = sext i32 %28 to i64
   %55 = load ptr, ptr %53, align 8, !tbaa !164
-  %56 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %55, i64 %54
+  %56 = getelementptr inbounds nuw [24 x i8], ptr %55, i64 %54
   %57 = load ptr, ptr %56, align 8, !tbaa !917
   %58 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %59 = getelementptr inbounds nuw i8, ptr %24, i64 64
@@ -94776,7 +94716,7 @@ define linkonce_odr void @_ZZN7xgboost6common13ParallelFor2dIZNS_4tree20CommonRo
   %24 = load ptr, ptr %23, align 8, !tbaa !2833
   %25 = load ptr, ptr %16, align 8, !tbaa !2929
   %26 = load ptr, ptr %25, align 8, !tbaa !562
-  %27 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %26, i64 %18
+  %27 = getelementptr inbounds nuw [88 x i8], ptr %26, i64 %18
   %28 = load i32, ptr %27, align 8, !tbaa !535
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %sext.i = shl i64 %18, 32
@@ -94787,8 +94727,8 @@ define linkonce_odr void @_ZZN7xgboost6common13ParallelFor2dIZNS_4tree20CommonRo
   %34 = lshr i64 %21, 11
   %35 = getelementptr inbounds nuw i8, ptr %24, i64 56
   %36 = load ptr, ptr %35, align 8, !tbaa !172
-  %37 = getelementptr %"class.std::shared_ptr.85", ptr %36, i64 %33
-  %38 = getelementptr %"class.std::shared_ptr.85", ptr %37, i64 %34
+  %37 = getelementptr [16 x i8], ptr %36, i64 %33
+  %38 = getelementptr [16 x i8], ptr %37, i64 %34
   %39 = load ptr, ptr %38, align 8, !tbaa !1314
   %40 = icmp eq ptr %39, null
   br i1 %40, label %_ZN4dmlc11LogCheck_NEIPN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoES6_EESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISD_EERKT_RKT0_.exit.i.i, label %_ZN7xgboost6common16PartitionBuilderILm2048EE15AllocateForTaskEm.exit.i
@@ -94810,7 +94750,7 @@ _ZN7xgboost6common16PartitionBuilderILm2048EE15AllocateForTaskEm.exit.i: ; preds
   %47 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %48 = load ptr, ptr %47, align 8, !tbaa !2931
   %49 = load ptr, ptr %48, align 8, !tbaa !194
-  %50 = getelementptr inbounds nuw i32, ptr %49, i64 %18
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %18
   %51 = load i32, ptr %50, align 4, !tbaa !99
   br label %_ZZN7xgboost4tree20CommonRowPartitioner14UpdatePositionIjLb0ELb0ENS0_14CPUExpandEntryEEEvPKNS_7ContextERKNS_16GHistIndexMatrixERKNS_6common12ColumnMatrixERKSt6vectorIT2_SaISF_EEPKNS_7RegTreeEENKUlmNSA_7Range1dEE_clEmSN_.exit
 
@@ -94826,7 +94766,7 @@ _ZZN7xgboost4tree20CommonRowPartitioner14UpdatePositionIjLb0ELb0ENS0_14CPUExpand
   %60 = getelementptr inbounds nuw i8, ptr %24, i64 112
   %61 = sext i32 %28 to i64
   %62 = load ptr, ptr %60, align 8, !tbaa !164
-  %63 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %62, i64 %61
+  %63 = getelementptr inbounds nuw [24 x i8], ptr %62, i64 %61
   %64 = load ptr, ptr %63, align 8, !tbaa !917
   tail call void @_ZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIjLb0ELb0ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKm(ptr noundef nonnull align 8 dereferenceable(80) %53, i64 noundef %18, ptr noundef nonnull align 8 dereferenceable(24) %54, i64 %21, i64 %22, i32 noundef %52, ptr noundef nonnull align 8 dereferenceable(233) %56, ptr noundef nonnull align 8 dereferenceable(218) %43, ptr noundef nonnull align 8 dereferenceable(312) %59, ptr noundef %64)
   %65 = add nuw i64 %.011, 1
@@ -94848,7 +94788,7 @@ _ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_S4_.exit:
   %sext = shl i64 %1, 32
   %17 = ashr exact i64 %sext, 32
   %18 = load ptr, ptr %16, align 8, !tbaa !168
-  %19 = getelementptr inbounds nuw i64, ptr %18, i64 %17
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %17
   %20 = load i64, ptr %19, align 8, !tbaa !44
   %21 = lshr i64 %3, 11
   %22 = add i64 %20, %21
@@ -94868,12 +94808,12 @@ _ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_S4_.exit:
   unreachable
 
 _ZN7xgboost6common16PartitionBuilderILm2048EE14GetRightBufferEimm.exit: ; preds = %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_S4_.exit
-  %32 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %26, i64 %22
+  %32 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %22
   %33 = load ptr, ptr %32, align 8, !tbaa !1314
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 16416
   %36 = load ptr, ptr %2, align 8, !tbaa !562
-  %37 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %36, i64 %1
+  %37 = getelementptr inbounds nuw [88 x i8], ptr %36, i64 %1
   %38 = load i32, ptr %37, align 8, !tbaa !535
   %39 = sext i32 %38 to i64
   %40 = getelementptr inbounds nuw i8, ptr %8, i64 304
@@ -94884,7 +94824,7 @@ _ZN7xgboost6common16PartitionBuilderILm2048EE14GetRightBufferEimm.exit: ; preds 
 _ZNK7xgboost7RegTree10SplitIndexEi.exit.thread:   ; preds = %_ZN7xgboost6common16PartitionBuilderILm2048EE14GetRightBufferEimm.exit
   %42 = getelementptr inbounds nuw i8, ptr %8, i64 160
   %43 = load ptr, ptr %42, align 8, !tbaa !536
-  %44 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %43, i64 %39
+  %44 = getelementptr inbounds nuw [20 x i8], ptr %43, i64 %39
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 12
   %46 = load i32, ptr %45, align 4, !tbaa !810
   %47 = and i32 %46, 2147483647
@@ -94894,7 +94834,7 @@ _ZNK7xgboost7RegTree10SplitIndexEi.exit:          ; preds = %_ZN7xgboost6common1
   %48 = getelementptr inbounds nuw i8, ptr %41, i64 40
   %49 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7xgboost16HostDeviceVectorIjE15ConstHostVectorEv(ptr noundef nonnull align 8 dereferenceable(8) %48)
   %50 = load ptr, ptr %49, align 8, !tbaa !449
-  %51 = getelementptr inbounds nuw i32, ptr %50, i64 %39
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %39
   %52 = load i32, ptr %51, align 4, !tbaa !99
   %.pre = load ptr, ptr %40, align 8, !tbaa !542
   %.not.i83 = icmp eq ptr %.pre, null
@@ -94913,7 +94853,7 @@ _ZNK7xgboost7RegTree10SplitIndexEi.exit:          ; preds = %_ZN7xgboost6common1
   %.0.i303 = phi i32 [ %47, %_ZNK7xgboost7RegTree10SplitIndexEi.exit.thread ], [ %52, %_ZNK7xgboost7RegTree10SplitIndexEi.exit ]
   %61 = getelementptr inbounds nuw i8, ptr %8, i64 160
   %62 = load ptr, ptr %61, align 8, !tbaa !536
-  %63 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %62, i64 %39
+  %63 = getelementptr inbounds nuw [20 x i8], ptr %62, i64 %39
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 12
   %65 = load i32, ptr %64, align 4, !tbaa !810
   %66 = icmp slt i32 %65, 0
@@ -94951,7 +94891,7 @@ _ZNK7xgboost7RegTree11DefaultLeftEi.exit:         ; preds = %53, %60
   unreachable
 
 _ZNK7xgboost6common4SpanIKNS_7RegTree22CategoricalSplitMatrix7SegmentELm18446744073709551615EEixEm.exit.i: ; preds = %_ZNK7xgboost7RegTree11DefaultLeftEi.exit
-  %90 = getelementptr inbounds nuw %"struct.xgboost::RegTree::CategoricalSplitMatrix::Segment", ptr %82, i64 %39
+  %90 = getelementptr inbounds nuw [16 x i8], ptr %82, i64 %39
   %.sroa.0.0.copyload.i = load i64, ptr %90, align 8, !tbaa !44
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %90, i64 8
   %.sroa.4.0.copyload.i = load i64, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !44
@@ -94987,7 +94927,7 @@ _ZNK7xgboost6common4SpanIKNS_7RegTree22CategoricalSplitMatrix7SegmentELm18446744
   unreachable
 
 _ZNK7xgboost7RegTree8NodeCatsEi.exit:             ; preds = %98
-  %104 = getelementptr inbounds nuw i32, ptr %75, i64 %.sroa.0.0.copyload.i
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %75, i64 %.sroa.0.0.copyload.i
   %105 = getelementptr inbounds nuw i8, ptr %6, i64 160
   %106 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7xgboost16HostDeviceVectorIfE15ConstHostVectorEv(ptr noundef nonnull align 8 dereferenceable(8) %105)
   %107 = getelementptr inbounds nuw i8, ptr %7, i64 40
@@ -95014,7 +94954,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
   %.029.i = phi i64 [ %.1.i, %111 ], [ 0, %.lr.ph.i.preheader ]
   %.sroa.6.028.i = phi i64 [ %112, %111 ], [ 0, %.lr.ph.i.preheader ]
   %.01927.i = phi i64 [ %.120.i, %111 ], [ 0, %.lr.ph.i.preheader ]
-  %113 = getelementptr inbounds nuw i64, ptr %14, i64 %.sroa.6.028.i
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.sroa.6.028.i
   %114 = load i64, ptr %113, align 8, !tbaa !44
   %115 = tail call noundef i32 @_ZNK7xgboost16GHistIndexMatrix9GetGindexEmm(ptr noundef nonnull align 8 dereferenceable(233) %6, i64 noundef %114, i64 noundef %110)
   %116 = icmp sgt i32 %115, -1
@@ -95023,7 +94963,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
 117:                                              ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i
   %118 = zext nneg i32 %115 to i64
   %119 = load ptr, ptr %106, align 8, !tbaa !643
-  %120 = getelementptr inbounds nuw float, ptr %119, i64 %118
+  %120 = getelementptr inbounds nuw [4 x i8], ptr %119, i64 %118
   %121 = load float, ptr %120, align 4, !tbaa !134
   br i1 %71, label %122, label %140
 
@@ -95045,7 +94985,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
   %132 = lshr i64 %131, 5
   %133 = and i32 %130, 31
   %134 = xor i32 %133, 31
-  %135 = getelementptr inbounds nuw i32, ptr %104, i64 %132
+  %135 = getelementptr inbounds nuw [4 x i8], ptr %104, i64 %132
   %136 = load i32, ptr %135, align 4, !tbaa !99
   %137 = xor i32 %136, -1
   %138 = lshr i32 %137, %134
@@ -95054,7 +94994,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
 
 140:                                              ; preds = %117
   %141 = load ptr, ptr %2, align 8, !tbaa !562
-  %142 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %141, i64 %1
+  %142 = getelementptr inbounds nuw [88 x i8], ptr %141, i64 %1
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 16
   %144 = load float, ptr %143, align 8, !tbaa !809
   %145 = fcmp ugt float %121, %144
@@ -95065,13 +95005,13 @@ _ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIjLb0ELb0ENS_4tree14CPUE
 
 _ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIjLb0ELb0ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_E_clImEEDaSO_.exit.thread.i: ; preds = %129, %140, %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIjLb0ELb0ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_E_clImEEDaSO_.exit.i, %126, %122
   %146 = add i64 %.029.i, 1
-  %147 = getelementptr inbounds nuw i64, ptr %34, i64 %.029.i
+  %147 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %.029.i
   store i64 %114, ptr %147, align 8, !tbaa !44
   br label %111
 
 148:                                              ; preds = %129, %140, %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIjLb0ELb0ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_E_clImEEDaSO_.exit.i
   %149 = add i64 %.01927.i, 1
-  %150 = getelementptr inbounds nuw i64, ptr %35, i64 %.01927.i
+  %150 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %.01927.i
   store i64 %114, ptr %150, align 8, !tbaa !44
   br label %111
 
@@ -95087,11 +95027,11 @@ _ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIjLb0ELb0ENS_4tree14CPUE
 158:                                              ; preds = %151
   %159 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %160 = load ptr, ptr %159, align 8, !tbaa !1452, !noalias !2938
-  %161 = getelementptr inbounds nuw i64, ptr %160, i64 %153
+  %161 = getelementptr inbounds nuw [8 x i8], ptr %160, i64 %153
   %162 = load i64, ptr %161, align 8, !tbaa !44, !noalias !2938
   %163 = add i32 %.0.i302, 1
   %164 = zext i32 %163 to i64
-  %165 = getelementptr inbounds nuw i64, ptr %160, i64 %164
+  %165 = getelementptr inbounds nuw [8 x i8], ptr %160, i64 %164
   %166 = load i64, ptr %165, align 8, !tbaa !44, !noalias !2938
   %167 = load ptr, ptr %7, align 8, !tbaa !1456, !noalias !2938
   %168 = icmp ne ptr %167, null
@@ -95111,7 +95051,7 @@ _ZNK7xgboost6common12ColumnMatrix11DenseColumnIjLb0EEEDaj.exit: ; preds = %158
   %176 = getelementptr inbounds nuw i8, ptr %167, i64 %175
   %177 = getelementptr inbounds nuw i8, ptr %7, i64 160
   %178 = load ptr, ptr %177, align 8, !tbaa !1457, !noalias !2938
-  %179 = getelementptr inbounds nuw i32, ptr %178, i64 %153
+  %179 = getelementptr inbounds nuw [4 x i8], ptr %178, i64 %153
   %180 = load i32, ptr %179, align 4, !tbaa !99, !noalias !2938
   %181 = getelementptr inbounds nuw i8, ptr %6, i64 192
   %182 = load i64, ptr %181, align 8, !tbaa !1443
@@ -95125,10 +95065,10 @@ _ZNK7xgboost6common12ColumnMatrix11DenseColumnIjLb0EEEDaj.exit: ; preds = %158
   %.026.i = phi i64 [ %197, %196 ], [ 0, %183 ]
   %.02125.i = phi i64 [ %.1.i92, %196 ], [ 0, %183 ]
   %.02224.i = phi i64 [ %.123.i, %196 ], [ 0, %183 ]
-  %184 = getelementptr inbounds nuw i64, ptr %14, i64 %.026.i
+  %184 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.026.i
   %185 = load i64, ptr %184, align 8, !tbaa !44
   %186 = sub i64 %185, %182
-  %187 = getelementptr inbounds nuw i32, ptr %176, i64 %186
+  %187 = getelementptr inbounds nuw [4 x i8], ptr %176, i64 %186
   %188 = load i32, ptr %187, align 4, !tbaa !99
   %189 = add nsw i32 %188, %180
   %.not.i91 = icmp sgt i32 %189, %5
@@ -95136,13 +95076,13 @@ _ZNK7xgboost6common12ColumnMatrix11DenseColumnIjLb0EEEDaj.exit: ; preds = %158
 
 190:                                              ; preds = %.lr.ph.i90
   %191 = add i64 %.02224.i, 1
-  %192 = getelementptr inbounds nuw i64, ptr %34, i64 %.02224.i
+  %192 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %.02224.i
   store i64 %185, ptr %192, align 8, !tbaa !44
   br label %196
 
 193:                                              ; preds = %.lr.ph.i90
   %194 = add i64 %.02125.i, 1
-  %195 = getelementptr inbounds nuw i64, ptr %35, i64 %.02125.i
+  %195 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %.02125.i
   store i64 %185, ptr %195, align 8, !tbaa !44
   br label %196
 
@@ -95160,10 +95100,10 @@ _ZNK7xgboost6common12ColumnMatrix11DenseColumnIjLb0EEEDaj.exit: ; preds = %158
   %.026.i98 = phi i64 [ %212, %211 ], [ 0, %198 ]
   %.02125.i99 = phi i64 [ %.1.i103, %211 ], [ 0, %198 ]
   %.02224.i100 = phi i64 [ %.123.i102, %211 ], [ 0, %198 ]
-  %199 = getelementptr inbounds nuw i64, ptr %14, i64 %.026.i98
+  %199 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.026.i98
   %200 = load i64, ptr %199, align 8, !tbaa !44
   %201 = sub i64 %200, %182
-  %202 = getelementptr inbounds nuw i32, ptr %176, i64 %201
+  %202 = getelementptr inbounds nuw [4 x i8], ptr %176, i64 %201
   %203 = load i32, ptr %202, align 4, !tbaa !99
   %204 = add nsw i32 %203, %180
   %.not.i101 = icmp sgt i32 %204, %5
@@ -95171,13 +95111,13 @@ _ZNK7xgboost6common12ColumnMatrix11DenseColumnIjLb0EEEDaj.exit: ; preds = %158
 
 205:                                              ; preds = %.lr.ph.i97
   %206 = add i64 %.02224.i100, 1
-  %207 = getelementptr inbounds nuw i64, ptr %34, i64 %.02224.i100
+  %207 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %.02224.i100
   store i64 %200, ptr %207, align 8, !tbaa !44
   br label %211
 
 208:                                              ; preds = %.lr.ph.i97
   %209 = add i64 %.02125.i99, 1
-  %210 = getelementptr inbounds nuw i64, ptr %35, i64 %.02125.i99
+  %210 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %.02125.i99
   store i64 %200, ptr %210, align 8, !tbaa !44
   br label %211
 
@@ -95294,11 +95234,11 @@ _ZNK7xgboost6common4SpanIKmLm18446744073709551615EE5frontEv.exit: ; preds = %_ZN
   %241 = sub i64 %238, %240
   %242 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %243 = load ptr, ptr %242, align 8, !tbaa !1452, !noalias !2943
-  %244 = getelementptr inbounds nuw i64, ptr %243, i64 %153
+  %244 = getelementptr inbounds nuw [8 x i8], ptr %243, i64 %153
   %245 = load i64, ptr %244, align 8, !tbaa !44, !noalias !2943
   %246 = add i32 %.0.i302, 1
   %247 = zext i32 %246 to i64
-  %248 = getelementptr inbounds nuw i64, ptr %243, i64 %247
+  %248 = getelementptr inbounds nuw [8 x i8], ptr %243, i64 %247
   %249 = load i64, ptr %248, align 8, !tbaa !44, !noalias !2943
   %250 = sub i64 %249, %245
   %251 = getelementptr inbounds nuw i8, ptr %7, i64 216
@@ -95319,7 +95259,7 @@ _ZNK7xgboost6common4SpanIKmLm18446744073709551615EE5frontEv.exit: ; preds = %_ZN
 _ZN7xgboost6common4SpanIKjLm18446744073709551615EEC2EPS2_m.exit.i: ; preds = %_ZNK7xgboost6common4SpanIKmLm18446744073709551615EE5frontEv.exit
   %261 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %262 = load ptr, ptr %261, align 8, !tbaa !1452, !noalias !2943
-  %263 = getelementptr inbounds nuw i64, ptr %262, i64 %245
+  %263 = getelementptr inbounds nuw [8 x i8], ptr %262, i64 %245
   %264 = icmp ne ptr %262, null
   %265 = or i1 %258, %264
   br i1 %265, label %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i, label %266, !prof !127
@@ -95331,7 +95271,7 @@ _ZN7xgboost6common4SpanIKjLm18446744073709551615EEC2EPS2_m.exit.i: ; preds = %_Z
 _ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i: ; preds = %_ZN7xgboost6common4SpanIKjLm18446744073709551615EEC2EPS2_m.exit.i
   %267 = getelementptr inbounds nuw i8, ptr %7, i64 160
   %268 = load ptr, ptr %267, align 8, !tbaa !1457, !noalias !2943
-  %269 = getelementptr inbounds nuw i32, ptr %268, i64 %153
+  %269 = getelementptr inbounds nuw [4 x i8], ptr %268, i64 %153
   %270 = load i32, ptr %269, align 4, !tbaa !99, !noalias !2943
   %271 = icmp sgt i64 %250, 0
   br i1 %271, label %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i, label %_ZNK7xgboost6common12ColumnMatrix12SparseColumnIjEEDajm.exit
@@ -95340,7 +95280,7 @@ _ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i:           ; preds = %_ZN7xgboost6common4
   %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i ], [ %263, %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i ]
   %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i ], [ %250, %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i ]
   %272 = lshr i64 %.01116.i.i.i.i, 1
-  %273 = getelementptr inbounds nuw i64, ptr %.017.i.i.i.i, i64 %272
+  %273 = getelementptr inbounds nuw [8 x i8], ptr %.017.i.i.i.i, i64 %272
   %274 = load i64, ptr %273, align 8, !tbaa !44, !noalias !2943
   %275 = icmp ult i64 %274, %241
   %276 = getelementptr inbounds nuw i8, ptr %273, i64 8
@@ -95364,7 +95304,7 @@ _ZNK7xgboost6common12ColumnMatrix12SparseColumnIjEEDajm.exit: ; preds = %_ZSt7ad
   %.029.i121 = phi i64 [ %306, %305 ], [ 0, %_ZNK7xgboost6common12ColumnMatrix12SparseColumnIjEEDajm.exit ]
   %.02128.i = phi i64 [ %.1.i125, %305 ], [ 0, %_ZNK7xgboost6common12ColumnMatrix12SparseColumnIjEEDajm.exit ]
   %.02227.i = phi i64 [ %.123.i124, %305 ], [ 0, %_ZNK7xgboost6common12ColumnMatrix12SparseColumnIjEEDajm.exit ]
-  %284 = getelementptr inbounds nuw i64, ptr %14, i64 %.029.i121
+  %284 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.029.i121
   %285 = load i64, ptr %284, align 8, !tbaa !44
   %286 = sub i64 %285, %240
   %287 = icmp ult i64 %.sroa.17.0, %250
@@ -95372,7 +95312,7 @@ _ZNK7xgboost6common12ColumnMatrix12SparseColumnIjEEDajm.exit: ; preds = %_ZSt7ad
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i120, %291
   %.sroa.17.2 = phi i64 [ %292, %291 ], [ %.sroa.17.0, %.lr.ph.i120 ]
-  %288 = getelementptr inbounds nuw i64, ptr %263, i64 %.sroa.17.2
+  %288 = getelementptr inbounds nuw [8 x i8], ptr %263, i64 %.sroa.17.2
   %289 = load i64, ptr %288, align 8, !tbaa !44
   %290 = icmp ult i64 %289, %286
   br i1 %290, label %291, label %293
@@ -95387,7 +95327,7 @@ _ZNK7xgboost6common12ColumnMatrix12SparseColumnIjEEDajm.exit: ; preds = %_ZSt7ad
   br i1 %294, label %295, label %_ZN7xgboost6common16SparseColumnIterIjEixEm.exit.i
 
 295:                                              ; preds = %293
-  %296 = getelementptr inbounds nuw i32, ptr %256, i64 %.sroa.17.2
+  %296 = getelementptr inbounds nuw [4 x i8], ptr %256, i64 %.sroa.17.2
   %297 = load i32, ptr %296, align 4, !tbaa !99
   %298 = add nsw i32 %297, %270
   br label %_ZN7xgboost6common16SparseColumnIterIjEixEm.exit.i
@@ -95400,13 +95340,13 @@ _ZN7xgboost6common16SparseColumnIterIjEixEm.exit.i: ; preds = %291, %295, %293, 
 
 299:                                              ; preds = %_ZN7xgboost6common16SparseColumnIterIjEixEm.exit.i
   %300 = add i64 %.02227.i, 1
-  %301 = getelementptr inbounds nuw i64, ptr %34, i64 %.02227.i
+  %301 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %.02227.i
   store i64 %285, ptr %301, align 8, !tbaa !44
   br label %305
 
 302:                                              ; preds = %_ZN7xgboost6common16SparseColumnIterIjEixEm.exit.i
   %303 = add i64 %.02128.i, 1
-  %304 = getelementptr inbounds nuw i64, ptr %35, i64 %.02128.i
+  %304 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %.02128.i
   store i64 %285, ptr %304, align 8, !tbaa !44
   br label %305
 
@@ -95422,7 +95362,7 @@ _ZN7xgboost6common16SparseColumnIterIjEixEm.exit.i: ; preds = %291, %295, %293, 
   %.029.i133 = phi i64 [ %329, %328 ], [ 0, %_ZNK7xgboost6common12ColumnMatrix12SparseColumnIjEEDajm.exit ]
   %.02128.i134 = phi i64 [ %.1.i140, %328 ], [ 0, %_ZNK7xgboost6common12ColumnMatrix12SparseColumnIjEEDajm.exit ]
   %.02227.i135 = phi i64 [ %.123.i139, %328 ], [ 0, %_ZNK7xgboost6common12ColumnMatrix12SparseColumnIjEEDajm.exit ]
-  %307 = getelementptr inbounds nuw i64, ptr %14, i64 %.029.i133
+  %307 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.029.i133
   %308 = load i64, ptr %307, align 8, !tbaa !44
   %309 = sub i64 %308, %240
   %310 = icmp ult i64 %.sroa.17.3, %250
@@ -95430,7 +95370,7 @@ _ZN7xgboost6common16SparseColumnIterIjEixEm.exit.i: ; preds = %291, %295, %293, 
 
 .lr.ph.i.i146:                                    ; preds = %.lr.ph.i132, %314
   %.sroa.17.5 = phi i64 [ %315, %314 ], [ %.sroa.17.3, %.lr.ph.i132 ]
-  %311 = getelementptr inbounds nuw i64, ptr %263, i64 %.sroa.17.5
+  %311 = getelementptr inbounds nuw [8 x i8], ptr %263, i64 %.sroa.17.5
   %312 = load i64, ptr %311, align 8, !tbaa !44
   %313 = icmp ult i64 %312, %309
   br i1 %313, label %314, label %316
@@ -95445,7 +95385,7 @@ _ZN7xgboost6common16SparseColumnIterIjEixEm.exit.i: ; preds = %291, %295, %293, 
   br i1 %317, label %318, label %_ZN7xgboost6common16SparseColumnIterIjEixEm.exit.i136
 
 318:                                              ; preds = %316
-  %319 = getelementptr inbounds nuw i32, ptr %256, i64 %.sroa.17.5
+  %319 = getelementptr inbounds nuw [4 x i8], ptr %256, i64 %.sroa.17.5
   %320 = load i32, ptr %319, align 4, !tbaa !99
   %321 = add nsw i32 %320, %270
   br label %_ZN7xgboost6common16SparseColumnIterIjEixEm.exit.i136
@@ -95458,13 +95398,13 @@ _ZN7xgboost6common16SparseColumnIterIjEixEm.exit.i136: ; preds = %314, %318, %31
 
 322:                                              ; preds = %_ZN7xgboost6common16SparseColumnIterIjEixEm.exit.i136
   %323 = add i64 %.02227.i135, 1
-  %324 = getelementptr inbounds nuw i64, ptr %34, i64 %.02227.i135
+  %324 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %.02227.i135
   store i64 %308, ptr %324, align 8, !tbaa !44
   br label %328
 
 325:                                              ; preds = %_ZN7xgboost6common16SparseColumnIterIjEixEm.exit.i136
   %326 = add i64 %.02128.i134, 1
-  %327 = getelementptr inbounds nuw i64, ptr %35, i64 %.02128.i134
+  %327 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %.02128.i134
   store i64 %308, ptr %327, align 8, !tbaa !44
   br label %328
 
@@ -95479,7 +95419,7 @@ _ZN7xgboost6common16PartitionBuilderILm2048EE20PartitionRangeKernelIZNS2_9Partit
   %.sroa.10189.0 = phi i64 [ %.1.i92, %196 ], [ %.1.i125, %305 ], [ %.1.i103, %211 ], [ %.120.i, %111 ], [ 0, %109 ], [ 0, %183 ], [ 0, %198 ], [ %.1.i140, %328 ]
   %.sroa.0188.0 = phi i64 [ %.123.i, %196 ], [ %.123.i124, %305 ], [ %.123.i102, %211 ], [ %.1.i, %111 ], [ 0, %109 ], [ 0, %183 ], [ 0, %198 ], [ %.123.i139, %328 ]
   %330 = load ptr, ptr %16, align 8, !tbaa !168
-  %331 = getelementptr inbounds nuw i64, ptr %330, i64 %17
+  %331 = getelementptr inbounds nuw [8 x i8], ptr %330, i64 %17
   %332 = load i64, ptr %331, align 8, !tbaa !44
   %333 = add i64 %332, %21
   %334 = load ptr, ptr %24, align 8, !tbaa !175
@@ -95496,7 +95436,7 @@ _ZN7xgboost6common16PartitionBuilderILm2048EE20PartitionRangeKernelIZNS2_9Partit
   unreachable
 
 _ZN7xgboost6common16PartitionBuilderILm2048EE13SetNLeftElemsEimm.exit: ; preds = %_ZN7xgboost6common16PartitionBuilderILm2048EE20PartitionRangeKernelIZNS2_9PartitionIjLb0ELb0ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS8_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmEUlT_E_EESt4pairImmENS0_4SpanISN_Lm18446744073709551615EEENST_ImLm18446744073709551615EEESV_SP_.exit
-  %341 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %335, i64 %333
+  %341 = getelementptr inbounds nuw [16 x i8], ptr %335, i64 %333
   %342 = load ptr, ptr %341, align 8, !tbaa !1314
   store i64 %.sroa.0188.0, ptr %342, align 8, !tbaa !1319
   %343 = load i64, ptr %331, align 8, !tbaa !44
@@ -95509,7 +95449,7 @@ _ZN7xgboost6common16PartitionBuilderILm2048EE13SetNLeftElemsEimm.exit: ; preds =
   unreachable
 
 _ZN7xgboost6common16PartitionBuilderILm2048EE14SetNRightElemsEimm.exit: ; preds = %_ZN7xgboost6common16PartitionBuilderILm2048EE13SetNLeftElemsEimm.exit
-  %346 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %335, i64 %344
+  %346 = getelementptr inbounds nuw [16 x i8], ptr %335, i64 %344
   %347 = load ptr, ptr %346, align 8, !tbaa !1314
   %348 = getelementptr inbounds nuw i8, ptr %347, i64 8
   store i64 %.sroa.10189.0, ptr %348, align 8, !tbaa !1323
@@ -95566,12 +95506,12 @@ define linkonce_odr void @_ZN4dmlc12OMPException3RunIZN7xgboost6common13Parallel
   %27 = load ptr, ptr %22, align 8, !tbaa !2835
   %28 = load ptr, ptr %20, align 8, !tbaa !2953
   %29 = load ptr, ptr %28, align 8, !tbaa !562
-  %30 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %29, i64 %24
+  %30 = getelementptr inbounds nuw [88 x i8], ptr %29, i64 %24
   %31 = load i32, ptr %30, align 8, !tbaa !535
   %32 = getelementptr inbounds nuw i8, ptr %27, i64 112
   %33 = sext i32 %31 to i64
   %34 = load ptr, ptr %32, align 8, !tbaa !164
-  %35 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %34, i64 %33
+  %35 = getelementptr inbounds nuw [24 x i8], ptr %34, i64 %33
   %36 = load ptr, ptr %35, align 8, !tbaa !917
   %37 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %sext.i.i = shl i64 %24, 32
@@ -95583,11 +95523,11 @@ define linkonce_odr void @_ZN4dmlc12OMPException3RunIZN7xgboost6common13Parallel
   %43 = add i64 %41, %42
   %44 = getelementptr inbounds nuw i8, ptr %27, i64 56
   %45 = load ptr, ptr %44, align 8, !tbaa !172
-  %46 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %45, i64 %43
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %45, i64 %43
   %47 = load ptr, ptr %46, align 8, !tbaa !1314
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %49 = load i64, ptr %48, align 8, !tbaa !1322
-  %50 = getelementptr inbounds nuw i64, ptr %36, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %47, i64 16416
   %52 = load i64, ptr %47, align 8, !tbaa !1319
   %53 = icmp eq i64 %52, 0
@@ -95597,11 +95537,11 @@ _ZSt8__copy_nIPKmmPmET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i.i.i: ; p
   %54 = getelementptr inbounds nuw i8, ptr %47, i64 32
   %55 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %56 = load i64, ptr %55, align 8, !tbaa !1317
-  %57 = getelementptr inbounds nuw i64, ptr %36, i64 %56
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %56
   %.idx.i.i.i.i.i = shl nuw nsw i64 %52, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %57, ptr nonnull align 8 %54, i64 %.idx.i.i.i.i.i, i1 false)
   %.pre.i.i.i = load ptr, ptr %44, align 8, !tbaa !172
-  %.phi.trans.insert.i.i.i = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %.pre.i.i.i, i64 %43
+  %.phi.trans.insert.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %.pre.i.i.i, i64 %43
   %.pre18.i.i.i = load ptr, ptr %.phi.trans.insert.i.i.i, align 8, !tbaa !1314
   br label %_ZSt6copy_nIPKmmPmET1_T_T0_S3_.exit.i.i.i
 
@@ -95794,12 +95734,12 @@ define linkonce_odr void @_ZN7xgboost6common14BlockedSpace2dC2IZNS_4tree20Common
   %13 = load ptr, ptr %6, align 8, !tbaa !1307
   %14 = load ptr, ptr %2, align 8, !tbaa !2955
   %15 = load ptr, ptr %14, align 8, !tbaa !562
-  %16 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %15, i64 %.039
+  %16 = getelementptr inbounds nuw [88 x i8], ptr %15, i64 %.039
   %17 = load i32, ptr %16, align 8, !tbaa !535
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 112
   %19 = sext i32 %17 to i64
   %20 = load ptr, ptr %18, align 8, !tbaa !164
-  %21 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %20, i64 %19
+  %21 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %19
   %22 = load ptr, ptr %21, align 8, !tbaa !917
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !919
@@ -95890,7 +95830,7 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIP
   %.pre = phi ptr [ %.pre.pre, %60 ], [ %36, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i ]
   store ptr %55, ptr %5, align 8, !tbaa !168
   store ptr %59, ptr %7, align 8, !tbaa !906
-  %61 = getelementptr inbounds nuw i64, ptr %55, i64 %53
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %53
   store ptr %61, ptr %8, align 8, !tbaa !171
   br label %_ZNSt6vectorImSaImEE9push_backERKm.exit.i
 
@@ -95990,7 +95930,7 @@ _ZNSt6vectorIN7xgboost6common7Range1dESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit3
 .noexc25:                                         ; preds = %84, %_ZNSt6vectorIN7xgboost6common7Range1dESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit33.i
   store ptr %79, ptr %0, align 8, !tbaa !861
   store ptr %83, ptr %9, align 8, !tbaa !1078
-  %98 = getelementptr inbounds nuw %"class.xgboost::common::Range1d", ptr %79, i64 %77
+  %98 = getelementptr inbounds nuw [16 x i8], ptr %79, i64 %77
   store ptr %98, ptr %10, align 8, !tbaa !864
   br label %_ZN7xgboost6common14BlockedSpace2d8AddBlockEmmm.exit
 
@@ -96063,7 +96003,7 @@ define linkonce_odr void @_ZN7xgboost6common16PartitionBuilderILm2048EE4InitIZNS
   br i1 %17, label %18, label %_ZNSt6vectorISt4pairImmESaIS1_EE6resizeEm.exit
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds nuw %"struct.std::pair.129", ptr %8, i64 %2
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %2
   %.not.i.i = icmp eq ptr %7, %19
   br i1 %.not.i.i, label %_ZNSt6vectorISt4pairImmESaIS1_EE6resizeEm.exit, label %20
 
@@ -96095,7 +96035,7 @@ _ZNSt6vectorISt4pairImmESaIS1_EE6resizeEm.exit:   ; preds = %14, %16, %18, %20
   br i1 %34, label %35, label %_ZNSt6vectorImSaImEE6resizeEm.exit
 
 35:                                               ; preds = %33
-  %36 = getelementptr inbounds nuw i64, ptr %25, i64 %22
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %22
   %.not.i.i12 = icmp eq ptr %24, %36
   br i1 %.not.i.i12, label %_ZNSt6vectorImSaImEE6resizeEm.exit, label %37
 
@@ -96124,11 +96064,11 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %31, %33, %35, %37
 46:                                               ; preds = %.lr.ph, %46
   %47 = phi i64 [ 0, %.lr.ph ], [ %65, %46 ]
   %.014 = phi i64 [ 1, %.lr.ph ], [ %67, %46 ]
-  %48 = getelementptr %"struct.xgboost::tree::CPUExpandEntry", ptr %40, i64 %.014
+  %48 = getelementptr [88 x i8], ptr %40, i64 %.014
   %49 = getelementptr i8, ptr %48, i64 -88
   %50 = load i32, ptr %49, align 8, !tbaa !535
   %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %42, i64 %51
+  %52 = getelementptr inbounds nuw [24 x i8], ptr %42, i64 %51
   %53 = load ptr, ptr %52, align 8, !tbaa !917
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %55 = load ptr, ptr %54, align 8, !tbaa !919
@@ -96142,7 +96082,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %31, %33, %35, %37
   %63 = zext i1 %62 to i64
   %64 = add i64 %60, %47
   %65 = add i64 %64, %63
-  %66 = getelementptr inbounds nuw i64, ptr %38, i64 %.014
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %.014
   store i64 %65, ptr %66, align 8, !tbaa !44
   %67 = add nuw i64 %.014, 1
   %exitcond.not = icmp eq i64 %.014, %2
@@ -96170,7 +96110,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %31, %33, %35, %37
   br i1 %81, label %82, label %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit
 
 82:                                               ; preds = %80
-  %83 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %72, i64 %1
+  %83 = getelementptr inbounds nuw [16 x i8], ptr %72, i64 %1
   %.not.i.i13 = icmp eq ptr %71, %83
   br i1 %.not.i.i13, label %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i
 
@@ -97880,7 +97820,7 @@ define linkonce_odr void @_ZZN7xgboost4tree17ColumnSplitHelper9PartitionIhLb1ELb
   %8 = load ptr, ptr %7, align 8, !tbaa !2965
   %9 = load ptr, ptr %0, align 8, !tbaa !3018
   %10 = load ptr, ptr %9, align 8, !tbaa !562
-  %11 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %10, i64 %1
+  %11 = getelementptr inbounds nuw [88 x i8], ptr %10, i64 %1
   %12 = load i32, ptr %11, align 8, !tbaa !535
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -97969,7 +97909,7 @@ _ZZN7xgboost4tree17ColumnSplitHelper9PartitionIhLb1ELb1ENS0_14CPUExpandEntryEEEv
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %61 = load ptr, ptr %60, align 8, !tbaa !3021
   %62 = load ptr, ptr %61, align 8, !tbaa !194
-  %63 = getelementptr inbounds nuw i32, ptr %62, i64 %1
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %1
   %64 = load i32, ptr %63, align 4, !tbaa !99
   br label %65
 
@@ -97987,7 +97927,7 @@ _ZZN7xgboost4tree17ColumnSplitHelper9PartitionIhLb1ELb1ENS0_14CPUExpandEntryEEEv
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 24
   %77 = sext i32 %12 to i64
   %78 = load ptr, ptr %76, align 8, !tbaa !164
-  %79 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %78, i64 %77
+  %79 = getelementptr inbounds nuw [24 x i8], ptr %78, i64 %77
   %80 = load ptr, ptr %79, align 8, !tbaa !917
   call void @_ZN7xgboost6common16PartitionBuilderILm2048EE8MaskRowsIhLb1ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmPNS_17BitFieldContainerIhNS_11RBitsPolicyIhEELb0EEESS_(ptr noundef nonnull align 8 dereferenceable(80) %68, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %2, i64 %3, i32 noundef %66, ptr noundef nonnull align 8 dereferenceable(233) %70, ptr noundef nonnull align 8 dereferenceable(218) %56, ptr noundef nonnull align 8 dereferenceable(312) %73, ptr noundef %80, ptr noundef nonnull %5, ptr noundef nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -98008,7 +97948,7 @@ _ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_S4_.exit:
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx101
   %18 = sub nsw i64 %4, %3
   %19 = load ptr, ptr %2, align 8, !tbaa !562
-  %20 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %19, i64 %1
+  %20 = getelementptr inbounds nuw [88 x i8], ptr %19, i64 %1
   %21 = load i32, ptr %20, align 8, !tbaa !535
   %22 = sext i32 %21 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
@@ -98021,14 +97961,14 @@ _ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_S4_.exit:
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %27 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7xgboost16HostDeviceVectorIjE15ConstHostVectorEv(ptr noundef nonnull align 8 dereferenceable(8) %26)
   %28 = load ptr, ptr %27, align 8, !tbaa !449
-  %29 = getelementptr inbounds nuw i32, ptr %28, i64 %22
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %22
   %30 = load i32, ptr %29, align 4, !tbaa !99
   br label %_ZNK7xgboost7RegTree10SplitIndexEi.exit
 
 31:                                               ; preds = %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_S4_.exit
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 160
   %33 = load ptr, ptr %32, align 8, !tbaa !536
-  %34 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %33, i64 %22
+  %34 = getelementptr inbounds nuw [20 x i8], ptr %33, i64 %22
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 12
   %36 = load i32, ptr %35, align 4, !tbaa !810
   %37 = and i32 %36, 2147483647
@@ -98070,7 +98010,7 @@ _ZNK7xgboost7RegTree10SplitIndexEi.exit:          ; preds = %25, %31
   unreachable
 
 _ZNK7xgboost6common4SpanIKNS_7RegTree22CategoricalSplitMatrix7SegmentELm18446744073709551615EEixEm.exit.i: ; preds = %_ZNK7xgboost7RegTree10SplitIndexEi.exit
-  %63 = getelementptr inbounds nuw %"struct.xgboost::RegTree::CategoricalSplitMatrix::Segment", ptr %55, i64 %22
+  %63 = getelementptr inbounds nuw [16 x i8], ptr %55, i64 %22
   %.sroa.0.0.copyload.i = load i64, ptr %63, align 8, !tbaa !44
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %63, i64 8
   %.sroa.4.0.copyload.i = load i64, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !44
@@ -98106,7 +98046,7 @@ _ZNK7xgboost6common4SpanIKNS_7RegTree22CategoricalSplitMatrix7SegmentELm18446744
   unreachable
 
 _ZNK7xgboost7RegTree8NodeCatsEi.exit:             ; preds = %71
-  %77 = getelementptr inbounds nuw i32, ptr %48, i64 %.sroa.0.0.copyload.i
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %.sroa.0.0.copyload.i
   store i64 %72, ptr %15, align 8
   %78 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %77, ptr %78, align 8
@@ -98155,7 +98095,7 @@ _ZNK7xgboost7RegTree8NodeCatsEi.exit:             ; preds = %71
   unreachable
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit: ; preds = %97
-  %99 = getelementptr inbounds nuw i64, ptr %17, i64 %.sroa.695.0108
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %.sroa.695.0108
   %100 = load i64, ptr %99, align 8, !tbaa !44
   %101 = load i32, ptr %13, align 4, !tbaa !99
   %102 = zext i32 %101 to i64
@@ -98172,7 +98112,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
   %.sroa.24.0.copyload = load ptr, ptr %78, align 8, !tbaa !459
   %109 = zext nneg i32 %103 to i64
   %110 = load ptr, ptr %80, align 8, !tbaa !643
-  %111 = getelementptr inbounds nuw float, ptr %110, i64 %109
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %110, i64 %109
   %112 = load float, ptr %111, align 4, !tbaa !134
   %113 = fcmp olt float %112, 0.000000e+00
   %114 = fcmp oge float %112, 0x4170000000000000
@@ -98189,10 +98129,10 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
 119:                                              ; preds = %105
   %120 = zext nneg i32 %103 to i64
   %121 = load ptr, ptr %80, align 8, !tbaa !643
-  %122 = getelementptr inbounds nuw float, ptr %121, i64 %120
+  %122 = getelementptr inbounds nuw [4 x i8], ptr %121, i64 %120
   %123 = load float, ptr %122, align 4, !tbaa !134
   %124 = load ptr, ptr %2, align 8, !tbaa !562
-  %125 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %124, i64 %1
+  %125 = getelementptr inbounds nuw [88 x i8], ptr %124, i64 %1
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 16
   %127 = load float, ptr %126, align 8, !tbaa !809
   %128 = fcmp ugt float %123, %127
@@ -98204,7 +98144,7 @@ _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit: ; preds
   %131 = lshr i64 %130, 5
   %132 = and i32 %129, 31
   %133 = xor i32 %132, 31
-  %134 = getelementptr inbounds nuw i32, ptr %.sroa.24.0.copyload, i64 %131
+  %134 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.24.0.copyload, i64 %131
   %135 = load i32, ptr %134, align 4, !tbaa !99
   %136 = shl nuw i32 1, %133
   %137 = and i32 %135, %136
@@ -98235,11 +98175,11 @@ _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit: ; preds
 150:                                              ; preds = %138
   %151 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %152 = load ptr, ptr %151, align 8, !tbaa !1452, !noalias !3027
-  %153 = getelementptr inbounds nuw i64, ptr %152, i64 %145
+  %153 = getelementptr inbounds nuw [8 x i8], ptr %152, i64 %145
   %154 = load i64, ptr %153, align 8, !tbaa !44, !noalias !3027
   %155 = add i32 %38, 1
   %156 = zext i32 %155 to i64
-  %157 = getelementptr inbounds nuw i64, ptr %152, i64 %156
+  %157 = getelementptr inbounds nuw [8 x i8], ptr %152, i64 %156
   %158 = load i64, ptr %157, align 8, !tbaa !44, !noalias !3027
   %159 = load ptr, ptr %7, align 8, !tbaa !1456, !noalias !3027
   %160 = icmp ne ptr %159, null
@@ -98259,7 +98199,7 @@ _ZNK7xgboost6common12ColumnMatrix11DenseColumnIhLb1EEEDaj.exit: ; preds = %150
   %168 = getelementptr inbounds nuw i8, ptr %159, i64 %167
   %169 = getelementptr inbounds nuw i8, ptr %7, i64 160
   %170 = load ptr, ptr %169, align 8, !tbaa !1457, !noalias !3027
-  %171 = getelementptr inbounds nuw i32, ptr %170, i64 %145
+  %171 = getelementptr inbounds nuw [4 x i8], ptr %170, i64 %145
   %172 = load i32, ptr %171, align 4, !tbaa !99, !noalias !3027
   %173 = getelementptr inbounds nuw i8, ptr %7, i64 168
   %.sroa.0.0.copyload.i66 = load ptr, ptr %173, align 8, !tbaa !459, !noalias !3027
@@ -98288,14 +98228,14 @@ _ZNK7xgboost6common12ColumnMatrix11DenseColumnIhLb1EEEDaj.exit: ; preds = %150
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i: ; preds = %_ZNK7xgboost6common12ColumnMatrix11DenseColumnIhLb1EEEDaj.exit, %184
   %.sroa.6.025.i = phi i64 [ %185, %184 ], [ 0, %_ZNK7xgboost6common12ColumnMatrix11DenseColumnIhLb1EEEDaj.exit ]
-  %186 = getelementptr inbounds nuw i64, ptr %17, i64 %.sroa.6.025.i
+  %186 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %.sroa.6.025.i
   %187 = load i64, ptr %186, align 8, !tbaa !44
   %188 = sub i64 %187, %175
   %189 = add i64 %188, %154
   %190 = lshr i64 %189, 5
   %191 = and i64 %189, 31
   %192 = xor i64 %191, 31
-  %193 = getelementptr inbounds nuw i32, ptr %.sroa.0.0.copyload.i66, i64 %190
+  %193 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0.0.copyload.i66, i64 %190
   %194 = load i32, ptr %193, align 4, !tbaa !99
   %195 = shl nuw nsw i64 1, %192
   %196 = trunc nuw i64 %195 to i32
@@ -98330,11 +98270,11 @@ _ZNK7xgboost6common4SpanIKmLm18446744073709551615EE5frontEv.exit: ; preds = %_ZN
   %208 = sub i64 %205, %207
   %209 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %210 = load ptr, ptr %209, align 8, !tbaa !1452, !noalias !3030
-  %211 = getelementptr inbounds nuw i64, ptr %210, i64 %145
+  %211 = getelementptr inbounds nuw [8 x i8], ptr %210, i64 %145
   %212 = load i64, ptr %211, align 8, !tbaa !44, !noalias !3030
   %213 = add i32 %38, 1
   %214 = zext i32 %213 to i64
-  %215 = getelementptr inbounds nuw i64, ptr %210, i64 %214
+  %215 = getelementptr inbounds nuw [8 x i8], ptr %210, i64 %214
   %216 = load i64, ptr %215, align 8, !tbaa !44, !noalias !3030
   %217 = sub i64 %216, %212
   %218 = getelementptr inbounds nuw i8, ptr %7, i64 216
@@ -98355,7 +98295,7 @@ _ZNK7xgboost6common4SpanIKmLm18446744073709551615EE5frontEv.exit: ; preds = %_ZN
 _ZN7xgboost6common4SpanIKhLm18446744073709551615EEC2EPS2_m.exit.i: ; preds = %_ZNK7xgboost6common4SpanIKmLm18446744073709551615EE5frontEv.exit
   %228 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %229 = load ptr, ptr %228, align 8, !tbaa !1452, !noalias !3030
-  %230 = getelementptr inbounds nuw i64, ptr %229, i64 %212
+  %230 = getelementptr inbounds nuw [8 x i8], ptr %229, i64 %212
   %231 = icmp ne ptr %229, null
   %232 = or i1 %225, %231
   br i1 %232, label %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i, label %233, !prof !127
@@ -98367,7 +98307,7 @@ _ZN7xgboost6common4SpanIKhLm18446744073709551615EEC2EPS2_m.exit.i: ; preds = %_Z
 _ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i: ; preds = %_ZN7xgboost6common4SpanIKhLm18446744073709551615EEC2EPS2_m.exit.i
   %234 = getelementptr inbounds nuw i8, ptr %7, i64 160
   %235 = load ptr, ptr %234, align 8, !tbaa !1457, !noalias !3030
-  %236 = getelementptr inbounds nuw i32, ptr %235, i64 %145
+  %236 = getelementptr inbounds nuw [4 x i8], ptr %235, i64 %145
   %237 = load i32, ptr %236, align 4, !tbaa !99, !noalias !3030
   %238 = icmp sgt i64 %217, 0
   br i1 %238, label %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i, label %.lr.ph.i81
@@ -98376,7 +98316,7 @@ _ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i:           ; preds = %_ZN7xgboost6common4
   %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i ], [ %230, %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i ]
   %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i ], [ %217, %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i ]
   %239 = lshr i64 %.01116.i.i.i.i, 1
-  %240 = getelementptr inbounds nuw i64, ptr %.017.i.i.i.i, i64 %239
+  %240 = getelementptr inbounds nuw [8 x i8], ptr %.017.i.i.i.i, i64 %239
   %241 = load i64, ptr %240, align 8, !tbaa !44, !noalias !3030
   %242 = icmp ult i64 %241, %208
   %243 = getelementptr inbounds nuw i8, ptr %240, i64 8
@@ -98426,7 +98366,7 @@ _ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i:           ; preds = %_ZN7xgboost6common4
   unreachable
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i83: ; preds = %261
-  %263 = getelementptr inbounds nuw i64, ptr %17, i64 %.sroa.6.028.i
+  %263 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %.sroa.6.028.i
   %264 = load i64, ptr %263, align 8, !tbaa !44
   %265 = sub i64 %264, %207
   %266 = icmp ult i64 %.sroa.13.0, %217
@@ -98434,7 +98374,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
 
 .lr.ph.i.i:                                       ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i83, %270
   %.sroa.13.3 = phi i64 [ %271, %270 ], [ %.sroa.13.0, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i83 ]
-  %267 = getelementptr inbounds nuw i64, ptr %230, i64 %.sroa.13.3
+  %267 = getelementptr inbounds nuw [8 x i8], ptr %230, i64 %.sroa.13.3
   %268 = load i64, ptr %267, align 8, !tbaa !44
   %269 = icmp ult i64 %268, %265
   br i1 %269, label %270, label %272
@@ -98598,7 +98538,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %46 = load ptr, ptr %45, align 8, !tbaa !3041
   %47 = sext i32 %18 to i64
   %48 = load ptr, ptr %46, align 8, !tbaa !643
-  %49 = getelementptr inbounds nuw float, ptr %48, i64 %47
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %47
   %50 = load float, ptr %49, align 4, !tbaa !134
   %51 = fcmp olt float %50, 0.000000e+00
   %52 = fcmp oge float %50, 0x4170000000000000
@@ -98618,7 +98558,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %60 = lshr i64 %59, 5
   %61 = and i32 %58, 31
   %62 = xor i32 %61, 31
-  %63 = getelementptr inbounds nuw i32, ptr %.sroa.2.0.copyload, i64 %60
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.2.0.copyload, i64 %60
   %64 = load i32, ptr %63, align 4, !tbaa !99
   %65 = shl nuw i32 1, %62
   %66 = and i32 %64, %65
@@ -98839,7 +98779,7 @@ define linkonce_odr void @_ZZN7xgboost6common13ParallelFor2dIZNS_4tree17ColumnSp
   %24 = load ptr, ptr %23, align 8, !tbaa !2998
   %25 = load ptr, ptr %16, align 8, !tbaa !3048
   %26 = load ptr, ptr %25, align 8, !tbaa !562
-  %27 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %26, i64 %18
+  %27 = getelementptr inbounds nuw [88 x i8], ptr %26, i64 %18
   %28 = load i32, ptr %27, align 8, !tbaa !535
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 128
   %30 = load ptr, ptr %29, align 8, !tbaa !925
@@ -98852,8 +98792,8 @@ define linkonce_odr void @_ZZN7xgboost6common13ParallelFor2dIZNS_4tree17ColumnSp
   %36 = lshr i64 %21, 11
   %37 = getelementptr inbounds nuw i8, ptr %30, i64 48
   %38 = load ptr, ptr %37, align 8, !tbaa !172
-  %39 = getelementptr %"class.std::shared_ptr.85", ptr %38, i64 %35
-  %40 = getelementptr %"class.std::shared_ptr.85", ptr %39, i64 %36
+  %39 = getelementptr [16 x i8], ptr %38, i64 %35
+  %40 = getelementptr [16 x i8], ptr %39, i64 %36
   %41 = load ptr, ptr %40, align 8, !tbaa !1314
   %42 = icmp eq ptr %41, null
   br i1 %42, label %_ZN4dmlc11LogCheck_NEIPN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoES6_EESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISD_EERKT_RKT0_.exit.i.i, label %_ZZN7xgboost4tree17ColumnSplitHelper9PartitionIhLb1ELb1ENS0_14CPUExpandEntryEEEvPKNS_7ContextERKNS_6common14BlockedSpace2dEiRKNS_16GHistIndexMatrixERKNS7_12ColumnMatrixERKSt6vectorIT2_SaISI_EERKSH_IiSaIiEEPKNS_7RegTreeEENKUlmNS7_7Range1dEE0_clEmSU_.exit
@@ -98878,7 +98818,7 @@ _ZZN7xgboost4tree17ColumnSplitHelper9PartitionIhLb1ELb1ENS0_14CPUExpandEntryEEEv
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 24
   %54 = sext i32 %28 to i64
   %55 = load ptr, ptr %53, align 8, !tbaa !164
-  %56 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %55, i64 %54
+  %56 = getelementptr inbounds nuw [24 x i8], ptr %55, i64 %54
   %57 = load ptr, ptr %56, align 8, !tbaa !917
   %58 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %59 = getelementptr inbounds nuw i8, ptr %24, i64 64
@@ -99083,7 +99023,7 @@ define linkonce_odr void @_ZZN7xgboost6common13ParallelFor2dIZNS_4tree20CommonRo
   %24 = load ptr, ptr %23, align 8, !tbaa !1312
   %25 = load ptr, ptr %16, align 8, !tbaa !3057
   %26 = load ptr, ptr %25, align 8, !tbaa !562
-  %27 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %26, i64 %18
+  %27 = getelementptr inbounds nuw [88 x i8], ptr %26, i64 %18
   %28 = load i32, ptr %27, align 8, !tbaa !535
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %sext.i = shl i64 %18, 32
@@ -99094,8 +99034,8 @@ define linkonce_odr void @_ZZN7xgboost6common13ParallelFor2dIZNS_4tree20CommonRo
   %34 = lshr i64 %21, 11
   %35 = getelementptr inbounds nuw i8, ptr %24, i64 56
   %36 = load ptr, ptr %35, align 8, !tbaa !172
-  %37 = getelementptr %"class.std::shared_ptr.85", ptr %36, i64 %33
-  %38 = getelementptr %"class.std::shared_ptr.85", ptr %37, i64 %34
+  %37 = getelementptr [16 x i8], ptr %36, i64 %33
+  %38 = getelementptr [16 x i8], ptr %37, i64 %34
   %39 = load ptr, ptr %38, align 8, !tbaa !1314
   %40 = icmp eq ptr %39, null
   br i1 %40, label %_ZN4dmlc11LogCheck_NEIPN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoES6_EESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISD_EERKT_RKT0_.exit.i.i, label %_ZN7xgboost6common16PartitionBuilderILm2048EE15AllocateForTaskEm.exit.i
@@ -99117,7 +99057,7 @@ _ZN7xgboost6common16PartitionBuilderILm2048EE15AllocateForTaskEm.exit.i: ; preds
   %47 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %48 = load ptr, ptr %47, align 8, !tbaa !3059
   %49 = load ptr, ptr %48, align 8, !tbaa !194
-  %50 = getelementptr inbounds nuw i32, ptr %49, i64 %18
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %18
   %51 = load i32, ptr %50, align 4, !tbaa !99
   br label %_ZZN7xgboost4tree20CommonRowPartitioner14UpdatePositionIhLb1ELb1ENS0_14CPUExpandEntryEEEvPKNS_7ContextERKNS_16GHistIndexMatrixERKNS_6common12ColumnMatrixERKSt6vectorIT2_SaISF_EEPKNS_7RegTreeEENKUlmNSA_7Range1dEE_clEmSN_.exit
 
@@ -99133,7 +99073,7 @@ _ZZN7xgboost4tree20CommonRowPartitioner14UpdatePositionIhLb1ELb1ENS0_14CPUExpand
   %60 = getelementptr inbounds nuw i8, ptr %24, i64 112
   %61 = sext i32 %28 to i64
   %62 = load ptr, ptr %60, align 8, !tbaa !164
-  %63 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %62, i64 %61
+  %63 = getelementptr inbounds nuw [24 x i8], ptr %62, i64 %61
   %64 = load ptr, ptr %63, align 8, !tbaa !917
   tail call void @_ZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIhLb1ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKm(ptr noundef nonnull align 8 dereferenceable(80) %53, i64 noundef %18, ptr noundef nonnull align 8 dereferenceable(24) %54, i64 %21, i64 %22, i32 noundef %52, ptr noundef nonnull align 8 dereferenceable(233) %56, ptr noundef nonnull align 8 dereferenceable(218) %43, ptr noundef nonnull align 8 dereferenceable(312) %59, ptr noundef %64)
   %65 = add nuw i64 %.011, 1
@@ -99161,7 +99101,7 @@ _ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_S4_.exit:
   %sext = shl i64 %1, 32
   %22 = ashr exact i64 %sext, 32
   %23 = load ptr, ptr %21, align 8, !tbaa !168
-  %24 = getelementptr inbounds nuw i64, ptr %23, i64 %22
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %22
   %25 = load i64, ptr %24, align 8, !tbaa !44
   %26 = lshr i64 %3, 11
   %27 = add i64 %25, %26
@@ -99181,12 +99121,12 @@ _ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_S4_.exit:
   unreachable
 
 _ZN7xgboost6common16PartitionBuilderILm2048EE14GetRightBufferEimm.exit: ; preds = %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_S4_.exit
-  %37 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %31, i64 %27
+  %37 = getelementptr inbounds nuw [16 x i8], ptr %31, i64 %27
   %38 = load ptr, ptr %37, align 8, !tbaa !1314
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 32
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 16416
   %41 = load ptr, ptr %2, align 8, !tbaa !562
-  %42 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %41, i64 %1
+  %42 = getelementptr inbounds nuw [88 x i8], ptr %41, i64 %1
   %43 = load i32, ptr %42, align 8, !tbaa !535
   %44 = sext i32 %43 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -99198,7 +99138,7 @@ _ZN7xgboost6common16PartitionBuilderILm2048EE14GetRightBufferEimm.exit: ; preds 
 _ZNK7xgboost7RegTree10SplitIndexEi.exit.thread:   ; preds = %_ZN7xgboost6common16PartitionBuilderILm2048EE14GetRightBufferEimm.exit
   %47 = getelementptr inbounds nuw i8, ptr %8, i64 160
   %48 = load ptr, ptr %47, align 8, !tbaa !536
-  %49 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %48, i64 %44
+  %49 = getelementptr inbounds nuw [20 x i8], ptr %48, i64 %44
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 12
   %51 = load i32, ptr %50, align 4, !tbaa !810
   %52 = and i32 %51, 2147483647
@@ -99210,7 +99150,7 @@ _ZNK7xgboost7RegTree10SplitIndexEi.exit:          ; preds = %_ZN7xgboost6common1
   %53 = getelementptr inbounds nuw i8, ptr %46, i64 40
   %54 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7xgboost16HostDeviceVectorIjE15ConstHostVectorEv(ptr noundef nonnull align 8 dereferenceable(8) %53)
   %55 = load ptr, ptr %54, align 8, !tbaa !449
-  %56 = getelementptr inbounds nuw i32, ptr %55, i64 %44
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %44
   %57 = load i32, ptr %56, align 4, !tbaa !99
   %.pre = load ptr, ptr %45, align 8, !tbaa !542
   store i32 %57, ptr %11, align 4, !tbaa !99
@@ -99231,7 +99171,7 @@ _ZNK7xgboost7RegTree10SplitIndexEi.exit:          ; preds = %_ZN7xgboost6common1
   %66 = phi i32 [ %52, %_ZNK7xgboost7RegTree10SplitIndexEi.exit.thread ], [ %57, %_ZNK7xgboost7RegTree10SplitIndexEi.exit ]
   %67 = getelementptr inbounds nuw i8, ptr %8, i64 160
   %68 = load ptr, ptr %67, align 8, !tbaa !536
-  %69 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %68, i64 %44
+  %69 = getelementptr inbounds nuw [20 x i8], ptr %68, i64 %44
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 12
   %71 = load i32, ptr %70, align 4, !tbaa !810
   %72 = icmp slt i32 %71, 0
@@ -99275,7 +99215,7 @@ _ZNK7xgboost7RegTree11DefaultLeftEi.exit:         ; preds = %58, %65
   unreachable
 
 _ZNK7xgboost6common4SpanIKNS_7RegTree22CategoricalSplitMatrix7SegmentELm18446744073709551615EEixEm.exit.i: ; preds = %_ZNK7xgboost7RegTree11DefaultLeftEi.exit
-  %99 = getelementptr inbounds nuw %"struct.xgboost::RegTree::CategoricalSplitMatrix::Segment", ptr %91, i64 %44
+  %99 = getelementptr inbounds nuw [16 x i8], ptr %91, i64 %44
   %.sroa.0.0.copyload.i = load i64, ptr %99, align 8, !tbaa !44
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %99, i64 8
   %.sroa.4.0.copyload.i = load i64, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !44
@@ -99311,7 +99251,7 @@ _ZNK7xgboost6common4SpanIKNS_7RegTree22CategoricalSplitMatrix7SegmentELm18446744
   unreachable
 
 _ZNK7xgboost7RegTree8NodeCatsEi.exit:             ; preds = %107
-  %113 = getelementptr inbounds nuw i32, ptr %84, i64 %.sroa.0.0.copyload.i
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %84, i64 %.sroa.0.0.copyload.i
   store i64 %108, ptr %14, align 8
   %114 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %113, ptr %114, align 8
@@ -99351,7 +99291,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
   %.029.i = phi i64 [ %.1.i, %126 ], [ 0, %125 ]
   %.sroa.6.028.i = phi i64 [ %127, %126 ], [ 0, %125 ]
   %.01927.i = phi i64 [ %.120.i, %126 ], [ 0, %125 ]
-  %128 = getelementptr inbounds nuw i64, ptr %19, i64 %.sroa.6.028.i
+  %128 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.sroa.6.028.i
   %129 = load i64, ptr %128, align 8, !tbaa !44
   %130 = load i32, ptr %11, align 4, !tbaa !99
   %131 = zext i32 %130 to i64
@@ -99369,7 +99309,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
   %.sroa.2.0.copyload.i.i = load ptr, ptr %114, align 8, !tbaa !459
   %139 = zext nneg i32 %132 to i64
   %140 = load ptr, ptr %116, align 8, !tbaa !643
-  %141 = getelementptr inbounds nuw float, ptr %140, i64 %139
+  %141 = getelementptr inbounds nuw [4 x i8], ptr %140, i64 %139
   %142 = load float, ptr %141, align 4, !tbaa !134
   %143 = fcmp olt float %142, 0.000000e+00
   %144 = fcmp oge float %142, 0x4170000000000000
@@ -99389,7 +99329,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
   %152 = lshr i64 %151, 5
   %153 = and i32 %150, 31
   %154 = xor i32 %153, 31
-  %155 = getelementptr inbounds nuw i32, ptr %.sroa.2.0.copyload.i.i, i64 %152
+  %155 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.2.0.copyload.i.i, i64 %152
   %156 = load i32, ptr %155, align 4, !tbaa !99
   %157 = xor i32 %156, -1
   %158 = lshr i32 %157, %154
@@ -99399,10 +99339,10 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
 160:                                              ; preds = %135
   %161 = zext nneg i32 %132 to i64
   %162 = load ptr, ptr %116, align 8, !tbaa !643
-  %163 = getelementptr inbounds nuw float, ptr %162, i64 %161
+  %163 = getelementptr inbounds nuw [4 x i8], ptr %162, i64 %161
   %164 = load float, ptr %163, align 4, !tbaa !134
   %165 = load ptr, ptr %2, align 8, !tbaa !562
-  %166 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %165, i64 %1
+  %166 = getelementptr inbounds nuw [88 x i8], ptr %165, i64 %1
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 16
   %168 = load float, ptr %167, align 8, !tbaa !809
   %169 = fcmp ole float %164, %168
@@ -99416,13 +99356,13 @@ _ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIhLb1ELb1ENS_4tree14CPUE
 
 _ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIhLb1ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_E_clImEEDaSO_.exit.thread.i: ; preds = %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIhLb1ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_E_clImEEDaSO_.exit.i, %146, %138
   %172 = add i64 %.029.i, 1
-  %173 = getelementptr inbounds nuw i64, ptr %39, i64 %.029.i
+  %173 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %.029.i
   store i64 %129, ptr %173, align 8, !tbaa !44
   br label %126
 
 174:                                              ; preds = %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIhLb1ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_E_clImEEDaSO_.exit.i
   %175 = add i64 %.01927.i, 1
-  %176 = getelementptr inbounds nuw i64, ptr %40, i64 %.01927.i
+  %176 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %.01927.i
   store i64 %129, ptr %176, align 8, !tbaa !44
   br label %126
 
@@ -99438,11 +99378,11 @@ _ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIhLb1ELb1ENS_4tree14CPUE
 184:                                              ; preds = %177
   %185 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %186 = load ptr, ptr %185, align 8, !tbaa !1452, !noalias !3066
-  %187 = getelementptr inbounds nuw i64, ptr %186, i64 %179
+  %187 = getelementptr inbounds nuw [8 x i8], ptr %186, i64 %179
   %188 = load i64, ptr %187, align 8, !tbaa !44, !noalias !3066
   %189 = add i32 %73, 1
   %190 = zext i32 %189 to i64
-  %191 = getelementptr inbounds nuw i64, ptr %186, i64 %190
+  %191 = getelementptr inbounds nuw [8 x i8], ptr %186, i64 %190
   %192 = load i64, ptr %191, align 8, !tbaa !44, !noalias !3066
   %193 = load ptr, ptr %7, align 8, !tbaa !1456, !noalias !3066
   %194 = icmp ne ptr %193, null
@@ -99462,7 +99402,7 @@ _ZNK7xgboost6common12ColumnMatrix11DenseColumnIhLb1EEEDaj.exit: ; preds = %184
   %202 = getelementptr inbounds nuw i8, ptr %193, i64 %201
   %203 = getelementptr inbounds nuw i8, ptr %7, i64 160
   %204 = load ptr, ptr %203, align 8, !tbaa !1457, !noalias !3066
-  %205 = getelementptr inbounds nuw i32, ptr %204, i64 %179
+  %205 = getelementptr inbounds nuw [4 x i8], ptr %204, i64 %179
   %206 = load i32, ptr %205, align 4, !tbaa !99, !noalias !3066
   %207 = getelementptr inbounds nuw i8, ptr %7, i64 168
   %.sroa.0.0.copyload.i89 = load ptr, ptr %207, align 8, !tbaa !459, !noalias !3066
@@ -99478,14 +99418,14 @@ _ZNK7xgboost6common12ColumnMatrix11DenseColumnIhLb1EEEDaj.exit: ; preds = %184
   %.032.i = phi i64 [ %268, %267 ], [ 0, %210 ]
   %.02631.i = phi i64 [ %.1.i92, %267 ], [ 0, %210 ]
   %.02730.i = phi i64 [ %.128.i, %267 ], [ 0, %210 ]
-  %211 = getelementptr inbounds nuw i64, ptr %19, i64 %.032.i
+  %211 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.032.i
   %212 = load i64, ptr %211, align 8, !tbaa !44
   %213 = sub i64 %212, %209
   %214 = add i64 %213, %188
   %215 = lshr i64 %214, 5
   %216 = and i64 %214, 31
   %217 = xor i64 %216, 31
-  %218 = getelementptr inbounds nuw i32, ptr %.sroa.0.0.copyload.i89, i64 %215
+  %218 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0.0.copyload.i89, i64 %215
   %219 = load i32, ptr %218, align 4, !tbaa !99
   %220 = shl nuw nsw i64 1, %217
   %221 = trunc nuw i64 %220 to i32
@@ -99503,7 +99443,7 @@ _ZNK7xgboost6common15DenseColumnIterIhLb1EEixEm.exit.i: ; preds = %.lr.ph.i90
 
 _ZNK7xgboost6common15DenseColumnIterIhLb1EEixEm.exit.thread.i: ; preds = %_ZNK7xgboost6common15DenseColumnIterIhLb1EEixEm.exit.i, %.lr.ph.i90
   %228 = add i64 %.02730.i, 1
-  %229 = getelementptr inbounds nuw i64, ptr %39, i64 %.02730.i
+  %229 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %.02730.i
   store i64 %212, ptr %229, align 8, !tbaa !44
   br label %267
 
@@ -99524,7 +99464,7 @@ _ZNK7xgboost6common15DenseColumnIterIhLb1EEixEm.exit.thread.i: ; preds = %_ZNK7x
   %.sroa.2.0.copyload.i.i98 = load ptr, ptr %114, align 8, !tbaa !459
   %239 = zext nneg i32 %235 to i64
   %240 = load ptr, ptr %116, align 8, !tbaa !643
-  %241 = getelementptr inbounds nuw float, ptr %240, i64 %239
+  %241 = getelementptr inbounds nuw [4 x i8], ptr %240, i64 %239
   %242 = load float, ptr %241, align 4, !tbaa !134
   %243 = fcmp olt float %242, 0.000000e+00
   %244 = fcmp oge float %242, 0x4170000000000000
@@ -99544,7 +99484,7 @@ _ZNK7xgboost6common15DenseColumnIterIhLb1EEixEm.exit.thread.i: ; preds = %_ZNK7x
   %252 = lshr i64 %251, 5
   %253 = and i32 %250, 31
   %254 = xor i32 %253, 31
-  %255 = getelementptr inbounds nuw i32, ptr %.sroa.2.0.copyload.i.i98, i64 %252
+  %255 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.2.0.copyload.i.i98, i64 %252
   %256 = load i32, ptr %255, align 4, !tbaa !99
   %257 = xor i32 %256, -1
   %258 = lshr i32 %257, %254
@@ -99563,13 +99503,13 @@ _ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIhLb1ELb1ENS_4tree14CPUE
 
 _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.thread.i: ; preds = %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIhLb1ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_T0_E_clImiEEDaSO_SP_.exit.i, %_ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.i, %246, %238
   %262 = add i64 %.02730.i, 1
-  %263 = getelementptr inbounds nuw i64, ptr %39, i64 %.02730.i
+  %263 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %.02730.i
   store i64 %212, ptr %263, align 8, !tbaa !44
   br label %267
 
 264:                                              ; preds = %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIhLb1ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_T0_E_clImiEEDaSO_SP_.exit.i, %_ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.i
   %265 = add i64 %.02631.i, 1
-  %266 = getelementptr inbounds nuw i64, ptr %40, i64 %.02631.i
+  %266 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %.02631.i
   store i64 %212, ptr %266, align 8, !tbaa !44
   br label %267
 
@@ -99587,14 +99527,14 @@ _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.thread
   %.032.i103 = phi i64 [ %327, %326 ], [ 0, %269 ]
   %.02631.i104 = phi i64 [ %.1.i109, %326 ], [ 0, %269 ]
   %.02730.i105 = phi i64 [ %.128.i108, %326 ], [ 0, %269 ]
-  %270 = getelementptr inbounds nuw i64, ptr %19, i64 %.032.i103
+  %270 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.032.i103
   %271 = load i64, ptr %270, align 8, !tbaa !44
   %272 = sub i64 %271, %209
   %273 = add i64 %272, %188
   %274 = lshr i64 %273, 5
   %275 = and i64 %273, 31
   %276 = xor i64 %275, 31
-  %277 = getelementptr inbounds nuw i32, ptr %.sroa.0.0.copyload.i89, i64 %274
+  %277 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0.0.copyload.i89, i64 %274
   %278 = load i32, ptr %277, align 4, !tbaa !99
   %279 = shl nuw nsw i64 1, %276
   %280 = trunc nuw i64 %279 to i32
@@ -99612,7 +99552,7 @@ _ZNK7xgboost6common15DenseColumnIterIhLb1EEixEm.exit.i115: ; preds = %.lr.ph.i10
 
 _ZNK7xgboost6common15DenseColumnIterIhLb1EEixEm.exit.thread.i107: ; preds = %_ZNK7xgboost6common15DenseColumnIterIhLb1EEixEm.exit.i115, %.lr.ph.i102
   %287 = add i64 %.02631.i104, 1
-  %288 = getelementptr inbounds nuw i64, ptr %40, i64 %.02631.i104
+  %288 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %.02631.i104
   store i64 %271, ptr %288, align 8, !tbaa !44
   br label %326
 
@@ -99633,7 +99573,7 @@ _ZNK7xgboost6common15DenseColumnIterIhLb1EEixEm.exit.thread.i107: ; preds = %_ZN
   %.sroa.2.0.copyload.i.i122 = load ptr, ptr %114, align 8, !tbaa !459
   %298 = zext nneg i32 %294 to i64
   %299 = load ptr, ptr %116, align 8, !tbaa !643
-  %300 = getelementptr inbounds nuw float, ptr %299, i64 %298
+  %300 = getelementptr inbounds nuw [4 x i8], ptr %299, i64 %298
   %301 = load float, ptr %300, align 4, !tbaa !134
   %302 = fcmp olt float %301, 0.000000e+00
   %303 = fcmp oge float %301, 0x4170000000000000
@@ -99653,7 +99593,7 @@ _ZNK7xgboost6common15DenseColumnIterIhLb1EEixEm.exit.thread.i107: ; preds = %_ZN
   %311 = lshr i64 %310, 5
   %312 = and i32 %309, 31
   %313 = xor i32 %312, 31
-  %314 = getelementptr inbounds nuw i32, ptr %.sroa.2.0.copyload.i.i122, i64 %311
+  %314 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.2.0.copyload.i.i122, i64 %311
   %315 = load i32, ptr %314, align 4, !tbaa !99
   %316 = xor i32 %315, -1
   %317 = lshr i32 %316, %313
@@ -99672,13 +99612,13 @@ _ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIhLb1ELb1ENS_4tree14CPUE
 
 _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.thread.i118: ; preds = %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIhLb1ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_T0_E_clImiEEDaSO_SP_.exit.i116, %_ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.i119, %305, %297
   %321 = add i64 %.02730.i105, 1
-  %322 = getelementptr inbounds nuw i64, ptr %39, i64 %.02730.i105
+  %322 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %.02730.i105
   store i64 %271, ptr %322, align 8, !tbaa !44
   br label %326
 
 323:                                              ; preds = %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIhLb1ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_T0_E_clImiEEDaSO_SP_.exit.i116, %_ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.i119
   %324 = add i64 %.02631.i104, 1
-  %325 = getelementptr inbounds nuw i64, ptr %40, i64 %.02631.i104
+  %325 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %.02631.i104
   store i64 %271, ptr %325, align 8, !tbaa !44
   br label %326
 
@@ -99706,11 +99646,11 @@ _ZNK7xgboost6common4SpanIKmLm18446744073709551615EE5frontEv.exit: ; preds = %_ZN
   call void @llvm.experimental.noalias.scope.decl(metadata !3071)
   %333 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %334 = load ptr, ptr %333, align 8, !tbaa !1452, !noalias !3071
-  %335 = getelementptr inbounds nuw i64, ptr %334, i64 %179
+  %335 = getelementptr inbounds nuw [8 x i8], ptr %334, i64 %179
   %336 = load i64, ptr %335, align 8, !tbaa !44, !noalias !3071
   %337 = add i32 %73, 1
   %338 = zext i32 %337 to i64
-  %339 = getelementptr inbounds nuw i64, ptr %334, i64 %338
+  %339 = getelementptr inbounds nuw [8 x i8], ptr %334, i64 %338
   %340 = load i64, ptr %339, align 8, !tbaa !44, !noalias !3071
   %341 = sub i64 %340, %336
   %342 = getelementptr inbounds nuw i8, ptr %7, i64 216
@@ -99731,7 +99671,7 @@ _ZNK7xgboost6common4SpanIKmLm18446744073709551615EE5frontEv.exit: ; preds = %_ZN
 _ZN7xgboost6common4SpanIKhLm18446744073709551615EEC2EPS2_m.exit.i: ; preds = %_ZNK7xgboost6common4SpanIKmLm18446744073709551615EE5frontEv.exit
   %352 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %353 = load ptr, ptr %352, align 8, !tbaa !1452, !noalias !3071
-  %354 = getelementptr inbounds nuw i64, ptr %353, i64 %336
+  %354 = getelementptr inbounds nuw [8 x i8], ptr %353, i64 %336
   %355 = icmp ne ptr %353, null
   %356 = or i1 %349, %355
   br i1 %356, label %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i, label %357, !prof !127
@@ -99743,7 +99683,7 @@ _ZN7xgboost6common4SpanIKhLm18446744073709551615EEC2EPS2_m.exit.i: ; preds = %_Z
 _ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i: ; preds = %_ZN7xgboost6common4SpanIKhLm18446744073709551615EEC2EPS2_m.exit.i
   %358 = getelementptr inbounds nuw i8, ptr %7, i64 160
   %359 = load ptr, ptr %358, align 8, !tbaa !1457, !noalias !3071
-  %360 = getelementptr inbounds nuw i32, ptr %359, i64 %179
+  %360 = getelementptr inbounds nuw [4 x i8], ptr %359, i64 %179
   %361 = load i32, ptr %360, align 4, !tbaa !99, !noalias !3071
   %362 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i64 %341, ptr %362, align 8, !tbaa !44, !alias.scope !3071
@@ -99763,7 +99703,7 @@ _ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i:           ; preds = %_ZN7xgboost6common4
   %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i ], [ %354, %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i ]
   %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i ], [ %341, %_ZN7xgboost6common4SpanIKmLm18446744073709551615EEC2EPS2_m.exit.i ]
   %366 = lshr i64 %.01116.i.i.i.i, 1
-  %367 = getelementptr inbounds nuw i64, ptr %.017.i.i.i.i, i64 %366
+  %367 = getelementptr inbounds nuw [8 x i8], ptr %.017.i.i.i.i, i64 %366
   %368 = load i64, ptr %367, align 8, !tbaa !44, !noalias !3071
   %369 = icmp ult i64 %368, %332
   %370 = getelementptr inbounds nuw i8, ptr %367, i64 8
@@ -99809,7 +99749,7 @@ _ZN7xgboost6common16PartitionBuilderILm2048EE20PartitionRangeKernelIZNS2_9Partit
   %.sroa.10.0 = phi i64 [ %.1.i92, %267 ], [ %.sroa.10.2, %383 ], [ %.120.i, %126 ], [ 0, %125 ], [ 0, %210 ], [ 0, %269 ], [ %.1.i109, %326 ]
   %.sroa.0167.0 = phi i64 [ %.128.i, %267 ], [ %.sroa.0167.2, %383 ], [ %.1.i, %126 ], [ 0, %125 ], [ 0, %210 ], [ 0, %269 ], [ %.128.i108, %326 ]
   %384 = load ptr, ptr %21, align 8, !tbaa !168
-  %385 = getelementptr inbounds nuw i64, ptr %384, i64 %22
+  %385 = getelementptr inbounds nuw [8 x i8], ptr %384, i64 %22
   %386 = load i64, ptr %385, align 8, !tbaa !44
   %387 = add i64 %386, %26
   %388 = load ptr, ptr %29, align 8, !tbaa !175
@@ -99826,7 +99766,7 @@ _ZN7xgboost6common16PartitionBuilderILm2048EE20PartitionRangeKernelIZNS2_9Partit
   unreachable
 
 _ZN7xgboost6common16PartitionBuilderILm2048EE13SetNLeftElemsEimm.exit: ; preds = %_ZN7xgboost6common16PartitionBuilderILm2048EE20PartitionRangeKernelIZNS2_9PartitionIhLb1ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS8_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmEUlT_E_EESt4pairImmENS0_4SpanISN_Lm18446744073709551615EEENST_ImLm18446744073709551615EEESV_SP_.exit
-  %395 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %389, i64 %387
+  %395 = getelementptr inbounds nuw [16 x i8], ptr %389, i64 %387
   %396 = load ptr, ptr %395, align 8, !tbaa !1314
   store i64 %.sroa.0167.0, ptr %396, align 8, !tbaa !1319
   %397 = load i64, ptr %385, align 8, !tbaa !44
@@ -99839,7 +99779,7 @@ _ZN7xgboost6common16PartitionBuilderILm2048EE13SetNLeftElemsEimm.exit: ; preds =
   unreachable
 
 _ZN7xgboost6common16PartitionBuilderILm2048EE14SetNRightElemsEimm.exit: ; preds = %_ZN7xgboost6common16PartitionBuilderILm2048EE13SetNLeftElemsEimm.exit
-  %400 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %389, i64 %398
+  %400 = getelementptr inbounds nuw [16 x i8], ptr %389, i64 %398
   %401 = load ptr, ptr %400, align 8, !tbaa !1314
   %402 = getelementptr inbounds nuw i8, ptr %401, i64 8
   store i64 %.sroa.10.0, ptr %402, align 8, !tbaa !1323
@@ -99883,7 +99823,7 @@ define linkonce_odr { i64, i64 } @_ZN7xgboost6common16PartitionBuilderILm2048EE1
   %.037 = phi i64 [ 0, %.lr.ph ], [ %95, %94 ]
   %.02736 = phi i64 [ 0, %.lr.ph ], [ %.1, %94 ]
   %.02835 = phi i64 [ 0, %.lr.ph ], [ %.129, %94 ]
-  %24 = getelementptr inbounds nuw i64, ptr %3, i64 %.037
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.037
   %25 = load i64, ptr %24, align 8, !tbaa !44
   %26 = sub i64 %25, %7
   %27 = load i64, ptr %12, align 8, !tbaa !3076
@@ -99897,7 +99837,7 @@ define linkonce_odr { i64, i64 } @_ZN7xgboost6common16PartitionBuilderILm2048EE1
 
 31:                                               ; preds = %36, %.lr.ph.i
   %32 = phi i64 [ %28, %.lr.ph.i ], [ %37, %36 ]
-  %33 = getelementptr inbounds nuw i64, ptr %30, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %32
   %34 = load i64, ptr %33, align 8, !tbaa !44
   %35 = icmp ult i64 %34, %26
   br i1 %35, label %36, label %38
@@ -99924,7 +99864,7 @@ _ZN7xgboost6common16SparseColumnIterIhEixEm.exit: ; preds = %38
 
 _ZN7xgboost6common16SparseColumnIterIhEixEm.exit.thread: ; preds = %36, %38, %23, %_ZN7xgboost6common16SparseColumnIterIhEixEm.exit
   %47 = add i64 %.02835, 1
-  %48 = getelementptr inbounds nuw i64, ptr %5, i64 %.02835
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.02835
   store i64 %25, ptr %48, align 8, !tbaa !44
   br label %94
 
@@ -99952,7 +99892,7 @@ _ZN7xgboost6common16SparseColumnIterIhEixEm.exit.thread: ; preds = %36, %38, %23
   %64 = load ptr, ptr %22, align 8, !tbaa !3083
   %65 = zext nneg i32 %58 to i64
   %66 = load ptr, ptr %64, align 8, !tbaa !643
-  %67 = getelementptr inbounds nuw float, ptr %66, i64 %65
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %65
   %68 = load float, ptr %67, align 4, !tbaa !134
   %69 = fcmp olt float %68, 0.000000e+00
   %70 = fcmp oge float %68, 0x4170000000000000
@@ -99972,7 +99912,7 @@ _ZN7xgboost6common16SparseColumnIterIhEixEm.exit.thread: ; preds = %36, %38, %23
   %78 = lshr i64 %77, 5
   %79 = and i32 %76, 31
   %80 = xor i32 %79, 31
-  %81 = getelementptr inbounds nuw i32, ptr %.sroa.2.0.copyload.i, i64 %78
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.2.0.copyload.i, i64 %78
   %82 = load i32, ptr %81, align 4, !tbaa !99
   %83 = xor i32 %82, -1
   %84 = lshr i32 %83, %80
@@ -99992,13 +99932,13 @@ _ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIhLb1ELb1ENS_4tree14CPUE
 
 _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.thread: ; preds = %72, %62, %_ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i, %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIhLb1ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_T0_E_clImiEEDaSO_SP_.exit
   %89 = add i64 %.02835, 1
-  %90 = getelementptr inbounds nuw i64, ptr %5, i64 %.02835
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.02835
   store i64 %25, ptr %90, align 8, !tbaa !44
   br label %94
 
 91:                                               ; preds = %_ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i, %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIhLb1ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_T0_E_clImiEEDaSO_SP_.exit
   %92 = add i64 %.02736, 1
-  %93 = getelementptr inbounds nuw i64, ptr %11, i64 %.02736
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.02736
   store i64 %25, ptr %93, align 8, !tbaa !44
   br label %94
 
@@ -100042,7 +99982,7 @@ define linkonce_odr { i64, i64 } @_ZN7xgboost6common16PartitionBuilderILm2048EE1
   %.037 = phi i64 [ 0, %.lr.ph ], [ %95, %94 ]
   %.02736 = phi i64 [ 0, %.lr.ph ], [ %.1, %94 ]
   %.02835 = phi i64 [ 0, %.lr.ph ], [ %.129, %94 ]
-  %24 = getelementptr inbounds nuw i64, ptr %3, i64 %.037
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.037
   %25 = load i64, ptr %24, align 8, !tbaa !44
   %26 = sub i64 %25, %7
   %27 = load i64, ptr %12, align 8, !tbaa !3076
@@ -100056,7 +99996,7 @@ define linkonce_odr { i64, i64 } @_ZN7xgboost6common16PartitionBuilderILm2048EE1
 
 31:                                               ; preds = %36, %.lr.ph.i
   %32 = phi i64 [ %28, %.lr.ph.i ], [ %37, %36 ]
-  %33 = getelementptr inbounds nuw i64, ptr %30, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %32
   %34 = load i64, ptr %33, align 8, !tbaa !44
   %35 = icmp ult i64 %34, %26
   br i1 %35, label %36, label %38
@@ -100083,7 +100023,7 @@ _ZN7xgboost6common16SparseColumnIterIhEixEm.exit: ; preds = %38
 
 _ZN7xgboost6common16SparseColumnIterIhEixEm.exit.thread: ; preds = %36, %38, %23, %_ZN7xgboost6common16SparseColumnIterIhEixEm.exit
   %47 = add i64 %.02736, 1
-  %48 = getelementptr inbounds nuw i64, ptr %11, i64 %.02736
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.02736
   store i64 %25, ptr %48, align 8, !tbaa !44
   br label %94
 
@@ -100111,7 +100051,7 @@ _ZN7xgboost6common16SparseColumnIterIhEixEm.exit.thread: ; preds = %36, %38, %23
   %64 = load ptr, ptr %22, align 8, !tbaa !3083
   %65 = zext nneg i32 %58 to i64
   %66 = load ptr, ptr %64, align 8, !tbaa !643
-  %67 = getelementptr inbounds nuw float, ptr %66, i64 %65
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %65
   %68 = load float, ptr %67, align 4, !tbaa !134
   %69 = fcmp olt float %68, 0.000000e+00
   %70 = fcmp oge float %68, 0x4170000000000000
@@ -100131,7 +100071,7 @@ _ZN7xgboost6common16SparseColumnIterIhEixEm.exit.thread: ; preds = %36, %38, %23
   %78 = lshr i64 %77, 5
   %79 = and i32 %76, 31
   %80 = xor i32 %79, 31
-  %81 = getelementptr inbounds nuw i32, ptr %.sroa.2.0.copyload.i, i64 %78
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.2.0.copyload.i, i64 %78
   %82 = load i32, ptr %81, align 4, !tbaa !99
   %83 = xor i32 %82, -1
   %84 = lshr i32 %83, %80
@@ -100151,13 +100091,13 @@ _ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIhLb1ELb1ENS_4tree14CPUE
 
 _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.thread: ; preds = %72, %62, %_ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i, %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIhLb1ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_T0_E_clImiEEDaSO_SP_.exit
   %89 = add i64 %.02835, 1
-  %90 = getelementptr inbounds nuw i64, ptr %5, i64 %.02835
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.02835
   store i64 %25, ptr %90, align 8, !tbaa !44
   br label %94
 
 91:                                               ; preds = %_ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i, %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIhLb1ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_T0_E_clImiEEDaSO_SP_.exit
   %92 = add i64 %.02736, 1
-  %93 = getelementptr inbounds nuw i64, ptr %11, i64 %.02736
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.02736
   store i64 %25, ptr %93, align 8, !tbaa !44
   br label %94
 
@@ -100212,12 +100152,12 @@ define linkonce_odr void @_ZN4dmlc12OMPException3RunIZN7xgboost6common13Parallel
   %27 = load ptr, ptr %22, align 8, !tbaa !1325
   %28 = load ptr, ptr %20, align 8, !tbaa !3092
   %29 = load ptr, ptr %28, align 8, !tbaa !562
-  %30 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %29, i64 %24
+  %30 = getelementptr inbounds nuw [88 x i8], ptr %29, i64 %24
   %31 = load i32, ptr %30, align 8, !tbaa !535
   %32 = getelementptr inbounds nuw i8, ptr %27, i64 112
   %33 = sext i32 %31 to i64
   %34 = load ptr, ptr %32, align 8, !tbaa !164
-  %35 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %34, i64 %33
+  %35 = getelementptr inbounds nuw [24 x i8], ptr %34, i64 %33
   %36 = load ptr, ptr %35, align 8, !tbaa !917
   %37 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %sext.i.i = shl i64 %24, 32
@@ -100229,11 +100169,11 @@ define linkonce_odr void @_ZN4dmlc12OMPException3RunIZN7xgboost6common13Parallel
   %43 = add i64 %41, %42
   %44 = getelementptr inbounds nuw i8, ptr %27, i64 56
   %45 = load ptr, ptr %44, align 8, !tbaa !172
-  %46 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %45, i64 %43
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %45, i64 %43
   %47 = load ptr, ptr %46, align 8, !tbaa !1314
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %49 = load i64, ptr %48, align 8, !tbaa !1322
-  %50 = getelementptr inbounds nuw i64, ptr %36, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %47, i64 16416
   %52 = load i64, ptr %47, align 8, !tbaa !1319
   %53 = icmp eq i64 %52, 0
@@ -100243,11 +100183,11 @@ _ZSt8__copy_nIPKmmPmET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i.i.i: ; p
   %54 = getelementptr inbounds nuw i8, ptr %47, i64 32
   %55 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %56 = load i64, ptr %55, align 8, !tbaa !1317
-  %57 = getelementptr inbounds nuw i64, ptr %36, i64 %56
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %56
   %.idx.i.i.i.i.i = shl nuw nsw i64 %52, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %57, ptr nonnull align 8 %54, i64 %.idx.i.i.i.i.i, i1 false)
   %.pre.i.i.i = load ptr, ptr %44, align 8, !tbaa !172
-  %.phi.trans.insert.i.i.i = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %.pre.i.i.i, i64 %43
+  %.phi.trans.insert.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %.pre.i.i.i, i64 %43
   %.pre18.i.i.i = load ptr, ptr %.phi.trans.insert.i.i.i, align 8, !tbaa !1314
   br label %_ZSt6copy_nIPKmmPmET1_T_T0_S3_.exit.i.i.i
 
@@ -100463,7 +100403,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %9
   %40 = shl nuw nsw i64 %38, 2
   %41 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %40) #40
   store ptr %41, ptr %10, align 8, !tbaa !194
-  %42 = getelementptr inbounds nuw i32, ptr %41, i64 %38
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %38
   %43 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %42, ptr %43, align 8, !tbaa !197
   store i32 0, ptr %41, align 4, !tbaa !99
@@ -100495,7 +100435,7 @@ _ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i88: ; preds = %_ZNSt6vectorIiS
 
 .noexc90:                                         ; preds = %49
   store ptr %51, ptr %11, align 8, !tbaa !194
-  %52 = getelementptr inbounds nuw i32, ptr %51, i64 %38
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %38
   %53 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %52, ptr %53, align 8, !tbaa !197
   store i32 0, ptr %51, align 4, !tbaa !99
@@ -100822,7 +100762,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %171 = phi ptr [ %178, %174 ], [ %164, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit119 ]
   %172 = phi i64 [ %176, %174 ], [ 1, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit119 ]
   %.052206 = phi i32 [ %175, %174 ], [ 1, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit119 ]
-  %173 = getelementptr inbounds nuw %"class.xgboost::tree::HistogramBuilder", ptr %171, i64 %172
+  %173 = getelementptr inbounds nuw [360 x i8], ptr %171, i64 %172
   invoke void @_ZN7xgboost4tree16HistogramBuilder11AddHistRowsEPKNS_7RegTreeEPSt6vectorIiSaIiEES8_b(ptr noundef nonnull align 8 dereferenceable(358) %173, ptr noundef %3, ptr noundef nonnull %10, ptr noundef nonnull %11, i1 noundef zeroext false)
           to label %174 unwind label %184
 
@@ -101257,7 +101197,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 343:                                              ; preds = %339
   %344 = sub nuw i64 %328, %337
-  %345 = getelementptr inbounds nuw %"class.xgboost::detail::GradientPairInternal", ptr %330, i64 %337
+  %345 = getelementptr inbounds nuw [8 x i8], ptr %330, i64 %337
   %.sink.i.i.i = select i1 %340, i64 0, i64 %326
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
@@ -101372,9 +101312,9 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit166: ; preds = %_ZN4dmlc11LogCheck_EQImmEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS7_EERKT_RKT0_.exit, %_ZN4dmlc11LogCheck_EQImmEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS7_EERKT_RKT0_.exit.thread, %372, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i164
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   %379 = load ptr, ptr %0, align 8, !tbaa !152
-  %380 = getelementptr inbounds nuw %"class.xgboost::tree::HistogramBuilder", ptr %379, i64 %indvars.iv
+  %380 = getelementptr inbounds nuw [360 x i8], ptr %379, i64 %indvars.iv
   %381 = load ptr, ptr %4, align 8, !tbaa !146
-  %382 = getelementptr inbounds nuw %"class.xgboost::tree::CommonRowPartitioner", ptr %381, i64 %.051
+  %382 = getelementptr inbounds nuw [288 x i8], ptr %381, i64 %.051
   %383 = getelementptr inbounds nuw i8, ptr %382, i64 88
   store i64 %325, ptr %31, align 8, !tbaa !23
   store i64 %326, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !23
@@ -101483,7 +101423,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit170:                 ; preds = %_ZNSt6vectorIiSaIiE
 .lr.ph211:                                        ; preds = %_ZN7xgboost8BatchSetINS_16GHistIndexMatrixEED2Ev.exit, %423
   %indvars.iv216 = phi i64 [ %indvars.iv.next217, %423 ], [ 0, %_ZN7xgboost8BatchSetINS_16GHistIndexMatrixEED2Ev.exit ]
   %421 = load ptr, ptr %0, align 8, !tbaa !152
-  %422 = getelementptr inbounds nuw %"class.xgboost::tree::HistogramBuilder", ptr %421, i64 %indvars.iv216
+  %422 = getelementptr inbounds nuw [360 x i8], ptr %421, i64 %indvars.iv216
   invoke void @_ZN7xgboost4tree16HistogramBuilder13SyncHistogramEPKNS_7ContextEPKNS_7RegTreeERKSt6vectorIiSaIiEESC_(ptr noundef nonnull align 8 dereferenceable(358) %422, ptr noundef %1, ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %11)
           to label %423 unwind label %427
 
@@ -101579,7 +101519,7 @@ _ZNK7xgboost15MultiTargetTree6ParentEi.exit:      ; preds = %2, %_ZNK7xgboost15M
   %13 = phi ptr [ %34, %_ZNK7xgboost15MultiTargetTree6ParentEi.exit6 ], [ %8, %2 ]
   %14 = phi i64 [ %31, %_ZNK7xgboost15MultiTargetTree6ParentEi.exit6 ], [ %5, %2 ]
   %.016 = phi i32 [ %27, %_ZNK7xgboost15MultiTargetTree6ParentEi.exit6 ], [ 0, %2 ]
-  %15 = getelementptr inbounds nuw i32, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !99
   %.not = icmp eq i32 %16, -1
   br i1 %.not, label %39, label %17
@@ -101602,7 +101542,7 @@ _ZNK7xgboost15MultiTargetTree6ParentEi.exit:      ; preds = %2, %_ZNK7xgboost15M
 
 _ZNK7xgboost15MultiTargetTree6ParentEi.exit6:     ; preds = %17
   %27 = add nuw nsw i32 %.016, 1
-  %28 = getelementptr inbounds nuw i32, ptr %21, i64 %14
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %14
   %29 = load i32, ptr %28, align 4, !tbaa !99
   %30 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7xgboost16HostDeviceVectorIiE15ConstHostVectorEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
   %31 = sext i32 %29 to i64
@@ -102189,7 +102129,7 @@ define linkonce_odr void @_ZN7xgboost6common14BlockedSpace2dC2IZNS_4tree13HistEv
   %.039 = phi i64 [ 0, %.lr.ph41 ], [ %21, %._crit_edge ]
   %11 = load ptr, ptr %2, align 8, !tbaa !3114
   %12 = load ptr, ptr %11, align 8, !tbaa !825
-  %13 = getelementptr inbounds nuw %"class.std::shared_ptr.333", ptr %12, i64 %.039
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %.039
   %14 = load ptr, ptr %13, align 8, !tbaa !654
   %15 = invoke noundef i64 @_ZNK7xgboost16HostDeviceVectorIjE4SizeEv(ptr noundef nonnull align 8 dereferenceable(8) %14)
           to label %_ZZN7xgboost4tree13HistEvaluator14EvaluateSplitsERKNS0_21BoundedHistCollectionERKNS_6common13HistogramCutsENS5_4SpanIKNS_11FeatureTypeELm18446744073709551615EEERKNS_7RegTreeEPSt6vectorINS0_14CPUExpandEntryESaISH_EEENKUlmE_clEm.exit unwind label %22
@@ -102279,7 +102219,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i: ; preds = %45, %.no
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i: ; preds = %47, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i
   store ptr %42, ptr %5, align 8, !tbaa !168
   store ptr %46, ptr %6, align 8, !tbaa !906
-  %48 = getelementptr inbounds nuw i64, ptr %42, i64 %40
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %40
   store ptr %48, ptr %7, align 8, !tbaa !171
   br label %_ZNSt6vectorImSaImEE9push_backERKm.exit.i
 
@@ -102379,7 +102319,7 @@ _ZNSt6vectorIN7xgboost6common7Range1dESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit3
 .noexc25:                                         ; preds = %71, %_ZNSt6vectorIN7xgboost6common7Range1dESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit33.i
   store ptr %66, ptr %0, align 8, !tbaa !861
   store ptr %70, ptr %8, align 8, !tbaa !1078
-  %85 = getelementptr inbounds nuw %"class.xgboost::common::Range1d", ptr %66, i64 %64
+  %85 = getelementptr inbounds nuw [16 x i8], ptr %66, i64 %64
   store ptr %85, ptr %9, align 8, !tbaa !864
   br label %_ZN7xgboost6common14BlockedSpace2d8AddBlockEmmm.exit
 
@@ -102735,7 +102675,7 @@ _ZNSt6vectorIN7xgboost4tree14CPUExpandEntryESaIS2_EE17_S_check_init_lenEmRKS3_.e
 _ZN7xgboost10JsonObjectD2Ev.exit:                 ; preds = %47
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %54 = load ptr, ptr %2, align 8, !tbaa !562
-  %55 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %54, i64 %.02399
+  %55 = getelementptr inbounds nuw [88 x i8], ptr %54, i64 %.02399
   invoke void @_ZNK7xgboost4tree15ExpandEntryImplINS0_14CPUExpandEntryEE4SaveEPNS_4JsonE(ptr noundef nonnull align 4 dereferenceable(8) %55, ptr noundef nonnull %8)
           to label %56 unwind label %97
 
@@ -103078,7 +103018,7 @@ _ZNSt6vectorIN7xgboost4tree14CPUExpandEntryESaIS2_EE17_S_check_init_lenEmRKS3_.e
 
 .lr.ph.i:                                         ; preds = %.lr.ph.preheader.i.i.i.i.i64
   store ptr %179, ptr %0, align 8, !tbaa !562
-  %180 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %179, i64 %175
+  %180 = getelementptr inbounds nuw [88 x i8], ptr %179, i64 %175
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %179, i8 0, i64 %178, i1 false)
   %scevgep.i.i.i.i.i65 = getelementptr i8, ptr %179, i64 %178
   %181 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -104022,7 +103962,7 @@ define linkonce_odr void @_ZZN7xgboost4tree13HistEvaluator14EvaluateSplitsERKNS0
   %13 = sext i32 %12 to i64
   %14 = mul i64 %1, %13
   %15 = load ptr, ptr %9, align 8, !tbaa !562
-  %16 = getelementptr inbounds nuw %"struct.xgboost::tree::CPUExpandEntry", ptr %15, i64 %14
+  %16 = getelementptr inbounds nuw [88 x i8], ptr %15, i64 %14
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load i32, ptr %16, align 8, !tbaa !535
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -104034,7 +103974,7 @@ define linkonce_odr void @_ZZN7xgboost4tree13HistEvaluator14EvaluateSplitsERKNS0
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %26 = load ptr, ptr %25, align 8, !tbaa !3154
   %27 = load ptr, ptr %26, align 8, !tbaa !825
-  %28 = getelementptr inbounds nuw %"class.std::shared_ptr.333", ptr %27, i64 %1
+  %28 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %1
   %29 = load ptr, ptr %28, align 8, !tbaa !654
   %30 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7xgboost16HostDeviceVectorIjE15ConstHostVectorEv(ptr noundef nonnull align 8 dereferenceable(8) %29)
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
@@ -104076,7 +104016,7 @@ define linkonce_odr void @_ZZN7xgboost4tree13HistEvaluator14EvaluateSplitsERKNS0
   unreachable
 
 _ZNK7xgboost6common4SpanIKjLm18446744073709551615EEixEm.exit: ; preds = %50
-  %53 = getelementptr inbounds nuw i32, ptr %33, i64 %.0134
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %.0134
   %54 = load i32, ptr %53, align 4, !tbaa !99
   %55 = load ptr, ptr %39, align 8, !tbaa !3155
   %.sroa.020.0.copyload = load i64, ptr %55, align 8, !tbaa !44
@@ -104121,7 +104061,7 @@ _ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.
   unreachable
 
 _ZNKSt6vectorISt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEESaIS6_EE2atEm.exit.i: ; preds = %67
-  %75 = getelementptr inbounds nuw %"class.std::unordered_set", ptr %69, i64 %21
+  %75 = getelementptr inbounds nuw [56 x i8], ptr %69, i64 %21
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 24
   %77 = load i64, ptr %76, align 8, !tbaa !3156
   %.not.not.i.i.i = icmp eq i64 %77, 0
@@ -104149,7 +104089,7 @@ _ZNKSt6vectorISt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEESaIS6_EE2atEm.exi
   %88 = load i64, ptr %87, align 8, !tbaa !223
   %89 = urem i64 %86, %88
   %90 = load ptr, ptr %75, align 8, !tbaa !222
-  %91 = getelementptr inbounds nuw ptr, ptr %90, i64 %89
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %89
   %92 = load ptr, ptr %91, align 8, !tbaa !3158
   %.not.i.i.i.i.i = icmp eq ptr %92, null
   br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorImSaImEED2Ev.exit, label %93
@@ -104204,10 +104144,10 @@ _ZNK7xgboost32FeatureInteractionConstraintHost5QueryEij.exit: ; preds = %98, %81
   unreachable
 
 _ZNKSt6vectorIjSaIjEE2atEm.exit:                  ; preds = %106
-  %118 = getelementptr inbounds nuw i32, ptr %112, i64 %109
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %112, i64 %109
   %119 = load i32, ptr %118, align 4, !tbaa !99
   %120 = zext i32 %54 to i64
-  %121 = getelementptr inbounds nuw i32, ptr %112, i64 %120
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %112, i64 %120
   %122 = load i32, ptr %121, align 4, !tbaa !99
   %123 = sub i32 %119, %122
   %124 = load ptr, ptr %47, align 8, !tbaa !624
@@ -104230,7 +104170,7 @@ _ZNKSt6vectorIjSaIjEE2atEm.exit:                  ; preds = %106
 .noexc:                                           ; preds = %131
   %133 = shl nuw nsw i64 %132, 3
   %134 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %133) #40
-  %135 = getelementptr inbounds nuw i64, ptr %134, i64 %132
+  %135 = getelementptr inbounds nuw [8 x i8], ptr %134, i64 %132
   store i64 0, ptr %134, align 8, !tbaa !44
   %136 = getelementptr i8, ptr %134, i64 8
   %137 = add nsw i64 %132, -1
@@ -104258,7 +104198,7 @@ _ZNSt6vectorImSaImEEC2EmRKS0_.exit:               ; preds = %.noexc
 
 _ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEiEvT_S7_T0_.exit.loopexit: ; preds = %.lr.ph.i
   %.pre = load ptr, ptr %107, align 8, !tbaa !449
-  %.phi.trans.insert = getelementptr inbounds nuw i32, ptr %.pre, i64 %120
+  %.phi.trans.insert = getelementptr inbounds nuw [4 x i8], ptr %.pre, i64 %120
   %.pre158 = load i32, ptr %.phi.trans.insert, align 4, !tbaa !99
   %141 = ptrtoint ptr %135 to i64
   br label %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEiEvT_S7_T0_.exit
@@ -104287,7 +104227,7 @@ _ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEiEvT_S7_T0_.exit: 
   unreachable
 
 149:                                              ; preds = %146
-  %150 = getelementptr inbounds nuw %"class.xgboost::detail::GradientPairInternal.445", ptr %24, i64 %143
+  %150 = getelementptr inbounds nuw [16 x i8], ptr %24, i64 %143
   store i64 %132, ptr %6, align 8
   store ptr %150, ptr %49, align 8
   %151 = load ptr, ptr %44, align 8, !tbaa !3163
@@ -104393,7 +104333,7 @@ _ZNSt6vectorImSaImEED2Ev.exit62:                  ; preds = %171, %.body
   %178 = extractvalue { double, double } %177, 0
   %179 = extractvalue { double, double } %177, 1
   %180 = load ptr, ptr %45, align 8, !tbaa !157
-  %181 = getelementptr inbounds nuw %"struct.xgboost::tree::HistEvaluator::NodeEntry", ptr %180, i64 %21
+  %181 = getelementptr inbounds nuw [24 x i8], ptr %180, i64 %21
   %182 = load double, ptr %181, align 8, !tbaa !764
   %183 = fcmp une double %178, %182
   %184 = getelementptr inbounds nuw i8, ptr %181, i64 8
@@ -104502,7 +104442,7 @@ _ZN7xgboost6common4SpanINS_6detail20GradientPairInternalIdEELm184467440737095516
   unreachable
 
 _ZNK7xgboost6common4SpanINS_6detail20GradientPairInternalIdEELm18446744073709551615EE7subspanEmm.exit: ; preds = %36
-  %41 = getelementptr inbounds nuw %"class.xgboost::detail::GradientPairInternal.445", ptr %19, i64 %16
+  %41 = getelementptr inbounds nuw [16 x i8], ptr %19, i64 %16
   %.fca.0.insert.i = insertvalue { i64, ptr } poison, i64 %37, 0
   %.fca.1.insert.i = insertvalue { i64, ptr } %.fca.0.insert.i, ptr %41, 1
   ret { i64, ptr } %.fca.1.insert.i
@@ -104522,11 +104462,11 @@ define linkonce_odr void @_ZNK7xgboost4tree13HistEvaluator15EnumerateOneHotERKNS
   %18 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7xgboost16HostDeviceVectorIfE15ConstHostVectorEv(ptr noundef nonnull align 8 dereferenceable(8) %17)
   %19 = zext i32 %4 to i64
   %20 = load ptr, ptr %16, align 8, !tbaa !449
-  %21 = getelementptr inbounds nuw i32, ptr %20, i64 %19
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %19
   %22 = load i32, ptr %21, align 4, !tbaa !99
   %23 = add i32 %4, 1
   %24 = zext i32 %23 to i64
-  %25 = getelementptr inbounds nuw i32, ptr %20, i64 %24
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %24
   %26 = load i32, ptr %25, align 4, !tbaa !99
   %27 = sub nsw i32 %26, %22
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -104574,7 +104514,7 @@ define linkonce_odr void @_ZNK7xgboost4tree13HistEvaluator15EnumerateOneHotERKNS
   unreachable
 
 48:                                               ; preds = %42
-  %49 = getelementptr inbounds nuw %"class.xgboost::detail::GradientPairInternal.445", ptr %3, i64 %33
+  %49 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %33
   %.idx = shl nuw nsw i64 %43, 4
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 %.idx
   br i1 %45, label %.loopexit, label %.lr.ph.i
@@ -104598,7 +104538,7 @@ define linkonce_odr void @_ZNK7xgboost4tree13HistEvaluator15EnumerateOneHotERKNS
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %58 = sext i32 %5 to i64
   %59 = load ptr, ptr %57, align 8, !tbaa !157
-  %60 = getelementptr inbounds nuw %"struct.xgboost::tree::HistEvaluator::NodeEntry", ptr %59, i64 %58
+  %60 = getelementptr inbounds nuw [24 x i8], ptr %59, i64 %58
   %61 = load double, ptr %60, align 8, !tbaa !764
   %62 = fsub double %61, %.sroa.0.0.lcssa.i
   %63 = getelementptr inbounds nuw i8, ptr %60, i64 8
@@ -104639,7 +104579,7 @@ define linkonce_odr void @_ZNK7xgboost4tree13HistEvaluator15EnumerateOneHotERKNS
   %80 = phi i32 [ 0, %.lr.ph ], [ %156, %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit61 ]
   %indvars.iv = phi i64 [ %70, %.lr.ph ], [ %indvars.iv.next, %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit61 ]
   %81 = load ptr, ptr %18, align 8, !tbaa !643
-  %82 = getelementptr inbounds nuw float, ptr %81, i64 %indvars.iv
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %81, i64 %indvars.iv
   %83 = load float, ptr %82, align 4, !tbaa !134
   %84 = icmp ugt i64 %2, %indvars.iv
   br i1 %84, label %86, label %85, !prof !127
@@ -104649,7 +104589,7 @@ define linkonce_odr void @_ZNK7xgboost4tree13HistEvaluator15EnumerateOneHotERKNS
   unreachable
 
 86:                                               ; preds = %74
-  %87 = getelementptr inbounds nuw %"class.xgboost::detail::GradientPairInternal.445", ptr %3, i64 %indvars.iv
+  %87 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %indvars.iv
   %88 = load double, ptr %87, align 8, !tbaa !3167
   %89 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %90 = load double, ptr %89, align 8, !tbaa !3169
@@ -104823,7 +104763,7 @@ _ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_
   %166 = lshr i64 %165, 5
   %167 = and i64 %165, 31
   %168 = xor i64 %167, 31
-  %169 = getelementptr inbounds nuw i32, ptr %.pre, i64 %166
+  %169 = getelementptr inbounds nuw [4 x i8], ptr %.pre, i64 %166
   %170 = shl nuw nsw i64 1, %168
   %171 = trunc nuw i64 %170 to i32
   %172 = load i32, ptr %169, align 4, !tbaa !99
@@ -104939,14 +104879,14 @@ define linkonce_odr void @_ZN7xgboost4tree13HistEvaluator13EnumeratePartILi1EEEv
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %23 = sext i32 %7 to i64
   %24 = load ptr, ptr %22, align 8, !tbaa !157
-  %25 = getelementptr inbounds nuw %"struct.xgboost::tree::HistEvaluator::NodeEntry", ptr %24, i64 %23
+  %25 = getelementptr inbounds nuw [24 x i8], ptr %24, i64 %23
   %26 = zext i32 %6 to i64
   %27 = load ptr, ptr %19, align 8, !tbaa !449
-  %28 = getelementptr inbounds nuw i32, ptr %27, i64 %26
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %26
   %29 = load i32, ptr %28, align 4, !tbaa !99
   %30 = add i32 %6, 1
   %31 = zext i32 %30 to i64
-  %32 = getelementptr inbounds nuw i32, ptr %27, i64 %31
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %31
   %33 = load i32, ptr %32, align 4, !tbaa !99
   %34 = sub nsw i32 %33, %29
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -104998,7 +104938,7 @@ define linkonce_odr void @_ZN7xgboost4tree13HistEvaluator13EnumeratePartILi1EEEv
   unreachable
 
 58:                                               ; preds = %52
-  %59 = getelementptr inbounds nuw %"class.xgboost::detail::GradientPairInternal.445", ptr %5, i64 %43
+  %59 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %43
   %60 = add i32 %29, -1
   %61 = add i32 %60, %.sroa.speculated
   %.not139 = icmp eq i32 %29, %61
@@ -105038,7 +104978,7 @@ define linkonce_odr void @_ZN7xgboost4tree13HistEvaluator13EnumeratePartILi1EEEv
   unreachable
 
 _ZNK7xgboost6common4SpanIKmLm18446744073709551615EEixEm.exit: ; preds = %67
-  %75 = getelementptr inbounds nuw i64, ptr %3, i64 %72
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %72
   %76 = load i64, ptr %75, align 8, !tbaa !44
   %77 = icmp ult i64 %76, %53
   br i1 %77, label %_ZNK7xgboost6common4SpanIKNS_6detail20GradientPairInternalIdEELm18446744073709551615EEixEm.exit61, label %78, !prof !127
@@ -105048,7 +104988,7 @@ _ZNK7xgboost6common4SpanIKmLm18446744073709551615EEixEm.exit: ; preds = %67
   unreachable
 
 _ZNK7xgboost6common4SpanIKNS_6detail20GradientPairInternalIdEELm18446744073709551615EEixEm.exit61: ; preds = %_ZNK7xgboost6common4SpanIKmLm18446744073709551615EEixEm.exit
-  %79 = getelementptr inbounds nuw %"class.xgboost::detail::GradientPairInternal.445", ptr %59, i64 %76
+  %79 = getelementptr inbounds nuw [16 x i8], ptr %59, i64 %76
   %80 = load double, ptr %79, align 8, !tbaa !3167
   %81 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %82 = load double, ptr %81, align 8, !tbaa !3169
@@ -105139,7 +105079,7 @@ _ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %114
   %120 = shl nuw nsw i64 %118, 2
   %121 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %120) #40
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %121, i8 0, i64 %120, i1 false), !tbaa !99
-  %122 = getelementptr inbounds nuw i32, ptr %121, i64 %118
+  %122 = getelementptr inbounds nuw [4 x i8], ptr %121, i64 %118
   %123 = getelementptr inbounds nuw i8, ptr %121, i64 %120
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit
 
@@ -105275,7 +105215,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 .lr.ph.split.i.preheader:                         ; preds = %159
   %160 = load ptr, ptr %21, align 8
-  %invariant.gep = getelementptr float, ptr %160, i64 %43
+  %invariant.gep = getelementptr [4 x i8], ptr %160, i64 %43
   br label %.lr.ph.split.i
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.split.i.preheader, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEppEv.exit.i
@@ -105288,15 +105228,15 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   unreachable
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEppEv.exit.i: ; preds = %.lr.ph.split.i
-  %161 = getelementptr inbounds nuw i64, ptr %3, i64 %.sroa.4.09.i
+  %161 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.sroa.4.09.i
   %162 = load i64, ptr %161, align 8, !tbaa !44, !noalias !3176
-  %gep = getelementptr float, ptr %invariant.gep, i64 %162
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %162
   %163 = load float, ptr %gep, align 4, !tbaa !134, !noalias !3176
   %164 = fptoui float %163 to i64
   %165 = lshr i64 %164, 5
   %166 = and i64 %164, 31
   %167 = xor i64 %166, 31
-  %168 = getelementptr inbounds nuw i32, ptr %124, i64 %165
+  %168 = getelementptr inbounds nuw [4 x i8], ptr %124, i64 %165
   %169 = shl nuw nsw i64 1, %167
   %170 = trunc nuw i64 %169 to i32
   %171 = load i32, ptr %168, align 4, !tbaa !99, !noalias !3176
@@ -105425,14 +105365,14 @@ define linkonce_odr void @_ZN7xgboost4tree13HistEvaluator13EnumeratePartILin1EEE
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %23 = sext i32 %7 to i64
   %24 = load ptr, ptr %22, align 8, !tbaa !157
-  %25 = getelementptr inbounds nuw %"struct.xgboost::tree::HistEvaluator::NodeEntry", ptr %24, i64 %23
+  %25 = getelementptr inbounds nuw [24 x i8], ptr %24, i64 %23
   %26 = zext i32 %6 to i64
   %27 = load ptr, ptr %19, align 8, !tbaa !449
-  %28 = getelementptr inbounds nuw i32, ptr %27, i64 %26
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %26
   %29 = load i32, ptr %28, align 4, !tbaa !99
   %30 = add i32 %6, 1
   %31 = zext i32 %30 to i64
-  %32 = getelementptr inbounds nuw i32, ptr %27, i64 %31
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %31
   %33 = load i32, ptr %32, align 4, !tbaa !99
   %34 = sub nsw i32 %33, %29
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -105484,7 +105424,7 @@ define linkonce_odr void @_ZN7xgboost4tree13HistEvaluator13EnumeratePartILin1EEE
   unreachable
 
 58:                                               ; preds = %52
-  %59 = getelementptr inbounds nuw %"class.xgboost::detail::GradientPairInternal.445", ptr %5, i64 %43
+  %59 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %43
   %60 = add nsw i32 %33, -1
   %61 = sub i32 %33, %.sroa.speculated
   %.not139 = icmp eq i32 %60, %61
@@ -105524,7 +105464,7 @@ define linkonce_odr void @_ZN7xgboost4tree13HistEvaluator13EnumeratePartILin1EEE
   unreachable
 
 _ZNK7xgboost6common4SpanIKmLm18446744073709551615EEixEm.exit: ; preds = %67
-  %75 = getelementptr inbounds nuw i64, ptr %3, i64 %72
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %72
   %76 = load i64, ptr %75, align 8, !tbaa !44
   %77 = icmp ult i64 %76, %53
   br i1 %77, label %_ZNK7xgboost6common4SpanIKNS_6detail20GradientPairInternalIdEELm18446744073709551615EEixEm.exit61, label %78, !prof !127
@@ -105534,7 +105474,7 @@ _ZNK7xgboost6common4SpanIKmLm18446744073709551615EEixEm.exit: ; preds = %67
   unreachable
 
 _ZNK7xgboost6common4SpanIKNS_6detail20GradientPairInternalIdEELm18446744073709551615EEixEm.exit61: ; preds = %_ZNK7xgboost6common4SpanIKmLm18446744073709551615EEixEm.exit
-  %79 = getelementptr inbounds nuw %"class.xgboost::detail::GradientPairInternal.445", ptr %59, i64 %76
+  %79 = getelementptr inbounds nuw [16 x i8], ptr %59, i64 %76
   %80 = load double, ptr %79, align 8, !tbaa !3167
   %81 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %82 = load double, ptr %81, align 8, !tbaa !3169
@@ -105625,7 +105565,7 @@ _ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %114
   %120 = shl nuw nsw i64 %118, 2
   %121 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %120) #40
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %121, i8 0, i64 %120, i1 false), !tbaa !99
-  %122 = getelementptr inbounds nuw i32, ptr %121, i64 %118
+  %122 = getelementptr inbounds nuw [4 x i8], ptr %121, i64 %118
   %123 = getelementptr inbounds nuw i8, ptr %121, i64 %120
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit
 
@@ -105760,7 +105700,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 .lr.ph.split.i.preheader:                         ; preds = %158
   %159 = load ptr, ptr %21, align 8
-  %invariant.gep = getelementptr float, ptr %159, i64 %43
+  %invariant.gep = getelementptr [4 x i8], ptr %159, i64 %43
   br label %.lr.ph.split.i
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.split.i.preheader, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEppEv.exit.i
@@ -105773,15 +105713,15 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   unreachable
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEppEv.exit.i: ; preds = %.lr.ph.split.i
-  %160 = getelementptr inbounds nuw i64, ptr %3, i64 %.sroa.4.09.i
+  %160 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.sroa.4.09.i
   %161 = load i64, ptr %160, align 8, !tbaa !44, !noalias !3184
-  %gep = getelementptr float, ptr %invariant.gep, i64 %161
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %161
   %162 = load float, ptr %gep, align 4, !tbaa !134, !noalias !3184
   %163 = fptoui float %162 to i64
   %164 = lshr i64 %163, 5
   %165 = and i64 %163, 31
   %166 = xor i64 %165, 31
-  %167 = getelementptr inbounds nuw i32, ptr %124, i64 %164
+  %167 = getelementptr inbounds nuw [4 x i8], ptr %124, i64 %164
   %168 = shl nuw nsw i64 1, %166
   %169 = trunc nuw i64 %168 to i32
   %170 = load i32, ptr %167, align 4, !tbaa !99, !noalias !3184
@@ -105912,7 +105852,7 @@ define linkonce_odr { double, double } @_ZNK7xgboost4tree13HistEvaluator14Enumer
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %23 = sext i32 %5 to i64
   %24 = load ptr, ptr %22, align 8, !tbaa !157
-  %25 = getelementptr inbounds nuw %"struct.xgboost::tree::HistEvaluator::NodeEntry", ptr %24, i64 %23
+  %25 = getelementptr inbounds nuw [24 x i8], ptr %24, i64 %23
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store float 0.000000e+00, ptr %9, align 8, !tbaa !548
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 4
@@ -105926,7 +105866,7 @@ define linkonce_odr { double, double } @_ZNK7xgboost4tree13HistEvaluator14Enumer
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %30 = zext i32 %4 to i64
   %31 = load ptr, ptr %19, align 8, !tbaa !449
-  %32 = getelementptr inbounds nuw i32, ptr %31, i64 %30
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %30
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 2147483647, ptr %11, align 4, !tbaa !99
   %33 = load i32, ptr %32, align 4, !tbaa !99, !noalias !3188
@@ -106035,7 +105975,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %60 = add i32 %4, 1
   %61 = zext i32 %60 to i64
   %62 = load ptr, ptr %19, align 8, !tbaa !449
-  %63 = getelementptr inbounds nuw i32, ptr %62, i64 %61
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %61
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i32 2147483647, ptr %14, align 4, !tbaa !99
   %64 = load i32, ptr %63, align 4, !tbaa !99, !noalias !3191
@@ -106163,9 +106103,9 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   unreachable
 
 100:                                              ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit79
-  %101 = getelementptr inbounds nuw i32, ptr %92, i64 %30
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %92, i64 %30
   %102 = load i32, ptr %101, align 4, !tbaa !99
-  %103 = getelementptr inbounds nuw i32, ptr %92, i64 %61
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %92, i64 %61
   %104 = load i32, ptr %103, align 4, !tbaa !99
   %.not115 = icmp eq i32 %102, %104
   br i1 %.not115, label %._crit_edge, label %.lr.ph
@@ -106241,7 +106181,7 @@ _ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i: 
   unreachable
 
 _ZNK7xgboost6common4SpanIKNS_6detail20GradientPairInternalIdEELm18446744073709551615EEixEm.exit83: ; preds = %131
-  %137 = getelementptr inbounds nuw %"class.xgboost::detail::GradientPairInternal.445", ptr %3, i64 %indvars.iv
+  %137 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %indvars.iv
   %138 = load double, ptr %137, align 8, !tbaa !3167
   %139 = getelementptr inbounds nuw i8, ptr %137, i64 8
   %140 = load double, ptr %139, align 8, !tbaa !3169
@@ -106273,7 +106213,7 @@ _ZNK7xgboost6common4SpanIKNS_6detail20GradientPairInternalIdEELm1844674407370955
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %158 = load ptr, ptr %21, align 8, !tbaa !643
-  %159 = getelementptr inbounds nuw float, ptr %158, i64 %indvars.iv
+  %159 = getelementptr inbounds nuw [4 x i8], ptr %158, i64 %indvars.iv
   %160 = load float, ptr %159, align 4, !tbaa !134
   %161 = call float @llvm.fabs.f32(float %157)
   %162 = fcmp oeq float %161, 0x7FF0000000000000
@@ -106384,7 +106324,7 @@ define linkonce_odr { double, double } @_ZNK7xgboost4tree13HistEvaluator14Enumer
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %23 = sext i32 %5 to i64
   %24 = load ptr, ptr %22, align 8, !tbaa !157
-  %25 = getelementptr inbounds nuw %"struct.xgboost::tree::HistEvaluator::NodeEntry", ptr %24, i64 %23
+  %25 = getelementptr inbounds nuw [24 x i8], ptr %24, i64 %23
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store float 0.000000e+00, ptr %9, align 8, !tbaa !548
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 4
@@ -106398,7 +106338,7 @@ define linkonce_odr { double, double } @_ZNK7xgboost4tree13HistEvaluator14Enumer
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %30 = zext i32 %4 to i64
   %31 = load ptr, ptr %19, align 8, !tbaa !449
-  %32 = getelementptr inbounds nuw i32, ptr %31, i64 %30
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %30
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 2147483647, ptr %11, align 4, !tbaa !99
   %33 = load i32, ptr %32, align 4, !tbaa !99, !noalias !3195
@@ -106507,7 +106447,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %60 = add i32 %4, 1
   %61 = zext i32 %60 to i64
   %62 = load ptr, ptr %19, align 8, !tbaa !449
-  %63 = getelementptr inbounds nuw i32, ptr %62, i64 %61
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %61
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i32 2147483647, ptr %14, align 4, !tbaa !99
   %64 = load i32, ptr %63, align 4, !tbaa !99, !noalias !3198
@@ -106618,9 +106558,9 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit84: ; preds = %_ZN4dmlc11LogCheck_LEIjjEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS7_EERKT_RKT0_.exit56, %_ZN4dmlc11LogCheck_LEIjjEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS7_EERKT_RKT0_.exit56.thread, %85, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i82
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %92 = load ptr, ptr %19, align 8, !tbaa !449
-  %93 = getelementptr inbounds nuw i32, ptr %92, i64 %30
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %92, i64 %30
   %94 = load i32, ptr %93, align 4, !tbaa !99
-  %95 = getelementptr inbounds nuw i32, ptr %92, i64 %61
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %92, i64 %61
   %96 = load i32, ptr %95, align 4, !tbaa !99
   %.not122 = icmp eq i32 %96, %94
   br i1 %.not122, label %._crit_edge, label %.lr.ph
@@ -106699,7 +106639,7 @@ _ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i: 
   unreachable
 
 _ZNK7xgboost6common4SpanIKNS_6detail20GradientPairInternalIdEELm18446744073709551615EEixEm.exit86: ; preds = %125
-  %131 = getelementptr inbounds nuw %"class.xgboost::detail::GradientPairInternal.445", ptr %3, i64 %indvars.iv.next
+  %131 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %indvars.iv.next
   %132 = load double, ptr %131, align 8, !tbaa !3167
   %133 = getelementptr inbounds nuw i8, ptr %131, i64 8
   %134 = load double, ptr %133, align 8, !tbaa !3169
@@ -106741,12 +106681,12 @@ _ZNK7xgboost6common4SpanIKNS_6detail20GradientPairInternalIdEELm1844674407370955
 _ZNK7xgboost6common13HistogramCuts9MinValuesEv.exit: ; preds = %148
   %154 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7xgboost16HostDeviceVectorIfE15ConstHostVectorEv(ptr noundef nonnull align 8 dereferenceable(8) %100)
   %155 = load ptr, ptr %154, align 8, !tbaa !643
-  %156 = getelementptr inbounds nuw float, ptr %155, i64 %30
+  %156 = getelementptr inbounds nuw [4 x i8], ptr %155, i64 %30
   br label %161
 
 157:                                              ; preds = %148
   %158 = load ptr, ptr %21, align 8, !tbaa !643
-  %159 = getelementptr float, ptr %158, i64 %indvars.iv
+  %159 = getelementptr [4 x i8], ptr %158, i64 %indvars.iv
   %160 = getelementptr i8, ptr %159, i64 -8
   br label %161
 
@@ -106853,7 +106793,7 @@ define linkonce_odr noundef float @_ZNK7xgboost4tree13TreeEvaluator14SplitEvalua
 10:                                               ; preds = %6
   %11 = load ptr, ptr %0, align 8, !tbaa !800
   %12 = zext i32 %3 to i64
-  %13 = getelementptr inbounds nuw i32, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !99
   br label %15
 
@@ -106925,7 +106865,7 @@ _ZN7xgboost4tree10CalcWeightINS0_10TrainParamENS0_9GradStatsEEEfRKT_T0_.exit.i: 
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %54 = load ptr, ptr %53, align 8, !tbaa !802
   %55 = sext i32 %2 to i64
-  %56 = getelementptr inbounds float, ptr %54, i64 %55
+  %56 = getelementptr inbounds [4 x i8], ptr %54, i64 %55
   %57 = load float, ptr %56, align 4, !tbaa !134
   %58 = fcmp ogt float %57, %50
   br i1 %58, label %_ZNK7xgboost4tree13TreeEvaluator14SplitEvaluatorINS0_10TrainParamEE10CalcWeightINS0_9GradStatsEEEfiRKS3_RKT_.exit, label %59
@@ -106933,7 +106873,7 @@ _ZN7xgboost4tree10CalcWeightINS0_10TrainParamENS0_9GradStatsEEEfRKT_T0_.exit.i: 
 59:                                               ; preds = %52
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %61 = load ptr, ptr %60, align 8, !tbaa !841
-  %62 = getelementptr inbounds float, ptr %61, i64 %55
+  %62 = getelementptr inbounds [4 x i8], ptr %61, i64 %55
   %63 = load float, ptr %62, align 4, !tbaa !134
   %64 = fcmp olt float %63, %50
   %..i = select i1 %64, float %63, float %50
@@ -107002,7 +106942,7 @@ _ZN7xgboost4tree10CalcWeightINS0_10TrainParamENS0_9GradStatsEEEfRKT_T0_.exit.i30
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %98 = load ptr, ptr %97, align 8, !tbaa !802
   %99 = sext i32 %2 to i64
-  %100 = getelementptr inbounds float, ptr %98, i64 %99
+  %100 = getelementptr inbounds [4 x i8], ptr %98, i64 %99
   %101 = load float, ptr %100, align 4, !tbaa !134
   %102 = fcmp ogt float %101, %95
   br i1 %102, label %_ZNK7xgboost4tree13TreeEvaluator14SplitEvaluatorINS0_10TrainParamEE10CalcWeightINS0_9GradStatsEEEfiRKS3_RKT_.exit35, label %103
@@ -107010,7 +106950,7 @@ _ZN7xgboost4tree10CalcWeightINS0_10TrainParamENS0_9GradStatsEEEfRKT_T0_.exit.i30
 103:                                              ; preds = %96
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %105 = load ptr, ptr %104, align 8, !tbaa !841
-  %106 = getelementptr inbounds float, ptr %105, i64 %99
+  %106 = getelementptr inbounds [4 x i8], ptr %105, i64 %99
   %107 = load float, ptr %106, align 4, !tbaa !134
   %108 = fcmp olt float %107, %95
   %..i34 = select i1 %108, float %107, float %95
@@ -107199,7 +107139,7 @@ define linkonce_odr void @_ZNSt6vectorIjSaIjEE14_M_fill_insertEN9__gnu_cxx17__no
 
 _ZSt22__uninitialized_move_aIPjS0_SaIjEET0_T_S3_S2_RT1_.exit: ; preds = %23, %20
   %24 = phi ptr [ %.pre, %23 ], [ %9, %20 ]
-  %25 = getelementptr inbounds nuw i32, ptr %24, i64 %2
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %2
   store ptr %25, ptr %8, align 8, !tbaa !458
   %.not.i.i.i.i.i = icmp eq ptr %21, %1
   br i1 %.not.i.i.i.i.i, label %_ZSt13move_backwardIPjS0_ET0_T_S2_S1_.exit, label %26
@@ -107208,7 +107148,7 @@ _ZSt22__uninitialized_move_aIPjS0_SaIjEET0_T_S3_S2_RT1_.exit: ; preds = %23, %20
   %27 = sub i64 %22, %16
   %28 = ashr exact i64 %27, 2
   %29 = sub nsw i64 0, %28
-  %30 = getelementptr inbounds i32, ptr %9, i64 %29
+  %30 = getelementptr inbounds [4 x i8], ptr %9, i64 %29
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %30, ptr align 4 %1, i64 %27, i1 false)
   br label %_ZSt13move_backwardIPjS0_ET0_T_S2_S1_.exit
 
@@ -107319,7 +107259,7 @@ _ZSt24__uninitialized_fill_n_aIPjmjjET_S1_T0_RKT1_RSaIT2_E.exit80: ; preds = %.l
   br label %_ZSt34__uninitialized_move_if_noexcept_aIPjS0_SaIjEET0_T_S3_S2_RT1_.exit
 
 _ZSt34__uninitialized_move_if_noexcept_aIPjS0_SaIjEET0_T_S3_S2_RT1_.exit: ; preds = %67, %_ZSt24__uninitialized_fill_n_aIPjmjjET_S1_T0_RKT1_RSaIT2_E.exit80
-  %68 = getelementptr inbounds nuw i32, ptr %63, i64 %2
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %2
   %69 = sub i64 %11, %56
   %.not.i.i.i.i.i.i.i.i.i82 = icmp eq ptr %9, %1
   br i1 %.not.i.i.i.i.i.i.i.i.i82, label %71, label %70
@@ -107341,7 +107281,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPjS0_SaIjEET0_T_S3_S2_RT1_.exit: ; pred
 _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit: ; preds = %71, %73
   store ptr %62, ptr %0, align 8, !tbaa !449
   store ptr %72, ptr %8, align 8, !tbaa !458
-  %75 = getelementptr inbounds nuw i32, ptr %62, i64 %55
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %55
   store ptr %75, ptr %6, align 8, !tbaa !451
   br label %_ZSt4fillIPjjEvT_S1_RKT0_.exit
 
@@ -107367,7 +107307,7 @@ common.ret17:                                     ; preds = %9, %common.ret
 
 9:                                                ; preds = %3
   %10 = lshr i64 %7, 1
-  %11 = getelementptr inbounds nuw i64, ptr %0, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %10
   tail call void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIZZN7xgboost4tree13HistEvaluator14EvaluateSplitsERKNSA_21BoundedHistCollectionERKNS9_6common13HistogramCutsENSF_4SpanIKNS9_11FeatureTypeELm18446744073709551615EEERKNS9_7RegTreeEPS3_INSA_14CPUExpandEntryESaISQ_EEENKUlmNSF_7Range1dEE_clEmSU_EUlmmE_EEEvT_SY_T0_(ptr %0, ptr %11, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter.755") align 8 %2)
   tail call void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIZZN7xgboost4tree13HistEvaluator14EvaluateSplitsERKNSA_21BoundedHistCollectionERKNS9_6common13HistogramCutsENSF_4SpanIKNS9_11FeatureTypeELm18446744073709551615EEERKNS9_7RegTreeEPS3_INSA_14CPUExpandEntryESaISQ_EEENKUlmNSF_7Range1dEE_clEmSU_EUlmmE_EEEvT_SY_T0_(ptr %11, ptr %1, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter.755") align 8 %2)
   %12 = ptrtoint ptr %11 to i64
@@ -107389,7 +107329,7 @@ define linkonce_odr void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_ite
   %13 = ashr exact i64 %12, 3
   %14 = add nsw i64 %13, 1
   %15 = sdiv i64 %14, 2
-  %16 = getelementptr inbounds i64, ptr %0, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %0, i64 %15
   %17 = icmp sgt i64 %15, %3
   %.pre = ptrtoint ptr %16 to i64
   br i1 %17, label %18, label %19
@@ -107526,7 +107466,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T
   %16 = sub i64 %15, %8
   %17 = ashr exact i64 %16, 3
   %18 = sub nsw i64 0, %17
-  %19 = getelementptr inbounds i64, ptr %14, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %14, i64 %18
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %19, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %16, i1 false)
   store i64 %13, ptr %0, align 8, !tbaa !44
   br label %102
@@ -107569,7 +107509,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T
 
 _ZNK7xgboost6common4SpanIKNS_6detail20GradientPairInternalIdEELm18446744073709551615EEixEm.exit.i: ; preds = %.lr.ph.i
   %38 = load ptr, ptr %28, align 8, !tbaa !3211
-  %39 = getelementptr inbounds nuw %"class.xgboost::detail::GradientPairInternal.445", ptr %38, i64 %21
+  %39 = getelementptr inbounds nuw [16 x i8], ptr %38, i64 %21
   %.sroa.0.0.copyload.i.i = load double, ptr %39, align 8, !tbaa !803
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %39, i64 8
   %.sroa.2.0.copyload.i.i = load double, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !803
@@ -107631,7 +107571,7 @@ _ZNK7xgboost4tree13TreeEvaluator14SplitEvaluatorINS0_10TrainParamEE13CalcWeightC
   unreachable
 
 _ZNK7xgboost6common4SpanIKNS_6detail20GradientPairInternalIdEELm18446744073709551615EEixEm.exit3.i: ; preds = %_ZNK7xgboost4tree13TreeEvaluator14SplitEvaluatorINS0_10TrainParamEE13CalcWeightCatINS_6detail20GradientPairInternalIdEEEEfRKS3_RKT_.exit.i
-  %71 = getelementptr inbounds nuw %"class.xgboost::detail::GradientPairInternal.445", ptr %38, i64 %34
+  %71 = getelementptr inbounds nuw [16 x i8], ptr %38, i64 %34
   %.sroa.0.0.copyload.i4.i = load double, ptr %71, align 8, !tbaa !803
   %.sroa.2.0..sroa_idx.i5.i = getelementptr inbounds nuw i8, ptr %71, i64 8
   %.sroa.2.0.copyload.i6.i = load double, ptr %.sroa.2.0..sroa_idx.i5.i, align 8, !tbaa !803
@@ -107736,7 +107676,7 @@ define linkonce_odr void @_ZSt22__merge_without_bufferIN9__gnu_cxx17__normal_ite
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElEvRT_T0_.exit: ; preds = %21
   %23 = sdiv i64 %3, 2
-  %24 = getelementptr inbounds i64, ptr %0, i64 %23
+  %24 = getelementptr inbounds [8 x i8], ptr %0, i64 %23
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   %25 = ptrtoint ptr %2 to i64
@@ -107750,7 +107690,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElEvRT_T0_.exit.
   %.013.i = phi i64 [ %.1.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElEvRT_T0_.exit.i ], [ %28, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElEvRT_T0_.exit ]
   %.sroa.011.012.i = phi ptr [ %.sroa.011.1.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElEvRT_T0_.exit.i ], [ %1, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElEvRT_T0_.exit ]
   %30 = lshr i64 %.013.i, 1
-  %31 = getelementptr inbounds nuw i64, ptr %.sroa.011.012.i, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.011.012.i, i64 %30
   %32 = load i64, ptr %31, align 8, !tbaa !44
   %33 = load i64, ptr %24, align 8, !tbaa !44
   %34 = call noundef zeroext i1 @_ZZZN7xgboost4tree13HistEvaluator14EvaluateSplitsERKNS0_21BoundedHistCollectionERKNS_6common13HistogramCutsENS5_4SpanIKNS_11FeatureTypeELm18446744073709551615EEERKNS_7RegTreeEPSt6vectorINS0_14CPUExpandEntryESaISH_EEENKUlmNS5_7Range1dEE_clEmSL_ENKUlmmE_clEmm(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %32, i64 noundef %33)
@@ -107776,7 +107716,7 @@ _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmNS0_5__
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElEvRT_T0_.exit49: ; preds = %21
   %41 = sdiv i64 %4, 2
-  %42 = getelementptr inbounds i64, ptr %1, i64 %41
+  %42 = getelementptr inbounds [8 x i8], ptr %1, i64 %41
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   %43 = ptrtoint ptr %1 to i64
@@ -107790,7 +107730,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElEvRT_T0_.exit.
   %.013.i52 = phi i64 [ %.1.i57, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElEvRT_T0_.exit.i51 ], [ %46, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElEvRT_T0_.exit49 ]
   %.sroa.011.012.i53 = phi ptr [ %.sroa.011.1.i56, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElEvRT_T0_.exit.i51 ], [ %0, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElEvRT_T0_.exit49 ]
   %48 = lshr i64 %.013.i52, 1
-  %49 = getelementptr inbounds nuw i64, ptr %.sroa.011.012.i53, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.011.012.i53, i64 %48
   %50 = load i64, ptr %42, align 8, !tbaa !44
   %51 = load i64, ptr %49, align 8, !tbaa !44
   %52 = call noundef zeroext i1 @_ZZZN7xgboost4tree13HistEvaluator14EvaluateSplitsERKNS0_21BoundedHistCollectionERKNS_6common13HistogramCutsENS5_4SpanIKNS_11FeatureTypeELm18446744073709551615EEERKNS_7RegTreeEPSt6vectorINS0_14CPUExpandEntryESaISH_EEENKUlmNS5_7Range1dEE_clEmSL_ENKUlmmE_clEmm(ptr noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %50, i64 noundef %51)
@@ -107849,7 +107789,7 @@ define linkonce_odr noundef zeroext i1 @_ZZZN7xgboost4tree13HistEvaluator14Evalu
 _ZNK7xgboost6common4SpanIKNS_6detail20GradientPairInternalIdEELm18446744073709551615EEixEm.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !3211
-  %15 = getelementptr inbounds nuw %"class.xgboost::detail::GradientPairInternal.445", ptr %14, i64 %1
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %1
   %.sroa.0.0.copyload.i = load double, ptr %15, align 8, !tbaa !803
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %15, i64 8
   %.sroa.2.0.copyload.i = load double, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !803
@@ -107915,7 +107855,7 @@ _ZNK7xgboost4tree13TreeEvaluator14SplitEvaluatorINS0_10TrainParamEE13CalcWeightC
   unreachable
 
 _ZNK7xgboost6common4SpanIKNS_6detail20GradientPairInternalIdEELm18446744073709551615EEixEm.exit3: ; preds = %_ZNK7xgboost4tree13TreeEvaluator14SplitEvaluatorINS0_10TrainParamEE13CalcWeightCatINS_6detail20GradientPairInternalIdEEEEfRKS3_RKT_.exit
-  %51 = getelementptr inbounds nuw %"class.xgboost::detail::GradientPairInternal.445", ptr %14, i64 %2
+  %51 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %2
   %.sroa.0.0.copyload.i4 = load double, ptr %51, align 8, !tbaa !803
   %.sroa.2.0..sroa_idx.i5 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %.sroa.2.0.copyload.i6 = load double, ptr %.sroa.2.0..sroa_idx.i5, align 8, !tbaa !803
@@ -108049,7 +107989,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.ex
   br i1 %36, label %.lr.ph101.preheader, label %._crit_edge102
 
 .lr.ph101.preheader:                              ; preds = %35
-  %37 = getelementptr inbounds i64, ptr %.sroa.043.0, i64 %.086
+  %37 = getelementptr inbounds [8 x i8], ptr %.sroa.043.0, i64 %.086
   br label %.lr.ph101
 
 ._crit_edge102:                                   ; preds = %.lr.ph101, %35
@@ -108092,7 +108032,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.ex
   %53 = add nsw i64 %.idx, -8
   %54 = ashr exact i64 %53, 3
   %55 = sub nsw i64 0, %54
-  %56 = getelementptr inbounds i64, ptr %49, i64 %55
+  %56 = getelementptr inbounds [8 x i8], ptr %49, i64 %55
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %56, ptr nonnull align 8 %.sroa.043.0, i64 %53, i1 false)
   br label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit
 
@@ -108101,9 +108041,9 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T
   br label %_ZSt11swap_rangesIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit
 
 57:                                               ; preds = %46
-  %58 = getelementptr inbounds i64, ptr %.sroa.043.0, i64 %.0
+  %58 = getelementptr inbounds [8 x i8], ptr %.sroa.043.0, i64 %.0
   %59 = sub i64 0, %25
-  %60 = getelementptr inbounds i64, ptr %58, i64 %59
+  %60 = getelementptr inbounds [8 x i8], ptr %58, i64 %59
   %61 = icmp sgt i64 %.086, 0
   br i1 %61, label %.lr.ph, label %._crit_edge
 
@@ -108225,7 +108165,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES2_ET0_T_S8_S7_.ex
 32:                                               ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES2_ET0_T_S8_S7_.exit71.thread
   %33 = ashr exact i64 %30, 3
   %34 = sub nsw i64 0, %33
-  %35 = getelementptr inbounds i64, ptr %2, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %2, i64 %34
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %35, ptr align 8 %5, i64 %30, i1 false)
   br label %_ZSt30__move_merge_adaptive_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES2_S6_NS0_5__ops15_Iter_comp_iterIZZN7xgboost4tree13HistEvaluator14EvaluateSplitsERKNSA_21BoundedHistCollectionERKNS9_6common13HistogramCutsENSF_4SpanIKNS9_11FeatureTypeELm18446744073709551615EEERKNS9_7RegTreeEPS3_INSA_14CPUExpandEntryESaISQ_EEENKUlmNSF_7Range1dEE_clEmSU_EUlmmE_EEEvT_SY_T0_SZ_T1_T2_.exit
 
@@ -108267,7 +108207,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES2_ET0_T_S8_S7_.ex
   %52 = sub i64 %50, %51
   %53 = ashr exact i64 %52, 3
   %54 = sub nsw i64 0, %53
-  %55 = getelementptr inbounds i64, ptr %43, i64 %54
+  %55 = getelementptr inbounds [8 x i8], ptr %43, i64 %54
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %55, ptr align 8 %5, i64 %52, i1 false)
   br label %_ZSt30__move_merge_adaptive_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES2_S6_NS0_5__ops15_Iter_comp_iterIZZN7xgboost4tree13HistEvaluator14EvaluateSplitsERKNSA_21BoundedHistCollectionERKNS9_6common13HistogramCutsENSF_4SpanIKNS9_11FeatureTypeELm18446744073709551615EEERKNS9_7RegTreeEPS3_INSA_14CPUExpandEntryESaISQ_EEENKUlmNSF_7Range1dEE_clEmSU_EUlmmE_EEEvT_SY_T0_SZ_T1_T2_.exit
 
@@ -108290,7 +108230,7 @@ _ZSt30__move_merge_adaptive_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorI
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElEvRT_T0_.exit: ; preds = %61
   %62 = sdiv i64 %3, 2
-  %63 = getelementptr inbounds i64, ptr %0, i64 %62
+  %63 = getelementptr inbounds [8 x i8], ptr %0, i64 %62
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   %64 = ptrtoint ptr %2 to i64
@@ -108304,7 +108244,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElEvRT_T0_.exit.
   %.013.i = phi i64 [ %.1.i73, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElEvRT_T0_.exit.i ], [ %67, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElEvRT_T0_.exit ]
   %.sroa.011.012.i = phi ptr [ %.sroa.011.1.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElEvRT_T0_.exit.i ], [ %1, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElEvRT_T0_.exit ]
   %69 = lshr i64 %.013.i, 1
-  %70 = getelementptr inbounds nuw i64, ptr %.sroa.011.012.i, i64 %69
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.011.012.i, i64 %69
   %71 = load i64, ptr %70, align 8, !tbaa !44
   %72 = load i64, ptr %63, align 8, !tbaa !44
   %73 = call noundef zeroext i1 @_ZZZN7xgboost4tree13HistEvaluator14EvaluateSplitsERKNS0_21BoundedHistCollectionERKNS_6common13HistogramCutsENS5_4SpanIKNS_11FeatureTypeELm18446744073709551615EEERKNS_7RegTreeEPSt6vectorINS0_14CPUExpandEntryESaISH_EEENKUlmNS5_7Range1dEE_clEmSL_ENKUlmmE_clEmm(ptr noundef nonnull align 8 dereferenceable(24) %10, i64 noundef %71, i64 noundef %72)
@@ -108330,7 +108270,7 @@ _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmNS0_5__
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElEvRT_T0_.exit77: ; preds = %61
   %80 = sdiv i64 %4, 2
-  %81 = getelementptr inbounds i64, ptr %1, i64 %80
+  %81 = getelementptr inbounds [8 x i8], ptr %1, i64 %80
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   %82 = ptrtoint ptr %1 to i64
@@ -108344,7 +108284,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElEvRT_T0_.exit.
   %.013.i80 = phi i64 [ %.1.i85, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElEvRT_T0_.exit.i79 ], [ %85, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElEvRT_T0_.exit77 ]
   %.sroa.011.012.i81 = phi ptr [ %.sroa.011.1.i84, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElEvRT_T0_.exit.i79 ], [ %0, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElEvRT_T0_.exit77 ]
   %87 = lshr i64 %.013.i80, 1
-  %88 = getelementptr inbounds nuw i64, ptr %.sroa.011.012.i81, i64 %87
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.011.012.i81, i64 %87
   %89 = load i64, ptr %81, align 8, !tbaa !44
   %90 = load i64, ptr %88, align 8, !tbaa !44
   %91 = call noundef zeroext i1 @_ZZZN7xgboost4tree13HistEvaluator14EvaluateSplitsERKNS0_21BoundedHistCollectionERKNS_6common13HistogramCutsENS5_4SpanIKNS_11FeatureTypeELm18446744073709551615EEERKNS_7RegTreeEPSt6vectorINS0_14CPUExpandEntryESaISH_EEENKUlmNS5_7Range1dEE_clEmSL_ENKUlmmE_clEmm(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %89, i64 noundef %90)
@@ -108403,7 +108343,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES2_ET0_T_S8_S7_.ex
   %109 = sub i64 %104, %108
   %110 = ashr exact i64 %109, 3
   %111 = sub nsw i64 0, %110
-  %112 = getelementptr inbounds i64, ptr %.sroa.092.0, i64 %111
+  %112 = getelementptr inbounds [8 x i8], ptr %.sroa.092.0, i64 %111
   call void @llvm.memmove.p0.p0.i64(ptr align 8 %112, ptr align 8 %.sroa.095.0, i64 %109, i1 false)
   br label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit.i
 
@@ -108453,13 +108393,13 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.ex
 125:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit.i
   %126 = ashr exact i64 %120, 3
   %127 = sub nsw i64 0, %126
-  %128 = getelementptr inbounds i64, ptr %.sroa.092.0, i64 %127
+  %128 = getelementptr inbounds [8 x i8], ptr %.sroa.092.0, i64 %127
   call void @llvm.memmove.p0.p0.i64(ptr align 8 %128, ptr align 8 %5, i64 %120, i1 false)
   br label %_ZSt13move_backwardIPmN9__gnu_cxx17__normal_iteratorIS0_St6vectorImSaImEEEEET0_T_S8_S7_.exit.i
 
 _ZSt13move_backwardIPmN9__gnu_cxx17__normal_iteratorIS0_St6vectorImSaImEEEEET0_T_S8_S7_.exit.i: ; preds = %125, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit.i
   %.pre-phi.i.i.i.i.i43.i = phi i64 [ %127, %125 ], [ 0, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit.i ]
-  %129 = getelementptr inbounds i64, ptr %.sroa.092.0, i64 %.pre-phi.i.i.i.i.i43.i
+  %129 = getelementptr inbounds [8 x i8], ptr %.sroa.092.0, i64 %.pre-phi.i.i.i.i.i43.i
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
 
 130:                                              ; preds = %115
@@ -108551,7 +108491,7 @@ _ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES2_NS0_5_
 
 _ZNK7xgboost6common4SpanIKNS_6detail20GradientPairInternalIdEELm18446744073709551615EEixEm.exit.i: ; preds = %.lr.ph.i
   %33 = load ptr, ptr %23, align 8, !tbaa !3211
-  %34 = getelementptr inbounds nuw %"class.xgboost::detail::GradientPairInternal.445", ptr %33, i64 %28
+  %34 = getelementptr inbounds nuw [16 x i8], ptr %33, i64 %28
   %.sroa.0.0.copyload.i.i = load double, ptr %34, align 8, !tbaa !803
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %34, i64 8
   %.sroa.2.0.copyload.i.i = load double, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !803
@@ -108613,7 +108553,7 @@ _ZNK7xgboost4tree13TreeEvaluator14SplitEvaluatorINS0_10TrainParamEE13CalcWeightC
   unreachable
 
 _ZNK7xgboost6common4SpanIKNS_6detail20GradientPairInternalIdEELm18446744073709551615EEixEm.exit3.i: ; preds = %_ZNK7xgboost4tree13TreeEvaluator14SplitEvaluatorINS0_10TrainParamEE13CalcWeightCatINS_6detail20GradientPairInternalIdEEEEfRKS3_RKT_.exit.i
-  %66 = getelementptr inbounds nuw %"class.xgboost::detail::GradientPairInternal.445", ptr %33, i64 %29
+  %66 = getelementptr inbounds nuw [16 x i8], ptr %33, i64 %29
   %.sroa.0.0.copyload.i4.i = load double, ptr %66, align 8, !tbaa !803
   %.sroa.2.0..sroa_idx.i5.i = getelementptr inbounds nuw i8, ptr %66, i64 8
   %.sroa.2.0.copyload.i6.i = load double, ptr %.sroa.2.0..sroa_idx.i5.i, align 8, !tbaa !803
@@ -108849,7 +108789,7 @@ _ZSt12__move_mergeIPmN9__gnu_cxx17__normal_iteratorIS0_St6vectorImSaImEEEENS1_5_
 
 _ZNK7xgboost6common4SpanIKNS_6detail20GradientPairInternalIdEELm18446744073709551615EEixEm.exit.i: ; preds = %.lr.ph.i
   %33 = load ptr, ptr %23, align 8, !tbaa !3211
-  %34 = getelementptr inbounds nuw %"class.xgboost::detail::GradientPairInternal.445", ptr %33, i64 %28
+  %34 = getelementptr inbounds nuw [16 x i8], ptr %33, i64 %28
   %.sroa.0.0.copyload.i.i = load double, ptr %34, align 8, !tbaa !803
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %34, i64 8
   %.sroa.2.0.copyload.i.i = load double, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !803
@@ -108911,7 +108851,7 @@ _ZNK7xgboost4tree13TreeEvaluator14SplitEvaluatorINS0_10TrainParamEE13CalcWeightC
   unreachable
 
 _ZNK7xgboost6common4SpanIKNS_6detail20GradientPairInternalIdEELm18446744073709551615EEixEm.exit3.i: ; preds = %_ZNK7xgboost4tree13TreeEvaluator14SplitEvaluatorINS0_10TrainParamEE13CalcWeightCatINS_6detail20GradientPairInternalIdEEEEfRKS3_RKT_.exit.i
-  %66 = getelementptr inbounds nuw %"class.xgboost::detail::GradientPairInternal.445", ptr %33, i64 %29
+  %66 = getelementptr inbounds nuw [16 x i8], ptr %33, i64 %29
   %.sroa.0.0.copyload.i4.i = load double, ptr %66, align 8, !tbaa !803
   %.sroa.2.0..sroa_idx.i5.i = getelementptr inbounds nuw i8, ptr %66, i64 8
   %.sroa.2.0.copyload.i6.i = load double, ptr %.sroa.2.0..sroa_idx.i5.i, align 8, !tbaa !803
@@ -111411,7 +111351,7 @@ _ZNSt6vectorIS_IcSaIcEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22: ; preds = %.
 _ZNSt12_Vector_baseISt6vectorIcSaIcEESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIS_IcSaIcEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22, %49
   store ptr %20, ptr %0, align 8, !tbaa !3134
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !3125
-  %53 = getelementptr inbounds nuw %"class.std::vector.766", ptr %20, i64 %16
+  %53 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %53, ptr %48, align 8, !tbaa !3128
   ret void
 }
@@ -111853,7 +111793,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit.thread:        ; preds = %_ZN7xgboost6common1
   br i1 %155, label %156, label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 156:                                              ; preds = %154
-  %157 = getelementptr inbounds nuw i32, ptr %147, i64 %140
+  %157 = getelementptr inbounds nuw [4 x i8], ptr %147, i64 %140
   %.not.i.i = icmp eq ptr %146, %157
   br i1 %.not.i.i, label %_ZNSt6vectorIjSaIjEE6resizeEm.exit, label %158
 
@@ -112005,9 +111945,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit142: ; preds = %20
 
 _ZNK7xgboost6common4SpanIKjLm18446744073709551615EEixEm.exit: ; preds = %_ZNK7xgboost6common4SpanIKjLm18446744073709551615EEixEm.exit.lr.ph, %_ZNK7xgboost6common4SpanIKjLm18446744073709551615EEixEm.exit
   %.0163 = phi i64 [ 0, %_ZNK7xgboost6common4SpanIKjLm18446744073709551615EEixEm.exit.lr.ph ], [ %213, %_ZNK7xgboost6common4SpanIKjLm18446744073709551615EEixEm.exit ]
-  %210 = getelementptr inbounds nuw i32, ptr %130, i64 %.0163
+  %210 = getelementptr inbounds nuw [4 x i8], ptr %130, i64 %.0163
   %211 = load i32, ptr %210, align 4, !tbaa !99
-  %212 = getelementptr inbounds nuw i32, ptr %159, i64 %.0163
+  %212 = getelementptr inbounds nuw [4 x i8], ptr %159, i64 %.0163
   store i32 %211, ptr %212, align 4, !tbaa !99
   %213 = add nuw nsw i64 %.0163, 1
   %exitcond.not = icmp eq i64 %213, %140
@@ -113686,9 +113626,9 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit36: ; preds = %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !449
-  %39 = getelementptr inbounds nuw i32, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !458
-  %40 = getelementptr inbounds nuw i32, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !451
   br label %41
 
@@ -114976,7 +114916,7 @@ define linkonce_odr void @_ZZNK7xgboost6common16PartitionBuilderILm2048EE13LeafP
   %sext = shl i64 %1, 32
   %10 = ashr exact i64 %sext, 32
   %11 = load ptr, ptr %9, align 8, !tbaa !164
-  %12 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %11, i64 %10
+  %12 = getelementptr inbounds nuw [24 x i8], ptr %11, i64 %10
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load i32, ptr %13, align 8, !tbaa !920
   %15 = icmp slt i32 %14, 0
@@ -114995,14 +114935,14 @@ define linkonce_odr void @_ZZNK7xgboost6common16PartitionBuilderILm2048EE13LeafP
   %23 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7xgboost16HostDeviceVectorIiE15ConstHostVectorEv(ptr noundef nonnull align 8 dereferenceable(8) %22)
   %24 = zext nneg i32 %14 to i64
   %25 = load ptr, ptr %23, align 8, !tbaa !194
-  %26 = getelementptr inbounds nuw i32, ptr %25, i64 %24
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %24
   br label %_ZNK7xgboost7RegTree6IsLeafEi.exit
 
 27:                                               ; preds = %16
   %28 = getelementptr inbounds nuw i8, ptr %18, i64 160
   %29 = zext nneg i32 %14 to i64
   %30 = load ptr, ptr %28, align 8, !tbaa !536
-  %31 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %30, i64 %29
+  %31 = getelementptr inbounds nuw [20 x i8], ptr %30, i64 %29
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 4
   br label %_ZNK7xgboost7RegTree6IsLeafEi.exit
 
@@ -115205,13 +115145,13 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 _ZZNK7xgboost4tree20CommonRowPartitioner13LeafPartitionEPKNS_7ContextERKNS_7RegTreeENS_6common4SpanIKfLm18446744073709551615EEENS9_IiLm18446744073709551615EEEENKUlmE_clEm.exit: ; preds = %99
   %104 = load i32, ptr %13, align 8, !tbaa !920
   %105 = load ptr, ptr %96, align 8, !tbaa !3335
-  %106 = getelementptr inbounds nuw float, ptr %105, i64 %101
+  %106 = getelementptr inbounds nuw [4 x i8], ptr %105, i64 %101
   %107 = load float, ptr %106, align 4, !tbaa !134
   %108 = fcmp oeq float %107, 0.000000e+00
   %109 = sext i1 %108 to i32
   %110 = xor i32 %104, %109
   %111 = load ptr, ptr %98, align 8, !tbaa !459
-  %112 = getelementptr inbounds nuw i32, ptr %111, i64 %100
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %111, i64 %100
   store i32 %110, ptr %112, align 4, !tbaa !99
   %113 = getelementptr inbounds nuw i8, ptr %.039, i64 8
   %.not21 = icmp eq ptr %113, %88
@@ -116565,7 +116505,7 @@ define linkonce_odr void @_ZN7xgboost6common14BlockedSpace2dC2IZNS_4tree25Update
   %sext.i = shl i64 %.039, 32
   %14 = ashr exact i64 %sext.i, 32
   %15 = load ptr, ptr %13, align 8, !tbaa !164
-  %16 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %15, i64 %14
+  %16 = getelementptr inbounds nuw [24 x i8], ptr %15, i64 %14
   %17 = load ptr, ptr %16, align 8, !tbaa !917
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !919
@@ -116656,7 +116596,7 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIP
   %.pre = phi ptr [ %.pre.pre, %55 ], [ %31, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i ]
   store ptr %50, ptr %5, align 8, !tbaa !168
   store ptr %54, ptr %6, align 8, !tbaa !906
-  %56 = getelementptr inbounds nuw i64, ptr %50, i64 %48
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %48
   store ptr %56, ptr %7, align 8, !tbaa !171
   br label %_ZNSt6vectorImSaImEE9push_backERKm.exit.i
 
@@ -116756,7 +116696,7 @@ _ZNSt6vectorIN7xgboost6common7Range1dESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit3
 .noexc25:                                         ; preds = %79, %_ZNSt6vectorIN7xgboost6common7Range1dESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit33.i
   store ptr %74, ptr %0, align 8, !tbaa !861
   store ptr %78, ptr %8, align 8, !tbaa !1078
-  %93 = getelementptr inbounds nuw %"class.xgboost::common::Range1d", ptr %74, i64 %72
+  %93 = getelementptr inbounds nuw [16 x i8], ptr %74, i64 %72
   store ptr %93, ptr %9, align 8, !tbaa !864
   br label %_ZN7xgboost6common14BlockedSpace2d8AddBlockEmmm.exit
 
@@ -117029,7 +116969,7 @@ define linkonce_odr void @_ZN7xgboost6common14BlockedSpace2dC2IZNS_4tree25Update
   %sext.i = shl i64 %.039, 32
   %14 = ashr exact i64 %sext.i, 32
   %15 = load ptr, ptr %13, align 8, !tbaa !164
-  %16 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %15, i64 %14
+  %16 = getelementptr inbounds nuw [24 x i8], ptr %15, i64 %14
   %17 = load ptr, ptr %16, align 8, !tbaa !917
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !919
@@ -117120,7 +117060,7 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIP
   %.pre = phi ptr [ %.pre.pre, %55 ], [ %31, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i ]
   store ptr %50, ptr %5, align 8, !tbaa !168
   store ptr %54, ptr %6, align 8, !tbaa !906
-  %56 = getelementptr inbounds nuw i64, ptr %50, i64 %48
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %48
   store ptr %56, ptr %7, align 8, !tbaa !171
   br label %_ZNSt6vectorImSaImEE9push_backERKm.exit.i
 
@@ -117220,7 +117160,7 @@ _ZNSt6vectorIN7xgboost6common7Range1dESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit3
 .noexc25:                                         ; preds = %79, %_ZNSt6vectorIN7xgboost6common7Range1dESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit33.i
   store ptr %74, ptr %0, align 8, !tbaa !861
   store ptr %78, ptr %8, align 8, !tbaa !1078
-  %93 = getelementptr inbounds nuw %"class.xgboost::common::Range1d", ptr %74, i64 %72
+  %93 = getelementptr inbounds nuw [16 x i8], ptr %74, i64 %72
   store ptr %93, ptr %9, align 8, !tbaa !864
   br label %_ZN7xgboost6common14BlockedSpace2d8AddBlockEmmm.exit
 
@@ -117515,7 +117455,7 @@ define linkonce_odr void @_ZN4dmlc12OMPException3RunIZN7xgboost6common13Parallel
   %sext.i = shl i64 %25, 32
   %31 = ashr exact i64 %sext.i, 32
   %32 = load ptr, ptr %30, align 8, !tbaa !536
-  %33 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %32, i64 %31
+  %33 = getelementptr inbounds nuw [20 x i8], ptr %32, i64 %31
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 12
   %35 = load i32, ptr %34, align 4, !tbaa !810
   %36 = icmp eq i32 %35, -1
@@ -117531,16 +117471,16 @@ define linkonce_odr void @_ZN4dmlc12OMPException3RunIZN7xgboost6common13Parallel
   %42 = load ptr, ptr %22, align 8, !tbaa !3389
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 112
   %44 = load ptr, ptr %43, align 8, !tbaa !164
-  %45 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %44, i64 %31
+  %45 = getelementptr inbounds nuw [24 x i8], ptr %44, i64 %31
   %46 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %47 = load float, ptr %46, align 4, !tbaa !23
   %48 = load ptr, ptr %45, align 8, !tbaa !917
-  %49 = getelementptr inbounds nuw i64, ptr %48, i64 %28
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %28
   %50 = icmp samesign ult i64 %27, %28
   br i1 %50, label %.lr.ph.i.i, label %_ZZN7xgboost4tree25UpdatePredictionCacheImplINS0_20CommonRowPartitionerEEEvPKNS_7ContextEPKNS_7RegTreeERKSt6vectorIT_SaISA_EENS_6linalg10TensorViewIfLi1EEEENKUliNS_6common7Range1dEE_clEiSJ_.exit.i
 
 .lr.ph.i.i:                                       ; preds = %41
-  %51 = getelementptr inbounds nuw i64, ptr %48, i64 %27
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %27
   %52 = load ptr, ptr %23, align 8, !tbaa !3390
   %53 = load i64, ptr %52, align 8, !tbaa !44
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 32
@@ -117551,7 +117491,7 @@ define linkonce_odr void @_ZN4dmlc12OMPException3RunIZN7xgboost6common13Parallel
   %.010.i.i = phi ptr [ %51, %.lr.ph.i.i ], [ %62, %56 ]
   %57 = load i64, ptr %.010.i.i, align 8, !tbaa !44
   %58 = mul i64 %57, %53
-  %59 = getelementptr inbounds nuw float, ptr %55, i64 %58
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %58
   %60 = load float, ptr %59, align 4, !tbaa !134
   %61 = fadd float %47, %60
   store float %61, ptr %59, align 4, !tbaa !134
@@ -117926,7 +117866,7 @@ define linkonce_odr void @_ZZN7xgboost6common13ParallelFor2dIZNS_4tree25UpdatePr
   %sext11 = shl i64 %20, 32
   %37 = ashr exact i64 %sext11, 32
   %38 = load ptr, ptr %36, align 8, !tbaa !536
-  %39 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %38, i64 %37
+  %39 = getelementptr inbounds nuw [20 x i8], ptr %38, i64 %37
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 4
   br label %_ZNK7xgboost7RegTree6IsLeafEi.exit.i
 
@@ -117943,15 +117883,15 @@ _ZNK7xgboost7RegTree6IsLeafEi.exit.i:             ; preds = %35, %29
   %sext12 = shl i64 %20, 32
   %45 = ashr exact i64 %sext12, 32
   %46 = load ptr, ptr %44, align 8, !tbaa !164
-  %47 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %46, i64 %45
+  %47 = getelementptr inbounds nuw [24 x i8], ptr %46, i64 %45
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %48 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %49 = load ptr, ptr %48, align 8, !tbaa !3403
   %50 = load ptr, ptr %49, align 8, !tbaa !542
   call void @_ZNK7xgboost15MultiTargetTree9LeafValueEi(ptr dead_on_unwind nonnull writable sret(%"class.xgboost::linalg::TensorView.790") align 8 %2, ptr noundef nonnull align 8 dereferenceable(72) %50, i32 noundef %21)
   %51 = load ptr, ptr %47, align 8, !tbaa !917
-  %52 = getelementptr inbounds nuw i64, ptr %51, i64 %24
-  %53 = getelementptr inbounds nuw i64, ptr %51, i64 %25
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %24
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %25
   %54 = icmp samesign ult i64 %24, %25
   br i1 %54, label %.preheader.lr.ph.i, label %._crit_edge12.i
 
@@ -117979,16 +117919,16 @@ _ZNK7xgboost7RegTree6IsLeafEi.exit.i:             ; preds = %35, %29
   %.011.us.i = phi ptr [ %52, %.preheader.lr.ph.split.us.i ], [ %80, %._crit_edge.us.i ]
   %68 = load i64, ptr %.011.us.i, align 8, !tbaa !44
   %69 = mul i64 %68, %65
-  %70 = getelementptr float, ptr %67, i64 %69
+  %70 = getelementptr [4 x i8], ptr %67, i64 %69
   br label %71
 
 71:                                               ; preds = %71, %.preheader.us.i
   %storemerge10.us.i = phi i64 [ 0, %.preheader.us.i ], [ %79, %71 ]
   %72 = mul i64 %storemerge10.us.i, %59
-  %73 = getelementptr inbounds nuw float, ptr %60, i64 %72
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %72
   %74 = load float, ptr %73, align 4, !tbaa !134
   %75 = mul i64 %storemerge10.us.i, %66
-  %76 = getelementptr float, ptr %70, i64 %75
+  %76 = getelementptr [4 x i8], ptr %70, i64 %75
   %77 = load float, ptr %76, align 4, !tbaa !134
   %78 = fadd float %74, %77
   store float %78, ptr %76, align 4, !tbaa !134
@@ -118018,7 +117958,7 @@ define linkonce_odr void @_ZNK7xgboost15MultiTargetTree9LeafValueEi(ptr dead_on_
   %6 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7xgboost16HostDeviceVectorIiE15ConstHostVectorEv(ptr noundef nonnull align 8 dereferenceable(8) %5)
   %7 = sext i32 %2 to i64
   %8 = load ptr, ptr %6, align 8, !tbaa !194
-  %9 = getelementptr inbounds nuw i32, ptr %8, i64 %7
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %7
   %10 = load i32, ptr %9, align 4, !tbaa !99
   %11 = icmp eq i32 %10, -1
   br i1 %11, label %20, label %12, !prof !127
@@ -118088,7 +118028,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit4: ; preds = %_ZStls
   unreachable
 
 _ZNK7xgboost15MultiTargetTree10NodeWeightEi.exit: ; preds = %37
-  %42 = getelementptr inbounds nuw float, ptr %27, i64 %32
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %32
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %34, ptr %44, align 8, !tbaa !44, !alias.scope !3412

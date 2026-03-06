@@ -2276,16 +2276,16 @@ switch.lookup:                                    ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 916
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 912
   %11 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw float, ptr @switch.table._ZN19OpenColorIO_v2_5dev20GradingTonePreRender9FromStyleENS_12GradingStyleERfS2_S2_S2_, i64 %11
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN19OpenColorIO_v2_5dev20GradingTonePreRender9FromStyleENS_12GradingStyleERfS2_S2_S2_, i64 %11
   %switch.load = load float, ptr %switch.gep, align 4
   %12 = zext nneg i32 %1 to i64
-  %switch.gep3 = getelementptr inbounds nuw float, ptr @switch.table._ZN19OpenColorIO_v2_5dev20GradingTonePreRender9FromStyleENS_12GradingStyleERfS2_S2_S2_.4, i64 %12
+  %switch.gep3 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN19OpenColorIO_v2_5dev20GradingTonePreRender9FromStyleENS_12GradingStyleERfS2_S2_S2_.4, i64 %12
   %switch.load4 = load float, ptr %switch.gep3, align 4
   %13 = zext nneg i32 %1 to i64
-  %switch.gep5 = getelementptr inbounds nuw float, ptr @switch.table._ZN19OpenColorIO_v2_5dev20GradingTonePreRender9FromStyleENS_12GradingStyleERfS2_S2_S2_.5, i64 %13
+  %switch.gep5 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN19OpenColorIO_v2_5dev20GradingTonePreRender9FromStyleENS_12GradingStyleERfS2_S2_S2_.5, i64 %13
   %switch.load6 = load float, ptr %switch.gep5, align 4
   %14 = zext nneg i32 %1 to i64
-  %switch.gep7 = getelementptr inbounds nuw float, ptr @switch.table._ZN19OpenColorIO_v2_5dev20GradingTonePreRender9FromStyleENS_12GradingStyleERfS2_S2_S2_.6, i64 %14
+  %switch.gep7 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN19OpenColorIO_v2_5dev20GradingTonePreRender9FromStyleENS_12GradingStyleERfS2_S2_S2_.6, i64 %14
   %switch.load8 = load float, ptr %switch.gep7, align 4
   store float %switch.load, ptr %10, align 8, !tbaa !32
   store float %switch.load4, ptr %9, align 4, !tbaa !32
@@ -2304,16 +2304,16 @@ define hidden void @_ZN19OpenColorIO_v2_5dev20GradingTonePreRender9FromStyleENS_
 
 switch.lookup:                                    ; preds = %5
   %7 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw float, ptr @switch.table._ZN19OpenColorIO_v2_5dev20GradingTonePreRender9FromStyleENS_12GradingStyleERfS2_S2_S2_, i64 %7
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN19OpenColorIO_v2_5dev20GradingTonePreRender9FromStyleENS_12GradingStyleERfS2_S2_S2_, i64 %7
   %switch.load = load float, ptr %switch.gep, align 4
   %8 = zext nneg i32 %0 to i64
-  %switch.gep15 = getelementptr inbounds nuw float, ptr @switch.table._ZN19OpenColorIO_v2_5dev20GradingTonePreRender9FromStyleENS_12GradingStyleERfS2_S2_S2_.4, i64 %8
+  %switch.gep15 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN19OpenColorIO_v2_5dev20GradingTonePreRender9FromStyleENS_12GradingStyleERfS2_S2_S2_.4, i64 %8
   %switch.load16 = load float, ptr %switch.gep15, align 4
   %9 = zext nneg i32 %0 to i64
-  %switch.gep17 = getelementptr inbounds nuw float, ptr @switch.table._ZN19OpenColorIO_v2_5dev20GradingTonePreRender9FromStyleENS_12GradingStyleERfS2_S2_S2_.5, i64 %9
+  %switch.gep17 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN19OpenColorIO_v2_5dev20GradingTonePreRender9FromStyleENS_12GradingStyleERfS2_S2_S2_.5, i64 %9
   %switch.load18 = load float, ptr %switch.gep17, align 4
   %10 = zext nneg i32 %0 to i64
-  %switch.gep19 = getelementptr inbounds nuw float, ptr @switch.table._ZN19OpenColorIO_v2_5dev20GradingTonePreRender9FromStyleENS_12GradingStyleERfS2_S2_S2_.6, i64 %10
+  %switch.gep19 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN19OpenColorIO_v2_5dev20GradingTonePreRender9FromStyleENS_12GradingStyleERfS2_S2_S2_.6, i64 %10
   %switch.load20 = load float, ptr %switch.gep19, align 4
   store float %switch.load, ptr %1, align 4, !tbaa !32
   store float %switch.load16, ptr %2, align 4, !tbaa !32
@@ -2738,19 +2738,19 @@ define hidden void @_ZN19OpenColorIO_v2_5dev20GradingTonePreRender15mids_precomp
   %.0.ptr = getelementptr inbounds nuw i8, ptr %5, i64 %.0.idx168
   %62 = load i32, ptr %.0.ptr, align 4, !tbaa !53
   %63 = zext i32 %62 to i64
-  %64 = getelementptr inbounds nuw [6 x float], ptr %9, i64 %63
+  %64 = getelementptr inbounds nuw [24 x i8], ptr %9, i64 %63
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 4
   %66 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %64, i64 12
   %68 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %69 = getelementptr inbounds nuw i8, ptr %64, i64 20
-  %70 = getelementptr inbounds nuw [6 x float], ptr %10, i64 %63
+  %70 = getelementptr inbounds nuw [24 x i8], ptr %10, i64 %63
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 4
   %72 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %73 = getelementptr inbounds nuw i8, ptr %70, i64 12
   %74 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %75 = getelementptr inbounds nuw i8, ptr %70, i64 20
-  %76 = getelementptr inbounds nuw [6 x float], ptr %11, i64 %63
+  %76 = getelementptr inbounds nuw [24 x i8], ptr %11, i64 %63
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 4
   %78 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %79 = getelementptr inbounds nuw i8, ptr %76, i64 12
@@ -2912,9 +2912,9 @@ define hidden void @_ZN19OpenColorIO_v2_5dev20GradingTonePreRender26highlightSha
   store i32 2, ptr %5, align 4, !tbaa !53
   store i32 3, ptr %6, align 4, !tbaa !53
   %21 = zext nneg i8 %.0.idx126.sroa.phi.sroa.speculated to i64
-  %22 = getelementptr inbounds nuw [4 x [3 x float]], ptr %7, i64 %21
-  %23 = getelementptr inbounds nuw [4 x [3 x float]], ptr %8, i64 %21
-  %24 = getelementptr inbounds nuw [4 x [2 x float]], ptr %9, i64 %21
+  %22 = getelementptr inbounds nuw [48 x i8], ptr %7, i64 %21
+  %23 = getelementptr inbounds nuw [48 x i8], ptr %8, i64 %21
+  %24 = getelementptr inbounds nuw [32 x i8], ptr %9, i64 %21
   %25 = load double, ptr %10, align 8
   %26 = fptrunc double %25 to float
   %27 = load double, ptr %11, align 8
@@ -2946,13 +2946,13 @@ define hidden void @_ZN19OpenColorIO_v2_5dev20GradingTonePreRender26highlightSha
   %.092.ptr = getelementptr inbounds nuw i8, ptr %3, i64 %.092.idx125
   %43 = load i32, ptr %.092.ptr, align 4, !tbaa !53
   %44 = zext i32 %43 to i64
-  %45 = getelementptr inbounds nuw [3 x float], ptr %22, i64 %44
+  %45 = getelementptr inbounds nuw [12 x i8], ptr %22, i64 %44
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 4
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  %48 = getelementptr inbounds nuw [3 x float], ptr %23, i64 %44
+  %48 = getelementptr inbounds nuw [12 x i8], ptr %23, i64 %44
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 4
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  %51 = getelementptr inbounds nuw [2 x float], ptr %24, i64 %44
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %44
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 4
   br i1 %20, label %53, label %58
 
@@ -3142,10 +3142,10 @@ define hidden void @_ZN19OpenColorIO_v2_5dev20GradingTonePreRender21whiteBlack_p
   store i32 2, ptr %5, align 4, !tbaa !53
   store i32 3, ptr %6, align 4, !tbaa !53
   %21 = zext nneg i8 %.0.idx119.sroa.phi.sroa.speculated to i64
-  %22 = getelementptr inbounds nuw [4 x [2 x float]], ptr %7, i64 %21
-  %23 = getelementptr inbounds nuw [4 x [2 x float]], ptr %8, i64 %21
-  %24 = getelementptr inbounds nuw [4 x [2 x float]], ptr %9, i64 %21
-  %25 = getelementptr inbounds nuw [4 x float], ptr %10, i64 %21
+  %22 = getelementptr inbounds nuw [32 x i8], ptr %7, i64 %21
+  %23 = getelementptr inbounds nuw [32 x i8], ptr %8, i64 %21
+  %24 = getelementptr inbounds nuw [32 x i8], ptr %9, i64 %21
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %21
   %.in.v = select i1 %20, i64 32, i64 48
   %.in = getelementptr inbounds nuw i8, ptr %0, i64 %.in.v
   %26 = load double, ptr %.in, align 8, !tbaa !55
@@ -3188,13 +3188,13 @@ define hidden void @_ZN19OpenColorIO_v2_5dev20GradingTonePreRender21whiteBlack_p
   %.091.ptr = getelementptr inbounds nuw i8, ptr %3, i64 %.091.idx118
   %55 = load i32, ptr %.091.ptr, align 4, !tbaa !53
   %56 = zext i32 %55 to i64
-  %57 = getelementptr inbounds nuw [2 x float], ptr %22, i64 %56
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %56
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 4
-  %59 = getelementptr inbounds nuw [2 x float], ptr %23, i64 %56
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %56
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 4
-  %61 = getelementptr inbounds nuw [2 x float], ptr %24, i64 %56
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %56
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 4
-  %63 = getelementptr inbounds nuw float, ptr %25, i64 %56
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %56
   br i1 %20, label %64, label %69
 
 64:                                               ; preds = %54

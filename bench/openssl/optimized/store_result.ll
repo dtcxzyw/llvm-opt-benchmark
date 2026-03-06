@@ -320,7 +320,7 @@ try_key_ref.exit.i:                               ; preds = %136
 
 switch.lookup:                                    ; preds = %145
   %151 = zext nneg i32 %.val.i to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.ossl_store_handle_load_result, i64 %151
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.ossl_store_handle_load_result, i64 %151
   %switch.load = load i32, ptr %switch.gep, align 4
   %152 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %153 = load ptr, ptr %152, align 8, !tbaa !48

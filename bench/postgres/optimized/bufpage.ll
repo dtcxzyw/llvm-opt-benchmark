@@ -3,9 +3,9 @@ source_filename = "bench/postgres/original/bufpage.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.ItemIdData = type { i32 }
 %struct.itemIdCompactData = type { i16, i16, i16 }
 %union.PGAlignedBlock = type { double, [8184 x i8] }
+%struct.ItemIdData = type { i32 }
 
 @ignore_checksum_failure = dso_local local_unnamed_addr global i8 0, align 1
 @.str = private unnamed_addr constant [65 x i8] c"page verification failed, calculated checksum %u but expected %u\00", align 1
@@ -360,7 +360,7 @@ define dso_local zeroext range(i16 0, 16379) i16 @PageAddItemExtended(ptr nounde
 41:                                               ; preds = %40
   %42 = zext nneg i16 %3 to i64
   %43 = getelementptr i8, ptr %0, i64 20
-  %44 = getelementptr %struct.ItemIdData, ptr %43, i64 %42
+  %44 = getelementptr [4 x i8], ptr %43, i64 %42
   %45 = load i32, ptr %44, align 4
   %or.cond91 = icmp ult i32 %45, 32768
   br i1 %or.cond91, label %.loopexit, label %46
@@ -395,7 +395,7 @@ define dso_local zeroext range(i16 0, 16379) i16 @PageAddItemExtended(ptr nounde
 55:                                               ; preds = %.lr.ph, %59
   %.1102 = phi i16 [ 1, %.lr.ph ], [ %60, %59 ]
   %56 = zext i16 %.1102 to i64
-  %57 = getelementptr %struct.ItemIdData, ptr %54, i64 %56
+  %57 = getelementptr [4 x i8], ptr %54, i64 %56
   %58 = load i32, ptr %57, align 4
   %or.cond92 = icmp ult i32 %58, 32768
   br i1 %or.cond92, label %.loopexit, label %59
@@ -461,7 +461,7 @@ define dso_local zeroext range(i16 0, 16379) i16 @PageAddItemExtended(ptr nounde
 
 85:                                               ; preds = %76
   %86 = getelementptr i8, ptr %0, i64 20
-  %87 = getelementptr %struct.ItemIdData, ptr %86, i64 %67
+  %87 = getelementptr [4 x i8], ptr %86, i64 %67
   br i1 %.098, label %88, label %92
 
 88:                                               ; preds = %85
@@ -664,7 +664,7 @@ define dso_local void @PageRepairFragmentation(ptr noundef captures(none) %0) lo
   %.079106 = phi i32 [ 0, %.lr.ph ], [ %.180, %69 ]
   %.082105 = phi ptr [ %2, %.lr.ph ], [ %.284, %69 ]
   %34 = trunc i64 %indvars.iv to i16
-  %35 = getelementptr %struct.ItemIdData, ptr %31, i64 %indvars.iv
+  %35 = getelementptr [4 x i8], ptr %31, i64 %indvars.iv
   %36 = load i32, ptr %35, align 4
   %37 = and i32 %36, 98304
   %.not95 = icmp eq i32 %37, 0
@@ -810,7 +810,7 @@ define internal fastcc void @compactify_tuples(ptr noundef nonnull readonly capt
 10:                                               ; preds = %19, %6
   %indvars.iv160 = phi i64 [ %indvars.iv.next161, %19 ], [ 0, %6 ]
   %.0 = phi i32 [ %20, %19 ], [ %9, %6 ]
-  %11 = getelementptr inbounds nuw %struct.itemIdCompactData, ptr %0, i64 %indvars.iv160
+  %11 = getelementptr inbounds nuw [6 x i8], ptr %0, i64 %indvars.iv160
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 2
   %13 = load i16, ptr %12, align 2
   %14 = sext i16 %13 to i32
@@ -843,11 +843,11 @@ define internal fastcc void @compactify_tuples(ptr noundef nonnull readonly capt
   %.2141 = phi i32 [ %.0, %.lr.ph143 ], [ %52, %51 ]
   %.0107140 = phi i32 [ %18, %.lr.ph143 ], [ %.1108, %51 ]
   %.0111139 = phi i32 [ %18, %.lr.ph143 ], [ %.pre-phi173, %51 ]
-  %27 = getelementptr inbounds nuw %struct.itemIdCompactData, ptr %0, i64 %indvars.iv166
+  %27 = getelementptr inbounds nuw [6 x i8], ptr %0, i64 %indvars.iv166
   %28 = load i16, ptr %27, align 2
   %29 = add i16 %28, 1
   %30 = zext i16 %29 to i64
-  %31 = getelementptr %struct.ItemIdData, ptr %24, i64 %30
+  %31 = getelementptr [4 x i8], ptr %24, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %27, i64 2
   %33 = load i16, ptr %32, align 2
   %34 = sext i16 %33 to i32
@@ -920,7 +920,7 @@ define internal fastcc void @compactify_tuples(ptr noundef nonnull readonly capt
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %.preheader ]
-  %71 = getelementptr inbounds nuw %struct.itemIdCompactData, ptr %0, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw [6 x i8], ptr %0, i64 %indvars.iv
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 2
   %73 = load i16, ptr %72, align 2
   %74 = sext i16 %73 to i64
@@ -957,7 +957,7 @@ define internal fastcc void @compactify_tuples(ptr noundef nonnull readonly capt
   %.5118 = phi i32 [ 0, %84 ], [ %100, %98 ]
   %.5 = phi i32 [ %87, %84 ], [ %99, %98 ]
   %89 = zext nneg i32 %.5118 to i64
-  %90 = getelementptr inbounds nuw %struct.itemIdCompactData, ptr %0, i64 %89
+  %90 = getelementptr inbounds nuw [6 x i8], ptr %0, i64 %89
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 2
   %92 = load i16, ptr %91, align 2
   %93 = sext i16 %92 to i32
@@ -1006,11 +1006,11 @@ define internal fastcc void @compactify_tuples(ptr noundef nonnull readonly capt
   %.7135 = phi i32 [ %.4, %.lr.ph ], [ %140, %139 ]
   %.2109134 = phi i32 [ %.pre-phi179, %.lr.ph ], [ %.3110, %139 ]
   %.1112133 = phi i32 [ %.pre-phi179, %.lr.ph ], [ %.pre-phi181, %139 ]
-  %115 = getelementptr inbounds %struct.itemIdCompactData, ptr %0, i64 %indvars.iv155
+  %115 = getelementptr inbounds [6 x i8], ptr %0, i64 %indvars.iv155
   %116 = load i16, ptr %115, align 2
   %117 = add i16 %116, 1
   %118 = zext i16 %117 to i64
-  %119 = getelementptr %struct.ItemIdData, ptr %112, i64 %118
+  %119 = getelementptr [4 x i8], ptr %112, i64 %118
   %120 = getelementptr inbounds nuw i8, ptr %115, i64 2
   %121 = load i16, ptr %120, align 2
   %122 = sext i16 %121 to i32
@@ -1094,7 +1094,7 @@ define dso_local void @PageTruncateLinePointerArray(ptr noundef captures(none) %
   %.01942 = phi i32 [ %7, %.lr.ph ], [ %18, %17 ]
   %.02041 = phi i32 [ 0, %.lr.ph ], [ %.336, %17 ]
   %10 = zext nneg i32 %.01942 to i64
-  %11 = getelementptr %struct.ItemIdData, ptr %8, i64 %10
+  %11 = getelementptr [4 x i8], ptr %8, i64 %10
   %12 = icmp eq i32 %.01942, 1
   %or.cond.not = or i1 %12, %.043
   %13 = load i32, ptr %11, align 4
@@ -1239,7 +1239,7 @@ define dso_local range(i64 0, 65532) i64 @PageGetHeapFreeSpace(ptr noundef reado
 22:                                               ; preds = %.preheader, %20
   %.01524 = phi i16 [ 1, %.preheader ], [ %21, %20 ]
   %23 = zext i16 %.01524 to i64
-  %24 = getelementptr %struct.ItemIdData, ptr %19, i64 %23
+  %24 = getelementptr [4 x i8], ptr %19, i64 %23
   %25 = load i32, ptr %24, align 4
   %26 = and i32 %25, 98304
   %.not21 = icmp eq i32 %26, 0
@@ -1316,7 +1316,7 @@ define dso_local void @PageIndexTupleDelete(ptr noundef captures(none) %0, i16 n
 43:                                               ; preds = %31
   %44 = zext nneg i16 %1 to i64
   %45 = getelementptr i8, ptr %0, i64 20
-  %46 = getelementptr %struct.ItemIdData, ptr %45, i64 %44
+  %46 = getelementptr [4 x i8], ptr %45, i64 %44
   %47 = load i32, ptr %46, align 4
   %48 = lshr i32 %47, 17
   %49 = zext nneg i32 %48 to i64
@@ -1356,7 +1356,7 @@ define dso_local void @PageIndexTupleDelete(ptr noundef captures(none) %0, i16 n
 70:                                               ; preds = %64
   %71 = add nsw i64 %reass.sub, -24
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %73 = getelementptr %struct.ItemIdData, ptr %72, i64 %44
+  %73 = getelementptr [4 x i8], ptr %72, i64 %44
   %74 = getelementptr i8, ptr %73, i64 -4
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %74, ptr nonnull align 4 %73, i64 %71, i1 false)
   %.pre = load i16, ptr %7, align 2
@@ -1399,7 +1399,7 @@ define dso_local void @PageIndexTupleDelete(ptr noundef captures(none) %0, i16 n
 
 92:                                               ; preds = %.lr.ph, %101
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %101 ]
-  %93 = getelementptr %struct.ItemIdData, ptr %45, i64 %indvars.iv
+  %93 = getelementptr [4 x i8], ptr %45, i64 %indvars.iv
   %94 = load i32, ptr %93, align 4
   %95 = and i32 %94, 32767
   %.not74 = icmp samesign ugt i32 %95, %50
@@ -1451,7 +1451,7 @@ define dso_local void @PageIndexMultiDelete(ptr noundef captures(none) %0, ptr n
 
 .lr.ph122:                                        ; preds = %.lr.ph122.preheader, %.lr.ph122
   %indvars.iv = phi i64 [ %18, %.lr.ph122.preheader ], [ %indvars.iv.next, %.lr.ph122 ]
-  %19 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv
   %20 = load i16, ptr %19, align 2
   tail call void @PageIndexTupleDelete(ptr noundef nonnull %0, i16 noundef zeroext %20)
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
@@ -1506,7 +1506,7 @@ define dso_local void @PageIndexMultiDelete(ptr noundef captures(none) %0, ptr n
   %.086113 = phi i32 [ 0, %.lr.ph ], [ %.187, %82 ]
   %.088112 = phi ptr [ %4, %.lr.ph ], [ %.189, %82 ]
   %42 = zext i16 %.077117 to i64
-  %43 = getelementptr %struct.ItemIdData, ptr %40, i64 %42
+  %43 = getelementptr [4 x i8], ptr %40, i64 %42
   %44 = load i32, ptr %43, align 4
   %45 = lshr i32 %44, 17
   %46 = and i32 %44, 32767
@@ -1536,7 +1536,7 @@ define dso_local void @PageIndexMultiDelete(ptr noundef captures(none) %0, ptr n
 
 59:                                               ; preds = %57
   %60 = sext i32 %.078116 to i64
-  %61 = getelementptr inbounds i16, ptr %1, i64 %60
+  %61 = getelementptr inbounds [2 x i8], ptr %1, i64 %60
   %62 = load i16, ptr %61, align 2
   %63 = icmp eq i16 %.077117, %62
   br i1 %63, label %64, label %66
@@ -1562,7 +1562,7 @@ define dso_local void @PageIndexMultiDelete(ptr noundef captures(none) %0, ptr n
   %75 = zext i16 %73 to i64
   %76 = add i64 %.084114, %75
   %77 = sext i32 %.086113 to i64
-  %78 = getelementptr inbounds %struct.ItemIdData, ptr %5, i64 %77
+  %78 = getelementptr inbounds [4 x i8], ptr %5, i64 %77
   %79 = load i32, ptr %43, align 4
   store i32 %79, ptr %78, align 4
   %80 = getelementptr inbounds nuw i8, ptr %.088112, i64 6
@@ -1695,7 +1695,7 @@ define dso_local void @PageIndexTupleDeleteNoCompact(ptr noundef captures(none) 
 44:                                               ; preds = %31
   %45 = zext nneg i16 %1 to i64
   %46 = getelementptr i8, ptr %0, i64 20
-  %47 = getelementptr %struct.ItemIdData, ptr %46, i64 %45
+  %47 = getelementptr [4 x i8], ptr %46, i64 %45
   %48 = load i32, ptr %47, align 4
   %49 = lshr i32 %48, 17
   %50 = zext nneg i32 %49 to i64
@@ -1775,7 +1775,7 @@ define dso_local void @PageIndexTupleDeleteNoCompact(ptr noundef captures(none) 
 
 88:                                               ; preds = %.lr.ph, %97
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %97 ]
-  %89 = getelementptr %struct.ItemIdData, ptr %46, i64 %indvars.iv
+  %89 = getelementptr [4 x i8], ptr %46, i64 %indvars.iv
   %90 = load i32, ptr %89, align 4
   %.not69 = icmp ult i32 %90, 131072
   %91 = and i32 %90, 32767
@@ -1866,7 +1866,7 @@ define dso_local noundef zeroext i1 @PageIndexTupleOverwrite(ptr noundef capture
 46:                                               ; preds = %33
   %47 = zext nneg i16 %1 to i64
   %48 = getelementptr i8, ptr %0, i64 20
-  %49 = getelementptr %struct.ItemIdData, ptr %48, i64 %47
+  %49 = getelementptr [4 x i8], ptr %48, i64 %47
   %50 = load i32, ptr %49, align 4
   %51 = lshr i32 %50, 17
   %52 = and i32 %50, 32767
@@ -1925,7 +1925,7 @@ define dso_local noundef zeroext i1 @PageIndexTupleOverwrite(ptr noundef capture
 
 87:                                               ; preds = %77, %96
   %indvars.iv = phi i64 [ 1, %77 ], [ %indvars.iv.next, %96 ]
-  %88 = getelementptr %struct.ItemIdData, ptr %48, i64 %indvars.iv
+  %88 = getelementptr [4 x i8], ptr %48, i64 %indvars.iv
   %89 = load i32, ptr %88, align 4
   %.not80 = icmp ult i32 %89, 131072
   %90 = and i32 %89, 32767

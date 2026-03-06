@@ -4,20 +4,15 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%class.ptr_vector.7 = type { %class.vector.8 }
-%class.vector.8 = type { ptr }
-%"struct.euf::egraph::update_record" = type { i32, ptr, ptr, %union.anon.32 }
-%union.anon.32 = type { i64 }
 %"class.euf::justification" = type { i32, %union.anon, %union.anon.17 }
 %union.anon = type { ptr }
 %union.anon.17 = type { ptr }
-%"struct.euf::egraph::to_merge" = type { ptr, ptr, i32, %"class.euf::justification" }
-%"class.euf::th_eq" = type { i32, i32, i32, %union.anon.64, ptr }
-%union.anon.64 = type { ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.90 }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon.90 = type { i64, [8 x i8] }
 %"class.std::allocator.87" = type { i8 }
+%class.ptr_vector.7 = type { %class.vector.8 }
+%class.vector.8 = type { ptr }
 %class.ast_translation = type <{ ptr, ptr, %class.svector.70, %class.ptr_vector.72, %class.ptr_vector.72, %class.obj_map.74, i32, i32, i32, i32, i32, [4 x i8] }>
 %class.svector.70 = type { %class.vector.71 }
 %class.vector.71 = type { ptr }
@@ -28,15 +23,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.ptr_vector.104 = type { %class.vector.105 }
 %class.vector.105 = type { ptr }
 %class.vector.95 = type { ptr }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Tuple_impl.98", %"struct.std::_Head_base.103" }
-%"struct.std::_Tuple_impl.98" = type { %"struct.std::_Tuple_impl.99", %"struct.std::_Head_base.102" }
-%"struct.std::_Tuple_impl.99" = type { %"struct.std::_Tuple_impl.100", %"struct.std::_Head_base.101" }
-%"struct.std::_Tuple_impl.100" = type { %"struct.std::_Head_base" }
-%"struct.std::_Head_base" = type { i8 }
-%"struct.std::_Head_base.101" = type { i64 }
-%"struct.std::_Head_base.102" = type { ptr }
-%"struct.std::_Head_base.103" = type { ptr }
 
 $_ZNSt6vectorISt8functionIFvPN3euf5enodeES3_EESaIS5_EED2Ev = comdat any
 
@@ -293,9 +279,9 @@ _ZNK9func_decl14is_commutativeEv.exit.i:          ; preds = %5
 
 47:                                               ; preds = %47, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %47 ]
-  %48 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.i
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i
   %49 = load ptr, ptr %48, align 8, !tbaa !47
-  %50 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv.i
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv.i
   store ptr %49, ptr %50, align 8, !tbaa !47
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 64
   %52 = load ptr, ptr %51, align 8, !tbaa !32
@@ -342,7 +328,7 @@ _ZN6vectorIPN3euf5enodeELb0EjE9push_backERKS2_.exit: ; preds = %63, %69
   %71 = phi ptr [ %.pre.i, %69 ], [ %61, %63 ]
   %72 = getelementptr inbounds i8, ptr %71, i64 -4
   %73 = zext i32 %70 to i64
-  %74 = getelementptr inbounds nuw ptr, ptr %71, i64 %73
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %73
   store ptr %10, ptr %74, align 8, !tbaa !47
   %75 = add i32 %70, 1
   store i32 %75, ptr %72, align 4, !tbaa !113
@@ -382,7 +368,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0
   %91 = phi ptr [ %.pre.i.i, %89 ], [ %81, %83 ]
   %92 = getelementptr inbounds i8, ptr %91, i64 -4
   %93 = zext i32 %90 to i64
-  %94 = getelementptr inbounds nuw ptr, ptr %91, i64 %93
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %93
   store ptr %1, ptr %94, align 8, !tbaa !116
   %95 = add i32 %90, 1
   store i32 %95, ptr %92, align 4, !tbaa !113
@@ -445,7 +431,7 @@ _ZNK6vectorI10ptr_vectorIN3euf5enodeEELb1EjE8capacityEv.exit.thread.i.i: ; preds
 .lr.ph.preheader.i.i:                             ; preds = %118
   %120 = zext i32 %107 to i64
   %121 = zext i32 %.0.i16.i.i.ph to i64
-  %122 = getelementptr %class.ptr_vector.7, ptr %113, i64 %121
+  %122 = getelementptr [8 x i8], ptr %113, i64 %121
   %123 = sub nsw i64 %120, %121
   %124 = shl nsw i64 %123, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %122, i8 0, i64 %124, i1 false), !tbaa !112
@@ -454,7 +440,7 @@ _ZNK6vectorI10ptr_vectorIN3euf5enodeEELb1EjE8capacityEv.exit.thread.i.i: ; preds
 _ZN6vectorI10ptr_vectorIN3euf5enodeEELb1EjE7reserveEj.exit: ; preds = %_ZNK6vectorI10ptr_vectorIN3euf5enodeEELb1EjE4sizeEv.exit.i, %_ZNK6vectorI10ptr_vectorIN3euf5enodeEELb1EjE4sizeEv.exit.thread.i, %118, %.lr.ph.preheader.i.i
   %125 = phi ptr [ null, %_ZNK6vectorI10ptr_vectorIN3euf5enodeEELb1EjE4sizeEv.exit.i ], [ %108, %_ZNK6vectorI10ptr_vectorIN3euf5enodeEELb1EjE4sizeEv.exit.thread.i ], [ %113, %118 ], [ %113, %.lr.ph.preheader.i.i ]
   %126 = zext i32 %105 to i64
-  %127 = getelementptr inbounds nuw %class.ptr_vector.7, ptr %125, i64 %126
+  %127 = getelementptr inbounds nuw [8 x i8], ptr %125, i64 %126
   %128 = load ptr, ptr %127, align 8, !tbaa !112
   %129 = icmp eq ptr %128, null
   br i1 %129, label %136, label %130
@@ -479,7 +465,7 @@ _ZN6vectorIPN3euf5enodeELb0EjE9push_backERKS2_.exit23: ; preds = %130, %136
   %138 = phi ptr [ %.pre.i20, %136 ], [ %128, %130 ]
   %139 = getelementptr inbounds i8, ptr %138, i64 -4
   %140 = zext i32 %137 to i64
-  %141 = getelementptr inbounds nuw ptr, ptr %138, i64 %140
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %138, i64 %140
   store ptr %10, ptr %141, align 8, !tbaa !47
   %142 = add i32 %137, 1
   store i32 %142, ptr %139, align 4, !tbaa !113
@@ -544,7 +530,7 @@ _ZNK6vectorIPN3euf5enodeELb0EjE8capacityEv.exit.thread.i.i: ; preds = %_ZNK6vect
 .lr.ph.preheader.i.i27:                           ; preds = %158
   %160 = zext i32 %.ph68 to i64
   %161 = zext i32 %.0.i17.i.i.ph to i64
-  %162 = getelementptr ptr, ptr %153, i64 %161
+  %162 = getelementptr [8 x i8], ptr %153, i64 %161
   %163 = sub nsw i64 %160, %161
   %164 = shl nsw i64 %163, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %162, i8 0, i64 %164, i1 false), !tbaa !47
@@ -553,7 +539,7 @@ _ZNK6vectorIPN3euf5enodeELb0EjE8capacityEv.exit.thread.i.i: ; preds = %_ZNK6vect
 _ZN6vectorIPN3euf5enodeELb0EjE4setxEjRKS2_S5_.exit: ; preds = %.lr.ph.preheader.i.i27, %_ZNK6vectorIPN3euf5enodeELb0EjE4sizeEv.exit.i, %152, %158
   %165 = phi ptr [ %146, %_ZNK6vectorIPN3euf5enodeELb0EjE4sizeEv.exit.i ], [ %153, %158 ], [ %146, %152 ], [ %153, %.lr.ph.preheader.i.i27 ]
   %166 = zext i32 %145 to i64
-  %167 = getelementptr inbounds nuw ptr, ptr %165, i64 %166
+  %167 = getelementptr inbounds nuw [8 x i8], ptr %165, i64 %166
   store ptr %10, ptr %167, align 8, !tbaa !47
   %168 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %169 = load ptr, ptr %168, align 8, !tbaa !121
@@ -579,7 +565,7 @@ _ZN3euf6egraph9push_nodeEPNS_5enodeE.exit:        ; preds = %171, %177
   %178 = phi i32 [ %.pre2.i.i31, %177 ], [ %173, %171 ]
   %179 = phi ptr [ %.pre.i.i29, %177 ], [ %169, %171 ]
   %180 = zext i32 %178 to i64
-  %181 = getelementptr inbounds nuw %"struct.euf::egraph::update_record", ptr %179, i64 %180
+  %181 = getelementptr inbounds nuw [32 x i8], ptr %179, i64 %180
   store i32 1, ptr %181, align 8, !tbaa !122
   %.sroa.42.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %181, i64 8
   store ptr %10, ptr %.sroa.42.0..sroa_idx.i, align 8, !tbaa !47
@@ -604,7 +590,7 @@ _ZN3euf6egraph9push_nodeEPNS_5enodeE.exit:        ; preds = %171, %177
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN3euf6egraph15set_cgc_enabledEPNS_5enodeEb.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN3euf6egraph15set_cgc_enabledEPNS_5enodeEb.exit ]
-  %186 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %186 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %187 = load ptr, ptr %186, align 8, !tbaa !47
   %188 = getelementptr inbounds nuw i8, ptr %187, i64 13
   %189 = load i8, ptr %188, align 1, !tbaa !3, !range !109, !noundef !110
@@ -636,7 +622,7 @@ _ZN6vectorIN3euf6egraph13update_recordELb0EjE9push_backEOS2_.exit.i: ; preds = %
   %201 = phi i32 [ %.pre2.i.i36, %200 ], [ %196, %194 ]
   %202 = phi ptr [ %.pre.i.i34, %200 ], [ %192, %194 ]
   %203 = zext i32 %201 to i64
-  %204 = getelementptr inbounds nuw %"struct.euf::egraph::update_record", ptr %202, i64 %203
+  %204 = getelementptr inbounds nuw [32 x i8], ptr %202, i64 %203
   store i32 2, ptr %204, align 8, !tbaa !122
   %.sroa.44.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %204, i64 8
   store ptr %187, ptr %.sroa.44.0..sroa_idx.i, align 8, !tbaa !47
@@ -697,7 +683,7 @@ _ZN6vectorIN3euf6egraph13update_recordELb0EjE9push_backEOS2_.exit: ; preds = %12
   %19 = phi i32 [ %.pre2.i, %18 ], [ %14, %12 ]
   %20 = phi ptr [ %.pre.i, %18 ], [ %10, %12 ]
   %21 = zext i32 %19 to i64
-  %22 = getelementptr inbounds nuw %"struct.euf::egraph::update_record", ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %21
   store i32 2, ptr %22, align 8, !tbaa !122
   %.sroa.44.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr %1, ptr %.sroa.44.0..sroa_idx, align 8, !tbaa !47
@@ -813,11 +799,11 @@ _ZN3euf5enode6mk_tmpEj.exit:                      ; preds = %11, %.lr.ph.i
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %41 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %42 = load ptr, ptr %41, align 8, !tbaa !47
   %43 = load ptr, ptr %5, align 8, !tbaa !125
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 176
-  %45 = getelementptr inbounds nuw ptr, ptr %44, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %indvars.iv
   store ptr %42, ptr %45, align 8, !tbaa !47
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -845,7 +831,7 @@ _ZNK6vectorI10ptr_vectorIN3euf5enodeEELb1EjE4sizeEv.exit: ; preds = %2
 
 11:                                               ; preds = %_ZNK6vectorI10ptr_vectorIN3euf5enodeEELb1EjE4sizeEv.exit
   %12 = zext i32 %4 to i64
-  %13 = getelementptr inbounds nuw %class.ptr_vector.7, ptr %6, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %12
   br label %15
 
 _ZNK6vectorI10ptr_vectorIN3euf5enodeEELb1EjE4sizeEv.exit.thread: ; preds = %2, %_ZNK6vectorI10ptr_vectorIN3euf5enodeEELb1EjE4sizeEv.exit
@@ -932,7 +918,7 @@ _ZN6vectorIN3euf6egraph8to_mergeELb0EjE9push_backEOS2_.exit.i: ; preds = %29, %2
   %30 = phi i32 [ %.pre2.i.i, %29 ], [ %25, %23 ]
   %31 = phi ptr [ %.pre.i.i, %29 ], [ %21, %23 ]
   %32 = zext i32 %30 to i64
-  %33 = getelementptr inbounds nuw %"struct.euf::egraph::to_merge", ptr %31, i64 %32
+  %33 = getelementptr inbounds nuw [48 x i8], ptr %31, i64 %32
   store ptr %1, ptr %33, align 8, !tbaa !47
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %33, i64 8
   store ptr null, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !47
@@ -1002,7 +988,7 @@ _ZN6vectorIN3euf6egraph13update_recordELb0EjE9push_backEOS2_.exit.i: ; preds = %
   %62 = phi i32 [ %.pre2.i.i11, %61 ], [ %57, %55 ]
   %63 = phi ptr [ %.pre.i.i9, %61 ], [ %53, %55 ]
   %64 = zext i32 %62 to i64
-  %65 = getelementptr inbounds nuw %"struct.euf::egraph::update_record", ptr %63, i64 %64
+  %65 = getelementptr inbounds nuw [32 x i8], ptr %63, i64 %64
   store i32 10, ptr %65, align 8, !tbaa !122
   %66 = getelementptr i8, ptr %65, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(17) %66, i8 0, i64 17, i1 false)
@@ -1059,7 +1045,7 @@ _ZN6vectorIN3euf6egraph8to_mergeELb0EjE9push_backEOS2_.exit: ; preds = %10, %16
   %17 = phi i32 [ %.pre2.i, %16 ], [ %12, %10 ]
   %18 = phi ptr [ %.pre.i, %16 ], [ %8, %10 ]
   %19 = zext i32 %17 to i64
-  %20 = getelementptr inbounds nuw %"struct.euf::egraph::to_merge", ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw [48 x i8], ptr %18, i64 %19
   store ptr %1, ptr %20, align 8, !tbaa !47
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %2, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !47
@@ -1119,7 +1105,7 @@ _ZN6vectorIN3euf6egraph13update_recordELb0EjE9push_backEOS2_.exit: ; preds = %15
   %22 = phi i32 [ %.pre2.i, %21 ], [ %17, %15 ]
   %23 = phi ptr [ %.pre.i, %21 ], [ %13, %15 ]
   %24 = zext i32 %22 to i64
-  %25 = getelementptr inbounds nuw %"struct.euf::egraph::update_record", ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %24
   store i32 10, ptr %25, align 8, !tbaa !122
   %26 = getelementptr i8, ptr %25, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(17) %26, i8 0, i64 17, i1 false)
@@ -1191,7 +1177,7 @@ _ZN6vectorIjLb0EjE9push_backEOj.exit:             ; preds = %17, %23
   %25 = phi ptr [ %.pre.i, %23 ], [ %15, %17 ]
   %26 = getelementptr inbounds i8, ptr %25, i64 -4
   %27 = zext i32 %24 to i64
-  %28 = getelementptr inbounds nuw i32, ptr %25, i64 %27
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %27
   store i32 %.0.i, ptr %28, align 4, !tbaa !113
   %29 = add i32 %24, 1
   store i32 %29, ptr %26, align 4, !tbaa !113
@@ -1220,7 +1206,7 @@ _ZN6vectorIN3euf6egraph13update_recordELb0EjE9push_backEOS2_.exit: ; preds = %33
   %40 = phi i32 [ %.pre2.i3, %39 ], [ %35, %33 ]
   %41 = phi ptr [ %.pre.i1, %39 ], [ %31, %33 ]
   %42 = zext i32 %40 to i64
-  %43 = getelementptr inbounds nuw %"struct.euf::egraph::update_record", ptr %41, i64 %42
+  %43 = getelementptr inbounds nuw [32 x i8], ptr %41, i64 %42
   store i32 9, ptr %43, align 8, !tbaa !122
   %44 = getelementptr i8, ptr %43, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %44, i8 0, i64 16, i1 false)
@@ -1279,7 +1265,7 @@ _ZN6vectorIN3euf6egraph13update_recordELb0EjE9push_backEOS2_.exit: ; preds = %11
   %18 = phi i32 [ %.pre2.i, %17 ], [ %13, %11 ]
   %19 = phi ptr [ %.pre.i, %17 ], [ %9, %11 ]
   %20 = zext i32 %18 to i64
-  %21 = getelementptr inbounds nuw %"struct.euf::egraph::update_record", ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [32 x i8], ptr %19, i64 %20
   store i32 4, ptr %21, align 8, !tbaa !122
   %.sroa.411.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %1, ptr %.sroa.411.0..sroa_idx, align 8, !tbaa !47
@@ -1324,7 +1310,7 @@ _ZN3euf5enode10add_parentEPS0_.exit:              ; preds = %32, %38
   %40 = phi ptr [ %.pre.i.i, %38 ], [ %30, %32 ]
   %41 = getelementptr inbounds i8, ptr %40, i64 -4
   %42 = zext i32 %39 to i64
-  %43 = getelementptr inbounds nuw ptr, ptr %40, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %42
   store ptr %1, ptr %43, align 8, !tbaa !47
   %44 = add i32 %39, 1
   store i32 %44, ptr %41, align 4, !tbaa !113
@@ -1477,7 +1463,7 @@ _ZN3euf5enode10add_parentEPS0_.exit.i:            ; preds = %74, %68
   %76 = phi ptr [ %.pre.i.i.i, %74 ], [ %66, %68 ]
   %77 = getelementptr inbounds i8, ptr %76, i64 -4
   %78 = zext i32 %75 to i64
-  %79 = getelementptr inbounds nuw ptr, ptr %76, i64 %78
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %78
   store ptr %7, ptr %79, align 8, !tbaa !47
   %80 = add i32 %75, 1
   store i32 %80, ptr %77, align 4, !tbaa !113
@@ -1489,7 +1475,7 @@ _ZN3euf6egraph15update_childrenEPNS_5enodeE.exit: ; preds = %55, %61
   %82 = phi i32 [ %.pre2.i.i, %61 ], [ %57, %55 ]
   %83 = phi ptr [ %.pre.i.i, %61 ], [ %53, %55 ]
   %84 = zext i32 %82 to i64
-  %85 = getelementptr inbounds nuw %"struct.euf::egraph::update_record", ptr %83, i64 %84
+  %85 = getelementptr inbounds nuw [32 x i8], ptr %83, i64 %84
   store i32 4, ptr %85, align 8, !tbaa !122
   %.sroa.411.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %85, i64 8
   store ptr %7, ptr %.sroa.411.0..sroa_idx.i, align 8, !tbaa !47
@@ -1527,7 +1513,7 @@ _ZN3euf6egraph10push_mergeEPNS_5enodeES2_b.exit:  ; preds = %90, %96
   %99 = and i8 %.fca.1.extract, 1
   %100 = zext nneg i8 %99 to i32
   %101 = zext i32 %97 to i64
-  %102 = getelementptr inbounds nuw %"struct.euf::egraph::to_merge", ptr %98, i64 %101
+  %102 = getelementptr inbounds nuw [48 x i8], ptr %98, i64 %101
   store ptr %7, ptr %102, align 8, !tbaa !47
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %102, i64 8
   store ptr %.fca.0.extract.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !47
@@ -2975,7 +2961,7 @@ _ZN17scoped_ptr_vectorIN3euf6pluginEE9push_backEPS1_.exit.i.i: ; preds = %22, %1
   %24 = phi i32 [ %.pre2.i.i.i.i, %22 ], [ %18, %16 ]
   %25 = getelementptr inbounds i8, ptr %23, i64 -4
   %26 = zext i32 %24 to i64
-  %27 = getelementptr inbounds nuw ptr, ptr %23, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %26
   store ptr null, ptr %27, align 8, !tbaa !171
   %28 = add i32 %24, 1
   store i32 %28, ptr %25, align 4, !tbaa !113
@@ -2990,7 +2976,7 @@ _ZN17scoped_ptr_vectorIN3euf6pluginEE7reserveEj.exit: ; preds = %_ZN17scoped_ptr
   %33 = tail call noundef i32 %32(ptr noundef nonnull align 8 dereferenceable(16) %1)
   %34 = load ptr, ptr %3, align 8, !tbaa !170
   %35 = zext i32 %33 to i64
-  %36 = getelementptr inbounds nuw ptr, ptr %34, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %35
   %37 = load ptr, ptr %36, align 8, !tbaa !171
   %38 = icmp eq ptr %37, %1
   br i1 %38, label %_ZN17scoped_ptr_vectorIN3euf6pluginEE3setEjPS1_.exit, label %39
@@ -3009,7 +2995,7 @@ _ZN17scoped_ptr_vectorIN3euf6pluginEE7reserveEj.exit: ; preds = %_ZN17scoped_ptr
 
 _Z7deallocIN3euf6pluginEEvPT_.exit.i:             ; preds = %41, %39
   %44 = phi ptr [ %34, %39 ], [ %.pre.i, %41 ]
-  %45 = getelementptr inbounds nuw ptr, ptr %44, i64 %35
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %35
   store ptr %1, ptr %45, align 8, !tbaa !171
   br label %_ZN17scoped_ptr_vectorIN3euf6pluginEE3setEjPS1_.exit
 
@@ -3081,7 +3067,7 @@ _ZN6vectorIN3euf5th_eqELb0EjE9push_backEOS1_.exit: ; preds = %10, %16
   %17 = phi i32 [ %.pre2.i, %16 ], [ %12, %10 ]
   %18 = phi ptr [ %.pre.i, %16 ], [ %8, %10 ]
   %19 = zext i32 %17 to i64
-  %20 = getelementptr inbounds nuw %"class.euf::th_eq", ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw [32 x i8], ptr %18, i64 %19
   store i32 %1, ptr %20, align 8, !tbaa !113
   %.sroa.414.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 4
   store i32 %2, ptr %.sroa.414.0..sroa_idx, align 4, !tbaa !113
@@ -3120,7 +3106,7 @@ _ZN6vectorIN3euf6egraph13update_recordELb0EjE9push_backEOS2_.exit: ; preds = %28
   %35 = phi i32 [ %.pre2.i12, %34 ], [ %30, %28 ]
   %36 = phi ptr [ %.pre.i10, %34 ], [ %26, %28 ]
   %37 = zext i32 %35 to i64
-  %38 = getelementptr inbounds nuw %"struct.euf::egraph::update_record", ptr %36, i64 %37
+  %38 = getelementptr inbounds nuw [32 x i8], ptr %36, i64 %37
   store i32 7, ptr %38, align 8, !tbaa !122
   %39 = getelementptr i8, ptr %38, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %39, i8 0, i64 20, i1 false)
@@ -3146,7 +3132,7 @@ _ZNK6vectorIPN3euf6pluginELb0EjE4sizeEv.exit.i.i: ; preds = %_ZN6vectorIN3euf6eg
 
 _ZNK3euf6egraph10get_pluginEi.exit:               ; preds = %_ZNK6vectorIPN3euf6pluginELb0EjE4sizeEv.exit.i.i
   %53 = zext i32 %1 to i64
-  %54 = getelementptr inbounds nuw ptr, ptr %48, i64 %53
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %53
   %55 = load ptr, ptr %54, align 8, !tbaa !171
   %.not = icmp eq ptr %55, null
   br i1 %.not, label %_ZNK3euf6egraph10get_pluginEi.exit.thread, label %56
@@ -3209,7 +3195,7 @@ _ZN6vectorIN3euf5th_eqELb0EjE9push_backEOS1_.exit: ; preds = %20, %26
   %27 = phi i32 [ %.pre2.i, %26 ], [ %22, %20 ]
   %28 = phi ptr [ %.pre.i9, %26 ], [ %18, %20 ]
   %29 = zext i32 %27 to i64
-  %30 = getelementptr inbounds nuw %"class.euf::th_eq", ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [32 x i8], ptr %28, i64 %29
   store i32 %1, ptr %30, align 8, !tbaa !113
   %.sroa.414.0..sroa_idx = getelementptr inbounds nuw i8, ptr %30, i64 4
   store i32 %2, ptr %.sroa.414.0..sroa_idx, align 4, !tbaa !113
@@ -3248,7 +3234,7 @@ _ZN6vectorIN3euf6egraph13update_recordELb0EjE9push_backEOS2_.exit: ; preds = %38
   %45 = phi i32 [ %.pre2.i12, %44 ], [ %40, %38 ]
   %46 = phi ptr [ %.pre.i10, %44 ], [ %36, %38 ]
   %47 = zext i32 %45 to i64
-  %48 = getelementptr inbounds nuw %"struct.euf::egraph::update_record", ptr %46, i64 %47
+  %48 = getelementptr inbounds nuw [32 x i8], ptr %46, i64 %47
   store i32 7, ptr %48, align 8, !tbaa !122
   %49 = getelementptr i8, ptr %48, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %49, i8 0, i64 20, i1 false)
@@ -3269,7 +3255,7 @@ _ZNK6vectorIPN3euf6pluginELb0EjE4sizeEv.exit.i.i: ; preds = %_ZN6vectorIN3euf6eg
   br i1 %59, label %_ZNK3euf6egraph10get_pluginEi.exit, label %_ZNK3euf6egraph10get_pluginEi.exit.thread
 
 _ZNK3euf6egraph10get_pluginEi.exit:               ; preds = %_ZNK6vectorIPN3euf6pluginELb0EjE4sizeEv.exit.i.i
-  %60 = getelementptr inbounds nuw ptr, ptr %55, i64 %12
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %12
   %61 = load ptr, ptr %60, align 8, !tbaa !171
   %.not = icmp eq ptr %61, null
   br i1 %.not, label %_ZNK3euf6egraph10get_pluginEi.exit.thread, label %62
@@ -3518,7 +3504,7 @@ _ZN6vectorIN3euf6egraph13update_recordELb0EjE9push_backEOS2_.exit.i: ; preds = %
   %31 = phi i32 [ %.pre2.i.i, %30 ], [ %26, %24 ]
   %32 = phi ptr [ %.pre.i.i, %30 ], [ %22, %24 ]
   %33 = zext i32 %31 to i64
-  %34 = getelementptr inbounds nuw %"struct.euf::egraph::update_record", ptr %32, i64 %33
+  %34 = getelementptr inbounds nuw [32 x i8], ptr %32, i64 %33
   store i32 10, ptr %34, align 8, !tbaa !122
   %35 = getelementptr i8, ptr %34, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(17) %35, i8 0, i64 17, i1 false)
@@ -3578,7 +3564,7 @@ _ZN6vectorIN3euf6egraph13update_recordELb0EjE9push_backEOS2_.exit.i11: ; preds =
   %59 = phi i32 [ %.pre2.i.i14, %58 ], [ %54, %52 ]
   %60 = phi ptr [ %.pre.i.i12, %58 ], [ %50, %52 ]
   %61 = zext i32 %59 to i64
-  %62 = getelementptr inbounds nuw %"struct.euf::egraph::update_record", ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [32 x i8], ptr %60, i64 %61
   store i32 11, ptr %62, align 8, !tbaa !122
   %.sroa.48.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %62, i64 8
   store ptr %1, ptr %.sroa.48.0..sroa_idx.i, align 8, !tbaa !47
@@ -3645,7 +3631,7 @@ _ZN6vectorIN3euf6egraph13update_recordELb0EjE9push_backEOS2_.exit: ; preds = %13
   %20 = phi i32 [ %.pre2.i, %19 ], [ %15, %13 ]
   %21 = phi ptr [ %.pre.i, %19 ], [ %11, %13 ]
   %22 = zext i32 %20 to i64
-  %23 = getelementptr inbounds nuw %"struct.euf::egraph::update_record", ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [32 x i8], ptr %21, i64 %22
   store i32 11, ptr %23, align 8, !tbaa !122
   %.sroa.48.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr %1, ptr %.sroa.48.0..sroa_idx, align 8, !tbaa !47
@@ -4032,7 +4018,7 @@ _ZNK6vectorIPN3euf6pluginELb0EjE4sizeEv.exit.i.i: ; preds = %_ZNK3euf5enode10get
 
 _ZNK3euf6egraph10get_pluginEi.exit:               ; preds = %_ZNK6vectorIPN3euf6pluginELb0EjE4sizeEv.exit.i.i
   %25 = zext i32 %3 to i64
-  %26 = getelementptr inbounds nuw ptr, ptr %20, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !171
   %.not = icmp eq ptr %27, null
   br i1 %.not, label %_ZNK3euf6egraph10get_pluginEi.exit.thread, label %28
@@ -4106,7 +4092,7 @@ _ZN6vectorIN3euf6egraph13update_recordELb0EjE9push_backEOS2_.exit: ; preds = %53
   %60 = phi i32 [ %.pre2.i, %59 ], [ %55, %53 ]
   %61 = phi ptr [ %.pre.i, %59 ], [ %51, %53 ]
   %62 = zext i32 %60 to i64
-  %63 = getelementptr inbounds nuw %"struct.euf::egraph::update_record", ptr %61, i64 %62
+  %63 = getelementptr inbounds nuw [32 x i8], ptr %61, i64 %62
   store i32 5, ptr %63, align 8, !tbaa !122
   %.sroa.473.0..sroa_idx = getelementptr inbounds nuw i8, ptr %63, i64 8
   store ptr %1, ptr %.sroa.473.0..sroa_idx, align 8, !tbaa !47
@@ -4339,7 +4325,7 @@ _ZN6vectorIN3euf6egraph13update_recordELb0EjE9push_backEOS2_.exit69: ; preds = %
   %174 = phi i32 [ %.pre2.i68, %173 ], [ %169, %167 ]
   %175 = phi ptr [ %.pre.i66, %173 ], [ %165, %167 ]
   %176 = zext i32 %174 to i64
-  %177 = getelementptr inbounds nuw %"struct.euf::egraph::update_record", ptr %175, i64 %176
+  %177 = getelementptr inbounds nuw [32 x i8], ptr %175, i64 %176
   store i32 6, ptr %177, align 8, !tbaa !122
   %.sroa.470.0..sroa_idx = getelementptr inbounds nuw i8, ptr %177, i64 8
   store ptr %1, ptr %.sroa.470.0..sroa_idx, align 8, !tbaa !47
@@ -4616,7 +4602,7 @@ _ZN6vectorIN3euf6egraph13update_recordELb0EjE9push_backEOS2_.exit: ; preds = %33
   %40 = phi i32 [ %.pre2.i, %39 ], [ %35, %33 ]
   %41 = phi ptr [ %.pre.i, %39 ], [ %31, %33 ]
   %42 = zext i32 %40 to i64
-  %43 = getelementptr inbounds nuw %"struct.euf::egraph::update_record", ptr %41, i64 %42
+  %43 = getelementptr inbounds nuw [32 x i8], ptr %41, i64 %42
   store i32 3, ptr %43, align 8, !tbaa !122
   %.sroa.46.0..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 8
   store ptr %1, ptr %.sroa.46.0..sroa_idx, align 8, !tbaa !47
@@ -4688,7 +4674,7 @@ _ZN6vectorIN3euf6egraph8to_mergeELb0EjE9push_backEOS2_.exit: ; preds = %22, %28
   %29 = phi i32 [ %.pre2.i, %28 ], [ %24, %22 ]
   %30 = phi ptr [ %.pre.i, %28 ], [ %20, %22 ]
   %31 = zext i32 %29 to i64
-  %32 = getelementptr inbounds nuw %"struct.euf::egraph::to_merge", ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw [48 x i8], ptr %30, i64 %31
   store ptr %1, ptr %32, align 8, !tbaa !47
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %32, i64 8
   store ptr %.fca.0.extract.i, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !47
@@ -4775,7 +4761,7 @@ _ZN6vectorIN3euf6egraph13update_recordELb0EjE9push_backEOS2_.exit: ; preds = %10
   %17 = phi i32 [ %.pre2.i, %16 ], [ %12, %10 ]
   %18 = phi ptr [ %.pre.i, %16 ], [ %8, %10 ]
   %19 = zext i32 %17 to i64
-  %20 = getelementptr inbounds nuw %"struct.euf::egraph::update_record", ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw [32 x i8], ptr %18, i64 %19
   store i32 13, ptr %20, align 8, !tbaa !122
   %.sroa.44.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %1, ptr %.sroa.44.0..sroa_idx, align 8, !tbaa !47
@@ -4828,7 +4814,7 @@ _ZN6vectorIN3euf6egraph13update_recordELb0EjE9push_backEOS2_.exit: ; preds = %8,
   %15 = phi i32 [ %.pre2.i, %14 ], [ %10, %8 ]
   %16 = phi ptr [ %.pre.i, %14 ], [ %6, %8 ]
   %17 = zext i32 %15 to i64
-  %18 = getelementptr inbounds nuw %"struct.euf::egraph::update_record", ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [32 x i8], ptr %16, i64 %17
   store i32 8, ptr %18, align 8, !tbaa !122
   %.sroa.419.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %1, ptr %.sroa.419.0..sroa_idx, align 8, !tbaa !47
@@ -4891,7 +4877,7 @@ _ZN6vectorIN3euf6egraph13update_recordELb0EjE9push_backEOS2_.exit14: ; preds = %
   %57 = phi i32 [ %.pre2.i13, %56 ], [ %22, %52 ]
   %58 = phi ptr [ %.pre.i11, %56 ], [ %19, %52 ]
   %59 = zext i32 %57 to i64
-  %60 = getelementptr inbounds nuw %"struct.euf::egraph::update_record", ptr %58, i64 %59
+  %60 = getelementptr inbounds nuw [32 x i8], ptr %58, i64 %59
   store i32 12, ptr %60, align 8, !tbaa !122
   %.sroa.415.0..sroa_idx = getelementptr inbounds nuw i8, ptr %60, i64 8
   store ptr %46, ptr %.sroa.415.0..sroa_idx, align 8, !tbaa !47
@@ -4949,7 +4935,7 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit:                  ; preds = %9, %14
   %.0.i = phi i32 [ %16, %14 ], [ 0, %9 ]
   %17 = sub i32 %.0.i, %10
   %18 = zext i32 %17 to i64
-  %19 = getelementptr inbounds nuw i32, ptr %12, i64 %18
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %18
   %20 = load i32, ptr %19, align 4, !tbaa !113
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %22 = load ptr, ptr %21, align 8, !tbaa !121
@@ -5019,7 +5005,7 @@ _ZN6region9pop_scopeEj.exit:                      ; preds = %.lr.ph.i
   %indvars.iv64 = phi i64 [ %37, %.lr.ph59 ], [ %49, %"_ZZN3euf6egraph3popEjENK3$_0clEv.exit" ]
   %49 = add nsw i64 %indvars.iv64, -1
   %50 = load ptr, ptr %21, align 8, !tbaa !121
-  %51 = getelementptr inbounds nuw %"struct.euf::egraph::update_record", ptr %50, i64 %49
+  %51 = getelementptr inbounds nuw [32 x i8], ptr %50, i64 %49
   %52 = load i32, ptr %51, align 8, !tbaa !255
   switch i32 %52, label %275 [
     i32 1, label %58
@@ -5065,7 +5051,7 @@ _ZN6region9pop_scopeEj.exit:                      ; preds = %.lr.ph.i
 
 _ZN6vectorIPN3euf5enodeELb0EjE4backEv.exit.i:     ; preds = %61, %58
   %.0.i.i.i = phi i64 [ %65, %61 ], [ 4294967295, %58 ]
-  %66 = getelementptr inbounds nuw ptr, ptr %59, i64 %.0.i.i.i
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %.0.i.i.i
   %67 = load ptr, ptr %66, align 8, !tbaa !47
   %68 = load ptr, ptr %34, align 8, !tbaa !115
   %69 = icmp eq ptr %68, null
@@ -5080,7 +5066,7 @@ _ZN6vectorIPN3euf5enodeELb0EjE4backEv.exit.i:     ; preds = %61, %58
 
 _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4backEv.exit.i: ; preds = %70, %_ZN6vectorIPN3euf5enodeELb0EjE4backEv.exit.i
   %.0.i.i.i.i = phi i64 [ %74, %70 ], [ 4294967295, %_ZN6vectorIPN3euf5enodeELb0EjE4backEv.exit.i ]
-  %75 = getelementptr inbounds nuw ptr, ptr %68, i64 %.0.i.i.i.i
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %.0.i.i.i.i
   %76 = load ptr, ptr %75, align 8, !tbaa !116
   %77 = getelementptr inbounds nuw i8, ptr %67, i64 152
   %78 = load i32, ptr %77, align 8, !tbaa !46
@@ -5101,7 +5087,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4backEv.exit.
   %85 = load i32, ptr %76, align 4, !tbaa !117
   %86 = load ptr, ptr %35, align 8, !tbaa !112
   %87 = zext i32 %85 to i64
-  %88 = getelementptr inbounds nuw ptr, ptr %86, i64 %87
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %86, i64 %87
   store ptr null, ptr %88, align 8, !tbaa !47
   %89 = getelementptr inbounds nuw i8, ptr %67, i64 48
   %90 = load ptr, ptr %89, align 8, !tbaa !112
@@ -5139,7 +5125,7 @@ _ZN3euf5enodeD2Ev.exit.i:                         ; preds = %91, %84
   %106 = xor i32 %105, -2147483648
   %107 = load ptr, ptr %36, align 8, !tbaa !118
   %108 = zext i32 %106 to i64
-  %109 = getelementptr inbounds nuw %class.ptr_vector.7, ptr %107, i64 %108
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %108
   %110 = load ptr, ptr %109, align 8, !tbaa !112
   %111 = getelementptr inbounds i8, ptr %110, i64 -4
   %112 = load i32, ptr %111, align 4, !tbaa !113
@@ -5172,7 +5158,7 @@ _ZN3euf5enodeD2Ev.exit.i:                         ; preds = %91, %84
 _ZN6vectorIP4exprLb0EjE4backEv.exit.i.i:          ; preds = %121, %._ZN6vectorIP4exprLb0EjE4backEv.exit_crit_edge.i.i
   %.pre-phi.i.i = phi i32 [ %.pre2.i.i, %._ZN6vectorIP4exprLb0EjE4backEv.exit_crit_edge.i.i ], [ %124, %121 ]
   %.0.i.i.i10.i = phi i64 [ 4294967295, %._ZN6vectorIP4exprLb0EjE4backEv.exit_crit_edge.i.i ], [ %125, %121 ]
-  %126 = getelementptr inbounds nuw ptr, ptr %119, i64 %.0.i.i.i10.i
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %119, i64 %.0.i.i.i10.i
   %127 = load ptr, ptr %126, align 8, !tbaa !116
   %128 = getelementptr inbounds i8, ptr %119, i64 -4
   store i32 %.pre-phi.i.i, ptr %128, align 4, !tbaa !113
@@ -5402,7 +5388,7 @@ _ZNK3euf5enode8merge_tfEv.exit:                   ; preds = %162, %168, %_ZNK3eu
 
 251:                                              ; preds = %.lr.ph, %251
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %251 ]
-  %252 = getelementptr inbounds nuw ptr, ptr %57, i64 %indvars.iv
+  %252 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %indvars.iv
   %253 = load ptr, ptr %252, align 8, !tbaa !47
   %254 = getelementptr inbounds nuw i8, ptr %253, i64 64
   %255 = load ptr, ptr %254, align 8, !tbaa !32
@@ -5424,7 +5410,7 @@ _ZNK3euf5enode8merge_tfEv.exit:                   ; preds = %162, %168, %_ZNK3eu
   %267 = and i32 %266, 255
   %268 = load ptr, ptr %27, align 8, !tbaa !170
   %269 = zext nneg i32 %267 to i64
-  %270 = getelementptr inbounds nuw ptr, ptr %268, i64 %269
+  %270 = getelementptr inbounds nuw [8 x i8], ptr %268, i64 %269
   %271 = load ptr, ptr %270, align 8, !tbaa !171
   %272 = load ptr, ptr %271, align 8, !tbaa !173
   %273 = getelementptr inbounds nuw i8, ptr %272, i64 56
@@ -5472,7 +5458,7 @@ define hidden void @_ZN3euf6egraph7undo_eqEPNS_5enodeES2_j(ptr noundef nonnull a
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %18 = load ptr, ptr %17, align 8, !tbaa !112
   %19 = zext i32 %3 to i64
-  %20 = getelementptr inbounds nuw ptr, ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %19
   %21 = icmp eq ptr %18, null
   br i1 %21, label %_ZNK3euf5enode11end_parentsEv.exit, label %22
 
@@ -5484,7 +5470,7 @@ define hidden void @_ZN3euf6egraph7undo_eqEPNS_5enodeES2_j(ptr noundef nonnull a
 
 _ZNK3euf5enode11end_parentsEv.exit:               ; preds = %4, %22
   %.0.i.i.i = phi i64 [ %25, %22 ], [ 0, %4 ]
-  %26 = getelementptr inbounds nuw ptr, ptr %18, i64 %.0.i.i.i
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %.0.i.i.i
   %.not50 = icmp samesign eq i64 %.0.i.i.i, %19
   br i1 %.not50, label %_ZN3euf11enode_class8iteratorppEv.exit.preheader, label %.lr.ph
 
@@ -5747,7 +5733,7 @@ _ZN6vectorIN3euf6egraph13update_recordELb0EjE9push_backEOS2_.exit.i: ; preds = %
   %99 = phi i32 [ %.pre2.i.i, %98 ], [ %94, %92 ]
   %100 = phi ptr [ %.pre.i.i, %98 ], [ %90, %92 ]
   %101 = zext i32 %99 to i64
-  %102 = getelementptr inbounds nuw %"struct.euf::egraph::update_record", ptr %100, i64 %101
+  %102 = getelementptr inbounds nuw [32 x i8], ptr %100, i64 %101
   store i32 10, ptr %102, align 8, !tbaa !122
   %103 = getelementptr i8, ptr %102, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(17) %103, i8 0, i64 17, i1 false)
@@ -5818,7 +5804,7 @@ _ZN6vectorIN3euf6egraph13update_recordELb0EjE9push_backEOS2_.exit.i26: ; preds =
   %134 = phi i32 [ %.pre2.i.i29, %133 ], [ %129, %127 ]
   %135 = phi ptr [ %.pre.i.i27, %133 ], [ %125, %127 ]
   %136 = zext i32 %134 to i64
-  %137 = getelementptr inbounds nuw %"struct.euf::egraph::update_record", ptr %135, i64 %136
+  %137 = getelementptr inbounds nuw [32 x i8], ptr %135, i64 %136
   store i32 10, ptr %137, align 8, !tbaa !122
   %138 = getelementptr i8, ptr %137, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(17) %138, i8 0, i64 17, i1 false)
@@ -5959,7 +5945,7 @@ _ZN3euf6egraph7push_eqEPNS_5enodeES2_j.exit:      ; preds = %198, %204
   %205 = phi i32 [ %.pre2.i.i34, %204 ], [ %200, %198 ]
   %206 = phi ptr [ %.pre.i.i32, %204 ], [ %196, %198 ]
   %207 = zext i32 %205 to i64
-  %208 = getelementptr inbounds nuw %"struct.euf::egraph::update_record", ptr %206, i64 %207
+  %208 = getelementptr inbounds nuw [32 x i8], ptr %206, i64 %207
   store i32 0, ptr %208, align 8, !tbaa !122
   %.sroa.43.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %208, i64 8
   store ptr %.0123, ptr %.sroa.43.0..sroa_idx.i, align 8, !tbaa !47
@@ -6275,7 +6261,7 @@ _ZN6vectorIN3euf6egraph13update_recordELb0EjE9push_backEOS2_.exit: ; preds = %35
   %42 = phi i32 [ %.pre2.i, %41 ], [ %37, %35 ]
   %43 = phi ptr [ %.pre.i, %41 ], [ %33, %35 ]
   %44 = zext i32 %42 to i64
-  %45 = getelementptr inbounds nuw %"struct.euf::egraph::update_record", ptr %43, i64 %44
+  %45 = getelementptr inbounds nuw [32 x i8], ptr %43, i64 %44
   store i32 5, ptr %45, align 8, !tbaa !122
   %.sroa.425.0..sroa_idx = getelementptr inbounds nuw i8, ptr %45, i64 8
   store ptr %2, ptr %.sroa.425.0..sroa_idx, align 8, !tbaa !47
@@ -6453,7 +6439,7 @@ _ZN6vectorIN3euf6egraph8to_mergeELb0EjE9push_backEOS2_.exit: ; preds = %32, %38
   %39 = phi i32 [ %.pre2.i, %38 ], [ %34, %32 ]
   %40 = phi ptr [ %.pre.i, %38 ], [ %30, %32 ]
   %41 = zext i32 %39 to i64
-  %42 = getelementptr inbounds nuw %"struct.euf::egraph::to_merge", ptr %40, i64 %41
+  %42 = getelementptr inbounds nuw [48 x i8], ptr %40, i64 %41
   store ptr %.fca.0.extract.i, ptr %42, align 8, !tbaa !47
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %42, i64 8
   store ptr %16, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !47
@@ -6497,7 +6483,7 @@ _ZN6vectorIPN3euf5enodeELb0EjE9push_backERKS2_.exit: ; preds = %50, %56
   %58 = phi ptr [ %.pre.i14, %56 ], [ %48, %50 ]
   %59 = getelementptr inbounds i8, ptr %58, i64 -4
   %60 = zext i32 %57 to i64
-  %61 = getelementptr inbounds nuw ptr, ptr %58, i64 %60
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %60
   store ptr %16, ptr %61, align 8, !tbaa !47
   %62 = add i32 %57, 1
   store i32 %62, ptr %59, align 4, !tbaa !113
@@ -6540,7 +6526,7 @@ _ZN6vectorIPN3euf5enodeELb0EjE9push_backERKS2_.exit20: ; preds = %74, %80
   %82 = phi ptr [ %.pre.i17, %80 ], [ %72, %74 ]
   %83 = getelementptr inbounds i8, ptr %82, i64 -4
   %84 = zext i32 %81 to i64
-  %85 = getelementptr inbounds nuw ptr, ptr %82, i64 %84
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %82, i64 %84
   store ptr %16, ptr %85, align 8, !tbaa !47
   %86 = add i32 %81, 1
   store i32 %86, ptr %83, align 4, !tbaa !113
@@ -6651,7 +6637,7 @@ _ZNK6vectorIN3euf6egraph8to_mergeELb0EjE4sizeEv.exit: ; preds = %_ZN3euf6egraph1
   br i1 %or.cond, label %.critedge, label %46
 
 46:                                               ; preds = %41
-  %47 = getelementptr inbounds nuw %"struct.euf::egraph::to_merge", ptr %.pre.pre, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [48 x i8], ptr %.pre.pre, i64 %indvars.iv
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %49 = load i32, ptr %48, align 8, !tbaa !267
   switch i32 %49, label %_ZN3euf6egraph11add_literalEPNS_5enodeES2_.exit [
@@ -7141,9 +7127,9 @@ _ZNKSt8functionIFvP3appS1_EEclES1_S1_.exit:       ; preds = %4
 
 44:                                               ; preds = %.lr.ph, %44
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %44 ]
-  %45 = getelementptr inbounds nuw ptr, ptr %42, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv
   %46 = load ptr, ptr %45, align 8, !tbaa !47
-  %47 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv
   %48 = load ptr, ptr %47, align 8, !tbaa !47
   call void @_ZN3euf6egraph8push_lcaEPNS_5enodeES2_(ptr noundef nonnull align 8 dereferenceable(536) %0, ptr noundef %46, ptr noundef %48)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -7232,7 +7218,7 @@ _ZN6vectorIPN3euf5enodeELb0EjE9push_backERKS2_.exit.i: ; preds = %30, %24
   %32 = phi i32 [ %.pre2.i.i, %30 ], [ %26, %24 ]
   %33 = getelementptr inbounds i8, ptr %31, i64 -4
   %34 = zext i32 %32 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr %31, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %34
   store ptr %storemerge4.i, ptr %35, align 8, !tbaa !47
   %36 = add i32 %32, 1
   store i32 %36, ptr %33, align 4, !tbaa !113
@@ -7276,7 +7262,7 @@ _ZN6vectorIPN3euf5enodeELb0EjE9push_backERKS2_.exit.i11: ; preds = %49, %43
   %51 = phi i32 [ %.pre2.i.i15, %49 ], [ %45, %43 ]
   %52 = getelementptr inbounds i8, ptr %50, i64 -4
   %53 = zext i32 %51 to i64
-  %54 = getelementptr inbounds nuw ptr, ptr %50, i64 %53
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %53
   store ptr %storemerge4.i10, ptr %54, align 8, !tbaa !47
   %55 = add i32 %51, 1
   store i32 %55, ptr %52, align 4, !tbaa !113
@@ -7370,7 +7356,7 @@ _ZN6vectorIPN3euf5enodeELb0EjE9push_backERKS2_.exit: ; preds = %8, %14
   %16 = phi i32 [ %.pre2.i, %14 ], [ %10, %8 ]
   %17 = getelementptr inbounds i8, ptr %15, i64 -4
   %18 = zext i32 %16 to i64
-  %19 = getelementptr inbounds nuw ptr, ptr %15, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %18
   store ptr %storemerge4, ptr %19, align 8, !tbaa !47
   %20 = add i32 %16, 1
   store i32 %20, ptr %17, align 4, !tbaa !113
@@ -7419,7 +7405,7 @@ _ZN6vectorIPN3euf5enodeELb0EjE9push_backERKS2_.exit: ; preds = %7, %13
   %15 = phi i32 [ %.pre2.i, %13 ], [ %9, %7 ]
   %16 = getelementptr inbounds i8, ptr %14, i64 -4
   %17 = zext i32 %15 to i64
-  %18 = getelementptr inbounds nuw ptr, ptr %14, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %17
   store ptr %storemerge3, ptr %18, align 8, !tbaa !47
   %19 = add i32 %15, 1
   store i32 %19, ptr %16, align 4, !tbaa !113
@@ -8008,10 +7994,10 @@ _ZNK6vectorIPN3euf5enodeELb0EjE4sizeEv.exit:      ; preds = %_ZNK6vectorIPN3euf5
   br label %295
 
 30:                                               ; preds = %_ZNK6vectorIPN3euf5enodeELb0EjE4sizeEv.exit
-  %31 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv114
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv114
   %32 = load ptr, ptr %31, align 8, !tbaa !47
   %33 = load ptr, ptr %17, align 8, !tbaa !115
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %indvars.iv114
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv114
   %35 = load ptr, ptr %34, align 8, !tbaa !116
   %.not.i = icmp eq ptr %22, null
   br i1 %.not.i, label %_ZN6vectorIPN3euf5enodeELb0EjE5resetEv.exit, label %36
@@ -8051,12 +8037,12 @@ _ZN6vectorIPN3euf5enodeELb0EjE5resetEv.exit:      ; preds = %30, %36
   %50 = phi ptr [ %22, %.lr.ph ], [ %109, %108 ]
   %51 = phi ptr [ %22, %.lr.ph ], [ %110, %108 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %108 ]
-  %52 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv
   %53 = load ptr, ptr %52, align 8, !tbaa !47
   %54 = load ptr, ptr %53, align 8, !tbaa !30
   %55 = load i32, ptr %54, align 4, !tbaa !117
   %56 = zext i32 %55 to i64
-  %57 = getelementptr inbounds nuw ptr, ptr %21, i64 %56
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %56
   %58 = icmp eq ptr %51, null
   br i1 %58, label %65, label %59
 
@@ -8192,7 +8178,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i: ; preds
   %111 = phi i32 [ %.pre2.i, %.noexc60 ], [ %61, %59 ]
   %112 = getelementptr inbounds i8, ptr %110, i64 -4
   %113 = zext i32 %111 to i64
-  %114 = getelementptr inbounds nuw ptr, ptr %110, i64 %113
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %110, i64 %113
   %115 = load ptr, ptr %57, align 8, !tbaa !47
   store ptr %115, ptr %114, align 8, !tbaa !47
   %116 = add i32 %111, 1
@@ -8395,7 +8381,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i84: ; pre
 .lr.ph.preheader.i.i:                             ; preds = %187
   %189 = zext i32 %.ph222 to i64
   %190 = zext i32 %.0.i17.i.i.ph to i64
-  %191 = getelementptr ptr, ptr %136, i64 %190
+  %191 = getelementptr [8 x i8], ptr %136, i64 %190
   %192 = sub nsw i64 %189, %190
   %193 = shl nsw i64 %192, 3
   call void @llvm.memset.p0.i64(ptr align 8 %191, i8 0, i64 %193, i1 false), !tbaa !47
@@ -8405,7 +8391,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i84: ; pre
   %194 = phi ptr [ %20, %_ZNK6vectorIPN3euf5enodeELb0EjE4sizeEv.exit.i ], [ %135, %187 ], [ %20, %134 ], [ %135, %.lr.ph.preheader.i.i ]
   %195 = phi ptr [ %21, %_ZNK6vectorIPN3euf5enodeELb0EjE4sizeEv.exit.i ], [ %136, %187 ], [ %21, %134 ], [ %136, %.lr.ph.preheader.i.i ]
   %196 = zext i32 %128 to i64
-  %197 = getelementptr inbounds nuw ptr, ptr %195, i64 %196
+  %197 = getelementptr inbounds nuw [8 x i8], ptr %195, i64 %196
   store ptr %126, ptr %197, align 8, !tbaa !47
   %198 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %199 = load i32, ptr %198, align 8, !tbaa !129
@@ -8478,12 +8464,12 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit.lr.ph:            ; preds = %.preheader
   br label %_ZNK6vectorIjLb0EjE4sizeEv.exit
 
 237:                                              ; preds = %_ZNK6vectorIPN3euf5enodeELb0EjE4sizeEv.exit66
-  %238 = getelementptr inbounds nuw ptr, ptr %224, i64 %indvars.iv117
+  %238 = getelementptr inbounds nuw [8 x i8], ptr %224, i64 %indvars.iv117
   %239 = load ptr, ptr %238, align 8, !tbaa !47
   %240 = getelementptr inbounds nuw i8, ptr %239, i64 72
   %241 = load ptr, ptr %240, align 8, !tbaa !262
   %242 = load ptr, ptr %19, align 8, !tbaa !112
-  %243 = getelementptr inbounds nuw ptr, ptr %242, i64 %indvars.iv117
+  %243 = getelementptr inbounds nuw [8 x i8], ptr %242, i64 %indvars.iv117
   %244 = load ptr, ptr %243, align 8, !tbaa !47
   %.not = icmp eq ptr %241, null
   br i1 %.not, label %.critedge, label %245
@@ -8492,7 +8478,7 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit.lr.ph:            ; preds = %.preheader
   %246 = load ptr, ptr %239, align 8, !tbaa !30
   %247 = load i32, ptr %246, align 4, !tbaa !117
   %248 = zext i32 %247 to i64
-  %249 = getelementptr inbounds nuw ptr, ptr %20, i64 %248
+  %249 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %248
   %250 = load ptr, ptr %249, align 8, !tbaa !47
   %251 = getelementptr inbounds nuw i8, ptr %244, i64 64
   %252 = load ptr, ptr %251, align 8, !tbaa !32
@@ -8824,7 +8810,7 @@ _ZN6vectorIPN3euf5enodeELb0EjE9push_backERKS2_.exit.i: ; preds = %16, %10
   %18 = phi i32 [ %.pre2.i.i, %16 ], [ %12, %10 ]
   %19 = getelementptr inbounds i8, ptr %17, i64 -4
   %20 = zext i32 %18 to i64
-  %21 = getelementptr inbounds nuw ptr, ptr %17, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %20
   store ptr %storemerge3.i, ptr %21, align 8, !tbaa !47
   %22 = add i32 %18, 1
   store i32 %22, ptr %19, align 4, !tbaa !113
@@ -8870,7 +8856,7 @@ _ZN6vectorIPN3euf5enodeELb0EjE9push_backERKS2_.exit.i9: ; preds = %37, %31
   %39 = phi i32 [ %.pre2.i.i13, %37 ], [ %33, %31 ]
   %40 = getelementptr inbounds i8, ptr %38, i64 -4
   %41 = zext i32 %39 to i64
-  %42 = getelementptr inbounds nuw ptr, ptr %38, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %41
   store ptr %storemerge3.i8, ptr %42, align 8, !tbaa !47
   %43 = add i32 %39, 1
   store i32 %43, ptr %40, align 4, !tbaa !113
@@ -8932,7 +8918,7 @@ _ZN6vectorIPiLb0EjE9push_backEOS0_.exit:          ; preds = %15, %21
   %23 = phi ptr [ %.pre.i, %21 ], [ %13, %15 ]
   %24 = getelementptr inbounds i8, ptr %23, i64 -4
   %25 = zext i32 %22 to i64
-  %26 = getelementptr inbounds nuw ptr, ptr %23, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %25
   store ptr %12, ptr %26, align 8, !tbaa !331
   %27 = add i32 %22, 1
   store i32 %27, ptr %24, align 4, !tbaa !113
@@ -8964,7 +8950,7 @@ _ZN6vectorIPiLb0EjE9push_backEOS0_.exit:          ; preds = %15, %21
   %.phi.trans.insert.i.i.i = getelementptr inbounds i8, ptr %.pre.i.i.i, i64 -4
   %.pre2.i.i.i = load i32, ptr %.phi.trans.insert.i.i.i, align 4, !tbaa !113
   %37 = zext i32 %.pre2.i.i.i to i64
-  %38 = getelementptr inbounds nuw ptr, ptr %.pre.i.i.i, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i.i.i, i64 %37
   store ptr %34, ptr %38, align 8, !tbaa !338
   %39 = add i32 %.pre2.i.i.i, 1
   store i32 %39, ptr %.phi.trans.insert.i.i.i, align 4, !tbaa !113
@@ -9126,7 +9112,7 @@ _ZN6vectorISt5tupleIJP3appS2_mbEELb0EjE9push_backEOS3_.exit: ; preds = %95, %101
   %103 = phi ptr [ %.pre.i45, %101 ], [ %93, %95 ]
   %104 = getelementptr inbounds i8, ptr %103, i64 -4
   %105 = zext i32 %102 to i64
-  %106 = getelementptr inbounds nuw %"class.std::tuple", ptr %103, i64 %105
+  %106 = getelementptr inbounds nuw [32 x i8], ptr %103, i64 %105
   store i8 %92, ptr %106, align 1, !tbaa !178
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 8
   store i64 %90, ptr %107, align 8, !tbaa !343
@@ -9164,7 +9150,7 @@ _ZNK6vectorIPN3euf5enodeELb0EjE4sizeEv.exit:      ; preds = %3, %52
   ret void
 
 12:                                               ; preds = %_ZNK6vectorIPN3euf5enodeELb0EjE4sizeEv.exit
-  %13 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8, !tbaa !47
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load i8, ptr %15, align 8, !tbaa !264, !range !109, !noundef !110
@@ -9231,7 +9217,7 @@ _ZN6vectorIPiLb0EjE9push_backEOS0_.exit:          ; preds = %39, %45
   %47 = phi ptr [ %.pre.i, %45 ], [ %37, %39 ]
   %48 = getelementptr inbounds i8, ptr %47, i64 -4
   %49 = zext i32 %46 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr %47, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %49
   store ptr %.sroa.3.0.copyload, ptr %50, align 8, !tbaa !331
   %51 = add i32 %46, 1
   store i32 %51, ptr %48, align 4, !tbaa !113
@@ -9323,7 +9309,7 @@ _ZN6vectorIPN3euf5enodeELb0EjE9push_backERKS2_.exit.i: ; preds = %35, %29
   %37 = phi i32 [ %.pre2.i.i, %35 ], [ %31, %29 ]
   %38 = getelementptr inbounds i8, ptr %36, i64 -4
   %39 = zext i32 %37 to i64
-  %40 = getelementptr inbounds nuw ptr, ptr %36, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %39
   store ptr %storemerge4.i, ptr %40, align 8, !tbaa !47
   %41 = add i32 %37, 1
   store i32 %41, ptr %38, align 4, !tbaa !113
@@ -9367,7 +9353,7 @@ _ZN6vectorIPN3euf5enodeELb0EjE9push_backERKS2_.exit.i16: ; preds = %54, %48
   %56 = phi i32 [ %.pre2.i.i20, %54 ], [ %50, %48 ]
   %57 = getelementptr inbounds i8, ptr %55, i64 -4
   %58 = zext i32 %56 to i64
-  %59 = getelementptr inbounds nuw ptr, ptr %55, i64 %58
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %58
   store ptr %storemerge4.i15, ptr %59, align 8, !tbaa !47
   %60 = add i32 %56, 1
   store i32 %60, ptr %57, align 4, !tbaa !113
@@ -9552,7 +9538,7 @@ _ZN6vectorIPN3euf5enodeELb0EjE9push_backERKS2_.exit.i: ; preds = %16, %10
   %18 = phi i32 [ %.pre2.i.i, %16 ], [ %12, %10 ]
   %19 = getelementptr inbounds i8, ptr %17, i64 -4
   %20 = zext i32 %18 to i64
-  %21 = getelementptr inbounds nuw ptr, ptr %17, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %20
   store ptr %storemerge3.i, ptr %21, align 8, !tbaa !47
   %22 = add i32 %18, 1
   store i32 %22, ptr %19, align 4, !tbaa !113
@@ -9598,7 +9584,7 @@ _ZN6vectorIPN3euf5enodeELb0EjE9push_backERKS2_.exit.i9: ; preds = %37, %31
   %39 = phi i32 [ %.pre2.i.i13, %37 ], [ %33, %31 ]
   %40 = getelementptr inbounds i8, ptr %38, i64 -4
   %41 = zext i32 %39 to i64
-  %42 = getelementptr inbounds nuw ptr, ptr %38, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %41
   store ptr %storemerge3.i8, ptr %42, align 8, !tbaa !47
   %43 = add i32 %39, 1
   store i32 %43, ptr %40, align 4, !tbaa !113
@@ -9660,7 +9646,7 @@ _ZN6vectorIPmLb0EjE9push_backEOS0_.exit:          ; preds = %15, %21
   %23 = phi ptr [ %.pre.i, %21 ], [ %13, %15 ]
   %24 = getelementptr inbounds i8, ptr %23, i64 -4
   %25 = zext i32 %22 to i64
-  %26 = getelementptr inbounds nuw ptr, ptr %23, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %25
   store ptr %12, ptr %26, align 8, !tbaa !349
   %27 = add i32 %22, 1
   store i32 %27, ptr %24, align 4, !tbaa !113
@@ -9692,7 +9678,7 @@ _ZN6vectorIPmLb0EjE9push_backEOS0_.exit:          ; preds = %15, %21
   %.phi.trans.insert.i.i.i = getelementptr inbounds i8, ptr %.pre.i.i.i, i64 -4
   %.pre2.i.i.i = load i32, ptr %.phi.trans.insert.i.i.i, align 4, !tbaa !113
   %37 = zext i32 %.pre2.i.i.i to i64
-  %38 = getelementptr inbounds nuw ptr, ptr %.pre.i.i.i, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i.i.i, i64 %37
   store ptr %34, ptr %38, align 8, !tbaa !338
   %39 = add i32 %.pre2.i.i.i, 1
   store i32 %39, ptr %.phi.trans.insert.i.i.i, align 4, !tbaa !113
@@ -9854,7 +9840,7 @@ _ZN6vectorISt5tupleIJP3appS2_mbEELb0EjE9push_backEOS3_.exit: ; preds = %95, %101
   %103 = phi ptr [ %.pre.i45, %101 ], [ %93, %95 ]
   %104 = getelementptr inbounds i8, ptr %103, i64 -4
   %105 = zext i32 %102 to i64
-  %106 = getelementptr inbounds nuw %"class.std::tuple", ptr %103, i64 %105
+  %106 = getelementptr inbounds nuw [32 x i8], ptr %103, i64 %105
   store i8 %92, ptr %106, align 1, !tbaa !178
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 8
   store i64 %90, ptr %107, align 8, !tbaa !343
@@ -9892,7 +9878,7 @@ _ZNK6vectorIPN3euf5enodeELb0EjE4sizeEv.exit:      ; preds = %3, %52
   ret void
 
 12:                                               ; preds = %_ZNK6vectorIPN3euf5enodeELb0EjE4sizeEv.exit
-  %13 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8, !tbaa !47
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load i8, ptr %15, align 8, !tbaa !264, !range !109, !noundef !110
@@ -9959,7 +9945,7 @@ _ZN6vectorIPmLb0EjE9push_backEOS0_.exit:          ; preds = %39, %45
   %47 = phi ptr [ %.pre.i, %45 ], [ %37, %39 ]
   %48 = getelementptr inbounds i8, ptr %47, i64 -4
   %49 = zext i32 %46 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr %47, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %49
   store ptr %.sroa.3.0.copyload, ptr %50, align 8, !tbaa !349
   %51 = add i32 %46, 1
   store i32 %51, ptr %48, align 4, !tbaa !113
@@ -10051,7 +10037,7 @@ _ZN6vectorIPN3euf5enodeELb0EjE9push_backERKS2_.exit.i: ; preds = %35, %29
   %37 = phi i32 [ %.pre2.i.i, %35 ], [ %31, %29 ]
   %38 = getelementptr inbounds i8, ptr %36, i64 -4
   %39 = zext i32 %37 to i64
-  %40 = getelementptr inbounds nuw ptr, ptr %36, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %39
   store ptr %storemerge4.i, ptr %40, align 8, !tbaa !47
   %41 = add i32 %37, 1
   store i32 %41, ptr %38, align 4, !tbaa !113
@@ -10095,7 +10081,7 @@ _ZN6vectorIPN3euf5enodeELb0EjE9push_backERKS2_.exit.i16: ; preds = %54, %48
   %56 = phi i32 [ %.pre2.i.i20, %54 ], [ %50, %48 ]
   %57 = getelementptr inbounds i8, ptr %55, i64 -4
   %58 = zext i32 %56 to i64
-  %59 = getelementptr inbounds nuw ptr, ptr %55, i64 %58
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %58
   store ptr %storemerge4.i15, ptr %59, align 8, !tbaa !47
   %60 = add i32 %56, 1
   store i32 %60, ptr %57, align 4, !tbaa !113
@@ -10280,7 +10266,7 @@ _ZN6vectorIPN3euf5enodeELb0EjE9push_backERKS2_.exit.i: ; preds = %16, %10
   %18 = phi i32 [ %.pre2.i.i, %16 ], [ %12, %10 ]
   %19 = getelementptr inbounds i8, ptr %17, i64 -4
   %20 = zext i32 %18 to i64
-  %21 = getelementptr inbounds nuw ptr, ptr %17, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %20
   store ptr %storemerge3.i, ptr %21, align 8, !tbaa !47
   %22 = add i32 %18, 1
   store i32 %22, ptr %19, align 4, !tbaa !113
@@ -10326,7 +10312,7 @@ _ZN6vectorIPN3euf5enodeELb0EjE9push_backERKS2_.exit.i9: ; preds = %37, %31
   %39 = phi i32 [ %.pre2.i.i13, %37 ], [ %33, %31 ]
   %40 = getelementptr inbounds i8, ptr %38, i64 -4
   %41 = zext i32 %39 to i64
-  %42 = getelementptr inbounds nuw ptr, ptr %38, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %41
   store ptr %storemerge3.i8, ptr %42, align 8, !tbaa !47
   %43 = add i32 %39, 1
   store i32 %43, ptr %40, align 4, !tbaa !113
@@ -10388,7 +10374,7 @@ _ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10depe
   %23 = phi ptr [ %.pre.i, %21 ], [ %13, %15 ]
   %24 = getelementptr inbounds i8, ptr %23, i64 -4
   %25 = zext i32 %22 to i64
-  %26 = getelementptr inbounds nuw ptr, ptr %23, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %25
   store ptr %12, ptr %26, align 8, !tbaa !352
   %27 = add i32 %22, 1
   store i32 %27, ptr %24, align 4, !tbaa !113
@@ -10420,7 +10406,7 @@ _ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10depe
   %.phi.trans.insert.i.i.i = getelementptr inbounds i8, ptr %.pre.i.i.i, i64 -4
   %.pre2.i.i.i = load i32, ptr %.phi.trans.insert.i.i.i, align 4, !tbaa !113
   %37 = zext i32 %.pre2.i.i.i to i64
-  %38 = getelementptr inbounds nuw ptr, ptr %.pre.i.i.i, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i.i.i, i64 %37
   store ptr %34, ptr %38, align 8, !tbaa !338
   %39 = add i32 %.pre2.i.i.i, 1
   store i32 %39, ptr %.phi.trans.insert.i.i.i, align 4, !tbaa !113
@@ -10582,7 +10568,7 @@ _ZN6vectorISt5tupleIJP3appS2_mbEELb0EjE9push_backEOS3_.exit: ; preds = %95, %101
   %103 = phi ptr [ %.pre.i45, %101 ], [ %93, %95 ]
   %104 = getelementptr inbounds i8, ptr %103, i64 -4
   %105 = zext i32 %102 to i64
-  %106 = getelementptr inbounds nuw %"class.std::tuple", ptr %103, i64 %105
+  %106 = getelementptr inbounds nuw [32 x i8], ptr %103, i64 %105
   store i8 %92, ptr %106, align 1, !tbaa !178
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 8
   store i64 %90, ptr %107, align 8, !tbaa !343
@@ -10620,7 +10606,7 @@ _ZNK6vectorIPN3euf5enodeELb0EjE4sizeEv.exit:      ; preds = %3, %52
   ret void
 
 12:                                               ; preds = %_ZNK6vectorIPN3euf5enodeELb0EjE4sizeEv.exit
-  %13 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8, !tbaa !47
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load i8, ptr %15, align 8, !tbaa !264, !range !109, !noundef !110
@@ -10687,7 +10673,7 @@ _ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10depe
   %47 = phi ptr [ %.pre.i, %45 ], [ %37, %39 ]
   %48 = getelementptr inbounds i8, ptr %47, i64 -4
   %49 = zext i32 %46 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr %47, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %49
   store ptr %.sroa.3.0.copyload, ptr %50, align 8, !tbaa !352
   %51 = add i32 %46, 1
   store i32 %51, ptr %48, align 4, !tbaa !113
@@ -10779,7 +10765,7 @@ _ZN6vectorIPN3euf5enodeELb0EjE9push_backERKS2_.exit.i: ; preds = %35, %29
   %37 = phi i32 [ %.pre2.i.i, %35 ], [ %31, %29 ]
   %38 = getelementptr inbounds i8, ptr %36, i64 -4
   %39 = zext i32 %37 to i64
-  %40 = getelementptr inbounds nuw ptr, ptr %36, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %39
   store ptr %storemerge4.i, ptr %40, align 8, !tbaa !47
   %41 = add i32 %37, 1
   store i32 %41, ptr %38, align 4, !tbaa !113
@@ -10823,7 +10809,7 @@ _ZN6vectorIPN3euf5enodeELb0EjE9push_backERKS2_.exit.i16: ; preds = %54, %48
   %56 = phi i32 [ %.pre2.i.i20, %54 ], [ %50, %48 ]
   %57 = getelementptr inbounds i8, ptr %55, i64 -4
   %58 = zext i32 %56 to i64
-  %59 = getelementptr inbounds nuw ptr, ptr %55, i64 %58
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %58
   store ptr %storemerge4.i15, ptr %59, align 8, !tbaa !47
   %60 = add i32 %56, 1
   store i32 %60, ptr %57, align 4, !tbaa !113
@@ -12397,7 +12383,7 @@ _ZNK6vectorIPN18dependency_managerIN26stacked_dependency_managerIN3euf13justific
   br i1 %11, label %12, label %_ZN6vectorIPN18dependency_managerIN26stacked_dependency_managerIN3euf13justificationEE6configEE10dependencyELb0EjE3endEv.exit
 
 12:                                               ; preds = %_ZNK6vectorIPN18dependency_managerIN26stacked_dependency_managerIN3euf13justificationEE6configEE10dependencyELb0EjE4sizeEv.exit.thread
-  %13 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv41
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv41
   %14 = load ptr, ptr %13, align 8, !tbaa !338
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
   %15 = load i32, ptr %14, align 4
@@ -12429,7 +12415,7 @@ _ZN6vectorIN3euf13justificationELb0EjE9push_backERKS1_.exit: ; preds = %21, %27
   %28 = phi i32 [ %.pre2.i, %27 ], [ %23, %21 ]
   %29 = phi ptr [ %.pre.i, %27 ], [ %19, %21 ]
   %30 = zext i32 %28 to i64
-  %31 = getelementptr inbounds nuw %"class.euf::justification", ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [24 x i8], ptr %29, i64 %30
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %31, ptr noundef nonnull align 8 dereferenceable(24) %17, i64 24, i1 false), !tbaa.struct !139
   %32 = load ptr, ptr %1, align 8, !tbaa !332
   %33 = getelementptr inbounds i8, ptr %32, i64 -4
@@ -12441,7 +12427,7 @@ _ZN6vectorIN3euf13justificationELb0EjE9push_backERKS1_.exit: ; preds = %21, %27
 .preheader:                                       ; preds = %12, %102
   %36 = phi i1 [ false, %102 ], [ true, %12 ]
   %indvars.iv = phi i64 [ 1, %102 ], [ 0, %12 ]
-  %37 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv
   %38 = load ptr, ptr %37, align 8, !tbaa !338
   %39 = load i32, ptr %38, align 4
   %40 = and i32 %39, 1073741824
@@ -12582,7 +12568,7 @@ _ZN6vectorIPN18dependency_managerIN26stacked_dependency_managerIN3euf13justifica
   %95 = phi ptr [ %.pre.i22, %_ZN6vectorIPN18dependency_managerIN26stacked_dependency_managerIN3euf13justificationEE6configEE10dependencyELb0EjE13expand_vectorEv.exit ], [ %42, %44 ]
   %96 = getelementptr inbounds i8, ptr %95, i64 -4
   %97 = zext i32 %94 to i64
-  %98 = getelementptr inbounds nuw ptr, ptr %95, i64 %97
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %97
   store ptr %38, ptr %98, align 8, !tbaa !338
   %99 = add i32 %94, 1
   store i32 %99, ptr %96, align 4, !tbaa !113

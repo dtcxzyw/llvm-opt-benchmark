@@ -97,7 +97,7 @@ define dso_local void @bloom_add_element(ptr noundef captures(none) %0, ptr noun
   %21 = and i32 %20, %13
   %22 = trunc nuw nsw i64 %indvars.iv.i to i32
   %23 = add i32 %.024.i, %22
-  %24 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i
   store i32 %21, ptr %24, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %19
@@ -114,7 +114,7 @@ k_hashes.exit:                                    ; preds = %3
 
 27:                                               ; preds = %.lr.ph, %27
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %27 ]
-  %28 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   %29 = load i32, ptr %28, align 4
   %30 = and i32 %29, 7
   %31 = shl nuw nsw i32 1, %30
@@ -168,7 +168,7 @@ define dso_local noundef zeroext i1 @bloom_lacks_element(ptr noundef readonly ca
   %21 = and i32 %20, %13
   %22 = trunc nuw nsw i64 %indvars.iv.i to i32
   %23 = add i32 %.024.i, %22
-  %24 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i
   store i32 %21, ptr %24, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %19
@@ -185,7 +185,7 @@ k_hashes.exit:                                    ; preds = %3
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %27 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   %28 = load i32, ptr %27, align 4
   %29 = lshr i32 %28, 3
   %30 = zext nneg i32 %29 to i64

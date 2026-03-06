@@ -71,16 +71,16 @@ define noalias noundef ptr @Llb_MtrFindVarOrder(ptr noundef readonly captures(no
   %indvars.iv61 = phi i64 [ 0, %.lr.ph55.us ], [ %indvars.iv.next62, %24 ]
   %.054.us = phi i32 [ 0, %.lr.ph55.us ], [ %.1.us, %24 ]
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
-  %15 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.next62
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv.next62
   %16 = load i32, ptr %15, align 4, !tbaa !15
   %17 = icmp sgt i32 %14, %16
   br i1 %17, label %18, label %24
 
 18:                                               ; preds = %13
-  %19 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv61
-  %20 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv61
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv61
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv61
   %21 = load i32, ptr %20, align 4, !tbaa !15
-  %22 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.next62
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv.next62
   %23 = load i32, ptr %22, align 4, !tbaa !15
   store i32 %23, ptr %20, align 4, !tbaa !15
   store i32 %21, ptr %22, align 4, !tbaa !15
@@ -100,7 +100,7 @@ define noalias noundef ptr @Llb_MtrFindVarOrder(ptr noundef readonly captures(no
 
 26:                                               ; preds = %.lr.ph, %.loopexit
   %indvars.iv58 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next59, %.loopexit ]
-  %27 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv58
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv58
   %28 = trunc nuw nsw i64 %indvars.iv58 to i32
   store i32 %28, ptr %27, align 4, !tbaa !15
   br label %29
@@ -114,7 +114,7 @@ define noalias noundef ptr @Llb_MtrFindVarOrder(ptr noundef readonly captures(no
 32:                                               ; preds = %29
   %33 = add nsw i64 %indvars.iv, -1
   %34 = load ptr, ptr %10, align 8, !tbaa !19
-  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %33
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %33
   %36 = load ptr, ptr %35, align 8, !tbaa !20
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 %indvars.iv58
   %38 = load i8, ptr %37, align 1, !tbaa !21
@@ -123,7 +123,7 @@ define noalias noundef ptr @Llb_MtrFindVarOrder(ptr noundef readonly captures(no
 
 39:                                               ; preds = %32
   %40 = trunc i64 %33 to i32
-  %41 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv58
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv58
   store i32 %40, ptr %41, align 4, !tbaa !15
   br label %.loopexit
 
@@ -220,7 +220,7 @@ define void @Llb_MtrPrint(ptr noundef readonly captures(none) %0, i32 noundef %1
   br i1 %.not24, label %18, label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds nuw i32, ptr %.021, i64 %indvars.iv33
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %.021, i64 %indvars.iv33
   %17 = load i32, ptr %16, align 4, !tbaa !15
   br label %18
 
@@ -229,7 +229,7 @@ define void @Llb_MtrPrint(ptr noundef readonly captures(none) %0, i32 noundef %1
   %20 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %19)
   %21 = load ptr, ptr %9, align 8, !tbaa !26
   %22 = sext i32 %19 to i64
-  %23 = getelementptr inbounds i32, ptr %21, i64 %22
+  %23 = getelementptr inbounds [4 x i8], ptr %21, i64 %22
   %24 = load i32, ptr %23, align 4, !tbaa !15
   %25 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %24)
   %26 = load i32, ptr %0, align 8, !tbaa !24
@@ -273,7 +273,7 @@ Llb_MtrVarName.exit:                              ; preds = %28, %33, %37, %38
 .lr.ph:                                           ; preds = %Llb_MtrVarName.exit, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %Llb_MtrVarName.exit ]
   %42 = load ptr, ptr %12, align 8, !tbaa !19
-  %43 = getelementptr inbounds nuw ptr, ptr %42, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv
   %44 = load ptr, ptr %43, align 8, !tbaa !20
   %45 = getelementptr inbounds i8, ptr %44, i64 %22
   %46 = load i8, ptr %45, align 1, !tbaa !21
@@ -352,7 +352,7 @@ define void @Llb_MtrPrintMatrixStats(ptr noundef readonly captures(none) %0) loc
 ._crit_edge90.us.us:                              ; preds = %22, %._crit_edge90.us.us
   %indvars.iv145 = phi i64 [ %indvars.iv.next146, %._crit_edge90.us.us ], [ 0, %22 ]
   %.393.us.us = phi i32 [ %spec.select73.us.us, %._crit_edge90.us.us ], [ %spec.select.us.us, %22 ]
-  %18 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv145
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv145
   %19 = load i32, ptr %18, align 4, !tbaa !15
   %20 = icmp eq i32 %19, %.06498.us.us
   %21 = sext i1 %20 to i32
@@ -364,7 +364,7 @@ define void @Llb_MtrPrintMatrixStats(ptr noundef readonly captures(none) %0) loc
 22:                                               ; preds = %22, %.preheader.us.us
   %indvars.iv139 = phi i64 [ %indvars.iv.next140, %22 ], [ 0, %.preheader.us.us ]
   %.15988.us.us = phi i32 [ %spec.select.us.us, %22 ], [ %.05899.us.us, %.preheader.us.us ]
-  %23 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv139
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv139
   %24 = load i32, ptr %23, align 4, !tbaa !15
   %25 = icmp eq i32 %24, %.06498.us.us
   %26 = zext i1 %25 to i32
@@ -382,7 +382,7 @@ define void @Llb_MtrPrintMatrixStats(ptr noundef readonly captures(none) %0) loc
 28:                                               ; preds = %.lr.ph85, %59
   %indvars.iv133 = phi i64 [ 0, %.lr.ph85 ], [ %indvars.iv.next134, %59 ]
   %.06083 = phi i32 [ 0, %.lr.ph85 ], [ %.161, %59 ]
-  %29 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv133
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv133
   %30 = load i32, ptr %29, align 4, !tbaa !15
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %59, label %.preheader75
@@ -403,7 +403,7 @@ define void @Llb_MtrPrintMatrixStats(ptr noundef readonly captures(none) %0) loc
 
 35:                                               ; preds = %.lr.ph, %41
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %41 ]
-  %36 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv
   %37 = load ptr, ptr %36, align 8, !tbaa !20
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 %indvars.iv133
   %39 = load i8, ptr %38, align 1, !tbaa !21
@@ -436,7 +436,7 @@ define void @Llb_MtrPrintMatrixStats(ptr noundef readonly captures(none) %0) loc
   %indvars.iv.next131 = add nsw i64 %indvars.iv130, -1
   %48 = load ptr, ptr %10, align 8, !tbaa !19
   %49 = and i64 %indvars.iv.next131, 4294967295
-  %50 = getelementptr inbounds nuw ptr, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %49
   %51 = load ptr, ptr %50, align 8, !tbaa !20
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 %indvars.iv133
   %53 = load i8, ptr %52, align 1, !tbaa !21
@@ -449,9 +449,9 @@ define void @Llb_MtrPrintMatrixStats(ptr noundef readonly captures(none) %0) loc
 
 .split.loop.exit175:                              ; preds = %44, %.split.loop.exit
   %.062.lcssa = phi i32 [ %indvars.le, %.split.loop.exit ], [ %43, %44 ]
-  %55 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv133
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv133
   store i32 %.063.lcssa, ptr %55, align 4, !tbaa !15
-  %56 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv133
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv133
   store i32 %.062.lcssa, ptr %56, align 4, !tbaa !15
   %57 = sub i32 %.06083, %.063.lcssa
   %58 = add i32 %57, %.062.lcssa
@@ -589,7 +589,7 @@ define noalias noundef ptr @Llb_MtrAlloc(i32 noundef %0, i32 noundef %1, i32 nou
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %20 = tail call noalias ptr @calloc(i64 noundef %9, i64 noundef 1) #19
-  %21 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv
   store ptr %20, ptr %21, align 8, !tbaa !20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -643,7 +643,7 @@ define void @Llb_MtrFree(ptr noundef captures(none) %0) local_unnamed_addr #9 {
   %15 = phi i32 [ %11, %.lr.ph ], [ %23, %22 ]
   %16 = phi ptr [ %.pre, %.lr.ph ], [ %24, %22 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %22 ]
-  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8, !tbaa !20
   %.not42 = icmp eq ptr %18, null
   br i1 %.not42, label %22, label %19
@@ -651,7 +651,7 @@ define void @Llb_MtrFree(ptr noundef captures(none) %0) local_unnamed_addr #9 {
 19:                                               ; preds = %14
   tail call void @free(ptr noundef nonnull %18) #20
   %20 = load ptr, ptr %13, align 8, !tbaa !19
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv
   store ptr null, ptr %21, align 8, !tbaa !20
   %.pre45 = load i32, ptr %10, align 4, !tbaa !14
   br label %22
@@ -718,7 +718,7 @@ define void @Llb_MtrAddColumn(ptr noundef readonly captures(none) %0, ptr nounde
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !41
   %6 = sext i32 %3 to i64
-  %7 = getelementptr inbounds ptr, ptr %5, i64 %6
+  %7 = getelementptr inbounds [8 x i8], ptr %5, i64 %6
   store ptr %1, ptr %7, align 8, !tbaa !50
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !51
@@ -754,7 +754,7 @@ define void @Llb_MtrAddColumn(ptr noundef readonly captures(none) %0, ptr nounde
   %25 = phi ptr [ %9, %.lr.ph ], [ %50, %24 ]
   %26 = getelementptr i8, ptr %25, i64 8
   %.val34 = load ptr, ptr %26, align 8, !tbaa !55
-  %27 = getelementptr inbounds nuw ptr, ptr %.val34, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %.val34, i64 %indvars.iv
   %28 = load ptr, ptr %27, align 8, !tbaa !56
   %29 = load ptr, ptr %12, align 8, !tbaa !57
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 48
@@ -764,21 +764,21 @@ define void @Llb_MtrAddColumn(ptr noundef readonly captures(none) %0, ptr nounde
   %33 = getelementptr i8, ptr %31, i64 8
   %.val38 = load ptr, ptr %33, align 8, !tbaa !68
   %34 = sext i32 %.val36 to i64
-  %35 = getelementptr inbounds i32, ptr %.val38, i64 %34
+  %35 = getelementptr inbounds [4 x i8], ptr %.val38, i64 %34
   %36 = load i32, ptr %35, align 4, !tbaa !15
   %37 = load ptr, ptr %13, align 8, !tbaa !19
-  %38 = getelementptr inbounds ptr, ptr %37, i64 %6
+  %38 = getelementptr inbounds [8 x i8], ptr %37, i64 %6
   %39 = load ptr, ptr %38, align 8, !tbaa !20
   %40 = sext i32 %36 to i64
   %41 = getelementptr inbounds i8, ptr %39, i64 %40
   store i8 1, ptr %41, align 1, !tbaa !21
   %42 = load ptr, ptr %14, align 8, !tbaa !40
-  %43 = getelementptr inbounds i32, ptr %42, i64 %6
+  %43 = getelementptr inbounds [4 x i8], ptr %42, i64 %6
   %44 = load i32, ptr %43, align 4, !tbaa !15
   %45 = add nsw i32 %44, 1
   store i32 %45, ptr %43, align 4, !tbaa !15
   %46 = load ptr, ptr %15, align 8, !tbaa !26
-  %47 = getelementptr inbounds i32, ptr %46, i64 %40
+  %47 = getelementptr inbounds [4 x i8], ptr %46, i64 %40
   %48 = load i32, ptr %47, align 4, !tbaa !15
   %49 = add nsw i32 %48, 1
   store i32 %49, ptr %47, align 4, !tbaa !15
@@ -795,7 +795,7 @@ define void @Llb_MtrAddColumn(ptr noundef readonly captures(none) %0, ptr nounde
   %54 = phi ptr [ %17, %.lr.ph44 ], [ %79, %.critedge ]
   %55 = getelementptr i8, ptr %54, i64 8
   %.val35 = load ptr, ptr %55, align 8, !tbaa !55
-  %56 = getelementptr inbounds nuw ptr, ptr %.val35, i64 %indvars.iv46
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %.val35, i64 %indvars.iv46
   %57 = load ptr, ptr %56, align 8, !tbaa !56
   %58 = load ptr, ptr %20, align 8, !tbaa !57
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 48
@@ -805,21 +805,21 @@ define void @Llb_MtrAddColumn(ptr noundef readonly captures(none) %0, ptr nounde
   %62 = getelementptr i8, ptr %60, i64 8
   %.val39 = load ptr, ptr %62, align 8, !tbaa !68
   %63 = sext i32 %.val37 to i64
-  %64 = getelementptr inbounds i32, ptr %.val39, i64 %63
+  %64 = getelementptr inbounds [4 x i8], ptr %.val39, i64 %63
   %65 = load i32, ptr %64, align 4, !tbaa !15
   %66 = load ptr, ptr %21, align 8, !tbaa !19
-  %67 = getelementptr inbounds ptr, ptr %66, i64 %6
+  %67 = getelementptr inbounds [8 x i8], ptr %66, i64 %6
   %68 = load ptr, ptr %67, align 8, !tbaa !20
   %69 = sext i32 %65 to i64
   %70 = getelementptr inbounds i8, ptr %68, i64 %69
   store i8 1, ptr %70, align 1, !tbaa !21
   %71 = load ptr, ptr %22, align 8, !tbaa !40
-  %72 = getelementptr inbounds i32, ptr %71, i64 %6
+  %72 = getelementptr inbounds [4 x i8], ptr %71, i64 %6
   %73 = load i32, ptr %72, align 4, !tbaa !15
   %74 = add nsw i32 %73, 1
   store i32 %74, ptr %72, align 4, !tbaa !15
   %75 = load ptr, ptr %23, align 8, !tbaa !26
-  %76 = getelementptr inbounds i32, ptr %75, i64 %69
+  %76 = getelementptr inbounds [4 x i8], ptr %75, i64 %69
   %77 = load i32, ptr %76, align 4, !tbaa !15
   %78 = add nsw i32 %77, 1
   store i32 %78, ptr %76, align 4, !tbaa !15
@@ -852,7 +852,7 @@ define void @Llb_MtrRemoveSingletonRows(ptr noundef readonly captures(none) %0) 
 9:                                                ; preds = %.lr.ph20, %.loopexit
   %indvars.iv22 = phi i64 [ 0, %.lr.ph20 ], [ %indvars.iv.next23, %.loopexit ]
   %10 = load ptr, ptr %5, align 8, !tbaa !26
-  %11 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv22
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv22
   %12 = load i32, ptr %11, align 4, !tbaa !15
   %13 = icmp slt i32 %12, 2
   br i1 %13, label %14, label %.loopexit
@@ -867,7 +867,7 @@ define void @Llb_MtrRemoveSingletonRows(ptr noundef readonly captures(none) %0) 
   %17 = phi i32 [ %30, %29 ], [ %15, %14 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %29 ], [ 0, %14 ]
   %18 = load ptr, ptr %7, align 8, !tbaa !19
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8, !tbaa !20
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 %indvars.iv22
   %22 = load i8, ptr %21, align 1, !tbaa !21
@@ -877,7 +877,7 @@ define void @Llb_MtrRemoveSingletonRows(ptr noundef readonly captures(none) %0) 
 24:                                               ; preds = %.lr.ph
   store i8 0, ptr %21, align 1, !tbaa !21
   %25 = load ptr, ptr %8, align 8, !tbaa !40
-  %26 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %indvars.iv
   %27 = load i32, ptr %26, align 4, !tbaa !15
   %28 = add nsw i32 %27, -1
   store i32 %28, ptr %26, align 4, !tbaa !15
@@ -938,11 +938,11 @@ define noalias noundef ptr @Llb_MtrCreate(ptr noundef readonly captures(none) %0
   %22 = phi ptr [ %13, %.lr.ph ], [ %98, %Llb_MtrAddColumn.exit ]
   %23 = getelementptr i8, ptr %22, i64 8
   %.val12 = load ptr, ptr %23, align 8, !tbaa !55
-  %24 = getelementptr inbounds nuw ptr, ptr %.val12, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.val12, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8, !tbaa !56
   %26 = load i32, ptr %25, align 8, !tbaa !46
   %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds ptr, ptr %17, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %17, i64 %27
   store ptr %25, ptr %28, align 8, !tbaa !50
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %30 = load ptr, ptr %29, align 8, !tbaa !51
@@ -954,9 +954,9 @@ define noalias noundef ptr @Llb_MtrCreate(ptr noundef readonly captures(none) %0
 .lr.ph.i:                                         ; preds = %21
   %33 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %34 = load ptr, ptr %18, align 8, !tbaa !19
-  %35 = getelementptr inbounds ptr, ptr %34, i64 %27
+  %35 = getelementptr inbounds [8 x i8], ptr %34, i64 %27
   %36 = load ptr, ptr %19, align 8, !tbaa !40
-  %37 = getelementptr inbounds i32, ptr %36, i64 %27
+  %37 = getelementptr inbounds [4 x i8], ptr %36, i64 %27
   %38 = load ptr, ptr %20, align 8, !tbaa !26
   br label %49
 
@@ -971,9 +971,9 @@ define noalias noundef ptr @Llb_MtrCreate(ptr noundef readonly captures(none) %0
 .lr.ph44.i:                                       ; preds = %.critedge.preheader.i
   %43 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %44 = load ptr, ptr %18, align 8, !tbaa !19
-  %45 = getelementptr inbounds ptr, ptr %44, i64 %27
+  %45 = getelementptr inbounds [8 x i8], ptr %44, i64 %27
   %46 = load ptr, ptr %19, align 8, !tbaa !40
-  %47 = getelementptr inbounds i32, ptr %46, i64 %27
+  %47 = getelementptr inbounds [4 x i8], ptr %46, i64 %27
   %48 = load ptr, ptr %20, align 8, !tbaa !26
   br label %.critedge.i
 
@@ -982,7 +982,7 @@ define noalias noundef ptr @Llb_MtrCreate(ptr noundef readonly captures(none) %0
   %50 = phi ptr [ %30, %.lr.ph.i ], [ %70, %49 ]
   %51 = getelementptr i8, ptr %50, i64 8
   %.val34.i = load ptr, ptr %51, align 8, !tbaa !55
-  %52 = getelementptr inbounds nuw ptr, ptr %.val34.i, i64 %indvars.iv.i
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %.val34.i, i64 %indvars.iv.i
   %53 = load ptr, ptr %52, align 8, !tbaa !56
   %54 = load ptr, ptr %33, align 8, !tbaa !57
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 48
@@ -992,7 +992,7 @@ define noalias noundef ptr @Llb_MtrCreate(ptr noundef readonly captures(none) %0
   %58 = getelementptr i8, ptr %56, i64 8
   %.val38.i = load ptr, ptr %58, align 8, !tbaa !68
   %59 = sext i32 %.val36.i to i64
-  %60 = getelementptr inbounds i32, ptr %.val38.i, i64 %59
+  %60 = getelementptr inbounds [4 x i8], ptr %.val38.i, i64 %59
   %61 = load i32, ptr %60, align 4, !tbaa !15
   %62 = load ptr, ptr %35, align 8, !tbaa !20
   %63 = sext i32 %61 to i64
@@ -1001,7 +1001,7 @@ define noalias noundef ptr @Llb_MtrCreate(ptr noundef readonly captures(none) %0
   %65 = load i32, ptr %37, align 4, !tbaa !15
   %66 = add nsw i32 %65, 1
   store i32 %66, ptr %37, align 4, !tbaa !15
-  %67 = getelementptr inbounds i32, ptr %38, i64 %63
+  %67 = getelementptr inbounds [4 x i8], ptr %38, i64 %63
   %68 = load i32, ptr %67, align 4, !tbaa !15
   %69 = add nsw i32 %68, 1
   store i32 %69, ptr %67, align 4, !tbaa !15
@@ -1018,7 +1018,7 @@ define noalias noundef ptr @Llb_MtrCreate(ptr noundef readonly captures(none) %0
   %74 = phi ptr [ %40, %.lr.ph44.i ], [ %94, %.critedge.i ]
   %75 = getelementptr i8, ptr %74, i64 8
   %.val35.i = load ptr, ptr %75, align 8, !tbaa !55
-  %76 = getelementptr inbounds nuw ptr, ptr %.val35.i, i64 %indvars.iv46.i
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %.val35.i, i64 %indvars.iv46.i
   %77 = load ptr, ptr %76, align 8, !tbaa !56
   %78 = load ptr, ptr %43, align 8, !tbaa !57
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 48
@@ -1028,7 +1028,7 @@ define noalias noundef ptr @Llb_MtrCreate(ptr noundef readonly captures(none) %0
   %82 = getelementptr i8, ptr %80, i64 8
   %.val39.i = load ptr, ptr %82, align 8, !tbaa !68
   %83 = sext i32 %.val37.i to i64
-  %84 = getelementptr inbounds i32, ptr %.val39.i, i64 %83
+  %84 = getelementptr inbounds [4 x i8], ptr %.val39.i, i64 %83
   %85 = load i32, ptr %84, align 4, !tbaa !15
   %86 = load ptr, ptr %45, align 8, !tbaa !20
   %87 = sext i32 %85 to i64
@@ -1037,7 +1037,7 @@ define noalias noundef ptr @Llb_MtrCreate(ptr noundef readonly captures(none) %0
   %89 = load i32, ptr %47, align 4, !tbaa !15
   %90 = add nsw i32 %89, 1
   store i32 %90, ptr %47, align 4, !tbaa !15
-  %91 = getelementptr inbounds i32, ptr %48, i64 %87
+  %91 = getelementptr inbounds [4 x i8], ptr %48, i64 %87
   %92 = load i32, ptr %91, align 4, !tbaa !15
   %93 = add nsw i32 %92, 1
   store i32 %93, ptr %91, align 4, !tbaa !15

@@ -123,7 +123,7 @@ gv_calloc.exit:                                   ; preds = %10
   %42 = load ptr, ptr @ELrightend, align 8, !tbaa !12
   %43 = load i32, ptr @ELhashsize, align 4, !tbaa !8
   %44 = sext i32 %43 to i64
-  %45 = getelementptr ptr, ptr %41, i64 %44
+  %45 = getelementptr [8 x i8], ptr %41, i64 %44
   %46 = getelementptr i8, ptr %45, i64 -8
   store ptr %42, ptr %46, align 8, !tbaa !12
   ret void
@@ -418,7 +418,7 @@ define ptr @ELleftbnd(ptr noundef readonly captures(none) %0) local_unnamed_addr
 13:                                               ; preds = %1
   %14 = load ptr, ptr @ELhash, align 8, !tbaa !3
   %15 = zext nneg i32 %spec.select to i64
-  %16 = getelementptr inbounds nuw ptr, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !12
   %18 = icmp eq ptr %17, null
   br i1 %18, label %ELgethash.exit, label %19
@@ -460,7 +460,7 @@ ELgethash.exit:                                   ; preds = %1, %13, %22, %27
 
 34:                                               ; preds = %29
   %35 = load ptr, ptr @ELhash, align 8, !tbaa !3
-  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %31
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %31
   %37 = load ptr, ptr %36, align 8, !tbaa !12
   %38 = icmp eq ptr %37, null
   br i1 %38, label %48, label %39
@@ -497,7 +497,7 @@ ELgethash.exit:                                   ; preds = %1, %13, %22, %27
 
 52:                                               ; preds = %48
   %53 = load ptr, ptr @ELhash, align 8, !tbaa !3
-  %54 = getelementptr inbounds nuw ptr, ptr %53, i64 %50
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %50
   %55 = load ptr, ptr %54, align 8, !tbaa !12
   %56 = icmp eq ptr %55, null
   br i1 %56, label %66, label %57
@@ -588,7 +588,7 @@ ELgethash.exit55:                                 ; preds = %57, %39, %19
 
 88:                                               ; preds = %.critedge2
   %89 = zext nneg i32 %spec.select to i64
-  %90 = getelementptr inbounds nuw ptr, ptr %68, i64 %89
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %89
   %91 = load ptr, ptr %90, align 8, !tbaa !12
   %.not50 = icmp eq ptr %91, null
   br i1 %.not50, label %96, label %92

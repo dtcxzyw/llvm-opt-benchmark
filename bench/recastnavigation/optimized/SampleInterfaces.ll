@@ -116,7 +116,7 @@ define dso_local void @_ZN12BuildContext5doLogE13rcLogCategoryPKci(ptr noundef n
   %30 = add nsw i32 %29, 1
   store i32 %30, ptr %6, align 8
   %31 = sext i32 %29 to i64
-  %32 = getelementptr inbounds ptr, ptr %28, i64 %31
+  %32 = getelementptr inbounds [8 x i8], ptr %28, i64 %31
   store ptr %16, ptr %32, align 8
   br label %33
 
@@ -139,7 +139,7 @@ define dso_local void @_ZN12BuildContext12doStartTimerE12rcTimerLabel(ptr nounde
   %3 = tail call noundef i64 @_Z11getPerfTimev()
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds nuw i64, ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %5
   store i64 %3, ptr %6, align 8
   ret void
 }
@@ -151,11 +151,11 @@ define dso_local void @_ZN12BuildContext11doStopTimerE12rcTimerLabel(ptr noundef
   %3 = tail call noundef i64 @_Z11getPerfTimev()
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds nuw i64, ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %5
   %7 = load i64, ptr %6, align 8
   %8 = sub i64 %3, %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %10 = getelementptr inbounds nuw i64, ptr %9, i64 %5
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %5
   %11 = load i64, ptr %10, align 8
   %12 = icmp eq i64 %11, -1
   %13 = select i1 %12, i64 0, i64 %11
@@ -168,7 +168,7 @@ define dso_local void @_ZN12BuildContext11doStopTimerE12rcTimerLabel(ptr noundef
 define dso_local noundef i32 @_ZNK12BuildContext20doGetAccumulatedTimeE12rcTimerLabel(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16472) %0, i32 noundef %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %4 = zext i32 %1 to i64
-  %5 = getelementptr inbounds nuw i64, ptr %3, i64 %4
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %4
   %6 = load i64, ptr %5, align 8
   %7 = tail call noundef i32 @_Z15getPerfTimeUsecl(i64 noundef %6)
   ret i32 %7
@@ -194,7 +194,7 @@ define dso_local void @_ZN12BuildContext7dumpLogEPKcz(ptr noundef nonnull readon
 
 9:                                                ; preds = %.lr.ph32, %28
   %indvars.iv36 = phi i64 [ 0, %.lr.ph32 ], [ %indvars.iv.next37, %28 ]
-  %10 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv36
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv36
   %11 = load ptr, ptr %10, align 8
   br label %12
 
@@ -215,7 +215,7 @@ define dso_local void @_ZN12BuildContext7dumpLogEPKcz(ptr noundef nonnull readon
 
 .preheader:                                       ; preds = %12, %14
   %indvars.iv = phi i64 [ %indvars.iv.next, %14 ], [ 0, %12 ]
-  %15 = getelementptr inbounds nuw i32, ptr @__const._ZN12BuildContext7dumpLogEPKcz.TAB_STOPS, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [4 x i8], ptr @__const._ZN12BuildContext7dumpLogEPKcz.TAB_STOPS, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4
   %17 = icmp slt i32 %.018, %16
   br i1 %17, label %.loopexit27, label %14
@@ -276,7 +276,7 @@ define dso_local noundef i32 @_ZNK12BuildContext11getLogCountEv(ptr noundef nonn
 define dso_local noundef nonnull ptr @_ZNK12BuildContext10getLogTextEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16472) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %4 = sext i32 %1 to i64
-  %5 = getelementptr inbounds ptr, ptr %3, i64 %4
+  %5 = getelementptr inbounds [8 x i8], ptr %3, i64 %4
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1
   ret ptr %7
@@ -360,12 +360,12 @@ define linkonce_odr dso_local void @_ZN16GLCheckerTexture4bindEv(ptr noundef non
 
 .preheader.split.preheader:                       ; preds = %.preheader
   %9 = mul nuw nsw i64 %indvars.iv36, %7
-  %invariant.gep = getelementptr inbounds nuw i32, ptr %2, i64 %9
+  %invariant.gep = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %9
   br label %.preheader.split
 
 .preheader.split.us:                              ; preds = %.preheader, %.preheader.split.us
   %indvars.iv31 = phi i64 [ %indvars.iv.next32, %.preheader.split.us ], [ 0, %.preheader ]
-  %10 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv31
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv31
   store i32 -2631721, ptr %10, align 4
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
   %exitcond35.not = icmp eq i64 %indvars.iv.next32, %7
@@ -375,7 +375,7 @@ define linkonce_odr dso_local void @_ZN16GLCheckerTexture4bindEv(ptr noundef non
   %indvars.iv = phi i64 [ 0, %.preheader.split.preheader ], [ %indvars.iv.next, %.preheader.split ]
   %11 = icmp eq i64 %indvars.iv, 0
   %spec.select = select i1 %11, i32 -2631721, i32 -1
-  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep, i64 %indvars.iv
   store i32 %spec.select, ptr %gep, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %7

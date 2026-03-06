@@ -479,11 +479,11 @@ define internal fastcc void @dissect_gsup_tlvs(ptr noundef %0, i32 noundef %1, i
   %switch.lobit = trunc i8 %switch.shifted to i1
   %or.cond = select i1 %23, i1 %switch.lobit, i1 false
   %24 = zext nneg i8 %switch.tableidx3 to i64
-  %switch.gep6 = getelementptr inbounds nuw i32, ptr @switch.table.dissect_gsup_tlvs.1, i64 %24
+  %switch.gep6 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_gsup_tlvs.1, i64 %24
   %switch.tableidx = add i8 %6, -80
   %25 = icmp ult i8 %switch.tableidx, 3
   %26 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.dissect_gsup_tlvs, i64 %26
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_gsup_tlvs, i64 %26
   br label %27
 
 27:                                               ; preds = %.lr.ph295, %.loopexit

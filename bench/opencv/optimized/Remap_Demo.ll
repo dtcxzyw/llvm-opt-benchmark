@@ -647,9 +647,9 @@ define hidden void @_Z10update_mapRiRN2cv3MatES2_(ptr noundef nonnull align 4 ca
 53:                                               ; preds = %.lr.ph.split.us.us, %49
   %.sink121 = phi float [ %52, %49 ], [ 0.000000e+00, %.lr.ph.split.us.us ]
   %.sink = phi float [ %37, %49 ], [ 0.000000e+00, %.lr.ph.split.us.us ]
-  %54 = getelementptr inbounds nuw float, ptr %40, i64 %indvars.iv102
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %indvars.iv102
   store float %.sink121, ptr %54, align 4, !tbaa !63
-  %55 = getelementptr inbounds nuw float, ptr %43, i64 %indvars.iv102
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv102
   store float %.sink, ptr %55, align 4, !tbaa !63
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
   %exitcond106.not = icmp eq i64 %indvars.iv.next103, %wide.trip.count105
@@ -668,9 +668,9 @@ define hidden void @_Z10update_mapRiRN2cv3MatES2_(ptr noundef nonnull align 4 ca
   %indvars.iv97 = phi i64 [ %indvars.iv.next98, %62 ], [ 0, %.lr.ph.split.us68.us ]
   %63 = trunc nuw nsw i64 %indvars.iv97 to i32
   %64 = uitofp nneg i32 %63 to float
-  %65 = getelementptr inbounds nuw float, ptr %58, i64 %indvars.iv97
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %indvars.iv97
   store float %64, ptr %65, align 4, !tbaa !63
-  %66 = getelementptr inbounds nuw float, ptr %61, i64 %indvars.iv97
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %indvars.iv97
   store float %26, ptr %66, align 4, !tbaa !63
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
   %exitcond101.not = icmp eq i64 %indvars.iv.next98, %wide.trip.count100
@@ -690,9 +690,9 @@ define hidden void @_Z10update_mapRiRN2cv3MatES2_(ptr noundef nonnull align 4 ca
   %74 = trunc i64 %indvars.iv92 to i32
   %75 = sub i32 %8, %74
   %76 = sitofp i32 %75 to float
-  %77 = getelementptr inbounds nuw float, ptr %69, i64 %indvars.iv92
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %69, i64 %indvars.iv92
   store float %76, ptr %77, align 4, !tbaa !63
-  %78 = getelementptr inbounds nuw float, ptr %72, i64 %indvars.iv92
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %indvars.iv92
   store float %28, ptr %78, align 4, !tbaa !63
   %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
   %exitcond96.not = icmp eq i64 %indvars.iv.next93, %wide.trip.count95
@@ -712,9 +712,9 @@ define hidden void @_Z10update_mapRiRN2cv3MatES2_(ptr noundef nonnull align 4 ca
   %86 = trunc i64 %indvars.iv to i32
   %87 = sub i32 %8, %86
   %88 = sitofp i32 %87 to float
-  %89 = getelementptr inbounds nuw float, ptr %81, i64 %indvars.iv
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %81, i64 %indvars.iv
   store float %88, ptr %89, align 4, !tbaa !63
-  %90 = getelementptr inbounds nuw float, ptr %84, i64 %indvars.iv
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %84, i64 %indvars.iv
   store float %26, ptr %90, align 4, !tbaa !63
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

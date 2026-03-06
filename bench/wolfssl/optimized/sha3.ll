@@ -103,7 +103,7 @@ define internal fastcc range(i32 -173, 1) i32 @wc_Sha3Update(ptr noundef capture
   %30 = shl nuw nsw i64 %indvars.iv79.i, 3
   %31 = getelementptr inbounds nuw i8, ptr %18, i64 %30
   %.val.i = load i64, ptr %31, align 8, !tbaa !8
-  %32 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv79.i
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv79.i
   %33 = load i64, ptr %32, align 8, !tbaa !8
   %34 = xor i64 %33, %.val.i
   store i64 %34, ptr %32, align 8, !tbaa !8
@@ -139,7 +139,7 @@ define internal fastcc range(i32 -173, 1) i32 @wc_Sha3Update(ptr noundef capture
   %39 = shl nuw nsw i64 %indvars.iv84.i, 3
   %40 = getelementptr inbounds nuw i8, ptr %.171.i, i64 %39
   %41 = load i64, ptr %40, align 1
-  %42 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv84.i
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv84.i
   %43 = load i64, ptr %42, align 8, !tbaa !8
   %44 = xor i64 %43, %41
   store i64 %44, ptr %42, align 8, !tbaa !8
@@ -215,7 +215,7 @@ define range(i32 -173, 1) i32 @wc_Sha3_224_Final(ptr noundef captures(address_is
   %22 = shl nuw nsw i64 %indvars.iv.i.i, 3
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 %22
   %.val.i.i = load i64, ptr %23, align 8, !tbaa !8
-  %24 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv.i.i
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.i.i
   %25 = load i64, ptr %24, align 8, !tbaa !8
   %26 = xor i64 %25, %.val.i.i
   store i64 %26, ptr %24, align 8, !tbaa !8
@@ -283,7 +283,7 @@ define range(i32 -173, 1) i32 @wc_Sha3_224_GetHash(ptr noundef readonly captures
   %23 = shl nuw nsw i64 %indvars.iv.i.i.i, 3
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 %23
   %.val.i.i.i = load i64, ptr %24, align 8, !tbaa !8
-  %25 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv.i.i.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.i.i.i
   %26 = load i64, ptr %25, align 8, !tbaa !8
   %27 = xor i64 %26, %.val.i.i.i
   store i64 %27, ptr %25, align 8, !tbaa !8
@@ -382,7 +382,7 @@ define range(i32 -173, 1) i32 @wc_Sha3_256_Final(ptr noundef captures(address_is
   %22 = shl nuw nsw i64 %indvars.iv.i.i, 3
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 %22
   %.val.i.i = load i64, ptr %23, align 8, !tbaa !8
-  %24 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv.i.i
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.i.i
   %25 = load i64, ptr %24, align 8, !tbaa !8
   %26 = xor i64 %25, %.val.i.i
   store i64 %26, ptr %24, align 8, !tbaa !8
@@ -450,7 +450,7 @@ define range(i32 -173, 1) i32 @wc_Sha3_256_GetHash(ptr noundef readonly captures
   %23 = shl nuw nsw i64 %indvars.iv.i.i.i, 3
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 %23
   %.val.i.i.i = load i64, ptr %24, align 8, !tbaa !8
-  %25 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv.i.i.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.i.i.i
   %26 = load i64, ptr %25, align 8, !tbaa !8
   %27 = xor i64 %26, %.val.i.i.i
   store i64 %27, ptr %25, align 8, !tbaa !8
@@ -549,7 +549,7 @@ define range(i32 -173, 1) i32 @wc_Sha3_384_Final(ptr noundef captures(address_is
   %22 = shl nuw nsw i64 %indvars.iv.i.i, 3
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 %22
   %.val.i.i = load i64, ptr %23, align 8, !tbaa !8
-  %24 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv.i.i
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.i.i
   %25 = load i64, ptr %24, align 8, !tbaa !8
   %26 = xor i64 %25, %.val.i.i
   store i64 %26, ptr %24, align 8, !tbaa !8
@@ -617,7 +617,7 @@ define range(i32 -173, 1) i32 @wc_Sha3_384_GetHash(ptr noundef readonly captures
   %23 = shl nuw nsw i64 %indvars.iv.i.i.i, 3
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 %23
   %.val.i.i.i = load i64, ptr %24, align 8, !tbaa !8
-  %25 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv.i.i.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.i.i.i
   %26 = load i64, ptr %25, align 8, !tbaa !8
   %27 = xor i64 %26, %.val.i.i.i
   store i64 %27, ptr %25, align 8, !tbaa !8
@@ -716,7 +716,7 @@ define range(i32 -173, 1) i32 @wc_Sha3_512_Final(ptr noundef captures(address_is
   %22 = shl nuw nsw i64 %indvars.iv.i.i, 3
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 %22
   %.val.i.i = load i64, ptr %23, align 8, !tbaa !8
-  %24 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv.i.i
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.i.i
   %25 = load i64, ptr %24, align 8, !tbaa !8
   %26 = xor i64 %25, %.val.i.i
   store i64 %26, ptr %24, align 8, !tbaa !8
@@ -784,7 +784,7 @@ define range(i32 -173, 1) i32 @wc_Sha3_512_GetHash(ptr noundef readonly captures
   %23 = shl nuw nsw i64 %indvars.iv.i.i.i, 3
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 %23
   %.val.i.i.i = load i64, ptr %24, align 8, !tbaa !8
-  %25 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv.i.i.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.i.i.i
   %26 = load i64, ptr %25, align 8, !tbaa !8
   %27 = xor i64 %26, %.val.i.i.i
   store i64 %27, ptr %25, align 8, !tbaa !8
@@ -1042,7 +1042,7 @@ define internal fastcc void @BlockSha3(ptr noundef nonnull captures(none) %0) un
   %192 = xor i64 %177, -1
   %193 = and i64 %178, %192
   %194 = xor i64 %193, %181
-  %195 = getelementptr inbounds nuw i64, ptr @hash_keccak_r, i64 %indvars.iv
+  %195 = getelementptr inbounds nuw [8 x i8], ptr @hash_keccak_r, i64 %indvars.iv
   %196 = load i64, ptr %195, align 16, !tbaa !8
   %197 = xor i64 %113, %196
   %198 = xor i64 %197, %74

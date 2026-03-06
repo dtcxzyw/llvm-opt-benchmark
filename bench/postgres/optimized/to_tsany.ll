@@ -3,9 +3,6 @@ source_filename = "bench/postgres/original/to_tsany.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.ParsedWord = type { i16, i16, i16, i16, %union.anon, ptr }
-%union.anon = type { ptr }
-%struct.WordEntry = type { i32 }
 %struct.ParsedText = type { ptr, i32, i32, i32 }
 %struct.TSVectorBuildState = type { ptr, i32 }
 %struct.MorphOpaque = type { i32, i32 }
@@ -121,7 +118,7 @@ define dso_local noundef ptr @make_tsvector(ptr noundef captures(none) %0) local
 
 53:                                               ; preds = %48
   %54 = zext nneg i16 %51 to i64
-  %55 = getelementptr inbounds nuw i16, ptr %50, i64 %54
+  %55 = getelementptr inbounds nuw [2 x i8], ptr %50, i64 %54
   %56 = load i16, ptr %55, align 2
   %.not.i = icmp eq i16 %56, 16383
   br i1 %.not.i, label %84, label %57
@@ -165,7 +162,7 @@ define dso_local noundef ptr @make_tsvector(ptr noundef captures(none) %0) local
 
 74:                                               ; preds = %70
   %75 = zext i16 %71 to i64
-  %76 = getelementptr inbounds nuw i16, ptr %72, i64 %75
+  %76 = getelementptr inbounds nuw [2 x i8], ptr %72, i64 %75
   %77 = load i16, ptr %76, align 2
   %narrow90.i = tail call i16 @llvm.umin.i16(i16 %.pre96.i, i16 16383)
   %.not84.i = icmp eq i16 %narrow90.i, %77
@@ -174,7 +171,7 @@ define dso_local noundef ptr @make_tsvector(ptr noundef captures(none) %0) local
 78:                                               ; preds = %74, %._crit_edge98.i
   %.pre-phi.i = phi i64 [ 0, %._crit_edge98.i ], [ %75, %74 ]
   %spec.select89.pre-phi.i = phi i16 [ %.pre99.i, %._crit_edge98.i ], [ %narrow90.i, %74 ]
-  %79 = getelementptr inbounds nuw i16, ptr %72, i64 %.pre-phi.i
+  %79 = getelementptr inbounds nuw [2 x i8], ptr %72, i64 %.pre-phi.i
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 2
   store i16 %spec.select89.pre-phi.i, ptr %80, align 2
   %81 = load ptr, ptr %49, align 8
@@ -211,7 +208,7 @@ define dso_local noundef ptr @make_tsvector(ptr noundef captures(none) %0) local
 97:                                               ; preds = %.lr.ph, %115
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %115 ]
   %.08695 = phi i32 [ 0, %.lr.ph ], [ %.187, %115 ]
-  %98 = getelementptr inbounds nuw %struct.ParsedWord, ptr %96, i64 %indvars.iv
+  %98 = getelementptr inbounds nuw [24 x i8], ptr %96, i64 %indvars.iv
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 2
   %100 = load i16, ptr %99, align 2
   %101 = zext i16 %100 to i32
@@ -265,7 +262,7 @@ define dso_local noundef ptr @make_tsvector(ptr noundef captures(none) %0) local
   store i32 %128, ptr %129, align 4
   %130 = getelementptr inbounds nuw i8, ptr %126, i64 8
   %131 = sext i32 %128 to i64
-  %132 = getelementptr inbounds %struct.WordEntry, ptr %130, i64 %131
+  %132 = getelementptr inbounds [4 x i8], ptr %130, i64 %131
   %133 = icmp sgt i32 %128, 0
   br i1 %133, label %.lr.ph106, label %._crit_edge107
 
@@ -274,7 +271,7 @@ define dso_local noundef ptr @make_tsvector(ptr noundef captures(none) %0) local
   %.084103 = phi i32 [ %.185, %209 ], [ 0, %._crit_edge.thread ]
   %.088102 = phi ptr [ %210, %209 ], [ %130, %._crit_edge.thread ]
   %134 = load ptr, ptr %0, align 8
-  %135 = getelementptr inbounds nuw %struct.ParsedWord, ptr %134, i64 %indvars.iv115
+  %135 = getelementptr inbounds nuw [24 x i8], ptr %134, i64 %indvars.iv115
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 2
   %137 = load i16, ptr %136, align 2
   %138 = load i32, ptr %.088102, align 4
@@ -289,7 +286,7 @@ define dso_local noundef ptr @make_tsvector(ptr noundef captures(none) %0) local
   %145 = sext i32 %.084103 to i64
   %146 = getelementptr inbounds i8, ptr %132, i64 %145
   %147 = load ptr, ptr %0, align 8
-  %148 = getelementptr inbounds nuw %struct.ParsedWord, ptr %147, i64 %indvars.iv115
+  %148 = getelementptr inbounds nuw [24 x i8], ptr %147, i64 %indvars.iv115
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 16
   %150 = load ptr, ptr %149, align 8
   %151 = getelementptr inbounds nuw i8, ptr %148, i64 2
@@ -297,7 +294,7 @@ define dso_local noundef ptr @make_tsvector(ptr noundef captures(none) %0) local
   %153 = zext i16 %152 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %146, ptr align 1 %150, i64 %153, i1 false)
   %154 = load ptr, ptr %0, align 8
-  %155 = getelementptr inbounds nuw %struct.ParsedWord, ptr %154, i64 %indvars.iv115
+  %155 = getelementptr inbounds nuw [24 x i8], ptr %154, i64 %indvars.iv115
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 2
   %157 = load i16, ptr %156, align 2
   %158 = zext i16 %157 to i32
@@ -306,7 +303,7 @@ define dso_local noundef ptr @make_tsvector(ptr noundef captures(none) %0) local
   %161 = load ptr, ptr %160, align 8
   tail call void @pfree(ptr noundef %161) #7
   %162 = load ptr, ptr %0, align 8
-  %163 = getelementptr inbounds nuw %struct.ParsedWord, ptr %162, i64 %indvars.iv115
+  %163 = getelementptr inbounds nuw [24 x i8], ptr %162, i64 %indvars.iv115
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 6
   %165 = load i16, ptr %164, align 2
   %.not93 = icmp eq i16 %165, 0
@@ -327,7 +324,7 @@ define dso_local noundef ptr @make_tsvector(ptr noundef captures(none) %0) local
   store i16 %169, ptr %176, align 2
   %177 = load i32, ptr %129, align 4
   %178 = sext i32 %177 to i64
-  %179 = getelementptr inbounds %struct.WordEntry, ptr %130, i64 %178
+  %179 = getelementptr inbounds [4 x i8], ptr %130, i64 %178
   %180 = load i32, ptr %.088102, align 4
   %181 = lshr i32 %180, 12
   %182 = lshr i32 %180, 1
@@ -347,16 +344,16 @@ define dso_local noundef ptr @make_tsvector(ptr noundef captures(none) %0) local
 
 .lr.ph100:                                        ; preds = %.lr.ph100.preheader, %.lr.ph100
   %indvars.iv110 = phi i64 [ 0, %.lr.ph100.preheader ], [ %indvars.iv.next111, %.lr.ph100 ]
-  %189 = getelementptr inbounds nuw i16, ptr %188, i64 %indvars.iv110
+  %189 = getelementptr inbounds nuw [2 x i8], ptr %188, i64 %indvars.iv110
   %190 = load i16, ptr %189, align 2
   %191 = and i16 %190, 16383
   store i16 %191, ptr %189, align 2
   %192 = load ptr, ptr %0, align 8
-  %193 = getelementptr inbounds nuw %struct.ParsedWord, ptr %192, i64 %indvars.iv115
+  %193 = getelementptr inbounds nuw [24 x i8], ptr %192, i64 %indvars.iv115
   %194 = getelementptr inbounds nuw i8, ptr %193, i64 8
   %195 = load ptr, ptr %194, align 8
   %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
-  %196 = getelementptr inbounds nuw i16, ptr %195, i64 %indvars.iv.next111
+  %196 = getelementptr inbounds nuw [2 x i8], ptr %195, i64 %indvars.iv.next111
   %197 = load i16, ptr %196, align 2
   %198 = and i16 %197, 16383
   store i16 %198, ptr %189, align 2
@@ -368,7 +365,7 @@ define dso_local noundef ptr @make_tsvector(ptr noundef captures(none) %0) local
   %200 = add i32 %174, 2
   %201 = add i32 %200, %199
   %202 = load ptr, ptr %0, align 8
-  %203 = getelementptr inbounds nuw %struct.ParsedWord, ptr %202, i64 %indvars.iv115
+  %203 = getelementptr inbounds nuw [24 x i8], ptr %202, i64 %indvars.iv115
   %204 = getelementptr inbounds nuw i8, ptr %203, i64 8
   %205 = load ptr, ptr %204, align 8
   tail call void @pfree(ptr noundef %205) #7
@@ -982,7 +979,7 @@ define internal void @pushval_morph(i64 noundef %0, ptr noundef %1, ptr noundef 
 19:                                               ; preds = %17
   %20 = add nuw nsw i32 %.05175, 1
   %21 = sext i32 %.077 to i64
-  %22 = getelementptr inbounds %struct.ParsedWord, ptr %.pre, i64 %21
+  %22 = getelementptr inbounds [24 x i8], ptr %.pre, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load i16, ptr %23, align 8
   %25 = zext i16 %24 to i32
@@ -1006,7 +1003,7 @@ define internal void @pushval_morph(i64 noundef %0, ptr noundef %1, ptr noundef 
   %32 = add i32 %.24960, 1
   %33 = add nuw nsw i32 %27, 1
   %34 = load ptr, ptr %7, align 8
-  %35 = getelementptr inbounds %struct.ParsedWord, ptr %34, i64 %21
+  %35 = getelementptr inbounds [24 x i8], ptr %34, i64 %21
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load i16, ptr %36, align 8
   %38 = zext i16 %37 to i32
@@ -1022,7 +1019,7 @@ define internal void @pushval_morph(i64 noundef %0, ptr noundef %1, ptr noundef 
   %40 = phi i32 [ %18, %..loopexit_crit_edge ], [ %18, %19 ], [ %.pre79, %.loopexit.loopexit ]
   %41 = phi ptr [ %.pre, %..loopexit_crit_edge ], [ %.pre, %19 ], [ %34, %.loopexit.loopexit ]
   %.148 = phi i32 [ %.04776, %..loopexit_crit_edge ], [ %.04776, %19 ], [ %32, %.loopexit.loopexit ]
-  %42 = getelementptr inbounds %struct.ParsedWord, ptr %41, i64 %.pre-phi
+  %42 = getelementptr inbounds [24 x i8], ptr %41, i64 %.pre-phi
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load i16, ptr %43, align 8
   %45 = zext i16 %44 to i32
@@ -1036,7 +1033,7 @@ define internal void @pushval_morph(i64 noundef %0, ptr noundef %1, ptr noundef 
   %.05069 = phi i32 [ %104, %101 ], [ 0, %.loopexit ]
   %49 = load ptr, ptr %7, align 8
   %50 = sext i32 %.170 to i64
-  %51 = getelementptr inbounds %struct.ParsedWord, ptr %49, i64 %50
+  %51 = getelementptr inbounds [24 x i8], ptr %49, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %53 = load i16, ptr %52, align 8
   %54 = icmp eq i16 %44, %53
@@ -1051,7 +1048,7 @@ define internal void @pushval_morph(i64 noundef %0, ptr noundef %1, ptr noundef 
 .lr.ph63.preheader:                               ; preds = %55
   %59 = load ptr, ptr %7, align 8
   %60 = sext i32 %.170 to i64
-  %61 = getelementptr inbounds %struct.ParsedWord, ptr %59, i64 %60
+  %61 = getelementptr inbounds [24 x i8], ptr %59, i64 %60
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %63 = load i16, ptr %62, align 8
   %64 = icmp eq i16 %44, %63
@@ -1061,7 +1058,7 @@ define internal void @pushval_morph(i64 noundef %0, ptr noundef %1, ptr noundef 
   %65 = add i32 %.04661102, 1
   %66 = load ptr, ptr %7, align 8
   %67 = sext i32 %95 to i64
-  %68 = getelementptr inbounds %struct.ParsedWord, ptr %66, i64 %67
+  %68 = getelementptr inbounds [24 x i8], ptr %66, i64 %67
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %70 = load i16, ptr %69, align 8
   %71 = icmp eq i16 %44, %70
@@ -1091,7 +1088,7 @@ define internal void @pushval_morph(i64 noundef %0, ptr noundef %1, ptr noundef 
   %88 = or i1 %5, %87
   call void @pushValue(ptr noundef %1, ptr noundef %81, i32 noundef %84, i16 noundef signext %4, i1 noundef zeroext %88) #7
   %89 = load ptr, ptr %7, align 8
-  %90 = getelementptr inbounds %struct.ParsedWord, ptr %89, i64 %73
+  %90 = getelementptr inbounds [24 x i8], ptr %89, i64 %73
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 16
   %92 = load ptr, ptr %91, align 8
   call void @pfree(ptr noundef %92) #7

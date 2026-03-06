@@ -70311,7 +70311,7 @@ _ZN11polars_core5utils22index_to_chunked_index17hc8c957d0b54145a2E.exit.i.i: ; p
   %73 = load i64, ptr %26, align 8, !noalias !3581, !noundef !3
   %74 = icmp ult i64 %70, %73
   tail call void @llvm.assume(i1 %74)
-  %75 = getelementptr inbounds nuw { { { { ptr, ptr } }, {} }, {} }, ptr %72, i64 %70
+  %75 = getelementptr inbounds nuw [16 x i8], ptr %72, i64 %70
   %76 = load ptr, ptr %75, align 8, !nonnull !3, !align !3584, !noundef !3
   %77 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %78 = load ptr, ptr %77, align 8, !nonnull !3, !align !27, !noundef !3
@@ -70412,7 +70412,7 @@ default.unreachable:                              ; preds = %85
   %120 = load i64, ptr %119, align 8, !noalias !3602, !noundef !3
   %121 = icmp ult i64 %71, %120
   tail call void @llvm.assume(i1 %121)
-  %122 = getelementptr inbounds nuw i16, ptr %118, i64 %71
+  %122 = getelementptr inbounds nuw [2 x i8], ptr %118, i64 %71
   %123 = load i16, ptr %122, align 2, !noalias !3597, !noundef !3
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i16 %123, ptr %124, align 2, !alias.scope !3601, !noalias !3597
@@ -70426,7 +70426,7 @@ default.unreachable:                              ; preds = %85
   %129 = load i64, ptr %128, align 8, !noalias !3602, !noundef !3
   %130 = icmp ult i64 %71, %129
   tail call void @llvm.assume(i1 %130)
-  %131 = getelementptr inbounds nuw i32, ptr %127, i64 %71
+  %131 = getelementptr inbounds nuw [4 x i8], ptr %127, i64 %71
   %132 = load i32, ptr %131, align 4, !noalias !3597, !noundef !3
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %132, ptr %133, align 4, !alias.scope !3601, !noalias !3597
@@ -70440,7 +70440,7 @@ default.unreachable:                              ; preds = %85
   %138 = load i64, ptr %137, align 8, !noalias !3602, !noundef !3
   %139 = icmp ult i64 %71, %138
   tail call void @llvm.assume(i1 %139)
-  %140 = getelementptr inbounds nuw i64, ptr %136, i64 %71
+  %140 = getelementptr inbounds nuw [8 x i8], ptr %136, i64 %71
   %141 = load i64, ptr %140, align 8, !noalias !3597, !noundef !3
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %141, ptr %142, align 8, !alias.scope !3601, !noalias !3597
@@ -70468,7 +70468,7 @@ default.unreachable:                              ; preds = %85
   %156 = load i64, ptr %155, align 8, !noalias !3602, !noundef !3
   %157 = icmp ult i64 %71, %156
   tail call void @llvm.assume(i1 %157)
-  %158 = getelementptr inbounds nuw i16, ptr %154, i64 %71
+  %158 = getelementptr inbounds nuw [2 x i8], ptr %154, i64 %71
   %159 = load i16, ptr %158, align 2, !noalias !3597, !noundef !3
   %160 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i16 %159, ptr %160, align 2, !alias.scope !3601, !noalias !3597
@@ -70482,7 +70482,7 @@ default.unreachable:                              ; preds = %85
   %165 = load i64, ptr %164, align 8, !noalias !3602, !noundef !3
   %166 = icmp ult i64 %71, %165
   tail call void @llvm.assume(i1 %166)
-  %167 = getelementptr inbounds nuw i32, ptr %163, i64 %71
+  %167 = getelementptr inbounds nuw [4 x i8], ptr %163, i64 %71
   %168 = load i32, ptr %167, align 4, !noalias !3597, !noundef !3
   %169 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %168, ptr %169, align 4, !alias.scope !3601, !noalias !3597
@@ -70496,7 +70496,7 @@ default.unreachable:                              ; preds = %85
   %174 = load i64, ptr %173, align 8, !noalias !3602, !noundef !3
   %175 = icmp ult i64 %71, %174
   tail call void @llvm.assume(i1 %175)
-  %176 = getelementptr inbounds nuw i64, ptr %172, i64 %71
+  %176 = getelementptr inbounds nuw [8 x i8], ptr %172, i64 %71
   %177 = load i64, ptr %176, align 8, !noalias !3597, !noundef !3
   %178 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %177, ptr %178, align 8, !alias.scope !3601, !noalias !3597
@@ -70510,7 +70510,7 @@ default.unreachable:                              ; preds = %85
   %183 = load i64, ptr %182, align 8, !noalias !3602, !noundef !3
   %184 = icmp ult i64 %71, %183
   tail call void @llvm.assume(i1 %184)
-  %185 = getelementptr inbounds nuw i128, ptr %181, i64 %71
+  %185 = getelementptr inbounds nuw [16 x i8], ptr %181, i64 %71
   %186 = load i128, ptr %185, align 16, !noalias !3597, !noundef !3
   %187 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i128 %186, ptr %187, align 16, !alias.scope !3601, !noalias !3597
@@ -70524,7 +70524,7 @@ default.unreachable:                              ; preds = %85
   %192 = load i64, ptr %191, align 8, !noalias !3602, !noundef !3
   %193 = icmp ult i64 %71, %192
   tail call void @llvm.assume(i1 %193)
-  %194 = getelementptr inbounds nuw float, ptr %190, i64 %71
+  %194 = getelementptr inbounds nuw [4 x i8], ptr %190, i64 %71
   %195 = load float, ptr %194, align 4, !noalias !3597, !noundef !3
   %196 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store float %195, ptr %196, align 4, !alias.scope !3601, !noalias !3597
@@ -70538,7 +70538,7 @@ default.unreachable:                              ; preds = %85
   %201 = load i64, ptr %200, align 8, !noalias !3602, !noundef !3
   %202 = icmp ult i64 %71, %201
   tail call void @llvm.assume(i1 %202)
-  %203 = getelementptr inbounds nuw double, ptr %199, i64 %71
+  %203 = getelementptr inbounds nuw [8 x i8], ptr %199, i64 %71
   %204 = load double, ptr %203, align 8, !noalias !3597, !noundef !3
   %205 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %204, ptr %205, align 8, !alias.scope !3601, !noalias !3597
@@ -70564,7 +70564,7 @@ default.unreachable:                              ; preds = %85
   %219 = load i64, ptr %218, align 8, !noalias !3602, !noundef !3
   %220 = icmp ult i64 %71, %219
   tail call void @llvm.assume(i1 %220)
-  %221 = getelementptr inbounds nuw { i32, i32, i32, i32 }, ptr %217, i64 %71
+  %221 = getelementptr inbounds nuw [16 x i8], ptr %217, i64 %71
   %222 = getelementptr inbounds nuw i8, ptr %76, i64 56
   %223 = load ptr, ptr %222, align 8, !noalias !3602, !nonnull !3, !noundef !3
   %224 = getelementptr inbounds nuw i8, ptr %76, i64 64
@@ -70581,7 +70581,7 @@ default.unreachable:                              ; preds = %85
   %231 = zext i32 %230 to i64
   %232 = icmp ugt i64 %225, %231
   tail call void @llvm.assume(i1 %232)
-  %233 = getelementptr inbounds nuw { ptr, ptr, i64 }, ptr %223, i64 %231
+  %233 = getelementptr inbounds nuw [24 x i8], ptr %223, i64 %231
   %234 = getelementptr inbounds nuw i8, ptr %221, i64 12
   %235 = load i32, ptr %234, align 4, !alias.scope !3604, !noalias !3609, !noundef !3
   %236 = zext i32 %235 to i64
@@ -70611,7 +70611,7 @@ _ZN12polars_arrow5array7binview4view4View19get_slice_unchecked17h15e237645f36c0d
   %248 = load i64, ptr %247, align 8, !noalias !3602, !noundef !3
   %249 = icmp ult i64 %71, %248
   tail call void @llvm.assume(i1 %249)
-  %250 = getelementptr inbounds nuw { i32, i32, i32, i32 }, ptr %246, i64 %71
+  %250 = getelementptr inbounds nuw [16 x i8], ptr %246, i64 %71
   %251 = getelementptr inbounds nuw i8, ptr %76, i64 56
   %252 = load ptr, ptr %251, align 8, !noalias !3602, !nonnull !3, !noundef !3
   %253 = getelementptr inbounds nuw i8, ptr %76, i64 64
@@ -70628,7 +70628,7 @@ _ZN12polars_arrow5array7binview4view4View19get_slice_unchecked17h15e237645f36c0d
   %260 = zext i32 %259 to i64
   %261 = icmp ugt i64 %254, %260
   tail call void @llvm.assume(i1 %261)
-  %262 = getelementptr inbounds nuw { ptr, ptr, i64 }, ptr %252, i64 %260
+  %262 = getelementptr inbounds nuw [24 x i8], ptr %252, i64 %260
   %263 = getelementptr inbounds nuw i8, ptr %250, i64 12
   %264 = load i32, ptr %263, align 4, !alias.scope !3614, !noalias !3619, !noundef !3
   %265 = zext i32 %264 to i64
@@ -70656,12 +70656,12 @@ _ZN12polars_arrow5array7binview4view4View19get_slice_unchecked17h15e237645f36c0d
   %275 = load ptr, ptr %274, align 8, !noalias !3602, !noundef !3
   %276 = getelementptr inbounds nuw i8, ptr %76, i64 48
   %277 = load i64, ptr %276, align 8, !noalias !3602, !noundef !3
-  %278 = getelementptr inbounds nuw i64, ptr %275, i64 %71
+  %278 = getelementptr inbounds nuw [8 x i8], ptr %275, i64 %71
   %.val.i.i3.i = load i64, ptr %278, align 8, !noalias !3597, !noundef !3
   %279 = add nuw i64 %71, 1
   %280 = icmp ult i64 %279, %277
   tail call void @llvm.assume(i1 %280)
-  %281 = getelementptr inbounds nuw i64, ptr %275, i64 %279
+  %281 = getelementptr inbounds nuw [8 x i8], ptr %275, i64 %279
   %.val1.i.i.i = load i64, ptr %281, align 8, !noalias !3597, !noundef !3
   %282 = getelementptr inbounds nuw i8, ptr %76, i64 64
   %283 = load ptr, ptr %282, align 8, !noalias !3602, !noundef !3
@@ -70681,7 +70681,7 @@ _ZN12polars_arrow5array7binview4view4View19get_slice_unchecked17h15e237645f36c0d
   %292 = load i64, ptr %291, align 8, !noalias !3602, !noundef !3
   %293 = icmp ult i64 %71, %292
   tail call void @llvm.assume(i1 %293)
-  %294 = getelementptr inbounds nuw i32, ptr %290, i64 %71
+  %294 = getelementptr inbounds nuw [4 x i8], ptr %290, i64 %71
   %295 = load i32, ptr %294, align 4, !noalias !3597, !noundef !3
   %296 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %295, ptr %296, align 4, !alias.scope !3601, !noalias !3597
@@ -70695,7 +70695,7 @@ _ZN12polars_arrow5array7binview4view4View19get_slice_unchecked17h15e237645f36c0d
   %301 = load i64, ptr %300, align 8, !noalias !3602, !noundef !3
   %302 = icmp ult i64 %71, %301
   tail call void @llvm.assume(i1 %302)
-  %303 = getelementptr inbounds nuw i64, ptr %299, i64 %71
+  %303 = getelementptr inbounds nuw [8 x i8], ptr %299, i64 %71
   %304 = load i64, ptr %303, align 8, !noalias !3597, !noundef !3
   %305 = getelementptr inbounds nuw i8, ptr %80, i64 17
   %306 = load i8, ptr %305, align 1, !range !3624, !alias.scope !3597, !noalias !3594, !noundef !3
@@ -70720,7 +70720,7 @@ _ZN12polars_arrow5array7binview4view4View19get_slice_unchecked17h15e237645f36c0d
   %317 = load i64, ptr %316, align 8, !noalias !3602, !noundef !3
   %318 = icmp ult i64 %71, %317
   tail call void @llvm.assume(i1 %318)
-  %319 = getelementptr inbounds nuw i64, ptr %315, i64 %71
+  %319 = getelementptr inbounds nuw [8 x i8], ptr %315, i64 %71
   %320 = load i64, ptr %319, align 8, !noalias !3597, !noundef !3
   %321 = getelementptr inbounds nuw i8, ptr %80, i64 17
   %322 = load i8, ptr %321, align 1, !range !3624, !alias.scope !3597, !noalias !3594, !noundef !3
@@ -70738,7 +70738,7 @@ _ZN12polars_arrow5array7binview4view4View19get_slice_unchecked17h15e237645f36c0d
   %329 = load i64, ptr %328, align 8, !noalias !3602, !noundef !3
   %330 = icmp ult i64 %71, %329
   tail call void @llvm.assume(i1 %330)
-  %331 = getelementptr inbounds nuw i64, ptr %327, i64 %71
+  %331 = getelementptr inbounds nuw [8 x i8], ptr %327, i64 %71
   %332 = load i64, ptr %331, align 8, !noalias !3597, !noundef !3
   %333 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %332, ptr %333, align 8, !alias.scope !3601, !noalias !3597
@@ -70768,12 +70768,12 @@ _ZN12polars_arrow5array7binview4view4View19get_slice_unchecked17h15e237645f36c0d
   %352 = load ptr, ptr %351, align 8, !noalias !3602, !noundef !3
   %353 = getelementptr inbounds nuw i8, ptr %76, i64 48
   %354 = load i64, ptr %353, align 8, !noalias !3602, !noundef !3
-  %355 = getelementptr inbounds nuw i64, ptr %352, i64 %71
+  %355 = getelementptr inbounds nuw [8 x i8], ptr %352, i64 %71
   %.val.i62.i.i = load i64, ptr %355, align 8, !noalias !3597, !noundef !3
   %356 = add nuw i64 %71, 1
   %357 = icmp ult i64 %356, %354
   tail call void @llvm.assume(i1 %357)
-  %358 = getelementptr inbounds nuw i64, ptr %352, i64 %356
+  %358 = getelementptr inbounds nuw [8 x i8], ptr %352, i64 %356
   %.val1.i63.i.i = load i64, ptr %358, align 8, !noalias !3597, !noundef !3
   %359 = sub i64 %.val1.i63.i.i, %.val.i62.i.i
   %360 = getelementptr inbounds nuw i8, ptr %76, i64 56
@@ -70871,7 +70871,7 @@ _ZN12polars_arrow5array7binview4view4View19get_slice_unchecked17h15e237645f36c0d
 413:                                              ; preds = %206
   %414 = getelementptr inbounds nuw i8, ptr %80, i64 48
   %415 = load i64, ptr %414, align 8, !alias.scope !3597, !noalias !3594
-  %416 = getelementptr inbounds nuw i128, ptr %208, i64 %71
+  %416 = getelementptr inbounds nuw [16 x i8], ptr %208, i64 %71
   %417 = load i128, ptr %416, align 16, !noalias !3597, !noundef !3
   %418 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i128 %417, ptr %418, align 16, !alias.scope !3601, !noalias !3597
@@ -71336,7 +71336,7 @@ _ZN12polars_arrow5array7binview4view4View19get_slice_unchecked17h15e237645f36c0d
   unreachable
 
 568:                                              ; preds = %383
-  %569 = getelementptr inbounds nuw i32, ptr %385, i64 %71
+  %569 = getelementptr inbounds nuw [4 x i8], ptr %385, i64 %71
   %570 = load i32, ptr %569, align 4, !noalias !3597, !noundef !3
   %571 = getelementptr inbounds nuw i8, ptr %390, i64 16
   %572 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -71353,7 +71353,7 @@ _ZN12polars_arrow5array7binview4view4View19get_slice_unchecked17h15e237645f36c0d
   unreachable
 
 576:                                              ; preds = %391
-  %577 = getelementptr inbounds nuw i32, ptr %393, i64 %71
+  %577 = getelementptr inbounds nuw [4 x i8], ptr %393, i64 %71
   %578 = load i32, ptr %577, align 4, !noalias !3597, !noundef !3
   %579 = getelementptr inbounds nuw i8, ptr %398, i64 16
   %580 = getelementptr inbounds nuw i8, ptr %0, i64 4

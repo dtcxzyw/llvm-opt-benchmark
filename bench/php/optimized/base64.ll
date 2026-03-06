@@ -313,7 +313,7 @@ zend_string_alloc.exit:
 
 68:                                               ; preds = %63
   %69 = zext i8 %66 to i64
-  %70 = getelementptr inbounds nuw i16, ptr @base64_reverse_table, i64 %69
+  %70 = getelementptr inbounds nuw [2 x i8], ptr @base64_reverse_table, i64 %69
   %71 = load i16, ptr %70, align 2, !tbaa !14
   %72 = icmp eq i16 %71, -1
   br i1 %72, label %.backedge.us.us.us, label %.split121.us.split.us.us
@@ -372,7 +372,7 @@ default.unreachable:                              ; preds = %.loopexit76
 
 88:                                               ; preds = %81
   %89 = zext i8 %84 to i64
-  %90 = getelementptr inbounds nuw i16, ptr @base64_reverse_table, i64 %89
+  %90 = getelementptr inbounds nuw [2 x i8], ptr @base64_reverse_table, i64 %89
   %91 = load i16, ptr %90, align 2, !tbaa !14
   %92 = icmp slt i16 %91, 0
   br i1 %92, label %.backedge, label %.loopexit76
@@ -812,7 +812,7 @@ zend_string_alloc.exit:
 
 82:                                               ; preds = %77
   %83 = zext i8 %80 to i64
-  %84 = getelementptr inbounds nuw i16, ptr @base64_reverse_table, i64 %83
+  %84 = getelementptr inbounds nuw [2 x i8], ptr @base64_reverse_table, i64 %83
   %85 = load i16, ptr %84, align 2, !tbaa !14
   %86 = icmp eq i16 %85, -1
   br i1 %86, label %.backedge.us.us.us, label %.split160.us.split.us.us
@@ -871,7 +871,7 @@ default.unreachable:                              ; preds = %.loopexit115
 
 102:                                              ; preds = %95
   %103 = zext i8 %98 to i64
-  %104 = getelementptr inbounds nuw i16, ptr @base64_reverse_table, i64 %103
+  %104 = getelementptr inbounds nuw [2 x i8], ptr @base64_reverse_table, i64 %103
   %105 = load i16, ptr %104, align 2, !tbaa !14
   %106 = icmp slt i16 %105, 0
   br i1 %106, label %.backedge, label %.loopexit115
@@ -1499,7 +1499,7 @@ zend_string_alloc.exit:
 
 79:                                               ; preds = %74
   %80 = zext i8 %77 to i64
-  %81 = getelementptr inbounds nuw i16, ptr @base64_reverse_table, i64 %80
+  %81 = getelementptr inbounds nuw [2 x i8], ptr @base64_reverse_table, i64 %80
   %82 = load i16, ptr %81, align 2, !tbaa !14
   %83 = icmp eq i16 %82, -1
   br i1 %83, label %.backedge.us.us.us, label %.split139.us.split.us.us
@@ -1558,7 +1558,7 @@ default.unreachable:                              ; preds = %.loopexit94
 
 99:                                               ; preds = %92
   %100 = zext i8 %95 to i64
-  %101 = getelementptr inbounds nuw i16, ptr @base64_reverse_table, i64 %100
+  %101 = getelementptr inbounds nuw [2 x i8], ptr @base64_reverse_table, i64 %100
   %102 = load i16, ptr %101, align 2, !tbaa !14
   %103 = icmp slt i16 %102, 0
   br i1 %103, label %.backedge, label %.loopexit94
@@ -1814,7 +1814,7 @@ zend_string_alloc.exit:
 
 77:                                               ; preds = %72
   %78 = zext i8 %75 to i64
-  %79 = getelementptr inbounds nuw i16, ptr @base64_reverse_table, i64 %78
+  %79 = getelementptr inbounds nuw [2 x i8], ptr @base64_reverse_table, i64 %78
   %80 = load i16, ptr %79, align 2, !tbaa !14
   %81 = icmp eq i16 %80, -1
   br i1 %81, label %.backedge.us.us.us, label %.split99.us.split.us.us
@@ -1873,7 +1873,7 @@ default.unreachable:                              ; preds = %.loopexit54
 
 97:                                               ; preds = %90
   %98 = zext i8 %93 to i64
-  %99 = getelementptr inbounds nuw i16, ptr @base64_reverse_table, i64 %98
+  %99 = getelementptr inbounds nuw [2 x i8], ptr @base64_reverse_table, i64 %98
   %100 = load i16, ptr %99, align 2, !tbaa !14
   %101 = icmp slt i16 %100, 0
   br i1 %101, label %.backedge, label %.loopexit54
@@ -2214,7 +2214,7 @@ zend_string_alloc.exit:
 
 48:                                               ; preds = %43
   %49 = zext i8 %46 to i64
-  %50 = getelementptr inbounds nuw i16, ptr @base64_reverse_table, i64 %49
+  %50 = getelementptr inbounds nuw [2 x i8], ptr @base64_reverse_table, i64 %49
   %51 = load i16, ptr %50, align 2, !tbaa !14
   %52 = icmp eq i16 %51, -1
   br i1 %52, label %.backedge.us.us.us, label %.split46.us.split.us.us
@@ -2273,7 +2273,7 @@ default.unreachable:                              ; preds = %.loopexit13
 
 68:                                               ; preds = %61
   %69 = zext i8 %64 to i64
-  %70 = getelementptr inbounds nuw i16, ptr @base64_reverse_table, i64 %69
+  %70 = getelementptr inbounds nuw [2 x i8], ptr @base64_reverse_table, i64 %69
   %71 = load i16, ptr %70, align 2, !tbaa !14
   %72 = icmp slt i16 %71, 0
   br i1 %72, label %.backedge, label %.loopexit13

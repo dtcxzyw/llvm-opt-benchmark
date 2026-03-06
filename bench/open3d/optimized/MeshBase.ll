@@ -421,10 +421,10 @@ _ZNK6open3d8geometry8MeshBase16HasVertexNormalsEv.exit35: ; preds = %_ZNK6open3d
 43:                                               ; preds = %.lr.ph, %43
   %.03243 = phi i64 [ 0, %.lr.ph ], [ %53, %43 ]
   %44 = load ptr, ptr %34, align 8, !tbaa !7
-  %45 = getelementptr inbounds nuw %"class.Eigen::Matrix", ptr %44, i64 %.03243
+  %45 = getelementptr inbounds nuw [24 x i8], ptr %44, i64 %.03243
   %46 = load ptr, ptr %42, align 8, !tbaa !7
   %47 = getelementptr i8, ptr %46, i64 %14
-  %48 = getelementptr %"class.Eigen::Matrix", ptr %47, i64 %.03243
+  %48 = getelementptr [24 x i8], ptr %47, i64 %.03243
   %49 = load <2 x double>, ptr %45, align 1, !tbaa !18
   store <2 x double> %49, ptr %48, align 1, !tbaa !18
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 16
@@ -496,10 +496,10 @@ _ZNK6open3d8geometry8MeshBase15HasVertexColorsEv.exit38: ; preds = %71
 .lr.ph45:                                         ; preds = %85, %.lr.ph45
   %.03144 = phi i64 [ %96, %.lr.ph45 ], [ 0, %85 ]
   %87 = load ptr, ptr %77, align 8, !tbaa !7
-  %88 = getelementptr inbounds nuw %"class.Eigen::Matrix", ptr %87, i64 %.03144
+  %88 = getelementptr inbounds nuw [24 x i8], ptr %87, i64 %.03144
   %89 = load ptr, ptr %86, align 8, !tbaa !7
   %90 = getelementptr i8, ptr %89, i64 %14
-  %91 = getelementptr %"class.Eigen::Matrix", ptr %90, i64 %.03144
+  %91 = getelementptr [24 x i8], ptr %90, i64 %.03144
   %92 = load <2 x double>, ptr %88, align 1, !tbaa !18
   store <2 x double> %92, ptr %91, align 1, !tbaa !18
   %93 = getelementptr inbounds nuw i8, ptr %91, i64 16
@@ -530,10 +530,10 @@ _ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE5clearEv.exit41: ; pr
 .lr.ph47:                                         ; preds = %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE5clearEv.exit41, %.lr.ph47
   %.046 = phi i64 [ %110, %.lr.ph47 ], [ 0, %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE5clearEv.exit41 ]
   %101 = load ptr, ptr %16, align 8, !tbaa !7
-  %102 = getelementptr inbounds nuw %"class.Eigen::Matrix", ptr %101, i64 %.046
+  %102 = getelementptr inbounds nuw [24 x i8], ptr %101, i64 %.046
   %103 = load ptr, ptr %8, align 8, !tbaa !7
   %104 = getelementptr i8, ptr %103, i64 %14
-  %105 = getelementptr %"class.Eigen::Matrix", ptr %104, i64 %.046
+  %105 = getelementptr [24 x i8], ptr %104, i64 %.046
   %106 = load <2 x double>, ptr %102, align 1, !tbaa !18
   store <2 x double> %106, ptr %105, align 1, !tbaa !18
   %107 = getelementptr inbounds nuw i8, ptr %105, i64 16
@@ -619,9 +619,9 @@ _ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE11_S_relocateEPS2_S5_
 
 _ZNSt12_Vector_baseIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE13_M_deallocateEPS2_m.exit32.i: ; preds = %33, %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i
   store ptr %29, ptr %0, align 8, !tbaa !7
-  %35 = getelementptr inbounds nuw %"class.Eigen::Matrix", ptr %30, i64 %12
+  %35 = getelementptr inbounds nuw [24 x i8], ptr %30, i64 %12
   store ptr %35, ptr %3, align 8, !tbaa !19
-  %36 = getelementptr inbounds nuw %"class.Eigen::Matrix", ptr %29, i64 %27
+  %36 = getelementptr inbounds nuw [24 x i8], ptr %29, i64 %27
   store ptr %36, ptr %13, align 8, !tbaa !12
   br label %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE17_M_default_appendEm.exit
 
@@ -630,7 +630,7 @@ _ZNSt12_Vector_baseIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE13_M_deallocat
   br i1 %38, label %39, label %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE17_M_default_appendEm.exit
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds nuw %"class.Eigen::Matrix", ptr %5, i64 %1
+  %40 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %1
   %.not.i4 = icmp eq ptr %4, %40
   br i1 %.not.i4, label %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE17_M_default_appendEm.exit, label %_ZSt8_DestroyIPN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEES2_EvT_S4_RSaIT0_E.exit.i
 

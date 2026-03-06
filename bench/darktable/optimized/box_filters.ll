@@ -79,7 +79,7 @@ _ZL20_alloc_scratch_spacemmmmPm.exit.i:           ; preds = %.lr.ph.i.i.i, %8
 26:                                               ; preds = %_ZL16_blur_horizontalILm1ELb0EEvPfmmS0_.exit.us.i, %.preheader.us.i
   %.030.us.i = phi i64 [ 0, %.preheader.us.i ], [ %88, %_ZL16_blur_horizontalILm1ELb0EEvPfmmS0_.exit.us.i ]
   %27 = mul i64 %.030.us.i, %2
-  %28 = getelementptr inbounds nuw float, ptr %0, i64 %27
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %27
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11)
   br i1 %.not107.i.i, label %.preheader86.i.us.i.preheader, label %.lr.ph.preheader.i.us.i
@@ -92,7 +92,7 @@ _ZL20_alloc_scratch_spacemmmmPm.exit.i:           ; preds = %.lr.ph.i.i.i, %8
   %.06690.i.us.i = phi i64 [ %29, %.lr.ph.i.us.i ], [ 0, %.lr.ph.preheader.i.us.i ]
   %.sroa.084.188.i.us.i = phi float [ %32, %.lr.ph.i.us.i ], [ 0.000000e+00, %.lr.ph.preheader.i.us.i ]
   %29 = add nuw i64 %.06690.i.us.i, 1
-  %30 = getelementptr inbounds nuw float, ptr %28, i64 %.06690.i.us.i
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %.06690.i.us.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !23)
   %31 = load float, ptr %30, align 4, !tbaa !13, !alias.scope !24, !noalias !25
   %32 = fadd reassoc nsz arcp contract afn float %31, %.sroa.084.188.i.us.i
@@ -115,14 +115,14 @@ _ZL20_alloc_scratch_spacemmmmPm.exit.i:           ; preds = %.lr.ph.i.i.i, %8
   %35 = add i64 %.194.i.us.i, 1
   %sext76.i.us.i = shl i64 %34, 32
   %36 = ashr exact i64 %sext76.i.us.i, 32
-  %37 = getelementptr inbounds nuw float, ptr %20, i64 %36
-  %38 = getelementptr inbounds nuw float, ptr %28, i64 %36
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %36
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %36
   tail call void @llvm.experimental.noalias.scope.decl(metadata !27)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !30)
   %39 = load float, ptr %38, align 4, !tbaa !13, !alias.scope !32, !noalias !33
   %40 = fadd reassoc nsz arcp contract afn float %39, %.sroa.084.292.i.us.i
   store float %39, ptr %37, align 4, !tbaa !13, !alias.scope !35, !noalias !36
-  %41 = getelementptr inbounds nuw float, ptr %28, i64 %.06893.i.us.i
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %.06893.i.us.i
   %42 = uitofp i64 %35 to float
   %43 = fdiv reassoc nsz arcp contract afn float %40, %42
   store float %43, ptr %41, align 4, !tbaa !13, !alias.scope !37, !noalias !11
@@ -146,7 +146,7 @@ _ZL20_alloc_scratch_spacemmmmPm.exit.i:           ; preds = %.lr.ph.i.i.i, %8
 
 50:                                               ; preds = %50, %.lr.ph96.i.us.i
   %.16995.i.us.i = phi i64 [ %.068.lcssa.i.us.i, %.lr.ph96.i.us.i ], [ %52, %50 ]
-  %51 = getelementptr inbounds nuw float, ptr %28, i64 %.16995.i.us.i
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %.16995.i.us.i
   store float %49, ptr %51, align 4, !tbaa !13, !alias.scope !41, !noalias !11
   %52 = add nuw i64 %.16995.i.us.i, 1
   %53 = icmp ult i64 %.16995.i.us.i, %4
@@ -177,14 +177,14 @@ _ZL20_alloc_scratch_spacemmmmPm.exit.i:           ; preds = %.lr.ph.i.i.i, %8
   %66 = fsub reassoc nsz arcp contract afn float %.sroa.084.398.i.us.i, %65
   %sext75.i.us.i = shl i64 %61, 32
   %67 = ashr exact i64 %sext75.i.us.i, 32
-  %68 = getelementptr inbounds nuw float, ptr %20, i64 %67
-  %69 = getelementptr inbounds nuw float, ptr %28, i64 %67
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %67
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %67
   tail call void @llvm.experimental.noalias.scope.decl(metadata !50)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !53)
   %70 = load float, ptr %69, align 4, !tbaa !13, !alias.scope !55, !noalias !56
   %71 = fadd reassoc nsz arcp contract afn float %70, %66
   store float %70, ptr %68, align 4, !tbaa !13, !alias.scope !58, !noalias !59
-  %72 = getelementptr inbounds nuw float, ptr %28, i64 %.27099.i.us.i
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %.27099.i.us.i
   %73 = fmul reassoc nsz arcp contract afn float %71, %59
   store float %73, ptr %72, align 4, !tbaa !13, !alias.scope !60, !noalias !11
   %74 = add i64 %.27099.i.us.i, 1
@@ -209,7 +209,7 @@ _ZL20_alloc_scratch_spacemmmmPm.exit.i:           ; preds = %.lr.ph.i.i.i, %8
   %81 = getelementptr inbounds nuw i8, ptr %20, i64 %80
   %82 = load float, ptr %81, align 4, !tbaa !13, !alias.scope !64, !noalias !67
   %83 = fsub reassoc nsz arcp contract afn float %.sroa.084.4103.i.us.i, %82
-  %84 = getelementptr inbounds nuw float, ptr %28, i64 %.3104.i.us.i
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %.3104.i.us.i
   %85 = uitofp i64 %79 to float
   %86 = fdiv reassoc nsz arcp contract afn float %83, %85
   store float %86, ptr %84, align 4, !tbaa !13, !alias.scope !69, !noalias !11
@@ -291,7 +291,7 @@ _ZL20_alloc_scratch_spacemmmmPm.exit.i34:         ; preds = %.lr.ph.i.i.i31, %91
 110:                                              ; preds = %_ZL16_blur_horizontalILm2ELb0EEvPfmmS0_.exit.us.i, %.preheader.us.i41
   %.028.us.i = phi i64 [ 0, %.preheader.us.i41 ], [ %195, %_ZL16_blur_horizontalILm2ELb0EEvPfmmS0_.exit.us.i ]
   %111 = mul i64 %.028.us.i, %98
-  %112 = getelementptr inbounds nuw float, ptr %0, i64 %111
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %111
   tail call void @llvm.experimental.noalias.scope.decl(metadata !75)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !78)
   br i1 %.not119.i.i, label %.preheader103.i.us.i.preheader, label %.lr.ph.preheader.i.us.i42
@@ -333,8 +333,8 @@ _ZL9_load_addILm2ELb0EEvPfS0_PKfS0_.exit81.i.us.i.critedge: ; preds = %.preheade
   %120 = add nuw i64 %.068108.i.us.i, %4
   %sext78.i.us.i = shl i64 %120, 32
   %121 = ashr exact i64 %sext78.i.us.i, 31
-  %122 = getelementptr inbounds nuw float, ptr %104, i64 %121
-  %123 = getelementptr inbounds nuw float, ptr %112, i64 %121
+  %122 = getelementptr inbounds nuw [4 x i8], ptr %104, i64 %121
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %112, i64 %121
   tail call void @llvm.experimental.noalias.scope.decl(metadata !90)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !93)
   %124 = load i64, ptr %123, align 4, !tbaa !13, !alias.scope !95, !noalias !96
@@ -414,8 +414,8 @@ _ZL4_subILm2ELb0EEvPfPKfS0_.exit.i.us.i.critedge: ; preds = %_ZL4_subILm2ELb0EEv
   %162 = fsub reassoc nsz arcp contract afn float %.sroa.12.i.i.5, %161
   %sext75.i.us.i56 = shl i64 %154, 32
   %163 = ashr exact i64 %sext75.i.us.i56, 31
-  %164 = getelementptr inbounds nuw float, ptr %104, i64 %163
-  %165 = getelementptr inbounds nuw float, ptr %112, i64 %163
+  %164 = getelementptr inbounds nuw [4 x i8], ptr %104, i64 %163
+  %165 = getelementptr inbounds nuw [4 x i8], ptr %112, i64 %163
   tail call void @llvm.experimental.noalias.scope.decl(metadata !117)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !120)
   %166 = load i64, ptr %165, align 4, !tbaa !13, !alias.scope !122, !noalias !123
@@ -545,7 +545,7 @@ _ZL20_alloc_scratch_spacemmmmPm.exit.i63:         ; preds = %.lr.ph.i.i.i60, %19
 217:                                              ; preds = %_ZL16_blur_horizontalILm4ELb0EEvPfmmS0_.exit.us.i, %.preheader.us.i71
   %.028.us.i73 = phi i64 [ 0, %.preheader.us.i71 ], [ %327, %_ZL16_blur_horizontalILm4ELb0EEvPfmmS0_.exit.us.i ]
   %218 = mul i64 %.028.us.i73, %205
-  %219 = getelementptr inbounds nuw float, ptr %0, i64 %218
+  %219 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %218
   tail call void @llvm.experimental.noalias.scope.decl(metadata !146)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !149)
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !151
@@ -567,9 +567,9 @@ _ZL20_alloc_scratch_spacemmmmPm.exit.i63:         ; preds = %.lr.ph.i.i.i60, %19
 
 221:                                              ; preds = %221, %.lr.ph.i.us.i75
   %.01.i.i.us.i76 = phi i64 [ 0, %.lr.ph.i.us.i75 ], [ %227, %221 ]
-  %222 = getelementptr inbounds nuw float, ptr %220, i64 %.01.i.i.us.i76
+  %222 = getelementptr inbounds nuw [4 x i8], ptr %220, i64 %.01.i.i.us.i76
   %223 = load float, ptr %222, align 4, !tbaa !13, !alias.scope !160, !noalias !161
-  %224 = getelementptr inbounds nuw float, ptr %7, i64 %.01.i.i.us.i76
+  %224 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.01.i.i.us.i76
   %225 = load float, ptr %224, align 4, !tbaa !13, !alias.scope !156, !noalias !152
   %226 = fadd reassoc nsz arcp contract afn float %225, %223
   store float %226, ptr %224, align 4, !tbaa !13, !alias.scope !156, !noalias !152
@@ -595,8 +595,8 @@ _ZL9_load_addILm4ELb0EEvPfS0_PKfS0_.exit.i.us.i:  ; preds = %221
   %230 = add nuw i64 %.068107.i.us.i, %4
   %sext78.i.us.i79 = shl i64 %230, 32
   %231 = ashr exact i64 %sext78.i.us.i79, 30
-  %232 = getelementptr inbounds nuw float, ptr %211, i64 %231
-  %233 = getelementptr inbounds nuw float, ptr %219, i64 %231
+  %232 = getelementptr inbounds nuw [4 x i8], ptr %211, i64 %231
+  %233 = getelementptr inbounds nuw [4 x i8], ptr %219, i64 %231
   tail call void @llvm.experimental.noalias.scope.decl(metadata !164)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !167)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !169)
@@ -605,9 +605,9 @@ _ZL9_load_addILm4ELb0EEvPfS0_PKfS0_.exit.i.us.i:  ; preds = %221
 
 234:                                              ; preds = %234, %229
   %.01.i80.i.us.i80 = phi i64 [ 0, %229 ], [ %240, %234 ]
-  %235 = getelementptr inbounds nuw float, ptr %233, i64 %.01.i80.i.us.i80
+  %235 = getelementptr inbounds nuw [4 x i8], ptr %233, i64 %.01.i80.i.us.i80
   %236 = load float, ptr %235, align 4, !tbaa !13, !alias.scope !172, !noalias !173
-  %237 = getelementptr inbounds nuw float, ptr %7, i64 %.01.i80.i.us.i80
+  %237 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.01.i80.i.us.i80
   %238 = load float, ptr %237, align 4, !tbaa !13, !alias.scope !167, !noalias !171
   %239 = fadd reassoc nsz arcp contract afn float %238, %236
   store float %239, ptr %237, align 4, !tbaa !13, !alias.scope !167, !noalias !171
@@ -627,10 +627,10 @@ _ZL9_load_addILm4ELb0EEvPfS0_PKfS0_.exit82.i.us.i: ; preds = %234
 
 245:                                              ; preds = %245, %_ZL9_load_addILm4ELb0EEvPfS0_PKfS0_.exit82.i.us.i
   %.06.i.i.us.i82 = phi i64 [ 0, %_ZL9_load_addILm4ELb0EEvPfS0_PKfS0_.exit82.i.us.i ], [ %250, %245 ]
-  %246 = getelementptr inbounds nuw float, ptr %7, i64 %.06.i.i.us.i82
+  %246 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.06.i.i.us.i82
   %247 = load float, ptr %246, align 4, !tbaa !13, !alias.scope !177, !noalias !179
   %248 = fmul reassoc nsz arcp contract afn float %247, %244
-  %249 = getelementptr inbounds nuw float, ptr %242, i64 %.06.i.i.us.i82
+  %249 = getelementptr inbounds nuw [4 x i8], ptr %242, i64 %.06.i.i.us.i82
   store float %248, ptr %249, align 4, !tbaa !13, !alias.scope !180, !noalias !181
   %250 = add nuw nsw i64 %.06.i.i.us.i82, 1
   %exitcond.not.i83.i.us.i = icmp eq i64 %250, 4
@@ -664,10 +664,10 @@ _ZL13_store_scaledILm4EEvPfPKff.exit.i.us.i:      ; preds = %245
 
 259:                                              ; preds = %259, %257
   %.06.i84.i.us.i = phi i64 [ 0, %257 ], [ %264, %259 ]
-  %260 = getelementptr inbounds nuw float, ptr %7, i64 %.06.i84.i.us.i
+  %260 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.06.i84.i.us.i
   %261 = load float, ptr %260, align 4, !tbaa !13, !alias.scope !187, !noalias !189
   %262 = fmul reassoc nsz arcp contract afn float %261, %256
-  %263 = getelementptr inbounds nuw float, ptr %258, i64 %.06.i84.i.us.i
+  %263 = getelementptr inbounds nuw [4 x i8], ptr %258, i64 %.06.i84.i.us.i
   store float %262, ptr %263, align 4, !tbaa !13, !alias.scope !190, !noalias !191
   %264 = add nuw nsw i64 %.06.i84.i.us.i, 1
   %exitcond.not.i85.i.us.i = icmp eq i64 %264, 4
@@ -704,9 +704,9 @@ _ZL13_store_scaledILm4EEvPfPKff.exit86.i.us.i:    ; preds = %259
 
 278:                                              ; preds = %278, %273
   %.01.i87.i.us.i = phi i64 [ 0, %273 ], [ %284, %278 ]
-  %279 = getelementptr inbounds nuw float, ptr %277, i64 %.01.i87.i.us.i
+  %279 = getelementptr inbounds nuw [4 x i8], ptr %277, i64 %.01.i87.i.us.i
   %280 = load float, ptr %279, align 4, !tbaa !13, !alias.scope !198, !noalias !199
-  %281 = getelementptr inbounds nuw float, ptr %7, i64 %.01.i87.i.us.i
+  %281 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.01.i87.i.us.i
   %282 = load float, ptr %281, align 4, !tbaa !13, !alias.scope !193, !noalias !200
   %283 = fsub reassoc nsz arcp contract afn float %282, %280
   store float %283, ptr %281, align 4, !tbaa !13, !alias.scope !193, !noalias !200
@@ -717,8 +717,8 @@ _ZL13_store_scaledILm4EEvPfPKff.exit86.i.us.i:    ; preds = %259
 _ZL4_subILm4ELb0EEvPfPKfS0_.exit.i.us.i:          ; preds = %278
   %sext75.i.us.i98 = shl i64 %274, 32
   %285 = ashr exact i64 %sext75.i.us.i98, 30
-  %286 = getelementptr inbounds nuw float, ptr %211, i64 %285
-  %287 = getelementptr inbounds nuw float, ptr %219, i64 %285
+  %286 = getelementptr inbounds nuw [4 x i8], ptr %211, i64 %285
+  %287 = getelementptr inbounds nuw [4 x i8], ptr %219, i64 %285
   tail call void @llvm.experimental.noalias.scope.decl(metadata !202)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !205)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !207)
@@ -727,9 +727,9 @@ _ZL4_subILm4ELb0EEvPfPKfS0_.exit.i.us.i:          ; preds = %278
 
 288:                                              ; preds = %288, %_ZL4_subILm4ELb0EEvPfPKfS0_.exit.i.us.i
   %.01.i89.i.us.i99 = phi i64 [ 0, %_ZL4_subILm4ELb0EEvPfPKfS0_.exit.i.us.i ], [ %294, %288 ]
-  %289 = getelementptr inbounds nuw float, ptr %287, i64 %.01.i89.i.us.i99
+  %289 = getelementptr inbounds nuw [4 x i8], ptr %287, i64 %.01.i89.i.us.i99
   %290 = load float, ptr %289, align 4, !tbaa !13, !alias.scope !210, !noalias !211
-  %291 = getelementptr inbounds nuw float, ptr %7, i64 %.01.i89.i.us.i99
+  %291 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.01.i89.i.us.i99
   %292 = load float, ptr %291, align 4, !tbaa !13, !alias.scope !205, !noalias !209
   %293 = fadd reassoc nsz arcp contract afn float %292, %290
   store float %293, ptr %291, align 4, !tbaa !13, !alias.scope !205, !noalias !209
@@ -746,10 +746,10 @@ _ZL9_load_addILm4ELb0EEvPfS0_PKfS0_.exit91.i.us.i: ; preds = %288
 
 296:                                              ; preds = %296, %_ZL9_load_addILm4ELb0EEvPfS0_PKfS0_.exit91.i.us.i
   %.06.i92.i.us.i = phi i64 [ 0, %_ZL9_load_addILm4ELb0EEvPfS0_PKfS0_.exit91.i.us.i ], [ %301, %296 ]
-  %297 = getelementptr inbounds nuw float, ptr %7, i64 %.06.i92.i.us.i
+  %297 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.06.i92.i.us.i
   %298 = load float, ptr %297, align 4, !tbaa !13, !alias.scope !215, !noalias !217
   %299 = fmul reassoc nsz arcp contract afn float %298, %272
-  %300 = getelementptr inbounds nuw float, ptr %295, i64 %.06.i92.i.us.i
+  %300 = getelementptr inbounds nuw [4 x i8], ptr %295, i64 %.06.i92.i.us.i
   store float %299, ptr %300, align 4, !tbaa !13, !alias.scope !218, !noalias !219
   %301 = add nuw nsw i64 %.06.i92.i.us.i, 1
   %exitcond.not.i93.i.us.i = icmp eq i64 %301, 4
@@ -779,9 +779,9 @@ _ZL13_store_scaledILm4EEvPfPKff.exit94.i.us.i:    ; preds = %296
 
 309:                                              ; preds = %309, %.lr.ph117.i.us.i
   %.01.i95.i.us.i = phi i64 [ 0, %.lr.ph117.i.us.i ], [ %315, %309 ]
-  %310 = getelementptr inbounds nuw float, ptr %308, i64 %.01.i95.i.us.i
+  %310 = getelementptr inbounds nuw [4 x i8], ptr %308, i64 %.01.i95.i.us.i
   %311 = load float, ptr %310, align 4, !tbaa !13, !alias.scope !226, !noalias !227
-  %312 = getelementptr inbounds nuw float, ptr %7, i64 %.01.i95.i.us.i
+  %312 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.01.i95.i.us.i
   %313 = load float, ptr %312, align 4, !tbaa !13, !alias.scope !221, !noalias !228
   %314 = fsub reassoc nsz arcp contract afn float %313, %311
   store float %314, ptr %312, align 4, !tbaa !13, !alias.scope !221, !noalias !228
@@ -801,10 +801,10 @@ _ZL4_subILm4ELb0EEvPfPKfS0_.exit97.i.us.i:        ; preds = %309
 
 320:                                              ; preds = %320, %_ZL4_subILm4ELb0EEvPfPKfS0_.exit97.i.us.i
   %.06.i98.i.us.i = phi i64 [ 0, %_ZL4_subILm4ELb0EEvPfPKfS0_.exit97.i.us.i ], [ %325, %320 ]
-  %321 = getelementptr inbounds nuw float, ptr %7, i64 %.06.i98.i.us.i
+  %321 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.06.i98.i.us.i
   %322 = load float, ptr %321, align 4, !tbaa !13, !alias.scope !232, !noalias !234
   %323 = fmul reassoc nsz arcp contract afn float %322, %319
-  %324 = getelementptr inbounds nuw float, ptr %317, i64 %.06.i98.i.us.i
+  %324 = getelementptr inbounds nuw [4 x i8], ptr %317, i64 %.06.i98.i.us.i
   store float %323, ptr %324, align 4, !tbaa !13, !alias.scope !235, !noalias !236
   %325 = add nuw nsw i64 %.06.i98.i.us.i, 1
   %exitcond.not.i99.i.us.i = icmp eq i64 %325, 4
@@ -890,7 +890,7 @@ _ZL20_alloc_scratch_spacemmmmPm.exit.i112:        ; preds = %.lr.ph.i.i.i109, %3
 349:                                              ; preds = %_ZL16_blur_horizontalILm2ELb1EEvPfmmS0_.exit.us.i, %.preheader.us.i118
   %.036.us.i = phi i64 [ 0, %.preheader.us.i118 ], [ %434, %_ZL16_blur_horizontalILm2ELb1EEvPfmmS0_.exit.us.i ]
   %350 = mul i64 %.036.us.i, %337
-  %351 = getelementptr inbounds nuw float, ptr %0, i64 %350
+  %351 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %350
   tail call void @llvm.experimental.noalias.scope.decl(metadata !240)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !243)
   br i1 %.not141.i.i, label %.preheader125.i.us.i.preheader, label %.lr.ph.preheader.i.us.i119
@@ -932,8 +932,8 @@ _ZL9_load_addILm2ELb1EEvPfS0_PKfS0_.exit81.i.us.i.critedge: ; preds = %.preheade
   %359 = add nuw i64 %.068130.i.us.i, %4
   %sext78.i.us.i122 = shl i64 %359, 32
   %360 = ashr exact i64 %sext78.i.us.i122, 31
-  %361 = getelementptr inbounds nuw float, ptr %343, i64 %360
-  %362 = getelementptr inbounds nuw float, ptr %351, i64 %360
+  %361 = getelementptr inbounds nuw [4 x i8], ptr %343, i64 %360
+  %362 = getelementptr inbounds nuw [4 x i8], ptr %351, i64 %360
   tail call void @llvm.experimental.noalias.scope.decl(metadata !256)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !259)
   %363 = load i64, ptr %362, align 4, !tbaa !13, !alias.scope !261, !noalias !262
@@ -1013,8 +1013,8 @@ _ZL4_subILm2ELb1EEvPfPKfS0_.exit.i.us.i.critedge: ; preds = %_ZL4_subILm2ELb1EEv
   %401 = fsub reassoc nsz arcp contract afn float %.sroa.12.i.i105.5, %400
   %sext75.i.us.i139 = shl i64 %393, 32
   %402 = ashr exact i64 %sext75.i.us.i139, 31
-  %403 = getelementptr inbounds nuw float, ptr %343, i64 %402
-  %404 = getelementptr inbounds nuw float, ptr %351, i64 %402
+  %403 = getelementptr inbounds nuw [4 x i8], ptr %343, i64 %402
+  %404 = getelementptr inbounds nuw [4 x i8], ptr %351, i64 %402
   tail call void @llvm.experimental.noalias.scope.decl(metadata !285)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !288)
   %405 = load i64, ptr %404, align 4, !tbaa !13, !alias.scope !290, !noalias !291
@@ -1139,7 +1139,7 @@ _ZL20_alloc_scratch_spacemmmmPm.exit.i151:        ; preds = %.lr.ph.i.i.i148, %4
 452:                                              ; preds = %452, %.preheader.us.i158
   %.026.us.i = phi i64 [ 0, %.preheader.us.i158 ], [ %455, %452 ]
   %453 = mul i64 %.026.us.i, %444
-  %454 = getelementptr inbounds nuw float, ptr %0, i64 %453
+  %454 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %453
   tail call fastcc void @_ZL16_blur_horizontalILm4ELb1EEvPfmmS0_(ptr noundef %454, i64 noundef %2, i64 noundef %4, ptr noundef %450)
   %455 = add nuw i64 %.026.us.i, 1
   %exitcond.not.i159 = icmp eq i64 %455, %1
@@ -1250,12 +1250,12 @@ define void @dt_box_mean_horizontal(ptr noalias noundef captures(none) %0, i64 n
 
 26:                                               ; preds = %26, %.lr.ph.i
   %.021.i.i = phi i64 [ 0, %.lr.ph.i ], [ %35, %26 ]
-  %27 = getelementptr inbounds nuw float, ptr %25, i64 %.021.i.i
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %.021.i.i
   %28 = load float, ptr %27, align 4, !tbaa !13, !alias.scope !335, !noalias !336
-  %29 = getelementptr inbounds nuw float, ptr %7, i64 %.021.i.i
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.021.i.i
   %30 = load float, ptr %29, align 4, !tbaa !13, !alias.scope !334, !noalias !337
   %31 = fsub reassoc nsz arcp contract afn float %28, %30
-  %32 = getelementptr inbounds nuw float, ptr %6, i64 %.021.i.i
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.021.i.i
   %33 = load float, ptr %32, align 4, !tbaa !13, !alias.scope !332, !noalias !338
   %34 = fadd reassoc nsz arcp contract afn float %31, %33
   store float 0.000000e+00, ptr %29, align 4, !tbaa !13, !alias.scope !334, !noalias !337
@@ -1280,8 +1280,8 @@ _ZL9_load_addILm9ELb1EEvPfS0_PKfS0_.exit.i:       ; preds = %26
   %sext80.i = shl i64 %39, 32
   %40 = ashr exact i64 %sext80.i, 32
   %41 = mul nsw i64 %40, 9
-  %42 = getelementptr inbounds nuw float, ptr %21, i64 %41
-  %43 = getelementptr inbounds nuw float, ptr %0, i64 %41
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %41
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %41
   tail call void @llvm.experimental.noalias.scope.decl(metadata !341)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !344)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !346)
@@ -1291,12 +1291,12 @@ _ZL9_load_addILm9ELb1EEvPfS0_PKfS0_.exit.i:       ; preds = %26
 
 44:                                               ; preds = %44, %38
   %.021.i82.i = phi i64 [ 0, %38 ], [ %53, %44 ]
-  %45 = getelementptr inbounds nuw float, ptr %43, i64 %.021.i82.i
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %.021.i82.i
   %46 = load float, ptr %45, align 4, !tbaa !13, !alias.scope !352, !noalias !353
-  %47 = getelementptr inbounds nuw float, ptr %7, i64 %.021.i82.i
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.021.i82.i
   %48 = load float, ptr %47, align 4, !tbaa !13, !alias.scope !348, !noalias !354
   %49 = fsub reassoc nsz arcp contract afn float %46, %48
-  %50 = getelementptr inbounds nuw float, ptr %6, i64 %.021.i82.i
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.021.i82.i
   %51 = load float, ptr %50, align 4, !tbaa !13, !alias.scope !344, !noalias !355
   %52 = fadd reassoc nsz arcp contract afn float %49, %51
   store float 0.000000e+00, ptr %47, align 4, !tbaa !13, !alias.scope !348, !noalias !354
@@ -1317,10 +1317,10 @@ _ZL9_load_addILm9ELb1EEvPfS0_PKfS0_.exit84.i:     ; preds = %44
 
 58:                                               ; preds = %58, %_ZL9_load_addILm9ELb1EEvPfS0_PKfS0_.exit84.i
   %.06.i.i = phi i64 [ 0, %_ZL9_load_addILm9ELb1EEvPfS0_PKfS0_.exit84.i ], [ %63, %58 ]
-  %59 = getelementptr inbounds nuw float, ptr %6, i64 %.06.i.i
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.06.i.i
   %60 = load float, ptr %59, align 4, !tbaa !13, !alias.scope !359, !noalias !361
   %61 = fmul reassoc nsz arcp contract afn float %60, %57
-  %62 = getelementptr inbounds nuw float, ptr %55, i64 %.06.i.i
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %.06.i.i
   store float %61, ptr %62, align 4, !tbaa !13, !alias.scope !362, !noalias !363
   %63 = add nuw nsw i64 %.06.i.i, 1
   %exitcond.not.i85.i = icmp eq i64 %63, 9
@@ -1366,10 +1366,10 @@ _ZL13_store_scaledILm9EEvPfPKff.exit.i:           ; preds = %58
 
 77:                                               ; preds = %77, %75
   %.06.i86.i = phi i64 [ 0, %75 ], [ %82, %77 ]
-  %78 = getelementptr inbounds nuw float, ptr %6, i64 %.06.i86.i
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.06.i86.i
   %79 = load float, ptr %78, align 4, !tbaa !13, !alias.scope !369, !noalias !371
   %80 = fmul reassoc nsz arcp contract afn float %79, %69
-  %81 = getelementptr inbounds nuw float, ptr %76, i64 %.06.i86.i
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %.06.i86.i
   store float %80, ptr %81, align 4, !tbaa !13, !alias.scope !372, !noalias !373
   %82 = add nuw nsw i64 %.06.i86.i, 1
   %exitcond.not.i87.i = icmp eq i64 %82, 9
@@ -1406,11 +1406,11 @@ _ZL13_store_scaledILm9EEvPfPKff.exit88.i:         ; preds = %77
 
 94:                                               ; preds = %94, %89
   %.020.i.i = phi i64 [ 0, %89 ], [ %103, %94 ]
-  %95 = getelementptr inbounds nuw float, ptr %93, i64 %.020.i.i
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %93, i64 %.020.i.i
   %96 = load float, ptr %95, align 4, !tbaa !13, !alias.scope !382, !noalias !383
-  %97 = getelementptr inbounds nuw float, ptr %7, i64 %.020.i.i
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.020.i.i
   %98 = load float, ptr %97, align 4, !tbaa !13, !alias.scope !380, !noalias !384
-  %99 = getelementptr inbounds nuw float, ptr %6, i64 %.020.i.i
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.020.i.i
   %100 = load float, ptr %99, align 4, !tbaa !13, !alias.scope !375, !noalias !385
   %101 = fadd reassoc nsz arcp contract afn float %96, %98
   %102 = fsub reassoc nsz arcp contract afn float %100, %101
@@ -1424,8 +1424,8 @@ _ZL4_subILm9ELb1EEvPfPKfS0_.exit.i:               ; preds = %94
   %sext77.i = shl i64 %90, 32
   %104 = ashr exact i64 %sext77.i, 32
   %105 = mul nsw i64 %104, 9
-  %106 = getelementptr inbounds nuw float, ptr %21, i64 %105
-  %107 = getelementptr inbounds nuw float, ptr %0, i64 %105
+  %106 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %105
+  %107 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %105
   tail call void @llvm.experimental.noalias.scope.decl(metadata !387)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !390)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !392)
@@ -1435,12 +1435,12 @@ _ZL4_subILm9ELb1EEvPfPKfS0_.exit.i:               ; preds = %94
 
 108:                                              ; preds = %108, %_ZL4_subILm9ELb1EEvPfPKfS0_.exit.i
   %.021.i90.i = phi i64 [ 0, %_ZL4_subILm9ELb1EEvPfPKfS0_.exit.i ], [ %117, %108 ]
-  %109 = getelementptr inbounds nuw float, ptr %107, i64 %.021.i90.i
+  %109 = getelementptr inbounds nuw [4 x i8], ptr %107, i64 %.021.i90.i
   %110 = load float, ptr %109, align 4, !tbaa !13, !alias.scope !398, !noalias !399
-  %111 = getelementptr inbounds nuw float, ptr %7, i64 %.021.i90.i
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.021.i90.i
   %112 = load float, ptr %111, align 4, !tbaa !13, !alias.scope !394, !noalias !400
   %113 = fsub reassoc nsz arcp contract afn float %110, %112
-  %114 = getelementptr inbounds nuw float, ptr %6, i64 %.021.i90.i
+  %114 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.021.i90.i
   %115 = load float, ptr %114, align 4, !tbaa !13, !alias.scope !390, !noalias !401
   %116 = fadd reassoc nsz arcp contract afn float %113, %115
   store float 0.000000e+00, ptr %111, align 4, !tbaa !13, !alias.scope !394, !noalias !400
@@ -1458,10 +1458,10 @@ _ZL9_load_addILm9ELb1EEvPfS0_PKfS0_.exit92.i:     ; preds = %108
 
 119:                                              ; preds = %119, %_ZL9_load_addILm9ELb1EEvPfS0_PKfS0_.exit92.i
   %.06.i93.i = phi i64 [ 0, %_ZL9_load_addILm9ELb1EEvPfS0_PKfS0_.exit92.i ], [ %124, %119 ]
-  %120 = getelementptr inbounds nuw float, ptr %6, i64 %.06.i93.i
+  %120 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.06.i93.i
   %121 = load float, ptr %120, align 4, !tbaa !13, !alias.scope !405, !noalias !407
   %122 = fmul reassoc nsz arcp contract afn float %121, %74
-  %123 = getelementptr inbounds nuw float, ptr %118, i64 %.06.i93.i
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %118, i64 %.06.i93.i
   store float %122, ptr %123, align 4, !tbaa !13, !alias.scope !408, !noalias !409
   %124 = add nuw nsw i64 %.06.i93.i, 1
   %exitcond.not.i94.i = icmp eq i64 %124, 9
@@ -1488,11 +1488,11 @@ _ZL13_store_scaledILm9EEvPfPKff.exit95.i:         ; preds = %119
 
 132:                                              ; preds = %132, %128
   %.020.i96.i = phi i64 [ 0, %128 ], [ %141, %132 ]
-  %133 = getelementptr inbounds nuw float, ptr %131, i64 %.020.i96.i
+  %133 = getelementptr inbounds nuw [4 x i8], ptr %131, i64 %.020.i96.i
   %134 = load float, ptr %133, align 4, !tbaa !13, !alias.scope !418, !noalias !419
-  %135 = getelementptr inbounds nuw float, ptr %7, i64 %.020.i96.i
+  %135 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.020.i96.i
   %136 = load float, ptr %135, align 4, !tbaa !13, !alias.scope !416, !noalias !420
-  %137 = getelementptr inbounds nuw float, ptr %6, i64 %.020.i96.i
+  %137 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.020.i96.i
   %138 = load float, ptr %137, align 4, !tbaa !13, !alias.scope !411, !noalias !421
   %139 = fadd reassoc nsz arcp contract afn float %134, %136
   %140 = fsub reassoc nsz arcp contract afn float %138, %139
@@ -1514,10 +1514,10 @@ _ZL4_subILm9ELb1EEvPfPKfS0_.exit98.i:             ; preds = %132
 
 146:                                              ; preds = %146, %_ZL4_subILm9ELb1EEvPfPKfS0_.exit98.i
   %.06.i99.i = phi i64 [ 0, %_ZL4_subILm9ELb1EEvPfPKfS0_.exit98.i ], [ %151, %146 ]
-  %147 = getelementptr inbounds nuw float, ptr %6, i64 %.06.i99.i
+  %147 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.06.i99.i
   %148 = load float, ptr %147, align 4, !tbaa !13, !alias.scope !425, !noalias !427
   %149 = fmul reassoc nsz arcp contract afn float %148, %145
-  %150 = getelementptr inbounds nuw float, ptr %143, i64 %.06.i99.i
+  %150 = getelementptr inbounds nuw [4 x i8], ptr %143, i64 %.06.i99.i
   store float %149, ptr %150, align 4, !tbaa !13, !alias.scope !428, !noalias !429
   %151 = add nuw nsw i64 %.06.i99.i, 1
   %exitcond.not.i100.i = icmp eq i64 %151, 9
@@ -1585,12 +1585,12 @@ define internal fastcc void @_ZL16_blur_horizontalILm4ELb1EEvPfmmS0_(ptr noalias
 
 10:                                               ; preds = %10, %.lr.ph
   %.021.i = phi i64 [ 0, %.lr.ph ], [ %19, %10 ]
-  %11 = getelementptr inbounds nuw float, ptr %9, i64 %.021.i
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %.021.i
   %12 = load float, ptr %11, align 4, !tbaa !13, !alias.scope !440, !noalias !442
-  %13 = getelementptr inbounds nuw float, ptr %5, i64 %.021.i
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.021.i
   %14 = load float, ptr %13, align 4, !tbaa !13, !alias.scope !441, !noalias !443
   %15 = fsub reassoc nsz arcp contract afn float %12, %14
-  %16 = getelementptr inbounds nuw float, ptr %4, i64 %.021.i
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.021.i
   %17 = load float, ptr %16, align 4, !tbaa !13, !alias.scope !439, !noalias !444
   %18 = fadd reassoc nsz arcp contract afn float %15, %17
   store float 0.000000e+00, ptr %13, align 4, !tbaa !13, !alias.scope !441, !noalias !443
@@ -1614,8 +1614,8 @@ _ZL9_load_addILm4ELb1EEvPfS0_PKfS0_.exit:         ; preds = %10
   %23 = add nuw i64 %.068114, %2
   %sext78 = shl i64 %23, 32
   %24 = ashr exact i64 %sext78, 30
-  %25 = getelementptr inbounds nuw float, ptr %3, i64 %24
-  %26 = getelementptr inbounds nuw float, ptr %0, i64 %24
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %24
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !447)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !450)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !452)
@@ -1625,12 +1625,12 @@ _ZL9_load_addILm4ELb1EEvPfS0_PKfS0_.exit:         ; preds = %10
 
 27:                                               ; preds = %27, %22
   %.021.i80 = phi i64 [ 0, %22 ], [ %36, %27 ]
-  %28 = getelementptr inbounds nuw float, ptr %26, i64 %.021.i80
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %.021.i80
   %29 = load float, ptr %28, align 4, !tbaa !13, !alias.scope !452, !noalias !458
-  %30 = getelementptr inbounds nuw float, ptr %5, i64 %.021.i80
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.021.i80
   %31 = load float, ptr %30, align 4, !tbaa !13, !alias.scope !454, !noalias !459
   %32 = fsub reassoc nsz arcp contract afn float %29, %31
-  %33 = getelementptr inbounds nuw float, ptr %4, i64 %.021.i80
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.021.i80
   %34 = load float, ptr %33, align 4, !tbaa !13, !alias.scope !450, !noalias !460
   %35 = fadd reassoc nsz arcp contract afn float %32, %34
   store float 0.000000e+00, ptr %30, align 4, !tbaa !13, !alias.scope !454, !noalias !459
@@ -1651,10 +1651,10 @@ _ZL9_load_addILm4ELb1EEvPfS0_PKfS0_.exit82:       ; preds = %27
 
 41:                                               ; preds = %41, %_ZL9_load_addILm4ELb1EEvPfS0_PKfS0_.exit82
   %.06.i = phi i64 [ 0, %_ZL9_load_addILm4ELb1EEvPfS0_PKfS0_.exit82 ], [ %46, %41 ]
-  %42 = getelementptr inbounds nuw float, ptr %4, i64 %.06.i
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.06.i
   %43 = load float, ptr %42, align 4, !tbaa !13, !alias.scope !464, !noalias !461
   %44 = fmul reassoc nsz arcp contract afn float %43, %40
-  %45 = getelementptr inbounds nuw float, ptr %38, i64 %.06.i
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %.06.i
   store float %44, ptr %45, align 4, !tbaa !13, !alias.scope !461, !noalias !464
   %46 = add nuw nsw i64 %.06.i, 1
   %exitcond.not.i83 = icmp eq i64 %46, 4
@@ -1700,10 +1700,10 @@ _ZL13_store_scaledILm4EEvPfPKff.exit:             ; preds = %41
 
 60:                                               ; preds = %60, %58
   %.06.i84 = phi i64 [ 0, %58 ], [ %65, %60 ]
-  %61 = getelementptr inbounds nuw float, ptr %4, i64 %.06.i84
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.06.i84
   %62 = load float, ptr %61, align 4, !tbaa !13, !alias.scope !470, !noalias !467
   %63 = fmul reassoc nsz arcp contract afn float %62, %52
-  %64 = getelementptr inbounds nuw float, ptr %59, i64 %.06.i84
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %.06.i84
   store float %63, ptr %64, align 4, !tbaa !13, !alias.scope !467, !noalias !470
   %65 = add nuw nsw i64 %.06.i84, 1
   %exitcond.not.i85 = icmp eq i64 %65, 4
@@ -1739,11 +1739,11 @@ _ZL13_store_scaledILm4EEvPfPKff.exit86:           ; preds = %60
 
 77:                                               ; preds = %77, %72
   %.020.i = phi i64 [ 0, %72 ], [ %86, %77 ]
-  %78 = getelementptr inbounds nuw float, ptr %76, i64 %.020.i
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %.020.i
   %79 = load float, ptr %78, align 4, !tbaa !13, !alias.scope !476, !noalias !480
-  %80 = getelementptr inbounds nuw float, ptr %5, i64 %.020.i
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.020.i
   %81 = load float, ptr %80, align 4, !tbaa !13, !alias.scope !478, !noalias !481
-  %82 = getelementptr inbounds nuw float, ptr %4, i64 %.020.i
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.020.i
   %83 = load float, ptr %82, align 4, !tbaa !13, !alias.scope !473, !noalias !482
   %84 = fadd reassoc nsz arcp contract afn float %79, %81
   %85 = fsub reassoc nsz arcp contract afn float %83, %84
@@ -1756,8 +1756,8 @@ _ZL13_store_scaledILm4EEvPfPKff.exit86:           ; preds = %60
 _ZL4_subILm4ELb1EEvPfPKfS0_.exit:                 ; preds = %77
   %sext75 = shl i64 %73, 32
   %87 = ashr exact i64 %sext75, 30
-  %88 = getelementptr inbounds nuw float, ptr %3, i64 %87
-  %89 = getelementptr inbounds nuw float, ptr %0, i64 %87
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %87
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %87
   tail call void @llvm.experimental.noalias.scope.decl(metadata !484)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !487)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !489)
@@ -1767,12 +1767,12 @@ _ZL4_subILm4ELb1EEvPfPKfS0_.exit:                 ; preds = %77
 
 90:                                               ; preds = %90, %_ZL4_subILm4ELb1EEvPfPKfS0_.exit
   %.021.i88 = phi i64 [ 0, %_ZL4_subILm4ELb1EEvPfPKfS0_.exit ], [ %99, %90 ]
-  %91 = getelementptr inbounds nuw float, ptr %89, i64 %.021.i88
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %.021.i88
   %92 = load float, ptr %91, align 4, !tbaa !13, !alias.scope !489, !noalias !495
-  %93 = getelementptr inbounds nuw float, ptr %5, i64 %.021.i88
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.021.i88
   %94 = load float, ptr %93, align 4, !tbaa !13, !alias.scope !491, !noalias !496
   %95 = fsub reassoc nsz arcp contract afn float %92, %94
-  %96 = getelementptr inbounds nuw float, ptr %4, i64 %.021.i88
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.021.i88
   %97 = load float, ptr %96, align 4, !tbaa !13, !alias.scope !487, !noalias !497
   %98 = fadd reassoc nsz arcp contract afn float %95, %97
   store float 0.000000e+00, ptr %93, align 4, !tbaa !13, !alias.scope !491, !noalias !496
@@ -1790,10 +1790,10 @@ _ZL9_load_addILm4ELb1EEvPfS0_PKfS0_.exit90:       ; preds = %90
 
 101:                                              ; preds = %101, %_ZL9_load_addILm4ELb1EEvPfS0_PKfS0_.exit90
   %.06.i91 = phi i64 [ 0, %_ZL9_load_addILm4ELb1EEvPfS0_PKfS0_.exit90 ], [ %106, %101 ]
-  %102 = getelementptr inbounds nuw float, ptr %4, i64 %.06.i91
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.06.i91
   %103 = load float, ptr %102, align 4, !tbaa !13, !alias.scope !501, !noalias !498
   %104 = fmul reassoc nsz arcp contract afn float %103, %57
-  %105 = getelementptr inbounds nuw float, ptr %100, i64 %.06.i91
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %100, i64 %.06.i91
   store float %104, ptr %105, align 4, !tbaa !13, !alias.scope !498, !noalias !501
   %106 = add nuw nsw i64 %.06.i91, 1
   %exitcond.not.i92 = icmp eq i64 %106, 4
@@ -1819,11 +1819,11 @@ _ZL13_store_scaledILm4EEvPfPKff.exit93:           ; preds = %101
 
 114:                                              ; preds = %114, %110
   %.020.i94 = phi i64 [ 0, %110 ], [ %123, %114 ]
-  %115 = getelementptr inbounds nuw float, ptr %113, i64 %.020.i94
+  %115 = getelementptr inbounds nuw [4 x i8], ptr %113, i64 %.020.i94
   %116 = load float, ptr %115, align 4, !tbaa !13, !alias.scope !507, !noalias !511
-  %117 = getelementptr inbounds nuw float, ptr %5, i64 %.020.i94
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.020.i94
   %118 = load float, ptr %117, align 4, !tbaa !13, !alias.scope !509, !noalias !512
-  %119 = getelementptr inbounds nuw float, ptr %4, i64 %.020.i94
+  %119 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.020.i94
   %120 = load float, ptr %119, align 4, !tbaa !13, !alias.scope !504, !noalias !513
   %121 = fadd reassoc nsz arcp contract afn float %116, %118
   %122 = fsub reassoc nsz arcp contract afn float %120, %121
@@ -1845,10 +1845,10 @@ _ZL4_subILm4ELb1EEvPfPKfS0_.exit96:               ; preds = %114
 
 128:                                              ; preds = %128, %_ZL4_subILm4ELb1EEvPfPKfS0_.exit96
   %.06.i97 = phi i64 [ 0, %_ZL4_subILm4ELb1EEvPfPKfS0_.exit96 ], [ %133, %128 ]
-  %129 = getelementptr inbounds nuw float, ptr %4, i64 %.06.i97
+  %129 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.06.i97
   %130 = load float, ptr %129, align 4, !tbaa !13, !alias.scope !517, !noalias !514
   %131 = fmul reassoc nsz arcp contract afn float %130, %127
-  %132 = getelementptr inbounds nuw float, ptr %125, i64 %.06.i97
+  %132 = getelementptr inbounds nuw [4 x i8], ptr %125, i64 %.06.i97
   store float %131, ptr %132, align 4, !tbaa !13, !alias.scope !514, !noalias !517
   %133 = add nuw nsw i64 %.06.i97, 1
   %exitcond.not.i98 = icmp eq i64 %133, 4
@@ -1962,7 +1962,7 @@ define internal fastcc void @_ZL18_blur_vertical_1chILb1EEvPfmmmS0_m(ptr noalias
   br i1 %18, label %.lr.ph, label %.preheader
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds nuw float, ptr %0, i64 %.031137
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.031137
   tail call void @llvm.experimental.noalias.scope.decl(metadata !520)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !523)
   br i1 %.not149.i, label %._crit_edge.i, label %.lr.ph.i
@@ -1990,7 +1990,7 @@ define internal fastcc void @_ZL18_blur_vertical_1chILb1EEvPfmmmS0_m(ptr noalias
   %.idx98.i = shl i64 %25, 6
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx98.i
   %27 = mul i64 %.084134.i, %2
-  %28 = getelementptr inbounds nuw float, ptr %20, i64 %27
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %27
   tail call void @llvm.experimental.noalias.scope.decl(metadata !527)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !530)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !532)
@@ -2000,12 +2000,12 @@ define internal fastcc void @_ZL18_blur_vertical_1chILb1EEvPfmmmS0_m(ptr noalias
 
 29:                                               ; preds = %29, %.lr.ph135.i
   %.021.i.i = phi i64 [ 0, %.lr.ph135.i ], [ %38, %29 ]
-  %30 = getelementptr inbounds nuw float, ptr %28, i64 %.021.i.i
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %.021.i.i
   %31 = load float, ptr %30, align 4, !tbaa !13, !alias.scope !538, !noalias !539
-  %32 = getelementptr inbounds nuw float, ptr %9, i64 %.021.i.i
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %.021.i.i
   %33 = load float, ptr %32, align 4, !tbaa !13, !alias.scope !534, !noalias !540
   %34 = fsub reassoc nsz arcp contract afn float %31, %33
-  %35 = getelementptr inbounds nuw float, ptr %8, i64 %.021.i.i
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %.021.i.i
   %36 = load float, ptr %35, align 4, !tbaa !13, !alias.scope !530, !noalias !541
   %37 = fadd reassoc nsz arcp contract afn float %34, %36
   store float 0.000000e+00, ptr %32, align 4, !tbaa !13, !alias.scope !534, !noalias !540
@@ -2036,7 +2036,7 @@ _ZL9_load_addILm16ELb1EEvPfS0_PKfS0_.exit.i:      ; preds = %29
   %.idx97.i = shl i64 %43, 6
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx97.i
   %45 = mul i64 %42, %2
-  %46 = getelementptr inbounds nuw float, ptr %20, i64 %45
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %45
   tail call void @llvm.experimental.noalias.scope.decl(metadata !544)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !547)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !549)
@@ -2046,12 +2046,12 @@ _ZL9_load_addILm16ELb1EEvPfS0_PKfS0_.exit.i:      ; preds = %29
 
 47:                                               ; preds = %47, %40
   %.021.i99.i = phi i64 [ 0, %40 ], [ %56, %47 ]
-  %48 = getelementptr inbounds nuw float, ptr %46, i64 %.021.i99.i
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %.021.i99.i
   %49 = load float, ptr %48, align 4, !tbaa !13, !alias.scope !555, !noalias !556
-  %50 = getelementptr inbounds nuw float, ptr %9, i64 %.021.i99.i
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %.021.i99.i
   %51 = load float, ptr %50, align 4, !tbaa !13, !alias.scope !551, !noalias !557
   %52 = fsub reassoc nsz arcp contract afn float %49, %51
-  %53 = getelementptr inbounds nuw float, ptr %8, i64 %.021.i99.i
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %.021.i99.i
   %54 = load float, ptr %53, align 4, !tbaa !13, !alias.scope !547, !noalias !558
   %55 = fadd reassoc nsz arcp contract afn float %52, %54
   store float 0.000000e+00, ptr %50, align 4, !tbaa !13, !alias.scope !551, !noalias !557
@@ -2063,7 +2063,7 @@ _ZL9_load_addILm16ELb1EEvPfS0_PKfS0_.exit.i:      ; preds = %29
 _ZL9_load_addILm16ELb1EEvPfS0_PKfS0_.exit101.i:   ; preds = %47
   %57 = add i64 %.1138.i, 1
   %58 = mul i64 %.085137.i, %2
-  %59 = getelementptr inbounds nuw float, ptr %20, i64 %58
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %58
   %60 = uitofp i64 %57 to float
   tail call void @llvm.experimental.noalias.scope.decl(metadata !559)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !562)
@@ -2072,10 +2072,10 @@ _ZL9_load_addILm16ELb1EEvPfS0_PKfS0_.exit101.i:   ; preds = %47
 
 62:                                               ; preds = %62, %_ZL9_load_addILm16ELb1EEvPfS0_PKfS0_.exit101.i
   %.06.i.i = phi i64 [ 0, %_ZL9_load_addILm16ELb1EEvPfS0_PKfS0_.exit101.i ], [ %67, %62 ]
-  %63 = getelementptr inbounds nuw float, ptr %8, i64 %.06.i.i
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %.06.i.i
   %64 = load float, ptr %63, align 4, !tbaa !13, !alias.scope !562, !noalias !564
   %65 = fmul reassoc nsz arcp contract afn float %64, %61
-  %66 = getelementptr inbounds nuw float, ptr %59, i64 %.06.i.i
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %.06.i.i
   store float %65, ptr %66, align 4, !tbaa !13, !alias.scope !565, !noalias !566
   %67 = add nuw nsw i64 %.06.i.i, 1
   %exitcond.not.i102.i = icmp eq i64 %67, 16
@@ -2113,17 +2113,17 @@ _ZL13_store_scaledILm16EEvPfPKff.exit.i:          ; preds = %62
 78:                                               ; preds = %_ZL13_store_scaledILm16EEvPfPKff.exit105.i, %.lr.ph140.i
   %.186139.i = phi i64 [ %.085.lcssa.i, %.lr.ph140.i ], [ %87, %_ZL13_store_scaledILm16EEvPfPKff.exit105.i ]
   %79 = mul i64 %.186139.i, %2
-  %80 = getelementptr inbounds nuw float, ptr %20, i64 %79
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %79
   tail call void @llvm.experimental.noalias.scope.decl(metadata !569)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !572)
   br label %81
 
 81:                                               ; preds = %81, %78
   %.06.i103.i = phi i64 [ 0, %78 ], [ %86, %81 ]
-  %82 = getelementptr inbounds nuw float, ptr %8, i64 %.06.i103.i
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %.06.i103.i
   %83 = load float, ptr %82, align 4, !tbaa !13, !alias.scope !572, !noalias !574
   %84 = fmul reassoc nsz arcp contract afn float %83, %73
-  %85 = getelementptr inbounds nuw float, ptr %80, i64 %.06.i103.i
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %80, i64 %.06.i103.i
   store float %84, ptr %85, align 4, !tbaa !13, !alias.scope !575, !noalias !576
   %86 = add nuw nsw i64 %.06.i103.i, 1
   %exitcond.not.i104.i = icmp eq i64 %86, 16
@@ -2157,11 +2157,11 @@ _ZL13_store_scaledILm16EEvPfPKff.exit105.i:       ; preds = %81
 
 98:                                               ; preds = %98, %92
   %.020.i.i = phi i64 [ 0, %92 ], [ %107, %98 ]
-  %99 = getelementptr inbounds nuw float, ptr %97, i64 %.020.i.i
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %97, i64 %.020.i.i
   %100 = load float, ptr %99, align 4, !tbaa !13, !alias.scope !585, !noalias !586
-  %101 = getelementptr inbounds nuw float, ptr %9, i64 %.020.i.i
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %.020.i.i
   %102 = load float, ptr %101, align 4, !tbaa !13, !alias.scope !583, !noalias !587
-  %103 = getelementptr inbounds nuw float, ptr %8, i64 %.020.i.i
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %.020.i.i
   %104 = load float, ptr %103, align 4, !tbaa !13, !alias.scope !578, !noalias !588
   %105 = fadd reassoc nsz arcp contract afn float %100, %102
   %106 = fsub reassoc nsz arcp contract afn float %104, %105
@@ -2178,7 +2178,7 @@ _ZL4_subILm16ELb1EEvPfPKfS0_.exit.i:              ; preds = %98
   %.idx95.i = shl i64 %109, 6
   %110 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx95.i
   %111 = mul i64 %108, %2
-  %112 = getelementptr inbounds nuw float, ptr %20, i64 %111
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %111
   tail call void @llvm.experimental.noalias.scope.decl(metadata !590)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !593)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !595)
@@ -2188,12 +2188,12 @@ _ZL4_subILm16ELb1EEvPfPKfS0_.exit.i:              ; preds = %98
 
 113:                                              ; preds = %113, %_ZL4_subILm16ELb1EEvPfPKfS0_.exit.i
   %.021.i107.i = phi i64 [ 0, %_ZL4_subILm16ELb1EEvPfPKfS0_.exit.i ], [ %122, %113 ]
-  %114 = getelementptr inbounds nuw float, ptr %112, i64 %.021.i107.i
+  %114 = getelementptr inbounds nuw [4 x i8], ptr %112, i64 %.021.i107.i
   %115 = load float, ptr %114, align 4, !tbaa !13, !alias.scope !601, !noalias !602
-  %116 = getelementptr inbounds nuw float, ptr %9, i64 %.021.i107.i
+  %116 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %.021.i107.i
   %117 = load float, ptr %116, align 4, !tbaa !13, !alias.scope !597, !noalias !603
   %118 = fsub reassoc nsz arcp contract afn float %115, %117
-  %119 = getelementptr inbounds nuw float, ptr %8, i64 %.021.i107.i
+  %119 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %.021.i107.i
   %120 = load float, ptr %119, align 4, !tbaa !13, !alias.scope !593, !noalias !604
   %121 = fadd reassoc nsz arcp contract afn float %118, %120
   store float 0.000000e+00, ptr %116, align 4, !tbaa !13, !alias.scope !597, !noalias !603
@@ -2204,17 +2204,17 @@ _ZL4_subILm16ELb1EEvPfPKfS0_.exit.i:              ; preds = %98
 
 _ZL9_load_addILm16ELb1EEvPfS0_PKfS0_.exit109.i:   ; preds = %113
   %123 = mul i64 %.287142.i, %2
-  %124 = getelementptr inbounds nuw float, ptr %20, i64 %123
+  %124 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %123
   tail call void @llvm.experimental.noalias.scope.decl(metadata !605)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !608)
   br label %125
 
 125:                                              ; preds = %125, %_ZL9_load_addILm16ELb1EEvPfS0_PKfS0_.exit109.i
   %.06.i110.i = phi i64 [ 0, %_ZL9_load_addILm16ELb1EEvPfS0_PKfS0_.exit109.i ], [ %130, %125 ]
-  %126 = getelementptr inbounds nuw float, ptr %8, i64 %.06.i110.i
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %.06.i110.i
   %127 = load float, ptr %126, align 4, !tbaa !13, !alias.scope !608, !noalias !610
   %128 = fmul reassoc nsz arcp contract afn float %127, %77
-  %129 = getelementptr inbounds nuw float, ptr %124, i64 %.06.i110.i
+  %129 = getelementptr inbounds nuw [4 x i8], ptr %124, i64 %.06.i110.i
   store float %128, ptr %129, align 4, !tbaa !13, !alias.scope !611, !noalias !612
   %130 = add nuw nsw i64 %.06.i110.i, 1
   %exitcond.not.i111.i = icmp eq i64 %130, 16
@@ -2242,11 +2242,11 @@ _ZL13_store_scaledILm16EEvPfPKff.exit112.i:       ; preds = %125
 
 138:                                              ; preds = %138, %.lr.ph147.i
   %.020.i113.i = phi i64 [ 0, %.lr.ph147.i ], [ %147, %138 ]
-  %139 = getelementptr inbounds nuw float, ptr %137, i64 %.020.i113.i
+  %139 = getelementptr inbounds nuw [4 x i8], ptr %137, i64 %.020.i113.i
   %140 = load float, ptr %139, align 4, !tbaa !13, !alias.scope !621, !noalias !622
-  %141 = getelementptr inbounds nuw float, ptr %9, i64 %.020.i113.i
+  %141 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %.020.i113.i
   %142 = load float, ptr %141, align 4, !tbaa !13, !alias.scope !619, !noalias !623
-  %143 = getelementptr inbounds nuw float, ptr %8, i64 %.020.i113.i
+  %143 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %.020.i113.i
   %144 = load float, ptr %143, align 4, !tbaa !13, !alias.scope !614, !noalias !624
   %145 = fadd reassoc nsz arcp contract afn float %140, %142
   %146 = fsub reassoc nsz arcp contract afn float %144, %145
@@ -2259,7 +2259,7 @@ _ZL13_store_scaledILm16EEvPfPKff.exit112.i:       ; preds = %125
 _ZL4_subILm16ELb1EEvPfPKfS0_.exit115.i:           ; preds = %138
   %148 = add i64 %.2146.i, -1
   %149 = mul i64 %.3145.i, %2
-  %150 = getelementptr inbounds nuw float, ptr %20, i64 %149
+  %150 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %149
   %151 = uitofp i64 %148 to float
   tail call void @llvm.experimental.noalias.scope.decl(metadata !625)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !628)
@@ -2268,10 +2268,10 @@ _ZL4_subILm16ELb1EEvPfPKfS0_.exit115.i:           ; preds = %138
 
 153:                                              ; preds = %153, %_ZL4_subILm16ELb1EEvPfPKfS0_.exit115.i
   %.06.i116.i = phi i64 [ 0, %_ZL4_subILm16ELb1EEvPfPKfS0_.exit115.i ], [ %158, %153 ]
-  %154 = getelementptr inbounds nuw float, ptr %8, i64 %.06.i116.i
+  %154 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %.06.i116.i
   %155 = load float, ptr %154, align 4, !tbaa !13, !alias.scope !628, !noalias !630
   %156 = fmul reassoc nsz arcp contract afn float %155, %152
-  %157 = getelementptr inbounds nuw float, ptr %150, i64 %.06.i116.i
+  %157 = getelementptr inbounds nuw [4 x i8], ptr %150, i64 %.06.i116.i
   store float %156, ptr %157, align 4, !tbaa !13, !alias.scope !631, !noalias !632
   %158 = add nuw nsw i64 %.06.i116.i, 1
   %exitcond.not.i117.i = icmp eq i64 %158, 16
@@ -2294,7 +2294,7 @@ _ZL14_blur_verticalILm16ELb1EEvPfmmmS0_.exit:     ; preds = %_ZL13_store_scaledI
 
 .lr.ph:                                           ; preds = %.preheader123, %_ZL14_blur_verticalILm4ELb1EEvPfmmmS0_.exit
   %.0134 = phi i64 [ %301, %_ZL14_blur_verticalILm4ELb1EEvPfmmmS0_.exit ], [ %.031137, %.preheader123 ]
-  %161 = getelementptr inbounds nuw float, ptr %0, i64 %.0134
+  %161 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.0134
   tail call void @llvm.experimental.noalias.scope.decl(metadata !634)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !637)
   br i1 %.not149.i, label %._crit_edge.i38, label %.lr.ph.i35
@@ -2322,7 +2322,7 @@ _ZL14_blur_verticalILm16ELb1EEvPfmmmS0_.exit:     ; preds = %_ZL13_store_scaledI
   %.idx98.i43 = shl i64 %166, 4
   %167 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx98.i43
   %168 = mul i64 %.084134.i42, %2
-  %169 = getelementptr inbounds nuw float, ptr %161, i64 %168
+  %169 = getelementptr inbounds nuw [4 x i8], ptr %161, i64 %168
   tail call void @llvm.experimental.noalias.scope.decl(metadata !641)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !644)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !646)
@@ -2332,12 +2332,12 @@ _ZL14_blur_verticalILm16ELb1EEvPfmmmS0_.exit:     ; preds = %_ZL13_store_scaledI
 
 170:                                              ; preds = %170, %.lr.ph135.i41
   %.021.i.i44 = phi i64 [ 0, %.lr.ph135.i41 ], [ %179, %170 ]
-  %171 = getelementptr inbounds nuw float, ptr %169, i64 %.021.i.i44
+  %171 = getelementptr inbounds nuw [4 x i8], ptr %169, i64 %.021.i.i44
   %172 = load float, ptr %171, align 4, !tbaa !13, !alias.scope !652, !noalias !653
-  %173 = getelementptr inbounds nuw float, ptr %7, i64 %.021.i.i44
+  %173 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.021.i.i44
   %174 = load float, ptr %173, align 4, !tbaa !13, !alias.scope !648, !noalias !654
   %175 = fsub reassoc nsz arcp contract afn float %172, %174
-  %176 = getelementptr inbounds nuw float, ptr %6, i64 %.021.i.i44
+  %176 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.021.i.i44
   %177 = load float, ptr %176, align 4, !tbaa !13, !alias.scope !644, !noalias !655
   %178 = fadd reassoc nsz arcp contract afn float %175, %177
   store float 0.000000e+00, ptr %173, align 4, !tbaa !13, !alias.scope !648, !noalias !654
@@ -2368,7 +2368,7 @@ _ZL9_load_addILm4ELb1EEvPfS0_PKfS0_.exit.i:       ; preds = %170
   %.idx97.i52 = shl i64 %184, 4
   %185 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx97.i52
   %186 = mul i64 %183, %2
-  %187 = getelementptr inbounds nuw float, ptr %161, i64 %186
+  %187 = getelementptr inbounds nuw [4 x i8], ptr %161, i64 %186
   tail call void @llvm.experimental.noalias.scope.decl(metadata !657)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !660)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !662)
@@ -2378,12 +2378,12 @@ _ZL9_load_addILm4ELb1EEvPfS0_PKfS0_.exit.i:       ; preds = %170
 
 188:                                              ; preds = %188, %181
   %.021.i99.i53 = phi i64 [ 0, %181 ], [ %197, %188 ]
-  %189 = getelementptr inbounds nuw float, ptr %187, i64 %.021.i99.i53
+  %189 = getelementptr inbounds nuw [4 x i8], ptr %187, i64 %.021.i99.i53
   %190 = load float, ptr %189, align 4, !tbaa !13, !alias.scope !668, !noalias !669
-  %191 = getelementptr inbounds nuw float, ptr %7, i64 %.021.i99.i53
+  %191 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.021.i99.i53
   %192 = load float, ptr %191, align 4, !tbaa !13, !alias.scope !664, !noalias !670
   %193 = fsub reassoc nsz arcp contract afn float %190, %192
-  %194 = getelementptr inbounds nuw float, ptr %6, i64 %.021.i99.i53
+  %194 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.021.i99.i53
   %195 = load float, ptr %194, align 4, !tbaa !13, !alias.scope !660, !noalias !671
   %196 = fadd reassoc nsz arcp contract afn float %193, %195
   store float 0.000000e+00, ptr %191, align 4, !tbaa !13, !alias.scope !664, !noalias !670
@@ -2395,7 +2395,7 @@ _ZL9_load_addILm4ELb1EEvPfS0_PKfS0_.exit.i:       ; preds = %170
 _ZL9_load_addILm4ELb1EEvPfS0_PKfS0_.exit101.i:    ; preds = %188
   %198 = add i64 %.1138.i48, 1
   %199 = mul i64 %.085137.i49, %2
-  %200 = getelementptr inbounds nuw float, ptr %161, i64 %199
+  %200 = getelementptr inbounds nuw [4 x i8], ptr %161, i64 %199
   %201 = uitofp i64 %198 to float
   tail call void @llvm.experimental.noalias.scope.decl(metadata !672)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !675)
@@ -2404,10 +2404,10 @@ _ZL9_load_addILm4ELb1EEvPfS0_PKfS0_.exit101.i:    ; preds = %188
 
 203:                                              ; preds = %203, %_ZL9_load_addILm4ELb1EEvPfS0_PKfS0_.exit101.i
   %.06.i.i55 = phi i64 [ 0, %_ZL9_load_addILm4ELb1EEvPfS0_PKfS0_.exit101.i ], [ %208, %203 ]
-  %204 = getelementptr inbounds nuw float, ptr %6, i64 %.06.i.i55
+  %204 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.06.i.i55
   %205 = load float, ptr %204, align 4, !tbaa !13, !alias.scope !675, !noalias !677
   %206 = fmul reassoc nsz arcp contract afn float %205, %202
-  %207 = getelementptr inbounds nuw float, ptr %200, i64 %.06.i.i55
+  %207 = getelementptr inbounds nuw [4 x i8], ptr %200, i64 %.06.i.i55
   store float %206, ptr %207, align 4, !tbaa !13, !alias.scope !678, !noalias !679
   %208 = add nuw nsw i64 %.06.i.i55, 1
   %exitcond.not.i102.i56 = icmp eq i64 %208, 4
@@ -2445,17 +2445,17 @@ _ZL13_store_scaledILm4EEvPfPKff.exit.i:           ; preds = %203
 219:                                              ; preds = %_ZL13_store_scaledILm4EEvPfPKff.exit105.i, %.lr.ph140.i87
   %.186139.i88 = phi i64 [ %.085.lcssa.i59, %.lr.ph140.i87 ], [ %228, %_ZL13_store_scaledILm4EEvPfPKff.exit105.i ]
   %220 = mul i64 %.186139.i88, %2
-  %221 = getelementptr inbounds nuw float, ptr %161, i64 %220
+  %221 = getelementptr inbounds nuw [4 x i8], ptr %161, i64 %220
   tail call void @llvm.experimental.noalias.scope.decl(metadata !681)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !684)
   br label %222
 
 222:                                              ; preds = %222, %219
   %.06.i103.i89 = phi i64 [ 0, %219 ], [ %227, %222 ]
-  %223 = getelementptr inbounds nuw float, ptr %6, i64 %.06.i103.i89
+  %223 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.06.i103.i89
   %224 = load float, ptr %223, align 4, !tbaa !13, !alias.scope !684, !noalias !686
   %225 = fmul reassoc nsz arcp contract afn float %224, %214
-  %226 = getelementptr inbounds nuw float, ptr %221, i64 %.06.i103.i89
+  %226 = getelementptr inbounds nuw [4 x i8], ptr %221, i64 %.06.i103.i89
   store float %225, ptr %226, align 4, !tbaa !13, !alias.scope !687, !noalias !688
   %227 = add nuw nsw i64 %.06.i103.i89, 1
   %exitcond.not.i104.i90 = icmp eq i64 %227, 4
@@ -2489,11 +2489,11 @@ _ZL13_store_scaledILm4EEvPfPKff.exit105.i:        ; preds = %222
 
 239:                                              ; preds = %239, %233
   %.020.i.i79 = phi i64 [ 0, %233 ], [ %248, %239 ]
-  %240 = getelementptr inbounds nuw float, ptr %238, i64 %.020.i.i79
+  %240 = getelementptr inbounds nuw [4 x i8], ptr %238, i64 %.020.i.i79
   %241 = load float, ptr %240, align 4, !tbaa !13, !alias.scope !697, !noalias !698
-  %242 = getelementptr inbounds nuw float, ptr %7, i64 %.020.i.i79
+  %242 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.020.i.i79
   %243 = load float, ptr %242, align 4, !tbaa !13, !alias.scope !695, !noalias !699
-  %244 = getelementptr inbounds nuw float, ptr %6, i64 %.020.i.i79
+  %244 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.020.i.i79
   %245 = load float, ptr %244, align 4, !tbaa !13, !alias.scope !690, !noalias !700
   %246 = fadd reassoc nsz arcp contract afn float %241, %243
   %247 = fsub reassoc nsz arcp contract afn float %245, %246
@@ -2510,7 +2510,7 @@ _ZL4_subILm4ELb1EEvPfPKfS0_.exit.i:               ; preds = %239
   %.idx95.i82 = shl i64 %250, 4
   %251 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx95.i82
   %252 = mul i64 %249, %2
-  %253 = getelementptr inbounds nuw float, ptr %161, i64 %252
+  %253 = getelementptr inbounds nuw [4 x i8], ptr %161, i64 %252
   tail call void @llvm.experimental.noalias.scope.decl(metadata !701)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !704)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !706)
@@ -2520,12 +2520,12 @@ _ZL4_subILm4ELb1EEvPfPKfS0_.exit.i:               ; preds = %239
 
 254:                                              ; preds = %254, %_ZL4_subILm4ELb1EEvPfPKfS0_.exit.i
   %.021.i107.i83 = phi i64 [ 0, %_ZL4_subILm4ELb1EEvPfPKfS0_.exit.i ], [ %263, %254 ]
-  %255 = getelementptr inbounds nuw float, ptr %253, i64 %.021.i107.i83
+  %255 = getelementptr inbounds nuw [4 x i8], ptr %253, i64 %.021.i107.i83
   %256 = load float, ptr %255, align 4, !tbaa !13, !alias.scope !712, !noalias !713
-  %257 = getelementptr inbounds nuw float, ptr %7, i64 %.021.i107.i83
+  %257 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.021.i107.i83
   %258 = load float, ptr %257, align 4, !tbaa !13, !alias.scope !708, !noalias !714
   %259 = fsub reassoc nsz arcp contract afn float %256, %258
-  %260 = getelementptr inbounds nuw float, ptr %6, i64 %.021.i107.i83
+  %260 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.021.i107.i83
   %261 = load float, ptr %260, align 4, !tbaa !13, !alias.scope !704, !noalias !715
   %262 = fadd reassoc nsz arcp contract afn float %259, %261
   store float 0.000000e+00, ptr %257, align 4, !tbaa !13, !alias.scope !708, !noalias !714
@@ -2536,17 +2536,17 @@ _ZL4_subILm4ELb1EEvPfPKfS0_.exit.i:               ; preds = %239
 
 _ZL9_load_addILm4ELb1EEvPfS0_PKfS0_.exit109.i:    ; preds = %254
   %264 = mul i64 %.287142.i76, %2
-  %265 = getelementptr inbounds nuw float, ptr %161, i64 %264
+  %265 = getelementptr inbounds nuw [4 x i8], ptr %161, i64 %264
   tail call void @llvm.experimental.noalias.scope.decl(metadata !716)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !719)
   br label %266
 
 266:                                              ; preds = %266, %_ZL9_load_addILm4ELb1EEvPfS0_PKfS0_.exit109.i
   %.06.i110.i85 = phi i64 [ 0, %_ZL9_load_addILm4ELb1EEvPfS0_PKfS0_.exit109.i ], [ %271, %266 ]
-  %267 = getelementptr inbounds nuw float, ptr %6, i64 %.06.i110.i85
+  %267 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.06.i110.i85
   %268 = load float, ptr %267, align 4, !tbaa !13, !alias.scope !719, !noalias !721
   %269 = fmul reassoc nsz arcp contract afn float %268, %218
-  %270 = getelementptr inbounds nuw float, ptr %265, i64 %.06.i110.i85
+  %270 = getelementptr inbounds nuw [4 x i8], ptr %265, i64 %.06.i110.i85
   store float %269, ptr %270, align 4, !tbaa !13, !alias.scope !722, !noalias !723
   %271 = add nuw nsw i64 %.06.i110.i85, 1
   %exitcond.not.i111.i86 = icmp eq i64 %271, 4
@@ -2574,11 +2574,11 @@ _ZL13_store_scaledILm4EEvPfPKff.exit112.i:        ; preds = %266
 
 279:                                              ; preds = %279, %.lr.ph147.i65
   %.020.i113.i70 = phi i64 [ 0, %.lr.ph147.i65 ], [ %288, %279 ]
-  %280 = getelementptr inbounds nuw float, ptr %278, i64 %.020.i113.i70
+  %280 = getelementptr inbounds nuw [4 x i8], ptr %278, i64 %.020.i113.i70
   %281 = load float, ptr %280, align 4, !tbaa !13, !alias.scope !732, !noalias !733
-  %282 = getelementptr inbounds nuw float, ptr %7, i64 %.020.i113.i70
+  %282 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.020.i113.i70
   %283 = load float, ptr %282, align 4, !tbaa !13, !alias.scope !730, !noalias !734
-  %284 = getelementptr inbounds nuw float, ptr %6, i64 %.020.i113.i70
+  %284 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.020.i113.i70
   %285 = load float, ptr %284, align 4, !tbaa !13, !alias.scope !725, !noalias !735
   %286 = fadd reassoc nsz arcp contract afn float %281, %283
   %287 = fsub reassoc nsz arcp contract afn float %285, %286
@@ -2591,7 +2591,7 @@ _ZL13_store_scaledILm4EEvPfPKff.exit112.i:        ; preds = %266
 _ZL4_subILm4ELb1EEvPfPKfS0_.exit115.i:            ; preds = %279
   %289 = add i64 %.2146.i66, -1
   %290 = mul i64 %.3145.i67, %2
-  %291 = getelementptr inbounds nuw float, ptr %161, i64 %290
+  %291 = getelementptr inbounds nuw [4 x i8], ptr %161, i64 %290
   %292 = uitofp i64 %289 to float
   tail call void @llvm.experimental.noalias.scope.decl(metadata !736)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !739)
@@ -2600,10 +2600,10 @@ _ZL4_subILm4ELb1EEvPfPKfS0_.exit115.i:            ; preds = %279
 
 294:                                              ; preds = %294, %_ZL4_subILm4ELb1EEvPfPKfS0_.exit115.i
   %.06.i116.i72 = phi i64 [ 0, %_ZL4_subILm4ELb1EEvPfPKfS0_.exit115.i ], [ %299, %294 ]
-  %295 = getelementptr inbounds nuw float, ptr %6, i64 %.06.i116.i72
+  %295 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.06.i116.i72
   %296 = load float, ptr %295, align 4, !tbaa !13, !alias.scope !739, !noalias !741
   %297 = fmul reassoc nsz arcp contract afn float %296, %293
-  %298 = getelementptr inbounds nuw float, ptr %291, i64 %.06.i116.i72
+  %298 = getelementptr inbounds nuw [4 x i8], ptr %291, i64 %.06.i116.i72
   store float %297, ptr %298, align 4, !tbaa !13, !alias.scope !742, !noalias !743
   %299 = add nuw nsw i64 %.06.i116.i72, 1
   %exitcond.not.i117.i73 = icmp eq i64 %299, 4
@@ -2623,7 +2623,7 @@ _ZL14_blur_verticalILm4ELb1EEvPfmmmS0_.exit:      ; preds = %_ZL13_store_scaledI
 
 .lr.ph136:                                        ; preds = %.preheader, %_ZL14_blur_verticalILm1ELb1EEvPfmmmS0_.exit
   %.1135 = phi i64 [ %380, %_ZL14_blur_verticalILm1ELb1EEvPfmmmS0_.exit ], [ %.0.lcssa, %.preheader ]
-  %303 = getelementptr inbounds nuw float, ptr %0, i64 %.1135
+  %303 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.1135
   tail call void @llvm.experimental.noalias.scope.decl(metadata !746)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !749)
   br i1 %.not149.i, label %.preheader109.i, label %.lr.ph.i92
@@ -2646,9 +2646,9 @@ _ZL14_blur_verticalILm4ELb1EEvPfmmmS0_.exit:      ; preds = %_ZL13_store_scaledI
   %.sroa.0105.1112.i = phi float [ %314, %.lr.ph115.i ], [ 0.000000e+00, %.preheader109.i ]
   %308 = add nuw i64 %.084114.i, 1
   %309 = and i64 %.084114.i, %.0.lcssa.i93
-  %310 = getelementptr inbounds nuw float, ptr %4, i64 %309
+  %310 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %309
   %311 = mul i64 %.084114.i, %2
-  %312 = getelementptr inbounds nuw float, ptr %303, i64 %311
+  %312 = getelementptr inbounds nuw [4 x i8], ptr %303, i64 %311
   tail call void @llvm.experimental.noalias.scope.decl(metadata !752)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !755)
   %313 = load float, ptr %312, align 4, !tbaa !13, !alias.scope !757, !noalias !758
@@ -2674,16 +2674,16 @@ _ZL14_blur_verticalILm4ELb1EEvPfmmmS0_.exit:      ; preds = %_ZL13_store_scaledI
   %sext94.i95 = shl i64 %316, 32
   %318 = ashr exact i64 %sext94.i95, 32
   %319 = and i64 %318, %.0.lcssa.i93
-  %320 = getelementptr inbounds nuw float, ptr %4, i64 %319
+  %320 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %319
   %321 = mul i64 %318, %2
-  %322 = getelementptr inbounds nuw float, ptr %303, i64 %321
+  %322 = getelementptr inbounds nuw [4 x i8], ptr %303, i64 %321
   tail call void @llvm.experimental.noalias.scope.decl(metadata !764)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !767)
   %323 = load float, ptr %322, align 4, !tbaa !13, !alias.scope !769, !noalias !770
   %324 = fadd reassoc nsz arcp contract afn float %323, %.sroa.0105.2118.i
   store float %323, ptr %320, align 4, !tbaa !13, !alias.scope !773, !noalias !774
   %325 = mul i64 %.085119.i, %2
-  %326 = getelementptr inbounds nuw float, ptr %303, i64 %325
+  %326 = getelementptr inbounds nuw [4 x i8], ptr %303, i64 %325
   %327 = uitofp i64 %317 to float
   %328 = fdiv reassoc nsz arcp contract afn float %324, %327
   store float %328, ptr %326, align 4, !tbaa !13, !alias.scope !775, !noalias !749
@@ -2719,7 +2719,7 @@ _ZL14_blur_verticalILm4ELb1EEvPfmmmS0_.exit:      ; preds = %_ZL13_store_scaledI
 339:                                              ; preds = %339, %.lr.ph122.i
   %.186121.i = phi i64 [ %.085.lcssa.i98, %.lr.ph122.i ], [ %342, %339 ]
   %340 = mul i64 %.186121.i, %2
-  %341 = getelementptr inbounds nuw float, ptr %303, i64 %340
+  %341 = getelementptr inbounds nuw [4 x i8], ptr %303, i64 %340
   store float %334, ptr %341, align 4, !tbaa !13, !alias.scope !779, !noalias !749
   %342 = add nuw i64 %.186121.i, 1
   %343 = icmp ult i64 %.186121.i, %3
@@ -2741,22 +2741,22 @@ _ZL14_blur_verticalILm4ELb1EEvPfmmmS0_.exit:      ; preds = %_ZL13_store_scaledI
   %sext92.i105 = shl i64 %349, 32
   %350 = ashr exact i64 %sext92.i105, 32
   %351 = and i64 %350, %.0.lcssa.i93
-  %352 = getelementptr inbounds nuw float, ptr %4, i64 %351
+  %352 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %351
   %353 = load float, ptr %352, align 4, !tbaa !13, !alias.scope !783, !noalias !786
   %354 = fsub reassoc nsz arcp contract afn float %.sroa.0105.3124.i, %353
   %sext93.i = shl i64 %348, 32
   %355 = ashr exact i64 %sext93.i, 32
   %356 = and i64 %355, %.0.lcssa.i93
-  %357 = getelementptr inbounds nuw float, ptr %4, i64 %356
+  %357 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %356
   %358 = mul i64 %355, %2
-  %359 = getelementptr inbounds nuw float, ptr %303, i64 %358
+  %359 = getelementptr inbounds nuw [4 x i8], ptr %303, i64 %358
   tail call void @llvm.experimental.noalias.scope.decl(metadata !789)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !792)
   %360 = load float, ptr %359, align 4, !tbaa !13, !alias.scope !794, !noalias !795
   %361 = fadd reassoc nsz arcp contract afn float %360, %354
   store float %360, ptr %357, align 4, !tbaa !13, !alias.scope !798, !noalias !799
   %362 = mul i64 %.287125.i, %2
-  %363 = getelementptr inbounds nuw float, ptr %303, i64 %362
+  %363 = getelementptr inbounds nuw [4 x i8], ptr %303, i64 %362
   %364 = fmul reassoc nsz arcp contract afn float %361, %338
   store float %364, ptr %363, align 4, !tbaa !13, !alias.scope !800, !noalias !749
   %365 = add i64 %.287125.i, 1
@@ -2773,11 +2773,11 @@ _ZL14_blur_verticalILm4ELb1EEvPfmmmS0_.exit:      ; preds = %_ZL13_store_scaledI
   %sext.i104 = shl i64 %368, 32
   %370 = ashr exact i64 %sext.i104, 32
   %371 = and i64 %370, %.0.lcssa.i93
-  %372 = getelementptr inbounds nuw float, ptr %4, i64 %371
+  %372 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %371
   %373 = load float, ptr %372, align 4, !tbaa !13, !alias.scope !804, !noalias !807
   %374 = fsub reassoc nsz arcp contract afn float %.sroa.0105.4129.i, %373
   %375 = mul i64 %.3130.i, %2
-  %376 = getelementptr inbounds nuw float, ptr %303, i64 %375
+  %376 = getelementptr inbounds nuw [4 x i8], ptr %303, i64 %375
   %377 = uitofp i64 %369 to float
   %378 = fdiv reassoc nsz arcp contract afn float %374, %377
   store float %378, ptr %376, align 4, !tbaa !13, !alias.scope !810, !noalias !749
@@ -2857,14 +2857,14 @@ _ZL25_compute_effective_heightmm.exit.i:          ; preds = %.lr.ph.i.i, %9
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %_ZL11_box_min_1diPKfPfi.exit.loopexit.us.i
   %.062139.us.i = phi i64 [ %65, %_ZL11_box_min_1diPKfPfi.exit.loopexit.us.i ], [ 0, %.lr.ph.i ]
   %33 = mul i64 %.062139.us.i, %2
-  %34 = getelementptr inbounds nuw float, ptr %0, i64 %33
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %33
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 64 %23, ptr align 4 %34, i64 %25, i1 false)
   br i1 %29, label %.lr.ph.i.i.us.i, label %_ZL11_window_minPKfi.exit.i.us.i.preheader
 
 .lr.ph.i.i.us.i:                                  ; preds = %.lr.ph.split.us.i, %.lr.ph.i.i.us.i
   %indvars.iv.i.i.us.i = phi i64 [ %indvars.iv.next.i.i.us.i, %.lr.ph.i.i.us.i ], [ 0, %.lr.ph.split.us.i ]
   %.0911.i.i.us.i = phi float [ %.09..i.i.us.i, %.lr.ph.i.i.us.i ], [ 0x47EFFFFFE0000000, %.lr.ph.split.us.i ]
-  %35 = getelementptr inbounds nuw float, ptr %23, i64 %indvars.iv.i.i.us.i
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %indvars.iv.i.i.us.i
   %36 = load float, ptr %35, align 4, !tbaa !13
   %37 = fcmp reassoc nsz arcp contract afn olt float %.0911.i.i.us.i, %36
   %.09..i.i.us.i = select reassoc nsz arcp contract afn i1 %37, float %.0911.i.i.us.i, float %36
@@ -2879,21 +2879,21 @@ _ZL11_window_minPKfi.exit.i.us.i.preheader:       ; preds = %.lr.ph.i.i.us.i, %.
 _ZL11_window_minPKfi.exit.i.us.i:                 ; preds = %_ZL11_window_minPKfi.exit.i.us.i.preheader, %64
   %indvars.iv.i.us.i = phi i64 [ %indvars.iv.next.i.us.i, %64 ], [ 0, %_ZL11_window_minPKfi.exit.i.us.i.preheader ]
   %.055.i.us.i = phi float [ %.2.i.us.i, %64 ], [ %.055.i.us.i.ph, %_ZL11_window_minPKfi.exit.i.us.i.preheader ]
-  %38 = getelementptr inbounds nuw float, ptr %34, i64 %indvars.iv.i.us.i
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %indvars.iv.i.us.i
   store float %.055.i.us.i, ptr %38, align 4, !tbaa !13
   %39 = sub nsw i64 %indvars.iv.i.us.i, %32
   %40 = icmp sgt i64 %39, -1
   br i1 %40, label %41, label %_ZL11_window_minPKfi.exit53.i.us.i
 
 41:                                               ; preds = %_ZL11_window_minPKfi.exit.i.us.i
-  %42 = getelementptr inbounds nuw float, ptr %23, i64 %39
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %39
   %43 = load float, ptr %42, align 4, !tbaa !13
   %44 = fcmp reassoc nsz arcp contract afn oeq float %43, %.055.i.us.i
   br i1 %44, label %45, label %_ZL11_window_minPKfi.exit53.i.us.i
 
 45:                                               ; preds = %41
   %46 = add nuw nsw i64 %39, 1
-  %47 = getelementptr inbounds nuw float, ptr %23, i64 %46
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %46
   %48 = trunc nuw nsw i64 %indvars.iv.i.us.i to i32
   %49 = add i32 %31, %48
   %..i.us.i = tail call i32 @llvm.smin.i32(i32 %49, i32 %26)
@@ -2909,7 +2909,7 @@ _ZL11_window_minPKfi.exit.i.us.i:                 ; preds = %_ZL11_window_minPKf
 .lr.ph.i47.i.us.i:                                ; preds = %.lr.ph.i47.i.us.i, %.lr.ph.preheader.i45.i.us.i
   %indvars.iv.i48.i.us.i = phi i64 [ 0, %.lr.ph.preheader.i45.i.us.i ], [ %indvars.iv.next.i51.i.us.i, %.lr.ph.i47.i.us.i ]
   %.0911.i49.i.us.i = phi float [ 0x47EFFFFFE0000000, %.lr.ph.preheader.i45.i.us.i ], [ %.09..i50.i.us.i, %.lr.ph.i47.i.us.i ]
-  %53 = getelementptr inbounds nuw float, ptr %47, i64 %indvars.iv.i48.i.us.i
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %indvars.iv.i48.i.us.i
   %54 = load float, ptr %53, align 4, !tbaa !13
   %55 = fcmp reassoc nsz arcp contract afn olt float %.0911.i49.i.us.i, %54
   %.09..i50.i.us.i = select reassoc nsz arcp contract afn i1 %55, float %.0911.i49.i.us.i, float %54
@@ -2926,7 +2926,7 @@ _ZL11_window_minPKfi.exit53.i.us.i:               ; preds = %.lr.ph.i47.i.us.i, 
 
 59:                                               ; preds = %_ZL11_window_minPKfi.exit53.i.us.i
   %60 = sext i32 %57 to i64
-  %61 = getelementptr inbounds float, ptr %23, i64 %60
+  %61 = getelementptr inbounds [4 x i8], ptr %23, i64 %60
   %62 = load float, ptr %61, align 4, !tbaa !13
   %63 = fcmp reassoc nsz arcp contract afn olt float %62, %.1.i.us.i
   %..1.i.us.i = select reassoc nsz arcp contract afn i1 %63, float %62, float %.1.i.us.i
@@ -2966,7 +2966,7 @@ _ZL11_box_min_1diPKfPfi.exit.loopexit.us.i:       ; preds = %64
 _ZL11_window_minPKfi.exit.i.i:                    ; preds = %.lr.ph.i, %_ZL11_window_minPKfi.exit.i.i
   %.062139.i = phi i64 [ %77, %_ZL11_window_minPKfi.exit.i.i ], [ 0, %.lr.ph.i ]
   %75 = mul i64 %.062139.i, %2
-  %76 = getelementptr inbounds nuw float, ptr %0, i64 %75
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %75
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 64 %23, ptr align 4 %76, i64 %25, i1 false)
   %77 = add nuw i64 %.062139.i, 1
   %exitcond.not.i = icmp eq i64 %77, %1
@@ -2999,12 +2999,12 @@ _ZL11_window_minPKfi.exit.i.i:                    ; preds = %.lr.ph.i, %_ZL11_wi
   br label %90
 
 .preheader66.i.i:                                 ; preds = %90
-  %89 = getelementptr inbounds nuw float, ptr %0, i64 %.061150.i
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.061150.i
   br i1 %.not74.i.i, label %.preheader65.i.i, label %.lr.ph.i71.i
 
 90:                                               ; preds = %90, %88
   %.067.i.i = phi i64 [ 0, %88 ], [ %92, %90 ]
-  %91 = getelementptr inbounds nuw float, ptr %7, i64 %.067.i.i
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.067.i.i
   store float 0x47EFFFFFE0000000, ptr %91, align 4, !tbaa !13, !noalias !824
   %92 = add nuw nsw i64 %.067.i.i, 1
   %exitcond.not.i70.i = icmp eq i64 %92, 16
@@ -3017,13 +3017,13 @@ _ZL11_window_minPKfi.exit.i.i:                    ; preds = %.lr.ph.i, %_ZL11_wi
   %.05368.i.i = phi i64 [ %107, %_ZL16_load_update_minILm16EEvPfS0_PKf.exit.i.i ], [ 0, %.preheader66.i.i ]
   %93 = add nuw nsw i64 %.05368.i.i, 24
   %94 = mul i64 %93, %72
-  %95 = getelementptr inbounds nuw float, ptr %89, i64 %94
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %94
   tail call void @llvm.prefetch.p0(ptr %95, i32 0, i32 0, i32 1), !noalias !819
   %96 = and i64 %.05368.i.i, %68
   %.idx59.i.i = shl nuw nsw i64 %96, 6
   %97 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx59.i.i
   %98 = mul nsw i64 %.05368.i.i, %72
-  %99 = getelementptr inbounds nuw float, ptr %89, i64 %98
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %98
   tail call void @llvm.experimental.noalias.scope.decl(metadata !826)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !829)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %97, ptr noundef nonnull readonly align 4 dereferenceable(64) %99, i64 64, i1 false), !tbaa !13, !alias.scope !831
@@ -3031,9 +3031,9 @@ _ZL11_window_minPKfi.exit.i.i:                    ; preds = %.lr.ph.i, %_ZL11_wi
 
 100:                                              ; preds = %100, %.lr.ph.i71.i
   %.011.i.i.i = phi i64 [ 0, %.lr.ph.i71.i ], [ %106, %100 ]
-  %101 = getelementptr inbounds nuw float, ptr %99, i64 %.011.i.i.i
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %99, i64 %.011.i.i.i
   %102 = load float, ptr %101, align 4, !tbaa !13, !alias.scope !832, !noalias !833
-  %103 = getelementptr inbounds nuw float, ptr %7, i64 %.011.i.i.i
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.011.i.i.i
   %104 = load float, ptr %103, align 4, !tbaa !13, !noalias !831
   %105 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %104, float %102)
   store float %105, ptr %103, align 4, !tbaa !13, !noalias !831
@@ -3052,10 +3052,10 @@ _ZL16_load_update_minILm16EEvPfS0_PKf.exit.i.i:   ; preds = %100
   %umin.i.i = tail call i64 @llvm.umin.i64(i64 %indvars.iv.i73.i, i64 %73)
   %108 = add nuw nsw i64 %.05272.i.i, 24
   %109 = mul i64 %108, %72
-  %110 = getelementptr inbounds nuw float, ptr %89, i64 %109
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %109
   tail call void @llvm.prefetch.p0(ptr %110, i32 0, i32 0, i32 1), !noalias !819
   %111 = mul nsw i64 %.05272.i.i, %72
-  %112 = getelementptr inbounds nuw float, ptr %89, i64 %111
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %111
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %112, ptr noundef nonnull readonly align 64 dereferenceable(64) %7, i64 64, i1 false), !tbaa !13, !alias.scope !836, !noalias !819
   %.not.i74.i = icmp samesign ult i64 %.05272.i.i, %11
   br i1 %.not.i74.i, label %..loopexit_crit_edge.i.i, label %.preheader.i.i
@@ -3066,7 +3066,7 @@ _ZL16_load_update_minILm16EEvPfS0_PKf.exit.i.i:   ; preds = %100
 
 .preheader.i.i:                                   ; preds = %.lr.ph73.i.i, %.preheader.i.i
   %.04.i.i.i = phi i64 [ %114, %.preheader.i.i ], [ 0, %.lr.ph73.i.i ]
-  %113 = getelementptr inbounds nuw float, ptr %7, i64 %.04.i.i.i
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.04.i.i.i
   store float 0x47EFFFFFE0000000, ptr %113, align 4, !tbaa !13, !alias.scope !840, !noalias !824
   %114 = add nuw nsw i64 %.04.i.i.i, 1
   %exitcond.not.i60.i.i = icmp eq i64 %114, 16
@@ -3090,9 +3090,9 @@ _ZL4_setILm16EEvPff.exit.i.i:                     ; preds = %.preheader.i.i
 
 120:                                              ; preds = %120, %.lr.ph71.i.i
   %.07.i.i.i = phi i64 [ 0, %.lr.ph71.i.i ], [ %126, %120 ]
-  %121 = getelementptr inbounds nuw float, ptr %7, i64 %.07.i.i.i
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.07.i.i.i
   %122 = load float, ptr %121, align 4, !tbaa !13, !noalias !847
-  %123 = getelementptr inbounds nuw float, ptr %119, i64 %.07.i.i.i
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %119, i64 %.07.i.i.i
   %124 = load float, ptr %123, align 4, !tbaa !13, !alias.scope !848, !noalias !822
   %125 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %122, float %124)
   store float %125, ptr %121, align 4, !tbaa !13, !noalias !847
@@ -3115,7 +3115,7 @@ _ZL11_update_minILm16EEvPfPKf.exit.i.i:           ; preds = %120
   %.idx.i.i = shl nuw nsw i64 %129, 6
   %130 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx.i.i
   %131 = mul nsw i64 %.pre-phi.i.i, %72
-  %132 = getelementptr inbounds nuw float, ptr %89, i64 %131
+  %132 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %131
   tail call void @llvm.experimental.noalias.scope.decl(metadata !851)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !854)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %130, ptr noundef nonnull readonly align 4 dereferenceable(64) %132, i64 64, i1 false), !tbaa !13, !alias.scope !856
@@ -3123,9 +3123,9 @@ _ZL11_update_minILm16EEvPfPKf.exit.i.i:           ; preds = %120
 
 133:                                              ; preds = %133, %128
   %.011.i62.i.i = phi i64 [ 0, %128 ], [ %139, %133 ]
-  %134 = getelementptr inbounds nuw float, ptr %132, i64 %.011.i62.i.i
+  %134 = getelementptr inbounds nuw [4 x i8], ptr %132, i64 %.011.i62.i.i
   %135 = load float, ptr %134, align 4, !tbaa !13, !alias.scope !857, !noalias !858
-  %136 = getelementptr inbounds nuw float, ptr %7, i64 %.011.i62.i.i
+  %136 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.011.i62.i.i
   %137 = load float, ptr %136, align 4, !tbaa !13, !noalias !856
   %138 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %137, float %135)
   store float %138, ptr %136, align 4, !tbaa !13, !noalias !856
@@ -3172,12 +3172,12 @@ _ZL13_box_min_vertILm16EEvjPfS0_ijm.exit.i:       ; preds = %_ZL16_load_update_m
   br label %154
 
 .preheader66.i79.i:                               ; preds = %154
-  %153 = getelementptr inbounds nuw float, ptr %0, i64 %.0152.i
+  %153 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.0152.i
   br i1 %.not74.i80.i, label %.preheader65.i87.i, label %.lr.ph.i81.i
 
 154:                                              ; preds = %154, %152
   %.067.i77.i = phi i64 [ 0, %152 ], [ %156, %154 ]
-  %155 = getelementptr inbounds nuw float, ptr %6, i64 %.067.i77.i
+  %155 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.067.i77.i
   store float 0x47EFFFFFE0000000, ptr %155, align 4, !tbaa !13, !noalias !866
   %156 = add nuw nsw i64 %.067.i77.i, 1
   %exitcond.not.i78.i = icmp eq i64 %156, 4
@@ -3190,13 +3190,13 @@ _ZL13_box_min_vertILm16EEvjPfS0_ijm.exit.i:       ; preds = %_ZL16_load_update_m
   %.05368.i82.i = phi i64 [ %171, %_ZL16_load_update_minILm4EEvPfS0_PKf.exit.i.i ], [ 0, %.preheader66.i79.i ]
   %157 = add nuw nsw i64 %.05368.i82.i, 24
   %158 = mul i64 %157, %85
-  %159 = getelementptr inbounds nuw float, ptr %153, i64 %158
+  %159 = getelementptr inbounds nuw [4 x i8], ptr %153, i64 %158
   tail call void @llvm.prefetch.p0(ptr %159, i32 0, i32 0, i32 1), !noalias !861
   %160 = and i64 %.05368.i82.i, %81
   %.idx59.i83.i = shl nuw nsw i64 %160, 4
   %161 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx59.i83.i
   %162 = mul nsw i64 %.05368.i82.i, %85
-  %163 = getelementptr inbounds nuw float, ptr %153, i64 %162
+  %163 = getelementptr inbounds nuw [4 x i8], ptr %153, i64 %162
   tail call void @llvm.experimental.noalias.scope.decl(metadata !868)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !871)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %161, ptr noundef nonnull readonly align 4 dereferenceable(16) %163, i64 16, i1 false), !tbaa !13, !alias.scope !873
@@ -3204,9 +3204,9 @@ _ZL13_box_min_vertILm16EEvjPfS0_ijm.exit.i:       ; preds = %_ZL16_load_update_m
 
 164:                                              ; preds = %164, %.lr.ph.i81.i
   %.011.i.i84.i = phi i64 [ 0, %.lr.ph.i81.i ], [ %170, %164 ]
-  %165 = getelementptr inbounds nuw float, ptr %163, i64 %.011.i.i84.i
+  %165 = getelementptr inbounds nuw [4 x i8], ptr %163, i64 %.011.i.i84.i
   %166 = load float, ptr %165, align 4, !tbaa !13, !alias.scope !874, !noalias !875
-  %167 = getelementptr inbounds nuw float, ptr %6, i64 %.011.i.i84.i
+  %167 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.011.i.i84.i
   %168 = load float, ptr %167, align 4, !tbaa !13, !noalias !873
   %169 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %168, float %166)
   store float %169, ptr %167, align 4, !tbaa !13, !noalias !873
@@ -3225,10 +3225,10 @@ _ZL16_load_update_minILm4EEvPfS0_PKf.exit.i.i:    ; preds = %164
   %umin.i92.i = tail call i64 @llvm.umin.i64(i64 %indvars.iv.i90.i, i64 %86)
   %172 = add nuw nsw i64 %.05272.i91.i, 24
   %173 = mul i64 %172, %85
-  %174 = getelementptr inbounds nuw float, ptr %153, i64 %173
+  %174 = getelementptr inbounds nuw [4 x i8], ptr %153, i64 %173
   tail call void @llvm.prefetch.p0(ptr %174, i32 0, i32 0, i32 1), !noalias !861
   %175 = mul nsw i64 %.05272.i91.i, %85
-  %176 = getelementptr inbounds nuw float, ptr %153, i64 %175
+  %176 = getelementptr inbounds nuw [4 x i8], ptr %153, i64 %175
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %176, ptr noundef nonnull readonly align 64 dereferenceable(16) %6, i64 16, i1 false), !tbaa !13, !alias.scope !878, !noalias !861
   %.not.i93.i = icmp samesign ult i64 %.05272.i91.i, %11
   br i1 %.not.i93.i, label %..loopexit_crit_edge.i113.i, label %.preheader.i94.i
@@ -3239,7 +3239,7 @@ _ZL16_load_update_minILm4EEvPfS0_PKf.exit.i.i:    ; preds = %164
 
 .preheader.i94.i:                                 ; preds = %.lr.ph73.i89.i, %.preheader.i94.i
   %.04.i.i95.i = phi i64 [ %178, %.preheader.i94.i ], [ 0, %.lr.ph73.i89.i ]
-  %177 = getelementptr inbounds nuw float, ptr %6, i64 %.04.i.i95.i
+  %177 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.04.i.i95.i
   store float 0x47EFFFFFE0000000, ptr %177, align 4, !tbaa !13, !alias.scope !882, !noalias !866
   %178 = add nuw nsw i64 %.04.i.i95.i, 1
   %exitcond.not.i60.i96.i = icmp eq i64 %178, 4
@@ -3263,9 +3263,9 @@ _ZL4_setILm4EEvPff.exit.i.i:                      ; preds = %.preheader.i94.i
 
 184:                                              ; preds = %184, %.lr.ph71.i106.i
   %.07.i.i109.i = phi i64 [ 0, %.lr.ph71.i106.i ], [ %190, %184 ]
-  %185 = getelementptr inbounds nuw float, ptr %6, i64 %.07.i.i109.i
+  %185 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.07.i.i109.i
   %186 = load float, ptr %185, align 4, !tbaa !13, !noalias !889
-  %187 = getelementptr inbounds nuw float, ptr %183, i64 %.07.i.i109.i
+  %187 = getelementptr inbounds nuw [4 x i8], ptr %183, i64 %.07.i.i109.i
   %188 = load float, ptr %187, align 4, !tbaa !13, !alias.scope !890, !noalias !864
   %189 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %186, float %188)
   store float %189, ptr %185, align 4, !tbaa !13, !noalias !889
@@ -3288,7 +3288,7 @@ _ZL11_update_minILm4EEvPfPKf.exit.i.i:            ; preds = %184
   %.idx.i103.i = shl nuw nsw i64 %193, 4
   %194 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx.i103.i
   %195 = mul nsw i64 %.pre-phi.i100.i, %85
-  %196 = getelementptr inbounds nuw float, ptr %153, i64 %195
+  %196 = getelementptr inbounds nuw [4 x i8], ptr %153, i64 %195
   tail call void @llvm.experimental.noalias.scope.decl(metadata !893)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !896)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %194, ptr noundef nonnull readonly align 4 dereferenceable(16) %196, i64 16, i1 false), !tbaa !13, !alias.scope !898
@@ -3296,9 +3296,9 @@ _ZL11_update_minILm4EEvPfPKf.exit.i.i:            ; preds = %184
 
 197:                                              ; preds = %197, %192
   %.011.i62.i104.i = phi i64 [ 0, %192 ], [ %203, %197 ]
-  %198 = getelementptr inbounds nuw float, ptr %196, i64 %.011.i62.i104.i
+  %198 = getelementptr inbounds nuw [4 x i8], ptr %196, i64 %.011.i62.i104.i
   %199 = load float, ptr %198, align 4, !tbaa !13, !alias.scope !899, !noalias !900
-  %200 = getelementptr inbounds nuw float, ptr %6, i64 %.011.i62.i104.i
+  %200 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.011.i62.i104.i
   %201 = load float, ptr %200, align 4, !tbaa !13, !noalias !898
   %202 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %201, float %199)
   store float %202, ptr %200, align 4, !tbaa !13, !noalias !898
@@ -3320,7 +3320,7 @@ _ZL13_box_min_vertILm4EEvjPfS0_ijm.exit.i:        ; preds = %_ZL16_load_update_m
 
 207:                                              ; preds = %_ZL13_box_min_vertILm1EEvjPfS0_ijm.exit.i, %.lr.ph156.i
   %.1155.i = phi i64 [ %.0.lcssa.i, %.lr.ph156.i ], [ %242, %_ZL13_box_min_vertILm1EEvjPfS0_ijm.exit.i ]
-  %208 = getelementptr inbounds nuw float, ptr %0, i64 %.1155.i
+  %208 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.1155.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !903)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !906)
   br i1 %.not71.i.i, label %.preheader.i117.i, label %.lr.ph.i115.i
@@ -3334,12 +3334,12 @@ _ZL13_box_min_vertILm4EEvjPfS0_ijm.exit.i:        ; preds = %_ZL16_load_update_m
   %.sroa.0.161.i.i = phi float [ %217, %.lr.ph.i115.i ], [ 0x47EFFFFFE0000000, %207 ]
   %209 = add nuw nsw i64 %.05362.i.i, 24
   %210 = mul i64 %209, %149
-  %211 = getelementptr inbounds nuw float, ptr %208, i64 %210
+  %211 = getelementptr inbounds nuw [4 x i8], ptr %208, i64 %210
   tail call void @llvm.prefetch.p0(ptr %211, i32 0, i32 0, i32 1), !noalias !903
   %212 = and i64 %.05362.i.i, %145
-  %213 = getelementptr inbounds nuw float, ptr %23, i64 %212
+  %213 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %212
   %214 = mul nsw i64 %.05362.i.i, %149
-  %215 = getelementptr inbounds nuw float, ptr %208, i64 %214
+  %215 = getelementptr inbounds nuw [4 x i8], ptr %208, i64 %214
   tail call void @llvm.experimental.noalias.scope.decl(metadata !908)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !911)
   %216 = load float, ptr %215, align 4, !tbaa !13, !alias.scope !913, !noalias !914
@@ -3356,10 +3356,10 @@ _ZL13_box_min_vertILm4EEvjPfS0_ijm.exit.i:        ; preds = %_ZL16_load_update_m
   %umin.i119.i = tail call i64 @llvm.umin.i64(i64 %indvars.iv.i118.i, i64 %150)
   %219 = add nuw nsw i64 %.05269.i.i, 24
   %220 = mul i64 %219, %149
-  %221 = getelementptr inbounds nuw float, ptr %208, i64 %220
+  %221 = getelementptr inbounds nuw [4 x i8], ptr %208, i64 %220
   tail call void @llvm.prefetch.p0(ptr %221, i32 0, i32 0, i32 1), !noalias !903
   %222 = mul nsw i64 %.05269.i.i, %149
-  %223 = getelementptr inbounds nuw float, ptr %208, i64 %222
+  %223 = getelementptr inbounds nuw [4 x i8], ptr %208, i64 %222
   store float %.sroa.0.268.i.i, ptr %223, align 4, !tbaa !13, !alias.scope !916, !noalias !903
   %.not.i120.i = icmp samesign ult i64 %.05269.i.i, %11
   br i1 %.not.i120.i, label %..loopexit_crit_edge.i126.i, label %224
@@ -3380,7 +3380,7 @@ _ZL13_box_min_vertILm4EEvjPfS0_ijm.exit.i:        ; preds = %_ZL16_load_update_m
   %.05165.i.i = phi i64 [ %.051.i125.i, %.lr.ph66.i.i ], [ %.05163.i.i, %224 ]
   %.sroa.0.464.i.i = phi float [ %231, %.lr.ph66.i.i ], [ 0x47EFFFFFE0000000, %224 ]
   %228 = and i64 %.05165.i.i, %145
-  %229 = getelementptr inbounds nuw float, ptr %23, i64 %228
+  %229 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %228
   %230 = load float, ptr %229, align 4, !tbaa !13, !alias.scope !919, !noalias !906
   %231 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %.sroa.0.464.i.i, float %230)
   %.051.i125.i = add nuw nsw i64 %.05165.i.i, 1
@@ -3395,9 +3395,9 @@ _ZL13_box_min_vertILm4EEvjPfS0_ijm.exit.i:        ; preds = %_ZL16_load_update_m
 
 233:                                              ; preds = %.loopexit.i122.i
   %234 = and i64 %.pre-phi.i123.i, %145
-  %235 = getelementptr inbounds nuw float, ptr %23, i64 %234
+  %235 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %234
   %236 = mul nsw i64 %.pre-phi.i123.i, %149
-  %237 = getelementptr inbounds nuw float, ptr %208, i64 %236
+  %237 = getelementptr inbounds nuw [4 x i8], ptr %208, i64 %236
   tail call void @llvm.experimental.noalias.scope.decl(metadata !923)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !926)
   %238 = load float, ptr %237, align 4, !tbaa !13, !alias.scope !928, !noalias !929
@@ -3491,7 +3491,7 @@ _ZL25_compute_effective_heightmm.exit.i:          ; preds = %.lr.ph.i.i, %9
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %_ZL10box_max_1diPKfPfi.exit.loopexit.us.i
   %.062134.us.i = phi i64 [ %65, %_ZL10box_max_1diPKfPfi.exit.loopexit.us.i ], [ 0, %.lr.ph.i ]
   %33 = mul i64 %.062134.us.i, %2
-  %34 = getelementptr inbounds nuw float, ptr %0, i64 %33
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %33
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 64 %23, ptr align 4 %34, i64 %25, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !932)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !935)
@@ -3500,7 +3500,7 @@ _ZL25_compute_effective_heightmm.exit.i:          ; preds = %.lr.ph.i.i, %9
 .lr.ph.i.i.us.i:                                  ; preds = %.lr.ph.split.us.i, %.lr.ph.i.i.us.i
   %indvars.iv.i.i.us.i = phi i64 [ %indvars.iv.next.i.i.us.i, %.lr.ph.i.i.us.i ], [ 0, %.lr.ph.split.us.i ]
   %.0911.i.i.us.i = phi float [ %.09..i.i.us.i, %.lr.ph.i.i.us.i ], [ 0xC7EFFFFFE0000000, %.lr.ph.split.us.i ]
-  %35 = getelementptr inbounds nuw float, ptr %23, i64 %indvars.iv.i.i.us.i
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %indvars.iv.i.i.us.i
   %36 = load float, ptr %35, align 4, !tbaa !13, !alias.scope !932, !noalias !935
   %37 = fcmp reassoc nsz arcp contract afn ogt float %.0911.i.i.us.i, %36
   %.09..i.i.us.i = select reassoc nsz arcp contract afn i1 %37, float %.0911.i.i.us.i, float %36
@@ -3515,21 +3515,21 @@ _ZL11_window_maxPKfi.exit.i.us.i.preheader:       ; preds = %.lr.ph.i.i.us.i, %.
 _ZL11_window_maxPKfi.exit.i.us.i:                 ; preds = %_ZL11_window_maxPKfi.exit.i.us.i.preheader, %64
   %indvars.iv.i.us.i = phi i64 [ %indvars.iv.next.i.us.i, %64 ], [ 0, %_ZL11_window_maxPKfi.exit.i.us.i.preheader ]
   %.055.i.us.i = phi float [ %.2.i.us.i, %64 ], [ %.055.i.us.i.ph, %_ZL11_window_maxPKfi.exit.i.us.i.preheader ]
-  %38 = getelementptr inbounds nuw float, ptr %34, i64 %indvars.iv.i.us.i
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %indvars.iv.i.us.i
   store float %.055.i.us.i, ptr %38, align 4, !tbaa !13, !alias.scope !935, !noalias !932
   %39 = sub nsw i64 %indvars.iv.i.us.i, %32
   %40 = icmp sgt i64 %39, -1
   br i1 %40, label %41, label %_ZL11_window_maxPKfi.exit53.i.us.i
 
 41:                                               ; preds = %_ZL11_window_maxPKfi.exit.i.us.i
-  %42 = getelementptr inbounds nuw float, ptr %23, i64 %39
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %39
   %43 = load float, ptr %42, align 4, !tbaa !13, !alias.scope !932, !noalias !935
   %44 = fcmp reassoc nsz arcp contract afn oeq float %43, %.055.i.us.i
   br i1 %44, label %45, label %_ZL11_window_maxPKfi.exit53.i.us.i
 
 45:                                               ; preds = %41
   %46 = add nuw nsw i64 %39, 1
-  %47 = getelementptr inbounds nuw float, ptr %23, i64 %46
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %46
   %48 = trunc nuw nsw i64 %indvars.iv.i.us.i to i32
   %49 = add i32 %31, %48
   %..i.us.i = tail call i32 @llvm.smin.i32(i32 %49, i32 %26)
@@ -3545,7 +3545,7 @@ _ZL11_window_maxPKfi.exit.i.us.i:                 ; preds = %_ZL11_window_maxPKf
 .lr.ph.i47.i.us.i:                                ; preds = %.lr.ph.i47.i.us.i, %.lr.ph.preheader.i45.i.us.i
   %indvars.iv.i48.i.us.i = phi i64 [ 0, %.lr.ph.preheader.i45.i.us.i ], [ %indvars.iv.next.i51.i.us.i, %.lr.ph.i47.i.us.i ]
   %.0911.i49.i.us.i = phi float [ 0xC7EFFFFFE0000000, %.lr.ph.preheader.i45.i.us.i ], [ %.09..i50.i.us.i, %.lr.ph.i47.i.us.i ]
-  %53 = getelementptr inbounds nuw float, ptr %47, i64 %indvars.iv.i48.i.us.i
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %indvars.iv.i48.i.us.i
   %54 = load float, ptr %53, align 4, !tbaa !13, !alias.scope !932, !noalias !935
   %55 = fcmp reassoc nsz arcp contract afn ogt float %.0911.i49.i.us.i, %54
   %.09..i50.i.us.i = select reassoc nsz arcp contract afn i1 %55, float %.0911.i49.i.us.i, float %54
@@ -3562,7 +3562,7 @@ _ZL11_window_maxPKfi.exit53.i.us.i:               ; preds = %.lr.ph.i47.i.us.i, 
 
 59:                                               ; preds = %_ZL11_window_maxPKfi.exit53.i.us.i
   %60 = sext i32 %57 to i64
-  %61 = getelementptr inbounds float, ptr %23, i64 %60
+  %61 = getelementptr inbounds [4 x i8], ptr %23, i64 %60
   %62 = load float, ptr %61, align 4, !tbaa !13, !alias.scope !932, !noalias !935
   %63 = fcmp reassoc nsz arcp contract afn ogt float %62, %.1.i.us.i
   %..1.i.us.i = select reassoc nsz arcp contract afn i1 %63, float %62, float %.1.i.us.i
@@ -3600,7 +3600,7 @@ _ZL10box_max_1diPKfPfi.exit.loopexit.us.i:        ; preds = %64
 _ZL11_window_maxPKfi.exit.i.i:                    ; preds = %.lr.ph.i, %_ZL11_window_maxPKfi.exit.i.i
   %.062134.i = phi i64 [ %76, %_ZL11_window_maxPKfi.exit.i.i ], [ 0, %.lr.ph.i ]
   %74 = mul i64 %.062134.i, %2
-  %75 = getelementptr inbounds nuw float, ptr %0, i64 %74
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %74
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 64 %23, ptr align 4 %75, i64 %25, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !932)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !935)
@@ -3633,12 +3633,12 @@ _ZL11_window_maxPKfi.exit.i.i:                    ; preds = %.lr.ph.i, %_ZL11_wi
   br label %88
 
 .preheader66.i.i:                                 ; preds = %88
-  %87 = getelementptr inbounds nuw float, ptr %0, i64 %.061145.i
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.061145.i
   br i1 %.not74.i.i, label %.preheader65.i.i, label %.lr.ph.i71.i
 
 88:                                               ; preds = %88, %86
   %.067.i.i = phi i64 [ 0, %86 ], [ %90, %88 ]
-  %89 = getelementptr inbounds nuw float, ptr %7, i64 %.067.i.i
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.067.i.i
   store float 0xC7EFFFFFE0000000, ptr %89, align 4, !tbaa !13, !noalias !945
   %90 = add nuw nsw i64 %.067.i.i, 1
   %exitcond.not.i70.i = icmp eq i64 %90, 16
@@ -3651,13 +3651,13 @@ _ZL11_window_maxPKfi.exit.i.i:                    ; preds = %.lr.ph.i, %_ZL11_wi
   %.05368.i.i = phi i64 [ %105, %_ZL16_load_update_maxILm16EEvPfS0_PKf.exit.i.i ], [ 0, %.preheader66.i.i ]
   %91 = add nuw nsw i64 %.05368.i.i, 24
   %92 = mul i64 %91, %2
-  %93 = getelementptr inbounds nuw float, ptr %87, i64 %92
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %87, i64 %92
   tail call void @llvm.prefetch.p0(ptr %93, i32 0, i32 0, i32 1), !noalias !940
   %94 = and i64 %.05368.i.i, %68
   %.idx59.i.i = shl nuw nsw i64 %94, 6
   %95 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx59.i.i
   %96 = mul i64 %.05368.i.i, %2
-  %97 = getelementptr inbounds nuw float, ptr %87, i64 %96
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %87, i64 %96
   tail call void @llvm.experimental.noalias.scope.decl(metadata !947)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !950)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %95, ptr noundef nonnull readonly align 4 dereferenceable(64) %97, i64 64, i1 false), !tbaa !13, !alias.scope !952
@@ -3665,9 +3665,9 @@ _ZL11_window_maxPKfi.exit.i.i:                    ; preds = %.lr.ph.i, %_ZL11_wi
 
 98:                                               ; preds = %98, %.lr.ph.i71.i
   %.011.i.i.i = phi i64 [ 0, %.lr.ph.i71.i ], [ %104, %98 ]
-  %99 = getelementptr inbounds nuw float, ptr %97, i64 %.011.i.i.i
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %97, i64 %.011.i.i.i
   %100 = load float, ptr %99, align 4, !tbaa !13, !alias.scope !953, !noalias !954
-  %101 = getelementptr inbounds nuw float, ptr %7, i64 %.011.i.i.i
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.011.i.i.i
   %102 = load float, ptr %101, align 4, !tbaa !13, !noalias !952
   %103 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %102, float %100)
   store float %103, ptr %101, align 4, !tbaa !13, !noalias !952
@@ -3686,10 +3686,10 @@ _ZL16_load_update_maxILm16EEvPfS0_PKf.exit.i.i:   ; preds = %98
   %umin.i.i = tail call i64 @llvm.umin.i64(i64 %indvars.iv.i73.i, i64 %72)
   %106 = add nuw nsw i64 %.05272.i.i, 24
   %107 = mul i64 %106, %2
-  %108 = getelementptr inbounds nuw float, ptr %87, i64 %107
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %87, i64 %107
   tail call void @llvm.prefetch.p0(ptr %108, i32 0, i32 0, i32 1), !noalias !940
   %109 = mul i64 %.05272.i.i, %2
-  %110 = getelementptr inbounds nuw float, ptr %87, i64 %109
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %87, i64 %109
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %110, ptr noundef nonnull readonly align 64 dereferenceable(64) %7, i64 64, i1 false), !tbaa !13, !alias.scope !957, !noalias !940
   %.not.i74.i = icmp samesign ult i64 %.05272.i.i, %11
   br i1 %.not.i74.i, label %..loopexit_crit_edge.i.i, label %.preheader.i.i
@@ -3700,7 +3700,7 @@ _ZL16_load_update_maxILm16EEvPfS0_PKf.exit.i.i:   ; preds = %98
 
 .preheader.i.i:                                   ; preds = %.lr.ph73.i.i, %.preheader.i.i
   %.04.i.i.i = phi i64 [ %112, %.preheader.i.i ], [ 0, %.lr.ph73.i.i ]
-  %111 = getelementptr inbounds nuw float, ptr %7, i64 %.04.i.i.i
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.04.i.i.i
   store float 0xC7EFFFFFE0000000, ptr %111, align 4, !tbaa !13, !alias.scope !961, !noalias !945
   %112 = add nuw nsw i64 %.04.i.i.i, 1
   %exitcond.not.i60.i.i = icmp eq i64 %112, 16
@@ -3724,9 +3724,9 @@ _ZL4_setILm16EEvPff.exit.i.i:                     ; preds = %.preheader.i.i
 
 118:                                              ; preds = %118, %.lr.ph71.i.i
   %.07.i.i.i = phi i64 [ 0, %.lr.ph71.i.i ], [ %124, %118 ]
-  %119 = getelementptr inbounds nuw float, ptr %7, i64 %.07.i.i.i
+  %119 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.07.i.i.i
   %120 = load float, ptr %119, align 4, !tbaa !13, !noalias !967
-  %121 = getelementptr inbounds nuw float, ptr %117, i64 %.07.i.i.i
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %117, i64 %.07.i.i.i
   %122 = load float, ptr %121, align 4, !tbaa !13, !alias.scope !968, !noalias !943
   %123 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %120, float %122)
   store float %123, ptr %119, align 4, !tbaa !13, !noalias !967
@@ -3749,7 +3749,7 @@ _ZL11_update_maxILm16EEvPfPKf.exit.i.i:           ; preds = %118
   %.idx.i.i = shl nuw nsw i64 %127, 6
   %128 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx.i.i
   %129 = mul i64 %.pre-phi.i.i, %2
-  %130 = getelementptr inbounds nuw float, ptr %87, i64 %129
+  %130 = getelementptr inbounds nuw [4 x i8], ptr %87, i64 %129
   tail call void @llvm.experimental.noalias.scope.decl(metadata !971)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !974)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %128, ptr noundef nonnull readonly align 4 dereferenceable(64) %130, i64 64, i1 false), !tbaa !13, !alias.scope !976
@@ -3757,9 +3757,9 @@ _ZL11_update_maxILm16EEvPfPKf.exit.i.i:           ; preds = %118
 
 131:                                              ; preds = %131, %126
   %.011.i62.i.i = phi i64 [ 0, %126 ], [ %137, %131 ]
-  %132 = getelementptr inbounds nuw float, ptr %130, i64 %.011.i62.i.i
+  %132 = getelementptr inbounds nuw [4 x i8], ptr %130, i64 %.011.i62.i.i
   %133 = load float, ptr %132, align 4, !tbaa !13, !alias.scope !977, !noalias !978
-  %134 = getelementptr inbounds nuw float, ptr %7, i64 %.011.i62.i.i
+  %134 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.011.i62.i.i
   %135 = load float, ptr %134, align 4, !tbaa !13, !noalias !976
   %136 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %135, float %133)
   store float %136, ptr %134, align 4, !tbaa !13, !noalias !976
@@ -3804,12 +3804,12 @@ _ZL13_box_max_vertILm16EEvjPfS0_mjm.exit.i:       ; preds = %_ZL16_load_update_m
   br label %151
 
 .preheader66.i79.i:                               ; preds = %151
-  %150 = getelementptr inbounds nuw float, ptr %0, i64 %.0147.i
+  %150 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.0147.i
   br i1 %.not74.i80.i, label %.preheader65.i87.i, label %.lr.ph.i81.i
 
 151:                                              ; preds = %151, %149
   %.067.i77.i = phi i64 [ 0, %149 ], [ %153, %151 ]
-  %152 = getelementptr inbounds nuw float, ptr %6, i64 %.067.i77.i
+  %152 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.067.i77.i
   store float 0xC7EFFFFFE0000000, ptr %152, align 4, !tbaa !13, !noalias !986
   %153 = add nuw nsw i64 %.067.i77.i, 1
   %exitcond.not.i78.i = icmp eq i64 %153, 4
@@ -3822,13 +3822,13 @@ _ZL13_box_max_vertILm16EEvjPfS0_mjm.exit.i:       ; preds = %_ZL16_load_update_m
   %.05368.i82.i = phi i64 [ %168, %_ZL16_load_update_maxILm4EEvPfS0_PKf.exit.i.i ], [ 0, %.preheader66.i79.i ]
   %154 = add nuw nsw i64 %.05368.i82.i, 24
   %155 = mul i64 %154, %2
-  %156 = getelementptr inbounds nuw float, ptr %150, i64 %155
+  %156 = getelementptr inbounds nuw [4 x i8], ptr %150, i64 %155
   tail call void @llvm.prefetch.p0(ptr %156, i32 0, i32 0, i32 1), !noalias !981
   %157 = and i64 %.05368.i82.i, %80
   %.idx59.i83.i = shl nuw nsw i64 %157, 4
   %158 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx59.i83.i
   %159 = mul i64 %.05368.i82.i, %2
-  %160 = getelementptr inbounds nuw float, ptr %150, i64 %159
+  %160 = getelementptr inbounds nuw [4 x i8], ptr %150, i64 %159
   tail call void @llvm.experimental.noalias.scope.decl(metadata !988)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !991)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %158, ptr noundef nonnull readonly align 4 dereferenceable(16) %160, i64 16, i1 false), !tbaa !13, !alias.scope !993
@@ -3836,9 +3836,9 @@ _ZL13_box_max_vertILm16EEvjPfS0_mjm.exit.i:       ; preds = %_ZL16_load_update_m
 
 161:                                              ; preds = %161, %.lr.ph.i81.i
   %.011.i.i84.i = phi i64 [ 0, %.lr.ph.i81.i ], [ %167, %161 ]
-  %162 = getelementptr inbounds nuw float, ptr %160, i64 %.011.i.i84.i
+  %162 = getelementptr inbounds nuw [4 x i8], ptr %160, i64 %.011.i.i84.i
   %163 = load float, ptr %162, align 4, !tbaa !13, !alias.scope !994, !noalias !995
-  %164 = getelementptr inbounds nuw float, ptr %6, i64 %.011.i.i84.i
+  %164 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.011.i.i84.i
   %165 = load float, ptr %164, align 4, !tbaa !13, !noalias !993
   %166 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %165, float %163)
   store float %166, ptr %164, align 4, !tbaa !13, !noalias !993
@@ -3857,10 +3857,10 @@ _ZL16_load_update_maxILm4EEvPfS0_PKf.exit.i.i:    ; preds = %161
   %umin.i92.i = tail call i64 @llvm.umin.i64(i64 %indvars.iv.i90.i, i64 %84)
   %169 = add nuw nsw i64 %.05272.i91.i, 24
   %170 = mul i64 %169, %2
-  %171 = getelementptr inbounds nuw float, ptr %150, i64 %170
+  %171 = getelementptr inbounds nuw [4 x i8], ptr %150, i64 %170
   tail call void @llvm.prefetch.p0(ptr %171, i32 0, i32 0, i32 1), !noalias !981
   %172 = mul i64 %.05272.i91.i, %2
-  %173 = getelementptr inbounds nuw float, ptr %150, i64 %172
+  %173 = getelementptr inbounds nuw [4 x i8], ptr %150, i64 %172
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %173, ptr noundef nonnull readonly align 64 dereferenceable(16) %6, i64 16, i1 false), !tbaa !13, !alias.scope !998, !noalias !981
   %.not.i93.i = icmp samesign ult i64 %.05272.i91.i, %11
   br i1 %.not.i93.i, label %..loopexit_crit_edge.i113.i, label %.preheader.i94.i
@@ -3871,7 +3871,7 @@ _ZL16_load_update_maxILm4EEvPfS0_PKf.exit.i.i:    ; preds = %161
 
 .preheader.i94.i:                                 ; preds = %.lr.ph73.i89.i, %.preheader.i94.i
   %.04.i.i95.i = phi i64 [ %175, %.preheader.i94.i ], [ 0, %.lr.ph73.i89.i ]
-  %174 = getelementptr inbounds nuw float, ptr %6, i64 %.04.i.i95.i
+  %174 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.04.i.i95.i
   store float 0xC7EFFFFFE0000000, ptr %174, align 4, !tbaa !13, !alias.scope !1002, !noalias !986
   %175 = add nuw nsw i64 %.04.i.i95.i, 1
   %exitcond.not.i60.i96.i = icmp eq i64 %175, 4
@@ -3895,9 +3895,9 @@ _ZL4_setILm4EEvPff.exit.i.i:                      ; preds = %.preheader.i94.i
 
 181:                                              ; preds = %181, %.lr.ph71.i106.i
   %.07.i.i109.i = phi i64 [ 0, %.lr.ph71.i106.i ], [ %187, %181 ]
-  %182 = getelementptr inbounds nuw float, ptr %6, i64 %.07.i.i109.i
+  %182 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.07.i.i109.i
   %183 = load float, ptr %182, align 4, !tbaa !13, !noalias !1008
-  %184 = getelementptr inbounds nuw float, ptr %180, i64 %.07.i.i109.i
+  %184 = getelementptr inbounds nuw [4 x i8], ptr %180, i64 %.07.i.i109.i
   %185 = load float, ptr %184, align 4, !tbaa !13, !alias.scope !1009, !noalias !984
   %186 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %183, float %185)
   store float %186, ptr %182, align 4, !tbaa !13, !noalias !1008
@@ -3920,7 +3920,7 @@ _ZL11_update_maxILm4EEvPfPKf.exit.i.i:            ; preds = %181
   %.idx.i103.i = shl nuw nsw i64 %190, 4
   %191 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx.i103.i
   %192 = mul i64 %.pre-phi.i100.i, %2
-  %193 = getelementptr inbounds nuw float, ptr %150, i64 %192
+  %193 = getelementptr inbounds nuw [4 x i8], ptr %150, i64 %192
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1012)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1015)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %191, ptr noundef nonnull readonly align 4 dereferenceable(16) %193, i64 16, i1 false), !tbaa !13, !alias.scope !1017
@@ -3928,9 +3928,9 @@ _ZL11_update_maxILm4EEvPfPKf.exit.i.i:            ; preds = %181
 
 194:                                              ; preds = %194, %189
   %.011.i62.i104.i = phi i64 [ 0, %189 ], [ %200, %194 ]
-  %195 = getelementptr inbounds nuw float, ptr %193, i64 %.011.i62.i104.i
+  %195 = getelementptr inbounds nuw [4 x i8], ptr %193, i64 %.011.i62.i104.i
   %196 = load float, ptr %195, align 4, !tbaa !13, !alias.scope !1018, !noalias !1019
-  %197 = getelementptr inbounds nuw float, ptr %6, i64 %.011.i62.i104.i
+  %197 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.011.i62.i104.i
   %198 = load float, ptr %197, align 4, !tbaa !13, !noalias !1017
   %199 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %198, float %196)
   store float %199, ptr %197, align 4, !tbaa !13, !noalias !1017
@@ -3952,7 +3952,7 @@ _ZL13_box_max_vertILm4EEvjPfS0_mjm.exit.i:        ; preds = %_ZL16_load_update_m
 
 204:                                              ; preds = %_ZL13_box_max_vertILm1EEvjPfS0_mjm.exit.i, %.lr.ph151.i
   %.1150.i = phi i64 [ %.0.lcssa.i, %.lr.ph151.i ], [ %239, %_ZL13_box_max_vertILm1EEvjPfS0_mjm.exit.i ]
-  %205 = getelementptr inbounds nuw float, ptr %0, i64 %.1150.i
+  %205 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.1150.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1022)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1025)
   br i1 %.not71.i.i, label %.preheader.i117.i, label %.lr.ph.i115.i
@@ -3966,12 +3966,12 @@ _ZL13_box_max_vertILm4EEvjPfS0_mjm.exit.i:        ; preds = %_ZL16_load_update_m
   %.sroa.0.161.i.i = phi float [ %214, %.lr.ph.i115.i ], [ 0xC7EFFFFFE0000000, %204 ]
   %206 = add nuw nsw i64 %.05362.i.i, 24
   %207 = mul i64 %206, %2
-  %208 = getelementptr inbounds nuw float, ptr %205, i64 %207
+  %208 = getelementptr inbounds nuw [4 x i8], ptr %205, i64 %207
   tail call void @llvm.prefetch.p0(ptr %208, i32 0, i32 0, i32 1), !noalias !1022
   %209 = and i64 %.05362.i.i, %143
-  %210 = getelementptr inbounds nuw float, ptr %23, i64 %209
+  %210 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %209
   %211 = mul i64 %.05362.i.i, %2
-  %212 = getelementptr inbounds nuw float, ptr %205, i64 %211
+  %212 = getelementptr inbounds nuw [4 x i8], ptr %205, i64 %211
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1027)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1030)
   %213 = load float, ptr %212, align 4, !tbaa !13, !alias.scope !1032, !noalias !1033
@@ -3988,10 +3988,10 @@ _ZL13_box_max_vertILm4EEvjPfS0_mjm.exit.i:        ; preds = %_ZL16_load_update_m
   %umin.i119.i = tail call i64 @llvm.umin.i64(i64 %indvars.iv.i118.i, i64 %147)
   %216 = add nuw nsw i64 %.05269.i.i, 24
   %217 = mul i64 %216, %2
-  %218 = getelementptr inbounds nuw float, ptr %205, i64 %217
+  %218 = getelementptr inbounds nuw [4 x i8], ptr %205, i64 %217
   tail call void @llvm.prefetch.p0(ptr %218, i32 0, i32 0, i32 1), !noalias !1022
   %219 = mul i64 %.05269.i.i, %2
-  %220 = getelementptr inbounds nuw float, ptr %205, i64 %219
+  %220 = getelementptr inbounds nuw [4 x i8], ptr %205, i64 %219
   store float %.sroa.0.268.i.i, ptr %220, align 4, !tbaa !13, !alias.scope !1035, !noalias !1022
   %.not.i120.i = icmp samesign ult i64 %.05269.i.i, %11
   br i1 %.not.i120.i, label %..loopexit_crit_edge.i126.i, label %221
@@ -4012,7 +4012,7 @@ _ZL13_box_max_vertILm4EEvjPfS0_mjm.exit.i:        ; preds = %_ZL16_load_update_m
   %.05165.i.i = phi i64 [ %.051.i125.i, %.lr.ph66.i.i ], [ %.05163.i.i, %221 ]
   %.sroa.0.464.i.i = phi float [ %228, %.lr.ph66.i.i ], [ 0xC7EFFFFFE0000000, %221 ]
   %225 = and i64 %.05165.i.i, %143
-  %226 = getelementptr inbounds nuw float, ptr %23, i64 %225
+  %226 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %225
   %227 = load float, ptr %226, align 4, !tbaa !13, !alias.scope !1038, !noalias !1025
   %228 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %.sroa.0.464.i.i, float %227)
   %.051.i125.i = add nuw nsw i64 %.05165.i.i, 1
@@ -4027,9 +4027,9 @@ _ZL13_box_max_vertILm4EEvjPfS0_mjm.exit.i:        ; preds = %_ZL16_load_update_m
 
 230:                                              ; preds = %.loopexit.i122.i
   %231 = and i64 %.pre-phi.i123.i, %143
-  %232 = getelementptr inbounds nuw float, ptr %23, i64 %231
+  %232 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %231
   %233 = mul i64 %.pre-phi.i123.i, %2
-  %234 = getelementptr inbounds nuw float, ptr %205, i64 %233
+  %234 = getelementptr inbounds nuw [4 x i8], ptr %205, i64 %233
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1042)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1045)
   %235 = load float, ptr %234, align 4, !tbaa !13, !alias.scope !1047, !noalias !1048
@@ -4111,7 +4111,7 @@ define internal fastcc void @_ZL18_blur_vertical_1chILb0EEvPfmmmS0_m(ptr noalias
   br i1 %16, label %.lr.ph, label %.preheader
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds nuw float, ptr %0, i64 %.031120
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.031120
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1051)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1054)
   br i1 %.not142.i, label %._crit_edge.i, label %.lr.ph.i
@@ -4137,7 +4137,7 @@ define internal fastcc void @_ZL18_blur_vertical_1chILb0EEvPfmmmS0_m(ptr noalias
   %.idx98.i = shl i64 %23, 6
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx98.i
   %25 = mul i64 %.084127.i, %2
-  %26 = getelementptr inbounds nuw float, ptr %18, i64 %25
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %25
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1058)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1061)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1063)
@@ -4146,9 +4146,9 @@ define internal fastcc void @_ZL18_blur_vertical_1chILb0EEvPfmmmS0_m(ptr noalias
 
 27:                                               ; preds = %27, %.lr.ph128.i
   %.01.i.i = phi i64 [ 0, %.lr.ph128.i ], [ %33, %27 ]
-  %28 = getelementptr inbounds nuw float, ptr %26, i64 %.01.i.i
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %.01.i.i
   %29 = load float, ptr %28, align 4, !tbaa !13, !alias.scope !1066, !noalias !1067
-  %30 = getelementptr inbounds nuw float, ptr %7, i64 %.01.i.i
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.01.i.i
   %31 = load float, ptr %30, align 4, !tbaa !13, !alias.scope !1061, !noalias !1065
   %32 = fadd reassoc nsz arcp contract afn float %31, %29
   store float %32, ptr %30, align 4, !tbaa !13, !alias.scope !1061, !noalias !1065
@@ -4178,7 +4178,7 @@ _ZL9_load_addILm16ELb0EEvPfS0_PKfS0_.exit.i:      ; preds = %27
   %.idx97.i = shl i64 %38, 6
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx97.i
   %40 = mul i64 %37, %2
-  %41 = getelementptr inbounds nuw float, ptr %18, i64 %40
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %40
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1070)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1073)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1075)
@@ -4187,9 +4187,9 @@ _ZL9_load_addILm16ELb0EEvPfS0_PKfS0_.exit.i:      ; preds = %27
 
 42:                                               ; preds = %42, %35
   %.01.i99.i = phi i64 [ 0, %35 ], [ %48, %42 ]
-  %43 = getelementptr inbounds nuw float, ptr %41, i64 %.01.i99.i
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %.01.i99.i
   %44 = load float, ptr %43, align 4, !tbaa !13, !alias.scope !1078, !noalias !1079
-  %45 = getelementptr inbounds nuw float, ptr %7, i64 %.01.i99.i
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.01.i99.i
   %46 = load float, ptr %45, align 4, !tbaa !13, !alias.scope !1073, !noalias !1077
   %47 = fadd reassoc nsz arcp contract afn float %46, %44
   store float %47, ptr %45, align 4, !tbaa !13, !alias.scope !1073, !noalias !1077
@@ -4200,7 +4200,7 @@ _ZL9_load_addILm16ELb0EEvPfS0_PKfS0_.exit.i:      ; preds = %27
 _ZL9_load_addILm16ELb0EEvPfS0_PKfS0_.exit101.i:   ; preds = %42
   %49 = add i64 %.1131.i, 1
   %50 = mul i64 %.085130.i, %2
-  %51 = getelementptr inbounds nuw float, ptr %18, i64 %50
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %50
   %52 = uitofp i64 %49 to float
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1080)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1083)
@@ -4209,10 +4209,10 @@ _ZL9_load_addILm16ELb0EEvPfS0_PKfS0_.exit101.i:   ; preds = %42
 
 54:                                               ; preds = %54, %_ZL9_load_addILm16ELb0EEvPfS0_PKfS0_.exit101.i
   %.06.i.i = phi i64 [ 0, %_ZL9_load_addILm16ELb0EEvPfS0_PKfS0_.exit101.i ], [ %59, %54 ]
-  %55 = getelementptr inbounds nuw float, ptr %7, i64 %.06.i.i
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.06.i.i
   %56 = load float, ptr %55, align 4, !tbaa !13, !alias.scope !1083, !noalias !1085
   %57 = fmul reassoc nsz arcp contract afn float %56, %53
-  %58 = getelementptr inbounds nuw float, ptr %51, i64 %.06.i.i
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %.06.i.i
   store float %57, ptr %58, align 4, !tbaa !13, !alias.scope !1086, !noalias !1087
   %59 = add nuw nsw i64 %.06.i.i, 1
   %exitcond.not.i102.i = icmp eq i64 %59, 16
@@ -4250,17 +4250,17 @@ _ZL13_store_scaledILm16EEvPfPKff.exit.i:          ; preds = %54
 70:                                               ; preds = %_ZL13_store_scaledILm16EEvPfPKff.exit105.i, %.lr.ph133.i
   %.186132.i = phi i64 [ %.085.lcssa.i, %.lr.ph133.i ], [ %79, %_ZL13_store_scaledILm16EEvPfPKff.exit105.i ]
   %71 = mul i64 %.186132.i, %2
-  %72 = getelementptr inbounds nuw float, ptr %18, i64 %71
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %71
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1089)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1092)
   br label %73
 
 73:                                               ; preds = %73, %70
   %.06.i103.i = phi i64 [ 0, %70 ], [ %78, %73 ]
-  %74 = getelementptr inbounds nuw float, ptr %7, i64 %.06.i103.i
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.06.i103.i
   %75 = load float, ptr %74, align 4, !tbaa !13, !alias.scope !1092, !noalias !1094
   %76 = fmul reassoc nsz arcp contract afn float %75, %65
-  %77 = getelementptr inbounds nuw float, ptr %72, i64 %.06.i103.i
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %.06.i103.i
   store float %76, ptr %77, align 4, !tbaa !13, !alias.scope !1095, !noalias !1096
   %78 = add nuw nsw i64 %.06.i103.i, 1
   %exitcond.not.i104.i = icmp eq i64 %78, 16
@@ -4293,9 +4293,9 @@ _ZL13_store_scaledILm16EEvPfPKff.exit105.i:       ; preds = %73
 
 90:                                               ; preds = %90, %84
   %.01.i106.i = phi i64 [ 0, %84 ], [ %96, %90 ]
-  %91 = getelementptr inbounds nuw float, ptr %89, i64 %.01.i106.i
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %.01.i106.i
   %92 = load float, ptr %91, align 4, !tbaa !13, !alias.scope !1103, !noalias !1104
-  %93 = getelementptr inbounds nuw float, ptr %7, i64 %.01.i106.i
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.01.i106.i
   %94 = load float, ptr %93, align 4, !tbaa !13, !alias.scope !1098, !noalias !1105
   %95 = fsub reassoc nsz arcp contract afn float %94, %92
   store float %95, ptr %93, align 4, !tbaa !13, !alias.scope !1098, !noalias !1105
@@ -4310,7 +4310,7 @@ _ZL4_subILm16ELb0EEvPfPKfS0_.exit.i:              ; preds = %90
   %.idx95.i = shl i64 %98, 6
   %99 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx95.i
   %100 = mul i64 %97, %2
-  %101 = getelementptr inbounds nuw float, ptr %18, i64 %100
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %100
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1107)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1110)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1112)
@@ -4319,9 +4319,9 @@ _ZL4_subILm16ELb0EEvPfPKfS0_.exit.i:              ; preds = %90
 
 102:                                              ; preds = %102, %_ZL4_subILm16ELb0EEvPfPKfS0_.exit.i
   %.01.i108.i = phi i64 [ 0, %_ZL4_subILm16ELb0EEvPfPKfS0_.exit.i ], [ %108, %102 ]
-  %103 = getelementptr inbounds nuw float, ptr %101, i64 %.01.i108.i
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %101, i64 %.01.i108.i
   %104 = load float, ptr %103, align 4, !tbaa !13, !alias.scope !1115, !noalias !1116
-  %105 = getelementptr inbounds nuw float, ptr %7, i64 %.01.i108.i
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.01.i108.i
   %106 = load float, ptr %105, align 4, !tbaa !13, !alias.scope !1110, !noalias !1114
   %107 = fadd reassoc nsz arcp contract afn float %106, %104
   store float %107, ptr %105, align 4, !tbaa !13, !alias.scope !1110, !noalias !1114
@@ -4331,17 +4331,17 @@ _ZL4_subILm16ELb0EEvPfPKfS0_.exit.i:              ; preds = %90
 
 _ZL9_load_addILm16ELb0EEvPfS0_PKfS0_.exit110.i:   ; preds = %102
   %109 = mul i64 %.287135.i, %2
-  %110 = getelementptr inbounds nuw float, ptr %18, i64 %109
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %109
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1117)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1120)
   br label %111
 
 111:                                              ; preds = %111, %_ZL9_load_addILm16ELb0EEvPfS0_PKfS0_.exit110.i
   %.06.i111.i = phi i64 [ 0, %_ZL9_load_addILm16ELb0EEvPfS0_PKfS0_.exit110.i ], [ %116, %111 ]
-  %112 = getelementptr inbounds nuw float, ptr %7, i64 %.06.i111.i
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.06.i111.i
   %113 = load float, ptr %112, align 4, !tbaa !13, !alias.scope !1120, !noalias !1122
   %114 = fmul reassoc nsz arcp contract afn float %113, %69
-  %115 = getelementptr inbounds nuw float, ptr %110, i64 %.06.i111.i
+  %115 = getelementptr inbounds nuw [4 x i8], ptr %110, i64 %.06.i111.i
   store float %114, ptr %115, align 4, !tbaa !13, !alias.scope !1123, !noalias !1124
   %116 = add nuw nsw i64 %.06.i111.i, 1
   %exitcond.not.i112.i = icmp eq i64 %116, 16
@@ -4368,9 +4368,9 @@ _ZL13_store_scaledILm16EEvPfPKff.exit113.i:       ; preds = %111
 
 124:                                              ; preds = %124, %.lr.ph140.i
   %.01.i114.i = phi i64 [ 0, %.lr.ph140.i ], [ %130, %124 ]
-  %125 = getelementptr inbounds nuw float, ptr %123, i64 %.01.i114.i
+  %125 = getelementptr inbounds nuw [4 x i8], ptr %123, i64 %.01.i114.i
   %126 = load float, ptr %125, align 4, !tbaa !13, !alias.scope !1131, !noalias !1132
-  %127 = getelementptr inbounds nuw float, ptr %7, i64 %.01.i114.i
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.01.i114.i
   %128 = load float, ptr %127, align 4, !tbaa !13, !alias.scope !1126, !noalias !1133
   %129 = fsub reassoc nsz arcp contract afn float %128, %126
   store float %129, ptr %127, align 4, !tbaa !13, !alias.scope !1126, !noalias !1133
@@ -4381,7 +4381,7 @@ _ZL13_store_scaledILm16EEvPfPKff.exit113.i:       ; preds = %111
 _ZL4_subILm16ELb0EEvPfPKfS0_.exit116.i:           ; preds = %124
   %131 = add i64 %.2139.i, -1
   %132 = mul i64 %.3138.i, %2
-  %133 = getelementptr inbounds nuw float, ptr %18, i64 %132
+  %133 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %132
   %134 = uitofp i64 %131 to float
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1134)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1137)
@@ -4390,10 +4390,10 @@ _ZL4_subILm16ELb0EEvPfPKfS0_.exit116.i:           ; preds = %124
 
 136:                                              ; preds = %136, %_ZL4_subILm16ELb0EEvPfPKfS0_.exit116.i
   %.06.i117.i = phi i64 [ 0, %_ZL4_subILm16ELb0EEvPfPKfS0_.exit116.i ], [ %141, %136 ]
-  %137 = getelementptr inbounds nuw float, ptr %7, i64 %.06.i117.i
+  %137 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.06.i117.i
   %138 = load float, ptr %137, align 4, !tbaa !13, !alias.scope !1137, !noalias !1139
   %139 = fmul reassoc nsz arcp contract afn float %138, %135
-  %140 = getelementptr inbounds nuw float, ptr %133, i64 %.06.i117.i
+  %140 = getelementptr inbounds nuw [4 x i8], ptr %133, i64 %.06.i117.i
   store float %139, ptr %140, align 4, !tbaa !13, !alias.scope !1140, !noalias !1141
   %141 = add nuw nsw i64 %.06.i117.i, 1
   %exitcond.not.i118.i = icmp eq i64 %141, 16
@@ -4415,7 +4415,7 @@ _ZL14_blur_verticalILm16ELb0EEvPfmmmS0_.exit:     ; preds = %_ZL13_store_scaledI
 
 .lr.ph:                                           ; preds = %.preheader106, %_ZL14_blur_verticalILm4ELb0EEvPfmmmS0_.exit
   %.0117 = phi i64 [ %269, %_ZL14_blur_verticalILm4ELb0EEvPfmmmS0_.exit ], [ %.031120, %.preheader106 ]
-  %144 = getelementptr inbounds nuw float, ptr %0, i64 %.0117
+  %144 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.0117
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1143)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1146)
   br i1 %.not142.i, label %._crit_edge.i38, label %.lr.ph.i35
@@ -4441,7 +4441,7 @@ _ZL14_blur_verticalILm16ELb0EEvPfmmmS0_.exit:     ; preds = %_ZL13_store_scaledI
   %.idx98.i43 = shl i64 %149, 4
   %150 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx98.i43
   %151 = mul i64 %.084127.i42, %2
-  %152 = getelementptr inbounds nuw float, ptr %144, i64 %151
+  %152 = getelementptr inbounds nuw [4 x i8], ptr %144, i64 %151
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1150)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1153)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1155)
@@ -4450,9 +4450,9 @@ _ZL14_blur_verticalILm16ELb0EEvPfmmmS0_.exit:     ; preds = %_ZL13_store_scaledI
 
 153:                                              ; preds = %153, %.lr.ph128.i41
   %.01.i.i44 = phi i64 [ 0, %.lr.ph128.i41 ], [ %159, %153 ]
-  %154 = getelementptr inbounds nuw float, ptr %152, i64 %.01.i.i44
+  %154 = getelementptr inbounds nuw [4 x i8], ptr %152, i64 %.01.i.i44
   %155 = load float, ptr %154, align 4, !tbaa !13, !alias.scope !1158, !noalias !1159
-  %156 = getelementptr inbounds nuw float, ptr %6, i64 %.01.i.i44
+  %156 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.01.i.i44
   %157 = load float, ptr %156, align 4, !tbaa !13, !alias.scope !1153, !noalias !1157
   %158 = fadd reassoc nsz arcp contract afn float %157, %155
   store float %158, ptr %156, align 4, !tbaa !13, !alias.scope !1153, !noalias !1157
@@ -4482,7 +4482,7 @@ _ZL9_load_addILm4ELb0EEvPfS0_PKfS0_.exit.i:       ; preds = %153
   %.idx97.i52 = shl i64 %164, 4
   %165 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx97.i52
   %166 = mul i64 %163, %2
-  %167 = getelementptr inbounds nuw float, ptr %144, i64 %166
+  %167 = getelementptr inbounds nuw [4 x i8], ptr %144, i64 %166
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1161)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1164)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1166)
@@ -4491,9 +4491,9 @@ _ZL9_load_addILm4ELb0EEvPfS0_PKfS0_.exit.i:       ; preds = %153
 
 168:                                              ; preds = %168, %161
   %.01.i99.i53 = phi i64 [ 0, %161 ], [ %174, %168 ]
-  %169 = getelementptr inbounds nuw float, ptr %167, i64 %.01.i99.i53
+  %169 = getelementptr inbounds nuw [4 x i8], ptr %167, i64 %.01.i99.i53
   %170 = load float, ptr %169, align 4, !tbaa !13, !alias.scope !1169, !noalias !1170
-  %171 = getelementptr inbounds nuw float, ptr %6, i64 %.01.i99.i53
+  %171 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.01.i99.i53
   %172 = load float, ptr %171, align 4, !tbaa !13, !alias.scope !1164, !noalias !1168
   %173 = fadd reassoc nsz arcp contract afn float %172, %170
   store float %173, ptr %171, align 4, !tbaa !13, !alias.scope !1164, !noalias !1168
@@ -4504,7 +4504,7 @@ _ZL9_load_addILm4ELb0EEvPfS0_PKfS0_.exit.i:       ; preds = %153
 _ZL9_load_addILm4ELb0EEvPfS0_PKfS0_.exit101.i:    ; preds = %168
   %175 = add i64 %.1131.i48, 1
   %176 = mul i64 %.085130.i49, %2
-  %177 = getelementptr inbounds nuw float, ptr %144, i64 %176
+  %177 = getelementptr inbounds nuw [4 x i8], ptr %144, i64 %176
   %178 = uitofp i64 %175 to float
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1171)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1174)
@@ -4513,10 +4513,10 @@ _ZL9_load_addILm4ELb0EEvPfS0_PKfS0_.exit101.i:    ; preds = %168
 
 180:                                              ; preds = %180, %_ZL9_load_addILm4ELb0EEvPfS0_PKfS0_.exit101.i
   %.06.i.i55 = phi i64 [ 0, %_ZL9_load_addILm4ELb0EEvPfS0_PKfS0_.exit101.i ], [ %185, %180 ]
-  %181 = getelementptr inbounds nuw float, ptr %6, i64 %.06.i.i55
+  %181 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.06.i.i55
   %182 = load float, ptr %181, align 4, !tbaa !13, !alias.scope !1174, !noalias !1176
   %183 = fmul reassoc nsz arcp contract afn float %182, %179
-  %184 = getelementptr inbounds nuw float, ptr %177, i64 %.06.i.i55
+  %184 = getelementptr inbounds nuw [4 x i8], ptr %177, i64 %.06.i.i55
   store float %183, ptr %184, align 4, !tbaa !13, !alias.scope !1177, !noalias !1178
   %185 = add nuw nsw i64 %.06.i.i55, 1
   %exitcond.not.i102.i56 = icmp eq i64 %185, 4
@@ -4554,17 +4554,17 @@ _ZL13_store_scaledILm4EEvPfPKff.exit.i:           ; preds = %180
 196:                                              ; preds = %_ZL13_store_scaledILm4EEvPfPKff.exit105.i, %.lr.ph133.i87
   %.186132.i88 = phi i64 [ %.085.lcssa.i59, %.lr.ph133.i87 ], [ %205, %_ZL13_store_scaledILm4EEvPfPKff.exit105.i ]
   %197 = mul i64 %.186132.i88, %2
-  %198 = getelementptr inbounds nuw float, ptr %144, i64 %197
+  %198 = getelementptr inbounds nuw [4 x i8], ptr %144, i64 %197
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1180)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1183)
   br label %199
 
 199:                                              ; preds = %199, %196
   %.06.i103.i89 = phi i64 [ 0, %196 ], [ %204, %199 ]
-  %200 = getelementptr inbounds nuw float, ptr %6, i64 %.06.i103.i89
+  %200 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.06.i103.i89
   %201 = load float, ptr %200, align 4, !tbaa !13, !alias.scope !1183, !noalias !1185
   %202 = fmul reassoc nsz arcp contract afn float %201, %191
-  %203 = getelementptr inbounds nuw float, ptr %198, i64 %.06.i103.i89
+  %203 = getelementptr inbounds nuw [4 x i8], ptr %198, i64 %.06.i103.i89
   store float %202, ptr %203, align 4, !tbaa !13, !alias.scope !1186, !noalias !1187
   %204 = add nuw nsw i64 %.06.i103.i89, 1
   %exitcond.not.i104.i90 = icmp eq i64 %204, 4
@@ -4597,9 +4597,9 @@ _ZL13_store_scaledILm4EEvPfPKff.exit105.i:        ; preds = %199
 
 216:                                              ; preds = %216, %210
   %.01.i106.i79 = phi i64 [ 0, %210 ], [ %222, %216 ]
-  %217 = getelementptr inbounds nuw float, ptr %215, i64 %.01.i106.i79
+  %217 = getelementptr inbounds nuw [4 x i8], ptr %215, i64 %.01.i106.i79
   %218 = load float, ptr %217, align 4, !tbaa !13, !alias.scope !1194, !noalias !1195
-  %219 = getelementptr inbounds nuw float, ptr %6, i64 %.01.i106.i79
+  %219 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.01.i106.i79
   %220 = load float, ptr %219, align 4, !tbaa !13, !alias.scope !1189, !noalias !1196
   %221 = fsub reassoc nsz arcp contract afn float %220, %218
   store float %221, ptr %219, align 4, !tbaa !13, !alias.scope !1189, !noalias !1196
@@ -4614,7 +4614,7 @@ _ZL4_subILm4ELb0EEvPfPKfS0_.exit.i:               ; preds = %216
   %.idx95.i82 = shl i64 %224, 4
   %225 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx95.i82
   %226 = mul i64 %223, %2
-  %227 = getelementptr inbounds nuw float, ptr %144, i64 %226
+  %227 = getelementptr inbounds nuw [4 x i8], ptr %144, i64 %226
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1197)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1200)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1202)
@@ -4623,9 +4623,9 @@ _ZL4_subILm4ELb0EEvPfPKfS0_.exit.i:               ; preds = %216
 
 228:                                              ; preds = %228, %_ZL4_subILm4ELb0EEvPfPKfS0_.exit.i
   %.01.i108.i83 = phi i64 [ 0, %_ZL4_subILm4ELb0EEvPfPKfS0_.exit.i ], [ %234, %228 ]
-  %229 = getelementptr inbounds nuw float, ptr %227, i64 %.01.i108.i83
+  %229 = getelementptr inbounds nuw [4 x i8], ptr %227, i64 %.01.i108.i83
   %230 = load float, ptr %229, align 4, !tbaa !13, !alias.scope !1205, !noalias !1206
-  %231 = getelementptr inbounds nuw float, ptr %6, i64 %.01.i108.i83
+  %231 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.01.i108.i83
   %232 = load float, ptr %231, align 4, !tbaa !13, !alias.scope !1200, !noalias !1204
   %233 = fadd reassoc nsz arcp contract afn float %232, %230
   store float %233, ptr %231, align 4, !tbaa !13, !alias.scope !1200, !noalias !1204
@@ -4635,17 +4635,17 @@ _ZL4_subILm4ELb0EEvPfPKfS0_.exit.i:               ; preds = %216
 
 _ZL9_load_addILm4ELb0EEvPfS0_PKfS0_.exit110.i:    ; preds = %228
   %235 = mul i64 %.287135.i76, %2
-  %236 = getelementptr inbounds nuw float, ptr %144, i64 %235
+  %236 = getelementptr inbounds nuw [4 x i8], ptr %144, i64 %235
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1207)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1210)
   br label %237
 
 237:                                              ; preds = %237, %_ZL9_load_addILm4ELb0EEvPfS0_PKfS0_.exit110.i
   %.06.i111.i85 = phi i64 [ 0, %_ZL9_load_addILm4ELb0EEvPfS0_PKfS0_.exit110.i ], [ %242, %237 ]
-  %238 = getelementptr inbounds nuw float, ptr %6, i64 %.06.i111.i85
+  %238 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.06.i111.i85
   %239 = load float, ptr %238, align 4, !tbaa !13, !alias.scope !1210, !noalias !1212
   %240 = fmul reassoc nsz arcp contract afn float %239, %195
-  %241 = getelementptr inbounds nuw float, ptr %236, i64 %.06.i111.i85
+  %241 = getelementptr inbounds nuw [4 x i8], ptr %236, i64 %.06.i111.i85
   store float %240, ptr %241, align 4, !tbaa !13, !alias.scope !1213, !noalias !1214
   %242 = add nuw nsw i64 %.06.i111.i85, 1
   %exitcond.not.i112.i86 = icmp eq i64 %242, 4
@@ -4672,9 +4672,9 @@ _ZL13_store_scaledILm4EEvPfPKff.exit113.i:        ; preds = %237
 
 250:                                              ; preds = %250, %.lr.ph140.i65
   %.01.i114.i70 = phi i64 [ 0, %.lr.ph140.i65 ], [ %256, %250 ]
-  %251 = getelementptr inbounds nuw float, ptr %249, i64 %.01.i114.i70
+  %251 = getelementptr inbounds nuw [4 x i8], ptr %249, i64 %.01.i114.i70
   %252 = load float, ptr %251, align 4, !tbaa !13, !alias.scope !1221, !noalias !1222
-  %253 = getelementptr inbounds nuw float, ptr %6, i64 %.01.i114.i70
+  %253 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.01.i114.i70
   %254 = load float, ptr %253, align 4, !tbaa !13, !alias.scope !1216, !noalias !1223
   %255 = fsub reassoc nsz arcp contract afn float %254, %252
   store float %255, ptr %253, align 4, !tbaa !13, !alias.scope !1216, !noalias !1223
@@ -4685,7 +4685,7 @@ _ZL13_store_scaledILm4EEvPfPKff.exit113.i:        ; preds = %237
 _ZL4_subILm4ELb0EEvPfPKfS0_.exit116.i:            ; preds = %250
   %257 = add i64 %.2139.i66, -1
   %258 = mul i64 %.3138.i67, %2
-  %259 = getelementptr inbounds nuw float, ptr %144, i64 %258
+  %259 = getelementptr inbounds nuw [4 x i8], ptr %144, i64 %258
   %260 = uitofp i64 %257 to float
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1224)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1227)
@@ -4694,10 +4694,10 @@ _ZL4_subILm4ELb0EEvPfPKfS0_.exit116.i:            ; preds = %250
 
 262:                                              ; preds = %262, %_ZL4_subILm4ELb0EEvPfPKfS0_.exit116.i
   %.06.i117.i72 = phi i64 [ 0, %_ZL4_subILm4ELb0EEvPfPKfS0_.exit116.i ], [ %267, %262 ]
-  %263 = getelementptr inbounds nuw float, ptr %6, i64 %.06.i117.i72
+  %263 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.06.i117.i72
   %264 = load float, ptr %263, align 4, !tbaa !13, !alias.scope !1227, !noalias !1229
   %265 = fmul reassoc nsz arcp contract afn float %264, %261
-  %266 = getelementptr inbounds nuw float, ptr %259, i64 %.06.i117.i72
+  %266 = getelementptr inbounds nuw [4 x i8], ptr %259, i64 %.06.i117.i72
   store float %265, ptr %266, align 4, !tbaa !13, !alias.scope !1230, !noalias !1231
   %267 = add nuw nsw i64 %.06.i117.i72, 1
   %exitcond.not.i118.i73 = icmp eq i64 %267, 4
@@ -4716,7 +4716,7 @@ _ZL14_blur_verticalILm4ELb0EEvPfmmmS0_.exit:      ; preds = %_ZL13_store_scaledI
 
 .lr.ph119:                                        ; preds = %.preheader, %_ZL14_blur_verticalILm1ELb0EEvPfmmmS0_.exit
   %.1118 = phi i64 [ %348, %_ZL14_blur_verticalILm1ELb0EEvPfmmmS0_.exit ], [ %.0.lcssa, %.preheader ]
-  %271 = getelementptr inbounds nuw float, ptr %0, i64 %.1118
+  %271 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.1118
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1234)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1237)
   br i1 %.not142.i, label %.preheader106.i, label %.lr.ph.i92
@@ -4739,9 +4739,9 @@ _ZL14_blur_verticalILm4ELb0EEvPfmmmS0_.exit:      ; preds = %_ZL13_store_scaledI
   %.sroa.0102.1109.i = phi float [ %282, %.lr.ph112.i ], [ 0.000000e+00, %.preheader106.i ]
   %276 = add nuw i64 %.084111.i, 1
   %277 = and i64 %.084111.i, %.0.lcssa.i93
-  %278 = getelementptr inbounds nuw float, ptr %4, i64 %277
+  %278 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %277
   %279 = mul i64 %.084111.i, %2
-  %280 = getelementptr inbounds nuw float, ptr %271, i64 %279
+  %280 = getelementptr inbounds nuw [4 x i8], ptr %271, i64 %279
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1240)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1243)
   %281 = load float, ptr %280, align 4, !tbaa !13, !alias.scope !1245, !noalias !1246
@@ -4767,16 +4767,16 @@ _ZL14_blur_verticalILm4ELb0EEvPfmmmS0_.exit:      ; preds = %_ZL13_store_scaledI
   %sext94.i95 = shl i64 %284, 32
   %286 = ashr exact i64 %sext94.i95, 32
   %287 = and i64 %286, %.0.lcssa.i93
-  %288 = getelementptr inbounds nuw float, ptr %4, i64 %287
+  %288 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %287
   %289 = mul i64 %286, %2
-  %290 = getelementptr inbounds nuw float, ptr %271, i64 %289
+  %290 = getelementptr inbounds nuw [4 x i8], ptr %271, i64 %289
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1251)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1254)
   %291 = load float, ptr %290, align 4, !tbaa !13, !alias.scope !1256, !noalias !1257
   %292 = fadd reassoc nsz arcp contract afn float %291, %.sroa.0102.2115.i
   store float %291, ptr %288, align 4, !tbaa !13, !alias.scope !1259, !noalias !1260
   %293 = mul i64 %.085116.i, %2
-  %294 = getelementptr inbounds nuw float, ptr %271, i64 %293
+  %294 = getelementptr inbounds nuw [4 x i8], ptr %271, i64 %293
   %295 = uitofp i64 %285 to float
   %296 = fdiv reassoc nsz arcp contract afn float %292, %295
   store float %296, ptr %294, align 4, !tbaa !13, !alias.scope !1261, !noalias !1237
@@ -4812,7 +4812,7 @@ _ZL14_blur_verticalILm4ELb0EEvPfmmmS0_.exit:      ; preds = %_ZL13_store_scaledI
 307:                                              ; preds = %307, %.lr.ph119.i
   %.186118.i = phi i64 [ %.085.lcssa.i98, %.lr.ph119.i ], [ %310, %307 ]
   %308 = mul i64 %.186118.i, %2
-  %309 = getelementptr inbounds nuw float, ptr %271, i64 %308
+  %309 = getelementptr inbounds nuw [4 x i8], ptr %271, i64 %308
   store float %302, ptr %309, align 4, !tbaa !13, !alias.scope !1265, !noalias !1237
   %310 = add nuw i64 %.186118.i, 1
   %311 = icmp ult i64 %.186118.i, %3
@@ -4834,22 +4834,22 @@ _ZL14_blur_verticalILm4ELb0EEvPfmmmS0_.exit:      ; preds = %_ZL13_store_scaledI
   %sext92.i105 = shl i64 %317, 32
   %318 = ashr exact i64 %sext92.i105, 32
   %319 = and i64 %318, %.0.lcssa.i93
-  %320 = getelementptr inbounds nuw float, ptr %4, i64 %319
+  %320 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %319
   %321 = load float, ptr %320, align 4, !tbaa !13, !alias.scope !1269, !noalias !1272
   %322 = fsub reassoc nsz arcp contract afn float %.sroa.0102.3121.i, %321
   %sext93.i = shl i64 %316, 32
   %323 = ashr exact i64 %sext93.i, 32
   %324 = and i64 %323, %.0.lcssa.i93
-  %325 = getelementptr inbounds nuw float, ptr %4, i64 %324
+  %325 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %324
   %326 = mul i64 %323, %2
-  %327 = getelementptr inbounds nuw float, ptr %271, i64 %326
+  %327 = getelementptr inbounds nuw [4 x i8], ptr %271, i64 %326
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1274)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1277)
   %328 = load float, ptr %327, align 4, !tbaa !13, !alias.scope !1279, !noalias !1280
   %329 = fadd reassoc nsz arcp contract afn float %328, %322
   store float %328, ptr %325, align 4, !tbaa !13, !alias.scope !1282, !noalias !1283
   %330 = mul i64 %.287122.i, %2
-  %331 = getelementptr inbounds nuw float, ptr %271, i64 %330
+  %331 = getelementptr inbounds nuw [4 x i8], ptr %271, i64 %330
   %332 = fmul reassoc nsz arcp contract afn float %329, %306
   store float %332, ptr %331, align 4, !tbaa !13, !alias.scope !1284, !noalias !1237
   %333 = add i64 %.287122.i, 1
@@ -4866,11 +4866,11 @@ _ZL14_blur_verticalILm4ELb0EEvPfmmmS0_.exit:      ; preds = %_ZL13_store_scaledI
   %sext.i104 = shl i64 %336, 32
   %338 = ashr exact i64 %sext.i104, 32
   %339 = and i64 %338, %.0.lcssa.i93
-  %340 = getelementptr inbounds nuw float, ptr %4, i64 %339
+  %340 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %339
   %341 = load float, ptr %340, align 4, !tbaa !13, !alias.scope !1288, !noalias !1291
   %342 = fsub reassoc nsz arcp contract afn float %.sroa.0102.4126.i, %341
   %343 = mul i64 %.3127.i, %2
-  %344 = getelementptr inbounds nuw float, ptr %271, i64 %343
+  %344 = getelementptr inbounds nuw [4 x i8], ptr %271, i64 %343
   %345 = uitofp i64 %337 to float
   %346 = fdiv reassoc nsz arcp contract afn float %342, %345
   store float %346, ptr %344, align 4, !tbaa !13, !alias.scope !1293, !noalias !1237

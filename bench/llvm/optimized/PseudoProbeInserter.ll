@@ -20,7 +20,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorTemplateCommon.266" = type { %"class.llvm::SmallVectorBase.66" }
 %"class.llvm::SmallVectorBase.66" = type { ptr, i32, i32 }
 %"struct.llvm::SmallVectorStorage.267" = type { [32 x i8] }
-%"class.llvm::MDOperand" = type { ptr }
 
 $_ZN4llvm4Pass14doFinalizationERNS_6ModuleE = comdat any
 
@@ -369,7 +368,7 @@ _ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit: ; preds = %40
   %66 = lshr i64 %60, 2
   %67 = and i64 %66, 15
   %68 = sub nsw i64 0, %67
-  %69 = getelementptr inbounds %"class.llvm::MDOperand", ptr %59, i64 %68
+  %69 = getelementptr inbounds [8 x i8], ptr %59, i64 %68
   br label %_ZNK4llvm10DILocation8getScopeEv.exit.i
 
 _ZNK4llvm10DILocation8getScopeEv.exit.i:          ; preds = %65, %62
@@ -468,7 +467,7 @@ _ZN4llvm7BuildMIERNS_17MachineBasicBlockERNS_12MachineInstrERKNS_10MIMetadataERK
   %106 = lshr i64 %100, 2
   %107 = and i64 %106, 15
   %108 = sub nsw i64 0, %107
-  %109 = getelementptr inbounds %"class.llvm::MDOperand", ptr %59, i64 %108
+  %109 = getelementptr inbounds [8 x i8], ptr %59, i64 %108
   br label %_ZNK4llvm10DILocation8getScopeEv.exit.i76
 
 _ZNK4llvm10DILocation8getScopeEv.exit.i76:        ; preds = %105, %102
@@ -494,7 +493,7 @@ _ZNK4llvm10DILocation8getScopeEv.exit.i76:        ; preds = %105, %102
   %120 = lshr i64 %114, 2
   %121 = and i64 %120, 15
   %122 = sub nsw i64 0, %121
-  %123 = getelementptr inbounds %"class.llvm::MDOperand", ptr %113, i64 %122
+  %123 = getelementptr inbounds [8 x i8], ptr %113, i64 %122
   br label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.i
 
 _ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.i: ; preds = %119, %116
@@ -530,7 +529,7 @@ _ZNK4llvm12DISubprogram14getLinkageNameEv.exit.thread.i: ; preds = %_ZNK4llvm12D
   %136 = lshr i64 %130, 2
   %137 = and i64 %136, 15
   %138 = sub nsw i64 0, %137
-  %139 = getelementptr inbounds %"class.llvm::MDOperand", ptr %113, i64 %138
+  %139 = getelementptr inbounds [8 x i8], ptr %113, i64 %138
   br label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i5.i
 
 _ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i5.i: ; preds = %135, %132
@@ -793,7 +792,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_12MachineInstrELb1EE9push_backES2_.exit: ;
   %228 = phi i32 [ %219, %223 ], [ %.pre.i, %225 ]
   %229 = load ptr, ptr %9, align 8, !tbaa !184
   %230 = zext i32 %228 to i64
-  %231 = getelementptr inbounds nuw ptr, ptr %229, i64 %230
+  %231 = getelementptr inbounds nuw [8 x i8], ptr %229, i64 %230
   %232 = ptrtoint ptr %.sroa.081.0130 to i64
   store i64 %232, ptr %231, align 1
   %233 = load i32, ptr %34, align 8, !tbaa !257

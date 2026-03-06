@@ -3,39 +3,6 @@ source_filename = "bench/openusd/original/decoder.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.DecWorkerData = type { ptr, ptr, %struct.aom_internal_error_info }
-%struct.aom_internal_error_info = type { i32, i32, [200 x i8], i32, [1 x %struct.__jmp_buf_tag] }
-%struct.__jmp_buf_tag = type { [8 x i64], i32, %struct.__sigset_t }
-%struct.__sigset_t = type { [16 x i64] }
-%struct.AVxWorker = type { ptr, i32, ptr, ptr, ptr, ptr, i32 }
-%struct.TileDataDec = type { %struct.TileInfo, %struct.aom_reader, [8 x i8], %struct.frame_contexts, %struct.AV1DecRowMTSyncData, [8 x i8] }
-%struct.TileInfo = type { i32, i32, i32, i32, i32, i32 }
-%struct.aom_reader = type { ptr, ptr, %struct.od_ec_dec, i8 }
-%struct.od_ec_dec = type { ptr, i32, ptr, ptr, i32, i16, i16 }
-%struct.frame_contexts = type { [5 x [13 x [3 x i16]]], [5 x [2 x [9 x [3 x i16]]]], [2 x [3 x [3 x i16]]], [2 x [2 x [6 x i16]]], [2 x [2 x [7 x i16]]], [2 x [2 x [8 x i16]]], [2 x [2 x [9 x i16]]], [2 x [2 x [10 x i16]]], [2 x [2 x [11 x i16]]], [2 x [2 x [12 x i16]]], [5 x [2 x [4 x [4 x i16]]]], [5 x [2 x [42 x [5 x i16]]]], [5 x [2 x [21 x [5 x i16]]]], [6 x [3 x i16]], [2 x [3 x i16]], [6 x [3 x i16]], [3 x [3 x i16]], [8 x [9 x i16]], [22 x [3 x i16]], [22 x [17 x i16]], [4 x [3 x i16]], [22 x [3 x i16]], [4 x [5 x i16]], [22 x [4 x i16]], [22 x [3 x i16]], [7 x [8 x i16]], [7 x [8 x i16]], [7 x [5 x [9 x i16]]], [7 x [5 x [9 x i16]]], [7 x [3 x [3 x i16]]], [2 x [3 x i16]], [5 x [3 x i16]], [3 x [6 x [3 x i16]]], [5 x [3 x i16]], [3 x [3 x [3 x i16]]], [3 x [3 x [3 x i16]]], [3 x [2 x [3 x i16]]], [21 x [3 x i16]], [6 x [3 x i16]], [6 x [3 x i16]], [3 x [3 x i16]], [3 x [3 x i16]], [4 x [3 x i16]], %struct.nmv_context, %struct.nmv_context, [3 x i16], %struct.segmentation_probs, [22 x [3 x i16]], [6 x i16], [4 x i16], [3 x i16], [3 x i16], [4 x [14 x i16]], [2 x [13 x [15 x i16]]], [20 x [11 x i16]], [16 x [4 x i16]], [5 x [5 x [14 x i16]]], [8 x [8 x i16]], [4 x [3 x [4 x i16]]], [5 x i16], [4 x [5 x i16]], [5 x i16], [3 x [4 x [13 x [17 x i16]]]], [4 x [4 x [17 x i16]]], [9 x i16], [6 x [17 x i16]], i32 }
-%struct.nmv_context = type { [5 x i16], [2 x %struct.nmv_component] }
-%struct.nmv_component = type { [12 x i16], [2 x [5 x i16]], [5 x i16], [3 x i16], [3 x i16], [3 x i16], [3 x i16], [10 x [3 x i16]] }
-%struct.segmentation_probs = type { [9 x i16], [3 x [3 x i16]], [3 x [9 x i16]] }
-%struct.AV1DecRowMTSyncData = type { ptr, ptr, i32, ptr, i32, i32, i32, i32, i32, i32 }
-%struct.RefCntBuffer = type { i32, i32, [7 x i32], i32, [7 x i32], ptr, ptr, %struct.segmentation, i32, i32, i32, i32, [8 x %struct.WarpedMotionParams], i32, i8, %struct.aom_film_grain_t, %struct.aom_codec_frame_buffer, %struct.yv12_buffer_config, i8, [4 x i32], [8 x i8], [2 x i8], %struct.frame_contexts }
-%struct.segmentation = type { i8, i8, i8, i8, [8 x [8 x i16]], [8 x i32], i32, i8 }
-%struct.WarpedMotionParams = type { [8 x i32], i16, i16, i16, i16, i8, i8 }
-%struct.aom_film_grain_t = type { i32, i32, [14 x [2 x i32]], i32, [10 x [2 x i32]], i32, [10 x [2 x i32]], i32, i32, i32, [24 x i32], [25 x i32], [25 x i32], i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i16 }
-%struct.aom_codec_frame_buffer = type { ptr, i64, ptr }
-%struct.yv12_buffer_config = type { %union.anon, %union.anon.0, %union.anon.2, %union.anon.4, %union.anon.6, %union.anon.8, i32, [3 x ptr], ptr, i32, ptr, i64, i32, i64, i32, i32, i32, i32, i32, i32, i8, i32, i32, i32, i32, i32, i32, ptr }
-%union.anon = type { %struct.anon }
-%struct.anon = type { i32, i32 }
-%union.anon.0 = type { %struct.anon.1 }
-%struct.anon.1 = type { i32, i32 }
-%union.anon.2 = type { %struct.anon.3 }
-%struct.anon.3 = type { i32, i32 }
-%union.anon.4 = type { %struct.anon.5 }
-%struct.anon.5 = type { i32, i32 }
-%union.anon.6 = type { %struct.anon.7 }
-%struct.anon.7 = type { i32, i32 }
-%union.anon.8 = type { %struct.anon.9 }
-%struct.anon.9 = type { ptr, ptr, ptr }
-
 @.str = private unnamed_addr constant [26 x i8] c"Failed to allocate cm->fc\00", align 1
 @.str.1 = private unnamed_addr constant [45 x i8] c"Failed to allocate cm->default_frame_context\00", align 1
 @.str.2 = private unnamed_addr constant [14 x i8] c"aom lf worker\00", align 1
@@ -127,7 +94,7 @@ define hidden ptr @av1_decoder_create(ptr noundef %0) local_unnamed_addr #0 {
   %indvars.iv = phi i64 [ 0, %25 ], [ %indvars.iv.next, %32 ]
   %.0..0..0..0.13 = load volatile ptr, ptr %3, align 8
   %33 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.13, i64 960
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv
   store ptr null, ptr %34, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
@@ -223,7 +190,7 @@ define hidden void @av1_decoder_remove(ptr noundef %0) local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 1, %.preheader ]
   %16 = load ptr, ptr %11, align 8
-  %17 = getelementptr inbounds nuw %struct.DecWorkerData, ptr %16, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [432 x i8], ptr %16, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8
   tail call void @av1_free_mc_tmp_buf(ptr noundef %18) #10
   %19 = load ptr, ptr %17, align 8
@@ -256,7 +223,7 @@ define hidden void @av1_decoder_remove(ptr noundef %0) local_unnamed_addr #0 {
 29:                                               ; preds = %.lr.ph51, %29
   %indvars.iv58 = phi i64 [ 0, %.lr.ph51 ], [ %indvars.iv.next59, %29 ]
   %30 = load ptr, ptr %28, align 8
-  %31 = getelementptr inbounds nuw %struct.AVxWorker, ptr %30, i64 %indvars.iv58
+  %31 = getelementptr inbounds nuw [56 x i8], ptr %30, i64 %indvars.iv58
   %32 = tail call ptr @aom_get_worker_interface() #10
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 40
   %34 = load ptr, ptr %33, align 8
@@ -304,7 +271,7 @@ define hidden void @av1_decoder_remove(ptr noundef %0) local_unnamed_addr #0 {
 54:                                               ; preds = %.lr.ph55, %54
   %indvars.iv61 = phi i64 [ 0, %.lr.ph55 ], [ %indvars.iv.next62, %54 ]
   %55 = load ptr, ptr %53, align 32
-  %56 = getelementptr inbounds nuw %struct.TileDataDec, ptr %55, i64 %indvars.iv61
+  %56 = getelementptr inbounds nuw [21424 x i8], ptr %55, i64 %indvars.iv61
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 21360
   tail call void @av1_dec_row_mt_dealloc(ptr noundef nonnull %57) #10
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
@@ -582,7 +549,7 @@ define hidden i32 @av1_copy_reference_dec(ptr noundef %0, i32 noundef %1, ptr no
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48928
   %8 = zext nneg i32 %1 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 1312
@@ -656,7 +623,7 @@ define hidden i32 @av1_set_reference_dec(ptr noundef %0, i32 noundef %1, i32 nou
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %9 = zext nneg i32 %1 to i64
-  %10 = getelementptr inbounds nuw ptr, ptr %8, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %9
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 1312
@@ -919,7 +886,7 @@ define hidden range(i32 -1, 2) i32 @av1_receive_compressed_data(ptr noundef %0, 
 get_ref_frame_buf.exit:                           ; preds = %10
   %12 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.13, i64 960
   %13 = sext i32 %.val.i to i64
-  %14 = getelementptr inbounds ptr, ptr %12, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %get_ref_frame_buf.exit.thread, label %16
@@ -952,7 +919,7 @@ get_ref_frame_buf.exit.thread:                    ; preds = %10, %get_ref_frame_
 
 28:                                               ; preds = %32, %23
   %indvars.iv.i.i = phi i64 [ 0, %23 ], [ %indvars.iv.next.i.i, %32 ]
-  %29 = getelementptr inbounds nuw %struct.RefCntBuffer, ptr %26, i64 %indvars.iv.i.i
+  %29 = getelementptr inbounds nuw [22816 x i8], ptr %26, i64 %indvars.iv.i.i
   %30 = load i32, ptr %29, align 8
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %.thread.i.i, label %32
@@ -969,7 +936,7 @@ assign_cur_frame_new_fb.exit.thread:              ; preds = %32
 
 .thread.i.i:                                      ; preds = %28
   %35 = and i64 %indvars.iv.i.i, 4294967295
-  %36 = getelementptr inbounds nuw %struct.RefCntBuffer, ptr %26, i64 %35
+  %36 = getelementptr inbounds nuw [22816 x i8], ptr %26, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 1376
   %38 = load i32, ptr %37, align 8
   %.not21.i.i = icmp eq i32 %38, 0
@@ -999,7 +966,7 @@ assign_cur_frame_new_fb.exit:                     ; preds = %.thread.i.i, %39
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 64
   %sext.i = shl i64 %indvars.iv.i.i, 32
   %53 = ashr exact i64 %sext.i, 32
-  %54 = getelementptr inbounds %struct.RefCntBuffer, ptr %52, i64 %53
+  %54 = getelementptr inbounds [22816 x i8], ptr %52, i64 %53
   store ptr %54, ptr %18, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 1416
   store i32 0, ptr %55, align 8
@@ -1045,7 +1012,7 @@ assign_cur_frame_new_fb.exit:                     ; preds = %.thread.i.i, %39
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %76 ]
   %77 = load ptr, ptr %68, align 8
   %78 = load ptr, ptr %75, align 8
-  %79 = getelementptr inbounds nuw %struct.AVxWorker, ptr %78, i64 %indvars.iv
+  %79 = getelementptr inbounds nuw [56 x i8], ptr %78, i64 %indvars.iv
   %80 = call i32 %77(ptr noundef %79) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %81 = load i32, ptr %72, align 32
@@ -1175,7 +1142,7 @@ release_current_frame.exit59:                     ; preds = %112, %118, %122, %1
   br i1 %.not51.i, label %164, label %147
 
 147:                                              ; preds = %145
-  %148 = getelementptr inbounds nuw ptr, ptr %141, i64 %indvars.iv.i
+  %148 = getelementptr inbounds nuw [8 x i8], ptr %141, i64 %indvars.iv.i
   %149 = load ptr, ptr %148, align 8
   %.not.i.i61 = icmp eq ptr %149, null
   br i1 %.not.i.i61, label %decrease_ref_count.exit.i, label %150
@@ -1276,7 +1243,7 @@ decrease_ref_count.exit59.i:                      ; preds = %190, %187, %183, %1
 
 197:                                              ; preds = %176
   %198 = getelementptr inbounds nuw i8, ptr %0, i64 431800
-  %199 = getelementptr inbounds nuw ptr, ptr %198, i64 %175
+  %199 = getelementptr inbounds nuw [8 x i8], ptr %198, i64 %175
   store ptr %179, ptr %199, align 8
   %200 = load i64, ptr %174, align 8
   %201 = add i64 %200, 1
@@ -1495,7 +1462,7 @@ define hidden range(i32 -1, 1) i32 @av1_get_raw_frame(ptr noundef readonly captu
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 431800
-  %9 = getelementptr inbounds ptr, ptr %8, i64 %1
+  %9 = getelementptr inbounds [8 x i8], ptr %8, i64 %1
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 1312
   store ptr %11, ptr %2, align 8
@@ -1518,7 +1485,7 @@ define hidden range(i32 -1, 1) i32 @av1_get_frame_to_show(ptr noundef readonly c
 
 6:                                                ; preds = %2
   %7 = getelementptr i8, ptr %0, i64 431792
-  %8 = getelementptr ptr, ptr %7, i64 %4
+  %8 = getelementptr [8 x i8], ptr %7, i64 %4
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 1312
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %1, ptr noundef nonnull align 8 dereferenceable(208) %10, i64 208, i1 false)

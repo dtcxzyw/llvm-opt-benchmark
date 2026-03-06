@@ -25,7 +25,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.pmix_iof_flags_t = type { i8, i8, i8, i8, i8, i8, i8, ptr, ptr, i8, i8, i8, i8, i8, i8 }
 %struct.pmix_keyindex_t = type { %struct.pmix_object_t, ptr, i32 }
 %struct.pmix_output_desc_t = type { i8, i8, i32, i8, i32, ptr, ptr, i32, ptr, i32, i8, i8, i8, i8, ptr, i32, i32 }
-%struct.pmix_info = type { [512 x i8], i32, %struct.pmix_value }
 
 @.str = private unnamed_addr constant [5 x i8] c"none\00", align 1
 @pmix_none_module = local_unnamed_addr global %struct.pmix_psec_module_t { ptr @.str, ptr @none_init, ptr @none_finalize, ptr @create_cred, ptr null, ptr @validate_cred, ptr null }, align 8
@@ -44,7 +43,7 @@ define internal noundef i32 @none_init() #0 {
 
 2:                                                ; preds = %0
   %3 = zext nneg i32 %1 to i64
-  %4 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %3
+  %4 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %6 = load i32, ptr %5, align 4, !tbaa !33
   %7 = icmp sgt i32 %6, 1
@@ -66,7 +65,7 @@ define internal void @none_finalize() #0 {
 
 2:                                                ; preds = %0
   %3 = zext nneg i32 %1 to i64
-  %4 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %3
+  %4 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %6 = load i32, ptr %5, align 4, !tbaa !33
   %7 = icmp sgt i32 %6, 1
@@ -94,7 +93,7 @@ define internal range(i32 -47, 1) i32 @validate_cred(ptr readnone captures(none)
 
 8:                                                ; preds = %6
   %9 = zext nneg i32 %7 to i64
-  %10 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %9
+  %10 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %12 = load i32, ptr %11, align 4, !tbaa !33
   %13 = icmp sgt i32 %12, 1
@@ -112,7 +111,7 @@ define internal range(i32 -47, 1) i32 @validate_cred(ptr readnone captures(none)
 
 .preheader:                                       ; preds = %15, %34
   %.02637 = phi i64 [ %35, %34 ], [ 0, %15 ]
-  %18 = getelementptr inbounds nuw %struct.pmix_info, ptr %1, i64 %.02637
+  %18 = getelementptr inbounds nuw [552 x i8], ptr %1, i64 %.02637
   %19 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(15) @.str.4, i64 noundef 511) #4
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %21, label %34
@@ -127,7 +126,7 @@ define internal range(i32 -47, 1) i32 @validate_cred(ptr readnone captures(none)
 
 26:                                               ; preds = %.lr.ph
   %27 = add i64 %.02534, 1
-  %28 = getelementptr inbounds nuw ptr, ptr %24, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %27
   %29 = load ptr, ptr %28, align 8, !tbaa !36
   %.not32.not = icmp eq ptr %29, null
   br i1 %.not32.not, label %.critedge, label %.lr.ph, !llvm.loop !37

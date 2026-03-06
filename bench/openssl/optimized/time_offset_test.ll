@@ -54,7 +54,7 @@ define internal range(i32 0, 2) i32 @test_offset(i32 noundef %0) #0 {
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %5 = sext i32 %0 to i64
-  %6 = getelementptr inbounds %struct.TESTDATA, ptr @tests, i64 %5
+  %6 = getelementptr inbounds [16 x i8], ptr @tests, i64 %5
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = load ptr, ptr %6, align 16, !tbaa !4

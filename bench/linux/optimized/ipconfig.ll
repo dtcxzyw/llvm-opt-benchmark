@@ -448,7 +448,7 @@ define internal noundef range(i32 -19, 1) i32 @ip_auto_config() #0 section ".ini
 99:                                               ; preds = %.preheader31, %121
   %100 = phi i64 [ %116, %121 ], [ 0, %.preheader31 ]
   %101 = phi i32 [ %115, %121 ], [ 0, %.preheader31 ]
-  %102 = getelementptr i32, ptr @ic_nameservers, i64 %100
+  %102 = getelementptr [4 x i8], ptr @ic_nameservers, i64 %100
   %103 = load i32, ptr %102, align 4
   %104 = icmp eq i32 %103, -1
   br i1 %104, label %114, label %105
@@ -491,7 +491,7 @@ define internal noundef range(i32 -19, 1) i32 @ip_auto_config() #0 section ".ini
 .preheader:                                       ; preds = %.preheader.preheader, %143
   %122 = phi i64 [ %138, %143 ], [ 0, %.preheader.preheader ]
   %123 = phi i32 [ %137, %143 ], [ 0, %.preheader.preheader ]
-  %124 = getelementptr i32, ptr @ic_ntp_servers, i64 %122
+  %124 = getelementptr [4 x i8], ptr @ic_ntp_servers, i64 %122
   %125 = load i32, ptr %124, align 4
   %126 = icmp eq i32 %125, -1
   br i1 %126, label %136, label %127
@@ -793,7 +793,7 @@ define internal noundef i32 @pnp_seq_show(ptr noundef %0, ptr readnone captures(
 
 18:                                               ; preds = %.preheader, %24
   %19 = phi i64 [ %25, %24 ], [ 0, %.preheader ]
-  %20 = getelementptr i32, ptr @ic_nameservers, i64 %19
+  %20 = getelementptr [4 x i8], ptr @ic_nameservers, i64 %19
   %21 = load i32, ptr %20, align 4
   %22 = icmp eq i32 %21, -1
   br i1 %22, label %24, label %23
@@ -1682,7 +1682,7 @@ define internal noundef i32 @ntp_servers_show(ptr noundef %0, ptr readnone captu
 
 3:                                                ; preds = %9, %2
   %4 = phi i64 [ 0, %2 ], [ %10, %9 ]
-  %5 = getelementptr i32, ptr @ic_ntp_servers, i64 %4
+  %5 = getelementptr [4 x i8], ptr @ic_ntp_servers, i64 %4
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, -1
   br i1 %7, label %9, label %8
@@ -2430,7 +2430,7 @@ define internal fastcc void @ic_do_bootp_ext(ptr noundef readonly captures(none)
 
 23:                                               ; preds = %33, %18
   %24 = phi i64 [ 0, %18 ], [ %34, %33 ]
-  %25 = getelementptr i32, ptr @ic_nameservers, i64 %24
+  %25 = getelementptr [4 x i8], ptr @ic_nameservers, i64 %24
   %26 = load i32, ptr %25, align 4
   %27 = icmp eq i32 %26, -1
   %28 = select i1 %27, i1 true, i1 %21
@@ -2542,7 +2542,7 @@ define internal fastcc void @ic_do_bootp_ext(ptr noundef readonly captures(none)
 
 92:                                               ; preds = %101, %88
   %93 = phi i64 [ 0, %88 ], [ %102, %101 ]
-  %94 = getelementptr i32, ptr @ic_ntp_servers, i64 %93
+  %94 = getelementptr [4 x i8], ptr @ic_ntp_servers, i64 %93
   %95 = load i32, ptr %94, align 4
   %96 = icmp eq i32 %95, -1
   br i1 %96, label %97, label %101

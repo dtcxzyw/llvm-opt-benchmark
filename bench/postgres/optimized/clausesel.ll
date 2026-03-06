@@ -3,8 +3,6 @@ source_filename = "bench/postgres/original/clausesel.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%union.ListCell = type { ptr }
-
 ; Function Attrs: nounwind uwtable
 define dso_local double @clauselist_selectivity(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = tail call double @clauselist_selectivity_ext(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i1 noundef zeroext true)
@@ -74,7 +72,7 @@ list_length.exit.thread:                          ; preds = %6, %list_length.exi
   %.183160194 = phi double [ %.284, %addRangeClause.exit ], [ %.082, %.lr.ph ]
   %indvars.iv193 = phi i64 [ %indvars.iv.next, %addRangeClause.exit ], [ 0, %.lr.ph ]
   %33 = load ptr, ptr %29, align 8
-  %34 = getelementptr inbounds nuw %union.ListCell, ptr %33, i64 %indvars.iv193
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv193
   %35 = load ptr, ptr %34, align 8
   %36 = add nsw i32 %.088159195, 1
   %37 = load ptr, ptr %7, align 8
@@ -865,7 +863,7 @@ define internal fastcc ptr @find_single_rel_for_clauses(ptr noundef %0, ptr noun
   %indvars.iv = phi i64 [ %indvars.iv.next, %select.unfold ], [ 0, %.lr.ph ]
   %.0245762 = phi i32 [ %.428, %select.unfold ], [ 0, %.lr.ph ]
   %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds nuw %union.ListCell, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.pr.pre = load i32, ptr %10, align 4
@@ -1022,7 +1020,7 @@ define internal fastcc double @clauselist_selectivity_or(ptr noundef %0, ptr nou
   ret double %.1.lcssa
 
 28:                                               ; preds = %.lr.ph45
-  %29 = getelementptr inbounds nuw %union.ListCell, ptr %24, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8
   %31 = call double @clause_selectivity_ext(ptr noundef %0, ptr noundef %30, i32 noundef %2, i32 noundef %3, ptr noundef %4, i1 noundef zeroext %5)
   %32 = fadd double %.13842, %31

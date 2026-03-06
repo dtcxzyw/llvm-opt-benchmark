@@ -71,20 +71,11 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::shared_ptr.52" = type { %"class.std::__shared_ptr.53" }
 %"class.std::__shared_ptr.53" = type { ptr, %"class.std::__shared_count" }
 %struct.anon = type { i32, [4 x i8], ptr }
-%"struct.duckdb::string_t" = type { %union.anon.245 }
-%union.anon.245 = type { %struct.anon }
 %"class.std::vector.56" = type { %"struct.std::_Vector_base.57" }
 %"struct.std::_Vector_base.57" = type { %"struct.std::_Vector_base<duckdb::ExceptionFormatValue, std::allocator<duckdb::ExceptionFormatValue>>::_Vector_impl" }
 %"struct.std::_Vector_base<duckdb::ExceptionFormatValue, std::allocator<duckdb::ExceptionFormatValue>>::_Vector_impl" = type { %"struct.std::_Vector_base<duckdb::ExceptionFormatValue, std::allocator<duckdb::ExceptionFormatValue>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<duckdb::ExceptionFormatValue, std::allocator<duckdb::ExceptionFormatValue>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"struct.duckdb::ExceptionFormatValue" = type { i8, double, i64, %"class.std::__cxx11::basic_string" }
-%"class.duckdb::unique_ptr.61" = type { %"class.std::unique_ptr.62" }
-%"class.std::unique_ptr.62" = type { %"struct.std::__uniq_ptr_data.63" }
-%"struct.std::__uniq_ptr_data.63" = type { %"class.std::__uniq_ptr_impl.64" }
-%"class.std::__uniq_ptr_impl.64" = type { %"class.std::tuple.65" }
-%"class.std::tuple.65" = type { %"struct.std::_Tuple_impl.66" }
-%"struct.std::_Tuple_impl.66" = type { %"struct.std::_Head_base.69" }
-%"struct.std::_Head_base.69" = type { ptr }
 
 $_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EED2Ev = comdat any
 
@@ -3048,7 +3039,7 @@ _ZN6duckdb11LogicalTypeaSERKS0_.exit:             ; preds = %93, %_ZN6duckdb10sh
   %.sroa.6.0 = phi ptr [ %.sroa.0.8..sroa.0.8..sroa.0.8..sroa.6.0.copyload, %163 ], [ %169, %167 ]
   %.sroa.01.0 = phi i64 [ %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0..sroa.01.0.copyload, %163 ], [ %168, %167 ]
   %171 = load ptr, ptr %142, align 8, !tbaa !124
-  %172 = getelementptr inbounds nuw %"struct.duckdb::string_t", ptr %171, i64 %.03597
+  %172 = getelementptr inbounds nuw [16 x i8], ptr %171, i64 %.03597
   store i64 %.sroa.01.0, ptr %172, align 8
   %.sroa.6.0..sroa_idx3 = getelementptr inbounds nuw i8, ptr %172, i64 8
   store ptr %.sroa.6.0, ptr %.sroa.6.0..sroa_idx3, align 8, !tbaa !77
@@ -3421,7 +3412,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %1
   unreachable
 
 _ZN6duckdb6vectorINS_6VectorELb1EE3getILb1EEERS1_m.exit: ; preds = %2
-  %25 = getelementptr inbounds nuw %"class.duckdb::Vector", ptr %7, i64 %1
+  %25 = getelementptr inbounds nuw [104 x i8], ptr %7, i64 %1
   ret ptr %25
 }
 
@@ -3934,7 +3925,7 @@ _ZNSt12_Vector_baseIN6duckdb20ExceptionFormatValueESaIS1_EE13_M_deallocateEPS1_m
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !178
   store ptr %.0.lcssa.i.i.i.i25, ptr %4, align 8, !tbaa !181
-  %74 = getelementptr inbounds nuw %"struct.duckdb::ExceptionFormatValue", ptr %20, i64 %16
+  %74 = getelementptr inbounds nuw [56 x i8], ptr %20, i64 %16
   store ptr %74, ptr %73, align 8, !tbaa !183
   ret void
 }
@@ -4015,7 +4006,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %1
   unreachable
 
 _ZN6duckdb6vectorINS_10unique_ptrINS_10ExpressionESt14default_deleteIS2_ELb1EEELb1EE3getILb1EEERS5_m.exit: ; preds = %2
-  %25 = getelementptr inbounds nuw %"class.duckdb::unique_ptr.61", ptr %7, i64 %1
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %1
   ret ptr %25
 }
 
@@ -4163,7 +4154,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %1
   unreachable
 
 _ZN6duckdb6vectorINS_11LogicalTypeELb1EE3getILb1EEERS1_m.exit: ; preds = %2
-  %25 = getelementptr inbounds nuw %"struct.duckdb::LogicalType", ptr %7, i64 %1
+  %25 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %1
   ret ptr %25
 }
 
@@ -4334,7 +4325,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   store ptr %19, ptr %0, align 8, !tbaa !198
   %37 = getelementptr inbounds nuw i8, ptr %19, i64 %17
   store ptr %37, ptr %14, align 8, !tbaa !98
-  %38 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %19, i64 %1
+  %38 = getelementptr inbounds nuw [32 x i8], ptr %19, i64 %1
   store ptr %38, ptr %6, align 8, !tbaa !101
   br label %39
 
@@ -4919,7 +4910,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %23, ptr %0, align 8, !tbaa !198
   store ptr %.0.lcssa.i.i.i.i35, ptr %5, align 8, !tbaa !98
-  %74 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %74 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %74, ptr %73, align 8, !tbaa !101
   ret void
 
@@ -6046,7 +6037,7 @@ _ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %22, ptr %0, align 8, !tbaa !148
   store ptr %.0.lcssa.i.i.i.i27, ptr %4, align 8, !tbaa !144
-  %80 = getelementptr inbounds nuw %"struct.std::pair", ptr %22, i64 %16
+  %80 = getelementptr inbounds nuw [56 x i8], ptr %22, i64 %16
   store ptr %80, ptr %79, align 8, !tbaa !147
   ret void
 }

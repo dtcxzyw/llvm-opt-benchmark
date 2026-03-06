@@ -57,8 +57,8 @@ define noundef zeroext i1 @"_ZN67_$LT$rand..seq..index..IndexVec$u20$as$u20$core
 
 22:                                               ; preds = %20
   %23 = add i64 %21, 1
-  %24 = getelementptr inbounds i32, ptr %17, i64 %21
-  %25 = getelementptr inbounds i64, ptr %19, i64 %21
+  %24 = getelementptr inbounds [4 x i8], ptr %17, i64 %21
+  %25 = getelementptr inbounds [8 x i8], ptr %19, i64 %21
   %.fca.0.extract.val.i = load i32, ptr %24, align 4, !noalias !6, !noundef !5
   %.fca.1.extract.val.i = load i64, ptr %25, align 8, !noalias !6, !noundef !5
   %26 = zext i32 %.fca.0.extract.val.i to i64
@@ -85,8 +85,8 @@ define noundef zeroext i1 @"_ZN67_$LT$rand..seq..index..IndexVec$u20$as$u20$core
 
 36:                                               ; preds = %34
   %37 = add i64 %35, 1
-  %38 = getelementptr inbounds i64, ptr %31, i64 %35
-  %39 = getelementptr inbounds i32, ptr %33, i64 %35
+  %38 = getelementptr inbounds [8 x i8], ptr %31, i64 %35
+  %39 = getelementptr inbounds [4 x i8], ptr %33, i64 %35
   %.fca.0.extract.val.i51 = load i64, ptr %38, align 8, !noalias !9, !noundef !5
   %.fca.1.extract.val.i52 = load i32, ptr %39, align 4, !noalias !9, !noundef !5
   %40 = zext i32 %.fca.1.extract.val.i52 to i64

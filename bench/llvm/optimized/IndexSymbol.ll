@@ -2525,10 +2525,10 @@ declare void @_ZNK5clang15DeclarationName5printERN4llvm11raw_ostreamERKNS_14Prin
 define dso_local { ptr, i64 } @_ZN5clang5index19getSymbolKindStringENS0_10SymbolKindE(i8 noundef zeroext %0) local_unnamed_addr #3 {
 switch.lookup:
   %1 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5clang5index19getSymbolKindStringENS0_10SymbolKindE, i64 %1
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5clang5index19getSymbolKindStringENS0_10SymbolKindE, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   %2 = zext nneg i8 %0 to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5clang5index19getSymbolKindStringENS0_10SymbolKindE.6, i64 %2
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5clang5index19getSymbolKindStringENS0_10SymbolKindE.6, i64 %2
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %switch.load, 1
@@ -2539,10 +2539,10 @@ switch.lookup:
 define dso_local { ptr, i64 } @_ZN5clang5index22getSymbolSubKindStringENS0_13SymbolSubKindE(i8 noundef zeroext %0) local_unnamed_addr #3 {
 switch.lookup:
   %1 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5clang5index22getSymbolSubKindStringENS0_13SymbolSubKindE, i64 %1
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5clang5index22getSymbolSubKindStringENS0_13SymbolSubKindE, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   %2 = zext nneg i8 %0 to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5clang5index22getSymbolSubKindStringENS0_13SymbolSubKindE.7, i64 %2
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5clang5index22getSymbolSubKindStringENS0_13SymbolSubKindE.7, i64 %2
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %switch.load, 1
@@ -2553,10 +2553,10 @@ switch.lookup:
 define dso_local { ptr, i64 } @_ZN5clang5index23getSymbolLanguageStringENS0_14SymbolLanguageE(i8 noundef zeroext %0) local_unnamed_addr #3 {
 switch.lookup:
   %1 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5clang5index23getSymbolLanguageStringENS0_14SymbolLanguageE, i64 %1
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5clang5index23getSymbolLanguageStringENS0_14SymbolLanguageE, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   %2 = zext nneg i8 %0 to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5clang5index23getSymbolLanguageStringENS0_14SymbolLanguageE.8, i64 %2
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5clang5index23getSymbolLanguageStringENS0_14SymbolLanguageE.8, i64 %2
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %switch.load, 1

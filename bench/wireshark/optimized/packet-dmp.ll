@@ -11,9 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.anon = type { ptr, ptr, ptr }
 %struct.anon.0 = type { ptr, ptr, ptr }
 %struct.dmp_data = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i8, i8, ptr, i8, i16, i16, i8, i8, i8, i8, i8, ptr }
-%struct.enum_val_t = type { ptr, ptr, i32 }
 %struct.nstime_t = type { i64, i32 }
-%struct._dmp_security_class_t = type { i32, i32, ptr }
 %struct._asn1_ctx_t = type { i32, i32, i8, ptr, ptr, ptr, ptr, ptr, %struct.anon.2, %struct.anon.5, %struct.anon.6, ptr }
 %struct.anon.2 = type { i32, i8, i8, i8, ptr, ptr, i32, i32, ptr, ptr, ptr, %union.anon }
 %union.anon = type { %struct.anon.3 }
@@ -1289,10 +1287,10 @@ define hidden void @proto_register_dmp() local_unnamed_addr #0 {
 
 13:                                               ; preds = %13, %0
   %indvars.iv.i = phi i64 [ 0, %0 ], [ %indvars.iv.next.i, %13 ]
-  %14 = getelementptr %struct.enum_val_t, ptr @dmp_national_values, i64 %indvars.iv.i
+  %14 = getelementptr [24 x i8], ptr @dmp_national_values, i64 %indvars.iv.i
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load i32, ptr %15, align 8
-  %17 = getelementptr %struct._value_string, ptr @nat_pol_id, i64 %indvars.iv.i
+  %17 = getelementptr [16 x i8], ptr @nat_pol_id, i64 %indvars.iv.i
   store i32 %16, ptr %17, align 16
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %19 = load ptr, ptr %18, align 8
@@ -1341,7 +1339,7 @@ define internal void @dmp_security_class_nation_set_cb(ptr noundef writeonly cap
   %.01622 = phi i32 [ %11, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %11 = add i32 %.01622, 1
   %12 = zext i32 %11 to i64
-  %13 = getelementptr %struct._value_string, ptr %3, i64 %12
+  %13 = getelementptr [16 x i8], ptr %3, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   %.not = icmp eq ptr %15, null
@@ -1380,7 +1378,7 @@ define internal void @dmp_security_class_nation_tostr_cb(ptr noundef readonly ca
   %.01520 = phi i32 [ %11, %16 ], [ 0, %.lr.ph ]
   %11 = add i32 %.01520, 1
   %12 = zext i32 %11 to i64
-  %13 = getelementptr %struct._value_string, ptr %3, i64 %12
+  %13 = getelementptr [16 x i8], ptr %3, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   %.not = icmp eq ptr %15, null
@@ -3481,7 +3479,7 @@ define internal fastcc i32 @dissect_dmp_content(ptr noundef %0, ptr noundef %1, 
 
 76:                                               ; preds = %84, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %84 ]
-  %77 = getelementptr %struct._dmp_security_class_t, ptr %75, i64 %indvars.iv.i
+  %77 = getelementptr [16 x i8], ptr %75, i64 %indvars.iv.i
   %78 = load i32, ptr %77, align 8
   %79 = icmp eq i32 %78, %70
   br i1 %79, label %80, label %84
@@ -3513,7 +3511,7 @@ define internal fastcc i32 @dissect_dmp_content(ptr noundef %0, ptr noundef %1, 
 
 92:                                               ; preds = %100, %.lr.ph.i411
   %indvars.iv.i413 = phi i64 [ 0, %.lr.ph.i411 ], [ %indvars.iv.next.i414, %100 ]
-  %93 = getelementptr %struct._dmp_security_class_t, ptr %91, i64 %indvars.iv.i413
+  %93 = getelementptr [16 x i8], ptr %91, i64 %indvars.iv.i413
   %94 = load i32, ptr %93, align 8
   %95 = icmp eq i32 %94, %88
   br i1 %95, label %96, label %100
@@ -3817,7 +3815,7 @@ proto_item_set_generated.exit:                    ; preds = %186, %183, %180, %2
 
 256:                                              ; preds = %255, %253
   %indvars.iv.i419 = phi i64 [ %indvars.iv.next.i420, %255 ], [ 0, %253 ]
-  %257 = getelementptr %struct.enum_val_t, ptr @dmp_national_values, i64 %indvars.iv.i419
+  %257 = getelementptr [24 x i8], ptr @dmp_national_values, i64 %indvars.iv.i419
   %258 = getelementptr inbounds nuw i8, ptr %257, i64 16
   %259 = load i32, ptr %258, align 8
   %260 = icmp eq i32 %259, %248
@@ -3840,7 +3838,7 @@ get_nat_pol_id_short.exit.i:                      ; preds = %255, %.split.loop.e
 
 264:                                              ; preds = %263, %get_nat_pol_id_short.exit.i
   %indvars.iv130.i = phi i64 [ %indvars.iv.next131.i, %263 ], [ 0, %get_nat_pol_id_short.exit.i ]
-  %265 = getelementptr %struct.enum_val_t, ptr @dmp_national_values, i64 %indvars.iv130.i
+  %265 = getelementptr [24 x i8], ptr @dmp_national_values, i64 %indvars.iv130.i
   %266 = getelementptr inbounds nuw i8, ptr %265, i64 16
   %267 = load i32, ptr %266, align 8
   %268 = icmp eq i32 %267, %248
@@ -4221,7 +4219,7 @@ dmp_dec_dtg.exit.thread580:                       ; preds = %415, %419, %dmp_dec
   %.1.i.i = phi i1 [ %spec.select239.i, %465 ], [ %.094100.i.i, %463 ]
   store i8 %.sink116.i.i, ptr %461, align 1
   %469 = zext i8 %.sink116.i.i to i64
-  %470 = getelementptr i16, ptr %452, i64 %469
+  %470 = getelementptr [2 x i8], ptr %452, i64 %469
   %471 = load i16, ptr %470, align 2
   %472 = and i16 %471, 64
   %.not.i.i430 = icmp eq i16 %472, 0
@@ -4354,7 +4352,7 @@ dmp_dec_xbyte_sic.exit.i:                         ; preds = %468
   %.1.us.i.i = phi i1 [ %.094100.us.i.i, %520 ], [ %.094100.us.i.i, %518 ], [ %.094100.us.i.i, %516 ], [ true, %515 ], [ %.094100.us.i.i, %514 ], [ %.094100.us.i.i, %513 ], [ %.094100.us.i.i, %512 ], [ %.094100.us.i.i, %511 ], [ %.094100.us.i.i, %510 ], [ %.094100.us.i.i, %509 ], [ %.094100.us.i.i, %508 ], [ %.094100.us.i.i, %507 ], [ %.094100.us.i.i, %506 ], [ %.094100.us.i.i, %505 ], [ %.094100.us.i.i, %504 ], [ %.094100.us.i.i, %503 ]
   store i8 %.sink.i.i, ptr %497, align 1
   %523 = zext i8 %.sink.i.i to i64
-  %524 = getelementptr i16, ptr %488, i64 %523
+  %524 = getelementptr [2 x i8], ptr %488, i64 %523
   %525 = load i16, ptr %524, align 2
   %526 = and i16 %525, 64
   %.not.us.i.i = icmp eq i16 %526, 0
@@ -5261,7 +5259,7 @@ dissect_dmp_report.exit:                          ; preds = %dmp_dec_del_time.ex
 
 switch.lookup:                                    ; preds = %1060
   %1063 = zext nneg i32 %1061 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_dmp_content, i64 %1063
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_dmp_content, i64 %1063
   %switch.load = load ptr, ptr %switch.gep, align 8
   %1064 = load i32, ptr %switch.load, align 4
   %1065 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %1064, ptr noundef %0, i32 noundef %.6, i32 noundef 4, i32 noundef 0)
@@ -7442,7 +7440,7 @@ define internal fastcc zeroext i1 @dmp_dec_xbyte_sic(i64 noundef range(i64 0, 17
   %.1.us = phi i1 [ %.094100.us, %39 ], [ %.094100.us, %37 ], [ %.094100.us, %35 ], [ true, %34 ], [ %.094100.us, %33 ], [ %.094100.us, %32 ], [ %.094100.us, %31 ], [ %.094100.us, %30 ], [ %.094100.us, %29 ], [ %.094100.us, %28 ], [ %.094100.us, %27 ], [ %.094100.us, %26 ], [ %.094100.us, %25 ], [ %.094100.us, %24 ], [ %.094100.us, %23 ], [ %.094100.us, %22 ]
   store i8 %.sink, ptr %16, align 1
   %42 = zext i8 %.sink to i64
-  %43 = getelementptr i16, ptr %6, i64 %42
+  %43 = getelementptr [2 x i8], ptr %6, i64 %42
   %44 = load i16, ptr %43, align 2
   %45 = and i16 %44, 64
   %.not.us = icmp eq i16 %45, 0
@@ -7487,7 +7485,7 @@ define internal fastcc zeroext i1 @dmp_dec_xbyte_sic(i64 noundef range(i64 0, 17
   %.1 = phi i1 [ %spec.select121, %59 ], [ %.094100, %57 ]
   store i8 %.sink116, ptr %55, align 1
   %63 = zext i8 %.sink116 to i64
-  %64 = getelementptr i16, ptr %6, i64 %63
+  %64 = getelementptr [2 x i8], ptr %6, i64 %63
   %65 = load i16, ptr %64, align 2
   %66 = and i16 %65, 64
   %.not = icmp eq i16 %66, 0

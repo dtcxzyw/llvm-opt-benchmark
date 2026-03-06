@@ -6272,7 +6272,7 @@ common.resume:                                    ; preds = %32, %17
 "_ZN90_$LT$winnow..error..ErrMode$LT$E$GT$$u20$as$u20$winnow..error..AddContext$LT$I$C$C$GT$$GT$11add_context28_$u7b$$u7b$closure$u7d$$u7d$17ha18cff06467addbdE.exit": ; preds = %11, %16
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %22 = load ptr, ptr %21, align 8, !alias.scope !1096, !noalias !1103, !nonnull !3, !noundef !3
-  %23 = getelementptr inbounds { i32, [5 x i32] }, ptr %22, i64 %13
+  %23 = getelementptr inbounds [24 x i8], ptr %22, i64 %13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull readonly align 8 dereferenceable(40) %2, i64 24, i1 false), !noalias !1110
   %24 = add i64 %13, 1
   store i64 %24, ptr %12, align 8, !alias.scope !1096, !noalias !1103
@@ -6309,7 +6309,7 @@ common.resume:                                    ; preds = %32, %17
 "_ZN90_$LT$winnow..error..ErrMode$LT$E$GT$$u20$as$u20$winnow..error..AddContext$LT$I$C$C$GT$$GT$11add_context28_$u7b$$u7b$closure$u7d$$u7d$17ha18cff06467addbdE.exit1": ; preds = %26, %31
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %37 = load ptr, ptr %36, align 8, !alias.scope !1111, !noalias !1118, !nonnull !3, !noundef !3
-  %38 = getelementptr inbounds { i32, [5 x i32] }, ptr %37, i64 %28
+  %38 = getelementptr inbounds [24 x i8], ptr %37, i64 %28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %38, ptr noundef nonnull readonly align 8 dereferenceable(40) %2, i64 24, i1 false), !noalias !1125
   %39 = add i64 %28, 1
   store i64 %39, ptr %27, align 8, !alias.scope !1111, !noalias !1118
@@ -8402,7 +8402,7 @@ define hidden void @"_ZN93_$LT$toml_edit..de..table_enum..TableEnumDeserializer$
   %.sroa.5246.0.copyload = load i64, ptr %.sroa.5246.0..sroa_idx, align 8
   %95 = icmp ult i64 %.sroa.5246.0.copyload, 52405522936674863
   call void @llvm.assume(i1 %95)
-  %96 = getelementptr inbounds nuw { i64, [21 x i64] }, ptr %.sroa.4245.0.copyload, i64 %.sroa.5246.0.copyload
+  %96 = getelementptr inbounds nuw [176 x i8], ptr %.sroa.4245.0.copyload, i64 %.sroa.5246.0.copyload
   %97 = icmp sgt i64 %.sroa.0244.0.copyload, -1
   call void @llvm.assume(i1 %97)
   store ptr %.sroa.4245.0.copyload, ptr %58, align 8, !alias.scope !1278, !noalias !1281
@@ -8654,7 +8654,7 @@ define hidden void @"_ZN93_$LT$toml_edit..de..table_enum..TableEnumDeserializer$
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0285.sroa.4.0.copyload) ]
   %169 = icmp ult i64 %.sroa.0285.sroa.5.0.copyload, 28120036697727976
   call void @llvm.assume(i1 %169)
-  %170 = getelementptr inbounds nuw { { i64, [21 x i64] }, { { { { { { i64, ptr, {} }, {} }, i64 } } }, { i64, [2 x i64] }, { { i64, [2 x i64] }, { i64, [2 x i64] } }, { { i64, [2 x i64] }, { i64, [2 x i64] } } }, i64 }, ptr %.sroa.0285.sroa.4.0.copyload, i64 %.sroa.0285.sroa.5.0.copyload
+  %170 = getelementptr inbounds nuw [328 x i8], ptr %.sroa.0285.sroa.4.0.copyload, i64 %.sroa.0285.sroa.5.0.copyload
   %171 = icmp sgt i64 %.sroa.0285.sroa.0.0.copyload, -1
   call void @llvm.assume(i1 %171)
   call void @llvm.lifetime.start.p0(ptr nonnull %32), !noalias !1345
@@ -9002,7 +9002,7 @@ define hidden void @"_ZN93_$LT$toml_edit..de..table_enum..TableEnumDeserializer$
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0264.sroa.4.0.copyload) ]
   %267 = icmp ult i64 %.sroa.0264.sroa.5.0.copyload, 28120036697727976
   call void @llvm.assume(i1 %267)
-  %268 = getelementptr inbounds nuw { { i64, [21 x i64] }, { { { { { { i64, ptr, {} }, {} }, i64 } } }, { i64, [2 x i64] }, { { i64, [2 x i64] }, { i64, [2 x i64] } }, { { i64, [2 x i64] }, { i64, [2 x i64] } } }, i64 }, ptr %.sroa.0264.sroa.4.0.copyload, i64 %.sroa.0264.sroa.5.0.copyload
+  %268 = getelementptr inbounds nuw [328 x i8], ptr %.sroa.0264.sroa.4.0.copyload, i64 %.sroa.0264.sroa.5.0.copyload
   %269 = icmp sgt i64 %.sroa.0264.sroa.0.0.copyload, -1
   call void @llvm.assume(i1 %269)
   call void @llvm.lifetime.start.p0(ptr nonnull %21), !noalias !1446
@@ -9242,7 +9242,7 @@ define hidden void @"_ZN93_$LT$toml_edit..de..table_enum..TableEnumDeserializer$
   %.sroa.5233.0.copyload = load i64, ptr %.sroa.5233.0..sroa_idx, align 8
   %321 = icmp ult i64 %.sroa.5233.0.copyload, 52405522936674863
   call void @llvm.assume(i1 %321)
-  %322 = getelementptr inbounds nuw { i64, [21 x i64] }, ptr %.sroa.4.0.copyload, i64 %.sroa.5233.0.copyload
+  %322 = getelementptr inbounds nuw [176 x i8], ptr %.sroa.4.0.copyload, i64 %.sroa.5233.0.copyload
   %323 = icmp sgt i64 %.sroa.0231.0.copyload, -1
   call void @llvm.assume(i1 %323)
   store ptr %.sroa.4.0.copyload, ptr %64, align 8, !alias.scope !1495, !noalias !1498

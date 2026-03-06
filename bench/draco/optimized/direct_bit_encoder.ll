@@ -169,7 +169,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i: ; preds = %29, %_ZNKS
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i: ; preds = %31, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i
   store ptr %25, ptr %0, align 8, !tbaa !3
   store ptr %30, ptr %5, align 8, !tbaa !9
-  %32 = getelementptr inbounds nuw i32, ptr %25, i64 %23
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %23
   store ptr %32, ptr %7, align 8, !tbaa !17
   br label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit
 

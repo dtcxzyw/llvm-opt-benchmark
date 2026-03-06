@@ -214,7 +214,7 @@ define hidden void @jRDislow(ptr noundef readonly captures(none) %0, ptr noundef
 163:                                              ; preds = %.preheader, %315
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %315 ]
   %.2266 = phi ptr [ %6, %.preheader ], [ %.3, %315 ]
-  %164 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %164 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %165 = load ptr, ptr %164, align 8
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 %12
   %167 = getelementptr inbounds nuw i8, ptr %.2266, i64 4

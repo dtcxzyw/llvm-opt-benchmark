@@ -22,16 +22,8 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.cxx20::unexpected" = type { %"class.WasmEdge::ErrCode" }
 %"class.WasmEdge::ErrCode" = type { %"union.WasmEdge::ErrCode::InnerT" }
 %"union.WasmEdge::ErrCode::InnerT" = type { i32 }
-%"class.WasmEdge::ValType" = type { %union.anon.37 }
-%union.anon.37 = type { %struct.anon }
-%struct.anon = type { i8, i8, i8, i8, i32 }
-%"class.WasmEdge::AST::Instruction" = type <{ %"union.WasmEdge::AST::Instruction::Inner", i32, i32, %struct.anon.82, [7 x i8] }>
-%"union.WasmEdge::AST::Instruction::Inner" = type { i128 }
-%struct.anon.82 = type { i8 }
 %"struct.spdlog::source_loc" = type { ptr, i32, ptr }
 %"struct.WasmEdge::ErrInfo::InfoForbidIndex" = type { i8, i32, i32 }
-%"struct.std::pair" = type <{ %"class.WasmEdge::ValType", i8, [3 x i8] }>
-%"struct.WasmEdge::Validator::FormChecker::LocalType" = type { i8, %"class.WasmEdge::ValType" }
 %"struct.cxx20::span.35" = type { %"class.cxx20::detail::span_storage.36" }
 %"class.cxx20::detail::span_storage.36" = type { ptr, i64 }
 %"struct.WasmEdge::ErrInfo::InfoInstruction" = type <{ i32, [4 x i8], i64, %"class.std::vector.83", %"class.std::vector.5", i8, [7 x i8] }>
@@ -73,6 +65,9 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.cxx20::detail::expected_view_base.138" = type { %"struct.cxx20::detail::expected_storage_base.139" }
 %"struct.cxx20::detail::expected_storage_base.139" = type { i8, %union.anon.140 }
 %union.anon.140 = type { i32 }
+%"class.WasmEdge::ValType" = type { %union.anon.37 }
+%union.anon.37 = type { %struct.anon }
+%struct.anon = type { i8, i8, i8, i8, i32 }
 %"class.cxx20::expected.145" = type { %"struct.cxx20::detail::expected_move_assign_base.146" }
 %"struct.cxx20::detail::expected_move_assign_base.146" = type { %"struct.cxx20::detail::expected_copy_assign_base.147" }
 %"struct.cxx20::detail::expected_copy_assign_base.147" = type { %"struct.cxx20::detail::expected_move_base.148" }
@@ -102,14 +97,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::array" = type { [2 x %"class.WasmEdge::ValType"] }
 %"struct.std::array.203" = type { [1 x %"class.WasmEdge::ValType"] }
 %"struct.std::array.204" = type { [3 x %"class.WasmEdge::ValType"] }
-%"struct.WasmEdge::AST::Instruction::CatchDescriptor" = type { i8, i32, i32, %"struct.WasmEdge::AST::Instruction::JumpDescriptor" }
-%"struct.WasmEdge::AST::Instruction::JumpDescriptor" = type { i32, i32, i32, i32 }
-%"class.std::optional.66" = type { %"struct.std::_Optional_base.67" }
-%"struct.std::_Optional_base.67" = type { %"struct.std::_Optional_payload.69" }
-%"struct.std::_Optional_payload.69" = type { %"struct.std::_Optional_payload_base.base.71", [3 x i8] }
-%"struct.std::_Optional_payload_base.base.71" = type <{ %"union.std::_Optional_payload_base<WasmEdge::ValType>::_Storage", i8 }>
-%"union.std::_Optional_payload_base<WasmEdge::ValType>::_Storage" = type { %"class.WasmEdge::ValType" }
-%"class.WasmEdge::AST::FieldType" = type <{ %"class.WasmEdge::ValType", i8, [3 x i8] }>
 %"class.fmt::v8::basic_memory_buffer" = type <{ %"class.fmt::v8::detail::buffer", [250 x i8], %"class.std::allocator.210", [5 x i8] }>
 %"class.fmt::v8::detail::buffer" = type { ptr, ptr, i64, i64 }
 %"class.std::allocator.210" = type { i8 }
@@ -174,12 +161,11 @@ target triple = "x86_64-pc-linux-gnu"
 %class.anon.270 = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %class.anon.271 = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.id_adapter = type <{ ptr, i32, [4 x i8] }>
-%"class.fmt::v8::basic_format_arg" = type <{ %"class.fmt::v8::detail::value", i32, [12 x i8] }>
 %"struct.fmt::v8::detail::write_int_arg.293" = type { i128, i32 }
 %"class.fmt::v8::detail::specs_checker" = type <{ %"class.fmt::v8::detail::specs_handler", i32, [4 x i8] }>
 %"class.fmt::v8::detail::specs_handler" = type { %"class.fmt::v8::detail::specs_setter", ptr, ptr }
 %"class.fmt::v8::detail::specs_setter" = type { ptr }
-%"struct.fmt::v8::detail::named_arg_info" = type { ptr, i32 }
+%"class.fmt::v8::basic_format_arg" = type <{ %"class.fmt::v8::detail::value", i32, [12 x i8] }>
 %struct.width_adapter = type { ptr }
 %struct.precision_adapter = type { ptr }
 %class.anon.292 = type { i32, %"struct.fmt::v8::detail::write_int_data", %class.anon.283 }
@@ -1095,7 +1081,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i:
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %37, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   store ptr %31, ptr %8, align 8
   store ptr %36, ptr %9, align 8
-  %38 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %31, i64 %29
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %29
   store ptr %38, ptr %10, align 8
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE9push_backERKS1_.exit
 
@@ -1119,7 +1105,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE9push_backERKS1_.exit: ; preds = %14, %_
   %47 = ptrtoint ptr %43 to i64
   %48 = sub i64 %46, %47
   %49 = ashr exact i64 %48, 3
-  %50 = getelementptr inbounds %"class.WasmEdge::AST::Instruction", ptr %2, i64 %3
+  %50 = getelementptr inbounds [32 x i8], ptr %2, i64 %3
   %51 = getelementptr inbounds i8, ptr %50, i64 -32
   tail call void @_ZN8WasmEdge9Validator11FormChecker8pushCtrlEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEES6_PKNS_3AST11InstructionENS_6OpCodeE(ptr noundef nonnull align 8 dereferenceable(360) %1, ptr null, i64 0, ptr %43, i64 %49, ptr noundef nonnull %51, i32 noundef 0), !noalias !7
   tail call void @_ZN8WasmEdge9Validator11FormChecker11checkInstrsEN5cxx204spanIKNS_3AST11InstructionELm18446744073709551615EEE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr %2, i64 %3)
@@ -1147,7 +1133,7 @@ define void @_ZN8WasmEdge9Validator11FormChecker9checkExprEN5cxx204spanIKNS_3AST
   %11 = ptrtoint ptr %7 to i64
   %12 = sub i64 %10, %11
   %13 = ashr exact i64 %12, 3
-  %14 = getelementptr inbounds %"class.WasmEdge::AST::Instruction", ptr %2, i64 %3
+  %14 = getelementptr inbounds [32 x i8], ptr %2, i64 %3
   %15 = getelementptr inbounds i8, ptr %14, i64 -32
   tail call void @_ZN8WasmEdge9Validator11FormChecker8pushCtrlEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEES6_PKNS_3AST11InstructionENS_6OpCodeE(ptr noundef nonnull align 8 dereferenceable(360) %1, ptr null, i64 0, ptr %7, i64 %13, ptr noundef nonnull %15, i32 noundef 0)
   tail call void @_ZN8WasmEdge9Validator11FormChecker11checkInstrsEN5cxx204spanIKNS_3AST11InstructionELm18446744073709551615EEE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr %2, i64 %3)
@@ -1347,7 +1333,7 @@ _ZNSt6vectorIPKN8WasmEdge3AST7SubTypeESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit1
 _ZNSt6vectorIPKN8WasmEdge3AST7SubTypeESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i: ; preds = %28, %_ZNSt6vectorIPKN8WasmEdge3AST7SubTypeESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i.i
   store ptr %23, ptr %0, align 8
   store ptr %27, ptr %3, align 8
-  %29 = getelementptr inbounds nuw ptr, ptr %23, i64 %21
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %21
   store ptr %29, ptr %5, align 8
   br label %_ZNSt6vectorIPKN8WasmEdge3AST7SubTypeESaIS4_EE9push_backEOS4_.exit
 
@@ -1428,7 +1414,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i: ; preds = %38, %_ZNKS
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i: ; preds = %40, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i
   store ptr %35, ptr %14, align 8
   store ptr %39, ptr %15, align 8
-  %41 = getelementptr inbounds nuw i32, ptr %35, i64 %33
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %33
   store ptr %41, ptr %17, align 8
   br label %_ZNSt6vectorIjSaIjEE12emplace_backIJRKjEEERjDpOT_.exit
 
@@ -1509,7 +1495,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i:
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %31, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   store ptr %25, ptr %3, align 8
   store ptr %30, ptr %4, align 8
-  %32 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %25, i64 %23
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %23
   store ptr %32, ptr %6, align 8
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE9push_backERKS1_.exit
 
@@ -1601,7 +1587,7 @@ _ZNSt6vectorISt4pairIN8WasmEdge7ValTypeENS1_6ValMutEESaIS4_EE11_S_relocateEPS4_S
 _ZNSt6vectorISt4pairIN8WasmEdge7ValTypeENS1_6ValMutEESaIS4_EE17_M_realloc_insertIJRKS2_S3_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i: ; preds = %36, %_ZNSt6vectorISt4pairIN8WasmEdge7ValTypeENS1_6ValMutEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit33.i.i
   store ptr %29, ptr %4, align 8
   store ptr %35, ptr %7, align 8
-  %37 = getelementptr inbounds nuw %"struct.std::pair", ptr %29, i64 %27
+  %37 = getelementptr inbounds nuw [12 x i8], ptr %29, i64 %27
   store ptr %37, ptr %9, align 8
   br label %_ZNSt6vectorISt4pairIN8WasmEdge7ValTypeENS1_6ValMutEESaIS4_EE12emplace_backIJRKS2_S3_EEERS4_DpOT_.exit
 
@@ -1681,7 +1667,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i: ; preds = %28, %_ZNKS
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i: ; preds = %30, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i
   store ptr %25, ptr %3, align 8
   store ptr %29, ptr %4, align 8
-  %31 = getelementptr inbounds nuw i32, ptr %25, i64 %23
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %23
   store ptr %31, ptr %12, align 8
   br label %_ZNSt6vectorIjSaIjEE12emplace_backIJjEEERjDpOT_.exit
 
@@ -1753,7 +1739,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i:
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %32, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   store ptr %26, ptr %3, align 8
   store ptr %31, ptr %5, align 8
-  %33 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %26, i64 %24
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %24
   store ptr %33, ptr %7, align 8
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE12emplace_backIJRKS1_EEERS1_DpOT_.exit
 
@@ -1843,7 +1829,7 @@ _ZNSt6vectorIN8WasmEdge9Validator11FormChecker9LocalTypeESaIS3_EE11_S_relocateEP
 _ZNSt6vectorIN8WasmEdge9Validator11FormChecker9LocalTypeESaIS3_EE17_M_realloc_insertIJRKNS0_7ValTypeEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %32, %_ZNSt6vectorIN8WasmEdge9Validator11FormChecker9LocalTypeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit32.i.i
   store ptr %26, ptr %4, align 8
   store ptr %31, ptr %5, align 8
-  %33 = getelementptr inbounds nuw %"struct.WasmEdge::Validator::FormChecker::LocalType", ptr %26, i64 %24
+  %33 = getelementptr inbounds nuw [12 x i8], ptr %26, i64 %24
   store ptr %33, ptr %7, align 8
   br label %_ZNSt6vectorIN8WasmEdge9Validator11FormChecker9LocalTypeESaIS3_EE12emplace_backIJRKNS0_7ValTypeEEEERS3_DpOT_.exit
 
@@ -1922,7 +1908,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i: ; preds = %70, %_ZN
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i: ; preds = %72, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i
   store ptr %67, ptr %39, align 8
   store ptr %71, ptr %47, align 8
-  %73 = getelementptr inbounds nuw i32, ptr %67, i64 %65
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %67, i64 %65
   store ptr %73, ptr %49, align 8
   br label %_ZNSt6vectorIjSaIjEE9push_backEOj.exit
 
@@ -1998,7 +1984,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i: ; preds = %28, %_ZNKS
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i: ; preds = %30, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i
   store ptr %24, ptr %0, align 8
   store ptr %29, ptr %3, align 8
-  %31 = getelementptr inbounds nuw i32, ptr %24, i64 %22
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %22
   store ptr %31, ptr %5, align 8
   br label %_ZNSt6vectorIjSaIjEE12emplace_backIJjEEERjDpOT_.exit
 
@@ -2067,7 +2053,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i: ; preds = %27, %_ZNKS
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i: ; preds = %29, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i
   store ptr %24, ptr %3, align 8
   store ptr %28, ptr %4, align 8
-  %30 = getelementptr inbounds nuw i32, ptr %24, i64 %22
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %22
   store ptr %30, ptr %6, align 8
   br label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit
 
@@ -3479,7 +3465,7 @@ define void @_ZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11Instruct
 
 596:                                              ; preds = %589, %581
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
-  %597 = getelementptr inbounds %"class.WasmEdge::ValType", ptr %.sroa.0.0.copyload, i64 %.sroa.5.0.copyload
+  %597 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0.copyload, i64 %.sroa.5.0.copyload
   br label %598
 
 598:                                              ; preds = %.noexc, %596
@@ -3595,7 +3581,7 @@ define void @_ZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11Instruct
 657:                                              ; preds = %653
   %658 = zext i32 %656 to i64
   %659 = load ptr, ptr %619, align 8
-  %660 = getelementptr inbounds nuw %"struct.WasmEdge::Validator::FormChecker::CtrlFrame", ptr %659, i64 %658
+  %660 = getelementptr inbounds nuw [80 x i8], ptr %659, i64 %658
   %661 = getelementptr inbounds nuw i8, ptr %660, i64 76
   %662 = load i32, ptr %661, align 4
   %663 = icmp eq i32 %662, 3
@@ -3612,7 +3598,7 @@ define void @_ZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11Instruct
   %.sroa.3.0.i = ashr exact i64 %671, 3
   %672 = load i32, ptr %622, align 4
   %673 = zext i32 %672 to i64
-  %674 = getelementptr inbounds nuw %"class.WasmEdge::AST::Instruction", ptr %2, i64 %673
+  %674 = getelementptr inbounds nuw [32 x i8], ptr %2, i64 %673
   %675 = load i32, ptr %562, align 4
   invoke void @_ZN8WasmEdge9Validator11FormChecker8pushCtrlEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEES6_PKNS_3AST11InstructionENS_6OpCodeE(ptr noundef nonnull align 8 dereferenceable(360) %1, ptr null, i64 0, ptr %.sink4.i, i64 %.sroa.3.0.i, ptr noundef nonnull %674, i32 noundef %675)
           to label %676 unwind label %.loopexit
@@ -3629,11 +3615,11 @@ define void @_ZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11Instruct
   %681 = load i32, ptr %680, align 4
   %682 = zext i32 %681 to i64
   %683 = load ptr, ptr %617, align 8
-  %684 = getelementptr inbounds nuw i32, ptr %683, i64 %682
+  %684 = getelementptr inbounds nuw [4 x i8], ptr %683, i64 %682
   %685 = load i32, ptr %684, align 4
   %686 = zext i32 %685 to i64
   %687 = load ptr, ptr %1, align 8
-  %688 = getelementptr inbounds nuw ptr, ptr %687, i64 %686
+  %688 = getelementptr inbounds nuw [8 x i8], ptr %687, i64 %686
   %689 = load ptr, ptr %688, align 8
   %690 = getelementptr inbounds nuw i8, ptr %689, i64 40
   %691 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %29, ptr noundef nonnull align 8 dereferenceable(24) %690)
@@ -3726,7 +3712,7 @@ define void @_ZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11Instruct
   %736 = sub i64 %734, %735
   %737 = sdiv exact i64 %736, 12
   %738 = load ptr, ptr %619, align 8
-  %739 = getelementptr inbounds nuw %"struct.WasmEdge::Validator::FormChecker::CtrlFrame", ptr %738, i64 %658
+  %739 = getelementptr inbounds nuw [80 x i8], ptr %738, i64 %658
   %740 = getelementptr inbounds nuw i8, ptr %739, i64 56
   %741 = load i64, ptr %740, align 8
   %742 = sub i64 %737, %741
@@ -3737,7 +3723,7 @@ define void @_ZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11Instruct
   %746 = getelementptr inbounds nuw i8, ptr %.sroa.03265.03418, i64 20
   store i32 %731, ptr %746, align 4
   %747 = load ptr, ptr %619, align 8
-  %748 = getelementptr inbounds nuw %"struct.WasmEdge::Validator::FormChecker::CtrlFrame", ptr %747, i64 %658
+  %748 = getelementptr inbounds nuw [80 x i8], ptr %747, i64 %658
   %749 = getelementptr inbounds nuw i8, ptr %748, i64 48
   %750 = load ptr, ptr %749, align 8
   %751 = ptrtoint ptr %750 to i64
@@ -3784,7 +3770,7 @@ thread-pre-split:                                 ; preds = %_ZNSt6vectorIN8Wasm
   %770 = load i32, ptr %2, align 16
   %narrow = select i1 %769, i32 0, i32 %770
   %.idx = zext i32 %narrow to i64
-  %771 = getelementptr inbounds nuw %"class.WasmEdge::AST::Instruction", ptr %2, i64 %.idx
+  %771 = getelementptr inbounds nuw [32 x i8], ptr %2, i64 %.idx
   invoke void @_ZN8WasmEdge9Validator11FormChecker8pushCtrlEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEES6_PKNS_3AST11InstructionENS_6OpCodeE(ptr noundef nonnull align 8 dereferenceable(360) %1, ptr %.sroa.0.0.copyload, i64 %.sroa.5.0.copyload, ptr %.sroa.03299.0.copyload, i64 %.sroa.4.0.copyload, ptr noundef nonnull %771, i32 noundef %768)
           to label %772 unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -3906,17 +3892,17 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1253: ; preds = %.loopexit, %.l
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
 834:                                              ; preds = %819
-  %835 = getelementptr inbounds nuw i32, ptr %825, i64 %821
+  %835 = getelementptr inbounds nuw [4 x i8], ptr %825, i64 %821
   %836 = load i32, ptr %835, align 4
   %837 = zext i32 %836 to i64
   %838 = load ptr, ptr %1, align 8
-  %839 = getelementptr inbounds nuw ptr, ptr %838, i64 %837
+  %839 = getelementptr inbounds nuw [8 x i8], ptr %838, i64 %837
   %840 = load ptr, ptr %839, align 8
   %841 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %842 = load i32, ptr %841, align 4
   %843 = zext i32 %842 to i64
   %844 = sub nsw i64 0, %843
-  %845 = getelementptr inbounds %"class.WasmEdge::AST::Instruction", ptr %2, i64 %844
+  %845 = getelementptr inbounds [32 x i8], ptr %2, i64 %844
   %846 = load ptr, ptr %845, align 16
   %847 = getelementptr inbounds nuw i8, ptr %846, i64 16
   %848 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -3929,7 +3915,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1253: ; preds = %.loopexit, %.l
 
 853:                                              ; preds = %834
   %854 = zext i32 %849 to i64
-  %855 = getelementptr inbounds nuw %"struct.WasmEdge::AST::Instruction::CatchDescriptor", ptr %850, i64 %854
+  %855 = getelementptr inbounds nuw [28 x i8], ptr %850, i64 %854
   %856 = getelementptr inbounds nuw i8, ptr %840, i64 40
   %857 = getelementptr inbounds nuw i8, ptr %1, i64 336
   %858 = getelementptr inbounds nuw i8, ptr %1, i64 344
@@ -4032,7 +4018,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1253: ; preds = %.loopexit, %.l
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
 929:                                              ; preds = %914
-  %930 = getelementptr inbounds nuw i32, ptr %920, i64 %916
+  %930 = getelementptr inbounds nuw [4 x i8], ptr %920, i64 %916
   %931 = load i32, ptr %930, align 4
   %.val.val = load ptr, ptr %1, align 8
   %932 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -4221,7 +4207,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1253: ; preds = %.loopexit, %.l
 1015:                                             ; preds = %1005
   %1016 = zext i32 %1012 to i64
   %1017 = load ptr, ptr %1007, align 8
-  %1018 = getelementptr inbounds nuw %"struct.WasmEdge::Validator::FormChecker::CtrlFrame", ptr %1017, i64 %1016
+  %1018 = getelementptr inbounds nuw [80 x i8], ptr %1017, i64 %1016
   %1019 = getelementptr inbounds nuw i8, ptr %1018, i64 76
   %1020 = load i32, ptr %1019, align 4
   %1021 = icmp eq i32 %1020, 3
@@ -4274,7 +4260,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1253: ; preds = %.loopexit, %.l
   %1048 = sub i64 %1046, %1047
   %1049 = sdiv exact i64 %1048, 12
   %1050 = load ptr, ptr %1007, align 8
-  %1051 = getelementptr inbounds nuw %"struct.WasmEdge::Validator::FormChecker::CtrlFrame", ptr %1050, i64 %1016
+  %1051 = getelementptr inbounds nuw [80 x i8], ptr %1050, i64 %1016
   %1052 = getelementptr inbounds nuw i8, ptr %1051, i64 56
   %1053 = load i64, ptr %1052, align 8
   %1054 = sub i64 %1049, %1053
@@ -4285,7 +4271,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1253: ; preds = %.loopexit, %.l
   %1058 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %1041, ptr %1058, align 8
   %1059 = load ptr, ptr %1007, align 8
-  %1060 = getelementptr inbounds nuw %"struct.WasmEdge::Validator::FormChecker::CtrlFrame", ptr %1059, i64 %1016
+  %1060 = getelementptr inbounds nuw [80 x i8], ptr %1059, i64 %1016
   %1061 = getelementptr inbounds nuw i8, ptr %1060, i64 48
   %1062 = load ptr, ptr %1061, align 8
   %1063 = ptrtoint ptr %1062 to i64
@@ -4336,7 +4322,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1253: ; preds = %.loopexit, %.l
   %1088 = load i32, ptr %1087, align 4
   %1089 = zext i32 %1088 to i64
   %1090 = load ptr, ptr %1071, align 8
-  %1091 = getelementptr inbounds nuw %"struct.WasmEdge::Validator::FormChecker::CtrlFrame", ptr %1090, i64 %1089
+  %1091 = getelementptr inbounds nuw [80 x i8], ptr %1090, i64 %1089
   %1092 = getelementptr inbounds nuw i8, ptr %1091, i64 76
   %1093 = load i32, ptr %1092, align 4
   %1094 = icmp eq i32 %1093, 3
@@ -4389,7 +4375,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1253: ; preds = %.loopexit, %.l
   %1121 = sub i64 %1119, %1120
   %1122 = sdiv exact i64 %1121, 12
   %1123 = load ptr, ptr %1071, align 8
-  %1124 = getelementptr inbounds nuw %"struct.WasmEdge::Validator::FormChecker::CtrlFrame", ptr %1123, i64 %1089
+  %1124 = getelementptr inbounds nuw [80 x i8], ptr %1123, i64 %1089
   %1125 = getelementptr inbounds nuw i8, ptr %1124, i64 56
   %1126 = load i64, ptr %1125, align 8
   %1127 = sub i64 %1122, %1126
@@ -4400,7 +4386,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1253: ; preds = %.loopexit, %.l
   %1131 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %1114, ptr %1131, align 8
   %1132 = load ptr, ptr %1071, align 8
-  %1133 = getelementptr inbounds nuw %"struct.WasmEdge::Validator::FormChecker::CtrlFrame", ptr %1132, i64 %1089
+  %1133 = getelementptr inbounds nuw [80 x i8], ptr %1132, i64 %1089
   %1134 = getelementptr inbounds nuw i8, ptr %1133, i64 48
   %1135 = load ptr, ptr %1134, align 8
   %1136 = ptrtoint ptr %1135 to i64
@@ -4438,7 +4424,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1253: ; preds = %.loopexit, %.l
   %1156 = add i32 %1155, -1
   %1157 = select i1 %1154, i32 %1156, i32 -1
   %1158 = zext i32 %1157 to i64
-  %1159 = getelementptr inbounds nuw %"struct.WasmEdge::AST::Instruction::JumpDescriptor", ptr %1151, i64 %1158
+  %1159 = getelementptr inbounds nuw [16 x i8], ptr %1151, i64 %1158
   %1160 = load i32, ptr %1159, align 4
   %1161 = getelementptr inbounds nuw i8, ptr %1, i64 312
   %.val955.val = load ptr, ptr %1161, align 8
@@ -4454,7 +4440,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1253: ; preds = %.loopexit, %.l
 1167:                                             ; preds = %1149
   %1168 = zext i32 %1166 to i64
   %1169 = load ptr, ptr %1161, align 8
-  %1170 = getelementptr inbounds nuw %"struct.WasmEdge::Validator::FormChecker::CtrlFrame", ptr %1169, i64 %1168
+  %1170 = getelementptr inbounds nuw [80 x i8], ptr %1169, i64 %1168
   %1171 = getelementptr inbounds nuw i8, ptr %1170, i64 76
   %1172 = load i32, ptr %1171, align 4
   %1173 = icmp eq i32 %1172, 3
@@ -4493,7 +4479,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1253: ; preds = %.loopexit, %.l
 
 1193:                                             ; preds = %.lr.ph3415, %1192
   %indvars.iv3432 = phi i64 [ 0, %.lr.ph3415 ], [ %indvars.iv.next3433, %1192 ]
-  %1194 = getelementptr inbounds nuw %"struct.WasmEdge::AST::Instruction::JumpDescriptor", ptr %1151, i64 %indvars.iv3432
+  %1194 = getelementptr inbounds nuw [16 x i8], ptr %1151, i64 %indvars.iv3432
   %1195 = load i32, ptr %1194, align 4
   %.val956.val = load ptr, ptr %1161, align 8
   %.val956.val963 = load ptr, ptr %1162, align 8
@@ -4506,7 +4492,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1253: ; preds = %.loopexit, %.l
 1199:                                             ; preds = %1193
   %1200 = zext i32 %1198 to i64
   %1201 = load ptr, ptr %1161, align 8
-  %1202 = getelementptr inbounds nuw %"struct.WasmEdge::Validator::FormChecker::CtrlFrame", ptr %1201, i64 %1200
+  %1202 = getelementptr inbounds nuw [80 x i8], ptr %1201, i64 %1200
   %1203 = getelementptr inbounds nuw i8, ptr %1202, i64 76
   %1204 = load i32, ptr %1203, align 4
   %1205 = icmp eq i32 %1204, 3
@@ -4538,7 +4524,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1253: ; preds = %.loopexit, %.l
 .lr.ph3411:                                       ; preds = %1216, %1240
   %indvars.iv = phi i64 [ %1217, %1240 ], [ %1191, %1216 ]
   %1217 = add nsw i64 %indvars.iv, -1
-  %1218 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %.sink4.i1295, i64 %1217
+  %1218 = getelementptr inbounds nuw [8 x i8], ptr %.sink4.i1295, i64 %1217
   %.sroa.0638.0.copyload = load i64, ptr %1218, align 4
   invoke void @_ZN8WasmEdge9Validator11FormChecker7popTypeENS_7ValTypeE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.119") align 4 %52, ptr noundef nonnull align 8 dereferenceable(360) %1, i64 %.sroa.0638.0.copyload)
           to label %1219 unwind label %.loopexit3375
@@ -4554,7 +4540,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1253: ; preds = %.loopexit, %.l
   %1225 = load i8, ptr %1224, align 8
   %1226 = trunc i8 %1225 to i1
   %1227 = load ptr, ptr %50, align 8
-  %1228 = getelementptr inbounds nuw %"class.std::optional.66", ptr %1227, i64 %1217
+  %1228 = getelementptr inbounds nuw [12 x i8], ptr %1227, i64 %1217
   br i1 %1226, label %1229, label %1237
 
 1229:                                             ; preds = %1222
@@ -4608,7 +4594,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1253: ; preds = %.loopexit, %.l
   %1245 = sub i64 %1243, %1244
   %1246 = sdiv exact i64 %1245, 12
   %1247 = load ptr, ptr %1161, align 8
-  %1248 = getelementptr inbounds nuw %"struct.WasmEdge::Validator::FormChecker::CtrlFrame", ptr %1247, i64 %1200
+  %1248 = getelementptr inbounds nuw [80 x i8], ptr %1247, i64 %1200
   %1249 = getelementptr inbounds nuw i8, ptr %1248, i64 56
   %1250 = load i64, ptr %1249, align 8
   %1251 = sub i64 %1246, %1250
@@ -4619,7 +4605,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1253: ; preds = %.loopexit, %.l
   %1255 = getelementptr inbounds nuw i8, ptr %1194, i64 8
   store i32 %1190, ptr %1255, align 4
   %1256 = load ptr, ptr %1161, align 8
-  %1257 = getelementptr inbounds nuw %"struct.WasmEdge::Validator::FormChecker::CtrlFrame", ptr %1256, i64 %1200
+  %1257 = getelementptr inbounds nuw [80 x i8], ptr %1256, i64 %1200
   %1258 = getelementptr inbounds nuw i8, ptr %1257, i64 48
   %1259 = load ptr, ptr %1258, align 8
   %1260 = ptrtoint ptr %1259 to i64
@@ -4661,7 +4647,7 @@ _ZNSt6vectorISt8optionalIN8WasmEdge7ValTypeEESaIS3_EED2Ev.exit1302: ; preds = %1
 
 ._crit_edge3416.loopexit:                         ; preds = %1192
   %.pre3442 = load ptr, ptr %1161, align 8
-  %.phi.trans.insert3443 = getelementptr inbounds nuw %"struct.WasmEdge::Validator::FormChecker::CtrlFrame", ptr %.pre3442, i64 %1168
+  %.phi.trans.insert3443 = getelementptr inbounds nuw [80 x i8], ptr %.pre3442, i64 %1168
   %.phi.trans.insert3444 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert3443, i64 76
   %.pre3445 = load i32, ptr %.phi.trans.insert3444, align 4
   %.phi.trans.insert3446 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert3443, i64 24
@@ -4674,7 +4660,7 @@ _ZNSt6vectorISt8optionalIN8WasmEdge7ValTypeEESaIS3_EED2Ev.exit1302: ; preds = %1
   %1280 = phi ptr [ %.pre3447, %._crit_edge3416.loopexit ], [ %1175, %1167 ]
   %1281 = phi i32 [ %.pre3445, %._crit_edge3416.loopexit ], [ %1172, %1167 ]
   %1282 = phi ptr [ %.pre3442, %._crit_edge3416.loopexit ], [ %1169, %1167 ]
-  %1283 = getelementptr inbounds nuw %"struct.WasmEdge::Validator::FormChecker::CtrlFrame", ptr %1282, i64 %1168
+  %1283 = getelementptr inbounds nuw [80 x i8], ptr %1282, i64 %1168
   %1284 = icmp eq i32 %1281, 3
   %.sink6.i1303 = select i1 %1284, i64 8, i64 32
   %.sink4.i1304 = select i1 %1284, ptr %1279, ptr %1280
@@ -4722,7 +4708,7 @@ _ZNSt6vectorISt8optionalIN8WasmEdge7ValTypeEESaIS3_EED2Ev.exit1302: ; preds = %1
   %1308 = sub i64 %1306, %1307
   %1309 = sdiv exact i64 %1308, 12
   %1310 = load ptr, ptr %1161, align 8
-  %1311 = getelementptr inbounds nuw %"struct.WasmEdge::Validator::FormChecker::CtrlFrame", ptr %1310, i64 %1168
+  %1311 = getelementptr inbounds nuw [80 x i8], ptr %1310, i64 %1168
   %1312 = getelementptr inbounds nuw i8, ptr %1311, i64 56
   %1313 = load i64, ptr %1312, align 8
   %1314 = sub i64 %1309, %1313
@@ -4733,7 +4719,7 @@ _ZNSt6vectorISt8optionalIN8WasmEdge7ValTypeEESaIS3_EED2Ev.exit1302: ; preds = %1
   %1318 = getelementptr inbounds nuw i8, ptr %1159, i64 8
   store i32 %1301, ptr %1318, align 4
   %1319 = load ptr, ptr %1161, align 8
-  %1320 = getelementptr inbounds nuw %"struct.WasmEdge::Validator::FormChecker::CtrlFrame", ptr %1319, i64 %1168
+  %1320 = getelementptr inbounds nuw [80 x i8], ptr %1319, i64 %1168
   %1321 = getelementptr inbounds nuw i8, ptr %1320, i64 48
   %1322 = load ptr, ptr %1321, align 8
   %1323 = ptrtoint ptr %1322 to i64
@@ -4768,7 +4754,7 @@ _ZNSt6vectorISt8optionalIN8WasmEdge7ValTypeEESaIS3_EED2Ev.exit1302: ; preds = %1
 1339:                                             ; preds = %1331
   %1340 = zext i32 %1338 to i64
   %1341 = load ptr, ptr %1333, align 8
-  %1342 = getelementptr inbounds nuw %"struct.WasmEdge::Validator::FormChecker::CtrlFrame", ptr %1341, i64 %1340
+  %1342 = getelementptr inbounds nuw [80 x i8], ptr %1341, i64 %1340
   %1343 = getelementptr inbounds nuw i8, ptr %1342, i64 76
   %1344 = load i32, ptr %1343, align 4
   %1345 = icmp eq i32 %1344, 3
@@ -4849,7 +4835,7 @@ _ZNSt6vectorISt8optionalIN8WasmEdge7ValTypeEESaIS3_EED2Ev.exit1302: ; preds = %1
   %1385 = sub i64 %1383, %1384
   %1386 = sdiv exact i64 %1385, 12
   %1387 = load ptr, ptr %1333, align 8
-  %1388 = getelementptr inbounds nuw %"struct.WasmEdge::Validator::FormChecker::CtrlFrame", ptr %1387, i64 %1340
+  %1388 = getelementptr inbounds nuw [80 x i8], ptr %1387, i64 %1340
   %1389 = getelementptr inbounds nuw i8, ptr %1388, i64 56
   %1390 = load i64, ptr %1389, align 8
   %1391 = sub i64 %1386, %1390
@@ -4860,7 +4846,7 @@ _ZNSt6vectorISt8optionalIN8WasmEdge7ValTypeEESaIS3_EED2Ev.exit1302: ; preds = %1
   %1395 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %1378, ptr %1395, align 8
   %1396 = load ptr, ptr %1333, align 8
-  %1397 = getelementptr inbounds nuw %"struct.WasmEdge::Validator::FormChecker::CtrlFrame", ptr %1396, i64 %1340
+  %1397 = getelementptr inbounds nuw [80 x i8], ptr %1396, i64 %1340
   %1398 = getelementptr inbounds nuw i8, ptr %1397, i64 48
   %1399 = load ptr, ptr %1398, align 8
   %1400 = ptrtoint ptr %1399 to i64
@@ -4917,7 +4903,7 @@ _ZNSt6vectorISt8optionalIN8WasmEdge7ValTypeEESaIS3_EED2Ev.exit1302: ; preds = %1
 1424:                                             ; preds = %1416
   %1425 = zext i32 %1423 to i64
   %1426 = load ptr, ptr %1418, align 8
-  %1427 = getelementptr inbounds nuw %"struct.WasmEdge::Validator::FormChecker::CtrlFrame", ptr %1426, i64 %1425
+  %1427 = getelementptr inbounds nuw [80 x i8], ptr %1426, i64 %1425
   %1428 = getelementptr inbounds nuw i8, ptr %1427, i64 76
   %1429 = load i32, ptr %1428, align 4
   %1430 = icmp eq i32 %1429, 3
@@ -5047,7 +5033,7 @@ _ZNSt6vectorISt8optionalIN8WasmEdge7ValTypeEESaIS3_EED2Ev.exit1302: ; preds = %1
   %1491 = sub i64 %1489, %1490
   %1492 = sdiv exact i64 %1491, 12
   %1493 = load ptr, ptr %1418, align 8
-  %1494 = getelementptr inbounds nuw %"struct.WasmEdge::Validator::FormChecker::CtrlFrame", ptr %1493, i64 %1425
+  %1494 = getelementptr inbounds nuw [80 x i8], ptr %1493, i64 %1425
   %1495 = getelementptr inbounds nuw i8, ptr %1494, i64 56
   %1496 = load i64, ptr %1495, align 8
   %1497 = sub i64 %1492, %1496
@@ -5058,7 +5044,7 @@ _ZNSt6vectorISt8optionalIN8WasmEdge7ValTypeEESaIS3_EED2Ev.exit1302: ; preds = %1
   %1501 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %1484, ptr %1501, align 8
   %1502 = load ptr, ptr %1418, align 8
-  %1503 = getelementptr inbounds nuw %"struct.WasmEdge::Validator::FormChecker::CtrlFrame", ptr %1502, i64 %1425
+  %1503 = getelementptr inbounds nuw [80 x i8], ptr %1502, i64 %1425
   %1504 = getelementptr inbounds nuw i8, ptr %1503, i64 48
   %1505 = load ptr, ptr %1504, align 8
   %1506 = ptrtoint ptr %1505 to i64
@@ -5164,11 +5150,11 @@ _ZNSt6vectorISt8optionalIN8WasmEdge7ValTypeEESaIS3_EED2Ev.exit1302: ; preds = %1
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
 1561:                                             ; preds = %1546
-  %1562 = getelementptr inbounds nuw i32, ptr %1552, i64 %1548
+  %1562 = getelementptr inbounds nuw [4 x i8], ptr %1552, i64 %1548
   %1563 = load i32, ptr %1562, align 4
   %1564 = zext i32 %1563 to i64
   %1565 = load ptr, ptr %1, align 8
-  %1566 = getelementptr inbounds nuw ptr, ptr %1565, i64 %1564
+  %1566 = getelementptr inbounds nuw [8 x i8], ptr %1565, i64 %1564
   %1567 = load ptr, ptr %1566, align 8
   %1568 = getelementptr inbounds nuw i8, ptr %1567, i64 40
   %1569 = load ptr, ptr %1568, align 8
@@ -5216,7 +5202,7 @@ _ZNSt6vectorISt8optionalIN8WasmEdge7ValTypeEESaIS3_EED2Ev.exit1302: ; preds = %1
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
 1601:                                             ; preds = %1584
-  %1602 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %1592, i64 %1588
+  %1602 = getelementptr inbounds nuw [8 x i8], ptr %1592, i64 %1588
   %1603 = getelementptr inbounds nuw i8, ptr %1602, i64 3
   %1604 = load i8, ptr %1603, align 1
   switch i8 %1604, label %1605 [
@@ -5322,11 +5308,11 @@ _ZNSt6vectorISt8optionalIN8WasmEdge7ValTypeEESaIS3_EED2Ev.exit1302: ; preds = %1
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
 1663:                                             ; preds = %1641
-  %1664 = getelementptr inbounds nuw i32, ptr %1647, i64 %1643
+  %1664 = getelementptr inbounds nuw [4 x i8], ptr %1647, i64 %1643
   %1665 = load i32, ptr %1664, align 4
   %1666 = zext i32 %1665 to i64
   %1667 = load ptr, ptr %1, align 8
-  %1668 = getelementptr inbounds nuw ptr, ptr %1667, i64 %1666
+  %1668 = getelementptr inbounds nuw [8 x i8], ptr %1667, i64 %1666
   %1669 = load ptr, ptr %1668, align 8
   %1670 = getelementptr inbounds nuw i8, ptr %1, i64 264
   %1671 = load ptr, ptr %1670, align 8
@@ -5425,7 +5411,7 @@ _ZNSt6vectorISt8optionalIN8WasmEdge7ValTypeEESaIS3_EED2Ev.exit1302: ; preds = %1
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
 1729:                                             ; preds = %1712
-  %1730 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %1720, i64 %1716
+  %1730 = getelementptr inbounds nuw [8 x i8], ptr %1720, i64 %1716
   %1731 = getelementptr inbounds nuw i8, ptr %1730, i64 3
   %1732 = load i8, ptr %1731, align 1
   switch i8 %1732, label %1733 [
@@ -5741,7 +5727,7 @@ _ZNSt6vectorISt8optionalIN8WasmEdge7ValTypeEESaIS3_EED2Ev.exit1302: ; preds = %1
   %1905 = load i32, ptr %1904, align 4
   %1906 = zext i32 %1905 to i64
   %1907 = sub nsw i64 0, %1906
-  %1908 = getelementptr inbounds %"class.WasmEdge::AST::Instruction", ptr %2, i64 %1907
+  %1908 = getelementptr inbounds [32 x i8], ptr %2, i64 %1907
   %1909 = load ptr, ptr %1908, align 16
   %1910 = getelementptr inbounds nuw i8, ptr %1909, i64 16
   %1911 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -5754,7 +5740,7 @@ _ZNSt6vectorISt8optionalIN8WasmEdge7ValTypeEESaIS3_EED2Ev.exit1302: ; preds = %1
 
 1916:                                             ; preds = %1903
   %1917 = zext i32 %1912 to i64
-  %1918 = getelementptr inbounds nuw %"struct.WasmEdge::AST::Instruction::CatchDescriptor", ptr %1913, i64 %1917
+  %1918 = getelementptr inbounds nuw [28 x i8], ptr %1913, i64 %1917
   %1919 = getelementptr inbounds nuw i8, ptr %1, i64 336
   %1920 = getelementptr inbounds nuw i8, ptr %1, i64 344
   %1921 = load ptr, ptr %1920, align 8
@@ -5934,7 +5920,7 @@ _ZNSt6vectorISt8optionalIN8WasmEdge7ValTypeEESaIS3_EED2Ev.exit1302: ; preds = %1
   %2011 = ashr exact i64 %2010, 2
   %2012 = icmp ugt i64 %2011, %2003
   call void @llvm.assume(i1 %2012)
-  %2013 = getelementptr inbounds nuw i32, ptr %2007, i64 %2003
+  %2013 = getelementptr inbounds nuw [4 x i8], ptr %2007, i64 %2003
   %2014 = load i32, ptr %2013, align 4
   %2015 = getelementptr inbounds nuw i8, ptr %93, i64 1
   store i8 0, ptr %2015, align 1
@@ -6229,7 +6215,7 @@ _ZN6spdlog5errorIA38_cEEvRKT_.exit:               ; preds = %.noexc1381
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
 2149:                                             ; preds = %2131
-  %2150 = getelementptr inbounds nuw %"class.WasmEdge::AST::FieldType", ptr %2140, i64 %2134
+  %2150 = getelementptr inbounds nuw [12 x i8], ptr %2140, i64 %2134
   %2151 = load i32, ptr %562, align 4
   %2152 = icmp eq i32 %2151, 201
   %2153 = getelementptr inbounds nuw i8, ptr %2150, i64 2
@@ -6339,7 +6325,7 @@ _ZN6spdlog5errorIA38_cEEvRKT_.exit:               ; preds = %.noexc1381
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
 2203:                                             ; preds = %2185
-  %2204 = getelementptr inbounds nuw %"class.WasmEdge::AST::FieldType", ptr %2194, i64 %2188
+  %2204 = getelementptr inbounds nuw [12 x i8], ptr %2194, i64 %2188
   %2205 = getelementptr inbounds nuw i8, ptr %2204, i64 8
   %2206 = load i8, ptr %2205, align 4
   %.not902 = icmp eq i8 %2206, 1
@@ -6771,7 +6757,7 @@ _ZN6spdlog5errorIA38_cEEvRKT_.exit:               ; preds = %.noexc1381
   %2422 = ptrtoint ptr %2419 to i64
   %2423 = sub i64 %2421, %2422
   %2424 = ashr exact i64 %2423, 3
-  %2425 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %2409, i64 %2405
+  %2425 = getelementptr inbounds nuw [8 x i8], ptr %2409, i64 %2405
   %2426 = tail call noundef zeroext i1 @_ZN8WasmEdge3AST11TypeMatcher9matchTypeEN5cxx204spanIKPKNS0_7SubTypeELm18446744073709551615EEERKNS_7ValTypeES8_SB_(ptr %2419, i64 %2424, ptr noundef nonnull align 4 dereferenceable(8) %2389, ptr %2419, i64 %2424, ptr noundef nonnull align 4 dereferenceable(8) %2425) #26
   br i1 %2426, label %2441, label %2427
 
@@ -6781,7 +6767,7 @@ _ZN6spdlog5errorIA38_cEEvRKT_.exit:               ; preds = %.noexc1381
   %2428 = load i32, ptr %2403, align 4
   %2429 = zext i32 %2428 to i64
   %2430 = load ptr, ptr %2406, align 8
-  %2431 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %2430, i64 %2429
+  %2431 = getelementptr inbounds nuw [8 x i8], ptr %2430, i64 %2429
   store i8 1, ptr %141, align 8
   %2432 = getelementptr inbounds nuw i8, ptr %141, i64 16
   %2433 = getelementptr inbounds nuw i8, ptr %141, i64 112
@@ -7464,7 +7450,7 @@ _ZN6spdlog5errorIA38_cEEvRKT_.exit:               ; preds = %.noexc1381
 2760:                                             ; preds = %2751
   %2761 = zext i32 %2759 to i64
   %2762 = load ptr, ptr %2754, align 8
-  %2763 = getelementptr inbounds nuw %"struct.WasmEdge::Validator::FormChecker::CtrlFrame", ptr %2762, i64 %2761
+  %2763 = getelementptr inbounds nuw [80 x i8], ptr %2762, i64 %2761
   %2764 = getelementptr inbounds nuw i8, ptr %2763, i64 76
   %2765 = load i32, ptr %2764, align 4
   %2766 = icmp eq i32 %2765, 3
@@ -7633,7 +7619,7 @@ _ZN6spdlog5errorIA38_cEEvRKT_.exit:               ; preds = %.noexc1381
   %2849 = sub i64 %2847, %2848
   %2850 = sdiv exact i64 %2849, 12
   %2851 = load ptr, ptr %2754, align 8
-  %2852 = getelementptr inbounds nuw %"struct.WasmEdge::Validator::FormChecker::CtrlFrame", ptr %2851, i64 %2761
+  %2852 = getelementptr inbounds nuw [80 x i8], ptr %2851, i64 %2761
   %2853 = getelementptr inbounds nuw i8, ptr %2852, i64 56
   %2854 = load i64, ptr %2853, align 8
   %2855 = sub i64 %2850, %2854
@@ -7644,7 +7630,7 @@ _ZN6spdlog5errorIA38_cEEvRKT_.exit:               ; preds = %.noexc1381
   %2859 = getelementptr inbounds nuw i8, ptr %2835, i64 8
   store i32 %2842, ptr %2859, align 4
   %2860 = load ptr, ptr %2754, align 8
-  %2861 = getelementptr inbounds nuw %"struct.WasmEdge::Validator::FormChecker::CtrlFrame", ptr %2860, i64 %2761
+  %2861 = getelementptr inbounds nuw [80 x i8], ptr %2860, i64 %2761
   %2862 = getelementptr inbounds nuw i8, ptr %2861, i64 48
   %2863 = load ptr, ptr %2862, align 8
   %2864 = ptrtoint ptr %2863 to i64
@@ -8100,7 +8086,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
 3049:                                             ; preds = %3034
-  %3050 = getelementptr inbounds nuw %"struct.WasmEdge::Validator::FormChecker::LocalType", ptr %3040, i64 %3036
+  %3050 = getelementptr inbounds nuw [12 x i8], ptr %3040, i64 %3036
   %3051 = getelementptr inbounds nuw i8, ptr %1, i64 336
   %3052 = getelementptr inbounds nuw i8, ptr %1, i64 344
   %3053 = load ptr, ptr %3052, align 8
@@ -8197,7 +8183,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   br i1 %3101, label %3102, label %3108
 
 3102:                                             ; preds = %3090
-  %3103 = getelementptr inbounds nuw %"struct.std::pair", ptr %3096, i64 %3092
+  %3103 = getelementptr inbounds nuw [12 x i8], ptr %3096, i64 %3092
   %3104 = getelementptr inbounds nuw i8, ptr %3103, i64 8
   %3105 = load i8, ptr %3104, align 4
   %.not889 = icmp eq i8 %3105, 1
@@ -8230,7 +8216,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   br i1 %.not8903531, label %.thread3534, label %3111
 
 .thread3534:                                      ; preds = %.thread
-  %3109 = getelementptr inbounds nuw %"struct.std::pair", ptr %.pre3438, i64 %.pre3451
+  %3109 = getelementptr inbounds nuw [12 x i8], ptr %.pre3438, i64 %.pre3451
   %3110 = load i64, ptr %3109, align 4
   br label %3121
 
@@ -8247,7 +8233,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
 3116:                                             ; preds = %3108
-  %3117 = getelementptr inbounds nuw %"struct.std::pair", ptr %3096, i64 %3092
+  %3117 = getelementptr inbounds nuw [12 x i8], ptr %3096, i64 %3092
   %3118 = load i64, ptr %3117, align 4
   %3119 = icmp eq i32 %563, 32
   br i1 %3119, label %3120, label %3121
@@ -8288,7 +8274,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
 3138:                                             ; preds = %3123
-  %3139 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %3129, i64 %3125
+  %3139 = getelementptr inbounds nuw [8 x i8], ptr %3129, i64 %3125
   %3140 = load i64, ptr %3139, align 4
   switch i32 %563, label %3233 [
     i32 33, label %3141
@@ -8414,7 +8400,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   %3197 = ptrtoint ptr %3193 to i64
   %3198 = sub i64 %3196, %3197
   %3199 = ashr exact i64 %3198, 3
-  %3200 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %3183, i64 %3179
+  %3200 = getelementptr inbounds nuw [8 x i8], ptr %3183, i64 %3179
   %3201 = tail call noundef zeroext i1 @_ZN8WasmEdge3AST11TypeMatcher9matchTypeEN5cxx204spanIKPKNS0_7SubTypeELm18446744073709551615EEERKNS_7ValTypeES8_SB_(ptr %3193, i64 %3199, ptr noundef nonnull align 4 dereferenceable(8) %3139, ptr %3193, i64 %3199, ptr noundef nonnull align 4 dereferenceable(8) %3200) #26
   br i1 %3201, label %3220, label %3202
 
@@ -8424,11 +8410,11 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   %3203 = load i32, ptr %2, align 16
   %3204 = zext i32 %3203 to i64
   %3205 = load ptr, ptr %3126, align 8
-  %3206 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %3205, i64 %3204
+  %3206 = getelementptr inbounds nuw [8 x i8], ptr %3205, i64 %3204
   %3207 = load i32, ptr %3177, align 4
   %3208 = zext i32 %3207 to i64
   %3209 = load ptr, ptr %3180, align 8
-  %3210 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %3209, i64 %3208
+  %3210 = getelementptr inbounds nuw [8 x i8], ptr %3209, i64 %3208
   store i8 1, ptr %231, align 8
   %3211 = getelementptr inbounds nuw i8, ptr %231, i64 16
   %3212 = getelementptr inbounds nuw i8, ptr %231, i64 112
@@ -8509,7 +8495,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   %3247 = ptrtoint ptr %3243 to i64
   %3248 = sub i64 %3246, %3247
   %3249 = ashr exact i64 %3248, 3
-  %3250 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %3129, i64 %3237
+  %3250 = getelementptr inbounds nuw [8 x i8], ptr %3129, i64 %3237
   %3251 = tail call noundef zeroext i1 @_ZN8WasmEdge3AST11TypeMatcher9matchTypeEN5cxx204spanIKPKNS0_7SubTypeELm18446744073709551615EEERKNS_7ValTypeES8_SB_(ptr %3243, i64 %3249, ptr noundef nonnull align 4 dereferenceable(8) %3139, ptr %3243, i64 %3249, ptr noundef nonnull align 4 dereferenceable(8) %3250) #26
   br i1 %3251, label %3269, label %3252
 
@@ -8519,10 +8505,10 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   %3253 = load i32, ptr %2, align 16
   %3254 = zext i32 %3253 to i64
   %3255 = load ptr, ptr %3126, align 8
-  %3256 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %3255, i64 %3254
+  %3256 = getelementptr inbounds nuw [8 x i8], ptr %3255, i64 %3254
   %3257 = load i32, ptr %3235, align 4
   %3258 = zext i32 %3257 to i64
-  %3259 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %3255, i64 %3258
+  %3259 = getelementptr inbounds nuw [8 x i8], ptr %3255, i64 %3258
   store i8 1, ptr %236, align 8
   %3260 = getelementptr inbounds nuw i8, ptr %236, i64 16
   %3261 = getelementptr inbounds nuw i8, ptr %236, i64 112
@@ -13407,7 +13393,7 @@ _ZN8WasmEdge7ErrInfo12InfoMismatchD2Ev.exit:      ; preds = %_ZNSt6vectorIN8Wasm
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8WasmEdge9Validator11FormChecker8popTypesEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.cxx20::expected") align 4 captures(none) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(360) %1, ptr readonly captures(address) %2, i64 %3) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.cxx20::expected.119", align 4
-  %6 = getelementptr inbounds %"class.WasmEdge::ValType", ptr %2, i64 %3
+  %6 = getelementptr inbounds [8 x i8], ptr %2, i64 %3
   br label %7
 
 7:                                                ; preds = %8, %4
@@ -13711,7 +13697,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i: ;
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit: ; preds = %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i, %30
   store ptr %24, ptr %0, align 8
   store ptr %29, ptr %3, align 8
-  %31 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %24, i64 %22
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %22
   store ptr %31, ptr %5, align 8
   br label %32
 
@@ -13803,7 +13789,7 @@ _ZNSt6vectorISt8optionalIN8WasmEdge7ValTypeEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4
 _ZNSt6vectorISt8optionalIN8WasmEdge7ValTypeEESaIS3_EE17_M_realloc_insertIJRS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %33, %_ZNSt6vectorISt8optionalIN8WasmEdge7ValTypeEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i
   store ptr %28, ptr %5, align 8
   store ptr %32, ptr %6, align 8
-  %34 = getelementptr inbounds nuw %"class.std::optional.66", ptr %28, i64 %26
+  %34 = getelementptr inbounds nuw [12 x i8], ptr %28, i64 %26
   store ptr %34, ptr %7, align 8
   br label %_ZN8WasmEdge9Validator11FormChecker8pushTypeESt8optionalINS_7ValTypeEE.exit
 
@@ -13924,11 +13910,11 @@ define void @_ZN8WasmEdge9Validator11FormChecker7popCtrlEv(ptr dead_on_unwind no
 61:                                               ; preds = %.lr.ph, %61
   %62 = phi ptr [ %54, %.lr.ph ], [ %70, %61 ]
   %.019 = phi i64 [ %50, %.lr.ph ], [ %68, %61 ]
-  %63 = getelementptr inbounds i32, ptr %62, i64 %.019
+  %63 = getelementptr inbounds [4 x i8], ptr %62, i64 %.019
   %64 = load i32, ptr %63, align 4
   %65 = zext i32 %64 to i64
   %66 = load ptr, ptr %60, align 8
-  %67 = getelementptr inbounds nuw %"struct.WasmEdge::Validator::FormChecker::LocalType", ptr %66, i64 %65
+  %67 = getelementptr inbounds nuw [12 x i8], ptr %66, i64 %65
   store i8 0, ptr %67, align 4
   %68 = add nuw i64 %.019, 1
   %69 = load ptr, ptr %52, align 8
@@ -13952,7 +13938,7 @@ define void @_ZN8WasmEdge9Validator11FormChecker7popCtrlEv(ptr dead_on_unwind no
   %.lcssa17 = phi ptr [ %53, %48 ], [ %69, %._crit_edge.loopexit ]
   %.lcssa = phi ptr [ %54, %48 ], [ %70, %._crit_edge.loopexit ]
   %78 = and i64 %76, 4294967295
-  %79 = getelementptr inbounds nuw i32, ptr %.lcssa, i64 %78
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %.lcssa, i64 %78
   %.not.i.i = icmp eq ptr %79, %.lcssa17
   br i1 %.not.i.i, label %_ZNSt6vectorIjSaIjEE5eraseEN9__gnu_cxx17__normal_iteratorIPKjS1_EES6_.exit, label %._crit_edge.i.i
 
@@ -14116,8 +14102,8 @@ define internal fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrER
 .lr.ph.i:                                         ; preds = %.preheader.i, %14
   %18 = phi i64 [ %16, %14 ], [ 0, %.preheader.i ]
   %.013.i = phi i32 [ %15, %14 ], [ 0, %.preheader.i ]
-  %19 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %1, i64 %18
-  %20 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %3, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %18
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %18
   %21 = tail call noundef zeroext i1 @_ZN8WasmEdge3AST11TypeMatcher9matchTypeEN5cxx204spanIKPKNS0_7SubTypeELm18446744073709551615EEERKNS_7ValTypeES8_SB_(ptr %.0.val.0.val, i64 %13, ptr noundef nonnull align 4 dereferenceable(8) %19, ptr %.0.val.0.val, i64 %13, ptr noundef nonnull align 4 dereferenceable(8) %20) #26
   br i1 %21, label %14, label %_ZN8WasmEdge3AST11TypeMatcher10matchTypesEN5cxx204spanIKPKNS0_7SubTypeELm18446744073709551615EEENS3_IKNS_7ValTypeELm18446744073709551615EEESB_.exit
 
@@ -14463,7 +14449,7 @@ define internal fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrER
   br label %34
 
 23:                                               ; preds = %3
-  %24 = getelementptr inbounds nuw ptr, ptr %.0.val.0.val, i64 %10
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.0.val.0.val, i64 %10
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %27 = load i8, ptr %26, align 8
@@ -14564,7 +14550,7 @@ _ZNSt12_Vector_baseISt8optionalIN8WasmEdge7ValTypeEESaIS3_EEC2EmRKS4_.exit: ; pr
   %6 = mul nuw nsw i64 %1, 12
   %7 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %6) #24
   store ptr %7, ptr %0, align 8
-  %8 = getelementptr inbounds nuw %"class.std::optional.66", ptr %7, i64 %1
+  %8 = getelementptr inbounds nuw [12 x i8], ptr %7, i64 %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %8, ptr %9, align 8
   br label %.lr.ph.i.i.i.i
@@ -14671,7 +14657,7 @@ _ZNSt6vectorISt8optionalIN8WasmEdge7ValTypeEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4
 _ZNSt6vectorISt8optionalIN8WasmEdge7ValTypeEESaIS3_EE17_M_realloc_insertIJRS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %32, %_ZNSt6vectorISt8optionalIN8WasmEdge7ValTypeEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i
   store ptr %27, ptr %5, align 8
   store ptr %31, ptr %6, align 8
-  %33 = getelementptr inbounds nuw %"class.std::optional.66", ptr %27, i64 %25
+  %33 = getelementptr inbounds nuw [12 x i8], ptr %27, i64 %25
   store ptr %33, ptr %7, align 8
   br label %_ZN8WasmEdge9Validator11FormChecker8pushTypeESt8optionalINS_7ValTypeEE.exit
 
@@ -14813,7 +14799,7 @@ _ZNSt6vectorISt8optionalIN8WasmEdge7ValTypeEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4
 _ZNSt6vectorISt8optionalIN8WasmEdge7ValTypeEESaIS3_EE17_M_realloc_insertIJRS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %30, %_ZNSt6vectorISt8optionalIN8WasmEdge7ValTypeEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i
   store ptr %25, ptr %4, align 8
   store ptr %29, ptr %5, align 8
-  %31 = getelementptr inbounds nuw %"class.std::optional.66", ptr %25, i64 %23
+  %31 = getelementptr inbounds nuw [12 x i8], ptr %25, i64 %23
   store ptr %31, ptr %7, align 8
   br label %_ZNSt6vectorISt8optionalIN8WasmEdge7ValTypeEESaIS3_EE12emplace_backIJRS3_EEES7_DpOT_.exit
 
@@ -14889,7 +14875,7 @@ _ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit: ; preds = %19, %22
 define void @_ZN8WasmEdge9Validator11FormChecker10StackTransEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEES6_(ptr dead_on_unwind noalias writable writeonly sret(%"class.cxx20::expected") align 4 captures(none) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(360) %1, ptr readonly captures(address) %2, i64 %3, ptr readonly captures(address) %4, i64 %5) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.cxx20::expected.119", align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %8 = getelementptr inbounds %"class.WasmEdge::ValType", ptr %2, i64 %3
+  %8 = getelementptr inbounds [8 x i8], ptr %2, i64 %3
   br label %9
 
 9:                                                ; preds = %10, %6
@@ -14986,7 +14972,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i:
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %30, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   store ptr %24, ptr %0, align 8
   store ptr %29, ptr %3, align 8
-  %31 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %24, i64 %22
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %22
   store ptr %31, ptr %5, align 8
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.exit
 
@@ -15101,7 +15087,7 @@ define linkonce_odr hidden ptr @_ZNSt13unordered_setIjSt4hashIjESt8equal_toIjESa
   %17 = load i64, ptr %16, align 8
   %18 = urem i64 %15, %17
   %19 = load ptr, ptr %0, align 8
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %18
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %18
   %21 = load ptr, ptr %20, align 8
   %.not.i.i.i = icmp eq ptr %21, null
   br i1 %.not.i.i.i, label %_ZNSt10_HashtableIjjSaIjENSt8__detail9_IdentityESt8equal_toIjESt4hashIjENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE4findERKj.exit, label %22
@@ -15185,7 +15171,7 @@ _ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit: ; pre
   store ptr %19, ptr %0, align 8
   %23 = getelementptr inbounds i8, ptr %19, i64 %17
   store ptr %23, ptr %14, align 8
-  %24 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %19, i64 %1
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %1
   store ptr %24, ptr %6, align 8
   br label %25
 
@@ -15218,7 +15204,7 @@ _ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EEC2EmRKS2_.exit.thread: ; preds = 
   store ptr %10, ptr %0, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %10, ptr %11, align 8
-  %12 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %10, i64 %1
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %1
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %12, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 %9
@@ -15322,7 +15308,7 @@ define internal fastcc range(i64 1851981824, 1885536257) i64 @"_ZZN8WasmEdge9Val
 
 switch.lookup:                                    ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1
   %4 = sext i8 %3 to i64
-  %5 = getelementptr i64, ptr @"switch.table._ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_6clERKNS_7ValTypeE", i64 %4
+  %5 = getelementptr [8 x i8], ptr @"switch.table._ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_6clERKNS_7ValTypeE", i64 %4
   %switch.gep = getelementptr i8, ptr %5, i64 -848
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %16
@@ -15332,7 +15318,7 @@ _ZNK8WasmEdge7ValType13isAbsHeapTypeEv.exit:      ; preds = %1
   %7 = load i32, ptr %6, align 4
   %8 = zext i32 %7 to i64
   %9 = load ptr, ptr %.0.val, align 8
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %8
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %8
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %13 = load i8, ptr %12, align 8
@@ -15582,7 +15568,7 @@ _ZN8WasmEdge7ErrInfo12InfoMismatchD2Ev.exit:      ; preds = %_ZNSt6vectorIN8Wasm
 89:                                               ; preds = %83
   tail call void @llvm.experimental.noalias.scope.decl(metadata !363)
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !363
-  %90 = getelementptr inbounds %"class.WasmEdge::ValType", ptr %3, i64 %4
+  %90 = getelementptr inbounds [8 x i8], ptr %3, i64 %4
   br label %91
 
 91:                                               ; preds = %92, %89
@@ -15657,7 +15643,7 @@ define internal fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrER
 20:                                               ; preds = %5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !378)
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !378
-  %21 = getelementptr inbounds %"class.WasmEdge::ValType", ptr %1, i64 %2
+  %21 = getelementptr inbounds [8 x i8], ptr %1, i64 %2
   br label %22
 
 22:                                               ; preds = %23, %20
@@ -15731,7 +15717,7 @@ define internal fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrER
 18:                                               ; preds = %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !393)
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !393
-  %19 = getelementptr inbounds %"class.WasmEdge::ValType", ptr %2, i64 %3
+  %19 = getelementptr inbounds [8 x i8], ptr %2, i64 %3
   br label %20
 
 20:                                               ; preds = %21, %18
@@ -16738,7 +16724,7 @@ define linkonce_odr hidden ptr @_ZN3fmt2v86detail5writeIcNS0_8appenderEiTnNSt9en
   %6 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %5, i1 true)
   %7 = xor i32 %6, 31
   %8 = zext nneg i32 %7 to i64
-  %9 = getelementptr inbounds nuw i64, ptr @_ZZN3fmt2v86detail15do_count_digitsEjE5table, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN3fmt2v86detail15do_count_digitsEjE5table, i64 %8
   %10 = load i64, ptr %9, align 8
   %11 = zext i32 %spec.select to i64
   %12 = add i64 %10, %11
@@ -16950,7 +16936,7 @@ define linkonce_odr hidden ptr @_ZN3fmt2v86detail5writeIcNS0_8appenderEjTnNSt9en
   %5 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %4, i1 true)
   %6 = xor i32 %5, 31
   %7 = zext nneg i32 %6 to i64
-  %8 = getelementptr inbounds nuw i64, ptr @_ZZN3fmt2v86detail15do_count_digitsEjE5table, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN3fmt2v86detail15do_count_digitsEjE5table, i64 %7
   %9 = load i64, ptr %8, align 8
   %10 = zext i32 %1 to i64
   %11 = add i64 %9, %10
@@ -17125,7 +17111,7 @@ define linkonce_odr hidden ptr @_ZN3fmt2v86detail5writeIcNS0_8appenderExTnNSt9en
   %9 = load i8, ptr %8, align 1
   %10 = zext i8 %9 to i32
   %11 = zext i8 %9 to i64
-  %12 = getelementptr inbounds nuw i64, ptr @_ZZN3fmt2v86detail15do_count_digitsEmE20zero_or_powers_of_10, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN3fmt2v86detail15do_count_digitsEmE20zero_or_powers_of_10, i64 %11
   %13 = load i64, ptr %12, align 8
   %14 = icmp ult i64 %spec.select, %13
   %.neg.i.i = sext i1 %14 to i32
@@ -17336,7 +17322,7 @@ define linkonce_odr hidden ptr @_ZN3fmt2v86detail5writeIcNS0_8appenderEyTnNSt9en
   %8 = load i8, ptr %7, align 1
   %9 = zext i8 %8 to i32
   %10 = zext i8 %8 to i64
-  %11 = getelementptr inbounds nuw i64, ptr @_ZZN3fmt2v86detail15do_count_digitsEmE20zero_or_powers_of_10, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN3fmt2v86detail15do_count_digitsEmE20zero_or_powers_of_10, i64 %10
   %12 = load i64, ptr %11, align 8
   %13 = icmp ult i64 %1, %12
   %.neg.i.i = sext i1 %13 to i32
@@ -18015,7 +18001,7 @@ define linkonce_odr hidden ptr @_ZN3fmt2v86detail18write_int_noinlineIcNS0_8appe
   %29 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %28, i1 true)
   %30 = xor i32 %29, 31
   %31 = zext nneg i32 %30 to i64
-  %32 = getelementptr inbounds nuw i64, ptr @_ZZN3fmt2v86detail15do_count_digitsEjE5table, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN3fmt2v86detail15do_count_digitsEjE5table, i64 %31
   %33 = load i64, ptr %32, align 8
   %34 = and i64 %1, 4294967295
   %35 = add i64 %33, %34
@@ -18977,7 +18963,7 @@ define linkonce_odr ptr @_ZN3fmt2v86detail19write_int_localizedINS0_8appenderEmc
   %14 = load i8, ptr %13, align 1
   %15 = zext i8 %14 to i32
   %16 = zext i8 %14 to i64
-  %17 = getelementptr inbounds nuw i64, ptr @_ZZN3fmt2v86detail15do_count_digitsEmE20zero_or_powers_of_10, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN3fmt2v86detail15do_count_digitsEmE20zero_or_powers_of_10, i64 %16
   %18 = load i64, ptr %17, align 8
   %19 = icmp ult i64 %1, %18
   %.neg.i.i = sext i1 %19 to i32
@@ -19486,7 +19472,7 @@ _ZN3fmt2v86detail6bufferIiE9push_backERKi.exit19: ; preds = %31, %.noexc18
   %39 = phi i64 [ %32, %31 ], [ %.pre.i16, %.noexc18 ]
   %40 = load ptr, ptr %7, align 8
   store i64 %.pre-phi.i15, ptr %9, align 8
-  %41 = getelementptr inbounds i32, ptr %40, i64 %39
+  %41 = getelementptr inbounds [4 x i8], ptr %40, i64 %39
   store i32 %25, ptr %41, align 4
   %42 = load i8, ptr %12, align 8
   %.not.i = icmp eq i8 %42, 0
@@ -19512,7 +19498,7 @@ _ZNK3fmt2v86detail14digit_groupingIcE4nextERNS3_10next_stateE.exit.thread: ; pre
   %51 = sub i64 %3, %indvars.iv
   %52 = load ptr, ptr %7, align 8
   %53 = sext i32 %.048 to i64
-  %54 = getelementptr inbounds i32, ptr %52, i64 %53
+  %54 = getelementptr inbounds [4 x i8], ptr %52, i64 %53
   %55 = load i32, ptr %54, align 4
   %56 = trunc i64 %51 to i32
   %57 = icmp eq i32 %55, %56
@@ -22269,7 +22255,7 @@ define linkonce_odr ptr @_ZN3fmt2v86detail14do_write_floatINS0_8appenderENS1_9dr
   %25 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %24, i1 true)
   %26 = xor i32 %25, 31
   %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr inbounds nuw i64, ptr @_ZZN3fmt2v86detail15do_count_digitsEjE5table, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN3fmt2v86detail15do_count_digitsEjE5table, i64 %27
   %29 = load i64, ptr %28, align 8
   %30 = zext i32 %23 to i64
   %31 = add i64 %29, %30
@@ -25141,7 +25127,7 @@ define linkonce_odr ptr @_ZN3fmt2v86detail14do_write_floatINS0_8appenderENS1_9dr
   %28 = load i8, ptr %27, align 1
   %29 = zext i8 %28 to i32
   %30 = zext i8 %28 to i64
-  %31 = getelementptr inbounds nuw i64, ptr @_ZZN3fmt2v86detail15do_count_digitsEmE20zero_or_powers_of_10, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN3fmt2v86detail15do_count_digitsEmE20zero_or_powers_of_10, i64 %30
   %32 = load i64, ptr %31, align 8
   %33 = icmp ult i64 %23, %32
   %.neg.i.i.i = sext i1 %33 to i32
@@ -31264,7 +31250,7 @@ _ZNK3fmt2v820basic_format_contextINS0_8appenderEcE3argEi.exit.thread8.i: ; preds
   %51 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %52 = load ptr, ptr %51, align 8, !noalias !432
   %53 = zext nneg i32 %30 to i64
-  %54 = getelementptr inbounds nuw %"class.fmt::v8::detail::value", ptr %52, i64 %53
+  %54 = getelementptr inbounds nuw [16 x i8], ptr %52, i64 %53
   %.sroa.0244.0.copyload258 = load i128, ptr %54, align 16
   %55 = trunc i128 %.sroa.0244.0.copyload258 to i64
   %56 = lshr i128 %.sroa.0244.0.copyload258, 64
@@ -31281,7 +31267,7 @@ _ZNK3fmt2v820basic_format_contextINS0_8appenderEcE3argEi.exit.i: ; preds = %39
   %61 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %62 = load ptr, ptr %61, align 8, !noalias !432
   %63 = zext nneg i32 %30 to i64
-  %64 = getelementptr inbounds nuw %"class.fmt::v8::basic_format_arg", ptr %62, i64 %63
+  %64 = getelementptr inbounds nuw [32 x i8], ptr %62, i64 %63
   %.sroa.0244.0.copyload = load i128, ptr %64, align 16
   %.sroa.19260.0..sroa_idx = getelementptr inbounds nuw i8, ptr %64, i64 16
   %.sroa.19260.0.copyload = load i32, ptr %.sroa.19260.0..sroa_idx, align 16
@@ -31815,7 +31801,7 @@ _ZNK3fmt2v820basic_format_contextINS0_8appenderEcE3argEi.exit.thread8.i192: ; pr
   %269 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %270 = load ptr, ptr %269, align 8, !noalias !440
   %271 = sext i32 %252 to i64
-  %272 = getelementptr inbounds %"class.fmt::v8::detail::value", ptr %270, i64 %271
+  %272 = getelementptr inbounds [16 x i8], ptr %270, i64 %271
   %.sroa.0.0.copyload234 = load i128, ptr %272, align 16
   %273 = trunc i128 %.sroa.0.0.copyload234 to i64
   %274 = lshr i128 %.sroa.0.0.copyload234, 64
@@ -31832,7 +31818,7 @@ _ZNK3fmt2v820basic_format_contextINS0_8appenderEcE3argEi.exit.i190: ; preds = %2
   %279 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %280 = load ptr, ptr %279, align 8, !noalias !440
   %281 = sext i32 %252 to i64
-  %282 = getelementptr inbounds %"class.fmt::v8::basic_format_arg", ptr %280, i64 %281
+  %282 = getelementptr inbounds [32 x i8], ptr %280, i64 %281
   %.sroa.0.0.copyload = load i128, ptr %282, align 16
   %.sroa.19.0..sroa_idx = getelementptr inbounds nuw i8, ptr %282, i64 16
   %.sroa.19.0.copyload = load i32, ptr %.sroa.19.0..sroa_idx, align 16
@@ -32237,7 +32223,7 @@ _ZNK3fmt2v820basic_format_contextINS0_8appenderEcE3argEi.exit.thread8.i: ; preds
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %45 = load ptr, ptr %44, align 8, !noalias !449
   %46 = sext i32 %1 to i64
-  %47 = getelementptr inbounds %"class.fmt::v8::detail::value", ptr %45, i64 %46
+  %47 = getelementptr inbounds [16 x i8], ptr %45, i64 %46
   %.sroa.0402.0.copyload430531 = load i80, ptr %47, align 16
   %.sroa_idx532 = getelementptr inbounds nuw i8, ptr %47, i64 10
   %.sroa.0402.0.copyload430533 = load i48, ptr %.sroa_idx532, align 2
@@ -32254,7 +32240,7 @@ _ZNK3fmt2v820basic_format_contextINS0_8appenderEcE3argEi.exit.i: ; preds = %32
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %52 = load ptr, ptr %51, align 8, !noalias !449
   %53 = sext i32 %1 to i64
-  %54 = getelementptr inbounds %"class.fmt::v8::basic_format_arg", ptr %52, i64 %53
+  %54 = getelementptr inbounds [32 x i8], ptr %52, i64 %53
   %.sroa.0402.0.copyload527 = load i80, ptr %54, align 16
   %.sroa_idx528 = getelementptr inbounds nuw i8, ptr %54, i64 10
   %.sroa.0402.0.copyload529 = load i48, ptr %.sroa_idx528, align 2
@@ -32720,7 +32706,7 @@ thread-pre-split451:                              ; preds = %182
   %218 = lshr i16 %217, 4
   %219 = and i16 %218, 7
   %220 = zext nneg i16 %219 to i64
-  %221 = getelementptr inbounds nuw i32, ptr @__const._ZN3fmt2v86detail18make_write_int_argIoEENS1_13write_int_argINSt11conditionalIXaalecl8num_bitsIT_EELi32EntLi0EEjNS4_IXlecl8num_bitsIS5_EELi64EEmoE4typeEE4typeEEES5_NS0_4sign4typeE.prefixes, i64 %220
+  %221 = getelementptr inbounds nuw [4 x i8], ptr @__const._ZN3fmt2v86detail18make_write_int_argIoEENS1_13write_int_argINSt11conditionalIXaalecl8num_bitsIT_EELi32EntLi0EEjNS4_IXlecl8num_bitsIS5_EELi64EEmoE4typeEE4typeEEES5_NS0_4sign4typeE.prefixes, i64 %220
   %222 = load i32, ptr %221, align 4
   %223 = zext i32 %222 to i64
   %224 = shl nuw i64 %223, 32
@@ -32740,7 +32726,7 @@ _ZN3fmt2v86detail18make_write_int_argIiEENS1_13write_int_argINSt11conditionalIXa
   %228 = lshr i16 %227, 4
   %229 = and i16 %228, 7
   %230 = zext nneg i16 %229 to i64
-  %231 = getelementptr inbounds nuw i32, ptr @__const._ZN3fmt2v86detail18make_write_int_argIoEENS1_13write_int_argINSt11conditionalIXaalecl8num_bitsIT_EELi32EntLi0EEjNS4_IXlecl8num_bitsIS5_EELi64EEmoE4typeEE4typeEEES5_NS0_4sign4typeE.prefixes, i64 %230
+  %231 = getelementptr inbounds nuw [4 x i8], ptr @__const._ZN3fmt2v86detail18make_write_int_argIoEENS1_13write_int_argINSt11conditionalIXaalecl8num_bitsIT_EELi32EntLi0EEjNS4_IXlecl8num_bitsIS5_EELi64EEmoE4typeEE4typeEEES5_NS0_4sign4typeE.prefixes, i64 %230
   %232 = load i32, ptr %231, align 4
   %233 = zext i32 %232 to i64
   %234 = shl nuw i64 %233, 32
@@ -32763,7 +32749,7 @@ _ZN3fmt2v86detail18make_write_int_argIiEENS1_13write_int_argINSt11conditionalIXa
   %242 = lshr i16 %241, 4
   %243 = and i16 %242, 7
   %244 = zext nneg i16 %243 to i64
-  %245 = getelementptr inbounds nuw i32, ptr @__const._ZN3fmt2v86detail18make_write_int_argIoEENS1_13write_int_argINSt11conditionalIXaalecl8num_bitsIT_EELi32EntLi0EEjNS4_IXlecl8num_bitsIS5_EELi64EEmoE4typeEE4typeEEES5_NS0_4sign4typeE.prefixes, i64 %244
+  %245 = getelementptr inbounds nuw [4 x i8], ptr @__const._ZN3fmt2v86detail18make_write_int_argIoEENS1_13write_int_argINSt11conditionalIXaalecl8num_bitsIT_EELi32EntLi0EEjNS4_IXlecl8num_bitsIS5_EELi64EEmoE4typeEE4typeEEES5_NS0_4sign4typeE.prefixes, i64 %244
   %246 = load i32, ptr %245, align 4
   br label %_ZN3fmt2v86detail18make_write_int_argIxEENS1_13write_int_argINSt11conditionalIXaalecl8num_bitsIT_EELi32EntLi0EEjNS4_IXlecl8num_bitsIS5_EELi64EEmoE4typeEE4typeEEES5_NS0_4sign4typeE.exit
 
@@ -32779,7 +32765,7 @@ _ZN3fmt2v86detail18make_write_int_argIxEENS1_13write_int_argINSt11conditionalIXa
   %250 = lshr i16 %249, 4
   %251 = and i16 %250, 7
   %252 = zext nneg i16 %251 to i64
-  %253 = getelementptr inbounds nuw i32, ptr @__const._ZN3fmt2v86detail18make_write_int_argIoEENS1_13write_int_argINSt11conditionalIXaalecl8num_bitsIT_EELi32EntLi0EEjNS4_IXlecl8num_bitsIS5_EELi64EEmoE4typeEE4typeEEES5_NS0_4sign4typeE.prefixes, i64 %252
+  %253 = getelementptr inbounds nuw [4 x i8], ptr @__const._ZN3fmt2v86detail18make_write_int_argIoEENS1_13write_int_argINSt11conditionalIXaalecl8num_bitsIT_EELi32EntLi0EEjNS4_IXlecl8num_bitsIS5_EELi64EEmoE4typeEE4typeEEES5_NS0_4sign4typeE.prefixes, i64 %252
   %254 = load i32, ptr %253, align 4
   %255 = call ptr @_ZN3fmt2v86detail18write_int_noinlineIcNS0_8appenderEmEET0_S4_NS1_13write_int_argIT1_EERKNS0_18basic_format_specsIT_EENS1_10locale_refE(ptr %.sroa.0.0.copyload.i, i64 %.sroa.0402.0..sroa.0402.0..sroa.0402.0..sroa.0402.0.416, i32 %254, ptr noundef nonnull align 4 dereferenceable(16) %26, ptr %.sroa.0.0.copyload.i359)
   br label %_ZN3fmt2v86detail5writeIcNS0_8appenderEbTnNSt9enable_ifIXsr3std7is_sameIT1_bEE5valueEiE4typeELi0EEET0_S8_S5_RKNS0_18basic_format_specsIT_EENS1_10locale_refE.exit
@@ -32799,7 +32785,7 @@ _ZN3fmt2v86detail18make_write_int_argIxEENS1_13write_int_argINSt11conditionalIXa
   %262 = lshr i16 %257, 4
   %263 = and i16 %262, 7
   %264 = zext nneg i16 %263 to i64
-  %265 = getelementptr inbounds nuw i32, ptr @__const._ZN3fmt2v86detail18make_write_int_argIoEENS1_13write_int_argINSt11conditionalIXaalecl8num_bitsIT_EELi32EntLi0EEjNS4_IXlecl8num_bitsIS5_EELi64EEmoE4typeEE4typeEEES5_NS0_4sign4typeE.prefixes, i64 %264
+  %265 = getelementptr inbounds nuw [4 x i8], ptr @__const._ZN3fmt2v86detail18make_write_int_argIoEENS1_13write_int_argINSt11conditionalIXaalecl8num_bitsIT_EELi32EntLi0EEjNS4_IXlecl8num_bitsIS5_EELi64EEmoE4typeEE4typeEEES5_NS0_4sign4typeE.prefixes, i64 %264
   %266 = load i32, ptr %265, align 4, !noalias !458
   br label %_ZN3fmt2v86detail18make_write_int_argInEENS1_13write_int_argINSt11conditionalIXaalecl8num_bitsIT_EELi32EntLi0EEjNS4_IXlecl8num_bitsIS5_EELi64EEmoE4typeEE4typeEEES5_NS0_4sign4typeE.exit
 
@@ -32821,7 +32807,7 @@ _ZN3fmt2v86detail18make_write_int_argInEENS1_13write_int_argINSt11conditionalIXa
   %272 = and i16 %271, 7
   call void @llvm.experimental.noalias.scope.decl(metadata !461)
   %273 = zext nneg i16 %272 to i64
-  %274 = getelementptr inbounds nuw i32, ptr @__const._ZN3fmt2v86detail18make_write_int_argIoEENS1_13write_int_argINSt11conditionalIXaalecl8num_bitsIT_EELi32EntLi0EEjNS4_IXlecl8num_bitsIS5_EELi64EEmoE4typeEE4typeEEES5_NS0_4sign4typeE.prefixes, i64 %273
+  %274 = getelementptr inbounds nuw [4 x i8], ptr @__const._ZN3fmt2v86detail18make_write_int_argIoEENS1_13write_int_argINSt11conditionalIXaalecl8num_bitsIT_EELi32EntLi0EEjNS4_IXlecl8num_bitsIS5_EELi64EEmoE4typeEE4typeEEES5_NS0_4sign4typeE.prefixes, i64 %273
   %275 = load i32, ptr %274, align 4, !noalias !461
   store i80 %.sroa.0402.0..sroa.0402.0..sroa.0402.0..sroa.0402.0.525, ptr %24, align 16, !alias.scope !461
   %.sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 10
@@ -32844,7 +32830,7 @@ _ZN3fmt2v86detail18make_write_int_argInEENS1_13write_int_argINSt11conditionalIXa
   %282 = lshr i16 %281, 4
   %283 = and i16 %282, 7
   %284 = zext nneg i16 %283 to i64
-  %285 = getelementptr inbounds nuw i32, ptr @__const._ZN3fmt2v86detail18make_write_int_argIoEENS1_13write_int_argINSt11conditionalIXaalecl8num_bitsIT_EELi32EntLi0EEjNS4_IXlecl8num_bitsIS5_EELi64EEmoE4typeEE4typeEEES5_NS0_4sign4typeE.prefixes, i64 %284
+  %285 = getelementptr inbounds nuw [4 x i8], ptr @__const._ZN3fmt2v86detail18make_write_int_argIoEENS1_13write_int_argINSt11conditionalIXaalecl8num_bitsIT_EELi32EntLi0EEjNS4_IXlecl8num_bitsIS5_EELi64EEmoE4typeEE4typeEEES5_NS0_4sign4typeE.prefixes, i64 %284
   %286 = load i32, ptr %285, align 4
   %287 = zext i32 %286 to i64
   %288 = shl nuw i64 %287, 32
@@ -33174,7 +33160,7 @@ _ZZN3fmt2v86detail23parse_replacement_fieldIcRZNS1_10vformat_toIcEEvRNS1_6buffer
 
 79:                                               ; preds = %_ZN3fmt2v8eqENS0_17basic_string_viewIcEES2_.exit.thread.i.i.i.i, %.lr.ph.i.i.i.i
   %.01315.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i ], [ %86, %_ZN3fmt2v8eqENS0_17basic_string_viewIcEES2_.exit.thread.i.i.i.i ]
-  %80 = getelementptr inbounds %"struct.fmt::v8::detail::named_arg_info", ptr %78, i64 %.01315.i.i.i.i
+  %80 = getelementptr inbounds [16 x i8], ptr %78, i64 %.01315.i.i.i.i
   %81 = load ptr, ptr %80, align 8
   %82 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %81) #26
   %83 = icmp eq i64 %82, 0
@@ -33439,7 +33425,7 @@ _ZNK3fmt2v820basic_format_contextINS0_8appenderEcE3argEi.exit.thread8.i.i.i.i: ;
   %75 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %76 = load ptr, ptr %75, align 8, !noalias !479
   %77 = zext nneg i32 %55 to i64
-  %78 = getelementptr inbounds nuw %"class.fmt::v8::detail::value", ptr %76, i64 %77
+  %78 = getelementptr inbounds nuw [16 x i8], ptr %76, i64 %77
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %6, ptr noundef nonnull align 16 dereferenceable(16) %78, i64 16, i1 false)
   br label %_ZZN3fmt2v86detail11parse_widthIcRNS1_13specs_checkerINS1_13specs_handlerIcEEEEEEPKT_SA_SA_OT0_EN13width_adapterclEv.exit
 
@@ -33447,7 +33433,7 @@ _ZNK3fmt2v820basic_format_contextINS0_8appenderEcE3argEi.exit.i.i.i.i: ; preds =
   %79 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %80 = load ptr, ptr %79, align 8, !noalias !479
   %81 = zext nneg i32 %55 to i64
-  %82 = getelementptr inbounds nuw %"class.fmt::v8::basic_format_arg", ptr %80, i64 %81
+  %82 = getelementptr inbounds nuw [32 x i8], ptr %80, i64 %81
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %6, ptr noundef nonnull align 16 dereferenceable(20) %82, i64 20, i1 false)
   %.pr.pre.i.i.i.i = load i32, ptr %60, align 16, !alias.scope !480
   %83 = icmp eq i32 %.pr.pre.i.i.i.i, 0
@@ -33645,7 +33631,7 @@ _ZNK3fmt2v820basic_format_contextINS0_8appenderEcE3argEi.exit.thread8.i.i.i.i: ;
   %81 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %82 = load ptr, ptr %81, align 8, !noalias !493
   %83 = zext nneg i32 %61 to i64
-  %84 = getelementptr inbounds nuw %"class.fmt::v8::detail::value", ptr %82, i64 %83
+  %84 = getelementptr inbounds nuw [16 x i8], ptr %82, i64 %83
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, ptr noundef nonnull align 16 dereferenceable(16) %84, i64 16, i1 false)
   br label %_ZZN3fmt2v86detail15parse_precisionIcRNS1_13specs_checkerINS1_13specs_handlerIcEEEEEEPKT_SA_SA_OT0_EN17precision_adapterclEv.exit
 
@@ -33653,7 +33639,7 @@ _ZNK3fmt2v820basic_format_contextINS0_8appenderEcE3argEi.exit.i.i.i.i: ; preds =
   %85 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %86 = load ptr, ptr %85, align 8, !noalias !493
   %87 = zext nneg i32 %61 to i64
-  %88 = getelementptr inbounds nuw %"class.fmt::v8::basic_format_arg", ptr %86, i64 %87
+  %88 = getelementptr inbounds nuw [32 x i8], ptr %86, i64 %87
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %8, ptr noundef nonnull align 16 dereferenceable(20) %88, i64 20, i1 false)
   %.pr.pre.i.i.i.i = load i32, ptr %66, align 16, !alias.scope !494
   %89 = icmp eq i32 %.pr.pre.i.i.i.i, 0
@@ -33910,7 +33896,7 @@ _ZNK3fmt2v820basic_format_contextINS0_8appenderEcE3argEi.exit.thread8.i.i.i: ; p
   %30 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %31 = load ptr, ptr %30, align 8, !noalias !508
   %32 = sext i32 %1 to i64
-  %33 = getelementptr inbounds %"class.fmt::v8::detail::value", ptr %31, i64 %32
+  %33 = getelementptr inbounds [16 x i8], ptr %31, i64 %32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, ptr noundef nonnull align 16 dereferenceable(16) %33, i64 16, i1 false)
   br label %_ZN3fmt2v86detail13specs_handlerIcE16on_dynamic_widthIiEEvT_.exit
 
@@ -33918,7 +33904,7 @@ _ZNK3fmt2v820basic_format_contextINS0_8appenderEcE3argEi.exit.i.i.i: ; preds = %
   %34 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %35 = load ptr, ptr %34, align 8, !noalias !508
   %36 = sext i32 %1 to i64
-  %37 = getelementptr inbounds %"class.fmt::v8::basic_format_arg", ptr %35, i64 %36
+  %37 = getelementptr inbounds [32 x i8], ptr %35, i64 %36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %4, ptr noundef nonnull align 16 dereferenceable(20) %37, i64 20, i1 false)
   %.pr.pre.i.i.i = load i32, ptr %15, align 16, !alias.scope !509
   %38 = icmp eq i32 %.pr.pre.i.i.i, 0
@@ -34093,7 +34079,7 @@ define linkonce_odr hidden void @_ZN3fmt2v86detail13specs_handlerIcE16on_dynamic
 
 19:                                               ; preds = %_ZN3fmt2v8eqENS0_17basic_string_viewIcEES2_.exit.thread.i.i, %.lr.ph.i.i
   %.01315.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %26, %_ZN3fmt2v8eqENS0_17basic_string_viewIcEES2_.exit.thread.i.i ]
-  %20 = getelementptr inbounds %"struct.fmt::v8::detail::named_arg_info", ptr %18, i64 %.01315.i.i
+  %20 = getelementptr inbounds [16 x i8], ptr %18, i64 %.01315.i.i
   %21 = load ptr, ptr %20, align 8, !noalias !516
   %22 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %21) #26, !noalias !516
   %..i.i.i.i = tail call i64 @llvm.umin.i64(i64 %22, i64 %2)
@@ -34148,13 +34134,13 @@ _ZNK3fmt2v817basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE6get
 
 _ZNK3fmt2v817basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getIcEENS0_16basic_format_argIS4_EENS0_17basic_string_viewIT_EE.exit.thread11: ; preds = %38
   %45 = zext nneg i32 %28 to i64
-  %46 = getelementptr inbounds nuw %"class.fmt::v8::detail::value", ptr %13, i64 %45
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %45
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 16 dereferenceable(16) %46, i64 16, i1 false)
   br label %_ZN3fmt2v86detail13specs_handlerIcE7get_argENS0_17basic_string_viewIcEE.exit
 
 _ZNK3fmt2v817basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getIcEENS0_16basic_format_argIS4_EENS0_17basic_string_viewIT_EE.exit: ; preds = %33
   %47 = zext nneg i32 %28 to i64
-  %48 = getelementptr inbounds nuw %"class.fmt::v8::basic_format_arg", ptr %13, i64 %47
+  %48 = getelementptr inbounds nuw [32 x i8], ptr %13, i64 %47
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %5, ptr noundef nonnull align 16 dereferenceable(20) %48, i64 20, i1 false)
   %.pre = load i32, ptr %31, align 16, !alias.scope !522
   %49 = icmp eq i32 %.pre, 0
@@ -34364,7 +34350,7 @@ _ZNK3fmt2v820basic_format_contextINS0_8appenderEcE3argEi.exit.thread8.i.i.i: ; p
   %30 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %31 = load ptr, ptr %30, align 8, !noalias !536
   %32 = sext i32 %1 to i64
-  %33 = getelementptr inbounds %"class.fmt::v8::detail::value", ptr %31, i64 %32
+  %33 = getelementptr inbounds [16 x i8], ptr %31, i64 %32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, ptr noundef nonnull align 16 dereferenceable(16) %33, i64 16, i1 false)
   br label %_ZN3fmt2v86detail13specs_handlerIcE20on_dynamic_precisionIiEEvT_.exit
 
@@ -34372,7 +34358,7 @@ _ZNK3fmt2v820basic_format_contextINS0_8appenderEcE3argEi.exit.i.i.i: ; preds = %
   %34 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %35 = load ptr, ptr %34, align 8, !noalias !536
   %36 = sext i32 %1 to i64
-  %37 = getelementptr inbounds %"class.fmt::v8::basic_format_arg", ptr %35, i64 %36
+  %37 = getelementptr inbounds [32 x i8], ptr %35, i64 %36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %4, ptr noundef nonnull align 16 dereferenceable(20) %37, i64 20, i1 false)
   %.pr.pre.i.i.i = load i32, ptr %15, align 16, !alias.scope !537
   %38 = icmp eq i32 %.pr.pre.i.i.i, 0
@@ -34548,7 +34534,7 @@ define linkonce_odr hidden void @_ZN3fmt2v86detail13specs_handlerIcE20on_dynamic
 
 19:                                               ; preds = %_ZN3fmt2v8eqENS0_17basic_string_viewIcEES2_.exit.thread.i.i, %.lr.ph.i.i
   %.01315.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %26, %_ZN3fmt2v8eqENS0_17basic_string_viewIcEES2_.exit.thread.i.i ]
-  %20 = getelementptr inbounds %"struct.fmt::v8::detail::named_arg_info", ptr %18, i64 %.01315.i.i
+  %20 = getelementptr inbounds [16 x i8], ptr %18, i64 %.01315.i.i
   %21 = load ptr, ptr %20, align 8, !noalias !544
   %22 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %21) #26, !noalias !544
   %..i.i.i.i = tail call i64 @llvm.umin.i64(i64 %22, i64 %2)
@@ -34603,13 +34589,13 @@ _ZNK3fmt2v817basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE6get
 
 _ZNK3fmt2v817basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getIcEENS0_16basic_format_argIS4_EENS0_17basic_string_viewIT_EE.exit.thread11: ; preds = %38
   %45 = zext nneg i32 %28 to i64
-  %46 = getelementptr inbounds nuw %"class.fmt::v8::detail::value", ptr %13, i64 %45
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %45
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 16 dereferenceable(16) %46, i64 16, i1 false)
   br label %_ZN3fmt2v86detail13specs_handlerIcE7get_argENS0_17basic_string_viewIcEE.exit
 
 _ZNK3fmt2v817basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getIcEENS0_16basic_format_argIS4_EENS0_17basic_string_viewIT_EE.exit: ; preds = %33
   %47 = zext nneg i32 %28 to i64
-  %48 = getelementptr inbounds nuw %"class.fmt::v8::basic_format_arg", ptr %13, i64 %47
+  %48 = getelementptr inbounds nuw [32 x i8], ptr %13, i64 %47
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %5, ptr noundef nonnull align 16 dereferenceable(20) %48, i64 20, i1 false)
   %.pre = load i32, ptr %31, align 16, !alias.scope !550
   %49 = icmp eq i32 %.pre, 0
@@ -34685,7 +34671,7 @@ define linkonce_odr hidden ptr @_ZN3fmt2v86detail18write_int_noinlineIcNS0_8appe
   %32 = load i8, ptr %31, align 1
   %33 = zext i8 %32 to i32
   %34 = zext i8 %32 to i64
-  %35 = getelementptr inbounds nuw i64, ptr @_ZZN3fmt2v86detail15do_count_digitsEmE20zero_or_powers_of_10, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN3fmt2v86detail15do_count_digitsEmE20zero_or_powers_of_10, i64 %34
   %36 = load i64, ptr %35, align 8
   %37 = icmp ult i64 %1, %36
   %.neg.i.i = sext i1 %37 to i32
@@ -40513,7 +40499,7 @@ _ZN3fmt2v86detail16check_char_specsIcNS1_13error_handlerEEEbRKNS0_18basic_format
   %27 = lshr i16 %26, 4
   %28 = and i16 %27, 7
   %29 = zext nneg i16 %28 to i64
-  %30 = getelementptr inbounds nuw i32, ptr @__const._ZN3fmt2v86detail18make_write_int_argIoEENS1_13write_int_argINSt11conditionalIXaalecl8num_bitsIT_EELi32EntLi0EEjNS4_IXlecl8num_bitsIS5_EELi64EEmoE4typeEE4typeEEES5_NS0_4sign4typeE.prefixes, i64 %29
+  %30 = getelementptr inbounds nuw [4 x i8], ptr @__const._ZN3fmt2v86detail18make_write_int_argIoEENS1_13write_int_argINSt11conditionalIXaalecl8num_bitsIT_EELi32EntLi0EEjNS4_IXlecl8num_bitsIS5_EELi64EEmoE4typeEE4typeEEES5_NS0_4sign4typeE.prefixes, i64 %29
   %31 = load i32, ptr %30, align 4
   %32 = zext i32 %31 to i64
   %33 = shl nuw i64 %32, 32
@@ -41495,7 +41481,7 @@ define linkonce_odr hidden noundef ptr @_ZZN3fmt2v86detail18for_each_codepointIZ
   %11 = and i64 %10, 1
   %12 = add nsw i64 %11, %9
   %13 = sext i8 %4 to i32
-  %14 = getelementptr inbounds i32, ptr @__const._ZN3fmt2v86detail11utf8_decodeEPKcPjPi.masks, i64 %12
+  %14 = getelementptr inbounds [4 x i8], ptr @__const._ZN3fmt2v86detail11utf8_decodeEPKcPjPi.masks, i64 %12
   %15 = load i32, ptr %14, align 4
   %16 = and i32 %15, %13
   %17 = shl i32 %16, 18
@@ -41516,10 +41502,10 @@ define linkonce_odr hidden noundef ptr @_ZZN3fmt2v86detail18for_each_codepointIZ
   %32 = and i8 %31, 63
   %33 = zext nneg i8 %32 to i32
   %34 = or disjoint i32 %29, %33
-  %35 = getelementptr inbounds i32, ptr @__const._ZN3fmt2v86detail11utf8_decodeEPKcPjPi.shiftc, i64 %12
+  %35 = getelementptr inbounds [4 x i8], ptr @__const._ZN3fmt2v86detail11utf8_decodeEPKcPjPi.shiftc, i64 %12
   %36 = load i32, ptr %35, align 4
   %37 = lshr i32 %34, %36
-  %38 = getelementptr inbounds i32, ptr @__const._ZN3fmt2v86detail11utf8_decodeEPKcPjPi.mins, i64 %12
+  %38 = getelementptr inbounds [4 x i8], ptr @__const._ZN3fmt2v86detail11utf8_decodeEPKcPjPi.mins, i64 %12
   %39 = load i32, ptr %38, align 4
   %40 = icmp ult i32 %37, %39
   %41 = select i1 %40, i32 64, i32 0
@@ -41540,7 +41526,7 @@ define linkonce_odr hidden noundef ptr @_ZZN3fmt2v86detail18for_each_codepointIZ
   %55 = or disjoint i32 %54, %45
   %56 = or disjoint i32 %55, %43
   %57 = xor i32 %56, 42
-  %58 = getelementptr inbounds i32, ptr @__const._ZN3fmt2v86detail11utf8_decodeEPKcPjPi.shifte, i64 %12
+  %58 = getelementptr inbounds [4 x i8], ptr @__const._ZN3fmt2v86detail11utf8_decodeEPKcPjPi.shifte, i64 %12
   %59 = load i32, ptr %58, align 4
   %60 = lshr i32 %57, %59
   %.not = icmp eq i32 %60, 0
@@ -41930,7 +41916,7 @@ _ZSt7advanceIN8WasmEdge12SpareEnumMapILm126ENS0_7ErrCode5ValueESt17basic_string_
   %.sroa.4.024.i.i.i.i = phi i64 [ 0, %3 ], [ %.sroa.4.1.i.i.i.i, %_ZSt7advanceIN8WasmEdge12SpareEnumMapILm126ENS0_7ErrCode5ValueESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorElEvRT_T0_.exit.i.i.i.i ]
   %14 = lshr i64 %.025.i.i.i.i, 1
   %.sroa.3.0.i.i.i.i = add i64 %14, %.sroa.4.024.i.i.i.i
-  %15 = getelementptr inbounds %"struct.std::pair.323", ptr @_ZN8WasmEdgeL10ErrCodeStrE, i64 %.sroa.3.0.i.i.i.i
+  %15 = getelementptr inbounds [24 x i8], ptr @_ZN8WasmEdgeL10ErrCodeStrE, i64 %.sroa.3.0.i.i.i.i
   %16 = load i32, ptr %15, align 8
   %17 = icmp ult i32 %16, %spec.select.i
   %18 = add i64 %.sroa.3.0.i.i.i.i, 1
@@ -41942,11 +41928,11 @@ _ZSt7advanceIN8WasmEdge12SpareEnumMapILm126ENS0_7ErrCode5ValueESt17basic_string_
   br i1 %21, label %_ZSt7advanceIN8WasmEdge12SpareEnumMapILm126ENS0_7ErrCode5ValueESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorElEvRT_T0_.exit.i.i.i.i, label %22, !llvm.loop !581
 
 22:                                               ; preds = %_ZSt7advanceIN8WasmEdge12SpareEnumMapILm126ENS0_7ErrCode5ValueESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorElEvRT_T0_.exit.i.i.i.i
-  %23 = getelementptr inbounds %"struct.std::pair.323", ptr @_ZN8WasmEdgeL10ErrCodeStrE, i64 %.sroa.4.1.i.i.i.i
+  %23 = getelementptr inbounds [24 x i8], ptr @_ZN8WasmEdgeL10ErrCodeStrE, i64 %.sroa.4.1.i.i.i.i
   %24 = load i32, ptr %23, align 8
   %25 = icmp eq i32 %24, %spec.select.i
   %spec.select.i.i = select i1 %25, i64 %.sroa.4.1.i.i.i.i, i64 126
-  %26 = getelementptr inbounds %"struct.std::pair.323", ptr @_ZN8WasmEdgeL10ErrCodeStrE, i64 %spec.select.i.i
+  %26 = getelementptr inbounds [24 x i8], ptr @_ZN8WasmEdgeL10ErrCodeStrE, i64 %spec.select.i.i
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !582)
   %28 = ptrtoint ptr %6 to i64
@@ -42734,7 +42720,7 @@ define linkonce_odr hidden void @_ZN3fmt2v86detail5valueINS0_20basic_format_cont
   store i64 %20, ptr %18, align 8
   %21 = load i8, ptr %0, align 1
   %22 = zext i8 %21 to i64
-  %23 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr @_ZN8WasmEdgeL12WasmPhaseStrE, i64 %22
+  %23 = getelementptr inbounds nuw [16 x i8], ptr @_ZN8WasmEdgeL12WasmPhaseStrE, i64 %22
   %24 = invoke ptr @_ZNK3fmt2v89formatterISt17basic_string_viewIcSt11char_traitsIcEEcvE6formatINS0_20basic_format_contextINS0_8appenderEcEEEEDTcldtfp0_3outEERKS5_RT_(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %_ZNK3fmt2v89formatterIN8WasmEdge9WasmPhaseEcvE6formatERKS3_RNS0_20basic_format_contextINS0_8appenderEcEE.exit unwind label %25
 
@@ -42781,7 +42767,7 @@ define linkonce_odr hidden void @_ZN3fmt2v86detail19handle_dynamic_specINS1_13wi
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %19 = load ptr, ptr %18, align 8, !noalias !605
   %20 = sext i32 %9 to i64
-  %21 = getelementptr inbounds %"class.fmt::v8::basic_format_arg", ptr %19, i64 %20
+  %21 = getelementptr inbounds [32 x i8], ptr %19, i64 %20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %4, ptr noundef nonnull align 16 dereferenceable(20) %21, i64 20, i1 false)
   br label %.sink.split
 
@@ -42803,7 +42789,7 @@ define linkonce_odr hidden void @_ZN3fmt2v86detail19handle_dynamic_specINS1_13wi
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %33 = load ptr, ptr %32, align 8, !noalias !605
   %34 = sext i32 %9 to i64
-  %35 = getelementptr inbounds %"class.fmt::v8::detail::value", ptr %33, i64 %34
+  %35 = getelementptr inbounds [16 x i8], ptr %33, i64 %34
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, ptr noundef nonnull align 16 dereferenceable(16) %35, i64 16, i1 false)
   br label %.sink.split
 
@@ -42836,7 +42822,7 @@ define linkonce_odr hidden void @_ZN3fmt2v86detail19handle_dynamic_specINS1_13wi
 
 49:                                               ; preds = %_ZN3fmt2v8eqENS0_17basic_string_viewIcEES2_.exit.thread.i.i, %.lr.ph.i.i
   %.01315.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %56, %_ZN3fmt2v8eqENS0_17basic_string_viewIcEES2_.exit.thread.i.i ]
-  %50 = getelementptr inbounds %"struct.fmt::v8::detail::named_arg_info", ptr %48, i64 %.01315.i.i
+  %50 = getelementptr inbounds [16 x i8], ptr %48, i64 %.01315.i.i
   %51 = load ptr, ptr %50, align 8, !noalias !606
   %52 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %51) #26, !noalias !606
   %..i.i.i.i = tail call i64 @llvm.umin.i64(i64 %52, i64 %.sroa.2.0.copyload)
@@ -42878,7 +42864,7 @@ _ZNK3fmt2v817basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE6get
 
 66:                                               ; preds = %63
   %67 = zext nneg i32 %58 to i64
-  %68 = getelementptr inbounds nuw %"class.fmt::v8::basic_format_arg", ptr %43, i64 %67
+  %68 = getelementptr inbounds nuw [32 x i8], ptr %43, i64 %67
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %5, ptr noundef nonnull align 16 dereferenceable(20) %68, i64 20, i1 false)
   br label %.sink.split
 
@@ -42898,7 +42884,7 @@ _ZNK3fmt2v817basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE6get
 
 78:                                               ; preds = %71
   %79 = zext nneg i32 %58 to i64
-  %80 = getelementptr inbounds nuw %"class.fmt::v8::detail::value", ptr %43, i64 %79
+  %80 = getelementptr inbounds nuw [16 x i8], ptr %43, i64 %79
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 16 dereferenceable(16) %80, i64 16, i1 false)
   br label %.sink.split
 
@@ -42948,7 +42934,7 @@ define linkonce_odr hidden void @_ZN3fmt2v86detail19handle_dynamic_specINS1_17pr
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %19 = load ptr, ptr %18, align 8, !noalias !618
   %20 = sext i32 %9 to i64
-  %21 = getelementptr inbounds %"class.fmt::v8::basic_format_arg", ptr %19, i64 %20
+  %21 = getelementptr inbounds [32 x i8], ptr %19, i64 %20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %4, ptr noundef nonnull align 16 dereferenceable(20) %21, i64 20, i1 false)
   br label %.sink.split
 
@@ -42970,7 +42956,7 @@ define linkonce_odr hidden void @_ZN3fmt2v86detail19handle_dynamic_specINS1_17pr
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %33 = load ptr, ptr %32, align 8, !noalias !618
   %34 = sext i32 %9 to i64
-  %35 = getelementptr inbounds %"class.fmt::v8::detail::value", ptr %33, i64 %34
+  %35 = getelementptr inbounds [16 x i8], ptr %33, i64 %34
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, ptr noundef nonnull align 16 dereferenceable(16) %35, i64 16, i1 false)
   br label %.sink.split
 
@@ -43003,7 +42989,7 @@ define linkonce_odr hidden void @_ZN3fmt2v86detail19handle_dynamic_specINS1_17pr
 
 49:                                               ; preds = %_ZN3fmt2v8eqENS0_17basic_string_viewIcEES2_.exit.thread.i.i, %.lr.ph.i.i
   %.01315.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %56, %_ZN3fmt2v8eqENS0_17basic_string_viewIcEES2_.exit.thread.i.i ]
-  %50 = getelementptr inbounds %"struct.fmt::v8::detail::named_arg_info", ptr %48, i64 %.01315.i.i
+  %50 = getelementptr inbounds [16 x i8], ptr %48, i64 %.01315.i.i
   %51 = load ptr, ptr %50, align 8, !noalias !619
   %52 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %51) #26, !noalias !619
   %..i.i.i.i = tail call i64 @llvm.umin.i64(i64 %52, i64 %.sroa.2.0.copyload)
@@ -43045,7 +43031,7 @@ _ZNK3fmt2v817basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE6get
 
 66:                                               ; preds = %63
   %67 = zext nneg i32 %58 to i64
-  %68 = getelementptr inbounds nuw %"class.fmt::v8::basic_format_arg", ptr %43, i64 %67
+  %68 = getelementptr inbounds nuw [32 x i8], ptr %43, i64 %67
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %5, ptr noundef nonnull align 16 dereferenceable(20) %68, i64 20, i1 false)
   br label %.sink.split
 
@@ -43065,7 +43051,7 @@ _ZNK3fmt2v817basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE6get
 
 78:                                               ; preds = %71
   %79 = zext nneg i32 %58 to i64
-  %80 = getelementptr inbounds nuw %"class.fmt::v8::detail::value", ptr %43, i64 %79
+  %80 = getelementptr inbounds nuw [16 x i8], ptr %43, i64 %79
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 16 dereferenceable(16) %80, i64 16, i1 false)
   br label %.sink.split
 
@@ -43234,7 +43220,7 @@ _ZNK8WasmEdge7ValType13isAbsHeapTypeEv.exit:      ; preds = %21
   br i1 %.not25, label %switch.lookup, label %_ZN8WasmEdge3AST11TypeMatcher13matchTypeCodeENS_8TypeCodeES2_.exit
 
 switch.lookup:                                    ; preds = %40
-  %44 = getelementptr inbounds nuw ptr, ptr %3, i64 %43
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %43
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 32
   %47 = load i8, ptr %46, align 8
@@ -43294,7 +43280,7 @@ _ZNK8WasmEdge7ValType13isAbsHeapTypeEv.exit40:    ; preds = %18, %_ZNK8WasmEdge7
   br i1 %.not, label %_ZNK8WasmEdge3AST13CompositeType6expandEv.exit49, label %_ZN8WasmEdge3AST11TypeMatcher13matchTypeCodeENS_8TypeCodeES2_.exit
 
 _ZNK8WasmEdge3AST13CompositeType6expandEv.exit49: ; preds = %58
-  %60 = getelementptr inbounds nuw ptr, ptr %0, i64 %59
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %59
   %61 = load ptr, ptr %60, align 8
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 32
   %63 = load i8, ptr %62, align 8
@@ -43340,9 +43326,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8WasmEdge3AST11TypeMatcher9mat
   br i1 %or.cond.i, label %_ZN8WasmEdge3AST11TypeMatcher14isDefTypeEqualEN5cxx204spanIKPKNS0_7SubTypeELm18446744073709551615EEEjS8_j.exit.thread38, label %13
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds nuw ptr, ptr %0, i64 %7
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %7
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds nuw ptr, ptr %3, i64 %9
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %9
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 120
   %.sroa.01.0.copyload.i.i = load i64, ptr %18, align 8
@@ -43431,10 +43417,10 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8WasmEdge3AST11TypeMatcher14is
 
 9:                                                ; preds = %6
   %10 = zext i32 %2 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr %0, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %10
   %12 = load ptr, ptr %11, align 8
   %13 = zext i32 %5 to i64
-  %14 = getelementptr inbounds nuw ptr, ptr %3, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %13
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 120
   %.sroa.01.0.copyload.i = load i64, ptr %16, align 8
@@ -43538,13 +43524,13 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8WasmEdge3AST11TypeMatcher14is
   %38 = add i32 %37, %.01727
   %39 = zext i32 %38 to i64
   %40 = load ptr, ptr %8, align 8
-  %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %39
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %39
   %42 = load ptr, ptr %41, align 8
   %43 = load i32, ptr %11, align 4
   %44 = add i32 %43, %.01727
   %45 = zext i32 %44 to i64
   %46 = load ptr, ptr %9, align 8
-  %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %45
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %45
   %48 = load ptr, ptr %47, align 8
   %49 = load i8, ptr %42, align 8
   %50 = load i8, ptr %48, align 8
@@ -43587,13 +43573,13 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8WasmEdge3AST11TypeMatcher14is
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %71
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %71 ]
-  %72 = getelementptr inbounds nuw i32, ptr %55, i64 %indvars.iv
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %indvars.iv
   %73 = load i32, ptr %72, align 4
   store i8 0, ptr %25, align 1
   store i8 100, ptr %26, align 2
   store i8 0, ptr %27, align 1
   store i32 %73, ptr %28, align 4
-  %74 = getelementptr inbounds nuw i32, ptr %62, i64 %indvars.iv
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %indvars.iv
   %75 = load i32, ptr %74, align 4
   store i8 0, ptr %29, align 1
   store i8 100, ptr %30, align 2
@@ -43818,9 +43804,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZZN8WasmEdge3AST11TypeMatcher14i
   %43 = phi ptr [ %35, %31 ], [ %8, %.preheader28 ]
   %44 = phi i64 [ %33, %31 ], [ 0, %.preheader28 ]
   %.02330 = phi i32 [ %32, %31 ], [ 0, %.preheader28 ]
-  %45 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %43, i64 %44
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %44
   %46 = load ptr, ptr %2, align 8
-  %47 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %46, i64 %44
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %44
   %48 = tail call noundef zeroext i1 @_ZZN8WasmEdge3AST11TypeMatcher14isRecTypeEqualEN5cxx204spanIKPKNS0_7SubTypeELm18446744073709551615EEEjS8_jjENKUlRKNS_7ValTypeESB_E_clESB_SB_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 4 dereferenceable(8) %45, ptr noundef nonnull align 4 dereferenceable(8) %47)
   br i1 %48, label %31, label %.loopexit
 
@@ -43840,9 +43826,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZZN8WasmEdge3AST11TypeMatcher14i
   %59 = phi ptr [ %53, %49 ], [ %41, %.preheader ]
   %60 = phi i64 [ %51, %49 ], [ 0, %.preheader ]
   %.031 = phi i32 [ %50, %49 ], [ 0, %.preheader ]
-  %61 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %59, i64 %60
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %60
   %62 = load ptr, ptr %5, align 8
-  %63 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %62, i64 %60
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %60
   %64 = tail call noundef zeroext i1 @_ZZN8WasmEdge3AST11TypeMatcher14isRecTypeEqualEN5cxx204spanIKPKNS0_7SubTypeELm18446744073709551615EEEjS8_jjENKUlRKNS_7ValTypeESB_E_clESB_SB_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 4 dereferenceable(8) %61, ptr noundef nonnull align 4 dereferenceable(8) %63)
   br i1 %64, label %49, label %.loopexit
 
@@ -43888,11 +43874,11 @@ define linkonce_odr hidden noundef zeroext i1 @_ZZN8WasmEdge3AST11TypeMatcher14i
   %26 = phi ptr [ %20, %16 ], [ %6, %.preheader ]
   %27 = phi i64 [ %18, %16 ], [ 0, %.preheader ]
   %.017 = phi i32 [ %17, %16 ], [ 0, %.preheader ]
-  %28 = getelementptr inbounds nuw %"class.WasmEdge::AST::FieldType", ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw [12 x i8], ptr %26, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load i8, ptr %29, align 4
   %31 = load ptr, ptr %2, align 8
-  %32 = getelementptr inbounds nuw %"class.WasmEdge::AST::FieldType", ptr %31, i64 %27
+  %32 = getelementptr inbounds nuw [12 x i8], ptr %31, i64 %27
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = load i8, ptr %33, align 4
   %.not16 = icmp eq i8 %30, %34
@@ -44234,7 +44220,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIjjSaIjENSt8__detail9_Identity
   %10 = load i64, ptr %9, align 8
   %11 = urem i64 %8, %10
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %11
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %11
   %14 = load ptr, ptr %13, align 8
   %.not.i.i = icmp eq ptr %14, null
   br i1 %.not.i.i, label %_ZNKSt10_HashtableIjjSaIjENSt8__detail9_IdentityESt8equal_toIjESt4hashIjENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE12_M_find_nodeEmRKjm.exit.thread, label %28
@@ -44370,7 +44356,7 @@ _ZNSt10_HashtableIjjSaIjENSt8__detail9_IdentityESt8equal_toIjESt4hashIjENS1_18_M
 31:                                               ; preds = %_ZNSt10_HashtableIjjSaIjENSt8__detail9_IdentityESt8equal_toIjESt4hashIjENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE9_M_rehashEmRKm.exit, %5
   %.0 = phi i64 [ %30, %_ZNSt10_HashtableIjjSaIjENSt8__detail9_IdentityESt8equal_toIjESt4hashIjENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE9_M_rehashEmRKm.exit ], [ %1, %5 ]
   %32 = load ptr, ptr %0, align 8
-  %33 = getelementptr inbounds ptr, ptr %32, i64 %.0
+  %33 = getelementptr inbounds [8 x i8], ptr %32, i64 %.0
   %34 = load ptr, ptr %33, align 8
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %40, label %35
@@ -44379,7 +44365,7 @@ _ZNSt10_HashtableIjjSaIjENSt8__detail9_IdentityESt8equal_toIjESt4hashIjENS1_18_M
   %36 = load ptr, ptr %34, align 8
   store ptr %36, ptr %3, align 8
   %37 = load ptr, ptr %0, align 8
-  %38 = getelementptr inbounds ptr, ptr %37, i64 %.0
+  %38 = getelementptr inbounds [8 x i8], ptr %37, i64 %.0
   %39 = load ptr, ptr %38, align 8
   store ptr %3, ptr %39, align 8
   br label %_ZNSt10_HashtableIjjSaIjENSt8__detail9_IdentityESt8equal_toIjESt4hashIjENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE22_M_insert_bucket_beginEmPNS1_10_Hash_nodeIjLb0EEE.exit
@@ -44400,13 +44386,13 @@ _ZNSt10_HashtableIjjSaIjENSt8__detail9_IdentityESt8equal_toIjESt4hashIjENS1_18_M
   %48 = load i32, ptr %46, align 4
   %49 = zext i32 %48 to i64
   %50 = urem i64 %49, %47
-  %51 = getelementptr inbounds nuw ptr, ptr %45, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %50
   store ptr %3, ptr %51, align 8
   br label %52
 
 52:                                               ; preds = %44, %40
   %53 = load ptr, ptr %0, align 8
-  %54 = getelementptr inbounds ptr, ptr %53, i64 %.0
+  %54 = getelementptr inbounds [8 x i8], ptr %53, i64 %.0
   store ptr %41, ptr %54, align 8
   br label %_ZNSt10_HashtableIjjSaIjENSt8__detail9_IdentityESt8equal_toIjESt4hashIjENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE22_M_insert_bucket_beginEmPNS1_10_Hash_nodeIjLb0EEE.exit
 
@@ -44467,7 +44453,7 @@ _ZNSt10_HashtableIjjSaIjENSt8__detail9_IdentityESt8equal_toIjESt4hashIjENS1_18_M
   %16 = load i32, ptr %15, align 8
   %17 = zext i32 %16 to i64
   %18 = urem i64 %17, %1
-  %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %18
   %20 = load ptr, ptr %19, align 8
   %.not27 = icmp eq ptr %20, null
   br i1 %.not27, label %21, label %26
@@ -44482,7 +44468,7 @@ _ZNSt10_HashtableIjjSaIjENSt8__detail9_IdentityESt8equal_toIjESt4hashIjENS1_18_M
   br i1 %.not28, label %29, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %25, align 8
   br label %29
 
@@ -45017,7 +45003,7 @@ _ZSt8_DestroyIPN8WasmEdge9Validator11FormChecker9CtrlFrameES3_EvT_S5_RSaIT0_E.ex
 _ZNSt12_Vector_baseIN8WasmEdge9Validator11FormChecker9CtrlFrameESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZSt8_DestroyIPN8WasmEdge9Validator11FormChecker9CtrlFrameES3_EvT_S5_RSaIT0_E.exit, %83
   store ptr %27, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i.i39, ptr %9, align 8
-  %87 = getelementptr inbounds nuw %"struct.WasmEdge::Validator::FormChecker::CtrlFrame", ptr %27, i64 %21
+  %87 = getelementptr inbounds nuw [80 x i8], ptr %27, i64 %21
   store ptr %87, ptr %82, align 8
   ret void
 

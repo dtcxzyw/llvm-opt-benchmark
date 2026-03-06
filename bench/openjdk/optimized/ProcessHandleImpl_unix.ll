@@ -698,13 +698,13 @@ define hidden i32 @unix_getChildren(ptr noundef %0, i64 noundef %1, ptr noundef 
 77:                                               ; preds = %75
   %78 = zext nneg i32 %69 to i64
   %79 = zext nneg i32 %.1.ph.us.ph to i64
-  %80 = getelementptr inbounds nuw i64, ptr %49, i64 %79
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %79
   store i64 %78, ptr %80, align 8
   br i1 %.not105, label %84, label %81
 
 81:                                               ; preds = %77
   %82 = zext nneg i32 %72 to i64
-  %83 = getelementptr inbounds nuw i64, ptr %.182.fr, i64 %79
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %.182.fr, i64 %79
   store i64 %82, ptr %83, align 8
   br label %84
 
@@ -750,10 +750,10 @@ define hidden i32 @unix_getChildren(ptr noundef %0, i64 noundef %1, ptr noundef 
 98:                                               ; preds = %96
   %99 = zext nneg i32 %90 to i64
   %100 = zext nneg i32 %.1.ph.us136.ph to i64
-  %101 = getelementptr inbounds nuw i64, ptr %49, i64 %100
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %100
   store i64 %99, ptr %101, align 8
   %102 = load i64, ptr %7, align 8
-  %103 = getelementptr inbounds nuw i64, ptr %.180.fr, i64 %100
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %.180.fr, i64 %100
   store i64 %102, ptr %103, align 8
   br label %104
 
@@ -800,13 +800,13 @@ define hidden i32 @unix_getChildren(ptr noundef %0, i64 noundef %1, ptr noundef 
 118:                                              ; preds = %116
   %119 = zext nneg i32 %111 to i64
   %120 = zext nneg i32 %.1.ph.us144.ph to i64
-  %121 = getelementptr inbounds nuw i64, ptr %49, i64 %120
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %120
   store i64 %119, ptr %121, align 8
   %122 = zext nneg i32 %114 to i64
-  %123 = getelementptr inbounds nuw i64, ptr %.182.fr, i64 %120
+  %123 = getelementptr inbounds nuw [8 x i8], ptr %.182.fr, i64 %120
   store i64 %122, ptr %123, align 8
   %124 = load i64, ptr %7, align 8
-  %125 = getelementptr inbounds nuw i64, ptr %.180.fr, i64 %120
+  %125 = getelementptr inbounds nuw [8 x i8], ptr %.180.fr, i64 %120
   store i64 %124, ptr %125, align 8
   br label %126
 
@@ -853,12 +853,12 @@ define hidden i32 @unix_getChildren(ptr noundef %0, i64 noundef %1, ptr noundef 
 142:                                              ; preds = %140
   %143 = zext nneg i32 %134 to i64
   %144 = zext nneg i32 %.1.ph.ph to i64
-  %145 = getelementptr inbounds nuw i64, ptr %49, i64 %144
+  %145 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %144
   store i64 %143, ptr %145, align 8
-  %146 = getelementptr inbounds nuw i64, ptr %.182.fr, i64 %144
+  %146 = getelementptr inbounds nuw [8 x i8], ptr %.182.fr, i64 %144
   store i64 %108, ptr %146, align 8
   %147 = load i64, ptr %7, align 8
-  %148 = getelementptr inbounds nuw i64, ptr %.180.fr, i64 %144
+  %148 = getelementptr inbounds nuw [8 x i8], ptr %.180.fr, i64 %144
   store i64 %147, ptr %148, align 8
   br label %149
 

@@ -48,13 +48,13 @@ define hidden void @_Z9luaT_initP9lua_State(ptr noundef %0) local_unnamed_addr #
 
 3:                                                ; preds = %1, %3
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %3 ]
-  %4 = getelementptr inbounds nuw ptr, ptr @luaT_typenames, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [8 x i8], ptr @luaT_typenames, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 8, !tbaa !4
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #3
   %7 = tail call noundef ptr @_Z12luaS_newlstrP9lua_StatePKcm(ptr noundef %0, ptr noundef nonnull %5, i64 noundef %6)
   %8 = load ptr, ptr %2, align 8, !tbaa !9
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 2944
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   store ptr %7, ptr %10, align 8, !tbaa !21
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 1
   %12 = load i8, ptr %11, align 1, !tbaa !22
@@ -66,13 +66,13 @@ define hidden void @_Z9luaT_initP9lua_State(ptr noundef %0) local_unnamed_addr #
 
 .preheader:                                       ; preds = %3, %.preheader
   %indvars.iv20 = phi i64 [ %indvars.iv.next21, %.preheader ], [ 0, %3 ]
-  %14 = getelementptr inbounds nuw ptr, ptr @luaT_eventname, i64 %indvars.iv20
+  %14 = getelementptr inbounds nuw [8 x i8], ptr @luaT_eventname, i64 %indvars.iv20
   %15 = load ptr, ptr %14, align 8, !tbaa !4
   %16 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #3
   %17 = tail call noundef ptr @_Z12luaS_newlstrP9lua_StatePKcm(ptr noundef nonnull %0, ptr noundef nonnull %15, i64 noundef %16)
   %18 = load ptr, ptr %2, align 8, !tbaa !9
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 3032
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv20
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv20
   store ptr %17, ptr %20, align 8, !tbaa !21
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 1
   %22 = load i8, ptr %21, align 1, !tbaa !22
@@ -139,7 +139,7 @@ define hidden noundef ptr @_Z15luaT_gettmbyobjP9lua_StatePK10lua_TValue3TMS(ptr 
   %14 = load ptr, ptr %13, align 8, !tbaa !9
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 2856
   %16 = sext i32 %5 to i64
-  %17 = getelementptr inbounds ptr, ptr %15, i64 %16
+  %17 = getelementptr inbounds [8 x i8], ptr %15, i64 %16
   br label %18
 
 18:                                               ; preds = %12, %9, %6
@@ -153,7 +153,7 @@ define hidden noundef ptr @_Z15luaT_gettmbyobjP9lua_StatePK10lua_TValue3TMS(ptr 
   %21 = load ptr, ptr %20, align 8, !tbaa !9
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 3032
   %23 = zext i32 %2 to i64
-  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !21
   %26 = tail call noundef ptr @_Z11luaH_getstrP8LuaTableP7TString(ptr noundef nonnull %.0, ptr noundef %25)
   br label %27
@@ -201,7 +201,7 @@ define hidden noundef ptr @_Z19luaT_objtypenamestrP9lua_StatePK10lua_TValue(ptr 
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 2944
   %24 = load i32, ptr %3, align 4, !tbaa !27
   %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds ptr, ptr %23, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %23, i64 %25
   br label %27
 
 27:                                               ; preds = %12, %21
@@ -220,7 +220,7 @@ define hidden noundef ptr @_Z19luaT_objtypenamestrP9lua_StatePK10lua_TValue(ptr 
   %34 = load ptr, ptr %33, align 8, !tbaa !9
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 5472
   %36 = zext nneg i32 %30 to i64
-  %37 = getelementptr inbounds nuw ptr, ptr %35, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %36
   %38 = load ptr, ptr %37, align 8, !tbaa !21
   %.not38 = icmp eq ptr %38, null
   br i1 %.not38, label %.thread, label %58
@@ -230,7 +230,7 @@ define hidden noundef ptr @_Z19luaT_objtypenamestrP9lua_StatePK10lua_TValue(ptr 
   %40 = load ptr, ptr %39, align 8, !tbaa !9
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 2856
   %42 = sext i32 %4 to i64
-  %43 = getelementptr inbounds ptr, ptr %41, i64 %42
+  %43 = getelementptr inbounds [8 x i8], ptr %41, i64 %42
   %44 = load ptr, ptr %43, align 8, !tbaa !33
   %.not39 = icmp eq ptr %44, null
   br i1 %.not39, label %53, label %45
@@ -258,7 +258,7 @@ define hidden noundef ptr @_Z19luaT_objtypenamestrP9lua_StatePK10lua_TValue(ptr 
   %.pre-phi = phi i64 [ %.pre52, %._crit_edge ], [ %42, %.thread ]
   %54 = phi ptr [ %.pre, %._crit_edge ], [ %40, %.thread ]
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 2944
-  %56 = getelementptr inbounds ptr, ptr %55, i64 %.pre-phi
+  %56 = getelementptr inbounds [8 x i8], ptr %55, i64 %.pre-phi
   %57 = load ptr, ptr %56, align 8, !tbaa !21
   br label %58
 
@@ -305,7 +305,7 @@ define hidden noundef nonnull ptr @_Z16luaT_objtypenameP9lua_StatePK10lua_TValue
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 2944
   %24 = load i32, ptr %3, align 4, !tbaa !27
   %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds ptr, ptr %23, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %23, i64 %25
   br label %27
 
 27:                                               ; preds = %21, %12
@@ -324,7 +324,7 @@ define hidden noundef nonnull ptr @_Z16luaT_objtypenameP9lua_StatePK10lua_TValue
   %34 = load ptr, ptr %33, align 8, !tbaa !9
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 5472
   %36 = zext nneg i32 %30 to i64
-  %37 = getelementptr inbounds nuw ptr, ptr %35, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %36
   %38 = load ptr, ptr %37, align 8, !tbaa !21
   %.not38.i = icmp eq ptr %38, null
   br i1 %.not38.i, label %.thread.i, label %_Z19luaT_objtypenamestrP9lua_StatePK10lua_TValue.exit
@@ -334,7 +334,7 @@ define hidden noundef nonnull ptr @_Z16luaT_objtypenameP9lua_StatePK10lua_TValue
   %40 = load ptr, ptr %39, align 8, !tbaa !9
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 2856
   %42 = sext i32 %4 to i64
-  %43 = getelementptr inbounds ptr, ptr %41, i64 %42
+  %43 = getelementptr inbounds [8 x i8], ptr %41, i64 %42
   %44 = load ptr, ptr %43, align 8, !tbaa !33
   %.not39.i = icmp eq ptr %44, null
   br i1 %.not39.i, label %53, label %45
@@ -362,7 +362,7 @@ define hidden noundef nonnull ptr @_Z16luaT_objtypenameP9lua_StatePK10lua_TValue
   %.pre-phi.i = phi i64 [ %.pre52.i, %._crit_edge.i ], [ %42, %.thread.i ]
   %54 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %40, %.thread.i ]
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 2944
-  %56 = getelementptr inbounds ptr, ptr %55, i64 %.pre-phi.i
+  %56 = getelementptr inbounds [8 x i8], ptr %55, i64 %.pre-phi.i
   %57 = load ptr, ptr %56, align 8, !tbaa !21
   br label %_Z19luaT_objtypenamestrP9lua_StatePK10lua_TValue.exit
 

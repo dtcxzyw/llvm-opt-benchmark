@@ -62,17 +62,11 @@ target triple = "x86_64-pc-linux-gnu"
 %class.VDouble0 = type { double }
 %"class.std::allocator" = type { i8 }
 %class.VNUser1InUse = type { i8 }
-%class.SubstVarWord = type <{ ptr, i32, i8, i8, [2 x i8] }>
 %class.SubstUseVisitor = type <{ %class.VNVisitorConst, i32, i8, [3 x i8] }>
 %"class.std::__cxx11::basic_ostringstream" = type { %"class.std::basic_ostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_ostream.base" = type { ptr }
 %"class.std::__cxx11::basic_stringbuf" = type { %"class.std::basic_streambuf", i32, %"class.std::__cxx11::basic_string" }
 %"class.std::basic_streambuf" = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, %"class.std::locale" }
-%class.SubstVarEntry = type { ptr, i8, i8, [6 x i8], %class.SubstVarWord, %"class.std::vector.55" }
-%"class.std::vector.55" = type { %"struct.std::_Vector_base.56" }
-%"struct.std::_Vector_base.56" = type { %"struct.std::_Vector_base<SubstVarWord, std::allocator<SubstVarWord>>::_Vector_impl" }
-%"struct.std::_Vector_base<SubstVarWord, std::allocator<SubstVarWord>>::_Vector_impl" = type { %"struct.std::_Vector_base<SubstVarWord, std::allocator<SubstVarWord>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<SubstVarWord, std::allocator<SubstVarWord>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %class.V3Statistic = type <{ ptr, %"class.std::__cxx11::basic_string", double, i32, [4 x i8], %"class.std::__cxx11::basic_string", i8, i8, i8, [5 x i8] }>
 
 $_ZN12SubstVisitorD2Ev = comdat any
@@ -1712,7 +1706,7 @@ _ZN12VNUser1InUseD2Ev.exit:                       ; preds = %_ZNSt5dequeI13Subst
   br i1 %83, label %98, label %84
 
 84:                                               ; preds = %.lr.ph.split.i
-  %85 = getelementptr inbounds nuw %class.SubstVarWord, ptr %79, i64 %81
+  %85 = getelementptr inbounds nuw [16 x i8], ptr %79, i64 %81
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 12
   %87 = load i8, ptr %86, align 4, !tbaa !131, !range !57, !noundef !58
   %88 = trunc nuw i8 %87 to i1
@@ -1735,7 +1729,7 @@ _ZN12VNUser1InUseD2Ev.exit:                       ; preds = %_ZNSt5dequeI13Subst
 
 .noexc13:                                         ; preds = %95
   %96 = load ptr, ptr %74, align 8, !tbaa !130
-  %97 = getelementptr inbounds nuw %class.SubstVarWord, ptr %96, i64 %81
+  %97 = getelementptr inbounds nuw [16 x i8], ptr %96, i64 %81
   store ptr null, ptr %97, align 8, !tbaa !132
   %.pre.i = load ptr, ptr %75, align 8, !tbaa !129
   br label %98
@@ -3964,7 +3958,7 @@ _ZN12SubstVisitor9getEntrypEP9AstVarRef.exit._ZN13SubstVarEntry9substWordEP7AstN
 102:                                              ; preds = %_ZN12SubstVisitor9getEntrypEP9AstVarRef.exit
   %103 = sext i32 %38 to i64
   %104 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !130
-  %105 = getelementptr inbounds nuw %class.SubstVarWord, ptr %104, i64 %103
+  %105 = getelementptr inbounds nuw [16 x i8], ptr %104, i64 %103
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 13
   %107 = load i8, ptr %106, align 1, !tbaa !133, !range !57, !noundef !58
   %108 = trunc nuw i8 %107 to i1
@@ -4042,7 +4036,7 @@ _ZNK13SubstVarEntry11getWordStepEi.exit:          ; preds = %_ZNK13SubstVarEntry
 
 141:                                              ; preds = %_ZNK13SubstVarEntry11getWordStepEi.exit
   %142 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !130
-  %143 = getelementptr inbounds nuw %class.SubstVarWord, ptr %142, i64 %103
+  %143 = getelementptr inbounds nuw [16 x i8], ptr %142, i64 %103
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 12
   store i8 1, ptr %144, align 4, !tbaa !131
   %145 = getelementptr inbounds nuw i8, ptr %96, i64 9
@@ -4056,7 +4050,7 @@ _ZNK13SubstVarEntry11getWordStepEi.exit:          ; preds = %_ZNK13SubstVarEntry
 _ZN13SubstVarEntry9substWordEP7AstNodei.exit.thread: ; preds = %_ZN12SubstVisitor9getEntrypEP9AstVarRef.exit._ZN13SubstVarEntry9substWordEP7AstNodei.exit.thread_crit_edge, %102, %_ZN13SubstVarEntry9substWordEP7AstNodei.exit
   %.pre-phi = phi i64 [ %.pre49, %_ZN12SubstVisitor9getEntrypEP9AstVarRef.exit._ZN13SubstVarEntry9substWordEP7AstNodei.exit.thread_crit_edge ], [ %103, %102 ], [ %103, %_ZN13SubstVarEntry9substWordEP7AstNodei.exit ]
   %147 = phi ptr [ %.pre, %_ZN12SubstVisitor9getEntrypEP9AstVarRef.exit._ZN13SubstVarEntry9substWordEP7AstNodei.exit.thread_crit_edge ], [ %104, %102 ], [ %104, %_ZN13SubstVarEntry9substWordEP7AstNodei.exit ]
-  %148 = getelementptr inbounds nuw %class.SubstVarWord, ptr %147, i64 %.pre-phi
+  %148 = getelementptr inbounds nuw [16 x i8], ptr %147, i64 %.pre-phi
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 12
   store i8 1, ptr %149, align 4, !tbaa !131
   %150 = getelementptr inbounds nuw i8, ptr %96, i64 9
@@ -4718,7 +4712,7 @@ _ZNSt11_Deque_baseI13SubstVarEntrySaIS0_EE15_M_allocate_mapEm.exit: ; preds = %2
   store ptr %10, ptr %0, align 8, !tbaa !82
   %11 = sub nsw i64 %.sroa.speculated, %8
   %12 = lshr i64 %11, 1
-  %13 = getelementptr inbounds nuw ptr, ptr %10, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %12
   %.idx = shl nuw nsw i64 %8, 3
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx
   br label %.lr.ph.i
@@ -4811,7 +4805,7 @@ _ZNSt11_Deque_baseI13SubstVarEntrySaIS0_EE15_M_create_nodesEPPS0_S4_.exit: ; pre
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %51, ptr %52, align 8, !tbaa !77
   store ptr %42, ptr %40, align 8, !tbaa !213
-  %53 = getelementptr inbounds nuw %class.SubstVarEntry, ptr %49, i64 %4
+  %53 = getelementptr inbounds nuw [56 x i8], ptr %49, i64 %4
   store ptr %53, ptr %46, align 8, !tbaa !214
   ret void
 
@@ -5365,7 +5359,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstNode9privateAsI8AstConstP11Ast
   %7 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull @.str.28)
   %.sroa.0.0.copyload.i.i5 = load i16, ptr %3, align 8, !tbaa !147
   %8 = zext i16 %.sroa.0.0.copyload.i.i5 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr @_ZZNK6VNType5asciiEvE5names, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNK6VNType5asciiEvE5names, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !219
   %11 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %10)
   %12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull @.str.29)
@@ -5400,7 +5394,7 @@ _ZNK13SubstVarEntry14getWordAssignpEi.exit:       ; preds = %_ZNK13SubstVarEntry
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = sext i32 %1 to i64
   %14 = load ptr, ptr %12, align 8, !tbaa !130
-  %15 = getelementptr inbounds nuw %class.SubstVarWord, ptr %14, i64 %13
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %13
   %16 = load ptr, ptr %15, align 8, !tbaa !132
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %_ZNK13SubstVarEntry14getWordAssignpEi.exit.thread, label %18
@@ -5422,7 +5416,7 @@ _ZNK13SubstVarEntry14getWordAssignpEi.exit.thread: ; preds = %_ZNK13SubstVarEntr
 20:                                               ; preds = %18, %_ZNK13SubstVarEntry14getWordAssignpEi.exit.thread
   %.pre-phi14 = phi i64 [ %.pre13, %18 ], [ %13, %_ZNK13SubstVarEntry14getWordAssignpEi.exit.thread ]
   %21 = phi ptr [ %.pre11, %18 ], [ %14, %_ZNK13SubstVarEntry14getWordAssignpEi.exit.thread ]
-  %22 = getelementptr inbounds nuw %class.SubstVarWord, ptr %21, i64 %.pre-phi14
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %.pre-phi14
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 13
   store i8 1, ptr %23, align 1, !tbaa !133
   ret void
@@ -5452,7 +5446,7 @@ _ZNK13SubstVarEntry14getWordAssignpEi.exit:       ; preds = %_ZNK13SubstVarEntry
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = sext i32 %2 to i64
   %16 = load ptr, ptr %14, align 8, !tbaa !130
-  %17 = getelementptr inbounds nuw %class.SubstVarWord, ptr %16, i64 %15
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %15
   %18 = load ptr, ptr %17, align 8, !tbaa !132
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %_ZNK13SubstVarEntry14getWordAssignpEi.exit.thread, label %20
@@ -5489,7 +5483,7 @@ _ZNK13SubstVarEntry9wordNumOkEi.exit9:            ; preds = %22, %24
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %33 = sext i32 %2 to i64
   %34 = load ptr, ptr %32, align 8, !tbaa !130
-  %35 = getelementptr inbounds nuw %class.SubstVarWord, ptr %34, i64 %33
+  %35 = getelementptr inbounds nuw [16 x i8], ptr %34, i64 %33
   store ptr %3, ptr %35, align 8, !tbaa !132
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store i32 %1, ptr %36, align 8, !tbaa !189
@@ -5626,7 +5620,7 @@ _ZNK7AstNode10widthWordsEv.exit13.i.i.i:          ; preds = %_ZNSt6vectorI12Subs
 
 33:                                               ; preds = %_ZNK7AstNode10widthWordsEv.exit13.i.i.i
   %34 = load ptr, ptr %12, align 8, !tbaa !130
-  %35 = getelementptr inbounds nuw %class.SubstVarWord, ptr %34, i64 %indvars.iv.i.i.i
+  %35 = getelementptr inbounds nuw [16 x i8], ptr %34, i64 %indvars.iv.i.i.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, i8 0, i64 14, i1 false)
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %36 = load ptr, ptr %13, align 8, !tbaa !178
@@ -5823,7 +5817,7 @@ _ZNK7AstNode10widthWordsEv.exit13.i.i.i:          ; preds = %_ZNSt6vectorI12Subs
 
 72:                                               ; preds = %_ZNK7AstNode10widthWordsEv.exit13.i.i.i
   %73 = load ptr, ptr %51, align 8, !tbaa !130
-  %74 = getelementptr inbounds nuw %class.SubstVarWord, ptr %73, i64 %indvars.iv.i.i.i
+  %74 = getelementptr inbounds nuw [16 x i8], ptr %73, i64 %indvars.iv.i.i.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %74, i8 0, i64 14, i1 false)
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %75 = load ptr, ptr %52, align 8, !tbaa !178
@@ -5983,9 +5977,9 @@ _ZNSt6vectorI12SubstVarWordSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit: ; preds = 
 
 _ZNSt12_Vector_baseI12SubstVarWordSaIS0_EE13_M_deallocateEPS0_m.exit38: ; preds = %_ZNSt6vectorI12SubstVarWordSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, %42
   store ptr %32, ptr %0, align 8, !tbaa !130
-  %44 = getelementptr inbounds nuw %class.SubstVarWord, ptr %33, i64 %1
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %33, i64 %1
   store ptr %44, ptr %4, align 8, !tbaa !129
-  %45 = getelementptr inbounds nuw %class.SubstVarWord, ptr %32, i64 %30
+  %45 = getelementptr inbounds nuw [16 x i8], ptr %32, i64 %30
   store ptr %45, ptr %11, align 8, !tbaa !215
   br label %46
 
@@ -6052,9 +6046,9 @@ define linkonce_odr dso_local void @_ZNSt5dequeI13SubstVarEntrySaIS0_EE17_M_real
   %19 = load ptr, ptr %0, align 8, !tbaa !82
   %20 = sub i64 %15, %13
   %21 = lshr i64 %20, 1
-  %22 = getelementptr inbounds nuw ptr, ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %21
   %23 = select i1 %2, i64 %1, i64 0
-  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %23
   %25 = icmp ult ptr %24, %7
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %26, %7
@@ -6073,12 +6067,12 @@ define linkonce_odr dso_local void @_ZNSt5dequeI13SubstVarEntrySaIS0_EE17_M_real
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIPP13SubstVarEntryS2_ET0_T_S4_S3_.exit, label %32
 
 32:                                               ; preds = %31
-  %33 = getelementptr inbounds nuw ptr, ptr %24, i64 %12
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %12
   %34 = ptrtoint ptr %26 to i64
   %35 = sub i64 %34, %9
   %36 = ashr exact i64 %35, 3
   %37 = sub nsw i64 0, %36
-  %38 = getelementptr inbounds ptr, ptr %33, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %33, i64 %37
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %38, ptr align 8 %7, i64 %35, i1 false)
   br label %_ZSt4copyIPP13SubstVarEntryS2_ET0_T_S4_S3_.exit
 
@@ -6106,9 +6100,9 @@ _ZNSt11_Deque_baseI13SubstVarEntrySaIS0_EE15_M_allocate_mapEm.exit: ; preds = %3
   %46 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %45) #27
   %47 = sub i64 %41, %13
   %48 = lshr i64 %47, 1
-  %49 = getelementptr inbounds nuw ptr, ptr %46, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %48
   %50 = select i1 %2, i64 %1, i64 0
-  %51 = getelementptr inbounds nuw ptr, ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i25 = icmp eq ptr %52, %7
   br i1 %.not.i.i.i.i.i25, label %_ZSt4copyIPP13SubstVarEntryS2_ET0_T_S4_S3_.exit26, label %53
@@ -6136,7 +6130,7 @@ _ZSt4copyIPP13SubstVarEntryS2_ET0_T_S4_S3_.exit:  ; preds = %32, %31, %28, %27, 
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 504
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %60, ptr %61, align 8, !tbaa !77
-  %62 = getelementptr inbounds nuw ptr, ptr %.0, i64 %12
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %.0, i64 %12
   %63 = getelementptr inbounds i8, ptr %62, i64 -8
   store ptr %63, ptr %4, align 8, !tbaa !78
   %64 = load ptr, ptr %63, align 8, !tbaa !86
@@ -6153,7 +6147,7 @@ define linkonce_odr dso_local noundef ptr @_ZNK7AstNode8typeNameEv(ptr noundef n
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.sroa.0.0.copyload.i = load i16, ptr %2, align 8, !tbaa !147
   %3 = zext i16 %.sroa.0.0.copyload.i to i64
-  %4 = getelementptr inbounds nuw ptr, ptr @_ZZNK6VNType5asciiEvE5names, i64 %3
+  %4 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNK6VNType5asciiEvE5names, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !219
   ret ptr %5
 }
@@ -6167,7 +6161,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstNode15unsafePrivateAsI8AstCons
 define linkonce_odr dso_local noundef ptr @_ZNK6VNType5asciiEv(ptr noundef nonnull align 2 dereferenceable(2) %0) #5 comdat align 2 {
   %2 = load i16, ptr %0, align 2, !tbaa !221
   %3 = zext i16 %2 to i64
-  %4 = getelementptr inbounds nuw ptr, ptr @_ZZNK6VNType5asciiEvE5names, i64 %3
+  %4 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNK6VNType5asciiEvE5names, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !219
   ret ptr %5
 }

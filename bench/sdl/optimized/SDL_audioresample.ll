@@ -42,7 +42,7 @@ BesselI0.exit.i.i:                                ; preds = %.preheader
   %14 = fmul nnan float %13, 0x3FC0C15240000000
   %15 = tail call float @SDL_sinf_REAL(float noundef %14) #8
   %16 = fdiv float %15, 0x400921FB60000000
-  %17 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv.i.i.i
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv.i.i.i
   store float %16, ptr %17, align 4
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 24
@@ -85,7 +85,7 @@ BesselI0.exit32.i.i:                              ; preds = %28
   %.lhs.trunc.i.i = trunc i64 %indvars.iv.i.i to i8
   %38 = urem i8 %.lhs.trunc.i.i, 24
   %39 = zext nneg i8 %38 to i64
-  %40 = getelementptr inbounds nuw float, ptr %1, i64 %39
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %39
   %41 = load float, ptr %40, align 4
   %42 = udiv i8 %.lhs.trunc.i.i, 24
   %43 = and i8 %42, 1
@@ -96,7 +96,7 @@ BesselI0.exit32.i.i:                              ; preds = %28
   %47 = uitofp nneg i32 %37 to float
   %48 = fdiv float %46, %47
   %49 = fmul float %36, %48
-  %50 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv.i.i
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv.i.i
   store float %49, ptr %50, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 121
@@ -104,9 +104,9 @@ BesselI0.exit32.i.i:                              ; preds = %28
 
 .preheader.i.i:                                   ; preds = %BesselI0.exit32.i.i, %99
   %indvars.iv46.i.i = phi i64 [ %indvars.iv.next47.i.i, %99 ], [ 0, %BesselI0.exit32.i.i ]
-  %51 = getelementptr inbounds nuw [10 x %union.Cubic], ptr @ResamplerFilter, i64 %indvars.iv46.i.i
+  %51 = getelementptr inbounds nuw [160 x i8], ptr @ResamplerFilter, i64 %indvars.iv46.i.i
   %52 = sub nuw nsw i64 7, %indvars.iv46.i.i
-  %53 = getelementptr inbounds nuw [10 x %union.Cubic], ptr @ResamplerFilter, i64 %52
+  %53 = getelementptr inbounds nuw [160 x i8], ptr @ResamplerFilter, i64 %52
   br label %54
 
 54:                                               ; preds = %54, %.preheader.i.i
@@ -116,8 +116,8 @@ BesselI0.exit32.i.i:                              ; preds = %28
   %.idx.i.i = mul nuw nsw i64 %56, 12
   %57 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx.i.i
   %58 = sub nuw nsw i64 4, %indvars.iv42.i.i
-  %59 = getelementptr inbounds nuw %union.Cubic, ptr %51, i64 %58
-  %60 = getelementptr inbounds nuw %union.Cubic, ptr %53, i64 %indvars.iv42.i.i
+  %59 = getelementptr inbounds nuw [16 x i8], ptr %51, i64 %58
+  %60 = getelementptr inbounds nuw [16 x i8], ptr %53, i64 %indvars.iv42.i.i
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 80
   %62 = load float, ptr %57, align 4
   %63 = getelementptr inbounds nuw i8, ptr %57, i64 4
@@ -180,7 +180,7 @@ GenerateResamplerFilter.exit.i:                   ; preds = %99
 
 100:                                              ; preds = %100, %GenerateResamplerFilter.exit.i
   %indvars.iv.i = phi i64 [ 0, %GenerateResamplerFilter.exit.i ], [ %indvars.iv.next.i, %100 ]
-  %101 = getelementptr inbounds nuw ptr, ptr @ResampleFrame, i64 %indvars.iv.i
+  %101 = getelementptr inbounds nuw [8 x i8], ptr @ResampleFrame, i64 %indvars.iv.i
   store ptr @ResampleFrame_Generic, ptr %101, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
@@ -291,13 +291,13 @@ ResamplerMul.exit.thread15:                       ; preds = %3, %5, %ResamplerMu
 define hidden void @SDL_ResampleAudio(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i64 noundef %5, ptr noundef captures(none) %6) local_unnamed_addr #0 {
   %8 = load i64, ptr %6, align 8
   %9 = sext i32 %0 to i64
-  %10 = getelementptr ptr, ptr @ResampleFrame, i64 %9
+  %10 = getelementptr [8 x i8], ptr @ResampleFrame, i64 %9
   %11 = getelementptr i8, ptr %10, i64 -8
   %12 = load ptr, ptr %11, align 8
   %13 = shl nsw i32 %0, 2
   %14 = sext i32 %13 to i64
   %15 = sub nsw i64 0, %14
-  %16 = getelementptr inbounds float, ptr %1, i64 %15
+  %16 = getelementptr inbounds [4 x i8], ptr %1, i64 %15
   %17 = icmp sgt i32 %4, 0
   br i1 %17, label %.lr.ph, label %._crit_edge
 
@@ -311,15 +311,15 @@ define hidden void @SDL_ResampleAudio(i32 noundef %0, ptr noundef %1, i32 nounde
   %21 = add nsw i64 %.02728, %5
   %22 = lshr i64 %.02728, 29
   %23 = and i64 %22, 7
-  %24 = getelementptr inbounds nuw [10 x %union.Cubic], ptr @ResamplerFilter, i64 %23
+  %24 = getelementptr inbounds nuw [160 x i8], ptr @ResamplerFilter, i64 %23
   %25 = and i32 %20, 536870911
   %26 = uitofp nneg i32 %25 to float
   %27 = fmul nnan float %26, 0x3E20000000000000
   %28 = mul nsw i32 %0, %19
   %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds float, ptr %16, i64 %29
+  %30 = getelementptr inbounds [4 x i8], ptr %16, i64 %29
   tail call void %12(ptr noundef %30, ptr noundef %.030, ptr noundef nonnull %24, float noundef %27, i32 noundef %0) #8
-  %31 = getelementptr inbounds float, ptr %.030, i64 %9
+  %31 = getelementptr inbounds [4 x i8], ptr %.030, i64 %9
   %32 = add nuw nsw i32 %.02629, 1
   %exitcond.not = icmp eq i32 %32, %4
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
@@ -362,7 +362,7 @@ define internal void @ResampleFrame_Generic(ptr noundef readonly captures(none) 
   %19 = getelementptr inbounds nuw i8, ptr %.03033, i64 12
   %20 = load float, ptr %19, align 4
   %21 = tail call float @llvm.fmuladd.f32(float %20, float %8, float %18)
-  %22 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   store float %21, ptr %22, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %23 = getelementptr inbounds nuw i8, ptr %.03033, i64 16
@@ -371,16 +371,16 @@ define internal void @ResampleFrame_Generic(ptr noundef readonly captures(none) 
 
 .preheader:                                       ; preds = %.preheader.preheader, %30
   %indvars.iv43 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next44, %30 ]
-  %invariant.gep = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv43
+  %invariant.gep = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv43
   br label %24
 
 24:                                               ; preds = %.preheader, %24
   %indvars.iv39 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next40, %24 ]
   %.036 = phi float [ 0.000000e+00, %.preheader ], [ %29, %24 ]
   %25 = mul nuw nsw i64 %indvars.iv39, %10
-  %gep = getelementptr inbounds nuw float, ptr %invariant.gep, i64 %25
+  %gep = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep, i64 %25
   %26 = load float, ptr %gep, align 4
-  %27 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv39
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv39
   %28 = load float, ptr %27, align 4
   %29 = tail call float @llvm.fmuladd.f32(float %26, float %28, float %.036)
   %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
@@ -388,7 +388,7 @@ define internal void @ResampleFrame_Generic(ptr noundef readonly captures(none) 
   br i1 %exitcond42.not, label %30, label %24, !llvm.loop !12
 
 30:                                               ; preds = %24
-  %31 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv43
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv43
   store float %29, ptr %31, align 4
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
   %exitcond46.not = icmp eq i64 %indvars.iv.next44, %10
@@ -419,7 +419,7 @@ define internal void @ResampleFrame_Mono(ptr noundef readonly captures(none) %0,
   %16 = getelementptr inbounds nuw i8, ptr %.023, i64 12
   %17 = load float, ptr %16, align 4
   %18 = tail call float @llvm.fmuladd.f32(float %17, float %7, float %15)
-  %19 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %20 = load float, ptr %19, align 4
   %21 = tail call float @llvm.fmuladd.f32(float %20, float %18, float %.01922)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

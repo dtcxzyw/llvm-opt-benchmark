@@ -11,7 +11,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.except_id_t = type { i64, i64 }
 %struct._e_prefs = type { ptr, i32, %struct.color_t, %struct.color_t, %struct.color_t, %struct.color_t, %struct.color_t, %struct.color_t, %struct.color_t, i8, i32, ptr, i32, %struct.color_t, %struct.color_t, i32, %struct.color_t, %struct.color_t, i32, %struct.color_t, %struct.color_t, %struct.color_t, %struct.color_t, ptr, ptr, i8, i8, i8, i32, i32, i32, ptr, i32, ptr, i8, i8, i8, ptr, ptr, ptr, i32, i32, i32, i32, i8, i32, i32, i32, i32, i32, ptr, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8, i8, i8, i8, i32, i8, i8, i8, ptr, i32, i8, i8, i32, i8, i8, i8, i32, i8, i32, i8, i8, i8, i32, i32, i32, ptr, i8, i8, i8, i8, i8, i8, i32, i32, i8, i8, i8, i8, i32, i32, i32, i32, i8, i8, i32, i8, i8, i32, i32, i8, i8, i8, i32, i8, i8, i8 }
 %struct.color_t = type { i16, i16, i16 }
-%struct._value_string = type { i32, ptr }
 %struct.nstime_t = type { i64, i32 }
 %struct.fr_foreach_s = type { ptr, ptr, ptr, ptr, i32 }
 %struct.nflx_tcpinfo = type { i64, i64, i32, i32, i8, i8, i16, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i8, [3 x i8], i64, i64, i64, i64, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i16, i16, i16, i8, i8, i8, i8, i8, i8, i32, i32 }
@@ -868,7 +867,7 @@ define hidden void @proto_register_frame() local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %13 = getelementptr %struct._value_string, ptr %11, i64 %indvars.iv
+  %13 = getelementptr [16 x i8], ptr %11, i64 %indvars.iv
   %14 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %14, ptr %13, align 8
   %15 = tail call ptr @wtap_encap_description(i32 noundef %14)
@@ -880,7 +879,7 @@ define hidden void @proto_register_frame() local_unnamed_addr #0 {
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %17 = sext i32 %4 to i64
-  %18 = getelementptr %struct._value_string, ptr %11, i64 %17
+  %18 = getelementptr [16 x i8], ptr %11, i64 %17
   store i32 0, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr null, ptr %19, align 8
@@ -1038,7 +1037,7 @@ switch.lookup:                                    ; preds = %31
   %37 = and i32 %36, 3
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 348
   %39 = zext nneg i32 %37 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.dissect_frame, i64 %39
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_frame, i64 %39
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr %38, align 4
   br label %40
@@ -3485,7 +3484,7 @@ define internal noundef zeroext i1 @frame_add_hash(ptr readnone captures(none) %
 
 switch.lookup:                                    ; preds = %7
   %14 = zext nneg i8 %12 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.frame_add_hash, i64 %14
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.frame_add_hash, i64 %14
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %get_hash_type_string.exit
 
@@ -3542,7 +3541,7 @@ define internal noundef zeroext i1 @frame_add_verdict(ptr readnone captures(none
 switch.lookup:                                    ; preds = %7
   %.mask = and i32 %12, 3
   %15 = zext nneg i32 %.mask to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.frame_add_verdict, i64 %15
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.frame_add_verdict, i64 %15
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %get_verdict_type_string.exit
 

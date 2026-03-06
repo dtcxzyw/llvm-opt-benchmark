@@ -906,7 +906,7 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit31:            ; preds = %66, %68
   %79 = add nsw i32 %78, 1
   store i32 %79, ptr %15, align 8
   %80 = sext i32 %78 to i64
-  %81 = getelementptr inbounds i64, ptr %76, i64 %80
+  %81 = getelementptr inbounds [8 x i8], ptr %76, i64 %80
   store i64 %77, ptr %81, align 8
   br label %82
 

@@ -3,8 +3,6 @@ source_filename = "bench/ffmpeg/original/evc_ps.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.RefPicListStruct = type { i32, [21 x i32] }
-
 @ff_golomb_vlc_len = external local_unnamed_addr constant [512 x i8], align 16
 @ff_ue_golomb_vlc_code = external local_unnamed_addr constant [512 x i8], align 16
 @ff_log2_tab = external local_unnamed_addr constant [256 x i8], align 16
@@ -1812,7 +1810,7 @@ get_ue_golomb.exit462:                            ; preds = %1231, %1241
 
 1264:                                             ; preds = %.lr.ph, %1260
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %1260 ]
-  %1265 = getelementptr inbounds nuw %struct.RefPicListStruct, ptr %1259, i64 %indvars.iv
+  %1265 = getelementptr inbounds nuw [88 x i8], ptr %1259, i64 %indvars.iv
   %1266 = tail call fastcc i32 @ref_pic_list_struct(ptr noundef %43, ptr noundef nonnull %0, ptr noundef %1265)
   %1267 = icmp slt i32 %1266, 0
   br i1 %1267, label %.loopexit, label %1260
@@ -1852,7 +1850,7 @@ get_ue_golomb.exit462:                            ; preds = %1231, %1241
 
 1279:                                             ; preds = %.lr.ph523, %1275
   %indvars.iv551 = phi i64 [ 0, %.lr.ph523 ], [ %indvars.iv.next552, %1275 ]
-  %1280 = getelementptr inbounds nuw %struct.RefPicListStruct, ptr %1274, i64 %indvars.iv551
+  %1280 = getelementptr inbounds nuw [88 x i8], ptr %1274, i64 %indvars.iv551
   %1281 = tail call fastcc i32 @ref_pic_list_struct(ptr noundef %43, ptr noundef nonnull %0, ptr noundef %1280)
   %1282 = icmp slt i32 %1281, 0
   br i1 %1282, label %.loopexit, label %1275
@@ -2030,7 +2028,7 @@ get_ue_golomb.exit478:                            ; preds = %1362, %1372
 
 .preheader:                                       ; preds = %get_ue_golomb.exit478
   %1391 = getelementptr inbounds nuw [58 x i8], ptr %1350, i64 %indvars.iv557
-  %1392 = getelementptr inbounds nuw [58 x i32], ptr %1351, i64 %indvars.iv557
+  %1392 = getelementptr inbounds nuw [232 x i8], ptr %1351, i64 %indvars.iv557
   %1393 = and i32 %.0.i476, 255
   %1394 = zext nneg i32 %1393 to i64
   br label %1396
@@ -2149,7 +2147,7 @@ get_se_golomb_long.exit:                          ; preds = %1396, %1451, %1455
   %1477 = lshr i32 %1474, 1
   %1478 = xor i32 %1476, %1477
   %1479 = add i32 %1478, 1
-  %1480 = getelementptr inbounds nuw i32, ptr %1392, i64 %indvars.iv554
+  %1480 = getelementptr inbounds nuw [4 x i8], ptr %1392, i64 %indvars.iv554
   store i32 %1479, ptr %1480, align 4, !tbaa !58
   %indvars.iv.next555 = add nuw nsw i64 %indvars.iv554, 1
   %.not221.not = icmp samesign ult i64 %indvars.iv554, %1394
@@ -2184,7 +2182,7 @@ get_se_golomb_long.exit:                          ; preds = %1396, %1451, %1455
 
 1499:                                             ; preds = %1495, %.thread497
   %1500 = zext nneg i32 %.0.i to i64
-  %1501 = getelementptr inbounds nuw ptr, ptr %1, i64 %1500
+  %1501 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %1500
   tail call void @av_freep(ptr noundef %1501) #5
   store ptr %43, ptr %1501, align 8, !tbaa !79
   br label %get_ue_golomb.exit.thread
@@ -2722,7 +2720,7 @@ get_ue_golomb_long.exit62.thread:                 ; preds = %159, %get_ue_golomb
 236:                                              ; preds = %get_ue_golomb_long.exit62.thread, %get_ue_golomb_long.exit62
   %237 = phi i32 [ %225, %get_ue_golomb_long.exit62.thread ], [ 0, %get_ue_golomb_long.exit62 ]
   %.2 = phi i32 [ %233, %get_ue_golomb_long.exit62.thread ], [ %.169, %get_ue_golomb_long.exit62 ]
-  %238 = getelementptr i32, ptr %158, i64 %indvars.iv
+  %238 = getelementptr [4 x i8], ptr %158, i64 %indvars.iv
   %239 = getelementptr i8, ptr %238, i64 -4
   %240 = load i32, ptr %239, align 4, !tbaa !58
   %241 = shl nuw nsw i32 %.2, 1
@@ -4098,7 +4096,7 @@ get_ue_golomb.exit171:                            ; preds = %265, %275
 get_ue_golomb.exit184:                            ; preds = %323, %333
   %348 = phi i32 [ %..i183, %323 ], [ %.38.i180, %333 ]
   %.0.i182 = phi i32 [ %332, %323 ], [ %.1.i181, %333 ]
-  %349 = getelementptr inbounds nuw i32, ptr %309, i64 %indvars.iv
+  %349 = getelementptr inbounds nuw [4 x i8], ptr %309, i64 %indvars.iv
   store i32 %.0.i182, ptr %349, align 4, !tbaa !58
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %350 = icmp samesign ult i64 %indvars.iv.next, %310
@@ -4161,7 +4159,7 @@ get_ue_golomb.exit184:                            ; preds = %323, %333
 get_ue_golomb.exit196:                            ; preds = %361, %371
   %386 = phi i32 [ %..i195, %361 ], [ %.38.i192, %371 ]
   %.0.i194 = phi i32 [ %370, %361 ], [ %.1.i193, %371 ]
-  %387 = getelementptr inbounds nuw i32, ptr %311, i64 %indvars.iv268
+  %387 = getelementptr inbounds nuw [4 x i8], ptr %311, i64 %indvars.iv268
   store i32 %.0.i194, ptr %387, align 4, !tbaa !58
   %indvars.iv.next269 = add nuw nsw i64 %indvars.iv268, 1
   %388 = icmp samesign ult i64 %indvars.iv.next269, %312
@@ -4339,7 +4337,7 @@ get_ue_golomb.exit221:                            ; preds = %447, %457
 .preheader:                                       ; preds = %.preheader251, %498
   %indvars.iv274 = phi i64 [ 0, %.preheader251 ], [ %indvars.iv.next275, %498 ]
   %.promoted259262263 = phi i32 [ %spec.select.i222, %.preheader251 ], [ %512, %498 ]
-  %497 = getelementptr inbounds nuw [20 x i32], ptr %495, i64 %indvars.iv274
+  %497 = getelementptr inbounds nuw [80 x i8], ptr %495, i64 %indvars.iv274
   br label %501
 
 498:                                              ; preds = %501
@@ -4363,7 +4361,7 @@ get_ue_golomb.exit221:                            ; preds = %447, %457
   %511 = add i32 %493, %502
   %512 = tail call i32 @llvm.umin.i32(i32 %47, i32 %511)
   store i32 %512, ptr %3, align 8, !tbaa !4
-  %513 = getelementptr inbounds nuw i32, ptr %497, i64 %indvars.iv271
+  %513 = getelementptr inbounds nuw [4 x i8], ptr %497, i64 %indvars.iv271
   store i32 %510, ptr %513, align 4, !tbaa !58
   %indvars.iv.next272 = add nuw nsw i64 %indvars.iv271, 1
   %.not98.not = icmp samesign ult i64 %indvars.iv271, %496
@@ -4520,7 +4518,7 @@ get_ue_golomb.exit238:                            ; preds = %589, %599
 615:                                              ; preds = %get_ue_golomb.exit238, %541
   %616 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %617 = zext nneg i32 %.0.i to i64
-  %618 = getelementptr inbounds nuw ptr, ptr %616, i64 %617
+  %618 = getelementptr inbounds nuw [8 x i8], ptr %616, i64 %617
   tail call void @av_freep(ptr noundef nonnull %618) #5
   store ptr %43, ptr %618, align 8, !tbaa !141
   br label %get_ue_golomb.exit.thread
@@ -4544,7 +4542,7 @@ define void @ff_evc_ps_free(ptr noundef %0) local_unnamed_addr #0 {
 
 3:                                                ; preds = %1, %3
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %3 ]
-  %4 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   tail call void @av_freep(ptr noundef %4) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
@@ -4555,7 +4553,7 @@ define void @ff_evc_ps_free(ptr noundef %0) local_unnamed_addr #0 {
 
 6:                                                ; preds = %.preheader, %6
   %indvars.iv11 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next12, %6 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv11
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv11
   tail call void @av_freep(ptr noundef nonnull %7) #5
   %indvars.iv.next12 = add nuw nsw i64 %indvars.iv11, 1
   %exitcond14.not = icmp eq i64 %indvars.iv.next12, 64
@@ -4780,7 +4778,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @hrd_parameters(ptr noundef
 get_ue_golomb_long.exit:                          ; preds = %103, %145, %149
   %.0.i.i = phi i32 [ %146, %145 ], [ %166, %149 ], [ 0, %103 ]
   %167 = add i32 %.0.i.i, -1
-  %168 = getelementptr inbounds nuw i32, ptr %49, i64 %indvars.iv
+  %168 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %indvars.iv
   store i32 %167, ptr %168, align 4, !tbaa !58
   %.sroa.46.0.copyload.i.i30 = load i32, ptr %3, align 8, !tbaa !58
   %.sroa.77.0.copyload.i.i32 = load i32, ptr %5, align 8, !tbaa !58
@@ -4872,7 +4870,7 @@ get_ue_golomb_long.exit:                          ; preds = %103, %145, %149
 get_ue_golomb_long.exit44:                        ; preds = %get_ue_golomb_long.exit, %210, %214
   %.0.i.i42 = phi i32 [ %211, %210 ], [ %231, %214 ], [ 0, %get_ue_golomb_long.exit ]
   %232 = add i32 %.0.i.i42, -1
-  %233 = getelementptr inbounds nuw i32, ptr %50, i64 %indvars.iv
+  %233 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %indvars.iv
   store i32 %232, ptr %233, align 4, !tbaa !58
   %234 = load i32, ptr %3, align 8, !tbaa !4
   %235 = load i32, ptr %5, align 8, !tbaa !11

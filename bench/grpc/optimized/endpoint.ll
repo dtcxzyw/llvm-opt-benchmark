@@ -1255,7 +1255,7 @@ _ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit27.i: ; preds = %_
   %.040.i = phi i64 [ 0, %.lr.ph.i14 ], [ %68, %.critedge25.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %57 = load ptr, ptr %55, align 8, !tbaa !101
-  %58 = getelementptr inbounds nuw %struct.grpc_slice, ptr %57, i64 %.040.i
+  %58 = getelementptr inbounds nuw [32 x i8], ptr %57, i64 %.040.i
   %59 = call noundef ptr @_Z15grpc_dump_sliceRK10grpc_slicej(ptr noundef nonnull align 8 dereferenceable(32) %58, i32 noundef 3)
   store ptr %59, ptr %8, align 8, !tbaa !102
   %60 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZZZN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapper5WriteEP12grpc_closureP17grpc_slice_bufferPKNS0_11EventEngine8Endpoint9WriteArgsEENKUlvE0_clEvE4site, i64 8) monotonic, align 8
@@ -1659,7 +1659,7 @@ _ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit: ; preds = %25
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !101
-  %35 = getelementptr inbounds nuw %struct.grpc_slice, ptr %34, i64 %.043
+  %35 = getelementptr inbounds nuw [32 x i8], ptr %34, i64 %.043
   %36 = call noundef ptr @_Z15grpc_dump_sliceRK10grpc_slicej(ptr noundef nonnull align 8 dereferenceable(32) %35, i32 noundef 3)
   store ptr %36, ptr %5, align 8, !tbaa !102
   %37 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZZZN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapper17FinishPendingReadEN4absl12lts_202407226StatusEENKUlvE0_clEvE4site, i64 8) monotonic, align 8

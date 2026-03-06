@@ -2472,7 +2472,7 @@ _ZNSt6vectorISt8functionIFvRKN3gmx18KeyValueTreeObjectEEESaIS6_EE11_S_relocateEP
 _ZNSt12_Vector_baseISt8functionIFvRKN3gmx18KeyValueTreeObjectEEESaIS6_EE13_M_deallocateEPS6_m.exit: ; preds = %_ZNSt6vectorISt8functionIFvRKN3gmx18KeyValueTreeObjectEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit35, %60
   store ptr %22, ptr %0, align 8, !tbaa !185
   store ptr %.0.lcssa.i.i.i34, ptr %4, align 8, !tbaa !84
-  %64 = getelementptr inbounds nuw %"class.std::function", ptr %22, i64 %16
+  %64 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %64, ptr %59, align 8, !tbaa !87
   ret void
 
@@ -2701,7 +2701,7 @@ _ZNSt6vectorISt8functionIFvPN3gmx19LocalAtomSetManagerEEESaIS5_EE11_S_relocateEP
 _ZNSt12_Vector_baseISt8functionIFvPN3gmx19LocalAtomSetManagerEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorISt8functionIFvPN3gmx19LocalAtomSetManagerEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit35, %60
   store ptr %22, ptr %0, align 8, !tbaa !204
   store ptr %.0.lcssa.i.i.i34, ptr %4, align 8, !tbaa !90
-  %64 = getelementptr inbounds nuw %"class.std::function.255", ptr %22, i64 %16
+  %64 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %64, ptr %59, align 8, !tbaa !93
   ret void
 
@@ -2924,7 +2924,7 @@ _ZNSt6vectorISt8functionIFvRK7PbcTypeEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit
 _ZNSt12_Vector_baseISt8functionIFvRK7PbcTypeEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorISt8functionIFvRK7PbcTypeEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit35, %60
   store ptr %22, ptr %0, align 8, !tbaa !221
   store ptr %.0.lcssa.i.i.i34, ptr %4, align 8, !tbaa !96
-  %64 = getelementptr inbounds nuw %"class.std::function.259", ptr %22, i64 %16
+  %64 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %64, ptr %59, align 8, !tbaa !99
   ret void
 
@@ -3146,7 +3146,7 @@ _ZNSt6vectorISt8functionIFvRK10gmx_mtop_tEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.
 _ZNSt12_Vector_baseISt8functionIFvRK10gmx_mtop_tEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorISt8functionIFvRK10gmx_mtop_tEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit35, %60
   store ptr %22, ptr %0, align 8, !tbaa !237
   store ptr %.0.lcssa.i.i.i34, ptr %4, align 8, !tbaa !102
-  %64 = getelementptr inbounds nuw %"class.std::function.263", ptr %22, i64 %16
+  %64 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %64, ptr %59, align 8, !tbaa !105
   ret void
 
@@ -3368,7 +3368,7 @@ _ZNSt6vectorISt8functionIFvRK9t_commrecEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.ex
 _ZNSt12_Vector_baseISt8functionIFvRK9t_commrecEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorISt8functionIFvRK9t_commrecEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit35, %60
   store ptr %22, ptr %0, align 8, !tbaa !253
   store ptr %.0.lcssa.i.i.i34, ptr %4, align 8, !tbaa !108
-  %64 = getelementptr inbounds nuw %"class.std::function.267", ptr %22, i64 %16
+  %64 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %64, ptr %59, align 8, !tbaa !111
   ret void
 
@@ -3590,7 +3590,7 @@ _ZNSt6vectorISt8functionIFvPK14gmx_multisim_tEESaIS5_EE11_S_relocateEPS5_S8_S8_R
 _ZNSt12_Vector_baseISt8functionIFvPK14gmx_multisim_tEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorISt8functionIFvPK14gmx_multisim_tEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit35, %60
   store ptr %22, ptr %0, align 8, !tbaa !269
   store ptr %.0.lcssa.i.i.i34, ptr %4, align 8, !tbaa !114
-  %64 = getelementptr inbounds nuw %"class.std::function.271", ptr %22, i64 %16
+  %64 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %64, ptr %59, align 8, !tbaa !117
   ret void
 
@@ -3813,7 +3813,7 @@ _ZNSt6vectorISt8functionIFvRKN3gmx18SimulationTimeStepEEESaIS6_EE11_S_relocateEP
 _ZNSt12_Vector_baseISt8functionIFvRKN3gmx18SimulationTimeStepEEESaIS6_EE13_M_deallocateEPS6_m.exit: ; preds = %_ZNSt6vectorISt8functionIFvRKN3gmx18SimulationTimeStepEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit35, %60
   store ptr %22, ptr %0, align 8, !tbaa !286
   store ptr %.0.lcssa.i.i.i34, ptr %4, align 8, !tbaa !120
-  %64 = getelementptr inbounds nuw %"class.std::function.275", ptr %22, i64 %16
+  %64 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %64, ptr %59, align 8, !tbaa !123
   ret void
 
@@ -4036,7 +4036,7 @@ _ZNSt6vectorISt8functionIFvRKN3gmx8MDLoggerEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS
 _ZNSt12_Vector_baseISt8functionIFvRKN3gmx8MDLoggerEEESaIS6_EE13_M_deallocateEPS6_m.exit: ; preds = %_ZNSt6vectorISt8functionIFvRKN3gmx8MDLoggerEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit35, %60
   store ptr %22, ptr %0, align 8, !tbaa !304
   store ptr %.0.lcssa.i.i.i34, ptr %4, align 8, !tbaa !126
-  %64 = getelementptr inbounds nuw %"class.std::function.279", ptr %22, i64 %16
+  %64 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %64, ptr %59, align 8, !tbaa !129
   ret void
 
@@ -4258,7 +4258,7 @@ _ZNSt6vectorISt8functionIFvRKN3gmx17EdrOutputFilenameEEESaIS6_EE11_S_relocateEPS
 _ZNSt12_Vector_baseISt8functionIFvRKN3gmx17EdrOutputFilenameEEESaIS6_EE13_M_deallocateEPS6_m.exit: ; preds = %_ZNSt6vectorISt8functionIFvRKN3gmx17EdrOutputFilenameEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit35, %60
   store ptr %22, ptr %0, align 8, !tbaa !320
   store ptr %.0.lcssa.i.i.i34, ptr %4, align 8, !tbaa !132
-  %64 = getelementptr inbounds nuw %"class.std::function.283", ptr %22, i64 %16
+  %64 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %64, ptr %59, align 8, !tbaa !135
   ret void
 
@@ -4480,7 +4480,7 @@ _ZNSt6vectorISt8functionIFvN3gmx28MDModulesWriteCheckpointDataEEESaIS4_EE11_S_re
 _ZNSt12_Vector_baseISt8functionIFvN3gmx28MDModulesWriteCheckpointDataEEESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZNSt6vectorISt8functionIFvN3gmx28MDModulesWriteCheckpointDataEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit35, %60
   store ptr %22, ptr %0, align 8, !tbaa !336
   store ptr %.0.lcssa.i.i.i34, ptr %4, align 8, !tbaa !138
-  %64 = getelementptr inbounds nuw %"class.std::function.287", ptr %22, i64 %16
+  %64 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %64, ptr %59, align 8, !tbaa !141
   ret void
 
@@ -4704,7 +4704,7 @@ _ZNSt6vectorISt8functionIFvN3gmx36MDModulesCheckpointReadingDataOnMainEEESaIS4_E
 _ZNSt12_Vector_baseISt8functionIFvN3gmx36MDModulesCheckpointReadingDataOnMainEEESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZNSt6vectorISt8functionIFvN3gmx36MDModulesCheckpointReadingDataOnMainEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit35, %60
   store ptr %22, ptr %0, align 8, !tbaa !354
   store ptr %.0.lcssa.i.i.i34, ptr %4, align 8, !tbaa !144
-  %64 = getelementptr inbounds nuw %"class.std::function.291", ptr %22, i64 %16
+  %64 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %64, ptr %59, align 8, !tbaa !147
   ret void
 
@@ -4927,7 +4927,7 @@ _ZNSt6vectorISt8functionIFvN3gmx33MDModulesAtomsRedistributedSignalEEESaIS4_EE11
 _ZNSt12_Vector_baseISt8functionIFvN3gmx33MDModulesAtomsRedistributedSignalEEESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZNSt6vectorISt8functionIFvN3gmx33MDModulesAtomsRedistributedSignalEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit35, %60
   store ptr %22, ptr %0, align 8, !tbaa !370
   store ptr %.0.lcssa.i.i.i34, ptr %4, align 8, !tbaa !150
-  %64 = getelementptr inbounds nuw %"class.std::function.295", ptr %22, i64 %16
+  %64 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %64, ptr %59, align 8, !tbaa !153
   ret void
 
@@ -5150,7 +5150,7 @@ _ZNSt6vectorISt8functionIFvN3gmx25KeyValueTreeObjectBuilderEEESaIS4_EE11_S_reloc
 _ZNSt12_Vector_baseISt8functionIFvN3gmx25KeyValueTreeObjectBuilderEEESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZNSt6vectorISt8functionIFvN3gmx25KeyValueTreeObjectBuilderEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit35, %60
   store ptr %22, ptr %0, align 8, !tbaa !386
   store ptr %.0.lcssa.i.i.i34, ptr %4, align 8, !tbaa !156
-  %64 = getelementptr inbounds nuw %"class.std::function.337", ptr %22, i64 %16
+  %64 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %64, ptr %59, align 8, !tbaa !159
   ret void
 
@@ -5373,7 +5373,7 @@ _ZNSt6vectorISt8functionIFvP10gmx_mtop_tEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.e
 _ZNSt12_Vector_baseISt8functionIFvP10gmx_mtop_tEESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZNSt6vectorISt8functionIFvP10gmx_mtop_tEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit35, %60
   store ptr %22, ptr %0, align 8, !tbaa !402
   store ptr %.0.lcssa.i.i.i34, ptr %4, align 8, !tbaa !162
-  %64 = getelementptr inbounds nuw %"class.std::function.341", ptr %22, i64 %16
+  %64 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %64, ptr %59, align 8, !tbaa !165
   ret void
 
@@ -5631,7 +5631,7 @@ _ZNSt6vectorISt8functionIFvRKN3gmx29CoordinatesAndBoxPreprocessedEEESaIS6_EE11_S
 _ZNSt12_Vector_baseISt8functionIFvRKN3gmx29CoordinatesAndBoxPreprocessedEEESaIS6_EE13_M_deallocateEPS6_m.exit: ; preds = %_ZNSt6vectorISt8functionIFvRKN3gmx29CoordinatesAndBoxPreprocessedEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit35, %60
   store ptr %22, ptr %0, align 8, !tbaa !422
   store ptr %.0.lcssa.i.i.i34, ptr %4, align 8, !tbaa !168
-  %64 = getelementptr inbounds nuw %"class.std::function.346", ptr %22, i64 %16
+  %64 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %64, ptr %59, align 8, !tbaa !171
   ret void
 
@@ -5853,7 +5853,7 @@ _ZNSt6vectorISt8functionIFvRKN3gmx19EnsembleTemperatureEEESaIS6_EE11_S_relocateE
 _ZNSt12_Vector_baseISt8functionIFvRKN3gmx19EnsembleTemperatureEEESaIS6_EE13_M_deallocateEPS6_m.exit: ; preds = %_ZNSt6vectorISt8functionIFvRKN3gmx19EnsembleTemperatureEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit35, %60
   store ptr %22, ptr %0, align 8, !tbaa !438
   store ptr %.0.lcssa.i.i.i34, ptr %4, align 8, !tbaa !174
-  %64 = getelementptr inbounds nuw %"class.std::function.350", ptr %22, i64 %16
+  %64 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %64, ptr %59, align 8, !tbaa !177
   ret void
 

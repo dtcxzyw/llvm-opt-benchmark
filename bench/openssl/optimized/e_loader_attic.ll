@@ -960,7 +960,7 @@ define internal ptr @file_load(ptr noundef initializes((12, 16)) %0, ptr noundef
   %84 = load ptr, ptr %83, align 8, !tbaa !39
   %85 = load i8, ptr %.021.i, align 1, !tbaa !19
   %86 = zext i8 %85 to i64
-  %87 = getelementptr inbounds nuw i16, ptr %84, i64 %86
+  %87 = getelementptr inbounds nuw [2 x i8], ptr %84, i64 %86
   %88 = load i16, ptr %87, align 2, !tbaa !41
   %89 = and i16 %88, 2048
   %.not30.i = icmp eq i16 %89, 0
@@ -970,7 +970,7 @@ define internal ptr @file_load(ptr noundef initializes((12, 16)) %0, ptr noundef
   %.1.i = phi ptr [ %95, %.preheader.i ], [ %.021.i, %82 ]
   %90 = load i8, ptr %.1.i, align 1, !tbaa !19
   %91 = zext i8 %90 to i64
-  %92 = getelementptr inbounds nuw i16, ptr %84, i64 %91
+  %92 = getelementptr inbounds nuw [2 x i8], ptr %84, i64 %91
   %93 = load i16, ptr %92, align 2, !tbaa !41
   %94 = and i16 %93, 2048
   %.not31.i = icmp eq i16 %94, 0
@@ -1400,7 +1400,7 @@ file_read_pem.exit.thread162:                     ; preds = %188, %file_read_asn
   %.5144 = phi i32 [ %.6145, %301 ], [ 0, %248 ]
   %.05687.i = phi i64 [ %302, %301 ], [ 0, %248 ]
   %.286.i = phi ptr [ %.7.ph.i, %301 ], [ null, %248 ]
-  %251 = getelementptr inbounds nuw ptr, ptr @file_handlers, i64 %.05687.i
+  %251 = getelementptr inbounds nuw [8 x i8], ptr @file_handlers, i64 %.05687.i
   %252 = load ptr, ptr %251, align 8, !tbaa !61
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !tbaa !12
@@ -1433,7 +1433,7 @@ file_read_pem.exit.thread162:                     ; preds = %188, %file_read_asn
 
 269:                                              ; preds = %266
   %270 = sext i32 %.5144 to i64
-  %271 = getelementptr inbounds ptr, ptr %249, i64 %270
+  %271 = getelementptr inbounds [8 x i8], ptr %249, i64 %270
   store ptr %252, ptr %271, align 8, !tbaa !61
   %272 = load ptr, ptr %4, align 8, !tbaa !60
   %.not.i114 = icmp eq ptr %272, null
@@ -3127,7 +3127,7 @@ check_suffix.exit.thread:                         ; preds = %37, %30, %33, %45, 
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %56 = load ptr, ptr %14, align 8, !tbaa !35
-  %57 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %indvars.iv
   %58 = load i32, ptr %57, align 4, !tbaa !12
   %59 = call i32 %52(ptr noundef nonnull %.05687, ptr noundef nonnull %15, ptr noundef null, i32 noundef %58) #10
   %.not73 = icmp eq i32 %59, 0

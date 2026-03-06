@@ -211,7 +211,7 @@ define hidden void @rb_jit_cont_each_iseq(ptr noundef readonly captures(none) %0
   %8 = load ptr, ptr %7, align 8, !tbaa !44
   %9 = getelementptr i8, ptr %3, i64 8
   %.val1821 = load i64, ptr %9, align 8, !tbaa !45
-  %10 = getelementptr i64, ptr %4, i64 %.val1821
+  %10 = getelementptr [8 x i8], ptr %4, i64 %.val1821
   %.not1922 = icmp ugt ptr %10, %8
   br i1 %.not1922, label %.lr.ph, label %.loopexit
 
@@ -247,7 +247,7 @@ define hidden void @rb_jit_cont_each_iseq(ptr noundef readonly captures(none) %0
   %23 = getelementptr i8, ptr %.023, i64 56
   %24 = getelementptr i8, ptr %22, i64 8
   %.val18 = load i64, ptr %24, align 8, !tbaa !45
-  %25 = getelementptr i64, ptr %.val, i64 %.val18
+  %25 = getelementptr [8 x i8], ptr %.val, i64 %.val18
   %.not19 = icmp ugt ptr %25, %23
   br i1 %.not19, label %.lr.ph, label %.loopexit, !llvm.loop !52
 
@@ -279,7 +279,7 @@ define hidden void @rb_yjit_cancel_jit_return(ptr noundef %0, ptr noundef readno
   %8 = load ptr, ptr %7, align 8, !tbaa !44
   %9 = getelementptr i8, ptr %3, i64 8
   %.val17 = load i64, ptr %9, align 8, !tbaa !45
-  %10 = getelementptr i64, ptr %4, i64 %.val17
+  %10 = getelementptr [8 x i8], ptr %4, i64 %.val17
   %.not1819 = icmp ugt ptr %10, %8
   br i1 %.not1819, label %.lr.ph, label %.loopexit
 
@@ -2732,7 +2732,7 @@ define internal noundef i64 @rb_fiber_initialize(i32 noundef %0, ptr noundef rea
 
 8:                                                ; preds = %6
   %9 = zext nneg i32 %0 to i64
-  %10 = getelementptr i64, ptr %1, i64 %9
+  %10 = getelementptr [8 x i8], ptr %1, i64 %9
   %11 = getelementptr i8, ptr %10, i64 -8
   %12 = load i64, ptr %11, align 8, !tbaa !61
   switch i32 %5, label %.thread24.i [
@@ -3181,7 +3181,7 @@ fiber_ptr.exit:                                   ; preds = %1
   %switch.table.fiber_to_s.25.switch.table.fiber_to_s = select i1 %.not, ptr @switch.table.fiber_to_s.25, ptr @switch.table.fiber_to_s.25
   %.str.61..str.60 = select i1 %.not, ptr @.str.61, ptr @.str.60
   %11 = zext nneg i8 %10 to i64
-  %switch.gep19 = getelementptr inbounds nuw ptr, ptr %switch.table.fiber_to_s.25.switch.table.fiber_to_s, i64 %11
+  %switch.gep19 = getelementptr inbounds nuw [8 x i8], ptr %switch.table.fiber_to_s.25.switch.table.fiber_to_s, i64 %11
   %switch.load20 = load ptr, ptr %switch.gep19, align 8
   %12 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef nonnull %2, i64 noundef 32, ptr noundef nonnull %.str.61..str.60, ptr noundef nonnull %switch.load20) #9
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 496
@@ -3617,10 +3617,10 @@ define internal void @cont_mark(ptr noundef %0) #0 {
 13:                                               ; preds = %5
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %15 = load i64, ptr %14, align 8, !tbaa !215
-  %16 = getelementptr i64, ptr %12, i64 %15
+  %16 = getelementptr [8 x i8], ptr %12, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %18 = load i64, ptr %17, align 8, !tbaa !216
-  %19 = getelementptr i64, ptr %16, i64 %18
+  %19 = getelementptr [8 x i8], ptr %16, i64 %18
   tail call void @rb_gc_mark_locations(ptr noundef nonnull %12, ptr noundef %19) #9
   br label %20
 
@@ -3638,7 +3638,7 @@ define internal void @cont_mark(ptr noundef %0) #0 {
 26:                                               ; preds = %23
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %28 = load i64, ptr %27, align 8, !tbaa !218
-  %29 = getelementptr i64, ptr %22, i64 %28
+  %29 = getelementptr [8 x i8], ptr %22, i64 %28
   tail call void @rb_gc_mark_locations(ptr noundef nonnull %22, ptr noundef %29) #9
   br label %30
 
@@ -4439,12 +4439,12 @@ ruby_nonempty_memcpy.exit.i:                      ; preds = %47, %rbimpl_size_mu
   %52 = phi ptr [ %32, %rbimpl_size_mul_or_raise.exit.i ], [ %.pre.i, %47 ]
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %54 = load i64, ptr %53, align 8, !tbaa !45
-  %55 = getelementptr i64, ptr %51, i64 %54
+  %55 = getelementptr [8 x i8], ptr %51, i64 %54
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %57 = load i64, ptr %56, align 8, !tbaa !216
   %58 = sub i64 0, %57
-  %59 = getelementptr i64, ptr %55, i64 %58
-  %60 = getelementptr i64, ptr %50, i64 %49
+  %59 = getelementptr [8 x i8], ptr %55, i64 %58
+  %60 = getelementptr [8 x i8], ptr %50, i64 %49
   %61 = icmp ugt i64 %57, 2305843009213693951
   br i1 %61, label %62, label %rbimpl_size_mul_or_raise.exit42.i, !prof !239
 
@@ -4679,7 +4679,7 @@ cont_new.exit:                                    ; preds = %45, %48
   store i64 %62, ptr %63, align 8, !tbaa !215
   %64 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %65 = load i64, ptr %64, align 8, !tbaa !45
-  %66 = getelementptr i64, ptr %58, i64 %65
+  %66 = getelementptr [8 x i8], ptr %58, i64 %65
   %67 = ptrtoint ptr %66 to i64
   %68 = ptrtoint ptr %55 to i64
   %69 = sub i64 %67, %68
@@ -4728,7 +4728,7 @@ ruby_nonempty_memcpy.exit:                        ; preds = %rbimpl_size_mul_or_
   %.0..0..0..0.22 = load volatile ptr, ptr %4, align 8, !tbaa !248
   %90 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.22, i64 40
   %91 = load i64, ptr %90, align 8, !tbaa !215
-  %92 = getelementptr i64, ptr %89, i64 %91
+  %92 = getelementptr [8 x i8], ptr %89, i64 %91
   %93 = load ptr, ptr %54, align 8, !tbaa !44
   %.0..0..0..0.23 = load volatile ptr, ptr %4, align 8, !tbaa !248
   %94 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.23, i64 48

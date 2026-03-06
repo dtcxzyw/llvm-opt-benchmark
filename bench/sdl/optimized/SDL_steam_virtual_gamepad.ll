@@ -111,7 +111,7 @@ define hidden noundef zeroext i1 @SDL_UpdateSteamVirtualGamepadInfo() local_unna
   %25 = phi i32 [ %33, %32 ], [ %23, %22 ]
   %26 = phi ptr [ %34, %32 ], [ %.pre10.i, %22 ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %32 ], [ 0, %22 ]
-  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv.i
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv.i
   %28 = load ptr, ptr %27, align 8
   %.not.i = icmp eq ptr %28, null
   br i1 %.not.i, label %32, label %29
@@ -235,7 +235,7 @@ SDL_FreeSteamVirtualGamepadInfo.exit:             ; preds = %32, %22
 67:                                               ; preds = %66, %53
   %68 = phi ptr [ %59, %66 ], [ %.pre.i64, %53 ]
   %69 = zext nneg i32 %.0101 to i64
-  %70 = getelementptr inbounds nuw ptr, ptr %68, i64 %69
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %69
   %71 = load ptr, ptr %70, align 8
   %.not19.i = icmp eq ptr %71, null
   br i1 %.not19.i, label %72, label %AddVirtualGamepadInfo.exit
@@ -256,7 +256,7 @@ SDL_FreeSteamVirtualGamepadInfo.exit:             ; preds = %32, %22
   %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %73, i64 20
   store i32 %.sroa.13.099, ptr %.sroa.13.0..sroa_idx, align 4
   %75 = load ptr, ptr @SDL_steam_virtual_gamepad_info, align 8
-  %76 = getelementptr inbounds nuw ptr, ptr %75, i64 %69
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %69
   store ptr %73, ptr %76, align 8
   br label %AddVirtualGamepadInfo.exit
 
@@ -377,7 +377,7 @@ AddVirtualGamepadInfo.exit:                       ; preds = %74, %72, %67, %55, 
 125:                                              ; preds = %124, %111
   %126 = phi ptr [ %117, %124 ], [ %.pre.i66, %111 ]
   %127 = zext nneg i32 %.1 to i64
-  %128 = getelementptr inbounds nuw ptr, ptr %126, i64 %127
+  %128 = getelementptr inbounds nuw [8 x i8], ptr %126, i64 %127
   %129 = load ptr, ptr %128, align 8
   %.not19.i73 = icmp eq ptr %129, null
   br i1 %.not19.i73, label %130, label %AddVirtualGamepadInfo.exit75
@@ -398,7 +398,7 @@ AddVirtualGamepadInfo.exit:                       ; preds = %74, %72, %67, %55, 
   %.sroa.13.0..sroa_idx84 = getelementptr inbounds nuw i8, ptr %131, i64 20
   store i32 %.sroa.13.2, ptr %.sroa.13.0..sroa_idx84, align 4
   %133 = load ptr, ptr @SDL_steam_virtual_gamepad_info, align 8
-  %134 = getelementptr inbounds nuw ptr, ptr %133, i64 %127
+  %134 = getelementptr inbounds nuw [8 x i8], ptr %133, i64 %127
   store ptr %131, ptr %134, align 8
   br label %AddVirtualGamepadInfo.exit75
 
@@ -457,7 +457,7 @@ define hidden ptr @SDL_GetSteamVirtualGamepadInfo(i32 noundef %0) local_unnamed_
 4:                                                ; preds = %1
   %5 = load ptr, ptr @SDL_steam_virtual_gamepad_info, align 8
   %6 = zext nneg i32 %0 to i64
-  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %6
   %8 = load ptr, ptr %7, align 8
   br label %9
 
@@ -484,7 +484,7 @@ define hidden void @SDL_QuitSteamVirtualGamepadInfo() local_unnamed_addr #0 {
   %5 = phi i32 [ %13, %12 ], [ %3, %2 ]
   %6 = phi ptr [ %14, %12 ], [ %.pre10.i, %2 ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %12 ], [ 0, %2 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv.i
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %12, label %9

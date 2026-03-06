@@ -80,7 +80,7 @@ define range(i32 0, 2) i32 @BN_print(ptr noundef %0, ptr noundef %1) local_unnam
   %indvars.iv = phi i64 [ 60, %.preheader ], [ %indvars.iv.next, %28 ]
   %.128 = phi i32 [ %.01730, %.preheader ], [ %.2, %28 ]
   %18 = load ptr, ptr %1, align 8, !tbaa !13
-  %19 = getelementptr inbounds nuw i64, ptr %18, i64 %indvars.iv.next35
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv.next35
   %20 = load i64, ptr %19, align 8, !tbaa !14
   %21 = lshr i64 %20, %indvars.iv
   %22 = icmp ne i32 %.128, 0

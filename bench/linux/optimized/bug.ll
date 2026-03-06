@@ -12,7 +12,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.atomic_t = type { i32 }
 %struct.static_call_key = type { ptr, %union.anon.3 }
 %union.anon.3 = type { i64 }
-%struct.elf64_shdr = type { i32, i32, i64, i64, i64, i64, i32, i32, i64, i64 }
 
 @.str = private unnamed_addr constant [12 x i8] c"__bug_table\00", align 1
 @module_bug_list = internal global %struct.list_head { ptr @module_bug_list, ptr @module_bug_list }, align 8
@@ -39,7 +38,7 @@ define dso_local void @module_bug_finalize(ptr noundef readonly captures(none) %
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 62
   %7 = load i16, ptr %6, align 2
   %8 = zext i16 %7 to i64
-  %.split = getelementptr %struct.elf64_shdr, ptr %1, i64 %8
+  %.split = getelementptr [64 x i8], ptr %1, i64 %8
   %9 = getelementptr i8, ptr %.split, i64 24
   %10 = load i64, ptr %9, align 8
   %11 = getelementptr i8, ptr %0, i64 %10
@@ -59,7 +58,7 @@ define dso_local void @module_bug_finalize(ptr noundef readonly captures(none) %
 
 20:                                               ; preds = %17, %15
   %21 = phi i64 [ 1, %15 ], [ %18, %17 ]
-  %22 = getelementptr %struct.elf64_shdr, ptr %1, i64 %21
+  %22 = getelementptr [64 x i8], ptr %1, i64 %21
   %23 = load i32, ptr %22, align 8
   %24 = zext i32 %23 to i64
   %25 = getelementptr i8, ptr %11, i64 %24
@@ -406,7 +405,7 @@ define dso_local void @generic_bug_clear_once() local_unnamed_addr #0 align 16 {
   %6 = getelementptr i8, ptr %3, i64 -8
   %7 = load i32, ptr %6, align 8
   %8 = zext i32 %7 to i64
-  %9 = getelementptr %struct.bug_entry, ptr %5, i64 %8
+  %9 = getelementptr [12 x i8], ptr %5, i64 %8
   %10 = icmp ult ptr %5, %9
   br i1 %10, label %.preheader3, label %.loopexit4
 

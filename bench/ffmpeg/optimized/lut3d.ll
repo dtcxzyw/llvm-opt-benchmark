@@ -8,8 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.AVPrimaryCoefficients = type { %struct.AVCIExy, %struct.AVCIExy, %struct.AVCIExy }
 %struct.AVCIExy = type { %struct.AVRational, %struct.AVRational }
 %struct.AVRational = type { i32, i32 }
-%struct.v3u16_t = type { i16, i16, i16 }
-%struct.v2u16_t = type { i16, i16 }
 
 ; Function Attrs: nounwind uwtable
 define noalias ptr @ff_sws_lut3d_alloc() local_unnamed_addr #0 {
@@ -180,17 +178,17 @@ define void @ff_sws_lut3d_apply(ptr noundef readonly captures(none) %0, ptr noun
   %30 = add nuw nsw i32 %24, 1
   %31 = add nuw nsw i32 %25, 1
   %32 = zext nneg i32 %26 to i64
-  %33 = getelementptr inbounds nuw [65 x [65 x %struct.v3u16_t]], ptr %9, i64 %32
+  %33 = getelementptr inbounds nuw [25350 x i8], ptr %9, i64 %32
   %34 = zext nneg i32 %25 to i64
-  %35 = getelementptr inbounds nuw [65 x %struct.v3u16_t], ptr %33, i64 %34
+  %35 = getelementptr inbounds nuw [390 x i8], ptr %33, i64 %34
   %36 = zext nneg i32 %24 to i64
-  %37 = getelementptr inbounds nuw %struct.v3u16_t, ptr %35, i64 %36
+  %37 = getelementptr inbounds nuw [6 x i8], ptr %35, i64 %36
   %.sroa.066.0.copyload.i.us = load i48, ptr %37, align 2
   %38 = getelementptr inbounds nuw i8, ptr %33, i64 25350
   %39 = zext nneg i32 %31 to i64
-  %40 = getelementptr inbounds nuw [65 x %struct.v3u16_t], ptr %38, i64 %39
+  %40 = getelementptr inbounds nuw [390 x i8], ptr %38, i64 %39
   %41 = zext nneg i32 %30 to i64
-  %42 = getelementptr inbounds nuw %struct.v3u16_t, ptr %40, i64 %41
+  %42 = getelementptr inbounds nuw [6 x i8], ptr %40, i64 %41
   %.sroa.060.0.copyload.i.us = load i48, ptr %42, align 2
   %43 = icmp samesign ugt i32 %27, %28
   br i1 %43, label %145, label %44
@@ -201,8 +199,8 @@ define void @ff_sws_lut3d_apply(ptr noundef readonly captures(none) %0, ptr noun
 
 46:                                               ; preds = %44
   %47 = icmp samesign ugt i32 %29, %27
-  %48 = getelementptr inbounds nuw [65 x %struct.v3u16_t], ptr %33, i64 %39
-  %49 = getelementptr inbounds nuw %struct.v3u16_t, ptr %48, i64 %36
+  %48 = getelementptr inbounds nuw [390 x i8], ptr %33, i64 %39
+  %49 = getelementptr inbounds nuw [6 x i8], ptr %48, i64 %36
   %.sroa.019.0.copyload.i.us = load i48, ptr %49, align 2
   %.sroa.029.0.extract.trunc.i134.us = trunc i48 %.sroa.066.0.copyload.i.us to i32
   %50 = lshr i32 %.sroa.029.0.extract.trunc.i134.us, 16
@@ -225,7 +223,7 @@ define void @ff_sws_lut3d_apply(ptr noundef readonly captures(none) %0, ptr noun
   br i1 %47, label %84, label %59
 
 59:                                               ; preds = %46
-  %60 = getelementptr inbounds nuw %struct.v3u16_t, ptr %48, i64 %41
+  %60 = getelementptr inbounds nuw [6 x i8], ptr %48, i64 %41
   %.sroa.0.0.copyload.i.us = load i48, ptr %60, align 2
   %.sroa.023.0.extract.trunc.i160.us = trunc i48 %.sroa.0.0.copyload.i.us to i32
   %61 = lshr i32 %.sroa.023.0.extract.trunc.i160.us, 16
@@ -256,7 +254,7 @@ define void @ff_sws_lut3d_apply(ptr noundef readonly captures(none) %0, ptr noun
   br label %tetrahedral.exit.us
 
 84:                                               ; preds = %46
-  %85 = getelementptr inbounds nuw %struct.v3u16_t, ptr %40, i64 %36
+  %85 = getelementptr inbounds nuw [6 x i8], ptr %40, i64 %36
   %.sroa.018.0.copyload.i.us = load i48, ptr %85, align 2
   %.sroa.023.0.extract.trunc.i140.us = trunc i48 %.sroa.018.0.copyload.i.us to i32
   %86 = lshr i32 %.sroa.023.0.extract.trunc.i140.us, 16
@@ -287,10 +285,10 @@ define void @ff_sws_lut3d_apply(ptr noundef readonly captures(none) %0, ptr noun
   br label %tetrahedral.exit.us
 
 109:                                              ; preds = %44
-  %110 = getelementptr inbounds nuw [65 x %struct.v3u16_t], ptr %38, i64 %34
-  %111 = getelementptr inbounds nuw %struct.v3u16_t, ptr %110, i64 %36
+  %110 = getelementptr inbounds nuw [390 x i8], ptr %38, i64 %34
+  %111 = getelementptr inbounds nuw [6 x i8], ptr %110, i64 %36
   %.sroa.029.0.copyload.i.us = load i48, ptr %111, align 2
-  %112 = getelementptr inbounds nuw %struct.v3u16_t, ptr %40, i64 %36
+  %112 = getelementptr inbounds nuw [6 x i8], ptr %40, i64 %36
   %.sroa.028.0.copyload.i.us = load i48, ptr %112, align 2
   %.sroa.029.0.extract.trunc.i114.us = trunc i48 %.sroa.066.0.copyload.i.us to i32
   %113 = lshr i32 %.sroa.029.0.extract.trunc.i114.us, 16
@@ -356,10 +354,10 @@ define void @ff_sws_lut3d_apply(ptr noundef readonly captures(none) %0, ptr noun
   br i1 %148, label %185, label %152
 
 152:                                              ; preds = %147
-  %153 = getelementptr inbounds nuw [65 x %struct.v3u16_t], ptr %38, i64 %34
-  %154 = getelementptr inbounds nuw %struct.v3u16_t, ptr %153, i64 %36
+  %153 = getelementptr inbounds nuw [390 x i8], ptr %38, i64 %34
+  %154 = getelementptr inbounds nuw [6 x i8], ptr %153, i64 %36
   %.sroa.039.0.copyload.i70.us = load i48, ptr %154, align 2
-  %155 = getelementptr inbounds nuw %struct.v3u16_t, ptr %153, i64 %41
+  %155 = getelementptr inbounds nuw [6 x i8], ptr %153, i64 %41
   %.sroa.038.0.copyload.i71.us = load i48, ptr %155, align 2
   %.sroa.026.0.extract.trunc.i97.us = trunc i48 %.sroa.039.0.copyload.i70.us to i32
   %156 = lshr i32 %.sroa.026.0.extract.trunc.i97.us, 16
@@ -399,10 +397,10 @@ define void @ff_sws_lut3d_apply(ptr noundef readonly captures(none) %0, ptr noun
   br label %tetrahedral.exit.us
 
 185:                                              ; preds = %147
-  %186 = getelementptr inbounds nuw %struct.v3u16_t, ptr %35, i64 %41
+  %186 = getelementptr inbounds nuw [6 x i8], ptr %35, i64 %41
   %.sroa.049.0.copyload.i.us = load i48, ptr %186, align 2
-  %187 = getelementptr inbounds nuw [65 x %struct.v3u16_t], ptr %38, i64 %34
-  %188 = getelementptr inbounds nuw %struct.v3u16_t, ptr %187, i64 %41
+  %187 = getelementptr inbounds nuw [390 x i8], ptr %38, i64 %34
+  %188 = getelementptr inbounds nuw [6 x i8], ptr %187, i64 %41
   %.sroa.048.0.copyload.i.us = load i48, ptr %188, align 2
   %.sroa.026.0.extract.trunc.i77.us = trunc i48 %.sroa.049.0.copyload.i.us to i32
   %189 = lshr i32 %.sroa.026.0.extract.trunc.i77.us, 16
@@ -442,10 +440,10 @@ define void @ff_sws_lut3d_apply(ptr noundef readonly captures(none) %0, ptr noun
   br label %tetrahedral.exit.us
 
 218:                                              ; preds = %145
-  %219 = getelementptr inbounds nuw %struct.v3u16_t, ptr %35, i64 %41
+  %219 = getelementptr inbounds nuw [6 x i8], ptr %35, i64 %41
   %.sroa.059.0.copyload.i.us = load i48, ptr %219, align 2
-  %220 = getelementptr inbounds nuw [65 x %struct.v3u16_t], ptr %33, i64 %39
-  %221 = getelementptr inbounds nuw %struct.v3u16_t, ptr %220, i64 %41
+  %220 = getelementptr inbounds nuw [390 x i8], ptr %33, i64 %39
+  %221 = getelementptr inbounds nuw [6 x i8], ptr %220, i64 %41
   %.sroa.058.0.copyload.i.us = load i48, ptr %221, align 2
   %.sroa.029.0.extract.trunc.i.us = trunc i48 %.sroa.066.0.copyload.i.us to i32
   %222 = lshr i32 %.sroa.029.0.extract.trunc.i.us, 16
@@ -510,7 +508,7 @@ tetrahedral.exit.us:                              ; preds = %218, %185, %152, %1
   %259 = and i32 %258, 255
   %260 = and i32 %.sink, 255
   %261 = zext nneg i32 %259 to i64
-  %262 = getelementptr inbounds nuw %struct.v2u16_t, ptr %10, i64 %261
+  %262 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %261
   %.sroa.06.0.copyload.i.us = load i32, ptr %262, align 2
   %263 = getelementptr inbounds nuw i8, ptr %262, i64 4
   %.sroa.05.0.copyload.i.us = load i32, ptr %263, align 2
@@ -546,31 +544,31 @@ tetrahedral.exit.us:                              ; preds = %218, %185, %152, %1
   %289 = add nuw nsw i32 %282, 1
   %290 = add nuw nsw i32 %284, 1
   %291 = zext nneg i32 %285 to i64
-  %292 = getelementptr inbounds nuw [129 x [65 x %struct.v3u16_t]], ptr %11, i64 %291
+  %292 = getelementptr inbounds nuw [50310 x i8], ptr %11, i64 %291
   %293 = zext nneg i32 %284 to i64
-  %294 = getelementptr inbounds nuw [65 x %struct.v3u16_t], ptr %292, i64 %293
+  %294 = getelementptr inbounds nuw [390 x i8], ptr %292, i64 %293
   %295 = zext nneg i32 %282 to i64
-  %296 = getelementptr inbounds nuw %struct.v3u16_t, ptr %294, i64 %295
+  %296 = getelementptr inbounds nuw [6 x i8], ptr %294, i64 %295
   %.sroa.041.0.copyload.i.us = load i48, ptr %296, align 2
   %297 = zext nneg i32 %289 to i64
-  %298 = getelementptr inbounds nuw %struct.v3u16_t, ptr %294, i64 %297
+  %298 = getelementptr inbounds nuw [6 x i8], ptr %294, i64 %297
   %.sroa.040.0.copyload.i.us = load i48, ptr %298, align 2
   %299 = zext nneg i32 %290 to i64
-  %300 = getelementptr inbounds nuw [65 x %struct.v3u16_t], ptr %292, i64 %299
-  %301 = getelementptr inbounds nuw %struct.v3u16_t, ptr %300, i64 %295
+  %300 = getelementptr inbounds nuw [390 x i8], ptr %292, i64 %299
+  %301 = getelementptr inbounds nuw [6 x i8], ptr %300, i64 %295
   %.sroa.039.0.copyload.i.us = load i48, ptr %301, align 2
-  %302 = getelementptr inbounds nuw %struct.v3u16_t, ptr %300, i64 %297
+  %302 = getelementptr inbounds nuw [6 x i8], ptr %300, i64 %297
   %.sroa.038.0.copyload.i.us = load i48, ptr %302, align 2
   %303 = getelementptr inbounds nuw i8, ptr %292, i64 50310
-  %304 = getelementptr inbounds nuw [65 x %struct.v3u16_t], ptr %303, i64 %293
-  %305 = getelementptr inbounds nuw %struct.v3u16_t, ptr %304, i64 %295
+  %304 = getelementptr inbounds nuw [390 x i8], ptr %303, i64 %293
+  %305 = getelementptr inbounds nuw [6 x i8], ptr %304, i64 %295
   %.sroa.037.0.copyload.i.us = load i48, ptr %305, align 2
-  %306 = getelementptr inbounds nuw %struct.v3u16_t, ptr %304, i64 %297
+  %306 = getelementptr inbounds nuw [6 x i8], ptr %304, i64 %297
   %.sroa.036.0.copyload.i.us = load i48, ptr %306, align 2
-  %307 = getelementptr inbounds nuw [65 x %struct.v3u16_t], ptr %303, i64 %299
-  %308 = getelementptr inbounds nuw %struct.v3u16_t, ptr %307, i64 %295
+  %307 = getelementptr inbounds nuw [390 x i8], ptr %303, i64 %299
+  %308 = getelementptr inbounds nuw [6 x i8], ptr %307, i64 %295
   %.sroa.035.0.copyload.i.us = load i48, ptr %308, align 2
-  %309 = getelementptr inbounds nuw %struct.v3u16_t, ptr %307, i64 %297
+  %309 = getelementptr inbounds nuw [6 x i8], ptr %307, i64 %297
   %.sroa.034.0.copyload.i.us = load i48, ptr %309, align 2
   %.sroa.012.0.extract.trunc.i250.us = trunc i48 %.sroa.041.0.copyload.i.us to i32
   %310 = lshr i32 %.sroa.012.0.extract.trunc.i250.us, 16

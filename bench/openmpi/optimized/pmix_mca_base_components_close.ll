@@ -17,7 +17,7 @@ define void @pmix_mca_base_component_unload(ptr noundef %0, i32 noundef %1) loca
 
 3:                                                ; preds = %2
   %4 = zext nneg i32 %1 to i64
-  %5 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %4
+  %5 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %7 = load i32, ptr %6, align 4, !tbaa !3
   %8 = icmp sgt i32 %7, 9
@@ -67,7 +67,7 @@ define void @pmix_mca_base_component_close(ptr noundef %0, i32 noundef %1) local
 
 7:                                                ; preds = %5
   %8 = zext nneg i32 %1 to i64
-  %9 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %8
+  %9 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %11 = load i32, ptr %10, align 4, !tbaa !3
   %12 = icmp sgt i32 %11, 9
@@ -88,7 +88,7 @@ define void @pmix_mca_base_component_close(ptr noundef %0, i32 noundef %1) local
 
 .thread:                                          ; preds = %..thread_crit_edge, %13, %7
   %.pre-phi = phi i64 [ %.pre, %..thread_crit_edge ], [ %8, %13 ], [ %8, %7 ]
-  %16 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %.pre-phi
+  %16 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %.pre-phi
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %18 = load i32, ptr %17, align 4, !tbaa !3
   %19 = icmp sgt i32 %18, 9

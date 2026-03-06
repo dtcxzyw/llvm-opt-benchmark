@@ -4,9 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %class.anon.8 = type { ptr, ptr, ptr, ptr, ptr, ptr }
-%"struct.llvm::PatternsForOpcode" = type { i32, i16, i16 }
-%"struct.llvm::AliasPattern" = type { i32, i32, i8, i8 }
-%"struct.llvm::AliasPatternCond" = type { i8, i32 }
 %"class.llvm::format_object" = type { %"class.llvm::format_object_base", %"class.std::tuple" }
 %"class.llvm::format_object_base" = type { ptr, ptr }
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
@@ -17,9 +14,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Tuple_impl.11" = type { %"struct.std::_Head_base.12" }
 %"struct.std::_Head_base.12" = type { i64 }
 %"class.llvm::MCInstPrinter::WithMarkup" = type <{ ptr, ptr, i8, i8, [6 x i8] }>
-%"class.llvm::MCOperand" = type { i8, %union.anon.25 }
-%union.anon.25 = type { i64 }
-%"class.llvm::MCRegisterClass" = type { ptr, ptr, i32, i16, i16, i16, i16, i8, i8, i8 }
 
 $_ZN4llvm13MCInstPrinter27applyTargetSpecificCLOptionENS_9StringRefE = comdat any
 
@@ -175,7 +169,7 @@ define dso_local { ptr, i64 } @_ZNK4llvm13MCInstPrinter13getOpcodeNameEj(ptr nou
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !36
   %9 = zext i32 %1 to i64
-  %10 = getelementptr inbounds nuw i32, ptr %8, i64 %9
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !37
   %12 = zext i32 %11 to i64
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 %12
@@ -385,7 +379,7 @@ _ZSt7advanceIPKN4llvm17PatternsForOpcodeElEvRT_T0_.exit.i.i.i: ; preds = %4, %_Z
   %.05.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN4llvm17PatternsForOpcodeElEvRT_T0_.exit.i.i.i ], [ %.val, %4 ]
   %.0114.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN4llvm17PatternsForOpcodeElEvRT_T0_.exit.i.i.i ], [ %.val39, %4 ]
   %13 = lshr i64 %.0114.i.i.i, 1
-  %14 = getelementptr inbounds nuw %"struct.llvm::PatternsForOpcode", ptr %.05.i.i.i, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %.05.i.i.i, i64 %13
   %.val.i.i.i = load i32, ptr %14, align 4, !tbaa !59
   %15 = icmp ult i32 %.val.i.i.i, %10
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -398,7 +392,7 @@ _ZSt7advanceIPKN4llvm17PatternsForOpcodeElEvRT_T0_.exit.i.i.i: ; preds = %4, %_Z
 
 "_ZN4llvm11lower_boundIRKNS_8ArrayRefINS_17PatternsForOpcodeEEEjZNS_13MCInstPrinter18matchAliasPatternsEPKNS_6MCInstEPKNS_15MCSubtargetInfoERKNS_17AliasMatchingDataEE3$_0EEDaOT_OT0_T1_.exit": ; preds = %_ZSt7advanceIPKN4llvm17PatternsForOpcodeElEvRT_T0_.exit.i.i.i, %4
   %.0.lcssa.i.i.i = phi ptr [ %.val, %4 ], [ %.1.i.i.i, %_ZSt7advanceIPKN4llvm17PatternsForOpcodeElEvRT_T0_.exit.i.i.i ]
-  %20 = getelementptr inbounds nuw %"struct.llvm::PatternsForOpcode", ptr %.val, i64 %.val39
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %.val39
   %21 = icmp eq ptr %.0.lcssa.i.i.i, %20
   br i1 %21, label %.thread59, label %22
 
@@ -416,7 +410,7 @@ _ZSt7advanceIPKN4llvm17PatternsForOpcodeElEvRT_T0_.exit.i.i.i: ; preds = %4, %_Z
   %30 = load i16, ptr %29, align 2, !tbaa !65
   %31 = zext i16 %30 to i64
   %32 = load ptr, ptr %25, align 8, !tbaa !66
-  %33 = getelementptr inbounds nuw %"struct.llvm::AliasPattern", ptr %32, i64 %28
+  %33 = getelementptr inbounds nuw [12 x i8], ptr %32, i64 %28
   %.idx = mul nuw nsw i64 %31, 12
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 %.idx
   %.not3767 = icmp eq i16 %30, 0
@@ -450,7 +444,7 @@ _ZSt7advanceIPKN4llvm17PatternsForOpcodeElEvRT_T0_.exit.i.i.i: ; preds = %4, %_Z
   %48 = load i8, ptr %47, align 1, !tbaa !73
   %49 = zext i8 %48 to i64
   %50 = load ptr, ptr %35, align 8, !tbaa !74
-  %51 = getelementptr inbounds nuw %"struct.llvm::AliasPatternCond", ptr %50, i64 %46
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %46
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4, !tbaa !37
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -462,7 +456,7 @@ _ZSt7advanceIPKN4llvm17PatternsForOpcodeElEvRT_T0_.exit.i.i.i: ; preds = %4, %_Z
   store ptr %8, ptr %.sroa.4.0..sroa_idx, align 8
   store ptr %3, ptr %.sroa.5.0..sroa_idx, align 8
   store ptr %9, ptr %.sroa.6.0..sroa_idx, align 8
-  %52 = getelementptr inbounds nuw %"struct.llvm::AliasPatternCond", ptr %51, i64 %49
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %49
   %53 = ptrtoint ptr %52 to i64
   %54 = lshr i64 %49, 2
   %.not.i = icmp eq i64 %54, 0
@@ -760,7 +754,7 @@ define dso_local void @_ZN4llvm13MCInstPrinter10WithMarkupC2ERS0_RNS_11raw_ostre
 
 switch.lookup:                                    ; preds = %12
   %14 = zext nneg i32 %3 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4llvm13MCInstPrinter10WithMarkupC2ERS0_RNS_11raw_ostreamENS0_6MarkupEbb, i64 %14
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN4llvm13MCInstPrinter10WithMarkupC2ERS0_RNS_11raw_ostreamENS0_6MarkupEbb, i64 %14
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %15
 
@@ -786,7 +780,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_11raw_ostream6ColorsELb1EE9push_backES2_.ex
   %25 = phi i32 [ %18, %15 ], [ %.pre.i, %21 ]
   %26 = load ptr, ptr %16, align 8, !tbaa !16
   %27 = zext i32 %25 to i64
-  %28 = getelementptr inbounds nuw i32, ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %27
   store i32 %.0, ptr %28, align 1
   %29 = load i32, ptr %17, align 8, !tbaa !69
   %30 = add i32 %29, 1
@@ -944,7 +938,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %14, %12, %1
   %26 = load ptr, ptr %25, align 8, !tbaa !128
   %27 = load ptr, ptr %21, align 8, !tbaa !16
   %28 = zext i32 %24 to i64
-  %29 = getelementptr inbounds nuw i32, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %28
   %30 = getelementptr inbounds i8, ptr %29, i64 -4
   %31 = load i32, ptr %30, align 4, !tbaa !130
   %32 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsENS0_6ColorsE(ptr noundef nonnull align 8 dereferenceable(48) %26, i32 noundef %31) #14
@@ -1028,7 +1022,7 @@ define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZN
   %26 = shl nuw i64 1, %25
   %27 = lshr i32 %23, 6
   %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr inbounds nuw i64, ptr %21, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %28
   %30 = load i64, ptr %29, align 8, !tbaa !41
   %31 = and i64 %26, %30
   %32 = icmp ne i64 %31, 0
@@ -1043,7 +1037,7 @@ define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZN
   %39 = shl nuw i64 1, %38
   %40 = lshr i32 %36, 6
   %41 = zext nneg i32 %40 to i64
-  %42 = getelementptr inbounds nuw i64, ptr %34, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %41
   %43 = load i64, ptr %42, align 8, !tbaa !41
   %44 = and i64 %39, %43
   %.not.i.i = icmp eq i64 %44, 0
@@ -1057,7 +1051,7 @@ define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZN
   %50 = zext nneg i32 %49 to i64
   %51 = lshr i32 %48, 6
   %52 = zext nneg i32 %51 to i64
-  %53 = getelementptr inbounds nuw i64, ptr %46, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %52
   %54 = load i64, ptr %53, align 8, !tbaa !41
   %55 = load i8, ptr %15, align 1, !tbaa !77, !range !117, !noundef !118
   %56 = lshr i64 %54, %50
@@ -1075,7 +1069,7 @@ define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZN
   %65 = zext nneg i32 %64 to i64
   %66 = lshr i32 %63, 6
   %67 = zext nneg i32 %66 to i64
-  %68 = getelementptr inbounds nuw i64, ptr %61, i64 %67
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %67
   %69 = load i64, ptr %68, align 8, !tbaa !41
   %70 = load i8, ptr %15, align 1, !tbaa !77, !range !117, !noundef !118
   %71 = xor i64 %69, -1
@@ -1097,7 +1091,7 @@ define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZN
   %81 = load ptr, ptr %80, align 8, !tbaa !147
   %82 = load i32, ptr %81, align 4, !tbaa !37
   %83 = zext i32 %82 to i64
-  %84 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %.val.i, i64 %83
+  %84 = getelementptr inbounds nuw [16 x i8], ptr %.val.i, i64 %83
   %85 = add i32 %82, 1
   store i32 %85, ptr %81, align 4, !tbaa !37
   switch i8 %19, label %147 [
@@ -1147,7 +1141,7 @@ define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZN
   %111 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %112 = load i32, ptr %111, align 4, !tbaa !146
   %113 = zext i32 %112 to i64
-  %114 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %.val.i, i64 %113
+  %114 = getelementptr inbounds nuw [16 x i8], ptr %.val.i, i64 %113
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 8
   %116 = load i32, ptr %115, align 8, !tbaa !3
   %117 = icmp eq i32 %110, %116
@@ -1162,7 +1156,7 @@ define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZN
   %122 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %123 = load i32, ptr %122, align 4, !tbaa !146
   %124 = zext i32 %123 to i64
-  %125 = getelementptr inbounds nuw %"class.llvm::MCRegisterClass", ptr %.val2.i, i64 %124
+  %125 = getelementptr inbounds nuw [32 x i8], ptr %.val2.i, i64 %124
   %126 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %127 = load i32, ptr %126, align 8, !tbaa !3
   %128 = lshr i32 %127, 3

@@ -545,7 +545,7 @@ define range(i32 0, 65) i32 @FT_Gzip_Uncompress(ptr noundef %0, ptr noundef %1, 
 
 switch.lookup:                                    ; preds = %30
   %32 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.FT_Gzip_Uncompress, i64 %32
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.FT_Gzip_Uncompress, i64 %32
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.thread
 

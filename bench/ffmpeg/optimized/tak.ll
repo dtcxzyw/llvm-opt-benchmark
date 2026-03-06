@@ -572,7 +572,7 @@ bits_read_nz_le.exit85:                           ; preds = %218, %222, %bits_pr
   br i1 %237, label %238, label %242
 
 238:                                              ; preds = %bits_read_nz_le.exit85
-  %239 = getelementptr inbounds nuw i64, ptr @tak_channel_layouts, i64 %236
+  %239 = getelementptr inbounds nuw [8 x i8], ptr @tak_channel_layouts, i64 %236
   %240 = load i64, ptr %239, align 8, !tbaa !25
   %241 = or i64 %240, %.195
   br label %242
@@ -592,7 +592,7 @@ bits_read_bit_le.exit.thread:                     ; preds = %242, %bits_read_bit
 
 246:                                              ; preds = %bits_read_bit_le.exit.thread
   %247 = and i64 %.val.i.i39139, 15
-  %248 = getelementptr inbounds nuw i16, ptr @frame_duration_type_quants, i64 %247
+  %248 = getelementptr inbounds nuw [2 x i8], ptr @frame_duration_type_quants, i64 %247
   %249 = load i16, ptr %248, align 2, !tbaa !29
   %250 = zext i16 %249 to i32
   %251 = mul nuw nsw i32 %134, %250
@@ -605,7 +605,7 @@ bits_read_bit_le.exit.thread:                     ; preds = %242, %bits_read_bit
 
 255:                                              ; preds = %253
   %256 = and i64 %.val.i.i39139, 15
-  %257 = getelementptr inbounds nuw i16, ptr @frame_duration_type_quants, i64 %256
+  %257 = getelementptr inbounds nuw [2 x i8], ptr @frame_duration_type_quants, i64 %256
   %258 = load i16, ptr %257, align 2, !tbaa !29
   %259 = zext i16 %258 to i32
   %260 = lshr i32 %134, 2

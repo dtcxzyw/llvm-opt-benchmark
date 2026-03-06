@@ -3,8 +3,6 @@ source_filename = "bench/slurm/original/list.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.listNode = type { ptr, ptr }
-
 @.str = private unnamed_addr constant [7 x i8] c"list.c\00", align 1
 @__func__.list_create = private unnamed_addr constant [12 x i8] c"list_create\00", align 1
 @.str.1 = private unnamed_addr constant [30 x i8] c"%s: pthread_rwlock_init(): %m\00", align 1
@@ -122,8 +120,8 @@ define dso_local noundef ptr @list_create(ptr noundef %0) #0 {
 17:                                               ; preds = %12, %17
   %indvars.iv = phi i64 [ 0, %12 ], [ %indvars.iv.next, %17 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %18 = getelementptr inbounds nuw %struct.listNode, ptr %14, i64 %indvars.iv.next
-  %19 = getelementptr inbounds nuw %struct.listNode, ptr %14, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %indvars.iv.next
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %indvars.iv
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %18, ptr %20, align 8
   %exitcond.not = icmp eq i64 %indvars.iv.next, 246
@@ -345,8 +343,8 @@ define dso_local noundef ptr @list_shallow_copy(ptr noundef %0) #0 {
 15:                                               ; preds = %15, %11
   %indvars.iv.i = phi i64 [ 0, %11 ], [ %indvars.iv.next.i, %15 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %16 = getelementptr inbounds nuw %struct.listNode, ptr %13, i64 %indvars.iv.next.i
-  %17 = getelementptr inbounds nuw %struct.listNode, ptr %13, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %indvars.iv.next.i
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %indvars.iv.i
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %16, ptr %18, align 8
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 246
@@ -392,8 +390,8 @@ define dso_local void @list_append(ptr noundef %0, ptr noundef %1) #0 {
 18:                                               ; preds = %18, %12
   %indvars.iv.i = phi i64 [ 1, %12 ], [ %indvars.iv.next.i, %18 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %19 = getelementptr inbounds nuw %struct.listNode, ptr %13, i64 %indvars.iv.next.i
-  %20 = getelementptr inbounds nuw %struct.listNode, ptr %13, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %indvars.iv.next.i
+  %20 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %indvars.iv.i
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %19, ptr %21, align 8
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 246
@@ -533,8 +531,8 @@ define dso_local i32 @list_append_list(ptr noundef %0, ptr noundef %1) #0 {
 26:                                               ; preds = %26, %21
   %indvars.iv.i = phi i64 [ 1, %21 ], [ %indvars.iv.next.i, %26 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %27 = getelementptr inbounds nuw %struct.listNode, ptr %22, i64 %indvars.iv.next.i
-  %28 = getelementptr inbounds nuw %struct.listNode, ptr %22, i64 %indvars.iv.i
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %indvars.iv.next.i
+  %28 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %indvars.iv.i
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store ptr %27, ptr %29, align 8
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 246
@@ -761,8 +759,8 @@ _list_node_destroy.exit:                          ; preds = %44, %30
 55:                                               ; preds = %55, %50
   %indvars.iv.i = phi i64 [ 1, %50 ], [ %indvars.iv.next.i, %55 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %56 = getelementptr inbounds nuw %struct.listNode, ptr %51, i64 %indvars.iv.next.i
-  %57 = getelementptr inbounds nuw %struct.listNode, ptr %51, i64 %indvars.iv.i
+  %56 = getelementptr inbounds nuw [16 x i8], ptr %51, i64 %indvars.iv.next.i
+  %57 = getelementptr inbounds nuw [16 x i8], ptr %51, i64 %indvars.iv.i
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   store ptr %56, ptr %58, align 8
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 246
@@ -944,8 +942,8 @@ _list_find_first_locked.exit.thread:              ; preds = %28, %_list_find_fir
 40:                                               ; preds = %40, %35
   %indvars.iv.i = phi i64 [ 1, %35 ], [ %indvars.iv.next.i, %40 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %41 = getelementptr inbounds nuw %struct.listNode, ptr %36, i64 %indvars.iv.next.i
-  %42 = getelementptr inbounds nuw %struct.listNode, ptr %36, i64 %indvars.iv.i
+  %41 = getelementptr inbounds nuw [16 x i8], ptr %36, i64 %indvars.iv.next.i
+  %42 = getelementptr inbounds nuw [16 x i8], ptr %36, i64 %indvars.iv.i
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store ptr %41, ptr %43, align 8
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 246
@@ -1144,8 +1142,8 @@ define dso_local void @list_push(ptr noundef %0, ptr noundef %1) #0 {
 17:                                               ; preds = %17, %11
   %indvars.iv.i = phi i64 [ 1, %11 ], [ %indvars.iv.next.i, %17 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %18 = getelementptr inbounds nuw %struct.listNode, ptr %12, i64 %indvars.iv.next.i
-  %19 = getelementptr inbounds nuw %struct.listNode, ptr %12, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %indvars.iv.next.i
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %indvars.iv.i
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %18, ptr %20, align 8
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 246
@@ -2077,7 +2075,7 @@ _list_node_destroy.exit:                          ; preds = %45, %31
   br i1 %.not37, label %_list_node_destroy.exit.thread.loopexit, label %48
 
 48:                                               ; preds = %_list_node_destroy.exit
-  %49 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv
   store ptr %27, ptr %49, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %50 = load ptr, ptr %20, align 8
@@ -2102,7 +2100,7 @@ _list_node_destroy.exit.thread.loopexit:          ; preds = %48, %_list_node_des
 56:                                               ; preds = %.lr.ph50, %_list_node_create.exit
   %indvars.iv58 = phi i64 [ 0, %.lr.ph50 ], [ %indvars.iv.next59, %_list_node_create.exit ]
   %57 = load ptr, ptr %52, align 8
-  %58 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv58
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv58
   %59 = load ptr, ptr %58, align 8
   %60 = load ptr, ptr %53, align 8
   %.not.i41 = icmp eq ptr %60, null
@@ -2121,8 +2119,8 @@ _list_node_destroy.exit.thread.loopexit:          ; preds = %48, %_list_node_des
 66:                                               ; preds = %66, %61
   %indvars.iv.i = phi i64 [ 1, %61 ], [ %indvars.iv.next.i, %66 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %67 = getelementptr inbounds nuw %struct.listNode, ptr %62, i64 %indvars.iv.next.i
-  %68 = getelementptr inbounds nuw %struct.listNode, ptr %62, i64 %indvars.iv.i
+  %67 = getelementptr inbounds nuw [16 x i8], ptr %62, i64 %indvars.iv.next.i
+  %68 = getelementptr inbounds nuw [16 x i8], ptr %62, i64 %indvars.iv.i
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
   store ptr %67, ptr %69, align 8
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 246
@@ -2701,8 +2699,8 @@ define dso_local void @list_insert(ptr noundef readonly captures(none) %0, ptr n
 21:                                               ; preds = %21, %15
   %indvars.iv.i = phi i64 [ 1, %15 ], [ %indvars.iv.next.i, %21 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %22 = getelementptr inbounds nuw %struct.listNode, ptr %16, i64 %indvars.iv.next.i
-  %23 = getelementptr inbounds nuw %struct.listNode, ptr %16, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %indvars.iv.next.i
+  %23 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %indvars.iv.i
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr %22, ptr %24, align 8
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 246
@@ -3258,8 +3256,8 @@ _list_node_destroy.exit:                          ; preds = %51, %37
 61:                                               ; preds = %61, %56
   %indvars.iv.i = phi i64 [ 1, %56 ], [ %indvars.iv.next.i, %61 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %62 = getelementptr inbounds nuw %struct.listNode, ptr %57, i64 %indvars.iv.next.i
-  %63 = getelementptr inbounds nuw %struct.listNode, ptr %57, i64 %indvars.iv.i
+  %62 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %indvars.iv.next.i
+  %63 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %indvars.iv.i
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store ptr %62, ptr %64, align 8
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 246
@@ -3341,8 +3339,8 @@ _list_node_destroy.exit:                          ; preds = %51, %37
 93:                                               ; preds = %93, %88
   %indvars.iv.i53 = phi i64 [ 1, %88 ], [ %indvars.iv.next.i54, %93 ]
   %indvars.iv.next.i54 = add nuw nsw i64 %indvars.iv.i53, 1
-  %94 = getelementptr inbounds nuw %struct.listNode, ptr %89, i64 %indvars.iv.next.i54
-  %95 = getelementptr inbounds nuw %struct.listNode, ptr %89, i64 %indvars.iv.i53
+  %94 = getelementptr inbounds nuw [16 x i8], ptr %89, i64 %indvars.iv.next.i54
+  %95 = getelementptr inbounds nuw [16 x i8], ptr %89, i64 %indvars.iv.i53
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
   store ptr %94, ptr %96, align 8
   %exitcond.not.i55 = icmp eq i64 %indvars.iv.next.i54, 246

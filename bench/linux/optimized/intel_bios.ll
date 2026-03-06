@@ -4,22 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.anon.59 = type { i32, i64 }
-%struct.lvds_lfp_data_ptr = type { %struct.lvds_lfp_data_ptr_table, %struct.lvds_lfp_data_ptr_table, %struct.lvds_lfp_data_ptr_table }
-%struct.lvds_lfp_data_ptr_table = type <{ i16, i8 }>
-%struct.dsc_compression_parameters_entry = type <{ i16, i8, i32, i16, i8, i8, i16 }>
-%struct.sdvo_device_mapping = type { i8, i8, i8, i8, i8, i8 }
 %struct.anon.62 = type { ptr, ptr, i32 }
-%struct.generic_dtd_entry = type { i32, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i8, [3 x i8] }
-%struct.lvds_lfp_panel_name = type { [13 x i8] }
-%struct.lfp_backlight_data_entry = type <{ i8, i16, i8, i8, i8 }>
-%struct.lfp_backlight_control_method = type { i8 }
-%struct.lfp_brightness_level = type { i16, i16 }
-%struct.lvds_dvo_timing = type { i16, i8, i8, i8, i8, i8, i8, i8, i8, i16, i8, i8, i8, i8, i8, i8 }
-%struct.edp_power_seq = type { i16, i16, i16, i16, i16 }
-%struct.edp_fast_link_params = type { i16 }
-%struct.psr_table = type { i16, i16, i16 }
-%struct.mipi_config = type <{ i16, [6 x i8], i16, i8, i32, i32, i32, [3 x i8], i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, [6 x i32], i8, i8, i8, i8, i8, i8, i8, i8, i16, i8, i8, i8, i8, i8, i16, i8, i8, i8, i8, i8, i8, [3 x i8], i8, i8, i8, i8, i8, i8 }>
-%struct.mipi_pps_data = type { i16, i16, i16, i16, i16 }
 %struct.lvds_pnp_id = type <{ i16, i16, i32, i8, i8 }>
 
 @.str = private unnamed_addr constant [26 x i8] c"Missing case (%s == %ld)\0A\00", align 1
@@ -204,7 +189,7 @@ define internal fastcc i32 @dvo_port_to_port(ptr noundef readonly captures(none)
 
 8:                                                ; preds = %20, %6
   %9 = phi i64 [ 0, %6 ], [ %21, %20 ]
-  %.split14 = getelementptr [3 x i32], ptr @dvo_port_to_port.xelpd_port_mapping, i64 %9
+  %.split14 = getelementptr [12 x i8], ptr @dvo_port_to_port.xelpd_port_mapping, i64 %9
   br label %13
 
 10:                                               ; preds = %18
@@ -214,7 +199,7 @@ define internal fastcc i32 @dvo_port_to_port(ptr noundef readonly captures(none)
 
 13:                                               ; preds = %10, %8
   %14 = phi i64 [ 0, %8 ], [ %11, %10 ]
-  %15 = getelementptr i32, ptr %.split14, i64 %14
+  %15 = getelementptr [4 x i8], ptr %.split14, i64 %14
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %16, -1
   br i1 %17, label %20, label %18
@@ -246,7 +231,7 @@ define internal fastcc i32 @dvo_port_to_port(ptr noundef readonly captures(none)
 
 33:                                               ; preds = %45, %31
   %34 = phi i64 [ 0, %31 ], [ %46, %45 ]
-  %.split = getelementptr [3 x i32], ptr @dvo_port_to_port.adls_port_mapping, i64 %34
+  %.split = getelementptr [12 x i8], ptr @dvo_port_to_port.adls_port_mapping, i64 %34
   br label %38
 
 35:                                               ; preds = %43
@@ -256,7 +241,7 @@ define internal fastcc i32 @dvo_port_to_port(ptr noundef readonly captures(none)
 
 38:                                               ; preds = %35, %33
   %39 = phi i64 [ 0, %33 ], [ %36, %35 ]
-  %40 = getelementptr i32, ptr %.split, i64 %39
+  %40 = getelementptr [4 x i8], ptr %.split, i64 %39
   %41 = load i32, ptr %40, align 4
   %42 = icmp eq i32 %41, -1
   br i1 %42, label %45, label %43
@@ -282,7 +267,7 @@ define internal fastcc i32 @dvo_port_to_port(ptr noundef readonly captures(none)
 
 .preheader16:                                     ; preds = %50, %65
   %54 = phi i64 [ %66, %65 ], [ 0, %50 ]
-  %.split12 = getelementptr [3 x i32], ptr @dvo_port_to_port.rkl_port_mapping, i64 %54
+  %.split12 = getelementptr [12 x i8], ptr @dvo_port_to_port.rkl_port_mapping, i64 %54
   br label %58
 
 55:                                               ; preds = %63
@@ -292,7 +277,7 @@ define internal fastcc i32 @dvo_port_to_port(ptr noundef readonly captures(none)
 
 58:                                               ; preds = %55, %.preheader16
   %59 = phi i64 [ 0, %.preheader16 ], [ %56, %55 ]
-  %60 = getelementptr i32, ptr %.split12, i64 %59
+  %60 = getelementptr [4 x i8], ptr %.split12, i64 %59
   %61 = load i32, ptr %60, align 4
   %62 = icmp eq i32 %61, -1
   br i1 %62, label %65, label %63
@@ -312,7 +297,7 @@ define internal fastcc i32 @dvo_port_to_port(ptr noundef readonly captures(none)
 
 .preheader:                                       ; preds = %50, %81
   %70 = phi i64 [ %82, %81 ], [ 0, %50 ]
-  %.split13 = getelementptr [3 x i32], ptr @dvo_port_to_port.port_mapping, i64 %70
+  %.split13 = getelementptr [12 x i8], ptr @dvo_port_to_port.port_mapping, i64 %70
   br label %74
 
 71:                                               ; preds = %79
@@ -322,7 +307,7 @@ define internal fastcc i32 @dvo_port_to_port(ptr noundef readonly captures(none)
 
 74:                                               ; preds = %71, %.preheader
   %75 = phi i64 [ 0, %.preheader ], [ %72, %71 ]
-  %76 = getelementptr i32, ptr %.split13, i64 %75
+  %76 = getelementptr [4 x i8], ptr %.split13, i64 %75
   %77 = load i32, ptr %76, align 4
   %78 = icmp eq i32 %77, -1
   br i1 %78, label %81, label %79
@@ -815,7 +800,7 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #4 ali
   %97 = load ptr, ptr %55, align 8
   %98 = tail call i32 %97(ptr noundef nonnull %54, i32 1056832, i1 noundef zeroext true) #17
   %99 = add nuw nsw i64 %93, 1
-  %100 = getelementptr i32, ptr %84, i64 %93
+  %100 = getelementptr [4 x i8], ptr %84, i64 %93
   store i32 %98, ptr %100, align 4
   %101 = add nuw nsw i32 %94, 4
   %102 = icmp eq i64 %99, %91
@@ -1003,7 +988,7 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #4 ali
 
 198:                                              ; preds = %.thread111, %191
   %199 = phi i64 [ 0, %191 ], [ %694, %.thread111 ]
-  %200 = getelementptr %struct.anon.59, ptr @bdb_blocks, i64 %199
+  %200 = getelementptr [16 x i8], ptr @bdb_blocks, i64 %199
   %201 = load i32, ptr %200, align 16
   %202 = getelementptr inbounds nuw i8, ptr %200, i64 8
   %203 = load i64, ptr %202, align 8
@@ -1224,7 +1209,7 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #4 ali
 
 .preheader162:                                    ; preds = %321, %.preheader162
   %334 = phi i64 [ %356, %.preheader162 ], [ 1, %321 ]
-  %335 = getelementptr %struct.lvds_lfp_data_ptr, ptr %324, i64 %334
+  %335 = getelementptr [9 x i8], ptr %324, i64 %334
   %336 = getelementptr i8, ptr %335, i64 -9
   %337 = getelementptr i8, ptr %335, i64 -7
   %338 = load i8, ptr %337, align 1
@@ -1272,7 +1257,7 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #4 ali
 
 365:                                              ; preds = %365, %363
   %366 = phi i64 [ 0, %363 ], [ %376, %365 ]
-  %367 = getelementptr %struct.lvds_lfp_data_ptr, ptr %324, i64 %366
+  %367 = getelementptr [9 x i8], ptr %324, i64 %366
   %368 = load i16, ptr %367, align 1
   %369 = add i16 %368, %364
   store i16 %369, ptr %367, align 1
@@ -1466,7 +1451,7 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #4 ali
 
 484:                                              ; preds = %500, %.loopexit161
   %485 = phi i64 [ 0, %.loopexit161 ], [ %504, %500 ]
-  %486 = getelementptr %struct.lvds_lfp_data_ptr, ptr %482, i64 %485
+  %486 = getelementptr [9 x i8], ptr %482, i64 %485
   %487 = load i16, ptr %486, align 1
   %488 = zext i16 %487 to i32
   %489 = icmp ugt i32 %481, %488
@@ -1620,7 +1605,7 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #4 ali
 
 .preheader157:                                    ; preds = %574, %583
   %586 = phi i64 [ %584, %583 ], [ 1, %574 ]
-  %587 = getelementptr %struct.lvds_lfp_data_ptr, ptr %482, i64 %586
+  %587 = getelementptr [9 x i8], ptr %482, i64 %586
   %588 = getelementptr inbounds nuw i8, ptr %587, i64 2
   %589 = load i8, ptr %588, align 1
   %590 = icmp eq i8 %589, %557
@@ -1711,7 +1696,7 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #4 ali
 
 .preheader156:                                    ; preds = %.preheader156.preheader, %647
   %650 = phi i64 [ %648, %647 ], [ 0, %.preheader156.preheader ]
-  %651 = getelementptr %struct.lvds_lfp_data_ptr, ptr %482, i64 %650
+  %651 = getelementptr [9 x i8], ptr %482, i64 %650
   %652 = load i16, ptr %651, align 1
   %653 = zext i16 %652 to i32
   %654 = icmp slt i32 %invariant.op, %653
@@ -1747,7 +1732,7 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #4 ali
 
 675:                                              ; preds = %675, %671
   %676 = phi i64 [ 0, %671 ], [ %683, %675 ]
-  %677 = getelementptr %struct.lvds_lfp_data_ptr, ptr %482, i64 %676
+  %677 = getelementptr [9 x i8], ptr %482, i64 %676
   %678 = load i16, ptr %677, align 1
   %679 = zext i16 %678 to i64
   %680 = getelementptr i8, ptr %674, i64 %679
@@ -2386,7 +2371,7 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #4 ali
   %1034 = lshr i24 %1016, 8
   %1035 = and i24 %1034, 15
   %1036 = zext nneg i24 %1035 to i64
-  %1037 = getelementptr %struct.dsc_compression_parameters_entry, ptr %1012, i64 %1036
+  %1037 = getelementptr [13 x i8], ptr %1012, i64 %1036
   %1038 = call dereferenceable_or_null(13) ptr @kmemdup(ptr noundef %1037, i64 noundef 13, i32 noundef 3264) #21
   %1039 = getelementptr i8, ptr %1014, i64 -8
   store ptr %1038, ptr %1039, align 8
@@ -2586,7 +2571,7 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #4 ali
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %1133, i32 noundef 2, ptr noundef nonnull @.str.37, i32 noundef %1134, ptr noundef nonnull %1136) #17
   %1137 = load i8, ptr %1120, align 1
   %1138 = zext i8 %1137 to i64
-  %1139 = getelementptr %struct.sdvo_device_mapping, ptr %1113, i64 %1138
+  %1139 = getelementptr [6 x i8], ptr %1113, i64 %1138
   %1140 = load i8, ptr %1139, align 1
   %1141 = icmp eq i8 %1140, 0
   br i1 %1141, label %1142, label %1164
@@ -3358,7 +3343,7 @@ define internal fastcc void @intel_bios_init_panel(ptr noundef %0, ptr noundef %
 
 27:                                               ; preds = %55, %24
   %28 = phi i64 [ 0, %24 ], [ %56, %55 ]
-  %29 = getelementptr %struct.anon.62, ptr %7, i64 %28
+  %29 = getelementptr [24 x i8], ptr %7, i64 %28
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8
   %32 = tail call i32 %31(ptr noundef %0, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4) #17
@@ -3447,7 +3432,7 @@ define internal fastcc void @intel_bios_init_panel(ptr noundef %0, ptr noundef %
 
 79:                                               ; preds = %77, %75
   %80 = phi ptr [ %78, %77 ], [ null, %75 ]
-  %81 = getelementptr %struct.anon.62, ptr %7, i64 %76
+  %81 = getelementptr [24 x i8], ptr %7, i64 %76
   %82 = load ptr, ptr %81, align 8
   %83 = getelementptr inbounds nuw i8, ptr %81, i64 16
   %84 = load i32, ptr %83, align 8
@@ -3709,7 +3694,7 @@ define internal fastcc void @intel_bios_init_panel(ptr noundef %0, ptr noundef %
 224:                                              ; preds = %220
   %225 = getelementptr i8, ptr %164, i64 25
   %226 = sext i32 %213 to i64
-  %227 = getelementptr %struct.generic_dtd_entry, ptr %225, i64 %226
+  %227 = getelementptr [28 x i8], ptr %225, i64 %226
   %228 = getelementptr inbounds nuw i8, ptr %227, i64 4
   %229 = load i16, ptr %228, align 1
   %230 = getelementptr inbounds nuw i8, ptr %222, i64 4
@@ -3916,7 +3901,7 @@ define internal fastcc void @intel_bios_init_panel(ptr noundef %0, ptr noundef %
   %376 = getelementptr inbounds nuw i8, ptr %337, i64 24
   %377 = load i32, ptr %376, align 8
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %345, i32 noundef 2, ptr noundef nonnull @.str.80, ptr noundef nonnull %346, i32 noundef %347, i32 noundef %348, i32 noundef %351, i32 noundef %354, i32 noundef %357, i32 noundef %360, i32 noundef %363, i32 noundef %366, i32 noundef %369, i32 noundef %372, i32 noundef %375, i32 noundef %377) #17
-  %378 = getelementptr %struct.lvds_lfp_data_ptr, ptr %331, i64 %332
+  %378 = getelementptr [9 x i8], ptr %331, i64 %332
   %379 = load i16, ptr %378, align 1
   %380 = zext i16 %379 to i64
   %381 = getelementptr i8, ptr %325, i64 %380
@@ -4022,7 +4007,7 @@ define internal fastcc void @intel_bios_init_panel(ptr noundef %0, ptr noundef %
 
 449:                                              ; preds = %447, %446
   %450 = phi ptr [ %448, %447 ], [ null, %446 ]
-  %451 = getelementptr %struct.lvds_lfp_panel_name, ptr %444, i64 %.pre-phi
+  %451 = getelementptr [13 x i8], ptr %444, i64 %.pre-phi
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %450, i32 noundef 2, ptr noundef nonnull @.str.78, i32 noundef 13, ptr noundef %451) #17
   %452 = load i16, ptr %160, align 8
   %453 = icmp ugt i16 %452, 187
@@ -4088,7 +4073,7 @@ define internal fastcc void @intel_bios_init_panel(ptr noundef %0, ptr noundef %
 485:                                              ; preds = %476
   %486 = getelementptr i8, ptr %467, i64 24
   %487 = sext i32 %464 to i64
-  %488 = getelementptr %struct.lfp_backlight_data_entry, ptr %486, i64 %487
+  %488 = getelementptr [6 x i8], ptr %486, i64 %487
   %489 = load i8, ptr %488, align 1
   %490 = and i8 %489, 3
   %491 = icmp eq i8 %490, 2
@@ -4154,7 +4139,7 @@ define internal fastcc void @intel_bios_init_panel(ptr noundef %0, ptr noundef %
 
 528:                                              ; preds = %524
   %529 = getelementptr i8, ptr %467, i64 136
-  %530 = getelementptr %struct.lfp_backlight_control_method, ptr %529, i64 %487
+  %530 = getelementptr i8, ptr %529, i64 %487
   %531 = load i8, ptr %530, align 1
   %532 = and i8 %531, 15
   %533 = zext nneg i8 %532 to i32
@@ -4179,10 +4164,10 @@ define internal fastcc void @intel_bios_init_panel(ptr noundef %0, ptr noundef %
 
 545:                                              ; preds = %536
   %546 = getelementptr i8, ptr %467, i64 152
-  %547 = getelementptr %struct.lfp_brightness_level, ptr %546, i64 %487
+  %547 = getelementptr [4 x i8], ptr %546, i64 %487
   %548 = load i16, ptr %547, align 1
   %549 = getelementptr i8, ptr %467, i64 216
-  %550 = getelementptr %struct.lfp_brightness_level, ptr %549, i64 %487
+  %550 = getelementptr [4 x i8], ptr %549, i64 %487
   %551 = load i16, ptr %550, align 1
   %552 = icmp ugt i16 %543, 235
   br i1 %552, label %553, label %558
@@ -4250,7 +4235,7 @@ define internal fastcc void @intel_bios_init_panel(ptr noundef %0, ptr noundef %
 
 592:                                              ; preds = %587
   %593 = getelementptr i8, ptr %467, i64 296
-  %594 = getelementptr i16, ptr %593, i64 %487
+  %594 = getelementptr [2 x i8], ptr %593, i64 %487
   %595 = load i16, ptr %594, align 1
   %596 = zext i16 %595 to i32
   %597 = add nuw nsw i32 %596, 99
@@ -4354,7 +4339,7 @@ define internal fastcc void @intel_bios_init_panel(ptr noundef %0, ptr noundef %
 
 654:                                              ; preds = %650
   %655 = sext i32 %638 to i64
-  %656 = getelementptr %struct.lvds_dvo_timing, ptr %648, i64 %655
+  %656 = getelementptr [18 x i8], ptr %648, i64 %655
   call fastcc void @fill_detail_timing_data(ptr noundef %0, ptr noundef nonnull %652, ptr noundef %656)
   %657 = getelementptr inbounds nuw i8, ptr %1, i64 136
   store ptr %652, ptr %657, align 8
@@ -4605,9 +4590,9 @@ default.unreachable279:                           ; preds = %1148, %1016, %802
 
 813:                                              ; preds = %802, %810
   %814 = sext i32 %734 to i64
-  %815 = getelementptr %struct.edp_power_seq, ptr %800, i64 %814
+  %815 = getelementptr [10 x i8], ptr %800, i64 %814
   %816 = getelementptr i8, ptr %793, i64 187
-  %817 = getelementptr %struct.edp_fast_link_params, ptr %816, i64 %814
+  %817 = getelementptr [2 x i8], ptr %816, i64 %814
   %818 = getelementptr inbounds nuw i8, ptr %1, i64 164
   %819 = getelementptr inbounds nuw i8, ptr %1, i64 188
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(10) %819, ptr noundef align 1 dereferenceable(10) %815, i64 10, i1 false)
@@ -4617,7 +4602,7 @@ default.unreachable279:                           ; preds = %1148, %1016, %802
 
 822:                                              ; preds = %813
   %823 = getelementptr i8, ptr %793, i64 771
-  %824 = getelementptr i16, ptr %823, i64 %814
+  %824 = getelementptr [2 x i8], ptr %823, i64 %814
   %825 = load i16, ptr %824, align 1
   %826 = zext i16 %825 to i32
   %827 = mul nuw nsw i32 %826, 20
@@ -4833,7 +4818,7 @@ default.unreachable279:                           ; preds = %1148, %1016, %802
 
 925:                                              ; preds = %916
   %926 = getelementptr i8, ptr %793, i64 803
-  %927 = getelementptr i16, ptr %926, i64 %814
+  %927 = getelementptr [2 x i8], ptr %926, i64 %814
   %928 = load i16, ptr %927, align 1
   %929 = zext i16 %928 to i32
   %930 = mul nuw nsw i32 %929, 20
@@ -4875,7 +4860,7 @@ default.unreachable279:                           ; preds = %1148, %1016, %802
 
 947:                                              ; preds = %940
   %948 = sext i32 %931 to i64
-  %949 = getelementptr %struct.psr_table, ptr %941, i64 %948
+  %949 = getelementptr [6 x i8], ptr %941, i64 %948
   %950 = load i16, ptr %949, align 1
   %951 = getelementptr inbounds nuw i8, ptr %1, i64 205
   %952 = trunc i16 %950 to i8
@@ -5135,7 +5120,7 @@ default.unreachable279:                           ; preds = %1148, %1016, %802
   %1083 = phi ptr [ %1081, %1080 ], [ null, %1079 ]
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %1083, i32 noundef 1, ptr noundef nonnull @.str.101, i32 noundef %1031) #17
   %1084 = sext i32 %1031 to i64
-  %1085 = getelementptr %struct.mipi_config, ptr %1073, i64 %1084
+  %1085 = getelementptr [122 x i8], ptr %1073, i64 %1084
   %1086 = call dereferenceable_or_null(122) ptr @kmemdup(ptr noundef %1085, i64 noundef 122, i32 noundef 3264) #21
   %1087 = getelementptr inbounds nuw i8, ptr %1, i64 248
   store ptr %1086, ptr %1087, align 8
@@ -5144,7 +5129,7 @@ default.unreachable279:                           ; preds = %1148, %1016, %802
 
 1089:                                             ; preds = %1082
   %1090 = getelementptr i8, ptr %1066, i64 755
-  %1091 = getelementptr %struct.mipi_pps_data, ptr %1090, i64 %1084
+  %1091 = getelementptr [10 x i8], ptr %1090, i64 %1084
   %1092 = call dereferenceable_or_null(10) ptr @kmemdup(ptr noundef %1091, i64 noundef 10, i32 noundef 3264) #21
   %1093 = getelementptr inbounds nuw i8, ptr %1, i64 256
   store ptr %1092, ptr %1093, align 8
@@ -5490,7 +5475,7 @@ default.unreachable279:                           ; preds = %1148, %1016, %802
 
 1280:                                             ; preds = %1278, %1272
   %1281 = zext nneg i8 %1262 to i64
-  %1282 = getelementptr ptr, ptr %1254, i64 %1281
+  %1282 = getelementptr [8 x i8], ptr %1254, i64 %1281
   store ptr %1261, ptr %1282, align 8
   %1283 = load i8, ptr %1172, align 1
   %1284 = icmp ugt i8 %1283, 2

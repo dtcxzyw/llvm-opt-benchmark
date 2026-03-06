@@ -38,7 +38,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_usb_anchor_e
 %struct.list_head = type { ptr, ptr }
 %struct.static_call_key = type { ptr, %union.anon.2 }
 %union.anon.2 = type { i64 }
-%struct.usb_iso_packet_descriptor = type { i32, i32, i32, i32 }
 %struct.wait_queue_entry = type { i32, ptr, ptr, %struct.list_head }
 
 @__UNIQUE_ID___addressable_usb_init_urb348 = internal global ptr @usb_init_urb, section ".discard.addressable", align 8
@@ -355,7 +354,7 @@ define dso_local range(i32 -22, 1) i32 @usb_pipe_type_check(ptr noundef readonly
   %7 = lshr i32 %1, 15
   %8 = and i32 %7, 15
   %9 = zext nneg i32 %8 to i64
-  %10 = getelementptr ptr, ptr %6, i64 %9
+  %10 = getelementptr [8 x i8], ptr %6, i64 %9
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %23, label %13
@@ -366,7 +365,7 @@ define dso_local range(i32 -22, 1) i32 @usb_pipe_type_check(ptr noundef readonly
   %16 = load i8, ptr %15, align 1
   %17 = and i8 %16, 3
   %18 = zext nneg i8 %17 to i64
-  %19 = getelementptr i32, ptr @pipetypes, i64 %18
+  %19 = getelementptr [4 x i8], ptr @pipetypes, i64 %18
   %20 = load i32, ptr %19, align 4
   %21 = icmp eq i32 %14, %20
   %22 = select i1 %21, i32 0, i32 -22
@@ -390,7 +389,7 @@ define dso_local range(i32 -22, 1) i32 @usb_urb_ep_type_check(ptr noundef readon
   %10 = lshr i32 %5, 15
   %11 = and i32 %10, 15
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr ptr, ptr %9, i64 %12
+  %13 = getelementptr [8 x i8], ptr %9, i64 %12
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %26, label %16
@@ -401,7 +400,7 @@ define dso_local range(i32 -22, 1) i32 @usb_urb_ep_type_check(ptr noundef readon
   %19 = load i8, ptr %18, align 1
   %20 = and i8 %19, 3
   %21 = zext nneg i8 %20 to i64
-  %22 = getelementptr i32, ptr @pipetypes, i64 %21
+  %22 = getelementptr [4 x i8], ptr @pipetypes, i64 %21
   %23 = load i32, ptr %22, align 4
   %24 = icmp eq i32 %17, %23
   %25 = select i1 %24, i32 0, i32 -22
@@ -465,7 +464,7 @@ define dso_local i32 @usb_submit_urb(ptr noundef %0, i32 noundef %1) #2 align 16
   %30 = lshr i32 %25, 15
   %31 = and i32 %30, 15
   %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr ptr, ptr %29, i64 %32
+  %33 = getelementptr [8 x i8], ptr %29, i64 %32
   %34 = load ptr, ptr %33, align 8
   %35 = icmp eq ptr %34, null
   br i1 %35, label %.thread, label %36
@@ -637,7 +636,7 @@ define dso_local i32 @usb_submit_urb(ptr noundef %0, i32 noundef %1) #2 align 16
 
 145:                                              ; preds = %152, %142
   %indvars.iv = phi i64 [ %indvars.iv.next, %152 ], [ 0, %142 ]
-  %146 = getelementptr %struct.usb_iso_packet_descriptor, ptr %143, i64 %indvars.iv
+  %146 = getelementptr [16 x i8], ptr %143, i64 %indvars.iv
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 4
   %148 = load i32, ptr %147, align 4
   %149 = icmp sgt i32 %148, -1
@@ -720,7 +719,7 @@ define dso_local i32 @usb_submit_urb(ptr noundef %0, i32 noundef %1) #2 align 16
   %203 = lshr i32 %198, 15
   %204 = and i32 %203, 15
   %205 = zext nneg i32 %204 to i64
-  %206 = getelementptr ptr, ptr %202, i64 %205
+  %206 = getelementptr [8 x i8], ptr %202, i64 %205
   %207 = load ptr, ptr %206, align 8
   %208 = icmp eq ptr %207, null
   br i1 %208, label %218, label %209
@@ -731,7 +730,7 @@ define dso_local i32 @usb_submit_urb(ptr noundef %0, i32 noundef %1) #2 align 16
   %212 = load i8, ptr %211, align 1
   %213 = and i8 %212, 3
   %214 = zext nneg i8 %213 to i64
-  %215 = getelementptr i32, ptr @pipetypes, i64 %214
+  %215 = getelementptr [4 x i8], ptr @pipetypes, i64 %214
   %216 = load i32, ptr %215, align 4
   %217 = icmp eq i32 %210, %216
   br i1 %217, label %233, label %218
@@ -754,7 +753,7 @@ define dso_local i32 @usb_submit_urb(ptr noundef %0, i32 noundef %1) #2 align 16
   %228 = load i32, ptr %24, align 8
   %229 = lshr i32 %228, 30
   %230 = zext nneg i8 %42 to i64
-  %231 = getelementptr i32, ptr @pipetypes, i64 %230
+  %231 = getelementptr [4 x i8], ptr @pipetypes, i64 %230
   %232 = load i32, ptr %231, align 4
   tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.4, ptr noundef %220, ptr noundef %227, i32 noundef %229, i32 noundef %232) #10
   tail call void asm sideeffect "365: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 365b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 365) #10, !srcloc !26

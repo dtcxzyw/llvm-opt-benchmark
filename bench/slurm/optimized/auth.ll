@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.slurm_conf_t = type { i64, ptr, i16, ptr, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i16, ptr, ptr, i16, i32, ptr, i32, ptr, i32, i32, ptr, ptr, i64, i64, ptr, i16, i16, ptr, i32, i32, ptr, i32, ptr, i32, i16, i16, i16, ptr, i16, i16, ptr, ptr, i32, i16, i16, ptr, i32, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, i16, i16, ptr, i32, i32, i32, i16, i16, ptr, ptr, i16, ptr, ptr, i32, i32, i32, i32, i32, i64, i32, i32, i16, ptr, ptr, i32, ptr, ptr, ptr, i16, i32, ptr, ptr, i16, ptr, ptr, i32, i16, ptr, ptr, ptr, ptr, i32, i32, i16, i16, i32, ptr, i16, ptr, i32, i32, i32, i32, i32, i32, ptr, i16, ptr, ptr, i32, i16, ptr, i32, i16, i16, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i16, i16, ptr, i16, ptr, i16, ptr, i16, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, i32, ptr, i32, ptr, ptr, i16, ptr, ptr, i32, i16, ptr, ptr, i16, i16, ptr, i16, ptr, ptr, ptr, i32, ptr, i16, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, i32, i16, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, i16, ptr, ptr, ptr, i16, ptr, i16, ptr, i16, i16, ptr }
-%struct.auth_plugin_types_t = type { i32, ptr }
-%struct.auth_ops_t = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 
 @.str = private unnamed_addr constant [10 x i8] c"auth/none\00", align 1
 @.str.1 = private unnamed_addr constant [11 x i8] c"auth/munge\00", align 1
@@ -92,7 +90,7 @@ define dso_local ptr @auth_get_plugin_name(i32 noundef %0) local_unnamed_addr #0
 
 3:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %4 = getelementptr inbounds nuw %struct.auth_plugin_types_t, ptr @auth_plugin_types, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [16 x i8], ptr @auth_plugin_types, i64 %indvars.iv
   %5 = load i32, ptr %4, align 16
   %6 = icmp eq i32 %0, %5
   br i1 %6, label %7, label %2
@@ -120,7 +118,7 @@ define dso_local zeroext i1 @slurm_get_plugin_hash_enable(i32 noundef %0) local_
 5:                                                ; preds = %1
   %6 = load ptr, ptr @ops, align 8
   %7 = sext i32 %0 to i64
-  %8 = getelementptr inbounds %struct.auth_ops_t, ptr %6, i64 %7
+  %8 = getelementptr inbounds [128 x i8], ptr %6, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = load i8, ptr %10, align 1, !range !11, !noundef !12
@@ -144,7 +142,7 @@ define dso_local noundef zeroext i1 @auth_is_plugin_type_inited(i32 noundef %0) 
 
 5:                                                ; preds = %5, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %5 ]
-  %6 = getelementptr inbounds nuw %struct.auth_ops_t, ptr %4, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [128 x i8], ptr %4, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i32 %0, %8
@@ -199,7 +197,7 @@ define dso_local range(i32 -1, 1) i32 @auth_g_init() local_unnamed_addr #1 {
 
 14:                                               ; preds = %13, %12
   %indvars.iv.i = phi i64 [ 0, %12 ], [ %indvars.iv.next.i, %13 ]
-  %15 = getelementptr inbounds nuw %struct.auth_plugin_types_t, ptr @auth_plugin_types, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw [16 x i8], ptr @auth_plugin_types, i64 %indvars.iv.i
   %16 = load i32, ptr %15, align 16
   %17 = icmp eq i32 %16, 102
   br i1 %17, label %18, label %13
@@ -236,7 +234,7 @@ auth_get_plugin_name.exit:                        ; preds = %13, %18
 
 29:                                               ; preds = %28, %27
   %indvars.iv.i20 = phi i64 [ 0, %27 ], [ %indvars.iv.next.i21, %28 ]
-  %30 = getelementptr inbounds nuw %struct.auth_plugin_types_t, ptr @auth_plugin_types, i64 %indvars.iv.i20
+  %30 = getelementptr inbounds nuw [16 x i8], ptr @auth_plugin_types, i64 %indvars.iv.i20
   %31 = load i32, ptr %30, align 16
   %32 = icmp eq i32 %31, 103
   br i1 %32, label %33, label %28
@@ -310,15 +308,15 @@ thread-pre-split:                                 ; preds = %25
   %63 = load ptr, ptr @ops, align 8
   %64 = load i32, ptr @g_context_num, align 4
   %65 = sext i32 %64 to i64
-  %66 = getelementptr inbounds %struct.auth_ops_t, ptr %63, i64 %65
+  %66 = getelementptr inbounds [128 x i8], ptr %63, i64 %65
   %67 = call ptr @plugin_context_create(ptr noundef nonnull @.str.6, ptr noundef %62, ptr noundef %66, ptr noundef nonnull @syms, i64 noundef 128) #12
   %68 = load ptr, ptr @g_context, align 8
   %69 = load i32, ptr @g_context_num, align 4
   %70 = sext i32 %69 to i64
-  %71 = getelementptr inbounds ptr, ptr %68, i64 %70
+  %71 = getelementptr inbounds [8 x i8], ptr %68, i64 %70
   store ptr %67, ptr %71, align 8
   %72 = load ptr, ptr @g_context, align 8
-  %73 = getelementptr inbounds ptr, ptr %72, i64 %70
+  %73 = getelementptr inbounds [8 x i8], ptr %72, i64 %70
   %74 = load ptr, ptr %73, align 8
   %.not17 = icmp eq ptr %74, null
   br i1 %.not17, label %75, label %78
@@ -444,7 +442,7 @@ define dso_local range(i32 -1, 1) i32 @auth_g_fini() local_unnamed_addr #1 {
   %indvars.iv = phi i64 [ %indvars.iv.next, %22 ], [ 0, %.preheader ]
   %.01118 = phi i32 [ %.1, %22 ], [ 0, %.preheader ]
   %8 = load ptr, ptr @g_context, align 8
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 @plugin_context_destroy(ptr noundef %10) #12
   %.not17 = icmp eq i32 %11, 0
@@ -457,7 +455,7 @@ define dso_local range(i32 -1, 1) i32 @auth_g_fini() local_unnamed_addr #1 {
 
 15:                                               ; preds = %12
   %16 = load ptr, ptr @g_context, align 8
-  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8
@@ -571,7 +569,7 @@ define dso_local ptr @auth_g_create(i32 noundef %0, ptr noundef %1, i32 noundef 
 11:                                               ; preds = %7
   %12 = load ptr, ptr @ops, align 8
   %13 = sext i32 %0 to i64
-  %14 = getelementptr inbounds %struct.auth_ops_t, ptr %12, i64 %13
+  %14 = getelementptr inbounds [128 x i8], ptr %12, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
   %17 = tail call ptr %16(ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) #12
@@ -610,7 +608,7 @@ define dso_local void @auth_g_destroy(ptr noundef %0) local_unnamed_addr #1 {
   %3 = load ptr, ptr @ops, align 8
   %4 = load i32, ptr %0, align 4
   %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds %struct.auth_ops_t, ptr %3, i64 %5
+  %6 = getelementptr inbounds [128 x i8], ptr %3, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %8 = load ptr, ptr %7, align 8
   tail call void %8(ptr noundef nonnull %0) #12
@@ -640,7 +638,7 @@ define dso_local i32 @auth_g_verify(ptr noundef %0, ptr noundef %1) local_unname
   %8 = load ptr, ptr @ops, align 8
   %9 = load i32, ptr %0, align 4
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds %struct.auth_ops_t, ptr %8, i64 %10
+  %11 = getelementptr inbounds [128 x i8], ptr %8, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 %13(ptr noundef nonnull %0, ptr noundef %1) #12
@@ -681,7 +679,7 @@ define dso_local void @auth_g_get_ids(ptr noundef %0, ptr noundef initializes((0
   %9 = load ptr, ptr @ops, align 8
   %10 = load i32, ptr %0, align 4
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds %struct.auth_ops_t, ptr %9, i64 %11
+  %12 = getelementptr inbounds [128 x i8], ptr %9, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2) #12
@@ -725,7 +723,7 @@ define dso_local i32 @auth_g_get_uid(ptr noundef %0) local_unnamed_addr #1 {
   %9 = load ptr, ptr @ops, align 8
   %10 = load i32, ptr %0, align 4
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds %struct.auth_ops_t, ptr %9, i64 %11
+  %12 = getelementptr inbounds [128 x i8], ptr %9, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %14 = load ptr, ptr %13, align 8
   call void %14(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %3) #12
@@ -776,7 +774,7 @@ define dso_local ptr @auth_g_get_host(ptr noundef %0) local_unnamed_addr #1 {
   %10 = load ptr, ptr @ops, align 8
   %11 = load i32, ptr %4, align 4
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds %struct.auth_ops_t, ptr %10, i64 %12
+  %13 = getelementptr inbounds [128 x i8], ptr %10, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 56
   %15 = load ptr, ptr %14, align 8
   %16 = tail call ptr %15(ptr noundef nonnull %4) #12
@@ -905,7 +903,7 @@ define dso_local i32 @auth_g_get_data(ptr noundef %0, ptr noundef %1, ptr nounde
   %9 = load ptr, ptr @ops, align 8
   %10 = load i32, ptr %0, align 4
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds %struct.auth_ops_t, ptr %9, i64 %11
+  %12 = getelementptr inbounds [128 x i8], ptr %9, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i32 %14(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2) #12
@@ -944,7 +942,7 @@ define dso_local ptr @auth_g_get_identity(ptr noundef %0) local_unnamed_addr #1 
   %7 = load ptr, ptr @ops, align 8
   %8 = load i32, ptr %0, align 4
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds %struct.auth_ops_t, ptr %7, i64 %9
+  %10 = getelementptr inbounds [128 x i8], ptr %7, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 72
   %12 = load ptr, ptr %11, align 8
   %13 = tail call ptr %12(ptr noundef nonnull %0) #12
@@ -976,14 +974,14 @@ define dso_local i32 @auth_g_pack(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %7 = load ptr, ptr @ops, align 8
   %8 = load i32, ptr %0, align 4
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds %struct.auth_ops_t, ptr %7, i64 %9
+  %10 = getelementptr inbounds [128 x i8], ptr %7, i64 %9
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr %11, align 4
   tail call void @pack32(i32 noundef %12, ptr noundef %1) #12
   %13 = load ptr, ptr @ops, align 8
   %14 = load i32, ptr %0, align 4
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds %struct.auth_ops_t, ptr %13, i64 %15
+  %16 = getelementptr inbounds [128 x i8], ptr %13, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 80
   %18 = load ptr, ptr %17, align 8
   %19 = tail call i32 %18(ptr noundef nonnull %0, ptr noundef %1, i16 noundef zeroext %2) #12
@@ -1031,7 +1029,7 @@ define dso_local ptr @auth_g_unpack(ptr noundef %0, i16 noundef zeroext %1) loca
 
 10:                                               ; preds = %.lr.ph, %21
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
-  %11 = getelementptr inbounds nuw %struct.auth_ops_t, ptr %9, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [128 x i8], ptr %9, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr %12, align 4
   %14 = icmp eq i32 %.pre, %13
@@ -1064,7 +1062,7 @@ define dso_local ptr @auth_g_unpack(ptr noundef %0, i16 noundef zeroext %1) loca
 
 ._crit_edge:                                      ; preds = %._crit_edge.preheader, %22
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %22 ], [ 0, %._crit_edge.preheader ]
-  %23 = getelementptr inbounds nuw %struct.auth_plugin_types_t, ptr @auth_plugin_types, i64 %indvars.iv.i
+  %23 = getelementptr inbounds nuw [16 x i8], ptr @auth_plugin_types, i64 %indvars.iv.i
   %24 = load i32, ptr %23, align 16
   %25 = icmp eq i32 %.pre, %24
   br i1 %25, label %26, label %22
@@ -1183,7 +1181,7 @@ define dso_local ptr @auth_g_token_generate(i32 noundef %0, ptr noundef %1, i32 
 
 11:                                               ; preds = %.lr.ph, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
-  %12 = getelementptr inbounds nuw %struct.auth_ops_t, ptr %7, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [128 x i8], ptr %7, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr %13, align 4
   %15 = icmp eq i32 %0, %14
@@ -1240,7 +1238,7 @@ define dso_local i32 @auth_g_get_reconfig_fd(i32 noundef %0) local_unnamed_addr 
 
 9:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
-  %10 = getelementptr inbounds nuw %struct.auth_ops_t, ptr %5, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [128 x i8], ptr %5, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr %11, align 4
   %13 = icmp eq i32 %0, %12

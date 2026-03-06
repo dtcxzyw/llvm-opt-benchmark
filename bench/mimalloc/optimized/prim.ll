@@ -575,7 +575,7 @@ define hidden noundef zeroext i1 @_mi_prim_getenv(ptr noundef %0, ptr noundef %1
 
 .preheader:                                       ; preds = %8, %20
   %indvars.iv = phi i64 [ %indvars.iv.next, %20 ], [ 0, %8 ]
-  %11 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !40
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %.loopexit, label %13

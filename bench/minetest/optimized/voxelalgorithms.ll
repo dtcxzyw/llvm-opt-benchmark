@@ -7,20 +7,16 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.irr::core::vector3d" = type { i16, i16, i16 }
 %class.VoxelArea = type { %"class.irr::core::vector3d", %"class.irr::core::vector3d", %"class.irr::core::vector3d" }
 %"struct.std::piecewise_construct_t" = type { i8 }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<voxalgo::ChangingLight, std::allocator<voxalgo::ChangingLight>>::_Vector_impl" }
-%"struct.std::_Vector_base<voxalgo::ChangingLight, std::allocator<voxalgo::ChangingLight>>::_Vector_impl" = type { %"struct.std::_Vector_base<voxalgo::ChangingLight, std::allocator<voxalgo::ChangingLight>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<voxalgo::ChangingLight, std::allocator<voxalgo::ChangingLight>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%struct.MapNode = type { i16, i8, i8 }
-%struct.ContentLightingFlags = type { i8 }
-%"struct.voxalgo::ChangingLight" = type <{ %"class.irr::core::vector3d", %"class.irr::core::vector3d", [4 x i8], ptr, i8, [7 x i8] }>
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base" }
 %"struct.std::_Head_base" = type { ptr }
 %"class.std::tuple.134" = type { i8 }
 %"struct.voxalgo::LightQueue" = type <{ [16 x %"class.std::vector"], i8, [7 x i8] }>
-%"struct.voxalgo::SunlightPropagationUnit" = type <{ %"class.irr::core::vector2d", i8, i8 }>
-%"class.irr::core::vector2d" = type { i16, i16 }
+%"class.std::vector" = type { %"struct.std::_Vector_base" }
+%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<voxalgo::ChangingLight, std::allocator<voxalgo::ChangingLight>>::_Vector_impl" }
+%"struct.std::_Vector_base<voxalgo::ChangingLight, std::allocator<voxalgo::ChangingLight>>::_Vector_impl" = type { %"struct.std::_Vector_base<voxalgo::ChangingLight, std::allocator<voxalgo::ChangingLight>>::_Vector_impl_data" }
+%"struct.std::_Vector_base<voxalgo::ChangingLight, std::allocator<voxalgo::ChangingLight>>::_Vector_impl_data" = type { ptr, ptr, ptr }
+%struct.MapNode = type { i16, i8, i8 }
 %"struct.voxalgo::SunlightPropagationData" = type <{ %"class.std::vector.126", %"class.irr::core::vector3d", [2 x i8] }>
 %"class.std::vector.126" = type { %"struct.std::_Vector_base.127" }
 %"struct.std::_Vector_base.127" = type { %"struct.std::_Vector_base<voxalgo::SunlightPropagationUnit, std::allocator<voxalgo::SunlightPropagationUnit>>::_Vector_impl" }
@@ -201,7 +197,7 @@ entry:
 while.cond:                                       ; preds = %while.cond.backedge, %entry
   %max_light.promoted.i = load i8, ptr %max_light.i, align 8, !tbaa !11
   %idxprom19.i = zext i8 %max_light.promoted.i to i64
-  %arrayidx20.i = getelementptr inbounds nuw %"class.std::vector", ptr %from_nodes, i64 %idxprom19.i
+  %arrayidx20.i = getelementptr inbounds nuw [24 x i8], ptr %from_nodes, i64 %idxprom19.i
   %0 = load ptr, ptr %arrayidx20.i, align 8, !tbaa !13
   %_M_finish.i.i21.i = getelementptr inbounds nuw i8, ptr %arrayidx20.i, i64 8
   %1 = load ptr, ptr %_M_finish.i.i21.i, align 8, !tbaa !13
@@ -218,7 +214,7 @@ if.end.i:                                         ; preds = %while.body.i
   %dec.i = add i8 %2, -1
   store i8 %dec.i, ptr %max_light.i, align 8, !tbaa !11
   %idxprom.i = zext i8 %dec.i to i64
-  %arrayidx.i = getelementptr inbounds nuw %"class.std::vector", ptr %from_nodes, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [24 x i8], ptr %from_nodes, i64 %idxprom.i
   %3 = load ptr, ptr %arrayidx.i, align 8, !tbaa !13
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   %4 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !13
@@ -230,7 +226,7 @@ while.body:                                       ; preds = %if.end.i, %while.co
   %5 = phi ptr [ %1, %while.cond ], [ %4, %if.end.i ]
   %idxprom7.i.pre-phi = phi i64 [ %idxprom19.i, %while.cond ], [ %idxprom.i, %if.end.i ]
   %6 = phi i8 [ %max_light.promoted.i, %while.cond ], [ %dec.i, %if.end.i ]
-  %_M_finish.i.i14.i.split = getelementptr inbounds nuw %"class.std::vector", ptr %from_nodes, i64 %idxprom7.i.pre-phi
+  %_M_finish.i.i14.i.split = getelementptr inbounds nuw [24 x i8], ptr %from_nodes, i64 %idxprom7.i.pre-phi
   %_M_finish.i.i14.i = getelementptr inbounds nuw i8, ptr %_M_finish.i.i14.i.split, i64 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %5, i64 -32
   %current.sroa.0.0.copyload = load i48, ptr %add.ptr.i.i.i, align 8, !tbaa.struct !17
@@ -260,11 +256,11 @@ while.body:                                       ; preds = %if.end.i, %while.co
   %add.i.i = add nsw i64 %mul3.i.i, %conv4.i.i
   %add5.i.i = add nsw i64 %add.i.i, %mul.i.i
   %idxprom.i.i = and i64 %add5.i.i, 4294967295
-  %arrayidx.i.i = getelementptr inbounds nuw %struct.MapNode, ptr %7, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %idxprom.i.i
   %retval.sroa.0.0.copyload.i.i = load i32, ptr %arrayidx.i.i, align 4, !tbaa.struct !62
   %8 = and i32 %retval.sroa.0.0.copyload.i.i, 65535
   %idxprom.i.i118 = zext nneg i32 %8 to i64
-  %arrayidx.i.i119 = getelementptr inbounds nuw %struct.ContentLightingFlags, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i118
+  %arrayidx.i.i119 = getelementptr inbounds nuw i8, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i118
   %retval.sroa.0.0.copyload.i.i120 = load i8, ptr %arrayidx.i.i119, align 1, !tbaa !19
   %bf.clear = and i8 %retval.sroa.0.0.copyload.i.i120, 15
   %narrow = add nuw nsw i8 %bf.clear, 1
@@ -424,12 +420,12 @@ if.end19:                                         ; preds = %if.then11, %sw.bb51
   %add.i.i138 = add nsw i64 %mul3.i.i135, %conv4.i.i137
   %add5.i.i139 = add nsw i64 %add.i.i138, %mul.i.i133
   %idxprom.i.i140 = and i64 %add5.i.i139, 4294967295
-  %arrayidx.i.i141 = getelementptr inbounds nuw %struct.MapNode, ptr %17, i64 %idxprom.i.i140
+  %arrayidx.i.i141 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %idxprom.i.i140
   %retval.sroa.0.0.copyload.i.i142 = load i32, ptr %arrayidx.i.i141, align 4, !tbaa.struct !62
   %neighbor.sroa.5.0.extract.shift = lshr i32 %retval.sroa.0.0.copyload.i.i142, 16
   %neighbor.sroa.0.0.extract.trunc.mask = and i32 %retval.sroa.0.0.copyload.i.i142, 65535
   %idxprom.i143 = zext nneg i32 %neighbor.sroa.0.0.extract.trunc.mask to i64
-  %arrayidx.i144 = getelementptr inbounds nuw %struct.ContentLightingFlags, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i143
+  %arrayidx.i144 = getelementptr inbounds nuw i8, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i143
   %retval.sroa.0.0.copyload.i = load i8, ptr %arrayidx.i144, align 1, !tbaa !19
   %18 = and i8 %retval.sroa.0.0.copyload.i, 16
   %bf.cast.not.i = icmp eq i8 %18, 0
@@ -509,7 +505,7 @@ _ZN8MapBlock14setNodeNoCheckEN3irr4core8vector3dIsEE7MapNode.exit: ; preds = %in
   %neighbor_block_pos.sroa.0.0.insert.ext = zext i16 %neighbor_block_pos.sroa.0.1 to i48
   %neighbor_block_pos.sroa.0.0.insert.insert = or disjoint i48 %neighbor_block_pos.sroa.12.0.insert.insert, %neighbor_block_pos.sroa.0.0.insert.ext
   %idxprom.i180 = zext nneg i8 %cond.in.i to i64
-  %arrayidx.i181 = getelementptr inbounds nuw %"class.std::vector", ptr %from_nodes, i64 %idxprom.i180
+  %arrayidx.i181 = getelementptr inbounds nuw [24 x i8], ptr %from_nodes, i64 %idxprom.i180
   %_M_finish.i.i182 = getelementptr inbounds nuw i8, ptr %arrayidx.i181, i64 8
   %29 = load ptr, ptr %_M_finish.i.i182, align 8, !tbaa !13
   %_M_end_of_storage.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i181, i64 16
@@ -586,7 +582,7 @@ if.then.i63.i.i:                                  ; preds = %_ZNSt6vectorIN7voxa
 _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE17_M_realloc_insertIJRN3irr4core8vector3dIsEES9_RP8MapBlockRhEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %if.then.i63.i.i, %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit62.i.i
   store ptr %call5.i.i.i.i.i, ptr %arrayidx.i181, align 8, !tbaa !80
   store ptr %incdec.ptr.i8.i, ptr %_M_finish.i.i182, align 8, !tbaa !21
-  %add.ptr32.i.i = getelementptr inbounds nuw %"struct.voxalgo::ChangingLight", ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
+  %add.ptr32.i.i = getelementptr inbounds nuw [32 x i8], ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
   store ptr %add.ptr32.i.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !70
   br label %_ZN7voxalgo10LightQueue4pushEhN3irr4core8vector3dIsEES4_P8MapBlockh.exit
 
@@ -768,7 +764,7 @@ if.then73:                                        ; preds = %for.cond.cleanup
   %sub = sub i8 5, %source_dir.3
   %conv82 = select i1 %cmp80, i8 6, i8 %sub
   %52 = zext nneg i8 %brightest_neighbor_light.3 to i64
-  %53 = getelementptr %"class.std::vector", ptr %light_sources, i64 %52
+  %53 = getelementptr [24 x i8], ptr %light_sources, i64 %52
   %arrayidx.i192 = getelementptr i8, ptr %53, i64 -24
   %_M_finish.i.i193 = getelementptr i8, ptr %53, i64 -16
   %54 = load ptr, ptr %_M_finish.i.i193, align 8, !tbaa !13
@@ -846,7 +842,7 @@ if.then.i63.i.i233:                               ; preds = %_ZNSt6vectorIN7voxa
 _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE17_M_realloc_insertIJRN3irr4core8vector3dIsEES9_RP8MapBlockRhEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i234: ; preds = %if.then.i63.i.i233, %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit62.i.i229
   store ptr %call5.i.i.i.i.i215, ptr %arrayidx.i192, align 8, !tbaa !80
   store ptr %incdec.ptr.i8.i231, ptr %_M_finish.i.i193, align 8, !tbaa !21
-  %add.ptr32.i.i235 = getelementptr inbounds nuw %"struct.voxalgo::ChangingLight", ptr %call5.i.i.i.i.i215, i64 %cond.i.i.i211
+  %add.ptr32.i.i235 = getelementptr inbounds nuw [32 x i8], ptr %call5.i.i.i.i.i215, i64 %cond.i.i.i211
   store ptr %add.ptr32.i.i235, ptr %_M_end_of_storage.i.i194, align 8, !tbaa !70
   br label %while.cond.backedge
 
@@ -890,7 +886,7 @@ while.cond.loopexit:                              ; preds = %for.inc
 while.cond:                                       ; preds = %while.cond.loopexit, %entry
   %max_light.promoted.i = load i8, ptr %max_light.i, align 8, !tbaa !11
   %idxprom19.i = zext i8 %max_light.promoted.i to i64
-  %arrayidx20.i = getelementptr inbounds nuw %"class.std::vector", ptr %light_sources, i64 %idxprom19.i
+  %arrayidx20.i = getelementptr inbounds nuw [24 x i8], ptr %light_sources, i64 %idxprom19.i
   %0 = load ptr, ptr %arrayidx20.i, align 8, !tbaa !13
   %_M_finish.i.i21.i = getelementptr inbounds nuw i8, ptr %arrayidx20.i, i64 8
   %1 = load ptr, ptr %_M_finish.i.i21.i, align 8, !tbaa !13
@@ -907,7 +903,7 @@ if.end.i:                                         ; preds = %while.body.i
   %dec.i = add i8 %2, -1
   store i8 %dec.i, ptr %max_light.i, align 8, !tbaa !11
   %idxprom.i = zext i8 %dec.i to i64
-  %arrayidx.i = getelementptr inbounds nuw %"class.std::vector", ptr %light_sources, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [24 x i8], ptr %light_sources, i64 %idxprom.i
   %3 = load ptr, ptr %arrayidx.i, align 8, !tbaa !13
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   %4 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !13
@@ -919,7 +915,7 @@ while.body:                                       ; preds = %if.end.i, %while.co
   %5 = phi ptr [ %1, %while.cond ], [ %4, %if.end.i ]
   %idxprom7.i.pre-phi = phi i64 [ %idxprom19.i, %while.cond ], [ %idxprom.i, %if.end.i ]
   %6 = phi i8 [ %max_light.promoted.i, %while.cond ], [ %dec.i, %if.end.i ]
-  %_M_finish.i.i14.i.split = getelementptr inbounds nuw %"class.std::vector", ptr %light_sources, i64 %idxprom7.i.pre-phi
+  %_M_finish.i.i14.i.split = getelementptr inbounds nuw [24 x i8], ptr %light_sources, i64 %idxprom7.i.pre-phi
   %_M_finish.i.i14.i = getelementptr inbounds nuw i8, ptr %_M_finish.i.i14.i.split, i64 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %5, i64 -32
   %current.sroa.0.0.copyload = load i16, ptr %add.ptr.i.i.i, align 8, !tbaa !18
@@ -957,7 +953,7 @@ while.body:                                       ; preds = %if.end.i, %while.co
   %8 = and i8 %dec, 15
   %cmp21.not = icmp eq i8 %dec, 0
   %idxprom.i97 = zext i8 %dec to i64
-  %arrayidx.i98 = getelementptr inbounds nuw %"class.std::vector", ptr %light_sources, i64 %idxprom.i97
+  %arrayidx.i98 = getelementptr inbounds nuw [24 x i8], ptr %light_sources, i64 %idxprom.i97
   %_M_finish.i.i99 = getelementptr inbounds nuw i8, ptr %arrayidx.i98, i64 8
   %_M_end_of_storage.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i98, i64 16
   br label %for.body
@@ -1102,13 +1098,13 @@ if.end11:                                         ; preds = %if.then5, %sw.bb51.
   %add.i.i = add nsw i64 %mul3.i.i, %conv4.i.i
   %add5.i.i = add nsw i64 %add.i.i, %mul.i.i
   %idxprom.i.i = and i64 %add5.i.i, 4294967295
-  %arrayidx.i.i = getelementptr inbounds nuw %struct.MapNode, ptr %22, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %idxprom.i.i
   %retval.sroa.0.0.copyload.i.i = load i32, ptr %arrayidx.i.i, align 4, !tbaa.struct !62
   %neighbor.sroa.5.0.extract.shift = lshr i32 %retval.sroa.0.0.copyload.i.i, 16
   %neighbor.sroa.5.0.extract.trunc = trunc i32 %neighbor.sroa.5.0.extract.shift to i8
   %neighbor.sroa.0.0.extract.trunc.mask = and i32 %retval.sroa.0.0.copyload.i.i, 65535
   %idxprom.i.i59 = zext nneg i32 %neighbor.sroa.0.0.extract.trunc.mask to i64
-  %arrayidx.i.i60 = getelementptr inbounds nuw %struct.ContentLightingFlags, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i59
+  %arrayidx.i.i60 = getelementptr inbounds nuw i8, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i59
   %retval.sroa.0.0.copyload.i.i61 = load i8, ptr %arrayidx.i.i60, align 1, !tbaa !19
   %23 = and i8 %retval.sroa.0.0.copyload.i.i61, 32
   %bf.cast.not = icmp eq i8 %23, 0
@@ -1262,7 +1258,7 @@ if.then.i63.i.i:                                  ; preds = %_ZNSt6vectorIN7voxa
 _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE17_M_realloc_insertIJRN3irr4core8vector3dIsEES9_RP8MapBlockRhEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %if.then.i63.i.i, %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit62.i.i
   store ptr %call5.i.i.i.i.i, ptr %arrayidx.i98, align 8, !tbaa !80
   store ptr %incdec.ptr.i8.i, ptr %_M_finish.i.i99, align 8, !tbaa !21
-  %add.ptr32.i.i = getelementptr inbounds nuw %"struct.voxalgo::ChangingLight", ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
+  %add.ptr32.i.i = getelementptr inbounds nuw [32 x i8], ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
   store ptr %add.ptr32.i.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !70
   br label %_ZN7voxalgo10LightQueue4pushEhN3irr4core8vector3dIsEES4_P8MapBlockh.exit
 
@@ -1444,7 +1440,7 @@ if.else12:                                        ; preds = %entry
   %10 = or disjoint i48 %p.sroa.3.0.extract.shift.i49, %8
   %add5.i.i58 = or disjoint i48 %10, %9
   %add5.i.i = zext nneg i48 %add5.i.i58 to i64
-  %arrayidx.i.i = getelementptr inbounds nuw %struct.MapNode, ptr %6, i64 %add5.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %add5.i.i
   %retval.sroa.0.0.copyload.i.i = load i32, ptr %arrayidx.i.i, align 4, !tbaa.struct !62
   %11 = and i32 %retval.sroa.0.0.copyload.i.i, 65535
   %cmp16 = icmp eq i32 %11, 127
@@ -1461,7 +1457,7 @@ if.else21:                                        ; preds = %if.else12
   %above.sroa.5.0.extract.trunc = trunc i32 %above.sroa.5.0.extract.shift to i8
   %m_content_lighting_flag_cache.i.i = getelementptr inbounds nuw i8, ptr %ndef, i64 312
   %idxprom.i.i53 = zext nneg i32 %11 to i64
-  %arrayidx.i.i54 = getelementptr inbounds nuw %struct.ContentLightingFlags, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i53
+  %arrayidx.i.i54 = getelementptr inbounds nuw i8, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i53
   %retval.sroa.0.0.copyload.i.i55 = load i8, ptr %arrayidx.i.i54, align 1, !tbaa !19
   %13 = and i8 %retval.sroa.0.0.copyload.i.i55, 16
   %bf.cast.not.i.i = icmp eq i8 %13, 0
@@ -1545,7 +1541,7 @@ invoke.cont12:                                    ; preds = %_ZNK7MapNode8getLig
   %second10 = getelementptr inbounds nuw i8, ptr %it.sroa.0.01008, i64 8
   %5 = load i16, ptr %second10, align 4, !tbaa !115
   %idxprom.i.i = zext i16 %5 to i64
-  %arrayidx.i.i = getelementptr inbounds nuw %struct.ContentLightingFlags, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i
   %retval.sroa.0.0.copyload.i.i = load i8, ptr %arrayidx.i.i, align 1, !tbaa !19
   %6 = and i8 %retval.sroa.0.0.copyload.i.i, 16
   %bf.cast.not.i.i = icmp eq i8 %6, 0
@@ -1646,13 +1642,13 @@ invoke.cont59:                                    ; preds = %invoke.cont43
   %18 = zext nneg i16 %17 to i48
   %19 = or disjoint i48 %p.sroa.2.0.extract.shift.i479, %18
   %add5.i.i = zext nneg i48 %19 to i64
-  %arrayidx.i.i484 = getelementptr inbounds nuw %struct.MapNode, ptr %15, i64 %add5.i.i
+  %arrayidx.i.i484 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %add5.i.i
   %retval.sroa.0.0.copyload.i.i485 = load i32, ptr %arrayidx.i.i484, align 4, !tbaa.struct !62
   %n.sroa.6.0.extract.shift = lshr i32 %retval.sroa.0.0.copyload.i.i485, 16
   %second57 = getelementptr inbounds nuw i8, ptr %it24.sroa.0.01014, i64 8
   %20 = load i16, ptr %second57, align 4, !tbaa !115
   %idxprom.i.i487 = zext i16 %20 to i64
-  %arrayidx.i.i488 = getelementptr inbounds nuw %struct.ContentLightingFlags, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i487
+  %arrayidx.i.i488 = getelementptr inbounds nuw i8, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i487
   %retval.sroa.0.0.copyload.i.i489 = load i8, ptr %arrayidx.i.i488, align 1, !tbaa !19
   %21 = and i8 %retval.sroa.0.0.copyload.i.i489, 16
   %bf.cast.not.i.i490 = icmp eq i8 %21, 0
@@ -1825,7 +1821,7 @@ invoke.cont67:                                    ; preds = %if.then.i23.i, %cle
   store ptr %call44, ptr %second.i, align 8, !tbaa !13
   %n.sroa.0.0.extract.trunc.mask = and i32 %retval.sroa.0.0.copyload.i.i485, 65535
   %idxprom.i.i502 = zext nneg i32 %n.sroa.0.0.extract.trunc.mask to i64
-  %arrayidx.i.i503 = getelementptr inbounds nuw %struct.ContentLightingFlags, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i502
+  %arrayidx.i.i503 = getelementptr inbounds nuw i8, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i502
   %retval.sroa.0.0.copyload.i.i504 = load i8, ptr %arrayidx.i.i503, align 1, !tbaa !19
   %43 = and i8 %retval.sroa.0.0.copyload.i.i504, 32
   %bf.cast.not = icmp eq i8 %43, 0
@@ -1890,7 +1886,7 @@ if.else12.i:                                      ; preds = %call3.i.noexc
   %54 = or disjoint i48 %p.sroa.3.0.extract.shift.i49.i, %52
   %add5.i.i58.i = or disjoint i48 %54, %53
   %add5.i.i.i = zext nneg i48 %add5.i.i58.i to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw %struct.MapNode, ptr %50, i64 %add5.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %add5.i.i.i
   %retval.sroa.0.0.copyload.i.i.i = load i32, ptr %arrayidx.i.i.i, align 4, !tbaa.struct !62
   %55 = and i32 %retval.sroa.0.0.copyload.i.i.i, 65535
   %cmp16.i = icmp eq i32 %55, 127
@@ -1900,7 +1896,7 @@ if.else21.i:                                      ; preds = %if.else12.i
   %above.sroa.5.0.extract.shift.i = lshr i32 %retval.sroa.0.0.copyload.i.i.i, 16
   %above.sroa.5.0.extract.trunc.i = trunc i32 %above.sroa.5.0.extract.shift.i to i8
   %idxprom.i.i53.i = zext nneg i32 %55 to i64
-  %arrayidx.i.i54.i = getelementptr inbounds nuw %struct.ContentLightingFlags, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i53.i
+  %arrayidx.i.i54.i = getelementptr inbounds nuw i8, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i53.i
   %retval.sroa.0.0.copyload.i.i55.i = load i8, ptr %arrayidx.i.i54.i, align 1, !tbaa !19
   %56 = and i8 %retval.sroa.0.0.copyload.i.i55.i, 16
   %bf.cast.not.i.i.i = icmp eq i8 %56, 0
@@ -1950,7 +1946,7 @@ invoke.cont97:                                    ; preds = %invoke.cont92
   %n2.sroa.5.0.extract.trunc = trunc i32 %n2.sroa.5.0.extract.shift to i8
   %62 = and i32 %call93, 65535
   %idxprom.i.i512 = zext nneg i32 %62 to i64
-  %arrayidx.i.i513 = getelementptr inbounds nuw %struct.ContentLightingFlags, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i512
+  %arrayidx.i.i513 = getelementptr inbounds nuw i8, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i512
   %retval.sroa.0.0.copyload.i.i514 = load i8, ptr %arrayidx.i.i513, align 1, !tbaa !19
   %63 = and i8 %retval.sroa.0.0.copyload.i.i514, 16
   %bf.cast.not.i.i515 = icmp eq i8 %63, 0
@@ -1992,7 +1988,7 @@ invoke.cont97.1:                                  ; preds = %invoke.cont92.1
   %n2.sroa.5.0.extract.trunc.1 = trunc i32 %n2.sroa.5.0.extract.shift.1 to i8
   %69 = and i32 %call93.1, 65535
   %idxprom.i.i512.1 = zext nneg i32 %69 to i64
-  %arrayidx.i.i513.1 = getelementptr inbounds nuw %struct.ContentLightingFlags, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i512.1
+  %arrayidx.i.i513.1 = getelementptr inbounds nuw i8, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i512.1
   %retval.sroa.0.0.copyload.i.i514.1 = load i8, ptr %arrayidx.i.i513.1, align 1, !tbaa !19
   %70 = and i8 %retval.sroa.0.0.copyload.i.i514.1, 16
   %bf.cast.not.i.i515.1 = icmp eq i8 %70, 0
@@ -2029,7 +2025,7 @@ invoke.cont97.2:                                  ; preds = %invoke.cont92.2
   %n2.sroa.5.0.extract.trunc.2 = trunc i32 %n2.sroa.5.0.extract.shift.2 to i8
   %75 = and i32 %call93.2, 65535
   %idxprom.i.i512.2 = zext nneg i32 %75 to i64
-  %arrayidx.i.i513.2 = getelementptr inbounds nuw %struct.ContentLightingFlags, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i512.2
+  %arrayidx.i.i513.2 = getelementptr inbounds nuw i8, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i512.2
   %retval.sroa.0.0.copyload.i.i514.2 = load i8, ptr %arrayidx.i.i513.2, align 1, !tbaa !19
   %76 = and i8 %retval.sroa.0.0.copyload.i.i514.2, 16
   %bf.cast.not.i.i515.2 = icmp eq i8 %76, 0
@@ -2066,7 +2062,7 @@ invoke.cont97.3:                                  ; preds = %invoke.cont92.3
   %n2.sroa.5.0.extract.trunc.3 = trunc i32 %n2.sroa.5.0.extract.shift.3 to i8
   %81 = and i32 %call93.3, 65535
   %idxprom.i.i512.3 = zext nneg i32 %81 to i64
-  %arrayidx.i.i513.3 = getelementptr inbounds nuw %struct.ContentLightingFlags, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i512.3
+  %arrayidx.i.i513.3 = getelementptr inbounds nuw i8, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i512.3
   %retval.sroa.0.0.copyload.i.i514.3 = load i8, ptr %arrayidx.i.i513.3, align 1, !tbaa !19
   %82 = and i8 %retval.sroa.0.0.copyload.i.i514.3, 16
   %bf.cast.not.i.i515.3 = icmp eq i8 %82, 0
@@ -2103,7 +2099,7 @@ invoke.cont97.4:                                  ; preds = %invoke.cont92.4
   %n2.sroa.5.0.extract.trunc.4 = trunc i32 %n2.sroa.5.0.extract.shift.4 to i8
   %87 = and i32 %call93.4, 65535
   %idxprom.i.i512.4 = zext nneg i32 %87 to i64
-  %arrayidx.i.i513.4 = getelementptr inbounds nuw %struct.ContentLightingFlags, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i512.4
+  %arrayidx.i.i513.4 = getelementptr inbounds nuw i8, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i512.4
   %retval.sroa.0.0.copyload.i.i514.4 = load i8, ptr %arrayidx.i.i513.4, align 1, !tbaa !19
   %88 = and i8 %retval.sroa.0.0.copyload.i.i514.4, 16
   %bf.cast.not.i.i515.4 = icmp eq i8 %88, 0
@@ -2138,7 +2134,7 @@ invoke.cont97.5:                                  ; preds = %invoke.cont92.5
   %n2.sroa.5.0.extract.trunc.5 = trunc i32 %n2.sroa.5.0.extract.shift.5 to i8
   %93 = and i32 %call93.5, 65535
   %idxprom.i.i512.5 = zext nneg i32 %93 to i64
-  %arrayidx.i.i513.5 = getelementptr inbounds nuw %struct.ContentLightingFlags, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i512.5
+  %arrayidx.i.i513.5 = getelementptr inbounds nuw i8, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i512.5
   %retval.sroa.0.0.copyload.i.i514.5 = load i8, ptr %arrayidx.i.i513.5, align 1, !tbaa !19
   %94 = and i8 %retval.sroa.0.0.copyload.i.i514.5, 16
   %bf.cast.not.i.i515.5 = icmp eq i8 %94, 0
@@ -2167,7 +2163,7 @@ if.end125:                                        ; preds = %if.else122, %invoke
 if.then128:                                       ; preds = %if.end125, %invoke.cont78, %if.else21.i, %if.else.i
   %new_light.3988 = phi i8 [ %new_light.3, %if.end125 ], [ 15, %invoke.cont78 ], [ 15, %if.else.i ], [ 15, %if.else21.i ]
   %idxprom.i = zext i8 %new_light.3988 to i64
-  %arrayidx.i = getelementptr inbounds nuw %"class.std::vector", ptr %light_sources, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [24 x i8], ptr %light_sources, i64 %idxprom.i
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   %98 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !13
   %_M_end_of_storage.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 16
@@ -2250,7 +2246,7 @@ if.then.i63.i.i:                                  ; preds = %_ZNSt6vectorIN7voxa
 _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE17_M_realloc_insertIJRN3irr4core8vector3dIsEES9_RP8MapBlockRhEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %if.then.i63.i.i, %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit62.i.i
   store ptr %call5.i.i.i.i.i528, ptr %arrayidx.i, align 8, !tbaa !80
   store ptr %incdec.ptr.i8.i, ptr %_M_finish.i.i, align 8, !tbaa !21
-  %add.ptr32.i.i = getelementptr inbounds nuw %"struct.voxalgo::ChangingLight", ptr %call5.i.i.i.i.i528, i64 %cond.i.i.i527
+  %add.ptr32.i.i = getelementptr inbounds nuw [32 x i8], ptr %call5.i.i.i.i.i528, i64 %cond.i.i.i527
   store ptr %add.ptr32.i.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !70
   br label %if.end132
 
@@ -2282,7 +2278,7 @@ _ZN7MapNode8setLightE9LightBankh20ContentLightingFlags.exit: ; preds = %if.else.
   %106 = and i32 %retval.sroa.0.0.copyload.i.i485, -16711681
   %n.sroa.0.0.insert.insert = or disjoint i32 %n.sroa.6.0.insert.shift, %106
   %107 = load ptr, ptr %data.i.i, align 8, !tbaa !23
-  %arrayidx.i.i546 = getelementptr inbounds nuw %struct.MapNode, ptr %107, i64 %add5.i.i
+  %arrayidx.i.i546 = getelementptr inbounds nuw [4 x i8], ptr %107, i64 %add5.i.i
   store i32 %n.sroa.0.0.insert.insert, ptr %arrayidx.i.i546, align 4, !tbaa.struct !62
   %m_modified.i.i.i = getelementptr inbounds nuw i8, ptr %call44, i64 74
   %108 = load i16, ptr %m_modified.i.i.i, align 2, !tbaa !64
@@ -2324,7 +2320,7 @@ invoke.cont.i.i.i.i.i:                            ; preds = %if.end14.i.i.i
 
 invoke.cont141:                                   ; preds = %invoke.cont.i.i.i.i.i, %if.end14.i.i.i
   %idxprom.i549 = zext nneg i8 %cond.i497 to i64
-  %arrayidx.i550 = getelementptr inbounds nuw %"class.std::vector", ptr %disappearing_lights, i64 %idxprom.i549
+  %arrayidx.i550 = getelementptr inbounds nuw [24 x i8], ptr %disappearing_lights, i64 %idxprom.i549
   %_M_finish.i.i551 = getelementptr inbounds nuw i8, ptr %arrayidx.i550, i64 8
   %113 = load ptr, ptr %_M_finish.i.i551, align 8, !tbaa !13
   %_M_end_of_storage.i.i552 = getelementptr inbounds nuw i8, ptr %arrayidx.i550, i64 16
@@ -2400,7 +2396,7 @@ if.then.i63.i.i590:                               ; preds = %_ZNSt6vectorIN7voxa
 _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE17_M_realloc_insertIJRN3irr4core8vector3dIsEES9_RP8MapBlockRhEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i591: ; preds = %if.then.i63.i.i590, %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit62.i.i586
   store ptr %call5.i.i.i.i.i596, ptr %arrayidx.i550, align 8, !tbaa !80
   store ptr %incdec.ptr.i8.i588, ptr %_M_finish.i.i551, align 8, !tbaa !21
-  %add.ptr32.i.i592 = getelementptr inbounds nuw %"struct.voxalgo::ChangingLight", ptr %call5.i.i.i.i.i596, i64 %cond.i.i.i569
+  %add.ptr32.i.i592 = getelementptr inbounds nuw [32 x i8], ptr %call5.i.i.i.i.i596, i64 %cond.i.i.i569
   store ptr %add.ptr32.i.i592, ptr %_M_end_of_storage.i.i552, align 8, !tbaa !70
   br label %invoke.cont144
 
@@ -2438,7 +2434,7 @@ lpad159:                                          ; preds = %for.cond153
 invoke.cont167:                                   ; preds = %invoke.cont160
   %n2156.sroa.0.0.extract.trunc.mask = and i32 %call161, 65535
   %idxprom.i.i601 = zext nneg i32 %n2156.sroa.0.0.extract.trunc.mask to i64
-  %arrayidx.i.i602 = getelementptr inbounds nuw %struct.ContentLightingFlags, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i601
+  %arrayidx.i.i602 = getelementptr inbounds nuw i8, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i601
   %retval.sroa.0.0.copyload.i.i603 = load i8, ptr %arrayidx.i.i602, align 1, !tbaa !19
   %120 = and i8 %retval.sroa.0.0.copyload.i.i603, 16
   %bf.cast.not.i.i604 = icmp eq i8 %120, 0
@@ -2572,7 +2568,7 @@ if.then.i63.i.i692:                               ; preds = %_ZNSt6vectorIN7voxa
 _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE17_M_realloc_insertIJRN3irr4core8vector3dIsEES9_RP8MapBlockRhEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i693: ; preds = %if.then.i63.i.i692, %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit62.i.i688
   store ptr %call5.i.i.i.i.i698, ptr %arrayidx.i652, align 8, !tbaa !80
   store ptr %incdec.ptr.i8.i690, ptr %_M_finish.i.i653, align 8, !tbaa !21
-  %add.ptr32.i.i694 = getelementptr inbounds nuw %"struct.voxalgo::ChangingLight", ptr %call5.i.i.i.i.i698, i64 %cond.i.i.i671
+  %add.ptr32.i.i694 = getelementptr inbounds nuw [32 x i8], ptr %call5.i.i.i.i.i698, i64 %cond.i.i.i671
   store ptr %add.ptr32.i.i694, ptr %_M_end_of_storage.i.i654, align 8, !tbaa !70
   br label %for.cond153.backedge
 
@@ -2625,7 +2621,7 @@ invoke.cont241:                                   ; preds = %invoke.cont233
   %n2229.sroa.5.0.extract.trunc = trunc i32 %n2229.sroa.5.0.extract.shift to i8
   %135 = and i32 %call234, 65535
   %idxprom.i.i703 = zext nneg i32 %135 to i64
-  %arrayidx.i.i704 = getelementptr inbounds nuw %struct.ContentLightingFlags, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i703
+  %arrayidx.i.i704 = getelementptr inbounds nuw i8, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i703
   %retval.sroa.0.0.copyload.i.i705 = load i8, ptr %arrayidx.i.i704, align 1, !tbaa !19
   %136 = and i8 %retval.sroa.0.0.copyload.i.i705, 16
   %bf.cast.not.i.i706 = icmp eq i8 %136, 0
@@ -2737,7 +2733,7 @@ if.then.i63.i.i787:                               ; preds = %_ZNSt6vectorIN7voxa
 _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE17_M_realloc_insertIJRN3irr4core8vector3dIsEES9_RP8MapBlockRhEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i788: ; preds = %if.then.i63.i.i787, %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit62.i.i783
   store ptr %call5.i.i.i.i.i793, ptr %arrayidx.i747, align 8, !tbaa !80
   store ptr %incdec.ptr.i8.i785, ptr %_M_finish.i.i748, align 8, !tbaa !21
-  %add.ptr32.i.i789 = getelementptr inbounds nuw %"struct.voxalgo::ChangingLight", ptr %call5.i.i.i.i.i793, i64 %cond.i.i.i766
+  %add.ptr32.i.i789 = getelementptr inbounds nuw [32 x i8], ptr %call5.i.i.i.i.i793, i64 %cond.i.i.i766
   store ptr %add.ptr32.i.i789, ptr %_M_end_of_storage.i.i749, align 8, !tbaa !70
   br label %for.cond223.backedge
 
@@ -2771,7 +2767,7 @@ lpad311:                                          ; preds = %for.cond.cleanup316
 
 for.body317:                                      ; preds = %for.cond.cleanup327, %for.cond313.preheader
   %indvars.iv = phi i64 [ 0, %for.cond313.preheader ], [ %indvars.iv.next, %for.cond.cleanup327 ]
-  %arrayidx = getelementptr inbounds nuw %"class.std::vector", ptr %light_sources, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [24 x i8], ptr %light_sources, i64 %indvars.iv
   %150 = load ptr, ptr %arrayidx, align 8, !tbaa !13
   %_M_finish.i796 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %151 = load ptr, ptr %_M_finish.i796, align 8, !tbaa !13
@@ -2809,12 +2805,12 @@ invoke.cont338:                                   ; preds = %invoke.cont348, %in
   %add.i.i810 = add nsw i64 %mul3.i.i807, %conv4.i.i809
   %add5.i.i811 = add nsw i64 %add.i.i810, %mul.i.i805
   %idxprom.i.i812 = and i64 %add5.i.i811, 4294967295
-  %arrayidx.i.i813 = getelementptr inbounds nuw %struct.MapNode, ptr %154, i64 %idxprom.i.i812
+  %arrayidx.i.i813 = getelementptr inbounds nuw [4 x i8], ptr %154, i64 %idxprom.i.i812
   %retval.sroa.0.0.copyload.i.i814 = load i32, ptr %arrayidx.i.i813, align 4, !tbaa.struct !62
   %n329.sroa.6.0.extract.shift = lshr i32 %retval.sroa.0.0.copyload.i.i814, 16
   %n329.sroa.0.0.extract.trunc.mask = and i32 %retval.sroa.0.0.copyload.i.i814, 65535
   %idxprom.i.i816 = zext nneg i32 %n329.sroa.0.0.extract.trunc.mask to i64
-  %arrayidx.i.i817 = getelementptr inbounds nuw %struct.ContentLightingFlags, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i816
+  %arrayidx.i.i817 = getelementptr inbounds nuw i8, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i816
   %retval.sroa.0.0.copyload.i.i818 = load i8, ptr %arrayidx.i.i817, align 1, !tbaa !19
   %155 = and i8 %retval.sroa.0.0.copyload.i.i818, 16
   %bf.cast.not.i819 = icmp eq i8 %155, 0
@@ -2922,7 +2918,7 @@ for.cond.cleanup:                                 ; preds = %for.inc
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %entry ]
-  %arrayidx = getelementptr inbounds nuw %"class.std::vector", ptr %this, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [24 x i8], ptr %this, i64 %indvars.iv
   %_M_end_of_storage.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 16
   %0 = load ptr, ptr %_M_end_of_storage.i.i, align 8, !tbaa !70
   %1 = load ptr, ptr %arrayidx, align 8, !tbaa !80
@@ -2973,7 +2969,7 @@ _ZNSt12_Vector_baseIN7voxalgo13ChangingLightESaIS1_EE13_M_deallocateEPS1_m.exit.
   store ptr %call5.i.i.i.i8, ptr %arrayidx, align 8, !tbaa !80
   %add.ptr.i = getelementptr inbounds i8, ptr %call5.i.i.i.i8, i64 %sub.ptr.sub.i32.i
   store ptr %add.ptr.i, ptr %_M_finish.i.i, align 8, !tbaa !21
-  %add.ptr21.i = getelementptr inbounds nuw %"struct.voxalgo::ChangingLight", ptr %call5.i.i.i.i8, i64 %reserve
+  %add.ptr21.i = getelementptr inbounds nuw [32 x i8], ptr %call5.i.i.i.i8, i64 %reserve
   store ptr %add.ptr21.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !70
   br label %for.inc
 
@@ -3344,7 +3340,7 @@ entry:
   %m_content_lighting_flag_cache.i.i = getelementptr inbounds nuw i8, ptr %ndef, i64 312
   %0 = and i32 %call, 65535
   %idxprom.i.i = zext nneg i32 %0 to i64
-  %arrayidx.i.i = getelementptr inbounds nuw %struct.ContentLightingFlags, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i
   %retval.sroa.0.0.copyload.i.i = load i8, ptr %arrayidx.i.i, align 1, !tbaa !19
   %1 = and i8 %retval.sroa.0.0.copyload.i.i, 16
   %bf.cast.not = icmp eq i8 %1, 0
@@ -3378,7 +3374,7 @@ _ZNK7MapNode8getLightE9LightBank20ContentLightingFlags.exit: ; preds = %entry
 for.body.preheader:                               ; preds = %_ZNK7MapNode8getLightE9LightBank20ContentLightingFlags.exit
   %4 = and i32 %call11.us, 65535
   %idxprom.i.i38 = zext nneg i32 %4 to i64
-  %arrayidx.i.i39 = getelementptr inbounds nuw %struct.ContentLightingFlags, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i38
+  %arrayidx.i.i39 = getelementptr inbounds nuw i8, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i38
   %retval.sroa.0.0.copyload.i.i40 = load i8, ptr %arrayidx.i.i39, align 1, !tbaa !19
   %5 = and i8 %retval.sroa.0.0.copyload.i.i40, 16
   %bf.cast.not.i.i41 = icmp eq i8 %5, 0
@@ -3392,7 +3388,7 @@ for.body.preheader:                               ; preds = %_ZNK7MapNode8getLig
   %call11.1 = call i32 @_ZN3Map7getNodeEN3irr4core8vector3dIsEEPb(ptr noundef nonnull align 8 dereferenceable(144) %map, i48 %retval.sroa.0.0.insert.insert.i.us.1, ptr noundef nonnull %is_valid_position)
   %9 = and i32 %call11.1, 65535
   %idxprom.i.i38.1 = zext nneg i32 %9 to i64
-  %arrayidx.i.i39.1 = getelementptr inbounds nuw %struct.ContentLightingFlags, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i38.1
+  %arrayidx.i.i39.1 = getelementptr inbounds nuw i8, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i38.1
   %retval.sroa.0.0.copyload.i.i40.1 = load i8, ptr %arrayidx.i.i39.1, align 1, !tbaa !19
   %10 = and i8 %retval.sroa.0.0.copyload.i.i40.1, 16
   %bf.cast.not.i.i41.1 = icmp eq i8 %10, 0
@@ -3411,7 +3407,7 @@ for.body.preheader:                               ; preds = %_ZNK7MapNode8getLig
   %call11.2 = call i32 @_ZN3Map7getNodeEN3irr4core8vector3dIsEEPb(ptr noundef nonnull align 8 dereferenceable(144) %map, i48 %retval.sroa.0.0.insert.insert.i.2, ptr noundef nonnull %is_valid_position)
   %14 = and i32 %call11.2, 65535
   %idxprom.i.i38.2 = zext nneg i32 %14 to i64
-  %arrayidx.i.i39.2 = getelementptr inbounds nuw %struct.ContentLightingFlags, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i38.2
+  %arrayidx.i.i39.2 = getelementptr inbounds nuw i8, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i38.2
   %retval.sroa.0.0.copyload.i.i40.2 = load i8, ptr %arrayidx.i.i39.2, align 1, !tbaa !19
   %15 = and i8 %retval.sroa.0.0.copyload.i.i40.2, 16
   %bf.cast.not.i.i41.2 = icmp eq i8 %15, 0
@@ -3436,7 +3432,7 @@ for.body.us.preheader:                            ; preds = %_ZNK7MapNode8getLig
   %n2.sroa.4.0.extract.trunc.us = trunc i32 %n2.sroa.4.0.extract.shift.us to i8
   %19 = and i32 %call11.us, 65535
   %idxprom.i.i38.us = zext nneg i32 %19 to i64
-  %arrayidx.i.i39.us = getelementptr inbounds nuw %struct.ContentLightingFlags, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i38.us
+  %arrayidx.i.i39.us = getelementptr inbounds nuw i8, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i38.us
   %retval.sroa.0.0.copyload.i.i40.us = load i8, ptr %arrayidx.i.i39.us, align 1, !tbaa !19
   %20 = and i8 %retval.sroa.0.0.copyload.i.i40.us, 16
   %bf.cast.not.i.i41.us = icmp eq i8 %20, 0
@@ -3450,7 +3446,7 @@ for.body.us.preheader:                            ; preds = %_ZNK7MapNode8getLig
   %n2.sroa.4.0.extract.trunc.us.1 = trunc i32 %n2.sroa.4.0.extract.shift.us.1 to i8
   %23 = and i32 %call11.us.1, 65535
   %idxprom.i.i38.us.1 = zext nneg i32 %23 to i64
-  %arrayidx.i.i39.us.1 = getelementptr inbounds nuw %struct.ContentLightingFlags, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i38.us.1
+  %arrayidx.i.i39.us.1 = getelementptr inbounds nuw i8, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i38.us.1
   %retval.sroa.0.0.copyload.i.i40.us.1 = load i8, ptr %arrayidx.i.i39.us.1, align 1, !tbaa !19
   %24 = and i8 %retval.sroa.0.0.copyload.i.i40.us.1, 16
   %bf.cast.not.i.i41.us.1 = icmp eq i8 %24, 0
@@ -3469,7 +3465,7 @@ for.body.us.preheader:                            ; preds = %_ZNK7MapNode8getLig
   %n2.sroa.4.0.extract.trunc.us.2 = trunc i32 %n2.sroa.4.0.extract.shift.us.2 to i8
   %27 = and i32 %call11.us.2, 65535
   %idxprom.i.i38.us.2 = zext nneg i32 %27 to i64
-  %arrayidx.i.i39.us.2 = getelementptr inbounds nuw %struct.ContentLightingFlags, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i38.us.2
+  %arrayidx.i.i39.us.2 = getelementptr inbounds nuw i8, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i38.us.2
   %retval.sroa.0.0.copyload.i.i40.us.2 = load i8, ptr %arrayidx.i.i39.us.2, align 1, !tbaa !19
   %28 = and i8 %retval.sroa.0.0.copyload.i.i40.us.2, 16
   %bf.cast.not.i.i41.us.2 = icmp eq i8 %28, 0
@@ -3494,7 +3490,7 @@ for.cond.cleanup:                                 ; preds = %for.body.us.prehead
   %.sink4 = phi i32 [ 16, %for.body.us.preheader ], [ 20, %for.body.preheader ]
   %idxprom.i.i38.us.3.pn.in = and i32 %idxprom.i.i38.us.3.pn.in.in, 65535
   %idxprom.i.i38.us.3.pn = zext nneg i32 %idxprom.i.i38.us.3.pn.in to i64
-  %retval.sroa.0.0.copyload.i.i40.us.3.sink.in = getelementptr inbounds nuw %struct.ContentLightingFlags, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i38.us.3.pn
+  %retval.sroa.0.0.copyload.i.i40.us.3.sink.in = getelementptr inbounds nuw i8, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i38.us.3.pn
   %retval.sroa.0.0.copyload.i.i40.us.3.sink = load i8, ptr %retval.sroa.0.0.copyload.i.i40.us.3.sink.in, align 1, !tbaa !19
   %bf.cast.not.i.i41.us.3.sink.in = and i8 %retval.sroa.0.0.copyload.i.i40.us.3.sink, 16
   %bf.cast.not.i.i41.us.3.sink = icmp eq i8 %bf.cast.not.i.i41.us.3.sink.in, 0
@@ -3513,7 +3509,7 @@ for.cond.cleanup:                                 ; preds = %for.body.us.prehead
   %n2.sroa.4.0.extract.shift.us.4 = lshr i32 %call11.us.4, %.sink4
   %idxprom.i.i38.us.4.pn.in = and i32 %call11.us.4, 65535
   %idxprom.i.i38.us.4.pn = zext nneg i32 %idxprom.i.i38.us.4.pn.in to i64
-  %retval.sroa.0.0.copyload.i.i40.us.4.sink.in = getelementptr inbounds nuw %struct.ContentLightingFlags, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i38.us.4.pn
+  %retval.sroa.0.0.copyload.i.i40.us.4.sink.in = getelementptr inbounds nuw i8, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i38.us.4.pn
   %retval.sroa.0.0.copyload.i.i40.us.4.sink = load i8, ptr %retval.sroa.0.0.copyload.i.i40.us.4.sink.in, align 1, !tbaa !19
   %bf.cast.not.i.i41.us.4.sink.in = and i8 %retval.sroa.0.0.copyload.i.i40.us.4.sink, 16
   %bf.cast.not.i.i41.us.4.sink = icmp eq i8 %bf.cast.not.i.i41.us.4.sink.in, 0
@@ -3530,7 +3526,7 @@ for.cond.cleanup:                                 ; preds = %for.body.us.prehead
   %n2.sroa.4.0.extract.shift.us.5 = lshr i32 %call11.us.5, %.sink4
   %idxprom.i.i38.5.pn.in = and i32 %call11.us.5, 65535
   %idxprom.i.i38.5.pn = zext nneg i32 %idxprom.i.i38.5.pn.in to i64
-  %retval.sroa.0.0.copyload.i.i40.5.sink.in = getelementptr inbounds nuw %struct.ContentLightingFlags, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i38.5.pn
+  %retval.sroa.0.0.copyload.i.i40.5.sink.in = getelementptr inbounds nuw i8, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i38.5.pn
   %retval.sroa.0.0.copyload.i.i40.5.sink = load i8, ptr %retval.sroa.0.0.copyload.i.i40.5.sink.in, align 1, !tbaa !19
   %bf.cast.not.i.i41.5.sink.in = and i8 %retval.sroa.0.0.copyload.i.i40.5.sink, 16
   %bf.cast.not.i.i41.5.sink = icmp eq i8 %bf.cast.not.i.i41.5.sink.in, 0
@@ -3609,7 +3605,7 @@ invoke.cont8:                                     ; preds = %cleanup, %for.cond1
   %ref.tmp.sroa.5.0.extract.trunc = trunc i48 %ref.tmp.sroa.5.0.extract.shift to i16
   %ref.tmp.sroa.6.0.extract.shift = lshr i48 %retval.sroa.0.0.copyload.i, 32
   %ref.tmp.sroa.6.0.extract.trunc = trunc nuw i48 %ref.tmp.sroa.6.0.extract.shift to i16
-  %arrayidx = getelementptr inbounds nuw %"class.irr::core::vector3d", ptr @_ZN7voxalgoL13neighbor_dirsE, i64 %indvars.iv475
+  %arrayidx = getelementptr inbounds nuw [6 x i8], ptr @_ZN7voxalgoL13neighbor_dirsE, i64 %indvars.iv475
   %4 = load i16, ptr %arrayidx, align 2, !tbaa !4
   %add.i = add i16 %4, %ref.tmp.sroa.0.0.extract.trunc
   %Y6.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 2
@@ -3729,9 +3725,9 @@ if.then11.i.i.i330:                               ; preds = %if.else.i.i.i328
 
 invoke.cont27:                                    ; preds = %if.then11.i.i.i330, %if.else.i.i.i328, %if.then.i.i.i333, %invoke.cont23
   call void @llvm.lifetime.start.p0(ptr nonnull %areas)
-  %arrayidx30 = getelementptr inbounds nuw %class.VoxelArea, ptr @_ZN7voxalgoL13block_bordersE, i64 %indvars.iv475
+  %arrayidx30 = getelementptr inbounds nuw [18 x i8], ptr @_ZN7voxalgoL13block_bordersE, i64 %indvars.iv475
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(18) %areas, ptr noundef nonnull align 2 dereferenceable(18) %arrayidx30, i64 18, i1 false), !tbaa.struct !145
-  %arrayidx35 = getelementptr inbounds nuw %class.VoxelArea, ptr @_ZN7voxalgoL13block_bordersE, i64 %16
+  %arrayidx35 = getelementptr inbounds nuw [18 x i8], ptr @_ZN7voxalgoL13block_bordersE, i64 %16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(18) %arrayinit.element31, ptr noundef nonnull align 2 dereferenceable(18) %arrayidx35, i64 18, i1 false), !tbaa.struct !145
   br label %for.body40
 
@@ -3822,13 +3818,13 @@ invoke.cont77:                                    ; preds = %if.end133, %for.bod
   %mul3.i = shl nsw i64 %conv2.i, 4
   %add5.i = add nsw i64 %add.i339, %mul3.i
   %idxprom.i = and i64 %add5.i, 4294967295
-  %arrayidx.i = getelementptr inbounds nuw %struct.MapNode, ptr %22, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %idxprom.i
   %retval.sroa.0.0.copyload.i340 = load i32, ptr %arrayidx.i, align 4, !tbaa.struct !62
   %n.sroa.7.0.extract.shift = lshr i32 %retval.sroa.0.0.copyload.i340, 16
   %n.sroa.7.0.extract.trunc = trunc i32 %n.sroa.7.0.extract.shift to i8
   %n.sroa.0.0.extract.trunc.mask = and i32 %retval.sroa.0.0.copyload.i340, 65535
   %idxprom.i.i = zext nneg i32 %n.sroa.0.0.extract.trunc.mask to i64
-  %arrayidx.i.i = getelementptr inbounds nuw %struct.ContentLightingFlags, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i
   %retval.sroa.0.0.copyload.i.i = load i8, ptr %arrayidx.i.i, align 1, !tbaa !19
   %23 = and i8 %retval.sroa.0.0.copyload.i.i, 16
   %bf.cast.not.i.i = icmp eq i8 %23, 0
@@ -3888,7 +3884,7 @@ _ZN7MapNode8setLightE9LightBankh20ContentLightingFlags.exit: ; preds = %if.else.
   %30 = and i32 %retval.sroa.0.0.copyload.i340, -16711681
   %n.sroa.0.0.insert.insert = or disjoint i32 %n.sroa.7.0.insert.shift, %30
   %31 = load ptr, ptr %data.i, align 8, !tbaa !23
-  %arrayidx.i373 = getelementptr inbounds nuw %struct.MapNode, ptr %31, i64 %idxprom.i
+  %arrayidx.i373 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %idxprom.i
   store i32 %n.sroa.0.0.insert.insert, ptr %arrayidx.i373, align 4, !tbaa.struct !62
   %32 = load i16, ptr %m_modified.i.i, align 2, !tbaa !64
   %cmp.i.i374 = icmp ult i16 %32, 4
@@ -4086,7 +4082,7 @@ invoke.cont119:                                   ; preds = %if.then.i23.i, %cle
   %agg.tmp122.sroa.2.0.insert.shift = zext i32 %55 to i48
   %agg.tmp122.sroa.0.0.insert.insert.reass = or disjoint i48 %invariant.op, %agg.tmp122.sroa.2.0.insert.shift
   %idxprom.i386 = zext nneg i8 %cond.i to i64
-  %arrayidx.i387 = getelementptr inbounds nuw %"class.std::vector", ptr %disappearing_lights, i64 %idxprom.i386
+  %arrayidx.i387 = getelementptr inbounds nuw [24 x i8], ptr %disappearing_lights, i64 %idxprom.i386
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i387, i64 8
   %56 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !13
   %_M_end_of_storage.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i387, i64 16
@@ -4169,7 +4165,7 @@ if.then.i63.i.i:                                  ; preds = %_ZNSt6vectorIN7voxa
 _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE17_M_realloc_insertIJRN3irr4core8vector3dIsEES9_RP8MapBlockRhEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %if.then.i63.i.i, %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit62.i.i
   store ptr %call5.i.i.i.i.i393, ptr %arrayidx.i387, align 8, !tbaa !80
   store ptr %incdec.ptr.i8.i, ptr %_M_finish.i.i, align 8, !tbaa !21
-  %add.ptr32.i.i = getelementptr inbounds nuw %"struct.voxalgo::ChangingLight", ptr %call5.i.i.i.i.i393, i64 %cond.i.i.i
+  %add.ptr32.i.i = getelementptr inbounds nuw [32 x i8], ptr %call5.i.i.i.i.i393, i64 %cond.i.i.i
   store ptr %add.ptr32.i.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !70
   br label %if.end133
 
@@ -4219,7 +4215,7 @@ lpad162:                                          ; preds = %for.cond.cleanup167
 
 for.body168:                                      ; preds = %for.cond.cleanup3, %for.cond.cleanup179
   %indvars.iv482 = phi i64 [ %indvars.iv.next483, %for.cond.cleanup179 ], [ 0, %for.cond.cleanup3 ]
-  %arrayidx171 = getelementptr inbounds nuw %"class.std::vector", ptr %light_sources, i64 %indvars.iv482
+  %arrayidx171 = getelementptr inbounds nuw [24 x i8], ptr %light_sources, i64 %indvars.iv482
   %64 = load ptr, ptr %arrayidx171, align 8, !tbaa !13
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %arrayidx171, i64 8
   %65 = load ptr, ptr %_M_finish.i, align 8, !tbaa !13
@@ -4257,12 +4253,12 @@ invoke.cont190:                                   ; preds = %invoke.cont200, %in
   %add.i.i = add nsw i64 %mul3.i.i, %conv4.i.i
   %add5.i.i = add nsw i64 %add.i.i, %mul.i.i
   %idxprom.i.i395 = and i64 %add5.i.i, 4294967295
-  %arrayidx.i.i396 = getelementptr inbounds nuw %struct.MapNode, ptr %68, i64 %idxprom.i.i395
+  %arrayidx.i.i396 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %idxprom.i.i395
   %retval.sroa.0.0.copyload.i.i397 = load i32, ptr %arrayidx.i.i396, align 4, !tbaa.struct !62
   %n181.sroa.6.0.extract.shift = lshr i32 %retval.sroa.0.0.copyload.i.i397, 16
   %n181.sroa.0.0.extract.trunc.mask = and i32 %retval.sroa.0.0.copyload.i.i397, 65535
   %idxprom.i.i399 = zext nneg i32 %n181.sroa.0.0.extract.trunc.mask to i64
-  %arrayidx.i.i400 = getelementptr inbounds nuw %struct.ContentLightingFlags, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i399
+  %arrayidx.i.i400 = getelementptr inbounds nuw i8, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i399
   %retval.sroa.0.0.copyload.i.i401 = load i8, ptr %arrayidx.i.i400, align 1, !tbaa !19
   %69 = and i8 %retval.sroa.0.0.copyload.i.i401, 16
   %bf.cast.not.i402 = icmp eq i8 %69, 0
@@ -4443,7 +4439,7 @@ for.body23:                                       ; preds = %cleanup, %for.body5
 
 if.else:                                          ; preds = %for.body23
   %12 = load ptr, ptr %m_data, align 8, !tbaa !167
-  %arrayidx29 = getelementptr inbounds %struct.MapNode, ptr %12, i64 %idxprom24
+  %arrayidx29 = getelementptr inbounds [4 x i8], ptr %12, i64 %idxprom24
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %for.body23
@@ -4454,7 +4450,7 @@ if.end:                                           ; preds = %if.else, %for.body2
 
 if.end34:                                         ; preds = %if.end
   %idxprom.i.i = zext i16 %13 to i64
-  %arrayidx.i.i = getelementptr inbounds nuw %struct.ContentLightingFlags, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i
   %retval.sroa.0.0.copyload.i.i = load i8, ptr %arrayidx.i.i, align 1, !tbaa !19
   %14 = and i8 %retval.sroa.0.0.copyload.i.i, 64
   %bf.cast.not = icmp eq i8 %14, 0
@@ -4531,7 +4527,7 @@ for.cond29.preheader:                             ; preds = %for.cond29.preheade
   %above.sroa.4.0.extract.trunc = trunc i32 %above.sroa.4.0.extract.shift to i8
   %6 = and i32 %retval.sroa.0.0.copyload.i, 65535
   %idxprom.i.i = zext nneg i32 %6 to i64
-  %arrayidx.i.i = getelementptr inbounds nuw %struct.ContentLightingFlags, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i
   %retval.sroa.0.0.copyload.i.i = load i8, ptr %arrayidx.i.i, align 1, !tbaa !19
   %7 = and i8 %retval.sroa.0.0.copyload.i.i, 16
   %bf.cast.not.i.i = icmp eq i8 %7, 0
@@ -4549,7 +4545,7 @@ for.cond29.preheader:                             ; preds = %for.cond29.preheade
   %above.sroa.4.0.extract.trunc.1 = trunc i32 %above.sroa.4.0.extract.shift.1 to i8
   %10 = and i32 %retval.sroa.0.0.copyload.i.1, 65535
   %idxprom.i.i.1 = zext nneg i32 %10 to i64
-  %arrayidx.i.i.1 = getelementptr inbounds nuw %struct.ContentLightingFlags, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i.1
+  %arrayidx.i.i.1 = getelementptr inbounds nuw i8, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i.1
   %retval.sroa.0.0.copyload.i.i.1 = load i8, ptr %arrayidx.i.i.1, align 1, !tbaa !19
   %11 = and i8 %retval.sroa.0.0.copyload.i.i.1, 16
   %bf.cast.not.i.i.1 = icmp eq i8 %11, 0
@@ -4567,7 +4563,7 @@ for.cond29.preheader:                             ; preds = %for.cond29.preheade
   %above.sroa.4.0.extract.trunc.2 = trunc i32 %above.sroa.4.0.extract.shift.2 to i8
   %14 = and i32 %retval.sroa.0.0.copyload.i.2, 65535
   %idxprom.i.i.2 = zext nneg i32 %14 to i64
-  %arrayidx.i.i.2 = getelementptr inbounds nuw %struct.ContentLightingFlags, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i.2
+  %arrayidx.i.i.2 = getelementptr inbounds nuw i8, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i.2
   %retval.sroa.0.0.copyload.i.i.2 = load i8, ptr %arrayidx.i.i.2, align 1, !tbaa !19
   %15 = and i8 %retval.sroa.0.0.copyload.i.i.2, 16
   %bf.cast.not.i.i.2 = icmp eq i8 %15, 0
@@ -4585,7 +4581,7 @@ for.cond29.preheader:                             ; preds = %for.cond29.preheade
   %above.sroa.4.0.extract.trunc.3 = trunc i32 %above.sroa.4.0.extract.shift.3 to i8
   %18 = and i32 %retval.sroa.0.0.copyload.i.3, 65535
   %idxprom.i.i.3 = zext nneg i32 %18 to i64
-  %arrayidx.i.i.3 = getelementptr inbounds nuw %struct.ContentLightingFlags, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i.3
+  %arrayidx.i.i.3 = getelementptr inbounds nuw i8, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i.3
   %retval.sroa.0.0.copyload.i.i.3 = load i8, ptr %arrayidx.i.i.3, align 1, !tbaa !19
   %19 = and i8 %retval.sroa.0.0.copyload.i.i.3, 16
   %bf.cast.not.i.i.3 = icmp eq i8 %19, 0
@@ -4603,7 +4599,7 @@ for.cond29.preheader:                             ; preds = %for.cond29.preheade
   %above.sroa.4.0.extract.trunc.4 = trunc i32 %above.sroa.4.0.extract.shift.4 to i8
   %22 = and i32 %retval.sroa.0.0.copyload.i.4, 65535
   %idxprom.i.i.4 = zext nneg i32 %22 to i64
-  %arrayidx.i.i.4 = getelementptr inbounds nuw %struct.ContentLightingFlags, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i.4
+  %arrayidx.i.i.4 = getelementptr inbounds nuw i8, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i.4
   %retval.sroa.0.0.copyload.i.i.4 = load i8, ptr %arrayidx.i.i.4, align 1, !tbaa !19
   %23 = and i8 %retval.sroa.0.0.copyload.i.i.4, 16
   %bf.cast.not.i.i.4 = icmp eq i8 %23, 0
@@ -4621,7 +4617,7 @@ for.cond29.preheader:                             ; preds = %for.cond29.preheade
   %above.sroa.4.0.extract.trunc.5 = trunc i32 %above.sroa.4.0.extract.shift.5 to i8
   %26 = and i32 %retval.sroa.0.0.copyload.i.5, 65535
   %idxprom.i.i.5 = zext nneg i32 %26 to i64
-  %arrayidx.i.i.5 = getelementptr inbounds nuw %struct.ContentLightingFlags, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i.5
+  %arrayidx.i.i.5 = getelementptr inbounds nuw i8, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i.5
   %retval.sroa.0.0.copyload.i.i.5 = load i8, ptr %arrayidx.i.i.5, align 1, !tbaa !19
   %27 = and i8 %retval.sroa.0.0.copyload.i.i.5, 16
   %bf.cast.not.i.i.5 = icmp eq i8 %27, 0
@@ -4639,7 +4635,7 @@ for.cond29.preheader:                             ; preds = %for.cond29.preheade
   %above.sroa.4.0.extract.trunc.6 = trunc i32 %above.sroa.4.0.extract.shift.6 to i8
   %30 = and i32 %retval.sroa.0.0.copyload.i.6, 65535
   %idxprom.i.i.6 = zext nneg i32 %30 to i64
-  %arrayidx.i.i.6 = getelementptr inbounds nuw %struct.ContentLightingFlags, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i.6
+  %arrayidx.i.i.6 = getelementptr inbounds nuw i8, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i.6
   %retval.sroa.0.0.copyload.i.i.6 = load i8, ptr %arrayidx.i.i.6, align 1, !tbaa !19
   %31 = and i8 %retval.sroa.0.0.copyload.i.i.6, 16
   %bf.cast.not.i.i.6 = icmp eq i8 %31, 0
@@ -4657,7 +4653,7 @@ for.cond29.preheader:                             ; preds = %for.cond29.preheade
   %above.sroa.4.0.extract.trunc.7 = trunc i32 %above.sroa.4.0.extract.shift.7 to i8
   %34 = and i32 %retval.sroa.0.0.copyload.i.7, 65535
   %idxprom.i.i.7 = zext nneg i32 %34 to i64
-  %arrayidx.i.i.7 = getelementptr inbounds nuw %struct.ContentLightingFlags, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i.7
+  %arrayidx.i.i.7 = getelementptr inbounds nuw i8, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i.7
   %retval.sroa.0.0.copyload.i.i.7 = load i8, ptr %arrayidx.i.i.7, align 1, !tbaa !19
   %35 = and i8 %retval.sroa.0.0.copyload.i.i.7, 16
   %bf.cast.not.i.i.7 = icmp eq i8 %35, 0
@@ -4675,7 +4671,7 @@ for.cond29.preheader:                             ; preds = %for.cond29.preheade
   %above.sroa.4.0.extract.trunc.8 = trunc i32 %above.sroa.4.0.extract.shift.8 to i8
   %38 = and i32 %retval.sroa.0.0.copyload.i.8, 65535
   %idxprom.i.i.8 = zext nneg i32 %38 to i64
-  %arrayidx.i.i.8 = getelementptr inbounds nuw %struct.ContentLightingFlags, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i.8
+  %arrayidx.i.i.8 = getelementptr inbounds nuw i8, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i.8
   %retval.sroa.0.0.copyload.i.i.8 = load i8, ptr %arrayidx.i.i.8, align 1, !tbaa !19
   %39 = and i8 %retval.sroa.0.0.copyload.i.i.8, 16
   %bf.cast.not.i.i.8 = icmp eq i8 %39, 0
@@ -4693,7 +4689,7 @@ for.cond29.preheader:                             ; preds = %for.cond29.preheade
   %above.sroa.4.0.extract.trunc.9 = trunc i32 %above.sroa.4.0.extract.shift.9 to i8
   %42 = and i32 %retval.sroa.0.0.copyload.i.9, 65535
   %idxprom.i.i.9 = zext nneg i32 %42 to i64
-  %arrayidx.i.i.9 = getelementptr inbounds nuw %struct.ContentLightingFlags, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i.9
+  %arrayidx.i.i.9 = getelementptr inbounds nuw i8, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i.9
   %retval.sroa.0.0.copyload.i.i.9 = load i8, ptr %arrayidx.i.i.9, align 1, !tbaa !19
   %43 = and i8 %retval.sroa.0.0.copyload.i.i.9, 16
   %bf.cast.not.i.i.9 = icmp eq i8 %43, 0
@@ -4711,7 +4707,7 @@ for.cond29.preheader:                             ; preds = %for.cond29.preheade
   %above.sroa.4.0.extract.trunc.10 = trunc i32 %above.sroa.4.0.extract.shift.10 to i8
   %46 = and i32 %retval.sroa.0.0.copyload.i.10, 65535
   %idxprom.i.i.10 = zext nneg i32 %46 to i64
-  %arrayidx.i.i.10 = getelementptr inbounds nuw %struct.ContentLightingFlags, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i.10
+  %arrayidx.i.i.10 = getelementptr inbounds nuw i8, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i.10
   %retval.sroa.0.0.copyload.i.i.10 = load i8, ptr %arrayidx.i.i.10, align 1, !tbaa !19
   %47 = and i8 %retval.sroa.0.0.copyload.i.i.10, 16
   %bf.cast.not.i.i.10 = icmp eq i8 %47, 0
@@ -4729,7 +4725,7 @@ for.cond29.preheader:                             ; preds = %for.cond29.preheade
   %above.sroa.4.0.extract.trunc.11 = trunc i32 %above.sroa.4.0.extract.shift.11 to i8
   %50 = and i32 %retval.sroa.0.0.copyload.i.11, 65535
   %idxprom.i.i.11 = zext nneg i32 %50 to i64
-  %arrayidx.i.i.11 = getelementptr inbounds nuw %struct.ContentLightingFlags, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i.11
+  %arrayidx.i.i.11 = getelementptr inbounds nuw i8, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i.11
   %retval.sroa.0.0.copyload.i.i.11 = load i8, ptr %arrayidx.i.i.11, align 1, !tbaa !19
   %51 = and i8 %retval.sroa.0.0.copyload.i.i.11, 16
   %bf.cast.not.i.i.11 = icmp eq i8 %51, 0
@@ -4747,7 +4743,7 @@ for.cond29.preheader:                             ; preds = %for.cond29.preheade
   %above.sroa.4.0.extract.trunc.12 = trunc i32 %above.sroa.4.0.extract.shift.12 to i8
   %54 = and i32 %retval.sroa.0.0.copyload.i.12, 65535
   %idxprom.i.i.12 = zext nneg i32 %54 to i64
-  %arrayidx.i.i.12 = getelementptr inbounds nuw %struct.ContentLightingFlags, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i.12
+  %arrayidx.i.i.12 = getelementptr inbounds nuw i8, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i.12
   %retval.sroa.0.0.copyload.i.i.12 = load i8, ptr %arrayidx.i.i.12, align 1, !tbaa !19
   %55 = and i8 %retval.sroa.0.0.copyload.i.i.12, 16
   %bf.cast.not.i.i.12 = icmp eq i8 %55, 0
@@ -4765,7 +4761,7 @@ for.cond29.preheader:                             ; preds = %for.cond29.preheade
   %above.sroa.4.0.extract.trunc.13 = trunc i32 %above.sroa.4.0.extract.shift.13 to i8
   %58 = and i32 %retval.sroa.0.0.copyload.i.13, 65535
   %idxprom.i.i.13 = zext nneg i32 %58 to i64
-  %arrayidx.i.i.13 = getelementptr inbounds nuw %struct.ContentLightingFlags, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i.13
+  %arrayidx.i.i.13 = getelementptr inbounds nuw i8, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i.13
   %retval.sroa.0.0.copyload.i.i.13 = load i8, ptr %arrayidx.i.i.13, align 1, !tbaa !19
   %59 = and i8 %retval.sroa.0.0.copyload.i.i.13, 16
   %bf.cast.not.i.i.13 = icmp eq i8 %59, 0
@@ -4783,7 +4779,7 @@ for.cond29.preheader:                             ; preds = %for.cond29.preheade
   %above.sroa.4.0.extract.trunc.14 = trunc i32 %above.sroa.4.0.extract.shift.14 to i8
   %62 = and i32 %retval.sroa.0.0.copyload.i.14, 65535
   %idxprom.i.i.14 = zext nneg i32 %62 to i64
-  %arrayidx.i.i.14 = getelementptr inbounds nuw %struct.ContentLightingFlags, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i.14
+  %arrayidx.i.i.14 = getelementptr inbounds nuw i8, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i.14
   %retval.sroa.0.0.copyload.i.i.14 = load i8, ptr %arrayidx.i.i.14, align 1, !tbaa !19
   %63 = and i8 %retval.sroa.0.0.copyload.i.i.14, 16
   %bf.cast.not.i.i.14 = icmp eq i8 %63, 0
@@ -4801,7 +4797,7 @@ for.cond29.preheader:                             ; preds = %for.cond29.preheade
   %above.sroa.4.0.extract.trunc.15 = trunc i32 %above.sroa.4.0.extract.shift.15 to i8
   %66 = and i32 %retval.sroa.0.0.copyload.i.15, 65535
   %idxprom.i.i.15 = zext nneg i32 %66 to i64
-  %arrayidx.i.i.15 = getelementptr inbounds nuw %struct.ContentLightingFlags, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i.15
+  %arrayidx.i.i.15 = getelementptr inbounds nuw i8, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i.15
   %retval.sroa.0.0.copyload.i.i.15 = load i8, ptr %arrayidx.i.i.15, align 1, !tbaa !19
   %67 = and i8 %retval.sroa.0.0.copyload.i.i.15, 16
   %bf.cast.not.i.i.15 = icmp eq i8 %67, 0
@@ -4869,7 +4865,7 @@ for.body:                                         ; preds = %if.end78, %for.body
   %4 = phi ptr [ %1, %for.body.lr.ph ], [ %44, %if.end78 ]
   %modified.0346 = phi i8 [ 0, %for.body.lr.ph ], [ %modified.5325, %if.end78 ]
   %index.0344 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %if.end78 ]
-  %add.ptr.i = getelementptr inbounds %"struct.voxalgo::SunlightPropagationUnit", ptr %4, i64 %index.0344
+  %add.ptr.i = getelementptr inbounds [6 x i8], ptr %4, i64 %index.0344
   %it.sroa.0.0.copyload = load i16, ptr %add.ptr.i, align 2, !tbaa !18
   %it.sroa.4.0.call6.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 2
   %it.sroa.4.0.copyload = load i16, ptr %it.sroa.4.0.call6.sroa_idx, align 2, !tbaa !18
@@ -4892,11 +4888,11 @@ for.body37.preheader:                             ; preds = %for.body
   %6 = load ptr, ptr %data.i.i, align 8, !tbaa !23
   %add5.i.i14753 = add nsw i64 %add.i.i146, 240
   %idxprom.i.i14854 = and i64 %add5.i.i14753, 4294967295
-  %arrayidx.i.i14955 = getelementptr inbounds nuw %struct.MapNode, ptr %6, i64 %idxprom.i.i14854
+  %arrayidx.i.i14955 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %idxprom.i.i14854
   %retval.sroa.0.0.copyload.i.i15056 = load i32, ptr %arrayidx.i.i14955, align 4, !tbaa.struct !62
   %n38.sroa.0.0.extract.trunc.mask57 = and i32 %retval.sroa.0.0.copyload.i.i15056, 65535
   %idxprom.i.i15258 = zext nneg i32 %n38.sroa.0.0.extract.trunc.mask57 to i64
-  %arrayidx.i.i15359 = getelementptr inbounds nuw %struct.ContentLightingFlags, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i15258
+  %arrayidx.i.i15359 = getelementptr inbounds nuw i8, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i15258
   %retval.sroa.0.0.copyload.i.i15460 = load i8, ptr %arrayidx.i.i15359, align 1, !tbaa !19
   %7 = and i8 %retval.sroa.0.0.copyload.i.i15460, 16
   %bf.cast.not.i15561 = icmp ne i8 %7, 0
@@ -4919,12 +4915,12 @@ for.body12:                                       ; preds = %for.body, %for.inc
   %sext2.i = shl nuw nsw i64 %indvars.iv, 4
   %add5.i.i = add nsw i64 %sext2.i, %add.i.i146
   %idxprom.i.i = and i64 %add5.i.i, 4294967295
-  %arrayidx.i.i = getelementptr inbounds nuw %struct.MapNode, ptr %10, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %idxprom.i.i
   %retval.sroa.0.0.copyload.i.i = load i32, ptr %arrayidx.i.i, align 4, !tbaa.struct !62
   %n.sroa.5.0.extract.shift = lshr i32 %retval.sroa.0.0.copyload.i.i, 16
   %n.sroa.0.0.extract.trunc.mask = and i32 %retval.sroa.0.0.copyload.i.i, 65535
   %idxprom.i.i109 = zext nneg i32 %n.sroa.0.0.extract.trunc.mask to i64
-  %arrayidx.i.i110 = getelementptr inbounds nuw %struct.ContentLightingFlags, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i109
+  %arrayidx.i.i110 = getelementptr inbounds nuw i8, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i109
   %retval.sroa.0.0.copyload.i.i111 = load i8, ptr %arrayidx.i.i110, align 1, !tbaa !19
   %11 = and i8 %retval.sroa.0.0.copyload.i.i111, 16
   %bf.cast.not.i = icmp eq i8 %11, 0
@@ -5061,7 +5057,7 @@ if.then.i63.i.i:                                  ; preds = %_ZNSt6vectorIN7voxa
 _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE17_M_realloc_insertIJRN3irr4core8vector3dIsEES9_RP8MapBlockRhEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %if.then.i63.i.i, %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit62.i.i
   store ptr %call5.i.i.i.i.i, ptr %arrayidx.i, align 8, !tbaa !80
   store ptr %incdec.ptr.i8.i, ptr %_M_finish.i.i130, align 8, !tbaa !21
-  %add.ptr32.i.i = getelementptr inbounds nuw %"struct.voxalgo::ChangingLight", ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
+  %add.ptr32.i.i = getelementptr inbounds nuw [32 x i8], ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
   store ptr %add.ptr32.i.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !70
   br label %for.inc
 
@@ -5079,11 +5075,11 @@ for.body37:                                       ; preds = %for.inc63
   %sext2.i142 = shl nuw nsw i64 %indvars.iv.next27, 4
   %add5.i.i147 = add nsw i64 %sext2.i142, %add.i.i146
   %idxprom.i.i148 = and i64 %add5.i.i147, 4294967295
-  %arrayidx.i.i149 = getelementptr inbounds nuw %struct.MapNode, ptr %27, i64 %idxprom.i.i148
+  %arrayidx.i.i149 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %idxprom.i.i148
   %retval.sroa.0.0.copyload.i.i150 = load i32, ptr %arrayidx.i.i149, align 4, !tbaa.struct !62
   %n38.sroa.0.0.extract.trunc.mask = and i32 %retval.sroa.0.0.copyload.i.i150, 65535
   %idxprom.i.i152 = zext nneg i32 %n38.sroa.0.0.extract.trunc.mask to i64
-  %arrayidx.i.i153 = getelementptr inbounds nuw %struct.ContentLightingFlags, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i152
+  %arrayidx.i.i153 = getelementptr inbounds nuw i8, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i152
   %retval.sroa.0.0.copyload.i.i154 = load i8, ptr %arrayidx.i.i153, align 1, !tbaa !19
   %28 = and i8 %retval.sroa.0.0.copyload.i.i154, 16
   %bf.cast.not.i155 = icmp ne i8 %28, 0
@@ -5206,7 +5202,7 @@ if.then.i63.i.i238:                               ; preds = %_ZNSt6vectorIN7voxa
 _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE17_M_realloc_insertIJRN3irr4core8vector3dIsEES9_RP8MapBlockRhEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i239: ; preds = %if.then.i63.i.i238, %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit62.i.i234
   store ptr %call5.i.i.i.i.i220, ptr %arrayidx.i197, align 8, !tbaa !80
   store ptr %incdec.ptr.i8.i236, ptr %_M_finish.i.i198, align 8, !tbaa !21
-  %add.ptr32.i.i240 = getelementptr inbounds nuw %"struct.voxalgo::ChangingLight", ptr %call5.i.i.i.i.i220, i64 %cond.i.i.i216
+  %add.ptr32.i.i240 = getelementptr inbounds nuw [32 x i8], ptr %call5.i.i.i.i.i220, i64 %cond.i.i.i216
   store ptr %add.ptr32.i.i240, ptr %_M_end_of_storage.i.i199, align 8, !tbaa !70
   br label %for.inc63
 
@@ -5219,7 +5215,7 @@ if.then71:                                        ; preds = %_ZNK7MapNode11getLi
   %40 = load ptr, ptr %_M_finish.i, align 8, !tbaa !13
   %add.ptr.i.i244 = getelementptr inbounds i8, ptr %40, i64 -6
   %41 = load ptr, ptr %data, align 8, !tbaa !176
-  %add.ptr.i245 = getelementptr inbounds %"struct.voxalgo::SunlightPropagationUnit", ptr %41, i64 %index.0344
+  %add.ptr.i245 = getelementptr inbounds [6 x i8], ptr %41, i64 %index.0344
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(5) %add.ptr.i245, ptr noundef nonnull align 2 dereferenceable(5) %add.ptr.i.i244, i64 5, i1 false), !tbaa.struct !187
   %42 = load ptr, ptr %_M_finish.i, align 8, !tbaa !174
   %incdec.ptr.i = getelementptr inbounds i8, ptr %42, i64 -6
@@ -5329,7 +5325,7 @@ for.body45:                                       ; preds = %if.end69.1, %for.co
   %indvars.iv = phi i64 [ 0, %for.cond41.preheader ], [ %indvars.iv.next, %if.end69.1 ]
   %3 = load ptr, ptr %data.i, align 8, !tbaa !23
   %4 = getelementptr i8, ptr %3, i64 %.idx
-  %5 = getelementptr %struct.MapNode, ptr %4, i64 %indvars.iv271
+  %5 = getelementptr [4 x i8], ptr %4, i64 %indvars.iv271
   %arrayidx.i.idx = shl i64 %indvars.iv, 6
   %arrayidx.i = getelementptr i8, ptr %5, i64 %arrayidx.i.idx
   %retval.sroa.0.0.copyload.i = load i32, ptr %arrayidx.i, align 4, !tbaa.struct !62
@@ -5337,7 +5333,7 @@ for.body45:                                       ; preds = %if.end69.1, %for.co
   %node.sroa.4.0.extract.trunc = trunc i32 %node.sroa.4.0.extract.shift to i8
   %6 = and i32 %retval.sroa.0.0.copyload.i, 65535
   %idxprom.i.i = zext nneg i32 %6 to i64
-  %arrayidx.i.i = getelementptr inbounds nuw %struct.ContentLightingFlags, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i
   %retval.sroa.0.0.copyload.i.i = load i8, ptr %arrayidx.i.i, align 1, !tbaa !19
   %7 = and i8 %retval.sroa.0.0.copyload.i.i, 16
   %bf.cast.not = icmp eq i8 %7, 0
@@ -5360,7 +5356,7 @@ cond.end:                                         ; preds = %_ZNK7MapNode8getLig
 
 if.then65:                                        ; preds = %cond.end
   %idxprom.i193 = zext nneg i8 %cond to i64
-  %arrayidx.i194 = getelementptr inbounds nuw %"class.std::vector", ptr %relight, i64 %idxprom.i193
+  %arrayidx.i194 = getelementptr inbounds nuw [24 x i8], ptr %relight, i64 %idxprom.i193
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i194, i64 8
   %11 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !13
   %_M_end_of_storage.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i194, i64 16
@@ -5437,7 +5433,7 @@ if.then.i63.i.i:                                  ; preds = %_ZNSt6vectorIN7voxa
 _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE17_M_realloc_insertIJRN3irr4core8vector3dIsEES9_RP8MapBlockRhEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %if.then.i63.i.i, %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit62.i.i
   store ptr %call5.i.i.i.i.i, ptr %arrayidx.i194, align 8, !tbaa !80
   store ptr %incdec.ptr.i8.i, ptr %_M_finish.i.i, align 8, !tbaa !21
-  %add.ptr32.i.i = getelementptr inbounds nuw %"struct.voxalgo::ChangingLight", ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
+  %add.ptr32.i.i = getelementptr inbounds nuw [32 x i8], ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
   store ptr %add.ptr32.i.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !70
   br label %if.end69
 
@@ -5449,7 +5445,7 @@ if.end69:                                         ; preds = %_ZNSt6vectorIN7voxa
 
 if.then65.1:                                      ; preds = %if.end69
   %idxprom.i193.1 = zext nneg i8 %cond.1 to i64
-  %arrayidx.i194.1 = getelementptr inbounds nuw %"class.std::vector", ptr %arrayidx3.1, i64 %idxprom.i193.1
+  %arrayidx.i194.1 = getelementptr inbounds nuw [24 x i8], ptr %arrayidx3.1, i64 %idxprom.i193.1
   %_M_finish.i.i.1 = getelementptr inbounds nuw i8, ptr %arrayidx.i194.1, i64 8
   %16 = load ptr, ptr %_M_finish.i.i.1, align 8, !tbaa !13
   %_M_end_of_storage.i.i.1 = getelementptr inbounds nuw i8, ptr %arrayidx.i194.1, i64 16
@@ -5522,7 +5518,7 @@ if.then.i63.i.i.1:                                ; preds = %_ZNSt6vectorIN7voxa
 _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE17_M_realloc_insertIJRN3irr4core8vector3dIsEES9_RP8MapBlockRhEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.1: ; preds = %if.then.i63.i.i.1, %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit62.i.i.1
   store ptr %call5.i.i.i.i.i.1, ptr %arrayidx.i194.1, align 8, !tbaa !80
   store ptr %incdec.ptr.i8.i.1, ptr %_M_finish.i.i.1, align 8, !tbaa !21
-  %add.ptr32.i.i.1 = getelementptr inbounds nuw %"struct.voxalgo::ChangingLight", ptr %call5.i.i.i.i.i.1, i64 %cond.i.i.i.1
+  %add.ptr32.i.i.1 = getelementptr inbounds nuw [32 x i8], ptr %call5.i.i.i.i.i.1, i64 %cond.i.i.i.1
   store ptr %add.ptr32.i.i.1, ptr %_M_end_of_storage.i.i.1, align 8, !tbaa !70
   br label %if.end69.1
 
@@ -5565,7 +5561,7 @@ for.cond.cleanup111:                              ; preds = %for.cond.cleanup122
 
 for.body112.1:                                    ; preds = %for.cond.cleanup122.1, %for.cond.cleanup111
   %indvars.iv275.1 = phi i64 [ 0, %for.cond.cleanup111 ], [ %indvars.iv.next276.1, %for.cond.cleanup122.1 ]
-  %arrayidx115.1 = getelementptr inbounds nuw %"class.std::vector", ptr %arrayidx3.1, i64 %indvars.iv275.1
+  %arrayidx115.1 = getelementptr inbounds nuw [24 x i8], ptr %arrayidx3.1, i64 %indvars.iv275.1
   %21 = load ptr, ptr %arrayidx115.1, align 8, !tbaa !13
   %_M_finish.i.1 = getelementptr inbounds nuw i8, ptr %arrayidx115.1, i64 8
   %22 = load ptr, ptr %_M_finish.i.1, align 8, !tbaa !13
@@ -5598,12 +5594,12 @@ for.body123.1:                                    ; preds = %_ZN8MapBlock14setNo
   %add.i.i.1 = add nsw i64 %mul3.i.i.1, %conv4.i.i.1
   %add5.i.i.1 = add nsw i64 %add.i.i.1, %mul.i.i.1
   %idxprom.i.i196.1 = and i64 %add5.i.i.1, 4294967295
-  %arrayidx.i.i197.1 = getelementptr inbounds nuw %struct.MapNode, ptr %25, i64 %idxprom.i.i196.1
+  %arrayidx.i.i197.1 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %idxprom.i.i196.1
   %retval.sroa.0.0.copyload.i.i198.1 = load i32, ptr %arrayidx.i.i197.1, align 4, !tbaa.struct !62
   %n.sroa.5.0.extract.shift.1 = lshr i32 %retval.sroa.0.0.copyload.i.i198.1, 16
   %n.sroa.0.0.extract.trunc.mask.1 = and i32 %retval.sroa.0.0.copyload.i.i198.1, 65535
   %idxprom.i.i200.1 = zext nneg i32 %n.sroa.0.0.extract.trunc.mask.1 to i64
-  %arrayidx.i.i201.1 = getelementptr inbounds nuw %struct.ContentLightingFlags, ptr %m_content_lighting_flag_cache.i.i199, i64 %idxprom.i.i200.1
+  %arrayidx.i.i201.1 = getelementptr inbounds nuw i8, ptr %m_content_lighting_flag_cache.i.i199, i64 %idxprom.i.i200.1
   %retval.sroa.0.0.copyload.i.i202.1 = load i8, ptr %arrayidx.i.i201.1, align 1, !tbaa !19
   %26 = and i8 %retval.sroa.0.0.copyload.i.i202.1, 16
   %bf.cast.not.i.1 = icmp eq i8 %26, 0
@@ -5670,7 +5666,7 @@ for.cond.cleanup111.1:                            ; preds = %for.cond.cleanup122
 
 for.body112:                                      ; preds = %for.cond.cleanup122, %for.cond98.preheader
   %indvars.iv275 = phi i64 [ 0, %for.cond98.preheader ], [ %indvars.iv.next276, %for.cond.cleanup122 ]
-  %arrayidx115 = getelementptr inbounds nuw %"class.std::vector", ptr %relight, i64 %indvars.iv275
+  %arrayidx115 = getelementptr inbounds nuw [24 x i8], ptr %relight, i64 %indvars.iv275
   %35 = load ptr, ptr %arrayidx115, align 8, !tbaa !13
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %arrayidx115, i64 8
   %36 = load ptr, ptr %_M_finish.i, align 8, !tbaa !13
@@ -5707,12 +5703,12 @@ for.body123:                                      ; preds = %_ZN8MapBlock14setNo
   %add.i.i = add nsw i64 %mul3.i.i, %conv4.i.i
   %add5.i.i = add nsw i64 %add.i.i, %mul.i.i
   %idxprom.i.i196 = and i64 %add5.i.i, 4294967295
-  %arrayidx.i.i197 = getelementptr inbounds nuw %struct.MapNode, ptr %39, i64 %idxprom.i.i196
+  %arrayidx.i.i197 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %idxprom.i.i196
   %retval.sroa.0.0.copyload.i.i198 = load i32, ptr %arrayidx.i.i197, align 4, !tbaa.struct !62
   %n.sroa.5.0.extract.shift = lshr i32 %retval.sroa.0.0.copyload.i.i198, 16
   %n.sroa.0.0.extract.trunc.mask = and i32 %retval.sroa.0.0.copyload.i.i198, 65535
   %idxprom.i.i200 = zext nneg i32 %n.sroa.0.0.extract.trunc.mask to i64
-  %arrayidx.i.i201 = getelementptr inbounds nuw %struct.ContentLightingFlags, ptr %m_content_lighting_flag_cache.i.i199, i64 %idxprom.i.i200
+  %arrayidx.i.i201 = getelementptr inbounds nuw i8, ptr %m_content_lighting_flag_cache.i.i199, i64 %idxprom.i.i200
   %retval.sroa.0.0.copyload.i.i202 = load i8, ptr %arrayidx.i.i201, align 1, !tbaa !19
   %40 = and i8 %retval.sroa.0.0.copyload.i.i202, 16
   %bf.cast.not.i = icmp eq i8 %40, 0
@@ -6023,7 +6019,7 @@ for.body23.i:                                     ; preds = %cleanup.i, %for.bod
 
 if.else.i:                                        ; preds = %for.body23.i
   %28 = load ptr, ptr %m_data.i, align 8, !tbaa !167
-  %arrayidx29.i = getelementptr inbounds %struct.MapNode, ptr %28, i64 %idxprom24.i
+  %arrayidx29.i = getelementptr inbounds [4 x i8], ptr %28, i64 %idxprom24.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.else.i, %for.body23.i
@@ -6034,7 +6030,7 @@ if.end.i:                                         ; preds = %if.else.i, %for.bod
 
 if.end34.i:                                       ; preds = %if.end.i
   %idxprom.i.i.i = zext i16 %29 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw %struct.ContentLightingFlags, ptr %m_content_lighting_flag_cache.i.i.i, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %m_content_lighting_flag_cache.i.i.i, i64 %idxprom.i.i.i
   %retval.sroa.0.0.copyload.i.i.i = load i8, ptr %arrayidx.i.i.i, align 1, !tbaa !19
   %30 = and i8 %retval.sroa.0.0.copyload.i.i.i, 64
   %bf.cast.not.i = icmp eq i8 %30, 0
@@ -6174,7 +6170,7 @@ if.then.i59.i.i:                                  ; preds = %_ZNSt6vectorIN7voxa
   br label %_ZNSt6vectorIN7voxalgo23SunlightPropagationUnitESaIS1_EE17_M_realloc_insertIJN3irr4core8vector2dIsEERbEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
 
 _ZNSt6vectorIN7voxalgo23SunlightPropagationUnitESaIS1_EE17_M_realloc_insertIJN3irr4core8vector2dIsEERbEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %if.then.i59.i.i, %_ZNSt6vectorIN7voxalgo23SunlightPropagationUnitESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit58.i.i
-  %add.ptr28.i.i = getelementptr inbounds nuw %"struct.voxalgo::SunlightPropagationUnit", ptr %call5.i.i.i.i.i432, i64 %cond.i.i.i431
+  %add.ptr28.i.i = getelementptr inbounds nuw [6 x i8], ptr %call5.i.i.i.i.i432, i64 %cond.i.i.i431
   br label %invoke.cont67
 
 invoke.cont67:                                    ; preds = %_ZNSt6vectorIN7voxalgo23SunlightPropagationUnitESaIS1_EE17_M_realloc_insertIJN3irr4core8vector2dIsEERbEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %if.then.i
@@ -6502,13 +6498,13 @@ invoke.cont185:                                   ; preds = %if.end227.1, %invok
   %mul3.i.i = ashr exact i64 %sext2.i, 44
   %add5.i.i = add nsw i64 %add.i.i440, %mul3.i.i
   %idxprom.i.i = and i64 %add5.i.i, 4294967295
-  %arrayidx.i.i = getelementptr inbounds nuw %struct.MapNode, ptr %84, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [4 x i8], ptr %84, i64 %idxprom.i.i
   %retval.sroa.0.0.copyload.i.i = load i32, ptr %arrayidx.i.i, align 4, !tbaa.struct !62
   %oldnode.sroa.5.0.extract.shift = lshr i32 %retval.sroa.0.0.copyload.i.i, 16
   %oldnode.sroa.5.0.extract.trunc = trunc i32 %oldnode.sroa.5.0.extract.shift to i8
   %85 = and i32 %retval.sroa.0.0.copyload.i.i, 65535
   %idxprom.i.i441 = zext nneg i32 %85 to i64
-  %arrayidx.i.i442 = getelementptr inbounds nuw %struct.ContentLightingFlags, ptr %m_content_lighting_flag_cache.i.i.i, i64 %idxprom.i.i441
+  %arrayidx.i.i442 = getelementptr inbounds nuw i8, ptr %m_content_lighting_flag_cache.i.i.i, i64 %idxprom.i.i441
   %retval.sroa.0.0.copyload.i.i443 = load i8, ptr %arrayidx.i.i442, align 1, !tbaa !19
   %86 = load i16, ptr %m_area, align 2, !tbaa !163
   %conv3.i.i449 = sext i16 %86 to i64
@@ -6561,7 +6557,7 @@ if.end.i455:                                      ; preds = %land.lhs.true22.i.i
 
 if.end6.i:                                        ; preds = %if.end.i455
   %97 = load ptr, ptr %m_data.i, align 8, !tbaa !167
-  %arrayidx11.i = getelementptr inbounds %struct.MapNode, ptr %97, i64 %idxprom.i
+  %arrayidx11.i = getelementptr inbounds [4 x i8], ptr %97, i64 %idxprom.i
   %98 = load i32, ptr %arrayidx11.i, align 4, !tbaa.struct !62
   %99 = and i32 %98, 65535
   %100 = zext nneg i32 %99 to i64
@@ -6572,7 +6568,7 @@ if.end6.i:                                        ; preds = %if.end.i455
 invoke.cont188:                                   ; preds = %if.end6.i, %if.end.i455, %land.lhs.true22.i.i, %land.lhs.true9.i.i, %invoke.cont185
   %retval.sroa.4.0.i = phi i8 [ %102, %if.end6.i ], [ 0, %if.end.i455 ], [ 0, %land.lhs.true22.i.i ], [ 0, %land.lhs.true9.i.i ], [ 0, %invoke.cont185 ]
   %retval.sroa.0.0.i = phi i64 [ %100, %if.end6.i ], [ 127, %if.end.i455 ], [ 127, %land.lhs.true22.i.i ], [ 127, %land.lhs.true9.i.i ], [ 127, %invoke.cont185 ]
-  %arrayidx.i.i461 = getelementptr inbounds nuw %struct.ContentLightingFlags, ptr %m_content_lighting_flag_cache.i.i.i, i64 %retval.sroa.0.0.i
+  %arrayidx.i.i461 = getelementptr inbounds nuw i8, ptr %m_content_lighting_flag_cache.i.i.i, i64 %retval.sroa.0.0.i
   %retval.sroa.0.0.copyload.i.i462 = load i8, ptr %arrayidx.i.i461, align 1, !tbaa !19
   %103 = and i8 %retval.sroa.0.0.copyload.i.i443, 16
   %bf.cast.not = icmp eq i8 %103, 0
@@ -6599,7 +6595,7 @@ cond.end:                                         ; preds = %_ZNK7MapNode8getLig
 
 if.then221:                                       ; preds = %cond.end
   %idxprom.i474 = zext nneg i8 %cond to i64
-  %arrayidx.i475 = getelementptr inbounds nuw %"class.std::vector", ptr %unlight, i64 %idxprom.i474
+  %arrayidx.i475 = getelementptr inbounds nuw [24 x i8], ptr %unlight, i64 %idxprom.i474
   %_M_finish.i.i476 = getelementptr inbounds nuw i8, ptr %arrayidx.i475, i64 8
   %109 = load ptr, ptr %_M_finish.i.i476, align 8, !tbaa !13
   %_M_end_of_storage.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i475, i64 16
@@ -6682,7 +6678,7 @@ if.then.i63.i.i:                                  ; preds = %_ZNSt6vectorIN7voxa
 _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE17_M_realloc_insertIJRN3irr4core8vector3dIsEES9_RP8MapBlockRhEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %if.then.i63.i.i, %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit62.i.i
   store ptr %call5.i.i.i.i.i506, ptr %arrayidx.i475, align 8, !tbaa !80
   store ptr %incdec.ptr.i8.i, ptr %_M_finish.i.i476, align 8, !tbaa !21
-  %add.ptr32.i.i = getelementptr inbounds nuw %"struct.voxalgo::ChangingLight", ptr %call5.i.i.i.i.i506, i64 %cond.i.i.i488
+  %add.ptr32.i.i = getelementptr inbounds nuw [32 x i8], ptr %call5.i.i.i.i.i506, i64 %cond.i.i.i488
   store ptr %add.ptr32.i.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !70
   br label %if.end227
 
@@ -6706,7 +6702,7 @@ if.end227:                                        ; preds = %_ZNSt6vectorIN7voxa
 
 if.then221.1:                                     ; preds = %if.end227
   %idxprom.i474.1 = zext nneg i8 %cond.1 to i64
-  %arrayidx.i475.1 = getelementptr inbounds nuw %"class.std::vector", ptr %arrayinit.element, i64 %idxprom.i474.1
+  %arrayidx.i475.1 = getelementptr inbounds nuw [24 x i8], ptr %arrayinit.element, i64 %idxprom.i474.1
   %_M_finish.i.i476.1 = getelementptr inbounds nuw i8, ptr %arrayidx.i475.1, i64 8
   %114 = load ptr, ptr %_M_finish.i.i476.1, align 8, !tbaa !13
   %_M_end_of_storage.i.i.1 = getelementptr inbounds nuw i8, ptr %arrayidx.i475.1, i64 16
@@ -6782,7 +6778,7 @@ if.then.i63.i.i.1:                                ; preds = %_ZNSt6vectorIN7voxa
 _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE17_M_realloc_insertIJRN3irr4core8vector3dIsEES9_RP8MapBlockRhEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.1: ; preds = %if.then.i63.i.i.1, %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit62.i.i.1
   store ptr %call5.i.i.i.i.i506.1, ptr %arrayidx.i475.1, align 8, !tbaa !80
   store ptr %incdec.ptr.i8.i.1, ptr %_M_finish.i.i476.1, align 8, !tbaa !21
-  %add.ptr32.i.i.1 = getelementptr inbounds nuw %"struct.voxalgo::ChangingLight", ptr %call5.i.i.i.i.i506.1, i64 %cond.i.i.i488.1
+  %add.ptr32.i.i.1 = getelementptr inbounds nuw [32 x i8], ptr %call5.i.i.i.i.i506.1, i64 %cond.i.i.i488.1
   store ptr %add.ptr32.i.i.1, ptr %_M_end_of_storage.i.i.1, align 8, !tbaa !70
   br label %if.end227.1
 
@@ -6947,7 +6943,7 @@ for.body12:                                       ; preds = %cleanup, %for.body5
   %lig.077 = phi i8 [ %0, %for.body5 ], [ %lig.2, %cleanup ]
   %1 = load ptr, ptr %data.i, align 8, !tbaa !23
   %2 = getelementptr i8, ptr %1, i64 %.idx
-  %3 = getelementptr %struct.MapNode, ptr %2, i64 %indvars.iv80
+  %3 = getelementptr [4 x i8], ptr %2, i64 %indvars.iv80
   %arrayidx.i.idx = shl i64 %indvars.iv, 6
   %arrayidx.i = getelementptr i8, ptr %3, i64 %arrayidx.i.idx
   %retval.sroa.0.0.copyload.i = load i32, ptr %arrayidx.i, align 4, !tbaa.struct !62
@@ -6957,7 +6953,7 @@ for.body12:                                       ; preds = %cleanup, %for.body5
 
 if.end:                                           ; preds = %for.body12
   %idxprom.i.i = zext nneg i32 %4 to i64
-  %arrayidx.i.i = getelementptr inbounds nuw %struct.ContentLightingFlags, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i
   %retval.sroa.0.0.copyload.i.i = load i8, ptr %arrayidx.i.i, align 1, !tbaa !19
   %tobool17.not = icmp ne i8 %lig.077, 0
   %5 = and i8 %retval.sroa.0.0.copyload.i.i, 64
@@ -7199,7 +7195,7 @@ for.body12.i:                                     ; preds = %cleanup.i, %for.bod
   %lig.077.i = phi i8 [ %14, %for.body5.i ], [ %lig.2.i, %cleanup.i ]
   %15 = load ptr, ptr %data.i.i, align 8, !tbaa !23
   %16 = getelementptr i8, ptr %15, i64 %.idx
-  %17 = getelementptr %struct.MapNode, ptr %16, i64 %indvars.iv80.i
+  %17 = getelementptr [4 x i8], ptr %16, i64 %indvars.iv80.i
   %arrayidx.i.i.idx = shl i64 %indvars.iv.i, 6
   %arrayidx.i.i = getelementptr i8, ptr %17, i64 %arrayidx.i.i.idx
   %retval.sroa.0.0.copyload.i.i = load i32, ptr %arrayidx.i.i, align 4, !tbaa.struct !62
@@ -7209,7 +7205,7 @@ for.body12.i:                                     ; preds = %cleanup.i, %for.bod
 
 if.end.i:                                         ; preds = %for.body12.i
   %idxprom.i.i.i = zext nneg i32 %18 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw %struct.ContentLightingFlags, ptr %m_content_lighting_flag_cache.i.i.i, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %m_content_lighting_flag_cache.i.i.i, i64 %idxprom.i.i.i
   %retval.sroa.0.0.copyload.i.i.i = load i8, ptr %arrayidx.i.i.i, align 1, !tbaa !19
   %tobool17.not.i = icmp ne i8 %lig.077.i, 0
   %19 = and i8 %retval.sroa.0.0.copyload.i.i.i, 64
@@ -7400,7 +7396,7 @@ if.then.i59.i.i:                                  ; preds = %_ZNSt6vectorIN7voxa
 _ZNSt6vectorIN7voxalgo23SunlightPropagationUnitESaIS1_EE17_M_realloc_insertIJN3irr4core8vector2dIsEERbEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %if.then.i59.i.i, %_ZNSt6vectorIN7voxalgo23SunlightPropagationUnitESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit58.i.i
   store ptr %call5.i.i.i.i.i234, ptr %data, align 8, !tbaa !176
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i, align 8, !tbaa !174
-  %add.ptr28.i.i = getelementptr inbounds nuw %"struct.voxalgo::SunlightPropagationUnit", ptr %call5.i.i.i.i.i234, i64 %cond.i.i.i
+  %add.ptr28.i.i = getelementptr inbounds nuw [6 x i8], ptr %call5.i.i.i.i.i234, i64 %cond.i.i.i
   store ptr %add.ptr28.i.i, ptr %_M_end_of_storage.i, align 8, !tbaa !202
   br label %invoke.cont40
 
@@ -7619,13 +7615,13 @@ invoke.cont101:                                   ; preds = %if.end124.1, %invok
   %mul3.i.i293 = ashr exact i64 %sext2.i, 44
   %add5.i.i = add nsw i64 %add.i.i, %mul3.i.i293
   %idxprom.i.i = and i64 %add5.i.i, 4294967295
-  %arrayidx.i.i294 = getelementptr inbounds nuw %struct.MapNode, ptr %73, i64 %idxprom.i.i
+  %arrayidx.i.i294 = getelementptr inbounds nuw [4 x i8], ptr %73, i64 %idxprom.i.i
   %retval.sroa.0.0.copyload.i.i295 = load i32, ptr %arrayidx.i.i294, align 4, !tbaa.struct !62
   %node.sroa.5.0.extract.shift = lshr i32 %retval.sroa.0.0.copyload.i.i295, 16
   %node.sroa.5.0.extract.trunc = trunc i32 %node.sroa.5.0.extract.shift to i8
   %74 = and i32 %retval.sroa.0.0.copyload.i.i295, 65535
   %idxprom.i.i296 = zext nneg i32 %74 to i64
-  %arrayidx.i.i297 = getelementptr inbounds nuw %struct.ContentLightingFlags, ptr %m_content_lighting_flag_cache.i.i.i, i64 %idxprom.i.i296
+  %arrayidx.i.i297 = getelementptr inbounds nuw i8, ptr %m_content_lighting_flag_cache.i.i.i, i64 %idxprom.i.i296
   %retval.sroa.0.0.copyload.i.i298 = load i8, ptr %arrayidx.i.i297, align 1, !tbaa !19
   %75 = and i8 %retval.sroa.0.0.copyload.i.i298, 16
   %bf.cast.not = icmp eq i8 %75, 0
@@ -7725,7 +7721,7 @@ if.then.i63.i.i:                                  ; preds = %_ZNSt6vectorIN7voxa
 _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE17_M_realloc_insertIJRN3irr4core8vector3dIsEES9_RP8MapBlockRhEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %if.then.i63.i.i, %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit62.i.i
   store ptr %call5.i.i.i.i.i330, ptr %arrayidx.i, align 8, !tbaa !80
   store ptr %incdec.ptr.i8.i, ptr %_M_finish.i.i301, align 16, !tbaa !21
-  %add.ptr32.i.i = getelementptr inbounds nuw %"struct.voxalgo::ChangingLight", ptr %call5.i.i.i.i.i330, i64 %cond.i.i.i312
+  %add.ptr32.i.i = getelementptr inbounds nuw [32 x i8], ptr %call5.i.i.i.i.i330, i64 %cond.i.i.i312
   store ptr %add.ptr32.i.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !70
   br label %if.end124
 
@@ -7820,7 +7816,7 @@ if.then.i63.i.i.1:                                ; preds = %_ZNSt6vectorIN7voxa
 _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE17_M_realloc_insertIJRN3irr4core8vector3dIsEES9_RP8MapBlockRhEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.1: ; preds = %if.then.i63.i.i.1, %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit62.i.i.1
   store ptr %call5.i.i.i.i.i330.1, ptr %arrayidx.i.1, align 16, !tbaa !80
   store ptr %incdec.ptr.i8.i.1, ptr %_M_finish.i.i301.1, align 8, !tbaa !21
-  %add.ptr32.i.i.1 = getelementptr inbounds nuw %"struct.voxalgo::ChangingLight", ptr %call5.i.i.i.i.i330.1, i64 %cond.i.i.i312.1
+  %add.ptr32.i.i.1 = getelementptr inbounds nuw [32 x i8], ptr %call5.i.i.i.i.i330.1, i64 %cond.i.i.i312.1
   store ptr %add.ptr32.i.i.1, ptr %_M_end_of_storage.i.i.1, align 16, !tbaa !70
   br label %if.end124.1
 

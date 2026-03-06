@@ -154,7 +154,7 @@ define internal i32 @fits_decode_frame(ptr noundef %0, ptr noundef initializes((
   br i1 %68, label %73, label %69
 
 69:                                               ; preds = %67
-  %70 = getelementptr inbounds nuw i32, ptr %66, i64 %indvars.iv.i
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %indvars.iv.i
   %71 = load i32, ptr %70, align 4, !tbaa !43
   %72 = sext i32 %71 to i64
   %mul.i = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.0114.i, i64 %72)
@@ -386,12 +386,12 @@ fits_read_header.exit.thread:                     ; preds = %18, %47, %26, %._cr
 .preheader274.us.us:                              ; preds = %.preheader274.us.us.preheader, %._crit_edge286.split.us.us.us
   %indvars.iv431 = phi i64 [ 0, %.preheader274.us.us.preheader ], [ %indvars.iv.next432, %._crit_edge286.split.us.us.us ]
   %.3249295.us.us = phi ptr [ %38, %.preheader274.us.us.preheader ], [ %.us-phi.us.us, %._crit_edge286.split.us.us.us ]
-  %175 = getelementptr inbounds nuw i32, ptr @__const.fits_decode_frame.map, i64 %indvars.iv431
+  %175 = getelementptr inbounds nuw [4 x i8], ptr @__const.fits_decode_frame.map, i64 %indvars.iv431
   %176 = load i32, ptr %175, align 4, !tbaa !43
   %177 = sext i32 %176 to i64
-  %178 = getelementptr inbounds ptr, ptr %1, i64 %177
+  %178 = getelementptr inbounds [8 x i8], ptr %1, i64 %177
   %179 = load ptr, ptr %178, align 8, !tbaa !55
-  %180 = getelementptr inbounds i32, ptr %166, i64 %177
+  %180 = getelementptr inbounds [4 x i8], ptr %166, i64 %177
   %181 = load i32, ptr %180, align 4, !tbaa !43
   %182 = load i32, ptr %50, align 8
   %.not218.us.us = icmp eq i32 %182, 0
@@ -513,11 +513,11 @@ fits_read_header.exit.thread:                     ; preds = %18, %47, %26, %._cr
   br i1 %238, label %.lr.ph311, label %._crit_edge312
 
 .lr.ph311:                                        ; preds = %.preheader271
-  %239 = getelementptr inbounds nuw i32, ptr @__const.fits_decode_frame.map, i64 %indvars.iv436
+  %239 = getelementptr inbounds nuw [4 x i8], ptr @__const.fits_decode_frame.map, i64 %indvars.iv436
   %240 = load i32, ptr %239, align 4, !tbaa !43
   %241 = sext i32 %240 to i64
-  %242 = getelementptr inbounds ptr, ptr %1, i64 %241
-  %243 = getelementptr inbounds i32, ptr %227, i64 %241
+  %242 = getelementptr inbounds [8 x i8], ptr %1, i64 %241
+  %243 = getelementptr inbounds [4 x i8], ptr %227, i64 %241
   %244 = load i32, ptr %228, align 8, !tbaa !54
   %245 = icmp sgt i32 %244, 0
   br i1 %245, label %.lr.ph311.split, label %._crit_edge312

@@ -36,7 +36,7 @@ define void @ff_acelp_fc_pulse_per_track(ptr noundef captures(none) %0, ptr noun
   %16 = zext i8 %15 to i32
   %17 = add nuw nsw i32 %.021, %16
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds nuw i16, ptr %0, i64 %18
+  %19 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %18
   %20 = load i16, ptr %19, align 2, !tbaa !7
   %21 = add i16 %20, %11
   store i16 %21, ptr %19, align 2, !tbaa !7
@@ -56,7 +56,7 @@ define void @ff_acelp_fc_pulse_per_track(ptr noundef captures(none) %0, ptr noun
   %28 = getelementptr inbounds i8, ptr %2, i64 %27
   %29 = load i8, ptr %28, align 1, !tbaa !4
   %30 = zext i8 %29 to i64
-  %31 = getelementptr inbounds nuw i16, ptr %0, i64 %30
+  %31 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %30
   %32 = load i16, ptr %31, align 2, !tbaa !7
   %33 = add i16 %32, %26
   store i16 %33, ptr %31, align 2, !tbaa !7
@@ -84,7 +84,7 @@ define void @ff_decode_10_pulses_35bits(ptr noundef readonly captures(none) %0, 
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
   %14 = shl nuw nsw i64 %indvars.iv, 1
   %15 = or disjoint i64 %14, 1
-  %16 = getelementptr inbounds nuw i16, ptr %0, i64 %15
+  %16 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %15
   %17 = load i16, ptr %16, align 2, !tbaa !7
   %18 = sext i16 %17 to i32
   %19 = and i32 %7, %18
@@ -94,7 +94,7 @@ define void @ff_decode_10_pulses_35bits(ptr noundef readonly captures(none) %0, 
   %23 = zext i8 %22 to i32
   %24 = trunc nuw nsw i64 %indvars.iv to i32
   %25 = add nuw nsw i32 %24, %23
-  %26 = getelementptr inbounds nuw i16, ptr %0, i64 %14
+  %26 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %14
   %27 = load i16, ptr %26, align 2, !tbaa !7
   %28 = sext i16 %27 to i32
   %29 = and i32 %7, %28
@@ -106,16 +106,16 @@ define void @ff_decode_10_pulses_35bits(ptr noundef readonly captures(none) %0, 
   %35 = and i32 %6, %18
   %.not = icmp eq i32 %35, 0
   %36 = select i1 %.not, float 1.000000e+00, float -1.000000e+00
-  %37 = getelementptr inbounds nuw i32, ptr %11, i64 %15
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %15
   store i32 %25, ptr %37, align 4, !tbaa !16
-  %38 = getelementptr inbounds nuw i32, ptr %11, i64 %14
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %14
   store i32 %34, ptr %38, align 4, !tbaa !16
-  %39 = getelementptr inbounds nuw float, ptr %12, i64 %15
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %15
   store float %36, ptr %39, align 4, !tbaa !17
   %40 = icmp ult i8 %32, %22
   %41 = fneg nsz float %36
   %42 = select nsz i1 %40, float %41, float %36
-  %43 = getelementptr inbounds nuw float, ptr %12, i64 %14
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %14
   store float %42, ptr %43, align 4, !tbaa !17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -139,11 +139,11 @@ define void @ff_acelp_weighted_vector_sum(ptr noundef writeonly captures(none) %
 
 13:                                               ; preds = %.lr.ph, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
-  %14 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv
   %15 = load i16, ptr %14, align 2, !tbaa !7
   %16 = sext i16 %15 to i32
   %17 = mul nsw i32 %16, %10
-  %18 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv
   %19 = load i16, ptr %18, align 2, !tbaa !7
   %20 = sext i16 %19 to i32
   %21 = mul nsw i32 %20, %11
@@ -153,7 +153,7 @@ define void @ff_acelp_weighted_vector_sum(ptr noundef writeonly captures(none) %
   %25 = tail call i32 @llvm.smax.i32(i32 %24, i32 -32768)
   %26 = tail call i32 @llvm.smin.i32(i32 %25, i32 32767)
   %.0.i = trunc nsw i32 %26 to i16
-  %27 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv
   store i16 %.0.i, ptr %27, align 2, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -174,13 +174,13 @@ define void @ff_weighted_vector_sumf(ptr noundef writeonly captures(none) %0, pt
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %8 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %9 = load float, ptr %8, align 4, !tbaa !17
-  %10 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %11 = load float, ptr %10, align 4, !tbaa !17
   %12 = fmul nsz float %4, %11
   %13 = tail call nsz float @llvm.fmuladd.f32(float %3, float %9, float %12)
-  %14 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   store float %13, ptr %14, align 4, !tbaa !17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -217,10 +217,10 @@ define void @ff_adaptive_gain_control(ptr noundef writeonly captures(none) %0, p
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.025 = phi float [ %8, %.lr.ph.preheader ], [ %18, %.lr.ph ]
   %18 = tail call nsz float @llvm.fmuladd.f32(float %4, float %.025, float %16)
-  %19 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %20 = load float, ptr %19, align 4, !tbaa !17
   %21 = fmul nsz float %18, %20
-  %22 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   store float %21, ptr %22, align 4, !tbaa !17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -250,10 +250,10 @@ define void @ff_scale_vector_to_given_sum_of_squares(ptr noundef writeonly captu
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %10 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %11 = load float, ptr %10, align 4, !tbaa !17
   %12 = fmul nsz float %.0, %11
-  %13 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   store float %12, ptr %13, align 4, !tbaa !17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -288,10 +288,10 @@ define void @ff_set_fixed_vector(ptr noundef captures(none) %0, ptr noundef read
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %.loopexit.us
   %indvars.iv29 = phi i64 [ 0, %.lr.ph.split.us.preheader ], [ %indvars.iv.next30, %.loopexit.us ]
-  %17 = getelementptr inbounds nuw float, ptr %12, i64 %indvars.iv29
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv29
   %18 = load float, ptr %17, align 4, !tbaa !17
   %19 = fmul nsz float %2, %18
-  %20 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv29
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv29
   %21 = load i32, ptr %20, align 4, !tbaa !16
   %22 = icmp slt i32 %21, %3
   br i1 %22, label %.preheader.us, label %.split.us
@@ -299,7 +299,7 @@ define void @ff_set_fixed_vector(ptr noundef captures(none) %0, ptr noundef read
 .preheader.split.us26:                            ; preds = %.preheader.us, %.preheader.split.us26
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader.split.us26 ], [ %32, %.preheader.us ]
   %.0.us = phi nsz float [ %27, %.preheader.split.us26 ], [ %19, %.preheader.us ]
-  %23 = getelementptr inbounds float, ptr %0, i64 %indvars.iv
+  %23 = getelementptr inbounds [4 x i8], ptr %0, i64 %indvars.iv
   %24 = load float, ptr %23, align 4, !tbaa !17
   %25 = fadd nsz float %.0.us, %24
   store float %25, ptr %23, align 4, !tbaa !17
@@ -324,7 +324,7 @@ define void @ff_set_fixed_vector(ptr noundef captures(none) %0, ptr noundef read
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !26
 
 .preheader.split.us.us:                           ; preds = %.preheader.us
-  %33 = getelementptr inbounds float, ptr %0, i64 %32
+  %33 = getelementptr inbounds [4 x i8], ptr %0, i64 %32
   %34 = load float, ptr %33, align 4, !tbaa !17
   %35 = fadd nsz float %19, %34
   store float %35, ptr %33, align 4, !tbaa !17
@@ -367,7 +367,7 @@ define void @ff_clear_fixed_vector(ptr noundef writeonly captures(none) %0, ptr 
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %.loopexit.us
   %indvars.iv19 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next20, %.loopexit.us ]
-  %14 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv19
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv19
   %15 = load i32, ptr %14, align 4, !tbaa !16
   %16 = trunc nuw nsw i64 %indvars.iv19 to i32
   %17 = shl nuw i32 1, %16
@@ -379,7 +379,7 @@ define void @ff_clear_fixed_vector(ptr noundef writeonly captures(none) %0, ptr 
 
 .preheader.split.us16:                            ; preds = %.preheader.us, %.preheader.split.us16
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader.split.us16 ], [ %19, %.preheader.us ]
-  %20 = getelementptr inbounds float, ptr %0, i64 %indvars.iv
+  %20 = getelementptr inbounds [4 x i8], ptr %0, i64 %indvars.iv
   store float 0.000000e+00, ptr %20, align 4, !tbaa !17
   %indvars.iv.next = add nsw i64 %indvars.iv, %12
   %21 = icmp slt i64 %indvars.iv.next, %13
@@ -391,7 +391,7 @@ define void @ff_clear_fixed_vector(ptr noundef writeonly captures(none) %0, ptr 
   br i1 %exitcond.not, label %._crit_edge, label %.preheader.us, !llvm.loop !28
 
 .preheader.split.us.us:                           ; preds = %.preheader.us
-  %22 = getelementptr inbounds float, ptr %0, i64 %19
+  %22 = getelementptr inbounds [4 x i8], ptr %0, i64 %19
   store float 0.000000e+00, ptr %22, align 4, !tbaa !17
   br label %.loopexit.us
 

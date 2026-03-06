@@ -1321,9 +1321,9 @@ define linkonce_odr hidden noundef i32 @_ZN26GrowableArrayWithAllocatorIPh18Grow
 
 23:                                               ; preds = %23, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %23 ]
-  %24 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv.i.i
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv.i.i
   %25 = load ptr, ptr %18, align 8
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv.i.i
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv.i.i
   %27 = load ptr, ptr %26, align 8
   store ptr %27, ptr %24, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -1340,7 +1340,7 @@ define linkonce_odr hidden noundef i32 @_ZN26GrowableArrayWithAllocatorIPh18Grow
 
 .lr.ph18.i.i:                                     ; preds = %.lr.ph18.i.i, %.lr.ph18.preheader.i.i
   %indvars.iv20.i.i = phi i64 [ %22, %.lr.ph18.preheader.i.i ], [ %indvars.iv.next21.i.i, %.lr.ph18.i.i ]
-  %33 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv20.i.i
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv20.i.i
   store ptr null, ptr %33, align 8
   %indvars.iv.next21.i.i = add nuw nsw i64 %indvars.iv20.i.i, 1
   %34 = load i32, ptr %4, align 4
@@ -1364,7 +1364,7 @@ _ZN26GrowableArrayWithAllocatorIPh18GrowableArrayCHeapIS0_L8MEMFLAGS5EEE4growEi.
   store i32 %41, ptr %0, align 8
   %42 = load ptr, ptr %1, align 8
   %43 = sext i32 %40 to i64
-  %44 = getelementptr inbounds ptr, ptr %39, i64 %43
+  %44 = getelementptr inbounds [8 x i8], ptr %39, i64 %43
   store ptr %42, ptr %44, align 8
   ret i32 %40
 }
@@ -3720,7 +3720,7 @@ define hidden void @_ZN20ZBarrierSetAssembler14patch_barriersEv(ptr noundef nonn
 10:                                               ; preds = %.lr.ph, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
   %11 = load ptr, ptr %5, align 8
-  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
   %.0.in.i16.i = load i64, ptr @ZPointerLoadBadMask, align 8
   %.0.i817.i = trunc i64 %.0.in.i16.i to i16
@@ -3745,7 +3745,7 @@ define hidden void @_ZN20ZBarrierSetAssembler14patch_barriersEv(ptr noundef nonn
 22:                                               ; preds = %.lr.ph21, %22
   %indvars.iv25 = phi i64 [ 0, %.lr.ph21 ], [ %indvars.iv.next26, %22 ]
   %23 = load ptr, ptr %9, align 8
-  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv25
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv25
   %25 = load ptr, ptr %24, align 8
   %.0.in.i16.i14 = load i64, ptr @ZPointerStoreBadMask, align 8
   %.0.i817.i15 = trunc i64 %.0.in.i16.i14 to i16
@@ -3760,7 +3760,7 @@ define hidden void @_ZN20ZBarrierSetAssembler14patch_barriersEv(ptr noundef nonn
 30:                                               ; preds = %.lr.ph23, %30
   %indvars.iv28 = phi i64 [ 0, %.lr.ph23 ], [ %indvars.iv.next29, %30 ]
   %31 = load ptr, ptr %21, align 8
-  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv28
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv28
   %33 = load ptr, ptr %32, align 8
   %.0.in.i16.i16 = load i64, ptr @ZPointerStoreGoodMask, align 8
   %.0.i817.i17 = trunc i64 %.0.in.i16.i16 to i16

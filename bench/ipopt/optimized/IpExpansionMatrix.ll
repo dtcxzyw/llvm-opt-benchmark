@@ -281,10 +281,10 @@ _ZN5Ipopt11DenseVector6ValuesEv.exit:             ; preds = %24, %_ZNK5Ipopt16De
 
 .lr.ph63:                                         ; preds = %.lr.ph63.preheader, %.lr.ph63
   %indvars.iv78 = phi i64 [ 0, %.lr.ph63.preheader ], [ %indvars.iv.next79, %.lr.ph63 ]
-  %52 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv78
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv78
   %53 = load i32, ptr %52, align 4, !tbaa !51
   %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds double, ptr %38, i64 %54
+  %55 = getelementptr inbounds [8 x i8], ptr %38, i64 %54
   %56 = load double, ptr %55, align 8, !tbaa !52
   %57 = fadd double %45, %56
   store double %57, ptr %55, align 8, !tbaa !52
@@ -312,12 +312,12 @@ _ZN5Ipopt11DenseVector6ValuesEv.exit:             ; preds = %24, %_ZNK5Ipopt16De
 
 .lr.ph61:                                         ; preds = %.lr.ph61.preheader, %.lr.ph61
   %indvars.iv73 = phi i64 [ 0, %.lr.ph61.preheader ], [ %indvars.iv.next74, %.lr.ph61 ]
-  %67 = getelementptr inbounds nuw double, ptr %60, i64 %indvars.iv73
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %indvars.iv73
   %68 = load double, ptr %67, align 8, !tbaa !52
-  %69 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv73
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv73
   %70 = load i32, ptr %69, align 4, !tbaa !51
   %71 = sext i32 %70 to i64
-  %72 = getelementptr inbounds double, ptr %38, i64 %71
+  %72 = getelementptr inbounds [8 x i8], ptr %38, i64 %71
   %73 = load double, ptr %72, align 8, !tbaa !52
   %74 = fadd double %68, %73
   store double %74, ptr %72, align 8, !tbaa !52
@@ -350,12 +350,12 @@ _ZN5Ipopt11DenseVector6ValuesEv.exit:             ; preds = %24, %_ZNK5Ipopt16De
 
 .lr.ph59:                                         ; preds = %.lr.ph59.preheader, %.lr.ph59
   %indvars.iv68 = phi i64 [ 0, %.lr.ph59.preheader ], [ %indvars.iv.next69, %.lr.ph59 ]
-  %82 = getelementptr inbounds nuw double, ptr %60, i64 %indvars.iv68
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %indvars.iv68
   %83 = load double, ptr %82, align 8, !tbaa !52
-  %84 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv68
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv68
   %85 = load i32, ptr %84, align 4, !tbaa !51
   %86 = sext i32 %85 to i64
-  %87 = getelementptr inbounds double, ptr %38, i64 %86
+  %87 = getelementptr inbounds [8 x i8], ptr %38, i64 %86
   %88 = load double, ptr %87, align 8, !tbaa !52
   %89 = fsub double %88, %83
   store double %89, ptr %87, align 8, !tbaa !52
@@ -365,12 +365,12 @@ _ZN5Ipopt11DenseVector6ValuesEv.exit:             ; preds = %24, %_ZNK5Ipopt16De
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %90 = getelementptr inbounds nuw double, ptr %60, i64 %indvars.iv
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %indvars.iv
   %91 = load double, ptr %90, align 8, !tbaa !52
-  %92 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv
   %93 = load i32, ptr %92, align 4, !tbaa !51
   %94 = sext i32 %93 to i64
-  %95 = getelementptr inbounds double, ptr %38, i64 %94
+  %95 = getelementptr inbounds [8 x i8], ptr %38, i64 %94
   %96 = load double, ptr %95, align 8, !tbaa !52
   %97 = tail call double @llvm.fmuladd.f64(double %1, double %91, double %96)
   store double %97, ptr %95, align 8, !tbaa !52
@@ -478,7 +478,7 @@ _ZN5Ipopt11DenseVector6ValuesEv.exit:             ; preds = %24, %_ZNK5Ipopt16De
 
 .lr.ph62:                                         ; preds = %.lr.ph62.preheader, %.lr.ph62
   %indvars.iv77 = phi i64 [ 0, %.lr.ph62.preheader ], [ %indvars.iv.next78, %.lr.ph62 ]
-  %52 = getelementptr inbounds nuw double, ptr %38, i64 %indvars.iv77
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv77
   %53 = load double, ptr %52, align 8, !tbaa !52
   %54 = fadd double %45, %53
   store double %54, ptr %52, align 8, !tbaa !52
@@ -506,12 +506,12 @@ _ZN5Ipopt11DenseVector6ValuesEv.exit:             ; preds = %24, %_ZNK5Ipopt16De
 
 .lr.ph60:                                         ; preds = %.lr.ph60.preheader, %.lr.ph60
   %indvars.iv72 = phi i64 [ 0, %.lr.ph60.preheader ], [ %indvars.iv.next73, %.lr.ph60 ]
-  %64 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv72
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv72
   %65 = load i32, ptr %64, align 4, !tbaa !51
   %66 = sext i32 %65 to i64
-  %67 = getelementptr inbounds double, ptr %57, i64 %66
+  %67 = getelementptr inbounds [8 x i8], ptr %57, i64 %66
   %68 = load double, ptr %67, align 8, !tbaa !52
-  %69 = getelementptr inbounds nuw double, ptr %38, i64 %indvars.iv72
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv72
   %70 = load double, ptr %69, align 8, !tbaa !52
   %71 = fadd double %68, %70
   store double %71, ptr %69, align 8, !tbaa !52
@@ -544,12 +544,12 @@ _ZN5Ipopt11DenseVector6ValuesEv.exit:             ; preds = %24, %_ZNK5Ipopt16De
 
 .lr.ph58:                                         ; preds = %.lr.ph58.preheader, %.lr.ph58
   %indvars.iv67 = phi i64 [ 0, %.lr.ph58.preheader ], [ %indvars.iv.next68, %.lr.ph58 ]
-  %79 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv67
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv67
   %80 = load i32, ptr %79, align 4, !tbaa !51
   %81 = sext i32 %80 to i64
-  %82 = getelementptr inbounds double, ptr %57, i64 %81
+  %82 = getelementptr inbounds [8 x i8], ptr %57, i64 %81
   %83 = load double, ptr %82, align 8, !tbaa !52
-  %84 = getelementptr inbounds nuw double, ptr %38, i64 %indvars.iv67
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv67
   %85 = load double, ptr %84, align 8, !tbaa !52
   %86 = fsub double %85, %83
   store double %86, ptr %84, align 8, !tbaa !52
@@ -559,12 +559,12 @@ _ZN5Ipopt11DenseVector6ValuesEv.exit:             ; preds = %24, %_ZNK5Ipopt16De
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %87 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv
   %88 = load i32, ptr %87, align 4, !tbaa !51
   %89 = sext i32 %88 to i64
-  %90 = getelementptr inbounds double, ptr %57, i64 %89
+  %90 = getelementptr inbounds [8 x i8], ptr %57, i64 %89
   %91 = load double, ptr %90, align 8, !tbaa !52
-  %92 = getelementptr inbounds nuw double, ptr %38, i64 %indvars.iv
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv
   %93 = load double, ptr %92, align 8, !tbaa !52
   %94 = tail call double @llvm.fmuladd.f64(double %1, double %91, double %93)
   store double %94, ptr %92, align 8, !tbaa !52
@@ -663,13 +663,13 @@ _ZN5Ipopt11DenseVector6ValuesEv.exit:             ; preds = %24, %_ZNK5Ipopt16De
 
 .lr.ph70:                                         ; preds = %.lr.ph70.preheader, %.lr.ph70
   %indvars.iv85 = phi i64 [ 0, %.lr.ph70.preheader ], [ %indvars.iv.next86, %.lr.ph70 ]
-  %52 = getelementptr inbounds nuw double, ptr %16, i64 %indvars.iv85
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv85
   %53 = load double, ptr %52, align 8, !tbaa !52
   %54 = fdiv double %45, %53
-  %55 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv85
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv85
   %56 = load i32, ptr %55, align 4, !tbaa !51
   %57 = sext i32 %56 to i64
-  %58 = getelementptr inbounds double, ptr %38, i64 %57
+  %58 = getelementptr inbounds [8 x i8], ptr %38, i64 %57
   %59 = load double, ptr %58, align 8, !tbaa !52
   %60 = fadd double %54, %59
   store double %60, ptr %58, align 8, !tbaa !52
@@ -697,15 +697,15 @@ _ZN5Ipopt11DenseVector6ValuesEv.exit:             ; preds = %24, %_ZNK5Ipopt16De
 
 .lr.ph68:                                         ; preds = %.lr.ph68.preheader, %.lr.ph68
   %indvars.iv80 = phi i64 [ 0, %.lr.ph68.preheader ], [ %indvars.iv.next81, %.lr.ph68 ]
-  %70 = getelementptr inbounds nuw double, ptr %63, i64 %indvars.iv80
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %indvars.iv80
   %71 = load double, ptr %70, align 8, !tbaa !52
-  %72 = getelementptr inbounds nuw double, ptr %16, i64 %indvars.iv80
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv80
   %73 = load double, ptr %72, align 8, !tbaa !52
   %74 = fdiv double %71, %73
-  %75 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv80
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv80
   %76 = load i32, ptr %75, align 4, !tbaa !51
   %77 = sext i32 %76 to i64
-  %78 = getelementptr inbounds double, ptr %38, i64 %77
+  %78 = getelementptr inbounds [8 x i8], ptr %38, i64 %77
   %79 = load double, ptr %78, align 8, !tbaa !52
   %80 = fadd double %74, %79
   store double %80, ptr %78, align 8, !tbaa !52
@@ -738,15 +738,15 @@ _ZN5Ipopt11DenseVector6ValuesEv.exit:             ; preds = %24, %_ZNK5Ipopt16De
 
 .lr.ph66:                                         ; preds = %.lr.ph66.preheader, %.lr.ph66
   %indvars.iv75 = phi i64 [ 0, %.lr.ph66.preheader ], [ %indvars.iv.next76, %.lr.ph66 ]
-  %88 = getelementptr inbounds nuw double, ptr %63, i64 %indvars.iv75
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %indvars.iv75
   %89 = load double, ptr %88, align 8, !tbaa !52
-  %90 = getelementptr inbounds nuw double, ptr %16, i64 %indvars.iv75
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv75
   %91 = load double, ptr %90, align 8, !tbaa !52
   %92 = fdiv double %89, %91
-  %93 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv75
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv75
   %94 = load i32, ptr %93, align 4, !tbaa !51
   %95 = sext i32 %94 to i64
-  %96 = getelementptr inbounds double, ptr %38, i64 %95
+  %96 = getelementptr inbounds [8 x i8], ptr %38, i64 %95
   %97 = load double, ptr %96, align 8, !tbaa !52
   %98 = fsub double %97, %92
   store double %98, ptr %96, align 8, !tbaa !52
@@ -756,16 +756,16 @@ _ZN5Ipopt11DenseVector6ValuesEv.exit:             ; preds = %24, %_ZNK5Ipopt16De
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %99 = getelementptr inbounds nuw double, ptr %63, i64 %indvars.iv
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %indvars.iv
   %100 = load double, ptr %99, align 8, !tbaa !52
   %101 = fmul double %1, %100
-  %102 = getelementptr inbounds nuw double, ptr %16, i64 %indvars.iv
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv
   %103 = load double, ptr %102, align 8, !tbaa !52
   %104 = fdiv double %101, %103
-  %105 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv
   %106 = load i32, ptr %105, align 4, !tbaa !51
   %107 = sext i32 %106 to i64
-  %108 = getelementptr inbounds double, ptr %38, i64 %107
+  %108 = getelementptr inbounds [8 x i8], ptr %38, i64 %107
   %109 = load double, ptr %108, align 8, !tbaa !52
   %110 = fadd double %104, %109
   store double %110, ptr %108, align 8, !tbaa !52
@@ -889,10 +889,10 @@ _ZN5Ipopt11DenseVector6ValuesEv.exit:             ; preds = %32, %_ZNK5Ipopt16De
 
 .lr.ph180:                                        ; preds = %.lr.ph180.preheader, %.lr.ph180
   %indvars.iv225 = phi i64 [ 0, %.lr.ph180.preheader ], [ %indvars.iv.next226, %.lr.ph180 ]
-  %66 = getelementptr inbounds nuw double, ptr %22, i64 %indvars.iv225
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv225
   %67 = load double, ptr %66, align 8, !tbaa !52
   %68 = fdiv double %55, %67
-  %69 = getelementptr inbounds nuw double, ptr %46, i64 %indvars.iv225
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv225
   store double %68, ptr %69, align 8, !tbaa !52
   %indvars.iv.next226 = add nuw nsw i64 %indvars.iv225, 1
   %exitcond229.not = icmp eq i64 %indvars.iv.next226, %wide.trip.count228
@@ -900,16 +900,16 @@ _ZN5Ipopt11DenseVector6ValuesEv.exit:             ; preds = %32, %_ZNK5Ipopt16De
 
 .lr.ph178:                                        ; preds = %.lr.ph178.preheader, %.lr.ph178
   %indvars.iv220 = phi i64 [ 0, %.lr.ph178.preheader ], [ %indvars.iv.next221, %.lr.ph178 ]
-  %70 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv220
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv220
   %71 = load i32, ptr %70, align 4, !tbaa !51
   %72 = sext i32 %71 to i64
-  %73 = getelementptr inbounds double, ptr %24, i64 %72
+  %73 = getelementptr inbounds [8 x i8], ptr %24, i64 %72
   %74 = load double, ptr %73, align 8, !tbaa !52
   %75 = tail call double @llvm.fmuladd.f64(double %59, double %74, double %55)
-  %76 = getelementptr inbounds nuw double, ptr %22, i64 %indvars.iv220
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv220
   %77 = load double, ptr %76, align 8, !tbaa !52
   %78 = fdiv double %75, %77
-  %79 = getelementptr inbounds nuw double, ptr %46, i64 %indvars.iv220
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv220
   store double %78, ptr %79, align 8, !tbaa !52
   %indvars.iv.next221 = add nuw nsw i64 %indvars.iv220, 1
   %exitcond224.not = icmp eq i64 %indvars.iv.next221, %wide.trip.count223
@@ -935,18 +935,18 @@ _ZN5Ipopt11DenseVector6ValuesEv.exit:             ; preds = %32, %_ZNK5Ipopt16De
 
 .lr.ph176:                                        ; preds = %.lr.ph176.preheader, %.lr.ph176
   %indvars.iv215 = phi i64 [ 0, %.lr.ph176.preheader ], [ %indvars.iv.next216, %.lr.ph176 ]
-  %89 = getelementptr inbounds nuw double, ptr %82, i64 %indvars.iv215
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %82, i64 %indvars.iv215
   %90 = load double, ptr %89, align 8, !tbaa !52
-  %91 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv215
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv215
   %92 = load i32, ptr %91, align 4, !tbaa !51
   %93 = sext i32 %92 to i64
-  %94 = getelementptr inbounds double, ptr %24, i64 %93
+  %94 = getelementptr inbounds [8 x i8], ptr %24, i64 %93
   %95 = load double, ptr %94, align 8, !tbaa !52
   %96 = tail call double @llvm.fmuladd.f64(double %90, double %95, double %55)
-  %97 = getelementptr inbounds nuw double, ptr %22, i64 %indvars.iv215
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv215
   %98 = load double, ptr %97, align 8, !tbaa !52
   %99 = fdiv double %96, %98
-  %100 = getelementptr inbounds nuw double, ptr %46, i64 %indvars.iv215
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv215
   store double %99, ptr %100, align 8, !tbaa !52
   %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 1
   %exitcond219.not = icmp eq i64 %indvars.iv.next216, %wide.trip.count218
@@ -977,19 +977,19 @@ _ZN5Ipopt11DenseVector6ValuesEv.exit:             ; preds = %32, %_ZNK5Ipopt16De
 
 .lr.ph174:                                        ; preds = %.lr.ph174.preheader, %.lr.ph174
   %indvars.iv210 = phi i64 [ 0, %.lr.ph174.preheader ], [ %indvars.iv.next211, %.lr.ph174 ]
-  %108 = getelementptr inbounds nuw double, ptr %82, i64 %indvars.iv210
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %82, i64 %indvars.iv210
   %109 = load double, ptr %108, align 8, !tbaa !52
-  %110 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv210
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv210
   %111 = load i32, ptr %110, align 4, !tbaa !51
   %112 = sext i32 %111 to i64
-  %113 = getelementptr inbounds double, ptr %24, i64 %112
+  %113 = getelementptr inbounds [8 x i8], ptr %24, i64 %112
   %114 = load double, ptr %113, align 8, !tbaa !52
   %115 = fneg double %109
   %116 = tail call double @llvm.fmuladd.f64(double %115, double %114, double %55)
-  %117 = getelementptr inbounds nuw double, ptr %22, i64 %indvars.iv210
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv210
   %118 = load double, ptr %117, align 8, !tbaa !52
   %119 = fdiv double %116, %118
-  %120 = getelementptr inbounds nuw double, ptr %46, i64 %indvars.iv210
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv210
   store double %119, ptr %120, align 8, !tbaa !52
   %indvars.iv.next211 = add nuw nsw i64 %indvars.iv210, 1
   %exitcond214.not = icmp eq i64 %indvars.iv.next211, %wide.trip.count213
@@ -997,19 +997,19 @@ _ZN5Ipopt11DenseVector6ValuesEv.exit:             ; preds = %32, %_ZNK5Ipopt16De
 
 .lr.ph172:                                        ; preds = %.lr.ph172.preheader, %.lr.ph172
   %indvars.iv205 = phi i64 [ 0, %.lr.ph172.preheader ], [ %indvars.iv.next206, %.lr.ph172 ]
-  %121 = getelementptr inbounds nuw double, ptr %82, i64 %indvars.iv205
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %82, i64 %indvars.iv205
   %122 = load double, ptr %121, align 8, !tbaa !52
   %123 = fmul double %1, %122
-  %124 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv205
+  %124 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv205
   %125 = load i32, ptr %124, align 4, !tbaa !51
   %126 = sext i32 %125 to i64
-  %127 = getelementptr inbounds double, ptr %24, i64 %126
+  %127 = getelementptr inbounds [8 x i8], ptr %24, i64 %126
   %128 = load double, ptr %127, align 8, !tbaa !52
   %129 = tail call double @llvm.fmuladd.f64(double %123, double %128, double %55)
-  %130 = getelementptr inbounds nuw double, ptr %22, i64 %indvars.iv205
+  %130 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv205
   %131 = load double, ptr %130, align 8, !tbaa !52
   %132 = fdiv double %129, %131
-  %133 = getelementptr inbounds nuw double, ptr %46, i64 %indvars.iv205
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv205
   store double %132, ptr %133, align 8, !tbaa !52
   %indvars.iv.next206 = add nuw nsw i64 %indvars.iv205, 1
   %exitcond209.not = icmp eq i64 %indvars.iv.next206, %wide.trip.count208
@@ -1037,18 +1037,18 @@ _ZN5Ipopt11DenseVector6ValuesEv.exit:             ; preds = %32, %_ZNK5Ipopt16De
 
 .lr.ph170:                                        ; preds = %.lr.ph170.preheader, %.lr.ph170
   %indvars.iv200 = phi i64 [ 0, %.lr.ph170.preheader ], [ %indvars.iv.next201, %.lr.ph170 ]
-  %146 = getelementptr inbounds nuw double, ptr %136, i64 %indvars.iv200
+  %146 = getelementptr inbounds nuw [8 x i8], ptr %136, i64 %indvars.iv200
   %147 = load double, ptr %146, align 8, !tbaa !52
-  %148 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv200
+  %148 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv200
   %149 = load i32, ptr %148, align 4, !tbaa !51
   %150 = sext i32 %149 to i64
-  %151 = getelementptr inbounds double, ptr %24, i64 %150
+  %151 = getelementptr inbounds [8 x i8], ptr %24, i64 %150
   %152 = load double, ptr %151, align 8, !tbaa !52
   %153 = tail call double @llvm.fmuladd.f64(double %140, double %152, double %147)
-  %154 = getelementptr inbounds nuw double, ptr %22, i64 %indvars.iv200
+  %154 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv200
   %155 = load double, ptr %154, align 8, !tbaa !52
   %156 = fdiv double %153, %155
-  %157 = getelementptr inbounds nuw double, ptr %46, i64 %indvars.iv200
+  %157 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv200
   store double %156, ptr %157, align 8, !tbaa !52
   %indvars.iv.next201 = add nuw nsw i64 %indvars.iv200, 1
   %exitcond204.not = icmp eq i64 %indvars.iv.next201, %wide.trip.count203
@@ -1074,20 +1074,20 @@ _ZN5Ipopt11DenseVector6ValuesEv.exit:             ; preds = %32, %_ZNK5Ipopt16De
 
 .lr.ph168:                                        ; preds = %.lr.ph168.preheader, %.lr.ph168
   %indvars.iv195 = phi i64 [ 0, %.lr.ph168.preheader ], [ %indvars.iv.next196, %.lr.ph168 ]
-  %167 = getelementptr inbounds nuw double, ptr %136, i64 %indvars.iv195
+  %167 = getelementptr inbounds nuw [8 x i8], ptr %136, i64 %indvars.iv195
   %168 = load double, ptr %167, align 8, !tbaa !52
-  %169 = getelementptr inbounds nuw double, ptr %160, i64 %indvars.iv195
+  %169 = getelementptr inbounds nuw [8 x i8], ptr %160, i64 %indvars.iv195
   %170 = load double, ptr %169, align 8, !tbaa !52
-  %171 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv195
+  %171 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv195
   %172 = load i32, ptr %171, align 4, !tbaa !51
   %173 = sext i32 %172 to i64
-  %174 = getelementptr inbounds double, ptr %24, i64 %173
+  %174 = getelementptr inbounds [8 x i8], ptr %24, i64 %173
   %175 = load double, ptr %174, align 8, !tbaa !52
   %176 = tail call double @llvm.fmuladd.f64(double %170, double %175, double %168)
-  %177 = getelementptr inbounds nuw double, ptr %22, i64 %indvars.iv195
+  %177 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv195
   %178 = load double, ptr %177, align 8, !tbaa !52
   %179 = fdiv double %176, %178
-  %180 = getelementptr inbounds nuw double, ptr %46, i64 %indvars.iv195
+  %180 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv195
   store double %179, ptr %180, align 8, !tbaa !52
   %indvars.iv.next196 = add nuw nsw i64 %indvars.iv195, 1
   %exitcond199.not = icmp eq i64 %indvars.iv.next196, %wide.trip.count198
@@ -1118,21 +1118,21 @@ _ZN5Ipopt11DenseVector6ValuesEv.exit:             ; preds = %32, %_ZNK5Ipopt16De
 
 .lr.ph166:                                        ; preds = %.lr.ph166.preheader, %.lr.ph166
   %indvars.iv190 = phi i64 [ 0, %.lr.ph166.preheader ], [ %indvars.iv.next191, %.lr.ph166 ]
-  %188 = getelementptr inbounds nuw double, ptr %136, i64 %indvars.iv190
+  %188 = getelementptr inbounds nuw [8 x i8], ptr %136, i64 %indvars.iv190
   %189 = load double, ptr %188, align 8, !tbaa !52
-  %190 = getelementptr inbounds nuw double, ptr %160, i64 %indvars.iv190
+  %190 = getelementptr inbounds nuw [8 x i8], ptr %160, i64 %indvars.iv190
   %191 = load double, ptr %190, align 8, !tbaa !52
-  %192 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv190
+  %192 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv190
   %193 = load i32, ptr %192, align 4, !tbaa !51
   %194 = sext i32 %193 to i64
-  %195 = getelementptr inbounds double, ptr %24, i64 %194
+  %195 = getelementptr inbounds [8 x i8], ptr %24, i64 %194
   %196 = load double, ptr %195, align 8, !tbaa !52
   %197 = fneg double %191
   %198 = tail call double @llvm.fmuladd.f64(double %197, double %196, double %189)
-  %199 = getelementptr inbounds nuw double, ptr %22, i64 %indvars.iv190
+  %199 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv190
   %200 = load double, ptr %199, align 8, !tbaa !52
   %201 = fdiv double %198, %200
-  %202 = getelementptr inbounds nuw double, ptr %46, i64 %indvars.iv190
+  %202 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv190
   store double %201, ptr %202, align 8, !tbaa !52
   %indvars.iv.next191 = add nuw nsw i64 %indvars.iv190, 1
   %exitcond194.not = icmp eq i64 %indvars.iv.next191, %wide.trip.count193
@@ -1140,21 +1140,21 @@ _ZN5Ipopt11DenseVector6ValuesEv.exit:             ; preds = %32, %_ZNK5Ipopt16De
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %203 = getelementptr inbounds nuw double, ptr %136, i64 %indvars.iv
+  %203 = getelementptr inbounds nuw [8 x i8], ptr %136, i64 %indvars.iv
   %204 = load double, ptr %203, align 8, !tbaa !52
-  %205 = getelementptr inbounds nuw double, ptr %160, i64 %indvars.iv
+  %205 = getelementptr inbounds nuw [8 x i8], ptr %160, i64 %indvars.iv
   %206 = load double, ptr %205, align 8, !tbaa !52
   %207 = fmul double %1, %206
-  %208 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv
+  %208 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv
   %209 = load i32, ptr %208, align 4, !tbaa !51
   %210 = sext i32 %209 to i64
-  %211 = getelementptr inbounds double, ptr %24, i64 %210
+  %211 = getelementptr inbounds [8 x i8], ptr %24, i64 %210
   %212 = load double, ptr %211, align 8, !tbaa !52
   %213 = tail call double @llvm.fmuladd.f64(double %207, double %212, double %204)
-  %214 = getelementptr inbounds nuw double, ptr %22, i64 %indvars.iv
+  %214 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv
   %215 = load double, ptr %214, align 8, !tbaa !52
   %216 = fdiv double %213, %215
-  %217 = getelementptr inbounds nuw double, ptr %46, i64 %indvars.iv
+  %217 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv
   store double %216, ptr %217, align 8, !tbaa !52
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1231,10 +1231,10 @@ _ZN5Ipopt11DenseVector6ValuesEv.exit:             ; preds = %11, %_ZNK5Ipopt16De
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %35 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %indvars.iv
   %36 = load i32, ptr %35, align 4, !tbaa !51
   %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds double, ptr %25, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %25, i64 %37
   %39 = load double, ptr %38, align 8, !tbaa !52
   %40 = fcmp olt double %39, 1.000000e+00
   %.sroa.speculated.i = select i1 %40, double 1.000000e+00, double %39
@@ -1372,7 +1372,7 @@ define void @_ZNK5Ipopt15ExpansionMatrix15PrintImplOffsetERKNS_10JournalistENS_1
   %indvars24 = trunc i64 %indvars.iv to i32
   %32 = load ptr, ptr %6, align 8, !tbaa !77
   %33 = load ptr, ptr %4, align 8, !tbaa !77
-  %34 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %indvars.iv
   %35 = load i32, ptr %34, align 4, !tbaa !51
   %36 = add nsw i32 %35, %7
   %37 = add nsw i32 %8, %indvars24
@@ -1446,7 +1446,7 @@ define void @_ZN5Ipopt20ExpansionMatrixSpaceC2EiiPKii(ptr noundef nonnull writeo
 
 29:                                               ; preds = %.lr.ph, %29
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %29 ]
-  %30 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %indvars.iv
   store i32 -1, ptr %30, align 4, !tbaa !51
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %31 = icmp samesign ult i64 %indvars.iv.next, %26
@@ -1457,16 +1457,16 @@ define void @_ZN5Ipopt20ExpansionMatrixSpaceC2EiiPKii(ptr noundef nonnull writeo
 
 32:                                               ; preds = %.lr.ph20, %41
   %indvars.iv22 = phi i64 [ 0, %.lr.ph20 ], [ %indvars.iv.next23, %41 ]
-  %33 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv22
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv22
   %34 = load i32, ptr %33, align 4, !tbaa !51
   %35 = sub nsw i32 %34, %4
-  %36 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv22
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv22
   store i32 %35, ptr %36, align 4, !tbaa !51
   br i1 %21, label %37, label %41
 
 37:                                               ; preds = %32
   %38 = sext i32 %35 to i64
-  %39 = getelementptr inbounds i32, ptr %27, i64 %38
+  %39 = getelementptr inbounds [4 x i8], ptr %27, i64 %38
   %40 = trunc nuw nsw i64 %indvars.iv22 to i32
   store i32 %40, ptr %39, align 4, !tbaa !51
   br label %41
@@ -1522,7 +1522,7 @@ define linkonce_odr void @_ZNK5Ipopt15ExpansionMatrix9PrintImplERKNS_10Journalis
   %indvars24.i = trunc i64 %indvars.iv.i to i32
   %30 = load ptr, ptr %6, align 8, !tbaa !77
   %31 = load ptr, ptr %4, align 8, !tbaa !77
-  %32 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv.i
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %indvars.iv.i
   %33 = load i32, ptr %32, align 4, !tbaa !51
   %34 = add nsw i32 %33, 1
   %35 = add nsw i32 %indvars24.i, 1

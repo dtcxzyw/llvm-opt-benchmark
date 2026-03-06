@@ -3,12 +3,10 @@ source_filename = "bench/libpng/original/pngrutil.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.anon = type { ptr, i32 }
 %struct.png_color_struct = type { i8, i8, i8 }
 %struct.png_color_16_struct = type { i8, i16, i16, i16, i16 }
 %struct.png_text_struct = type { i32, ptr, ptr, i64, i64, ptr, ptr }
 %struct.png_sPLT_struct = type { ptr, i8, ptr, i32 }
-%struct.png_sPLT_entry_struct = type { i16, i16, i16, i16, i16 }
 %struct.png_time_struct = type { i16, i8, i8, i8, i8, i8 }
 
 @.str = private unnamed_addr constant [34 x i8] c"PNG unsigned integer out of range\00", align 1
@@ -893,7 +891,7 @@ png_chunk_index_from_name.exit:                   ; preds = %3, %32
   br label %83
 
 37:                                               ; preds = %32
-  %38 = getelementptr inbounds nuw %struct.anon, ptr @read_chunks, i64 %33
+  %38 = getelementptr inbounds nuw [16 x i8], ptr @read_chunks, i64 %33
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 300
   %40 = load i32, ptr %39, align 4, !tbaa !24
   %41 = and i32 %40, 1
@@ -1168,32 +1166,32 @@ define void @png_combine_row(ptr noalias noundef %0, ptr noundef %1, i32 noundef
   br i1 %.not305, label %96, label %91
 
 91:                                               ; preds = %90
-  %92 = getelementptr inbounds nuw [3 x i32], ptr @png_combine_row.display_mask, i64 %89
+  %92 = getelementptr inbounds nuw [12 x i8], ptr @png_combine_row.display_mask, i64 %89
   %93 = lshr i32 %15, 1
   %94 = zext nneg i32 %93 to i64
-  %95 = getelementptr inbounds nuw i32, ptr %92, i64 %94
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %92, i64 %94
   br label %110
 
 96:                                               ; preds = %90
-  %97 = getelementptr inbounds nuw [6 x i32], ptr @png_combine_row.row_mask, i64 %89
+  %97 = getelementptr inbounds nuw [24 x i8], ptr @png_combine_row.row_mask, i64 %89
   %98 = zext nneg i8 %14 to i64
-  %99 = getelementptr inbounds nuw i32, ptr %97, i64 %98
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %97, i64 %98
   br label %110
 
 100:                                              ; preds = %83
   br i1 %.not305, label %106, label %101
 
 101:                                              ; preds = %100
-  %102 = getelementptr inbounds nuw [3 x i32], ptr getelementptr inbounds nuw (i8, ptr @png_combine_row.display_mask, i64 36), i64 %89
+  %102 = getelementptr inbounds nuw [12 x i8], ptr getelementptr inbounds nuw (i8, ptr @png_combine_row.display_mask, i64 36), i64 %89
   %103 = lshr i32 %15, 1
   %104 = zext nneg i32 %103 to i64
-  %105 = getelementptr inbounds nuw i32, ptr %102, i64 %104
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %102, i64 %104
   br label %110
 
 106:                                              ; preds = %100
-  %107 = getelementptr inbounds nuw [6 x i32], ptr getelementptr inbounds nuw (i8, ptr @png_combine_row.row_mask, i64 72), i64 %89
+  %107 = getelementptr inbounds nuw [24 x i8], ptr getelementptr inbounds nuw (i8, ptr @png_combine_row.row_mask, i64 72), i64 %89
   %108 = zext nneg i8 %14 to i64
-  %109 = getelementptr inbounds nuw i32, ptr %107, i64 %108
+  %109 = getelementptr inbounds nuw [4 x i8], ptr %107, i64 %108
   br label %110
 
 110:                                              ; preds = %101, %106, %91, %96
@@ -1435,8 +1433,8 @@ select.unfold:                                    ; preds = %143, %134
 
 222:                                              ; preds = %221
   %223 = sub nuw i64 %.5252, %203
-  %224 = getelementptr inbounds nuw i32, ptr %217, i64 %214
-  %225 = getelementptr inbounds nuw i32, ptr %219, i64 %214
+  %224 = getelementptr inbounds nuw [4 x i8], ptr %217, i64 %214
+  %225 = getelementptr inbounds nuw [4 x i8], ptr %219, i64 %214
   %.not302 = icmp ult i64 %223, %199
   br i1 %.not302, label %.preheader, label %215, !llvm.loop !62
 
@@ -1481,8 +1479,8 @@ select.unfold:                                    ; preds = %143, %134
 
 240:                                              ; preds = %239
   %241 = sub nuw i64 %.8, %203
-  %242 = getelementptr inbounds nuw i16, ptr %235, i64 %232
-  %243 = getelementptr inbounds nuw i16, ptr %237, i64 %232
+  %242 = getelementptr inbounds nuw [2 x i8], ptr %235, i64 %232
+  %243 = getelementptr inbounds nuw [2 x i8], ptr %237, i64 %232
   %.not298 = icmp ult i64 %241, %199
   br i1 %.not298, label %.preheader326, label %233, !llvm.loop !66
 
@@ -1946,7 +1944,7 @@ define void @png_read_filter_row(ptr noalias noundef %0, ptr noundef %1, ptr nou
 
 21:                                               ; preds = %11, %7
   %22 = zext nneg i32 %4 to i64
-  %23 = getelementptr ptr, ptr %8, i64 %22
+  %23 = getelementptr [8 x i8], ptr %8, i64 %22
   %24 = getelementptr i8, ptr %23, i64 -8
   %25 = load ptr, ptr %24, align 8, !tbaa !80
   tail call void %25(ptr noundef %1, ptr noundef %2, ptr noundef %3) #13
@@ -3191,7 +3189,7 @@ png_crc_read.exit:                                ; preds = %20, %24
   %42 = zext i32 %.055 to i64
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 %42
   %44 = load i8, ptr %43, align 1, !tbaa !3
-  %45 = getelementptr inbounds nuw %struct.png_color_struct, ptr %5, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [3 x i8], ptr %5, i64 %indvars.iv
   store i8 %44, ptr %45, align 1, !tbaa !142
   %46 = add i32 %.055, 2
   %47 = zext i32 %41 to i64
@@ -3344,7 +3342,7 @@ png_crc_read.exit:                                ; preds = %18
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 600
   %36 = load ptr, ptr %35, align 8, !tbaa !156
   %37 = zext i8 %27 to i64
-  %38 = getelementptr inbounds nuw %struct.png_color_struct, ptr %36, i64 %37
+  %38 = getelementptr inbounds nuw [3 x i8], ptr %36, i64 %37
   %39 = load i8, ptr %38, align 1, !tbaa !142
   %40 = zext i8 %39 to i16
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 2
@@ -4017,7 +4015,7 @@ png_crc_read.exit:                                ; preds = %png_crc_read.exit.p
   %20 = load i8, ptr %14, align 1, !tbaa !3
   %21 = zext i8 %20 to i16
   %22 = or disjoint i16 %19, %21
-  %23 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %indvars.iv
   store i16 %22, ptr %23, align 2, !tbaa !64
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -5100,7 +5098,7 @@ png_crc_read.exit:                                ; preds = %19, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph126.preheader ], [ %indvars.iv.next, %.critedge ]
   %.2124 = phi ptr [ %scevgep132, %.lr.ph126.preheader ], [ %.3122, %.critedge ]
   %132 = getelementptr inbounds nuw i8, ptr %.2124, i64 1
-  %133 = getelementptr inbounds nuw ptr, ptr %129, i64 %indvars.iv
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %129, i64 %indvars.iv
   store ptr %132, ptr %133, align 8, !tbaa !191
   %.not116121 = icmp ugt ptr %132, %26
   br i1 %.not116121, label %._crit_edge, label %.lr.ph
@@ -5578,7 +5576,7 @@ png_crc_read.exit:                                ; preds = %30, %23
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %indvars.iv99 = phi i64 [ %indvars.iv.next100, %.lr.ph.split.us ], [ 0, %.lr.ph ]
   %.196.us = phi ptr [ %87, %.lr.ph.split.us ], [ %46, %.lr.ph ]
-  %63 = getelementptr inbounds nuw %struct.png_sPLT_entry_struct, ptr %60, i64 %indvars.iv99
+  %63 = getelementptr inbounds nuw [10 x i8], ptr %60, i64 %indvars.iv99
   %64 = getelementptr inbounds nuw i8, ptr %.196.us, i64 1
   %65 = load i8, ptr %.196.us, align 1, !tbaa !3
   %66 = zext i8 %65 to i16
@@ -5619,7 +5617,7 @@ png_crc_read.exit:                                ; preds = %30, %23
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
   %.196 = phi ptr [ %133, %.lr.ph.split ], [ %46, %.lr.ph ]
-  %89 = getelementptr inbounds nuw %struct.png_sPLT_entry_struct, ptr %60, i64 %indvars.iv
+  %89 = getelementptr inbounds nuw [10 x i8], ptr %60, i64 %indvars.iv
   %90 = load i8, ptr %.196, align 1, !tbaa !3
   %91 = zext i8 %90 to i16
   %92 = shl nuw i16 %91, 8

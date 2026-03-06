@@ -9,8 +9,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.gmx::ArrayRefIter" = type { ptr }
 %"class.gmx::ArrayRef.0" = type { %"struct.gmx::ArrayRefIter.1", %"struct.gmx::ArrayRefIter.1" }
 %"struct.gmx::ArrayRefIter.1" = type { ptr }
-%"class.gmx::AnalysisDataValue" = type { float, float, %"class.gmx::FlagsTemplate" }
-%"class.gmx::FlagsTemplate" = type { i64 }
 %"class.gmx::AnalysisDataPointSetRef" = type { %"class.gmx::AnalysisDataFrameHeader", i32, i32, %"class.gmx::ArrayRef" }
 
 $_ZNK3gmx25AbstractAnalysisArrayData10frameCountEv = comdat any
@@ -96,7 +94,7 @@ define void @_ZNK3gmx25AbstractAnalysisArrayData23tryGetDataFrameInternalEi(ptr 
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %14 = sext i32 %2 to i64
   %15 = load ptr, ptr %13, align 8, !tbaa !34
-  %16 = getelementptr inbounds nuw float, ptr %15, i64 %14
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %14
   %17 = load float, ptr %16, align 4, !tbaa !35
   call void @_ZN3gmx23AnalysisDataFrameHeaderC1Eiff(ptr noundef nonnull align 4 dereferenceable(12) %4, i32 noundef %2, float noundef %17, float noundef 0.000000e+00)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -106,8 +104,8 @@ define void @_ZNK3gmx25AbstractAnalysisArrayData23tryGetDataFrameInternalEi(ptr 
   %21 = sext i32 %20 to i64
   %22 = call noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds %"class.gmx::AnalysisDataValue", ptr %18, i64 %21
-  %25 = getelementptr inbounds %"class.gmx::AnalysisDataValue", ptr %24, i64 %23
+  %24 = getelementptr inbounds [16 x i8], ptr %18, i64 %21
+  %25 = getelementptr inbounds [16 x i8], ptr %24, i64 %23
   store ptr %24, ptr %5, align 8
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %25, ptr %26, align 8
@@ -317,7 +315,7 @@ define void @_ZN3gmx25AbstractAnalysisArrayData11setRowCountEi(ptr noundef nonnu
   br i1 %43, label %44, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 44:                                               ; preds = %42
-  %45 = getelementptr inbounds nuw float, ptr %30, i64 %33
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %33
   %.not.i.i = icmp eq ptr %31, %45
   br i1 %.not.i.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %46
 
@@ -349,7 +347,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %40, %42, %44, %46
   %59 = sitofp i32 %58 to float
   %60 = load float, ptr %53, align 4, !tbaa !39
   %61 = tail call float @llvm.fmuladd.f32(float %59, float %60, float %57)
-  %62 = getelementptr inbounds nuw float, ptr %54, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %indvars.iv
   store float %61, ptr %62, align 4, !tbaa !35
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -452,9 +450,9 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36: ; preds = %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !34
-  %39 = getelementptr inbounds nuw float, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !44
-  %40 = getelementptr inbounds nuw float, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !41
   br label %41
 
@@ -525,7 +523,7 @@ define void @_ZN3gmx25AbstractAnalysisArrayData14allocateValuesEv(ptr noundef no
   br i1 %30, label %31, label %_ZNSt6vectorIN3gmx17AnalysisDataValueESaIS1_EE6resizeEm.exit
 
 31:                                               ; preds = %29
-  %32 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %21, i64 %19
+  %32 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %19
   %.not.i.i = icmp eq ptr %20, %32
   br i1 %.not.i.i, label %_ZNSt6vectorIN3gmx17AnalysisDataValueESaIS1_EE6resizeEm.exit, label %33
 
@@ -627,9 +625,9 @@ _ZNSt6vectorIN3gmx17AnalysisDataValueESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit:
 
 _ZNSt12_Vector_baseIN3gmx17AnalysisDataValueESaIS1_EE13_M_deallocateEPS1_m.exit37: ; preds = %_ZNSt6vectorIN3gmx17AnalysisDataValueESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %31
   store ptr %26, ptr %0, align 8, !tbaa !36
-  %33 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %27, i64 %1
+  %33 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %1
   store ptr %33, ptr %4, align 8, !tbaa !50
-  %34 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %26, i64 %24
+  %34 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %24
   store ptr %34, ptr %11, align 8, !tbaa !42
   br label %35
 
@@ -675,7 +673,7 @@ define void @_ZN3gmx25AbstractAnalysisArrayData8setXAxisEff(ptr noundef nonnull 
   %19 = uitofp nneg i32 %18 to float
   %20 = load float, ptr %10, align 4, !tbaa !39
   %21 = tail call float @llvm.fmuladd.f32(float %19, float %20, float %1)
-  %22 = getelementptr inbounds nuw float, ptr %16, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv
   store float %21, ptr %22, align 4, !tbaa !35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -742,7 +740,7 @@ define void @_ZN3gmx25AbstractAnalysisArrayData13setXAxisValueEif(ptr noundef no
   br i1 %33, label %34, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 34:                                               ; preds = %32
-  %35 = getelementptr inbounds nuw float, ptr %21, i64 %28
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %28
   %.not.i.i = icmp eq ptr %20, %35
   br i1 %.not.i.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %36
 
@@ -756,7 +754,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %._ZNSt6vectorIfSaIf
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %37, i8 0, i64 9, i1 false)
   %39 = load ptr, ptr %38, align 8, !tbaa !34
-  %40 = getelementptr inbounds nuw float, ptr %39, i64 %.pre-phi
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %.pre-phi
   store float %2, ptr %40, align 4, !tbaa !35
   ret void
 }
@@ -806,7 +804,7 @@ define void @_ZN3gmx25AbstractAnalysisArrayData11valuesReadyEv(ptr noundef nonnu
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %22 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %23 = load ptr, ptr %19, align 8, !tbaa !34
-  %24 = getelementptr inbounds nuw float, ptr %23, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %indvars.iv
   %25 = load float, ptr %24, align 4, !tbaa !35
   %26 = trunc nuw nsw i64 %indvars.iv to i32
   call void @_ZN3gmx23AnalysisDataFrameHeaderC1Eiff(ptr noundef nonnull align 4 dereferenceable(12) %2, i32 noundef %26, float noundef %25, float noundef 0.000000e+00)
@@ -819,8 +817,8 @@ define void @_ZN3gmx25AbstractAnalysisArrayData11valuesReadyEv(ptr noundef nonnu
   %30 = sext i32 %29 to i64
   %31 = call noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
   %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds %"class.gmx::AnalysisDataValue", ptr %27, i64 %30
-  %34 = getelementptr inbounds %"class.gmx::AnalysisDataValue", ptr %33, i64 %32
+  %33 = getelementptr inbounds [16 x i8], ptr %27, i64 %30
+  %34 = getelementptr inbounds [16 x i8], ptr %33, i64 %32
   store ptr %33, ptr %4, align 8
   store ptr %34, ptr %21, align 8
   call void @_ZN3gmx23AnalysisDataPointSetRefC1ERKNS_23AnalysisDataFrameHeaderERKNS_24AnalysisDataPointSetInfoERKNS_8ArrayRefIKNS_17AnalysisDataValueEEE(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 4 dereferenceable(12) %2, ptr noundef nonnull align 4 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(16) %4)

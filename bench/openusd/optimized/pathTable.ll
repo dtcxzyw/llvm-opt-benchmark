@@ -26,7 +26,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.pxrInternal_v0_24__pxrReserved__::TfFunctionRef" = type { ptr, ptr }
 %"class.tbb::detail::d1::range_vector" = type { i8, i8, i8, [8 x i8], [5 x i8], %"class.tbb::detail::d0::aligned_space" }
 %"class.tbb::detail::d0::aligned_space" = type { [192 x i8] }
-%"class.tbb::detail::d1::blocked_range" = type { i64, i64, i64 }
 
 $_ZN3tbb6detail2d118task_group_contextD2Ev = comdat any
 
@@ -157,7 +156,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__28Sdf_VisitPathTableInParallel
 .preheader:                                       ; preds = %12, %51
   %.07.i.i.i.i = phi i64 [ %52, %51 ], [ 0, %12 ]
   %47 = load ptr, ptr %8, align 8
-  %48 = getelementptr inbounds ptr, ptr %47, i64 %.07.i.i.i.i
+  %48 = getelementptr inbounds [8 x i8], ptr %47, i64 %.07.i.i.i.i
   %49 = load ptr, ptr %48, align 8
   %.not5.i.i.i.i = icmp eq ptr %49, null
   br i1 %.not5.i.i.i.i, label %51, label %50
@@ -425,7 +424,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i.backedge: ; pred
   %.07.i.i.i.i.i = phi i64 [ %92, %.lr.ph.i.i.i.i.i ], [ %112, %111 ]
   %104 = load ptr, ptr %.val.i.i, align 8
   %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr inbounds ptr, ptr %105, i64 %.07.i.i.i.i.i
+  %106 = getelementptr inbounds [8 x i8], ptr %105, i64 %.07.i.i.i.i.i
   %107 = load ptr, ptr %106, align 8
   %.not5.i.i.i.i.i = icmp eq ptr %107, null
   br i1 %.not5.i.i.i.i.i, label %111, label %108
@@ -483,7 +482,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exi
   %128 = phi i8 [ %156, %126 ], [ %.promoted.i.pr61.i.i, %.lr.ph.i.i.i ]
   %129 = phi i8 [ %142, %126 ], [ %.promoted4.i.i.i, %.lr.ph.i.i.i ]
   %130 = zext i8 %129 to i64
-  %131 = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %117, i64 %130
+  %131 = getelementptr inbounds nuw [24 x i8], ptr %117, i64 %130
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 16
   %133 = load i64, ptr %132, align 8
   %134 = load i64, ptr %131, align 8
@@ -498,7 +497,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exi
   %141 = add i8 %129, 1
   %142 = and i8 %141, 7
   %143 = zext nneg i8 %142 to i64
-  %144 = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %117, i64 %143
+  %144 = getelementptr inbounds nuw [24 x i8], ptr %117, i64 %143
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %144, ptr noundef nonnull align 8 dereferenceable(24) %131, i64 24, i1 false)
   %145 = load i64, ptr %144, align 8
   store i64 %145, ptr %131, align 8
@@ -558,7 +557,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
   %170 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 128, ptr noundef nonnull align 8 dereferenceable(12) %1)
-  %171 = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %117, i64 %167
+  %171 = getelementptr inbounds nuw [24 x i8], ptr %117, i64 %167
   %172 = getelementptr inbounds nuw i8, ptr %170, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %172, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @"_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNIZNS5_28Sdf_VisitPathTableInParallelEPPvmNS5_13TfFunctionRefIFvRS7_EEEE3$_0EEvmOT_mE21Work_ParallelForN_TBBKNS1_16auto_partitionerEEE", i64 16), ptr %170, align 64
@@ -612,7 +611,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   br i1 %199, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i.i, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.thread.i.i
 
 _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i.i: ; preds = %195
-  %200 = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %117, i64 %196
+  %200 = getelementptr inbounds nuw [24 x i8], ptr %117, i64 %196
   %201 = getelementptr inbounds nuw i8, ptr %200, i64 16
   %202 = load i64, ptr %201, align 8
   %203 = load i64, ptr %200, align 8
@@ -624,7 +623,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exi
 
 _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.thread.i.i: ; preds = %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i.i, %195, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.exit._ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.thread_crit_edge.i.i
   %.pre-phi.i.i = phi i64 [ %.pre63.i.i, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.exit._ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.thread_crit_edge.i.i ], [ %196, %195 ], [ %196, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i.i ]
-  %208 = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %117, i64 %.pre-phi.i.i
+  %208 = getelementptr inbounds nuw [24 x i8], ptr %117, i64 %.pre-phi.i.i
   %.val13.i.i = load ptr, ptr %119, align 8
   %.val14.i.i = load i64, ptr %208, align 8
   %209 = getelementptr i8, ptr %208, i64 8
@@ -641,7 +640,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exi
   %.07.i.i.i22.i.i = phi i64 [ %.val15.i.i, %.lr.ph.i.i.i21.i.i ], [ %220, %.noexc25.i.i ]
   %213 = load ptr, ptr %.val13.i.i, align 8
   %214 = load ptr, ptr %213, align 8
-  %215 = getelementptr inbounds ptr, ptr %214, i64 %.07.i.i.i22.i.i
+  %215 = getelementptr inbounds [8 x i8], ptr %214, i64 %.07.i.i.i22.i.i
   %216 = load ptr, ptr %215, align 8
   %.not5.i.i.i23.i.i = icmp eq ptr %216, null
   br i1 %.not5.i.i.i23.i.i, label %.noexc25.i.i, label %217

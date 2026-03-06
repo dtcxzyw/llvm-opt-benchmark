@@ -3,8 +3,6 @@ source_filename = "bench/hdf5/original/H5FL.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.H5FL_arr_node_t = type { i64, i32, i32, ptr }
-
 @H5FL_init_g = local_unnamed_addr global i8 0, align 1
 @.str = private unnamed_addr constant [16 x i8] c"H5FL_blk_node_t\00", align 1
 @H5_H5FL_blk_node_t_reg_free_list = global { i8, [3 x i8], i32, i32, [4 x i8], ptr, i64, ptr } { i8 0, [3 x i8] zeroinitializer, i32 0, i32 0, [4 x i8] zeroinitializer, ptr @.str, i64 40, ptr null }, align 8
@@ -1466,12 +1464,12 @@ define noalias noundef ptr @H5FL_arr_free(ptr noundef captures(none) %0, ptr nou
   %9 = load i64, ptr %8, align 8, !tbaa !97
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = load ptr, ptr %10, align 8, !tbaa !51
-  %12 = getelementptr inbounds nuw %struct.H5FL_arr_node_t, ptr %11, i64 %9
+  %12 = getelementptr inbounds nuw [24 x i8], ptr %11, i64 %9
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8, !tbaa !106
   store ptr %14, ptr %8, align 8, !tbaa !97
   %15 = load ptr, ptr %10, align 8, !tbaa !51
-  %16 = getelementptr inbounds nuw %struct.H5FL_arr_node_t, ptr %15, i64 %9
+  %16 = getelementptr inbounds nuw [24 x i8], ptr %15, i64 %9
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store ptr %8, ptr %17, align 8, !tbaa !106
   %18 = load i64, ptr %16, align 8, !tbaa !109
@@ -1515,7 +1513,7 @@ define noalias noundef ptr @H5FL_arr_free(ptr noundef captures(none) %0, ptr nou
   %41 = phi ptr [ %15, %.lr.ph35.i ], [ %71, %67 ]
   %42 = phi ptr [ %15, %.lr.ph35.i ], [ %72, %67 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph35.i ], [ %indvars.iv.next.i, %67 ]
-  %43 = getelementptr inbounds nuw %struct.H5FL_arr_node_t, ptr %42, i64 %indvars.iv.i
+  %43 = getelementptr inbounds nuw [24 x i8], ptr %42, i64 %indvars.iv.i
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 12
   %45 = load i32, ptr %44, align 4, !tbaa !110
   %.not.i = icmp eq i32 %45, 0
@@ -1546,7 +1544,7 @@ define noalias noundef ptr @H5FL_arr_free(ptr noundef captures(none) %0, ptr nou
   %51 = phi i64 [ %.pre, %._crit_edge.loopexit.i ], [ %39, %46 ]
   %.pre39.i = phi i32 [ %.pre39.pre.i, %._crit_edge.loopexit.i ], [ %.pre3940.i, %46 ]
   %52 = phi ptr [ %.pre38.i, %._crit_edge.loopexit.i ], [ %41, %46 ]
-  %53 = getelementptr inbounds nuw %struct.H5FL_arr_node_t, ptr %52, i64 %indvars.iv.i
+  %53 = getelementptr inbounds nuw [24 x i8], ptr %52, i64 %indvars.iv.i
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 12
   %55 = load i32, ptr %54, align 4, !tbaa !110
   %56 = getelementptr inbounds nuw i8, ptr %53, i64 8
@@ -1637,7 +1635,7 @@ define internal fastcc void @H5FL__arr_gc() unnamed_addr #1 {
   %19 = phi ptr [ %.pre.i, %.lr.ph35.i ], [ %47, %45 ]
   %20 = phi ptr [ %.pre.i, %.lr.ph35.i ], [ %48, %45 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph35.i ], [ %indvars.iv.next.i, %45 ]
-  %21 = getelementptr inbounds nuw %struct.H5FL_arr_node_t, ptr %20, i64 %indvars.iv.i
+  %21 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %indvars.iv.i
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 12
   %23 = load i32, ptr %22, align 4, !tbaa !110
   %.not.i = icmp eq i32 %23, 0
@@ -1664,7 +1662,7 @@ define internal fastcc void @H5FL__arr_gc() unnamed_addr #1 {
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %24
   %.pre39.i = phi i32 [ %.pre39.pre.i, %._crit_edge.loopexit.i ], [ %.pre3940.i, %24 ]
   %28 = phi ptr [ %.pre38.i, %._crit_edge.loopexit.i ], [ %19, %24 ]
-  %29 = getelementptr inbounds nuw %struct.H5FL_arr_node_t, ptr %28, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw [24 x i8], ptr %28, i64 %indvars.iv.i
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 12
   %31 = load i32, ptr %30, align 4, !tbaa !110
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 8
@@ -1772,7 +1770,7 @@ define noalias ptr @H5FL_arr_malloc(ptr noundef %0, i64 noundef %1) local_unname
   %.01719.i = phi i64 [ 0, %.lr.ph.i ], [ %35, %31 ]
   %32 = mul i64 %.01719.i, %30
   %33 = add i64 %32, %28
-  %34 = getelementptr inbounds nuw %struct.H5FL_arr_node_t, ptr %24, i64 %.01719.i
+  %34 = getelementptr inbounds nuw [24 x i8], ptr %24, i64 %.01719.i
   store i64 %33, ptr %34, align 8, !tbaa !109
   %35 = add nuw i64 %.01719.i, 1
   %exitcond.not.i = icmp eq i64 %35, %22
@@ -1795,7 +1793,7 @@ H5FL__arr_init.exit:                              ; preds = %31, %.preheader.i
 43:                                               ; preds = %._crit_edge, %H5FL__arr_init.exit
   %44 = phi ptr [ %.pre, %._crit_edge ], [ %24, %H5FL__arr_init.exit ]
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %46 = getelementptr inbounds nuw %struct.H5FL_arr_node_t, ptr %44, i64 %1
+  %46 = getelementptr inbounds nuw [24 x i8], ptr %44, i64 %1
   %47 = load i64, ptr %46, align 8, !tbaa !109
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %49 = load ptr, ptr %48, align 8, !tbaa !106
@@ -1858,7 +1856,7 @@ H5FL__arr_init.exit:                              ; preds = %31, %.preheader.i
 H5FL__malloc.exit:                                ; preds = %.H5FL__malloc.exit_crit_edge, %68
   %83 = phi ptr [ %.pre32, %.H5FL__malloc.exit_crit_edge ], [ %44, %68 ]
   %.0.i29 = phi ptr [ %73, %.H5FL__malloc.exit_crit_edge ], [ %69, %68 ]
-  %84 = getelementptr inbounds nuw %struct.H5FL_arr_node_t, ptr %83, i64 %1
+  %84 = getelementptr inbounds nuw [24 x i8], ptr %83, i64 %1
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %86 = load i32, ptr %85, align 8, !tbaa !115
   %87 = add i32 %86, 1
@@ -1912,7 +1910,7 @@ define noalias ptr @H5FL_arr_calloc(ptr noundef %0, i64 noundef %1) local_unname
 18:                                               ; preds = %11
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %20 = load ptr, ptr %19, align 8, !tbaa !51
-  %21 = getelementptr inbounds nuw %struct.H5FL_arr_node_t, ptr %20, i64 %1
+  %21 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %1
   %22 = load i64, ptr %21, align 8, !tbaa !109
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %12, i8 0, i64 %22, i1 false)
   br label %23
@@ -1960,7 +1958,7 @@ define ptr @H5FL_arr_realloc(ptr noundef %0, ptr noundef %1, i64 noundef %2) loc
   %22 = load ptr, ptr %21, align 8, !tbaa !51
   %23 = load i64, ptr %17, align 8, !tbaa !97
   %. = tail call i64 @llvm.umin.i64(i64 %23, i64 %2)
-  %24 = getelementptr inbounds nuw %struct.H5FL_arr_node_t, ptr %22, i64 %.
+  %24 = getelementptr inbounds nuw [24 x i8], ptr %22, i64 %.
   %25 = load i64, ptr %24, align 8, !tbaa !109
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %20, ptr nonnull align 1 %1, i64 %25, i1 false)
   %26 = tail call ptr @H5FL_arr_free(ptr noundef %0, ptr noundef nonnull %1)
@@ -2682,7 +2680,7 @@ define noundef i32 @H5FL_get_free_list_sizes(ptr noundef writeonly captures(addr
 33:                                               ; preds = %.lr.ph65, %33
   %indvars.iv = phi i64 [ 0, %.lr.ph65 ], [ %indvars.iv.next, %33 ]
   %34 = phi i64 [ %.promoted66, %.lr.ph65 ], [ %41, %33 ]
-  %35 = getelementptr inbounds nuw %struct.H5FL_arr_node_t, ptr %32, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [24 x i8], ptr %32, i64 %indvars.iv
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load i32, ptr %36, align 8, !tbaa !115
   %38 = zext i32 %37 to i64

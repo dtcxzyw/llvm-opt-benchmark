@@ -344,7 +344,7 @@ _ZNSt6vectorIPN3zmq7epoll_t12poll_entry_tESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.e
 _ZNSt6vectorIPN3zmq7epoll_t12poll_entry_tESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %42, %_ZNSt6vectorIPN3zmq7epoll_t12poll_entry_tESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
   store ptr %37, ptr %17, align 8, !tbaa !45
   store ptr %41, ptr %18, align 8, !tbaa !59
-  %43 = getelementptr inbounds nuw ptr, ptr %37, i64 %35
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %35
   store ptr %43, ptr %20, align 8, !tbaa !60
   br label %_ZNSt6vectorIPN3zmq7epoll_t12poll_entry_tESaIS3_EE9push_backERKS3_.exit
 
@@ -542,7 +542,7 @@ _ZNSt6vectorIPN3zmq7epoll_t12poll_entry_tESaIS3_EE5clearEv.exit.backedge: ; pred
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %63
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %63 ]
-  %29 = getelementptr inbounds nuw %struct.epoll_event, ptr %2, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [12 x i8], ptr %2, i64 %indvars.iv
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %31 = load ptr, ptr %30, align 4, !tbaa !57
   %32 = icmp eq ptr %31, null

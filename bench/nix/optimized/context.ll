@@ -71,7 +71,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Tuple_impl.161" = type { %"struct.std::_Head_base.164" }
 %"struct.std::_Head_base.164" = type { ptr }
 %"class.rc::Shrinkable.155" = type { ptr }
-%"struct.std::pair" = type { ptr, i64 }
 %"class.rc::gen::detail::MapGen" = type { ptr, %"class.rc::Gen.0" }
 %"class.rc::Shrinkable" = type { ptr }
 %"class.rc::Shrinkable.35" = type { ptr }
@@ -4479,7 +4478,7 @@ _ZNSt6vectorISt4pairIPN2rc3gen6detail17GenerationHandlerEmESaIS6_EE11_S_relocate
 _ZNSt6vectorISt4pairIPN2rc3gen6detail17GenerationHandlerEmESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i.i: ; preds = %45, %_ZNSt6vectorISt4pairIPN2rc3gen6detail17GenerationHandlerEmESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i.i.i.i
   store ptr %40, ptr @_ZN2rc6detail13ImplicitParamINS_3gen6detail5param14CurrentHandlerEE7m_stackE, align 8
   store ptr %44, ptr getelementptr inbounds nuw (i8, ptr @_ZN2rc6detail13ImplicitParamINS_3gen6detail5param14CurrentHandlerEE7m_stackE, i64 8), align 8
-  %46 = getelementptr inbounds nuw %"struct.std::pair", ptr %40, i64 %38
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %40, i64 %38
   store ptr %46, ptr getelementptr inbounds nuw (i8, ptr @_ZN2rc6detail13ImplicitParamINS_3gen6detail5param14CurrentHandlerEE7m_stackE, i64 16), align 8
   br label %_ZNSt5stackISt4pairIPN2rc3gen6detail17GenerationHandlerEmESt6vectorIS6_SaIS6_EEE4pushEOS6_.exit
 
@@ -4549,7 +4548,7 @@ _ZNSt6vectorIPFvvESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ; preds = %
 _ZNSt6vectorIPFvvESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %77, %_ZNSt6vectorIPFvvESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
   store ptr %72, ptr %51, align 8
   store ptr %76, ptr %52, align 8
-  %78 = getelementptr inbounds nuw ptr, ptr %72, i64 %70
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %70
   store ptr %78, ptr %54, align 8
   br label %_ZNSt6vectorIPFvvESaIS1_EE9push_backEOS1_.exit
 

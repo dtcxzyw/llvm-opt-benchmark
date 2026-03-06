@@ -2054,7 +2054,7 @@ define dso_local void @_ZN4Luau11TypePackVarC2ERKNS_7VariantIJNS_9Unifiable5Boun
   %3 = load i32, ptr %1, align 8, !tbaa !49
   store i32 %3, ptr %0, align 8, !tbaa !49
   %4 = sext i32 %3 to i64
-  %5 = getelementptr inbounds ptr, ptr @_ZZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_11TypePackVarEEENS1_5ErrorIS5_EENS_12FreeTypePackENS_15GenericTypePackENS_8TypePackENS_16VariadicTypePackENS_15BlockedTypePackENS_28TypeFunctionInstanceTypePackEEEC1ERKSF_E5table, i64 %4
+  %5 = getelementptr inbounds [8 x i8], ptr @_ZZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_11TypePackVarEEENS1_5ErrorIS5_EENS_12FreeTypePackENS_15GenericTypePackENS_8TypePackENS_16VariadicTypePackENS_15BlockedTypePackENS_28TypeFunctionInstanceTypePackEEEC1ERKSF_E5table, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !51
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -2071,7 +2071,7 @@ define dso_local void @_ZN4Luau11TypePackVarC2EONS_7VariantIJNS_9Unifiable5Bound
   %3 = load i32, ptr %1, align 8, !tbaa !49
   store i32 %3, ptr %0, align 8, !tbaa !49
   %4 = sext i32 %3 to i64
-  %5 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_11TypePackVarEEENS1_5ErrorIS5_EENS_12FreeTypePackENS_15GenericTypePackENS_8TypePackENS_16VariadicTypePackENS_15BlockedTypePackENS_28TypeFunctionInstanceTypePackEEE9tableMoveE, i64 %4
+  %5 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_11TypePackVarEEENS1_5ErrorIS5_EENS_12FreeTypePackENS_15GenericTypePackENS_8TypePackENS_16VariadicTypePackENS_15BlockedTypePackENS_28TypeFunctionInstanceTypePackEEE9tableMoveE, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !51
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -2089,7 +2089,7 @@ define dso_local void @_ZN4Luau11TypePackVarC2EONS_7VariantIJNS_9Unifiable5Bound
   %5 = load i32, ptr %1, align 8, !tbaa !49
   store i32 %5, ptr %0, align 8, !tbaa !49
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_11TypePackVarEEENS1_5ErrorIS5_EENS_12FreeTypePackENS_15GenericTypePackENS_8TypePackENS_16VariadicTypePackENS_15BlockedTypePackENS_28TypeFunctionInstanceTypePackEEE9tableMoveE, i64 %6
+  %7 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_11TypePackVarEEENS1_5ErrorIS5_EENS_12FreeTypePackENS_15GenericTypePackENS_8TypePackENS_16VariadicTypePackENS_15BlockedTypePackENS_28TypeFunctionInstanceTypePackEEE9tableMoveE, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !51
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -2292,10 +2292,10 @@ _ZN4Luau16TypePackIteratorC2EPKNS_11TypePackVarEPKNS_6TxnLogE.exit133: ; preds =
 
 54:                                               ; preds = %.lr.ph273
   %55 = load ptr, ptr %.sroa.10173.0272, align 8, !tbaa !81
-  %56 = getelementptr inbounds nuw ptr, ptr %55, i64 %.sroa.20177.0271
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %.sroa.20177.0271
   %57 = load ptr, ptr %56, align 8, !tbaa !83
   %58 = load ptr, ptr %.sroa.10.0269, align 8, !tbaa !81
-  %59 = getelementptr inbounds nuw ptr, ptr %58, i64 %.sroa.20.0268
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %.sroa.20.0268
   %60 = load ptr, ptr %59, align 8, !tbaa !83
   %61 = tail call noundef zeroext i1 @_ZN4Luau8areEqualERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EERKNS_4TypeESC_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(400) %57, ptr noundef nonnull align 8 dereferenceable(400) %60)
   br i1 %61, label %.lr.ph.i, label %.critedge.thread
@@ -2506,14 +2506,14 @@ define dso_local noundef nonnull align 8 dereferenceable(88) ptr @_ZN4Luau11Type
 3:                                                ; preds = %2
   %4 = load i32, ptr %0, align 8, !tbaa !49
   %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_11TypePackVarEEENS1_5ErrorIS5_EENS_12FreeTypePackENS_15GenericTypePackENS_8TypePackENS_16VariadicTypePackENS_15BlockedTypePackENS_28TypeFunctionInstanceTypePackEEE9tableDtorE, i64 %5
+  %6 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_11TypePackVarEEENS1_5ErrorIS5_EENS_12FreeTypePackENS_15GenericTypePackENS_8TypePackENS_16VariadicTypePackENS_15BlockedTypePackENS_28TypeFunctionInstanceTypePackEEE9tableDtorE, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !51
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void %7(ptr noundef nonnull %8)
   %9 = load i32, ptr %1, align 8, !tbaa !49
   store i32 %9, ptr %0, align 8, !tbaa !49
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_11TypePackVarEEENS1_5ErrorIS5_EENS_12FreeTypePackENS_15GenericTypePackENS_8TypePackENS_16VariadicTypePackENS_15BlockedTypePackENS_28TypeFunctionInstanceTypePackEEE9tableMoveE, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_11TypePackVarEEENS1_5ErrorIS5_EENS_12FreeTypePackENS_15GenericTypePackENS_8TypePackENS_16VariadicTypePackENS_15BlockedTypePackENS_28TypeFunctionInstanceTypePackEEE9tableMoveE, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !51
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void %12(ptr noundef nonnull %8, ptr noundef nonnull %13)
@@ -2530,7 +2530,7 @@ define dso_local noundef nonnull align 8 dereferenceable(88) ptr @_ZN4Luau11Type
   %4 = load i32, ptr %1, align 8, !tbaa !49
   store i32 %4, ptr %3, align 8, !tbaa !49
   %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds ptr, ptr @_ZZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_11TypePackVarEEENS1_5ErrorIS5_EENS_12FreeTypePackENS_15GenericTypePackENS_8TypePackENS_16VariadicTypePackENS_15BlockedTypePackENS_28TypeFunctionInstanceTypePackEEEC1ERKSF_E5table, i64 %5
+  %6 = getelementptr inbounds [8 x i8], ptr @_ZZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_11TypePackVarEEENS1_5ErrorIS5_EENS_12FreeTypePackENS_15GenericTypePackENS_8TypePackENS_16VariadicTypePackENS_15BlockedTypePackENS_28TypeFunctionInstanceTypePackEEEC1ERKSF_E5table, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !51
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -2541,7 +2541,7 @@ define dso_local noundef nonnull align 8 dereferenceable(88) ptr @_ZN4Luau11Type
 10:                                               ; preds = %2
   %11 = load i32, ptr %0, align 8, !tbaa !49
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_11TypePackVarEEENS1_5ErrorIS5_EENS_12FreeTypePackENS_15GenericTypePackENS_8TypePackENS_16VariadicTypePackENS_15BlockedTypePackENS_28TypeFunctionInstanceTypePackEEE9tableDtorE, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_11TypePackVarEEENS1_5ErrorIS5_EENS_12FreeTypePackENS_15GenericTypePackENS_8TypePackENS_16VariadicTypePackENS_15BlockedTypePackENS_28TypeFunctionInstanceTypePackEEE9tableDtorE, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !51
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   invoke void %14(ptr noundef nonnull %15)
@@ -2551,7 +2551,7 @@ define dso_local noundef nonnull align 8 dereferenceable(88) ptr @_ZN4Luau11Type
   %16 = load i32, ptr %3, align 8, !tbaa !49
   store i32 %16, ptr %0, align 8, !tbaa !49
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_11TypePackVarEEENS1_5ErrorIS5_EENS_12FreeTypePackENS_15GenericTypePackENS_8TypePackENS_16VariadicTypePackENS_15BlockedTypePackENS_28TypeFunctionInstanceTypePackEEE9tableMoveE, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_11TypePackVarEEENS1_5ErrorIS5_EENS_12FreeTypePackENS_15GenericTypePackENS_8TypePackENS_16VariadicTypePackENS_15BlockedTypePackENS_28TypeFunctionInstanceTypePackEEE9tableMoveE, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !51
   invoke void %19(ptr noundef nonnull %15, ptr noundef nonnull %8)
           to label %_ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_11TypePackVarEEENS1_5ErrorIS5_EENS_12FreeTypePackENS_15GenericTypePackENS_8TypePackENS_16VariadicTypePackENS_15BlockedTypePackENS_28TypeFunctionInstanceTypePackEEEaSEOSF_.exit.i.i unwind label %27
@@ -2559,7 +2559,7 @@ define dso_local noundef nonnull align 8 dereferenceable(88) ptr @_ZN4Luau11Type
 _ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_11TypePackVarEEENS1_5ErrorIS5_EENS_12FreeTypePackENS_15GenericTypePackENS_8TypePackENS_16VariadicTypePackENS_15BlockedTypePackENS_28TypeFunctionInstanceTypePackEEEaSEOSF_.exit.i.i: ; preds = %.noexc.i.i, %2
   %20 = load i32, ptr %3, align 8, !tbaa !49
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_11TypePackVarEEENS1_5ErrorIS5_EENS_12FreeTypePackENS_15GenericTypePackENS_8TypePackENS_16VariadicTypePackENS_15BlockedTypePackENS_28TypeFunctionInstanceTypePackEEE9tableDtorE, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_11TypePackVarEEENS1_5ErrorIS5_EENS_12FreeTypePackENS_15GenericTypePackENS_8TypePackENS_16VariadicTypePackENS_15BlockedTypePackENS_28TypeFunctionInstanceTypePackEEE9tableDtorE, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !51
   invoke void %23(ptr noundef nonnull %8)
           to label %_ZN4Luau11TypePackVar8reassignERKS0_.exit unwind label %24
@@ -2576,7 +2576,7 @@ _ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_11TypePackVarEEENS1_5ErrorIS5_EENS_12
           cleanup
   %29 = load i32, ptr %3, align 8, !tbaa !49
   %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_11TypePackVarEEENS1_5ErrorIS5_EENS_12FreeTypePackENS_15GenericTypePackENS_8TypePackENS_16VariadicTypePackENS_15BlockedTypePackENS_28TypeFunctionInstanceTypePackEEE9tableDtorE, i64 %30
+  %31 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_11TypePackVarEEENS1_5ErrorIS5_EENS_12FreeTypePackENS_15GenericTypePackENS_8TypePackENS_16VariadicTypePackENS_15BlockedTypePackENS_28TypeFunctionInstanceTypePackEEE9tableDtorE, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !51
   invoke void %32(ptr noundef nonnull %8)
           to label %_ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_11TypePackVarEEENS1_5ErrorIS5_EENS_12FreeTypePackENS_15GenericTypePackENS_8TypePackENS_16VariadicTypePackENS_15BlockedTypePackENS_28TypeFunctionInstanceTypePackEEED2Ev.exit4.i.i unwind label %33
@@ -2870,7 +2870,7 @@ define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4Luau16TypeP
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !tbaa !98
   %6 = load ptr, ptr %3, align 8, !tbaa !81
-  %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %5
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %5
   ret ptr %7
 }
 
@@ -3960,7 +3960,7 @@ define dso_local void @_ZN4Luau7flattenEPKNS_11TypePackVarE(ptr dead_on_unwind n
   %.sroa.15.077 = phi ptr [ null, %.lr.ph80 ], [ %.sroa.15.4, %_ZN4Luau16TypePackIteratorppEv.exit ]
   %.lcssa527076 = phi ptr [ %.promoted68, %.lr.ph80 ], [ %.lcssa5269, %_ZN4Luau16TypePackIteratorppEv.exit ]
   %14 = load ptr, ptr %13, align 8, !tbaa !81
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %12
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %12
   %.not.i = icmp eq ptr %.sroa.10.078, %.sroa.15.077
   br i1 %.not.i, label %18, label %16
 
@@ -4016,7 +4016,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i: ; pr
   br label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i
 
 _ZNSt6vectorIPKN4Luau4TypeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %35, %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
-  %36 = getelementptr inbounds nuw ptr, ptr %30, i64 %28
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %28
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %16, %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i
@@ -4287,7 +4287,7 @@ _ZNK4Luau6TxnLog10getMutableINS_8TypePackEPKNS_11TypePackVarEEEPT_T0_.exit.i: ; 
   %.sroa.18.093 = phi i64 [ %.sroa.18.3, %_ZN4Luau16TypePackIteratorppEv.exit ], [ 0, %.lr.ph98.preheader ]
   %.sroa.9.092 = phi ptr [ %.sroa.9.4, %_ZN4Luau16TypePackIteratorppEv.exit ], [ %.sroa.9.1.le, %.lr.ph98.preheader ]
   %27 = load ptr, ptr %.sroa.9.092, align 8, !tbaa !81
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %.sroa.18.093
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %.sroa.18.093
   %.not.i = icmp eq ptr %.sroa.10.096, %.sroa.15.195
   br i1 %.not.i, label %31, label %29
 
@@ -4343,7 +4343,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i: ; pr
   br label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i
 
 _ZNSt6vectorIPKN4Luau4TypeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %48, %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
-  %49 = getelementptr inbounds nuw ptr, ptr %43, i64 %41
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %41
   %.pre = load ptr, ptr %.sroa.9.092, align 8, !tbaa !81
   br label %.lr.ph.i14
 
@@ -4716,7 +4716,7 @@ _ZNK4Luau6TxnLog10getMutableINS_8TypePackEPKNS_11TypePackVarEEEPT_T0_.exit.i20: 
   %.sroa.17.068 = phi i64 [ %.sroa.17.2, %_ZN4Luau16TypePackIteratorppEv.exit ], [ 0, %.lr.ph70.preheader ]
   %.sroa.025.067 = phi ptr [ %.sroa.025.3, %_ZN4Luau16TypePackIteratorppEv.exit ], [ %.sroa.025.6.ph.ph, %.lr.ph70.preheader ]
   %26 = load ptr, ptr %.sroa.8.069, align 8, !tbaa !81
-  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %.sroa.17.068
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %.sroa.17.068
   %28 = load ptr, ptr %27, align 8, !tbaa !83
   %29 = tail call noundef ptr @_ZN4Luau6followEPKNS_4TypeE(ptr noundef %28)
   %.not.i.i = icmp eq ptr %29, null
@@ -4815,7 +4815,7 @@ declare noundef ptr @_ZN4Luau6followEPKNS_4TypeE(ptr noundef) local_unnamed_addr
 define dso_local noundef nonnull ptr @_ZN4Luau15emplaceTypePackINS_9Unifiable5BoundIPKNS_11TypePackVarEEEJRS5_EEEPT_PS3_DpOT0_(ptr noundef %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #14 {
   %3 = load i32, ptr %0, align 8, !tbaa !49
   %4 = sext i32 %3 to i64
-  %5 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_11TypePackVarEEENS1_5ErrorIS5_EENS_12FreeTypePackENS_15GenericTypePackENS_8TypePackENS_16VariadicTypePackENS_15BlockedTypePackENS_28TypeFunctionInstanceTypePackEEE9tableDtorE, i64 %4
+  %5 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_11TypePackVarEEENS1_5ErrorIS5_EENS_12FreeTypePackENS_15GenericTypePackENS_8TypePackENS_16VariadicTypePackENS_15BlockedTypePackENS_28TypeFunctionInstanceTypePackEEE9tableDtorE, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !51
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void %6(ptr noundef nonnull %7)

@@ -1114,7 +1114,7 @@ define dso_local ptr @__find_get_block(ptr noundef %0, i64 noundef %1, i32 nound
 
 19:                                               ; preds = %45, %17
   %indvars.iv = phi i64 [ %indvars.iv.next, %45 ], [ 0, %17 ]
-  %20 = getelementptr ptr, ptr @bh_lrus, i64 %indvars.iv
+  %20 = getelementptr [8 x i8], ptr @bh_lrus, i64 %indvars.iv
   %21 = call i64 asm "movq %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) %20) #15, !srcloc !54
   %22 = inttoptr i64 %21 to ptr
   %23 = icmp eq i64 %21, 0
@@ -1145,9 +1145,9 @@ define dso_local ptr @__find_get_block(ptr noundef %0, i64 noundef %1, i32 nound
 .preheader14:                                     ; preds = %36, %.preheader14
   %38 = phi i64 [ %39, %.preheader14 ], [ %indvars.iv, %36 ]
   %39 = add nsw i64 %38, -1
-  %40 = getelementptr ptr, ptr @bh_lrus, i64 %39
+  %40 = getelementptr [8 x i8], ptr @bh_lrus, i64 %39
   %41 = call i64 asm "movq %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) %40) #15, !srcloc !55
-  %42 = getelementptr ptr, ptr @bh_lrus, i64 %38
+  %42 = getelementptr [8 x i8], ptr @bh_lrus, i64 %38
   call void asm "movq $1, %gs:$0", "=*m,re,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) %42, i64 %41, ptr elementtype(ptr) %42) #13, !srcloc !56
   %43 = icmp eq i64 %39, 0
   br i1 %43, label %44, label %.preheader14, !llvm.loop !57
@@ -1323,7 +1323,7 @@ define dso_local ptr @__find_get_block(ptr noundef %0, i64 noundef %1, i32 nound
 128:                                              ; preds = %125, %122
   %129 = phi i64 [ 0, %122 ], [ %126, %125 ]
   %130 = phi ptr [ %98, %122 ], [ %132, %125 ]
-  %131 = getelementptr ptr, ptr %124, i64 %129
+  %131 = getelementptr [8 x i8], ptr %124, i64 %129
   %132 = load ptr, ptr %131, align 8
   store ptr %130, ptr %131, align 8
   %133 = icmp eq ptr %132, %98
@@ -1907,7 +1907,7 @@ define dso_local ptr @alloc_buffer_head(i32 noundef %0) #2 align 16 {
 
 24:                                               ; preds = %20
   %25 = and i64 %21, 63
-  %26 = getelementptr i64, ptr @__per_cpu_offset, i64 %25
+  %26 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %25
   %27 = load i64, ptr %26, align 8
   %28 = add i64 %27, ptrtoint (ptr @bh_accounting to i64)
   %29 = inttoptr i64 %28 to ptr
@@ -2028,7 +2028,7 @@ define dso_local void @free_buffer_head(ptr noundef %0) #2 align 16 {
 
 22:                                               ; preds = %18
   %23 = and i64 %19, 63
-  %24 = getelementptr i64, ptr @__per_cpu_offset, i64 %23
+  %24 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %23
   %25 = load i64, ptr %24, align 8
   %26 = add i64 %25, ptrtoint (ptr @bh_accounting to i64)
   %27 = inttoptr i64 %26 to ptr
@@ -2549,7 +2549,7 @@ define dso_local ptr @__bread_gfp(ptr noundef %0, i64 noundef %1, i32 noundef %2
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none)
 define dso_local zeroext i1 @has_bh_in_lru(i32 noundef %0, ptr readnone captures(none) %1) #4 align 16 {
   %3 = sext i32 %0 to i64
-  %4 = getelementptr i64, ptr @__per_cpu_offset, i64 %3
+  %4 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %3
   %5 = load i64, ptr %4, align 8
   %6 = add i64 %5, ptrtoint (ptr @bh_lrus to i64)
   %7 = inttoptr i64 %6 to ptr
@@ -2564,7 +2564,7 @@ define dso_local zeroext i1 @has_bh_in_lru(i32 noundef %0, ptr readnone captures
   br i1 %12, label %17, label %13, !llvm.loop !100
 
 13:                                               ; preds = %.preheader
-  %14 = getelementptr ptr, ptr %7, i64 %11
+  %14 = getelementptr [8 x i8], ptr %7, i64 %11
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %.preheader, label %17, !llvm.loop !100
@@ -2594,7 +2594,7 @@ define internal void @invalidate_bh_lru(ptr readnone captures(none) %0) #2 align
 
 4:                                                ; preds = %15, %1
   %5 = phi i64 [ 0, %1 ], [ %16, %15 ]
-  %6 = getelementptr ptr, ptr %3, i64 %5
+  %6 = getelementptr [8 x i8], ptr %3, i64 %5
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %15, label %9
@@ -2651,7 +2651,7 @@ define dso_local void @invalidate_bh_lrus_cpu() local_unnamed_addr #2 align 16 {
 
 3:                                                ; preds = %14, %0
   %4 = phi i64 [ 0, %0 ], [ %15, %14 ]
-  %5 = getelementptr ptr, ptr %2, i64 %4
+  %5 = getelementptr [8 x i8], ptr %2, i64 %4
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %14, label %8
@@ -2964,7 +2964,7 @@ define dso_local void @clean_bdev_aliases(ptr noundef readonly captures(none) %0
 
 29:                                               ; preds = %72, %27
   %30 = phi i64 [ 0, %27 ], [ %73, %72 ]
-  %31 = getelementptr ptr, ptr %20, i64 %30
+  %31 = getelementptr [8 x i8], ptr %20, i64 %30
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 40
   %34 = load ptr, ptr %33, align 8
@@ -5069,7 +5069,7 @@ define dso_local noundef i32 @block_read_full_folio(ptr noundef %0, ptr noundef 
   %125 = phi i8 [ %45, %50 ], [ %66, %119 ]
   %126 = add i32 %42, 1
   %127 = sext i32 %42 to i64
-  %128 = getelementptr ptr, ptr %3, i64 %127
+  %128 = getelementptr [8 x i8], ptr %3, i64 %127
   store ptr %41, ptr %128, align 8
   br label %129
 
@@ -5112,7 +5112,7 @@ define dso_local noundef i32 @block_read_full_folio(ptr noundef %0, ptr noundef 
 
 150:                                              ; preds = %171, %146
   %151 = phi i64 [ 0, %146 ], [ %172, %171 ]
-  %152 = getelementptr ptr, ptr %3, i64 %151
+  %152 = getelementptr [8 x i8], ptr %3, i64 %151
   %153 = load ptr, ptr %152, align 8
   %154 = tail call i32 @__SCT__might_resched() #13
   %155 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %153, i64 2, ptr elementtype(i64) %153) #13, !srcloc !15
@@ -5152,7 +5152,7 @@ define dso_local noundef i32 @block_read_full_folio(ptr noundef %0, ptr noundef 
 
 .preheader:                                       ; preds = %171, %182
   %174 = phi i64 [ %183, %182 ], [ 0, %171 ]
-  %175 = getelementptr ptr, ptr %3, i64 %174
+  %175 = getelementptr [8 x i8], ptr %3, i64 %174
   %176 = load ptr, ptr %175, align 8
   %177 = tail call i8 asm sideeffect "testb $2,$1\0A\09/* output condition code nz*/\0A", "={@ccnz},*m,i,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %176, i32 1) #13, !srcloc !24
   %178 = icmp ult i8 %177, 2
@@ -6851,7 +6851,7 @@ define dso_local void @__bh_read_batch(i32 noundef %0, ptr noundef readonly capt
 
 .split.us:                                        ; preds = %6, %34
   %8 = phi i64 [ %35, %34 ], [ 0, %6 ]
-  %9 = getelementptr ptr, ptr %1, i64 %8
+  %9 = getelementptr [8 x i8], ptr %1, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i8 asm sideeffect "testb $2,$1\0A\09/* output condition code nz*/\0A", "={@ccnz},*m,i,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %10, i32 1) #13, !srcloc !24
   %12 = icmp ult i8 %11, 2
@@ -6907,7 +6907,7 @@ define dso_local void @__bh_read_batch(i32 noundef %0, ptr noundef readonly capt
 
 .split:                                           ; preds = %6, %55
   %37 = phi i64 [ %56, %55 ], [ 0, %6 ]
-  %38 = getelementptr ptr, ptr %1, i64 %37
+  %38 = getelementptr [8 x i8], ptr %1, i64 %37
   %39 = load ptr, ptr %38, align 8
   %40 = tail call i8 asm sideeffect "testb $2,$1\0A\09/* output condition code nz*/\0A", "={@ccnz},*m,i,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %39, i32 1) #13, !srcloc !24
   %41 = icmp ult i8 %40, 2
@@ -6984,7 +6984,7 @@ declare dso_local i64 @nr_free_buffer_pages() local_unnamed_addr #1
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @buffer_exit_cpu_dead(i32 noundef %0) #2 align 16 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr i64, ptr @__per_cpu_offset, i64 %2
+  %3 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %2
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, ptrtoint (ptr @bh_lrus to i64)
   %6 = inttoptr i64 %5 to ptr
@@ -6992,7 +6992,7 @@ define internal noundef i32 @buffer_exit_cpu_dead(i32 noundef %0) #2 align 16 {
 
 7:                                                ; preds = %18, %1
   %8 = phi i64 [ 0, %1 ], [ %19, %18 ]
-  %9 = getelementptr ptr, ptr %6, i64 %8
+  %9 = getelementptr [8 x i8], ptr %6, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %18, label %12

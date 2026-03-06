@@ -1442,7 +1442,7 @@ zend_hash_next_index_insert_ptr.exit:             ; preds = %95
   %113 = load i32, ptr %112, align 8, !tbaa !96
   %114 = add i32 %113, -1
   %115 = zext i32 %114 to i64
-  %116 = getelementptr inbounds nuw %struct._Bucket, ptr %111, i64 %115
+  %116 = getelementptr inbounds nuw [32 x i8], ptr %111, i64 %115
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %116, i64 32, i1 false), !tbaa.struct !97
   %117 = getelementptr inbounds nuw i8, ptr %111, i64 32
   %118 = shl nuw nsw i64 %115, 5

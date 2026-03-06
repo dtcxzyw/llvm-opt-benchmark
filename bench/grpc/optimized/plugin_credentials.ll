@@ -47,8 +47,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Tuple_impl.8" = type { %"struct.std::_Head_base.11" }
 %"struct.std::_Head_base.11" = type { ptr }
 %class.anon = type { ptr }
-%struct.grpc_metadata = type { %struct.grpc_slice, %struct.grpc_slice, %struct.anon }
-%struct.anon = type { [4 x ptr] }
 %"class.grpc_core::Poll" = type { i8, %union.anon.59 }
 %union.anon.59 = type { %"class.absl::lts_20240722::StatusOr" }
 %"class.grpc_core::ExecCtx" = type { ptr, %struct.grpc_closure_list, %"struct.grpc_core::ExecCtx::CombinerData", i64, %"class.std::optional", ptr }
@@ -69,6 +67,8 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Optional_payload_base.base" = type <{ %"union.std::_Optional_payload_base<grpc_core::Timestamp>::_Storage", i8 }>
 %"union.std::_Optional_payload_base<grpc_core::Timestamp>::_Storage" = type { %"class.grpc_core::Timestamp" }
 %"class.grpc_core::Timestamp" = type { i64 }
+%struct.grpc_metadata = type { %struct.grpc_slice, %struct.grpc_slice, %struct.anon }
+%struct.anon = type { [4 x ptr] }
 %"class.absl::lts_20240722::log_internal::LogMessage::OstreamView" = type { %"class.std::basic_streambuf", ptr, %"class.absl::lts_20240722::Span", %"class.absl::lts_20240722::Span", %"class.absl::lts_20240722::Span" }
 %"class.std::basic_streambuf" = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, %"class.std::locale" }
 %"class.std::locale" = type { ptr }
@@ -784,7 +784,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit47: ; preds = %48,
 
 .lr.ph:                                           ; preds = %.preheader, %_ZN4absl12lts_202407226StatusD2Ev.exit55.thread
   %.03372 = phi i64 [ %114, %_ZN4absl12lts_202407226StatusD2Ev.exit55.thread ], [ 0, %.preheader ]
-  %54 = getelementptr inbounds nuw %struct.grpc_metadata, ptr %2, i64 %.03372
+  %54 = getelementptr inbounds nuw [96 x i8], ptr %2, i64 %.03372
   call void @_Z33grpc_validate_header_key_is_legalRK10grpc_slice(ptr dead_on_unwind nonnull writable sret(%"class.absl::lts_20240722::Status") align 8 %15, ptr noundef nonnull align 8 dereferenceable(32) %54)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %55 = load i64, ptr %15, align 8, !tbaa !30
@@ -1006,7 +1006,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit59:         ; preds = %.loopexit, %_ZN4abs
 129:                                              ; preds = %.lr.ph74, %_ZN9grpc_core5SliceD2Ev.exit
   %.03173 = phi i64 [ 0, %.lr.ph74 ], [ %176, %_ZN9grpc_core5SliceD2Ev.exit ]
   %130 = load ptr, ptr %125, align 8, !tbaa !35
-  %131 = getelementptr inbounds nuw %struct.grpc_metadata, ptr %2, i64 %.03173
+  %131 = getelementptr inbounds nuw [96 x i8], ptr %2, i64 %.03173
   %132 = load ptr, ptr %131, align 8, !tbaa !37
   %.not.i = icmp eq ptr %132, null
   %133 = getelementptr inbounds nuw i8, ptr %131, i64 16
@@ -1542,7 +1542,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi12EEERS2_RAT__Kc.exit: ; pr
 79:                                               ; preds = %.lr.ph, %_ZN4absl12lts_2024072213InlinedVectorI13grpc_metadataLm2ESaIS2_EE9push_backERKS2_.exit
   %.052 = phi i64 [ 0, %.lr.ph ], [ %100, %_ZN4absl12lts_2024072213InlinedVectorI13grpc_metadataLm2ESaIS2_EE9push_backERKS2_.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %80 = getelementptr inbounds nuw %struct.grpc_metadata, ptr %1, i64 %.052
+  %80 = getelementptr inbounds nuw [96 x i8], ptr %1, i64 %.052
   %81 = load ptr, ptr %80, align 8, !tbaa !37
   %82 = icmp ugt ptr %81, inttoptr (i64 1 to ptr)
   br i1 %82, label %83, label %_ZN9grpc_core9CSliceRefERK10grpc_sliceNS_13DebugLocationE.exit
@@ -1575,7 +1575,7 @@ _ZN9grpc_core9CSliceRefERK10grpc_sliceNS_13DebugLocationE.exit30: ; preds = %88,
 93:                                               ; preds = %_ZN9grpc_core9CSliceRefERK10grpc_sliceNS_13DebugLocationE.exit30
   %94 = load ptr, ptr %59, align 8, !noalias !125
   %.sink2.i.i.i.i = select i1 %91, ptr %94, ptr %59
-  %95 = getelementptr inbounds nuw %struct.grpc_metadata, ptr %.sink2.i.i.i.i, i64 %.sink1.i.i.i.i
+  %95 = getelementptr inbounds nuw [96 x i8], ptr %.sink2.i.i.i.i, i64 %.sink1.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %95, ptr noundef nonnull align 8 dereferenceable(96) %10, i64 96, i1 false), !tbaa.struct !128
   %96 = load i64, ptr %57, align 8, !tbaa !21
   %97 = add i64 %96, 2
@@ -2268,7 +2268,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi12EEERS2_RAT__Kc.exit91: ; 
 
 .lr.ph:                                           ; preds = %.preheader, %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit93
   %.0167 = phi i64 [ %165, %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit93 ], [ 0, %.preheader ]
-  %147 = getelementptr inbounds nuw %struct.grpc_metadata, ptr %11, i64 %.0167
+  %147 = getelementptr inbounds nuw [96 x i8], ptr %11, i64 %.0167
   %148 = load ptr, ptr %147, align 16, !tbaa !37
   %149 = icmp ugt ptr %148, inttoptr (i64 1 to ptr)
   br i1 %149, label %150, label %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit
@@ -2938,7 +2938,7 @@ _ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds = %2
 _ZNSt6vectorIPFvPvESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %30, %_ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %25, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, align 8, !tbaa !177
   store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 8), align 8, !tbaa !174
-  %31 = getelementptr inbounds nuw ptr, ptr %25, i64 %23
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %23
   store ptr %31, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 16), align 8, !tbaa !178
   br label %_ZNSt6vectorIPFvPvESaIS2_EE9push_backERKS2_.exit
 
@@ -3641,7 +3641,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072223inlined_vector_internal7Storag
 .lr.ph.i:                                         ; preds = %1, %_ZNSt16allocator_traitsISaIN9grpc_core17LbCostBinMetadata9ValueTypeEEE7destroyIS2_EEvRS3_PT_.exit.i
   %.06.i = phi i64 [ %8, %_ZNSt16allocator_traitsISaIN9grpc_core17LbCostBinMetadata9ValueTypeEEE7destroyIS2_EEvRS3_PT_.exit.i ], [ %7, %1 ]
   %8 = add nsw i64 %.06.i, -1
-  %9 = getelementptr inbounds nuw %"struct.grpc_core::LbCostBinMetadata::ValueType", ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw [40 x i8], ptr %6, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !22
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 24
@@ -3693,7 +3693,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072223inlined_vector_internal7Storag
 .lr.ph.i:                                         ; preds = %1, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7destroyIS5_EEvRS6_PT_.exit.i
   %.06.i = phi i64 [ %8, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7destroyIS5_EEvRS6_PT_.exit.i ], [ %7, %1 ]
   %8 = add nsw i64 %.06.i, -1
-  %9 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !22
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %12 = icmp eq ptr %10, %11
@@ -5792,7 +5792,7 @@ _ZN9grpc_core11MetadataMapI19grpc_metadata_batchJNS_16HttpPathMetadataENS_21Http
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 536
   %15 = load ptr, ptr %14, align 8, !noalias !284
   %.sink2.i.i.i.i = select i1 %12, ptr %15, ptr %14
-  %16 = getelementptr inbounds nuw %"struct.grpc_core::LbCostBinMetadata::ValueType", ptr %.sink2.i.i.i.i, i64 %.sink1.i.i.i.i
+  %16 = getelementptr inbounds nuw [40 x i8], ptr %.sink2.i.i.i.i, i64 %.sink1.i.i.i.i
   %17 = load double, ptr %2, align 8, !tbaa !287
   store double %17, ptr %16, align 8, !tbaa !287
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -5980,7 +5980,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN4absl12l
 _ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIN9grpc_core17LbCostBinMetadata9ValueTypeEELb0EE8AllocateERS6_m.exit.i: ; preds = %2
   %14 = mul nuw nsw i64 %10, 40
   %15 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %14) #35
-  %16 = getelementptr inbounds nuw %"struct.grpc_core::LbCostBinMetadata::ValueType", ptr %15, i64 %.sink1.i
+  %16 = getelementptr inbounds nuw [40 x i8], ptr %15, i64 %.sink1.i
   %17 = load double, ptr %1, align 8, !tbaa !287
   store double %17, ptr %16, align 8, !tbaa !287
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -6023,7 +6023,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 .lr.ph.i:                                         ; preds = %30, %48
   %.sroa.021.0 = phi ptr [ %52, %48 ], [ %.sink2.i, %30 ]
   %.012.i = phi i64 [ %53, %48 ], [ 0, %30 ]
-  %34 = getelementptr inbounds nuw %"struct.grpc_core::LbCostBinMetadata::ValueType", ptr %15, i64 %.012.i
+  %34 = getelementptr inbounds nuw [40 x i8], ptr %15, i64 %.012.i
   %35 = load double, ptr %.sroa.021.0, align 8, !tbaa !287
   store double %35, ptr %34, align 8, !tbaa !287
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 8
@@ -6068,7 +6068,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 .lr.ph.i15:                                       ; preds = %48, %_ZNSt16allocator_traitsISaIN9grpc_core17LbCostBinMetadata9ValueTypeEEE7destroyIS2_EEvRS3_PT_.exit.i
   %.06.i = phi i64 [ %54, %_ZNSt16allocator_traitsISaIN9grpc_core17LbCostBinMetadata9ValueTypeEEE7destroyIS2_EEvRS3_PT_.exit.i ], [ %.sink1.i, %48 ]
   %54 = add nsw i64 %.06.i, -1
-  %55 = getelementptr inbounds nuw %"struct.grpc_core::LbCostBinMetadata::ValueType", ptr %.sink2.i, i64 %54
+  %55 = getelementptr inbounds nuw [40 x i8], ptr %.sink2.i, i64 %54
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %57 = load ptr, ptr %56, align 8, !tbaa !22
   %58 = getelementptr inbounds nuw i8, ptr %55, i64 24
@@ -6528,7 +6528,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(96) ptr @_ZN4absl12l
 _ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaI13grpc_metadataELb0EE8AllocateERS4_m.exit.i: ; preds = %2
   %14 = mul nuw nsw i64 %10, 96
   %15 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %14) #35
-  %16 = getelementptr inbounds nuw %struct.grpc_metadata, ptr %15, i64 %.sink1.i
+  %16 = getelementptr inbounds nuw [96 x i8], ptr %15, i64 %.sink1.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %16, ptr noundef nonnull align 8 dereferenceable(96) %1, i64 96, i1 false), !tbaa.struct !128
   %.not.i = icmp eq i64 %.sink1.i, 0
   br i1 %.not.i, label %_ZN4absl12lts_2024072223inlined_vector_internal17ConstructElementsISaI13grpc_metadataENS1_20IteratorValueAdapterIS4_St13move_iteratorIPS3_EEEEEvRNS0_8internal13type_identityIT_E4typeENSt16allocator_traitsISC_E7pointerERT0_NSH_9size_typeE.exit, label %.lr.ph.i.preheader
@@ -6540,7 +6540,7 @@ _ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaI13grpc_metadat
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %.sroa.018.0 = phi ptr [ %18, %.lr.ph.i ], [ %.sink2.i, %.lr.ph.i.preheader ]
   %.012.i = phi i64 [ %19, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %17 = getelementptr inbounds nuw %struct.grpc_metadata, ptr %15, i64 %.012.i
+  %17 = getelementptr inbounds nuw [96 x i8], ptr %15, i64 %.012.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %17, ptr noundef nonnull align 8 dereferenceable(96) %.sroa.018.0, i64 96, i1 false), !tbaa.struct !128
   %18 = getelementptr inbounds nuw i8, ptr %.sroa.018.0, i64 96
   %19 = add nuw nsw i64 %.012.i, 1
@@ -6809,7 +6809,7 @@ _ZN9grpc_core5WakerD2Ev.exit:                     ; preds = %_ZN9grpc_core13RefC
   %58 = trunc i64 %57 to i1
   %59 = load ptr, ptr %5, align 8
   %60 = select i1 %58, ptr %59, ptr %5
-  %61 = getelementptr inbounds nuw %struct.grpc_metadata, ptr %60, i64 %.08
+  %61 = getelementptr inbounds nuw [96 x i8], ptr %60, i64 %.08
   %62 = load ptr, ptr %61, align 8, !tbaa !37
   %63 = icmp ugt ptr %62, inttoptr (i64 1 to ptr)
   br i1 %63, label %64, label %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit
@@ -6830,7 +6830,7 @@ _ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit: ; preds = %64
   %71 = trunc i64 %70 to i1
   %72 = load ptr, ptr %5, align 8
   %73 = select i1 %71, ptr %72, ptr %5
-  %74 = getelementptr inbounds nuw %struct.grpc_metadata, ptr %73, i64 %.08
+  %74 = getelementptr inbounds nuw [96 x i8], ptr %73, i64 %.08
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 32
   %76 = load ptr, ptr %75, align 8, !tbaa !37
   %77 = icmp ugt ptr %76, inttoptr (i64 1 to ptr)

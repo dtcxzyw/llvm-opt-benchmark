@@ -4451,14 +4451,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit123: ; preds = %83
 107:                                              ; preds = %.lr.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit127
   %.024232 = phi i64 [ 0, %.lr.ph ], [ %142, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit127 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %108 = getelementptr inbounds nuw double, ptr %1, i64 %.024232
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.024232
   %109 = load double, ptr %108, align 8, !tbaa !111
   invoke void (ptr, ptr, i64, ptr, ...) @_ZN9__gnu_cxx12__to_xstringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEET_PFiPT0_mPKS8_P13__va_list_tagEmSB_z(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull @vsnprintf, i64 noundef 328, ptr noundef nonnull @.str.44, double noundef %109)
           to label %_ZNSt7__cxx119to_stringEd.exit unwind label %150
 
 _ZNSt7__cxx119to_stringEd.exit:                   ; preds = %107
   %110 = load ptr, ptr %6, align 8, !tbaa !82
-  %111 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %110, i64 %.024232
+  %111 = getelementptr inbounds nuw [32 x i8], ptr %110, i64 %.024232
   %112 = load ptr, ptr %111, align 8, !tbaa !24
   %113 = getelementptr inbounds nuw i8, ptr %111, i64 16
   %114 = icmp eq ptr %112, %113
@@ -6487,7 +6487,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %6 = shl nuw nsw i64 %1, 5
   %7 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %6) #33
   store ptr %7, ptr %0, align 8, !tbaa !82
-  %8 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %7, i64 %1
+  %8 = getelementptr inbounds nuw [32 x i8], ptr %7, i64 %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %8, ptr %9, align 8, !tbaa !86
   br label %.lr.ph.i.i.i.i

@@ -138,7 +138,7 @@ define dso_local ptr @nfs3_get_acl(ptr noundef %0, i32 noundef %1, i1 noundef ze
 74:                                               ; preds = %80, %71
   %75 = phi i64 [ 0, %71 ], [ %81, %80 ]
   %76 = load ptr, ptr %15, align 8
-  %77 = getelementptr ptr, ptr %76, i64 %75
+  %77 = getelementptr [8 x i8], ptr %76, i64 %75
   %78 = load ptr, ptr %77, align 8
   %79 = icmp eq ptr %78, null
   br i1 %79, label %83, label %80
@@ -595,12 +595,12 @@ define internal fastcc i32 @__nfs3_proc_setacls(ptr noundef %0, ptr noundef %1, 
   %82 = load ptr, ptr %18, align 8
   %83 = load i32, ptr %17, align 8
   %84 = zext i32 %83 to i64
-  %85 = getelementptr ptr, ptr %82, i64 %84
+  %85 = getelementptr [8 x i8], ptr %82, i64 %84
   store ptr %81, ptr %85, align 8
   %86 = load ptr, ptr %18, align 8
   %87 = load i32, ptr %17, align 8
   %88 = zext i32 %87 to i64
-  %89 = getelementptr ptr, ptr %86, i64 %88
+  %89 = getelementptr [8 x i8], ptr %86, i64 %88
   %90 = load ptr, ptr %89, align 8
   %91 = icmp eq ptr %90, null
   br i1 %91, label %.loopexit16, label %92
@@ -673,7 +673,7 @@ thread-pre-split:                                 ; preds = %.thread13, %111
   store i32 %118, ptr %17, align 8
   %119 = load ptr, ptr %18, align 8
   %120 = zext i32 %118 to i64
-  %121 = getelementptr ptr, ptr %119, i64 %120
+  %121 = getelementptr [8 x i8], ptr %119, i64 %120
   %122 = load ptr, ptr %121, align 8
   call void @__free_pages(ptr noundef %122, i32 noundef 0) #8
   %123 = load i32, ptr %17, align 8

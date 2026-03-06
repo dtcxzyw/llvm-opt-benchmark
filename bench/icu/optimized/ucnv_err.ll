@@ -350,16 +350,16 @@ switch.early.test:                                ; preds = %switch.early.test16
   %indvars.iv193 = phi i64 [ 0, %.lr.ph181.preheader ], [ %indvars.iv.next194, %.lr.ph181 ]
   %.0156179 = phi i32 [ 0, %.lr.ph181.preheader ], [ %44, %.lr.ph181 ]
   %33 = sext i32 %.0156179 to i64
-  %34 = getelementptr inbounds i16, ptr %8, i64 %33
+  %34 = getelementptr inbounds [2 x i8], ptr %8, i64 %33
   store i16 37, ptr %34, align 2, !tbaa !17
   %35 = add nsw i32 %.0156179, 2
   %36 = getelementptr i8, ptr %34, i64 2
   store i16 85, ptr %36, align 2, !tbaa !17
   %37 = sext i32 %35 to i64
-  %38 = getelementptr inbounds i16, ptr %8, i64 %37
+  %38 = getelementptr inbounds [2 x i8], ptr %8, i64 %37
   %39 = sub nsw i32 46, %.0156179
   %indvars.iv.next194 = add nuw nsw i64 %indvars.iv193, 1
-  %40 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv193
+  %40 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv193
   %41 = load i16, ptr %40, align 2, !tbaa !17
   %42 = zext i16 %41 to i32
   %43 = call i32 @uprv_itou_77(ptr noundef nonnull %38, i32 noundef %39, i32 noundef %42, i32 noundef 16, i32 noundef 4)
@@ -398,16 +398,16 @@ switch.early.test:                                ; preds = %switch.early.test16
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.2158173 = phi i32 [ 0, %.lr.ph.preheader ], [ %60, %.lr.ph ]
   %49 = sext i32 %.2158173 to i64
-  %50 = getelementptr inbounds i16, ptr %8, i64 %49
+  %50 = getelementptr inbounds [2 x i8], ptr %8, i64 %49
   store i16 92, ptr %50, align 2, !tbaa !17
   %51 = add nsw i32 %.2158173, 2
   %52 = getelementptr i8, ptr %50, i64 2
   store i16 117, ptr %52, align 2, !tbaa !17
   %53 = sext i32 %51 to i64
-  %54 = getelementptr inbounds i16, ptr %8, i64 %53
+  %54 = getelementptr inbounds [2 x i8], ptr %8, i64 %53
   %55 = sub nsw i32 46, %.2158173
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %56 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv
   %57 = load i16, ptr %56, align 2, !tbaa !17
   %58 = zext i16 %57 to i32
   %59 = call i32 @uprv_itou_77(ptr noundef nonnull %54, i32 noundef %55, i32 noundef %58, i32 noundef 16, i32 noundef 4)
@@ -454,7 +454,7 @@ switch.early.test:                                ; preds = %switch.early.test16
   %81 = call i32 @uprv_itou_77(ptr noundef nonnull %76, i32 noundef 46, i32 noundef %.sink, i32 noundef 10, i32 noundef 0)
   %82 = add nsw i32 %81, 3
   %83 = sext i32 %81 to i64
-  %84 = getelementptr i16, ptr %8, i64 %83
+  %84 = getelementptr [2 x i8], ptr %8, i64 %83
   %85 = getelementptr i8, ptr %84, i64 4
   store i16 59, ptr %85, align 2, !tbaa !17
   br label %.loopexit
@@ -479,7 +479,7 @@ switch.early.test:                                ; preds = %switch.early.test16
   %95 = call i32 @uprv_itou_77(ptr noundef nonnull %90, i32 noundef 45, i32 noundef %.sink206, i32 noundef 16, i32 noundef 0)
   %96 = add nsw i32 %95, 4
   %97 = sext i32 %95 to i64
-  %98 = getelementptr i16, ptr %8, i64 %97
+  %98 = getelementptr [2 x i8], ptr %8, i64 %97
   %99 = getelementptr i8, ptr %98, i64 6
   store i16 59, ptr %99, align 2, !tbaa !17
   br label %.loopexit
@@ -504,7 +504,7 @@ switch.early.test:                                ; preds = %switch.early.test16
   %109 = call i32 @uprv_itou_77(ptr noundef nonnull %104, i32 noundef 45, i32 noundef %.sink207, i32 noundef 16, i32 noundef 4)
   %110 = add nsw i32 %109, 4
   %111 = sext i32 %109 to i64
-  %112 = getelementptr i16, ptr %8, i64 %111
+  %112 = getelementptr [2 x i8], ptr %8, i64 %111
   %113 = getelementptr i8, ptr %112, i64 6
   store i16 125, ptr %113, align 2, !tbaa !17
   br label %.loopexit
@@ -515,7 +515,7 @@ switch.early.test:                                ; preds = %switch.early.test16
   %116 = call i32 @uprv_itou_77(ptr noundef nonnull %115, i32 noundef 47, i32 noundef %4, i32 noundef 16, i32 noundef 0)
   %117 = add nsw i32 %116, 2
   %118 = sext i32 %116 to i64
-  %119 = getelementptr i16, ptr %8, i64 %118
+  %119 = getelementptr [2 x i8], ptr %8, i64 %118
   %120 = getelementptr i8, ptr %119, i64 2
   store i16 32, ptr %120, align 2, !tbaa !17
   br label %.loopexit
@@ -524,16 +524,16 @@ switch.early.test:                                ; preds = %switch.early.test16
   %indvars.iv188 = phi i64 [ 0, %.lr.ph177.preheader ], [ %indvars.iv.next189, %.lr.ph177 ]
   %.6175 = phi i32 [ 0, %.lr.ph177.preheader ], [ %132, %.lr.ph177 ]
   %121 = sext i32 %.6175 to i64
-  %122 = getelementptr inbounds i16, ptr %8, i64 %121
+  %122 = getelementptr inbounds [2 x i8], ptr %8, i64 %121
   store i16 37, ptr %122, align 2, !tbaa !17
   %123 = add nsw i32 %.6175, 2
   %124 = getelementptr i8, ptr %122, i64 2
   store i16 85, ptr %124, align 2, !tbaa !17
   %125 = sext i32 %123 to i64
-  %126 = getelementptr inbounds i16, ptr %8, i64 %125
+  %126 = getelementptr inbounds [2 x i8], ptr %8, i64 %125
   %127 = sub nsw i32 46, %.6175
   %indvars.iv.next189 = add nuw nsw i64 %indvars.iv188, 1
-  %128 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv188
+  %128 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv188
   %129 = load i16, ptr %128, align 2, !tbaa !17
   %130 = zext i16 %129 to i32
   %131 = call i32 @uprv_itou_77(ptr noundef nonnull %126, i32 noundef %127, i32 noundef %130, i32 noundef 16, i32 noundef 4)
@@ -546,7 +546,7 @@ switch.early.test:                                ; preds = %switch.early.test16
   store ptr %8, ptr %9, align 8, !tbaa !23
   store i32 0, ptr %6, align 4, !tbaa !3
   %133 = sext i32 %.1157 to i64
-  %134 = getelementptr inbounds i16, ptr %8, i64 %133
+  %134 = getelementptr inbounds [2 x i8], ptr %8, i64 %133
   call void @ucnv_cbFromUWriteUChars_77(ptr noundef nonnull %1, ptr noundef nonnull %9, ptr noundef nonnull %134, i32 noundef 0, ptr noundef nonnull %6)
   %135 = load ptr, ptr %26, align 8, !tbaa !10
   %136 = load ptr, ptr %11, align 8, !tbaa !8
@@ -652,13 +652,13 @@ define void @UCNV_TO_U_CALLBACK_ESCAPE_77(ptr noundef readonly captures(address_
   %indvars.iv114 = phi i64 [ 0, %.lr.ph84.preheader ], [ %indvars.iv.next115, %.lr.ph84 ]
   %.05482 = phi i32 [ 0, %.lr.ph84.preheader ], [ %23, %.lr.ph84 ]
   %12 = sext i32 %.05482 to i64
-  %13 = getelementptr inbounds i16, ptr %7, i64 %12
+  %13 = getelementptr inbounds [2 x i8], ptr %7, i64 %12
   store i16 37, ptr %13, align 2, !tbaa !17
   %14 = add nsw i32 %.05482, 2
   %15 = getelementptr i8, ptr %13, i64 2
   store i16 88, ptr %15, align 2, !tbaa !17
   %16 = sext i32 %14 to i64
-  %17 = getelementptr inbounds i16, ptr %7, i64 %16
+  %17 = getelementptr inbounds [2 x i8], ptr %7, i64 %16
   %18 = sub nsw i32 46, %.05482
   %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv114
@@ -710,13 +710,13 @@ define void @UCNV_TO_U_CALLBACK_ESCAPE_77(ptr noundef readonly captures(address_
   %indvars.iv100 = phi i64 [ 0, %.lr.ph76.preheader ], [ %indvars.iv.next101, %.lr.ph76 ]
   %.25674 = phi i32 [ 0, %.lr.ph76.preheader ], [ %39, %.lr.ph76 ]
   %27 = sext i32 %.25674 to i64
-  %28 = getelementptr inbounds i16, ptr %7, i64 %27
+  %28 = getelementptr inbounds [2 x i8], ptr %7, i64 %27
   store i16 38, ptr %28, align 2, !tbaa !17
   %29 = add nsw i32 %.25674, 2
   %30 = getelementptr i8, ptr %28, i64 2
   store i16 35, ptr %30, align 2, !tbaa !17
   %31 = sext i32 %29 to i64
-  %32 = getelementptr inbounds i16, ptr %7, i64 %31
+  %32 = getelementptr inbounds [2 x i8], ptr %7, i64 %31
   %33 = sub nsw i32 46, %.25674
   %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv100
@@ -726,7 +726,7 @@ define void @UCNV_TO_U_CALLBACK_ESCAPE_77(ptr noundef readonly captures(address_
   %38 = add nsw i32 %37, %29
   %39 = add nsw i32 %38, 1
   %40 = sext i32 %38 to i64
-  %41 = getelementptr inbounds i16, ptr %7, i64 %40
+  %41 = getelementptr inbounds [2 x i8], ptr %7, i64 %40
   store i16 59, ptr %41, align 2, !tbaa !17
   %exitcond104.not = icmp eq i64 %indvars.iv.next101, %wide.trip.count103
   br i1 %exitcond104.not, label %.loopexit, label %.lr.ph76, !llvm.loop !25
@@ -735,7 +735,7 @@ define void @UCNV_TO_U_CALLBACK_ESCAPE_77(ptr noundef readonly captures(address_
   %indvars.iv95 = phi i64 [ 0, %.lr.ph72.preheader ], [ %indvars.iv.next96, %.lr.ph72 ]
   %.35770 = phi i32 [ 0, %.lr.ph72.preheader ], [ %55, %.lr.ph72 ]
   %42 = sext i32 %.35770 to i64
-  %43 = getelementptr inbounds i16, ptr %7, i64 %42
+  %43 = getelementptr inbounds [2 x i8], ptr %7, i64 %42
   store i16 38, ptr %43, align 2, !tbaa !17
   %44 = getelementptr i8, ptr %43, i64 2
   store i16 35, ptr %44, align 2, !tbaa !17
@@ -743,7 +743,7 @@ define void @UCNV_TO_U_CALLBACK_ESCAPE_77(ptr noundef readonly captures(address_
   %46 = getelementptr i8, ptr %43, i64 4
   store i16 120, ptr %46, align 2, !tbaa !17
   %47 = sext i32 %45 to i64
-  %48 = getelementptr inbounds i16, ptr %7, i64 %47
+  %48 = getelementptr inbounds [2 x i8], ptr %7, i64 %47
   %49 = sub nsw i32 45, %.35770
   %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
   %50 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv95
@@ -753,7 +753,7 @@ define void @UCNV_TO_U_CALLBACK_ESCAPE_77(ptr noundef readonly captures(address_
   %54 = add nsw i32 %53, %45
   %55 = add nsw i32 %54, 1
   %56 = sext i32 %54 to i64
-  %57 = getelementptr inbounds i16, ptr %7, i64 %56
+  %57 = getelementptr inbounds [2 x i8], ptr %7, i64 %56
   store i16 59, ptr %57, align 2, !tbaa !17
   %exitcond99.not = icmp eq i64 %indvars.iv.next96, %wide.trip.count98
   br i1 %exitcond99.not, label %.loopexit, label %.lr.ph72, !llvm.loop !26
@@ -762,13 +762,13 @@ define void @UCNV_TO_U_CALLBACK_ESCAPE_77(ptr noundef readonly captures(address_
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.45868 = phi i32 [ 0, %.lr.ph.preheader ], [ %69, %.lr.ph ]
   %58 = sext i32 %.45868 to i64
-  %59 = getelementptr inbounds i16, ptr %7, i64 %58
+  %59 = getelementptr inbounds [2 x i8], ptr %7, i64 %58
   store i16 92, ptr %59, align 2, !tbaa !17
   %60 = add nsw i32 %.45868, 2
   %61 = getelementptr i8, ptr %59, i64 2
   store i16 120, ptr %61, align 2, !tbaa !17
   %62 = sext i32 %60 to i64
-  %63 = getelementptr inbounds i16, ptr %7, i64 %62
+  %63 = getelementptr inbounds [2 x i8], ptr %7, i64 %62
   %64 = sub nsw i32 46, %.45868
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %65 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
@@ -782,7 +782,7 @@ define void @UCNV_TO_U_CALLBACK_ESCAPE_77(ptr noundef readonly captures(address_
 .lr.ph80:                                         ; preds = %.lr.ph80.preheader, %.lr.ph80
   %indvars.iv107 = phi i64 [ 0, %.lr.ph80.preheader ], [ %indvars.iv.next108, %.lr.ph80 ]
   %indvars.iv105 = phi i64 [ 0, %.lr.ph80.preheader ], [ %indvars.iv.next106, %.lr.ph80 ]
-  %70 = getelementptr inbounds nuw i16, ptr %7, i64 %indvars.iv107
+  %70 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %indvars.iv107
   store i16 37, ptr %70, align 8, !tbaa !17
   %71 = getelementptr i8, ptr %70, i64 2
   store i16 88, ptr %71, align 2, !tbaa !17

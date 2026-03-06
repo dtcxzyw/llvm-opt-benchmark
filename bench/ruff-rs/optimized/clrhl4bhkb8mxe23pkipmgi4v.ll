@@ -40097,7 +40097,7 @@ _ZN5serde2de9MapAccess10next_value17ha5636646c62f2adaE.exit: ; preds = %352
 
 904:                                              ; preds = %899, %895
   %905 = load ptr, ptr %189, align 8, !alias.scope !3995, !noalias !3998, !nonnull !4, !noundef !4
-  %906 = getelementptr inbounds nuw { i8, [63 x i8] }, ptr %905, i64 %896
+  %906 = getelementptr inbounds nuw [64 x i8], ptr %905, i64 %896
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %906, ptr noundef nonnull align 8 dereferenceable(64) %131, i64 64, i1 false)
   %907 = add i64 %896, 1
   store i64 %907, ptr %190, align 8, !alias.scope !3995, !noalias !3998
@@ -40561,7 +40561,7 @@ _ZN5serde2de9MapAccess10next_value17ha5636646c62f2adaE.exit: ; preds = %352
   %.sroa.51589.0.copyload = load i64, ptr %190, align 8
   %1026 = icmp ult i64 %.sroa.51589.0.copyload, 144115188075855872
   call void @llvm.assume(i1 %1026)
-  %1027 = getelementptr inbounds nuw { i8, [63 x i8] }, ptr %.sroa.41588.0.copyload, i64 %.sroa.51589.0.copyload
+  %1027 = getelementptr inbounds nuw [64 x i8], ptr %.sroa.41588.0.copyload, i64 %.sroa.51589.0.copyload
   %1028 = icmp sgt i64 %.sroa.01587.0.copyload, -1
   call void @llvm.assume(i1 %1028)
   store ptr %.sroa.41588.0.copyload, ptr %110, align 8
@@ -47604,7 +47604,7 @@ define internal fastcc void @"_ZN183_$LT$ruff_workspace..options.._..$LT$impl$u2
   br label %.loopexit3668
 
 1669:                                             ; preds = %1666
-  %1670 = getelementptr inbounds nuw i64, ptr @anon.0383d1376ec3e6220958c67407e0a3cf.200, i64 %.0..0..0.
+  %1670 = getelementptr inbounds nuw [8 x i8], ptr @anon.0383d1376ec3e6220958c67407e0a3cf.200, i64 %.0..0..0.
   %1671 = load i64, ptr %1670, align 8, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %346, ptr nonnull align 8 %345, i64 %1671, i1 false)
   %.0..0..0..0..pr = load i64, ptr %346, align 8
@@ -47622,7 +47622,7 @@ define internal fastcc void @"_ZN183_$LT$ruff_workspace..options.._..$LT$impl$u2
   br label %2258
 
 1675:                                             ; preds = %1669
-  %1676 = getelementptr inbounds nuw i64, ptr @anon.0383d1376ec3e6220958c67407e0a3cf.200, i64 %.0..0..0..0..pr
+  %1676 = getelementptr inbounds nuw [8 x i8], ptr @anon.0383d1376ec3e6220958c67407e0a3cf.200, i64 %.0..0..0..0..pr
   %1677 = load i64, ptr %1676, align 8, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %347, ptr nonnull align 8 %346, i64 %1677, i1 false)
   %1678 = load i64, ptr %408, align 8, !range !3, !alias.scope !4670, !noundef !4
@@ -50717,11 +50717,11 @@ define internal fastcc void @"_ZN183_$LT$ruff_workspace..options.._..$LT$impl$u2
 
 2340:                                             ; preds = %2338
   call void @llvm.lifetime.start.p0(ptr nonnull %321)
-  %2341 = getelementptr inbounds nuw i64, ptr @anon.0383d1376ec3e6220958c67407e0a3cf.200, i64 %2339
+  %2341 = getelementptr inbounds nuw [8 x i8], ptr @anon.0383d1376ec3e6220958c67407e0a3cf.200, i64 %2339
   %2342 = load i64, ptr %2341, align 8, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %321, ptr nonnull align 8 %408, i64 %2342, i1 false)
   %.0..0..0..0.1886 = load i64, ptr %321, align 8
-  %2343 = getelementptr inbounds nuw i64, ptr @anon.0383d1376ec3e6220958c67407e0a3cf.200, i64 %.0..0..0..0.1886
+  %2343 = getelementptr inbounds nuw [8 x i8], ptr @anon.0383d1376ec3e6220958c67407e0a3cf.200, i64 %.0..0..0..0.1886
   %2344 = load i64, ptr %2343, align 8, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %322, ptr nonnull align 8 %321, i64 %2344, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %321)
@@ -50864,7 +50864,7 @@ define internal fastcc void @"_ZN183_$LT$ruff_workspace..options.._..$LT$impl$u2
   %.not1936 = icmp eq i8 %.sroa.0684.08750, 3
   %.sroa.01037.0 = select i1 %.not1936, i8 2, i8 %.sroa.0684.08750
   %.0..0..0.3102 = load i64, ptr %322, align 8
-  %2381 = getelementptr inbounds nuw i64, ptr @anon.0383d1376ec3e6220958c67407e0a3cf.200, i64 %.0..0..0.3102
+  %2381 = getelementptr inbounds nuw [8 x i8], ptr @anon.0383d1376ec3e6220958c67407e0a3cf.200, i64 %.0..0..0.3102
   %2382 = load i64, ptr %2381, align 8, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %0, ptr nonnull align 8 %322, i64 %2382, i1 false)
   %.sroa.01000.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 136

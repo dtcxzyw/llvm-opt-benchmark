@@ -26,7 +26,7 @@ define range(i32 -3, 12) i32 @ff_g723_1_scale_vector(ptr noundef writeonly captu
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.02126 = phi i32 [ 0, %.lr.ph.preheader ], [ %9, %.lr.ph ]
-  %5 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv
   %6 = load i16, ptr %5, align 2, !tbaa !4
   %7 = tail call i16 @llvm.abs.i16(i16 %6, i1 false)
   %8 = zext i16 %7 to i32
@@ -55,13 +55,13 @@ define range(i32 -3, 12) i32 @ff_g723_1_scale_vector(ptr noundef writeonly captu
 
 .lr.ph30:                                         ; preds = %.lr.ph30.preheader, %.lr.ph30
   %indvars.iv35 = phi i64 [ 0, %.lr.ph30.preheader ], [ %indvars.iv.next36, %.lr.ph30 ]
-  %17 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv35
+  %17 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv35
   %18 = load i16, ptr %17, align 2, !tbaa !4
   %19 = sext i16 %18 to i32
   %20 = shl nsw i32 %19, %16
   %21 = lshr i32 %20, 3
   %22 = trunc i32 %21 to i16
-  %23 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv35
+  %23 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv35
   store i16 %22, ptr %23, align 2, !tbaa !4
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
   %exitcond39.not = icmp eq i64 %indvars.iv.next36, %wide.trip.count38
@@ -110,12 +110,12 @@ declare i64 @ff_dot_product(ptr noundef, ptr noundef, i32 noundef) local_unnamed
 define void @ff_g723_1_get_residual(ptr noundef writeonly captures(none) initializes((0, 4)) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = sub nsw i32 143, %2
   %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds i16, ptr %1, i64 %5
+  %6 = getelementptr inbounds [2 x i8], ptr %1, i64 %5
   %7 = load i16, ptr %6, align 2, !tbaa !4
   store i16 %7, ptr %0, align 2, !tbaa !4
   %8 = sub i32 144, %2
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds i16, ptr %1, i64 %9
+  %10 = getelementptr inbounds [2 x i8], ptr %1, i64 %9
   %11 = load i16, ptr %10, align 2, !tbaa !4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i16 %11, ptr %12, align 2, !tbaa !4
@@ -129,9 +129,9 @@ define void @ff_g723_1_get_residual(ptr noundef writeonly captures(none) initial
   %reass.sub16 = sub i32 %16, %2
   %17 = add i32 %reass.sub16, 145
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds i16, ptr %1, i64 %18
+  %19 = getelementptr inbounds [2 x i8], ptr %1, i64 %18
   %20 = load i16, ptr %19, align 2, !tbaa !4
-  %21 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv
   store i16 %20, ptr %21, align 2, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
@@ -156,14 +156,14 @@ define void @ff_g723_1_gen_dirac_train(ptr noundef captures(none) %0, i32 nounde
 .lr.ph.preheader:                                 ; preds = %._crit_edge, %.preheader.preheader
   %indvars.iv16 = phi i64 [ %5, %.preheader.preheader ], [ %indvars.iv.next17, %._crit_edge ]
   %6 = sub nsw i64 60, %indvars.iv16
-  %invariant.gep = getelementptr i16, ptr %0, i64 %indvars.iv16
+  %invariant.gep = getelementptr [2 x i8], ptr %0, i64 %indvars.iv16
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %7 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %indvars.iv
   %8 = load i16, ptr %7, align 2, !tbaa !4
-  %gep = getelementptr i16, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [2 x i8], ptr %invariant.gep, i64 %indvars.iv
   %9 = load i16, ptr %gep, align 2, !tbaa !4
   %10 = add i16 %9, %8
   store i16 %10, ptr %gep, align 2, !tbaa !4
@@ -193,12 +193,12 @@ define void @ff_g723_1_gen_acb_excitation(ptr noundef writeonly captures(none) %
   %9 = add nsw i32 %8, -1
   %10 = sub nsw i32 144, %8
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds i16, ptr %1, i64 %11
+  %12 = getelementptr inbounds [2 x i8], ptr %1, i64 %11
   %13 = load i16, ptr %12, align 2, !tbaa !4
   store i16 %13, ptr %6, align 16, !tbaa !4
   %14 = sub i32 145, %8
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds i16, ptr %1, i64 %15
+  %16 = getelementptr inbounds [2 x i8], ptr %1, i64 %15
   %17 = load i16, ptr %16, align 2, !tbaa !4
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 2
   store i16 %17, ptr %18, align 2, !tbaa !4
@@ -212,9 +212,9 @@ define void @ff_g723_1_gen_acb_excitation(ptr noundef writeonly captures(none) %
   %reass.sub = sub i32 %22, %8
   %23 = add i32 %reass.sub, 146
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds i16, ptr %1, i64 %24
+  %25 = getelementptr inbounds [2 x i8], ptr %1, i64 %24
   %26 = load i16, ptr %25, align 2, !tbaa !4
-  %27 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv.i
+  %27 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %indvars.iv.i
   store i16 %26, ptr %27, align 2, !tbaa !4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 64
@@ -229,12 +229,12 @@ ff_g723_1_get_residual.exit:                      ; preds = %19
   %31 = load i32, ptr %30, align 4, !tbaa !18
   %32 = mul nsw i32 %31, 20
   %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds i16, ptr %ff_g723_1_adaptive_cb_gain85.ff_g723_1_adaptive_cb_gain170, i64 %33
+  %34 = getelementptr inbounds [2 x i8], ptr %ff_g723_1_adaptive_cb_gain85.ff_g723_1_adaptive_cb_gain170, i64 %33
   br label %35
 
 35:                                               ; preds = %ff_g723_1_get_residual.exit, %35
   %indvars.iv = phi i64 [ 0, %ff_g723_1_get_residual.exit ], [ %indvars.iv.next, %35 ]
-  %36 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %indvars.iv
   %37 = call i64 @ff_dot_product(ptr noundef nonnull %36, ptr noundef nonnull %34, i32 noundef 5) #8
   %sext = shl i64 %37, 32
   %38 = ashr exact i64 %sext, 31
@@ -257,7 +257,7 @@ ff_g723_1_get_residual.exit:                      ; preds = %19
   %.0.i = select i1 %48, i32 %50, i32 %52
   %53 = lshr i32 %.0.i, 16
   %54 = trunc nuw i32 %53 to i16
-  %55 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv
   store i16 %54, ptr %55, align 2, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 60
@@ -294,13 +294,13 @@ define void @ff_g723_1_lsp_interpolate(ptr noundef %0, ptr noundef %1, ptr nound
 
 14:                                               ; preds = %14, %13
   %indvars.iv.i = phi i64 [ 0, %13 ], [ %indvars.iv.next.i, %14 ]
-  %15 = getelementptr inbounds nuw i16, ptr %.018, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw [2 x i8], ptr %.018, i64 %indvars.iv.i
   %16 = load i16, ptr %15, align 2, !tbaa !4
   %17 = sext i16 %16 to i32
   %18 = lshr i32 %17, 7
   %19 = and i32 %18, 511
   %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr inbounds nuw i16, ptr @ff_g723_1_cos_tab, i64 %20
+  %21 = getelementptr inbounds nuw [2 x i8], ptr @ff_g723_1_cos_tab, i64 %20
   %22 = load i16, ptr %21, align 2, !tbaa !4
   %23 = sext i16 %22 to i32
   %24 = shl nsw i32 %23, 16
@@ -370,9 +370,9 @@ define void @ff_g723_1_lsp_interpolate(ptr noundef %0, ptr noundef %1, ptr nound
   %71 = phi i32 [ 268435456, %50 ], [ %142, %141 ]
   %72 = phi i32 [ 268435456, %50 ], [ %143, %141 ]
   %73 = add nsw i64 %indvars.iv93.i, -1
-  %74 = getelementptr inbounds nuw i32, ptr %4, i64 %73
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %73
   %75 = load i32, ptr %74, align 4, !tbaa !21
-  %76 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv93.i
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv93.i
   %77 = load i32, ptr %76, align 4, !tbaa !21
   %.idx.i = shl nuw nsw i64 %indvars.iv93.i, 2
   %78 = getelementptr inbounds nuw i8, ptr %.018, i64 %.idx.i
@@ -387,11 +387,11 @@ define void @ff_g723_1_lsp_interpolate(ptr noundef %0, ptr noundef %1, ptr nound
   %87 = add nsw i32 %86, %83
   %88 = tail call i32 @llvm.sadd.sat.i32(i32 %75, i32 %87)
   %indvars.iv.next94.i = add nuw nsw i64 %indvars.iv93.i, 1
-  %89 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.next94.i
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.next94.i
   store i32 %88, ptr %89, align 4, !tbaa !21
-  %90 = getelementptr inbounds nuw i32, ptr %5, i64 %73
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %73
   %91 = load i32, ptr %90, align 4, !tbaa !21
-  %92 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv93.i
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv93.i
   %93 = load i32, ptr %92, align 4, !tbaa !21
   %94 = getelementptr inbounds nuw i8, ptr %78, i64 2
   %95 = load i16, ptr %94, align 2, !tbaa !4
@@ -404,7 +404,7 @@ define void @ff_g723_1_lsp_interpolate(ptr noundef %0, ptr noundef %1, ptr nound
   %102 = ashr i32 %101, 15
   %103 = add nsw i32 %102, %99
   %104 = tail call i32 @llvm.sadd.sat.i32(i32 %91, i32 %103)
-  %105 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.next94.i
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv.next94.i
   store i32 %104, ptr %105, align 4, !tbaa !21
   %106 = shl nsw i32 %80, 1
   %107 = shl nsw i32 %96, 1
@@ -420,11 +420,11 @@ define void @ff_g723_1_lsp_interpolate(ptr noundef %0, ptr noundef %1, ptr nound
   %113 = and i32 %110, 65535
   %114 = mul nsw i32 %113, %80
   %115 = ashr i32 %114, 15
-  %116 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv95.i
+  %116 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv95.i
   %117 = load i32, ptr %116, align 4, !tbaa !21
   %118 = ashr i32 %117, 1
   %119 = add nsw i64 %indvars.iv95.i, -2
-  %120 = getelementptr inbounds nuw i32, ptr %4, i64 %119
+  %120 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %119
   %121 = load i32, ptr %120, align 4, !tbaa !21
   %122 = ashr i32 %121, 1
   %123 = add i32 %118, %112
@@ -436,10 +436,10 @@ define void @ff_g723_1_lsp_interpolate(ptr noundef %0, ptr noundef %1, ptr nound
   %128 = and i32 %109, 65535
   %129 = mul nsw i32 %128, %96
   %130 = ashr i32 %129, 15
-  %131 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv95.i
+  %131 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv95.i
   %132 = load i32, ptr %131, align 4, !tbaa !21
   %133 = ashr i32 %132, 1
-  %134 = getelementptr inbounds nuw i32, ptr %5, i64 %119
+  %134 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %119
   %135 = load i32, ptr %134, align 4, !tbaa !21
   %136 = ashr i32 %135, 1
   %137 = add i32 %130, %127
@@ -475,11 +475,11 @@ define void @ff_g723_1_lsp_interpolate(ptr noundef %0, ptr noundef %1, ptr nound
   %156 = phi i32 [ %158, %.preheader.i ], [ 33554432, %141 ]
   %indvars.iv100.i = phi i64 [ %indvars.iv.next101.i, %.preheader.i ], [ 0, %141 ]
   %indvars.iv.next101.i = add nuw nsw i64 %indvars.iv100.i, 1
-  %157 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.next101.i
+  %157 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.next101.i
   %158 = load i32, ptr %157, align 4, !tbaa !21
   %159 = add nsw i32 %158, %156
   %160 = sext i32 %159 to i64
-  %161 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.next101.i
+  %161 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv.next101.i
   %162 = load i32, ptr %161, align 4, !tbaa !21
   %163 = sub nsw i32 %162, %155
   %164 = sext i32 %163 to i64
@@ -494,7 +494,7 @@ define void @ff_g723_1_lsp_interpolate(ptr noundef %0, ptr noundef %1, ptr nound
   %.0.i85.i = select i1 %168, i32 %170, i32 %172
   %173 = lshr i32 %.0.i85.i, 16
   %174 = trunc nuw i32 %173 to i16
-  %175 = getelementptr inbounds nuw i16, ptr %.018, i64 %indvars.iv100.i
+  %175 = getelementptr inbounds nuw [2 x i8], ptr %.018, i64 %indvars.iv100.i
   store i16 %174, ptr %175, align 2, !tbaa !4
   %176 = sub nsw i64 %160, %164
   %177 = shl nsw i64 %176, 3
@@ -508,7 +508,7 @@ define void @ff_g723_1_lsp_interpolate(ptr noundef %0, ptr noundef %1, ptr nound
   %184 = lshr i32 %.0.i86.i, 16
   %185 = trunc nuw i32 %184 to i16
   %186 = sub nuw nsw i64 9, %indvars.iv100.i
-  %187 = getelementptr inbounds nuw i16, ptr %.018, i64 %186
+  %187 = getelementptr inbounds nuw [2 x i8], ptr %.018, i64 %186
   store i16 %185, ptr %187, align 2, !tbaa !4
   %exitcond103.not.i = icmp eq i64 %indvars.iv.next101.i, 5
   br i1 %exitcond103.not.i, label %lsp2lpc.exit, label %.preheader.i, !llvm.loop !24
@@ -549,19 +549,19 @@ define void @ff_g723_1_inverse_quant(ptr noundef captures(none) initializes((0, 
   %10 = phi i64 [ 0, %6 ], [ %5, %._crit_edge ]
   %.073 = phi i32 [ 512, %6 ], [ 256, %._crit_edge ]
   %.072 = phi i32 [ 23552, %6 ], [ 12288, %._crit_edge ]
-  %11 = getelementptr inbounds nuw [3 x i16], ptr @ff_g723_1_lsp_band0, i64 %10
+  %11 = getelementptr inbounds nuw [6 x i8], ptr @ff_g723_1_lsp_band0, i64 %10
   %12 = load i16, ptr %11, align 2, !tbaa !4
   store i16 %12, ptr %0, align 2, !tbaa !4
   %13 = load i8, ptr %2, align 1, !tbaa !10
   %14 = zext i8 %13 to i64
-  %15 = getelementptr inbounds nuw [3 x i16], ptr @ff_g723_1_lsp_band0, i64 %14
+  %15 = getelementptr inbounds nuw [6 x i8], ptr @ff_g723_1_lsp_band0, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 2
   %17 = load i16, ptr %16, align 2, !tbaa !4
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i16 %17, ptr %18, align 2, !tbaa !4
   %19 = load i8, ptr %2, align 1, !tbaa !10
   %20 = zext i8 %19 to i64
-  %21 = getelementptr inbounds nuw [3 x i16], ptr @ff_g723_1_lsp_band0, i64 %20
+  %21 = getelementptr inbounds nuw [6 x i8], ptr @ff_g723_1_lsp_band0, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %23 = load i16, ptr %22, align 2, !tbaa !4
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -569,20 +569,20 @@ define void @ff_g723_1_inverse_quant(ptr noundef captures(none) initializes((0, 
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %26 = load i8, ptr %25, align 1, !tbaa !10
   %27 = zext i8 %26 to i64
-  %28 = getelementptr inbounds nuw [3 x i16], ptr @ff_g723_1_lsp_band1, i64 %27
+  %28 = getelementptr inbounds nuw [6 x i8], ptr @ff_g723_1_lsp_band1, i64 %27
   %29 = load i16, ptr %28, align 2, !tbaa !4
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 6
   store i16 %29, ptr %30, align 2, !tbaa !4
   %31 = load i8, ptr %25, align 1, !tbaa !10
   %32 = zext i8 %31 to i64
-  %33 = getelementptr inbounds nuw [3 x i16], ptr @ff_g723_1_lsp_band1, i64 %32
+  %33 = getelementptr inbounds nuw [6 x i8], ptr @ff_g723_1_lsp_band1, i64 %32
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 2
   %35 = load i16, ptr %34, align 2, !tbaa !4
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i16 %35, ptr %36, align 2, !tbaa !4
   %37 = load i8, ptr %25, align 1, !tbaa !10
   %38 = zext i8 %37 to i64
-  %39 = getelementptr inbounds nuw [3 x i16], ptr @ff_g723_1_lsp_band1, i64 %38
+  %39 = getelementptr inbounds nuw [6 x i8], ptr @ff_g723_1_lsp_band1, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 4
   %41 = load i16, ptr %40, align 2, !tbaa !4
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 10
@@ -590,27 +590,27 @@ define void @ff_g723_1_inverse_quant(ptr noundef captures(none) initializes((0, 
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %44 = load i8, ptr %43, align 1, !tbaa !10
   %45 = zext i8 %44 to i64
-  %46 = getelementptr inbounds nuw [4 x i16], ptr @ff_g723_1_lsp_band2, i64 %45
+  %46 = getelementptr inbounds nuw [8 x i8], ptr @ff_g723_1_lsp_band2, i64 %45
   %47 = load i16, ptr %46, align 8, !tbaa !4
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i16 %47, ptr %48, align 2, !tbaa !4
   %49 = load i8, ptr %43, align 1, !tbaa !10
   %50 = zext i8 %49 to i64
-  %51 = getelementptr inbounds nuw [4 x i16], ptr @ff_g723_1_lsp_band2, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr @ff_g723_1_lsp_band2, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 2
   %53 = load i16, ptr %52, align 2, !tbaa !4
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 14
   store i16 %53, ptr %54, align 2, !tbaa !4
   %55 = load i8, ptr %43, align 1, !tbaa !10
   %56 = zext i8 %55 to i64
-  %57 = getelementptr inbounds nuw [4 x i16], ptr @ff_g723_1_lsp_band2, i64 %56
+  %57 = getelementptr inbounds nuw [8 x i8], ptr @ff_g723_1_lsp_band2, i64 %56
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 4
   %59 = load i16, ptr %58, align 4, !tbaa !4
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i16 %59, ptr %60, align 2, !tbaa !4
   %61 = load i8, ptr %43, align 1, !tbaa !10
   %62 = zext i8 %61 to i64
-  %63 = getelementptr inbounds nuw [4 x i16], ptr @ff_g723_1_lsp_band2, i64 %62
+  %63 = getelementptr inbounds nuw [8 x i8], ptr @ff_g723_1_lsp_band2, i64 %62
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 6
   %65 = load i16, ptr %64, align 2, !tbaa !4
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 18
@@ -619,17 +619,17 @@ define void @ff_g723_1_inverse_quant(ptr noundef captures(none) initializes((0, 
 
 67:                                               ; preds = %9, %67
   %indvars.iv = phi i64 [ 0, %9 ], [ %indvars.iv.next, %67 ]
-  %68 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv
   %69 = load i16, ptr %68, align 2, !tbaa !4
   %70 = sext i16 %69 to i32
-  %71 = getelementptr inbounds nuw i16, ptr @dc_lsp, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw [2 x i8], ptr @dc_lsp, i64 %indvars.iv
   %72 = load i16, ptr %71, align 2, !tbaa !4
   %73 = sext i16 %72 to i32
   %74 = sub nsw i32 %70, %73
   %75 = mul nsw i32 %74, %.072
   %76 = add nsw i32 %75, 16384
   %77 = lshr i32 %76, 15
-  %78 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv
   %79 = load i16, ptr %78, align 2, !tbaa !4
   %80 = trunc i32 %77 to i16
   %81 = add i16 %79, %72
@@ -651,7 +651,7 @@ define void @ff_g723_1_inverse_quant(ptr noundef captures(none) initializes((0, 
 
 86:                                               ; preds = %.preheader81, %101
   %indvars.iv87 = phi i64 [ 1, %.preheader81 ], [ %indvars.iv.next88, %101 ]
-  %87 = getelementptr i16, ptr %0, i64 %indvars.iv87
+  %87 = getelementptr [2 x i8], ptr %0, i64 %indvars.iv87
   %88 = getelementptr i8, ptr %87, i64 -2
   %89 = load i16, ptr %88, align 2, !tbaa !4
   %90 = sext i16 %89 to i32
@@ -683,7 +683,7 @@ define void @ff_g723_1_inverse_quant(ptr noundef captures(none) initializes((0, 
 
 .preheader:                                       ; preds = %101, %102
   %indvars.iv91 = phi i64 [ %indvars.iv.next92, %102 ], [ 1, %101 ]
-  %103 = getelementptr i16, ptr %0, i64 %indvars.iv91
+  %103 = getelementptr [2 x i8], ptr %0, i64 %indvars.iv91
   %104 = getelementptr i8, ptr %103, i64 -2
   %105 = load i16, ptr %104, align 2, !tbaa !4
   %106 = sext i16 %105 to i32

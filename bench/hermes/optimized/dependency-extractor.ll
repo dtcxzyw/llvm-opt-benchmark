@@ -82,13 +82,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"struct.llvh::SmallDenseMap<llvh::StringRef, llvh::detail::DenseSetEmpty, 4, llvh::DenseMapInfo<StringRef>, llvh::detail::DenseSetPair<llvh::StringRef>>::LargeRep" = type { ptr, i32 }
-%"class.llvh::detail::DenseSetPair" = type { %"class.llvh::StringRef" }
-%"class.std::unique_ptr.185" = type { %"struct.std::__uniq_ptr_data.186" }
-%"struct.std::__uniq_ptr_data.186" = type { %"class.std::__uniq_ptr_impl.187" }
-%"class.std::__uniq_ptr_impl.187" = type { %"class.std::tuple.188" }
-%"class.std::tuple.188" = type { %"struct.std::_Tuple_impl.189" }
-%"struct.std::_Tuple_impl.189" = type { %"struct.std::_Head_base.192" }
-%"struct.std::_Head_base.192" = type { ptr }
 
 $_ZN4llvh2cl3optINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ENS0_6parserIS7_EEED2Ev = comdat any
 
@@ -382,7 +375,7 @@ for.body:                                         ; preds = %if.end23, %_ZN4llvh
   %kind = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.0102, i64 32
   %23 = load i32, ptr %kind, align 8
   %24 = zext nneg i32 %23 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.main, i64 %24
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.main, i64 %24
   %switch.load = load ptr, ptr %switch.gep, align 8
   %call.i.i44 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #18
   %OutBufEnd.i5.i45 = getelementptr inbounds nuw i8, ptr %call32, i64 16
@@ -1318,8 +1311,8 @@ for.cond.preheader:                               ; preds = %land.lhs.true
 
 _ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit: ; preds = %for.cond.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds nuw %"class.llvh::detail::DenseSetPair", ptr %storage.i.i, i64 %indvars.iv
-  %arrayidx20 = getelementptr inbounds nuw %"class.llvh::detail::DenseSetPair", ptr %storage.i.i45, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [16 x i8], ptr %storage.i.i, i64 %indvars.iv
+  %arrayidx20 = getelementptr inbounds nuw [16 x i8], ptr %storage.i.i45, i64 %indvars.iv
   %agg.tmp28.sroa.0.0.copyload = load ptr, ptr %arrayidx20, align 8
   %agg.tmp28.sroa.0.0.copyload.fr = freeze ptr %agg.tmp28.sroa.0.0.copyload
   %cmp7.i64 = icmp eq ptr %agg.tmp28.sroa.0.0.copyload.fr, inttoptr (i64 -1 to ptr)
@@ -1392,8 +1385,8 @@ if.end73:                                         ; preds = %land.lhs.true, %lan
 
 _ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit105: ; preds = %if.end73, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit105
   %indvars.iv124 = phi i64 [ 0, %if.end73 ], [ %indvars.iv.next125, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit105 ]
-  %arrayidx96 = getelementptr inbounds nuw %"class.llvh::detail::DenseSetPair", ptr %storage.i.i89, i64 %indvars.iv124
-  %arrayidx99 = getelementptr inbounds nuw %"class.llvh::detail::DenseSetPair", ptr %storage.i.i92, i64 %indvars.iv124
+  %arrayidx96 = getelementptr inbounds nuw [16 x i8], ptr %storage.i.i89, i64 %indvars.iv124
+  %arrayidx99 = getelementptr inbounds nuw [16 x i8], ptr %storage.i.i92, i64 %indvars.iv124
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx96, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx99, i64 16, i1 false)
   %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 1
   %cmp92.not = icmp eq i64 %indvars.iv.next125, 4
@@ -1575,7 +1568,7 @@ delete.notnull.i.i5:                              ; preds = %_ZNSt10unique_ptrIN
   %Size.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load i32, ptr %Size.i.i.i.i.i, align 8
   %conv.i.i.i.i.i = zext i32 %21 to i64
-  %add.ptr.i.i.i.i.i6 = getelementptr inbounds nuw %"class.std::unique_ptr.185", ptr %20, i64 %conv.i.i.i.i.i
+  %add.ptr.i.i.i.i.i6 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %conv.i.i.i.i.i
   tail call void @_ZN4llvh23SmallVectorTemplateBaseISt10unique_ptrIN6hermes6parser19PreParsedBufferInfoESt14default_deleteIS4_EELb0EE13destroy_rangeEPS7_S9_(ptr noundef %20, ptr noundef %add.ptr.i.i.i.i.i6)
   %22 = load ptr, ptr %19, align 8
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %19, i64 16

@@ -22,20 +22,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Tuple_impl.10" = type { %"struct.std::_Head_base.13" }
 %"struct.std::_Head_base.13" = type { ptr }
 %"class.std::function.25" = type { %"class.std::_Function_base", ptr }
-%"class.rocksdb::lru_cache::LRUCacheShard" = type { %"class.rocksdb::CacheShardBase", i64, i64, i64, i8, double, double, double, double, %"struct.rocksdb::lru_cache::LRUHandle", ptr, ptr, %"class.rocksdb::lru_cache::LRUHandleTable", i64, i64, %"class.rocksdb::port::Mutex", ptr }
-%"class.rocksdb::CacheShardBase" = type { i32 }
-%"struct.rocksdb::lru_cache::LRUHandle" = type <{ ptr, ptr, ptr, ptr, ptr, i64, i64, i32, i32, i8, i8, [1 x i8], [5 x i8] }>
-%"class.rocksdb::lru_cache::LRUHandleTable" = type { i32, %"class.std::unique_ptr", i32, i32, ptr }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
-%"struct.std::_Head_base.1" = type { ptr }
-%"class.rocksdb::port::Mutex" = type { %union.pthread_mutex_t }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
 %"class.std::function.28" = type { %"class.std::_Function_base", ptr }
 %"class.std::shared_ptr.33" = type { %"class.std::__shared_ptr.34" }
 %"class.std::__shared_ptr.34" = type { ptr, %"class.std::__shared_count" }
@@ -234,7 +220,7 @@ define void @_ZN7rocksdb9lru_cache14LRUHandleTableD2Ev(ptr noundef nonnull align
 8:                                                ; preds = %._crit_edge.i, %1
   %.012.i = phi i64 [ 0, %1 ], [ %22, %._crit_edge.i ]
   %9 = load ptr, ptr %7, align 8, !tbaa !19
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %.012.i
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.012.i
   %11 = load ptr, ptr %10, align 8, !tbaa !23
   %.not10.i = icmp eq ptr %11, null
   br i1 %.not10.i, label %._crit_edge.i, label %.lr.ph.i
@@ -316,7 +302,7 @@ define noundef ptr @_ZN7rocksdb9lru_cache14LRUHandleTable6LookupERKNS_5SliceEj(p
   %7 = lshr i32 %2, %6
   %8 = zext i32 %7 to i64
   %9 = load ptr, ptr %4, align 8, !tbaa !19
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %8
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %8
   %11 = load ptr, ptr %10, align 8, !tbaa !23
   %.not12.i = icmp eq ptr %11, null
   br i1 %.not12.i, label %_ZN7rocksdb9lru_cache14LRUHandleTable11FindPointerERKNS_5SliceEj.exit, label %.lr.ph.i
@@ -365,7 +351,7 @@ define noundef ptr @_ZN7rocksdb9lru_cache14LRUHandleTable11FindPointerERKNS_5Sli
   %7 = lshr i32 %2, %6
   %8 = zext i32 %7 to i64
   %9 = load ptr, ptr %4, align 8, !tbaa !19
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %8
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %8
   %11 = load ptr, ptr %10, align 8, !tbaa !23
   %.not12 = icmp eq ptr %11, null
   br i1 %.not12, label %.critedge, label %.lr.ph
@@ -420,7 +406,7 @@ define noundef ptr @_ZN7rocksdb9lru_cache14LRUHandleTable6InsertEPNS0_9LRUHandle
   %11 = lshr i32 %7, %10
   %12 = zext i32 %11 to i64
   %13 = load ptr, ptr %8, align 8, !tbaa !19
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %12
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %12
   %15 = load ptr, ptr %14, align 8, !tbaa !23
   %.not12.i = icmp eq ptr %15, null
   br i1 %.not12.i, label %.critedge, label %.lr.ph.i
@@ -500,7 +486,7 @@ _ZNSt10unique_ptrIA_PN7rocksdb9lru_cache9LRUHandleESt14default_deleteIS4_EED2Ev.
 45:                                               ; preds = %._crit_edge.i, %37
   %.01726.i = phi i32 [ 0, %37 ], [ %57, %._crit_edge.i ]
   %46 = zext i32 %.01726.i to i64
-  %47 = getelementptr inbounds nuw ptr, ptr %13, i64 %46
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %46
   %48 = load ptr, ptr %47, align 8, !tbaa !23
   %.not2023.i = icmp eq ptr %48, null
   br i1 %.not2023.i, label %._crit_edge.i, label %.lr.ph.i12
@@ -513,7 +499,7 @@ _ZNSt10unique_ptrIA_PN7rocksdb9lru_cache9LRUHandleESt14default_deleteIS4_EED2Ev.
   %52 = load i32, ptr %51, align 8, !tbaa !38
   %53 = lshr i32 %52, %44
   %54 = zext nneg i32 %53 to i64
-  %55 = getelementptr inbounds nuw ptr, ptr %43, i64 %54
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %54
   %56 = load ptr, ptr %55, align 8, !tbaa !23
   store ptr %56, ptr %49, align 8, !tbaa !25
   store ptr %.01824.i, ptr %55, align 8, !tbaa !23
@@ -563,7 +549,7 @@ _ZNSt10unique_ptrIA_PN7rocksdb9lru_cache9LRUHandleESt14default_deleteIS4_EED2Ev.
 16:                                               ; preds = %6, %._crit_edge
   %.01726 = phi i32 [ 0, %6 ], [ %28, %._crit_edge ]
   %17 = zext i32 %.01726 to i64
-  %18 = getelementptr inbounds nuw ptr, ptr %14, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !23
   %.not2023 = icmp eq ptr %19, null
   br i1 %.not2023, label %._crit_edge, label %.lr.ph
@@ -576,7 +562,7 @@ _ZNSt10unique_ptrIA_PN7rocksdb9lru_cache9LRUHandleESt14default_deleteIS4_EED2Ev.
   %23 = load i32, ptr %22, align 8, !tbaa !38
   %24 = lshr i32 %23, %15
   %25 = zext nneg i32 %24 to i64
-  %26 = getelementptr inbounds nuw ptr, ptr %12, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !23
   store ptr %27, ptr %20, align 8, !tbaa !25
   store ptr %.01824, ptr %26, align 8, !tbaa !23
@@ -601,7 +587,7 @@ define noundef ptr @_ZN7rocksdb9lru_cache14LRUHandleTable6RemoveERKNS_5SliceEj(p
   %7 = lshr i32 %2, %6
   %8 = zext i32 %7 to i64
   %9 = load ptr, ptr %4, align 8, !tbaa !19
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %8
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %8
   %11 = load ptr, ptr %10, align 8, !tbaa !23
   %.not12.i = icmp eq ptr %11, null
   br i1 %.not12.i, label %_ZN7rocksdb9lru_cache14LRUHandleTable11FindPointerERKNS_5SliceEj.exit.thread, label %.lr.ph.i
@@ -783,9 +769,9 @@ _ZNSt10lock_guardIN7rocksdb4port5MutexEED2Ev.exit: ; preds = %21
   %.sroa.5.024.i = phi i64 [ 0, %.lr.ph.i ], [ %65, %_ZN7rocksdb9lru_cache9LRUHandle4FreeEPNS_15MemoryAllocatorE.exit.i ]
   %39 = icmp ult i64 %.sroa.5.024.i, 8
   %40 = load ptr, ptr %7, align 8
-  %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %.sroa.5.024.i
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %.sroa.5.024.i
   %42 = load ptr, ptr %9, align 8
-  %43 = getelementptr ptr, ptr %42, i64 %.sroa.5.024.i
+  %43 = getelementptr [8 x i8], ptr %42, i64 %.sroa.5.024.i
   %44 = getelementptr i8, ptr %43, i64 -64
   %.0.i.i.i = select i1 %39, ptr %41, ptr %44
   %45 = load ptr, ptr %.0.i.i.i, align 8, !tbaa !23
@@ -1053,7 +1039,7 @@ _ZNSt10lock_guardIN7rocksdb4port5MutexEEC2ERS2_.exit.preheader: ; preds = %1
   %60 = lshr i32 %57, %59
   %61 = zext i32 %60 to i64
   %62 = load ptr, ptr %16, align 8, !tbaa !19
-  %63 = getelementptr inbounds nuw ptr, ptr %62, i64 %61
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %61
   %64 = load ptr, ptr %63, align 8, !tbaa !23
   %.not12.i.i = icmp eq ptr %64, null
   br i1 %.not12.i.i, label %_ZN7rocksdb9lru_cache14LRUHandleTable6RemoveERKNS_5SliceEj.exit, label %.lr.ph.i.i
@@ -1105,7 +1091,7 @@ _ZN7rocksdb9lru_cache14LRUHandleTable6RemoveERKNS_5SliceEj.exit: ; preds = %.cri
 
 83:                                               ; preds = %_ZN7rocksdb9lru_cache14LRUHandleTable6RemoveERKNS_5SliceEj.exit
   %84 = load ptr, ptr %3, align 8, !tbaa !67
-  %85 = getelementptr inbounds nuw ptr, ptr %84, i64 %81
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %81
   %86 = add nuw nsw i64 %81, 1
   store i64 %86, ptr %2, align 8, !tbaa !61
   store ptr %22, ptr %85, align 8, !tbaa !23
@@ -1173,7 +1159,7 @@ _ZNSt6vectorIPN7rocksdb9lru_cache9LRUHandleESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_
 _ZNSt6vectorIPN7rocksdb9lru_cache9LRUHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %110, %_ZNSt6vectorIPN7rocksdb9lru_cache9LRUHandleESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
   store ptr %105, ptr %5, align 8, !tbaa !73
   store ptr %109, ptr %19, align 8, !tbaa !72
-  %111 = getelementptr inbounds nuw ptr, ptr %105, i64 %103
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %105, i64 %103
   store ptr %111, ptr %20, align 8, !tbaa !83
   br label %_ZN7rocksdb10autovectorIPNS_9lru_cache9LRUHandleELm8EE9push_backERKS3_.exit
 
@@ -1281,9 +1267,9 @@ _ZN7rocksdb10autovectorIPNS_9lru_cache9LRUHandleELm8EED2Ev.exit: ; preds = %_ZN7
   %.sroa.5.049 = phi i64 [ 0, %.lr.ph50 ], [ %158, %157 ]
   %144 = icmp ult i64 %.sroa.5.049, 8
   %145 = load ptr, ptr %3, align 8
-  %146 = getelementptr inbounds nuw ptr, ptr %145, i64 %.sroa.5.049
+  %146 = getelementptr inbounds nuw [8 x i8], ptr %145, i64 %.sroa.5.049
   %147 = load ptr, ptr %5, align 8
-  %148 = getelementptr ptr, ptr %147, i64 %.sroa.5.049
+  %148 = getelementptr [8 x i8], ptr %147, i64 %.sroa.5.049
   %149 = getelementptr i8, ptr %148, i64 -64
   %.0.i.i = select i1 %144, ptr %146, ptr %149
   %150 = load ptr, ptr %.0.i.i, align 8, !tbaa !23
@@ -1496,7 +1482,7 @@ _ZNSt8functionIFvRKN7rocksdb5SliceEPvmPKNS0_5Cache15CacheItemHelperEEEC2ERKSA_.e
 45:                                               ; preds = %._crit_edge.i, %.lr.ph14.i
   %.012.i = phi i64 [ %18, %.lr.ph14.i ], [ %66, %._crit_edge.i ]
   %46 = load ptr, ptr %43, align 8, !tbaa !19
-  %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %.012.i
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %.012.i
   %48 = load ptr, ptr %47, align 8, !tbaa !23
   %.not10.i = icmp eq ptr %48, null
   br i1 %.not10.i, label %._crit_edge.i, label %.lr.ph.i
@@ -2201,7 +2187,7 @@ _ZN7rocksdb9lru_cache13LRUCacheShard10LRU_RemoveEPNS0_9LRUHandleE.exit: ; preds 
   %63 = lshr i32 %60, %62
   %64 = zext i32 %63 to i64
   %65 = load ptr, ptr %18, align 8, !tbaa !19
-  %66 = getelementptr inbounds nuw ptr, ptr %65, i64 %64
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %64
   %67 = load ptr, ptr %66, align 8, !tbaa !23
   %.not12.i.i = icmp eq ptr %67, null
   br i1 %.not12.i.i, label %_ZN7rocksdb9lru_cache14LRUHandleTable6RemoveERKNS_5SliceEj.exit, label %.lr.ph.i.i
@@ -2253,7 +2239,7 @@ _ZN7rocksdb9lru_cache14LRUHandleTable6RemoveERKNS_5SliceEj.exit: ; preds = %.cri
 
 86:                                               ; preds = %_ZN7rocksdb9lru_cache14LRUHandleTable6RemoveERKNS_5SliceEj.exit
   %87 = load ptr, ptr %23, align 8, !tbaa !67
-  %88 = getelementptr inbounds nuw ptr, ptr %87, i64 %84
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %87, i64 %84
   %89 = add nuw nsw i64 %84, 1
   store i64 %89, ptr %2, align 8, !tbaa !61
   store ptr %25, ptr %88, align 8, !tbaa !23
@@ -2317,7 +2303,7 @@ _ZNSt6vectorIPN7rocksdb9lru_cache9LRUHandleESaIS3_EE17_M_realloc_insertIJRKS3_EE
   %.pre14 = phi i64 [ %.pre14.pre, %113 ], [ %83, %_ZNSt6vectorIPN7rocksdb9lru_cache9LRUHandleESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i ]
   store ptr %108, ptr %20, align 8, !tbaa !73
   store ptr %112, ptr %21, align 8, !tbaa !72
-  %114 = getelementptr inbounds nuw ptr, ptr %108, i64 %106
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %108, i64 %106
   store ptr %114, ptr %22, align 8, !tbaa !83
   br label %_ZN7rocksdb10autovectorIPNS_9lru_cache9LRUHandleELm8EE9push_backERKS3_.exit
 
@@ -2365,9 +2351,9 @@ define void @_ZN7rocksdb9lru_cache13LRUCacheShard13NotifyEvictedERKNS_10autovect
   %.sroa.5.024 = phi i64 [ 0, %.lr.ph ], [ %48, %_ZN7rocksdb9lru_cache9LRUHandle4FreeEPNS_15MemoryAllocatorE.exit ]
   %22 = icmp ult i64 %.sroa.5.024, 8
   %23 = load ptr, ptr %18, align 8
-  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %.sroa.5.024
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %.sroa.5.024
   %25 = load ptr, ptr %9, align 8
-  %26 = getelementptr ptr, ptr %25, i64 %.sroa.5.024
+  %26 = getelementptr [8 x i8], ptr %25, i64 %.sroa.5.024
   %27 = getelementptr i8, ptr %26, i64 -64
   %.0.i.i = select i1 %22, ptr %24, ptr %27
   %28 = load ptr, ptr %.0.i.i, align 8, !tbaa !23
@@ -2508,7 +2494,7 @@ _ZNSt10lock_guardIN7rocksdb4port5MutexEEC2ERS2_.exit: ; preds = %4
 
 39:                                               ; preds = %36
   %40 = load ptr, ptr %13, align 8, !tbaa !67
-  %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %37
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %37
   %42 = add nuw nsw i64 %37, 1
   store i64 %42, ptr %8, align 8, !tbaa !61
   store ptr %2, ptr %41, align 8, !tbaa !23
@@ -2578,7 +2564,7 @@ _ZNSt6vectorIPN7rocksdb9lru_cache9LRUHandleESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_
 _ZNSt6vectorIPN7rocksdb9lru_cache9LRUHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %68, %_ZNSt6vectorIPN7rocksdb9lru_cache9LRUHandleESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
   store ptr %63, ptr %15, align 8, !tbaa !73
   store ptr %67, ptr %44, align 8, !tbaa !72
-  %69 = getelementptr inbounds nuw ptr, ptr %63, i64 %61
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %61
   store ptr %69, ptr %46, align 8, !tbaa !83
   br label %_ZN7rocksdb10autovectorIPNS_9lru_cache9LRUHandleELm8EE9push_backERKS3_.exit
 
@@ -2773,7 +2759,7 @@ _ZN7rocksdb9lru_cache13LRUCacheShard10LRU_RemoveEPNS0_9LRUHandleE.exit: ; preds 
 
 152:                                              ; preds = %_ZN7rocksdb9lru_cache13LRUCacheShard10LRU_RemoveEPNS0_9LRUHandleE.exit
   %153 = load ptr, ptr %13, align 8, !tbaa !67
-  %154 = getelementptr inbounds nuw ptr, ptr %153, i64 %150
+  %154 = getelementptr inbounds nuw [8 x i8], ptr %153, i64 %150
   %155 = add nuw nsw i64 %150, 1
   store i64 %155, ptr %8, align 8, !tbaa !61
   store ptr %103, ptr %154, align 8, !tbaa !23
@@ -2843,7 +2829,7 @@ _ZNSt6vectorIPN7rocksdb9lru_cache9LRUHandleESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_
 _ZNSt6vectorIPN7rocksdb9lru_cache9LRUHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i38: ; preds = %181, %_ZNSt6vectorIPN7rocksdb9lru_cache9LRUHandleESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i36
   store ptr %176, ptr %15, align 8, !tbaa !73
   store ptr %180, ptr %157, align 8, !tbaa !72
-  %182 = getelementptr inbounds nuw ptr, ptr %176, i64 %174
+  %182 = getelementptr inbounds nuw [8 x i8], ptr %176, i64 %174
   store ptr %182, ptr %159, align 8, !tbaa !83
   br label %_ZN7rocksdb10autovectorIPNS_9lru_cache9LRUHandleELm8EE9push_backERKS3_.exit41
 
@@ -2910,9 +2896,9 @@ _ZNSt10lock_guardIN7rocksdb4port5MutexEED2Ev.exit: ; preds = %_ZN7rocksdb10autov
   %.sroa.5.024.i = phi i64 [ 0, %.lr.ph.i ], [ %236, %_ZN7rocksdb9lru_cache9LRUHandle4FreeEPNS_15MemoryAllocatorE.exit.i ]
   %210 = icmp ult i64 %.sroa.5.024.i, 8
   %211 = load ptr, ptr %13, align 8
-  %212 = getelementptr inbounds nuw ptr, ptr %211, i64 %.sroa.5.024.i
+  %212 = getelementptr inbounds nuw [8 x i8], ptr %211, i64 %.sroa.5.024.i
   %213 = load ptr, ptr %15, align 8
-  %214 = getelementptr ptr, ptr %213, i64 %.sroa.5.024.i
+  %214 = getelementptr [8 x i8], ptr %213, i64 %.sroa.5.024.i
   %215 = getelementptr i8, ptr %214, i64 -64
   %.0.i.i.i = select i1 %210, ptr %212, ptr %215
   %216 = load ptr, ptr %.0.i.i.i, align 8, !tbaa !23
@@ -3087,7 +3073,7 @@ define noundef ptr @_ZN7rocksdb9lru_cache13LRUCacheShard6LookupERKNS_5SliceEjPKN
   %13 = lshr i32 %2, %12
   %14 = zext i32 %13 to i64
   %15 = load ptr, ptr %10, align 8, !tbaa !19
-  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %14
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %14
   %17 = load ptr, ptr %16, align 8, !tbaa !23
   %.not12.i.i = icmp eq ptr %17, null
   br i1 %.not12.i.i, label %_ZN7rocksdb9lru_cache14LRUHandleTable6LookupERKNS_5SliceEj.exit.thread, label %.lr.ph.i.i
@@ -3495,7 +3481,7 @@ define noundef zeroext i1 @_ZN7rocksdb9lru_cache13LRUCacheShard7ReleaseEPNS0_9LR
   %31 = lshr i32 %27, %30
   %32 = zext i32 %31 to i64
   %33 = load ptr, ptr %28, align 8, !tbaa !19
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %32
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %32
   %35 = load ptr, ptr %34, align 8, !tbaa !23
   %.not12.i.i = icmp eq ptr %35, null
   br i1 %.not12.i.i, label %.thread, label %.lr.ph.i.i
@@ -3862,9 +3848,9 @@ _ZNSt10lock_guardIN7rocksdb4port5MutexEED2Ev.exit22: ; preds = %59
   %.sroa.5.024.i = phi i64 [ 0, %.lr.ph.i ], [ %103, %_ZN7rocksdb9lru_cache9LRUHandle4FreeEPNS_15MemoryAllocatorE.exit.i ]
   %77 = icmp ult i64 %.sroa.5.024.i, 8
   %78 = load ptr, ptr %33, align 8
-  %79 = getelementptr inbounds nuw ptr, ptr %78, i64 %.sroa.5.024.i
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %.sroa.5.024.i
   %80 = load ptr, ptr %35, align 8
-  %81 = getelementptr ptr, ptr %80, i64 %.sroa.5.024.i
+  %81 = getelementptr [8 x i8], ptr %80, i64 %.sroa.5.024.i
   %82 = getelementptr i8, ptr %81, i64 -64
   %.0.i.i.i23 = select i1 %77, ptr %79, ptr %82
   %83 = load ptr, ptr %.0.i.i.i23, align 8, !tbaa !23
@@ -4017,7 +4003,7 @@ define void @_ZN7rocksdb9lru_cache13LRUCacheShard5EraseERKNS_5SliceEj(ptr nounde
   %9 = lshr i32 %2, %8
   %10 = zext i32 %9 to i64
   %11 = load ptr, ptr %6, align 8, !tbaa !19
-  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %10
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %10
   %13 = load ptr, ptr %12, align 8, !tbaa !23
   %.not12.i.i = icmp eq ptr %13, null
   br i1 %.not12.i.i, label %.critedge, label %.lr.ph.i.i
@@ -4398,7 +4384,7 @@ _ZN7rocksdb12ShardedCacheINS_9lru_cache13LRUCacheShardEEC2ERKNS_19ShardedCacheOp
 27:                                               ; preds = %.noexc9, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %.noexc9 ]
   %28 = load ptr, ptr %15, align 8, !tbaa !154
-  %29 = getelementptr inbounds nuw %"class.rocksdb::lru_cache::LRUCacheShard", ptr %28, i64 %indvars.iv.i.i
+  %29 = getelementptr inbounds nuw [256 x i8], ptr %28, i64 %indvars.iv.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %29, ptr %3, align 8, !tbaa !185
   %30 = load ptr, ptr %21, align 8, !tbaa !75
@@ -4626,7 +4612,7 @@ define noundef i64 @_ZN7rocksdb9lru_cache8LRUCache15TEST_GetLRUSizeEv(ptr nounde
 
 _ZNKSt8functionIFmRN7rocksdb9lru_cache13LRUCacheShardEEEclES3_.exit.i: ; preds = %7
   %10 = load ptr, ptr %6, align 8, !tbaa !154
-  %11 = getelementptr inbounds nuw %"class.rocksdb::lru_cache::LRUCacheShard", ptr %10, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [256 x i8], ptr %10, i64 %indvars.iv.i
   %12 = load ptr, ptr %4, align 8, !tbaa !187
   %13 = invoke noundef i64 %12(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 64 dereferenceable(256) %11)
           to label %.noexc3 unwind label %.loopexit
@@ -5287,7 +5273,7 @@ define linkonce_odr void @_ZN7rocksdb12ShardedCacheINS_9lru_cache13LRUCacheShard
   %22 = load i32, ptr %21, align 8, !tbaa !221
   %23 = and i32 %22, %18
   %24 = zext i32 %23 to i64
-  %25 = getelementptr inbounds nuw %"class.rocksdb::lru_cache::LRUCacheShard", ptr %20, i64 %24
+  %25 = getelementptr inbounds nuw [256 x i8], ptr %20, i64 %24
   %26 = load i64, ptr %15, align 8, !tbaa !122, !noalias !222
   %27 = add i64 %26, 71
   %28 = tail call noalias ptr @malloc(i64 noundef %27) #34
@@ -5364,7 +5350,7 @@ define linkonce_odr noundef ptr @_ZN7rocksdb12ShardedCacheINS_9lru_cache13LRUCac
   %18 = load i32, ptr %17, align 8, !tbaa !221
   %19 = and i32 %18, %14
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds nuw %"class.rocksdb::lru_cache::LRUCacheShard", ptr %16, i64 %20
+  %21 = getelementptr inbounds nuw [256 x i8], ptr %16, i64 %20
   %22 = tail call noundef ptr @_ZN7rocksdb9lru_cache13LRUCacheShard16CreateStandaloneERKNS_5SliceEjPvPKNS_5Cache15CacheItemHelperEmb(ptr noundef nonnull align 64 dereferenceable(256) %21, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %14, ptr noundef %2, ptr noundef %3, i64 noundef %4, i1 noundef zeroext %5)
   ret ptr %22
 }
@@ -5385,7 +5371,7 @@ define linkonce_odr noundef ptr @_ZN7rocksdb12ShardedCacheINS_9lru_cache13LRUCac
   %18 = load i32, ptr %17, align 8, !tbaa !221
   %19 = and i32 %18, %14
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds nuw %"class.rocksdb::lru_cache::LRUCacheShard", ptr %16, i64 %20
+  %21 = getelementptr inbounds nuw [256 x i8], ptr %16, i64 %20
   %22 = tail call noundef ptr @_ZN7rocksdb9lru_cache13LRUCacheShard6LookupERKNS_5SliceEjPKNS_5Cache15CacheItemHelperEPNS5_13CreateContextENS5_8PriorityEPNS_10StatisticsE(ptr noundef nonnull align 64 dereferenceable(256) %21, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %14, ptr poison, ptr poison, i32 poison, ptr poison)
   ret ptr %22
 }
@@ -5400,7 +5386,7 @@ define linkonce_odr noundef zeroext i1 @_ZN7rocksdb12ShardedCacheINS_9lru_cache1
   %8 = load i32, ptr %7, align 8, !tbaa !221
   %9 = and i32 %8, %4
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw %"class.rocksdb::lru_cache::LRUCacheShard", ptr %6, i64 %10
+  %11 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 208
   tail call void @_ZN7rocksdb4port5Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(40) %12)
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 60
@@ -5446,7 +5432,7 @@ define linkonce_odr void @_ZN7rocksdb12ShardedCacheINS_9lru_cache13LRUCacheShard
   %14 = load i32, ptr %13, align 8, !tbaa !221
   %15 = and i32 %14, %10
   %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds nuw %"class.rocksdb::lru_cache::LRUCacheShard", ptr %12, i64 %16
+  %17 = getelementptr inbounds nuw [256 x i8], ptr %12, i64 %16
   tail call void @_ZN7rocksdb9lru_cache13LRUCacheShard5EraseERKNS_5SliceEj(ptr noundef nonnull align 64 dereferenceable(256) %17, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %10)
   ret void
 }
@@ -5488,7 +5474,7 @@ define linkonce_odr void @_ZN7rocksdb12ShardedCacheINS_9lru_cache13LRUCacheShard
 14:                                               ; preds = %.noexc8, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %.noexc8 ]
   %15 = load ptr, ptr %13, align 8, !tbaa !154
-  %16 = getelementptr inbounds nuw %"class.rocksdb::lru_cache::LRUCacheShard", ptr %15, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw [256 x i8], ptr %15, i64 %indvars.iv.i
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %16, ptr %3, align 8, !tbaa !185
   %17 = load ptr, ptr %9, align 8, !tbaa !75
@@ -5628,7 +5614,7 @@ define linkonce_odr void @_ZN7rocksdb12ShardedCacheINS_9lru_cache13LRUCacheShard
 12:                                               ; preds = %.noexc5, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %.noexc5 ]
   %13 = load ptr, ptr %11, align 8, !tbaa !154
-  %14 = getelementptr inbounds nuw %"class.rocksdb::lru_cache::LRUCacheShard", ptr %13, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw [256 x i8], ptr %13, i64 %indvars.iv.i
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %14, ptr %3, align 8, !tbaa !185
   %15 = load ptr, ptr %8, align 8, !tbaa !75
@@ -5771,7 +5757,7 @@ define linkonce_odr noundef i64 @_ZNK7rocksdb12ShardedCacheINS_9lru_cache13LRUCa
 
 _ZNKSt8functionIFmRN7rocksdb9lru_cache13LRUCacheShardEEEclES3_.exit.i.i: ; preds = %7
   %10 = load ptr, ptr %6, align 8, !tbaa !154
-  %11 = getelementptr inbounds nuw %"class.rocksdb::lru_cache::LRUCacheShard", ptr %10, i64 %indvars.iv.i.i
+  %11 = getelementptr inbounds nuw [256 x i8], ptr %10, i64 %indvars.iv.i.i
   %12 = load ptr, ptr %4, align 8, !tbaa !187
   %13 = invoke noundef i64 %12(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 64 dereferenceable(256) %11)
           to label %.noexc15.i unwind label %.loopexit.i
@@ -5876,7 +5862,7 @@ define linkonce_odr noundef i64 @_ZNK7rocksdb12ShardedCacheINS_9lru_cache13LRUCa
 
 _ZNKSt8functionIFmRN7rocksdb9lru_cache13LRUCacheShardEEEclES3_.exit.i.i: ; preds = %7
   %10 = load ptr, ptr %6, align 8, !tbaa !154
-  %11 = getelementptr inbounds nuw %"class.rocksdb::lru_cache::LRUCacheShard", ptr %10, i64 %indvars.iv.i.i
+  %11 = getelementptr inbounds nuw [256 x i8], ptr %10, i64 %indvars.iv.i.i
   %12 = load ptr, ptr %4, align 8, !tbaa !187
   %13 = invoke noundef i64 %12(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 64 dereferenceable(256) %11)
           to label %.noexc15.i unwind label %.loopexit.i
@@ -5981,7 +5967,7 @@ define linkonce_odr noundef i64 @_ZNK7rocksdb12ShardedCacheINS_9lru_cache13LRUCa
 
 _ZNKSt8functionIFmRN7rocksdb9lru_cache13LRUCacheShardEEEclES3_.exit.i.i: ; preds = %7
   %10 = load ptr, ptr %6, align 8, !tbaa !154
-  %11 = getelementptr inbounds nuw %"class.rocksdb::lru_cache::LRUCacheShard", ptr %10, i64 %indvars.iv.i.i
+  %11 = getelementptr inbounds nuw [256 x i8], ptr %10, i64 %indvars.iv.i.i
   %12 = load ptr, ptr %4, align 8, !tbaa !187
   %13 = invoke noundef i64 %12(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 64 dereferenceable(256) %11)
           to label %.noexc15.i unwind label %.loopexit.i
@@ -6088,7 +6074,7 @@ define linkonce_odr noundef i64 @_ZNK7rocksdb12ShardedCacheINS_9lru_cache13LRUCa
 
 _ZNKSt8functionIFmRN7rocksdb9lru_cache13LRUCacheShardEEEclES3_.exit.i.i: ; preds = %7
   %10 = load ptr, ptr %6, align 8, !tbaa !154
-  %11 = getelementptr inbounds nuw %"class.rocksdb::lru_cache::LRUCacheShard", ptr %10, i64 %indvars.iv.i.i
+  %11 = getelementptr inbounds nuw [256 x i8], ptr %10, i64 %indvars.iv.i.i
   %12 = load ptr, ptr %4, align 8, !tbaa !187
   %13 = invoke noundef i64 %12(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 64 dereferenceable(256) %11)
           to label %.noexc15.i unwind label %.loopexit.i
@@ -6182,14 +6168,14 @@ define linkonce_odr void @_ZN7rocksdb12ShardedCacheINS_9lru_cache13LRUCacheShard
 .lr.ph.us:                                        ; preds = %3, %20
   %indvars.iv = phi i64 [ %indvars.iv.next.mux, %20 ], [ 0, %3 ]
   %.028.us = phi i1 [ %.1.us.mux, %20 ], [ false, %3 ]
-  %11 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %12 = load i64, ptr %11, align 8, !tbaa !95
   %.not.us = icmp eq i64 %12, -1
   br i1 %.not.us, label %20, label %13
 
 13:                                               ; preds = %.lr.ph.us
   %14 = load ptr, ptr %10, align 8, !tbaa !154
-  %15 = getelementptr inbounds nuw %"class.rocksdb::lru_cache::LRUCacheShard", ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [256 x i8], ptr %14, i64 %indvars.iv
   invoke void @_ZN7rocksdb9lru_cache13LRUCacheShard18ApplyToSomeEntriesERKSt8functionIFvRKNS_5SliceEPvmPKNS_5Cache15CacheItemHelperEEEmPm(ptr noundef nonnull align 64 dereferenceable(256) %15, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %.sroa.speculated, ptr noundef nonnull %11)
           to label %16 unwind label %_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit.split.us
 
@@ -6244,7 +6230,7 @@ define linkonce_odr void @_ZN7rocksdb12ShardedCacheINS_9lru_cache13LRUCacheShard
 8:                                                ; preds = %.noexc3, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %.noexc3 ]
   %9 = load ptr, ptr %7, align 8, !tbaa !154
-  %10 = getelementptr inbounds nuw %"class.rocksdb::lru_cache::LRUCacheShard", ptr %9, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw [256 x i8], ptr %9, i64 %indvars.iv.i
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %10, ptr %2, align 8, !tbaa !185
   %11 = load ptr, ptr %4, align 8, !tbaa !75
@@ -6344,7 +6330,7 @@ define linkonce_odr noundef zeroext i1 @_ZN7rocksdb12ShardedCacheINS_9lru_cache1
   %10 = load i32, ptr %9, align 8, !tbaa !221
   %11 = and i32 %10, %6
   %12 = zext i32 %11 to i64
-  %13 = getelementptr inbounds nuw %"class.rocksdb::lru_cache::LRUCacheShard", ptr %8, i64 %12
+  %13 = getelementptr inbounds nuw [256 x i8], ptr %8, i64 %12
   %14 = tail call noundef zeroext i1 @_ZN7rocksdb9lru_cache13LRUCacheShard7ReleaseEPNS0_9LRUHandleEbb(ptr noundef nonnull align 64 dereferenceable(256) %13, ptr noundef nonnull %1, i1 zeroext poison, i1 noundef zeroext %3)
   ret i1 %14
 }
@@ -6544,7 +6530,7 @@ define linkonce_odr void @_ZN7rocksdb12ShardedCacheINS_9lru_cache13LRUCacheShard
 12:                                               ; preds = %.noexc2, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %.noexc2 ]
   %13 = load ptr, ptr %11, align 8, !tbaa !154
-  %14 = getelementptr inbounds nuw %"class.rocksdb::lru_cache::LRUCacheShard", ptr %13, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw [256 x i8], ptr %13, i64 %indvars.iv.i
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %14, ptr %2, align 8, !tbaa !185
   %15 = load ptr, ptr %8, align 8, !tbaa !75

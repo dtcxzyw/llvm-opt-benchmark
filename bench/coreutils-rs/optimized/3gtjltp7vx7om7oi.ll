@@ -665,7 +665,7 @@ define void @_ZN7uu_echo6uu_app17h9e06b6a816c35a89E(ptr noalias noundef writeonl
   %127 = phi i64 [ %.pre.i.i, %.noexc.i44 ], [ %118, %115 ]
   %128 = getelementptr inbounds nuw i8, ptr %20, i64 136
   %129 = load ptr, ptr %128, align 8, !alias.scope !186, !noalias !191, !nonnull !10, !noundef !10
-  %130 = getelementptr inbounds { { { { ptr, i64 } } } }, ptr %129, i64 %127
+  %130 = getelementptr inbounds [16 x i8], ptr %129, i64 %127
   store ptr @anon.fe0adef48c2d9ae7ee0e98a234cfe045.22, ptr %130, align 8, !noalias !191
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 8
   store i64 24, ptr %131, align 8, !noalias !196
@@ -833,7 +833,7 @@ define void @_ZN7uu_echo6uu_app17h9e06b6a816c35a89E(ptr noalias noundef writeonl
   %177 = phi i64 [ %.pre.i.i66, %.noexc.i65 ], [ %168, %165 ]
   %178 = getelementptr inbounds nuw i8, ptr %17, i64 136
   %179 = load ptr, ptr %178, align 8, !alias.scope !245, !noalias !250, !nonnull !10, !noundef !10
-  %180 = getelementptr inbounds { { { { ptr, i64 } } } }, ptr %179, i64 %177
+  %180 = getelementptr inbounds [16 x i8], ptr %179, i64 %177
   store ptr @anon.fe0adef48c2d9ae7ee0e98a234cfe045.20, ptr %180, align 8, !noalias !250
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 8
   store i64 23, ptr %181, align 8, !noalias !255

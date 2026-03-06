@@ -3,15 +3,6 @@ source_filename = "bench/mold/original/private_server.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"class.tbb::detail::r1::rml::padded_private_worker" = type { %"class.tbb::detail::r1::rml::private_worker", [72 x i8] }
-%"class.tbb::detail::r1::rml::private_worker" = type { %"struct.std::atomic", ptr, ptr, i64, %"class.tbb::detail::r1::rml::internal::thread_monitor", i64, ptr }
-%"struct.std::atomic" = type { i32 }
-%"class.tbb::detail::r1::rml::internal::thread_monitor" = type { %"struct.std::atomic.0", %"class.tbb::detail::r1::binary_semaphore" }
-%"struct.std::atomic.0" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i8 }
-%"class.tbb::detail::r1::binary_semaphore" = type { %"struct.std::atomic.1" }
-%"struct.std::atomic.1" = type { %"struct.std::__atomic_base.2" }
-%"struct.std::__atomic_base.2" = type { i32 }
 %"class.tbb::detail::d1::unique_scoped_lock" = type { ptr }
 %"class.tbb::detail::r1::affinity_helper" = type <{ ptr, i32, [4 x i8] }>
 %union.pthread_attr_t = type { i64, [48 x i8] }
@@ -511,7 +502,7 @@ _ZN3tbb6detail2d123cache_aligned_allocatorINS0_2r13rml21padded_private_workerEE8
 .lr.ph:                                           ; preds = %_ZN3tbb6detail2d123cache_aligned_allocatorINS0_2r13rml21padded_private_workerEE8allocateEm.exit, %32
   %.01215 = phi i64 [ %37, %32 ], [ 0, %_ZN3tbb6detail2d123cache_aligned_allocatorINS0_2r13rml21padded_private_workerEE8allocateEm.exit ]
   %23 = load ptr, ptr %17, align 8, !tbaa !45
-  %24 = getelementptr inbounds nuw %"class.tbb::detail::r1::rml::padded_private_worker", ptr %23, i64 %.01215
+  %24 = getelementptr inbounds nuw [128 x i8], ptr %23, i64 %.01215
   store i32 0, ptr %24, align 4, !tbaa !46
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store ptr %0, ptr %25, align 8, !tbaa !47
@@ -867,7 +858,7 @@ _ZN3tbb6detail2r13rml14private_server17remove_server_refEv.exit: ; preds = %._cr
 17:                                               ; preds = %.lr.ph, %17
   %.03 = phi i64 [ 0, %.lr.ph ], [ %20, %17 ]
   %18 = load ptr, ptr %5, align 8, !tbaa !45
-  %19 = getelementptr inbounds nuw %"class.tbb::detail::r1::rml::padded_private_worker", ptr %18, i64 %.03
+  %19 = getelementptr inbounds nuw [128 x i8], ptr %18, i64 %.03
   tail call void @_ZN3tbb6detail2r13rml14private_worker14start_shutdownEv(ptr noundef nonnull align 8 dereferenceable(56) %19)
   %20 = add nuw nsw i64 %.03, 1
   %21 = load i32, ptr %3, align 8, !tbaa !42

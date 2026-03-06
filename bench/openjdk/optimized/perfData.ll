@@ -181,7 +181,7 @@ define hidden void @_ZN8PerfDataC2E9CounterNSPKcNS_5UnitsENS_11VariabilityE(ptr 
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr null, ptr %10, align 8
   %11 = zext i32 %1 to i64
-  %12 = getelementptr inbounds nuw ptr, ptr @_ZN15PerfDataManager12_name_spacesE, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr @_ZN15PerfDataManager12_name_spacesE, i64 %11
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #14
   %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #14
@@ -600,7 +600,7 @@ define hidden void @_ZN15PerfDataManager7destroyEv() local_unnamed_addr #0 align
   %indvars.iv = phi i64 [ %indvars.iv.next, %40 ], [ 0, %23 ]
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8
   %35 = icmp eq ptr %34, null
   br i1 %35, label %40, label %36
@@ -829,7 +829,7 @@ _ZN12PerfDataList6appendEP8PerfData.exit:         ; preds = %16, %23
   %33 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %34 = load ptr, ptr %33, align 8
   %35 = sext i32 %31 to i64
-  %36 = getelementptr inbounds ptr, ptr %34, i64 %35
+  %36 = getelementptr inbounds [8 x i8], ptr %34, i64 %35
   store ptr %0, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %38 = load i32, ptr %37, align 8
@@ -937,7 +937,7 @@ _ZN12PerfDataListC2Ei.exit18:                     ; preds = %63, %67
   %87 = getelementptr inbounds nuw i8, ptr %.sink41, i64 8
   %88 = load ptr, ptr %87, align 8
   %89 = sext i32 %.sink42 to i64
-  %90 = getelementptr inbounds ptr, ptr %88, i64 %89
+  %90 = getelementptr inbounds [8 x i8], ptr %88, i64 %89
   store ptr %0, ptr %90, align 8
   br label %91
 
@@ -1490,7 +1490,7 @@ _ZN13GrowableArrayIP8PerfDataEC2Ei8MEMFLAGS.exit: ; preds = %5, %.lr.ph.preheade
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %_ZN26GrowableArrayWithAllocatorIP8PerfData13GrowableArrayIS1_EE11at_put_growEiRKS1_S6_.exit.i ]
   %23 = load i32, ptr %3, align 8
   %24 = load ptr, ptr %19, align 8
-  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv.i
   %26 = load i32, ptr %20, align 4
   %.not12.i.i = icmp slt i32 %23, %26
   %.pre.i = add nsw i32 %23, 1
@@ -1518,7 +1518,7 @@ _ZN13GrowableArrayIP8PerfDataEC2Ei8MEMFLAGS.exit: ; preds = %5, %.lr.ph.preheade
 36:                                               ; preds = %36, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %35, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %36 ]
   %37 = load ptr, ptr %21, align 8
-  %38 = getelementptr inbounds ptr, ptr %37, i64 %indvars.iv.i.i
+  %38 = getelementptr inbounds [8 x i8], ptr %37, i64 %indvars.iv.i.i
   store ptr null, ptr %38, align 8
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
@@ -1529,7 +1529,7 @@ _ZN26GrowableArrayWithAllocatorIP8PerfData13GrowableArrayIS1_EE11at_put_growEiRK
   %39 = load ptr, ptr %25, align 8
   %40 = load ptr, ptr %21, align 8
   %41 = sext i32 %23 to i64
-  %42 = getelementptr inbounds ptr, ptr %40, i64 %41
+  %42 = getelementptr inbounds [8 x i8], ptr %40, i64 %41
   store ptr %39, ptr %42, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %43 = load i32, ptr %16, align 4
@@ -1601,7 +1601,7 @@ define hidden noundef ptr @_ZN12PerfDataList12find_by_nameEPKc(ptr noundef nonnu
 
 6:                                                ; preds = %12, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %12 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %.val5, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %.val5, i64 %indvars.iv.i
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr i8, ptr %8, i64 8
   %.val6.i = load ptr, ptr %9, align 8
@@ -1621,7 +1621,7 @@ define hidden noundef ptr @_ZN12PerfDataList12find_by_nameEPKc(ptr noundef nonnu
 
 14:                                               ; preds = %"_ZNK17GrowableArrayViewIP8PerfDataE7find_ifIZN12PerfDataList12find_by_nameEPKcE3$_0EEiT_.exit"
   %15 = and i64 %indvars.iv.i, 4294967295
-  %16 = getelementptr inbounds nuw ptr, ptr %.val5, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %.val5, i64 %15
   %17 = load ptr, ptr %16, align 8
   br label %"_ZNK17GrowableArrayViewIP8PerfDataE7find_ifIZN12PerfDataList12find_by_nameEPKcE3$_0EEiT_.exit.thread"
 
@@ -1969,9 +1969,9 @@ _ZN13GrowableArrayIP8PerfDataE8allocateEv.exit:   ; preds = %7, %11, %15
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %26 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv
   %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
   store ptr %29, ptr %26, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1988,7 +1988,7 @@ _ZN13GrowableArrayIP8PerfDataE8allocateEv.exit:   ; preds = %7, %11, %15
 
 .lr.ph18:                                         ; preds = %.lr.ph18.preheader, %.lr.ph18
   %indvars.iv20 = phi i64 [ %24, %.lr.ph18.preheader ], [ %indvars.iv.next21, %.lr.ph18 ]
-  %35 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv20
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv20
   store ptr null, ptr %35, align 8
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %36 = load i32, ptr %3, align 4

@@ -3,8 +3,6 @@ source_filename = "bench/openexr/original/write_header.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.exr_attr_chlist_entry_t = type { %struct.exr_attr_string_t, i32, i8, [3 x i8], i32, i32 }
-%struct.exr_attr_string_t = type { i32, i32, ptr }
 %struct.exr_attr_box2i_t = type { %struct.exr_attr_v2i_t, %struct.exr_attr_v2i_t }
 %struct.exr_attr_v2i_t = type { i32, i32 }
 %struct.exr_attr_box2f_t = type { %struct.exr_attr_v2f_t, %struct.exr_attr_v2f_t }
@@ -56,7 +54,7 @@ define hidden noundef i32 @internal_exr_calc_header_version_flags(ptr noundef re
 
 12:                                               ; preds = %.lr.ph64, %._crit_edge.thread
   %indvars.iv72 = phi i64 [ 0, %.lr.ph64 ], [ %indvars.iv.next73, %._crit_edge.thread ]
-  %13 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv72
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv72
   %14 = load ptr, ptr %13, align 8, !tbaa !27
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load i32, ptr %15, align 8, !tbaa !28
@@ -76,7 +74,7 @@ define hidden noundef i32 @internal_exr_calc_header_version_flags(ptr noundef re
 
 21:                                               ; preds = %.outer, %.loopexit
   %indvars.iv67 = phi i64 [ %indvars.iv.next68, %.loopexit ], [ %indvars.iv67.ph, %.outer ]
-  %22 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv67
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv67
   %23 = load ptr, ptr %22, align 8, !tbaa !30
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load i8, ptr %24, align 8, !tbaa !31
@@ -115,7 +113,7 @@ define hidden noundef i32 @internal_exr_calc_header_version_flags(ptr noundef re
 
 43:                                               ; preds = %.lr.ph, %42
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %42 ]
-  %44 = getelementptr inbounds nuw %struct.exr_attr_chlist_entry_t, ptr %41, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [32 x i8], ptr %41, i64 %indvars.iv
   %45 = load i32, ptr %44, align 8, !tbaa !40
   %46 = icmp slt i32 %45, 32
   br i1 %46, label %42, label %.loopexit.thread
@@ -200,7 +198,7 @@ define hidden i32 @internal_exr_write_header(ptr noundef %0) local_unnamed_addr 
 
 13:                                               ; preds = %._crit_edge.thread.i, %.lr.ph64.i
   %indvars.iv72.i = phi i64 [ 0, %.lr.ph64.i ], [ %indvars.iv.next73.i, %._crit_edge.thread.i ]
-  %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv72.i
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv72.i
   %15 = load ptr, ptr %14, align 8, !tbaa !27
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load i32, ptr %16, align 8, !tbaa !28
@@ -220,7 +218,7 @@ define hidden i32 @internal_exr_write_header(ptr noundef %0) local_unnamed_addr 
 
 22:                                               ; preds = %.loopexit.i, %.outer.i
   %indvars.iv67.i = phi i64 [ %indvars.iv.next68.i, %.loopexit.i ], [ %indvars.iv67.ph.i, %.outer.i ]
-  %23 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv67.i
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv67.i
   %24 = load ptr, ptr %23, align 8, !tbaa !30
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load i8, ptr %25, align 8, !tbaa !31
@@ -259,7 +257,7 @@ define hidden i32 @internal_exr_write_header(ptr noundef %0) local_unnamed_addr 
 
 44:                                               ; preds = %43, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %43 ]
-  %45 = getelementptr inbounds nuw %struct.exr_attr_chlist_entry_t, ptr %42, i64 %indvars.iv.i
+  %45 = getelementptr inbounds nuw [32 x i8], ptr %42, i64 %indvars.iv.i
   %46 = load i32, ptr %45, align 8, !tbaa !40
   %47 = icmp slt i32 %46, 32
   br i1 %47, label %43, label %.loopexit.thread.i
@@ -321,7 +319,7 @@ define hidden i32 @internal_exr_write_header(ptr noundef %0) local_unnamed_addr 
 
 68:                                               ; preds = %.preheader74.split.us
   %69 = load ptr, ptr %61, align 8, !tbaa !24
-  %70 = getelementptr inbounds nuw ptr, ptr %69, i64 %indvars.iv122
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %indvars.iv122
   %71 = load ptr, ptr %70, align 8, !tbaa !27
   %72 = load i8, ptr %62, align 1, !tbaa !47
   %.not54.us = icmp eq i8 %72, 0
@@ -340,7 +338,7 @@ define hidden i32 @internal_exr_write_header(ptr noundef %0) local_unnamed_addr 
 80:                                               ; preds = %.lr.ph86.us, %76
   %indvars.iv119 = phi i64 [ 0, %.lr.ph86.us ], [ %indvars.iv.next120, %76 ]
   %81 = load ptr, ptr %108, align 8, !tbaa !29
-  %82 = getelementptr inbounds nuw ptr, ptr %81, i64 %indvars.iv119
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %indvars.iv119
   %83 = load ptr, ptr %82, align 8, !tbaa !30
   %84 = call fastcc i32 @save_attr(ptr noundef nonnull %0, ptr noundef %83)
   %.not55.us = icmp eq i32 %84, 0
@@ -368,7 +366,7 @@ define hidden i32 @internal_exr_write_header(ptr noundef %0) local_unnamed_addr 
   %90 = phi i32 [ %105, %select.unfold.us.us ], [ %74, %.lr.ph.us ]
   %indvars.iv116 = phi i64 [ %indvars.iv.next117, %select.unfold.us.us ], [ 0, %.lr.ph.us ]
   %91 = load ptr, ptr %88, align 8, !tbaa !50
-  %92 = getelementptr inbounds nuw ptr, ptr %91, i64 %indvars.iv116
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %indvars.iv116
   %93 = load ptr, ptr %92, align 8, !tbaa !30
   %94 = load i32, ptr %60, align 4, !tbaa !23
   %95 = icmp eq i32 %94, 1
@@ -414,7 +412,7 @@ select.unfold.us.us:                              ; preds = %.select.unfold.us.u
 
 112:                                              ; preds = %.preheader74.split
   %113 = load ptr, ptr %61, align 8, !tbaa !24
-  %114 = getelementptr inbounds nuw ptr, ptr %113, i64 %indvars.iv113
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %113, i64 %indvars.iv113
   %115 = load ptr, ptr %114, align 8, !tbaa !27
   %116 = load i8, ptr %62, align 1, !tbaa !47
   %.not54 = icmp eq i8 %116, 0
@@ -440,7 +438,7 @@ select.unfold.us.us:                              ; preds = %.select.unfold.us.u
 122:                                              ; preds = %.lr.ph, %select.unfold
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %select.unfold ]
   %123 = load ptr, ptr %120, align 8, !tbaa !50
-  %124 = getelementptr inbounds nuw ptr, ptr %123, i64 %indvars.iv
+  %124 = getelementptr inbounds nuw [8 x i8], ptr %123, i64 %indvars.iv
   %125 = load ptr, ptr %124, align 8, !tbaa !30
   %126 = call fastcc i32 @save_attr(ptr noundef nonnull %0, ptr noundef %125)
   %.not56 = icmp eq i32 %126, 0
@@ -463,7 +461,7 @@ select.unfold:                                    ; preds = %122
 134:                                              ; preds = %.lr.ph86, %130
   %indvars.iv110 = phi i64 [ 0, %.lr.ph86 ], [ %indvars.iv.next111, %130 ]
   %135 = load ptr, ptr %121, align 8, !tbaa !29
-  %136 = getelementptr inbounds nuw ptr, ptr %135, i64 %indvars.iv110
+  %136 = getelementptr inbounds nuw [8 x i8], ptr %135, i64 %indvars.iv110
   %137 = load ptr, ptr %136, align 8, !tbaa !30
   %138 = call fastcc i32 @save_attr(ptr noundef nonnull %0, ptr noundef %137)
   %.not55 = icmp eq i32 %138, 0
@@ -889,7 +887,7 @@ save_attr_sz.exit:                                ; preds = %16, %20
 33:                                               ; preds = %.lr.ph, %33
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %33 ]
   %.04556 = phi i64 [ 0, %.lr.ph ], [ %39, %33 ]
-  %34 = getelementptr inbounds nuw %struct.exr_attr_chlist_entry_t, ptr %13, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [32 x i8], ptr %13, i64 %indvars.iv
   %35 = load i32, ptr %34, align 8, !tbaa !40
   %36 = add nsw i32 %35, 1
   %37 = sext i32 %36 to i64
@@ -910,7 +908,7 @@ save_attr_sz.exit:                                ; preds = %16, %20
 45:                                               ; preds = %40
   %46 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %47 = load ptr, ptr %46, align 8, !tbaa !38
-  %48 = getelementptr inbounds nuw %struct.exr_attr_chlist_entry_t, ptr %47, i64 %indvars.iv67
+  %48 = getelementptr inbounds nuw [32 x i8], ptr %47, i64 %indvars.iv67
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %50 = load i32, ptr %49, align 8, !tbaa !59
   store i32 %50, ptr %4, align 4, !tbaa !43
@@ -1501,7 +1499,7 @@ save_attr_sz.exit:                                ; preds = %12, %16
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %26 ]
   %.02529 = phi i64 [ 0, %.lr.ph ], [ %31, %26 ]
   %27 = add i64 %.02529, 4
-  %28 = getelementptr inbounds nuw %struct.exr_attr_string_t, ptr %10, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %indvars.iv
   %29 = load i32, ptr %28, align 8, !tbaa !84
   %30 = sext i32 %29 to i64
   %31 = add i64 %27, %30
@@ -1524,7 +1522,7 @@ save_attr_sz.exit:                                ; preds = %12, %16
 37:                                               ; preds = %32
   %38 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %39 = load ptr, ptr %38, align 8, !tbaa !38
-  %40 = getelementptr inbounds nuw %struct.exr_attr_string_t, ptr %39, i64 %indvars.iv38
+  %40 = getelementptr inbounds nuw [16 x i8], ptr %39, i64 %indvars.iv38
   %41 = load i32, ptr %40, align 8, !tbaa !84
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %42 = icmp slt i32 %41, 0

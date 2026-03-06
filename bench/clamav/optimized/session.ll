@@ -95,7 +95,7 @@ define dso_local i32 @parse_command(ptr noundef %0, ptr noundef writeonly captur
 
 4:                                                ; preds = %3, %30
   %.02434 = phi i64 [ 0, %3 ], [ %31, %30 ]
-  %5 = getelementptr inbounds nuw %struct.anon, ptr @commands, i64 %.02434
+  %5 = getelementptr inbounds nuw [32 x i8], ptr @commands, i64 %.02434
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i64, ptr %6, align 8, !tbaa !9
   %8 = load ptr, ptr %5, align 16, !tbaa !13
@@ -1025,7 +1025,7 @@ conn_reply_error.exit:                            ; preds = %17, %19
 
 67:                                               ; preds = %67, %65
   %indvars.iv.i = phi i64 [ 0, %65 ], [ %indvars.iv.next.i, %67 ]
-  %68 = getelementptr inbounds nuw %struct.anon, ptr @commands, i64 %indvars.iv.i
+  %68 = getelementptr inbounds nuw [32 x i8], ptr @commands, i64 %indvars.iv.i
   %69 = load ptr, ptr %68, align 16, !tbaa !13
   %70 = tail call i32 (i32, ptr, ...) @mdprintf(i32 noundef %5, ptr noundef nonnull @.str.62, ptr noundef %69) #14
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1

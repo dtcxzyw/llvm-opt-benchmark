@@ -883,7 +883,7 @@ define hidden range(i32 0, 2) i32 @ASN1_UTCTIME_print(ptr noundef %0, ptr nounde
 77:                                               ; preds = %72, %68, %64, %35
   %.0 = phi i32 [ %76, %72 ], [ 0, %64 ], [ 0, %68 ], [ 0, %35 ]
   %78 = zext nneg i32 %33 to i64
-  %79 = getelementptr ptr, ptr @mon, i64 %78
+  %79 = getelementptr [8 x i8], ptr @mon, i64 %78
   %80 = getelementptr i8, ptr %79, i64 -4232
   %81 = load ptr, ptr %80, align 8, !tbaa !59
   %spec.select = add nsw i32 %24, 1900
@@ -1054,7 +1054,7 @@ define hidden range(i32 0, 2) i32 @ASN1_GENERALIZEDTIME_print(ptr noundef %0, pt
   %.056 = phi ptr [ null, %45 ], [ null, %87 ], [ null, %82 ], [ null, %74 ], [ null, %78 ], [ %88, %.preheader ], [ %88, %.critedge.loopexit.split.loop.exit86 ], [ %88, %96 ]
   %.055 = phi i32 [ 0, %45 ], [ 0, %87 ], [ 0, %82 ], [ 0, %74 ], [ 0, %78 ], [ 1, %.preheader ], [ %97, %.critedge.loopexit.split.loop.exit86 ], [ %92, %96 ]
   %98 = zext nneg i32 %43 to i64
-  %99 = getelementptr ptr, ptr @mon, i64 %98
+  %99 = getelementptr [8 x i8], ptr @mon, i64 %98
   %100 = getelementptr i8, ptr %99, i64 -4232
   %101 = load ptr, ptr %100, align 8, !tbaa !59
   %102 = select i1 %.not69, ptr @.str.29, ptr @.str.4

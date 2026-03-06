@@ -28,7 +28,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl6isdiagIN5Eigen12SparseMatr
 
 _ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE13InnerIteratorC2ERKS3_l.exit.us: ; preds = %.lr.ph20, %._crit_edge.us
   %indvars.iv29 = phi i64 [ %indvars.iv.next30, %._crit_edge.us ], [ 0, %.lr.ph20 ]
-  %14 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv29
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv29
   %15 = load i32, ptr %14, align 4, !tbaa !20
   %16 = getelementptr i8, ptr %14, i64 4
   %17 = load i32, ptr %16, align 4, !tbaa !20
@@ -47,14 +47,14 @@ _ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE13InnerIteratorC2ERKS
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %28
   %.sroa.8.017.us = phi i64 [ %29, %28 ], [ %20, %.lr.ph.us.preheader ]
-  %21 = getelementptr inbounds i32, ptr %8, i64 %.sroa.8.017.us
+  %21 = getelementptr inbounds [4 x i8], ptr %8, i64 %.sroa.8.017.us
   %22 = load i32, ptr %21, align 4, !tbaa !20
   %23 = zext i32 %22 to i64
   %.not.us = icmp eq i64 %indvars.iv29, %23
   br i1 %.not.us, label %28, label %24
 
 24:                                               ; preds = %.lr.ph.us
-  %25 = getelementptr inbounds double, ptr %6, i64 %.sroa.8.017.us
+  %25 = getelementptr inbounds [8 x i8], ptr %6, i64 %.sroa.8.017.us
   %26 = load double, ptr %25, align 8, !tbaa !24
   %27 = fcmp une double %26, 0.000000e+00
   br i1 %27, label %.thread, label %28
@@ -66,10 +66,10 @@ _ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE13InnerIteratorC2ERKS
 
 _ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE13InnerIteratorC2ERKS3_l.exit: ; preds = %.lr.ph20, %._crit_edge
   %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge ], [ 0, %.lr.ph20 ]
-  %30 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv
   %31 = load i32, ptr %30, align 4, !tbaa !20
   %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv
   %34 = load i32, ptr %33, align 4, !tbaa !20
   %35 = sext i32 %34 to i64
   %36 = add nsw i64 %35, %32
@@ -78,14 +78,14 @@ _ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE13InnerIteratorC2ERKS
 
 .lr.ph:                                           ; preds = %_ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE13InnerIteratorC2ERKS3_l.exit, %45
   %.sroa.8.017 = phi i64 [ %46, %45 ], [ %32, %_ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE13InnerIteratorC2ERKS3_l.exit ]
-  %38 = getelementptr inbounds i32, ptr %8, i64 %.sroa.8.017
+  %38 = getelementptr inbounds [4 x i8], ptr %8, i64 %.sroa.8.017
   %39 = load i32, ptr %38, align 4, !tbaa !20
   %40 = zext i32 %39 to i64
   %.not = icmp eq i64 %indvars.iv, %40
   br i1 %.not, label %45, label %41
 
 41:                                               ; preds = %.lr.ph
-  %42 = getelementptr inbounds double, ptr %6, i64 %.sroa.8.017
+  %42 = getelementptr inbounds [8 x i8], ptr %6, i64 %.sroa.8.017
   %43 = load double, ptr %42, align 8, !tbaa !24
   %44 = fcmp une double %43, 0.000000e+00
   br i1 %44, label %.thread, label %45

@@ -15,10 +15,10 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
-%"struct.net::QuicFrame" = type { i32, %union.anon.19 }
-%union.anon.19 = type { ptr }
 %"struct.net::QuicIOVector" = type { ptr, i32, i64 }
 %"struct.net::QuicConsumedData" = type <{ i64, i8, [7 x i8] }>
+%"struct.net::QuicFrame" = type { i32, %union.anon.19 }
+%union.anon.19 = type { ptr }
 
 $__clang_call_terminate = comdat any
 
@@ -393,7 +393,7 @@ _ZNSt6vectorIN3net9QuicFrameESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i: ; 
 _ZNSt6vectorIN3net9QuicFrameESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %29, %_ZNSt6vectorIN3net9QuicFrameESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i
   store ptr %24, ptr %3, align 8, !tbaa !65
   store ptr %28, ptr %4, align 8, !tbaa !76
-  %30 = getelementptr inbounds nuw %"struct.net::QuicFrame", ptr %24, i64 %22
+  %30 = getelementptr inbounds nuw [16 x i8], ptr %24, i64 %22
   store ptr %30, ptr %6, align 8, !tbaa !77
   br label %_ZNSt6vectorIN3net9QuicFrameESaIS1_EE9push_backERKS1_.exit
 

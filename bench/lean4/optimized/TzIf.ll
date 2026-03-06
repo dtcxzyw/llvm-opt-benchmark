@@ -15766,7 +15766,7 @@ lean_dec.exit107:                                 ; preds = %lean_nat_lt.exit, %
   br i1 %45, label %lean_dec.exit.i, label %lean_array_uget.exit.i
 
 lean_dec.exit.i:                                  ; preds = %43
-  %46 = getelementptr inbounds nuw ptr, ptr %11, i64 %44
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %44
   %47 = load ptr, ptr %46, align 8, !tbaa !10
   %48 = ptrtoint ptr %47 to i64
   %49 = trunc i64 %48 to i1
@@ -15998,7 +15998,7 @@ lean_dec.exit103:                                 ; preds = %134, %133, %131, %l
   br i1 %142, label %lean_dec.exit.i136, label %lean_array_uget.exit.i132
 
 lean_dec.exit.i136:                               ; preds = %140
-  %143 = getelementptr inbounds nuw ptr, ptr %11, i64 %141
+  %143 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %141
   %144 = load ptr, ptr %143, align 8, !tbaa !10
   %145 = ptrtoint ptr %144 to i64
   %146 = trunc i64 %145 to i1
@@ -16251,7 +16251,7 @@ lean_dec.exit132:                                 ; preds = %.._crit_edge_crit_e
   %.0110234 = phi i64 [ %6, %.lr.ph ], [ %.1111, %291 ]
   %.0114233 = phi ptr [ %7, %.lr.ph ], [ %.1115, %291 ]
   %.0118232 = phi ptr [ %8, %.lr.ph ], [ %.1119, %291 ]
-  %24 = getelementptr inbounds nuw ptr, ptr %10, i64 %.0110234
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.0110234
   %25 = load ptr, ptr %24, align 8, !tbaa !10
   %26 = ptrtoint ptr %25 to i64
   %27 = trunc i64 %26 to i1
@@ -16971,7 +16971,7 @@ lean_dec_ref.exit163:                             ; preds = %281, %280, %278, %l
 define internal fastcc void @lean_ctor_release(ptr noundef captures(none) %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = zext nneg i32 %1 to i64
-  %5 = getelementptr inbounds nuw ptr, ptr %3, i64 %4
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !10
   %7 = ptrtoint ptr %6 to i64
   %8 = trunc i64 %7 to i1
@@ -21048,7 +21048,7 @@ define noalias nonnull ptr @l_Array_forIn_x27Unsafe_loop___at___private_Std_Time
 12:                                               ; preds = %.lr.ph, %.thread25
   %.02035 = phi i64 [ %4, %.lr.ph ], [ %34, %.thread25 ]
   %.02234 = phi ptr [ %5, %.lr.ph ], [ %33, %.thread25 ]
-  %13 = getelementptr inbounds nuw ptr, ptr %8, i64 %.02035
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.02035
   %14 = load ptr, ptr %13, align 8, !tbaa !10
   %15 = ptrtoint ptr %14 to i64
   %16 = trunc i64 %15 to i1

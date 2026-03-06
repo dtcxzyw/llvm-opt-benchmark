@@ -249,8 +249,8 @@ AdjustAndCheckRectangle.exit:                     ; preds = %15
   %72 = load i32, ptr %71, align 8, !tbaa !29
   %73 = mul nsw i32 %72, %.058
   %74 = sext i32 %73 to i64
-  %75 = getelementptr inbounds i32, ptr %70, i64 %74
-  %76 = getelementptr inbounds nuw i32, ptr %75, i64 %29
+  %75 = getelementptr inbounds [4 x i8], ptr %70, i64 %74
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %75, i64 %29
   br label %AdjustAndCheckRectangle.exit.thread.sink.split
 
 AdjustAndCheckRectangle.exit.thread.sink.split:   ; preds = %61, %68
@@ -397,9 +397,9 @@ AdjustAndCheckRectangle.exit:                     ; preds = %14
   %88 = load i32, ptr %87, align 8, !tbaa !29
   %89 = mul nsw i32 %88, %.054
   %90 = sext i32 %89 to i64
-  %91 = getelementptr inbounds i32, ptr %86, i64 %90
+  %91 = getelementptr inbounds [4 x i8], ptr %86, i64 %90
   %92 = zext nneg i32 %.055 to i64
-  %93 = getelementptr inbounds nuw i32, ptr %91, i64 %92
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %91, i64 %92
   %94 = shl nsw i32 %88, 2
   %95 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %96 = load ptr, ptr %95, align 8, !tbaa !28

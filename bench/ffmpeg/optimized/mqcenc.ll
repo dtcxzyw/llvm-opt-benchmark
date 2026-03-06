@@ -32,7 +32,7 @@ declare void @ff_mqc_init_contexts(ptr noundef) local_unnamed_addr #1
 define void @ff_mqc_encode(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = load i8, ptr %1, align 1, !tbaa !14
   %5 = zext i8 %4 to i64
-  %6 = getelementptr inbounds nuw i16, ptr @ff_mqc_qe, i64 %5
+  %6 = getelementptr inbounds nuw [2 x i8], ptr @ff_mqc_qe, i64 %5
   %7 = load i16, ptr %6, align 2, !tbaa !16
   %8 = zext i16 %7 to i32
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16

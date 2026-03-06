@@ -33,7 +33,7 @@ define void @dorgql_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %17 = load i32, ptr %4, align 4, !tbaa !3
   %narrow = xor i32 %17, -1
   %18 = sext i32 %narrow to i64
-  %19 = getelementptr inbounds double, ptr %3, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %3, i64 %18
   %20 = getelementptr inbounds i8, ptr %5, i64 -8
   store i32 0, ptr %8, align 4, !tbaa !3
   %21 = load i32, ptr %7, align 4, !tbaa !3
@@ -268,10 +268,10 @@ define void @dorgql_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %121, ptr %12, align 4, !tbaa !3
   %122 = mul nsw i32 %115, %17
   %123 = sext i32 %122 to i64
-  %124 = getelementptr double, ptr %19, i64 %123
+  %124 = getelementptr [8 x i8], ptr %19, i64 %123
   %125 = getelementptr i8, ptr %124, i64 8
   %126 = sext i32 %.1177249 to i64
-  %127 = getelementptr inbounds double, ptr %20, i64 %126
+  %127 = getelementptr inbounds [8 x i8], ptr %20, i64 %126
   call void @dlarft_(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull %12, ptr noundef nonnull %15, ptr noundef %125, ptr noundef nonnull %4, ptr noundef nonnull %127, ptr noundef nonnull %6, ptr noundef nonnull %16) #5
   %128 = load i32, ptr %0, align 4, !tbaa !3
   %129 = load i32, ptr %2, align 4, !tbaa !3
@@ -288,10 +288,10 @@ define void @dorgql_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %138, ptr %13, align 4, !tbaa !3
   %139 = mul nsw i32 %137, %17
   %140 = sext i32 %139 to i64
-  %141 = getelementptr double, ptr %19, i64 %140
+  %141 = getelementptr [8 x i8], ptr %19, i64 %140
   %142 = getelementptr i8, ptr %141, i64 8
   %143 = sext i32 %130 to i64
-  %144 = getelementptr double, ptr %6, i64 %143
+  %144 = getelementptr [8 x i8], ptr %6, i64 %143
   call void @dlarfb_(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %15, ptr noundef %142, ptr noundef nonnull %4, ptr noundef nonnull %6, ptr noundef nonnull %16, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %144, ptr noundef nonnull %16) #5
   %.pre268 = load i32, ptr %0, align 4, !tbaa !3
   %.pre270 = load i32, ptr %2, align 4, !tbaa !3
@@ -314,9 +314,9 @@ define void @dorgql_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %154 = add i32 %153, %146
   %155 = mul nsw i32 %154, %17
   %156 = sext i32 %155 to i64
-  %157 = getelementptr double, ptr %19, i64 %156
+  %157 = getelementptr [8 x i8], ptr %19, i64 %156
   %158 = getelementptr i8, ptr %157, i64 8
-  %159 = getelementptr inbounds double, ptr %20, i64 %.pre-phi278
+  %159 = getelementptr inbounds [8 x i8], ptr %20, i64 %.pre-phi278
   call void @dorg2l_(ptr noundef nonnull %12, ptr noundef nonnull %15, ptr noundef nonnull %15, ptr noundef %158, ptr noundef nonnull %4, ptr noundef nonnull %159, ptr noundef nonnull %6, ptr noundef nonnull %14) #5
   %160 = load i32, ptr %1, align 4, !tbaa !3
   %161 = load i32, ptr %2, align 4, !tbaa !3

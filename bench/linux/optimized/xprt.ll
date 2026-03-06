@@ -301,7 +301,7 @@ define dso_local i32 @xprt_find_transport_ident(ptr noundef %0) #0 align 16 {
 21:                                               ; preds = %18, %13
   %22 = add i32 %15, 1
   %23 = zext i32 %22 to i64
-  %24 = getelementptr ptr, ptr %7, i64 %23
+  %24 = getelementptr [8 x i8], ptr %7, i64 %23
   %25 = load ptr, ptr %24, align 8
   %26 = load i8, ptr %25, align 1
   %27 = icmp eq i8 %26, 0
@@ -355,7 +355,7 @@ define dso_local i32 @xprt_find_transport_ident(ptr noundef %0) #0 align 16 {
 50:                                               ; preds = %47, %42
   %51 = add i32 %44, 1
   %52 = zext i32 %51 to i64
-  %53 = getelementptr ptr, ptr %36, i64 %52
+  %53 = getelementptr [8 x i8], ptr %36, i64 %52
   %54 = load ptr, ptr %53, align 8
   %55 = load i8, ptr %54, align 1
   %56 = icmp eq i8 %55, 0
@@ -2339,7 +2339,7 @@ define dso_local void @xprt_update_rtt(ptr noundef readonly captures(none) %0) #
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %27 = add i32 %11, -1
   %28 = sext i32 %27 to i64
-  %29 = getelementptr i32, ptr %26, i64 %28
+  %29 = getelementptr [4 x i8], ptr %26, i64 %28
   %30 = load i32, ptr %29, align 4
   %31 = icmp sgt i32 %30, %25
   br i1 %31, label %32, label %36
@@ -2532,7 +2532,7 @@ define dso_local void @xprt_wait_for_reply_request_rtt(ptr noundef %0) #0 align 
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 88
   %20 = add i32 %5, -1
   %21 = sext i32 %20 to i64
-  %22 = getelementptr i32, ptr %19, i64 %21
+  %22 = getelementptr [4 x i8], ptr %19, i64 %21
   %23 = load i32, ptr %22, align 4
   br label %24
 
@@ -3644,7 +3644,7 @@ define dso_local void @xprt_alloc_slot(ptr noundef %0, ptr noundef %1) #0 align 
 
 29:                                               ; preds = %25, %19
   %30 = phi i64 [ 0, %19 ], [ %28, %25 ]
-  %.split = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %30
+  %.split = getelementptr [112 x i8], ptr @kmalloc_caches, i64 %30
   %31 = getelementptr i8, ptr %.split, i64 72
   %32 = load ptr, ptr %31, align 8
   %33 = tail call noalias align 8 dereferenceable_or_null(440) ptr @kmalloc_trace(ptr noundef %32, i32 noundef %22, i64 noundef 440) #20

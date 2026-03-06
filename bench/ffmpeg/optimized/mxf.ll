@@ -30,7 +30,7 @@ define range(i32 -1, 1) i32 @ff_mxf_decode_pixel_layout(ptr noundef readonly cap
 
 4:                                                ; preds = %2, %3
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %3 ]
-  %5 = getelementptr inbounds nuw %struct.anon, ptr @ff_mxf_pixel_layouts, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [20 x i8], ptr @ff_mxf_pixel_layouts, i64 %indvars.iv
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %0, ptr noundef nonnull dereferenceable(16) %6, i64 16)
   %.not = icmp eq i32 %bcmp, 0
@@ -58,7 +58,7 @@ define i32 @ff_mxf_get_content_package_rate(i64 %0) local_unnamed_addr #1 {
 
 .split.us:                                        ; preds = %1, %av_cmp_q.exit.thread.us
   %indvars.iv35 = phi i64 [ %indvars.iv.next36, %av_cmp_q.exit.thread.us ], [ 0, %1 ]
-  %5 = getelementptr inbounds nuw %struct.MXFContentPackageRate, ptr @mxf_content_package_rates, i64 %indvars.iv35
+  %5 = getelementptr inbounds nuw [12 x i8], ptr @mxf_content_package_rates, i64 %indvars.iv35
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %7 = load i64, ptr %6, align 4
   %8 = ashr i64 %7, 32
@@ -80,7 +80,7 @@ av_cmp_q.exit.thread.us:                          ; preds = %.split.us
 
 .split.split:                                     ; preds = %.split, %av_cmp_q.exit.thread
   %indvars.iv = phi i64 [ %indvars.iv.next, %av_cmp_q.exit.thread ], [ 0, %.split ]
-  %12 = getelementptr inbounds nuw %struct.MXFContentPackageRate, ptr @mxf_content_package_rates, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [12 x i8], ptr @mxf_content_package_rates, i64 %indvars.iv
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %14 = load i64, ptr %13, align 4
   %15 = ashr i64 %14, 32

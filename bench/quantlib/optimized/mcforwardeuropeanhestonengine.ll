@@ -499,7 +499,7 @@ invoke.cont29:                                    ; preds = %entry
   %20 = load i64, ptr %resetIndex_, align 8, !tbaa !24
   %values_.i = getelementptr inbounds nuw i8, ptr %0, i64 72
   %21 = load ptr, ptr %values_.i, align 8, !tbaa !31
-  %arrayidx.i.i = getelementptr inbounds nuw double, ptr %21, i64 %20
+  %arrayidx.i.i = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %20
   %22 = load double, ptr %arrayidx.i.i, align 8, !tbaa !32
   %moneyness_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %23 = load double, ptr %moneyness_, align 8, !tbaa !23
@@ -514,7 +514,7 @@ invoke.cont29:                                    ; preds = %entry
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib18PlainVanillaPayoffE, i64 16), ptr %payoff, align 8, !tbaa !14
   %n_.i.i = getelementptr inbounds nuw i8, ptr %0, i64 80
   %25 = load i64, ptr %n_.i.i, align 8, !tbaa !38
-  %26 = getelementptr double, ptr %21, i64 %25
+  %26 = getelementptr [8 x i8], ptr %21, i64 %25
   %arrayidx.i.i25 = getelementptr i8, ptr %26, i64 -8
   %27 = load double, ptr %arrayidx.i.i25, align 8, !tbaa !32
   %call32 = call noundef double @_ZNK8QuantLib18PlainVanillaPayoffclEd(ptr noundef nonnull align 8 dereferenceable(24) %payoff, double noundef %27)

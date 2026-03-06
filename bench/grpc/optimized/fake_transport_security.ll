@@ -21,9 +21,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
 %"struct.std::_Head_base.1" = type { ptr }
-%struct.grpc_slice = type { ptr, %"union.grpc_slice::grpc_slice_data" }
-%"union.grpc_slice::grpc_slice_data" = type { %"struct.grpc_slice::grpc_slice_data::grpc_slice_refcounted", [8 x i8] }
-%"struct.grpc_slice::grpc_slice_data::grpc_slice_refcounted" = type { i64, ptr }
 %"class.absl::lts_20240722::log_internal::CheckOpMessageBuilder" = type { %"class.std::__cxx11::basic_ostringstream" }
 %"class.std::__cxx11::basic_ostringstream" = type { %"class.std::basic_ostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_ostream.base" = type { ptr }
@@ -38,6 +35,9 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
 %"class.absl::lts_20240722::log_internal::LogMessage::OstreamView" = type { %"class.std::basic_streambuf", ptr, %"class.absl::lts_20240722::Span", %"class.absl::lts_20240722::Span", %"class.absl::lts_20240722::Span" }
 %"class.absl::lts_20240722::Span" = type { ptr, i64 }
+%struct.grpc_slice = type { ptr, %"union.grpc_slice::grpc_slice_data" }
+%"union.grpc_slice::grpc_slice_data" = type { %"struct.grpc_slice::grpc_slice_data::grpc_slice_refcounted", [8 x i8] }
+%"struct.grpc_slice::grpc_slice_data::grpc_slice_refcounted" = type { i64, ptr }
 
 $_ZN4absl12lts_2024072212log_internal17MakeCheckOpStringImlEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_T0_PKc = comdat any
 
@@ -145,7 +145,7 @@ define internal fastcc noundef i32 @_ZL15read_frame_sizePK17grpc_slice_buffer(pt
   %.04493 = phi i64 [ 0, %.lr.ph ], [ %31, %.thread71 ]
   %.04592 = phi i64 [ 4, %.lr.ph ], [ %30, %.thread71 ]
   %.04691 = phi ptr [ %4, %.lr.ph ], [ %29, %.thread71 ]
-  %16 = getelementptr inbounds nuw %struct.grpc_slice, ptr %14, i64 %.04493
+  %16 = getelementptr inbounds nuw [32 x i8], ptr %14, i64 %.04493
   %17 = load ptr, ptr %16, align 8, !tbaa !13
   %.not50 = icmp eq ptr %17, null
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -497,7 +497,7 @@ define internal noundef range(i32 0, 9) i32 @_ZL20fake_handshaker_nextP14tsi_han
 
 51:                                               ; preds = %57, %48
   %indvars.iv.i.i = phi i64 [ 0, %48 ], [ %indvars.iv.next.i.i, %57 ]
-  %52 = getelementptr inbounds nuw ptr, ptr @_ZL34tsi_fake_handshake_message_strings, i64 %indvars.iv.i.i
+  %52 = getelementptr inbounds nuw [8 x i8], ptr @_ZL34tsi_fake_handshake_message_strings, i64 %indvars.iv.i.i
   %53 = load ptr, ptr %52, align 8, !tbaa !56
   %54 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %53) #23
   %55 = tail call i32 @strncmp(ptr noundef nonnull readonly %50, ptr noundef nonnull %53, i64 noundef %54) #23
@@ -789,7 +789,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi17EEERS2_RAT__Kc.exit.i.i: 
 
 143:                                              ; preds = %136
   %144 = zext nneg i32 %137 to i64
-  %145 = getelementptr inbounds nuw ptr, ptr @_ZL34tsi_fake_handshake_message_strings, i64 %144
+  %145 = getelementptr inbounds nuw [8 x i8], ptr @_ZL34tsi_fake_handshake_message_strings, i64 %144
   %146 = load ptr, ptr %145, align 8, !tbaa !56
   br label %_ZL36tsi_fake_handshake_message_to_stringi.exit.i
 
@@ -1251,7 +1251,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi17EEERS2_RAT__Kc.exit: ; pr
 
 9:                                                ; preds = %1
   %10 = zext nneg i32 %0 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr @_ZL34tsi_fake_handshake_message_strings, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr @_ZL34tsi_fake_handshake_message_strings, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !56
   br label %13
 

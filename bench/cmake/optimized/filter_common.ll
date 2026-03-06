@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.lzma_filter = type { i64, ptr }
-%struct.anon = type { i64, i64, i8, i8, i8 }
 %struct.lzma_filter_info_s = type { i64, ptr, ptr }
 
 @features = internal unnamed_addr constant [11 x { i64, i64, i8, i8, i8, [5 x i8] }] [{ i64, i64, i8, i8, i8, [5 x i8] } { i64 4611686018427387905, i64 112, i8 0, i8 1, i8 1, [5 x i8] zeroinitializer }, { i64, i64, i8, i8, i8, [5 x i8] } { i64 4611686018427387906, i64 112, i8 0, i8 1, i8 1, [5 x i8] zeroinitializer }, { i64, i64, i8, i8, i8, [5 x i8] } { i64 33, i64 112, i8 0, i8 1, i8 1, [5 x i8] zeroinitializer }, { i64, i64, i8, i8, i8, [5 x i8] } { i64 4, i64 4, i8 1, i8 0, i8 0, [5 x i8] zeroinitializer }, { i64, i64, i8, i8, i8, [5 x i8] } { i64 5, i64 4, i8 1, i8 0, i8 0, [5 x i8] zeroinitializer }, { i64, i64, i8, i8, i8, [5 x i8] } { i64 6, i64 4, i8 1, i8 0, i8 0, [5 x i8] zeroinitializer }, { i64, i64, i8, i8, i8, [5 x i8] } { i64 7, i64 4, i8 1, i8 0, i8 0, [5 x i8] zeroinitializer }, { i64, i64, i8, i8, i8, [5 x i8] } { i64 8, i64 4, i8 1, i8 0, i8 0, [5 x i8] zeroinitializer }, { i64, i64, i8, i8, i8, [5 x i8] } { i64 9, i64 4, i8 1, i8 0, i8 0, [5 x i8] zeroinitializer }, { i64, i64, i8, i8, i8, [5 x i8] } { i64 3, i64 40, i8 1, i8 0, i8 0, [5 x i8] zeroinitializer }, { i64, i64, i8, i8, i8, [5 x i8] } { i64 -1, i64 0, i8 0, i8 0, i8 0, [5 x i8] zeroinitializer }], align 16
@@ -30,8 +29,8 @@ define dso_local range(i32 0, 12) i32 @lzma_filters_copy(ptr noundef readonly ca
   br i1 %10, label %.lr.ph66.preheader, label %11
 
 11:                                               ; preds = %.lr.ph61
-  %12 = getelementptr inbounds nuw %struct.lzma_filter, ptr %0, i64 %.03659
-  %13 = getelementptr inbounds nuw %struct.lzma_filter, ptr %4, i64 %.03659
+  %12 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %.03659
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %.03659
   store i64 %9, ptr %13, align 16, !tbaa !4
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !10
@@ -49,7 +48,7 @@ define dso_local range(i32 0, 12) i32 @lzma_filters_copy(ptr noundef readonly ca
 
 19:                                               ; preds = %.lr.ph
   %20 = add nuw nsw i64 %.03557, 1
-  %21 = getelementptr inbounds nuw %struct.anon, ptr @features, i64 %20
+  %21 = getelementptr inbounds nuw [24 x i8], ptr @features, i64 %20
   %22 = load i64, ptr %21, align 8, !tbaa !11
   %.not46 = icmp eq i64 %9, %22
   br i1 %.not46, label %._crit_edge, label %.lr.ph, !llvm.loop !14
@@ -76,14 +75,14 @@ define dso_local range(i32 0, 12) i32 @lzma_filters_copy(ptr noundef readonly ca
 
 31:                                               ; preds = %29, %17
   %32 = add nuw nsw i64 %.03659, 1
-  %33 = getelementptr inbounds nuw %struct.lzma_filter, ptr %0, i64 %32
+  %33 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %32
   %34 = load i64, ptr %33, align 8, !tbaa !4
   %.not = icmp eq i64 %34, -1
   br i1 %.not, label %._crit_edge62, label %.lr.ph61, !llvm.loop !17
 
 ._crit_edge62:                                    ; preds = %31, %7
   %.036.lcssa = phi i64 [ 0, %7 ], [ %32, %31 ]
-  %35 = getelementptr inbounds nuw %struct.lzma_filter, ptr %4, i64 %.036.lcssa
+  %35 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %.036.lcssa
   store i64 -1, ptr %35, align 16, !tbaa !4
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr null, ptr %36, align 8, !tbaa !10
@@ -105,7 +104,7 @@ define dso_local range(i32 0, 12) i32 @lzma_filters_copy(ptr noundef readonly ca
 .lr.ph66:                                         ; preds = %.lr.ph66.preheader, %.lr.ph66
   %.165 = phi i64 [ %39, %.lr.ph66 ], [ %.036597181, %.lr.ph66.preheader ]
   %39 = add nsw i64 %.165, -1
-  %40 = getelementptr inbounds nuw %struct.lzma_filter, ptr %4, i64 %39
+  %40 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = load ptr, ptr %41, align 8, !tbaa !10
   tail call void @lzma_free(ptr noundef %42, ptr noundef %2) #5
@@ -141,14 +140,14 @@ define dso_local void @lzma_filters_free(ptr noundef captures(address_is_null) %
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.013 = phi i64 [ %8, %.lr.ph ], [ 0, %.preheader ]
-  %5 = getelementptr inbounds nuw %struct.lzma_filter, ptr %0, i64 %.013
+  %5 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %.013
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !10
   tail call void @lzma_free(ptr noundef %7, ptr noundef %1) #5
   store ptr null, ptr %6, align 8, !tbaa !10
   store i64 -1, ptr %5, align 8, !tbaa !4
   %8 = add nuw nsw i64 %.013, 1
-  %9 = getelementptr inbounds nuw %struct.lzma_filter, ptr %0, i64 %8
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %8
   %10 = load i64, ptr %9, align 8, !tbaa !4
   %.not = icmp eq i64 %10, -1
   %11 = icmp eq i64 %8, 4
@@ -179,7 +178,7 @@ define dso_local range(i32 0, 12) i32 @lzma_validate_chain(ptr noundef readonly 
 
 8:                                                ; preds = %.lr.ph
   %9 = add nuw nsw i64 %.02342, 1
-  %10 = getelementptr inbounds nuw %struct.anon, ptr @features, i64 %9
+  %10 = getelementptr inbounds nuw [24 x i8], ptr @features, i64 %9
   %11 = load i64, ptr %10, align 8, !tbaa !11
   %.not = icmp eq i64 %7, %11
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
@@ -202,7 +201,7 @@ define dso_local range(i32 0, 12) i32 @lzma_validate_chain(ptr noundef readonly 
   %19 = zext nneg i8 %18 to i64
   %20 = add i64 %.028, %19
   %21 = add i64 %.024, 1
-  %22 = getelementptr inbounds nuw %struct.lzma_filter, ptr %0, i64 %21
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %21
   %23 = load i64, ptr %22, align 8, !tbaa !4
   %.not34 = icmp eq i64 %23, -1
   br i1 %.not34, label %24, label %.preheader, !llvm.loop !25
@@ -248,7 +247,7 @@ define dso_local i32 @lzma_raw_coder_init(ptr noundef %0, ptr noundef %1, ptr no
 
 12:                                               ; preds = %.lr.ph.i
   %13 = add nuw nsw i64 %.02342.i, 1
-  %14 = getelementptr inbounds nuw %struct.anon, ptr @features, i64 %13
+  %14 = getelementptr inbounds nuw [24 x i8], ptr @features, i64 %13
   %15 = load i64, ptr %14, align 8, !tbaa !11
   %.not.i = icmp eq i64 %11, %15
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !20
@@ -271,7 +270,7 @@ define dso_local i32 @lzma_raw_coder_init(ptr noundef %0, ptr noundef %1, ptr no
   %23 = zext nneg i8 %22 to i64
   %24 = add i64 %.028.i, %23
   %25 = add i64 %.024.i, 1
-  %26 = getelementptr inbounds nuw %struct.lzma_filter, ptr %2, i64 %25
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %25
   %27 = load i64, ptr %26, align 8, !tbaa !4
   %.not34.i = icmp eq i64 %27, -1
   %indvars.iv.next = add i64 %indvars.iv, 1
@@ -299,13 +298,13 @@ lzma_validate_chain.exit:                         ; preds = %28
   br i1 %.not6087.not, label %.loopexit, label %.lr.ph89
 
 .lr.ph89:                                         ; preds = %.preheader
-  %34 = getelementptr %struct.lzma_filter_info_s, ptr %6, i64 %25
+  %34 = getelementptr [24 x i8], ptr %6, i64 %25
   br label %35
 
 35:                                               ; preds = %.lr.ph89, %45
   %.05688 = phi i64 [ 0, %.lr.ph89 ], [ %52, %45 ]
   %36 = xor i64 %.05688, -1
-  %37 = getelementptr inbounds nuw %struct.lzma_filter, ptr %2, i64 %.05688
+  %37 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %.05688
   %38 = load i64, ptr %37, align 8, !tbaa !4
   %39 = tail call ptr %3(i64 noundef %38) #5
   %40 = icmp eq ptr %39, null
@@ -319,7 +318,7 @@ lzma_validate_chain.exit:                         ; preds = %28
 
 45:                                               ; preds = %41
   %46 = load i64, ptr %37, align 8, !tbaa !4
-  %47 = getelementptr %struct.lzma_filter_info_s, ptr %34, i64 %36
+  %47 = getelementptr [24 x i8], ptr %34, i64 %36
   store i64 %46, ptr %47, align 8, !tbaa !30
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store ptr %43, ptr %48, align 8, !tbaa !32
@@ -333,7 +332,7 @@ lzma_validate_chain.exit:                         ; preds = %28
 
 .lr.ph:                                           ; preds = %.preheader78, %61
   %.05586 = phi i64 [ %68, %61 ], [ 0, %.preheader78 ]
-  %53 = getelementptr inbounds nuw %struct.lzma_filter, ptr %2, i64 %.05586
+  %53 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %.05586
   %54 = load i64, ptr %53, align 8, !tbaa !4
   %55 = tail call ptr %3(i64 noundef %54) #5
   %56 = icmp eq ptr %55, null
@@ -347,7 +346,7 @@ lzma_validate_chain.exit:                         ; preds = %28
 
 61:                                               ; preds = %57
   %62 = load i64, ptr %53, align 8, !tbaa !4
-  %63 = getelementptr inbounds nuw %struct.lzma_filter_info_s, ptr %6, i64 %.05586
+  %63 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %.05586
   store i64 %62, ptr %63, align 8, !tbaa !30
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store ptr %59, ptr %64, align 8, !tbaa !32
@@ -360,7 +359,7 @@ lzma_validate_chain.exit:                         ; preds = %28
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !35
 
 .loopexit:                                        ; preds = %61, %45, %.preheader78, %.preheader
-  %69 = getelementptr inbounds nuw %struct.lzma_filter_info_s, ptr %6, i64 %25
+  %69 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %25
   store i64 -1, ptr %69, align 8, !tbaa !30
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   store ptr null, ptr %70, align 8, !tbaa !32
@@ -406,7 +405,7 @@ define dso_local i64 @lzma_raw_coder_memusage(ptr noundef readonly captures(none
 
 8:                                                ; preds = %.lr.ph.i
   %9 = add nuw nsw i64 %.02342.i, 1
-  %10 = getelementptr inbounds nuw %struct.anon, ptr @features, i64 %9
+  %10 = getelementptr inbounds nuw [24 x i8], ptr @features, i64 %9
   %11 = load i64, ptr %10, align 8, !tbaa !11
   %.not.i = icmp eq i64 %7, %11
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !20
@@ -429,7 +428,7 @@ define dso_local i64 @lzma_raw_coder_memusage(ptr noundef readonly captures(none
   %19 = zext nneg i8 %18 to i64
   %20 = add i64 %.028.i, %19
   %21 = add i64 %.024.i, 1
-  %22 = getelementptr inbounds nuw %struct.lzma_filter, ptr %1, i64 %21
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %21
   %23 = load i64, ptr %22, align 8, !tbaa !4
   %.not34.i = icmp eq i64 %23, -1
   br i1 %.not34.i, label %24, label %.preheader.i, !llvm.loop !25
@@ -448,7 +447,7 @@ lzma_validate_chain.exit:                         ; preds = %24, %45
   %30 = phi i64 [ %48, %45 ], [ %5, %24 ]
   %.024 = phi i64 [ %.125, %45 ], [ 0, %24 ]
   %.023 = phi i64 [ %46, %45 ], [ 0, %24 ]
-  %31 = getelementptr inbounds nuw %struct.lzma_filter, ptr %1, i64 %.023
+  %31 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %.023
   %32 = tail call ptr %0(i64 noundef %30) #5
   %33 = icmp eq ptr %32, null
   br i1 %33, label %.critedge, label %34
@@ -474,7 +473,7 @@ lzma_validate_chain.exit:                         ; preds = %24, %45
 45:                                               ; preds = %40, %38
   %.125 = phi i64 [ %39, %38 ], [ %44, %40 ]
   %46 = add i64 %.023, 1
-  %47 = getelementptr inbounds nuw %struct.lzma_filter, ptr %1, i64 %46
+  %47 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %46
   %48 = load i64, ptr %47, align 8, !tbaa !4
   %.not31 = icmp eq i64 %48, -1
   br i1 %.not31, label %49, label %lzma_validate_chain.exit, !llvm.loop !37

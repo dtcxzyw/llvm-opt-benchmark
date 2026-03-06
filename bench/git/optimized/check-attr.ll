@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.strbuf = type { i64, i64, ptr }
 %struct.object_id = type { [32 x i8], i32 }
-%struct.attr_check_item = type { ptr, ptr }
 
 @check_attr_usage = internal constant [3 x ptr] [ptr @.str.20, ptr @.str.21, ptr null], align 16
 @the_repository = external local_unnamed_addr global ptr, align 8
@@ -101,7 +100,7 @@ sub_0.preheader:                                  ; preds = %23
 sub_0:                                            ; preds = %sub_0.preheader, %.tail
   %indvars.iv = phi i64 [ 0, %sub_0.preheader ], [ %indvars.iv.next, %.tail ]
   %.04771 = phi i32 [ -1, %sub_0.preheader ], [ %.not67, %.tail ]
-  %26 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8, !tbaa !31
   %28 = load i8, ptr %27, align 1
   %.not78 = icmp eq i8 %28, 45
@@ -215,14 +214,14 @@ thread-pre-split:                                 ; preds = %._crit_edge.thread,
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %67
   %indvars.iv83 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next84, %67 ]
-  %61 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv83
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv83
   %62 = load ptr, ptr %61, align 8, !tbaa !31
   %63 = tail call ptr @git_attr(ptr noundef %62) #9
   %.not63.not = icmp eq ptr %63, null
   br i1 %.not63.not, label %.thread, label %67
 
 .thread:                                          ; preds = %.lr.ph
-  %64 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv83
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv83
   %65 = load ptr, ptr %64, align 8, !tbaa !31
   %66 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.6, ptr noundef %65) #9
   br label %111
@@ -347,7 +346,7 @@ check_attr_stdin_paths.exit:                      ; preds = %101, %80
 .lr.ph76:                                         ; preds = %.lr.ph76.preheader, %.lr.ph76
   %indvars.iv86 = phi i64 [ %79, %.lr.ph76.preheader ], [ %indvars.iv.next87, %.lr.ph76 ]
   %106 = load i32, ptr @all_attrs, align 4, !tbaa !30
-  %107 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv86
+  %107 = getelementptr inbounds [8 x i8], ptr %1, i64 %indvars.iv86
   %108 = load ptr, ptr %107, align 8, !tbaa !31
   call fastcc void @check_attr(ptr noundef %2, ptr noundef %58, i32 noundef %106, ptr noundef %108)
   %indvars.iv.next87 = add nsw i64 %indvars.iv86, 1
@@ -446,7 +445,7 @@ define internal fastcc void @check_attr(ptr noundef %0, ptr noundef %1, i32 noun
 20:                                               ; preds = %44, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %44 ]
   %21 = load ptr, ptr %19, align 8, !tbaa !50
-  %22 = getelementptr inbounds nuw %struct.attr_check_item, ptr %21, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %indvars.iv.i
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !51
   %25 = icmp eq ptr %24, @git_attr__true
@@ -477,7 +476,7 @@ define internal fastcc void @check_attr(ptr noundef %0, ptr noundef %1, i32 noun
   %37 = load ptr, ptr @stdout, align 8, !tbaa !35
   %38 = tail call i64 @quote_c_style(ptr noundef %3, ptr noundef null, ptr noundef %37, i32 noundef 0) #9
   %39 = load ptr, ptr %19, align 8, !tbaa !50
-  %40 = getelementptr inbounds nuw %struct.attr_check_item, ptr %39, i64 %indvars.iv.i
+  %40 = getelementptr inbounds nuw [16 x i8], ptr %39, i64 %indvars.iv.i
   %41 = load ptr, ptr %40, align 8, !tbaa !54
   %42 = tail call ptr @git_attr_name(ptr noundef %41) #9
   %43 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.30, ptr noundef %42, ptr noundef nonnull %.0.i)

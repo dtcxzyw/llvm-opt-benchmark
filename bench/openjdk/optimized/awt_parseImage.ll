@@ -306,7 +306,7 @@ awt_freeParsedRaster.exit:                        ; preds = %43, %46
   %106 = getelementptr inbounds nuw i8, ptr %8, i64 424
   %107 = load ptr, ptr %106, align 8
   %108 = zext nneg i32 %51 to i64
-  %109 = getelementptr i32, ptr %107, i64 %108
+  %109 = getelementptr [4 x i8], ptr %107, i64 %108
   %110 = getelementptr i8, ptr %109, i64 -4
   br label %111
 
@@ -408,7 +408,7 @@ awt_freeParsedRaster.exit:                        ; preds = %43, %46
 .lr.ph263.i:                                      ; preds = %.lr.ph263.i, %.lr.ph263.preheader.i
   %indvars.iv282.i = phi i64 [ 0, %.lr.ph263.preheader.i ], [ %indvars.iv.next283.i, %.lr.ph263.i ]
   %160 = load ptr, ptr %48, align 8
-  %161 = getelementptr inbounds nuw i32, ptr %160, i64 %indvars.iv282.i
+  %161 = getelementptr inbounds nuw [4 x i8], ptr %160, i64 %indvars.iv282.i
   %162 = trunc nuw nsw i64 %indvars.iv282.i to i32
   store i32 %162, ptr %161, align 4
   %indvars.iv.next283.i = add nuw nsw i64 %indvars.iv282.i, 1
@@ -435,7 +435,7 @@ awt_freeParsedRaster.exit:                        ; preds = %43, %46
 .lr.ph247.i:                                      ; preds = %.lr.ph247.i, %.lr.ph247.preheader.i
   %indvars.iv268.i = phi i64 [ 1, %.lr.ph247.preheader.i ], [ %indvars.iv.next269.i, %.lr.ph247.i ]
   %.0205246.i = phi i32 [ %169, %.lr.ph247.preheader.i ], [ %spec.select.i, %.lr.ph247.i ]
-  %172 = getelementptr inbounds nuw i32, ptr %168, i64 %indvars.iv268.i
+  %172 = getelementptr inbounds nuw [4 x i8], ptr %168, i64 %indvars.iv268.i
   %173 = load i32, ptr %172, align 4
   %spec.select.i = tail call i32 @llvm.smin.i32(i32 %173, i32 %.0205246.i)
   %indvars.iv.next269.i = add nuw nsw i64 %indvars.iv268.i, 1
@@ -446,7 +446,7 @@ awt_freeParsedRaster.exit:                        ; preds = %43, %46
   %indvars.iv271.i = phi i64 [ 1, %.lr.ph252.i ], [ %indvars.iv.next272.i, %186 ]
   %.0203251.i = phi i32 [ 0, %.lr.ph252.i ], [ %.1.i, %186 ]
   %.0209249.i = phi i32 [ 1, %.lr.ph252.i ], [ %.1210.i, %186 ]
-  %175 = getelementptr inbounds nuw i32, ptr %168, i64 %indvars.iv271.i
+  %175 = getelementptr inbounds nuw [4 x i8], ptr %168, i64 %indvars.iv271.i
   %176 = load i32, ptr %175, align 4
   %177 = sub nsw i32 %176, %spec.select.i
   %178 = icmp slt i32 %177, %51
@@ -524,11 +524,11 @@ awt_freeParsedRaster.exit:                        ; preds = %43, %46
   %indvars.iv279.i = phi i64 [ %indvars.iv.next280.i, %.lr.ph260.i ], [ 0, %207 ]
   %210 = load ptr, ptr %48, align 8
   %211 = load ptr, ptr %167, align 8
-  %212 = getelementptr inbounds nuw i32, ptr %211, i64 %indvars.iv279.i
+  %212 = getelementptr inbounds nuw [4 x i8], ptr %211, i64 %indvars.iv279.i
   %213 = load i32, ptr %212, align 4
   %214 = sub nsw i32 %213, %.0205.lcssa291.i
   %215 = sext i32 %214 to i64
-  %216 = getelementptr inbounds i32, ptr %210, i64 %215
+  %216 = getelementptr inbounds [4 x i8], ptr %210, i64 %215
   %217 = trunc nuw nsw i64 %indvars.iv279.i to i32
   store i32 %217, ptr %216, align 4
   %indvars.iv.next280.i = add nuw nsw i64 %indvars.iv279.i, 1
@@ -555,12 +555,12 @@ awt_freeParsedRaster.exit:                        ; preds = %43, %46
   %indvars.iv276.i = phi i64 [ %indvars.iv.next277.i, %.lr.ph257.i ], [ 0, %222 ]
   %230 = load ptr, ptr %48, align 8
   %231 = load ptr, ptr %167, align 8
-  %232 = getelementptr inbounds nuw i32, ptr %231, i64 %indvars.iv276.i
+  %232 = getelementptr inbounds nuw [4 x i8], ptr %231, i64 %indvars.iv276.i
   %233 = load i32, ptr %232, align 4
   %234 = sub nsw i32 %233, %.0205.lcssa291.i
   %235 = srem i32 %234, %227
   %236 = sext i32 %235 to i64
-  %237 = getelementptr inbounds i32, ptr %230, i64 %236
+  %237 = getelementptr inbounds [4 x i8], ptr %230, i64 %236
   %238 = trunc nuw nsw i64 %indvars.iv276.i to i32
   store i32 %238, ptr %237, align 4
   %indvars.iv.next277.i = add nuw nsw i64 %indvars.iv276.i, 1
@@ -588,7 +588,7 @@ awt_freeParsedRaster.exit:                        ; preds = %43, %46
 
 250:                                              ; preds = %254, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %254 ]
-  %251 = getelementptr inbounds nuw i32, ptr %249, i64 %indvars.iv.i
+  %251 = getelementptr inbounds nuw [4 x i8], ptr %249, i64 %indvars.iv.i
   %252 = load i32, ptr %251, align 4
   %253 = and i32 %252, 7
   %.not223.i = icmp eq i32 %253, 0
@@ -597,7 +597,7 @@ awt_freeParsedRaster.exit:                        ; preds = %43, %46
 254:                                              ; preds = %250
   %255 = ashr i32 %252, 3
   %256 = load ptr, ptr %48, align 8
-  %257 = getelementptr inbounds nuw i32, ptr %256, i64 %indvars.iv.i
+  %257 = getelementptr inbounds nuw [4 x i8], ptr %256, i64 %indvars.iv.i
   store i32 %255, ptr %257, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %258 = load i32, ptr %52, align 4
@@ -1377,7 +1377,7 @@ thread-pre-split:                                 ; preds = %55
 73:                                               ; preds = %.lr.ph, %79
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %79 ]
   %74 = phi i32 [ 0, %.lr.ph ], [ %80, %79 ]
-  %75 = getelementptr inbounds nuw i32, ptr %72, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %indvars.iv
   %76 = load i32, ptr %75, align 4
   %77 = icmp slt i32 %74, %76
   br i1 %77, label %78, label %79
@@ -1585,7 +1585,7 @@ getColorModelType.exit:                           ; preds = %._crit_edge, %101, 
 
 187:                                              ; preds = %.lr.ph181, %186
   %indvars.iv186 = phi i64 [ 0, %.lr.ph181 ], [ %indvars.iv.next187, %186 ]
-  %188 = getelementptr inbounds nuw i32, ptr %185, i64 %indvars.iv186
+  %188 = getelementptr inbounds nuw [4 x i8], ptr %185, i64 %indvars.iv186
   %189 = load i32, ptr %188, align 4
   %.not172 = icmp eq i32 %189, 8
   br i1 %.not172, label %186, label %.loopexit177
@@ -1643,7 +1643,7 @@ getColorModelType.exit:                           ; preds = %._crit_edge, %101, 
 
 .lr.ph183:                                        ; preds = %.lr.ph183.preheader, %227
   %indvars.iv191 = phi i64 [ 0, %.lr.ph183.preheader ], [ %indvars.iv.next192, %227 ]
-  %222 = getelementptr inbounds nuw i32, ptr %218, i64 %indvars.iv191
+  %222 = getelementptr inbounds nuw [4 x i8], ptr %218, i64 %indvars.iv191
   %223 = load i32, ptr %222, align 4
   %224 = icmp ult i32 %223, 16777216
   br i1 %224, label %225, label %227
@@ -1832,7 +1832,7 @@ define internal fastcc range(i32 0, 2) i32 @checkChannelOffsets(ptr noundef read
 
 43:                                               ; preds = %.lr.ph, %42
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %42 ]
-  %44 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %indvars.iv
   %45 = load i32, ptr %44, align 4
   %46 = add nsw i32 %45, %35
   %47 = icmp sgt i32 %45, -1
@@ -2005,7 +2005,7 @@ define hidden range(i32 -1, 2) i32 @awt_getPixels(ptr noundef %0, ptr noundef re
 .lr.ph122:                                        ; preds = %.lr.ph122.preheader, %.lr.ph122
   %indvars.iv138 = phi i64 [ %86, %.lr.ph122.preheader ], [ %indvars.iv.next139, %.lr.ph122 ]
   %indvars.iv136 = phi i64 [ 0, %.lr.ph122.preheader ], [ %indvars.iv.next137, %.lr.ph122 ]
-  %87 = getelementptr inbounds nuw i32, ptr %75, i64 %indvars.iv136
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %75, i64 %indvars.iv136
   %88 = load i32, ptr %87, align 4
   %89 = trunc i32 %88 to i8
   %indvars.iv.next139 = add nsw i64 %indvars.iv138, 1
@@ -2018,11 +2018,11 @@ define hidden range(i32 -1, 2) i32 @awt_getPixels(ptr noundef %0, ptr noundef re
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv131 = phi i64 [ %84, %.lr.ph.preheader ], [ %indvars.iv.next132, %.lr.ph ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %91 = getelementptr inbounds nuw i32, ptr %75, i64 %indvars.iv
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %75, i64 %indvars.iv
   %92 = load i32, ptr %91, align 4
   %93 = trunc i32 %92 to i16
   %indvars.iv.next132 = add nsw i64 %indvars.iv131, 1
-  %94 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv131
+  %94 = getelementptr inbounds [2 x i8], ptr %2, i64 %indvars.iv131
   store i16 %93, ptr %94, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2206,7 +2206,7 @@ define hidden range(i32 -1, 2) i32 @awt_setPixels(ptr noundef %0, ptr noundef re
   %77 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv138
   %78 = load i8, ptr %77, align 1
   %79 = zext i8 %78 to i32
-  %80 = getelementptr inbounds nuw i32, ptr %65, i64 %indvars.iv136
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %indvars.iv136
   store i32 %79, ptr %80, align 4
   %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 1
   %exitcond144.not = icmp eq i64 %indvars.iv.next137, %wide.trip.count143
@@ -2216,10 +2216,10 @@ define hidden range(i32 -1, 2) i32 @awt_setPixels(ptr noundef %0, ptr noundef re
   %indvars.iv131 = phi i64 [ %74, %.lr.ph.preheader ], [ %indvars.iv.next132, %.lr.ph ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %indvars.iv.next132 = add nsw i64 %indvars.iv131, 1
-  %81 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv131
+  %81 = getelementptr inbounds [2 x i8], ptr %2, i64 %indvars.iv131
   %82 = load i16, ptr %81, align 2
   %83 = zext i16 %82 to i32
-  %84 = getelementptr inbounds nuw i32, ptr %65, i64 %indvars.iv
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %indvars.iv
   store i32 %83, ptr %84, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

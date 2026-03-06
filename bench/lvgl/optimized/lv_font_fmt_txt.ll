@@ -3,9 +3,7 @@ source_filename = "bench/lvgl/original/lv_font_fmt_txt.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.lv_font_fmt_txt_glyph_dsc_t = type { i32, i8, i8, i8, i8 }
 %struct.kern_pair_ref_t = type { i32, i32 }
-%struct.lv_font_fmt_txt_cmap_t = type { i32, i16, i16, ptr, ptr, i16, i32 }
 
 @opa2_table = internal unnamed_addr constant [4 x i8] c"\00U\AA\FF", align 1
 @opa4_table = internal unnamed_addr constant [16 x i8] c"\00\11\223DUfw\88\99\AA\BB\CC\DD\EE\FF", align 16
@@ -26,7 +24,7 @@ define ptr @lv_font_get_bitmap_fmt_txt(ptr noundef readonly captures(none) %0, p
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !20
   %13 = zext i32 %9 to i64
-  %14 = getelementptr inbounds nuw %struct.lv_font_fmt_txt_glyph_dsc_t, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load i8, ptr %15, align 8
   %17 = and i8 %16, 2
@@ -567,7 +565,7 @@ get_kern_value.exit:                              ; preds = %23, %42, %58, %59, 
   %88 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %89 = load ptr, ptr %88, align 8, !tbaa !20
   %90 = zext i32 %10 to i64
-  %91 = getelementptr inbounds nuw %struct.lv_font_fmt_txt_glyph_dsc_t, ptr %89, i64 %90
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %89, i64 %90
   %92 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %93 = load i16, ptr %92, align 8, !tbaa !47
   %94 = zext i16 %93 to i32
@@ -661,7 +659,7 @@ define internal fastcc i32 @get_glyph_dsc_id(ptr noundef readonly captures(none)
 
 14:                                               ; preds = %.lr.ph, %.thread92
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.thread92 ]
-  %15 = getelementptr inbounds nuw %struct.lv_font_fmt_txt_cmap_t, ptr %13, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [32 x i8], ptr %13, i64 %indvars.iv
   %16 = load i32, ptr %15, align 8, !tbaa !57
   %17 = sub i32 %1, %16
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 4
@@ -721,7 +719,7 @@ define internal fastcc i32 @get_glyph_dsc_id(ptr noundef readonly captures(none)
 
 50:                                               ; preds = %42
   %51 = load ptr, ptr %12, align 8, !tbaa !56
-  %52 = getelementptr inbounds nuw %struct.lv_font_fmt_txt_cmap_t, ptr %51, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [32 x i8], ptr %51, i64 %indvars.iv
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %54 = load ptr, ptr %53, align 8, !tbaa !65
   %55 = ptrtoint ptr %49 to i64
@@ -755,7 +753,7 @@ define internal fastcc i32 @get_glyph_dsc_id(ptr noundef readonly captures(none)
 
 73:                                               ; preds = %65
   %74 = load ptr, ptr %12, align 8, !tbaa !56
-  %75 = getelementptr inbounds nuw %struct.lv_font_fmt_txt_cmap_t, ptr %74, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw [32 x i8], ptr %74, i64 %indvars.iv
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %77 = load ptr, ptr %76, align 8, !tbaa !65
   %78 = ptrtoint ptr %72 to i64

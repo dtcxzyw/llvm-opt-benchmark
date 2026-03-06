@@ -3,14 +3,11 @@ source_filename = "bench/llvm/original/MCSectionMachO.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.anon = type { %"class.llvm::StringLiteral", %"class.llvm::StringLiteral" }
-%"class.llvm::StringLiteral" = type { %"class.llvm::StringRef" }
-%"class.llvm::StringRef" = type { ptr, i64 }
-%struct.anon.5 = type { i32, %"class.llvm::StringLiteral", %"class.llvm::StringLiteral" }
 %"class.llvm::Error" = type { ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
+%"class.llvm::StringRef" = type { ptr, i64 }
 %"class.llvm::SmallVector.6" = type { %"class.llvm::SmallVectorImpl.7", %"struct.llvm::SmallVectorStorage.10" }
 %"class.llvm::SmallVectorImpl.7" = type { %"class.llvm::SmallVectorTemplateBase.8" }
 %"class.llvm::SmallVectorTemplateBase.8" = type { %"class.llvm::SmallVectorTemplateCommon.9" }
@@ -311,7 +308,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit52:    ; preds = %63, %65, %66
 79:                                               ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit52
   %80 = and i32 %70, 255
   %81 = zext nneg i32 %80 to i64
-  %82 = getelementptr inbounds nuw %struct.anon, ptr @_ZL22SectionTypeDescriptors, i64 %81
+  %82 = getelementptr inbounds nuw [32 x i8], ptr @_ZL22SectionTypeDescriptors, i64 %81
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %84 = load i64, ptr %83, align 8, !tbaa !51
   %85 = shl nuw i64 1, %81
@@ -428,7 +425,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit67:               ; preds = %121, %123
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit76 ], [ 0, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit61 ]
   %.095 = phi i32 [ %.1, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit76 ], [ %105, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit61 ]
   %.03694 = phi i8 [ %.137, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit76 ], [ 44, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit61 ]
-  %136 = getelementptr inbounds nuw %struct.anon.5, ptr @_ZL22SectionAttrDescriptors, i64 %indvars.iv
+  %136 = getelementptr inbounds nuw [40 x i8], ptr @_ZL22SectionAttrDescriptors, i64 %indvars.iv
   %137 = load i32, ptr %136, align 8, !tbaa !52
   %.not42 = icmp eq i64 %indvars.iv, 10
   br i1 %.not42, label %.critedge, label %140
@@ -1611,7 +1608,7 @@ _ZN4llvm15SmallVectorImplIPKNS_8MCSymbolEE7reserveEm.exit.i.i: ; preds = %21, %1
 .lr.ph.preheader.i.i:                             ; preds = %_ZN4llvm15SmallVectorImplIPKNS_8MCSymbolEE7reserveEm.exit.i.i
   %.pre-phi.i.i = zext i32 %.pre-phi.i.i.in to i64
   %23 = load ptr, ptr %7, align 8, !tbaa !38
-  %24 = getelementptr ptr, ptr %23, i64 %.pre-phi.i.i
+  %24 = getelementptr [8 x i8], ptr %23, i64 %.pre-phi.i.i
   %25 = sub nsw i64 %11, %.pre-phi.i.i
   %26 = shl nsw i64 %25, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %24, i8 0, i64 %26, i1 false), !tbaa !87
@@ -1636,7 +1633,7 @@ define dso_local noundef ptr @_ZNK4llvm14MCSectionMachO7getAtomEm(ptr noundef no
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %9 = load ptr, ptr %8, align 8, !tbaa !38
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %1
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %1
   %11 = load ptr, ptr %10, align 8, !tbaa !87
   br label %12
 
@@ -1649,7 +1646,7 @@ define dso_local noundef ptr @_ZNK4llvm14MCSectionMachO7getAtomEm(ptr noundef no
 define dso_local void @_ZN4llvm14MCSectionMachO7setAtomEmPKNS_8MCSymbolE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #6 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %5 = load ptr, ptr %4, align 8, !tbaa !38
-  %6 = getelementptr inbounds nuw ptr, ptr %5, i64 %1
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %1
   store ptr %2, ptr %6, align 8, !tbaa !87
   ret void
 }

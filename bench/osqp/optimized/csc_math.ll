@@ -10,7 +10,7 @@ define void @vec_set_scalar(ptr noundef writeonly captures(none) %0, double noun
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.05 = phi i64 [ %6, %.lr.ph ], [ 0, %3 ]
-  %5 = getelementptr inbounds nuw double, ptr %0, i64 %.05
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.05
   store double %1, ptr %5, align 8, !tbaa !3
   %6 = add nuw nsw i64 %.05, 1
   %exitcond.not = icmp eq i64 %6, %2
@@ -27,7 +27,7 @@ define void @vec_mult_scalar(ptr noundef captures(none) %0, double noundef %1, i
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.05 = phi i64 [ %8, %.lr.ph ], [ 0, %3 ]
-  %5 = getelementptr inbounds nuw double, ptr %0, i64 %.05
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.05
   %6 = load double, ptr %5, align 8, !tbaa !3
   %7 = fmul double %1, %6
   store double %7, ptr %5, align 8, !tbaa !3
@@ -46,7 +46,7 @@ define void @vec_negate(ptr noundef captures(none) %0, i64 noundef %1) local_unn
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.06 = phi i64 [ %7, %.lr.ph ], [ 0, %2 ]
-  %4 = getelementptr inbounds nuw double, ptr %0, i64 %.06
+  %4 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.06
   %5 = load double, ptr %4, align 8, !tbaa !3
   %6 = fneg double %5
   store double %6, ptr %4, align 8, !tbaa !3
@@ -82,11 +82,11 @@ define void @csc_update_values(ptr noundef readonly captures(none) %0, ptr nound
 
 10:                                               ; preds = %.lr.ph, %10
   %.018 = phi i64 [ 0, %.lr.ph ], [ %16, %10 ]
-  %11 = getelementptr inbounds nuw double, ptr %1, i64 %.018
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.018
   %12 = load double, ptr %11, align 8, !tbaa !3
-  %13 = getelementptr inbounds nuw i64, ptr %2, i64 %.018
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.018
   %14 = load i64, ptr %13, align 8, !tbaa !17
-  %15 = getelementptr inbounds double, ptr %7, i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr %7, i64 %14
   store double %12, ptr %15, align 8, !tbaa !3
   %16 = add nuw nsw i64 %.018, 1
   %exitcond.not = icmp eq i64 %16, %3
@@ -94,9 +94,9 @@ define void @csc_update_values(ptr noundef readonly captures(none) %0, ptr nound
 
 17:                                               ; preds = %.lr.ph20, %17
   %.119 = phi i64 [ 0, %.lr.ph20 ], [ %21, %17 ]
-  %18 = getelementptr inbounds nuw double, ptr %1, i64 %.119
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.119
   %19 = load double, ptr %18, align 8, !tbaa !3
-  %20 = getelementptr inbounds nuw double, ptr %9, i64 %.119
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.119
   store double %19, ptr %20, align 8, !tbaa !3
   %21 = add nuw nsw i64 %.119, 1
   %exitcond22.not = icmp eq i64 %21, %3
@@ -112,7 +112,7 @@ define void @csc_scale(ptr noundef readonly captures(none) %0, double noundef %1
   %4 = load ptr, ptr %3, align 8, !tbaa !20
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !21
-  %7 = getelementptr inbounds i64, ptr %4, i64 %6
+  %7 = getelementptr inbounds [8 x i8], ptr %4, i64 %6
   %8 = load i64, ptr %7, align 8, !tbaa !17
   %9 = icmp sgt i64 %8, 0
   br i1 %9, label %.lr.ph, label %._crit_edge
@@ -124,7 +124,7 @@ define void @csc_scale(ptr noundef readonly captures(none) %0, double noundef %1
 
 12:                                               ; preds = %.lr.ph, %12
   %.07 = phi i64 [ 0, %.lr.ph ], [ %16, %12 ]
-  %13 = getelementptr inbounds nuw double, ptr %11, i64 %.07
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.07
   %14 = load double, ptr %13, align 8, !tbaa !3
   %15 = fmul double %1, %14
   store double %15, ptr %13, align 8, !tbaa !3
@@ -161,18 +161,18 @@ define void @csc_lmult_diag(ptr noundef readonly captures(none) %0, ptr noundef 
   %12 = phi i64 [ %15, %.loopexit ], [ %.pre, %.lr.ph20.preheader ]
   %.019 = phi i64 [ %13, %.loopexit ], [ 0, %.lr.ph20.preheader ]
   %13 = add nuw nsw i64 %.019, 1
-  %14 = getelementptr inbounds nuw i64, ptr %6, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %13
   %15 = load i64, ptr %14, align 8, !tbaa !17
   %16 = icmp slt i64 %12, %15
   br i1 %16, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph20, %.lr.ph
   %.01718 = phi i64 [ %24, %.lr.ph ], [ %12, %.lr.ph20 ]
-  %17 = getelementptr inbounds i64, ptr %8, i64 %.01718
+  %17 = getelementptr inbounds [8 x i8], ptr %8, i64 %.01718
   %18 = load i64, ptr %17, align 8, !tbaa !17
-  %19 = getelementptr inbounds double, ptr %1, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %1, i64 %18
   %20 = load double, ptr %19, align 8, !tbaa !3
-  %21 = getelementptr inbounds double, ptr %10, i64 %.01718
+  %21 = getelementptr inbounds [8 x i8], ptr %10, i64 %.01718
   %22 = load double, ptr %21, align 8, !tbaa !3
   %23 = fmul double %20, %22
   store double %23, ptr %21, align 8, !tbaa !3
@@ -207,19 +207,19 @@ define void @csc_rmult_diag(ptr noundef readonly captures(none) %0, ptr noundef 
   %10 = phi i64 [ %13, %.loopexit ], [ %.pre, %.lr.ph18.preheader ]
   %.017 = phi i64 [ %11, %.loopexit ], [ 0, %.lr.ph18.preheader ]
   %11 = add nuw nsw i64 %.017, 1
-  %12 = getelementptr inbounds nuw i64, ptr %6, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %11
   %13 = load i64, ptr %12, align 8, !tbaa !17
   %14 = icmp slt i64 %10, %13
   br i1 %14, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph18
-  %15 = getelementptr inbounds nuw double, ptr %1, i64 %.017
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.017
   br label %16
 
 16:                                               ; preds = %.lr.ph, %16
   %.01516 = phi i64 [ %10, %.lr.ph ], [ %21, %16 ]
   %17 = load double, ptr %15, align 8, !tbaa !3
-  %18 = getelementptr inbounds double, ptr %8, i64 %.01516
+  %18 = getelementptr inbounds [8 x i8], ptr %8, i64 %.01516
   %19 = load double, ptr %18, align 8, !tbaa !3
   %20 = fmul double %17, %19
   store double %20, ptr %18, align 8, !tbaa !3
@@ -255,10 +255,10 @@ define void @csc_AtDA_extract_diag(ptr noundef readonly captures(none) %0, ptr n
 .lr.ph26:                                         ; preds = %.lr.ph26.preheader, %.loopexit
   %13 = phi i64 [ %17, %.loopexit ], [ %.pre, %.lr.ph26.preheader ]
   %.025 = phi i64 [ %15, %.loopexit ], [ 0, %.lr.ph26.preheader ]
-  %14 = getelementptr inbounds nuw double, ptr %2, i64 %.025
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.025
   store double 0.000000e+00, ptr %14, align 8, !tbaa !3
   %15 = add nuw nsw i64 %.025, 1
-  %16 = getelementptr inbounds nuw i64, ptr %7, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %15
   %17 = load i64, ptr %16, align 8, !tbaa !17
   %18 = icmp slt i64 %13, %17
   br i1 %18, label %.lr.ph, label %.loopexit
@@ -266,12 +266,12 @@ define void @csc_AtDA_extract_diag(ptr noundef readonly captures(none) %0, ptr n
 .lr.ph:                                           ; preds = %.lr.ph26, %.lr.ph
   %19 = phi double [ %27, %.lr.ph ], [ 0.000000e+00, %.lr.ph26 ]
   %.02324 = phi i64 [ %28, %.lr.ph ], [ %13, %.lr.ph26 ]
-  %20 = getelementptr inbounds double, ptr %11, i64 %.02324
+  %20 = getelementptr inbounds [8 x i8], ptr %11, i64 %.02324
   %21 = load double, ptr %20, align 8, !tbaa !3
   %22 = fmul double %21, %21
-  %23 = getelementptr inbounds i64, ptr %9, i64 %.02324
+  %23 = getelementptr inbounds [8 x i8], ptr %9, i64 %.02324
   %24 = load i64, ptr %23, align 8, !tbaa !17
-  %25 = getelementptr inbounds double, ptr %1, i64 %24
+  %25 = getelementptr inbounds [8 x i8], ptr %1, i64 %24
   %26 = load double, ptr %25, align 8, !tbaa !3
   %27 = tail call double @llvm.fmuladd.f64(double %22, double %26, double %19)
   store double %27, ptr %14, align 8, !tbaa !3
@@ -323,7 +323,7 @@ define void @csc_Axpy_sym_triu(ptr noundef readonly captures(none) %0, ptr nound
 
 .lr.ph.i110:                                      ; preds = %24, %.lr.ph.i110
   %.06.i = phi i64 [ %28, %.lr.ph.i110 ], [ 0, %24 ]
-  %25 = getelementptr inbounds nuw double, ptr %2, i64 %.06.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.06.i
   %26 = load double, ptr %25, align 8, !tbaa !3
   %27 = fneg double %26
   store double %27, ptr %25, align 8, !tbaa !3
@@ -336,7 +336,7 @@ define void @csc_Axpy_sym_triu(ptr noundef readonly captures(none) %0, ptr nound
 
 .lr.ph.i112:                                      ; preds = %29, %.lr.ph.i112
   %.05.i113 = phi i64 [ %33, %.lr.ph.i112 ], [ 0, %29 ]
-  %30 = getelementptr inbounds nuw double, ptr %2, i64 %.05.i113
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.05.i113
   %31 = load double, ptr %30, align 8, !tbaa !3
   %32 = fmul double %4, %31
   store double %32, ptr %30, align 8, !tbaa !3
@@ -345,7 +345,7 @@ define void @csc_Axpy_sym_triu(ptr noundef readonly captures(none) %0, ptr nound
   br i1 %exitcond.not.i114, label %vec_set_scalar.exit, label %.lr.ph.i112, !llvm.loop !9
 
 vec_set_scalar.exit:                              ; preds = %.lr.ph.i112, %.lr.ph.i110, %.lr.ph.i.preheader, %29, %24, %16, %19
-  %34 = getelementptr inbounds i64, ptr %7, i64 %11
+  %34 = getelementptr inbounds [8 x i8], ptr %7, i64 %11
   %35 = load i64, ptr %34, align 8, !tbaa !17
   %36 = icmp eq i64 %35, 0
   %37 = fcmp oeq double %3, 0.000000e+00
@@ -372,24 +372,24 @@ vec_set_scalar.exit:                              ; preds = %.lr.ph.i112, %.lr.p
   %41 = phi i64 [ %44, %.loopexit ], [ %.pre147, %.lr.ph136.preheader ]
   %.0100135 = phi i64 [ %42, %.loopexit ], [ 0, %.lr.ph136.preheader ]
   %42 = add nuw nsw i64 %.0100135, 1
-  %43 = getelementptr inbounds nuw i64, ptr %7, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %42
   %44 = load i64, ptr %43, align 8, !tbaa !17
   %45 = icmp slt i64 %41, %44
   br i1 %45, label %.lr.ph134, label %.loopexit
 
 .lr.ph134:                                        ; preds = %.lr.ph136
-  %46 = getelementptr inbounds nuw double, ptr %1, i64 %.0100135
-  %47 = getelementptr inbounds nuw double, ptr %2, i64 %.0100135
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.0100135
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.0100135
   br label %48
 
 48:                                               ; preds = %.lr.ph134, %65
   %.0133 = phi i64 [ %41, %.lr.ph134 ], [ %66, %65 ]
-  %49 = getelementptr inbounds double, ptr %14, i64 %.0133
+  %49 = getelementptr inbounds [8 x i8], ptr %14, i64 %.0133
   %50 = load double, ptr %49, align 8, !tbaa !3
   %51 = load double, ptr %46, align 8, !tbaa !3
-  %52 = getelementptr inbounds i64, ptr %9, i64 %.0133
+  %52 = getelementptr inbounds [8 x i8], ptr %9, i64 %.0133
   %53 = load i64, ptr %52, align 8, !tbaa !17
-  %54 = getelementptr inbounds double, ptr %2, i64 %53
+  %54 = getelementptr inbounds [8 x i8], ptr %2, i64 %53
   %55 = load double, ptr %54, align 8, !tbaa !3
   %56 = fneg double %50
   %57 = tail call double @llvm.fmuladd.f64(double %56, double %51, double %55)
@@ -399,7 +399,7 @@ vec_set_scalar.exit:                              ; preds = %.lr.ph.i112, %.lr.p
 
 58:                                               ; preds = %48
   %59 = load double, ptr %49, align 8, !tbaa !3
-  %60 = getelementptr inbounds double, ptr %1, i64 %53
+  %60 = getelementptr inbounds [8 x i8], ptr %1, i64 %53
   %61 = load double, ptr %60, align 8, !tbaa !3
   %62 = load double, ptr %47, align 8, !tbaa !3
   %63 = fneg double %59
@@ -439,24 +439,24 @@ vec_set_scalar.exit:                              ; preds = %.lr.ph.i112, %.lr.p
   %70 = phi i64 [ %73, %.loopexit116 ], [ %.pre146, %.lr.ph132.preheader ]
   %.1101131 = phi i64 [ %71, %.loopexit116 ], [ 0, %.lr.ph132.preheader ]
   %71 = add nuw nsw i64 %.1101131, 1
-  %72 = getelementptr inbounds nuw i64, ptr %7, i64 %71
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %71
   %73 = load i64, ptr %72, align 8, !tbaa !17
   %74 = icmp slt i64 %70, %73
   br i1 %74, label %.lr.ph130, label %.loopexit116
 
 .lr.ph130:                                        ; preds = %.lr.ph132
-  %75 = getelementptr inbounds nuw double, ptr %1, i64 %.1101131
-  %76 = getelementptr inbounds nuw double, ptr %2, i64 %.1101131
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.1101131
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.1101131
   br label %77
 
 77:                                               ; preds = %.lr.ph130, %92
   %.1129 = phi i64 [ %70, %.lr.ph130 ], [ %93, %92 ]
-  %78 = getelementptr inbounds double, ptr %14, i64 %.1129
+  %78 = getelementptr inbounds [8 x i8], ptr %14, i64 %.1129
   %79 = load double, ptr %78, align 8, !tbaa !3
   %80 = load double, ptr %75, align 8, !tbaa !3
-  %81 = getelementptr inbounds i64, ptr %9, i64 %.1129
+  %81 = getelementptr inbounds [8 x i8], ptr %9, i64 %.1129
   %82 = load i64, ptr %81, align 8, !tbaa !17
-  %83 = getelementptr inbounds double, ptr %2, i64 %82
+  %83 = getelementptr inbounds [8 x i8], ptr %2, i64 %82
   %84 = load double, ptr %83, align 8, !tbaa !3
   %85 = tail call double @llvm.fmuladd.f64(double %79, double %80, double %84)
   store double %85, ptr %83, align 8, !tbaa !3
@@ -465,7 +465,7 @@ vec_set_scalar.exit:                              ; preds = %.lr.ph.i112, %.lr.p
 
 86:                                               ; preds = %77
   %87 = load double, ptr %78, align 8, !tbaa !3
-  %88 = getelementptr inbounds double, ptr %1, i64 %82
+  %88 = getelementptr inbounds [8 x i8], ptr %1, i64 %82
   %89 = load double, ptr %88, align 8, !tbaa !3
   %90 = load double, ptr %76, align 8, !tbaa !3
   %91 = tail call double @llvm.fmuladd.f64(double %87, double %89, double %90)
@@ -485,25 +485,25 @@ vec_set_scalar.exit:                              ; preds = %.lr.ph.i112, %.lr.p
   %94 = phi i64 [ %97, %.loopexit119 ], [ %.pre, %.lr.ph128.preheader ]
   %.2102127 = phi i64 [ %95, %.loopexit119 ], [ 0, %.lr.ph128.preheader ]
   %95 = add nuw nsw i64 %.2102127, 1
-  %96 = getelementptr inbounds nuw i64, ptr %7, i64 %95
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %95
   %97 = load i64, ptr %96, align 8, !tbaa !17
   %98 = icmp slt i64 %94, %97
   br i1 %98, label %.lr.ph, label %.loopexit119
 
 .lr.ph:                                           ; preds = %.lr.ph128
-  %99 = getelementptr inbounds nuw double, ptr %1, i64 %.2102127
-  %100 = getelementptr inbounds nuw double, ptr %2, i64 %.2102127
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.2102127
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.2102127
   br label %101
 
 101:                                              ; preds = %.lr.ph, %118
   %.2126 = phi i64 [ %94, %.lr.ph ], [ %119, %118 ]
-  %102 = getelementptr inbounds double, ptr %14, i64 %.2126
+  %102 = getelementptr inbounds [8 x i8], ptr %14, i64 %.2126
   %103 = load double, ptr %102, align 8, !tbaa !3
   %104 = fmul double %3, %103
   %105 = load double, ptr %99, align 8, !tbaa !3
-  %106 = getelementptr inbounds i64, ptr %9, i64 %.2126
+  %106 = getelementptr inbounds [8 x i8], ptr %9, i64 %.2126
   %107 = load i64, ptr %106, align 8, !tbaa !17
-  %108 = getelementptr inbounds double, ptr %2, i64 %107
+  %108 = getelementptr inbounds [8 x i8], ptr %2, i64 %107
   %109 = load double, ptr %108, align 8, !tbaa !3
   %110 = tail call double @llvm.fmuladd.f64(double %104, double %105, double %109)
   store double %110, ptr %108, align 8, !tbaa !3
@@ -513,7 +513,7 @@ vec_set_scalar.exit:                              ; preds = %.lr.ph.i112, %.lr.p
 111:                                              ; preds = %101
   %112 = load double, ptr %102, align 8, !tbaa !3
   %113 = fmul double %3, %112
-  %114 = getelementptr inbounds double, ptr %1, i64 %107
+  %114 = getelementptr inbounds [8 x i8], ptr %1, i64 %107
   %115 = load double, ptr %114, align 8, !tbaa !3
   %116 = load double, ptr %100, align 8, !tbaa !3
   %117 = tail call double @llvm.fmuladd.f64(double %113, double %115, double %116)
@@ -566,7 +566,7 @@ define void @csc_Axpy(ptr noundef readonly captures(none) %0, ptr noundef readon
 
 .lr.ph.i74:                                       ; preds = %24, %.lr.ph.i74
   %.06.i = phi i64 [ %28, %.lr.ph.i74 ], [ 0, %24 ]
-  %25 = getelementptr inbounds nuw double, ptr %2, i64 %.06.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.06.i
   %26 = load double, ptr %25, align 8, !tbaa !3
   %27 = fneg double %26
   store double %27, ptr %25, align 8, !tbaa !3
@@ -579,7 +579,7 @@ define void @csc_Axpy(ptr noundef readonly captures(none) %0, ptr noundef readon
 
 .lr.ph.i76:                                       ; preds = %29, %.lr.ph.i76
   %.05.i77 = phi i64 [ %33, %.lr.ph.i76 ], [ 0, %29 ]
-  %30 = getelementptr inbounds nuw double, ptr %2, i64 %.05.i77
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.05.i77
   %31 = load double, ptr %30, align 8, !tbaa !3
   %32 = fmul double %4, %31
   store double %32, ptr %30, align 8, !tbaa !3
@@ -588,7 +588,7 @@ define void @csc_Axpy(ptr noundef readonly captures(none) %0, ptr noundef readon
   br i1 %exitcond.not.i78, label %vec_set_scalar.exit, label %.lr.ph.i76, !llvm.loop !9
 
 vec_set_scalar.exit:                              ; preds = %.lr.ph.i76, %.lr.ph.i74, %.lr.ph.i.preheader, %29, %24, %16, %19
-  %34 = getelementptr inbounds i64, ptr %7, i64 %11
+  %34 = getelementptr inbounds [8 x i8], ptr %7, i64 %11
   %35 = load i64, ptr %34, align 8, !tbaa !17
   %36 = icmp eq i64 %35, 0
   %37 = fcmp oeq double %3, 0.000000e+00
@@ -615,23 +615,23 @@ vec_set_scalar.exit:                              ; preds = %.lr.ph.i76, %.lr.ph
   %41 = phi i64 [ %44, %.loopexit ], [ %.pre111, %.lr.ph100.preheader ]
   %.06999 = phi i64 [ %42, %.loopexit ], [ 0, %.lr.ph100.preheader ]
   %42 = add nuw nsw i64 %.06999, 1
-  %43 = getelementptr inbounds nuw i64, ptr %7, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %42
   %44 = load i64, ptr %43, align 8, !tbaa !17
   %45 = icmp slt i64 %41, %44
   br i1 %45, label %.lr.ph98, label %.loopexit
 
 .lr.ph98:                                         ; preds = %.lr.ph100
-  %46 = getelementptr inbounds nuw double, ptr %1, i64 %.06999
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.06999
   br label %47
 
 47:                                               ; preds = %.lr.ph98, %47
   %.097 = phi i64 [ %41, %.lr.ph98 ], [ %57, %47 ]
-  %48 = getelementptr inbounds double, ptr %14, i64 %.097
+  %48 = getelementptr inbounds [8 x i8], ptr %14, i64 %.097
   %49 = load double, ptr %48, align 8, !tbaa !3
   %50 = load double, ptr %46, align 8, !tbaa !3
-  %51 = getelementptr inbounds i64, ptr %9, i64 %.097
+  %51 = getelementptr inbounds [8 x i8], ptr %9, i64 %.097
   %52 = load i64, ptr %51, align 8, !tbaa !17
-  %53 = getelementptr inbounds double, ptr %2, i64 %52
+  %53 = getelementptr inbounds [8 x i8], ptr %2, i64 %52
   %54 = load double, ptr %53, align 8, !tbaa !3
   %55 = fneg double %49
   %56 = tail call double @llvm.fmuladd.f64(double %55, double %50, double %54)
@@ -667,23 +667,23 @@ vec_set_scalar.exit:                              ; preds = %.lr.ph.i76, %.lr.ph
   %61 = phi i64 [ %64, %.loopexit80 ], [ %.pre110, %.lr.ph96.preheader ]
   %.17095 = phi i64 [ %62, %.loopexit80 ], [ 0, %.lr.ph96.preheader ]
   %62 = add nuw nsw i64 %.17095, 1
-  %63 = getelementptr inbounds nuw i64, ptr %7, i64 %62
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %62
   %64 = load i64, ptr %63, align 8, !tbaa !17
   %65 = icmp slt i64 %61, %64
   br i1 %65, label %.lr.ph94, label %.loopexit80
 
 .lr.ph94:                                         ; preds = %.lr.ph96
-  %66 = getelementptr inbounds nuw double, ptr %1, i64 %.17095
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.17095
   br label %67
 
 67:                                               ; preds = %.lr.ph94, %67
   %.193 = phi i64 [ %61, %.lr.ph94 ], [ %76, %67 ]
-  %68 = getelementptr inbounds double, ptr %14, i64 %.193
+  %68 = getelementptr inbounds [8 x i8], ptr %14, i64 %.193
   %69 = load double, ptr %68, align 8, !tbaa !3
   %70 = load double, ptr %66, align 8, !tbaa !3
-  %71 = getelementptr inbounds i64, ptr %9, i64 %.193
+  %71 = getelementptr inbounds [8 x i8], ptr %9, i64 %.193
   %72 = load i64, ptr %71, align 8, !tbaa !17
-  %73 = getelementptr inbounds double, ptr %2, i64 %72
+  %73 = getelementptr inbounds [8 x i8], ptr %2, i64 %72
   %74 = load double, ptr %73, align 8, !tbaa !3
   %75 = tail call double @llvm.fmuladd.f64(double %69, double %70, double %74)
   store double %75, ptr %73, align 8, !tbaa !3
@@ -699,24 +699,24 @@ vec_set_scalar.exit:                              ; preds = %.lr.ph.i76, %.lr.ph
   %77 = phi i64 [ %80, %.loopexit83 ], [ %.pre, %.lr.ph92.preheader ]
   %.27191 = phi i64 [ %78, %.loopexit83 ], [ 0, %.lr.ph92.preheader ]
   %78 = add nuw nsw i64 %.27191, 1
-  %79 = getelementptr inbounds nuw i64, ptr %7, i64 %78
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %78
   %80 = load i64, ptr %79, align 8, !tbaa !17
   %81 = icmp slt i64 %77, %80
   br i1 %81, label %.lr.ph, label %.loopexit83
 
 .lr.ph:                                           ; preds = %.lr.ph92
-  %82 = getelementptr inbounds nuw double, ptr %1, i64 %.27191
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.27191
   br label %83
 
 83:                                               ; preds = %.lr.ph, %83
   %.290 = phi i64 [ %77, %.lr.ph ], [ %93, %83 ]
-  %84 = getelementptr inbounds double, ptr %14, i64 %.290
+  %84 = getelementptr inbounds [8 x i8], ptr %14, i64 %.290
   %85 = load double, ptr %84, align 8, !tbaa !3
   %86 = fmul double %3, %85
   %87 = load double, ptr %82, align 8, !tbaa !3
-  %88 = getelementptr inbounds i64, ptr %9, i64 %.290
+  %88 = getelementptr inbounds [8 x i8], ptr %9, i64 %.290
   %89 = load i64, ptr %88, align 8, !tbaa !17
-  %90 = getelementptr inbounds double, ptr %2, i64 %89
+  %90 = getelementptr inbounds [8 x i8], ptr %2, i64 %89
   %91 = load double, ptr %90, align 8, !tbaa !3
   %92 = tail call double @llvm.fmuladd.f64(double %86, double %87, double %91)
   store double %92, ptr %90, align 8, !tbaa !3
@@ -764,7 +764,7 @@ define void @csc_Atxpy(ptr noundef readonly captures(none) %0, ptr noundef reado
 
 .lr.ph.i73:                                       ; preds = %23, %.lr.ph.i73
   %.06.i = phi i64 [ %27, %.lr.ph.i73 ], [ 0, %23 ]
-  %24 = getelementptr inbounds nuw double, ptr %2, i64 %.06.i
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.06.i
   %25 = load double, ptr %24, align 8, !tbaa !3
   %26 = fneg double %25
   store double %26, ptr %24, align 8, !tbaa !3
@@ -777,7 +777,7 @@ define void @csc_Atxpy(ptr noundef readonly captures(none) %0, ptr noundef reado
 
 .lr.ph.i75:                                       ; preds = %28, %.lr.ph.i75
   %.05.i76 = phi i64 [ %32, %.lr.ph.i75 ], [ 0, %28 ]
-  %29 = getelementptr inbounds nuw double, ptr %2, i64 %.05.i76
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.05.i76
   %30 = load double, ptr %29, align 8, !tbaa !3
   %31 = fmul double %4, %30
   store double %31, ptr %29, align 8, !tbaa !3
@@ -786,7 +786,7 @@ define void @csc_Atxpy(ptr noundef readonly captures(none) %0, ptr noundef reado
   br i1 %exitcond.not.i77, label %vec_set_scalar.exit, label %.lr.ph.i75, !llvm.loop !9
 
 vec_set_scalar.exit:                              ; preds = %.lr.ph.i75, %.lr.ph.i73, %.lr.ph.i.preheader, %28, %23, %15, %18
-  %33 = getelementptr inbounds i64, ptr %9, i64 %7
+  %33 = getelementptr inbounds [8 x i8], ptr %9, i64 %7
   %34 = load i64, ptr %33, align 8, !tbaa !17
   %35 = icmp eq i64 %34, 0
   %36 = fcmp oeq double %3, 0.000000e+00
@@ -813,24 +813,24 @@ vec_set_scalar.exit:                              ; preds = %.lr.ph.i75, %.lr.ph
   %40 = phi i64 [ %43, %.loopexit ], [ %.pre112, %.lr.ph101.preheader ]
   %.0100 = phi i64 [ %41, %.loopexit ], [ 0, %.lr.ph101.preheader ]
   %41 = add nuw nsw i64 %.0100, 1
-  %42 = getelementptr inbounds nuw i64, ptr %9, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %41
   %43 = load i64, ptr %42, align 8, !tbaa !17
   %44 = icmp slt i64 %40, %43
   br i1 %44, label %.lr.ph98, label %.loopexit
 
 .lr.ph98:                                         ; preds = %.lr.ph101
-  %45 = getelementptr inbounds nuw double, ptr %2, i64 %.0100
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.0100
   %.promoted99 = load double, ptr %45, align 8, !tbaa !3
   br label %46
 
 46:                                               ; preds = %.lr.ph98, %46
   %47 = phi double [ %.promoted99, %.lr.ph98 ], [ %55, %46 ]
   %.06897 = phi i64 [ %40, %.lr.ph98 ], [ %56, %46 ]
-  %48 = getelementptr inbounds double, ptr %13, i64 %.06897
+  %48 = getelementptr inbounds [8 x i8], ptr %13, i64 %.06897
   %49 = load double, ptr %48, align 8, !tbaa !3
-  %50 = getelementptr inbounds i64, ptr %11, i64 %.06897
+  %50 = getelementptr inbounds [8 x i8], ptr %11, i64 %.06897
   %51 = load i64, ptr %50, align 8, !tbaa !17
-  %52 = getelementptr inbounds double, ptr %1, i64 %51
+  %52 = getelementptr inbounds [8 x i8], ptr %1, i64 %51
   %53 = load double, ptr %52, align 8, !tbaa !3
   %54 = fneg double %49
   %55 = tail call double @llvm.fmuladd.f64(double %54, double %53, double %47)
@@ -866,24 +866,24 @@ vec_set_scalar.exit:                              ; preds = %.lr.ph.i75, %.lr.ph
   %60 = phi i64 [ %63, %.loopexit79 ], [ %.pre111, %.lr.ph96.preheader ]
   %.195 = phi i64 [ %61, %.loopexit79 ], [ 0, %.lr.ph96.preheader ]
   %61 = add nuw nsw i64 %.195, 1
-  %62 = getelementptr inbounds nuw i64, ptr %9, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %61
   %63 = load i64, ptr %62, align 8, !tbaa !17
   %64 = icmp slt i64 %60, %63
   br i1 %64, label %.lr.ph93, label %.loopexit79
 
 .lr.ph93:                                         ; preds = %.lr.ph96
-  %65 = getelementptr inbounds nuw double, ptr %2, i64 %.195
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.195
   %.promoted94 = load double, ptr %65, align 8, !tbaa !3
   br label %66
 
 66:                                               ; preds = %.lr.ph93, %66
   %67 = phi double [ %.promoted94, %.lr.ph93 ], [ %74, %66 ]
   %.16992 = phi i64 [ %60, %.lr.ph93 ], [ %75, %66 ]
-  %68 = getelementptr inbounds double, ptr %13, i64 %.16992
+  %68 = getelementptr inbounds [8 x i8], ptr %13, i64 %.16992
   %69 = load double, ptr %68, align 8, !tbaa !3
-  %70 = getelementptr inbounds i64, ptr %11, i64 %.16992
+  %70 = getelementptr inbounds [8 x i8], ptr %11, i64 %.16992
   %71 = load i64, ptr %70, align 8, !tbaa !17
-  %72 = getelementptr inbounds double, ptr %1, i64 %71
+  %72 = getelementptr inbounds [8 x i8], ptr %1, i64 %71
   %73 = load double, ptr %72, align 8, !tbaa !3
   %74 = tail call double @llvm.fmuladd.f64(double %69, double %73, double %67)
   store double %74, ptr %65, align 8, !tbaa !3
@@ -899,25 +899,25 @@ vec_set_scalar.exit:                              ; preds = %.lr.ph.i75, %.lr.ph
   %76 = phi i64 [ %79, %.loopexit82 ], [ %.pre, %.lr.ph91.preheader ]
   %.290 = phi i64 [ %77, %.loopexit82 ], [ 0, %.lr.ph91.preheader ]
   %77 = add nuw nsw i64 %.290, 1
-  %78 = getelementptr inbounds nuw i64, ptr %9, i64 %77
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %77
   %79 = load i64, ptr %78, align 8, !tbaa !17
   %80 = icmp slt i64 %76, %79
   br i1 %80, label %.lr.ph, label %.loopexit82
 
 .lr.ph:                                           ; preds = %.lr.ph91
-  %81 = getelementptr inbounds nuw double, ptr %2, i64 %.290
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.290
   %.promoted = load double, ptr %81, align 8, !tbaa !3
   br label %82
 
 82:                                               ; preds = %.lr.ph, %82
   %83 = phi double [ %.promoted, %.lr.ph ], [ %91, %82 ]
   %.27089 = phi i64 [ %76, %.lr.ph ], [ %92, %82 ]
-  %84 = getelementptr inbounds double, ptr %13, i64 %.27089
+  %84 = getelementptr inbounds [8 x i8], ptr %13, i64 %.27089
   %85 = load double, ptr %84, align 8, !tbaa !3
   %86 = fmul double %3, %85
-  %87 = getelementptr inbounds i64, ptr %11, i64 %.27089
+  %87 = getelementptr inbounds [8 x i8], ptr %11, i64 %.27089
   %88 = load i64, ptr %87, align 8, !tbaa !17
-  %89 = getelementptr inbounds double, ptr %1, i64 %88
+  %89 = getelementptr inbounds [8 x i8], ptr %1, i64 %88
   %90 = load double, ptr %89, align 8, !tbaa !3
   %91 = tail call double @llvm.fmuladd.f64(double %86, double %90, double %83)
   store double %91, ptr %81, align 8, !tbaa !3
@@ -954,20 +954,20 @@ define void @csc_col_norm_inf(ptr noundef readonly captures(none) %0, ptr nounde
   %11 = phi i64 [ %14, %.loopexit ], [ %.pre, %.lr.ph39.preheader ]
   %.038 = phi i64 [ %12, %.loopexit ], [ 0, %.lr.ph39.preheader ]
   %12 = add nuw nsw i64 %.038, 1
-  %13 = getelementptr inbounds nuw i64, ptr %4, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %12
   %14 = load i64, ptr %13, align 8, !tbaa !17
   %15 = icmp slt i64 %11, %14
   br i1 %15, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph39
-  %16 = getelementptr inbounds nuw double, ptr %1, i64 %.038
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.038
   %.promoted = load double, ptr %16, align 8, !tbaa !3
   br label %17
 
 17:                                               ; preds = %.lr.ph, %17
   %18 = phi double [ %.promoted, %.lr.ph ], [ %25, %17 ]
   %.03137 = phi i64 [ %11, %.lr.ph ], [ %26, %17 ]
-  %19 = getelementptr inbounds double, ptr %8, i64 %.03137
+  %19 = getelementptr inbounds [8 x i8], ptr %8, i64 %.03137
   %20 = load double, ptr %19, align 8, !tbaa !3
   %21 = fcmp uge double %20, 0.000000e+00
   %22 = fneg double %20
@@ -1019,21 +1019,21 @@ vec_set_scalar.exit:                              ; preds = %.lr.ph.i.preheader,
   %15 = phi i64 [ %18, %.loopexit ], [ %.pre, %.lr.ph43.preheader ]
   %.042 = phi i64 [ %16, %.loopexit ], [ 0, %.lr.ph43.preheader ]
   %16 = add nuw nsw i64 %.042, 1
-  %17 = getelementptr inbounds nuw i64, ptr %4, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %16
   %18 = load i64, ptr %17, align 8, !tbaa !17
   %19 = icmp slt i64 %15, %18
   br i1 %19, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph43, %.lr.ph
   %.03541 = phi i64 [ %31, %.lr.ph ], [ %15, %.lr.ph43 ]
-  %20 = getelementptr inbounds i64, ptr %6, i64 %.03541
+  %20 = getelementptr inbounds [8 x i8], ptr %6, i64 %.03541
   %21 = load i64, ptr %20, align 8, !tbaa !17
-  %22 = getelementptr inbounds double, ptr %11, i64 %.03541
+  %22 = getelementptr inbounds [8 x i8], ptr %11, i64 %.03541
   %23 = load double, ptr %22, align 8, !tbaa !3
   %24 = fcmp uge double %23, 0.000000e+00
   %25 = fneg double %23
   %26 = tail call double @llvm.fabs.f64(double %23)
-  %27 = getelementptr inbounds double, ptr %1, i64 %21
+  %27 = getelementptr inbounds [8 x i8], ptr %1, i64 %21
   %28 = load double, ptr %27, align 8, !tbaa !3
   %29 = fcmp ule double %26, %28
   %.mux = select i1 %24, double %23, double %25
@@ -1082,20 +1082,20 @@ vec_set_scalar.exit:                              ; preds = %.lr.ph.i.preheader,
   %15 = phi i64 [ %18, %.loopexit ], [ %.pre, %.lr.ph50.preheader ]
   %.049 = phi i64 [ %16, %.loopexit ], [ 0, %.lr.ph50.preheader ]
   %16 = add nuw nsw i64 %.049, 1
-  %17 = getelementptr inbounds nuw i64, ptr %4, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %16
   %18 = load i64, ptr %17, align 8, !tbaa !17
   %19 = icmp slt i64 %15, %18
   br i1 %19, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph50
-  %20 = getelementptr inbounds nuw double, ptr %1, i64 %.049
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.049
   br label %21
 
 21:                                               ; preds = %.lr.ph, %36
   %.04148 = phi i64 [ %15, %.lr.ph ], [ %37, %36 ]
-  %22 = getelementptr inbounds i64, ptr %6, i64 %.04148
+  %22 = getelementptr inbounds [8 x i8], ptr %6, i64 %.04148
   %23 = load i64, ptr %22, align 8, !tbaa !17
-  %24 = getelementptr inbounds double, ptr %11, i64 %.04148
+  %24 = getelementptr inbounds [8 x i8], ptr %11, i64 %.04148
   %25 = load double, ptr %24, align 8, !tbaa !3
   %26 = fcmp olt double %25, 0.000000e+00
   %27 = fneg double %25
@@ -1108,7 +1108,7 @@ vec_set_scalar.exit:                              ; preds = %.lr.ph.i.preheader,
   br i1 %.not, label %36, label %32
 
 32:                                               ; preds = %21
-  %33 = getelementptr inbounds double, ptr %1, i64 %23
+  %33 = getelementptr inbounds [8 x i8], ptr %1, i64 %23
   %34 = load double, ptr %33, align 8, !tbaa !3
   %35 = fcmp ogt double %28, %34
   %. = select i1 %35, double %28, double %34

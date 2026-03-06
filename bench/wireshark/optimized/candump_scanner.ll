@@ -80,7 +80,7 @@ define hidden range(i32 0, 9) i32 @candump_lex(ptr noundef %0) local_unnamed_add
 21:                                               ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %23 = load i64, ptr %22, align 8
-  %24 = getelementptr ptr, ptr %20, i64 %23
+  %24 = getelementptr [8 x i8], ptr %20, i64 %23
   %25 = load ptr, ptr %24, align 8
   %.not182 = icmp eq ptr %25, null
   br i1 %.not182, label %26, label %33
@@ -92,11 +92,11 @@ define hidden range(i32 0, 9) i32 @candump_lex(ptr noundef %0) local_unnamed_add
   %29 = load ptr, ptr %19, align 8
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %31 = load i64, ptr %30, align 8
-  %32 = getelementptr ptr, ptr %29, i64 %31
+  %32 = getelementptr [8 x i8], ptr %29, i64 %31
   store ptr %28, ptr %32, align 8
   %.pre = load ptr, ptr %19, align 8
   %.pre403 = load i64, ptr %30, align 8
-  %.phi.trans.insert404 = getelementptr ptr, ptr %.pre, i64 %.pre403
+  %.phi.trans.insert404 = getelementptr [8 x i8], ptr %.pre, i64 %.pre403
   %.pre405 = load ptr, ptr %.phi.trans.insert404, align 8
   br label %33
 
@@ -104,7 +104,7 @@ define hidden range(i32 0, 9) i32 @candump_lex(ptr noundef %0) local_unnamed_add
   %34 = phi ptr [ %.pre405, %26 ], [ %25, %21 ]
   %35 = phi i64 [ %.pre403, %26 ], [ %23, %21 ]
   %36 = phi ptr [ %.pre, %26 ], [ %20, %21 ]
-  %37 = getelementptr ptr, ptr %36, i64 %35
+  %37 = getelementptr [8 x i8], ptr %36, i64 %35
   %38 = getelementptr inbounds nuw i8, ptr %34, i64 28
   %39 = load i32, ptr %38, align 4
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 52
@@ -169,12 +169,12 @@ define hidden range(i32 0, 9) i32 @candump_lex(ptr noundef %0) local_unnamed_add
   br label %76
 
 76:                                               ; preds = %75, %66
-  %77 = getelementptr i16, ptr @yy_base, i64 %71
+  %77 = getelementptr [2 x i8], ptr @yy_base, i64 %71
   %78 = load i16, ptr %77, align 2
   %79 = sext i16 %78 to i64
   %80 = zext i8 %70 to i64
   %81 = add nsw i64 %79, %80
-  %82 = getelementptr i16, ptr @yy_chk, i64 %81
+  %82 = getelementptr [2 x i8], ptr @yy_chk, i64 %81
   %83 = load i16, ptr %82, align 2
   %84 = sext i16 %83 to i32
   %.not184337 = icmp eq i32 %.1, %84
@@ -184,7 +184,7 @@ define hidden range(i32 0, 9) i32 @candump_lex(ptr noundef %0) local_unnamed_add
   %85 = phi i64 [ %100, %95 ], [ %80, %76 ]
   %86 = phi i64 [ %96, %95 ], [ %71, %76 ]
   %.0160338 = phi i8 [ %.1161, %95 ], [ %70, %76 ]
-  %87 = getelementptr i16, ptr @yy_def, i64 %86
+  %87 = getelementptr [2 x i8], ptr @yy_def, i64 %86
   %88 = load i16, ptr %87, align 2
   %89 = and i64 %86, 9223372036854775807
   %90 = shl nuw i64 1, %89
@@ -200,19 +200,19 @@ define hidden range(i32 0, 9) i32 @candump_lex(ptr noundef %0) local_unnamed_add
 95:                                               ; preds = %92, %.lr.ph
   %.1161 = phi i8 [ %94, %92 ], [ %.0160338, %.lr.ph ]
   %96 = sext i16 %88 to i64
-  %97 = getelementptr i16, ptr @yy_base, i64 %96
+  %97 = getelementptr [2 x i8], ptr @yy_base, i64 %96
   %98 = load i16, ptr %97, align 2
   %99 = sext i16 %98 to i64
   %100 = zext i8 %.1161 to i64
   %101 = add nsw i64 %99, %100
-  %102 = getelementptr i16, ptr @yy_chk, i64 %101
+  %102 = getelementptr [2 x i8], ptr @yy_chk, i64 %101
   %103 = load i16, ptr %102, align 2
   %.not184 = icmp eq i16 %88, %103
   br i1 %.not184, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %95, %76
   %.lcssa = phi i64 [ %81, %76 ], [ %101, %95 ]
-  %104 = getelementptr i16, ptr @yy_nxt, i64 %.lcssa
+  %104 = getelementptr [2 x i8], ptr @yy_nxt, i64 %.lcssa
   %105 = load i16, ptr %104, align 2
   %106 = sext i16 %105 to i32
   %107 = getelementptr i8, ptr %.1163, i64 1
@@ -233,7 +233,7 @@ define hidden range(i32 0, 9) i32 @candump_lex(ptr noundef %0) local_unnamed_add
   %.2164 = phi ptr [ %111, %.backedge.sink.split614 ], [ %591, %.backedge.backedge ]
   %.3 = phi i32 [ %112, %.backedge.sink.split614 ], [ %.3.be, %.backedge.backedge ]
   %113 = sext i32 %.3 to i64
-  %114 = getelementptr i16, ptr @yy_accept, i64 %113
+  %114 = getelementptr [2 x i8], ptr @yy_accept, i64 %113
   %115 = load i16, ptr %114, align 2
   %116 = sext i16 %115 to i32
   store ptr %.1171, ptr %59, align 8
@@ -273,7 +273,7 @@ define hidden range(i32 0, 9) i32 @candump_lex(ptr noundef %0) local_unnamed_add
 133:                                              ; preds = %.lr.ph340
   %134 = load ptr, ptr %61, align 8
   %135 = load i64, ptr %62, align 8
-  %136 = getelementptr ptr, ptr %134, i64 %135
+  %136 = getelementptr [8 x i8], ptr %134, i64 %135
   %137 = load ptr, ptr %136, align 8
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 44
   %139 = load i32, ptr %138, align 4
@@ -281,7 +281,7 @@ define hidden range(i32 0, 9) i32 @candump_lex(ptr noundef %0) local_unnamed_add
   store i32 %140, ptr %138, align 4
   %141 = load ptr, ptr %61, align 8
   %142 = load i64, ptr %62, align 8
-  %143 = getelementptr ptr, ptr %141, i64 %142
+  %143 = getelementptr [8 x i8], ptr %141, i64 %142
   %144 = load ptr, ptr %143, align 8
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 48
   store i32 0, ptr %145, align 8
@@ -482,7 +482,7 @@ define hidden range(i32 0, 9) i32 @candump_lex(ptr noundef %0) local_unnamed_add
   store i8 %266, ptr %.2164, align 1
   %267 = load ptr, ptr %61, align 8
   %268 = load i64, ptr %62, align 8
-  %269 = getelementptr ptr, ptr %267, i64 %268
+  %269 = getelementptr [8 x i8], ptr %267, i64 %268
   %270 = load ptr, ptr %269, align 8
   %271 = getelementptr inbounds nuw i8, ptr %270, i64 56
   %272 = load i32, ptr %271, align 8
@@ -498,13 +498,13 @@ define hidden range(i32 0, 9) i32 @candump_lex(ptr noundef %0) local_unnamed_add
   store ptr %277, ptr %278, align 8
   %279 = load ptr, ptr %61, align 8
   %280 = load i64, ptr %62, align 8
-  %281 = getelementptr ptr, ptr %279, i64 %280
+  %281 = getelementptr [8 x i8], ptr %279, i64 %280
   %282 = load ptr, ptr %281, align 8
   %283 = getelementptr inbounds nuw i8, ptr %282, i64 56
   store i32 1, ptr %283, align 8
   %.pre412 = load ptr, ptr %61, align 8
   %.pre413 = load i64, ptr %62, align 8
-  %.phi.trans.insert414 = getelementptr ptr, ptr %.pre412, i64 %.pre413
+  %.phi.trans.insert414 = getelementptr [8 x i8], ptr %.pre412, i64 %.pre413
   %.pre415 = load ptr, ptr %.phi.trans.insert414, align 8
   br label %284
 
@@ -563,12 +563,12 @@ define hidden range(i32 0, 9) i32 @candump_lex(ptr noundef %0) local_unnamed_add
   br label %316
 
 316:                                              ; preds = %315, %309
-  %317 = getelementptr i16, ptr @yy_base, i64 %311
+  %317 = getelementptr [2 x i8], ptr @yy_base, i64 %311
   %318 = load i16, ptr %317, align 2
   %319 = sext i16 %318 to i64
   %320 = zext i8 %310 to i64
   %321 = add nsw i64 %319, %320
-  %322 = getelementptr i16, ptr @yy_chk, i64 %321
+  %322 = getelementptr [2 x i8], ptr @yy_chk, i64 %321
   %323 = load i16, ptr %322, align 2
   %324 = sext i16 %323 to i32
   %.not2527.i = icmp eq i32 %.02130.i, %324
@@ -578,7 +578,7 @@ define hidden range(i32 0, 9) i32 @candump_lex(ptr noundef %0) local_unnamed_add
   %325 = phi i64 [ %340, %335 ], [ %320, %316 ]
   %326 = phi i64 [ %336, %335 ], [ %311, %316 ]
   %.028.i = phi i8 [ %.1.i, %335 ], [ %310, %316 ]
-  %327 = getelementptr i16, ptr @yy_def, i64 %326
+  %327 = getelementptr [2 x i8], ptr @yy_def, i64 %326
   %328 = load i16, ptr %327, align 2
   %329 = and i64 %326, 9223372036854775807
   %330 = shl nuw i64 1, %329
@@ -594,19 +594,19 @@ define hidden range(i32 0, 9) i32 @candump_lex(ptr noundef %0) local_unnamed_add
 335:                                              ; preds = %332, %.lr.ph.i
   %.1.i = phi i8 [ %334, %332 ], [ %.028.i, %.lr.ph.i ]
   %336 = sext i16 %328 to i64
-  %337 = getelementptr i16, ptr @yy_base, i64 %336
+  %337 = getelementptr [2 x i8], ptr @yy_base, i64 %336
   %338 = load i16, ptr %337, align 2
   %339 = sext i16 %338 to i64
   %340 = zext i8 %.1.i to i64
   %341 = add nsw i64 %339, %340
-  %342 = getelementptr i16, ptr @yy_chk, i64 %341
+  %342 = getelementptr [2 x i8], ptr @yy_chk, i64 %341
   %343 = load i16, ptr %342, align 2
   %.not25.i = icmp eq i16 %328, %343
   br i1 %.not25.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !10
 
 ._crit_edge.i:                                    ; preds = %335, %316
   %.lcssa.i = phi i64 [ %321, %316 ], [ %341, %335 ]
-  %344 = getelementptr i16, ptr @yy_nxt, i64 %.lcssa.i
+  %344 = getelementptr [2 x i8], ptr @yy_nxt, i64 %.lcssa.i
   %345 = load i16, ptr %344, align 2
   %346 = sext i16 %345 to i32
   %347 = getelementptr i8, ptr %.02329.i, i64 1
@@ -628,11 +628,11 @@ yy_get_previous_state.exit:                       ; preds = %._crit_edge.i, %294
   br label %353
 
 353:                                              ; preds = %352, %yy_get_previous_state.exit
-  %354 = getelementptr i16, ptr @yy_base, i64 %348
+  %354 = getelementptr [2 x i8], ptr @yy_base, i64 %348
   %355 = load i16, ptr %354, align 2
   %356 = sext i16 %355 to i64
   %357 = add nsw i64 %356, 1
-  %358 = getelementptr i16, ptr @yy_chk, i64 %357
+  %358 = getelementptr [2 x i8], ptr @yy_chk, i64 %357
   %359 = load i16, ptr %358, align 2
   %360 = sext i16 %359 to i32
   %.not20.i = icmp eq i32 %.021.lcssa.i, %360
@@ -640,14 +640,14 @@ yy_get_previous_state.exit:                       ; preds = %._crit_edge.i, %294
 
 .lr.ph.i191:                                      ; preds = %353, %.lr.ph.i191
   %361 = phi i64 [ %364, %.lr.ph.i191 ], [ %348, %353 ]
-  %362 = getelementptr i16, ptr @yy_def, i64 %361
+  %362 = getelementptr [2 x i8], ptr @yy_def, i64 %361
   %363 = load i16, ptr %362, align 2
   %364 = sext i16 %363 to i64
-  %365 = getelementptr i16, ptr @yy_base, i64 %364
+  %365 = getelementptr [2 x i8], ptr @yy_base, i64 %364
   %366 = load i16, ptr %365, align 2
   %367 = sext i16 %366 to i64
   %368 = add nsw i64 %367, 1
-  %369 = getelementptr i16, ptr @yy_chk, i64 %368
+  %369 = getelementptr [2 x i8], ptr @yy_chk, i64 %368
   %370 = load i16, ptr %369, align 2
   %.not.i192 = icmp eq i16 %363, %370
   br i1 %.not.i192, label %yy_try_NUL_trans.exit, label %.lr.ph.i191, !llvm.loop !12
@@ -668,7 +668,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i191, %353
   br label %.backedge.sink.split614
 
 375:                                              ; preds = %yy_try_NUL_trans.exit
-  %376 = getelementptr i16, ptr @yy_nxt, i64 %.lcssa.i194
+  %376 = getelementptr [2 x i8], ptr @yy_nxt, i64 %.lcssa.i194
   %377 = load i16, ptr %376, align 2
   %378 = sext i16 %377 to i32
   %379 = getelementptr i8, ptr %301, i64 1
@@ -728,7 +728,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i191, %353
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i197
   %.pre.i = load ptr, ptr %61, align 8
   %.pre123.i = load i64, ptr %62, align 8
-  %.phi.trans.insert.i = getelementptr ptr, ptr %.pre.i, i64 %.pre123.i
+  %.phi.trans.insert.i = getelementptr [8 x i8], ptr %.pre.i, i64 %.pre123.i
   %.pre124.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %._crit_edge.i195
 
@@ -753,7 +753,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i191, %353
   br label %.lr.ph119.i
 
 413:                                              ; preds = %._crit_edge.i195
-  %414 = getelementptr ptr, ptr %407, i64 %406
+  %414 = getelementptr [8 x i8], ptr %407, i64 %406
   store i32 0, ptr %63, align 4
   br label %465
 
@@ -807,7 +807,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i191, %353
   store ptr %438, ptr %53, align 8
   %439 = load ptr, ptr %61, align 8
   %440 = load i64, ptr %62, align 8
-  %441 = getelementptr ptr, ptr %439, i64 %440
+  %441 = getelementptr [8 x i8], ptr %439, i64 %440
   %442 = load ptr, ptr %441, align 8
   %.pn.in.i = getelementptr inbounds nuw i8, ptr %442, i64 24
   %.pn.i = load i32, ptr %.pn.in.i, align 8
@@ -847,7 +847,7 @@ candump_yyinput.exit.i:                           ; preds = %458, %453
   store i32 %.0.i.i, ptr %63, align 4
   %462 = load ptr, ptr %61, align 8
   %463 = load i64, ptr %62, align 8
-  %464 = getelementptr ptr, ptr %462, i64 %463
+  %464 = getelementptr [8 x i8], ptr %462, i64 %463
   br label %465
 
 465:                                              ; preds = %candump_yyinput.exit.i, %413
@@ -872,7 +872,7 @@ candump_yyinput.exit.i:                           ; preds = %458, %453
 473:                                              ; preds = %469
   %474 = load ptr, ptr %61, align 8
   %475 = load i64, ptr %62, align 8
-  %476 = getelementptr ptr, ptr %474, i64 %475
+  %476 = getelementptr [8 x i8], ptr %474, i64 %475
   %477 = load ptr, ptr %476, align 8
   %478 = getelementptr inbounds nuw i8, ptr %477, i64 56
   store i32 2, ptr %478, align 8
@@ -884,7 +884,7 @@ candump_yyinput.exit.i:                           ; preds = %458, %453
   %481 = add i32 %480, %399
   %482 = load ptr, ptr %61, align 8
   %483 = load i64, ptr %62, align 8
-  %484 = getelementptr ptr, ptr %482, i64 %483
+  %484 = getelementptr [8 x i8], ptr %482, i64 %483
   %485 = load ptr, ptr %484, align 8
   %486 = getelementptr inbounds nuw i8, ptr %485, i64 24
   %487 = load i32, ptr %486, align 8
@@ -900,13 +900,13 @@ candump_yyinput.exit.i:                           ; preds = %458, %453
   %495 = tail call ptr @realloc(ptr noundef %493, i64 noundef %494) #23
   %496 = load ptr, ptr %61, align 8
   %497 = load i64, ptr %62, align 8
-  %498 = getelementptr ptr, ptr %496, i64 %497
+  %498 = getelementptr [8 x i8], ptr %496, i64 %497
   %499 = load ptr, ptr %498, align 8
   %500 = getelementptr inbounds nuw i8, ptr %499, i64 8
   store ptr %495, ptr %500, align 8
   %501 = load ptr, ptr %61, align 8
   %502 = load i64, ptr %62, align 8
-  %503 = getelementptr ptr, ptr %501, i64 %502
+  %503 = getelementptr [8 x i8], ptr %501, i64 %502
   %504 = load ptr, ptr %503, align 8
   %505 = getelementptr inbounds nuw i8, ptr %504, i64 8
   %506 = load ptr, ptr %505, align 8
@@ -932,7 +932,7 @@ yy_get_next_buffer.exit:                          ; preds = %479, %508
   %511 = phi i64 [ %.pre128.i, %508 ], [ %483, %479 ]
   %512 = phi ptr [ %.pre127.i, %508 ], [ %482, %479 ]
   store i32 %.pre-phi.i, ptr %63, align 4
-  %513 = getelementptr ptr, ptr %512, i64 %511
+  %513 = getelementptr [8 x i8], ptr %512, i64 %511
   %514 = load ptr, ptr %513, align 8
   %515 = getelementptr inbounds nuw i8, ptr %514, i64 8
   %516 = load ptr, ptr %515, align 8
@@ -941,7 +941,7 @@ yy_get_next_buffer.exit:                          ; preds = %479, %508
   store i8 0, ptr %518, align 1
   %519 = load ptr, ptr %61, align 8
   %520 = load i64, ptr %62, align 8
-  %521 = getelementptr ptr, ptr %519, i64 %520
+  %521 = getelementptr [8 x i8], ptr %519, i64 %520
   %522 = load ptr, ptr %521, align 8
   %523 = getelementptr inbounds nuw i8, ptr %522, i64 8
   %524 = load ptr, ptr %523, align 8
@@ -952,7 +952,7 @@ yy_get_next_buffer.exit:                          ; preds = %479, %508
   store i8 0, ptr %528, align 1
   %529 = load ptr, ptr %61, align 8
   %530 = load i64, ptr %62, align 8
-  %531 = getelementptr ptr, ptr %529, i64 %530
+  %531 = getelementptr [8 x i8], ptr %529, i64 %530
   %532 = load ptr, ptr %531, align 8
   %533 = getelementptr inbounds nuw i8, ptr %532, i64 8
   %534 = load ptr, ptr %533, align 8
@@ -964,7 +964,7 @@ yy_get_next_buffer.exit:                          ; preds = %479, %508
   ]
 
 yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread232_crit_edge: ; preds = %yy_get_next_buffer.exit
-  %535 = getelementptr ptr, ptr %529, i64 %530
+  %535 = getelementptr [8 x i8], ptr %529, i64 %530
   %.pre416 = load ptr, ptr %535, align 8
   %.phi.trans.insert417 = getelementptr inbounds nuw i8, ptr %.pre416, i64 8
   %.pre418 = load ptr, ptr %.phi.trans.insert417, align 8
@@ -1013,12 +1013,12 @@ yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread232_crit_edge: ; preds = %
   br label %557
 
 557:                                              ; preds = %556, %550
-  %558 = getelementptr i16, ptr @yy_base, i64 %552
+  %558 = getelementptr [2 x i8], ptr @yy_base, i64 %552
   %559 = load i16, ptr %558, align 2
   %560 = sext i16 %559 to i64
   %561 = zext i8 %551 to i64
   %562 = add nsw i64 %560, %561
-  %563 = getelementptr i16, ptr @yy_chk, i64 %562
+  %563 = getelementptr [2 x i8], ptr @yy_chk, i64 %562
   %564 = load i16, ptr %563, align 2
   %565 = sext i16 %564 to i32
   %.not2527.i205 = icmp eq i32 %.02130.i201, %565
@@ -1028,7 +1028,7 @@ yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread232_crit_edge: ; preds = %
   %566 = phi i64 [ %581, %576 ], [ %561, %557 ]
   %567 = phi i64 [ %577, %576 ], [ %552, %557 ]
   %.028.i207 = phi i8 [ %.1.i209, %576 ], [ %551, %557 ]
-  %568 = getelementptr i16, ptr @yy_def, i64 %567
+  %568 = getelementptr [2 x i8], ptr @yy_def, i64 %567
   %569 = load i16, ptr %568, align 2
   %570 = and i64 %567, 9223372036854775807
   %571 = shl nuw i64 1, %570
@@ -1044,19 +1044,19 @@ yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread232_crit_edge: ; preds = %
 576:                                              ; preds = %573, %.lr.ph.i206
   %.1.i209 = phi i8 [ %575, %573 ], [ %.028.i207, %.lr.ph.i206 ]
   %577 = sext i16 %569 to i64
-  %578 = getelementptr i16, ptr @yy_base, i64 %577
+  %578 = getelementptr [2 x i8], ptr @yy_base, i64 %577
   %579 = load i16, ptr %578, align 2
   %580 = sext i16 %579 to i64
   %581 = zext i8 %.1.i209 to i64
   %582 = add nsw i64 %580, %581
-  %583 = getelementptr i16, ptr @yy_chk, i64 %582
+  %583 = getelementptr [2 x i8], ptr @yy_chk, i64 %582
   %584 = load i16, ptr %583, align 2
   %.not25.i210 = icmp eq i16 %569, %584
   br i1 %.not25.i210, label %._crit_edge.i211, label %.lr.ph.i206, !llvm.loop !10
 
 ._crit_edge.i211:                                 ; preds = %576, %557
   %.lcssa.i212 = phi i64 [ %562, %557 ], [ %582, %576 ]
-  %585 = getelementptr i16, ptr @yy_nxt, i64 %.lcssa.i212
+  %585 = getelementptr [2 x i8], ptr @yy_nxt, i64 %.lcssa.i212
   %586 = load i16, ptr %585, align 2
   %587 = sext i16 %586 to i32
   %588 = getelementptr i8, ptr %.02329.i202, i64 1
@@ -1105,12 +1105,12 @@ yy_get_next_buffer.exit.thread232:                ; preds = %393, %yy_get_next_b
   br label %606
 
 606:                                              ; preds = %605, %599
-  %607 = getelementptr i16, ptr @yy_base, i64 %601
+  %607 = getelementptr [2 x i8], ptr @yy_base, i64 %601
   %608 = load i16, ptr %607, align 2
   %609 = sext i16 %608 to i64
   %610 = zext i8 %600 to i64
   %611 = add nsw i64 %609, %610
-  %612 = getelementptr i16, ptr @yy_chk, i64 %611
+  %612 = getelementptr [2 x i8], ptr @yy_chk, i64 %611
   %613 = load i16, ptr %612, align 2
   %614 = sext i16 %613 to i32
   %.not2527.i221 = icmp eq i32 %.02130.i217, %614
@@ -1120,7 +1120,7 @@ yy_get_next_buffer.exit.thread232:                ; preds = %393, %yy_get_next_b
   %615 = phi i64 [ %630, %625 ], [ %610, %606 ]
   %616 = phi i64 [ %626, %625 ], [ %601, %606 ]
   %.028.i223 = phi i8 [ %.1.i225, %625 ], [ %600, %606 ]
-  %617 = getelementptr i16, ptr @yy_def, i64 %616
+  %617 = getelementptr [2 x i8], ptr @yy_def, i64 %616
   %618 = load i16, ptr %617, align 2
   %619 = and i64 %616, 9223372036854775807
   %620 = shl nuw i64 1, %619
@@ -1136,19 +1136,19 @@ yy_get_next_buffer.exit.thread232:                ; preds = %393, %yy_get_next_b
 625:                                              ; preds = %622, %.lr.ph.i222
   %.1.i225 = phi i8 [ %624, %622 ], [ %.028.i223, %.lr.ph.i222 ]
   %626 = sext i16 %618 to i64
-  %627 = getelementptr i16, ptr @yy_base, i64 %626
+  %627 = getelementptr [2 x i8], ptr @yy_base, i64 %626
   %628 = load i16, ptr %627, align 2
   %629 = sext i16 %628 to i64
   %630 = zext i8 %.1.i225 to i64
   %631 = add nsw i64 %629, %630
-  %632 = getelementptr i16, ptr @yy_chk, i64 %631
+  %632 = getelementptr [2 x i8], ptr @yy_chk, i64 %631
   %633 = load i16, ptr %632, align 2
   %.not25.i226 = icmp eq i16 %618, %633
   br i1 %.not25.i226, label %._crit_edge.i227, label %.lr.ph.i222, !llvm.loop !10
 
 ._crit_edge.i227:                                 ; preds = %625, %606
   %.lcssa.i228 = phi i64 [ %611, %606 ], [ %631, %625 ]
-  %634 = getelementptr i16, ptr @yy_nxt, i64 %.lcssa.i228
+  %634 = getelementptr [2 x i8], ptr @yy_nxt, i64 %.lcssa.i228
   %635 = load i16, ptr %634, align 2
   %636 = sext i16 %635 to i32
   %637 = getelementptr i8, ptr %.02329.i218, i64 1
@@ -1226,7 +1226,7 @@ define internal fastcc void @candump_ensure_buffer_stack(ptr noundef captures(no
 21:                                               ; preds = %16
   %22 = load i64, ptr %13, align 8
   %.idx = shl i64 %22, 3
-  %23 = getelementptr ptr, ptr %19, i64 %22
+  %23 = getelementptr [8 x i8], ptr %19, i64 %22
   %24 = tail call i64 @llvm.usub.sat.i64(i64 %18, i64 %.idx)
   %25 = tail call ptr @__memset_chk(ptr noundef %23, i32 noundef 0, i64 noundef 64, i64 noundef %24) #20
   store i64 %17, ptr %13, align 8
@@ -1285,7 +1285,7 @@ define hidden nonnull ptr @candump__create_buffer(ptr noundef %0, i32 noundef %1
 24:                                               ; preds = %13
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %26 = load i64, ptr %25, align 8
-  %27 = getelementptr ptr, ptr %23, i64 %26
+  %27 = getelementptr [8 x i8], ptr %23, i64 %26
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %4, %28
   br i1 %29, label %30, label %45
@@ -1323,7 +1323,7 @@ candump__flush_buffer.exit.i:                     ; preds = %13
   store i32 1, ptr %46, align 4
   %47 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %48 = load i64, ptr %47, align 8
-  %49 = getelementptr ptr, ptr %23, i64 %48
+  %49 = getelementptr [8 x i8], ptr %23, i64 %48
   %50 = load ptr, ptr %49, align 8
   %.not14.i = icmp eq ptr %4, %50
   br i1 %.not14.i, label %candump__init_buffer.exit, label %.thread
@@ -1366,7 +1366,7 @@ define hidden void @candump_restart(ptr noundef %0, ptr noundef captures(none) %
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr ptr, ptr %4, i64 %7
+  %8 = getelementptr [8 x i8], ptr %4, i64 %7
   %9 = load ptr, ptr %8, align 8
   %.not16 = icmp eq ptr %9, null
   br i1 %.not16, label %10, label %.thread25
@@ -1379,7 +1379,7 @@ define hidden void @candump_restart(ptr noundef %0, ptr noundef captures(none) %
   %14 = load ptr, ptr %3, align 8
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %16 = load i64, ptr %15, align 8
-  %17 = getelementptr ptr, ptr %14, i64 %16
+  %17 = getelementptr [8 x i8], ptr %14, i64 %16
   store ptr %13, ptr %17, align 8
   %.pre = load ptr, ptr %3, align 8
   %.not17 = icmp eq ptr %.pre, null
@@ -1394,7 +1394,7 @@ define hidden void @candump_restart(ptr noundef %0, ptr noundef captures(none) %
   %20 = phi ptr [ %.pre, %10 ], [ %4, %5 ]
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %22 = load i64, ptr %21, align 8
-  %23 = getelementptr ptr, ptr %20, i64 %22
+  %23 = getelementptr [8 x i8], ptr %20, i64 %22
   %24 = load ptr, ptr %23, align 8
   %25 = tail call ptr @__errno_location() #25
   %26 = load i32, ptr %25, align 4
@@ -1423,7 +1423,7 @@ define hidden void @candump_restart(ptr noundef %0, ptr noundef captures(none) %
 
 38:                                               ; preds = %27
   %39 = load i64, ptr %21, align 8
-  %40 = getelementptr ptr, ptr %37, i64 %39
+  %40 = getelementptr [8 x i8], ptr %37, i64 %39
   %41 = load ptr, ptr %40, align 8
   %42 = icmp eq ptr %24, %41
   br i1 %42, label %43, label %candump__flush_buffer.exit.i
@@ -1463,7 +1463,7 @@ candump__flush_buffer.exit.i:                     ; preds = %.thread, %43, %38, 
 62:                                               ; preds = %candump__flush_buffer.exit.i
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %64 = load i64, ptr %63, align 8
-  %65 = getelementptr ptr, ptr %61, i64 %64
+  %65 = getelementptr [8 x i8], ptr %61, i64 %64
   %66 = load ptr, ptr %65, align 8
   br label %67
 
@@ -1486,7 +1486,7 @@ candump__init_buffer.exit:                        ; preds = %67, %69
   %73 = load ptr, ptr %3, align 8
   %74 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %75 = load i64, ptr %74, align 8
-  %76 = getelementptr ptr, ptr %73, i64 %75
+  %76 = getelementptr [8 x i8], ptr %73, i64 %75
   %77 = load ptr, ptr %76, align 8
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 28
   %79 = load i32, ptr %78, align 4
@@ -1524,7 +1524,7 @@ define hidden void @candump__switch_to_buffer(ptr noundef %0, ptr noundef captur
 .thread:                                          ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr ptr, ptr %4, i64 %8
+  %9 = getelementptr [8 x i8], ptr %4, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, %0
   br i1 %11, label %54, label %12
@@ -1542,7 +1542,7 @@ define hidden void @candump__switch_to_buffer(ptr noundef %0, ptr noundef captur
   %18 = load ptr, ptr %16, align 8
   %19 = load ptr, ptr %3, align 8
   %20 = load i64, ptr %7, align 8
-  %21 = getelementptr ptr, ptr %19, i64 %20
+  %21 = getelementptr [8 x i8], ptr %19, i64 %20
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store ptr %18, ptr %23, align 8
@@ -1550,7 +1550,7 @@ define hidden void @candump__switch_to_buffer(ptr noundef %0, ptr noundef captur
   %25 = load i32, ptr %24, align 4
   %26 = load ptr, ptr %3, align 8
   %27 = load i64, ptr %7, align 8
-  %28 = getelementptr ptr, ptr %26, i64 %27
+  %28 = getelementptr [8 x i8], ptr %26, i64 %27
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 28
   store i32 %25, ptr %30, align 4
@@ -1561,11 +1561,11 @@ define hidden void @candump__switch_to_buffer(ptr noundef %0, ptr noundef captur
   %32 = phi ptr [ null, %5 ], [ %.pre, %13 ], [ %4, %12 ]
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %34 = load i64, ptr %33, align 8
-  %35 = getelementptr ptr, ptr %32, i64 %34
+  %35 = getelementptr [8 x i8], ptr %32, i64 %34
   store ptr %0, ptr %35, align 8
   %36 = load ptr, ptr %3, align 8
   %37 = load i64, ptr %33, align 8
-  %38 = getelementptr ptr, ptr %36, i64 %37
+  %38 = getelementptr [8 x i8], ptr %36, i64 %37
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 28
   %41 = load i32, ptr %40, align 4
@@ -1610,7 +1610,7 @@ define hidden void @candump__delete_buffer(ptr noundef captures(address) %0, ptr
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr ptr, ptr %5, i64 %8
+  %9 = getelementptr [8 x i8], ptr %5, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %0, %10
   br i1 %11, label %12, label %.critedge
@@ -1671,7 +1671,7 @@ define hidden void @candump__flush_buffer(ptr noundef captures(address) %0, ptr 
 15:                                               ; preds = %3
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %17 = load i64, ptr %16, align 8
-  %18 = getelementptr ptr, ptr %14, i64 %17
+  %18 = getelementptr [8 x i8], ptr %14, i64 %17
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %0, %19
   br i1 %20, label %21, label %.critedge
@@ -1716,7 +1716,7 @@ define hidden void @candump_push_buffer_state(ptr noundef %0, ptr noundef captur
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr ptr, ptr %6, i64 %9
+  %10 = getelementptr [8 x i8], ptr %6, i64 %9
   %11 = load ptr, ptr %10, align 8
   %.not25 = icmp eq ptr %11, null
   br i1 %.not25, label %.thread31, label %12
@@ -1730,7 +1730,7 @@ define hidden void @candump_push_buffer_state(ptr noundef %0, ptr noundef captur
   %17 = load ptr, ptr %15, align 8
   %18 = load ptr, ptr %5, align 8
   %19 = load i64, ptr %8, align 8
-  %20 = getelementptr ptr, ptr %18, i64 %19
+  %20 = getelementptr [8 x i8], ptr %18, i64 %19
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %17, ptr %22, align 8
@@ -1738,7 +1738,7 @@ define hidden void @candump_push_buffer_state(ptr noundef %0, ptr noundef captur
   %24 = load i32, ptr %23, align 4
   %25 = load ptr, ptr %5, align 8
   %26 = load i64, ptr %8, align 8
-  %27 = getelementptr ptr, ptr %25, i64 %26
+  %27 = getelementptr [8 x i8], ptr %25, i64 %26
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 28
   store i32 %24, ptr %29, align 4
@@ -1749,7 +1749,7 @@ define hidden void @candump_push_buffer_state(ptr noundef %0, ptr noundef captur
 .thread31:                                        ; preds = %7, %12
   %.pr34 = phi ptr [ %.pr.pre, %12 ], [ %6, %7 ]
   %30 = load i64, ptr %8, align 8
-  %31 = getelementptr ptr, ptr %.pr34, i64 %30
+  %31 = getelementptr [8 x i8], ptr %.pr34, i64 %30
   %32 = load ptr, ptr %31, align 8
   %.not27 = icmp eq ptr %32, null
   br i1 %.not27, label %.thread, label %33
@@ -1763,11 +1763,11 @@ define hidden void @candump_push_buffer_state(ptr noundef %0, ptr noundef captur
   %35 = phi ptr [ %.pr34, %.thread31 ], [ null, %12 ], [ %.pr34, %33 ], [ null, %4 ]
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %37 = load i64, ptr %36, align 8
-  %38 = getelementptr ptr, ptr %35, i64 %37
+  %38 = getelementptr [8 x i8], ptr %35, i64 %37
   store ptr %0, ptr %38, align 8
   %39 = load ptr, ptr %5, align 8
   %40 = load i64, ptr %36, align 8
-  %41 = getelementptr ptr, ptr %39, i64 %40
+  %41 = getelementptr [8 x i8], ptr %39, i64 %40
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 28
   %44 = load i32, ptr %43, align 4
@@ -1805,7 +1805,7 @@ define hidden void @candump_pop_buffer_state(ptr noundef captures(none) %0) loca
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr ptr, ptr %3, i64 %6
+  %7 = getelementptr [8 x i8], ptr %3, i64 %6
   %8 = load ptr, ptr %7, align 8
   %.not20 = icmp eq ptr %8, null
   br i1 %.not20, label %41, label %.critedge.i
@@ -1827,7 +1827,7 @@ candump__delete_buffer.exit:                      ; preds = %.critedge.i, %11
   tail call void @free(ptr noundef nonnull %8) #20
   %14 = load ptr, ptr %2, align 8
   %15 = load i64, ptr %5, align 8
-  %16 = getelementptr ptr, ptr %14, i64 %15
+  %16 = getelementptr [8 x i8], ptr %14, i64 %15
   store ptr null, ptr %16, align 8
   %17 = load i64, ptr %5, align 8
   %.not21 = icmp eq i64 %17, 0
@@ -1845,7 +1845,7 @@ candump__delete_buffer.exit:                      ; preds = %.critedge.i, %11
   br i1 %.not22, label %41, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr ptr, ptr %22, i64 %21
+  %24 = getelementptr [8 x i8], ptr %22, i64 %21
   %25 = load ptr, ptr %24, align 8
   %.not23 = icmp eq ptr %25, null
   br i1 %.not23, label %41, label %26
@@ -1893,7 +1893,7 @@ define hidden i32 @candump_get_lineno(ptr noundef readonly captures(none) %0) lo
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr ptr, ptr %3, i64 %6
+  %7 = getelementptr [8 x i8], ptr %3, i64 %6
   %8 = load ptr, ptr %7, align 8
   %.not8 = icmp eq ptr %8, null
   br i1 %.not8, label %12, label %9
@@ -1918,7 +1918,7 @@ define hidden i32 @candump_get_column(ptr noundef readonly captures(none) %0) lo
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr ptr, ptr %3, i64 %6
+  %7 = getelementptr [8 x i8], ptr %3, i64 %6
   %8 = load ptr, ptr %7, align 8
   %.not8 = icmp eq ptr %8, null
   br i1 %.not8, label %12, label %9
@@ -1977,7 +1977,7 @@ define hidden void @candump_set_lineno(i32 noundef %0, ptr noundef readonly capt
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr ptr, ptr %4, i64 %7
+  %8 = getelementptr [8 x i8], ptr %4, i64 %7
   %9 = load ptr, ptr %8, align 8
   %.not8 = icmp eq ptr %9, null
   br i1 %.not8, label %10, label %11
@@ -2002,7 +2002,7 @@ define hidden void @candump_set_column(i32 noundef %0, ptr noundef readonly capt
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr ptr, ptr %4, i64 %7
+  %8 = getelementptr [8 x i8], ptr %4, i64 %7
   %9 = load ptr, ptr %8, align 8
   %.not8 = icmp eq ptr %9, null
   br i1 %.not8, label %10, label %11
@@ -2116,7 +2116,7 @@ define hidden noundef i32 @candump_lex_destroy(ptr noundef captures(none) %0) lo
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %11 = load i64, ptr %2, align 8
-  %12 = getelementptr ptr, ptr %4, i64 %11
+  %12 = getelementptr [8 x i8], ptr %4, i64 %11
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %.critedge, label %.critedge.i
@@ -2140,7 +2140,7 @@ candump__delete_buffer.exit:                      ; preds = %.critedge.i, %19
   tail call void @free(ptr noundef nonnull %15) #20
   %22 = load ptr, ptr %3, align 8
   %23 = load i64, ptr %2, align 8
-  %24 = getelementptr ptr, ptr %22, i64 %23
+  %24 = getelementptr [8 x i8], ptr %22, i64 %23
   store ptr null, ptr %24, align 8
   %25 = load ptr, ptr %3, align 8
   %.not.i20 = icmp eq ptr %25, null
@@ -2148,7 +2148,7 @@ candump__delete_buffer.exit:                      ; preds = %.critedge.i, %19
 
 26:                                               ; preds = %candump__delete_buffer.exit
   %27 = load i64, ptr %2, align 8
-  %28 = getelementptr ptr, ptr %25, i64 %27
+  %28 = getelementptr [8 x i8], ptr %25, i64 %27
   %29 = load ptr, ptr %28, align 8
   %.not20.i = icmp eq ptr %29, null
   br i1 %.not20.i, label %candump_pop_buffer_state.exit, label %.critedge.i.i
@@ -2170,7 +2170,7 @@ candump__delete_buffer.exit.i:                    ; preds = %32, %.critedge.i.i
   tail call void @free(ptr noundef nonnull %29) #20
   %35 = load ptr, ptr %3, align 8
   %36 = load i64, ptr %2, align 8
-  %37 = getelementptr ptr, ptr %35, i64 %36
+  %37 = getelementptr [8 x i8], ptr %35, i64 %36
   store ptr null, ptr %37, align 8
   %38 = load i64, ptr %2, align 8
   %.not21.i = icmp eq i64 %38, 0
@@ -2188,7 +2188,7 @@ candump__delete_buffer.exit.i:                    ; preds = %32, %.critedge.i.i
   br i1 %.not22.i, label %.critedge, label %44
 
 44:                                               ; preds = %41
-  %45 = getelementptr ptr, ptr %43, i64 %42
+  %45 = getelementptr [8 x i8], ptr %43, i64 %42
   %46 = load ptr, ptr %45, align 8
   %.not23.i = icmp eq ptr %46, null
   br i1 %.not23.i, label %candump_pop_buffer_state.exit, label %47
@@ -2213,7 +2213,7 @@ candump__delete_buffer.exit.i:                    ; preds = %32, %.critedge.i.i
 candump_pop_buffer_state.exit:                    ; preds = %26, %44, %47
   %56 = phi ptr [ %43, %44 ], [ %25, %26 ], [ %43, %47 ]
   %57 = load i64, ptr %2, align 8
-  %58 = getelementptr ptr, ptr %56, i64 %57
+  %58 = getelementptr [8 x i8], ptr %56, i64 %57
   %59 = load ptr, ptr %58, align 8
   %60 = icmp eq ptr %59, null
   br i1 %60, label %.critedge, label %.critedge.i, !llvm.loop !15

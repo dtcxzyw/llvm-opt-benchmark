@@ -586,7 +586,7 @@ define dso_local void @__swap_writepage(ptr noundef %0, ptr noundef readonly cap
   %147 = phi ptr [ %104, %135 ], [ %73, %._crit_edge11 ]
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 48
   %149 = getelementptr inbounds nuw i8, ptr %147, i64 560
-  %150 = getelementptr %struct.bio_vec, ptr %148, i64 %146
+  %150 = getelementptr [16 x i8], ptr %148, i64 %146
   %151 = load volatile i64, ptr %0, align 8
   %152 = and i64 %151, 64
   %153 = icmp eq i64 %152, 0
@@ -966,7 +966,7 @@ define internal void @sio_write_complete(ptr noundef %0, i64 noundef %1) #0 alig
 
 .preheader2:                                      ; preds = %55, %87
   %59 = phi i64 [ %90, %87 ], [ 0, %55 ]
-  %60 = getelementptr %struct.bio_vec, ptr %3, i64 %59
+  %60 = getelementptr [16 x i8], ptr %3, i64 %59
   %61 = load ptr, ptr %60, align 8
   %62 = tail call zeroext i1 @set_page_dirty(ptr noundef %61) #6
   %63 = getelementptr inbounds nuw i8, ptr %61, i64 8
@@ -1026,7 +1026,7 @@ define internal void @sio_write_complete(ptr noundef %0, i64 noundef %1) #0 alig
 
 .preheader:                                       ; preds = %.loopexit3, %.preheader
   %97 = phi i64 [ %100, %.preheader ], [ 0, %.loopexit3 ]
-  %98 = getelementptr %struct.bio_vec, ptr %3, i64 %97
+  %98 = getelementptr [16 x i8], ptr %3, i64 %97
   %99 = load ptr, ptr %98, align 8
   tail call void @end_page_writeback(ptr noundef %99) #6
   %100 = add nuw nsw i64 %97, 1
@@ -1299,7 +1299,7 @@ define dso_local void @swap_read_folio(ptr noundef %0, i1 noundef zeroext %1, pt
   %159 = phi ptr [ %114, %147 ], [ %81, %._crit_edge14 ]
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 48
   %161 = getelementptr inbounds nuw i8, ptr %159, i64 560
-  %162 = getelementptr %struct.bio_vec, ptr %160, i64 %158
+  %162 = getelementptr [16 x i8], ptr %160, i64 %158
   %163 = load volatile i64, ptr %0, align 8
   %164 = and i64 %163, 64
   %165 = icmp eq i64 %164, 0
@@ -1571,7 +1571,7 @@ define internal void @sio_read_complete(ptr noundef %0, i64 noundef %1) #0 align
 
 16:                                               ; preds = %44, %14
   %17 = phi i64 [ 0, %14 ], [ %46, %44 ]
-  %18 = getelementptr %struct.bio_vec, ptr %15, i64 %17
+  %18 = getelementptr [16 x i8], ptr %15, i64 %17
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load volatile i64, ptr %20, align 8
@@ -1630,7 +1630,7 @@ define internal void @sio_read_complete(ptr noundef %0, i64 noundef %1) #0 align
 
 50:                                               ; preds = %78, %11
   %51 = phi i64 [ 0, %11 ], [ %80, %78 ]
-  %52 = getelementptr %struct.bio_vec, ptr %12, i64 %51
+  %52 = getelementptr [16 x i8], ptr %12, i64 %51
   %53 = load ptr, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %55 = load volatile i64, ptr %54, align 8

@@ -11,9 +11,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.LogDecorators = type { i32 }
 %class.JfrSignal = type { i8 }
 %class.RefCountHandle = type { ptr }
-%"class.ObjectSampleMarker::ObjectSampleMarkWord" = type { ptr, %class.markWord }
-%class.markWord = type { i64 }
-%class.JfrHashtableBucket = type { ptr }
 %class.JfrCheckpointWriter = type <{ %class.EventWriterHost.base, [7 x i8], %class.TimeInstant.2, i64, i32, i32, i8, [7 x i8] }>
 %class.EventWriterHost.base = type { %class.WriterHost.base }
 %class.WriterHost.base = type <{ %class.AcquireReleaseMemoryWriterHost, i8 }>
@@ -26,14 +23,12 @@ target triple = "x86_64-pc-linux-gnu"
 %class.CounterRepresentation = type { %class.Representation.3 }
 %class.Representation.3 = type { i64 }
 %class.JfrCheckpointFlush = type { ptr }
-%class.JfrStackFrame = type <{ ptr, i64, i32, i32, i8, [7 x i8] }>
 %class.StackTraceBlobInstaller = type { %class.BlobCache }
 %class.BlobCache = type { %class.HashTableHost, i64 }
 %class.HashTableHost = type { %class.JfrBasicHashtable, ptr }
 %class.JfrBasicHashtable = type { ptr, i64, i64, i64 }
 %class.BlobWriter = type { ptr, ptr, i64 }
 %class.ObjectSampleWriter = type { ptr, ptr }
-%class.JfrHashtableBucket.31 = type { ptr }
 %class.NativeCallStack = type { [4 x ptr] }
 
 $_ZN9SemaphoreD2Ev = comdat any
@@ -159,7 +154,7 @@ _ZL21c_heap_allocate_arrayImEP13GrowableArrayIT_Ei.exit.i: ; preds = %9, %6
   %21 = add i32 %.01621.i.i.i, %.01522.i.i.i
   %22 = lshr i32 %21, 1
   %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr inbounds nuw i64, ptr %19, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %23
   %25 = load i64, ptr %24, align 8
   %26 = icmp ugt i64 %0, %25
   br i1 %26, label %27, label %29
@@ -222,9 +217,9 @@ _ZL21c_heap_allocate_arrayImEP13GrowableArrayIT_Ei.exit.i: ; preds = %9, %6
   %indvars.iv.i.i.i = phi i64 [ %48, %.lr.ph.i2.i.i ], [ %indvars.iv.next.i.i.i, %50 ]
   %indvars.iv.next.i.i.i = add nsw i64 %indvars.iv.i.i.i, -1
   %51 = load ptr, ptr %47, align 8
-  %52 = getelementptr inbounds i64, ptr %51, i64 %indvars.iv.next.i.i.i
+  %52 = getelementptr inbounds [8 x i8], ptr %51, i64 %indvars.iv.next.i.i.i
   %53 = load i64, ptr %52, align 8
-  %54 = getelementptr inbounds i64, ptr %51, i64 %indvars.iv.i.i.i
+  %54 = getelementptr inbounds [8 x i8], ptr %51, i64 %indvars.iv.i.i.i
   store i64 %53, ptr %54, align 8
   %.not.not.i.i.i = icmp sgt i64 %indvars.iv.next.i.i.i, %49
   br i1 %.not.not.i.i.i, label %50, label %._crit_edge.loopexit.i.i.i, !llvm.loop !8
@@ -240,7 +235,7 @@ _ZN26GrowableArrayWithAllocatorIm13GrowableArrayImEE13insert_beforeEiRKm.exit.i.
   store i32 %56, ptr %15, align 8
   %57 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds i64, ptr %58, i64 %.pre-phi.i.i.i
+  %59 = getelementptr inbounds [8 x i8], ptr %58, i64 %.pre-phi.i.i.i
   store i64 %0, ptr %59, align 8
   br label %_ZL26add_to_unloaded_thread_setm.exit
 
@@ -368,7 +363,7 @@ _ZN18ObjectSampleMarker4markEP7oopDesc.exit.i:    ; preds = %30, %22
   %40 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %41 = load ptr, ptr %40, align 8
   %42 = sext i32 %38 to i64
-  %43 = getelementptr inbounds %"class.ObjectSampleMarker::ObjectSampleMarkWord", ptr %41, i64 %42
+  %43 = getelementptr inbounds [16 x i8], ptr %41, i64 %42
   store ptr %23, ptr %43, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %43, i64 8
   store i64 %25, ptr %.sroa.2.0..sroa_idx.i.i, align 8
@@ -403,7 +398,7 @@ define hidden void @_ZN9BlobCache3getEPK12ObjectSample(ptr dead_on_unwind noalia
   %10 = load i64, ptr %9, align 8
   %11 = urem i64 %8, %10
   %12 = load ptr, ptr %1, align 8
-  %13 = getelementptr inbounds %class.JfrHashtableBucket, ptr %12, i64 %11
+  %13 = getelementptr inbounds [8 x i8], ptr %12, i64 %11
   %14 = load volatile ptr, ptr %13, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !10
   %.not11.i = icmp eq ptr %14, null
@@ -498,12 +493,12 @@ _ZN13HashTableHostI14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRef
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i64 %25, ptr %26, align 8
   %27 = load ptr, ptr %0, align 8
-  %28 = getelementptr inbounds %class.JfrHashtableBucket, ptr %27, i64 %21
+  %28 = getelementptr inbounds [8 x i8], ptr %27, i64 %21
   %29 = load volatile ptr, ptr %28, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !10
   store ptr %29, ptr %9, align 8
   %30 = load ptr, ptr %0, align 8
-  %31 = getelementptr inbounds %class.JfrHashtableBucket, ptr %30, i64 %21
+  %31 = getelementptr inbounds [8 x i8], ptr %30, i64 %21
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !10
   store volatile ptr %9, ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -527,7 +522,7 @@ define hidden void @_ZN23StackTraceBlobInstaller7installEP12ObjectSample(ptr nou
   %11 = load i64, ptr %10, align 8, !noalias !16
   %12 = urem i64 %9, %11
   %13 = load ptr, ptr %0, align 8, !noalias !16
-  %14 = getelementptr inbounds %class.JfrHashtableBucket, ptr %13, i64 %12
+  %14 = getelementptr inbounds [8 x i8], ptr %13, i64 %12
   %15 = load volatile ptr, ptr %14, align 8, !noalias !16
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !noalias !16, !srcloc !10
   %.not11.i.i = icmp eq ptr %15, null
@@ -647,12 +642,12 @@ _ZN9BlobCache3putEPK12ObjectSampleRK14RefCountHandleI15RefCountPointerI7JfrBlob2
   %67 = getelementptr inbounds nuw i8, ptr %52, i64 24
   store i64 %66, ptr %67, align 8
   %68 = load ptr, ptr %0, align 8
-  %69 = getelementptr inbounds %class.JfrHashtableBucket, ptr %68, i64 %62
+  %69 = getelementptr inbounds [8 x i8], ptr %68, i64 %62
   %70 = load volatile ptr, ptr %69, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !10
   store ptr %70, ptr %52, align 8
   %71 = load ptr, ptr %0, align 8
-  %72 = getelementptr inbounds %class.JfrHashtableBucket, ptr %71, i64 %62
+  %72 = getelementptr inbounds [8 x i8], ptr %71, i64 %62
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !10
   store volatile ptr %52, ptr %72, align 8
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -826,7 +821,7 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderIm
 44:                                               ; preds = %.lr.ph, %44
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %44 ]
   %45 = load ptr, ptr %43, align 8
-  %46 = getelementptr inbounds nuw %class.JfrStackFrame, ptr %45, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [32 x i8], ptr %45, i64 %indvars.iv
   call void @_ZNK13JfrStackFrame5writeER19JfrCheckpointWriter(ptr noundef nonnull align 8 dereferenceable(25) %46, ptr noundef nonnull align 8 dereferenceable(73) %1) #12
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 8
@@ -1039,7 +1034,7 @@ define hidden void @_ZN22ObjectSampleCheckpoint16add_to_leakp_setEPK13InstanceKl
   %9 = add i32 %.01621.i.i.i, %.01522.i.i.i
   %10 = lshr i32 %9, 1
   %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr inbounds nuw i64, ptr %7, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %11
   %13 = load i64, ptr %12, align 8
   %14 = icmp ugt i64 %1, %13
   br i1 %14, label %15, label %17
@@ -1102,9 +1097,9 @@ define hidden void @_ZN22ObjectSampleCheckpoint16add_to_leakp_setEPK13InstanceKl
   %indvars.iv.i.i.i = phi i64 [ %36, %.lr.ph.i2.i.i ], [ %indvars.iv.next.i.i.i, %38 ]
   %indvars.iv.next.i.i.i = add nsw i64 %indvars.iv.i.i.i, -1
   %39 = load ptr, ptr %35, align 8
-  %40 = getelementptr inbounds i64, ptr %39, i64 %indvars.iv.next.i.i.i
+  %40 = getelementptr inbounds [8 x i8], ptr %39, i64 %indvars.iv.next.i.i.i
   %41 = load i64, ptr %40, align 8
-  %42 = getelementptr inbounds i64, ptr %39, i64 %indvars.iv.i.i.i
+  %42 = getelementptr inbounds [8 x i8], ptr %39, i64 %indvars.iv.i.i.i
   store i64 %41, ptr %42, align 8
   %.not.not.i.i.i = icmp sgt i64 %indvars.iv.next.i.i.i, %37
   br i1 %.not.not.i.i.i, label %38, label %._crit_edge.loopexit.i.i.i, !llvm.loop !8
@@ -1120,7 +1115,7 @@ define hidden void @_ZN22ObjectSampleCheckpoint16add_to_leakp_setEPK13InstanceKl
   store i32 %45, ptr %3, align 8
   %46 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i64, ptr %47, i64 %.pre-phi.i.i.i
+  %48 = getelementptr inbounds [8 x i8], ptr %47, i64 %.pre-phi.i.i.i
   store i64 %1, ptr %48, align 8
   %49 = tail call noundef i64 @_ZN15JfrMethodLookup8klass_idEm(i64 noundef %1) #12
   %50 = tail call noundef zeroext i1 @_ZN17JfrKlassUnloading11is_unloadedEmb(i64 noundef %49, i1 noundef zeroext false) #12
@@ -1581,7 +1576,7 @@ _ZL18write_sample_blobsPK13ObjectSamplerbP6Thread.exit: ; preds = %.lr.ph.i.i.i,
 .lr.ph13.i.i:                                     ; preds = %19, %._crit_edge.i.i
   %.0711.i.i = phi i64 [ %30, %._crit_edge.i.i ], [ 0, %19 ]
   %23 = load ptr, ptr %20, align 8
-  %24 = getelementptr inbounds %class.JfrHashtableBucket.31, ptr %23, i64 %.0711.i.i
+  %24 = getelementptr inbounds [8 x i8], ptr %23, i64 %.0711.i.i
   %25 = load volatile ptr, ptr %24, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !10
   %.not8.i.i = icmp eq ptr %25, null
@@ -1874,9 +1869,9 @@ _ZN13GrowableArrayImE8allocateEv.exit:            ; preds = %7, %11, %15
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %26 = getelementptr inbounds nuw i64, ptr %.0.i, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv
   %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds nuw i64, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   %29 = load i64, ptr %28, align 8
   store i64 %29, ptr %26, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1893,7 +1888,7 @@ _ZN13GrowableArrayImE8allocateEv.exit:            ; preds = %7, %11, %15
 
 .lr.ph18:                                         ; preds = %.lr.ph18.preheader, %.lr.ph18
   %indvars.iv20 = phi i64 [ %24, %.lr.ph18.preheader ], [ %indvars.iv.next21, %.lr.ph18 ]
-  %35 = getelementptr inbounds nuw i64, ptr %.0.i, i64 %indvars.iv20
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv20
   store i64 0, ptr %35, align 8
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %36 = load i32, ptr %3, align 4
@@ -2112,7 +2107,7 @@ define linkonce_odr hidden void @_ZN13HashTableHostI14RefCountHandleI15RefCountP
 5:                                                ; preds = %.lr.ph14, %._crit_edge
   %.012 = phi i64 [ 0, %.lr.ph14 ], [ %22, %._crit_edge ]
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds %class.JfrHashtableBucket, ptr %6, i64 %.012
+  %7 = getelementptr inbounds [8 x i8], ptr %6, i64 %.012
   %8 = load ptr, ptr %7, align 8
   %.not10 = icmp eq ptr %8, null
   br i1 %.not10, label %._crit_edge, label %.lr.ph
@@ -2248,7 +2243,7 @@ _ZL21write_stacktrace_blobPK12ObjectSampleR19JfrCheckpointWriter.exit.i: ; preds
   %34 = add i32 %.01621.i.i.i.i.i, %.01522.i.i.i.i.i
   %35 = lshr i32 %34, 1
   %36 = zext nneg i32 %35 to i64
-  %37 = getelementptr inbounds nuw i64, ptr %32, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %36
   %38 = load i64, ptr %37, align 8
   %39 = icmp ugt i64 %24, %38
   br i1 %39, label %40, label %42
@@ -2457,9 +2452,9 @@ _ZN13GrowableArrayIN18ObjectSampleMarker20ObjectSampleMarkWordEE8allocateEv.exit
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %26 = getelementptr inbounds nuw %"class.ObjectSampleMarker::ObjectSampleMarkWord", ptr %.0.i, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %.0.i, i64 %indvars.iv
   %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds nuw %"class.ObjectSampleMarker::ObjectSampleMarkWord", ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %indvars.iv
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull align 8 dereferenceable(16) %28, i64 16, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %29 = load i32, ptr %0, align 8
@@ -2475,7 +2470,7 @@ _ZN13GrowableArrayIN18ObjectSampleMarker20ObjectSampleMarkWordEE8allocateEv.exit
 
 .lr.ph18:                                         ; preds = %.lr.ph18.preheader, %.lr.ph18
   %indvars.iv20 = phi i64 [ %24, %.lr.ph18.preheader ], [ %indvars.iv.next21, %.lr.ph18 ]
-  %34 = getelementptr inbounds nuw %"class.ObjectSampleMarker::ObjectSampleMarkWord", ptr %.0.i, i64 %indvars.iv20
+  %34 = getelementptr inbounds nuw [16 x i8], ptr %.0.i, i64 %indvars.iv20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, i8 0, i64 16, i1 false)
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %35 = load i32, ptr %3, align 4

@@ -216,7 +216,7 @@ cond.true:                                        ; preds = %entry
   %rem = and i64 %conv, 63
   %shl = shl nuw i64 1, %rem
   %div110 = lshr i64 %conv, 6
-  %arrayidx = getelementptr inbounds nuw i64, ptr %cpus, i64 %div110
+  %arrayidx = getelementptr inbounds nuw [8 x i8], ptr %cpus, i64 %div110
   %0 = load i64, ptr %arrayidx, align 8
   %or = or i64 %0, %shl
   store i64 %or, ptr %arrayidx, align 8
@@ -240,7 +240,7 @@ cond.true8:                                       ; preds = %for.body
   %rem9 = and i64 %indvars.iv, 63
   %shl10 = shl nuw i64 1, %rem9
   %div1312 = lshr i64 %indvars.iv, 6
-  %arrayidx14 = getelementptr inbounds nuw i64, ptr %cpus, i64 %div1312
+  %arrayidx14 = getelementptr inbounds nuw [8 x i8], ptr %cpus, i64 %div1312
   %1 = load i64, ptr %arrayidx14, align 8
   %or15 = or i64 %1, %shl10
   store i64 %or15, ptr %arrayidx14, align 8

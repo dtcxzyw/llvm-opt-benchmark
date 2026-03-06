@@ -47,7 +47,7 @@ define dso_local void @TransactionTreeSetCommitTsData(i32 noundef %0, i32 nounde
 
 12:                                               ; preds = %10
   %13 = zext nneg i32 %1 to i64
-  %14 = getelementptr i32, ptr %2, i64 %13
+  %14 = getelementptr [4 x i8], ptr %2, i64 %13
   %15 = getelementptr i8, ptr %14, i64 -4
   %16 = load i32, ptr %15, align 4
   br label %17
@@ -69,7 +69,7 @@ define dso_local void @TransactionTreeSetCommitTsData(i32 noundef %0, i32 nounde
 
 .lr.ph:                                           ; preds = %19, %28
   %indvars.iv = phi i64 [ %indvars.iv.next, %28 ], [ %24, %19 ]
-  %25 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
+  %25 = getelementptr inbounds [4 x i8], ptr %2, i64 %indvars.iv
   %26 = load i32, ptr %25, align 4
   %27 = udiv i32 %26, 819
   %.not.not = icmp eq i32 %27, %20
@@ -88,7 +88,7 @@ define dso_local void @TransactionTreeSetCommitTsData(i32 noundef %0, i32 nounde
   %.0.lcssa = phi i32 [ %.031, %19 ], [ %29, %._crit_edge.loopexit.split.loop.exit ], [ %1, %28 ]
   %.lcssa = phi i1 [ false, %19 ], [ true, %._crit_edge.loopexit.split.loop.exit ], [ false, %28 ]
   %30 = sub i32 %.0.lcssa, %.031
-  %31 = getelementptr inbounds i32, ptr %2, i64 %24
+  %31 = getelementptr inbounds [4 x i8], ptr %2, i64 %24
   %32 = load i16, ptr getelementptr inbounds nuw (i8, ptr @CommitTsCtlData, i64 8), align 8
   %.rhs.trunc.i = zext i16 %32 to i32
   %33 = urem i32 %20, %.rhs.trunc.i
@@ -104,7 +104,7 @@ define dso_local void @TransactionTreeSetCommitTsData(i32 noundef %0, i32 nounde
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load ptr, ptr %43, align 8
   %45 = sext i32 %41 to i64
-  %46 = getelementptr inbounds ptr, ptr %44, i64 %45
+  %46 = getelementptr inbounds [8 x i8], ptr %44, i64 %45
   %47 = load ptr, ptr %46, align 8
   %narrow.i.i = mul nuw nsw i32 %21, 10
   %48 = zext nneg i32 %narrow.i.i to i64
@@ -121,13 +121,13 @@ define dso_local void @TransactionTreeSetCommitTsData(i32 noundef %0, i32 nounde
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %51 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv.i
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv.i
   %52 = load i32, ptr %51, align 4
   %53 = urem i32 %52, 819
   %54 = load ptr, ptr @CommitTsCtlData, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds ptr, ptr %56, i64 %45
+  %57 = getelementptr inbounds [8 x i8], ptr %56, i64 %45
   %58 = load ptr, ptr %57, align 8
   %narrow.i17.i = mul nuw nsw i32 %53, 10
   %59 = zext nneg i32 %narrow.i17.i to i64
@@ -150,7 +150,7 @@ SetXidCommitTsInPage.exit:                        ; preds = %.lr.ph.i, %._crit_e
 
 65:                                               ; preds = %SetXidCommitTsInPage.exit
   %66 = sext i32 %.0.lcssa to i64
-  %67 = getelementptr inbounds i32, ptr %2, i64 %66
+  %67 = getelementptr inbounds [4 x i8], ptr %2, i64 %66
   %68 = load i32, ptr %67, align 4
   %69 = add nsw i32 %.0.lcssa, 1
   br label %19
@@ -296,7 +296,7 @@ define dso_local zeroext i1 @TransactionIdGetCommitTsData(i32 noundef %0, ptr no
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = load ptr, ptr %55, align 8
   %57 = sext i32 %53 to i64
-  %58 = getelementptr inbounds ptr, ptr %56, i64 %57
+  %58 = getelementptr inbounds [8 x i8], ptr %56, i64 %57
   %59 = load ptr, ptr %58, align 8
   %narrow = mul nuw nsw i32 %6, 10
   %60 = zext nneg i32 %narrow to i64

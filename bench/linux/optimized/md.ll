@@ -101,9 +101,6 @@ module asm ".previous\09\09\09\09\09"
 %struct.ctl_table = type { ptr, ptr, i32, i16, i32, ptr, ptr, ptr, ptr }
 %struct.proc_ops = type { i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.seq_operations = type { ptr, ptr, ptr, ptr }
-%struct.serial_in_rdev = type { %struct.rb_root_cached, %struct.spinlock, %struct.wait_queue_head }
-%struct.rb_root_cached = type { %struct.rb_root, ptr }
-%struct.rb_root = type { ptr }
 %struct.wait_queue_entry = type { i32, ptr, ptr, %struct.list_head }
 %struct.bio = type { ptr, ptr, i32, i16, i16, i8, %struct.atomic_t, %struct.bvec_iter, i32, ptr, ptr, ptr, %struct.bio_issue, i64, %union.anon.5, i16, i16, %struct.atomic_t, ptr, ptr, [0 x %struct.bio_vec] }
 %struct.bvec_iter = type <{ i64, i32, i32, i32 }>
@@ -114,7 +111,6 @@ module asm ".previous\09\09\09\09\09"
 %struct.mdu_array_info_s = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
 %struct.mdu_version_s = type { i32, i32, i32 }
 %struct.blk_plug = type { ptr, ptr, i16, i16, i8, i8, %struct.list_head }
-%struct.mdp_device_descriptor_s = type { i32, i32, i32, i32, i32, [27 x i32] }
 
 @md_cluster_ops = dso_local global ptr null, align 8
 @__UNIQUE_ID___addressable_md_cluster_ops732 = internal global ptr @md_cluster_ops, section ".discard.addressable", align 8
@@ -649,7 +645,7 @@ define dso_local void @mddev_create_serial_pool(ptr noundef captures(address) %0
 
 .preheader5:                                      ; preds = %39, %.preheader5
   %42 = phi i64 [ %45, %.preheader5 ], [ 0, %39 ]
-  %43 = getelementptr %struct.serial_in_rdev, ptr %40, i64 %42
+  %43 = getelementptr [48 x i8], ptr %40, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(20) %43, i8 0, i64 20, i1 false)
   tail call void @__init_waitqueue_head(ptr noundef nonnull %44, ptr noundef nonnull @.str.73, ptr noundef nonnull @rdev_init_serial.__key) #32
@@ -715,7 +711,7 @@ define dso_local void @mddev_create_serial_pool(ptr noundef captures(address) %0
 
 .preheader6:                                      ; preds = %76, %.preheader6
   %79 = phi i64 [ %82, %.preheader6 ], [ 0, %76 ]
-  %80 = getelementptr %struct.serial_in_rdev, ptr %77, i64 %79
+  %80 = getelementptr [48 x i8], ptr %77, i64 %79
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(20) %80, i8 0, i64 20, i1 false)
   tail call void @__init_waitqueue_head(ptr noundef nonnull %81, ptr noundef nonnull @.str.73, ptr noundef nonnull @rdev_init_serial.__key) #32
@@ -3145,7 +3141,7 @@ define dso_local void @md_update_sb(ptr noundef %0, i32 noundef %1) #0 align 16 
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 224
   %90 = load i32, ptr %89, align 8
   %91 = sext i32 %90 to i64
-  %92 = getelementptr i16, ptr %86, i64 %91
+  %92 = getelementptr [2 x i8], ptr %86, i64 %91
   %93 = load i16, ptr %92, align 2
   %94 = icmp eq i16 %93, -1
   br i1 %94, label %95, label %106
@@ -3501,7 +3497,7 @@ define dso_local void @md_update_sb(ptr noundef %0, i32 noundef %1) #0 align 16 
 
 300:                                              ; preds = %296
   %301 = zext nneg i32 %297 to i64
-  %.split = getelementptr %struct.super_type, ptr @super_types, i64 %301
+  %.split = getelementptr [56 x i8], ptr @super_types, i64 %301
   %302 = getelementptr i8, ptr %.split, i64 32
   %303 = load ptr, ptr %302, align 8
   br label %304
@@ -4545,7 +4541,7 @@ define dso_local i32 @md_run(ptr noundef %0) #0 align 16 {
   %28 = load ptr, ptr %26, align 8
   %29 = load i32, ptr %23, align 4
   %30 = sext i32 %29 to i64
-  %.split.i = getelementptr %struct.super_type, ptr @super_types, i64 %30
+  %.split.i = getelementptr [56 x i8], ptr @super_types, i64 %30
   %31 = getelementptr i8, ptr %.split.i, i64 16
   %32 = load ptr, ptr %31, align 8
   %33 = load i32, ptr %24, align 8
@@ -4614,7 +4610,7 @@ define dso_local i32 @md_run(ptr noundef %0) #0 align 16 {
 66:                                               ; preds = %64
   %67 = load i32, ptr %23, align 4
   %68 = sext i32 %67 to i64
-  %.split8.i = getelementptr %struct.super_type, ptr @super_types, i64 %68
+  %.split8.i = getelementptr [56 x i8], ptr @super_types, i64 %68
   %69 = getelementptr i8, ptr %.split8.i, i64 24
   %70 = load ptr, ptr %69, align 8
   %71 = tail call i32 %70(ptr noundef %0, ptr noundef null, ptr noundef nonnull %62) #32
@@ -4698,7 +4694,7 @@ define dso_local i32 @md_run(ptr noundef %0) #0 align 16 {
 120:                                              ; preds = %118
   %121 = load i32, ptr %23, align 4
   %122 = sext i32 %121 to i64
-  %.split9.i = getelementptr %struct.super_type, ptr @super_types, i64 %122
+  %.split9.i = getelementptr [56 x i8], ptr @super_types, i64 %122
   %123 = getelementptr i8, ptr %.split9.i, i64 24
   %124 = load ptr, ptr %123, align 8
   %125 = tail call i32 %124(ptr noundef %0, ptr noundef nonnull %62, ptr noundef %79) #32
@@ -5343,7 +5339,7 @@ find_pers.exit.thread:                            ; preds = %.split.i42, %.split
 
 .preheader61:                                     ; preds = %511, %.preheader61
   %514 = phi i64 [ %517, %.preheader61 ], [ 0, %511 ]
-  %515 = getelementptr %struct.serial_in_rdev, ptr %512, i64 %514
+  %515 = getelementptr [48 x i8], ptr %512, i64 %514
   %516 = getelementptr inbounds nuw i8, ptr %515, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(20) %515, i8 0, i64 20, i1 false)
   tail call void @__init_waitqueue_head(ptr noundef nonnull %516, ptr noundef nonnull @.str.73, ptr noundef nonnull @rdev_init_serial.__key) #32
@@ -6374,7 +6370,7 @@ define dso_local i32 @md_add_new_disk(ptr noundef %0, ptr noundef readonly captu
 51:                                               ; preds = %47
   %52 = load i32, ptr %37, align 4
   %53 = sext i32 %52 to i64
-  %.split17 = getelementptr %struct.super_type, ptr @super_types, i64 %53
+  %.split17 = getelementptr [56 x i8], ptr @super_types, i64 %53
   %54 = getelementptr i8, ptr %.split17, i64 16
   %55 = load ptr, ptr %54, align 8
   %56 = load i32, ptr %39, align 8
@@ -6492,7 +6488,7 @@ define dso_local i32 @md_add_new_disk(ptr noundef %0, ptr noundef readonly captu
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 196
   %126 = load i32, ptr %125, align 4
   %127 = sext i32 %126 to i64
-  %.split = getelementptr %struct.super_type, ptr @super_types, i64 %127
+  %.split = getelementptr [56 x i8], ptr @super_types, i64 %127
   %128 = getelementptr i8, ptr %.split, i64 24
   %129 = load ptr, ptr %128, align 8
   %130 = tail call i32 %129(ptr noundef %0, ptr noundef null, ptr noundef %97) #32
@@ -6886,7 +6882,7 @@ define internal fastcc ptr @md_import_device(i32 noundef %0, i32 noundef %1, i32
 
 54:                                               ; preds = %52
   %55 = zext nneg i32 %1 to i64
-  %.split = getelementptr %struct.super_type, ptr @super_types, i64 %55
+  %.split = getelementptr [56 x i8], ptr @super_types, i64 %55
   %56 = getelementptr i8, ptr %.split, i64 16
   %57 = load ptr, ptr %56, align 8
   %58 = tail call i32 %57(ptr noundef nonnull %5, ptr noundef null, i32 noundef %2) #32
@@ -7311,7 +7307,7 @@ define internal fastcc i32 @add_bound_rdev(ptr noundef %0) unnamed_addr #0 align
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 196
   %17 = load i32, ptr %16, align 4
   %18 = sext i32 %17 to i64
-  %.split = getelementptr %struct.super_type, ptr @super_types, i64 %18
+  %.split = getelementptr [56 x i8], ptr @super_types, i64 %18
   %19 = getelementptr i8, ptr %.split, i64 24
   %20 = load ptr, ptr %19, align 8
   %21 = tail call i32 %20(ptr noundef %4, ptr noundef null, ptr noundef %0) #32
@@ -10265,7 +10261,7 @@ define dso_local void @md_do_sync(ptr noundef readonly captures(none) %0) #0 ali
 312:                                              ; preds = %312, %.critedge31
   %313 = phi i64 [ 0, %.critedge31 ], [ %316, %312 ]
   %314 = load volatile i64, ptr @jiffies, align 64
-  %315 = getelementptr i64, ptr %3, i64 %313
+  %315 = getelementptr [8 x i8], ptr %3, i64 %313
   store i64 %314, ptr %315, align 8
   %316 = add nuw nsw i64 %313, 1
   %317 = icmp eq i64 %316, 10
@@ -10543,7 +10539,7 @@ define dso_local void @md_do_sync(ptr noundef readonly captures(none) %0) #0 ali
   %462 = phi i32 [ %483, %513 ], [ %345, %457 ]
   %463 = load volatile i64, ptr @jiffies, align 64
   %464 = sext i32 %462 to i64
-  %465 = getelementptr i64, ptr %3, i64 %464
+  %465 = getelementptr [8 x i8], ptr %3, i64 %464
   %466 = load i64, ptr %465, align 8
   %467 = add i64 %463, -3000
   %468 = sub i64 %467, %466
@@ -10554,10 +10550,10 @@ define dso_local void @md_do_sync(ptr noundef readonly captures(none) %0) #0 ali
   %471 = add i32 %462, 1
   %472 = srem i32 %471, 10
   %473 = sext i32 %472 to i64
-  %474 = getelementptr i64, ptr %3, i64 %473
+  %474 = getelementptr [8 x i8], ptr %3, i64 %473
   %475 = load i64, ptr %474, align 8
   store i64 %475, ptr %320, align 8
-  %476 = getelementptr i64, ptr %4, i64 %473
+  %476 = getelementptr [8 x i8], ptr %4, i64 %473
   %477 = load i64, ptr %476, align 8
   store i64 %477, ptr %321, align 8
   %478 = load volatile i64, ptr @jiffies, align 64
@@ -11060,7 +11056,7 @@ define internal fastcc range(i32 0, 2) i32 @is_mddev_idle(ptr noundef %0, i32 no
   %30 = load ptr, ptr %29, align 8
   %31 = ptrtoint ptr %30 to i64
   %32 = and i64 %24, 63
-  %33 = getelementptr i64, ptr @__per_cpu_offset, i64 %32
+  %33 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %32
   %34 = load i64, ptr %33, align 8
   %35 = add i64 %34, %31
   %36 = inttoptr i64 %35 to ptr
@@ -11096,7 +11092,7 @@ define internal fastcc range(i32 0, 2) i32 @is_mddev_idle(ptr noundef %0, i32 no
   %56 = load ptr, ptr %55, align 8
   %57 = ptrtoint ptr %56 to i64
   %58 = and i64 %50, 63
-  %59 = getelementptr i64, ptr @__per_cpu_offset, i64 %58
+  %59 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %58
   %60 = load i64, ptr %59, align 8
   %61 = add i64 %60, %57
   %62 = inttoptr i64 %61 to ptr
@@ -11128,7 +11124,7 @@ define internal fastcc range(i32 0, 2) i32 @is_mddev_idle(ptr noundef %0, i32 no
   %82 = load ptr, ptr %81, align 8
   %83 = ptrtoint ptr %82 to i64
   %84 = and i64 %76, 63
-  %85 = getelementptr i64, ptr @__per_cpu_offset, i64 %84
+  %85 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %84
   %86 = load i64, ptr %85, align 8
   %87 = add i64 %86, %83
   %88 = inttoptr i64 %87 to ptr
@@ -12300,7 +12296,7 @@ define dso_local void @md_reload_sb(ptr noundef %0, i32 noundef %1) #0 align 16 
   %62 = getelementptr inbounds nuw i8, ptr %55, i64 224
   %63 = load i32, ptr %62, align 8
   %64 = sext i32 %63 to i64
-  %65 = getelementptr i16, ptr %50, i64 %64
+  %65 = getelementptr [2 x i8], ptr %50, i64 %64
   %66 = load i16, ptr %65, align 2
   %67 = zext i16 %66 to i32
   %68 = load volatile i64, ptr %57, align 8
@@ -12600,7 +12596,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @read_rdev(ptr noundef %0, 
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 196
   %36 = load i32, ptr %35, align 4
   %37 = sext i32 %36 to i64
-  %.split = getelementptr %struct.super_type, ptr @super_types, i64 %37
+  %.split = getelementptr [56 x i8], ptr @super_types, i64 %37
   %38 = getelementptr i8, ptr %.split, i64 16
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -17232,7 +17228,7 @@ define internal i64 @new_dev_store(ptr noundef %0, ptr noundef %1, i64 noundef %
 53:                                               ; preds = %49
   %54 = load i32, ptr %43, align 4
   %55 = sext i32 %54 to i64
-  %.split = getelementptr %struct.super_type, ptr @super_types, i64 %55
+  %.split = getelementptr [56 x i8], ptr @super_types, i64 %55
   %56 = getelementptr i8, ptr %.split, i64 16
   %57 = load ptr, ptr %56, align 8
   %58 = load i32, ptr %45, align 8
@@ -17492,7 +17488,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @array_state_show
 54:                                               ; preds = %53, %49, %38, %33
   %55 = phi i32 [ 1, %53 ], [ %40, %38 ], [ %34, %33 ], [ 0, %49 ]
   %56 = zext nneg i32 %55 to i64
-  %57 = getelementptr ptr, ptr @array_states, i64 %56
+  %57 = getelementptr [8 x i8], ptr @array_states, i64 %56
   %58 = load ptr, ptr %57, align 8
   %59 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %1, ptr noundef nonnull dereferenceable(1) @.str.80, ptr noundef %58) #32
   %60 = sext i32 %59 to i64
@@ -17514,7 +17510,7 @@ define internal i64 @array_state_store(ptr noundef %0, ptr noundef readonly capt
 
 .critedge.us:                                     ; preds = %.split.us
   %indvars.iv.next27 = add nuw nsw i64 %indvars.iv26, 1
-  %9 = getelementptr ptr, ptr @array_states, i64 %indvars.iv.next27
+  %9 = getelementptr [8 x i8], ptr @array_states, i64 %indvars.iv.next27
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq i64 %indvars.iv.next27, 10
   br i1 %11, label %.thread, label %.split.us, !llvm.loop !167
@@ -17563,7 +17559,7 @@ split:                                            ; preds = %13
 
 .critedge:                                        ; preds = %26, %31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %34 = getelementptr ptr, ptr @array_states, i64 %indvars.iv.next
+  %34 = getelementptr [8 x i8], ptr @array_states, i64 %indvars.iv.next
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq i64 %indvars.iv.next, 10
   br i1 %36, label %.thread, label %.preheader, !llvm.loop !167
@@ -21348,7 +21344,7 @@ define internal noundef i64 @new_offset_store(ptr noundef %0, ptr noundef %1, i6
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 196
   %52 = load i32, ptr %51, align 4
   %53 = sext i32 %52 to i64
-  %.split = getelementptr %struct.super_type, ptr @super_types, i64 %53
+  %.split = getelementptr [56 x i8], ptr @super_types, i64 %53
   %54 = getelementptr i8, ptr %.split, i64 48
   %55 = load ptr, ptr %54, align 8
   %56 = call i32 %55(ptr noundef %0, i64 noundef %19) #32
@@ -21449,7 +21445,7 @@ define internal noundef i64 @rdev_size_store(ptr noundef %0, ptr noundef %1, i64
   %39 = getelementptr inbounds nuw i8, ptr %6, i64 196
   %40 = load i32, ptr %39, align 4
   %41 = sext i32 %40 to i64
-  %.split = getelementptr %struct.super_type, ptr @super_types, i64 %41
+  %.split = getelementptr [56 x i8], ptr @super_types, i64 %41
   %42 = getelementptr i8, ptr %.split, i64 40
   %43 = load ptr, ptr %42, align 8
   %44 = call i64 %43(ptr noundef %0, i64 noundef %18) #32
@@ -22020,7 +22016,7 @@ read_disk_sb.exit:                                ; preds = %16
 63:                                               ; preds = %63, %60
   %64 = phi i64 [ 0, %60 ], [ %70, %63 ]
   %65 = phi i64 [ 0, %60 ], [ %69, %63 ]
-  %66 = getelementptr i32, ptr %40, i64 %64
+  %66 = getelementptr [4 x i8], ptr %40, i64 %64
   %67 = load i32, ptr %66, align 4
   %68 = zext i32 %67 to i64
   %69 = add i64 %65, %68
@@ -22476,7 +22472,7 @@ define internal noundef range(i32 -22, 1) i32 @super_90_validate(ptr noundef cap
   %171 = getelementptr inbounds nuw i8, ptr %2, i64 224
   %172 = load i32, ptr %171, align 8
   %173 = sext i32 %172 to i64
-  %174 = getelementptr %struct.mdp_device_descriptor_s, ptr %170, i64 %173
+  %174 = getelementptr [128 x i8], ptr %170, i64 %173
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 16
   %176 = load i32, ptr %175, align 4
   %177 = and i32 %176, 1
@@ -22797,7 +22793,7 @@ define internal void @super_90_sync(ptr noundef captures(address) initializes((2
   %174 = getelementptr inbounds nuw i8, ptr %145, i64 224
   store i32 %173, ptr %174, align 8
   %175 = sext i32 %173 to i64
-  %176 = getelementptr %struct.mdp_device_descriptor_s, ptr %134, i64 %175
+  %176 = getelementptr [128 x i8], ptr %134, i64 %175
   %177 = add i32 %150, 1
   store i32 %173, ptr %176, align 4
   %178 = getelementptr inbounds nuw i8, ptr %145, i64 48
@@ -22896,7 +22892,7 @@ define internal void @super_90_sync(ptr noundef captures(address) initializes((2
   %232 = phi i32 [ %247, %246 ], [ %143, %.loopexit8 ]
   %233 = phi i64 [ %249, %246 ], [ 0, %.loopexit8 ]
   %234 = phi i32 [ %248, %246 ], [ 0, %.loopexit8 ]
-  %235 = getelementptr %struct.mdp_device_descriptor_s, ptr %134, i64 %233
+  %235 = getelementptr [128 x i8], ptr %134, i64 %233
   %236 = getelementptr inbounds nuw i8, ptr %235, i64 16
   %237 = load i32, ptr %236, align 4
   %238 = icmp eq i32 %237, 0
@@ -22941,7 +22937,7 @@ define internal void @super_90_sync(ptr noundef captures(address) initializes((2
   %259 = getelementptr inbounds nuw i8, ptr %1, i64 224
   %260 = load i32, ptr %259, align 8
   %261 = sext i32 %260 to i64
-  %262 = getelementptr %struct.mdp_device_descriptor_s, ptr %134, i64 %261
+  %262 = getelementptr [128 x i8], ptr %134, i64 %261
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %258, ptr noundef align 8 dereferenceable(128) %262, i64 128, i1 false)
   %263 = getelementptr inbounds nuw i8, ptr %14, i64 152
   store i32 0, ptr %263, align 8
@@ -22950,7 +22946,7 @@ define internal void @super_90_sync(ptr noundef captures(address) initializes((2
 264:                                              ; preds = %264, %.loopexit
   %265 = phi i64 [ 0, %.loopexit ], [ %271, %264 ]
   %266 = phi i64 [ 0, %.loopexit ], [ %270, %264 ]
-  %267 = getelementptr i32, ptr %14, i64 %265
+  %267 = getelementptr [4 x i8], ptr %14, i64 %265
   %268 = load i32, ptr %267, align 4
   %269 = zext i32 %268 to i64
   %270 = add i64 %266, %269
@@ -23426,7 +23422,7 @@ read_disk_sb.exit:                                ; preds = %29
 254:                                              ; preds = %251
   %255 = getelementptr inbounds nuw i8, ptr %49, i64 256
   %256 = zext nneg i32 %249 to i64
-  %257 = getelementptr i16, ptr %255, i64 %256
+  %257 = getelementptr [2 x i8], ptr %255, i64 %256
   %258 = load i16, ptr %257, align 2
   %259 = icmp ugt i16 %258, -257
   %260 = icmp ne i16 %258, -3
@@ -23778,7 +23774,7 @@ define internal noundef range(i32 -117, 1) i32 @super_1_validate(ptr noundef %0,
 148:                                              ; preds = %144
   %149 = getelementptr inbounds nuw i8, ptr %12, i64 256
   %150 = zext nneg i32 %142 to i64
-  %151 = getelementptr i16, ptr %149, i64 %150
+  %151 = getelementptr [2 x i8], ptr %149, i64 %150
   %152 = load i16, ptr %151, align 2
   %153 = icmp ult i16 %152, -256
   %154 = icmp eq i16 %152, -3
@@ -23882,7 +23878,7 @@ define internal noundef range(i32 -117, 1) i32 @super_1_validate(ptr noundef %0,
   %.sink22 = phi ptr [ %205, %196 ], [ %12, %192 ], [ %12, %186 ]
   %220 = getelementptr inbounds nuw i8, ptr %.sink22, i64 256
   %221 = zext nneg i32 %180 to i64
-  %222 = getelementptr i16, ptr %220, i64 %221
+  %222 = getelementptr [2 x i8], ptr %220, i64 %221
   %.in = load i16, ptr %222, align 2
   %223 = zext i16 %.in to i32
   switch i16 %.in, label %237 [
@@ -24325,14 +24321,14 @@ define internal void @super_1_sync(ptr noundef %0, ptr noundef %1) #0 align 16 {
 
 .preheader11:                                     ; preds = %.loopexit14, %.preheader11
   %216 = phi i64 [ %225, %.preheader11 ], [ 0, %.loopexit14 ]
-  %217 = getelementptr i64, ptr %199, i64 %216
+  %217 = getelementptr [8 x i8], ptr %199, i64 %216
   %218 = load i64, ptr %217, align 8
   %219 = shl i64 %218, 1
   %220 = and i64 %219, -1024
   %221 = and i64 %218, 511
   %222 = add nuw nsw i64 %221, 1
   %223 = or disjoint i64 %220, %222
-  %224 = getelementptr i64, ptr %197, i64 %216
+  %224 = getelementptr [8 x i8], ptr %197, i64 %216
   store i64 %223, ptr %224, align 8
   %225 = add nuw nsw i64 %216, 1
   %226 = load i32, ptr %182, align 8
@@ -24523,7 +24519,7 @@ define internal void @super_1_sync(ptr noundef %0, ptr noundef %1) #0 align 16 {
 348:                                              ; preds = %343, %339, %335, %323
   %349 = phi i16 [ %338, %335 ], [ -2, %323 ], [ -3, %339 ], [ %347, %343 ]
   %350 = sext i32 %326 to i64
-  %351 = getelementptr i16, ptr %322, i64 %350
+  %351 = getelementptr [2 x i8], ptr %322, i64 %350
   store i16 %349, ptr %351, align 2
   %352 = load ptr, ptr %324, align 8
   %353 = icmp eq ptr %352, %243

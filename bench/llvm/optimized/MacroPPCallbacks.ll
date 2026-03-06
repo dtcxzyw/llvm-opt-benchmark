@@ -493,7 +493,7 @@ define dso_local noundef ptr @_ZN5clang16MacroPPCallbacks15getCurrentScopeEv(ptr
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load i32, ptr %7, align 8, !tbaa !60
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw ptr, ptr %6, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %9
   %11 = getelementptr inbounds i8, ptr %10, i64 -8
   %12 = load ptr, ptr %11, align 8, !tbaa !62
   br label %13
@@ -623,7 +623,7 @@ _ZN5clang16MacroPPCallbacks23updateStatusToNextScopeEv.exit12: ; preds = %switch
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %33 = load i32, ptr %32, align 8, !tbaa !60
   %34 = zext i32 %33 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr %31, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %34
   %36 = getelementptr inbounds i8, ptr %35, i64 -8
   %37 = load ptr, ptr %36, align 8, !tbaa !62
   br label %_ZN5clang16MacroPPCallbacks15getCurrentScopeEv.exit
@@ -650,7 +650,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_11DIMacroFileELb1EE9push_backES2_.exit: ; 
   %47 = phi i32 [ %40, %_ZN5clang16MacroPPCallbacks15getCurrentScopeEv.exit ], [ %.pre.i, %43 ]
   %48 = load ptr, ptr %25, align 8, !tbaa !59
   %49 = zext i32 %47 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %49
   %51 = ptrtoint ptr %38 to i64
   store i64 %51, ptr %50, align 1
   %52 = load i32, ptr %39, align 8, !tbaa !60
@@ -918,7 +918,7 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit:       ; preds = %switch.hole_check, 
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %48 = load i32, ptr %47, align 8, !tbaa !60
   %49 = zext i32 %48 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr %46, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %49
   %51 = getelementptr inbounds i8, ptr %50, i64 -8
   %52 = load ptr, ptr %51, align 8, !tbaa !62
   br label %_ZN5clang16MacroPPCallbacks15getCurrentScopeEv.exit
@@ -1010,7 +1010,7 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit:       ; preds = %switch.hole_check, 
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %25 = load i32, ptr %24, align 8, !tbaa !60
   %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds nuw ptr, ptr %23, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %26
   %28 = getelementptr inbounds i8, ptr %27, i64 -8
   %29 = load ptr, ptr %28, align 8, !tbaa !62
   br label %_ZN5clang16MacroPPCallbacks15getCurrentScopeEv.exit

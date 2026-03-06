@@ -1973,7 +1973,7 @@ rb_num2long_inline.exit:                          ; preds = %51, %49
 63:                                               ; preds = %.thread
   %64 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %65 = load ptr, ptr %64, align 8, !tbaa !43
-  %66 = getelementptr inbounds nuw i64, ptr %65, i64 %.143
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %.143
   %67 = load i64, ptr %66, align 8, !tbaa !10
   %68 = icmp eq i64 %67, -1
   br i1 %68, label %extract_range.exit, label %69
@@ -1987,7 +1987,7 @@ rb_num2long_inline.exit:                          ; preds = %51, %49
 adjust_register_position.exit.thread:             ; preds = %69
   %73 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %74 = load ptr, ptr %73, align 8, !tbaa !44
-  %75 = getelementptr inbounds nuw i64, ptr %74, i64 %.143
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %.143
   %76 = load i64, ptr %75, align 8, !tbaa !10
   br label %adjust_register_position.exit36
 
@@ -1997,7 +1997,7 @@ adjust_register_position.exit.thread:             ; preds = %69
   %80 = add nsw i64 %79, %67
   %81 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %82 = load ptr, ptr %81, align 8, !tbaa !44
-  %83 = getelementptr inbounds nuw i64, ptr %82, i64 %.143
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %82, i64 %.143
   %84 = load i64, ptr %83, align 8, !tbaa !10
   %85 = add nsw i64 %79, %84
   br label %adjust_register_position.exit36
@@ -2241,7 +2241,7 @@ define internal i64 @strscan_captures(i64 noundef %0) #0 {
 21:                                               ; preds = %.lr.ph, %extract_range.exit
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %extract_range.exit ]
   %22 = load ptr, ptr %17, align 8, !tbaa !43
-  %23 = getelementptr inbounds nuw i64, ptr %22, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv
   %24 = load i64, ptr %23, align 8, !tbaa !10
   %25 = icmp eq i64 %24, -1
   br i1 %25, label %extract_range.exit, label %26
@@ -2253,7 +2253,7 @@ define internal i64 @strscan_captures(i64 noundef %0) #0 {
 
 adjust_register_position.exit.thread:             ; preds = %26
   %29 = load ptr, ptr %20, align 8, !tbaa !44
-  %30 = getelementptr inbounds nuw i64, ptr %29, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv
   %31 = load i64, ptr %30, align 8, !tbaa !10
   br label %adjust_register_position.exit24
 
@@ -2261,7 +2261,7 @@ adjust_register_position.exit.thread:             ; preds = %26
   %33 = load i64, ptr %19, align 8, !tbaa !28
   %34 = add nsw i64 %33, %24
   %35 = load ptr, ptr %20, align 8, !tbaa !44
-  %36 = getelementptr inbounds nuw i64, ptr %35, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv
   %37 = load i64, ptr %36, align 8, !tbaa !10
   %38 = add nsw i64 %33, %37
   br label %adjust_register_position.exit24
@@ -2336,7 +2336,7 @@ define internal i64 @strscan_values_at(i32 noundef %0, ptr noundef readonly capt
 
 .lr.ph:                                           ; preds = %13, %.lr.ph
   %.01213 = phi i64 [ %21, %.lr.ph ], [ 0, %13 ]
-  %17 = getelementptr inbounds nuw i64, ptr %1, i64 %.01213
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.01213
   %18 = load i64, ptr %17, align 8, !tbaa !10
   %19 = tail call i64 @strscan_aref(i64 noundef %2, i64 noundef %18)
   %20 = tail call i64 @rb_ary_push(i64 noundef %15, i64 noundef %19) #12
@@ -3425,7 +3425,7 @@ define internal noundef i32 @named_captures_iter(ptr noundef %0, ptr noundef %1,
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %12 = load i64, ptr %5, align 8, !tbaa !103
-  %13 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4, !tbaa !6
   %15 = sext i32 %14 to i64
   %16 = shl nsw i64 %15, 1

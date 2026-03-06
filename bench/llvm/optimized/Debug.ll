@@ -152,7 +152,7 @@ _ZN4llvm13ManagedStaticISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcES
   %23 = load atomic i64, ptr @_ZN4llvmL16CurrentDebugTypeB5cxx11E monotonic, align 8
   %.0.i.i2.i.i6 = inttoptr i64 %23 to ptr
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %24 = getelementptr inbounds nuw ptr, ptr %0, i64 %.09
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.09
   %25 = load ptr, ptr %24, align 8, !tbaa !8
   store ptr %18, ptr %4, align 8, !tbaa !20
   %26 = icmp eq ptr %25, null
@@ -525,7 +525,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %69
   store ptr %22, ptr %0, align 8, !tbaa !10
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !12
-  %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %73, ptr %68, align 8, !tbaa !23
   ret void
 }

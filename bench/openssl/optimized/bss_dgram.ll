@@ -1132,8 +1132,8 @@ define internal range(i32 0, 2) i32 @dgram_sendmmsg(ptr noundef readonly capture
 
 .split.us.split.us:                               ; preds = %.split.us, %pack_local.exit.us.us
   %.04657.us.us = phi i64 [ %44, %pack_local.exit.us.us ], [ 0, %.split.us ]
-  %22 = getelementptr inbounds nuw %struct.mmsghdr, ptr %7, i64 %.04657.us.us
-  %23 = getelementptr inbounds nuw %struct.iovec, ptr %8, i64 %.04657.us.us
+  %22 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 %.04657.us.us
+  %23 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %.04657.us.us
   %24 = getelementptr inbounds nuw [40 x i8], ptr %9, i64 %.04657.us.us
   %25 = mul i64 %.04657.us.us, %2
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 %25
@@ -1185,8 +1185,8 @@ pack_local.exit.us.us:                            ; preds = %translate_msg.exit.
 
 translate_msg.exit.us:                            ; preds = %.split.us, %pack_local.exit.us
   %.04657.us = phi i64 [ %64, %pack_local.exit.us ], [ 0, %.split.us ]
-  %45 = getelementptr inbounds nuw %struct.mmsghdr, ptr %7, i64 %.04657.us
-  %46 = getelementptr inbounds nuw %struct.iovec, ptr %8, i64 %.04657.us
+  %45 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 %.04657.us
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %.04657.us
   %47 = getelementptr inbounds nuw [40 x i8], ptr %9, i64 %.04657.us
   %48 = mul i64 %.04657.us, %2
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 %48
@@ -1223,8 +1223,8 @@ pack_local.exit.us:                               ; preds = %translate_msg.exit.
 
 .split:                                           ; preds = %13, %pack_local.exit
   %.04657 = phi i64 [ %117, %pack_local.exit ], [ 0, %13 ]
-  %65 = getelementptr inbounds nuw %struct.mmsghdr, ptr %7, i64 %.04657
-  %66 = getelementptr inbounds nuw %struct.iovec, ptr %8, i64 %.04657
+  %65 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 %.04657
+  %66 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %.04657
   %67 = getelementptr inbounds nuw [40 x i8], ptr %9, i64 %.04657
   %68 = mul i64 %.04657, %2
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 %68
@@ -1391,7 +1391,7 @@ pack_local.exit:                                  ; preds = %pack_local.exit.sin
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.164 = phi i64 [ %135, %.lr.ph ], [ 0, %.preheader ]
-  %127 = getelementptr inbounds nuw %struct.mmsghdr, ptr %7, i64 %.164
+  %127 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 %.164
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 56
   %129 = load i32, ptr %128, align 8, !tbaa !61
   %130 = zext i32 %129 to i64
@@ -1445,8 +1445,8 @@ define internal range(i32 0, 2) i32 @dgram_recvmmsg(ptr noundef readonly capture
 
 .split.us.split.us:                               ; preds = %.split.us, %translate_msg.exit.us.us
   %.05062.us.us = phi i64 [ %42, %translate_msg.exit.us.us ], [ 0, %.split.us ]
-  %20 = getelementptr inbounds nuw %struct.mmsghdr, ptr %7, i64 %.05062.us.us
-  %21 = getelementptr inbounds nuw %struct.iovec, ptr %8, i64 %.05062.us.us
+  %20 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 %.05062.us.us
+  %21 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %.05062.us.us
   %22 = getelementptr inbounds nuw [40 x i8], ptr %9, i64 %.05062.us.us
   %23 = mul i64 %.05062.us.us, %2
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 %23
@@ -1495,8 +1495,8 @@ translate_msg.exit.us.us:                         ; preds = %31, %.split.us.spli
 
 .split.us.split:                                  ; preds = %.split.us, %54
   %.05062.us = phi i64 [ %55, %54 ], [ 0, %.split.us ]
-  %43 = getelementptr inbounds nuw %struct.mmsghdr, ptr %7, i64 %.05062.us
-  %44 = getelementptr inbounds nuw %struct.iovec, ptr %8, i64 %.05062.us
+  %43 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 %.05062.us
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %.05062.us
   %45 = getelementptr inbounds nuw [40 x i8], ptr %9, i64 %.05062.us
   %46 = mul i64 %.05062.us, %2
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 %46
@@ -1551,8 +1551,8 @@ translate_msg.exit.us:                            ; preds = %56, %.split.us.spli
 
 translate_msg.exit.us67:                          ; preds = %.split, %translate_msg.exit.us67
   %.05062.us68 = phi i64 [ %86, %translate_msg.exit.us67 ], [ 0, %.split ]
-  %67 = getelementptr inbounds nuw %struct.mmsghdr, ptr %7, i64 %.05062.us68
-  %68 = getelementptr inbounds nuw %struct.iovec, ptr %8, i64 %.05062.us68
+  %67 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 %.05062.us68
+  %68 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %.05062.us68
   %69 = getelementptr inbounds nuw [40 x i8], ptr %9, i64 %.05062.us68
   %70 = mul i64 %.05062.us68, %2
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 %70
@@ -1591,8 +1591,8 @@ translate_msg.exit.us67:                          ; preds = %.split, %translate_
 
 translate_msg.exit:                               ; preds = %.split, %87
   %.05062 = phi i64 [ %88, %87 ], [ 0, %.split ]
-  %89 = getelementptr inbounds nuw %struct.mmsghdr, ptr %7, i64 %.05062
-  %90 = getelementptr inbounds nuw %struct.iovec, ptr %8, i64 %.05062
+  %89 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 %.05062
+  %90 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %.05062
   %91 = getelementptr inbounds nuw [40 x i8], ptr %9, i64 %.05062
   %92 = mul i64 %.05062, %2
   %93 = getelementptr inbounds nuw i8, ptr %1, i64 %92
@@ -1655,7 +1655,7 @@ translate_msg.exit:                               ; preds = %.split, %87
 
 118:                                              ; preds = %.lr.ph, %extract_local.exit
   %.172 = phi i64 [ 0, %.lr.ph ], [ %195, %extract_local.exit ]
-  %119 = getelementptr inbounds nuw %struct.mmsghdr, ptr %7, i64 %.172
+  %119 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 %.172
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 56
   %121 = load i32, ptr %120, align 8, !tbaa !61
   %122 = zext i32 %121 to i64

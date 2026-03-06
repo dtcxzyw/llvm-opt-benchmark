@@ -19,12 +19,12 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base.6" = type { %"struct.std::_Vector_base<std::pair<double, std::vector<double>>, std::allocator<std::pair<double, std::vector<double>>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::pair<double, std::vector<double>>, std::allocator<std::pair<double, std::vector<double>>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::pair<double, std::vector<double>>, std::allocator<std::pair<double, std::vector<double>>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::pair<double, std::vector<double>>, std::allocator<std::pair<double, std::vector<double>>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
+%"struct.__gnu_cxx::__ops::_Iter_comp_iter" = type { i8 }
 %"struct.std::pair" = type { double, %"class.std::vector" }
 %"class.std::vector" = type { %"struct.std::_Vector_base" }
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl" }
 %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl" = type { %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.__gnu_cxx::__ops::_Iter_comp_iter" = type { i8 }
 %"struct.__gnu_cxx::__ops::_Iter_comp_val" = type { i8 }
 
 $_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_ = comdat any
@@ -467,14 +467,14 @@ if.then.i.i.i.i.i.i:                              ; preds = %cond.end.i
 invoke.cont98:                                    ; preds = %invoke.cont98.lr.ph, %invoke.cont98
   %q.0587 = phi i64 [ 0, %invoke.cont98.lr.ph ], [ %inc, %invoke.cont98 ]
   %mul.i.i229 = mul i64 %q.0587, %9
-  %add.ptr.i.i230 = getelementptr inbounds nuw double, ptr %30, i64 %mul.i.i229
-  %arrayidx = getelementptr inbounds nuw double, ptr %add.ptr.i.i230, i64 %q.0587
+  %add.ptr.i.i230 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %mul.i.i229
+  %arrayidx = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i230, i64 %q.0587
   %53 = load double, ptr %arrayidx, align 8, !tbaa !19
-  %arrayidx.i = getelementptr inbounds nuw double, ptr %cond.i, i64 %q.0587
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %cond.i, i64 %q.0587
   store double %53, ptr %arrayidx.i, align 8, !tbaa !19
   %mul.i.i232 = mul i64 %4, %q.0587
-  %add.ptr.i.i233 = getelementptr inbounds nuw double, ptr %8, i64 %mul.i.i232
-  %arrayidx100 = getelementptr inbounds nuw double, ptr %add.ptr.i.i233, i64 %q.0587
+  %add.ptr.i.i233 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %mul.i.i232
+  %arrayidx100 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i233, i64 %q.0587
   store double 1.000000e+00, ptr %arrayidx100, align 8, !tbaa !19
   %inc = add nuw i64 %q.0587, 1
   %exitcond.not = icmp eq i64 %inc, %9
@@ -572,13 +572,13 @@ for.body127:                                      ; preds = %do.body123, %for.co
 
 invoke.cont133.lr.ph:                             ; preds = %for.body127
   %mul.i.i242 = mul i64 %a.0592, %9
-  %add.ptr.i.i243 = getelementptr inbounds nuw double, ptr %call2.i227, i64 %mul.i.i242
+  %add.ptr.i.i243 = getelementptr inbounds nuw [8 x i8], ptr %call2.i227, i64 %mul.i.i242
   br label %invoke.cont133
 
 invoke.cont133:                                   ; preds = %invoke.cont133.lr.ph, %invoke.cont133
   %sum.1590 = phi double [ %sum.0593, %invoke.cont133.lr.ph ], [ %add136, %invoke.cont133 ]
   %b.0589 = phi i64 [ %add, %invoke.cont133.lr.ph ], [ %inc138, %invoke.cont133 ]
-  %arrayidx135 = getelementptr inbounds nuw double, ptr %add.ptr.i.i243, i64 %b.0589
+  %arrayidx135 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i243, i64 %b.0589
   %57 = load double, ptr %arrayidx135, align 8, !tbaa !19
   %58 = tail call double @llvm.fabs.f64(double %57)
   %add136 = fadd double %sum.1590, %58
@@ -608,9 +608,9 @@ for.body155:                                      ; preds = %for.body155.lr.ph, 
 
 invoke.cont161.lr.ph:                             ; preds = %for.body155
   %mul.i.i245 = mul i64 %j.0608, %9
-  %add.ptr.i.i246 = getelementptr inbounds nuw double, ptr %call2.i227, i64 %mul.i.i245
-  %arrayidx.i247 = getelementptr inbounds nuw double, ptr %cond.i, i64 %j.0608
-  %add.ptr.i266 = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i240, i64 %j.0608
+  %add.ptr.i.i246 = getelementptr inbounds nuw [8 x i8], ptr %call2.i227, i64 %mul.i.i245
+  %arrayidx.i247 = getelementptr inbounds nuw [8 x i8], ptr %cond.i, i64 %j.0608
+  %add.ptr.i266 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i240, i64 %j.0608
   %cmp242.not596 = icmp eq i64 %j.0608, 0
   %59 = load ptr, ptr %eigenVectors_, align 8
   %60 = load i64, ptr %columns_.i.i.i293, align 8
@@ -618,7 +618,7 @@ invoke.cont161.lr.ph:                             ; preds = %for.body155
 
 invoke.cont161:                                   ; preds = %invoke.cont161.lr.ph, %if.end274
   %k.0606 = phi i64 [ %add156, %invoke.cont161.lr.ph ], [ %inc283, %if.end274 ]
-  %arrayidx163 = getelementptr inbounds nuw double, ptr %add.ptr.i.i246, i64 %k.0606
+  %arrayidx163 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i246, i64 %k.0606
   %61 = load double, ptr %arrayidx163, align 8, !tbaa !19
   %62 = tail call double @llvm.fabs.f64(double %61)
   br i1 %cmp164, label %land.lhs.true165, label %invoke.cont182
@@ -631,7 +631,7 @@ land.lhs.true165:                                 ; preds = %invoke.cont161
   br i1 %cmp170, label %land.lhs.true171, label %invoke.cont182
 
 land.lhs.true171:                                 ; preds = %land.lhs.true165
-  %arrayidx.i248 = getelementptr inbounds nuw double, ptr %cond.i, i64 %k.0606
+  %arrayidx.i248 = getelementptr inbounds nuw [8 x i8], ptr %cond.i, i64 %k.0606
   %65 = load double, ptr %arrayidx.i248, align 8, !tbaa !19
   %66 = tail call double @llvm.fabs.f64(double %65)
   %mul175 = fmul double %66, 1.000000e-15
@@ -647,7 +647,7 @@ invoke.cont182:                                   ; preds = %invoke.cont161, %la
   br i1 %cmp185, label %if.then186, label %if.end274
 
 if.then186:                                       ; preds = %invoke.cont182
-  %arrayidx.i255 = getelementptr inbounds nuw double, ptr %cond.i, i64 %k.0606
+  %arrayidx.i255 = getelementptr inbounds nuw [8 x i8], ptr %cond.i, i64 %k.0606
   %67 = load double, ptr %arrayidx.i255, align 8, !tbaa !19
   %68 = load double, ptr %arrayidx.i247, align 8, !tbaa !19
   %sub193 = fsub double %67, %68
@@ -687,7 +687,7 @@ invoke.cont237:                                   ; preds = %invoke.cont203, %if
   %73 = load double, ptr %add.ptr.i266, align 8, !tbaa !19
   %sub226 = fsub double %73, %mul224
   store double %sub226, ptr %add.ptr.i266, align 8, !tbaa !19
-  %add.ptr.i267 = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i240, i64 %k.0606
+  %add.ptr.i267 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i240, i64 %k.0606
   %74 = load double, ptr %add.ptr.i267, align 8, !tbaa !19
   %add228 = fadd double %mul224, %74
   store double %add228, ptr %add.ptr.i267, align 8, !tbaa !19
@@ -705,7 +705,7 @@ for.body243.lr.ph:                                ; preds = %invoke.cont237
 
 for.cond249.preheader:                            ; preds = %for.body243, %invoke.cont237
   %sub250 = add i64 %k.0606, -1
-  %invariant.gep = getelementptr double, ptr %call2.i227, i64 %k.0606
+  %invariant.gep = getelementptr [8 x i8], ptr %call2.i227, i64 %k.0606
   %cmp251.not599.not = icmp ult i64 %j.0608, %sub250
   br i1 %cmp251.not599.not, label %for.inc254.lr.ph, label %for.cond258.preheader
 
@@ -717,10 +717,10 @@ for.body243:                                      ; preds = %for.body243.lr.ph, 
   %add241598 = phi i64 [ 1, %for.body243.lr.ph ], [ %add241, %for.body243 ]
   %l.0597 = phi i64 [ 0, %for.body243.lr.ph ], [ %add241598, %for.body243 ]
   %mul.i.i.i = mul i64 %l.0597, %9
-  %add.ptr.i.i.i273 = getelementptr inbounds nuw double, ptr %call2.i227, i64 %mul.i.i.i
-  %arrayidx.i274 = getelementptr inbounds nuw double, ptr %add.ptr.i.i.i273, i64 %j.0608
+  %add.ptr.i.i.i273 = getelementptr inbounds nuw [8 x i8], ptr %call2.i227, i64 %mul.i.i.i
+  %arrayidx.i274 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i.i273, i64 %j.0608
   %76 = load double, ptr %arrayidx.i274, align 8, !tbaa !19
-  %arrayidx3.i = getelementptr inbounds nuw double, ptr %add.ptr.i.i.i273, i64 %k.0606
+  %arrayidx3.i = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i.i273, i64 %k.0606
   %77 = load double, ptr %arrayidx3.i, align 8, !tbaa !19
   %78 = tail call double @llvm.fmuladd.f64(double %76, double %div220, double %77)
   %79 = tail call double @llvm.fmuladd.f64(double %neg.i, double %78, double %76)
@@ -744,16 +744,16 @@ for.cond258.preheader.for.cond265.preheader_crit_edge: ; preds = %for.cond258.pr
 
 for.body260.lr.ph:                                ; preds = %for.cond258.preheader
   %mul.i.i15.i288 = mul i64 %k.0606, %9
-  %add.ptr.i.i16.i289 = getelementptr inbounds nuw double, ptr %call2.i227, i64 %mul.i.i15.i288
+  %add.ptr.i.i16.i289 = getelementptr inbounds nuw [8 x i8], ptr %call2.i227, i64 %mul.i.i15.i288
   %neg.i291 = fneg double %mul218
   br label %for.body260
 
 for.inc254:                                       ; preds = %for.inc254.lr.ph, %for.inc254
   %l.1600 = phi i64 [ %add156, %for.inc254.lr.ph ], [ %inc255, %for.inc254 ]
-  %arrayidx.i278 = getelementptr inbounds nuw double, ptr %add.ptr.i.i246, i64 %l.1600
+  %arrayidx.i278 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i246, i64 %l.1600
   %82 = load double, ptr %arrayidx.i278, align 8, !tbaa !19
   %mul.i.i15.i279 = mul i64 %l.1600, %9
-  %gep = getelementptr double, ptr %invariant.gep, i64 %mul.i.i15.i279
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %mul.i.i15.i279
   %83 = load double, ptr %gep, align 8, !tbaa !19
   %84 = tail call double @llvm.fmuladd.f64(double %82, double %div220, double %83)
   %85 = tail call double @llvm.fmuladd.f64(double %neg.i282, double %84, double %82)
@@ -772,9 +772,9 @@ for.cond265.preheader:                            ; preds = %for.body260, %for.c
 
 for.body260:                                      ; preds = %for.body260.lr.ph, %for.body260
   %l.2603 = phi i64 [ %l.2601, %for.body260.lr.ph ], [ %l.2, %for.body260 ]
-  %arrayidx.i287 = getelementptr inbounds nuw double, ptr %add.ptr.i.i246, i64 %l.2603
+  %arrayidx.i287 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i246, i64 %l.2603
   %88 = load double, ptr %arrayidx.i287, align 8, !tbaa !19
-  %arrayidx3.i290 = getelementptr inbounds nuw double, ptr %add.ptr.i.i16.i289, i64 %l.2603
+  %arrayidx3.i290 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i16.i289, i64 %l.2603
   %89 = load double, ptr %arrayidx3.i290, align 8, !tbaa !19
   %90 = tail call double @llvm.fmuladd.f64(double %88, double %div220, double %89)
   %91 = tail call double @llvm.fmuladd.f64(double %neg.i291, double %90, double %88)
@@ -790,10 +790,10 @@ for.body260:                                      ; preds = %for.body260.lr.ph, 
 for.inc270:                                       ; preds = %for.cond265.preheader, %for.inc270
   %l.3604 = phi i64 [ 0, %for.cond265.preheader ], [ %inc271, %for.inc270 ]
   %mul.i.i.i294 = mul i64 %60, %l.3604
-  %add.ptr.i.i.i295 = getelementptr inbounds nuw double, ptr %59, i64 %mul.i.i.i294
-  %arrayidx.i296 = getelementptr inbounds nuw double, ptr %add.ptr.i.i.i295, i64 %j.0608
+  %add.ptr.i.i.i295 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %mul.i.i.i294
+  %arrayidx.i296 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i.i295, i64 %j.0608
   %94 = load double, ptr %arrayidx.i296, align 8, !tbaa !19
-  %arrayidx3.i299 = getelementptr inbounds nuw double, ptr %add.ptr.i.i.i295, i64 %k.0606
+  %arrayidx3.i299 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i.i295, i64 %k.0606
   %95 = load double, ptr %arrayidx3.i299, align 8, !tbaa !19
   %96 = tail call double @llvm.fmuladd.f64(double %94, double %div220, double %95)
   %97 = tail call double @llvm.fmuladd.f64(double %neg.i300.pre-phi, double %96, double %94)
@@ -813,13 +813,13 @@ if.end274:                                        ; preds = %for.inc270, %invoke
 
 for.body290:                                      ; preds = %for.cond152.loopexit, %for.body290
   %k.1610 = phi i64 [ %inc301, %for.body290 ], [ 0, %for.cond152.loopexit ]
-  %add.ptr.i302 = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i240, i64 %k.1610
+  %add.ptr.i302 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i240, i64 %k.1610
   %100 = load double, ptr %add.ptr.i302, align 8, !tbaa !19
-  %add.ptr.i303 = getelementptr inbounds nuw double, ptr %tmpDiag.sroa.0.0, i64 %k.1610
+  %add.ptr.i303 = getelementptr inbounds nuw [8 x i8], ptr %tmpDiag.sroa.0.0, i64 %k.1610
   %101 = load double, ptr %add.ptr.i303, align 8, !tbaa !19
   %add293 = fadd double %100, %101
   store double %add293, ptr %add.ptr.i303, align 8, !tbaa !19
-  %arrayidx.i305 = getelementptr inbounds nuw double, ptr %cond.i, i64 %k.1610
+  %arrayidx.i305 = getelementptr inbounds nuw [8 x i8], ptr %cond.i, i64 %k.1610
   store double %add293, ptr %arrayidx.i305, align 8, !tbaa !19
   store double 0.000000e+00, ptr %add.ptr.i302, align 8, !tbaa !19
   %inc301 = add nuw i64 %k.1610, 1
@@ -1001,7 +1001,7 @@ for.inc.preheader.i.i.i.i.i:                      ; preds = %do.end358.thread, %
 
 if.then.i.i.i.i.i:                                ; preds = %for.inc.preheader.i.i.i.i.i
   store ptr %call5.i.i.i.i2.i.i344, ptr %temp, align 8, !tbaa !35
-  %add.ptr.i.i.i339 = getelementptr inbounds nuw %"struct.std::pair", ptr %call5.i.i.i.i2.i.i344, i64 %9
+  %add.ptr.i.i.i339 = getelementptr inbounds nuw [32 x i8], ptr %call5.i.i.i.i2.i.i344, i64 %9
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %call5.i.i.i.i2.i.i344, i8 0, i64 %mul.i.i.i.i.i.i338, i1 false)
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i344, i64 %mul.i.i.i.i.i.i338
   %_M_finish.i.i7.i340 = getelementptr inbounds nuw i8, ptr %temp, i64 8
@@ -1044,7 +1044,7 @@ invoke.cont378:                                   ; preds = %invoke.cont378.lr.p
 
 for.body.i.i.i.i.i.preheader:                     ; preds = %invoke.cont378
   %123 = load ptr, ptr %eigenVectors_, align 8, !tbaa !15
-  %add.ptr.i359 = getelementptr inbounds nuw double, ptr %123, i64 %col.0612
+  %add.ptr.i359 = getelementptr inbounds nuw [8 x i8], ptr %123, i64 %col.0612
   br label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.preheader, %for.body.i.i.i.i.i
@@ -1053,7 +1053,7 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.
   %__first.sroa.0.08.i.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %add.ptr.i359, %for.body.i.i.i.i.i.preheader ]
   %124 = load double, ptr %__first.sroa.0.08.i.i.i.i.i, align 8, !tbaa !19
   store double %124, ptr %__result.addr.09.i.i.i.i.i, align 8, !tbaa !19
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds double, ptr %__first.sroa.0.08.i.i.i.i.i, i64 %121
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %__first.sroa.0.08.i.i.i.i.i, i64 %121
   %incdec.ptr.i.i.i.i.i367 = getelementptr inbounds nuw i8, ptr %__result.addr.09.i.i.i.i.i, i64 8
   %dec.i.i.i.i.i = add nsw i64 %__n.010.i.i.i.i.i, -1
   %cmp.i.i.i.i.i = icmp samesign ugt i64 %__n.010.i.i.i.i.i, 1
@@ -1061,7 +1061,7 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.
 
 invoke.cont383:                                   ; preds = %for.body.i.i.i.i.i, %invoke.cont378
   %125 = load ptr, ptr %this, align 8, !tbaa !15
-  %arrayidx.i368 = getelementptr inbounds nuw double, ptr %125, i64 %col.0612
+  %arrayidx.i368 = getelementptr inbounds nuw [8 x i8], ptr %125, i64 %col.0612
   %126 = load double, ptr %arrayidx.i368, align 8, !tbaa !19, !noalias !40
   br i1 %cmp.not.i.i.i.i.i.i, label %invoke.cont391, label %cond.true.i.i.i.i.i.i
 
@@ -1087,7 +1087,7 @@ call5.i.i.i.i2.i6.i.i.i.noexc:                    ; preds = %if.then.i.i.i.i.i.i
 invoke.cont391:                                   ; preds = %invoke.cont383, %call5.i.i.i.i2.i6.i.i.i.noexc
   %ref.tmp386.sroa.5.0 = phi ptr [ %call5.i.i.i.i2.i6.i.i.i373, %call5.i.i.i.i2.i6.i.i.i.noexc ], [ null, %invoke.cont383 ]
   %ref.tmp386.sroa.13.0 = phi ptr [ %add.ptr.i.i.i.i.i, %call5.i.i.i.i2.i6.i.i.i.noexc ], [ %add.ptr.i.i.i.i3.i, %invoke.cont383 ]
-  %add.ptr.i374 = getelementptr inbounds nuw %"struct.std::pair", ptr %call5.i.i.i.i2.i.i344, i64 %col.0612
+  %add.ptr.i374 = getelementptr inbounds nuw [32 x i8], ptr %call5.i.i.i.i2.i.i344, i64 %col.0612
   store double %126, ptr %add.ptr.i374, align 8, !tbaa !44
   %second3.i = getelementptr inbounds nuw i8, ptr %add.ptr.i374, i64 8
   %127 = load ptr, ptr %second3.i, align 8, !tbaa !50
@@ -1181,29 +1181,29 @@ for.body411.lr.ph:                                ; preds = %.noexc394, %if.else
 
 for.body411:                                      ; preds = %for.body411.lr.ph, %for.end441
   %col.1617 = phi i64 [ 0, %for.body411.lr.ph ], [ %inc444, %for.end441 ]
-  %add.ptr.i397 = getelementptr inbounds nuw %"struct.std::pair", ptr %call5.i.i.i.i2.i.i344, i64 %col.1617
+  %add.ptr.i397 = getelementptr inbounds nuw [32 x i8], ptr %call5.i.i.i.i2.i.i344, i64 %col.1617
   %136 = load double, ptr %add.ptr.i397, align 8, !tbaa !44
   %div414 = fdiv double %136, %132
   %137 = tail call double @llvm.fabs.f64(double %div414)
   %cmp415 = fcmp olt double %137, 0x3C9CD2B297D889BC
   %cond = select i1 %cmp415, double 0.000000e+00, double %136
-  %arrayidx.i399 = getelementptr inbounds nuw double, ptr %133, i64 %col.1617
+  %arrayidx.i399 = getelementptr inbounds nuw [8 x i8], ptr %133, i64 %col.1617
   store double %cond, ptr %arrayidx.i399, align 8, !tbaa !19
   %second = getelementptr inbounds nuw i8, ptr %add.ptr.i397, i64 8
   %138 = load ptr, ptr %second, align 8, !tbaa !50
   %139 = load double, ptr %138, align 8, !tbaa !19
   %.fr = freeze double %139
   %cmp424 = fcmp olt double %.fr, 0.000000e+00
-  %invariant.gep613 = getelementptr double, ptr %134, i64 %col.1617
+  %invariant.gep613 = getelementptr [8 x i8], ptr %134, i64 %col.1617
   br i1 %cmp424, label %invoke.cont436.us, label %invoke.cont436
 
 invoke.cont436.us:                                ; preds = %for.body411, %invoke.cont436.us
   %row.0615.us = phi i64 [ %inc440.us, %invoke.cont436.us ], [ 0, %for.body411 ]
-  %add.ptr.i403.us = getelementptr inbounds nuw double, ptr %138, i64 %row.0615.us
+  %add.ptr.i403.us = getelementptr inbounds nuw [8 x i8], ptr %138, i64 %row.0615.us
   %140 = load double, ptr %add.ptr.i403.us, align 8, !tbaa !19
   %mul.i.i405.us = mul i64 %135, %row.0615.us
   %141 = fneg double %140
-  %gep614.us = getelementptr double, ptr %invariant.gep613, i64 %mul.i.i405.us
+  %gep614.us = getelementptr [8 x i8], ptr %invariant.gep613, i64 %mul.i.i405.us
   store double %141, ptr %gep614.us, align 8, !tbaa !19
   %inc440.us = add nuw i64 %row.0615.us, 1
   %exitcond634.not = icmp eq i64 %inc440.us, %9
@@ -1211,10 +1211,10 @@ invoke.cont436.us:                                ; preds = %for.body411, %invok
 
 invoke.cont436:                                   ; preds = %for.body411, %invoke.cont436
   %row.0615 = phi i64 [ %inc440, %invoke.cont436 ], [ 0, %for.body411 ]
-  %add.ptr.i403 = getelementptr inbounds nuw double, ptr %138, i64 %row.0615
+  %add.ptr.i403 = getelementptr inbounds nuw [8 x i8], ptr %138, i64 %row.0615
   %142 = load double, ptr %add.ptr.i403, align 8, !tbaa !19
   %mul.i.i405 = mul i64 %135, %row.0615
-  %gep614 = getelementptr double, ptr %invariant.gep613, i64 %mul.i.i405
+  %gep614 = getelementptr [8 x i8], ptr %invariant.gep613, i64 %mul.i.i405
   store double %142, ptr %gep614, align 8, !tbaa !19
   %inc440 = add nuw i64 %row.0615, 1
   %exitcond632.not = icmp eq i64 %inc440, %9
@@ -1604,7 +1604,7 @@ if.then:                                          ; preds = %while.body
 if.end:                                           ; preds = %while.body
   %dec = add nsw i64 %__depth_limit.addr.013, -1
   %div.i56 = lshr i64 %sub.ptr.div.i14, 1
-  %add.ptr.i.i = getelementptr inbounds nuw %"struct.std::pair", ptr %__first.coerce, i64 %div.i56
+  %add.ptr.i.i = getelementptr inbounds nuw [32 x i8], ptr %__first.coerce, i64 %div.i56
   %add.ptr.i3.i = getelementptr inbounds i8, ptr %storemerge12, i64 -32
   tail call void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIdSt6vectorIdSaIdEEES3_IS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterISt7greaterIvEEEEvT_SG_SG_SG_T0_(ptr %__first.coerce, ptr nonnull %add.ptr.i2.i, ptr %add.ptr.i.i, ptr nonnull %add.ptr.i3.i)
   %call25.i = tail call ptr @_ZSt21__unguarded_partitionIN9__gnu_cxx17__normal_iteratorIPSt4pairIdSt6vectorIdSaIdEEES3_IS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterISt7greaterIvEEEET_SG_SG_SG_T0_(ptr nonnull %add.ptr.i2.i, ptr %storemerge12, ptr %__first.coerce)
@@ -1642,7 +1642,7 @@ if.end.i:                                         ; preds = %entry
 
 while.cond.i:                                     ; preds = %_ZNSt4pairIdSt6vectorIdSaIdEEED2Ev.exit23.i, %if.end.i
   %__parent.0.i = phi i64 [ %div4748.i, %if.end.i ], [ %dec.i, %_ZNSt4pairIdSt6vectorIdSaIdEEED2Ev.exit23.i ]
-  %add.ptr.i.i = getelementptr inbounds %"struct.std::pair", ptr %__first.coerce, i64 %__parent.0.i
+  %add.ptr.i.i = getelementptr inbounds [32 x i8], ptr %__first.coerce, i64 %__parent.0.i
   %0 = load double, ptr %add.ptr.i.i, align 8, !tbaa !44
   %second3.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 8
   %1 = load ptr, ptr %second3.i.i, align 8, !tbaa !50
@@ -1941,9 +1941,9 @@ while.body:                                       ; preds = %entry, %_ZNSt4pairI
   %__holeIndex.addr.057 = phi i64 [ %9, %_ZNSt4pairIdSt6vectorIdSaIdEEEaSEOS3_.exit ], [ %__holeIndex, %entry ]
   %add = shl i64 %__holeIndex.addr.057, 1
   %mul = add i64 %add, 2
-  %add.ptr.i = getelementptr inbounds %"struct.std::pair", ptr %__first.coerce, i64 %mul
+  %add.ptr.i = getelementptr inbounds [32 x i8], ptr %__first.coerce, i64 %mul
   %sub3 = or disjoint i64 %add, 1
-  %add.ptr.i17 = getelementptr inbounds %"struct.std::pair", ptr %__first.coerce, i64 %sub3
+  %add.ptr.i17 = getelementptr inbounds [32 x i8], ptr %__first.coerce, i64 %sub3
   %0 = load double, ptr %add.ptr.i17, align 8, !tbaa !44
   %1 = load double, ptr %add.ptr.i, align 8, !tbaa !44
   %cmp.i.i.i.i.i = fcmp olt double %0, %1
@@ -2004,8 +2004,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIvEEclINS_17__normal_iteratorIPSt
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIvEEclINS_17__normal_iteratorIPSt4pairIdSt6vectorIdSaIdEEES8_ISB_SaISB_EEEESF_EEbT_T0_.exit.thread54: ; preds = %if.end.i.i.i.i.i.i.i.i.i.i.i, %lor.rhs.i.i.i.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIvEEclINS_17__normal_iteratorIPSt4pairIdSt6vectorIdSaIdEEES8_ISB_SaISB_EEEESF_EEbT_T0_.exit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIvEEclINS_17__normal_iteratorIPSt4pairIdSt6vectorIdSaIdEEES8_ISB_SaISB_EEEESF_EEbT_T0_.exit.thread
   %8 = phi double [ %0, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIvEEclINS_17__normal_iteratorIPSt4pairIdSt6vectorIdSaIdEEES8_ISB_SaISB_EEEESF_EEbT_T0_.exit.thread ], [ %1, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIvEEclINS_17__normal_iteratorIPSt4pairIdSt6vectorIdSaIdEEES8_ISB_SaISB_EEEESF_EEbT_T0_.exit ], [ %1, %lor.rhs.i.i.i.i.i ], [ %1, %if.end.i.i.i.i.i.i.i.i.i.i.i ]
   %9 = phi i64 [ %sub3, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIvEEclINS_17__normal_iteratorIPSt4pairIdSt6vectorIdSaIdEEES8_ISB_SaISB_EEEESF_EEbT_T0_.exit.thread ], [ %mul, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIvEEclINS_17__normal_iteratorIPSt4pairIdSt6vectorIdSaIdEEES8_ISB_SaISB_EEEESF_EEbT_T0_.exit ], [ %mul, %lor.rhs.i.i.i.i.i ], [ %mul, %if.end.i.i.i.i.i.i.i.i.i.i.i ]
-  %add.ptr.i18 = getelementptr inbounds %"struct.std::pair", ptr %__first.coerce, i64 %9
-  %add.ptr.i19 = getelementptr inbounds %"struct.std::pair", ptr %__first.coerce, i64 %__holeIndex.addr.057
+  %add.ptr.i18 = getelementptr inbounds [32 x i8], ptr %__first.coerce, i64 %9
+  %add.ptr.i19 = getelementptr inbounds [32 x i8], ptr %__first.coerce, i64 %__holeIndex.addr.057
   store double %8, ptr %add.ptr.i19, align 8, !tbaa !44
   %second.i = getelementptr inbounds nuw i8, ptr %add.ptr.i18, i64 8
   %second3.i = getelementptr inbounds nuw i8, ptr %add.ptr.i19, i64 8
@@ -2051,8 +2051,8 @@ land.lhs.true:                                    ; preds = %while.end
 if.then21:                                        ; preds = %land.lhs.true
   %add22 = shl nsw i64 %__holeIndex.addr.0.lcssa, 1
   %sub25 = or disjoint i64 %add22, 1
-  %add.ptr.i20 = getelementptr inbounds %"struct.std::pair", ptr %__first.coerce, i64 %sub25
-  %add.ptr.i21 = getelementptr inbounds %"struct.std::pair", ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa
+  %add.ptr.i20 = getelementptr inbounds [32 x i8], ptr %__first.coerce, i64 %sub25
+  %add.ptr.i21 = getelementptr inbounds [32 x i8], ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa
   %15 = load double, ptr %add.ptr.i20, align 8, !tbaa !19
   store double %15, ptr %add.ptr.i21, align 8, !tbaa !44
   %second.i22 = getelementptr inbounds nuw i8, ptr %add.ptr.i20, i64 8
@@ -2153,7 +2153,7 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %_Z
   %__holeIndex.addr.033 = phi i64 [ %__holeIndex, %land.rhs.lr.ph ], [ %__parent.034, %_ZNSt4pairIdSt6vectorIdSaIdEEEaSEOS3_.exit ]
   %__parent.034.in = add nsw i64 %__holeIndex.addr.033, -1
   %__parent.034 = sdiv i64 %__parent.034.in, 2
-  %add.ptr.i = getelementptr inbounds %"struct.std::pair", ptr %__first.coerce, i64 %__parent.034
+  %add.ptr.i = getelementptr inbounds [32 x i8], ptr %__first.coerce, i64 %__parent.034
   %0 = load double, ptr %__value, align 8, !tbaa !44
   %1 = load double, ptr %add.ptr.i, align 8, !tbaa !44
   %cmp.i.i.i.i.i = fcmp olt double %0, %1
@@ -2215,7 +2215,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valISt7greaterIvEEclINS_17__normal_iteratorIPSt4
 while.body:                                       ; preds = %for.body.i.i.i.i.i.i.i.i.i.i.i, %land.rhs.while.body_crit_edge, %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt7greaterIvEEclINS_17__normal_iteratorIPSt4pairIdSt6vectorIdSaIdEEES8_ISB_SaISB_EEEESB_EEbT_RT0_.exit
   %8 = phi ptr [ %.pre39, %land.rhs.while.body_crit_edge ], [ %5, %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt7greaterIvEEclINS_17__normal_iteratorIPSt4pairIdSt6vectorIdSaIdEEES8_ISB_SaISB_EEEESB_EEbT_RT0_.exit ], [ %5, %for.body.i.i.i.i.i.i.i.i.i.i.i ]
   %9 = phi ptr [ %.pre, %land.rhs.while.body_crit_edge ], [ %4, %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt7greaterIvEEclINS_17__normal_iteratorIPSt4pairIdSt6vectorIdSaIdEEES8_ISB_SaISB_EEEESB_EEbT_RT0_.exit ], [ %4, %for.body.i.i.i.i.i.i.i.i.i.i.i ]
-  %add.ptr.i8 = getelementptr inbounds %"struct.std::pair", ptr %__first.coerce, i64 %__holeIndex.addr.033
+  %add.ptr.i8 = getelementptr inbounds [32 x i8], ptr %__first.coerce, i64 %__holeIndex.addr.033
   store double %1, ptr %add.ptr.i8, align 8, !tbaa !44
   %second.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 8
   %second3.i = getelementptr inbounds nuw i8, ptr %add.ptr.i8, i64 8
@@ -2245,7 +2245,7 @@ _ZNSt4pairIdSt6vectorIdSaIdEEEaSEOS3_.exit:       ; preds = %while.body, %if.the
 
 while.end:                                        ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt7greaterIvEEclINS_17__normal_iteratorIPSt4pairIdSt6vectorIdSaIdEEES8_ISB_SaISB_EEEESB_EEbT_RT0_.exit, %_ZNSt4pairIdSt6vectorIdSaIdEEEaSEOS3_.exit, %lor.rhs.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i.i.i.i, %entry
   %__holeIndex.addr.029 = phi i64 [ %__holeIndex.addr.033, %if.end.i.i.i.i.i.i.i.i.i.i.i ], [ %__holeIndex, %entry ], [ %__holeIndex.addr.033, %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt7greaterIvEEclINS_17__normal_iteratorIPSt4pairIdSt6vectorIdSaIdEEES8_ISB_SaISB_EEEESB_EEbT_RT0_.exit ], [ %__parent.034, %_ZNSt4pairIdSt6vectorIdSaIdEEEaSEOS3_.exit ], [ %__holeIndex.addr.033, %lor.rhs.i.i.i.i.i ]
-  %add.ptr.i9 = getelementptr inbounds %"struct.std::pair", ptr %__first.coerce, i64 %__holeIndex.addr.029
+  %add.ptr.i9 = getelementptr inbounds [32 x i8], ptr %__first.coerce, i64 %__holeIndex.addr.029
   %13 = load double, ptr %__value, align 8, !tbaa !19
   store double %13, ptr %add.ptr.i9, align 8, !tbaa !44
   %second.i10 = getelementptr inbounds nuw i8, ptr %__value, i64 8

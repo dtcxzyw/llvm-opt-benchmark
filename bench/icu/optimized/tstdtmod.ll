@@ -1906,11 +1906,11 @@ _ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit: ; pre
   br i1 %.not, label %88, label %20
 
 20:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit
-  %21 = getelementptr inbounds nuw i16, ptr %13, i64 %1
+  %21 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %1
   %22 = add i64 %2, %1
   %23 = sub i64 %7, %22
   %24 = icmp ult ptr %3, %13
-  %25 = getelementptr inbounds nuw i16, ptr %13, i64 %7
+  %25 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %7
   %26 = icmp ult ptr %25, %3
   %27 = select i1 %24, i1 true, i1 %26
   br i1 %27, label %28, label %40
@@ -1922,8 +1922,8 @@ _ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit: ; pre
   br i1 %or.cond, label %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE7_S_moveEPDsPKDsm.exit, label %29
 
 29:                                               ; preds = %28
-  %30 = getelementptr inbounds nuw i16, ptr %21, i64 %4
-  %31 = getelementptr inbounds nuw i16, ptr %21, i64 %2
+  %30 = getelementptr inbounds nuw [2 x i8], ptr %21, i64 %4
+  %31 = getelementptr inbounds nuw [2 x i8], ptr %21, i64 %2
   %cond99 = icmp eq i64 %23, 1
   br i1 %cond99, label %32, label %34
 
@@ -1980,8 +1980,8 @@ _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE7_S_moveEPDsPKDsm.exit93
   br i1 %or.cond92, label %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE7_S_moveEPDsPKDsm.exit94, label %47
 
 47:                                               ; preds = %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE7_S_moveEPDsPKDsm.exit93
-  %48 = getelementptr inbounds nuw i16, ptr %21, i64 %4
-  %49 = getelementptr inbounds nuw i16, ptr %21, i64 %2
+  %48 = getelementptr inbounds nuw [2 x i8], ptr %21, i64 %4
+  %49 = getelementptr inbounds nuw [2 x i8], ptr %21, i64 %2
   %cond102 = icmp eq i64 %23, 1
   br i1 %cond102, label %50, label %52
 
@@ -1999,8 +1999,8 @@ _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE7_S_moveEPDsPKDsm.exit94
   br i1 %.not83, label %54, label %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE7_S_copyEPDsPKDsm.exit
 
 54:                                               ; preds = %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE7_S_moveEPDsPKDsm.exit94
-  %55 = getelementptr inbounds nuw i16, ptr %3, i64 %4
-  %56 = getelementptr inbounds nuw i16, ptr %21, i64 %2
+  %55 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %4
+  %56 = getelementptr inbounds nuw [2 x i8], ptr %21, i64 %2
   %.not86 = icmp ugt ptr %55, %56
   br i1 %.not86, label %62, label %57
 
@@ -2027,7 +2027,7 @@ _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE7_S_moveEPDsPKDsm.exit94
   %65 = ptrtoint ptr %21 to i64
   %66 = sub i64 %64, %65
   %67 = getelementptr i8, ptr %21, i64 %66
-  %68 = getelementptr i16, ptr %67, i64 %11
+  %68 = getelementptr [2 x i8], ptr %67, i64 %11
   %cond100 = icmp eq i64 %4, 1
   br i1 %cond100, label %69, label %71
 
@@ -2062,7 +2062,7 @@ _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE7_S_moveEPDsPKDsm.exit94
 
 _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE7_S_moveEPDsPKDsm.exit97: ; preds = %73, %78, %80
   %81 = getelementptr inbounds nuw i8, ptr %21, i64 %76
-  %82 = getelementptr inbounds nuw i16, ptr %21, i64 %4
+  %82 = getelementptr inbounds nuw [2 x i8], ptr %21, i64 %4
   %83 = sub i64 %4, %77
   switch i64 %83, label %86 [
     i64 1, label %84
@@ -2086,7 +2086,7 @@ _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE7_S_moveEPDsPKDsm.exit97
 _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE7_S_copyEPDsPKDsm.exit: ; preds = %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE7_S_moveEPDsPKDsm.exit, %86, %84, %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE7_S_moveEPDsPKDsm.exit97, %71, %69, %60, %58, %38, %36, %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE7_S_moveEPDsPKDsm.exit94, %88
   store i64 %12, ptr %6, align 8, !tbaa !27
   %89 = load ptr, ptr %0, align 8, !tbaa !30
-  %90 = getelementptr inbounds nuw i16, ptr %89, i64 %12
+  %90 = getelementptr inbounds nuw [2 x i8], ptr %89, i64 %12
   store i16 0, ptr %90, align 2, !tbaa !28
   ret ptr %0
 }
@@ -2159,7 +2159,7 @@ _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE7_S_copyEPDsPKDsm.exit: 
   br i1 %or.cond, label %36, label %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE7_S_copyEPDsPKDsm.exit26
 
 36:                                               ; preds = %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE7_S_copyEPDsPKDsm.exit
-  %37 = getelementptr inbounds nuw i16, ptr %29, i64 %1
+  %37 = getelementptr inbounds nuw [2 x i8], ptr %29, i64 %1
   %cond = icmp eq i64 %4, 1
   br i1 %cond, label %38, label %40
 
@@ -2178,10 +2178,10 @@ _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE7_S_copyEPDsPKDsm.exit26
   br i1 %.not25, label %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE7_S_copyEPDsPKDsm.exit27, label %42
 
 42:                                               ; preds = %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE7_S_copyEPDsPKDsm.exit26
-  %43 = getelementptr inbounds nuw i16, ptr %29, i64 %1
-  %44 = getelementptr inbounds nuw i16, ptr %43, i64 %4
-  %45 = getelementptr inbounds nuw i16, ptr %12, i64 %1
-  %46 = getelementptr inbounds nuw i16, ptr %45, i64 %2
+  %43 = getelementptr inbounds nuw [2 x i8], ptr %29, i64 %1
+  %44 = getelementptr inbounds nuw [2 x i8], ptr %43, i64 %4
+  %45 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %1
+  %46 = getelementptr inbounds nuw [2 x i8], ptr %45, i64 %2
   %cond29 = icmp eq i64 %9, 1
   br i1 %cond29, label %47, label %49
 

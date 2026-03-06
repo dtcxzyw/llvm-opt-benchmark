@@ -45,7 +45,7 @@ define hidden range(i32 0, 2) i32 @opj_matrix_inversion_f(ptr noundef captures(n
   %.086130.i = phi ptr [ %0, %.lr.ph133.i ], [ %60, %._crit_edge126.split.us.i ]
   %.189129.i = phi ptr [ %6, %.lr.ph133.i ], [ %61, %._crit_edge126.split.us.i ]
   %.097127.i = phi i32 [ 0, %.lr.ph133.i ], [ %.299.i, %._crit_edge126.split.us.i ]
-  %17 = getelementptr inbounds nuw float, ptr %.086130.i, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %.086130.i, i64 %indvars.iv.i
   %exitcond.not = icmp eq i64 %indvars.iv.i, %13
   br i1 %exitcond.not, label %.sink.split, label %.lr.ph110.preheader.i
 
@@ -65,7 +65,7 @@ define hidden range(i32 0, 2) i32 @opj_matrix_inversion_f(ptr noundef captures(n
   %23 = fcmp ogt float %22, %.090108.i
   %.299.i = select i1 %23, i32 %.195107.i, i32 %.198106.i
   %.191.i = select i1 %23, float %22, float %.090108.i
-  %24 = getelementptr inbounds nuw float, ptr %.084109.i, i64 %13
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %.084109.i, i64 %13
   %25 = add nuw i32 %.195107.i, 1
   %exitcond140.not.i = icmp eq i32 %25, %2
   br i1 %exitcond140.not.i, label %._crit_edge.i, label %.lr.ph110.i, !llvm.loop !11
@@ -80,9 +80,9 @@ define hidden range(i32 0, 2) i32 @opj_matrix_inversion_f(ptr noundef captures(n
   br i1 %.not.i, label %39, label %29
 
 29:                                               ; preds = %27
-  %30 = getelementptr inbounds nuw i32, ptr %.189129.i, i64 %28
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %.189129.i, i64 %28
   %31 = sub nsw i64 0, %indvars.iv.i
-  %32 = getelementptr inbounds i32, ptr %30, i64 %31
+  %32 = getelementptr inbounds [4 x i8], ptr %30, i64 %31
   %33 = load i32, ptr %.189129.i, align 4, !tbaa !3
   %34 = load i32, ptr %32, align 4, !tbaa !3
   store i32 %34, ptr %.189129.i, align 4, !tbaa !3
@@ -90,7 +90,7 @@ define hidden range(i32 0, 2) i32 @opj_matrix_inversion_f(ptr noundef captures(n
   %35 = sub i32 %.299.i, %18
   %36 = mul i32 %35, %2
   %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds nuw float, ptr %.086130.i, i64 %37
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %.086130.i, i64 %37
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %11, ptr align 4 %38, i64 %10, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %38, ptr align 4 %.086130.i, i64 %10, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %.086130.i, ptr nonnull align 4 %11, i64 %10, i1 false)
@@ -103,7 +103,7 @@ define hidden range(i32 0, 2) i32 @opj_matrix_inversion_f(ptr noundef captures(n
 
 .lr.ph125.i:                                      ; preds = %39
   %42 = getelementptr inbounds nuw i8, ptr %17, i64 4
-  %43 = getelementptr inbounds nuw float, ptr %17, i64 %13
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %13
   %44 = zext i32 %.0132.i to i64
   %45 = sub nsw i64 0, %44
   br label %.lr.ph117.us.i
@@ -134,8 +134,8 @@ define hidden range(i32 0, 2) i32 @opj_matrix_inversion_f(ptr noundef captures(n
   br i1 %exitcond141.not.i, label %._crit_edge118.us.i, label %49, !llvm.loop !12
 
 ._crit_edge118.us.i:                              ; preds = %49
-  %55 = getelementptr inbounds float, ptr %50, i64 %45
-  %56 = getelementptr inbounds nuw float, ptr %.2.us.i, i64 %indvars.iv.i
+  %55 = getelementptr inbounds [4 x i8], ptr %50, i64 %45
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %.2.us.i, i64 %indvars.iv.i
   %57 = add nuw i32 %.296121.us.i, 1
   %exitcond142.not.i = icmp eq i32 %57, %2
   br i1 %exitcond142.not.i, label %._crit_edge126.split.us.i, label %.lr.ph117.us.i, !llvm.loop !13
@@ -143,7 +143,7 @@ define hidden range(i32 0, 2) i32 @opj_matrix_inversion_f(ptr noundef captures(n
 ._crit_edge126.split.us.i:                        ; preds = %._crit_edge118.us.i, %39
   %58 = add i32 %.082131.i, 1
   %59 = add i32 %.0132.i, -1
-  %60 = getelementptr inbounds nuw float, ptr %.086130.i, i64 %13
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %.086130.i, i64 %13
   %61 = getelementptr inbounds nuw i8, ptr %.189129.i, i64 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond144.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -151,16 +151,16 @@ define hidden range(i32 0, 2) i32 @opj_matrix_inversion_f(ptr noundef captures(n
 
 .lr.ph.i28:                                       ; preds = %._crit_edge126.split.us.i, %.preheader.i
   %.pre-phi = phi i64 [ 1, %.preheader.i ], [ %13, %._crit_edge126.split.us.i ]
-  %62 = getelementptr inbounds nuw float, ptr %11, i64 %.pre-phi
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %.pre-phi
   %63 = shl i32 %2, 1
   %64 = zext i32 %63 to i64
-  %65 = getelementptr inbounds nuw float, ptr %11, i64 %64
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %64
   %66 = add i32 %2, 1
-  %67 = getelementptr inbounds nuw float, ptr %62, i64 %.pre-phi
-  %68 = getelementptr inbounds nuw float, ptr %65, i64 %.pre-phi
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %.pre-phi
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %.pre-phi
   %69 = mul i32 %2, %2
   %70 = zext i32 %69 to i64
-  %71 = getelementptr inbounds nuw float, ptr %0, i64 %70
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %70
   %72 = getelementptr inbounds i8, ptr %71, i64 -4
   %73 = zext i32 %66 to i64
   %74 = sub nsw i64 0, %73
@@ -170,7 +170,7 @@ define hidden range(i32 0, 2) i32 @opj_matrix_inversion_f(ptr noundef captures(n
   %indvars.iv34.i = phi i64 [ 0, %.lr.ph.i28 ], [ %indvars.iv.next35.i, %106 ]
   %.02330.i = phi ptr [ %1, %.lr.ph.i28 ], [ %107, %106 ]
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %11, i8 0, i64 %10, i1 false)
-  %76 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv34.i
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv34.i
   store float 1.000000e+00, ptr %76, align 4, !tbaa !9
   br label %.preheader.i.i
 
@@ -202,12 +202,12 @@ define hidden range(i32 0, 2) i32 @opj_matrix_inversion_f(ptr noundef captures(n
   %83 = getelementptr inbounds nuw i8, ptr %.074.i.i, i64 4
   %84 = load i32, ptr %.074.i.i, align 4, !tbaa !3
   %85 = zext i32 %84 to i64
-  %86 = getelementptr inbounds nuw float, ptr %11, i64 %85
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %85
   %87 = load float, ptr %86, align 4, !tbaa !9
   %88 = fsub float %87, %.059.lcssa.i.i
   %89 = getelementptr inbounds nuw i8, ptr %.05472.i.i, i64 4
   store float %88, ptr %.05472.i.i, align 4, !tbaa !9
-  %90 = getelementptr inbounds nuw float, ptr %.05073.i.i, i64 %.pre-phi
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %.05073.i.i, i64 %.pre-phi
   %91 = add nuw i32 %.05871.i.i, 1
   %indvars.iv.next.i.i = add i32 %indvars.iv.i.i, 1
   %exitcond100.not.i.i = icmp eq i32 %91, %2
@@ -245,17 +245,17 @@ define hidden range(i32 0, 2) i32 @opj_matrix_inversion_f(ptr noundef captures(n
   %100 = fsub float %99, %.160.lcssa.i.i
   %101 = fdiv float %100, %92
   store float %101, ptr %.04991.i.i, align 4, !tbaa !9
-  %102 = getelementptr inbounds float, ptr %.190.i.i, i64 %74
+  %102 = getelementptr inbounds [4 x i8], ptr %.190.i.i, i64 %74
   %.not.i.i = icmp eq i32 %.05793.i.i, 0
   br i1 %.not.i.i, label %opj_lupSolve.exit.i, label %.lr.ph95.i.i, !llvm.loop !18
 
 opj_lupSolve.exit.i:                              ; preds = %._crit_edge82.i.i, %opj_lupSolve.exit.i
   %indvars.iv.i29 = phi i64 [ %indvars.iv.next.i30, %opj_lupSolve.exit.i ], [ 0, %._crit_edge82.i.i ]
   %.02429.i = phi ptr [ %105, %opj_lupSolve.exit.i ], [ %.02330.i, %._crit_edge82.i.i ]
-  %103 = getelementptr inbounds nuw float, ptr %62, i64 %indvars.iv.i29
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %indvars.iv.i29
   %104 = load float, ptr %103, align 4, !tbaa !9
   store float %104, ptr %.02429.i, align 4, !tbaa !9
-  %105 = getelementptr inbounds nuw float, ptr %.02429.i, i64 %.pre-phi
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %.02429.i, i64 %.pre-phi
   %indvars.iv.next.i30 = add nuw nsw i64 %indvars.iv.i29, 1
   %exitcond.not.i31 = icmp eq i64 %indvars.iv.next.i30, %.pre-phi
   br i1 %exitcond.not.i31, label %106, label %opj_lupSolve.exit.i, !llvm.loop !19

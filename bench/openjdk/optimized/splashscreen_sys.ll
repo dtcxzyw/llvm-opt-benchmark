@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.ImageRect = type { i32, i32, i32, i32, ptr, ptr, i32, i32, i32 }
-%struct.SplashImage = type { ptr, i32, ptr, i32 }
 %struct.timeval = type { i64, i64 }
 %struct.timezone = type { i32, i32 }
 %struct.XSizeHints = type { i64, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, %struct.anon, %struct.anon, i32, i32, i32 }
@@ -145,7 +144,7 @@ define hidden void @SplashInitFrameShape(ptr noundef %0, i32 noundef %1) local_u
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 10456
   %5 = load ptr, ptr %4, align 8
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds %struct.SplashImage, ptr %5, i64 %6
+  %7 = getelementptr inbounds [32 x i8], ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr null, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 24
@@ -168,7 +167,7 @@ define hidden void @SplashInitFrameShape(ptr noundef %0, i32 noundef %1) local_u
   %22 = load i32, ptr %21, align 8
   %23 = mul nsw i32 %22, %17
   %24 = load ptr, ptr %4, align 8
-  %25 = getelementptr inbounds %struct.SplashImage, ptr %24, i64 %6
+  %25 = getelementptr inbounds [32 x i8], ptr %24, i64 %6
   %26 = load ptr, ptr %25, align 8
   call void @initRect(ptr noundef nonnull %3, i32 noundef 0, i32 noundef 0, i32 noundef %17, i32 noundef %19, i32 noundef 1, i32 noundef %23, ptr noundef %26, ptr noundef nonnull %20) #17
   %27 = load i32, ptr %16, align 8
@@ -528,7 +527,7 @@ define hidden void @SplashUpdateShape(ptr noundef readonly captures(none) %0) lo
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 10456
   %16 = load ptr, ptr %15, align 8
   %17 = zext nneg i32 %3 to i64
-  %18 = getelementptr inbounds nuw %struct.SplashImage, ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [32 x i8], ptr %16, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 24
@@ -539,7 +538,7 @@ define hidden void @SplashUpdateShape(ptr noundef readonly captures(none) %0) lo
   %25 = load ptr, ptr %15, align 8
   %26 = load i32, ptr %2, align 4
   %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds %struct.SplashImage, ptr %25, i64 %27
+  %28 = getelementptr inbounds [32 x i8], ptr %25, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 24
@@ -876,7 +875,7 @@ SplashUpdateSizeHints.exit:                       ; preds = %5, %21
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 10456
   %48 = load ptr, ptr %47, align 8
   %49 = zext nneg i32 %39 to i64
-  %50 = getelementptr inbounds nuw %struct.SplashImage, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [32 x i8], ptr %48, i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %52 = load ptr, ptr %51, align 8
   %53 = getelementptr inbounds nuw i8, ptr %50, i64 24
@@ -887,7 +886,7 @@ SplashUpdateSizeHints.exit:                       ; preds = %5, %21
   %57 = load ptr, ptr %47, align 8
   %58 = load i32, ptr %38, align 4
   %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds %struct.SplashImage, ptr %57, i64 %59
+  %60 = getelementptr inbounds [32 x i8], ptr %57, i64 %59
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %62 = load ptr, ptr %61, align 8
   %63 = getelementptr inbounds nuw i8, ptr %60, i64 24
@@ -1102,10 +1101,10 @@ GetNumAvailableColors.exit:                       ; preds = %65, %69
 
 90:                                               ; preds = %.lr.ph, %90
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %90 ]
-  %91 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %92 = load i64, ptr %91, align 8
   %93 = trunc i64 %92 to i32
-  %94 = getelementptr inbounds nuw i32, ptr %89, i64 %indvars.iv
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %indvars.iv
   store i32 %93, ptr %94, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1128,11 +1127,11 @@ GetNumAvailableColors.exit:                       ; preds = %65, %69
 
 .lr.ph87:                                         ; preds = %.lr.ph87.preheader, %.lr.ph87
   %indvars.iv90 = phi i64 [ 0, %.lr.ph87.preheader ], [ %indvars.iv.next91, %.lr.ph87 ]
-  %101 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv90
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv90
   %102 = load i64, ptr %101, align 8
-  %103 = getelementptr inbounds nuw %struct.XColor, ptr %9, i64 %indvars.iv90
+  %103 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %indvars.iv90
   store i64 %102, ptr %103, align 16
-  %104 = getelementptr inbounds i32, ptr %98, i64 %102
+  %104 = getelementptr inbounds [4 x i8], ptr %98, i64 %102
   %105 = load i32, ptr %104, align 4
   %106 = lshr i32 %105, 16
   %107 = trunc nuw i32 %106 to i16
@@ -1228,7 +1227,7 @@ define hidden void @SplashCleanupPlatform(ptr noundef captures(none) %0) local_u
   %7 = phi i32 [ %17, %16 ], [ %5, %.preheader ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %16 ], [ 0, %.preheader ]
   %8 = load ptr, ptr %2, align 8
-  %9 = getelementptr inbounds nuw %struct.SplashImage, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [32 x i8], ptr %8, i64 %indvars.iv
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
   %.not11 = icmp eq ptr %11, null
@@ -1237,7 +1236,7 @@ define hidden void @SplashCleanupPlatform(ptr noundef captures(none) %0) local_u
 12:                                               ; preds = %.lr.ph
   tail call void @free(ptr noundef nonnull %11) #17
   %13 = load ptr, ptr %2, align 8
-  %14 = getelementptr inbounds nuw %struct.SplashImage, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [32 x i8], ptr %13, i64 %indvars.iv
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr null, ptr %15, align 8
   %.pre = load i32, ptr %4, align 8
@@ -1280,10 +1279,10 @@ define hidden void @SplashDonePlatform(ptr noundef %0) local_unnamed_addr #0 {
 
 11:                                               ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
-  %12 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   store i64 %14, ptr %15, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1404,7 +1403,7 @@ define hidden void @SplashEventLoop(ptr noundef %0) local_unnamed_addr #0 {
   %33 = load ptr, ptr %19, align 8
   %34 = load i32, ptr %20, align 4
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds %struct.SplashImage, ptr %33, i64 %35
+  %36 = getelementptr inbounds [32 x i8], ptr %33, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = load i32, ptr %37, align 8
   %39 = add i32 %38, %32
@@ -1453,7 +1452,7 @@ define hidden void @SplashEventLoop(ptr noundef %0) local_unnamed_addr #0 {
   %63 = load ptr, ptr %19, align 8
   %64 = load i32, ptr %20, align 4
   %65 = sext i32 %64 to i64
-  %66 = getelementptr inbounds %struct.SplashImage, ptr %63, i64 %65
+  %66 = getelementptr inbounds [32 x i8], ptr %63, i64 %65
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %68 = load i32, ptr %67, align 8
   %69 = add i32 %68, %62
@@ -1479,7 +1478,7 @@ define hidden void @SplashEventLoop(ptr noundef %0) local_unnamed_addr #0 {
   %79 = load i64, ptr %25, align 8
   %80 = load ptr, ptr %19, align 8
   %81 = zext nneg i32 %71 to i64
-  %82 = getelementptr inbounds nuw %struct.SplashImage, ptr %80, i64 %81
+  %82 = getelementptr inbounds nuw [32 x i8], ptr %80, i64 %81
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 16
   %84 = load ptr, ptr %83, align 8
   %85 = getelementptr inbounds nuw i8, ptr %82, i64 24
@@ -1490,7 +1489,7 @@ define hidden void @SplashEventLoop(ptr noundef %0) local_unnamed_addr #0 {
   %89 = load ptr, ptr %19, align 8
   %90 = load i32, ptr %20, align 4
   %91 = sext i32 %90 to i64
-  %92 = getelementptr inbounds %struct.SplashImage, ptr %89, i64 %91
+  %92 = getelementptr inbounds [32 x i8], ptr %89, i64 %91
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 16
   %94 = load ptr, ptr %93, align 8
   %95 = getelementptr inbounds nuw i8, ptr %92, i64 24
@@ -1698,7 +1697,7 @@ define hidden noalias noundef ptr @SplashScreenThread(ptr noundef %0) #0 {
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 10456
   %45 = load ptr, ptr %44, align 8
   %46 = zext nneg i32 %34 to i64
-  %47 = getelementptr inbounds nuw %struct.SplashImage, ptr %45, i64 %46
+  %47 = getelementptr inbounds nuw [32 x i8], ptr %45, i64 %46
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 24
@@ -1709,7 +1708,7 @@ define hidden noalias noundef ptr @SplashScreenThread(ptr noundef %0) #0 {
   %54 = load ptr, ptr %44, align 8
   %55 = load i32, ptr %33, align 4
   %56 = sext i32 %55 to i64
-  %57 = getelementptr inbounds %struct.SplashImage, ptr %54, i64 %56
+  %57 = getelementptr inbounds [32 x i8], ptr %54, i64 %56
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds nuw i8, ptr %57, i64 24

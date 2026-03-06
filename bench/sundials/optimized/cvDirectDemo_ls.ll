@@ -633,7 +633,7 @@ check_retval.exit121.i:                           ; preds = %249, %245
   %265 = fmul double %.030.i.i, %264
   %266 = fmul double %.02737.i.i, %265
   %267 = fmul double %.040.i.i, %266
-  %gep.i.i = getelementptr inbounds nuw double, ptr %invariant.gep.i.i, i64 %.03135.i.i
+  %gep.i.i = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep.i.i, i64 %.03135.i.i
   %268 = load double, ptr %gep.i.i, align 8, !tbaa !26
   %269 = fsub double %268, %267
   %270 = call double @llvm.fabs.f64(double %269)
@@ -852,7 +852,7 @@ check_retval.exit138.i:                           ; preds = %353, %349
   %369 = fmul double %.030.i139.i, %368
   %370 = fmul double %.02737.i146.i, %369
   %371 = fmul double %.040.i141.i, %370
-  %gep.i149.i = getelementptr inbounds nuw double, ptr %invariant.gep.i145.i, i64 %.03135.i148.i
+  %gep.i149.i = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep.i145.i, i64 %.03135.i148.i
   %372 = load double, ptr %gep.i149.i, align 8, !tbaa !26
   %373 = fsub double %372, %371
   %374 = call double @llvm.fabs.f64(double %373)
@@ -1568,20 +1568,20 @@ define internal noundef i32 @Jac2(double %0, ptr readnone captures(none) %1, ptr
   %invariant.gep38.idx = mul nuw nsw i64 %indvars.iv29, 40
   %invariant.gep38 = getelementptr inbounds nuw i8, ptr %11, i64 %invariant.gep38.idx
   %14 = load ptr, ptr %invariant.gep38, align 8, !tbaa !36
-  %15 = getelementptr inbounds double, ptr %14, i64 %13
+  %15 = getelementptr inbounds [8 x i8], ptr %14, i64 %13
   store double -2.000000e+00, ptr %15, align 8, !tbaa !26
   br i1 %.not20, label %.preheader.split.us, label %.preheader.split
 
 .preheader.split.us:                              ; preds = %.preheader, %.preheader.split.us
   %16 = phi ptr [ %19, %.preheader.split.us ], [ %14, %.preheader ]
   %indvars.iv2541 = phi i64 [ %indvars.iv.next26, %.preheader.split.us ], [ 0, %.preheader ]
-  %17 = getelementptr inbounds double, ptr %16, i64 %13
+  %17 = getelementptr inbounds [8 x i8], ptr %16, i64 %13
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store double 1.000000e+00, ptr %18, align 8, !tbaa !26
   %indvars.iv.next26 = add nuw nsw i64 %indvars.iv2541, 1
-  %gep39 = getelementptr inbounds nuw ptr, ptr %invariant.gep38, i64 %indvars.iv.next26
+  %gep39 = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep38, i64 %indvars.iv.next26
   %19 = load ptr, ptr %gep39, align 8, !tbaa !36
-  %20 = getelementptr inbounds double, ptr %19, i64 %13
+  %20 = getelementptr inbounds [8 x i8], ptr %19, i64 %13
   store double -2.000000e+00, ptr %20, align 8, !tbaa !26
   %.not.us = icmp eq i64 %indvars.iv.next26, 4
   br i1 %.not.us, label %.split.us, label %.preheader.split.us
@@ -1594,9 +1594,9 @@ define internal noundef i32 @Jac2(double %0, ptr readnone captures(none) %1, ptr
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 40
   store double 1.000000e+00, ptr %23, align 8, !tbaa !26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv40, 1
-  %gep = getelementptr inbounds nuw ptr, ptr %invariant.gep38, i64 %indvars.iv.next
+  %gep = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep38, i64 %indvars.iv.next
   %24 = load ptr, ptr %gep, align 8, !tbaa !36
-  %25 = getelementptr inbounds double, ptr %24, i64 %13
+  %25 = getelementptr inbounds [8 x i8], ptr %24, i64 %13
   store double -2.000000e+00, ptr %25, align 8, !tbaa !26
   %.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %.not, label %.split.us.loopexit23, label %.preheader.split
@@ -1655,7 +1655,7 @@ define internal noundef i32 @f2(double %0, ptr noundef %1, ptr noundef %2, ptr r
 
 .preheader.split.us:                              ; preds = %.preheader, %15
   %.023.us = phi i64 [ %17, %15 ], [ 0, %.preheader ]
-  %8 = getelementptr inbounds nuw double, ptr %5, i64 %.023.us
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.023.us
   %9 = load double, ptr %8, align 8, !tbaa !26
   %10 = fmul double %9, -2.000000e+00
   %.not.us = icmp eq i64 %.023.us, 0
@@ -1669,7 +1669,7 @@ define internal noundef i32 @f2(double %0, ptr noundef %1, ptr noundef %2, ptr r
 
 15:                                               ; preds = %11, %.preheader.split.us
   %.021.us = phi double [ %14, %11 ], [ %10, %.preheader.split.us ]
-  %16 = getelementptr inbounds nuw double, ptr %6, i64 %.023.us
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.023.us
   store double %.021.us, ptr %16, align 8, !tbaa !26
   %17 = add nuw nsw i64 %.023.us, 1
   %exitcond26.not = icmp eq i64 %17, 5
@@ -1678,7 +1678,7 @@ define internal noundef i32 @f2(double %0, ptr noundef %1, ptr noundef %2, ptr r
 .preheader.split:                                 ; preds = %.preheader, %26
   %.023 = phi i64 [ %31, %26 ], [ 0, %.preheader ]
   %18 = add nuw nsw i64 %.023, %7
-  %19 = getelementptr inbounds nuw double, ptr %5, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %18
   %20 = load double, ptr %19, align 8, !tbaa !26
   %21 = fmul double %20, -2.000000e+00
   %.not = icmp eq i64 %.023, 0
@@ -1695,7 +1695,7 @@ define internal noundef i32 @f2(double %0, ptr noundef %1, ptr noundef %2, ptr r
   %27 = getelementptr i8, ptr %19, i64 -40
   %28 = load double, ptr %27, align 8, !tbaa !26
   %29 = fadd double %.021, %28
-  %30 = getelementptr inbounds nuw double, ptr %6, i64 %18
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %18
   store double %29, ptr %30, align 8, !tbaa !26
   %31 = add nuw nsw i64 %.023, 1
   %exitcond.not = icmp eq i64 %31, 5

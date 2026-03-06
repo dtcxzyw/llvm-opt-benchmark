@@ -3,8 +3,6 @@ source_filename = "bench/slurm/original/xhash.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.UT_hash_bucket = type { ptr, i32, i32 }
-
 @.str = private unnamed_addr constant [8 x i8] c"xhash.c\00", align 1
 @__func__.xhash_init = private unnamed_addr constant [11 x i8] c"xhash_init\00", align 1
 @__func__.xhash_add = private unnamed_addr constant [10 x i8] c"xhash_add\00", align 1
@@ -293,7 +291,7 @@ define internal fastcc ptr @xhash_find(ptr noundef readonly captures(address_is_
   %162 = and i32 %161, %153
   %163 = load ptr, ptr %158, align 8
   %164 = zext i32 %162 to i64
-  %165 = getelementptr inbounds nuw %struct.UT_hash_bucket, ptr %163, i64 %164
+  %165 = getelementptr inbounds nuw [16 x i8], ptr %163, i64 %164
   %166 = load ptr, ptr %165, align 8
   %.not203 = icmp eq ptr %166, null
   br i1 %.not203, label %.loopexit, label %.lr.ph253
@@ -706,7 +704,7 @@ define dso_local ptr @xhash_add(ptr noundef captures(address_is_null) %0, ptr no
   %215 = and i32 %214, %160
   %216 = load ptr, ptr %211, align 8
   %217 = zext i32 %215 to i64
-  %218 = getelementptr inbounds nuw %struct.UT_hash_bucket, ptr %216, i64 %217
+  %218 = getelementptr inbounds nuw [16 x i8], ptr %216, i64 %217
   %219 = getelementptr inbounds nuw i8, ptr %218, i64 8
   %220 = load i32, ptr %219, align 8
   %221 = add i32 %220, 1
@@ -783,7 +781,7 @@ define dso_local ptr @xhash_add(ptr noundef captures(address_is_null) %0, ptr no
   %262 = phi ptr [ %303, %._crit_edge341 ], [ %259, %244 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge341 ], [ 0, %244 ]
   %263 = load ptr, ptr %262, align 8
-  %264 = getelementptr inbounds nuw %struct.UT_hash_bucket, ptr %263, i64 %indvars.iv
+  %264 = getelementptr inbounds nuw [16 x i8], ptr %263, i64 %indvars.iv
   %265 = load ptr, ptr %264, align 8
   %.not291337 = icmp eq ptr %265, null
   br i1 %.not291337, label %._crit_edge341, label %.lr.ph340
@@ -801,7 +799,7 @@ define dso_local ptr @xhash_add(ptr noundef captures(address_is_null) %0, ptr no
   %274 = add i32 %273, -1
   %275 = and i32 %274, %269
   %276 = zext i32 %275 to i64
-  %277 = getelementptr inbounds nuw %struct.UT_hash_bucket, ptr %calloc, i64 %276
+  %277 = getelementptr inbounds nuw [16 x i8], ptr %calloc, i64 %276
   %278 = getelementptr inbounds nuw i8, ptr %277, i64 8
   %279 = load i32, ptr %278, align 8
   %280 = add i32 %279, 1
@@ -1037,7 +1035,7 @@ define dso_local ptr @xhash_pop(ptr noundef captures(address_is_null) %0, ptr no
   %68 = and i32 %67, %62
   %69 = load ptr, ptr %64, align 8
   %70 = zext i32 %68 to i64
-  %71 = getelementptr inbounds nuw %struct.UT_hash_bucket, ptr %69, i64 %70
+  %71 = getelementptr inbounds nuw [16 x i8], ptr %69, i64 %70
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %73 = load i32, ptr %72, align 8
   %74 = add i32 %73, -1
@@ -1316,7 +1314,7 @@ define dso_local void @xhash_clear(ptr noundef captures(address_is_null) %0) loc
   %67 = and i32 %66, %61
   %68 = load ptr, ptr %63, align 8
   %69 = zext i32 %67 to i64
-  %70 = getelementptr inbounds nuw %struct.UT_hash_bucket, ptr %68, i64 %69
+  %70 = getelementptr inbounds nuw [16 x i8], ptr %68, i64 %69
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %72 = load i32, ptr %71, align 8
   %73 = add i32 %72, -1

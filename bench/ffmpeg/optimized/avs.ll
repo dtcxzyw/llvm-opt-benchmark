@@ -113,7 +113,7 @@ define internal range(i32 4, 0) i32 @avs_decode_frame(ptr noundef %0, ptr nounde
   %61 = zext i8 %60 to i32
   %62 = shl nuw nsw i32 %61, 2
   %63 = or disjoint i32 %58, %62
-  %64 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %indvars.iv
   %65 = lshr i32 %63, 6
   %66 = and i32 %65, 197379
   %67 = or i32 %63, %66

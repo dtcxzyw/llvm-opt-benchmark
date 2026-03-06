@@ -81,7 +81,7 @@ define hidden noundef double @_ZN19OpenColorIO_v2_5dev13Interpolate1DEjPKdd(i32 
   %10 = shl i32 %0, 1
   %11 = add i32 %10, -2
   %12 = zext i32 %11 to i64
-  %13 = getelementptr inbounds nuw double, ptr %1, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %12
   %14 = load double, ptr %13, align 8, !tbaa !3
   %15 = fcmp ult double %2, %14
   br i1 %15, label %.preheader, label %17
@@ -97,7 +97,7 @@ define hidden noundef double @_ZN19OpenColorIO_v2_5dev13Interpolate1DEjPKdd(i32 
 17:                                               ; preds = %9
   %18 = add i32 %10, -1
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw double, ptr %1, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %19
   %21 = load double, ptr %20, align 8, !tbaa !3
   br label %52
 
@@ -111,7 +111,7 @@ define hidden noundef double @_ZN19OpenColorIO_v2_5dev13Interpolate1DEjPKdd(i32 
   %23 = trunc nuw i64 %indvars.iv to i32
   %24 = shl i32 %23, 1
   %25 = zext i32 %24 to i64
-  %26 = getelementptr inbounds nuw double, ptr %1, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %25
   %27 = load double, ptr %26, align 8, !tbaa !3
   %28 = fcmp olt double %2, %27
   br i1 %28, label %29, label %22
@@ -119,19 +119,19 @@ define hidden noundef double @_ZN19OpenColorIO_v2_5dev13Interpolate1DEjPKdd(i32 
 29:                                               ; preds = %.lr.ph
   %30 = add i32 %24, -2
   %31 = zext i32 %30 to i64
-  %32 = getelementptr inbounds nuw double, ptr %1, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %31
   %33 = load double, ptr %32, align 8, !tbaa !3
   %34 = fsub double %2, %33
   %35 = fsub double %27, %33
   %36 = fdiv double %34, %35
   %37 = add i32 %24, -1
   %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds nuw double, ptr %1, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %38
   %40 = load double, ptr %39, align 8, !tbaa !3
   %41 = fsub double 1.000000e+00, %36
   %42 = or disjoint i32 %24, 1
   %43 = zext i32 %42 to i64
-  %44 = getelementptr inbounds nuw double, ptr %1, i64 %43
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %43
   %45 = load double, ptr %44, align 8, !tbaa !3
   %46 = fmul double %45, %36
   %47 = tail call double @llvm.fmuladd.f64(double %40, double %41, double %46)
@@ -264,7 +264,7 @@ _ZSt11make_sharedIN19OpenColorIO_v2_5dev11Lut1DOpDataEJNS1_9HalfFlagsERmbEESt10s
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %34 = mul i64 %.035, 3
   %35 = load ptr, ptr %17, align 8, !tbaa !64
-  %36 = getelementptr inbounds nuw float, ptr %35, i64 %34
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %34
   store float %32, ptr %36, align 4, !tbaa !65
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store double %28, ptr %5, align 8, !tbaa !3
@@ -280,7 +280,7 @@ _ZSt11make_sharedIN19OpenColorIO_v2_5dev11Lut1DOpDataEJNS1_9HalfFlagsERmbEESt10s
 41:                                               ; preds = %38
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %42 = load ptr, ptr %17, align 8, !tbaa !64
-  %43 = getelementptr float, ptr %42, i64 %34
+  %43 = getelementptr [4 x i8], ptr %42, i64 %34
   %44 = getelementptr i8, ptr %43, i64 4
   store float %40, ptr %44, align 4, !tbaa !65
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -297,7 +297,7 @@ _ZSt11make_sharedIN19OpenColorIO_v2_5dev11Lut1DOpDataEJNS1_9HalfFlagsERmbEESt10s
 49:                                               ; preds = %46
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %50 = load ptr, ptr %17, align 8, !tbaa !64
-  %51 = getelementptr float, ptr %50, i64 %34
+  %51 = getelementptr [4 x i8], ptr %50, i64 %34
   %52 = getelementptr i8, ptr %51, i64 8
   store float %48, ptr %52, align 4, !tbaa !65
   %53 = add nuw i64 %.035, 1
@@ -786,7 +786,7 @@ _ZNK9Imath_3_14halfcvfEv.exit:                    ; preds = %38, %40, %42, %43
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %70 = mul i64 %.01739, 3
   %71 = load ptr, ptr %17, align 8, !tbaa !64
-  %72 = getelementptr inbounds nuw float, ptr %71, i64 %70
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %71, i64 %70
   store float %68, ptr %72, align 4, !tbaa !65
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store double %.0, ptr %4, align 8, !tbaa !3
@@ -802,7 +802,7 @@ _ZNK9Imath_3_14halfcvfEv.exit:                    ; preds = %38, %40, %42, %43
 77:                                               ; preds = %74
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %78 = load ptr, ptr %17, align 8, !tbaa !64
-  %79 = getelementptr float, ptr %78, i64 %70
+  %79 = getelementptr [4 x i8], ptr %78, i64 %70
   %80 = getelementptr i8, ptr %79, i64 4
   store float %76, ptr %80, align 4, !tbaa !65
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -819,7 +819,7 @@ _ZNK9Imath_3_14halfcvfEv.exit:                    ; preds = %38, %40, %42, %43
 85:                                               ; preds = %82
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %86 = load ptr, ptr %17, align 8, !tbaa !64
-  %87 = getelementptr float, ptr %86, i64 %70
+  %87 = getelementptr [4 x i8], ptr %86, i64 %70
   %88 = getelementptr i8, ptr %87, i64 8
   store float %84, ptr %88, align 4, !tbaa !65
   %89 = add nuw i64 %.01739, 1

@@ -414,7 +414,7 @@ _ZNSt6vectorIN4YAML5RegExESaIS1_EE17_S_check_init_lenEmRKS2_.exit: ; preds = %3
 
 _ZNSt12_Vector_baseIN4YAML5RegExESaIS1_EE11_M_allocateEm.exit.thread: ; preds = %_ZNSt6vectorIN4YAML5RegExESaIS1_EE17_S_check_init_lenEmRKS2_.exit
   store ptr null, ptr %0, align 8, !tbaa !22
-  %9 = getelementptr inbounds nuw %"class.YAML::RegEx", ptr null, i64 %6
+  %9 = getelementptr inbounds nuw [32 x i8], ptr null, i64 %6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %9, ptr %10, align 8, !tbaa !24
   br label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPN4YAML5RegExESC_ET0_T_SF_SE_RSaIT1_E.exit
@@ -423,7 +423,7 @@ _ZNSt12_Vector_baseIN4YAML5RegExESaIS1_EE11_M_allocateEm.exit.thread: ; preds = 
   %11 = shl nuw nsw i64 %6, 5
   %12 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %11) #16
   store ptr %12, ptr %0, align 8, !tbaa !22
-  %13 = getelementptr inbounds nuw %"class.YAML::RegEx", ptr %12, i64 %6
+  %13 = getelementptr inbounds nuw [32 x i8], ptr %12, i64 %6
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %13, ptr %14, align 8, !tbaa !24
   br label %.lr.ph.i.i.i.i
@@ -680,7 +680,7 @@ _ZNSt12_Vector_baseIN4YAML5RegExESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !22
   store ptr %.0.lcssa.i.i.i.i.i39, ptr %4, align 8, !tbaa !23
-  %59 = getelementptr inbounds nuw %"class.YAML::RegEx", ptr %20, i64 %16
+  %59 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %16
   store ptr %59, ptr %58, align 8, !tbaa !24
   ret void
 

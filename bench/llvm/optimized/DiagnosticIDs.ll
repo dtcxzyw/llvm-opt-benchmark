@@ -12,8 +12,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"struct.(anonymous namespace)::StaticDiagInfoRec" = type <{ i16, i32, i8, i8, i16 }>
-%"struct.clang::DiagnosticIDs::GroupInfo" = type { i8, [3 x i8] }
 %"class.std::tuple.206" = type { %"struct.std::_Tuple_impl.207" }
 %"struct.std::_Tuple_impl.207" = type { %"struct.std::_Head_base.208" }
 %"struct.std::_Head_base.208" = type { ptr }
@@ -156,7 +154,7 @@ define dso_local range(i32 0, 40) i32 @_ZNK5clang13DiagnosticIDs17getDefaultMapp
   %7 = add i32 %1, -8820
   %8 = zext i32 %7 to i64
   %9 = load ptr, ptr %6, align 8, !tbaa !8
-  %10 = getelementptr inbounds nuw %"class.clang::DiagnosticIDs::CustomDiagDesc", ptr %9, i64 %8
+  %10 = getelementptr inbounds nuw [40 x i8], ptr %9, i64 %8
   %11 = load i16, ptr %10, align 8
   %12 = and i16 %11, 7
   %13 = zext nneg i16 %12 to i32
@@ -251,7 +249,7 @@ define internal fastcc noundef ptr @_ZL11GetDiagInfoj(i32 noundef %0) unnamed_ad
 
 39:                                               ; preds = %3
   %40 = zext nneg i32 %37 to i64
-  %41 = getelementptr inbounds nuw %"struct.(anonymous namespace)::StaticDiagInfoRec", ptr @_ZN12_GLOBAL__N_114StaticDiagInfoE, i64 %40
+  %41 = getelementptr inbounds nuw [10 x i8], ptr @_ZN12_GLOBAL__N_114StaticDiagInfoE, i64 %40
   %42 = load i16, ptr %41, align 2, !tbaa !11
   %43 = zext i16 %42 to i32
   %.not = icmp eq i32 %0, %43
@@ -270,7 +268,7 @@ define dso_local void @_ZN5clang13DiagnosticIDs21initCustomDiagMappingERNS_17Dia
   %6 = add i32 %2, -8820
   %7 = zext i32 %6 to i64
   %8 = load ptr, ptr %5, align 8, !tbaa !8
-  %9 = getelementptr inbounds nuw %"class.clang::DiagnosticIDs::CustomDiagDesc", ptr %8, i64 %7
+  %9 = getelementptr inbounds nuw [40 x i8], ptr %8, i64 %7
   %10 = load i16, ptr %9, align 8
   %11 = and i16 %10, 256
   %.not10 = icmp eq i16 %11, 0
@@ -282,7 +280,7 @@ define dso_local void @_ZN5clang13DiagnosticIDs21initCustomDiagMappingERNS_17Dia
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = sext i32 %14 to i64
   %17 = load ptr, ptr %15, align 8, !tbaa !14
-  %18 = getelementptr inbounds nuw %"struct.clang::DiagnosticIDs::GroupInfo", ptr %17, i64 %16
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %16
   %.sroa.0.0.copyload = load i8, ptr %18, align 4, !tbaa !16
   %19 = and i8 %.sroa.0.0.copyload, 7
   %.not = icmp eq i8 %19, 0
@@ -344,7 +342,7 @@ define dso_local { ptr, i64 } @_ZN5clang13DiagnosticIDs21getCategoryNameFromIDEj
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr inbounds nuw %"struct.(anonymous namespace)::StaticDiagCategoryRec", ptr @_ZL17CategoryNameTable, i64 %4
+  %5 = getelementptr inbounds nuw [16 x i8], ptr @_ZL17CategoryNameTable, i64 %4
   %.val = load ptr, ptr %5, align 16, !tbaa !17
   %6 = getelementptr i8, ptr %5, i64 8
   %.val2 = load i8, ptr %6, align 8, !tbaa !20
@@ -412,7 +410,7 @@ define dso_local void @_ZN5clang13DiagnosticIDsC2Ev(ptr noundef nonnull writeonl
 
 5:                                                ; preds = %5, %1
   %.04.i = phi i64 [ 0, %1 ], [ %7, %5 ]
-  %6 = getelementptr inbounds nuw %"struct.clang::DiagnosticIDs::GroupInfo", ptr %4, i64 %.04.i
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.04.i
   store i8 0, ptr %6, align 4, !tbaa !16, !noalias !26
   %7 = add nuw nsw i64 %.04.i, 1
   %.not.i = icmp eq i64 %7, 1073
@@ -896,7 +894,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i: ; preds = %151, %_ZNK
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i: ; preds = %153, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i
   store ptr %148, ptr %128, align 8, !tbaa !78
   store ptr %152, ptr %129, align 8, !tbaa !73
-  %154 = getelementptr inbounds nuw i32, ptr %148, i64 %146
+  %154 = getelementptr inbounds nuw [4 x i8], ptr %148, i64 %146
   store ptr %154, ptr %131, align 8, !tbaa !76
   br label %_ZNSt6vectorIjSaIjEE12emplace_backIJRjEEES3_DpOT_.exit
 
@@ -932,7 +930,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang13DiagnosticIDs20isWarningOrExten
   %14 = add i32 %1, -8820
   %15 = zext i32 %14 to i64
   %16 = load ptr, ptr %13, align 8, !tbaa !8
-  %17 = getelementptr inbounds nuw %"class.clang::DiagnosticIDs::CustomDiagDesc", ptr %16, i64 %15
+  %17 = getelementptr inbounds nuw [40 x i8], ptr %16, i64 %15
   %18 = load i16, ptr %17, align 8
   %19 = lshr i16 %18, 3
   %20 = and i16 %19, 7
@@ -956,7 +954,7 @@ define dso_local noundef range(i32 0, 8) i32 @_ZNK5clang13DiagnosticIDs12getDiag
   %7 = add i32 %1, -8820
   %8 = zext i32 %7 to i64
   %9 = load ptr, ptr %6, align 8, !tbaa !8
-  %10 = getelementptr inbounds nuw %"class.clang::DiagnosticIDs::CustomDiagDesc", ptr %9, i64 %8
+  %10 = getelementptr inbounds nuw [40 x i8], ptr %9, i64 %8
   %11 = load i16, ptr %10, align 8
   %12 = lshr i16 %11, 3
   %13 = and i16 %12, 7
@@ -1042,7 +1040,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang13DiagnosticIDs23isDefaultMapping
   %7 = add i32 %1, -8820
   %8 = zext i32 %7 to i64
   %9 = load ptr, ptr %6, align 8, !tbaa !8
-  %10 = getelementptr inbounds nuw %"class.clang::DiagnosticIDs::CustomDiagDesc", ptr %9, i64 %8
+  %10 = getelementptr inbounds nuw [40 x i8], ptr %9, i64 %8
   %11 = load i16, ptr %10, align 8
   %12 = zext i16 %11 to i32
   br label %_ZNK5clang13DiagnosticIDs17getDefaultMappingEj.exit
@@ -1074,7 +1072,7 @@ define dso_local { ptr, i64 } @_ZNK5clang13DiagnosticIDs14getDescriptionEj(ptr n
   %5 = ptrtoint ptr %3 to i64
   %6 = sub i64 %5, ptrtoint (ptr @_ZN12_GLOBAL__N_114StaticDiagInfoE to i64)
   %7 = sdiv exact i64 %6, 10
-  %8 = getelementptr inbounds nuw i32, ptr @_ZN12_GLOBAL__N_132StaticDiagInfoDescriptionOffsetsE, i64 %7
+  %8 = getelementptr inbounds nuw [4 x i8], ptr @_ZN12_GLOBAL__N_132StaticDiagInfoDescriptionOffsetsE, i64 %7
   %9 = load i32, ptr %8, align 4, !tbaa !77
   %10 = zext i32 %9 to i64
   %11 = getelementptr inbounds nuw i8, ptr @_ZN12_GLOBAL__N_126StaticDiagInfoDescriptionsE, i64 %10
@@ -1089,7 +1087,7 @@ define dso_local { ptr, i64 } @_ZNK5clang13DiagnosticIDs14getDescriptionEj(ptr n
   %18 = add i32 %1, -8820
   %19 = zext i32 %18 to i64
   %20 = load ptr, ptr %17, align 8, !tbaa !8
-  %21 = getelementptr inbounds nuw %"class.clang::DiagnosticIDs::CustomDiagDesc", ptr %20, i64 %19
+  %21 = getelementptr inbounds nuw [40 x i8], ptr %20, i64 %19
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8, !tbaa !47
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 16
@@ -1115,7 +1113,7 @@ define dso_local noundef zeroext range(i8 0, 6) i8 @_ZNK5clang13DiagnosticIDs18g
   %9 = add i32 %1, -8820
   %10 = zext i32 %9 to i64
   %11 = load ptr, ptr %8, align 8, !tbaa !8
-  %12 = getelementptr inbounds nuw %"class.clang::DiagnosticIDs::CustomDiagDesc", ptr %11, i64 %10
+  %12 = getelementptr inbounds nuw [40 x i8], ptr %11, i64 %10
   %13 = load i16, ptr %12, align 8
   %14 = lshr i16 %13, 3
   %15 = and i16 %14, 7
@@ -1278,7 +1276,7 @@ _ZNK5clang13DiagnosticIDs15isExtensionDiagEjRb.exit: ; preds = %_ZNK5clang13Diag
   %53 = add i32 %1, -8820
   %54 = zext i32 %53 to i64
   %55 = load ptr, ptr %52, align 8, !tbaa !8
-  %56 = getelementptr inbounds nuw %"class.clang::DiagnosticIDs::CustomDiagDesc", ptr %55, i64 %54
+  %56 = getelementptr inbounds nuw [40 x i8], ptr %55, i64 %54
   %57 = load i16, ptr %56, align 8
   %58 = and i16 %57, 256
   %.not169 = icmp eq i16 %58, 0
@@ -1302,7 +1300,7 @@ _ZNK5clang13DiagnosticIDs15isExtensionDiagEjRb.exit: ; preds = %_ZNK5clang13Diag
   %67 = add i32 %1, -8820
   %68 = zext i32 %67 to i64
   %69 = load ptr, ptr %66, align 8, !tbaa !8
-  %70 = getelementptr inbounds nuw %"class.clang::DiagnosticIDs::CustomDiagDesc", ptr %69, i64 %68
+  %70 = getelementptr inbounds nuw [40 x i8], ptr %69, i64 %68
   %71 = load i16, ptr %70, align 8
   %72 = zext i16 %71 to i32
   br label %_ZNK5clang13DiagnosticIDs23isDefaultMappingAsErrorEj.exit
@@ -1376,7 +1374,7 @@ _ZNK5clang13DiagnosticIDs23isDefaultMappingAsErrorEj.exit: ; preds = %64, %75
   %98 = add i32 %1, -8820
   %99 = zext i32 %98 to i64
   %100 = load ptr, ptr %97, align 8, !tbaa !8
-  %101 = getelementptr inbounds nuw %"class.clang::DiagnosticIDs::CustomDiagDesc", ptr %100, i64 %99
+  %101 = getelementptr inbounds nuw [40 x i8], ptr %100, i64 %99
   %102 = load i16, ptr %101, align 8
   %103 = and i16 %102, 64
   %104 = icmp ne i16 %103, 0
@@ -1569,7 +1567,7 @@ declare noundef zeroext i1 @_ZNK5clang17DiagnosticsEngine22isSuppressedViaMappin
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local { ptr, i64 } @_ZN5clang13DiagnosticIDs29getWarningOptionDocumentationENS_4diag5GroupE(i32 noundef %0) local_unnamed_addr #1 align 2 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds %"struct.(anonymous namespace)::WarningOption", ptr @_ZL11OptionTable, i64 %2
+  %3 = getelementptr inbounds [24 x i8], ptr @_ZL11OptionTable, i64 %2
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.0.0.copyload = load ptr, ptr %4, align 8, !tbaa !132
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1582,7 +1580,7 @@ define dso_local { ptr, i64 } @_ZN5clang13DiagnosticIDs29getWarningOptionDocumen
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local { ptr, i64 } @_ZN5clang13DiagnosticIDs24getWarningOptionForGroupENS_4diag5GroupE(i32 noundef %0) local_unnamed_addr #1 align 2 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds %"struct.(anonymous namespace)::WarningOption", ptr @_ZL11OptionTable, i64 %2
+  %3 = getelementptr inbounds [24 x i8], ptr @_ZL11OptionTable, i64 %2
   %.val = load i16, ptr %3, align 8, !tbaa !133
   %4 = zext i16 %.val to i64
   %5 = getelementptr inbounds nuw i8, ptr @_ZL21DiagGroupNamesStorage, i64 %4
@@ -1600,7 +1598,7 @@ define dso_local range(i64 0, 8589934592) i64 @_ZN5clang13DiagnosticIDs24getGrou
   %.04.i.i = phi ptr [ @_ZL11OptionTable, %2 ], [ %.1.i.i, %"_ZZN5clang13DiagnosticIDs24getGroupForWarningOptionEN4llvm9StringRefEENK3$_0clERKN12_GLOBAL__N_113WarningOptionE.exit.i.i" ]
   %.0103.i.i = phi i64 [ 1073, %2 ], [ %.111.i.i, %"_ZZN5clang13DiagnosticIDs24getGroupForWarningOptionEN4llvm9StringRefEENK3$_0clERKN12_GLOBAL__N_113WarningOptionE.exit.i.i" ]
   %4 = lshr i64 %.0103.i.i, 1
-  %5 = getelementptr inbounds nuw %"struct.(anonymous namespace)::WarningOption", ptr %.04.i.i, i64 %4
+  %5 = getelementptr inbounds nuw [24 x i8], ptr %.04.i.i, i64 %4
   %.val13.i.i = load i16, ptr %5, align 8, !tbaa !133
   %6 = zext i16 %.val13.i.i to i64
   %7 = getelementptr inbounds nuw i8, ptr @_ZL21DiagGroupNamesStorage, i64 %6
@@ -1682,7 +1680,7 @@ define dso_local range(i64 0, 8589934592) i64 @_ZNK5clang13DiagnosticIDs15getGro
   %7 = add i32 %1, -8820
   %8 = zext i32 %7 to i64
   %9 = load ptr, ptr %6, align 8, !tbaa !8
-  %10 = getelementptr inbounds nuw %"class.clang::DiagnosticIDs::CustomDiagDesc", ptr %9, i64 %8
+  %10 = getelementptr inbounds nuw [40 x i8], ptr %9, i64 %8
   %11 = load i16, ptr %10, align 8
   %12 = and i16 %11, 256
   %.not.not.i = icmp eq i16 %12, 0
@@ -1735,7 +1733,7 @@ _ZNK5clang13DiagnosticIDs15getGroupForDiagEj.exit: ; preds = %2
   %10 = add i32 %1, -8820
   %11 = zext i32 %10 to i64
   %12 = load ptr, ptr %9, align 8, !tbaa !8
-  %13 = getelementptr inbounds nuw %"class.clang::DiagnosticIDs::CustomDiagDesc", ptr %12, i64 %11
+  %13 = getelementptr inbounds nuw [40 x i8], ptr %12, i64 %11
   %14 = load i16, ptr %13, align 8
   %15 = and i16 %14, 256
   %.not.not.i.i = icmp eq i16 %15, 0
@@ -1748,7 +1746,7 @@ _ZNK5clang13DiagnosticIDs15getGroupForDiagEj.exit: ; preds = %2
 18:                                               ; preds = %_ZNK5clang13DiagnosticIDs15getGroupForDiagEj.exit.thread, %_ZNK5clang13DiagnosticIDs15getGroupForDiagEj.exit
   %.sroa.0.0.i10 = phi i32 [ %7, %_ZNK5clang13DiagnosticIDs15getGroupForDiagEj.exit.thread ], [ %.sroa.0.0.extract.trunc.i, %_ZNK5clang13DiagnosticIDs15getGroupForDiagEj.exit ]
   %19 = sext i32 %.sroa.0.0.i10 to i64
-  %20 = getelementptr inbounds %"struct.(anonymous namespace)::WarningOption", ptr @_ZL11OptionTable, i64 %19
+  %20 = getelementptr inbounds [24 x i8], ptr @_ZL11OptionTable, i64 %19
   %.val.i2 = load i16, ptr %20, align 8, !tbaa !133
   %21 = zext i16 %.val.i2 to i64
   %22 = getelementptr inbounds nuw i8, ptr @_ZL21DiagGroupNamesStorage, i64 %21
@@ -2116,7 +2114,7 @@ _ZNSt20back_insert_iteratorIN4llvm15SmallVectorImplIjEEEaSERKj.exit.i.i.i.i.i.i:
   %41 = phi i32 [ %35, %34 ], [ %.pre.i.i.i.i.i.i.i.i, %38 ]
   %42 = load ptr, ptr %4, align 8, !tbaa !162
   %43 = zext i32 %41 to i64
-  %44 = getelementptr inbounds nuw i32, ptr %42, i64 %43
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %43
   store i32 %36, ptr %44, align 1
   %45 = load i32, ptr %31, align 8, !tbaa !158
   %46 = add i32 %45, 1
@@ -2133,7 +2131,7 @@ _ZN4llvm4copyINS_8ArrayRefIjEESt20back_insert_iteratorINS_15SmallVectorImplIjEEE
 _ZN4llvm4copyINS_8ArrayRefIjEESt20back_insert_iteratorINS_15SmallVectorImplIjEEEEET0_OT_S7_.exit: ; preds = %_ZN4llvm4copyINS_8ArrayRefIjEESt20back_insert_iteratorINS_15SmallVectorImplIjEEEEET0_OT_S7_.exit.loopexit, %_ZNKSt8_Rb_treeIN5clang4diag5GroupESt4pairIKS2_St6vectorIjSaIjEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS4_.exit.i.i.i, %11, %_ZNKSt3mapIN5clang4diag5GroupESt6vectorIjSaIjEESt4lessIS2_ESaISt4pairIKS2_S5_EEE4findERS9_.exit.i, %_ZNK5clang4diag14CustomDiagInfo15getDiagsInGroupENS0_5GroupE.exit, %8
   %50 = phi ptr [ %.pre, %_ZN4llvm4copyINS_8ArrayRefIjEESt20back_insert_iteratorINS_15SmallVectorImplIjEEEEET0_OT_S7_.exit.loopexit ], [ %10, %_ZNKSt8_Rb_treeIN5clang4diag5GroupESt4pairIKS2_St6vectorIjSaIjEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS4_.exit.i.i.i ], [ %10, %11 ], [ %10, %_ZNKSt3mapIN5clang4diag5GroupESt6vectorIjSaIjEESt4lessIS2_ESaISt4pairIKS2_S5_EEE4findERS9_.exit.i ], [ %10, %_ZNK5clang4diag14CustomDiagInfo15getDiagsInGroupENS0_5GroupE.exit ], [ null, %8 ]
   %51 = and i64 %6, 4294967295
-  %52 = getelementptr inbounds nuw %"struct.(anonymous namespace)::WarningOption", ptr @_ZL11OptionTable, i64 %51
+  %52 = getelementptr inbounds nuw [24 x i8], ptr @_ZL11OptionTable, i64 %51
   %53 = tail call fastcc noundef zeroext i1 @_ZL21getDiagnosticsInGroupN5clang4diag6FlavorEPKN12_GLOBAL__N_113WarningOptionERN4llvm15SmallVectorImplIjEEPNS0_14CustomDiagInfoE(i32 noundef %1, ptr noundef nonnull %52, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef %50)
   br label %54
 
@@ -2161,7 +2159,7 @@ define internal fastcc noundef zeroext i1 @_ZL21getDiagnosticsInGroupN5clang4dia
 
 12:                                               ; preds = %7, %4
   %13 = zext i16 %6 to i64
-  %14 = getelementptr inbounds nuw i16, ptr @_ZL10DiagArrays, i64 %13
+  %14 = getelementptr inbounds nuw [2 x i8], ptr @_ZL10DiagArrays, i64 %13
   %15 = load i16, ptr %14, align 2, !tbaa !166
   %.not3239 = icmp eq i16 %15, -1
   br i1 %.not3239, label %._crit_edge, label %.lr.ph
@@ -2203,7 +2201,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %28, %31
   %34 = phi i32 [ %29, %28 ], [ %.pre.i, %31 ]
   %35 = load ptr, ptr %2, align 8, !tbaa !162
   %36 = zext i32 %34 to i64
-  %37 = getelementptr inbounds nuw i32, ptr %35, i64 %36
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %36
   store i32 %21, ptr %37, align 1
   %38 = load i32, ptr %16, align 8, !tbaa !158
   %39 = add i32 %38, 1
@@ -2222,7 +2220,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %28, %31
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %44 = load i16, ptr %43, align 4, !tbaa !165
   %45 = zext i16 %44 to i64
-  %46 = getelementptr inbounds nuw i16, ptr @_ZL13DiagSubGroups, i64 %45
+  %46 = getelementptr inbounds nuw [2 x i8], ptr @_ZL13DiagSubGroups, i64 %45
   %47 = load i16, ptr %46, align 2, !tbaa !166
   %.not3342 = icmp eq i16 %47, -1
   br i1 %.not3342, label %.loopexit, label %.lr.ph46
@@ -2241,7 +2239,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %28, %31
   %.244.us = phi i1 [ %57, %.split.us ], [ %.024.lcssa, %.lr.ph46 ]
   %.02543.us = phi ptr [ %58, %.split.us ], [ %46, %.lr.ph46 ]
   %54 = sext i16 %53 to i64
-  %55 = getelementptr inbounds %"struct.(anonymous namespace)::WarningOption", ptr @_ZL11OptionTable, i64 %54
+  %55 = getelementptr inbounds [24 x i8], ptr @_ZL11OptionTable, i64 %54
   %56 = tail call fastcc noundef zeroext i1 @_ZL21getDiagnosticsInGroupN5clang4diag6FlavorEPKN12_GLOBAL__N_113WarningOptionERN4llvm15SmallVectorImplIjEEPNS0_14CustomDiagInfoE(i32 noundef %0, ptr noundef nonnull %55, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef null)
   %57 = and i1 %.244.us, %56
   %58 = getelementptr inbounds nuw i8, ptr %.02543.us, i64 2
@@ -2317,7 +2315,7 @@ _ZNSt20back_insert_iteratorIN4llvm15SmallVectorImplIjEEEaSERKj.exit.i.i.i.i.i.i:
   %86 = phi i32 [ %80, %79 ], [ %.pre.i.i.i.i.i.i.i.i, %83 ]
   %87 = load ptr, ptr %2, align 8, !tbaa !162
   %88 = zext i32 %86 to i64
-  %89 = getelementptr inbounds nuw i32, ptr %87, i64 %88
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %87, i64 %88
   store i32 %81, ptr %89, align 1
   %90 = load i32, ptr %50, align 8, !tbaa !158
   %91 = add i32 %90, 1
@@ -2329,7 +2327,7 @@ _ZNSt20back_insert_iteratorIN4llvm15SmallVectorImplIjEEEaSERKj.exit.i.i.i.i.i.i:
 
 _ZN4llvm4copyINS_8ArrayRefIjEESt20back_insert_iteratorINS_15SmallVectorImplIjEEEEET0_OT_S7_.exit: ; preds = %_ZNSt20back_insert_iteratorIN4llvm15SmallVectorImplIjEEEaSERKj.exit.i.i.i.i.i.i, %_ZNKSt8_Rb_treeIN5clang4diag5GroupESt4pairIKS2_St6vectorIjSaIjEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS4_.exit.i.i.i, %.split28, %_ZNKSt3mapIN5clang4diag5GroupESt6vectorIjSaIjEESt4lessIS2_ESaISt4pairIKS2_S5_EEE4findERS9_.exit.i, %_ZNK5clang4diag14CustomDiagInfo15getDiagsInGroupENS0_5GroupE.exit
   %95 = sext i16 %60 to i64
-  %96 = getelementptr inbounds %"struct.(anonymous namespace)::WarningOption", ptr @_ZL11OptionTable, i64 %95
+  %96 = getelementptr inbounds [24 x i8], ptr @_ZL11OptionTable, i64 %95
   %97 = tail call fastcc noundef zeroext i1 @_ZL21getDiagnosticsInGroupN5clang4diag6FlavorEPKN12_GLOBAL__N_113WarningOptionERN4llvm15SmallVectorImplIjEEPNS0_14CustomDiagInfoE(i32 noundef %0, ptr noundef nonnull %96, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %3)
   %98 = and i1 %.244, %97
   %99 = getelementptr inbounds nuw i8, ptr %.02543, i64 2
@@ -2353,10 +2351,10 @@ define dso_local void @_ZN5clang13DiagnosticIDs16setGroupSeverityEN4llvm9StringR
 7:                                                ; preds = %4
   %sext = shl i64 %6, 32
   %8 = ashr exact i64 %sext, 32
-  %9 = getelementptr inbounds nuw %"struct.(anonymous namespace)::WarningOption", ptr @_ZL11OptionTable, i64 %8
+  %9 = getelementptr inbounds nuw [24 x i8], ptr @_ZL11OptionTable, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.val.val.i = load ptr, ptr %10, align 8, !tbaa !14
-  %11 = getelementptr inbounds nuw %"struct.clang::DiagnosticIDs::GroupInfo", ptr %.val.val.i, i64 %8
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %.val.val.i, i64 %8
   %12 = load i8, ptr %11, align 4
   %13 = and i8 %3, 7
   %14 = and i8 %12, -8
@@ -2393,10 +2391,10 @@ define dso_local void @_ZN5clang13DiagnosticIDs25setGroupNoWarningsAsErrorEN4llv
   store ptr %6, ptr %.sroa.3.0..sroa_idx, align 8
   %sext = shl i64 %9, 32
   %11 = ashr exact i64 %sext, 32
-  %12 = getelementptr inbounds nuw %"struct.(anonymous namespace)::WarningOption", ptr @_ZL11OptionTable, i64 %11
+  %12 = getelementptr inbounds nuw [24 x i8], ptr @_ZL11OptionTable, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8, !tbaa !14
-  %15 = getelementptr inbounds nuw %"struct.clang::DiagnosticIDs::GroupInfo", ptr %14, i64 %11
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %11
   %16 = load i8, ptr %15, align 4
   %17 = select i1 %3, i8 8, i8 0
   %18 = and i8 %16, -9
@@ -2424,7 +2422,7 @@ define dso_local void @_ZN5clang13DiagnosticIDs17getAllDiagnosticsENS_4diag6Flav
 
 6:                                                ; preds = %2, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit ]
-  %7 = getelementptr inbounds nuw %"struct.(anonymous namespace)::StaticDiagInfoRec", ptr @_ZN12_GLOBAL__N_114StaticDiagInfoE, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [10 x i8], ptr @_ZN12_GLOBAL__N_114StaticDiagInfoE, i64 %indvars.iv
   %8 = getelementptr i8, ptr %7, i64 2
   %.val = load i32, ptr %8, align 2
   %9 = and i32 %.val, 56
@@ -2491,7 +2489,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i: ; preds = %36, %_ZN
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i: ; preds = %38, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i
   store ptr %33, ptr %1, align 8, !tbaa !78
   store ptr %37, ptr %3, align 8, !tbaa !73
-  %39 = getelementptr inbounds nuw i32, ptr %33, i64 %31
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %31
   store ptr %39, ptr %4, align 8, !tbaa !76
   br label %_ZNSt6vectorIjSaIjEE9push_backEOj.exit
 
@@ -2613,7 +2611,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang13DiagnosticIDs11ProcessDiagERNS_
   %14 = add i32 %8, -8820
   %15 = zext i32 %14 to i64
   %16 = load ptr, ptr %13, align 8, !tbaa !8
-  %17 = getelementptr inbounds nuw %"class.clang::DiagnosticIDs::CustomDiagDesc", ptr %16, i64 %15
+  %17 = getelementptr inbounds nuw [40 x i8], ptr %16, i64 %15
   %18 = load i16, ptr %17, align 8
   %19 = lshr i16 %18, 3
   %20 = and i16 %19, 7
@@ -2758,7 +2756,7 @@ _ZNK5clang13DiagnosticIDs18getDiagnosticLevelEjNS_14SourceLocationERKNS_17Diagno
   %82 = add i32 %8, -8820
   %83 = zext i32 %82 to i64
   %84 = load ptr, ptr %81, align 8, !tbaa !8
-  %85 = getelementptr inbounds nuw %"class.clang::DiagnosticIDs::CustomDiagDesc", ptr %84, i64 %83
+  %85 = getelementptr inbounds nuw [40 x i8], ptr %84, i64 %83
   %86 = load i16, ptr %85, align 8
   %87 = zext i16 %86 to i32
   br label %_ZNK5clang13DiagnosticIDs23isDefaultMappingAsErrorEj.exit
@@ -2950,7 +2948,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang13DiagnosticIDs15isUnrecoverableE
   %7 = add i32 %1, -8820
   %8 = zext i32 %7 to i64
   %9 = load ptr, ptr %6, align 8, !tbaa !8
-  %10 = getelementptr inbounds nuw %"class.clang::DiagnosticIDs::CustomDiagDesc", ptr %9, i64 %8
+  %10 = getelementptr inbounds nuw [40 x i8], ptr %9, i64 %8
   %11 = load i16, ptr %10, align 8
   %12 = lshr i16 %11, 3
   %13 = and i16 %12, 7
@@ -2993,7 +2991,7 @@ _ZN5clang13DiagnosticIDs24getCategoryNumberForDiagEj.exit.i: ; preds = %24
 
 _ZN5clang13DiagnosticIDs15isARCDiagnosticEj.exit: ; preds = %_ZN5clang13DiagnosticIDs24getCategoryNumberForDiagEj.exit.i
   %31 = zext nneg i32 %29 to i64
-  %32 = getelementptr inbounds nuw %"struct.(anonymous namespace)::StaticDiagCategoryRec", ptr @_ZL17CategoryNameTable, i64 %31
+  %32 = getelementptr inbounds nuw [16 x i8], ptr @_ZL17CategoryNameTable, i64 %31
   %.val.i.i = load ptr, ptr %32, align 16, !tbaa !17
   %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %.val.i.i, ptr noundef nonnull dereferenceable(4) @.str.3, i64 4)
   %33 = icmp eq i32 %bcmp.i.i, 0
@@ -3011,7 +3009,7 @@ _ZN5clang13DiagnosticIDs21getCategoryNameFromIDEj.exit.i: ; preds = %_ZN5clang13
   br i1 %37, label %_ZN5clang13DiagnosticIDs27isCodegenABICheckDiagnosticEj.exit, label %_ZNK5clang13DiagnosticIDs12getDiagClassEj.exit.thread
 
 _ZN5clang13DiagnosticIDs27isCodegenABICheckDiagnosticEj.exit: ; preds = %_ZN5clang13DiagnosticIDs21getCategoryNameFromIDEj.exit.i
-  %38 = getelementptr inbounds nuw %"struct.(anonymous namespace)::StaticDiagCategoryRec", ptr @_ZL17CategoryNameTable, i64 %35
+  %38 = getelementptr inbounds nuw [16 x i8], ptr @_ZL17CategoryNameTable, i64 %35
   %.val.i.i11 = load ptr, ptr %38, align 16, !tbaa !17
   %bcmp.i.i12 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(17) %.val.i.i11, ptr noundef nonnull dereferenceable(17) @.str.4, i64 17)
   %bcmp.i.i12.fr = freeze i32 %bcmp.i.i12
@@ -3086,7 +3084,7 @@ _ZN5clang13DiagnosticIDs24getCategoryNumberForDiagEj.exit: ; preds = %1
 
 8:                                                ; preds = %_ZN5clang13DiagnosticIDs24getCategoryNumberForDiagEj.exit
   %9 = zext nneg i32 %6 to i64
-  %10 = getelementptr inbounds nuw %"struct.(anonymous namespace)::StaticDiagCategoryRec", ptr @_ZL17CategoryNameTable, i64 %9
+  %10 = getelementptr inbounds nuw [16 x i8], ptr @_ZL17CategoryNameTable, i64 %9
   %.val.i = load ptr, ptr %10, align 16, !tbaa !17
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %.val.i, ptr noundef nonnull dereferenceable(4) @.str.3, i64 4)
   %11 = icmp eq i32 %bcmp.i, 0
@@ -3119,7 +3117,7 @@ _ZN5clang13DiagnosticIDs21getCategoryNameFromIDEj.exit: ; preds = %_ZN5clang13Di
   br i1 %10, label %11, label %_ZN4llvmeqENS_9StringRefES0_.exit
 
 11:                                               ; preds = %_ZN5clang13DiagnosticIDs21getCategoryNameFromIDEj.exit
-  %12 = getelementptr inbounds nuw %"struct.(anonymous namespace)::StaticDiagCategoryRec", ptr @_ZL17CategoryNameTable, i64 %8
+  %12 = getelementptr inbounds nuw [16 x i8], ptr @_ZL17CategoryNameTable, i64 %8
   %.val.i = load ptr, ptr %12, align 16, !tbaa !17
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(17) %.val.i, ptr noundef nonnull dereferenceable(17) @.str.4, i64 17)
   %13 = icmp eq i32 %bcmp.i, 0
@@ -3740,7 +3738,7 @@ _ZNSt6vectorIN5clang13DiagnosticIDs14CustomDiagDescESaIS2_EE11_S_relocateEPS2_S5
 _ZNSt12_Vector_baseIN5clang13DiagnosticIDs14CustomDiagDescESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN5clang13DiagnosticIDs14CustomDiagDescESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26, %80
   store ptr %21, ptr %0, align 8, !tbaa !8
   store ptr %.0.lcssa.i.i.i25, ptr %5, align 8, !tbaa !64
-  %84 = getelementptr inbounds nuw %"class.clang::DiagnosticIDs::CustomDiagDesc", ptr %21, i64 %17
+  %84 = getelementptr inbounds nuw [40 x i8], ptr %21, i64 %17
   store ptr %84, ptr %79, align 8, !tbaa !70
   ret void
 }
@@ -4066,7 +4064,7 @@ define linkonce_odr hidden void @_ZN5clang20DiagStorageAllocator10DeallocateEPNS
   %9 = add i32 %8, 1
   store i32 %9, ptr %7, align 8, !tbaa !228
   %10 = zext i32 %8 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr %4, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %10
   store ptr %1, ptr %11, align 8, !tbaa !229
   br label %43
 
@@ -4477,7 +4475,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %69
   store ptr %22, ptr %0, align 8, !tbaa !137
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !142
-  %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %73, ptr %68, align 8, !tbaa !140
   ret void
 }
@@ -4485,7 +4483,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZL19forEachSubGroupImplIZN5clang13DiagnosticIDs16setGroupSeverityEN4llvm9StringRefENS0_4diag8SeverityEE3$_0EvPKN12_GLOBAL__N_113WarningOptionET_"(i16 %.4.val, ptr readonly captures(none) %0, ptr readonly captures(none) %1) unnamed_addr #18 {
   %3 = zext i16 %.4.val to i64
-  %4 = getelementptr inbounds nuw i16, ptr @_ZL13DiagSubGroups, i64 %3
+  %4 = getelementptr inbounds nuw [2 x i8], ptr @_ZL13DiagSubGroups, i64 %3
   %5 = load i16, ptr %4, align 2, !tbaa !166
   %.not1 = icmp eq i16 %5, -1
   br i1 %.not1, label %._crit_edge, label %.lr.ph
@@ -4503,13 +4501,13 @@ define internal fastcc void @"_ZL19forEachSubGroupImplIZN5clang13DiagnosticIDs16
   %9 = sext i16 %8 to i64
   %.val.val = load ptr, ptr %6, align 8, !tbaa !14
   %.val5.val = load i8, ptr %1, align 1, !tbaa !125
-  %10 = getelementptr inbounds nuw %"struct.clang::DiagnosticIDs::GroupInfo", ptr %.val.val, i64 %9
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %.val.val, i64 %9
   %11 = load i8, ptr %10, align 4
   %12 = and i8 %.val5.val, 7
   %13 = and i8 %11, -8
   %14 = or disjoint i8 %13, %12
   store i8 %14, ptr %10, align 4
-  %15 = getelementptr inbounds %"struct.(anonymous namespace)::WarningOption", ptr @_ZL11OptionTable, i64 %9
+  %15 = getelementptr inbounds [24 x i8], ptr @_ZL11OptionTable, i64 %9
   %16 = getelementptr i8, ptr %15, i64 4
   %.val6 = load i16, ptr %16, align 4, !tbaa !165
   tail call fastcc void @"_ZL19forEachSubGroupImplIZN5clang13DiagnosticIDs16setGroupSeverityEN4llvm9StringRefENS0_4diag8SeverityEE3$_0EvPKN12_GLOBAL__N_113WarningOptionET_"(i16 %.val6, ptr %0, ptr nonnull %1)
@@ -4522,7 +4520,7 @@ define internal fastcc void @"_ZL19forEachSubGroupImplIZN5clang13DiagnosticIDs16
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZL19forEachSubGroupImplIZN5clang13DiagnosticIDs25setGroupNoWarningsAsErrorEN4llvm9StringRefEbE3$_0EvPKN12_GLOBAL__N_113WarningOptionET_"(i16 %.4.val, ptr noundef readonly byval(%class.anon.157) align 8 captures(none) %0) unnamed_addr #18 {
   %2 = zext i16 %.4.val to i64
-  %3 = getelementptr inbounds nuw i16, ptr @_ZL13DiagSubGroups, i64 %2
+  %3 = getelementptr inbounds nuw [2 x i8], ptr @_ZL13DiagSubGroups, i64 %2
   %4 = load i16, ptr %3, align 2, !tbaa !166
   %.not1 = icmp eq i16 %4, -1
   br i1 %.not1, label %._crit_edge, label %.lr.ph
@@ -4546,14 +4544,14 @@ define internal fastcc void @"_ZL19forEachSubGroupImplIZN5clang13DiagnosticIDs25
   %14 = load i32, ptr %10, align 4, !tbaa !56
   %15 = sext i32 %14 to i64
   %16 = load ptr, ptr %8, align 8, !tbaa !14
-  %17 = getelementptr inbounds nuw %"struct.clang::DiagnosticIDs::GroupInfo", ptr %16, i64 %15
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %15
   %18 = load i8, ptr %17, align 4
   %19 = shl nuw nsw i8 %13, 3
   %20 = and i8 %18, -9
   %21 = or disjoint i8 %20, %19
   store i8 %21, ptr %17, align 4
   %22 = sext i16 %12 to i64
-  %23 = getelementptr inbounds %"struct.(anonymous namespace)::WarningOption", ptr @_ZL11OptionTable, i64 %22
+  %23 = getelementptr inbounds [24 x i8], ptr @_ZL11OptionTable, i64 %22
   %24 = getelementptr i8, ptr %23, i64 4
   %.val = load i16, ptr %24, align 4, !tbaa !165
   tail call fastcc void @"_ZL19forEachSubGroupImplIZN5clang13DiagnosticIDs25setGroupNoWarningsAsErrorEN4llvm9StringRefEbE3$_0EvPKN12_GLOBAL__N_113WarningOptionET_"(i16 %.val, ptr noundef nonnull byval(%class.anon.157) align 8 %0)

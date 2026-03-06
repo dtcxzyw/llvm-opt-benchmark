@@ -22,11 +22,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::basic_string_view" = type { i64, ptr }
 %"class.std::allocator" = type { i8 }
 %"class.absl::lts_20230802::AlphaNum" = type { %"class.std::basic_string_view", [32 x i8] }
-%"class.google::protobuf::FieldDescriptor" = type { %"class.google::protobuf::internal::SymbolBase", i8, i8, i8, i32, ptr, ptr, ptr, ptr, %union.anon.2, %union.anon.3, ptr, ptr, ptr, %union.anon.4 }
-%"class.google::protobuf::internal::SymbolBase" = type { i8 }
-%union.anon.2 = type { ptr }
-%union.anon.3 = type { ptr }
-%union.anon.4 = type { i64 }
 %"struct.absl::lts_20230802::container_internal::StringHash" = type { i8 }
 %"struct.absl::lts_20230802::container_internal::StringEq" = type { i8 }
 %"class.std::allocator.12" = type { i8 }
@@ -159,7 +154,7 @@ lpad:                                             ; preds = %sw.epilog
 
 switch.lookup:                                    ; preds = %entry
   %2 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6google8protobuf8compiler6csharp13GetCSharpTypeENS0_8internal19FieldDescriptorLite4TypeE, i64 %2
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN6google8protobuf8compiler6csharp13GetCSharpTypeENS0_8internal19FieldDescriptorLite4TypeE, i64 %2
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -676,7 +671,7 @@ for.body15.lr.ph:                                 ; preds = %for.cond12.preheade
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %3 = load ptr, ptr %fields_.i, align 8
-  %add.ptr.i = getelementptr inbounds nuw %"class.google::protobuf::FieldDescriptor", ptr %3, i64 %indvars.iv
+  %add.ptr.i = getelementptr inbounds nuw [88 x i8], ptr %3, i64 %indvars.iv
   %type_once_.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 24
   %4 = load ptr, ptr %type_once_.i, align 8
   %tobool.not.i = icmp eq ptr %4, null
@@ -728,7 +723,7 @@ for.inc:                                          ; preds = %_ZNK6google8protobu
 for.body15:                                       ; preds = %for.body15.lr.ph, %for.inc26
   %indvars.iv76 = phi i64 [ 0, %for.body15.lr.ph ], [ %indvars.iv.next77, %for.inc26 ]
   %12 = load ptr, ptr %extensions_.i, align 8
-  %add.ptr.i25 = getelementptr inbounds nuw %"class.google::protobuf::FieldDescriptor", ptr %12, i64 %indvars.iv76
+  %add.ptr.i25 = getelementptr inbounds nuw [88 x i8], ptr %12, i64 %indvars.iv76
   %type_once_.i26 = getelementptr inbounds nuw i8, ptr %add.ptr.i25, i64 24
   %13 = load ptr, ptr %type_once_.i26, align 8
   %tobool.not.i27 = icmp eq ptr %13, null
@@ -796,7 +791,7 @@ for.body37.lr.ph:                                 ; preds = %for.cond34.preheade
 for.body37:                                       ; preds = %for.body37.lr.ph, %for.inc48
   %indvars.iv79 = phi i64 [ 0, %for.body37.lr.ph ], [ %indvars.iv.next80, %for.inc48 ]
   %23 = load ptr, ptr %extensions_.i44, align 8
-  %add.ptr.i46 = getelementptr inbounds nuw %"class.google::protobuf::FieldDescriptor", ptr %23, i64 %indvars.iv79
+  %add.ptr.i46 = getelementptr inbounds nuw [88 x i8], ptr %23, i64 %indvars.iv79
   %type_once_.i47 = getelementptr inbounds nuw i8, ptr %add.ptr.i46, i64 24
   %24 = load ptr, ptr %type_once_.i47, align 8
   %tobool.not.i48 = icmp eq ptr %24, null
@@ -1297,7 +1292,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
   %conv.i.i = zext nneg i32 %11 to i64
   %add.i.i.i = add i64 %seq.sroa.4.0.i.i, %conv.i.i
   %and.i.i.i = and i64 %add.i.i.i, %4
-  %add.ptr19.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %6, i64 %and.i.i.i
+  %add.ptr19.i.i = getelementptr inbounds [16 x i8], ptr %6, i64 %and.i.i.i
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i = load i64, ptr %add.ptr19.i.i, align 8
   %agg.tmp.sroa.2.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr19.i.i, i64 8
   %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i = load ptr, ptr %agg.tmp.sroa.2.0..sroa_idx.i.i.i.i.i.i, align 8
@@ -1320,7 +1315,7 @@ if.then.i.i:                                      ; preds = %_ZNSt11char_traitsI
   %14 = load ptr, ptr %this, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %14, i64 %and.i.i.i
   %15 = load ptr, ptr %slots_.i.i.i.i, align 8
-  %add.ptr3.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %15, i64 %and.i.i.i
+  %add.ptr3.i.i.i = getelementptr inbounds [16 x i8], ptr %15, i64 %and.i.i.i
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %add.ptr.i.i.i) ]
   %.fca.0.insert.i.i.i = insertvalue { ptr, ptr } poison, ptr %add.ptr.i.i.i, 0
   %.fca.1.insert.i.i.i = insertvalue { ptr, ptr } %.fca.0.insert.i.i.i, ptr %add.ptr3.i.i.i, 1
@@ -1437,7 +1432,7 @@ lpad:                                             ; preds = %sw.epilog
 
 switch.lookup:                                    ; preds = %entry
   %2 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6google8protobuf8compiler6csharp12GetFixedSizeENS0_8internal19FieldDescriptorLite4TypeE, i64 %2
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN6google8protobuf8compiler6csharp12GetFixedSizeENS0_8internal19FieldDescriptorLite4TypeE, i64 %2
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -2248,7 +2243,7 @@ call.i.i.i.i.i.i.noexc:                           ; preds = %for.body.i
 if.then.i.i.i.i.i.i5:                             ; preds = %call.i.i.i.i.i.i.noexc
   %3 = extractvalue { i64, i8 } %call.i.i.i.i.i.i6, 0
   %4 = load ptr, ptr %slots_.i.i.i.i.i14, align 8, !noalias !24
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %4, i64 %3
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds [16 x i8], ptr %4, i64 %3
   %5 = load ptr, ptr %first.addr.04.i, align 8, !noalias !24
   %call.i.i.i.i.i.i.i.i.i.i.i.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #25, !noalias !24
   store i64 %call.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %add.ptr.i.i.i.i.i.i.i, align 8, !noalias !24
@@ -2341,7 +2336,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %conv = zext nneg i32 %11 to i64
   %add.i = add i64 %seq.sroa.4.0, %conv
   %and.i = and i64 %add.i, %3
-  %add.ptr21 = getelementptr inbounds %"class.std::basic_string_view", ptr %6, i64 %and.i
+  %add.ptr21 = getelementptr inbounds [16 x i8], ptr %6, i64 %and.i
   %agg.tmp.sroa.0.0.copyload.i.i.i.i = load i64, ptr %add.ptr21, align 8
   %agg.tmp.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr21, i64 8
   %agg.tmp.sroa.2.0.copyload.i.i.i.i = load ptr, ptr %agg.tmp.sroa.2.0..sroa_idx.i.i.i.i, align 8
@@ -2641,7 +2636,7 @@ for.body:                                         ; preds = %_ZN4absl12lts_20230
   br i1 %cmp.i, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %for.body
-  %add.ptr = getelementptr inbounds %"class.std::basic_string_view", ptr %1, i64 %i.021
+  %add.ptr = getelementptr inbounds [16 x i8], ptr %1, i64 %i.021
   %agg.tmp.sroa.0.0.copyload.i.i.i.i = load i64, ptr %add.ptr, align 8
   %agg.tmp.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
   %agg.tmp.sroa.2.0.copyload.i.i.i.i = load ptr, ptr %agg.tmp.sroa.2.0..sroa_idx.i.i.i.i, align 8
@@ -2666,7 +2661,7 @@ if.then:                                          ; preds = %for.body
   %12 = getelementptr i8, ptr %11, i64 %and.i.i
   %arrayidx7.i.i = getelementptr i8, ptr %12, i64 %and6.i.i
   store i8 %conv.i, ptr %arrayidx7.i.i, align 1
-  %add.ptr16 = getelementptr inbounds %"class.std::basic_string_view", ptr %6, i64 %8
+  %add.ptr16 = getelementptr inbounds [16 x i8], ptr %6, i64 %8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %add.ptr16, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr, i64 16, i1 false)
   br label %for.inc
 

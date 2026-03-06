@@ -4,55 +4,10 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::allocator.31" = type { i8 }
-%"struct.gmx::PairsearchWork" = type { %"struct.gmx::gmx_cache_protect_t", %"class.std::vector", %"class.std::vector.0", i32, %"class.std::unique_ptr", %"class.gmx::nbnxn_cycle_t", %"struct.gmx::gmx_cache_protect_t" }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" }
-%"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.0" = type { %"struct.std::_Vector_base.1" }
-%"struct.std::_Vector_base.1" = type { %"struct.std::_Vector_base<std::array<unsigned long, 2>, std::allocator<std::array<unsigned long, 2>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::array<unsigned long, 2>, std::allocator<std::array<unsigned long, 2>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::array<unsigned long, 2>, std::allocator<std::array<unsigned long, 2>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::array<unsigned long, 2>, std::allocator<std::array<unsigned long, 2>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.6" }
-%"struct.std::_Head_base.6" = type { ptr }
-%"class.gmx::nbnxn_cycle_t" = type { i32, i64, i64 }
-%"struct.gmx::gmx_cache_protect_t" = type { [16 x i32] }
 %"class.gmx::ArrayRef.56" = type { %"struct.gmx::ArrayRefIter.57", %"struct.gmx::ArrayRefIter.57" }
 %"struct.gmx::ArrayRefIter.57" = type { ptr }
 %"class.gmx::ArrayRef.59" = type { %"struct.gmx::ArrayRefIter.60", %"struct.gmx::ArrayRefIter.60" }
 %"struct.gmx::ArrayRefIter.60" = type { ptr }
-%"class.gmx::Grid" = type <{ %"struct.gmx::Grid::Geometry", i32, %"struct.gmx::GridDimensions", i32, i32, i32, i32, i32, [4 x i8], %"class.std::vector.22", %"class.std::vector.22", %"class.std::vector", %"class.std::vector.34", %"class.std::vector.39", %"class.std::vector.39", %"class.gmx::ArrayRef.42", %"class.std::vector.45", ptr, %"class.std::vector", %"class.std::vector.48", i32, [4 x i8] }>
-%"struct.gmx::Grid::Geometry" = type { i8, i32, i32, i32, i32, i32 }
-%"struct.gmx::GridDimensions" = type { %"class.gmx::BasicVector", %"class.gmx::BasicVector", %"class.gmx::BasicVector", float, float, [2 x float], [2 x float], [2 x i32] }
-%"class.gmx::BasicVector" = type { [3 x float] }
-%"class.std::vector.22" = type { %"struct.std::_Vector_base.23" }
-%"struct.std::_Vector_base.23" = type { %"struct.std::_Vector_base<int, gmx::Allocator<int, gmx::HostAllocationPolicy>>::_Vector_impl" }
-%"struct.std::_Vector_base<int, gmx::Allocator<int, gmx::HostAllocationPolicy>>::_Vector_impl" = type { %"class.gmx::Allocator.base", %"struct.std::_Vector_base<int, gmx::Allocator<int, gmx::HostAllocationPolicy>>::_Vector_impl_data" }
-%"class.gmx::Allocator.base" = type { %"class.gmx::HostAllocationPolicy.base" }
-%"class.gmx::HostAllocationPolicy.base" = type <{ i32, i8 }>
-%"struct.std::_Vector_base<int, gmx::Allocator<int, gmx::HostAllocationPolicy>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.34" = type { %"struct.std::_Vector_base.35" }
-%"struct.std::_Vector_base.35" = type { %"struct.std::_Vector_base<gmx::BoundingBox1D, std::allocator<gmx::BoundingBox1D>>::_Vector_impl" }
-%"struct.std::_Vector_base<gmx::BoundingBox1D, std::allocator<gmx::BoundingBox1D>>::_Vector_impl" = type { %"struct.std::_Vector_base<gmx::BoundingBox1D, std::allocator<gmx::BoundingBox1D>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<gmx::BoundingBox1D, std::allocator<gmx::BoundingBox1D>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.39" = type { %"struct.std::_Vector_base.40" }
-%"struct.std::_Vector_base.40" = type { %"struct.std::_Vector_base<gmx::BoundingBox, gmx::Allocator<gmx::BoundingBox, gmx::AlignedAllocationPolicy>>::_Vector_impl" }
-%"struct.std::_Vector_base<gmx::BoundingBox, gmx::Allocator<gmx::BoundingBox, gmx::AlignedAllocationPolicy>>::_Vector_impl" = type { %"struct.std::_Vector_base<gmx::BoundingBox, gmx::Allocator<gmx::BoundingBox, gmx::AlignedAllocationPolicy>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<gmx::BoundingBox, gmx::Allocator<gmx::BoundingBox, gmx::AlignedAllocationPolicy>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.gmx::ArrayRef.42" = type { %"struct.gmx::ArrayRefIter.43", %"struct.gmx::ArrayRefIter.43" }
-%"struct.gmx::ArrayRefIter.43" = type { ptr }
-%"class.std::vector.45" = type { %"struct.std::_Vector_base.46" }
-%"struct.std::_Vector_base.46" = type { %"struct.std::_Vector_base<float, gmx::Allocator<float, gmx::AlignedAllocationPolicy>>::_Vector_impl" }
-%"struct.std::_Vector_base<float, gmx::Allocator<float, gmx::AlignedAllocationPolicy>>::_Vector_impl" = type { %"struct.std::_Vector_base<float, gmx::Allocator<float, gmx::AlignedAllocationPolicy>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<float, gmx::Allocator<float, gmx::AlignedAllocationPolicy>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.48" = type { %"struct.std::_Vector_base.49" }
-%"struct.std::_Vector_base.49" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 
 $__clang_call_terminate = comdat any
 
@@ -444,7 +399,7 @@ _ZNSt12_Vector_baseIN3gmx14PairsearchWorkESaIS1_EEC2EmRKS2_.exit: ; preds = %_ZN
   store ptr %8, ptr %0, align 8, !tbaa !72
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %8, ptr %9, align 8, !tbaa !73
-  %10 = getelementptr inbounds nuw %"struct.gmx::PairsearchWork", ptr %8, i64 %1
+  %10 = getelementptr inbounds nuw [216 x i8], ptr %8, i64 %1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %10, ptr %11, align 8, !tbaa !74
   br label %.lr.ph.i.i.i.i
@@ -908,7 +863,7 @@ _ZNSt6vectorIN3gmx4GridESaIS1_EE12emplace_backIJRNS0_12PairlistTypeEiRbRNS0_13Pi
 45:                                               ; preds = %_ZNSt6vectorIN3gmx4GridESaIS1_EE12emplace_backIJRNS0_12PairlistTypeEiRbRNS0_13PinningPolicyEEEERS1_DpOT_.exit, %21
   %46 = phi ptr [ %.pre, %_ZNSt6vectorIN3gmx4GridESaIS1_EE12emplace_backIJRNS0_12PairlistTypeEiRbRNS0_13PinningPolicyEEEERS1_DpOT_.exit ], [ %27, %21 ]
   %47 = zext nneg i32 %1 to i64
-  %48 = getelementptr %"class.gmx::Grid", ptr %46, i64 %47
+  %48 = getelementptr [384 x i8], ptr %46, i64 %47
   %49 = getelementptr i8, ptr %48, i64 -284
   %50 = load i32, ptr %49, align 4, !tbaa !109
   %51 = getelementptr i8, ptr %48, i64 -288
@@ -1003,7 +958,7 @@ _ZNSt16allocator_traitsISaIN3gmx4GridEEE9constructIS1_JRNS0_12PairlistTypeEiRbRN
 _ZNSt12_Vector_baseIN3gmx4GridESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt16allocator_traitsISaIN3gmx4GridEEE9constructIS1_JRNS0_12PairlistTypeEiRbRNS0_13PinningPolicyEEEEvRS2_PT_DpOT0_.exit, %32
   store ptr %23, ptr %0, align 8, !tbaa !83
   store ptr %30, ptr %7, align 8, !tbaa !84
-  %36 = getelementptr inbounds nuw %"class.gmx::Grid", ptr %23, i64 %19
+  %36 = getelementptr inbounds nuw [384 x i8], ptr %23, i64 %19
   store ptr %36, ptr %31, align 8, !tbaa !86
   ret void
 

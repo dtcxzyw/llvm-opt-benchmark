@@ -1170,7 +1170,7 @@ for.cond2.preheader:                              ; preds = %if.end.9, %entry
   %conv6 = uitofp nneg i32 %y.039 to float
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 10
   %call = call nsz noundef float @_Z13NoisePerlin2DPK11NoiseParamsffi(ptr noundef nonnull %np_normal, float noundef 0.000000e+00, float noundef %conv6, i32 noundef 1337)
-  %arrayidx = getelementptr inbounds nuw float, ptr @_ZN9TestNoise19expected_2d_resultsE, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [4 x i8], ptr @_ZN9TestNoise19expected_2d_resultsE, i64 %indvars.iv
   %0 = load float, ptr %arrayidx, align 8, !tbaa !25
   %sub = fsub nsz float %call, %0
   %1 = call nsz noundef float @llvm.fabs.f32(float %sub)
@@ -1357,9 +1357,9 @@ entry:
 
 for.cond:                                         ; preds = %for.body
   %indvars.iv.next = or disjoint i64 %indvars.iv, 1
-  %arrayidx.1 = getelementptr inbounds nuw float, ptr %call, i64 %indvars.iv.next
+  %arrayidx.1 = getelementptr inbounds nuw [4 x i8], ptr %call, i64 %indvars.iv.next
   %0 = load float, ptr %arrayidx.1, align 4, !tbaa !25
-  %arrayidx3.1 = getelementptr inbounds nuw float, ptr @_ZN9TestNoise19expected_2d_resultsE, i64 %indvars.iv.next
+  %arrayidx3.1 = getelementptr inbounds nuw [4 x i8], ptr @_ZN9TestNoise19expected_2d_resultsE, i64 %indvars.iv.next
   %1 = load float, ptr %arrayidx3.1, align 4, !tbaa !25
   %sub.1 = fsub nsz float %0, %1
   %2 = call nsz noundef float @llvm.fabs.f32(float %sub.1)
@@ -1385,9 +1385,9 @@ lpad:                                             ; preds = %entry
 
 for.body:                                         ; preds = %entry, %for.cond.1
   %indvars.iv = phi i64 [ %indvars.iv.next.1, %for.cond.1 ], [ 0, %entry ]
-  %arrayidx = getelementptr inbounds nuw float, ptr %call, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [4 x i8], ptr %call, i64 %indvars.iv
   %4 = load float, ptr %arrayidx, align 4, !tbaa !25
-  %arrayidx3 = getelementptr inbounds nuw float, ptr @_ZN9TestNoise19expected_2d_resultsE, i64 %indvars.iv
+  %arrayidx3 = getelementptr inbounds nuw [4 x i8], ptr @_ZN9TestNoise19expected_2d_resultsE, i64 %indvars.iv
   %5 = load float, ptr %arrayidx3, align 8, !tbaa !25
   %sub = fsub nsz float %4, %5
   %6 = call nsz noundef float @llvm.fabs.f32(float %sub)
@@ -1693,7 +1693,7 @@ for.cond6.preheader:                              ; preds = %if.end.9, %for.cond
   %conv10 = uitofp nneg i32 %y.053 to float
   %indvars.iv.next2 = add nuw nsw i64 %indvars.iv1, 10
   %call = call nsz noundef float @_Z13NoisePerlin3DPK11NoiseParamsfffi(ptr noundef nonnull %np_normal, float noundef 0.000000e+00, float noundef %conv10, float noundef %conv11, i32 noundef 1337)
-  %arrayidx = getelementptr inbounds nuw float, ptr @_ZN9TestNoise19expected_3d_resultsE, i64 %indvars.iv1
+  %arrayidx = getelementptr inbounds nuw [4 x i8], ptr @_ZN9TestNoise19expected_3d_resultsE, i64 %indvars.iv1
   %0 = load float, ptr %arrayidx, align 8, !tbaa !25
   %sub = fsub nsz float %call, %0
   %1 = call nsz noundef float @llvm.fabs.f32(float %sub)
@@ -1764,7 +1764,7 @@ cleanup.done:                                     ; preds = %cleanup.action, %eh
 
 if.end:                                           ; preds = %for.cond6.preheader
   %call.1 = call nsz noundef float @_Z13NoisePerlin3DPK11NoiseParamsfffi(ptr noundef nonnull %np_normal, float noundef 1.000000e+00, float noundef %conv10, float noundef %conv11, i32 noundef 1337)
-  %7 = getelementptr inbounds nuw float, ptr @_ZN9TestNoise19expected_3d_resultsE, i64 %indvars.iv1
+  %7 = getelementptr inbounds nuw [4 x i8], ptr @_ZN9TestNoise19expected_3d_resultsE, i64 %indvars.iv1
   %arrayidx.1 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %8 = load float, ptr %arrayidx.1, align 4, !tbaa !25
   %sub.1 = fsub nsz float %call.1, %8
@@ -1775,7 +1775,7 @@ if.end:                                           ; preds = %for.cond6.preheader
 
 if.end.1:                                         ; preds = %if.end
   %call.2 = call nsz noundef float @_Z13NoisePerlin3DPK11NoiseParamsfffi(ptr noundef nonnull %np_normal, float noundef 2.000000e+00, float noundef %conv10, float noundef %conv11, i32 noundef 1337)
-  %10 = getelementptr inbounds nuw float, ptr @_ZN9TestNoise19expected_3d_resultsE, i64 %indvars.iv1
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN9TestNoise19expected_3d_resultsE, i64 %indvars.iv1
   %arrayidx.2 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %11 = load float, ptr %arrayidx.2, align 8, !tbaa !25
   %sub.2 = fsub nsz float %call.2, %11
@@ -1786,7 +1786,7 @@ if.end.1:                                         ; preds = %if.end
 
 if.end.2:                                         ; preds = %if.end.1
   %call.3 = call nsz noundef float @_Z13NoisePerlin3DPK11NoiseParamsfffi(ptr noundef nonnull %np_normal, float noundef 3.000000e+00, float noundef %conv10, float noundef %conv11, i32 noundef 1337)
-  %13 = getelementptr inbounds nuw float, ptr @_ZN9TestNoise19expected_3d_resultsE, i64 %indvars.iv1
+  %13 = getelementptr inbounds nuw [4 x i8], ptr @_ZN9TestNoise19expected_3d_resultsE, i64 %indvars.iv1
   %arrayidx.3 = getelementptr inbounds nuw i8, ptr %13, i64 12
   %14 = load float, ptr %arrayidx.3, align 4, !tbaa !25
   %sub.3 = fsub nsz float %call.3, %14
@@ -1797,7 +1797,7 @@ if.end.2:                                         ; preds = %if.end.1
 
 if.end.3:                                         ; preds = %if.end.2
   %call.4 = call nsz noundef float @_Z13NoisePerlin3DPK11NoiseParamsfffi(ptr noundef nonnull %np_normal, float noundef 4.000000e+00, float noundef %conv10, float noundef %conv11, i32 noundef 1337)
-  %16 = getelementptr inbounds nuw float, ptr @_ZN9TestNoise19expected_3d_resultsE, i64 %indvars.iv1
+  %16 = getelementptr inbounds nuw [4 x i8], ptr @_ZN9TestNoise19expected_3d_resultsE, i64 %indvars.iv1
   %arrayidx.4 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %17 = load float, ptr %arrayidx.4, align 8, !tbaa !25
   %sub.4 = fsub nsz float %call.4, %17
@@ -1808,7 +1808,7 @@ if.end.3:                                         ; preds = %if.end.2
 
 if.end.4:                                         ; preds = %if.end.3
   %call.5 = call nsz noundef float @_Z13NoisePerlin3DPK11NoiseParamsfffi(ptr noundef nonnull %np_normal, float noundef 5.000000e+00, float noundef %conv10, float noundef %conv11, i32 noundef 1337)
-  %19 = getelementptr inbounds nuw float, ptr @_ZN9TestNoise19expected_3d_resultsE, i64 %indvars.iv1
+  %19 = getelementptr inbounds nuw [4 x i8], ptr @_ZN9TestNoise19expected_3d_resultsE, i64 %indvars.iv1
   %arrayidx.5 = getelementptr inbounds nuw i8, ptr %19, i64 20
   %20 = load float, ptr %arrayidx.5, align 4, !tbaa !25
   %sub.5 = fsub nsz float %call.5, %20
@@ -1819,7 +1819,7 @@ if.end.4:                                         ; preds = %if.end.3
 
 if.end.5:                                         ; preds = %if.end.4
   %call.6 = call nsz noundef float @_Z13NoisePerlin3DPK11NoiseParamsfffi(ptr noundef nonnull %np_normal, float noundef 6.000000e+00, float noundef %conv10, float noundef %conv11, i32 noundef 1337)
-  %22 = getelementptr inbounds nuw float, ptr @_ZN9TestNoise19expected_3d_resultsE, i64 %indvars.iv1
+  %22 = getelementptr inbounds nuw [4 x i8], ptr @_ZN9TestNoise19expected_3d_resultsE, i64 %indvars.iv1
   %arrayidx.6 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %23 = load float, ptr %arrayidx.6, align 8, !tbaa !25
   %sub.6 = fsub nsz float %call.6, %23
@@ -1830,7 +1830,7 @@ if.end.5:                                         ; preds = %if.end.4
 
 if.end.6:                                         ; preds = %if.end.5
   %call.7 = call nsz noundef float @_Z13NoisePerlin3DPK11NoiseParamsfffi(ptr noundef nonnull %np_normal, float noundef 7.000000e+00, float noundef %conv10, float noundef %conv11, i32 noundef 1337)
-  %25 = getelementptr inbounds nuw float, ptr @_ZN9TestNoise19expected_3d_resultsE, i64 %indvars.iv1
+  %25 = getelementptr inbounds nuw [4 x i8], ptr @_ZN9TestNoise19expected_3d_resultsE, i64 %indvars.iv1
   %arrayidx.7 = getelementptr inbounds nuw i8, ptr %25, i64 28
   %26 = load float, ptr %arrayidx.7, align 4, !tbaa !25
   %sub.7 = fsub nsz float %call.7, %26
@@ -1841,7 +1841,7 @@ if.end.6:                                         ; preds = %if.end.5
 
 if.end.7:                                         ; preds = %if.end.6
   %call.8 = call nsz noundef float @_Z13NoisePerlin3DPK11NoiseParamsfffi(ptr noundef nonnull %np_normal, float noundef 8.000000e+00, float noundef %conv10, float noundef %conv11, i32 noundef 1337)
-  %28 = getelementptr inbounds nuw float, ptr @_ZN9TestNoise19expected_3d_resultsE, i64 %indvars.iv1
+  %28 = getelementptr inbounds nuw [4 x i8], ptr @_ZN9TestNoise19expected_3d_resultsE, i64 %indvars.iv1
   %arrayidx.8 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %29 = load float, ptr %arrayidx.8, align 8, !tbaa !25
   %sub.8 = fsub nsz float %call.8, %29
@@ -1852,7 +1852,7 @@ if.end.7:                                         ; preds = %if.end.6
 
 if.end.8:                                         ; preds = %if.end.7
   %call.9 = call nsz noundef float @_Z13NoisePerlin3DPK11NoiseParamsfffi(ptr noundef nonnull %np_normal, float noundef 9.000000e+00, float noundef %conv10, float noundef %conv11, i32 noundef 1337)
-  %31 = getelementptr inbounds nuw float, ptr @_ZN9TestNoise19expected_3d_resultsE, i64 %indvars.iv1
+  %31 = getelementptr inbounds nuw [4 x i8], ptr @_ZN9TestNoise19expected_3d_resultsE, i64 %indvars.iv1
   %arrayidx.9 = getelementptr inbounds nuw i8, ptr %31, i64 36
   %32 = load float, ptr %arrayidx.9, align 4, !tbaa !25
   %sub.9 = fsub nsz float %call.9, %32
@@ -1898,9 +1898,9 @@ entry:
 
 for.cond:                                         ; preds = %for.body
   %indvars.iv.next = or disjoint i64 %indvars.iv, 1
-  %arrayidx.1 = getelementptr inbounds nuw float, ptr %call, i64 %indvars.iv.next
+  %arrayidx.1 = getelementptr inbounds nuw [4 x i8], ptr %call, i64 %indvars.iv.next
   %0 = load float, ptr %arrayidx.1, align 4, !tbaa !25
-  %arrayidx3.1 = getelementptr inbounds nuw float, ptr @_ZN9TestNoise19expected_3d_resultsE, i64 %indvars.iv.next
+  %arrayidx3.1 = getelementptr inbounds nuw [4 x i8], ptr @_ZN9TestNoise19expected_3d_resultsE, i64 %indvars.iv.next
   %1 = load float, ptr %arrayidx3.1, align 4, !tbaa !25
   %sub.1 = fsub nsz float %0, %1
   %2 = call nsz noundef float @llvm.fabs.f32(float %sub.1)
@@ -1926,9 +1926,9 @@ lpad:                                             ; preds = %entry
 
 for.body:                                         ; preds = %entry, %for.cond.1
   %indvars.iv = phi i64 [ %indvars.iv.next.1, %for.cond.1 ], [ 0, %entry ]
-  %arrayidx = getelementptr inbounds nuw float, ptr %call, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [4 x i8], ptr %call, i64 %indvars.iv
   %4 = load float, ptr %arrayidx, align 4, !tbaa !25
-  %arrayidx3 = getelementptr inbounds nuw float, ptr @_ZN9TestNoise19expected_3d_resultsE, i64 %indvars.iv
+  %arrayidx3 = getelementptr inbounds nuw [4 x i8], ptr @_ZN9TestNoise19expected_3d_resultsE, i64 %indvars.iv
   %5 = load float, ptr %arrayidx3, align 8, !tbaa !25
   %sub = fsub nsz float %4, %5
   %6 = call nsz noundef float @llvm.fabs.f32(float %sub)
@@ -2195,7 +2195,7 @@ if.then.i39.i.i:                                  ; preds = %_ZNSt6vectorIP8Test
 _ZNSt6vectorIP8TestBaseSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %if.then.i39.i.i, %_ZNSt6vectorIP8TestBaseSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit38.i.i
   store ptr %call5.i.i.i.i.i, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, align 8, !tbaa !43
   store ptr %incdec.ptr.i.i, ptr getelementptr inbounds nuw (i8, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 8), align 8, !tbaa !42
-  %add.ptr19.i.i = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
+  %add.ptr19.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
   store ptr %add.ptr19.i.i, ptr getelementptr inbounds nuw (i8, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 16), align 8, !tbaa !40
   br label %_ZNSt6vectorIP8TestBaseSaIS1_EE9push_backERKS1_.exit
 

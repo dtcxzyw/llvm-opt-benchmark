@@ -774,7 +774,7 @@ define void @libraw_set_user_mul(ptr noundef readonly captures(address_is_null) 
   %8 = tail call i32 @llvm.smax.i32(i32 %1, i32 0)
   %9 = tail call i32 @llvm.umin.i32(i32 %8, i32 3)
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr inbounds nuw float, ptr %7, i64 %10
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %10
   store float %2, ptr %11, align 4, !tbaa !88
   br label %12
 
@@ -795,7 +795,7 @@ define void @libraw_set_gamma(ptr noundef readonly captures(address_is_null) %0,
   %9 = tail call i32 @llvm.smax.i32(i32 %1, i32 0)
   %10 = tail call i32 @llvm.umin.i32(i32 %9, i32 5)
   %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr inbounds nuw double, ptr %8, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %11
   store double %7, ptr %12, align 8, !tbaa !89
   br label %13
 
@@ -941,7 +941,7 @@ define float @libraw_get_cam_mul(ptr noundef readonly captures(address_is_null) 
   %5 = tail call i32 @llvm.smax.i32(i32 %1, i32 0)
   %6 = tail call i32 @llvm.umin.i32(i32 %5, i32 3)
   %7 = zext nneg i32 %6 to i64
-  %8 = getelementptr inbounds nuw float, ptr %4, i64 %7
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %7
   %9 = load float, ptr %8, align 4, !tbaa !88
   br label %10
 
@@ -960,7 +960,7 @@ define float @libraw_get_pre_mul(ptr noundef readonly captures(address_is_null) 
   %5 = tail call i32 @llvm.smax.i32(i32 %1, i32 0)
   %6 = tail call i32 @llvm.umin.i32(i32 %5, i32 3)
   %7 = zext nneg i32 %6 to i64
-  %8 = getelementptr inbounds nuw float, ptr %4, i64 %7
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %7
   %9 = load float, ptr %8, align 4, !tbaa !88
   br label %10
 
@@ -979,11 +979,11 @@ define float @libraw_get_rgb_cam(ptr noundef readonly captures(address_is_null) 
   %6 = tail call i32 @llvm.smax.i32(i32 %1, i32 0)
   %7 = tail call i32 @llvm.umin.i32(i32 %6, i32 2)
   %8 = zext nneg i32 %7 to i64
-  %9 = getelementptr inbounds nuw [4 x float], ptr %5, i64 %8
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %8
   %10 = tail call i32 @llvm.smax.i32(i32 %2, i32 0)
   %11 = tail call i32 @llvm.umin.i32(i32 %10, i32 3)
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr inbounds nuw float, ptr %9, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %12
   %14 = load float, ptr %13, align 4, !tbaa !88
   br label %15
 

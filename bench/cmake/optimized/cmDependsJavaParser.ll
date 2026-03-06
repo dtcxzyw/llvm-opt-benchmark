@@ -349,7 +349,7 @@ define dso_local noundef range(i32 0, 3) i32 @_Z21cmDependsJava_yyparsePv(ptr no
 
 15:                                               ; preds = %13
   %16 = sext i32 %.014501546 to i64
-  %17 = getelementptr inbounds i16, ptr @_ZL6yypact, i64 %16
+  %17 = getelementptr inbounds [2 x i8], ptr @_ZL6yypact, i64 %16
   %18 = load i16, ptr %17, align 2, !tbaa !11
   %19 = sext i16 %18 to i32
   %20 = icmp eq i16 %18, -503
@@ -392,14 +392,14 @@ define dso_local noundef range(i32 0, 3) i32 @_Z21cmDependsJava_yyparsePv(ptr no
 
 38:                                               ; preds = %36
   %39 = zext nneg i32 %37 to i64
-  %40 = getelementptr inbounds nuw i16, ptr @_ZL7yycheck, i64 %39
+  %40 = getelementptr inbounds nuw [2 x i8], ptr @_ZL7yycheck, i64 %39
   %41 = load i16, ptr %40, align 2, !tbaa !11
   %42 = sext i16 %41 to i32
   %.not1472 = icmp eq i32 %.01431, %42
   br i1 %.not1472, label %43, label %53
 
 43:                                               ; preds = %38
-  %44 = getelementptr inbounds nuw i16, ptr @_ZL7yytable, i64 %39
+  %44 = getelementptr inbounds nuw [2 x i8], ptr @_ZL7yytable, i64 %39
   %45 = load i16, ptr %44, align 2, !tbaa !11
   %46 = sext i16 %45 to i32
   %47 = icmp slt i16 %45, 1
@@ -418,7 +418,7 @@ define dso_local noundef range(i32 0, 3) i32 @_Z21cmDependsJava_yyparsePv(ptr no
 
 53:                                               ; preds = %36, %38, %15
   %.3 = phi i32 [ %.014261550, %15 ], [ %.5, %36 ], [ %.5, %38 ]
-  %54 = getelementptr inbounds i16, ptr @_ZL8yydefact, i64 %16
+  %54 = getelementptr inbounds [2 x i8], ptr @_ZL8yydefact, i64 %16
   %55 = load i16, ptr %54, align 2, !tbaa !11
   %56 = sext i16 %55 to i32
   %57 = icmp eq i16 %55, 0
@@ -432,7 +432,7 @@ define dso_local noundef range(i32 0, 3) i32 @_Z21cmDependsJava_yyparsePv(ptr no
   %61 = load i8, ptr %60, align 1, !tbaa !13
   %62 = sext i8 %61 to i64
   %63 = sub nsw i64 1, %62
-  %64 = getelementptr inbounds %"struct.cmDependsJavaParserHelper::ParserType", ptr %.014341549, i64 %63
+  %64 = getelementptr inbounds [8 x i8], ptr %.014341549, i64 %63
   %65 = load i64, ptr %64, align 8, !tbaa !4
   store i64 %65, ptr %5, align 8, !tbaa !4
   switch i32 %.01433, label %1439 [
@@ -4160,18 +4160,18 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1488: ; preds = %2
 
 1439:                                             ; preds = %58, %1431, %1427, %1423, %1419, %1415, %1411, %1407, %1403, %1399, %1395, %1391, %1387, %1383, %1379, %1375, %1371, %1367, %1363, %1358, %1354, %1350, %1346, %1342, %1338, %1334, %1330, %1326, %1322, %1318, %1314, %1310, %1306, %1302, %1298, %1294, %1290, %1286, %1282, %1278, %1274, %1270, %1266, %1262, %1258, %1254, %1250, %1246, %1242, %1238, %1234, %1230, %1226, %1222, %1218, %1216, %1212, %1208, %1204, %1200, %1196, %1192, %1188, %1184, %1180, %1176, %1172, %1168, %1164, %1160, %1156, %1152, %1148, %1144, %1140, %1136, %1132, %1126, %1120, %1114, %1106, %1100, %1095, %1090, %1085, %1080, %1078, %1076, %1072, %1068, %1064, %1060, %1057, %1053, %1049, %1045, %1041, %1037, %1033, %1029, %1026, %1022, %1019, %1015, %1011, %1007, %1003, %999, %995, %993, %989, %985, %981, %977, %975, %971, %967, %963, %960, %956, %952, %948, %944, %940, %934, %932, %929, %923, %919, %915, %911, %907, %903, %899, %895, %891, %888, %885, %881, %878, %874, %871, %869, %867, %865, %863, %859, %855, %851, %847, %843, %839, %836, %832, %829, %827, %825, %821, %817, %813, %809, %805, %801, %797, %793, %789, %785, %781, %777, %771, %767, %763, %759, %755, %751, %747, %743, %739, %735, %731, %727, %723, %719, %715, %711, %707, %703, %699, %695, %691, %687, %683, %679, %675, %671, %667, %663, %659, %655, %651, %647, %643, %639, %636, %633, %629, %625, %621, %617, %614, %610, %606, %602, %598, %594, %591, %587, %584, %580, %576, %572, %569, %566, %562, %558, %554, %550, %547, %542, %536, %532, %528, %524, %521, %517, %511, %507, %503, %499, %495, %491, %489, %485, %481, %477, %475, %472, %470, %464, %460, %457, %453, %449, %445, %441, %437, %433, %429, %425, %420, %416, %412, %408, %404, %402, %398, %394, %390, %386, %382, %378, %374, %371, %367, %363, %359, %355, %351, %347, %344, %339, %334, %329, %324, %318, %314, %310, %306, %302, %298, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %260, %256, %252, %243, %239, %236, %232, %229, %225, %222, %218, %214, %210, %206, %197, %188, %176, %173, %170, %167, %164, %161, %153, %149, %145, %141, %134, %130, %126, %124, %122, %120, %118, %116, %114, %112, %110, %106, %102, %98, %94, %90, %86, %82, %78, %74, %70, %66
   %1440 = sub nsw i64 0, %62
-  %1441 = getelementptr inbounds %"struct.cmDependsJavaParserHelper::ParserType", ptr %.014341549, i64 %1440
+  %1441 = getelementptr inbounds [8 x i8], ptr %.014341549, i64 %1440
   %.idx = shl nsw i64 %1440, 1
   %.01444.add = add nsw i64 %.idx, %.01444.idx1547
   %.ptr1470 = getelementptr inbounds i8, ptr %3, i64 %.01444.add
   %1442 = getelementptr inbounds nuw i8, ptr %1441, i64 8
   %1443 = load i64, ptr %5, align 8, !tbaa !4
   store i64 %1443, ptr %1442, align 8, !tbaa !4
-  %1444 = getelementptr inbounds i16, ptr @_ZL4yyr1, i64 %59
+  %1444 = getelementptr inbounds [2 x i8], ptr @_ZL4yyr1, i64 %59
   %1445 = load i16, ptr %1444, align 2, !tbaa !11
   %1446 = sext i16 %1445 to i64
   %1447 = add nsw i64 %1446, -106
-  %1448 = getelementptr inbounds i16, ptr @_ZL7yypgoto, i64 %1447
+  %1448 = getelementptr inbounds [2 x i8], ptr @_ZL7yypgoto, i64 %1447
   %1449 = load i16, ptr %1448, align 2, !tbaa !11
   %1450 = sext i16 %1449 to i32
   %1451 = load i16, ptr %.ptr1470, align 2, !tbaa !11
@@ -4182,17 +4182,17 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1488: ; preds = %2
 
 1454:                                             ; preds = %1439
   %1455 = zext nneg i32 %1453 to i64
-  %1456 = getelementptr inbounds nuw i16, ptr @_ZL7yycheck, i64 %1455
+  %1456 = getelementptr inbounds nuw [2 x i8], ptr @_ZL7yycheck, i64 %1455
   %1457 = load i16, ptr %1456, align 2, !tbaa !11
   %1458 = icmp eq i16 %1457, %1451
   br i1 %1458, label %1459, label %1461
 
 1459:                                             ; preds = %1454
-  %1460 = getelementptr inbounds nuw i16, ptr @_ZL7yytable, i64 %1455
+  %1460 = getelementptr inbounds nuw [2 x i8], ptr @_ZL7yytable, i64 %1455
   br label %1463
 
 1461:                                             ; preds = %1454, %1439
-  %1462 = getelementptr inbounds i16, ptr @_ZL9yydefgoto, i64 %1447
+  %1462 = getelementptr inbounds [2 x i8], ptr @_ZL9yydefgoto, i64 %1447
   br label %1463
 
 1463:                                             ; preds = %1461, %1459
@@ -4287,13 +4287,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1488: ; preds = %2
 1497:                                             ; preds = %1494
   %1498 = sext i16 %1495 to i64
   %1499 = add nsw i64 %1498, 1
-  %1500 = getelementptr inbounds nuw i16, ptr @_ZL7yycheck, i64 %1499
+  %1500 = getelementptr inbounds nuw [2 x i8], ptr @_ZL7yycheck, i64 %1499
   %1501 = load i16, ptr %1500, align 2, !tbaa !11
   %1502 = icmp eq i16 %1501, 1
   br i1 %1502, label %1503, label %1507
 
 1503:                                             ; preds = %1497
-  %1504 = getelementptr inbounds nuw i16, ptr @_ZL7yytable, i64 %1499
+  %1504 = getelementptr inbounds nuw [2 x i8], ptr @_ZL7yytable, i64 %1499
   %1505 = load i16, ptr %1504, align 2, !tbaa !11
   %1506 = icmp sgt i16 %1505, 0
   br i1 %1506, label %1512, label %1507
@@ -4308,7 +4308,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1488: ; preds = %2
   %.ptr1471 = getelementptr inbounds i8, ptr %3, i64 %.31447.add
   %1511 = load i16, ptr %.ptr1471, align 2, !tbaa !11
   %.phi.trans.insert = sext i16 %1511 to i64
-  %.phi.trans.insert1561 = getelementptr inbounds i16, ptr @_ZL6yypact, i64 %.phi.trans.insert
+  %.phi.trans.insert1561 = getelementptr inbounds [2 x i8], ptr @_ZL6yypact, i64 %.phi.trans.insert
   %.pre = load i16, ptr %.phi.trans.insert1561, align 2, !tbaa !11
   br label %1494, !llvm.loop !19
 
@@ -4457,7 +4457,7 @@ define internal fastcc noundef range(i32 -2, 1) i32 @_ZL14yysyntax_errorPlPPcPK1
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %.val.val.i = load i16, ptr %.0.val1, align 2, !tbaa !11
   %5 = sext i16 %.val.val.i to i64
-  %6 = getelementptr inbounds i16, ptr @_ZL6yypact, i64 %5
+  %6 = getelementptr inbounds [2 x i8], ptr @_ZL6yypact, i64 %5
   %7 = load i16, ptr %6, align 2, !tbaa !11
   %8 = icmp eq i16 %7, -503
   br i1 %8, label %.critedge.thread.i.i, label %9
@@ -4476,13 +4476,13 @@ define internal fastcc noundef range(i32 -2, 1) i32 @_ZL14yysyntax_errorPlPPcPK1
   %16 = sext i32 %13 to i64
   %17 = sext i16 %7 to i64
   %18 = sext i32 %15 to i64
-  %invariant.gep.i.i = getelementptr i16, ptr @_ZL7yycheck, i64 %17
+  %invariant.gep.i.i = getelementptr [2 x i8], ptr @_ZL7yycheck, i64 %17
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %30, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ %16, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %30 ]
   %.1365.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %.2.i.i, %30 ]
-  %gep.i.i = getelementptr i16, ptr %invariant.gep.i.i, i64 %indvars.iv.i.i
+  %gep.i.i = getelementptr [2 x i8], ptr %invariant.gep.i.i, i64 %indvars.iv.i.i
   %19 = load i16, ptr %gep.i.i, align 2, !tbaa !11
   %20 = sext i16 %19 to i32
   %21 = trunc nsw i64 %indvars.iv.i.i to i32
@@ -4498,7 +4498,7 @@ define internal fastcc noundef range(i32 -2, 1) i32 @_ZL14yysyntax_errorPlPPcPK1
 26:                                               ; preds = %24
   %27 = add i32 %.1365.i.i, 1
   %28 = sext i32 %.1365.i.i to i64
-  %29 = getelementptr inbounds i32, ptr %4, i64 %28
+  %29 = getelementptr inbounds [4 x i8], ptr %4, i64 %28
   store i32 %20, ptr %29, align 4, !tbaa !23
   br label %30
 
@@ -4562,10 +4562,10 @@ _ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit.thread6: 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZL9yytnamerrPcPKc.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZL9yytnamerrPcPKc.exit.thread ]
   %.04921 = phi i64 [ %40, %.lr.ph.preheader ], [ %.15013, %_ZL9yytnamerrPcPKc.exit.thread ]
-  %41 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %42 = load i32, ptr %41, align 4, !tbaa !23
   %43 = sext i32 %42 to i64
-  %44 = getelementptr inbounds ptr, ptr @_ZL7yytname, i64 %43
+  %44 = getelementptr inbounds [8 x i8], ptr @_ZL7yytname, i64 %43
   %45 = load ptr, ptr %44, align 8, !tbaa !4
   %46 = load i8, ptr %45, align 1, !tbaa !13
   %47 = icmp eq i8 %46, 34
@@ -4641,10 +4641,10 @@ _ZL9yytnamerrPcPKc.exit.thread:                   ; preds = %.preheader.split.us
 66:                                               ; preds = %61
   %67 = add nsw i32 %.0, 1
   %68 = sext i32 %.0 to i64
-  %69 = getelementptr inbounds i32, ptr %2, i64 %68
+  %69 = getelementptr inbounds [4 x i8], ptr %2, i64 %68
   %70 = load i32, ptr %69, align 4, !tbaa !23
   %71 = sext i32 %70 to i64
-  %72 = getelementptr inbounds ptr, ptr @_ZL7yytname, i64 %71
+  %72 = getelementptr inbounds [8 x i8], ptr @_ZL7yytname, i64 %71
   %73 = load ptr, ptr %72, align 8, !tbaa !4
   %74 = load i8, ptr %73, align 1, !tbaa !13
   %75 = icmp eq i8 %74, 34

@@ -58,7 +58,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef readonly 
   %.sroa.0.0 = phi i32 [ %.sroa.0.1, %53 ], [ 4, %2 ]
   %.050.i = phi i32 [ %54, %53 ], [ 1, %2 ]
   %8 = sext i32 %.050.i to i64
-  %9 = getelementptr inbounds ptr, ptr %1, i64 %8
+  %9 = getelementptr inbounds [8 x i8], ptr %1, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !11
   %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(8) @.str.12) #10
   %.not.i = icmp eq i32 %11, 0
@@ -67,7 +67,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef readonly 
 12:                                               ; preds = %.lr.ph.i
   %13 = add nsw i32 %.050.i, 1
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds ptr, ptr %1, i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr %1, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !11
   %17 = tail call i64 @strtol(ptr noundef nonnull captures(none) %16, ptr noundef null, i32 noundef 10) #11
   %18 = trunc i64 %17 to i32
@@ -81,7 +81,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef readonly 
 21:                                               ; preds = %19
   %22 = add nsw i32 %.050.i, 1
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds ptr, ptr %1, i64 %23
+  %24 = getelementptr inbounds [8 x i8], ptr %1, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !11
   %26 = tail call double @strtod(ptr noundef nonnull captures(none) %25, ptr noundef null) #11
   br label %53
@@ -94,7 +94,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef readonly 
 29:                                               ; preds = %27
   %30 = add nsw i32 %.050.i, 1
   %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds ptr, ptr %1, i64 %31
+  %32 = getelementptr inbounds [8 x i8], ptr %1, i64 %31
   %33 = load ptr, ptr %32, align 8, !tbaa !11
   %34 = tail call double @strtod(ptr noundef nonnull captures(none) %33, ptr noundef null) #11
   br label %53
@@ -107,7 +107,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef readonly 
 37:                                               ; preds = %35
   %38 = add nsw i32 %.050.i, 1
   %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds ptr, ptr %1, i64 %39
+  %40 = getelementptr inbounds [8 x i8], ptr %1, i64 %39
   %41 = load ptr, ptr %40, align 8, !tbaa !11
   %42 = tail call i64 @strtol(ptr noundef nonnull captures(none) %41, ptr noundef null, i32 noundef 10) #11
   %43 = trunc i64 %42 to i32

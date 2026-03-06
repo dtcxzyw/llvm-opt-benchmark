@@ -16,10 +16,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple.16" = type { %"struct.std::_Tuple_impl.17" }
 %"struct.std::_Tuple_impl.17" = type { %"struct.std::_Head_base.20" }
 %"struct.std::_Head_base.20" = type { ptr }
-%"class.gmx::BasicVector" = type { [3 x float] }
-%"struct.gmx::nbnxn_cj_packed_t" = type { [4 x i32], [2 x %"struct.gmx::nbnxn_im_ei_t"] }
-%"struct.gmx::nbnxn_im_ei_t" = type { i32, i32 }
-%"struct.gmx::nbnxn_excl_t" = type { [32 x i32] }
 
 $_ZNSt10filesystem7__cxx114pathC2IA148_cS1_EERKT_NS1_6formatE = comdat any
 
@@ -161,7 +157,7 @@ define void @_ZN3gmx20nbnxn_kernel_gpu_refEPKNS_16NbnxnPairlistGpuEPKNS_16nbnxn_
   %81 = load i32, ptr %80, align 4, !tbaa !104
   %82 = mul nsw i32 %81, 3
   %83 = sext i32 %81 to i64
-  %84 = getelementptr inbounds %"class.gmx::BasicVector", ptr %3, i64 %83
+  %84 = getelementptr inbounds [12 x i8], ptr %3, i64 %83
   %85 = load float, ptr %84, align 4, !tbaa !41
   %86 = getelementptr inbounds nuw i8, ptr %84, i64 4
   %87 = load float, ptr %86, align 4, !tbaa !41
@@ -178,7 +174,7 @@ define void @_ZN3gmx20nbnxn_kernel_gpu_refEPKNS_16NbnxnPairlistGpuEPKNS_16nbnxn_
 96:                                               ; preds = %79
   %97 = sext i32 %91 to i64
   %98 = load ptr, ptr %57, align 8, !tbaa !109
-  %99 = getelementptr inbounds nuw %"struct.gmx::nbnxn_cj_packed_t", ptr %98, i64 %97
+  %99 = getelementptr inbounds nuw [32 x i8], ptr %98, i64 %97
   %100 = load i32, ptr %99, align 4, !tbaa !110
   %101 = shl nsw i32 %94, 3
   %102 = icmp eq i32 %100, %101
@@ -211,7 +207,7 @@ define void @_ZN3gmx20nbnxn_kernel_gpu_refEPKNS_16NbnxnPairlistGpuEPKNS_16nbnxn_
   %.2321405 = phi float [ %.1320407, %.preheader399 ], [ %117, %111 ]
   %112 = add nuw nsw i64 %indvars.iv, %108
   %113 = mul nsw i64 %112, %105
-  %114 = getelementptr float, ptr %52, i64 %113
+  %114 = getelementptr [4 x i8], ptr %52, i64 %113
   %115 = getelementptr i8, ptr %114, i64 12
   %116 = load float, ptr %115, align 4, !tbaa !41
   %117 = tail call float @llvm.fmuladd.f32(float %116, float %116, float %.2321405)
@@ -248,7 +244,7 @@ define void @_ZN3gmx20nbnxn_kernel_gpu_refEPKNS_16NbnxnPairlistGpuEPKNS_16nbnxn_
   %136 = load ptr, ptr %64, align 8, !tbaa !144
   %137 = shl nsw i32 %94, 3
   %138 = sext i32 %82 to i64
-  %139 = getelementptr inbounds float, ptr %8, i64 %138
+  %139 = getelementptr inbounds [4 x i8], ptr %8, i64 %138
   %140 = getelementptr i8, ptr %139, i64 4
   %141 = getelementptr i8, ptr %139, i64 8
   %142 = sext i32 %137 to i64
@@ -264,16 +260,16 @@ define void @_ZN3gmx20nbnxn_kernel_gpu_refEPKNS_16NbnxnPairlistGpuEPKNS_16nbnxn_
   %.1312444 = phi i32 [ %.0311455, %.preheader398.lr.ph ], [ %.7318, %154 ]
   %.3322443 = phi float [ %.0319, %.preheader398.lr.ph ], [ %.12, %154 ]
   %.0331442 = phi float [ 0.000000e+00, %.preheader398.lr.ph ], [ %.9340, %154 ]
-  %144 = getelementptr inbounds nuw %"struct.gmx::nbnxn_cj_packed_t", ptr %135, i64 %indvars.iv488
+  %144 = getelementptr inbounds nuw [32 x i8], ptr %135, i64 %indvars.iv488
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 20
   %146 = load i32, ptr %145, align 4, !tbaa !145
   %147 = sext i32 %146 to i64
-  %148 = getelementptr inbounds nuw %"struct.gmx::nbnxn_excl_t", ptr %136, i64 %147
+  %148 = getelementptr inbounds nuw [128 x i8], ptr %136, i64 %147
   store ptr %148, ptr %12, align 16, !tbaa !147
   %149 = getelementptr inbounds nuw i8, ptr %144, i64 28
   %150 = load i32, ptr %149, align 4, !tbaa !145
   %151 = sext i32 %150 to i64
-  %152 = getelementptr inbounds nuw %"struct.gmx::nbnxn_excl_t", ptr %136, i64 %151
+  %152 = getelementptr inbounds nuw [128 x i8], ptr %136, i64 %151
   store ptr %152, ptr %77, align 8, !tbaa !147
   %153 = getelementptr inbounds nuw i8, ptr %144, i64 16
   br label %155
@@ -300,7 +296,7 @@ define void @_ZN3gmx20nbnxn_kernel_gpu_refEPKNS_16NbnxnPairlistGpuEPKNS_16nbnxn_
   %.2313437 = phi i32 [ %.1312444, %.preheader398 ], [ %.7318, %161 ]
   %.4323436 = phi float [ %.3322443, %.preheader398 ], [ %.12, %161 ]
   %.1332435 = phi float [ %.0331442, %.preheader398 ], [ %.9340, %161 ]
-  %156 = getelementptr inbounds nuw i32, ptr %144, i64 %indvars.iv484
+  %156 = getelementptr inbounds nuw [4 x i8], ptr %144, i64 %indvars.iv484
   %157 = load i32, ptr %156, align 4, !tbaa !110
   %158 = shl nuw nsw i64 %indvars.iv484, 3
   %159 = shl nsw i32 %157, 3
@@ -350,7 +346,7 @@ define void @_ZN3gmx20nbnxn_kernel_gpu_refEPKNS_16NbnxnPairlistGpuEPKNS_16nbnxn_
   %175 = sext i32 %174 to i64
   %176 = mul nsw i64 %173, %175
   %177 = load i32, ptr %65, align 4, !tbaa !151
-  %178 = getelementptr inbounds float, ptr %52, i64 %176
+  %178 = getelementptr inbounds [4 x i8], ptr %52, i64 %176
   %179 = load float, ptr %178, align 4, !tbaa !41
   %180 = fadd float %85, %179
   %181 = getelementptr i8, ptr %178, i64 4
@@ -362,7 +358,7 @@ define void @_ZN3gmx20nbnxn_kernel_gpu_refEPKNS_16NbnxnPairlistGpuEPKNS_16nbnxn_
   %187 = getelementptr i8, ptr %178, i64 12
   %188 = load float, ptr %187, align 4, !tbaa !41
   %189 = fmul float %47, %188
-  %190 = getelementptr inbounds i32, ptr %45, i64 %173
+  %190 = getelementptr inbounds [4 x i8], ptr %45, i64 %173
   %191 = load i32, ptr %190, align 4, !tbaa !110
   %192 = mul i32 %191, %50
   %193 = load i8, ptr %68, align 1, !range !100
@@ -373,7 +369,7 @@ define void @_ZN3gmx20nbnxn_kernel_gpu_refEPKNS_16NbnxnPairlistGpuEPKNS_16nbnxn_
 195:                                              ; preds = %355
   %196 = sext i32 %177 to i64
   %197 = mul nsw i64 %173, %196
-  %198 = getelementptr float, ptr %74, i64 %197
+  %198 = getelementptr [4 x i8], ptr %74, i64 %197
   %199 = load float, ptr %198, align 4, !tbaa !41
   %200 = fadd float %.1360, %199
   store float %200, ptr %198, align 4, !tbaa !41
@@ -420,12 +416,12 @@ define void @_ZN3gmx20nbnxn_kernel_gpu_refEPKNS_16NbnxnPairlistGpuEPKNS_16nbnxn_
 219:                                              ; preds = %215
   %220 = lshr i64 %indvars.iv474, 2
   %221 = and i64 %220, 1073741823
-  %222 = getelementptr inbounds nuw ptr, ptr %12, i64 %221
+  %222 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %221
   %223 = load ptr, ptr %222, align 8, !tbaa !147
   %224 = shl i64 %indvars.iv474, 3
   %225 = and i64 %224, 24
   %226 = or i64 %225, %indvars.iv477.masked
-  %227 = getelementptr inbounds nuw i32, ptr %223, i64 %226
+  %227 = getelementptr inbounds nuw [4 x i8], ptr %223, i64 %226
   %228 = load i32, ptr %227, align 4, !tbaa !110
   %229 = lshr i32 %228, %165
   %230 = and i32 %229, 1
@@ -436,7 +432,7 @@ define void @_ZN3gmx20nbnxn_kernel_gpu_refEPKNS_16NbnxnPairlistGpuEPKNS_16nbnxn_
   %235 = load i32, ptr %65, align 4, !tbaa !151
   %236 = sext i32 %235 to i64
   %237 = mul nsw i64 %216, %236
-  %238 = getelementptr inbounds float, ptr %52, i64 %234
+  %238 = getelementptr inbounds [4 x i8], ptr %52, i64 %234
   %239 = load float, ptr %238, align 4, !tbaa !41
   %240 = getelementptr i8, ptr %238, i64 4
   %241 = load float, ptr %240, align 4, !tbaa !41
@@ -459,7 +455,7 @@ define void @_ZN3gmx20nbnxn_kernel_gpu_refEPKNS_16NbnxnPairlistGpuEPKNS_16nbnxn_
   br i1 %.not374, label %258, label %254
 
 254:                                              ; preds = %252
-  %255 = getelementptr inbounds i32, ptr %45, i64 %216
+  %255 = getelementptr inbounds [4 x i8], ptr %45, i64 %216
   %256 = load i32, ptr %255, align 4, !tbaa !110
   %.not375 = icmp ne i32 %256, %66
   %257 = zext i1 %.not375 to i32
@@ -506,7 +502,7 @@ define void @_ZN3gmx20nbnxn_kernel_gpu_refEPKNS_16NbnxnPairlistGpuEPKNS_16nbnxn_
   %286 = load ptr, ptr %285, align 8, !tbaa !156
   %287 = fsub float 1.000000e+00, %284
   %288 = sext i32 %282 to i64
-  %289 = getelementptr inbounds float, ptr %286, i64 %288
+  %289 = getelementptr inbounds [4 x i8], ptr %286, i64 %288
   %290 = load float, ptr %289, align 4, !tbaa !41
   %291 = getelementptr i8, ptr %289, i64 4
   %292 = load float, ptr %291, align 4, !tbaa !41
@@ -537,12 +533,12 @@ define void @_ZN3gmx20nbnxn_kernel_gpu_refEPKNS_16NbnxnPairlistGpuEPKNS_16nbnxn_
   br i1 %310, label %311, label %339
 
 311:                                              ; preds = %309
-  %312 = getelementptr inbounds i32, ptr %45, i64 %216
+  %312 = getelementptr inbounds [4 x i8], ptr %45, i64 %216
   %313 = load i32, ptr %312, align 4, !tbaa !110
   %reass.add = add i32 %313, %192
   %reass.mul = shl i32 %reass.add, 1
   %314 = sext i32 %reass.mul to i64
-  %315 = getelementptr inbounds float, ptr %49, i64 %314
+  %315 = getelementptr inbounds [4 x i8], ptr %49, i64 %314
   %316 = load float, ptr %315, align 4, !tbaa !41
   %317 = getelementptr i8, ptr %315, i64 4
   %318 = load float, ptr %317, align 4, !tbaa !41
@@ -580,7 +576,7 @@ define void @_ZN3gmx20nbnxn_kernel_gpu_refEPKNS_16NbnxnPairlistGpuEPKNS_16nbnxn_
   %343 = fadd float %.0359412, %340
   %344 = fadd float %.0362411, %341
   %345 = fadd float %.0365410, %342
-  %346 = getelementptr float, ptr %74, i64 %237
+  %346 = getelementptr [4 x i8], ptr %74, i64 %237
   %347 = load float, ptr %346, align 4, !tbaa !41
   %348 = fsub float %347, %340
   store float %348, ptr %346, align 4, !tbaa !41

@@ -282,7 +282,7 @@ define internal range(i32 -2147483648, 1) i32 @genh_read_header(ptr noundef %0) 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
   %141 = load ptr, ptr %5, align 8, !tbaa !27
-  %142 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %142 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %143 = load i32, ptr %142, align 4, !tbaa !39
   %144 = zext i32 %143 to i64
   %145 = tail call i64 @avio_seek(ptr noundef %141, i64 noundef %144, i32 noundef 0) #4

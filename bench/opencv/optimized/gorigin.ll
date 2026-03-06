@@ -100,7 +100,7 @@ _ZN2cv5GNodeC2ERKS0_.exit:                        ; preds = %6, %15, %18
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %23 = load i64, ptr %4, align 8, !tbaa !26
   store i64 %23, ptr %22, align 8, !tbaa !26
-  %24 = getelementptr inbounds nuw ptr, ptr @constinit, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr @constinit, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !27
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -116,7 +116,7 @@ _ZN2cv4util7variantIJNS0_9monostateESt8functionIFvRNS_6detail9VectorRefEEES3_IFv
   %30 = landingpad { ptr, i32 }
           cleanup
   %31 = load i64, ptr %20, align 8, !tbaa !24
-  %32 = getelementptr inbounds nuw ptr, ptr @constinit.3, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr @constinit.3, i64 %31
   %33 = load ptr, ptr %32, align 8, !tbaa !27
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 32
   invoke void %33(ptr noundef nonnull %34)
@@ -199,7 +199,7 @@ define hidden void @_ZN2cv7GOriginC2ENS_6GShapeENS_4util7variantIJNS2_9monostate
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %2, align 8, !tbaa !24
   store i64 %6, ptr %5, align 8, !tbaa !24
-  %7 = getelementptr inbounds nuw ptr, ptr @constinit.5, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr @constinit.5, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !27
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -547,9 +547,9 @@ define linkonce_odr hidden void @_ZN2cv4util7variantIJNS0_9monostateENS_7Scalar_
 
 3:                                                ; preds = %3, %2
   %indvars.iv.i.i.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i.i.i, %3 ]
-  %4 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv.i.i.i
+  %4 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.i.i.i
   %5 = load double, ptr %4, align 8, !tbaa !50
-  %6 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv.i.i.i
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.i.i.i
   store double %5, ptr %6, align 8, !tbaa !50
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 4

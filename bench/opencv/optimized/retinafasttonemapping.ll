@@ -20,8 +20,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.cv::Mat_" = type { %"class.cv::Mat" }
 %"class.cv::Mat_.37" = type { %"class.cv::Mat" }
 %"class.cv::_OutputArray" = type { %"class.cv::_InputArray" }
-%"class.cv::Vec" = type { %"class.cv::Matx" }
-%"class.cv::Matx" = type { [3 x i8] }
 
 $_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv = comdat any
 
@@ -1575,7 +1573,7 @@ _ZNK2cv11_InputArray6getMatEi.exit102:            ; preds = %90, %93
   %104 = zext i32 %97 to i64
   %105 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %106 = load ptr, ptr %105, align 8, !tbaa !35
-  %107 = getelementptr inbounds nuw float, ptr %106, i64 %104
+  %107 = getelementptr inbounds nuw [4 x i8], ptr %106, i64 %104
   invoke void @_ZN2cv3MatC1ENS_5Size_IiEEiPvm(ptr noundef nonnull align 8 dereferenceable(96) %15, i64 %.sroa.0.0.insert.insert.i, i32 noundef 5, ptr noundef nonnull %107, i64 noundef 0)
           to label %109 unwind label %.thread
 
@@ -1596,7 +1594,7 @@ _ZNK2cv11_InputArray6getMatEi.exit102:            ; preds = %90, %93
   %.sroa.0.0.insert.insert.i106 = or disjoint i64 %.sroa.2.0.insert.shift.i104, %.sroa.0.0.insert.ext.i105
   %115 = zext i32 %79 to i64
   %116 = load ptr, ptr %105, align 8, !tbaa !35
-  %117 = getelementptr inbounds nuw float, ptr %116, i64 %115
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %116, i64 %115
   invoke void @_ZN2cv3MatC1ENS_5Size_IiEEiPvm(ptr noundef nonnull align 8 dereferenceable(96) %110, i64 %.sroa.0.0.insert.insert.i106, i32 noundef 5, ptr noundef nonnull %117, i64 noundef 0)
           to label %118 unwind label %156
 
@@ -1775,7 +1773,7 @@ _ZN2cv4Mat_INS_3VecIfLi4EEEEC2ERKNS_3MatE.exit:   ; preds = %133
   %180 = zext i32 %97 to i64
   %181 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %182 = load ptr, ptr %181, align 8, !tbaa !35
-  %183 = getelementptr inbounds nuw float, ptr %182, i64 %180
+  %183 = getelementptr inbounds nuw [4 x i8], ptr %182, i64 %180
   invoke void @_ZN2cv3MatC1ENS_5Size_IiEEiPvm(ptr noundef nonnull align 8 dereferenceable(96) %18, i64 %.sroa.0.0.insert.insert.i118, i32 noundef 5, ptr noundef nonnull %183, i64 noundef 0)
           to label %185 unwind label %.thread149
 
@@ -1796,7 +1794,7 @@ _ZN2cv4Mat_INS_3VecIfLi4EEEEC2ERKNS_3MatE.exit:   ; preds = %133
   %.sroa.0.0.insert.insert.i122 = or disjoint i64 %.sroa.2.0.insert.shift.i120, %.sroa.0.0.insert.ext.i121
   %191 = zext i32 %79 to i64
   %192 = load ptr, ptr %181, align 8, !tbaa !35
-  %193 = getelementptr inbounds nuw float, ptr %192, i64 %191
+  %193 = getelementptr inbounds nuw [4 x i8], ptr %192, i64 %191
   invoke void @_ZN2cv3MatC1ENS_5Size_IiEEiPvm(ptr noundef nonnull align 8 dereferenceable(96) %186, i64 %.sroa.0.0.insert.insert.i122, i32 noundef 5, ptr noundef nonnull %193, i64 noundef 0)
           to label %194 unwind label %215
 
@@ -2192,10 +2190,10 @@ _ZNK2cv11_InputArray6getMatEi.exit46:             ; preds = %44, %47
   %.sroa.052.0.vec.insert.us = insertelement <2 x double> poison, double %57, i64 0
   %58 = load float, ptr %.366.us, align 4, !tbaa !36
   %59 = fptoui float %58 to i8
-  %60 = getelementptr inbounds nuw float, ptr %.366.us, i64 %48
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %.366.us, i64 %48
   %61 = load float, ptr %60, align 4, !tbaa !36
   %62 = fptoui float %61 to i8
-  %63 = getelementptr inbounds nuw float, ptr %.366.us, i64 %49
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %.366.us, i64 %49
   %64 = load float, ptr %63, align 4, !tbaa !36
   %65 = fptoui float %64 to i8
   %66 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %.sroa.052.0.vec.insert.us)
@@ -2205,7 +2203,7 @@ _ZNK2cv11_InputArray6getMatEi.exit46:             ; preds = %44, %47
   %70 = mul i64 %69, %55
   %71 = getelementptr inbounds nuw i8, ptr %67, i64 %70
   %72 = sext i32 %66 to i64
-  %73 = getelementptr inbounds %"class.cv::Vec", ptr %71, i64 %72
+  %73 = getelementptr inbounds [3 x i8], ptr %71, i64 %72
   store i8 %65, ptr %73, align 1
   %.sroa.6.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %73, i64 1
   store i8 %62, ptr %.sroa.6.0..sroa_idx.us, align 1

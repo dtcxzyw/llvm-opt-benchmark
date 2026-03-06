@@ -1923,7 +1923,7 @@ define void @_ZNK6icu_776number4impl24NumberRangeFormatterImpl11formatRangeERNS1
   %105 = load i32, ptr %104, align 8, !tbaa !190
   %106 = add nsw i32 %105, %98
   %107 = sext i32 %106 to i64
-  %108 = getelementptr inbounds i16, ptr %103, i64 %107
+  %108 = getelementptr inbounds [2 x i8], ptr %103, i64 %107
   %109 = load i16, ptr %108, align 2, !tbaa !137
   %110 = zext i16 %109 to i32
   %111 = call noundef signext i8 @_ZN6icu_7712PatternProps12isWhiteSpaceEi(i32 noundef %110)
@@ -1948,7 +1948,7 @@ define void @_ZNK6icu_776number4impl24NumberRangeFormatterImpl11formatRangeERNS1
   %124 = add i32 %123, %117
   %125 = add nsw i32 %124, %122
   %126 = sext i32 %125 to i64
-  %127 = getelementptr inbounds i16, ptr %121, i64 %126
+  %127 = getelementptr inbounds [2 x i8], ptr %121, i64 %126
   %128 = load i16, ptr %127, align 2, !tbaa !137
   %129 = zext i16 %128 to i32
   %130 = call noundef signext i8 @_ZN6icu_7712PatternProps12isWhiteSpaceEi(i32 noundef %129)

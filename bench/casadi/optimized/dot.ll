@@ -16,10 +16,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.casadi::SharedObject" = type { %"class.casadi::GenericShared" }
 %"class.casadi::GenericShared" = type { ptr }
 %"class.casadi::MX" = type { %"class.casadi::SharedObject" }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<casadi::MX, std::allocator<casadi::MX>>::_Vector_impl" }
-%"struct.std::_Vector_base<casadi::MX, std::allocator<casadi::MX>>::_Vector_impl" = type { %"struct.std::_Vector_base<casadi::MX, std::allocator<casadi::MX>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<casadi::MX, std::allocator<casadi::MX>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.casadi::SXElem" = type { ptr }
 %"class.std::__cxx11::basic_stringstream" = type { %"class.std::basic_iostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_iostream.base" = type { %"class.std::basic_istream.base", %"class.std::basic_ostream.base" }
@@ -51,6 +47,10 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.85" = type { %"struct.std::_Vector_base<long long, std::allocator<long long>>::_Vector_impl" }
 %"struct.std::_Vector_base<long long, std::allocator<long long>>::_Vector_impl" = type { %"struct.std::_Vector_base<long long, std::allocator<long long>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<long long, std::allocator<long long>>::_Vector_impl_data" = type { ptr, ptr, ptr }
+%"class.std::vector" = type { %"struct.std::_Vector_base" }
+%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<casadi::MX, std::allocator<casadi::MX>>::_Vector_impl" }
+%"struct.std::_Vector_base<casadi::MX, std::allocator<casadi::MX>>::_Vector_impl" = type { %"struct.std::_Vector_base<casadi::MX, std::allocator<casadi::MX>>::_Vector_impl_data" }
+%"struct.std::_Vector_base<casadi::MX, std::allocator<casadi::MX>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 
 $_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_ = comdat any
 
@@ -1937,7 +1937,7 @@ define void @_ZNK6casadi3Dot10ad_forwardERKSt6vectorIS1_INS_2MXESaIS2_EESaIS4_EE
 _ZNK6casadi6MXNode3depEx.exit:                    ; preds = %12
   %16 = call noundef ptr @_ZNK6casadi2MXptEv(ptr noundef nonnull align 8 dereferenceable(8) %14)
   %17 = load ptr, ptr %1, align 8, !tbaa !46
-  %18 = getelementptr inbounds nuw %"class.std::vector", ptr %17, i64 %.01322
+  %18 = getelementptr inbounds nuw [24 x i8], ptr %17, i64 %.01322
   %19 = load ptr, ptr %18, align 8, !tbaa !37
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load ptr, ptr %16, align 8, !tbaa !3
@@ -1946,7 +1946,7 @@ _ZNK6casadi6MXNode3depEx.exit:                    ; preds = %12
   call void %23(ptr dead_on_unwind nonnull writable sret(%"class.casadi::MX") align 8 %5, ptr noundef nonnull align 8 dereferenceable(64) %16, ptr noundef nonnull align 8 dereferenceable(8) %20)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %24 = load ptr, ptr %1, align 8, !tbaa !46
-  %25 = getelementptr inbounds nuw %"class.std::vector", ptr %24, i64 %.01322
+  %25 = getelementptr inbounds nuw [24 x i8], ptr %24, i64 %.01322
   %26 = load ptr, ptr %25, align 8, !tbaa !37
   %27 = invoke noundef ptr @_ZNK6casadi2MXptEv(ptr noundef nonnull align 8 dereferenceable(8) %26)
           to label %28 unwind label %.loopexit
@@ -1982,7 +1982,7 @@ _ZNK6casadi6MXNode3depEx.exit:                    ; preds = %12
 
 _ZN6casadiplERKNS_2MXES2_.exit:                   ; preds = %41
   %42 = load ptr, ptr %2, align 8, !tbaa !46
-  %43 = getelementptr inbounds nuw %"class.std::vector", ptr %42, i64 %.01322
+  %43 = getelementptr inbounds nuw [24 x i8], ptr %42, i64 %.01322
   %44 = load ptr, ptr %43, align 8, !tbaa !37
   %45 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %44, ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %_ZN6casadi2MXaSERKS0_.exit unwind label %56
@@ -2077,12 +2077,12 @@ define void @_ZNK6casadi3Dot10ad_reverseERKSt6vectorIS1_INS_2MXESaIS2_EESaIS4_EE
   unreachable
 
 _ZNK6casadi6MXNode3depEx.exit:                    ; preds = %13
-  %22 = getelementptr inbounds nuw %"class.std::vector", ptr %14, i64 %.01427
+  %22 = getelementptr inbounds nuw [24 x i8], ptr %14, i64 %.01427
   %23 = load ptr, ptr %22, align 8, !tbaa !37
   %24 = getelementptr inbounds nuw i8, ptr %16, i64 8
   call void @_ZN6casadi2MX6binaryExRKS0_S2_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::MX") align 8 %6, i64 noundef 3, ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull align 8 dereferenceable(8) %24)
   %25 = load ptr, ptr %2, align 8, !tbaa !46
-  %26 = getelementptr inbounds nuw %"class.std::vector", ptr %25, i64 %.01427
+  %26 = getelementptr inbounds nuw [24 x i8], ptr %25, i64 %.01427
   %27 = load ptr, ptr %26, align 8, !tbaa !37
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @_ZN6casadi2MX6binaryExRKS0_S2_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::MX") align 8 %5, i64 noundef 1, ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 8 dereferenceable(8) %6)
@@ -2116,11 +2116,11 @@ _ZNK6casadi6MXNode3depEx.exit:                    ; preds = %13
 
 _ZNK6casadi6MXNode3depEx.exit17:                  ; preds = %31
   %35 = load ptr, ptr %1, align 8, !tbaa !46
-  %36 = getelementptr inbounds nuw %"class.std::vector", ptr %35, i64 %.01427
+  %36 = getelementptr inbounds nuw [24 x i8], ptr %35, i64 %.01427
   %37 = load ptr, ptr %36, align 8, !tbaa !37
   call void @_ZN6casadi2MX6binaryExRKS0_S2_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::MX") align 8 %7, i64 noundef 3, ptr noundef nonnull align 8 dereferenceable(8) %37, ptr noundef nonnull align 8 dereferenceable(8) %33)
   %38 = load ptr, ptr %2, align 8, !tbaa !46
-  %39 = getelementptr inbounds nuw %"class.std::vector", ptr %38, i64 %.01427
+  %39 = getelementptr inbounds nuw [24 x i8], ptr %38, i64 %.01427
   %40 = load ptr, ptr %39, align 8, !tbaa !37
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)

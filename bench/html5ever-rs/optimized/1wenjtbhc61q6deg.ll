@@ -635,9 +635,9 @@ switch.lookup:
   %6 = load i64, ptr %0, align 8, !range !30, !noundef !4
   %7 = and i64 %6, 3
   %8 = and i64 %6, 3
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN75_$LT$string_cache..atom..Atom$LT$Static$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h8077b7d0dabf79acE", i64 %8
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN75_$LT$string_cache..atom..Atom$LT$Static$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h8077b7d0dabf79acE", i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %switch.gep3 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN75_$LT$string_cache..atom..Atom$LT$Static$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h8077b7d0dabf79acE.19", i64 %7
+  %switch.gep3 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN75_$LT$string_cache..atom..Atom$LT$Static$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h8077b7d0dabf79acE.19", i64 %7
   %switch.load4 = load i64, ptr %switch.gep3, align 8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %switch.load, ptr %5, align 8
@@ -960,7 +960,7 @@ define internal fastcc void @_ZN17markup5ever_rcdom6append17hd86a3d77d6a1619bE(p
   %40 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %28, %25 ]
   %41 = getelementptr inbounds nuw i8, ptr %.0.val, i64 120
   %42 = load ptr, ptr %41, align 8, !alias.scope !123, !nonnull !4, !noundef !4
-  %43 = getelementptr inbounds ptr, ptr %42, i64 %40
+  %43 = getelementptr inbounds [8 x i8], ptr %42, i64 %40
   store ptr %0, ptr %43, align 8
   %44 = load i64, ptr %27, align 8, !alias.scope !123, !noundef !4
   %45 = add i64 %44, 1
@@ -1074,7 +1074,7 @@ define internal fastcc { ptr, i64 } @_ZN17markup5ever_rcdom20get_parent_and_inde
   %29 = load ptr, ptr %28, align 8, !nonnull !4, !noundef !4
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %31 = load i64, ptr %30, align 8, !noundef !4
-  %32 = getelementptr inbounds ptr, ptr %29, i64 %31
+  %32 = getelementptr inbounds [8 x i8], ptr %29, i64 %31
   br label %33
 
 33:                                               ; preds = %37, %26
@@ -1563,7 +1563,7 @@ define internal fastcc void @_ZN17markup5ever_rcdom18remove_from_parent17hd48dc4
 20:                                               ; preds = %11
   %21 = getelementptr inbounds nuw i8, ptr %.fca.0.extract, i64 120
   %22 = load ptr, ptr %21, align 8, !alias.scope !225, !noalias !228, !nonnull !4, !noundef !4
-  %23 = getelementptr inbounds ptr, ptr %22, i64 %.fca.1.extract
+  %23 = getelementptr inbounds [8 x i8], ptr %22, i64 %.fca.1.extract
   %24 = load ptr, ptr %23, align 8, !noalias !237, !nonnull !4, !noundef !4
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %26 = xor i64 %.fca.1.extract, -1
@@ -1694,7 +1694,7 @@ define void @"_ZN91_$LT$markup5ever_rcdom..RcDom$u20$as$u20$markup5ever..interfa
   %13 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %4, %2 ]
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8, !alias.scope !255, !noalias !258, !nonnull !4, !noundef !4
-  %16 = getelementptr inbounds { i64, [2 x i64] }, ptr %15, i64 %13
+  %16 = getelementptr inbounds [24 x i8], ptr %15, i64 %13
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   %17 = load i64, ptr %3, align 8, !alias.scope !255, !noalias !258, !noundef !4
   %18 = add i64 %17, 1
@@ -2147,7 +2147,7 @@ define void @"_ZN91_$LT$markup5ever_rcdom..RcDom$u20$as$u20$markup5ever..interfa
 19:                                               ; preds = %14
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 120
   %21 = load ptr, ptr %20, align 8, !nonnull !4, !noundef !4
-  %22 = getelementptr ptr, ptr %21, i64 %17
+  %22 = getelementptr [8 x i8], ptr %21, i64 %17
   %23 = getelementptr i8, ptr %22, i64 -8
   %.not16 = icmp eq ptr %23, null
   br i1 %.not16, label %59, label %24
@@ -2460,7 +2460,7 @@ define void @"_ZN91_$LT$markup5ever_rcdom..RcDom$u20$as$u20$markup5ever..interfa
 56:                                               ; preds = %46
   %57 = getelementptr i8, ptr %.fca.0.extract, i64 120
   %.fca.0.extract16.val = load ptr, ptr %57, align 8, !nonnull !4, !noundef !4
-  %58 = getelementptr inbounds ptr, ptr %.fca.0.extract16.val, i64 %48
+  %58 = getelementptr inbounds [8 x i8], ptr %.fca.0.extract16.val, i64 %48
   %59 = icmp eq ptr %.sroa.2.0.copyload, inttoptr (i64 15 to ptr)
   br i1 %59, label %68, label %60
 
@@ -2601,7 +2601,7 @@ define void @"_ZN91_$LT$markup5ever_rcdom..RcDom$u20$as$u20$markup5ever..interfa
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h286b4de4b2f08090E.llvm.2171480472617847398.exit.i": ; preds = %107, %101
   %108 = getelementptr inbounds nuw i8, ptr %.fca.0.extract, i64 120
   %109 = load ptr, ptr %108, align 8, !alias.scope !366, !nonnull !4, !noundef !4
-  %110 = getelementptr inbounds ptr, ptr %109, i64 %.fca.1.extract
+  %110 = getelementptr inbounds [8 x i8], ptr %109, i64 %.fca.1.extract
   %111 = icmp ult i64 %.fca.1.extract, %104
   br i1 %111, label %116, label %114
 
@@ -2873,7 +2873,7 @@ define void @"_ZN91_$LT$markup5ever_rcdom..RcDom$u20$as$u20$markup5ever..interfa
   %29 = load ptr, ptr %28, align 8, !nonnull !4, !noundef !4
   %30 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %31 = load i64, ptr %30, align 8, !noundef !4
-  %32 = getelementptr inbounds { { i64, i64, i64 }, { i64, { { [2 x i32] } }, {}, {} } }, ptr %29, i64 %31
+  %32 = getelementptr inbounds [40 x i8], ptr %29, i64 %31
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !406
   %33 = load i64, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17haec52a1c7fb9115bE, align 8, !range !8, !noalias !409, !noundef !4
   %trunc.i.i.i.i.i = trunc nuw i64 %33 to i1
@@ -2945,7 +2945,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i.i.i
   %.sroa.424.0.copyload = load ptr, ptr %.sroa.424.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.525.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.525.0.copyload = load i64, ptr %.sroa.525.0..sroa_idx, align 8
-  %51 = getelementptr inbounds { { i64, i64, i64 }, { i64, { { [2 x i32] } }, {}, {} } }, ptr %.sroa.424.0.copyload, i64 %.sroa.525.0.copyload
+  %51 = getelementptr inbounds [40 x i8], ptr %.sroa.424.0.copyload, i64 %.sroa.525.0.copyload
   store ptr %.sroa.424.0.copyload, ptr %6, align 8
   %.sroa.422.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %.sroa.023.0.copyload, ptr %.sroa.422.0..sroa_idx, align 8
@@ -3108,7 +3108,7 @@ define void @"_ZN91_$LT$markup5ever_rcdom..RcDom$u20$as$u20$markup5ever..interfa
   store ptr inttoptr (i64 8 to ptr), ptr %22, align 8
   store i64 0, ptr %24, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %40 = getelementptr inbounds ptr, ptr %.sroa.441.0.copyload, i64 %.sroa.542.0.copyload
+  %40 = getelementptr inbounds [8 x i8], ptr %.sroa.441.0.copyload, i64 %.sroa.542.0.copyload
   store ptr %.sroa.441.0.copyload, ptr %4, align 8, !alias.scope !453, !noalias !456
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %.sroa.040.0.copyload, ptr %41, align 8, !alias.scope !453, !noalias !456

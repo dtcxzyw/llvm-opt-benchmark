@@ -129,7 +129,7 @@ define internal noundef i32 @config_input(ptr noundef readonly captures(none) %0
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 28
   %31 = load i8, ptr %2, align 1, !tbaa !44
   %32 = zext i8 %31 to i64
-  %33 = getelementptr inbounds nuw i32, ptr %30, i64 %32
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %32
   store i32 %29, ptr %33, align 4, !tbaa !45
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 25
   %35 = load i8, ptr %34, align 1, !tbaa !44
@@ -138,7 +138,7 @@ define internal noundef i32 @config_input(ptr noundef readonly captures(none) %0
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %39 = load i8, ptr %38, align 1, !tbaa !44
   %40 = zext i8 %39 to i64
-  %41 = getelementptr inbounds nuw i32, ptr %30, i64 %40
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %40
   store i32 %37, ptr %41, align 4, !tbaa !45
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 26
   %43 = load i8, ptr %42, align 2, !tbaa !44
@@ -147,7 +147,7 @@ define internal noundef i32 @config_input(ptr noundef readonly captures(none) %0
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %47 = load i8, ptr %46, align 1, !tbaa !44
   %48 = zext i8 %47 to i64
-  %49 = getelementptr inbounds nuw i32, ptr %30, i64 %48
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %48
   store i32 %45, ptr %49, align 4, !tbaa !45
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 27
   %51 = load i8, ptr %50, align 1, !tbaa !44
@@ -156,7 +156,7 @@ define internal noundef i32 @config_input(ptr noundef readonly captures(none) %0
   %54 = getelementptr inbounds nuw i8, ptr %2, i64 3
   %55 = load i8, ptr %54, align 1, !tbaa !44
   %56 = zext i8 %55 to i64
-  %57 = getelementptr inbounds nuw i32, ptr %30, i64 %56
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %56
   store i32 %53, ptr %57, align 4, !tbaa !45
   br label %96
 
@@ -286,13 +286,13 @@ define internal noundef i32 @remap_planar8_nearest_slice(ptr noundef readonly ca
   %46 = phi i32 [ %98, %._crit_edge76.us ], [ %43, %.lr.ph79.split.us ]
   %47 = phi i32 [ %99, %._crit_edge76.us ], [ %43, %.lr.ph79.split.us ]
   %indvars.iv92 = phi i64 [ %indvars.iv.next93, %._crit_edge76.us ], [ 0, %.lr.ph79.split.us ]
-  %48 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv92
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %indvars.iv92
   %49 = load i32, ptr %48, align 4, !tbaa !45
-  %50 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv92
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv92
   %51 = load ptr, ptr %50, align 8, !tbaa !61
-  %52 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv92
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv92
   %53 = load i32, ptr %52, align 4, !tbaa !45
-  %54 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv92
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %indvars.iv92
   %55 = load i32, ptr %54, align 4, !tbaa !45
   %56 = trunc i32 %55 to i8
   %57 = sext i32 %49 to i64
@@ -301,10 +301,10 @@ define internal noundef i32 @remap_planar8_nearest_slice(ptr noundef readonly ca
 
 .preheader.us81.preheader:                        ; preds = %.preheader.lr.ph.us
   %59 = load ptr, ptr %9, align 8, !tbaa !61
-  %60 = getelementptr inbounds i16, ptr %59, i64 %35
+  %60 = getelementptr inbounds [2 x i8], ptr %59, i64 %35
   %61 = load ptr, ptr %7, align 8, !tbaa !61
-  %62 = getelementptr inbounds i16, ptr %61, i64 %33
-  %63 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv92
+  %62 = getelementptr inbounds [2 x i8], ptr %61, i64 %33
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv92
   %64 = load ptr, ptr %63, align 8, !tbaa !61
   %65 = mul nsw i32 %49, %15
   %66 = sext i32 %65 to i64
@@ -314,15 +314,15 @@ define internal noundef i32 @remap_planar8_nearest_slice(ptr noundef readonly ca
 ._crit_edge.us:                                   ; preds = %90, %.preheader.us81
   %68 = phi i32 [ %95, %.preheader.us81 ], [ %92, %90 ]
   %69 = getelementptr inbounds i8, ptr %.06772.us85, i64 %57
-  %70 = getelementptr inbounds i16, ptr %.06574.us83, i64 %41
-  %71 = getelementptr inbounds i16, ptr %.06475.us82, i64 %42
+  %70 = getelementptr inbounds [2 x i8], ptr %.06574.us83, i64 %41
+  %71 = getelementptr inbounds [2 x i8], ptr %.06475.us82, i64 %42
   %72 = add nsw i32 %.06673.us84, 1
   %exitcond.not = icmp eq i32 %72, %18
   br i1 %exitcond.not, label %._crit_edge76.us.loopexit, label %.preheader.us81, !llvm.loop !62
 
 .lr.ph.us:                                        ; preds = %.preheader.us81, %90
   %indvars.iv = phi i64 [ %indvars.iv.next, %90 ], [ 0, %.preheader.us81 ]
-  %73 = getelementptr inbounds nuw i16, ptr %.06475.us82, i64 %indvars.iv
+  %73 = getelementptr inbounds nuw [2 x i8], ptr %.06475.us82, i64 %indvars.iv
   %74 = load i16, ptr %73, align 2, !tbaa !65
   %75 = zext i16 %74 to i32
   %76 = load i32, ptr %39, align 4, !tbaa !54
@@ -330,7 +330,7 @@ define internal noundef i32 @remap_planar8_nearest_slice(ptr noundef readonly ca
   br i1 %77, label %78, label %90
 
 78:                                               ; preds = %.lr.ph.us
-  %79 = getelementptr inbounds nuw i16, ptr %.06574.us83, i64 %indvars.iv
+  %79 = getelementptr inbounds nuw [2 x i8], ptr %.06574.us83, i64 %indvars.iv
   %80 = load i16, ptr %79, align 2, !tbaa !65
   %81 = zext i16 %80 to i32
   %82 = load i32, ptr %40, align 8, !tbaa !60
@@ -436,11 +436,11 @@ define internal noundef i32 @remap_packed8_nearest_slice(ptr noundef readonly ca
   %49 = load ptr, ptr %27, align 8, !tbaa !61
   %50 = mul nsw i32 %30, %11
   %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds i16, ptr %49, i64 %51
+  %52 = getelementptr inbounds [2 x i8], ptr %49, i64 %51
   %53 = load ptr, ptr %22, align 8, !tbaa !61
   %54 = mul nsw i32 %25, %11
   %55 = sext i32 %54 to i64
-  %56 = getelementptr inbounds i16, ptr %53, i64 %55
+  %56 = getelementptr inbounds [2 x i8], ptr %53, i64 %55
   %57 = sext i32 %19 to i64
   br label %.preheader73
 
@@ -467,8 +467,8 @@ define internal noundef i32 @remap_packed8_nearest_slice(ptr noundef readonly ca
   br i1 %65, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %66 = getelementptr inbounds nuw i16, ptr %.06978, i64 %indvars.iv85
-  %67 = getelementptr inbounds nuw i16, ptr %.07077, i64 %indvars.iv85
+  %66 = getelementptr inbounds nuw [2 x i8], ptr %.06978, i64 %indvars.iv85
+  %67 = getelementptr inbounds nuw [2 x i8], ptr %.07077, i64 %indvars.iv85
   %68 = mul nsw i64 %indvars.iv85, %57
   %invariant.gep97.sink = getelementptr i8, ptr %.06879, i64 %68
   br label %69
@@ -500,7 +500,7 @@ define internal noundef i32 @remap_packed8_nearest_slice(ptr noundef readonly ca
   br label %92
 
 88:                                               ; preds = %74, %69
-  %89 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %indvars.iv
   %90 = load i32, ptr %89, align 4, !tbaa !45
   %91 = trunc i32 %90 to i8
   br label %92
@@ -531,8 +531,8 @@ define internal noundef i32 @remap_packed8_nearest_slice(ptr noundef readonly ca
   %100 = phi i32 [ %58, %.preheader73 ], [ %58, %.preheader.lr.ph ], [ %96, %._crit_edge ]
   %101 = phi i32 [ %59, %.preheader73 ], [ %59, %.preheader.lr.ph ], [ %96, %._crit_edge ]
   %102 = getelementptr inbounds i8, ptr %.06879, i64 %40
-  %103 = getelementptr inbounds i16, ptr %.07077, i64 %41
-  %104 = getelementptr inbounds i16, ptr %.06978, i64 %42
+  %103 = getelementptr inbounds [2 x i8], ptr %.07077, i64 %41
+  %104 = getelementptr inbounds [2 x i8], ptr %.06978, i64 %42
   %105 = add nsw i32 %.080, 1
   %exitcond.not = icmp eq i32 %105, %14
   br i1 %exitcond.not, label %._crit_edge81, label %.preheader73, !llvm.loop !73
@@ -576,11 +576,11 @@ define internal noundef i32 @remap_planar16_nearest_slice(ptr noundef readonly c
   %32 = load ptr, ptr %24, align 8, !tbaa !61
   %33 = mul nsw i32 %27, %11
   %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds i16, ptr %32, i64 %34
+  %35 = getelementptr inbounds [2 x i8], ptr %32, i64 %34
   %36 = load ptr, ptr %19, align 8, !tbaa !61
   %37 = mul nsw i32 %22, %11
   %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds i16, ptr %36, i64 %38
+  %39 = getelementptr inbounds [2 x i8], ptr %36, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %29, i64 28
   %41 = icmp slt i32 %11, %14
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 108
@@ -603,20 +603,20 @@ define internal noundef i32 @remap_planar16_nearest_slice(ptr noundef readonly c
 
 .preheader.lr.ph.us.us:                           ; preds = %._crit_edge76.split.us.us.us, %.lr.ph.split.us.split.us
   %indvars.iv89 = phi i64 [ %indvars.iv.next90, %._crit_edge76.split.us.us.us ], [ 0, %.lr.ph.split.us.split.us ]
-  %50 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv89
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %indvars.iv89
   %51 = load i32, ptr %50, align 4, !tbaa !45
   %52 = sdiv i32 %51, 2
-  %53 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv89
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv89
   %54 = load ptr, ptr %53, align 8, !tbaa !61
-  %55 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv89
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv89
   %56 = load ptr, ptr %55, align 8, !tbaa !61
   %57 = mul nsw i32 %52, %11
   %58 = sext i32 %57 to i64
-  %59 = getelementptr inbounds i16, ptr %56, i64 %58
-  %60 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv89
+  %59 = getelementptr inbounds [2 x i8], ptr %56, i64 %58
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv89
   %61 = load i32, ptr %60, align 4, !tbaa !45
   %62 = sdiv i32 %61, 2
-  %63 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv89
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %indvars.iv89
   %64 = load i32, ptr %63, align 4, !tbaa !45
   %65 = trunc i32 %64 to i16
   %66 = sext i32 %52 to i64
@@ -631,14 +631,14 @@ define internal noundef i32 @remap_planar16_nearest_slice(ptr noundef readonly c
 
 67:                                               ; preds = %84, %.preheader.us.us.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %84 ], [ 0, %.preheader.us.us.us ]
-  %68 = getelementptr inbounds nuw i16, ptr %.06475.us.us.us, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw [2 x i8], ptr %.06475.us.us.us, i64 %indvars.iv
   %69 = load i16, ptr %68, align 2, !tbaa !65
   %70 = zext i16 %69 to i32
   %71 = icmp sgt i32 %49, %70
   br i1 %71, label %72, label %84
 
 72:                                               ; preds = %67
-  %73 = getelementptr inbounds nuw i16, ptr %.06574.us.us.us, i64 %indvars.iv
+  %73 = getelementptr inbounds nuw [2 x i8], ptr %.06574.us.us.us, i64 %indvars.iv
   %74 = load i16, ptr %73, align 2, !tbaa !65
   %75 = zext i16 %74 to i32
   %76 = load i32, ptr %43, align 8, !tbaa !60
@@ -649,22 +649,22 @@ define internal noundef i32 @remap_planar16_nearest_slice(ptr noundef readonly c
   %79 = mul nsw i32 %62, %70
   %80 = add nsw i32 %79, %75
   %81 = sext i32 %80 to i64
-  %82 = getelementptr inbounds i16, ptr %54, i64 %81
+  %82 = getelementptr inbounds [2 x i8], ptr %54, i64 %81
   %83 = load i16, ptr %82, align 2, !tbaa !65
   br label %84
 
 84:                                               ; preds = %67, %72, %78
   %.sink = phi i16 [ %83, %78 ], [ %65, %72 ], [ %65, %67 ]
-  %85 = getelementptr inbounds nuw i16, ptr %.06772.us.us.us, i64 %indvars.iv
+  %85 = getelementptr inbounds nuw [2 x i8], ptr %.06772.us.us.us, i64 %indvars.iv
   store i16 %.sink, ptr %85, align 2, !tbaa !65
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us.us.us, label %67, !llvm.loop !74
 
 ._crit_edge.us.us.us:                             ; preds = %84
-  %86 = getelementptr inbounds i16, ptr %.06772.us.us.us, i64 %66
-  %87 = getelementptr inbounds i16, ptr %.06574.us.us.us, i64 %44
-  %88 = getelementptr inbounds i16, ptr %.06475.us.us.us, i64 %45
+  %86 = getelementptr inbounds [2 x i8], ptr %.06772.us.us.us, i64 %66
+  %87 = getelementptr inbounds [2 x i8], ptr %.06574.us.us.us, i64 %44
+  %88 = getelementptr inbounds [2 x i8], ptr %.06475.us.us.us, i64 %45
   %89 = add nsw i32 %.06673.us.us.us, 1
   %exitcond88.not = icmp eq i32 %89, %14
   br i1 %exitcond88.not, label %._crit_edge76.split.us.us.us, label %.preheader.us.us.us, !llvm.loop !75
@@ -710,15 +710,15 @@ define internal noundef i32 @remap_packed16_nearest_slice(ptr noundef readonly c
   %32 = load ptr, ptr %11, align 8, !tbaa !61
   %33 = mul nsw i32 %21, %15
   %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds i16, ptr %32, i64 %34
+  %35 = getelementptr inbounds [2 x i8], ptr %32, i64 %34
   %36 = load ptr, ptr %7, align 8, !tbaa !61
   %37 = mul nsw i32 %27, %15
   %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds i16, ptr %36, i64 %38
+  %39 = getelementptr inbounds [2 x i8], ptr %36, i64 %38
   %40 = load ptr, ptr %9, align 8, !tbaa !61
   %41 = mul nsw i32 %30, %15
   %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds i16, ptr %40, i64 %42
+  %43 = getelementptr inbounds [2 x i8], ptr %40, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %45 = load i32, ptr %44, align 8, !tbaa !69
   %46 = sdiv i32 %45, 2
@@ -761,10 +761,10 @@ define internal noundef i32 @remap_packed16_nearest_slice(ptr noundef readonly c
 
 .preheader.us.us.us:                              ; preds = %._crit_edge.us.us.us, %.preheader73.us.us
   %indvars.iv91 = phi i64 [ %indvars.iv.next92, %._crit_edge.us.us.us ], [ 0, %.preheader73.us.us ]
-  %64 = getelementptr inbounds nuw i16, ptr %.06979.us.us, i64 %indvars.iv91
-  %65 = getelementptr inbounds nuw i16, ptr %.07077.us.us, i64 %indvars.iv91
+  %64 = getelementptr inbounds nuw [2 x i8], ptr %.06979.us.us, i64 %indvars.iv91
+  %65 = getelementptr inbounds nuw [2 x i8], ptr %.07077.us.us, i64 %indvars.iv91
   %66 = mul nsw i64 %indvars.iv91, %63
-  %invariant.gep103.sink = getelementptr i16, ptr %.06881.us.us, i64 %66
+  %invariant.gep103.sink = getelementptr [2 x i8], ptr %.06881.us.us, i64 %66
   br label %67
 
 67:                                               ; preds = %89, %.preheader.us.us.us
@@ -782,7 +782,7 @@ define internal noundef i32 @remap_packed16_nearest_slice(ptr noundef readonly c
   br i1 %75, label %80, label %76
 
 76:                                               ; preds = %71, %67
-  %77 = getelementptr inbounds nuw i32, ptr %55, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %indvars.iv
   %78 = load i32, ptr %77, align 4, !tbaa !45
   %79 = trunc i32 %78 to i16
   br label %89
@@ -794,13 +794,13 @@ define internal noundef i32 @remap_packed16_nearest_slice(ptr noundef readonly c
   %84 = add i32 %81, %83
   %85 = add i32 %84, %82
   %86 = sext i32 %85 to i64
-  %87 = getelementptr inbounds i16, ptr %31, i64 %86
+  %87 = getelementptr inbounds [2 x i8], ptr %31, i64 %86
   %88 = load i16, ptr %87, align 2, !tbaa !65
   br label %89
 
 89:                                               ; preds = %80, %76
   %.sink = phi i16 [ %88, %80 ], [ %79, %76 ]
-  %gep104 = getelementptr i16, ptr %invariant.gep103.sink, i64 %indvars.iv
+  %gep104 = getelementptr [2 x i8], ptr %invariant.gep103.sink, i64 %indvars.iv
   store i16 %.sink, ptr %gep104, align 2, !tbaa !65
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -812,9 +812,9 @@ define internal noundef i32 @remap_packed16_nearest_slice(ptr noundef readonly c
   br i1 %exitcond95.not, label %._crit_edge76.split.us.us.us, label %.preheader.us.us.us, !llvm.loop !78
 
 ._crit_edge76.split.us.us.us:                     ; preds = %._crit_edge.us.us.us
-  %90 = getelementptr inbounds i16, ptr %.06881.us.us, i64 %56
-  %91 = getelementptr inbounds i16, ptr %.07077.us.us, i64 %57
-  %92 = getelementptr inbounds i16, ptr %.06979.us.us, i64 %58
+  %90 = getelementptr inbounds [2 x i8], ptr %.06881.us.us, i64 %56
+  %91 = getelementptr inbounds [2 x i8], ptr %.07077.us.us, i64 %57
+  %92 = getelementptr inbounds [2 x i8], ptr %.06979.us.us, i64 %58
   %93 = add nsw i32 %.083.us.us, 1
   %exitcond96.not = icmp eq i32 %93, %18
   br i1 %exitcond96.not, label %._crit_edge, label %.preheader73.us.us, !llvm.loop !79

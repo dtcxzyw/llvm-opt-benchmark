@@ -579,7 +579,7 @@ define hidden { ptr, ptr } @"_ZN94_$LT$$RF$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u
   %3 = load ptr, ptr %2, align 8, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !4
-  %6 = getelementptr inbounds { { ptr, i8 }, { { { i64 } } }, { { { { i32 } }, { { i8 } }, i8, [2 x i8] }, { { { i32 } } } }, { { { { i32 } }, { { i8 } }, i8, [2 x i8] }, { { { i32 } } } } }, ptr %3, i64 %5
+  %6 = getelementptr inbounds [48 x i8], ptr %3, i64 %5
   %7 = insertvalue { ptr, ptr } poison, ptr %3, 0
   %8 = insertvalue { ptr, ptr } %7, ptr %6, 1
   ret { ptr, ptr } %8
@@ -2295,7 +2295,7 @@ define hidden void @_ZN10rayon_core8registry9main_loop17h1548e426449e3194E.llvm.
 20:                                               ; preds = %11
   %21 = getelementptr i8, ptr %13, i64 512
   %.val = load ptr, ptr %21, align 8, !nonnull !4, !noundef !4
-  %22 = getelementptr inbounds { { ptr, i8 }, { { { i64 } } }, { { { { i32 } }, { { i8 } }, i8, [2 x i8] }, { { { i32 } } } }, { { { { i32 } }, { { i8 } }, i8, [2 x i8] }, { { { i32 } } } } }, ptr %.val, i64 %15
+  %22 = getelementptr inbounds [48 x i8], ptr %.val, i64 %15
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   invoke fastcc void @"_ZN73_$LT$rayon_core..latch..LockLatch$u20$as$u20$rayon_core..latch..Latch$GT$3set17h4a937e1e37716d94E"(ptr noundef %23)
           to label %24 unwind label %9
@@ -2330,7 +2330,7 @@ define hidden void @_ZN10rayon_core8registry9main_loop17h1548e426449e3194E.llvm.
 
 "_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h2b09e8088fcb6a7fE.exit.i": ; preds = %28
   %.val2.i = load ptr, ptr %31, align 8, !nonnull !4, !noundef !4
-  %36 = getelementptr inbounds { { ptr, i8 }, { { { i64 } } }, { { { { i32 } }, { { i8 } }, i8, [2 x i8] }, { { { i32 } } } }, { { { { i32 } }, { { i8 } }, i8, [2 x i8] }, { { { i32 } } } } }, ptr %.val2.i, i64 %30
+  %36 = getelementptr inbounds [48 x i8], ptr %.val2.i, i64 %30
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load atomic i64, ptr %37 acquire, align 8
   %39 = icmp eq i64 %38, 3
@@ -2347,7 +2347,7 @@ _ZN10rayon_core8registry12WorkerThread10wait_until17ha3b8b40015096664E.exit.i: ;
 
 "_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h2b09e8088fcb6a7fE.exit4.i": ; preds = %_ZN10rayon_core8registry12WorkerThread10wait_until17ha3b8b40015096664E.exit.i
   %.val.i = load ptr, ptr %31, align 8, !nonnull !4, !noundef !4
-  %42 = getelementptr inbounds { { ptr, i8 }, { { { i64 } } }, { { { { i32 } }, { { i8 } }, i8, [2 x i8] }, { { { i32 } } } }, { { { { i32 } }, { { i8 } }, i8, [2 x i8] }, { { { i32 } } } } }, ptr %.val.i, i64 %30
+  %42 = getelementptr inbounds [48 x i8], ptr %.val.i, i64 %30
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 36
   invoke fastcc void @"_ZN73_$LT$rayon_core..latch..LockLatch$u20$as$u20$rayon_core..latch..Latch$GT$3set17h4a937e1e37716d94E"(ptr noundef %43)
           to label %_ZN10rayon_core8registry12WorkerThread22wait_until_out_of_work17hee0b3f7a77fabe23E.exit unwind label %49

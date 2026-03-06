@@ -38,8 +38,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Head_base.1" = type { ptr }
 %"class.llvm::APSInt" = type { %"class.llvm::APInt.base", i8, [3 x i8] }
 %"class.llvm::APInt.base" = type <{ %union.anon.2, i32 }>
-%"class.llvm::SMFixIt" = type { %"class.llvm::SMRange", %"class.std::__cxx11::basic_string" }
-%"class.llvm::SMRange" = type { %"class.llvm::SMLoc", %"class.llvm::SMLoc" }
 
 $_ZN4llvm12SMDiagnosticaSEOS0_ = comdat any
 
@@ -1086,7 +1084,7 @@ define dso_local noundef i64 @_ZN4llvm7LLLexer11HexIntToValEPKcS2_(ptr noundef n
   %7 = shl i64 %.01319, 4
   %8 = load i8, ptr %.01418, align 1, !tbaa !31
   %9 = zext i8 %8 to i64
-  %10 = getelementptr inbounds nuw i16, ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 %9
+  %10 = getelementptr inbounds nuw [2 x i8], ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 %9
   %11 = load i16, ptr %10, align 2, !tbaa !48
   %12 = sext i16 %11 to i64
   %13 = and i64 %12, 4294967295
@@ -1130,7 +1128,7 @@ define dso_local void @_ZN4llvm7LLLexer12HexToIntPairEPKcS2_Pm(ptr noundef nonnu
   store i64 %11, ptr %3, align 8, !tbaa !50
   %12 = load i8, ptr %.122, align 1, !tbaa !31
   %13 = zext i8 %12 to i64
-  %14 = getelementptr inbounds nuw i16, ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 %13
+  %14 = getelementptr inbounds nuw [2 x i8], ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 %13
   %15 = load i16, ptr %14, align 2, !tbaa !48
   %16 = sext i16 %15 to i64
   %17 = and i64 %16, 4294967295
@@ -1159,7 +1157,7 @@ define dso_local void @_ZN4llvm7LLLexer12HexToIntPairEPKcS2_Pm(ptr noundef nonnu
   store i64 %23, ptr %21, align 8, !tbaa !50
   %24 = load i8, ptr %.224, align 1, !tbaa !31
   %25 = zext i8 %24 to i64
-  %26 = getelementptr inbounds nuw i16, ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 %25
+  %26 = getelementptr inbounds nuw [2 x i8], ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 %25
   %27 = load i16, ptr %26, align 2, !tbaa !48
   %28 = sext i16 %27 to i64
   %29 = and i64 %28, 4294967295
@@ -1211,7 +1209,7 @@ define dso_local void @_ZN4llvm7LLLexer16FP80HexToIntPairEPKcS2_Pm(ptr noundef n
   store i64 %8, ptr %6, align 8, !tbaa !50
   %9 = load i8, ptr %.02122, align 1, !tbaa !31
   %10 = zext i8 %9 to i64
-  %11 = getelementptr inbounds nuw i16, ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 %10
+  %11 = getelementptr inbounds nuw [2 x i8], ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 %10
   %12 = load i16, ptr %11, align 2, !tbaa !48
   %13 = sext i16 %12 to i64
   %14 = and i64 %13, 4294967295
@@ -1235,7 +1233,7 @@ define dso_local void @_ZN4llvm7LLLexer16FP80HexToIntPairEPKcS2_Pm(ptr noundef n
   store i64 %22, ptr %3, align 8, !tbaa !50
   %23 = load i8, ptr %.124, align 1, !tbaa !31
   %24 = zext i8 %23 to i64
-  %25 = getelementptr inbounds nuw i16, ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 %24
+  %25 = getelementptr inbounds nuw [2 x i8], ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 %24
   %26 = load i16, ptr %25, align 2, !tbaa !48
   %27 = sext i16 %26 to i64
   %28 = and i64 %27, 4294967295
@@ -5757,12 +5755,12 @@ _ZN4llvm7LLLexer11getNextCharEv.exit.thread24:    ; preds = %37
 
 78:                                               ; preds = %73
   %79 = zext i8 %70 to i64
-  %80 = getelementptr inbounds nuw i16, ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 %79
+  %80 = getelementptr inbounds nuw [2 x i8], ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 %79
   %81 = load i16, ptr %80, align 2, !tbaa !48
   %82 = trunc i16 %81 to i8
   %83 = shl i8 %82, 4
   %84 = zext i8 %75 to i64
-  %85 = getelementptr inbounds nuw i16, ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 %84
+  %85 = getelementptr inbounds nuw [2 x i8], ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 %84
   %86 = load i16, ptr %85, align 2, !tbaa !48
   %87 = trunc i16 %86 to i8
   %88 = add i8 %83, %87
@@ -6083,12 +6081,12 @@ switch.early.test13:                              ; preds = %.critedge
 
 52:                                               ; preds = %47
   %53 = zext i8 %44 to i64
-  %54 = getelementptr inbounds nuw i16, ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 %53
+  %54 = getelementptr inbounds nuw [2 x i8], ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 %53
   %55 = load i16, ptr %54, align 2, !tbaa !48
   %56 = trunc i16 %55 to i8
   %57 = shl i8 %56, 4
   %58 = zext i8 %49 to i64
-  %59 = getelementptr inbounds nuw i16, ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 %58
+  %59 = getelementptr inbounds nuw [2 x i8], ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 %58
   %60 = load i16, ptr %59, align 2, !tbaa !48
   %61 = trunc i16 %60 to i8
   %62 = add i8 %57, %61
@@ -6815,12 +6813,12 @@ _ZN4llvm7LLLexer11getNextCharEv.exit.thread16:    ; preds = %21
 
 66:                                               ; preds = %61
   %67 = zext i8 %58 to i64
-  %68 = getelementptr inbounds nuw i16, ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 %67
+  %68 = getelementptr inbounds nuw [2 x i8], ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 %67
   %69 = load i16, ptr %68, align 2, !tbaa !48
   %70 = trunc i16 %69 to i8
   %71 = shl i8 %70, 4
   %72 = zext i8 %63 to i64
-  %73 = getelementptr inbounds nuw i16, ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 %72
+  %73 = getelementptr inbounds nuw [2 x i8], ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 %72
   %74 = load i16, ptr %73, align 2, !tbaa !48
   %75 = trunc i16 %74 to i8
   %76 = add i8 %71, %75
@@ -7170,12 +7168,12 @@ _ZN4llvm7LLLexer11getNextCharEv.exit.thread10:    ; preds = %13
 
 58:                                               ; preds = %53
   %59 = zext i8 %50 to i64
-  %60 = getelementptr inbounds nuw i16, ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 %59
+  %60 = getelementptr inbounds nuw [2 x i8], ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 %59
   %61 = load i16, ptr %60, align 2, !tbaa !48
   %62 = trunc i16 %61 to i8
   %63 = shl i8 %62, 4
   %64 = zext i8 %55 to i64
-  %65 = getelementptr inbounds nuw i16, ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 %64
+  %65 = getelementptr inbounds nuw [2 x i8], ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 %64
   %66 = load i16, ptr %65, align 2, !tbaa !48
   %67 = trunc i16 %66 to i8
   %68 = add i8 %63, %67
@@ -7414,7 +7412,7 @@ define dso_local noundef range(i32 1, 526) i32 @_ZN4llvm7LLLexer5Lex0xEv(ptr nou
   %43 = shl i64 %.01319.i, 4
   %44 = load i8, ptr %.01418.i, align 1, !tbaa !31
   %45 = zext i8 %44 to i64
-  %46 = getelementptr inbounds nuw i16, ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 %45
+  %46 = getelementptr inbounds nuw [2 x i8], ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 %45
   %47 = load i16, ptr %46, align 2, !tbaa !48
   %48 = sext i16 %47 to i64
   %49 = and i64 %48, 4294967295
@@ -7527,7 +7525,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZN4llvm7APFloatD2E
   %78 = shl i64 %77, 4
   %79 = load i8, ptr %.02122.i, align 1, !tbaa !31
   %80 = zext i8 %79 to i64
-  %81 = getelementptr inbounds nuw i16, ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 %80
+  %81 = getelementptr inbounds nuw [2 x i8], ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 %80
   %82 = load i16, ptr %81, align 2, !tbaa !48
   %83 = sext i16 %82 to i64
   %84 = and i64 %83, 4294967295
@@ -7551,7 +7549,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZN4llvm7APFloatD2E
   store i64 %92, ptr %10, align 16, !tbaa !50
   %93 = load i8, ptr %.124.i, align 1, !tbaa !31
   %94 = zext i8 %93 to i64
-  %95 = getelementptr inbounds nuw i16, ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 %94
+  %95 = getelementptr inbounds nuw [2 x i8], ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 %94
   %96 = load i16, ptr %95, align 2, !tbaa !48
   %97 = sext i16 %96 to i64
   %98 = and i64 %97, 4294967295
@@ -7650,7 +7648,7 @@ _ZN4llvm5APIntD2Ev.exit16:                        ; preds = %_ZN4llvm7APFloatD2E
   %131 = shl i64 %130, 4
   %132 = load i8, ptr %.122.i, align 1, !tbaa !31
   %133 = zext i8 %132 to i64
-  %134 = getelementptr inbounds nuw i16, ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 %133
+  %134 = getelementptr inbounds nuw [2 x i8], ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 %133
   %135 = load i16, ptr %134, align 2, !tbaa !48
   %136 = sext i16 %135 to i64
   %137 = and i64 %136, 4294967295
@@ -7678,7 +7676,7 @@ _ZN4llvm5APIntD2Ev.exit16:                        ; preds = %_ZN4llvm7APFloatD2E
   %143 = shl i64 %142, 4
   %144 = load i8, ptr %.224.i, align 1, !tbaa !31
   %145 = zext i8 %144 to i64
-  %146 = getelementptr inbounds nuw i16, ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 %145
+  %146 = getelementptr inbounds nuw [2 x i8], ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 %145
   %147 = load i16, ptr %146, align 2, !tbaa !48
   %148 = sext i16 %147 to i64
   %149 = and i64 %148, 4294967295
@@ -7777,7 +7775,7 @@ _ZN4llvm5APIntD2Ev.exit28:                        ; preds = %_ZN4llvm7APFloatD2E
   %182 = shl i64 %181, 4
   %183 = load i8, ptr %.122.i38, align 1, !tbaa !31
   %184 = zext i8 %183 to i64
-  %185 = getelementptr inbounds nuw i16, ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 %184
+  %185 = getelementptr inbounds nuw [2 x i8], ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 %184
   %186 = load i16, ptr %185, align 2, !tbaa !48
   %187 = sext i16 %186 to i64
   %188 = and i64 %187, 4294967295
@@ -7805,7 +7803,7 @@ _ZN4llvm5APIntD2Ev.exit28:                        ; preds = %_ZN4llvm7APFloatD2E
   %194 = shl i64 %193, 4
   %195 = load i8, ptr %.224.i34, align 1, !tbaa !31
   %196 = zext i8 %195 to i64
-  %197 = getelementptr inbounds nuw i16, ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 %196
+  %197 = getelementptr inbounds nuw [2 x i8], ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 %196
   %198 = load i16, ptr %197, align 2, !tbaa !48
   %199 = sext i16 %198 to i64
   %200 = and i64 %199, 4294967295
@@ -7901,7 +7899,7 @@ _ZN4llvm5APIntD2Ev.exit47:                        ; preds = %_ZN4llvm7APFloatD2E
   %231 = shl i64 %.01319.i50, 4
   %232 = load i8, ptr %.01418.i51, align 1, !tbaa !31
   %233 = zext i8 %232 to i64
-  %234 = getelementptr inbounds nuw i16, ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 %233
+  %234 = getelementptr inbounds nuw [2 x i8], ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 %233
   %235 = load i16, ptr %234, align 2, !tbaa !48
   %236 = sext i16 %235 to i64
   %237 = and i64 %236, 4294967295
@@ -8003,7 +8001,7 @@ _ZN4llvm5APIntD2Ev.exit63:                        ; preds = %_ZN4llvm7APFloatD2E
   %265 = shl i64 %.01319.i66, 4
   %266 = load i8, ptr %.01418.i67, align 1, !tbaa !31
   %267 = zext i8 %266 to i64
-  %268 = getelementptr inbounds nuw i16, ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 %267
+  %268 = getelementptr inbounds nuw [2 x i8], ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 %267
   %269 = load i16, ptr %268, align 2, !tbaa !48
   %270 = sext i16 %269 to i64
   %271 = and i64 %270, 4294967295
@@ -8312,7 +8310,7 @@ _ZSt4moveIPN4llvm7SMFixItES2_ET0_T_S4_S3_.exit:   ; preds = %_ZSt4moveIPN4llvm7S
   %.pre-phi = phi i64 [ %.pre85, %_ZSt4moveIPN4llvm7SMFixItES2_ET0_T_S4_S3_.exit.loopexit ], [ %37, %38 ]
   %77 = phi ptr [ %.pre, %_ZSt4moveIPN4llvm7SMFixItES2_ET0_T_S4_S3_.exit.loopexit ], [ %39, %38 ]
   %.0 = phi ptr [ %74, %_ZSt4moveIPN4llvm7SMFixItES2_ET0_T_S4_S3_.exit.loopexit ], [ %39, %38 ]
-  %78 = getelementptr inbounds nuw %"class.llvm::SMFixIt", ptr %77, i64 %.pre-phi
+  %78 = getelementptr inbounds nuw [48 x i8], ptr %77, i64 %.pre-phi
   %.not4.i = icmp eq ptr %.0, %78
   br i1 %.not4.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_7SMFixItELb0EE13destroy_rangeEPS1_S3_.exit, label %.lr.ph.i
 
@@ -8520,14 +8518,14 @@ _ZSt4moveIPN4llvm7SMFixItES2_ET0_T_S4_S3_.exit70: ; preds = %_ZN4llvm7SMFixItaSE
   %150 = load ptr, ptr %1, align 8, !tbaa !27
   %151 = load i32, ptr %32, align 8, !tbaa !29
   %152 = zext i32 %151 to i64
-  %153 = getelementptr inbounds nuw %"class.llvm::SMFixIt", ptr %150, i64 %152
+  %153 = getelementptr inbounds nuw [48 x i8], ptr %150, i64 %152
   %.not7.i.i.i.i.i = icmp samesign eq i64 %.026, %152
   br i1 %.not7.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_7SMFixItELb0EE18uninitialized_moveIPS1_S4_EEvT_S5_T0_.exit, label %.lr.ph.i.i.i.i.i71.preheader
 
 .lr.ph.i.i.i.i.i71.preheader:                     ; preds = %_ZSt4moveIPN4llvm7SMFixItES2_ET0_T_S4_S3_.exit70
   %154 = load ptr, ptr %0, align 8, !tbaa !27
-  %155 = getelementptr inbounds nuw %"class.llvm::SMFixIt", ptr %154, i64 %.026
-  %156 = getelementptr inbounds nuw %"class.llvm::SMFixIt", ptr %150, i64 %.026
+  %155 = getelementptr inbounds nuw [48 x i8], ptr %154, i64 %.026
+  %156 = getelementptr inbounds nuw [48 x i8], ptr %150, i64 %.026
   br label %.lr.ph.i.i.i.i.i71
 
 .lr.ph.i.i.i.i.i71:                               ; preds = %.lr.ph.i.i.i.i.i71.preheader, %_ZSt10_ConstructIN4llvm7SMFixItEJS1_EEvPT_DpOT0_.exit.i.i.i.i.i

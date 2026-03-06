@@ -7485,7 +7485,7 @@ define internal fastcc void @"_ZN13wasmtime_wasi4host10filesystem99_$LT$impl$u20
 53:                                               ; preds = %._crit_edge.i, %34
   %54 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %35, %34 ]
   %55 = load ptr, ptr %12, align 8, !alias.scope !1259, !noalias !1262, !nonnull !5, !noundef !5
-  %56 = getelementptr inbounds { { { { i64 } }, i32, {}, [4 x i8] }, { { { i64, ptr, {} }, i64 } } }, ptr %55, i64 %54
+  %56 = getelementptr inbounds [40 x i8], ptr %55, i64 %54
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %56, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false)
   %57 = add i64 %54, 1
   store i64 %57, ptr %13, align 8, !alias.scope !1259, !noalias !1262
@@ -9031,7 +9031,7 @@ switch.lookup:                                    ; preds = %2
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %19 = load i8, ptr %18, align 8, !range !1487, !noundef !5
   %20 = zext nneg i8 %19 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @"switch.table._ZN13wasmtime_wasi4host10filesystem106_$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$T$GT$6advise28_$u7b$$u7b$closure$u7d$$u7d$17hf6bdf174c1ff076eE.llvm.10002545943538650143", i64 %20
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @"switch.table._ZN13wasmtime_wasi4host10filesystem106_$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$T$GT$6advise28_$u7b$$u7b$closure$u7d$$u7d$17hf6bdf174c1ff076eE.llvm.10002545943538650143", i64 %20
   %switch.load = load i32, ptr %switch.gep, align 4
   %21 = getelementptr inbounds nuw i8, ptr %11, i64 272
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1488
@@ -12894,7 +12894,7 @@ _ZN13wasmtime_wasi7runtime14spawn_blocking17h23fa9ba69920d018E.exit.i: ; preds =
 
 138:                                              ; preds = %"_ZN4core3ptr729drop_in_place$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..read_directory..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$alloc..vec..Vec$LT$core..result..Result$LT$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..DirectoryEntry$C$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$T$GT$..read_directory..$u7b$$u7b$closure$u7d$$u7d$..ReaddirError$GT$$GT$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb8d4d6642f0c555fE.exit"
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.4.0.i108) ]
-  %139 = getelementptr inbounds { i64, [3 x i64] }, ptr %.sroa.4.0.i108, i64 %.sroa.6.0.i107
+  %139 = getelementptr inbounds [32 x i8], ptr %.sroa.4.0.i108, i64 %.sroa.6.0.i107
   store ptr %.sroa.4.0.i108, ptr %12, align 8, !alias.scope !2034
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %.sroa.4.0.i108, ptr %.sroa.2.0..sroa_idx, align 8, !alias.scope !2034
@@ -28142,7 +28142,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i.i: 
 133:                                              ; preds = %._crit_edge.i, %122
   %134 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %125, %122 ]
   %135 = load ptr, ptr %61, align 8, !alias.scope !4289, !noalias !4292, !nonnull !5, !noundef !5
-  %136 = getelementptr inbounds { { { { { { ptr, ptr } }, {} }, {} } }, { { i64, ptr, {} }, i64 } }, ptr %135, i64 %134
+  %136 = getelementptr inbounds [40 x i8], ptr %135, i64 %134
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %136, ptr noundef nonnull align 8 dereferenceable(40) %17, i64 40, i1 false)
   %137 = load i64, ptr %62, align 8, !alias.scope !4289, !noalias !4292, !noundef !5
   %138 = add i64 %137, 1
@@ -28352,7 +28352,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i.i: 
   store i8 %206, ptr %213, align 1, !noalias !4335
   %214 = load ptr, ptr %.sroa.5101.8.copyload, align 8, !alias.scope !4342, !noalias !4335, !nonnull !5, !noundef !5
   %215 = sub nsw i64 0, %197
-  %216 = getelementptr inbounds { i32, [1 x i32], { ptr, { { i64, ptr, {} }, i64 } } }, ptr %214, i64 %215
+  %216 = getelementptr inbounds [40 x i8], ptr %214, i64 %215
   %217 = and i8 %204, 1
   %218 = zext nneg i8 %217 to i64
   %219 = getelementptr inbounds nuw i8, ptr %.sroa.5101.8.copyload, i64 16
@@ -28425,7 +28425,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i.i: 
   %243 = phi i64 [ %.pre.i74, %.noexc75 ], [ %239, %236 ]
   %244 = getelementptr inbounds i8, ptr %.pn.i, i64 -16
   %245 = load ptr, ptr %244, align 8, !alias.scope !4352, !nonnull !5, !noundef !5
-  %246 = getelementptr inbounds i32, ptr %245, i64 %243
+  %246 = getelementptr inbounds [4 x i8], ptr %245, i64 %243
   store i32 %.2.i, ptr %246, align 4
   %247 = load i64, ptr %238, align 8, !alias.scope !4352, !noundef !5
   %248 = add i64 %247, 1

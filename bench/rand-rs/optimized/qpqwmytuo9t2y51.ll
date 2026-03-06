@@ -191,7 +191,7 @@ define hidden { ptr, i64 } @"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20
 
 10:                                               ; preds = %7
   %11 = sub nuw i64 %1, %0
-  %12 = getelementptr inbounds i32, ptr %2, i64 %0
+  %12 = getelementptr inbounds [4 x i8], ptr %2, i64 %0
   %13 = insertvalue { ptr, i64 } poison, ptr %12, 0
   %14 = insertvalue { ptr, i64 } %13, i64 %11, 1
   ret { ptr, i64 } %14
@@ -1062,7 +1062,7 @@ define hidden noundef zeroext i1 @_ZN10std_detect6detect5cache4test17h33e4ae1e01
   %3 = zext i1 %2 to i32
   %.010 = add i32 %0, %3
   %.0 = zext i1 %2 to i64
-  %4 = getelementptr inbounds nuw { { i64 } }, ptr @_ZN10std_detect6detect5cache5CACHE17h1575b64c47eb4116E, i64 %.0
+  %4 = getelementptr inbounds nuw [8 x i8], ptr @_ZN10std_detect6detect5cache5CACHE17h1575b64c47eb4116E, i64 %.0
   %5 = load atomic i64, ptr %4 monotonic, align 8
   %6 = icmp eq i64 %5, 0
   %7 = and i32 %.010, 63
@@ -1318,7 +1318,7 @@ define hidden noundef i32 @"_ZN133_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$S
   br i1 %15, label %16, label %19, !prof !148
 
 16:                                               ; preds = %2
-  %17 = getelementptr inbounds nuw i32, ptr %3, i64 %14
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %14
   %18 = load i32, ptr %17, align 4, !noundef !25
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %18
@@ -1402,7 +1402,7 @@ define hidden noundef i32 @"_ZN134_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$S
   br i1 %13, label %14, label %17, !prof !148
 
 14:                                               ; preds = %2
-  %15 = getelementptr inbounds nuw i32, ptr %4, i64 %12
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %12
   %16 = load i32, ptr %15, align 4, !noundef !25
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %16
@@ -12472,7 +12472,7 @@ _ZN10std_detect6detect5cache4test17h33e4ae1e0177e982E.llvm.17720110283109806325.
 
 _ZN11rand_chacha4guts16get_stream_param9impl_sse217hf8805e56ac12e674E.llvm.17720110283109806325.exit: ; preds = %10
   %23 = extractelement <4 x i32> %.sroa.0.0.copyload18.i, i64 0
-  %24 = getelementptr inbounds nuw i32, ptr %3, i64 %20
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %20
   %25 = load i32, ptr %24, align 4, !noalias !3057, !noundef !25
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !3057
   %26 = zext i32 %25 to i64
@@ -12486,7 +12486,7 @@ _ZN11rand_chacha4guts16get_stream_param9impl_sse217hf8805e56ac12e674E.llvm.17720
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 %16, ptr %30, align 4, !alias.scope !3070, !noalias !3073
   %31 = zext nneg i32 %12 to i64
-  %32 = getelementptr inbounds nuw i32, ptr %4, i64 %31
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %31
   %33 = load i32, ptr %32, align 4, !noalias !3067, !noundef !25
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !3067
   %34 = zext i32 %33 to i64
@@ -12530,7 +12530,7 @@ define hidden noundef i64 @_ZN11rand_chacha4guts16get_stream_param7fn_impl17h08b
 
 "_ZN133_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$S3$C$ppv_lite86..x86_64..NoS4$C$NI$GT$$u20$as$u20$ppv_lite86..types..Vec4$LT$u32$GT$$GT$7extract17h6d7c99b9e8014e9cE.llvm.17720110283109806325.exit": ; preds = %2
   %17 = extractelement <4 x i32> %.sroa.0.0.copyload19, i64 0
-  %18 = getelementptr inbounds nuw i32, ptr %3, i64 %14
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %14
   %19 = load i32, ptr %18, align 4, !noalias !3075, !noundef !25
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !3075
   %20 = zext i32 %19 to i64
@@ -12544,7 +12544,7 @@ define hidden noundef i64 @_ZN11rand_chacha4guts16get_stream_param7fn_impl17h08b
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 %10, ptr %24, align 4, !alias.scope !3086, !noalias !3089
   %25 = zext nneg i32 %6 to i64
-  %26 = getelementptr inbounds nuw i32, ptr %4, i64 %25
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %25
   %27 = load i32, ptr %26, align 4, !noalias !3083, !noundef !25
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !3083
   %28 = zext i32 %27 to i64
@@ -12584,7 +12584,7 @@ define hidden noundef i64 @_ZN11rand_chacha4guts16get_stream_param7fn_impl17hb06
 
 "_ZN134_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$S3$C$ppv_lite86..x86_64..YesS4$C$NI$GT$$u20$as$u20$ppv_lite86..types..Vec4$LT$u32$GT$$GT$7extract17he520c4f4cca03427E.llvm.17720110283109806325.exit": ; preds = %2
   %18 = extractelement <4 x i32> %11, i64 0
-  %19 = getelementptr inbounds nuw i32, ptr %5, i64 %15
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %15
   %20 = load i32, ptr %19, align 4, !noalias !3091, !noundef !25
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !3091
   %21 = zext i32 %20 to i64
@@ -12601,7 +12601,7 @@ define hidden noundef i64 @_ZN11rand_chacha4guts16get_stream_param7fn_impl17hb06
   store i64 %23, ptr %25, align 4, !alias.scope !3103, !noalias !3108
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %26 = zext nneg i32 %8 to i64
-  %27 = getelementptr inbounds nuw i32, ptr %6, i64 %26
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %26
   %28 = load i32, ptr %27, align 4, !noalias !3100, !noundef !25
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !3100
   %29 = zext i32 %28 to i64
@@ -12637,7 +12637,7 @@ define hidden noundef i64 @_ZN11rand_chacha4guts16get_stream_param8impl_avx17h55
 
 _ZN11rand_chacha4guts16get_stream_param7fn_impl17hb061ba77decb59a1E.llvm.17720110283109806325.exit: ; preds = %2
   %17 = extractelement <4 x i32> %.sroa.0.0.copyload10, i64 0
-  %18 = getelementptr inbounds nuw i32, ptr %3, i64 %14
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %14
   %19 = load i32, ptr %18, align 4, !noalias !3109, !noundef !25
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !3109
   %20 = zext i32 %19 to i64
@@ -12651,7 +12651,7 @@ _ZN11rand_chacha4guts16get_stream_param7fn_impl17hb061ba77decb59a1E.llvm.1772011
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 %10, ptr %24, align 4, !alias.scope !3122, !noalias !3125
   %25 = zext nneg i32 %6 to i64
-  %26 = getelementptr inbounds nuw i32, ptr %4, i64 %25
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %25
   %27 = load i32, ptr %26, align 4, !noalias !3119, !noundef !25
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !3119
   %28 = zext i32 %27 to i64
@@ -12687,7 +12687,7 @@ define hidden noundef i64 @_ZN11rand_chacha4guts16get_stream_param9impl_sse217hf
 
 _ZN11rand_chacha4guts16get_stream_param7fn_impl17h08baf2e4c3103d25E.llvm.17720110283109806325.exit: ; preds = %2
   %17 = extractelement <4 x i32> %.sroa.0.0.copyload18, i64 0
-  %18 = getelementptr inbounds nuw i32, ptr %3, i64 %14
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %14
   %19 = load i32, ptr %18, align 4, !noalias !3127, !noundef !25
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !3127
   %20 = zext i32 %19 to i64
@@ -12701,7 +12701,7 @@ _ZN11rand_chacha4guts16get_stream_param7fn_impl17h08baf2e4c3103d25E.llvm.1772011
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 %10, ptr %24, align 4, !alias.scope !3140, !noalias !3143
   %25 = zext nneg i32 %6 to i64
-  %26 = getelementptr inbounds nuw i32, ptr %4, i64 %25
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %25
   %27 = load i32, ptr %26, align 4, !noalias !3137, !noundef !25
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !3137
   %28 = zext i32 %27 to i64

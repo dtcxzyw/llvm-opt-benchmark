@@ -24,9 +24,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_drm_fb_blit:
 module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_drm_fb_xrgb8888_to_mono: ; .asciz \22\22 ; .asciz \22\22 ; .balign 8 ; .quad drm_fb_xrgb8888_to_mono ; .previous"
 module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_drm_fb_build_fourcc_list: ; .asciz \22\22 ; .asciz \22\22 ; .balign 8 ; .quad drm_fb_build_fourcc_list ; .previous"
 
-%struct.iosys_map = type { %union.anon.0, i8 }
-%union.anon.0 = type { ptr }
-
 @__UNIQUE_ID___addressable_drm_format_conv_state_init316 = internal global ptr @drm_format_conv_state_init, section ".discard.addressable", align 8
 @__UNIQUE_ID___addressable_drm_format_conv_state_copy317 = internal global ptr @drm_format_conv_state_copy, section ".discard.addressable", align 8
 @__UNIQUE_ID___addressable_drm_format_conv_state_reserve318 = internal global ptr @drm_format_conv_state_reserve, section ".discard.addressable", align 8
@@ -186,8 +183,8 @@ define dso_local void @drm_fb_memcpy(ptr noundef readonly captures(none) %0, ptr
   %36 = add i32 %35, 7
   %37 = lshr i32 %36, 3
   %38 = zext nneg i32 %37 to i64
-  %39 = getelementptr i32, ptr %20, i64 %29
-  %40 = getelementptr %struct.iosys_map, ptr %2, i64 %29
+  %39 = getelementptr [4 x i8], ptr %20, i64 %29
+  %40 = getelementptr [16 x i8], ptr %2, i64 %29
   %41 = load ptr, ptr %40, align 8
   %42 = load i32, ptr %10, align 4
   %43 = load i32, ptr %39, align 4
@@ -198,11 +195,11 @@ define dso_local void @drm_fb_memcpy(ptr noundef readonly captures(none) %0, ptr
   %48 = add i32 %44, %47
   %49 = zext i32 %48 to i64
   %50 = getelementptr i8, ptr %41, i64 %49
-  %51 = getelementptr i32, ptr %14, i64 %29
+  %51 = getelementptr [4 x i8], ptr %14, i64 %29
   %52 = load i32, ptr %51, align 4
   %53 = icmp eq i32 %52, 0
   %54 = select i1 %53, i32 %37, i32 %52
-  %55 = getelementptr %struct.iosys_map, ptr %0, i64 %29
+  %55 = getelementptr [16 x i8], ptr %0, i64 %29
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %57 = load i8, ptr %56, align 8
   %58 = load ptr, ptr %55, align 8
@@ -312,7 +309,7 @@ define dso_local void @drm_fb_swab(ptr noundef readonly captures(none) %0, ptr n
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
 define internal void @drm_fb_swab32_line(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(address) %1, i32 noundef %2) #7 align 16 {
   %4 = zext i32 %2 to i64
-  %5 = getelementptr i32, ptr %1, i64 %4
+  %5 = getelementptr [4 x i8], ptr %1, i64 %4
   %6 = icmp ugt ptr %5, %1
   br i1 %6, label %.preheader, label %.loopexit
 
@@ -334,7 +331,7 @@ define internal void @drm_fb_swab32_line(ptr noundef writeonly captures(none) %0
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
 define internal void @drm_fb_swab16_line(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(address) %1, i32 noundef %2) #7 align 16 {
   %4 = zext i32 %2 to i64
-  %5 = getelementptr i16, ptr %1, i64 %4
+  %5 = getelementptr [2 x i8], ptr %1, i64 %4
   %6 = icmp ugt ptr %5, %1
   br i1 %6, label %.preheader, label %.loopexit
 
@@ -635,7 +632,7 @@ define internal void @drm_fb_xrgb8888_to_rgb332_line(ptr noundef writeonly captu
 
 7:                                                ; preds = %7, %5
   %8 = phi i64 [ 0, %5 ], [ %21, %7 ]
-  %9 = getelementptr i32, ptr %1, i64 %8
+  %9 = getelementptr [4 x i8], ptr %1, i64 %8
   %10 = load i32, ptr %9, align 4
   %11 = lshr i32 %10, 16
   %12 = and i32 %11, 224
@@ -678,7 +675,7 @@ define internal void @drm_fb_xrgb8888_to_rgb565_swab_line(ptr noundef writeonly 
 
 7:                                                ; preds = %7, %5
   %8 = phi i64 [ 0, %5 ], [ %22, %7 ]
-  %9 = getelementptr i32, ptr %1, i64 %8
+  %9 = getelementptr [4 x i8], ptr %1, i64 %8
   %10 = load i32, ptr %9, align 4
   %11 = lshr i32 %10, 8
   %12 = and i32 %11, 63488
@@ -690,7 +687,7 @@ define internal void @drm_fb_xrgb8888_to_rgb565_swab_line(ptr noundef writeonly 
   %18 = or disjoint i32 %15, %17
   %19 = trunc nuw i32 %18 to i16
   %20 = tail call i16 @llvm.bswap.i16(i16 %19)
-  %21 = getelementptr i16, ptr %0, i64 %8
+  %21 = getelementptr [2 x i8], ptr %0, i64 %8
   store i16 %20, ptr %21, align 2
   %22 = add nuw nsw i64 %8, 1
   %23 = icmp eq i64 %22, %6
@@ -711,7 +708,7 @@ define internal void @drm_fb_xrgb8888_to_rgb565_line(ptr noundef writeonly captu
 
 7:                                                ; preds = %7, %5
   %8 = phi i64 [ 0, %5 ], [ %21, %7 ]
-  %9 = getelementptr i32, ptr %1, i64 %8
+  %9 = getelementptr [4 x i8], ptr %1, i64 %8
   %10 = load i32, ptr %9, align 4
   %11 = lshr i32 %10, 8
   %12 = and i32 %11, 63488
@@ -722,7 +719,7 @@ define internal void @drm_fb_xrgb8888_to_rgb565_line(ptr noundef writeonly captu
   %17 = and i32 %16, 31
   %18 = or disjoint i32 %15, %17
   %19 = trunc nuw i32 %18 to i16
-  %20 = getelementptr i16, ptr %0, i64 %8
+  %20 = getelementptr [2 x i8], ptr %0, i64 %8
   store i16 %19, ptr %20, align 2
   %21 = add nuw nsw i64 %8, 1
   %22 = icmp eq i64 %21, %6
@@ -753,7 +750,7 @@ define internal void @drm_fb_xrgb8888_to_xrgb1555_line(ptr noundef writeonly cap
 
 7:                                                ; preds = %7, %5
   %8 = phi i64 [ 0, %5 ], [ %21, %7 ]
-  %9 = getelementptr i32, ptr %1, i64 %8
+  %9 = getelementptr [4 x i8], ptr %1, i64 %8
   %10 = load i32, ptr %9, align 4
   %11 = lshr i32 %10, 9
   %12 = and i32 %11, 31744
@@ -764,7 +761,7 @@ define internal void @drm_fb_xrgb8888_to_xrgb1555_line(ptr noundef writeonly cap
   %17 = and i32 %16, 31
   %18 = or disjoint i32 %15, %17
   %19 = trunc nuw nsw i32 %18 to i16
-  %20 = getelementptr i16, ptr %0, i64 %8
+  %20 = getelementptr [2 x i8], ptr %0, i64 %8
   store i16 %19, ptr %20, align 2
   %21 = add nuw nsw i64 %8, 1
   %22 = icmp eq i64 %21, %6
@@ -795,7 +792,7 @@ define internal void @drm_fb_xrgb8888_to_argb1555_line(ptr noundef writeonly cap
 
 7:                                                ; preds = %7, %5
   %8 = phi i64 [ 0, %5 ], [ %22, %7 ]
-  %9 = getelementptr i32, ptr %1, i64 %8
+  %9 = getelementptr [4 x i8], ptr %1, i64 %8
   %10 = load i32, ptr %9, align 4
   %11 = lshr i32 %10, 9
   %12 = and i32 %11, 31744
@@ -807,7 +804,7 @@ define internal void @drm_fb_xrgb8888_to_argb1555_line(ptr noundef writeonly cap
   %18 = or disjoint i32 %15, %17
   %19 = trunc nuw nsw i32 %18 to i16
   %20 = or disjoint i16 %19, -32768
-  %21 = getelementptr i16, ptr %0, i64 %8
+  %21 = getelementptr [2 x i8], ptr %0, i64 %8
   store i16 %20, ptr %21, align 2
   %22 = add nuw nsw i64 %8, 1
   %23 = icmp eq i64 %22, %6
@@ -838,7 +835,7 @@ define internal void @drm_fb_xrgb8888_to_rgba5551_line(ptr noundef writeonly cap
 
 7:                                                ; preds = %7, %5
   %8 = phi i64 [ 0, %5 ], [ %22, %7 ]
-  %9 = getelementptr i32, ptr %1, i64 %8
+  %9 = getelementptr [4 x i8], ptr %1, i64 %8
   %10 = load i32, ptr %9, align 4
   %11 = lshr i32 %10, 8
   %12 = and i32 %11, 63488
@@ -850,7 +847,7 @@ define internal void @drm_fb_xrgb8888_to_rgba5551_line(ptr noundef writeonly cap
   %18 = or disjoint i32 %15, %17
   %19 = trunc nuw i32 %18 to i16
   %20 = or disjoint i16 %19, 1
-  %21 = getelementptr i16, ptr %0, i64 %8
+  %21 = getelementptr [2 x i8], ptr %0, i64 %8
   store i16 %20, ptr %21, align 2
   %22 = add nuw nsw i64 %8, 1
   %23 = icmp eq i64 %22, %6
@@ -882,7 +879,7 @@ define internal void @drm_fb_xrgb8888_to_rgb888_line(ptr noundef writeonly captu
 7:                                                ; preds = %7, %5
   %8 = phi i64 [ 0, %5 ], [ %20, %7 ]
   %9 = phi ptr [ %0, %5 ], [ %19, %7 ]
-  %10 = getelementptr i32, ptr %1, i64 %8
+  %10 = getelementptr [4 x i8], ptr %1, i64 %8
   %11 = load i32, ptr %10, align 4
   %12 = trunc i32 %11 to i8
   %13 = getelementptr i8, ptr %9, i64 1
@@ -924,10 +921,10 @@ define internal void @drm_fb_xrgb8888_to_argb8888_line(ptr noundef writeonly cap
 
 7:                                                ; preds = %7, %5
   %8 = phi i64 [ 0, %5 ], [ %13, %7 ]
-  %9 = getelementptr i32, ptr %1, i64 %8
+  %9 = getelementptr [4 x i8], ptr %1, i64 %8
   %10 = load i32, ptr %9, align 4
   %11 = or i32 %10, -16777216
-  %12 = getelementptr i32, ptr %0, i64 %8
+  %12 = getelementptr [4 x i8], ptr %0, i64 %8
   store i32 %11, ptr %12, align 4
   %13 = add nuw nsw i64 %8, 1
   %14 = icmp eq i64 %13, %6
@@ -959,7 +956,7 @@ define internal void @drm_fb_xrgb8888_to_xrgb2101010_line(ptr noundef writeonly 
 7:                                                ; preds = %7, %5
   %8 = phi i64 [ 0, %5 ], [ %24, %7 ]
   %9 = phi ptr [ %0, %5 ], [ %23, %7 ]
-  %10 = getelementptr i32, ptr %1, i64 %8
+  %10 = getelementptr [4 x i8], ptr %1, i64 %8
   %11 = load i32, ptr %10, align 4
   %12 = shl i32 %11, 2
   %13 = and i32 %12, 1020
@@ -1004,7 +1001,7 @@ define internal void @drm_fb_xrgb8888_to_argb2101010_line(ptr noundef writeonly 
 7:                                                ; preds = %7, %5
   %8 = phi i64 [ 0, %5 ], [ %25, %7 ]
   %9 = phi ptr [ %0, %5 ], [ %24, %7 ]
-  %10 = getelementptr i32, ptr %1, i64 %8
+  %10 = getelementptr [4 x i8], ptr %1, i64 %8
   %11 = load i32, ptr %10, align 4
   %12 = shl i32 %11, 2
   %13 = and i32 %12, 1020
@@ -1050,7 +1047,7 @@ define internal void @drm_fb_xrgb8888_to_gray8_line(ptr noundef writeonly captur
 7:                                                ; preds = %7, %5
   %8 = phi i64 [ 0, %5 ], [ %24, %7 ]
   %9 = phi ptr [ %0, %5 ], [ %23, %7 ]
-  %10 = getelementptr i32, ptr %1, i64 %8
+  %10 = getelementptr [4 x i8], ptr %1, i64 %8
   %11 = load i32, ptr %10, align 4
   %12 = lshr i32 %11, 16
   %13 = lshr i32 %11, 8
@@ -1450,7 +1447,7 @@ define dso_local void @drm_fb_xrgb8888_to_mono(ptr noundef readonly captures(non
 90:                                               ; preds = %.preheader9, %90
   %91 = phi i64 [ %107, %90 ], [ 0, %.preheader9 ]
   %92 = phi ptr [ %106, %90 ], [ %65, %.preheader9 ]
-  %93 = getelementptr i32, ptr %63, i64 %91
+  %93 = getelementptr [4 x i8], ptr %63, i64 %91
   %94 = load i32, ptr %93, align 4
   %95 = lshr i32 %94, 16
   %96 = lshr i32 %94, 8
@@ -1524,7 +1521,7 @@ declare dso_local ptr @dev_driver_string(ptr noundef) local_unnamed_addr #3
 define dso_local range(i64 -2305843009213693952, 2305843009213693952) i64 @drm_fb_build_fourcc_list(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) #1 align 16 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
-  %8 = getelementptr i32, ptr %3, i64 %4
+  %8 = getelementptr [4 x i8], ptr %3, i64 %4
   %9 = icmp eq i64 %2, 0
   br i1 %9, label %.loopexit18, label %10
 
@@ -1550,7 +1547,7 @@ define dso_local range(i64 -2305843009213693952, 2305843009213693952) i64 @drm_f
   %20 = phi i64 [ 0, %10 ], [ %62, %.loopexit17 ]
   %21 = phi ptr [ %3, %10 ], [ %61, %.loopexit17 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %22 = getelementptr i32, ptr %1, i64 %20
+  %22 = getelementptr [4 x i8], ptr %1, i64 %20
   %23 = load i32, ptr %22, align 4
   switch i32 %23, label %35 [
     i32 892424769, label %36
@@ -1732,7 +1729,7 @@ define internal void @drm_fb_xrgb8888_to_xbgr8888_line(ptr noundef writeonly cap
 7:                                                ; preds = %7, %5
   %8 = phi i64 [ 0, %5 ], [ %20, %7 ]
   %9 = phi ptr [ %0, %5 ], [ %19, %7 ]
-  %10 = getelementptr i32, ptr %1, i64 %8
+  %10 = getelementptr [4 x i8], ptr %1, i64 %8
   %11 = load i32, ptr %10, align 4
   %12 = lshr i32 %11, 16
   %13 = and i32 %12, 255
@@ -1763,7 +1760,7 @@ define internal void @drm_fb_xrgb8888_to_abgr8888_line(ptr noundef writeonly cap
 7:                                                ; preds = %7, %5
   %8 = phi i64 [ 0, %5 ], [ %20, %7 ]
   %9 = phi ptr [ %0, %5 ], [ %19, %7 ]
-  %10 = getelementptr i32, ptr %1, i64 %8
+  %10 = getelementptr [4 x i8], ptr %1, i64 %8
   %11 = load i32, ptr %10, align 4
   %12 = lshr i32 %11, 16
   %13 = and i32 %12, 255

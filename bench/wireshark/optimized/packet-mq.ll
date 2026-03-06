@@ -3842,7 +3842,7 @@ define internal fastcc range(i32 0, 113) i32 @dissect_mq_gmo(ptr noundef %0, ptr
 
 switch.lookup:                                    ; preds = %12
   %18 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.dissect_mq_gmo, i64 %18
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_mq_gmo, i64 %18
   %switch.load = load i32, ptr %switch.gep, align 4
   %19 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3)
   %.not93 = icmp slt i32 %19, %switch.load
@@ -7650,7 +7650,7 @@ define internal fastcc void @dissect_mq_encoding(ptr noundef %0, i32 noundef %1,
 
 switch.lookup:                                    ; preds = %5
   %11 = zext nneg i32 %9 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_mq_encoding, i64 %11
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_mq_encoding, i64 %11
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %12
 
@@ -7704,7 +7704,7 @@ switch.lookup:                                    ; preds = %5
 
 switch.lookup1:                                   ; preds = %28
   %42 = zext nneg i32 %40 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_mq_encoding.1, i64 %42
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_mq_encoding.1, i64 %42
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   br label %43
 

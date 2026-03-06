@@ -834,7 +834,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont18
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 3
   %idx.neg.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i
-  %add.ptr.i.i.i28 = getelementptr inbounds i64, ptr %25, i64 %idx.neg.i.i.i
+  %add.ptr.i.i.i28 = getelementptr inbounds [8 x i8], ptr %25, i64 %idx.neg.i.i.i
   tail call void @_ZdlPvm(ptr noundef %add.ptr.i.i.i28, i64 noundef %sub.ptr.sub.i.i.i) #31
   store ptr null, ptr %isRegular_.i17, align 8
   %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp16, i64 104
@@ -919,7 +919,7 @@ if.then.i.i.i34:                                  ; preds = %_ZN8QuantLib8Schedu
   %sub.ptr.sub.i.i.i38 = sub i64 %sub.ptr.lhs.cast.i.i.i36, %sub.ptr.rhs.cast.i.i.i37
   %sub.ptr.div.i.i.i39 = ashr exact i64 %sub.ptr.sub.i.i.i38, 3
   %idx.neg.i.i.i40 = sub nsw i64 0, %sub.ptr.div.i.i.i39
-  %add.ptr.i.i.i41 = getelementptr inbounds i64, ptr %37, i64 %idx.neg.i.i.i40
+  %add.ptr.i.i.i41 = getelementptr inbounds [8 x i8], ptr %37, i64 %idx.neg.i.i.i40
   tail call void @_ZdlPvm(ptr noundef %add.ptr.i.i.i41, i64 noundef %sub.ptr.sub.i.i.i38) #31
   store ptr null, ptr %isRegular_.i, align 8
   %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i42 = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 104
@@ -1552,7 +1552,7 @@ if.then.i.i.i30:                                  ; preds = %_ZNSt6vectorIN5boos
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 3
   %idx.neg.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i
-  %add.ptr.i.i.i = getelementptr inbounds i64, ptr %54, i64 %idx.neg.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds [8 x i8], ptr %54, i64 %idx.neg.i.i.i
   call void @_ZdlPvm(ptr noundef %add.ptr.i.i.i, i64 noundef %sub.ptr.sub.i.i.i) #31
   store ptr null, ptr %isRegular_.i, align 8
   %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 104
@@ -1909,7 +1909,7 @@ if.then.i.i.i146:                                 ; preds = %_ZN5boost10shared_p
   %sub.ptr.sub.i.i.i150 = sub i64 %sub.ptr.lhs.cast.i.i.i148, %sub.ptr.rhs.cast.i.i.i149
   %sub.ptr.div.i.i.i151 = ashr exact i64 %sub.ptr.sub.i.i.i150, 3
   %idx.neg.i.i.i152 = sub nsw i64 0, %sub.ptr.div.i.i.i151
-  %add.ptr.i.i.i153 = getelementptr inbounds i64, ptr %109, i64 %idx.neg.i.i.i152
+  %add.ptr.i.i.i153 = getelementptr inbounds [8 x i8], ptr %109, i64 %idx.neg.i.i.i152
   call void @_ZdlPvm(ptr noundef %add.ptr.i.i.i153, i64 noundef %sub.ptr.sub.i.i.i150) #31
   store ptr null, ptr %isRegular_.i61, align 8
   %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i154 = getelementptr inbounds nuw i8, ptr %agg.tmp23, i64 104
@@ -2244,7 +2244,7 @@ for.body67:                                       ; preds = %for.cond65.preheade
   %cmp = phi i1 [ true, %for.cond65.preheader ], [ false, %for.cond.cleanup76 ]
   %j.0327 = phi i64 [ 0, %for.cond65.preheader ], [ 1, %for.cond.cleanup76 ]
   %158 = load ptr, ptr %legs_, align 8, !tbaa !97
-  %add.ptr.i217 = getelementptr inbounds nuw %"class.std::vector.65", ptr %158, i64 %j.0327
+  %add.ptr.i217 = getelementptr inbounds nuw [24 x i8], ptr %158, i64 %j.0327
   %159 = load ptr, ptr %add.ptr.i217, align 8, !tbaa !3
   %_M_finish.i218 = getelementptr inbounds nuw i8, ptr %add.ptr.i217, i64 8
   %160 = load ptr, ptr %_M_finish.i218, align 8, !tbaa !3
@@ -2719,7 +2719,7 @@ if.then.i.i:                                      ; preds = %entry
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
   %idx.neg.i.i = sub nsw i64 0, %sub.ptr.div.i.i
-  %add.ptr.i.i = getelementptr inbounds i64, ptr %1, i64 %idx.neg.i.i
+  %add.ptr.i.i = getelementptr inbounds [8 x i8], ptr %1, i64 %idx.neg.i.i
   tail call void @_ZdlPvm(ptr noundef %add.ptr.i.i, i64 noundef %sub.ptr.sub.i.i) #31
   store ptr null, ptr %isRegular_, align 8
   %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 104
@@ -3271,7 +3271,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont16
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 3
   %idx.neg.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i
-  %add.ptr.i.i.i33 = getelementptr inbounds i64, ptr %23, i64 %idx.neg.i.i.i
+  %add.ptr.i.i.i33 = getelementptr inbounds [8 x i8], ptr %23, i64 %idx.neg.i.i.i
   tail call void @_ZdlPvm(ptr noundef %add.ptr.i.i.i33, i64 noundef %sub.ptr.sub.i.i.i) #31
   store ptr null, ptr %isRegular_.i22, align 8
   %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp14, i64 104
@@ -3356,7 +3356,7 @@ if.then.i.i.i39:                                  ; preds = %_ZN8QuantLib8Schedu
   %sub.ptr.sub.i.i.i43 = sub i64 %sub.ptr.lhs.cast.i.i.i41, %sub.ptr.rhs.cast.i.i.i42
   %sub.ptr.div.i.i.i44 = ashr exact i64 %sub.ptr.sub.i.i.i43, 3
   %idx.neg.i.i.i45 = sub nsw i64 0, %sub.ptr.div.i.i.i44
-  %add.ptr.i.i.i46 = getelementptr inbounds i64, ptr %35, i64 %idx.neg.i.i.i45
+  %add.ptr.i.i.i46 = getelementptr inbounds [8 x i8], ptr %35, i64 %idx.neg.i.i.i45
   tail call void @_ZdlPvm(ptr noundef %add.ptr.i.i.i46, i64 noundef %sub.ptr.sub.i.i.i43) #31
   store ptr null, ptr %isRegular_.i, align 8
   %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i47 = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 104
@@ -3673,7 +3673,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont16
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 3
   %idx.neg.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i
-  %add.ptr.i.i.i = getelementptr inbounds i64, ptr %28, i64 %idx.neg.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds [8 x i8], ptr %28, i64 %idx.neg.i.i.i
   tail call void @_ZdlPvm(ptr noundef %add.ptr.i.i.i, i64 noundef %sub.ptr.sub.i.i.i) #31
   store ptr null, ptr %isRegular_.i15, align 8
   %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp14, i64 104
@@ -3758,7 +3758,7 @@ if.then.i.i.i31:                                  ; preds = %_ZN8QuantLib8Schedu
   %sub.ptr.sub.i.i.i35 = sub i64 %sub.ptr.lhs.cast.i.i.i33, %sub.ptr.rhs.cast.i.i.i34
   %sub.ptr.div.i.i.i36 = ashr exact i64 %sub.ptr.sub.i.i.i35, 3
   %idx.neg.i.i.i37 = sub nsw i64 0, %sub.ptr.div.i.i.i36
-  %add.ptr.i.i.i38 = getelementptr inbounds i64, ptr %40, i64 %idx.neg.i.i.i37
+  %add.ptr.i.i.i38 = getelementptr inbounds [8 x i8], ptr %40, i64 %idx.neg.i.i.i37
   tail call void @_ZdlPvm(ptr noundef %add.ptr.i.i.i38, i64 noundef %sub.ptr.sub.i.i.i35) #31
   store ptr null, ptr %isRegular_.i, align 8
   %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i39 = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 104
@@ -4072,7 +4072,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont14
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 3
   %idx.neg.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i
-  %add.ptr.i.i.i = getelementptr inbounds i64, ptr %26, i64 %idx.neg.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds [8 x i8], ptr %26, i64 %idx.neg.i.i.i
   tail call void @_ZdlPvm(ptr noundef %add.ptr.i.i.i, i64 noundef %sub.ptr.sub.i.i.i) #31
   store ptr null, ptr %isRegular_.i20, align 8
   %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp12, i64 104
@@ -4157,7 +4157,7 @@ if.then.i.i.i36:                                  ; preds = %_ZN8QuantLib8Schedu
   %sub.ptr.sub.i.i.i40 = sub i64 %sub.ptr.lhs.cast.i.i.i38, %sub.ptr.rhs.cast.i.i.i39
   %sub.ptr.div.i.i.i41 = ashr exact i64 %sub.ptr.sub.i.i.i40, 3
   %idx.neg.i.i.i42 = sub nsw i64 0, %sub.ptr.div.i.i.i41
-  %add.ptr.i.i.i43 = getelementptr inbounds i64, ptr %38, i64 %idx.neg.i.i.i42
+  %add.ptr.i.i.i43 = getelementptr inbounds [8 x i8], ptr %38, i64 %idx.neg.i.i.i42
   tail call void @_ZdlPvm(ptr noundef %add.ptr.i.i.i43, i64 noundef %sub.ptr.sub.i.i.i40) #31
   store ptr null, ptr %isRegular_.i, align 8
   %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i44 = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 104
@@ -4638,7 +4638,7 @@ if.then.i.i.i57:                                  ; preds = %_ZNSt6vectorIdSaIdE
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 3
   %idx.neg.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i
-  %add.ptr.i.i.i = getelementptr inbounds i64, ptr %42, i64 %idx.neg.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds [8 x i8], ptr %42, i64 %idx.neg.i.i.i
   tail call void @_ZdlPvm(ptr noundef %add.ptr.i.i.i, i64 noundef %sub.ptr.sub.i.i.i) #31
   store ptr null, ptr %isRegular_.i, align 8
   %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 104
@@ -4903,7 +4903,7 @@ if.then.i.i.i37:                                  ; preds = %_ZN5boost10shared_p
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 3
   %idx.neg.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i
-  %add.ptr.i.i.i = getelementptr inbounds i64, ptr %28, i64 %idx.neg.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds [8 x i8], ptr %28, i64 %idx.neg.i.i.i
   tail call void @_ZdlPvm(ptr noundef %add.ptr.i.i.i, i64 noundef %sub.ptr.sub.i.i.i) #31
   store ptr null, ptr %isRegular_.i, align 8
   %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 104

@@ -193,7 +193,7 @@ sub_120:                                          ; preds = %.tail.thread, %.thr
 
 53:                                               ; preds = %50
   %54 = sext i32 %51 to i64
-  %55 = getelementptr inbounds ptr, ptr %1, i64 %54
+  %55 = getelementptr inbounds [8 x i8], ptr %1, i64 %54
   %56 = load ptr, ptr %55, align 8
   store ptr %56, ptr @archiveLocation, align 8
   %57 = add nsw i32 %51, 1
@@ -210,7 +210,7 @@ sub_120:                                          ; preds = %.tail.thread, %.thr
 
 61:                                               ; preds = %53
   %62 = sext i32 %57 to i64
-  %63 = getelementptr inbounds ptr, ptr %1, i64 %62
+  %63 = getelementptr inbounds [8 x i8], ptr %1, i64 %62
   %64 = load ptr, ptr %63, align 8
   store ptr %64, ptr @restartWALFileName, align 8
   %65 = add nsw i32 %51, 2

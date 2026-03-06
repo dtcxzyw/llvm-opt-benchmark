@@ -32,28 +32,15 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Head_base.120" = type { ptr }
 %"class.rocksdb::CacheHandleGuard.121" = type { ptr, ptr, ptr }
 %"class.rocksdb::autovector<rocksdb::BlobReadRequest>::iterator_impl" = type { ptr, i64 }
-%"class.std::tuple.155" = type { %"struct.std::_Tuple_impl.156" }
-%"struct.std::_Tuple_impl.156" = type { %"struct.std::_Tuple_impl.157", %"struct.std::_Head_base.167" }
-%"struct.std::_Tuple_impl.157" = type { %"struct.std::_Tuple_impl.158", %"struct.std::_Head_base.166" }
-%"struct.std::_Tuple_impl.158" = type { %"struct.std::_Head_base.159" }
-%"struct.std::_Head_base.159" = type { %"class.rocksdb::autovector.160" }
-%"class.rocksdb::autovector.160" = type { i64, [384 x i8], ptr, %"class.std::vector.161" }
-%"class.std::vector.161" = type { %"struct.std::_Vector_base.162" }
-%"struct.std::_Vector_base.162" = type { %"struct.std::_Vector_base<rocksdb::BlobReadRequest, std::allocator<rocksdb::BlobReadRequest>>::_Vector_impl" }
-%"struct.std::_Vector_base<rocksdb::BlobReadRequest, std::allocator<rocksdb::BlobReadRequest>>::_Vector_impl" = type { %"struct.std::_Vector_base<rocksdb::BlobReadRequest, std::allocator<rocksdb::BlobReadRequest>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<rocksdb::BlobReadRequest, std::allocator<rocksdb::BlobReadRequest>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.std::_Head_base.166" = type { i64 }
-%"struct.std::_Head_base.167" = type { i64 }
-%"struct.rocksdb::BlobReadRequest" = type { ptr, i64, i64, i8, ptr, ptr }
 %"class.rocksdb::autovector.170" = type { i64, [128 x i8], ptr, %"class.std::vector.171" }
 %"class.std::vector.171" = type { %"struct.std::_Vector_base.172" }
 %"struct.std::_Vector_base.172" = type { %"struct.std::_Vector_base<std::pair<rocksdb::BlobReadRequest *, std::unique_ptr<rocksdb::BlobContents>>, std::allocator<std::pair<rocksdb::BlobReadRequest *, std::unique_ptr<rocksdb::BlobContents>>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::pair<rocksdb::BlobReadRequest *, std::unique_ptr<rocksdb::BlobContents>>, std::allocator<std::pair<rocksdb::BlobReadRequest *, std::unique_ptr<rocksdb::BlobContents>>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::pair<rocksdb::BlobReadRequest *, std::unique_ptr<rocksdb::BlobContents>>, std::allocator<std::pair<rocksdb::BlobReadRequest *, std::unique_ptr<rocksdb::BlobContents>>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::pair<rocksdb::BlobReadRequest *, std::unique_ptr<rocksdb::BlobContents>>, std::allocator<std::pair<rocksdb::BlobReadRequest *, std::unique_ptr<rocksdb::BlobContents>>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.std::pair" = type { ptr, %"class.std::unique_ptr.113" }
 %"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
 %"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
 %"class.std::__shared_count" = type { ptr }
+%"struct.rocksdb::BlobReadRequest" = type { ptr, i64, i64, i8, ptr, ptr }
 
 $_ZNSt6vectorIN7rocksdb5SliceESaIS1_EED2Ev = comdat any
 
@@ -2208,9 +2195,9 @@ define void @_ZN7rocksdb10BlobSource12MultiGetBlobERKNS_11ReadOptionsERNS_10auto
   %.sroa.5.039 = phi i64 [ 0, %.lr.ph ], [ %83, %79 ]
   %25 = icmp ult i64 %.sroa.5.039, 8
   %26 = load ptr, ptr %22, align 8
-  %27 = getelementptr inbounds nuw %"class.std::tuple.155", ptr %26, i64 %.sroa.5.039
+  %27 = getelementptr inbounds nuw [440 x i8], ptr %26, i64 %.sroa.5.039
   %28 = load ptr, ptr %13, align 8
-  %29 = getelementptr %"class.std::tuple.155", ptr %28, i64 %.sroa.5.039
+  %29 = getelementptr [440 x i8], ptr %28, i64 %.sroa.5.039
   %30 = getelementptr i8, ptr %29, i64 -3520
   %.0.i.i = select i1 %25, ptr %27, ptr %30
   %31 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 432
@@ -2259,7 +2246,7 @@ define void @_ZN7rocksdb10BlobSource12MultiGetBlobERKNS_11ReadOptionsERNS_10auto
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6.i.i.i.i.i)
   %49 = load ptr, ptr %47, align 8
   %50 = load ptr, ptr %33, align 8
-  %51 = getelementptr %"struct.rocksdb::BlobReadRequest", ptr %50, i64 %.sroa.5.08.i.i.i.i
+  %51 = getelementptr [48 x i8], ptr %50, i64 %.sroa.5.08.i.i.i.i
   %52 = getelementptr i8, ptr %51, i64 -384
   %.sroa.016.0.copyload.i.i.i.i.i = load ptr, ptr %52, align 8, !tbaa !253
   %.sroa.5.0..0.i.i.sroa_idx.i.i.i.i.i = getelementptr i8, ptr %51, i64 -376
@@ -2267,7 +2254,7 @@ define void @_ZN7rocksdb10BlobSource12MultiGetBlobERKNS_11ReadOptionsERNS_10auto
   %.sroa.6.0..0.i.i.sroa_idx.i.i.i.i.i = getelementptr i8, ptr %51, i64 -368
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6.0..0.i.i.sroa_idx.i.i.i.i.i, i64 32, i1 false), !tbaa.struct !254
   %.sroa.7.019.i.i.i.i.i = add nsw i64 %.sroa.5.08.i.i.i.i, -1
-  %53 = getelementptr %"struct.rocksdb::BlobReadRequest", ptr %50, i64 %.sroa.7.019.i.i.i.i.i
+  %53 = getelementptr [48 x i8], ptr %50, i64 %.sroa.7.019.i.i.i.i.i
   %54 = getelementptr i8, ptr %53, i64 -376
   %.val2.i23.i.i.i.i.i = load i64, ptr %54, align 8, !tbaa !260
   %55 = icmp ult i64 %.sroa.5.0.copyload.i.i.i.i.i, %.val2.i23.i.i.i.i.i
@@ -2284,8 +2271,8 @@ define void @_ZN7rocksdb10BlobSource12MultiGetBlobERKNS_11ReadOptionsERNS_10auto
   %.0.i.i.i25.i.i.i.i.i = phi ptr [ %.0.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %56, %.lr.ph.i.i.i.i.i.preheader ]
   %.sroa.7.024.i.i.i.i.i = phi i64 [ %.sroa.7.0.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.sroa.7.019.i.i.i.i.i, %.lr.ph.i.i.i.i.i.preheader ]
   %60 = icmp ult i64 %59, 8
-  %61 = getelementptr inbounds nuw %"struct.rocksdb::BlobReadRequest", ptr %58, i64 %59
-  %62 = getelementptr %"struct.rocksdb::BlobReadRequest", ptr %57, i64 %59
+  %61 = getelementptr inbounds nuw [48 x i8], ptr %58, i64 %59
+  %62 = getelementptr [48 x i8], ptr %57, i64 %59
   %63 = getelementptr i8, ptr %62, i64 -384
   %.0.i.i7.i.i.i.i.i = select i1 %60, ptr %61, ptr %63
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i7.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i.i25.i.i.i.i.i, i64 48, i1 false), !tbaa.struct !262
@@ -2293,8 +2280,8 @@ define void @_ZN7rocksdb10BlobSource12MultiGetBlobERKNS_11ReadOptionsERNS_10auto
   %.val3.val.i.i.i.i.i = load ptr, ptr %47, align 8
   %.val3.val5.i.i.i.i.i = load ptr, ptr %33, align 8
   %64 = icmp ult i64 %.sroa.7.0.i.i.i.i.i, 8
-  %65 = getelementptr inbounds nuw %"struct.rocksdb::BlobReadRequest", ptr %.val3.val.i.i.i.i.i, i64 %.sroa.7.0.i.i.i.i.i
-  %66 = getelementptr %"struct.rocksdb::BlobReadRequest", ptr %.val3.val5.i.i.i.i.i, i64 %.sroa.7.0.i.i.i.i.i
+  %65 = getelementptr inbounds nuw [48 x i8], ptr %.val3.val.i.i.i.i.i, i64 %.sroa.7.0.i.i.i.i.i
+  %66 = getelementptr [48 x i8], ptr %.val3.val5.i.i.i.i.i, i64 %.sroa.7.0.i.i.i.i.i
   %67 = getelementptr i8, ptr %66, i64 -384
   %.0.i.i.i.i.i.i.i.i = select i1 %64, ptr %65, ptr %67
   %68 = getelementptr i8, ptr %.0.i.i.i.i.i.i.i.i, i64 8
@@ -2307,8 +2294,8 @@ define void @_ZN7rocksdb10BlobSource12MultiGetBlobERKNS_11ReadOptionsERNS_10auto
   %71 = phi ptr [ %49, %48 ], [ %.val3.val.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %72 = phi i64 [ %.sroa.5.08.i.i.i.i, %48 ], [ %.sroa.7.024.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %73 = icmp ult i64 %72, 8
-  %74 = getelementptr inbounds nuw %"struct.rocksdb::BlobReadRequest", ptr %71, i64 %72
-  %75 = getelementptr %"struct.rocksdb::BlobReadRequest", ptr %70, i64 %72
+  %74 = getelementptr inbounds nuw [48 x i8], ptr %71, i64 %72
+  %75 = getelementptr [48 x i8], ptr %70, i64 %72
   %76 = getelementptr i8, ptr %75, i64 -384
   %.0.i.i8.i.i.i.i.i = select i1 %73, ptr %74, ptr %76
   store ptr %.sroa.016.0.copyload.i.i.i.i.i, ptr %.0.i.i8.i.i.i.i.i, align 8, !tbaa !253
@@ -2429,9 +2416,9 @@ define void @_ZN7rocksdb10BlobSource23MultiGetBlobFromOneFileERKNS_11ReadOptions
   %.080292 = phi i64 [ 0, %.lr.ph ], [ %153, %_ZN7rocksdb16CacheHandleGuardINS_12BlobContentsEED2Ev.exit ]
   %57 = icmp ult i64 %.080292, 8
   %58 = load ptr, ptr %42, align 8
-  %59 = getelementptr inbounds nuw %"struct.rocksdb::BlobReadRequest", ptr %58, i64 %.080292
+  %59 = getelementptr inbounds nuw [48 x i8], ptr %58, i64 %.080292
   %60 = load ptr, ptr %28, align 8
-  %61 = getelementptr %"struct.rocksdb::BlobReadRequest", ptr %60, i64 %.080292
+  %61 = getelementptr [48 x i8], ptr %60, i64 %.080292
   %62 = getelementptr i8, ptr %61, i64 -384
   %.0.i = select i1 %57, ptr %59, ptr %62
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -2719,9 +2706,9 @@ _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %_ZNKSt14default_del
 170:                                              ; preds = %167
   %171 = icmp ult i64 %.0103312, 8
   %172 = load ptr, ptr %158, align 8
-  %173 = getelementptr inbounds nuw %"struct.rocksdb::BlobReadRequest", ptr %172, i64 %.0103312
+  %173 = getelementptr inbounds nuw [48 x i8], ptr %172, i64 %.0103312
   %174 = load ptr, ptr %28, align 8
-  %175 = getelementptr %"struct.rocksdb::BlobReadRequest", ptr %174, i64 %.0103312
+  %175 = getelementptr [48 x i8], ptr %174, i64 %.0103312
   %176 = getelementptr i8, ptr %175, i64 -384
   %.0.i150 = select i1 %171, ptr %173, ptr %176
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
@@ -2833,9 +2820,9 @@ _ZN7rocksdb6StatusD2Ev.exit157:                   ; preds = %_ZN7rocksdb6Statusa
 211:                                              ; preds = %206
   %212 = icmp ult i64 %.0104298, 8
   %213 = load ptr, ptr %201, align 8
-  %214 = getelementptr inbounds nuw %"struct.rocksdb::BlobReadRequest", ptr %213, i64 %.0104298
+  %214 = getelementptr inbounds nuw [48 x i8], ptr %213, i64 %.0104298
   %215 = load ptr, ptr %28, align 8
-  %216 = getelementptr %"struct.rocksdb::BlobReadRequest", ptr %215, i64 %.0104298
+  %216 = getelementptr [48 x i8], ptr %215, i64 %.0104298
   %217 = getelementptr i8, ptr %216, i64 -384
   %.0.i158 = select i1 %212, ptr %214, ptr %217
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
@@ -2848,7 +2835,7 @@ _ZN7rocksdb6StatusD2Ev.exit157:                   ; preds = %_ZN7rocksdb6Statusa
   %221 = load ptr, ptr %198, align 8, !tbaa !278
   %222 = add nuw nsw i64 %218, 1
   store i64 %222, ptr %18, align 8, !tbaa !271
-  %223 = getelementptr inbounds nuw %"struct.std::pair", ptr %221, i64 %218
+  %223 = getelementptr inbounds nuw [16 x i8], ptr %221, i64 %218
   store ptr %.0.i158, ptr %223, align 8, !tbaa !279
   %224 = getelementptr inbounds nuw i8, ptr %223, i64 8
   store i64 0, ptr %224, align 8, !tbaa !141
@@ -2932,7 +2919,7 @@ _ZNSt6vectorISt4pairIPN7rocksdb15BlobReadRequestESt10unique_ptrINS1_12BlobConten
 _ZN7rocksdb10autovectorISt4pairIPNS_15BlobReadRequestESt10unique_ptrINS_12BlobContentsESt14default_deleteIS5_EEELm8EE12emplace_backIJS3_S8_EEEvDpOT_.exit: ; preds = %_ZNSt6vectorISt4pairIPN7rocksdb15BlobReadRequestESt10unique_ptrINS1_12BlobContentsESt14default_deleteIS5_EEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit33.i, %252
   store ptr %242, ptr %200, align 8, !tbaa !287
   store ptr %251, ptr %202, align 8, !tbaa !286
-  %253 = getelementptr inbounds nuw %"struct.std::pair", ptr %242, i64 %240
+  %253 = getelementptr inbounds nuw [16 x i8], ptr %242, i64 %240
   store ptr %253, ptr %203, align 8, !tbaa !294
   br label %_ZNSt10unique_ptrIN7rocksdb12BlobContentsESt14default_deleteIS1_EED2Ev.exit
 
@@ -3004,8 +2991,8 @@ _ZNSt10unique_ptrIN7rocksdb12BlobContentsESt14default_deleteIS1_EED2Ev.exit: ; p
   %.0105302 = phi i64 [ 0, %.lr.ph303 ], [ %314, %_ZN7rocksdb6StatusaSERKS0_.exit175 ]
   %285 = icmp ult i64 %.0105302, 8
   %286 = load ptr, ptr %198, align 8
-  %287 = getelementptr inbounds nuw %"struct.std::pair", ptr %286, i64 %.0105302
-  %288 = getelementptr %"struct.std::pair", ptr %282, i64 %.0105302
+  %287 = getelementptr inbounds nuw [16 x i8], ptr %286, i64 %.0105302
+  %288 = getelementptr [16 x i8], ptr %282, i64 %.0105302
   %289 = getelementptr i8, ptr %288, i64 -128
   %.0.i164 = select i1 %285, ptr %287, ptr %289
   %290 = load ptr, ptr %.0.i164, align 8, !tbaa !279
@@ -3160,9 +3147,9 @@ _ZN7rocksdb6StatusaSERKS0_.exit175:               ; preds = %_ZNSt10unique_ptrIA
   %.sroa.5247.0309 = phi i64 [ 0, %.lr.ph311 ], [ %465, %464 ]
   %371 = icmp ult i64 %.sroa.5247.0309, 8
   %372 = load ptr, ptr %198, align 8
-  %373 = getelementptr inbounds nuw %"struct.std::pair", ptr %372, i64 %.sroa.5247.0309
+  %373 = getelementptr inbounds nuw [16 x i8], ptr %372, i64 %.sroa.5247.0309
   %374 = load ptr, ptr %200, align 8
-  %375 = getelementptr %"struct.std::pair", ptr %374, i64 %.sroa.5247.0309
+  %375 = getelementptr [16 x i8], ptr %374, i64 %.sroa.5247.0309
   %376 = getelementptr i8, ptr %375, i64 -128
   %.0.i.i = select i1 %371, ptr %373, ptr %376
   %377 = load ptr, ptr %.0.i.i, align 8, !tbaa !297
@@ -3425,9 +3412,9 @@ _ZN7rocksdb16CacheHandleGuardINS_12BlobContentsEED2Ev.exit212: ; preds = %_ZN7ro
   %.sroa.5.0305 = phi i64 [ %506, %_ZN7rocksdb10BlobSource12PinOwnedBlobEPSt10unique_ptrINS_12BlobContentsESt14default_deleteIS2_EEPNS_13PinnableSliceE.exit ], [ 0, %466 ]
   %467 = icmp ult i64 %.sroa.5.0305, 8
   %468 = load ptr, ptr %198, align 8
-  %469 = getelementptr inbounds nuw %"struct.std::pair", ptr %468, i64 %.sroa.5.0305
+  %469 = getelementptr inbounds nuw [16 x i8], ptr %468, i64 %.sroa.5.0305
   %470 = load ptr, ptr %200, align 8
-  %471 = getelementptr %"struct.std::pair", ptr %470, i64 %.sroa.5.0305
+  %471 = getelementptr [16 x i8], ptr %470, i64 %.sroa.5.0305
   %472 = getelementptr i8, ptr %471, i64 -128
   %.0.i.i213 = select i1 %467, ptr %469, ptr %472
   %473 = load ptr, ptr %.0.i.i213, align 8, !tbaa !297
@@ -4490,9 +4477,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIN7rocksdb10autovectorINS0_1
   %35 = add i64 %.09.i.i.i, %.fr35.i42
   %36 = icmp ult i64 %35, 8
   %37 = load ptr, ptr %32, align 8
-  %38 = getelementptr inbounds nuw %"struct.rocksdb::BlobReadRequest", ptr %37, i64 %35
+  %38 = getelementptr inbounds nuw [48 x i8], ptr %37, i64 %35
   %39 = load ptr, ptr %33, align 8
-  %40 = getelementptr %"struct.rocksdb::BlobReadRequest", ptr %39, i64 %35
+  %40 = getelementptr [48 x i8], ptr %39, i64 %35
   %41 = getelementptr i8, ptr %40, i64 -384
   %.0.i.i.i.i.i = select i1 %36, ptr %38, ptr %41
   store ptr %.sroa.033.0.copyload, ptr %13, align 8, !tbaa !245
@@ -4520,13 +4507,13 @@ define internal fastcc void @"_ZSt16__introsort_loopIN7rocksdb10autovectorINS0_1
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %50 = icmp ult i64 %49, 8
-  %51 = getelementptr inbounds nuw %"struct.rocksdb::BlobReadRequest", ptr %.val.val.i4.i.us, i64 %49
-  %52 = getelementptr %"struct.rocksdb::BlobReadRequest", ptr %.val.val3.i.i.us, i64 %49
+  %51 = getelementptr inbounds nuw [48 x i8], ptr %.val.val.i4.i.us, i64 %49
+  %52 = getelementptr [48 x i8], ptr %.val.val3.i.i.us, i64 %49
   %53 = getelementptr i8, ptr %52, i64 -384
   %.0.i.i.i.i5.i.us = select i1 %50, ptr %51, ptr %53
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i.i.i5.i.us, i64 48, i1 false)
   %54 = load ptr, ptr %46, align 8
-  %55 = getelementptr inbounds nuw %"struct.rocksdb::BlobReadRequest", ptr %54, i64 %.fr35.i42
+  %55 = getelementptr inbounds nuw [48 x i8], ptr %54, i64 %.fr35.i42
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i.i.i5.i.us, ptr noundef nonnull align 8 dereferenceable(48) %55, i64 48, i1 false), !tbaa.struct !262
   store ptr %.sroa.033.0.copyload, ptr %11, align 8, !tbaa !245
   store i64 %.fr35.i42, ptr %.sroa.3.0..sroa_idx4.i.i, align 8, !tbaa !86
@@ -4545,13 +4532,13 @@ define internal fastcc void @"_ZSt16__introsort_loopIN7rocksdb10autovectorINS0_1
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %60 = icmp ult i64 %59, 8
-  %61 = getelementptr inbounds nuw %"struct.rocksdb::BlobReadRequest", ptr %.val.val.i4.i, i64 %59
-  %62 = getelementptr %"struct.rocksdb::BlobReadRequest", ptr %.val.val3.i.i, i64 %59
+  %61 = getelementptr inbounds nuw [48 x i8], ptr %.val.val.i4.i, i64 %59
+  %62 = getelementptr [48 x i8], ptr %.val.val3.i.i, i64 %59
   %63 = getelementptr i8, ptr %62, i64 -384
   %.0.i.i.i.i5.i = select i1 %60, ptr %61, ptr %63
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i.i.i5.i, i64 48, i1 false)
   %64 = load ptr, ptr %47, align 8
-  %65 = getelementptr %"struct.rocksdb::BlobReadRequest", ptr %64, i64 %.fr35.i42
+  %65 = getelementptr [48 x i8], ptr %64, i64 %.fr35.i42
   %66 = getelementptr i8, ptr %65, i64 -384
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i.i.i5.i, ptr noundef nonnull align 8 dereferenceable(48) %66, i64 48, i1 false), !tbaa.struct !262
   store ptr %.sroa.033.0.copyload, ptr %11, align 8, !tbaa !245
@@ -4576,13 +4563,13 @@ define internal fastcc void @"_ZSt16__introsort_loopIN7rocksdb10autovectorINS0_1
   %76 = getelementptr i8, ptr %.sroa.021.0.copyload, i64 400
   %.val18.val22.i.i = load ptr, ptr %76, align 8, !noalias !318
   %77 = icmp ult i64 %73, 8
-  %78 = getelementptr inbounds nuw %"struct.rocksdb::BlobReadRequest", ptr %.val18.val.i.i, i64 %73
-  %79 = getelementptr %"struct.rocksdb::BlobReadRequest", ptr %.val18.val22.i.i, i64 %73
+  %78 = getelementptr inbounds nuw [48 x i8], ptr %.val18.val.i.i, i64 %73
+  %79 = getelementptr [48 x i8], ptr %.val18.val22.i.i, i64 %73
   %80 = getelementptr i8, ptr %79, i64 -384
   %.0.i.i.i.i.i15 = select i1 %77, ptr %78, ptr %80
   %81 = icmp ult i64 %72, 8
-  %82 = getelementptr inbounds nuw %"struct.rocksdb::BlobReadRequest", ptr %.val18.val.i.i, i64 %72
-  %83 = getelementptr %"struct.rocksdb::BlobReadRequest", ptr %.val18.val22.i.i, i64 %72
+  %82 = getelementptr inbounds nuw [48 x i8], ptr %.val18.val.i.i, i64 %72
+  %83 = getelementptr [48 x i8], ptr %.val18.val22.i.i, i64 %72
   %84 = getelementptr i8, ptr %83, i64 -384
   %.0.i.i2.i.i.i = select i1 %81, ptr %82, ptr %84
   %85 = getelementptr i8, ptr %.0.i.i.i.i.i15, i64 8
@@ -4595,8 +4582,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIN7rocksdb10autovectorINS0_1
   %89 = getelementptr i8, ptr %.sroa.0.0.copyload, i64 400
   %.val16.val25.i.i = load ptr, ptr %89, align 8, !noalias !318
   %90 = icmp ult i64 %74, 8
-  %91 = getelementptr inbounds nuw %"struct.rocksdb::BlobReadRequest", ptr %.val16.val.i.i, i64 %74
-  %92 = getelementptr %"struct.rocksdb::BlobReadRequest", ptr %.val16.val25.i.i, i64 %74
+  %91 = getelementptr inbounds nuw [48 x i8], ptr %.val16.val.i.i, i64 %74
+  %92 = getelementptr [48 x i8], ptr %.val16.val25.i.i, i64 %74
   %93 = getelementptr i8, ptr %92, i64 -384
   %.0.i.i2.i33.i.i = select i1 %90, ptr %91, ptr %93
   %94 = getelementptr i8, ptr %.0.i.i2.i33.i.i, i64 8
@@ -4609,8 +4596,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIN7rocksdb10autovectorINS0_1
 
 97:                                               ; preds = %95
   %98 = icmp ult i64 %.fr35.i42, 8
-  %99 = getelementptr inbounds nuw %"struct.rocksdb::BlobReadRequest", ptr %.val18.val.i.i, i64 %.fr35.i42
-  %100 = getelementptr %"struct.rocksdb::BlobReadRequest", ptr %.val18.val22.i.i, i64 %.fr35.i42
+  %99 = getelementptr inbounds nuw [48 x i8], ptr %.val18.val.i.i, i64 %.fr35.i42
+  %100 = getelementptr [48 x i8], ptr %.val18.val22.i.i, i64 %.fr35.i42
   %101 = getelementptr i8, ptr %100, i64 -384
   %.0.i.i.i36.i.i = select i1 %98, ptr %99, ptr %101
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -4623,8 +4610,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIN7rocksdb10autovectorINS0_1
 102:                                              ; preds = %95
   %103 = icmp ult i64 %.val.i.i.i16, %.val1.i35.i.i
   %104 = icmp ult i64 %.fr35.i42, 8
-  %105 = getelementptr inbounds nuw %"struct.rocksdb::BlobReadRequest", ptr %.val18.val.i.i, i64 %.fr35.i42
-  %106 = getelementptr %"struct.rocksdb::BlobReadRequest", ptr %.val18.val22.i.i, i64 %.fr35.i42
+  %105 = getelementptr inbounds nuw [48 x i8], ptr %.val18.val.i.i, i64 %.fr35.i42
+  %106 = getelementptr [48 x i8], ptr %.val18.val22.i.i, i64 %.fr35.i42
   %107 = getelementptr i8, ptr %106, i64 -384
   %.0.i.i.i41.i.i = select i1 %104, ptr %105, ptr %107
   br i1 %103, label %108, label %109
@@ -4651,8 +4638,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIN7rocksdb10autovectorINS0_1
 
 112:                                              ; preds = %110
   %113 = icmp ult i64 %.fr35.i42, 8
-  %114 = getelementptr inbounds nuw %"struct.rocksdb::BlobReadRequest", ptr %.val18.val.i.i, i64 %.fr35.i42
-  %115 = getelementptr %"struct.rocksdb::BlobReadRequest", ptr %.val18.val22.i.i, i64 %.fr35.i42
+  %114 = getelementptr inbounds nuw [48 x i8], ptr %.val18.val.i.i, i64 %.fr35.i42
+  %115 = getelementptr [48 x i8], ptr %.val18.val22.i.i, i64 %.fr35.i42
   %116 = getelementptr i8, ptr %115, i64 -384
   %.0.i.i.i49.i.i = select i1 %113, ptr %114, ptr %116
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -4665,8 +4652,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIN7rocksdb10autovectorINS0_1
 117:                                              ; preds = %110
   %118 = icmp ult i64 %.val1.i.i.i17, %.val1.i35.i.i
   %119 = icmp ult i64 %.fr35.i42, 8
-  %120 = getelementptr inbounds nuw %"struct.rocksdb::BlobReadRequest", ptr %.val18.val.i.i, i64 %.fr35.i42
-  %121 = getelementptr %"struct.rocksdb::BlobReadRequest", ptr %.val18.val22.i.i, i64 %.fr35.i42
+  %120 = getelementptr inbounds nuw [48 x i8], ptr %.val18.val.i.i, i64 %.fr35.i42
+  %121 = getelementptr [48 x i8], ptr %.val18.val22.i.i, i64 %.fr35.i42
   %122 = getelementptr i8, ptr %121, i64 -384
   %.0.i.i.i55.i.i = select i1 %119, ptr %120, ptr %122
   br i1 %118, label %123, label %124
@@ -4696,7 +4683,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN7rocksdb10autovectorINS0_1
   %.sroa.3.0.in.us.i = phi i64 [ %.sroa.228.0.copyload.i.us.i, %146 ], [ %.fr35.i42, %125 ]
   %.val6.val.i.us.i19 = load ptr, ptr %75, align 8, !noalias !321
   %.val6.val10.i.us.i = load ptr, ptr %76, align 8, !noalias !321
-  %127 = getelementptr inbounds nuw %"struct.rocksdb::BlobReadRequest", ptr %.val6.val.i.us.i19, i64 %.fr35.i42
+  %127 = getelementptr inbounds nuw [48 x i8], ptr %.val6.val.i.us.i19, i64 %.fr35.i42
   %128 = getelementptr i8, ptr %127, i64 8
   %.val1.i.i14.us.i = load i64, ptr %128, align 8, !tbaa !260, !noalias !321
   br label %129
@@ -4705,8 +4692,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIN7rocksdb10autovectorINS0_1
   %.sroa.228.0.copyload.i.in.us.i = phi i64 [ %.sroa.3.0.in.us.i, %.split.us.i ], [ %.sroa.228.0.copyload.i.us.i, %129 ]
   %.sroa.228.0.copyload.i.us.i = add i64 %.sroa.228.0.copyload.i.in.us.i, 1
   %130 = icmp ult i64 %.sroa.228.0.copyload.i.us.i, 8
-  %131 = getelementptr inbounds nuw %"struct.rocksdb::BlobReadRequest", ptr %.val6.val.i.us.i19, i64 %.sroa.228.0.copyload.i.us.i
-  %132 = getelementptr %"struct.rocksdb::BlobReadRequest", ptr %.val6.val10.i.us.i, i64 %.sroa.228.0.copyload.i.us.i
+  %131 = getelementptr inbounds nuw [48 x i8], ptr %.val6.val.i.us.i19, i64 %.sroa.228.0.copyload.i.us.i
+  %132 = getelementptr [48 x i8], ptr %.val6.val10.i.us.i, i64 %.sroa.228.0.copyload.i.us.i
   %133 = getelementptr i8, ptr %132, i64 -384
   %.0.i.i.i.i11.us.i = select i1 %130, ptr %131, ptr %133
   %134 = getelementptr i8, ptr %.0.i.i.i.i11.us.i, i64 8
@@ -4723,8 +4710,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIN7rocksdb10autovectorINS0_1
   %storemerge.in.i.us.i = phi i64 [ %.sroa.217.0.us.i, %136 ], [ %storemerge.i.us.i, %137 ]
   %storemerge.i.us.i = add i64 %storemerge.in.i.us.i, -1
   %138 = icmp ult i64 %storemerge.i.us.i, 8
-  %139 = getelementptr inbounds nuw %"struct.rocksdb::BlobReadRequest", ptr %.val4.val.i.us.i, i64 %storemerge.i.us.i
-  %140 = getelementptr %"struct.rocksdb::BlobReadRequest", ptr %.val4.val13.i.us.i, i64 %storemerge.i.us.i
+  %139 = getelementptr inbounds nuw [48 x i8], ptr %.val4.val.i.us.i, i64 %storemerge.i.us.i
+  %140 = getelementptr [48 x i8], ptr %.val4.val13.i.us.i, i64 %storemerge.i.us.i
   %141 = getelementptr i8, ptr %140, i64 -384
   %.0.i.i2.i15.i.us.i = select i1 %138, ptr %139, ptr %141
   %142 = getelementptr i8, ptr %.0.i.i2.i15.i.us.i, i64 8
@@ -4749,7 +4736,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN7rocksdb10autovectorINS0_1
   %.sroa.3.0.in.i = phi i64 [ %.sroa.228.0.copyload.i.i, %166 ], [ %.fr35.i42, %125 ]
   %.val6.val.i.i = load ptr, ptr %75, align 8, !noalias !321
   %.val6.val10.i.i = load ptr, ptr %76, align 8, !noalias !321
-  %147 = getelementptr %"struct.rocksdb::BlobReadRequest", ptr %.val6.val10.i.i, i64 %.fr35.i42
+  %147 = getelementptr [48 x i8], ptr %.val6.val10.i.i, i64 %.fr35.i42
   %148 = getelementptr i8, ptr %147, i64 -376
   %.val1.i.i14.i = load i64, ptr %148, align 8, !tbaa !260, !noalias !321
   br label %149
@@ -4758,8 +4745,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIN7rocksdb10autovectorINS0_1
   %.sroa.228.0.copyload.i.in.i = phi i64 [ %.sroa.3.0.in.i, %.split.i ], [ %.sroa.228.0.copyload.i.i, %149 ]
   %.sroa.228.0.copyload.i.i = add i64 %.sroa.228.0.copyload.i.in.i, 1
   %150 = icmp ult i64 %.sroa.228.0.copyload.i.i, 8
-  %151 = getelementptr inbounds nuw %"struct.rocksdb::BlobReadRequest", ptr %.val6.val.i.i, i64 %.sroa.228.0.copyload.i.i
-  %152 = getelementptr %"struct.rocksdb::BlobReadRequest", ptr %.val6.val10.i.i, i64 %.sroa.228.0.copyload.i.i
+  %151 = getelementptr inbounds nuw [48 x i8], ptr %.val6.val.i.i, i64 %.sroa.228.0.copyload.i.i
+  %152 = getelementptr [48 x i8], ptr %.val6.val10.i.i, i64 %.sroa.228.0.copyload.i.i
   %153 = getelementptr i8, ptr %152, i64 -384
   %.0.i.i.i.i11.i = select i1 %150, ptr %151, ptr %153
   %154 = getelementptr i8, ptr %.0.i.i.i.i11.i, i64 8
@@ -4776,8 +4763,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIN7rocksdb10autovectorINS0_1
   %storemerge.in.i.i = phi i64 [ %.sroa.217.0.i, %156 ], [ %storemerge.i.i, %157 ]
   %storemerge.i.i = add i64 %storemerge.in.i.i, -1
   %158 = icmp ult i64 %storemerge.i.i, 8
-  %159 = getelementptr inbounds nuw %"struct.rocksdb::BlobReadRequest", ptr %.val4.val.i.i, i64 %storemerge.i.i
-  %160 = getelementptr %"struct.rocksdb::BlobReadRequest", ptr %.val4.val13.i.i, i64 %storemerge.i.i
+  %159 = getelementptr inbounds nuw [48 x i8], ptr %.val4.val.i.i, i64 %storemerge.i.i
+  %160 = getelementptr [48 x i8], ptr %.val4.val13.i.i, i64 %storemerge.i.i
   %161 = getelementptr i8, ptr %160, i64 -384
   %.0.i.i2.i15.i.i = select i1 %158, ptr %159, ptr %161
   %162 = getelementptr i8, ptr %.0.i.i2.i15.i.i, i64 8
@@ -4840,13 +4827,13 @@ define internal fastcc void @"_ZSt13__adjust_heapIN7rocksdb10autovectorINS0_15Bl
   %18 = getelementptr i8, ptr %12, i64 400
   %.val.val42 = load ptr, ptr %18, align 8
   %19 = icmp ult i64 %14, 8
-  %20 = getelementptr inbounds nuw %"struct.rocksdb::BlobReadRequest", ptr %.val.val, i64 %14
-  %21 = getelementptr %"struct.rocksdb::BlobReadRequest", ptr %.val.val42, i64 %14
+  %20 = getelementptr inbounds nuw [48 x i8], ptr %.val.val, i64 %14
+  %21 = getelementptr [48 x i8], ptr %.val.val42, i64 %14
   %22 = getelementptr i8, ptr %21, i64 -384
   %.0.i.i.i = select i1 %19, ptr %20, ptr %22
   %23 = icmp ult i64 %16, 8
-  %24 = getelementptr inbounds nuw %"struct.rocksdb::BlobReadRequest", ptr %.val.val, i64 %16
-  %25 = getelementptr %"struct.rocksdb::BlobReadRequest", ptr %.val.val42, i64 %16
+  %24 = getelementptr inbounds nuw [48 x i8], ptr %.val.val, i64 %16
+  %25 = getelementptr [48 x i8], ptr %.val.val42, i64 %16
   %26 = getelementptr i8, ptr %25, i64 -384
   %.0.i.i2.i = select i1 %23, ptr %24, ptr %26
   %27 = getelementptr i8, ptr %.0.i.i.i, i64 8
@@ -4857,14 +4844,14 @@ define internal fastcc void @"_ZSt13__adjust_heapIN7rocksdb10autovectorINS0_15Bl
   %spec.select = select i1 %29, i64 %15, i64 %11
   %30 = add i64 %spec.select, %13
   %31 = icmp ult i64 %30, 8
-  %32 = getelementptr inbounds nuw %"struct.rocksdb::BlobReadRequest", ptr %.val.val, i64 %30
-  %33 = getelementptr %"struct.rocksdb::BlobReadRequest", ptr %.val.val42, i64 %30
+  %32 = getelementptr inbounds nuw [48 x i8], ptr %.val.val, i64 %30
+  %33 = getelementptr [48 x i8], ptr %.val.val42, i64 %30
   %34 = getelementptr i8, ptr %33, i64 -384
   %.0.i.i = select i1 %31, ptr %32, ptr %34
   %35 = add i64 %13, %.02767
   %36 = icmp ult i64 %35, 8
-  %37 = getelementptr inbounds nuw %"struct.rocksdb::BlobReadRequest", ptr %.val.val, i64 %35
-  %38 = getelementptr %"struct.rocksdb::BlobReadRequest", ptr %.val.val42, i64 %35
+  %37 = getelementptr inbounds nuw [48 x i8], ptr %.val.val, i64 %35
+  %38 = getelementptr [48 x i8], ptr %.val.val42, i64 %35
   %39 = getelementptr i8, ptr %38, i64 -384
   %.0.i.i44 = select i1 %36, ptr %37, ptr %39
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i44, ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i, i64 48, i1 false), !tbaa.struct !262
@@ -4893,16 +4880,16 @@ define internal fastcc void @"_ZSt13__adjust_heapIN7rocksdb10autovectorINS0_15Bl
   %54 = icmp ult i64 %53, 8
   %55 = getelementptr inbounds nuw i8, ptr %50, i64 392
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds nuw %"struct.rocksdb::BlobReadRequest", ptr %56, i64 %53
+  %57 = getelementptr inbounds nuw [48 x i8], ptr %56, i64 %53
   %58 = getelementptr inbounds nuw i8, ptr %50, i64 400
   %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr %"struct.rocksdb::BlobReadRequest", ptr %59, i64 %53
+  %60 = getelementptr [48 x i8], ptr %59, i64 %53
   %61 = getelementptr i8, ptr %60, i64 -384
   %.0.i.i45 = select i1 %54, ptr %57, ptr %61
   %62 = add i64 %52, %.027.lcssa
   %63 = icmp ult i64 %62, 8
-  %64 = getelementptr inbounds nuw %"struct.rocksdb::BlobReadRequest", ptr %56, i64 %62
-  %65 = getelementptr %"struct.rocksdb::BlobReadRequest", ptr %59, i64 %62
+  %64 = getelementptr inbounds nuw [48 x i8], ptr %56, i64 %62
+  %65 = getelementptr [48 x i8], ptr %59, i64 %62
   %66 = getelementptr i8, ptr %65, i64 -384
   %.0.i.i46 = select i1 %63, ptr %64, ptr %66
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i46, ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i45, i64 48, i1 false), !tbaa.struct !262
@@ -4932,8 +4919,8 @@ define internal fastcc void @"_ZSt13__adjust_heapIN7rocksdb10autovectorINS0_15Bl
   %.val.val.i = load ptr, ptr %69, align 8
   %.val.val24.i = load ptr, ptr %70, align 8
   %72 = icmp ult i64 %71, 8
-  %73 = getelementptr inbounds nuw %"struct.rocksdb::BlobReadRequest", ptr %.val.val.i, i64 %71
-  %74 = getelementptr %"struct.rocksdb::BlobReadRequest", ptr %.val.val24.i, i64 %71
+  %73 = getelementptr inbounds nuw [48 x i8], ptr %.val.val.i, i64 %71
+  %74 = getelementptr [48 x i8], ptr %.val.val24.i, i64 %71
   %75 = getelementptr i8, ptr %74, i64 -384
   %.0.i.i.i.i = select i1 %72, ptr %73, ptr %75
   %76 = getelementptr i8, ptr %.0.i.i.i.i, i64 8
@@ -4944,8 +4931,8 @@ define internal fastcc void @"_ZSt13__adjust_heapIN7rocksdb10autovectorINS0_15Bl
 78:                                               ; preds = %.lr.ph.i
   %79 = add i64 %.0189.i, %.sroa.3.0.copyload
   %80 = icmp ult i64 %79, 8
-  %81 = getelementptr inbounds nuw %"struct.rocksdb::BlobReadRequest", ptr %.val.val.i, i64 %79
-  %82 = getelementptr %"struct.rocksdb::BlobReadRequest", ptr %.val.val24.i, i64 %79
+  %81 = getelementptr inbounds nuw [48 x i8], ptr %.val.val.i, i64 %79
+  %82 = getelementptr [48 x i8], ptr %.val.val24.i, i64 %79
   %83 = getelementptr i8, ptr %82, i64 -384
   %.0.i.i25.i = select i1 %80, ptr %81, ptr %83
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i25.i, ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i.i.i, i64 48, i1 false), !tbaa.struct !262
@@ -4959,10 +4946,10 @@ define internal fastcc void @"_ZSt13__adjust_heapIN7rocksdb10autovectorINS0_15Bl
   %86 = icmp ult i64 %85, 8
   %87 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 392
   %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds nuw %"struct.rocksdb::BlobReadRequest", ptr %88, i64 %85
+  %89 = getelementptr inbounds nuw [48 x i8], ptr %88, i64 %85
   %90 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 400
   %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr %"struct.rocksdb::BlobReadRequest", ptr %91, i64 %85
+  %92 = getelementptr [48 x i8], ptr %91, i64 %85
   %93 = getelementptr i8, ptr %92, i64 -384
   %.0.i.i26.i = select i1 %86, ptr %89, ptr %93
   store ptr %.sroa.064.0.copyload, ptr %.0.i.i26.i, align 8, !tbaa !253
@@ -5010,13 +4997,13 @@ define internal fastcc void @"_ZSt16__insertion_sortIN7rocksdb10autovectorINS0_1
   %15 = getelementptr i8, ptr %.sroa.021.0.copyload, i64 400
   %.val9.val12 = load ptr, ptr %15, align 8
   %16 = icmp ult i64 %.sroa.9.038, 8
-  %17 = getelementptr inbounds nuw %"struct.rocksdb::BlobReadRequest", ptr %.val.val, i64 %.sroa.9.038
-  %18 = getelementptr %"struct.rocksdb::BlobReadRequest", ptr %.val.val11, i64 %.sroa.9.038
+  %17 = getelementptr inbounds nuw [48 x i8], ptr %.val.val, i64 %.sroa.9.038
+  %18 = getelementptr [48 x i8], ptr %.val.val11, i64 %.sroa.9.038
   %19 = getelementptr i8, ptr %18, i64 -384
   %.0.i.i.i = select i1 %16, ptr %17, ptr %19
   %20 = icmp ult i64 %.sroa.222.0.copyload, 8
-  %21 = getelementptr inbounds nuw %"struct.rocksdb::BlobReadRequest", ptr %.val9.val, i64 %.sroa.222.0.copyload
-  %22 = getelementptr %"struct.rocksdb::BlobReadRequest", ptr %.val9.val12, i64 %.sroa.222.0.copyload
+  %21 = getelementptr inbounds nuw [48 x i8], ptr %.val9.val, i64 %.sroa.222.0.copyload
+  %22 = getelementptr [48 x i8], ptr %.val9.val12, i64 %.sroa.222.0.copyload
   %23 = getelementptr i8, ptr %22, i64 -384
   %.0.i.i2.i = select i1 %20, ptr %21, ptr %23
   %24 = getelementptr i8, ptr %.0.i.i.i, i64 8
@@ -5044,15 +5031,15 @@ define internal fastcc void @"_ZSt16__insertion_sortIN7rocksdb10autovectorINS0_1
   %31 = add i64 %.sroa.2.0.i.i.i.i, -1
   %32 = icmp ult i64 %31, 8
   %33 = load ptr, ptr %11, align 8, !noalias !340
-  %34 = getelementptr inbounds nuw %"struct.rocksdb::BlobReadRequest", ptr %33, i64 %31
+  %34 = getelementptr inbounds nuw [48 x i8], ptr %33, i64 %31
   %35 = load ptr, ptr %12, align 8, !noalias !340
-  %36 = getelementptr %"struct.rocksdb::BlobReadRequest", ptr %35, i64 %31
+  %36 = getelementptr [48 x i8], ptr %35, i64 %31
   %37 = getelementptr i8, ptr %36, i64 -384
   %.0.i.i.i.i.i.i.i = select i1 %32, ptr %34, ptr %37
   %38 = add i64 %.sroa.3.0.i.i.i.i, -1
   %39 = icmp ult i64 %38, 8
-  %40 = getelementptr inbounds nuw %"struct.rocksdb::BlobReadRequest", ptr %33, i64 %38
-  %41 = getelementptr %"struct.rocksdb::BlobReadRequest", ptr %35, i64 %38
+  %40 = getelementptr inbounds nuw [48 x i8], ptr %33, i64 %38
+  %41 = getelementptr [48 x i8], ptr %35, i64 %38
   %42 = getelementptr i8, ptr %41, i64 -384
   %.0.i.i2.i.i.i.i.i = select i1 %39, ptr %40, ptr %42
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i2.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i.i.i.i.i.i, i64 48, i1 false), !tbaa.struct !262, !noalias !340
@@ -5074,8 +5061,8 @@ define internal fastcc void @"_ZSt16__insertion_sortIN7rocksdb10autovectorINS0_1
   %46 = phi ptr [ %.pre40, %.loopexit.loopexit ], [ %.val9.val, %27 ]
   %47 = phi i64 [ %.pre39, %.loopexit.loopexit ], [ %.sroa.222.0.copyload, %27 ]
   %48 = icmp ult i64 %47, 8
-  %49 = getelementptr inbounds nuw %"struct.rocksdb::BlobReadRequest", ptr %46, i64 %47
-  %50 = getelementptr %"struct.rocksdb::BlobReadRequest", ptr %45, i64 %47
+  %49 = getelementptr inbounds nuw [48 x i8], ptr %46, i64 %47
+  %50 = getelementptr [48 x i8], ptr %45, i64 %47
   %51 = getelementptr i8, ptr %50, i64 -384
   %.0.i.i13 = select i1 %48, ptr %49, ptr %51
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i13, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 48, i1 false), !tbaa.struct !262
@@ -5088,8 +5075,8 @@ define internal fastcc void @"_ZSt16__insertion_sortIN7rocksdb10autovectorINS0_1
   %.sroa.6.0..0.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6.0..0.i.i.sroa_idx.i, i64 32, i1 false), !tbaa.struct !254
   %53 = icmp ult i64 %.sroa.9.0.in37, 8
-  %54 = getelementptr inbounds nuw %"struct.rocksdb::BlobReadRequest", ptr %.val.val, i64 %.sroa.9.0.in37
-  %55 = getelementptr %"struct.rocksdb::BlobReadRequest", ptr %.val.val11, i64 %.sroa.9.0.in37
+  %54 = getelementptr inbounds nuw [48 x i8], ptr %.val.val, i64 %.sroa.9.0.in37
+  %55 = getelementptr [48 x i8], ptr %.val.val11, i64 %.sroa.9.0.in37
   %56 = getelementptr i8, ptr %55, i64 -384
   %.0.i.i.i22.i = select i1 %53, ptr %54, ptr %56
   %57 = getelementptr i8, ptr %.0.i.i.i22.i, i64 8
@@ -5104,8 +5091,8 @@ define internal fastcc void @"_ZSt16__insertion_sortIN7rocksdb10autovectorINS0_1
   %.0.i.i.i25.i = phi ptr [ %.0.i.i.i.i, %.lr.ph.i ], [ %.0.i.i.i22.i, %52 ]
   %.sroa.7.024.i = phi i64 [ %.sroa.7.0.i, %.lr.ph.i ], [ %.sroa.9.0.in37, %52 ]
   %62 = icmp ult i64 %61, 8
-  %63 = getelementptr inbounds nuw %"struct.rocksdb::BlobReadRequest", ptr %60, i64 %61
-  %64 = getelementptr %"struct.rocksdb::BlobReadRequest", ptr %59, i64 %61
+  %63 = getelementptr inbounds nuw [48 x i8], ptr %60, i64 %61
+  %64 = getelementptr [48 x i8], ptr %59, i64 %61
   %65 = getelementptr i8, ptr %64, i64 -384
   %.0.i.i7.i = select i1 %62, ptr %63, ptr %65
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i7.i, ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i.i25.i, i64 48, i1 false), !tbaa.struct !262
@@ -5113,8 +5100,8 @@ define internal fastcc void @"_ZSt16__insertion_sortIN7rocksdb10autovectorINS0_1
   %.val3.val.i = load ptr, ptr %11, align 8
   %.val3.val5.i = load ptr, ptr %12, align 8
   %66 = icmp ult i64 %.sroa.7.0.i, 8
-  %67 = getelementptr inbounds nuw %"struct.rocksdb::BlobReadRequest", ptr %.val3.val.i, i64 %.sroa.7.0.i
-  %68 = getelementptr %"struct.rocksdb::BlobReadRequest", ptr %.val3.val5.i, i64 %.sroa.7.0.i
+  %67 = getelementptr inbounds nuw [48 x i8], ptr %.val3.val.i, i64 %.sroa.7.0.i
+  %68 = getelementptr [48 x i8], ptr %.val3.val5.i, i64 %.sroa.7.0.i
   %69 = getelementptr i8, ptr %68, i64 -384
   %.0.i.i.i.i = select i1 %66, ptr %67, ptr %69
   %70 = getelementptr i8, ptr %.0.i.i.i.i, i64 8
@@ -5127,8 +5114,8 @@ define internal fastcc void @"_ZSt16__insertion_sortIN7rocksdb10autovectorINS0_1
   %73 = phi ptr [ %.val.val, %52 ], [ %.val3.val.i, %.lr.ph.i ]
   %74 = phi i64 [ %.sroa.9.038, %52 ], [ %.sroa.7.024.i, %.lr.ph.i ]
   %75 = icmp ult i64 %74, 8
-  %76 = getelementptr inbounds nuw %"struct.rocksdb::BlobReadRequest", ptr %73, i64 %74
-  %77 = getelementptr %"struct.rocksdb::BlobReadRequest", ptr %72, i64 %74
+  %76 = getelementptr inbounds nuw [48 x i8], ptr %73, i64 %74
+  %77 = getelementptr [48 x i8], ptr %72, i64 %74
   %78 = getelementptr i8, ptr %77, i64 -384
   %.0.i.i8.i = select i1 %75, ptr %76, ptr %78
   store ptr %.sroa.016.0.copyload.i, ptr %.0.i.i8.i, align 8, !tbaa !253
@@ -5164,7 +5151,7 @@ define linkonce_odr void @_ZN7rocksdb10autovectorISt4pairIPNS_15BlobReadRequestE
   %6 = load ptr, ptr %3, align 8, !tbaa !278
   %7 = add i64 %5, -1
   store i64 %7, ptr %0, align 8, !tbaa !271
-  %8 = getelementptr inbounds nuw %"struct.std::pair", ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !141
   %.not.i.i = icmp eq ptr %10, null

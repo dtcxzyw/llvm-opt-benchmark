@@ -198,7 +198,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 
 .noexc8:                                          ; preds = %"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h897f350ae21e9e40E.exit.i.i"
   %62 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !95, !noalias !96, !nonnull !20, !noundef !20
-  %63 = getelementptr inbounds i64, ptr %62, i64 %61
+  %63 = getelementptr inbounds [8 x i8], ptr %62, i64 %61
   store i64 %59, ptr %63, align 8, !noalias !96
   %64 = add i64 %61, 1
   store i64 %64, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !95, !noalias !96
@@ -211,7 +211,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h4d7d6aa71d1577f1E.exit.i.i": ; preds = %"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h277476884287236cE.exit.thread.i.i"
   %65 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !95, !noalias !96, !nonnull !20, !noundef !20
-  %66 = getelementptr inbounds i64, ptr %65, i64 %50
+  %66 = getelementptr inbounds [8 x i8], ptr %65, i64 %50
   store i64 %.ph19.i.i, ptr %66, align 8, !noalias !96
   %67 = add i64 %50, 1
   store i64 %67, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !95, !noalias !96
@@ -221,7 +221,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %.lcssa35.sink38.i.i = phi i64 [ %53, %"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h277476884287236cE.exit.thread.thread.i.i" ], [ %56, %.thread.i.i ]
   %.sink.i.i4 = phi i64 [ %15, %"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h277476884287236cE.exit.thread.thread.i.i" ], [ %.pre.i15.i.i.i.i.i.i, %.thread.i.i ]
   %68 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !95, !noalias !96, !nonnull !20, !noundef !20
-  %69 = getelementptr inbounds i64, ptr %68, i64 %.lcssa35.sink38.i.i
+  %69 = getelementptr inbounds [8 x i8], ptr %68, i64 %.lcssa35.sink38.i.i
   store i64 %.sink.i.i4, ptr %69, align 8, !noalias !96
   %70 = add i64 %.lcssa35.sink38.i.i, 1
   store i64 %70, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !95, !noalias !96

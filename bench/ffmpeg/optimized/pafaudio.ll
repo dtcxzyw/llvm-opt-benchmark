@@ -74,7 +74,7 @@ define internal i32 @paf_audio_decode(ptr noundef %0, ptr noundef %1, ptr nounde
   %19 = shl nuw nsw i64 %indvars.iv, 1
   %20 = getelementptr inbounds nuw i8, ptr %.02836, i64 %19
   %21 = load i16, ptr %20, align 1, !tbaa !28
-  %22 = getelementptr inbounds nuw i16, ptr %5, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %indvars.iv
   store i16 %21, ptr %22, align 2, !tbaa !40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
@@ -91,7 +91,7 @@ define internal i32 @paf_audio_decode(ptr noundef %0, ptr noundef %1, ptr nounde
   %26 = getelementptr inbounds nuw i8, ptr %.12933, i64 1
   %27 = load i8, ptr %.12933, align 1, !tbaa !28
   %28 = zext i8 %27 to i64
-  %29 = getelementptr inbounds nuw i16, ptr %5, i64 %28
+  %29 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %28
   %30 = load i16, ptr %29, align 2, !tbaa !40
   %31 = getelementptr inbounds nuw i8, ptr %.12734, i64 2
   store i16 %30, ptr %.12734, align 2, !tbaa !40

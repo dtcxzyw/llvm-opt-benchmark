@@ -3,11 +3,6 @@ source_filename = "bench/graphviz/original/info.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.Info_t = type { ptr, %struct.Site, i8, %struct.Poly, ptr, i64 }
-%struct.Site = type { %struct.pointf_s, i64, i32 }
-%struct.pointf_s = type { double, double }
-%struct.Poly = type { %struct.pointf_s, %struct.pointf_s, i32, ptr, i32 }
-
 @nodeInfo = local_unnamed_addr global ptr null, align 8
 @stderr = external local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [58 x i8] c"integer overflow when trying to allocate %zu * %zu bytes\0A\00", align 1
@@ -23,7 +18,7 @@ define void @addVertex(ptr noundef readonly captures(none) %0, double noundef %1
   %4 = load ptr, ptr @nodeInfo, align 8, !tbaa !7
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !tbaa !9
-  %7 = getelementptr inbounds nuw %struct.Info_t, ptr %4, i64 %6
+  %7 = getelementptr inbounds nuw [120 x i8], ptr %4, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 112
   %9 = load i64, ptr %8, align 8, !tbaa !14
   %.not = icmp eq i64 %9, 0
@@ -45,7 +40,7 @@ define void @addVertex(ptr noundef readonly captures(none) %0, double noundef %1
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %select.unfold30.us
   %.02544.us = phi i64 [ %32, %select.unfold30.us ], [ 0, %.lr.ph ]
-  %16 = getelementptr inbounds nuw %struct.pointf_s, ptr %.pre, i64 %.02544.us
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %.pre, i64 %.02544.us
   %17 = load double, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %19 = load double, ptr %18, align 8
@@ -82,7 +77,7 @@ select.unfold30.us:                               ; preds = %29, %22
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %select.unfold30.us80
   %.02544.us78 = phi i64 [ %54, %select.unfold30.us80 ], [ 0, %.lr.ph.split ]
-  %34 = getelementptr inbounds nuw %struct.pointf_s, ptr %.pre, i64 %.02544.us78
+  %34 = getelementptr inbounds nuw [16 x i8], ptr %.pre, i64 %.02544.us78
   %35 = load double, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %37 = load double, ptr %36, align 8
@@ -126,7 +121,7 @@ select.unfold30.us80:                             ; preds = %51, %46
 
 .lr.ph.split.split.split.us.split.us:             ; preds = %.lr.ph.split.split, %select.unfold30.us95.us
   %.02544.us93.us = phi i64 [ %70, %select.unfold30.us95.us ], [ 0, %.lr.ph.split.split ]
-  %55 = getelementptr inbounds nuw %struct.pointf_s, ptr %.pre, i64 %.02544.us93.us
+  %55 = getelementptr inbounds nuw [16 x i8], ptr %.pre, i64 %.02544.us93.us
   %56 = load double, ptr %55, align 8
   %57 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %58 = load double, ptr %57, align 8
@@ -158,7 +153,7 @@ select.unfold30.us95.us:                          ; preds = %65, %67
 
 .lr.ph.split.split.split.split:                   ; preds = %.lr.ph.split.split, %select.unfold30
   %.02544 = phi i64 [ %82, %select.unfold30 ], [ 0, %.lr.ph.split.split ]
-  %71 = getelementptr inbounds nuw %struct.pointf_s, ptr %.pre, i64 %.02544
+  %71 = getelementptr inbounds nuw [16 x i8], ptr %.pre, i64 %.02544
   %72 = load double, ptr %71, align 8
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %74 = load double, ptr %73, align 8
@@ -233,7 +228,7 @@ gv_recalloc.exit:                                 ; preds = %93, %103, %105
   %107 = phi ptr [ %83, %93 ], [ %97, %105 ], [ %97, %103 ]
   %.0.i.i = phi ptr [ null, %93 ], [ %98, %105 ], [ %98, %103 ]
   store ptr %.0.i.i, ptr %107, align 8, !tbaa !20
-  %108 = getelementptr %struct.pointf_s, ptr %.0.i.i, i64 %.025.lcssa198200
+  %108 = getelementptr [16 x i8], ptr %.0.i.i, i64 %.025.lcssa198200
   %109 = getelementptr i8, ptr %108, i64 16
   %110 = load i64, ptr %8, align 8, !tbaa !14
   %111 = sub i64 %110, %.025.lcssa198200

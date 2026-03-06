@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"struct.Ipopt::PiecewisePenEntry" = type { double, double, double }
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
@@ -460,7 +459,7 @@ _ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exi
 _ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i63: ; preds = %102, %_ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i61
   store ptr %97, ptr %4, align 8, !tbaa !18
   store ptr %101, ptr %5, align 8, !tbaa !17
-  %103 = getelementptr inbounds nuw %"struct.Ipopt::PiecewisePenEntry", ptr %97, i64 %95
+  %103 = getelementptr inbounds nuw [24 x i8], ptr %97, i64 %95
   store ptr %103, ptr %35, align 8, !tbaa !29
   br label %_ZN5Ipopt16PiecewisePenalty8AddEntryEddd.exit66
 
@@ -549,7 +548,7 @@ _ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exi
 _ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i78: ; preds = %140, %_ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i76
   store ptr %135, ptr %4, align 8, !tbaa !18
   store ptr %139, ptr %5, align 8, !tbaa !17
-  %141 = getelementptr inbounds nuw %"struct.Ipopt::PiecewisePenEntry", ptr %135, i64 %133
+  %141 = getelementptr inbounds nuw [24 x i8], ptr %135, i64 %133
   store ptr %141, ptr %35, align 8, !tbaa !29
   br label %_ZN5Ipopt16PiecewisePenalty8AddEntryEddd.exit81
 
@@ -627,7 +626,7 @@ _ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exi
 _ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i93: ; preds = %173, %_ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i91
   store ptr %168, ptr %4, align 8, !tbaa !18
   store ptr %172, ptr %5, align 8, !tbaa !17
-  %174 = getelementptr inbounds nuw %"struct.Ipopt::PiecewisePenEntry", ptr %168, i64 %166
+  %174 = getelementptr inbounds nuw [24 x i8], ptr %168, i64 %166
   store ptr %174, ptr %35, align 8, !tbaa !29
   br label %_ZN5Ipopt16PiecewisePenalty8AddEntryEddd.exit96
 
@@ -711,7 +710,7 @@ _ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exi
 _ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i108: ; preds = %208, %_ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i106
   store ptr %203, ptr %4, align 8, !tbaa !18
   store ptr %207, ptr %5, align 8, !tbaa !17
-  %209 = getelementptr inbounds nuw %"struct.Ipopt::PiecewisePenEntry", ptr %203, i64 %201
+  %209 = getelementptr inbounds nuw [24 x i8], ptr %203, i64 %201
   store ptr %209, ptr %35, align 8, !tbaa !29
   br label %_ZN5Ipopt16PiecewisePenalty8AddEntryEddd.exit111
 

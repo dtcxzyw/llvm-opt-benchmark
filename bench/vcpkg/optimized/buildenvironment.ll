@@ -11,7 +11,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<vcpkg::CMakeVariable, std::allocator<vcpkg::CMakeVariable>>::_Vector_impl" }
 %"struct.std::_Vector_base<vcpkg::CMakeVariable, std::allocator<vcpkg::CMakeVariable>>::_Vector_impl" = type { %"struct.std::_Vector_base<vcpkg::CMakeVariable, std::allocator<vcpkg::CMakeVariable>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<vcpkg::CMakeVariable, std::allocator<vcpkg::CMakeVariable>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.vcpkg::CMakeVariable" = type { %"class.std::__cxx11::basic_string" }
 
 $_ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EED2Ev = comdat any
 
@@ -476,7 +475,7 @@ _ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit37:
 _ZNSt12_Vector_baseIN5vcpkg13CMakeVariableESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit37, %56
   store ptr %21, ptr %0, align 8, !tbaa !4
   store ptr %.0.lcssa.i.i.i36, ptr %5, align 8, !tbaa !10
-  %60 = getelementptr inbounds nuw %"struct.vcpkg::CMakeVariable", ptr %21, i64 %17
+  %60 = getelementptr inbounds nuw [32 x i8], ptr %21, i64 %17
   store ptr %60, ptr %55, align 8, !tbaa !11
   ret void
 
@@ -667,7 +666,7 @@ _ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit37:
 _ZNSt12_Vector_baseIN5vcpkg13CMakeVariableESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit37, %56
   store ptr %21, ptr %0, align 8, !tbaa !4
   store ptr %.0.lcssa.i.i.i36, ptr %5, align 8, !tbaa !10
-  %60 = getelementptr inbounds nuw %"struct.vcpkg::CMakeVariable", ptr %21, i64 %17
+  %60 = getelementptr inbounds nuw [32 x i8], ptr %21, i64 %17
   store ptr %60, ptr %55, align 8, !tbaa !11
   ret void
 
@@ -843,7 +842,7 @@ _ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit37:
 _ZNSt12_Vector_baseIN5vcpkg13CMakeVariableESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit37, %56
   store ptr %21, ptr %0, align 8, !tbaa !4
   store ptr %.0.lcssa.i.i.i36, ptr %5, align 8, !tbaa !10
-  %60 = getelementptr inbounds nuw %"struct.vcpkg::CMakeVariable", ptr %21, i64 %17
+  %60 = getelementptr inbounds nuw [32 x i8], ptr %21, i64 %17
   store ptr %60, ptr %55, align 8, !tbaa !11
   ret void
 
@@ -1019,7 +1018,7 @@ _ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit37:
 _ZNSt12_Vector_baseIN5vcpkg13CMakeVariableESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit37, %56
   store ptr %21, ptr %0, align 8, !tbaa !4
   store ptr %.0.lcssa.i.i.i36, ptr %5, align 8, !tbaa !10
-  %60 = getelementptr inbounds nuw %"struct.vcpkg::CMakeVariable", ptr %21, i64 %17
+  %60 = getelementptr inbounds nuw [32 x i8], ptr %21, i64 %17
   store ptr %60, ptr %55, align 8, !tbaa !11
   ret void
 
@@ -1195,7 +1194,7 @@ _ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit37:
 _ZNSt12_Vector_baseIN5vcpkg13CMakeVariableESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit37, %56
   store ptr %21, ptr %0, align 8, !tbaa !4
   store ptr %.0.lcssa.i.i.i36, ptr %5, align 8, !tbaa !10
-  %60 = getelementptr inbounds nuw %"struct.vcpkg::CMakeVariable", ptr %21, i64 %17
+  %60 = getelementptr inbounds nuw [32 x i8], ptr %21, i64 %17
   store ptr %60, ptr %55, align 8, !tbaa !11
   ret void
 

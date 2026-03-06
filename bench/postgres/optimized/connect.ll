@@ -722,9 +722,9 @@ define noundef zeroext i1 @ECPGconnect(i32 noundef %0, i32 noundef %1, ptr nound
 
 173:                                              ; preds = %172
   %174 = zext nneg i32 %.1292 to i64
-  %175 = getelementptr inbounds nuw ptr, ptr %112, i64 %174
+  %175 = getelementptr inbounds nuw [8 x i8], ptr %112, i64 %174
   store ptr @.str.25, ptr %175, align 8
-  %176 = getelementptr inbounds nuw ptr, ptr %115, i64 %174
+  %176 = getelementptr inbounds nuw [8 x i8], ptr %115, i64 %174
   store ptr %.3323407, ptr %176, align 8
   %177 = add nuw nsw i32 %.1292, 1
   br label %178
@@ -735,9 +735,9 @@ define noundef zeroext i1 @ECPGconnect(i32 noundef %0, i32 noundef %1, ptr nound
 
 179:                                              ; preds = %178
   %180 = zext nneg i32 %.2293 to i64
-  %181 = getelementptr inbounds nuw ptr, ptr %112, i64 %180
+  %181 = getelementptr inbounds nuw [8 x i8], ptr %112, i64 %180
   store ptr @.str.26, ptr %181, align 8
-  %182 = getelementptr inbounds nuw ptr, ptr %115, i64 %180
+  %182 = getelementptr inbounds nuw [8 x i8], ptr %115, i64 %180
   store ptr %.4319408, ptr %182, align 8
   %183 = add nuw nsw i32 %.2293, 1
   br label %184
@@ -753,9 +753,9 @@ define noundef zeroext i1 @ECPGconnect(i32 noundef %0, i32 noundef %1, ptr nound
 
 186:                                              ; preds = %185
   %187 = zext nneg i32 %.3 to i64
-  %188 = getelementptr inbounds nuw ptr, ptr %112, i64 %187
+  %188 = getelementptr inbounds nuw [8 x i8], ptr %112, i64 %187
   store ptr @.str.27, ptr %188, align 8
-  %189 = getelementptr inbounds nuw ptr, ptr %115, i64 %187
+  %189 = getelementptr inbounds nuw [8 x i8], ptr %115, i64 %187
   store ptr %3, ptr %189, align 8
   %190 = add nuw nsw i32 %.3, 1
   br label %191
@@ -771,9 +771,9 @@ define noundef zeroext i1 @ECPGconnect(i32 noundef %0, i32 noundef %1, ptr nound
 
 193:                                              ; preds = %192
   %194 = zext nneg i32 %.4 to i64
-  %195 = getelementptr inbounds nuw ptr, ptr %112, i64 %194
+  %195 = getelementptr inbounds nuw [8 x i8], ptr %112, i64 %194
   store ptr @.str.28, ptr %195, align 8
-  %196 = getelementptr inbounds nuw ptr, ptr %115, i64 %194
+  %196 = getelementptr inbounds nuw [8 x i8], ptr %115, i64 %194
   store ptr %4, ptr %196, align 8
   %197 = add nuw nsw i32 %.4, 1
   br label %198
@@ -864,9 +864,9 @@ define noundef zeroext i1 @ECPGconnect(i32 noundef %0, i32 noundef %1, ptr nound
 .loopexit413:                                     ; preds = %.loopexit413.loopexit, %218
   %.1289 = phi ptr [ %221, %218 ], [ %223, %.loopexit413.loopexit ]
   %224 = sext i32 %.7426 to i64
-  %225 = getelementptr inbounds ptr, ptr %112, i64 %224
+  %225 = getelementptr inbounds [8 x i8], ptr %112, i64 %224
   store ptr %.0285.lcssa, ptr %225, align 8
-  %226 = getelementptr inbounds ptr, ptr %115, i64 %224
+  %226 = getelementptr inbounds [8 x i8], ptr %115, i64 %224
   store ptr %.0284, ptr %226, align 8
   %227 = add i32 %.7426, 1
   %.pre437 = load i8, ptr %.1289, align 1
@@ -876,7 +876,7 @@ define noundef zeroext i1 @ECPGconnect(i32 noundef %0, i32 noundef %1, ptr nound
 .loopexit416:                                     ; preds = %.loopexit413, %205, %.preheader415, %198
   %.6 = phi i32 [ %.5, %198 ], [ %.5, %.preheader415 ], [ %.7426, %205 ], [ %227, %.loopexit413 ]
   %228 = sext i32 %.6 to i64
-  %229 = getelementptr inbounds ptr, ptr %112, i64 %228
+  %229 = getelementptr inbounds [8 x i8], ptr %112, i64 %228
   store ptr null, ptr %229, align 8
   %230 = tail call ptr @PQconnectdbParams(ptr noundef %112, ptr noundef %115, i32 noundef 0) #8
   %231 = getelementptr inbounds nuw i8, ptr %28, i64 8

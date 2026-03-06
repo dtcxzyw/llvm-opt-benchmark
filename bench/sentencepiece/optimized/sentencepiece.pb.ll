@@ -1848,7 +1848,7 @@ define linkonce_odr void @_ZN6google8protobuf16RepeatedPtrFieldIN13sentencepiece
 
 .lr.ph.i:                                         ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN13sentencepiece31SentencePieceText_SentencePieceEE6DeleteEPS4_PNS0_5ArenaE.exit.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %_ZN6google8protobuf8internal18GenericTypeHandlerIN13sentencepiece31SentencePieceText_SentencePieceEE6DeleteEPS4_PNS0_5ArenaE.exit.i ]
-  %16 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i
   %17 = load ptr, ptr %16, align 8, !tbaa !67
   %18 = icmp eq ptr %17, null
   br i1 %18, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN13sentencepiece31SentencePieceText_SentencePieceEE6DeleteEPS4_PNS0_5ArenaE.exit.i, label %19
@@ -1926,9 +1926,9 @@ define void @_ZN13sentencepiece17SentencePieceTextC2ERKS0_(ptr noundef nonnull a
 
 .lr.ph.i.i.i.i:                                   ; preds = %.noexc15, %.lr.ph.preheader.i.i.i.i
   %indvars.iv.i.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i.i ], [ %indvars.iv.next.i.i.i.i, %.noexc15 ]
-  %30 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv.i.i.i.i
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv.i.i.i.i
   %31 = load ptr, ptr %30, align 8, !tbaa !67
-  %32 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv.i.i.i.i
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv.i.i.i.i
   %33 = load ptr, ptr %32, align 8, !tbaa !67
   invoke void @_ZN6google8protobuf8internal18GenericTypeHandlerIN13sentencepiece31SentencePieceText_SentencePieceEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(80) %31, ptr noundef %33)
           to label %.noexc15 unwind label %.loopexit.split-lp.loopexit
@@ -1940,7 +1940,7 @@ define void @_ZN13sentencepiece17SentencePieceTextC2ERKS0_(ptr noundef nonnull a
 
 .lr.ph28.i.i.i.i:                                 ; preds = %.noexc17, %.lr.ph28.preheader.i.i.i.i
   %indvars.iv31.i.i.i.i = phi i64 [ %29, %.lr.ph28.preheader.i.i.i.i ], [ %indvars.iv.next32.i.i.i.i, %.noexc17 ]
-  %34 = getelementptr inbounds ptr, ptr %18, i64 %indvars.iv31.i.i.i.i
+  %34 = getelementptr inbounds [8 x i8], ptr %18, i64 %indvars.iv31.i.i.i.i
   %35 = load ptr, ptr %34, align 8, !tbaa !67
   %36 = invoke noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN13sentencepiece31SentencePieceText_SentencePieceEJEEEPT_PS1_DpOT0_(ptr noundef %27)
           to label %.noexc16 unwind label %.loopexit
@@ -1950,7 +1950,7 @@ define void @_ZN13sentencepiece17SentencePieceTextC2ERKS0_(ptr noundef nonnull a
           to label %.noexc17 unwind label %.loopexit
 
 .noexc17:                                         ; preds = %.noexc16
-  %37 = getelementptr inbounds ptr, ptr %19, i64 %indvars.iv31.i.i.i.i
+  %37 = getelementptr inbounds [8 x i8], ptr %19, i64 %indvars.iv31.i.i.i.i
   store ptr %36, ptr %37, align 8, !tbaa !67
   %indvars.iv.next32.i.i.i.i = add nsw i64 %indvars.iv31.i.i.i.i, 1
   %lftr.wideiv.i.i.i.i = trunc i64 %indvars.iv.next32.i.i.i.i to i32
@@ -2182,7 +2182,7 @@ _ZN6google8protobuf8internal16InternalMetadata6DeleteINSt7__cxx1112basic_stringI
 
 .lr.ph.i.i:                                       ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN13sentencepiece31SentencePieceText_SentencePieceEE6DeleteEPS4_PNS0_5ArenaE.exit.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %_ZN6google8protobuf8internal18GenericTypeHandlerIN13sentencepiece31SentencePieceText_SentencePieceEE6DeleteEPS4_PNS0_5ArenaE.exit.i.i ]
-  %42 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv.i.i
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv.i.i
   %43 = load ptr, ptr %42, align 8, !tbaa !67
   %44 = icmp eq ptr %43, null
   br i1 %44, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN13sentencepiece31SentencePieceText_SentencePieceEE6DeleteEPS4_PNS0_5ArenaE.exit.i.i, label %45
@@ -2256,7 +2256,7 @@ define void @_ZN13sentencepiece17SentencePieceText5ClearEv(ptr noundef nonnull a
 10:                                               ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN13sentencepiece31SentencePieceText_SentencePieceEE5ClearEPS4_.exit.i.i, %6
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %_ZN6google8protobuf8internal18GenericTypeHandlerIN13sentencepiece31SentencePieceText_SentencePieceEE5ClearEPS4_.exit.i.i ], [ 0, %6 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %11 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv.i.i
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i.i
   %12 = load ptr, ptr %11, align 8, !tbaa !67
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   tail call void @_ZN6google8protobuf8internal12ExtensionSet5ClearEv(ptr noundef nonnull align 8 dereferenceable(24) %13)
@@ -2539,7 +2539,7 @@ _ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit.backedge: ; preds = %127, %1
   %79 = add nsw i32 %74, 1
   store i32 %79, ptr %9, align 8, !tbaa !76
   %80 = sext i32 %74 to i64
-  %81 = getelementptr inbounds ptr, ptr %78, i64 %80
+  %81 = getelementptr inbounds [8 x i8], ptr %78, i64 %80
   %82 = load ptr, ptr %81, align 8, !tbaa !67
   br label %_ZN13sentencepiece17SentencePieceText20_internal_add_piecesEv.exit
 
@@ -2569,7 +2569,7 @@ _ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit.backedge: ; preds = %127, %1
   %97 = add nsw i32 %96, 1
   store i32 %97, ptr %9, align 8, !tbaa !76
   %98 = sext i32 %96 to i64
-  %99 = getelementptr inbounds ptr, ptr %95, i64 %98
+  %99 = getelementptr inbounds [8 x i8], ptr %95, i64 %98
   store ptr %93, ptr %99, align 8, !tbaa !67
   br label %_ZN13sentencepiece17SentencePieceText20_internal_add_piecesEv.exit
 
@@ -2783,7 +2783,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %32,
   %36 = load ptr, ptr %30, align 8, !tbaa !71
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = sext i32 %.02035 to i64
-  %39 = getelementptr inbounds ptr, ptr %37, i64 %38
+  %39 = getelementptr inbounds [8 x i8], ptr %37, i64 %38
   %40 = load ptr, ptr %39, align 8, !tbaa !67
   store i8 18, ptr %.0.i25, align 1, !tbaa !34
   %41 = getelementptr inbounds nuw i8, ptr %.0.i25, i64 1
@@ -3100,9 +3100,9 @@ _ZN6google8protobuf8internal16InternalMetadata9MergeFromINSt7__cxx1112basic_stri
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %.lr.ph.i.i.i ]
-  %50 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv.i.i.i
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv.i.i.i
   %51 = load ptr, ptr %50, align 8, !tbaa !67
-  %52 = getelementptr inbounds nuw ptr, ptr %39, i64 %indvars.iv.i.i.i
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %indvars.iv.i.i.i
   %53 = load ptr, ptr %52, align 8, !tbaa !67
   tail call void @_ZN6google8protobuf8internal18GenericTypeHandlerIN13sentencepiece31SentencePieceText_SentencePieceEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(80) %51, ptr noundef %53)
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -3111,11 +3111,11 @@ _ZN6google8protobuf8internal16InternalMetadata9MergeFromINSt7__cxx1112basic_stri
 
 .lr.ph28.i.i.i:                                   ; preds = %.lr.ph28.i.i.i, %.lr.ph28.preheader.i.i.i
   %indvars.iv31.i.i.i = phi i64 [ %49, %.lr.ph28.preheader.i.i.i ], [ %indvars.iv.next32.i.i.i, %.lr.ph28.i.i.i ]
-  %54 = getelementptr inbounds ptr, ptr %38, i64 %indvars.iv31.i.i.i
+  %54 = getelementptr inbounds [8 x i8], ptr %38, i64 %indvars.iv31.i.i.i
   %55 = load ptr, ptr %54, align 8, !tbaa !67
   %56 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN13sentencepiece31SentencePieceText_SentencePieceEJEEEPT_PS1_DpOT0_(ptr noundef %47)
   tail call void @_ZN6google8protobuf8internal18GenericTypeHandlerIN13sentencepiece31SentencePieceText_SentencePieceEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(80) %55, ptr noundef %56)
-  %57 = getelementptr inbounds ptr, ptr %39, i64 %indvars.iv31.i.i.i
+  %57 = getelementptr inbounds [8 x i8], ptr %39, i64 %indvars.iv31.i.i.i
   store ptr %56, ptr %57, align 8, !tbaa !67
   %indvars.iv.next32.i.i.i = add nsw i64 %indvars.iv31.i.i.i, 1
   %lftr.wideiv.i.i.i = trunc i64 %indvars.iv.next32.i.i.i to i32
@@ -3234,7 +3234,7 @@ define noundef zeroext i1 @_ZNK13sentencepiece17SentencePieceText13IsInitialized
 12:                                               ; preds = %9
   %13 = add nsw i64 %indvars.iv.i, -1
   %14 = load ptr, ptr %7, align 8, !tbaa !71
-  %15 = getelementptr ptr, ptr %14, i64 %indvars.iv.i
+  %15 = getelementptr [8 x i8], ptr %14, i64 %indvars.iv.i
   %16 = load ptr, ptr %15, align 8, !tbaa !67
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = tail call noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet13IsInitializedEv(ptr noundef nonnull align 8 dereferenceable(24) %17)
@@ -3414,7 +3414,7 @@ define linkonce_odr void @_ZN6google8protobuf16RepeatedPtrFieldIN13sentencepiece
 
 .lr.ph.i:                                         ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN13sentencepiece17SentencePieceTextEE6DeleteEPS4_PNS0_5ArenaE.exit.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %_ZN6google8protobuf8internal18GenericTypeHandlerIN13sentencepiece17SentencePieceTextEE6DeleteEPS4_PNS0_5ArenaE.exit.i ]
-  %16 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i
   %17 = load ptr, ptr %16, align 8, !tbaa !67
   %18 = icmp eq ptr %17, null
   br i1 %18, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN13sentencepiece17SentencePieceTextEE6DeleteEPS4_PNS0_5ArenaE.exit.i, label %19
@@ -3476,9 +3476,9 @@ define void @_ZN13sentencepiece22NBestSentencePieceTextC2ERKS0_(ptr noundef nonn
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i, %.lr.ph.preheader.i.i.i.i
   %indvars.iv.i.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i.i ], [ %indvars.iv.next.i.i.i.i, %.lr.ph.i.i.i.i ]
-  %22 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv.i.i.i.i
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i.i.i.i
   %23 = load ptr, ptr %22, align 8, !tbaa !67
-  %24 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv.i.i.i.i
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv.i.i.i.i
   %25 = load ptr, ptr %24, align 8, !tbaa !67
   tail call void @_ZN6google8protobuf8internal18GenericTypeHandlerIN13sentencepiece17SentencePieceTextEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(88) %23, ptr noundef %25)
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
@@ -3487,11 +3487,11 @@ define void @_ZN13sentencepiece22NBestSentencePieceTextC2ERKS0_(ptr noundef nonn
 
 .lr.ph28.i.i.i.i:                                 ; preds = %.lr.ph28.i.i.i.i, %.lr.ph28.preheader.i.i.i.i
   %indvars.iv31.i.i.i.i = phi i64 [ %21, %.lr.ph28.preheader.i.i.i.i ], [ %indvars.iv.next32.i.i.i.i, %.lr.ph28.i.i.i.i ]
-  %26 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv31.i.i.i.i
+  %26 = getelementptr inbounds [8 x i8], ptr %10, i64 %indvars.iv31.i.i.i.i
   %27 = load ptr, ptr %26, align 8, !tbaa !67
   %28 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN13sentencepiece17SentencePieceTextEJEEEPT_PS1_DpOT0_(ptr noundef %19)
   tail call void @_ZN6google8protobuf8internal18GenericTypeHandlerIN13sentencepiece17SentencePieceTextEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(88) %27, ptr noundef %28)
-  %29 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv31.i.i.i.i
+  %29 = getelementptr inbounds [8 x i8], ptr %11, i64 %indvars.iv31.i.i.i.i
   store ptr %28, ptr %29, align 8, !tbaa !67
   %indvars.iv.next32.i.i.i.i = add nsw i64 %indvars.iv31.i.i.i.i, 1
   %lftr.wideiv.i.i.i.i = trunc i64 %indvars.iv.next32.i.i.i.i to i32
@@ -3644,7 +3644,7 @@ _ZN6google8protobuf8internal16InternalMetadata6DeleteINSt7__cxx1112basic_stringI
 
 .lr.ph.i.i:                                       ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN13sentencepiece17SentencePieceTextEE6DeleteEPS4_PNS0_5ArenaE.exit.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %_ZN6google8protobuf8internal18GenericTypeHandlerIN13sentencepiece17SentencePieceTextEE6DeleteEPS4_PNS0_5ArenaE.exit.i.i ]
-  %33 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv.i.i
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv.i.i
   %34 = load ptr, ptr %33, align 8, !tbaa !67
   %35 = icmp eq ptr %34, null
   br i1 %35, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN13sentencepiece17SentencePieceTextEE6DeleteEPS4_PNS0_5ArenaE.exit.i.i, label %36
@@ -3714,7 +3714,7 @@ define void @_ZN13sentencepiece22NBestSentencePieceText5ClearEv(ptr noundef nonn
 9:                                                ; preds = %9, %5
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %9 ], [ 0, %5 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %10 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.i.i
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i.i
   %11 = load ptr, ptr %10, align 8, !tbaa !67
   tail call void @_ZN13sentencepiece17SentencePieceText5ClearEv(ptr noundef nonnull align 8 dereferenceable(88) %11)
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
@@ -3853,7 +3853,7 @@ _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread: ; preds = %_ZN6google8p
   %59 = add nsw i32 %54, 1
   store i32 %59, ptr %10, align 8, !tbaa !76
   %60 = sext i32 %54 to i64
-  %61 = getelementptr inbounds ptr, ptr %58, i64 %60
+  %61 = getelementptr inbounds [8 x i8], ptr %58, i64 %60
   %62 = load ptr, ptr %61, align 8, !tbaa !67
   br label %_ZN13sentencepiece22NBestSentencePieceText20_internal_add_nbestsEv.exit
 
@@ -3883,7 +3883,7 @@ _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread: ; preds = %_ZN6google8p
   %77 = add nsw i32 %76, 1
   store i32 %77, ptr %10, align 8, !tbaa !76
   %78 = sext i32 %76 to i64
-  %79 = getelementptr inbounds ptr, ptr %75, i64 %78
+  %79 = getelementptr inbounds [8 x i8], ptr %75, i64 %78
   store ptr %73, ptr %79, align 8, !tbaa !67
   br label %_ZN13sentencepiece22NBestSentencePieceText20_internal_add_nbestsEv.exit
 
@@ -4037,7 +4037,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %11,
   %15 = load ptr, ptr %6, align 8, !tbaa !71
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = sext i32 %.01119 to i64
-  %18 = getelementptr inbounds ptr, ptr %16, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %16, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !67
   store i8 10, ptr %.0.i14, align 1, !tbaa !34
   %20 = getelementptr inbounds nuw i8, ptr %.0.i14, i64 1
@@ -4276,9 +4276,9 @@ _ZN6google8protobuf8internal16InternalMetadata9MergeFromINSt7__cxx1112basic_stri
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %.lr.ph.i.i.i ]
-  %48 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv.i.i.i
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv.i.i.i
   %49 = load ptr, ptr %48, align 8, !tbaa !67
-  %50 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv.i.i.i
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv.i.i.i
   %51 = load ptr, ptr %50, align 8, !tbaa !67
   tail call void @_ZN6google8protobuf8internal18GenericTypeHandlerIN13sentencepiece17SentencePieceTextEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(88) %49, ptr noundef %51)
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -4287,11 +4287,11 @@ _ZN6google8protobuf8internal16InternalMetadata9MergeFromINSt7__cxx1112basic_stri
 
 .lr.ph28.i.i.i:                                   ; preds = %.lr.ph28.i.i.i, %.lr.ph28.preheader.i.i.i
   %indvars.iv31.i.i.i = phi i64 [ %47, %.lr.ph28.preheader.i.i.i ], [ %indvars.iv.next32.i.i.i, %.lr.ph28.i.i.i ]
-  %52 = getelementptr inbounds ptr, ptr %36, i64 %indvars.iv31.i.i.i
+  %52 = getelementptr inbounds [8 x i8], ptr %36, i64 %indvars.iv31.i.i.i
   %53 = load ptr, ptr %52, align 8, !tbaa !67
   %54 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN13sentencepiece17SentencePieceTextEJEEEPT_PS1_DpOT0_(ptr noundef %45)
   tail call void @_ZN6google8protobuf8internal18GenericTypeHandlerIN13sentencepiece17SentencePieceTextEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(88) %53, ptr noundef %54)
-  %55 = getelementptr inbounds ptr, ptr %37, i64 %indvars.iv31.i.i.i
+  %55 = getelementptr inbounds [8 x i8], ptr %37, i64 %indvars.iv31.i.i.i
   store ptr %54, ptr %55, align 8, !tbaa !67
   %indvars.iv.next32.i.i.i = add nsw i64 %indvars.iv31.i.i.i, 1
   %lftr.wideiv.i.i.i = trunc i64 %indvars.iv.next32.i.i.i to i32
@@ -4336,7 +4336,7 @@ define void @_ZN13sentencepiece22NBestSentencePieceText8CopyFromERKS0_(ptr nound
 12:                                               ; preds = %12, %8
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %12 ], [ 0, %8 ]
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %13 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv.i.i.i
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv.i.i.i
   %14 = load ptr, ptr %13, align 8, !tbaa !67
   tail call void @_ZN13sentencepiece17SentencePieceText5ClearEv(ptr noundef nonnull align 8 dereferenceable(88) %14)
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
@@ -4392,7 +4392,7 @@ _ZNK13sentencepiece17SentencePieceText13IsInitializedEv.exit.loopexit.i: ; preds
   %indvars.iv.i = phi i64 [ %6, %.lr.ph.i ], [ %indvars.iv.next.i, %_ZNK13sentencepiece17SentencePieceText13IsInitializedEv.exit.loopexit.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %9 = load ptr, ptr %5, align 8, !tbaa !71
-  %10 = getelementptr ptr, ptr %9, i64 %indvars.iv.i
+  %10 = getelementptr [8 x i8], ptr %9, i64 %indvars.iv.i
   %11 = load ptr, ptr %10, align 8, !tbaa !67
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = tail call noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet13IsInitializedEv(ptr noundef nonnull align 8 dereferenceable(24) %12)
@@ -4414,7 +4414,7 @@ _ZNK13sentencepiece17SentencePieceText13IsInitializedEv.exit.loopexit.i: ; preds
 22:                                               ; preds = %19
   %23 = add nsw i64 %indvars.iv.i.i.i, -1
   %24 = load ptr, ptr %17, align 8, !tbaa !71
-  %25 = getelementptr ptr, ptr %24, i64 %indvars.iv.i.i.i
+  %25 = getelementptr [8 x i8], ptr %24, i64 %indvars.iv.i.i.i
   %26 = load ptr, ptr %25, align 8, !tbaa !67
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = tail call noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet13IsInitializedEv(ptr noundef nonnull align 8 dereferenceable(24) %27)

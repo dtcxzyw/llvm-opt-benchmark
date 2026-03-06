@@ -3,8 +3,6 @@ source_filename = "bench/icu/original/gencnvex.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.UCMapping = type { i32, %union.anon, i8, i8, i8, i8 }
-%union.anon = type { i32 }
 %struct._MBCSHeader = type { [4 x i8], i32, i32, i32, i32, i32, i32, i32, i32, i32 }
 
 @VERBOSE = external local_unnamed_addr global i8, align 1
@@ -125,10 +123,10 @@ define internal signext range(i8 0, 2) i8 @CnvExtAddTable(ptr noundef captures(n
 
 .lr.ph.i.i:                                       ; preds = %24, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %24 ]
-  %18 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.i.i
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv.i.i
   %19 = load i32, ptr %18, align 4, !tbaa !35
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds %struct.UCMapping, ptr %12, i64 %20
+  %21 = getelementptr inbounds [12 x i8], ptr %12, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 10
   %23 = load i8, ptr %22, align 2, !tbaa !36
   switch i8 %23, label %._crit_edge.loopexit.i.i [
@@ -158,10 +156,10 @@ define internal signext range(i8 0, 2) i8 @CnvExtAddTable(ptr noundef captures(n
 .lr.ph37.i.i:                                     ; preds = %38, %.lr.ph37.preheader.i.i
   %indvars.iv41.i.i = phi i64 [ %27, %.lr.ph37.preheader.i.i ], [ %indvars.iv.next42.i.i, %38 ]
   %.02934.i.i = phi i32 [ %.0.lcssa.i.i, %.lr.ph37.preheader.i.i ], [ %.130.i.i, %38 ]
-  %28 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv41.i.i
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv41.i.i
   %29 = load i32, ptr %28, align 4, !tbaa !35
   %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds %struct.UCMapping, ptr %12, i64 %30
+  %31 = getelementptr inbounds [12 x i8], ptr %12, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 10
   %33 = load i8, ptr %32, align 2, !tbaa !36
   switch i8 %33, label %38 [
@@ -172,7 +170,7 @@ define internal signext range(i8 0, 2) i8 @CnvExtAddTable(ptr noundef captures(n
 34:                                               ; preds = %.lr.ph37.i.i, %.lr.ph37.i.i
   %35 = add nsw i32 %.02934.i.i, 1
   %36 = sext i32 %.02934.i.i to i64
-  %37 = getelementptr inbounds i32, ptr %14, i64 %36
+  %37 = getelementptr inbounds [4 x i8], ptr %14, i64 %36
   store i32 %29, ptr %37, align 4, !tbaa !35
   br label %38
 
@@ -236,7 +234,7 @@ makeToUTable.exit:                                ; preds = %24, %38, %._crit_ed
 60:                                               ; preds = %56, %.thread.i.i, %54
   %61 = add nsw i32 %.05365.i.i, 1
   %62 = sext i32 %.05365.i.i to i64
-  %63 = getelementptr inbounds i32, ptr %45, i64 %62
+  %63 = getelementptr inbounds [4 x i8], ptr %45, i64 %62
   store i32 %.05266.i.i, ptr %63, align 4, !tbaa !35
   %64 = getelementptr inbounds nuw i8, ptr %.05167.i.i, i64 8
   %65 = load i8, ptr %64, align 4, !tbaa !42
@@ -247,14 +245,14 @@ makeToUTable.exit:                                ; preds = %24, %38, %._crit_ed
   %68 = load ptr, ptr %49, align 8, !tbaa !43
   %69 = load i32, ptr %.05167.i.i, align 4, !tbaa !44
   %70 = sext i32 %69 to i64
-  %71 = getelementptr inbounds i32, ptr %68, i64 %70
+  %71 = getelementptr inbounds [4 x i8], ptr %68, i64 %70
   %wide.trip.count.i.i11 = zext nneg i8 %65 to i64
   br label %72
 
 72:                                               ; preds = %92, %67
   %indvars.iv.i.i12 = phi i64 [ 1, %67 ], [ %indvars.iv.next.i.i13, %92 ]
   %.064.i.i = phi i32 [ 2, %67 ], [ %.1.i.i, %92 ]
-  %73 = getelementptr inbounds nuw i32, ptr %71, i64 %indvars.iv.i.i12
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %71, i64 %indvars.iv.i.i12
   %74 = load i32, ptr %73, align 4, !tbaa !35
   %75 = icmp ult i32 %74, 65536
   br i1 %75, label %76, label %81
@@ -263,7 +261,7 @@ makeToUTable.exit:                                ; preds = %24, %38, %._crit_ed
   %77 = trunc nuw i32 %74 to i16
   %78 = add nsw i32 %.064.i.i, 1
   %79 = sext i32 %.064.i.i to i64
-  %80 = getelementptr inbounds i16, ptr %71, i64 %79
+  %80 = getelementptr inbounds [2 x i8], ptr %71, i64 %79
   store i16 %77, ptr %80, align 2, !tbaa !45
   br label %92
 
@@ -272,7 +270,7 @@ makeToUTable.exit:                                ; preds = %24, %38, %._crit_ed
   %83 = trunc i32 %82 to i16
   %84 = add i16 %83, -10304
   %85 = sext i32 %.064.i.i to i64
-  %86 = getelementptr inbounds i16, ptr %71, i64 %85
+  %86 = getelementptr inbounds [2 x i8], ptr %71, i64 %85
   store i16 %84, ptr %86, align 2, !tbaa !45
   %87 = trunc i32 %74 to i16
   %88 = and i16 %87, 1023
@@ -331,7 +329,7 @@ prepareFromUMappings.exit.i:                      ; preds = %95, %44
   %115 = load ptr, ptr %13, align 8, !tbaa !33
   %116 = load i32, ptr %115, align 4, !tbaa !35
   %117 = sext i32 %116 to i64
-  %118 = getelementptr inbounds %struct.UCMapping, ptr %114, i64 %117
+  %118 = getelementptr inbounds [12 x i8], ptr %114, i64 %117
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 8
   %120 = load i8, ptr %119, align 4, !tbaa !42
   %121 = icmp eq i8 %120, 1
@@ -342,7 +340,7 @@ prepareFromUMappings.exit.i:                      ; preds = %95, %44
   %124 = load ptr, ptr %123, align 8, !tbaa !43
   %125 = load i32, ptr %118, align 4, !tbaa !44
   %126 = sext i32 %125 to i64
-  %127 = getelementptr inbounds i32, ptr %124, i64 %126
+  %127 = getelementptr inbounds [4 x i8], ptr %124, i64 %126
   br label %128
 
 128:                                              ; preds = %122, %113
@@ -372,10 +370,10 @@ prepareFromUMappings.exit.i:                      ; preds = %95, %44
   br i1 %138, label %139, label %.critedge.i.i
 
 139:                                              ; preds = %137
-  %140 = getelementptr inbounds nuw i32, ptr %115, i64 %indvars.iv.next.i26.i
+  %140 = getelementptr inbounds nuw [4 x i8], ptr %115, i64 %indvars.iv.next.i26.i
   %141 = load i32, ptr %140, align 4, !tbaa !35
   %142 = sext i32 %141 to i64
-  %143 = getelementptr inbounds %struct.UCMapping, ptr %114, i64 %142
+  %143 = getelementptr inbounds [12 x i8], ptr %114, i64 %142
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 8
   %145 = load i8, ptr %144, align 4, !tbaa !42
   %146 = icmp eq i8 %145, 1
@@ -385,7 +383,7 @@ prepareFromUMappings.exit.i:                      ; preds = %95, %44
   %148 = load ptr, ptr %132, align 8, !tbaa !43
   %149 = load i32, ptr %143, align 4, !tbaa !44
   %150 = sext i32 %149 to i64
-  %151 = getelementptr inbounds i32, ptr %148, i64 %150
+  %151 = getelementptr inbounds [4 x i8], ptr %148, i64 %150
   br label %152
 
 152:                                              ; preds = %147, %139
@@ -403,10 +401,10 @@ prepareFromUMappings.exit.i:                      ; preds = %95, %44
   %.16472.lcssa.i.i = phi i32 [ %157, %.critedge.split.loop.exit.i.i ], [ %136, %137 ]
   %.lcssa.i.i = phi i32 [ %156, %.critedge.split.loop.exit.i.i ], [ %smax.i.i, %137 ]
   %.1.lcssa.i.i = phi i32 [ %154, %.critedge.split.loop.exit.i.i ], [ %.076.i.i, %137 ]
-  %158 = getelementptr inbounds nuw i32, ptr %115, i64 %134
+  %158 = getelementptr inbounds nuw [4 x i8], ptr %115, i64 %134
   %159 = load i32, ptr %158, align 4, !tbaa !35
   %160 = sext i32 %159 to i64
-  %161 = getelementptr inbounds %struct.UCMapping, ptr %114, i64 %160
+  %161 = getelementptr inbounds [12 x i8], ptr %114, i64 %160
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 8
   %163 = load i8, ptr %162, align 4, !tbaa !42
   %164 = icmp eq i8 %163, 1
@@ -418,24 +416,24 @@ prepareFromUMappings.exit.i:                      ; preds = %95, %44
 
 167:                                              ; preds = %165
   %168 = zext nneg i32 %135 to i64
-  %169 = getelementptr inbounds nuw i32, ptr %115, i64 %168
+  %169 = getelementptr inbounds nuw [4 x i8], ptr %115, i64 %168
   %170 = load i32, ptr %169, align 4, !tbaa !35
   %171 = sext i32 %170 to i64
-  %172 = getelementptr inbounds %struct.UCMapping, ptr %114, i64 %171
+  %172 = getelementptr inbounds [12 x i8], ptr %114, i64 %171
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 8
   %174 = load i8, ptr %173, align 4, !tbaa !42
   %175 = icmp eq i8 %174, 1
   br i1 %175, label %176, label %185
 
 176:                                              ; preds = %167
-  %177 = getelementptr inbounds nuw i32, ptr %115, i64 %168
+  %177 = getelementptr inbounds nuw [4 x i8], ptr %115, i64 %168
   %178 = load ptr, ptr @stderr, align 8, !tbaa !28
   %179 = tail call i64 @fwrite(ptr nonnull @.str.10, i64 55, i64 1, ptr %178) #16
   %180 = load ptr, ptr @stderr, align 8, !tbaa !28
   tail call void @ucm_printMapping(ptr noundef nonnull %1, ptr noundef nonnull %161, ptr noundef %180) #15
   %181 = load i32, ptr %177, align 4, !tbaa !35
   %182 = sext i32 %181 to i64
-  %183 = getelementptr inbounds %struct.UCMapping, ptr %114, i64 %182
+  %183 = getelementptr inbounds [12 x i8], ptr %114, i64 %182
   %184 = load ptr, ptr @stderr, align 8, !tbaa !28
   tail call void @ucm_printMapping(ptr noundef nonnull %1, ptr noundef %183, ptr noundef %184) #15
   br label %makeFromUTable.exit
@@ -480,7 +478,7 @@ prepareFromUMappings.exit.i:                      ; preds = %95, %44
 
 201:                                              ; preds = %201, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %201 ]
-  %202 = getelementptr inbounds nuw i16, ptr %196, i64 %indvars.iv.i
+  %202 = getelementptr inbounds nuw [2 x i8], ptr %196, i64 %indvars.iv.i
   %203 = load i16, ptr %202, align 2, !tbaa !45
   %204 = add i16 %203, %200
   store i16 %204, ptr %202, align 2, !tbaa !45
@@ -663,7 +661,7 @@ define internal i32 @CnvExtWrite(ptr noundef %0, ptr readnone captures(none) %1,
   %99 = add nsw i32 %92, 1
   store i32 %99, ptr %91, align 8, !tbaa !49
   %100 = sext i32 %92 to i64
-  %101 = getelementptr inbounds i16, ptr %98, i64 %100
+  %101 = getelementptr inbounds [2 x i8], ptr %98, i64 %100
   store i16 0, ptr %101, align 2, !tbaa !45
   %102 = add nsw i32 %95, 2
   br label %103
@@ -801,10 +799,10 @@ define internal fastcc signext range(i8 0, 2) i8 @generateToUTable(ptr noundef c
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %11 = load ptr, ptr %10, align 8, !tbaa !33
   %12 = sext i32 %2 to i64
-  %13 = getelementptr inbounds i32, ptr %11, i64 %12
+  %13 = getelementptr inbounds [4 x i8], ptr %11, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !35
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds %struct.UCMapping, ptr %9, i64 %15
+  %16 = getelementptr inbounds [12 x i8], ptr %9, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 9
   %18 = load i8, ptr %17, align 1, !tbaa !41
   %19 = icmp slt i8 %18, 5
@@ -842,10 +840,10 @@ define internal fastcc signext range(i8 0, 2) i8 @generateToUTable(ptr noundef c
   %indvars.iv = phi i64 [ %37, %.lr.ph ], [ %indvars.iv.next, %54 ]
   %.0121163 = phi i32 [ %34, %.lr.ph ], [ %58, %54 ]
   %.0126162 = phi i32 [ 1, %.lr.ph ], [ %spec.select, %54 ]
-  %39 = getelementptr inbounds i32, ptr %11, i64 %indvars.iv
+  %39 = getelementptr inbounds [4 x i8], ptr %11, i64 %indvars.iv
   %40 = load i32, ptr %39, align 4, !tbaa !35
   %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds %struct.UCMapping, ptr %9, i64 %41
+  %42 = getelementptr inbounds [12 x i8], ptr %9, i64 %41
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 9
   %44 = load i8, ptr %43, align 1, !tbaa !41
   %45 = icmp slt i8 %44, 5
@@ -933,10 +931,10 @@ define internal fastcc signext range(i8 0, 2) i8 @generateToUTable(ptr noundef c
   %indvars.iv204 = phi i64 [ %indvars.iv.next205, %115 ], [ %12, %.lr.ph175 ]
   %.2174.us = phi i32 [ %.5.us, %115 ], [ %84, %.lr.ph175 ]
   %.0128173.us = phi i32 [ %.3131.us, %115 ], [ 0, %.lr.ph175 ]
-  %86 = getelementptr inbounds i32, ptr %11, i64 %indvars.iv204
+  %86 = getelementptr inbounds [4 x i8], ptr %11, i64 %indvars.iv204
   %87 = load i32, ptr %86, align 4, !tbaa !35
   %88 = sext i32 %87 to i64
-  %89 = getelementptr inbounds %struct.UCMapping, ptr %9, i64 %88
+  %89 = getelementptr inbounds [12 x i8], ptr %9, i64 %88
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 9
   %91 = load i8, ptr %90, align 1, !tbaa !41
   %92 = icmp slt i8 %91, 5
@@ -982,7 +980,7 @@ define internal fastcc signext range(i8 0, 2) i8 @generateToUTable(ptr noundef c
   %111 = shl i32 %110, 24
   %112 = or i32 %111, %109
   %indvars.iv.next201 = add nsw i64 %indvars.iv200, 1
-  %113 = getelementptr inbounds i32, ptr %82, i64 %indvars.iv200
+  %113 = getelementptr inbounds [4 x i8], ptr %82, i64 %indvars.iv200
   store i32 %112, ptr %113, align 4, !tbaa !35
   %114 = add nsw i32 %110, 1
   %exitcond203.not = icmp eq i32 %114, %105
@@ -1007,7 +1005,7 @@ define internal fastcc signext range(i8 0, 2) i8 @generateToUTable(ptr noundef c
   %118 = or i32 %117, %.pre-phi217
   %119 = add nsw i32 %.1129.lcssa.us, 1
   %120 = sext i32 %.1129.lcssa.us to i64
-  %121 = getelementptr inbounds i32, ptr %82, i64 %120
+  %121 = getelementptr inbounds [4 x i8], ptr %82, i64 %120
   store i32 %118, ptr %121, align 4, !tbaa !35
   br label %115
 
@@ -1015,10 +1013,10 @@ define internal fastcc signext range(i8 0, 2) i8 @generateToUTable(ptr noundef c
   %indvars.iv196 = phi i64 [ %indvars.iv.next197, %149 ], [ %12, %.lr.ph175 ]
   %.2174 = phi i32 [ %.5, %149 ], [ %84, %.lr.ph175 ]
   %.0128173 = phi i32 [ %.3131, %149 ], [ 0, %.lr.ph175 ]
-  %122 = getelementptr inbounds i32, ptr %11, i64 %indvars.iv196
+  %122 = getelementptr inbounds [4 x i8], ptr %11, i64 %indvars.iv196
   %123 = load i32, ptr %122, align 4, !tbaa !35
   %124 = sext i32 %123 to i64
-  %125 = getelementptr inbounds %struct.UCMapping, ptr %9, i64 %124
+  %125 = getelementptr inbounds [12 x i8], ptr %9, i64 %124
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 9
   %127 = load i8, ptr %126, align 1, !tbaa !41
   %128 = icmp slt i8 %127, 5
@@ -1050,7 +1048,7 @@ define internal fastcc signext range(i8 0, 2) i8 @generateToUTable(ptr noundef c
   %145 = or i32 %143, %144
   %146 = add nsw i32 %.0128173, 1
   %147 = sext i32 %.0128173 to i64
-  %148 = getelementptr inbounds i32, ptr %82, i64 %147
+  %148 = getelementptr inbounds [4 x i8], ptr %82, i64 %147
   store i32 %145, ptr %148, align 4, !tbaa !35
   br label %149
 
@@ -1086,14 +1084,14 @@ define internal fastcc signext range(i8 0, 2) i8 @generateToUTable(ptr noundef c
   br i1 %161, label %162, label %166
 
 162:                                              ; preds = %160
-  %163 = getelementptr inbounds nuw i32, ptr %82, i64 %indvars.iv.next210
+  %163 = getelementptr inbounds nuw [4 x i8], ptr %82, i64 %indvars.iv.next210
   %164 = load i32, ptr %163, align 4, !tbaa !35
   %165 = and i32 %164, 16777215
   br label %166
 
 166:                                              ; preds = %160, %162
   %167 = phi i32 [ %165, %162 ], [ %3, %160 ]
-  %168 = getelementptr inbounds nuw i32, ptr %82, i64 %indvars.iv209
+  %168 = getelementptr inbounds nuw [4 x i8], ptr %82, i64 %indvars.iv209
   %169 = load i32, ptr %168, align 4, !tbaa !35
   %170 = and i32 %169, -16777216
   store i32 %170, ptr %168, align 4, !tbaa !35
@@ -1102,10 +1100,10 @@ define internal fastcc signext range(i8 0, 2) i8 @generateToUTable(ptr noundef c
 
 172:                                              ; preds = %166
   %173 = sext i32 %.0123179 to i64
-  %174 = getelementptr inbounds i32, ptr %11, i64 %173
+  %174 = getelementptr inbounds [4 x i8], ptr %11, i64 %173
   %175 = load i32, ptr %174, align 4, !tbaa !35
   %176 = sext i32 %175 to i64
-  %177 = getelementptr inbounds %struct.UCMapping, ptr %9, i64 %176
+  %177 = getelementptr inbounds [12 x i8], ptr %9, i64 %176
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 9
   %179 = load i8, ptr %178, align 1, !tbaa !41
   %180 = sext i8 %179 to i32
@@ -1119,10 +1117,10 @@ define internal fastcc signext range(i8 0, 2) i8 @generateToUTable(ptr noundef c
 
 185:                                              ; preds = %182
   %186 = sext i32 %183 to i64
-  %187 = getelementptr inbounds i32, ptr %11, i64 %186
+  %187 = getelementptr inbounds [4 x i8], ptr %11, i64 %186
   %188 = load i32, ptr %187, align 4, !tbaa !35
   %189 = sext i32 %188 to i64
-  %190 = getelementptr inbounds %struct.UCMapping, ptr %9, i64 %189
+  %190 = getelementptr inbounds [12 x i8], ptr %9, i64 %189
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 9
   %192 = load i8, ptr %191, align 1, !tbaa !41
   %193 = sext i8 %192 to i32
@@ -1130,14 +1128,14 @@ define internal fastcc signext range(i8 0, 2) i8 @generateToUTable(ptr noundef c
   br i1 %194, label %195, label %204
 
 195:                                              ; preds = %185
-  %196 = getelementptr inbounds i32, ptr %11, i64 %186
+  %196 = getelementptr inbounds [4 x i8], ptr %11, i64 %186
   %197 = load ptr, ptr @stderr, align 8, !tbaa !28
   %198 = call i64 @fwrite(ptr nonnull @.str.6, i64 41, i64 1, ptr %197) #16
   %199 = load ptr, ptr @stderr, align 8, !tbaa !28
   call void @ucm_printMapping(ptr noundef nonnull %1, ptr noundef nonnull %177, ptr noundef %199) #15
   %200 = load i32, ptr %196, align 4, !tbaa !35
   %201 = sext i32 %200 to i64
-  %202 = getelementptr inbounds %struct.UCMapping, ptr %9, i64 %201
+  %202 = getelementptr inbounds [12 x i8], ptr %9, i64 %201
   %203 = load ptr, ptr @stderr, align 8, !tbaa !28
   call void @ucm_printMapping(ptr noundef nonnull %1, ptr noundef %202, ptr noundef %203) #15
   br label %.loopexit
@@ -1162,7 +1160,7 @@ define internal fastcc signext range(i8 0, 2) i8 @generateToUTable(ptr noundef c
   %214 = load ptr, ptr %154, align 8, !tbaa !43
   %215 = load i32, ptr %177, align 4, !tbaa !44
   %216 = sext i32 %215 to i64
-  %217 = getelementptr inbounds i32, ptr %214, i64 %216
+  %217 = getelementptr inbounds [4 x i8], ptr %214, i64 %216
   store i32 0, ptr %8, align 4, !tbaa !35
   %218 = sext i8 %206 to i32
   %219 = call ptr @u_strFromUTF32_77(ptr noundef null, i32 noundef 0, ptr noundef nonnull %7, ptr noundef %217, i32 noundef %218, ptr noundef nonnull %8) #15
@@ -1398,7 +1396,7 @@ define internal fastcc i32 @getFromUBytesValue(ptr noundef captures(none) %0, pt
   %67 = load ptr, ptr %66, align 8, !tbaa !43
   %68 = load i32, ptr %2, align 4, !tbaa !44
   %69 = sext i32 %68 to i64
-  %70 = getelementptr inbounds i32, ptr %67, i64 %69
+  %70 = getelementptr inbounds [4 x i8], ptr %67, i64 %69
   %71 = load i32, ptr %70, align 4, !tbaa !35
   %72 = icmp ult i32 %71, 65536
   %73 = select i1 %72, i32 1, i32 2
@@ -1471,7 +1469,7 @@ define internal fastcc void @addFromUTrieEntry(ptr noundef captures(none) %0, i3
   %13 = and i32 %12, 63
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %15 = sext i32 %6 to i64
-  %16 = getelementptr inbounds i16, ptr %14, i64 %15
+  %16 = getelementptr inbounds [2 x i8], ptr %14, i64 %15
   %17 = load i16, ptr %16, align 2, !tbaa !45
   %18 = icmp eq i16 %17, 0
   br i1 %18, label %19, label %39
@@ -1492,7 +1490,7 @@ define internal fastcc void @addFromUTrieEntry(ptr noundef captures(none) %0, i3
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %30
   %indvars.iv = phi i64 [ %23, %.lr.ph.preheader ], [ %indvars.iv.next, %30 ]
-  %26 = getelementptr i16, ptr %0, i64 %indvars.iv
+  %26 = getelementptr [2 x i8], ptr %0, i64 %indvars.iv
   %27 = getelementptr i8, ptr %26, i64 2254
   %28 = load i16, ptr %27, align 2, !tbaa !45
   %29 = icmp eq i16 %28, 0
@@ -1529,7 +1527,7 @@ define internal fastcc void @addFromUTrieEntry(ptr noundef captures(none) %0, i3
   %43 = and i32 %1, 15
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 2256
   %45 = zext nneg i32 %42 to i64
-  %46 = getelementptr inbounds nuw i16, ptr %44, i64 %45
+  %46 = getelementptr inbounds nuw [2 x i8], ptr %44, i64 %45
   %47 = load i16, ptr %46, align 2, !tbaa !45
   %48 = icmp eq i16 %47, 0
   br i1 %48, label %49, label %72
@@ -1550,7 +1548,7 @@ define internal fastcc void @addFromUTrieEntry(ptr noundef captures(none) %0, i3
 
 .lr.ph92:                                         ; preds = %.lr.ph92.preheader, %60
   %indvars.iv100 = phi i64 [ %53, %.lr.ph92.preheader ], [ %indvars.iv.next101, %60 ]
-  %56 = getelementptr i16, ptr %0, i64 %indvars.iv100
+  %56 = getelementptr [2 x i8], ptr %0, i64 %indvars.iv100
   %57 = getelementptr i8, ptr %56, i64 131150
   %58 = load i16, ptr %57, align 2, !tbaa !45
   %59 = icmp eq i16 %58, 0
@@ -1594,7 +1592,7 @@ define internal fastcc void @addFromUTrieEntry(ptr noundef captures(none) %0, i3
 78:                                               ; preds = %72
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 131152
   %80 = zext nneg i32 %76 to i64
-  %81 = getelementptr inbounds nuw i16, ptr %79, i64 %80
+  %81 = getelementptr inbounds nuw [2 x i8], ptr %79, i64 %80
   store i16 1, ptr %81, align 2, !tbaa !45
   %82 = icmp eq i32 %43, 15
   br i1 %82, label %.preheader.preheader, label %117
@@ -1606,7 +1604,7 @@ define internal fastcc void @addFromUTrieEntry(ptr noundef captures(none) %0, i3
 
 .preheader:                                       ; preds = %.preheader.preheader, %88
   %indvars.iv104 = phi i64 [ %84, %.preheader.preheader ], [ %indvars.iv.next105, %88 ]
-  %85 = getelementptr inbounds nuw i16, ptr %79, i64 %indvars.iv104
+  %85 = getelementptr inbounds nuw [2 x i8], ptr %79, i64 %indvars.iv104
   %86 = load i16, ptr %85, align 2, !tbaa !45
   %87 = icmp eq i16 %86, 1
   br i1 %87, label %88, label %.critedge4
@@ -1634,7 +1632,7 @@ define internal fastcc void @addFromUTrieEntry(ptr noundef captures(none) %0, i3
   %96 = add nsw i32 %95, -16
   store i32 %96, ptr %94, align 8, !tbaa !49
   %97 = sext i32 %96 to i64
-  %98 = getelementptr inbounds i16, ptr %79, i64 %97
+  %98 = getelementptr inbounds [2 x i8], ptr %79, i64 %97
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(32) %98, i8 0, i64 32, i1 false)
   br label %117
 
@@ -1661,11 +1659,11 @@ define internal fastcc void @addFromUTrieEntry(ptr noundef captures(none) %0, i3
   %110 = trunc i32 %103 to i16
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 131152
   %112 = zext nneg i32 %76 to i64
-  %113 = getelementptr inbounds nuw i16, ptr %111, i64 %112
+  %113 = getelementptr inbounds nuw [2 x i8], ptr %111, i64 %112
   store i16 %110, ptr %113, align 2, !tbaa !45
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 655440
   %115 = sext i32 %103 to i64
-  %116 = getelementptr inbounds i32, ptr %114, i64 %115
+  %116 = getelementptr inbounds [4 x i8], ptr %114, i64 %115
   store i32 %2, ptr %116, align 4, !tbaa !35
   br label %117
 
@@ -1679,10 +1677,10 @@ define internal fastcc signext range(i8 0, 2) i8 @generateFromUTable(ptr noundef
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %9 = load ptr, ptr %8, align 8, !tbaa !33
   %10 = sext i32 %2 to i64
-  %11 = getelementptr inbounds i32, ptr %9, i64 %10
+  %11 = getelementptr inbounds [4 x i8], ptr %9, i64 %10
   %12 = load i32, ptr %11, align 4, !tbaa !35
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds %struct.UCMapping, ptr %7, i64 %13
+  %14 = getelementptr inbounds [12 x i8], ptr %7, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load i8, ptr %15, align 4, !tbaa !42
   %17 = icmp eq i8 %16, 1
@@ -1693,13 +1691,13 @@ define internal fastcc signext range(i8 0, 2) i8 @generateFromUTable(ptr noundef
   %20 = load ptr, ptr %19, align 8, !tbaa !43
   %21 = load i32, ptr %14, align 4, !tbaa !44
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds i32, ptr %20, i64 %22
+  %23 = getelementptr inbounds [4 x i8], ptr %20, i64 %22
   br label %24
 
 24:                                               ; preds = %6, %18
   %25 = phi ptr [ %23, %18 ], [ %14, %6 ]
   %26 = sext i32 %4 to i64
-  %27 = getelementptr inbounds i16, ptr %25, i64 %26
+  %27 = getelementptr inbounds [2 x i8], ptr %25, i64 %26
   %28 = load i16, ptr %27, align 2, !tbaa !45
   %29 = zext i16 %28 to i32
   %.0116129 = add nsw i32 %2, 1
@@ -1715,10 +1713,10 @@ define internal fastcc signext range(i8 0, 2) i8 @generateFromUTable(ptr noundef
   %indvars.iv = phi i64 [ %32, %.lr.ph ], [ %indvars.iv.next, %46 ]
   %.0131 = phi i32 [ %29, %.lr.ph ], [ %50, %46 ]
   %.0111130 = phi i32 [ 1, %.lr.ph ], [ %spec.select, %46 ]
-  %34 = getelementptr inbounds i32, ptr %9, i64 %indvars.iv
+  %34 = getelementptr inbounds [4 x i8], ptr %9, i64 %indvars.iv
   %35 = load i32, ptr %34, align 4, !tbaa !35
   %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds %struct.UCMapping, ptr %7, i64 %36
+  %37 = getelementptr inbounds [12 x i8], ptr %7, i64 %36
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load i8, ptr %38, align 4, !tbaa !42
   %40 = icmp eq i8 %39, 1
@@ -1728,12 +1726,12 @@ define internal fastcc signext range(i8 0, 2) i8 @generateFromUTable(ptr noundef
   %42 = load ptr, ptr %31, align 8, !tbaa !43
   %43 = load i32, ptr %37, align 4, !tbaa !44
   %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds i32, ptr %42, i64 %44
+  %45 = getelementptr inbounds [4 x i8], ptr %42, i64 %44
   br label %46
 
 46:                                               ; preds = %33, %41
   %47 = phi ptr [ %45, %41 ], [ %37, %33 ]
-  %48 = getelementptr inbounds i16, ptr %47, i64 %26
+  %48 = getelementptr inbounds [2 x i8], ptr %47, i64 %26
   %49 = load i16, ptr %48, align 2, !tbaa !45
   %50 = zext i16 %49 to i32
   %.not126 = icmp ne i32 %.0131, %50
@@ -1771,10 +1769,10 @@ define internal fastcc signext range(i8 0, 2) i8 @generateFromUTable(ptr noundef
   %indvars.iv145 = phi i64 [ %10, %.lr.ph137 ], [ %indvars.iv.next146, %89 ]
   %.2135 = phi i32 [ %63, %.lr.ph137 ], [ %.3, %89 ]
   %.0113134 = phi i32 [ 0, %.lr.ph137 ], [ %.1114, %89 ]
-  %66 = getelementptr inbounds i32, ptr %9, i64 %indvars.iv145
+  %66 = getelementptr inbounds [4 x i8], ptr %9, i64 %indvars.iv145
   %67 = load i32, ptr %66, align 4, !tbaa !35
   %68 = sext i32 %67 to i64
-  %69 = getelementptr inbounds %struct.UCMapping, ptr %7, i64 %68
+  %69 = getelementptr inbounds [12 x i8], ptr %7, i64 %68
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %71 = load i8, ptr %70, align 4, !tbaa !42
   %72 = icmp eq i8 %71, 1
@@ -1784,12 +1782,12 @@ define internal fastcc signext range(i8 0, 2) i8 @generateFromUTable(ptr noundef
   %74 = load ptr, ptr %64, align 8, !tbaa !43
   %75 = load i32, ptr %69, align 4, !tbaa !44
   %76 = sext i32 %75 to i64
-  %77 = getelementptr inbounds i32, ptr %74, i64 %76
+  %77 = getelementptr inbounds [4 x i8], ptr %74, i64 %76
   br label %78
 
 78:                                               ; preds = %65, %73
   %79 = phi ptr [ %77, %73 ], [ %69, %65 ]
-  %80 = getelementptr inbounds i16, ptr %79, i64 %26
+  %80 = getelementptr inbounds [2 x i8], ptr %79, i64 %26
   %81 = load i16, ptr %80, align 2, !tbaa !45
   %82 = zext i16 %81 to i32
   %.not125 = icmp eq i32 %.2135, %82
@@ -1797,9 +1795,9 @@ define internal fastcc signext range(i8 0, 2) i8 @generateFromUTable(ptr noundef
 
 83:                                               ; preds = %78
   %84 = sext i32 %.0113134 to i64
-  %85 = getelementptr inbounds i16, ptr %60, i64 %84
+  %85 = getelementptr inbounds [2 x i8], ptr %60, i64 %84
   store i16 %81, ptr %85, align 2, !tbaa !45
-  %86 = getelementptr inbounds i32, ptr %61, i64 %84
+  %86 = getelementptr inbounds [4 x i8], ptr %61, i64 %84
   %87 = trunc nsw i64 %indvars.iv145 to i32
   store i32 %87, ptr %86, align 4, !tbaa !35
   %88 = add nsw i32 %.0113134, 1
@@ -1826,17 +1824,17 @@ define internal fastcc signext range(i8 0, 2) i8 @generateFromUTable(ptr noundef
   br i1 %94, label %95, label %98
 
 95:                                               ; preds = %93
-  %96 = getelementptr inbounds nuw i32, ptr %61, i64 %indvars.iv.next150
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %indvars.iv.next150
   %97 = load i32, ptr %96, align 4, !tbaa !35
   br label %98
 
 98:                                               ; preds = %93, %95
   %99 = phi i32 [ %97, %95 ], [ %3, %93 ]
   %100 = sext i32 %.0108141 to i64
-  %101 = getelementptr inbounds i32, ptr %9, i64 %100
+  %101 = getelementptr inbounds [4 x i8], ptr %9, i64 %100
   %102 = load i32, ptr %101, align 4, !tbaa !35
   %103 = sext i32 %102 to i64
-  %104 = getelementptr inbounds %struct.UCMapping, ptr %7, i64 %103
+  %104 = getelementptr inbounds [12 x i8], ptr %7, i64 %103
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 8
   %106 = load i8, ptr %105, align 4, !tbaa !42
   %107 = sext i8 %106 to i32
@@ -1850,10 +1848,10 @@ define internal fastcc signext range(i8 0, 2) i8 @generateFromUTable(ptr noundef
 
 112:                                              ; preds = %109
   %113 = sext i32 %110 to i64
-  %114 = getelementptr inbounds i32, ptr %9, i64 %113
+  %114 = getelementptr inbounds [4 x i8], ptr %9, i64 %113
   %115 = load i32, ptr %114, align 4, !tbaa !35
   %116 = sext i32 %115 to i64
-  %117 = getelementptr inbounds %struct.UCMapping, ptr %7, i64 %116
+  %117 = getelementptr inbounds [12 x i8], ptr %7, i64 %116
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 8
   %119 = load i8, ptr %118, align 4, !tbaa !42
   %120 = sext i8 %119 to i32
@@ -1861,14 +1859,14 @@ define internal fastcc signext range(i8 0, 2) i8 @generateFromUTable(ptr noundef
   br i1 %121, label %122, label %131
 
 122:                                              ; preds = %112
-  %123 = getelementptr inbounds i32, ptr %9, i64 %113
+  %123 = getelementptr inbounds [4 x i8], ptr %9, i64 %113
   %124 = load ptr, ptr @stderr, align 8, !tbaa !28
   %125 = tail call i64 @fwrite(ptr nonnull @.str.10, i64 55, i64 1, ptr %124) #16
   %126 = load ptr, ptr @stderr, align 8, !tbaa !28
   tail call void @ucm_printMapping(ptr noundef nonnull %1, ptr noundef nonnull %104, ptr noundef %126) #15
   %127 = load i32, ptr %123, align 4, !tbaa !35
   %128 = sext i32 %127 to i64
-  %129 = getelementptr inbounds %struct.UCMapping, ptr %7, i64 %128
+  %129 = getelementptr inbounds [12 x i8], ptr %7, i64 %128
   %130 = load ptr, ptr @stderr, align 8, !tbaa !28
   tail call void @ucm_printMapping(ptr noundef nonnull %1, ptr noundef %129, ptr noundef %130) #15
   br label %.loopexit
@@ -1884,14 +1882,14 @@ define internal fastcc signext range(i8 0, 2) i8 @generateFromUTable(ptr noundef
   br i1 %134, label %135, label %137
 
 135:                                              ; preds = %133
-  %136 = getelementptr inbounds nuw i32, ptr %61, i64 %indvars.iv149
+  %136 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %indvars.iv149
   store i32 %.0110, ptr %136, align 4, !tbaa !35
   br label %142
 
 137:                                              ; preds = %133
   %138 = load ptr, ptr %56, align 8, !tbaa !21
   %139 = tail call i32 @utm_countItems(ptr noundef %138) #15
-  %140 = getelementptr inbounds nuw i32, ptr %61, i64 %indvars.iv149
+  %140 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %indvars.iv149
   store i32 %139, ptr %140, align 4, !tbaa !35
   %141 = tail call fastcc signext i8 @generateFromUTable(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %.0109, i32 noundef %99, i32 noundef %91, i32 noundef %.0110)
   %.not = icmp eq i8 %141, 0

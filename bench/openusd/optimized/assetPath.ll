@@ -931,7 +931,7 @@ define internal fastcc noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__L9_Read
   br i1 %32, label %38, label %33
 
 33:                                               ; preds = %29
-  %34 = getelementptr ptr, ptr @__const._ZN32pxrInternal_v0_24__pxrReserved__L9_ReadUTF8ERPKhPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.ordinalWords, i64 %indvars.iv
+  %34 = getelementptr [8 x i8], ptr @__const._ZN32pxrInternal_v0_24__pxrReserved__L9_ReadUTF8ERPKhPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.ordinalWords, i64 %indvars.iv
   %35 = getelementptr i8, ptr %34, i64 -8
   %36 = load ptr, ptr %35, align 8
   call void (ptr, ptr, ...) @_ZN32pxrInternal_v0_24__pxrReserved__14TfStringPrintfB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull @.str.12, i32 noundef %.026, ptr noundef %36)

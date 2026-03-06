@@ -128,7 +128,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %12
   %35 = getelementptr inbounds nuw i8, ptr %.0127, i64 %indvars.iv
   %36 = load i8, ptr %35, align 1, !tbaa !24
   %37 = sext i8 %36 to i64
-  %38 = getelementptr inbounds i16, ptr %33, i64 %37
+  %38 = getelementptr inbounds [2 x i8], ptr %33, i64 %37
   %39 = load i16, ptr %38, align 2, !tbaa !27
   %40 = zext i16 %39 to i32
   %41 = and i32 %40, 1024
@@ -1006,7 +1006,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %8
 
 22:                                               ; preds = %.lr.ph200, %._crit_edge
   %indvars.iv223 = phi i64 [ 0, %.lr.ph200 ], [ %indvars.iv.next224, %._crit_edge ]
-  %23 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv223
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv223
   %24 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_regex_value_t_class, i64 56), align 8, !tbaa !30
   %25 = call noalias noundef ptr @malloc(i64 noundef %24) #21
   %26 = load i32, ptr @pmix_class_init_epoch, align 4, !tbaa !10
@@ -1079,7 +1079,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %29, %3
   br i1 %.not122, label %128, label %56
 
 56:                                               ; preds = %53
-  %57 = getelementptr inbounds nuw ptr, ptr %48, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %indvars.iv
   store i8 0, ptr %55, align 1, !tbaa !24
   %58 = getelementptr inbounds nuw i8, ptr %55, i64 1
   %59 = load ptr, ptr %57, align 8, !tbaa !8
@@ -1363,7 +1363,7 @@ pmix_obj_new_tma.exit153:                         ; preds = %.lr.ph.i.i150, %173
 193:                                              ; preds = %99, %pmix_obj_new_tma.exit139, %pmix_obj_new_tma.exit132, %165, %pmix_obj_new_tma.exit153, %pmix_obj_new_tma.exit146
   %.1103 = phi ptr [ %67, %pmix_obj_new_tma.exit132 ], [ %.0102196, %99 ], [ %103, %pmix_obj_new_tma.exit139 ], [ %134, %pmix_obj_new_tma.exit146 ], [ %.0102196, %165 ], [ %169, %pmix_obj_new_tma.exit153 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %194 = getelementptr inbounds nuw ptr, ptr %48, i64 %indvars.iv.next
+  %194 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %indvars.iv.next
   %195 = load ptr, ptr %194, align 8, !tbaa !8
   %.not121 = icmp eq ptr %195, null
   br i1 %.not121, label %._crit_edge, label %53, !llvm.loop !57
@@ -1371,7 +1371,7 @@ pmix_obj_new_tma.exit153:                         ; preds = %.lr.ph.i.i150, %173
 ._crit_edge:                                      ; preds = %193, %pmix_obj_new_tma.exit
   call void @PMIx_Argv_free(ptr noundef nonnull %48) #18
   %indvars.iv.next224 = add nuw nsw i64 %indvars.iv223, 1
-  %196 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv.next224
+  %196 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv.next224
   %197 = load ptr, ptr %196, align 8, !tbaa !8
   %.not113 = icmp eq ptr %197, null
   br i1 %.not113, label %._crit_edge201, label %22, !llvm.loop !58
@@ -1754,7 +1754,7 @@ define internal noundef i32 @parse_nodes(ptr noundef readonly captures(address_i
 
 22:                                               ; preds = %20
   %23 = zext nneg i32 %21 to i64
-  %24 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %23
+  %24 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %26 = load i32, ptr %25, align 4, !tbaa !66
   %27 = icmp sgt i32 %26, 0
@@ -1962,7 +1962,7 @@ define internal noundef i32 @parse_nodes(ptr noundef readonly captures(address_i
 
 100:                                              ; preds = %98
   %101 = zext nneg i32 %99 to i64
-  %102 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %101
+  %102 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %101
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 4
   %104 = load i32, ptr %103, align 4, !tbaa !66
   %105 = icmp sgt i32 %104, 0
@@ -2032,7 +2032,7 @@ define internal noundef i32 @parse_nodes(ptr noundef readonly captures(address_i
 
 130:                                              ; preds = %128
   %131 = zext nneg i32 %129 to i64
-  %132 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %131
+  %132 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %131
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 4
   %134 = load i32, ptr %133, align 4, !tbaa !66
   %135 = icmp sgt i32 %134, 0
@@ -2190,7 +2190,7 @@ define internal range(i32 -1366, 1) i32 @parse_procs(ptr noundef readonly captur
 .lr.ph37.i:                                       ; preds = %.lr.ph41.i, %.loopexit.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.loopexit.i ], [ 0, %.lr.ph41.i ]
   %24 = phi ptr [ %47, %.loopexit.i ], [ %23, %.lr.ph41.i ]
-  %25 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv.i
   %26 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %24, i32 noundef 45) #19
   store ptr %26, ptr %3, align 8, !tbaa !8
   %27 = icmp eq ptr %26, null
@@ -2231,7 +2231,7 @@ define internal range(i32 -1366, 1) i32 @parse_procs(ptr noundef readonly captur
 
 .loopexit.i:                                      ; preds = %41, %31, %28
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %46 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv.next.i
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv.next.i
   %47 = load ptr, ptr %46, align 8, !tbaa !8
   %.not31.i = icmp eq ptr %47, null
   br i1 %.not31.i, label %._crit_edge.i, label %.lr.ph37.i, !llvm.loop !75
@@ -2248,7 +2248,7 @@ define internal range(i32 -1366, 1) i32 @parse_procs(ptr noundef readonly captur
   call void @PMIx_Argv_free(ptr noundef %52) #18
   store ptr null, ptr %4, align 8, !tbaa !3
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
-  %53 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv.next46.i
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv.next46.i
   %54 = load ptr, ptr %53, align 8, !tbaa !8
   %.not.i = icmp eq ptr %54, null
   br i1 %.not.i, label %pmix_regex_extract_ppn.exit.thread, label %.lr.ph41.i, !llvm.loop !76
@@ -2456,7 +2456,7 @@ define internal fastcc noundef i32 @regex_parse_value_range(ptr noundef nonnull 
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 %.074102
   %13 = load i8, ptr %12, align 1, !tbaa !24
   %14 = sext i8 %13 to i64
-  %15 = getelementptr inbounds i16, ptr %10, i64 %14
+  %15 = getelementptr inbounds [2 x i8], ptr %10, i64 %14
   %16 = load i16, ptr %15, align 2, !tbaa !27
   %17 = and i16 %16, 2048
   %18 = icmp eq i16 %17, 0
@@ -2487,7 +2487,7 @@ define internal fastcc noundef i32 @regex_parse_value_range(ptr noundef nonnull 
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 %.175103
   %29 = load i8, ptr %28, align 1, !tbaa !24
   %30 = sext i8 %29 to i64
-  %31 = getelementptr inbounds i16, ptr %23, i64 %30
+  %31 = getelementptr inbounds [2 x i8], ptr %23, i64 %30
   %32 = load i16, ptr %31, align 2, !tbaa !27
   %33 = and i16 %32, 2048
   %.not = icmp eq i16 %33, 0
@@ -2507,7 +2507,7 @@ define internal fastcc noundef i32 @regex_parse_value_range(ptr noundef nonnull 
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 %.2105
   %38 = load i8, ptr %37, align 1, !tbaa !24
   %39 = sext i8 %38 to i64
-  %40 = getelementptr inbounds i16, ptr %23, i64 %39
+  %40 = getelementptr inbounds [2 x i8], ptr %23, i64 %39
   %41 = load i16, ptr %40, align 2, !tbaa !27
   %42 = and i16 %41, 2048
   %.not88 = icmp eq i16 %42, 0

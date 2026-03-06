@@ -915,7 +915,7 @@ define noundef ptr @_ZN4lean20sharecommon_quick_fn11check_cacheEP11lean_object(p
   %18 = load i64, ptr %17, align 8, !tbaa !44
   %19 = urem i64 %16, %18
   %20 = load ptr, ptr %0, align 8, !tbaa !45
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %19
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %19
   %22 = load ptr, ptr %21, align 8, !tbaa !46
   %.not.i.i.i.i = icmp eq ptr %22, null
   br i1 %.not.i.i.i.i, label %.loopexit, label %23
@@ -1136,7 +1136,7 @@ define noundef ptr @_ZN4lean20sharecommon_quick_fn11visit_arrayEP11lean_object(p
   %21 = load i64, ptr %20, align 8, !tbaa !44
   %22 = urem i64 %19, %21
   %23 = load ptr, ptr %0, align 8, !tbaa !45
-  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %22
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %22
   %25 = load ptr, ptr %24, align 8, !tbaa !46
   %.not.i.i.i.i.i = icmp eq ptr %25, null
   br i1 %.not.i.i.i.i.i, label %.loopexit.i, label %26
@@ -1288,10 +1288,10 @@ _ZN4lean20sharecommon_quick_fn4saveEP11lean_objectS2_.exit: ; preds = %80, %82
 
 85:                                               ; preds = %.lr.ph, %85
   %.027 = phi i64 [ 0, %.lr.ph ], [ %90, %85 ]
-  %86 = getelementptr inbounds nuw ptr, ptr %58, i64 %.027
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %.027
   %87 = load ptr, ptr %86, align 8, !tbaa !3
   %88 = call noundef ptr @_ZN4lean20sharecommon_quick_fn5visitEP11lean_object(ptr noundef nonnull align 8 dereferenceable(113) %0, ptr noundef %87)
-  %89 = getelementptr inbounds nuw ptr, ptr %59, i64 %.027
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %.027
   store ptr %88, ptr %89, align 8, !tbaa !3
   %90 = add nuw i64 %.027, 1
   %exitcond.not = icmp eq i64 %90, %.val.i18
@@ -1653,7 +1653,7 @@ define noundef ptr @_ZN4lean20sharecommon_quick_fn10visit_ctorEP11lean_object(pt
   %21 = load i64, ptr %20, align 8, !tbaa !44
   %22 = urem i64 %19, %21
   %23 = load ptr, ptr %0, align 8, !tbaa !45
-  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %22
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %22
   %25 = load ptr, ptr %24, align 8, !tbaa !46
   %.not.i.i.i.i.i = icmp eq ptr %25, null
   br i1 %.not.i.i.i.i.i, label %.loopexit.i, label %26
@@ -1784,10 +1784,10 @@ _ZL15lean_alloc_ctorjjj.exit:                     ; preds = %_ZL23lean_alloc_sma
 
 83:                                               ; preds = %.lr.ph, %83
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %83 ]
-  %84 = getelementptr inbounds nuw ptr, ptr %81, i64 %indvars.iv
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %indvars.iv
   %85 = load ptr, ptr %84, align 8, !tbaa !3
   %86 = call noundef ptr @_ZN4lean20sharecommon_quick_fn5visitEP11lean_object(ptr noundef nonnull align 8 dereferenceable(113) %0, ptr noundef %85)
-  %87 = getelementptr inbounds nuw ptr, ptr %82, i64 %indvars.iv
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %82, i64 %indvars.iv
   store ptr %86, ptr %87, align 8, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2068,7 +2068,7 @@ define noundef ptr @_ZN4lean25sharecommon_persistent_fnclEP11lean_object(ptr nou
   %20 = load i64, ptr %19, align 8, !tbaa !44
   %21 = urem i64 %18, %20
   %22 = load ptr, ptr %0, align 8, !tbaa !45
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %21
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %21
   %24 = load ptr, ptr %23, align 8, !tbaa !46
   %.not.i.i.i.i.i = icmp eq ptr %24, null
   br i1 %.not.i.i.i.i.i, label %.loopexit.i, label %25
@@ -2425,7 +2425,7 @@ _ZNSt6vectorIP11lean_objectSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; pr
 _ZNSt6vectorIP11lean_objectSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %32, %_ZNSt6vectorIP11lean_objectSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   store ptr %27, ptr %6, align 8, !tbaa !18
   store ptr %31, ptr %7, align 8, !tbaa !73
-  %33 = getelementptr inbounds nuw ptr, ptr %27, i64 %25
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %25
   store ptr %33, ptr %9, align 8, !tbaa !21
   br label %_ZNSt6vectorIP11lean_objectSaIS1_EE9push_backERKS1_.exit
 
@@ -2516,7 +2516,7 @@ _ZNSt6vectorIP11lean_objectSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i11: ; 
 _ZNSt6vectorIP11lean_objectSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i13: ; preds = %70, %_ZNSt6vectorIP11lean_objectSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i11
   store ptr %65, ptr %44, align 8, !tbaa !18
   store ptr %69, ptr %45, align 8, !tbaa !73
-  %71 = getelementptr inbounds nuw ptr, ptr %65, i64 %63
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %63
   store ptr %71, ptr %47, align 8, !tbaa !21
   br label %_ZNSt6vectorIP11lean_objectSaIS1_EE9push_backERKS1_.exit
 
@@ -2605,7 +2605,7 @@ _ZNSt6vectorIP11lean_objectSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i19: ; 
 _ZNSt6vectorIP11lean_objectSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i21: ; preds = %109, %_ZNSt6vectorIP11lean_objectSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i19
   store ptr %104, ptr %83, align 8, !tbaa !18
   store ptr %108, ptr %84, align 8, !tbaa !73
-  %110 = getelementptr inbounds nuw ptr, ptr %104, i64 %102
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %104, i64 %102
   store ptr %110, ptr %86, align 8, !tbaa !21
   br label %_ZNSt6vectorIP11lean_objectSaIS1_EE9push_backERKS1_.exit
 
@@ -2669,7 +2669,7 @@ _ZNSt6vectorIP11lean_objectSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i27: ; 
 _ZNSt6vectorIP11lean_objectSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i29: ; preds = %138, %_ZNSt6vectorIP11lean_objectSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i27
   store ptr %133, ptr %112, align 8, !tbaa !18
   store ptr %137, ptr %113, align 8, !tbaa !73
-  %139 = getelementptr inbounds nuw ptr, ptr %133, i64 %131
+  %139 = getelementptr inbounds nuw [8 x i8], ptr %133, i64 %131
   store ptr %139, ptr %115, align 8, !tbaa !21
   br label %_ZNSt6vectorIP11lean_objectSaIS1_EE9push_backERKS1_.exit
 
@@ -2715,7 +2715,7 @@ _ZN4lean14sharecommon_fn14clear_childrenEv.exit:  ; preds = %2, %_ZSt8_DestroyIP
 9:                                                ; preds = %.lr.ph, %9
   %.01823 = phi i1 [ false, %.lr.ph ], [ %spec.select, %9 ]
   %.01922 = phi i64 [ 0, %.lr.ph ], [ %13, %9 ]
-  %10 = getelementptr inbounds nuw ptr, ptr %8, i64 %.01922
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.01922
   %11 = load ptr, ptr %10, align 8, !tbaa !3
   %12 = tail call noundef zeroext i1 @_ZN4lean14sharecommon_fn10push_childEP11lean_object(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %11)
   %not. = xor i1 %12, true
@@ -2751,7 +2751,7 @@ _ZN4lean14sharecommon_fn14clear_childrenEv.exit:  ; preds = %2, %_ZSt8_DestroyIP
 24:                                               ; preds = %.lr.ph26, %_ZL8lean_incP11lean_object.exit
   %.024 = phi i64 [ 0, %.lr.ph26 ], [ %38, %_ZL8lean_incP11lean_object.exit ]
   %25 = load ptr, ptr %3, align 8, !tbaa !18
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %.024
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %.024
   %27 = load ptr, ptr %26, align 8, !tbaa !3
   %28 = ptrtoint ptr %27 to i64
   %29 = trunc i64 %28 to i1
@@ -2774,13 +2774,13 @@ _ZN4lean14sharecommon_fn14clear_childrenEv.exit:  ; preds = %2, %_ZSt8_DestroyIP
 35:                                               ; preds = %34
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %27)
   %.pre = load ptr, ptr %3, align 8, !tbaa !18
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre, i64 %.024
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %.024
   %.pre30 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !3
   br label %_ZL8lean_incP11lean_object.exit
 
 _ZL8lean_incP11lean_object.exit:                  ; preds = %35, %34, %32, %24
   %36 = phi ptr [ %.pre30, %35 ], [ %27, %34 ], [ %27, %32 ], [ %27, %24 ]
-  %37 = getelementptr inbounds nuw ptr, ptr %23, i64 %.024
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %.024
   store ptr %36, ptr %37, align 8, !tbaa !3
   %38 = add nuw i64 %.024, 1
   %exitcond29.not = icmp eq i64 %38, %.val.i
@@ -2826,7 +2826,7 @@ _ZN4lean14sharecommon_fn14clear_childrenEv.exit:  ; preds = %2, %_ZSt8_DestroyIP
 11:                                               ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
   %.03037 = phi i1 [ false, %.lr.ph ], [ %spec.select, %11 ]
-  %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !3
   %14 = tail call noundef zeroext i1 @_ZN4lean14sharecommon_fn10push_childEP11lean_object(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %13)
   %not. = xor i1 %14, true
@@ -2899,7 +2899,7 @@ _ZL15lean_alloc_ctorjjj.exit:                     ; preds = %_ZL23lean_alloc_sma
 44:                                               ; preds = %.lr.ph39, %_ZL8lean_incP11lean_object.exit
   %45 = phi ptr [ %.pre, %.lr.ph39 ], [ %57, %_ZL8lean_incP11lean_object.exit ]
   %indvars.iv43 = phi i64 [ 0, %.lr.ph39 ], [ %indvars.iv.next44, %_ZL8lean_incP11lean_object.exit ]
-  %46 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv43
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv43
   %47 = load ptr, ptr %46, align 8, !tbaa !3
   %48 = ptrtoint ptr %47 to i64
   %49 = trunc i64 %48 to i1
@@ -2922,14 +2922,14 @@ _ZL15lean_alloc_ctorjjj.exit:                     ; preds = %_ZL23lean_alloc_sma
 55:                                               ; preds = %54
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %47)
   %.pre49 = load ptr, ptr %3, align 8, !tbaa !18
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre49, i64 %indvars.iv43
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre49, i64 %indvars.iv43
   %.pre50 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !3
   br label %_ZL8lean_incP11lean_object.exit
 
 _ZL8lean_incP11lean_object.exit:                  ; preds = %55, %54, %52, %44
   %56 = phi ptr [ %.pre50, %55 ], [ %47, %54 ], [ %47, %52 ], [ %47, %44 ]
   %57 = phi ptr [ %.pre49, %55 ], [ %45, %54 ], [ %45, %52 ], [ %45, %44 ]
-  %58 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv43
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv43
   store ptr %56, ptr %58, align 8, !tbaa !3
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next44, %wide.trip.count46
@@ -3578,7 +3578,7 @@ _ZNKSt10_HashtableIP11lean_objectS1_16mi_stl_allocatorIS1_ENSt8__detail9_Identit
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZNKSt10_HashtableIP11lean_objectS1_16mi_stl_allocatorIS1_ENSt8__detail9_IdentityEN4lean20sharecommon_quick_fn6set_eqENS7_8set_hashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE19_M_find_before_nodeEmRKS1_m(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef %3) local_unnamed_addr #0 comdat align 2 {
   %5 = load ptr, ptr %0, align 8, !tbaa !61
-  %6 = getelementptr inbounds nuw ptr, ptr %5, i64 %1
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %1
   %7 = load ptr, ptr %6, align 8, !tbaa !46
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.loopexit, label %8
@@ -3809,7 +3809,7 @@ _ZNKSt10_HashtableIP11lean_objectS1_16mi_stl_allocatorIS1_ENSt8__detail9_Identit
   %83 = getelementptr inbounds nuw i8, ptr %67, i64 16
   store i64 %.0.i.i.i20, ptr %83, align 8, !tbaa !80
   %84 = load ptr, ptr %0, align 8, !tbaa !61
-  %85 = getelementptr inbounds nuw ptr, ptr %84, i64 %.0.i21
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %.0.i21
   %86 = load ptr, ptr %85, align 8, !tbaa !46
   %.not.i.i = icmp eq ptr %86, null
   br i1 %.not.i.i, label %90, label %87
@@ -3833,7 +3833,7 @@ _ZNKSt10_HashtableIP11lean_objectS1_16mi_stl_allocatorIS1_ENSt8__detail9_Identit
   %94 = getelementptr inbounds nuw i8, ptr %91, i64 16
   %95 = load i64, ptr %94, align 8, !tbaa !80
   %96 = urem i64 %95, %93
-  %97 = getelementptr inbounds nuw ptr, ptr %84, i64 %96
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %96
   store ptr %67, ptr %97, align 8, !tbaa !46
   br label %98
 
@@ -3865,7 +3865,7 @@ _ZNSt10_HashtableIP11lean_objectS1_16mi_stl_allocatorIS1_ENSt8__detail9_Identity
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZNKSt10_HashtableIP11lean_objectS1_16mi_stl_allocatorIS1_ENSt8__detail9_IdentityEN4lean20sharecommon_quick_fn6set_eqENS7_8set_hashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE22_M_find_before_node_trIS1_EEPNS4_15_Hash_node_baseEmRKT_m(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef %3) local_unnamed_addr #0 comdat align 2 {
   %5 = load ptr, ptr %0, align 8, !tbaa !61
-  %6 = getelementptr inbounds nuw ptr, ptr %5, i64 %1
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %1
   %7 = load ptr, ptr %6, align 8, !tbaa !46
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.loopexit, label %8
@@ -3986,7 +3986,7 @@ _ZNSt10_HashtableIP11lean_objectS1_16mi_stl_allocatorIS1_ENSt8__detail9_Identity
   %13 = getelementptr inbounds nuw i8, ptr %.031.i, i64 16
   %14 = load i64, ptr %13, align 8, !tbaa !80
   %15 = urem i64 %14, %1
-  %16 = getelementptr inbounds nuw ptr, ptr %.0.i.i, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !46
   %.not27.i = icmp eq ptr %17, null
   br i1 %.not27.i, label %18, label %23
@@ -4001,7 +4001,7 @@ _ZNSt10_HashtableIP11lean_objectS1_16mi_stl_allocatorIS1_ENSt8__detail9_Identity
   br i1 %.not28.i, label %26, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds nuw ptr, ptr %.0.i.i, i64 %.02530.i
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i, i64 %.02530.i
   store ptr %.031.i, ptr %22, align 8, !tbaa !46
   br label %26
 
@@ -4087,7 +4087,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableIP11lean_objectSt4pairI
   %14 = load i64, ptr %13, align 8, !tbaa !44
   %15 = urem i64 %12, %14
   %16 = load ptr, ptr %0, align 8, !tbaa !45
-  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %15
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %15
   %18 = load ptr, ptr %17, align 8, !tbaa !46
   %.not.i.i = icmp eq ptr %18, null
   br i1 %.not.i.i, label %.critedge27, label %31
@@ -4174,7 +4174,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableIP11lean_objectSt4pairI
 58:                                               ; preds = %.noexc30, %.noexc
   %.0.i28 = phi i64 [ %57, %.noexc30 ], [ %44, %.noexc ]
   %59 = load ptr, ptr %0, align 8, !tbaa !45
-  %60 = getelementptr inbounds nuw ptr, ptr %59, i64 %.0.i28
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %.0.i28
   %61 = load ptr, ptr %60, align 8, !tbaa !46
   %.not.i.i29 = icmp eq ptr %61, null
   br i1 %.not.i.i29, label %65, label %62
@@ -4200,7 +4200,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableIP11lean_objectSt4pairI
   %71 = load ptr, ptr %69, align 8, !tbaa !3
   %72 = ptrtoint ptr %71 to i64
   %73 = urem i64 %72, %70
-  %74 = getelementptr inbounds nuw ptr, ptr %59, i64 %73
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %73
   store ptr %4, ptr %74, align 8, !tbaa !46
   br label %75
 
@@ -4269,7 +4269,7 @@ _ZNSt10_HashtableIP11lean_objectSt4pairIKS1_S1_E16mi_stl_allocatorIS4_ENSt8__det
   %14 = load ptr, ptr %13, align 8, !tbaa !3
   %15 = ptrtoint ptr %14 to i64
   %16 = urem i64 %15, %1
-  %17 = getelementptr inbounds nuw ptr, ptr %.0.i.i, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !46
   %.not27.i = icmp eq ptr %18, null
   br i1 %.not27.i, label %19, label %24
@@ -4284,7 +4284,7 @@ _ZNSt10_HashtableIP11lean_objectSt4pairIKS1_S1_E16mi_stl_allocatorIS4_ENSt8__det
   br i1 %.not28.i, label %27, label %22
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds nuw ptr, ptr %.0.i.i, i64 %.02530.i
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i, i64 %.02530.i
   store ptr %.031.i, ptr %23, align 8, !tbaa !46
   br label %27
 
@@ -4449,7 +4449,7 @@ _ZSt8_DestroyIPN4lean10object_refEEvT_S3_.exit:   ; preds = %_ZSt8_DestroyIN4lea
 _ZNSt12_Vector_baseIN4lean10object_refESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZSt8_DestroyIPN4lean10object_refEEvT_S3_.exit, %44
   store ptr %23, ptr %0, align 8, !tbaa !95
   store ptr %28, ptr %4, align 8, !tbaa !69
-  %48 = getelementptr inbounds nuw %"class.lean::object_ref", ptr %23, i64 %16
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %16
   store ptr %48, ptr %43, align 8, !tbaa !72
   ret void
 

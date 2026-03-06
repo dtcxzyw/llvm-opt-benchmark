@@ -898,7 +898,7 @@ default.unreachable761:                           ; preds = %149, %4
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit699": ; preds = %117, %127
   %128 = getelementptr inbounds nuw i8, ptr %122, i64 8
   %129 = load ptr, ptr %128, align 8, !alias.scope !49, !noalias !52, !nonnull !3, !noundef !3
-  %130 = getelementptr inbounds nuw { { { i8, [3 x i8] }, i8, i8 }, i8, [1 x i8] }, ptr %129, i64 %124
+  %130 = getelementptr inbounds nuw [8 x i8], ptr %129, i64 %124
   store i64 %.sroa.097.0.insert.insert.i, ptr %130, align 2
   %131 = add i64 %124, 1
   store i64 %131, ptr %123, align 8, !alias.scope !49, !noalias !52
@@ -1092,7 +1092,7 @@ _ZN14ruff_formatter7printer7Printer18print_best_fitting17h51f83c68699fb46fE.exit
 196:                                              ; preds = %"_ZN77_$LT$$RF$alloc..string..String$u20$as$u20$ruff_text_size..traits..TextLen$GT$8text_len17hc2a32688cadce5f7E.exit.i"
   %197 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %198 = load ptr, ptr %197, align 8, !alias.scope !64, !nonnull !3, !noundef !3
-  %199 = getelementptr { i32, i32 }, ptr %198, i64 %195
+  %199 = getelementptr [8 x i8], ptr %198, i64 %195
   %200 = getelementptr i8, ptr %199, i64 -8
   %201 = load i32, ptr %200, align 4, !noalias !64, !noundef !3
   %202 = icmp eq i32 %201, %187
@@ -1110,7 +1110,7 @@ _ZN14ruff_formatter7printer7Printer18print_best_fitting17h51f83c68699fb46fE.exit
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h53140f6c4fade67eE.exit.i": ; preds = %206, %203
   %207 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %208 = load ptr, ptr %207, align 8, !alias.scope !67, !nonnull !3, !noundef !3
-  %209 = getelementptr inbounds nuw { i32, i32 }, ptr %208, i64 %195
+  %209 = getelementptr inbounds nuw [8 x i8], ptr %208, i64 %195
   store i32 %187, ptr %209, align 4
   %210 = getelementptr inbounds nuw i8, ptr %209, i64 4
   store i32 %192, ptr %210, align 4
@@ -1128,10 +1128,10 @@ _ZN14ruff_formatter7printer7Printer11push_marker17h90909da73ac6f913E.exit: ; pre
   %215 = getelementptr inbounds nuw i8, ptr %0, i64 219
   %216 = load i8, ptr %215, align 1, !range !70, !alias.scope !71, !noundef !3
   %217 = zext nneg i8 %216 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN14ruff_formatter7printer7Printer10print_char17h12b19ebec838e9bfE, i64 %217
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN14ruff_formatter7printer7Printer10print_char17h12b19ebec838e9bfE, i64 %217
   %switch.load = load i64, ptr %switch.gep, align 8
   %218 = zext nneg i8 %216 to i64
-  %switch.gep800 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN14ruff_formatter7printer7Printer10print_char17h12b19ebec838e9bfE.15, i64 %218
+  %switch.gep800 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN14ruff_formatter7printer7Printer10print_char17h12b19ebec838e9bfE.15, i64 %218
   %switch.load801 = load ptr, ptr %switch.gep800, align 8
   %219 = getelementptr inbounds nuw i8, ptr %switch.load801, i64 %switch.load
   call void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17hed1506d528fc4b8aE"(ptr noalias noundef nonnull align 8 dereferenceable(224) %0, ptr noundef nonnull %switch.load801, ptr noundef nonnull %219, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.792f56bc6fd94c6e001afc9fe69165bf.62)
@@ -1189,7 +1189,7 @@ _ZN14ruff_formatter7printer7Printer11push_marker17h90909da73ac6f913E.exit: ; pre
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit": ; preds = %233, %242
   %243 = getelementptr inbounds nuw i8, ptr %237, i64 8
   %244 = load ptr, ptr %243, align 8, !alias.scope !74, !noalias !77, !nonnull !3, !noundef !3
-  %245 = getelementptr inbounds nuw { { { i8, [3 x i8] }, i8, i8 }, i8, [1 x i8] }, ptr %244, i64 %239
+  %245 = getelementptr inbounds nuw [8 x i8], ptr %244, i64 %239
   store i64 %.sroa.0459.0.insert.ext, ptr %245, align 2
   %246 = add i64 %239, 1
   store i64 %246, ptr %238, align 8, !alias.scope !74, !noalias !77
@@ -1225,7 +1225,7 @@ _ZN14ruff_formatter7printer7Printer11push_marker17h90909da73ac6f913E.exit: ; pre
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit664": ; preds = %252, %261
   %262 = getelementptr inbounds nuw i8, ptr %256, i64 8
   %263 = load ptr, ptr %262, align 8, !alias.scope !79, !noalias !82, !nonnull !3, !noundef !3
-  %264 = getelementptr inbounds nuw { { { i8, [3 x i8] }, i8, i8 }, i8, [1 x i8] }, ptr %263, i64 %258
+  %264 = getelementptr inbounds nuw [8 x i8], ptr %263, i64 %258
   store i64 %.sroa.0467.0.insert.insert, ptr %264, align 2
   %265 = add i64 %258, 1
   store i64 %265, ptr %257, align 8, !alias.scope !79, !noalias !82
@@ -1304,7 +1304,7 @@ _ZN14ruff_formatter7printer7Printer11push_marker17h90909da73ac6f913E.exit: ; pre
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit667": ; preds = %296, %303
   %304 = getelementptr inbounds nuw i8, ptr %298, i64 8
   %305 = load ptr, ptr %304, align 8, !alias.scope !85, !noalias !88, !nonnull !3, !noundef !3
-  %306 = getelementptr inbounds nuw { { { i8, [3 x i8] }, i8, i8 }, i8, [1 x i8] }, ptr %305, i64 %300
+  %306 = getelementptr inbounds nuw [8 x i8], ptr %305, i64 %300
   store i64 %.sroa.0555.0.insert.insert, ptr %306, align 2
   %307 = add i64 %300, 1
   store i64 %307, ptr %299, align 8, !alias.scope !85, !noalias !88
@@ -1383,7 +1383,7 @@ _ZN14ruff_formatter7printer7Printer11push_marker17h90909da73ac6f913E.exit: ; pre
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit668": ; preds = %337, %343
   %344 = getelementptr inbounds nuw i8, ptr %338, i64 8
   %345 = load ptr, ptr %344, align 8, !alias.scope !91, !noalias !94, !nonnull !3, !noundef !3
-  %346 = getelementptr inbounds nuw { { { i8, [3 x i8] }, i8, i8 }, i8, [1 x i8] }, ptr %345, i64 %340
+  %346 = getelementptr inbounds nuw [8 x i8], ptr %345, i64 %340
   store i64 %.sroa.0480.0.insert.insert, ptr %346, align 2
   %347 = add i64 %340, 1
   store i64 %347, ptr %339, align 8, !alias.scope !91, !noalias !94
@@ -1430,7 +1430,7 @@ _ZN14ruff_formatter7printer7Printer11push_marker17h90909da73ac6f913E.exit: ; pre
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit669": ; preds = %357, %364
   %365 = getelementptr inbounds nuw i8, ptr %359, i64 8
   %366 = load ptr, ptr %365, align 8, !alias.scope !96, !noalias !99, !nonnull !3, !noundef !3
-  %367 = getelementptr inbounds nuw { { { i8, [3 x i8] }, i8, i8 }, i8, [1 x i8] }, ptr %366, i64 %361
+  %367 = getelementptr inbounds nuw [8 x i8], ptr %366, i64 %361
   store i64 %.sroa.0494.0.insert.insert, ptr %367, align 2
   %368 = add i64 %361, 1
   store i64 %368, ptr %360, align 8, !alias.scope !96, !noalias !99
@@ -1488,7 +1488,7 @@ _ZN14ruff_formatter7printer7Printer11push_marker17h90909da73ac6f913E.exit: ; pre
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit677": ; preds = %384, %390
   %391 = getelementptr inbounds nuw i8, ptr %385, i64 8
   %392 = load ptr, ptr %391, align 8, !alias.scope !101, !noalias !104, !nonnull !3, !noundef !3
-  %393 = getelementptr inbounds nuw { { { i8, [3 x i8] }, i8, i8 }, i8, [1 x i8] }, ptr %392, i64 %387
+  %393 = getelementptr inbounds nuw [8 x i8], ptr %392, i64 %387
   store i64 %.sroa.0503.0.insert.insert, ptr %393, align 2
   %394 = add i64 %387, 1
   store i64 %394, ptr %386, align 8, !alias.scope !101, !noalias !104
@@ -1529,7 +1529,7 @@ _ZN14ruff_formatter7printer7Printer11push_marker17h90909da73ac6f913E.exit: ; pre
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit678": ; preds = %402, %409
   %410 = getelementptr inbounds nuw i8, ptr %404, i64 8
   %411 = load ptr, ptr %410, align 8, !alias.scope !106, !noalias !109, !nonnull !3, !noundef !3
-  %412 = getelementptr inbounds nuw { { { i8, [3 x i8] }, i8, i8 }, i8, [1 x i8] }, ptr %411, i64 %406
+  %412 = getelementptr inbounds nuw [8 x i8], ptr %411, i64 %406
   store i64 %.sroa.0517.0.insert.insert, ptr %412, align 2
   %413 = add i64 %406, 1
   store i64 %413, ptr %405, align 8, !alias.scope !106, !noalias !109
@@ -1594,7 +1594,7 @@ _ZN14ruff_formatter7printer7Printer11push_marker17h90909da73ac6f913E.exit: ; pre
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit686": ; preds = %433, %439
   %440 = getelementptr inbounds nuw i8, ptr %434, i64 8
   %441 = load ptr, ptr %440, align 8, !alias.scope !111, !noalias !114, !nonnull !3, !noundef !3
-  %442 = getelementptr inbounds nuw { { { i8, [3 x i8] }, i8, i8 }, i8, [1 x i8] }, ptr %441, i64 %436
+  %442 = getelementptr inbounds nuw [8 x i8], ptr %441, i64 %436
   store i64 %.sroa.0526.0.insert.insert, ptr %442, align 2
   %443 = add i64 %436, 1
   store i64 %443, ptr %435, align 8, !alias.scope !111, !noalias !114
@@ -1634,7 +1634,7 @@ _ZN14ruff_formatter7printer7Printer11push_marker17h90909da73ac6f913E.exit: ; pre
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit687": ; preds = %451, %457
   %458 = getelementptr inbounds nuw i8, ptr %452, i64 8
   %459 = load ptr, ptr %458, align 8, !alias.scope !116, !noalias !119, !nonnull !3, !noundef !3
-  %460 = getelementptr inbounds nuw { { { i8, [3 x i8] }, i8, i8 }, i8, [1 x i8] }, ptr %459, i64 %454
+  %460 = getelementptr inbounds nuw [8 x i8], ptr %459, i64 %454
   store i64 %.sroa.0536.0.insert.insert, ptr %460, align 2
   %461 = add i64 %454, 1
   store i64 %461, ptr %453, align 8, !alias.scope !116, !noalias !119
@@ -1670,7 +1670,7 @@ _ZN14ruff_formatter7printer7Printer11push_marker17h90909da73ac6f913E.exit: ; pre
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit688": ; preds = %471, %477
   %478 = getelementptr inbounds nuw i8, ptr %472, i64 8
   %479 = load ptr, ptr %478, align 8, !alias.scope !121, !noalias !124, !nonnull !3, !noundef !3
-  %480 = getelementptr inbounds nuw { { { i8, [3 x i8] }, i8, i8 }, i8, [1 x i8] }, ptr %479, i64 %474
+  %480 = getelementptr inbounds nuw [8 x i8], ptr %479, i64 %474
   store i64 %.sroa.0543.0.insert.insert, ptr %480, align 2
   %481 = add i64 %474, 1
   store i64 %481, ptr %473, align 8, !alias.scope !121, !noalias !124
@@ -1695,7 +1695,7 @@ _ZN14ruff_formatter7printer7Printer11push_marker17h90909da73ac6f913E.exit: ; pre
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hc3f1e3537f85994dE.exit": ; preds = %483, %489
   %490 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %491 = load ptr, ptr %490, align 8, !alias.scope !126, !nonnull !3, !noundef !3
-  %492 = getelementptr inbounds nuw { i32, i32 }, ptr %491, i64 %486
+  %492 = getelementptr inbounds nuw [8 x i8], ptr %491, i64 %486
   store i32 %467, ptr %492, align 4
   %493 = getelementptr inbounds nuw i8, ptr %492, i64 4
   store i32 %470, ptr %493, align 4
@@ -1763,7 +1763,7 @@ _ZN14ruff_formatter7printer7Printer11push_marker17h90909da73ac6f913E.exit: ; pre
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit696": ; preds = %515, %521
   %522 = getelementptr inbounds nuw i8, ptr %516, i64 8
   %523 = load ptr, ptr %522, align 8, !alias.scope !129, !noalias !132, !nonnull !3, !noundef !3
-  %524 = getelementptr inbounds nuw { { { i8, [3 x i8] }, i8, i8 }, i8, [1 x i8] }, ptr %523, i64 %518
+  %524 = getelementptr inbounds nuw [8 x i8], ptr %523, i64 %518
   store i64 %.sroa.0552.0.insert.insert, ptr %524, align 2
   %525 = add i64 %518, 1
   store i64 %525, ptr %517, align 8, !alias.scope !129, !noalias !132
@@ -1812,7 +1812,7 @@ _ZN14ruff_formatter7printer7Printer11push_marker17h90909da73ac6f913E.exit: ; pre
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit697": ; preds = %535, %542
   %543 = getelementptr inbounds nuw i8, ptr %537, i64 8
   %544 = load ptr, ptr %543, align 8, !alias.scope !134, !noalias !137, !nonnull !3, !noundef !3
-  %545 = getelementptr inbounds nuw { { { i8, [3 x i8] }, i8, i8 }, i8, [1 x i8] }, ptr %544, i64 %539
+  %545 = getelementptr inbounds nuw [8 x i8], ptr %544, i64 %539
   store i64 %.sroa.0573.0.insert.insert, ptr %545, align 2
   %546 = add i64 %539, 1
   store i64 %546, ptr %538, align 8, !alias.scope !134, !noalias !137
@@ -1887,7 +1887,7 @@ _ZN14ruff_formatter7printer7Printer11push_marker17h90909da73ac6f913E.exit: ; pre
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit698": ; preds = %565, %574
   %575 = getelementptr inbounds nuw i8, ptr %569, i64 8
   %576 = load ptr, ptr %575, align 8, !alias.scope !139, !noalias !142, !nonnull !3, !noundef !3
-  %577 = getelementptr inbounds nuw { { { i8, [3 x i8] }, i8, i8 }, i8, [1 x i8] }, ptr %576, i64 %571
+  %577 = getelementptr inbounds nuw [8 x i8], ptr %576, i64 %571
   store i64 %.sroa.0587.0.insert.insert, ptr %577, align 2
   %578 = add i64 %571, 1
   store i64 %578, ptr %570, align 8, !alias.scope !139, !noalias !142
@@ -2024,7 +2024,7 @@ _ZN14ruff_formatter7printer10GroupModes17insert_print_mode17hd4adced02f06c750E.e
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit": ; preds = %31, %38
   %39 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %40 = load ptr, ptr %39, align 8, !alias.scope !147, !noalias !150, !nonnull !3, !noundef !3
-  %41 = getelementptr inbounds nuw { { { i8, [3 x i8] }, i8, i8 }, i8, [1 x i8] }, ptr %40, i64 %35
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %35
   store i64 %.sroa.071.0.insert.insert, ptr %41, align 2
   %42 = add i64 %35, 1
   store i64 %42, ptr %34, align 8, !alias.scope !147, !noalias !150
@@ -2214,7 +2214,7 @@ _ZN14ruff_formatter7printer7Printer10print_char17h12b19ebec838e9bfE.exit: ; pred
 50:                                               ; preds = %"_ZN77_$LT$$RF$alloc..string..String$u20$as$u20$ruff_text_size..traits..TextLen$GT$8text_len17hc2a32688cadce5f7E.exit.i"
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %52 = load ptr, ptr %51, align 8, !alias.scope !165, !nonnull !3, !noundef !3
-  %53 = getelementptr { i32, i32 }, ptr %52, i64 %49
+  %53 = getelementptr [8 x i8], ptr %52, i64 %49
   %54 = getelementptr i8, ptr %53, i64 -8
   %55 = load i32, ptr %54, align 4, !noalias !165, !noundef !3
   %56 = icmp eq i32 %55, %40
@@ -2232,7 +2232,7 @@ _ZN14ruff_formatter7printer7Printer10print_char17h12b19ebec838e9bfE.exit: ; pred
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h53140f6c4fade67eE.exit.i": ; preds = %60, %57
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %62 = load ptr, ptr %61, align 8, !alias.scope !168, !nonnull !3, !noundef !3
-  %63 = getelementptr inbounds nuw { i32, i32 }, ptr %62, i64 %49
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %49
   store i32 %40, ptr %63, align 4
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 4
   store i32 %46, ptr %64, align 4
@@ -2385,7 +2385,7 @@ define internal fastcc void @_ZN14ruff_formatter7printer7Printer11push_marker17h
 16:                                               ; preds = %"_ZN77_$LT$$RF$alloc..string..String$u20$as$u20$ruff_text_size..traits..TextLen$GT$8text_len17hc2a32688cadce5f7E.exit"
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = load ptr, ptr %17, align 8, !nonnull !3, !noundef !3
-  %19 = getelementptr { i32, i32 }, ptr %18, i64 %15
+  %19 = getelementptr [8 x i8], ptr %18, i64 %15
   %20 = getelementptr i8, ptr %19, i64 -8
   %21 = load i32, ptr %20, align 4, !noundef !3
   %22 = icmp eq i32 %21, %6
@@ -2403,7 +2403,7 @@ define internal fastcc void @_ZN14ruff_formatter7printer7Printer11push_marker17h
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h53140f6c4fade67eE.exit": ; preds = %23, %26
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %28 = load ptr, ptr %27, align 8, !alias.scope !174, !nonnull !3, !noundef !3
-  %29 = getelementptr inbounds nuw { i32, i32 }, ptr %28, i64 %15
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %15
   store i32 %6, ptr %29, align 4
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   store i32 %12, ptr %30, align 4
@@ -2548,7 +2548,7 @@ define internal fastcc noundef zeroext i1 @_ZN14ruff_formatter7printer7Printer19
 50:                                               ; preds = %44, %49
   %51 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %52 = load ptr, ptr %51, align 8, !alias.scope !183, !noalias !186, !nonnull !3, !noundef !3
-  %53 = getelementptr inbounds nuw { { { i8, [3 x i8] }, i8, i8 }, i8, [1 x i8] }, ptr %52, i64 %46
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %46
   store i64 %.sroa.018.0.insert.insert, ptr %53, align 2
   %54 = add i64 %46, 1
   store i64 %54, ptr %45, align 8, !alias.scope !183, !noalias !186
@@ -2606,7 +2606,7 @@ define internal fastcc i64 @_ZN14ruff_formatter7printer7Printer18print_fill_entr
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit": ; preds = %13, %19
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %21 = load ptr, ptr %20, align 8, !alias.scope !188, !noalias !191, !nonnull !3, !noundef !3
-  %22 = getelementptr inbounds nuw { { { i8, [3 x i8] }, i8, i8 }, i8, [1 x i8] }, ptr %21, i64 %16
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %16
   store i64 %.sroa.0285.0.insert.insert, ptr %22, align 2
   %23 = add i64 %16, 1
   store i64 %23, ptr %15, align 8, !alias.scope !188, !noalias !191
@@ -2646,7 +2646,7 @@ define internal fastcc i64 @_ZN14ruff_formatter7printer7Printer18print_fill_entr
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit391": ; preds = %31, %38
   %39 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %40 = load ptr, ptr %39, align 8, !alias.scope !193, !noalias !196, !nonnull !3, !noundef !3
-  %41 = getelementptr inbounds nuw { { { i8, [3 x i8] }, i8, i8 }, i8, [1 x i8] }, ptr %40, i64 %35
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %35
   store i64 %.sroa.0363.0.insert.insert, ptr %41, align 2
   %42 = add i64 %35, 1
   store i64 %42, ptr %34, align 8, !alias.scope !193, !noalias !196
@@ -2888,7 +2888,7 @@ _ZN14ruff_formatter7printer12FitsMeasurer19fill_separator_fits17h989d8f5f92523fb
 _ZN14ruff_formatter7printer7Printer20print_fill_separator17h24f49356c36c88f7E.exit: ; preds = %123, %116
   %124 = getelementptr inbounds nuw i8, ptr %118, i64 8
   %125 = load ptr, ptr %124, align 8, !alias.scope !212, !noalias !215, !nonnull !3, !noundef !3
-  %126 = getelementptr inbounds nuw { { { i8, [3 x i8] }, i8, i8 }, i8, [1 x i8] }, ptr %125, i64 %120
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %125, i64 %120
   store i64 %.sroa.0320.0.insert.insert, ptr %126, align 2
   %127 = add i64 %120, 1
   store i64 %127, ptr %119, align 8, !alias.scope !212, !noalias !215
@@ -3062,7 +3062,7 @@ define internal fastcc i64 @_ZN14ruff_formatter7printer7Printer11print_entry17h7
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit": ; preds = %13, %20
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %22 = load ptr, ptr %21, align 8, !alias.scope !220, !noalias !223, !nonnull !3, !noundef !3
-  %23 = getelementptr inbounds nuw { { { i8, [3 x i8] }, i8, i8 }, i8, [1 x i8] }, ptr %22, i64 %17
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %17
   store i64 %.sroa.063.0.insert.insert, ptr %23, align 2
   %24 = add i64 %17, 1
   store i64 %24, ptr %16, align 8, !alias.scope !220, !noalias !223
@@ -3144,10 +3144,10 @@ switch.lookup:                                    ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 219
   %6 = load i8, ptr %5, align 1, !range !70, !noundef !3
   %7 = zext nneg i8 %6 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN14ruff_formatter7printer7Printer10print_char17h12b19ebec838e9bfE, i64 %7
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN14ruff_formatter7printer7Printer10print_char17h12b19ebec838e9bfE, i64 %7
   %switch.load = load i64, ptr %switch.gep, align 8
   %8 = zext nneg i8 %6 to i64
-  %switch.gep7 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN14ruff_formatter7printer7Printer10print_char17h12b19ebec838e9bfE.15, i64 %8
+  %switch.gep7 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN14ruff_formatter7printer7Printer10print_char17h12b19ebec838e9bfE.15, i64 %8
   %switch.load8 = load ptr, ptr %switch.gep7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %switch.load8, i64 %switch.load
   tail call void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17hed1506d528fc4b8aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %switch.load8, ptr noundef nonnull %9, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.792f56bc6fd94c6e001afc9fe69165bf.62)
@@ -3544,7 +3544,7 @@ define internal fastcc i64 @_ZN14ruff_formatter7printer12FitsMeasurer15fill_entr
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit": ; preds = %14, %23
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %25 = load ptr, ptr %24, align 8, !alias.scope !234, !noalias !237, !nonnull !3, !noundef !3
-  %26 = getelementptr inbounds nuw { { { i8, [3 x i8] }, i8, i8 }, i8, [1 x i8] }, ptr %25, i64 %20
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %20
   store i64 %.sroa.069.0.insert.insert, ptr %26, align 2
   %27 = add i64 %20, 1
   store i64 %27, ptr %19, align 8, !alias.scope !234, !noalias !237
@@ -3871,7 +3871,7 @@ default.unreachable556:                           ; preds = %77, %70, %2
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit": ; preds = %108, %114
   %115 = getelementptr inbounds nuw i8, ptr %109, i64 8
   %116 = load ptr, ptr %115, align 8, !alias.scope !240, !noalias !243, !nonnull !3, !noundef !3
-  %117 = getelementptr inbounds nuw { { { i8, [3 x i8] }, i8, i8 }, i8, [1 x i8] }, ptr %116, i64 %111
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %116, i64 %111
   store i64 %.sroa.0337.0.insert.insert, ptr %117, align 2
   %118 = add i64 %111, 1
   store i64 %118, ptr %110, align 8, !alias.scope !240, !noalias !243
@@ -3908,7 +3908,7 @@ default.unreachable556:                           ; preds = %77, %70, %2
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit510": ; preds = %123, %133
   %134 = getelementptr inbounds nuw i8, ptr %128, i64 8
   %135 = load ptr, ptr %134, align 8, !alias.scope !245, !noalias !248, !nonnull !3, !noundef !3
-  %136 = getelementptr inbounds nuw { { { i8, [3 x i8] }, i8, i8 }, i8, [1 x i8] }, ptr %135, i64 %130
+  %136 = getelementptr inbounds nuw [8 x i8], ptr %135, i64 %130
   store i64 %.sroa.0348.0.insert.ext, ptr %136, align 2
   %137 = add i64 %130, 1
   store i64 %137, ptr %129, align 8, !alias.scope !245, !noalias !248
@@ -3944,7 +3944,7 @@ default.unreachable556:                           ; preds = %77, %70, %2
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit511": ; preds = %142, %151
   %152 = getelementptr inbounds nuw i8, ptr %146, i64 8
   %153 = load ptr, ptr %152, align 8, !alias.scope !250, !noalias !253, !nonnull !3, !noundef !3
-  %154 = getelementptr inbounds nuw { { { i8, [3 x i8] }, i8, i8 }, i8, [1 x i8] }, ptr %153, i64 %148
+  %154 = getelementptr inbounds nuw [8 x i8], ptr %153, i64 %148
   store i64 %.sroa.0356.0.insert.insert, ptr %154, align 2
   %155 = add i64 %148, 1
   store i64 %155, ptr %147, align 8, !alias.scope !250, !noalias !253
@@ -4023,7 +4023,7 @@ _ZN14ruff_formatter7printer10GroupModes14get_print_mode17h7bc942e990e85c2dE.exit
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit513": ; preds = %185, %192
   %193 = getelementptr inbounds nuw i8, ptr %187, i64 8
   %194 = load ptr, ptr %193, align 8, !alias.scope !255, !noalias !258, !nonnull !3, !noundef !3
-  %195 = getelementptr inbounds nuw { { { i8, [3 x i8] }, i8, i8 }, i8, [1 x i8] }, ptr %194, i64 %189
+  %195 = getelementptr inbounds nuw [8 x i8], ptr %194, i64 %189
   store i64 %.sroa.0439.0.insert.insert, ptr %195, align 2
   %196 = add i64 %189, 1
   store i64 %196, ptr %188, align 8, !alias.scope !255, !noalias !258
@@ -4088,7 +4088,7 @@ _ZN14ruff_formatter7printer10GroupModes14get_print_mode17h7bc942e990e85c2dE.exit
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit514": ; preds = %216, %222
   %223 = getelementptr inbounds nuw i8, ptr %217, i64 8
   %224 = load ptr, ptr %223, align 8, !alias.scope !260, !noalias !263, !nonnull !3, !noundef !3
-  %225 = getelementptr inbounds nuw { { { i8, [3 x i8] }, i8, i8 }, i8, [1 x i8] }, ptr %224, i64 %219
+  %225 = getelementptr inbounds nuw [8 x i8], ptr %224, i64 %219
   store i64 %.sroa.0369.0.insert.insert, ptr %225, align 2
   %226 = add i64 %219, 1
   store i64 %226, ptr %218, align 8, !alias.scope !260, !noalias !263
@@ -4148,7 +4148,7 @@ _ZN14ruff_formatter7printer10GroupModes14get_print_mode17h7bc942e990e85c2dE.exit
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit522": ; preds = %243, %249
   %250 = getelementptr inbounds nuw i8, ptr %244, i64 8
   %251 = load ptr, ptr %250, align 8, !alias.scope !265, !noalias !268, !nonnull !3, !noundef !3
-  %252 = getelementptr inbounds nuw { { { i8, [3 x i8] }, i8, i8 }, i8, [1 x i8] }, ptr %251, i64 %246
+  %252 = getelementptr inbounds nuw [8 x i8], ptr %251, i64 %246
   store i64 %.sroa.0380.0.insert.insert, ptr %252, align 2
   %253 = add i64 %246, 1
   store i64 %253, ptr %245, align 8, !alias.scope !265, !noalias !268
@@ -4220,7 +4220,7 @@ _ZN14ruff_formatter7printer10GroupModes14get_print_mode17h7bc942e990e85c2dE.exit
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit530": ; preds = %277, %283
   %284 = getelementptr inbounds nuw i8, ptr %278, i64 8
   %285 = load ptr, ptr %284, align 8, !alias.scope !270, !noalias !273, !nonnull !3, !noundef !3
-  %286 = getelementptr inbounds nuw { { { i8, [3 x i8] }, i8, i8 }, i8, [1 x i8] }, ptr %285, i64 %280
+  %286 = getelementptr inbounds nuw [8 x i8], ptr %285, i64 %280
   store i64 %.sroa.0391.0.insert.insert, ptr %286, align 2
   %287 = add i64 %280, 1
   store i64 %287, ptr %279, align 8, !alias.scope !270, !noalias !273
@@ -4251,7 +4251,7 @@ _ZN14ruff_formatter7printer10GroupModes14get_print_mode17h7bc942e990e85c2dE.exit
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit531": ; preds = %290, %299
   %300 = getelementptr inbounds nuw i8, ptr %294, i64 8
   %301 = load ptr, ptr %300, align 8, !alias.scope !275, !noalias !278, !nonnull !3, !noundef !3
-  %302 = getelementptr inbounds nuw { { { i8, [3 x i8] }, i8, i8 }, i8, [1 x i8] }, ptr %301, i64 %296
+  %302 = getelementptr inbounds nuw [8 x i8], ptr %301, i64 %296
   store i64 %.sroa.0405.0.insert.insert, ptr %302, align 2
   %303 = add i64 %296, 1
   store i64 %303, ptr %295, align 8, !alias.scope !275, !noalias !278
@@ -4274,7 +4274,7 @@ _ZN14ruff_formatter7printer10GroupModes14get_print_mode17h7bc942e990e85c2dE.exit
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit532": ; preds = %304, %310
   %311 = getelementptr inbounds nuw i8, ptr %305, i64 8
   %312 = load ptr, ptr %311, align 8, !alias.scope !280, !noalias !283, !nonnull !3, !noundef !3
-  %313 = getelementptr inbounds nuw { { { i8, [3 x i8] }, i8, i8 }, i8, [1 x i8] }, ptr %312, i64 %307
+  %313 = getelementptr inbounds nuw [8 x i8], ptr %312, i64 %307
   store i64 %.sroa.0397.0.insert.insert, ptr %313, align 2
   %314 = add i64 %307, 1
   store i64 %314, ptr %306, align 8, !alias.scope !280, !noalias !283
@@ -4316,7 +4316,7 @@ _ZN14ruff_formatter7printer10GroupModes14get_print_mode17h7bc942e990e85c2dE.exit
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit533": ; preds = %326, %332
   %333 = getelementptr inbounds nuw i8, ptr %327, i64 8
   %334 = load ptr, ptr %333, align 8, !alias.scope !286, !noalias !289, !nonnull !3, !noundef !3
-  %335 = getelementptr inbounds nuw { { { i8, [3 x i8] }, i8, i8 }, i8, [1 x i8] }, ptr %334, i64 %329
+  %335 = getelementptr inbounds nuw [8 x i8], ptr %334, i64 %329
   store i64 %.sroa.0436.0.insert.insert, ptr %335, align 2
   %336 = add i64 %329, 1
   store i64 %336, ptr %328, align 8, !alias.scope !286, !noalias !289
@@ -4398,7 +4398,7 @@ _ZN14ruff_formatter7printer10GroupModes14get_print_mode17h7bc942e990e85c2dE.exit
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit541": ; preds = %.critedge, %372
   %373 = getelementptr inbounds nuw i8, ptr %367, i64 8
   %374 = load ptr, ptr %373, align 8, !alias.scope !291, !noalias !294, !nonnull !3, !noundef !3
-  %375 = getelementptr inbounds nuw { { { i8, [3 x i8] }, i8, i8 }, i8, [1 x i8] }, ptr %374, i64 %369
+  %375 = getelementptr inbounds nuw [8 x i8], ptr %374, i64 %369
   store i64 %.sroa.0433.0.insert.insert, ptr %375, align 2
   %376 = add i64 %369, 1
   store i64 %376, ptr %368, align 8, !alias.scope !291, !noalias !294
@@ -4421,7 +4421,7 @@ _ZN14ruff_formatter7printer10GroupModes14get_print_mode17h7bc942e990e85c2dE.exit
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit542": ; preds = %377, %383
   %384 = getelementptr inbounds nuw i8, ptr %378, i64 8
   %385 = load ptr, ptr %384, align 8, !alias.scope !296, !noalias !299, !nonnull !3, !noundef !3
-  %386 = getelementptr inbounds nuw { { { i8, [3 x i8] }, i8, i8 }, i8, [1 x i8] }, ptr %385, i64 %380
+  %386 = getelementptr inbounds nuw [8 x i8], ptr %385, i64 %380
   store i64 %.sroa.0420.0.insert.insert, ptr %386, align 2
   %387 = add i64 %380, 1
   store i64 %387, ptr %379, align 8, !alias.scope !296, !noalias !299
@@ -4455,7 +4455,7 @@ _ZN14ruff_formatter7printer10GroupModes14get_print_mode17h7bc942e990e85c2dE.exit
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit543": ; preds = %394, %400
   %401 = getelementptr inbounds nuw i8, ptr %395, i64 8
   %402 = load ptr, ptr %401, align 8, !alias.scope !301, !noalias !304, !nonnull !3, !noundef !3
-  %403 = getelementptr inbounds nuw { { { i8, [3 x i8] }, i8, i8 }, i8, [1 x i8] }, ptr %402, i64 %397
+  %403 = getelementptr inbounds nuw [8 x i8], ptr %402, i64 %397
   store i64 %.sroa.0448.0.insert.insert, ptr %403, align 2
   %404 = add i64 %397, 1
   store i64 %404, ptr %396, align 8, !alias.scope !301, !noalias !304
@@ -4564,7 +4564,7 @@ define internal fastcc noundef range(i8 1, 3) i8 @_ZN14ruff_formatter7printer12F
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit": ; preds = %17, %25
   %26 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %27 = load ptr, ptr %26, align 8, !alias.scope !306, !noalias !309, !nonnull !3, !noundef !3
-  %28 = getelementptr inbounds nuw { { { i8, [3 x i8] }, i8, i8 }, i8, [1 x i8] }, ptr %27, i64 %22
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %22
   store i64 %.sroa.019.0.insert.insert, ptr %28, align 2
   %29 = add i64 %22, 1
   store i64 %29, ptr %21, align 8, !alias.scope !306, !noalias !309
@@ -5369,7 +5369,7 @@ _ZN7tracing4span4Span8do_enter17hc42ad5655e37783bE.exit: ; preds = %.noexc78, %7
 156:                                              ; preds = %.noexc86
   %157 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %158 = load ptr, ptr %157, align 8, !alias.scope !328, !nonnull !3, !noundef !3
-  %159 = getelementptr { i32, i32 }, ptr %158, i64 %155
+  %159 = getelementptr [8 x i8], ptr %158, i64 %155
   %160 = getelementptr i8, ptr %159, i64 -8
   %161 = load i32, ptr %160, align 4, !noalias !328, !noundef !3
   %162 = icmp eq i32 %161, %146
@@ -5387,7 +5387,7 @@ _ZN7tracing4span4Span8do_enter17hc42ad5655e37783bE.exit: ; preds = %.noexc78, %7
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h53140f6c4fade67eE.exit.i": ; preds = %166, %163
   %167 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %168 = load ptr, ptr %167, align 8, !alias.scope !331, !nonnull !3, !noundef !3
-  %169 = getelementptr inbounds nuw { i32, i32 }, ptr %168, i64 %155
+  %169 = getelementptr inbounds nuw [8 x i8], ptr %168, i64 %155
   store i32 %146, ptr %169, align 4
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 4
   store i32 %152, ptr %170, align 4

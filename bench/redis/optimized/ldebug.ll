@@ -3,10 +3,9 @@ source_filename = "bench/redis/original/ldebug.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.CallInfo = type { ptr, ptr, ptr, ptr, i32, i32 }
+%struct.__va_list_tag = type { i32, i32, ptr, ptr }
 %struct.lua_TValue = type { %union.Value, i32 }
 %union.Value = type { ptr }
-%struct.__va_list_tag = type { i32, i32, ptr, ptr }
 
 @luaT_typenames = external hidden local_unnamed_addr constant [0 x ptr], align 8
 @.str = private unnamed_addr constant [35 x i8] c"attempt to %s %s '%s' (a %s value)\00", align 1
@@ -150,7 +149,7 @@ define dso_local ptr @lua_getlocal(ptr noundef %0, ptr noundef readonly captures
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %7 = load i32, ptr %6, align 4, !tbaa !30
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds %struct.CallInfo, ptr %5, i64 %8
+  %9 = getelementptr inbounds [40 x i8], ptr %5, i64 %8
   %10 = getelementptr i8, ptr %9, i64 8
   %.val.i = load ptr, ptr %10, align 8, !tbaa !24
   %11 = getelementptr inbounds nuw i8, ptr %.val.i, i64 8
@@ -235,7 +234,7 @@ select.unfold:                                    ; preds = %currentpc.exit.i.se
   %.pre-phi = phi i64 [ %.pre13, %currentpc.exit.i.select.unfold_crit_edge ], [ %50, %getluaproto.exit.thread.i ]
   %53 = phi ptr [ %.pre, %currentpc.exit.i.select.unfold_crit_edge ], [ %45, %getluaproto.exit.thread.i ]
   %.0.i.ph = phi ptr [ %38, %currentpc.exit.i.select.unfold_crit_edge ], [ @.str.6, %getluaproto.exit.thread.i ]
-  %54 = getelementptr %struct.lua_TValue, ptr %53, i64 %.pre-phi
+  %54 = getelementptr [16 x i8], ptr %53, i64 %.pre-phi
   %55 = getelementptr i8, ptr %54, i64 -16
   tail call void @luaA_pushobject(ptr noundef nonnull %0, ptr noundef %55) #10
   br label %findlocal.exit
@@ -254,7 +253,7 @@ define dso_local ptr @lua_setlocal(ptr noundef captures(none) %0, ptr noundef re
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %7 = load i32, ptr %6, align 4, !tbaa !30
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds %struct.CallInfo, ptr %5, i64 %8
+  %9 = getelementptr inbounds [40 x i8], ptr %5, i64 %8
   %10 = getelementptr i8, ptr %9, i64 8
   %.val.i = load ptr, ptr %10, align 8, !tbaa !24
   %11 = getelementptr inbounds nuw i8, ptr %.val.i, i64 8
@@ -342,7 +341,7 @@ select.unfold:                                    ; preds = %currentpc.exit.i.se
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %55 = load ptr, ptr %54, align 8, !tbaa !44
   %56 = getelementptr inbounds i8, ptr %55, i64 -16
-  %57 = getelementptr %struct.lua_TValue, ptr %53, i64 %.pre-phi
+  %57 = getelementptr [16 x i8], ptr %53, i64 %.pre-phi
   %58 = getelementptr i8, ptr %57, i64 -16
   %59 = load i64, ptr %56, align 8, !tbaa !26
   store i64 %59, ptr %58, align 8, !tbaa !26
@@ -386,7 +385,7 @@ define dso_local range(i32 0, 2) i32 @lua_getinfo(ptr noundef %0, ptr noundef re
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %17 = load ptr, ptr %16, align 8, !tbaa !23
   %18 = sext i32 %14 to i64
-  %19 = getelementptr inbounds %struct.CallInfo, ptr %17, i64 %18
+  %19 = getelementptr inbounds [40 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !24
   %22 = load ptr, ptr %21, align 8, !tbaa !26
@@ -529,7 +528,7 @@ currentpc.exit.i.i:                               ; preds = %75, %._crit_edge.i.
 
 93:                                               ; preds = %90
   %94 = and i64 %88, 4294967295
-  %95 = getelementptr inbounds nuw i32, ptr %92, i64 %94
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %92, i64 %94
   %96 = load i32, ptr %95, align 4, !tbaa !53
   br label %currentline.exit.i
 
@@ -612,7 +611,7 @@ currentpc.exit.i35.i:                             ; preds = %130, %._crit_edge.i
   %137 = shl i64 %136, 30
   %sext.i.i = add i64 %137, -4294967296
   %138 = ashr i64 %sext.i.i, 32
-  %139 = getelementptr inbounds i32, ptr %127, i64 %138
+  %139 = getelementptr inbounds [4 x i8], ptr %127, i64 %138
   %140 = load i32, ptr %139, align 4, !tbaa !53
   %141 = and i32 %140, 63
   switch i32 %141, label %getfuncname.exit.thread.i [
@@ -758,7 +757,7 @@ auxgetinfo.exit.thread:                           ; preds = %43
 
 .lr.ph.i:                                         ; preds = %193, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %193 ]
-  %202 = getelementptr inbounds nuw i32, ptr %198, i64 %indvars.iv.i
+  %202 = getelementptr inbounds nuw [4 x i8], ptr %198, i64 %indvars.iv.i
   %203 = load i32, ptr %202, align 4, !tbaa !53
   %204 = tail call ptr @luaH_setnum(ptr noundef %0, ptr noundef %194, i32 noundef %203) #10
   store i32 1, ptr %204, align 8, !tbaa !26
@@ -893,7 +892,7 @@ precheck.exit:                                    ; preds = %26
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %33 = load ptr, ptr %32, align 8, !tbaa !36
   %34 = zext nneg i32 %5 to i64
-  %35 = getelementptr i32, ptr %33, i64 %34
+  %35 = getelementptr [4 x i8], ptr %33, i64 %34
   %36 = getelementptr i8, ptr %35, i64 -4
   %37 = load i32, ptr %36, align 4, !tbaa !53
   %38 = and i32 %37, 63
@@ -919,7 +918,7 @@ precheck.exit:                                    ; preds = %26
   %.0162279 = phi i32 [ 0, %.lr.ph281 ], [ %227, %226 ]
   %.0168278 = phi i32 [ %40, %.lr.ph281 ], [ %.3171, %226 ]
   %48 = sext i32 %.0162279 to i64
-  %49 = getelementptr inbounds i32, ptr %33, i64 %48
+  %49 = getelementptr inbounds [4 x i8], ptr %33, i64 %48
   %50 = load i32, ptr %49, align 4, !tbaa !53
   %51 = and i32 %50, 63
   %52 = lshr i32 %50, 6
@@ -1049,7 +1048,7 @@ checkArgMode.exit:                                ; preds = %75, %71, %68, %66, 
   %111 = trunc nuw nsw i64 %indvars.iv to i32
   %112 = sub i32 %110, %111
   %113 = sext i32 %112 to i64
-  %114 = getelementptr inbounds i32, ptr %33, i64 %113
+  %114 = getelementptr inbounds [4 x i8], ptr %33, i64 %113
   %115 = load i32, ptr %114, align 4, !tbaa !53
   %116 = and i32 %115, 8372287
   %or.cond221 = icmp eq i32 %116, 34
@@ -1144,7 +1143,7 @@ default.unreachable307:                           ; preds = %checkArgMode.exit, 
 143:                                              ; preds = %130, %130
   %144 = load ptr, ptr %45, align 8, !tbaa !70
   %145 = sext i32 %.0179 to i64
-  %146 = getelementptr inbounds %struct.lua_TValue, ptr %144, i64 %145
+  %146 = getelementptr inbounds [16 x i8], ptr %144, i64 %145
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 8
   %148 = load i32, ptr %147, align 8, !tbaa !33
   %149 = icmp eq i32 %148, 4
@@ -1268,7 +1267,7 @@ luaG_checkopenop.exit:                            ; preds = %176, %176, %176, %1
 202:                                              ; preds = %199
   %203 = load ptr, ptr %44, align 8, !tbaa !72
   %204 = sext i32 %.0179 to i64
-  %205 = getelementptr inbounds ptr, ptr %203, i64 %204
+  %205 = getelementptr inbounds [8 x i8], ptr %203, i64 %204
   %206 = load ptr, ptr %205, align 8, !tbaa !73
   %207 = getelementptr inbounds nuw i8, ptr %206, i64 112
   %208 = load i8, ptr %207, align 8, !tbaa !67
@@ -1284,7 +1283,7 @@ luaG_checkopenop.exit:                            ; preds = %176, %176, %176, %1
 .lr.ph276.preheader:                              ; preds = %.preheader
   %212 = add nuw nsw i32 %209, 1
   %wide.trip.count291 = zext nneg i32 %212 to i64
-  %invariant.gep = getelementptr i32, ptr %33, i64 %48
+  %invariant.gep = getelementptr [4 x i8], ptr %33, i64 %48
   br label %.lr.ph276
 
 213:                                              ; preds = %.lr.ph276
@@ -1294,7 +1293,7 @@ luaG_checkopenop.exit:                            ; preds = %176, %176, %176, %1
 
 .lr.ph276:                                        ; preds = %.lr.ph276.preheader, %213
   %indvars.iv288 = phi i64 [ 1, %.lr.ph276.preheader ], [ %indvars.iv.next289, %213 ]
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv288
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %indvars.iv288
   %214 = load i32, ptr %gep, align 4, !tbaa !53
   %215 = and i32 %214, 59
   %or.cond = icmp eq i32 %215, 0
@@ -1342,7 +1341,7 @@ luaG_checkopenop.exit243:                         ; preds = %219, %219, %219, %2
 ._crit_edge282:                                   ; preds = %226, %39
   %.0168.lcssa = phi i32 [ %40, %39 ], [ %.3171, %226 ]
   %229 = sext i32 %.0168.lcssa to i64
-  %230 = getelementptr inbounds i32, ptr %33, i64 %229
+  %230 = getelementptr inbounds [4 x i8], ptr %33, i64 %229
   %231 = load i32, ptr %230, align 4, !tbaa !53
   br label %.critedge232
 
@@ -1359,7 +1358,7 @@ define hidden void @luaG_typeerror(ptr noundef %0, ptr noundef %1, ptr noundef %
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i32, ptr %5, align 8, !tbaa !33
   %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds ptr, ptr @luaT_typenames, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr @luaT_typenames, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !77
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load ptr, ptr %10, align 8, !tbaa !22
@@ -1480,7 +1479,7 @@ currentpc.exit:                                   ; preds = %._crit_edge.i, %21
   %40 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %41 = load ptr, ptr %40, align 8, !tbaa !70
   %42 = zext nneg i32 %39 to i64
-  %43 = getelementptr inbounds nuw %struct.lua_TValue, ptr %41, i64 %42
+  %43 = getelementptr inbounds nuw [16 x i8], ptr %41, i64 %42
   %44 = load ptr, ptr %43, align 8, !tbaa !26
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 24
   br label %.thread.sink.split
@@ -1503,7 +1502,7 @@ currentpc.exit:                                   ; preds = %._crit_edge.i, %21
   %55 = load ptr, ptr %54, align 8, !tbaa !70
   %56 = and i32 %53, 255
   %57 = zext nneg i32 %56 to i64
-  %58 = getelementptr inbounds nuw %struct.lua_TValue, ptr %55, i64 %57
+  %58 = getelementptr inbounds nuw [16 x i8], ptr %55, i64 %57
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %60 = load i32, ptr %59, align 8, !tbaa !33
   %61 = icmp eq i32 %60, 4
@@ -1523,7 +1522,7 @@ currentpc.exit:                                   ; preds = %._crit_edge.i, %21
 68:                                               ; preds = %65
   %69 = lshr i32 %36, 23
   %70 = zext nneg i32 %69 to i64
-  %71 = getelementptr inbounds nuw ptr, ptr %67, i64 %70
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %70
   %72 = load ptr, ptr %71, align 8, !tbaa !82
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 24
   br label %.thread.sink.split
@@ -1539,7 +1538,7 @@ currentpc.exit:                                   ; preds = %._crit_edge.i, %21
   %79 = load ptr, ptr %78, align 8, !tbaa !70
   %80 = and i32 %77, 255
   %81 = zext nneg i32 %80 to i64
-  %82 = getelementptr inbounds nuw %struct.lua_TValue, ptr %79, i64 %81
+  %82 = getelementptr inbounds nuw [16 x i8], ptr %79, i64 %81
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %84 = load i32, ptr %83, align 8, !tbaa !33
   %85 = icmp eq i32 %84, 4
@@ -1612,7 +1611,7 @@ currentpc.exit.i.i:                               ; preds = %13
 
 34:                                               ; preds = %31
   %35 = and i64 %29, 4294967295
-  %36 = getelementptr inbounds nuw i32, ptr %33, i64 %35
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %35
   %37 = load i32, ptr %36, align 4, !tbaa !53
   br label %getluaproto.exit.i
 
@@ -1646,7 +1645,7 @@ define hidden void @luaG_concaterror(ptr noundef %0, ptr noundef %1, ptr noundef
   %7 = getelementptr inbounds nuw i8, ptr %spec.select, i64 8
   %8 = load i32, ptr %7, align 8, !tbaa !33
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds ptr, ptr @luaT_typenames, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr @luaT_typenames, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !77
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load ptr, ptr %12, align 8, !tbaa !22
@@ -1705,7 +1704,7 @@ define hidden void @luaG_aritherror(ptr noundef %0, ptr noundef %1, ptr noundef 
   %8 = getelementptr inbounds nuw i8, ptr %spec.select, i64 8
   %9 = load i32, ptr %8, align 8, !tbaa !33
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds ptr, ptr @luaT_typenames, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr @luaT_typenames, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !77
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = load ptr, ptr %13, align 8, !tbaa !22
@@ -1759,12 +1758,12 @@ define hidden noundef i32 @luaG_ordererror(ptr noundef %0, ptr noundef readonly 
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 8, !tbaa !33
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds ptr, ptr @luaT_typenames, i64 %6
+  %7 = getelementptr inbounds [8 x i8], ptr @luaT_typenames, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !77
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = load i32, ptr %9, align 8, !tbaa !33
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds ptr, ptr @luaT_typenames, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr @luaT_typenames, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !77
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 2
   %15 = load i8, ptr %14, align 1, !tbaa !26

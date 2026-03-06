@@ -25,10 +25,10 @@ define { i64, i32 } @_ZN6icu_776number4impl7Grouper11forStrategyE23UNumberGroupi
 
 switch.lookup:                                    ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN6icu_776number4impl7Grouper11forStrategyE23UNumberGroupingStrategy, i64 %4
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN6icu_776number4impl7Grouper11forStrategyE23UNumberGroupingStrategy, i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
   %5 = zext nneg i32 %0 to i64
-  %switch.gep11 = getelementptr inbounds nuw i64, ptr @switch.table._ZN6icu_776number4impl7Grouper11forStrategyE23UNumberGroupingStrategy.2, i64 %5
+  %switch.gep11 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN6icu_776number4impl7Grouper11forStrategyE23UNumberGroupingStrategy.2, i64 %5
   %switch.load12 = load i64, ptr %switch.gep11, align 8
   %.sroa.6.0.insert.shift = shl nuw nsw i64 %switch.load12, 16
   %.sroa.6.0.insert.insert = or disjoint i64 %.sroa.6.0.insert.shift, %switch.load

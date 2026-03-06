@@ -8,7 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.acct_gather_profile_dataset_t = type { ptr, i32 }
 %union.anon = type { double }
 %struct.jag_prec = type { i8, i32, i8, i32, i32, i32, double, i32, ptr, double }
-%struct.acct_gather_data = type { i64, i64, i64, i64, i64 }
 
 @prec_list = dso_local local_unnamed_addr global ptr null, align 8
 @_set_smaps_file.use_smaps_rollup = internal unnamed_addr global i32 -1, align 4
@@ -627,7 +626,7 @@ define dso_local void @jag_common_poll_data(ptr noundef %0, i64 noundef %1, ptr 
 .lr.ph.i:                                         ; preds = %216, %252
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %252 ], [ 0, %216 ]
   %219 = load ptr, ptr %55, align 8
-  %220 = getelementptr inbounds nuw %struct.acct_gather_data, ptr %219, i64 %indvars.iv.i
+  %220 = getelementptr inbounds nuw [40 x i8], ptr %219, i64 %indvars.iv.i
   %221 = getelementptr inbounds nuw i8, ptr %220, i64 24
   %222 = load i64, ptr %221, align 8
   %223 = icmp eq i64 %222, -1
@@ -646,10 +645,10 @@ define dso_local void @jag_common_poll_data(ptr noundef %0, i64 noundef %1, ptr 
 
 230:                                              ; preds = %227
   %231 = load ptr, ptr @assoc_mgr_tres_name_array, align 8
-  %232 = getelementptr inbounds nuw ptr, ptr %231, i64 %indvars.iv.i
+  %232 = getelementptr inbounds nuw [8 x i8], ptr %231, i64 %indvars.iv.i
   %233 = load ptr, ptr %232, align 8
   %234 = load ptr, ptr %55, align 8
-  %235 = getelementptr inbounds nuw %struct.acct_gather_data, ptr %234, i64 %indvars.iv.i
+  %235 = getelementptr inbounds nuw [40 x i8], ptr %234, i64 %indvars.iv.i
   %236 = getelementptr inbounds nuw i8, ptr %235, i64 24
   %237 = load i64, ptr %236, align 8
   call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef nonnull @.str.47, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._print_jag_prec, ptr noundef %233, i64 noundef %237) #17
@@ -668,10 +667,10 @@ define dso_local void @jag_common_poll_data(ptr noundef %0, i64 noundef %1, ptr 
 
 244:                                              ; preds = %241
   %245 = load ptr, ptr @assoc_mgr_tres_name_array, align 8
-  %246 = getelementptr inbounds nuw ptr, ptr %245, i64 %indvars.iv.i
+  %246 = getelementptr inbounds nuw [8 x i8], ptr %245, i64 %indvars.iv.i
   %247 = load ptr, ptr %246, align 8
   %248 = load ptr, ptr %55, align 8
-  %249 = getelementptr inbounds nuw %struct.acct_gather_data, ptr %248, i64 %indvars.iv.i
+  %249 = getelementptr inbounds nuw [40 x i8], ptr %248, i64 %indvars.iv.i
   %250 = getelementptr inbounds nuw i8, ptr %249, i64 32
   %251 = load i64, ptr %250, align 8
   call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef nonnull @.str.48, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._print_jag_prec, ptr noundef %247, i64 noundef %251) #17
@@ -720,7 +719,7 @@ _print_jag_prec.exit:                             ; preds = %191, %._crit_edge.i
   %271 = phi i32 [ %264, %.lr.ph ], [ %321, %320 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %320 ]
   %272 = load ptr, ptr %55, align 8
-  %273 = getelementptr inbounds nuw %struct.acct_gather_data, ptr %272, i64 %indvars.iv
+  %273 = getelementptr inbounds nuw [40 x i8], ptr %272, i64 %indvars.iv
   %274 = getelementptr inbounds nuw i8, ptr %273, i64 24
   %275 = load i64, ptr %274, align 8
   %276 = icmp eq i64 %275, -1
@@ -728,7 +727,7 @@ _print_jag_prec.exit:                             ; preds = %191, %._crit_edge.i
 
 277:                                              ; preds = %270
   %278 = load ptr, ptr %145, align 8
-  %279 = getelementptr inbounds nuw i64, ptr %278, i64 %indvars.iv
+  %279 = getelementptr inbounds nuw [8 x i8], ptr %278, i64 %indvars.iv
   store i64 %275, ptr %279, align 8
   %280 = icmp eq i64 %indvars.iv, 1
   br i1 %280, label %281, label %287
@@ -748,45 +747,45 @@ _print_jag_prec.exit:                             ; preds = %191, %._crit_edge.i
 
 287:                                              ; preds = %285, %281, %277
   %288 = load ptr, ptr %265, align 8
-  %289 = getelementptr inbounds nuw i64, ptr %288, i64 %indvars.iv
+  %289 = getelementptr inbounds nuw [8 x i8], ptr %288, i64 %indvars.iv
   %290 = load i64, ptr %289, align 8
   %291 = icmp eq i64 %290, -1
   %292 = load ptr, ptr %55, align 8
-  %293 = getelementptr inbounds nuw %struct.acct_gather_data, ptr %292, i64 %indvars.iv
+  %293 = getelementptr inbounds nuw [40 x i8], ptr %292, i64 %indvars.iv
   %294 = getelementptr inbounds nuw i8, ptr %293, i64 24
   %295 = load i64, ptr %294, align 8
   %. = call i64 @llvm.umax.i64(i64 %290, i64 %295)
   %storemerge = select i1 %291, i64 %295, i64 %.
   store i64 %storemerge, ptr %289, align 8
   %296 = load ptr, ptr %265, align 8
-  %297 = getelementptr inbounds nuw i64, ptr %296, i64 %indvars.iv
+  %297 = getelementptr inbounds nuw [8 x i8], ptr %296, i64 %indvars.iv
   %298 = load i64, ptr %297, align 8
   %299 = load ptr, ptr %266, align 8
-  %300 = getelementptr inbounds nuw i64, ptr %299, i64 %indvars.iv
+  %300 = getelementptr inbounds nuw [8 x i8], ptr %299, i64 %indvars.iv
   store i64 %298, ptr %300, align 8
   %301 = load ptr, ptr %267, align 8
-  %302 = getelementptr inbounds nuw i64, ptr %301, i64 %indvars.iv
+  %302 = getelementptr inbounds nuw [8 x i8], ptr %301, i64 %indvars.iv
   %303 = load i64, ptr %302, align 8
   %304 = icmp eq i64 %303, -1
   %305 = load ptr, ptr %55, align 8
-  %306 = getelementptr inbounds nuw %struct.acct_gather_data, ptr %305, i64 %indvars.iv
+  %306 = getelementptr inbounds nuw [40 x i8], ptr %305, i64 %indvars.iv
   %307 = getelementptr inbounds nuw i8, ptr %306, i64 32
   %308 = load i64, ptr %307, align 8
   %.203 = call i64 @llvm.umax.i64(i64 %303, i64 %308)
   %storemerge215 = select i1 %304, i64 %308, i64 %.203
   store i64 %storemerge215, ptr %302, align 8
   %309 = load ptr, ptr %267, align 8
-  %310 = getelementptr inbounds nuw i64, ptr %309, i64 %indvars.iv
+  %310 = getelementptr inbounds nuw [8 x i8], ptr %309, i64 %indvars.iv
   %311 = load i64, ptr %310, align 8
   %312 = load ptr, ptr %268, align 8
-  %313 = getelementptr inbounds nuw i64, ptr %312, i64 %indvars.iv
+  %313 = getelementptr inbounds nuw [8 x i8], ptr %312, i64 %indvars.iv
   store i64 %311, ptr %313, align 8
   %314 = load ptr, ptr %55, align 8
-  %315 = getelementptr inbounds nuw %struct.acct_gather_data, ptr %314, i64 %indvars.iv
+  %315 = getelementptr inbounds nuw [40 x i8], ptr %314, i64 %indvars.iv
   %316 = getelementptr inbounds nuw i8, ptr %315, i64 32
   %317 = load i64, ptr %316, align 8
   %318 = load ptr, ptr %269, align 8
-  %319 = getelementptr inbounds nuw i64, ptr %318, i64 %indvars.iv
+  %319 = getelementptr inbounds nuw [8 x i8], ptr %318, i64 %indvars.iv
   store i64 %317, ptr %319, align 8
   %.pre229 = load i32, ptr %263, align 8
   br label %320
@@ -1208,13 +1207,13 @@ _update_weighted_freq.exit:                       ; preds = %410, %421
 
 551:                                              ; preds = %523
   %552 = sext i32 %550 to i64
-  %553 = getelementptr inbounds i64, ptr %500, i64 %552
+  %553 = getelementptr inbounds [8 x i8], ptr %500, i64 %552
   %554 = load i64, ptr %553, align 8
   %555 = lshr i64 %554, 20
   store i64 %555, ptr %70, align 8
   %556 = load i32, ptr @_record_profile.gpuutil_pos, align 4
   %557 = sext i32 %556 to i64
-  %558 = getelementptr inbounds i64, ptr %500, i64 %557
+  %558 = getelementptr inbounds [8 x i8], ptr %500, i64 %557
   %559 = load i64, ptr %558, align 8
   %560 = uitofp i64 %559 to double
   store double %560, ptr %71, align 16
@@ -1365,7 +1364,7 @@ define internal void @_get_offspring_data(ptr noundef %0, ptr noundef captures(n
 34:                                               ; preds = %78, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %78 ]
   %35 = load ptr, ptr %33, align 8
-  %36 = getelementptr inbounds nuw %struct.acct_gather_data, ptr %35, i64 %indvars.iv.i
+  %36 = getelementptr inbounds nuw [40 x i8], ptr %35, i64 %indvars.iv.i
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = load i64, ptr %37, align 8
   %.not.i = icmp eq i64 %38, -1
@@ -1373,7 +1372,7 @@ define internal void @_get_offspring_data(ptr noundef %0, ptr noundef captures(n
 
 .sink.split.i:                                    ; preds = %34
   %39 = load ptr, ptr %13, align 8
-  %40 = getelementptr inbounds nuw %struct.acct_gather_data, ptr %39, i64 %indvars.iv.i
+  %40 = getelementptr inbounds nuw [40 x i8], ptr %39, i64 %indvars.iv.i
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = load i64, ptr %41, align 8
   %43 = icmp eq i64 %42, -1
@@ -1385,7 +1384,7 @@ define internal void @_get_offspring_data(ptr noundef %0, ptr noundef captures(n
 
 45:                                               ; preds = %.sink.split.i, %34
   %46 = phi ptr [ %.pre, %.sink.split.i ], [ %35, %34 ]
-  %47 = getelementptr inbounds nuw %struct.acct_gather_data, ptr %46, i64 %indvars.iv.i
+  %47 = getelementptr inbounds nuw [40 x i8], ptr %46, i64 %indvars.iv.i
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %49 = load i64, ptr %48, align 8
   %.not63.i = icmp eq i64 %49, -1
@@ -1393,7 +1392,7 @@ define internal void @_get_offspring_data(ptr noundef %0, ptr noundef captures(n
 
 .sink.split75.i:                                  ; preds = %45
   %50 = load ptr, ptr %13, align 8
-  %51 = getelementptr inbounds nuw %struct.acct_gather_data, ptr %50, i64 %indvars.iv.i
+  %51 = getelementptr inbounds nuw [40 x i8], ptr %50, i64 %indvars.iv.i
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %53 = load i64, ptr %52, align 8
   %54 = icmp eq i64 %53, -1
@@ -1405,7 +1404,7 @@ define internal void @_get_offspring_data(ptr noundef %0, ptr noundef captures(n
 
 56:                                               ; preds = %.sink.split75.i, %45
   %57 = phi ptr [ %.pre44, %.sink.split75.i ], [ %46, %45 ]
-  %58 = getelementptr inbounds nuw %struct.acct_gather_data, ptr %57, i64 %indvars.iv.i
+  %58 = getelementptr inbounds nuw [40 x i8], ptr %57, i64 %indvars.iv.i
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 24
   %60 = load i64, ptr %59, align 8
   %.not64.i = icmp eq i64 %60, -1
@@ -1413,7 +1412,7 @@ define internal void @_get_offspring_data(ptr noundef %0, ptr noundef captures(n
 
 .sink.split77.i:                                  ; preds = %56
   %61 = load ptr, ptr %13, align 8
-  %62 = getelementptr inbounds nuw %struct.acct_gather_data, ptr %61, i64 %indvars.iv.i
+  %62 = getelementptr inbounds nuw [40 x i8], ptr %61, i64 %indvars.iv.i
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 24
   %64 = load i64, ptr %63, align 8
   %65 = icmp eq i64 %64, -1
@@ -1425,7 +1424,7 @@ define internal void @_get_offspring_data(ptr noundef %0, ptr noundef captures(n
 
 67:                                               ; preds = %.sink.split77.i, %56
   %68 = phi ptr [ %.pre45, %.sink.split77.i ], [ %57, %56 ]
-  %69 = getelementptr inbounds nuw %struct.acct_gather_data, ptr %68, i64 %indvars.iv.i
+  %69 = getelementptr inbounds nuw [40 x i8], ptr %68, i64 %indvars.iv.i
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 32
   %71 = load i64, ptr %70, align 8
   %.not65.i = icmp eq i64 %71, -1
@@ -1433,7 +1432,7 @@ define internal void @_get_offspring_data(ptr noundef %0, ptr noundef captures(n
 
 .sink.split79.i:                                  ; preds = %67
   %72 = load ptr, ptr %13, align 8
-  %73 = getelementptr inbounds nuw %struct.acct_gather_data, ptr %72, i64 %indvars.iv.i
+  %73 = getelementptr inbounds nuw [40 x i8], ptr %72, i64 %indvars.iv.i
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 32
   %75 = load i64, ptr %74, align 8
   %76 = icmp eq i64 %75, -1
@@ -1476,7 +1475,7 @@ _aggregate_prec.exit:                             ; preds = %78, %.lr.ph
 95:                                               ; preds = %139, %.lr.ph.i26
   %indvars.iv.i27 = phi i64 [ 0, %.lr.ph.i26 ], [ %indvars.iv.next.i40, %139 ]
   %96 = load ptr, ptr %94, align 8
-  %97 = getelementptr inbounds nuw %struct.acct_gather_data, ptr %96, i64 %indvars.iv.i27
+  %97 = getelementptr inbounds nuw [40 x i8], ptr %96, i64 %indvars.iv.i27
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 8
   %99 = load i64, ptr %98, align 8
   %.not.i28 = icmp eq i64 %99, -1
@@ -1484,7 +1483,7 @@ _aggregate_prec.exit:                             ; preds = %78, %.lr.ph
 
 .sink.split.i29:                                  ; preds = %95
   %100 = load ptr, ptr %16, align 8
-  %101 = getelementptr inbounds nuw %struct.acct_gather_data, ptr %100, i64 %indvars.iv.i27
+  %101 = getelementptr inbounds nuw [40 x i8], ptr %100, i64 %indvars.iv.i27
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
   %103 = load i64, ptr %102, align 8
   %104 = icmp eq i64 %103, -1
@@ -1496,7 +1495,7 @@ _aggregate_prec.exit:                             ; preds = %78, %.lr.ph
 
 106:                                              ; preds = %.sink.split.i29, %95
   %107 = phi ptr [ %.pre46, %.sink.split.i29 ], [ %96, %95 ]
-  %108 = getelementptr inbounds nuw %struct.acct_gather_data, ptr %107, i64 %indvars.iv.i27
+  %108 = getelementptr inbounds nuw [40 x i8], ptr %107, i64 %indvars.iv.i27
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 16
   %110 = load i64, ptr %109, align 8
   %.not63.i31 = icmp eq i64 %110, -1
@@ -1504,7 +1503,7 @@ _aggregate_prec.exit:                             ; preds = %78, %.lr.ph
 
 .sink.split75.i32:                                ; preds = %106
   %111 = load ptr, ptr %16, align 8
-  %112 = getelementptr inbounds nuw %struct.acct_gather_data, ptr %111, i64 %indvars.iv.i27
+  %112 = getelementptr inbounds nuw [40 x i8], ptr %111, i64 %indvars.iv.i27
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 16
   %114 = load i64, ptr %113, align 8
   %115 = icmp eq i64 %114, -1
@@ -1516,7 +1515,7 @@ _aggregate_prec.exit:                             ; preds = %78, %.lr.ph
 
 117:                                              ; preds = %.sink.split75.i32, %106
   %118 = phi ptr [ %.pre47, %.sink.split75.i32 ], [ %107, %106 ]
-  %119 = getelementptr inbounds nuw %struct.acct_gather_data, ptr %118, i64 %indvars.iv.i27
+  %119 = getelementptr inbounds nuw [40 x i8], ptr %118, i64 %indvars.iv.i27
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 24
   %121 = load i64, ptr %120, align 8
   %.not64.i34 = icmp eq i64 %121, -1
@@ -1524,7 +1523,7 @@ _aggregate_prec.exit:                             ; preds = %78, %.lr.ph
 
 .sink.split77.i35:                                ; preds = %117
   %122 = load ptr, ptr %16, align 8
-  %123 = getelementptr inbounds nuw %struct.acct_gather_data, ptr %122, i64 %indvars.iv.i27
+  %123 = getelementptr inbounds nuw [40 x i8], ptr %122, i64 %indvars.iv.i27
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 24
   %125 = load i64, ptr %124, align 8
   %126 = icmp eq i64 %125, -1
@@ -1536,7 +1535,7 @@ _aggregate_prec.exit:                             ; preds = %78, %.lr.ph
 
 128:                                              ; preds = %.sink.split77.i35, %117
   %129 = phi ptr [ %.pre48, %.sink.split77.i35 ], [ %118, %117 ]
-  %130 = getelementptr inbounds nuw %struct.acct_gather_data, ptr %129, i64 %indvars.iv.i27
+  %130 = getelementptr inbounds nuw [40 x i8], ptr %129, i64 %indvars.iv.i27
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 32
   %132 = load i64, ptr %131, align 8
   %.not65.i37 = icmp eq i64 %132, -1
@@ -1544,7 +1543,7 @@ _aggregate_prec.exit:                             ; preds = %78, %.lr.ph
 
 .sink.split79.i38:                                ; preds = %128
   %133 = load ptr, ptr %16, align 8
-  %134 = getelementptr inbounds nuw %struct.acct_gather_data, ptr %133, i64 %indvars.iv.i27
+  %134 = getelementptr inbounds nuw [40 x i8], ptr %133, i64 %indvars.iv.i27
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 32
   %136 = load i64, ptr %135, align 8
   %137 = icmp eq i64 %136, -1
@@ -1691,7 +1690,7 @@ define internal ptr @_get_precs(ptr noundef %0, i64 noundef %1, ptr readnone cap
 71:                                               ; preds = %.lr.ph, %_handle_stats.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_handle_stats.exit ]
   %72 = load ptr, ptr %63, align 8
-  %73 = getelementptr inbounds nuw i32, ptr %72, i64 %indvars.iv
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %indvars.iv
   %74 = load i32, ptr %73, align 4
   br i1 %.not20, label %77, label %75
 
@@ -1823,22 +1822,22 @@ define internal ptr @_get_precs(ptr noundef %0, i64 noundef %1, ptr readnone cap
 .lr.ph.i.i:                                       ; preds = %121, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %121 ]
   %128 = load ptr, ptr %125, align 8
-  %129 = getelementptr inbounds nuw %struct.acct_gather_data, ptr %128, i64 %indvars.iv.i.i
+  %129 = getelementptr inbounds nuw [40 x i8], ptr %128, i64 %indvars.iv.i.i
   store i64 0, ptr %129, align 8
   %130 = load ptr, ptr %125, align 8
-  %131 = getelementptr inbounds nuw %struct.acct_gather_data, ptr %130, i64 %indvars.iv.i.i
+  %131 = getelementptr inbounds nuw [40 x i8], ptr %130, i64 %indvars.iv.i.i
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 8
   store i64 -1, ptr %132, align 8
   %133 = load ptr, ptr %125, align 8
-  %134 = getelementptr inbounds nuw %struct.acct_gather_data, ptr %133, i64 %indvars.iv.i.i
+  %134 = getelementptr inbounds nuw [40 x i8], ptr %133, i64 %indvars.iv.i.i
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 16
   store i64 -1, ptr %135, align 8
   %136 = load ptr, ptr %125, align 8
-  %137 = getelementptr inbounds nuw %struct.acct_gather_data, ptr %136, i64 %indvars.iv.i.i
+  %137 = getelementptr inbounds nuw [40 x i8], ptr %136, i64 %indvars.iv.i.i
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 24
   store i64 -1, ptr %138, align 8
   %139 = load ptr, ptr %125, align 8
-  %140 = getelementptr inbounds nuw %struct.acct_gather_data, ptr %139, i64 %indvars.iv.i.i
+  %140 = getelementptr inbounds nuw [40 x i8], ptr %139, i64 %indvars.iv.i.i
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 32
   store i64 -1, ptr %141, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -2228,7 +2227,7 @@ _set_smaps_file.exit.i:                           ; preds = %243, %242, %240
   %260 = getelementptr inbounds nuw i8, ptr %11, i64 %indvars.iv.i36.i
   %261 = load i8, ptr %260, align 1
   %262 = sext i8 %261 to i64
-  %263 = getelementptr inbounds i16, ptr %257, i64 %262
+  %263 = getelementptr inbounds [2 x i8], ptr %257, i64 %262
   %264 = load i16, ptr %263, align 2
   %265 = and i16 %264, 2048
   %.not32.i.i = icmp eq i16 %265, 0
@@ -2486,22 +2485,22 @@ define internal noundef i32 @_init_tres(ptr noundef readonly captures(none) %0, 
 7:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
   %8 = load ptr, ptr %6, align 8
-  %9 = getelementptr inbounds nuw %struct.acct_gather_data, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [40 x i8], ptr %8, i64 %indvars.iv
   store i64 0, ptr %9, align 8
   %10 = load ptr, ptr %6, align 8
-  %11 = getelementptr inbounds nuw %struct.acct_gather_data, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [40 x i8], ptr %10, i64 %indvars.iv
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 -1, ptr %12, align 8
   %13 = load ptr, ptr %6, align 8
-  %14 = getelementptr inbounds nuw %struct.acct_gather_data, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [40 x i8], ptr %13, i64 %indvars.iv
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i64 -1, ptr %15, align 8
   %16 = load ptr, ptr %6, align 8
-  %17 = getelementptr inbounds nuw %struct.acct_gather_data, ptr %16, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [40 x i8], ptr %16, i64 %indvars.iv
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store i64 -1, ptr %18, align 8
   %19 = load ptr, ptr %6, align 8
-  %20 = getelementptr inbounds nuw %struct.acct_gather_data, ptr %19, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [40 x i8], ptr %19, i64 %indvars.iv
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 32
   store i64 -1, ptr %21, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

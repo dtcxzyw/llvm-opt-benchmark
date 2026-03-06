@@ -311,7 +311,7 @@ define void @_ZN2cv2ft12createKernelEiiRKNS_12_OutputArrayEi(i32 noundef %0, i32
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %16 = load ptr, ptr %15, align 8, !tbaa !47
   %17 = sext i32 %1 to i64
-  %18 = getelementptr inbounds float, ptr %16, i64 %17
+  %18 = getelementptr inbounds [4 x i8], ptr %16, i64 %17
   store float 1.000000e+00, ptr %18, align 4, !tbaa !48
   %19 = icmp eq i32 %0, 1
   br i1 %19, label %20, label %43
@@ -335,13 +335,13 @@ define void @_ZN2cv2ft12createKernelEiiRKNS_12_OutputArrayEi(i32 noundef %0, i32
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %27 = getelementptr float, ptr %16, i64 %indvars.iv
+  %27 = getelementptr [4 x i8], ptr %16, i64 %indvars.iv
   %28 = getelementptr i8, ptr %27, i64 -4
   %29 = load float, ptr %28, align 4, !tbaa !48
   %30 = fadd float %22, %29
   store float %30, ptr %27, align 4, !tbaa !48
   %31 = sub nsw i64 %24, %indvars.iv
-  %32 = getelementptr inbounds float, ptr %16, i64 %31
+  %32 = getelementptr inbounds [4 x i8], ptr %16, i64 %31
   store float %30, ptr %32, align 4, !tbaa !48
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1279,7 +1279,7 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNS
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !45
   store ptr %.0.lcssa.i.i.i.i31, ptr %4, align 8, !tbaa !36
-  %29 = getelementptr inbounds nuw %"class.cv::Mat", ptr %20, i64 %16
+  %29 = getelementptr inbounds nuw [96 x i8], ptr %20, i64 %16
   store ptr %29, ptr %28, align 8, !tbaa !39
   ret void
 

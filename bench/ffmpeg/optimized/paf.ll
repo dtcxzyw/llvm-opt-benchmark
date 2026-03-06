@@ -333,7 +333,7 @@ define internal i32 @read_packet(ptr noundef readonly captures(none) %0, ptr nou
   %44 = load ptr, ptr %43, align 8, !tbaa !58
   %45 = add i32 %38, -1
   %46 = zext i32 %45 to i64
-  %47 = getelementptr inbounds nuw i32, ptr %44, i64 %46
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %46
   br label %48
 
 48:                                               ; preds = %42, %40
@@ -365,7 +365,7 @@ define internal i32 @read_packet(ptr noundef readonly captures(none) %0, ptr nou
 62:                                               ; preds = %59
   %63 = load ptr, ptr %52, align 8, !tbaa !60
   %64 = zext i32 %60 to i64
-  %65 = getelementptr inbounds nuw i32, ptr %63, i64 %64
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %64
   %66 = load i32, ptr %65, align 4, !tbaa !48
   %67 = and i32 %66, 2147483647
   %.not86 = icmp sgt i32 %66, -1
@@ -429,7 +429,7 @@ define internal i32 @read_packet(ptr noundef readonly captures(none) %0, ptr nou
   %102 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %103 = load ptr, ptr %102, align 8, !tbaa !59
   %104 = zext i32 %101 to i64
-  %105 = getelementptr inbounds nuw i32, ptr %103, i64 %104
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %103, i64 %104
   %106 = load i32, ptr %105, align 4, !tbaa !48
   %107 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %108 = load i32, ptr %107, align 8, !tbaa !61
@@ -454,7 +454,7 @@ define internal i32 @read_packet(ptr noundef readonly captures(none) %0, ptr nou
   %120 = load ptr, ptr %102, align 8, !tbaa !59
   %121 = load i32, ptr %7, align 4, !tbaa !67
   %122 = zext i32 %121 to i64
-  %123 = getelementptr inbounds nuw i32, ptr %120, i64 %122
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %120, i64 %122
   %124 = load i32, ptr %123, align 4, !tbaa !48
   %125 = zext i32 %124 to i64
   %126 = getelementptr inbounds nuw i8, ptr %119, i64 %125
@@ -547,7 +547,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @read_table(ptr noundef rea
 8:                                                ; preds = %5
   %9 = load ptr, ptr %4, align 8, !tbaa !27
   %10 = tail call i32 @avio_rl32(ptr noundef %9) #5
-  %11 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   store i32 %10, ptr %11, align 4, !tbaa !48
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

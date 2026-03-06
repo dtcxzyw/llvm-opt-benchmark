@@ -1504,7 +1504,7 @@ _ZN4ncnnL13compute_coordEfiii.exit105.us.us.us:   ; preds = %_ZN4ncnnL13compute_
   %104 = mul i64 %49, %103
   %105 = getelementptr inbounds nuw i8, ptr %57, i64 %104
   %106 = sext i32 %94 to i64
-  %107 = getelementptr inbounds float, ptr %105, i64 %106
+  %107 = getelementptr inbounds [4 x i8], ptr %105, i64 %106
   %108 = load float, ptr %107, align 4, !tbaa !53
   br label %_ZN4ncnnL17get_value_boundedERKNS_3MatEii.exit.us.us.us
 
@@ -1522,7 +1522,7 @@ _ZN4ncnnL17get_value_boundedERKNS_3MatEii.exit.us.us.us: ; preds = %102, %_ZN4nc
   %114 = mul i64 %49, %113
   %115 = getelementptr inbounds nuw i8, ptr %57, i64 %114
   %116 = sext i32 %97 to i64
-  %117 = getelementptr inbounds float, ptr %115, i64 %116
+  %117 = getelementptr inbounds [4 x i8], ptr %115, i64 %116
   %118 = load float, ptr %117, align 4, !tbaa !53
   br label %_ZN4ncnnL17get_value_boundedERKNS_3MatEii.exit111.us.us.us
 
@@ -1540,7 +1540,7 @@ _ZN4ncnnL17get_value_boundedERKNS_3MatEii.exit111.us.us.us: ; preds = %112, %_ZN
   %124 = mul i64 %49, %123
   %125 = getelementptr inbounds nuw i8, ptr %57, i64 %124
   %126 = sext i32 %94 to i64
-  %127 = getelementptr inbounds float, ptr %125, i64 %126
+  %127 = getelementptr inbounds [4 x i8], ptr %125, i64 %126
   %128 = load float, ptr %127, align 4, !tbaa !53
   br label %_ZN4ncnnL17get_value_boundedERKNS_3MatEii.exit117.us.us.us
 
@@ -1557,7 +1557,7 @@ _ZN4ncnnL17get_value_boundedERKNS_3MatEii.exit117.us.us.us: ; preds = %122, %_ZN
   %133 = mul i64 %49, %132
   %134 = getelementptr inbounds nuw i8, ptr %57, i64 %133
   %135 = sext i32 %97 to i64
-  %136 = getelementptr inbounds float, ptr %134, i64 %135
+  %136 = getelementptr inbounds [4 x i8], ptr %134, i64 %135
   %137 = load float, ptr %136, align 4, !tbaa !53
   br label %_ZN4ncnnL17get_value_boundedERKNS_3MatEii.exit123.us.us.us
 
@@ -1804,7 +1804,7 @@ _ZN4ncnnL13compute_coordEfiii.exit81.us.us.us:    ; preds = %_ZN4ncnnL13compute_
   %104 = mul i64 %49, %103
   %105 = getelementptr inbounds nuw i8, ptr %57, i64 %104
   %106 = sext i32 %95 to i64
-  %107 = getelementptr inbounds float, ptr %105, i64 %106
+  %107 = getelementptr inbounds [4 x i8], ptr %105, i64 %106
   %108 = load float, ptr %107, align 4, !tbaa !53
   br label %_ZN4ncnnL17get_value_boundedERKNS_3MatEii.exit.us.us.us
 
@@ -2022,7 +2022,7 @@ _ZN4ncnnL13compute_coordEfiii.exit16.i.us.us.us:  ; preds = %_ZN4ncnnL13compute_
   %111 = mul i64 %55, %110
   %112 = getelementptr inbounds nuw i8, ptr %63, i64 %111
   %113 = sext i32 %104 to i64
-  %114 = getelementptr inbounds float, ptr %112, i64 %113
+  %114 = getelementptr inbounds [4 x i8], ptr %112, i64 %113
   %115 = load float, ptr %114, align 4, !tbaa !53
   br label %_ZN4ncnnL17get_value_boundedERKNS_3MatEiiii.exit.us.us.us
 
@@ -2097,7 +2097,7 @@ _ZN4ncnnL13compute_coordEfiii.exit16.i131.us.us.us: ; preds = %_ZN4ncnnL13comput
   %150 = mul i64 %55, %149
   %151 = getelementptr inbounds nuw i8, ptr %63, i64 %150
   %152 = sext i32 %143 to i64
-  %153 = getelementptr inbounds float, ptr %151, i64 %152
+  %153 = getelementptr inbounds [4 x i8], ptr %151, i64 %152
   %154 = load float, ptr %153, align 4, !tbaa !53
   br label %_ZN4ncnnL17get_value_boundedERKNS_3MatEiiii.exit147.us.us.us
 
@@ -2172,7 +2172,7 @@ _ZN4ncnnL13compute_coordEfiii.exit16.i149.us.us.us: ; preds = %_ZN4ncnnL13comput
   %189 = mul i64 %55, %188
   %190 = getelementptr inbounds nuw i8, ptr %63, i64 %189
   %191 = sext i32 %182 to i64
-  %192 = getelementptr inbounds float, ptr %190, i64 %191
+  %192 = getelementptr inbounds [4 x i8], ptr %190, i64 %191
   %193 = load float, ptr %192, align 4, !tbaa !53
   br label %_ZN4ncnnL17get_value_boundedERKNS_3MatEiiii.exit165.us.us.us
 
@@ -2247,7 +2247,7 @@ _ZN4ncnnL13compute_coordEfiii.exit16.i167.us.us.us: ; preds = %_ZN4ncnnL13comput
   %228 = mul i64 %55, %227
   %229 = getelementptr inbounds nuw i8, ptr %63, i64 %228
   %230 = sext i32 %221 to i64
-  %231 = getelementptr inbounds float, ptr %229, i64 %230
+  %231 = getelementptr inbounds [4 x i8], ptr %229, i64 %230
   %232 = load float, ptr %231, align 4, !tbaa !53
   br label %_ZN4ncnnL17get_value_boundedERKNS_3MatEiiii.exit183.us.us.us
 
@@ -2321,7 +2321,7 @@ _ZN4ncnnL13compute_coordEfiii.exit16.i185.us.us.us: ; preds = %_ZN4ncnnL13comput
   %266 = mul i64 %55, %265
   %267 = getelementptr inbounds nuw i8, ptr %63, i64 %266
   %268 = sext i32 %259 to i64
-  %269 = getelementptr inbounds float, ptr %267, i64 %268
+  %269 = getelementptr inbounds [4 x i8], ptr %267, i64 %268
   %270 = load float, ptr %269, align 4, !tbaa !53
   br label %_ZN4ncnnL17get_value_boundedERKNS_3MatEiiii.exit201.us.us.us
 
@@ -2395,7 +2395,7 @@ _ZN4ncnnL13compute_coordEfiii.exit16.i203.us.us.us: ; preds = %_ZN4ncnnL13comput
   %304 = mul i64 %55, %303
   %305 = getelementptr inbounds nuw i8, ptr %63, i64 %304
   %306 = sext i32 %297 to i64
-  %307 = getelementptr inbounds float, ptr %305, i64 %306
+  %307 = getelementptr inbounds [4 x i8], ptr %305, i64 %306
   %308 = load float, ptr %307, align 4, !tbaa !53
   br label %_ZN4ncnnL17get_value_boundedERKNS_3MatEiiii.exit219.us.us.us
 
@@ -2469,7 +2469,7 @@ _ZN4ncnnL13compute_coordEfiii.exit16.i221.us.us.us: ; preds = %_ZN4ncnnL13comput
   %342 = mul i64 %55, %341
   %343 = getelementptr inbounds nuw i8, ptr %63, i64 %342
   %344 = sext i32 %335 to i64
-  %345 = getelementptr inbounds float, ptr %343, i64 %344
+  %345 = getelementptr inbounds [4 x i8], ptr %343, i64 %344
   %346 = load float, ptr %345, align 4, !tbaa !53
   br label %_ZN4ncnnL17get_value_boundedERKNS_3MatEiiii.exit237.us.us.us
 
@@ -2543,7 +2543,7 @@ _ZN4ncnnL13compute_coordEfiii.exit16.i239.us.us.us: ; preds = %_ZN4ncnnL13comput
   %380 = mul i64 %55, %379
   %381 = getelementptr inbounds nuw i8, ptr %63, i64 %380
   %382 = sext i32 %373 to i64
-  %383 = getelementptr inbounds float, ptr %381, i64 %382
+  %383 = getelementptr inbounds [4 x i8], ptr %381, i64 %382
   %384 = load float, ptr %383, align 4, !tbaa !53
   br label %_ZN4ncnnL17get_value_boundedERKNS_3MatEiiii.exit255.us.us.us
 
@@ -2617,7 +2617,7 @@ _ZN4ncnnL13compute_coordEfiii.exit16.i257.us.us.us: ; preds = %_ZN4ncnnL13comput
   %418 = mul i64 %55, %417
   %419 = getelementptr inbounds nuw i8, ptr %63, i64 %418
   %420 = sext i32 %411 to i64
-  %421 = getelementptr inbounds float, ptr %419, i64 %420
+  %421 = getelementptr inbounds [4 x i8], ptr %419, i64 %420
   %422 = load float, ptr %421, align 4, !tbaa !53
   br label %_ZN4ncnnL17get_value_boundedERKNS_3MatEiiii.exit273.us.us.us
 
@@ -2691,7 +2691,7 @@ _ZN4ncnnL13compute_coordEfiii.exit16.i275.us.us.us: ; preds = %_ZN4ncnnL13comput
   %456 = mul i64 %55, %455
   %457 = getelementptr inbounds nuw i8, ptr %63, i64 %456
   %458 = sext i32 %449 to i64
-  %459 = getelementptr inbounds float, ptr %457, i64 %458
+  %459 = getelementptr inbounds [4 x i8], ptr %457, i64 %458
   %460 = load float, ptr %459, align 4, !tbaa !53
   br label %_ZN4ncnnL17get_value_boundedERKNS_3MatEiiii.exit291.us.us.us
 
@@ -2765,7 +2765,7 @@ _ZN4ncnnL13compute_coordEfiii.exit16.i293.us.us.us: ; preds = %_ZN4ncnnL13comput
   %494 = mul i64 %55, %493
   %495 = getelementptr inbounds nuw i8, ptr %63, i64 %494
   %496 = sext i32 %487 to i64
-  %497 = getelementptr inbounds float, ptr %495, i64 %496
+  %497 = getelementptr inbounds [4 x i8], ptr %495, i64 %496
   %498 = load float, ptr %497, align 4, !tbaa !53
   br label %_ZN4ncnnL17get_value_boundedERKNS_3MatEiiii.exit309.us.us.us
 
@@ -2839,7 +2839,7 @@ _ZN4ncnnL13compute_coordEfiii.exit16.i311.us.us.us: ; preds = %_ZN4ncnnL13comput
   %532 = mul i64 %55, %531
   %533 = getelementptr inbounds nuw i8, ptr %63, i64 %532
   %534 = sext i32 %525 to i64
-  %535 = getelementptr inbounds float, ptr %533, i64 %534
+  %535 = getelementptr inbounds [4 x i8], ptr %533, i64 %534
   %536 = load float, ptr %535, align 4, !tbaa !53
   br label %_ZN4ncnnL17get_value_boundedERKNS_3MatEiiii.exit327.us.us.us
 
@@ -2913,7 +2913,7 @@ _ZN4ncnnL13compute_coordEfiii.exit16.i329.us.us.us: ; preds = %_ZN4ncnnL13comput
   %570 = mul i64 %55, %569
   %571 = getelementptr inbounds nuw i8, ptr %63, i64 %570
   %572 = sext i32 %563 to i64
-  %573 = getelementptr inbounds float, ptr %571, i64 %572
+  %573 = getelementptr inbounds [4 x i8], ptr %571, i64 %572
   %574 = load float, ptr %573, align 4, !tbaa !53
   br label %_ZN4ncnnL17get_value_boundedERKNS_3MatEiiii.exit345.us.us.us
 
@@ -2987,7 +2987,7 @@ _ZN4ncnnL13compute_coordEfiii.exit16.i347.us.us.us: ; preds = %_ZN4ncnnL13comput
   %608 = mul i64 %55, %607
   %609 = getelementptr inbounds nuw i8, ptr %63, i64 %608
   %610 = sext i32 %601 to i64
-  %611 = getelementptr inbounds float, ptr %609, i64 %610
+  %611 = getelementptr inbounds [4 x i8], ptr %609, i64 %610
   %612 = load float, ptr %611, align 4, !tbaa !53
   br label %_ZN4ncnnL17get_value_boundedERKNS_3MatEiiii.exit363.us.us.us
 
@@ -3061,7 +3061,7 @@ _ZN4ncnnL13compute_coordEfiii.exit16.i365.us.us.us: ; preds = %_ZN4ncnnL13comput
   %646 = mul i64 %55, %645
   %647 = getelementptr inbounds nuw i8, ptr %63, i64 %646
   %648 = sext i32 %639 to i64
-  %649 = getelementptr inbounds float, ptr %647, i64 %648
+  %649 = getelementptr inbounds [4 x i8], ptr %647, i64 %648
   %650 = load float, ptr %649, align 4, !tbaa !53
   br label %_ZN4ncnnL17get_value_boundedERKNS_3MatEiiii.exit381.us.us.us
 
@@ -3135,7 +3135,7 @@ _ZN4ncnnL13compute_coordEfiii.exit16.i383.us.us.us: ; preds = %_ZN4ncnnL13comput
   %684 = mul i64 %55, %683
   %685 = getelementptr inbounds nuw i8, ptr %63, i64 %684
   %686 = sext i32 %677 to i64
-  %687 = getelementptr inbounds float, ptr %685, i64 %686
+  %687 = getelementptr inbounds [4 x i8], ptr %685, i64 %686
   %688 = load float, ptr %687, align 4, !tbaa !53
   br label %_ZN4ncnnL17get_value_boundedERKNS_3MatEiiii.exit399.us.us.us
 
@@ -3412,7 +3412,7 @@ _ZN4ncnn3MatD2Ev.exit.i.us.us.us.us.us:           ; preds = %64
   %86 = mul i64 %53, %85
   %87 = getelementptr inbounds nuw i8, ptr %84, i64 %86
   %88 = sext i32 %69 to i64
-  %89 = getelementptr inbounds float, ptr %87, i64 %88
+  %89 = getelementptr inbounds [4 x i8], ptr %87, i64 %88
   %90 = load float, ptr %89, align 4, !tbaa !53
   br label %_ZN4ncnnL17get_value_boundedERKNS_3MatEiii.exit.us.us.us.us.us
 
@@ -3435,7 +3435,7 @@ _ZN4ncnn3MatD2Ev.exit.i153.us.us.us.us.us:        ; preds = %_ZN4ncnnL17get_valu
   %99 = mul i64 %53, %98
   %100 = getelementptr inbounds nuw i8, ptr %97, i64 %99
   %101 = sext i32 %74 to i64
-  %102 = getelementptr inbounds float, ptr %100, i64 %101
+  %102 = getelementptr inbounds [4 x i8], ptr %100, i64 %101
   %103 = load float, ptr %102, align 4, !tbaa !53
   br label %_ZN4ncnnL17get_value_boundedERKNS_3MatEiii.exit154.us.us.us.us.us
 
@@ -3458,7 +3458,7 @@ _ZN4ncnn3MatD2Ev.exit.i159.us.us.us.us.us:        ; preds = %_ZN4ncnnL17get_valu
   %112 = mul i64 %53, %111
   %113 = getelementptr inbounds nuw i8, ptr %110, i64 %112
   %114 = sext i32 %69 to i64
-  %115 = getelementptr inbounds float, ptr %113, i64 %114
+  %115 = getelementptr inbounds [4 x i8], ptr %113, i64 %114
   %116 = load float, ptr %115, align 4, !tbaa !53
   br label %_ZN4ncnnL17get_value_boundedERKNS_3MatEiii.exit160.us.us.us.us.us
 
@@ -3480,7 +3480,7 @@ _ZN4ncnn3MatD2Ev.exit.i165.us.us.us.us.us:        ; preds = %_ZN4ncnnL17get_valu
   %124 = mul i64 %53, %123
   %125 = getelementptr inbounds nuw i8, ptr %122, i64 %124
   %126 = sext i32 %74 to i64
-  %127 = getelementptr inbounds float, ptr %125, i64 %126
+  %127 = getelementptr inbounds [4 x i8], ptr %125, i64 %126
   %128 = load float, ptr %127, align 4, !tbaa !53
   br label %_ZN4ncnnL17get_value_boundedERKNS_3MatEiii.exit166.us.us.us.us.us
 
@@ -3502,7 +3502,7 @@ _ZN4ncnn3MatD2Ev.exit.i171.us.us.us.us.us:        ; preds = %_ZN4ncnnL17get_valu
   %136 = mul i64 %53, %135
   %137 = getelementptr inbounds nuw i8, ptr %134, i64 %136
   %138 = sext i32 %69 to i64
-  %139 = getelementptr inbounds float, ptr %137, i64 %138
+  %139 = getelementptr inbounds [4 x i8], ptr %137, i64 %138
   %140 = load float, ptr %139, align 4, !tbaa !53
   br label %_ZN4ncnnL17get_value_boundedERKNS_3MatEiii.exit172.us.us.us.us.us
 
@@ -3523,7 +3523,7 @@ _ZN4ncnn3MatD2Ev.exit.i177.us.us.us.us.us:        ; preds = %_ZN4ncnnL17get_valu
   %147 = mul i64 %53, %146
   %148 = getelementptr inbounds nuw i8, ptr %145, i64 %147
   %149 = sext i32 %74 to i64
-  %150 = getelementptr inbounds float, ptr %148, i64 %149
+  %150 = getelementptr inbounds [4 x i8], ptr %148, i64 %149
   %151 = load float, ptr %150, align 4, !tbaa !53
   br label %_ZN4ncnnL17get_value_boundedERKNS_3MatEiii.exit178.us.us.us.us.us
 
@@ -3544,7 +3544,7 @@ _ZN4ncnn3MatD2Ev.exit.i183.us.us.us.us.us:        ; preds = %_ZN4ncnnL17get_valu
   %158 = mul i64 %53, %157
   %159 = getelementptr inbounds nuw i8, ptr %156, i64 %158
   %160 = sext i32 %69 to i64
-  %161 = getelementptr inbounds float, ptr %159, i64 %160
+  %161 = getelementptr inbounds [4 x i8], ptr %159, i64 %160
   %162 = load float, ptr %161, align 4, !tbaa !53
   br label %_ZN4ncnnL17get_value_boundedERKNS_3MatEiii.exit184.us.us.us.us.us
 
@@ -3565,7 +3565,7 @@ _ZN4ncnn3MatD2Ev.exit.i189.us.us.us.us.us:        ; preds = %_ZN4ncnnL17get_valu
   %169 = mul i64 %53, %168
   %170 = getelementptr inbounds nuw i8, ptr %167, i64 %169
   %171 = sext i32 %74 to i64
-  %172 = getelementptr inbounds float, ptr %170, i64 %171
+  %172 = getelementptr inbounds [4 x i8], ptr %170, i64 %171
   %173 = load float, ptr %172, align 4, !tbaa !53
   br label %_ZN4ncnnL17get_value_boundedERKNS_3MatEiii.exit190.us.us.us.us.us
 
@@ -3786,7 +3786,7 @@ _ZN4ncnn3MatD2Ev.exit.i.us.us.us.us.us:           ; preds = %64
   %86 = mul i64 %53, %85
   %87 = getelementptr inbounds nuw i8, ptr %84, i64 %86
   %88 = sext i32 %70 to i64
-  %89 = getelementptr inbounds float, ptr %87, i64 %88
+  %89 = getelementptr inbounds [4 x i8], ptr %87, i64 %88
   %90 = load float, ptr %89, align 4, !tbaa !53
   br label %_ZN4ncnnL17get_value_boundedERKNS_3MatEiii.exit.us.us.us.us.us
 

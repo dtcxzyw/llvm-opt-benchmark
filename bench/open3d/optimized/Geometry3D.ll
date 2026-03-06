@@ -276,7 +276,7 @@ define void @_ZNK6open3d8geometry10Geometry3D26ResizeAndPaintUniformColorERSt6ve
 .lr.ph:                                           ; preds = %23, %.lr.ph
   %.028 = phi i64 [ %27, %.lr.ph ], [ 0, %23 ]
   %24 = load ptr, ptr %1, align 8, !tbaa !29
-  %25 = getelementptr inbounds nuw %"class.Eigen::Matrix.3", ptr %24, i64 %.028
+  %25 = getelementptr inbounds nuw [24 x i8], ptr %24, i64 %.028
   store <2 x double> %.sroa.033.0, ptr %25, align 1, !tbaa !11
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store double %.sroa.7.0, ptr %26, align 8, !tbaa !16
@@ -356,9 +356,9 @@ _ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE11_S_relocateEPS2_S5_
 
 _ZNSt12_Vector_baseIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE13_M_deallocateEPS2_m.exit32.i: ; preds = %33, %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i
   store ptr %29, ptr %0, align 8, !tbaa !29
-  %35 = getelementptr inbounds nuw %"class.Eigen::Matrix.3", ptr %30, i64 %12
+  %35 = getelementptr inbounds nuw [24 x i8], ptr %30, i64 %12
   store ptr %35, ptr %3, align 8, !tbaa !32
-  %36 = getelementptr inbounds nuw %"class.Eigen::Matrix.3", ptr %29, i64 %27
+  %36 = getelementptr inbounds nuw [24 x i8], ptr %29, i64 %27
   store ptr %36, ptr %13, align 8, !tbaa !33
   br label %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE17_M_default_appendEm.exit
 
@@ -367,7 +367,7 @@ _ZNSt12_Vector_baseIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE13_M_deallocat
   br i1 %38, label %39, label %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE17_M_default_appendEm.exit
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds nuw %"class.Eigen::Matrix.3", ptr %5, i64 %1
+  %40 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %1
   %.not.i4 = icmp eq ptr %4, %40
   br i1 %.not.i4, label %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE17_M_default_appendEm.exit, label %_ZSt8_DestroyIPN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEES2_EvT_S4_RSaIT0_E.exit.i
 

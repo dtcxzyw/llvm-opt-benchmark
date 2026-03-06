@@ -2258,7 +2258,7 @@ _ZNSt12_Vector_baseIN8nlohmann16json_abi_v3_11_210basic_jsonISt3mapSt6vectorNSt7
   %49 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %48) #18
   store ptr %49, ptr %3, align 8, !tbaa !31
   store ptr %49, ptr %47, align 8, !tbaa !37
-  %50 = getelementptr inbounds nuw %"class.nlohmann::json_abi_v3_11_2::basic_json", ptr %49, i64 %42
+  %50 = getelementptr inbounds nuw [16 x i8], ptr %49, i64 %42
   store ptr %50, ptr %46, align 8, !tbaa !34
   br label %_ZNSt6vectorIN8nlohmann16json_abi_v3_11_210basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEEESaISD_EE7reserveEm.exit151
 
@@ -2446,7 +2446,7 @@ _ZSt12__relocate_aIPN8nlohmann16json_abi_v3_11_210basic_jsonISt3mapSt6vectorNSt7
 _ZNSt6vectorIN8nlohmann16json_abi_v3_11_210basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEEESaISD_EE17_M_realloc_insertIJSD_EEEvN9__gnu_cxx17__normal_iteratorIPSD_SF_EEDpOT_.exit: ; preds = %_ZSt12__relocate_aIPN8nlohmann16json_abi_v3_11_210basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES4_IhSaIhEEEESF_SaISE_EET0_T_SI_SH_RT1_.exit.i.preheader, %129
   store ptr %117, ptr %3, align 8, !tbaa !31
   store ptr %.0.i.i18.i75, ptr %68, align 8, !tbaa !37
-  %133 = getelementptr inbounds nuw %"class.nlohmann::json_abi_v3_11_2::basic_json", ptr %117, i64 %115
+  %133 = getelementptr inbounds nuw [16 x i8], ptr %117, i64 %115
   store ptr %133, ptr %73, align 8, !tbaa !34
   br label %_ZNSt6vectorIN8nlohmann16json_abi_v3_11_210basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEEESaISD_EE12emplace_backIJSD_EEERSD_DpOT_.exit36
 
@@ -2773,7 +2773,7 @@ _ZSt12__relocate_aIPN8nlohmann16json_abi_v3_11_210basic_jsonISt3mapSt6vectorNSt7
 _ZNSt12_Vector_baseIN8nlohmann16json_abi_v3_11_210basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES4_IhSaIhEEEESaISE_EE13_M_deallocateEPSE_m.exit: ; preds = %_ZSt12__relocate_aIPN8nlohmann16json_abi_v3_11_210basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES4_IhSaIhEEEESF_SaISE_EET0_T_SI_SH_RT1_.exit20, %38
   store ptr %20, ptr %0, align 8, !tbaa !31
   store ptr %.0.i.i18.lcssa, ptr %4, align 8, !tbaa !37
-  %42 = getelementptr inbounds nuw %"class.nlohmann::json_abi_v3_11_2::basic_json", ptr %20, i64 %16
+  %42 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %42, ptr %37, align 8, !tbaa !34
   ret void
 }

@@ -3,19 +3,6 @@ source_filename = "bench/postgres/original/walreceiverfuncs.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.PGPROC = type { %struct.dlist_node, ptr, ptr, i32, %struct.Latch, i32, i32, i32, i32, %struct.anon, i32, i32, i32, i8, i8, i8, i8, %struct.proclist_node, %struct.proclist_node, ptr, ptr, i32, i32, %struct.pg_atomic_uint64, i32, i8, i64, i32, %struct.dlist_node, [16 x %struct.dlist_head], %struct.XidCacheStatus, %struct.XidCache, i8, %struct.pg_atomic_uint32, i32, i32, i8, %struct.pg_atomic_uint32, i32, i32, i64, i64, %struct.LWLock, ptr, ptr, i8, i32, ptr, %struct.dlist_head, %struct.dlist_node }
-%struct.Latch = type { i32, i32, i8, i32 }
-%struct.anon = type { i32, i32 }
-%struct.proclist_node = type { i32, i32 }
-%struct.pg_atomic_uint64 = type { i64 }
-%struct.XidCacheStatus = type { i8, i8 }
-%struct.XidCache = type { [64 x i32] }
-%struct.pg_atomic_uint32 = type { i32 }
-%struct.LWLock = type { i16, %struct.pg_atomic_uint32, %struct.proclist_head }
-%struct.proclist_head = type { i32, i32 }
-%struct.dlist_head = type { %struct.dlist_node }
-%struct.dlist_node = type { ptr, ptr }
-
 @WalRcv = dso_local local_unnamed_addr global ptr null, align 8
 @.str = private unnamed_addr constant [17 x i8] c"Wal Receiver Ctl\00", align 1
 @.str.1 = private unnamed_addr constant [19 x i8] c"walreceiverfuncs.c\00", align 1
@@ -419,7 +406,7 @@ define dso_local void @RequestXLogStreaming(i32 noundef %0, i64 noundef %1, ptr 
   %51 = load ptr, ptr @ProcGlobal, align 8
   %52 = load ptr, ptr %51, align 8
   %53 = sext i32 %47 to i64
-  %54 = getelementptr inbounds %struct.PGPROC, ptr %52, i64 %53
+  %54 = getelementptr inbounds [832 x i8], ptr %52, i64 %53
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 36
   tail call void @SetLatch(ptr noundef nonnull %55) #8
   br label %56

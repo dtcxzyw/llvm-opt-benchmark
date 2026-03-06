@@ -114,7 +114,7 @@ lean_dec.exit141:                                 ; preds = %39, %38, %36, %lean
 lean_nat_add.exit:                                ; preds = %50, %46, %.critedge.i140
   %.pre-phi = phi i64 [ 9223372036854775807, %50 ], [ %43, %46 ], [ %.pre, %.critedge.i140 ]
   %.0.i = phi ptr [ %51, %50 ], [ %49, %46 ], [ %52, %.critedge.i140 ]
-  %53 = getelementptr inbounds nuw ptr, ptr %15, i64 %.pre-phi
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %.pre-phi
   %54 = load ptr, ptr %53, align 8, !tbaa !10
   %55 = ptrtoint ptr %54 to i64
   %56 = trunc i64 %55 to i1
@@ -229,7 +229,7 @@ lean_alloc_ctor.exit208:                          ; preds = %92, %88
   store i32 65560, ptr %96, align 4
   %98 = getelementptr inbounds nuw i8, ptr %.sink440, i64 8
   store ptr %.1.i255259, ptr %98, align 8, !tbaa !10
-  %99 = getelementptr inbounds nuw ptr, ptr %16, i64 %.pre-phi
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.pre-phi
   %100 = load ptr, ptr %99, align 8, !tbaa !10
   %101 = ptrtoint ptr %100 to i64
   %102 = trunc i64 %101 to i1

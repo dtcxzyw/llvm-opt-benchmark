@@ -395,7 +395,7 @@ _ZN10open_spiel12_GLOBAL__N_130ISMCTS_BasicPlayGameTest_LeducEv.exit: ; preds = 
 67:                                               ; preds = %67, %_ZN10open_spiel12_GLOBAL__N_130ISMCTS_BasicPlayGameTest_LeducEv.exit
   %store_forwarded26 = phi i64 [ 93879211, %_ZN10open_spiel12_GLOBAL__N_130ISMCTS_BasicPlayGameTest_LeducEv.exit ], [ %73, %67 ]
   %.011.i.i.i = phi i64 [ 1, %_ZN10open_spiel12_GLOBAL__N_130ISMCTS_BasicPlayGameTest_LeducEv.exit ], [ %74, %67 ]
-  %68 = getelementptr i64, ptr %6, i64 %.011.i.i.i
+  %68 = getelementptr [8 x i8], ptr %6, i64 %.011.i.i.i
   %69 = lshr i64 %store_forwarded26, 30
   %70 = xor i64 %69, %store_forwarded26
   %71 = mul nuw nsw i64 %70, 1812433253
@@ -476,7 +476,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i13: 
 92:                                               ; preds = %92, %.noexc11.i
   %store_forwarded = phi i64 [ 93879211, %.noexc11.i ], [ %98, %92 ]
   %.011.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ 1, %.noexc11.i ], [ %99, %92 ]
-  %93 = getelementptr i64, ptr %91, i64 %.011.i.i.i.i.i.i.i.i.i.i.i
+  %93 = getelementptr [8 x i8], ptr %91, i64 %.011.i.i.i.i.i.i.i.i.i.i.i
   %94 = lshr i64 %store_forwarded, 30
   %95 = xor i64 %94, %store_forwarded
   %96 = mul nuw nsw i64 %95, 1812433253
@@ -776,7 +776,7 @@ define internal fastcc void @_ZN10open_spiel12_GLOBAL__N_119ISMCTSTest_PlayGameE
 24:                                               ; preds = %24, %.noexc
   %store_forwarded40 = phi i64 [ 93879211, %.noexc ], [ %30, %24 ]
   %.011.i.i.i.i.i.i.i.i.i.i = phi i64 [ 1, %.noexc ], [ %31, %24 ]
-  %25 = getelementptr i64, ptr %23, i64 %.011.i.i.i.i.i.i.i.i.i.i
+  %25 = getelementptr [8 x i8], ptr %23, i64 %.011.i.i.i.i.i.i.i.i.i.i
   %26 = lshr i64 %store_forwarded40, 30
   %27 = xor i64 %26, %store_forwarded40
   %28 = mul nuw nsw i64 %27, 1812433253
@@ -820,7 +820,7 @@ define internal fastcc void @_ZN10open_spiel12_GLOBAL__N_119ISMCTSTest_PlayGameE
 41:                                               ; preds = %41, %40
   %store_forwarded = phi i64 [ 93879211, %40 ], [ %47, %41 ]
   %.011.i.i = phi i64 [ 1, %40 ], [ %48, %41 ]
-  %42 = getelementptr i64, ptr %11, i64 %.011.i.i
+  %42 = getelementptr [8 x i8], ptr %11, i64 %.011.i.i
   %43 = lshr i64 %store_forwarded, 30
   %44 = xor i64 %43, %store_forwarded
   %45 = mul nuw nsw i64 %44, 1812433253
@@ -1363,10 +1363,10 @@ define internal fastcc void @_ZN10open_spiel12_GLOBAL__N_18PlayGameERKNS_4GameEP
 54:                                               ; preds = %54, %53
   %55 = phi i64 [ %.pre.i.i, %53 ], [ %60, %54 ]
   %.021.i.i = phi i64 [ 0, %53 ], [ %58, %54 ]
-  %56 = getelementptr inbounds nuw i64, ptr %2, i64 %.021.i.i
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.021.i.i
   %57 = and i64 %55, -2147483648
   %58 = add nuw nsw i64 %.021.i.i, 1
-  %59 = getelementptr inbounds nuw i64, ptr %2, i64 %58
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %58
   %60 = load i64, ptr %59, align 8
   %61 = and i64 %60, 2147483646
   %62 = or disjoint i64 %61, %57
@@ -1389,10 +1389,10 @@ define internal fastcc void @_ZN10open_spiel12_GLOBAL__N_18PlayGameERKNS_4GameEP
 .preheader.i.i:                                   ; preds = %.preheader.i.i, %.preheader.preheader.i.i
   %70 = phi i64 [ %75, %.preheader.i.i ], [ %.pre24.i.i, %.preheader.preheader.i.i ]
   %.01822.i.i = phi i64 [ %73, %.preheader.i.i ], [ 227, %.preheader.preheader.i.i ]
-  %71 = getelementptr inbounds nuw i64, ptr %2, i64 %.01822.i.i
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.01822.i.i
   %72 = and i64 %70, -2147483648
   %73 = add nuw nsw i64 %.01822.i.i, 1
-  %74 = getelementptr inbounds nuw i64, ptr %2, i64 %73
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %73
   %75 = load i64, ptr %74, align 8
   %76 = and i64 %75, 2147483646
   %77 = or disjoint i64 %76, %72
@@ -1428,7 +1428,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %96 = phi i64 [ 0, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit.i ], [ %51, %.split.i.i ]
   %97 = add nuw nsw i64 %96, 1
   store i64 %97, ptr %15, align 8
-  %98 = getelementptr inbounds nuw i64, ptr %2, i64 %96
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %96
   %99 = load i64, ptr %98, align 8
   %100 = invoke noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv(ptr noundef nonnull align 8 dereferenceable(5000) %2)
           to label %.noexc12 unwind label %.loopexit
@@ -2212,10 +2212,10 @@ define linkonce_odr dso_local noundef i64 @_ZNSt23mersenne_twister_engineImLm32E
 6:                                                ; preds = %6, %5
   %7 = phi i64 [ %.pre.i, %5 ], [ %12, %6 ]
   %.021.i = phi i64 [ 0, %5 ], [ %10, %6 ]
-  %8 = getelementptr inbounds nuw i64, ptr %0, i64 %.021.i
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.021.i
   %9 = and i64 %7, -2147483648
   %10 = add nuw nsw i64 %.021.i, 1
-  %11 = getelementptr inbounds nuw i64, ptr %0, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %10
   %12 = load i64, ptr %11, align 8
   %13 = and i64 %12, 2147483646
   %14 = or disjoint i64 %13, %9
@@ -2239,10 +2239,10 @@ define linkonce_odr dso_local noundef i64 @_ZNSt23mersenne_twister_engineImLm32E
 .preheader.i:                                     ; preds = %.preheader.i, %.preheader.preheader.i
   %22 = phi i64 [ %27, %.preheader.i ], [ %.pre24.i, %.preheader.preheader.i ]
   %.01822.i = phi i64 [ %25, %.preheader.i ], [ 227, %.preheader.preheader.i ]
-  %23 = getelementptr inbounds nuw i64, ptr %0, i64 %.01822.i
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.01822.i
   %24 = and i64 %22, -2147483648
   %25 = add nuw nsw i64 %.01822.i, 1
-  %26 = getelementptr inbounds nuw i64, ptr %0, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %25
   %27 = load i64, ptr %26, align 8
   %28 = and i64 %27, 2147483646
   %29 = or disjoint i64 %28, %24
@@ -2280,7 +2280,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %51 = phi i64 [ 0, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit ], [ %3, %1 ]
   %52 = add nuw nsw i64 %51, 1
   store i64 %52, ptr %2, align 8
-  %53 = getelementptr inbounds nuw i64, ptr %0, i64 %51
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %51
   %54 = load i64, ptr %53, align 8
   %55 = lshr i64 %54, 11
   %56 = and i64 %55, 4294967295

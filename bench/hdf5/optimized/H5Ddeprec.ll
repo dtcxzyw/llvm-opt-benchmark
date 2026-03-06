@@ -599,9 +599,9 @@ define range(i32 -1, 1) i32 @H5Dextend(i64 noundef %0, ptr noundef readonly capt
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %91
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %91 ]
-  %85 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %86 = load i64, ptr %85, align 8, !tbaa !11
-  %87 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %88 = load i64, ptr %87, align 8, !tbaa !11
   %89 = icmp ugt i64 %86, %88
   br i1 %89, label %90, label %91

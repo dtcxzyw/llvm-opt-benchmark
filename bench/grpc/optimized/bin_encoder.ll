@@ -239,7 +239,7 @@ define void @_Z28grpc_chttp2_huffman_compressRK10grpc_slice(ptr dead_on_unwind n
   %.05167 = phi ptr [ %21, %.lr.ph ], [ %8, %2 ]
   %14 = load i8, ptr %.05167, align 1, !tbaa !9
   %15 = zext i8 %14 to i64
-  %16 = getelementptr inbounds nuw %struct.grpc_chttp2_huffsym, ptr @grpc_chttp2_huffsyms, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr @grpc_chttp2_huffsyms, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %18 = load i32, ptr %17, align 4, !tbaa !13
   %19 = zext i32 %18 to i64
@@ -286,7 +286,7 @@ define void @_Z28grpc_chttp2_huffman_compressRK10grpc_slice(ptr dead_on_unwind n
   %.15278 = phi ptr [ %63, %._crit_edge73 ], [ %38, %.lr.ph83.preheader ]
   %42 = load i8, ptr %.15278, align 1, !tbaa !9
   %43 = zext i8 %42 to i64
-  %44 = getelementptr inbounds nuw %struct.grpc_chttp2_huffsym, ptr @grpc_chttp2_huffsyms, i64 %43
+  %44 = getelementptr inbounds nuw [8 x i8], ptr @grpc_chttp2_huffsyms, i64 %43
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 4
   %46 = load i32, ptr %45, align 4, !tbaa !13
   %47 = zext nneg i32 %46 to i64
@@ -433,12 +433,12 @@ define void @_Z46grpc_chttp2_base64_encode_and_huffman_compressRK10grpc_slicePj(
   %44 = add i32 %43, 2
   store i32 %44, ptr %2, align 4, !tbaa !20
   %45 = zext nneg i8 %41 to i64
-  %46 = getelementptr inbounds nuw %struct.b64_huff_sym, ptr @_ZL13huff_alphabet, i64 %45
+  %46 = getelementptr inbounds nuw [4 x i8], ptr @_ZL13huff_alphabet, i64 %45
   %.sroa.03.0.copyload.i = load i16, ptr %46, align 4, !tbaa !21
   %.sroa.44.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %46, i64 2
   %.sroa.44.0.copyload.i = load i8, ptr %.sroa.44.0..sroa_idx.i, align 2, !tbaa !9
   %47 = zext nneg i8 %42 to i64
-  %48 = getelementptr inbounds nuw %struct.b64_huff_sym, ptr @_ZL13huff_alphabet, i64 %47
+  %48 = getelementptr inbounds nuw [4 x i8], ptr @_ZL13huff_alphabet, i64 %47
   %.sroa.0.0.copyload.i = load i16, ptr %48, align 4, !tbaa !21
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %48, i64 2
   %.sroa.4.0.copyload.i = load i8, ptr %.sroa.4.0..sroa_idx.i, align 2, !tbaa !9
@@ -485,12 +485,12 @@ _ZL8enc_add2P8huff_outhhPj.exit:                  ; preds = %_ZL8enc_add2P8huff_
   %75 = add i32 %66, 2
   store i32 %75, ptr %2, align 4, !tbaa !20
   %76 = zext nneg i8 %73 to i64
-  %77 = getelementptr inbounds nuw %struct.b64_huff_sym, ptr @_ZL13huff_alphabet, i64 %76
+  %77 = getelementptr inbounds nuw [4 x i8], ptr @_ZL13huff_alphabet, i64 %76
   %.sroa.03.0.copyload.i76 = load i16, ptr %77, align 4, !tbaa !21
   %.sroa.44.0..sroa_idx.i77 = getelementptr inbounds nuw i8, ptr %77, i64 2
   %.sroa.44.0.copyload.i78 = load i8, ptr %.sroa.44.0..sroa_idx.i77, align 2, !tbaa !9
   %78 = zext nneg i8 %74 to i64
-  %79 = getelementptr inbounds nuw %struct.b64_huff_sym, ptr @_ZL13huff_alphabet, i64 %78
+  %79 = getelementptr inbounds nuw [4 x i8], ptr @_ZL13huff_alphabet, i64 %78
   %.sroa.0.0.copyload.i79 = load i16, ptr %79, align 4, !tbaa !21
   %.sroa.4.0..sroa_idx.i80 = getelementptr inbounds nuw i8, ptr %79, i64 2
   %.sroa.4.0.copyload.i81 = load i8, ptr %.sroa.4.0..sroa_idx.i80, align 2, !tbaa !9
@@ -545,12 +545,12 @@ _ZL8enc_add2P8huff_outhhPj.exit83:                ; preds = %.lr.ph.i.i82, %_ZL8
   %105 = add i32 %104, 2
   store i32 %105, ptr %2, align 4, !tbaa !20
   %106 = zext nneg i8 %101 to i64
-  %107 = getelementptr inbounds nuw %struct.b64_huff_sym, ptr @_ZL13huff_alphabet, i64 %106
+  %107 = getelementptr inbounds nuw [4 x i8], ptr @_ZL13huff_alphabet, i64 %106
   %.sroa.03.0.copyload.i84 = load i16, ptr %107, align 4, !tbaa !21
   %.sroa.44.0..sroa_idx.i85 = getelementptr inbounds nuw i8, ptr %107, i64 2
   %.sroa.44.0.copyload.i86 = load i8, ptr %.sroa.44.0..sroa_idx.i85, align 2, !tbaa !9
   %108 = zext nneg i8 %103 to i64
-  %109 = getelementptr inbounds nuw %struct.b64_huff_sym, ptr @_ZL13huff_alphabet, i64 %108
+  %109 = getelementptr inbounds nuw [4 x i8], ptr @_ZL13huff_alphabet, i64 %108
   %.sroa.0.0.copyload.i87 = load i16, ptr %109, align 16, !tbaa !21
   %.sroa.4.0..sroa_idx.i88 = getelementptr inbounds nuw i8, ptr %109, i64 2
   %.sroa.4.0.copyload.i89 = load i8, ptr %.sroa.4.0..sroa_idx.i88, align 2, !tbaa !9
@@ -597,12 +597,12 @@ _ZL8enc_add2P8huff_outhhPj.exit91:                ; preds = %.lr.ph.i.i90, %99
   %138 = add i32 %137, 2
   store i32 %138, ptr %2, align 4, !tbaa !20
   %139 = zext nneg i8 %135 to i64
-  %140 = getelementptr inbounds nuw %struct.b64_huff_sym, ptr @_ZL13huff_alphabet, i64 %139
+  %140 = getelementptr inbounds nuw [4 x i8], ptr @_ZL13huff_alphabet, i64 %139
   %.sroa.03.0.copyload.i92 = load i16, ptr %140, align 4, !tbaa !21
   %.sroa.44.0..sroa_idx.i93 = getelementptr inbounds nuw i8, ptr %140, i64 2
   %.sroa.44.0.copyload.i94 = load i8, ptr %.sroa.44.0..sroa_idx.i93, align 2, !tbaa !9
   %141 = zext nneg i8 %136 to i64
-  %142 = getelementptr inbounds nuw %struct.b64_huff_sym, ptr @_ZL13huff_alphabet, i64 %141
+  %142 = getelementptr inbounds nuw [4 x i8], ptr @_ZL13huff_alphabet, i64 %141
   %.sroa.0.0.copyload.i95 = load i16, ptr %142, align 4, !tbaa !21
   %.sroa.4.0..sroa_idx.i96 = getelementptr inbounds nuw i8, ptr %142, i64 2
   %.sroa.4.0.copyload.i97 = load i8, ptr %.sroa.4.0..sroa_idx.i96, align 2, !tbaa !9
@@ -644,7 +644,7 @@ _ZL8enc_add2P8huff_outhhPj.exit99:                ; preds = %_ZL8enc_add2P8huff_
   %164 = add i32 %160, 1
   store i32 %164, ptr %2, align 4, !tbaa !20
   %165 = zext nneg i8 %163 to i64
-  %166 = getelementptr inbounds nuw %struct.b64_huff_sym, ptr @_ZL13huff_alphabet, i64 %165
+  %166 = getelementptr inbounds nuw [4 x i8], ptr @_ZL13huff_alphabet, i64 %165
   %.sroa.0.0.copyload.i100 = load i16, ptr %166, align 16, !tbaa !21
   %.sroa.4.0..sroa_idx.i101 = getelementptr inbounds nuw i8, ptr %166, i64 2
   %.sroa.4.0.copyload.i102 = load i8, ptr %.sroa.4.0..sroa_idx.i101, align 2, !tbaa !9

@@ -9458,7 +9458,7 @@ lean_alloc_ctor.exit3388:                         ; preds = %3529
 define internal fastcc void @lean_ctor_release(ptr noundef captures(none) %0, i32 noundef range(i32 0, 4) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = zext nneg i32 %1 to i64
-  %5 = getelementptr inbounds nuw ptr, ptr %3, i64 %4
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !5
   %7 = ptrtoint ptr %6 to i64
   %8 = trunc i64 %7 to i1
@@ -23344,7 +23344,7 @@ define noalias nonnull ptr @l_Lean_PrettyPrinter_Delaborator_SubExpr_withNaryArg
 
 lean_dec.exit.i:                                  ; preds = %21, %20, %18, %12
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %9
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %9
   %24 = load ptr, ptr %23, align 8, !tbaa !5
   %25 = ptrtoint ptr %24 to i64
   %26 = trunc i64 %25 to i1

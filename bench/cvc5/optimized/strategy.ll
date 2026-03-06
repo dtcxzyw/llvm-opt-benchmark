@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::ios_base::Init" = type { i8 }
 %"class.cvc5::internal::NodeTemplate" = type { ptr }
 %"class.cvc5::internal::FatalStream" = type { i8 }
-%"struct.std::pair.283" = type { i32, i32 }
 %"class.std::map.285" = type { %"class.std::_Rb_tree.286" }
 %"class.std::_Rb_tree.286" = type { %"struct.std::_Rb_tree<cvc5::internal::theory::Theory::Effort, std::pair<const cvc5::internal::theory::Theory::Effort, unsigned int>, std::_Select1st<std::pair<const cvc5::internal::theory::Theory::Effort, unsigned int>>, std::less<cvc5::internal::theory::Theory::Effort>>::_Rb_tree_impl" }
 %"struct.std::_Rb_tree<cvc5::internal::theory::Theory::Effort, std::pair<const cvc5::internal::theory::Theory::Effort, unsigned int>, std::_Select1st<std::pair<const cvc5::internal::theory::Theory::Effort, unsigned int>>, std::less<cvc5::internal::theory::Theory::Effort>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
@@ -426,7 +425,7 @@ _ZNSt3mapIN4cvc58internal6theory6Theory6EffortESt4pairIjjESt4lessIS4_ESaIS5_IKS4
   %16 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 36
   %17 = load i32, ptr %16, align 4, !tbaa !44
   %18 = zext i32 %17 to i64
-  %19 = getelementptr inbounds nuw %"struct.std::pair.283", ptr %15, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %18
   ret ptr %19
 }
 
@@ -469,7 +468,7 @@ _ZNSt3mapIN4cvc58internal6theory6Theory6EffortESt4pairIjjESt4lessIS4_ESaIS5_IKS4
   %16 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 40
   %17 = load i32, ptr %16, align 4, !tbaa !48
   %18 = zext i32 %17 to i64
-  %19 = getelementptr inbounds nuw %"struct.std::pair.283", ptr %15, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %18
   ret ptr %19
 }
 
@@ -551,7 +550,7 @@ _ZNSt6vectorISt4pairIN4cvc58internal6theory7strings9InferStepEiESaIS6_EE11_S_rel
 _ZNSt6vectorISt4pairIN4cvc58internal6theory7strings9InferStepEiESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i: ; preds = %32, %_ZNSt6vectorISt4pairIN4cvc58internal6theory7strings9InferStepEiESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i.i.i
   store ptr %26, ptr %5, align 8, !tbaa !33
   store ptr %31, ptr %6, align 8, !tbaa !49
-  %33 = getelementptr inbounds nuw %"struct.std::pair.283", ptr %26, i64 %24
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %24
   store ptr %33, ptr %8, align 8, !tbaa !34
   br label %_ZNSt6vectorISt4pairIN4cvc58internal6theory7strings9InferStepEiESaIS6_EE9push_backEOS6_.exit
 
@@ -624,7 +623,7 @@ _ZNSt6vectorISt4pairIN4cvc58internal6theory7strings9InferStepEiESaIS6_EE11_S_rel
 _ZNSt6vectorISt4pairIN4cvc58internal6theory7strings9InferStepEiESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i13: ; preds = %59, %_ZNSt6vectorISt4pairIN4cvc58internal6theory7strings9InferStepEiESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i.i.i10
   store ptr %53, ptr %5, align 8, !tbaa !33
   store ptr %58, ptr %6, align 8, !tbaa !49
-  %60 = getelementptr inbounds nuw %"struct.std::pair.283", ptr %53, i64 %51
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %51
   store ptr %60, ptr %8, align 8, !tbaa !34
   br label %_ZNSt6vectorISt4pairIN4cvc58internal6theory7strings9InferStepEiESaIS6_EE9push_backEOS6_.exit14
 

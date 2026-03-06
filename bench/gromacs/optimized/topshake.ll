@@ -24,19 +24,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"struct.std::array" = type { [12 x float] }
-%struct.InteractionsOfType = type { %"class.std::vector", i32, i32, %"class.std::vector.5", %"class.std::vector.10", %"class.std::vector.15" }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<InteractionOfType, std::allocator<InteractionOfType>>::_Vector_impl" }
-%"struct.std::_Vector_base<InteractionOfType, std::allocator<InteractionOfType>>::_Vector_impl" = type { %"struct.std::_Vector_base<InteractionOfType, std::allocator<InteractionOfType>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<InteractionOfType, std::allocator<InteractionOfType>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.5" = type { %"struct.std::_Vector_base.6" }
-%"struct.std::_Vector_base.6" = type { %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl" }
-%"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl" = type { %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.15" = type { %"struct.std::_Vector_base.16" }
-%"struct.std::_Vector_base.16" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 
 $_ZN3gmx16EnumerationArrayINS_14MtsForceGroupsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELS1_7EED2Ev = comdat any
 
@@ -392,7 +379,7 @@ _ZN3gmx14LogEntryWriterD2Ev.exit167:              ; preds = %110, %_ZNKSt7__cxx1
 
 .split.us395:                                     ; preds = %120, %.loopexit336.split.us.us
   %indvars.iv431 = phi i64 [ %indvars.iv.next432, %.loopexit336.split.us.us ], [ 0, %120 ]
-  %128 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv431
+  %128 = getelementptr inbounds nuw [32 x i8], ptr @interaction_function, i64 %indvars.iv431
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 28
   %130 = load i32, ptr %129, align 4, !tbaa !33
   %131 = and i32 %130, 8
@@ -400,7 +387,7 @@ _ZN3gmx14LogEntryWriterD2Ev.exit167:              ; preds = %110, %_ZNKSt7__cxx1
   br i1 %.not128.us, label %.loopexit336.split.us.us, label %132
 
 132:                                              ; preds = %.split.us395
-  %133 = getelementptr inbounds nuw %struct.InteractionsOfType, ptr %0, i64 %indvars.iv431
+  %133 = getelementptr inbounds nuw [104 x i8], ptr %0, i64 %indvars.iv431
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 8
   %135 = load ptr, ptr %134, align 8, !tbaa !35
   %136 = load ptr, ptr %133, align 8, !tbaa !38
@@ -414,7 +401,7 @@ _ZN3gmx14LogEntryWriterD2Ev.exit167:              ; preds = %110, %_ZNKSt7__cxx1
 
 .preheader.us:                                    ; preds = %132, %.loopexit334.us.us
   %indvars.iv427 = phi i64 [ %indvars.iv.next428, %.loopexit334.us.us ], [ 0, %132 ]
-  %137 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv427
+  %137 = getelementptr inbounds nuw [32 x i8], ptr @interaction_function, i64 %indvars.iv427
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 28
   %139 = load i32, ptr %138, align 4, !tbaa !33
   %140 = and i32 %139, 32
@@ -422,7 +409,7 @@ _ZN3gmx14LogEntryWriterD2Ev.exit167:              ; preds = %110, %_ZNKSt7__cxx1
   br i1 %.not130.us.us, label %.loopexit334.us.us, label %141
 
 141:                                              ; preds = %.preheader.us
-  %142 = getelementptr inbounds nuw %struct.InteractionsOfType, ptr %0, i64 %indvars.iv427
+  %142 = getelementptr inbounds nuw [104 x i8], ptr %0, i64 %indvars.iv427
   %143 = load ptr, ptr %142, align 8, !tbaa !41
   %144 = getelementptr inbounds nuw i8, ptr %142, i64 8
   %145 = load ptr, ptr %144, align 8, !tbaa !41
@@ -442,8 +429,8 @@ _ZN3gmx14LogEntryWriterD2Ev.exit167:              ; preds = %110, %_ZNKSt7__cxx1
 
 .split:                                           ; preds = %120, %.loopexit336.split
   %indvars.iv423 = phi i64 [ %indvars.iv.next424, %.loopexit336.split ], [ 0, %120 ]
-  %146 = getelementptr inbounds nuw %struct.InteractionsOfType, ptr %0, i64 %indvars.iv423
-  %147 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv423
+  %146 = getelementptr inbounds nuw [104 x i8], ptr %0, i64 %indvars.iv423
+  %147 = getelementptr inbounds nuw [32 x i8], ptr @interaction_function, i64 %indvars.iv423
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 28
   %149 = load i32, ptr %148, align 4, !tbaa !33
   %150 = and i32 %149, 8
@@ -463,7 +450,7 @@ _ZN3gmx14LogEntryWriterD2Ev.exit167:              ; preds = %110, %_ZNKSt7__cxx1
 
 156:                                              ; preds = %.preheader, %.loopexit334
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %.loopexit334 ]
-  %157 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv
+  %157 = getelementptr inbounds nuw [32 x i8], ptr @interaction_function, i64 %indvars.iv
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 28
   %159 = load i32, ptr %158, align 4, !tbaa !33
   %160 = and i32 %159, 32
@@ -471,7 +458,7 @@ _ZN3gmx14LogEntryWriterD2Ev.exit167:              ; preds = %110, %_ZNKSt7__cxx1
   br i1 %.not130, label %.loopexit334, label %161
 
 161:                                              ; preds = %156
-  %162 = getelementptr inbounds nuw %struct.InteractionsOfType, ptr %0, i64 %indvars.iv
+  %162 = getelementptr inbounds nuw [104 x i8], ptr %0, i64 %indvars.iv
   %163 = load ptr, ptr %162, align 8, !tbaa !41
   %164 = getelementptr inbounds nuw i8, ptr %162, i64 8
   %165 = load ptr, ptr %164, align 8, !tbaa !41
@@ -505,10 +492,10 @@ common.resume:                                    ; preds = %_ZN3gmx14LogEntryWr
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %.preheader.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.i ], [ 0, %.preheader.i.preheader ]
   %.0911.i = phi i32 [ %spec.select.i, %.preheader.i ], [ 0, %.preheader.i.preheader ]
-  %171 = getelementptr inbounds nuw i32, ptr %167, i64 %indvars.iv.i
+  %171 = getelementptr inbounds nuw [4 x i8], ptr %167, i64 %indvars.iv.i
   %172 = load i32, ptr %171, align 4, !tbaa !46
   %173 = sext i32 %172 to i64
-  %174 = getelementptr inbounds ptr, ptr %.fr, i64 %173
+  %174 = getelementptr inbounds [8 x i8], ptr %.fr, i64 %173
   %175 = load ptr, ptr %174, align 8, !tbaa !47
   %176 = load ptr, ptr %175, align 8, !tbaa !49
   %177 = load i8, ptr %176, align 1, !tbaa !12
@@ -535,7 +522,7 @@ _ZL15count_hydrogensPPPciN3gmx8ArrayRefIKiEE.exit: ; preds = %.preheader.i
   %187 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK17InteractionOfType2ajEv(ptr noundef nonnull align 8 dereferenceable(105) %.sroa.0312.0379)
   %188 = load i32, ptr %187, align 4, !tbaa !46
   %189 = sext i32 %188 to i64
-  %190 = getelementptr inbounds ptr, ptr %.fr, i64 %189
+  %190 = getelementptr inbounds [8 x i8], ptr %.fr, i64 %189
   %191 = load ptr, ptr %190, align 8, !tbaa !47
   %192 = load ptr, ptr %191, align 8, !tbaa !49
   %193 = load i8, ptr %192, align 1, !tbaa !12
@@ -1127,7 +1114,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit177:                 ; preds = %310, %_ZNSt6vectorI
 
 450:                                              ; preds = %.thread, %.loopexit
   %indvars.iv435 = phi i64 [ 0, %.thread ], [ %indvars.iv.next436, %.loopexit ]
-  %451 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv435
+  %451 = getelementptr inbounds nuw [32 x i8], ptr @interaction_function, i64 %indvars.iv435
   %452 = getelementptr inbounds nuw i8, ptr %451, i64 28
   %453 = load i32, ptr %452, align 4, !tbaa !33
   %454 = and i32 %453, 16
@@ -1135,7 +1122,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit177:                 ; preds = %310, %_ZNSt6vectorI
   br i1 %.not118, label %.loopexit, label %455
 
 455:                                              ; preds = %450
-  %456 = getelementptr inbounds nuw %struct.InteractionsOfType, ptr %0, i64 %indvars.iv435
+  %456 = getelementptr inbounds nuw [104 x i8], ptr %0, i64 %indvars.iv435
   %457 = load ptr, ptr %456, align 8, !tbaa !41
   %458 = getelementptr inbounds nuw i8, ptr %456, i64 8
   %459 = load ptr, ptr %458, align 8, !tbaa !41
@@ -1170,10 +1157,10 @@ _ZNSt6vectorIiSaIiEED2Ev.exit177:                 ; preds = %310, %_ZNSt6vectorI
 .preheader.i182:                                  ; preds = %461, %.preheader.i182
   %indvars.iv.i183 = phi i64 [ %indvars.iv.next.i186, %.preheader.i182 ], [ 0, %461 ]
   %.0911.i184 = phi i32 [ %spec.select.i185, %.preheader.i182 ], [ 0, %461 ]
-  %467 = getelementptr inbounds nuw i32, ptr %462, i64 %indvars.iv.i183
+  %467 = getelementptr inbounds nuw [4 x i8], ptr %462, i64 %indvars.iv.i183
   %468 = load i32, ptr %467, align 4, !tbaa !46
   %469 = sext i32 %468 to i64
-  %470 = getelementptr inbounds ptr, ptr %.fr, i64 %469
+  %470 = getelementptr inbounds [8 x i8], ptr %.fr, i64 %469
   %471 = load ptr, ptr %470, align 8, !tbaa !47
   %472 = load ptr, ptr %471, align 8, !tbaa !49
   %473 = load i8, ptr %472, align 1, !tbaa !12

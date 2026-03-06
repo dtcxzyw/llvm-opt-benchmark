@@ -4,20 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.ident_t = type { i32, i32, i32, i32, ptr }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.16" }
-%"struct.std::_Head_base.16" = type { ptr }
-%"class.std::unique_ptr.48" = type { %"struct.std::__uniq_ptr_data.49" }
-%"struct.std::__uniq_ptr_data.49" = type { %"class.std::__uniq_ptr_impl.50" }
-%"class.std::__uniq_ptr_impl.50" = type { %"class.std::tuple.51" }
-%"class.std::tuple.51" = type { %"struct.std::_Tuple_impl.52" }
-%"struct.std::_Tuple_impl.52" = type { %"struct.std::_Head_base.55" }
-%"struct.std::_Head_base.55" = type { ptr }
-%"struct.gmx::AtomPairlist::JEntry" = type { i32, i8 }
-%"struct.std::array" = type { [2 x i64] }
 %"class.gmx::ArrayRef.112" = type { %"struct.gmx::ArrayRefIter.113", %"struct.gmx::ArrayRefIter.113" }
 %"struct.gmx::ArrayRefIter.113" = type { ptr }
 %"class.gmx::ArrayRef.115" = type { %"struct.gmx::ArrayRefIter.116", %"struct.gmx::ArrayRefIter.116" }
@@ -29,15 +15,9 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.gmx::StepWorkload" = type { i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8 }
 %"struct.gmx::EnumerationArray.24" = type { [7 x float] }
 %"struct.std::array.140" = type { [95 x float] }
-%"struct.gmx::EnumerationArray.141" = type { [7 x double] }
-%"class.std::vector.142" = type { %"struct.std::_Vector_base.143" }
-%"struct.std::_Vector_base.143" = type { %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl" }
-%"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl" = type { %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.gmx::ArrayRefWithPadding.152" = type { ptr, ptr, ptr }
 %"class.gmx::ArrayRef.137" = type { %"struct.gmx::ArrayRefIter.138", %"struct.gmx::ArrayRefIter.138" }
 %"struct.gmx::ArrayRefIter.138" = type { ptr }
-%"class.gmx::BasicVector" = type { [3 x float] }
 
 $_ZN3gmx19ThreadedForceBufferINS_11BasicVectorIfEEED2Ev = comdat any
 
@@ -95,7 +75,7 @@ define void @_ZN3gmx18FreeEnergyDispatchC2Ei(ptr noundef nonnull align 8 derefer
   br i1 %18, label %19, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds nuw float, ptr %9, i64 %6
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %6
   %.not.i.i.i = icmp eq ptr %8, %20
   br i1 %.not.i.i.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i, label %21
 
@@ -381,9 +361,9 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36: ; preds = %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !14
-  %39 = getelementptr inbounds nuw float, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !10
-  %40 = getelementptr inbounds nuw float, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !15
   br label %41
 
@@ -589,7 +569,7 @@ define internal void @_ZN3gmx18FreeEnergyDispatch27setupFepThreadedForceBufferEi
 24:                                               ; preds = %.lr.ph, %129
   %indvars.iv = phi i64 [ %23, %.lr.ph ], [ %indvars.iv.next, %129 ]
   %25 = load ptr, ptr %19, align 8, !tbaa !24
-  %26 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %25, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8, !tbaa !28
   %28 = load i32, ptr %4, align 4, !tbaa !41
   invoke void @_ZN3gmx17ThreadForceBufferINS_11BasicVectorIfEEE24resizeBufferAndClearMaskEi(ptr noundef nonnull align 8 dereferenceable(300) %27, i32 noundef %28)
@@ -599,7 +579,7 @@ define internal void @_ZN3gmx18FreeEnergyDispatch27setupFepThreadedForceBufferEi
   %30 = load ptr, ptr %20, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 88
   %32 = load ptr, ptr %31, align 8, !tbaa !42
-  %33 = getelementptr inbounds %"class.std::unique_ptr.48", ptr %32, i64 %indvars.iv
+  %33 = getelementptr inbounds [8 x i8], ptr %32, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8, !tbaa !45
   call void @llvm.experimental.noalias.scope.decl(metadata !47)
   %35 = load ptr, ptr %34, align 8, !tbaa !50, !alias.scope !47
@@ -613,7 +593,7 @@ define internal void @_ZN3gmx18FreeEnergyDispatch27setupFepThreadedForceBufferEi
   %43 = load i32, ptr %42, align 4, !tbaa !41, !noalias !47
   %44 = sext i32 %43 to i64
   %.not.i.i.i = icmp eq ptr %39, null
-  %45 = getelementptr inbounds nuw %"struct.gmx::AtomPairlist::JEntry", ptr %39, i64 %44
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %44
   %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %45
   %.not25.i = icmp eq ptr %35, %37
   br i1 %.not25.i, label %.preheader.i, label %.lr.ph.i
@@ -628,7 +608,7 @@ define internal void @_ZN3gmx18FreeEnergyDispatch27setupFepThreadedForceBufferEi
   %52 = shl nuw i64 1, %51
   %53 = sdiv i32 %49, 64
   %54 = sext i32 %53 to i64
-  %invariant.gep.i = getelementptr i64, ptr %47, i64 %54
+  %invariant.gep.i = getelementptr [8 x i8], ptr %47, i64 %54
   br label %64
 
 .preheader.i:                                     ; preds = %64, %29
@@ -645,7 +625,7 @@ define internal void @_ZN3gmx18FreeEnergyDispatch27setupFepThreadedForceBufferEi
   %61 = shl nuw i64 1, %60
   %62 = sdiv i32 %58, 64
   %63 = sext i32 %62 to i64
-  %invariant.gep30.i = getelementptr i64, ptr %56, i64 %63
+  %invariant.gep30.i = getelementptr [8 x i8], ptr %56, i64 %63
   br label %71
 
 64:                                               ; preds = %64, %.lr.ph.i
@@ -653,7 +633,7 @@ define internal void @_ZN3gmx18FreeEnergyDispatch27setupFepThreadedForceBufferEi
   %65 = load i32, ptr %.sroa.019.026.i, align 4, !tbaa !77, !noalias !47
   %66 = ashr i32 %65, 5
   %67 = sext i32 %66 to i64
-  %gep.i = getelementptr %"struct.std::array", ptr %invariant.gep.i, i64 %67
+  %gep.i = getelementptr [16 x i8], ptr %invariant.gep.i, i64 %67
   %68 = load i64, ptr %gep.i, align 8, !tbaa !79, !noalias !47
   %69 = or i64 %68, %52
   store i64 %69, ptr %gep.i, align 8, !tbaa !79, !noalias !47
@@ -666,7 +646,7 @@ define internal void @_ZN3gmx18FreeEnergyDispatch27setupFepThreadedForceBufferEi
   %72 = load i32, ptr %.sroa.0.028.i, align 4, !tbaa !81, !noalias !47
   %73 = ashr i32 %72, 5
   %74 = sext i32 %73 to i64
-  %gep31.i = getelementptr %"struct.std::array", ptr %invariant.gep30.i, i64 %74
+  %gep31.i = getelementptr [16 x i8], ptr %invariant.gep30.i, i64 %74
   %75 = load i64, ptr %gep31.i, align 8, !tbaa !79, !noalias !47
   %76 = or i64 %75, %61
   store i64 %76, ptr %gep31.i, align 8, !tbaa !79, !noalias !47
@@ -683,7 +663,7 @@ _ZN3gmx12_GLOBAL__N_131setReductionMaskFromFepPairlistERKNS_12AtomPairlistEPNS_1
   %81 = load ptr, ptr %21, align 8
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 88
   %83 = load ptr, ptr %82, align 8, !tbaa !42
-  %84 = getelementptr inbounds %"class.std::unique_ptr.48", ptr %83, i64 %indvars.iv
+  %84 = getelementptr inbounds [8 x i8], ptr %83, i64 %indvars.iv
   %85 = load ptr, ptr %84, align 8, !tbaa !45
   call void @llvm.experimental.noalias.scope.decl(metadata !89)
   %86 = load ptr, ptr %85, align 8, !tbaa !50, !alias.scope !89
@@ -697,7 +677,7 @@ _ZN3gmx12_GLOBAL__N_131setReductionMaskFromFepPairlistERKNS_12AtomPairlistEPNS_1
   %94 = load i32, ptr %93, align 4, !tbaa !41, !noalias !89
   %95 = sext i32 %94 to i64
   %.not.i.i.i25 = icmp eq ptr %90, null
-  %96 = getelementptr inbounds nuw %"struct.gmx::AtomPairlist::JEntry", ptr %90, i64 %95
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %95
   %spec.select.i.i.i26 = select i1 %.not.i.i.i25, ptr null, ptr %96
   %.not25.i27 = icmp eq ptr %86, %88
   br i1 %.not25.i27, label %.preheader.i33, label %.lr.ph.i28
@@ -712,7 +692,7 @@ _ZN3gmx12_GLOBAL__N_131setReductionMaskFromFepPairlistERKNS_12AtomPairlistEPNS_1
   %103 = shl nuw i64 1, %102
   %104 = sdiv i32 %100, 64
   %105 = sext i32 %104 to i64
-  %invariant.gep.i29 = getelementptr i64, ptr %98, i64 %105
+  %invariant.gep.i29 = getelementptr [8 x i8], ptr %98, i64 %105
   br label %115
 
 .preheader.i33:                                   ; preds = %115, %80
@@ -729,7 +709,7 @@ _ZN3gmx12_GLOBAL__N_131setReductionMaskFromFepPairlistERKNS_12AtomPairlistEPNS_1
   %112 = shl nuw i64 1, %111
   %113 = sdiv i32 %109, 64
   %114 = sext i32 %113 to i64
-  %invariant.gep30.i36 = getelementptr i64, ptr %107, i64 %114
+  %invariant.gep30.i36 = getelementptr [8 x i8], ptr %107, i64 %114
   br label %122
 
 115:                                              ; preds = %115, %.lr.ph.i28
@@ -737,7 +717,7 @@ _ZN3gmx12_GLOBAL__N_131setReductionMaskFromFepPairlistERKNS_12AtomPairlistEPNS_1
   %116 = load i32, ptr %.sroa.019.026.i30, align 4, !tbaa !77, !noalias !89
   %117 = ashr i32 %116, 5
   %118 = sext i32 %117 to i64
-  %gep.i31 = getelementptr %"struct.std::array", ptr %invariant.gep.i29, i64 %118
+  %gep.i31 = getelementptr [16 x i8], ptr %invariant.gep.i29, i64 %118
   %119 = load i64, ptr %gep.i31, align 8, !tbaa !79, !noalias !89
   %120 = or i64 %119, %103
   store i64 %120, ptr %gep.i31, align 8, !tbaa !79, !noalias !89
@@ -750,7 +730,7 @@ _ZN3gmx12_GLOBAL__N_131setReductionMaskFromFepPairlistERKNS_12AtomPairlistEPNS_1
   %123 = load i32, ptr %.sroa.0.028.i37, align 4, !tbaa !81, !noalias !89
   %124 = ashr i32 %123, 5
   %125 = sext i32 %124 to i64
-  %gep31.i38 = getelementptr %"struct.std::array", ptr %invariant.gep30.i36, i64 %125
+  %gep31.i38 = getelementptr [16 x i8], ptr %invariant.gep30.i36, i64 %125
   %126 = load i64, ptr %gep31.i38, align 8, !tbaa !79, !noalias !89
   %127 = or i64 %126, %112
   store i64 %127, ptr %gep31.i38, align 8, !tbaa !79, !noalias !89
@@ -1142,9 +1122,9 @@ _ZSt4fillIPfiEvT_S1_RKT0_.exit.preheader.i:       ; preds = %_ZN18ForeignLambdaT
 
 _ZSt4fillIPfiEvT_S1_RKT0_.exit.us.i:              ; preds = %_ZSt4fillIPfiEvT_S1_RKT0_.exit.preheader.i, %_ZSt4fillIPfiEvT_S1_RKT0_.exit.us.i
   %indvars.iv40.i = phi i64 [ %indvars.iv.next41.i, %_ZSt4fillIPfiEvT_S1_RKT0_.exit.us.i ], [ 0, %_ZSt4fillIPfiEvT_S1_RKT0_.exit.preheader.i ]
-  %185 = getelementptr inbounds nuw float, ptr %184, i64 %indvars.iv40.i
+  %185 = getelementptr inbounds nuw [4 x i8], ptr %184, i64 %indvars.iv40.i
   %186 = load float, ptr %185, align 4, !tbaa !33
-  %187 = getelementptr inbounds nuw float, ptr %28, i64 %indvars.iv40.i
+  %187 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %indvars.iv40.i
   store float %186, ptr %187, align 4, !tbaa !33
   %indvars.iv.next41.i = add nuw nsw i64 %indvars.iv40.i, 1
   %.not.us.i = icmp eq i64 %indvars.iv.next41.i, 7
@@ -1175,20 +1155,20 @@ _ZSt4fillIPfiEvT_S1_RKT0_.exit.preheader.split.i: ; preds = %_ZSt4fillIPfiEvT_S1
   %sext.i = shl i64 %.037.i, 32
   %198 = ashr exact i64 %sext.i, 32
   %199 = load ptr, ptr %68, align 8, !tbaa !139
-  %200 = getelementptr inbounds nuw double, ptr %199, i64 %198
+  %200 = getelementptr inbounds nuw [8 x i8], ptr %199, i64 %198
   %201 = load double, ptr %200, align 8, !tbaa !140
   %202 = fadd double %201, %197
   store double %202, ptr %200, align 8, !tbaa !140
   %203 = load ptr, ptr %69, align 8, !tbaa !142
-  %204 = getelementptr inbounds nuw %"struct.gmx::EnumerationArray.141", ptr %203, i64 %198
+  %204 = getelementptr inbounds nuw [56 x i8], ptr %203, i64 %198
   br label %205
 
 205:                                              ; preds = %205, %.split.us.i
   %indvars.iv.i.i = phi i64 [ 0, %.split.us.i ], [ %indvars.iv.next.i.i, %205 ]
-  %206 = getelementptr inbounds nuw float, ptr %29, i64 %indvars.iv.i.i
+  %206 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %indvars.iv.i.i
   %207 = load float, ptr %206, align 4, !tbaa !33
   %208 = fpext float %207 to double
-  %209 = getelementptr inbounds nuw double, ptr %204, i64 %indvars.iv.i.i
+  %209 = getelementptr inbounds nuw [8 x i8], ptr %204, i64 %indvars.iv.i.i
   %210 = load double, ptr %209, align 8, !tbaa !140
   %211 = fadd double %210, %208
   store double %211, ptr %209, align 8, !tbaa !140
@@ -1207,13 +1187,13 @@ _ZN18ForeignLambdaTerms10accumulateEidRKN3gmx16EnumerationArrayI34FreeEnergyPert
 
 _ZSt4fillIPfiEvT_S1_RKT0_.exit.i:                 ; preds = %_ZSt4fillIPfiEvT_S1_RKT0_.exit.i, %_ZSt4fillIPfiEvT_S1_RKT0_.exit.preheader.split.i
   %indvars.iv.i = phi i64 [ 0, %_ZSt4fillIPfiEvT_S1_RKT0_.exit.preheader.split.i ], [ %indvars.iv.next.i, %_ZSt4fillIPfiEvT_S1_RKT0_.exit.i ]
-  %217 = getelementptr inbounds nuw %"class.std::vector.142", ptr %188, i64 %indvars.iv.i
+  %217 = getelementptr inbounds nuw [24 x i8], ptr %188, i64 %indvars.iv.i
   %218 = load ptr, ptr %217, align 8, !tbaa !139
-  %219 = getelementptr double, ptr %218, i64 %.037.i
+  %219 = getelementptr [8 x i8], ptr %218, i64 %.037.i
   %220 = getelementptr i8, ptr %219, i64 -8
   %221 = load double, ptr %220, align 8, !tbaa !140
   %222 = fptrunc double %221 to float
-  %223 = getelementptr inbounds nuw float, ptr %28, i64 %indvars.iv.i
+  %223 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %indvars.iv.i
   store float %222, ptr %223, align 4, !tbaa !33
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.not.i = icmp eq i64 %indvars.iv.next.i, 7
@@ -1487,7 +1467,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_124dispatchFreeEnergyKernelENS_8ArrayR
   %84 = getelementptr inbounds nuw i8, ptr %76, i64 76
   %85 = load i32, ptr %84, align 4, !tbaa !148, !noalias !145
   %86 = sext i32 %85 to i64
-  %87 = getelementptr inbounds %"class.gmx::BasicVector", ptr %83, i64 %86
+  %87 = getelementptr inbounds [12 x i8], ptr %83, i64 %86
   %88 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %89 = load ptr, ptr %88, align 8, !tbaa !149, !noalias !145
   %90 = ptrtoint ptr %89 to i64
@@ -1516,7 +1496,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_124dispatchFreeEnergyKernelENS_8ArrayR
   %113 = getelementptr inbounds nuw i8, ptr %76, i64 300
   %114 = load i64, ptr %2, align 8
   %115 = inttoptr i64 %114 to ptr
-  %116 = getelementptr inbounds %"class.std::unique_ptr.48", ptr %115, i64 %.058
+  %116 = getelementptr inbounds [8 x i8], ptr %115, i64 %.058
   %117 = load ptr, ptr %116, align 8, !tbaa !45
   %118 = load i8, ptr %6, align 1, !tbaa !114, !range !87, !noundef !88
   %119 = trunc nuw i8 %118 to i1
@@ -1753,7 +1733,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_124dispatchFreeEnergyKernelENS_8ArrayR
   %91 = getelementptr inbounds nuw i8, ptr %72, i64 300
   %92 = load i64, ptr %2, align 8
   %93 = inttoptr i64 %92 to ptr
-  %94 = getelementptr inbounds %"class.std::unique_ptr.48", ptr %93, i64 %.044
+  %94 = getelementptr inbounds [8 x i8], ptr %93, i64 %.044
   %95 = load ptr, ptr %94, align 8, !tbaa !45
   %96 = load i8, ptr %5, align 1, !tbaa !114, !range !87, !noundef !88
   %97 = trunc nuw i8 %96 to i1

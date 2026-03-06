@@ -626,10 +626,10 @@ default.unreachable2261:                          ; preds = %132
   %indvars.iv.next2141 = add nuw nsw i64 %indvars.iv2140, 1
   %220 = trunc nuw i64 %indvars.iv.next2141 to i32
   store i32 %220, ptr %40, align 4, !tbaa !31
-  %221 = getelementptr inbounds nuw i16, ptr @inflate64.order, i64 %indvars.iv2140
+  %221 = getelementptr inbounds nuw [2 x i8], ptr @inflate64.order, i64 %indvars.iv2140
   %222 = load i16, ptr %221, align 2, !tbaa !40
   %223 = zext i16 %222 to i64
-  %224 = getelementptr inbounds nuw i16, ptr %41, i64 %223
+  %224 = getelementptr inbounds nuw [2 x i8], ptr %41, i64 %223
   store i16 %219, ptr %224, align 2, !tbaa !40
   %225 = lshr i64 %.18617.lcssa, 3
   %226 = add i32 %.18.lcssa, -3
@@ -639,10 +639,10 @@ default.unreachable2261:                          ; preds = %132
 .lr.ph1361:                                       ; preds = %.lr.ph1361.preheader, %.lr.ph1361
   %indvars.iv2143 = phi i64 [ %206, %.lr.ph1361.preheader ], [ %indvars.iv.next2144, %.lr.ph1361 ]
   %indvars.iv.next2144 = add nuw nsw i64 %indvars.iv2143, 1
-  %227 = getelementptr inbounds nuw i16, ptr @inflate64.order, i64 %indvars.iv2143
+  %227 = getelementptr inbounds nuw [2 x i8], ptr @inflate64.order, i64 %indvars.iv2143
   %228 = load i16, ptr %227, align 2, !tbaa !40
   %229 = zext i16 %228 to i64
-  %230 = getelementptr inbounds nuw i16, ptr %41, i64 %229
+  %230 = getelementptr inbounds nuw [2 x i8], ptr %41, i64 %229
   store i16 0, ptr %230, align 2, !tbaa !40
   %231 = and i64 %indvars.iv.next2144, 4294967295
   %exitcond2146.not = icmp eq i64 %231, 19
@@ -698,7 +698,7 @@ default.unreachable2261:                          ; preds = %132
   %244 = trunc i64 %.196181432 to i32
   %245 = and i32 %243, %244
   %246 = zext nneg i32 %245 to i64
-  %247 = getelementptr inbounds nuw %struct.code, ptr %241, i64 %246
+  %247 = getelementptr inbounds nuw [4 x i8], ptr %241, i64 %246
   %.sroa.18.0..sroa_idx1366 = getelementptr inbounds nuw i8, ptr %247, i64 1
   %.sroa.18.0.copyload1367 = load i8, ptr %.sroa.18.0..sroa_idx1366, align 1, !tbaa !32
   %248 = zext i8 %.sroa.18.0.copyload1367 to i32
@@ -728,7 +728,7 @@ default.unreachable2261:                          ; preds = %132
   %258 = trunc i64 %257 to i32
   %259 = and i32 %243, %258
   %260 = zext nneg i32 %259 to i64
-  %261 = getelementptr inbounds nuw %struct.code, ptr %241, i64 %260
+  %261 = getelementptr inbounds nuw [4 x i8], ptr %241, i64 %260
   %.sroa.18.0..sroa_idx = getelementptr inbounds nuw i8, ptr %261, i64 1
   %.sroa.18.0.copyload = load i8, ptr %.sroa.18.0..sroa_idx, align 1, !tbaa !32
   %262 = zext i8 %.sroa.18.0.copyload to i64
@@ -748,7 +748,7 @@ default.unreachable2261:                          ; preds = %132
   %.21620.lcssa = phi i64 [ %.196181432, %.preheader814 ], [ %257, %._crit_edge1374.loopexit ]
   %.21.lcssa = phi i32 [ %.191433, %.preheader814 ], [ %264, %._crit_edge1374.loopexit ]
   %.sroa.18.0.copyload.lcssa = phi i8 [ %.sroa.18.0.copyload1367, %.preheader814 ], [ %.sroa.18.0.copyload, %._crit_edge1374.loopexit ]
-  %266 = getelementptr inbounds nuw %struct.code, ptr %241, i64 %265
+  %266 = getelementptr inbounds nuw [4 x i8], ptr %241, i64 %265
   %.sroa.41.0..sroa_idx.le = getelementptr inbounds nuw i8, ptr %266, i64 2
   %.sroa.41.0.copyload.le = load i16, ptr %.sroa.41.0..sroa_idx.le, align 2, !tbaa !40
   %267 = icmp ult i16 %.sroa.41.0.copyload.le, 16
@@ -797,7 +797,7 @@ default.unreachable2261:                          ; preds = %132
   %284 = add i32 %.lcssa141414271429, 1
   store i32 %284, ptr %40, align 4, !tbaa !31
   %285 = zext i32 %.lcssa141414271429 to i64
-  %286 = getelementptr inbounds nuw i16, ptr %41, i64 %285
+  %286 = getelementptr inbounds nuw [2 x i8], ptr %41, i64 %285
   store i16 %.sroa.41.0.copyload.le, ptr %286, align 2, !tbaa !40
   br label %368
 
@@ -878,7 +878,7 @@ default.unreachable2261:                          ; preds = %132
 315:                                              ; preds = %._crit_edge1398
   %316 = add i32 %.lcssa141414271429, -1
   %317 = zext i32 %316 to i64
-  %318 = getelementptr inbounds nuw i16, ptr %41, i64 %317
+  %318 = getelementptr inbounds nuw [2 x i8], ptr %41, i64 %317
   %319 = load i16, ptr %318, align 2, !tbaa !40
   %320 = trunc i64 %311 to i32
   %321 = and i32 %320, 3
@@ -984,7 +984,7 @@ default.unreachable2261:                          ; preds = %132
   %364 = add nsw i32 %.35801415, -1
   %365 = add i32 %363, 1
   %366 = zext i32 %363 to i64
-  %367 = getelementptr inbounds nuw i16, ptr %41, i64 %366
+  %367 = getelementptr inbounds nuw [2 x i8], ptr %41, i64 %366
   store i16 %.0573, ptr %367, align 2, !tbaa !40
   %.not761 = icmp eq i32 %364, 0
   br i1 %.not761, label %.loopexit807, label %.preheader806
@@ -1024,7 +1024,7 @@ default.unreachable2261:                          ; preds = %132
   store i32 6, ptr %48, align 4, !tbaa !36
   %374 = load i32, ptr %37, align 4, !tbaa !37
   %375 = zext i32 %374 to i64
-  %376 = getelementptr inbounds nuw i16, ptr %41, i64 %375
+  %376 = getelementptr inbounds nuw [2 x i8], ptr %41, i64 %375
   %377 = load i32, ptr %38, align 8, !tbaa !38
   %378 = tail call fastcc i32 @inflate_table(i32 noundef 2, ptr noundef nonnull %376, i32 noundef %377, ptr noundef nonnull %43, ptr noundef nonnull %48, ptr noundef nonnull %46)
   %.not763 = icmp eq i32 %378, 0
@@ -1051,7 +1051,7 @@ default.unreachable2261:                          ; preds = %132
   %385 = trunc i64 %.4603 to i32
   %386 = and i32 %384, %385
   %387 = zext nneg i32 %386 to i64
-  %388 = getelementptr inbounds nuw %struct.code, ptr %382, i64 %387
+  %388 = getelementptr inbounds nuw [4 x i8], ptr %382, i64 %387
   %.sroa.18.0..sroa_idx441441 = getelementptr inbounds nuw i8, ptr %388, i64 1
   %.sroa.18.0.copyload451442 = load i8, ptr %.sroa.18.0..sroa_idx441441, align 1, !tbaa !32
   %389 = zext i8 %.sroa.18.0.copyload451442 to i32
@@ -1081,7 +1081,7 @@ default.unreachable2261:                          ; preds = %132
   %399 = trunc i64 %398 to i32
   %400 = and i32 %384, %399
   %401 = zext nneg i32 %400 to i64
-  %402 = getelementptr inbounds nuw %struct.code, ptr %382, i64 %401
+  %402 = getelementptr inbounds nuw [4 x i8], ptr %382, i64 %401
   %.sroa.18.0..sroa_idx44 = getelementptr inbounds nuw i8, ptr %402, i64 1
   %.sroa.18.0.copyload45 = load i8, ptr %.sroa.18.0..sroa_idx44, align 1, !tbaa !32
   %403 = zext i8 %.sroa.18.0.copyload45 to i64
@@ -1119,7 +1119,7 @@ default.unreachable2261:                          ; preds = %132
   %413 = lshr i32 %412, %.lcssa943
   %414 = add nuw i32 %413, %408
   %415 = zext i32 %414 to i64
-  %416 = getelementptr inbounds nuw %struct.code, ptr %382, i64 %415
+  %416 = getelementptr inbounds nuw [4 x i8], ptr %382, i64 %415
   %.sroa.18.0..sroa_idx461460 = getelementptr inbounds nuw i8, ptr %416, i64 1
   %.sroa.18.0.copyload471461 = load i8, ptr %.sroa.18.0..sroa_idx461460, align 1, !tbaa !32
   %417 = zext i8 %.sroa.18.0.copyload471461 to i32
@@ -1152,7 +1152,7 @@ default.unreachable2261:                          ; preds = %132
   %430 = lshr i32 %429, %.lcssa943
   %431 = add nuw i32 %430, %408
   %432 = zext i32 %431 to i64
-  %433 = getelementptr inbounds nuw %struct.code, ptr %382, i64 %432
+  %433 = getelementptr inbounds nuw [4 x i8], ptr %382, i64 %432
   %.sroa.18.0..sroa_idx46 = getelementptr inbounds nuw i8, ptr %433, i64 1
   %.sroa.18.0.copyload47 = load i8, ptr %.sroa.18.0..sroa_idx46, align 1, !tbaa !32
   %434 = zext i8 %.sroa.18.0.copyload47 to i32
@@ -1298,7 +1298,7 @@ default.unreachable2261:                          ; preds = %132
   %485 = trunc i64 %.6605 to i32
   %486 = and i32 %484, %485
   %487 = zext nneg i32 %486 to i64
-  %488 = getelementptr inbounds nuw %struct.code, ptr %482, i64 %487
+  %488 = getelementptr inbounds nuw [4 x i8], ptr %482, i64 %487
   %.sroa.18.0..sroa_idx481486 = getelementptr inbounds nuw i8, ptr %488, i64 1
   %.sroa.18.0.copyload491487 = load i8, ptr %.sroa.18.0..sroa_idx481486, align 1, !tbaa !32
   %489 = zext i8 %.sroa.18.0.copyload491487 to i32
@@ -1328,7 +1328,7 @@ default.unreachable2261:                          ; preds = %132
   %499 = trunc i64 %498 to i32
   %500 = and i32 %484, %499
   %501 = zext nneg i32 %500 to i64
-  %502 = getelementptr inbounds nuw %struct.code, ptr %482, i64 %501
+  %502 = getelementptr inbounds nuw [4 x i8], ptr %482, i64 %501
   %.sroa.18.0..sroa_idx48 = getelementptr inbounds nuw i8, ptr %502, i64 1
   %.sroa.18.0.copyload49 = load i8, ptr %.sroa.18.0..sroa_idx48, align 1, !tbaa !32
   %503 = zext i8 %.sroa.18.0.copyload49 to i64
@@ -1365,7 +1365,7 @@ default.unreachable2261:                          ; preds = %132
   %513 = lshr i32 %512, %.lcssa966
   %514 = add nuw i32 %513, %508
   %515 = zext i32 %514 to i64
-  %516 = getelementptr inbounds nuw %struct.code, ptr %482, i64 %515
+  %516 = getelementptr inbounds nuw [4 x i8], ptr %482, i64 %515
   %.sroa.18.0..sroa_idx501505 = getelementptr inbounds nuw i8, ptr %516, i64 1
   %.sroa.18.0.copyload511506 = load i8, ptr %.sroa.18.0..sroa_idx501505, align 1, !tbaa !32
   %517 = zext i8 %.sroa.18.0.copyload511506 to i32
@@ -1398,7 +1398,7 @@ default.unreachable2261:                          ; preds = %132
   %530 = lshr i32 %529, %.lcssa966
   %531 = add nuw i32 %530, %508
   %532 = zext i32 %531 to i64
-  %533 = getelementptr inbounds nuw %struct.code, ptr %482, i64 %532
+  %533 = getelementptr inbounds nuw [4 x i8], ptr %482, i64 %532
   %.sroa.18.0..sroa_idx50 = getelementptr inbounds nuw i8, ptr %533, i64 1
   %.sroa.18.0.copyload51 = load i8, ptr %.sroa.18.0..sroa_idx50, align 1, !tbaa !32
   %534 = zext i8 %.sroa.18.0.copyload51 to i32
@@ -2025,10 +2025,10 @@ define internal fastcc range(i32 -1, 2) i32 @inflate_table(i32 noundef range(i32
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %8 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv
   %9 = load i16, ptr %8, align 2, !tbaa !40
   %10 = zext i16 %9 to i64
-  %11 = getelementptr inbounds nuw i16, ptr %6, i64 %10
+  %11 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %10
   %12 = load i16, ptr %11, align 2, !tbaa !40
   %13 = add i16 %12, 1
   store i16 %13, ptr %11, align 2, !tbaa !40
@@ -2043,7 +2043,7 @@ define internal fastcc range(i32 -1, 2) i32 @inflate_table(i32 noundef range(i32
 15:                                               ; preds = %._crit_edge, %19
   %.0211259 = phi i32 [ 15, %._crit_edge ], [ %20, %19 ]
   %16 = zext i32 %.0211259 to i64
-  %17 = getelementptr inbounds nuw i16, ptr %6, i64 %16
+  %17 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %16
   %18 = load i16, ptr %17, align 2, !tbaa !40
   %.not228 = icmp eq i16 %18, 0
   br i1 %.not228, label %19, label %21
@@ -2078,7 +2078,7 @@ define internal fastcc range(i32 -1, 2) i32 @inflate_table(i32 noundef range(i32
 
 27:                                               ; preds = %21, %30
   %indvars.iv296 = phi i64 [ 1, %21 ], [ %indvars.iv.next297, %30 ]
-  %28 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv296
+  %28 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %indvars.iv296
   %29 = load i16, ptr %28, align 2, !tbaa !40
   %.not229 = icmp eq i16 %29, 0
   br i1 %.not229, label %30, label %.split.loop.exit
@@ -2106,7 +2106,7 @@ define internal fastcc range(i32 -1, 2) i32 @inflate_table(i32 noundef range(i32
   %indvars.iv300 = phi i64 [ 1, %.split.loop.exit343 ], [ %indvars.iv.next301, %32 ]
   %.0200262 = phi i32 [ 1, %.split.loop.exit343 ], [ %38, %32 ]
   %34 = shl i32 %.0200262, 1
-  %35 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv300
+  %35 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %indvars.iv300
   %36 = load i16, ptr %35, align 2, !tbaa !40
   %37 = zext i16 %36 to i32
   %38 = sub nsw i32 %34, %37
@@ -2138,18 +2138,18 @@ define internal fastcc range(i32 -1, 2) i32 @inflate_table(i32 noundef range(i32
 46:                                               ; preds = %44, %46
   %47 = phi i16 [ 0, %44 ], [ %50, %46 ]
   %indvars.iv304 = phi i64 [ 1, %44 ], [ %indvars.iv.next305, %46 ]
-  %48 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv304
+  %48 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %indvars.iv304
   %49 = load i16, ptr %48, align 2, !tbaa !40
   %50 = add i16 %49, %47
   %indvars.iv.next305 = add nuw nsw i64 %indvars.iv304, 1
-  %51 = getelementptr inbounds nuw i16, ptr %7, i64 %indvars.iv.next305
+  %51 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %indvars.iv.next305
   store i16 %50, ptr %51, align 2, !tbaa !40
   %exitcond307.not = icmp eq i64 %indvars.iv.next305, 15
   br i1 %exitcond307.not, label %.preheader245, label %46
 
 .lr.ph265:                                        ; preds = %.lr.ph265.preheader, %62
   %indvars.iv308 = phi i64 [ 0, %.lr.ph265.preheader ], [ %indvars.iv.next309, %62 ]
-  %52 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv308
+  %52 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv308
   %53 = load i16, ptr %52, align 2, !tbaa !40
   %.not239 = icmp eq i16 %53, 0
   br i1 %.not239, label %62, label %54
@@ -2157,12 +2157,12 @@ define internal fastcc range(i32 -1, 2) i32 @inflate_table(i32 noundef range(i32
 54:                                               ; preds = %.lr.ph265
   %55 = trunc i64 %indvars.iv308 to i16
   %56 = zext i16 %53 to i64
-  %57 = getelementptr inbounds nuw i16, ptr %7, i64 %56
+  %57 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %56
   %58 = load i16, ptr %57, align 2, !tbaa !40
   %59 = add i16 %58, 1
   store i16 %59, ptr %57, align 2, !tbaa !40
   %60 = zext i16 %58 to i64
-  %61 = getelementptr inbounds nuw i16, ptr %5, i64 %60
+  %61 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %60
   store i16 %55, ptr %61, align 2, !tbaa !40
   br label %62
 
@@ -2214,7 +2214,7 @@ define internal fastcc range(i32 -1, 2) i32 @inflate_table(i32 noundef range(i32
   %73 = sub i32 %.3219, %.0202.ph
   %74 = trunc i32 %73 to i8
   %75 = zext i32 %.2215 to i64
-  %76 = getelementptr inbounds nuw i16, ptr %5, i64 %75
+  %76 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %75
   %77 = load i16, ptr %76, align 2, !tbaa !40
   %78 = zext i16 %77 to i32
   %79 = icmp sgt i32 %.0330, %78
@@ -2226,10 +2226,10 @@ define internal fastcc range(i32 -1, 2) i32 @inflate_table(i32 noundef range(i32
 
 82:                                               ; preds = %80
   %83 = zext i16 %77 to i64
-  %84 = getelementptr inbounds nuw i16, ptr %.0185329, i64 %83
+  %84 = getelementptr inbounds nuw [2 x i8], ptr %.0185329, i64 %83
   %85 = load i16, ptr %84, align 2, !tbaa !40
   %86 = trunc i16 %85 to i8
-  %87 = getelementptr inbounds nuw i16, ptr %.0186328, i64 %83
+  %87 = getelementptr inbounds nuw [2 x i8], ptr %.0186328, i64 %83
   %88 = load i16, ptr %87, align 2, !tbaa !40
   br label %89
 
@@ -2245,7 +2245,7 @@ define internal fastcc range(i32 -1, 2) i32 @inflate_table(i32 noundef range(i32
   %92 = add i32 %.0191, %.neg
   %93 = add i32 %92, %90
   %94 = zext i32 %93 to i64
-  %95 = getelementptr inbounds nuw %struct.code, ptr %.0187.ph, i64 %94
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %.0187.ph, i64 %94
   store i8 %.sroa.0.0, ptr %95, align 2, !tbaa !32
   %.sroa.11.0..sroa_idx19 = getelementptr inbounds nuw i8, ptr %95, i64 1
   store i8 %74, ptr %.sroa.11.0..sroa_idx19, align 1, !tbaa !32
@@ -2274,7 +2274,7 @@ define internal fastcc range(i32 -1, 2) i32 @inflate_table(i32 noundef range(i32
   %.1195 = select i1 %.not232, i32 0, i32 %105
   %106 = add i32 %.2215, 1
   %107 = zext nneg i32 %.3219 to i64
-  %108 = getelementptr inbounds nuw i16, ptr %6, i64 %107
+  %108 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %107
   %109 = load i16, ptr %108, align 2, !tbaa !40
   %110 = add i16 %109, -1
   store i16 %110, ptr %108, align 2, !tbaa !40
@@ -2291,10 +2291,10 @@ select.unfold.preheader:                          ; preds = %112
 
 114:                                              ; preds = %112
   %115 = zext i32 %106 to i64
-  %116 = getelementptr inbounds nuw i16, ptr %5, i64 %115
+  %116 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %115
   %117 = load i16, ptr %116, align 2, !tbaa !40
   %118 = zext i16 %117 to i64
-  %119 = getelementptr inbounds nuw i16, ptr %1, i64 %118
+  %119 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %118
   %120 = load i16, ptr %119, align 2, !tbaa !40
   %121 = zext i16 %120 to i32
   br label %122
@@ -2316,7 +2316,7 @@ select.unfold.preheader:                          ; preds = %112
   %127 = icmp eq i32 %.0202.ph, 0
   %spec.select241 = select i1 %127, i32 %spec.select240, i32 %.0202.ph
   %128 = zext i32 %71 to i64
-  %129 = getelementptr inbounds nuw %struct.code, ptr %.0187.ph, i64 %128
+  %129 = getelementptr inbounds nuw [4 x i8], ptr %.0187.ph, i64 %128
   %130 = sub i32 %.4220, %spec.select241
   %131 = shl nuw i32 1, %130
   %132 = icmp ult i32 %.4220, %.0211259
@@ -2331,7 +2331,7 @@ select.unfold.preheader:                          ; preds = %112
   %.1201268 = phi i32 [ %143, %141 ], [ %131, %.lr.ph270.preheader ]
   %.2208267 = phi i32 [ %142, %141 ], [ %130, %.lr.ph270.preheader ]
   %135 = zext i32 %134 to i64
-  %136 = getelementptr inbounds nuw i16, ptr %6, i64 %135
+  %136 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %135
   %137 = load i16, ptr %136, align 2, !tbaa !40
   %138 = zext i16 %137 to i32
   %139 = sub nsw i32 %.1201268, %138
@@ -2362,7 +2362,7 @@ select.unfold.preheader:                          ; preds = %112
   %149 = trunc i32 %.2208.lcssa to i8
   %150 = load ptr, ptr %3, align 8, !tbaa !50
   %151 = zext nneg i32 %125 to i64
-  %152 = getelementptr inbounds nuw %struct.code, ptr %150, i64 %151
+  %152 = getelementptr inbounds nuw [4 x i8], ptr %150, i64 %151
   store i8 %149, ptr %152, align 2, !tbaa !51
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 1
   store i8 %70, ptr %153, align 1, !tbaa !53
@@ -2400,7 +2400,7 @@ select.unfold.preheader:                          ; preds = %112
   %.3 = phi ptr [ %163, %162 ], [ %.2279, %160 ], [ %.2279, %.lr.ph280 ]
   %165 = lshr i32 %.2196277, %.4
   %166 = zext i32 %165 to i64
-  %167 = getelementptr inbounds nuw %struct.code, ptr %.3, i64 %166
+  %167 = getelementptr inbounds nuw [4 x i8], ptr %.3, i64 %166
   store i8 64, ptr %167, align 2, !tbaa !32
   %.sroa.11.0..sroa_idx21 = getelementptr inbounds nuw i8, ptr %167, i64 1
   store i8 %.sroa.11.1, ptr %.sroa.11.0..sroa_idx21, align 1, !tbaa !32
@@ -2429,7 +2429,7 @@ select.unfold:                                    ; preds = %170
 select.unfold._crit_edge:                         ; preds = %select.unfold, %select.unfold.preheader
   %176 = load ptr, ptr %3, align 8, !tbaa !50
   %177 = zext i32 %.0198.ph to i64
-  %178 = getelementptr inbounds nuw %struct.code, ptr %176, i64 %177
+  %178 = getelementptr inbounds nuw [4 x i8], ptr %176, i64 %177
   store ptr %178, ptr %3, align 8, !tbaa !50
   br label %.loopexit.sink.split
 

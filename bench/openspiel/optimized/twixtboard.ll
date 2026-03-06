@@ -19,16 +19,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.25" = type { %"struct.std::_Vector_base<open_spiel::twixt::Cell, std::allocator<open_spiel::twixt::Cell>>::_Vector_impl" }
 %"struct.std::_Vector_base<open_spiel::twixt::Cell, std::allocator<open_spiel::twixt::Cell>>::_Vector_impl" = type { %"struct.std::_Vector_base<open_spiel::twixt::Cell, std::allocator<open_spiel::twixt::Cell>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<open_spiel::twixt::Cell, std::allocator<open_spiel::twixt::Cell>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.open_spiel::twixt::Cell" = type { i32, i32, i32, [8 x %struct.Position], [2 x [2 x i8]] }
-%"struct.open_spiel::twixt::LinkDescriptor" = type { %struct.Position, %"class.std::vector.0" }
-%"class.std::vector.0" = type { %"struct.std::_Vector_base.1" }
-%"struct.std::_Vector_base.1" = type { %"struct.std::_Vector_base<Link, std::allocator<Link>>::_Vector_impl" }
-%"struct.std::_Vector_base<Link, std::allocator<Link>>::_Vector_impl" = type { %"struct.std::_Vector_base<Link, std::allocator<Link>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<Link, std::allocator<Link>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.19" = type { %"struct.std::_Vector_base.20" }
-%"struct.std::_Vector_base.20" = type { %"struct.std::_Vector_base<long, std::allocator<long>>::_Vector_impl" }
-%"struct.std::_Vector_base<long, std::allocator<long>>::_Vector_impl" = type { %"struct.std::_Vector_base<long, std::allocator<long>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<long, std::allocator<long>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -42,6 +32,11 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._Guard = type { ptr }
 %"struct.std::vector<std::vector<open_spiel::twixt::Cell>>::_Temporary_value" = type { ptr, %"union.std::vector<std::vector<open_spiel::twixt::Cell>>::_Temporary_value::_Storage" }
 %"union.std::vector<std::vector<open_spiel::twixt::Cell>>::_Temporary_value::_Storage" = type { %"class.std::vector.24" }
+%"struct.open_spiel::twixt::LinkDescriptor" = type { %struct.Position, %"class.std::vector.0" }
+%"class.std::vector.0" = type { %"struct.std::_Vector_base.1" }
+%"struct.std::_Vector_base.1" = type { %"struct.std::_Vector_base<Link, std::allocator<Link>>::_Vector_impl" }
+%"struct.std::_Vector_base<Link, std::allocator<Link>>::_Vector_impl" = type { %"struct.std::_Vector_base<Link, std::allocator<Link>>::_Vector_impl_data" }
+%"struct.std::_Vector_base<Link, std::allocator<Link>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 
 $_ZNSt6vectorIN10open_spiel5twixt14LinkDescriptorESaIS2_EED2Ev = comdat any
 
@@ -411,7 +406,7 @@ _ZNSt6vectorIN10open_spiel5twixt4CellESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i:
   %10 = mul nuw nsw i64 %8, 80
   %11 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %10) #25
   store ptr %11, ptr %5, align 8
-  %12 = getelementptr inbounds nuw %"class.open_spiel::twixt::Cell", ptr %11, i64 %8
+  %12 = getelementptr inbounds nuw [80 x i8], ptr %11, i64 %8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %11, i8 0, i64 %10, i1 false)
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %11, i64 %10
   br label %_ZNSt12_Vector_baseIN10open_spiel5twixt4CellESaIS2_EEC2EmRKS3_.exit.thread.i
@@ -449,7 +444,7 @@ _ZNSt12_Vector_baseIN10open_spiel5twixt4CellESaIS2_EEC2EmRKS3_.exit.thread.i: ; 
   br i1 %28, label %29, label %_ZNSt6vectorIS_IN10open_spiel5twixt4CellESaIS2_EESaIS4_EE6resizeEmRKS4_.exit
 
 29:                                               ; preds = %27
-  %30 = getelementptr inbounds nuw %"class.std::vector.24", ptr %19, i64 %8
+  %30 = getelementptr inbounds nuw [24 x i8], ptr %19, i64 %8
   %.not.i.i = icmp eq ptr %18, %30
   br i1 %.not.i.i, label %_ZNSt6vectorIS_IN10open_spiel5twixt4CellESaIS2_EESaIS4_EE6resizeEmRKS4_.exit, label %.lr.ph.i.i.i.i.i
 
@@ -552,9 +547,9 @@ _ZN10open_spiel5twixt10BlockerMap12ClearBlockerEv.exit: ; preds = %_ZNSt8__detai
   %65 = phi i32 [ %447, %_ZN10open_spiel5twixt5Board19InitializeNeighborsE8PositionRNS0_4CellEb.exit.us ], [ %60, %.lr.ph ]
   %.sroa.4.0.insert.shift21.us = shl nuw nsw i64 %indvars.iv231, 32
   %66 = load ptr, ptr %16, align 8
-  %67 = getelementptr inbounds nuw %"class.std::vector.24", ptr %66, i64 %indvars.iv234
+  %67 = getelementptr inbounds nuw [24 x i8], ptr %66, i64 %indvars.iv234
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds nuw %"class.open_spiel::twixt::Cell", ptr %68, i64 %indvars.iv231
+  %69 = getelementptr inbounds nuw [80 x i8], ptr %68, i64 %indvars.iv231
   %70 = sext i32 %65 to i64
   %.not.i.us = icmp slt i64 %indvars.iv234, %70
   br i1 %.not.i.us, label %71, label %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread.us
@@ -609,7 +604,7 @@ _ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread163.us: ; 
 .split.us.i.us:                                   ; preds = %.split.us.i.preheader.us, %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread.us.i.us
   %91 = phi ptr [ %446, %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread.us.i.us ], [ %.pre24.i.us, %.split.us.i.preheader.us ]
   %indvars.iv19.i.us = phi i64 [ %indvars.iv.next20.i.us, %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread.us.i.us ], [ 0, %.split.us.i.preheader.us ]
-  %92 = getelementptr inbounds nuw %"struct.open_spiel::twixt::LinkDescriptor", ptr %91, i64 %indvars.iv19.i.us
+  %92 = getelementptr inbounds nuw [32 x i8], ptr %91, i64 %indvars.iv19.i.us
   %93 = load i32, ptr %92, align 4
   %94 = add nsw i32 %93, %64
   %95 = getelementptr inbounds nuw i8, ptr %92, i64 4
@@ -692,7 +687,7 @@ _ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread57.i.us: ;
   %131 = load i32, ptr %130, align 4
   %132 = sext i32 %131 to i64
   %133 = load ptr, ptr @_ZN10open_spiel5twixtL20kLinkDescriptorTableE, align 8
-  %134 = getelementptr inbounds %"struct.open_spiel::twixt::LinkDescriptor", ptr %133, i64 %132
+  %134 = getelementptr inbounds [32 x i8], ptr %133, i64 %132
   %135 = load i32, ptr %134, align 4
   %136 = add nsw i32 %135, %115
   %137 = getelementptr inbounds nuw i8, ptr %134, i64 4
@@ -728,7 +723,7 @@ _ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit47.thread58.i.us:
   %149 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel5twixt10BlockerMap4map_E, i64 8), align 8
   %150 = urem i64 %451, %149
   %151 = load ptr, ptr @_ZN10open_spiel5twixt10BlockerMap4map_E, align 8
-  %152 = getelementptr inbounds ptr, ptr %151, i64 %150
+  %152 = getelementptr inbounds [8 x i8], ptr %151, i64 %150
   %153 = load ptr, ptr %152, align 8
   %.not.i.i.i97.us = icmp eq ptr %153, null
   br i1 %.not.i.i.i97.us, label %.loopexit.i103.us, label %154
@@ -841,7 +836,7 @@ _ZNSt10_HashtableI4LinkSt4pairIKS0_St3setIS0_St4lessIS0_ESaIS0_EEESaIS8_ENSt8__d
   %200 = getelementptr inbounds nuw i8, ptr %.031.i129.us, i64 72
   %201 = load i64, ptr %200, align 8
   %202 = urem i64 %201, %191
-  %203 = getelementptr inbounds ptr, ptr %.0.i.i126.us, i64 %202
+  %203 = getelementptr inbounds [8 x i8], ptr %.0.i.i126.us, i64 %202
   %204 = load ptr, ptr %203, align 8
   %.not27.i131.us = icmp eq ptr %204, null
   br i1 %.not27.i131.us, label %208, label %205
@@ -863,7 +858,7 @@ _ZNSt10_HashtableI4LinkSt4pairIKS0_St3setIS0_St4lessIS0_ESaIS0_EEESaIS8_ENSt8__d
   br i1 %.not28.i135.us, label %213, label %211
 
 211:                                              ; preds = %208
-  %212 = getelementptr inbounds ptr, ptr %.0.i.i126.us, i64 %.02530.i130.us
+  %212 = getelementptr inbounds [8 x i8], ptr %.0.i.i126.us, i64 %.02530.i130.us
   store ptr %.031.i129.us, ptr %212, align 8
   br label %213
 
@@ -894,7 +889,7 @@ _ZNSt10_HashtableI4LinkSt4pairIKS0_St3setIS0_St4lessIS0_ESaIS0_EEESaIS8_ENSt8__d
   %.0.i111.us = phi i64 [ %219, %_ZNSt10_HashtableI4LinkSt4pairIKS0_St3setIS0_St4lessIS0_ESaIS0_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS0_EN10open_spiel5twixt16LinkHashFunctionENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_rehashEmRKm.exit.i114.us ], [ %150, %.noexc115.us._crit_edge ]
   %222 = getelementptr inbounds nuw i8, ptr %178, i64 72
   store i64 %451, ptr %222, align 8
-  %223 = getelementptr inbounds ptr, ptr %221, i64 %.0.i111.us
+  %223 = getelementptr inbounds [8 x i8], ptr %221, i64 %.0.i111.us
   %224 = load ptr, ptr %223, align 8
   %.not.i.i112.us = icmp eq ptr %224, null
   br i1 %.not.i.i112.us, label %228, label %225
@@ -918,14 +913,14 @@ _ZNSt10_HashtableI4LinkSt4pairIKS0_St3setIS0_St4lessIS0_ESaIS0_EEESaIS8_ENSt8__d
   %232 = getelementptr inbounds nuw i8, ptr %229, i64 72
   %233 = load i64, ptr %232, align 8
   %234 = urem i64 %233, %231
-  %235 = getelementptr inbounds ptr, ptr %221, i64 %234
+  %235 = getelementptr inbounds [8 x i8], ptr %221, i64 %234
   store ptr %178, ptr %235, align 8
   %.pre238 = load ptr, ptr @_ZN10open_spiel5twixt10BlockerMap4map_E, align 8
   br label %236
 
 236:                                              ; preds = %230, %228
   %237 = phi ptr [ %.pre238, %230 ], [ %221, %228 ]
-  %238 = getelementptr inbounds ptr, ptr %237, i64 %.0.i111.us
+  %238 = getelementptr inbounds [8 x i8], ptr %237, i64 %.0.i111.us
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel5twixt10BlockerMap4map_E, i64 16), ptr %238, align 8
   br label %_ZNSt10_HashtableI4LinkSt4pairIKS0_St3setIS0_St4lessIS0_ESaIS0_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS0_EN10open_spiel5twixt16LinkHashFunctionENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNSA_10_Hash_nodeIS8_Lb1EEEm.exit118.us
 
@@ -1082,7 +1077,7 @@ _ZNSt8_Rb_treeI4LinkS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE16_M_insert_uniqueIR
   %298 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel5twixt10BlockerMap4map_E, i64 8), align 8
   %299 = urem i64 %451, %298
   %300 = load ptr, ptr @_ZN10open_spiel5twixt10BlockerMap4map_E, align 8
-  %301 = getelementptr inbounds ptr, ptr %300, i64 %299
+  %301 = getelementptr inbounds [8 x i8], ptr %300, i64 %299
   %302 = load ptr, ptr %301, align 8
   %.not.i.i.i61.us = icmp eq ptr %302, null
   br i1 %.not.i.i.i61.us, label %.loopexit.i.us, label %303
@@ -1195,7 +1190,7 @@ _ZNSt10_HashtableI4LinkSt4pairIKS0_St3setIS0_St4lessIS0_ESaIS0_EEESaIS8_ENSt8__d
   %349 = getelementptr inbounds nuw i8, ptr %.031.i.us, i64 72
   %350 = load i64, ptr %349, align 8
   %351 = urem i64 %350, %340
-  %352 = getelementptr inbounds ptr, ptr %.0.i.i.us, i64 %351
+  %352 = getelementptr inbounds [8 x i8], ptr %.0.i.i.us, i64 %351
   %353 = load ptr, ptr %352, align 8
   %.not27.i.us = icmp eq ptr %353, null
   br i1 %.not27.i.us, label %357, label %354
@@ -1217,7 +1212,7 @@ _ZNSt10_HashtableI4LinkSt4pairIKS0_St3setIS0_St4lessIS0_ESaIS0_EEESaIS8_ENSt8__d
   br i1 %.not28.i.us, label %362, label %360
 
 360:                                              ; preds = %357
-  %361 = getelementptr inbounds ptr, ptr %.0.i.i.us, i64 %.02530.i.us
+  %361 = getelementptr inbounds [8 x i8], ptr %.0.i.i.us, i64 %.02530.i.us
   store ptr %.031.i.us, ptr %361, align 8
   br label %362
 
@@ -1248,7 +1243,7 @@ _ZNSt10_HashtableI4LinkSt4pairIKS0_St3setIS0_St4lessIS0_ESaIS0_EEESaIS8_ENSt8__d
   %.0.i108.us = phi i64 [ %368, %_ZNSt10_HashtableI4LinkSt4pairIKS0_St3setIS0_St4lessIS0_ESaIS0_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS0_EN10open_spiel5twixt16LinkHashFunctionENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_rehashEmRKm.exit.i.us ], [ %299, %.noexc110.us._crit_edge ]
   %371 = getelementptr inbounds nuw i8, ptr %327, i64 72
   store i64 %451, ptr %371, align 8
-  %372 = getelementptr inbounds ptr, ptr %370, i64 %.0.i108.us
+  %372 = getelementptr inbounds [8 x i8], ptr %370, i64 %.0.i108.us
   %373 = load ptr, ptr %372, align 8
   %.not.i.i109.us = icmp eq ptr %373, null
   br i1 %.not.i.i109.us, label %377, label %374
@@ -1272,14 +1267,14 @@ _ZNSt10_HashtableI4LinkSt4pairIKS0_St3setIS0_St4lessIS0_ESaIS0_EEESaIS8_ENSt8__d
   %381 = getelementptr inbounds nuw i8, ptr %378, i64 72
   %382 = load i64, ptr %381, align 8
   %383 = urem i64 %382, %380
-  %384 = getelementptr inbounds ptr, ptr %370, i64 %383
+  %384 = getelementptr inbounds [8 x i8], ptr %370, i64 %383
   store ptr %327, ptr %384, align 8
   %.pre240 = load ptr, ptr @_ZN10open_spiel5twixt10BlockerMap4map_E, align 8
   br label %385
 
 385:                                              ; preds = %379, %377
   %386 = phi ptr [ %.pre240, %379 ], [ %370, %377 ]
-  %387 = getelementptr inbounds ptr, ptr %386, i64 %.0.i108.us
+  %387 = getelementptr inbounds [8 x i8], ptr %386, i64 %.0.i108.us
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel5twixt10BlockerMap4map_E, i64 16), ptr %387, align 8
   br label %_ZNSt10_HashtableI4LinkSt4pairIKS0_St3setIS0_St4lessIS0_ESaIS0_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS0_EN10open_spiel5twixt16LinkHashFunctionENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNSA_10_Hash_nodeIS8_Lb1EEEm.exit.us
 
@@ -1434,7 +1429,7 @@ _ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread.i55.us: ;
   br i1 %.not.i56.us, label %_ZN10open_spiel5twixt5Board20InitializeBlockerMapE8PositioniRKNS0_14LinkDescriptorE.exit.us, label %.lr.ph.i.us
 
 _ZN10open_spiel5twixt5Board20InitializeBlockerMapE8PositioniRKNS0_14LinkDescriptorE.exit.us: ; preds = %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread.i55.us, %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread13.us.i.us
-  %445 = getelementptr inbounds nuw %struct.Position, ptr %87, i64 %indvars.iv19.i.us
+  %445 = getelementptr inbounds nuw [8 x i8], ptr %87, i64 %indvars.iv19.i.us
   store i64 %.sroa.0.0.insert.insert.i.us.i.us, ptr %445, align 4
   %.pre23.i.us = load ptr, ptr @_ZN10open_spiel5twixtL20kLinkDescriptorTableE, align 8
   br label %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread.us.i.us
@@ -1486,9 +1481,9 @@ _ZN10open_spiel5twixt5Board19InitializeNeighborsE8PositionRNS0_4CellEb.exit.us: 
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN10open_spiel5twixt5Board19InitializeNeighborsE8PositionRNS0_4CellEb.exit ], [ 0, %.lr.ph ]
   %454 = phi i32 [ %524, %_ZN10open_spiel5twixt5Board19InitializeNeighborsE8PositionRNS0_4CellEb.exit ], [ %60, %.lr.ph ]
   %455 = load ptr, ptr %16, align 8
-  %456 = getelementptr inbounds nuw %"class.std::vector.24", ptr %455, i64 %indvars.iv234
+  %456 = getelementptr inbounds nuw [24 x i8], ptr %455, i64 %indvars.iv234
   %457 = load ptr, ptr %456, align 8
-  %458 = getelementptr inbounds nuw %"class.open_spiel::twixt::Cell", ptr %457, i64 %indvars.iv
+  %458 = getelementptr inbounds nuw [80 x i8], ptr %457, i64 %indvars.iv
   %459 = sext i32 %454 to i64
   %.not.i = icmp slt i64 %indvars.iv234, %459
   br i1 %.not.i, label %460, label %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread
@@ -1666,7 +1661,7 @@ _ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread163: ; pre
 
 .split.i:                                         ; preds = %.split.i.preheader, %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread.i ], [ 0, %.split.i.preheader ]
-  %506 = getelementptr inbounds nuw %"struct.open_spiel::twixt::LinkDescriptor", ptr %.pre24.i, i64 %indvars.iv.i
+  %506 = getelementptr inbounds nuw [32 x i8], ptr %.pre24.i, i64 %indvars.iv.i
   %507 = load i32, ptr %506, align 4
   %508 = add nsw i32 %507, %64
   %509 = getelementptr inbounds nuw i8, ptr %506, i64 4
@@ -1702,7 +1697,7 @@ _ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.i: ; preds = %51
   br i1 %spec.select.i.i, label %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread.i, label %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread13.i
 
 _ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread13.i: ; preds = %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.i, %517
-  %523 = getelementptr inbounds nuw %struct.Position, ptr %484, i64 %indvars.iv.i
+  %523 = getelementptr inbounds nuw [8 x i8], ptr %484, i64 %indvars.iv.i
   store i64 %.sroa.0.0.insert.insert.i.i, ptr %523, align 4
   br label %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread.i
 
@@ -1755,7 +1750,7 @@ define void @_ZN10open_spiel5twixt5Board22InitializeLegalActionsEv(ptr noundef n
 15:                                               ; preds = %1, %_ZNSt6vectorIlSaIlEE5clearEv.exit
   %16 = phi i1 [ true, %1 ], [ false, %_ZNSt6vectorIlSaIlEE5clearEv.exit ]
   %indvars.iv = phi i64 [ 0, %1 ], [ 1, %_ZNSt6vectorIlSaIlEE5clearEv.exit ]
-  %17 = getelementptr inbounds nuw %"class.std::vector.19", ptr %6, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %indvars.iv
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr %17, align 8
@@ -1778,7 +1773,7 @@ define void @_ZN10open_spiel5twixt5Board22InitializeLegalActionsEv(ptr noundef n
   br i1 %29, label %30, label %_ZNSt6vectorIlSaIlEE6resizeEm.exit
 
 30:                                               ; preds = %28
-  %31 = getelementptr inbounds i64, ptr %20, i64 %7
+  %31 = getelementptr inbounds [8 x i8], ptr %20, i64 %7
   %.not.i.i = icmp eq ptr %19, %31
   br i1 %.not.i.i, label %_ZNSt6vectorIlSaIlEE6resizeEm.exit, label %32
 
@@ -1901,7 +1896,7 @@ _ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i: ; preds = %75, %_ZNKS
 _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJRKlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i: ; preds = %77, %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i
   store ptr %72, ptr %6, align 8
   store ptr %76, ptr %10, align 8
-  %78 = getelementptr inbounds nuw i64, ptr %72, i64 %70
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %70
   store ptr %78, ptr %11, align 8
   br label %_ZNSt6vectorIlSaIlEE9push_backERKl.exit
 
@@ -1979,7 +1974,7 @@ _ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i42: ; preds = %105, %_Z
 _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJRKlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i44: ; preds = %107, %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i42
   store ptr %102, ptr %12, align 8
   store ptr %106, ptr %13, align 8
-  %108 = getelementptr inbounds nuw i64, ptr %102, i64 %100
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %102, i64 %100
   store ptr %108, ptr %14, align 8
   br label %_ZNSt6vectorIlSaIlEE9push_backERKl.exit
 
@@ -2040,7 +2035,7 @@ _ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i50: ; preds = %130, %_Z
 _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJRKlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i52: ; preds = %132, %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i50
   store ptr %127, ptr %6, align 8
   store ptr %131, ptr %10, align 8
-  %133 = getelementptr inbounds nuw i64, ptr %127, i64 %125
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %127, i64 %125
   store ptr %133, ptr %11, align 8
   br label %_ZNSt6vectorIlSaIlEE9push_backERKl.exit53
 
@@ -2101,7 +2096,7 @@ _ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i58: ; preds = %155, %_Z
 _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJRKlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i60: ; preds = %157, %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i58
   store ptr %152, ptr %12, align 8
   store ptr %156, ptr %13, align 8
-  %158 = getelementptr inbounds nuw i64, ptr %152, i64 %150
+  %158 = getelementptr inbounds nuw [8 x i8], ptr %152, i64 %150
   store ptr %158, ptr %14, align 8
   br label %_ZNSt6vectorIlSaIlEE9push_backERKl.exit
 
@@ -2236,7 +2231,7 @@ _ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread57: ; pred
   %32 = load i32, ptr %31, align 4
   %33 = sext i32 %32 to i64
   %34 = load ptr, ptr @_ZN10open_spiel5twixtL20kLinkDescriptorTableE, align 8
-  %35 = getelementptr inbounds %"struct.open_spiel::twixt::LinkDescriptor", ptr %34, i64 %33
+  %35 = getelementptr inbounds [32 x i8], ptr %34, i64 %33
   %36 = load i32, ptr %35, align 4
   %37 = add nsw i32 %36, %16
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 4
@@ -2346,10 +2341,10 @@ define void @_ZN10open_spiel5twixt5Board12UpdateResultEi8Position(ptr noundef no
   %sext.i = shl i64 %2, 32
   %5 = ashr exact i64 %sext.i, 32
   %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds %"class.std::vector.24", ptr %6, i64 %5
+  %7 = getelementptr inbounds [24 x i8], ptr %6, i64 %5
   %8 = ashr i64 %2, 32
   %9 = load ptr, ptr %7, align 8
-  %10 = getelementptr inbounds %"class.open_spiel::twixt::Cell", ptr %9, i64 %8
+  %10 = getelementptr inbounds [80 x i8], ptr %9, i64 %8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 76
   %12 = sext i32 %1 to i64
   %13 = getelementptr inbounds [2 x i8], ptr %11, i64 %12
@@ -2370,7 +2365,7 @@ define void @_ZN10open_spiel5twixt5Board12UpdateResultEi8Position(ptr noundef no
   %23 = sub nsw i32 1, %1
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %25 = sext i32 %23 to i64
-  %26 = getelementptr inbounds %"class.std::vector.19", ptr %24, i64 %25
+  %26 = getelementptr inbounds [24 x i8], ptr %24, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = load ptr, ptr %26, align 8
@@ -2400,7 +2395,7 @@ define void @_ZN10open_spiel5twixt5Board19InitializeNeighborsE8PositionRNS0_4Cel
 .split.us:                                        ; preds = %4, %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread.us
   %7 = phi ptr [ %27, %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread.us ], [ %.pre24, %4 ]
   %indvars.iv19 = phi i64 [ %indvars.iv.next20, %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread.us ], [ 0, %4 ]
-  %8 = getelementptr inbounds nuw %"struct.open_spiel::twixt::LinkDescriptor", ptr %7, i64 %indvars.iv19
+  %8 = getelementptr inbounds nuw [32 x i8], ptr %7, i64 %indvars.iv19
   %9 = load i32, ptr %8, align 4
   %10 = add nsw i32 %9, %.sroa.0.0.extract.trunc
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 4
@@ -2438,7 +2433,7 @@ _ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.us: ; preds = %1
 _ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread13.us: ; preds = %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.us, %19
   %25 = trunc nuw nsw i64 %indvars.iv19 to i32
   tail call void @_ZN10open_spiel5twixt5Board20InitializeBlockerMapE8PositioniRKNS0_14LinkDescriptorE(ptr noundef nonnull align 8 dereferenceable(104) %0, i64 %1, i32 noundef %25, ptr noundef nonnull align 8 dereferenceable(32) %8)
-  %26 = getelementptr inbounds nuw %struct.Position, ptr %6, i64 %indvars.iv19
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv19
   store i64 %.sroa.0.0.insert.insert.i.us, ptr %26, align 4
   %.pre23 = load ptr, ptr @_ZN10open_spiel5twixtL20kLinkDescriptorTableE, align 8
   br label %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread.us
@@ -2451,7 +2446,7 @@ _ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread.us: ; pre
 
 .split:                                           ; preds = %4, %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread ], [ 0, %4 ]
-  %28 = getelementptr inbounds nuw %"struct.open_spiel::twixt::LinkDescriptor", ptr %.pre24, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [32 x i8], ptr %.pre24, i64 %indvars.iv
   %29 = load i32, ptr %28, align 4
   %30 = add nsw i32 %29, %.sroa.0.0.extract.trunc
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 4
@@ -2487,7 +2482,7 @@ _ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit: ; preds = %39
   br i1 %spec.select.i, label %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread, label %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread13
 
 _ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread13: ; preds = %39, %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit
-  %45 = getelementptr inbounds nuw %struct.Position, ptr %6, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   store i64 %.sroa.0.0.insert.insert.i, ptr %45, align 4
   br label %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread
 
@@ -2955,7 +2950,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit61: ; 
 
 switch.lookup:                                    ; preds = %114
   %118 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK10open_spiel5twixt5Board8ToStringB5cxx11Ev, i64 %118
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK10open_spiel5twixt5Board8ToStringB5cxx11Ev, i64 %118
   %switch.load = load ptr, ptr %switch.gep, align 8
   %119 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %switch.load)
           to label %120 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -4174,9 +4169,9 @@ _ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread32: ; pred
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %sext.i = and i64 %2, 2147483647
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds nuw %"class.std::vector.24", ptr %25, i64 %sext.i
+  %26 = getelementptr inbounds nuw [24 x i8], ptr %25, i64 %sext.i
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds nuw %"class.open_spiel::twixt::Cell", ptr %27, i64 %.sroa.5.0.extract.shift.i
+  %28 = getelementptr inbounds nuw [80 x i8], ptr %27, i64 %.sroa.5.0.extract.shift.i
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %30 = load i32, ptr %29, align 4
   %31 = sext i32 %30 to i64
@@ -4342,10 +4337,10 @@ define void @_ZNK10open_spiel5twixt5Board13AppendPegCharERNSt7__cxx1112basic_str
   %sext.i = shl i64 %2, 32
   %21 = ashr exact i64 %sext.i, 32
   %22 = load ptr, ptr %20, align 8
-  %23 = getelementptr inbounds %"class.std::vector.24", ptr %22, i64 %21
+  %23 = getelementptr inbounds [24 x i8], ptr %22, i64 %21
   %24 = ashr i64 %2, 32
   %25 = load ptr, ptr %23, align 8
-  %26 = getelementptr inbounds %"class.open_spiel::twixt::Cell", ptr %25, i64 %24
+  %26 = getelementptr inbounds [80 x i8], ptr %25, i64 %24
   %27 = load i32, ptr %26, align 4
   switch i32 %27, label %56 [
     i32 0, label %28
@@ -4702,10 +4697,10 @@ define void @_ZN10open_spiel5twixt5Board13UndoFirstMoveEv(ptr noundef nonnull al
   %sext.i = shl i64 %.sroa.0.0.copyload.i, 32
   %4 = ashr exact i64 %sext.i, 32
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"class.std::vector.24", ptr %5, i64 %4
+  %6 = getelementptr inbounds [24 x i8], ptr %5, i64 %4
   %7 = ashr i64 %.sroa.0.0.copyload.i, 32
   %8 = load ptr, ptr %6, align 8
-  %9 = getelementptr inbounds %"class.open_spiel::twixt::Cell", ptr %8, i64 %7
+  %9 = getelementptr inbounds [80 x i8], ptr %8, i64 %7
   store i32 2, ptr %9, align 4
   %.sroa.0.0.copyload.i4 = load i64, ptr %2, align 8
   %.sroa.0.0.extract.trunc.i = trunc i64 %.sroa.0.0.copyload.i4 to i32
@@ -4718,7 +4713,7 @@ define void @_ZN10open_spiel5twixt5Board13UndoFirstMoveEv(ptr noundef nonnull al
 
 .split.i:                                         ; preds = %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread.i, %1
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread.i ], [ 0, %1 ]
-  %12 = getelementptr inbounds nuw %"struct.open_spiel::twixt::LinkDescriptor", ptr %.pre24.i, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw [32 x i8], ptr %.pre24.i, i64 %indvars.iv.i
   %13 = load i32, ptr %12, align 4
   %14 = add nsw i32 %13, %.sroa.0.0.extract.trunc.i
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 4
@@ -4754,7 +4749,7 @@ _ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.i: ; preds = %23
   br i1 %spec.select.i.i, label %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread.i, label %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread13.i
 
 _ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread13.i: ; preds = %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.i, %23
-  %29 = getelementptr inbounds nuw %struct.Position, ptr %11, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv.i
   store i64 %.sroa.0.0.insert.insert.i.i, ptr %29, align 4
   br label %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread.i
 
@@ -4797,10 +4792,10 @@ define void @_ZN10open_spiel5twixt5Board11ApplyActionEil(ptr noundef nonnull ali
   %sext.i.i = shl i64 %.sroa.0.0.copyload.i, 32
   %19 = ashr exact i64 %sext.i.i, 32
   %20 = load ptr, ptr %18, align 8
-  %21 = getelementptr inbounds %"class.std::vector.24", ptr %20, i64 %19
+  %21 = getelementptr inbounds [24 x i8], ptr %20, i64 %19
   %22 = ashr i64 %.sroa.0.0.copyload.i, 32
   %23 = load ptr, ptr %21, align 8
-  %24 = getelementptr inbounds %"class.open_spiel::twixt::Cell", ptr %23, i64 %22
+  %24 = getelementptr inbounds [80 x i8], ptr %23, i64 %22
   store i32 2, ptr %24, align 4
   %.sroa.0.0.copyload.i4.i = load i64, ptr %12, align 8
   %.sroa.0.0.extract.trunc.i.i = trunc i64 %.sroa.0.0.copyload.i4.i to i32
@@ -4812,7 +4807,7 @@ define void @_ZN10open_spiel5twixt5Board11ApplyActionEil(ptr noundef nonnull ali
 
 .split.i.i:                                       ; preds = %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread.i.i, %16
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread.i.i ], [ 0, %16 ]
-  %26 = getelementptr inbounds nuw %"struct.open_spiel::twixt::LinkDescriptor", ptr %.pre24.i.i, i64 %indvars.iv.i.i
+  %26 = getelementptr inbounds nuw [32 x i8], ptr %.pre24.i.i, i64 %indvars.iv.i.i
   %27 = load i32, ptr %26, align 4
   %28 = add nsw i32 %27, %.sroa.0.0.extract.trunc.i.i
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 4
@@ -4848,7 +4843,7 @@ _ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.i.i: ; preds = %
   br i1 %spec.select.i.i.i, label %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread.i.i, label %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread13.i.i
 
 _ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread13.i.i: ; preds = %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.i.i, %37
-  %43 = getelementptr inbounds nuw %struct.Position, ptr %25, i64 %indvars.iv.i.i
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv.i.i
   store i64 %.sroa.0.0.insert.insert.i.i.i, ptr %43, align 4
   br label %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread.i.i
 
@@ -5419,10 +5414,10 @@ _ZN10open_spiel5twixt5Board17RemoveLegalActionEi8Position.exit102: ; preds = %_Z
   %274 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %275 = sext i32 %.sroa.0105.0 to i64
   %276 = load ptr, ptr %274, align 8
-  %277 = getelementptr inbounds %"class.std::vector.24", ptr %276, i64 %275
+  %277 = getelementptr inbounds [24 x i8], ptr %276, i64 %275
   %278 = sext i32 %.sroa.9.0 to i64
   %279 = load ptr, ptr %277, align 8
-  %280 = getelementptr inbounds %"class.open_spiel::twixt::Cell", ptr %279, i64 %278
+  %280 = getelementptr inbounds [80 x i8], ptr %279, i64 %278
   %281 = getelementptr inbounds nuw i8, ptr %280, i64 76
   %282 = sext i32 %1 to i64
   %283 = getelementptr inbounds [2 x i8], ptr %281, i64 %282
@@ -5443,7 +5438,7 @@ _ZN10open_spiel5twixt5Board17RemoveLegalActionEi8Position.exit102: ; preds = %_Z
   %293 = sub nsw i32 1, %1
   %294 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %295 = sext i32 %293 to i64
-  %296 = getelementptr inbounds %"class.std::vector.19", ptr %294, i64 %295
+  %296 = getelementptr inbounds [24 x i8], ptr %294, i64 %295
   %297 = getelementptr inbounds nuw i8, ptr %296, i64 8
   %298 = load ptr, ptr %297, align 8
   %299 = load ptr, ptr %296, align 8
@@ -5486,7 +5481,7 @@ define void @_ZN10open_spiel5twixt5Board17RemoveLegalActionEi8Position(ptr nound
   %8 = sext i32 %7 to i64
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %10 = sext i32 %1 to i64
-  %11 = getelementptr inbounds %"class.std::vector.19", ptr %9, i64 %10
+  %11 = getelementptr inbounds [24 x i8], ptr %9, i64 %10
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %14 = load ptr, ptr %13, align 8
@@ -5630,10 +5625,10 @@ define void @_ZN10open_spiel5twixt5Board14SetPegAndLinksEi8Position(ptr noundef 
   %sext.i = shl i64 %2, 32
   %10 = ashr exact i64 %sext.i, 32
   %11 = load ptr, ptr %9, align 8
-  %12 = getelementptr inbounds %"class.std::vector.24", ptr %11, i64 %10
+  %12 = getelementptr inbounds [24 x i8], ptr %11, i64 %10
   %13 = ashr i64 %2, 32
   %14 = load ptr, ptr %12, align 8
-  %15 = getelementptr inbounds %"class.open_spiel::twixt::Cell", ptr %14, i64 %13
+  %15 = getelementptr inbounds [80 x i8], ptr %14, i64 %13
   store i32 %1, ptr %15, align 4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -5651,7 +5646,7 @@ define void @_ZN10open_spiel5twixt5Board14SetPegAndLinksEi8Position(ptr noundef 
   %.05585 = phi i1 [ false, %3 ], [ %.1, %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread ]
   %.05883 = phi i1 [ false, %3 ], [ %.159, %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread ]
   %25 = load ptr, ptr @_ZN10open_spiel5twixtL20kLinkDescriptorTableE, align 8
-  %26 = getelementptr inbounds nuw %"struct.open_spiel::twixt::LinkDescriptor", ptr %25, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [32 x i8], ptr %25, i64 %indvars.iv
   %27 = load i32, ptr %26, align 4
   %28 = add nsw i32 %27, %.sroa.077.0.extract.trunc
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 4
@@ -5686,9 +5681,9 @@ _ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit: ; preds = %36
 
 _ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread78: ; preds = %36, %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit
   %42 = load ptr, ptr %9, align 8
-  %43 = getelementptr inbounds nuw %"class.std::vector.24", ptr %42, i64 %.sroa.0.0.insert.ext.i
+  %43 = getelementptr inbounds nuw [24 x i8], ptr %42, i64 %.sroa.0.0.insert.ext.i
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds nuw %"class.open_spiel::twixt::Cell", ptr %44, i64 %.sroa.2.0.insert.ext.i
+  %45 = getelementptr inbounds nuw [80 x i8], ptr %44, i64 %.sroa.2.0.insert.ext.i
   %46 = load i32, ptr %45, align 4
   %47 = load i32, ptr %15, align 4
   %48 = icmp eq i32 %46, %47
@@ -5717,10 +5712,10 @@ _ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread78: ; pred
   %.sroa.0.0.copyload = load i64, ptr %57, align 4
   %sext.i62 = shl i64 %.sroa.0.0.copyload, 32
   %58 = ashr exact i64 %sext.i62, 32
-  %59 = getelementptr inbounds %"class.std::vector.24", ptr %55, i64 %58
+  %59 = getelementptr inbounds [24 x i8], ptr %55, i64 %58
   %60 = ashr i64 %.sroa.0.0.copyload, 32
   %61 = load ptr, ptr %59, align 8
-  %62 = getelementptr inbounds %"class.open_spiel::twixt::Cell", ptr %61, i64 %60
+  %62 = getelementptr inbounds [80 x i8], ptr %61, i64 %60
   %63 = getelementptr inbounds nuw i8, ptr %.sroa.074.082, i64 40
   %64 = load i32, ptr %63, align 4
   %65 = getelementptr inbounds nuw i8, ptr %62, i64 4
@@ -6044,15 +6039,15 @@ _ZNSt3setIPN10open_spiel5twixt4CellESt4lessIS3_ESaIS3_EE6insertEOS3_.exit: ; pre
   br i1 %.not, label %.critedge, label %48
 
 48:                                               ; preds = %43
-  %49 = getelementptr inbounds nuw %struct.Position, ptr %33, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv
   %.sroa.0.0.copyload.i = load i64, ptr %49, align 4
   %sext.i = shl i64 %.sroa.0.0.copyload.i, 32
   %50 = ashr exact i64 %sext.i, 32
   %51 = load ptr, ptr %34, align 8
-  %52 = getelementptr inbounds %"class.std::vector.24", ptr %51, i64 %50
+  %52 = getelementptr inbounds [24 x i8], ptr %51, i64 %50
   %53 = ashr i64 %.sroa.0.0.copyload.i, 32
   %54 = load ptr, ptr %52, align 8
-  %55 = getelementptr inbounds %"class.open_spiel::twixt::Cell", ptr %54, i64 %53
+  %55 = getelementptr inbounds [80 x i8], ptr %54, i64 %53
   %56 = load ptr, ptr %8, align 8
   %.not10.i.i.i = icmp eq ptr %56, null
   br i1 %.not10.i.i.i, label %_ZNSt3setIPN10open_spiel5twixt4CellESt4lessIS3_ESaIS3_EE4findERKS3_.exit.thread, label %.lr.ph.i.i.i20
@@ -6714,7 +6709,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(48) ptr @_ZNSt8__det
   %15 = load i64, ptr %14, align 8
   %16 = urem i64 %13, %15
   %17 = load ptr, ptr %0, align 8
-  %18 = getelementptr inbounds ptr, ptr %17, i64 %16
+  %18 = getelementptr inbounds [8 x i8], ptr %17, i64 %16
   %19 = load ptr, ptr %18, align 8
   %.not.i.i = icmp eq ptr %19, null
   br i1 %.not.i.i, label %.loopexit, label %20
@@ -6846,7 +6841,7 @@ _ZNSt10_HashtableI4LinkSt4pairIKS0_St3setIS0_St4lessIS0_ESaIS0_EEESaIS8_ENSt8__d
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 72
   store i64 %2, ptr %32, align 8
   %33 = load ptr, ptr %0, align 8
-  %34 = getelementptr inbounds ptr, ptr %33, i64 %.0
+  %34 = getelementptr inbounds [8 x i8], ptr %33, i64 %.0
   %35 = load ptr, ptr %34, align 8
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %41, label %36
@@ -6855,7 +6850,7 @@ _ZNSt10_HashtableI4LinkSt4pairIKS0_St3setIS0_St4lessIS0_ESaIS0_EEESaIS8_ENSt8__d
   %37 = load ptr, ptr %35, align 8
   store ptr %37, ptr %3, align 8
   %38 = load ptr, ptr %0, align 8
-  %39 = getelementptr inbounds ptr, ptr %38, i64 %.0
+  %39 = getelementptr inbounds [8 x i8], ptr %38, i64 %.0
   %40 = load ptr, ptr %39, align 8
   store ptr %3, ptr %40, align 8
   br label %_ZNSt10_HashtableI4LinkSt4pairIKS0_St3setIS0_St4lessIS0_ESaIS0_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS0_EN10open_spiel5twixt16LinkHashFunctionENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE22_M_insert_bucket_beginEmPNSA_10_Hash_nodeIS8_Lb1EEE.exit
@@ -6875,13 +6870,13 @@ _ZNSt10_HashtableI4LinkSt4pairIKS0_St3setIS0_St4lessIS0_ESaIS0_EEESaIS8_ENSt8__d
   %48 = getelementptr inbounds nuw i8, ptr %44, i64 72
   %49 = load i64, ptr %48, align 8
   %50 = urem i64 %49, %47
-  %51 = getelementptr inbounds ptr, ptr %46, i64 %50
+  %51 = getelementptr inbounds [8 x i8], ptr %46, i64 %50
   store ptr %3, ptr %51, align 8
   br label %52
 
 52:                                               ; preds = %45, %41
   %53 = load ptr, ptr %0, align 8
-  %54 = getelementptr inbounds ptr, ptr %53, i64 %.0
+  %54 = getelementptr inbounds [8 x i8], ptr %53, i64 %.0
   store ptr %42, ptr %54, align 8
   br label %_ZNSt10_HashtableI4LinkSt4pairIKS0_St3setIS0_St4lessIS0_ESaIS0_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS0_EN10open_spiel5twixt16LinkHashFunctionENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE22_M_insert_bucket_beginEmPNSA_10_Hash_nodeIS8_Lb1EEE.exit
 
@@ -6970,7 +6965,7 @@ _ZNSt10_HashtableI4LinkSt4pairIKS0_St3setIS0_St4lessIS0_ESaIS0_EEESaIS8_ENSt8__d
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 72
   %16 = load i64, ptr %15, align 8
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -6985,7 +6980,7 @@ _ZNSt10_HashtableI4LinkSt4pairIKS0_St3setIS0_St4lessIS0_ESaIS0_EEESaIS8_ENSt8__d
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8
   br label %28
 
@@ -7541,7 +7536,7 @@ _ZSt22__uninitialized_move_aIPSt6vectorIN10open_spiel5twixt4CellESaIS3_EES6_SaIS
 
 _ZSt22__uninitialized_move_aIPSt6vectorIN10open_spiel5twixt4CellESaIS3_EES6_SaIS5_EET0_T_S9_S8_RT1_.exit: ; preds = %_ZSt22__uninitialized_move_aIPSt6vectorIN10open_spiel5twixt4CellESaIS3_EES6_SaIS5_EET0_T_S9_S8_RT1_.exit.loopexit, %41
   %52 = phi ptr [ %.pre, %_ZSt22__uninitialized_move_aIPSt6vectorIN10open_spiel5twixt4CellESaIS3_EES6_SaIS5_EET0_T_S9_S8_RT1_.exit.loopexit ], [ %10, %41 ]
-  %53 = getelementptr inbounds %"class.std::vector.24", ptr %52, i64 %2
+  %53 = getelementptr inbounds [24 x i8], ptr %52, i64 %2
   store ptr %53, ptr %9, align 8
   %54 = ptrtoint ptr %42 to i64
   %55 = sub i64 %54, %37
@@ -7753,7 +7748,7 @@ _ZSt24__uninitialized_fill_n_aIPSt6vectorIN10open_spiel5twixt4CellESaIS3_EEmS5_S
 
 _ZSt34__uninitialized_move_if_noexcept_aIPSt6vectorIN10open_spiel5twixt4CellESaIS3_EES6_SaIS5_EET0_T_S9_S8_RT1_.exit: ; preds = %.lr.ph.i.i.i.i.i88, %_ZSt24__uninitialized_fill_n_aIPSt6vectorIN10open_spiel5twixt4CellESaIS3_EEmS5_S5_ET_S7_T0_RKT1_RSaIT2_E.exit86
   %.0.lcssa.i.i.i.i.i92 = phi ptr [ %124, %_ZSt24__uninitialized_fill_n_aIPSt6vectorIN10open_spiel5twixt4CellESaIS3_EEmS5_S5_ET_S7_T0_RKT1_RSaIT2_E.exit86 ], [ %135, %.lr.ph.i.i.i.i.i88 ]
-  %136 = getelementptr inbounds nuw %"class.std::vector.24", ptr %.0.lcssa.i.i.i.i.i92, i64 %2
+  %136 = getelementptr inbounds nuw [24 x i8], ptr %.0.lcssa.i.i.i.i.i92, i64 %2
   %.not11.i.i.i.i.i93 = icmp eq ptr %1, %10
   br i1 %.not11.i.i.i.i.i93, label %_ZSt34__uninitialized_move_if_noexcept_aIPSt6vectorIN10open_spiel5twixt4CellESaIS3_EES6_SaIS5_EET0_T_S9_S8_RT1_.exit99, label %.lr.ph.i.i.i.i.i94
 
@@ -7815,7 +7810,7 @@ _ZSt8_DestroyIPSt6vectorIN10open_spiel5twixt4CellESaIS3_EES5_EvT_S7_RSaIT0_E.exi
 _ZNSt12_Vector_baseISt6vectorIN10open_spiel5twixt4CellESaIS3_EESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZSt8_DestroyIPSt6vectorIN10open_spiel5twixt4CellESaIS3_EES5_EvT_S7_RSaIT0_E.exit, %154
   store ptr %124, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i.i98, ptr %9, align 8
-  %158 = getelementptr inbounds nuw %"class.std::vector.24", ptr %124, i64 %118
+  %158 = getelementptr inbounds nuw [24 x i8], ptr %124, i64 %118
   store ptr %158, ptr %7, align 8
   br label %_ZNSt6vectorIS_IN10open_spiel5twixt4CellESaIS2_EESaIS4_EE16_Temporary_valueD2Ev.exit84
 
@@ -8205,9 +8200,9 @@ _ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit36: ; preds = %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8
-  %39 = getelementptr inbounds nuw i64, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8
-  %40 = getelementptr inbounds nuw i64, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8
   br label %41
 

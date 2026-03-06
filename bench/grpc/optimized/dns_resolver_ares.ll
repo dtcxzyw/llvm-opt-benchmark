@@ -132,7 +132,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple.183" = type { %"struct.std::_Tuple_impl.184" }
 %"struct.std::_Tuple_impl.184" = type { %"struct.std::_Head_base.187" }
 %"struct.std::_Head_base.187" = type { ptr }
-%struct.grpc_resolved_address = type { [128 x i8], i32 }
 %"class.absl::lts_20240722::container_internal::HashSetResizeHelper" = type <{ %"union.absl::lts_20240722::container_internal::HeapOrSoo", i64, i8, i8, i8, [5 x i8] }>
 %"union.absl::lts_20240722::container_internal::HeapOrSoo" = type { %"struct.absl::lts_20240722::container_internal::HeapPtrs" }
 %"struct.absl::lts_20240722::container_internal::HeapPtrs" = type { ptr, %"union.absl::lts_20240722::container_internal::MaybeInitializedPtr" }
@@ -1241,7 +1240,7 @@ _ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds = %2
 _ZNSt6vectorIPFvPvESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %30, %_ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %25, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, align 8, !tbaa !66
   store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 8), align 8, !tbaa !63
-  %31 = getelementptr inbounds nuw ptr, ptr %25, i64 %23
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %23
   store ptr %31, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 16), align 8, !tbaa !67
   br label %_ZNSt6vectorIPFvPvESaIS2_EE9push_backERKS2_.exit
 
@@ -10149,7 +10148,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit27:         ; preds = %_ZN4absl12lts_20240
 _ZNSt12_Vector_baseI21grpc_resolved_addressSaIS0_EE11_M_allocateEm.exit.i: ; preds = %93
   %94 = mul nuw nsw i64 %91, 132
   %95 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %94) #35
-  %96 = getelementptr inbounds nuw %struct.grpc_resolved_address, ptr %95, i64 %91
+  %96 = getelementptr inbounds nuw [132 x i8], ptr %95, i64 %91
   %.pre = load ptr, ptr %83, align 8, !tbaa !227
   %.pre93 = load ptr, ptr %85, align 8, !tbaa !227
   br label %_ZNSt6vectorI21grpc_resolved_addressSaIS0_EE7reserveEm.exit
@@ -10221,7 +10220,7 @@ _ZNSt6vectorI21grpc_resolved_addressSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.
   br label %_ZNSt6vectorI21grpc_resolved_addressSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i
 
 _ZNSt6vectorI21grpc_resolved_addressSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i: ; preds = %117, %_ZNSt6vectorI21grpc_resolved_addressSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i
-  %118 = getelementptr inbounds nuw %struct.grpc_resolved_address, ptr %113, i64 %111
+  %118 = getelementptr inbounds nuw [132 x i8], ptr %113, i64 %111
   br label %_ZNSt6vectorI21grpc_resolved_addressSaIS0_EE9push_backERKS0_.exit
 
 _ZNSt6vectorI21grpc_resolved_addressSaIS0_EE9push_backERKS0_.exit: ; preds = %_ZNSt6vectorI21grpc_resolved_addressSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i, %100
@@ -10771,7 +10770,7 @@ define linkonce_odr { ptr, ptr } @_ZN4absl12lts_2024072218container_internal12ra
   %45 = zext nneg i16 %44 to i64
   %46 = add i64 %.sroa.6.0.i, %45
   %47 = and i64 %46, %3
-  %48 = getelementptr inbounds nuw %"struct.grpc_core::DNSResolver::LookupTaskHandle", ptr %.sroa.0.0.copyload.i.i.i.i, i64 %47
+  %48 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0.0.copyload.i.i.i.i, i64 %47
   %49 = tail call noundef zeroext i1 @_ZN9grpc_coreeqERKNS_11DNSResolver16LookupTaskHandleES3_(ptr noundef nonnull align 8 dereferenceable(16) %48, ptr noundef nonnull align 8 dereferenceable(16) %1)
   br i1 %49, label %.thread29.i, label %53, !prof !155
 
@@ -10779,7 +10778,7 @@ define linkonce_odr { ptr, ptr } @_ZN4absl12lts_2024072218container_internal12ra
   %50 = load ptr, ptr %13, align 8, !tbaa !51
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 %47
   %.sroa.0.0.copyload.i.i.i.i.i = load ptr, ptr %38, align 8, !tbaa !51
-  %52 = getelementptr inbounds nuw %"struct.grpc_core::DNSResolver::LookupTaskHandle", ptr %.sroa.0.0.copyload.i.i.i.i.i, i64 %47
+  %52 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0.0.copyload.i.i.i.i.i, i64 %47
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %51) ]
   br label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN9grpc_core11DNSResolver16LookupTaskHandleEEEN17grpc_event_engine12experimental20TaskHandleComparatorIS6_E4HashESt8equal_toIS6_ESaIS6_EE12find_non_sooIS6_EENSG_8iteratorERKS6_m.exit
 
@@ -10915,7 +10914,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 %31
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.0.0.copyload.i.i.i.i.i = load ptr, ptr %34, align 8, !tbaa !51, !noalias !295
-  %35 = getelementptr inbounds nuw %"struct.grpc_core::DNSResolver::LookupTaskHandle", ptr %.sroa.0.0.copyload.i.i.i.i.i, i64 %31
+  %35 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0.0.copyload.i.i.i.i.i, i64 %31
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %33) ]
   br label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN9grpc_core11DNSResolver16LookupTaskHandleEEEN17grpc_event_engine12experimental20TaskHandleComparatorIS6_E4HashESt8equal_toIS6_ESaIS6_EE26find_or_prepare_insert_sooIS6_EESt4pairINSG_8iteratorEbERKT_.exit
 
@@ -10988,7 +10987,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   %37 = zext nneg i16 %36 to i64
   %38 = add i64 %.sroa.7.0, %37
   %39 = and i64 %38, %21
-  %40 = getelementptr inbounds nuw %"struct.grpc_core::DNSResolver::LookupTaskHandle", ptr %.sroa.0.0.copyload.i.i.i, i64 %39
+  %40 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0.0.copyload.i.i.i, i64 %39
   %41 = tail call noundef zeroext i1 @_ZN9grpc_coreeqERKNS_11DNSResolver16LookupTaskHandleES3_(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(16) %2)
   br i1 %41, label %.critedge21, label %.critedge, !prof !155
 
@@ -11023,7 +11022,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   %54 = load ptr, ptr %4, align 8, !tbaa !51
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 %.sink74
   %.sroa.0.0.copyload.i.i.i.i22 = load ptr, ptr %30, align 8, !tbaa !51
-  %56 = getelementptr inbounds nuw %"struct.grpc_core::DNSResolver::LookupTaskHandle", ptr %.sroa.0.0.copyload.i.i.i.i22, i64 %.sink74
+  %56 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0.0.copyload.i.i.i.i22, i64 %.sink74
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %55) ]
   store ptr %55, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -11180,7 +11179,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   %88 = getelementptr i8, ptr %58, i64 %86
   %89 = getelementptr i8, ptr %88, i64 %87
   store i8 %83, ptr %89, align 1, !tbaa !310
-  %90 = getelementptr inbounds nuw %"struct.grpc_core::DNSResolver::LookupTaskHandle", ptr %.sroa.0.0.copyload.i.i.i, i64 %.sroa.011.0.i.i
+  %90 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0.0.copyload.i.i.i, i64 %.sroa.011.0.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %90, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
   br label %162
 
@@ -11200,7 +11199,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   br i1 %97, label %98, label %148
 
 98:                                               ; preds = %.lr.ph
-  %99 = getelementptr inbounds nuw %"struct.grpc_core::DNSResolver::LookupTaskHandle", ptr %.sroa.0.0.copyload.i.i, i64 %.064
+  %99 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0.0.copyload.i.i, i64 %.064
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 8
   %101 = load i64, ptr %99, align 8, !tbaa !116
   %102 = load i64, ptr %100, align 8, !tbaa !116
@@ -11269,7 +11268,7 @@ _ZZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolic
   %145 = getelementptr i8, ptr %115, i64 %143
   %146 = getelementptr i8, ptr %145, i64 %144
   store i8 %140, ptr %146, align 1, !tbaa !310
-  %147 = getelementptr inbounds nuw %"struct.grpc_core::DNSResolver::LookupTaskHandle", ptr %.sroa.0.0.copyload.i.i.i, i64 %.sroa.011.0.i.i39
+  %147 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0.0.copyload.i.i.i, i64 %.sroa.011.0.i.i39
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %147, ptr noundef nonnull align 8 dereferenceable(16) %99, i64 16, i1 false)
   %.pre = load i64, ptr %33, align 8, !tbaa !301
   br label %148
@@ -11917,7 +11916,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit27:         ; preds = %_ZN4absl12lts_20240
 _ZNSt12_Vector_baseI21grpc_resolved_addressSaIS0_EE11_M_allocateEm.exit.i: ; preds = %93
   %94 = mul nuw nsw i64 %91, 132
   %95 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %94) #35
-  %96 = getelementptr inbounds nuw %struct.grpc_resolved_address, ptr %95, i64 %91
+  %96 = getelementptr inbounds nuw [132 x i8], ptr %95, i64 %91
   %.pre = load ptr, ptr %83, align 8, !tbaa !227
   %.pre93 = load ptr, ptr %85, align 8, !tbaa !227
   br label %_ZNSt6vectorI21grpc_resolved_addressSaIS0_EE7reserveEm.exit
@@ -11989,7 +11988,7 @@ _ZNSt6vectorI21grpc_resolved_addressSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.
   br label %_ZNSt6vectorI21grpc_resolved_addressSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i
 
 _ZNSt6vectorI21grpc_resolved_addressSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i: ; preds = %117, %_ZNSt6vectorI21grpc_resolved_addressSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i
-  %118 = getelementptr inbounds nuw %struct.grpc_resolved_address, ptr %113, i64 %111
+  %118 = getelementptr inbounds nuw [132 x i8], ptr %113, i64 %111
   br label %_ZNSt6vectorI21grpc_resolved_addressSaIS0_EE9push_backERKS0_.exit
 
 _ZNSt6vectorI21grpc_resolved_addressSaIS0_EE9push_backERKS0_.exit: ; preds = %_ZNSt6vectorI21grpc_resolved_addressSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i, %100

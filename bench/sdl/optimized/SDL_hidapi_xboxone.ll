@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.gip_header = type <{ i8, i8, i8, i32, i32 }>
-%struct.SDL_DriverXboxOne_InitPacket = type { i16, i16, ptr, i32 }
 
 @.str = private unnamed_addr constant [29 x i8] c"SDL_JOYSTICK_HIDAPI_XBOX_ONE\00", align 1
 @SDL_HIDAPI_DriverXboxOne = hidden local_unnamed_addr global { ptr, i8, [7 x i8], ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr } { ptr @.str, i8 1, [7 x i8] zeroinitializer, ptr @HIDAPI_DriverXboxOne_RegisterHints, ptr @HIDAPI_DriverXboxOne_UnregisterHints, ptr @HIDAPI_DriverXboxOne_IsEnabled, ptr @HIDAPI_DriverXboxOne_IsSupportedDevice, ptr @HIDAPI_DriverXboxOne_InitDevice, ptr @HIDAPI_DriverXboxOne_GetDevicePlayerIndex, ptr @HIDAPI_DriverXboxOne_SetDevicePlayerIndex, ptr @HIDAPI_DriverXboxOne_UpdateDevice, ptr @HIDAPI_DriverXboxOne_OpenJoystick, ptr @HIDAPI_DriverXboxOne_RumbleJoystick, ptr @HIDAPI_DriverXboxOne_RumbleJoystickTriggers, ptr @HIDAPI_DriverXboxOne_GetJoystickCapabilities, ptr @HIDAPI_DriverXboxOne_SetJoystickLED, ptr @HIDAPI_DriverXboxOne_SendJoystickEffect, ptr @HIDAPI_DriverXboxOne_SetJoystickSensorsEnabled, ptr @HIDAPI_DriverXboxOne_CloseJoystick, ptr @HIDAPI_DriverXboxOne_FreeDevice }, align 8
@@ -817,7 +816,7 @@ SendIdentificationRequest.exit.i:                 ; preds = %SendProtocolPacket.
 
 327:                                              ; preds = %369, %324
   %.02134.i.i = phi i64 [ 0, %324 ], [ %370, %369 ]
-  %328 = getelementptr inbounds nuw %struct.SDL_DriverXboxOne_InitPacket, ptr @xboxone_init_packets, i64 %.02134.i.i
+  %328 = getelementptr inbounds nuw [24 x i8], ptr @xboxone_init_packets, i64 %.02134.i.i
   %329 = add nsw i64 %.02134.i.i, -6
   %.not.i.i36 = icmp ult i64 %329, -3
   br i1 %.not.i.i36, label %.thread.i.i, label %330

@@ -89,13 +89,10 @@ target triple = "x86_64-pc-linux-gnu"
 %"union.std::__detail::__variant::_Variadic_union.7" = type { %"struct.std::__detail::__variant::_Uninitialized.8" }
 %"struct.std::__detail::__variant::_Uninitialized.8" = type { %"struct.__gnu_cxx::__aligned_membuf.9" }
 %"struct.__gnu_cxx::__aligned_membuf.9" = type { [48 x i8] }
-%struct.email_key_mapping = type { ptr, ptr }
-%struct.grpc_http_response = type { i32, i64, ptr, i64, i32, i64, ptr }
 %"class.absl::lts_20240722::StatusOr.77" = type { %"class.absl::lts_20240722::internal_statusor::StatusOrData.78" }
 %"class.absl::lts_20240722::internal_statusor::StatusOrData.78" = type { %union.anon.79, %union.anon.80 }
 %union.anon.79 = type { %"class.absl::lts_20240722::Status" }
 %union.anon.80 = type { %"class.grpc_core::experimental::Json" }
-%struct.grpc_jwt_verifier_email_domain_key_url_mapping = type { ptr, ptr }
 %"struct.std::integral_constant.111" = type { i8 }
 
 $_ZN4absl12lts_2024072212log_internal10LogMessagelsIPKcTnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS7_ = comdat any
@@ -328,7 +325,7 @@ define noundef nonnull ptr @_Z34grpc_jwt_verifier_status_to_string24grpc_jwt_ver
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._Z34grpc_jwt_verifier_status_to_string24grpc_jwt_verifier_status, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._Z34grpc_jwt_verifier_status_to_string24grpc_jwt_verifier_status, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -3120,7 +3117,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi23EEERS2_RAT__Kc.exit.i: ; 
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %579
   %.010.i.i = phi i64 [ %580, %579 ], [ 0, %.preheader.i.i ]
-  %581 = getelementptr inbounds nuw %struct.email_key_mapping, ptr %575, i64 %.010.i.i
+  %581 = getelementptr inbounds nuw [16 x i8], ptr %575, i64 %.010.i.i
   %582 = load ptr, ptr %581, align 8, !tbaa !139
   %583 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %568, ptr noundef nonnull dereferenceable(1) %582) #38
   %584 = icmp eq i32 %583, 0
@@ -4116,7 +4113,7 @@ _ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit.i: ; preds = %980, %977, %974, 
 
 982:                                              ; preds = %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit.i
   %983 = getelementptr inbounds nuw i8, ptr %478, i64 128
-  %984 = getelementptr inbounds nuw %struct.grpc_http_response, ptr %983, i64 %.151.i
+  %984 = getelementptr inbounds nuw [56 x i8], ptr %983, i64 %.151.i
   invoke void @_ZN9grpc_core11HttpRequest3GetENS_3URIEPK17grpc_channel_argsP19grpc_polling_entityPK17grpc_http_requestNS_9TimestampEP12grpc_closureP18grpc_http_responseNS_13RefCountedPtrI24grpc_channel_credentialsEE(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.20") align 8 %27, ptr noundef nonnull %28, ptr noundef null, ptr noundef nonnull %484, ptr noundef nonnull %13, i64 %.0.i.i.i, ptr noundef nonnull %.1.i, ptr noundef nonnull %984, ptr noundef nonnull %29)
           to label %985 unwind label %1015
 
@@ -4845,7 +4842,7 @@ define noundef ptr @_Z24grpc_jwt_verifier_createPK46grpc_jwt_verifier_email_doma
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.015 = phi i64 [ %13, %.lr.ph ], [ 0, %2 ]
-  %9 = getelementptr inbounds nuw %struct.grpc_jwt_verifier_email_domain_key_url_mapping, ptr %0, i64 %.015
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %.015
   %10 = load ptr, ptr %9, align 8, !tbaa !159
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !161
@@ -4881,7 +4878,7 @@ define internal fastcc void @_ZL20verifier_put_mappingP17grpc_jwt_verifierPKcS2_
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %8
   %.010.i = phi i64 [ %9, %8 ], [ 0, %.preheader.i ]
-  %10 = getelementptr inbounds nuw %struct.email_key_mapping, ptr %6, i64 %.010.i
+  %10 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %.010.i
   %11 = load ptr, ptr %10, align 8, !tbaa !139
   %12 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %11) #38
   %13 = icmp eq i32 %12, 0
@@ -4918,12 +4915,12 @@ _ZL20verifier_get_mappingP17grpc_jwt_verifierPKc.exit: ; preds = %8, %.lr.ph.i, 
   %24 = tail call ptr @gpr_strdup(ptr noundef %1)
   %25 = load ptr, ptr %0, align 8, !tbaa !134
   %26 = load i64, ptr %15, align 8, !tbaa !137
-  %27 = getelementptr inbounds nuw %struct.email_key_mapping, ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %25, i64 %26
   store ptr %24, ptr %27, align 8, !tbaa !139
   %28 = tail call ptr @gpr_strdup(ptr noundef %2)
   %29 = load ptr, ptr %0, align 8, !tbaa !134
   %30 = load i64, ptr %15, align 8, !tbaa !137
-  %31 = getelementptr inbounds nuw %struct.email_key_mapping, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [16 x i8], ptr %29, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store ptr %28, ptr %32, align 8, !tbaa !141
   %33 = add i64 %30, 1
@@ -4961,11 +4958,11 @@ define void @_Z25grpc_jwt_verifier_destroyP17grpc_jwt_verifier(ptr noundef %0) l
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.011 = phi i64 [ %14, %.lr.ph ], [ 0, %.preheader ]
   %7 = load ptr, ptr %0, align 8, !tbaa !134
-  %8 = getelementptr inbounds nuw %struct.email_key_mapping, ptr %7, i64 %.011
+  %8 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %.011
   %9 = load ptr, ptr %8, align 8, !tbaa !139
   tail call void @gpr_free(ptr noundef %9)
   %10 = load ptr, ptr %0, align 8, !tbaa !134
-  %11 = getelementptr inbounds nuw %struct.email_key_mapping, ptr %10, i64 %.011
+  %11 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %.011
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !141
   tail call void @gpr_free(ptr noundef %13)
@@ -5096,7 +5093,7 @@ _ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds = %2
 _ZNSt6vectorIPFvPvESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %30, %_ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %25, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, align 8, !tbaa !170
   store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 8), align 8, !tbaa !167
-  %31 = getelementptr inbounds nuw ptr, ptr %25, i64 %23
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %23
   store ptr %31, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 16), align 8, !tbaa !171
   br label %_ZNSt6vectorIPFvPvESaIS2_EE9push_backERKS2_.exit
 

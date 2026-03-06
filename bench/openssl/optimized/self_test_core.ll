@@ -133,7 +133,7 @@ define noalias ptr @OSSL_SELF_TEST_new(ptr noundef %0, ptr noundef %1) local_unn
 self_test_setparams.exit:                         ; preds = %9, %14
   %.0.i = phi i64 [ 3, %14 ], [ 0, %9 ]
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %19 = getelementptr inbounds nuw %struct.ossl_param_st, ptr %18, i64 %.0.i
+  %19 = getelementptr inbounds nuw [40 x i8], ptr %18, i64 %.0.i
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %6) #4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %19, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false), !tbaa.struct !17

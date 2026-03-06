@@ -827,7 +827,7 @@ _ZNSt6vectorIPSoSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i: ; preds = %25, 
 _ZNSt6vectorIPSoSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i: ; preds = %27, %_ZNSt6vectorIPSoSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i
   store ptr %22, ptr @_ZN7logging6Logger9streamVecE, align 8
   store ptr %26, ptr getelementptr inbounds nuw (i8, ptr @_ZN7logging6Logger9streamVecE, i64 8), align 8
-  %28 = getelementptr inbounds nuw ptr, ptr %22, i64 %20
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %20
   store ptr %28, ptr getelementptr inbounds nuw (i8, ptr @_ZN7logging6Logger9streamVecE, i64 16), align 8
   br label %_ZNSt6vectorIPSoSaIS0_EE9push_backERKS0_.exit
 

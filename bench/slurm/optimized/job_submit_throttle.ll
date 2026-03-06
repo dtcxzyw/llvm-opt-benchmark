@@ -7,7 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
 %struct.__pthread_internal_list = type { ptr, ptr }
 %struct.slurm_conf_t = type { i64, ptr, i16, ptr, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i16, ptr, ptr, i16, i32, ptr, i32, ptr, i32, i32, ptr, ptr, i64, i64, ptr, i16, i16, ptr, i32, i32, ptr, i32, ptr, i32, i16, i16, i16, ptr, i16, i16, ptr, ptr, i32, i16, i16, ptr, i32, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, i16, i16, ptr, i32, i32, i32, i16, i16, ptr, ptr, i16, ptr, ptr, i32, i32, i32, i32, i32, i64, i32, i32, i16, ptr, ptr, i32, ptr, ptr, ptr, i16, i32, ptr, ptr, i16, ptr, ptr, i32, i16, ptr, ptr, ptr, ptr, i32, i32, i16, i16, i32, ptr, i16, ptr, i32, i32, i32, i32, i32, i32, ptr, i16, ptr, ptr, i32, i16, ptr, i32, i16, i16, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i16, i16, ptr, i16, ptr, i16, ptr, i16, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, i32, ptr, i32, ptr, ptr, i16, ptr, ptr, i32, i16, ptr, ptr, i16, i16, ptr, i16, ptr, ptr, ptr, i32, ptr, i16, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, i32, i16, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, i16, ptr, ptr, ptr, i16, ptr, i16, ptr, i16, i16, ptr }
-%struct.thru_put = type { i32, i32 }
 
 @plugin_name = dso_local local_unnamed_addr constant [27 x i8] c"Job submit throttle plugin\00", align 16
 @plugin_type = dso_local constant [20 x i8] c"job_submit/throttle\00", align 16
@@ -153,7 +152,7 @@ _get_config.exit:                                 ; preds = %15, %12, %3
 .lr.ph.i:                                         ; preds = %32, %53
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %53 ], [ 0, %32 ]
   %38 = load ptr, ptr @thru_put_array, align 8
-  %39 = getelementptr inbounds nuw %struct.thru_put, ptr %38, i64 %indvars.iv.i
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv.i
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 4
   %41 = load i32, ptr %40, align 4
   %42 = load i32, ptr @jobs_per_user_per_hour, align 4
@@ -168,7 +167,7 @@ _get_config.exit:                                 ; preds = %15, %12, %3
 
 47:                                               ; preds = %.lr.ph.i
   %48 = load ptr, ptr @thru_put_array, align 8
-  %49 = getelementptr inbounds nuw %struct.thru_put, ptr %48, i64 %indvars.iv.i
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %indvars.iv.i
   %50 = load i32, ptr %49, align 4
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 4
   %52 = load i32, ptr %51, align 4
@@ -201,13 +200,13 @@ _reset_counters.exit:                             ; preds = %53, %26, %27
 
 63:                                               ; preds = %.lr.ph, %62
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %62 ]
-  %64 = getelementptr inbounds nuw %struct.thru_put, ptr %59, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %indvars.iv
   %65 = load i32, ptr %64, align 4
   %.not27 = icmp eq i32 %65, %61
   br i1 %.not27, label %66, label %62
 
 66:                                               ; preds = %63
-  %67 = getelementptr inbounds nuw %struct.thru_put, ptr %59, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %indvars.iv
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 4
   %69 = load i32, ptr %68, align 4
   %70 = load i32, ptr @jobs_per_user_per_hour, align 4
@@ -259,11 +258,11 @@ _reset_counters.exit:                             ; preds = %53, %26, %27
   %90 = load i32, ptr %89, align 8
   %91 = load i32, ptr @thru_put_size, align 4
   %92 = sext i32 %91 to i64
-  %93 = getelementptr %struct.thru_put, ptr %88, i64 %92
+  %93 = getelementptr [8 x i8], ptr %88, i64 %92
   %94 = getelementptr i8, ptr %93, i64 -8
   store i32 %90, ptr %94, align 4
   %95 = load ptr, ptr @thru_put_array, align 8
-  %96 = getelementptr %struct.thru_put, ptr %95, i64 %92
+  %96 = getelementptr [8 x i8], ptr %95, i64 %92
   %97 = getelementptr i8, ptr %96, i64 -4
   store i32 1, ptr %97, align 4
   %98 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @throttle_mutex) #8

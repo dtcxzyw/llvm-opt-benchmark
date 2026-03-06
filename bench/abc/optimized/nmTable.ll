@@ -86,7 +86,7 @@ Abc_PrimeCudd.exit.i:                             ; preds = %.preheader.i.i, %21
 
 31:                                               ; preds = %._crit_edge.i, %.lr.ph84.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph84.i ], [ %indvars.iv.next.i, %._crit_edge.i ]
-  %32 = getelementptr inbounds nuw ptr, ptr %.pre, i64 %indvars.iv.i
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %indvars.iv.i
   %33 = load ptr, ptr %32, align 8, !tbaa !18
   %.not70.i = icmp eq ptr %33, null
   br i1 %.not70.i, label %._crit_edge.i, label %.lr.ph.i
@@ -112,7 +112,7 @@ Abc_PrimeCudd.exit.i:                             ; preds = %.preheader.i.i, %21
   %50 = xor i32 %49, %45
   %51 = urem i32 %50, %19
   %52 = zext nneg i32 %51 to i64
-  %53 = getelementptr inbounds nuw ptr, ptr %calloc.i, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %calloc.i, i64 %52
   %54 = load ptr, ptr %53, align 8, !tbaa !18
   store ptr %54, ptr %34, align 8, !tbaa !20
   store ptr %.sink119.i, ptr %53, align 8, !tbaa !18
@@ -126,7 +126,7 @@ Abc_PrimeCudd.exit.i:                             ; preds = %.preheader.i.i, %21
 
 55:                                               ; preds = %._crit_edge90.i, %.preheader.i
   %indvars.iv99.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next100.i, %._crit_edge90.i ]
-  %56 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv99.i
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv99.i
   %57 = load ptr, ptr %56, align 8, !tbaa !18
   %.not67.i = icmp eq ptr %57, null
   br i1 %.not67.i, label %._crit_edge90.i, label %.lr.ph89.i
@@ -147,7 +147,7 @@ Abc_PrimeCudd.exit.i:                             ; preds = %.preheader.i.i, %21
   %63 = sext i8 %62 to i32
   %64 = urem i32 %.01013.i.i, 10
   %65 = zext nneg i32 %64 to i64
-  %66 = getelementptr inbounds nuw i32, ptr @Nm_HashString.s_Primes, i64 %65
+  %66 = getelementptr inbounds nuw [4 x i8], ptr @Nm_HashString.s_Primes, i64 %65
   %67 = load i32, ptr %66, align 4, !tbaa !27
   %68 = mul nsw i32 %63, %63
   %69 = mul i32 %68, %67
@@ -163,7 +163,7 @@ Nm_HashString.exit.i:                             ; preds = %.lr.ph.i73.i, %.lr.
   %.0.lcssa.i.i = phi i32 [ 0, %.lr.ph89.i ], [ %70, %.lr.ph.i73.i ]
   %75 = urem i32 %.0.lcssa.i.i, %19
   %76 = zext i32 %75 to i64
-  %77 = getelementptr inbounds nuw ptr, ptr %calloc115.i, i64 %76
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %calloc115.i, i64 %76
   %78 = load ptr, ptr %77, align 8, !tbaa !18
   store ptr %78, ptr %58, align 8, !tbaa !25
   store ptr %.sink120.i, ptr %77, align 8, !tbaa !18
@@ -221,7 +221,7 @@ Nm_ManResize.exit:                                ; preds = %80, %83
   %102 = xor i32 %101, %97
   %103 = urem i32 %102, %86
   %104 = zext nneg i32 %103 to i64
-  %105 = getelementptr inbounds nuw ptr, ptr %87, i64 %104
+  %105 = getelementptr inbounds nuw [8 x i8], ptr %87, i64 %104
   %106 = load ptr, ptr %105, align 8, !tbaa !18
   %107 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %106, ptr %107, align 8, !tbaa !20
@@ -238,7 +238,7 @@ Nm_ManResize.exit:                                ; preds = %80, %83
   %111 = sext i8 %110 to i32
   %112 = urem i32 %.01013.i.i32, 10
   %113 = zext nneg i32 %112 to i64
-  %114 = getelementptr inbounds nuw i32, ptr @Nm_HashString.s_Primes, i64 %113
+  %114 = getelementptr inbounds nuw [4 x i8], ptr @Nm_HashString.s_Primes, i64 %113
   %115 = load i32, ptr %114, align 4, !tbaa !27
   %116 = mul nsw i32 %111, %111
   %117 = mul i32 %116, %115
@@ -254,7 +254,7 @@ Nm_HashString.exit.i34:                           ; preds = %.lr.ph.i.i30, %84
   %.0.lcssa.i.i35 = phi i32 [ 0, %84 ], [ %118, %.lr.ph.i.i30 ]
   %123 = urem i32 %.0.lcssa.i.i35, %86
   %124 = zext i32 %123 to i64
-  %125 = getelementptr inbounds nuw ptr, ptr %85, i64 %124
+  %125 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %124
   %.02235.i = load ptr, ptr %125, align 8, !tbaa !18
   %.not36.i = icmp eq ptr %.02235.i, null
   br i1 %.not36.i, label %.loopexit, label %.lr.ph40.split.us.i
@@ -314,7 +314,7 @@ Nm_ManTableLookupName.exit:                       ; preds = %.lr.ph40.split.us.i
   %142 = sext i8 %141 to i32
   %143 = urem i32 %.01013.i, 10
   %144 = zext nneg i32 %143 to i64
-  %145 = getelementptr inbounds nuw i32, ptr @Nm_HashString.s_Primes, i64 %144
+  %145 = getelementptr inbounds nuw [4 x i8], ptr @Nm_HashString.s_Primes, i64 %144
   %146 = load i32, ptr %145, align 4, !tbaa !27
   %147 = mul nsw i32 %142, %142
   %148 = mul i32 %147, %146
@@ -330,7 +330,7 @@ Nm_HashString.exit:                               ; preds = %.lr.ph.i36, %.loope
   %.0.lcssa.i = phi i32 [ 0, %.loopexit ], [ %149, %.lr.ph.i36 ]
   %154 = urem i32 %.0.lcssa.i, %86
   %155 = zext i32 %154 to i64
-  %156 = getelementptr inbounds nuw ptr, ptr %85, i64 %155
+  %156 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %155
   %157 = load ptr, ptr %156, align 8, !tbaa !18
   %158 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %157, ptr %158, align 8, !tbaa !25
@@ -361,7 +361,7 @@ define ptr @Nm_ManTableLookupName(ptr noundef readonly captures(none) %0, ptr no
   %10 = sext i8 %9 to i32
   %11 = urem i32 %.01013.i, 10
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr inbounds nuw i32, ptr @Nm_HashString.s_Primes, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr @Nm_HashString.s_Primes, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !27
   %15 = mul nsw i32 %10, %10
   %16 = mul i32 %15, %14
@@ -377,7 +377,7 @@ Nm_HashString.exit:                               ; preds = %.lr.ph.i, %3
   %.0.lcssa.i = phi i32 [ 0, %3 ], [ %17, %.lr.ph.i ]
   %22 = urem i32 %.0.lcssa.i, %7
   %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds nuw ptr, ptr %5, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %23
   %.02235 = load ptr, ptr %24, align 8, !tbaa !18
   %.not36 = icmp eq ptr %.02235, null
   br i1 %.not36, label %.loopexit29, label %.lr.ph40
@@ -493,7 +493,7 @@ define noundef i32 @Nm_ManTableDelete(ptr noundef captures(none) %0, i32 noundef
   %21 = xor i32 %20, %16
   %22 = urem i32 %21, %8
   %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr inbounds nuw ptr, ptr %6, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %23
   br label %25
 
 25:                                               ; preds = %25, %2
@@ -522,7 +522,7 @@ define noundef i32 @Nm_ManTableDelete(ptr noundef captures(none) %0, i32 noundef
   %37 = sext i8 %36 to i32
   %38 = urem i32 %.01013.i, 10
   %39 = zext nneg i32 %38 to i64
-  %40 = getelementptr inbounds nuw i32, ptr @Nm_HashString.s_Primes, i64 %39
+  %40 = getelementptr inbounds nuw [4 x i8], ptr @Nm_HashString.s_Primes, i64 %39
   %41 = load i32, ptr %40, align 4, !tbaa !27
   %42 = mul nsw i32 %37, %37
   %43 = mul i32 %42, %41
@@ -538,7 +538,7 @@ Nm_HashString.exit:                               ; preds = %.lr.ph.i, %30
   %.0.lcssa.i = phi i32 [ 0, %30 ], [ %44, %.lr.ph.i ]
   %49 = urem i32 %.0.lcssa.i, %8
   %50 = zext i32 %49 to i64
-  %51 = getelementptr inbounds nuw ptr, ptr %33, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %50
   br label %52
 
 52:                                               ; preds = %52, %Nm_HashString.exit
@@ -609,7 +609,7 @@ define ptr @Nm_ManTableLookupId(ptr noundef readonly captures(none) %0, i32 noun
   %18 = xor i32 %17, %13
   %19 = urem i32 %18, %5
   %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr inbounds nuw ptr, ptr %3, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %20
   %.09 = load ptr, ptr %21, align 8, !tbaa !18
   %.not10 = icmp eq ptr %.09, null
   br i1 %.not10, label %._crit_edge, label %.lr.ph
@@ -646,7 +646,7 @@ define void @Nm_ManProfile(ptr noundef readonly captures(none) %0) local_unnamed
 .lr.ph29:                                         ; preds = %1, %._crit_edge
   %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge ], [ 0, %1 ]
   %6 = load ptr, ptr %0, align 8, !tbaa !13
-  %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %.01923 = load ptr, ptr %7, align 8, !tbaa !18
   %.not2224 = icmp eq ptr %.01923, null
   br i1 %.not2224, label %._crit_edge, label %.lr.ph
@@ -683,7 +683,7 @@ define void @Nm_ManProfile(ptr noundef readonly captures(none) %0) local_unnamed
 18:                                               ; preds = %.lr.ph41, %._crit_edge37
   %indvars.iv45 = phi i64 [ 0, %.lr.ph41 ], [ %indvars.iv.next46, %._crit_edge37 ]
   %19 = load ptr, ptr %17, align 8, !tbaa !14
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv45
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv45
   %.12031 = load ptr, ptr %20, align 8, !tbaa !18
   %.not32 = icmp eq ptr %.12031, null
   br i1 %.not32, label %._crit_edge37, label %.lr.ph36

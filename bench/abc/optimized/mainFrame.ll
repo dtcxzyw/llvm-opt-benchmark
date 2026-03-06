@@ -3,7 +3,6 @@ source_filename = "bench/abc/original/mainFrame.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.Vec_Int_t_ = type { i32, i32, ptr }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 
 @s_GlobalFrame = internal unnamed_addr global ptr null, align 8
@@ -546,7 +545,7 @@ define void @Abc_FrameSetJsonObjs(ptr noundef %0) local_unnamed_addr #7 {
   %10 = phi i32 [ %20, %19 ], [ %7, %6 ]
   %11 = phi ptr [ %21, %19 ], [ %.pre.i.i.i, %6 ]
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %19 ], [ 0, %6 ]
-  %12 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %11, i64 %indvars.iv.i.i.i
+  %12 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 %indvars.iv.i.i.i
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !59
   %.not15.i.i.i = icmp eq ptr %14, null
@@ -555,7 +554,7 @@ define void @Abc_FrameSetJsonObjs(ptr noundef %0) local_unnamed_addr #7 {
 15:                                               ; preds = %.lr.ph.i.i.i
   tail call void @free(ptr noundef nonnull %14) #21
   %16 = load ptr, ptr %9, align 8, !tbaa !65
-  %17 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %16, i64 %indvars.iv.i.i.i
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %indvars.iv.i.i.i
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr null, ptr %18, align 8, !tbaa !59
   %.pre18.i.i.i = load i32, ptr %4, align 8, !tbaa !63
@@ -614,7 +613,7 @@ define void @Abc_FrameSetSignalNames(ptr noundef %0) local_unnamed_addr #7 {
   %.val18.i.i = phi i32 [ %.val15.i.i, %.lr.ph.i.i ], [ %.val.i.i, %14 ]
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %14 ]
   %.val14.i.i = load ptr, ptr %8, align 8, !tbaa !68
-  %10 = getelementptr inbounds nuw ptr, ptr %.val14.i.i, i64 %indvars.iv.i.i
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %.val14.i.i, i64 %indvars.iv.i.i
   %11 = load ptr, ptr %10, align 8, !tbaa !69
   %12 = icmp ult ptr %11, inttoptr (i64 3 to ptr)
   br i1 %12, label %14, label %13
@@ -938,7 +937,7 @@ Vec_IntFree.exit:                                 ; preds = %4, %7
   %.val18.i.i = phi i32 [ %.val15.i.i, %.lr.ph.i.i ], [ %.val.i.i, %20 ]
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %20 ]
   %.val14.i.i = load ptr, ptr %14, align 8, !tbaa !68
-  %16 = getelementptr inbounds nuw ptr, ptr %.val14.i.i, i64 %indvars.iv.i.i
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %.val14.i.i, i64 %indvars.iv.i.i
   %17 = load ptr, ptr %16, align 8, !tbaa !69
   %18 = icmp ult ptr %17, inttoptr (i64 3 to ptr)
   br i1 %18, label %20, label %19
@@ -989,7 +988,7 @@ Vec_PtrFreeFree.exit:                             ; preds = %Vec_PtrFreeData.exi
   %.val14.i = phi i32 [ %.val11.i, %.lr.ph.i ], [ %.val.i, %40 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %40 ]
   %.val8.i = load ptr, ptr %32, align 8, !tbaa !87
-  %34 = getelementptr inbounds nuw ptr, ptr %.val8.i, i64 %indvars.iv.i
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %.val8.i, i64 %indvars.iv.i
   %35 = load ptr, ptr %34, align 8, !tbaa !69
   %.not.i115 = icmp eq ptr %35, null
   br i1 %.not.i115, label %40, label %36
@@ -1177,7 +1176,7 @@ Vec_PtrFree.exit:                                 ; preds = %64, %67
   %indvars.iv = phi i64 [ %indvars.iv.next, %106 ], [ 0, %.preheader ]
   %102 = getelementptr i8, ptr %101, i64 8
   %.val114 = load ptr, ptr %102, align 8, !tbaa !68
-  %103 = getelementptr inbounds nuw ptr, ptr %.val114, i64 %indvars.iv
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %.val114, i64 %indvars.iv
   %104 = load ptr, ptr %103, align 8, !tbaa !69
   %.not113 = icmp eq ptr %104, null
   br i1 %.not113, label %106, label %105
@@ -1281,7 +1280,7 @@ Vec_PtrFreeP.exit:                                ; preds = %Vec_IntFreeP.exit, 
   %.val18.i.i130 = phi i32 [ %.val15.i.i125, %.lr.ph.i.i129 ], [ %.val.i.i134, %146 ]
   %indvars.iv.i.i131 = phi i64 [ 0, %.lr.ph.i.i129 ], [ %indvars.iv.next.i.i135, %146 ]
   %.val14.i.i132 = load ptr, ptr %140, align 8, !tbaa !68
-  %142 = getelementptr inbounds nuw ptr, ptr %.val14.i.i132, i64 %indvars.iv.i.i131
+  %142 = getelementptr inbounds nuw [8 x i8], ptr %.val14.i.i132, i64 %indvars.iv.i.i131
   %143 = load ptr, ptr %142, align 8, !tbaa !69
   %144 = icmp ult ptr %143, inttoptr (i64 3 to ptr)
   br i1 %144, label %146, label %145
@@ -1428,7 +1427,7 @@ Vec_IntFreeP.exit141:                             ; preds = %176, %185
   %198 = phi i32 [ %208, %207 ], [ %195, %194 ]
   %199 = phi ptr [ %209, %207 ], [ %.pre.i.i.i, %194 ]
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %207 ], [ 0, %194 ]
-  %200 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %199, i64 %indvars.iv.i.i.i
+  %200 = getelementptr inbounds nuw [16 x i8], ptr %199, i64 %indvars.iv.i.i.i
   %201 = getelementptr inbounds nuw i8, ptr %200, i64 8
   %202 = load ptr, ptr %201, align 8, !tbaa !59
   %.not15.i.i.i = icmp eq ptr %202, null
@@ -1437,7 +1436,7 @@ Vec_IntFreeP.exit141:                             ; preds = %176, %185
 203:                                              ; preds = %.lr.ph.i.i.i
   tail call void @free(ptr noundef nonnull %202) #21
   %204 = load ptr, ptr %197, align 8, !tbaa !65
-  %205 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %204, i64 %indvars.iv.i.i.i
+  %205 = getelementptr inbounds nuw [16 x i8], ptr %204, i64 %indvars.iv.i.i.i
   %206 = getelementptr inbounds nuw i8, ptr %205, i64 8
   store ptr null, ptr %206, align 8, !tbaa !59
   %.pre18.i.i.i = load i32, ptr %192, align 8, !tbaa !63
@@ -2152,7 +2151,7 @@ define range(i32 -1, 2) i32 @Abc_FrameCheckPoConst(ptr noundef readonly captures
   %13 = getelementptr i8, ptr %.val, i64 8
   %.val15.val = load ptr, ptr %13, align 8, !tbaa !68
   %14 = zext nneg i32 %1 to i64
-  %15 = getelementptr inbounds nuw ptr, ptr %.val15.val, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %.val15.val, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !69
   %.val16 = load ptr, ptr %16, align 8, !tbaa !120
   %17 = getelementptr i8, ptr %16, i64 32
@@ -2163,7 +2162,7 @@ define range(i32 -1, 2) i32 @Abc_FrameCheckPoConst(ptr noundef readonly captures
   %19 = getelementptr i8, ptr %.val16.val, i64 8
   %.val16.val.val = load ptr, ptr %19, align 8, !tbaa !68
   %20 = sext i32 %.val17.val to i64
-  %21 = getelementptr inbounds ptr, ptr %.val16.val.val, i64 %20
+  %21 = getelementptr inbounds [8 x i8], ptr %.val16.val.val, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !69
   %23 = ptrtoint ptr %22 to i64
   %24 = and i64 %23, -2
@@ -2209,7 +2208,7 @@ define void @Abc_FrameCheckPoConstTest(ptr noundef readonly captures(none) %0) l
 8:                                                ; preds = %.lr.ph
   %9 = getelementptr i8, ptr %.val11, i64 8
   %.val7.val = load ptr, ptr %9, align 8, !tbaa !68
-  %10 = getelementptr inbounds nuw ptr, ptr %.val7.val, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %.val7.val, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !69
   %.val16.i = load ptr, ptr %11, align 8, !tbaa !120
   %12 = getelementptr i8, ptr %11, i64 32
@@ -2220,7 +2219,7 @@ define void @Abc_FrameCheckPoConstTest(ptr noundef readonly captures(none) %0) l
   %14 = getelementptr i8, ptr %.val16.val.i, i64 8
   %.val16.val.val.i = load ptr, ptr %14, align 8, !tbaa !68
   %15 = sext i32 %.val17.val.i to i64
-  %16 = getelementptr inbounds ptr, ptr %.val16.val.val.i, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %.val16.val.val.i, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !69
   %18 = ptrtoint ptr %17 to i64
   %19 = and i64 %18, -2

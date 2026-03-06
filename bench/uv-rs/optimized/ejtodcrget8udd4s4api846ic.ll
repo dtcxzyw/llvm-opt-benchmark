@@ -1778,10 +1778,10 @@ switch.lookup:
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !4
   %7 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN60_$LT$uv_cache..CacheBucket$u20$as$u20$core..fmt..Display$GT$3fmt17ha6716499f967b263E", i64 %7
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN60_$LT$uv_cache..CacheBucket$u20$as$u20$core..fmt..Display$GT$3fmt17ha6716499f967b263E", i64 %7
   %switch.load = load ptr, ptr %switch.gep, align 8
   %8 = zext nneg i8 %2 to i64
-  %switch.gep1 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN60_$LT$uv_cache..CacheBucket$u20$as$u20$core..fmt..Display$GT$3fmt17ha6716499f967b263E.36", i64 %8
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN60_$LT$uv_cache..CacheBucket$u20$as$u20$core..fmt..Display$GT$3fmt17ha6716499f967b263E.36", i64 %8
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   tail call void @_ZN3std4path4Path5_join17h8965b519821eba8eE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %6, ptr noalias noundef nonnull readonly align 1 %switch.load, i64 noundef %switch.load2)
   ret void
@@ -1968,7 +1968,7 @@ define noundef zeroext i1 @_ZN8uv_cache5Cache23must_revalidate_package17he752980
   %11 = load ptr, ptr %10, align 8, !nonnull !4, !noundef !4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load i64, ptr %12, align 8, !noundef !4
-  %14 = getelementptr inbounds ptr, ptr %11, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %11, i64 %13
   br label %15
 
 15:                                               ; preds = %17, %9
@@ -2112,7 +2112,7 @@ define void @_ZN8uv_cache5Cache9freshness17h4a43ada8faa3e852E(ptr dead_on_unwind
   %28 = load ptr, ptr %27, align 8, !nonnull !4, !noundef !4
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %30 = load i64, ptr %29, align 8, !noundef !4
-  %31 = getelementptr inbounds ptr, ptr %28, i64 %30
+  %31 = getelementptr inbounds [8 x i8], ptr %28, i64 %30
   br label %32
 
 32:                                               ; preds = %34, %26
@@ -7512,7 +7512,7 @@ _ZN8uv_cache5Cache6bucket17h8f1c51db1f939f48E.exit: ; preds = %"_ZN90_$LT$std..c
   %1288 = add i64 %.sroa.01.0.i.i.i, %1287
   %1289 = and i64 %1288, %1279
   %1290 = sub nsw i64 0, %1289
-  %1291 = getelementptr inbounds { { { { { { { i64, ptr, {} }, {} }, i64 } } } }, {} }, ptr %1280, i64 %1290
+  %1291 = getelementptr inbounds [24 x i8], ptr %1280, i64 %1290
   %1292 = getelementptr i8, ptr %1291, i64 -16
   %.val3.i.i.i = load ptr, ptr %1292, align 8, !noalias !1751
   %1293 = getelementptr i8, ptr %1291, i64 -8
@@ -7605,7 +7605,7 @@ select.unfold:                                    ; preds = %select.unfold.loope
   %1321 = add i64 %.sroa.01.0.i.i.i201, %1320
   %1322 = and i64 %1321, %1312
   %1323 = sub nsw i64 0, %1322
-  %1324 = getelementptr inbounds { { { { { { { i64, ptr, {} }, {} }, i64 } } } }, {} }, ptr %1313, i64 %1323
+  %1324 = getelementptr inbounds [24 x i8], ptr %1313, i64 %1323
   %1325 = getelementptr i8, ptr %1324, i64 -16
   %.val3.i.i.i205 = load ptr, ptr %1325, align 8, !noalias !1783
   %1326 = getelementptr i8, ptr %1324, i64 -8
@@ -9764,7 +9764,7 @@ _ZN8uv_cache5Cache6bucket17h8f1c51db1f939f48E.exit: ; preds = %530
   %598 = add i64 %.sroa.01.0.i.i.i, %597
   %599 = and i64 %598, %589
   %600 = sub nsw i64 0, %599
-  %601 = getelementptr inbounds { { { { { { { i64, ptr, {} }, {} }, i64 } } } }, {} }, ptr %590, i64 %600
+  %601 = getelementptr inbounds [24 x i8], ptr %590, i64 %600
   %602 = getelementptr i8, ptr %601, i64 -16
   %.val3.i.i.i = load ptr, ptr %602, align 8, !noalias !2212
   %603 = getelementptr i8, ptr %601, i64 -8
@@ -10860,7 +10860,7 @@ _ZN3std3ffi6os_str5OsStr20eq_ignore_ascii_case17hf827286b19ebe3b9E.exit: ; preds
 
 switch.lookup:                                    ; preds = %886
   %887 = zext nneg i8 %.val6.i to i64
-  %switch.gep2389 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN60_$LT$uv_cache..CacheBucket$u20$as$u20$core..fmt..Display$GT$3fmt17ha6716499f967b263E.36", i64 %887
+  %switch.gep2389 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN60_$LT$uv_cache..CacheBucket$u20$as$u20$core..fmt..Display$GT$3fmt17ha6716499f967b263E.36", i64 %887
   %switch.load2390 = load i64, ptr %switch.gep2389, align 8
   %.val1.i.i.i.i = load i64, ptr %185, align 8, !noalias !2484, !noundef !4
   %.not.i.i.i.i.i.i = icmp eq i64 %.val1.i.i.i.i, %switch.load2390
@@ -10868,7 +10868,7 @@ switch.lookup:                                    ; preds = %886
 
 888:                                              ; preds = %switch.lookup
   %889 = zext nneg i8 %.val6.i to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN60_$LT$uv_cache..CacheBucket$u20$as$u20$core..fmt..Display$GT$3fmt17ha6716499f967b263E", i64 %889
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN60_$LT$uv_cache..CacheBucket$u20$as$u20$core..fmt..Display$GT$3fmt17ha6716499f967b263E", i64 %889
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.val.i.i.i.i = load ptr, ptr %186, align 8, !noalias !2484, !nonnull !4, !noundef !4
   %bcmp.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(1) %.val.i.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %switch.load, i64 %switch.load2390), !alias.scope !2486, !noalias !2481
@@ -11475,10 +11475,10 @@ switch.lookup:                                    ; preds = %33
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.8.val) ]
   %37 = zext nneg i8 %36 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN8uv_cache5Cache23find_archive_references17h56dbc1a5b03d61a6E, i64 %37
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN8uv_cache5Cache23find_archive_references17h56dbc1a5b03d61a6E, i64 %37
   %switch.load = load ptr, ptr %switch.gep, align 8
   %38 = zext nneg i8 %36 to i64
-  %switch.gep30 = getelementptr inbounds nuw i64, ptr @switch.table._ZN8uv_cache5Cache23find_archive_references17h56dbc1a5b03d61a6E.35, i64 %38
+  %switch.gep30 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN8uv_cache5Cache23find_archive_references17h56dbc1a5b03d61a6E.35, i64 %38
   %switch.load31 = load i64, ptr %switch.gep30, align 8
   invoke void @_ZN3std4path4Path5_join17h8965b519821eba8eE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %14, ptr noalias noundef nonnull readonly align 1 %.8.val, i64 noundef %.16.val, ptr noalias noundef nonnull readonly align 1 %switch.load, i64 noundef %switch.load31)
           to label %_ZN8uv_cache5Cache6bucket17h8f1c51db1f939f48E.exit unwind label %30
@@ -12244,10 +12244,10 @@ define noundef zeroext i1 @"_ZN60_$LT$uv_cache..CacheBucket$u20$as$u20$core..fmt
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !55, !noundef !4
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN60_$LT$uv_cache..CacheBucket$u20$as$u20$core..fmt..Display$GT$3fmt17ha6716499f967b263E", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN60_$LT$uv_cache..CacheBucket$u20$as$u20$core..fmt..Display$GT$3fmt17ha6716499f967b263E", i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep1 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN60_$LT$uv_cache..CacheBucket$u20$as$u20$core..fmt..Display$GT$3fmt17ha6716499f967b263E.36", i64 %4
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN60_$LT$uv_cache..CacheBucket$u20$as$u20$core..fmt..Display$GT$3fmt17ha6716499f967b263E.36", i64 %4
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17haa15194e1d29df39E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load, i64 noundef %switch.load2)
   ret i1 %5
@@ -12560,14 +12560,14 @@ define void @_ZN8uv_cache7Refresh7combine17hf4189710ea5acaf3E(ptr dead_on_unwind
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.2.0.copyload) ]
   %112 = icmp ult i64 %.sroa.3.0.copyload, 1152921504606846976
   tail call void @llvm.assume(i1 %112)
-  %113 = getelementptr inbounds nuw ptr, ptr %.sroa.2.0.copyload, i64 %.sroa.3.0.copyload
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.2.0.copyload, i64 %.sroa.3.0.copyload
   %114 = icmp sgt i64 %12, -1
   tail call void @llvm.assume(i1 %114)
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.4.0.copyload) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2780)
   %115 = icmp ult i64 %.sroa.5.0.copyload, 1152921504606846976
   tail call void @llvm.assume(i1 %115)
-  %116 = getelementptr inbounds nuw ptr, ptr %.sroa.4.0.copyload, i64 %.sroa.5.0.copyload
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.4.0.copyload, i64 %.sroa.5.0.copyload
   %117 = icmp sgt i64 %16, -1
   tail call void @llvm.assume(i1 %117)
   store ptr %.sroa.2.0.copyload, ptr %6, align 8, !alias.scope !2783, !noalias !2785
@@ -12603,7 +12603,7 @@ define void @_ZN8uv_cache7Refresh7combine17hf4189710ea5acaf3E(ptr dead_on_unwind
   %.sroa.588.0.copyload = load i64, ptr %.sroa.588.0..sroa_idx, align 8
   %122 = icmp ult i64 %.sroa.588.0.copyload, 576460752303423488
   tail call void @llvm.assume(i1 %122)
-  %123 = getelementptr inbounds nuw { { { { ptr, i64 } }, {} }, {} }, ptr %.sroa.487.0.copyload, i64 %.sroa.588.0.copyload
+  %123 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.487.0.copyload, i64 %.sroa.588.0.copyload
   %124 = icmp sgt i64 %.sroa.086.0.copyload, -1
   tail call void @llvm.assume(i1 %124)
   %.sroa.089.0.copyload = load i64, ptr %8, align 8
@@ -12614,7 +12614,7 @@ define void @_ZN8uv_cache7Refresh7combine17hf4189710ea5acaf3E(ptr dead_on_unwind
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2789)
   %125 = icmp ult i64 %.sroa.591.0.copyload, 576460752303423488
   tail call void @llvm.assume(i1 %125)
-  %126 = getelementptr inbounds nuw { { { { ptr, i64 } }, {} }, {} }, ptr %.sroa.490.0.copyload, i64 %.sroa.591.0.copyload
+  %126 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.490.0.copyload, i64 %.sroa.591.0.copyload
   %127 = icmp sgt i64 %.sroa.089.0.copyload, -1
   tail call void @llvm.assume(i1 %127)
   store ptr %.sroa.487.0.copyload, ptr %4, align 8, !alias.scope !2792, !noalias !2794

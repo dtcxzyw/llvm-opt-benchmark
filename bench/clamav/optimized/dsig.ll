@@ -305,7 +305,7 @@ define range(i32 0, 21) i32 @cli_versig(ptr noundef readonly captures(none) %0, 
   %16 = load ptr, ptr %15, align 8, !tbaa !20
   %17 = load i8, ptr %0, align 1, !tbaa !3
   %18 = sext i8 %17 to i64
-  %19 = getelementptr inbounds i16, ptr %16, i64 %18
+  %19 = getelementptr inbounds [2 x i8], ptr %16, i64 %18
   %20 = load i16, ptr %19, align 2, !tbaa !22
   %21 = and i16 %20, 8
   %.not16 = icmp eq i16 %21, 0

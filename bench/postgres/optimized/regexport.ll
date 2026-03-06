@@ -3,9 +3,6 @@ source_filename = "bench/postgres/original/regexport.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.regex_arc_t = type { i32, i32 }
-%struct.colordesc = type { i32, i32, i16, ptr, i32, i32 }
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local i32 @pg_reg_getnumstates(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -66,7 +63,7 @@ define internal fastcc void @traverse_lacons(ptr noundef readonly captures(none)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = sext i32 %1 to i64
-  %9 = getelementptr inbounds ptr, ptr %7, i64 %8
+  %9 = getelementptr inbounds [8 x i8], ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = load i16, ptr %10, align 4
   %.not21 = icmp eq i16 %11, -1
@@ -95,7 +92,7 @@ define internal fastcc void @traverse_lacons(ptr noundef readonly captures(none)
   %23 = load i16, ptr %.022, align 4
   %24 = sext i16 %23 to i32
   %25 = sext i32 %19 to i64
-  %26 = getelementptr inbounds %struct.regex_arc_t, ptr %3, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %3, i64 %25
   store i32 %24, ptr %26, align 4
   %27 = getelementptr inbounds nuw i8, ptr %.022, i64 4
   %28 = load i32, ptr %27, align 4
@@ -220,7 +217,7 @@ define dso_local i32 @pg_reg_getnumcharacters(ptr noundef readonly captures(none
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 144
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds nuw %struct.colordesc, ptr %13, i64 %7
+  %14 = getelementptr inbounds nuw [32 x i8], ptr %13, i64 %7
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 28
   %16 = load i32, ptr %15, align 4
   %17 = and i32 %16, 2
@@ -261,7 +258,7 @@ define dso_local void @pg_reg_getcharacters(ptr noundef readonly captures(none) 
 14:                                               ; preds = %8
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 144
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds nuw %struct.colordesc, ptr %16, i64 %9
+  %17 = getelementptr inbounds nuw [32 x i8], ptr %16, i64 %9
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 28
   %19 = load i32, ptr %18, align 4
   %20 = and i32 %19, 2
@@ -277,7 +274,7 @@ define dso_local void @pg_reg_getcharacters(ptr noundef readonly captures(none) 
   %.01523 = phi ptr [ %2, %.preheader ], [ %.1, %33 ]
   %.01622 = phi i32 [ %3, %.preheader ], [ %.117, %33 ]
   %23 = load ptr, ptr %21, align 8
-  %24 = getelementptr inbounds nuw i16, ptr %23, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [2 x i8], ptr %23, i64 %indvars.iv
   %25 = load i16, ptr %24, align 2
   %26 = sext i16 %25 to i32
   %27 = icmp eq i32 %1, %26

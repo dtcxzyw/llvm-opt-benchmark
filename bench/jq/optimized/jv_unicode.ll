@@ -132,7 +132,7 @@ define dso_local ptr @jvp_utf8_next(ptr noundef %0, ptr noundef %1, ptr noundef 
   %.244 = phi i32 [ %31, %27 ], [ -1, %._crit_edge.loopexit.split.loop.exit61 ], [ %39, %35 ]
   %.2 = phi i32 [ 1, %27 ], [ %40, %._crit_edge.loopexit.split.loop.exit61 ], [ %10, %35 ]
   %41 = zext nneg i32 %.2 to i64
-  %42 = getelementptr inbounds nuw i32, ptr @utf8_first_codepoint, i64 %41
+  %42 = getelementptr inbounds nuw [4 x i8], ptr @utf8_first_codepoint, i64 %41
   %43 = load i32, ptr %42, align 4, !tbaa !9
   %44 = icmp slt i32 %.244, %43
   %spec.store.select4 = select i1 %44, i32 -1, i32 %.244
@@ -217,7 +217,7 @@ define dso_local range(i32 0, 2) i32 @jvp_utf8_is_valid(ptr noundef readonly cap
   %.244.i = phi i32 [ %22, %18 ], [ -1, %._crit_edge.loopexit.split.loop.exit61.i ], [ %30, %26 ]
   %.2.i = phi i32 [ 1, %18 ], [ %31, %._crit_edge.loopexit.split.loop.exit61.i ], [ %8, %26 ]
   %32 = zext nneg i32 %.2.i to i64
-  %33 = getelementptr inbounds nuw i32, ptr @utf8_first_codepoint, i64 %32
+  %33 = getelementptr inbounds nuw [4 x i8], ptr @utf8_first_codepoint, i64 %32
   %34 = load i32, ptr %33, align 4, !tbaa !9
   %35 = icmp slt i32 %.244.i, %34
   %spec.store.select4.i = select i1 %35, i32 -1, i32 %.244.i

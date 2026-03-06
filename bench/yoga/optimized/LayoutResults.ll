@@ -20,9 +20,9 @@ define hidden noundef zeroext i1 @_ZNK8facebook4yoga13LayoutResultseqES1_(ptr no
 
 5:                                                ; preds = %_ZN8facebook4yoga13inexactEqualsEff.exit.i, %2
   %.08.i = phi i64 [ 0, %2 ], [ %18, %_ZN8facebook4yoga13inexactEqualsEff.exit.i ]
-  %6 = getelementptr inbounds nuw float, ptr %3, i64 %.08.i
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.08.i
   %7 = load float, ptr %6, align 4, !tbaa !4
-  %8 = getelementptr inbounds nuw float, ptr %4, i64 %.08.i
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.08.i
   %9 = load float, ptr %8, align 4, !tbaa !4
   %or.cond.i.i = fcmp ord float %7, %9
   br i1 %or.cond.i.i, label %10, label %14
@@ -59,9 +59,9 @@ _ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_.exit: ; preds = 
 24:                                               ; preds = %_ZN8facebook4yoga13inexactEqualsEff.exit.i14, %21
   %25 = phi i1 [ true, %21 ], [ false, %_ZN8facebook4yoga13inexactEqualsEff.exit.i14 ]
   %.08.i11 = phi i64 [ 0, %21 ], [ 1, %_ZN8facebook4yoga13inexactEqualsEff.exit.i14 ]
-  %26 = getelementptr inbounds nuw float, ptr %22, i64 %.08.i11
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %.08.i11
   %27 = load float, ptr %26, align 4, !tbaa !4
-  %28 = getelementptr inbounds nuw float, ptr %23, i64 %.08.i11
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %.08.i11
   %29 = load float, ptr %28, align 4, !tbaa !4
   %or.cond.i.i12 = fcmp ord float %27, %29
   br i1 %or.cond.i.i12, label %30, label %34
@@ -95,9 +95,9 @@ _ZN8facebook4yoga13inexactEqualsILm2EfEEbRKSt5arrayIT0_XT_EES6_.exit: ; preds = 
 
 42:                                               ; preds = %_ZN8facebook4yoga13inexactEqualsEff.exit.i19, %39
   %.08.i16 = phi i64 [ 0, %39 ], [ %55, %_ZN8facebook4yoga13inexactEqualsEff.exit.i19 ]
-  %43 = getelementptr inbounds nuw float, ptr %40, i64 %.08.i16
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %.08.i16
   %44 = load float, ptr %43, align 4, !tbaa !4
-  %45 = getelementptr inbounds nuw float, ptr %41, i64 %.08.i16
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %.08.i16
   %46 = load float, ptr %45, align 4, !tbaa !4
   %or.cond.i.i17 = fcmp ord float %44, %46
   br i1 %or.cond.i.i17, label %47, label %51
@@ -133,9 +133,9 @@ _ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_.exit21: ; preds 
 
 61:                                               ; preds = %_ZN8facebook4yoga13inexactEqualsEff.exit.i25, %58
   %.08.i22 = phi i64 [ 0, %58 ], [ %74, %_ZN8facebook4yoga13inexactEqualsEff.exit.i25 ]
-  %62 = getelementptr inbounds nuw float, ptr %59, i64 %.08.i22
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %.08.i22
   %63 = load float, ptr %62, align 4, !tbaa !4
-  %64 = getelementptr inbounds nuw float, ptr %60, i64 %.08.i22
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %.08.i22
   %65 = load float, ptr %64, align 4, !tbaa !4
   %or.cond.i.i23 = fcmp ord float %63, %65
   br i1 %or.cond.i.i23, label %66, label %70
@@ -171,9 +171,9 @@ _ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_.exit27: ; preds 
 
 80:                                               ; preds = %_ZN8facebook4yoga13inexactEqualsEff.exit.i31, %77
   %.08.i28 = phi i64 [ 0, %77 ], [ %93, %_ZN8facebook4yoga13inexactEqualsEff.exit.i31 ]
-  %81 = getelementptr inbounds nuw float, ptr %78, i64 %.08.i28
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %78, i64 %.08.i28
   %82 = load float, ptr %81, align 4, !tbaa !4
-  %83 = getelementptr inbounds nuw float, ptr %79, i64 %.08.i28
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %79, i64 %.08.i28
   %84 = load float, ptr %83, align 4, !tbaa !4
   %or.cond.i.i29 = fcmp ord float %82, %84
   br i1 %or.cond.i.i29, label %85, label %89
@@ -275,8 +275,8 @@ _ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_.exit33: ; preds 
 
 138:                                              ; preds = %.lr.ph, %_ZNK8facebook4yoga17CachedMeasurementeqES1_.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNK8facebook4yoga17CachedMeasurementeqES1_.exit ]
-  %139 = getelementptr inbounds nuw %"struct.facebook::yoga::CachedMeasurement", ptr %132, i64 %indvars.iv
-  %140 = getelementptr inbounds nuw %"struct.facebook::yoga::CachedMeasurement", ptr %133, i64 %indvars.iv
+  %139 = getelementptr inbounds nuw [24 x i8], ptr %132, i64 %indvars.iv
+  %140 = getelementptr inbounds nuw [24 x i8], ptr %133, i64 %indvars.iv
   %.sroa.035.0.copyload = load float, ptr %140, align 8, !tbaa !4
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %140, i64 4
   %.sroa.2.0.copyload = load float, ptr %.sroa.2.0..sroa_idx, align 4, !tbaa !4

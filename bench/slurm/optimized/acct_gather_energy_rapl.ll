@@ -211,7 +211,7 @@ define dso_local void @acct_gather_energy_p_conf_set(i32 %0, ptr readnone captur
 
 38:                                               ; preds = %35
   %39 = zext nneg i32 %31 to i64
-  %40 = getelementptr inbounds nuw i32, ptr @pkg2cpu, i64 %39
+  %40 = getelementptr inbounds nuw [4 x i8], ptr @pkg2cpu, i64 %39
   %41 = load i32, ptr %40, align 4
   %42 = icmp eq i32 %41, -1
   br i1 %42, label %43, label %.backedge.i
@@ -277,7 +277,7 @@ define dso_local void @acct_gather_energy_p_conf_set(i32 %0, ptr readnone captur
 
 64:                                               ; preds = %63, %61
   %indvars.iv.i.i = phi i64 [ 0, %61 ], [ %indvars.iv.next.i.i, %63 ]
-  %65 = getelementptr inbounds nuw i32, ptr @__const._is_dram_model.dram_models, i64 %indvars.iv.i.i
+  %65 = getelementptr inbounds nuw [4 x i8], ptr @__const._is_dram_model.dram_models, i64 %indvars.iv.i.i
   %66 = load i32, ptr %65, align 4
   %67 = icmp eq i32 %62, %66
   br i1 %67, label %68, label %63
@@ -330,7 +330,7 @@ _hardware.exit:                                   ; preds = %76, %79, %82
 
 .lr.ph:                                           ; preds = %_hardware.exit, %_open_msr.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_open_msr.exit ], [ 0, %_hardware.exit ]
-  %86 = getelementptr inbounds nuw i32, ptr @pkg2cpu, i64 %indvars.iv
+  %86 = getelementptr inbounds nuw [4 x i8], ptr @pkg2cpu, i64 %indvars.iv
   %87 = load i32, ptr %86, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %88 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.37, i32 noundef %87) #11
@@ -360,7 +360,7 @@ _hardware.exit:                                   ; preds = %76, %79, %82
 
 _open_msr.exit:                                   ; preds = %.lr.ph, %94, %96, %98
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %100 = getelementptr inbounds nuw i32, ptr @pkg_fd, i64 %indvars.iv
+  %100 = getelementptr inbounds nuw [4 x i8], ptr @pkg_fd, i64 %indvars.iv
   store i32 %89, ptr %100, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %101 = load i32, ptr @nb_pkg, align 4
@@ -573,7 +573,7 @@ _read_msr.exit52:                                 ; preds = %53, %55, %58
 .lr.ph:                                           ; preds = %68, %_get_dram_energy.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_get_dram_energy.exit ], [ 0, %68 ]
   %.04155 = phi double [ %125, %_get_dram_energy.exit ], [ 0.000000e+00, %68 ]
-  %71 = getelementptr inbounds nuw i32, ptr @pkg_fd, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw [4 x i8], ptr @pkg_fd, i64 %indvars.iv
   %72 = load i32, ptr %71, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %3, align 8
@@ -603,7 +603,7 @@ _read_msr.exit.i:                                 ; preds = %82, %79, %77
   %83 = load i64, ptr %3, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %84 = and i64 %83, 4294967295
-  %85 = getelementptr inbounds nuw %union.anon, ptr @package_energy, i64 %indvars.iv
+  %85 = getelementptr inbounds nuw [8 x i8], ptr @package_energy, i64 %indvars.iv
   %86 = load i32, ptr %85, align 8
   %87 = zext i32 %86 to i64
   %88 = icmp samesign ult i64 %84, %87
@@ -662,7 +662,7 @@ _read_msr.exit.i54:                               ; preds = %111, %108, %105, %1
   %112 = load i64, ptr %2, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %113 = and i64 %112, 4294967295
-  %114 = getelementptr inbounds nuw %union.anon, ptr @dram_energy, i64 %indvars.iv
+  %114 = getelementptr inbounds nuw [8 x i8], ptr @dram_energy, i64 %indvars.iv
   %115 = load i32, ptr %114, align 8
   %116 = zext i32 %115 to i64
   %117 = icmp samesign ult i64 %113, %116
@@ -813,7 +813,7 @@ define dso_local noundef i32 @fini() local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %.preheader, %9
   %4 = phi i32 [ %10, %9 ], [ %2, %.preheader ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %9 ], [ 0, %.preheader ]
-  %5 = getelementptr inbounds nuw i32, ptr @pkg_fd, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [4 x i8], ptr @pkg_fd, i64 %indvars.iv
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %6, -1
   br i1 %.not, label %9, label %7

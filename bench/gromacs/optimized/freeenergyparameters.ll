@@ -4,10 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"struct.gmx::EnumerationArray" = type { [7 x float] }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl" }
-%"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl" = type { %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN3gmx14currentLambdasElRK8t_lambdai(ptr dead_on_unwind noalias writable writeonly sret(%"struct.gmx::EnumerationArray") align 4 captures(none) %0, i64 noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(288) %2, i32 noundef %3) local_unnamed_addr #0 {
@@ -34,12 +30,12 @@ define void @_ZN3gmx14currentLambdasElRK8t_lambdai(ptr dead_on_unwind noalias wr
 
 16:                                               ; preds = %16, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %16 ]
-  %17 = getelementptr inbounds nuw %"class.std::vector", ptr %11, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw [24 x i8], ptr %11, i64 %indvars.iv.i
   %18 = load ptr, ptr %17, align 8, !tbaa !22, !noalias !19
-  %19 = getelementptr inbounds nuw double, ptr %18, i64 %15
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %15
   %20 = load double, ptr %19, align 8, !tbaa !26, !noalias !19
   %21 = fptrunc double %20 to float
-  %22 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv.i
   store float %21, ptr %22, align 4, !tbaa !27, !alias.scope !19
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 7
@@ -65,12 +61,12 @@ define void @_ZN3gmx14currentLambdasElRK8t_lambdai(ptr dead_on_unwind noalias wr
 
 33:                                               ; preds = %33, %.preheader.i19
   %indvars.iv.i20 = phi i64 [ 0, %.preheader.i19 ], [ %indvars.iv.next.i21, %33 ]
-  %34 = getelementptr inbounds nuw %"class.std::vector", ptr %28, i64 %indvars.iv.i20
+  %34 = getelementptr inbounds nuw [24 x i8], ptr %28, i64 %indvars.iv.i20
   %35 = load ptr, ptr %34, align 8, !tbaa !22, !noalias !31
-  %36 = getelementptr inbounds nuw double, ptr %35, i64 %32
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %32
   %37 = load double, ptr %36, align 8, !tbaa !26, !noalias !31
   %38 = fptrunc double %37 to float
-  %39 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv.i20
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv.i20
   store float %38, ptr %39, align 4, !tbaa !27, !alias.scope !31
   %indvars.iv.next.i21 = add nuw nsw i64 %indvars.iv.i20, 1
   %exitcond.not.i22 = icmp eq i64 %indvars.iv.next.i21, 7
@@ -164,16 +160,16 @@ _ZN3gmx12_GLOBAL__N_119currentGlobalLambdaEldidi.exit: ; preds = %53, %55, %60, 
 
 91:                                               ; preds = %91, %75
   %indvars.iv.i24 = phi i64 [ 0, %75 ], [ %indvars.iv.next.i25, %91 ]
-  %92 = getelementptr inbounds nuw %"class.std::vector", ptr %68, i64 %indvars.iv.i24
+  %92 = getelementptr inbounds nuw [24 x i8], ptr %68, i64 %indvars.iv.i24
   %93 = load ptr, ptr %92, align 8, !tbaa !22, !noalias !36
-  %94 = getelementptr inbounds nuw double, ptr %93, i64 %89
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %89
   %95 = load double, ptr %94, align 8, !tbaa !26, !noalias !36
-  %96 = getelementptr inbounds nuw double, ptr %93, i64 %90
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %90
   %97 = load double, ptr %96, align 8, !tbaa !26, !noalias !36
   %98 = fsub double %97, %95
   %99 = tail call double @llvm.fmuladd.f64(double %88, double %98, double %95)
   %100 = fptrunc double %99 to float
-  %101 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv.i24
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv.i24
   store float %100, ptr %101, align 4, !tbaa !27, !alias.scope !36
   %indvars.iv.next.i25 = add nuw nsw i64 %indvars.iv.i24, 1
   %exitcond.not.i26 = icmp eq i64 %indvars.iv.next.i25, 7

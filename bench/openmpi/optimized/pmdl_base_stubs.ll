@@ -104,7 +104,7 @@ define noundef i32 @pmix_pmdl_base_harvest_envars(ptr noundef readonly captures(
 
 12:                                               ; preds = %10
   %13 = zext nneg i32 %11 to i64
-  %14 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %13
+  %14 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %16 = load i32, ptr %15, align 4, !tbaa !27
   %17 = icmp sgt i32 %16, 1
@@ -753,7 +753,7 @@ setup_prte_frameworks.exit:                       ; preds = %1, %2, %5, %7
 
 28:                                               ; preds = %25, %.lr.ph
   %29 = add i64 %.01621, 1
-  %30 = getelementptr inbounds nuw ptr, ptr %20, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !47
   %.not = icmp eq ptr %31, null
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !72
@@ -817,7 +817,7 @@ define noundef zeroext i1 @pmix_pmdl_base_check_pmix_param(ptr noundef %0) local
 
 21:                                               ; preds = %18, %.lr.ph
   %22 = add i64 %.01621, 1
-  %23 = getelementptr inbounds nuw ptr, ptr @pmix_framework_names, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr @pmix_framework_names, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !47
   %.not = icmp eq ptr %24, null
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !73
@@ -869,7 +869,7 @@ define noundef i32 @pmix_pmdl_base_setup_nspace(ptr noundef %0, ptr noundef %1) 
 
 7:                                                ; preds = %5
   %8 = zext nneg i32 %6 to i64
-  %9 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %8
+  %9 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %11 = load i32, ptr %10, align 4, !tbaa !27
   %12 = icmp sgt i32 %11, 1
@@ -924,7 +924,7 @@ define noundef i32 @pmix_pmdl_base_setup_nspace_kv(ptr noundef %0, ptr noundef %
 
 7:                                                ; preds = %5
   %8 = zext nneg i32 %6 to i64
-  %9 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %8
+  %9 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %11 = load i32, ptr %10, align 4, !tbaa !27
   %12 = icmp sgt i32 %11, 1
@@ -979,7 +979,7 @@ define noundef i32 @pmix_pmdl_base_register_nspace(ptr noundef %0) local_unnamed
 
 6:                                                ; preds = %4
   %7 = zext nneg i32 %5 to i64
-  %8 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %7
+  %8 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %10 = load i32, ptr %9, align 4, !tbaa !27
   %11 = icmp sgt i32 %10, 1
@@ -1034,7 +1034,7 @@ define noundef i32 @pmix_pmdl_base_setup_client(ptr noundef %0, i32 noundef %1, 
 
 8:                                                ; preds = %6
   %9 = zext nneg i32 %7 to i64
-  %10 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %9
+  %10 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %12 = load i32, ptr %11, align 4, !tbaa !27
   %13 = icmp sgt i32 %12, 1

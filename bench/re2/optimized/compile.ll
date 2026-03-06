@@ -3,11 +3,8 @@ source_filename = "bench/re2/original/compile.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.re2::Prog::Inst" = type { i32, %union.anon.27 }
-%union.anon.27 = type { i32 }
 %"struct.re2::Frag" = type <{ i32, %"struct.re2::PatchList", i8, [3 x i8] }>
 %"struct.re2::PatchList" = type { i32, i32 }
-%"union.absl::debian2::container_internal::map_slot_type" = type { i64, [8 x i8] }
 %class.LogMessage = type { i8, %"class.std::__cxx11::basic_ostringstream" }
 %"class.std::__cxx11::basic_ostringstream" = type { %"class.std::basic_ostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_ostream.base" = type { ptr }
@@ -20,7 +17,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
-%"struct.re2::RuneRange" = type { i32, i32 }
 %"class.re2::Compiler" = type <{ %"class.re2::Regexp::Walker", ptr, i8, [3 x i8], i32, i8, [7 x i8], %"class.re2::PODArray", i32, i32, i64, %"class.absl::debian2::flat_hash_map", %"struct.re2::Frag", i32, [4 x i8] }>
 %"class.re2::Regexp::Walker" = type { ptr, %"class.std::stack", i8, i32 }
 %"class.std::stack" = type { %"class.std::deque" }
@@ -160,7 +156,7 @@ invoke.cont12:                                    ; preds = %invoke.cont8
   %conv.i = sext i32 %call10 to i64
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 128
   %0 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i, align 8
-  %arrayidx.i.i = getelementptr inbounds %"class.re2::Prog::Inst", ptr %0, i64 %conv.i
+  %arrayidx.i.i = getelementptr inbounds [8 x i8], ptr %0, i64 %conv.i
   invoke void @_ZN3re24Prog4Inst8InitFailEv(ptr noundef nonnull align 4 dereferenceable(8) %arrayidx.i.i)
           to label %invoke.cont14 unwind label %lpad4
 
@@ -276,7 +272,7 @@ _ZN3re28PODArrayINS_4Prog4InstEEC2Ei.exit:        ; preds = %while.end
   br i1 %cmp17.not, label %if.end26.thread, label %if.then.i.i.i.i.i
 
 if.end26.thread:                                  ; preds = %_ZN3re28PODArrayINS_4Prog4InstEEC2Ei.exit
-  %add.ptr16 = getelementptr inbounds %"class.re2::Prog::Inst", ptr %call5.i3.i, i64 %idx.ext15
+  %add.ptr16 = getelementptr inbounds [8 x i8], ptr %call5.i3.i, i64 %idx.ext15
   %sub17 = sub nsw i32 %cap.0, %1
   %conv3118 = sext i32 %sub17 to i64
   %mul3219 = shl nsw i64 %conv3118, 3
@@ -287,7 +283,7 @@ if.end26.thread:                                  ; preds = %_ZN3re28PODArrayINS
 if.then.i.i.i.i.i:                                ; preds = %_ZN3re28PODArrayINS_4Prog4InstEEC2Ei.exit
   %mul25 = shl nsw i64 %idx.ext15, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %call5.i3.i, ptr nonnull align 4 %4, i64 %mul25, i1 false)
-  %add.ptr = getelementptr inbounds %"class.re2::Prog::Inst", ptr %call5.i3.i, i64 %idx.ext15
+  %add.ptr = getelementptr inbounds [8 x i8], ptr %call5.i3.i, i64 %idx.ext15
   %sub = sub nsw i32 %cap.0, %1
   %conv31 = sext i32 %sub to i64
   %mul32 = shl nsw i64 %conv31, 3
@@ -516,7 +512,7 @@ while.body.i:                                     ; preds = %if.end.i, %while.bo
   %l.sroa.0.08.i = phi i32 [ %l.sroa.0.0.extract.trunc.i, %while.body.lr.ph.i ], [ %l.sroa.0.1.i, %if.end.i ]
   %shr.i10 = lshr i32 %l.sroa.0.08.i, 1
   %idxprom.i = zext nneg i32 %shr.i10 to i64
-  %arrayidx.i = getelementptr inbounds nuw %"class.re2::Prog::Inst", ptr %10, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %idxprom.i
   %and.i11 = and i32 %l.sroa.0.08.i, 1
   %tobool.not.i = icmp eq i32 %and.i11, 0
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
@@ -565,7 +561,7 @@ while.body.i17:                                   ; preds = %if.end.i25, %while.
   %l.sroa.0.08.i18 = phi i32 [ %l.sroa.0.0.extract.trunc.i13, %while.body.lr.ph.i15 ], [ %l.sroa.0.1.i26, %if.end.i25 ]
   %shr.i19 = lshr i32 %l.sroa.0.08.i18, 1
   %idxprom.i20 = zext nneg i32 %shr.i19 to i64
-  %arrayidx.i21 = getelementptr inbounds nuw %"class.re2::Prog::Inst", ptr %10, i64 %idxprom.i20
+  %arrayidx.i21 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %idxprom.i20
   %and.i22 = and i32 %l.sroa.0.08.i18, 1
   %tobool.not.i23 = icmp eq i32 %and.i22, 0
   br i1 %tobool.not.i23, label %if.else.i28, label %if.then.i24
@@ -617,7 +613,7 @@ while.body.i37:                                   ; preds = %if.end.i45, %while.
   %l.sroa.0.08.i38 = phi i32 [ %l.sroa.0.0.extract.trunc.i33, %while.body.lr.ph.i35 ], [ %l.sroa.0.1.i46, %if.end.i45 ]
   %shr.i39 = lshr i32 %l.sroa.0.08.i38, 1
   %idxprom.i40 = zext nneg i32 %shr.i39 to i64
-  %arrayidx.i41 = getelementptr inbounds nuw %"class.re2::Prog::Inst", ptr %10, i64 %idxprom.i40
+  %arrayidx.i41 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %idxprom.i40
   %and.i42 = and i32 %l.sroa.0.08.i38, 1
   %tobool.not.i43 = icmp eq i32 %and.i42, 0
   br i1 %tobool.not.i43, label %if.else.i48, label %if.then.i44
@@ -725,7 +721,7 @@ if.end9:                                          ; preds = %if.end5
   %conv.i = zext nneg i32 %call6 to i64
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 128
   %6 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i, align 8
-  %arrayidx.i.i = getelementptr inbounds nuw %"class.re2::Prog::Inst", ptr %6, i64 %conv.i
+  %arrayidx.i.i = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %conv.i
   tail call void @_ZN3re24Prog4Inst7InitAltEjj(ptr noundef nonnull align 4 dereferenceable(8) %arrayidx.i.i, i32 noundef %1, i32 noundef %2)
   %7 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i, align 8
   %a.4.a.4.a.4.a.4.end.sroa_idx = getelementptr inbounds nuw i8, ptr %a, i64 4
@@ -747,7 +743,7 @@ if.end.i:                                         ; preds = %if.end9
 
 if.end4.i:                                        ; preds = %if.end.i
   %shr.i = lshr i64 %a.4.a.4.a.4.a.4.agg.tmp15.sroa.0.0.copyload, 33
-  %arrayidx.i = getelementptr inbounds nuw %"class.re2::Prog::Inst", ptr %7, i64 %shr.i
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %shr.i
   %9 = and i64 %a.4.a.4.a.4.a.4.agg.tmp15.sroa.0.0.copyload, 4294967296
   %tobool.not.i = icmp eq i64 %9, 0
   br i1 %tobool.not.i, label %if.else.i, label %if.then6.i
@@ -825,7 +821,7 @@ if.end:                                           ; preds = %entry
   %conv.i = zext nneg i32 %call to i64
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 128
   %3 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i, align 8
-  %arrayidx.i.i = getelementptr inbounds nuw %"class.re2::Prog::Inst", ptr %3, i64 %conv.i
+  %arrayidx.i.i = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %conv.i
   %shl = shl nuw i32 %call, 1
   br i1 %nongreedy, label %if.then3, label %if.else
 
@@ -858,7 +854,7 @@ while.body.i:                                     ; preds = %if.end.i, %while.bo
   %l.sroa.0.08.i = phi i32 [ %l.sroa.0.0.extract.trunc.i, %while.body.lr.ph.i ], [ %l.sroa.0.1.i, %if.end.i ]
   %shr.i = lshr i32 %l.sroa.0.08.i, 1
   %idxprom.i = zext nneg i32 %shr.i to i64
-  %arrayidx.i = getelementptr inbounds nuw %"class.re2::Prog::Inst", ptr %4, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %idxprom.i
   %and.i = and i32 %l.sroa.0.08.i, 1
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
@@ -947,7 +943,7 @@ if.end9:                                          ; preds = %if.end
   %conv.i = zext nneg i32 %call6 to i64
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 128
   %6 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i, align 8
-  %arrayidx.i.i = getelementptr inbounds nuw %"class.re2::Prog::Inst", ptr %6, i64 %conv.i
+  %arrayidx.i.i = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %conv.i
   %shl = shl nuw i32 %call6, 1
   br i1 %nongreedy, label %if.then11, label %if.else
 
@@ -980,7 +976,7 @@ while.body.i:                                     ; preds = %if.end.i, %while.bo
   %l.sroa.0.08.i = phi i32 [ %l.sroa.0.0.extract.trunc.i, %while.body.lr.ph.i ], [ %l.sroa.0.1.i, %if.end.i ]
   %shr.i = lshr i32 %l.sroa.0.08.i, 1
   %idxprom.i = zext nneg i32 %shr.i to i64
-  %arrayidx.i = getelementptr inbounds nuw %"class.re2::Prog::Inst", ptr %7, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %idxprom.i
   %and.i = and i32 %l.sroa.0.08.i, 1
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
@@ -1061,7 +1057,7 @@ if.end.i:                                         ; preds = %if.then
   %conv.i.i = zext nneg i32 %call.i to i64
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 128
   %2 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i, align 8
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.re2::Prog::Inst", ptr %2, i64 %conv.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %conv.i.i
   tail call void @_ZN3re24Prog4Inst7InitNopEj(ptr noundef nonnull align 4 dereferenceable(8) %arrayidx.i.i.i, i32 noundef 0)
   %shl.i = shl nuw i32 %call.i, 1
   %retval.sroa.2.0.insert.ext.i.i = zext i32 %shl.i to i64
@@ -1104,7 +1100,7 @@ if.end6:                                          ; preds = %if.end
   %conv.i = zext nneg i32 %call3 to i64
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 128
   %3 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i, align 8
-  %arrayidx.i.i = getelementptr inbounds nuw %"class.re2::Prog::Inst", ptr %3, i64 %conv.i
+  %arrayidx.i.i = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %conv.i
   %shl = shl nuw i32 %call3, 1
   br i1 %nongreedy, label %if.then7, label %if.else
 
@@ -1140,7 +1136,7 @@ if.end.i19:                                       ; preds = %if.end16
 
 if.end4.i:                                        ; preds = %if.end.i19
   %shr.i = lshr i64 %pl.sroa.0.0, 33
-  %arrayidx.i = getelementptr inbounds nuw %"class.re2::Prog::Inst", ptr %4, i64 %shr.i
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %shr.i
   %6 = and i64 %pl.sroa.0.0, 4294967296
   %tobool.not.i = icmp eq i64 %6, 0
   br i1 %tobool.not.i, label %if.else.i, label %if.then6.i
@@ -1207,7 +1203,7 @@ if.end:                                           ; preds = %entry
   %conv.i = zext nneg i32 %call to i64
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 128
   %0 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i, align 8
-  %arrayidx.i.i = getelementptr inbounds nuw %"class.re2::Prog::Inst", ptr %0, i64 %conv.i
+  %arrayidx.i.i = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %conv.i
   tail call void @_ZN3re24Prog4Inst7InitNopEj(ptr noundef nonnull align 4 dereferenceable(8) %arrayidx.i.i, i32 noundef 0)
   %shl = shl nuw i32 %call, 1
   %retval.sroa.2.0.insert.ext.i = zext i32 %shl to i64
@@ -1256,7 +1252,7 @@ if.end:                                           ; preds = %entry
   %conv.i = zext nneg i32 %call to i64
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 128
   %0 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i, align 8
-  %arrayidx.i.i = getelementptr inbounds nuw %"class.re2::Prog::Inst", ptr %0, i64 %conv.i
+  %arrayidx.i.i = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %conv.i
   %conv = zext i1 %foldcase to i32
   tail call void @_ZN3re24Prog4Inst13InitByteRangeEiiij(ptr noundef nonnull align 4 dereferenceable(8) %arrayidx.i.i, i32 noundef %lo, i32 noundef %hi, i32 noundef %conv, i32 noundef 0)
   %shl = shl nuw i32 %call, 1
@@ -1310,7 +1306,7 @@ if.end:                                           ; preds = %entry
   %conv.i = zext nneg i32 %call to i64
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 128
   %0 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i, align 8
-  %arrayidx.i.i = getelementptr inbounds nuw %"class.re2::Prog::Inst", ptr %0, i64 %conv.i
+  %arrayidx.i.i = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %conv.i
   tail call void @_ZN3re24Prog4Inst9InitMatchEi(ptr noundef nonnull align 4 dereferenceable(8) %arrayidx.i.i, i32 noundef %match_id)
   store i32 %call, ptr %retval, align 8
   %retval.4.retval.4.retval.4.end3.i.sroa_idx = getelementptr inbounds nuw i8, ptr %retval, i64 4
@@ -1358,7 +1354,7 @@ if.end:                                           ; preds = %entry
   %conv.i = zext nneg i32 %call to i64
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 128
   %0 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i, align 8
-  %arrayidx.i.i = getelementptr inbounds nuw %"class.re2::Prog::Inst", ptr %0, i64 %conv.i
+  %arrayidx.i.i = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %conv.i
   tail call void @_ZN3re24Prog4Inst14InitEmptyWidthENS_7EmptyOpEj(ptr noundef nonnull align 4 dereferenceable(8) %arrayidx.i.i, i32 noundef %empty, i32 noundef 0)
   %shl = shl nuw i32 %call, 1
   %retval.sroa.2.0.insert.ext.i = zext i32 %shl to i64
@@ -1435,13 +1431,13 @@ if.end6:                                          ; preds = %if.end
   %conv.i = zext nneg i32 %call3 to i64
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 128
   %4 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i, align 8
-  %arrayidx.i.i = getelementptr inbounds nuw %"class.re2::Prog::Inst", ptr %4, i64 %conv.i
+  %arrayidx.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i
   %mul = shl nsw i32 %n, 1
   tail call void @_ZN3re24Prog4Inst11InitCaptureEij(ptr noundef nonnull align 4 dereferenceable(8) %arrayidx.i.i, i32 noundef %mul, i32 noundef %1)
   %add = add nuw nsw i32 %call3, 1
   %conv.i15 = zext nneg i32 %add to i64
   %5 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i, align 8
-  %arrayidx.i.i17 = getelementptr inbounds nuw %"class.re2::Prog::Inst", ptr %5, i64 %conv.i15
+  %arrayidx.i.i17 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %conv.i15
   %add11 = or disjoint i32 %mul, 1
   tail call void @_ZN3re24Prog4Inst11InitCaptureEij(ptr noundef nonnull align 4 dereferenceable(8) %arrayidx.i.i17, i32 noundef %add11, i32 noundef 0)
   %6 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i, align 8
@@ -1459,7 +1455,7 @@ while.body.i:                                     ; preds = %if.end.i, %while.bo
   %l.sroa.0.08.i = phi i32 [ %l.sroa.0.0.extract.trunc.i, %while.body.lr.ph.i ], [ %l.sroa.0.1.i, %if.end.i ]
   %shr.i = lshr i32 %l.sroa.0.08.i, 1
   %idxprom.i = zext nneg i32 %shr.i to i64
-  %arrayidx.i = getelementptr inbounds nuw %"class.re2::Prog::Inst", ptr %6, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %idxprom.i
   %and.i = and i32 %l.sroa.0.08.i, 1
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
@@ -1586,7 +1582,7 @@ if.end.i:                                         ; preds = %entry
   %conv.i.i = zext nneg i32 %call.i to i64
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 128
   %0 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i, align 8
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.re2::Prog::Inst", ptr %0, i64 %conv.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %conv.i.i
   %conv.i = zext i1 %foldcase to i32
   tail call void @_ZN3re24Prog4Inst13InitByteRangeEiiij(ptr noundef nonnull align 4 dereferenceable(8) %arrayidx.i.i.i, i32 noundef %conv, i32 noundef %conv2, i32 noundef %conv.i, i32 noundef 0)
   %shl.i = shl nuw i32 %call.i, 1
@@ -1629,7 +1625,7 @@ while.body.i:                                     ; preds = %if.end.i3, %while.b
   %l.sroa.0.08.i = phi i32 [ %l.sroa.0.0.extract.trunc.i, %while.body.lr.ph.i ], [ %l.sroa.0.1.i, %if.end.i3 ]
   %shr.i = lshr i32 %l.sroa.0.08.i, 1
   %idxprom.i = zext nneg i32 %shr.i to i64
-  %arrayidx.i = getelementptr inbounds nuw %"class.re2::Prog::Inst", ptr %1, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %idxprom.i
   %and.i = and i32 %l.sroa.0.08.i, 1
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i2
@@ -1673,7 +1669,7 @@ if.end.i6:                                        ; preds = %if.else
 
 if.end4.i:                                        ; preds = %if.end.i6
   %shr.i7 = lshr i64 %agg.tmp6.sroa.0.0.copyload, 33
-  %arrayidx.i8 = getelementptr inbounds nuw %"class.re2::Prog::Inst", ptr %1, i64 %shr.i7
+  %arrayidx.i8 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %shr.i7
   %7 = and i64 %agg.tmp6.sroa.0.0.copyload, 4294967296
   %tobool.not.i9 = icmp eq i64 %7, 0
   br i1 %tobool.not.i9, label %if.else.i10, label %if.then6.i
@@ -1760,7 +1756,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
   %conv.i.i = zext nneg i32 %8 to i64
   %add.i.i.i = add i64 %seq.sroa.4.0.i.i, %conv.i.i
   %and.i.i.i = and i64 %add.i.i.i, %1
-  %add.ptr14.i.i = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %4, i64 %and.i.i.i
+  %add.ptr14.i.i = getelementptr inbounds [16 x i8], ptr %4, i64 %and.i.i.i
   %9 = load i64, ptr %add.ptr14.i.i, align 8
   %cmp.i.i.i.i.i.i.i.i = icmp eq i64 %9, %or7.i
   br i1 %cmp.i.i.i.i.i.i.i.i, label %if.then.i.i, label %for.inc.i.i
@@ -1841,7 +1837,7 @@ for.body.i.i.i.i:                                 ; preds = %for.inc.i.i.i.i, %f
   %conv.i.i.i.i10 = zext nneg i32 %22 to i64
   %add.i.i.i.i.i = add i64 %seq.sroa.4.0.i.i.i.i, %conv.i.i.i.i10
   %and.i.i.i.i.i = and i64 %add.i.i.i.i.i, %16
-  %add.ptr16.i.i.i.i = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %18, i64 %and.i.i.i.i.i
+  %add.ptr16.i.i.i.i = getelementptr inbounds [16 x i8], ptr %18, i64 %and.i.i.i.i.i
   %23 = load i64, ptr %add.ptr16.i.i.i.i, align 8, !noalias !9
   %cmp.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %23, %or7.i
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i, label %land.lhs.true.i.i.i, label %for.inc.i.i.i.i
@@ -1866,7 +1862,7 @@ if.end31.i.i.i.i:                                 ; preds = %for.end.i.i.i.i
 if.then.i.i.i:                                    ; preds = %for.end.i.i.i.i
   %call33.i.i.i.i = tail call noundef i64 @_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyImiEENS0_13hash_internal4HashImEESt8equal_toImESaISt4pairIKmiEEE14prepare_insertEm(ptr noundef nonnull align 8 dereferenceable(40) %rune_cache_, i64 noundef %conv1.i.i.i.i), !noalias !9
   %25 = load ptr, ptr %slots_.i.i, align 8, !noalias !9
-  %add.ptr.i3.i.i.i = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %25, i64 %call33.i.i.i.i
+  %add.ptr.i3.i.i.i = getelementptr inbounds [16 x i8], ptr %25, i64 %call33.i.i.i.i
   store i64 %or7.i, ptr %add.ptr.i3.i.i.i, align 8, !noalias !9
   %second.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i3.i.i.i, i64 8
   store i32 0, ptr %second.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !9
@@ -1889,7 +1885,7 @@ cond.false.i.i.i:                                 ; preds = %land.lhs.true.i.i.i
   unreachable
 
 _ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyImiEENS0_13hash_internal4HashImEESt8equal_toImESaISt4pairIKmiEEEixImS4_EEDTclsrT0_5valueclL_ZSt9addressofISC_EPT_RSI_EclL_ZSt7declvalIRSC_EDTcl9__declvalISI_ELi0EEEvEEEEERSB_.exit: ; preds = %land.lhs.true.i.i.i
-  %add.ptr2.i.i.i.i = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %26, i64 %retval.sroa.0.0.i15.i.i.i
+  %add.ptr2.i.i.i.i = getelementptr inbounds [16 x i8], ptr %26, i64 %retval.sroa.0.0.i15.i.i.i
   %second.i.i = getelementptr inbounds nuw i8, ptr %add.ptr2.i.i.i.i, i64 8
   store i32 %call9, ptr %second.i.i, align 4
   br label %return
@@ -1905,7 +1901,7 @@ entry:
   %conv.i = sext i32 %id to i64
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 128
   %0 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i, align 8
-  %arrayidx.i.i = getelementptr inbounds %"class.re2::Prog::Inst", ptr %0, i64 %conv.i
+  %arrayidx.i.i = getelementptr inbounds [8 x i8], ptr %0, i64 %conv.i
   %1 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 4
   %2 = load i8, ptr %1, align 4
   %hi_ = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 5
@@ -1968,7 +1964,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
   %conv.i.i = zext nneg i32 %15 to i64
   %add.i.i.i = add i64 %seq.sroa.4.0.i.i, %conv.i.i
   %and.i.i.i = and i64 %add.i.i.i, %8
-  %add.ptr14.i.i = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %11, i64 %and.i.i.i
+  %add.ptr14.i.i = getelementptr inbounds [16 x i8], ptr %11, i64 %and.i.i.i
   %16 = load i64, ptr %add.ptr14.i.i, align 8
   %cmp.i.i.i.i.i.i.i.i = icmp eq i64 %16, %or7.i
   br i1 %cmp.i.i.i.i.i.i.i.i, label %lor.lhs.false.i.i.i, label %for.inc.i.i
@@ -2039,7 +2035,7 @@ if.end18:                                         ; preds = %if.end12
   %conv.i = zext nneg i32 %call13 to i64
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 128
   %3 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i, align 8
-  %arrayidx.i.i = getelementptr inbounds nuw %"class.re2::Prog::Inst", ptr %3, i64 %conv.i
+  %arrayidx.i.i = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %conv.i
   %4 = load i32, ptr %rune_range_, align 8
   tail call void @_ZN3re24Prog4Inst7InitAltEjj(ptr noundef nonnull align 4 dereferenceable(8) %arrayidx.i.i, i32 noundef %4, i32 noundef %id)
   br label %return.sink.split
@@ -2073,7 +2069,7 @@ if.end:                                           ; preds = %if.then
   %conv.i = zext nneg i32 %call3 to i64
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 128
   %2 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i, align 8
-  %arrayidx.i.i = getelementptr inbounds nuw %"class.re2::Prog::Inst", ptr %2, i64 %conv.i
+  %arrayidx.i.i = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %conv.i
   tail call void @_ZN3re24Prog4Inst7InitAltEjj(ptr noundef nonnull align 4 dereferenceable(8) %arrayidx.i.i, i32 noundef %root, i32 noundef %id)
   br label %return
 
@@ -2111,7 +2107,7 @@ if.end21:                                         ; preds = %if.end6.if.end21_cr
   %br.0 = phi i32 [ %shr.i, %if.else15 ], [ %6, %if.then11 ], [ %root, %if.end6.if.end21_crit_edge ]
   %conv.i.i = sext i32 %br.0 to i64
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 128
-  %arrayidx.i.i.i = getelementptr inbounds %"class.re2::Prog::Inst", ptr %8, i64 %conv.i.i
+  %arrayidx.i.i.i = getelementptr inbounds [8 x i8], ptr %8, i64 %conv.i.i
   %9 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i, i64 4
   %10 = load i8, ptr %9, align 4
   %hi_.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i, i64 5
@@ -2174,7 +2170,7 @@ for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %for
   %conv.i.i.i = zext nneg i32 %23 to i64
   %add.i.i.i.i = add i64 %seq.sroa.4.0.i.i.i, %conv.i.i.i
   %and.i.i.i.i = and i64 %add.i.i.i.i, %16
-  %add.ptr14.i.i.i = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %19, i64 %and.i.i.i.i
+  %add.ptr14.i.i.i = getelementptr inbounds [16 x i8], ptr %19, i64 %and.i.i.i.i
   %24 = load i64, ptr %add.ptr14.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i.i.i = icmp eq i64 %24, %or7.i.i
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %lor.lhs.false.i.i.i.i, label %for.inc.i.i.i
@@ -2215,8 +2211,8 @@ if.then23:                                        ; preds = %lor.lhs.false.i.i.i
 if.end27:                                         ; preds = %if.then23
   %conv.i36 = zext nneg i32 %call24 to i64
   %27 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i, align 8
-  %arrayidx.i.i38 = getelementptr inbounds nuw %"class.re2::Prog::Inst", ptr %27, i64 %conv.i36
-  %arrayidx.i.i41 = getelementptr inbounds %"class.re2::Prog::Inst", ptr %27, i64 %conv.i.i
+  %arrayidx.i.i38 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %conv.i36
+  %arrayidx.i.i41 = getelementptr inbounds [8 x i8], ptr %27, i64 %conv.i.i
   %28 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i41, i64 4
   %29 = load i8, ptr %28, align 4
   %conv.i42 = zext i8 %29 to i32
@@ -2259,7 +2255,7 @@ if.end61:                                         ; preds = %for.end.i.i.i, %if.
   %br.1 = phi i32 [ %call24, %if.end27 ], [ %call24, %if.then51 ], [ %call24, %if.else55 ], [ %br.0, %for.end.i.i.i ]
   %conv.i61 = sext i32 %id to i64
   %39 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i, align 8
-  %arrayidx.i.i63 = getelementptr inbounds %"class.re2::Prog::Inst", ptr %39, i64 %conv.i61
+  %arrayidx.i.i63 = getelementptr inbounds [8 x i8], ptr %39, i64 %conv.i61
   %40 = load i32, ptr %arrayidx.i.i63, align 4
   %shr.i64 = lshr i32 %40, 4
   %41 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i63, i64 4
@@ -2319,7 +2315,7 @@ for.body.i.i.i104:                                ; preds = %for.inc.i.i.i111, %
   %conv.i.i.i106 = zext nneg i32 %54 to i64
   %add.i.i.i.i107 = add i64 %seq.sroa.4.0.i.i.i99, %conv.i.i.i106
   %and.i.i.i.i108 = and i64 %add.i.i.i.i107, %47
-  %add.ptr14.i.i.i109 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %50, i64 %and.i.i.i.i108
+  %add.ptr14.i.i.i109 = getelementptr inbounds [16 x i8], ptr %50, i64 %and.i.i.i.i108
   %55 = load i64, ptr %add.ptr14.i.i.i109, align 8
   %cmp.i.i.i.i.i.i.i.i.i110 = icmp eq i64 %55, %or7.i.i80
   br i1 %cmp.i.i.i.i.i.i.i.i.i110, label %lor.lhs.false.i.i.i.i122, label %for.inc.i.i.i111
@@ -2355,7 +2351,7 @@ cond.false.i.i.i.i125:                            ; preds = %lor.lhs.false.i.i.i
 if.then66:                                        ; preds = %for.end.i.i.i115
   store i32 0, ptr %arrayidx.i.i63, align 4
   %58 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i, align 8
-  %arrayidx.i.i132 = getelementptr inbounds %"class.re2::Prog::Inst", ptr %58, i64 %conv.i61
+  %arrayidx.i.i132 = getelementptr inbounds [8 x i8], ptr %58, i64 %conv.i61
   %59 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i132, i64 4
   store i32 0, ptr %59, align 4
   %ninst_ = getelementptr inbounds nuw i8, ptr %this, i64 136
@@ -2368,7 +2364,7 @@ if.then66:                                        ; preds = %for.end.i.i.i115
 if.end71:                                         ; preds = %lor.lhs.false.i.i.i.i122, %if.then66
   %61 = phi ptr [ %39, %lor.lhs.false.i.i.i.i122 ], [ %.pre151, %if.then66 ]
   %conv.i133 = sext i32 %br.1 to i64
-  %arrayidx.i.i135 = getelementptr inbounds %"class.re2::Prog::Inst", ptr %61, i64 %conv.i133
+  %arrayidx.i.i135 = getelementptr inbounds [8 x i8], ptr %61, i64 %conv.i133
   %62 = load i32, ptr %arrayidx.i.i135, align 4
   %shr.i136 = lshr i32 %62, 4
   %call75 = tail call noundef i32 @_ZN3re28Compiler18AddSuffixRecursiveEii(ptr noundef nonnull align 8 dereferenceable(212) %this, i32 noundef %shr.i136, i32 noundef %shr.i64)
@@ -2377,7 +2373,7 @@ if.end71:                                         ; preds = %lor.lhs.false.i.i.i
 
 if.end78:                                         ; preds = %if.end71
   %63 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i, align 8
-  %arrayidx.i.i139 = getelementptr inbounds %"class.re2::Prog::Inst", ptr %63, i64 %conv.i133
+  %arrayidx.i.i139 = getelementptr inbounds [8 x i8], ptr %63, i64 %conv.i133
   %shl.i140 = shl i32 %call75, 4
   %64 = load i32, ptr %arrayidx.i.i139, align 4
   %65 = and i32 %64, 15
@@ -2402,7 +2398,7 @@ entry:
   %conv.i = sext i32 %root to i64
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 128
   %0 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i, align 8
-  %arrayidx.i.i = getelementptr inbounds %"class.re2::Prog::Inst", ptr %0, i64 %conv.i
+  %arrayidx.i.i = getelementptr inbounds [8 x i8], ptr %0, i64 %conv.i
   %1 = load i32, ptr %arrayidx.i.i, align 4
   %and.i = and i32 %1, 7
   %cmp = icmp eq i32 %and.i, 2
@@ -2410,7 +2406,7 @@ entry:
 
 while.cond.preheader:                             ; preds = %entry
   %conv.i6.i24 = sext i32 %id to i64
-  %arrayidx.i.i8.i25 = getelementptr inbounds %"class.re2::Prog::Inst", ptr %0, i64 %conv.i6.i24
+  %arrayidx.i.i8.i25 = getelementptr inbounds [8 x i8], ptr %0, i64 %conv.i6.i24
   %2 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i8.i25, i64 4
   %hi_.i17.i29 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i8.i25, i64 5
   %hint_foldcase_.i25.i33 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i8.i25, i64 6
@@ -2423,7 +2419,7 @@ while.cond.preheader:                             ; preds = %entry
 while.cond.us:                                    ; preds = %while.cond.preheader, %if.end17.us
   %root.addr.0.us = phi i32 [ %shr.i.us, %if.end17.us ], [ %root, %while.cond.preheader ]
   %conv.i14.us = sext i32 %root.addr.0.us to i64
-  %arrayidx.i.i16.us = getelementptr inbounds %"class.re2::Prog::Inst", ptr %0, i64 %conv.i14.us
+  %arrayidx.i.i16.us = getelementptr inbounds [8 x i8], ptr %0, i64 %conv.i14.us
   %4 = load i32, ptr %arrayidx.i.i16.us, align 4
   %and.i17.us = and i32 %4, 7
   %cmp9.us = icmp eq i32 %and.i17.us, 0
@@ -2433,7 +2429,7 @@ while.body.us:                                    ; preds = %while.cond.us
   %5 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i16.us, i64 4
   %6 = load i32, ptr %5, align 4
   %conv.i.i21.us = sext i32 %6 to i64
-  %arrayidx.i.i.i23.us = getelementptr inbounds %"class.re2::Prog::Inst", ptr %0, i64 %conv.i.i21.us
+  %arrayidx.i.i.i23.us = getelementptr inbounds [8 x i8], ptr %0, i64 %conv.i.i21.us
   %7 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i23.us, i64 4
   %8 = load i8, ptr %7, align 4
   %9 = load i8, ptr %2, align 4
@@ -2459,7 +2455,7 @@ _ZN3re28Compiler14ByteRangeEqualEii.exit35.us:    ; preds = %land.lhs.true.i27.u
 if.end17.us:                                      ; preds = %_ZN3re28Compiler14ByteRangeEqualEii.exit35.us, %land.lhs.true.i27.us, %while.body.us
   %shr.i.us = lshr i32 %4, 4
   %conv.i49.us = zext nneg i32 %shr.i.us to i64
-  %arrayidx.i.i51.us = getelementptr inbounds nuw %"class.re2::Prog::Inst", ptr %0, i64 %conv.i49.us
+  %arrayidx.i.i51.us = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %conv.i49.us
   %16 = load i32, ptr %arrayidx.i.i51.us, align 4
   %and.i52.us = and i32 %16, 7
   %cmp27.us = icmp eq i32 %and.i52.us, 0
@@ -2469,7 +2465,7 @@ if.then:                                          ; preds = %entry
   %17 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 4
   %18 = load i8, ptr %17, align 4
   %conv.i6.i = sext i32 %id to i64
-  %arrayidx.i.i8.i = getelementptr inbounds %"class.re2::Prog::Inst", ptr %0, i64 %conv.i6.i
+  %arrayidx.i.i8.i = getelementptr inbounds [8 x i8], ptr %0, i64 %conv.i6.i
   %19 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i8.i, i64 4
   %20 = load i8, ptr %19, align 4
   %cmp.i = icmp eq i8 %18, %20
@@ -2525,7 +2521,7 @@ while.body:                                       ; preds = %while.cond
   %27 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 4
   %28 = load i32, ptr %27, align 4
   %conv.i.i21 = sext i32 %28 to i64
-  %arrayidx.i.i.i23 = getelementptr inbounds %"class.re2::Prog::Inst", ptr %0, i64 %conv.i.i21
+  %arrayidx.i.i.i23 = getelementptr inbounds [8 x i8], ptr %0, i64 %conv.i.i21
   %29 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i23, i64 4
   %30 = load i8, ptr %29, align 4
   %31 = load i8, ptr %2, align 4
@@ -2578,7 +2574,7 @@ if.then18:                                        ; preds = %_ZN3re28Compiler14B
   br label %return
 
 if.else29:                                        ; preds = %if.end17.us
-  %arrayidx.i.i51.us.le = getelementptr inbounds nuw %"class.re2::Prog::Inst", ptr %0, i64 %conv.i49.us
+  %arrayidx.i.i51.us.le = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %conv.i49.us
   %38 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i51.us.le, i64 4
   %39 = load i8, ptr %38, align 4
   %cmp.i58 = icmp eq i8 %39, %9
@@ -2698,11 +2694,11 @@ entry:
   %conv.i = sext i32 %id1 to i64
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 128
   %0 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i, align 8
-  %arrayidx.i.i = getelementptr inbounds %"class.re2::Prog::Inst", ptr %0, i64 %conv.i
+  %arrayidx.i.i = getelementptr inbounds [8 x i8], ptr %0, i64 %conv.i
   %1 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 4
   %2 = load i8, ptr %1, align 4
   %conv.i6 = sext i32 %id2 to i64
-  %arrayidx.i.i8 = getelementptr inbounds %"class.re2::Prog::Inst", ptr %0, i64 %conv.i6
+  %arrayidx.i.i8 = getelementptr inbounds [8 x i8], ptr %0, i64 %conv.i6
   %3 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i8, i64 4
   %4 = load i8, ptr %3, align 4
   %cmp = icmp eq i8 %2, %4
@@ -2869,7 +2865,7 @@ if.end18.i.i:                                     ; preds = %if.end12.i.i
   %conv.i.i.i = zext nneg i32 %call13.i.i to i64
   %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 128
   %4 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i, align 8
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw %"class.re2::Prog::Inst", ptr %4, i64 %conv.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i.i.i
   %5 = load i32, ptr %rune_range_.i.i, align 8
   tail call void @_ZN3re24Prog4Inst7InitAltEjj(ptr noundef nonnull align 4 dereferenceable(8) %arrayidx.i.i.i.i, i32 noundef %5, i32 noundef %call.i)
   br label %return.sink.split.i.i
@@ -2972,7 +2968,7 @@ if.end18.i:                                       ; preds = %if.end12.i
   %conv.i.i = zext nneg i32 %call13.i to i64
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 128
   %6 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i, align 8
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.re2::Prog::Inst", ptr %6, i64 %conv.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %conv.i.i
   %7 = load i32, ptr %rune_range_.i, align 8
   tail call void @_ZN3re24Prog4Inst7InitAltEjj(ptr noundef nonnull align 4 dereferenceable(8) %arrayidx.i.i.i, i32 noundef %7, i32 noundef %call17)
   br label %return.sink.split.i
@@ -3154,7 +3150,7 @@ if.end18.i64:                                     ; preds = %if.end12.i61
   %conv.i.i65 = zext nneg i32 %call13.i62 to i64
   %add.ptr.i.i.i.i.i.i.i.i66 = getelementptr inbounds nuw i8, ptr %this, i64 128
   %23 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i66, align 8
-  %arrayidx.i.i.i67 = getelementptr inbounds nuw %"class.re2::Prog::Inst", ptr %23, i64 %conv.i.i65
+  %arrayidx.i.i.i67 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %conv.i.i65
   %24 = load i32, ptr %rune_range_.i56, align 8
   call void @_ZN3re24Prog4Inst7InitAltEjj(ptr noundef nonnull align 4 dereferenceable(8) %arrayidx.i.i.i67, i32 noundef %24, i32 noundef %id.2)
   br label %return.sink.split.i68
@@ -3211,7 +3207,7 @@ if.end18.i:                                       ; preds = %if.end12.i
   %conv.i.i = zext nneg i32 %call13.i to i64
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 128
   %3 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i, align 8
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.re2::Prog::Inst", ptr %3, i64 %conv.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %conv.i.i
   %4 = load i32, ptr %rune_range_.i, align 8
   tail call void @_ZN3re24Prog4Inst7InitAltEjj(ptr noundef nonnull align 4 dereferenceable(8) %arrayidx.i.i.i, i32 noundef %4, i32 noundef %call)
   br label %return.sink.split.i
@@ -3266,7 +3262,7 @@ if.end18.i:                                       ; preds = %if.end12.i
   %conv.i.i = zext nneg i32 %call13.i to i64
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 128
   %4 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i, align 8
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.re2::Prog::Inst", ptr %4, i64 %conv.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i.i
   %5 = load i32, ptr %rune_range_.i, align 8
   tail call void @_ZN3re24Prog4Inst7InitAltEjj(ptr noundef nonnull align 4 dereferenceable(8) %arrayidx.i.i.i, i32 noundef %5, i32 noundef %call2)
   br label %return.sink.split.i
@@ -3309,7 +3305,7 @@ if.end18.i25:                                     ; preds = %if.end12.i22
   %conv.i.i26 = zext nneg i32 %call13.i23 to i64
   %add.ptr.i.i.i.i.i.i.i.i27 = getelementptr inbounds nuw i8, ptr %this, i64 128
   %9 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i27, align 8
-  %arrayidx.i.i.i28 = getelementptr inbounds nuw %"class.re2::Prog::Inst", ptr %9, i64 %conv.i.i26
+  %arrayidx.i.i.i28 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %conv.i.i26
   %10 = load i32, ptr %rune_range_.i17, align 8
   tail call void @_ZN3re24Prog4Inst7InitAltEjj(ptr noundef nonnull align 4 dereferenceable(8) %arrayidx.i.i.i28, i32 noundef %10, i32 noundef %call5)
   br label %return.sink.split.i29
@@ -3353,7 +3349,7 @@ if.end18.i45:                                     ; preds = %if.end12.i42
   %conv.i.i46 = zext nneg i32 %call13.i43 to i64
   %add.ptr.i.i.i.i.i.i.i.i47 = getelementptr inbounds nuw i8, ptr %this, i64 128
   %14 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i47, align 8
-  %arrayidx.i.i.i48 = getelementptr inbounds nuw %"class.re2::Prog::Inst", ptr %14, i64 %conv.i.i46
+  %arrayidx.i.i.i48 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %conv.i.i46
   %15 = load i32, ptr %rune_range_.i37, align 8
   tail call void @_ZN3re24Prog4Inst7InitAltEjj(ptr noundef nonnull align 4 dereferenceable(8) %arrayidx.i.i.i48, i32 noundef %15, i32 noundef %call9)
   br label %return.sink.split.i49
@@ -3395,7 +3391,7 @@ if.end18.i65:                                     ; preds = %if.end12.i62
   %conv.i.i66 = zext nneg i32 %call13.i63 to i64
   %add.ptr.i.i.i.i.i.i.i.i67 = getelementptr inbounds nuw i8, ptr %this, i64 128
   %19 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i67, align 8
-  %arrayidx.i.i.i68 = getelementptr inbounds nuw %"class.re2::Prog::Inst", ptr %19, i64 %conv.i.i66
+  %arrayidx.i.i.i68 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %conv.i.i66
   %20 = load i32, ptr %rune_range_.i57, align 8
   tail call void @_ZN3re24Prog4Inst7InitAltEjj(ptr noundef nonnull align 4 dereferenceable(8) %arrayidx.i.i.i68, i32 noundef %20, i32 noundef %call11)
   br label %return.sink.split.i69
@@ -3437,7 +3433,7 @@ if.end18.i85:                                     ; preds = %if.end12.i82
   %conv.i.i86 = zext nneg i32 %call13.i83 to i64
   %add.ptr.i.i.i.i.i.i.i.i87 = getelementptr inbounds nuw i8, ptr %this, i64 128
   %24 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i87, align 8
-  %arrayidx.i.i.i88 = getelementptr inbounds nuw %"class.re2::Prog::Inst", ptr %24, i64 %conv.i.i86
+  %arrayidx.i.i.i88 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %conv.i.i86
   %25 = load i32, ptr %rune_range_.i77, align 8
   tail call void @_ZN3re24Prog4Inst7InitAltEjj(ptr noundef nonnull align 4 dereferenceable(8) %arrayidx.i.i.i88, i32 noundef %25, i32 noundef %call13)
   br label %return.sink.split.i89
@@ -3479,7 +3475,7 @@ if.end18.i105:                                    ; preds = %if.end12.i102
   %conv.i.i106 = zext nneg i32 %call13.i103 to i64
   %add.ptr.i.i.i.i.i.i.i.i107 = getelementptr inbounds nuw i8, ptr %this, i64 128
   %29 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i107, align 8
-  %arrayidx.i.i.i108 = getelementptr inbounds nuw %"class.re2::Prog::Inst", ptr %29, i64 %conv.i.i106
+  %arrayidx.i.i.i108 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %conv.i.i106
   %30 = load i32, ptr %rune_range_.i97, align 8
   tail call void @_ZN3re24Prog4Inst7InitAltEjj(ptr noundef nonnull align 4 dereferenceable(8) %arrayidx.i.i.i108, i32 noundef %30, i32 noundef %call15)
   br label %return.sink.split.i109
@@ -3659,7 +3655,7 @@ if.end.i:                                         ; preds = %sw.bb
   %conv.i.i = zext nneg i32 %call.i to i64
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 128
   %1 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i, align 8
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.re2::Prog::Inst", ptr %1, i64 %conv.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %conv.i.i
   %conv.i = zext i1 %foldcase to i32
   tail call void @_ZN3re24Prog4Inst13InitByteRangeEiiij(ptr noundef nonnull align 4 dereferenceable(8) %arrayidx.i.i.i, i32 noundef %r, i32 noundef %r, i32 noundef %conv.i, i32 noundef 0)
   %shl.i = shl nuw i32 %call.i, 1
@@ -3710,7 +3706,7 @@ if.end.i9:                                        ; preds = %if.then
   %conv.i.i10 = zext nneg i32 %call.i7 to i64
   %add.ptr.i.i.i.i.i.i.i.i11 = getelementptr inbounds nuw i8, ptr %this, i64 128
   %2 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i11, align 8
-  %arrayidx.i.i.i12 = getelementptr inbounds nuw %"class.re2::Prog::Inst", ptr %2, i64 %conv.i.i10
+  %arrayidx.i.i.i12 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %conv.i.i10
   %conv.i13 = zext i1 %foldcase to i32
   tail call void @_ZN3re24Prog4Inst13InitByteRangeEiiij(ptr noundef nonnull align 4 dereferenceable(8) %arrayidx.i.i.i12, i32 noundef %r, i32 noundef %r, i32 noundef %conv.i13, i32 noundef 0)
   %shl.i14 = shl nuw i32 %call.i7, 1
@@ -3760,7 +3756,7 @@ if.end.i37:                                       ; preds = %if.end
   %conv.i.i38 = zext nneg i32 %call.i35 to i64
   %add.ptr.i.i.i.i.i.i.i.i39 = getelementptr inbounds nuw i8, ptr %this, i64 128
   %4 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i39, align 8
-  %arrayidx.i.i.i40 = getelementptr inbounds nuw %"class.re2::Prog::Inst", ptr %4, i64 %conv.i.i38
+  %arrayidx.i.i.i40 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i.i38
   call void @_ZN3re24Prog4Inst13InitByteRangeEiiij(ptr noundef nonnull align 4 dereferenceable(8) %arrayidx.i.i.i40, i32 noundef %conv, i32 noundef %conv, i32 noundef 0, i32 noundef 0)
   %shl.i41 = shl nuw i32 %call.i35, 1
   %retval.sroa.2.0.insert.ext.i.i42 = zext i32 %shl.i41 to i64
@@ -3822,7 +3818,7 @@ if.end.i64:                                       ; preds = %for.body
   %conv12 = zext i8 %6 to i32
   %conv.i.i65 = zext nneg i32 %call.i62 to i64
   %7 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i66, align 8
-  %arrayidx.i.i.i67 = getelementptr inbounds nuw %"class.re2::Prog::Inst", ptr %7, i64 %conv.i.i65
+  %arrayidx.i.i.i67 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %conv.i.i65
   call void @_ZN3re24Prog4Inst13InitByteRangeEiiij(ptr noundef nonnull align 4 dereferenceable(8) %arrayidx.i.i.i67, i32 noundef %conv12, i32 noundef %conv12, i32 noundef 0, i32 noundef 0)
   %shl.i68 = shl nuw i32 %call.i62, 1
   %retval.sroa.2.0.insert.ext.i.i69 = zext i32 %shl.i68 to i64
@@ -3967,7 +3963,7 @@ if.end.i:                                         ; preds = %sw.bb7
   %conv.i.i = zext nneg i32 %call.i to i64
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 128
   %2 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i, align 8
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.re2::Prog::Inst", ptr %2, i64 %conv.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %conv.i.i
   tail call void @_ZN3re24Prog4Inst7InitNopEj(ptr noundef nonnull align 4 dereferenceable(8) %arrayidx.i.i.i, i32 noundef 0)
   %shl.i = shl nuw i32 %call.i, 1
   %retval.sroa.2.0.insert.ext.i.i = zext i32 %shl.i to i64
@@ -4015,7 +4011,7 @@ if.end.i67:                                       ; preds = %sw.bb9
   %conv.i.i68 = zext nneg i32 %call.i65 to i64
   %add.ptr.i.i.i.i.i.i.i.i69 = getelementptr inbounds nuw i8, ptr %this, i64 128
   %5 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i69, align 8
-  %arrayidx.i.i.i70 = getelementptr inbounds nuw %"class.re2::Prog::Inst", ptr %5, i64 %conv.i.i68
+  %arrayidx.i.i.i70 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %conv.i.i68
   tail call void @_ZN3re24Prog4Inst9InitMatchEi(ptr noundef nonnull align 4 dereferenceable(8) %arrayidx.i.i.i70, i32 noundef %4)
   store i32 %call.i65, ptr %retval.i64, align 8
   %retval.i64.4.retval.i64.4.retval.i64.4.retval.4.retval.4.end3.i.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.i64, i64 4
@@ -4066,7 +4062,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv377 = phi i64 [ 1, %for.body.lr.ph ], [ %indvars.iv.next378, %for.body ]
   %11 = phi i64 [ %retval.0.retval.0.retval.promoted365, %for.body.lr.ph ], [ %12, %for.body ]
   %retval.8.retval.8.retval.8.agg.tmp20.sroa.2.0.copyload = load i64, ptr %retval.8.retval.8.retval.8.retval.sroa_idx429, align 8
-  %arrayidx22 = getelementptr inbounds nuw %"struct.re2::Frag", ptr %child_frags, i64 %indvars.iv377
+  %arrayidx22 = getelementptr inbounds nuw [16 x i8], ptr %child_frags, i64 %indvars.iv377
   %agg.tmp21.sroa.0.0.copyload = load i64, ptr %arrayidx22, align 4
   %agg.tmp21.sroa.2.0.arrayidx22.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx22, i64 8
   %agg.tmp21.sroa.2.0.copyload = load i64, ptr %agg.tmp21.sroa.2.0.arrayidx22.sroa_idx, align 4
@@ -4095,7 +4091,7 @@ for.body29:                                       ; preds = %for.body29.lr.ph, %
   %indvars.iv374 = phi i64 [ 1, %for.body29.lr.ph ], [ %indvars.iv.next375, %for.body29 ]
   %14 = phi i64 [ %retval.0.retval.0.retval.promoted360, %for.body29.lr.ph ], [ %15, %for.body29 ]
   %retval.8.retval.8.retval.8.agg.tmp31.sroa.2.0.copyload = load i64, ptr %retval.8.retval.8.retval.8.retval.sroa_idx428, align 8
-  %arrayidx34 = getelementptr inbounds nuw %"struct.re2::Frag", ptr %child_frags, i64 %indvars.iv374
+  %arrayidx34 = getelementptr inbounds nuw [16 x i8], ptr %child_frags, i64 %indvars.iv374
   %agg.tmp32.sroa.0.0.copyload = load i64, ptr %arrayidx34, align 4
   %agg.tmp32.sroa.2.0.arrayidx34.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx34, i64 8
   %agg.tmp32.sroa.2.0.copyload = load i64, ptr %agg.tmp32.sroa.2.0.arrayidx34.sroa_idx, align 4
@@ -4201,7 +4197,7 @@ for.body76:                                       ; preds = %for.body76.lr.ph, %
   %indvars.iv = phi i64 [ 0, %for.body76.lr.ph ], [ %indvars.iv.next, %for.inc91 ]
   %38 = phi i64 [ %retval.0.retval.0.retval.promoted, %for.body76.lr.ph ], [ %46, %for.inc91 ]
   %39 = load ptr, ptr %runes_.i, align 8
-  %arrayidx79 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv
+  %arrayidx79 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %indvars.iv
   %40 = load i32, ptr %arrayidx79, align 4
   %41 = load i16, ptr %parse_flags_.i96, align 2
   %cmp82 = trunc i16 %41 to i1
@@ -4303,7 +4299,7 @@ if.end.i108:                                      ; preds = %sw.bb96
   %conv.i.i109 = zext nneg i32 %call.i106 to i64
   %add.ptr.i.i.i.i.i.i.i.i110 = getelementptr inbounds nuw i8, ptr %this, i64 128
   %57 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i110, align 8
-  %arrayidx.i.i.i111 = getelementptr inbounds nuw %"class.re2::Prog::Inst", ptr %57, i64 %conv.i.i109
+  %arrayidx.i.i.i111 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %conv.i.i109
   tail call void @_ZN3re24Prog4Inst13InitByteRangeEiiij(ptr noundef nonnull align 4 dereferenceable(8) %arrayidx.i.i.i111, i32 noundef 0, i32 noundef 255, i32 noundef 0, i32 noundef 0)
   %shl.i112 = shl nuw i32 %call.i106, 1
   %retval.sroa.2.0.insert.ext.i.i113 = zext i32 %shl.i112 to i64
@@ -4436,7 +4432,7 @@ for.inc145:                                       ; preds = %land.lhs.true118, %
   %72 = phi ptr [ %66, %land.lhs.true118 ], [ %.pre409, %if.end141 ]
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %i110.0354, i64 8
   %idx.ext.i = sext i32 %71 to i64
-  %add.ptr.i = getelementptr inbounds %"struct.re2::RuneRange", ptr %72, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds [8 x i8], ptr %72, i64 %idx.ext.i
   %cmp114.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp114.not, label %for.end146, label %for.body115, !llvm.loop !24
 
@@ -4498,7 +4494,7 @@ if.end.i150:                                      ; preds = %sw.bb158
   %conv.i.i151 = zext nneg i32 %call.i148 to i64
   %add.ptr.i.i.i.i.i.i.i.i152 = getelementptr inbounds nuw i8, ptr %this, i64 128
   %78 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i152, align 8
-  %arrayidx.i.i.i153 = getelementptr inbounds nuw %"class.re2::Prog::Inst", ptr %78, i64 %conv.i.i151
+  %arrayidx.i.i.i153 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %conv.i.i151
   tail call void @_ZN3re24Prog4Inst14InitEmptyWidthENS_7EmptyOpEj(ptr noundef nonnull align 4 dereferenceable(8) %arrayidx.i.i.i153, i32 noundef %cond, i32 noundef 0)
   %shl.i154 = shl nuw i32 %call.i148, 1
   %retval.sroa.2.0.insert.ext.i.i155 = zext i32 %shl.i154 to i64
@@ -4548,7 +4544,7 @@ if.end.i176:                                      ; preds = %sw.bb161
   %conv.i.i177 = zext nneg i32 %call.i174 to i64
   %add.ptr.i.i.i.i.i.i.i.i178 = getelementptr inbounds nuw i8, ptr %this, i64 128
   %80 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i178, align 8
-  %arrayidx.i.i.i179 = getelementptr inbounds nuw %"class.re2::Prog::Inst", ptr %80, i64 %conv.i.i177
+  %arrayidx.i.i.i179 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %conv.i.i177
   tail call void @_ZN3re24Prog4Inst14InitEmptyWidthENS_7EmptyOpEj(ptr noundef nonnull align 4 dereferenceable(8) %arrayidx.i.i.i179, i32 noundef %cond164, i32 noundef 0)
   %shl.i180 = shl nuw i32 %call.i174, 1
   %retval.sroa.2.0.insert.ext.i.i181 = zext i32 %shl.i180 to i64
@@ -4598,7 +4594,7 @@ if.end.i203:                                      ; preds = %sw.bb166
   %conv.i.i204 = zext nneg i32 %call.i201 to i64
   %add.ptr.i.i.i.i.i.i.i.i205 = getelementptr inbounds nuw i8, ptr %this, i64 128
   %82 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i205, align 8
-  %arrayidx.i.i.i206 = getelementptr inbounds nuw %"class.re2::Prog::Inst", ptr %82, i64 %conv.i.i204
+  %arrayidx.i.i.i206 = getelementptr inbounds nuw [8 x i8], ptr %82, i64 %conv.i.i204
   tail call void @_ZN3re24Prog4Inst14InitEmptyWidthENS_7EmptyOpEj(ptr noundef nonnull align 4 dereferenceable(8) %arrayidx.i.i.i206, i32 noundef %cond169, i32 noundef 0)
   %shl.i207 = shl nuw i32 %call.i201, 1
   %retval.sroa.2.0.insert.ext.i.i208 = zext i32 %shl.i207 to i64
@@ -4648,7 +4644,7 @@ if.end.i230:                                      ; preds = %sw.bb171
   %conv.i.i231 = zext nneg i32 %call.i228 to i64
   %add.ptr.i.i.i.i.i.i.i.i232 = getelementptr inbounds nuw i8, ptr %this, i64 128
   %84 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i232, align 8
-  %arrayidx.i.i.i233 = getelementptr inbounds nuw %"class.re2::Prog::Inst", ptr %84, i64 %conv.i.i231
+  %arrayidx.i.i.i233 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %conv.i.i231
   tail call void @_ZN3re24Prog4Inst14InitEmptyWidthENS_7EmptyOpEj(ptr noundef nonnull align 4 dereferenceable(8) %arrayidx.i.i.i233, i32 noundef %cond174, i32 noundef 0)
   %shl.i234 = shl nuw i32 %call.i228, 1
   %retval.sroa.2.0.insert.ext.i.i235 = zext i32 %shl.i234 to i64
@@ -4694,7 +4690,7 @@ if.end.i257:                                      ; preds = %sw.bb176
   %conv.i.i258 = zext nneg i32 %call.i255 to i64
   %add.ptr.i.i.i.i.i.i.i.i259 = getelementptr inbounds nuw i8, ptr %this, i64 128
   %85 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i259, align 8
-  %arrayidx.i.i.i260 = getelementptr inbounds nuw %"class.re2::Prog::Inst", ptr %85, i64 %conv.i.i258
+  %arrayidx.i.i.i260 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %conv.i.i258
   tail call void @_ZN3re24Prog4Inst14InitEmptyWidthENS_7EmptyOpEj(ptr noundef nonnull align 4 dereferenceable(8) %arrayidx.i.i.i260, i32 noundef 16, i32 noundef 0)
   %shl.i261 = shl nuw i32 %call.i255, 1
   %retval.sroa.2.0.insert.ext.i.i262 = zext i32 %shl.i261 to i64
@@ -4740,7 +4736,7 @@ if.end.i284:                                      ; preds = %sw.bb178
   %conv.i.i285 = zext nneg i32 %call.i282 to i64
   %add.ptr.i.i.i.i.i.i.i.i286 = getelementptr inbounds nuw i8, ptr %this, i64 128
   %86 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i286, align 8
-  %arrayidx.i.i.i287 = getelementptr inbounds nuw %"class.re2::Prog::Inst", ptr %86, i64 %conv.i.i285
+  %arrayidx.i.i.i287 = getelementptr inbounds nuw [8 x i8], ptr %86, i64 %conv.i.i285
   tail call void @_ZN3re24Prog4Inst14InitEmptyWidthENS_7EmptyOpEj(ptr noundef nonnull align 4 dereferenceable(8) %arrayidx.i.i.i287, i32 noundef 32, i32 noundef 0)
   %shl.i288 = shl nuw i32 %call.i282, 1
   %retval.sroa.2.0.insert.ext.i.i289 = zext i32 %shl.i288 to i64
@@ -5023,7 +5019,7 @@ call5.i3.i.i.noexc:                               ; preds = %_ZN3re28PODArrayINS
   br i1 %cmp17.not.i, label %if.end26.thread.i, label %if.then.i.i.i.i.i.i
 
 if.end26.thread.i:                                ; preds = %call5.i3.i.i.noexc
-  %add.ptr16.i = getelementptr inbounds %"class.re2::Prog::Inst", ptr %call5.i3.i.i55, i64 %idx.ext15.i
+  %add.ptr16.i = getelementptr inbounds [8 x i8], ptr %call5.i3.i.i55, i64 %idx.ext15.i
   %sub17.i = sub nsw i32 %cap.0.i, %9
   %conv3118.i = sext i32 %sub17.i to i64
   %mul3219.i = shl nsw i64 %conv3118.i, 3
@@ -5034,7 +5030,7 @@ if.end26.thread.i:                                ; preds = %call5.i3.i.i.noexc
 if.then.i.i.i.i.i.i:                              ; preds = %call5.i3.i.i.noexc
   %mul25.i = shl nsw i64 %idx.ext15.i, 3
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %call5.i3.i.i55, ptr nonnull align 4 %12, i64 %mul25.i, i1 false)
-  %add.ptr.i = getelementptr inbounds %"class.re2::Prog::Inst", ptr %call5.i3.i.i55, i64 %idx.ext15.i
+  %add.ptr.i = getelementptr inbounds [8 x i8], ptr %call5.i3.i.i55, i64 %idx.ext15.i
   %sub.i52 = sub nsw i32 %cap.0.i, %9
   %conv31.i = sext i32 %sub.i52 to i64
   %mul32.i = shl nsw i64 %conv31.i, 3
@@ -5075,7 +5071,7 @@ if.end.i32:                                       ; preds = %call.i.noexc
   %conv.i.i = zext nneg i32 %13 to i64
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %c, i64 128
   %14 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i, align 8
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.re2::Prog::Inst", ptr %14, i64 %conv.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %conv.i.i
   invoke void @_ZN3re24Prog4Inst9InitMatchEi(ptr noundef nonnull align 4 dereferenceable(8) %arrayidx.i.i.i, i32 noundef 0)
           to label %.noexc unwind label %lpad
 
@@ -5181,7 +5177,7 @@ call5.i3.i.i.noexc103:                            ; preds = %_ZN3re28PODArrayINS
   br i1 %cmp17.not.i82, label %if.end26.thread.i95, label %if.then.i.i.i.i.i.i84
 
 if.end26.thread.i95:                              ; preds = %call5.i3.i.i.noexc103
-  %add.ptr16.i96 = getelementptr inbounds %"class.re2::Prog::Inst", ptr %call5.i3.i.i104, i64 %idx.ext15.i83
+  %add.ptr16.i96 = getelementptr inbounds [8 x i8], ptr %call5.i3.i.i104, i64 %idx.ext15.i83
   %sub17.i97 = sub nsw i32 %cap.0.i73, %25
   %conv3118.i98 = sext i32 %sub17.i97 to i64
   %mul3219.i99 = shl nsw i64 %conv3118.i98, 3
@@ -5192,7 +5188,7 @@ if.end26.thread.i95:                              ; preds = %call5.i3.i.i.noexc1
 if.then.i.i.i.i.i.i84:                            ; preds = %call5.i3.i.i.noexc103
   %mul25.i85 = shl nsw i64 %idx.ext15.i83, 3
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %call5.i3.i.i104, ptr nonnull align 4 %28, i64 %mul25.i85, i1 false)
-  %add.ptr.i86 = getelementptr inbounds %"class.re2::Prog::Inst", ptr %call5.i3.i.i104, i64 %idx.ext15.i83
+  %add.ptr.i86 = getelementptr inbounds [8 x i8], ptr %call5.i3.i.i104, i64 %idx.ext15.i83
   %sub.i87 = sub nsw i32 %cap.0.i73, %25
   %conv31.i88 = sext i32 %sub.i87 to i64
   %mul32.i89 = shl nsw i64 %conv31.i88, 3
@@ -5233,7 +5229,7 @@ if.end.i.i:                                       ; preds = %call.i.i.noexc
   %conv.i.i.i = zext nneg i32 %29 to i64
   %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %c, i64 128
   %30 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i, align 8
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw %"class.re2::Prog::Inst", ptr %30, i64 %conv.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %conv.i.i.i
   invoke void @_ZN3re24Prog4Inst13InitByteRangeEiiij(ptr noundef nonnull align 4 dereferenceable(8) %arrayidx.i.i.i.i, i32 noundef 0, i32 noundef 255, i32 noundef 0, i32 noundef 0)
           to label %.noexc45 unwind label %lpad
 
@@ -5337,13 +5333,13 @@ for.body:                                         ; preds = %invoke.cont, %invok
   %cmp.i32 = icmp ult i16 %8, 2
   %9 = load ptr, ptr %3, align 8
   %retval.0.i33 = select i1 %cmp.i32, ptr %3, ptr %9
-  %arrayidx16 = getelementptr inbounds nuw ptr, ptr %retval.0.i33, i64 %indvars.iv
+  %arrayidx16 = getelementptr inbounds nuw [8 x i8], ptr %retval.0.i33, i64 %indvars.iv
   %10 = load ptr, ptr %arrayidx16, align 8
   %call18 = invoke noundef ptr @_ZN3re26Regexp6IncrefEv(ptr noundef nonnull align 8 dereferenceable(40) %10)
           to label %invoke.cont19 unwind label %_ZN3re28PODArrayIPNS_6RegexpEED2Ev.exit.loopexit
 
 invoke.cont19:                                    ; preds = %for.body
-  %arrayidx.i.i = getelementptr inbounds nuw ptr, ptr %call5.i3.i, i64 %indvars.iv
+  %arrayidx.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i3.i, i64 %indvars.iv
   store ptr %call18, ptr %arrayidx.i.i, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %11 = load i16, ptr %nsub_.i, align 2
@@ -5463,7 +5459,7 @@ if.then4:                                         ; preds = %sw.bb
   %4 = load ptr, ptr %3, align 8
   %retval.0.i = select i1 %cmp.i, ptr %3, ptr %4
   %5 = zext i16 %2 to i64
-  %6 = getelementptr ptr, ptr %retval.0.i, i64 %5
+  %6 = getelementptr [8 x i8], ptr %retval.0.i, i64 %5
   %arrayidx = getelementptr i8, ptr %6, i64 -8
   %7 = load ptr, ptr %arrayidx, align 8
   %call8 = tail call noundef ptr @_ZN3re26Regexp6IncrefEv(ptr noundef nonnull align 8 dereferenceable(40) %7)
@@ -5478,7 +5474,7 @@ invoke.cont:                                      ; preds = %if.then4
   %mul.i.i = shl nuw nsw i64 %conv.i32, 3
   %call5.i3.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i) #26
   %9 = load ptr, ptr %sub, align 8
-  %10 = getelementptr ptr, ptr %call5.i3.i, i64 %conv.i32
+  %10 = getelementptr [8 x i8], ptr %call5.i3.i, i64 %conv.i32
   %arrayidx.i.i = getelementptr i8, ptr %10, i64 -8
   store ptr %9, ptr %arrayidx.i.i, align 8
   %conv.i3764 = zext nneg i16 %8 to i32
@@ -5491,13 +5487,13 @@ for.body:                                         ; preds = %invoke.cont, %invok
   %cmp.i39 = icmp ult i16 %11, 2
   %12 = load ptr, ptr %3, align 8
   %retval.0.i40 = select i1 %cmp.i39, ptr %3, ptr %12
-  %arrayidx20 = getelementptr inbounds nuw ptr, ptr %retval.0.i40, i64 %indvars.iv
+  %arrayidx20 = getelementptr inbounds nuw [8 x i8], ptr %retval.0.i40, i64 %indvars.iv
   %13 = load ptr, ptr %arrayidx20, align 8
   %call22 = invoke noundef ptr @_ZN3re26Regexp6IncrefEv(ptr noundef nonnull align 8 dereferenceable(40) %13)
           to label %invoke.cont23 unwind label %_ZN3re28PODArrayIPNS_6RegexpEED2Ev.exit.loopexit
 
 invoke.cont23:                                    ; preds = %for.body
-  %arrayidx.i.i43 = getelementptr inbounds nuw ptr, ptr %call5.i3.i, i64 %indvars.iv
+  %arrayidx.i.i43 = getelementptr inbounds nuw [8 x i8], ptr %call5.i3.i, i64 %indvars.iv
   store ptr %call22, ptr %arrayidx.i.i43, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %14 = load i16, ptr %nsub_.i, align 2
@@ -5617,7 +5613,7 @@ if.end.i:                                         ; preds = %entry
   %conv.i.i = zext nneg i32 %call.i to i64
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 128
   %0 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i, align 8
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.re2::Prog::Inst", ptr %0, i64 %conv.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %conv.i.i
   tail call void @_ZN3re24Prog4Inst13InitByteRangeEiiij(ptr noundef nonnull align 4 dereferenceable(8) %arrayidx.i.i.i, i32 noundef 0, i32 noundef 255, i32 noundef 0, i32 noundef 0)
   %shl.i = shl nuw i32 %call.i, 1
   %retval.sroa.2.0.insert.ext.i.i = zext i32 %shl.i to i64
@@ -5950,7 +5946,7 @@ call5.i3.i.i.noexc:                               ; preds = %_ZN3re28PODArrayINS
   br i1 %cmp17.not.i, label %if.end26.thread.i, label %if.then.i.i.i.i.i.i
 
 if.end26.thread.i:                                ; preds = %call5.i3.i.i.noexc
-  %add.ptr16.i = getelementptr inbounds %"class.re2::Prog::Inst", ptr %call5.i3.i.i25, i64 %idx.ext15.i
+  %add.ptr16.i = getelementptr inbounds [8 x i8], ptr %call5.i3.i.i25, i64 %idx.ext15.i
   %sub17.i = sub nsw i32 %cap.0.i, %11
   %conv3118.i = sext i32 %sub17.i to i64
   %mul3219.i = shl nsw i64 %conv3118.i, 3
@@ -5961,7 +5957,7 @@ if.end26.thread.i:                                ; preds = %call5.i3.i.i.noexc
 if.then.i.i.i.i.i.i:                              ; preds = %call5.i3.i.i.noexc
   %mul25.i = shl nsw i64 %idx.ext15.i, 3
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %call5.i3.i.i25, ptr nonnull align 4 %14, i64 %mul25.i, i1 false)
-  %add.ptr.i = getelementptr inbounds %"class.re2::Prog::Inst", ptr %call5.i3.i.i25, i64 %idx.ext15.i
+  %add.ptr.i = getelementptr inbounds [8 x i8], ptr %call5.i3.i.i25, i64 %idx.ext15.i
   %sub.i22 = sub nsw i32 %cap.0.i, %11
   %conv31.i = sext i32 %sub.i22 to i64
   %mul32.i = shl nsw i64 %conv31.i, 3
@@ -6002,7 +5998,7 @@ if.end.i.i:                                       ; preds = %call.i.i.noexc
   %conv.i.i.i = zext nneg i32 %15 to i64
   %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %c, i64 128
   %16 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i, align 8
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw %"class.re2::Prog::Inst", ptr %16, i64 %conv.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %conv.i.i.i
   invoke void @_ZN3re24Prog4Inst13InitByteRangeEiiij(ptr noundef nonnull align 4 dereferenceable(8) %arrayidx.i.i.i.i, i32 noundef 0, i32 noundef 255, i32 noundef 0, i32 noundef 0)
           to label %.noexc unwind label %lpad
 
@@ -6239,7 +6235,7 @@ _ZNSt11_Deque_baseIN3re29WalkStateINS0_4FragEEESaIS3_EE15_M_allocate_mapEm.exit:
   store ptr %call5.i.i2.i, ptr %this, align 8
   %sub = sub nsw i64 %.sroa.speculated, %add
   %div137 = lshr i64 %sub, 1
-  %add.ptr = getelementptr inbounds nuw ptr, ptr %call5.i.i2.i, i64 %div137
+  %add.ptr = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i2.i, i64 %div137
   %add.ptr14.idx = shl nuw nsw i64 %add, 3
   %add.ptr14 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 %add.ptr14.idx
   br label %for.body.i
@@ -6327,7 +6323,7 @@ try.cont:                                         ; preds = %invoke.cont.i
   %_M_last.i13 = getelementptr inbounds nuw i8, ptr %this, i64 64
   store ptr %add.ptr.i12, ptr %_M_last.i13, align 8
   store ptr %12, ptr %_M_start, align 8
-  %add.ptr36 = getelementptr inbounds nuw %"struct.re2::WalkState", ptr %13, i64 %rem
+  %add.ptr36 = getelementptr inbounds nuw [72 x i8], ptr %13, i64 %rem
   store ptr %add.ptr36, ptr %_M_finish, align 8
   ret void
 
@@ -6687,7 +6683,7 @@ for.body:                                         ; preds = %_ZN4absl7debian218c
   br i1 %cmp.i, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %for.body
-  %add.ptr = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %1, i64 %i.027
+  %add.ptr = getelementptr inbounds [16 x i8], ptr %1, i64 %i.027
   %7 = load i64, ptr %add.ptr, align 8
   %add.i.i.i.i.i.i.i.i = add i64 %7, ptrtoint (ptr @_ZN4absl7debian213hash_internal9HashState5kSeedE to i64)
   %conv.i.i.i.i.i.i.i.i = zext i64 %add.i.i.i.i.i.i.i.i to i128
@@ -6743,7 +6739,7 @@ _ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit: ; preds = %
   %arrayidx8.i = getelementptr i8, ptr %20, i64 %and6.i
   store i8 %conv.i16, ptr %arrayidx8.i, align 1
   %21 = load ptr, ptr %slots_, align 8
-  %add.ptr12 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %21, i64 %and.i.i
+  %add.ptr12 = getelementptr inbounds [16 x i8], ptr %21, i64 %and.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr12, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr, i64 16, i1 false)
   br label %for.inc
 
@@ -6787,7 +6783,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 if.end:                                           ; preds = %for.body
   %6 = load ptr, ptr %slots_, align 8
-  %add.ptr = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %6, i64 %i.072
+  %add.ptr = getelementptr inbounds [16 x i8], ptr %6, i64 %i.072
   %7 = load i64, ptr %add.ptr, align 8
   %add.i.i.i.i.i.i.i.i = add i64 %7, ptrtoint (ptr @_ZN4absl7debian213hash_internal9HashState5kSeedE to i64)
   %conv.i.i.i.i.i.i.i.i = zext i64 %add.i.i.i.i.i.i.i.i to i128
@@ -6869,8 +6865,8 @@ if.end15:                                         ; preds = %_ZN4absl7debian218c
   br i1 %cmp.i35, label %if.then19, label %if.else
 
 if.then19:                                        ; preds = %if.end15
-  %add.ptr23 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %25, i64 %and.i.i
-  %add.ptr25 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %25, i64 %i.072
+  %add.ptr23 = getelementptr inbounds [16 x i8], ptr %25, i64 %and.i.i
+  %add.ptr25 = getelementptr inbounds [16 x i8], ptr %25, i64 %i.072
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr23, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr25, i64 16, i1 false)
   %26 = load ptr, ptr %this, align 8
   %arrayidx.i44 = getelementptr inbounds i8, ptr %26, i64 %i.072
@@ -6887,12 +6883,12 @@ if.then19:                                        ; preds = %if.end15
   br label %for.inc
 
 if.else:                                          ; preds = %if.end15
-  %add.ptr29 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %25, i64 %i.072
+  %add.ptr29 = getelementptr inbounds [16 x i8], ptr %25, i64 %i.072
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %raw, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr29, i64 16, i1 false)
-  %add.ptr34 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %25, i64 %and.i.i
+  %add.ptr34 = getelementptr inbounds [16 x i8], ptr %25, i64 %and.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr29, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr34, i64 16, i1 false)
   %31 = load ptr, ptr %slots_, align 8
-  %add.ptr37 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %31, i64 %and.i.i
+  %add.ptr37 = getelementptr inbounds [16 x i8], ptr %31, i64 %and.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr37, ptr noundef nonnull align 8 dereferenceable(16) %raw, i64 16, i1 false)
   %dec = add i64 %i.072, -1
   br label %for.inc
@@ -7127,7 +7123,7 @@ if.then29:                                        ; preds = %if.end21
   %conv31 = zext i16 %20 to i64
   %21 = shl nuw nsw i64 %conv31, 4
   %call32 = call noalias noundef nonnull ptr @_Znam(i64 noundef %21) #26
-  %arrayctor.end = getelementptr inbounds nuw %"struct.re2::Frag", ptr %call32, i64 %conv31
+  %arrayctor.end = getelementptr inbounds nuw [16 x i8], ptr %call32, i64 %conv31
   br label %arrayctor.loop
 
 arrayctor.loop:                                   ; preds = %arrayctor.loop, %if.then29
@@ -7169,17 +7165,17 @@ if.then47:                                        ; preds = %if.then41
 
 if.then47.if.else74_crit_edge:                    ; preds = %if.then47
   %idxprom78.phi.trans.insert = sext i32 %.pre89 to i64
-  %arrayidx79.phi.trans.insert = getelementptr inbounds ptr, ptr %retval.0.i, i64 %idxprom78.phi.trans.insert
+  %arrayidx79.phi.trans.insert = getelementptr inbounds [8 x i8], ptr %retval.0.i, i64 %idxprom78.phi.trans.insert
   %.pre = load ptr, ptr %arrayidx79.phi.trans.insert, align 8
   br label %if.else74
 
 land.lhs.true51:                                  ; preds = %if.then47
   %sub53 = add nsw i32 %.pre89, -1
   %idxprom = zext nneg i32 %sub53 to i64
-  %arrayidx = getelementptr inbounds nuw ptr, ptr %retval.0.i, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [8 x i8], ptr %retval.0.i, i64 %idxprom
   %25 = load ptr, ptr %arrayidx, align 8
   %idxprom55 = zext nneg i32 %.pre89 to i64
-  %arrayidx56 = getelementptr inbounds nuw ptr, ptr %retval.0.i, i64 %idxprom55
+  %arrayidx56 = getelementptr inbounds nuw [8 x i8], ptr %retval.0.i, i64 %idxprom55
   %26 = load ptr, ptr %arrayidx56, align 8
   %cmp57 = icmp eq ptr %25, %26
   br i1 %cmp57, label %if.then58, label %if.else74
@@ -7187,7 +7183,7 @@ land.lhs.true51:                                  ; preds = %if.then47
 if.then58:                                        ; preds = %land.lhs.true51
   %child_args61 = getelementptr inbounds i8, ptr %9, i64 -8
   %27 = load ptr, ptr %child_args61, align 8
-  %arrayidx65 = getelementptr inbounds nuw %"struct.re2::Frag", ptr %27, i64 %idxprom
+  %arrayidx65 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %idxprom
   %agg.tmp60.sroa.0.0.copyload = load i64, ptr %arrayidx65, align 4
   %agg.tmp60.sroa.2.0.arrayidx65.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx65, i64 8
   %agg.tmp60.sroa.2.0.copyload = load i64, ptr %agg.tmp60.sroa.2.0.arrayidx65.sroa_idx, align 4
@@ -7200,7 +7196,7 @@ if.then58:                                        ; preds = %land.lhs.true51
   %31 = load ptr, ptr %child_args61, align 8
   %32 = load i32, ptr %n, align 8
   %idxprom71 = sext i32 %32 to i64
-  %arrayidx72 = getelementptr inbounds %"struct.re2::Frag", ptr %31, i64 %idxprom71
+  %arrayidx72 = getelementptr inbounds [16 x i8], ptr %31, i64 %idxprom71
   store i64 %29, ptr %arrayidx72, align 4
   %ref.tmp59.sroa.2.0.arrayidx72.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx72, i64 8
   %ref.tmp59.sroa.2.0.extract.trunc = trunc i64 %30 to i40
@@ -7330,7 +7326,7 @@ if.then110:                                       ; preds = %_ZNSt5stackIN3re29W
   %n112 = getelementptr inbounds i8, ptr %53, i64 -64
   %55 = load i32, ptr %n112, align 8
   %idxprom113 = sext i32 %55 to i64
-  %arrayidx114 = getelementptr inbounds %"struct.re2::Frag", ptr %54, i64 %idxprom113
+  %arrayidx114 = getelementptr inbounds [16 x i8], ptr %54, i64 %idxprom113
   br label %if.end117
 
 if.else115:                                       ; preds = %_ZNSt5stackIN3re29WalkStateINS0_4FragEEESt5dequeIS3_SaIS3_EEE3topEv.exit84
@@ -7464,9 +7460,9 @@ if.then:                                          ; preds = %entry
   %3 = load ptr, ptr %this, align 8
   %sub = sub i64 %2, %add4
   %div17 = lshr i64 %sub, 1
-  %add.ptr = getelementptr inbounds nuw ptr, ptr %3, i64 %div17
+  %add.ptr = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %div17
   %cond = select i1 %__add_at_front, i64 %__nodes_to_add, i64 0
-  %add.ptr9 = getelementptr inbounds ptr, ptr %add.ptr, i64 %cond
+  %add.ptr9 = getelementptr inbounds [8 x i8], ptr %add.ptr, i64 %cond
   %cmp13 = icmp ult ptr %add.ptr9, %1
   %add.ptr21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %add.ptr21, %1
@@ -7485,12 +7481,12 @@ if.else:                                          ; preds = %if.then
   br i1 %tobool.not.i.i.i.i.i, label %if.end65, label %if.then.i.i.i.i.i19
 
 if.then.i.i.i.i.i19:                              ; preds = %if.else
-  %add.ptr29 = getelementptr inbounds ptr, ptr %add.ptr9, i64 %add
+  %add.ptr29 = getelementptr inbounds [8 x i8], ptr %add.ptr9, i64 %add
   %sub.ptr.lhs.cast.i.i.i.i.i20 = ptrtoint ptr %add.ptr21 to i64
   %sub.ptr.sub.i.i.i.i.i22 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i20, %sub.ptr.rhs.cast
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i22, 3
   %idx.neg.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
-  %add.ptr.i.i.i.i.i23 = getelementptr inbounds ptr, ptr %add.ptr29, i64 %idx.neg.i.i.i.i.i
+  %add.ptr.i.i.i.i.i23 = getelementptr inbounds [8 x i8], ptr %add.ptr29, i64 %idx.neg.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i23, ptr align 8 %1, i64 %sub.ptr.sub.i.i.i.i.i22, i1 false)
   br label %if.end65
 
@@ -7518,9 +7514,9 @@ _ZNSt11_Deque_baseIN3re29WalkStateINS0_4FragEEESaIS3_EE15_M_allocate_mapEm.exit:
   %call5.i.i2.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #26
   %sub40 = sub i64 %add38, %add4
   %div4116 = lshr i64 %sub40, 1
-  %add.ptr42 = getelementptr inbounds nuw ptr, ptr %call5.i.i2.i, i64 %div4116
+  %add.ptr42 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i2.i, i64 %div4116
   %cond47 = select i1 %__add_at_front, i64 %__nodes_to_add, i64 0
-  %add.ptr48 = getelementptr inbounds ptr, ptr %add.ptr42, i64 %cond47
+  %add.ptr48 = getelementptr inbounds [8 x i8], ptr %add.ptr42, i64 %cond47
   %add.ptr55 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %tobool.not.i.i.i.i.i27 = icmp eq ptr %add.ptr55, %1
   br i1 %tobool.not.i.i.i.i.i27, label %_ZSt4copyIPPN3re29WalkStateINS0_4FragEEES5_ET0_T_S7_S6_.exit30, label %if.then.i.i.i.i.i28
@@ -7547,7 +7543,7 @@ if.end65:                                         ; preds = %if.then.i.i.i.i.i19
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %5, i64 504
   %_M_last.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr %add.ptr.i, ptr %_M_last.i, align 8
-  %add.ptr70 = getelementptr inbounds ptr, ptr %__new_nstart.0, i64 %add
+  %add.ptr70 = getelementptr inbounds [8 x i8], ptr %__new_nstart.0, i64 %add
   %add.ptr71 = getelementptr inbounds i8, ptr %add.ptr70, i64 -8
   store ptr %add.ptr71, ptr %_M_node, align 8
   %6 = load ptr, ptr %add.ptr71, align 8

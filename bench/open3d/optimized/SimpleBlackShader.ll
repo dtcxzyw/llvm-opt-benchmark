@@ -23,18 +23,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.Eigen::PlainObjectBase.22" = type { %"class.Eigen::DenseStorage.29" }
 %"class.Eigen::DenseStorage.29" = type { %"struct.Eigen::internal::plain_array.30" }
 %"struct.Eigen::internal::plain_array.30" = type { [16 x float] }
-%"class.Eigen::Matrix" = type { %"class.Eigen::PlainObjectBase" }
-%"class.Eigen::PlainObjectBase" = type { %"class.Eigen::DenseStorage" }
-%"class.Eigen::DenseStorage" = type { %"struct.Eigen::internal::plain_array" }
-%"struct.Eigen::internal::plain_array" = type { [3 x double] }
-%"class.Eigen::Matrix.149" = type { %"class.Eigen::PlainObjectBase.150" }
-%"class.Eigen::PlainObjectBase.150" = type { %"class.Eigen::DenseStorage.157" }
-%"class.Eigen::DenseStorage.157" = type { %"struct.Eigen::internal::plain_array.158" }
-%"struct.Eigen::internal::plain_array.158" = type { [3 x i32] }
-%"class.Eigen::Matrix.45" = type { %"class.Eigen::PlainObjectBase.46" }
-%"class.Eigen::PlainObjectBase.46" = type { %"class.Eigen::DenseStorage.53" }
-%"class.Eigen::DenseStorage.53" = type { %"struct.Eigen::internal::plain_array.54" }
-%"struct.Eigen::internal::plain_array.54" = type { [3 x float] }
 %"struct.std::__detail::_AllocNode" = type { ptr }
 %"struct.std::hash" = type { i8 }
 %"struct.std::equal_to" = type { i8 }
@@ -822,8 +810,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit47: ; preds = %47,
 
 94:                                               ; preds = %.lr.ph, %94
   %.02763 = phi i64 [ 0, %.lr.ph ], [ %125, %94 ]
-  %95 = getelementptr inbounds nuw %"class.Eigen::Matrix", ptr %78, i64 %.02763
-  %96 = getelementptr inbounds nuw %"class.Eigen::Matrix", ptr %84, i64 %.02763
+  %95 = getelementptr inbounds nuw [24 x i8], ptr %78, i64 %.02763
+  %96 = getelementptr inbounds nuw [24 x i8], ptr %84, i64 %.02763
   %.idx = mul i64 %.02763, 24
   %97 = getelementptr inbounds nuw i8, ptr %.pre, i64 %.idx
   %98 = load double, ptr %95, align 8, !tbaa !59
@@ -1222,7 +1210,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit50: ; preds = %54,
 
 81:                                               ; preds = %.lr.ph, %84
   %.03254 = phi i64 [ 0, %.lr.ph ], [ %85, %84 ]
-  %82 = getelementptr inbounds nuw %"class.Eigen::Matrix.149", ptr %66, i64 %.03254
+  %82 = getelementptr inbounds nuw [12 x i8], ptr %66, i64 %.03254
   %.idx = mul i64 %.03254, 36
   %83 = getelementptr i8, ptr %.pre, i64 %.idx
   br label %86
@@ -1234,11 +1222,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit50: ; preds = %54,
 
 86:                                               ; preds = %81, %86
   %.03153 = phi i64 [ 0, %81 ], [ %102, %86 ]
-  %87 = getelementptr inbounds nuw i32, ptr %82, i64 %.03153
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %82, i64 %.03153
   %88 = load i32, ptr %87, align 4, !tbaa !69
   %89 = sext i32 %88 to i64
-  %90 = getelementptr inbounds nuw %"class.Eigen::Matrix", ptr %71, i64 %89
-  %91 = getelementptr %"class.Eigen::Matrix.45", ptr %83, i64 %.03153
+  %90 = getelementptr inbounds nuw [24 x i8], ptr %71, i64 %89
+  %91 = getelementptr [12 x i8], ptr %83, i64 %.03153
   %92 = load double, ptr %90, align 8, !tbaa !59
   %93 = fptrunc double %92 to float
   store float %93, ptr %91, align 4, !tbaa !60
@@ -1443,7 +1431,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIiSt4pairIKijESaIS2_ENSt8__det
   %10 = load i64, ptr %9, align 8, !tbaa !81
   %11 = urem i64 %8, %10
   %12 = load ptr, ptr %0, align 8, !tbaa !80
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %11
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %11
   %14 = load ptr, ptr %13, align 8, !tbaa !89
   %.not.i.i = icmp eq ptr %14, null
   br i1 %.not.i.i, label %.critedge, label %28
@@ -1584,7 +1572,7 @@ _ZNSt10_HashtableIiSt4pairIKijESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
 31:                                               ; preds = %_ZNSt10_HashtableIiSt4pairIKijESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit, %5
   %.0 = phi i64 [ %30, %_ZNSt10_HashtableIiSt4pairIKijESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit ], [ %1, %5 ]
   %32 = load ptr, ptr %0, align 8, !tbaa !80
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %.0
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.0
   %34 = load ptr, ptr %33, align 8, !tbaa !89
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %38, label %35
@@ -1611,7 +1599,7 @@ _ZNSt10_HashtableIiSt4pairIKijESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   %45 = load i32, ptr %43, align 4, !tbaa !69
   %46 = sext i32 %45 to i64
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %32, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !89
   br label %49
 
@@ -1695,7 +1683,7 @@ _ZNSt10_HashtableIiSt4pairIKijESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   %16 = load i32, ptr %15, align 8, !tbaa !69
   %17 = sext i32 %16 to i64
   %18 = urem i64 %17, %1
-  %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !89
   %.not27 = icmp eq ptr %20, null
   br i1 %.not27, label %21, label %26
@@ -1710,7 +1698,7 @@ _ZNSt10_HashtableIiSt4pairIKijESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   br i1 %.not28, label %29, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %25, align 8, !tbaa !89
   br label %29
 
@@ -1869,9 +1857,9 @@ _ZNSt6vectorIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESaIS2_EE11_S_relocateEPS2_S5_
 
 _ZNSt12_Vector_baseIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESaIS2_EE13_M_deallocateEPS2_m.exit32.i: ; preds = %33, %_ZNSt6vectorIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i
   store ptr %29, ptr %0, align 8, !tbaa !33
-  %35 = getelementptr inbounds nuw %"class.Eigen::Matrix.45", ptr %30, i64 %12
+  %35 = getelementptr inbounds nuw [12 x i8], ptr %30, i64 %12
   store ptr %35, ptr %3, align 8, !tbaa !30
-  %36 = getelementptr inbounds nuw %"class.Eigen::Matrix.45", ptr %29, i64 %27
+  %36 = getelementptr inbounds nuw [12 x i8], ptr %29, i64 %27
   store ptr %36, ptr %13, align 8, !tbaa !34
   br label %_ZNSt6vectorIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESaIS2_EE17_M_default_appendEm.exit
 
@@ -1880,7 +1868,7 @@ _ZNSt12_Vector_baseIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESaIS2_EE13_M_deallocat
   br i1 %38, label %39, label %_ZNSt6vectorIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESaIS2_EE17_M_default_appendEm.exit
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds nuw %"class.Eigen::Matrix.45", ptr %5, i64 %1
+  %40 = getelementptr inbounds nuw [12 x i8], ptr %5, i64 %1
   %.not.i4 = icmp eq ptr %4, %40
   br i1 %.not.i4, label %_ZNSt6vectorIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESaIS2_EE17_M_default_appendEm.exit, label %_ZSt8_DestroyIPN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEES2_EvT_S4_RSaIT0_E.exit.i
 

@@ -11,7 +11,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.slurmdb_tres_rec_t = type { i64, i32, i64, i32, ptr, ptr }
 %struct.acct_gather_profile_dataset_t = type { ptr, i32 }
 %union.anon = type { double }
-%struct.acct_gather_data = type { i64, i64, i64, i64, i64 }
 
 @plugin_name = dso_local constant [35 x i8] c"AcctGatherFilesystem LUSTRE plugin\00", align 16
 @plugin_type = dso_local constant [30 x i8] c"acct_gather_filesystem/lustre\00", align 16
@@ -176,7 +175,7 @@ define dso_local noundef i32 @acct_gather_filesystem_p_node_update() local_unnam
 
 21:                                               ; preds = %19, %16
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %22 = getelementptr inbounds nuw ptr, ptr @_llite_path.test_paths, i64 %indvars.iv.i.i
+  %22 = getelementptr inbounds nuw [8 x i8], ptr @_llite_path.test_paths, i64 %indvars.iv.i.i
   %23 = load ptr, ptr %22, align 8
   store ptr %23, ptr @_llite_path.llite_path, align 8
   %.not6.i.i = icmp eq i64 %indvars.iv.i.i, 2
@@ -498,7 +497,7 @@ define dso_local range(i32 -1, 1) i32 @acct_gather_filesystem_p_get_data(ptr nou
   %37 = sub i64 %35, %36
   %38 = load i32, ptr @tres_pos, align 4
   %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds %struct.acct_gather_data, ptr %0, i64 %39
+  %40 = getelementptr inbounds [40 x i8], ptr %0, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store i64 %37, ptr %41, align 8
   %42 = load i64, ptr getelementptr inbounds nuw (i8, ptr @lstats, i64 8), align 8
@@ -583,7 +582,7 @@ define internal fastcc range(i32 -1, 1) i32 @_read_lustre_counters(i1 noundef ze
 
 17:                                               ; preds = %15, %12
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %18 = getelementptr inbounds nuw ptr, ptr @_llite_path.test_paths, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw [8 x i8], ptr @_llite_path.test_paths, i64 %indvars.iv.i
   %19 = load ptr, ptr %18, align 8
   store ptr %19, ptr @_llite_path.llite_path, align 8
   %.not6.i = icmp eq i64 %indvars.iv.i, 2

@@ -636,7 +636,7 @@ define linkonce_odr dso_local void @_ZN24cmParseCoberturaCoverage9XMLParser12Sta
 
 .preheader208:                                    ; preds = %31, %.preheader208
   %indvars.iv224 = phi i64 [ %indvars.iv.next225, %.preheader208 ], [ 0, %31 ]
-  %34 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv224
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv224
   %35 = load ptr, ptr %34, align 8, !tbaa !42
   %36 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %35, ptr noundef nonnull dereferenceable(9) @.str.4) #27
   %37 = icmp eq i32 %36, 0
@@ -644,7 +644,7 @@ define linkonce_odr dso_local void @_ZN24cmParseCoberturaCoverage9XMLParser12Sta
   br i1 %37, label %38, label %.preheader208, !llvm.loop !43
 
 38:                                               ; preds = %.preheader208
-  %39 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv224
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv224
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %9)
           to label %40 unwind label %149
@@ -1608,7 +1608,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i: ; preds = %420, %.n
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i: ; preds = %422, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i
   store ptr %417, ptr %394, align 8, !tbaa !130
   store ptr %421, ptr %395, align 8, !tbaa !126
-  %423 = getelementptr inbounds nuw i32, ptr %417, i64 %415
+  %423 = getelementptr inbounds nuw [4 x i8], ptr %417, i64 %415
   store ptr %423, ptr %396, align 8, !tbaa !128
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit.backedge
 
@@ -1731,7 +1731,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit154: ; preds = %44
   %indvars.iv = phi i64 [ %indvars.iv.next, %452 ], [ 0, %.preheader209 ]
   %.042213 = phi i32 [ %.143, %452 ], [ -1, %.preheader209 ]
   %.044212 = phi i32 [ %.145, %452 ], [ -1, %.preheader209 ]
-  %455 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %455 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %456 = load ptr, ptr %455, align 8, !tbaa !42
   %457 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %456, ptr noundef nonnull dereferenceable(5) @.str.9) #27
   %458 = icmp eq i32 %457, 0
@@ -1775,7 +1775,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit154: ; preds = %44
 481:                                              ; preds = %475
   %482 = load ptr, ptr %480, align 8, !tbaa !130
   %483 = zext nneg i32 %.145 to i64
-  %484 = getelementptr i32, ptr %482, i64 %483
+  %484 = getelementptr [4 x i8], ptr %482, i64 %483
   %485 = getelementptr i8, ptr %484, i64 -4
   store i32 %.143, ptr %485, align 4, !tbaa !129
   br label %.loopexit210
@@ -3250,7 +3250,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit36, %73
   store ptr %23, ptr %0, align 8, !tbaa !29
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8, !tbaa !30
-  %77 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %77, ptr %72, align 8, !tbaa !33
   ret void
 

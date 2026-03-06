@@ -73,11 +73,11 @@ define dso_local range(i32 0, 2) i32 @onas_sendln(ptr noundef %0, ptr noundef %1
   %26 = shl nuw i64 1, %25
   %27 = sdiv i32 %23, 64
   %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds i64, ptr %8, i64 %28
+  %29 = getelementptr inbounds [8 x i8], ptr %8, i64 %28
   %30 = load i64, ptr %29, align 8, !tbaa !4
   %31 = or i64 %30, %26
   store i64 %31, ptr %29, align 8, !tbaa !4
-  %32 = getelementptr inbounds i64, ptr %7, i64 %28
+  %32 = getelementptr inbounds [8 x i8], ptr %7, i64 %28
   %33 = load i64, ptr %32, align 8, !tbaa !4
   %34 = or i64 %33, %26
   store i64 %34, ptr %32, align 8, !tbaa !4
@@ -228,11 +228,11 @@ define dso_local i32 @onas_recvln(ptr noundef initializes((5136, 5140)) %0, ptr 
   %37 = shl nuw i64 1, %36
   %38 = sdiv i32 %34, 64
   %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds i64, ptr %8, i64 %39
+  %40 = getelementptr inbounds [8 x i8], ptr %8, i64 %39
   %41 = load i64, ptr %40, align 8, !tbaa !4
   %42 = or i64 %41, %37
   store i64 %42, ptr %40, align 8, !tbaa !4
-  %43 = getelementptr inbounds i64, ptr %6, i64 %39
+  %43 = getelementptr inbounds [8 x i8], ptr %6, i64 %39
   %44 = load i64, ptr %43, align 8, !tbaa !4
   %45 = or i64 %44, %37
   store i64 %45, ptr %43, align 8, !tbaa !4

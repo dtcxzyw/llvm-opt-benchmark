@@ -5,16 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %"class.gmx::FixedCapacityVector" = type { %"struct.std::array", i64 }
 %"struct.std::array" = type { [6 x double] }
-%"class.gmx::CorrelationBlockData" = type { double, double, double, double, double, i32, %"class.std::vector.0", %"class.std::vector.5" }
-%"class.std::vector.0" = type { %"struct.std::_Vector_base.1" }
-%"struct.std::_Vector_base.1" = type { %"struct.std::_Vector_base<gmx::CorrelationBlockData::CoordData, std::allocator<gmx::CorrelationBlockData::CoordData>>::_Vector_impl" }
-%"struct.std::_Vector_base<gmx::CorrelationBlockData::CoordData, std::allocator<gmx::CorrelationBlockData::CoordData>>::_Vector_impl" = type { %"struct.std::_Vector_base<gmx::CorrelationBlockData::CoordData, std::allocator<gmx::CorrelationBlockData::CoordData>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<gmx::CorrelationBlockData::CoordData, std::allocator<gmx::CorrelationBlockData::CoordData>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.5" = type { %"struct.std::_Vector_base.6" }
-%"struct.std::_Vector_base.6" = type { %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl" }
-%"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl" = type { %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.gmx::CorrelationBlockData::CoordData" = type { double, double }
 
 $_ZNSt6vectorIN3gmx20CorrelationBlockData9CoordDataESaIS2_EEaSERKS4_ = comdat any
 
@@ -127,7 +117,7 @@ define noundef double @_ZNK3gmx17CorrelationTensor15getTimeIntegralEid(ptr nound
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = sext i32 %1 to i64
   %11 = load ptr, ptr %9, align 8, !tbaa !26
-  %12 = getelementptr inbounds nuw double, ptr %11, i64 %10
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %10
   %13 = load double, ptr %12, align 8, !tbaa !4
   %14 = fdiv double %13, %6
   %15 = fmul double %14, 5.000000e-01
@@ -171,7 +161,7 @@ _ZNK3gmx17CorrelationTensor15getTimeIntegralEid.exit.us: ; preds = %.lr.ph, %_ZN
   %20 = fdiv double %19, %14
   %21 = fmul double %20, 5.000000e-01
   %22 = fmul double %1, %21
-  %23 = getelementptr inbounds nuw double, ptr %3, i64 %16
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %16
   store double %22, ptr %23, align 8, !tbaa !4
   %24 = add i64 %16, 1
   %25 = add nuw i64 %.06.us, 1
@@ -250,7 +240,7 @@ _ZN3gmx18getSqrtDeterminantENS_8ArrayRefIKdEE.exit: ; preds = %2, %._crit_edge, 
 _ZNK3gmx17CorrelationTensor15getTimeIntegralEid.exit: ; preds = %.lr.ph.split, %_ZNK3gmx17CorrelationTensor15getTimeIntegralEid.exit
   %.06 = phi i64 [ 0, %.lr.ph.split ], [ %72, %_ZNK3gmx17CorrelationTensor15getTimeIntegralEid.exit ]
   %69 = phi i64 [ 0, %.lr.ph.split ], [ %71, %_ZNK3gmx17CorrelationTensor15getTimeIntegralEid.exit ]
-  %70 = getelementptr inbounds nuw double, ptr %3, i64 %69
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %69
   store double %26, ptr %70, align 8, !tbaa !4
   %71 = add i64 %69, 1
   %72 = add nuw i64 %.06, 1
@@ -283,8 +273,8 @@ define void @_ZN3gmx17CorrelationTensor18doubleBlockLengthsEv(ptr noundef nonnul
   %11 = phi ptr [ %22, %.lr.ph ], [ %4, %1 ]
   %.04 = phi i64 [ %12, %.lr.ph ], [ 0, %1 ]
   %12 = add nuw i64 %.04, 1
-  %13 = getelementptr inbounds nuw %"class.gmx::CorrelationBlockData", ptr %11, i64 %12
-  %14 = getelementptr inbounds nuw %"class.gmx::CorrelationBlockData", ptr %11, i64 %.04
+  %13 = getelementptr inbounds nuw [96 x i8], ptr %11, i64 %12
+  %14 = getelementptr inbounds nuw [96 x i8], ptr %11, i64 %.04
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %14, ptr noundef nonnull align 8 dereferenceable(96) %13, i64 44, i1 false)
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 48
@@ -592,8 +582,8 @@ define void @_ZN3gmx17CorrelationTensor18updateBlockLengthsEd(ptr noundef nonnul
   %16 = phi ptr [ %106, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEENS1_IPdS6_EEET0_T_SB_SA_.exit.i ], [ %11, %.lr.ph24 ]
   %.04.i = phi i64 [ %17, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEENS1_IPdS6_EEET0_T_SB_SA_.exit.i ], [ 0, %.lr.ph24 ]
   %17 = add nuw i64 %.04.i, 1
-  %18 = getelementptr inbounds nuw %"class.gmx::CorrelationBlockData", ptr %16, i64 %17
-  %19 = getelementptr inbounds nuw %"class.gmx::CorrelationBlockData", ptr %16, i64 %.04.i
+  %18 = getelementptr inbounds nuw [96 x i8], ptr %16, i64 %17
+  %19 = getelementptr inbounds nuw [96 x i8], ptr %16, i64 %.04.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %19, ptr noundef nonnull align 8 dereferenceable(96) %18, i64 44, i1 false)
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 48
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 48
@@ -862,7 +852,7 @@ define void @_ZN3gmx20CorrelationBlockData29addBlockToCorrelationIntegralEv(ptr 
   %indvars.iv49 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next50, %21 ]
   %indvars.iv47 = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next48, %21 ]
   %.036 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
-  %18 = getelementptr inbounds nuw %"struct.gmx::CorrelationBlockData::CoordData", ptr %8, i64 %indvars.iv49
+  %18 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %indvars.iv49
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %sext = shl i64 %.036, 32
   %20 = ashr exact i64 %sext, 32
@@ -877,7 +867,7 @@ define void @_ZN3gmx20CorrelationBlockData29addBlockToCorrelationIntegralEv(ptr 
 22:                                               ; preds = %17, %22
   %indvars.iv40 = phi i64 [ 0, %17 ], [ %indvars.iv.next41, %22 ]
   %indvars.iv = phi i64 [ %20, %17 ], [ %indvars.iv.next, %22 ]
-  %23 = getelementptr inbounds nuw %"struct.gmx::CorrelationBlockData::CoordData", ptr %8, i64 %indvars.iv40
+  %23 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %indvars.iv40
   %24 = load double, ptr %19, align 8, !tbaa !46
   %25 = load double, ptr %2, align 8, !tbaa !43
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 8
@@ -894,7 +884,7 @@ define void @_ZN3gmx20CorrelationBlockData29addBlockToCorrelationIntegralEv(ptr 
   %37 = fneg double %30
   %38 = fdiv double %37, %32
   %39 = tail call double @llvm.fmuladd.f64(double %38, double %28, double %29)
-  %40 = getelementptr inbounds nuw double, ptr %16, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv
   %41 = load double, ptr %40, align 8, !tbaa !4
   %42 = tail call double @llvm.fmuladd.f64(double %36, double %39, double %41)
   store double %42, ptr %40, align 8, !tbaa !4
@@ -995,9 +985,9 @@ define void @_ZN3gmx17CorrelationTensor7addDataEdNS_8ArrayRefIKdEEbd(ptr noundef
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %.08.i = phi i64 [ %42, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
-  %37 = getelementptr inbounds double, ptr %2, i64 %.08.i
+  %37 = getelementptr inbounds [8 x i8], ptr %2, i64 %.08.i
   %38 = load double, ptr %37, align 8, !tbaa !4
-  %39 = getelementptr inbounds nuw %"struct.gmx::CorrelationBlockData::CoordData", ptr %32, i64 %.08.i
+  %39 = getelementptr inbounds nuw [16 x i8], ptr %32, i64 %.08.i
   %40 = load double, ptr %39, align 8, !tbaa !49
   %41 = tail call double @llvm.fmuladd.f64(double %1, double %38, double %40)
   store double %41, ptr %39, align 8, !tbaa !49
@@ -1008,7 +998,7 @@ define void @_ZN3gmx17CorrelationTensor7addDataEdNS_8ArrayRefIKdEEbd(ptr noundef
 .lr.ph:                                           ; preds = %15, %_ZN3gmx20CorrelationBlockData7addDataEdNS_8ArrayRefIKdEE.exit25
   %43 = phi ptr [ %75, %_ZN3gmx20CorrelationBlockData7addDataEdNS_8ArrayRefIKdEE.exit25 ], [ %19, %15 ]
   %.031 = phi i64 [ %73, %_ZN3gmx20CorrelationBlockData7addDataEdNS_8ArrayRefIKdEE.exit25 ], [ 0, %15 ]
-  %44 = getelementptr inbounds nuw %"class.gmx::CorrelationBlockData", ptr %43, i64 %.031
+  %44 = getelementptr inbounds nuw [96 x i8], ptr %43, i64 %.031
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 32
   %46 = load double, ptr %45, align 8, !tbaa !31
   %47 = fdiv double %16, %46
@@ -1049,9 +1039,9 @@ define void @_ZN3gmx17CorrelationTensor7addDataEdNS_8ArrayRefIKdEEbd(ptr noundef
 
 .lr.ph.i22:                                       ; preds = %.lr.ph.i22, %.lr.ph.preheader.i21
   %.08.i23 = phi i64 [ %72, %.lr.ph.i22 ], [ 0, %.lr.ph.preheader.i21 ]
-  %67 = getelementptr inbounds double, ptr %2, i64 %.08.i23
+  %67 = getelementptr inbounds [8 x i8], ptr %2, i64 %.08.i23
   %68 = load double, ptr %67, align 8, !tbaa !4
-  %69 = getelementptr inbounds nuw %"struct.gmx::CorrelationBlockData::CoordData", ptr %62, i64 %.08.i23
+  %69 = getelementptr inbounds nuw [16 x i8], ptr %62, i64 %.08.i23
   %70 = load double, ptr %69, align 8, !tbaa !49
   %71 = tail call double @llvm.fmuladd.f64(double %1, double %68, double %70)
   store double %71, ptr %69, align 8, !tbaa !49
@@ -1357,7 +1347,7 @@ _ZNSt6vectorIN3gmx20CorrelationBlockDataESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.ex
 _ZNSt12_Vector_baseIN3gmx20CorrelationBlockDataESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN3gmx20CorrelationBlockDataESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33, %67
   store ptr %21, ptr %0, align 8, !tbaa !10
   store ptr %.0.lcssa.i.i.i32, ptr %5, align 8, !tbaa !30
-  %71 = getelementptr inbounds nuw %"class.gmx::CorrelationBlockData", ptr %21, i64 %17
+  %71 = getelementptr inbounds nuw [96 x i8], ptr %21, i64 %17
   store ptr %71, ptr %66, align 8, !tbaa !55
   ret void
 
@@ -1419,7 +1409,7 @@ _ZNSt12_Vector_baseIN3gmx20CorrelationBlockData9CoordDataESaIS2_EEC2EmRKS3_.exit
   %9 = shl nuw nsw i64 %7, 4
   %10 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #21
   store ptr %10, ptr %6, align 8, !tbaa !34
-  %11 = getelementptr inbounds nuw %"struct.gmx::CorrelationBlockData::CoordData", ptr %10, i64 %7
+  %11 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %7
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %10, i8 0, i64 %9, i1 false)
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %10, i64 %9
   br label %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
@@ -1448,7 +1438,7 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %.lr.ph.prehead
 
 .noexc11:                                         ; preds = %21
   store ptr %23, ptr %16, align 8, !tbaa !26
-  %24 = getelementptr inbounds nuw double, ptr %23, i64 %20
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %20
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %24, ptr %25, align 8, !tbaa !39
   store double 0.000000e+00, ptr %23, align 8, !tbaa !4

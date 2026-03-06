@@ -565,7 +565,7 @@ json_parse_const.exit:                            ; preds = %json_parse_number.e
 
 json_parse_const.exit.thread:                     ; preds = %119, %121, %107, %105, %93, %91, %json_parse_const.exit
   %.0112 = phi i64 [ %.0, %json_parse_const.exit ], [ 1, %107 ], [ 1, %93 ], [ 1, %91 ], [ 1, %105 ], [ 1, %121 ], [ 1, %119 ]
-  %174 = getelementptr inbounds nuw i64, ptr %2, i64 %.0112
+  %174 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.0112
   %175 = load i64, ptr %174, align 8, !tbaa !24
   %176 = add i64 %175, 1
   store i64 %176, ptr %174, align 8, !tbaa !24

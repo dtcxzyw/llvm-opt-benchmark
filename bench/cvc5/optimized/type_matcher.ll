@@ -289,9 +289,9 @@ _ZNSt6vectorIN4cvc58internal8TypeNodeESaIS2_EED2Ev.exit52: ; preds = %_ZSt8_Dest
 
 _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit88: ; preds = %60
   %61 = load ptr, ptr %0, align 8, !tbaa !11
-  %62 = getelementptr inbounds nuw %"class.cvc5::internal::TypeNode", ptr %61, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %indvars.iv
   %63 = load ptr, ptr %40, align 8, !tbaa !11
-  %64 = getelementptr inbounds nuw %"class.cvc5::internal::TypeNode", ptr %63, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %indvars.iv
   %65 = load ptr, ptr %64, align 8, !tbaa !3
   %66 = load ptr, ptr %62, align 8, !tbaa !3
   %.not.i89 = icmp eq ptr %65, %66
@@ -1397,7 +1397,7 @@ _ZNSt6vectorIN4cvc58internal8TypeNodeESaIS2_EE5clearEv.exit: ; preds = %2, %_ZSt
 29:                                               ; preds = %.lr.ph, %_ZNSt6vectorIN4cvc58internal8TypeNodeESaIS2_EE9push_backERKS2_.exit
   %.013 = phi i64 [ 0, %.lr.ph ], [ %93, %_ZNSt6vectorIN4cvc58internal8TypeNodeESaIS2_EE9push_backERKS2_.exit ]
   %30 = load ptr, ptr %20, align 8, !tbaa !11
-  %31 = getelementptr inbounds nuw %"class.cvc5::internal::TypeNode", ptr %30, i64 %.013
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %.013
   %32 = load ptr, ptr %31, align 8, !tbaa !3
   %33 = load atomic i8, ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null acquire, align 8
   %34 = icmp eq i8 %33, 0
@@ -1436,7 +1436,7 @@ _ZNK4cvc58internal8TypeNode6isNullEv.exit:        ; preds = %29, %35, %39
 
 47:                                               ; preds = %_ZNK4cvc58internal8TypeNode6isNullEv.exit
   %48 = load ptr, ptr %0, align 8, !tbaa !11
-  %49 = getelementptr inbounds nuw %"class.cvc5::internal::TypeNode", ptr %48, i64 %.013
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %.013
   br i1 %.not.i, label %69, label %50
 
 50:                                               ; preds = %47
@@ -1480,7 +1480,7 @@ _ZNSt16allocator_traitsISaIN4cvc58internal8TypeNodeEEE9constructIS2_JRKS2_EEEvRS
 
 70:                                               ; preds = %_ZNK4cvc58internal8TypeNode6isNullEv.exit
   %71 = load ptr, ptr %20, align 8, !tbaa !11
-  %72 = getelementptr inbounds nuw %"class.cvc5::internal::TypeNode", ptr %71, i64 %.013
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %.013
   br i1 %.not.i, label %92, label %73
 
 73:                                               ; preds = %70
@@ -1769,7 +1769,7 @@ _ZSt8_DestroyIPN4cvc58internal8TypeNodeES2_EvT_S4_RSaIT0_E.exit: ; preds = %_ZSt
 _ZNSt12_Vector_baseIN4cvc58internal8TypeNodeESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZSt8_DestroyIPN4cvc58internal8TypeNodeES2_EvT_S4_RSaIT0_E.exit, %58
   store ptr %22, ptr %0, align 8, !tbaa !11
   store ptr %42, ptr %4, align 8, !tbaa !14
-  %62 = getelementptr inbounds nuw %"class.cvc5::internal::TypeNode", ptr %22, i64 %16
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %16
   store ptr %62, ptr %57, align 8, !tbaa !15
   ret void
 
@@ -2057,7 +2057,7 @@ _ZSt8_DestroyIPN4cvc58internal8TypeNodeES2_EvT_S4_RSaIT0_E.exit: ; preds = %_ZSt
 _ZNSt12_Vector_baseIN4cvc58internal8TypeNodeESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZSt8_DestroyIPN4cvc58internal8TypeNodeES2_EvT_S4_RSaIT0_E.exit, %58
   store ptr %22, ptr %0, align 8, !tbaa !11
   store ptr %42, ptr %4, align 8, !tbaa !14
-  %62 = getelementptr inbounds nuw %"class.cvc5::internal::TypeNode", ptr %22, i64 %16
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %16
   store ptr %62, ptr %57, align 8, !tbaa !15
   ret void
 

@@ -933,7 +933,7 @@ define noundef i32 @_ZN6icu_7712PreparsedUCD8readLineER10UErrorCode(ptr noundef 
 
 63:                                               ; preds = %._crit_edge72, %68
   %indvars.iv = phi i64 [ 2, %._crit_edge72 ], [ %indvars.iv.next, %68 ]
-  %64 = getelementptr inbounds nuw ptr, ptr @_ZN6icu_77L15lineTypeStringsE, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6icu_77L15lineTypeStringsE, i64 %indvars.iv
   %65 = load ptr, ptr %64, align 8, !tbaa !51
   %66 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) %65) #29
   %67 = icmp eq i32 %66, 0
@@ -1333,9 +1333,9 @@ _ZN6icu_7712PreparsedUCD19parseCodePointRangeEPKcRiS3_R10UErrorCode.exit.thread:
 
 190:                                              ; preds = %187
   %191 = add nsw i64 %indvars.iv98, -4096
-  %192 = getelementptr inbounds i32, ptr %173, i64 %191
+  %192 = getelementptr inbounds [4 x i8], ptr %173, i64 %191
   %193 = load i32, ptr %192, align 4, !tbaa !12
-  %194 = getelementptr inbounds i32, ptr %174, i64 %191
+  %194 = getelementptr inbounds [4 x i8], ptr %174, i64 %191
   %195 = load i32, ptr %194, align 4, !tbaa !12
   %196 = icmp eq i32 %193, %195
   br i1 %196, label %197, label %199
@@ -1497,7 +1497,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7712PreparsedUCD13parsePropert
 
 .preheader:                                       ; preds = %41, %43
   %indvars.iv = phi i64 [ %indvars.iv.next, %43 ], [ 0, %41 ]
-  %46 = getelementptr inbounds nuw %struct.anon.1, ptr @_ZN6icu_77L15ppucdPropertiesE, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [16 x i8], ptr @_ZN6icu_77L15ppucdPropertiesE, i64 %indvars.iv
   %47 = load ptr, ptr %46, align 16, !tbaa !61
   %48 = invoke i32 @uprv_stricmp_77(ptr noundef %.0130, ptr noundef %47)
           to label %49 unwind label %54
@@ -1621,7 +1621,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7712PreparsedUCD13parsePropert
 
 115:                                              ; preds = %107
   %116 = zext nneg i32 %.0134 to i64
-  %117 = getelementptr i32, ptr %1, i64 %116
+  %117 = getelementptr [4 x i8], ptr %1, i64 %116
   %118 = getelementptr i8, ptr %117, i64 -16300
   store i32 %.0131, ptr %118, align 4, !tbaa !12
   br label %.critedge156

@@ -27,7 +27,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.icu_77::Formattable" = type { %"class.icu_77::UObject", %union.anon, ptr, ptr, i32, %"class.icu_77::UnicodeString" }
 %union.anon = type { %struct.anon.1 }
 %struct.anon.1 = type { ptr, i32 }
-%"class.icu_77::MessagePattern::Part" = type { i32, i32, i16, i16, i32 }
 %"class.icu_77::FieldPosition" = type <{ %"class.icu_77::UObject", i32, i32, i32, [4 x i8] }>
 %"class.icu_77::ConstChar16Ptr" = type { ptr }
 
@@ -1898,7 +1897,7 @@ _ZN6icu_776number4impl20UFormattedNumberDataC2Ev.exit: ; preds = %30
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %94 = load ptr, ptr %93, align 8, !tbaa !55
   %95 = sext i32 %85 to i64
-  %96 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %94, i64 %95
+  %96 = getelementptr inbounds [16 x i8], ptr %94, i64 %95
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 4
   %98 = load i32, ptr %97, align 4, !tbaa !56
   %99 = getelementptr inbounds nuw i8, ptr %96, i64 8
@@ -1907,7 +1906,7 @@ _ZN6icu_776number4impl20UFormattedNumberDataC2Ev.exit: ; preds = %30
   %102 = add nsw i32 %98, %101
   %103 = add nsw i32 %85, 1
   %104 = sext i32 %103 to i64
-  %105 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %94, i64 %104
+  %105 = getelementptr inbounds [16 x i8], ptr %94, i64 %104
   %106 = load i32, ptr %105, align 4, !tbaa !60
   %107 = getelementptr inbounds nuw i8, ptr %105, i64 4
   %108 = load i32, ptr %107, align 4, !tbaa !56
@@ -1991,12 +1990,12 @@ _ZN6icu_7713UnicodeString6appendERKS0_.exit:      ; preds = %127, %_ZN6icu_7713U
 
 _ZN6icu_7713UnicodeString6appendERKS0_ii.exit105: ; preds = %140
   %143 = load ptr, ptr %93, align 8, !tbaa !55
-  %144 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %143, i64 %118
+  %144 = getelementptr inbounds [16 x i8], ptr %143, i64 %118
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 12
   %146 = load i32, ptr %145, align 4, !tbaa !62
   %..i = call noundef i32 @llvm.smax.i32(i32 %146, i32 %119)
   %147 = sext i32 %..i to i64
-  %148 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %143, i64 %147
+  %148 = getelementptr inbounds [16 x i8], ptr %143, i64 %147
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 4
   %150 = load i32, ptr %149, align 4, !tbaa !56
   %151 = getelementptr inbounds nuw i8, ptr %148, i64 8
@@ -2012,7 +2011,7 @@ _ZN6icu_7713UnicodeString6appendERKS0_ii.exit:    ; preds = %122, %_ZN6icu_7713U
   %155 = add nsw i32 %.183, 1
   %156 = load ptr, ptr %93, align 8, !tbaa !55
   %157 = sext i32 %155 to i64
-  %158 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %156, i64 %157
+  %158 = getelementptr inbounds [16 x i8], ptr %156, i64 %157
   %159 = load i32, ptr %158, align 4, !tbaa !60
   %160 = getelementptr inbounds nuw i8, ptr %158, i64 4
   %161 = load i32, ptr %160, align 4, !tbaa !56
@@ -2255,7 +2254,7 @@ define noundef range(i32 -2147483647, -2147483648) i32 @_ZN6icu_7712PluralFormat
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %17 = load ptr, ptr %16, align 8, !tbaa !55
   %18 = sext i32 %1 to i64
-  %19 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %17, i64 %18
+  %19 = getelementptr inbounds [16 x i8], ptr %17, i64 %18
   %20 = load i32, ptr %19, align 4, !tbaa !60
   %21 = and i32 %20, -2
   %.not = icmp eq i32 %21, 12
@@ -2301,7 +2300,7 @@ define noundef range(i32 -2147483647, -2147483648) i32 @_ZN6icu_7712PluralFormat
   %.044 = phi i32 [ 0, %27 ], [ %.246, %164 ]
   %41 = add nsw i32 %.157, 1
   %42 = sext i32 %.157 to i64
-  %43 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %40, i64 %42
+  %43 = getelementptr inbounds [16 x i8], ptr %40, i64 %42
   %44 = load i32, ptr %43, align 4, !tbaa !60
   %45 = icmp eq i32 %44, 6
   br i1 %45, label %.thread, label %51
@@ -2320,7 +2319,7 @@ define noundef range(i32 -2147483647, -2147483648) i32 @_ZN6icu_7712PluralFormat
 
 51:                                               ; preds = %39
   %52 = sext i32 %41 to i64
-  %53 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %40, i64 %52
+  %53 = getelementptr inbounds [16 x i8], ptr %40, i64 %52
   %54 = load i32, ptr %53, align 4, !tbaa !60
   %55 = and i32 %54, -2
   %.not108 = icmp eq i32 %55, 12
@@ -2538,7 +2537,7 @@ _ZNK6icu_7713UnicodeString7compareERKS0_.exit83..critedge_crit_edge: ; preds = %
   %.249 = phi i8 [ %.047, %._crit_edge ], [ 0, %85 ], [ 1, %_ZNK6icu_7713UnicodeString7compareERKS0_.exit83 ], [ 1, %61 ], [ %spec.select, %_ZNK6icu_7713UnicodeString7compareERKS0_.exit ], [ %spec.select72, %163 ]
   %.246 = phi i32 [ %.044, %._crit_edge ], [ %.044, %85 ], [ %.044, %_ZNK6icu_7713UnicodeString7compareERKS0_.exit83 ], [ %.044, %61 ], [ %41, %_ZNK6icu_7713UnicodeString7compareERKS0_.exit ], [ %spec.select73, %163 ]
   %165 = load ptr, ptr %16, align 8, !tbaa !55
-  %166 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %165, i64 %.pre-phi
+  %166 = getelementptr inbounds [16 x i8], ptr %165, i64 %.pre-phi
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 12
   %168 = load i32, ptr %167, align 4, !tbaa !62
   %..i = call noundef i32 @llvm.smax.i32(i32 %168, i32 %.359)
@@ -2978,7 +2977,7 @@ define void @_ZNK6icu_7712PluralFormat9parseTypeERKNS_13UnicodeStringEPKNS_6NFRu
   %31 = add nsw i32 %.093, 1
   %32 = load ptr, ptr %23, align 8, !tbaa !55
   %33 = sext i32 %.093 to i64
-  %34 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %32, i64 %33
+  %34 = getelementptr inbounds [16 x i8], ptr %32, i64 %33
   %35 = load i32, ptr %34, align 4, !tbaa !60
   %.not = icmp eq i32 %35, 11
   br i1 %.not, label %36, label %127, !llvm.loop !77
@@ -2986,7 +2985,7 @@ define void @_ZNK6icu_7712PluralFormat9parseTypeERKNS_13UnicodeStringEPKNS_6NFRu
 36:                                               ; preds = %30
   %37 = add nsw i32 %.093, 2
   %38 = sext i32 %31 to i64
-  %39 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %32, i64 %38
+  %39 = getelementptr inbounds [16 x i8], ptr %32, i64 %38
   %40 = load i32, ptr %39, align 4, !tbaa !60
   %.not61 = icmp eq i32 %40, 0
   br i1 %.not61, label %41, label %127, !llvm.loop !77
@@ -2994,7 +2993,7 @@ define void @_ZNK6icu_7712PluralFormat9parseTypeERKNS_13UnicodeStringEPKNS_6NFRu
 41:                                               ; preds = %36
   %42 = add nsw i32 %.093, 3
   %43 = sext i32 %37 to i64
-  %44 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %32, i64 %43
+  %44 = getelementptr inbounds [16 x i8], ptr %32, i64 %43
   %45 = load i32, ptr %44, align 4, !tbaa !60
   %.not62 = icmp eq i32 %45, 1
   br i1 %.not62, label %46, label %127, !llvm.loop !77

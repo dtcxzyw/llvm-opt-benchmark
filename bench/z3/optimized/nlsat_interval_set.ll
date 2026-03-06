@@ -5,8 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
 %"class.sat::literal" = type { i32 }
-%"struct.nlsat::interval" = type { i8, %"class.sat::literal", ptr, %"class.algebraic_numbers::anum", %"class.algebraic_numbers::anum" }
-%"class.algebraic_numbers::anum" = type { ptr }
 %class.sbuffer = type { %class.buffer }
 %class.buffer = type { ptr, i32, i32, [4096 x i8] }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
@@ -14,6 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon = type { i64, [8 x i8] }
 %"class.std::allocator" = type { i8 }
 %class._scoped_numeral = type { ptr, %"class.algebraic_numbers::anum" }
+%"class.algebraic_numbers::anum" = type { ptr }
 
 $_ZN6bufferIN5nlsat8intervalELb0ELj128EED2Ev = comdat any
 
@@ -208,7 +207,7 @@ define hidden void @_ZN5nlsat20interval_set_manager3delEPNS_12interval_setE(ptr 
 12:                                               ; preds = %.lr.ph, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
   %13 = load ptr, ptr %0, align 8, !tbaa !23
-  %14 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %8, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [32 x i8], ptr %8, i64 %indvars.iv
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   tail call void @_ZN17algebraic_numbers7manager3delERNS_4anumE(ptr noundef nonnull align 8 dereferenceable(17) %13, ptr noundef nonnull align 8 dereferenceable(8) %15)
   %16 = load ptr, ptr %0, align 8, !tbaa !23
@@ -253,7 +252,7 @@ define hidden void @_ZN5nlsat20interval_set_manager7dec_refEPNS_12interval_setE(
 15:                                               ; preds = %15, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %15 ]
   %16 = load ptr, ptr %0, align 8, !tbaa !23
-  %17 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %14, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw [32 x i8], ptr %14, i64 %indvars.iv.i
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   tail call void @_ZN17algebraic_numbers7manager3delERNS_4anumE(ptr noundef nonnull align 8 dereferenceable(17) %16, ptr noundef nonnull align 8 dereferenceable(8) %18)
   %19 = load ptr, ptr %0, align 8, !tbaa !23
@@ -420,7 +419,7 @@ define hidden noundef ptr @_ZN5nlsat20interval_set_manager8mk_unionEPKNS_12inter
 26:                                               ; preds = %.lr.ph532, %65
   %indvars.iv564 = phi i64 [ %25, %.lr.ph532 ], [ %indvars.iv.next565, %65 ]
   %27 = load ptr, ptr %0, align 8, !tbaa !23
-  %28 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %24, i64 %indvars.iv564
+  %28 = getelementptr inbounds nuw [32 x i8], ptr %24, i64 %indvars.iv564
   %29 = load i8, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 24
@@ -468,8 +467,8 @@ define hidden noundef ptr @_ZN5nlsat20interval_set_manager8mk_unionEPKNS_12inter
 
 43:                                               ; preds = %43, %.lr.ph.i.i.i318
   %indvars.iv.i.i.i320 = phi i64 [ 0, %.lr.ph.i.i.i318 ], [ %indvars.iv.next.i.i.i321, %43 ]
-  %44 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %39, i64 %indvars.iv.i.i.i320
-  %45 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %.pre.i.i.i317, i64 %indvars.iv.i.i.i320
+  %44 = getelementptr inbounds nuw [32 x i8], ptr %39, i64 %indvars.iv.i.i.i320
+  %45 = getelementptr inbounds nuw [32 x i8], ptr %.pre.i.i.i317, i64 %indvars.iv.i.i.i320
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull align 8 dereferenceable(32) %45, i64 32, i1 false), !tbaa.struct !36
   %indvars.iv.next.i.i.i321 = add nuw nsw i64 %indvars.iv.i.i.i320, 1
   %exitcond.not.i.i.i322 = icmp eq i64 %indvars.iv.next.i.i.i321, %wide.trip.count.i.i.i319
@@ -485,7 +484,7 @@ _ZN6bufferIN5nlsat8intervalELb0ELj128EE9push_backEOS1_.exit.i329: ; preds = %_ZN
   %46 = phi i32 [ %33, %._crit_edge.i.i332 ], [ %.pre2.i.i328, %_ZN6bufferIN5nlsat8intervalELb0ELj128EE6expandEv.exit.i.i327 ]
   %47 = phi ptr [ %.pre.i.i333, %._crit_edge.i.i332 ], [ %39, %_ZN6bufferIN5nlsat8intervalELb0ELj128EE6expandEv.exit.i.i327 ]
   %48 = zext i32 %46 to i64
-  %49 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %47, i64 %48
+  %49 = getelementptr inbounds nuw [32 x i8], ptr %47, i64 %48
   store i32 0, ptr %49, align 8
   %.sroa.4.0..sroa_idx.i330 = getelementptr inbounds nuw i8, ptr %49, i64 4
   store i32 -2, ptr %.sroa.4.0..sroa_idx.i330, align 4, !tbaa !26
@@ -496,7 +495,7 @@ _ZN6bufferIN5nlsat8intervalELb0ELj128EE9push_backEOS1_.exit.i329: ; preds = %_ZN
   store i32 %51, ptr %17, align 8, !tbaa !34
   %52 = load ptr, ptr %4, align 8, !tbaa !31
   %53 = zext i32 %50 to i64
-  %54 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %52, i64 %53
+  %54 = getelementptr inbounds nuw [32 x i8], ptr %52, i64 %53
   %55 = load i8, ptr %54, align 8
   %56 = and i8 %55, -6
   %57 = and i8 %29, 5
@@ -552,7 +551,7 @@ _ZN6bufferIN5nlsat8intervalELb0ELj128EE9push_backEOS1_.exit.i329: ; preds = %_ZN
 70:                                               ; preds = %.lr.ph534, %109
   %indvars.iv = phi i64 [ %69, %.lr.ph534 ], [ %indvars.iv.next, %109 ]
   %71 = load ptr, ptr %0, align 8, !tbaa !23
-  %72 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %21, i64 %indvars.iv
+  %72 = getelementptr inbounds nuw [32 x i8], ptr %21, i64 %indvars.iv
   %73 = load i8, ptr %72, align 8
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 24
@@ -600,8 +599,8 @@ _ZN6bufferIN5nlsat8intervalELb0ELj128EE9push_backEOS1_.exit.i329: ; preds = %_ZN
 
 87:                                               ; preds = %87, %.lr.ph.i.i.i342
   %indvars.iv.i.i.i344 = phi i64 [ 0, %.lr.ph.i.i.i342 ], [ %indvars.iv.next.i.i.i345, %87 ]
-  %88 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %83, i64 %indvars.iv.i.i.i344
-  %89 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %.pre.i.i.i341, i64 %indvars.iv.i.i.i344
+  %88 = getelementptr inbounds nuw [32 x i8], ptr %83, i64 %indvars.iv.i.i.i344
+  %89 = getelementptr inbounds nuw [32 x i8], ptr %.pre.i.i.i341, i64 %indvars.iv.i.i.i344
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %88, ptr noundef nonnull align 8 dereferenceable(32) %89, i64 32, i1 false), !tbaa.struct !36
   %indvars.iv.next.i.i.i345 = add nuw nsw i64 %indvars.iv.i.i.i344, 1
   %exitcond.not.i.i.i346 = icmp eq i64 %indvars.iv.next.i.i.i345, %wide.trip.count.i.i.i343
@@ -617,7 +616,7 @@ _ZN6bufferIN5nlsat8intervalELb0ELj128EE9push_backEOS1_.exit.i353: ; preds = %_ZN
   %90 = phi i32 [ %77, %._crit_edge.i.i356 ], [ %.pre2.i.i352, %_ZN6bufferIN5nlsat8intervalELb0ELj128EE6expandEv.exit.i.i351 ]
   %91 = phi ptr [ %.pre.i.i357, %._crit_edge.i.i356 ], [ %83, %_ZN6bufferIN5nlsat8intervalELb0ELj128EE6expandEv.exit.i.i351 ]
   %92 = zext i32 %90 to i64
-  %93 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %91, i64 %92
+  %93 = getelementptr inbounds nuw [32 x i8], ptr %91, i64 %92
   store i32 0, ptr %93, align 8
   %.sroa.4.0..sroa_idx.i354 = getelementptr inbounds nuw i8, ptr %93, i64 4
   store i32 -2, ptr %.sroa.4.0..sroa_idx.i354, align 4, !tbaa !26
@@ -628,7 +627,7 @@ _ZN6bufferIN5nlsat8intervalELb0ELj128EE9push_backEOS1_.exit.i353: ; preds = %_ZN
   store i32 %95, ptr %17, align 8, !tbaa !34
   %96 = load ptr, ptr %4, align 8, !tbaa !31
   %97 = zext i32 %94 to i64
-  %98 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %96, i64 %97
+  %98 = getelementptr inbounds nuw [32 x i8], ptr %96, i64 %97
   %99 = load i8, ptr %98, align 8
   %100 = and i8 %99, -6
   %101 = and i8 %73, 5
@@ -657,9 +656,9 @@ _ZN6bufferIN5nlsat8intervalELb0ELj128EE9push_backEOS1_.exit.i353: ; preds = %_ZN
 
 111:                                              ; preds = %67
   %112 = zext i32 %.0149530 to i64
-  %113 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %21, i64 %112
+  %113 = getelementptr inbounds nuw [32 x i8], ptr %21, i64 %112
   %114 = zext i32 %.0152529 to i64
-  %115 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %22, i64 %114
+  %115 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %114
   %116 = load ptr, ptr %0, align 8, !tbaa !23
   %117 = load i8, ptr %113, align 8
   %118 = and i8 %117, 4
@@ -811,8 +810,8 @@ _ZN5nlsat19compare_upper_upperERN17algebraic_numbers7managerERKNS_8intervalES5_.
 
 176:                                              ; preds = %176, %.lr.ph.i.i.i366
   %indvars.iv.i.i.i368 = phi i64 [ 0, %.lr.ph.i.i.i366 ], [ %indvars.iv.next.i.i.i369, %176 ]
-  %177 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %172, i64 %indvars.iv.i.i.i368
-  %178 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %.pre.i.i.i365, i64 %indvars.iv.i.i.i368
+  %177 = getelementptr inbounds nuw [32 x i8], ptr %172, i64 %indvars.iv.i.i.i368
+  %178 = getelementptr inbounds nuw [32 x i8], ptr %.pre.i.i.i365, i64 %indvars.iv.i.i.i368
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %177, ptr noundef nonnull align 8 dereferenceable(32) %178, i64 32, i1 false), !tbaa.struct !36
   %indvars.iv.next.i.i.i369 = add nuw nsw i64 %indvars.iv.i.i.i368, 1
   %exitcond.not.i.i.i370 = icmp eq i64 %indvars.iv.next.i.i.i369, %wide.trip.count.i.i.i367
@@ -828,7 +827,7 @@ _ZN6bufferIN5nlsat8intervalELb0ELj128EE9push_backEOS1_.exit.i377: ; preds = %_ZN
   %179 = phi i32 [ %166, %._crit_edge.i.i380 ], [ %.pre2.i.i376, %_ZN6bufferIN5nlsat8intervalELb0ELj128EE6expandEv.exit.i.i375 ]
   %180 = phi ptr [ %.pre.i.i381, %._crit_edge.i.i380 ], [ %172, %_ZN6bufferIN5nlsat8intervalELb0ELj128EE6expandEv.exit.i.i375 ]
   %181 = zext i32 %179 to i64
-  %182 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %180, i64 %181
+  %182 = getelementptr inbounds nuw [32 x i8], ptr %180, i64 %181
   store i32 0, ptr %182, align 8
   %.sroa.4.0..sroa_idx.i378 = getelementptr inbounds nuw i8, ptr %182, i64 4
   store i32 -2, ptr %.sroa.4.0..sroa_idx.i378, align 4, !tbaa !26
@@ -839,7 +838,7 @@ _ZN6bufferIN5nlsat8intervalELb0ELj128EE9push_backEOS1_.exit.i377: ; preds = %_ZN
   store i32 %184, ptr %17, align 8, !tbaa !34
   %185 = load ptr, ptr %4, align 8, !tbaa !31
   %186 = zext i32 %183 to i64
-  %187 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %185, i64 %186
+  %187 = getelementptr inbounds nuw [32 x i8], ptr %185, i64 %186
   %188 = load i8, ptr %187, align 8
   %189 = and i8 %188, -6
   %190 = and i8 %162, 5
@@ -980,8 +979,8 @@ _ZN5nlsat19compare_upper_lowerERN17algebraic_numbers7managerERKNS_8intervalES5_.
 
 242:                                              ; preds = %242, %.lr.ph.i.i.i390
   %indvars.iv.i.i.i392 = phi i64 [ 0, %.lr.ph.i.i.i390 ], [ %indvars.iv.next.i.i.i393, %242 ]
-  %243 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %238, i64 %indvars.iv.i.i.i392
-  %244 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %.pre.i.i.i389, i64 %indvars.iv.i.i.i392
+  %243 = getelementptr inbounds nuw [32 x i8], ptr %238, i64 %indvars.iv.i.i.i392
+  %244 = getelementptr inbounds nuw [32 x i8], ptr %.pre.i.i.i389, i64 %indvars.iv.i.i.i392
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %243, ptr noundef nonnull align 8 dereferenceable(32) %244, i64 32, i1 false), !tbaa.struct !36
   %indvars.iv.next.i.i.i393 = add nuw nsw i64 %indvars.iv.i.i.i392, 1
   %exitcond.not.i.i.i394 = icmp eq i64 %indvars.iv.next.i.i.i393, %wide.trip.count.i.i.i391
@@ -997,7 +996,7 @@ _ZN6bufferIN5nlsat8intervalELb0ELj128EE9push_backEOS1_.exit.i401: ; preds = %_ZN
   %245 = phi i32 [ %232, %._crit_edge.i.i404 ], [ %.pre2.i.i400, %_ZN6bufferIN5nlsat8intervalELb0ELj128EE6expandEv.exit.i.i399 ]
   %246 = phi ptr [ %.pre.i.i405, %._crit_edge.i.i404 ], [ %238, %_ZN6bufferIN5nlsat8intervalELb0ELj128EE6expandEv.exit.i.i399 ]
   %247 = zext i32 %245 to i64
-  %248 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %246, i64 %247
+  %248 = getelementptr inbounds nuw [32 x i8], ptr %246, i64 %247
   store i32 0, ptr %248, align 8
   %.sroa.4.0..sroa_idx.i402 = getelementptr inbounds nuw i8, ptr %248, i64 4
   store i32 -2, ptr %.sroa.4.0..sroa_idx.i402, align 4, !tbaa !26
@@ -1008,7 +1007,7 @@ _ZN6bufferIN5nlsat8intervalELb0ELj128EE9push_backEOS1_.exit.i401: ; preds = %_ZN
   store i32 %250, ptr %17, align 8, !tbaa !34
   %251 = load ptr, ptr %4, align 8, !tbaa !31
   %252 = zext i32 %249 to i64
-  %253 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %251, i64 %252
+  %253 = getelementptr inbounds nuw [32 x i8], ptr %251, i64 %252
   %254 = load i8, ptr %253, align 8
   %255 = and i8 %254, -6
   %256 = and i8 %228, 5
@@ -1084,8 +1083,8 @@ _ZN6bufferIN5nlsat8intervalELb0ELj128EE9push_backEOS1_.exit.i401: ; preds = %_ZN
 
 281:                                              ; preds = %281, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %281 ]
-  %282 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %277, i64 %indvars.iv.i.i.i
-  %283 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %.pre.i.i.i, i64 %indvars.iv.i.i.i
+  %282 = getelementptr inbounds nuw [32 x i8], ptr %277, i64 %indvars.iv.i.i.i
+  %283 = getelementptr inbounds nuw [32 x i8], ptr %.pre.i.i.i, i64 %indvars.iv.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %282, ptr noundef nonnull align 8 dereferenceable(32) %283, i64 32, i1 false), !tbaa.struct !36
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
@@ -1101,7 +1100,7 @@ _ZN6bufferIN5nlsat8intervalELb0ELj128EE9push_backEOS1_.exit.i: ; preds = %_ZN6bu
   %284 = phi i32 [ %271, %._crit_edge.i.i ], [ %.pre2.i.i, %_ZN6bufferIN5nlsat8intervalELb0ELj128EE6expandEv.exit.i.i ]
   %285 = phi ptr [ %.pre.i.i, %._crit_edge.i.i ], [ %277, %_ZN6bufferIN5nlsat8intervalELb0ELj128EE6expandEv.exit.i.i ]
   %286 = zext i32 %284 to i64
-  %287 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %285, i64 %286
+  %287 = getelementptr inbounds nuw [32 x i8], ptr %285, i64 %286
   store i32 0, ptr %287, align 8
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %287, i64 4
   store i32 -2, ptr %.sroa.4.0..sroa_idx.i, align 4, !tbaa !26
@@ -1112,7 +1111,7 @@ _ZN6bufferIN5nlsat8intervalELb0ELj128EE9push_backEOS1_.exit.i: ; preds = %_ZN6bu
   store i32 %289, ptr %17, align 8, !tbaa !34
   %290 = load ptr, ptr %4, align 8, !tbaa !31
   %291 = zext i32 %288 to i64
-  %292 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %290, i64 %291
+  %292 = getelementptr inbounds nuw [32 x i8], ptr %290, i64 %291
   %293 = load i8, ptr %292, align 8
   %294 = and i8 %293, -6
   %295 = and i8 %222, 5
@@ -1185,8 +1184,8 @@ _ZN6bufferIN5nlsat8intervalELb0ELj128EE9push_backEOS1_.exit.i: ; preds = %_ZN6bu
 
 320:                                              ; preds = %320, %.lr.ph.i.i.i223
   %indvars.iv.i.i.i225 = phi i64 [ 0, %.lr.ph.i.i.i223 ], [ %indvars.iv.next.i.i.i226, %320 ]
-  %321 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %316, i64 %indvars.iv.i.i.i225
-  %322 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %.pre.i.i.i222, i64 %indvars.iv.i.i.i225
+  %321 = getelementptr inbounds nuw [32 x i8], ptr %316, i64 %indvars.iv.i.i.i225
+  %322 = getelementptr inbounds nuw [32 x i8], ptr %.pre.i.i.i222, i64 %indvars.iv.i.i.i225
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %321, ptr noundef nonnull align 8 dereferenceable(32) %322, i64 32, i1 false), !tbaa.struct !36
   %indvars.iv.next.i.i.i226 = add nuw nsw i64 %indvars.iv.i.i.i225, 1
   %exitcond.not.i.i.i227 = icmp eq i64 %indvars.iv.next.i.i.i226, %wide.trip.count.i.i.i224
@@ -1202,7 +1201,7 @@ _ZN6bufferIN5nlsat8intervalELb0ELj128EE9push_backEOS1_.exit.i234: ; preds = %_ZN
   %323 = phi i32 [ %310, %._crit_edge.i.i237 ], [ %.pre2.i.i233, %_ZN6bufferIN5nlsat8intervalELb0ELj128EE6expandEv.exit.i.i232 ]
   %324 = phi ptr [ %.pre.i.i238, %._crit_edge.i.i237 ], [ %316, %_ZN6bufferIN5nlsat8intervalELb0ELj128EE6expandEv.exit.i.i232 ]
   %325 = zext i32 %323 to i64
-  %326 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %324, i64 %325
+  %326 = getelementptr inbounds nuw [32 x i8], ptr %324, i64 %325
   store i32 0, ptr %326, align 8
   %.sroa.4.0..sroa_idx.i235 = getelementptr inbounds nuw i8, ptr %326, i64 4
   store i32 -2, ptr %.sroa.4.0..sroa_idx.i235, align 4, !tbaa !26
@@ -1213,7 +1212,7 @@ _ZN6bufferIN5nlsat8intervalELb0ELj128EE9push_backEOS1_.exit.i234: ; preds = %_ZN
   store i32 %328, ptr %17, align 8, !tbaa !34
   %329 = load ptr, ptr %4, align 8, !tbaa !31
   %330 = zext i32 %327 to i64
-  %331 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %329, i64 %330
+  %331 = getelementptr inbounds nuw [32 x i8], ptr %329, i64 %330
   %332 = load i8, ptr %331, align 8
   %333 = and i8 %332, -6
   %334 = and i8 %305, 5
@@ -1298,8 +1297,8 @@ _ZN6bufferIN5nlsat8intervalELb0ELj128EE9push_backEOS1_.exit.i234: ; preds = %_ZN
 
 362:                                              ; preds = %362, %.lr.ph.i.i.i414
   %indvars.iv.i.i.i416 = phi i64 [ 0, %.lr.ph.i.i.i414 ], [ %indvars.iv.next.i.i.i417, %362 ]
-  %363 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %358, i64 %indvars.iv.i.i.i416
-  %364 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %.pre.i.i.i413, i64 %indvars.iv.i.i.i416
+  %363 = getelementptr inbounds nuw [32 x i8], ptr %358, i64 %indvars.iv.i.i.i416
+  %364 = getelementptr inbounds nuw [32 x i8], ptr %.pre.i.i.i413, i64 %indvars.iv.i.i.i416
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %363, ptr noundef nonnull align 8 dereferenceable(32) %364, i64 32, i1 false), !tbaa.struct !36
   %indvars.iv.next.i.i.i417 = add nuw nsw i64 %indvars.iv.i.i.i416, 1
   %exitcond.not.i.i.i418 = icmp eq i64 %indvars.iv.next.i.i.i417, %wide.trip.count.i.i.i415
@@ -1315,7 +1314,7 @@ _ZN6bufferIN5nlsat8intervalELb0ELj128EE9push_backEOS1_.exit.i425: ; preds = %_ZN
   %365 = phi i32 [ %352, %._crit_edge.i.i428 ], [ %.pre2.i.i424, %_ZN6bufferIN5nlsat8intervalELb0ELj128EE6expandEv.exit.i.i423 ]
   %366 = phi ptr [ %.pre.i.i429, %._crit_edge.i.i428 ], [ %358, %_ZN6bufferIN5nlsat8intervalELb0ELj128EE6expandEv.exit.i.i423 ]
   %367 = zext i32 %365 to i64
-  %368 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %366, i64 %367
+  %368 = getelementptr inbounds nuw [32 x i8], ptr %366, i64 %367
   store i32 0, ptr %368, align 8
   %.sroa.4.0..sroa_idx.i426 = getelementptr inbounds nuw i8, ptr %368, i64 4
   store i32 -2, ptr %.sroa.4.0..sroa_idx.i426, align 4, !tbaa !26
@@ -1326,7 +1325,7 @@ _ZN6bufferIN5nlsat8intervalELb0ELj128EE9push_backEOS1_.exit.i425: ; preds = %_ZN
   store i32 %370, ptr %17, align 8, !tbaa !34
   %371 = load ptr, ptr %4, align 8, !tbaa !31
   %372 = zext i32 %369 to i64
-  %373 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %371, i64 %372
+  %373 = getelementptr inbounds nuw [32 x i8], ptr %371, i64 %372
   %374 = load i8, ptr %373, align 8
   %375 = and i8 %374, -6
   %376 = and i8 %348, 5
@@ -1452,8 +1451,8 @@ _ZN5nlsat19compare_upper_lowerERN17algebraic_numbers7managerERKNS_8intervalES5_.
 
 422:                                              ; preds = %422, %.lr.ph.i.i.i438
   %indvars.iv.i.i.i440 = phi i64 [ 0, %.lr.ph.i.i.i438 ], [ %indvars.iv.next.i.i.i441, %422 ]
-  %423 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %418, i64 %indvars.iv.i.i.i440
-  %424 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %.pre.i.i.i437, i64 %indvars.iv.i.i.i440
+  %423 = getelementptr inbounds nuw [32 x i8], ptr %418, i64 %indvars.iv.i.i.i440
+  %424 = getelementptr inbounds nuw [32 x i8], ptr %.pre.i.i.i437, i64 %indvars.iv.i.i.i440
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %423, ptr noundef nonnull align 8 dereferenceable(32) %424, i64 32, i1 false), !tbaa.struct !36
   %indvars.iv.next.i.i.i441 = add nuw nsw i64 %indvars.iv.i.i.i440, 1
   %exitcond.not.i.i.i442 = icmp eq i64 %indvars.iv.next.i.i.i441, %wide.trip.count.i.i.i439
@@ -1469,7 +1468,7 @@ _ZN6bufferIN5nlsat8intervalELb0ELj128EE9push_backEOS1_.exit.i449: ; preds = %_ZN
   %425 = phi i32 [ %412, %._crit_edge.i.i452 ], [ %.pre2.i.i448, %_ZN6bufferIN5nlsat8intervalELb0ELj128EE6expandEv.exit.i.i447 ]
   %426 = phi ptr [ %.pre.i.i453, %._crit_edge.i.i452 ], [ %418, %_ZN6bufferIN5nlsat8intervalELb0ELj128EE6expandEv.exit.i.i447 ]
   %427 = zext i32 %425 to i64
-  %428 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %426, i64 %427
+  %428 = getelementptr inbounds nuw [32 x i8], ptr %426, i64 %427
   store i32 0, ptr %428, align 8
   %.sroa.4.0..sroa_idx.i450 = getelementptr inbounds nuw i8, ptr %428, i64 4
   store i32 -2, ptr %.sroa.4.0..sroa_idx.i450, align 4, !tbaa !26
@@ -1480,7 +1479,7 @@ _ZN6bufferIN5nlsat8intervalELb0ELj128EE9push_backEOS1_.exit.i449: ; preds = %_ZN
   store i32 %430, ptr %17, align 8, !tbaa !34
   %431 = load ptr, ptr %4, align 8, !tbaa !31
   %432 = zext i32 %429 to i64
-  %433 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %431, i64 %432
+  %433 = getelementptr inbounds nuw [32 x i8], ptr %431, i64 %432
   %434 = load i8, ptr %433, align 8
   %435 = and i8 %434, -6
   %436 = and i8 %408, 5
@@ -1552,8 +1551,8 @@ _ZN6bufferIN5nlsat8intervalELb0ELj128EE9push_backEOS1_.exit.i449: ; preds = %_ZN
 
 460:                                              ; preds = %460, %.lr.ph.i.i.i260
   %indvars.iv.i.i.i262 = phi i64 [ 0, %.lr.ph.i.i.i260 ], [ %indvars.iv.next.i.i.i263, %460 ]
-  %461 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %456, i64 %indvars.iv.i.i.i262
-  %462 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %.pre.i.i.i259, i64 %indvars.iv.i.i.i262
+  %461 = getelementptr inbounds nuw [32 x i8], ptr %456, i64 %indvars.iv.i.i.i262
+  %462 = getelementptr inbounds nuw [32 x i8], ptr %.pre.i.i.i259, i64 %indvars.iv.i.i.i262
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %461, ptr noundef nonnull align 8 dereferenceable(32) %462, i64 32, i1 false), !tbaa.struct !36
   %indvars.iv.next.i.i.i263 = add nuw nsw i64 %indvars.iv.i.i.i262, 1
   %exitcond.not.i.i.i264 = icmp eq i64 %indvars.iv.next.i.i.i263, %wide.trip.count.i.i.i261
@@ -1569,7 +1568,7 @@ _ZN6bufferIN5nlsat8intervalELb0ELj128EE9push_backEOS1_.exit.i271: ; preds = %_ZN
   %463 = phi i32 [ %450, %._crit_edge.i.i274 ], [ %.pre2.i.i270, %_ZN6bufferIN5nlsat8intervalELb0ELj128EE6expandEv.exit.i.i269 ]
   %464 = phi ptr [ %.pre.i.i275, %._crit_edge.i.i274 ], [ %456, %_ZN6bufferIN5nlsat8intervalELb0ELj128EE6expandEv.exit.i.i269 ]
   %465 = zext i32 %463 to i64
-  %466 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %464, i64 %465
+  %466 = getelementptr inbounds nuw [32 x i8], ptr %464, i64 %465
   store i32 0, ptr %466, align 8
   %.sroa.4.0..sroa_idx.i272 = getelementptr inbounds nuw i8, ptr %466, i64 4
   store i32 -2, ptr %.sroa.4.0..sroa_idx.i272, align 4, !tbaa !26
@@ -1580,7 +1579,7 @@ _ZN6bufferIN5nlsat8intervalELb0ELj128EE9push_backEOS1_.exit.i271: ; preds = %_ZN
   store i32 %468, ptr %17, align 8, !tbaa !34
   %469 = load ptr, ptr %4, align 8, !tbaa !31
   %470 = zext i32 %467 to i64
-  %471 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %469, i64 %470
+  %471 = getelementptr inbounds nuw [32 x i8], ptr %469, i64 %470
   %472 = load i8, ptr %471, align 8
   %473 = and i8 %472, -6
   %474 = and i8 %402, 5
@@ -1649,8 +1648,8 @@ _ZN6bufferIN5nlsat8intervalELb0ELj128EE9push_backEOS1_.exit.i271: ; preds = %_ZN
 
 497:                                              ; preds = %497, %.lr.ph.i.i.i284
   %indvars.iv.i.i.i286 = phi i64 [ 0, %.lr.ph.i.i.i284 ], [ %indvars.iv.next.i.i.i287, %497 ]
-  %498 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %493, i64 %indvars.iv.i.i.i286
-  %499 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %.pre.i.i.i283, i64 %indvars.iv.i.i.i286
+  %498 = getelementptr inbounds nuw [32 x i8], ptr %493, i64 %indvars.iv.i.i.i286
+  %499 = getelementptr inbounds nuw [32 x i8], ptr %.pre.i.i.i283, i64 %indvars.iv.i.i.i286
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %498, ptr noundef nonnull align 8 dereferenceable(32) %499, i64 32, i1 false), !tbaa.struct !36
   %indvars.iv.next.i.i.i287 = add nuw nsw i64 %indvars.iv.i.i.i286, 1
   %exitcond.not.i.i.i288 = icmp eq i64 %indvars.iv.next.i.i.i287, %wide.trip.count.i.i.i285
@@ -1666,7 +1665,7 @@ _ZN6bufferIN5nlsat8intervalELb0ELj128EE9push_backEOS1_.exit.i295: ; preds = %_ZN
   %500 = phi i32 [ %487, %._crit_edge.i.i298 ], [ %.pre2.i.i294, %_ZN6bufferIN5nlsat8intervalELb0ELj128EE6expandEv.exit.i.i293 ]
   %501 = phi ptr [ %.pre.i.i299, %._crit_edge.i.i298 ], [ %493, %_ZN6bufferIN5nlsat8intervalELb0ELj128EE6expandEv.exit.i.i293 ]
   %502 = zext i32 %500 to i64
-  %503 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %501, i64 %502
+  %503 = getelementptr inbounds nuw [32 x i8], ptr %501, i64 %502
   store i32 0, ptr %503, align 8
   %.sroa.4.0..sroa_idx.i296 = getelementptr inbounds nuw i8, ptr %503, i64 4
   store i32 -2, ptr %.sroa.4.0..sroa_idx.i296, align 4, !tbaa !26
@@ -1677,7 +1676,7 @@ _ZN6bufferIN5nlsat8intervalELb0ELj128EE9push_backEOS1_.exit.i295: ; preds = %_ZN
   store i32 %505, ptr %17, align 8, !tbaa !34
   %506 = load ptr, ptr %4, align 8, !tbaa !31
   %507 = zext i32 %504 to i64
-  %508 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %506, i64 %507
+  %508 = getelementptr inbounds nuw [32 x i8], ptr %506, i64 %507
   %509 = load i8, ptr %508, align 8
   %510 = and i8 %509, -6
   %511 = and i8 %482, 5
@@ -1737,8 +1736,8 @@ _ZN5nlsat9push_backERN17algebraic_numbers7managerER7sbufferINS_8intervalELj128EE
   %.0166535 = phi i32 [ 0, %.lr.ph537.preheader ], [ %.1167, %591 ]
   %528 = load ptr, ptr %4, align 8, !tbaa !31
   %529 = zext i32 %.0166535 to i64
-  %530 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %528, i64 %529
-  %531 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %528, i64 %indvars.iv568
+  %530 = getelementptr inbounds nuw [32 x i8], ptr %528, i64 %529
+  %531 = getelementptr inbounds nuw [32 x i8], ptr %528, i64 %indvars.iv568
   %532 = getelementptr inbounds nuw i8, ptr %530, i64 4
   %533 = getelementptr inbounds nuw i8, ptr %531, i64 4
   %534 = load i32, ptr %532, align 4, !tbaa !3
@@ -1795,7 +1794,7 @@ _ZN5nlsat8adjacentERN17algebraic_numbers7managerERKNS_8intervalES5_.exit.thread:
 
 562:                                              ; preds = %_ZN5nlsat8adjacentERN17algebraic_numbers7managerERKNS_8intervalES5_.exit.thread
   %563 = load ptr, ptr %4, align 8, !tbaa !31
-  %564 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %563, i64 %561
+  %564 = getelementptr inbounds nuw [32 x i8], ptr %563, i64 %561
   %565 = load i8, ptr %531, align 8
   %566 = and i8 %565, 4
   %567 = load i8, ptr %564, align 8
@@ -1849,7 +1848,7 @@ _ZN5nlsat8adjacentERN17algebraic_numbers7managerERKNS_8intervalES5_.exit.thread:
 .lr.ph541:                                        ; preds = %.lr.ph541.preheader, %601
   %indvars.iv573 = phi i64 [ %527, %.lr.ph541.preheader ], [ %indvars.iv.next574, %601 ]
   %594 = load ptr, ptr %4, align 8, !tbaa !31
-  %595 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %594, i64 %indvars.iv573
+  %595 = getelementptr inbounds nuw [32 x i8], ptr %594, i64 %indvars.iv573
   %596 = load ptr, ptr %0, align 8, !tbaa !23
   %597 = getelementptr inbounds nuw i8, ptr %595, i64 16
   invoke void @_ZN17algebraic_numbers7manager3delERNS_4anumE(ptr noundef nonnull align 8 dereferenceable(17) %596, ptr noundef nonnull align 8 dereferenceable(8) %597)
@@ -1882,7 +1881,7 @@ _ZN6bufferIN5nlsat8intervalELb0ELj128EE6shrinkEj.exit: ; preds = %.lr.ph.prehead
 
 608:                                              ; preds = %_ZN6bufferIN5nlsat8intervalELb0ELj128EE6shrinkEj.exit
   %609 = zext i32 %.0166.lcssa to i64
-  %610 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %605, i64 %609
+  %610 = getelementptr inbounds nuw [32 x i8], ptr %605, i64 %609
   %611 = load i8, ptr %610, align 8
   %612 = and i8 %611, 8
   %.not549 = icmp eq i8 %612, 0
@@ -1918,9 +1917,9 @@ _ZN6bufferIN5nlsat8intervalELb0ELj128EE6shrinkEj.exit: ; preds = %.lr.ph.prehead
   %indvars.iv578 = phi i64 [ 0, %.lr.ph546.preheader ], [ %indvars.iv.next579, %_ZN5nlsat8adjacentERN17algebraic_numbers7managerERKNS_8intervalES5_.exit313.thread ]
   %623 = load ptr, ptr %0, align 8, !tbaa !23
   %624 = load ptr, ptr %4, align 8, !tbaa !31
-  %625 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %624, i64 %indvars.iv578
+  %625 = getelementptr inbounds nuw [32 x i8], ptr %624, i64 %indvars.iv578
   %indvars.iv.next579 = add nuw nsw i64 %indvars.iv578, 1
-  %626 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %624, i64 %indvars.iv.next579
+  %626 = getelementptr inbounds nuw [32 x i8], ptr %624, i64 %indvars.iv.next579
   %627 = getelementptr inbounds nuw i8, ptr %625, i64 24
   %628 = getelementptr inbounds nuw i8, ptr %626, i64 16
   %629 = invoke noundef i32 @_ZN17algebraic_numbers7manager7compareERKNS_4anumES3_(ptr noundef nonnull align 8 dereferenceable(17) %623, ptr noundef nonnull align 8 dereferenceable(8) %627, ptr noundef nonnull align 8 dereferenceable(8) %628)
@@ -2093,9 +2092,9 @@ define hidden noundef zeroext i1 @_ZN5nlsat20interval_set_manager6subsetEPKNS_12
   %.047131 = phi i32 [ 0, %.lr.ph ], [ %.148, %.thread106 ]
   %.052130 = phi i32 [ 0, %.lr.ph ], [ %.153, %.thread106 ]
   %25 = zext i32 %.047131 to i64
-  %26 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %20, i64 %25
+  %26 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %25
   %27 = zext i32 %.052130 to i64
-  %28 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %21, i64 %27
+  %28 = getelementptr inbounds nuw [32 x i8], ptr %21, i64 %27
   %29 = load ptr, ptr %0, align 8, !tbaa !23
   %30 = load i8, ptr %26, align 8
   %31 = and i8 %30, 4
@@ -2149,7 +2148,7 @@ _ZN5nlsat19compare_lower_lowerERN17algebraic_numbers7managerERKNS_8intervalES5_.
   br i1 %exitcond.not, label %._crit_edge, label %52
 
 52:                                               ; preds = %51
-  %53 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %21, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [32 x i8], ptr %21, i64 %indvars.iv
   %54 = load ptr, ptr %0, align 8, !tbaa !23
   %55 = load i8, ptr %26, align 8
   %56 = and i8 %55, 8
@@ -2251,7 +2250,7 @@ _ZN5nlsat19compare_upper_lowerERN17algebraic_numbers7managerERKNS_8intervalES5_.
 100:                                              ; preds = %_ZN5nlsat19compare_upper_lowerERN17algebraic_numbers7managerERKNS_8intervalES5_.exit.thread
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %101 = and i64 %indvars.iv.next, 4294967295
-  %102 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %21, i64 %101
+  %102 = getelementptr inbounds nuw [32 x i8], ptr %21, i64 %101
   %103 = load ptr, ptr %0, align 8, !tbaa !23
   %104 = getelementptr inbounds nuw i8, ptr %53, i64 24
   %105 = getelementptr inbounds nuw i8, ptr %102, i64 16
@@ -2362,8 +2361,8 @@ define hidden noundef zeroext i1 @_ZN5nlsat20interval_set_manager2eqEPKNS_12inte
 
 17:                                               ; preds = %.lr.ph, %14
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %14 ]
-  %18 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %11, i64 %indvars.iv
-  %19 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %13, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [32 x i8], ptr %11, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [32 x i8], ptr %13, i64 %indvars.iv
   %20 = load i8, ptr %18, align 8
   %21 = load i8, ptr %19, align 8
   %22 = xor i8 %21, %20
@@ -2445,7 +2444,7 @@ _ZNK5nlsat20interval_set_manager13num_intervalsEPKNS_12interval_setE.exit: ; pre
 
 18:                                               ; preds = %.lr.ph, %121
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %121 ]
-  %19 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %15, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [32 x i8], ptr %15, i64 %indvars.iv
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %21 = load i32, ptr %20, align 4, !tbaa !26
   %22 = load ptr, ptr %16, align 8, !tbaa !13
@@ -2658,7 +2657,7 @@ _ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit: ; preds = %90, %96
   %98 = phi ptr [ %.pre.i28, %96 ], [ %88, %90 ]
   %99 = getelementptr inbounds i8, ptr %98, i64 -4
   %100 = zext i32 %97 to i64
-  %101 = getelementptr inbounds nuw %"class.sat::literal", ptr %98, i64 %100
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %98, i64 %100
   store i32 %21, ptr %101, align 4, !tbaa !26
   %102 = add i32 %97, 1
   store i32 %102, ptr %99, align 4, !tbaa !26
@@ -2692,7 +2691,7 @@ _ZN6vectorIPN5nlsat6clauseELb0EjE9push_backEOS2_.exit: ; preds = %108, %114
   %116 = phi ptr [ %.pre.i29, %114 ], [ %106, %108 ]
   %117 = getelementptr inbounds i8, ptr %116, i64 -4
   %118 = zext i32 %115 to i64
-  %119 = getelementptr inbounds nuw ptr, ptr %116, i64 %118
+  %119 = getelementptr inbounds nuw [8 x i8], ptr %116, i64 %118
   store ptr %104, ptr %119, align 8, !tbaa !38
   %120 = add i32 %115, 1
   store i32 %120, ptr %117, align 4, !tbaa !26
@@ -2708,7 +2707,7 @@ _ZN6vectorIPN5nlsat6clauseELb0EjE9push_backEOS2_.exit: ; preds = %108, %114
 
 122:                                              ; preds = %.lr.ph42, %122
   %indvars.iv46 = phi i64 [ 0, %.lr.ph42 ], [ %indvars.iv.next47, %122 ]
-  %123 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %1, i64 %indvars.iv46
+  %123 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv46
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 12
   %125 = load i32, ptr %124, align 4, !tbaa !26
   %126 = load ptr, ptr %17, align 8, !tbaa !13
@@ -2733,7 +2732,7 @@ _ZN6bufferIN5nlsat8intervalELb0ELj128EE9push_backEOS1_.exit.i:
   %7 = load ptr, ptr %0, align 8, !tbaa !23
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = zext i32 %2 to i64
-  %10 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %8, i64 %9
+  %10 = getelementptr inbounds nuw [32 x i8], ptr %8, i64 %9
   %11 = load i8, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 4
@@ -2919,7 +2918,7 @@ _ZNK5nlsat20interval_set_manager13num_intervalsEPKNS_12interval_setE.exit: ; pre
 
 17:                                               ; preds = %.lr.ph, %14
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %14 ]
-  %18 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %13, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [32 x i8], ptr %13, i64 %indvars.iv
   %19 = load ptr, ptr %0, align 8, !tbaa !23
   %20 = load i8, ptr %18, align 8
   %21 = and i8 %20, 8
@@ -2991,7 +2990,7 @@ _ZNK5nlsat20interval_set_manager13num_intervalsEPKNS_12interval_setE.exit: ; pre
 ._crit_edge.thread:                               ; preds = %36, %38, %29
   %44 = add i32 %10, -1
   %45 = zext i32 %44 to i64
-  %46 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %13, i64 %45
+  %46 = getelementptr inbounds nuw [32 x i8], ptr %13, i64 %45
   %47 = load i8, ptr %46, align 8
   %48 = and i8 %47, 8
   %.not.not = icmp eq i8 %48, 0
@@ -3053,9 +3052,9 @@ _ZNK5nlsat20interval_set_manager13num_intervalsEPKNS_12interval_setE.exit: ; pre
   %indvars.iv151 = phi i64 [ 1, %.lr.ph118.split.us.preheader ], [ %indvars.iv.next152, %85 ]
   %.2115.us = phi i32 [ %.170177183, %.lr.ph118.split.us.preheader ], [ %.4.us, %85 ]
   %65 = load ptr, ptr %0, align 8, !tbaa !23
-  %66 = getelementptr %"struct.nlsat::interval", ptr %13, i64 %indvars.iv151
+  %66 = getelementptr [32 x i8], ptr %13, i64 %indvars.iv151
   %67 = getelementptr i8, ptr %66, i64 -8
-  %68 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %13, i64 %indvars.iv151
+  %68 = getelementptr inbounds nuw [32 x i8], ptr %13, i64 %indvars.iv151
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 16
   %70 = invoke noundef zeroext i1 @_ZN17algebraic_numbers7manager2ltERKNS_4anumES3_(ptr noundef nonnull align 8 dereferenceable(17) %65, ptr noundef nonnull align 8 dereferenceable(8) %67, ptr noundef nonnull align 8 dereferenceable(8) %69)
           to label %71 unwind label %.split.us
@@ -3098,9 +3097,9 @@ _ZNK5nlsat20interval_set_manager13num_intervalsEPKNS_12interval_setE.exit: ; pre
 .lr.ph118.split:                                  ; preds = %.lr.ph118.split.preheader, %104
   %indvars.iv146 = phi i64 [ 1, %.lr.ph118.split.preheader ], [ %indvars.iv.next147, %104 ]
   %87 = load ptr, ptr %0, align 8, !tbaa !23
-  %88 = getelementptr %"struct.nlsat::interval", ptr %13, i64 %indvars.iv146
+  %88 = getelementptr [32 x i8], ptr %13, i64 %indvars.iv146
   %89 = getelementptr i8, ptr %88, i64 -8
-  %90 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %13, i64 %indvars.iv146
+  %90 = getelementptr inbounds nuw [32 x i8], ptr %13, i64 %indvars.iv146
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 16
   %92 = invoke noundef zeroext i1 @_ZN17algebraic_numbers7manager2ltERKNS_4anumES3_(ptr noundef nonnull align 8 dereferenceable(17) %87, ptr noundef nonnull align 8 dereferenceable(8) %89, ptr noundef nonnull align 8 dereferenceable(8) %91)
           to label %93 unwind label %.split.loopexit
@@ -3159,14 +3158,14 @@ _ZNK5nlsat20interval_set_manager13num_intervalsEPKNS_12interval_setE.exit: ; pre
   %indvars.iv157 = phi i64 [ 1, %.lr.ph135.preheader ], [ %indvars.iv.next158, %123 ]
   %.067133 = phi i32 [ -1, %.lr.ph135.preheader ], [ %.1, %123 ]
   %105 = add nsw i64 %indvars.iv157, -1
-  %106 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %13, i64 %105
+  %106 = getelementptr inbounds nuw [32 x i8], ptr %13, i64 %105
   %107 = load i8, ptr %106, align 8
   %108 = and i8 %107, 2
   %.not90 = icmp eq i8 %108, 0
   br i1 %.not90, label %123, label %109
 
 109:                                              ; preds = %.lr.ph135
-  %110 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %13, i64 %indvars.iv157
+  %110 = getelementptr inbounds nuw [32 x i8], ptr %13, i64 %indvars.iv157
   %111 = load i8, ptr %110, align 8
   %112 = and i8 %111, 1
   %.not91 = icmp eq i8 %112, 0
@@ -3215,7 +3214,7 @@ _ZNK5nlsat20interval_set_manager13num_intervalsEPKNS_12interval_setE.exit: ; pre
 .critedge:                                        ; preds = %.critedge.loopexit, %.preheader
   %.067.lcssa = phi i64 [ 4294967295, %.preheader ], [ %124, %.critedge.loopexit ]
   %125 = load ptr, ptr %0, align 8, !tbaa !23
-  %126 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %13, i64 %.067.lcssa
+  %126 = getelementptr inbounds nuw [32 x i8], ptr %13, i64 %.067.lcssa
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 24
   invoke void @_ZN17algebraic_numbers7manager3setERNS_4anumERKS1_(ptr noundef nonnull align 8 dereferenceable(17) %125, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %127)
           to label %.thread unwind label %133
@@ -3318,7 +3317,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5nlsat20interv
 
 17:                                               ; preds = %15, %14
   %18 = load ptr, ptr %0, align 8, !tbaa !23
-  %19 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %10, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 %indvars.iv
   tail call void @_ZN5nlsat7displayERSoRN17algebraic_numbers7managerERKNS_8intervalE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(17) %18, ptr noundef nonnull align 8 dereferenceable(32) %19)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %20 = load i32, ptr %2, align 8, !tbaa !18

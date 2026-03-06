@@ -8122,7 +8122,7 @@ define hidden noundef ptr @"_ZN5tokio7runtime9scheduler12multi_thread5queue14Loc
   %26 = zext nneg i32 %25 to i64
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %28 = load ptr, ptr %27, align 8, !nonnull !13, !align !15, !noundef !13
-  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %26
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %26
   %30 = load ptr, ptr %29, align 8
   br label %37
 
@@ -8770,7 +8770,7 @@ define hidden noundef nonnull ptr @"_ZN9hashbrown3raw5inner21RawIterRange$LT$T$G
   %8 = and i16 %7, %.lcssa
   store i16 %8, ptr %2, align 8, !alias.scope !1316
   %9 = sub nsw i64 0, %6
-  %10 = getelementptr inbounds i64, ptr %.val3, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %.val3, i64 %9
   ret ptr %10
 
 11:                                               ; preds = %.lr.ph, %11
@@ -8812,7 +8812,7 @@ define hidden noundef nonnull ptr @"_ZN9hashbrown3raw5inner21RawIterRange$LT$T$G
   %8 = and i16 %7, %.lcssa
   store i16 %8, ptr %2, align 8, !alias.scope !1322
   %9 = sub nsw i64 0, %6
-  %10 = getelementptr inbounds ptr, ptr %.val3, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %.val3, i64 %9
   ret ptr %10
 
 11:                                               ; preds = %.lr.ph, %11
@@ -8881,7 +8881,7 @@ common.resume:                                    ; preds = %91, %.body
 
 34:                                               ; preds = %29
   %35 = load ptr, ptr %1, align 8, !alias.scope !1328, !noalias !1335, !nonnull !13, !align !15, !noundef !13
-  %36 = getelementptr inbounds { ptr, i8 }, ptr %35, i64 %28
+  %36 = getelementptr inbounds [16 x i8], ptr %35, i64 %28
   %37 = call noundef align 8 dereferenceable(16) ptr @_ZN11sqlx_sqlite5value14SqliteValueRef5value17hbcf163c4c4486f94E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %36), !noalias !1334
   store ptr %37, ptr %22, align 8
   %38 = call noundef zeroext i1 @"_ZN81_$LT$sqlx_sqlite..value..SqliteValueRef$u20$as$u20$sqlx_core..value..ValueRef$GT$7is_null17h26da363a52642f57E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %22)
@@ -14074,7 +14074,7 @@ common.ret:                                       ; preds = %42, %17
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8)
   %53 = ptrtoint ptr %51 to i64
-  %54 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } } }, ptr %48, i64 %.sroa.11.0.copyload41
+  %54 = getelementptr inbounds [72 x i8], ptr %48, i64 %.sroa.11.0.copyload41
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !2088
   store ptr null, ptr %6, align 8, !noalias !2088
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !2098
@@ -14420,7 +14420,7 @@ common.ret:                                       ; preds = %55, %21
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8)
   %66 = ptrtoint ptr %64 to i64
-  %67 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } } }, ptr %61, i64 %.sroa.11.0.copyload48
+  %67 = getelementptr inbounds [72 x i8], ptr %61, i64 %.sroa.11.0.copyload48
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !2143
   store ptr null, ptr %6, align 8, !noalias !2143
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !2153

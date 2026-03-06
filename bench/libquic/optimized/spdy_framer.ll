@@ -1166,7 +1166,7 @@ define noundef nonnull ptr @_ZN3net10SpdyFramer13StateToStringEi(i32 noundef %0)
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN3net10SpdyFramer13StateToStringEi, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN3net10SpdyFramer13StateToStringEi, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -1204,7 +1204,7 @@ define noundef nonnull ptr @_ZN3net10SpdyFramer17ErrorCodeToStringEi(i32 noundef
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN3net10SpdyFramer17ErrorCodeToStringEi, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN3net10SpdyFramer17ErrorCodeToStringEi, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -1220,7 +1220,7 @@ define noundef nonnull ptr @_ZN3net10SpdyFramer18StatusCodeToStringEi(i32 nounde
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN3net10SpdyFramer18StatusCodeToStringEi, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN3net10SpdyFramer18StatusCodeToStringEi, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -1236,7 +1236,7 @@ define noundef nonnull ptr @_ZN3net10SpdyFramer17FrameTypeToStringENS_13SpdyFram
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN3net10SpdyFramer17FrameTypeToStringENS_13SpdyFrameTypeE, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN3net10SpdyFramer17FrameTypeToStringENS_13SpdyFrameTypeE, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -6949,7 +6949,7 @@ _ZNSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traits
   br label %_ZNSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i: ; preds = %152, %_ZNSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit22.i.i.i
-  %153 = getelementptr inbounds nuw %"class.base::BasicStringPiece", ptr %148, i64 %146
+  %153 = getelementptr inbounds nuw [16 x i8], ptr %148, i64 %146
   br label %_ZNSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EE9push_backEOS8_.exit
 
 _ZNSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EE9push_backEOS8_.exit: ; preds = %_ZNSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i, %135
@@ -7089,7 +7089,7 @@ _ZNSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traits
   br label %_ZNSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i
 
 _ZNSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i: ; preds = %193, %_ZNSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit22.i.i
-  %194 = getelementptr inbounds nuw %"class.base::BasicStringPiece", ptr %189, i64 %187
+  %194 = getelementptr inbounds nuw [16 x i8], ptr %189, i64 %187
   br label %_ZNSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EE9push_backERKS8_.exit
 
 _ZNSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EE9push_backERKS8_.exit: ; preds = %_ZNSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i, %176
@@ -7608,7 +7608,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit130: ; preds = %32
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
-  %330 = getelementptr inbounds nuw %"class.base::BasicStringPiece", ptr %.sroa.0237.0.lcssa, i64 %.041432
+  %330 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0237.0.lcssa, i64 %.041432
   call void @llvm.experimental.noalias.scope.decl(metadata !185)
   %331 = getelementptr inbounds nuw i8, ptr %330, i64 8
   %332 = load i64, ptr %331, align 8, !tbaa !149, !noalias !185
@@ -7914,7 +7914,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit172: ; preds = %_Z
 412:                                              ; preds = %.critedge66
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
-  %413 = getelementptr inbounds nuw %"class.base::BasicStringPiece", ptr %.sroa.0237.0.lcssa, i64 %.041432
+  %413 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0237.0.lcssa, i64 %.041432
   call void @llvm.experimental.noalias.scope.decl(metadata !194)
   %414 = getelementptr inbounds nuw i8, ptr %413, i64 8
   %415 = load i64, ptr %414, align 8, !tbaa !149, !noalias !194
@@ -9454,7 +9454,7 @@ _ZNKSt8__detail15_Hash_code_baseIN4base16BasicStringPieceINSt7__cxx1112basic_str
   %88 = load i64, ptr %24, align 8, !tbaa !234
   %89 = urem i64 %.06.lcssa.i.i.i.i.i.i, %88
   %90 = load ptr, ptr %3, align 8, !tbaa !235
-  %91 = getelementptr inbounds nuw ptr, ptr %90, i64 %89
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %89
   %92 = load ptr, ptr %91, align 8, !tbaa !236
   %.not.i.i6.i.i.i.i = icmp eq ptr %92, null
   br i1 %.not.i.i6.i.i.i.i, label %.thread, label %93

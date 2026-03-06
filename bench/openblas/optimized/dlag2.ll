@@ -8,11 +8,11 @@ define void @dlag2_(ptr noundef readonly captures(none) %0, ptr noundef readonly
   %11 = load i32, ptr %1, align 4, !tbaa !3
   %narrow = xor i32 %11, -1
   %12 = sext i32 %narrow to i64
-  %13 = getelementptr inbounds double, ptr %0, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %0, i64 %12
   %14 = load i32, ptr %3, align 4, !tbaa !3
   %narrow479 = xor i32 %14, -1
   %15 = sext i32 %narrow479 to i64
-  %16 = getelementptr inbounds double, ptr %2, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %2, i64 %15
   %17 = load double, ptr %4, align 8, !tbaa !7
   %18 = tail call double @sqrt(double noundef %17) #4, !tbaa !3
   %19 = fdiv double 1.000000e+00, %18
@@ -22,7 +22,7 @@ define void @dlag2_(ptr noundef readonly captures(none) %0, ptr noundef readonly
   %23 = fneg double %21
   %24 = select i1 %22, double %21, double %23
   %25 = sext i32 %11 to i64
-  %26 = getelementptr double, ptr %13, i64 %25
+  %26 = getelementptr [8 x i8], ptr %13, i64 %25
   %27 = getelementptr i8, ptr %26, i64 16
   %28 = load double, ptr %27, align 8, !tbaa !7
   %29 = fcmp oge double %28, 0.000000e+00
@@ -31,7 +31,7 @@ define void @dlag2_(ptr noundef readonly captures(none) %0, ptr noundef readonly
   %32 = fadd double %24, %31
   %33 = shl i32 %11, 1
   %34 = sext i32 %33 to i64
-  %35 = getelementptr double, ptr %13, i64 %34
+  %35 = getelementptr [8 x i8], ptr %13, i64 %34
   %36 = getelementptr i8, ptr %35, i64 8
   %37 = load double, ptr %36, align 8, !tbaa !7
   %38 = fcmp oge double %37, 0.000000e+00
@@ -55,7 +55,7 @@ define void @dlag2_(ptr noundef readonly captures(none) %0, ptr noundef readonly
   %54 = load double, ptr %2, align 8, !tbaa !7
   %55 = shl i32 %14, 1
   %56 = sext i32 %55 to i64
-  %57 = getelementptr double, ptr %16, i64 %56
+  %57 = getelementptr [8 x i8], ptr %16, i64 %56
   %58 = getelementptr i8, ptr %57, i64 8
   %59 = load double, ptr %58, align 8, !tbaa !7
   %60 = getelementptr i8, ptr %57, i64 16

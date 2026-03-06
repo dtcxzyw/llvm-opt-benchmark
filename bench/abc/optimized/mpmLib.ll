@@ -20,14 +20,14 @@ define noalias noundef ptr @Mpm_LibLutSetSimple(i32 noundef %0) local_unnamed_ad
 
 7:                                                ; preds = %.lr.ph, %12
   %indvars.iv18 = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next19, %12 ]
-  %8 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv18
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv18
   store i32 20, ptr %8, align 4, !tbaa !10
-  %9 = getelementptr inbounds nuw [13 x i32], ptr %5, i64 %indvars.iv18
+  %9 = getelementptr inbounds nuw [52 x i8], ptr %5, i64 %indvars.iv18
   br label %10
 
 10:                                               ; preds = %7, %10
   %indvars.iv = phi i64 [ 0, %7 ], [ %indvars.iv.next, %10 ]
-  %11 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv
   store i32 1, ptr %11, align 4, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %indvars.iv18

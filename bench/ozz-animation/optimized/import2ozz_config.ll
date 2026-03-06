@@ -1725,7 +1725,7 @@ define internal fastcc noundef zeroext i1 @_ZN3ozz9animation7offline12_GLOBAL__N
 
 .lr.ph.i.i:                                       ; preds = %14, %.lr.ph.i.i
   %.07.i.i = phi i64 [ %26, %.lr.ph.i.i ], [ 0, %14 ]
-  %22 = getelementptr inbounds nuw ptr, ptr %20, i64 %.07.i.i
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %.07.i.i
   %23 = load ptr, ptr %22, align 8, !tbaa !4
   %24 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %23, ptr noundef nonnull readonly dereferenceable(1) %17) #22
   %25 = icmp eq i32 %24, 0
@@ -1894,7 +1894,7 @@ _ZN3ozz9animation7offline12_GLOBAL__N_128SanitizeOptimizationSettingsERN4Json5Va
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i25.i, %.lr.ph.i.i.i.i
   %.07.i.i.i.i = phi i64 [ %90, %.lr.ph.i.i.i.i ], [ 0, %.lr.ph.i25.i ]
-  %86 = getelementptr inbounds nuw ptr, ptr %84, i64 %.07.i.i.i.i
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %.07.i.i.i.i
   %87 = load ptr, ptr %86, align 8, !tbaa !4
   %88 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %87, ptr noundef nonnull readonly dereferenceable(1) %81) #22
   %89 = icmp eq i32 %88, 0
@@ -2108,7 +2108,7 @@ _ZN3ozz3log6LoggerlsIA15_cEERSoRKT_.exit:         ; preds = %_ZN3ozz9animation7o
 
 switch.lookup:                                    ; preds = %40
   %42 = zext nneg i32 %39 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN3ozz9animation7offline12_GLOBAL__N_114RecursiveCheckERKN4Json5ValueES6_NSt7__cxx1112basic_stringIcSt11char_traitsIcENS_12StdAllocatorIcEEEE.1, i64 %42
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN3ozz9animation7offline12_GLOBAL__N_114RecursiveCheckERKN4Json5ValueES6_NSt7__cxx1112basic_stringIcSt11char_traitsIcENS_12StdAllocatorIcEEEE.1, i64 %42
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN3ozz9animation7offline12_GLOBAL__N_116JsonTypeToStringEN4Json9ValueTypeE.exit
 
@@ -2143,7 +2143,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit76: ; preds = %_ZStl
 
 switch.lookup188:                                 ; preds = %52
   %54 = zext nneg i32 %51 to i64
-  %switch.gep189 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN3ozz9animation7offline12_GLOBAL__N_114RecursiveCheckERKN4Json5ValueES6_NSt7__cxx1112basic_stringIcSt11char_traitsIcENS_12StdAllocatorIcEEEE.1, i64 %54
+  %switch.gep189 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN3ozz9animation7offline12_GLOBAL__N_114RecursiveCheckERKN4Json5ValueES6_NSt7__cxx1112basic_stringIcSt11char_traitsIcENS_12StdAllocatorIcEEEE.1, i64 %54
   %switch.load190 = load ptr, ptr %switch.gep189, align 8
   br label %_ZN3ozz9animation7offline12_GLOBAL__N_116JsonTypeToStringEN4Json9ValueTypeE.exit78
 
@@ -4280,7 +4280,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28: ; preds = %53,
 
 .lr.ph.i:                                         ; preds = %61, %.lr.ph.i
   %.07.i = phi i64 [ %72, %.lr.ph.i ], [ 0, %61 ]
-  %68 = getelementptr inbounds nuw ptr, ptr %66, i64 %.07.i
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %.07.i
   %69 = load ptr, ptr %68, align 8, !tbaa !4
   %70 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %69, ptr noundef nonnull readonly dereferenceable(1) %63) #22
   %71 = icmp eq i32 %70, 0

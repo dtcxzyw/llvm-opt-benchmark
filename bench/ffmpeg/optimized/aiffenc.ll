@@ -54,7 +54,7 @@ define internal range(i32 -22, 1) i32 @aiff_write_header(ptr noundef %0) #0 {
 11:                                               ; preds = %.lr.ph, %22
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %22 ]
   %12 = phi i32 [ -1, %.lr.ph ], [ %23, %22 ]
-  %13 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8, !tbaa !31
   %15 = icmp slt i32 %12, 0
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -95,7 +95,7 @@ define internal range(i32 -22, 1) i32 @aiff_write_header(ptr noundef %0) #0 {
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %27 = load ptr, ptr %26, align 8, !tbaa !30
   %28 = zext nneg i32 %23 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !31
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %32 = load ptr, ptr %31, align 8, !tbaa !33
@@ -329,7 +329,7 @@ put_meta.exit117:                                 ; preds = %put_meta.exit115, %
   %137 = load ptr, ptr %26, align 8, !tbaa !30
   %138 = load i32, ptr %6, align 8, !tbaa !25
   %139 = sext i32 %138 to i64
-  %140 = getelementptr inbounds ptr, ptr %137, i64 %139
+  %140 = getelementptr inbounds [8 x i8], ptr %137, i64 %139
   %141 = load ptr, ptr %140, align 8, !tbaa !31
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 16
   %143 = load ptr, ptr %142, align 8, !tbaa !33
@@ -368,7 +368,7 @@ define internal i32 @aiff_write_packet(ptr noundef %0, ptr noundef %1) #0 {
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %19 = load ptr, ptr %18, align 8, !tbaa !30
   %20 = sext i32 %6 to i64
-  %21 = getelementptr inbounds ptr, ptr %19, i64 %20
+  %21 = getelementptr inbounds [8 x i8], ptr %19, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !31
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 56
   %24 = load i64, ptr %23, align 8, !tbaa !64
@@ -380,7 +380,7 @@ define internal i32 @aiff_write_packet(ptr noundef %0, ptr noundef %1) #0 {
   %.pre = load ptr, ptr %18, align 8, !tbaa !30
   %.pre16 = load i32, ptr %5, align 4, !tbaa !61
   %.phi.trans.insert = sext i32 %.pre16 to i64
-  %.phi.trans.insert17 = getelementptr inbounds ptr, ptr %.pre, i64 %.phi.trans.insert
+  %.phi.trans.insert17 = getelementptr inbounds [8 x i8], ptr %.pre, i64 %.phi.trans.insert
   %.pre18 = load ptr, ptr %.phi.trans.insert17, align 8, !tbaa !31
   %.phi.trans.insert19 = getelementptr inbounds nuw i8, ptr %.pre18, i64 56
   %.pre20 = load i64, ptr %.phi.trans.insert19, align 8, !tbaa !64
@@ -413,7 +413,7 @@ define internal range(i32 -2147483648, 1) i32 @aiff_write_trailer(ptr noundef %0
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %10 = load i32, ptr %9, align 8, !tbaa !25
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds ptr, ptr %8, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %8, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !31
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8, !tbaa !33

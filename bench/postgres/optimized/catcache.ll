@@ -4,17 +4,12 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.ResourceOwnerDesc = type { ptr, i32, i32, ptr, ptr }
-%struct.dlist_head = type { %struct.dlist_node }
-%struct.dlist_node = type { ptr, ptr }
-%struct.FormData_pg_attribute = type { i32, %struct.nameData, i32, i16, i16, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i32 }
 %struct.nameData = type { [64 x i8] }
-%struct.ScanKeyData = type { i32, i16, i16, i32, i32, %struct.FmgrInfo, i64 }
-%struct.FmgrInfo = type { ptr, i32, i16, i8, i8, i8, ptr, ptr, ptr }
 %struct.CatCInProgress = type { ptr, i32, i8, i8, ptr }
 %struct.__jmp_buf_tag = type { [8 x i64], i32, %struct.__sigset_t }
 %struct.__sigset_t = type { [16 x i64] }
-%union.ListCell = type { ptr }
-%struct.CompactAttribute = type { i32, i16, i8, i8, i8, i8, i8, i8, i8 }
+%struct.ScanKeyData = type { i32, i16, i16, i32, i32, %struct.FmgrInfo, i64 }
+%struct.FmgrInfo = type { ptr, i32, i16, i8, i8, i8, ptr, ptr, ptr }
 
 @catcache_in_progress_stack = internal unnamed_addr global ptr null, align 8
 @CacheMemoryContext = external local_unnamed_addr global ptr, align 8
@@ -76,7 +71,7 @@ define dso_local void @CatCacheInvalidate(ptr noundef captures(address) %0, i32 
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = zext i32 %15 to i64
-  %19 = getelementptr inbounds nuw %struct.dlist_head, ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load ptr, ptr %20, align 8
   %.not = icmp eq ptr %21, null
@@ -95,7 +90,7 @@ define dso_local void @CatCacheInvalidate(ptr noundef captures(address) %0, i32 
   %27 = phi i32 [ %4, %.lr.ph67 ], [ %125, %._crit_edge ]
   %indvars.iv = phi i64 [ 0, %.lr.ph67 ], [ %indvars.iv.next, %._crit_edge ]
   %28 = load ptr, ptr %6, align 8
-  %29 = getelementptr inbounds nuw %struct.dlist_head, ptr %28, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %indvars.iv
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8
   %.not51 = icmp eq ptr %31, null
@@ -132,7 +127,7 @@ define dso_local void @CatCacheInvalidate(ptr noundef captures(address) %0, i32 
 
 45:                                               ; preds = %94, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %44, %.lr.ph.i ], [ %indvars.iv.next.i, %94 ]
-  %46 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv.i
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv.i
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 88
   store ptr null, ptr %48, align 8
@@ -174,7 +169,7 @@ define dso_local void @CatCacheInvalidate(ptr noundef captures(address) %0, i32 
 
 .lr.ph.i18.i:                                     ; preds = %87, %.lr.ph.preheader.i16.i
   %indvars.iv.i19.i = phi i64 [ 0, %.lr.ph.preheader.i16.i ], [ %indvars.iv.next.i20.i, %87 ]
-  %71 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv.i19.i
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv.i19.i
   %72 = load i32, ptr %71, align 4
   %73 = add i32 %72, -1
   %74 = load i32, ptr %67, align 8
@@ -182,14 +177,14 @@ define dso_local void @CatCacheInvalidate(ptr noundef captures(address) %0, i32 
   %76 = shl nsw i64 %75, 4
   %77 = getelementptr i8, ptr %67, i64 %76
   %78 = sext i32 %73 to i64
-  %79 = getelementptr %struct.FormData_pg_attribute, ptr %77, i64 %78
+  %79 = getelementptr [100 x i8], ptr %77, i64 %78
   %80 = getelementptr i8, ptr %79, i64 106
   %81 = load i8, ptr %80, align 2, !range !4, !noundef !5
   %82 = trunc nuw i8 %81 to i1
   br i1 %82, label %87, label %83
 
 83:                                               ; preds = %.lr.ph.i18.i
-  %84 = getelementptr inbounds nuw i64, ptr %69, i64 %indvars.iv.i19.i
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %indvars.iv.i19.i
   %85 = load i64, ptr %84, align 8
   %86 = inttoptr i64 %85 to ptr
   tail call void @pfree(ptr noundef %86) #14
@@ -241,7 +236,7 @@ CatCacheRemoveCTup.exit.i:                        ; preds = %87, %66, %56
 
 .lr.ph.i.i:                                       ; preds = %121, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %121 ]
-  %105 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv.i.i
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv.i.i
   %106 = load i32, ptr %105, align 4
   %107 = add i32 %106, -1
   %108 = load i32, ptr %100, align 8
@@ -249,14 +244,14 @@ CatCacheRemoveCTup.exit.i:                        ; preds = %87, %66, %56
   %110 = shl nsw i64 %109, 4
   %111 = getelementptr i8, ptr %100, i64 %110
   %112 = sext i32 %107 to i64
-  %113 = getelementptr %struct.FormData_pg_attribute, ptr %111, i64 %112
+  %113 = getelementptr [100 x i8], ptr %111, i64 %112
   %114 = getelementptr i8, ptr %113, i64 106
   %115 = load i8, ptr %114, align 2, !range !4, !noundef !5
   %116 = trunc nuw i8 %115 to i1
   br i1 %116, label %121, label %117
 
 117:                                              ; preds = %.lr.ph.i.i
-  %118 = getelementptr inbounds nuw i64, ptr %103, i64 %indvars.iv.i.i
+  %118 = getelementptr inbounds nuw [8 x i8], ptr %103, i64 %indvars.iv.i.i
   %119 = load i64, ptr %118, align 8
   %120 = inttoptr i64 %119 to ptr
   tail call void @pfree(ptr noundef %120) #14
@@ -357,7 +352,7 @@ CatCacheRemoveCList.exit:                         ; preds = %121, %._crit_edge.i
 
 .lr.ph.i.i56:                                     ; preds = %176, %.lr.ph.preheader.i.i54
   %indvars.iv.i.i57 = phi i64 [ 0, %.lr.ph.preheader.i.i54 ], [ %indvars.iv.next.i.i58, %176 ]
-  %160 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv.i.i57
+  %160 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %indvars.iv.i.i57
   %161 = load i32, ptr %160, align 4
   %162 = add i32 %161, -1
   %163 = load i32, ptr %156, align 8
@@ -365,14 +360,14 @@ CatCacheRemoveCList.exit:                         ; preds = %121, %._crit_edge.i
   %165 = shl nsw i64 %164, 4
   %166 = getelementptr i8, ptr %156, i64 %165
   %167 = sext i32 %162 to i64
-  %168 = getelementptr %struct.FormData_pg_attribute, ptr %166, i64 %167
+  %168 = getelementptr [100 x i8], ptr %166, i64 %167
   %169 = getelementptr i8, ptr %168, i64 106
   %170 = load i8, ptr %169, align 2, !range !4, !noundef !5
   %171 = trunc nuw i8 %170 to i1
   br i1 %171, label %176, label %172
 
 172:                                              ; preds = %.lr.ph.i.i56
-  %173 = getelementptr inbounds nuw i64, ptr %158, i64 %indvars.iv.i.i57
+  %173 = getelementptr inbounds nuw [8 x i8], ptr %158, i64 %indvars.iv.i.i57
   %174 = load i64, ptr %173, align 8
   %175 = inttoptr i64 %174 to ptr
   tail call void @pfree(ptr noundef %175) #14
@@ -451,7 +446,7 @@ define internal fastcc void @CatCacheRemoveCList(ptr noundef captures(none) %0, 
 
 13:                                               ; preds = %.lr.ph, %62
   %indvars.iv = phi i64 [ %12, %.lr.ph ], [ %indvars.iv.next, %62 ]
-  %14 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 88
   store ptr null, ptr %16, align 8
@@ -493,7 +488,7 @@ define internal fastcc void @CatCacheRemoveCList(ptr noundef captures(none) %0, 
 
 .lr.ph.i18:                                       ; preds = %55, %.lr.ph.preheader.i16
   %indvars.iv.i19 = phi i64 [ 0, %.lr.ph.preheader.i16 ], [ %indvars.iv.next.i20, %55 ]
-  %39 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv.i19
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv.i19
   %40 = load i32, ptr %39, align 4
   %41 = add i32 %40, -1
   %42 = load i32, ptr %35, align 8
@@ -501,14 +496,14 @@ define internal fastcc void @CatCacheRemoveCList(ptr noundef captures(none) %0, 
   %44 = shl nsw i64 %43, 4
   %45 = getelementptr i8, ptr %35, i64 %44
   %46 = sext i32 %41 to i64
-  %47 = getelementptr %struct.FormData_pg_attribute, ptr %45, i64 %46
+  %47 = getelementptr [100 x i8], ptr %45, i64 %46
   %48 = getelementptr i8, ptr %47, i64 106
   %49 = load i8, ptr %48, align 2, !range !4, !noundef !5
   %50 = trunc nuw i8 %49 to i1
   br i1 %50, label %55, label %51
 
 51:                                               ; preds = %.lr.ph.i18
-  %52 = getelementptr inbounds nuw i64, ptr %37, i64 %indvars.iv.i19
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv.i19
   %53 = load i64, ptr %52, align 8
   %54 = inttoptr i64 %53 to ptr
   tail call void @pfree(ptr noundef %54) #14
@@ -560,7 +555,7 @@ CatCacheRemoveCTup.exit:                          ; preds = %55, %24, %34
 
 .lr.ph.i:                                         ; preds = %93, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %93 ]
-  %77 = getelementptr inbounds nuw i32, ptr %74, i64 %indvars.iv.i
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %74, i64 %indvars.iv.i
   %78 = load i32, ptr %77, align 4
   %79 = add i32 %78, -1
   %80 = load i32, ptr %71, align 8
@@ -568,14 +563,14 @@ CatCacheRemoveCTup.exit:                          ; preds = %55, %24, %34
   %82 = shl nsw i64 %81, 4
   %83 = getelementptr i8, ptr %71, i64 %82
   %84 = sext i32 %79 to i64
-  %85 = getelementptr %struct.FormData_pg_attribute, ptr %83, i64 %84
+  %85 = getelementptr [100 x i8], ptr %83, i64 %84
   %86 = getelementptr i8, ptr %85, i64 106
   %87 = load i8, ptr %86, align 2, !range !4, !noundef !5
   %88 = trunc nuw i8 %87 to i1
   br i1 %88, label %93, label %89
 
 89:                                               ; preds = %.lr.ph.i
-  %90 = getelementptr inbounds nuw i64, ptr %75, i64 %indvars.iv.i
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %indvars.iv.i
   %91 = load i64, ptr %90, align 8
   %92 = inttoptr i64 %91 to ptr
   tail call void @pfree(ptr noundef %92) #14
@@ -686,7 +681,7 @@ define internal fastcc void @ResetCatalogCache(ptr noundef nonnull captures(addr
   %22 = phi i32 [ %4, %.lr.ph85 ], [ %120, %._crit_edge ]
   %indvars.iv = phi i64 [ 0, %.lr.ph85 ], [ %indvars.iv.next, %._crit_edge ]
   %23 = load ptr, ptr %6, align 8
-  %24 = getelementptr inbounds nuw %struct.dlist_head, ptr %23, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %23, i64 %indvars.iv
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8
   %.not49 = icmp eq ptr %26, null
@@ -723,7 +718,7 @@ define internal fastcc void @ResetCatalogCache(ptr noundef nonnull captures(addr
 
 40:                                               ; preds = %89, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %39, %.lr.ph.i ], [ %indvars.iv.next.i, %89 ]
-  %41 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv.i
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv.i
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 88
   store ptr null, ptr %43, align 8
@@ -765,7 +760,7 @@ define internal fastcc void @ResetCatalogCache(ptr noundef nonnull captures(addr
 
 .lr.ph.i18.i:                                     ; preds = %82, %.lr.ph.preheader.i16.i
   %indvars.iv.i19.i = phi i64 [ 0, %.lr.ph.preheader.i16.i ], [ %indvars.iv.next.i20.i, %82 ]
-  %66 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv.i19.i
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv.i19.i
   %67 = load i32, ptr %66, align 4
   %68 = add i32 %67, -1
   %69 = load i32, ptr %62, align 8
@@ -773,14 +768,14 @@ define internal fastcc void @ResetCatalogCache(ptr noundef nonnull captures(addr
   %71 = shl nsw i64 %70, 4
   %72 = getelementptr i8, ptr %62, i64 %71
   %73 = sext i32 %68 to i64
-  %74 = getelementptr %struct.FormData_pg_attribute, ptr %72, i64 %73
+  %74 = getelementptr [100 x i8], ptr %72, i64 %73
   %75 = getelementptr i8, ptr %74, i64 106
   %76 = load i8, ptr %75, align 2, !range !4, !noundef !5
   %77 = trunc nuw i8 %76 to i1
   br i1 %77, label %82, label %78
 
 78:                                               ; preds = %.lr.ph.i18.i
-  %79 = getelementptr inbounds nuw i64, ptr %64, i64 %indvars.iv.i19.i
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %indvars.iv.i19.i
   %80 = load i64, ptr %79, align 8
   %81 = inttoptr i64 %80 to ptr
   tail call void @pfree(ptr noundef %81) #14
@@ -832,7 +827,7 @@ CatCacheRemoveCTup.exit.i:                        ; preds = %82, %61, %51
 
 .lr.ph.i.i:                                       ; preds = %116, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %116 ]
-  %100 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv.i.i
+  %100 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv.i.i
   %101 = load i32, ptr %100, align 4
   %102 = add i32 %101, -1
   %103 = load i32, ptr %95, align 8
@@ -840,14 +835,14 @@ CatCacheRemoveCTup.exit.i:                        ; preds = %82, %61, %51
   %105 = shl nsw i64 %104, 4
   %106 = getelementptr i8, ptr %95, i64 %105
   %107 = sext i32 %102 to i64
-  %108 = getelementptr %struct.FormData_pg_attribute, ptr %106, i64 %107
+  %108 = getelementptr [100 x i8], ptr %106, i64 %107
   %109 = getelementptr i8, ptr %108, i64 106
   %110 = load i8, ptr %109, align 2, !range !4, !noundef !5
   %111 = trunc nuw i8 %110 to i1
   br i1 %111, label %116, label %112
 
 112:                                              ; preds = %.lr.ph.i.i
-  %113 = getelementptr inbounds nuw i64, ptr %98, i64 %indvars.iv.i.i
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %indvars.iv.i.i
   %114 = load i64, ptr %113, align 8
   %115 = inttoptr i64 %114 to ptr
   tail call void @pfree(ptr noundef %115) #14
@@ -884,7 +879,7 @@ CatCacheRemoveCList.exit:                         ; preds = %116, %._crit_edge.i
   %124 = phi i32 [ %13, %.lr.ph95 ], [ %266, %._crit_edge93 ]
   %indvars.iv102 = phi i64 [ 0, %.lr.ph95 ], [ %indvars.iv.next103, %._crit_edge93 ]
   %125 = load ptr, ptr %15, align 8
-  %126 = getelementptr inbounds nuw %struct.dlist_head, ptr %125, i64 %indvars.iv102
+  %126 = getelementptr inbounds nuw [16 x i8], ptr %125, i64 %indvars.iv102
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 8
   %128 = load ptr, ptr %127, align 8
   %.not46 = icmp eq ptr %128, null
@@ -935,7 +930,7 @@ CatCacheRemoveCList.exit:                         ; preds = %116, %._crit_edge.i
 
 150:                                              ; preds = %199, %.lr.ph.i66
   %indvars.iv.i67 = phi i64 [ %149, %.lr.ph.i66 ], [ %indvars.iv.next.i68, %199 ]
-  %151 = getelementptr inbounds nuw ptr, ptr %148, i64 %indvars.iv.i67
+  %151 = getelementptr inbounds nuw [8 x i8], ptr %148, i64 %indvars.iv.i67
   %152 = load ptr, ptr %151, align 8
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 88
   store ptr null, ptr %153, align 8
@@ -977,7 +972,7 @@ CatCacheRemoveCList.exit:                         ; preds = %116, %._crit_edge.i
 
 .lr.ph.i18.i72:                                   ; preds = %192, %.lr.ph.preheader.i16.i70
   %indvars.iv.i19.i73 = phi i64 [ 0, %.lr.ph.preheader.i16.i70 ], [ %indvars.iv.next.i20.i74, %192 ]
-  %176 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv.i19.i73
+  %176 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv.i19.i73
   %177 = load i32, ptr %176, align 4
   %178 = add i32 %177, -1
   %179 = load i32, ptr %172, align 8
@@ -985,14 +980,14 @@ CatCacheRemoveCList.exit:                         ; preds = %116, %._crit_edge.i
   %181 = shl nsw i64 %180, 4
   %182 = getelementptr i8, ptr %172, i64 %181
   %183 = sext i32 %178 to i64
-  %184 = getelementptr %struct.FormData_pg_attribute, ptr %182, i64 %183
+  %184 = getelementptr [100 x i8], ptr %182, i64 %183
   %185 = getelementptr i8, ptr %184, i64 106
   %186 = load i8, ptr %185, align 2, !range !4, !noundef !5
   %187 = trunc nuw i8 %186 to i1
   br i1 %187, label %192, label %188
 
 188:                                              ; preds = %.lr.ph.i18.i72
-  %189 = getelementptr inbounds nuw i64, ptr %174, i64 %indvars.iv.i19.i73
+  %189 = getelementptr inbounds nuw [8 x i8], ptr %174, i64 %indvars.iv.i19.i73
   %190 = load i64, ptr %189, align 8
   %191 = inttoptr i64 %190 to ptr
   tail call void @pfree(ptr noundef %191) #14
@@ -1042,7 +1037,7 @@ CatCacheRemoveCTup.exit.i69:                      ; preds = %192, %171, %161
 
 .lr.ph.i.i62:                                     ; preds = %228, %.lr.ph.preheader.i.i60
   %indvars.iv.i.i63 = phi i64 [ 0, %.lr.ph.preheader.i.i60 ], [ %indvars.iv.next.i.i64, %228 ]
-  %212 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv.i.i63
+  %212 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv.i.i63
   %213 = load i32, ptr %212, align 4
   %214 = add i32 %213, -1
   %215 = load i32, ptr %207, align 8
@@ -1050,14 +1045,14 @@ CatCacheRemoveCTup.exit.i69:                      ; preds = %192, %171, %161
   %217 = shl nsw i64 %216, 4
   %218 = getelementptr i8, ptr %207, i64 %217
   %219 = sext i32 %214 to i64
-  %220 = getelementptr %struct.FormData_pg_attribute, ptr %218, i64 %219
+  %220 = getelementptr [100 x i8], ptr %218, i64 %219
   %221 = getelementptr i8, ptr %220, i64 106
   %222 = load i8, ptr %221, align 2, !range !4, !noundef !5
   %223 = trunc nuw i8 %222 to i1
   br i1 %223, label %228, label %224
 
 224:                                              ; preds = %.lr.ph.i.i62
-  %225 = getelementptr inbounds nuw i64, ptr %210, i64 %indvars.iv.i.i63
+  %225 = getelementptr inbounds nuw [8 x i8], ptr %210, i64 %indvars.iv.i.i63
   %226 = load i64, ptr %225, align 8
   %227 = inttoptr i64 %226 to ptr
   tail call void @pfree(ptr noundef %227) #14
@@ -1099,7 +1094,7 @@ CatCacheRemoveCList.exit76:                       ; preds = %228, %._crit_edge.i
 
 .lr.ph.i.i54:                                     ; preds = %259, %.lr.ph.preheader.i.i52
   %indvars.iv.i.i55 = phi i64 [ 0, %.lr.ph.preheader.i.i52 ], [ %indvars.iv.next.i.i56, %259 ]
-  %243 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv.i.i55
+  %243 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv.i.i55
   %244 = load i32, ptr %243, align 4
   %245 = add i32 %244, -1
   %246 = load i32, ptr %239, align 8
@@ -1107,14 +1102,14 @@ CatCacheRemoveCList.exit76:                       ; preds = %228, %._crit_edge.i
   %248 = shl nsw i64 %247, 4
   %249 = getelementptr i8, ptr %239, i64 %248
   %250 = sext i32 %245 to i64
-  %251 = getelementptr %struct.FormData_pg_attribute, ptr %249, i64 %250
+  %251 = getelementptr [100 x i8], ptr %249, i64 %250
   %252 = getelementptr i8, ptr %251, i64 106
   %253 = load i8, ptr %252, align 2, !range !4, !noundef !5
   %254 = trunc nuw i8 %253 to i1
   br i1 %254, label %259, label %255
 
 255:                                              ; preds = %.lr.ph.i.i54
-  %256 = getelementptr inbounds nuw i64, ptr %241, i64 %indvars.iv.i.i55
+  %256 = getelementptr inbounds nuw [8 x i8], ptr %241, i64 %indvars.iv.i.i55
   %257 = load i64, ptr %256, align 8
   %258 = inttoptr i64 %257 to ptr
   tail call void @pfree(ptr noundef %258) #14
@@ -1279,9 +1274,9 @@ CreateCacheMemoryContext.exit:                    ; preds = %6
 
 37:                                               ; preds = %.lr.ph, %37
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %37 ]
-  %38 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   %39 = load i32, ptr %38, align 4
-  %40 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %indvars.iv
   store i32 %39, ptr %40, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1377,7 +1372,7 @@ define internal fastcc void @CatalogCacheInitializeCache(ptr noundef initializes
 
 24:                                               ; preds = %.lr.ph, %GetCCHashEqFuncs.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %GetCCHashEqFuncs.exit ]
-  %25 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv
   %26 = load i32, ptr %25, align 4
   %27 = icmp sgt i32 %26, 0
   br i1 %27, label %33, label %28
@@ -1398,7 +1393,7 @@ define internal fastcc void @CatalogCacheInitializeCache(ptr noundef initializes
   %36 = shl nsw i64 %35, 4
   %37 = getelementptr i8, ptr %9, i64 %36
   %38 = zext nneg i32 %26 to i64
-  %39 = getelementptr %struct.FormData_pg_attribute, ptr %37, i64 %38
+  %39 = getelementptr [100 x i8], ptr %37, i64 %38
   %40 = getelementptr i8, ptr %39, i64 -8
   %41 = load i32, ptr %40, align 4
   switch i32 %41, label %49 [
@@ -1454,11 +1449,11 @@ GetCCHashEqFuncs.exit:                            ; preds = %28, %33, %42, %43, 
   %oidvectorhashfast.sink.i = phi ptr [ @oidvectorhashfast, %48 ], [ @charhashfast, %33 ], [ @texthashfast, %46 ], [ @int4hashfast, %45 ], [ @int2hashfast, %44 ], [ @namehashfast, %43 ], [ @charhashfast, %42 ], [ @int4hashfast, %47 ], [ @int4hashfast, %28 ]
   %oidvectoreqfast.sink.i = phi ptr [ @oidvectoreqfast, %48 ], [ @chareqfast, %33 ], [ @texteqfast, %46 ], [ @int4eqfast, %45 ], [ @int2eqfast, %44 ], [ @nameeqfast, %43 ], [ @chareqfast, %42 ], [ @int4eqfast, %47 ], [ @int4eqfast, %28 ]
   %.sink.i = phi i32 [ 679, %48 ], [ 60, %33 ], [ 67, %46 ], [ 65, %45 ], [ 63, %44 ], [ 62, %43 ], [ 61, %42 ], [ 184, %47 ], [ 184, %28 ]
-  %52 = getelementptr inbounds nuw ptr, ptr %.pn40, i64 %indvars.iv
-  %53 = getelementptr inbounds nuw ptr, ptr %.pn, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %.pn40, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %.pn, i64 %indvars.iv
   store ptr %oidvectorhashfast.sink.i, ptr %52, align 8
   store ptr %oidvectoreqfast.sink.i, ptr %53, align 8
-  %54 = getelementptr inbounds nuw %struct.ScanKeyData, ptr %23, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [72 x i8], ptr %23, i64 %indvars.iv
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %56 = load ptr, ptr @CacheMemoryContext, align 8
   tail call void @fmgr_info_cxt(i32 noundef %.sink.i, ptr noundef nonnull %55, ptr noundef %56) #14
@@ -1572,7 +1567,7 @@ CatalogCacheComputeHashValue.exit:                ; preds = %12, %27
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %45 = load ptr, ptr %44, align 8
   %46 = zext i32 %43 to i64
-  %47 = getelementptr inbounds nuw %struct.dlist_head, ptr %45, i64 %46
+  %47 = getelementptr inbounds nuw [16 x i8], ptr %45, i64 %46
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %49 = load ptr, ptr %48, align 8
   %.not = icmp eq ptr %49, null
@@ -1609,11 +1604,11 @@ CatalogCacheComputeHashValue.exit:                ; preds = %12, %27
 
 .lr.ph.i:                                         ; preds = %58, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %58 ]
-  %59 = getelementptr inbounds nuw ptr, ptr %50, i64 %indvars.iv.i
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %indvars.iv.i
   %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds nuw i64, ptr %57, i64 %indvars.iv.i
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %indvars.iv.i
   %62 = load i64, ptr %61, align 8
-  %63 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv.i
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv.i
   %64 = load i64, ptr %63, align 8
   %65 = tail call zeroext i1 %60(i64 noundef %62, i64 noundef %64) #14
   br i1 %65, label %58, label %CatalogCacheCompareTuple.exit
@@ -1791,7 +1786,7 @@ define internal fastcc void @ReleaseCatCacheWithOwner(ptr noundef %0, ptr nounde
 
 .lr.ph.i.i:                                       ; preds = %64, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %64 ]
-  %48 = getelementptr inbounds nuw i32, ptr %45, i64 %indvars.iv.i.i
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %indvars.iv.i.i
   %49 = load i32, ptr %48, align 4
   %50 = add i32 %49, -1
   %51 = load i32, ptr %42, align 8
@@ -1799,14 +1794,14 @@ define internal fastcc void @ReleaseCatCacheWithOwner(ptr noundef %0, ptr nounde
   %53 = shl nsw i64 %52, 4
   %54 = getelementptr i8, ptr %42, i64 %53
   %55 = sext i32 %50 to i64
-  %56 = getelementptr %struct.FormData_pg_attribute, ptr %54, i64 %55
+  %56 = getelementptr [100 x i8], ptr %54, i64 %55
   %57 = getelementptr i8, ptr %56, i64 106
   %58 = load i8, ptr %57, align 2, !range !4, !noundef !5
   %59 = trunc nuw i8 %58 to i1
   br i1 %59, label %64, label %60
 
 60:                                               ; preds = %.lr.ph.i.i
-  %61 = getelementptr inbounds nuw i64, ptr %46, i64 %indvars.iv.i.i
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv.i.i
   %62 = load i64, ptr %61, align 8
   %63 = inttoptr i64 %62 to ptr
   tail call void @pfree(ptr noundef %63) #14
@@ -1978,7 +1973,7 @@ define dso_local ptr @SearchCatCacheList(ptr noundef %0, i32 noundef %1, i64 nou
   %54 = phi i32 [ %50, %.lr.ph33.i ], [ %72, %._crit_edge.i ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph33.i ], [ %indvars.iv.next.i, %._crit_edge.i ]
   %55 = load ptr, ptr %20, align 8
-  %56 = getelementptr inbounds nuw %struct.dlist_head, ptr %55, i64 %indvars.iv.i
+  %56 = getelementptr inbounds nuw [16 x i8], ptr %55, i64 %indvars.iv.i
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %58 = load ptr, ptr %57, align 8
   %.not.i = icmp eq ptr %58, null
@@ -1999,7 +1994,7 @@ define dso_local ptr @SearchCatCacheList(ptr noundef %0, i32 noundef %1, i64 nou
   %64 = load ptr, ptr %.sroa.0.030.i, align 8
   store ptr %64, ptr %.sroa.9.0.i, align 8
   %65 = sext i32 %61 to i64
-  %66 = getelementptr inbounds %struct.dlist_head, ptr %49, i64 %65
+  %66 = getelementptr inbounds [16 x i8], ptr %49, i64 %65
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %68 = load ptr, ptr %67, align 8
   %69 = icmp eq ptr %68, null
@@ -2087,7 +2082,7 @@ CatalogCacheComputeHashValue.exit:                ; preds = %76, %88
   %104 = and i32 %103, %100
   %105 = load ptr, ptr %20, align 8
   %106 = zext i32 %104 to i64
-  %107 = getelementptr inbounds nuw %struct.dlist_head, ptr %105, i64 %106
+  %107 = getelementptr inbounds nuw [16 x i8], ptr %105, i64 %106
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 8
   %109 = load ptr, ptr %108, align 8
   %.not = icmp eq ptr %109, null
@@ -2131,11 +2126,11 @@ CatalogCacheComputeHashValue.exit:                ; preds = %76, %88
 
 .lr.ph.i202:                                      ; preds = %122, %.lr.ph.preheader.i
   %indvars.iv.i203 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i205, %122 ]
-  %123 = getelementptr inbounds nuw ptr, ptr %110, i64 %indvars.iv.i203
+  %123 = getelementptr inbounds nuw [8 x i8], ptr %110, i64 %indvars.iv.i203
   %124 = load ptr, ptr %123, align 8
-  %125 = getelementptr inbounds nuw i64, ptr %121, i64 %indvars.iv.i203
+  %125 = getelementptr inbounds nuw [8 x i8], ptr %121, i64 %indvars.iv.i203
   %126 = load i64, ptr %125, align 8
-  %127 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv.i203
+  %127 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv.i203
   %128 = load i64, ptr %127, align 8
   %129 = call zeroext i1 %124(i64 noundef %126, i64 noundef %128) #14
   br i1 %129, label %122, label %CatalogCacheCompareTuple.exit
@@ -2245,7 +2240,7 @@ CatalogCacheCompareTuple.exit:                    ; preds = %.lr.ph.i202, %117, 
 .lr.ph245:                                        ; preds = %.lr.ph242, %.lr.ph245
   %indvars.iv268 = phi i64 [ %indvars.iv.next269, %.lr.ph245 ], [ 0, %.lr.ph242 ]
   %178 = load ptr, ptr %175, align 8
-  %179 = getelementptr inbounds nuw %union.ListCell, ptr %178, i64 %indvars.iv268
+  %179 = getelementptr inbounds nuw [8 x i8], ptr %178, i64 %indvars.iv268
   %180 = load ptr, ptr %179, align 8
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 56
   %182 = load i32, ptr %181, align 8
@@ -2306,7 +2301,7 @@ IndexScanOK.exit:                                 ; preds = %.critedge, %.crited
   %207 = and i32 %206, %204
   %208 = load ptr, ptr %172, align 8
   %209 = zext i32 %207 to i64
-  %210 = getelementptr inbounds nuw %struct.dlist_head, ptr %208, i64 %209
+  %210 = getelementptr inbounds nuw [16 x i8], ptr %208, i64 %209
   %211 = getelementptr inbounds nuw i8, ptr %210, i64 8
   %212 = load ptr, ptr %211, align 8
   %.not189 = icmp eq ptr %212, null
@@ -2426,7 +2421,7 @@ list_length.exit:                                 ; preds = %248, %254
 
 267:                                              ; preds = %285, %.lr.ph.i210
   %indvars.iv.i212 = phi i64 [ 0, %.lr.ph.i210 ], [ %indvars.iv.next.i214, %285 ]
-  %268 = getelementptr inbounds nuw i32, ptr %263, i64 %indvars.iv.i212
+  %268 = getelementptr inbounds nuw [4 x i8], ptr %263, i64 %indvars.iv.i212
   %269 = load i32, ptr %268, align 4
   %270 = add i32 %269, -1
   %271 = load i32, ptr %262, align 8
@@ -2435,8 +2430,8 @@ list_length.exit:                                 ; preds = %248, %254
   %274 = getelementptr i8, ptr %262, i64 %273
   %275 = getelementptr i8, ptr %274, i64 24
   %276 = sext i32 %270 to i64
-  %277 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %275, i64 %276
-  %278 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv.i212
+  %277 = getelementptr inbounds [100 x i8], ptr %275, i64 %276
+  %278 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv.i212
   %279 = load i64, ptr %278, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %280 = getelementptr inbounds nuw i8, ptr %277, i64 68
@@ -2458,7 +2453,7 @@ list_length.exit:                                 ; preds = %248, %254
   %290 = load i16, ptr %289, align 4
   %291 = sext i16 %290 to i32
   %292 = call i64 @datumCopy(i64 noundef %.0.i213, i1 noundef zeroext %288, i32 noundef %291) #14
-  %293 = getelementptr inbounds nuw i64, ptr %264, i64 %indvars.iv.i212
+  %293 = getelementptr inbounds nuw [8 x i8], ptr %264, i64 %indvars.iv.i212
   store i64 %292, ptr %293, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %indvars.iv.next.i214 = add nuw nsw i64 %indvars.iv.i212, 1
@@ -2521,7 +2516,7 @@ CatCacheCopyKeys.exit:                            ; preds = %285, %list_length.e
 .lr.ph:                                           ; preds = %.lr.ph238, %CatCacheRemoveCTup.exit
   %indvars.iv302 = phi i64 [ %indvars.iv.next, %CatCacheRemoveCTup.exit ], [ 0, %.lr.ph238 ]
   %315 = load ptr, ptr %309, align 8
-  %316 = getelementptr inbounds nuw %union.ListCell, ptr %315, i64 %indvars.iv302
+  %316 = getelementptr inbounds nuw [8 x i8], ptr %315, i64 %indvars.iv302
   %317 = load ptr, ptr %316, align 8
   %318 = getelementptr inbounds nuw i8, ptr %317, i64 56
   %319 = load i32, ptr %318, align 8
@@ -2582,7 +2577,7 @@ CatCacheCopyKeys.exit:                            ; preds = %285, %list_length.e
 
 .lr.ph.i.i:                                       ; preds = %365, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %365 ]
-  %349 = getelementptr inbounds nuw i32, ptr %311, i64 %indvars.iv.i.i
+  %349 = getelementptr inbounds nuw [4 x i8], ptr %311, i64 %indvars.iv.i.i
   %350 = load i32, ptr %349, align 4
   %351 = add i32 %350, -1
   %352 = load i32, ptr %345, align 8
@@ -2590,14 +2585,14 @@ CatCacheCopyKeys.exit:                            ; preds = %285, %list_length.e
   %354 = shl nsw i64 %353, 4
   %355 = getelementptr i8, ptr %345, i64 %354
   %356 = sext i32 %351 to i64
-  %357 = getelementptr %struct.FormData_pg_attribute, ptr %355, i64 %356
+  %357 = getelementptr [100 x i8], ptr %355, i64 %356
   %358 = getelementptr i8, ptr %357, i64 106
   %359 = load i8, ptr %358, align 2, !range !4, !noundef !5
   %360 = trunc nuw i8 %359 to i1
   br i1 %360, label %365, label %361
 
 361:                                              ; preds = %.lr.ph.i.i
-  %362 = getelementptr inbounds nuw i64, ptr %347, i64 %indvars.iv.i.i
+  %362 = getelementptr inbounds nuw [8 x i8], ptr %347, i64 %indvars.iv.i.i
   %363 = load i64, ptr %362, align 8
   %364 = inttoptr i64 %363 to ptr
   call void @pfree(ptr noundef %364) #14
@@ -2630,10 +2625,10 @@ CatCacheRemoveCTup.exit:                          ; preds = %CatCacheFreeKeys.ex
 .lr.ph260:                                        ; preds = %.lr.ph256, %398
   %indvars.iv271 = phi i64 [ %indvars.iv.next272, %398 ], [ 0, %.lr.ph256 ]
   %375 = load ptr, ptr %303, align 8
-  %376 = getelementptr inbounds nuw %union.ListCell, ptr %375, i64 %indvars.iv271
+  %376 = getelementptr inbounds nuw [8 x i8], ptr %375, i64 %indvars.iv271
   %377 = load ptr, ptr %376, align 8
   %indvars.iv.next272 = add nuw nsw i64 %indvars.iv271, 1
-  %378 = getelementptr inbounds nuw ptr, ptr %304, i64 %indvars.iv271
+  %378 = getelementptr inbounds nuw [8 x i8], ptr %304, i64 %indvars.iv271
   store ptr %377, ptr %378, align 8
   %379 = getelementptr inbounds nuw i8, ptr %377, i64 88
   store ptr %261, ptr %379, align 8
@@ -2924,7 +2919,7 @@ define internal fastcc noundef ptr @CatalogCacheCreateEntry(ptr noundef %0, ptr 
 62:                                               ; preds = %.lr.ph, %heap_getattr.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %heap_getattr.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %63 = getelementptr inbounds nuw i32, ptr %59, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %indvars.iv
   %64 = load i32, ptr %63, align 4
   %65 = load ptr, ptr %60, align 8
   %66 = icmp sgt i32 %64, 0
@@ -2953,7 +2948,7 @@ define internal fastcc noundef ptr @CatalogCacheCreateEntry(ptr noundef %0, ptr 
 
 heap_getattr.exit:                                ; preds = %74, %76, %78
   %.0.i = phi i64 [ %75, %74 ], [ %77, %76 ], [ %79, %78 ]
-  %80 = getelementptr inbounds nuw i64, ptr %61, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %indvars.iv
   store i64 %.0.i, ptr %80, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2983,7 +2978,7 @@ heap_getattr.exit:                                ; preds = %74, %76, %78
 
 96:                                               ; preds = %114, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %114 ]
-  %97 = getelementptr inbounds nuw i32, ptr %92, i64 %indvars.iv.i
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %92, i64 %indvars.iv.i
   %98 = load i32, ptr %97, align 4
   %99 = add i32 %98, -1
   %100 = load i32, ptr %89, align 8
@@ -2992,8 +2987,8 @@ heap_getattr.exit:                                ; preds = %74, %76, %78
   %103 = getelementptr i8, ptr %89, i64 %102
   %104 = getelementptr i8, ptr %103, i64 24
   %105 = sext i32 %99 to i64
-  %106 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %104, i64 %105
-  %107 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv.i
+  %106 = getelementptr inbounds [100 x i8], ptr %104, i64 %105
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.i
   %108 = load i64, ptr %107, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %109 = getelementptr inbounds nuw i8, ptr %106, i64 68
@@ -3015,7 +3010,7 @@ heap_getattr.exit:                                ; preds = %74, %76, %78
   %119 = load i16, ptr %118, align 4
   %120 = sext i16 %119 to i32
   %121 = call i64 @datumCopy(i64 noundef %.0.i81, i1 noundef zeroext %117, i32 noundef %120) #14
-  %122 = getelementptr inbounds nuw i64, ptr %93, i64 %indvars.iv.i
+  %122 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %indvars.iv.i
   store i64 %121, ptr %122, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -3045,7 +3040,7 @@ CatCacheCopyKeys.exit:                            ; preds = %114, %84
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %131 = load ptr, ptr %130, align 8
   %132 = zext i32 %4 to i64
-  %133 = getelementptr inbounds nuw %struct.dlist_head, ptr %131, i64 %132
+  %133 = getelementptr inbounds nuw [16 x i8], ptr %131, i64 %132
   %134 = getelementptr inbounds nuw i8, ptr %.171, i64 40
   %135 = getelementptr inbounds nuw i8, ptr %133, i64 8
   %136 = load ptr, ptr %135, align 8
@@ -3112,7 +3107,7 @@ dlist_push_head.exit:                             ; preds = %.loopexit, %138
   %173 = phi i32 [ %169, %.lr.ph33.i ], [ %191, %._crit_edge.i ]
   %indvars.iv.i82 = phi i64 [ 0, %.lr.ph33.i ], [ %indvars.iv.next.i84, %._crit_edge.i ]
   %174 = load ptr, ptr %130, align 8
-  %175 = getelementptr inbounds nuw %struct.dlist_head, ptr %174, i64 %indvars.iv.i82
+  %175 = getelementptr inbounds nuw [16 x i8], ptr %174, i64 %indvars.iv.i82
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 8
   %177 = load ptr, ptr %176, align 8
   %.not.i = icmp eq ptr %177, null
@@ -3133,7 +3128,7 @@ dlist_push_head.exit:                             ; preds = %.loopexit, %138
   %183 = load ptr, ptr %.sroa.0.030.i, align 8
   store ptr %183, ptr %.sroa.9.0.i, align 8
   %184 = sext i32 %180 to i64
-  %185 = getelementptr inbounds %struct.dlist_head, ptr %168, i64 %184
+  %185 = getelementptr inbounds [16 x i8], ptr %168, i64 %184
   %186 = getelementptr inbounds nuw i8, ptr %185, i64 8
   %187 = load ptr, ptr %186, align 8
   %188 = icmp eq ptr %187, null
@@ -3671,7 +3666,7 @@ define internal fastcc i64 @fastgetattr(ptr noundef %0, i32 noundef %1, ptr noun
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = sext i32 %8 to i64
-  %12 = getelementptr inbounds %struct.CompactAttribute, ptr %10, i64 %11
+  %12 = getelementptr inbounds [16 x i8], ptr %10, i64 %11
   %13 = load i32, ptr %12, align 4
   %14 = icmp sgt i32 %13, -1
   br i1 %14, label %15, label %48

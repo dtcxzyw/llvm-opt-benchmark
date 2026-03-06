@@ -5,8 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %union.anon = type { i64 }
 %struct.anon = type { i32, i32 }
-%struct.AVDRMPlaneDescriptor = type { i32, i64, i64 }
-%struct.AVDRMObjectDescriptor = type { i32, i64, i64 }
 
 @.str = private unnamed_addr constant [8 x i8] c"kmsgrab\00", align 1
 @.str.1 = private unnamed_addr constant [19 x i8] c"KMS screen capture\00", align 1
@@ -151,7 +149,7 @@ define internal i32 @kmsgrab_read_header(ptr noundef %0) #0 {
   %54 = load ptr, ptr %17, align 8, !tbaa !38
   %55 = load i32, ptr %54, align 4, !tbaa !39
   %56 = load ptr, ptr %46, align 8, !tbaa !48
-  %57 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %indvars.iv
   %58 = load i32, ptr %57, align 4, !tbaa !42
   %59 = tail call ptr @drmModeGetPlane(i32 noundef %55, i32 noundef %58) #7
   %.not210 = icmp eq ptr %59, null
@@ -161,7 +159,7 @@ define internal i32 @kmsgrab_read_header(ptr noundef %0) #0 {
   %61 = tail call ptr @__errno_location() #8
   %62 = load i32, ptr %61, align 4, !tbaa !42
   %63 = load ptr, ptr %46, align 8, !tbaa !48
-  %64 = getelementptr inbounds nuw i32, ptr %63, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %indvars.iv
   %65 = load i32, ptr %64, align 4, !tbaa !42
   %66 = tail call ptr @strerror(i32 noundef %62) #7
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 40, ptr noundef nonnull @.str.23, i32 noundef %65, ptr noundef %66) #7
@@ -298,7 +296,7 @@ define internal i32 @kmsgrab_read_header(ptr noundef %0) #0 {
 
 132:                                              ; preds = %.preheader, %141
   %indvars.iv245 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next246, %141 ]
-  %133 = getelementptr inbounds nuw %struct.anon, ptr @kmsgrab_formats, i64 %indvars.iv245
+  %133 = getelementptr inbounds nuw [8 x i8], ptr @kmsgrab_formats, i64 %indvars.iv245
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 4
   %135 = load i32, ptr %134, align 4, !tbaa !64
   %136 = icmp eq i32 %135, %130
@@ -393,7 +391,7 @@ define internal i32 @kmsgrab_read_header(ptr noundef %0) #0 {
 
 170:                                              ; preds = %167, %169
   %indvars.iv249 = phi i64 [ 0, %167 ], [ %indvars.iv.next250, %169 ]
-  %171 = getelementptr inbounds nuw %struct.anon, ptr @kmsgrab_formats, i64 %indvars.iv249
+  %171 = getelementptr inbounds nuw [8 x i8], ptr @kmsgrab_formats, i64 %indvars.iv249
   %172 = load i32, ptr %171, align 8, !tbaa !67
   %173 = icmp eq i32 %172, %168
   br i1 %173, label %176, label %169
@@ -404,7 +402,7 @@ define internal i32 @kmsgrab_read_header(ptr noundef %0) #0 {
   br label %247
 
 176:                                              ; preds = %170
-  %177 = getelementptr inbounds nuw %struct.anon, ptr @kmsgrab_formats, i64 %indvars.iv249
+  %177 = getelementptr inbounds nuw [8 x i8], ptr @kmsgrab_formats, i64 %indvars.iv249
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 4
   %179 = load i32, ptr %178, align 4, !tbaa !64
   %180 = getelementptr inbounds nuw i8, ptr %3, i64 60
@@ -719,16 +717,16 @@ define internal range(i32 -2147483647, -2147483648) i32 @kmsgrab_read_packet(ptr
 100:                                              ; preds = %.thread.i, %95
   %indvars.iv146.i = phi i64 [ 0, %95 ], [ %indvars.iv.next147.i, %.thread.i ]
   %.0102141.i = phi i32 [ 0, %95 ], [ %.3105129.i, %.thread.i ]
-  %101 = getelementptr inbounds nuw i32, ptr %85, i64 %indvars.iv146.i
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %85, i64 %indvars.iv146.i
   %102 = load i32, ptr %101, align 4, !tbaa !42
   %.not120.i = icmp eq i32 %102, 0
   br i1 %.not120.i, label %.critedge.split.loop.exit156.i, label %103
 
 103:                                              ; preds = %100
-  %104 = getelementptr inbounds nuw i32, ptr %96, i64 %indvars.iv146.i
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %96, i64 %indvars.iv146.i
   %105 = load i32, ptr %104, align 4, !tbaa !42
   %106 = load i32, ptr %77, align 8, !tbaa !58
-  %107 = getelementptr inbounds nuw i32, ptr %97, i64 %indvars.iv146.i
+  %107 = getelementptr inbounds nuw [4 x i8], ptr %97, i64 %indvars.iv146.i
   %108 = load i32, ptr %107, align 4, !tbaa !42
   %109 = mul i32 %108, %106
   %110 = add i32 %109, %105
@@ -743,15 +741,15 @@ define internal range(i32 -2147483647, -2147483648) i32 @kmsgrab_read_packet(ptr
 
 .lr.ph.i:                                         ; preds = %103, %112
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %112 ], [ 0, %103 ]
-  %113 = getelementptr inbounds nuw i32, ptr %85, i64 %indvars.iv.i
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %85, i64 %indvars.iv.i
   %114 = load i32, ptr %113, align 4, !tbaa !42
   %115 = icmp eq i32 %102, %114
   br i1 %115, label %116, label %112
 
 116:                                              ; preds = %.lr.ph.i
-  %117 = getelementptr inbounds nuw %struct.AVDRMPlaneDescriptor, ptr %99, i64 %indvars.iv.i
+  %117 = getelementptr inbounds nuw [24 x i8], ptr %99, i64 %indvars.iv.i
   %118 = load i32, ptr %117, align 8, !tbaa !109
-  %119 = getelementptr inbounds nuw %struct.AVDRMObjectDescriptor, ptr %45, i64 %indvars.iv.i
+  %119 = getelementptr inbounds nuw [24 x i8], ptr %45, i64 %indvars.iv.i
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 16
   %121 = load i64, ptr %120, align 8, !tbaa !111
   %122 = icmp ult i64 %121, %111
@@ -762,7 +760,7 @@ define internal range(i32 -2147483647, -2147483648) i32 @kmsgrab_read_packet(ptr
   br label %124
 
 124:                                              ; preds = %123, %116
-  %125 = getelementptr inbounds nuw %struct.AVDRMPlaneDescriptor, ptr %99, i64 %indvars.iv146.i
+  %125 = getelementptr inbounds nuw [24 x i8], ptr %99, i64 %indvars.iv146.i
   %126 = zext i32 %105 to i64
   %127 = zext i32 %108 to i64
   store i32 %118, ptr %125, align 8, !tbaa !42
@@ -785,7 +783,7 @@ define internal range(i32 -2147483647, -2147483648) i32 @kmsgrab_read_packet(ptr
 select.unfold.i:                                  ; preds = %.critedge124.i
   %132 = add nsw i32 %.0102141.i, 1
   %133 = sext i32 %.0102141.i to i64
-  %134 = getelementptr inbounds %struct.AVDRMObjectDescriptor, ptr %98, i64 %133
+  %134 = getelementptr inbounds [24 x i8], ptr %98, i64 %133
   %135 = load i32, ptr %4, align 4, !tbaa !42
   store i32 %135, ptr %134, align 8, !tbaa !42
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %134, i64 4
@@ -794,7 +792,7 @@ select.unfold.i:                                  ; preds = %.critedge124.i
   store i64 %111, ptr %.sroa.33.0..sroa_idx.i, align 8, !tbaa !113
   %.sroa.44.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %134, i64 16
   store i64 %.0106.i, ptr %.sroa.44.0..sroa_idx.i, align 8, !tbaa !113
-  %136 = getelementptr inbounds nuw %struct.AVDRMPlaneDescriptor, ptr %99, i64 %indvars.iv146.i
+  %136 = getelementptr inbounds nuw [24 x i8], ptr %99, i64 %indvars.iv146.i
   %137 = load i32, ptr %104, align 4, !tbaa !42
   %138 = zext i32 %137 to i64
   %139 = load i32, ptr %107, align 4, !tbaa !42
@@ -1107,7 +1105,7 @@ define internal void @kmsgrab_free_desc(ptr readnone captures(none) %0, ptr noun
 
 6:                                                ; preds = %.lr.ph, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
-  %7 = getelementptr inbounds nuw %struct.AVDRMObjectDescriptor, ptr %5, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %indvars.iv
   %8 = load i32, ptr %7, align 8, !tbaa !135
   %9 = tail call i32 @close(i32 noundef %8) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

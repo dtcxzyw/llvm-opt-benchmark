@@ -7,10 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.JsonPathItem = type { i32, i32, ptr, %union.anon }
 %union.anon = type { %struct.anon.5 }
 %struct.anon.5 = type { i32, ptr, i32, i32 }
-%struct.anon.6 = type { i32, i32 }
 %struct.JsonPathMutableContext = type { ptr, ptr, i32, i8, i8 }
-%union.ListCell = type { ptr }
-%struct.anon.13 = type { ptr, ptr }
 
 @.str = private unnamed_addr constant [40 x i8] c"unsupported jsonpath version number: %d\00", align 1
 @.str.1 = private unnamed_addr constant [11 x i8] c"jsonpath.c\00", align 1
@@ -338,7 +335,7 @@ define dso_local noundef nonnull ptr @jspOperationName(i32 noundef %0) local_unn
 
 switch.lookup:                                    ; preds = %1
   %6 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.jspOperationName, i64 %6
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.jspOperationName, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -622,11 +619,11 @@ define dso_local noundef zeroext i1 @jspGetArraySubscript(ptr noundef readonly c
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = sext i32 %3 to i64
-  %10 = getelementptr inbounds %struct.anon.6, ptr %8, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %8, i64 %9
   %11 = load i32, ptr %10, align 4
   tail call void @jspInitByBuffer(ptr noundef %1, ptr noundef %6, i32 noundef %11)
   %12 = load ptr, ptr %7, align 8
-  %13 = getelementptr inbounds %struct.anon.6, ptr %12, i64 %9
+  %13 = getelementptr inbounds [8 x i8], ptr %12, i64 %9
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %15 = load i32, ptr %14, align 4
   %.not = icmp ne i32 %15, 0
@@ -810,7 +807,7 @@ define internal fastcc i32 @jspIsMutableWalker(ptr noundef nonnull readonly capt
 
 40:                                               ; preds = %38
   %41 = load ptr, ptr %30, align 8
-  %42 = getelementptr inbounds nuw %union.ListCell, ptr %41, i64 %indvars.iv114
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv114
   br label %43
 
 43:                                               ; preds = %38, %40
@@ -835,7 +832,7 @@ define internal fastcc i32 @jspIsMutableWalker(ptr noundef nonnull readonly capt
 
 .split103:                                        ; preds = %50
   %55 = and i64 %indvars.iv114, 4294967295
-  %56 = getelementptr inbounds nuw %union.ListCell, ptr %46, i64 %55
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %55
   %57 = load ptr, ptr %56, align 8
   %58 = tail call i32 @exprType(ptr noundef %57) #12
   switch i32 %58, label %60 [
@@ -906,11 +903,11 @@ define internal fastcc i32 @jspIsMutableWalker(ptr noundef nonnull readonly capt
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %86 = load ptr, ptr %.0109.sroa.phi, align 8
   %87 = load ptr, ptr %.0109.sroa.phi124, align 8
-  %88 = getelementptr inbounds nuw %struct.anon.6, ptr %87, i64 %indvars.iv
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %87, i64 %indvars.iv
   %89 = load i32, ptr %88, align 4
   call void @jspInitByBuffer(ptr noundef nonnull %5, ptr noundef %86, i32 noundef %89)
   %90 = load ptr, ptr %.0109.sroa.phi124, align 8
-  %91 = getelementptr inbounds nuw %struct.anon.6, ptr %90, i64 %indvars.iv
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %indvars.iv
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 4
   %93 = load i32, ptr %92, align 4
   %.not.i.not = icmp eq i32 %93, 0
@@ -1399,7 +1396,7 @@ alignStringInfoInt.exit:                          ; preds = %21, %62, %63
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %163 = load ptr, ptr %160, align 8
-  %164 = getelementptr inbounds nuw %struct.anon.13, ptr %163, i64 %indvars.iv
+  %164 = getelementptr inbounds nuw [16 x i8], ptr %163, i64 %indvars.iv
   %165 = load ptr, ptr %164, align 8
   %166 = call fastcc zeroext i1 @flattenJsonPathParseItem(ptr noundef %0, ptr noundef nonnull %15, ptr noundef %2, ptr noundef %165, i32 noundef %4, i1 noundef zeroext true)
   br i1 %166, label %167, label %188
@@ -1408,7 +1405,7 @@ alignStringInfoInt.exit:                          ; preds = %21, %62, %63
   %168 = load i32, ptr %15, align 4
   %169 = sub i32 %168, %18
   %170 = load ptr, ptr %160, align 8
-  %171 = getelementptr inbounds nuw %struct.anon.13, ptr %170, i64 %indvars.iv
+  %171 = getelementptr inbounds nuw [16 x i8], ptr %170, i64 %indvars.iv
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 8
   %173 = load ptr, ptr %172, align 8
   %.not142 = icmp eq ptr %173, null
@@ -1655,7 +1652,7 @@ define internal fastcc void @printJsonPathItem(ptr noundef nonnull %0, ptr nound
 
 switch.lookup:                                    ; preds = %40
   %47 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.operationPriority, i64 %47
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.operationPriority, i64 %47
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %operationPriority.exit
 
@@ -1668,7 +1665,7 @@ operationPriority.exit:                           ; preds = %40, %switch.lookup
 
 switch.lookup228:                                 ; preds = %operationPriority.exit
   %50 = zext nneg i32 %switch.tableidx227 to i64
-  %switch.gep229 = getelementptr inbounds nuw i32, ptr @switch.table.operationPriority, i64 %50
+  %switch.gep229 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.operationPriority, i64 %50
   %switch.load230 = load i32, ptr %switch.gep229, align 4
   br label %operationPriority.exit193
 
@@ -1692,7 +1689,7 @@ operationPriority.exit193:                        ; preds = %operationPriority.e
 
 switch.lookup232:                                 ; preds = %operationPriority.exit193
   %59 = zext nneg i32 %switch.tableidx231 to i64
-  %switch.gep233 = getelementptr inbounds nuw i32, ptr @switch.table.operationPriority, i64 %59
+  %switch.gep233 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.operationPriority, i64 %59
   %switch.load234 = load i32, ptr %switch.gep233, align 4
   br label %operationPriority.exit195
 
@@ -1705,7 +1702,7 @@ operationPriority.exit195:                        ; preds = %operationPriority.e
 
 switch.lookup236:                                 ; preds = %operationPriority.exit195
   %62 = zext nneg i32 %switch.tableidx235 to i64
-  %switch.gep237 = getelementptr inbounds nuw i32, ptr @switch.table.operationPriority, i64 %62
+  %switch.gep237 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.operationPriority, i64 %62
   %switch.load238 = load i32, ptr %switch.gep237, align 4
   br label %operationPriority.exit197
 
@@ -1766,7 +1763,7 @@ operationPriority.exit197:                        ; preds = %operationPriority.e
 
 switch.lookup240:                                 ; preds = %77
   %87 = zext nneg i32 %switch.tableidx239 to i64
-  %switch.gep241 = getelementptr inbounds nuw i32, ptr @switch.table.operationPriority, i64 %87
+  %switch.gep241 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.operationPriority, i64 %87
   %switch.load242 = load i32, ptr %switch.gep241, align 4
   br label %operationPriority.exit199
 
@@ -1779,7 +1776,7 @@ operationPriority.exit199:                        ; preds = %77, %switch.lookup2
 
 switch.lookup244:                                 ; preds = %operationPriority.exit199
   %90 = zext nneg i32 %switch.tableidx243 to i64
-  %switch.gep245 = getelementptr inbounds nuw i32, ptr @switch.table.operationPriority, i64 %90
+  %switch.gep245 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.operationPriority, i64 %90
   %switch.load246 = load i32, ptr %switch.gep245, align 4
   br label %operationPriority.exit201
 
@@ -1826,11 +1823,11 @@ operationPriority.exit201:                        ; preds = %operationPriority.e
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %104 = load ptr, ptr %101, align 8
   %105 = load ptr, ptr %102, align 8
-  %106 = getelementptr inbounds nuw %struct.anon.6, ptr %105, i64 %indvars.iv
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %105, i64 %indvars.iv
   %107 = load i32, ptr %106, align 4
   call void @jspInitByBuffer(ptr noundef nonnull %6, ptr noundef %104, i32 noundef %107)
   %108 = load ptr, ptr %102, align 8
-  %109 = getelementptr inbounds nuw %struct.anon.6, ptr %108, i64 %indvars.iv
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %108, i64 %indvars.iv
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 4
   %111 = load i32, ptr %110, align 4
   %.not.i.not = icmp eq i32 %111, 0
@@ -2299,7 +2296,7 @@ define internal fastcc range(i32 0, 7) i32 @operationPriority(i32 noundef %0) un
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.operationPriority, i64 %3
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.operationPriority, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %4
 

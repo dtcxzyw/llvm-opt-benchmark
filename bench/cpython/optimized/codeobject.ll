@@ -916,7 +916,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.PyGetSetDef = type { ptr, ptr, ptr, ptr, ptr }
 %struct.anon.808 = type { %struct.PyGC_Head, %struct.PyVarObject, [18 x ptr] }
 %struct.anon.809 = type { %struct.PyGC_Head, %struct.PyVarObject, [1 x ptr] }
-%union._Py_CODEUNIT = type { i16 }
 %struct._PyCodeConstructor = type { ptr, ptr, ptr, i32, ptr, i32, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, ptr }
 %struct._line_offsets = type { i32, i32, i32, %struct._opaque }
 %struct._opaque = type { i32, ptr, ptr }
@@ -1065,13 +1064,13 @@ define dso_local range(i32 -1, 8) i32 @PyCode_AddWatcher(ptr noundef %0) local_u
 
 7:                                                ; preds = %1, %18
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %18 ]
-  %8 = getelementptr ptr, ptr %6, i64 %indvars.iv
+  %8 = getelementptr [8 x i8], ptr %6, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8, !tbaa !21
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %10, label %18
 
 10:                                               ; preds = %7
-  %11 = getelementptr ptr, ptr %6, i64 %indvars.iv
+  %11 = getelementptr [8 x i8], ptr %6, i64 %indvars.iv
   %12 = trunc nuw nsw i64 %indvars.iv to i32
   store ptr %0, ptr %11, align 8, !tbaa !21
   %13 = shl nuw nsw i32 1, %12
@@ -1111,7 +1110,7 @@ define dso_local range(i32 -1, 1) i32 @PyCode_ClearWatcher(i32 noundef %0) local
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 10896
   %8 = zext nneg i32 %0 to i64
-  %9 = getelementptr ptr, ptr %7, i64 %8
+  %9 = getelementptr [8 x i8], ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !21
   %.not.i = icmp eq ptr %10, null
   br i1 %.not.i, label %validate_watcher_id.exit.thread, label %validate_watcher_id.exit
@@ -1152,7 +1151,7 @@ define hidden void @_Py_set_localsplus_info(i32 noundef %0, ptr noundef %1, i8 n
 _Py_NewRef.exit:                                  ; preds = %5, %8
   %10 = sext i32 %0 to i64
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %12 = getelementptr ptr, ptr %11, i64 %10
+  %12 = getelementptr [8 x i8], ptr %11, i64 %10
   store ptr %1, ptr %12, align 8, !tbaa !96
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %14 = getelementptr i8, ptr %13, i64 %10
@@ -1507,7 +1506,7 @@ define hidden ptr @_PyCode_New(ptr noundef captures(none) %0) local_unnamed_addr
 
 13:                                               ; preds = %20, %.lr.ph.i.i
   %14 = phi i64 [ %10, %.lr.ph.i.i ], [ %21, %20 ]
-  %15 = getelementptr ptr, ptr %12, i64 %14
+  %15 = getelementptr [8 x i8], ptr %12, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !96
   %17 = icmp eq ptr %16, null
   br i1 %17, label %intern_strings.exit9.thread.sink.split.i, label %18
@@ -1549,7 +1548,7 @@ define hidden ptr @_PyCode_New(ptr noundef captures(none) %0) local_unnamed_addr
 
 37:                                               ; preds = %44, %.lr.ph.i5.i
   %38 = phi i64 [ %34, %.lr.ph.i5.i ], [ %45, %44 ]
-  %39 = getelementptr ptr, ptr %36, i64 %38
+  %39 = getelementptr [8 x i8], ptr %36, i64 %38
   %40 = load ptr, ptr %39, align 8, !tbaa !96
   %41 = icmp eq ptr %40, null
   br i1 %41, label %intern_strings.exit9.thread.sink.split.i, label %42
@@ -2086,7 +2085,7 @@ _Py_NewRef.exit85.i:                              ; preds = %264, %_Py_NewRef.ex
 .lr.ph.i25:                                       ; preds = %280, %292
   %289 = phi i64 [ %294, %292 ], [ 0, %280 ]
   %.089.i = phi i32 [ %293, %292 ], [ 0, %280 ]
-  %290 = getelementptr %union._Py_CODEUNIT, ptr %283, i64 %289
+  %290 = getelementptr [2 x i8], ptr %283, i64 %289
   %291 = load i8, ptr %290, align 2, !tbaa !97
   %.not73.i = icmp eq i8 %291, -107
   br i1 %.not73.i, label %.critedge.i23, label %292
@@ -2122,7 +2121,7 @@ _Py_NewRef.exit85.i:                              ; preds = %264, %_Py_NewRef.ex
   br i1 %.not12.i.i, label %311, label %305
 
 305:                                              ; preds = %303
-  %306 = getelementptr ptr, ptr %302, i64 %indvars.iv.i.i
+  %306 = getelementptr [8 x i8], ptr %302, i64 %indvars.iv.i.i
   %307 = load ptr, ptr %306, align 8, !tbaa !21
   %308 = call i32 %307(i32 noundef 0, ptr noundef nonnull %146) #14
   %309 = icmp slt i32 %308, 0
@@ -2290,7 +2289,7 @@ define dso_local ptr @PyUnstable_Code_NewWithPosOnlyArgs(i32 noundef %0, i32 nou
 
 65:                                               ; preds = %.lr.ph, %_Py_set_localsplus_info.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_Py_set_localsplus_info.exit ]
-  %66 = getelementptr ptr, ptr %56, i64 %indvars.iv
+  %66 = getelementptr [8 x i8], ptr %56, i64 %indvars.iv
   %67 = load ptr, ptr %66, align 8, !tbaa !96
   %68 = load i32, ptr %67, align 8, !tbaa !97
   %69 = icmp slt i32 %68, 0
@@ -2302,7 +2301,7 @@ define dso_local ptr @PyUnstable_Code_NewWithPosOnlyArgs(i32 noundef %0, i32 nou
   br label %_Py_set_localsplus_info.exit
 
 _Py_set_localsplus_info.exit:                     ; preds = %65, %70
-  %72 = getelementptr ptr, ptr %57, i64 %indvars.iv
+  %72 = getelementptr [8 x i8], ptr %57, i64 %indvars.iv
   store ptr %67, ptr %72, align 8, !tbaa !96
   %73 = getelementptr i8, ptr %58, i64 %indvars.iv
   store i8 32, ptr %73, align 1, !tbaa !97
@@ -2327,13 +2326,13 @@ _Py_set_localsplus_info.exit:                     ; preds = %65, %70
   %indvars.iv201 = phi i64 [ 0, %.lr.ph180 ], [ %indvars.iv.next202, %98 ]
   %.0109179 = phi i32 [ %48, %.lr.ph180 ], [ %.1110, %98 ]
   %.1115178 = phi i32 [ %.0114.lcssa, %.lr.ph180 ], [ %.2116, %98 ]
-  %79 = getelementptr ptr, ptr %60, i64 %indvars.iv201
+  %79 = getelementptr [8 x i8], ptr %60, i64 %indvars.iv201
   %80 = load ptr, ptr %79, align 8, !tbaa !96
   br i1 %55, label %.lr.ph173, label %._crit_edge.thread
 
 .lr.ph173:                                        ; preds = %78, %84
   %indvars.iv196 = phi i64 [ %indvars.iv.next197, %84 ], [ 0, %78 ]
-  %81 = getelementptr ptr, ptr %61, i64 %indvars.iv196
+  %81 = getelementptr [8 x i8], ptr %61, i64 %indvars.iv196
   %82 = load ptr, ptr %81, align 8, !tbaa !96
   %83 = tail call i32 @PyUnicode_Compare(ptr noundef %82, ptr noundef %80) #14
   %.not138 = icmp eq i32 %83, 0
@@ -2365,7 +2364,7 @@ _Py_set_localsplus_info.exit:                     ; preds = %65, %70
 
 _Py_set_localsplus_info.exit150:                  ; preds = %._crit_edge.thread, %92
   %94 = sext i32 %.1115178 to i64
-  %95 = getelementptr ptr, ptr %62, i64 %94
+  %95 = getelementptr [8 x i8], ptr %62, i64 %94
   store ptr %80, ptr %95, align 8, !tbaa !96
   %96 = getelementptr i8, ptr %63, i64 %94
   store i8 64, ptr %96, align 1, !tbaa !97
@@ -2387,7 +2386,7 @@ _Py_set_localsplus_info.exit150:                  ; preds = %._crit_edge.thread,
 100:                                              ; preds = %.lr.ph185, %_Py_set_localsplus_info.exit151
   %indvars.iv206 = phi i64 [ 0, %.lr.ph185 ], [ %indvars.iv.next207, %_Py_set_localsplus_info.exit151 ]
   %.3117184 = phi i32 [ %.1115.lcssa, %.lr.ph185 ], [ %110, %_Py_set_localsplus_info.exit151 ]
-  %101 = getelementptr ptr, ptr %75, i64 %indvars.iv206
+  %101 = getelementptr [8 x i8], ptr %75, i64 %indvars.iv206
   %102 = load ptr, ptr %101, align 8, !tbaa !96
   %103 = load i32, ptr %102, align 8, !tbaa !97
   %104 = icmp slt i32 %103, 0
@@ -2400,7 +2399,7 @@ _Py_set_localsplus_info.exit150:                  ; preds = %._crit_edge.thread,
 
 _Py_set_localsplus_info.exit151:                  ; preds = %100, %105
   %107 = sext i32 %.3117184 to i64
-  %108 = getelementptr ptr, ptr %76, i64 %107
+  %108 = getelementptr [8 x i8], ptr %76, i64 %107
   store ptr %102, ptr %108, align 8, !tbaa !96
   %109 = getelementptr i8, ptr %77, i64 %107
   store i8 -128, ptr %109, align 1, !tbaa !97
@@ -2425,7 +2424,7 @@ _Py_set_localsplus_info.exit151:                  ; preds = %100, %105
   %116 = phi i64 [ %143, %135 ], [ 0, %.lr.ph190.preheader ]
   %.0111188 = phi i32 [ %142, %135 ], [ 0, %.lr.ph190.preheader ]
   %.0112187 = phi i32 [ %.1113.ph, %135 ], [ 0, %.lr.ph190.preheader ]
-  %117 = getelementptr %union._Py_CODEUNIT, ptr %113, i64 %116
+  %117 = getelementptr [2 x i8], ptr %113, i64 %116
   %118 = load i8, ptr %117, align 2, !tbaa !97
   switch i8 %118, label %135 [
     i8 68, label %119
@@ -4114,7 +4113,7 @@ define dso_local range(i32 -1, 1) i32 @PyUnstable_Code_GetExtra(ptr noundef read
 
 13:                                               ; preds = %11
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %15 = getelementptr ptr, ptr %14, i64 %1
+  %15 = getelementptr [8 x i8], ptr %14, i64 %1
   %16 = load ptr, ptr %15, align 8, !tbaa !21
   br label %17
 
@@ -4192,14 +4191,14 @@ define dso_local range(i32 -1, 1) i32 @PyUnstable_Code_SetExtra(ptr noundef capt
 31:                                               ; preds = %._crit_edge, %19
   %.037 = phi ptr [ %24, %._crit_edge ], [ %17, %19 ]
   %32 = getelementptr inbounds nuw i8, ptr %.037, i64 8
-  %33 = getelementptr ptr, ptr %32, i64 %1
+  %33 = getelementptr [8 x i8], ptr %32, i64 %1
   %34 = load ptr, ptr %33, align 8, !tbaa !21
   %.not46 = icmp eq ptr %34, null
   br i1 %.not46, label %40, label %35
 
 35:                                               ; preds = %31
   %36 = getelementptr inbounds nuw i8, ptr %7, i64 8560
-  %37 = getelementptr ptr, ptr %36, i64 %1
+  %37 = getelementptr [8 x i8], ptr %36, i64 %1
   %38 = load ptr, ptr %37, align 8, !tbaa !21
   %.not47 = icmp eq ptr %38, null
   br i1 %.not47, label %40, label %39
@@ -4288,7 +4287,7 @@ init_co_cached.exit.thread:                       ; preds = %1, %init_co_cached.
 34:                                               ; preds = %26
   %35 = load ptr, ptr %24, align 8, !tbaa !141
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
-  %37 = getelementptr ptr, ptr %36, i64 %indvars.iv.i.i
+  %37 = getelementptr [8 x i8], ptr %36, i64 %indvars.iv.i.i
   %38 = load ptr, ptr %37, align 8, !tbaa !96
   %39 = sext i32 %.01719.i.i to i64
   %40 = load i32, ptr %38, align 8, !tbaa !97
@@ -4303,7 +4302,7 @@ init_co_cached.exit.thread:                       ; preds = %1, %init_co_cached.
 
 _Py_NewRef.exit.i.i:                              ; preds = %42, %34
   %.pre.i.i = phi i32 [ %.pre22.i.i, %34 ], [ %.pre.pre.i.i, %42 ]
-  %44 = getelementptr ptr, ptr %25, i64 %39
+  %44 = getelementptr [8 x i8], ptr %25, i64 %39
   store ptr %38, ptr %44, align 8, !tbaa !96
   %45 = add i32 %.01719.i.i, 1
   br label %46
@@ -4410,7 +4409,7 @@ init_co_cached.exit.thread:                       ; preds = %1, %init_co_cached.
 34:                                               ; preds = %26
   %35 = load ptr, ptr %24, align 8, !tbaa !141
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
-  %37 = getelementptr ptr, ptr %36, i64 %indvars.iv.i.i
+  %37 = getelementptr [8 x i8], ptr %36, i64 %indvars.iv.i.i
   %38 = load ptr, ptr %37, align 8, !tbaa !96
   %39 = sext i32 %.01719.i.i to i64
   %40 = load i32, ptr %38, align 8, !tbaa !97
@@ -4425,7 +4424,7 @@ init_co_cached.exit.thread:                       ; preds = %1, %init_co_cached.
 
 _Py_NewRef.exit.i.i:                              ; preds = %42, %34
   %.pre.i.i = phi i32 [ %.pre22.i.i, %34 ], [ %.pre.pre.i.i, %42 ]
-  %44 = getelementptr ptr, ptr %25, i64 %39
+  %44 = getelementptr [8 x i8], ptr %25, i64 %39
   store ptr %38, ptr %44, align 8, !tbaa !96
   %45 = add i32 %.01719.i.i, 1
   br label %46
@@ -4531,7 +4530,7 @@ init_co_cached.exit.thread:                       ; preds = %1, %init_co_cached.
 33:                                               ; preds = %26
   %34 = load ptr, ptr %24, align 8, !tbaa !141
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 24
-  %36 = getelementptr ptr, ptr %35, i64 %indvars.iv.i.i
+  %36 = getelementptr [8 x i8], ptr %35, i64 %indvars.iv.i.i
   %37 = load ptr, ptr %36, align 8, !tbaa !96
   %38 = sext i32 %.01719.i.i to i64
   %39 = load i32, ptr %37, align 8, !tbaa !97
@@ -4546,7 +4545,7 @@ init_co_cached.exit.thread:                       ; preds = %1, %init_co_cached.
 
 _Py_NewRef.exit.i.i:                              ; preds = %41, %33
   %.pre.i.i = phi i32 [ %.pre22.i.i, %33 ], [ %.pre.pre.i.i, %41 ]
-  %43 = getelementptr ptr, ptr %25, i64 %38
+  %43 = getelementptr [8 x i8], ptr %25, i64 %38
   store ptr %37, ptr %43, align 8, !tbaa !96
   %44 = add i32 %.01719.i.i, 1
   br label %45
@@ -4644,7 +4643,7 @@ init_co_cached.exit.thread:                       ; preds = %1
   %24 = zext nneg i16 %.sroa.0.0.extract.trunc.mask.i to i64
   %25 = getelementptr i8, ptr @_PyOpcode_Caches, i64 %24
   %26 = load i8, ptr %25, align 1, !tbaa !97
-  %27 = getelementptr %union._Py_CODEUNIT, ptr %20, i64 %22
+  %27 = getelementptr [2 x i8], ptr %20, i64 %22
   store i16 %23, ptr %27, align 2
   %.not18.i = icmp eq i8 %26, 0
   br i1 %.not18.i, label %._crit_edge.i, label %.lr.ph.preheader.i
@@ -4667,7 +4666,7 @@ init_co_cached.exit.thread:                       ; preds = %1
   %33 = trunc nuw nsw i64 %indvars.iv.i to i32
   %34 = add i32 %.01520.i, %33
   %35 = sext i32 %34 to i64
-  %36 = getelementptr %union._Py_CODEUNIT, ptr %20, i64 %35
+  %36 = getelementptr [2 x i8], ptr %20, i64 %35
   store i16 0, ptr %36, align 2, !tbaa !97
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -4728,7 +4727,7 @@ _PyObject_ResurrectStart.exit:                    ; preds = %1, %3
   br i1 %.not12.i, label %19, label %13
 
 13:                                               ; preds = %11
-  %14 = getelementptr ptr, ptr %10, i64 %indvars.iv.i
+  %14 = getelementptr [8 x i8], ptr %10, i64 %indvars.iv.i
   %15 = load ptr, ptr %14, align 8, !tbaa !21
   %16 = tail call i32 %15(i32 noundef 1, ptr noundef nonnull %0) #14
   %17 = icmp slt i32 %16, 0
@@ -4788,13 +4787,13 @@ _PyObject_ResurrectEnd.exit:                      ; preds = %notify_code_watcher
 35:                                               ; preds = %.lr.ph, %42
   %36 = phi i64 [ %28, %.lr.ph ], [ %43, %42 ]
   %.084 = phi i64 [ 0, %.lr.ph ], [ %44, %42 ]
-  %37 = getelementptr ptr, ptr %33, i64 %.084
+  %37 = getelementptr [8 x i8], ptr %33, i64 %.084
   %38 = load ptr, ptr %37, align 8, !tbaa !21
   %.not40 = icmp eq ptr %38, null
   br i1 %.not40, label %42, label %39
 
 39:                                               ; preds = %35
-  %40 = getelementptr ptr, ptr %34, i64 %.084
+  %40 = getelementptr [8 x i8], ptr %34, i64 %.084
   %41 = load ptr, ptr %40, align 8, !tbaa !21
   tail call void %38(ptr noundef %41) #14
   %.pre = load i64, ptr %26, align 8, !tbaa !191
@@ -5980,7 +5979,7 @@ define dso_local ptr @_PyCode_ConstantKey(ptr noundef %0) local_unnamed_addr #0 
 
 58:                                               ; preds = %.lr.ph206, %68
   %.0113205 = phi i64 [ 0, %.lr.ph206 ], [ %70, %68 ]
-  %59 = getelementptr ptr, ptr %56, i64 %.0113205
+  %59 = getelementptr [8 x i8], ptr %56, i64 %.0113205
   %60 = load ptr, ptr %59, align 8, !tbaa !96
   %61 = tail call ptr @_PyCode_ConstantKey(ptr noundef %60)
   %.not146 = icmp eq ptr %61, null
@@ -6002,7 +6001,7 @@ define dso_local ptr @_PyCode_ConstantKey(ptr noundef %0) local_unnamed_addr #0 
   br label %Py_DECREF.exit158
 
 68:                                               ; preds = %58
-  %69 = getelementptr ptr, ptr %57, i64 %.0113205
+  %69 = getelementptr [8 x i8], ptr %57, i64 %.0113205
   store ptr %61, ptr %69, align 8, !tbaa !96
   %70 = add nuw nsw i64 %.0113205, 1
   %exitcond.not = icmp eq i64 %70, %.val173
@@ -6067,7 +6066,7 @@ define dso_local ptr @_PyCode_ConstantKey(ptr noundef %0) local_unnamed_addr #0 
   br i1 %91, label %Py_DECREF.exit152.sink.split, label %Py_DECREF.exit152
 
 Py_DECREF.exit156:                                ; preds = %84
-  %92 = getelementptr ptr, ptr %83, i64 %.0118204
+  %92 = getelementptr [8 x i8], ptr %83, i64 %.0118204
   store ptr %86, ptr %92, align 8, !tbaa !96
   %93 = add i64 %.0118204, 1
   %94 = call i32 @_PySet_NextEntry(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) #14
@@ -6251,7 +6250,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @intern_constants(ptr nounde
 13:                                               ; preds = %.lr.ph, %.critedge44
   %14 = phi i64 [ %10, %.lr.ph ], [ %77, %.critedge44 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %15 = getelementptr ptr, ptr %12, i64 %14
+  %15 = getelementptr [8 x i8], ptr %12, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !96
   store ptr %16, ptr %3, align 8, !tbaa !96
   %17 = getelementptr i8, ptr %16, i64 8
@@ -6297,7 +6296,7 @@ _PyUnicode_DATA.exit.i:                           ; preds = %24, %23
   %.0915.i = phi ptr [ %29, %28 ], [ %.0.i.i, %_PyUnicode_DATA.exit.i ]
   %30 = load i8, ptr %.0915.i, align 1, !tbaa !97
   %31 = zext i8 %30 to i64
-  %32 = getelementptr i32, ptr @_Py_ctype_table, i64 %31
+  %32 = getelementptr [4 x i8], ptr @_Py_ctype_table, i64 %31
   %33 = load i32, ptr %32, align 4, !tbaa !123
   %34 = and i32 %33, 7
   %.not11.i = icmp ne i32 %34, 0
@@ -6511,7 +6510,7 @@ define internal fastcc ptr @get_localsplus_names(ptr noundef readonly captures(n
 21:                                               ; preds = %13
   %22 = load ptr, ptr %11, align 8, !tbaa !141
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  %24 = getelementptr ptr, ptr %23, i64 %indvars.iv
+  %24 = getelementptr [8 x i8], ptr %23, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8, !tbaa !96
   %26 = sext i32 %.01719 to i64
   %27 = load i32, ptr %25, align 8, !tbaa !97
@@ -6526,7 +6525,7 @@ define internal fastcc ptr @get_localsplus_names(ptr noundef readonly captures(n
 
 _Py_NewRef.exit:                                  ; preds = %21, %29
   %.pre = phi i32 [ %.pre22, %21 ], [ %.pre.pre, %29 ]
-  %31 = getelementptr ptr, ptr %12, i64 %26
+  %31 = getelementptr [8 x i8], ptr %12, i64 %26
   store ptr %25, ptr %31, align 8, !tbaa !96
   %32 = add i32 %.01719, 1
   br label %33
@@ -8030,7 +8029,7 @@ define internal fastcc ptr @validate_and_copy_tuple(ptr noundef readonly capture
 
 8:                                                ; preds = %.lr.ph, %Py_INCREF.exit
   %.02033 = phi i64 [ 0, %.lr.ph ], [ %38, %Py_INCREF.exit ]
-  %9 = getelementptr ptr, ptr %6, i64 %.02033
+  %9 = getelementptr [8 x i8], ptr %6, i64 %.02033
   %10 = load ptr, ptr %9, align 8, !tbaa !96
   %11 = getelementptr i8, ptr %10, i64 8
   %.val31 = load ptr, ptr %11, align 8, !tbaa !105
@@ -8087,7 +8086,7 @@ define internal fastcc ptr @validate_and_copy_tuple(ptr noundef readonly capture
 
 Py_INCREF.exit:                                   ; preds = %15, %12, %29
   %.021 = phi ptr [ %30, %29 ], [ %10, %12 ], [ %10, %15 ]
-  %37 = getelementptr ptr, ptr %7, i64 %.02033
+  %37 = getelementptr [8 x i8], ptr %7, i64 %.02033
   store ptr %.021, ptr %37, align 8, !tbaa !96
   %38 = add nuw nsw i64 %.02033, 1
   %exitcond.not = icmp eq i64 %38, %.val30

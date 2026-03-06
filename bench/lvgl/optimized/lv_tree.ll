@@ -81,7 +81,7 @@ get_instance_size.exit.i:                         ; preds = %.preheader9, %..cri
   %33 = phi i32 [ %19, %._crit_edge.i ], [ %31, %24 ]
   %34 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %30, %24 ]
   %35 = zext i32 %33 to i64
-  %36 = getelementptr inbounds nuw ptr, ptr %34, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %35
   store ptr %10, ptr %36, align 8, !tbaa !21
   br label %37
 
@@ -146,7 +146,7 @@ define void @lv_tree_node_delete(ptr noundef %0) local_unnamed_addr #0 {
 
 8:                                                ; preds = %.lr.ph, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !21
   %11 = icmp eq ptr %10, %0
   br i1 %11, label %12, label %13
@@ -211,7 +211,7 @@ define zeroext i1 @lv_tree_walk(ptr noundef %0, i8 noundef zeroext %1, ptr nound
 24:                                               ; preds = %.lr.ph, %20
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %20 ]
   %25 = load ptr, ptr %19, align 8, !tbaa !19
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8, !tbaa !21
   %28 = tail call zeroext i1 @lv_tree_walk(ptr noundef %27, i8 noundef zeroext %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   br i1 %28, label %20, label %.loopexit

@@ -24,8 +24,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::CompressedTupleImpl.14" = type { %"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::Storage.15" }
 %"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::Storage.15" = type { i64 }
 %"class.std::basic_string_view" = type { i64, ptr }
-%"union.absl::lts_20230802::container_internal::map_slot_type" = type { %"struct.std::pair.45" }
-%"struct.std::pair.45" = type { %"class.std::basic_string_view", %"class.std::basic_string_view" }
 %"struct.google::protobuf::compiler::java::Options" = type <{ i8, i8, i8, i8, i8, i8, [2 x i8], %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i8, [7 x i8] }>
 %"class.std::allocator" = type { i8 }
 %struct._Guard = type { ptr }
@@ -39,10 +37,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Optional_payload_base.68" = type { %"union.std::_Optional_payload_base<google::protobuf::io::Printer::SourceLocation>::_Storage", i8 }
 %"union.std::_Optional_payload_base<google::protobuf::io::Printer::SourceLocation>::_Storage" = type { %"struct.std::_Optional_payload_base<google::protobuf::io::Printer::SourceLocation>::_Empty_byte" }
 %"struct.std::_Optional_payload_base<google::protobuf::io::Printer::SourceLocation>::_Empty_byte" = type { i8 }
-%"class.std::function" = type { %"class.std::_Function_base", ptr }
-%"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
-%"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
-%"union.std::_Nocopy_types" = type { { i64, i64 } }
 %"class.std::optional.72" = type { %"struct.std::_Optional_base.73" }
 %"struct.std::_Optional_base.73" = type { %"struct.std::_Optional_payload.75" }
 %"struct.std::_Optional_payload.75" = type { %"struct.std::_Optional_payload.base", [7 x i8] }
@@ -506,7 +500,7 @@ call.i.i.i.i.i.i.noexc:                           ; preds = %for.body
 if.then.i.i.i.i.i.i:                              ; preds = %call.i.i.i.i.i.i.noexc
   %5 = extractvalue { i64, i8 } %call.i.i.i.i.i.i6, 0
   %6 = load ptr, ptr %slots_.i.i.i.i.i.i.i, align 8, !noalias !7
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %6, i64 %5
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds [32 x i8], ptr %6, i64 %5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i.i.i.i, ptr noundef nonnull align 16 dereferenceable(16) %vars, i64 16, i1 false), !noalias !7
   %second.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i.i.i, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %second.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 16 dereferenceable(16) %arrayinit.element, i64 16, i1 false), !noalias !7
@@ -1209,7 +1203,7 @@ call.i.i.i.i.i.i.noexc:                           ; preds = %for.body
 if.then.i.i.i.i.i.i:                              ; preds = %call.i.i.i.i.i.i.noexc
   %5 = extractvalue { i64, i8 } %call.i.i.i.i.i.i6, 0
   %6 = load ptr, ptr %slots_.i.i.i.i.i.i.i, align 8, !noalias !22
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %6, i64 %5
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds [32 x i8], ptr %6, i64 %5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i.i.i.i, ptr noundef nonnull align 16 dereferenceable(16) %vars, i64 16, i1 false), !noalias !22
   %second.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i.i.i, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %second.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 16 dereferenceable(16) %arrayinit.element, i64 16, i1 false), !noalias !22
@@ -1323,7 +1317,7 @@ call.i.i.i.i.i.i.noexc:                           ; preds = %for.body
 if.then.i.i.i.i.i.i:                              ; preds = %call.i.i.i.i.i.i.noexc
   %8 = extractvalue { i64, i8 } %call.i.i.i.i.i.i8, 0
   %9 = load ptr, ptr %slots_.i.i.i.i.i.i.i, align 8, !noalias !35
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %9, i64 %8
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds [32 x i8], ptr %9, i64 %8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i.i.i.i, ptr noundef nonnull align 16 dereferenceable(16) %i.017.sroa.phi, i64 16, i1 false), !noalias !35
   %second.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i.i.i, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %second.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx13, i64 16, i1 false), !noalias !35
@@ -1526,7 +1520,7 @@ sw.bb:                                            ; preds = %if.end
   %bf.lshr.i = lshr i8 %bf.load.i, 2
   %bf.clear.i = and i8 %bf.lshr.i, 3
   %idxprom.i = zext nneg i8 %bf.clear.i to i64
-  %arrayidx.i = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %8, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [32 x i8], ptr %8, i64 %idxprom.i
   call void @_ZN6google8protobuf2io7Printer5PrintIJA5_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvSt17basic_string_viewIcS8_EDpRKT_(ptr noundef nonnull align 8 dereferenceable(256) %printer, i64 44, ptr nonnull @.str.18, ptr noundef nonnull align 1 dereferenceable(5) @.str.14, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i)
   br label %sw.epilog
 
@@ -1538,7 +1532,7 @@ sw.bb6:                                           ; preds = %if.end
   %bf.lshr.i43 = lshr i8 %bf.load.i42, 2
   %bf.clear.i44 = and i8 %bf.lshr.i43, 3
   %idxprom.i45 = zext nneg i8 %bf.clear.i44 to i64
-  %arrayidx.i46 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %9, i64 %idxprom.i45
+  %arrayidx.i46 = getelementptr inbounds nuw [32 x i8], ptr %9, i64 %idxprom.i45
   call void @_ZN6google8protobuf2io7Printer5PrintIJA5_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvSt17basic_string_viewIcS8_EDpRKT_(ptr noundef nonnull align 8 dereferenceable(256) %printer, i64 23, ptr nonnull @.str.19, ptr noundef nonnull align 1 dereferenceable(5) @.str.14, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i46)
   br label %sw.epilog
 
@@ -1550,7 +1544,7 @@ sw.bb9:                                           ; preds = %if.end
   %bf.lshr.i52 = lshr i8 %bf.load.i51, 2
   %bf.clear.i53 = and i8 %bf.lshr.i52, 3
   %idxprom.i54 = zext nneg i8 %bf.clear.i53 to i64
-  %arrayidx.i55 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %10, i64 %idxprom.i54
+  %arrayidx.i55 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 %idxprom.i54
   call void @_ZN6google8protobuf2io7Printer5PrintIJA5_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvSt17basic_string_viewIcS8_EDpRKT_(ptr noundef nonnull align 8 dereferenceable(256) %printer, i64 35, ptr nonnull @.str.20, ptr noundef nonnull align 1 dereferenceable(5) @.str.14, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i55)
   br label %sw.epilog
 
@@ -1562,7 +1556,7 @@ sw.bb13:                                          ; preds = %if.end
   %bf.lshr.i61 = lshr i8 %bf.load.i60, 2
   %bf.clear.i62 = and i8 %bf.lshr.i61, 3
   %idxprom.i63 = zext nneg i8 %bf.clear.i62 to i64
-  %arrayidx.i64 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %11, i64 %idxprom.i63
+  %arrayidx.i64 = getelementptr inbounds nuw [32 x i8], ptr %11, i64 %idxprom.i63
   call void @_ZN6google8protobuf2io7Printer5PrintIJA5_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvSt17basic_string_viewIcS8_EDpRKT_(ptr noundef nonnull align 8 dereferenceable(256) %printer, i64 32, ptr nonnull @.str.21, ptr noundef nonnull align 1 dereferenceable(5) @.str.14, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i64)
   br label %sw.epilog
 
@@ -1574,7 +1568,7 @@ sw.bb16:                                          ; preds = %if.end
   %bf.lshr.i70 = lshr i8 %bf.load.i69, 2
   %bf.clear.i71 = and i8 %bf.lshr.i70, 3
   %idxprom.i72 = zext nneg i8 %bf.clear.i71 to i64
-  %arrayidx.i73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %12, i64 %idxprom.i72
+  %arrayidx.i73 = getelementptr inbounds nuw [32 x i8], ptr %12, i64 %idxprom.i72
   call void @_ZN6google8protobuf2io7Printer5PrintIJA5_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvSt17basic_string_viewIcS8_EDpRKT_(ptr noundef nonnull align 8 dereferenceable(256) %printer, i64 41, ptr nonnull @.str.22, ptr noundef nonnull align 1 dereferenceable(5) @.str.14, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i73)
   br label %sw.epilog
 
@@ -1621,7 +1615,7 @@ _ZN6google8protobuf2io7Printer5PrintIJEEEvSt17basic_string_viewIcSt11char_traits
   %bf.lshr.i95 = lshr i8 %bf.load.i94, 2
   %bf.clear.i96 = and i8 %bf.lshr.i95, 3
   %idxprom.i97 = zext nneg i8 %bf.clear.i96 to i64
-  %arrayidx.i98 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %18, i64 %idxprom.i97
+  %arrayidx.i98 = getelementptr inbounds nuw [32 x i8], ptr %18, i64 %idxprom.i97
   call void @_ZN6google8protobuf2io7Printer5PrintIJA5_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvSt17basic_string_viewIcS8_EDpRKT_(ptr noundef nonnull align 8 dereferenceable(256) %printer, i64 42, ptr nonnull @.str.24, ptr noundef nonnull align 1 dereferenceable(5) @.str.14, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i98)
   br label %sw.epilog
 
@@ -1668,7 +1662,7 @@ _ZN6google8protobuf2io7Printer5PrintIJEEEvSt17basic_string_viewIcSt11char_traits
   %bf.lshr.i120 = lshr i8 %bf.load.i119, 2
   %bf.clear.i121 = and i8 %bf.lshr.i120, 3
   %idxprom.i122 = zext nneg i8 %bf.clear.i121 to i64
-  %arrayidx.i123 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %24, i64 %idxprom.i122
+  %arrayidx.i123 = getelementptr inbounds nuw [32 x i8], ptr %24, i64 %idxprom.i122
   call void @_ZN6google8protobuf2io7Printer5PrintIJA5_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvSt17basic_string_viewIcS8_EDpRKT_(ptr noundef nonnull align 8 dereferenceable(256) %printer, i64 35, ptr nonnull @.str.20, ptr noundef nonnull align 1 dereferenceable(5) @.str.14, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i123)
   br label %sw.epilog
 
@@ -1680,7 +1674,7 @@ sw.bb27:                                          ; preds = %if.end
   %bf.lshr.i129 = lshr i8 %bf.load.i128, 2
   %bf.clear.i130 = and i8 %bf.lshr.i129, 3
   %idxprom.i131 = zext nneg i8 %bf.clear.i130 to i64
-  %arrayidx.i132 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %25, i64 %idxprom.i131
+  %arrayidx.i132 = getelementptr inbounds nuw [32 x i8], ptr %25, i64 %idxprom.i131
   call void @_ZN6google8protobuf2io7Printer5PrintIJA5_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvSt17basic_string_viewIcS8_EDpRKT_(ptr noundef nonnull align 8 dereferenceable(256) %printer, i64 35, ptr nonnull @.str.26, ptr noundef nonnull align 1 dereferenceable(5) @.str.14, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i132)
   br label %sw.epilog
 
@@ -1692,7 +1686,7 @@ sw.bb30:                                          ; preds = %if.end
   %bf.lshr.i138 = lshr i8 %bf.load.i137, 2
   %bf.clear.i139 = and i8 %bf.lshr.i138, 3
   %idxprom.i140 = zext nneg i8 %bf.clear.i139 to i64
-  %arrayidx.i141 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %26, i64 %idxprom.i140
+  %arrayidx.i141 = getelementptr inbounds nuw [32 x i8], ptr %26, i64 %idxprom.i140
   call void @_ZN6google8protobuf2io7Printer5PrintIJA5_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvSt17basic_string_viewIcS8_EDpRKT_(ptr noundef nonnull align 8 dereferenceable(256) %printer, i64 36, ptr nonnull @.str.27, ptr noundef nonnull align 1 dereferenceable(5) @.str.14, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i141)
   br label %sw.epilog
 
@@ -1884,7 +1878,7 @@ sw.bb5:                                           ; preds = %if.end
   %bf.lshr.i = lshr i8 %bf.load.i, 2
   %bf.clear.i = and i8 %bf.lshr.i, 3
   %idxprom.i = zext nneg i8 %bf.clear.i to i64
-  %arrayidx.i = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %8, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [32 x i8], ptr %8, i64 %idxprom.i
   call void @_ZN6google8protobuf2io7Printer5PrintIJA5_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvSt17basic_string_viewIcS8_EDpRKT_(ptr noundef nonnull align 8 dereferenceable(256) %printer, i64 58, ptr nonnull @.str.29, ptr noundef nonnull align 1 dereferenceable(5) @.str.14, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i)
   br label %sw.epilog
 
@@ -1896,7 +1890,7 @@ sw.bb7:                                           ; preds = %if.end
   %bf.lshr.i39 = lshr i8 %bf.load.i38, 2
   %bf.clear.i40 = and i8 %bf.lshr.i39, 3
   %idxprom.i41 = zext nneg i8 %bf.clear.i40 to i64
-  %arrayidx.i42 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %9, i64 %idxprom.i41
+  %arrayidx.i42 = getelementptr inbounds nuw [32 x i8], ptr %9, i64 %idxprom.i41
   call void @_ZN6google8protobuf2io7Printer5PrintIJA5_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvSt17basic_string_viewIcS8_EDpRKT_(ptr noundef nonnull align 8 dereferenceable(256) %printer, i64 70, ptr nonnull @.str.30, ptr noundef nonnull align 1 dereferenceable(5) @.str.14, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i42)
   br label %sw.epilog
 
@@ -1908,7 +1902,7 @@ sw.bb12:                                          ; preds = %if.end
   %bf.lshr.i48 = lshr i8 %bf.load.i47, 2
   %bf.clear.i49 = and i8 %bf.lshr.i48, 3
   %idxprom.i50 = zext nneg i8 %bf.clear.i49 to i64
-  %arrayidx.i51 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %10, i64 %idxprom.i50
+  %arrayidx.i51 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 %idxprom.i50
   call void @_ZN6google8protobuf2io7Printer5PrintIJA5_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvSt17basic_string_viewIcS8_EDpRKT_(ptr noundef nonnull align 8 dereferenceable(256) %printer, i64 77, ptr nonnull @.str.31, ptr noundef nonnull align 1 dereferenceable(5) @.str.14, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i51)
   br label %sw.epilog
 
@@ -1955,7 +1949,7 @@ _ZN6google8protobuf2io7Printer5PrintIJEEEvSt17basic_string_viewIcSt11char_traits
   %bf.lshr.i73 = lshr i8 %bf.load.i72, 2
   %bf.clear.i74 = and i8 %bf.lshr.i73, 3
   %idxprom.i75 = zext nneg i8 %bf.clear.i74 to i64
-  %arrayidx.i76 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %16, i64 %idxprom.i75
+  %arrayidx.i76 = getelementptr inbounds nuw [32 x i8], ptr %16, i64 %idxprom.i75
   call void @_ZN6google8protobuf2io7Printer5PrintIJA5_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvSt17basic_string_viewIcS8_EDpRKT_(ptr noundef nonnull align 8 dereferenceable(256) %printer, i64 76, ptr nonnull @.str.33, ptr noundef nonnull align 1 dereferenceable(5) @.str.14, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i76)
   br label %sw.epilog
 
@@ -2002,7 +1996,7 @@ _ZN6google8protobuf2io7Printer5PrintIJEEEvSt17basic_string_viewIcSt11char_traits
   %bf.lshr.i98 = lshr i8 %bf.load.i97, 2
   %bf.clear.i99 = and i8 %bf.lshr.i98, 3
   %idxprom.i100 = zext nneg i8 %bf.clear.i99 to i64
-  %arrayidx.i101 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %idxprom.i100
+  %arrayidx.i101 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %idxprom.i100
   call void @_ZN6google8protobuf2io7Printer5PrintIJA5_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvSt17basic_string_viewIcS8_EDpRKT_(ptr noundef nonnull align 8 dereferenceable(256) %printer, i64 70, ptr nonnull @.str.30, ptr noundef nonnull align 1 dereferenceable(5) @.str.14, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i101)
   br label %sw.epilog
 
@@ -2014,7 +2008,7 @@ sw.bb23:                                          ; preds = %if.end
   %bf.lshr.i107 = lshr i8 %bf.load.i106, 2
   %bf.clear.i108 = and i8 %bf.lshr.i107, 3
   %idxprom.i109 = zext nneg i8 %bf.clear.i108 to i64
-  %arrayidx.i110 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %idxprom.i109
+  %arrayidx.i110 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %idxprom.i109
   call void @_ZN6google8protobuf2io7Printer5PrintIJA5_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvSt17basic_string_viewIcS8_EDpRKT_(ptr noundef nonnull align 8 dereferenceable(256) %printer, i64 70, ptr nonnull @.str.34, ptr noundef nonnull align 1 dereferenceable(5) @.str.14, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i110)
   br label %sw.epilog
 
@@ -2026,7 +2020,7 @@ sw.bb26:                                          ; preds = %if.end
   %bf.lshr.i116 = lshr i8 %bf.load.i115, 2
   %bf.clear.i117 = and i8 %bf.lshr.i116, 3
   %idxprom.i118 = zext nneg i8 %bf.clear.i117 to i64
-  %arrayidx.i119 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %24, i64 %idxprom.i118
+  %arrayidx.i119 = getelementptr inbounds nuw [32 x i8], ptr %24, i64 %idxprom.i118
   call void @_ZN6google8protobuf2io7Printer5PrintIJA5_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvSt17basic_string_viewIcS8_EDpRKT_(ptr noundef nonnull align 8 dereferenceable(256) %printer, i64 72, ptr nonnull @.str.35, ptr noundef nonnull align 1 dereferenceable(5) @.str.14, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i119)
   br label %sw.epilog
 
@@ -2218,7 +2212,7 @@ sw.bb5:                                           ; preds = %if.end
   %bf.lshr.i = lshr i8 %bf.load.i, 2
   %bf.clear.i = and i8 %bf.lshr.i, 3
   %idxprom.i = zext nneg i8 %bf.clear.i to i64
-  %arrayidx.i = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %8, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [32 x i8], ptr %8, i64 %idxprom.i
   call void @_ZN6google8protobuf2io7Printer5PrintIJA5_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvSt17basic_string_viewIcS8_EDpRKT_(ptr noundef nonnull align 8 dereferenceable(256) %printer, i64 33, ptr nonnull @.str.36, ptr noundef nonnull align 1 dereferenceable(5) @.str.14, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i)
   br label %sw.epilog
 
@@ -2230,7 +2224,7 @@ sw.bb7:                                           ; preds = %if.end
   %bf.lshr.i39 = lshr i8 %bf.load.i38, 2
   %bf.clear.i40 = and i8 %bf.lshr.i39, 3
   %idxprom.i41 = zext nneg i8 %bf.clear.i40 to i64
-  %arrayidx.i42 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %9, i64 %idxprom.i41
+  %arrayidx.i42 = getelementptr inbounds nuw [32 x i8], ptr %9, i64 %idxprom.i41
   call void @_ZN6google8protobuf2io7Printer5PrintIJA5_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvSt17basic_string_viewIcS8_EDpRKT_(ptr noundef nonnull align 8 dereferenceable(256) %printer, i64 45, ptr nonnull @.str.37, ptr noundef nonnull align 1 dereferenceable(5) @.str.14, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i42)
   br label %sw.epilog
 
@@ -2242,7 +2236,7 @@ sw.bb12:                                          ; preds = %if.end
   %bf.lshr.i48 = lshr i8 %bf.load.i47, 2
   %bf.clear.i49 = and i8 %bf.lshr.i48, 3
   %idxprom.i50 = zext nneg i8 %bf.clear.i49 to i64
-  %arrayidx.i51 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %10, i64 %idxprom.i50
+  %arrayidx.i51 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 %idxprom.i50
   call void @_ZN6google8protobuf2io7Printer5PrintIJA5_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvSt17basic_string_viewIcS8_EDpRKT_(ptr noundef nonnull align 8 dereferenceable(256) %printer, i64 51, ptr nonnull @.str.38, ptr noundef nonnull align 1 dereferenceable(5) @.str.14, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i51)
   br label %sw.epilog
 
@@ -2289,7 +2283,7 @@ _ZN6google8protobuf2io7Printer5PrintIJEEEvSt17basic_string_viewIcSt11char_traits
   %bf.lshr.i73 = lshr i8 %bf.load.i72, 2
   %bf.clear.i74 = and i8 %bf.lshr.i73, 3
   %idxprom.i75 = zext nneg i8 %bf.clear.i74 to i64
-  %arrayidx.i76 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %16, i64 %idxprom.i75
+  %arrayidx.i76 = getelementptr inbounds nuw [32 x i8], ptr %16, i64 %idxprom.i75
   call void @_ZN6google8protobuf2io7Printer5PrintIJA5_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvSt17basic_string_viewIcS8_EDpRKT_(ptr noundef nonnull align 8 dereferenceable(256) %printer, i64 55, ptr nonnull @.str.39, ptr noundef nonnull align 1 dereferenceable(5) @.str.14, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i76)
   br label %sw.epilog
 
@@ -2336,7 +2330,7 @@ _ZN6google8protobuf2io7Printer5PrintIJEEEvSt17basic_string_viewIcSt11char_traits
   %bf.lshr.i98 = lshr i8 %bf.load.i97, 2
   %bf.clear.i99 = and i8 %bf.lshr.i98, 3
   %idxprom.i100 = zext nneg i8 %bf.clear.i99 to i64
-  %arrayidx.i101 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %idxprom.i100
+  %arrayidx.i101 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %idxprom.i100
   call void @_ZN6google8protobuf2io7Printer5PrintIJA5_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvSt17basic_string_viewIcS8_EDpRKT_(ptr noundef nonnull align 8 dereferenceable(256) %printer, i64 48, ptr nonnull @.str.40, ptr noundef nonnull align 1 dereferenceable(5) @.str.14, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i101)
   br label %sw.epilog
 
@@ -2348,7 +2342,7 @@ sw.bb23:                                          ; preds = %if.end
   %bf.lshr.i107 = lshr i8 %bf.load.i106, 2
   %bf.clear.i108 = and i8 %bf.lshr.i107, 3
   %idxprom.i109 = zext nneg i8 %bf.clear.i108 to i64
-  %arrayidx.i110 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %idxprom.i109
+  %arrayidx.i110 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %idxprom.i109
   call void @_ZN6google8protobuf2io7Printer5PrintIJA5_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvSt17basic_string_viewIcS8_EDpRKT_(ptr noundef nonnull align 8 dereferenceable(256) %printer, i64 48, ptr nonnull @.str.41, ptr noundef nonnull align 1 dereferenceable(5) @.str.14, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i110)
   br label %sw.epilog
 
@@ -2360,7 +2354,7 @@ sw.bb26:                                          ; preds = %if.end
   %bf.lshr.i116 = lshr i8 %bf.load.i115, 2
   %bf.clear.i117 = and i8 %bf.lshr.i116, 3
   %idxprom.i118 = zext nneg i8 %bf.clear.i117 to i64
-  %arrayidx.i119 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %24, i64 %idxprom.i118
+  %arrayidx.i119 = getelementptr inbounds nuw [32 x i8], ptr %24, i64 %idxprom.i118
   call void @_ZN6google8protobuf2io7Printer5PrintIJA5_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvSt17basic_string_viewIcS8_EDpRKT_(ptr noundef nonnull align 8 dereferenceable(256) %printer, i64 49, ptr nonnull @.str.42, ptr noundef nonnull align 1 dereferenceable(5) @.str.14, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i119)
   br label %sw.epilog
 
@@ -2766,7 +2760,7 @@ call.i.i.i.i.i.i.noexc:                           ; preds = %for.body
 if.then.i.i.i.i.i.i:                              ; preds = %call.i.i.i.i.i.i.noexc
   %5 = extractvalue { i64, i8 } %call.i.i.i.i.i.i6, 0
   %6 = load ptr, ptr %slots_.i.i.i.i.i.i.i, align 8, !noalias !49
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %6, i64 %5
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds [32 x i8], ptr %6, i64 %5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i.i.i.i, ptr noundef nonnull align 16 dereferenceable(16) %vars, i64 16, i1 false), !noalias !49
   %second.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i.i.i, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %second.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 16 dereferenceable(16) %arrayinit.element, i64 16, i1 false), !noalias !49
@@ -3451,7 +3445,7 @@ for.body:                                         ; preds = %_ZN4absl12lts_20230
   br i1 %cmp.i, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %for.body
-  %add.ptr = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %1, i64 %i.021
+  %add.ptr = getelementptr inbounds [32 x i8], ptr %1, i64 %i.021
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %add.ptr, align 8
   %agg.tmp.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
   %agg.tmp.sroa.2.0.copyload.i.i.i.i.i = load ptr, ptr %agg.tmp.sroa.2.0..sroa_idx.i.i.i.i.i, align 8
@@ -3476,7 +3470,7 @@ if.then:                                          ; preds = %for.body
   %12 = getelementptr i8, ptr %11, i64 %and.i.i
   %arrayidx7.i.i = getelementptr i8, ptr %12, i64 %and6.i.i
   store i8 %conv.i, ptr %arrayidx7.i.i, align 1
-  %add.ptr16 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %6, i64 %8
+  %add.ptr16 = getelementptr inbounds [32 x i8], ptr %6, i64 %8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %add.ptr16, ptr noundef nonnull align 1 dereferenceable(32) %add.ptr, i64 32, i1 false)
   br label %for.inc
 
@@ -3657,7 +3651,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %conv = zext nneg i32 %9 to i64
   %add.i = add i64 %seq.sroa.4.0, %conv
   %and.i = and i64 %add.i, %2
-  %add.ptr21 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %5, i64 %and.i
+  %add.ptr21 = getelementptr inbounds [32 x i8], ptr %5, i64 %and.i
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %add.ptr21, align 8
   %agg.tmp.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr21, i64 8
   %agg.tmp.sroa.2.0.copyload.i.i.i.i.i = load ptr, ptr %agg.tmp.sroa.2.0..sroa_idx.i.i.i.i.i, align 8
@@ -3984,7 +3978,7 @@ _ZNSt12_Vector_baseISt8functionIFSt8optionalIN6google8protobuf2io7Printer9ValueI
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call5.i.i.i, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i25, ptr %_M_finish.i.i, align 8
-  %add.ptr19 = getelementptr inbounds nuw %"class.std::function", ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr19 = getelementptr inbounds nuw [32 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr19, ptr %_M_end_of_storage, align 8
   ret void
 }
@@ -4229,7 +4223,7 @@ for.body.i.us.us:                                 ; preds = %for.inc.i.us.us, %f
   %conv.i.us.us = zext nneg i32 %9 to i64
   %add.i.i.us.us = add i64 %seq.sroa.4.0.i.us, %conv.i.us.us
   %and.i.i.us.us = and i64 %add.i.i.us.us, %1
-  %add.ptr19.i.us.us = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %3, i64 %and.i.i.us.us
+  %add.ptr19.i.us.us = getelementptr inbounds [32 x i8], ptr %3, i64 %and.i.i.us.us
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.us.us = load i64, ptr %add.ptr19.i.us.us, align 8
   %cmp.i.i.i.i.i.i.i.i.us.us = icmp eq i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.us.us, 0
   br i1 %cmp.i.i.i.i.i.i.i.i.us.us, label %if.then.i, label %for.inc.i.us.us
@@ -4261,7 +4255,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %conv.i = zext nneg i32 %13 to i64
   %add.i.i = add i64 %seq.sroa.4.0.i, %conv.i
   %and.i.i = and i64 %add.i.i, %1
-  %add.ptr19.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %3, i64 %and.i.i
+  %add.ptr19.i = getelementptr inbounds [32 x i8], ptr %3, i64 %and.i.i
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i = load i64, ptr %add.ptr19.i, align 8
   %cmp.i.i.i.i.i.i.i.i = icmp eq i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i, %agg.tmp4.sroa.0.0.copyload.i.i.i.i.i.i.fr
   br i1 %cmp.i.i.i.i.i.i.i.i, label %land.rhs.i.i.i.i.i.i.i.i, label %for.inc.i
@@ -4547,13 +4541,13 @@ if.end24:                                         ; preds = %_ZN6google8protobuf
 for.body:                                         ; preds = %if.end24, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %if.end24 ]
   %24 = phi ptr [ %31, %for.inc ], [ %23, %if.end24 ]
-  %add.ptr.i = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %24, i64 %indvars.iv
+  %add.ptr.i = getelementptr inbounds nuw [32 x i8], ptr %24, i64 %indvars.iv
   %call28 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i) #23
   br i1 %call28, label %if.else40, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body
   %25 = load ptr, ptr %lines, align 8
-  %add.ptr.i41 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %25, i64 %indvars.iv
+  %add.ptr.i41 = getelementptr inbounds nuw [32 x i8], ptr %25, i64 %indvars.iv
   %call32 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i41, i64 noundef 0)
           to label %invoke.cont31 unwind label %lpad19
 
@@ -4569,7 +4563,7 @@ if.else40.invoke:                                 ; preds = %invoke.cont31, %if.
   %27 = phi i64 [ 9, %if.else40 ], [ 10, %invoke.cont31 ]
   %28 = phi ptr [ @.str.61, %if.else40 ], [ @.str.60, %invoke.cont31 ]
   %29 = load ptr, ptr %lines, align 8
-  %add.ptr.i44 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %29, i64 %indvars.iv
+  %add.ptr.i44 = getelementptr inbounds nuw [32 x i8], ptr %29, i64 %indvars.iv
   invoke void @_ZN6google8protobuf2io7Printer5PrintIJA5_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvSt17basic_string_viewIcS8_EDpRKT_(ptr noundef nonnull align 8 dereferenceable(256) %printer, i64 %27, ptr nonnull %28, ptr noundef nonnull align 1 dereferenceable(5) @.str.17, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i44)
           to label %for.inc unwind label %lpad19
 
@@ -4774,7 +4768,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit.i.i: ; preds = %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m.exit.i.i.i, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_S_check_init_lenEmRKS6_.exit.i.i
   %cond.i.i.i = phi ptr [ null, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_S_check_init_lenEmRKS6_.exit.i.i ], [ %call5.i.i.i.i1.i, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m.exit.i.i.i ]
   store ptr %cond.i.i.i, ptr %agg.result, align 8
-  %add.ptr.i.i = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %cond.i.i.i, i64 %sub.ptr.div.i.i.i.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw [32 x i8], ptr %cond.i.i.i, i64 %sub.ptr.div.i.i.i.i.i
   %_M_end_of_storage.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %add.ptr.i.i, ptr %_M_end_of_storage.i.i, align 8
   %call.i.i.i.i2.i = invoke noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_iteratorIPKSt17basic_string_viewIcSt11char_traitsIcEESt6vectorIS5_SaIS5_EEEEPNSt7__cxx1112basic_stringIcS4_SaIcEEEET0_T_SI_SH_(ptr %0, ptr %1, ptr noundef %cond.i.i.i)
@@ -4872,7 +4866,7 @@ do.body:                                          ; preds = %do.body.preheader, 
   %2 = phi i64 [ %.sroa.speculated.i.i, %do.cond ], [ %.pre22, %do.body.preheader ]
   %3 = phi ptr [ %add.ptr15.i, %do.cond ], [ %.pre, %do.body.preheader ]
   %index.0 = phi i64 [ %inc, %do.cond ], [ 0, %do.body.preheader ]
-  %arrayidx.i.i = getelementptr inbounds nuw %struct.raw_view, ptr %ar, i64 %index.0
+  %arrayidx.i.i = getelementptr inbounds nuw [16 x i8], ptr %ar, i64 %index.0
   store ptr %3, ptr %arrayidx.i.i, align 8
   %size = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 8
   store i64 %2, ptr %size, align 8
@@ -4938,7 +4932,7 @@ do.cond:                                          ; preds = %if.end10.i
 do.end:                                           ; preds = %do.cond, %do.cond.thread
   %inc32 = phi i64 [ %inc28, %do.cond.thread ], [ %inc, %do.cond ]
   %9 = load ptr, ptr %_M_finish.i, align 8
-  %add.ptr = getelementptr inbounds nuw %struct.raw_view, ptr %ar, i64 %inc32
+  %add.ptr = getelementptr inbounds nuw [16 x i8], ptr %ar, i64 %inc32
   %10 = load ptr, ptr %agg.result, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %9 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %10 to i64
@@ -5115,7 +5109,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZSt22__uninitializ
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 4
   %idx.neg.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
-  %add.ptr.i.i.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %1, i64 %idx.neg.i.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds [16 x i8], ptr %1, i64 %idx.neg.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i, ptr align 8 %__position.coerce, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
   br label %_ZSt13move_backwardIPSt17basic_string_viewIcSt11char_traitsIcEES4_ET0_T_S6_S5_.exit
 
@@ -5165,7 +5159,7 @@ _ZSt22__uninitialized_copy_aIPZNK4absl12lts_2023080216strings_internal8SplitterI
 _ZSt22__uninitialized_copy_aIPZNK4absl12lts_2023080216strings_internal8SplitterINS1_8ByStringENS1_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEE18ConvertToContainerISt6vectorIS9_SaIS9_EES9_Lb0EEclERKSA_E8raw_viewPS9_S9_ET0_T_SM_SL_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIPZNK4absl12lts_2023080216strings_internal8SplitterINS1_8ByStringENS1_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEE18ConvertToContainerISt6vectorIS9_SaIS9_EES9_Lb0EEclERKSA_E8raw_viewPS9_S9_ET0_T_SM_SL_RSaIT1_E.exit.loopexit, %_ZSt7advanceIPZNK4absl12lts_2023080216strings_internal8SplitterINS1_8ByStringENS1_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEE18ConvertToContainerISt6vectorIS9_SaIS9_EES9_Lb0EEclERKSA_E8raw_viewmEvRT_T0_.exit
   %8 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIPZNK4absl12lts_2023080216strings_internal8SplitterINS1_8ByStringENS1_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEE18ConvertToContainerISt6vectorIS9_SaIS9_EES9_Lb0EEclERKSA_E8raw_viewPS9_S9_ET0_T_SM_SL_RSaIT1_E.exit.loopexit ], [ %1, %_ZSt7advanceIPZNK4absl12lts_2023080216strings_internal8SplitterINS1_8ByStringENS1_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEE18ConvertToContainerISt6vectorIS9_SaIS9_EES9_Lb0EEclERKSA_E8raw_viewmEvRT_T0_.exit ]
   %sub = sub nuw nsw i64 %sub.ptr.div.i.i, %sub.ptr.div.i
-  %add.ptr36 = getelementptr inbounds %"class.std::basic_string_view", ptr %8, i64 %sub
+  %add.ptr36 = getelementptr inbounds [16 x i8], ptr %8, i64 %sub
   store ptr %add.ptr36, ptr %_M_finish, align 8
   %cmp.i.i.not7.i.i.i.i.i42 = icmp eq ptr %__position.coerce, %1
   br i1 %cmp.i.i.not7.i.i.i.i.i42, label %_ZSt22__uninitialized_move_aIPSt17basic_string_viewIcSt11char_traitsIcEES4_SaIS3_EET0_T_S7_S6_RT1_.exit50, label %for.body.i.i.i.i.i43
@@ -5291,7 +5285,7 @@ if.then.i104:                                     ; preds = %invoke.cont65
 _ZNSt12_Vector_baseISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %invoke.cont65, %if.then.i104
   store ptr %cond.i76, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i.i.i102, ptr %_M_finish, align 8
-  %add.ptr83 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %cond.i76, i64 %cond.i
+  %add.ptr83 = getelementptr inbounds nuw [16 x i8], ptr %cond.i76, i64 %cond.i
   store ptr %add.ptr83, ptr %_M_end_of_storage, align 8
   br label %if.end87
 

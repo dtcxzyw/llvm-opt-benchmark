@@ -1355,10 +1355,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit138: ; preds = %36
   %indvars.iv189 = phi i64 [ 1, %.lr.ph183 ], [ %indvars.iv.next190, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit141 ]
   %401 = phi ptr [ %392, %.lr.ph183 ], [ %411, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit141 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
-  %402 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %401, i64 %indvars.iv189
+  %402 = getelementptr inbounds nuw [32 x i8], ptr %401, i64 %indvars.iv189
   call void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %21, ptr noundef nonnull @.str.126, ptr noundef nonnull align 8 dereferenceable(32) %402)
   %403 = load ptr, ptr %1, align 8, !tbaa !22
-  %404 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %403, i64 %indvars.iv189
+  %404 = getelementptr inbounds nuw [32 x i8], ptr %403, i64 %indvars.iv189
   %405 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %404, ptr noundef nonnull align 8 dereferenceable(32) %21) #22
   %406 = load ptr, ptr %21, align 8, !tbaa !14
   %407 = icmp eq ptr %406, %399
@@ -1454,10 +1454,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit141: ; preds = %40
   %indvars.iv186 = phi i64 [ 1, %.lr.ph179 ], [ %indvars.iv.next187, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit144 ]
   %452 = phi ptr [ %443, %.lr.ph179 ], [ %462, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit144 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
-  %453 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %452, i64 %indvars.iv186
+  %453 = getelementptr inbounds nuw [32 x i8], ptr %452, i64 %indvars.iv186
   call void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %24, ptr noundef nonnull @.str.129, ptr noundef nonnull align 8 dereferenceable(32) %453)
   %454 = load ptr, ptr %1, align 8, !tbaa !22
-  %455 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %454, i64 %indvars.iv186
+  %455 = getelementptr inbounds nuw [32 x i8], ptr %454, i64 %indvars.iv186
   %456 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %455, ptr noundef nonnull align 8 dereferenceable(32) %24) #22
   %457 = load ptr, ptr %24, align 8, !tbaa !14
   %458 = icmp eq ptr %457, %450
@@ -1552,10 +1552,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit144: ; preds = %45
   %indvars.iv = phi i64 [ 2, %.lr.ph ], [ %indvars.iv.next, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit147 ]
   %502 = phi ptr [ %493, %.lr.ph ], [ %512, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit147 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
-  %503 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %502, i64 %indvars.iv
+  %503 = getelementptr inbounds nuw [32 x i8], ptr %502, i64 %indvars.iv
   call void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %27, ptr noundef nonnull @.str.134, ptr noundef nonnull align 8 dereferenceable(32) %503)
   %504 = load ptr, ptr %1, align 8, !tbaa !22
-  %505 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %504, i64 %indvars.iv
+  %505 = getelementptr inbounds nuw [32 x i8], ptr %504, i64 %indvars.iv
   %506 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %505, ptr noundef nonnull align 8 dereferenceable(32) %27) #22
   %507 = load ptr, ptr %27, align 8, !tbaa !14
   %508 = icmp eq ptr %507, %500
@@ -2435,7 +2435,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %69
   store ptr %22, ptr %0, align 8, !tbaa !22
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !19
-  %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %73, ptr %68, align 8, !tbaa !24
   ret void
 }

@@ -48,7 +48,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"class.gmx::Selection" = type { ptr }
 %"class.gmx::AnalysisDataHandle" = type { ptr }
 %"class.std::vector" = type { %"struct.std::_Vector_base" }
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<gmx::Selection, std::allocator<gmx::Selection>>::_Vector_impl" }
@@ -2040,7 +2039,7 @@ define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_18Distance12initAnaly
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %65 = phi ptr [ %75, %.lr.ph ], [ %42, %3 ]
   %.047227 = phi i64 [ %73, %.lr.ph ], [ 0, %3 ]
-  %66 = getelementptr inbounds nuw %"class.gmx::Selection", ptr %65, i64 %.047227
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %.047227
   %67 = load ptr, ptr %66, align 8, !tbaa !145
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 112
   %69 = load i32, ptr %68, align 8, !tbaa !148
@@ -2176,7 +2175,7 @@ _ZNSt10shared_ptrIN3gmx19IAnalysisDataModuleEEC2INS0_22AnalysisDataPlotModuleEvE
 .lr.ph229:                                        ; preds = %.preheader187, %126
   %122 = phi ptr [ %129, %126 ], [ %108, %.preheader187 ]
   %.027228 = phi i64 [ %127, %126 ], [ 0, %.preheader187 ]
-  %123 = getelementptr inbounds nuw %"class.gmx::Selection", ptr %122, i64 %.027228
+  %123 = getelementptr inbounds nuw [8 x i8], ptr %122, i64 %.027228
   %124 = load ptr, ptr %123, align 8, !tbaa !145
   %125 = load ptr, ptr %124, align 8, !tbaa !89
   invoke void @_ZN3gmx18AbstractPlotModule12appendLegendEPKc(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef %125)
@@ -2876,7 +2875,7 @@ _ZNSt10shared_ptrIN3gmx22AnalysisDataPlotModuleEEC2IS1_vEEPT_.exit105: ; preds =
 .lr.ph232:                                        ; preds = %.preheader186, %413
   %409 = phi ptr [ %416, %413 ], [ %402, %.preheader186 ]
   %.026231 = phi i64 [ %414, %413 ], [ 0, %.preheader186 ]
-  %410 = getelementptr inbounds nuw %"class.gmx::Selection", ptr %409, i64 %.026231
+  %410 = getelementptr inbounds nuw [8 x i8], ptr %409, i64 %.026231
   %411 = load ptr, ptr %410, align 8, !tbaa !145
   %412 = load ptr, ptr %411, align 8, !tbaa !89
   invoke void @_ZN3gmx18AbstractPlotModule12appendLegendEPKc(ptr noundef nonnull align 8 dereferenceable(16) %376, ptr noundef %412)
@@ -3178,7 +3177,7 @@ _ZNSt10shared_ptrIN3gmx19IAnalysisDataModuleEEC2INS0_22AnalysisDataPlotModuleEvE
   %.0234 = phi i64 [ 0, %.lr.ph235 ], [ %627, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit147 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
-  %538 = getelementptr inbounds nuw %"class.gmx::Selection", ptr %537, i64 %.0234
+  %538 = getelementptr inbounds nuw [8 x i8], ptr %537, i64 %.0234
   %539 = load ptr, ptr %538, align 8, !tbaa !145
   %540 = load ptr, ptr %539, align 8, !tbaa !89
   store ptr %515, ptr %19, align 8, !tbaa !7
@@ -3311,7 +3310,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %582 = load ptr, ptr %23, align 8, !tbaa !90
-  %583 = getelementptr inbounds nuw %"class.gmx::Selection", ptr %582, i64 %.0234
+  %583 = getelementptr inbounds nuw [8 x i8], ptr %582, i64 %.0234
   %584 = load ptr, ptr %583, align 8, !tbaa !145
   %585 = load ptr, ptr %584, align 8, !tbaa !89
   store ptr %519, ptr %21, align 8, !tbaa !7
@@ -3750,7 +3749,7 @@ define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_18Distance12analyzeFr
 
 .preheader.us:                                    ; preds = %26
   %35 = load ptr, ptr %8, align 8, !tbaa !90
-  %36 = getelementptr inbounds nuw %"class.gmx::Selection", ptr %35, i64 %.04979.us
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %.04979.us
   %37 = load ptr, ptr %36, align 8, !tbaa !145
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 112
   %39 = load i32, ptr %38, align 8, !tbaa !148
@@ -3765,8 +3764,8 @@ define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_18Distance12analyzeFr
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 64
   %44 = load ptr, ptr %43, align 8, !tbaa !176
-  %45 = getelementptr inbounds nuw [3 x float], ptr %44, i64 %42
-  %46 = getelementptr inbounds nuw [3 x float], ptr %44, i64 %indvars.iv90
+  %45 = getelementptr inbounds nuw [12 x i8], ptr %44, i64 %42
+  %46 = getelementptr inbounds nuw [12 x i8], ptr %44, i64 %indvars.iv90
   %47 = load float, ptr %45, align 4, !tbaa !141
   %48 = load float, ptr %46, align 4, !tbaa !141
   %49 = fsub float %47, %48
@@ -3789,13 +3788,13 @@ define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_18Distance12analyzeFr
   %sqrt.i.i.us.us = call noundef float @llvm.sqrt.f32(float %62)
   %63 = getelementptr inbounds nuw i8, ptr %41, i64 96
   %64 = load ptr, ptr %63, align 8, !tbaa !184
-  %65 = getelementptr inbounds nuw i32, ptr %64, i64 %indvars.iv90
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %indvars.iv90
   %66 = load i32, ptr %65, align 4, !tbaa !81
   %67 = icmp sgt i32 %66, -1
   br i1 %67, label %68, label %72
 
 68:                                               ; preds = %.lr.ph.us
-  %69 = getelementptr inbounds nuw i32, ptr %64, i64 %42
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %42
   %70 = load i32, ptr %69, align 4, !tbaa !81
   %71 = icmp sgt i32 %70, -1
   br label %72
@@ -3815,7 +3814,7 @@ define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_18Distance12analyzeFr
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 2
   %77 = add nuw nsw i32 %.05177.us.us, 1
   %78 = load ptr, ptr %8, align 8, !tbaa !90
-  %79 = getelementptr inbounds nuw %"class.gmx::Selection", ptr %78, i64 %.04979.us
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %.04979.us
   %80 = load ptr, ptr %79, align 8, !tbaa !145
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 112
   %82 = load i32, ptr %81, align 8, !tbaa !148
@@ -3854,7 +3853,7 @@ define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_18Distance12analyzeFr
 
 .preheader:                                       ; preds = %90
   %91 = load ptr, ptr %8, align 8, !tbaa !90
-  %92 = getelementptr inbounds nuw %"class.gmx::Selection", ptr %91, i64 %.04979
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %.04979
   %93 = load ptr, ptr %92, align 8, !tbaa !145
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 112
   %95 = load i32, ptr %94, align 8, !tbaa !148
@@ -3885,8 +3884,8 @@ define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_18Distance12analyzeFr
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %108 = getelementptr inbounds nuw i8, ptr %106, i64 64
   %109 = load ptr, ptr %108, align 8, !tbaa !176
-  %110 = getelementptr inbounds nuw [3 x float], ptr %109, i64 %107
-  %111 = getelementptr inbounds nuw [3 x float], ptr %109, i64 %indvars.iv
+  %110 = getelementptr inbounds nuw [12 x i8], ptr %109, i64 %107
+  %111 = getelementptr inbounds nuw [12 x i8], ptr %109, i64 %indvars.iv
   invoke void @_Z6pbc_dxPK5t_pbcPKfS3_Pf(ptr noundef nonnull %3, ptr noundef nonnull %110, ptr noundef nonnull %111, ptr noundef nonnull %9)
           to label %114 unwind label %112
 
@@ -3905,13 +3904,13 @@ define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_18Distance12analyzeFr
   %sqrt.i.i = call noundef float @llvm.sqrt.f32(float %120)
   %121 = getelementptr inbounds nuw i8, ptr %106, i64 96
   %122 = load ptr, ptr %121, align 8, !tbaa !184
-  %123 = getelementptr inbounds nuw i32, ptr %122, i64 %indvars.iv
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %122, i64 %indvars.iv
   %124 = load i32, ptr %123, align 4, !tbaa !81
   %125 = icmp sgt i32 %124, -1
   br i1 %125, label %126, label %130
 
 126:                                              ; preds = %114
-  %127 = getelementptr inbounds nuw i32, ptr %122, i64 %107
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %122, i64 %107
   %128 = load i32, ptr %127, align 4, !tbaa !81
   %129 = icmp sgt i32 %128, -1
   br label %130
@@ -3931,7 +3930,7 @@ define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_18Distance12analyzeFr
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %135 = add nuw nsw i32 %.05177, 1
   %136 = load ptr, ptr %8, align 8, !tbaa !90
-  %137 = getelementptr inbounds nuw %"class.gmx::Selection", ptr %136, i64 %.04979
+  %137 = getelementptr inbounds nuw [8 x i8], ptr %136, i64 %.04979
   %138 = load ptr, ptr %137, align 8, !tbaa !145
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 112
   %140 = load i32, ptr %139, align 8, !tbaa !148
@@ -4756,7 +4755,7 @@ define internal fastcc void @_ZN3gmx15analysismodules12_GLOBAL__N_115checkSelect
 
 .lr.ph34:                                         ; preds = %.lr.ph34.preheader, %.loopexit
   %.02932 = phi i64 [ %72, %.loopexit ], [ 0, %.lr.ph34.preheader ]
-  %13 = getelementptr inbounds nuw %"class.gmx::Selection", ptr %.0.val, i64 %.02932
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %.0.val, i64 %.02932
   %14 = load ptr, ptr %13, align 8, !tbaa !145
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 112
   %16 = load i32, ptr %15, align 8, !tbaa !148
@@ -4864,7 +4863,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %30, %
 
 46:                                               ; preds = %.lr.ph, %43
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %43 ]
-  %47 = getelementptr inbounds nuw i32, ptr %42, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %indvars.iv
   %48 = load i32, ptr %47, align 4, !tbaa !81
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 4
   %50 = load i32, ptr %49, align 4, !tbaa !81

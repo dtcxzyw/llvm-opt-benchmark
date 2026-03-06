@@ -6,9 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.slurm_conf_t = type { i64, ptr, i16, ptr, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i16, ptr, ptr, i16, i32, ptr, i32, ptr, i32, i32, ptr, ptr, i64, i64, ptr, i16, i16, ptr, i32, i32, ptr, i32, ptr, i32, i16, i16, i16, ptr, i16, i16, ptr, ptr, i32, i16, i16, ptr, i32, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, i16, i16, ptr, i32, i32, i32, i16, i16, ptr, ptr, i16, ptr, ptr, i32, i32, i32, i32, i32, i64, i32, i32, i16, ptr, ptr, i32, ptr, ptr, ptr, i16, i32, ptr, ptr, i16, ptr, ptr, i32, i16, ptr, ptr, ptr, ptr, i32, i32, i16, i16, i32, ptr, i16, ptr, i32, i32, i32, i32, i32, i32, ptr, i16, ptr, ptr, i32, i16, ptr, i32, i16, i16, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i16, i16, ptr, i16, ptr, i16, ptr, i16, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, i32, ptr, i32, ptr, ptr, i16, ptr, ptr, i32, i16, ptr, ptr, i16, i16, ptr, i16, ptr, ptr, ptr, i32, ptr, i16, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, i32, i16, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, i16, ptr, ptr, ptr, i16, ptr, i16, ptr, i16, i16, ptr }
 %struct.assoc_mgr_lock_t = type { i32, i32, i32, i32, i32, i32, i32 }
 %struct.diag_stats = type { i32, i32, i32, i32, i32, i32, i32, [6 x i32], i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, i32, i32, [6 x i32], i32, i32, i32, i32, i32, i32, i64, i32 }
-%struct.sockaddr_storage = type { i16, [118 x i8], i64 }
 %struct.foreach_filter_by_node_t = type { ptr, ptr }
-%struct.node_set = type { i16, ptr, ptr, i32, ptr, i32, i32, i64, i64 }
 %struct.resv_exc_t = type { ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.slurm_cred_arg_t = type { %struct.slurm_step_id_msg, i32, i32, ptr, i16, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, i64, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, i32, i16, ptr, ptr, ptr, i16, ptr, i64, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i32, ptr, ptr }
 %struct.slurm_step_id_msg = type { i64, i32, i32, i32 }
@@ -464,7 +462,7 @@ thread-pre-split:                                 ; preds = %16
   %32 = load ptr, ptr %31, align 8
   %33 = load ptr, ptr %4, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %34 = getelementptr inbounds nuw %struct.sockaddr_storage, ptr %33, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [128 x i8], ptr %33, i64 %indvars.iv
   %35 = call i32 @slurm_conf_get_addr(ptr noundef %32, ptr noundef %34, i16 noundef zeroext 0) #14
   %36 = load i32, ptr %3, align 4
   %37 = add nsw i32 %36, 1
@@ -978,7 +976,7 @@ define dso_local void @find_feature_nodes(ptr noundef %0, i1 noundef zeroext %1)
 
 switch.lookup:                                    ; preds = %54
   %60 = zext nneg i8 %56 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.find_feature_nodes, i64 %60
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.find_feature_nodes, i64 %60
   br label %61
 
 61:                                               ; preds = %switch.lookup, %58
@@ -1847,7 +1845,7 @@ define dso_local i32 @select_nodes(ptr noundef readonly captures(none) %0, i1 no
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_set_sched_weight.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_set_sched_weight.exit ]
-  %130 = getelementptr inbounds nuw %struct.node_set, ptr %126, i64 %indvars.iv
+  %130 = getelementptr inbounds nuw [64 x i8], ptr %126, i64 %indvars.iv
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 44
   %132 = load i32, ptr %131, align 4
   %133 = shl i32 %132, 8
@@ -2788,11 +2786,11 @@ thread-pre-split:                                 ; preds = %301, %282
 .lr.ph460:                                        ; preds = %.lr.ph460.preheader, %553
   %541 = phi ptr [ %126, %.lr.ph460.preheader ], [ %544, %553 ]
   %indvars.iv463 = phi i64 [ 0, %.lr.ph460.preheader ], [ %indvars.iv.next464, %553 ]
-  %542 = getelementptr inbounds nuw %struct.node_set, ptr %541, i64 %indvars.iv463
+  %542 = getelementptr inbounds nuw [64 x i8], ptr %541, i64 %indvars.iv463
   %543 = getelementptr inbounds nuw i8, ptr %542, i64 8
   call void @slurm_xfree(ptr noundef nonnull %543) #14
   %544 = load ptr, ptr %8, align 8
-  %545 = getelementptr inbounds nuw %struct.node_set, ptr %544, i64 %indvars.iv463
+  %545 = getelementptr inbounds nuw [64 x i8], ptr %544, i64 %indvars.iv463
   %546 = getelementptr inbounds nuw i8, ptr %545, i64 32
   %547 = load ptr, ptr %546, align 8
   %.not444 = icmp eq ptr %547, null
@@ -3476,7 +3474,7 @@ _get_ntasks_per_core.exit:                        ; preds = %155, %164
   %198 = call ptr @bit_copy(ptr noundef %197) #14
   %199 = load ptr, ptr %18, align 8
   %200 = sext i32 %.0300456 to i64
-  %201 = getelementptr inbounds %struct.node_set, ptr %199, i64 %200
+  %201 = getelementptr inbounds [64 x i8], ptr %199, i64 %200
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 32
   store ptr %198, ptr %202, align 8
   %203 = load ptr, ptr %147, align 8
@@ -3865,7 +3863,7 @@ _valid_features.exit._crit_edge:                  ; preds = %_valid_features.exi
 
 359:                                              ; preds = %352, %355
   %360 = load ptr, ptr %18, align 8
-  %361 = getelementptr inbounds %struct.node_set, ptr %360, i64 %200
+  %361 = getelementptr inbounds [64 x i8], ptr %360, i64 %200
   %362 = getelementptr inbounds nuw i8, ptr %361, i64 32
   %363 = load ptr, ptr %362, align 8
   %.not389 = icmp eq ptr %363, null
@@ -3888,7 +3886,7 @@ _valid_features.exit._crit_edge:                  ; preds = %_valid_features.exi
   %369 = phi ptr [ %.pre, %_valid_features.exit._crit_edge ], [ %199, %366 ]
   %.0295 = phi ptr [ %.077.i, %_valid_features.exit._crit_edge ], [ %367, %366 ]
   %370 = load i16, ptr %169, align 8
-  %371 = getelementptr inbounds %struct.node_set, ptr %369, i64 %200
+  %371 = getelementptr inbounds [64 x i8], ptr %369, i64 %200
   store i16 %370, ptr %371, align 8
   %372 = load i64, ptr %176, align 8
   %373 = getelementptr inbounds nuw i8, ptr %371, i64 48
@@ -4040,7 +4038,7 @@ _valid_features.exit._crit_edge:                  ; preds = %_valid_features.exi
   %448 = load ptr, ptr %151, align 8
   %449 = load i16, ptr %169, align 8
   %450 = sext i32 %390 to i64
-  %451 = getelementptr inbounds %struct.node_set, ptr %447, i64 %450
+  %451 = getelementptr inbounds [64 x i8], ptr %447, i64 %450
   store i16 %449, ptr %451, align 8
   %452 = load ptr, ptr %377, align 8
   %453 = call ptr @xstrdup(ptr noundef %452) #14
@@ -4054,7 +4052,7 @@ _valid_features.exit._crit_edge:                  ; preds = %_valid_features.exi
   %458 = load i64, ptr %176, align 8
   %459 = getelementptr inbounds nuw i8, ptr %451, i64 48
   store i64 %458, ptr %459, align 8
-  %460 = getelementptr inbounds %struct.node_set, ptr %447, i64 %200
+  %460 = getelementptr inbounds [64 x i8], ptr %447, i64 %200
   %461 = getelementptr inbounds nuw i8, ptr %460, i64 44
   %462 = load i32, ptr %461, align 4
   %463 = getelementptr inbounds nuw i8, ptr %451, i64 44
@@ -4099,7 +4097,7 @@ _valid_features.exit._crit_edge:                  ; preds = %_valid_features.exi
   %485 = load ptr, ptr %150, align 8
   %486 = load i16, ptr %169, align 8
   %487 = sext i32 %390 to i64
-  %488 = getelementptr inbounds %struct.node_set, ptr %369, i64 %487
+  %488 = getelementptr inbounds [64 x i8], ptr %369, i64 %487
   store i16 %486, ptr %488, align 8
   %489 = load ptr, ptr %377, align 8
   %490 = call ptr @xstrdup(ptr noundef %489) #14
@@ -4267,7 +4265,7 @@ _valid_features.exit._crit_edge:                  ; preds = %_valid_features.exi
 
 565:                                              ; preds = %564, %569
   %indvars.iv = phi i64 [ 0, %564 ], [ %indvars.iv.next, %569 ]
-  %566 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv
+  %566 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv
   %567 = load ptr, ptr %566, align 8
   %.not388 = icmp eq ptr %567, null
   br i1 %.not388, label %569, label %568
@@ -4302,7 +4300,7 @@ _valid_features.exit._crit_edge:                  ; preds = %_valid_features.exi
   call void @list_iterator_destroy(ptr noundef %138) #14
   %574 = load ptr, ptr %18, align 8
   %575 = sext i32 %.1301 to i64
-  %576 = getelementptr inbounds %struct.node_set, ptr %574, i64 %575
+  %576 = getelementptr inbounds [64 x i8], ptr %574, i64 %575
   %577 = getelementptr inbounds nuw i8, ptr %576, i64 8
   call void @slurm_xfree(ptr noundef nonnull %577) #14
   %578 = getelementptr inbounds nuw i8, ptr %576, i64 32
@@ -4400,7 +4398,7 @@ _valid_features.exit._crit_edge:                  ; preds = %_valid_features.exi
   %indvars.iv491 = phi i64 [ %613, %.lr.ph460.preheader ], [ %indvars.iv.next492, %662 ]
   %.6458 = phi i32 [ %.1301, %.lr.ph460.preheader ], [ %.8, %662 ]
   %indvars.iv.next492 = add nsw i64 %indvars.iv491, -1
-  %616 = getelementptr inbounds nuw %struct.node_set, ptr %615, i64 %indvars.iv.next492
+  %616 = getelementptr inbounds nuw [64 x i8], ptr %615, i64 %indvars.iv.next492
   %617 = getelementptr inbounds nuw i8, ptr %616, i64 32
   %618 = load ptr, ptr %617, align 8
   %619 = load ptr, ptr @power_down_node_bitmap, align 8
@@ -4409,7 +4407,7 @@ _valid_features.exit._crit_edge:                  ; preds = %_valid_features.exi
   br i1 %621, label %662, label %622
 
 622:                                              ; preds = %.lr.ph460
-  %623 = getelementptr inbounds nuw %struct.node_set, ptr %614, i64 %indvars.iv.next492
+  %623 = getelementptr inbounds nuw [64 x i8], ptr %614, i64 %indvars.iv.next492
   %624 = getelementptr inbounds nuw i8, ptr %623, i64 40
   %625 = load i32, ptr %624, align 8
   %626 = icmp eq i32 %620, %625
@@ -4423,13 +4421,13 @@ _valid_features.exit._crit_edge:                  ; preds = %_valid_features.exi
 629:                                              ; preds = %622
   %630 = load i16, ptr %623, align 8
   %631 = sext i32 %.6458 to i64
-  %632 = getelementptr inbounds %struct.node_set, ptr %614, i64 %631
+  %632 = getelementptr inbounds [64 x i8], ptr %614, i64 %631
   store i16 %630, ptr %632, align 8
   %633 = load ptr, ptr %18, align 8
-  %634 = getelementptr inbounds nuw %struct.node_set, ptr %633, i64 %indvars.iv.next492
+  %634 = getelementptr inbounds nuw [64 x i8], ptr %633, i64 %indvars.iv.next492
   %635 = getelementptr inbounds nuw i8, ptr %634, i64 48
   %636 = load i64, ptr %635, align 8
-  %637 = getelementptr inbounds %struct.node_set, ptr %633, i64 %631
+  %637 = getelementptr inbounds [64 x i8], ptr %633, i64 %631
   %638 = getelementptr inbounds nuw i8, ptr %637, i64 48
   store i64 %636, ptr %638, align 8
   %639 = getelementptr inbounds nuw i8, ptr %637, i64 40
@@ -4605,7 +4603,7 @@ _find_grp_node_bitmap.exit:                       ; preds = %_find_grp_node_bitm
   %indvars.iv494 = phi i64 [ %697, %.lr.ph465.preheader ], [ %indvars.iv.next495, %754 ]
   %.9463 = phi i32 [ %.7, %.lr.ph465.preheader ], [ %.10, %754 ]
   %indvars.iv.next495 = add nsw i64 %indvars.iv494, -1
-  %700 = getelementptr inbounds nuw %struct.node_set, ptr %699, i64 %indvars.iv.next495
+  %700 = getelementptr inbounds nuw [64 x i8], ptr %699, i64 %indvars.iv.next495
   %701 = getelementptr inbounds nuw i8, ptr %700, i64 32
   %702 = load ptr, ptr %701, align 8
   %703 = call i32 @bit_overlap(ptr noundef %702, ptr noundef %698) #14
@@ -4615,7 +4613,7 @@ _find_grp_node_bitmap.exit:                       ; preds = %_find_grp_node_bitm
 
 706:                                              ; preds = %.lr.ph465
   %707 = zext nneg i32 %.9463 to i64
-  %708 = getelementptr inbounds nuw %struct.node_set, ptr %705, i64 %707
+  %708 = getelementptr inbounds nuw [64 x i8], ptr %705, i64 %707
   %709 = getelementptr inbounds nuw i8, ptr %708, i64 44
   %710 = load i32, ptr %709, align 4
   %711 = add i32 %710, 1
@@ -4623,7 +4621,7 @@ _find_grp_node_bitmap.exit:                       ; preds = %_find_grp_node_bitm
   br label %754
 
 712:                                              ; preds = %.lr.ph465
-  %713 = getelementptr inbounds nuw %struct.node_set, ptr %705, i64 %indvars.iv.next495
+  %713 = getelementptr inbounds nuw [64 x i8], ptr %705, i64 %indvars.iv.next495
   %714 = getelementptr inbounds nuw i8, ptr %713, i64 40
   %715 = load i32, ptr %714, align 8
   %716 = icmp eq i32 %703, %715
@@ -4632,7 +4630,7 @@ _find_grp_node_bitmap.exit:                       ; preds = %_find_grp_node_bitm
 717:                                              ; preds = %712
   %718 = load i16, ptr %713, align 8
   %719 = zext nneg i32 %.9463 to i64
-  %720 = getelementptr inbounds nuw %struct.node_set, ptr %705, i64 %719
+  %720 = getelementptr inbounds nuw [64 x i8], ptr %705, i64 %719
   store i16 %718, ptr %720, align 8
   %721 = getelementptr inbounds nuw i8, ptr %713, i64 48
   %722 = load i64, ptr %721, align 8
@@ -4670,7 +4668,7 @@ _find_grp_node_bitmap.exit:                       ; preds = %_find_grp_node_bitm
   store ptr %744, ptr %745, align 8
   call void @bit_and(ptr noundef %744, ptr noundef %698) #14
   %746 = load ptr, ptr %18, align 8
-  %747 = getelementptr inbounds nuw %struct.node_set, ptr %746, i64 %indvars.iv.next495
+  %747 = getelementptr inbounds nuw [64 x i8], ptr %746, i64 %indvars.iv.next495
   %748 = getelementptr inbounds nuw i8, ptr %747, i64 32
   %749 = load ptr, ptr %748, align 8
   %750 = load ptr, ptr %20, align 8
@@ -4779,7 +4777,7 @@ define internal fastcc void @_log_node_set(ptr noundef %0, ptr noundef readonly 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %35
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %35 ]
-  %14 = getelementptr inbounds nuw %struct.node_set, ptr %1, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [64 x i8], ptr %1, i64 %indvars.iv
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %16 = load ptr, ptr %15, align 8
   %17 = call ptr @bitmap2node_name(ptr noundef %16) #14
@@ -4841,7 +4839,7 @@ define internal fastcc range(i32 0, 2015) i32 @_nodes_in_sets(ptr noundef nonnul
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %13 ]
   %6 = phi ptr [ null, %.lr.ph.preheader ], [ %14, %13 ]
   %.not12 = icmp eq ptr %6, null
-  %7 = getelementptr inbounds nuw %struct.node_set, ptr %1, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [64 x i8], ptr %1, i64 %indvars.iv
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %9 = load ptr, ptr %8, align 8
   br i1 %.not12, label %11, label %10
@@ -5250,7 +5248,7 @@ define internal fastcc range(i32 0, 2179) i32 @_get_req_features(ptr noundef rea
 
 .lr.ph.i:                                         ; preds = %113, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %113 ]
-  %105 = getelementptr inbounds nuw %struct.node_set, ptr %0, i64 %indvars.iv.i
+  %105 = getelementptr inbounds nuw [64 x i8], ptr %0, i64 %indvars.iv.i
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 24
   %107 = load i32, ptr %106, align 8
   %108 = and i32 %107, 1
@@ -5454,7 +5452,7 @@ _filter_by_node_feature.exit:                     ; preds = %113, %104, %97, %90
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %294 ]
   %.0266406 = phi i1 [ false, %.lr.ph ], [ %.1267, %294 ]
   %.0310404 = phi i32 [ 0, %.lr.ph ], [ %.1311, %294 ]
-  %204 = getelementptr inbounds nuw %struct.node_set, ptr %0, i64 %indvars.iv
+  %204 = getelementptr inbounds nuw [64 x i8], ptr %0, i64 %indvars.iv
   %205 = getelementptr inbounds nuw i8, ptr %204, i64 32
   %206 = load ptr, ptr %205, align 8
   %207 = call i32 @bit_overlap_any(ptr noundef %206, ptr noundef %.0274) #14
@@ -5464,12 +5462,12 @@ _filter_by_node_feature.exit:                     ; preds = %113, %104, %97, %90
 208:                                              ; preds = %201
   %209 = load i16, ptr %204, align 8
   %210 = sext i32 %.0310404 to i64
-  %211 = getelementptr inbounds %struct.node_set, ptr %203, i64 %210
+  %211 = getelementptr inbounds [64 x i8], ptr %203, i64 %210
   store i16 %209, ptr %211, align 8
   %212 = getelementptr inbounds nuw i8, ptr %204, i64 48
   %213 = load i64, ptr %212, align 8
   %214 = load ptr, ptr %14, align 8
-  %215 = getelementptr inbounds %struct.node_set, ptr %214, i64 %210
+  %215 = getelementptr inbounds [64 x i8], ptr %214, i64 %210
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 48
   store i64 %213, ptr %216, align 8
   %217 = getelementptr inbounds nuw i8, ptr %204, i64 44
@@ -5557,7 +5555,7 @@ _filter_by_node_feature.exit:                     ; preds = %113, %104, %97, %90
 266:                                              ; preds = %258
   %267 = load i16, ptr %204, align 8
   %268 = sext i32 %245 to i64
-  %269 = getelementptr inbounds %struct.node_set, ptr %214, i64 %268
+  %269 = getelementptr inbounds [64 x i8], ptr %214, i64 %268
   store i16 %267, ptr %269, align 8
   %270 = load i64, ptr %212, align 8
   %271 = getelementptr inbounds nuw i8, ptr %269, i64 48
@@ -5683,7 +5681,7 @@ _filter_by_node_feature.exit:                     ; preds = %113, %104, %97, %90
 
 .lr.ph409:                                        ; preds = %.lr.ph409.preheader, %_set_sched_weight.exit
   %indvars.iv434 = phi i64 [ 0, %.lr.ph409.preheader ], [ %indvars.iv.next435, %_set_sched_weight.exit ]
-  %326 = getelementptr inbounds nuw %struct.node_set, ptr %298, i64 %indvars.iv434
+  %326 = getelementptr inbounds nuw [64 x i8], ptr %298, i64 %indvars.iv434
   %327 = getelementptr inbounds nuw i8, ptr %326, i64 44
   %328 = load i32, ptr %327, align 4
   %329 = shl i32 %328, 8
@@ -5754,11 +5752,11 @@ _set_sched_weight.exit:                           ; preds = %.lr.ph409, %336
 .lr.ph413:                                        ; preds = %.lr.ph413.preheader, %371
   %359 = phi ptr [ %345, %.lr.ph413.preheader ], [ %362, %371 ]
   %indvars.iv439 = phi i64 [ 0, %.lr.ph413.preheader ], [ %indvars.iv.next440, %371 ]
-  %360 = getelementptr inbounds nuw %struct.node_set, ptr %359, i64 %indvars.iv439
+  %360 = getelementptr inbounds nuw [64 x i8], ptr %359, i64 %indvars.iv439
   %361 = getelementptr inbounds nuw i8, ptr %360, i64 8
   call void @slurm_xfree(ptr noundef nonnull %361) #14
   %362 = load ptr, ptr %14, align 8
-  %363 = getelementptr inbounds nuw %struct.node_set, ptr %362, i64 %indvars.iv439
+  %363 = getelementptr inbounds nuw [64 x i8], ptr %362, i64 %indvars.iv439
   %364 = getelementptr inbounds nuw i8, ptr %363, i64 16
   %365 = load ptr, ptr %364, align 8
   %.not358 = icmp eq ptr %365, null
@@ -6468,7 +6466,7 @@ define internal fastcc i32 @_get_resv_mpi_ports(ptr noundef %0, ptr noundef nonn
   %53 = phi i16 [ 0, %.lr.ph ], [ %57, %52 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %52 ]
   %54 = load ptr, ptr %51, align 8
-  %55 = getelementptr inbounds nuw i16, ptr %54, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [2 x i8], ptr %54, i64 %indvars.iv
   %56 = load i16, ptr %55, align 2
   %. = tail call i16 @llvm.umax.i16(i16 %53, i16 %56)
   %57 = shl i16 %., 1
@@ -6485,7 +6483,7 @@ define internal fastcc i32 @_get_resv_mpi_ports(ptr noundef %0, ptr noundef nonn
   %indvars.iv117 = phi i64 [ 0, %.lr.ph113 ], [ %indvars.iv.next118, %59 ]
   %.076111 = phi i32 [ 0, %.lr.ph113 ], [ %65, %59 ]
   %60 = and i32 %.076111, 65535
-  %61 = getelementptr inbounds nuw i16, ptr %49, i64 %indvars.iv117
+  %61 = getelementptr inbounds nuw [2 x i8], ptr %49, i64 %indvars.iv117
   %62 = load i16, ptr %61, align 2
   %63 = zext i16 %62 to i32
   %64 = shl nuw nsw i32 %63, 1
@@ -7730,7 +7728,7 @@ define dso_local range(i32 -1, 1) i32 @pick_batch_host(ptr noundef %0) local_unn
 19:                                               ; preds = %16
   %20 = load ptr, ptr @node_record_table_ptr, align 8
   %21 = and i64 %12, 2147483647
-  %22 = getelementptr inbounds nuw ptr, ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %21
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 272
   %25 = load ptr, ptr %24, align 8
@@ -7835,7 +7833,7 @@ define dso_local range(i32 -1, 1) i32 @pick_batch_host(ptr noundef %0) local_unn
   %71 = load ptr, ptr @node_record_table_ptr, align 8
   %.038.in.v.v = select i1 %70, i64 %68, i64 %12
   %.038.in.v = and i64 %.038.in.v.v, 2147483647
-  %.038.in = getelementptr inbounds nuw ptr, ptr %71, i64 %.038.in.v
+  %.038.in = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %.038.in.v
   %.038 = load ptr, ptr %.038.in, align 8
   %72 = getelementptr inbounds nuw i8, ptr %.038, i64 272
   %73 = load ptr, ptr %72, align 8
@@ -8315,7 +8313,7 @@ _resolve_shared_status.exit:                      ; preds = %55, %62, %70, %79, 
 115:                                              ; preds = %109
   %116 = load ptr, ptr @node_record_table_ptr, align 8
   %117 = and i64 %112, 2147483647
-  %118 = getelementptr inbounds nuw ptr, ptr %116, i64 %117
+  %118 = getelementptr inbounds nuw [8 x i8], ptr %116, i64 %117
   %119 = load ptr, ptr %118, align 8
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 512
   %121 = load i16, ptr %120, align 8
@@ -8368,7 +8366,7 @@ _resolve_shared_status.exit:                      ; preds = %55, %62, %70, %79, 
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.0347592 = phi i32 [ 64, %.lr.ph.preheader ], [ %.1348, %.lr.ph ]
   %.0349591 = phi i32 [ -1, %.lr.ph.preheader ], [ %.1350, %.lr.ph ]
-  %141 = getelementptr inbounds nuw %struct.node_set, ptr %0, i64 %indvars.iv
+  %141 = getelementptr inbounds nuw [64 x i8], ptr %0, i64 %indvars.iv
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 16
   %143 = load ptr, ptr %142, align 8
   %144 = tail call i64 @bit_ffs(ptr noundef %143) #14
@@ -8413,7 +8411,7 @@ _resolve_shared_status.exit:                      ; preds = %55, %62, %70, %79, 
 
 .lr.ph14.i:                                       ; preds = %177, %.lr.ph14.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph14.preheader.i ], [ %indvars.iv.next.i, %177 ]
-  %163 = getelementptr inbounds nuw %struct.node_set, ptr %0, i64 %indvars.iv.i
+  %163 = getelementptr inbounds nuw [64 x i8], ptr %0, i64 %indvars.iv.i
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 32
   %165 = load ptr, ptr %164, align 8
   %.not.i501 = icmp eq ptr %165, null
@@ -8490,7 +8488,7 @@ _sync_node_weight.exit:                           ; preds = %177, %160
 .lr.ph597:                                        ; preds = %.preheader, %210
   %indvars.iv638 = phi i64 [ %indvars.iv.next639, %210 ], [ 0, %.preheader ]
   %.0301596 = phi i1 [ %.1302, %210 ], [ false, %.preheader ]
-  %187 = getelementptr inbounds nuw %struct.node_set, ptr %0, i64 %indvars.iv638
+  %187 = getelementptr inbounds nuw [64 x i8], ptr %0, i64 %indvars.iv638
   %188 = getelementptr inbounds nuw i8, ptr %187, i64 16
   %189 = load ptr, ptr %188, align 8
   %190 = call i32 @slurm_bit_test(ptr noundef %189, i64 noundef %indvars.iv646) #14
@@ -8591,7 +8589,7 @@ _sync_node_weight.exit:                           ; preds = %177, %160
   br i1 %11, label %237, label %227
 
 227:                                              ; preds = %.lr.ph611
-  %228 = getelementptr inbounds nuw %struct.node_set, ptr %0, i64 %indvars.iv642
+  %228 = getelementptr inbounds nuw [64 x i8], ptr %0, i64 %indvars.iv642
   %229 = getelementptr inbounds nuw i8, ptr %228, i64 16
   %230 = load ptr, ptr %229, align 8
   %231 = call i32 @slurm_bit_test(ptr noundef %230, i64 noundef %indvars.iv646) #14
@@ -8609,7 +8607,7 @@ _sync_node_weight.exit:                           ; preds = %177, %160
 237:                                              ; preds = %227, %.lr.ph611
   %238 = load ptr, ptr %17, align 8
   %.not437 = icmp eq ptr %238, null
-  %239 = getelementptr inbounds nuw %struct.node_set, ptr %0, i64 %indvars.iv642
+  %239 = getelementptr inbounds nuw [64 x i8], ptr %0, i64 %indvars.iv642
   %240 = getelementptr inbounds nuw i8, ptr %239, i64 32
   %241 = load ptr, ptr %240, align 8
   br i1 %.not437, label %243, label %242
@@ -8624,7 +8622,7 @@ _sync_node_weight.exit:                           ; preds = %177, %160
   br label %245
 
 245:                                              ; preds = %243, %242
-  %246 = getelementptr inbounds nuw %struct.node_set, ptr %0, i64 %indvars.iv642
+  %246 = getelementptr inbounds nuw [64 x i8], ptr %0, i64 %indvars.iv642
   %247 = getelementptr inbounds nuw i8, ptr %246, i64 24
   %248 = load i32, ptr %247, align 8
   %249 = and i32 %248, 1
@@ -8736,7 +8734,7 @@ _sync_node_weight.exit:                           ; preds = %177, %160
 300:                                              ; preds = %296
   %301 = getelementptr inbounds nuw i8, ptr %246, i64 56
   %302 = load i64, ptr %301, align 8
-  %303 = getelementptr inbounds nuw %struct.node_set, ptr %0, i64 %294
+  %303 = getelementptr inbounds nuw [64 x i8], ptr %0, i64 %294
   %304 = getelementptr inbounds nuw i8, ptr %303, i64 56
   %305 = load i64, ptr %304, align 8
   %306 = icmp eq i64 %302, %305
@@ -9561,7 +9559,7 @@ define internal noundef i32 @_get_node_gpu_sum(ptr noundef readonly captures(non
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load i32, ptr %11, align 8
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds i64, ptr %10, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %10, i64 %13
   %15 = load i64, ptr %14, align 8
   %16 = load i64, ptr %1, align 8
   %17 = add i64 %16, %15
@@ -9589,7 +9587,7 @@ define internal fastcc void @_split_node_set(ptr noundef captures(none) %0, ptr 
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %9 = load i16, ptr %8, align 8
   %10 = sext i32 %3 to i64
-  %11 = getelementptr inbounds %struct.node_set, ptr %0, i64 %10
+  %11 = getelementptr inbounds [64 x i8], ptr %0, i64 %10
   store i16 %9, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %13 = load ptr, ptr %12, align 8
@@ -9606,7 +9604,7 @@ define internal fastcc void @_split_node_set(ptr noundef captures(none) %0, ptr 
   %21 = getelementptr inbounds nuw i8, ptr %11, i64 48
   store i64 %20, ptr %21, align 8
   %22 = sext i32 %2 to i64
-  %23 = getelementptr inbounds %struct.node_set, ptr %0, i64 %22
+  %23 = getelementptr inbounds [64 x i8], ptr %0, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 44
   %25 = load i32, ptr %24, align 4
   %26 = getelementptr inbounds nuw i8, ptr %11, i64 44

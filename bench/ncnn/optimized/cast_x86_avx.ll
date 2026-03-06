@@ -530,7 +530,7 @@ define internal void @_ZNK4ncnn12Cast_x86_avx7forwardERKNS_3MatERS1_RKNS_6Option
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 %indvars.iv
   %37 = load i8, ptr %36, align 1, !tbaa !53
   %38 = sitofp i8 %37 to float
-  %39 = getelementptr inbounds nuw float, ptr %34, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %indvars.iv
   store float %38, ptr %39, align 4, !tbaa !54
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

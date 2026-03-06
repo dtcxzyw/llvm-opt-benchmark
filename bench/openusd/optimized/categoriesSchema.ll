@@ -1205,7 +1205,7 @@ _ZNSt6vectorISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBas
   %54 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %53, ptr %10, align 8
   store ptr %53, ptr %54, align 8
-  %55 = getelementptr inbounds nuw %"class.std::shared_ptr.3", ptr %53, i64 %1
+  %55 = getelementptr inbounds nuw [16 x i8], ptr %53, i64 %1
   store ptr %55, ptr %51, align 8
   %56 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %57 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -1406,7 +1406,7 @@ _ZNSt6vectorISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBas
   %138 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %137, ptr %10, align 8
   store ptr %137, ptr %138, align 8
-  %139 = getelementptr inbounds nuw %"class.std::shared_ptr.3", ptr %137, i64 %3
+  %139 = getelementptr inbounds nuw [16 x i8], ptr %137, i64 %3
   store ptr %139, ptr %135, align 8
   %140 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %141 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -1585,7 +1585,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE7reserveEm.exit
   %214 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %213, ptr %15, align 8
   store ptr %213, ptr %214, align 8
-  %215 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %213, i64 %207
+  %215 = getelementptr inbounds nuw [8 x i8], ptr %213, i64 %207
   store ptr %215, ptr %210, align 8
   %216 = icmp samesign ugt i64 %207, 576460752303423487
   br i1 %216, label %.invoke246, label %_ZNSt12_Vector_baseISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEESaIS3_EE11_M_allocateEm.exit.i114
@@ -1607,7 +1607,7 @@ _ZNSt12_Vector_baseISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSo
   %220 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %218, ptr %10, align 8
   store ptr %218, ptr %219, align 8
-  %221 = getelementptr inbounds nuw %"class.std::shared_ptr.3", ptr %218, i64 %207
+  %221 = getelementptr inbounds nuw [16 x i8], ptr %218, i64 %207
   store ptr %221, ptr %220, align 8
   br label %_ZNSt6vectorISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEESaIS3_EE7reserveEm.exit127
 
@@ -1624,7 +1624,7 @@ _ZNSt6vectorISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBas
 
 226:                                              ; preds = %.lr.ph, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEED2Ev.exit141
   %.042194 = phi i64 [ 0, %.lr.ph ], [ %300, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEED2Ev.exit141 ]
-  %227 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %2, i64 %.042194
+  %227 = getelementptr inbounds [8 x i8], ptr %2, i64 %.042194
   %228 = load ptr, ptr %223, align 8
   %229 = load ptr, ptr %210, align 8
   %.not.i = icmp eq ptr %228, %229
@@ -1821,7 +1821,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEED2Ev.ex
 
 306:                                              ; preds = %.lr.ph196, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEED2Ev.exit159
   %.0195 = phi i64 [ 0, %.lr.ph196 ], [ %380, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEED2Ev.exit159 ]
-  %307 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %4, i64 %.0195
+  %307 = getelementptr inbounds [8 x i8], ptr %4, i64 %.0195
   %308 = load ptr, ptr %303, align 8
   %309 = load ptr, ptr %210, align 8
   %.not.i142 = icmp eq ptr %308, %309
@@ -2976,7 +2976,7 @@ _ZNSt6vectorISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBas
 _ZNSt12_Vector_baseISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22, %40
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8
-  %44 = getelementptr inbounds nuw %"class.std::shared_ptr.3", ptr %20, i64 %16
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %44, ptr %39, align 8
   ret void
 }
@@ -3079,7 +3079,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE11_S_relocateEP
 _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22, %38
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8
-  %42 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %20, i64 %16
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %16
   store ptr %42, ptr %37, align 8
   ret void
 }

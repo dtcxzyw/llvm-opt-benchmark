@@ -149,7 +149,7 @@ define internal range(i32 -2147483648, 1) i32 @write_packet(ptr noundef %0, ptr 
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %13 = load i32, ptr %12, align 4, !tbaa !48
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds ptr, ptr %11, i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr %11, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !25
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load ptr, ptr %17, align 8, !tbaa !27
@@ -262,7 +262,7 @@ define internal range(i32 -2147483648, 1) i32 @write_packet(ptr noundef %0, ptr 
   %78 = getelementptr inbounds nuw [1024 x i8], ptr %68, i64 %indvars.iv
   %79 = call i64 @av_strlcpy(ptr noundef nonnull %78, ptr noundef nonnull %4, i64 noundef 1024) #8
   %80 = load ptr, ptr %69, align 8, !tbaa !55
-  %81 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %82 = load i32, ptr %70, align 8, !tbaa !56
   %.not135 = icmp eq i32 %82, 0
   %83 = select i1 %.not135, ptr %4, ptr %76
@@ -465,7 +465,7 @@ define internal range(i32 -2147483648, 1) i32 @write_packet(ptr noundef %0, ptr 
 
 189:                                              ; preds = %.thread, %194
   %indvars.iv168 = phi i64 [ 0, %.thread ], [ %indvars.iv.next169, %194 ]
-  %190 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv168
+  %190 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv168
   %191 = load ptr, ptr %190, align 8, !tbaa !67
   %.not143 = icmp eq ptr %191, null
   br i1 %.not143, label %194, label %192
@@ -495,7 +495,7 @@ define internal range(i32 0, 2) i32 @query_codec(i32 noundef %0, i32 noundef %1)
 
 4:                                                ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %5 = getelementptr inbounds nuw %struct.IdStrMap, ptr @ff_img_tags, i64 %indvars.iv.next
+  %5 = getelementptr inbounds nuw [16 x i8], ptr @ff_img_tags, i64 %indvars.iv.next
   %6 = load i32, ptr %5, align 4, !tbaa !71
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !73
@@ -596,7 +596,7 @@ define internal fastcc i32 @write_muxed_file(ptr noundef readonly captures(none)
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %10 = load i32, ptr %9, align 4, !tbaa !48
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds ptr, ptr %8, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %8, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !25
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8, !tbaa !27

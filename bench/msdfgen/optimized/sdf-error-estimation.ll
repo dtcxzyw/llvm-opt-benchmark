@@ -87,11 +87,11 @@ if.end:                                           ; preds = %land.lhs.true
   %8 = load i32, ptr %width, align 8
   %mul.i39 = mul nsw i32 %b.0, %8
   %idx.ext.i = sext i32 %mul.i39 to i64
-  %add.ptr.i = getelementptr inbounds float, ptr %7, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds [4 x i8], ptr %7, i64 %idx.ext.i
   %9 = load float, ptr %add.ptr.i, align 4
   %mul.i41 = mul nsw i32 %t.0, %8
   %idx.ext.i42 = sext i32 %mul.i41 to i64
-  %add.ptr.i43 = getelementptr inbounds float, ptr %7, i64 %idx.ext.i42
+  %add.ptr.i43 = getelementptr inbounds [4 x i8], ptr %7, i64 %idx.ext.i42
   %10 = load float, ptr %add.ptr.i43, align 4
   %sub.i = fsub double 1.000000e+00, %bt.0
   %conv.i44 = fpext float %9 to double
@@ -152,12 +152,12 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %mul.i52 = mul nsw i32 %15, %b.0
   %add.i = add nsw i32 %mul.i52, %r.0110
   %idx.ext.i53 = sext i32 %add.i to i64
-  %add.ptr.i54 = getelementptr inbounds float, ptr %16, i64 %idx.ext.i53
+  %add.ptr.i54 = getelementptr inbounds [4 x i8], ptr %16, i64 %idx.ext.i53
   %17 = load float, ptr %add.ptr.i54, align 4
   %mul.i56 = mul nsw i32 %15, %t.0
   %add.i57 = add nsw i32 %mul.i56, %r.0110
   %idx.ext.i58 = sext i32 %add.i57 to i64
-  %add.ptr.i59 = getelementptr inbounds float, ptr %16, i64 %idx.ext.i58
+  %add.ptr.i59 = getelementptr inbounds [4 x i8], ptr %16, i64 %idx.ext.i58
   %18 = load float, ptr %add.ptr.i59, align 4
   %conv.i61 = fpext float %17 to double
   %conv1.i62 = fpext float %18 to double
@@ -256,7 +256,7 @@ if.then.i18.i.i92:                                ; preds = %_ZNSt6vectorIN7msdf
 _ZNSt6vectorIN7msdfgen8Scanline12IntersectionESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i93: ; preds = %if.then.i18.i.i92, %_ZNSt6vectorIN7msdfgen8Scanline12IntersectionESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i89
   store ptr %call5.i.i.i.i.i99, ptr %intersections, align 8
   store ptr %incdec.ptr.i.i90, ptr %_M_finish.i69, align 8
-  %add.ptr19.i.i94 = getelementptr inbounds nuw %"struct.msdfgen::Scanline::Intersection", ptr %call5.i.i.i.i.i99, i64 %cond.i.i.i84
+  %add.ptr19.i.i94 = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i.i.i99, i64 %cond.i.i.i84
   store ptr %add.ptr19.i.i94, ptr %_M_end_of_storage.i70, align 8
   br label %for.inc
 
@@ -387,11 +387,11 @@ invoke.cont49:                                    ; preds = %land.lhs.true
   %mul.i86 = mul i32 %8, 3
   %mul2.i = mul i32 %mul.i86, %b.0
   %idx.ext.i = sext i32 %mul2.i to i64
-  %add.ptr.i = getelementptr inbounds float, ptr %7, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds [4 x i8], ptr %7, i64 %idx.ext.i
   %9 = load float, ptr %add.ptr.i, align 4
   %mul2.i89 = mul i32 %mul.i86, %t.0
   %idx.ext.i90 = sext i32 %mul2.i89 to i64
-  %add.ptr.i91 = getelementptr inbounds float, ptr %7, i64 %idx.ext.i90
+  %add.ptr.i91 = getelementptr inbounds [4 x i8], ptr %7, i64 %idx.ext.i90
   %10 = load float, ptr %add.ptr.i91, align 4
   %sub.i = fsub double 1.000000e+00, %bt.0
   %conv.i92 = fpext float %9 to double
@@ -501,13 +501,13 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %add.i = add nsw i32 %mul.i131, %r.0267
   %mul2.i132 = mul nsw i32 %add.i, 3
   %idx.ext.i133 = sext i32 %mul2.i132 to i64
-  %add.ptr.i134 = getelementptr inbounds float, ptr %23, i64 %idx.ext.i133
+  %add.ptr.i134 = getelementptr inbounds [4 x i8], ptr %23, i64 %idx.ext.i133
   %24 = load float, ptr %add.ptr.i134, align 4
   %mul.i136 = mul nsw i32 %22, %t.0
   %add.i137 = add nsw i32 %mul.i136, %r.0267
   %mul2.i138 = mul nsw i32 %add.i137, 3
   %idx.ext.i139 = sext i32 %mul2.i138 to i64
-  %add.ptr.i140 = getelementptr inbounds float, ptr %23, i64 %idx.ext.i139
+  %add.ptr.i140 = getelementptr inbounds [4 x i8], ptr %23, i64 %idx.ext.i139
   %25 = load float, ptr %add.ptr.i140, align 4
   %conv.i142 = fpext float %24 to double
   %conv1.i143 = fpext float %25 to double
@@ -547,9 +547,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 for.body90:                                       ; preds = %for.body, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body ], [ %indvars.iv.next, %for.inc ]
   %newIntersectionCount.0259 = phi i32 [ 0, %for.body ], [ %newIntersectionCount.1, %for.inc ]
-  %arrayidx91 = getelementptr inbounds nuw float, ptr %lv, i64 %indvars.iv
+  %arrayidx91 = getelementptr inbounds nuw [4 x i8], ptr %lv, i64 %indvars.iv
   %33 = load float, ptr %arrayidx91, align 4
-  %arrayidx93 = getelementptr inbounds nuw float, ptr %rv, i64 %indvars.iv
+  %arrayidx93 = getelementptr inbounds nuw [4 x i8], ptr %rv, i64 %indvars.iv
   %34 = load float, ptr %arrayidx93, align 4
   %cmp94 = fcmp une float %33, %34
   br i1 %cmp94, label %if.then95, label %for.inc
@@ -587,7 +587,7 @@ invoke.cont123:                                   ; preds = %if.then95
   %cond.i6.i200 = select i1 %cmp.i5.i199, float %conv3.i194, float %cond.i4.i198
   %cmp.i7.i201 = fcmp olt float %cond.i.i196, %cond.i6.i200
   %cond.i8.i202 = select i1 %cmp.i7.i201, float %cond.i6.i200, float %cond.i.i196
-  %arrayidx126 = getelementptr inbounds nuw float, ptr %v, i64 %indvars.iv
+  %arrayidx126 = getelementptr inbounds nuw [4 x i8], ptr %v, i64 %indvars.iv
   %38 = load float, ptr %arrayidx126, align 4
   %cmp127 = fcmp oeq float %cond.i8.i202, %38
   br i1 %cmp127, label %if.then128, label %for.inc
@@ -600,7 +600,7 @@ if.then128:                                       ; preds = %invoke.cont123
 
 invoke.cont132:                                   ; preds = %if.then128
   %idxprom134 = sext i32 %newIntersectionCount.0259 to i64
-  %arrayidx135 = getelementptr inbounds %"struct.msdfgen::Scanline::Intersection", ptr %newIntersections, i64 %idxprom134
+  %arrayidx135 = getelementptr inbounds [16 x i8], ptr %newIntersections, i64 %idxprom134
   store double %call133, ptr %arrayidx135, align 16
   %cmp.i203 = fcmp ogt float %sub104, 0.000000e+00
   %conv.i204 = zext i1 %cmp.i203 to i32
@@ -672,7 +672,7 @@ for.body195:                                      ; preds = %for.body195.prehead
   %46 = phi ptr [ %21, %for.body195.preheader ], [ %54, %for.inc212 ]
   %indvars.iv272 = phi i64 [ 0, %for.body195.preheader ], [ %indvars.iv.next273, %for.inc212 ]
   %inside.1262 = phi i8 [ %inside.0265, %for.body195.preheader ], [ %inside.2, %for.inc212 ]
-  %arrayidx197 = getelementptr inbounds nuw %"struct.msdfgen::Scanline::Intersection", ptr %newIntersections, i64 %indvars.iv272
+  %arrayidx197 = getelementptr inbounds nuw [16 x i8], ptr %newIntersections, i64 %indvars.iv272
   %direction198 = getelementptr inbounds nuw i8, ptr %arrayidx197, i64 8
   %47 = load i32, ptr %direction198, align 8
   %cmp199 = icmp sgt i32 %47, 0
@@ -742,7 +742,7 @@ if.then.i18.i.i230:                               ; preds = %_ZNSt6vectorIN7msdf
 _ZNSt6vectorIN7msdfgen8Scanline12IntersectionESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i231: ; preds = %if.then.i18.i.i230, %_ZNSt6vectorIN7msdfgen8Scanline12IntersectionESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i227
   store ptr %call5.i.i.i.i.i237, ptr %intersections, align 8
   store ptr %incdec.ptr.i.i228, ptr %_M_finish.i207, align 8
-  %add.ptr19.i.i232 = getelementptr inbounds nuw %"struct.msdfgen::Scanline::Intersection", ptr %call5.i.i.i.i.i237, i64 %cond.i.i.i222
+  %add.ptr19.i.i232 = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i.i.i237, i64 %cond.i.i.i222
   store ptr %add.ptr19.i.i232, ptr %_M_end_of_storage.i208, align 8
   br label %invoke.cont207
 
@@ -901,11 +901,11 @@ invoke.cont49:                                    ; preds = %land.lhs.true
   %mul.i86 = shl i32 %8, 2
   %mul2.i = mul i32 %mul.i86, %b.0
   %idx.ext.i = sext i32 %mul2.i to i64
-  %add.ptr.i = getelementptr inbounds float, ptr %7, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds [4 x i8], ptr %7, i64 %idx.ext.i
   %9 = load float, ptr %add.ptr.i, align 4
   %mul2.i89 = mul i32 %mul.i86, %t.0
   %idx.ext.i90 = sext i32 %mul2.i89 to i64
-  %add.ptr.i91 = getelementptr inbounds float, ptr %7, i64 %idx.ext.i90
+  %add.ptr.i91 = getelementptr inbounds [4 x i8], ptr %7, i64 %idx.ext.i90
   %10 = load float, ptr %add.ptr.i91, align 4
   %sub.i = fsub double 1.000000e+00, %bt.0
   %conv.i92 = fpext float %9 to double
@@ -1015,13 +1015,13 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %add.i = add nsw i32 %mul.i131, %r.0267
   %mul2.i132 = shl nsw i32 %add.i, 2
   %idx.ext.i133 = sext i32 %mul2.i132 to i64
-  %add.ptr.i134 = getelementptr inbounds float, ptr %23, i64 %idx.ext.i133
+  %add.ptr.i134 = getelementptr inbounds [4 x i8], ptr %23, i64 %idx.ext.i133
   %24 = load float, ptr %add.ptr.i134, align 4
   %mul.i136 = mul nsw i32 %22, %t.0
   %add.i137 = add nsw i32 %mul.i136, %r.0267
   %mul2.i138 = shl nsw i32 %add.i137, 2
   %idx.ext.i139 = sext i32 %mul2.i138 to i64
-  %add.ptr.i140 = getelementptr inbounds float, ptr %23, i64 %idx.ext.i139
+  %add.ptr.i140 = getelementptr inbounds [4 x i8], ptr %23, i64 %idx.ext.i139
   %25 = load float, ptr %add.ptr.i140, align 4
   %conv.i142 = fpext float %24 to double
   %conv1.i143 = fpext float %25 to double
@@ -1061,9 +1061,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 for.body90:                                       ; preds = %for.body, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body ], [ %indvars.iv.next, %for.inc ]
   %newIntersectionCount.0259 = phi i32 [ 0, %for.body ], [ %newIntersectionCount.1, %for.inc ]
-  %arrayidx91 = getelementptr inbounds nuw float, ptr %lv, i64 %indvars.iv
+  %arrayidx91 = getelementptr inbounds nuw [4 x i8], ptr %lv, i64 %indvars.iv
   %33 = load float, ptr %arrayidx91, align 4
-  %arrayidx93 = getelementptr inbounds nuw float, ptr %rv, i64 %indvars.iv
+  %arrayidx93 = getelementptr inbounds nuw [4 x i8], ptr %rv, i64 %indvars.iv
   %34 = load float, ptr %arrayidx93, align 4
   %cmp94 = fcmp une float %33, %34
   br i1 %cmp94, label %if.then95, label %for.inc
@@ -1101,7 +1101,7 @@ invoke.cont123:                                   ; preds = %if.then95
   %cond.i6.i200 = select i1 %cmp.i5.i199, float %conv3.i194, float %cond.i4.i198
   %cmp.i7.i201 = fcmp olt float %cond.i.i196, %cond.i6.i200
   %cond.i8.i202 = select i1 %cmp.i7.i201, float %cond.i6.i200, float %cond.i.i196
-  %arrayidx126 = getelementptr inbounds nuw float, ptr %v, i64 %indvars.iv
+  %arrayidx126 = getelementptr inbounds nuw [4 x i8], ptr %v, i64 %indvars.iv
   %38 = load float, ptr %arrayidx126, align 4
   %cmp127 = fcmp oeq float %cond.i8.i202, %38
   br i1 %cmp127, label %if.then128, label %for.inc
@@ -1114,7 +1114,7 @@ if.then128:                                       ; preds = %invoke.cont123
 
 invoke.cont132:                                   ; preds = %if.then128
   %idxprom134 = sext i32 %newIntersectionCount.0259 to i64
-  %arrayidx135 = getelementptr inbounds %"struct.msdfgen::Scanline::Intersection", ptr %newIntersections, i64 %idxprom134
+  %arrayidx135 = getelementptr inbounds [16 x i8], ptr %newIntersections, i64 %idxprom134
   store double %call133, ptr %arrayidx135, align 16
   %cmp.i203 = fcmp ogt float %sub104, 0.000000e+00
   %conv.i204 = zext i1 %cmp.i203 to i32
@@ -1186,7 +1186,7 @@ for.body195:                                      ; preds = %for.body195.prehead
   %46 = phi ptr [ %21, %for.body195.preheader ], [ %54, %for.inc212 ]
   %indvars.iv272 = phi i64 [ 0, %for.body195.preheader ], [ %indvars.iv.next273, %for.inc212 ]
   %inside.1262 = phi i8 [ %inside.0265, %for.body195.preheader ], [ %inside.2, %for.inc212 ]
-  %arrayidx197 = getelementptr inbounds nuw %"struct.msdfgen::Scanline::Intersection", ptr %newIntersections, i64 %indvars.iv272
+  %arrayidx197 = getelementptr inbounds nuw [16 x i8], ptr %newIntersections, i64 %indvars.iv272
   %direction198 = getelementptr inbounds nuw i8, ptr %arrayidx197, i64 8
   %47 = load i32, ptr %direction198, align 8
   %cmp199 = icmp sgt i32 %47, 0
@@ -1256,7 +1256,7 @@ if.then.i18.i.i230:                               ; preds = %_ZNSt6vectorIN7msdf
 _ZNSt6vectorIN7msdfgen8Scanline12IntersectionESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i231: ; preds = %if.then.i18.i.i230, %_ZNSt6vectorIN7msdfgen8Scanline12IntersectionESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i227
   store ptr %call5.i.i.i.i.i237, ptr %intersections, align 8
   store ptr %incdec.ptr.i.i228, ptr %_M_finish.i207, align 8
-  %add.ptr19.i.i232 = getelementptr inbounds nuw %"struct.msdfgen::Scanline::Intersection", ptr %call5.i.i.i.i.i237, i64 %cond.i.i.i222
+  %add.ptr19.i.i232 = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i.i.i237, i64 %cond.i.i.i222
   store ptr %add.ptr19.i.i232, ptr %_M_end_of_storage.i208, align 8
   br label %invoke.cont207
 

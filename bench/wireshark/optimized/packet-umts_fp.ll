@@ -9,7 +9,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._value_string = type { i32, ptr }
 %struct.expert_field = type { i32, i32 }
 %struct.edch_t2_subframe_info = type { i8, i8, [16 x i8], [16 x [16 x i8]], [16 x [16 x i16]] }
-%struct.fp_dch_channel_info_t = type { i32, [64 x i32], [64 x i32], i32, [64 x i32], [64 x i32] }
 %struct.edch_t1_subframe_info = type { i8, i8, [64 x i8], [64 x i16] }
 
 @proto_fp = hidden local_unnamed_addr global i32 0, align 4
@@ -2358,14 +2357,14 @@ fp_conv_resolve_urnti.exit.i:                     ; preds = %119, %.fp_conv_reso
   %209 = load i8, ptr %208, align 1
   %210 = getelementptr i8, ptr %202, i64 %indvars.iv395.i
   store i8 %209, ptr %210, align 1
-  %211 = getelementptr i32, ptr %203, i64 %indvars.iv395.i
+  %211 = getelementptr [4 x i8], ptr %203, i64 %indvars.iv395.i
   %212 = load i32, ptr %211, align 4
-  %213 = getelementptr i32, ptr %204, i64 %indvars.iv395.i
+  %213 = getelementptr [4 x i8], ptr %204, i64 %indvars.iv395.i
   store i32 %212, ptr %213, align 4
   %214 = getelementptr i8, ptr %205, i64 %indvars.iv395.i
   %215 = load i8, ptr %214, align 1
   %216 = zext i8 %215 to i32
-  %217 = getelementptr i32, ptr %206, i64 %indvars.iv395.i
+  %217 = getelementptr [4 x i8], ptr %206, i64 %indvars.iv395.i
   store i32 %216, ptr %217, align 4
   %indvars.iv.next396.i = add nuw nsw i64 %indvars.iv395.i, 1
   %218 = load i32, ptr %199, align 4
@@ -2466,11 +2465,11 @@ fp_conv_resolve_urnti.exit.i:                     ; preds = %119, %.fp_conv_reso
   %271 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %270, i32 noundef 5)
   %272 = load i8, ptr %127, align 1, !range !10, !noundef !11
   %273 = trunc nuw i8 %272 to i1
-  %274 = getelementptr %struct.fp_dch_channel_info_t, ptr %.1300, i64 %indvars.iv389.i
+  %274 = getelementptr [1032 x i8], ptr %.1300, i64 %indvars.iv389.i
   %275 = zext i8 %271 to i64
   %..i = select i1 %273, i64 848, i64 1364
   %276 = getelementptr i8, ptr %274, i64 %..i
-  %277 = getelementptr i32, ptr %276, i64 %275
+  %277 = getelementptr [4 x i8], ptr %276, i64 %275
   %278 = load i32, ptr %277, align 4
   %279 = icmp sgt i32 %278, 0
   %280 = icmp samesign ult i64 %indvars.iv389.i, 64
@@ -2480,12 +2479,12 @@ fp_conv_resolve_urnti.exit.i:                     ; preds = %119, %.fp_conv_reso
 .lr.ph365.i:                                      ; preds = %268
   %.423.i = select i1 %273, i64 592, i64 1108
   %282 = getelementptr i8, ptr %274, i64 %.423.i
-  %283 = getelementptr i32, ptr %282, i64 %275
+  %283 = getelementptr [4 x i8], ptr %282, i64 %275
   %284 = load i32, ptr %248, align 8
   %285 = shl i32 %284, 3
   %286 = add i32 %285, 16
   %287 = load i32, ptr %283, align 4
-  %288 = getelementptr i32, ptr %258, i64 %indvars.iv389.i
+  %288 = getelementptr [4 x i8], ptr %258, i64 %indvars.iv389.i
   %289 = icmp eq i8 %271, 1
   %290 = icmp eq i32 %278, 1
   %or.cond.i = and i1 %289, %290
@@ -2584,9 +2583,9 @@ make_fake_lchid.exit.i:                           ; preds = %328, %323
   %.val352.i = load i32, ptr %111, align 8
   %.not.i356.i = icmp eq i32 %.val351.i, 0
   %spec.select.i357.i = select i1 %.not.i356.i, i32 %.val352.i, i32 %.val351.i
-  %343 = getelementptr i32, ptr %253, i64 %298
+  %343 = getelementptr [4 x i8], ptr %253, i64 %298
   store i32 %spec.select.i357.i, ptr %343, align 4
-  %344 = getelementptr i32, ptr %264, i64 %298
+  %344 = getelementptr [4 x i8], ptr %264, i64 %298
   store i32 1, ptr %344, align 4
   %345 = getelementptr i8, ptr %265, i64 %298
   store i8 0, ptr %345, align 1
@@ -2761,18 +2760,18 @@ make_fake_lchid.exit.i:                           ; preds = %328, %323
   %434 = and i8 %433, 31
   %435 = load i32, ptr %124, align 8
   %436 = icmp eq i32 %435, 0
-  %437 = getelementptr %struct.fp_dch_channel_info_t, ptr %429, i64 %indvars.iv392.i
+  %437 = getelementptr [1032 x i8], ptr %429, i64 %indvars.iv392.i
   %438 = zext nneg i8 %434 to i64
-  %439 = getelementptr i32, ptr %430, i64 %indvars.iv392.i
-  %440 = getelementptr i32, ptr %431, i64 %indvars.iv392.i
+  %439 = getelementptr [4 x i8], ptr %430, i64 %indvars.iv392.i
+  %440 = getelementptr [4 x i8], ptr %431, i64 %indvars.iv392.i
   %.424.i = select i1 %436, i64 4, i64 520
   %.425.i = select i1 %436, i64 260, i64 776
   %441 = getelementptr inbounds nuw i8, ptr %437, i64 %.424.i
-  %442 = getelementptr i32, ptr %441, i64 %438
+  %442 = getelementptr [4 x i8], ptr %441, i64 %438
   %443 = load i32, ptr %442, align 4
   store i32 %443, ptr %439, align 4
   %444 = getelementptr inbounds nuw i8, ptr %437, i64 %.425.i
-  %445 = getelementptr i32, ptr %444, i64 %438
+  %445 = getelementptr [4 x i8], ptr %444, i64 %438
   %446 = load i32, ptr %445, align 4
   store i32 %446, ptr %440, align 4
   %447 = add nuw i32 %.2373.i, 1
@@ -2927,7 +2926,7 @@ proto_item_set_generated.exit254:                 ; preds = %514, %511, %proto_i
 .lr.ph:                                           ; preds = %522, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 1, %522 ]
   %529 = load ptr, ptr %13, align 8
-  %530 = getelementptr i32, ptr %524, i64 %indvars.iv
+  %530 = getelementptr [4 x i8], ptr %524, i64 %indvars.iv
   %531 = load i32, ptr %530, align 4
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %529, i32 noundef 25, ptr noundef nonnull @.str.509, i32 noundef %531)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3062,7 +3061,7 @@ proto_item_set_generated.exit266:                 ; preds = %582, %585, %588
   %601 = getelementptr i8, ptr %596, i64 %indvars.iv313
   %602 = load i8, ptr %601, align 1
   %603 = zext i8 %602 to i32
-  %604 = getelementptr i32, ptr %597, i64 %indvars.iv313
+  %604 = getelementptr [4 x i8], ptr %597, i64 %indvars.iv313
   %605 = load i32, ptr %604, align 4
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %584, ptr noundef nonnull @.str.514, ptr noundef nonnull %600, i32 noundef %603, i32 noundef %605)
   %606 = load i32, ptr @hf_fp_ddi_config_ddi, align 4
@@ -3294,7 +3293,7 @@ proto_item_set_generated.exit272:                 ; preds = %proto_item_set_gene
   br label %.sink.split.i
 
 708:                                              ; preds = %698
-  %709 = getelementptr i32, ptr @hf_fp_rach_new_ie_flag_unused, i64 %indvars.iv.i274
+  %709 = getelementptr [4 x i8], ptr @hf_fp_rach_new_ie_flag_unused, i64 %indvars.iv.i274
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %704, %700, %708, %707, %706, %703, %702
@@ -4520,9 +4519,9 @@ define internal fastcc void @dissect_hsdsch_channel_info(ptr noundef %0, ptr nou
   %.sink = phi i8 [ %130, %126 ], [ %125, %123 ]
   %132 = getelementptr i8, ptr %88, i64 %indvars.iv
   store i8 %.sink, ptr %132, align 1
-  %133 = getelementptr i32, ptr %.0163, i64 %indvars.iv
+  %133 = getelementptr [4 x i8], ptr %.0163, i64 %indvars.iv
   store i32 %spec.select, ptr %133, align 4
-  %134 = getelementptr i32, ptr %89, i64 %indvars.iv
+  %134 = getelementptr [4 x i8], ptr %89, i64 %indvars.iv
   store i32 1, ptr %134, align 4
   %135 = getelementptr i8, ptr %90, i64 %indvars.iv
   store i8 0, ptr %135, align 1
@@ -4701,7 +4700,7 @@ dissect_macd_pdu_data.exit:                       ; preds = %172, %._crit_edge.i
 215:                                              ; preds = %208, %215
   %indvars.iv191 = phi i64 [ 0, %208 ], [ %indvars.iv.next192, %215 ]
   %.0187 = phi i32 [ 0, %208 ], [ %spec.select177, %215 ]
-  %216 = getelementptr i32, ptr @hf_fp_hsdsch_new_ie_flag, i64 %indvars.iv191
+  %216 = getelementptr [4 x i8], ptr @hf_fp_hsdsch_new_ie_flag, i64 %indvars.iv191
   %217 = load i32, ptr %216, align 4
   %218 = call ptr @proto_tree_add_item(ptr noundef %212, i32 noundef %217, ptr noundef %0, i32 noundef %.0.i, i32 noundef 1, i32 noundef 0)
   %219 = trunc i64 %indvars.iv191 to i32
@@ -4898,7 +4897,7 @@ define internal fastcc void @dissect_hsdsch_type_2_channel_info(ptr noundef %0, 
   %91 = and i32 %90, 1
   %92 = shl nuw nsw i32 %91, 2
   %93 = or disjoint i32 %89, %92
-  %94 = getelementptr i64, ptr %9, i64 %indvars.iv
+  %94 = getelementptr [8 x i8], ptr %9, i64 %indvars.iv
   %95 = call ptr @proto_tree_add_bits_ret_val(ptr noundef %87, i32 noundef %88, ptr noundef %0, i32 noundef %93, i32 noundef 11, ptr noundef %94, i32 noundef 0)
   %96 = icmp eq i32 %91, 0
   %.1.v = add nuw nsw i32 %91, 1
@@ -4907,14 +4906,14 @@ define internal fastcc void @dissect_hsdsch_type_2_channel_info(ptr noundef %0, 
   %98 = shl i32 %.1, 3
   %99 = or disjoint i32 %98, %92
   %100 = xor i32 %99, 4
-  %101 = getelementptr i64, ptr %10, i64 %indvars.iv
+  %101 = getelementptr [8 x i8], ptr %10, i64 %indvars.iv
   %102 = call ptr @proto_tree_add_bits_ret_val(ptr noundef %87, i32 noundef %97, ptr noundef %0, i32 noundef %100, i32 noundef 4, ptr noundef %101, i32 noundef 0)
   %103 = add i32 %.1, 1
   %.2 = select i1 %96, i32 %103, i32 %.1
   %104 = load i32, ptr @hf_fp_lchid, align 4
   %105 = shl i32 %.2, 3
   %106 = or disjoint i32 %105, %92
-  %107 = getelementptr i64, ptr %8, i64 %indvars.iv
+  %107 = getelementptr [8 x i8], ptr %8, i64 %indvars.iv
   %108 = call ptr @proto_tree_add_bits_ret_val(ptr noundef %87, i32 noundef %104, ptr noundef %0, i32 noundef %106, i32 noundef 4, ptr noundef %107, i32 noundef 0)
   %109 = icmp eq i64 %indvars.iv, %82
   %110 = add i32 %.1, 2
@@ -4990,13 +4989,13 @@ define internal fastcc void @dissect_hsdsch_type_2_channel_info(ptr noundef %0, 
 .preheader:                                       ; preds = %.preheader.lr.ph, %dissect_macd_pdu_data_type_2.exit
   %indvars.iv249 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next250, %dissect_macd_pdu_data_type_2.exit ]
   %.6238 = phi i32 [ %.5, %.preheader.lr.ph ], [ %.0.i, %dissect_macd_pdu_data_type_2.exit ]
-  %150 = getelementptr i64, ptr %10, i64 %indvars.iv249
+  %150 = getelementptr [8 x i8], ptr %10, i64 %indvars.iv249
   %151 = load i64, ptr %150, align 8
   %.not243 = icmp eq i64 %151, 0
   br i1 %.not243, label %._crit_edge234, label %.lr.ph233
 
 .lr.ph233:                                        ; preds = %.preheader
-  %152 = getelementptr i64, ptr %8, i64 %indvars.iv249
+  %152 = getelementptr [8 x i8], ptr %8, i64 %indvars.iv249
   %153 = getelementptr i8, ptr %.0203, i64 %indvars.iv249
   br label %154
 
@@ -5043,7 +5042,7 @@ define internal fastcc void @dissect_hsdsch_type_2_channel_info(ptr noundef %0, 
 176:                                              ; preds = %157, %170
   %.sink = phi i8 [ %162, %157 ], [ 0, %170 ]
   %spec.select223.sink = phi i32 [ %spec.select223, %157 ], [ 0, %170 ]
-  %177 = getelementptr i32, ptr %145, i64 %155
+  %177 = getelementptr [4 x i8], ptr %145, i64 %155
   store i32 1, ptr %177, align 4
   %178 = getelementptr i8, ptr %146, i64 %155
   store i8 0, ptr %178, align 1
@@ -5051,7 +5050,7 @@ define internal fastcc void @dissect_hsdsch_type_2_channel_info(ptr noundef %0, 
   store i8 0, ptr %179, align 1
   %180 = getelementptr i8, ptr %148, i64 %155
   store i8 %.sink, ptr %180, align 1
-  %181 = getelementptr i32, ptr %.0202, i64 %155
+  %181 = getelementptr [4 x i8], ptr %.0202, i64 %155
   store i32 %spec.select223.sink, ptr %181, align 4
   %182 = add i32 %.0206232, 1
   %183 = zext i32 %182 to i64
@@ -5061,7 +5060,7 @@ define internal fastcc void @dissect_hsdsch_type_2_channel_info(ptr noundef %0, 
 
 ._crit_edge234:                                   ; preds = %176, %.preheader
   %.lcssa = phi i64 [ 0, %.preheader ], [ %184, %176 ]
-  %186 = getelementptr i64, ptr %9, i64 %indvars.iv249
+  %186 = getelementptr [8 x i8], ptr %9, i64 %indvars.iv249
   %187 = load i64, ptr %186, align 8
   %188 = trunc i64 %187 to i32
   %189 = trunc i64 %.lcssa to i16
@@ -5367,7 +5366,7 @@ define internal fastcc void @dissect_hsdsch_common_channel_info(ptr noundef %0, 
   %92 = and i32 %91, 1
   %93 = shl nuw nsw i32 %92, 2
   %94 = or disjoint i32 %90, %93
-  %95 = getelementptr i64, ptr %9, i64 %indvars.iv
+  %95 = getelementptr [8 x i8], ptr %9, i64 %indvars.iv
   %96 = call ptr @proto_tree_add_bits_ret_val(ptr noundef %88, i32 noundef %89, ptr noundef %0, i32 noundef %94, i32 noundef 11, ptr noundef %95, i32 noundef 0)
   %.1207.v = add nuw nsw i32 %92, 1
   %.1207 = add i32 %.1207.v, %.0206238
@@ -5375,7 +5374,7 @@ define internal fastcc void @dissect_hsdsch_common_channel_info(ptr noundef %0, 
   %98 = shl i32 %.1207, 3
   %99 = or disjoint i32 %98, %93
   %100 = xor i32 %99, 4
-  %101 = getelementptr i64, ptr %10, i64 %indvars.iv
+  %101 = getelementptr [8 x i8], ptr %10, i64 %indvars.iv
   %102 = call ptr @proto_tree_add_bits_ret_val(ptr noundef %88, i32 noundef %97, ptr noundef %0, i32 noundef %100, i32 noundef 4, ptr noundef %101, i32 noundef 0)
   %103 = load i64, ptr %101, align 8
   %104 = icmp ult i64 %103, 65
@@ -5388,7 +5387,7 @@ define internal fastcc void @dissect_hsdsch_common_channel_info(ptr noundef %0, 
   %108 = load i32, ptr @hf_fp_lchid, align 4
   %109 = shl i32 %.2208, 3
   %110 = or disjoint i32 %109, %93
-  %111 = getelementptr i64, ptr %8, i64 %indvars.iv
+  %111 = getelementptr [8 x i8], ptr %8, i64 %indvars.iv
   %112 = call ptr @proto_tree_add_bits_ret_val(ptr noundef %88, i32 noundef %108, ptr noundef %0, i32 noundef %110, i32 noundef 4, ptr noundef %111, i32 noundef 0)
   %113 = icmp eq i64 %indvars.iv, %83
   %114 = add i32 %.1207, 2
@@ -5463,14 +5462,14 @@ define internal fastcc void @dissect_hsdsch_common_channel_info(ptr noundef %0, 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.critedge
   %indvars.iv253 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next254, %.critedge ]
   %.7246 = phi i32 [ %.6, %.preheader.lr.ph ], [ %.8.lcssa, %.critedge ]
-  %153 = getelementptr i64, ptr %10, i64 %indvars.iv253
+  %153 = getelementptr [8 x i8], ptr %10, i64 %indvars.iv253
   %154 = load i64, ptr %153, align 8
   %.not224240.not = icmp eq i64 %154, 0
   br i1 %.not224240.not, label %.critedge, label %.lr.ph243
 
 .lr.ph243:                                        ; preds = %.preheader
-  %155 = getelementptr i64, ptr %8, i64 %indvars.iv253
-  %156 = getelementptr i64, ptr %9, i64 %indvars.iv253
+  %155 = getelementptr [8 x i8], ptr %8, i64 %indvars.iv253
+  %156 = getelementptr [8 x i8], ptr %9, i64 %indvars.iv253
   br label %157
 
 157:                                              ; preds = %.lr.ph243, %184
@@ -5505,7 +5504,7 @@ define internal fastcc void @dissect_hsdsch_common_channel_info(ptr noundef %0, 
   store i8 %172, ptr %173, align 1
   %174 = getelementptr i8, ptr %.0213, i64 %158
   store i8 0, ptr %174, align 1
-  %175 = getelementptr i32, ptr %148, i64 %158
+  %175 = getelementptr [4 x i8], ptr %148, i64 %158
   store i32 1, ptr %175, align 4
   %176 = getelementptr i8, ptr %149, i64 %158
   store i8 0, ptr %176, align 1
@@ -5517,7 +5516,7 @@ define internal fastcc void @dissect_hsdsch_common_channel_info(ptr noundef %0, 
   %181 = getelementptr i8, ptr %151, i64 %158
   store i8 %180, ptr %181, align 1
   %182 = load i32, ptr %152, align 8
-  %183 = getelementptr i32, ptr %.0212, i64 %158
+  %183 = getelementptr [4 x i8], ptr %.0212, i64 %158
   store i32 %182, ptr %183, align 4
   br label %184
 
@@ -5842,7 +5841,7 @@ define internal fastcc void @dissect_e_dch_channel_info(ptr noundef %0, ptr noun
   %134 = call ptr @proto_tree_add_bits_ret_val(ptr noundef %125, i32 noundef %133, ptr noundef %0, i32 noundef %.1184.i, i32 noundef 3, ptr noundef nonnull %8, i32 noundef 0)
   %135 = load i64, ptr %8, align 8
   %136 = trunc i64 %135 to i8
-  %137 = getelementptr %struct.edch_t2_subframe_info, ptr @dissect_e_dch_t2_or_common_channel_info.subframes, i64 %indvars.iv.i
+  %137 = getelementptr [786 x i8], ptr @dissect_e_dch_t2_or_common_channel_info.subframes, i64 %indvars.iv.i
   store i8 %136, ptr %137, align 2
   %138 = add i32 %.1184.i, 3
   %139 = load i32, ptr @hf_fp_edch_number_of_mac_is_pdus, align 4
@@ -5873,7 +5872,7 @@ define internal fastcc void @dissect_e_dch_channel_info(ptr noundef %0, ptr noun
   %.1209.i = phi i32 [ %148, %._crit_edge.i ], [ %.2.lcssa.i, %._crit_edge202.i ]
   %.0175207.i = phi i16 [ 0, %._crit_edge.i ], [ %.1176.lcssa.i, %._crit_edge202.i ]
   %149 = load i32, ptr @hf_fp_edch_macis_descriptors, align 4
-  %150 = getelementptr %struct.edch_t2_subframe_info, ptr @dissect_e_dch_t2_or_common_channel_info.subframes, i64 %indvars.iv241.i
+  %150 = getelementptr [786 x i8], ptr @dissect_e_dch_t2_or_common_channel_info.subframes, i64 %indvars.iv241.i
   %151 = load i8, ptr %150, align 2
   %152 = zext i8 %151 to i32
   %153 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %2, i32 noundef %149, ptr noundef %0, i32 noundef %.1209.i, i32 noundef 0, ptr noundef nonnull @.str.512, ptr noundef nonnull @.str.599, i32 noundef %152)
@@ -5901,7 +5900,7 @@ define internal fastcc void @dissect_e_dch_channel_info(ptr noundef %0, ptr noun
   %165 = getelementptr i8, ptr %161, i64 %indvars.iv239.i
   store i8 0, ptr %165, align 1
   %166 = getelementptr [16 x i8], ptr %162, i64 %indvars.iv239.i
-  %167 = getelementptr [16 x i16], ptr %163, i64 %indvars.iv239.i
+  %167 = getelementptr [32 x i8], ptr %163, i64 %indvars.iv239.i
   br label %168
 
 168:                                              ; preds = %218, %164
@@ -5963,7 +5962,7 @@ define internal fastcc void @dissect_e_dch_channel_info(ptr noundef %0, ptr noun
   %204 = and i16 %203, 2047
   %205 = load i8, ptr %165, align 1
   %206 = zext i8 %205 to i64
-  %207 = getelementptr i16, ptr %167, i64 %206
+  %207 = getelementptr [2 x i8], ptr %167, i64 %206
   store i16 %204, ptr %207, align 2
   %208 = load i32, ptr @hf_fp_edch_macis_length, align 4
   %209 = call ptr @proto_tree_add_item(ptr noundef %159, i32 noundef %208, ptr noundef %0, i32 noundef %.3.i, i32 noundef 2, i32 noundef 0)
@@ -6025,7 +6024,7 @@ define internal fastcc void @dissect_e_dch_channel_info(ptr noundef %0, ptr noun
 .preheader191.i:                                  ; preds = %._crit_edge224.i, %.preheader191.preheader.i
   %indvars.iv253.i = phi i64 [ 0, %.preheader191.preheader.i ], [ %indvars.iv.next254.i, %._crit_edge224.i ]
   %.5227.i = phi i32 [ %.1.lcssa.i, %.preheader191.preheader.i ], [ %.6.lcssa.i, %._crit_edge224.i ]
-  %232 = getelementptr %struct.edch_t2_subframe_info, ptr @dissect_e_dch_t2_or_common_channel_info.subframes, i64 %indvars.iv253.i
+  %232 = getelementptr [786 x i8], ptr @dissect_e_dch_t2_or_common_channel_info.subframes, i64 %indvars.iv253.i
   %233 = getelementptr inbounds nuw i8, ptr %232, i64 1
   %234 = load i8, ptr %233, align 1
   %.not234.i = icmp eq i8 %234, 0
@@ -6054,7 +6053,7 @@ define internal fastcc void @dissect_e_dch_channel_info(ptr noundef %0, ptr noun
   br i1 %.not235.i, label %._crit_edge219.i, label %.lr.ph218.i
 
 .lr.ph218.i:                                      ; preds = %.preheader.i
-  %245 = getelementptr [16 x i16], ptr %236, i64 %indvars.iv250.i
+  %245 = getelementptr [32 x i8], ptr %236, i64 %indvars.iv250.i
   %246 = getelementptr inbounds nuw i8, ptr %240, i64 68
   %247 = getelementptr [16 x i8], ptr %237, i64 %indvars.iv250.i
   %248 = getelementptr inbounds nuw i8, ptr %240, i64 4
@@ -6068,10 +6067,10 @@ define internal fastcc void @dissect_e_dch_channel_info(ptr noundef %0, ptr noun
 250:                                              ; preds = %250, %.lr.ph218.i
   %indvars.iv245.i = phi i64 [ 0, %.lr.ph218.i ], [ %indvars.iv.next246.i, %250 ]
   %.0166217.i = phi i32 [ 0, %.lr.ph218.i ], [ %258, %250 ]
-  %251 = getelementptr i16, ptr %245, i64 %indvars.iv245.i
+  %251 = getelementptr [2 x i8], ptr %245, i64 %indvars.iv245.i
   %252 = load i16, ptr %251, align 2
   %253 = zext i16 %252 to i32
-  %254 = getelementptr i32, ptr %246, i64 %indvars.iv245.i
+  %254 = getelementptr [4 x i8], ptr %246, i64 %indvars.iv245.i
   store i32 %253, ptr %254, align 4
   %255 = getelementptr i8, ptr %247, i64 %indvars.iv245.i
   %256 = load i8, ptr %255, align 1
@@ -6166,7 +6165,7 @@ dissect_e_dch_t2_or_common_channel_info.exit:     ; preds = %._crit_edge228.i, %
   %300 = call ptr @proto_tree_add_item(ptr noundef %298, i32 noundef %299, ptr noundef %0, i32 noundef %.0418, i32 noundef 1, i32 noundef 0)
   %301 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0418)
   %302 = and i8 %301, 7
-  %303 = getelementptr %struct.edch_t1_subframe_info, ptr %11, i64 %indvars.iv493
+  %303 = getelementptr [194 x i8], ptr %11, i64 %indvars.iv493
   store i8 %302, ptr %303, align 2
   %304 = load i32, ptr @hf_fp_edch_subframe_number, align 4
   %305 = shl i32 %.0418, 3
@@ -6227,7 +6226,7 @@ dissect_e_dch_t2_or_common_channel_info.exit:     ; preds = %._crit_edge228.i, %
   br i1 %334, label %335, label %329
 
 335:                                              ; preds = %330
-  %336 = getelementptr i32, ptr %110, i64 %indvars.iv
+  %336 = getelementptr [4 x i8], ptr %110, i64 %indvars.iv
   %337 = load i32, ptr %336, align 4
   %338 = icmp eq i32 %337, -1
   br i1 %338, label %.thread, label %341
@@ -6256,7 +6255,7 @@ dissect_e_dch_t2_or_common_channel_info.exit:     ; preds = %._crit_edge228.i, %
 
 352:                                              ; preds = %341
   %353 = trunc nuw nsw i64 %348 to i16
-  %354 = getelementptr i16, ptr %319, i64 %indvars.iv490
+  %354 = getelementptr [2 x i8], ptr %319, i64 %indvars.iv490
   store i16 %353, ptr %354, align 2
   %355 = add nuw nsw i32 %.0304414, 12
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
@@ -6306,7 +6305,7 @@ dissect_e_dch_t2_or_common_channel_info.exit:     ; preds = %._crit_edge228.i, %
 370:                                              ; preds = %367, %363
   %.0292 = phi ptr [ %366, %363 ], [ %369, %367 ]
   %371 = load i32, ptr @hf_fp_edch_subframe, align 4
-  %372 = getelementptr %struct.edch_t1_subframe_info, ptr %11, i64 %indvars.iv512
+  %372 = getelementptr [194 x i8], ptr %11, i64 %indvars.iv512
   %373 = load i8, ptr %372, align 2
   %374 = zext i8 %373 to i32
   %375 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %2, i32 noundef %371, ptr noundef %0, i32 noundef %.2450, i32 noundef 0, ptr noundef nonnull @.str.512, ptr noundef nonnull @.str.594, i32 noundef %374)
@@ -6357,7 +6356,7 @@ dissect_e_dch_t2_or_common_channel_info.exit:     ; preds = %._crit_edge228.i, %
   br i1 %394, label %395, label %390
 
 395:                                              ; preds = %391
-  %396 = getelementptr i32, ptr %284, i64 %indvars.iv498
+  %396 = getelementptr [4 x i8], ptr %284, i64 %indvars.iv498
   %397 = load i32, ptr %396, align 4
   %398 = and i32 %397, 65535
   br label %.lr.ph425
@@ -6378,7 +6377,7 @@ dissect_e_dch_t2_or_common_channel_info.exit:     ; preds = %._crit_edge228.i, %
 
 405:                                              ; preds = %401
   %406 = trunc nuw nsw i64 %indvars.iv503 to i32
-  %407 = getelementptr i32, ptr %285, i64 %indvars.iv503
+  %407 = getelementptr [4 x i8], ptr %285, i64 %indvars.iv503
   %408 = load i32, ptr %407, align 4
   br label %.loopexit
 
@@ -6399,7 +6398,7 @@ dissect_e_dch_t2_or_common_channel_info.exit:     ; preds = %._crit_edge228.i, %
   br label %.critedge
 
 412:                                              ; preds = %.loopexit
-  %413 = getelementptr i16, ptr %381, i64 %indvars.iv510
+  %413 = getelementptr [2 x i8], ptr %381, i64 %indvars.iv510
   %414 = load i16, ptr %413, align 2
   %415 = zext i16 %414 to i32
   %416 = mul nuw i32 %.0289533, %415
@@ -6473,11 +6472,11 @@ dissect_e_dch_t2_or_common_channel_info.exit:     ; preds = %._crit_edge228.i, %
   %459 = load i8, ptr %440, align 1
   %460 = getelementptr i8, ptr %288, i64 %indvars.iv508
   store i8 %459, ptr %460, align 1
-  %461 = getelementptr i32, ptr %.0300, i64 %indvars.iv508
+  %461 = getelementptr [4 x i8], ptr %.0300, i64 %indvars.iv508
   store i32 %spec.select, ptr %461, align 4
   %462 = getelementptr i8, ptr %289, i64 %indvars.iv508
   store i8 %439, ptr %462, align 1
-  %463 = getelementptr i32, ptr %290, i64 %indvars.iv508
+  %463 = getelementptr [4 x i8], ptr %290, i64 %indvars.iv508
   store i32 1, ptr %463, align 4
   %464 = getelementptr i8, ptr %291, i64 %indvars.iv508
   store i8 0, ptr %464, align 1
@@ -7055,13 +7054,13 @@ define internal fastcc i32 @dissect_tb_data(ptr noundef %0, ptr noundef %1, ptr 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge
   %indvars.iv = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next, %._crit_edge ]
   %.1139165 = phi i32 [ %20, %.preheader.lr.ph ], [ %.2140.lcssa, %._crit_edge ]
-  %27 = getelementptr i32, ptr %25, i64 %indvars.iv
+  %27 = getelementptr [4 x i8], ptr %25, i64 %indvars.iv
   %28 = load i32, ptr %27, align 4
   %29 = icmp sgt i32 %28, 0
   br i1 %29, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %30 = getelementptr i32, ptr %26, i64 %indvars.iv
+  %30 = getelementptr [4 x i8], ptr %26, i64 %indvars.iv
   %31 = load i32, ptr %30, align 4
   br label %32
 
@@ -7108,7 +7107,7 @@ define internal fastcc i32 @dissect_tb_data(ptr noundef %0, ptr noundef %1, ptr 
   %.0145183 = phi i32 [ 0, %.lr.ph190 ], [ %.1146.lcssa, %._crit_edge177 ]
   %45 = trunc nuw nsw i64 %indvars.iv200 to i32
   store i32 %45, ptr %37, align 8
-  %46 = getelementptr i32, ptr %38, i64 %indvars.iv200
+  %46 = getelementptr [4 x i8], ptr %38, i64 %indvars.iv200
   %47 = load i32, ptr %46, align 4
   %48 = icmp eq i32 %47, 0
   br i1 %48, label %49, label %proto_item_set_generated.exit
@@ -7120,7 +7119,7 @@ define internal fastcc i32 @dissect_tb_data(ptr noundef %0, ptr noundef %1, ptr 
   %53 = trunc i64 %indvars.iv200 to i32
   %54 = add i32 %53, 1
   %55 = tail call ptr @proto_tree_add_uint(ptr noundef %13, i32 noundef %50, ptr noundef %0, i32 noundef %52, i32 noundef 0, i32 noundef %54)
-  %56 = getelementptr i32, ptr %39, i64 %indvars.iv200
+  %56 = getelementptr [4 x i8], ptr %39, i64 %indvars.iv200
   %57 = load i32, ptr %56, align 4
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %55, ptr noundef nonnull @.str.550, i32 noundef %57)
   %.not.i = icmp eq ptr %55, null
@@ -7153,7 +7152,7 @@ proto_item_set_generated.exit.._crit_edge177_crit_edge: ; preds = %proto_item_se
   br label %._crit_edge177
 
 .lr.ph176:                                        ; preds = %proto_item_set_generated.exit
-  %67 = getelementptr i32, ptr %39, i64 %indvars.iv200
+  %67 = getelementptr [4 x i8], ptr %39, i64 %indvars.iv200
   %68 = add nuw nsw i64 %indvars.iv200, 1
   %69 = trunc nuw nsw i64 %68 to i32
   br label %70
@@ -7204,7 +7203,7 @@ proto_item_set_generated.exit.._crit_edge177_crit_edge: ; preds = %proto_item_se
   %94 = icmp eq i32 %93, 1
   %95 = and i32 %.0128174, 7
   %96 = zext nneg i32 %95 to i64
-  %97 = getelementptr i32, ptr @hf_fp_crci, i64 %96
+  %97 = getelementptr [4 x i8], ptr @hf_fp_crci, i64 %96
   br i1 %94, label %98, label %107
 
 98:                                               ; preds = %92
@@ -7364,7 +7363,7 @@ define internal fastcc i32 @dissect_crci_bits(ptr noundef %0, ptr noundef %1, pt
 10:                                               ; preds = %10, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %10 ]
   %.08.i = phi i32 [ 0, %.lr.ph.i ], [ %13, %10 ]
-  %11 = getelementptr i32, ptr %9, i64 %indvars.iv.i
+  %11 = getelementptr [4 x i8], ptr %9, i64 %indvars.iv.i
   %12 = load i32, ptr %11, align 4
   %13 = add i32 %12, %.08.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -7402,7 +7401,7 @@ get_tb_count.exit:                                ; preds = %10, %5
   %27 = and i32 %.03438, 7
   %28 = xor i32 %27, 7
   %29 = zext nneg i32 %27 to i64
-  %30 = getelementptr i32, ptr @hf_fp_crci, i64 %29
+  %30 = getelementptr [4 x i8], ptr @hf_fp_crci, i64 %29
   %31 = load i32, ptr %30, align 4
   %32 = tail call ptr @proto_tree_add_item(ptr noundef %.032, i32 noundef %31, ptr noundef %0, i32 noundef %24, i32 noundef 1, i32 noundef 0)
   %33 = shl nuw nsw i32 1, %28
@@ -7830,7 +7829,7 @@ dissect_dch_rx_timing_deviation.exit:             ; preds = %32, %42, %76
 
 .preheader:                                       ; preds = %4, %.preheader
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader ], [ 4, %4 ]
-  %113 = getelementptr i32, ptr @hf_fp_radio_interface_parameter_update_flag, i64 %indvars.iv.i
+  %113 = getelementptr [4 x i8], ptr @hf_fp_radio_interface_parameter_update_flag, i64 %indvars.iv.i
   %114 = load i32, ptr %113, align 4
   %115 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %114, ptr noundef %2, i32 noundef 2, i32 noundef 2, i32 noundef 0)
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
@@ -8396,7 +8395,7 @@ define internal fastcc noundef zeroext i1 @heur_dissect_fp_edch_type_1(ptr nound
   %115 = trunc i64 %indvars.iv to i8
   %116 = getelementptr i8, ptr %111, i64 %indvars.iv
   store i8 %115, ptr %116, align 1
-  %117 = getelementptr i32, ptr %112, i64 %indvars.iv
+  %117 = getelementptr [4 x i8], ptr %112, i64 %indvars.iv
   store i32 %.0109, ptr %117, align 4
   %118 = getelementptr i8, ptr %113, i64 %indvars.iv
   store i8 9, ptr %118, align 1

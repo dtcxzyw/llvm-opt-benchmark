@@ -69,7 +69,7 @@ define hidden void @pysqlite_close_all_blobs(ptr noundef readonly captures(none)
   %.07 = phi i64 [ %26, %Py_DECREF.exit ], [ 0, %1 ]
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load ptr, ptr %8, align 8, !tbaa !18
-  %10 = getelementptr ptr, ptr %9, i64 %.07
+  %10 = getelementptr [8 x i8], ptr %9, i64 %.07
   %11 = load ptr, ptr %10, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %12 = call i32 @PyWeakref_GetRef(ptr noundef %11, ptr noundef nonnull %2) #5

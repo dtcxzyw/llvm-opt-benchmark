@@ -3,10 +3,6 @@ source_filename = "bench/postgres/original/proto.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.FormData_pg_attribute = type { i32, %struct.nameData, i32, i16, i16, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i32 }
-%struct.nameData = type { [64 x i8] }
-%struct.StringInfoData = type { ptr, i32, i32, i32 }
-
 @.str = private unnamed_addr constant [35 x i8] c"final_lsn not set in begin message\00", align 1
 @.str.1 = private unnamed_addr constant [8 x i8] c"proto.c\00", align 1
 @__func__.logicalrep_read_begin = private unnamed_addr constant [22 x i8] c"logicalrep_read_begin\00", align 1
@@ -885,7 +881,7 @@ define internal fastcc void @logicalrep_write_tuple(ptr noundef %0, ptr readonly
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %logicalrep_should_publish_column.exit.thread.us.us
   %indvars.iv25 = phi i64 [ %indvars.iv.next26, %logicalrep_should_publish_column.exit.thread.us.us ], [ 0, %.lr.ph.split.us ]
   %.0579.us.us = phi i16 [ %21, %logicalrep_should_publish_column.exit.thread.us.us ], [ 0, %.lr.ph.split.us ]
-  %13 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %12, i64 %indvars.iv25
+  %13 = getelementptr inbounds nuw [100 x i8], ptr %12, i64 %indvars.iv25
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 91
   %15 = load i8, ptr %14, align 1, !range !121, !noundef !122
   %16 = trunc nuw i8 %15 to i1
@@ -912,7 +908,7 @@ logicalrep_should_publish_column.exit.thread.us.us: ; preds = %logicalrep_should
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %logicalrep_should_publish_column.exit.thread.us
   %indvars.iv23 = phi i64 [ %indvars.iv.next24, %logicalrep_should_publish_column.exit.thread.us ], [ 0, %.lr.ph.split.us ]
   %.0579.us = phi i16 [ %30, %logicalrep_should_publish_column.exit.thread.us ], [ 0, %.lr.ph.split.us ]
-  %22 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %12, i64 %indvars.iv23
+  %22 = getelementptr inbounds nuw [100 x i8], ptr %12, i64 %indvars.iv23
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 91
   %24 = load i8, ptr %23, align 1, !range !121, !noundef !122
   %25 = trunc nuw i8 %24 to i1
@@ -940,7 +936,7 @@ logicalrep_should_publish_column.exit.thread.us:  ; preds = %26, %.lr.ph.split.u
   %33 = shl nsw i64 %32, 4
   %34 = getelementptr i8, ptr %.64.val, i64 %33
   %35 = getelementptr i8, ptr %34, i64 24
-  %36 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %35, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [100 x i8], ptr %35, i64 %indvars.iv
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 91
   %38 = load i8, ptr %37, align 1, !range !121, !noundef !122
   %39 = trunc nuw i8 %38 to i1
@@ -1012,7 +1008,7 @@ slot_getallattrs.exit:                            ; preds = %._crit_edge, %63
   %74 = shl nsw i64 %73, 4
   %75 = getelementptr i8, ptr %.64.val, i64 %74
   %76 = getelementptr i8, ptr %75, i64 24
-  %77 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %76, i64 %indvars.iv30
+  %77 = getelementptr inbounds nuw [100 x i8], ptr %76, i64 %indvars.iv30
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 91
   %79 = load i8, ptr %78, align 1, !range !121, !noundef !122
   %80 = trunc nuw i8 %79 to i1
@@ -1064,7 +1060,7 @@ logicalrep_should_publish_column.exit63.thread7:  ; preds = %82, %85, %logicalre
   br i1 %102, label %103, label %119
 
 103:                                              ; preds = %99
-  %104 = getelementptr inbounds nuw i64, ptr %65, i64 %indvars.iv30
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %indvars.iv30
   %105 = load i64, ptr %104, align 8
   %106 = inttoptr i64 %105 to ptr
   %107 = load i8, ptr %106, align 1
@@ -1131,7 +1127,7 @@ logicalrep_should_publish_column.exit63.thread7:  ; preds = %82, %85, %logicalre
   %143 = add i32 %140, 1
   store i32 %143, ptr %51, align 8, !alias.scope !134
   %144 = load i32, ptr %136, align 4
-  %145 = getelementptr inbounds nuw i64, ptr %65, i64 %indvars.iv30
+  %145 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %indvars.iv30
   %146 = load i64, ptr %145, align 8
   %147 = tail call ptr @OidSendFunctionCall(i32 noundef %144, i64 noundef %146) #7
   %148 = load i32, ptr %147, align 4
@@ -1163,7 +1159,7 @@ logicalrep_should_publish_column.exit63.thread7:  ; preds = %82, %85, %logicalre
   store i32 %163, ptr %51, align 8, !alias.scope !140
   %164 = getelementptr inbounds nuw i8, ptr %134, i64 104
   %165 = load i32, ptr %164, align 4
-  %166 = getelementptr inbounds nuw i64, ptr %65, i64 %indvars.iv30
+  %166 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %indvars.iv30
   %167 = load i64, ptr %166, align 8
   %168 = tail call ptr @OidOutputFunctionCall(i32 noundef %165, i64 noundef %167) #7
   %169 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %168) #9
@@ -1245,7 +1241,7 @@ define internal fastcc void @logicalrep_read_tuple(ptr noundef %0, ptr noundef c
   ]
 
 17:                                               ; preds = %.lr.ph, %.lr.ph
-  %18 = getelementptr inbounds nuw %struct.StringInfoData, ptr %11, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [24 x i8], ptr %11, i64 %indvars.iv
   %19 = tail call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 4) #7
   %20 = add i32 %19, 1
   %21 = sext i32 %20 to i64
@@ -1551,7 +1547,7 @@ define dso_local void @logicalrep_write_truncate(ptr noundef %0, i32 noundef %1,
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %34 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %35 = load i32, ptr %34, align 4
   tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 4) #7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !178)
@@ -1779,7 +1775,7 @@ logicalrep_write_namespace.exit:                  ; preds = %33, %45
 .lr.ph.split.us.split.us.i:                       ; preds = %.lr.ph.split.us.i, %logicalrep_should_publish_column.exit.thread.us.us.i
   %indvars.iv65.i = phi i64 [ %indvars.iv.next66.i, %logicalrep_should_publish_column.exit.thread.us.us.i ], [ 0, %.lr.ph.split.us.i ]
   %.03651.us.us.i = phi i16 [ %72, %logicalrep_should_publish_column.exit.thread.us.us.i ], [ 0, %.lr.ph.split.us.i ]
-  %64 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %63, i64 %indvars.iv65.i
+  %64 = getelementptr inbounds nuw [100 x i8], ptr %63, i64 %indvars.iv65.i
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 91
   %66 = load i8, ptr %65, align 1, !range !121, !noundef !122
   %67 = trunc nuw i8 %66 to i1
@@ -1806,7 +1802,7 @@ logicalrep_should_publish_column.exit.thread.us.us.i: ; preds = %logicalrep_shou
 .lr.ph.split.us.split.i:                          ; preds = %.lr.ph.split.us.i, %logicalrep_should_publish_column.exit.thread.us.i
   %indvars.iv63.i = phi i64 [ %indvars.iv.next64.i, %logicalrep_should_publish_column.exit.thread.us.i ], [ 0, %.lr.ph.split.us.i ]
   %.03651.us.i = phi i16 [ %81, %logicalrep_should_publish_column.exit.thread.us.i ], [ 0, %.lr.ph.split.us.i ]
-  %73 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %63, i64 %indvars.iv63.i
+  %73 = getelementptr inbounds nuw [100 x i8], ptr %63, i64 %indvars.iv63.i
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 91
   %75 = load i8, ptr %74, align 1, !range !121, !noundef !122
   %76 = trunc nuw i8 %75 to i1
@@ -1834,7 +1830,7 @@ logicalrep_should_publish_column.exit.thread.us.i: ; preds = %77, %.lr.ph.split.
   %84 = shl nsw i64 %83, 4
   %85 = getelementptr i8, ptr %57, i64 %84
   %86 = getelementptr i8, ptr %85, i64 24
-  %87 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %86, i64 %indvars.iv.i
+  %87 = getelementptr inbounds nuw [100 x i8], ptr %86, i64 %indvars.iv.i
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 91
   %89 = load i8, ptr %88, align 1, !range !121, !noundef !122
   %90 = trunc nuw i8 %89 to i1
@@ -1900,7 +1896,7 @@ logicalrep_should_publish_column.exit.thread.i:   ; preds = %logicalrep_should_p
   %118 = shl nsw i64 %117, 4
   %119 = getelementptr i8, ptr %57, i64 %118
   %120 = getelementptr i8, ptr %119, i64 24
-  %121 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %120, i64 %indvars.iv70.i
+  %121 = getelementptr inbounds nuw [100 x i8], ptr %120, i64 %indvars.iv70.i
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 91
   %123 = load i8, ptr %122, align 1, !range !121, !noundef !122
   %124 = trunc nuw i8 %123 to i1
@@ -2041,10 +2037,10 @@ define dso_local ptr @logicalrep_read_rel(ptr noundef %0) local_unnamed_addr #0 
   %.1.i = phi ptr [ %26, %24 ], [ %.02426.i, %.lr.ph.i ]
   %28 = tail call ptr @pq_getmsgstring(ptr noundef %0) #7
   %29 = tail call ptr @pstrdup(ptr noundef %28) #7
-  %30 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv.i
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv.i
   store ptr %29, ptr %30, align 8
   %31 = tail call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 4) #7
-  %32 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv.i
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv.i
   store i32 %31, ptr %32, align 4
   %33 = tail call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 4) #7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1

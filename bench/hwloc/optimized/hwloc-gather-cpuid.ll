@@ -668,7 +668,7 @@ define internal fastcc void @dump_one_proc(ptr noundef %0, ptr noundef nonnull r
   br i1 %.not784, label %56, label %54
 
 54:                                               ; preds = %53
-  %55 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i
   store i32 0, ptr %55, align 4, !tbaa !12
   br label %56
 
@@ -714,7 +714,7 @@ dump_one_cpuid.exit:                              ; preds = %56
   br i1 %.not785, label %79, label %77
 
 77:                                               ; preds = %76
-  %78 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i278
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i278
   store i32 0, ptr %78, align 4, !tbaa !12
   br label %79
 
@@ -755,7 +755,7 @@ dump_one_cpuid.exit:                              ; preds = %56
   br i1 %.not787, label %99, label %97
 
 97:                                               ; preds = %96
-  %98 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i283
+  %98 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i283
   store i32 0, ptr %98, align 4, !tbaa !12
   br label %99
 
@@ -793,7 +793,7 @@ dump_one_cpuid.exit:                              ; preds = %56
   br i1 %.not788, label %118, label %116
 
 116:                                              ; preds = %115
-  %117 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i288
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i288
   store i32 0, ptr %117, align 4, !tbaa !12
   br label %118
 
@@ -836,7 +836,7 @@ dump_one_cpuid.exit:                              ; preds = %56
   br i1 %.not.i294, label %136, label %138
 
 136:                                              ; preds = %132
-  %137 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i293
+  %137 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i293
   store i32 0, ptr %137, align 4, !tbaa !12
   br label %138
 
@@ -894,7 +894,7 @@ dump_one_cpuid.exit297:                           ; preds = %138
   br i1 %.not790, label %165, label %163
 
 163:                                              ; preds = %162
-  %164 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i298
+  %164 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i298
   store i32 0, ptr %164, align 4, !tbaa !12
   br label %165
 
@@ -932,7 +932,7 @@ dump_one_cpuid.exit297:                           ; preds = %138
   br i1 %.not792, label %183, label %181
 
 181:                                              ; preds = %180
-  %182 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i303
+  %182 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i303
   store i32 0, ptr %182, align 4, !tbaa !12
   br label %183
 
@@ -974,7 +974,7 @@ dump_one_cpuid.exit297:                           ; preds = %138
   br i1 %.not.i309, label %203, label %205
 
 203:                                              ; preds = %199
-  %204 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i308
+  %204 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i308
   store i32 0, ptr %204, align 4, !tbaa !12
   br label %205
 
@@ -1031,7 +1031,7 @@ dump_one_cpuid.exit312:                           ; preds = %205
   br i1 %.not.i314, label %230, label %232
 
 230:                                              ; preds = %226
-  %231 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i313
+  %231 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i313
   store i32 0, ptr %231, align 4, !tbaa !12
   br label %232
 
@@ -1083,7 +1083,7 @@ dump_one_cpuid.exit317:                           ; preds = %232
   br i1 %.not793, label %255, label %253
 
 253:                                              ; preds = %252
-  %254 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i318
+  %254 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i318
   store i32 0, ptr %254, align 4, !tbaa !12
   br label %255
 
@@ -1121,7 +1121,7 @@ dump_one_cpuid.exit317:                           ; preds = %232
   br i1 %.not795, label %273, label %271
 
 271:                                              ; preds = %270
-  %272 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i323
+  %272 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i323
   store i32 0, ptr %272, align 4, !tbaa !12
   br label %273
 
@@ -1165,7 +1165,7 @@ dump_one_cpuid.exit317:                           ; preds = %232
   br i1 %.not.i329, label %292, label %294
 
 292:                                              ; preds = %288
-  %293 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i328
+  %293 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i328
   store i32 0, ptr %293, align 4, !tbaa !12
   br label %294
 
@@ -1236,7 +1236,7 @@ dump_one_cpuid.exit332:                           ; preds = %294
   br i1 %.not.i334, label %326, label %328
 
 326:                                              ; preds = %322
-  %327 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i333
+  %327 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i333
   store i32 0, ptr %327, align 4, !tbaa !12
   br label %328
 
@@ -1277,7 +1277,7 @@ dump_one_cpuid.exit337:                           ; preds = %328
   br i1 %.not.i339, label %348, label %350
 
 348:                                              ; preds = %344
-  %349 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i338
+  %349 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i338
   store i32 0, ptr %349, align 4, !tbaa !12
   br label %350
 
@@ -1333,7 +1333,7 @@ dump_one_cpuid.exit342:                           ; preds = %350
   br i1 %.not.i344, label %376, label %378
 
 376:                                              ; preds = %372
-  %377 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i343
+  %377 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i343
   store i32 0, ptr %377, align 4, !tbaa !12
   br label %378
 
@@ -1388,7 +1388,7 @@ dump_one_cpuid.exit347:                           ; preds = %378
   br i1 %.not.i349, label %403, label %405
 
 403:                                              ; preds = %399
-  %404 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i348
+  %404 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i348
   store i32 0, ptr %404, align 4, !tbaa !12
   br label %405
 
@@ -1439,7 +1439,7 @@ dump_one_cpuid.exit352:                           ; preds = %405
   br i1 %.not.i354, label %428, label %430
 
 428:                                              ; preds = %424
-  %429 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i353
+  %429 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i353
   store i32 0, ptr %429, align 4, !tbaa !12
   br label %430
 
@@ -1478,7 +1478,7 @@ dump_one_cpuid.exit357:                           ; preds = %430
   br i1 %.not.i359, label %448, label %450
 
 448:                                              ; preds = %444
-  %449 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i358
+  %449 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i358
   store i32 0, ptr %449, align 4, !tbaa !12
   br label %450
 
@@ -1521,7 +1521,7 @@ dump_one_cpuid.exit357:                           ; preds = %430
   br i1 %.not.i364, label %470, label %472
 
 470:                                              ; preds = %466
-  %471 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i363
+  %471 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i363
   store i32 0, ptr %471, align 4, !tbaa !12
   br label %472
 
@@ -1560,7 +1560,7 @@ dump_one_cpuid.exit367:                           ; preds = %472
   br i1 %.not.i369, label %490, label %492
 
 490:                                              ; preds = %486
-  %491 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i368
+  %491 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i368
   store i32 0, ptr %491, align 4, !tbaa !12
   br label %492
 
@@ -1599,7 +1599,7 @@ dump_one_cpuid.exit372:                           ; preds = %492
   br i1 %.not.i374, label %510, label %512
 
 510:                                              ; preds = %506
-  %511 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i373
+  %511 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i373
   store i32 0, ptr %511, align 4, !tbaa !12
   br label %512
 
@@ -1638,7 +1638,7 @@ dump_one_cpuid.exit377:                           ; preds = %512
   br i1 %.not.i379, label %530, label %532
 
 530:                                              ; preds = %526
-  %531 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i378
+  %531 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i378
   store i32 0, ptr %531, align 4, !tbaa !12
   br label %532
 
@@ -1682,7 +1682,7 @@ dump_one_cpuid.exit377:                           ; preds = %512
   br i1 %.not.i384, label %553, label %555
 
 553:                                              ; preds = %549
-  %554 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i383
+  %554 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i383
   store i32 0, ptr %554, align 4, !tbaa !12
   br label %555
 
@@ -1721,7 +1721,7 @@ dump_one_cpuid.exit387:                           ; preds = %555
   br i1 %.not.i389, label %573, label %575
 
 573:                                              ; preds = %569
-  %574 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i388
+  %574 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i388
   store i32 0, ptr %574, align 4, !tbaa !12
   br label %575
 
@@ -1764,7 +1764,7 @@ dump_one_cpuid.exit392:                           ; preds = %575
   br i1 %.not.i394, label %594, label %596
 
 594:                                              ; preds = %590
-  %595 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i393
+  %595 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i393
   store i32 0, ptr %595, align 4, !tbaa !12
   br label %596
 
@@ -1826,7 +1826,7 @@ dump_one_cpuid.exit397:                           ; preds = %596
   br i1 %.not.i399, label %624, label %626
 
 624:                                              ; preds = %620
-  %625 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i398
+  %625 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i398
   store i32 0, ptr %625, align 4, !tbaa !12
   br label %626
 
@@ -1865,7 +1865,7 @@ dump_one_cpuid.exit402:                           ; preds = %626
   br i1 %.not.i404, label %644, label %646
 
 644:                                              ; preds = %640
-  %645 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i403
+  %645 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i403
   store i32 0, ptr %645, align 4, !tbaa !12
   br label %646
 
@@ -1904,7 +1904,7 @@ dump_one_cpuid.exit402:                           ; preds = %626
   br i1 %.not798, label %665, label %663
 
 663:                                              ; preds = %662
-  %664 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i408
+  %664 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i408
   store i32 0, ptr %664, align 4, !tbaa !12
   br label %665
 
@@ -1942,7 +1942,7 @@ dump_one_cpuid.exit402:                           ; preds = %626
   br i1 %.not799, label %684, label %682
 
 682:                                              ; preds = %681
-  %683 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i413
+  %683 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i413
   store i32 0, ptr %683, align 4, !tbaa !12
   br label %684
 
@@ -1984,7 +1984,7 @@ dump_one_cpuid.exit402:                           ; preds = %626
   br i1 %.not.i419, label %703, label %705
 
 703:                                              ; preds = %699
-  %704 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i418
+  %704 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i418
   store i32 0, ptr %704, align 4, !tbaa !12
   br label %705
 
@@ -2035,7 +2035,7 @@ dump_one_cpuid.exit422:                           ; preds = %705
   br i1 %.not.i424, label %727, label %729
 
 727:                                              ; preds = %723
-  %728 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i423
+  %728 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i423
   store i32 0, ptr %728, align 4, !tbaa !12
   br label %729
 
@@ -2091,7 +2091,7 @@ dump_one_cpuid.exit427:                           ; preds = %729
   br i1 %.not.i429, label %755, label %757
 
 755:                                              ; preds = %751
-  %756 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i428
+  %756 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i428
   store i32 0, ptr %756, align 4, !tbaa !12
   br label %757
 
@@ -2143,7 +2143,7 @@ dump_one_cpuid.exit432:                           ; preds = %757
   br i1 %.not.i434, label %778, label %780
 
 778:                                              ; preds = %774
-  %779 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i433
+  %779 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i433
   store i32 0, ptr %779, align 4, !tbaa !12
   br label %780
 
@@ -2195,7 +2195,7 @@ dump_one_cpuid.exit437:                           ; preds = %780
   br i1 %.not802, label %802, label %800
 
 800:                                              ; preds = %799
-  %801 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i438
+  %801 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i438
   store i32 0, ptr %801, align 4, !tbaa !12
   br label %802
 
@@ -2237,7 +2237,7 @@ dump_one_cpuid.exit437:                           ; preds = %780
   br i1 %.not.i444, label %822, label %824
 
 822:                                              ; preds = %818
-  %823 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i443
+  %823 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i443
   store i32 0, ptr %823, align 4, !tbaa !12
   br label %824
 
@@ -2282,7 +2282,7 @@ dump_one_cpuid.exit437:                           ; preds = %780
   br i1 %.not.i449, label %844, label %846
 
 844:                                              ; preds = %840
-  %845 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i448
+  %845 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i448
   store i32 0, ptr %845, align 4, !tbaa !12
   br label %846
 
@@ -2344,7 +2344,7 @@ dump_one_cpuid.exit452:                           ; preds = %846
   br i1 %.not.i454, label %874, label %876
 
 874:                                              ; preds = %870
-  %875 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i453
+  %875 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i453
   store i32 0, ptr %875, align 4, !tbaa !12
   br label %876
 
@@ -2387,7 +2387,7 @@ dump_one_cpuid.exit452:                           ; preds = %846
   br i1 %.not.i459, label %896, label %898
 
 896:                                              ; preds = %892
-  %897 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i458
+  %897 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i458
   store i32 0, ptr %897, align 4, !tbaa !12
   br label %898
 
@@ -2426,7 +2426,7 @@ dump_one_cpuid.exit462:                           ; preds = %898
   br i1 %.not.i464, label %916, label %918
 
 916:                                              ; preds = %912
-  %917 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i463
+  %917 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i463
   store i32 0, ptr %917, align 4, !tbaa !12
   br label %918
 
@@ -2469,7 +2469,7 @@ dump_one_cpuid.exit462:                           ; preds = %898
   br i1 %.not.i469, label %939, label %941
 
 939:                                              ; preds = %935
-  %940 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i468
+  %940 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i468
   store i32 0, ptr %940, align 4, !tbaa !12
   br label %941
 
@@ -2513,7 +2513,7 @@ dump_one_cpuid.exit462:                           ; preds = %898
   br i1 %.not.i474, label %960, label %962
 
 960:                                              ; preds = %956
-  %961 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i473
+  %961 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i473
   store i32 0, ptr %961, align 4, !tbaa !12
   br label %962
 
@@ -2575,7 +2575,7 @@ dump_one_cpuid.exit477:                           ; preds = %962
   br i1 %.not.i479, label %990, label %992
 
 990:                                              ; preds = %986
-  %991 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i478
+  %991 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i478
   store i32 0, ptr %991, align 4, !tbaa !12
   br label %992
 
@@ -2618,7 +2618,7 @@ dump_one_cpuid.exit477:                           ; preds = %962
   br i1 %.not.i484, label %1012, label %1014
 
 1012:                                             ; preds = %1008
-  %1013 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i483
+  %1013 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i483
   store i32 0, ptr %1013, align 4, !tbaa !12
   br label %1014
 
@@ -2661,7 +2661,7 @@ dump_one_cpuid.exit477:                           ; preds = %962
   br i1 %.not.i489, label %1035, label %1037
 
 1035:                                             ; preds = %1031
-  %1036 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i488
+  %1036 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i488
   store i32 0, ptr %1036, align 4, !tbaa !12
   br label %1037
 
@@ -2704,7 +2704,7 @@ dump_one_cpuid.exit477:                           ; preds = %962
   br i1 %.not.i494, label %1057, label %1059
 
 1057:                                             ; preds = %1053
-  %1058 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i493
+  %1058 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i493
   store i32 0, ptr %1058, align 4, !tbaa !12
   br label %1059
 
@@ -2754,7 +2754,7 @@ dump_one_cpuid.exit497:                           ; preds = %1059
   br i1 %.not.i499, label %1082, label %1084
 
 1082:                                             ; preds = %1078
-  %1083 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i498
+  %1083 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i498
   store i32 0, ptr %1083, align 4, !tbaa !12
   br label %1084
 
@@ -2805,7 +2805,7 @@ dump_one_cpuid.exit502:                           ; preds = %1084
   br i1 %.not.i504, label %1107, label %1109
 
 1107:                                             ; preds = %1103
-  %1108 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i503
+  %1108 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i503
   store i32 0, ptr %1108, align 4, !tbaa !12
   br label %1109
 
@@ -2857,7 +2857,7 @@ dump_one_cpuid.exit502:                           ; preds = %1084
   br i1 %.not807, label %1133, label %1131
 
 1131:                                             ; preds = %1130
-  %1132 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i508
+  %1132 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i508
   store i32 0, ptr %1132, align 4, !tbaa !12
   br label %1133
 
@@ -2895,7 +2895,7 @@ dump_one_cpuid.exit512:                           ; preds = %1133
   br i1 %.not808, label %1151, label %1149
 
 1149:                                             ; preds = %1148
-  %1150 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i513
+  %1150 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i513
   store i32 0, ptr %1150, align 4, !tbaa !12
   br label %1151
 
@@ -2936,7 +2936,7 @@ dump_one_cpuid.exit512:                           ; preds = %1133
   br i1 %.not810, label %1171, label %1169
 
 1169:                                             ; preds = %1168
-  %1170 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i518
+  %1170 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i518
   store i32 0, ptr %1170, align 4, !tbaa !12
   br label %1171
 
@@ -2974,7 +2974,7 @@ dump_one_cpuid.exit512:                           ; preds = %1133
   br i1 %.not811, label %1190, label %1188
 
 1188:                                             ; preds = %1187
-  %1189 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i523
+  %1189 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i523
   store i32 0, ptr %1189, align 4, !tbaa !12
   br label %1190
 
@@ -3012,7 +3012,7 @@ dump_one_cpuid.exit512:                           ; preds = %1133
   br i1 %.not813, label %1208, label %1206
 
 1206:                                             ; preds = %1205
-  %1207 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i528
+  %1207 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i528
   store i32 0, ptr %1207, align 4, !tbaa !12
   br label %1208
 
@@ -3050,7 +3050,7 @@ dump_one_cpuid.exit512:                           ; preds = %1133
   br i1 %.not814, label %1227, label %1225
 
 1225:                                             ; preds = %1224
-  %1226 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i533
+  %1226 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i533
   store i32 0, ptr %1226, align 4, !tbaa !12
   br label %1227
 
@@ -3088,7 +3088,7 @@ dump_one_cpuid.exit512:                           ; preds = %1133
   br i1 %.not816, label %1245, label %1243
 
 1243:                                             ; preds = %1242
-  %1244 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i538
+  %1244 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i538
   store i32 0, ptr %1244, align 4, !tbaa !12
   br label %1245
 
@@ -3126,7 +3126,7 @@ dump_one_cpuid.exit512:                           ; preds = %1133
   br i1 %.not817, label %1264, label %1262
 
 1262:                                             ; preds = %1261
-  %1263 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i543
+  %1263 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i543
   store i32 0, ptr %1263, align 4, !tbaa !12
   br label %1264
 
@@ -3164,7 +3164,7 @@ dump_one_cpuid.exit512:                           ; preds = %1133
   br i1 %.not819, label %1282, label %1280
 
 1280:                                             ; preds = %1279
-  %1281 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i548
+  %1281 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i548
   store i32 0, ptr %1281, align 4, !tbaa !12
   br label %1282
 
@@ -3202,7 +3202,7 @@ dump_one_cpuid.exit512:                           ; preds = %1133
   br i1 %.not820, label %1301, label %1299
 
 1299:                                             ; preds = %1298
-  %1300 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i553
+  %1300 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i553
   store i32 0, ptr %1300, align 4, !tbaa !12
   br label %1301
 
@@ -3240,7 +3240,7 @@ dump_one_cpuid.exit512:                           ; preds = %1133
   br i1 %.not821, label %1320, label %1318
 
 1318:                                             ; preds = %1317
-  %1319 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i558
+  %1319 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i558
   store i32 0, ptr %1319, align 4, !tbaa !12
   br label %1320
 
@@ -3278,7 +3278,7 @@ dump_one_cpuid.exit512:                           ; preds = %1133
   br i1 %.not823, label %1338, label %1336
 
 1336:                                             ; preds = %1335
-  %1337 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i563
+  %1337 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i563
   store i32 0, ptr %1337, align 4, !tbaa !12
   br label %1338
 
@@ -3316,7 +3316,7 @@ dump_one_cpuid.exit512:                           ; preds = %1133
   br i1 %.not824, label %1357, label %1355
 
 1355:                                             ; preds = %1354
-  %1356 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i568
+  %1356 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i568
   store i32 0, ptr %1356, align 4, !tbaa !12
   br label %1357
 
@@ -3354,7 +3354,7 @@ dump_one_cpuid.exit512:                           ; preds = %1133
   br i1 %.not826, label %1375, label %1373
 
 1373:                                             ; preds = %1372
-  %1374 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i573
+  %1374 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i573
   store i32 0, ptr %1374, align 4, !tbaa !12
   br label %1375
 
@@ -3397,7 +3397,7 @@ dump_one_cpuid.exit512:                           ; preds = %1133
   br i1 %.not.i579, label %1394, label %1396
 
 1394:                                             ; preds = %1390
-  %1395 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i578
+  %1395 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i578
   store i32 0, ptr %1395, align 4, !tbaa !12
   br label %1396
 
@@ -3456,7 +3456,7 @@ dump_one_cpuid.exit582:                           ; preds = %1396
   br i1 %.not827, label %1423, label %1421
 
 1421:                                             ; preds = %1420
-  %1422 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i583
+  %1422 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i583
   store i32 0, ptr %1422, align 4, !tbaa !12
   br label %1423
 
@@ -3497,7 +3497,7 @@ dump_one_cpuid.exit587:                           ; preds = %1423
   br i1 %.not828, label %1442, label %1440
 
 1440:                                             ; preds = %1439
-  %1441 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i588
+  %1441 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i588
   store i32 0, ptr %1441, align 4, !tbaa !12
   br label %1442
 
@@ -3539,7 +3539,7 @@ dump_one_cpuid.exit587:                           ; preds = %1423
   br i1 %.not.i594, label %1461, label %1463
 
 1461:                                             ; preds = %1457
-  %1462 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i593
+  %1462 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i593
   store i32 0, ptr %1462, align 4, !tbaa !12
   br label %1463
 
@@ -3578,7 +3578,7 @@ dump_one_cpuid.exit597:                           ; preds = %1463
   br i1 %.not.i599, label %1481, label %1483
 
 1481:                                             ; preds = %1477
-  %1482 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i598
+  %1482 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i598
   store i32 0, ptr %1482, align 4, !tbaa !12
   br label %1483
 
@@ -3617,7 +3617,7 @@ dump_one_cpuid.exit597:                           ; preds = %1463
   br i1 %.not830, label %1503, label %1501
 
 1501:                                             ; preds = %1500
-  %1502 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i603
+  %1502 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i603
   store i32 0, ptr %1502, align 4, !tbaa !12
   br label %1503
 
@@ -3655,7 +3655,7 @@ dump_one_cpuid.exit597:                           ; preds = %1463
   br i1 %.not832, label %1521, label %1519
 
 1519:                                             ; preds = %1518
-  %1520 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i608
+  %1520 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i608
   store i32 0, ptr %1520, align 4, !tbaa !12
   br label %1521
 
@@ -3693,7 +3693,7 @@ dump_one_cpuid.exit597:                           ; preds = %1463
   br i1 %.not833, label %1540, label %1538
 
 1538:                                             ; preds = %1537
-  %1539 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i613
+  %1539 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i613
   store i32 0, ptr %1539, align 4, !tbaa !12
   br label %1540
 
@@ -3736,7 +3736,7 @@ dump_one_cpuid.exit597:                           ; preds = %1463
   br i1 %.not.i619, label %1559, label %1561
 
 1559:                                             ; preds = %1555
-  %1560 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i618
+  %1560 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i618
   store i32 0, ptr %1560, align 4, !tbaa !12
   br label %1561
 

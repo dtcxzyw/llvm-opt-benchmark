@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.draw_methods = type { ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.lstopo_ascii_output = type { ptr, ptr, i32, i32, i32 }
-%struct.cell = type { i32, ptr, ptr }
 
 @stderr = external local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [36 x i8] c"Failed to open %s for writing (%s)\0A\00", align 1
@@ -196,13 +195,13 @@ define hidden range(i32 -1, 1) i32 @output_ascii(ptr noundef %0, ptr noundef %1)
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
   %indvars.iv118 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next119, %._crit_edge.us ]
   %88 = call noalias ptr @calloc(i64 noundef %86, i64 noundef 24) #19
-  %89 = getelementptr inbounds nuw ptr, ptr %84, i64 %indvars.iv118
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %indvars.iv118
   store ptr %88, ptr %89, align 8, !tbaa !49
   br label %90
 
 90:                                               ; preds = %.lr.ph.us, %90
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %90 ]
-  %91 = getelementptr inbounds nuw %struct.cell, ptr %88, i64 %indvars.iv
+  %91 = getelementptr inbounds nuw [24 x i8], ptr %88, i64 %indvars.iv
   store i32 32, ptr %91, align 8, !tbaa !51
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
   store ptr %87, ptr %92, align 8, !tbaa !54
@@ -220,7 +219,7 @@ define hidden range(i32 -1, 1) i32 @output_ascii(ptr noundef %0, ptr noundef %1)
 .lr.ph99.split:                                   ; preds = %.lr.ph99.split.preheader, %.lr.ph99.split
   %indvars.iv123 = phi i64 [ 0, %.lr.ph99.split.preheader ], [ %indvars.iv.next124, %.lr.ph99.split ]
   %94 = call noalias ptr @calloc(i64 noundef %86, i64 noundef 24) #19
-  %95 = getelementptr inbounds nuw ptr, ptr %84, i64 %indvars.iv123
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %indvars.iv123
   store ptr %94, ptr %95, align 8, !tbaa !49
   %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
   %exitcond127.not = icmp eq i64 %indvars.iv.next124, %wide.trip.count126
@@ -279,9 +278,9 @@ define hidden range(i32 -1, 1) i32 @output_ascii(ptr noundef %0, ptr noundef %1)
   %.171102.us.us = phi ptr [ %.272.us.us, %set_color.exit.us.us ], [ %.070107.us, %.preheader95.us ]
   %.174101.us.us = phi ptr [ %.275.us.us, %set_color.exit.us.us ], [ %.073106.us, %.preheader95.us ]
   %116 = load ptr, ptr %85, align 8, !tbaa !48
-  %117 = getelementptr inbounds nuw ptr, ptr %116, i64 %indvars.iv137
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %116, i64 %indvars.iv137
   %118 = load ptr, ptr %117, align 8, !tbaa !49
-  %119 = getelementptr inbounds nuw %struct.cell, ptr %118, i64 %indvars.iv134
+  %119 = getelementptr inbounds nuw [24 x i8], ptr %118, i64 %indvars.iv134
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 8
   %121 = load ptr, ptr %120, align 8, !tbaa !54
   %122 = getelementptr inbounds nuw i8, ptr %119, i64 16
@@ -440,9 +439,9 @@ set_color.exit.us.us:                             ; preds = %.sink.split.i.us.us
   %.275.us.us = phi ptr [ %123, %.sink.split.i.us.us ], [ %.174101.us.us, %.lr.ph.us109 ], [ %123, %181 ], [ %123, %195 ], [ %123, %202 ], [ %123, %205 ]
   %.272.us.us = phi ptr [ %121, %.sink.split.i.us.us ], [ %.171102.us.us, %.lr.ph.us109 ], [ %121, %181 ], [ %121, %195 ], [ %121, %202 ], [ %121, %205 ]
   %208 = load ptr, ptr %85, align 8, !tbaa !48
-  %209 = getelementptr inbounds nuw ptr, ptr %208, i64 %indvars.iv137
+  %209 = getelementptr inbounds nuw [8 x i8], ptr %208, i64 %indvars.iv137
   %210 = load ptr, ptr %209, align 8, !tbaa !49
-  %211 = getelementptr inbounds nuw %struct.cell, ptr %210, i64 %indvars.iv134
+  %211 = getelementptr inbounds nuw [24 x i8], ptr %210, i64 %indvars.iv134
   %212 = load i32, ptr %211, align 8, !tbaa !51
   %213 = call i32 @putwc(i32 noundef %212, ptr noundef nonnull %6) #15
   %indvars.iv.next135 = add nuw nsw i64 %indvars.iv134, 1
@@ -465,9 +464,9 @@ set_color.exit.us.us:                             ; preds = %.sink.split.i.us.us
 set_color.exit:                                   ; preds = %.preheader95, %set_color.exit
   %indvars.iv128 = phi i64 [ %indvars.iv.next129, %set_color.exit ], [ 0, %.preheader95 ]
   %221 = load ptr, ptr %85, align 8, !tbaa !48
-  %222 = getelementptr inbounds nuw ptr, ptr %221, i64 %indvars.iv131
+  %222 = getelementptr inbounds nuw [8 x i8], ptr %221, i64 %indvars.iv131
   %223 = load ptr, ptr %222, align 8, !tbaa !49
-  %224 = getelementptr inbounds nuw %struct.cell, ptr %223, i64 %indvars.iv128
+  %224 = getelementptr inbounds nuw [24 x i8], ptr %223, i64 %indvars.iv128
   %225 = load i32, ptr %224, align 8, !tbaa !51
   %226 = call i32 @putwc(i32 noundef %225, ptr noundef nonnull %6) #15
   %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
@@ -487,7 +486,7 @@ set_color.exit:                                   ; preds = %.preheader95, %set_
 .lr.ph112:                                        ; preds = %.preheader, %.lr.ph112
   %indvars.iv140 = phi i64 [ %indvars.iv.next141, %.lr.ph112 ], [ 0, %.preheader ]
   %234 = load ptr, ptr %85, align 8, !tbaa !48
-  %235 = getelementptr inbounds nuw ptr, ptr %234, i64 %indvars.iv140
+  %235 = getelementptr inbounds nuw [8 x i8], ptr %234, i64 %indvars.iv140
   %236 = load ptr, ptr %235, align 8, !tbaa !49
   call void @free(ptr noundef %236) #15
   %indvars.iv.next141 = add nuw nsw i64 %indvars.iv140, 1
@@ -707,10 +706,10 @@ define internal void @ascii_box(ptr noundef readonly captures(none) %0, ptr noun
 
 36:                                               ; preds = %34
   %37 = load ptr, ptr %29, align 8, !tbaa !48
-  %38 = getelementptr inbounds ptr, ptr %37, i64 %32
+  %38 = getelementptr inbounds [8 x i8], ptr %37, i64 %32
   %39 = load ptr, ptr %38, align 8, !tbaa !49
   %40 = sext i32 %.16370.us.us.us to i64
-  %41 = getelementptr inbounds %struct.cell, ptr %39, i64 %40
+  %41 = getelementptr inbounds [24 x i8], ptr %39, i64 %40
   store i32 32, ptr %41, align 8, !tbaa !51
   br label %put.exit.us.us.us
 
@@ -741,10 +740,10 @@ put.exit.us.us.us:                                ; preds = %36, %34, %33
 
 46:                                               ; preds = %44
   %47 = load ptr, ptr %29, align 8, !tbaa !48
-  %48 = getelementptr inbounds ptr, ptr %47, i64 %42
+  %48 = getelementptr inbounds [8 x i8], ptr %47, i64 %42
   %49 = load ptr, ptr %48, align 8, !tbaa !49
   %50 = sext i32 %.16370.us75 to i64
-  %51 = getelementptr inbounds %struct.cell, ptr %49, i64 %50
+  %51 = getelementptr inbounds [24 x i8], ptr %49, i64 %50
   store i32 32, ptr %51, align 8, !tbaa !51
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
   store ptr %1, ptr %52, align 8, !tbaa !55
@@ -872,10 +871,10 @@ define internal void @ascii_text(ptr noundef readonly captures(none) %0, ptr nou
 
 30:                                               ; preds = %28
   %31 = load ptr, ptr %24, align 8, !tbaa !48
-  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %25
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %25
   %33 = load ptr, ptr %32, align 8, !tbaa !49
   %34 = sext i32 %.01619.us to i64
-  %35 = getelementptr inbounds %struct.cell, ptr %33, i64 %34
+  %35 = getelementptr inbounds [24 x i8], ptr %33, i64 %34
   store i32 %26, ptr %35, align 8, !tbaa !51
   br label %put.exit.us
 
@@ -900,10 +899,10 @@ put.exit.us:                                      ; preds = %30, %28, %.lr.ph.sp
 
 42:                                               ; preds = %40
   %43 = load ptr, ptr %24, align 8, !tbaa !48
-  %44 = getelementptr inbounds nuw ptr, ptr %43, i64 %25
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %25
   %45 = load ptr, ptr %44, align 8, !tbaa !49
   %46 = sext i32 %.01619 to i64
-  %47 = getelementptr inbounds %struct.cell, ptr %45, i64 %46
+  %47 = getelementptr inbounds [24 x i8], ptr %45, i64 %46
   store i32 %38, ptr %47, align 8, !tbaa !51
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store ptr %1, ptr %48, align 8, !tbaa !54
@@ -947,10 +946,10 @@ define internal fastcc void @merge(ptr noundef readonly captures(none) %0, i32 n
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !48
   %15 = sext i32 %2 to i64
-  %16 = getelementptr inbounds ptr, ptr %14, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !49
   %18 = sext i32 %1 to i64
-  %19 = getelementptr inbounds %struct.cell, ptr %17, i64 %18
+  %19 = getelementptr inbounds [24 x i8], ptr %17, i64 %18
   %20 = load i32, ptr %19, align 8, !tbaa !51
   %21 = getelementptr i8, ptr %0, i64 16
   %.val = load i32, ptr %21, align 8, !tbaa !59
@@ -1046,7 +1045,7 @@ from_directions.exit:                             ; preds = %38, %39, %40, %41, 
   %43 = and i32 %.0.i.sink, %42
   %44 = or i32 %43, %3
   %45 = zext nneg i32 %44 to i64
-  %46 = getelementptr i32, ptr %switch.table.merge.3.sink, i64 %45
+  %46 = getelementptr [4 x i8], ptr %switch.table.merge.3.sink, i64 %45
   %switch.gep27 = getelementptr i8, ptr %46, i64 -4
   %switch.load28 = load i32, ptr %switch.gep27, align 4
   store i32 %switch.load28, ptr %19, align 8, !tbaa !51

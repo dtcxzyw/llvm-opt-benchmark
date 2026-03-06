@@ -479,7 +479,7 @@ define void @ucnv_fromUnicode_UTF8_OFFSETS_LOGIC_77(ptr noundef captures(none) %
   br label %122
 
 122:                                              ; preds = %120, %114
-  %123 = getelementptr inbounds nuw i32, ptr %.6, i64 %116
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %.6, i64 %116
   br label %.loopexit
 
 124:                                              ; preds = %.lr.ph, %136
@@ -874,7 +874,7 @@ _ZN6icu_774UTF812isValidTrailEihii.exit:          ; preds = %121
 
 160:                                              ; preds = %._crit_edge
   %161 = sext i32 %.0.fr to i64
-  %162 = getelementptr inbounds i32, ptr @_ZL15offsetsFromUTF8, i64 %161
+  %162 = getelementptr inbounds [4 x i8], ptr @_ZL15offsetsFromUTF8, i64 %161
   %163 = load i32, ptr %162, align 4, !tbaa !33
   %164 = sub i32 %.192.lcssa, %163
   %165 = icmp ult i32 %164, 65536
@@ -1280,7 +1280,7 @@ _ZN6icu_774UTF812isValidTrailEihii.exit:          ; preds = %125
 
 164:                                              ; preds = %._crit_edge
   %165 = sext i32 %.0.fr to i64
-  %166 = getelementptr inbounds i32, ptr @_ZL15offsetsFromUTF8, i64 %165
+  %166 = getelementptr inbounds [4 x i8], ptr @_ZL15offsetsFromUTF8, i64 %165
   %167 = load i32, ptr %166, align 4, !tbaa !33
   %168 = sub i32 %.1105.lcssa, %167
   %169 = icmp ult i32 %168, 65536

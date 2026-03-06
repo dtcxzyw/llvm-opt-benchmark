@@ -3,8 +3,6 @@ source_filename = "bench/abc/original/cuddLCache.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.DdSubtable = type { ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
-
 @Extra_UtilMMoutOfMemory = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
@@ -178,7 +176,7 @@ define void @cuddLocalCacheInsert(ptr noundef readonly captures(none) %0, ptr no
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 1, %3 ]
   %.089.i = phi i32 [ %18, %.lr.ph.i ], [ %11, %3 ]
   %13 = mul i32 %.089.i, 12582917
-  %14 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.i
   %15 = load ptr, ptr %14, align 8, !tbaa !45
   %16 = ptrtoint ptr %15 to i64
   %17 = trunc i64 %16 to i32
@@ -231,7 +229,7 @@ define ptr @cuddLocalCacheLookup(ptr noundef captures(none) %0, ptr noundef read
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.089.i = phi i32 [ %13, %.lr.ph.preheader.i ], [ %20, %.lr.ph.i ]
   %15 = mul i32 %.089.i, 12582917
-  %16 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.i
   %17 = load ptr, ptr %16, align 8, !tbaa !45
   %18 = ptrtoint ptr %17 to i64
   %19 = trunc i64 %18 to i32
@@ -360,7 +358,7 @@ ddLCHash.exit:                                    ; preds = %.lr.ph.i, %2
   %indvars.iv.i.i.us = phi i64 [ %indvars.iv.next.i.i.us, %.lr.ph.i.i.us ], [ 1, %.lr.ph.i.i.preheader.us ]
   %.089.i.i.us = phi i32 [ %94, %.lr.ph.i.i.us ], [ %88, %.lr.ph.i.i.preheader.us ]
   %89 = mul i32 %.089.i.i.us, 12582917
-  %90 = getelementptr inbounds nuw ptr, ptr %84, i64 %indvars.iv.i.i.us
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %indvars.iv.i.i.us
   %91 = load ptr, ptr %90, align 8, !tbaa !45
   %92 = ptrtoint ptr %91 to i64
   %93 = trunc i64 %92 to i32
@@ -488,7 +486,7 @@ define void @cuddLocalCacheClearDead(ptr noundef readonly captures(none) %0) loc
 
 21:                                               ; preds = %.lr.ph.us, %20
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %20 ]
-  %22 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8, !tbaa !45
   %24 = ptrtoint ptr %23 to i64
   %25 = and i64 %24, -2
@@ -643,7 +641,7 @@ define void @cuddHashTableQuit(ptr noundef captures(none) %0) local_unnamed_addr
 7:                                                ; preds = %.lr.ph33, %._crit_edge
   %indvars.iv = phi i64 [ 0, %.lr.ph33 ], [ %indvars.iv.next, %._crit_edge ]
   %8 = load ptr, ptr %6, align 8, !tbaa !64
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %.02228 = load ptr, ptr %9, align 8, !tbaa !67
   %.not2729 = icmp eq ptr %.02228, null
   br i1 %.not2729, label %._crit_edge, label %.lr.ph
@@ -745,9 +743,9 @@ define range(i32 0, 2) i32 @cuddHashTableInsert(ptr noundef captures(none) %0, p
 
 33:                                               ; preds = %.lr.ph, %33
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %33 ]
-  %34 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %35 = load ptr, ptr %34, align 8, !tbaa !45
-  %36 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv
   store ptr %35, ptr %36, align 8, !tbaa !45
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -771,7 +769,7 @@ define range(i32 0, 2) i32 @cuddHashTableInsert(ptr noundef captures(none) %0, p
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.089.i = phi i32 [ %42, %.lr.ph.preheader.i ], [ %48, %.lr.ph.i ]
   %43 = mul i32 %.089.i, 12582917
-  %44 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.i
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.i
   %45 = load ptr, ptr %44, align 8, !tbaa !45
   %46 = ptrtoint ptr %45 to i64
   %47 = trunc i64 %46 to i32
@@ -787,7 +785,7 @@ ddLCHash.exit:                                    ; preds = %.lr.ph.i, %._crit_e
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %52 = load ptr, ptr %51, align 8, !tbaa !64
   %53 = zext i32 %50 to i64
-  %54 = getelementptr inbounds nuw ptr, ptr %52, i64 %53
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %53
   %55 = load ptr, ptr %54, align 8, !tbaa !67
   store ptr %55, ptr %12, align 8, !tbaa !76
   store ptr %12, ptr %54, align 8, !tbaa !67
@@ -869,7 +867,7 @@ define internal fastcc void @cuddHashTableResize(ptr noundef captures(none) %0) 
 
 .lr.ph140.split.us:                               ; preds = %.lr.ph140, %._crit_edge138.split.us.us
   %indvars.iv161 = phi i64 [ %indvars.iv.next162, %._crit_edge138.split.us.us ], [ 0, %.lr.ph140 ]
-  %24 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv161
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv161
   %25 = load ptr, ptr %24, align 8, !tbaa !67
   %.not134.us = icmp eq ptr %25, null
   br i1 %.not134.us, label %._crit_edge138.split.us.us, label %.lr.ph.preheader.i.us.us
@@ -893,7 +891,7 @@ define internal fastcc void @cuddHashTableResize(ptr noundef captures(none) %0) 
   %indvars.iv.i.us.us = phi i64 [ 1, %.lr.ph.preheader.i.us.us ], [ %indvars.iv.next.i.us.us, %.lr.ph.i.us.us ]
   %.089.i.us.us = phi i32 [ %31, %.lr.ph.preheader.i.us.us ], [ %37, %.lr.ph.i.us.us ]
   %32 = mul i32 %.089.i.us.us, 12582917
-  %33 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv.i.us.us
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv.i.us.us
   %34 = load ptr, ptr %33, align 8, !tbaa !45
   %35 = ptrtoint ptr %34 to i64
   %36 = trunc i64 %35 to i32
@@ -905,7 +903,7 @@ define internal fastcc void @cuddHashTableResize(ptr noundef captures(none) %0) 
 ddLCHash.exit.loopexit.us.us:                     ; preds = %.lr.ph.i.us.us
   %38 = lshr i32 %37, %17
   %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds nuw ptr, ptr %calloc, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %calloc, i64 %39
   %41 = load ptr, ptr %40, align 8, !tbaa !67
   store ptr %41, ptr %.3103135.us.us, align 8, !tbaa !76
   store ptr %.3103135.us.us, ptr %40, align 8, !tbaa !67
@@ -914,7 +912,7 @@ ddLCHash.exit.loopexit.us.us:                     ; preds = %.lr.ph.i.us.us
 
 .lr.ph133:                                        ; preds = %.lr.ph133.preheader, %._crit_edge131
   %indvars.iv151 = phi i64 [ 0, %.lr.ph133.preheader ], [ %indvars.iv.next152, %._crit_edge131 ]
-  %42 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv151
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv151
   %43 = load ptr, ptr %42, align 8, !tbaa !67
   %.not109127 = icmp eq ptr %43, null
   br i1 %.not109127, label %._crit_edge131, label %.lr.ph130
@@ -936,7 +934,7 @@ ddLCHash.exit.loopexit.us.us:                     ; preds = %.lr.ph.i.us.us
   %56 = mul i32 %55, 2084940758
   %57 = lshr i32 %56, %17
   %58 = zext i32 %57 to i64
-  %59 = getelementptr inbounds nuw ptr, ptr %calloc, i64 %58
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %calloc, i64 %58
   %60 = load ptr, ptr %59, align 8, !tbaa !67
   store ptr %60, ptr %.0100128, align 8, !tbaa !76
   store ptr %.0100128, ptr %59, align 8, !tbaa !67
@@ -950,7 +948,7 @@ ddLCHash.exit.loopexit.us.us:                     ; preds = %.lr.ph.i.us.us
 
 .lr.ph126:                                        ; preds = %.lr.ph126.preheader, %._crit_edge124
   %indvars.iv146 = phi i64 [ 0, %.lr.ph126.preheader ], [ %indvars.iv.next147, %._crit_edge124 ]
-  %61 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv146
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv146
   %62 = load ptr, ptr %61, align 8, !tbaa !67
   %.not107120 = icmp eq ptr %62, null
   br i1 %.not107120, label %._crit_edge124, label %.lr.ph123
@@ -985,7 +983,7 @@ ddLCHash.exit.loopexit.us.us:                     ; preds = %.lr.ph.i.us.us
   %88 = mul i32 %87, 4256249
   %89 = lshr i32 %88, %17
   %90 = zext i32 %89 to i64
-  %91 = getelementptr inbounds nuw ptr, ptr %calloc, i64 %90
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %calloc, i64 %90
   %92 = load ptr, ptr %91, align 8, !tbaa !67
   store ptr %92, ptr %.1101121, align 8, !tbaa !76
   store ptr %.1101121, ptr %91, align 8, !tbaa !67
@@ -999,7 +997,7 @@ ddLCHash.exit.loopexit.us.us:                     ; preds = %.lr.ph.i.us.us
 
 .lr.ph119:                                        ; preds = %.lr.ph119.preheader, %._crit_edge
   %indvars.iv = phi i64 [ 0, %.lr.ph119.preheader ], [ %indvars.iv.next, %._crit_edge ]
-  %93 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %94 = load ptr, ptr %93, align 8, !tbaa !67
   %.not106116 = icmp eq ptr %94, null
   br i1 %.not106116, label %._crit_edge, label %.lr.ph
@@ -1046,7 +1044,7 @@ ddLCHash.exit.loopexit.us.us:                     ; preds = %.lr.ph.i.us.us
   %132 = mul i32 %131, 4256249
   %133 = lshr i32 %132, %17
   %134 = zext i32 %133 to i64
-  %135 = getelementptr inbounds nuw ptr, ptr %calloc, i64 %134
+  %135 = getelementptr inbounds nuw [8 x i8], ptr %calloc, i64 %134
   %136 = load ptr, ptr %135, align 8, !tbaa !67
   store ptr %136, ptr %.2102117, align 8, !tbaa !76
   store ptr %.2102117, ptr %135, align 8, !tbaa !67
@@ -1060,7 +1058,7 @@ ddLCHash.exit.loopexit.us.us:                     ; preds = %.lr.ph.i.us.us
 
 .lr.ph140.split:                                  ; preds = %.lr.ph140, %._crit_edge138.split
   %indvars.iv156 = phi i64 [ %indvars.iv.next157, %._crit_edge138.split ], [ 0, %.lr.ph140 ]
-  %137 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv156
+  %137 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv156
   %138 = load ptr, ptr %137, align 8, !tbaa !67
   %.not134 = icmp eq ptr %138, null
   br i1 %.not134, label %._crit_edge138.split, label %ddLCHash.exit
@@ -1075,7 +1073,7 @@ ddLCHash.exit:                                    ; preds = %.lr.ph140.split, %d
   %144 = mul i32 %143, 4256249
   %145 = lshr i32 %144, %17
   %146 = zext i32 %145 to i64
-  %147 = getelementptr inbounds nuw ptr, ptr %calloc, i64 %146
+  %147 = getelementptr inbounds nuw [8 x i8], ptr %calloc, i64 %146
   %148 = load ptr, ptr %147, align 8, !tbaa !67
   store ptr %148, ptr %.3103135, align 8, !tbaa !76
   store ptr %.3103135, ptr %147, align 8, !tbaa !67
@@ -1150,7 +1148,7 @@ define internal fastcc noundef ptr @cuddHashTableAlloc(ptr noundef captures(none
 
 32:                                               ; preds = %.lr.ph, %32
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %32 ]
-  %33 = getelementptr inbounds nuw %struct.DdSubtable, ptr %31, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [56 x i8], ptr %31, i64 %indvars.iv
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 20
   %35 = load i32, ptr %34, align 4, !tbaa !93
   %36 = shl i32 %35, 2
@@ -1239,7 +1237,7 @@ define ptr @cuddHashTableLookup(ptr noundef captures(none) %0, ptr noundef reado
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.089.i = phi i32 [ %9, %.lr.ph.preheader.i ], [ %16, %.lr.ph.i ]
   %11 = mul i32 %.089.i, 12582917
-  %12 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.i
   %13 = load ptr, ptr %12, align 8, !tbaa !45
   %14 = ptrtoint ptr %13 to i64
   %15 = trunc i64 %14 to i32
@@ -1254,7 +1252,7 @@ ddLCHash.exit:                                    ; preds = %.lr.ph.i, %2
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !64
   %20 = zext i32 %17 to i64
-  %21 = getelementptr inbounds nuw ptr, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %20
   %.03754 = load ptr, ptr %21, align 8, !tbaa !67
   %.not55 = icmp eq ptr %.03754, null
   br i1 %.not55, label %.thread, label %.lr.ph58
@@ -1280,9 +1278,9 @@ ddLCHash.exit:                                    ; preds = %.lr.ph.i, %2
 
 24:                                               ; preds = %.lr.ph.us, %23
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %23 ]
-  %25 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8, !tbaa !45
-  %27 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv
   %28 = load ptr, ptr %27, align 8, !tbaa !45
   %.not42.us = icmp eq ptr %26, %28
   br i1 %.not42.us, label %23, label %.loopexit.us
@@ -1391,7 +1389,7 @@ define range(i32 0, 2) i32 @cuddHashTableInsert1(ptr noundef captures(none) %0, 
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %40 = load ptr, ptr %39, align 8, !tbaa !64
   %41 = zext i32 %38 to i64
-  %42 = getelementptr inbounds nuw ptr, ptr %40, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %41
   %43 = load ptr, ptr %42, align 8, !tbaa !67
   store ptr %43, ptr %12, align 8, !tbaa !76
   store ptr %12, ptr %42, align 8, !tbaa !67
@@ -1420,7 +1418,7 @@ define ptr @cuddHashTableLookup1(ptr noundef captures(none) %0, ptr noundef %1) 
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !64
   %18 = zext i32 %15 to i64
-  %19 = getelementptr inbounds nuw ptr, ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %18
   br label %20
 
 20:                                               ; preds = %21, %2
@@ -1546,7 +1544,7 @@ define range(i32 0, 2) i32 @cuddHashTableInsert2(ptr noundef captures(none) %0, 
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %53 = load ptr, ptr %52, align 8, !tbaa !64
   %54 = zext i32 %51 to i64
-  %55 = getelementptr inbounds nuw ptr, ptr %53, i64 %54
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %54
   %56 = load ptr, ptr %55, align 8, !tbaa !67
   store ptr %56, ptr %13, align 8, !tbaa !76
   store ptr %13, ptr %55, align 8, !tbaa !67
@@ -1586,7 +1584,7 @@ define ptr @cuddHashTableLookup2(ptr noundef captures(none) %0, ptr noundef %1, 
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !64
   %30 = zext i32 %27 to i64
-  %31 = getelementptr inbounds nuw ptr, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %30
   %.03343 = load ptr, ptr %31, align 8, !tbaa !67
   %.not44 = icmp eq ptr %.03343, null
   br i1 %.not44, label %.thread, label %.lr.ph
@@ -1732,7 +1730,7 @@ define range(i32 0, 2) i32 @cuddHashTableInsert3(ptr noundef captures(none) %0, 
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %65 = load ptr, ptr %64, align 8, !tbaa !64
   %66 = zext i32 %63 to i64
-  %67 = getelementptr inbounds nuw ptr, ptr %65, i64 %66
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %66
   %68 = load ptr, ptr %67, align 8, !tbaa !67
   store ptr %68, ptr %14, align 8, !tbaa !76
   store ptr %14, ptr %67, align 8, !tbaa !67
@@ -1782,7 +1780,7 @@ define ptr @cuddHashTableLookup3(ptr noundef captures(none) %0, ptr noundef %1, 
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %40 = load ptr, ptr %39, align 8, !tbaa !64
   %41 = zext i32 %38 to i64
-  %42 = getelementptr inbounds nuw ptr, ptr %40, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %41
   %.03747 = load ptr, ptr %42, align 8, !tbaa !67
   %.not48 = icmp eq ptr %.03747, null
   br i1 %.not48, label %.thread, label %.lr.ph

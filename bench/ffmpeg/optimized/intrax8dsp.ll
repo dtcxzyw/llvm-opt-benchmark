@@ -232,8 +232,8 @@ define internal void @spatial_compensation_0(ptr noalias noundef readonly captur
   %17 = lshr i32 %11, %16
   %18 = and i32 %15, 1
   %19 = zext nneg i32 %18 to i64
-  %20 = getelementptr inbounds nuw [8 x i16], ptr %4, i64 %19
-  %21 = getelementptr inbounds nuw i16, ptr %20, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %19
+  %21 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %indvars.iv
   %22 = load i16, ptr %21, align 2, !tbaa !18
   %23 = trunc nuw nsw i32 %17 to i16
   %24 = add i16 %22, %23
@@ -265,8 +265,8 @@ define internal void @spatial_compensation_0(ptr noalias noundef readonly captur
   %36 = lshr i32 %30, %35
   %37 = and i32 %34, 1
   %38 = zext nneg i32 %37 to i64
-  %39 = getelementptr inbounds nuw [8 x i16], ptr %5, i64 %38
-  %40 = getelementptr inbounds nuw i16, ptr %39, i64 %indvars.iv97
+  %39 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %38
+  %40 = getelementptr inbounds nuw [2 x i8], ptr %39, i64 %indvars.iv97
   %41 = load i16, ptr %40, align 2, !tbaa !18
   %42 = trunc nuw nsw i32 %36 to i16
   %43 = add i16 %41, %42
@@ -297,8 +297,8 @@ define internal void @spatial_compensation_0(ptr noalias noundef readonly captur
   %53 = lshr i16 %52, 1
   %54 = lshr i16 %49, %53
   %55 = and i64 %51, 1
-  %56 = getelementptr inbounds nuw [8 x i16], ptr %5, i64 %55
-  %57 = getelementptr inbounds nuw i16, ptr %56, i64 %indvars.iv105
+  %56 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %55
+  %57 = getelementptr inbounds nuw [2 x i8], ptr %56, i64 %indvars.iv105
   %58 = load i16, ptr %57, align 2, !tbaa !18
   %59 = add i16 %58, %54
   store i16 %59, ptr %57, align 2, !tbaa !18
@@ -326,7 +326,7 @@ define internal void @spatial_compensation_0(ptr noalias noundef readonly captur
   %70 = lshr i32 %69, 1
   %71 = lshr i32 %67, %70
   %72 = and i64 %68, 1
-  %73 = getelementptr inbounds nuw [8 x i16], ptr %5, i64 %72
+  %73 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %72
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 14
   %75 = trunc nuw nsw i32 %71 to i16
   %.promoted = load i16, ptr %74, align 2, !tbaa !18
@@ -338,24 +338,24 @@ define internal void @spatial_compensation_0(ptr noalias noundef readonly captur
 
 77:                                               ; preds = %.preheader75, %77
   %indvars.iv117 = phi i64 [ 0, %.preheader75 ], [ %indvars.iv.next118, %77 ]
-  %78 = getelementptr inbounds nuw i16, ptr %61, i64 %indvars.iv117
+  %78 = getelementptr inbounds nuw [2 x i8], ptr %61, i64 %indvars.iv117
   %79 = load i16, ptr %78, align 2, !tbaa !18
   %80 = zext i16 %79 to i32
   %81 = mul nuw nsw i32 %80, 181
   %82 = add nuw nsw i32 %81, 128
   %83 = lshr i32 %82, 8
-  %84 = getelementptr inbounds nuw i16, ptr %5, i64 %indvars.iv117
+  %84 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %indvars.iv117
   %85 = load i16, ptr %84, align 2, !tbaa !18
   %86 = trunc nuw i32 %83 to i16
   %87 = add i16 %85, %86
   store i16 %87, ptr %84, align 2, !tbaa !18
-  %88 = getelementptr inbounds nuw i16, ptr %62, i64 %indvars.iv117
+  %88 = getelementptr inbounds nuw [2 x i8], ptr %62, i64 %indvars.iv117
   %89 = load i16, ptr %88, align 2, !tbaa !18
   %90 = zext i16 %89 to i32
   %91 = mul nuw nsw i32 %90, 181
   %92 = add nuw nsw i32 %91, 128
   %93 = lshr i32 %92, 8
-  %94 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv117
+  %94 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %indvars.iv117
   %95 = load i16, ptr %94, align 2, !tbaa !18
   %96 = trunc nuw i32 %93 to i16
   %97 = add i16 %95, %96
@@ -367,7 +367,7 @@ define internal void @spatial_compensation_0(ptr noalias noundef readonly captur
 .preheader:                                       ; preds = %77, %117
   %indvars.iv125 = phi i64 [ %indvars.iv.next126, %117 ], [ 0, %77 ]
   %.07389 = phi ptr [ %118, %117 ], [ %1, %77 ]
-  %98 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv125
+  %98 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %indvars.iv125
   %99 = load i16, ptr %98, align 2, !tbaa !18
   %100 = zext i16 %99 to i32
   %.idx129 = shl nuw nsw i64 %indvars.iv125, 5
@@ -376,7 +376,7 @@ define internal void @spatial_compensation_0(ptr noalias noundef readonly captur
 
 101:                                              ; preds = %.preheader, %101
   %indvars.iv121 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next122, %101 ]
-  %102 = getelementptr inbounds nuw i16, ptr %5, i64 %indvars.iv121
+  %102 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %indvars.iv121
   %103 = load i16, ptr %102, align 2, !tbaa !18
   %104 = zext i16 %103 to i32
   %.idx = shl nuw nsw i64 %indvars.iv121, 2

@@ -28,18 +28,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple.38" = type { %"struct.std::_Tuple_impl.39" }
 %"struct.std::_Tuple_impl.39" = type { %"struct.std::_Head_base.42" }
 %"struct.std::_Head_base.42" = type { ptr }
-%"class.std::variant" = type { %"struct.std::__detail::__variant::_Variant_base.base", [7 x i8] }
-%"struct.std::__detail::__variant::_Variant_base.base" = type { %"struct.std::__detail::__variant::_Move_assign_base.base" }
-%"struct.std::__detail::__variant::_Move_assign_base.base" = type { %"struct.std::__detail::__variant::_Copy_assign_base.base" }
-%"struct.std::__detail::__variant::_Copy_assign_base.base" = type { %"struct.std::__detail::__variant::_Move_ctor_base.base" }
-%"struct.std::__detail::__variant::_Move_ctor_base.base" = type { %"struct.std::__detail::__variant::_Copy_ctor_base.base" }
-%"struct.std::__detail::__variant::_Copy_ctor_base.base" = type { %"struct.std::__detail::__variant::_Variant_storage.base" }
-%"struct.std::__detail::__variant::_Variant_storage.base" = type <{ %"union.std::__detail::__variant::_Variadic_union", i8 }>
-%"union.std::__detail::__variant::_Variadic_union" = type { %"struct.std::__detail::__variant::_Uninitialized" }
-%"struct.std::__detail::__variant::_Uninitialized" = type { %"struct.enc::CatStrArrayView" }
-%"struct.enc::CatStrArrayView" = type { %"class.xgboost::common::Span.2", %"class.xgboost::common::Span.3" }
-%"class.xgboost::common::Span.2" = type { i64, ptr }
-%"class.xgboost::common::Span.3" = type { i64, ptr }
 %"struct.dmlc::Error" = type { %"class.std::runtime_error" }
 %"class.std::runtime_error" = type { %"class.std::exception", %"struct.std::__cow_string" }
 %"class.std::exception" = type { ptr }
@@ -57,23 +45,12 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
 %"struct.enc::detail::ColumnsViewImpl" = type <{ %"class.xgboost::common::Span", %"class.xgboost::common::Span.2", i32, [4 x i8] }>
 %"class.xgboost::common::Span" = type { i64, ptr }
+%"class.xgboost::common::Span.2" = type { i64, ptr }
 %"class.std::vector.43" = type { %"struct.std::_Vector_base.44" }
 %"struct.std::_Vector_base.44" = type { %"struct.std::_Vector_base<xgboost::Json, std::allocator<xgboost::Json>>::_Vector_impl" }
 %"struct.std::_Vector_base<xgboost::Json, std::allocator<xgboost::Json>>::_Vector_impl" = type { %"struct.std::_Vector_base<xgboost::Json, std::allocator<xgboost::Json>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<xgboost::Json, std::allocator<xgboost::Json>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.xgboost::JsonArray" = type { %"class.xgboost::Value", %"class.std::vector.43" }
-%"class.xgboost::Json" = type { %"class.xgboost::IntrusivePtr" }
-%"class.xgboost::IntrusivePtr" = type { ptr }
-%"class.std::variant.48" = type { %"struct.std::__detail::__variant::_Variant_base.base.80", [7 x i8] }
-%"struct.std::__detail::__variant::_Variant_base.base.80" = type { %"struct.std::__detail::__variant::_Move_assign_base.base.79" }
-%"struct.std::__detail::__variant::_Move_assign_base.base.79" = type { %"struct.std::__detail::__variant::_Copy_assign_base.base.78" }
-%"struct.std::__detail::__variant::_Copy_assign_base.base.78" = type { %"struct.std::__detail::__variant::_Move_ctor_base.base.77" }
-%"struct.std::__detail::__variant::_Move_ctor_base.base.77" = type { %"struct.std::__detail::__variant::_Copy_ctor_base.base.76" }
-%"struct.std::__detail::__variant::_Copy_ctor_base.base.76" = type { %"struct.std::__detail::__variant::_Variant_storage.base.75" }
-%"struct.std::__detail::__variant::_Variant_storage.base.75" = type { %"union.std::__detail::__variant::_Variadic_union.55", i8 }
-%"union.std::__detail::__variant::_Variadic_union.55" = type { %"struct.std::__detail::__variant::_Uninitialized.56" }
-%"struct.std::__detail::__variant::_Uninitialized.56" = type { %"struct.__gnu_cxx::__aligned_membuf" }
-%"struct.__gnu_cxx::__aligned_membuf" = type { [48 x i8] }
 %"struct.xgboost::cpu_impl::CatStrArray" = type { %"class.std::vector", %"class.std::vector.92" }
 %"class.std::vector" = type { %"struct.std::_Vector_base" }
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" }
@@ -123,6 +100,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.__gnu_cxx::__ops::_Iter_comp_iter" = type { %class.anon.212 }
 %class.anon.212 = type { ptr, ptr }
 %class.anon.211 = type { ptr }
+%"class.xgboost::common::Span.3" = type { i64, ptr }
 %"class.xgboost::common::detail::SpanIterator.215" = type { ptr, i64 }
 %"class.xgboost::common::detail::SpanIterator.210" = type { ptr, i64 }
 %"struct.__gnu_cxx::__ops::_Iter_comp_iter.218" = type { %class.anon.217 }
@@ -807,7 +785,7 @@ _ZSt6copy_nIPKimN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET1_T_T0_S9_
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKSt7variantIJN3enc15CatStrArrayViewENS3_IKaLm18446744073709551615EEENS3_IKsLm18446744073709551615EEENS3_IKiLm18446744073709551615EEENS3_IKlLm18446744073709551615EEENS3_IKfLm18446744073709551615EEENS3_IKdLm18446744073709551615EEEEELm18446744073709551615EEELb0EEdeEv.exit: ; preds = %42
   %46 = load ptr, ptr %37, align 8, !tbaa !36
-  %47 = getelementptr inbounds nuw %"class.std::variant", ptr %46, i64 %.sroa.7.0145
+  %47 = getelementptr inbounds nuw [40 x i8], ptr %46, i64 %.sroa.7.0145
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 32
   %49 = load i8, ptr %48, align 8, !tbaa !37
   switch i8 %49, label %331 [
@@ -909,7 +887,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit.thread.i.i.i.i.i.i: ; preds = %_ZSt3getIN7xgb
   br i1 %83, label %84, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i.i.i.i.i.i
 
 84:                                               ; preds = %82
-  %85 = getelementptr inbounds nuw i32, ptr %74, i64 %.sroa.02.0.copyload.i.i.i.i.i
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %74, i64 %.sroa.02.0.copyload.i.i.i.i.i
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %73, %85
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i.i.i.i.i.i, label %86
 
@@ -1072,7 +1050,7 @@ _ZSt3getISt6vectorIsSaIsEEJN7xgboost8cpu_impl11CatStrArrayES0_IaSaIaEES2_S0_IiSa
   br i1 %154, label %155, label %_ZNSt6vectorIsSaIsEE6resizeEm.exit.i.i.i.i.i.i
 
 155:                                              ; preds = %153
-  %156 = getelementptr inbounds nuw i16, ptr %145, i64 %142
+  %156 = getelementptr inbounds nuw [2 x i8], ptr %145, i64 %142
   %.not.i.i.i.i.i.i30.i.i = icmp eq ptr %144, %156
   br i1 %.not.i.i.i.i.i.i30.i.i, label %_ZNSt6vectorIsSaIsEE6resizeEm.exit.i.i.i.i.i.i, label %157
 
@@ -1162,7 +1140,7 @@ _ZSt3getISt6vectorIiSaIiEEJN7xgboost8cpu_impl11CatStrArrayES0_IaSaIaEES0_IsSaIsE
   br i1 %196, label %197, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i.i.i.i34.i.i
 
 197:                                              ; preds = %195
-  %198 = getelementptr inbounds nuw i32, ptr %187, i64 %184
+  %198 = getelementptr inbounds nuw [4 x i8], ptr %187, i64 %184
   %.not.i.i.i.i.i.i37.i.i = icmp eq ptr %186, %198
   br i1 %.not.i.i.i.i.i.i37.i.i, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i.i.i.i34.i.i, label %199
 
@@ -1252,7 +1230,7 @@ _ZSt3getISt6vectorIlSaIlEEJN7xgboost8cpu_impl11CatStrArrayES0_IaSaIaEES0_IsSaIsE
   br i1 %238, label %239, label %_ZNSt6vectorIlSaIlEE6resizeEm.exit.i.i.i.i.i.i
 
 239:                                              ; preds = %237
-  %240 = getelementptr inbounds nuw i64, ptr %229, i64 %226
+  %240 = getelementptr inbounds nuw [8 x i8], ptr %229, i64 %226
   %.not.i.i.i.i.i.i43.i.i = icmp eq ptr %228, %240
   br i1 %.not.i.i.i.i.i.i43.i.i, label %_ZNSt6vectorIlSaIlEE6resizeEm.exit.i.i.i.i.i.i, label %241
 
@@ -1342,7 +1320,7 @@ _ZSt3getISt6vectorIfSaIfEEJN7xgboost8cpu_impl11CatStrArrayES0_IaSaIaEES0_IsSaIsE
   br i1 %280, label %281, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i.i.i.i.i.i
 
 281:                                              ; preds = %279
-  %282 = getelementptr inbounds nuw float, ptr %271, i64 %268
+  %282 = getelementptr inbounds nuw [4 x i8], ptr %271, i64 %268
   %.not.i.i.i.i.i.i49.i.i = icmp eq ptr %270, %282
   br i1 %.not.i.i.i.i.i.i49.i.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i.i.i.i.i.i, label %283
 
@@ -1432,7 +1410,7 @@ _ZSt3getISt6vectorIdSaIdEEJN7xgboost8cpu_impl11CatStrArrayES0_IaSaIaEES0_IsSaIsE
   br i1 %322, label %323, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit.i.i.i.i.i.i
 
 323:                                              ; preds = %321
-  %324 = getelementptr inbounds nuw double, ptr %313, i64 %310
+  %324 = getelementptr inbounds nuw [8 x i8], ptr %313, i64 %310
   %.not.i.i.i.i.i.i55.i.i = icmp eq ptr %312, %324
   br i1 %.not.i.i.i.i.i.i55.i.i, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit.i.i.i.i.i.i, label %325
 
@@ -1596,7 +1574,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit87: ; preds = %_ZStl
 366:                                              ; preds = %363
   %367 = load i32, ptr %14, align 8, !tbaa !3
   %368 = load ptr, ptr %31, align 8, !tbaa !33
-  %369 = getelementptr i32, ptr %368, i64 %364
+  %369 = getelementptr [4 x i8], ptr %368, i64 %364
   %370 = getelementptr i8, ptr %369, i64 -4
   %371 = load i32, ptr %370, align 4, !tbaa !97
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -2099,7 +2077,7 @@ _ZNSt12_Vector_baseIN7xgboost4JsonESaIS1_EEC2EmRKS2_.exit.i: ; preds = %_ZNSt16a
   %44 = phi ptr [ null, %_ZNSt6vectorIN7xgboost4JsonESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ], [ %43, %_ZNSt16allocator_traitsISaIN7xgboost4JsonEEE8allocateERS2_m.exit.i.i.i.i ]
   store ptr %44, ptr %26, align 8, !tbaa !115
   %45 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %46 = getelementptr inbounds nuw %"class.xgboost::Json", ptr %44, i64 %40
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %40
   %47 = getelementptr inbounds nuw i8, ptr %26, i64 16
   store ptr %46, ptr %47, align 8, !tbaa !118
   %48 = invoke noundef ptr @_ZNSt27__uninitialized_default_n_1ILb0EE18__uninit_default_nIPN7xgboost4JsonEmEET_S5_T0_(ptr noundef %44, i64 noundef %40)
@@ -2236,9 +2214,9 @@ _ZNSt12_Vector_baseIN7xgboost4JsonESaIS1_EEC2EmRKS2_.exit.i: ; preds = %_ZNSt16a
 159:                                              ; preds = %.lr.ph, %"_ZSt5visitIN3enc10OverloadedIJZNK7xgboost12CatContainer4SaveEPNS2_4JsonEE3$_0ZNKS3_4SaveES5_E3$_1EEEJRKSt7variantIJNS2_8cpu_impl11CatStrArrayESt6vectorIaSaIaEESC_IsSaIsEESC_IiSaIiEESC_IlSaIlEESC_IfSaIfEESC_IdSaIdEEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISV_EEEEE4typeEE4typeEOS14_EEEE4typeEOST_DpOSV_.exit"
   %.039340 = phi i64 [ 0, %.lr.ph ], [ %811, %"_ZSt5visitIN3enc10OverloadedIJZNK7xgboost12CatContainer4SaveEPNS2_4JsonEE3$_0ZNKS3_4SaveES5_E3$_1EEEJRKSt7variantIJNS2_8cpu_impl11CatStrArrayESt6vectorIaSaIaEESC_IsSaIsEESC_IiSaIiEESC_IlSaIlEESC_IfSaIfEESC_IdSaIdEEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISV_EEEEE4typeEE4typeEOS14_EEEE4typeEOST_DpOSV_.exit" ]
   %160 = load ptr, ptr %26, align 8, !tbaa !115
-  %161 = getelementptr inbounds nuw %"class.xgboost::Json", ptr %160, i64 %.039340
+  %161 = getelementptr inbounds nuw [8 x i8], ptr %160, i64 %.039340
   %162 = load ptr, ptr %33, align 8, !tbaa !114
-  %163 = getelementptr inbounds nuw %"class.std::variant.48", ptr %162, i64 %.039340
+  %163 = getelementptr inbounds nuw [56 x i8], ptr %162, i64 %.039340
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 48
   %165 = load i8, ptr %164, align 8, !tbaa !47
   switch i8 %165, label %810 [
@@ -4162,7 +4140,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %.noexc144
   br label %_ZNSt6vectorIiSaIiEE17_M_default_appendEm.exit
 
 _ZNSt6vectorIiSaIiEE17_M_default_appendEm.exit:   ; preds = %.noexc144, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i
-  %821 = getelementptr inbounds nuw i32, ptr %817, i64 %158
+  %821 = getelementptr inbounds nuw [4 x i8], ptr %817, i64 %158
   br label %_ZN7xgboost14JsonTypedArrayIiLNS_5Value9ValueKindE12EEC2Em.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit.i:                  ; preds = %815, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i
@@ -4228,7 +4206,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i153: ; preds = %.noexc160
   br label %_ZNSt6vectorIiSaIiEE17_M_default_appendEm.exit161
 
 _ZNSt6vectorIiSaIiEE17_M_default_appendEm.exit161: ; preds = %.noexc160, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i153
-  %843 = getelementptr inbounds nuw i32, ptr %839, i64 %833
+  %843 = getelementptr inbounds nuw [4 x i8], ptr %839, i64 %833
   br label %_ZN7xgboost14JsonTypedArrayIiLNS_5Value9ValueKindE12EEC2Em.exit82
 
 _ZNSt6vectorIiSaIiEED2Ev.exit.i79:                ; preds = %837, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i151
@@ -5147,7 +5125,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit104: ; preds = %80
 86:                                               ; preds = %.lr.ph, %_ZN7xgboost4JsonD2Ev.exit193
   %.056914 = phi i64 [ 0, %.lr.ph ], [ %912, %_ZN7xgboost4JsonD2Ev.exit193 ]
   %87 = load ptr, ptr %4, align 8, !tbaa !115
-  %88 = getelementptr inbounds nuw %"class.xgboost::Json", ptr %87, i64 %.056914
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %87, i64 %.056914
   %89 = load ptr, ptr %88, align 8, !tbaa !139
   %90 = invoke noundef ptr @_ZN7xgboost4CastINS_10JsonObjectENS_5ValueEEEPT_PT0_(ptr noundef nonnull %89)
           to label %91 unwind label %243
@@ -5331,7 +5309,7 @@ _ZNSt6vectorIaSaIaEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %.noexc123
 .lr.ph.i:                                         ; preds = %156, %.lr.ph.preheader.i
   %.0137.i = phi i64 [ %161, %156 ], [ 0, %.lr.ph.preheader.i ]
   %152 = load ptr, ptr %131, align 8, !tbaa !115
-  %153 = getelementptr inbounds nuw %"class.xgboost::Json", ptr %152, i64 %.0137.i
+  %153 = getelementptr inbounds nuw [8 x i8], ptr %152, i64 %.0137.i
   %154 = load ptr, ptr %153, align 8, !tbaa !139
   %155 = invoke noundef ptr @_ZN7xgboost4CastIKNS_11JsonIntegerEKNS_5ValueEEEPT_PT0_(ptr noundef nonnull %154)
           to label %156 unwind label %.body
@@ -5899,7 +5877,7 @@ _ZNSt7variantIJN7xgboost8cpu_impl11CatStrArrayESt6vectorIaSaIaEES3_IsSaIsEES3_Ii
 .lr.ph.i179:                                      ; preds = %360, %.lr.ph.preheader.i177
   %.01310.i = phi i64 [ %365, %360 ], [ 0, %.lr.ph.preheader.i177 ]
   %356 = load ptr, ptr %324, align 8, !tbaa !115
-  %357 = getelementptr inbounds nuw %"class.xgboost::Json", ptr %356, i64 %.01310.i
+  %357 = getelementptr inbounds nuw [8 x i8], ptr %356, i64 %.01310.i
   %358 = load ptr, ptr %357, align 8, !tbaa !139
   %359 = invoke noundef ptr @_ZN7xgboost4CastIKNS_11JsonIntegerEKNS_5ValueEEEPT_PT0_(ptr noundef nonnull %358)
           to label %360 unwind label %.body186
@@ -6090,7 +6068,7 @@ _ZNSt6vectorIsSaIsEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %.noexc221
           to label %.noexc223 unwind label %.loopexit563
 
 .noexc223:                                        ; preds = %.noexc15.i209
-  %433 = getelementptr inbounds nuw i16, ptr %432, i64 %429
+  %433 = getelementptr inbounds nuw [2 x i8], ptr %432, i64 %429
   store i16 0, ptr %432, align 2, !tbaa !146
   %434 = getelementptr i8, ptr %432, i64 2
   %435 = add nsw i64 %429, -1
@@ -6157,7 +6135,7 @@ _ZNSt7variantIJN7xgboost8cpu_impl11CatStrArrayESt6vectorIaSaIaEES3_IsSaIsEES3_Ii
 .lr.ph.i212:                                      ; preds = %459, %.lr.ph.preheader.i210
   %.01310.i213 = phi i64 [ %464, %459 ], [ 0, %.lr.ph.preheader.i210 ]
   %455 = load ptr, ptr %422, align 8, !tbaa !115
-  %456 = getelementptr inbounds nuw %"class.xgboost::Json", ptr %455, i64 %.01310.i213
+  %456 = getelementptr inbounds nuw [8 x i8], ptr %455, i64 %.01310.i213
   %457 = load ptr, ptr %456, align 8, !tbaa !139
   %458 = invoke noundef ptr @_ZN7xgboost4CastIKNS_11JsonIntegerEKNS_5ValueEEEPT_PT0_(ptr noundef nonnull %457)
           to label %459 unwind label %.body224
@@ -6166,7 +6144,7 @@ _ZNSt7variantIJN7xgboost8cpu_impl11CatStrArrayESt6vectorIaSaIaEES3_IsSaIsEES3_Ii
   %460 = getelementptr inbounds nuw i8, ptr %458, i64 24
   %461 = load i64, ptr %460, align 8, !tbaa !39
   %462 = trunc i64 %461 to i16
-  %463 = getelementptr inbounds nuw i16, ptr %432, i64 %.01310.i213
+  %463 = getelementptr inbounds nuw [2 x i8], ptr %432, i64 %.01310.i213
   store i16 %462, ptr %463, align 2, !tbaa !146
   %464 = add nuw i64 %.01310.i213, 1
   %exitcond.not.i214 = icmp eq i64 %464, %429
@@ -6348,7 +6326,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %.noexc260
           to label %.noexc262 unwind label %.loopexit558
 
 .noexc262:                                        ; preds = %.noexc15.i247
-  %532 = getelementptr inbounds nuw i32, ptr %531, i64 %528
+  %532 = getelementptr inbounds nuw [4 x i8], ptr %531, i64 %528
   store i32 0, ptr %531, align 4, !tbaa !97
   %533 = getelementptr i8, ptr %531, i64 4
   %534 = add nsw i64 %528, -1
@@ -6415,7 +6393,7 @@ _ZNSt7variantIJN7xgboost8cpu_impl11CatStrArrayESt6vectorIaSaIaEES3_IsSaIsEES3_Ii
 .lr.ph.i251:                                      ; preds = %558, %.lr.ph.preheader.i249
   %.01310.i252 = phi i64 [ %563, %558 ], [ 0, %.lr.ph.preheader.i249 ]
   %554 = load ptr, ptr %521, align 8, !tbaa !115
-  %555 = getelementptr inbounds nuw %"class.xgboost::Json", ptr %554, i64 %.01310.i252
+  %555 = getelementptr inbounds nuw [8 x i8], ptr %554, i64 %.01310.i252
   %556 = load ptr, ptr %555, align 8, !tbaa !139
   %557 = invoke noundef ptr @_ZN7xgboost4CastIKNS_11JsonIntegerEKNS_5ValueEEEPT_PT0_(ptr noundef nonnull %556)
           to label %558 unwind label %.body263
@@ -6424,7 +6402,7 @@ _ZNSt7variantIJN7xgboost8cpu_impl11CatStrArrayESt6vectorIaSaIaEES3_IsSaIsEES3_Ii
   %559 = getelementptr inbounds nuw i8, ptr %557, i64 24
   %560 = load i64, ptr %559, align 8, !tbaa !39
   %561 = trunc i64 %560 to i32
-  %562 = getelementptr inbounds nuw i32, ptr %531, i64 %.01310.i252
+  %562 = getelementptr inbounds nuw [4 x i8], ptr %531, i64 %.01310.i252
   store i32 %561, ptr %562, align 4, !tbaa !97
   %563 = add nuw i64 %.01310.i252, 1
   %exitcond.not.i253 = icmp eq i64 %563, %528
@@ -6672,7 +6650,7 @@ _ZNSt7variantIJN7xgboost8cpu_impl11CatStrArrayESt6vectorIaSaIaEES3_IsSaIsEES3_Ii
 .lr.ph.i290:                                      ; preds = %656, %.lr.ph.preheader.i288
   %.01310.i291 = phi i64 [ %660, %656 ], [ 0, %.lr.ph.preheader.i288 ]
   %652 = load ptr, ptr %620, align 8, !tbaa !115
-  %653 = getelementptr inbounds nuw %"class.xgboost::Json", ptr %652, i64 %.01310.i291
+  %653 = getelementptr inbounds nuw [8 x i8], ptr %652, i64 %.01310.i291
   %654 = load ptr, ptr %653, align 8, !tbaa !139
   %655 = invoke noundef ptr @_ZN7xgboost4CastIKNS_11JsonIntegerEKNS_5ValueEEEPT_PT0_(ptr noundef nonnull %654)
           to label %656 unwind label %.body302
@@ -6680,7 +6658,7 @@ _ZNSt7variantIJN7xgboost8cpu_impl11CatStrArrayESt6vectorIaSaIaEES3_IsSaIsEES3_Ii
 656:                                              ; preds = %.lr.ph.i290
   %657 = getelementptr inbounds nuw i8, ptr %655, i64 24
   %658 = load i64, ptr %657, align 8, !tbaa !39
-  %659 = getelementptr inbounds nuw i64, ptr %629, i64 %.01310.i291
+  %659 = getelementptr inbounds nuw [8 x i8], ptr %629, i64 %.01310.i291
   store i64 %658, ptr %659, align 8, !tbaa !39
   %660 = add nuw i64 %.01310.i291, 1
   %exitcond.not.i292 = icmp eq i64 %660, %627
@@ -6862,7 +6840,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %.noexc338
           to label %.noexc340 unwind label %.loopexit548
 
 .noexc340:                                        ; preds = %.noexc15.i325
-  %728 = getelementptr inbounds nuw float, ptr %727, i64 %724
+  %728 = getelementptr inbounds nuw [4 x i8], ptr %727, i64 %724
   store float 0.000000e+00, ptr %727, align 4, !tbaa !150
   %729 = getelementptr i8, ptr %727, i64 4
   %730 = add nsw i64 %724, -1
@@ -6929,7 +6907,7 @@ _ZNSt7variantIJN7xgboost8cpu_impl11CatStrArrayESt6vectorIaSaIaEES3_IsSaIsEES3_Ii
 .lr.ph.i329:                                      ; preds = %754, %.lr.ph.preheader.i327
   %.01310.i330 = phi i64 [ %759, %754 ], [ 0, %.lr.ph.preheader.i327 ]
   %750 = load ptr, ptr %717, align 8, !tbaa !115
-  %751 = getelementptr inbounds nuw %"class.xgboost::Json", ptr %750, i64 %.01310.i330
+  %751 = getelementptr inbounds nuw [8 x i8], ptr %750, i64 %.01310.i330
   %752 = load ptr, ptr %751, align 8, !tbaa !139
   %753 = invoke noundef ptr @_ZN7xgboost4CastIKNS_11JsonIntegerEKNS_5ValueEEEPT_PT0_(ptr noundef nonnull %752)
           to label %754 unwind label %.body341
@@ -6938,7 +6916,7 @@ _ZNSt7variantIJN7xgboost8cpu_impl11CatStrArrayESt6vectorIaSaIaEES3_IsSaIsEES3_Ii
   %755 = getelementptr inbounds nuw i8, ptr %753, i64 24
   %756 = load i64, ptr %755, align 8, !tbaa !39
   %757 = sitofp i64 %756 to float
-  %758 = getelementptr inbounds nuw float, ptr %727, i64 %.01310.i330
+  %758 = getelementptr inbounds nuw [4 x i8], ptr %727, i64 %.01310.i330
   store float %757, ptr %758, align 4, !tbaa !150
   %759 = add nuw i64 %.01310.i330, 1
   %exitcond.not.i331 = icmp eq i64 %759, %724
@@ -7186,7 +7164,7 @@ _ZNSt7variantIJN7xgboost8cpu_impl11CatStrArrayESt6vectorIaSaIaEES3_IsSaIsEES3_Ii
 .lr.ph.i368:                                      ; preds = %852, %.lr.ph.preheader.i366
   %.01310.i369 = phi i64 [ %857, %852 ], [ 0, %.lr.ph.preheader.i366 ]
   %848 = load ptr, ptr %816, align 8, !tbaa !115
-  %849 = getelementptr inbounds nuw %"class.xgboost::Json", ptr %848, i64 %.01310.i369
+  %849 = getelementptr inbounds nuw [8 x i8], ptr %848, i64 %.01310.i369
   %850 = load ptr, ptr %849, align 8, !tbaa !139
   %851 = invoke noundef ptr @_ZN7xgboost4CastIKNS_11JsonIntegerEKNS_5ValueEEEPT_PT0_(ptr noundef nonnull %850)
           to label %852 unwind label %.body380
@@ -7195,7 +7173,7 @@ _ZNSt7variantIJN7xgboost8cpu_impl11CatStrArrayESt6vectorIaSaIaEES3_IsSaIsEES3_Ii
   %853 = getelementptr inbounds nuw i8, ptr %851, i64 24
   %854 = load i64, ptr %853, align 8, !tbaa !39
   %855 = sitofp i64 %854 to double
-  %856 = getelementptr inbounds nuw double, ptr %825, i64 %.01310.i369
+  %856 = getelementptr inbounds nuw [8 x i8], ptr %825, i64 %.01310.i369
   store double %855, ptr %856, align 8, !tbaa !153
   %857 = add nuw i64 %.01310.i369, 1
   %exitcond.not.i370 = icmp eq i64 %857, %823
@@ -7824,7 +7802,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %5
 .noexc15:                                         ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
   %16 = ashr exact i64 %13, 1
   %17 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %16) #31
-  %18 = getelementptr inbounds nuw i32, ptr %17, i64 %14
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %14
   store i32 0, ptr %17, align 4, !tbaa !97
   %19 = getelementptr i8, ptr %17, i64 4
   %20 = add nsw i64 %14, -1
@@ -7865,7 +7843,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc15
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %35
   %.0137 = phi i64 [ %40, %35 ], [ 0, %.lr.ph.preheader ]
   %31 = load ptr, ptr %7, align 8, !tbaa !115
-  %32 = getelementptr inbounds nuw %"class.xgboost::Json", ptr %31, i64 %.0137
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %.0137
   %33 = load ptr, ptr %32, align 8, !tbaa !139
   %34 = invoke noundef ptr @_ZN7xgboost4CastIKNS_11JsonIntegerEKNS_5ValueEEEPT_PT0_(ptr noundef nonnull %33)
           to label %35 unwind label %_ZNSt6vectorIiSaIiEED2Ev.exit18
@@ -7874,7 +7852,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc15
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %37 = load i64, ptr %36, align 8, !tbaa !39
   %38 = trunc i64 %37 to i32
-  %39 = getelementptr inbounds nuw i32, ptr %17, i64 %.0137
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %.0137
   store i32 %38, ptr %39, align 4, !tbaa !97
   %40 = add nuw i64 %.0137, 1
   %exitcond.not = icmp eq i64 %40, %14
@@ -8349,7 +8327,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit3: ; preds = %_ZStls
   br i1 %35, label %36, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 36:                                               ; preds = %34
-  %37 = getelementptr inbounds nuw i32, ptr %26, i64 %23
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %23
   %.not.i.i = icmp eq ptr %25, %37
   br i1 %.not.i.i, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit, label %38
 
@@ -8507,7 +8485,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20: ; preds = %.bo
   br i1 %exitcond.not, label %.split.us, label %_ZNK7xgboost6common4SpanIKiLm18446744073709551615EEixEm.exit.us, !prof !91
 
 _ZNK7xgboost6common4SpanIKiLm18446744073709551615EEixEm.exit.us: ; preds = %.lr.ph.split.us
-  %47 = getelementptr inbounds nuw i32, ptr %43, i64 %.01325.us
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %.01325.us
   %48 = load i32, ptr %47, align 4, !tbaa !97
   %49 = sext i32 %48 to i64
   %50 = add nuw i64 %.01325.us, 1
@@ -8515,7 +8493,7 @@ _ZNK7xgboost6common4SpanIKiLm18446744073709551615EEixEm.exit.us: ; preds = %.lr.
   br i1 %exitcond37.not, label %.split27.us, label %_ZNK7xgboost6common4SpanIKiLm18446744073709551615EEixEm.exit21.us, !prof !91
 
 _ZNK7xgboost6common4SpanIKiLm18446744073709551615EEixEm.exit21.us: ; preds = %_ZNK7xgboost6common4SpanIKiLm18446744073709551615EEixEm.exit.us
-  %51 = getelementptr inbounds nuw i32, ptr %43, i64 %50
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %50
   %52 = load i32, ptr %51, align 4, !tbaa !97
   %53 = sub nsw i32 %52, %48
   %54 = icmp eq i32 %53, -1
@@ -8537,8 +8515,8 @@ _ZNK7xgboost6common4SpanIKiLm18446744073709551615EEixEm.exit21.us: ; preds = %_Z
 
 _ZNK7xgboost6common4SpanIKSt7variantIJN3enc15CatStrArrayViewENS1_IKaLm18446744073709551615EEENS1_IKsLm18446744073709551615EEENS1_IKiLm18446744073709551615EEENS1_IKlLm18446744073709551615EEENS1_IKfLm18446744073709551615EEENS1_IKdLm18446744073709551615EEEEELm18446744073709551615EEixEm.exit.us: ; preds = %59, %55
   %61 = phi i64 [ %60, %59 ], [ %56, %55 ]
-  %62 = getelementptr inbounds nuw i32, ptr %.fr31, i64 %49
-  %63 = getelementptr inbounds nuw %"class.std::variant", ptr %45, i64 %.01325.us
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %.fr31, i64 %49
+  %63 = getelementptr inbounds nuw [40 x i8], ptr %45, i64 %.01325.us
   call void @_ZN3enc8cpu_impl9SortNamesINS_6PolicyIJN7xgboost14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS_15CatStrArrayViewENS3_6common4SpanIKaLm18446744073709551615EEENSC_IKsLm18446744073709551615EEENSC_IKiLm18446744073709551615EEENSC_IKlLm18446744073709551615EEENSC_IKfLm18446744073709551615EEENSC_IKdLm18446744073709551615EEEEENSC_IiLm18446744073709551615EEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(33) %63, i64 %61, ptr nonnull %62)
   %exitcond38.not = icmp eq i64 %50, %39
   br i1 %exitcond38.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !177
@@ -8556,7 +8534,7 @@ _ZNK7xgboost6common4SpanIKSt7variantIJN3enc15CatStrArrayViewENS1_IKaLm1844674407
   unreachable
 
 _ZNK7xgboost6common4SpanIKiLm18446744073709551615EEixEm.exit: ; preds = %.lr.ph.split
-  %64 = getelementptr inbounds nuw i32, ptr %43, i64 %.01325
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %.01325
   %65 = load i32, ptr %64, align 4, !tbaa !97
   %66 = sext i32 %65 to i64
   %67 = add nuw i64 %.01325, 1
@@ -8568,7 +8546,7 @@ _ZNK7xgboost6common4SpanIKiLm18446744073709551615EEixEm.exit: ; preds = %.lr.ph.
   unreachable
 
 _ZNK7xgboost6common4SpanIKiLm18446744073709551615EEixEm.exit21: ; preds = %_ZNK7xgboost6common4SpanIKiLm18446744073709551615EEixEm.exit
-  %68 = getelementptr inbounds nuw i32, ptr %43, i64 %67
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %67
   %69 = load i32, ptr %68, align 4, !tbaa !97
   %70 = sub nsw i32 %69, %65
   %71 = icmp eq i32 %70, -1
@@ -8602,8 +8580,8 @@ _ZNK7xgboost6common4SpanIKiLm18446744073709551615EEixEm.exit21: ; preds = %_ZNK7
   unreachable
 
 _ZNK7xgboost6common4SpanIKSt7variantIJN3enc15CatStrArrayViewENS1_IKaLm18446744073709551615EEENS1_IKsLm18446744073709551615EEENS1_IKiLm18446744073709551615EEENS1_IKlLm18446744073709551615EEENS1_IKfLm18446744073709551615EEENS1_IKdLm18446744073709551615EEEEELm18446744073709551615EEixEm.exit: ; preds = %78
-  %82 = getelementptr inbounds nuw i32, ptr null, i64 %66
-  %83 = getelementptr inbounds nuw %"class.std::variant", ptr %45, i64 %.01325
+  %82 = getelementptr inbounds nuw [4 x i8], ptr null, i64 %66
+  %83 = getelementptr inbounds nuw [40 x i8], ptr %45, i64 %.01325
   call void @_ZN3enc8cpu_impl9SortNamesINS_6PolicyIJN7xgboost14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS_15CatStrArrayViewENS3_6common4SpanIKaLm18446744073709551615EEENSC_IKsLm18446744073709551615EEENSC_IKiLm18446744073709551615EEENSC_IKlLm18446744073709551615EEENSC_IKfLm18446744073709551615EEENSC_IKdLm18446744073709551615EEEEENSC_IiLm18446744073709551615EEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(33) %83, i64 0, ptr %82)
   %exitcond42.not = icmp eq i64 %67, %39
   br i1 %exitcond42.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !177
@@ -8936,9 +8914,9 @@ _ZNSt6vectorIsSaIsEE11_S_relocateEPsS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIsSaIsEE13_M_deallocateEPsm.exit36: ; preds = %_ZNSt6vectorIsSaIsEE11_S_relocateEPsS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !68
-  %39 = getelementptr inbounds nuw i16, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [2 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !66
-  %40 = getelementptr inbounds nuw i16, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [2 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !148
   br label %41
 
@@ -9035,9 +9013,9 @@ _ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit36: ; preds = %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !75
-  %39 = getelementptr inbounds nuw i64, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !73
-  %40 = getelementptr inbounds nuw i64, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !149
   br label %41
 
@@ -9134,9 +9112,9 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36: ; preds = %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !82
-  %39 = getelementptr inbounds nuw float, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !80
-  %40 = getelementptr inbounds nuw float, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !152
   br label %41
 
@@ -9233,9 +9211,9 @@ _ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit36: ; preds = %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !89
-  %39 = getelementptr inbounds nuw double, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !87
-  %40 = getelementptr inbounds nuw double, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !155
   br label %41
 
@@ -9389,7 +9367,7 @@ _ZNSt6vectorISt7variantIJN3enc15CatStrArrayViewEN7xgboost6common4SpanIKaLm184467
 _ZNSt6vectorISt7variantIJN3enc15CatStrArrayViewEN7xgboost6common4SpanIKaLm18446744073709551615EEENS5_IKsLm18446744073709551615EEENS5_IKiLm18446744073709551615EEENS5_IKlLm18446744073709551615EEENS5_IKfLm18446744073709551615EEENS5_IKdLm18446744073709551615EEEEESaISI_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPSI_SK_EEDpOT_.exit.i.i: ; preds = %45, %_ZNSt6vectorISt7variantIJN3enc15CatStrArrayViewEN7xgboost6common4SpanIKaLm18446744073709551615EEENS5_IKsLm18446744073709551615EEENS5_IKiLm18446744073709551615EEENS5_IKlLm18446744073709551615EEENS5_IKfLm18446744073709551615EEENS5_IKdLm18446744073709551615EEEEESaISI_EE11_S_relocateEPSI_SL_SL_RSJ_.exit22.i.i.i
   store ptr %39, ptr %4, align 8, !tbaa !92
   store ptr %44, ptr %19, align 8, !tbaa !94
-  %46 = getelementptr inbounds nuw %"class.std::variant", ptr %39, i64 %37
+  %46 = getelementptr inbounds nuw [40 x i8], ptr %39, i64 %37
   store ptr %46, ptr %21, align 8, !tbaa !173
   br label %_ZZN7xgboost8cpu_impl16CatContainerImpl8FinalizeEvENKUlRKNS0_11CatStrArrayEE_clES4_.exit
 
@@ -9479,7 +9457,7 @@ _ZNSt6vectorISt7variantIJN3enc15CatStrArrayViewEN7xgboost6common4SpanIKaLm184467
 _ZNSt6vectorISt7variantIJN3enc15CatStrArrayViewEN7xgboost6common4SpanIKaLm18446744073709551615EEENS5_IKsLm18446744073709551615EEENS5_IKiLm18446744073709551615EEENS5_IKlLm18446744073709551615EEENS5_IKfLm18446744073709551615EEENS5_IKdLm18446744073709551615EEEEESaISI_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPSI_SK_EEDpOT_.exit.i.i: ; preds = %38, %_ZNSt6vectorISt7variantIJN3enc15CatStrArrayViewEN7xgboost6common4SpanIKaLm18446744073709551615EEENS5_IKsLm18446744073709551615EEENS5_IKiLm18446744073709551615EEENS5_IKlLm18446744073709551615EEENS5_IKfLm18446744073709551615EEENS5_IKdLm18446744073709551615EEEEESaISI_EE11_S_relocateEPSI_SL_SL_RSJ_.exit22.i.i.i
   store ptr %32, ptr %5, align 8, !tbaa !92
   store ptr %37, ptr %12, align 8, !tbaa !94
-  %39 = getelementptr inbounds nuw %"class.std::variant", ptr %32, i64 %30
+  %39 = getelementptr inbounds nuw [40 x i8], ptr %32, i64 %30
   store ptr %39, ptr %14, align 8, !tbaa !173
   br label %_ZZN7xgboost8cpu_impl16CatContainerImpl8FinalizeEvENKUlOT_E_clIRKSt6vectorIaSaIaEEEEDaS3_.exit
 
@@ -9570,7 +9548,7 @@ _ZNSt6vectorISt7variantIJN3enc15CatStrArrayViewEN7xgboost6common4SpanIKaLm184467
 _ZNSt6vectorISt7variantIJN3enc15CatStrArrayViewEN7xgboost6common4SpanIKaLm18446744073709551615EEENS5_IKsLm18446744073709551615EEENS5_IKiLm18446744073709551615EEENS5_IKlLm18446744073709551615EEENS5_IKfLm18446744073709551615EEENS5_IKdLm18446744073709551615EEEEESaISI_EE17_M_realloc_insertIJS9_EEEvN9__gnu_cxx17__normal_iteratorIPSI_SK_EEDpOT_.exit.i.i: ; preds = %39, %_ZNSt6vectorISt7variantIJN3enc15CatStrArrayViewEN7xgboost6common4SpanIKaLm18446744073709551615EEENS5_IKsLm18446744073709551615EEENS5_IKiLm18446744073709551615EEENS5_IKlLm18446744073709551615EEENS5_IKfLm18446744073709551615EEENS5_IKdLm18446744073709551615EEEEESaISI_EE11_S_relocateEPSI_SL_SL_RSJ_.exit22.i.i.i
   store ptr %33, ptr %5, align 8, !tbaa !92
   store ptr %38, ptr %13, align 8, !tbaa !94
-  %40 = getelementptr inbounds nuw %"class.std::variant", ptr %33, i64 %31
+  %40 = getelementptr inbounds nuw [40 x i8], ptr %33, i64 %31
   store ptr %40, ptr %15, align 8, !tbaa !173
   br label %_ZZN7xgboost8cpu_impl16CatContainerImpl8FinalizeEvENKUlOT_E_clIRKSt6vectorIsSaIsEEEEDaS3_.exit
 
@@ -9661,7 +9639,7 @@ _ZNSt6vectorISt7variantIJN3enc15CatStrArrayViewEN7xgboost6common4SpanIKaLm184467
 _ZNSt6vectorISt7variantIJN3enc15CatStrArrayViewEN7xgboost6common4SpanIKaLm18446744073709551615EEENS5_IKsLm18446744073709551615EEENS5_IKiLm18446744073709551615EEENS5_IKlLm18446744073709551615EEENS5_IKfLm18446744073709551615EEENS5_IKdLm18446744073709551615EEEEESaISI_EE17_M_realloc_insertIJSB_EEEvN9__gnu_cxx17__normal_iteratorIPSI_SK_EEDpOT_.exit.i.i: ; preds = %39, %_ZNSt6vectorISt7variantIJN3enc15CatStrArrayViewEN7xgboost6common4SpanIKaLm18446744073709551615EEENS5_IKsLm18446744073709551615EEENS5_IKiLm18446744073709551615EEENS5_IKlLm18446744073709551615EEENS5_IKfLm18446744073709551615EEENS5_IKdLm18446744073709551615EEEEESaISI_EE11_S_relocateEPSI_SL_SL_RSJ_.exit22.i.i.i
   store ptr %33, ptr %5, align 8, !tbaa !92
   store ptr %38, ptr %13, align 8, !tbaa !94
-  %40 = getelementptr inbounds nuw %"class.std::variant", ptr %33, i64 %31
+  %40 = getelementptr inbounds nuw [40 x i8], ptr %33, i64 %31
   store ptr %40, ptr %15, align 8, !tbaa !173
   br label %_ZZN7xgboost8cpu_impl16CatContainerImpl8FinalizeEvENKUlOT_E_clIRKSt6vectorIiSaIiEEEEDaS3_.exit
 
@@ -9752,7 +9730,7 @@ _ZNSt6vectorISt7variantIJN3enc15CatStrArrayViewEN7xgboost6common4SpanIKaLm184467
 _ZNSt6vectorISt7variantIJN3enc15CatStrArrayViewEN7xgboost6common4SpanIKaLm18446744073709551615EEENS5_IKsLm18446744073709551615EEENS5_IKiLm18446744073709551615EEENS5_IKlLm18446744073709551615EEENS5_IKfLm18446744073709551615EEENS5_IKdLm18446744073709551615EEEEESaISI_EE17_M_realloc_insertIJSD_EEEvN9__gnu_cxx17__normal_iteratorIPSI_SK_EEDpOT_.exit.i.i: ; preds = %39, %_ZNSt6vectorISt7variantIJN3enc15CatStrArrayViewEN7xgboost6common4SpanIKaLm18446744073709551615EEENS5_IKsLm18446744073709551615EEENS5_IKiLm18446744073709551615EEENS5_IKlLm18446744073709551615EEENS5_IKfLm18446744073709551615EEENS5_IKdLm18446744073709551615EEEEESaISI_EE11_S_relocateEPSI_SL_SL_RSJ_.exit22.i.i.i
   store ptr %33, ptr %5, align 8, !tbaa !92
   store ptr %38, ptr %13, align 8, !tbaa !94
-  %40 = getelementptr inbounds nuw %"class.std::variant", ptr %33, i64 %31
+  %40 = getelementptr inbounds nuw [40 x i8], ptr %33, i64 %31
   store ptr %40, ptr %15, align 8, !tbaa !173
   br label %_ZZN7xgboost8cpu_impl16CatContainerImpl8FinalizeEvENKUlOT_E_clIRKSt6vectorIlSaIlEEEEDaS3_.exit
 
@@ -9843,7 +9821,7 @@ _ZNSt6vectorISt7variantIJN3enc15CatStrArrayViewEN7xgboost6common4SpanIKaLm184467
 _ZNSt6vectorISt7variantIJN3enc15CatStrArrayViewEN7xgboost6common4SpanIKaLm18446744073709551615EEENS5_IKsLm18446744073709551615EEENS5_IKiLm18446744073709551615EEENS5_IKlLm18446744073709551615EEENS5_IKfLm18446744073709551615EEENS5_IKdLm18446744073709551615EEEEESaISI_EE17_M_realloc_insertIJSF_EEEvN9__gnu_cxx17__normal_iteratorIPSI_SK_EEDpOT_.exit.i.i: ; preds = %39, %_ZNSt6vectorISt7variantIJN3enc15CatStrArrayViewEN7xgboost6common4SpanIKaLm18446744073709551615EEENS5_IKsLm18446744073709551615EEENS5_IKiLm18446744073709551615EEENS5_IKlLm18446744073709551615EEENS5_IKfLm18446744073709551615EEENS5_IKdLm18446744073709551615EEEEESaISI_EE11_S_relocateEPSI_SL_SL_RSJ_.exit22.i.i.i
   store ptr %33, ptr %5, align 8, !tbaa !92
   store ptr %38, ptr %13, align 8, !tbaa !94
-  %40 = getelementptr inbounds nuw %"class.std::variant", ptr %33, i64 %31
+  %40 = getelementptr inbounds nuw [40 x i8], ptr %33, i64 %31
   store ptr %40, ptr %15, align 8, !tbaa !173
   br label %_ZZN7xgboost8cpu_impl16CatContainerImpl8FinalizeEvENKUlOT_E_clIRKSt6vectorIfSaIfEEEEDaS3_.exit
 
@@ -9934,7 +9912,7 @@ _ZNSt6vectorISt7variantIJN3enc15CatStrArrayViewEN7xgboost6common4SpanIKaLm184467
 _ZNSt6vectorISt7variantIJN3enc15CatStrArrayViewEN7xgboost6common4SpanIKaLm18446744073709551615EEENS5_IKsLm18446744073709551615EEENS5_IKiLm18446744073709551615EEENS5_IKlLm18446744073709551615EEENS5_IKfLm18446744073709551615EEENS5_IKdLm18446744073709551615EEEEESaISI_EE17_M_realloc_insertIJSH_EEEvN9__gnu_cxx17__normal_iteratorIPSI_SK_EEDpOT_.exit.i.i: ; preds = %39, %_ZNSt6vectorISt7variantIJN3enc15CatStrArrayViewEN7xgboost6common4SpanIKaLm18446744073709551615EEENS5_IKsLm18446744073709551615EEENS5_IKiLm18446744073709551615EEENS5_IKlLm18446744073709551615EEENS5_IKfLm18446744073709551615EEENS5_IKdLm18446744073709551615EEEEESaISI_EE11_S_relocateEPSI_SL_SL_RSJ_.exit22.i.i.i
   store ptr %33, ptr %5, align 8, !tbaa !92
   store ptr %38, ptr %13, align 8, !tbaa !94
-  %40 = getelementptr inbounds nuw %"class.std::variant", ptr %33, i64 %31
+  %40 = getelementptr inbounds nuw [40 x i8], ptr %33, i64 %31
   store ptr %40, ptr %15, align 8, !tbaa !173
   br label %_ZZN7xgboost8cpu_impl16CatContainerImpl8FinalizeEvENKUlOT_E_clIRKSt6vectorIdSaIdEEEEDaS3_.exit
 
@@ -10170,7 +10148,7 @@ _ZNSt6vectorIPvSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i: ; preds = %3
           to label %.noexc27 unwind label %22
 
 .noexc27:                                         ; preds = %8
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %2
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %2
   store ptr null, ptr %10, align 8, !tbaa !179
   %12 = add nsw i64 %2, -1
   %13 = icmp eq i64 %12, 0
@@ -10226,7 +10204,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %20, %17
 32:                                               ; preds = %.lr.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %indvars.iv = phi i64 [ %31, %.lr.ph ], [ %indvars.iv.next, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %33 = getelementptr inbounds ptr, ptr %26, i64 %indvars.iv
+  %33 = getelementptr inbounds [8 x i8], ptr %26, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8, !tbaa !40
   invoke void @_ZN4dmlc8DemangleB5cxx11EPKc(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef %34)
           to label %35 unwind label %48
@@ -12629,7 +12607,7 @@ _ZNSt6vectorISt7variantIJN7xgboost8cpu_impl11CatStrArrayES_IaSaIaEES_IsSaIsEES_I
 _ZNSt12_Vector_baseISt7variantIJN7xgboost8cpu_impl11CatStrArrayESt6vectorIaSaIaEES4_IsSaIsEES4_IiSaIiEES4_IlSaIlEES4_IfSaIfEES4_IdSaIdEEEESaISH_EE13_M_deallocateEPSH_m.exit: ; preds = %_ZNSt6vectorISt7variantIJN7xgboost8cpu_impl11CatStrArrayES_IaSaIaEES_IsSaIsEES_IiSaIiEES_IlSaIlEES_IfSaIfEES_IdSaIdEEEESaISG_EE11_S_relocateEPSG_SJ_SJ_RSH_.exit23, %47
   store ptr %21, ptr %0, align 8, !tbaa !114
   store ptr %.0.lcssa.i.i.i22, ptr %5, align 8, !tbaa !42
-  %51 = getelementptr inbounds nuw %"class.std::variant.48", ptr %21, i64 %17
+  %51 = getelementptr inbounds nuw [56 x i8], ptr %21, i64 %17
   store ptr %51, ptr %46, align 8, !tbaa !45
   ret void
 }
@@ -12861,9 +12839,9 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit36: ; preds = %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !57
-  %39 = getelementptr inbounds nuw i32, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !55
-  %40 = getelementptr inbounds nuw i32, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !141
   br label %41
 
@@ -15309,7 +15287,7 @@ _ZNSt6vectorISt7variantIJN7xgboost8cpu_impl11CatStrArrayES_IaSaIaEES_IsSaIsEES_I
 _ZNSt12_Vector_baseISt7variantIJN7xgboost8cpu_impl11CatStrArrayESt6vectorIaSaIaEES4_IsSaIsEES4_IiSaIiEES4_IlSaIlEES4_IfSaIfEES4_IdSaIdEEEESaISH_EE13_M_deallocateEPSH_m.exit: ; preds = %_ZNSt6vectorISt7variantIJN7xgboost8cpu_impl11CatStrArrayES_IaSaIaEES_IsSaIsEES_IiSaIiEES_IlSaIlEES_IfSaIfEES_IdSaIdEEEESaISG_EE11_S_relocateEPSG_SJ_SJ_RSH_.exit34, %52
   store ptr %24, ptr %0, align 8, !tbaa !114
   store ptr %.0.lcssa.i.i.i33, ptr %6, align 8, !tbaa !42
-  %56 = getelementptr inbounds nuw %"class.std::variant.48", ptr %24, i64 %18
+  %56 = getelementptr inbounds nuw [56 x i8], ptr %24, i64 %18
   store ptr %56, ptr %51, align 8, !tbaa !45
   ret void
 
@@ -18549,7 +18527,7 @@ _ZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS0_9SortNamesINS
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i: ; preds = %.lr.ph.split.i.i
   %indvars12 = trunc i64 %.sroa.4.010.i.i to i32
   %13 = load ptr, ptr %12, align 8, !tbaa !405
-  %14 = getelementptr inbounds nuw i32, ptr %13, i64 %.sroa.4.010.i.i
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %.sroa.4.010.i.i
   store i32 %indvars12, ptr %14, align 4, !tbaa !97
   %15 = add nuw i64 %.sroa.4.010.i.i, 1
   %.not.i.i = icmp eq i64 %15, %spec.select.i
@@ -18755,8 +18733,8 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlRKSG_E_clES14_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S19_E_EclIS12_S12_EEbSC_S17_.exit: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i
   %25 = load ptr, ptr %15, align 8, !tbaa !405
-  %26 = getelementptr inbounds nuw i32, ptr %25, i64 %.sroa.10.050
-  %27 = getelementptr inbounds nuw i32, ptr %25, i64 %1
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %.sroa.10.050
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %1
   %28 = load i32, ptr %26, align 4, !tbaa !97
   %29 = sext i32 %28 to i64
   %.sroa.0.0.copyload1.i.i.i.i = load i64, ptr %5, align 8, !tbaa !39
@@ -18778,7 +18756,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18I
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit: ; preds = %35
   %39 = load ptr, ptr %15, align 8, !tbaa !405
-  %40 = getelementptr inbounds nuw i32, ptr %39, i64 %.sroa.10.050
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %.sroa.10.050
   %41 = load i32, ptr %40, align 4, !tbaa !97
   %42 = sub i64 %.sroa.10.050, %1
   %43 = icmp sgt i64 %42, 0
@@ -18801,10 +18779,10 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
   unreachable
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit9.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i
-  %46 = getelementptr inbounds nuw i32, ptr %39, i64 %45
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %45
   %47 = load i32, ptr %46, align 4, !tbaa !97
   %48 = add i64 %.sroa.4.024.i.i.i.i.i, -1
-  %49 = getelementptr inbounds nuw i32, ptr %39, i64 %48
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %48
   store i32 %47, ptr %49, align 4, !tbaa !97
   %50 = add nsw i64 %.026.i.i.i.i.i, -1
   %51 = icmp sgt i64 %.026.i.i.i.i.i, 1
@@ -18819,7 +18797,7 @@ _ZSt13move_backwardIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm184467440
   unreachable
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit33: ; preds = %_ZSt13move_backwardIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEES6_ET0_T_S8_S7_.exit
-  %54 = getelementptr inbounds nuw i32, ptr %39, i64 %1
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %1
   store i32 %41, ptr %54, align 4, !tbaa !97
   br label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit
 
@@ -18886,10 +18864,10 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlRKSG_E_clES14_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S19_E_EclIS12_S12_EEbSC_S17_.exit: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i
   %24 = load ptr, ptr %12, align 8, !tbaa !405
-  %25 = getelementptr inbounds nuw i32, ptr %24, i64 %.tr144210
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %.tr144210
   %26 = getelementptr inbounds nuw i8, ptr %.tr208, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !405
-  %28 = getelementptr inbounds nuw i32, ptr %27, i64 %.tr142209
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %.tr142209
   %29 = load ptr, ptr %8, align 8, !tbaa !411
   %30 = load ptr, ptr %.sroa.225.0..sroa_idx, align 8, !tbaa !413
   %31 = load i32, ptr %25, align 4, !tbaa !97
@@ -18922,9 +18900,9 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZSt9iter_swapIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEES6_EvT_T0_.exit: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i82
   %45 = load ptr, ptr %26, align 8, !tbaa !405
-  %46 = getelementptr inbounds nuw i32, ptr %45, i64 %.tr142209
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %.tr142209
   %47 = load ptr, ptr %12, align 8, !tbaa !405
-  %48 = getelementptr inbounds nuw i32, ptr %47, i64 %.tr144210
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %.tr144210
   %49 = load i32, ptr %46, align 4, !tbaa !97
   %50 = load i32, ptr %48, align 4, !tbaa !97
   store i32 %50, ptr %46, align 4, !tbaa !97
@@ -18957,7 +18935,7 @@ _ZSt7advanceIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm1844674407370955
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit: ; preds = %_ZSt7advanceIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEElEvRT_T0_.exit
   %60 = getelementptr inbounds nuw i8, ptr %.tr208, i64 8
   %61 = load ptr, ptr %60, align 8, !tbaa !405
-  %62 = getelementptr inbounds nuw i32, ptr %61, i64 %55
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %55
   br i1 %13, label %_ZSt8distanceIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEENSt15iterator_traitsIT_E15difference_typeES8_S8_.exit.i, label %63, !prof !35
 
 63:                                               ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit
@@ -18992,7 +18970,7 @@ _ZSt7advanceIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm1844674407370955
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlRKSG_E_clES14_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S19_E_EclIS12_SM_EEbSC_RS17_.exit.i: ; preds = %_ZSt7advanceIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEElEvRT_T0_.exit.i
   %72 = load ptr, ptr %12, align 8, !tbaa !405
-  %73 = getelementptr inbounds nuw i32, ptr %72, i64 %67
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %67
   %74 = load i32, ptr %73, align 4, !tbaa !97
   %75 = sext i32 %74 to i64
   %.sroa.0.0.copyload1.i.i.i.i.i = load i64, ptr %.sroa.225.0.copyload, align 8, !tbaa !39
@@ -19050,7 +19028,7 @@ _ZSt7advanceIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm1844674407370955
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit96: ; preds = %_ZSt7advanceIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEElEvRT_T0_.exit95
   %97 = load ptr, ptr %12, align 8, !tbaa !405
-  %98 = getelementptr inbounds nuw i32, ptr %97, i64 %92
+  %98 = getelementptr inbounds nuw [4 x i8], ptr %97, i64 %92
   %99 = icmp eq ptr %2, %.tr208
   br i1 %99, label %_ZSt8distanceIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEENSt15iterator_traitsIT_E15difference_typeES8_S8_.exit.i99, label %100, !prof !35
 
@@ -19090,7 +19068,7 @@ _ZSt7advanceIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm1844674407370955
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlRKSG_E_clES14_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S19_E_EclISM_S12_EEbRSC_S17_.exit.i: ; preds = %_ZSt7advanceIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEElEvRT_T0_.exit.i108
   %111 = load ptr, ptr %103, align 8, !tbaa !405
-  %112 = getelementptr inbounds nuw i32, ptr %111, i64 %106
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %111, i64 %106
   %113 = load i32, ptr %98, align 4, !tbaa !97
   %114 = sext i32 %113 to i64
   %.sroa.0.0.copyload1.i.i.i.i.i110 = load i64, ptr %.sroa.225.0.copyload, align 8, !tbaa !39
@@ -19160,7 +19138,7 @@ define linkonce_odr void @_ZSt25__unguarded_linear_insertIN7xgboost6common6detai
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit: ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !405
-  %10 = getelementptr inbounds nuw i32, ptr %9, i64 %1
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %1
   %11 = load i32, ptr %10, align 4, !tbaa !97
   %.not.i = icmp eq i64 %1, 0
   br i1 %.not.i, label %.critedge.i, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit.preheader, !prof !91
@@ -19186,7 +19164,7 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0E
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlRKSG_E_clES14_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S19_E_EclIiS12_EEbRSC_S17_.exit: ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit
-  %17 = getelementptr inbounds nuw i32, ptr %13, i64 %.sroa.8.0
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %.sroa.8.0
   %.sroa.0.0.copyload1.i.i.i.i = load i64, ptr %3, align 8, !tbaa !39
   %18 = add i64 %.sroa.0.0.copyload1.i.i.i.i, %12
   %19 = load i32, ptr %17, align 4, !tbaa !97
@@ -19214,9 +19192,9 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit2: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1
   %29 = load ptr, ptr %8, align 8, !tbaa !405
-  %30 = getelementptr inbounds nuw i32, ptr %29, i64 %.sroa.8.0
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %.sroa.8.0
   %31 = load i32, ptr %30, align 4, !tbaa !97
-  %32 = getelementptr inbounds nuw i32, ptr %29, i64 %.sroa.6.0
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %.sroa.6.0
   store i32 %31, ptr %32, align 4, !tbaa !97
   %.not.i3 = icmp eq i64 %.sroa.8.0, 0
   br i1 %.not.i3, label %.critedge.i5, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit, !prof !91, !llvm.loop !416
@@ -19235,7 +19213,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit7: ; preds = %33
   %36 = load ptr, ptr %8, align 8, !tbaa !405
-  %37 = getelementptr inbounds nuw i32, ptr %36, i64 %.sroa.6.0
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %.sroa.6.0
   store i32 %11, ptr %37, align 4, !tbaa !97
   ret void
 }
@@ -19257,7 +19235,7 @@ define linkonce_odr noundef zeroext i1 @_ZZZN3enc8cpu_impl9SortNamesINS_6PolicyI
 _ZNK7xgboost6common4SpanIKiLm18446744073709551615EEixEm.exit: ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !33
-  %13 = getelementptr inbounds nuw i32, ptr %12, i64 %1
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %1
   %14 = load i32, ptr %13, align 4, !tbaa !97
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %16 = sext i32 %14 to i64
@@ -19270,7 +19248,7 @@ _ZNK7xgboost6common4SpanIKiLm18446744073709551615EEixEm.exit: ; preds = %3
   unreachable
 
 _ZNK7xgboost6common4SpanIKiLm18446744073709551615EEixEm.exit13: ; preds = %_ZNK7xgboost6common4SpanIKiLm18446744073709551615EEixEm.exit
-  %20 = getelementptr inbounds nuw i32, ptr %12, i64 %17
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %17
   %21 = load i32, ptr %20, align 4, !tbaa !97
   %22 = sub nsw i32 %21, %14
   %23 = icmp eq i32 %22, -1
@@ -19319,7 +19297,7 @@ _ZNK7xgboost6common4SpanIKaLm18446744073709551615EE7subspanEmm.exit: ; preds = %
   unreachable
 
 _ZNK7xgboost6common4SpanIKiLm18446744073709551615EEixEm.exit14: ; preds = %_ZNK7xgboost6common4SpanIKaLm18446744073709551615EE7subspanEmm.exit
-  %43 = getelementptr inbounds nuw i32, ptr %12, i64 %2
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %2
   %44 = load i32, ptr %43, align 4, !tbaa !97
   %45 = sext i32 %44 to i64
   %46 = add nuw i64 %2, 1
@@ -19331,7 +19309,7 @@ _ZNK7xgboost6common4SpanIKiLm18446744073709551615EEixEm.exit14: ; preds = %_ZNK7
   unreachable
 
 _ZNK7xgboost6common4SpanIKiLm18446744073709551615EEixEm.exit15: ; preds = %_ZNK7xgboost6common4SpanIKiLm18446744073709551615EEixEm.exit14
-  %49 = getelementptr inbounds nuw i32, ptr %12, i64 %46
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %46
   %50 = load i32, ptr %49, align 4, !tbaa !97
   %51 = sub nsw i32 %50, %44
   %52 = icmp eq i32 %51, -1
@@ -19662,9 +19640,9 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit12.i: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.i
   %29 = load ptr, ptr %24, align 8, !tbaa !405
-  %30 = getelementptr inbounds nuw i32, ptr %29, i64 %.sroa.416.023.i
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %.sroa.416.023.i
   %31 = load ptr, ptr %25, align 8, !tbaa !405
-  %32 = getelementptr inbounds nuw i32, ptr %31, i64 %.sroa.4.022.i
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %.sroa.4.022.i
   %33 = load i32, ptr %30, align 4, !tbaa !97
   %34 = load i32, ptr %32, align 4, !tbaa !97
   store i32 %34, ptr %30, align 4, !tbaa !97
@@ -19711,7 +19689,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit: ; preds = %46
   %49 = load ptr, ptr %40, align 8, !tbaa !405
-  %50 = getelementptr inbounds nuw i32, ptr %49, i64 %.sroa.20.0
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %.sroa.20.0
   %51 = load i32, ptr %50, align 4, !tbaa !97
   %52 = add i64 %.0, %.sroa.20.0
   %.not.i.i81 = icmp ugt i64 %52, %39
@@ -19742,9 +19720,9 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit6.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i
   %.sroa.413.019.i.i.i.i.i = add nuw i64 %.sroa.413.019.i.i.i.i.i.in, 1
-  %58 = getelementptr inbounds nuw i32, ptr %49, i64 %.sroa.413.019.i.i.i.i.i
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %.sroa.413.019.i.i.i.i.i
   %59 = load i32, ptr %58, align 4, !tbaa !97
-  %60 = getelementptr inbounds nuw i32, ptr %49, i64 %.sroa.413.019.i.i.i.i.i.in
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %.sroa.413.019.i.i.i.i.i.in
   store i32 %59, ptr %60, align 4, !tbaa !97
   %61 = add nsw i64 %.020.i.i.i.i.i, -1
   %62 = icmp sgt i64 %.020.i.i.i.i.i, 1
@@ -19768,7 +19746,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
   unreachable
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit97: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiEl.exit
-  %67 = getelementptr inbounds nuw i32, ptr %49, i64 %63
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %63
   store i32 %51, ptr %67, align 4, !tbaa !97
   br label %.critedge
 
@@ -19816,8 +19794,8 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit107: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i
   %77 = load ptr, ptr %40, align 8, !tbaa !405
-  %78 = getelementptr inbounds nuw i32, ptr %77, i64 %.sroa.20.1282
-  %79 = getelementptr inbounds nuw i32, ptr %77, i64 %.sroa.6.0281
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %.sroa.20.1282
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %.sroa.6.0281
   %80 = load i32, ptr %78, align 4, !tbaa !97
   %81 = load i32, ptr %79, align 4, !tbaa !97
   store i32 %81, ptr %78, align 4, !tbaa !97
@@ -19864,7 +19842,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i144: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiEl.exit121
   %96 = load ptr, ptr %40, align 8, !tbaa !405
-  %97 = getelementptr inbounds nuw i32, ptr %96, i64 %92
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %96, i64 %92
   %98 = load i32, ptr %97, align 4, !tbaa !97
   %99 = sub i64 %92, %.sroa.20.0
   %100 = icmp sgt i64 %99, 0
@@ -19883,10 +19861,10 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
   unreachable
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit9.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i148
-  %102 = getelementptr inbounds nuw i32, ptr %96, i64 %101
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %96, i64 %101
   %103 = load i32, ptr %102, align 4, !tbaa !97
   %104 = add i64 %.sroa.4.024.i.i.i.i.i, -1
-  %105 = getelementptr inbounds nuw i32, ptr %96, i64 %104
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %96, i64 %104
   store i32 %103, ptr %105, align 4, !tbaa !97
   %106 = add nsw i64 %.026.i.i.i.i.i, -1
   %107 = icmp sgt i64 %.026.i.i.i.i.i, 1
@@ -19901,7 +19879,7 @@ _ZSt13move_backwardIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm184467440
   unreachable
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit149: ; preds = %_ZSt13move_backwardIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEES6_ET0_T_S8_S7_.exit
-  %110 = getelementptr inbounds nuw i32, ptr %96, i64 %.sroa.20.0
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %96, i64 %.sroa.20.0
   store i32 %98, ptr %110, align 4, !tbaa !97
   br label %.critedge
 
@@ -19960,8 +19938,8 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0E
 
 _ZSt9iter_swapIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEES6_EvT_T0_.exit170: ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit
   %119 = load ptr, ptr %40, align 8, !tbaa !405
-  %120 = getelementptr inbounds nuw i32, ptr %119, i64 %117
-  %121 = getelementptr inbounds nuw i32, ptr %119, i64 %118
+  %120 = getelementptr inbounds nuw [4 x i8], ptr %119, i64 %117
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %119, i64 %118
   %122 = load i32, ptr %120, align 4, !tbaa !97
   %123 = load i32, ptr %121, align 4, !tbaa !97
   store i32 %123, ptr %120, align 4, !tbaa !97
@@ -19989,7 +19967,7 @@ define linkonce_odr void @_ZSt24__merge_sort_with_bufferIN7xgboost6common6detail
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit: ; preds = %6
   %9 = sub i64 %3, %1
-  %10 = getelementptr inbounds i32, ptr %4, i64 %9
+  %10 = getelementptr inbounds [4 x i8], ptr %4, i64 %9
   %.sroa.028.sroa.0.0.copyload = load ptr, ptr %5, align 8, !tbaa !179
   %.sroa.028.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.028.sroa.2.0.copyload = load ptr, ptr %.sroa.028.sroa.2.0..sroa_idx, align 8, !tbaa !396
@@ -20070,7 +20048,7 @@ _ZSt22__chunk_insertion_sortIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i.i.us: ; preds = %28
   %30 = load i32, ptr %.0511.i.i.i.i.i.i.us, align 4, !tbaa !97
   %31 = load ptr, ptr %20, align 8, !tbaa !405
-  %32 = getelementptr inbounds nuw i32, ptr %31, i64 %.sroa.4.010.i.i.i.i.i.i.us
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %.sroa.4.010.i.i.i.i.i.i.us
   store i32 %30, ptr %32, align 4, !tbaa !97
   %33 = getelementptr inbounds nuw i8, ptr %.0511.i.i.i.i.i.i.us, i64 4
   %34 = add nuw i64 %.sroa.4.010.i.i.i.i.i.i.us, 1
@@ -20096,7 +20074,7 @@ _ZSt4moveIPiN7xgboost6common6detail12SpanIteratorINS2_4SpanIiLm18446744073709551
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i28.i.us: ; preds = %39
   %41 = load i32, ptr %.0511.i.i.i.i.i26.i.us, align 4, !tbaa !97
   %42 = load ptr, ptr %20, align 8, !tbaa !405
-  %43 = getelementptr inbounds nuw i32, ptr %42, i64 %.sroa.4.010.i.i.i.i.i27.i.us
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %.sroa.4.010.i.i.i.i.i27.i.us
   store i32 %41, ptr %43, align 4, !tbaa !97
   %44 = getelementptr inbounds nuw i8, ptr %.0511.i.i.i.i.i26.i.us, i64 4
   %45 = add nuw i64 %.sroa.4.010.i.i.i.i.i27.i.us, 1
@@ -20144,7 +20122,7 @@ _ZSt12__move_mergeIPiN7xgboost6common6detail12SpanIteratorINS2_4SpanIiLm18446744
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i: ; preds = %62
   %64 = load i32, ptr %.01846.i, align 4, !tbaa !97
   %65 = load ptr, ptr %20, align 8, !tbaa !405
-  %66 = getelementptr inbounds nuw i32, ptr %65, i64 %.sroa.5.045.i
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %.sroa.5.045.i
   store i32 %64, ptr %66, align 4, !tbaa !97
   %67 = getelementptr inbounds nuw i8, ptr %.01846.i, i64 4
   br label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i
@@ -20159,7 +20137,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20.i: ; preds = %68
   %70 = load i32, ptr %.047.i, align 4, !tbaa !97
   %71 = load ptr, ptr %20, align 8, !tbaa !405
-  %72 = getelementptr inbounds nuw i32, ptr %71, i64 %.sroa.5.045.i
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %71, i64 %.sroa.5.045.i
   store i32 %70, ptr %72, align 4, !tbaa !97
   %73 = getelementptr inbounds nuw i8, ptr %.047.i, i64 4
   br label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i
@@ -20195,7 +20173,7 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0E
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i
   %85 = load i32, ptr %.0511.i.i.i.i.i.i, align 4, !tbaa !97
-  %86 = getelementptr inbounds nuw i32, ptr %74, i64 %.sroa.4.010.i.i.i.i.i.i
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %74, i64 %.sroa.4.010.i.i.i.i.i.i
   store i32 %85, ptr %86, align 4, !tbaa !97
   %87 = getelementptr inbounds nuw i8, ptr %.0511.i.i.i.i.i.i, i64 4
   %88 = add nuw i64 %.sroa.4.010.i.i.i.i.i.i, 1
@@ -20225,7 +20203,7 @@ _ZSt4moveIPiN7xgboost6common6detail12SpanIteratorINS2_4SpanIiLm18446744073709551
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i28.i: ; preds = %.lr.ph.i.i.i.i.i24.i
   %97 = load i32, ptr %.0511.i.i.i.i.i26.i, align 4, !tbaa !97
-  %98 = getelementptr inbounds nuw i32, ptr %74, i64 %.sroa.4.010.i.i.i.i.i27.i
+  %98 = getelementptr inbounds nuw [4 x i8], ptr %74, i64 %.sroa.4.010.i.i.i.i.i27.i
   store i32 %97, ptr %98, align 4, !tbaa !97
   %99 = getelementptr inbounds nuw i8, ptr %.0511.i.i.i.i.i26.i, i64 4
   %100 = add nuw i64 %.sroa.4.010.i.i.i.i.i27.i, 1
@@ -20245,7 +20223,7 @@ _ZSt17__merge_sort_loopIPiN7xgboost6common6detail12SpanIteratorINS2_4SpanIiLm184
   %.sroa.420.0.lcssa.i = phi i64 [ %1, %21 ], [ %.sroa.4.0.lcssa.i.i.i.i.i21.i.us, %_ZSt12__move_mergeIPiN7xgboost6common6detail12SpanIteratorINS2_4SpanIiLm18446744073709551615EEELb0EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortINS2_18IndexTransformIterIZNSC_9SortNamesINSB_6PolicyIJNS1_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNSB_15CatStrArrayViewENS5_IKaLm18446744073709551615EEENS5_IKsLm18446744073709551615EEENS5_IKiLm18446744073709551615EEENS5_IKlLm18446744073709551615EEENS5_IKfLm18446744073709551615EEENS5_IKdLm18446744073709551615EEEEES6_EUlSJ_E_EES7_ZZNSF_ISI_EEvSL_S12_S6_ENKUlRKSN_E_clES16_EUlmmE_EEvSJ_SJ_T0_T1_EUlRSS_S1B_E_EEES19_SJ_SJ_SJ_SJ_S19_S1A_.exit.us ], [ %.sroa.4.0.lcssa.i.i.i.i.i21.i, %_ZSt12__move_mergeIPiN7xgboost6common6detail12SpanIteratorINS2_4SpanIiLm18446744073709551615EEELb0EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortINS2_18IndexTransformIterIZNSC_9SortNamesINSB_6PolicyIJNS1_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNSB_15CatStrArrayViewENS5_IKaLm18446744073709551615EEENS5_IKsLm18446744073709551615EEENS5_IKiLm18446744073709551615EEENS5_IKlLm18446744073709551615EEENS5_IKfLm18446744073709551615EEENS5_IKdLm18446744073709551615EEEEES6_EUlSJ_E_EES7_ZZNSF_ISI_EEvSL_S12_S6_ENKUlRKSN_E_clES16_EUlmmE_EEvSJ_SJ_T0_T1_EUlRSS_S1B_E_EEES19_SJ_SJ_SJ_SJ_S19_S1A_.exit ]
   %.lcssa.i = phi i64 [ %9, %21 ], [ %49, %_ZSt12__move_mergeIPiN7xgboost6common6detail12SpanIteratorINS2_4SpanIiLm18446744073709551615EEELb0EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortINS2_18IndexTransformIterIZNSC_9SortNamesINSB_6PolicyIJNS1_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNSB_15CatStrArrayViewENS5_IKaLm18446744073709551615EEENS5_IKsLm18446744073709551615EEENS5_IKiLm18446744073709551615EEENS5_IKlLm18446744073709551615EEENS5_IKfLm18446744073709551615EEENS5_IKdLm18446744073709551615EEEEES6_EUlSJ_E_EES7_ZZNSF_ISI_EEvSL_S12_S6_ENKUlRKSN_E_clES16_EUlmmE_EEvSJ_SJ_T0_T1_EUlRSS_S1B_E_EEES19_SJ_SJ_SJ_SJ_S19_S1A_.exit.us ], [ %104, %_ZSt12__move_mergeIPiN7xgboost6common6detail12SpanIteratorINS2_4SpanIiLm18446744073709551615EEELb0EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortINS2_18IndexTransformIterIZNSC_9SortNamesINSB_6PolicyIJNS1_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNSB_15CatStrArrayViewENS5_IKaLm18446744073709551615EEENS5_IKsLm18446744073709551615EEENS5_IKiLm18446744073709551615EEENS5_IKlLm18446744073709551615EEENS5_IKfLm18446744073709551615EEENS5_IKdLm18446744073709551615EEEEES6_EUlSJ_E_EES7_ZZNSF_ISI_EEvSL_S12_S6_ENKUlRKSN_E_clES16_EUlmmE_EEvSJ_SJ_T0_T1_EUlRSS_S1B_E_EEES19_SJ_SJ_SJ_SJ_S19_S1A_.exit ]
   %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %22, i64 %.lcssa.i)
-  %105 = getelementptr inbounds i32, ptr %.0.lcssa.i, i64 %.sroa.speculated.i
+  %105 = getelementptr inbounds [4 x i8], ptr %.0.lcssa.i, i64 %.sroa.speculated.i
   %106 = tail call { ptr, i64 } @_ZSt12__move_mergeIPiN7xgboost6common6detail12SpanIteratorINS2_4SpanIiLm18446744073709551615EEELb0EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortINS2_18IndexTransformIterIZNSC_9SortNamesINSB_6PolicyIJNS1_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNSB_15CatStrArrayViewENS5_IKaLm18446744073709551615EEENS5_IKsLm18446744073709551615EEENS5_IKiLm18446744073709551615EEENS5_IKlLm18446744073709551615EEENS5_IKfLm18446744073709551615EEENS5_IKdLm18446744073709551615EEEEES6_EUlSJ_E_EES7_ZZNSF_ISI_EEvSL_S12_S6_ENKUlRKSN_E_clES16_EUlmmE_EEvSJ_SJ_T0_T1_EUlRSS_S1B_E_EEES19_SJ_SJ_SJ_SJ_S19_S1A_(ptr noundef %.0.lcssa.i, ptr noundef %105, ptr noundef %105, ptr noundef nonnull %10, ptr %0, i64 %.sroa.420.0.lcssa.i, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 %5)
   %107 = icmp slt i64 %23, %9
   br i1 %107, label %21, label %._crit_edge, !llvm.loop !434
@@ -20305,7 +20283,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i: ; preds = %22
   %25 = load ptr, ptr %21, align 8, !tbaa !405
-  %26 = getelementptr inbounds nuw i32, ptr %25, i64 %.sroa.3.09.i.i.i.i.i
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %.sroa.3.09.i.i.i.i.i
   %27 = load i32, ptr %26, align 4, !tbaa !97
   store i32 %27, ptr %.011.i.i.i.i.i, align 4, !tbaa !97
   %28 = add nuw i64 %.sroa.3.09.i.i.i.i.i, 1
@@ -20361,7 +20339,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i121: ; preds = %38
   %41 = load ptr, ptr %14, align 8, !tbaa !405
-  %42 = getelementptr inbounds nuw i32, ptr %41, i64 %.sroa.3.09.i.i.i.i.i120
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %.sroa.3.09.i.i.i.i.i120
   %43 = load i32, ptr %42, align 4, !tbaa !97
   store i32 %43, ptr %.011.i.i.i.i.i118, align 4, !tbaa !97
   %44 = add nuw i64 %.sroa.3.09.i.i.i.i.i120, 1
@@ -20403,7 +20381,7 @@ _ZSt7advanceIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm1844674407370955
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit: ; preds = %_ZSt7advanceIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEElEvRT_T0_.exit
   %56 = getelementptr inbounds nuw i8, ptr %.tr253, i64 8
   %57 = load ptr, ptr %56, align 8, !tbaa !405
-  %58 = getelementptr inbounds nuw i32, ptr %57, i64 %51
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %51
   br i1 %15, label %_ZSt8distanceIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEENSt15iterator_traitsIT_E15difference_typeES8_S8_.exit.i, label %59, !prof !35
 
 59:                                               ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit
@@ -20438,7 +20416,7 @@ _ZSt7advanceIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm1844674407370955
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlRKSG_E_clES14_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S19_E_EclIS12_SM_EEbSC_RS17_.exit.i: ; preds = %_ZSt7advanceIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEElEvRT_T0_.exit.i
   %68 = load ptr, ptr %14, align 8, !tbaa !405
-  %69 = getelementptr inbounds nuw i32, ptr %68, i64 %63
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %63
   %70 = load i32, ptr %69, align 4, !tbaa !97
   %71 = sext i32 %70 to i64
   %.sroa.0.0.copyload1.i.i.i.i.i = load i64, ptr %.sroa.224.0.copyload, align 8, !tbaa !39
@@ -20496,7 +20474,7 @@ _ZSt7advanceIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm1844674407370955
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit136: ; preds = %_ZSt7advanceIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEElEvRT_T0_.exit135
   %93 = load ptr, ptr %14, align 8, !tbaa !405
-  %94 = getelementptr inbounds nuw i32, ptr %93, i64 %88
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %93, i64 %88
   %95 = icmp eq ptr %2, %.tr253
   br i1 %95, label %_ZSt8distanceIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEENSt15iterator_traitsIT_E15difference_typeES8_S8_.exit.i139, label %96, !prof !35
 
@@ -20536,7 +20514,7 @@ _ZSt7advanceIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm1844674407370955
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlRKSG_E_clES14_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S19_E_EclISM_S12_EEbRSC_S17_.exit.i: ; preds = %_ZSt7advanceIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEElEvRT_T0_.exit.i148
   %107 = load ptr, ptr %99, align 8, !tbaa !405
-  %108 = getelementptr inbounds nuw i32, ptr %107, i64 %102
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %107, i64 %102
   %109 = load i32, ptr %94, align 4, !tbaa !97
   %110 = sext i32 %109 to i64
   %.sroa.0.0.copyload1.i.i.i.i.i150 = load i64, ptr %.sroa.224.0.copyload, align 8, !tbaa !39
@@ -20702,9 +20680,9 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlRKSG_E_clES14_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S19_E_EclIS12_S12_EEbSC_S17_.exit.us.us: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us
   %22 = load ptr, ptr %13, align 8, !tbaa !405
-  %23 = getelementptr inbounds nuw i32, ptr %22, i64 %.sroa.6.062.us.us104
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %.sroa.6.062.us.us104
   %24 = load ptr, ptr %14, align 8, !tbaa !405
-  %25 = getelementptr inbounds nuw i32, ptr %24, i64 %.sroa.643.063.us.us103
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %.sroa.643.063.us.us103
   %26 = load i32, ptr %23, align 4, !tbaa !97
   %27 = sext i32 %26 to i64
   %.sroa.0.0.copyload1.i.i.i.i.us.us = load i64, ptr %17, align 8, !tbaa !39
@@ -20722,7 +20700,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18I
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit27.us.us: ; preds = %33
   %36 = load ptr, ptr %14, align 8, !tbaa !405
-  %37 = getelementptr inbounds nuw i32, ptr %36, i64 %.sroa.643.063.us.us103
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %.sroa.643.063.us.us103
   %38 = load i32, ptr %37, align 4, !tbaa !97
   store i32 %38, ptr %.064.us.us102, align 4, !tbaa !97
   %39 = add nuw i64 %.sroa.643.063.us.us103, 1
@@ -20736,7 +20714,7 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0E
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.us.us: ; preds = %40
   %43 = load ptr, ptr %13, align 8, !tbaa !405
-  %44 = getelementptr inbounds nuw i32, ptr %43, i64 %.sroa.6.062.us.us104
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %.sroa.6.062.us.us104
   %45 = load i32, ptr %44, align 4, !tbaa !97
   store i32 %45, ptr %.064.us.us102, align 4, !tbaa !97
   %46 = add nuw i64 %.sroa.6.062.us.us104, 1
@@ -20765,9 +20743,9 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlRKSG_E_clES14_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S19_E_EclIS12_S12_EEbSC_S17_.exit.us: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us
   %55 = load ptr, ptr %13, align 8, !tbaa !405
-  %56 = getelementptr inbounds nuw i32, ptr %55, i64 %.sroa.6.062.us
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %.sroa.6.062.us
   %57 = load ptr, ptr %14, align 8, !tbaa !405
-  %58 = getelementptr inbounds nuw i32, ptr %57, i64 %.sroa.643.063.us
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %.sroa.643.063.us
   %59 = load i32, ptr %56, align 4, !tbaa !97
   %60 = sext i32 %59 to i64
   %.sroa.0.0.copyload1.i.i.i.i.us = load i64, ptr %17, align 8, !tbaa !39
@@ -20785,7 +20763,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18I
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit27.us: ; preds = %66
   %69 = load ptr, ptr %14, align 8, !tbaa !405
-  %70 = getelementptr inbounds nuw i32, ptr %69, i64 %.sroa.643.063.us
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %69, i64 %.sroa.643.063.us
   %71 = load i32, ptr %70, align 4, !tbaa !97
   store i32 %71, ptr %.064.us, align 4, !tbaa !97
   %72 = add nuw i64 %.sroa.643.063.us, 1
@@ -20798,7 +20776,7 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0E
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.us: ; preds = %73
   %76 = load ptr, ptr %13, align 8, !tbaa !405
-  %77 = getelementptr inbounds nuw i32, ptr %76, i64 %.sroa.6.062.us
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %.sroa.6.062.us
   %78 = load i32, ptr %77, align 4, !tbaa !97
   store i32 %78, ptr %.064.us, align 4, !tbaa !97
   %79 = add nuw i64 %.sroa.6.062.us, 1
@@ -20833,9 +20811,9 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlRKSG_E_clES14_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S19_E_EclIS12_S12_EEbSC_S17_.exit.us83: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us82
   %86 = load ptr, ptr %13, align 8, !tbaa !405
-  %87 = getelementptr inbounds nuw i32, ptr %86, i64 %.sroa.6.062.us8196
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %86, i64 %.sroa.6.062.us8196
   %88 = load ptr, ptr %14, align 8, !tbaa !405
-  %89 = getelementptr inbounds nuw i32, ptr %88, i64 %.sroa.643.063.us8095
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %88, i64 %.sroa.643.063.us8095
   %90 = load i32, ptr %87, align 4, !tbaa !97
   %91 = sext i32 %90 to i64
   %.sroa.0.0.copyload1.i.i.i.i.us84 = load i64, ptr %17, align 8, !tbaa !39
@@ -20853,7 +20831,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18I
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit27.us85: ; preds = %97
   %100 = load ptr, ptr %14, align 8, !tbaa !405
-  %101 = getelementptr inbounds nuw i32, ptr %100, i64 %.sroa.643.063.us8095
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %100, i64 %.sroa.643.063.us8095
   %102 = load i32, ptr %101, align 4, !tbaa !97
   store i32 %102, ptr %.064.us7994, align 4, !tbaa !97
   %103 = add nuw i64 %.sroa.643.063.us8095, 1
@@ -20866,7 +20844,7 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0E
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.us86: ; preds = %104
   %107 = load ptr, ptr %13, align 8, !tbaa !405
-  %108 = getelementptr inbounds nuw i32, ptr %107, i64 %.sroa.6.062.us8196
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %107, i64 %.sroa.6.062.us8196
   %109 = load i32, ptr %108, align 4, !tbaa !97
   store i32 %109, ptr %.064.us7994, align 4, !tbaa !97
   %110 = add nuw i64 %.sroa.6.062.us8196, 1
@@ -20906,9 +20884,9 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlRKSG_E_clES14_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S19_E_EclIS12_S12_EEbSC_S17_.exit: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i
   %118 = load ptr, ptr %13, align 8, !tbaa !405
-  %119 = getelementptr inbounds nuw i32, ptr %118, i64 %.sroa.6.062
+  %119 = getelementptr inbounds nuw [4 x i8], ptr %118, i64 %.sroa.6.062
   %120 = load ptr, ptr %14, align 8, !tbaa !405
-  %121 = getelementptr inbounds nuw i32, ptr %120, i64 %.sroa.643.063
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %120, i64 %.sroa.643.063
   %122 = load i32, ptr %119, align 4, !tbaa !97
   %123 = sext i32 %122 to i64
   %.sroa.0.0.copyload1.i.i.i.i = load i64, ptr %17, align 8, !tbaa !39
@@ -20930,7 +20908,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18I
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit: ; preds = %129
   %132 = load ptr, ptr %13, align 8, !tbaa !405
-  %133 = getelementptr inbounds nuw i32, ptr %132, i64 %.sroa.6.062
+  %133 = getelementptr inbounds nuw [4 x i8], ptr %132, i64 %.sroa.6.062
   %134 = load i32, ptr %133, align 4, !tbaa !97
   store i32 %134, ptr %.064, align 4, !tbaa !97
   %135 = add nuw i64 %.sroa.6.062, 1
@@ -20947,7 +20925,7 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0E
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit27: ; preds = %136
   %139 = load ptr, ptr %14, align 8, !tbaa !405
-  %140 = getelementptr inbounds nuw i32, ptr %139, i64 %.sroa.643.063
+  %140 = getelementptr inbounds nuw [4 x i8], ptr %139, i64 %.sroa.643.063
   %141 = load i32, ptr %140, align 4, !tbaa !97
   store i32 %141, ptr %.064, align 4, !tbaa !97
   %142 = add nuw i64 %.sroa.643.063, 1
@@ -20995,7 +20973,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i: ; preds = %151
   %154 = load ptr, ptr %150, align 8, !tbaa !405
-  %155 = getelementptr inbounds nuw i32, ptr %154, i64 %.sroa.3.09.i.i.i.i.i
+  %155 = getelementptr inbounds nuw [4 x i8], ptr %154, i64 %.sroa.3.09.i.i.i.i.i
   %156 = load i32, ptr %155, align 4, !tbaa !97
   store i32 %156, ptr %.011.i.i.i.i.i, align 4, !tbaa !97
   %157 = add nuw i64 %.sroa.3.09.i.i.i.i.i, 1
@@ -21036,7 +21014,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34: ; preds = %167
   %170 = load ptr, ptr %166, align 8, !tbaa !405
-  %171 = getelementptr inbounds nuw i32, ptr %170, i64 %.sroa.3.09.i.i.i.i.i33
+  %171 = getelementptr inbounds nuw [4 x i8], ptr %170, i64 %.sroa.3.09.i.i.i.i.i33
   %172 = load i32, ptr %171, align 4, !tbaa !97
   store i32 %172, ptr %.011.i.i.i.i.i31, align 4, !tbaa !97
   %173 = add nuw i64 %.sroa.3.09.i.i.i.i.i33, 1
@@ -21090,7 +21068,7 @@ define linkonce_odr { ptr, i64 } @_ZSt12__move_mergeIPiN7xgboost6common6detail12
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit: ; preds = %25
   %27 = load i32, ptr %.01846, align 4, !tbaa !97
   %28 = load ptr, ptr %14, align 8, !tbaa !405
-  %29 = getelementptr inbounds nuw i32, ptr %28, i64 %.sroa.5.045
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %.sroa.5.045
   store i32 %27, ptr %29, align 4, !tbaa !97
   %30 = getelementptr inbounds nuw i8, ptr %.01846, i64 4
   br label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit
@@ -21105,7 +21083,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20: ; preds = %31
   %33 = load i32, ptr %.047, align 4, !tbaa !97
   %34 = load ptr, ptr %14, align 8, !tbaa !405
-  %35 = getelementptr inbounds nuw i32, ptr %34, i64 %.sroa.5.045
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %.sroa.5.045
   store i32 %33, ptr %35, align 4, !tbaa !97
   %36 = getelementptr inbounds nuw i8, ptr %.047, i64 4
   br label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit
@@ -21149,7 +21127,7 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0E
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i: ; preds = %48
   %51 = load i32, ptr %.0511.i.i.i.i.i, align 4, !tbaa !97
   %52 = load ptr, ptr %47, align 8, !tbaa !405
-  %53 = getelementptr inbounds nuw i32, ptr %52, i64 %.sroa.4.010.i.i.i.i.i
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %.sroa.4.010.i.i.i.i.i
   store i32 %51, ptr %53, align 4, !tbaa !97
   %54 = getelementptr inbounds nuw i8, ptr %.0511.i.i.i.i.i, i64 4
   %55 = add nuw i64 %.sroa.4.010.i.i.i.i.i, 1
@@ -21185,7 +21163,7 @@ _ZSt4moveIPiN7xgboost6common6detail12SpanIteratorINS2_4SpanIiLm18446744073709551
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i28: ; preds = %65
   %68 = load i32, ptr %.0511.i.i.i.i.i26, align 4, !tbaa !97
   %69 = load ptr, ptr %64, align 8, !tbaa !405
-  %70 = getelementptr inbounds nuw i32, ptr %69, i64 %.sroa.4.010.i.i.i.i.i27
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %69, i64 %.sroa.4.010.i.i.i.i.i27
   store i32 %68, ptr %70, align 4, !tbaa !97
   %71 = getelementptr inbounds nuw i8, ptr %.0511.i.i.i.i.i26, i64 4
   %72 = add nuw i64 %.sroa.4.010.i.i.i.i.i27, 1
@@ -21228,7 +21206,7 @@ define linkonce_odr void @_ZSt21__move_merge_adaptiveIPiN7xgboost6common6detail1
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlRKSG_E_clES14_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S19_E_EclIS12_PiEEbSC_S17_.exit.us: ; preds = %.lr.ph.split.us
   %20 = load ptr, ptr %10, align 8, !tbaa !405
-  %21 = getelementptr inbounds nuw i32, ptr %20, i64 %.sroa.5.036.us
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %.sroa.5.036.us
   %22 = load i32, ptr %21, align 4, !tbaa !97
   %23 = sext i32 %22 to i64
   %.sroa.0.0.copyload1.i.i.i.i.us = load i64, ptr %13, align 8, !tbaa !39
@@ -21247,7 +21225,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18I
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21.us: ; preds = %29
   %32 = load i32, ptr %.037.us, align 4, !tbaa !97
   %33 = load ptr, ptr %16, align 8, !tbaa !405
-  %34 = getelementptr inbounds nuw i32, ptr %33, i64 %17
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %17
   store i32 %32, ptr %34, align 4, !tbaa !97
   %35 = getelementptr inbounds nuw i8, ptr %.037.us, i64 4
   br label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23.us
@@ -21264,10 +21242,10 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.us: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.us
   %41 = load ptr, ptr %10, align 8, !tbaa !405
-  %42 = getelementptr inbounds nuw i32, ptr %41, i64 %.sroa.5.036.us
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %.sroa.5.036.us
   %43 = load i32, ptr %42, align 4, !tbaa !97
   %44 = load ptr, ptr %16, align 8, !tbaa !405
-  %45 = getelementptr inbounds nuw i32, ptr %44, i64 %17
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %17
   store i32 %43, ptr %45, align 4, !tbaa !97
   %46 = add nuw i64 %.sroa.5.036.us, 1
   br label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23.us
@@ -21297,7 +21275,7 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0E
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlRKSG_E_clES14_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S19_E_EclIS12_PiEEbSC_S17_.exit: ; preds = %48
   %51 = load ptr, ptr %10, align 8, !tbaa !405
-  %52 = getelementptr inbounds nuw i32, ptr %51, i64 %.sroa.5.036
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %.sroa.5.036
   %53 = load i32, ptr %52, align 4, !tbaa !97
   %54 = sext i32 %53 to i64
   %.sroa.0.0.copyload1.i.i.i.i = load i64, ptr %13, align 8, !tbaa !39
@@ -21328,10 +21306,10 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit
   %65 = load ptr, ptr %10, align 8, !tbaa !405
-  %66 = getelementptr inbounds nuw i32, ptr %65, i64 %.sroa.5.036
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %.sroa.5.036
   %67 = load i32, ptr %66, align 4, !tbaa !97
   %68 = load ptr, ptr %16, align 8, !tbaa !405
-  %69 = getelementptr inbounds nuw i32, ptr %68, i64 %.sroa.2.0.copyload
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %.sroa.2.0.copyload
   store i32 %67, ptr %69, align 4, !tbaa !97
   %70 = add nuw i64 %.sroa.5.036, 1
   br label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23
@@ -21348,7 +21326,7 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0E
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21: ; preds = %71
   %74 = load i32, ptr %.037, align 4, !tbaa !97
   %75 = load ptr, ptr %16, align 8, !tbaa !405
-  %76 = getelementptr inbounds nuw i32, ptr %75, i64 %.sroa.2.0.copyload
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %75, i64 %.sroa.2.0.copyload
   store i32 %74, ptr %76, align 4, !tbaa !97
   %77 = getelementptr inbounds nuw i8, ptr %.037, i64 4
   br label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23
@@ -21387,7 +21365,7 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0E
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i: ; preds = %85
   %88 = load i32, ptr %.0511.i.i.i.i.i, align 4, !tbaa !97
   %89 = load ptr, ptr %16, align 8, !tbaa !405
-  %90 = getelementptr inbounds nuw i32, ptr %89, i64 %.sroa.4.010.i.i.i.i.i
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %.sroa.4.010.i.i.i.i.i
   store i32 %88, ptr %90, align 4, !tbaa !97
   %91 = getelementptr inbounds nuw i8, ptr %.0511.i.i.i.i.i, i64 4
   %92 = add nuw i64 %.sroa.4.010.i.i.i.i.i, 1
@@ -21443,7 +21421,7 @@ define linkonce_odr void @_ZSt30__move_merge_adaptive_backwardIN7xgboost6common6
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit.i.i.i.i.i: ; preds = %22
   %24 = add i64 %.sroa.4.010.i.i.i.i.i, -1
   %25 = load ptr, ptr %18, align 8, !tbaa !405
-  %26 = getelementptr inbounds nuw i32, ptr %25, i64 %24
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %24
   store i32 %21, ptr %26, align 4, !tbaa !97
   %27 = add nsw i64 %.012.i.i.i.i.i, -1
   %28 = icmp sgt i64 %.012.i.i.i.i.i, 1
@@ -21487,7 +21465,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18I
   %44 = phi i64 [ %.ph153, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlRKSG_E_clES14_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S19_E_EclIPiS12_EEbSC_S17_.exit.us.outer ], [ %73, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit34.us ]
   %.sroa.6.081.us = phi i64 [ %.sroa.6.081.us.ph, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlRKSG_E_clES14_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S19_E_EclIPiS12_EEbSC_S17_.exit.us.outer ], [ %76, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit34.us ]
   %45 = load ptr, ptr %37, align 8, !tbaa !405
-  %46 = getelementptr inbounds nuw i32, ptr %45, i64 %.sroa.6.081.us
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %.sroa.6.081.us
   %47 = load i32, ptr %.082.us.ph, align 4, !tbaa !97
   %48 = sext i32 %47 to i64
   %.sroa.0.0.copyload1.i.i.i.i.us = load i64, ptr %40, align 8, !tbaa !39
@@ -21511,7 +21489,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18I
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit55.us: ; preds = %56
   %58 = add i64 %44, -1
   %59 = load ptr, ptr %43, align 8, !tbaa !405
-  %60 = getelementptr inbounds nuw i32, ptr %59, i64 %58
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %58
   store i32 %55, ptr %60, align 4, !tbaa !97
   %61 = icmp eq ptr %4, %.082.us.ph
   br i1 %61, label %_ZSt13move_backwardIPiN7xgboost6common6detail12SpanIteratorINS2_4SpanIiLm18446744073709551615EEELb0EEEET0_T_S9_S8_.exit, label %62
@@ -21535,7 +21513,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18I
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.us: ; preds = %65
   %68 = load ptr, ptr %37, align 8, !tbaa !405
-  %69 = getelementptr inbounds nuw i32, ptr %68, i64 %.sroa.6.081.us
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %.sroa.6.081.us
   %70 = load i32, ptr %69, align 4, !tbaa !97
   %.not.i31.us = icmp eq i64 %44, 0
   br i1 %.not.i31.us, label %.critedge.i33, label %71, !prof !91
@@ -21548,7 +21526,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit34.us: ; preds = %71
   %73 = add i64 %44, -1
   %74 = load ptr, ptr %43, align 8, !tbaa !405
-  %75 = getelementptr inbounds nuw i32, ptr %74, i64 %73
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %74, i64 %73
   store i32 %70, ptr %75, align 4, !tbaa !97
   %76 = add i64 %.sroa.6.081.us, -1
   %or.cond63.not.us = icmp ult i64 %76, %66
@@ -21562,7 +21540,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18I
   %77 = phi i64 [ %.ph, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlRKSG_E_clES14_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S19_E_EclIPiS12_EEbSC_S17_.exit.outer ], [ %95, %112 ]
   %.sroa.6.081 = phi i64 [ %.sroa.6.081.ph, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlRKSG_E_clES14_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S19_E_EclIPiS12_EEbSC_S17_.exit.outer ], [ %113, %112 ]
   %78 = load ptr, ptr %37, align 8, !tbaa !405
-  %79 = getelementptr inbounds nuw i32, ptr %78, i64 %.sroa.6.081
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %78, i64 %.sroa.6.081
   %80 = load i32, ptr %.082.ph, align 4, !tbaa !97
   %81 = sext i32 %80 to i64
   %.sroa.0.0.copyload1.i.i.i.i = load i64, ptr %40, align 8, !tbaa !39
@@ -21584,7 +21562,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18I
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit: ; preds = %87
   %90 = load ptr, ptr %37, align 8, !tbaa !405
-  %91 = getelementptr inbounds nuw i32, ptr %90, i64 %.sroa.6.081
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %90, i64 %.sroa.6.081
   %92 = load i32, ptr %91, align 4, !tbaa !97
   %.not.i31 = icmp eq i64 %77, 0
   br i1 %.not.i31, label %.critedge.i33, label %93, !prof !91
@@ -21601,7 +21579,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit34: ; preds = %93
   %95 = add i64 %77, -1
   %96 = load ptr, ptr %43, align 8, !tbaa !405
-  %97 = getelementptr inbounds nuw i32, ptr %96, i64 %95
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %96, i64 %95
   store i32 %92, ptr %97, align 4, !tbaa !97
   %98 = icmp eq i64 %1, %.sroa.6.081
   br i1 %98, label %99, label %112
@@ -21631,7 +21609,7 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0E
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit.i.i.i.i.i45: ; preds = %.lr.ph.i.i.i.i.i39
   %107 = getelementptr inbounds i8, ptr %.0411.i.i.i.i.i41, i64 -4
   %108 = load i32, ptr %107, align 4, !tbaa !97
-  %109 = getelementptr inbounds nuw i32, ptr %96, i64 %106
+  %109 = getelementptr inbounds nuw [4 x i8], ptr %96, i64 %106
   store i32 %108, ptr %109, align 4, !tbaa !97
   %110 = add nsw i64 %.012.i.i.i.i.i40, -1
   %111 = icmp sgt i64 %.012.i.i.i.i.i40, 1
@@ -21663,7 +21641,7 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0E
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit55: ; preds = %116
   %118 = add i64 %77, -1
   %119 = load ptr, ptr %43, align 8, !tbaa !405
-  %120 = getelementptr inbounds nuw i32, ptr %119, i64 %118
+  %120 = getelementptr inbounds nuw [4 x i8], ptr %119, i64 %118
   store i32 %115, ptr %120, align 4, !tbaa !97
   %121 = icmp eq ptr %4, %.082.ph
   br i1 %121, label %_ZSt13move_backwardIPiN7xgboost6common6detail12SpanIteratorINS2_4SpanIiLm18446744073709551615EEELb0EEEET0_T_S9_S8_.exit, label %122
@@ -21726,7 +21704,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i: ; preds = %20
   %23 = load ptr, ptr %19, align 8, !tbaa !405
-  %24 = getelementptr inbounds nuw i32, ptr %23, i64 %.sroa.3.09.i.i.i.i.i
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %.sroa.3.09.i.i.i.i.i
   %25 = load i32, ptr %24, align 4, !tbaa !97
   store i32 %25, ptr %.011.i.i.i.i.i, align 4, !tbaa !97
   %26 = add nuw i64 %.sroa.3.09.i.i.i.i.i, 1
@@ -21773,7 +21751,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit.i.i.i.i.i: ; preds = %37
   %39 = add i64 %.sroa.417.025.i.i.i.i.i, -1
   %40 = load ptr, ptr %34, align 8, !tbaa !405
-  %41 = getelementptr inbounds nuw i32, ptr %40, i64 %39
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %39
   %42 = load i32, ptr %41, align 4, !tbaa !97
   %.not.i6.i.i.i.i.i = icmp eq i64 %.sroa.4.024.i.i.i.i.i, 0
   br i1 %.not.i6.i.i.i.i.i, label %.critedge.i8.i.i.i.i.i, label %43, !prof !91
@@ -21790,7 +21768,7 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0E
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit9.i.i.i.i.i: ; preds = %43
   %45 = add i64 %.sroa.4.024.i.i.i.i.i, -1
   %46 = load ptr, ptr %35, align 8, !tbaa !405
-  %47 = getelementptr inbounds nuw i32, ptr %46, i64 %45
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %45
   store i32 %42, ptr %47, align 4, !tbaa !97
   %48 = add nsw i64 %.026.i.i.i.i.i, -1
   %49 = icmp sgt i64 %.026.i.i.i.i.i, 1
@@ -21823,7 +21801,7 @@ _ZSt13move_backwardIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm184467440
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i71: ; preds = %57
   %60 = load i32, ptr %.0511.i.i.i.i.i, align 4, !tbaa !97
   %61 = load ptr, ptr %56, align 8, !tbaa !405
-  %62 = getelementptr inbounds nuw i32, ptr %61, i64 %.sroa.4.010.i.i.i.i.i
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %.sroa.4.010.i.i.i.i.i
   store i32 %60, ptr %62, align 4, !tbaa !97
   %63 = getelementptr inbounds nuw i8, ptr %.0511.i.i.i.i.i, i64 4
   %64 = add nuw i64 %.sroa.4.010.i.i.i.i.i, 1
@@ -21881,7 +21859,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i78: ; preds = %79
   %82 = load ptr, ptr %78, align 8, !tbaa !405
-  %83 = getelementptr inbounds nuw i32, ptr %82, i64 %.sroa.3.09.i.i.i.i.i77
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %82, i64 %.sroa.3.09.i.i.i.i.i77
   %84 = load i32, ptr %83, align 4, !tbaa !97
   store i32 %84, ptr %.011.i.i.i.i.i75, align 4, !tbaa !97
   %85 = add nuw i64 %.sroa.3.09.i.i.i.i.i77, 1
@@ -21932,10 +21910,10 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit6.i.i.i.i.i: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.i.i.i.i
   %102 = load ptr, ptr %94, align 8, !tbaa !405
-  %103 = getelementptr inbounds nuw i32, ptr %102, i64 %.sroa.413.019.i.i.i.i.i
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %102, i64 %.sroa.413.019.i.i.i.i.i
   %104 = load i32, ptr %103, align 4, !tbaa !97
   %105 = load ptr, ptr %95, align 8, !tbaa !405
-  %106 = getelementptr inbounds nuw i32, ptr %105, i64 %.sroa.4.018.i.i.i.i.i
+  %106 = getelementptr inbounds nuw [4 x i8], ptr %105, i64 %.sroa.4.018.i.i.i.i.i
   store i32 %104, ptr %106, align 4, !tbaa !97
   %107 = add nuw i64 %.sroa.413.019.i.i.i.i.i, 1
   %108 = add nuw i64 %.sroa.4.018.i.i.i.i.i, 1
@@ -21976,7 +21954,7 @@ _ZSt4moveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm1844674407370955161
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit.i.i.i.i.i93: ; preds = %120
   %122 = add i64 %.sroa.4.010.i.i.i.i.i90, -1
   %123 = load ptr, ptr %116, align 8, !tbaa !405
-  %124 = getelementptr inbounds nuw i32, ptr %123, i64 %122
+  %124 = getelementptr inbounds nuw [4 x i8], ptr %123, i64 %122
   store i32 %119, ptr %124, align 4, !tbaa !97
   %125 = add nsw i64 %.012.i.i.i.i.i89, -1
   %126 = icmp sgt i64 %.012.i.i.i.i.i89, 1
@@ -22048,7 +22026,7 @@ _ZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS0_9SortNamesINS
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i: ; preds = %.lr.ph.split.i.i
   %indvars12 = trunc i64 %.sroa.4.010.i.i to i32
   %13 = load ptr, ptr %12, align 8, !tbaa !405
-  %14 = getelementptr inbounds nuw i32, ptr %13, i64 %.sroa.4.010.i.i
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %.sroa.4.010.i.i
   store i32 %indvars12, ptr %14, align 4, !tbaa !97
   %15 = add nuw i64 %.sroa.4.010.i.i, 1
   %.not.i.i = icmp eq i64 %15, %7
@@ -22251,8 +22229,8 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i
   %25 = load ptr, ptr %15, align 8, !tbaa !405
-  %26 = getelementptr inbounds nuw i32, ptr %25, i64 %.sroa.10.050
-  %27 = getelementptr inbounds nuw i32, ptr %25, i64 %1
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %.sroa.10.050
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %1
   %28 = load i32, ptr %26, align 4, !tbaa !97
   %29 = sext i32 %28 to i64
   %.sroa.0.0.copyload1.i.i.i.i = load i64, ptr %5, align 8, !tbaa !39
@@ -22309,10 +22287,10 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
   unreachable
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit9.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i
-  %51 = getelementptr inbounds nuw i32, ptr %25, i64 %50
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %50
   %52 = load i32, ptr %51, align 4, !tbaa !97
   %53 = add i64 %.sroa.4.024.i.i.i.i.i, -1
-  %54 = getelementptr inbounds nuw i32, ptr %25, i64 %53
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %53
   store i32 %52, ptr %54, align 4, !tbaa !97
   %55 = add nsw i64 %.026.i.i.i.i.i, -1
   %56 = icmp sgt i64 %.026.i.i.i.i.i, 1
@@ -22387,10 +22365,10 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i
   %26 = getelementptr inbounds nuw i8, ptr %.tr118172, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !405
-  %28 = getelementptr inbounds nuw i32, ptr %27, i64 %.tr119173
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %.tr119173
   %29 = getelementptr inbounds nuw i8, ptr %.tr170, i64 8
   %30 = load ptr, ptr %29, align 8, !tbaa !405
-  %31 = getelementptr inbounds nuw i32, ptr %30, i64 %.tr117171
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %.tr117171
   %32 = load ptr, ptr %8, align 8, !tbaa !448
   %33 = load ptr, ptr %.sroa.225.0..sroa_idx, align 8, !tbaa !450
   %34 = load i32, ptr %28, align 4, !tbaa !97
@@ -22458,7 +22436,7 @@ _ZSt7advanceIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm1844674407370955
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit: ; preds = %_ZSt7advanceIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEElEvRT_T0_.exit
   %62 = getelementptr inbounds nuw i8, ptr %.tr170, i64 8
   %63 = load ptr, ptr %62, align 8, !tbaa !405
-  %64 = getelementptr inbounds nuw i32, ptr %63, i64 %57
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %57
   %.sroa.035.0.copyload = load ptr, ptr %8, align 8, !tbaa !179
   %.sroa.236.0.copyload = load ptr, ptr %.sroa.225.0..sroa_idx, align 8, !tbaa !396
   store ptr %.sroa.035.0.copyload, ptr %10, align 8
@@ -22499,7 +22477,7 @@ _ZSt7advanceIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm1844674407370955
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit95: ; preds = %_ZSt7advanceIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEElEvRT_T0_.exit94
   %78 = getelementptr inbounds nuw i8, ptr %.tr118172, i64 8
   %79 = load ptr, ptr %78, align 8, !tbaa !405
-  %80 = getelementptr inbounds nuw i32, ptr %79, i64 %73
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %79, i64 %73
   %.sroa.024.0.copyload = load ptr, ptr %8, align 8, !tbaa !179
   %.sroa.225.0.copyload = load ptr, ptr %.sroa.225.0..sroa_idx, align 8, !tbaa !396
   store ptr %.sroa.024.0.copyload, ptr %11, align 8
@@ -22553,7 +22531,7 @@ define linkonce_odr void @_ZSt25__unguarded_linear_insertIN7xgboost6common6detai
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit: ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !405
-  %10 = getelementptr inbounds nuw i32, ptr %9, i64 %1
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %1
   %11 = load i32, ptr %10, align 4, !tbaa !97
   %.not.i = icmp eq i64 %1, 0
   br i1 %.not.i, label %.critedge.i, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit.preheader, !prof !91
@@ -22577,7 +22555,7 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0E
   unreachable
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i: ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit
-  %15 = getelementptr inbounds nuw i32, ptr %9, i64 %.sroa.8.0
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %.sroa.8.0
   %.sroa.0.0.copyload1.i.i.i.i = load i64, ptr %3, align 8, !tbaa !39
   %16 = add i64 %.sroa.0.0.copyload1.i.i.i.i, %12
   %17 = load i32, ptr %15, align 4, !tbaa !97
@@ -22611,7 +22589,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18In
   br i1 %32, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit2, label %35
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit2: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSJ_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIiS12_EEbRSC_S19_.exit
-  %33 = getelementptr inbounds nuw i32, ptr %9, i64 %.sroa.6.0
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %.sroa.6.0
   store i32 %17, ptr %33, align 4, !tbaa !97
   %34 = add i64 %.sroa.6.0, -2
   %or.cond.not = icmp ult i64 %34, %5
@@ -22630,7 +22608,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
   unreachable
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit7: ; preds = %35
-  %38 = getelementptr inbounds nuw i32, ptr %9, i64 %.sroa.6.0
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %.sroa.6.0
   store i32 %11, ptr %38, align 4, !tbaa !97
   ret void
 }
@@ -22681,7 +22659,7 @@ _ZSt7advanceIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm1844674407370955
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i: ; preds = %_ZSt7advanceIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEElEvRT_T0_.exit
   %24 = load ptr, ptr %11, align 8, !tbaa !405
-  %25 = getelementptr inbounds nuw i32, ptr %24, i64 %20
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %20
   %26 = load i32, ptr %25, align 4, !tbaa !97
   %27 = sext i32 %26 to i64
   %.sroa.0.0.copyload1.i.i.i.i = load i64, ptr %14, align 8, !tbaa !39
@@ -22773,7 +22751,7 @@ _ZSt7advanceIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm1844674407370955
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i: ; preds = %_ZSt7advanceIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEElEvRT_T0_.exit
   %24 = load ptr, ptr %11, align 8, !tbaa !405
-  %25 = getelementptr inbounds nuw i32, ptr %24, i64 %20
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %20
   %.sroa.0.0.copyload1.i.i.i.i = load i64, ptr %14, align 8, !tbaa !39
   %26 = add i64 %.sroa.0.0.copyload1.i.i.i.i, %16
   %27 = load i32, ptr %25, align 4, !tbaa !97
@@ -22830,7 +22808,7 @@ define linkonce_odr void @_ZSt24__merge_sort_with_bufferIN7xgboost6common6detail
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit: ; preds = %6
   %9 = sub i64 %3, %1
-  %10 = getelementptr inbounds i32, ptr %4, i64 %9
+  %10 = getelementptr inbounds [4 x i8], ptr %4, i64 %9
   %.sroa.028.sroa.0.0.copyload = load ptr, ptr %5, align 8, !tbaa !179
   %.sroa.028.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.028.sroa.2.0.copyload = load ptr, ptr %.sroa.028.sroa.2.0..sroa_idx, align 8, !tbaa !396
@@ -22911,7 +22889,7 @@ _ZSt22__chunk_insertion_sortIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i.i.us: ; preds = %28
   %30 = load i32, ptr %.0511.i.i.i.i.i.i.us, align 4, !tbaa !97
   %31 = load ptr, ptr %20, align 8, !tbaa !405
-  %32 = getelementptr inbounds nuw i32, ptr %31, i64 %.sroa.4.010.i.i.i.i.i.i.us
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %.sroa.4.010.i.i.i.i.i.i.us
   store i32 %30, ptr %32, align 4, !tbaa !97
   %33 = getelementptr inbounds nuw i8, ptr %.0511.i.i.i.i.i.i.us, i64 4
   %34 = add nuw i64 %.sroa.4.010.i.i.i.i.i.i.us, 1
@@ -22937,7 +22915,7 @@ _ZSt4moveIPiN7xgboost6common6detail12SpanIteratorINS2_4SpanIiLm18446744073709551
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i28.i.us: ; preds = %39
   %41 = load i32, ptr %.0511.i.i.i.i.i26.i.us, align 4, !tbaa !97
   %42 = load ptr, ptr %20, align 8, !tbaa !405
-  %43 = getelementptr inbounds nuw i32, ptr %42, i64 %.sroa.4.010.i.i.i.i.i27.i.us
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %.sroa.4.010.i.i.i.i.i27.i.us
   store i32 %41, ptr %43, align 4, !tbaa !97
   %44 = getelementptr inbounds nuw i8, ptr %.0511.i.i.i.i.i26.i.us, i64 4
   %45 = add nuw i64 %.sroa.4.010.i.i.i.i.i27.i.us, 1
@@ -23011,7 +22989,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18I
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i: ; preds = %74
   %76 = load ptr, ptr %20, align 8, !tbaa !405
-  %77 = getelementptr inbounds nuw i32, ptr %76, i64 %.sroa.5.051.i
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %.sroa.5.051.i
   store i32 %56, ptr %77, align 4, !tbaa !97
   %78 = getelementptr inbounds nuw i8, ptr %.01852.i, i64 4
   br label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i
@@ -23025,7 +23003,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20.i: ; preds = %79
   %81 = load ptr, ptr %20, align 8, !tbaa !405
-  %82 = getelementptr inbounds nuw i32, ptr %81, i64 %.sroa.5.051.i
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %81, i64 %.sroa.5.051.i
   store i32 %59, ptr %82, align 4, !tbaa !97
   %83 = getelementptr inbounds nuw i8, ptr %.053.i, i64 4
   br label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i
@@ -23061,7 +23039,7 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0E
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i
   %95 = load i32, ptr %.0511.i.i.i.i.i.i, align 4, !tbaa !97
-  %96 = getelementptr inbounds nuw i32, ptr %84, i64 %.sroa.4.010.i.i.i.i.i.i
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %84, i64 %.sroa.4.010.i.i.i.i.i.i
   store i32 %95, ptr %96, align 4, !tbaa !97
   %97 = getelementptr inbounds nuw i8, ptr %.0511.i.i.i.i.i.i, i64 4
   %98 = add nuw i64 %.sroa.4.010.i.i.i.i.i.i, 1
@@ -23091,7 +23069,7 @@ _ZSt4moveIPiN7xgboost6common6detail12SpanIteratorINS2_4SpanIiLm18446744073709551
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i28.i: ; preds = %.lr.ph.i.i.i.i.i24.i
   %107 = load i32, ptr %.0511.i.i.i.i.i26.i, align 4, !tbaa !97
-  %108 = getelementptr inbounds nuw i32, ptr %84, i64 %.sroa.4.010.i.i.i.i.i27.i
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %84, i64 %.sroa.4.010.i.i.i.i.i27.i
   store i32 %107, ptr %108, align 4, !tbaa !97
   %109 = getelementptr inbounds nuw i8, ptr %.0511.i.i.i.i.i26.i, i64 4
   %110 = add nuw i64 %.sroa.4.010.i.i.i.i.i27.i, 1
@@ -23111,7 +23089,7 @@ _ZSt17__merge_sort_loopIPiN7xgboost6common6detail12SpanIteratorINS2_4SpanIiLm184
   %.sroa.420.0.lcssa.i = phi i64 [ %1, %21 ], [ %.sroa.4.0.lcssa.i.i.i.i.i21.i.us, %_ZSt12__move_mergeIPiN7xgboost6common6detail12SpanIteratorINS2_4SpanIiLm18446744073709551615EEELb0EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortINS2_18IndexTransformIterIZNSC_9SortNamesINSB_6PolicyIJNS1_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNSB_15CatStrArrayViewENS5_IKaLm18446744073709551615EEENS5_IKsLm18446744073709551615EEENS5_IKiLm18446744073709551615EEENS5_IKlLm18446744073709551615EEENS5_IKfLm18446744073709551615EEENS5_IKdLm18446744073709551615EEEEES6_EUlSJ_E_EES7_ZZNSF_ISI_EEvSL_S12_S6_ENKUlOSJ_E0_clIRKSP_EEDaS15_EUlmmE_EEvSJ_SJ_T0_T1_EUlRSS_S1D_E_EEES1B_SJ_SJ_SJ_SJ_S1B_S1C_.exit.us ], [ %.sroa.4.0.lcssa.i.i.i.i.i21.i, %_ZSt12__move_mergeIPiN7xgboost6common6detail12SpanIteratorINS2_4SpanIiLm18446744073709551615EEELb0EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortINS2_18IndexTransformIterIZNSC_9SortNamesINSB_6PolicyIJNS1_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNSB_15CatStrArrayViewENS5_IKaLm18446744073709551615EEENS5_IKsLm18446744073709551615EEENS5_IKiLm18446744073709551615EEENS5_IKlLm18446744073709551615EEENS5_IKfLm18446744073709551615EEENS5_IKdLm18446744073709551615EEEEES6_EUlSJ_E_EES7_ZZNSF_ISI_EEvSL_S12_S6_ENKUlOSJ_E0_clIRKSP_EEDaS15_EUlmmE_EEvSJ_SJ_T0_T1_EUlRSS_S1D_E_EEES1B_SJ_SJ_SJ_SJ_S1B_S1C_.exit ]
   %.lcssa.i = phi i64 [ %9, %21 ], [ %49, %_ZSt12__move_mergeIPiN7xgboost6common6detail12SpanIteratorINS2_4SpanIiLm18446744073709551615EEELb0EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortINS2_18IndexTransformIterIZNSC_9SortNamesINSB_6PolicyIJNS1_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNSB_15CatStrArrayViewENS5_IKaLm18446744073709551615EEENS5_IKsLm18446744073709551615EEENS5_IKiLm18446744073709551615EEENS5_IKlLm18446744073709551615EEENS5_IKfLm18446744073709551615EEENS5_IKdLm18446744073709551615EEEEES6_EUlSJ_E_EES7_ZZNSF_ISI_EEvSL_S12_S6_ENKUlOSJ_E0_clIRKSP_EEDaS15_EUlmmE_EEvSJ_SJ_T0_T1_EUlRSS_S1D_E_EEES1B_SJ_SJ_SJ_SJ_S1B_S1C_.exit.us ], [ %114, %_ZSt12__move_mergeIPiN7xgboost6common6detail12SpanIteratorINS2_4SpanIiLm18446744073709551615EEELb0EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortINS2_18IndexTransformIterIZNSC_9SortNamesINSB_6PolicyIJNS1_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNSB_15CatStrArrayViewENS5_IKaLm18446744073709551615EEENS5_IKsLm18446744073709551615EEENS5_IKiLm18446744073709551615EEENS5_IKlLm18446744073709551615EEENS5_IKfLm18446744073709551615EEENS5_IKdLm18446744073709551615EEEEES6_EUlSJ_E_EES7_ZZNSF_ISI_EEvSL_S12_S6_ENKUlOSJ_E0_clIRKSP_EEDaS15_EUlmmE_EEvSJ_SJ_T0_T1_EUlRSS_S1D_E_EEES1B_SJ_SJ_SJ_SJ_S1B_S1C_.exit ]
   %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %22, i64 %.lcssa.i)
-  %115 = getelementptr inbounds i32, ptr %.0.lcssa.i, i64 %.sroa.speculated.i
+  %115 = getelementptr inbounds [4 x i8], ptr %.0.lcssa.i, i64 %.sroa.speculated.i
   %116 = tail call { ptr, i64 } @_ZSt12__move_mergeIPiN7xgboost6common6detail12SpanIteratorINS2_4SpanIiLm18446744073709551615EEELb0EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortINS2_18IndexTransformIterIZNSC_9SortNamesINSB_6PolicyIJNS1_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNSB_15CatStrArrayViewENS5_IKaLm18446744073709551615EEENS5_IKsLm18446744073709551615EEENS5_IKiLm18446744073709551615EEENS5_IKlLm18446744073709551615EEENS5_IKfLm18446744073709551615EEENS5_IKdLm18446744073709551615EEEEES6_EUlSJ_E_EES7_ZZNSF_ISI_EEvSL_S12_S6_ENKUlOSJ_E0_clIRKSP_EEDaS15_EUlmmE_EEvSJ_SJ_T0_T1_EUlRSS_S1D_E_EEES1B_SJ_SJ_SJ_SJ_S1B_S1C_(ptr noundef %.0.lcssa.i, ptr noundef %115, ptr noundef %115, ptr noundef nonnull %10, ptr %0, i64 %.sroa.420.0.lcssa.i, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter.218") align 8 %5)
   %117 = icmp slt i64 %23, %9
   br i1 %117, label %21, label %._crit_edge, !llvm.loop !457
@@ -23172,7 +23150,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i: ; preds = %24
   %27 = load ptr, ptr %23, align 8, !tbaa !405
-  %28 = getelementptr inbounds nuw i32, ptr %27, i64 %.sroa.3.09.i.i.i.i.i
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %.sroa.3.09.i.i.i.i.i
   %29 = load i32, ptr %28, align 4, !tbaa !97
   store i32 %29, ptr %.011.i.i.i.i.i, align 4, !tbaa !97
   %30 = add nuw i64 %.sroa.3.09.i.i.i.i.i, 1
@@ -23231,7 +23209,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i121: ; preds = %42
   %45 = load ptr, ptr %41, align 8, !tbaa !405
-  %46 = getelementptr inbounds nuw i32, ptr %45, i64 %.sroa.3.09.i.i.i.i.i120
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %.sroa.3.09.i.i.i.i.i120
   %47 = load i32, ptr %46, align 4, !tbaa !97
   store i32 %47, ptr %.011.i.i.i.i.i118, align 4, !tbaa !97
   %48 = add nuw i64 %.sroa.3.09.i.i.i.i.i120, 1
@@ -23273,7 +23251,7 @@ _ZSt7advanceIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm1844674407370955
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit: ; preds = %_ZSt7advanceIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEElEvRT_T0_.exit
   %60 = getelementptr inbounds nuw i8, ptr %.tr214, i64 8
   %61 = load ptr, ptr %60, align 8, !tbaa !405
-  %62 = getelementptr inbounds nuw i32, ptr %61, i64 %55
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %55
   %.sroa.034.0.copyload = load ptr, ptr %10, align 8, !tbaa !179
   %.sroa.235.0.copyload = load ptr, ptr %.sroa.224.0..sroa_idx, align 8, !tbaa !396
   store ptr %.sroa.034.0.copyload, ptr %14, align 8
@@ -23314,7 +23292,7 @@ _ZSt7advanceIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm1844674407370955
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit134: ; preds = %_ZSt7advanceIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEElEvRT_T0_.exit133
   %76 = getelementptr inbounds nuw i8, ptr %.tr157216, i64 8
   %77 = load ptr, ptr %76, align 8, !tbaa !405
-  %78 = getelementptr inbounds nuw i32, ptr %77, i64 %71
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %71
   %.sroa.023.0.copyload = load ptr, ptr %10, align 8, !tbaa !179
   %.sroa.224.0.copyload = load ptr, ptr %.sroa.224.0..sroa_idx, align 8, !tbaa !396
   store ptr %.sroa.023.0.copyload, ptr %15, align 8
@@ -23468,9 +23446,9 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us.us: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us
   %21 = load ptr, ptr %12, align 8, !tbaa !405
-  %22 = getelementptr inbounds nuw i32, ptr %21, i64 %.sroa.6.068.us.us114
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %.sroa.6.068.us.us114
   %23 = load ptr, ptr %13, align 8, !tbaa !405
-  %24 = getelementptr inbounds nuw i32, ptr %23, i64 %.sroa.643.069.us.us113
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %.sroa.643.069.us.us113
   %25 = load i32, ptr %22, align 4, !tbaa !97
   %26 = sext i32 %25 to i64
   %.sroa.0.0.copyload1.i.i.i.i.us.us = load i64, ptr %16, align 8, !tbaa !39
@@ -23520,9 +23498,9 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us
   %49 = load ptr, ptr %12, align 8, !tbaa !405
-  %50 = getelementptr inbounds nuw i32, ptr %49, i64 %.sroa.6.068.us
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %.sroa.6.068.us
   %51 = load ptr, ptr %13, align 8, !tbaa !405
-  %52 = getelementptr inbounds nuw i32, ptr %51, i64 %.sroa.643.069.us
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %.sroa.643.069.us
   %53 = load i32, ptr %50, align 4, !tbaa !97
   %54 = sext i32 %53 to i64
   %.sroa.0.0.copyload1.i.i.i.i.us = load i64, ptr %16, align 8, !tbaa !39
@@ -23583,9 +23561,9 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us91: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us90
   %78 = load ptr, ptr %12, align 8, !tbaa !405
-  %79 = getelementptr inbounds nuw i32, ptr %78, i64 %.sroa.6.068.us89106
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %78, i64 %.sroa.6.068.us89106
   %80 = load ptr, ptr %13, align 8, !tbaa !405
-  %81 = getelementptr inbounds nuw i32, ptr %80, i64 %.sroa.643.069.us88105
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %80, i64 %.sroa.643.069.us88105
   %82 = load i32, ptr %79, align 4, !tbaa !97
   %83 = sext i32 %82 to i64
   %.sroa.0.0.copyload1.i.i.i.i.us92 = load i64, ptr %16, align 8, !tbaa !39
@@ -23648,9 +23626,9 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i
   %107 = load ptr, ptr %12, align 8, !tbaa !405
-  %108 = getelementptr inbounds nuw i32, ptr %107, i64 %.sroa.6.068
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %107, i64 %.sroa.6.068
   %109 = load ptr, ptr %13, align 8, !tbaa !405
-  %110 = getelementptr inbounds nuw i32, ptr %109, i64 %.sroa.643.069
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %109, i64 %.sroa.643.069
   %111 = load i32, ptr %108, align 4, !tbaa !97
   %112 = sext i32 %111 to i64
   %.sroa.0.0.copyload1.i.i.i.i = load i64, ptr %16, align 8, !tbaa !39
@@ -23729,7 +23707,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i: ; preds = %137
   %140 = load ptr, ptr %136, align 8, !tbaa !405
-  %141 = getelementptr inbounds nuw i32, ptr %140, i64 %.sroa.3.09.i.i.i.i.i
+  %141 = getelementptr inbounds nuw [4 x i8], ptr %140, i64 %.sroa.3.09.i.i.i.i.i
   %142 = load i32, ptr %141, align 4, !tbaa !97
   store i32 %142, ptr %.011.i.i.i.i.i, align 4, !tbaa !97
   %143 = add nuw i64 %.sroa.3.09.i.i.i.i.i, 1
@@ -23770,7 +23748,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34: ; preds = %153
   %156 = load ptr, ptr %152, align 8, !tbaa !405
-  %157 = getelementptr inbounds nuw i32, ptr %156, i64 %.sroa.3.09.i.i.i.i.i33
+  %157 = getelementptr inbounds nuw [4 x i8], ptr %156, i64 %.sroa.3.09.i.i.i.i.i33
   %158 = load i32, ptr %157, align 4, !tbaa !97
   store i32 %158, ptr %.011.i.i.i.i.i31, align 4, !tbaa !97
   %159 = add nuw i64 %.sroa.3.09.i.i.i.i.i33, 1
@@ -23847,7 +23825,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18I
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit: ; preds = %37
   %39 = load ptr, ptr %17, align 8, !tbaa !405
-  %40 = getelementptr inbounds nuw i32, ptr %39, i64 %.sroa.5.051
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %.sroa.5.051
   store i32 %19, ptr %40, align 4, !tbaa !97
   %41 = getelementptr inbounds nuw i8, ptr %.01852, i64 4
   br label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit
@@ -23861,7 +23839,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20: ; preds = %42
   %44 = load ptr, ptr %17, align 8, !tbaa !405
-  %45 = getelementptr inbounds nuw i32, ptr %44, i64 %.sroa.5.051
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %.sroa.5.051
   store i32 %22, ptr %45, align 4, !tbaa !97
   %46 = getelementptr inbounds nuw i8, ptr %.053, i64 4
   br label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit
@@ -23905,7 +23883,7 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0E
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i: ; preds = %58
   %61 = load i32, ptr %.0511.i.i.i.i.i, align 4, !tbaa !97
   %62 = load ptr, ptr %57, align 8, !tbaa !405
-  %63 = getelementptr inbounds nuw i32, ptr %62, i64 %.sroa.4.010.i.i.i.i.i
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %.sroa.4.010.i.i.i.i.i
   store i32 %61, ptr %63, align 4, !tbaa !97
   %64 = getelementptr inbounds nuw i8, ptr %.0511.i.i.i.i.i, i64 4
   %65 = add nuw i64 %.sroa.4.010.i.i.i.i.i, 1
@@ -23941,7 +23919,7 @@ _ZSt4moveIPiN7xgboost6common6detail12SpanIteratorINS2_4SpanIiLm18446744073709551
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i28: ; preds = %75
   %78 = load i32, ptr %.0511.i.i.i.i.i26, align 4, !tbaa !97
   %79 = load ptr, ptr %74, align 8, !tbaa !405
-  %80 = getelementptr inbounds nuw i32, ptr %79, i64 %.sroa.4.010.i.i.i.i.i27
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %79, i64 %.sroa.4.010.i.i.i.i.i27
   store i32 %78, ptr %80, align 4, !tbaa !97
   %81 = getelementptr inbounds nuw i8, ptr %.0511.i.i.i.i.i26, i64 4
   %82 = add nuw i64 %.sroa.4.010.i.i.i.i.i27, 1
@@ -23988,7 +23966,7 @@ define linkonce_odr void @_ZSt21__move_merge_adaptiveIPiN7xgboost6common6detail1
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us: ; preds = %17
   %20 = load ptr, ptr %9, align 8, !tbaa !405
-  %21 = getelementptr inbounds nuw i32, ptr %20, i64 %.sroa.5.038.us
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %.sroa.5.038.us
   %22 = load i32, ptr %21, align 4, !tbaa !97
   %23 = sext i32 %22 to i64
   %.sroa.0.0.copyload1.i.i.i.i.us = load i64, ptr %12, align 8, !tbaa !39
@@ -24022,7 +24000,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18I
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21.us: ; preds = %41
   %42 = load ptr, ptr %15, align 8, !tbaa !405
-  %43 = getelementptr inbounds nuw i32, ptr %42, i64 %18
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %18
   store i32 %25, ptr %43, align 4, !tbaa !97
   %44 = getelementptr inbounds nuw i8, ptr %.039.us, i64 4
   br label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23.us
@@ -24032,7 +24010,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20.us: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.us
   %45 = load ptr, ptr %15, align 8, !tbaa !405
-  %46 = getelementptr inbounds nuw i32, ptr %45, i64 %18
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %18
   store i32 %22, ptr %46, align 4, !tbaa !97
   %47 = add nuw i64 %.sroa.5.038.us, 1
   br label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23.us
@@ -24062,7 +24040,7 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0E
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i: ; preds = %49
   %52 = load ptr, ptr %9, align 8, !tbaa !405
-  %53 = getelementptr inbounds nuw i32, ptr %52, i64 %.sroa.5.038
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %.sroa.5.038
   %54 = load i32, ptr %53, align 4, !tbaa !97
   %55 = sext i32 %54 to i64
   %.sroa.0.0.copyload1.i.i.i.i = load i64, ptr %12, align 8, !tbaa !39
@@ -24108,7 +24086,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit
   %73 = load ptr, ptr %15, align 8, !tbaa !405
-  %74 = getelementptr inbounds nuw i32, ptr %73, i64 %.sroa.2.0.copyload
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %73, i64 %.sroa.2.0.copyload
   store i32 %54, ptr %74, align 4, !tbaa !97
   %75 = add nuw i64 %.sroa.5.038, 1
   br label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23
@@ -24122,7 +24100,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21: ; preds = %76
   %77 = load ptr, ptr %15, align 8, !tbaa !405
-  %78 = getelementptr inbounds nuw i32, ptr %77, i64 %.sroa.2.0.copyload
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %.sroa.2.0.copyload
   store i32 %57, ptr %78, align 4, !tbaa !97
   %79 = getelementptr inbounds nuw i8, ptr %.039, i64 4
   br label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23
@@ -24161,7 +24139,7 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0E
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i: ; preds = %87
   %90 = load i32, ptr %.0511.i.i.i.i.i, align 4, !tbaa !97
   %91 = load ptr, ptr %15, align 8, !tbaa !405
-  %92 = getelementptr inbounds nuw i32, ptr %91, i64 %.sroa.4.010.i.i.i.i.i
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %91, i64 %.sroa.4.010.i.i.i.i.i
   store i32 %90, ptr %92, align 4, !tbaa !97
   %93 = getelementptr inbounds nuw i8, ptr %.0511.i.i.i.i.i, i64 4
   %94 = add nuw i64 %.sroa.4.010.i.i.i.i.i, 1
@@ -24217,7 +24195,7 @@ define linkonce_odr void @_ZSt30__move_merge_adaptive_backwardIN7xgboost6common6
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit.i.i.i.i.i: ; preds = %22
   %24 = add i64 %.sroa.4.010.i.i.i.i.i, -1
   %25 = load ptr, ptr %18, align 8, !tbaa !405
-  %26 = getelementptr inbounds nuw i32, ptr %25, i64 %24
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %24
   store i32 %21, ptr %26, align 4, !tbaa !97
   %27 = add nsw i64 %.012.i.i.i.i.i, -1
   %28 = icmp sgt i64 %.012.i.i.i.i.i, 1
@@ -24266,7 +24244,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
   %48 = phi i64 [ %79, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit51.us ], [ %.promoted, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.lr.ph ]
   %.083.us = phi ptr [ %.1.us, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit51.us ], [ %36, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.lr.ph ]
   %.sroa.6.082.us = phi i64 [ %.sroa.6.1.us, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit51.us ], [ %34, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.lr.ph ]
-  %49 = getelementptr inbounds nuw i32, ptr %38, i64 %.sroa.6.082.us
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %.sroa.6.082.us
   %50 = load i32, ptr %.083.us, align 4, !tbaa !97
   %51 = sext i32 %50 to i64
   %52 = add i64 %.sroa.0.0.copyload1.i.i.i.i, %51
@@ -24301,7 +24279,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18I
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit55.us: ; preds = %65
   %67 = add i64 %48, -1
   %68 = load ptr, ptr %47, align 8, !tbaa !405
-  %69 = getelementptr inbounds nuw i32, ptr %68, i64 %67
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %67
   store i32 %50, ptr %69, align 4, !tbaa !97
   %70 = icmp eq ptr %4, %.083.us
   br i1 %70, label %_ZSt13move_backwardIPiN7xgboost6common6detail12SpanIteratorINS2_4SpanIiLm18446744073709551615EEELb0EEEET0_T_S9_S8_.exit, label %71
@@ -24321,7 +24299,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit34.us: ; preds = %73
   %75 = add i64 %48, -1
   %76 = load ptr, ptr %47, align 8, !tbaa !405
-  %77 = getelementptr inbounds nuw i32, ptr %76, i64 %75
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %75
   store i32 %53, ptr %77, align 4, !tbaa !97
   %78 = add i64 %.sroa.6.082.us, -1
   %or.cond63.not.us = icmp ult i64 %78, %33
@@ -24342,7 +24320,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
   %81 = phi i64 [ %127, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit51 ], [ %.promoted, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.lr.ph ]
   %.083 = phi ptr [ %.1, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit51 ], [ %36, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.lr.ph ]
   %.sroa.6.082 = phi i64 [ %.sroa.6.1, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit51 ], [ %34, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.lr.ph ]
-  %82 = getelementptr inbounds nuw i32, ptr %38, i64 %.sroa.6.082
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %.sroa.6.082
   %83 = load i32, ptr %.083, align 4, !tbaa !97
   %84 = sext i32 %83 to i64
   %85 = add i64 %.sroa.0.0.copyload1.i.i.i.i, %84
@@ -24389,7 +24367,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit34: ; preds = %97
   %99 = add i64 %81, -1
   %100 = load ptr, ptr %47, align 8, !tbaa !405
-  %101 = getelementptr inbounds nuw i32, ptr %100, i64 %99
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %100, i64 %99
   store i32 %86, ptr %101, align 4, !tbaa !97
   %102 = icmp eq i64 %1, %.sroa.6.082
   br i1 %102, label %103, label %116
@@ -24419,7 +24397,7 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0E
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit.i.i.i.i.i45: ; preds = %.lr.ph.i.i.i.i.i39
   %111 = getelementptr inbounds i8, ptr %.0411.i.i.i.i.i41, i64 -4
   %112 = load i32, ptr %111, align 4, !tbaa !97
-  %113 = getelementptr inbounds nuw i32, ptr %100, i64 %110
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %100, i64 %110
   store i32 %112, ptr %113, align 4, !tbaa !97
   %114 = add nsw i64 %.012.i.i.i.i.i40, -1
   %115 = icmp sgt i64 %.012.i.i.i.i.i40, 1
@@ -24449,7 +24427,7 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0E
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit55: ; preds = %119
   %121 = add i64 %81, -1
   %122 = load ptr, ptr %47, align 8, !tbaa !405
-  %123 = getelementptr inbounds nuw i32, ptr %122, i64 %121
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %122, i64 %121
   store i32 %83, ptr %123, align 4, !tbaa !97
   %124 = icmp eq ptr %4, %.083
   br i1 %124, label %_ZSt13move_backwardIPiN7xgboost6common6detail12SpanIteratorINS2_4SpanIiLm18446744073709551615EEELb0EEEET0_T_S9_S8_.exit, label %125
@@ -24515,7 +24493,7 @@ _ZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS0_9SortNamesINS
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i: ; preds = %.lr.ph.split.i.i
   %indvars12 = trunc i64 %.sroa.4.010.i.i to i32
   %13 = load ptr, ptr %12, align 8, !tbaa !405
-  %14 = getelementptr inbounds nuw i32, ptr %13, i64 %.sroa.4.010.i.i
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %.sroa.4.010.i.i
   store i32 %indvars12, ptr %14, align 4, !tbaa !97
   %15 = add nuw i64 %.sroa.4.010.i.i, 1
   %.not.i.i = icmp eq i64 %15, %7
@@ -24718,8 +24696,8 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i
   %25 = load ptr, ptr %15, align 8, !tbaa !405
-  %26 = getelementptr inbounds nuw i32, ptr %25, i64 %.sroa.10.050
-  %27 = getelementptr inbounds nuw i32, ptr %25, i64 %1
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %.sroa.10.050
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %1
   %28 = load i32, ptr %26, align 4, !tbaa !97
   %29 = sext i32 %28 to i64
   %.sroa.0.0.copyload1.i.i.i.i = load i64, ptr %5, align 8, !tbaa !39
@@ -24747,9 +24725,9 @@ _ZNK7xgboost6common4SpanIKsLm18446744073709551615EEixEm.exit.i.i.i: ; preds = %_
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSL_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit: ; preds = %_ZNK7xgboost6common4SpanIKsLm18446744073709551615EEixEm.exit.i.i.i
   %40 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %41 = load ptr, ptr %40, align 8, !tbaa !69
-  %42 = getelementptr inbounds nuw i16, ptr %41, i64 %30
+  %42 = getelementptr inbounds nuw [2 x i8], ptr %41, i64 %30
   %43 = load i16, ptr %42, align 2, !tbaa !146
-  %44 = getelementptr inbounds nuw i16, ptr %41, i64 %33
+  %44 = getelementptr inbounds nuw [2 x i8], ptr %41, i64 %33
   %45 = load i16, ptr %44, align 2, !tbaa !146
   %46 = icmp slt i16 %43, %45
   br i1 %46, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit, label %57
@@ -24776,10 +24754,10 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
   unreachable
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit9.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i
-  %51 = getelementptr inbounds nuw i32, ptr %25, i64 %50
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %50
   %52 = load i32, ptr %51, align 4, !tbaa !97
   %53 = add i64 %.sroa.4.024.i.i.i.i.i, -1
-  %54 = getelementptr inbounds nuw i32, ptr %25, i64 %53
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %53
   store i32 %52, ptr %54, align 4, !tbaa !97
   %55 = add nsw i64 %.026.i.i.i.i.i, -1
   %56 = icmp sgt i64 %.026.i.i.i.i.i, 1
@@ -24854,10 +24832,10 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i
   %26 = getelementptr inbounds nuw i8, ptr %.tr118172, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !405
-  %28 = getelementptr inbounds nuw i32, ptr %27, i64 %.tr119173
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %.tr119173
   %29 = getelementptr inbounds nuw i8, ptr %.tr170, i64 8
   %30 = load ptr, ptr %29, align 8, !tbaa !405
-  %31 = getelementptr inbounds nuw i32, ptr %30, i64 %.tr117171
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %.tr117171
   %32 = load ptr, ptr %8, align 8, !tbaa !466
   %33 = load ptr, ptr %.sroa.225.0..sroa_idx, align 8, !tbaa !468
   %34 = load i32, ptr %28, align 4, !tbaa !97
@@ -24887,9 +24865,9 @@ _ZNK7xgboost6common4SpanIKsLm18446744073709551615EEixEm.exit.i.i.i: ; preds = %_
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSL_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit: ; preds = %_ZNK7xgboost6common4SpanIKsLm18446744073709551615EEixEm.exit.i.i.i
   %46 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %47 = load ptr, ptr %46, align 8, !tbaa !69
-  %48 = getelementptr inbounds nuw i16, ptr %47, i64 %36
+  %48 = getelementptr inbounds nuw [2 x i8], ptr %47, i64 %36
   %49 = load i16, ptr %48, align 2, !tbaa !146
-  %50 = getelementptr inbounds nuw i16, ptr %47, i64 %39
+  %50 = getelementptr inbounds nuw [2 x i8], ptr %47, i64 %39
   %51 = load i16, ptr %50, align 2, !tbaa !146
   %52 = icmp slt i16 %49, %51
   br i1 %52, label %_ZSt9iter_swapIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEES6_EvT_T0_.exit, label %.loopexit
@@ -24925,7 +24903,7 @@ _ZSt7advanceIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm1844674407370955
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit: ; preds = %_ZSt7advanceIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEElEvRT_T0_.exit
   %62 = getelementptr inbounds nuw i8, ptr %.tr170, i64 8
   %63 = load ptr, ptr %62, align 8, !tbaa !405
-  %64 = getelementptr inbounds nuw i32, ptr %63, i64 %57
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %57
   %.sroa.035.0.copyload = load ptr, ptr %8, align 8, !tbaa !179
   %.sroa.236.0.copyload = load ptr, ptr %.sroa.225.0..sroa_idx, align 8, !tbaa !396
   store ptr %.sroa.035.0.copyload, ptr %10, align 8
@@ -24966,7 +24944,7 @@ _ZSt7advanceIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm1844674407370955
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit95: ; preds = %_ZSt7advanceIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEElEvRT_T0_.exit94
   %78 = getelementptr inbounds nuw i8, ptr %.tr118172, i64 8
   %79 = load ptr, ptr %78, align 8, !tbaa !405
-  %80 = getelementptr inbounds nuw i32, ptr %79, i64 %73
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %79, i64 %73
   %.sroa.024.0.copyload = load ptr, ptr %8, align 8, !tbaa !179
   %.sroa.225.0.copyload = load ptr, ptr %.sroa.225.0..sroa_idx, align 8, !tbaa !396
   store ptr %.sroa.024.0.copyload, ptr %11, align 8
@@ -25020,7 +24998,7 @@ define linkonce_odr void @_ZSt25__unguarded_linear_insertIN7xgboost6common6detai
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit: ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !405
-  %10 = getelementptr inbounds nuw i32, ptr %9, i64 %1
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %1
   %11 = load i32, ptr %10, align 4, !tbaa !97
   %.not.i = icmp eq i64 %1, 0
   br i1 %.not.i, label %.critedge.i, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit.preheader, !prof !91
@@ -25044,7 +25022,7 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0E
   unreachable
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i: ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit
-  %15 = getelementptr inbounds nuw i32, ptr %9, i64 %.sroa.8.0
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %.sroa.8.0
   %.sroa.0.0.copyload1.i.i.i.i = load i64, ptr %3, align 8, !tbaa !39
   %16 = add i64 %.sroa.0.0.copyload1.i.i.i.i, %12
   %17 = load i32, ptr %15, align 4, !tbaa !97
@@ -25070,15 +25048,15 @@ _ZNK7xgboost6common4SpanIKsLm18446744073709551615EEixEm.exit.i.i.i: ; preds = %_
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSL_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIiS12_EEbRSC_S19_.exit: ; preds = %_ZNK7xgboost6common4SpanIKsLm18446744073709551615EEixEm.exit.i.i.i
   %26 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !69
-  %28 = getelementptr inbounds nuw i16, ptr %27, i64 %16
+  %28 = getelementptr inbounds nuw [2 x i8], ptr %27, i64 %16
   %29 = load i16, ptr %28, align 2, !tbaa !146
-  %30 = getelementptr inbounds nuw i16, ptr %27, i64 %19
+  %30 = getelementptr inbounds nuw [2 x i8], ptr %27, i64 %19
   %31 = load i16, ptr %30, align 2, !tbaa !146
   %32 = icmp slt i16 %29, %31
   br i1 %32, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit2, label %35
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit2: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSL_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIiS12_EEbRSC_S19_.exit
-  %33 = getelementptr inbounds nuw i32, ptr %9, i64 %.sroa.6.0
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %.sroa.6.0
   store i32 %17, ptr %33, align 4, !tbaa !97
   %34 = add i64 %.sroa.6.0, -2
   %or.cond.not = icmp ult i64 %34, %5
@@ -25097,7 +25075,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
   unreachable
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit7: ; preds = %35
-  %38 = getelementptr inbounds nuw i32, ptr %9, i64 %.sroa.6.0
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %.sroa.6.0
   store i32 %11, ptr %38, align 4, !tbaa !97
   ret void
 }
@@ -25148,7 +25126,7 @@ _ZSt7advanceIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm1844674407370955
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i: ; preds = %_ZSt7advanceIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEElEvRT_T0_.exit
   %24 = load ptr, ptr %11, align 8, !tbaa !405
-  %25 = getelementptr inbounds nuw i32, ptr %24, i64 %20
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %20
   %26 = load i32, ptr %25, align 4, !tbaa !97
   %27 = sext i32 %26 to i64
   %.sroa.0.0.copyload1.i.i.i.i = load i64, ptr %14, align 8, !tbaa !39
@@ -25174,9 +25152,9 @@ _ZNK7xgboost6common4SpanIKsLm18446744073709551615EEixEm.exit.i.i.i: ; preds = %_
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSL_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_SM_EEbSC_RS19_.exit: ; preds = %_ZNK7xgboost6common4SpanIKsLm18446744073709551615EEixEm.exit.i.i.i
   %36 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %37 = load ptr, ptr %36, align 8, !tbaa !69
-  %38 = getelementptr inbounds nuw i16, ptr %37, i64 %28
+  %38 = getelementptr inbounds nuw [2 x i8], ptr %37, i64 %28
   %39 = load i16, ptr %38, align 2, !tbaa !146
-  %40 = getelementptr inbounds nuw i16, ptr %37, i64 %29
+  %40 = getelementptr inbounds nuw [2 x i8], ptr %37, i64 %29
   %41 = load i16, ptr %40, align 2, !tbaa !146
   %42 = icmp slt i16 %39, %41
   %43 = add nuw i64 %20, 1
@@ -25240,7 +25218,7 @@ _ZSt7advanceIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm1844674407370955
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i: ; preds = %_ZSt7advanceIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEElEvRT_T0_.exit
   %24 = load ptr, ptr %11, align 8, !tbaa !405
-  %25 = getelementptr inbounds nuw i32, ptr %24, i64 %20
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %20
   %.sroa.0.0.copyload1.i.i.i.i = load i64, ptr %14, align 8, !tbaa !39
   %26 = add i64 %.sroa.0.0.copyload1.i.i.i.i, %16
   %27 = load i32, ptr %25, align 4, !tbaa !97
@@ -25266,9 +25244,9 @@ _ZNK7xgboost6common4SpanIKsLm18446744073709551615EEixEm.exit.i.i.i: ; preds = %_
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSL_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclISM_S12_EEbRSC_S19_.exit: ; preds = %_ZNK7xgboost6common4SpanIKsLm18446744073709551615EEixEm.exit.i.i.i
   %36 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %37 = load ptr, ptr %36, align 8, !tbaa !69
-  %38 = getelementptr inbounds nuw i16, ptr %37, i64 %26
+  %38 = getelementptr inbounds nuw [2 x i8], ptr %37, i64 %26
   %39 = load i16, ptr %38, align 2, !tbaa !146
-  %40 = getelementptr inbounds nuw i16, ptr %37, i64 %29
+  %40 = getelementptr inbounds nuw [2 x i8], ptr %37, i64 %29
   %41 = load i16, ptr %40, align 2, !tbaa !146
   %42 = icmp slt i16 %39, %41
   %43 = add nuw i64 %20, 1
@@ -25297,7 +25275,7 @@ define linkonce_odr void @_ZSt24__merge_sort_with_bufferIN7xgboost6common6detail
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit: ; preds = %6
   %9 = sub i64 %3, %1
-  %10 = getelementptr inbounds i32, ptr %4, i64 %9
+  %10 = getelementptr inbounds [4 x i8], ptr %4, i64 %9
   %.sroa.028.sroa.0.0.copyload = load ptr, ptr %5, align 8, !tbaa !179
   %.sroa.028.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.028.sroa.2.0.copyload = load ptr, ptr %.sroa.028.sroa.2.0..sroa_idx, align 8, !tbaa !396
@@ -25378,7 +25356,7 @@ _ZSt22__chunk_insertion_sortIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i.i.us: ; preds = %28
   %30 = load i32, ptr %.0511.i.i.i.i.i.i.us, align 4, !tbaa !97
   %31 = load ptr, ptr %20, align 8, !tbaa !405
-  %32 = getelementptr inbounds nuw i32, ptr %31, i64 %.sroa.4.010.i.i.i.i.i.i.us
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %.sroa.4.010.i.i.i.i.i.i.us
   store i32 %30, ptr %32, align 4, !tbaa !97
   %33 = getelementptr inbounds nuw i8, ptr %.0511.i.i.i.i.i.i.us, i64 4
   %34 = add nuw i64 %.sroa.4.010.i.i.i.i.i.i.us, 1
@@ -25404,7 +25382,7 @@ _ZSt4moveIPiN7xgboost6common6detail12SpanIteratorINS2_4SpanIiLm18446744073709551
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i28.i.us: ; preds = %39
   %41 = load i32, ptr %.0511.i.i.i.i.i26.i.us, align 4, !tbaa !97
   %42 = load ptr, ptr %20, align 8, !tbaa !405
-  %43 = getelementptr inbounds nuw i32, ptr %42, i64 %.sroa.4.010.i.i.i.i.i27.i.us
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %.sroa.4.010.i.i.i.i.i27.i.us
   store i32 %41, ptr %43, align 4, !tbaa !97
   %44 = getelementptr inbounds nuw i8, ptr %.0511.i.i.i.i.i26.i.us, i64 4
   %45 = add nuw i64 %.sroa.4.010.i.i.i.i.i27.i.us, 1
@@ -25460,9 +25438,9 @@ _ZNK7xgboost6common4SpanIKsLm18446744073709551615EEixEm.exit.i.i.i.i: ; preds = 
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSL_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIPiS1F_EEbSC_S19_.exit.i: ; preds = %_ZNK7xgboost6common4SpanIKsLm18446744073709551615EEixEm.exit.i.i.i.i
   %66 = load ptr, ptr %52, align 8, !tbaa !69
-  %67 = getelementptr inbounds nuw i16, ptr %66, i64 %58
+  %67 = getelementptr inbounds nuw [2 x i8], ptr %66, i64 %58
   %68 = load i16, ptr %67, align 2, !tbaa !146
-  %69 = getelementptr inbounds nuw i16, ptr %66, i64 %61
+  %69 = getelementptr inbounds nuw [2 x i8], ptr %66, i64 %61
   %70 = load i16, ptr %69, align 2, !tbaa !146
   %71 = icmp slt i16 %68, %70
   %72 = load i64, ptr %0, align 8, !tbaa !403
@@ -25478,7 +25456,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18I
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i: ; preds = %74
   %76 = load ptr, ptr %20, align 8, !tbaa !405
-  %77 = getelementptr inbounds nuw i32, ptr %76, i64 %.sroa.5.051.i
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %.sroa.5.051.i
   store i32 %56, ptr %77, align 4, !tbaa !97
   %78 = getelementptr inbounds nuw i8, ptr %.01852.i, i64 4
   br label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i
@@ -25492,7 +25470,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20.i: ; preds = %79
   %81 = load ptr, ptr %20, align 8, !tbaa !405
-  %82 = getelementptr inbounds nuw i32, ptr %81, i64 %.sroa.5.051.i
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %81, i64 %.sroa.5.051.i
   store i32 %59, ptr %82, align 4, !tbaa !97
   %83 = getelementptr inbounds nuw i8, ptr %.053.i, i64 4
   br label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i
@@ -25528,7 +25506,7 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0E
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i
   %95 = load i32, ptr %.0511.i.i.i.i.i.i, align 4, !tbaa !97
-  %96 = getelementptr inbounds nuw i32, ptr %84, i64 %.sroa.4.010.i.i.i.i.i.i
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %84, i64 %.sroa.4.010.i.i.i.i.i.i
   store i32 %95, ptr %96, align 4, !tbaa !97
   %97 = getelementptr inbounds nuw i8, ptr %.0511.i.i.i.i.i.i, i64 4
   %98 = add nuw i64 %.sroa.4.010.i.i.i.i.i.i, 1
@@ -25558,7 +25536,7 @@ _ZSt4moveIPiN7xgboost6common6detail12SpanIteratorINS2_4SpanIiLm18446744073709551
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i28.i: ; preds = %.lr.ph.i.i.i.i.i24.i
   %107 = load i32, ptr %.0511.i.i.i.i.i26.i, align 4, !tbaa !97
-  %108 = getelementptr inbounds nuw i32, ptr %84, i64 %.sroa.4.010.i.i.i.i.i27.i
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %84, i64 %.sroa.4.010.i.i.i.i.i27.i
   store i32 %107, ptr %108, align 4, !tbaa !97
   %109 = getelementptr inbounds nuw i8, ptr %.0511.i.i.i.i.i26.i, i64 4
   %110 = add nuw i64 %.sroa.4.010.i.i.i.i.i27.i, 1
@@ -25578,7 +25556,7 @@ _ZSt17__merge_sort_loopIPiN7xgboost6common6detail12SpanIteratorINS2_4SpanIiLm184
   %.sroa.420.0.lcssa.i = phi i64 [ %1, %21 ], [ %.sroa.4.0.lcssa.i.i.i.i.i21.i.us, %_ZSt12__move_mergeIPiN7xgboost6common6detail12SpanIteratorINS2_4SpanIiLm18446744073709551615EEELb0EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortINS2_18IndexTransformIterIZNSC_9SortNamesINSB_6PolicyIJNS1_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNSB_15CatStrArrayViewENS5_IKaLm18446744073709551615EEENS5_IKsLm18446744073709551615EEENS5_IKiLm18446744073709551615EEENS5_IKlLm18446744073709551615EEENS5_IKfLm18446744073709551615EEENS5_IKdLm18446744073709551615EEEEES6_EUlSJ_E_EES7_ZZNSF_ISI_EEvSL_S12_S6_ENKUlOSJ_E0_clIRKSR_EEDaS15_EUlmmE_EEvSJ_SJ_T0_T1_EUlRSS_S1D_E_EEES1B_SJ_SJ_SJ_SJ_S1B_S1C_.exit.us ], [ %.sroa.4.0.lcssa.i.i.i.i.i21.i, %_ZSt12__move_mergeIPiN7xgboost6common6detail12SpanIteratorINS2_4SpanIiLm18446744073709551615EEELb0EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortINS2_18IndexTransformIterIZNSC_9SortNamesINSB_6PolicyIJNS1_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNSB_15CatStrArrayViewENS5_IKaLm18446744073709551615EEENS5_IKsLm18446744073709551615EEENS5_IKiLm18446744073709551615EEENS5_IKlLm18446744073709551615EEENS5_IKfLm18446744073709551615EEENS5_IKdLm18446744073709551615EEEEES6_EUlSJ_E_EES7_ZZNSF_ISI_EEvSL_S12_S6_ENKUlOSJ_E0_clIRKSR_EEDaS15_EUlmmE_EEvSJ_SJ_T0_T1_EUlRSS_S1D_E_EEES1B_SJ_SJ_SJ_SJ_S1B_S1C_.exit ]
   %.lcssa.i = phi i64 [ %9, %21 ], [ %49, %_ZSt12__move_mergeIPiN7xgboost6common6detail12SpanIteratorINS2_4SpanIiLm18446744073709551615EEELb0EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortINS2_18IndexTransformIterIZNSC_9SortNamesINSB_6PolicyIJNS1_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNSB_15CatStrArrayViewENS5_IKaLm18446744073709551615EEENS5_IKsLm18446744073709551615EEENS5_IKiLm18446744073709551615EEENS5_IKlLm18446744073709551615EEENS5_IKfLm18446744073709551615EEENS5_IKdLm18446744073709551615EEEEES6_EUlSJ_E_EES7_ZZNSF_ISI_EEvSL_S12_S6_ENKUlOSJ_E0_clIRKSR_EEDaS15_EUlmmE_EEvSJ_SJ_T0_T1_EUlRSS_S1D_E_EEES1B_SJ_SJ_SJ_SJ_S1B_S1C_.exit.us ], [ %114, %_ZSt12__move_mergeIPiN7xgboost6common6detail12SpanIteratorINS2_4SpanIiLm18446744073709551615EEELb0EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortINS2_18IndexTransformIterIZNSC_9SortNamesINSB_6PolicyIJNS1_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNSB_15CatStrArrayViewENS5_IKaLm18446744073709551615EEENS5_IKsLm18446744073709551615EEENS5_IKiLm18446744073709551615EEENS5_IKlLm18446744073709551615EEENS5_IKfLm18446744073709551615EEENS5_IKdLm18446744073709551615EEEEES6_EUlSJ_E_EES7_ZZNSF_ISI_EEvSL_S12_S6_ENKUlOSJ_E0_clIRKSR_EEDaS15_EUlmmE_EEvSJ_SJ_T0_T1_EUlRSS_S1D_E_EEES1B_SJ_SJ_SJ_SJ_S1B_S1C_.exit ]
   %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %22, i64 %.lcssa.i)
-  %115 = getelementptr inbounds i32, ptr %.0.lcssa.i, i64 %.sroa.speculated.i
+  %115 = getelementptr inbounds [4 x i8], ptr %.0.lcssa.i, i64 %.sroa.speculated.i
   %116 = tail call { ptr, i64 } @_ZSt12__move_mergeIPiN7xgboost6common6detail12SpanIteratorINS2_4SpanIiLm18446744073709551615EEELb0EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortINS2_18IndexTransformIterIZNSC_9SortNamesINSB_6PolicyIJNS1_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNSB_15CatStrArrayViewENS5_IKaLm18446744073709551615EEENS5_IKsLm18446744073709551615EEENS5_IKiLm18446744073709551615EEENS5_IKlLm18446744073709551615EEENS5_IKfLm18446744073709551615EEENS5_IKdLm18446744073709551615EEEEES6_EUlSJ_E_EES7_ZZNSF_ISI_EEvSL_S12_S6_ENKUlOSJ_E0_clIRKSR_EEDaS15_EUlmmE_EEvSJ_SJ_T0_T1_EUlRSS_S1D_E_EEES1B_SJ_SJ_SJ_SJ_S1B_S1C_(ptr noundef %.0.lcssa.i, ptr noundef %115, ptr noundef %115, ptr noundef nonnull %10, ptr %0, i64 %.sroa.420.0.lcssa.i, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter.223") align 8 %5)
   %117 = icmp slt i64 %23, %9
   br i1 %117, label %21, label %._crit_edge, !llvm.loop !475
@@ -25639,7 +25617,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i: ; preds = %24
   %27 = load ptr, ptr %23, align 8, !tbaa !405
-  %28 = getelementptr inbounds nuw i32, ptr %27, i64 %.sroa.3.09.i.i.i.i.i
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %.sroa.3.09.i.i.i.i.i
   %29 = load i32, ptr %28, align 4, !tbaa !97
   store i32 %29, ptr %.011.i.i.i.i.i, align 4, !tbaa !97
   %30 = add nuw i64 %.sroa.3.09.i.i.i.i.i, 1
@@ -25698,7 +25676,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i121: ; preds = %42
   %45 = load ptr, ptr %41, align 8, !tbaa !405
-  %46 = getelementptr inbounds nuw i32, ptr %45, i64 %.sroa.3.09.i.i.i.i.i120
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %.sroa.3.09.i.i.i.i.i120
   %47 = load i32, ptr %46, align 4, !tbaa !97
   store i32 %47, ptr %.011.i.i.i.i.i118, align 4, !tbaa !97
   %48 = add nuw i64 %.sroa.3.09.i.i.i.i.i120, 1
@@ -25740,7 +25718,7 @@ _ZSt7advanceIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm1844674407370955
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit: ; preds = %_ZSt7advanceIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEElEvRT_T0_.exit
   %60 = getelementptr inbounds nuw i8, ptr %.tr214, i64 8
   %61 = load ptr, ptr %60, align 8, !tbaa !405
-  %62 = getelementptr inbounds nuw i32, ptr %61, i64 %55
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %55
   %.sroa.034.0.copyload = load ptr, ptr %10, align 8, !tbaa !179
   %.sroa.235.0.copyload = load ptr, ptr %.sroa.224.0..sroa_idx, align 8, !tbaa !396
   store ptr %.sroa.034.0.copyload, ptr %14, align 8
@@ -25781,7 +25759,7 @@ _ZSt7advanceIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm1844674407370955
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit134: ; preds = %_ZSt7advanceIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEElEvRT_T0_.exit133
   %76 = getelementptr inbounds nuw i8, ptr %.tr157216, i64 8
   %77 = load ptr, ptr %76, align 8, !tbaa !405
-  %78 = getelementptr inbounds nuw i32, ptr %77, i64 %71
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %71
   %.sroa.023.0.copyload = load ptr, ptr %10, align 8, !tbaa !179
   %.sroa.224.0.copyload = load ptr, ptr %.sroa.224.0..sroa_idx, align 8, !tbaa !396
   store ptr %.sroa.023.0.copyload, ptr %15, align 8
@@ -25935,9 +25913,9 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us.us: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us
   %21 = load ptr, ptr %12, align 8, !tbaa !405
-  %22 = getelementptr inbounds nuw i32, ptr %21, i64 %.sroa.6.068.us.us114
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %.sroa.6.068.us.us114
   %23 = load ptr, ptr %13, align 8, !tbaa !405
-  %24 = getelementptr inbounds nuw i32, ptr %23, i64 %.sroa.643.069.us.us113
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %.sroa.643.069.us.us113
   %25 = load i32, ptr %22, align 4, !tbaa !97
   %26 = sext i32 %25 to i64
   %.sroa.0.0.copyload1.i.i.i.i.us.us = load i64, ptr %16, align 8, !tbaa !39
@@ -25957,9 +25935,9 @@ _ZNK7xgboost6common4SpanIKsLm18446744073709551615EEixEm.exit.i.i.i.us.us: ; pred
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSL_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us.us: ; preds = %_ZNK7xgboost6common4SpanIKsLm18446744073709551615EEixEm.exit.i.i.i.us.us
   %35 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %36 = load ptr, ptr %35, align 8, !tbaa !69
-  %37 = getelementptr inbounds nuw i16, ptr %36, i64 %27
+  %37 = getelementptr inbounds nuw [2 x i8], ptr %36, i64 %27
   %38 = load i16, ptr %37, align 2, !tbaa !146
-  %39 = getelementptr inbounds nuw i16, ptr %36, i64 %30
+  %39 = getelementptr inbounds nuw [2 x i8], ptr %36, i64 %30
   %40 = load i16, ptr %39, align 2, !tbaa !146
   %41 = icmp slt i16 %38, %40
   %.sink = select i1 %41, i32 %25, i32 %28
@@ -25987,9 +25965,9 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us
   %49 = load ptr, ptr %12, align 8, !tbaa !405
-  %50 = getelementptr inbounds nuw i32, ptr %49, i64 %.sroa.6.068.us
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %.sroa.6.068.us
   %51 = load ptr, ptr %13, align 8, !tbaa !405
-  %52 = getelementptr inbounds nuw i32, ptr %51, i64 %.sroa.643.069.us
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %.sroa.643.069.us
   %53 = load i32, ptr %50, align 4, !tbaa !97
   %54 = sext i32 %53 to i64
   %.sroa.0.0.copyload1.i.i.i.i.us = load i64, ptr %16, align 8, !tbaa !39
@@ -26009,9 +25987,9 @@ _ZNK7xgboost6common4SpanIKsLm18446744073709551615EEixEm.exit.i.i.i.us: ; preds =
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSL_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us: ; preds = %_ZNK7xgboost6common4SpanIKsLm18446744073709551615EEixEm.exit.i.i.i.us
   %63 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %64 = load ptr, ptr %63, align 8, !tbaa !69
-  %65 = getelementptr inbounds nuw i16, ptr %64, i64 %55
+  %65 = getelementptr inbounds nuw [2 x i8], ptr %64, i64 %55
   %66 = load i16, ptr %65, align 2, !tbaa !146
-  %67 = getelementptr inbounds nuw i16, ptr %64, i64 %58
+  %67 = getelementptr inbounds nuw [2 x i8], ptr %64, i64 %58
   %68 = load i16, ptr %67, align 2, !tbaa !146
   %69 = icmp slt i16 %66, %68
   %.sink136 = select i1 %69, i32 %53, i32 %56
@@ -26050,9 +26028,9 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us91: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us90
   %78 = load ptr, ptr %12, align 8, !tbaa !405
-  %79 = getelementptr inbounds nuw i32, ptr %78, i64 %.sroa.6.068.us89106
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %78, i64 %.sroa.6.068.us89106
   %80 = load ptr, ptr %13, align 8, !tbaa !405
-  %81 = getelementptr inbounds nuw i32, ptr %80, i64 %.sroa.643.069.us88105
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %80, i64 %.sroa.643.069.us88105
   %82 = load i32, ptr %79, align 4, !tbaa !97
   %83 = sext i32 %82 to i64
   %.sroa.0.0.copyload1.i.i.i.i.us92 = load i64, ptr %16, align 8, !tbaa !39
@@ -26072,9 +26050,9 @@ _ZNK7xgboost6common4SpanIKsLm18446744073709551615EEixEm.exit.i.i.i.us93: ; preds
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSL_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94: ; preds = %_ZNK7xgboost6common4SpanIKsLm18446744073709551615EEixEm.exit.i.i.i.us93
   %92 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %93 = load ptr, ptr %92, align 8, !tbaa !69
-  %94 = getelementptr inbounds nuw i16, ptr %93, i64 %84
+  %94 = getelementptr inbounds nuw [2 x i8], ptr %93, i64 %84
   %95 = load i16, ptr %94, align 2, !tbaa !146
-  %96 = getelementptr inbounds nuw i16, ptr %93, i64 %87
+  %96 = getelementptr inbounds nuw [2 x i8], ptr %93, i64 %87
   %97 = load i16, ptr %96, align 2, !tbaa !146
   %98 = icmp slt i16 %95, %97
   %.sink137 = select i1 %98, i32 %82, i32 %85
@@ -26115,9 +26093,9 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i
   %107 = load ptr, ptr %12, align 8, !tbaa !405
-  %108 = getelementptr inbounds nuw i32, ptr %107, i64 %.sroa.6.068
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %107, i64 %.sroa.6.068
   %109 = load ptr, ptr %13, align 8, !tbaa !405
-  %110 = getelementptr inbounds nuw i32, ptr %109, i64 %.sroa.643.069
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %109, i64 %.sroa.643.069
   %111 = load i32, ptr %108, align 4, !tbaa !97
   %112 = sext i32 %111 to i64
   %.sroa.0.0.copyload1.i.i.i.i = load i64, ptr %16, align 8, !tbaa !39
@@ -26145,9 +26123,9 @@ _ZNK7xgboost6common4SpanIKsLm18446744073709551615EEixEm.exit.i.i.i: ; preds = %_
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSL_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit: ; preds = %_ZNK7xgboost6common4SpanIKsLm18446744073709551615EEixEm.exit.i.i.i
   %121 = getelementptr inbounds nuw i8, ptr %117, i64 8
   %122 = load ptr, ptr %121, align 8, !tbaa !69
-  %123 = getelementptr inbounds nuw i16, ptr %122, i64 %113
+  %123 = getelementptr inbounds nuw [2 x i8], ptr %122, i64 %113
   %124 = load i16, ptr %123, align 2, !tbaa !146
-  %125 = getelementptr inbounds nuw i16, ptr %122, i64 %116
+  %125 = getelementptr inbounds nuw [2 x i8], ptr %122, i64 %116
   %126 = load i16, ptr %125, align 2, !tbaa !146
   %127 = icmp slt i16 %124, %126
   %.sink138 = select i1 %127, i32 %111, i32 %114
@@ -26196,7 +26174,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i: ; preds = %137
   %140 = load ptr, ptr %136, align 8, !tbaa !405
-  %141 = getelementptr inbounds nuw i32, ptr %140, i64 %.sroa.3.09.i.i.i.i.i
+  %141 = getelementptr inbounds nuw [4 x i8], ptr %140, i64 %.sroa.3.09.i.i.i.i.i
   %142 = load i32, ptr %141, align 4, !tbaa !97
   store i32 %142, ptr %.011.i.i.i.i.i, align 4, !tbaa !97
   %143 = add nuw i64 %.sroa.3.09.i.i.i.i.i, 1
@@ -26237,7 +26215,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34: ; preds = %153
   %156 = load ptr, ptr %152, align 8, !tbaa !405
-  %157 = getelementptr inbounds nuw i32, ptr %156, i64 %.sroa.3.09.i.i.i.i.i33
+  %157 = getelementptr inbounds nuw [4 x i8], ptr %156, i64 %.sroa.3.09.i.i.i.i.i33
   %158 = load i32, ptr %157, align 4, !tbaa !97
   store i32 %158, ptr %.011.i.i.i.i.i31, align 4, !tbaa !97
   %159 = add nuw i64 %.sroa.3.09.i.i.i.i.i33, 1
@@ -26296,9 +26274,9 @@ _ZNK7xgboost6common4SpanIKsLm18446744073709551615EEixEm.exit.i.i.i: ; preds = %1
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSL_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIPiS1F_EEbSC_S19_.exit: ; preds = %_ZNK7xgboost6common4SpanIKsLm18446744073709551615EEixEm.exit.i.i.i
   %29 = load ptr, ptr %16, align 8, !tbaa !69
-  %30 = getelementptr inbounds nuw i16, ptr %29, i64 %21
+  %30 = getelementptr inbounds nuw [2 x i8], ptr %29, i64 %21
   %31 = load i16, ptr %30, align 2, !tbaa !146
-  %32 = getelementptr inbounds nuw i16, ptr %29, i64 %24
+  %32 = getelementptr inbounds nuw [2 x i8], ptr %29, i64 %24
   %33 = load i16, ptr %32, align 2, !tbaa !146
   %34 = icmp slt i16 %31, %33
   %35 = load i64, ptr %4, align 8, !tbaa !403
@@ -26314,7 +26292,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18I
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit: ; preds = %37
   %39 = load ptr, ptr %17, align 8, !tbaa !405
-  %40 = getelementptr inbounds nuw i32, ptr %39, i64 %.sroa.5.051
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %.sroa.5.051
   store i32 %19, ptr %40, align 4, !tbaa !97
   %41 = getelementptr inbounds nuw i8, ptr %.01852, i64 4
   br label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit
@@ -26328,7 +26306,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20: ; preds = %42
   %44 = load ptr, ptr %17, align 8, !tbaa !405
-  %45 = getelementptr inbounds nuw i32, ptr %44, i64 %.sroa.5.051
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %.sroa.5.051
   store i32 %22, ptr %45, align 4, !tbaa !97
   %46 = getelementptr inbounds nuw i8, ptr %.053, i64 4
   br label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit
@@ -26372,7 +26350,7 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0E
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i: ; preds = %58
   %61 = load i32, ptr %.0511.i.i.i.i.i, align 4, !tbaa !97
   %62 = load ptr, ptr %57, align 8, !tbaa !405
-  %63 = getelementptr inbounds nuw i32, ptr %62, i64 %.sroa.4.010.i.i.i.i.i
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %.sroa.4.010.i.i.i.i.i
   store i32 %61, ptr %63, align 4, !tbaa !97
   %64 = getelementptr inbounds nuw i8, ptr %.0511.i.i.i.i.i, i64 4
   %65 = add nuw i64 %.sroa.4.010.i.i.i.i.i, 1
@@ -26408,7 +26386,7 @@ _ZSt4moveIPiN7xgboost6common6detail12SpanIteratorINS2_4SpanIiLm18446744073709551
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i28: ; preds = %75
   %78 = load i32, ptr %.0511.i.i.i.i.i26, align 4, !tbaa !97
   %79 = load ptr, ptr %74, align 8, !tbaa !405
-  %80 = getelementptr inbounds nuw i32, ptr %79, i64 %.sroa.4.010.i.i.i.i.i27
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %79, i64 %.sroa.4.010.i.i.i.i.i27
   store i32 %78, ptr %80, align 4, !tbaa !97
   %81 = getelementptr inbounds nuw i8, ptr %.0511.i.i.i.i.i26, i64 4
   %82 = add nuw i64 %.sroa.4.010.i.i.i.i.i27, 1
@@ -26455,7 +26433,7 @@ define linkonce_odr void @_ZSt21__move_merge_adaptiveIPiN7xgboost6common6detail1
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us: ; preds = %17
   %20 = load ptr, ptr %9, align 8, !tbaa !405
-  %21 = getelementptr inbounds nuw i32, ptr %20, i64 %.sroa.5.038.us
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %.sroa.5.038.us
   %22 = load i32, ptr %21, align 4, !tbaa !97
   %23 = sext i32 %22 to i64
   %.sroa.0.0.copyload1.i.i.i.i.us = load i64, ptr %12, align 8, !tbaa !39
@@ -26475,9 +26453,9 @@ _ZNK7xgboost6common4SpanIKsLm18446744073709551615EEixEm.exit.i.i.i.us: ; preds =
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSL_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_PiEEbSC_S19_.exit.us: ; preds = %_ZNK7xgboost6common4SpanIKsLm18446744073709551615EEixEm.exit.i.i.i.us
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %33 = load ptr, ptr %32, align 8, !tbaa !69
-  %34 = getelementptr inbounds nuw i16, ptr %33, i64 %24
+  %34 = getelementptr inbounds nuw [2 x i8], ptr %33, i64 %24
   %35 = load i16, ptr %34, align 2, !tbaa !146
-  %36 = getelementptr inbounds nuw i16, ptr %33, i64 %27
+  %36 = getelementptr inbounds nuw [2 x i8], ptr %33, i64 %27
   %37 = load i16, ptr %36, align 2, !tbaa !146
   %38 = icmp slt i16 %35, %37
   %39 = load i64, ptr %14, align 8, !tbaa !403
@@ -26489,7 +26467,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18I
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21.us: ; preds = %41
   %42 = load ptr, ptr %15, align 8, !tbaa !405
-  %43 = getelementptr inbounds nuw i32, ptr %42, i64 %18
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %18
   store i32 %25, ptr %43, align 4, !tbaa !97
   %44 = getelementptr inbounds nuw i8, ptr %.039.us, i64 4
   br label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23.us
@@ -26499,7 +26477,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20.us: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.us
   %45 = load ptr, ptr %15, align 8, !tbaa !405
-  %46 = getelementptr inbounds nuw i32, ptr %45, i64 %18
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %18
   store i32 %22, ptr %46, align 4, !tbaa !97
   %47 = add nuw i64 %.sroa.5.038.us, 1
   br label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23.us
@@ -26529,7 +26507,7 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0E
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i: ; preds = %49
   %52 = load ptr, ptr %9, align 8, !tbaa !405
-  %53 = getelementptr inbounds nuw i32, ptr %52, i64 %.sroa.5.038
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %.sroa.5.038
   %54 = load i32, ptr %53, align 4, !tbaa !97
   %55 = sext i32 %54 to i64
   %.sroa.0.0.copyload1.i.i.i.i = load i64, ptr %12, align 8, !tbaa !39
@@ -26557,9 +26535,9 @@ _ZNK7xgboost6common4SpanIKsLm18446744073709551615EEixEm.exit.i.i.i: ; preds = %_
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSL_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_PiEEbSC_S19_.exit: ; preds = %_ZNK7xgboost6common4SpanIKsLm18446744073709551615EEixEm.exit.i.i.i
   %64 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %65 = load ptr, ptr %64, align 8, !tbaa !69
-  %66 = getelementptr inbounds nuw i16, ptr %65, i64 %56
+  %66 = getelementptr inbounds nuw [2 x i8], ptr %65, i64 %56
   %67 = load i16, ptr %66, align 2, !tbaa !146
-  %68 = getelementptr inbounds nuw i16, ptr %65, i64 %59
+  %68 = getelementptr inbounds nuw [2 x i8], ptr %65, i64 %59
   %69 = load i16, ptr %68, align 2, !tbaa !146
   %70 = icmp slt i16 %67, %69
   %71 = load i64, ptr %14, align 8, !tbaa !403
@@ -26575,7 +26553,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit
   %73 = load ptr, ptr %15, align 8, !tbaa !405
-  %74 = getelementptr inbounds nuw i32, ptr %73, i64 %.sroa.2.0.copyload
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %73, i64 %.sroa.2.0.copyload
   store i32 %54, ptr %74, align 4, !tbaa !97
   %75 = add nuw i64 %.sroa.5.038, 1
   br label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23
@@ -26589,7 +26567,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21: ; preds = %76
   %77 = load ptr, ptr %15, align 8, !tbaa !405
-  %78 = getelementptr inbounds nuw i32, ptr %77, i64 %.sroa.2.0.copyload
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %.sroa.2.0.copyload
   store i32 %57, ptr %78, align 4, !tbaa !97
   %79 = getelementptr inbounds nuw i8, ptr %.039, i64 4
   br label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23
@@ -26628,7 +26606,7 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0E
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i: ; preds = %87
   %90 = load i32, ptr %.0511.i.i.i.i.i, align 4, !tbaa !97
   %91 = load ptr, ptr %15, align 8, !tbaa !405
-  %92 = getelementptr inbounds nuw i32, ptr %91, i64 %.sroa.4.010.i.i.i.i.i
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %91, i64 %.sroa.4.010.i.i.i.i.i
   store i32 %90, ptr %92, align 4, !tbaa !97
   %93 = getelementptr inbounds nuw i8, ptr %.0511.i.i.i.i.i, i64 4
   %94 = add nuw i64 %.sroa.4.010.i.i.i.i.i, 1
@@ -26684,7 +26662,7 @@ define linkonce_odr void @_ZSt30__move_merge_adaptive_backwardIN7xgboost6common6
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit.i.i.i.i.i: ; preds = %22
   %24 = add i64 %.sroa.4.010.i.i.i.i.i, -1
   %25 = load ptr, ptr %18, align 8, !tbaa !405
-  %26 = getelementptr inbounds nuw i32, ptr %25, i64 %24
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %24
   store i32 %21, ptr %26, align 4, !tbaa !97
   %27 = add nsw i64 %.012.i.i.i.i.i, -1
   %28 = icmp sgt i64 %.012.i.i.i.i.i, 1
@@ -26733,7 +26711,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
   %48 = phi i64 [ %79, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit51.us ], [ %.promoted, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.lr.ph ]
   %.083.us = phi ptr [ %.1.us, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit51.us ], [ %36, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.lr.ph ]
   %.sroa.6.082.us = phi i64 [ %.sroa.6.1.us, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit51.us ], [ %34, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.lr.ph ]
-  %49 = getelementptr inbounds nuw i32, ptr %38, i64 %.sroa.6.082.us
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %.sroa.6.082.us
   %50 = load i32, ptr %.083.us, align 4, !tbaa !97
   %51 = sext i32 %50 to i64
   %52 = add i64 %.sroa.0.0.copyload1.i.i.i.i, %51
@@ -26749,9 +26727,9 @@ _ZNK7xgboost6common4SpanIKsLm18446744073709551615EEixEm.exit.i.i.i.us: ; preds =
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSL_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIPiS12_EEbSC_S19_.exit.us: ; preds = %_ZNK7xgboost6common4SpanIKsLm18446744073709551615EEixEm.exit.i.i.i.us
   %58 = load ptr, ptr %44, align 8, !tbaa !69
-  %59 = getelementptr inbounds nuw i16, ptr %58, i64 %52
+  %59 = getelementptr inbounds nuw [2 x i8], ptr %58, i64 %52
   %60 = load i16, ptr %59, align 2, !tbaa !146
-  %61 = getelementptr inbounds nuw i16, ptr %58, i64 %55
+  %61 = getelementptr inbounds nuw [2 x i8], ptr %58, i64 %55
   %62 = load i16, ptr %61, align 2, !tbaa !146
   %63 = icmp slt i16 %60, %62
   %.not.i31.us = icmp eq i64 %48, 0
@@ -26768,7 +26746,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18I
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit55.us: ; preds = %65
   %67 = add i64 %48, -1
   %68 = load ptr, ptr %47, align 8, !tbaa !405
-  %69 = getelementptr inbounds nuw i32, ptr %68, i64 %67
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %67
   store i32 %50, ptr %69, align 4, !tbaa !97
   %70 = icmp eq ptr %4, %.083.us
   br i1 %70, label %_ZSt13move_backwardIPiN7xgboost6common6detail12SpanIteratorINS2_4SpanIiLm18446744073709551615EEELb0EEEET0_T_S9_S8_.exit, label %71
@@ -26788,7 +26766,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit34.us: ; preds = %73
   %75 = add i64 %48, -1
   %76 = load ptr, ptr %47, align 8, !tbaa !405
-  %77 = getelementptr inbounds nuw i32, ptr %76, i64 %75
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %75
   store i32 %53, ptr %77, align 4, !tbaa !97
   %78 = add i64 %.sroa.6.082.us, -1
   %or.cond63.not.us = icmp ult i64 %78, %33
@@ -26809,7 +26787,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
   %81 = phi i64 [ %127, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit51 ], [ %.promoted, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.lr.ph ]
   %.083 = phi ptr [ %.1, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit51 ], [ %36, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.lr.ph ]
   %.sroa.6.082 = phi i64 [ %.sroa.6.1, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit51 ], [ %34, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.lr.ph ]
-  %82 = getelementptr inbounds nuw i32, ptr %38, i64 %.sroa.6.082
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %.sroa.6.082
   %83 = load i32, ptr %.083, align 4, !tbaa !97
   %84 = sext i32 %83 to i64
   %85 = add i64 %.sroa.0.0.copyload1.i.i.i.i, %84
@@ -26833,9 +26811,9 @@ _ZNK7xgboost6common4SpanIKsLm18446744073709551615EEixEm.exit.i.i.i: ; preds = %_
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSL_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIPiS12_EEbSC_S19_.exit: ; preds = %_ZNK7xgboost6common4SpanIKsLm18446744073709551615EEixEm.exit.i.i.i
   %91 = load ptr, ptr %44, align 8, !tbaa !69
-  %92 = getelementptr inbounds nuw i16, ptr %91, i64 %85
+  %92 = getelementptr inbounds nuw [2 x i8], ptr %91, i64 %85
   %93 = load i16, ptr %92, align 2, !tbaa !146
-  %94 = getelementptr inbounds nuw i16, ptr %91, i64 %88
+  %94 = getelementptr inbounds nuw [2 x i8], ptr %91, i64 %88
   %95 = load i16, ptr %94, align 2, !tbaa !146
   %96 = icmp slt i16 %93, %95
   %.not.i31 = icmp eq i64 %81, 0
@@ -26856,7 +26834,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit34: ; preds = %97
   %99 = add i64 %81, -1
   %100 = load ptr, ptr %47, align 8, !tbaa !405
-  %101 = getelementptr inbounds nuw i32, ptr %100, i64 %99
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %100, i64 %99
   store i32 %86, ptr %101, align 4, !tbaa !97
   %102 = icmp eq i64 %1, %.sroa.6.082
   br i1 %102, label %103, label %116
@@ -26886,7 +26864,7 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0E
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit.i.i.i.i.i45: ; preds = %.lr.ph.i.i.i.i.i39
   %111 = getelementptr inbounds i8, ptr %.0411.i.i.i.i.i41, i64 -4
   %112 = load i32, ptr %111, align 4, !tbaa !97
-  %113 = getelementptr inbounds nuw i32, ptr %100, i64 %110
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %100, i64 %110
   store i32 %112, ptr %113, align 4, !tbaa !97
   %114 = add nsw i64 %.012.i.i.i.i.i40, -1
   %115 = icmp sgt i64 %.012.i.i.i.i.i40, 1
@@ -26916,7 +26894,7 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0E
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit55: ; preds = %119
   %121 = add i64 %81, -1
   %122 = load ptr, ptr %47, align 8, !tbaa !405
-  %123 = getelementptr inbounds nuw i32, ptr %122, i64 %121
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %122, i64 %121
   store i32 %83, ptr %123, align 4, !tbaa !97
   %124 = icmp eq ptr %4, %.083
   br i1 %124, label %_ZSt13move_backwardIPiN7xgboost6common6detail12SpanIteratorINS2_4SpanIiLm18446744073709551615EEELb0EEEET0_T_S9_S8_.exit, label %125
@@ -26982,7 +26960,7 @@ _ZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS0_9SortNamesINS
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i: ; preds = %.lr.ph.split.i.i
   %indvars12 = trunc i64 %.sroa.4.010.i.i to i32
   %13 = load ptr, ptr %12, align 8, !tbaa !405
-  %14 = getelementptr inbounds nuw i32, ptr %13, i64 %.sroa.4.010.i.i
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %.sroa.4.010.i.i
   store i32 %indvars12, ptr %14, align 4, !tbaa !97
   %15 = add nuw i64 %.sroa.4.010.i.i, 1
   %.not.i.i = icmp eq i64 %15, %7
@@ -27185,8 +27163,8 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i
   %25 = load ptr, ptr %15, align 8, !tbaa !405
-  %26 = getelementptr inbounds nuw i32, ptr %25, i64 %.sroa.10.050
-  %27 = getelementptr inbounds nuw i32, ptr %25, i64 %1
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %.sroa.10.050
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %1
   %28 = load i32, ptr %26, align 4, !tbaa !97
   %29 = sext i32 %28 to i64
   %.sroa.0.0.copyload1.i.i.i.i = load i64, ptr %5, align 8, !tbaa !39
@@ -27214,9 +27192,9 @@ _ZNK7xgboost6common4SpanIKiLm18446744073709551615EEixEm.exit.i.i.i: ; preds = %_
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSN_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit: ; preds = %_ZNK7xgboost6common4SpanIKiLm18446744073709551615EEixEm.exit.i.i.i
   %40 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %41 = load ptr, ptr %40, align 8, !tbaa !33
-  %42 = getelementptr inbounds nuw i32, ptr %41, i64 %30
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %30
   %43 = load i32, ptr %42, align 4, !tbaa !97
-  %44 = getelementptr inbounds nuw i32, ptr %41, i64 %33
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %33
   %45 = load i32, ptr %44, align 4, !tbaa !97
   %46 = icmp slt i32 %43, %45
   br i1 %46, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit, label %57
@@ -27243,10 +27221,10 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
   unreachable
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit9.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i
-  %51 = getelementptr inbounds nuw i32, ptr %25, i64 %50
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %50
   %52 = load i32, ptr %51, align 4, !tbaa !97
   %53 = add i64 %.sroa.4.024.i.i.i.i.i, -1
-  %54 = getelementptr inbounds nuw i32, ptr %25, i64 %53
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %53
   store i32 %52, ptr %54, align 4, !tbaa !97
   %55 = add nsw i64 %.026.i.i.i.i.i, -1
   %56 = icmp sgt i64 %.026.i.i.i.i.i, 1
@@ -27321,10 +27299,10 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i
   %26 = getelementptr inbounds nuw i8, ptr %.tr118172, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !405
-  %28 = getelementptr inbounds nuw i32, ptr %27, i64 %.tr119173
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %.tr119173
   %29 = getelementptr inbounds nuw i8, ptr %.tr170, i64 8
   %30 = load ptr, ptr %29, align 8, !tbaa !405
-  %31 = getelementptr inbounds nuw i32, ptr %30, i64 %.tr117171
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %.tr117171
   %32 = load ptr, ptr %8, align 8, !tbaa !484
   %33 = load ptr, ptr %.sroa.225.0..sroa_idx, align 8, !tbaa !486
   %34 = load i32, ptr %28, align 4, !tbaa !97
@@ -27354,9 +27332,9 @@ _ZNK7xgboost6common4SpanIKiLm18446744073709551615EEixEm.exit.i.i.i: ; preds = %_
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSN_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit: ; preds = %_ZNK7xgboost6common4SpanIKiLm18446744073709551615EEixEm.exit.i.i.i
   %46 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %47 = load ptr, ptr %46, align 8, !tbaa !33
-  %48 = getelementptr inbounds nuw i32, ptr %47, i64 %36
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %36
   %49 = load i32, ptr %48, align 4, !tbaa !97
-  %50 = getelementptr inbounds nuw i32, ptr %47, i64 %39
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %39
   %51 = load i32, ptr %50, align 4, !tbaa !97
   %52 = icmp slt i32 %49, %51
   br i1 %52, label %_ZSt9iter_swapIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEES6_EvT_T0_.exit, label %.loopexit
@@ -27392,7 +27370,7 @@ _ZSt7advanceIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm1844674407370955
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit: ; preds = %_ZSt7advanceIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEElEvRT_T0_.exit
   %62 = getelementptr inbounds nuw i8, ptr %.tr170, i64 8
   %63 = load ptr, ptr %62, align 8, !tbaa !405
-  %64 = getelementptr inbounds nuw i32, ptr %63, i64 %57
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %57
   %.sroa.035.0.copyload = load ptr, ptr %8, align 8, !tbaa !179
   %.sroa.236.0.copyload = load ptr, ptr %.sroa.225.0..sroa_idx, align 8, !tbaa !396
   store ptr %.sroa.035.0.copyload, ptr %10, align 8
@@ -27433,7 +27411,7 @@ _ZSt7advanceIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm1844674407370955
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit95: ; preds = %_ZSt7advanceIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEElEvRT_T0_.exit94
   %78 = getelementptr inbounds nuw i8, ptr %.tr118172, i64 8
   %79 = load ptr, ptr %78, align 8, !tbaa !405
-  %80 = getelementptr inbounds nuw i32, ptr %79, i64 %73
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %79, i64 %73
   %.sroa.024.0.copyload = load ptr, ptr %8, align 8, !tbaa !179
   %.sroa.225.0.copyload = load ptr, ptr %.sroa.225.0..sroa_idx, align 8, !tbaa !396
   store ptr %.sroa.024.0.copyload, ptr %11, align 8
@@ -27487,7 +27465,7 @@ define linkonce_odr void @_ZSt25__unguarded_linear_insertIN7xgboost6common6detai
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit: ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !405
-  %10 = getelementptr inbounds nuw i32, ptr %9, i64 %1
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %1
   %11 = load i32, ptr %10, align 4, !tbaa !97
   %.not.i = icmp eq i64 %1, 0
   br i1 %.not.i, label %.critedge.i, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit.preheader, !prof !91
@@ -27511,7 +27489,7 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0E
   unreachable
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i: ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit
-  %15 = getelementptr inbounds nuw i32, ptr %9, i64 %.sroa.8.0
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %.sroa.8.0
   %.sroa.0.0.copyload1.i.i.i.i = load i64, ptr %3, align 8, !tbaa !39
   %16 = add i64 %.sroa.0.0.copyload1.i.i.i.i, %12
   %17 = load i32, ptr %15, align 4, !tbaa !97
@@ -27537,15 +27515,15 @@ _ZNK7xgboost6common4SpanIKiLm18446744073709551615EEixEm.exit.i.i.i: ; preds = %_
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSN_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIiS12_EEbRSC_S19_.exit: ; preds = %_ZNK7xgboost6common4SpanIKiLm18446744073709551615EEixEm.exit.i.i.i
   %26 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !33
-  %28 = getelementptr inbounds nuw i32, ptr %27, i64 %16
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %16
   %29 = load i32, ptr %28, align 4, !tbaa !97
-  %30 = getelementptr inbounds nuw i32, ptr %27, i64 %19
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %19
   %31 = load i32, ptr %30, align 4, !tbaa !97
   %32 = icmp slt i32 %29, %31
   br i1 %32, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit2, label %35
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit2: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSN_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIiS12_EEbRSC_S19_.exit
-  %33 = getelementptr inbounds nuw i32, ptr %9, i64 %.sroa.6.0
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %.sroa.6.0
   store i32 %17, ptr %33, align 4, !tbaa !97
   %34 = add i64 %.sroa.6.0, -2
   %or.cond.not = icmp ult i64 %34, %5
@@ -27564,7 +27542,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
   unreachable
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit7: ; preds = %35
-  %38 = getelementptr inbounds nuw i32, ptr %9, i64 %.sroa.6.0
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %.sroa.6.0
   store i32 %11, ptr %38, align 4, !tbaa !97
   ret void
 }
@@ -27615,7 +27593,7 @@ _ZSt7advanceIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm1844674407370955
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i: ; preds = %_ZSt7advanceIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEElEvRT_T0_.exit
   %24 = load ptr, ptr %11, align 8, !tbaa !405
-  %25 = getelementptr inbounds nuw i32, ptr %24, i64 %20
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %20
   %26 = load i32, ptr %25, align 4, !tbaa !97
   %27 = sext i32 %26 to i64
   %.sroa.0.0.copyload1.i.i.i.i = load i64, ptr %14, align 8, !tbaa !39
@@ -27641,9 +27619,9 @@ _ZNK7xgboost6common4SpanIKiLm18446744073709551615EEixEm.exit.i.i.i: ; preds = %_
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSN_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_SM_EEbSC_RS19_.exit: ; preds = %_ZNK7xgboost6common4SpanIKiLm18446744073709551615EEixEm.exit.i.i.i
   %36 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %37 = load ptr, ptr %36, align 8, !tbaa !33
-  %38 = getelementptr inbounds nuw i32, ptr %37, i64 %28
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %28
   %39 = load i32, ptr %38, align 4, !tbaa !97
-  %40 = getelementptr inbounds nuw i32, ptr %37, i64 %29
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %29
   %41 = load i32, ptr %40, align 4, !tbaa !97
   %42 = icmp slt i32 %39, %41
   %43 = add nuw i64 %20, 1
@@ -27707,7 +27685,7 @@ _ZSt7advanceIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm1844674407370955
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i: ; preds = %_ZSt7advanceIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEElEvRT_T0_.exit
   %24 = load ptr, ptr %11, align 8, !tbaa !405
-  %25 = getelementptr inbounds nuw i32, ptr %24, i64 %20
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %20
   %.sroa.0.0.copyload1.i.i.i.i = load i64, ptr %14, align 8, !tbaa !39
   %26 = add i64 %.sroa.0.0.copyload1.i.i.i.i, %16
   %27 = load i32, ptr %25, align 4, !tbaa !97
@@ -27733,9 +27711,9 @@ _ZNK7xgboost6common4SpanIKiLm18446744073709551615EEixEm.exit.i.i.i: ; preds = %_
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSN_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclISM_S12_EEbRSC_S19_.exit: ; preds = %_ZNK7xgboost6common4SpanIKiLm18446744073709551615EEixEm.exit.i.i.i
   %36 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %37 = load ptr, ptr %36, align 8, !tbaa !33
-  %38 = getelementptr inbounds nuw i32, ptr %37, i64 %26
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %26
   %39 = load i32, ptr %38, align 4, !tbaa !97
-  %40 = getelementptr inbounds nuw i32, ptr %37, i64 %29
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %29
   %41 = load i32, ptr %40, align 4, !tbaa !97
   %42 = icmp slt i32 %39, %41
   %43 = add nuw i64 %20, 1
@@ -27764,7 +27742,7 @@ define linkonce_odr void @_ZSt24__merge_sort_with_bufferIN7xgboost6common6detail
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit: ; preds = %6
   %9 = sub i64 %3, %1
-  %10 = getelementptr inbounds i32, ptr %4, i64 %9
+  %10 = getelementptr inbounds [4 x i8], ptr %4, i64 %9
   %.sroa.028.sroa.0.0.copyload = load ptr, ptr %5, align 8, !tbaa !179
   %.sroa.028.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.028.sroa.2.0.copyload = load ptr, ptr %.sroa.028.sroa.2.0..sroa_idx, align 8, !tbaa !396
@@ -27845,7 +27823,7 @@ _ZSt22__chunk_insertion_sortIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i.i.us: ; preds = %28
   %30 = load i32, ptr %.0511.i.i.i.i.i.i.us, align 4, !tbaa !97
   %31 = load ptr, ptr %20, align 8, !tbaa !405
-  %32 = getelementptr inbounds nuw i32, ptr %31, i64 %.sroa.4.010.i.i.i.i.i.i.us
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %.sroa.4.010.i.i.i.i.i.i.us
   store i32 %30, ptr %32, align 4, !tbaa !97
   %33 = getelementptr inbounds nuw i8, ptr %.0511.i.i.i.i.i.i.us, i64 4
   %34 = add nuw i64 %.sroa.4.010.i.i.i.i.i.i.us, 1
@@ -27871,7 +27849,7 @@ _ZSt4moveIPiN7xgboost6common6detail12SpanIteratorINS2_4SpanIiLm18446744073709551
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i28.i.us: ; preds = %39
   %41 = load i32, ptr %.0511.i.i.i.i.i26.i.us, align 4, !tbaa !97
   %42 = load ptr, ptr %20, align 8, !tbaa !405
-  %43 = getelementptr inbounds nuw i32, ptr %42, i64 %.sroa.4.010.i.i.i.i.i27.i.us
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %.sroa.4.010.i.i.i.i.i27.i.us
   store i32 %41, ptr %43, align 4, !tbaa !97
   %44 = getelementptr inbounds nuw i8, ptr %.0511.i.i.i.i.i26.i.us, i64 4
   %45 = add nuw i64 %.sroa.4.010.i.i.i.i.i27.i.us, 1
@@ -27927,9 +27905,9 @@ _ZNK7xgboost6common4SpanIKiLm18446744073709551615EEixEm.exit.i.i.i.i: ; preds = 
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSN_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIPiS1F_EEbSC_S19_.exit.i: ; preds = %_ZNK7xgboost6common4SpanIKiLm18446744073709551615EEixEm.exit.i.i.i.i
   %66 = load ptr, ptr %52, align 8, !tbaa !33
-  %67 = getelementptr inbounds nuw i32, ptr %66, i64 %58
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %58
   %68 = load i32, ptr %67, align 4, !tbaa !97
-  %69 = getelementptr inbounds nuw i32, ptr %66, i64 %61
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %61
   %70 = load i32, ptr %69, align 4, !tbaa !97
   %71 = icmp slt i32 %68, %70
   %72 = load i64, ptr %0, align 8, !tbaa !403
@@ -27945,7 +27923,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18I
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i: ; preds = %74
   %76 = load ptr, ptr %20, align 8, !tbaa !405
-  %77 = getelementptr inbounds nuw i32, ptr %76, i64 %.sroa.5.051.i
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %.sroa.5.051.i
   store i32 %56, ptr %77, align 4, !tbaa !97
   %78 = getelementptr inbounds nuw i8, ptr %.01852.i, i64 4
   br label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i
@@ -27959,7 +27937,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20.i: ; preds = %79
   %81 = load ptr, ptr %20, align 8, !tbaa !405
-  %82 = getelementptr inbounds nuw i32, ptr %81, i64 %.sroa.5.051.i
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %81, i64 %.sroa.5.051.i
   store i32 %59, ptr %82, align 4, !tbaa !97
   %83 = getelementptr inbounds nuw i8, ptr %.053.i, i64 4
   br label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i
@@ -27995,7 +27973,7 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0E
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i
   %95 = load i32, ptr %.0511.i.i.i.i.i.i, align 4, !tbaa !97
-  %96 = getelementptr inbounds nuw i32, ptr %84, i64 %.sroa.4.010.i.i.i.i.i.i
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %84, i64 %.sroa.4.010.i.i.i.i.i.i
   store i32 %95, ptr %96, align 4, !tbaa !97
   %97 = getelementptr inbounds nuw i8, ptr %.0511.i.i.i.i.i.i, i64 4
   %98 = add nuw i64 %.sroa.4.010.i.i.i.i.i.i, 1
@@ -28025,7 +28003,7 @@ _ZSt4moveIPiN7xgboost6common6detail12SpanIteratorINS2_4SpanIiLm18446744073709551
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i28.i: ; preds = %.lr.ph.i.i.i.i.i24.i
   %107 = load i32, ptr %.0511.i.i.i.i.i26.i, align 4, !tbaa !97
-  %108 = getelementptr inbounds nuw i32, ptr %84, i64 %.sroa.4.010.i.i.i.i.i27.i
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %84, i64 %.sroa.4.010.i.i.i.i.i27.i
   store i32 %107, ptr %108, align 4, !tbaa !97
   %109 = getelementptr inbounds nuw i8, ptr %.0511.i.i.i.i.i26.i, i64 4
   %110 = add nuw i64 %.sroa.4.010.i.i.i.i.i27.i, 1
@@ -28045,7 +28023,7 @@ _ZSt17__merge_sort_loopIPiN7xgboost6common6detail12SpanIteratorINS2_4SpanIiLm184
   %.sroa.420.0.lcssa.i = phi i64 [ %1, %21 ], [ %.sroa.4.0.lcssa.i.i.i.i.i21.i.us, %_ZSt12__move_mergeIPiN7xgboost6common6detail12SpanIteratorINS2_4SpanIiLm18446744073709551615EEELb0EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortINS2_18IndexTransformIterIZNSC_9SortNamesINSB_6PolicyIJNS1_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNSB_15CatStrArrayViewENS5_IKaLm18446744073709551615EEENS5_IKsLm18446744073709551615EEENS5_IKiLm18446744073709551615EEENS5_IKlLm18446744073709551615EEENS5_IKfLm18446744073709551615EEENS5_IKdLm18446744073709551615EEEEES6_EUlSJ_E_EES7_ZZNSF_ISI_EEvSL_S12_S6_ENKUlOSJ_E0_clIRKST_EEDaS15_EUlmmE_EEvSJ_SJ_T0_T1_EUlRSS_S1D_E_EEES1B_SJ_SJ_SJ_SJ_S1B_S1C_.exit.us ], [ %.sroa.4.0.lcssa.i.i.i.i.i21.i, %_ZSt12__move_mergeIPiN7xgboost6common6detail12SpanIteratorINS2_4SpanIiLm18446744073709551615EEELb0EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortINS2_18IndexTransformIterIZNSC_9SortNamesINSB_6PolicyIJNS1_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNSB_15CatStrArrayViewENS5_IKaLm18446744073709551615EEENS5_IKsLm18446744073709551615EEENS5_IKiLm18446744073709551615EEENS5_IKlLm18446744073709551615EEENS5_IKfLm18446744073709551615EEENS5_IKdLm18446744073709551615EEEEES6_EUlSJ_E_EES7_ZZNSF_ISI_EEvSL_S12_S6_ENKUlOSJ_E0_clIRKST_EEDaS15_EUlmmE_EEvSJ_SJ_T0_T1_EUlRSS_S1D_E_EEES1B_SJ_SJ_SJ_SJ_S1B_S1C_.exit ]
   %.lcssa.i = phi i64 [ %9, %21 ], [ %49, %_ZSt12__move_mergeIPiN7xgboost6common6detail12SpanIteratorINS2_4SpanIiLm18446744073709551615EEELb0EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortINS2_18IndexTransformIterIZNSC_9SortNamesINSB_6PolicyIJNS1_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNSB_15CatStrArrayViewENS5_IKaLm18446744073709551615EEENS5_IKsLm18446744073709551615EEENS5_IKiLm18446744073709551615EEENS5_IKlLm18446744073709551615EEENS5_IKfLm18446744073709551615EEENS5_IKdLm18446744073709551615EEEEES6_EUlSJ_E_EES7_ZZNSF_ISI_EEvSL_S12_S6_ENKUlOSJ_E0_clIRKST_EEDaS15_EUlmmE_EEvSJ_SJ_T0_T1_EUlRSS_S1D_E_EEES1B_SJ_SJ_SJ_SJ_S1B_S1C_.exit.us ], [ %114, %_ZSt12__move_mergeIPiN7xgboost6common6detail12SpanIteratorINS2_4SpanIiLm18446744073709551615EEELb0EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortINS2_18IndexTransformIterIZNSC_9SortNamesINSB_6PolicyIJNS1_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNSB_15CatStrArrayViewENS5_IKaLm18446744073709551615EEENS5_IKsLm18446744073709551615EEENS5_IKiLm18446744073709551615EEENS5_IKlLm18446744073709551615EEENS5_IKfLm18446744073709551615EEENS5_IKdLm18446744073709551615EEEEES6_EUlSJ_E_EES7_ZZNSF_ISI_EEvSL_S12_S6_ENKUlOSJ_E0_clIRKST_EEDaS15_EUlmmE_EEvSJ_SJ_T0_T1_EUlRSS_S1D_E_EEES1B_SJ_SJ_SJ_SJ_S1B_S1C_.exit ]
   %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %22, i64 %.lcssa.i)
-  %115 = getelementptr inbounds i32, ptr %.0.lcssa.i, i64 %.sroa.speculated.i
+  %115 = getelementptr inbounds [4 x i8], ptr %.0.lcssa.i, i64 %.sroa.speculated.i
   %116 = tail call { ptr, i64 } @_ZSt12__move_mergeIPiN7xgboost6common6detail12SpanIteratorINS2_4SpanIiLm18446744073709551615EEELb0EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortINS2_18IndexTransformIterIZNSC_9SortNamesINSB_6PolicyIJNS1_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNSB_15CatStrArrayViewENS5_IKaLm18446744073709551615EEENS5_IKsLm18446744073709551615EEENS5_IKiLm18446744073709551615EEENS5_IKlLm18446744073709551615EEENS5_IKfLm18446744073709551615EEENS5_IKdLm18446744073709551615EEEEES6_EUlSJ_E_EES7_ZZNSF_ISI_EEvSL_S12_S6_ENKUlOSJ_E0_clIRKST_EEDaS15_EUlmmE_EEvSJ_SJ_T0_T1_EUlRSS_S1D_E_EEES1B_SJ_SJ_SJ_SJ_S1B_S1C_(ptr noundef %.0.lcssa.i, ptr noundef %115, ptr noundef %115, ptr noundef nonnull %10, ptr %0, i64 %.sroa.420.0.lcssa.i, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter.228") align 8 %5)
   %117 = icmp slt i64 %23, %9
   br i1 %117, label %21, label %._crit_edge, !llvm.loop !493
@@ -28106,7 +28084,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i: ; preds = %24
   %27 = load ptr, ptr %23, align 8, !tbaa !405
-  %28 = getelementptr inbounds nuw i32, ptr %27, i64 %.sroa.3.09.i.i.i.i.i
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %.sroa.3.09.i.i.i.i.i
   %29 = load i32, ptr %28, align 4, !tbaa !97
   store i32 %29, ptr %.011.i.i.i.i.i, align 4, !tbaa !97
   %30 = add nuw i64 %.sroa.3.09.i.i.i.i.i, 1
@@ -28165,7 +28143,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i121: ; preds = %42
   %45 = load ptr, ptr %41, align 8, !tbaa !405
-  %46 = getelementptr inbounds nuw i32, ptr %45, i64 %.sroa.3.09.i.i.i.i.i120
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %.sroa.3.09.i.i.i.i.i120
   %47 = load i32, ptr %46, align 4, !tbaa !97
   store i32 %47, ptr %.011.i.i.i.i.i118, align 4, !tbaa !97
   %48 = add nuw i64 %.sroa.3.09.i.i.i.i.i120, 1
@@ -28207,7 +28185,7 @@ _ZSt7advanceIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm1844674407370955
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit: ; preds = %_ZSt7advanceIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEElEvRT_T0_.exit
   %60 = getelementptr inbounds nuw i8, ptr %.tr214, i64 8
   %61 = load ptr, ptr %60, align 8, !tbaa !405
-  %62 = getelementptr inbounds nuw i32, ptr %61, i64 %55
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %55
   %.sroa.034.0.copyload = load ptr, ptr %10, align 8, !tbaa !179
   %.sroa.235.0.copyload = load ptr, ptr %.sroa.224.0..sroa_idx, align 8, !tbaa !396
   store ptr %.sroa.034.0.copyload, ptr %14, align 8
@@ -28248,7 +28226,7 @@ _ZSt7advanceIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm1844674407370955
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit134: ; preds = %_ZSt7advanceIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEElEvRT_T0_.exit133
   %76 = getelementptr inbounds nuw i8, ptr %.tr157216, i64 8
   %77 = load ptr, ptr %76, align 8, !tbaa !405
-  %78 = getelementptr inbounds nuw i32, ptr %77, i64 %71
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %71
   %.sroa.023.0.copyload = load ptr, ptr %10, align 8, !tbaa !179
   %.sroa.224.0.copyload = load ptr, ptr %.sroa.224.0..sroa_idx, align 8, !tbaa !396
   store ptr %.sroa.023.0.copyload, ptr %15, align 8
@@ -28402,9 +28380,9 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us.us: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us
   %21 = load ptr, ptr %12, align 8, !tbaa !405
-  %22 = getelementptr inbounds nuw i32, ptr %21, i64 %.sroa.6.068.us.us114
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %.sroa.6.068.us.us114
   %23 = load ptr, ptr %13, align 8, !tbaa !405
-  %24 = getelementptr inbounds nuw i32, ptr %23, i64 %.sroa.643.069.us.us113
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %.sroa.643.069.us.us113
   %25 = load i32, ptr %22, align 4, !tbaa !97
   %26 = sext i32 %25 to i64
   %.sroa.0.0.copyload1.i.i.i.i.us.us = load i64, ptr %16, align 8, !tbaa !39
@@ -28424,9 +28402,9 @@ _ZNK7xgboost6common4SpanIKiLm18446744073709551615EEixEm.exit.i.i.i.us.us: ; pred
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSN_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us.us: ; preds = %_ZNK7xgboost6common4SpanIKiLm18446744073709551615EEixEm.exit.i.i.i.us.us
   %35 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %36 = load ptr, ptr %35, align 8, !tbaa !33
-  %37 = getelementptr inbounds nuw i32, ptr %36, i64 %27
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %27
   %38 = load i32, ptr %37, align 4, !tbaa !97
-  %39 = getelementptr inbounds nuw i32, ptr %36, i64 %30
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %30
   %40 = load i32, ptr %39, align 4, !tbaa !97
   %41 = icmp slt i32 %38, %40
   %.sink = select i1 %41, i32 %25, i32 %28
@@ -28454,9 +28432,9 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us
   %49 = load ptr, ptr %12, align 8, !tbaa !405
-  %50 = getelementptr inbounds nuw i32, ptr %49, i64 %.sroa.6.068.us
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %.sroa.6.068.us
   %51 = load ptr, ptr %13, align 8, !tbaa !405
-  %52 = getelementptr inbounds nuw i32, ptr %51, i64 %.sroa.643.069.us
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %.sroa.643.069.us
   %53 = load i32, ptr %50, align 4, !tbaa !97
   %54 = sext i32 %53 to i64
   %.sroa.0.0.copyload1.i.i.i.i.us = load i64, ptr %16, align 8, !tbaa !39
@@ -28476,9 +28454,9 @@ _ZNK7xgboost6common4SpanIKiLm18446744073709551615EEixEm.exit.i.i.i.us: ; preds =
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSN_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us: ; preds = %_ZNK7xgboost6common4SpanIKiLm18446744073709551615EEixEm.exit.i.i.i.us
   %63 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %64 = load ptr, ptr %63, align 8, !tbaa !33
-  %65 = getelementptr inbounds nuw i32, ptr %64, i64 %55
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %55
   %66 = load i32, ptr %65, align 4, !tbaa !97
-  %67 = getelementptr inbounds nuw i32, ptr %64, i64 %58
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %58
   %68 = load i32, ptr %67, align 4, !tbaa !97
   %69 = icmp slt i32 %66, %68
   %.sink136 = select i1 %69, i32 %53, i32 %56
@@ -28517,9 +28495,9 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us91: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us90
   %78 = load ptr, ptr %12, align 8, !tbaa !405
-  %79 = getelementptr inbounds nuw i32, ptr %78, i64 %.sroa.6.068.us89106
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %78, i64 %.sroa.6.068.us89106
   %80 = load ptr, ptr %13, align 8, !tbaa !405
-  %81 = getelementptr inbounds nuw i32, ptr %80, i64 %.sroa.643.069.us88105
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %80, i64 %.sroa.643.069.us88105
   %82 = load i32, ptr %79, align 4, !tbaa !97
   %83 = sext i32 %82 to i64
   %.sroa.0.0.copyload1.i.i.i.i.us92 = load i64, ptr %16, align 8, !tbaa !39
@@ -28539,9 +28517,9 @@ _ZNK7xgboost6common4SpanIKiLm18446744073709551615EEixEm.exit.i.i.i.us93: ; preds
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSN_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94: ; preds = %_ZNK7xgboost6common4SpanIKiLm18446744073709551615EEixEm.exit.i.i.i.us93
   %92 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %93 = load ptr, ptr %92, align 8, !tbaa !33
-  %94 = getelementptr inbounds nuw i32, ptr %93, i64 %84
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %93, i64 %84
   %95 = load i32, ptr %94, align 4, !tbaa !97
-  %96 = getelementptr inbounds nuw i32, ptr %93, i64 %87
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %93, i64 %87
   %97 = load i32, ptr %96, align 4, !tbaa !97
   %98 = icmp slt i32 %95, %97
   %.sink137 = select i1 %98, i32 %82, i32 %85
@@ -28582,9 +28560,9 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i
   %107 = load ptr, ptr %12, align 8, !tbaa !405
-  %108 = getelementptr inbounds nuw i32, ptr %107, i64 %.sroa.6.068
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %107, i64 %.sroa.6.068
   %109 = load ptr, ptr %13, align 8, !tbaa !405
-  %110 = getelementptr inbounds nuw i32, ptr %109, i64 %.sroa.643.069
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %109, i64 %.sroa.643.069
   %111 = load i32, ptr %108, align 4, !tbaa !97
   %112 = sext i32 %111 to i64
   %.sroa.0.0.copyload1.i.i.i.i = load i64, ptr %16, align 8, !tbaa !39
@@ -28612,9 +28590,9 @@ _ZNK7xgboost6common4SpanIKiLm18446744073709551615EEixEm.exit.i.i.i: ; preds = %_
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSN_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit: ; preds = %_ZNK7xgboost6common4SpanIKiLm18446744073709551615EEixEm.exit.i.i.i
   %121 = getelementptr inbounds nuw i8, ptr %117, i64 8
   %122 = load ptr, ptr %121, align 8, !tbaa !33
-  %123 = getelementptr inbounds nuw i32, ptr %122, i64 %113
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %122, i64 %113
   %124 = load i32, ptr %123, align 4, !tbaa !97
-  %125 = getelementptr inbounds nuw i32, ptr %122, i64 %116
+  %125 = getelementptr inbounds nuw [4 x i8], ptr %122, i64 %116
   %126 = load i32, ptr %125, align 4, !tbaa !97
   %127 = icmp slt i32 %124, %126
   %.sink138 = select i1 %127, i32 %111, i32 %114
@@ -28663,7 +28641,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i: ; preds = %137
   %140 = load ptr, ptr %136, align 8, !tbaa !405
-  %141 = getelementptr inbounds nuw i32, ptr %140, i64 %.sroa.3.09.i.i.i.i.i
+  %141 = getelementptr inbounds nuw [4 x i8], ptr %140, i64 %.sroa.3.09.i.i.i.i.i
   %142 = load i32, ptr %141, align 4, !tbaa !97
   store i32 %142, ptr %.011.i.i.i.i.i, align 4, !tbaa !97
   %143 = add nuw i64 %.sroa.3.09.i.i.i.i.i, 1
@@ -28704,7 +28682,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34: ; preds = %153
   %156 = load ptr, ptr %152, align 8, !tbaa !405
-  %157 = getelementptr inbounds nuw i32, ptr %156, i64 %.sroa.3.09.i.i.i.i.i33
+  %157 = getelementptr inbounds nuw [4 x i8], ptr %156, i64 %.sroa.3.09.i.i.i.i.i33
   %158 = load i32, ptr %157, align 4, !tbaa !97
   store i32 %158, ptr %.011.i.i.i.i.i31, align 4, !tbaa !97
   %159 = add nuw i64 %.sroa.3.09.i.i.i.i.i33, 1
@@ -28763,9 +28741,9 @@ _ZNK7xgboost6common4SpanIKiLm18446744073709551615EEixEm.exit.i.i.i: ; preds = %1
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSN_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIPiS1F_EEbSC_S19_.exit: ; preds = %_ZNK7xgboost6common4SpanIKiLm18446744073709551615EEixEm.exit.i.i.i
   %29 = load ptr, ptr %16, align 8, !tbaa !33
-  %30 = getelementptr inbounds nuw i32, ptr %29, i64 %21
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %21
   %31 = load i32, ptr %30, align 4, !tbaa !97
-  %32 = getelementptr inbounds nuw i32, ptr %29, i64 %24
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %24
   %33 = load i32, ptr %32, align 4, !tbaa !97
   %34 = icmp slt i32 %31, %33
   %35 = load i64, ptr %4, align 8, !tbaa !403
@@ -28781,7 +28759,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18I
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit: ; preds = %37
   %39 = load ptr, ptr %17, align 8, !tbaa !405
-  %40 = getelementptr inbounds nuw i32, ptr %39, i64 %.sroa.5.051
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %.sroa.5.051
   store i32 %19, ptr %40, align 4, !tbaa !97
   %41 = getelementptr inbounds nuw i8, ptr %.01852, i64 4
   br label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit
@@ -28795,7 +28773,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20: ; preds = %42
   %44 = load ptr, ptr %17, align 8, !tbaa !405
-  %45 = getelementptr inbounds nuw i32, ptr %44, i64 %.sroa.5.051
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %.sroa.5.051
   store i32 %22, ptr %45, align 4, !tbaa !97
   %46 = getelementptr inbounds nuw i8, ptr %.053, i64 4
   br label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit
@@ -28839,7 +28817,7 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0E
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i: ; preds = %58
   %61 = load i32, ptr %.0511.i.i.i.i.i, align 4, !tbaa !97
   %62 = load ptr, ptr %57, align 8, !tbaa !405
-  %63 = getelementptr inbounds nuw i32, ptr %62, i64 %.sroa.4.010.i.i.i.i.i
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %.sroa.4.010.i.i.i.i.i
   store i32 %61, ptr %63, align 4, !tbaa !97
   %64 = getelementptr inbounds nuw i8, ptr %.0511.i.i.i.i.i, i64 4
   %65 = add nuw i64 %.sroa.4.010.i.i.i.i.i, 1
@@ -28875,7 +28853,7 @@ _ZSt4moveIPiN7xgboost6common6detail12SpanIteratorINS2_4SpanIiLm18446744073709551
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i28: ; preds = %75
   %78 = load i32, ptr %.0511.i.i.i.i.i26, align 4, !tbaa !97
   %79 = load ptr, ptr %74, align 8, !tbaa !405
-  %80 = getelementptr inbounds nuw i32, ptr %79, i64 %.sroa.4.010.i.i.i.i.i27
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %79, i64 %.sroa.4.010.i.i.i.i.i27
   store i32 %78, ptr %80, align 4, !tbaa !97
   %81 = getelementptr inbounds nuw i8, ptr %.0511.i.i.i.i.i26, i64 4
   %82 = add nuw i64 %.sroa.4.010.i.i.i.i.i27, 1
@@ -28922,7 +28900,7 @@ define linkonce_odr void @_ZSt21__move_merge_adaptiveIPiN7xgboost6common6detail1
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us: ; preds = %17
   %20 = load ptr, ptr %9, align 8, !tbaa !405
-  %21 = getelementptr inbounds nuw i32, ptr %20, i64 %.sroa.5.038.us
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %.sroa.5.038.us
   %22 = load i32, ptr %21, align 4, !tbaa !97
   %23 = sext i32 %22 to i64
   %.sroa.0.0.copyload1.i.i.i.i.us = load i64, ptr %12, align 8, !tbaa !39
@@ -28942,9 +28920,9 @@ _ZNK7xgboost6common4SpanIKiLm18446744073709551615EEixEm.exit.i.i.i.us: ; preds =
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSN_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_PiEEbSC_S19_.exit.us: ; preds = %_ZNK7xgboost6common4SpanIKiLm18446744073709551615EEixEm.exit.i.i.i.us
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %33 = load ptr, ptr %32, align 8, !tbaa !33
-  %34 = getelementptr inbounds nuw i32, ptr %33, i64 %24
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %24
   %35 = load i32, ptr %34, align 4, !tbaa !97
-  %36 = getelementptr inbounds nuw i32, ptr %33, i64 %27
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %27
   %37 = load i32, ptr %36, align 4, !tbaa !97
   %38 = icmp slt i32 %35, %37
   %39 = load i64, ptr %14, align 8, !tbaa !403
@@ -28956,7 +28934,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18I
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21.us: ; preds = %41
   %42 = load ptr, ptr %15, align 8, !tbaa !405
-  %43 = getelementptr inbounds nuw i32, ptr %42, i64 %18
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %18
   store i32 %25, ptr %43, align 4, !tbaa !97
   %44 = getelementptr inbounds nuw i8, ptr %.039.us, i64 4
   br label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23.us
@@ -28966,7 +28944,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20.us: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.us
   %45 = load ptr, ptr %15, align 8, !tbaa !405
-  %46 = getelementptr inbounds nuw i32, ptr %45, i64 %18
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %18
   store i32 %22, ptr %46, align 4, !tbaa !97
   %47 = add nuw i64 %.sroa.5.038.us, 1
   br label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23.us
@@ -28996,7 +28974,7 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0E
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i: ; preds = %49
   %52 = load ptr, ptr %9, align 8, !tbaa !405
-  %53 = getelementptr inbounds nuw i32, ptr %52, i64 %.sroa.5.038
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %.sroa.5.038
   %54 = load i32, ptr %53, align 4, !tbaa !97
   %55 = sext i32 %54 to i64
   %.sroa.0.0.copyload1.i.i.i.i = load i64, ptr %12, align 8, !tbaa !39
@@ -29024,9 +29002,9 @@ _ZNK7xgboost6common4SpanIKiLm18446744073709551615EEixEm.exit.i.i.i: ; preds = %_
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSN_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_PiEEbSC_S19_.exit: ; preds = %_ZNK7xgboost6common4SpanIKiLm18446744073709551615EEixEm.exit.i.i.i
   %64 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %65 = load ptr, ptr %64, align 8, !tbaa !33
-  %66 = getelementptr inbounds nuw i32, ptr %65, i64 %56
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %56
   %67 = load i32, ptr %66, align 4, !tbaa !97
-  %68 = getelementptr inbounds nuw i32, ptr %65, i64 %59
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %59
   %69 = load i32, ptr %68, align 4, !tbaa !97
   %70 = icmp slt i32 %67, %69
   %71 = load i64, ptr %14, align 8, !tbaa !403
@@ -29042,7 +29020,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit
   %73 = load ptr, ptr %15, align 8, !tbaa !405
-  %74 = getelementptr inbounds nuw i32, ptr %73, i64 %.sroa.2.0.copyload
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %73, i64 %.sroa.2.0.copyload
   store i32 %54, ptr %74, align 4, !tbaa !97
   %75 = add nuw i64 %.sroa.5.038, 1
   br label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23
@@ -29056,7 +29034,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21: ; preds = %76
   %77 = load ptr, ptr %15, align 8, !tbaa !405
-  %78 = getelementptr inbounds nuw i32, ptr %77, i64 %.sroa.2.0.copyload
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %.sroa.2.0.copyload
   store i32 %57, ptr %78, align 4, !tbaa !97
   %79 = getelementptr inbounds nuw i8, ptr %.039, i64 4
   br label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23
@@ -29095,7 +29073,7 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0E
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i: ; preds = %87
   %90 = load i32, ptr %.0511.i.i.i.i.i, align 4, !tbaa !97
   %91 = load ptr, ptr %15, align 8, !tbaa !405
-  %92 = getelementptr inbounds nuw i32, ptr %91, i64 %.sroa.4.010.i.i.i.i.i
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %91, i64 %.sroa.4.010.i.i.i.i.i
   store i32 %90, ptr %92, align 4, !tbaa !97
   %93 = getelementptr inbounds nuw i8, ptr %.0511.i.i.i.i.i, i64 4
   %94 = add nuw i64 %.sroa.4.010.i.i.i.i.i, 1
@@ -29151,7 +29129,7 @@ define linkonce_odr void @_ZSt30__move_merge_adaptive_backwardIN7xgboost6common6
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit.i.i.i.i.i: ; preds = %22
   %24 = add i64 %.sroa.4.010.i.i.i.i.i, -1
   %25 = load ptr, ptr %18, align 8, !tbaa !405
-  %26 = getelementptr inbounds nuw i32, ptr %25, i64 %24
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %24
   store i32 %21, ptr %26, align 4, !tbaa !97
   %27 = add nsw i64 %.012.i.i.i.i.i, -1
   %28 = icmp sgt i64 %.012.i.i.i.i.i, 1
@@ -29200,7 +29178,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
   %48 = phi i64 [ %79, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit51.us ], [ %.promoted, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.lr.ph ]
   %.083.us = phi ptr [ %.1.us, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit51.us ], [ %36, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.lr.ph ]
   %.sroa.6.082.us = phi i64 [ %.sroa.6.1.us, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit51.us ], [ %34, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.lr.ph ]
-  %49 = getelementptr inbounds nuw i32, ptr %38, i64 %.sroa.6.082.us
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %.sroa.6.082.us
   %50 = load i32, ptr %.083.us, align 4, !tbaa !97
   %51 = sext i32 %50 to i64
   %52 = add i64 %.sroa.0.0.copyload1.i.i.i.i, %51
@@ -29216,9 +29194,9 @@ _ZNK7xgboost6common4SpanIKiLm18446744073709551615EEixEm.exit.i.i.i.us: ; preds =
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSN_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIPiS12_EEbSC_S19_.exit.us: ; preds = %_ZNK7xgboost6common4SpanIKiLm18446744073709551615EEixEm.exit.i.i.i.us
   %58 = load ptr, ptr %44, align 8, !tbaa !33
-  %59 = getelementptr inbounds nuw i32, ptr %58, i64 %52
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %52
   %60 = load i32, ptr %59, align 4, !tbaa !97
-  %61 = getelementptr inbounds nuw i32, ptr %58, i64 %55
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %55
   %62 = load i32, ptr %61, align 4, !tbaa !97
   %63 = icmp slt i32 %60, %62
   %.not.i31.us = icmp eq i64 %48, 0
@@ -29235,7 +29213,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18I
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit55.us: ; preds = %65
   %67 = add i64 %48, -1
   %68 = load ptr, ptr %47, align 8, !tbaa !405
-  %69 = getelementptr inbounds nuw i32, ptr %68, i64 %67
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %67
   store i32 %50, ptr %69, align 4, !tbaa !97
   %70 = icmp eq ptr %4, %.083.us
   br i1 %70, label %_ZSt13move_backwardIPiN7xgboost6common6detail12SpanIteratorINS2_4SpanIiLm18446744073709551615EEELb0EEEET0_T_S9_S8_.exit, label %71
@@ -29255,7 +29233,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit34.us: ; preds = %73
   %75 = add i64 %48, -1
   %76 = load ptr, ptr %47, align 8, !tbaa !405
-  %77 = getelementptr inbounds nuw i32, ptr %76, i64 %75
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %75
   store i32 %53, ptr %77, align 4, !tbaa !97
   %78 = add i64 %.sroa.6.082.us, -1
   %or.cond63.not.us = icmp ult i64 %78, %33
@@ -29276,7 +29254,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
   %81 = phi i64 [ %127, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit51 ], [ %.promoted, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.lr.ph ]
   %.083 = phi ptr [ %.1, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit51 ], [ %36, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.lr.ph ]
   %.sroa.6.082 = phi i64 [ %.sroa.6.1, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit51 ], [ %34, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.lr.ph ]
-  %82 = getelementptr inbounds nuw i32, ptr %38, i64 %.sroa.6.082
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %.sroa.6.082
   %83 = load i32, ptr %.083, align 4, !tbaa !97
   %84 = sext i32 %83 to i64
   %85 = add i64 %.sroa.0.0.copyload1.i.i.i.i, %84
@@ -29300,9 +29278,9 @@ _ZNK7xgboost6common4SpanIKiLm18446744073709551615EEixEm.exit.i.i.i: ; preds = %_
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSN_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIPiS12_EEbSC_S19_.exit: ; preds = %_ZNK7xgboost6common4SpanIKiLm18446744073709551615EEixEm.exit.i.i.i
   %91 = load ptr, ptr %44, align 8, !tbaa !33
-  %92 = getelementptr inbounds nuw i32, ptr %91, i64 %85
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %91, i64 %85
   %93 = load i32, ptr %92, align 4, !tbaa !97
-  %94 = getelementptr inbounds nuw i32, ptr %91, i64 %88
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %91, i64 %88
   %95 = load i32, ptr %94, align 4, !tbaa !97
   %96 = icmp slt i32 %93, %95
   %.not.i31 = icmp eq i64 %81, 0
@@ -29323,7 +29301,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit34: ; preds = %97
   %99 = add i64 %81, -1
   %100 = load ptr, ptr %47, align 8, !tbaa !405
-  %101 = getelementptr inbounds nuw i32, ptr %100, i64 %99
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %100, i64 %99
   store i32 %86, ptr %101, align 4, !tbaa !97
   %102 = icmp eq i64 %1, %.sroa.6.082
   br i1 %102, label %103, label %116
@@ -29353,7 +29331,7 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0E
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit.i.i.i.i.i45: ; preds = %.lr.ph.i.i.i.i.i39
   %111 = getelementptr inbounds i8, ptr %.0411.i.i.i.i.i41, i64 -4
   %112 = load i32, ptr %111, align 4, !tbaa !97
-  %113 = getelementptr inbounds nuw i32, ptr %100, i64 %110
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %100, i64 %110
   store i32 %112, ptr %113, align 4, !tbaa !97
   %114 = add nsw i64 %.012.i.i.i.i.i40, -1
   %115 = icmp sgt i64 %.012.i.i.i.i.i40, 1
@@ -29383,7 +29361,7 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0E
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit55: ; preds = %119
   %121 = add i64 %81, -1
   %122 = load ptr, ptr %47, align 8, !tbaa !405
-  %123 = getelementptr inbounds nuw i32, ptr %122, i64 %121
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %122, i64 %121
   store i32 %83, ptr %123, align 4, !tbaa !97
   %124 = icmp eq ptr %4, %.083
   br i1 %124, label %_ZSt13move_backwardIPiN7xgboost6common6detail12SpanIteratorINS2_4SpanIiLm18446744073709551615EEELb0EEEET0_T_S9_S8_.exit, label %125
@@ -29449,7 +29427,7 @@ _ZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS0_9SortNamesINS
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i: ; preds = %.lr.ph.split.i.i
   %indvars12 = trunc i64 %.sroa.4.010.i.i to i32
   %13 = load ptr, ptr %12, align 8, !tbaa !405
-  %14 = getelementptr inbounds nuw i32, ptr %13, i64 %.sroa.4.010.i.i
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %.sroa.4.010.i.i
   store i32 %indvars12, ptr %14, align 4, !tbaa !97
   %15 = add nuw i64 %.sroa.4.010.i.i, 1
   %.not.i.i = icmp eq i64 %15, %7
@@ -29652,8 +29630,8 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i
   %25 = load ptr, ptr %15, align 8, !tbaa !405
-  %26 = getelementptr inbounds nuw i32, ptr %25, i64 %.sroa.10.050
-  %27 = getelementptr inbounds nuw i32, ptr %25, i64 %1
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %.sroa.10.050
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %1
   %28 = load i32, ptr %26, align 4, !tbaa !97
   %29 = sext i32 %28 to i64
   %.sroa.0.0.copyload1.i.i.i.i = load i64, ptr %5, align 8, !tbaa !39
@@ -29681,9 +29659,9 @@ _ZNK7xgboost6common4SpanIKlLm18446744073709551615EEixEm.exit.i.i.i: ; preds = %_
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSP_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit: ; preds = %_ZNK7xgboost6common4SpanIKlLm18446744073709551615EEixEm.exit.i.i.i
   %40 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %41 = load ptr, ptr %40, align 8, !tbaa !76
-  %42 = getelementptr inbounds nuw i64, ptr %41, i64 %30
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %30
   %43 = load i64, ptr %42, align 8, !tbaa !39
-  %44 = getelementptr inbounds nuw i64, ptr %41, i64 %33
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %33
   %45 = load i64, ptr %44, align 8, !tbaa !39
   %46 = icmp slt i64 %43, %45
   br i1 %46, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit, label %57
@@ -29710,10 +29688,10 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
   unreachable
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit9.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i
-  %51 = getelementptr inbounds nuw i32, ptr %25, i64 %50
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %50
   %52 = load i32, ptr %51, align 4, !tbaa !97
   %53 = add i64 %.sroa.4.024.i.i.i.i.i, -1
-  %54 = getelementptr inbounds nuw i32, ptr %25, i64 %53
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %53
   store i32 %52, ptr %54, align 4, !tbaa !97
   %55 = add nsw i64 %.026.i.i.i.i.i, -1
   %56 = icmp sgt i64 %.026.i.i.i.i.i, 1
@@ -29788,10 +29766,10 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i
   %26 = getelementptr inbounds nuw i8, ptr %.tr118172, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !405
-  %28 = getelementptr inbounds nuw i32, ptr %27, i64 %.tr119173
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %.tr119173
   %29 = getelementptr inbounds nuw i8, ptr %.tr170, i64 8
   %30 = load ptr, ptr %29, align 8, !tbaa !405
-  %31 = getelementptr inbounds nuw i32, ptr %30, i64 %.tr117171
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %.tr117171
   %32 = load ptr, ptr %8, align 8, !tbaa !502
   %33 = load ptr, ptr %.sroa.225.0..sroa_idx, align 8, !tbaa !504
   %34 = load i32, ptr %28, align 4, !tbaa !97
@@ -29821,9 +29799,9 @@ _ZNK7xgboost6common4SpanIKlLm18446744073709551615EEixEm.exit.i.i.i: ; preds = %_
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSP_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit: ; preds = %_ZNK7xgboost6common4SpanIKlLm18446744073709551615EEixEm.exit.i.i.i
   %46 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %47 = load ptr, ptr %46, align 8, !tbaa !76
-  %48 = getelementptr inbounds nuw i64, ptr %47, i64 %36
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %36
   %49 = load i64, ptr %48, align 8, !tbaa !39
-  %50 = getelementptr inbounds nuw i64, ptr %47, i64 %39
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %39
   %51 = load i64, ptr %50, align 8, !tbaa !39
   %52 = icmp slt i64 %49, %51
   br i1 %52, label %_ZSt9iter_swapIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEES6_EvT_T0_.exit, label %.loopexit
@@ -29859,7 +29837,7 @@ _ZSt7advanceIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm1844674407370955
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit: ; preds = %_ZSt7advanceIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEElEvRT_T0_.exit
   %62 = getelementptr inbounds nuw i8, ptr %.tr170, i64 8
   %63 = load ptr, ptr %62, align 8, !tbaa !405
-  %64 = getelementptr inbounds nuw i32, ptr %63, i64 %57
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %57
   %.sroa.035.0.copyload = load ptr, ptr %8, align 8, !tbaa !179
   %.sroa.236.0.copyload = load ptr, ptr %.sroa.225.0..sroa_idx, align 8, !tbaa !396
   store ptr %.sroa.035.0.copyload, ptr %10, align 8
@@ -29900,7 +29878,7 @@ _ZSt7advanceIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm1844674407370955
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit95: ; preds = %_ZSt7advanceIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEElEvRT_T0_.exit94
   %78 = getelementptr inbounds nuw i8, ptr %.tr118172, i64 8
   %79 = load ptr, ptr %78, align 8, !tbaa !405
-  %80 = getelementptr inbounds nuw i32, ptr %79, i64 %73
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %79, i64 %73
   %.sroa.024.0.copyload = load ptr, ptr %8, align 8, !tbaa !179
   %.sroa.225.0.copyload = load ptr, ptr %.sroa.225.0..sroa_idx, align 8, !tbaa !396
   store ptr %.sroa.024.0.copyload, ptr %11, align 8
@@ -29954,7 +29932,7 @@ define linkonce_odr void @_ZSt25__unguarded_linear_insertIN7xgboost6common6detai
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit: ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !405
-  %10 = getelementptr inbounds nuw i32, ptr %9, i64 %1
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %1
   %11 = load i32, ptr %10, align 4, !tbaa !97
   %.not.i = icmp eq i64 %1, 0
   br i1 %.not.i, label %.critedge.i, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit.preheader, !prof !91
@@ -29978,7 +29956,7 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0E
   unreachable
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i: ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit
-  %15 = getelementptr inbounds nuw i32, ptr %9, i64 %.sroa.8.0
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %.sroa.8.0
   %.sroa.0.0.copyload1.i.i.i.i = load i64, ptr %3, align 8, !tbaa !39
   %16 = add i64 %.sroa.0.0.copyload1.i.i.i.i, %12
   %17 = load i32, ptr %15, align 4, !tbaa !97
@@ -30004,15 +29982,15 @@ _ZNK7xgboost6common4SpanIKlLm18446744073709551615EEixEm.exit.i.i.i: ; preds = %_
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSP_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIiS12_EEbRSC_S19_.exit: ; preds = %_ZNK7xgboost6common4SpanIKlLm18446744073709551615EEixEm.exit.i.i.i
   %26 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !76
-  %28 = getelementptr inbounds nuw i64, ptr %27, i64 %16
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %16
   %29 = load i64, ptr %28, align 8, !tbaa !39
-  %30 = getelementptr inbounds nuw i64, ptr %27, i64 %19
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %19
   %31 = load i64, ptr %30, align 8, !tbaa !39
   %32 = icmp slt i64 %29, %31
   br i1 %32, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit2, label %35
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit2: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSP_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIiS12_EEbRSC_S19_.exit
-  %33 = getelementptr inbounds nuw i32, ptr %9, i64 %.sroa.6.0
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %.sroa.6.0
   store i32 %17, ptr %33, align 4, !tbaa !97
   %34 = add i64 %.sroa.6.0, -2
   %or.cond.not = icmp ult i64 %34, %5
@@ -30031,7 +30009,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
   unreachable
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit7: ; preds = %35
-  %38 = getelementptr inbounds nuw i32, ptr %9, i64 %.sroa.6.0
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %.sroa.6.0
   store i32 %11, ptr %38, align 4, !tbaa !97
   ret void
 }
@@ -30082,7 +30060,7 @@ _ZSt7advanceIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm1844674407370955
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i: ; preds = %_ZSt7advanceIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEElEvRT_T0_.exit
   %24 = load ptr, ptr %11, align 8, !tbaa !405
-  %25 = getelementptr inbounds nuw i32, ptr %24, i64 %20
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %20
   %26 = load i32, ptr %25, align 4, !tbaa !97
   %27 = sext i32 %26 to i64
   %.sroa.0.0.copyload1.i.i.i.i = load i64, ptr %14, align 8, !tbaa !39
@@ -30108,9 +30086,9 @@ _ZNK7xgboost6common4SpanIKlLm18446744073709551615EEixEm.exit.i.i.i: ; preds = %_
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSP_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_SM_EEbSC_RS19_.exit: ; preds = %_ZNK7xgboost6common4SpanIKlLm18446744073709551615EEixEm.exit.i.i.i
   %36 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %37 = load ptr, ptr %36, align 8, !tbaa !76
-  %38 = getelementptr inbounds nuw i64, ptr %37, i64 %28
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %28
   %39 = load i64, ptr %38, align 8, !tbaa !39
-  %40 = getelementptr inbounds nuw i64, ptr %37, i64 %29
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %29
   %41 = load i64, ptr %40, align 8, !tbaa !39
   %42 = icmp slt i64 %39, %41
   %43 = add nuw i64 %20, 1
@@ -30174,7 +30152,7 @@ _ZSt7advanceIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm1844674407370955
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i: ; preds = %_ZSt7advanceIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEElEvRT_T0_.exit
   %24 = load ptr, ptr %11, align 8, !tbaa !405
-  %25 = getelementptr inbounds nuw i32, ptr %24, i64 %20
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %20
   %.sroa.0.0.copyload1.i.i.i.i = load i64, ptr %14, align 8, !tbaa !39
   %26 = add i64 %.sroa.0.0.copyload1.i.i.i.i, %16
   %27 = load i32, ptr %25, align 4, !tbaa !97
@@ -30200,9 +30178,9 @@ _ZNK7xgboost6common4SpanIKlLm18446744073709551615EEixEm.exit.i.i.i: ; preds = %_
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSP_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclISM_S12_EEbRSC_S19_.exit: ; preds = %_ZNK7xgboost6common4SpanIKlLm18446744073709551615EEixEm.exit.i.i.i
   %36 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %37 = load ptr, ptr %36, align 8, !tbaa !76
-  %38 = getelementptr inbounds nuw i64, ptr %37, i64 %26
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %26
   %39 = load i64, ptr %38, align 8, !tbaa !39
-  %40 = getelementptr inbounds nuw i64, ptr %37, i64 %29
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %29
   %41 = load i64, ptr %40, align 8, !tbaa !39
   %42 = icmp slt i64 %39, %41
   %43 = add nuw i64 %20, 1
@@ -30231,7 +30209,7 @@ define linkonce_odr void @_ZSt24__merge_sort_with_bufferIN7xgboost6common6detail
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit: ; preds = %6
   %9 = sub i64 %3, %1
-  %10 = getelementptr inbounds i32, ptr %4, i64 %9
+  %10 = getelementptr inbounds [4 x i8], ptr %4, i64 %9
   %.sroa.028.sroa.0.0.copyload = load ptr, ptr %5, align 8, !tbaa !179
   %.sroa.028.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.028.sroa.2.0.copyload = load ptr, ptr %.sroa.028.sroa.2.0..sroa_idx, align 8, !tbaa !396
@@ -30312,7 +30290,7 @@ _ZSt22__chunk_insertion_sortIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i.i.us: ; preds = %28
   %30 = load i32, ptr %.0511.i.i.i.i.i.i.us, align 4, !tbaa !97
   %31 = load ptr, ptr %20, align 8, !tbaa !405
-  %32 = getelementptr inbounds nuw i32, ptr %31, i64 %.sroa.4.010.i.i.i.i.i.i.us
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %.sroa.4.010.i.i.i.i.i.i.us
   store i32 %30, ptr %32, align 4, !tbaa !97
   %33 = getelementptr inbounds nuw i8, ptr %.0511.i.i.i.i.i.i.us, i64 4
   %34 = add nuw i64 %.sroa.4.010.i.i.i.i.i.i.us, 1
@@ -30338,7 +30316,7 @@ _ZSt4moveIPiN7xgboost6common6detail12SpanIteratorINS2_4SpanIiLm18446744073709551
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i28.i.us: ; preds = %39
   %41 = load i32, ptr %.0511.i.i.i.i.i26.i.us, align 4, !tbaa !97
   %42 = load ptr, ptr %20, align 8, !tbaa !405
-  %43 = getelementptr inbounds nuw i32, ptr %42, i64 %.sroa.4.010.i.i.i.i.i27.i.us
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %.sroa.4.010.i.i.i.i.i27.i.us
   store i32 %41, ptr %43, align 4, !tbaa !97
   %44 = getelementptr inbounds nuw i8, ptr %.0511.i.i.i.i.i26.i.us, i64 4
   %45 = add nuw i64 %.sroa.4.010.i.i.i.i.i27.i.us, 1
@@ -30394,9 +30372,9 @@ _ZNK7xgboost6common4SpanIKlLm18446744073709551615EEixEm.exit.i.i.i.i: ; preds = 
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSP_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIPiS1F_EEbSC_S19_.exit.i: ; preds = %_ZNK7xgboost6common4SpanIKlLm18446744073709551615EEixEm.exit.i.i.i.i
   %66 = load ptr, ptr %52, align 8, !tbaa !76
-  %67 = getelementptr inbounds nuw i64, ptr %66, i64 %58
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %58
   %68 = load i64, ptr %67, align 8, !tbaa !39
-  %69 = getelementptr inbounds nuw i64, ptr %66, i64 %61
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %61
   %70 = load i64, ptr %69, align 8, !tbaa !39
   %71 = icmp slt i64 %68, %70
   %72 = load i64, ptr %0, align 8, !tbaa !403
@@ -30412,7 +30390,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18I
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i: ; preds = %74
   %76 = load ptr, ptr %20, align 8, !tbaa !405
-  %77 = getelementptr inbounds nuw i32, ptr %76, i64 %.sroa.5.051.i
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %.sroa.5.051.i
   store i32 %56, ptr %77, align 4, !tbaa !97
   %78 = getelementptr inbounds nuw i8, ptr %.01852.i, i64 4
   br label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i
@@ -30426,7 +30404,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20.i: ; preds = %79
   %81 = load ptr, ptr %20, align 8, !tbaa !405
-  %82 = getelementptr inbounds nuw i32, ptr %81, i64 %.sroa.5.051.i
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %81, i64 %.sroa.5.051.i
   store i32 %59, ptr %82, align 4, !tbaa !97
   %83 = getelementptr inbounds nuw i8, ptr %.053.i, i64 4
   br label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i
@@ -30462,7 +30440,7 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0E
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i
   %95 = load i32, ptr %.0511.i.i.i.i.i.i, align 4, !tbaa !97
-  %96 = getelementptr inbounds nuw i32, ptr %84, i64 %.sroa.4.010.i.i.i.i.i.i
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %84, i64 %.sroa.4.010.i.i.i.i.i.i
   store i32 %95, ptr %96, align 4, !tbaa !97
   %97 = getelementptr inbounds nuw i8, ptr %.0511.i.i.i.i.i.i, i64 4
   %98 = add nuw i64 %.sroa.4.010.i.i.i.i.i.i, 1
@@ -30492,7 +30470,7 @@ _ZSt4moveIPiN7xgboost6common6detail12SpanIteratorINS2_4SpanIiLm18446744073709551
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i28.i: ; preds = %.lr.ph.i.i.i.i.i24.i
   %107 = load i32, ptr %.0511.i.i.i.i.i26.i, align 4, !tbaa !97
-  %108 = getelementptr inbounds nuw i32, ptr %84, i64 %.sroa.4.010.i.i.i.i.i27.i
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %84, i64 %.sroa.4.010.i.i.i.i.i27.i
   store i32 %107, ptr %108, align 4, !tbaa !97
   %109 = getelementptr inbounds nuw i8, ptr %.0511.i.i.i.i.i26.i, i64 4
   %110 = add nuw i64 %.sroa.4.010.i.i.i.i.i27.i, 1
@@ -30512,7 +30490,7 @@ _ZSt17__merge_sort_loopIPiN7xgboost6common6detail12SpanIteratorINS2_4SpanIiLm184
   %.sroa.420.0.lcssa.i = phi i64 [ %1, %21 ], [ %.sroa.4.0.lcssa.i.i.i.i.i21.i.us, %_ZSt12__move_mergeIPiN7xgboost6common6detail12SpanIteratorINS2_4SpanIiLm18446744073709551615EEELb0EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortINS2_18IndexTransformIterIZNSC_9SortNamesINSB_6PolicyIJNS1_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNSB_15CatStrArrayViewENS5_IKaLm18446744073709551615EEENS5_IKsLm18446744073709551615EEENS5_IKiLm18446744073709551615EEENS5_IKlLm18446744073709551615EEENS5_IKfLm18446744073709551615EEENS5_IKdLm18446744073709551615EEEEES6_EUlSJ_E_EES7_ZZNSF_ISI_EEvSL_S12_S6_ENKUlOSJ_E0_clIRKSV_EEDaS15_EUlmmE_EEvSJ_SJ_T0_T1_EUlRSS_S1D_E_EEES1B_SJ_SJ_SJ_SJ_S1B_S1C_.exit.us ], [ %.sroa.4.0.lcssa.i.i.i.i.i21.i, %_ZSt12__move_mergeIPiN7xgboost6common6detail12SpanIteratorINS2_4SpanIiLm18446744073709551615EEELb0EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortINS2_18IndexTransformIterIZNSC_9SortNamesINSB_6PolicyIJNS1_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNSB_15CatStrArrayViewENS5_IKaLm18446744073709551615EEENS5_IKsLm18446744073709551615EEENS5_IKiLm18446744073709551615EEENS5_IKlLm18446744073709551615EEENS5_IKfLm18446744073709551615EEENS5_IKdLm18446744073709551615EEEEES6_EUlSJ_E_EES7_ZZNSF_ISI_EEvSL_S12_S6_ENKUlOSJ_E0_clIRKSV_EEDaS15_EUlmmE_EEvSJ_SJ_T0_T1_EUlRSS_S1D_E_EEES1B_SJ_SJ_SJ_SJ_S1B_S1C_.exit ]
   %.lcssa.i = phi i64 [ %9, %21 ], [ %49, %_ZSt12__move_mergeIPiN7xgboost6common6detail12SpanIteratorINS2_4SpanIiLm18446744073709551615EEELb0EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortINS2_18IndexTransformIterIZNSC_9SortNamesINSB_6PolicyIJNS1_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNSB_15CatStrArrayViewENS5_IKaLm18446744073709551615EEENS5_IKsLm18446744073709551615EEENS5_IKiLm18446744073709551615EEENS5_IKlLm18446744073709551615EEENS5_IKfLm18446744073709551615EEENS5_IKdLm18446744073709551615EEEEES6_EUlSJ_E_EES7_ZZNSF_ISI_EEvSL_S12_S6_ENKUlOSJ_E0_clIRKSV_EEDaS15_EUlmmE_EEvSJ_SJ_T0_T1_EUlRSS_S1D_E_EEES1B_SJ_SJ_SJ_SJ_S1B_S1C_.exit.us ], [ %114, %_ZSt12__move_mergeIPiN7xgboost6common6detail12SpanIteratorINS2_4SpanIiLm18446744073709551615EEELb0EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortINS2_18IndexTransformIterIZNSC_9SortNamesINSB_6PolicyIJNS1_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNSB_15CatStrArrayViewENS5_IKaLm18446744073709551615EEENS5_IKsLm18446744073709551615EEENS5_IKiLm18446744073709551615EEENS5_IKlLm18446744073709551615EEENS5_IKfLm18446744073709551615EEENS5_IKdLm18446744073709551615EEEEES6_EUlSJ_E_EES7_ZZNSF_ISI_EEvSL_S12_S6_ENKUlOSJ_E0_clIRKSV_EEDaS15_EUlmmE_EEvSJ_SJ_T0_T1_EUlRSS_S1D_E_EEES1B_SJ_SJ_SJ_SJ_S1B_S1C_.exit ]
   %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %22, i64 %.lcssa.i)
-  %115 = getelementptr inbounds i32, ptr %.0.lcssa.i, i64 %.sroa.speculated.i
+  %115 = getelementptr inbounds [4 x i8], ptr %.0.lcssa.i, i64 %.sroa.speculated.i
   %116 = tail call { ptr, i64 } @_ZSt12__move_mergeIPiN7xgboost6common6detail12SpanIteratorINS2_4SpanIiLm18446744073709551615EEELb0EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortINS2_18IndexTransformIterIZNSC_9SortNamesINSB_6PolicyIJNS1_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNSB_15CatStrArrayViewENS5_IKaLm18446744073709551615EEENS5_IKsLm18446744073709551615EEENS5_IKiLm18446744073709551615EEENS5_IKlLm18446744073709551615EEENS5_IKfLm18446744073709551615EEENS5_IKdLm18446744073709551615EEEEES6_EUlSJ_E_EES7_ZZNSF_ISI_EEvSL_S12_S6_ENKUlOSJ_E0_clIRKSV_EEDaS15_EUlmmE_EEvSJ_SJ_T0_T1_EUlRSS_S1D_E_EEES1B_SJ_SJ_SJ_SJ_S1B_S1C_(ptr noundef %.0.lcssa.i, ptr noundef %115, ptr noundef %115, ptr noundef nonnull %10, ptr %0, i64 %.sroa.420.0.lcssa.i, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter.233") align 8 %5)
   %117 = icmp slt i64 %23, %9
   br i1 %117, label %21, label %._crit_edge, !llvm.loop !511
@@ -30573,7 +30551,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i: ; preds = %24
   %27 = load ptr, ptr %23, align 8, !tbaa !405
-  %28 = getelementptr inbounds nuw i32, ptr %27, i64 %.sroa.3.09.i.i.i.i.i
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %.sroa.3.09.i.i.i.i.i
   %29 = load i32, ptr %28, align 4, !tbaa !97
   store i32 %29, ptr %.011.i.i.i.i.i, align 4, !tbaa !97
   %30 = add nuw i64 %.sroa.3.09.i.i.i.i.i, 1
@@ -30632,7 +30610,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i121: ; preds = %42
   %45 = load ptr, ptr %41, align 8, !tbaa !405
-  %46 = getelementptr inbounds nuw i32, ptr %45, i64 %.sroa.3.09.i.i.i.i.i120
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %.sroa.3.09.i.i.i.i.i120
   %47 = load i32, ptr %46, align 4, !tbaa !97
   store i32 %47, ptr %.011.i.i.i.i.i118, align 4, !tbaa !97
   %48 = add nuw i64 %.sroa.3.09.i.i.i.i.i120, 1
@@ -30674,7 +30652,7 @@ _ZSt7advanceIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm1844674407370955
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit: ; preds = %_ZSt7advanceIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEElEvRT_T0_.exit
   %60 = getelementptr inbounds nuw i8, ptr %.tr214, i64 8
   %61 = load ptr, ptr %60, align 8, !tbaa !405
-  %62 = getelementptr inbounds nuw i32, ptr %61, i64 %55
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %55
   %.sroa.034.0.copyload = load ptr, ptr %10, align 8, !tbaa !179
   %.sroa.235.0.copyload = load ptr, ptr %.sroa.224.0..sroa_idx, align 8, !tbaa !396
   store ptr %.sroa.034.0.copyload, ptr %14, align 8
@@ -30715,7 +30693,7 @@ _ZSt7advanceIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm1844674407370955
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit134: ; preds = %_ZSt7advanceIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEElEvRT_T0_.exit133
   %76 = getelementptr inbounds nuw i8, ptr %.tr157216, i64 8
   %77 = load ptr, ptr %76, align 8, !tbaa !405
-  %78 = getelementptr inbounds nuw i32, ptr %77, i64 %71
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %71
   %.sroa.023.0.copyload = load ptr, ptr %10, align 8, !tbaa !179
   %.sroa.224.0.copyload = load ptr, ptr %.sroa.224.0..sroa_idx, align 8, !tbaa !396
   store ptr %.sroa.023.0.copyload, ptr %15, align 8
@@ -30869,9 +30847,9 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us.us: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us
   %21 = load ptr, ptr %12, align 8, !tbaa !405
-  %22 = getelementptr inbounds nuw i32, ptr %21, i64 %.sroa.6.068.us.us114
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %.sroa.6.068.us.us114
   %23 = load ptr, ptr %13, align 8, !tbaa !405
-  %24 = getelementptr inbounds nuw i32, ptr %23, i64 %.sroa.643.069.us.us113
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %.sroa.643.069.us.us113
   %25 = load i32, ptr %22, align 4, !tbaa !97
   %26 = sext i32 %25 to i64
   %.sroa.0.0.copyload1.i.i.i.i.us.us = load i64, ptr %16, align 8, !tbaa !39
@@ -30891,9 +30869,9 @@ _ZNK7xgboost6common4SpanIKlLm18446744073709551615EEixEm.exit.i.i.i.us.us: ; pred
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSP_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us.us: ; preds = %_ZNK7xgboost6common4SpanIKlLm18446744073709551615EEixEm.exit.i.i.i.us.us
   %35 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %36 = load ptr, ptr %35, align 8, !tbaa !76
-  %37 = getelementptr inbounds nuw i64, ptr %36, i64 %27
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %27
   %38 = load i64, ptr %37, align 8, !tbaa !39
-  %39 = getelementptr inbounds nuw i64, ptr %36, i64 %30
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %30
   %40 = load i64, ptr %39, align 8, !tbaa !39
   %41 = icmp slt i64 %38, %40
   %.sink = select i1 %41, i32 %25, i32 %28
@@ -30921,9 +30899,9 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us
   %49 = load ptr, ptr %12, align 8, !tbaa !405
-  %50 = getelementptr inbounds nuw i32, ptr %49, i64 %.sroa.6.068.us
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %.sroa.6.068.us
   %51 = load ptr, ptr %13, align 8, !tbaa !405
-  %52 = getelementptr inbounds nuw i32, ptr %51, i64 %.sroa.643.069.us
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %.sroa.643.069.us
   %53 = load i32, ptr %50, align 4, !tbaa !97
   %54 = sext i32 %53 to i64
   %.sroa.0.0.copyload1.i.i.i.i.us = load i64, ptr %16, align 8, !tbaa !39
@@ -30943,9 +30921,9 @@ _ZNK7xgboost6common4SpanIKlLm18446744073709551615EEixEm.exit.i.i.i.us: ; preds =
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSP_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us: ; preds = %_ZNK7xgboost6common4SpanIKlLm18446744073709551615EEixEm.exit.i.i.i.us
   %63 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %64 = load ptr, ptr %63, align 8, !tbaa !76
-  %65 = getelementptr inbounds nuw i64, ptr %64, i64 %55
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %55
   %66 = load i64, ptr %65, align 8, !tbaa !39
-  %67 = getelementptr inbounds nuw i64, ptr %64, i64 %58
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %58
   %68 = load i64, ptr %67, align 8, !tbaa !39
   %69 = icmp slt i64 %66, %68
   %.sink136 = select i1 %69, i32 %53, i32 %56
@@ -30984,9 +30962,9 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us91: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us90
   %78 = load ptr, ptr %12, align 8, !tbaa !405
-  %79 = getelementptr inbounds nuw i32, ptr %78, i64 %.sroa.6.068.us89106
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %78, i64 %.sroa.6.068.us89106
   %80 = load ptr, ptr %13, align 8, !tbaa !405
-  %81 = getelementptr inbounds nuw i32, ptr %80, i64 %.sroa.643.069.us88105
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %80, i64 %.sroa.643.069.us88105
   %82 = load i32, ptr %79, align 4, !tbaa !97
   %83 = sext i32 %82 to i64
   %.sroa.0.0.copyload1.i.i.i.i.us92 = load i64, ptr %16, align 8, !tbaa !39
@@ -31006,9 +30984,9 @@ _ZNK7xgboost6common4SpanIKlLm18446744073709551615EEixEm.exit.i.i.i.us93: ; preds
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSP_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94: ; preds = %_ZNK7xgboost6common4SpanIKlLm18446744073709551615EEixEm.exit.i.i.i.us93
   %92 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %93 = load ptr, ptr %92, align 8, !tbaa !76
-  %94 = getelementptr inbounds nuw i64, ptr %93, i64 %84
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %84
   %95 = load i64, ptr %94, align 8, !tbaa !39
-  %96 = getelementptr inbounds nuw i64, ptr %93, i64 %87
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %87
   %97 = load i64, ptr %96, align 8, !tbaa !39
   %98 = icmp slt i64 %95, %97
   %.sink137 = select i1 %98, i32 %82, i32 %85
@@ -31049,9 +31027,9 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i
   %107 = load ptr, ptr %12, align 8, !tbaa !405
-  %108 = getelementptr inbounds nuw i32, ptr %107, i64 %.sroa.6.068
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %107, i64 %.sroa.6.068
   %109 = load ptr, ptr %13, align 8, !tbaa !405
-  %110 = getelementptr inbounds nuw i32, ptr %109, i64 %.sroa.643.069
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %109, i64 %.sroa.643.069
   %111 = load i32, ptr %108, align 4, !tbaa !97
   %112 = sext i32 %111 to i64
   %.sroa.0.0.copyload1.i.i.i.i = load i64, ptr %16, align 8, !tbaa !39
@@ -31079,9 +31057,9 @@ _ZNK7xgboost6common4SpanIKlLm18446744073709551615EEixEm.exit.i.i.i: ; preds = %_
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSP_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit: ; preds = %_ZNK7xgboost6common4SpanIKlLm18446744073709551615EEixEm.exit.i.i.i
   %121 = getelementptr inbounds nuw i8, ptr %117, i64 8
   %122 = load ptr, ptr %121, align 8, !tbaa !76
-  %123 = getelementptr inbounds nuw i64, ptr %122, i64 %113
+  %123 = getelementptr inbounds nuw [8 x i8], ptr %122, i64 %113
   %124 = load i64, ptr %123, align 8, !tbaa !39
-  %125 = getelementptr inbounds nuw i64, ptr %122, i64 %116
+  %125 = getelementptr inbounds nuw [8 x i8], ptr %122, i64 %116
   %126 = load i64, ptr %125, align 8, !tbaa !39
   %127 = icmp slt i64 %124, %126
   %.sink138 = select i1 %127, i32 %111, i32 %114
@@ -31130,7 +31108,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i: ; preds = %137
   %140 = load ptr, ptr %136, align 8, !tbaa !405
-  %141 = getelementptr inbounds nuw i32, ptr %140, i64 %.sroa.3.09.i.i.i.i.i
+  %141 = getelementptr inbounds nuw [4 x i8], ptr %140, i64 %.sroa.3.09.i.i.i.i.i
   %142 = load i32, ptr %141, align 4, !tbaa !97
   store i32 %142, ptr %.011.i.i.i.i.i, align 4, !tbaa !97
   %143 = add nuw i64 %.sroa.3.09.i.i.i.i.i, 1
@@ -31171,7 +31149,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34: ; preds = %153
   %156 = load ptr, ptr %152, align 8, !tbaa !405
-  %157 = getelementptr inbounds nuw i32, ptr %156, i64 %.sroa.3.09.i.i.i.i.i33
+  %157 = getelementptr inbounds nuw [4 x i8], ptr %156, i64 %.sroa.3.09.i.i.i.i.i33
   %158 = load i32, ptr %157, align 4, !tbaa !97
   store i32 %158, ptr %.011.i.i.i.i.i31, align 4, !tbaa !97
   %159 = add nuw i64 %.sroa.3.09.i.i.i.i.i33, 1
@@ -31230,9 +31208,9 @@ _ZNK7xgboost6common4SpanIKlLm18446744073709551615EEixEm.exit.i.i.i: ; preds = %1
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSP_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIPiS1F_EEbSC_S19_.exit: ; preds = %_ZNK7xgboost6common4SpanIKlLm18446744073709551615EEixEm.exit.i.i.i
   %29 = load ptr, ptr %16, align 8, !tbaa !76
-  %30 = getelementptr inbounds nuw i64, ptr %29, i64 %21
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %21
   %31 = load i64, ptr %30, align 8, !tbaa !39
-  %32 = getelementptr inbounds nuw i64, ptr %29, i64 %24
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %24
   %33 = load i64, ptr %32, align 8, !tbaa !39
   %34 = icmp slt i64 %31, %33
   %35 = load i64, ptr %4, align 8, !tbaa !403
@@ -31248,7 +31226,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18I
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit: ; preds = %37
   %39 = load ptr, ptr %17, align 8, !tbaa !405
-  %40 = getelementptr inbounds nuw i32, ptr %39, i64 %.sroa.5.051
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %.sroa.5.051
   store i32 %19, ptr %40, align 4, !tbaa !97
   %41 = getelementptr inbounds nuw i8, ptr %.01852, i64 4
   br label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit
@@ -31262,7 +31240,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20: ; preds = %42
   %44 = load ptr, ptr %17, align 8, !tbaa !405
-  %45 = getelementptr inbounds nuw i32, ptr %44, i64 %.sroa.5.051
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %.sroa.5.051
   store i32 %22, ptr %45, align 4, !tbaa !97
   %46 = getelementptr inbounds nuw i8, ptr %.053, i64 4
   br label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit
@@ -31306,7 +31284,7 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0E
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i: ; preds = %58
   %61 = load i32, ptr %.0511.i.i.i.i.i, align 4, !tbaa !97
   %62 = load ptr, ptr %57, align 8, !tbaa !405
-  %63 = getelementptr inbounds nuw i32, ptr %62, i64 %.sroa.4.010.i.i.i.i.i
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %.sroa.4.010.i.i.i.i.i
   store i32 %61, ptr %63, align 4, !tbaa !97
   %64 = getelementptr inbounds nuw i8, ptr %.0511.i.i.i.i.i, i64 4
   %65 = add nuw i64 %.sroa.4.010.i.i.i.i.i, 1
@@ -31342,7 +31320,7 @@ _ZSt4moveIPiN7xgboost6common6detail12SpanIteratorINS2_4SpanIiLm18446744073709551
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i28: ; preds = %75
   %78 = load i32, ptr %.0511.i.i.i.i.i26, align 4, !tbaa !97
   %79 = load ptr, ptr %74, align 8, !tbaa !405
-  %80 = getelementptr inbounds nuw i32, ptr %79, i64 %.sroa.4.010.i.i.i.i.i27
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %79, i64 %.sroa.4.010.i.i.i.i.i27
   store i32 %78, ptr %80, align 4, !tbaa !97
   %81 = getelementptr inbounds nuw i8, ptr %.0511.i.i.i.i.i26, i64 4
   %82 = add nuw i64 %.sroa.4.010.i.i.i.i.i27, 1
@@ -31389,7 +31367,7 @@ define linkonce_odr void @_ZSt21__move_merge_adaptiveIPiN7xgboost6common6detail1
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us: ; preds = %17
   %20 = load ptr, ptr %9, align 8, !tbaa !405
-  %21 = getelementptr inbounds nuw i32, ptr %20, i64 %.sroa.5.038.us
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %.sroa.5.038.us
   %22 = load i32, ptr %21, align 4, !tbaa !97
   %23 = sext i32 %22 to i64
   %.sroa.0.0.copyload1.i.i.i.i.us = load i64, ptr %12, align 8, !tbaa !39
@@ -31409,9 +31387,9 @@ _ZNK7xgboost6common4SpanIKlLm18446744073709551615EEixEm.exit.i.i.i.us: ; preds =
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSP_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_PiEEbSC_S19_.exit.us: ; preds = %_ZNK7xgboost6common4SpanIKlLm18446744073709551615EEixEm.exit.i.i.i.us
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %33 = load ptr, ptr %32, align 8, !tbaa !76
-  %34 = getelementptr inbounds nuw i64, ptr %33, i64 %24
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %24
   %35 = load i64, ptr %34, align 8, !tbaa !39
-  %36 = getelementptr inbounds nuw i64, ptr %33, i64 %27
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %27
   %37 = load i64, ptr %36, align 8, !tbaa !39
   %38 = icmp slt i64 %35, %37
   %39 = load i64, ptr %14, align 8, !tbaa !403
@@ -31423,7 +31401,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18I
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21.us: ; preds = %41
   %42 = load ptr, ptr %15, align 8, !tbaa !405
-  %43 = getelementptr inbounds nuw i32, ptr %42, i64 %18
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %18
   store i32 %25, ptr %43, align 4, !tbaa !97
   %44 = getelementptr inbounds nuw i8, ptr %.039.us, i64 4
   br label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23.us
@@ -31433,7 +31411,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20.us: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.us
   %45 = load ptr, ptr %15, align 8, !tbaa !405
-  %46 = getelementptr inbounds nuw i32, ptr %45, i64 %18
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %18
   store i32 %22, ptr %46, align 4, !tbaa !97
   %47 = add nuw i64 %.sroa.5.038.us, 1
   br label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23.us
@@ -31463,7 +31441,7 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0E
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i: ; preds = %49
   %52 = load ptr, ptr %9, align 8, !tbaa !405
-  %53 = getelementptr inbounds nuw i32, ptr %52, i64 %.sroa.5.038
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %.sroa.5.038
   %54 = load i32, ptr %53, align 4, !tbaa !97
   %55 = sext i32 %54 to i64
   %.sroa.0.0.copyload1.i.i.i.i = load i64, ptr %12, align 8, !tbaa !39
@@ -31491,9 +31469,9 @@ _ZNK7xgboost6common4SpanIKlLm18446744073709551615EEixEm.exit.i.i.i: ; preds = %_
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSP_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_PiEEbSC_S19_.exit: ; preds = %_ZNK7xgboost6common4SpanIKlLm18446744073709551615EEixEm.exit.i.i.i
   %64 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %65 = load ptr, ptr %64, align 8, !tbaa !76
-  %66 = getelementptr inbounds nuw i64, ptr %65, i64 %56
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %56
   %67 = load i64, ptr %66, align 8, !tbaa !39
-  %68 = getelementptr inbounds nuw i64, ptr %65, i64 %59
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %59
   %69 = load i64, ptr %68, align 8, !tbaa !39
   %70 = icmp slt i64 %67, %69
   %71 = load i64, ptr %14, align 8, !tbaa !403
@@ -31509,7 +31487,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit
   %73 = load ptr, ptr %15, align 8, !tbaa !405
-  %74 = getelementptr inbounds nuw i32, ptr %73, i64 %.sroa.2.0.copyload
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %73, i64 %.sroa.2.0.copyload
   store i32 %54, ptr %74, align 4, !tbaa !97
   %75 = add nuw i64 %.sroa.5.038, 1
   br label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23
@@ -31523,7 +31501,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21: ; preds = %76
   %77 = load ptr, ptr %15, align 8, !tbaa !405
-  %78 = getelementptr inbounds nuw i32, ptr %77, i64 %.sroa.2.0.copyload
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %.sroa.2.0.copyload
   store i32 %57, ptr %78, align 4, !tbaa !97
   %79 = getelementptr inbounds nuw i8, ptr %.039, i64 4
   br label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23
@@ -31562,7 +31540,7 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0E
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i: ; preds = %87
   %90 = load i32, ptr %.0511.i.i.i.i.i, align 4, !tbaa !97
   %91 = load ptr, ptr %15, align 8, !tbaa !405
-  %92 = getelementptr inbounds nuw i32, ptr %91, i64 %.sroa.4.010.i.i.i.i.i
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %91, i64 %.sroa.4.010.i.i.i.i.i
   store i32 %90, ptr %92, align 4, !tbaa !97
   %93 = getelementptr inbounds nuw i8, ptr %.0511.i.i.i.i.i, i64 4
   %94 = add nuw i64 %.sroa.4.010.i.i.i.i.i, 1
@@ -31618,7 +31596,7 @@ define linkonce_odr void @_ZSt30__move_merge_adaptive_backwardIN7xgboost6common6
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit.i.i.i.i.i: ; preds = %22
   %24 = add i64 %.sroa.4.010.i.i.i.i.i, -1
   %25 = load ptr, ptr %18, align 8, !tbaa !405
-  %26 = getelementptr inbounds nuw i32, ptr %25, i64 %24
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %24
   store i32 %21, ptr %26, align 4, !tbaa !97
   %27 = add nsw i64 %.012.i.i.i.i.i, -1
   %28 = icmp sgt i64 %.012.i.i.i.i.i, 1
@@ -31667,7 +31645,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
   %48 = phi i64 [ %79, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit51.us ], [ %.promoted, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.lr.ph ]
   %.083.us = phi ptr [ %.1.us, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit51.us ], [ %36, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.lr.ph ]
   %.sroa.6.082.us = phi i64 [ %.sroa.6.1.us, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit51.us ], [ %34, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.lr.ph ]
-  %49 = getelementptr inbounds nuw i32, ptr %38, i64 %.sroa.6.082.us
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %.sroa.6.082.us
   %50 = load i32, ptr %.083.us, align 4, !tbaa !97
   %51 = sext i32 %50 to i64
   %52 = add i64 %.sroa.0.0.copyload1.i.i.i.i, %51
@@ -31683,9 +31661,9 @@ _ZNK7xgboost6common4SpanIKlLm18446744073709551615EEixEm.exit.i.i.i.us: ; preds =
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSP_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIPiS12_EEbSC_S19_.exit.us: ; preds = %_ZNK7xgboost6common4SpanIKlLm18446744073709551615EEixEm.exit.i.i.i.us
   %58 = load ptr, ptr %44, align 8, !tbaa !76
-  %59 = getelementptr inbounds nuw i64, ptr %58, i64 %52
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %52
   %60 = load i64, ptr %59, align 8, !tbaa !39
-  %61 = getelementptr inbounds nuw i64, ptr %58, i64 %55
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %55
   %62 = load i64, ptr %61, align 8, !tbaa !39
   %63 = icmp slt i64 %60, %62
   %.not.i31.us = icmp eq i64 %48, 0
@@ -31702,7 +31680,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18I
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit55.us: ; preds = %65
   %67 = add i64 %48, -1
   %68 = load ptr, ptr %47, align 8, !tbaa !405
-  %69 = getelementptr inbounds nuw i32, ptr %68, i64 %67
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %67
   store i32 %50, ptr %69, align 4, !tbaa !97
   %70 = icmp eq ptr %4, %.083.us
   br i1 %70, label %_ZSt13move_backwardIPiN7xgboost6common6detail12SpanIteratorINS2_4SpanIiLm18446744073709551615EEELb0EEEET0_T_S9_S8_.exit, label %71
@@ -31722,7 +31700,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit34.us: ; preds = %73
   %75 = add i64 %48, -1
   %76 = load ptr, ptr %47, align 8, !tbaa !405
-  %77 = getelementptr inbounds nuw i32, ptr %76, i64 %75
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %75
   store i32 %53, ptr %77, align 4, !tbaa !97
   %78 = add i64 %.sroa.6.082.us, -1
   %or.cond63.not.us = icmp ult i64 %78, %33
@@ -31743,7 +31721,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
   %81 = phi i64 [ %127, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit51 ], [ %.promoted, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.lr.ph ]
   %.083 = phi ptr [ %.1, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit51 ], [ %36, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.lr.ph ]
   %.sroa.6.082 = phi i64 [ %.sroa.6.1, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit51 ], [ %34, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.lr.ph ]
-  %82 = getelementptr inbounds nuw i32, ptr %38, i64 %.sroa.6.082
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %.sroa.6.082
   %83 = load i32, ptr %.083, align 4, !tbaa !97
   %84 = sext i32 %83 to i64
   %85 = add i64 %.sroa.0.0.copyload1.i.i.i.i, %84
@@ -31767,9 +31745,9 @@ _ZNK7xgboost6common4SpanIKlLm18446744073709551615EEixEm.exit.i.i.i: ; preds = %_
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSP_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIPiS12_EEbSC_S19_.exit: ; preds = %_ZNK7xgboost6common4SpanIKlLm18446744073709551615EEixEm.exit.i.i.i
   %91 = load ptr, ptr %44, align 8, !tbaa !76
-  %92 = getelementptr inbounds nuw i64, ptr %91, i64 %85
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %85
   %93 = load i64, ptr %92, align 8, !tbaa !39
-  %94 = getelementptr inbounds nuw i64, ptr %91, i64 %88
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %88
   %95 = load i64, ptr %94, align 8, !tbaa !39
   %96 = icmp slt i64 %93, %95
   %.not.i31 = icmp eq i64 %81, 0
@@ -31790,7 +31768,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit34: ; preds = %97
   %99 = add i64 %81, -1
   %100 = load ptr, ptr %47, align 8, !tbaa !405
-  %101 = getelementptr inbounds nuw i32, ptr %100, i64 %99
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %100, i64 %99
   store i32 %86, ptr %101, align 4, !tbaa !97
   %102 = icmp eq i64 %1, %.sroa.6.082
   br i1 %102, label %103, label %116
@@ -31820,7 +31798,7 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0E
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit.i.i.i.i.i45: ; preds = %.lr.ph.i.i.i.i.i39
   %111 = getelementptr inbounds i8, ptr %.0411.i.i.i.i.i41, i64 -4
   %112 = load i32, ptr %111, align 4, !tbaa !97
-  %113 = getelementptr inbounds nuw i32, ptr %100, i64 %110
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %100, i64 %110
   store i32 %112, ptr %113, align 4, !tbaa !97
   %114 = add nsw i64 %.012.i.i.i.i.i40, -1
   %115 = icmp sgt i64 %.012.i.i.i.i.i40, 1
@@ -31850,7 +31828,7 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0E
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit55: ; preds = %119
   %121 = add i64 %81, -1
   %122 = load ptr, ptr %47, align 8, !tbaa !405
-  %123 = getelementptr inbounds nuw i32, ptr %122, i64 %121
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %122, i64 %121
   store i32 %83, ptr %123, align 4, !tbaa !97
   %124 = icmp eq ptr %4, %.083
   br i1 %124, label %_ZSt13move_backwardIPiN7xgboost6common6detail12SpanIteratorINS2_4SpanIiLm18446744073709551615EEELb0EEEET0_T_S9_S8_.exit, label %125
@@ -31916,7 +31894,7 @@ _ZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS0_9SortNamesINS
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i: ; preds = %.lr.ph.split.i.i
   %indvars12 = trunc i64 %.sroa.4.010.i.i to i32
   %13 = load ptr, ptr %12, align 8, !tbaa !405
-  %14 = getelementptr inbounds nuw i32, ptr %13, i64 %.sroa.4.010.i.i
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %.sroa.4.010.i.i
   store i32 %indvars12, ptr %14, align 4, !tbaa !97
   %15 = add nuw i64 %.sroa.4.010.i.i, 1
   %.not.i.i = icmp eq i64 %15, %7
@@ -32119,8 +32097,8 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i
   %25 = load ptr, ptr %15, align 8, !tbaa !405
-  %26 = getelementptr inbounds nuw i32, ptr %25, i64 %.sroa.10.050
-  %27 = getelementptr inbounds nuw i32, ptr %25, i64 %1
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %.sroa.10.050
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %1
   %28 = load i32, ptr %26, align 4, !tbaa !97
   %29 = sext i32 %28 to i64
   %.sroa.0.0.copyload1.i.i.i.i = load i64, ptr %5, align 8, !tbaa !39
@@ -32148,9 +32126,9 @@ _ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i: ; preds = %_
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSR_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit: ; preds = %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i
   %40 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %41 = load ptr, ptr %40, align 8, !tbaa !83
-  %42 = getelementptr inbounds nuw float, ptr %41, i64 %30
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %30
   %43 = load float, ptr %42, align 4, !tbaa !150
-  %44 = getelementptr inbounds nuw float, ptr %41, i64 %33
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %33
   %45 = load float, ptr %44, align 4, !tbaa !150
   %46 = fcmp olt float %43, %45
   br i1 %46, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit, label %57
@@ -32177,10 +32155,10 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
   unreachable
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit9.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i
-  %51 = getelementptr inbounds nuw i32, ptr %25, i64 %50
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %50
   %52 = load i32, ptr %51, align 4, !tbaa !97
   %53 = add i64 %.sroa.4.024.i.i.i.i.i, -1
-  %54 = getelementptr inbounds nuw i32, ptr %25, i64 %53
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %53
   store i32 %52, ptr %54, align 4, !tbaa !97
   %55 = add nsw i64 %.026.i.i.i.i.i, -1
   %56 = icmp sgt i64 %.026.i.i.i.i.i, 1
@@ -32255,10 +32233,10 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i
   %26 = getelementptr inbounds nuw i8, ptr %.tr118172, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !405
-  %28 = getelementptr inbounds nuw i32, ptr %27, i64 %.tr119173
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %.tr119173
   %29 = getelementptr inbounds nuw i8, ptr %.tr170, i64 8
   %30 = load ptr, ptr %29, align 8, !tbaa !405
-  %31 = getelementptr inbounds nuw i32, ptr %30, i64 %.tr117171
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %.tr117171
   %32 = load ptr, ptr %8, align 8, !tbaa !520
   %33 = load ptr, ptr %.sroa.225.0..sroa_idx, align 8, !tbaa !522
   %34 = load i32, ptr %28, align 4, !tbaa !97
@@ -32288,9 +32266,9 @@ _ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i: ; preds = %_
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSR_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit: ; preds = %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i
   %46 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %47 = load ptr, ptr %46, align 8, !tbaa !83
-  %48 = getelementptr inbounds nuw float, ptr %47, i64 %36
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %36
   %49 = load float, ptr %48, align 4, !tbaa !150
-  %50 = getelementptr inbounds nuw float, ptr %47, i64 %39
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %39
   %51 = load float, ptr %50, align 4, !tbaa !150
   %52 = fcmp olt float %49, %51
   br i1 %52, label %_ZSt9iter_swapIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEES6_EvT_T0_.exit, label %.loopexit
@@ -32326,7 +32304,7 @@ _ZSt7advanceIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm1844674407370955
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit: ; preds = %_ZSt7advanceIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEElEvRT_T0_.exit
   %62 = getelementptr inbounds nuw i8, ptr %.tr170, i64 8
   %63 = load ptr, ptr %62, align 8, !tbaa !405
-  %64 = getelementptr inbounds nuw i32, ptr %63, i64 %57
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %57
   %.sroa.035.0.copyload = load ptr, ptr %8, align 8, !tbaa !179
   %.sroa.236.0.copyload = load ptr, ptr %.sroa.225.0..sroa_idx, align 8, !tbaa !396
   store ptr %.sroa.035.0.copyload, ptr %10, align 8
@@ -32367,7 +32345,7 @@ _ZSt7advanceIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm1844674407370955
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit95: ; preds = %_ZSt7advanceIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEElEvRT_T0_.exit94
   %78 = getelementptr inbounds nuw i8, ptr %.tr118172, i64 8
   %79 = load ptr, ptr %78, align 8, !tbaa !405
-  %80 = getelementptr inbounds nuw i32, ptr %79, i64 %73
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %79, i64 %73
   %.sroa.024.0.copyload = load ptr, ptr %8, align 8, !tbaa !179
   %.sroa.225.0.copyload = load ptr, ptr %.sroa.225.0..sroa_idx, align 8, !tbaa !396
   store ptr %.sroa.024.0.copyload, ptr %11, align 8
@@ -32421,7 +32399,7 @@ define linkonce_odr void @_ZSt25__unguarded_linear_insertIN7xgboost6common6detai
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit: ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !405
-  %10 = getelementptr inbounds nuw i32, ptr %9, i64 %1
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %1
   %11 = load i32, ptr %10, align 4, !tbaa !97
   %.not.i = icmp eq i64 %1, 0
   br i1 %.not.i, label %.critedge.i, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit.preheader, !prof !91
@@ -32445,7 +32423,7 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0E
   unreachable
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i: ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit
-  %15 = getelementptr inbounds nuw i32, ptr %9, i64 %.sroa.8.0
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %.sroa.8.0
   %.sroa.0.0.copyload1.i.i.i.i = load i64, ptr %3, align 8, !tbaa !39
   %16 = add i64 %.sroa.0.0.copyload1.i.i.i.i, %12
   %17 = load i32, ptr %15, align 4, !tbaa !97
@@ -32471,15 +32449,15 @@ _ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i: ; preds = %_
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSR_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIiS12_EEbRSC_S19_.exit: ; preds = %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i
   %26 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !83
-  %28 = getelementptr inbounds nuw float, ptr %27, i64 %16
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %16
   %29 = load float, ptr %28, align 4, !tbaa !150
-  %30 = getelementptr inbounds nuw float, ptr %27, i64 %19
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %19
   %31 = load float, ptr %30, align 4, !tbaa !150
   %32 = fcmp olt float %29, %31
   br i1 %32, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit2, label %35
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit2: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSR_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIiS12_EEbRSC_S19_.exit
-  %33 = getelementptr inbounds nuw i32, ptr %9, i64 %.sroa.6.0
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %.sroa.6.0
   store i32 %17, ptr %33, align 4, !tbaa !97
   %34 = add i64 %.sroa.6.0, -2
   %or.cond.not = icmp ult i64 %34, %5
@@ -32498,7 +32476,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
   unreachable
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit7: ; preds = %35
-  %38 = getelementptr inbounds nuw i32, ptr %9, i64 %.sroa.6.0
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %.sroa.6.0
   store i32 %11, ptr %38, align 4, !tbaa !97
   ret void
 }
@@ -32549,7 +32527,7 @@ _ZSt7advanceIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm1844674407370955
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i: ; preds = %_ZSt7advanceIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEElEvRT_T0_.exit
   %24 = load ptr, ptr %11, align 8, !tbaa !405
-  %25 = getelementptr inbounds nuw i32, ptr %24, i64 %20
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %20
   %26 = load i32, ptr %25, align 4, !tbaa !97
   %27 = sext i32 %26 to i64
   %.sroa.0.0.copyload1.i.i.i.i = load i64, ptr %14, align 8, !tbaa !39
@@ -32575,9 +32553,9 @@ _ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i: ; preds = %_
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSR_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_SM_EEbSC_RS19_.exit: ; preds = %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i
   %36 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %37 = load ptr, ptr %36, align 8, !tbaa !83
-  %38 = getelementptr inbounds nuw float, ptr %37, i64 %28
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %28
   %39 = load float, ptr %38, align 4, !tbaa !150
-  %40 = getelementptr inbounds nuw float, ptr %37, i64 %29
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %29
   %41 = load float, ptr %40, align 4, !tbaa !150
   %42 = fcmp olt float %39, %41
   %43 = add nuw i64 %20, 1
@@ -32641,7 +32619,7 @@ _ZSt7advanceIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm1844674407370955
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i: ; preds = %_ZSt7advanceIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEElEvRT_T0_.exit
   %24 = load ptr, ptr %11, align 8, !tbaa !405
-  %25 = getelementptr inbounds nuw i32, ptr %24, i64 %20
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %20
   %.sroa.0.0.copyload1.i.i.i.i = load i64, ptr %14, align 8, !tbaa !39
   %26 = add i64 %.sroa.0.0.copyload1.i.i.i.i, %16
   %27 = load i32, ptr %25, align 4, !tbaa !97
@@ -32667,9 +32645,9 @@ _ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i: ; preds = %_
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSR_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclISM_S12_EEbRSC_S19_.exit: ; preds = %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i
   %36 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %37 = load ptr, ptr %36, align 8, !tbaa !83
-  %38 = getelementptr inbounds nuw float, ptr %37, i64 %26
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %26
   %39 = load float, ptr %38, align 4, !tbaa !150
-  %40 = getelementptr inbounds nuw float, ptr %37, i64 %29
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %29
   %41 = load float, ptr %40, align 4, !tbaa !150
   %42 = fcmp olt float %39, %41
   %43 = add nuw i64 %20, 1
@@ -32698,7 +32676,7 @@ define linkonce_odr void @_ZSt24__merge_sort_with_bufferIN7xgboost6common6detail
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit: ; preds = %6
   %9 = sub i64 %3, %1
-  %10 = getelementptr inbounds i32, ptr %4, i64 %9
+  %10 = getelementptr inbounds [4 x i8], ptr %4, i64 %9
   %.sroa.028.sroa.0.0.copyload = load ptr, ptr %5, align 8, !tbaa !179
   %.sroa.028.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.028.sroa.2.0.copyload = load ptr, ptr %.sroa.028.sroa.2.0..sroa_idx, align 8, !tbaa !396
@@ -32779,7 +32757,7 @@ _ZSt22__chunk_insertion_sortIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i.i.us: ; preds = %28
   %30 = load i32, ptr %.0511.i.i.i.i.i.i.us, align 4, !tbaa !97
   %31 = load ptr, ptr %20, align 8, !tbaa !405
-  %32 = getelementptr inbounds nuw i32, ptr %31, i64 %.sroa.4.010.i.i.i.i.i.i.us
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %.sroa.4.010.i.i.i.i.i.i.us
   store i32 %30, ptr %32, align 4, !tbaa !97
   %33 = getelementptr inbounds nuw i8, ptr %.0511.i.i.i.i.i.i.us, i64 4
   %34 = add nuw i64 %.sroa.4.010.i.i.i.i.i.i.us, 1
@@ -32805,7 +32783,7 @@ _ZSt4moveIPiN7xgboost6common6detail12SpanIteratorINS2_4SpanIiLm18446744073709551
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i28.i.us: ; preds = %39
   %41 = load i32, ptr %.0511.i.i.i.i.i26.i.us, align 4, !tbaa !97
   %42 = load ptr, ptr %20, align 8, !tbaa !405
-  %43 = getelementptr inbounds nuw i32, ptr %42, i64 %.sroa.4.010.i.i.i.i.i27.i.us
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %.sroa.4.010.i.i.i.i.i27.i.us
   store i32 %41, ptr %43, align 4, !tbaa !97
   %44 = getelementptr inbounds nuw i8, ptr %.0511.i.i.i.i.i26.i.us, i64 4
   %45 = add nuw i64 %.sroa.4.010.i.i.i.i.i27.i.us, 1
@@ -32861,9 +32839,9 @@ _ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i.i: ; preds = 
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSR_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIPiS1F_EEbSC_S19_.exit.i: ; preds = %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i.i
   %66 = load ptr, ptr %52, align 8, !tbaa !83
-  %67 = getelementptr inbounds nuw float, ptr %66, i64 %58
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %58
   %68 = load float, ptr %67, align 4, !tbaa !150
-  %69 = getelementptr inbounds nuw float, ptr %66, i64 %61
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %61
   %70 = load float, ptr %69, align 4, !tbaa !150
   %71 = fcmp olt float %68, %70
   %72 = load i64, ptr %0, align 8, !tbaa !403
@@ -32879,7 +32857,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18I
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i: ; preds = %74
   %76 = load ptr, ptr %20, align 8, !tbaa !405
-  %77 = getelementptr inbounds nuw i32, ptr %76, i64 %.sroa.5.051.i
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %.sroa.5.051.i
   store i32 %56, ptr %77, align 4, !tbaa !97
   %78 = getelementptr inbounds nuw i8, ptr %.01852.i, i64 4
   br label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i
@@ -32893,7 +32871,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20.i: ; preds = %79
   %81 = load ptr, ptr %20, align 8, !tbaa !405
-  %82 = getelementptr inbounds nuw i32, ptr %81, i64 %.sroa.5.051.i
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %81, i64 %.sroa.5.051.i
   store i32 %59, ptr %82, align 4, !tbaa !97
   %83 = getelementptr inbounds nuw i8, ptr %.053.i, i64 4
   br label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i
@@ -32929,7 +32907,7 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0E
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i
   %95 = load i32, ptr %.0511.i.i.i.i.i.i, align 4, !tbaa !97
-  %96 = getelementptr inbounds nuw i32, ptr %84, i64 %.sroa.4.010.i.i.i.i.i.i
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %84, i64 %.sroa.4.010.i.i.i.i.i.i
   store i32 %95, ptr %96, align 4, !tbaa !97
   %97 = getelementptr inbounds nuw i8, ptr %.0511.i.i.i.i.i.i, i64 4
   %98 = add nuw i64 %.sroa.4.010.i.i.i.i.i.i, 1
@@ -32959,7 +32937,7 @@ _ZSt4moveIPiN7xgboost6common6detail12SpanIteratorINS2_4SpanIiLm18446744073709551
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i28.i: ; preds = %.lr.ph.i.i.i.i.i24.i
   %107 = load i32, ptr %.0511.i.i.i.i.i26.i, align 4, !tbaa !97
-  %108 = getelementptr inbounds nuw i32, ptr %84, i64 %.sroa.4.010.i.i.i.i.i27.i
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %84, i64 %.sroa.4.010.i.i.i.i.i27.i
   store i32 %107, ptr %108, align 4, !tbaa !97
   %109 = getelementptr inbounds nuw i8, ptr %.0511.i.i.i.i.i26.i, i64 4
   %110 = add nuw i64 %.sroa.4.010.i.i.i.i.i27.i, 1
@@ -32979,7 +32957,7 @@ _ZSt17__merge_sort_loopIPiN7xgboost6common6detail12SpanIteratorINS2_4SpanIiLm184
   %.sroa.420.0.lcssa.i = phi i64 [ %1, %21 ], [ %.sroa.4.0.lcssa.i.i.i.i.i21.i.us, %_ZSt12__move_mergeIPiN7xgboost6common6detail12SpanIteratorINS2_4SpanIiLm18446744073709551615EEELb0EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortINS2_18IndexTransformIterIZNSC_9SortNamesINSB_6PolicyIJNS1_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNSB_15CatStrArrayViewENS5_IKaLm18446744073709551615EEENS5_IKsLm18446744073709551615EEENS5_IKiLm18446744073709551615EEENS5_IKlLm18446744073709551615EEENS5_IKfLm18446744073709551615EEENS5_IKdLm18446744073709551615EEEEES6_EUlSJ_E_EES7_ZZNSF_ISI_EEvSL_S12_S6_ENKUlOSJ_E0_clIRKSX_EEDaS15_EUlmmE_EEvSJ_SJ_T0_T1_EUlRSS_S1D_E_EEES1B_SJ_SJ_SJ_SJ_S1B_S1C_.exit.us ], [ %.sroa.4.0.lcssa.i.i.i.i.i21.i, %_ZSt12__move_mergeIPiN7xgboost6common6detail12SpanIteratorINS2_4SpanIiLm18446744073709551615EEELb0EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortINS2_18IndexTransformIterIZNSC_9SortNamesINSB_6PolicyIJNS1_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNSB_15CatStrArrayViewENS5_IKaLm18446744073709551615EEENS5_IKsLm18446744073709551615EEENS5_IKiLm18446744073709551615EEENS5_IKlLm18446744073709551615EEENS5_IKfLm18446744073709551615EEENS5_IKdLm18446744073709551615EEEEES6_EUlSJ_E_EES7_ZZNSF_ISI_EEvSL_S12_S6_ENKUlOSJ_E0_clIRKSX_EEDaS15_EUlmmE_EEvSJ_SJ_T0_T1_EUlRSS_S1D_E_EEES1B_SJ_SJ_SJ_SJ_S1B_S1C_.exit ]
   %.lcssa.i = phi i64 [ %9, %21 ], [ %49, %_ZSt12__move_mergeIPiN7xgboost6common6detail12SpanIteratorINS2_4SpanIiLm18446744073709551615EEELb0EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortINS2_18IndexTransformIterIZNSC_9SortNamesINSB_6PolicyIJNS1_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNSB_15CatStrArrayViewENS5_IKaLm18446744073709551615EEENS5_IKsLm18446744073709551615EEENS5_IKiLm18446744073709551615EEENS5_IKlLm18446744073709551615EEENS5_IKfLm18446744073709551615EEENS5_IKdLm18446744073709551615EEEEES6_EUlSJ_E_EES7_ZZNSF_ISI_EEvSL_S12_S6_ENKUlOSJ_E0_clIRKSX_EEDaS15_EUlmmE_EEvSJ_SJ_T0_T1_EUlRSS_S1D_E_EEES1B_SJ_SJ_SJ_SJ_S1B_S1C_.exit.us ], [ %114, %_ZSt12__move_mergeIPiN7xgboost6common6detail12SpanIteratorINS2_4SpanIiLm18446744073709551615EEELb0EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortINS2_18IndexTransformIterIZNSC_9SortNamesINSB_6PolicyIJNS1_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNSB_15CatStrArrayViewENS5_IKaLm18446744073709551615EEENS5_IKsLm18446744073709551615EEENS5_IKiLm18446744073709551615EEENS5_IKlLm18446744073709551615EEENS5_IKfLm18446744073709551615EEENS5_IKdLm18446744073709551615EEEEES6_EUlSJ_E_EES7_ZZNSF_ISI_EEvSL_S12_S6_ENKUlOSJ_E0_clIRKSX_EEDaS15_EUlmmE_EEvSJ_SJ_T0_T1_EUlRSS_S1D_E_EEES1B_SJ_SJ_SJ_SJ_S1B_S1C_.exit ]
   %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %22, i64 %.lcssa.i)
-  %115 = getelementptr inbounds i32, ptr %.0.lcssa.i, i64 %.sroa.speculated.i
+  %115 = getelementptr inbounds [4 x i8], ptr %.0.lcssa.i, i64 %.sroa.speculated.i
   %116 = tail call { ptr, i64 } @_ZSt12__move_mergeIPiN7xgboost6common6detail12SpanIteratorINS2_4SpanIiLm18446744073709551615EEELb0EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortINS2_18IndexTransformIterIZNSC_9SortNamesINSB_6PolicyIJNS1_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNSB_15CatStrArrayViewENS5_IKaLm18446744073709551615EEENS5_IKsLm18446744073709551615EEENS5_IKiLm18446744073709551615EEENS5_IKlLm18446744073709551615EEENS5_IKfLm18446744073709551615EEENS5_IKdLm18446744073709551615EEEEES6_EUlSJ_E_EES7_ZZNSF_ISI_EEvSL_S12_S6_ENKUlOSJ_E0_clIRKSX_EEDaS15_EUlmmE_EEvSJ_SJ_T0_T1_EUlRSS_S1D_E_EEES1B_SJ_SJ_SJ_SJ_S1B_S1C_(ptr noundef %.0.lcssa.i, ptr noundef %115, ptr noundef %115, ptr noundef nonnull %10, ptr %0, i64 %.sroa.420.0.lcssa.i, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter.238") align 8 %5)
   %117 = icmp slt i64 %23, %9
   br i1 %117, label %21, label %._crit_edge, !llvm.loop !529
@@ -33040,7 +33018,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i: ; preds = %24
   %27 = load ptr, ptr %23, align 8, !tbaa !405
-  %28 = getelementptr inbounds nuw i32, ptr %27, i64 %.sroa.3.09.i.i.i.i.i
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %.sroa.3.09.i.i.i.i.i
   %29 = load i32, ptr %28, align 4, !tbaa !97
   store i32 %29, ptr %.011.i.i.i.i.i, align 4, !tbaa !97
   %30 = add nuw i64 %.sroa.3.09.i.i.i.i.i, 1
@@ -33099,7 +33077,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i121: ; preds = %42
   %45 = load ptr, ptr %41, align 8, !tbaa !405
-  %46 = getelementptr inbounds nuw i32, ptr %45, i64 %.sroa.3.09.i.i.i.i.i120
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %.sroa.3.09.i.i.i.i.i120
   %47 = load i32, ptr %46, align 4, !tbaa !97
   store i32 %47, ptr %.011.i.i.i.i.i118, align 4, !tbaa !97
   %48 = add nuw i64 %.sroa.3.09.i.i.i.i.i120, 1
@@ -33141,7 +33119,7 @@ _ZSt7advanceIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm1844674407370955
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit: ; preds = %_ZSt7advanceIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEElEvRT_T0_.exit
   %60 = getelementptr inbounds nuw i8, ptr %.tr214, i64 8
   %61 = load ptr, ptr %60, align 8, !tbaa !405
-  %62 = getelementptr inbounds nuw i32, ptr %61, i64 %55
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %55
   %.sroa.034.0.copyload = load ptr, ptr %10, align 8, !tbaa !179
   %.sroa.235.0.copyload = load ptr, ptr %.sroa.224.0..sroa_idx, align 8, !tbaa !396
   store ptr %.sroa.034.0.copyload, ptr %14, align 8
@@ -33182,7 +33160,7 @@ _ZSt7advanceIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm1844674407370955
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit134: ; preds = %_ZSt7advanceIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEElEvRT_T0_.exit133
   %76 = getelementptr inbounds nuw i8, ptr %.tr157216, i64 8
   %77 = load ptr, ptr %76, align 8, !tbaa !405
-  %78 = getelementptr inbounds nuw i32, ptr %77, i64 %71
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %71
   %.sroa.023.0.copyload = load ptr, ptr %10, align 8, !tbaa !179
   %.sroa.224.0.copyload = load ptr, ptr %.sroa.224.0..sroa_idx, align 8, !tbaa !396
   store ptr %.sroa.023.0.copyload, ptr %15, align 8
@@ -33336,9 +33314,9 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us.us: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us
   %21 = load ptr, ptr %12, align 8, !tbaa !405
-  %22 = getelementptr inbounds nuw i32, ptr %21, i64 %.sroa.6.068.us.us114
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %.sroa.6.068.us.us114
   %23 = load ptr, ptr %13, align 8, !tbaa !405
-  %24 = getelementptr inbounds nuw i32, ptr %23, i64 %.sroa.643.069.us.us113
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %.sroa.643.069.us.us113
   %25 = load i32, ptr %22, align 4, !tbaa !97
   %26 = sext i32 %25 to i64
   %.sroa.0.0.copyload1.i.i.i.i.us.us = load i64, ptr %16, align 8, !tbaa !39
@@ -33358,9 +33336,9 @@ _ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i.us.us: ; pred
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSR_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us.us: ; preds = %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i.us.us
   %35 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %36 = load ptr, ptr %35, align 8, !tbaa !83
-  %37 = getelementptr inbounds nuw float, ptr %36, i64 %27
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %27
   %38 = load float, ptr %37, align 4, !tbaa !150
-  %39 = getelementptr inbounds nuw float, ptr %36, i64 %30
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %30
   %40 = load float, ptr %39, align 4, !tbaa !150
   %41 = fcmp olt float %38, %40
   %.sink = select i1 %41, i32 %25, i32 %28
@@ -33388,9 +33366,9 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us
   %49 = load ptr, ptr %12, align 8, !tbaa !405
-  %50 = getelementptr inbounds nuw i32, ptr %49, i64 %.sroa.6.068.us
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %.sroa.6.068.us
   %51 = load ptr, ptr %13, align 8, !tbaa !405
-  %52 = getelementptr inbounds nuw i32, ptr %51, i64 %.sroa.643.069.us
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %.sroa.643.069.us
   %53 = load i32, ptr %50, align 4, !tbaa !97
   %54 = sext i32 %53 to i64
   %.sroa.0.0.copyload1.i.i.i.i.us = load i64, ptr %16, align 8, !tbaa !39
@@ -33410,9 +33388,9 @@ _ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i.us: ; preds =
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSR_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us: ; preds = %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i.us
   %63 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %64 = load ptr, ptr %63, align 8, !tbaa !83
-  %65 = getelementptr inbounds nuw float, ptr %64, i64 %55
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %55
   %66 = load float, ptr %65, align 4, !tbaa !150
-  %67 = getelementptr inbounds nuw float, ptr %64, i64 %58
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %58
   %68 = load float, ptr %67, align 4, !tbaa !150
   %69 = fcmp olt float %66, %68
   %.sink136 = select i1 %69, i32 %53, i32 %56
@@ -33451,9 +33429,9 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us91: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us90
   %78 = load ptr, ptr %12, align 8, !tbaa !405
-  %79 = getelementptr inbounds nuw i32, ptr %78, i64 %.sroa.6.068.us89106
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %78, i64 %.sroa.6.068.us89106
   %80 = load ptr, ptr %13, align 8, !tbaa !405
-  %81 = getelementptr inbounds nuw i32, ptr %80, i64 %.sroa.643.069.us88105
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %80, i64 %.sroa.643.069.us88105
   %82 = load i32, ptr %79, align 4, !tbaa !97
   %83 = sext i32 %82 to i64
   %.sroa.0.0.copyload1.i.i.i.i.us92 = load i64, ptr %16, align 8, !tbaa !39
@@ -33473,9 +33451,9 @@ _ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i.us93: ; preds
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSR_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94: ; preds = %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i.us93
   %92 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %93 = load ptr, ptr %92, align 8, !tbaa !83
-  %94 = getelementptr inbounds nuw float, ptr %93, i64 %84
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %93, i64 %84
   %95 = load float, ptr %94, align 4, !tbaa !150
-  %96 = getelementptr inbounds nuw float, ptr %93, i64 %87
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %93, i64 %87
   %97 = load float, ptr %96, align 4, !tbaa !150
   %98 = fcmp olt float %95, %97
   %.sink137 = select i1 %98, i32 %82, i32 %85
@@ -33516,9 +33494,9 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i
   %107 = load ptr, ptr %12, align 8, !tbaa !405
-  %108 = getelementptr inbounds nuw i32, ptr %107, i64 %.sroa.6.068
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %107, i64 %.sroa.6.068
   %109 = load ptr, ptr %13, align 8, !tbaa !405
-  %110 = getelementptr inbounds nuw i32, ptr %109, i64 %.sroa.643.069
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %109, i64 %.sroa.643.069
   %111 = load i32, ptr %108, align 4, !tbaa !97
   %112 = sext i32 %111 to i64
   %.sroa.0.0.copyload1.i.i.i.i = load i64, ptr %16, align 8, !tbaa !39
@@ -33546,9 +33524,9 @@ _ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i: ; preds = %_
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSR_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit: ; preds = %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i
   %121 = getelementptr inbounds nuw i8, ptr %117, i64 8
   %122 = load ptr, ptr %121, align 8, !tbaa !83
-  %123 = getelementptr inbounds nuw float, ptr %122, i64 %113
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %122, i64 %113
   %124 = load float, ptr %123, align 4, !tbaa !150
-  %125 = getelementptr inbounds nuw float, ptr %122, i64 %116
+  %125 = getelementptr inbounds nuw [4 x i8], ptr %122, i64 %116
   %126 = load float, ptr %125, align 4, !tbaa !150
   %127 = fcmp olt float %124, %126
   %.sink138 = select i1 %127, i32 %111, i32 %114
@@ -33597,7 +33575,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i: ; preds = %137
   %140 = load ptr, ptr %136, align 8, !tbaa !405
-  %141 = getelementptr inbounds nuw i32, ptr %140, i64 %.sroa.3.09.i.i.i.i.i
+  %141 = getelementptr inbounds nuw [4 x i8], ptr %140, i64 %.sroa.3.09.i.i.i.i.i
   %142 = load i32, ptr %141, align 4, !tbaa !97
   store i32 %142, ptr %.011.i.i.i.i.i, align 4, !tbaa !97
   %143 = add nuw i64 %.sroa.3.09.i.i.i.i.i, 1
@@ -33638,7 +33616,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34: ; preds = %153
   %156 = load ptr, ptr %152, align 8, !tbaa !405
-  %157 = getelementptr inbounds nuw i32, ptr %156, i64 %.sroa.3.09.i.i.i.i.i33
+  %157 = getelementptr inbounds nuw [4 x i8], ptr %156, i64 %.sroa.3.09.i.i.i.i.i33
   %158 = load i32, ptr %157, align 4, !tbaa !97
   store i32 %158, ptr %.011.i.i.i.i.i31, align 4, !tbaa !97
   %159 = add nuw i64 %.sroa.3.09.i.i.i.i.i33, 1
@@ -33697,9 +33675,9 @@ _ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i: ; preds = %1
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSR_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIPiS1F_EEbSC_S19_.exit: ; preds = %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i
   %29 = load ptr, ptr %16, align 8, !tbaa !83
-  %30 = getelementptr inbounds nuw float, ptr %29, i64 %21
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %21
   %31 = load float, ptr %30, align 4, !tbaa !150
-  %32 = getelementptr inbounds nuw float, ptr %29, i64 %24
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %24
   %33 = load float, ptr %32, align 4, !tbaa !150
   %34 = fcmp olt float %31, %33
   %35 = load i64, ptr %4, align 8, !tbaa !403
@@ -33715,7 +33693,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18I
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit: ; preds = %37
   %39 = load ptr, ptr %17, align 8, !tbaa !405
-  %40 = getelementptr inbounds nuw i32, ptr %39, i64 %.sroa.5.051
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %.sroa.5.051
   store i32 %19, ptr %40, align 4, !tbaa !97
   %41 = getelementptr inbounds nuw i8, ptr %.01852, i64 4
   br label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit
@@ -33729,7 +33707,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20: ; preds = %42
   %44 = load ptr, ptr %17, align 8, !tbaa !405
-  %45 = getelementptr inbounds nuw i32, ptr %44, i64 %.sroa.5.051
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %.sroa.5.051
   store i32 %22, ptr %45, align 4, !tbaa !97
   %46 = getelementptr inbounds nuw i8, ptr %.053, i64 4
   br label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit
@@ -33773,7 +33751,7 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0E
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i: ; preds = %58
   %61 = load i32, ptr %.0511.i.i.i.i.i, align 4, !tbaa !97
   %62 = load ptr, ptr %57, align 8, !tbaa !405
-  %63 = getelementptr inbounds nuw i32, ptr %62, i64 %.sroa.4.010.i.i.i.i.i
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %.sroa.4.010.i.i.i.i.i
   store i32 %61, ptr %63, align 4, !tbaa !97
   %64 = getelementptr inbounds nuw i8, ptr %.0511.i.i.i.i.i, i64 4
   %65 = add nuw i64 %.sroa.4.010.i.i.i.i.i, 1
@@ -33809,7 +33787,7 @@ _ZSt4moveIPiN7xgboost6common6detail12SpanIteratorINS2_4SpanIiLm18446744073709551
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i28: ; preds = %75
   %78 = load i32, ptr %.0511.i.i.i.i.i26, align 4, !tbaa !97
   %79 = load ptr, ptr %74, align 8, !tbaa !405
-  %80 = getelementptr inbounds nuw i32, ptr %79, i64 %.sroa.4.010.i.i.i.i.i27
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %79, i64 %.sroa.4.010.i.i.i.i.i27
   store i32 %78, ptr %80, align 4, !tbaa !97
   %81 = getelementptr inbounds nuw i8, ptr %.0511.i.i.i.i.i26, i64 4
   %82 = add nuw i64 %.sroa.4.010.i.i.i.i.i27, 1
@@ -33856,7 +33834,7 @@ define linkonce_odr void @_ZSt21__move_merge_adaptiveIPiN7xgboost6common6detail1
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us: ; preds = %17
   %20 = load ptr, ptr %9, align 8, !tbaa !405
-  %21 = getelementptr inbounds nuw i32, ptr %20, i64 %.sroa.5.038.us
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %.sroa.5.038.us
   %22 = load i32, ptr %21, align 4, !tbaa !97
   %23 = sext i32 %22 to i64
   %.sroa.0.0.copyload1.i.i.i.i.us = load i64, ptr %12, align 8, !tbaa !39
@@ -33876,9 +33854,9 @@ _ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i.us: ; preds =
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSR_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_PiEEbSC_S19_.exit.us: ; preds = %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i.us
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %33 = load ptr, ptr %32, align 8, !tbaa !83
-  %34 = getelementptr inbounds nuw float, ptr %33, i64 %24
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %24
   %35 = load float, ptr %34, align 4, !tbaa !150
-  %36 = getelementptr inbounds nuw float, ptr %33, i64 %27
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %27
   %37 = load float, ptr %36, align 4, !tbaa !150
   %38 = fcmp olt float %35, %37
   %39 = load i64, ptr %14, align 8, !tbaa !403
@@ -33890,7 +33868,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18I
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21.us: ; preds = %41
   %42 = load ptr, ptr %15, align 8, !tbaa !405
-  %43 = getelementptr inbounds nuw i32, ptr %42, i64 %18
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %18
   store i32 %25, ptr %43, align 4, !tbaa !97
   %44 = getelementptr inbounds nuw i8, ptr %.039.us, i64 4
   br label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23.us
@@ -33900,7 +33878,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20.us: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.us
   %45 = load ptr, ptr %15, align 8, !tbaa !405
-  %46 = getelementptr inbounds nuw i32, ptr %45, i64 %18
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %18
   store i32 %22, ptr %46, align 4, !tbaa !97
   %47 = add nuw i64 %.sroa.5.038.us, 1
   br label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23.us
@@ -33930,7 +33908,7 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0E
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i: ; preds = %49
   %52 = load ptr, ptr %9, align 8, !tbaa !405
-  %53 = getelementptr inbounds nuw i32, ptr %52, i64 %.sroa.5.038
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %.sroa.5.038
   %54 = load i32, ptr %53, align 4, !tbaa !97
   %55 = sext i32 %54 to i64
   %.sroa.0.0.copyload1.i.i.i.i = load i64, ptr %12, align 8, !tbaa !39
@@ -33958,9 +33936,9 @@ _ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i: ; preds = %_
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSR_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_PiEEbSC_S19_.exit: ; preds = %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i
   %64 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %65 = load ptr, ptr %64, align 8, !tbaa !83
-  %66 = getelementptr inbounds nuw float, ptr %65, i64 %56
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %56
   %67 = load float, ptr %66, align 4, !tbaa !150
-  %68 = getelementptr inbounds nuw float, ptr %65, i64 %59
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %59
   %69 = load float, ptr %68, align 4, !tbaa !150
   %70 = fcmp olt float %67, %69
   %71 = load i64, ptr %14, align 8, !tbaa !403
@@ -33976,7 +33954,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit
   %73 = load ptr, ptr %15, align 8, !tbaa !405
-  %74 = getelementptr inbounds nuw i32, ptr %73, i64 %.sroa.2.0.copyload
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %73, i64 %.sroa.2.0.copyload
   store i32 %54, ptr %74, align 4, !tbaa !97
   %75 = add nuw i64 %.sroa.5.038, 1
   br label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23
@@ -33990,7 +33968,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21: ; preds = %76
   %77 = load ptr, ptr %15, align 8, !tbaa !405
-  %78 = getelementptr inbounds nuw i32, ptr %77, i64 %.sroa.2.0.copyload
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %.sroa.2.0.copyload
   store i32 %57, ptr %78, align 4, !tbaa !97
   %79 = getelementptr inbounds nuw i8, ptr %.039, i64 4
   br label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23
@@ -34029,7 +34007,7 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0E
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i: ; preds = %87
   %90 = load i32, ptr %.0511.i.i.i.i.i, align 4, !tbaa !97
   %91 = load ptr, ptr %15, align 8, !tbaa !405
-  %92 = getelementptr inbounds nuw i32, ptr %91, i64 %.sroa.4.010.i.i.i.i.i
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %91, i64 %.sroa.4.010.i.i.i.i.i
   store i32 %90, ptr %92, align 4, !tbaa !97
   %93 = getelementptr inbounds nuw i8, ptr %.0511.i.i.i.i.i, i64 4
   %94 = add nuw i64 %.sroa.4.010.i.i.i.i.i, 1
@@ -34085,7 +34063,7 @@ define linkonce_odr void @_ZSt30__move_merge_adaptive_backwardIN7xgboost6common6
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit.i.i.i.i.i: ; preds = %22
   %24 = add i64 %.sroa.4.010.i.i.i.i.i, -1
   %25 = load ptr, ptr %18, align 8, !tbaa !405
-  %26 = getelementptr inbounds nuw i32, ptr %25, i64 %24
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %24
   store i32 %21, ptr %26, align 4, !tbaa !97
   %27 = add nsw i64 %.012.i.i.i.i.i, -1
   %28 = icmp sgt i64 %.012.i.i.i.i.i, 1
@@ -34134,7 +34112,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
   %48 = phi i64 [ %79, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit51.us ], [ %.promoted, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.lr.ph ]
   %.083.us = phi ptr [ %.1.us, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit51.us ], [ %36, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.lr.ph ]
   %.sroa.6.082.us = phi i64 [ %.sroa.6.1.us, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit51.us ], [ %34, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.lr.ph ]
-  %49 = getelementptr inbounds nuw i32, ptr %38, i64 %.sroa.6.082.us
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %.sroa.6.082.us
   %50 = load i32, ptr %.083.us, align 4, !tbaa !97
   %51 = sext i32 %50 to i64
   %52 = add i64 %.sroa.0.0.copyload1.i.i.i.i, %51
@@ -34150,9 +34128,9 @@ _ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i.us: ; preds =
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSR_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIPiS12_EEbSC_S19_.exit.us: ; preds = %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i.us
   %58 = load ptr, ptr %44, align 8, !tbaa !83
-  %59 = getelementptr inbounds nuw float, ptr %58, i64 %52
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %52
   %60 = load float, ptr %59, align 4, !tbaa !150
-  %61 = getelementptr inbounds nuw float, ptr %58, i64 %55
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %55
   %62 = load float, ptr %61, align 4, !tbaa !150
   %63 = fcmp olt float %60, %62
   %.not.i31.us = icmp eq i64 %48, 0
@@ -34169,7 +34147,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18I
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit55.us: ; preds = %65
   %67 = add i64 %48, -1
   %68 = load ptr, ptr %47, align 8, !tbaa !405
-  %69 = getelementptr inbounds nuw i32, ptr %68, i64 %67
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %67
   store i32 %50, ptr %69, align 4, !tbaa !97
   %70 = icmp eq ptr %4, %.083.us
   br i1 %70, label %_ZSt13move_backwardIPiN7xgboost6common6detail12SpanIteratorINS2_4SpanIiLm18446744073709551615EEELb0EEEET0_T_S9_S8_.exit, label %71
@@ -34189,7 +34167,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit34.us: ; preds = %73
   %75 = add i64 %48, -1
   %76 = load ptr, ptr %47, align 8, !tbaa !405
-  %77 = getelementptr inbounds nuw i32, ptr %76, i64 %75
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %75
   store i32 %53, ptr %77, align 4, !tbaa !97
   %78 = add i64 %.sroa.6.082.us, -1
   %or.cond63.not.us = icmp ult i64 %78, %33
@@ -34210,7 +34188,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
   %81 = phi i64 [ %127, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit51 ], [ %.promoted, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.lr.ph ]
   %.083 = phi ptr [ %.1, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit51 ], [ %36, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.lr.ph ]
   %.sroa.6.082 = phi i64 [ %.sroa.6.1, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit51 ], [ %34, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.lr.ph ]
-  %82 = getelementptr inbounds nuw i32, ptr %38, i64 %.sroa.6.082
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %.sroa.6.082
   %83 = load i32, ptr %.083, align 4, !tbaa !97
   %84 = sext i32 %83 to i64
   %85 = add i64 %.sroa.0.0.copyload1.i.i.i.i, %84
@@ -34234,9 +34212,9 @@ _ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i: ; preds = %_
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSR_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIPiS12_EEbSC_S19_.exit: ; preds = %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i
   %91 = load ptr, ptr %44, align 8, !tbaa !83
-  %92 = getelementptr inbounds nuw float, ptr %91, i64 %85
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %91, i64 %85
   %93 = load float, ptr %92, align 4, !tbaa !150
-  %94 = getelementptr inbounds nuw float, ptr %91, i64 %88
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %91, i64 %88
   %95 = load float, ptr %94, align 4, !tbaa !150
   %96 = fcmp olt float %93, %95
   %.not.i31 = icmp eq i64 %81, 0
@@ -34257,7 +34235,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit34: ; preds = %97
   %99 = add i64 %81, -1
   %100 = load ptr, ptr %47, align 8, !tbaa !405
-  %101 = getelementptr inbounds nuw i32, ptr %100, i64 %99
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %100, i64 %99
   store i32 %86, ptr %101, align 4, !tbaa !97
   %102 = icmp eq i64 %1, %.sroa.6.082
   br i1 %102, label %103, label %116
@@ -34287,7 +34265,7 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0E
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit.i.i.i.i.i45: ; preds = %.lr.ph.i.i.i.i.i39
   %111 = getelementptr inbounds i8, ptr %.0411.i.i.i.i.i41, i64 -4
   %112 = load i32, ptr %111, align 4, !tbaa !97
-  %113 = getelementptr inbounds nuw i32, ptr %100, i64 %110
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %100, i64 %110
   store i32 %112, ptr %113, align 4, !tbaa !97
   %114 = add nsw i64 %.012.i.i.i.i.i40, -1
   %115 = icmp sgt i64 %.012.i.i.i.i.i40, 1
@@ -34317,7 +34295,7 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0E
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit55: ; preds = %119
   %121 = add i64 %81, -1
   %122 = load ptr, ptr %47, align 8, !tbaa !405
-  %123 = getelementptr inbounds nuw i32, ptr %122, i64 %121
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %122, i64 %121
   store i32 %83, ptr %123, align 4, !tbaa !97
   %124 = icmp eq ptr %4, %.083
   br i1 %124, label %_ZSt13move_backwardIPiN7xgboost6common6detail12SpanIteratorINS2_4SpanIiLm18446744073709551615EEELb0EEEET0_T_S9_S8_.exit, label %125
@@ -34383,7 +34361,7 @@ _ZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS0_9SortNamesINS
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i: ; preds = %.lr.ph.split.i.i
   %indvars12 = trunc i64 %.sroa.4.010.i.i to i32
   %13 = load ptr, ptr %12, align 8, !tbaa !405
-  %14 = getelementptr inbounds nuw i32, ptr %13, i64 %.sroa.4.010.i.i
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %.sroa.4.010.i.i
   store i32 %indvars12, ptr %14, align 4, !tbaa !97
   %15 = add nuw i64 %.sroa.4.010.i.i, 1
   %.not.i.i = icmp eq i64 %15, %7
@@ -34586,8 +34564,8 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i
   %25 = load ptr, ptr %15, align 8, !tbaa !405
-  %26 = getelementptr inbounds nuw i32, ptr %25, i64 %.sroa.10.050
-  %27 = getelementptr inbounds nuw i32, ptr %25, i64 %1
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %.sroa.10.050
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %1
   %28 = load i32, ptr %26, align 4, !tbaa !97
   %29 = sext i32 %28 to i64
   %.sroa.0.0.copyload1.i.i.i.i = load i64, ptr %5, align 8, !tbaa !39
@@ -34615,9 +34593,9 @@ _ZNK7xgboost6common4SpanIKdLm18446744073709551615EEixEm.exit.i.i.i: ; preds = %_
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKST_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit: ; preds = %_ZNK7xgboost6common4SpanIKdLm18446744073709551615EEixEm.exit.i.i.i
   %40 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %41 = load ptr, ptr %40, align 8, !tbaa !90
-  %42 = getelementptr inbounds nuw double, ptr %41, i64 %30
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %30
   %43 = load double, ptr %42, align 8, !tbaa !153
-  %44 = getelementptr inbounds nuw double, ptr %41, i64 %33
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %33
   %45 = load double, ptr %44, align 8, !tbaa !153
   %46 = fcmp olt double %43, %45
   br i1 %46, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit, label %57
@@ -34644,10 +34622,10 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
   unreachable
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit9.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i
-  %51 = getelementptr inbounds nuw i32, ptr %25, i64 %50
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %50
   %52 = load i32, ptr %51, align 4, !tbaa !97
   %53 = add i64 %.sroa.4.024.i.i.i.i.i, -1
-  %54 = getelementptr inbounds nuw i32, ptr %25, i64 %53
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %53
   store i32 %52, ptr %54, align 4, !tbaa !97
   %55 = add nsw i64 %.026.i.i.i.i.i, -1
   %56 = icmp sgt i64 %.026.i.i.i.i.i, 1
@@ -34722,10 +34700,10 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i
   %26 = getelementptr inbounds nuw i8, ptr %.tr118172, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !405
-  %28 = getelementptr inbounds nuw i32, ptr %27, i64 %.tr119173
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %.tr119173
   %29 = getelementptr inbounds nuw i8, ptr %.tr170, i64 8
   %30 = load ptr, ptr %29, align 8, !tbaa !405
-  %31 = getelementptr inbounds nuw i32, ptr %30, i64 %.tr117171
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %.tr117171
   %32 = load ptr, ptr %8, align 8, !tbaa !538
   %33 = load ptr, ptr %.sroa.225.0..sroa_idx, align 8, !tbaa !540
   %34 = load i32, ptr %28, align 4, !tbaa !97
@@ -34755,9 +34733,9 @@ _ZNK7xgboost6common4SpanIKdLm18446744073709551615EEixEm.exit.i.i.i: ; preds = %_
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKST_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit: ; preds = %_ZNK7xgboost6common4SpanIKdLm18446744073709551615EEixEm.exit.i.i.i
   %46 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %47 = load ptr, ptr %46, align 8, !tbaa !90
-  %48 = getelementptr inbounds nuw double, ptr %47, i64 %36
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %36
   %49 = load double, ptr %48, align 8, !tbaa !153
-  %50 = getelementptr inbounds nuw double, ptr %47, i64 %39
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %39
   %51 = load double, ptr %50, align 8, !tbaa !153
   %52 = fcmp olt double %49, %51
   br i1 %52, label %_ZSt9iter_swapIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEES6_EvT_T0_.exit, label %.loopexit
@@ -34793,7 +34771,7 @@ _ZSt7advanceIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm1844674407370955
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit: ; preds = %_ZSt7advanceIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEElEvRT_T0_.exit
   %62 = getelementptr inbounds nuw i8, ptr %.tr170, i64 8
   %63 = load ptr, ptr %62, align 8, !tbaa !405
-  %64 = getelementptr inbounds nuw i32, ptr %63, i64 %57
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %57
   %.sroa.035.0.copyload = load ptr, ptr %8, align 8, !tbaa !179
   %.sroa.236.0.copyload = load ptr, ptr %.sroa.225.0..sroa_idx, align 8, !tbaa !396
   store ptr %.sroa.035.0.copyload, ptr %10, align 8
@@ -34834,7 +34812,7 @@ _ZSt7advanceIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm1844674407370955
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit95: ; preds = %_ZSt7advanceIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEElEvRT_T0_.exit94
   %78 = getelementptr inbounds nuw i8, ptr %.tr118172, i64 8
   %79 = load ptr, ptr %78, align 8, !tbaa !405
-  %80 = getelementptr inbounds nuw i32, ptr %79, i64 %73
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %79, i64 %73
   %.sroa.024.0.copyload = load ptr, ptr %8, align 8, !tbaa !179
   %.sroa.225.0.copyload = load ptr, ptr %.sroa.225.0..sroa_idx, align 8, !tbaa !396
   store ptr %.sroa.024.0.copyload, ptr %11, align 8
@@ -34888,7 +34866,7 @@ define linkonce_odr void @_ZSt25__unguarded_linear_insertIN7xgboost6common6detai
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit: ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !405
-  %10 = getelementptr inbounds nuw i32, ptr %9, i64 %1
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %1
   %11 = load i32, ptr %10, align 4, !tbaa !97
   %.not.i = icmp eq i64 %1, 0
   br i1 %.not.i, label %.critedge.i, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit.preheader, !prof !91
@@ -34912,7 +34890,7 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0E
   unreachable
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i: ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit
-  %15 = getelementptr inbounds nuw i32, ptr %9, i64 %.sroa.8.0
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %.sroa.8.0
   %.sroa.0.0.copyload1.i.i.i.i = load i64, ptr %3, align 8, !tbaa !39
   %16 = add i64 %.sroa.0.0.copyload1.i.i.i.i, %12
   %17 = load i32, ptr %15, align 4, !tbaa !97
@@ -34938,15 +34916,15 @@ _ZNK7xgboost6common4SpanIKdLm18446744073709551615EEixEm.exit.i.i.i: ; preds = %_
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKST_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIiS12_EEbRSC_S19_.exit: ; preds = %_ZNK7xgboost6common4SpanIKdLm18446744073709551615EEixEm.exit.i.i.i
   %26 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !90
-  %28 = getelementptr inbounds nuw double, ptr %27, i64 %16
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %16
   %29 = load double, ptr %28, align 8, !tbaa !153
-  %30 = getelementptr inbounds nuw double, ptr %27, i64 %19
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %19
   %31 = load double, ptr %30, align 8, !tbaa !153
   %32 = fcmp olt double %29, %31
   br i1 %32, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit2, label %35
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit2: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKST_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIiS12_EEbRSC_S19_.exit
-  %33 = getelementptr inbounds nuw i32, ptr %9, i64 %.sroa.6.0
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %.sroa.6.0
   store i32 %17, ptr %33, align 4, !tbaa !97
   %34 = add i64 %.sroa.6.0, -2
   %or.cond.not = icmp ult i64 %34, %5
@@ -34965,7 +34943,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
   unreachable
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit7: ; preds = %35
-  %38 = getelementptr inbounds nuw i32, ptr %9, i64 %.sroa.6.0
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %.sroa.6.0
   store i32 %11, ptr %38, align 4, !tbaa !97
   ret void
 }
@@ -35016,7 +34994,7 @@ _ZSt7advanceIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm1844674407370955
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i: ; preds = %_ZSt7advanceIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEElEvRT_T0_.exit
   %24 = load ptr, ptr %11, align 8, !tbaa !405
-  %25 = getelementptr inbounds nuw i32, ptr %24, i64 %20
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %20
   %26 = load i32, ptr %25, align 4, !tbaa !97
   %27 = sext i32 %26 to i64
   %.sroa.0.0.copyload1.i.i.i.i = load i64, ptr %14, align 8, !tbaa !39
@@ -35042,9 +35020,9 @@ _ZNK7xgboost6common4SpanIKdLm18446744073709551615EEixEm.exit.i.i.i: ; preds = %_
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKST_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_SM_EEbSC_RS19_.exit: ; preds = %_ZNK7xgboost6common4SpanIKdLm18446744073709551615EEixEm.exit.i.i.i
   %36 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %37 = load ptr, ptr %36, align 8, !tbaa !90
-  %38 = getelementptr inbounds nuw double, ptr %37, i64 %28
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %28
   %39 = load double, ptr %38, align 8, !tbaa !153
-  %40 = getelementptr inbounds nuw double, ptr %37, i64 %29
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %29
   %41 = load double, ptr %40, align 8, !tbaa !153
   %42 = fcmp olt double %39, %41
   %43 = add nuw i64 %20, 1
@@ -35108,7 +35086,7 @@ _ZSt7advanceIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm1844674407370955
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i: ; preds = %_ZSt7advanceIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEElEvRT_T0_.exit
   %24 = load ptr, ptr %11, align 8, !tbaa !405
-  %25 = getelementptr inbounds nuw i32, ptr %24, i64 %20
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %20
   %.sroa.0.0.copyload1.i.i.i.i = load i64, ptr %14, align 8, !tbaa !39
   %26 = add i64 %.sroa.0.0.copyload1.i.i.i.i, %16
   %27 = load i32, ptr %25, align 4, !tbaa !97
@@ -35134,9 +35112,9 @@ _ZNK7xgboost6common4SpanIKdLm18446744073709551615EEixEm.exit.i.i.i: ; preds = %_
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKST_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclISM_S12_EEbRSC_S19_.exit: ; preds = %_ZNK7xgboost6common4SpanIKdLm18446744073709551615EEixEm.exit.i.i.i
   %36 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %37 = load ptr, ptr %36, align 8, !tbaa !90
-  %38 = getelementptr inbounds nuw double, ptr %37, i64 %26
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %26
   %39 = load double, ptr %38, align 8, !tbaa !153
-  %40 = getelementptr inbounds nuw double, ptr %37, i64 %29
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %29
   %41 = load double, ptr %40, align 8, !tbaa !153
   %42 = fcmp olt double %39, %41
   %43 = add nuw i64 %20, 1
@@ -35165,7 +35143,7 @@ define linkonce_odr void @_ZSt24__merge_sort_with_bufferIN7xgboost6common6detail
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit: ; preds = %6
   %9 = sub i64 %3, %1
-  %10 = getelementptr inbounds i32, ptr %4, i64 %9
+  %10 = getelementptr inbounds [4 x i8], ptr %4, i64 %9
   %.sroa.028.sroa.0.0.copyload = load ptr, ptr %5, align 8, !tbaa !179
   %.sroa.028.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.028.sroa.2.0.copyload = load ptr, ptr %.sroa.028.sroa.2.0..sroa_idx, align 8, !tbaa !396
@@ -35246,7 +35224,7 @@ _ZSt22__chunk_insertion_sortIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i.i.us: ; preds = %28
   %30 = load i32, ptr %.0511.i.i.i.i.i.i.us, align 4, !tbaa !97
   %31 = load ptr, ptr %20, align 8, !tbaa !405
-  %32 = getelementptr inbounds nuw i32, ptr %31, i64 %.sroa.4.010.i.i.i.i.i.i.us
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %.sroa.4.010.i.i.i.i.i.i.us
   store i32 %30, ptr %32, align 4, !tbaa !97
   %33 = getelementptr inbounds nuw i8, ptr %.0511.i.i.i.i.i.i.us, i64 4
   %34 = add nuw i64 %.sroa.4.010.i.i.i.i.i.i.us, 1
@@ -35272,7 +35250,7 @@ _ZSt4moveIPiN7xgboost6common6detail12SpanIteratorINS2_4SpanIiLm18446744073709551
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i28.i.us: ; preds = %39
   %41 = load i32, ptr %.0511.i.i.i.i.i26.i.us, align 4, !tbaa !97
   %42 = load ptr, ptr %20, align 8, !tbaa !405
-  %43 = getelementptr inbounds nuw i32, ptr %42, i64 %.sroa.4.010.i.i.i.i.i27.i.us
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %.sroa.4.010.i.i.i.i.i27.i.us
   store i32 %41, ptr %43, align 4, !tbaa !97
   %44 = getelementptr inbounds nuw i8, ptr %.0511.i.i.i.i.i26.i.us, i64 4
   %45 = add nuw i64 %.sroa.4.010.i.i.i.i.i27.i.us, 1
@@ -35328,9 +35306,9 @@ _ZNK7xgboost6common4SpanIKdLm18446744073709551615EEixEm.exit.i.i.i.i: ; preds = 
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKST_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIPiS1F_EEbSC_S19_.exit.i: ; preds = %_ZNK7xgboost6common4SpanIKdLm18446744073709551615EEixEm.exit.i.i.i.i
   %66 = load ptr, ptr %52, align 8, !tbaa !90
-  %67 = getelementptr inbounds nuw double, ptr %66, i64 %58
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %58
   %68 = load double, ptr %67, align 8, !tbaa !153
-  %69 = getelementptr inbounds nuw double, ptr %66, i64 %61
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %61
   %70 = load double, ptr %69, align 8, !tbaa !153
   %71 = fcmp olt double %68, %70
   %72 = load i64, ptr %0, align 8, !tbaa !403
@@ -35346,7 +35324,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18I
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i: ; preds = %74
   %76 = load ptr, ptr %20, align 8, !tbaa !405
-  %77 = getelementptr inbounds nuw i32, ptr %76, i64 %.sroa.5.051.i
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %.sroa.5.051.i
   store i32 %56, ptr %77, align 4, !tbaa !97
   %78 = getelementptr inbounds nuw i8, ptr %.01852.i, i64 4
   br label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i
@@ -35360,7 +35338,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20.i: ; preds = %79
   %81 = load ptr, ptr %20, align 8, !tbaa !405
-  %82 = getelementptr inbounds nuw i32, ptr %81, i64 %.sroa.5.051.i
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %81, i64 %.sroa.5.051.i
   store i32 %59, ptr %82, align 4, !tbaa !97
   %83 = getelementptr inbounds nuw i8, ptr %.053.i, i64 4
   br label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i
@@ -35396,7 +35374,7 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0E
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i
   %95 = load i32, ptr %.0511.i.i.i.i.i.i, align 4, !tbaa !97
-  %96 = getelementptr inbounds nuw i32, ptr %84, i64 %.sroa.4.010.i.i.i.i.i.i
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %84, i64 %.sroa.4.010.i.i.i.i.i.i
   store i32 %95, ptr %96, align 4, !tbaa !97
   %97 = getelementptr inbounds nuw i8, ptr %.0511.i.i.i.i.i.i, i64 4
   %98 = add nuw i64 %.sroa.4.010.i.i.i.i.i.i, 1
@@ -35426,7 +35404,7 @@ _ZSt4moveIPiN7xgboost6common6detail12SpanIteratorINS2_4SpanIiLm18446744073709551
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i28.i: ; preds = %.lr.ph.i.i.i.i.i24.i
   %107 = load i32, ptr %.0511.i.i.i.i.i26.i, align 4, !tbaa !97
-  %108 = getelementptr inbounds nuw i32, ptr %84, i64 %.sroa.4.010.i.i.i.i.i27.i
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %84, i64 %.sroa.4.010.i.i.i.i.i27.i
   store i32 %107, ptr %108, align 4, !tbaa !97
   %109 = getelementptr inbounds nuw i8, ptr %.0511.i.i.i.i.i26.i, i64 4
   %110 = add nuw i64 %.sroa.4.010.i.i.i.i.i27.i, 1
@@ -35446,7 +35424,7 @@ _ZSt17__merge_sort_loopIPiN7xgboost6common6detail12SpanIteratorINS2_4SpanIiLm184
   %.sroa.420.0.lcssa.i = phi i64 [ %1, %21 ], [ %.sroa.4.0.lcssa.i.i.i.i.i21.i.us, %_ZSt12__move_mergeIPiN7xgboost6common6detail12SpanIteratorINS2_4SpanIiLm18446744073709551615EEELb0EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortINS2_18IndexTransformIterIZNSC_9SortNamesINSB_6PolicyIJNS1_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNSB_15CatStrArrayViewENS5_IKaLm18446744073709551615EEENS5_IKsLm18446744073709551615EEENS5_IKiLm18446744073709551615EEENS5_IKlLm18446744073709551615EEENS5_IKfLm18446744073709551615EEENS5_IKdLm18446744073709551615EEEEES6_EUlSJ_E_EES7_ZZNSF_ISI_EEvSL_S12_S6_ENKUlOSJ_E0_clIRKSZ_EEDaS15_EUlmmE_EEvSJ_SJ_T0_T1_EUlRSS_S1D_E_EEES1B_SJ_SJ_SJ_SJ_S1B_S1C_.exit.us ], [ %.sroa.4.0.lcssa.i.i.i.i.i21.i, %_ZSt12__move_mergeIPiN7xgboost6common6detail12SpanIteratorINS2_4SpanIiLm18446744073709551615EEELb0EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortINS2_18IndexTransformIterIZNSC_9SortNamesINSB_6PolicyIJNS1_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNSB_15CatStrArrayViewENS5_IKaLm18446744073709551615EEENS5_IKsLm18446744073709551615EEENS5_IKiLm18446744073709551615EEENS5_IKlLm18446744073709551615EEENS5_IKfLm18446744073709551615EEENS5_IKdLm18446744073709551615EEEEES6_EUlSJ_E_EES7_ZZNSF_ISI_EEvSL_S12_S6_ENKUlOSJ_E0_clIRKSZ_EEDaS15_EUlmmE_EEvSJ_SJ_T0_T1_EUlRSS_S1D_E_EEES1B_SJ_SJ_SJ_SJ_S1B_S1C_.exit ]
   %.lcssa.i = phi i64 [ %9, %21 ], [ %49, %_ZSt12__move_mergeIPiN7xgboost6common6detail12SpanIteratorINS2_4SpanIiLm18446744073709551615EEELb0EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortINS2_18IndexTransformIterIZNSC_9SortNamesINSB_6PolicyIJNS1_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNSB_15CatStrArrayViewENS5_IKaLm18446744073709551615EEENS5_IKsLm18446744073709551615EEENS5_IKiLm18446744073709551615EEENS5_IKlLm18446744073709551615EEENS5_IKfLm18446744073709551615EEENS5_IKdLm18446744073709551615EEEEES6_EUlSJ_E_EES7_ZZNSF_ISI_EEvSL_S12_S6_ENKUlOSJ_E0_clIRKSZ_EEDaS15_EUlmmE_EEvSJ_SJ_T0_T1_EUlRSS_S1D_E_EEES1B_SJ_SJ_SJ_SJ_S1B_S1C_.exit.us ], [ %114, %_ZSt12__move_mergeIPiN7xgboost6common6detail12SpanIteratorINS2_4SpanIiLm18446744073709551615EEELb0EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortINS2_18IndexTransformIterIZNSC_9SortNamesINSB_6PolicyIJNS1_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNSB_15CatStrArrayViewENS5_IKaLm18446744073709551615EEENS5_IKsLm18446744073709551615EEENS5_IKiLm18446744073709551615EEENS5_IKlLm18446744073709551615EEENS5_IKfLm18446744073709551615EEENS5_IKdLm18446744073709551615EEEEES6_EUlSJ_E_EES7_ZZNSF_ISI_EEvSL_S12_S6_ENKUlOSJ_E0_clIRKSZ_EEDaS15_EUlmmE_EEvSJ_SJ_T0_T1_EUlRSS_S1D_E_EEES1B_SJ_SJ_SJ_SJ_S1B_S1C_.exit ]
   %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %22, i64 %.lcssa.i)
-  %115 = getelementptr inbounds i32, ptr %.0.lcssa.i, i64 %.sroa.speculated.i
+  %115 = getelementptr inbounds [4 x i8], ptr %.0.lcssa.i, i64 %.sroa.speculated.i
   %116 = tail call { ptr, i64 } @_ZSt12__move_mergeIPiN7xgboost6common6detail12SpanIteratorINS2_4SpanIiLm18446744073709551615EEELb0EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortINS2_18IndexTransformIterIZNSC_9SortNamesINSB_6PolicyIJNS1_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNSB_15CatStrArrayViewENS5_IKaLm18446744073709551615EEENS5_IKsLm18446744073709551615EEENS5_IKiLm18446744073709551615EEENS5_IKlLm18446744073709551615EEENS5_IKfLm18446744073709551615EEENS5_IKdLm18446744073709551615EEEEES6_EUlSJ_E_EES7_ZZNSF_ISI_EEvSL_S12_S6_ENKUlOSJ_E0_clIRKSZ_EEDaS15_EUlmmE_EEvSJ_SJ_T0_T1_EUlRSS_S1D_E_EEES1B_SJ_SJ_SJ_SJ_S1B_S1C_(ptr noundef %.0.lcssa.i, ptr noundef %115, ptr noundef %115, ptr noundef nonnull %10, ptr %0, i64 %.sroa.420.0.lcssa.i, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter.243") align 8 %5)
   %117 = icmp slt i64 %23, %9
   br i1 %117, label %21, label %._crit_edge, !llvm.loop !547
@@ -35507,7 +35485,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i: ; preds = %24
   %27 = load ptr, ptr %23, align 8, !tbaa !405
-  %28 = getelementptr inbounds nuw i32, ptr %27, i64 %.sroa.3.09.i.i.i.i.i
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %.sroa.3.09.i.i.i.i.i
   %29 = load i32, ptr %28, align 4, !tbaa !97
   store i32 %29, ptr %.011.i.i.i.i.i, align 4, !tbaa !97
   %30 = add nuw i64 %.sroa.3.09.i.i.i.i.i, 1
@@ -35566,7 +35544,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i121: ; preds = %42
   %45 = load ptr, ptr %41, align 8, !tbaa !405
-  %46 = getelementptr inbounds nuw i32, ptr %45, i64 %.sroa.3.09.i.i.i.i.i120
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %.sroa.3.09.i.i.i.i.i120
   %47 = load i32, ptr %46, align 4, !tbaa !97
   store i32 %47, ptr %.011.i.i.i.i.i118, align 4, !tbaa !97
   %48 = add nuw i64 %.sroa.3.09.i.i.i.i.i120, 1
@@ -35608,7 +35586,7 @@ _ZSt7advanceIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm1844674407370955
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit: ; preds = %_ZSt7advanceIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEElEvRT_T0_.exit
   %60 = getelementptr inbounds nuw i8, ptr %.tr214, i64 8
   %61 = load ptr, ptr %60, align 8, !tbaa !405
-  %62 = getelementptr inbounds nuw i32, ptr %61, i64 %55
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %55
   %.sroa.034.0.copyload = load ptr, ptr %10, align 8, !tbaa !179
   %.sroa.235.0.copyload = load ptr, ptr %.sroa.224.0..sroa_idx, align 8, !tbaa !396
   store ptr %.sroa.034.0.copyload, ptr %14, align 8
@@ -35649,7 +35627,7 @@ _ZSt7advanceIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm1844674407370955
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit134: ; preds = %_ZSt7advanceIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEElEvRT_T0_.exit133
   %76 = getelementptr inbounds nuw i8, ptr %.tr157216, i64 8
   %77 = load ptr, ptr %76, align 8, !tbaa !405
-  %78 = getelementptr inbounds nuw i32, ptr %77, i64 %71
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %71
   %.sroa.023.0.copyload = load ptr, ptr %10, align 8, !tbaa !179
   %.sroa.224.0.copyload = load ptr, ptr %.sroa.224.0..sroa_idx, align 8, !tbaa !396
   store ptr %.sroa.023.0.copyload, ptr %15, align 8
@@ -35803,9 +35781,9 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us.us: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us
   %21 = load ptr, ptr %12, align 8, !tbaa !405
-  %22 = getelementptr inbounds nuw i32, ptr %21, i64 %.sroa.6.068.us.us114
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %.sroa.6.068.us.us114
   %23 = load ptr, ptr %13, align 8, !tbaa !405
-  %24 = getelementptr inbounds nuw i32, ptr %23, i64 %.sroa.643.069.us.us113
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %.sroa.643.069.us.us113
   %25 = load i32, ptr %22, align 4, !tbaa !97
   %26 = sext i32 %25 to i64
   %.sroa.0.0.copyload1.i.i.i.i.us.us = load i64, ptr %16, align 8, !tbaa !39
@@ -35825,9 +35803,9 @@ _ZNK7xgboost6common4SpanIKdLm18446744073709551615EEixEm.exit.i.i.i.us.us: ; pred
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKST_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us.us: ; preds = %_ZNK7xgboost6common4SpanIKdLm18446744073709551615EEixEm.exit.i.i.i.us.us
   %35 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %36 = load ptr, ptr %35, align 8, !tbaa !90
-  %37 = getelementptr inbounds nuw double, ptr %36, i64 %27
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %27
   %38 = load double, ptr %37, align 8, !tbaa !153
-  %39 = getelementptr inbounds nuw double, ptr %36, i64 %30
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %30
   %40 = load double, ptr %39, align 8, !tbaa !153
   %41 = fcmp olt double %38, %40
   %.sink = select i1 %41, i32 %25, i32 %28
@@ -35855,9 +35833,9 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us
   %49 = load ptr, ptr %12, align 8, !tbaa !405
-  %50 = getelementptr inbounds nuw i32, ptr %49, i64 %.sroa.6.068.us
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %.sroa.6.068.us
   %51 = load ptr, ptr %13, align 8, !tbaa !405
-  %52 = getelementptr inbounds nuw i32, ptr %51, i64 %.sroa.643.069.us
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %.sroa.643.069.us
   %53 = load i32, ptr %50, align 4, !tbaa !97
   %54 = sext i32 %53 to i64
   %.sroa.0.0.copyload1.i.i.i.i.us = load i64, ptr %16, align 8, !tbaa !39
@@ -35877,9 +35855,9 @@ _ZNK7xgboost6common4SpanIKdLm18446744073709551615EEixEm.exit.i.i.i.us: ; preds =
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKST_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us: ; preds = %_ZNK7xgboost6common4SpanIKdLm18446744073709551615EEixEm.exit.i.i.i.us
   %63 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %64 = load ptr, ptr %63, align 8, !tbaa !90
-  %65 = getelementptr inbounds nuw double, ptr %64, i64 %55
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %55
   %66 = load double, ptr %65, align 8, !tbaa !153
-  %67 = getelementptr inbounds nuw double, ptr %64, i64 %58
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %58
   %68 = load double, ptr %67, align 8, !tbaa !153
   %69 = fcmp olt double %66, %68
   %.sink136 = select i1 %69, i32 %53, i32 %56
@@ -35918,9 +35896,9 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us91: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us90
   %78 = load ptr, ptr %12, align 8, !tbaa !405
-  %79 = getelementptr inbounds nuw i32, ptr %78, i64 %.sroa.6.068.us89106
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %78, i64 %.sroa.6.068.us89106
   %80 = load ptr, ptr %13, align 8, !tbaa !405
-  %81 = getelementptr inbounds nuw i32, ptr %80, i64 %.sroa.643.069.us88105
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %80, i64 %.sroa.643.069.us88105
   %82 = load i32, ptr %79, align 4, !tbaa !97
   %83 = sext i32 %82 to i64
   %.sroa.0.0.copyload1.i.i.i.i.us92 = load i64, ptr %16, align 8, !tbaa !39
@@ -35940,9 +35918,9 @@ _ZNK7xgboost6common4SpanIKdLm18446744073709551615EEixEm.exit.i.i.i.us93: ; preds
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKST_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94: ; preds = %_ZNK7xgboost6common4SpanIKdLm18446744073709551615EEixEm.exit.i.i.i.us93
   %92 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %93 = load ptr, ptr %92, align 8, !tbaa !90
-  %94 = getelementptr inbounds nuw double, ptr %93, i64 %84
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %84
   %95 = load double, ptr %94, align 8, !tbaa !153
-  %96 = getelementptr inbounds nuw double, ptr %93, i64 %87
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %87
   %97 = load double, ptr %96, align 8, !tbaa !153
   %98 = fcmp olt double %95, %97
   %.sink137 = select i1 %98, i32 %82, i32 %85
@@ -35983,9 +35961,9 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i
   %107 = load ptr, ptr %12, align 8, !tbaa !405
-  %108 = getelementptr inbounds nuw i32, ptr %107, i64 %.sroa.6.068
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %107, i64 %.sroa.6.068
   %109 = load ptr, ptr %13, align 8, !tbaa !405
-  %110 = getelementptr inbounds nuw i32, ptr %109, i64 %.sroa.643.069
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %109, i64 %.sroa.643.069
   %111 = load i32, ptr %108, align 4, !tbaa !97
   %112 = sext i32 %111 to i64
   %.sroa.0.0.copyload1.i.i.i.i = load i64, ptr %16, align 8, !tbaa !39
@@ -36013,9 +35991,9 @@ _ZNK7xgboost6common4SpanIKdLm18446744073709551615EEixEm.exit.i.i.i: ; preds = %_
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKST_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit: ; preds = %_ZNK7xgboost6common4SpanIKdLm18446744073709551615EEixEm.exit.i.i.i
   %121 = getelementptr inbounds nuw i8, ptr %117, i64 8
   %122 = load ptr, ptr %121, align 8, !tbaa !90
-  %123 = getelementptr inbounds nuw double, ptr %122, i64 %113
+  %123 = getelementptr inbounds nuw [8 x i8], ptr %122, i64 %113
   %124 = load double, ptr %123, align 8, !tbaa !153
-  %125 = getelementptr inbounds nuw double, ptr %122, i64 %116
+  %125 = getelementptr inbounds nuw [8 x i8], ptr %122, i64 %116
   %126 = load double, ptr %125, align 8, !tbaa !153
   %127 = fcmp olt double %124, %126
   %.sink138 = select i1 %127, i32 %111, i32 %114
@@ -36064,7 +36042,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i: ; preds = %137
   %140 = load ptr, ptr %136, align 8, !tbaa !405
-  %141 = getelementptr inbounds nuw i32, ptr %140, i64 %.sroa.3.09.i.i.i.i.i
+  %141 = getelementptr inbounds nuw [4 x i8], ptr %140, i64 %.sroa.3.09.i.i.i.i.i
   %142 = load i32, ptr %141, align 4, !tbaa !97
   store i32 %142, ptr %.011.i.i.i.i.i, align 4, !tbaa !97
   %143 = add nuw i64 %.sroa.3.09.i.i.i.i.i, 1
@@ -36105,7 +36083,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34: ; preds = %153
   %156 = load ptr, ptr %152, align 8, !tbaa !405
-  %157 = getelementptr inbounds nuw i32, ptr %156, i64 %.sroa.3.09.i.i.i.i.i33
+  %157 = getelementptr inbounds nuw [4 x i8], ptr %156, i64 %.sroa.3.09.i.i.i.i.i33
   %158 = load i32, ptr %157, align 4, !tbaa !97
   store i32 %158, ptr %.011.i.i.i.i.i31, align 4, !tbaa !97
   %159 = add nuw i64 %.sroa.3.09.i.i.i.i.i33, 1
@@ -36164,9 +36142,9 @@ _ZNK7xgboost6common4SpanIKdLm18446744073709551615EEixEm.exit.i.i.i: ; preds = %1
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKST_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIPiS1F_EEbSC_S19_.exit: ; preds = %_ZNK7xgboost6common4SpanIKdLm18446744073709551615EEixEm.exit.i.i.i
   %29 = load ptr, ptr %16, align 8, !tbaa !90
-  %30 = getelementptr inbounds nuw double, ptr %29, i64 %21
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %21
   %31 = load double, ptr %30, align 8, !tbaa !153
-  %32 = getelementptr inbounds nuw double, ptr %29, i64 %24
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %24
   %33 = load double, ptr %32, align 8, !tbaa !153
   %34 = fcmp olt double %31, %33
   %35 = load i64, ptr %4, align 8, !tbaa !403
@@ -36182,7 +36160,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18I
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit: ; preds = %37
   %39 = load ptr, ptr %17, align 8, !tbaa !405
-  %40 = getelementptr inbounds nuw i32, ptr %39, i64 %.sroa.5.051
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %.sroa.5.051
   store i32 %19, ptr %40, align 4, !tbaa !97
   %41 = getelementptr inbounds nuw i8, ptr %.01852, i64 4
   br label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit
@@ -36196,7 +36174,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20: ; preds = %42
   %44 = load ptr, ptr %17, align 8, !tbaa !405
-  %45 = getelementptr inbounds nuw i32, ptr %44, i64 %.sroa.5.051
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %.sroa.5.051
   store i32 %22, ptr %45, align 4, !tbaa !97
   %46 = getelementptr inbounds nuw i8, ptr %.053, i64 4
   br label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit
@@ -36240,7 +36218,7 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0E
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i: ; preds = %58
   %61 = load i32, ptr %.0511.i.i.i.i.i, align 4, !tbaa !97
   %62 = load ptr, ptr %57, align 8, !tbaa !405
-  %63 = getelementptr inbounds nuw i32, ptr %62, i64 %.sroa.4.010.i.i.i.i.i
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %.sroa.4.010.i.i.i.i.i
   store i32 %61, ptr %63, align 4, !tbaa !97
   %64 = getelementptr inbounds nuw i8, ptr %.0511.i.i.i.i.i, i64 4
   %65 = add nuw i64 %.sroa.4.010.i.i.i.i.i, 1
@@ -36276,7 +36254,7 @@ _ZSt4moveIPiN7xgboost6common6detail12SpanIteratorINS2_4SpanIiLm18446744073709551
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i28: ; preds = %75
   %78 = load i32, ptr %.0511.i.i.i.i.i26, align 4, !tbaa !97
   %79 = load ptr, ptr %74, align 8, !tbaa !405
-  %80 = getelementptr inbounds nuw i32, ptr %79, i64 %.sroa.4.010.i.i.i.i.i27
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %79, i64 %.sroa.4.010.i.i.i.i.i27
   store i32 %78, ptr %80, align 4, !tbaa !97
   %81 = getelementptr inbounds nuw i8, ptr %.0511.i.i.i.i.i26, i64 4
   %82 = add nuw i64 %.sroa.4.010.i.i.i.i.i27, 1
@@ -36323,7 +36301,7 @@ define linkonce_odr void @_ZSt21__move_merge_adaptiveIPiN7xgboost6common6detail1
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us: ; preds = %17
   %20 = load ptr, ptr %9, align 8, !tbaa !405
-  %21 = getelementptr inbounds nuw i32, ptr %20, i64 %.sroa.5.038.us
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %.sroa.5.038.us
   %22 = load i32, ptr %21, align 4, !tbaa !97
   %23 = sext i32 %22 to i64
   %.sroa.0.0.copyload1.i.i.i.i.us = load i64, ptr %12, align 8, !tbaa !39
@@ -36343,9 +36321,9 @@ _ZNK7xgboost6common4SpanIKdLm18446744073709551615EEixEm.exit.i.i.i.us: ; preds =
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKST_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_PiEEbSC_S19_.exit.us: ; preds = %_ZNK7xgboost6common4SpanIKdLm18446744073709551615EEixEm.exit.i.i.i.us
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %33 = load ptr, ptr %32, align 8, !tbaa !90
-  %34 = getelementptr inbounds nuw double, ptr %33, i64 %24
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %24
   %35 = load double, ptr %34, align 8, !tbaa !153
-  %36 = getelementptr inbounds nuw double, ptr %33, i64 %27
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %27
   %37 = load double, ptr %36, align 8, !tbaa !153
   %38 = fcmp olt double %35, %37
   %39 = load i64, ptr %14, align 8, !tbaa !403
@@ -36357,7 +36335,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18I
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21.us: ; preds = %41
   %42 = load ptr, ptr %15, align 8, !tbaa !405
-  %43 = getelementptr inbounds nuw i32, ptr %42, i64 %18
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %18
   store i32 %25, ptr %43, align 4, !tbaa !97
   %44 = getelementptr inbounds nuw i8, ptr %.039.us, i64 4
   br label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23.us
@@ -36367,7 +36345,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20.us: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.us
   %45 = load ptr, ptr %15, align 8, !tbaa !405
-  %46 = getelementptr inbounds nuw i32, ptr %45, i64 %18
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %18
   store i32 %22, ptr %46, align 4, !tbaa !97
   %47 = add nuw i64 %.sroa.5.038.us, 1
   br label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23.us
@@ -36397,7 +36375,7 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0E
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i: ; preds = %49
   %52 = load ptr, ptr %9, align 8, !tbaa !405
-  %53 = getelementptr inbounds nuw i32, ptr %52, i64 %.sroa.5.038
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %.sroa.5.038
   %54 = load i32, ptr %53, align 4, !tbaa !97
   %55 = sext i32 %54 to i64
   %.sroa.0.0.copyload1.i.i.i.i = load i64, ptr %12, align 8, !tbaa !39
@@ -36425,9 +36403,9 @@ _ZNK7xgboost6common4SpanIKdLm18446744073709551615EEixEm.exit.i.i.i: ; preds = %_
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKST_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_PiEEbSC_S19_.exit: ; preds = %_ZNK7xgboost6common4SpanIKdLm18446744073709551615EEixEm.exit.i.i.i
   %64 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %65 = load ptr, ptr %64, align 8, !tbaa !90
-  %66 = getelementptr inbounds nuw double, ptr %65, i64 %56
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %56
   %67 = load double, ptr %66, align 8, !tbaa !153
-  %68 = getelementptr inbounds nuw double, ptr %65, i64 %59
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %59
   %69 = load double, ptr %68, align 8, !tbaa !153
   %70 = fcmp olt double %67, %69
   %71 = load i64, ptr %14, align 8, !tbaa !403
@@ -36443,7 +36421,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit
   %73 = load ptr, ptr %15, align 8, !tbaa !405
-  %74 = getelementptr inbounds nuw i32, ptr %73, i64 %.sroa.2.0.copyload
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %73, i64 %.sroa.2.0.copyload
   store i32 %54, ptr %74, align 4, !tbaa !97
   %75 = add nuw i64 %.sroa.5.038, 1
   br label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23
@@ -36457,7 +36435,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21: ; preds = %76
   %77 = load ptr, ptr %15, align 8, !tbaa !405
-  %78 = getelementptr inbounds nuw i32, ptr %77, i64 %.sroa.2.0.copyload
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %.sroa.2.0.copyload
   store i32 %57, ptr %78, align 4, !tbaa !97
   %79 = getelementptr inbounds nuw i8, ptr %.039, i64 4
   br label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23
@@ -36496,7 +36474,7 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0E
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i: ; preds = %87
   %90 = load i32, ptr %.0511.i.i.i.i.i, align 4, !tbaa !97
   %91 = load ptr, ptr %15, align 8, !tbaa !405
-  %92 = getelementptr inbounds nuw i32, ptr %91, i64 %.sroa.4.010.i.i.i.i.i
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %91, i64 %.sroa.4.010.i.i.i.i.i
   store i32 %90, ptr %92, align 4, !tbaa !97
   %93 = getelementptr inbounds nuw i8, ptr %.0511.i.i.i.i.i, i64 4
   %94 = add nuw i64 %.sroa.4.010.i.i.i.i.i, 1
@@ -36552,7 +36530,7 @@ define linkonce_odr void @_ZSt30__move_merge_adaptive_backwardIN7xgboost6common6
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit.i.i.i.i.i: ; preds = %22
   %24 = add i64 %.sroa.4.010.i.i.i.i.i, -1
   %25 = load ptr, ptr %18, align 8, !tbaa !405
-  %26 = getelementptr inbounds nuw i32, ptr %25, i64 %24
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %24
   store i32 %21, ptr %26, align 4, !tbaa !97
   %27 = add nsw i64 %.012.i.i.i.i.i, -1
   %28 = icmp sgt i64 %.012.i.i.i.i.i, 1
@@ -36601,7 +36579,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
   %48 = phi i64 [ %79, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit51.us ], [ %.promoted, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.lr.ph ]
   %.083.us = phi ptr [ %.1.us, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit51.us ], [ %36, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.lr.ph ]
   %.sroa.6.082.us = phi i64 [ %.sroa.6.1.us, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit51.us ], [ %34, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.lr.ph ]
-  %49 = getelementptr inbounds nuw i32, ptr %38, i64 %.sroa.6.082.us
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %.sroa.6.082.us
   %50 = load i32, ptr %.083.us, align 4, !tbaa !97
   %51 = sext i32 %50 to i64
   %52 = add i64 %.sroa.0.0.copyload1.i.i.i.i, %51
@@ -36617,9 +36595,9 @@ _ZNK7xgboost6common4SpanIKdLm18446744073709551615EEixEm.exit.i.i.i.us: ; preds =
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKST_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIPiS12_EEbSC_S19_.exit.us: ; preds = %_ZNK7xgboost6common4SpanIKdLm18446744073709551615EEixEm.exit.i.i.i.us
   %58 = load ptr, ptr %44, align 8, !tbaa !90
-  %59 = getelementptr inbounds nuw double, ptr %58, i64 %52
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %52
   %60 = load double, ptr %59, align 8, !tbaa !153
-  %61 = getelementptr inbounds nuw double, ptr %58, i64 %55
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %55
   %62 = load double, ptr %61, align 8, !tbaa !153
   %63 = fcmp olt double %60, %62
   %.not.i31.us = icmp eq i64 %48, 0
@@ -36636,7 +36614,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18I
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit55.us: ; preds = %65
   %67 = add i64 %48, -1
   %68 = load ptr, ptr %47, align 8, !tbaa !405
-  %69 = getelementptr inbounds nuw i32, ptr %68, i64 %67
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %67
   store i32 %50, ptr %69, align 4, !tbaa !97
   %70 = icmp eq ptr %4, %.083.us
   br i1 %70, label %_ZSt13move_backwardIPiN7xgboost6common6detail12SpanIteratorINS2_4SpanIiLm18446744073709551615EEELb0EEEET0_T_S9_S8_.exit, label %71
@@ -36656,7 +36634,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit34.us: ; preds = %73
   %75 = add i64 %48, -1
   %76 = load ptr, ptr %47, align 8, !tbaa !405
-  %77 = getelementptr inbounds nuw i32, ptr %76, i64 %75
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %75
   store i32 %53, ptr %77, align 4, !tbaa !97
   %78 = add i64 %.sroa.6.082.us, -1
   %or.cond63.not.us = icmp ult i64 %78, %33
@@ -36677,7 +36655,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
   %81 = phi i64 [ %127, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit51 ], [ %.promoted, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.lr.ph ]
   %.083 = phi ptr [ %.1, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit51 ], [ %36, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.lr.ph ]
   %.sroa.6.082 = phi i64 [ %.sroa.6.1, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit51 ], [ %34, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.lr.ph ]
-  %82 = getelementptr inbounds nuw i32, ptr %38, i64 %.sroa.6.082
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %.sroa.6.082
   %83 = load i32, ptr %.083, align 4, !tbaa !97
   %84 = sext i32 %83 to i64
   %85 = add i64 %.sroa.0.0.copyload1.i.i.i.i, %84
@@ -36701,9 +36679,9 @@ _ZNK7xgboost6common4SpanIKdLm18446744073709551615EEixEm.exit.i.i.i: ; preds = %_
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKST_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIPiS12_EEbSC_S19_.exit: ; preds = %_ZNK7xgboost6common4SpanIKdLm18446744073709551615EEixEm.exit.i.i.i
   %91 = load ptr, ptr %44, align 8, !tbaa !90
-  %92 = getelementptr inbounds nuw double, ptr %91, i64 %85
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %85
   %93 = load double, ptr %92, align 8, !tbaa !153
-  %94 = getelementptr inbounds nuw double, ptr %91, i64 %88
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %88
   %95 = load double, ptr %94, align 8, !tbaa !153
   %96 = fcmp olt double %93, %95
   %.not.i31 = icmp eq i64 %81, 0
@@ -36724,7 +36702,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit34: ; preds = %97
   %99 = add i64 %81, -1
   %100 = load ptr, ptr %47, align 8, !tbaa !405
-  %101 = getelementptr inbounds nuw i32, ptr %100, i64 %99
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %100, i64 %99
   store i32 %86, ptr %101, align 4, !tbaa !97
   %102 = icmp eq i64 %1, %.sroa.6.082
   br i1 %102, label %103, label %116
@@ -36754,7 +36732,7 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0E
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit.i.i.i.i.i45: ; preds = %.lr.ph.i.i.i.i.i39
   %111 = getelementptr inbounds i8, ptr %.0411.i.i.i.i.i41, i64 -4
   %112 = load i32, ptr %111, align 4, !tbaa !97
-  %113 = getelementptr inbounds nuw i32, ptr %100, i64 %110
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %100, i64 %110
   store i32 %112, ptr %113, align 4, !tbaa !97
   %114 = add nsw i64 %.012.i.i.i.i.i40, -1
   %115 = icmp sgt i64 %.012.i.i.i.i.i40, 1
@@ -36784,7 +36762,7 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0E
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit55: ; preds = %119
   %121 = add i64 %81, -1
   %122 = load ptr, ptr %47, align 8, !tbaa !405
-  %123 = getelementptr inbounds nuw i32, ptr %122, i64 %121
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %122, i64 %121
   store i32 %83, ptr %123, align 4, !tbaa !97
   %124 = icmp eq ptr %4, %.083
   br i1 %124, label %_ZSt13move_backwardIPiN7xgboost6common6detail12SpanIteratorINS2_4SpanIiLm18446744073709551615EEELb0EEEET0_T_S9_S8_.exit, label %125

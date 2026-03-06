@@ -3,15 +3,6 @@ source_filename = "bench/gromacs/original/atomdistribution.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"struct.AtomDistribution::DomainAtomGroups" = type <{ %"class.gmx::ArrayRef", i32, [4 x i8] }>
-%"class.gmx::ArrayRef" = type { %"struct.gmx::ArrayRefIter", %"struct.gmx::ArrayRefIter" }
-%"struct.gmx::ArrayRefIter" = type { ptr }
-%"class.gmx::BasicVector" = type { [3 x float] }
-%"class.std::vector.5" = type { %"struct.std::_Vector_base.6" }
-%"struct.std::_Vector_base.6" = type { %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl" }
-%"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl" = type { %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-
 $_ZNSt6vectorIfSaIfEE17_M_default_appendEm = comdat any
 
 @.str = private unnamed_addr constant [49 x i8] c"cannot create std::vector larger than max_size()\00", align 1
@@ -49,7 +40,7 @@ _ZNSt12_Vector_baseIN16AtomDistribution16DomainAtomGroupsESaIS1_EEC2EmRKS2_.exit
   %14 = mul nuw nsw i64 %12, 24
   %15 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %14) #10
   store ptr %15, ptr %0, align 8, !tbaa !8
-  %16 = getelementptr inbounds nuw %"struct.AtomDistribution::DomainAtomGroups", ptr %15, i64 %12
+  %16 = getelementptr inbounds nuw [24 x i8], ptr %15, i64 %12
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %15, i8 0, i64 %14, i1 false)
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %15, i64 %14
   br label %17
@@ -85,7 +76,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %17
 
 .noexc24:                                         ; preds = %24
   store ptr %26, ptr %20, align 8, !tbaa !14
-  %27 = getelementptr inbounds nuw i32, ptr %26, i64 %21
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %21
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %27, ptr %28, align 8, !tbaa !17
   store i32 0, ptr %26, align 4, !tbaa !4
@@ -136,7 +127,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i25: ; preds = %_ZNSt12_Vect
 
 .noexc32:                                         ; preds = %45
   store ptr %47, ptr %35, align 8, !tbaa !14
-  %48 = getelementptr inbounds nuw i32, ptr %47, i64 %42
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %42
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store ptr %48, ptr %49, align 8, !tbaa !17
   store i32 0, ptr %47, align 4, !tbaa !4
@@ -184,7 +175,7 @@ _ZNSt16allocator_traitsISaIN3gmx11BasicVectorIfEEEE8allocateERS3_m.exit.i.i.i.i:
   %67 = phi ptr [ null, %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i ], [ %65, %_ZNSt16allocator_traitsISaIN3gmx11BasicVectorIfEEEE8allocateERS3_m.exit.i.i.i.i ]
   store ptr %67, ptr %53, align 8, !tbaa !19
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %69 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %67, i64 %61
+  %69 = getelementptr inbounds nuw [12 x i8], ptr %67, i64 %61
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store ptr %69, ptr %70, align 8, !tbaa !22
   %scevgep.i.i.i.i.i35 = getelementptr i8, ptr %67, i64 %.pre-phi.i
@@ -211,8 +202,8 @@ _ZNSt16allocator_traitsISaIN3gmx11BasicVectorIfEEEE8allocateERS3_m.exit.i.i.i.i:
 
 78:                                               ; preds = %66, %_ZNSt6vectorIfSaIfEE6resizeEm.exit
   %indvars.iv = phi i64 [ 0, %66 ], [ %indvars.iv.next, %_ZNSt6vectorIfSaIfEE6resizeEm.exit ]
-  %79 = getelementptr inbounds nuw %"class.std::vector.5", ptr %34, i64 %indvars.iv
-  %80 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %79 = getelementptr inbounds nuw [24 x i8], ptr %34, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %81 = load i32, ptr %80, align 4, !tbaa !4
   %82 = add nsw i32 %81, 1
   %83 = sext i32 %82 to i64
@@ -236,7 +227,7 @@ _ZNSt16allocator_traitsISaIN3gmx11BasicVectorIfEEEE8allocateERS3_m.exit.i.i.i.i:
   br i1 %95, label %96, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 96:                                               ; preds = %94
-  %97 = getelementptr inbounds nuw float, ptr %86, i64 %83
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %86, i64 %83
   %.not.i.i = icmp eq ptr %85, %97
   br i1 %.not.i.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %98
 
@@ -440,9 +431,9 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36: ; preds = %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !27
-  %39 = getelementptr inbounds nuw float, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !24
-  %40 = getelementptr inbounds nuw float, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !30
   br label %41
 
@@ -467,7 +458,7 @@ define void @_Z21get_commbuffer_countsP16AtomDistributionPN3gmx8ArrayRefIKiEES5_
   %13 = trunc i64 %12 to i32
   %sext = shl i64 %12, 32
   %14 = ashr exact i64 %sext, 32
-  %15 = getelementptr inbounds i32, ptr %7, i64 %14
+  %15 = getelementptr inbounds [4 x i8], ptr %7, i64 %14
   %16 = icmp sgt i32 %13, 0
   br i1 %16, label %.lr.ph, label %._crit_edge
 
@@ -477,7 +468,7 @@ define void @_Z21get_commbuffer_countsP16AtomDistributionPN3gmx8ArrayRefIKiEES5_
   br label %19
 
 ._crit_edge:                                      ; preds = %32, %3
-  %18 = getelementptr inbounds i32, ptr %15, i64 %14
+  %18 = getelementptr inbounds [4 x i8], ptr %15, i64 %14
   store ptr %7, ptr %1, align 8
   %.sroa.424.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %15, ptr %.sroa.424.0..sroa_idx, align 8
@@ -488,26 +479,26 @@ define void @_Z21get_commbuffer_countsP16AtomDistributionPN3gmx8ArrayRefIKiEES5_
 
 19:                                               ; preds = %.lr.ph, %32
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %32 ]
-  %20 = getelementptr inbounds nuw %"struct.AtomDistribution::DomainAtomGroups", ptr %17, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [24 x i8], ptr %17, i64 %indvars.iv
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load i32, ptr %21, align 8, !tbaa !33
-  %23 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv
   store i32 %22, ptr %23, align 4, !tbaa !4
   %24 = icmp eq i64 %indvars.iv, 0
   br i1 %24, label %32, label %25
 
 25:                                               ; preds = %19
   %26 = add nsw i64 %indvars.iv, -1
-  %27 = getelementptr inbounds i32, ptr %15, i64 %26
+  %27 = getelementptr inbounds [4 x i8], ptr %15, i64 %26
   %28 = load i32, ptr %27, align 4, !tbaa !4
-  %29 = getelementptr inbounds i32, ptr %7, i64 %26
+  %29 = getelementptr inbounds [4 x i8], ptr %7, i64 %26
   %30 = load i32, ptr %29, align 4, !tbaa !4
   %31 = add nsw i32 %30, %28
   br label %32
 
 32:                                               ; preds = %19, %25
   %33 = phi i32 [ %31, %25 ], [ 0, %19 ]
-  %34 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv
   store i32 %33, ptr %34, align 4, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

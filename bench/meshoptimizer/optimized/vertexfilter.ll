@@ -523,7 +523,7 @@ define dso_local void @meshopt_decodeFilterExp(ptr noundef captures(none) %0, i6
 
 .lr.ph.i.i:                                       ; preds = %3, %.lr.ph.i.i
   %.013.i.i = phi i64 [ %18, %.lr.ph.i.i ], [ 0, %3 ]
-  %8 = getelementptr inbounds nuw i32, ptr %0, i64 %.013.i.i
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.013.i.i
   %9 = load <4 x i32>, ptr %8, align 1, !tbaa !4
   %10 = ashr <4 x i32> %9, splat (i32 1)
   %11 = and <4 x i32> %10, splat (i32 -8388608)
@@ -547,7 +547,7 @@ _ZN7meshoptL19decodeFilterExpSimdEPjm.exit.i:     ; preds = %.lr.ph.i.i, %3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %4, i8 0, i64 64, i1 false)
   %21 = and i64 %6, 3
   %22 = shl nuw nsw i64 %21, 2
-  %23 = getelementptr inbounds nuw i32, ptr %0, i64 %7
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %7
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr align 4 %23, i64 %22, i1 false)
   %.not.i20.i = icmp eq i64 %21, 0
   br i1 %.not.i20.i, label %_ZN7meshoptL19decodeFilterExpSimdEPjm.exit23.i, label %.lr.ph.i21.i
@@ -603,7 +603,7 @@ define dso_local void @meshopt_encodeFilterOct(ptr noundef writeonly captures(no
 18:                                               ; preds = %.lr.ph, %92
   %.063 = phi i64 [ 0, %.lr.ph ], [ %93, %92 ]
   %19 = shl i64 %.063, 2
-  %20 = getelementptr inbounds nuw float, ptr %4, i64 %19
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %19
   %21 = load float, ptr %20, align 4, !tbaa !14
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %23 = load float, ptr %22, align 4, !tbaa !14
@@ -682,7 +682,7 @@ define dso_local void @meshopt_encodeFilterOct(ptr noundef writeonly captures(no
 
 84:                                               ; preds = %.thread
   %85 = trunc i32 %59 to i16
-  %86 = getelementptr inbounds nuw i16, ptr %0, i64 %19
+  %86 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %19
   store i16 %85, ptr %86, align 2, !tbaa !16
   %87 = trunc i32 %67 to i16
   %88 = getelementptr inbounds nuw i8, ptr %86, i64 2
@@ -724,8 +724,8 @@ define dso_local void @meshopt_encodeFilterQuat(ptr noundef writeonly captures(n
 12:                                               ; preds = %.lr.ph, %12
   %.045 = phi i64 [ 0, %.lr.ph ], [ %98, %12 ]
   %13 = shl i64 %.045, 2
-  %14 = getelementptr inbounds nuw float, ptr %4, i64 %13
-  %15 = getelementptr inbounds nuw i16, ptr %0, i64 %13
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %13
+  %15 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %13
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %17 = load float, ptr %16, align 4, !tbaa !14
   %18 = tail call float @llvm.fabs.f32(float %17)
@@ -737,7 +737,7 @@ define dso_local void @meshopt_encodeFilterQuat(ptr noundef writeonly captures(n
   %24 = load float, ptr %23, align 4, !tbaa !14
   %25 = tail call float @llvm.fabs.f32(float %24)
   %26 = zext i1 %21 to i64
-  %27 = getelementptr inbounds nuw float, ptr %14, i64 %26
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %26
   %28 = load float, ptr %27, align 4, !tbaa !14
   %29 = tail call float @llvm.fabs.f32(float %28)
   %30 = fcmp ogt float %25, %29
@@ -746,20 +746,20 @@ define dso_local void @meshopt_encodeFilterQuat(ptr noundef writeonly captures(n
   %33 = load float, ptr %32, align 4, !tbaa !14
   %34 = tail call float @llvm.fabs.f32(float %33)
   %35 = zext nneg i32 %31 to i64
-  %36 = getelementptr inbounds nuw float, ptr %14, i64 %35
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %35
   %37 = load float, ptr %36, align 4, !tbaa !14
   %38 = tail call float @llvm.fabs.f32(float %37)
   %39 = fcmp ogt float %34, %38
   %40 = select i1 %39, i32 3, i32 %31
   %41 = zext nneg i32 %40 to i64
-  %42 = getelementptr inbounds nuw float, ptr %14, i64 %41
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %41
   %43 = load float, ptr %42, align 4, !tbaa !14
   %44 = fcmp olt float %43, 0.000000e+00
   %45 = select i1 %44, float -1.000000e+00, float 1.000000e+00
   %46 = add nuw nsw i32 %40, 1
   %47 = and i32 %46, 3
   %48 = zext nneg i32 %47 to i64
-  %49 = getelementptr inbounds nuw float, ptr %14, i64 %48
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %48
   %50 = load float, ptr %49, align 4, !tbaa !14
   %51 = fmul float %50, 0x3FF6A09E60000000
   %52 = fmul float %51, %45
@@ -775,7 +775,7 @@ define dso_local void @meshopt_encodeFilterQuat(ptr noundef writeonly captures(n
   store i16 %61, ptr %15, align 2, !tbaa !16
   %62 = xor i32 %40, 2
   %63 = zext nneg i32 %62 to i64
-  %64 = getelementptr inbounds nuw float, ptr %14, i64 %63
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %63
   %65 = load float, ptr %64, align 4, !tbaa !14
   %66 = fmul float %65, 0x3FF6A09E60000000
   %67 = fmul float %45, %66
@@ -793,7 +793,7 @@ define dso_local void @meshopt_encodeFilterQuat(ptr noundef writeonly captures(n
   %78 = add nuw nsw i32 %40, 3
   %79 = and i32 %78, 3
   %80 = zext nneg i32 %79 to i64
-  %81 = getelementptr inbounds nuw float, ptr %14, i64 %80
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %80
   %82 = load float, ptr %81, align 4, !tbaa !14
   %83 = fmul float %82, 0x3FF6A09E60000000
   %84 = fmul float %45, %83
@@ -834,12 +834,12 @@ define dso_local void @meshopt_encodeFilterExp(ptr noundef writeonly captures(no
 .lr.ph99.us:                                      ; preds = %.preheader94.thread, %._crit_edge.us
   %.077100.us = phi i64 [ %24, %._crit_edge.us ], [ 0, %.preheader94.thread ]
   %10 = mul i64 %.077100.us, %8
-  %11 = getelementptr inbounds nuw float, ptr %4, i64 %10
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %10
   br label %12
 
 12:                                               ; preds = %.lr.ph99.us, %12
   %.07998.us = phi i64 [ 0, %.lr.ph99.us ], [ %23, %12 ]
-  %13 = getelementptr inbounds nuw float, ptr %11, i64 %.07998.us
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %.07998.us
   %14 = load float, ptr %13, align 4, !tbaa !14
   %15 = fcmp oeq float %14, 0.000000e+00
   %16 = bitcast float %14 to i32
@@ -847,7 +847,7 @@ define dso_local void @meshopt_encodeFilterExp(ptr noundef writeonly captures(no
   %18 = and i32 %17, 255
   %19 = add nsw i32 %18, -126
   %20 = select i1 %15, i32 0, i32 %19
-  %21 = getelementptr inbounds nuw i32, ptr %7, i64 %.07998.us
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.07998.us
   %22 = load i32, ptr %21, align 4, !tbaa !20
   %..us = tail call i32 @llvm.smax.i32(i32 %22, i32 %20)
   store i32 %..us, ptr %21, align 4, !tbaa !20
@@ -862,7 +862,7 @@ define dso_local void @meshopt_encodeFilterExp(ptr noundef writeonly captures(no
 
 .lr.ph:                                           ; preds = %6, %.lr.ph
   %.097 = phi i64 [ %26, %.lr.ph ], [ 0, %6 ]
-  %25 = getelementptr inbounds nuw i32, ptr %7, i64 %.097
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.097
   store i32 -100, ptr %25, align 4, !tbaa !20
   %26 = add nuw nsw i64 %.097, 1
   %exitcond.not = icmp eq i64 %26, %8
@@ -884,8 +884,8 @@ define dso_local void @meshopt_encodeFilterExp(ptr noundef writeonly captures(no
 28:                                               ; preds = %.lr.ph113, %._crit_edge
   %.081111 = phi i64 [ 0, %.lr.ph113 ], [ %64, %._crit_edge ]
   %29 = mul i64 %.081111, %8
-  %30 = getelementptr inbounds nuw float, ptr %4, i64 %29
-  %31 = getelementptr inbounds nuw i32, ptr %0, i64 %29
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %29
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %29
   br i1 %27, label %.preheader, label %42
 
 .preheader:                                       ; preds = %28
@@ -894,7 +894,7 @@ define dso_local void @meshopt_encodeFilterExp(ptr noundef writeonly captures(no
 .lr.ph108:                                        ; preds = %.preheader, %.lr.ph108
   %.083107 = phi i32 [ %40, %.lr.ph108 ], [ -100, %.preheader ]
   %.084106 = phi i64 [ %41, %.lr.ph108 ], [ 0, %.preheader ]
-  %32 = getelementptr inbounds nuw float, ptr %30, i64 %.084106
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %.084106
   %33 = load float, ptr %32, align 4, !tbaa !14
   %34 = fcmp oeq float %33, 0.000000e+00
   %35 = bitcast float %33 to i32
@@ -921,7 +921,7 @@ define dso_local void @meshopt_encodeFilterExp(ptr noundef writeonly captures(no
 
 .lr.ph105:                                        ; preds = %.preheader90, %.lr.ph105
   %.082104 = phi i64 [ %53, %.lr.ph105 ], [ 0, %.preheader90 ]
-  %43 = getelementptr inbounds nuw float, ptr %30, i64 %.082104
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %.082104
   %44 = load float, ptr %43, align 4, !tbaa !14
   %45 = fcmp oeq float %44, 0.000000e+00
   %46 = bitcast float %44 to i32
@@ -930,7 +930,7 @@ define dso_local void @meshopt_encodeFilterExp(ptr noundef writeonly captures(no
   %49 = tail call i32 @llvm.umax.i32(i32 %48, i32 26)
   %50 = add nsw i32 %49, -126
   %51 = select i1 %45, i32 0, i32 %50
-  %52 = getelementptr inbounds nuw i32, ptr %7, i64 %.082104
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.082104
   store i32 %51, ptr %52, align 4, !tbaa !20
   %53 = add nuw nsw i64 %.082104, 1
   %exitcond128.not = icmp eq i64 %53, %8
@@ -938,7 +938,7 @@ define dso_local void @meshopt_encodeFilterExp(ptr noundef writeonly captures(no
 
 .lr.ph103:                                        ; preds = %.preheader92, %.lr.ph103
   %.080102 = phi i64 [ %63, %.lr.ph103 ], [ 0, %.preheader92 ]
-  %54 = getelementptr inbounds nuw float, ptr %30, i64 %.080102
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %.080102
   %55 = load float, ptr %54, align 4, !tbaa !14
   %56 = fcmp oeq float %55, 0.000000e+00
   %57 = bitcast float %55 to i32
@@ -946,7 +946,7 @@ define dso_local void @meshopt_encodeFilterExp(ptr noundef writeonly captures(no
   %59 = and i32 %58, 255
   %60 = tail call i32 @llvm.usub.sat.i32(i32 %59, i32 126)
   %61 = select i1 %56, i32 0, i32 %60
-  %62 = getelementptr inbounds nuw i32, ptr %7, i64 %.080102
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.080102
   store i32 %61, ptr %62, align 4, !tbaa !20
   %63 = add nuw nsw i64 %.080102, 1
   %exitcond127.not = icmp eq i64 %63, %8
@@ -969,7 +969,7 @@ define dso_local void @meshopt_encodeFilterExp(ptr noundef writeonly captures(no
   br i1 %27, label %68, label %65
 
 65:                                               ; preds = %.lr.ph110
-  %66 = getelementptr inbounds nuw i32, ptr %7, i64 %.078109
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.078109
   %67 = load i32, ptr %66, align 4, !tbaa !20
   br label %68
 
@@ -977,7 +977,7 @@ define dso_local void @meshopt_encodeFilterExp(ptr noundef writeonly captures(no
   %69 = phi i32 [ %67, %65 ], [ %.1147, %.lr.ph110 ]
   %reass.sub = sub i32 %69, %3
   %70 = add i32 %reass.sub, 1
-  %71 = getelementptr inbounds nuw float, ptr %30, i64 %.078109
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %.078109
   %72 = load float, ptr %71, align 4, !tbaa !14
   %73 = shl i32 %70, 23
   %74 = sub i32 1065353216, %73
@@ -989,7 +989,7 @@ define dso_local void @meshopt_encodeFilterExp(ptr noundef writeonly captures(no
   %80 = and i32 %79, 16777215
   %81 = shl i32 %70, 24
   %82 = or disjoint i32 %80, %81
-  %83 = getelementptr inbounds nuw i32, ptr %31, i64 %.078109
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %.078109
   store i32 %82, ptr %83, align 4, !tbaa !20
   %84 = add nuw nsw i64 %.078109, 1
   %exitcond130.not = icmp eq i64 %84, %8

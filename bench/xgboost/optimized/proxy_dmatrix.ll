@@ -6002,7 +6002,7 @@ _ZNSt6vectorIN7xgboost14ArrayInterfaceILi1ELb1EEESaIS2_EE11_S_relocateEPS2_S5_S5
 _ZNSt12_Vector_baseIN7xgboost14ArrayInterfaceILi1ELb1EEESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN7xgboost14ArrayInterfaceILi1ELb1EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit32, %29
   store ptr %20, ptr %0, align 8, !tbaa !88
   store ptr %.0.lcssa.i.i.i31, ptr %4, align 8, !tbaa !79
-  %33 = getelementptr inbounds nuw %"class.xgboost::ArrayInterface.39", ptr %20, i64 %16
+  %33 = getelementptr inbounds nuw [56 x i8], ptr %20, i64 %16
   store ptr %33, ptr %28, align 8, !tbaa !81
   ret void
 
@@ -6174,7 +6174,7 @@ switch.lookup:                                    ; preds = %60
 
 67:                                               ; preds = %switch.lookup
   %68 = zext nneg i8 %63 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN7xgboost14ArrayInterfaceILi2ELb0EE10InitializeERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_4JsonESt4lessIvESaISt4pairIKS8_S9_EEE, i64 %68
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN7xgboost14ArrayInterfaceILi2ELb0EE10InitializeERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_4JsonESt4lessIvESaISt4pairIKS8_S9_EEE, i64 %68
   %switch.load = load i64, ptr %switch.gep, align 8
   %69 = ptrtoint ptr %59 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -7700,9 +7700,9 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %121 = load i64, ptr %4, align 8, !tbaa !48
   %122 = load ptr, ptr %3, align 8, !tbaa !194
-  %123 = getelementptr inbounds nuw i64, ptr %122, i64 %121
+  %123 = getelementptr inbounds nuw [8 x i8], ptr %122, i64 %121
   %124 = load i64, ptr %123, align 8, !tbaa !48
-  %125 = getelementptr inbounds nuw i64, ptr %1, i64 %121
+  %125 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %121
   store i64 %124, ptr %125, align 8, !tbaa !48
   %126 = add i64 %121, 1
   store i64 %126, ptr %4, align 8, !tbaa !48
@@ -8420,10 +8420,10 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %240 = load i64, ptr %12, align 8, !tbaa !48
   %241 = load ptr, ptr %11, align 8, !tbaa !194
-  %242 = getelementptr inbounds nuw i64, ptr %241, i64 %240
+  %242 = getelementptr inbounds nuw [8 x i8], ptr %241, i64 %240
   %243 = load i64, ptr %242, align 8, !tbaa !48
   %244 = udiv i64 %243, %1
-  %245 = getelementptr inbounds nuw i64, ptr %3, i64 %240
+  %245 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %240
   store i64 %244, ptr %245, align 8, !tbaa !48
   %246 = add i64 %240, 1
   store i64 %246, ptr %12, align 8, !tbaa !48
@@ -12410,9 +12410,9 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit36: ; preds = %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !194
-  %39 = getelementptr inbounds nuw i64, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !196
-  %40 = getelementptr inbounds nuw i64, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !195
   br label %41
 
@@ -15350,7 +15350,7 @@ switch.lookup:                                    ; preds = %59
 
 .thread:                                          ; preds = %switch.lookup
   %68 = zext nneg i8 %62 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN7xgboost14ArrayInterfaceILi2ELb0EE10InitializeERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_4JsonESt4lessIvESaISt4pairIKS8_S9_EEE, i64 %68
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN7xgboost14ArrayInterfaceILi2ELb0EE10InitializeERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_4JsonESt4lessIvESaISt4pairIKS8_S9_EEE, i64 %68
   %switch.load = load i64, ptr %switch.gep, align 8
   %69 = ptrtoint ptr %58 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -16210,9 +16210,9 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit: ; preds = %_ZN4dmlc11LogCheck_LTImiEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS7_EERKT_RKT0_.exit, %_ZN4dmlc11LogCheck_LTImiEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS7_EERKT_RKT0_.exit.thread, %104, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %111 = load i64, ptr %3, align 8, !tbaa !48
-  %112 = getelementptr inbounds nuw i64, ptr %.sroa.052.0, i64 %111
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.052.0, i64 %111
   %113 = load i64, ptr %112, align 8, !tbaa !48
-  %114 = getelementptr inbounds nuw i64, ptr %1, i64 %111
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %111
   store i64 %113, ptr %114, align 8, !tbaa !48
   %115 = add i64 %111, 1
   store i64 %115, ptr %3, align 8, !tbaa !48
@@ -16872,10 +16872,10 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit121: ; preds = %_ZN4dmlc11LogCheck_LTImiEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS7_EERKT_RKT0_.exit, %_ZN4dmlc11LogCheck_LTImiEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS7_EERKT_RKT0_.exit.thread, %224, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i119
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %231 = load i64, ptr %10, align 8, !tbaa !48
-  %232 = getelementptr inbounds nuw i64, ptr %.sroa.0132.0, i64 %231
+  %232 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0132.0, i64 %231
   %233 = load i64, ptr %232, align 8, !tbaa !48
   %234 = udiv i64 %233, %1
-  %235 = getelementptr inbounds nuw i64, ptr %3, i64 %231
+  %235 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %231
   store i64 %234, ptr %235, align 8, !tbaa !48
   %236 = add i64 %231, 1
   store i64 %236, ptr %10, align 8, !tbaa !48
@@ -17184,7 +17184,7 @@ _ZNSt6vectorIPvSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i: ; preds = %3
           to label %.noexc27 unwind label %22
 
 .noexc27:                                         ; preds = %8
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %2
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %2
   store ptr null, ptr %10, align 8, !tbaa !105
   %12 = add nsw i64 %2, -1
   %13 = icmp eq i64 %12, 0
@@ -17240,7 +17240,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %20, %17
 32:                                               ; preds = %.lr.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %indvars.iv = phi i64 [ %31, %.lr.ph ], [ %indvars.iv.next, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %33 = getelementptr inbounds ptr, ptr %26, i64 %indvars.iv
+  %33 = getelementptr inbounds [8 x i8], ptr %26, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8, !tbaa !104
   invoke void @_ZN4dmlc8DemangleB5cxx11EPKc(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef %34)
           to label %35 unwind label %48

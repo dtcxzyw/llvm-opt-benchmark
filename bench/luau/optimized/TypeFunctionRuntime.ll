@@ -17,9 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %"class.Luau::Variant" = type { i32, [4 x i8], [144 x i8] }
-%"struct.Luau::TypeFunctionType" = type { %"class.Luau::Variant" }
 %"class.Luau::Variant.19" = type { i32, [4 x i8], [40 x i8] }
-%"struct.Luau::TypeFunctionTypePackVar" = type { %"class.Luau::Variant.19" }
 %"struct.Luau::TypeFunctionSingletonType" = type { %"class.Luau::Variant.33" }
 %"class.Luau::Variant.33" = type { i32, [4 x i8], [32 x i8] }
 %"struct.Luau::TypeFunctionStringSingleton" = type { %"class.std::__cxx11::basic_string" }
@@ -71,7 +69,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.Luau::detail::DenseHashTable.75" = type <{ ptr, i64, i64, ptr, [8 x i8] }>
 %"class.Luau::DenseHashMap.77" = type { %"class.Luau::detail::DenseHashTable.78" }
 %"class.Luau::detail::DenseHashTable.78" = type <{ ptr, i64, i64, ptr, [8 x i8] }>
-%"struct.std::pair.103" = type { ptr, ptr }
 %"class.std::allocator" = type { i8 }
 %"class.std::tuple.81" = type { %"struct.std::_Tuple_impl.82" }
 %"struct.std::_Tuple_impl.82" = type { %"struct.std::_Head_base.83" }
@@ -94,7 +91,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Head_base.112" = type { %"class.Luau::Variant.113" }
 %"class.Luau::Variant.113" = type { i32, [4 x i8], [8 x i8] }
 %"struct.std::_Head_base.114" = type { %"class.Luau::Variant.113" }
-%"struct.std::pair.107" = type { ptr, ptr }
 
 $_ZN4Luau7AstRttiINS_7AstAttrEE5valueE = comdat any
 
@@ -2062,11 +2058,11 @@ define dso_local noundef ptr @_ZN4Luau24allocateTypeFunctionTypeEP9lua_StateNS_7
   %13 = load ptr, ptr %12, align 8, !tbaa !28
   %14 = getelementptr inbounds i8, ptr %13, i64 -8
   %15 = load ptr, ptr %14, align 8, !tbaa !29
-  %16 = getelementptr inbounds nuw %"struct.Luau::TypeFunctionType", ptr %15, i64 %11
+  %16 = getelementptr inbounds nuw [152 x i8], ptr %15, i64 %11
   %17 = load i32, ptr %1, align 8, !tbaa !31
   store i32 %17, ptr %3, align 8, !tbaa !31
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableMoveE, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableMoveE, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !33
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -2074,7 +2070,7 @@ define dso_local noundef ptr @_ZN4Luau24allocateTypeFunctionTypeEP9lua_StateNS_7
   %23 = load i32, ptr %3, align 8, !tbaa !31
   store i32 %23, ptr %16, align 8, !tbaa !31
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableMoveE, i64 %24
+  %25 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableMoveE, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !33
   %27 = getelementptr inbounds nuw i8, ptr %16, i64 8
   invoke void %26(ptr noundef nonnull %27, ptr noundef nonnull %21)
@@ -2083,7 +2079,7 @@ define dso_local noundef ptr @_ZN4Luau24allocateTypeFunctionTypeEP9lua_StateNS_7
 _ZN4Luau16TypeFunctionTypeC2ENS_7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEEE.exit.i: ; preds = %10
   %28 = load i32, ptr %3, align 8, !tbaa !31
   %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !33
   invoke void %31(ptr noundef nonnull %21)
           to label %_ZN4Luau14TypedAllocatorINS_16TypeFunctionTypeEE8allocateIJNS_7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEEEEEEPS1_DpOT_.exit unwind label %32
@@ -2100,7 +2096,7 @@ _ZN4Luau16TypeFunctionTypeC2ENS_7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19Ty
           cleanup
   %37 = load i32, ptr %3, align 8, !tbaa !31
   %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %38
+  %39 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %38
   %40 = load ptr, ptr %39, align 8, !tbaa !33
   invoke void %40(ptr noundef nonnull %21)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit6.i unwind label %41
@@ -2146,11 +2142,11 @@ define dso_local noundef ptr @_ZN4Luau28allocateTypeFunctionTypePackEP9lua_State
   %14 = load ptr, ptr %13, align 8, !tbaa !41
   %15 = getelementptr inbounds i8, ptr %14, i64 -8
   %16 = load ptr, ptr %15, align 8, !tbaa !42
-  %17 = getelementptr inbounds nuw %"struct.Luau::TypeFunctionTypePackVar", ptr %16, i64 %12
+  %17 = getelementptr inbounds nuw [48 x i8], ptr %16, i64 %12
   %18 = load i32, ptr %1, align 8, !tbaa !44
   store i32 %18, ptr %3, align 8, !tbaa !44
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_20TypeFunctionTypePackENS_28TypeFunctionVariadicTypePackENS_27TypeFunctionGenericTypePackEEE9tableMoveE, i64 %19
+  %20 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_20TypeFunctionTypePackENS_28TypeFunctionVariadicTypePackENS_27TypeFunctionGenericTypePackEEE9tableMoveE, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !33
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -2158,7 +2154,7 @@ define dso_local noundef ptr @_ZN4Luau28allocateTypeFunctionTypePackEP9lua_State
   %24 = load i32, ptr %3, align 8, !tbaa !44
   store i32 %24, ptr %17, align 8, !tbaa !44
   %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_20TypeFunctionTypePackENS_28TypeFunctionVariadicTypePackENS_27TypeFunctionGenericTypePackEEE9tableMoveE, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_20TypeFunctionTypePackENS_28TypeFunctionVariadicTypePackENS_27TypeFunctionGenericTypePackEEE9tableMoveE, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !33
   %28 = getelementptr inbounds nuw i8, ptr %17, i64 8
   invoke void %27(ptr noundef nonnull %28, ptr noundef nonnull %22)
@@ -2167,7 +2163,7 @@ define dso_local noundef ptr @_ZN4Luau28allocateTypeFunctionTypePackEP9lua_State
 _ZN4Luau23TypeFunctionTypePackVarC2ENS_7VariantIJNS_20TypeFunctionTypePackENS_28TypeFunctionVariadicTypePackENS_27TypeFunctionGenericTypePackEEEE.exit.i: ; preds = %11
   %29 = load i32, ptr %3, align 8, !tbaa !44
   %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_20TypeFunctionTypePackENS_28TypeFunctionVariadicTypePackENS_27TypeFunctionGenericTypePackEEE9tableDtorE, i64 %30
+  %31 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_20TypeFunctionTypePackENS_28TypeFunctionVariadicTypePackENS_27TypeFunctionGenericTypePackEEE9tableDtorE, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !33
   invoke void %32(ptr noundef nonnull %22)
           to label %_ZN4Luau14TypedAllocatorINS_23TypeFunctionTypePackVarEE8allocateIJNS_7VariantIJNS_20TypeFunctionTypePackENS_28TypeFunctionVariadicTypePackENS_27TypeFunctionGenericTypePackEEEEEEEPS1_DpOT_.exit unwind label %33
@@ -2184,7 +2180,7 @@ _ZN4Luau23TypeFunctionTypePackVarC2ENS_7VariantIJNS_20TypeFunctionTypePackENS_28
           cleanup
   %38 = load i32, ptr %3, align 8, !tbaa !44
   %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_20TypeFunctionTypePackENS_28TypeFunctionVariadicTypePackENS_27TypeFunctionGenericTypePackEEE9tableDtorE, i64 %39
+  %40 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_20TypeFunctionTypePackENS_28TypeFunctionVariadicTypePackENS_27TypeFunctionGenericTypePackEEE9tableDtorE, i64 %39
   %41 = load ptr, ptr %40, align 8, !tbaa !33
   invoke void %41(ptr noundef nonnull %22)
           to label %_ZN4Luau7VariantIJNS_20TypeFunctionTypePackENS_28TypeFunctionVariadicTypePackENS_27TypeFunctionGenericTypePackEEED2Ev.exit6.i unwind label %42
@@ -2214,7 +2210,7 @@ define dso_local void @_ZN4Luau17allocTypeUserDataEP9lua_StateNS_7VariantIJNS_25
   %5 = load i32, ptr %1, align 8, !tbaa !31
   store i32 %5, ptr %3, align 8, !tbaa !31
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableMoveE, i64 %6
+  %7 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableMoveE, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !33
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -2226,7 +2222,7 @@ define dso_local void @_ZN4Luau17allocTypeUserDataEP9lua_StateNS_7VariantIJNS_25
   store ptr %11, ptr %4, align 8, !tbaa !29
   %13 = load i32, ptr %3, align 8, !tbaa !31
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !33
   invoke void %16(ptr noundef nonnull %9)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit unwind label %17
@@ -2248,7 +2244,7 @@ _ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23T
           cleanup
   %24 = load i32, ptr %3, align 8, !tbaa !31
   %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !33
   invoke void %27(ptr noundef nonnull %9)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit6 unwind label %28
@@ -2380,7 +2376,7 @@ define internal noundef i32 @_ZN4LuauL13createUnknownEP9lua_State(ptr noundef %0
 3:                                                ; preds = %1
   %4 = load i32, ptr %2, align 8, !tbaa !31
   %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %5
+  %6 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !33
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   invoke void %7(ptr noundef nonnull %8)
@@ -2401,7 +2397,7 @@ _ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23T
           cleanup
   %14 = load i32, ptr %2, align 8, !tbaa !31
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !33
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
   invoke void %17(ptr noundef nonnull %18)
@@ -2428,7 +2424,7 @@ define internal noundef i32 @_ZN4LuauL11createNeverEP9lua_State(ptr noundef %0) 
 3:                                                ; preds = %1
   %4 = load i32, ptr %2, align 8, !tbaa !31
   %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %5
+  %6 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !33
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   invoke void %7(ptr noundef nonnull %8)
@@ -2449,7 +2445,7 @@ _ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23T
           cleanup
   %14 = load i32, ptr %2, align 8, !tbaa !31
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !33
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
   invoke void %17(ptr noundef nonnull %18)
@@ -2476,7 +2472,7 @@ define internal noundef i32 @_ZN4LuauL9createAnyEP9lua_State(ptr noundef %0) #2 
 3:                                                ; preds = %1
   %4 = load i32, ptr %2, align 8, !tbaa !31
   %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %5
+  %6 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !33
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   invoke void %7(ptr noundef nonnull %8)
@@ -2497,7 +2493,7 @@ _ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23T
           cleanup
   %14 = load i32, ptr %2, align 8, !tbaa !31
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !33
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
   invoke void %17(ptr noundef nonnull %18)
@@ -2526,7 +2522,7 @@ define internal noundef i32 @_ZN4LuauL13createBooleanEP9lua_State(ptr noundef %0
 4:                                                ; preds = %1
   %5 = load i32, ptr %2, align 8, !tbaa !31
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %6
+  %7 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !33
   invoke void %8(ptr noundef nonnull %3)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit unwind label %9
@@ -2546,7 +2542,7 @@ _ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23T
           cleanup
   %14 = load i32, ptr %2, align 8, !tbaa !31
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !33
   invoke void %17(ptr noundef nonnull %3)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit2 unwind label %18
@@ -2574,7 +2570,7 @@ define internal noundef i32 @_ZN4LuauL12createNumberEP9lua_State(ptr noundef %0)
 4:                                                ; preds = %1
   %5 = load i32, ptr %2, align 8, !tbaa !31
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %6
+  %7 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !33
   invoke void %8(ptr noundef nonnull %3)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit unwind label %9
@@ -2594,7 +2590,7 @@ _ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23T
           cleanup
   %14 = load i32, ptr %2, align 8, !tbaa !31
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !33
   invoke void %17(ptr noundef nonnull %3)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit2 unwind label %18
@@ -2622,7 +2618,7 @@ define internal noundef i32 @_ZN4LuauL12createStringEP9lua_State(ptr noundef %0)
 4:                                                ; preds = %1
   %5 = load i32, ptr %2, align 8, !tbaa !31
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %6
+  %7 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !33
   invoke void %8(ptr noundef nonnull %3)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit unwind label %9
@@ -2642,7 +2638,7 @@ _ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23T
           cleanup
   %14 = load i32, ptr %2, align 8, !tbaa !31
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !33
   invoke void %17(ptr noundef nonnull %3)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit2 unwind label %18
@@ -2670,7 +2666,7 @@ define internal noundef i32 @_ZN4LuauL12createThreadEP9lua_State(ptr noundef %0)
 4:                                                ; preds = %1
   %5 = load i32, ptr %2, align 8, !tbaa !31
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %6
+  %7 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !33
   invoke void %8(ptr noundef nonnull %3)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit unwind label %9
@@ -2690,7 +2686,7 @@ _ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23T
           cleanup
   %14 = load i32, ptr %2, align 8, !tbaa !31
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !33
   invoke void %17(ptr noundef nonnull %3)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit2 unwind label %18
@@ -2718,7 +2714,7 @@ define internal noundef i32 @_ZN4LuauL12createBufferEP9lua_State(ptr noundef %0)
 4:                                                ; preds = %1
   %5 = load i32, ptr %2, align 8, !tbaa !31
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %6
+  %7 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !33
   invoke void %8(ptr noundef nonnull %3)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit unwind label %9
@@ -2738,7 +2734,7 @@ _ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23T
           cleanup
   %14 = load i32, ptr %2, align 8, !tbaa !31
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !33
   invoke void %17(ptr noundef nonnull %3)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit2 unwind label %18
@@ -2791,7 +2787,7 @@ _ZN4Luau25TypeFunctionSingletonTypeC2ENS_7VariantIJNS_28TypeFunctionBooleanSingl
 20:                                               ; preds = %_ZN4Luau25TypeFunctionSingletonTypeC2ENS_7VariantIJNS_28TypeFunctionBooleanSingletonENS_27TypeFunctionStringSingletonEEEE.exit
   %21 = load i32, ptr %3, align 8, !tbaa !31
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !33
   invoke void %24(ptr noundef nonnull %18)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit unwind label %25
@@ -2806,7 +2802,7 @@ _ZN4Luau25TypeFunctionSingletonTypeC2ENS_7VariantIJNS_28TypeFunctionBooleanSingl
 _ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit: ; preds = %20
   %28 = load i32, ptr %4, align 8, !tbaa !53
   %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_28TypeFunctionBooleanSingletonENS_27TypeFunctionStringSingletonEEE9tableDtorE, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_28TypeFunctionBooleanSingletonENS_27TypeFunctionStringSingletonEEE9tableDtorE, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !33
   invoke void %31(ptr noundef nonnull %17)
           to label %_ZN4Luau25TypeFunctionSingletonTypeD2Ev.exit unwind label %32
@@ -2821,7 +2817,7 @@ _ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23T
 _ZN4Luau25TypeFunctionSingletonTypeD2Ev.exit:     ; preds = %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit
   %35 = load i32, ptr %5, align 8, !tbaa !53
   %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_28TypeFunctionBooleanSingletonENS_27TypeFunctionStringSingletonEEE9tableDtorE, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_28TypeFunctionBooleanSingletonENS_27TypeFunctionStringSingletonEEE9tableDtorE, i64 %36
   %38 = load ptr, ptr %37, align 8, !tbaa !33
   invoke void %38(ptr noundef nonnull %16)
           to label %_ZN4Luau7VariantIJNS_28TypeFunctionBooleanSingletonENS_27TypeFunctionStringSingletonEEED2Ev.exit unwind label %39
@@ -2842,7 +2838,7 @@ _ZN4Luau7VariantIJNS_28TypeFunctionBooleanSingletonENS_27TypeFunctionStringSingl
           cleanup
   %44 = load i32, ptr %3, align 8, !tbaa !31
   %45 = sext i32 %44 to i64
-  %46 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %45
+  %46 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %45
   %47 = load ptr, ptr %46, align 8, !tbaa !33
   invoke void %47(ptr noundef nonnull %18)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit28 unwind label %48
@@ -2857,7 +2853,7 @@ _ZN4Luau7VariantIJNS_28TypeFunctionBooleanSingletonENS_27TypeFunctionStringSingl
 _ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit28: ; preds = %42
   %51 = load i32, ptr %4, align 8, !tbaa !53
   %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_28TypeFunctionBooleanSingletonENS_27TypeFunctionStringSingletonEEE9tableDtorE, i64 %52
+  %53 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_28TypeFunctionBooleanSingletonENS_27TypeFunctionStringSingletonEEE9tableDtorE, i64 %52
   %54 = load ptr, ptr %53, align 8, !tbaa !33
   invoke void %54(ptr noundef nonnull %17)
           to label %_ZN4Luau25TypeFunctionSingletonTypeD2Ev.exit29 unwind label %55
@@ -2872,7 +2868,7 @@ _ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23T
 _ZN4Luau25TypeFunctionSingletonTypeD2Ev.exit29:   ; preds = %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit28
   %58 = load i32, ptr %5, align 8, !tbaa !53
   %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_28TypeFunctionBooleanSingletonENS_27TypeFunctionStringSingletonEEE9tableDtorE, i64 %59
+  %60 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_28TypeFunctionBooleanSingletonENS_27TypeFunctionStringSingletonEEE9tableDtorE, i64 %59
   %61 = load ptr, ptr %60, align 8, !tbaa !33
   invoke void %61(ptr noundef nonnull %16)
           to label %_ZN4Luau7VariantIJNS_28TypeFunctionBooleanSingletonENS_27TypeFunctionStringSingletonEEED2Ev.exit30 unwind label %62
@@ -3057,7 +3053,7 @@ _ZN4Luau7VariantIJNS_28TypeFunctionBooleanSingletonENS_27TypeFunctionStringSingl
 127:                                              ; preds = %_ZN4Luau7VariantIJNS_28TypeFunctionBooleanSingletonENS_27TypeFunctionStringSingletonEEE6fnMoveIS2_EEvPvS5_.exit63
   %128 = load i32, ptr %6, align 8, !tbaa !31
   %129 = sext i32 %128 to i64
-  %130 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %129
+  %130 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %129
   %131 = load ptr, ptr %130, align 8, !tbaa !33
   invoke void %131(ptr noundef nonnull %112)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit36 unwind label %132
@@ -3072,7 +3068,7 @@ _ZN4Luau7VariantIJNS_28TypeFunctionBooleanSingletonENS_27TypeFunctionStringSingl
 _ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit36: ; preds = %127
   %135 = load i32, ptr %7, align 8, !tbaa !53
   %136 = sext i32 %135 to i64
-  %137 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_28TypeFunctionBooleanSingletonENS_27TypeFunctionStringSingletonEEE9tableDtorE, i64 %136
+  %137 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_28TypeFunctionBooleanSingletonENS_27TypeFunctionStringSingletonEEE9tableDtorE, i64 %136
   %138 = load ptr, ptr %137, align 8, !tbaa !33
   invoke void %138(ptr noundef nonnull %108)
           to label %_ZN4Luau25TypeFunctionSingletonTypeD2Ev.exit37 unwind label %139
@@ -3087,7 +3083,7 @@ _ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23T
 _ZN4Luau25TypeFunctionSingletonTypeD2Ev.exit37:   ; preds = %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit36
   %142 = load i32, ptr %8, align 8, !tbaa !53
   %143 = sext i32 %142 to i64
-  %144 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_28TypeFunctionBooleanSingletonENS_27TypeFunctionStringSingletonEEE9tableDtorE, i64 %143
+  %144 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_28TypeFunctionBooleanSingletonENS_27TypeFunctionStringSingletonEEE9tableDtorE, i64 %143
   %145 = load ptr, ptr %144, align 8, !tbaa !33
   invoke void %145(ptr noundef nonnull %87)
           to label %_ZN4Luau7VariantIJNS_28TypeFunctionBooleanSingletonENS_27TypeFunctionStringSingletonEEED2Ev.exit38 unwind label %146
@@ -3125,7 +3121,7 @@ _ZN4Luau27TypeFunctionStringSingletonD2Ev.exit:   ; preds = %_ZN4Luau7VariantIJN
           cleanup
   %157 = load i32, ptr %6, align 8, !tbaa !31
   %158 = sext i32 %157 to i64
-  %159 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %158
+  %159 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %158
   %160 = load ptr, ptr %159, align 8, !tbaa !33
   invoke void %160(ptr noundef nonnull %112)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit40 unwind label %161
@@ -3140,7 +3136,7 @@ _ZN4Luau27TypeFunctionStringSingletonD2Ev.exit:   ; preds = %_ZN4Luau7VariantIJN
 _ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit40: ; preds = %155
   %164 = load i32, ptr %7, align 8, !tbaa !53
   %165 = sext i32 %164 to i64
-  %166 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_28TypeFunctionBooleanSingletonENS_27TypeFunctionStringSingletonEEE9tableDtorE, i64 %165
+  %166 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_28TypeFunctionBooleanSingletonENS_27TypeFunctionStringSingletonEEE9tableDtorE, i64 %165
   %167 = load ptr, ptr %166, align 8, !tbaa !33
   invoke void %167(ptr noundef nonnull %108)
           to label %_ZN4Luau25TypeFunctionSingletonTypeD2Ev.exit41 unwind label %168
@@ -3155,7 +3151,7 @@ _ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23T
 _ZN4Luau25TypeFunctionSingletonTypeD2Ev.exit41:   ; preds = %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit40
   %171 = load i32, ptr %8, align 8, !tbaa !53
   %172 = sext i32 %171 to i64
-  %173 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_28TypeFunctionBooleanSingletonENS_27TypeFunctionStringSingletonEEE9tableDtorE, i64 %172
+  %173 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_28TypeFunctionBooleanSingletonENS_27TypeFunctionStringSingletonEEE9tableDtorE, i64 %172
   %174 = load ptr, ptr %173, align 8, !tbaa !33
   invoke void %174(ptr noundef nonnull %87)
           to label %_ZN4Luau7VariantIJNS_28TypeFunctionBooleanSingletonENS_27TypeFunctionStringSingletonEEED2Ev.exit42 unwind label %175
@@ -3199,7 +3195,7 @@ _ZN4Luau27TypeFunctionStringSingletonD2Ev.exit45: ; preds = %_ZN4Luau7VariantIJN
 187:                                              ; preds = %185
   %188 = load i32, ptr %10, align 8, !tbaa !31
   %189 = sext i32 %188 to i64
-  %190 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %189
+  %190 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %189
   %191 = load ptr, ptr %190, align 8, !tbaa !33
   invoke void %191(ptr noundef nonnull %186)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit46 unwind label %192
@@ -3216,7 +3212,7 @@ _ZN4Luau27TypeFunctionStringSingletonD2Ev.exit45: ; preds = %_ZN4Luau7VariantIJN
           cleanup
   %197 = load i32, ptr %10, align 8, !tbaa !31
   %198 = sext i32 %197 to i64
-  %199 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %198
+  %199 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %198
   %200 = load ptr, ptr %199, align 8, !tbaa !33
   invoke void %200(ptr noundef nonnull %186)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit47 unwind label %201
@@ -3312,7 +3308,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %14, %
 23:                                               ; preds = %.thread
   %24 = load i32, ptr %3, align 8, !tbaa !31
   %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !33
   invoke void %27(ptr noundef nonnull %21)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit unwind label %28
@@ -3332,7 +3328,7 @@ _ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23T
           cleanup
   %33 = load i32, ptr %3, align 8, !tbaa !31
   %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %34
   %36 = load ptr, ptr %35, align 8, !tbaa !33
   invoke void %36(ptr noundef nonnull %21)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit19 unwind label %37
@@ -3364,7 +3360,7 @@ _ZNSt12_Vector_baseIPKN4Luau16TypeFunctionTypeESaIS3_EE11_M_allocateEm.exit.i: ;
   %6 = zext nneg i32 %3 to i64
   %7 = shl nuw nsw i64 %6, 3
   %8 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %7) #31
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %6
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %6
   br label %20
 
 10:                                               ; preds = %_ZNSt6vectorIPKN4Luau16TypeFunctionTypeESaIS3_EE9push_backEOS3_.exit
@@ -3465,7 +3461,7 @@ _ZNKSt6vectorIPKN4Luau16TypeFunctionTypeESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i:
 
 _ZNSt6vectorIPKN4Luau16TypeFunctionTypeESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %41, %.noexc26
   tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.038.076, i64 noundef %29) #30
-  %42 = getelementptr inbounds nuw ptr, ptr %38, i64 %36
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %36
   br label %_ZNSt6vectorIPKN4Luau16TypeFunctionTypeESaIS3_EE9push_backEOS3_.exit
 
 _ZNSt6vectorIPKN4Luau16TypeFunctionTypeESaIS3_EE9push_backEOS3_.exit: ; preds = %_ZNSt6vectorIPKN4Luau16TypeFunctionTypeESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i, %25
@@ -3503,7 +3499,7 @@ _ZNSt6vectorIPKN4Luau16TypeFunctionTypeESaIS3_EEC2ERKS5_.exit: ; preds = %18, %.
 49:                                               ; preds = %_ZNSt6vectorIPKN4Luau16TypeFunctionTypeESaIS3_EEC2ERKS5_.exit
   %50 = load i32, ptr %2, align 8, !tbaa !31
   %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %51
+  %52 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %51
   %53 = load ptr, ptr %52, align 8, !tbaa !33
   invoke void %53(ptr noundef nonnull %46)
           to label %_ZNSt6vectorIPKN4Luau16TypeFunctionTypeESaIS3_EED2Ev.exit unwind label %54
@@ -3531,7 +3527,7 @@ _ZNSt6vectorIPKN4Luau16TypeFunctionTypeESaIS3_EED2Ev.exit: ; preds = %49
           cleanup
   %63 = load i32, ptr %2, align 8, !tbaa !31
   %64 = sext i32 %63 to i64
-  %65 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %64
+  %65 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %64
   %66 = load ptr, ptr %65, align 8, !tbaa !33
   invoke void %66(ptr noundef nonnull %46)
           to label %_ZNSt6vectorIPKN4Luau16TypeFunctionTypeESaIS3_EED2Ev.exit32 unwind label %67
@@ -3569,7 +3565,7 @@ _ZNSt12_Vector_baseIPKN4Luau16TypeFunctionTypeESaIS3_EE11_M_allocateEm.exit.i: ;
   %6 = zext nneg i32 %3 to i64
   %7 = shl nuw nsw i64 %6, 3
   %8 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %7) #31
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %6
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %6
   br label %20
 
 10:                                               ; preds = %_ZNSt6vectorIPKN4Luau16TypeFunctionTypeESaIS3_EE9push_backEOS3_.exit
@@ -3670,7 +3666,7 @@ _ZNKSt6vectorIPKN4Luau16TypeFunctionTypeESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i:
 
 _ZNSt6vectorIPKN4Luau16TypeFunctionTypeESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %41, %.noexc26
   tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.038.076, i64 noundef %29) #30
-  %42 = getelementptr inbounds nuw ptr, ptr %38, i64 %36
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %36
   br label %_ZNSt6vectorIPKN4Luau16TypeFunctionTypeESaIS3_EE9push_backEOS3_.exit
 
 _ZNSt6vectorIPKN4Luau16TypeFunctionTypeESaIS3_EE9push_backEOS3_.exit: ; preds = %_ZNSt6vectorIPKN4Luau16TypeFunctionTypeESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i, %25
@@ -3708,7 +3704,7 @@ _ZNSt6vectorIPKN4Luau16TypeFunctionTypeESaIS3_EEC2ERKS5_.exit: ; preds = %18, %.
 49:                                               ; preds = %_ZNSt6vectorIPKN4Luau16TypeFunctionTypeESaIS3_EEC2ERKS5_.exit
   %50 = load i32, ptr %2, align 8, !tbaa !31
   %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %51
+  %52 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %51
   %53 = load ptr, ptr %52, align 8, !tbaa !33
   invoke void %53(ptr noundef nonnull %46)
           to label %_ZNSt6vectorIPKN4Luau16TypeFunctionTypeESaIS3_EED2Ev.exit unwind label %54
@@ -3736,7 +3732,7 @@ _ZNSt6vectorIPKN4Luau16TypeFunctionTypeESaIS3_EED2Ev.exit: ; preds = %49
           cleanup
   %63 = load i32, ptr %2, align 8, !tbaa !31
   %64 = sext i32 %63 to i64
-  %65 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %64
+  %65 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %64
   %66 = load ptr, ptr %65, align 8, !tbaa !33
   invoke void %66(ptr noundef nonnull %46)
           to label %_ZNSt6vectorIPKN4Luau16TypeFunctionTypeESaIS3_EED2Ev.exit32 unwind label %67
@@ -4405,7 +4401,7 @@ _ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23T
 201:                                              ; preds = %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEEC2ISA_EEOT_PNSt9enable_ifIXgecl9getTypeIdISF_EELi0EEvE4typeE.exit
   %202 = load i32, ptr %7, align 8, !tbaa !31
   %203 = sext i32 %202 to i64
-  %204 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %203
+  %204 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %203
   %205 = load ptr, ptr %204, align 8, !tbaa !33
   %206 = getelementptr inbounds nuw i8, ptr %7, i64 8
   invoke void %205(ptr noundef nonnull %206)
@@ -4457,7 +4453,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau20TypeFuncti
           cleanup
   %222 = load i32, ptr %7, align 8, !tbaa !31
   %223 = sext i32 %222 to i64
-  %224 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %223
+  %224 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %223
   %225 = load ptr, ptr %224, align 8, !tbaa !33
   %226 = getelementptr inbounds nuw i8, ptr %7, i64 8
   invoke void %225(ptr noundef nonnull %226)
@@ -4534,7 +4530,7 @@ define internal noundef i32 @_ZN4LuauL14createFunctionEP9lua_State(ptr noundef %
 24:                                               ; preds = %21
   %25 = load i32, ptr %2, align 8, !tbaa !44
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_20TypeFunctionTypePackENS_28TypeFunctionVariadicTypePackENS_27TypeFunctionGenericTypePackEEE9tableDtorE, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_20TypeFunctionTypePackENS_28TypeFunctionVariadicTypePackENS_27TypeFunctionGenericTypePackEEE9tableDtorE, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !33
   invoke void %28(ptr noundef nonnull %22)
           to label %_ZN4Luau20TypeFunctionTypePackD2Ev.exit unwind label %29
@@ -4551,7 +4547,7 @@ define internal noundef i32 @_ZN4LuauL14createFunctionEP9lua_State(ptr noundef %
           cleanup
   %34 = load i32, ptr %2, align 8, !tbaa !44
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_20TypeFunctionTypePackENS_28TypeFunctionVariadicTypePackENS_27TypeFunctionGenericTypePackEEE9tableDtorE, i64 %35
+  %36 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_20TypeFunctionTypePackENS_28TypeFunctionVariadicTypePackENS_27TypeFunctionGenericTypePackEEE9tableDtorE, i64 %35
   %37 = load ptr, ptr %36, align 8, !tbaa !33
   invoke void %37(ptr noundef nonnull %22)
           to label %_ZN4Luau20TypeFunctionTypePackD2Ev.exit36 unwind label %38
@@ -4597,7 +4593,7 @@ _ZN4Luau20TypeFunctionTypePackD2Ev.exit:          ; preds = %24, %13
 54:                                               ; preds = %51
   %55 = load i32, ptr %3, align 8, !tbaa !44
   %56 = sext i32 %55 to i64
-  %57 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_20TypeFunctionTypePackENS_28TypeFunctionVariadicTypePackENS_27TypeFunctionGenericTypePackEEE9tableDtorE, i64 %56
+  %57 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_20TypeFunctionTypePackENS_28TypeFunctionVariadicTypePackENS_27TypeFunctionGenericTypePackEEE9tableDtorE, i64 %56
   %58 = load ptr, ptr %57, align 8, !tbaa !33
   invoke void %58(ptr noundef nonnull %52)
           to label %_ZN4Luau20TypeFunctionTypePackD2Ev.exit39 unwind label %59
@@ -4614,7 +4610,7 @@ _ZN4Luau20TypeFunctionTypePackD2Ev.exit:          ; preds = %24, %13
           cleanup
   %64 = load i32, ptr %3, align 8, !tbaa !44
   %65 = sext i32 %64 to i64
-  %66 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_20TypeFunctionTypePackENS_28TypeFunctionVariadicTypePackENS_27TypeFunctionGenericTypePackEEE9tableDtorE, i64 %65
+  %66 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_20TypeFunctionTypePackENS_28TypeFunctionVariadicTypePackENS_27TypeFunctionGenericTypePackEEE9tableDtorE, i64 %65
   %67 = load ptr, ptr %66, align 8, !tbaa !33
   invoke void %67(ptr noundef nonnull %52)
           to label %_ZN4Luau20TypeFunctionTypePackD2Ev.exit36 unwind label %68
@@ -4672,7 +4668,7 @@ _ZN4Luau20TypeFunctionTypePackD2Ev.exit39:        ; preds = %54, %43
 92:                                               ; preds = %_ZN4Luau20TypeFunctionTypePackD2Ev.exit39
   %93 = load i32, ptr %5, align 8, !tbaa !31
   %94 = sext i32 %93 to i64
-  %95 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %94
+  %95 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %94
   %96 = load ptr, ptr %95, align 8, !tbaa !33
   invoke void %96(ptr noundef nonnull %85)
           to label %_ZN4Luau24TypeFunctionFunctionTypeD2Ev.exit unwind label %97
@@ -4720,7 +4716,7 @@ _ZNSt11_Tuple_implILm0EJSt6vectorIPKN4Luau16TypeFunctionTypeESaIS4_EES0_IPKNS1_2
           cleanup
   %113 = load i32, ptr %5, align 8, !tbaa !31
   %114 = sext i32 %113 to i64
-  %115 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %114
+  %115 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %114
   %116 = load ptr, ptr %115, align 8, !tbaa !33
   invoke void %116(ptr noundef nonnull %85)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit44 unwind label %117
@@ -4772,7 +4768,7 @@ _ZN4Luau15getTypeUserDataEP9lua_Statei.exit:      ; preds = %5
   %12 = load i32, ptr %11, align 8, !tbaa !31
   store i32 %12, ptr %2, align 8, !tbaa !31
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds ptr, ptr @_ZZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEEC1ERKSD_E5table, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr @_ZZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEEC1ERKSD_E5table, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !33
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -4783,7 +4779,7 @@ _ZN4Luau15getTypeUserDataEP9lua_Statei.exit:      ; preds = %5
 18:                                               ; preds = %_ZN4Luau15getTypeUserDataEP9lua_Statei.exit
   %19 = load i32, ptr %2, align 8, !tbaa !31
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %20
+  %21 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !33
   invoke void %22(ptr noundef nonnull %16)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit unwind label %23
@@ -4803,7 +4799,7 @@ _ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23T
           cleanup
   %28 = load i32, ptr %2, align 8, !tbaa !31
   %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !33
   invoke void %31(ptr noundef nonnull %16)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit10 unwind label %32
@@ -4920,7 +4916,7 @@ _ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23T
 41:                                               ; preds = %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEEC2ISC_EEOT_PNSt9enable_ifIXgecl9getTypeIdISF_EELi0EEvE4typeE.exit
   %42 = load i32, ptr %3, align 8, !tbaa !31
   %43 = sext i32 %42 to i64
-  %44 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %43
+  %44 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %43
   %45 = load ptr, ptr %44, align 8, !tbaa !33
   invoke void %45(ptr noundef nonnull %28)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit unwind label %46
@@ -4952,7 +4948,7 @@ _ZN4Luau23TypeFunctionGenericTypeD2Ev.exit:       ; preds = %_ZN4Luau7VariantIJN
           cleanup
   %55 = load i32, ptr %3, align 8, !tbaa !31
   %56 = sext i32 %55 to i64
-  %57 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %56
+  %57 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %56
   %58 = load ptr, ptr %57, align 8, !tbaa !33
   invoke void %58(ptr noundef nonnull %28)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit12 unwind label %59
@@ -5221,7 +5217,7 @@ _ZN4Luau3getINS_24TypeFunctionNegationTypeEEEPKT_PKNS_16TypeFunctionTypeE.exit: 
   %14 = load i32, ptr %13, align 8, !tbaa !31
   store i32 %14, ptr %2, align 8, !tbaa !31
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds ptr, ptr @_ZZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEEC1ERKSD_E5table, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr @_ZZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEEC1ERKSD_E5table, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !33
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -5232,7 +5228,7 @@ _ZN4Luau3getINS_24TypeFunctionNegationTypeEEEPKT_PKNS_16TypeFunctionTypeE.exit: 
 20:                                               ; preds = %_ZN4Luau3getINS_24TypeFunctionNegationTypeEEEPKT_PKNS_16TypeFunctionTypeE.exit
   %21 = load i32, ptr %2, align 8, !tbaa !31
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !33
   invoke void %24(ptr noundef nonnull %18)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit unwind label %25
@@ -5252,7 +5248,7 @@ _ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23T
           cleanup
   %30 = load i32, ptr %2, align 8, !tbaa !31
   %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %31
+  %32 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %31
   %33 = load ptr, ptr %32, align 8, !tbaa !33
   invoke void %33(ptr noundef nonnull %18)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit18 unwind label %34
@@ -6474,7 +6470,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau20TypeFunct
   %83 = load i32, ptr %.sroa.0.0.copyload, align 8, !tbaa !31
   store i32 %83, ptr %5, align 8, !tbaa !31
   %84 = sext i32 %83 to i64
-  %85 = getelementptr inbounds ptr, ptr @_ZZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEEC1ERKSD_E5table, i64 %84
+  %85 = getelementptr inbounds [8 x i8], ptr @_ZZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEEC1ERKSD_E5table, i64 %84
   %86 = load ptr, ptr %85, align 8, !tbaa !33
   %87 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %88 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 8
@@ -6485,7 +6481,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau20TypeFunct
 89:                                               ; preds = %82
   %90 = load i32, ptr %5, align 8, !tbaa !31
   %91 = sext i32 %90 to i64
-  %92 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %91
+  %92 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %91
   %93 = load ptr, ptr %92, align 8, !tbaa !33
   invoke void %93(ptr noundef nonnull %87)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit unwind label %94
@@ -6502,7 +6498,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau20TypeFunct
           cleanup
   %99 = load i32, ptr %5, align 8, !tbaa !31
   %100 = sext i32 %99 to i64
-  %101 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %100
+  %101 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %100
   %102 = load ptr, ptr %101, align 8, !tbaa !33
   invoke void %102(ptr noundef nonnull %87)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit54 unwind label %103
@@ -6759,7 +6755,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau20TypeFunct
   %83 = load i32, ptr %.sroa.4.0.copyload, align 8, !tbaa !31
   store i32 %83, ptr %5, align 8, !tbaa !31
   %84 = sext i32 %83 to i64
-  %85 = getelementptr inbounds ptr, ptr @_ZZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEEC1ERKSD_E5table, i64 %84
+  %85 = getelementptr inbounds [8 x i8], ptr @_ZZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEEC1ERKSD_E5table, i64 %84
   %86 = load ptr, ptr %85, align 8, !tbaa !33
   %87 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %88 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.copyload, i64 8
@@ -6770,7 +6766,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau20TypeFunct
 89:                                               ; preds = %82
   %90 = load i32, ptr %5, align 8, !tbaa !31
   %91 = sext i32 %90 to i64
-  %92 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %91
+  %92 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %91
   %93 = load ptr, ptr %92, align 8, !tbaa !33
   invoke void %93(ptr noundef nonnull %87)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit unwind label %94
@@ -6787,7 +6783,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau20TypeFunct
           cleanup
   %99 = load i32, ptr %5, align 8, !tbaa !31
   %100 = sext i32 %99 to i64
-  %101 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %100
+  %101 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %100
   %102 = load ptr, ptr %101, align 8, !tbaa !33
   invoke void %102(ptr noundef nonnull %87)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit54 unwind label %103
@@ -7012,7 +7008,7 @@ _ZN4Luau7VariantIJNS_28TypeFunctionBooleanSingletonENS_27TypeFunctionStringSingl
 77:                                               ; preds = %_ZN4Luau7VariantIJNS_28TypeFunctionBooleanSingletonENS_27TypeFunctionStringSingletonEEE6fnMoveIS2_EEvPvS5_.exit315
   %78 = load i32, ptr %4, align 8, !tbaa !31
   %79 = sext i32 %78 to i64
-  %80 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %79
+  %80 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %79
   %81 = load ptr, ptr %80, align 8, !tbaa !33
   invoke void %81(ptr noundef nonnull %36)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit unwind label %82
@@ -7027,7 +7023,7 @@ _ZN4Luau7VariantIJNS_28TypeFunctionBooleanSingletonENS_27TypeFunctionStringSingl
 _ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit: ; preds = %77
   %85 = load i32, ptr %5, align 8, !tbaa !53
   %86 = sext i32 %85 to i64
-  %87 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_28TypeFunctionBooleanSingletonENS_27TypeFunctionStringSingletonEEE9tableDtorE, i64 %86
+  %87 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_28TypeFunctionBooleanSingletonENS_27TypeFunctionStringSingletonEEE9tableDtorE, i64 %86
   %88 = load ptr, ptr %87, align 8, !tbaa !33
   invoke void %88(ptr noundef nonnull %35)
           to label %_ZN4Luau25TypeFunctionSingletonTypeD2Ev.exit unwind label %89
@@ -7042,7 +7038,7 @@ _ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23T
 _ZN4Luau25TypeFunctionSingletonTypeD2Ev.exit:     ; preds = %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit
   %92 = load i32, ptr %6, align 8, !tbaa !53
   %93 = sext i32 %92 to i64
-  %94 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_28TypeFunctionBooleanSingletonENS_27TypeFunctionStringSingletonEEE9tableDtorE, i64 %93
+  %94 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_28TypeFunctionBooleanSingletonENS_27TypeFunctionStringSingletonEEE9tableDtorE, i64 %93
   %95 = load ptr, ptr %94, align 8, !tbaa !33
   invoke void %95(ptr noundef nonnull %32)
           to label %_ZN4Luau7VariantIJNS_28TypeFunctionBooleanSingletonENS_27TypeFunctionStringSingletonEEED2Ev.exit unwind label %96
@@ -7085,7 +7081,7 @@ _ZN4Luau27TypeFunctionStringSingletonD2Ev.exit:   ; preds = %_ZN4Luau7VariantIJN
           cleanup
   %112 = load i32, ptr %4, align 8, !tbaa !31
   %113 = sext i32 %112 to i64
-  %114 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %113
+  %114 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %113
   %115 = load ptr, ptr %114, align 8, !tbaa !33
   invoke void %115(ptr noundef nonnull %36)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit104 unwind label %116
@@ -7100,7 +7096,7 @@ _ZN4Luau27TypeFunctionStringSingletonD2Ev.exit:   ; preds = %_ZN4Luau7VariantIJN
 _ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit104: ; preds = %110
   %119 = load i32, ptr %5, align 8, !tbaa !53
   %120 = sext i32 %119 to i64
-  %121 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_28TypeFunctionBooleanSingletonENS_27TypeFunctionStringSingletonEEE9tableDtorE, i64 %120
+  %121 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_28TypeFunctionBooleanSingletonENS_27TypeFunctionStringSingletonEEE9tableDtorE, i64 %120
   %122 = load ptr, ptr %121, align 8, !tbaa !33
   invoke void %122(ptr noundef nonnull %35)
           to label %_ZN4Luau25TypeFunctionSingletonTypeD2Ev.exit105 unwind label %123
@@ -7115,7 +7111,7 @@ _ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23T
 _ZN4Luau25TypeFunctionSingletonTypeD2Ev.exit105:  ; preds = %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit104
   %126 = load i32, ptr %6, align 8, !tbaa !53
   %127 = sext i32 %126 to i64
-  %128 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_28TypeFunctionBooleanSingletonENS_27TypeFunctionStringSingletonEEE9tableDtorE, i64 %127
+  %128 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_28TypeFunctionBooleanSingletonENS_27TypeFunctionStringSingletonEEE9tableDtorE, i64 %127
   %129 = load ptr, ptr %128, align 8, !tbaa !33
   invoke void %129(ptr noundef nonnull %32)
           to label %_ZN4Luau7VariantIJNS_28TypeFunctionBooleanSingletonENS_27TypeFunctionStringSingletonEEED2Ev.exit106 unwind label %130
@@ -7148,7 +7144,7 @@ _ZN4Luau27TypeFunctionStringSingletonD2Ev.exit109: ; preds = %_ZN4Luau7VariantIJ
   %139 = load i32, ptr %138, align 8, !tbaa !31
   store i32 %139, ptr %8, align 8, !tbaa !31
   %140 = sext i32 %139 to i64
-  %141 = getelementptr inbounds ptr, ptr @_ZZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEEC1ERKSD_E5table, i64 %140
+  %141 = getelementptr inbounds [8 x i8], ptr @_ZZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEEC1ERKSD_E5table, i64 %140
   %142 = load ptr, ptr %141, align 8, !tbaa !33
   %143 = getelementptr inbounds nuw i8, ptr %138, i64 8
   call void %142(ptr noundef nonnull %38, ptr noundef nonnull %143)
@@ -7158,7 +7154,7 @@ _ZN4Luau27TypeFunctionStringSingletonD2Ev.exit109: ; preds = %_ZN4Luau7VariantIJ
 144:                                              ; preds = %137
   %145 = load i32, ptr %8, align 8, !tbaa !31
   %146 = sext i32 %145 to i64
-  %147 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %146
+  %147 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %146
   %148 = load ptr, ptr %147, align 8, !tbaa !33
   invoke void %148(ptr noundef nonnull %38)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit110 unwind label %149
@@ -7179,7 +7175,7 @@ _ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23T
           cleanup
   %154 = load i32, ptr %8, align 8, !tbaa !31
   %155 = sext i32 %154 to i64
-  %156 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %155
+  %156 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %155
   %157 = load ptr, ptr %156, align 8, !tbaa !33
   invoke void %157(ptr noundef nonnull %38)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit111 unwind label %158
@@ -7201,7 +7197,7 @@ _ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23T
   %166 = load i32, ptr %165, align 8, !tbaa !31
   store i32 %166, ptr %9, align 8, !tbaa !31
   %167 = sext i32 %166 to i64
-  %168 = getelementptr inbounds ptr, ptr @_ZZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEEC1ERKSD_E5table, i64 %167
+  %168 = getelementptr inbounds [8 x i8], ptr @_ZZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEEC1ERKSD_E5table, i64 %167
   %169 = load ptr, ptr %168, align 8, !tbaa !33
   %170 = getelementptr inbounds nuw i8, ptr %165, i64 8
   call void %169(ptr noundef nonnull %39, ptr noundef nonnull %170)
@@ -7211,7 +7207,7 @@ _ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23T
 171:                                              ; preds = %164
   %172 = load i32, ptr %9, align 8, !tbaa !31
   %173 = sext i32 %172 to i64
-  %174 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %173
+  %174 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %173
   %175 = load ptr, ptr %174, align 8, !tbaa !33
   invoke void %175(ptr noundef nonnull %39)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit112 unwind label %176
@@ -7232,7 +7228,7 @@ _ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23T
           cleanup
   %181 = load i32, ptr %9, align 8, !tbaa !31
   %182 = sext i32 %181 to i64
-  %183 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %182
+  %183 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %182
   %184 = load ptr, ptr %183, align 8, !tbaa !33
   invoke void %184(ptr noundef nonnull %39)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit111 unwind label %185
@@ -7405,7 +7401,7 @@ _ZN4Luau7VariantIJNS_28TypeFunctionBooleanSingletonENS_27TypeFunctionStringSingl
 243:                                              ; preds = %_ZN4Luau7VariantIJNS_28TypeFunctionBooleanSingletonENS_27TypeFunctionStringSingletonEEE6fnMoveIS2_EEvPvS5_.exit317
   %244 = load i32, ptr %10, align 8, !tbaa !31
   %245 = sext i32 %244 to i64
-  %246 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %245
+  %246 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %245
   %247 = load ptr, ptr %246, align 8, !tbaa !33
   invoke void %247(ptr noundef nonnull %202)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit122 unwind label %248
@@ -7420,7 +7416,7 @@ _ZN4Luau7VariantIJNS_28TypeFunctionBooleanSingletonENS_27TypeFunctionStringSingl
 _ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit122: ; preds = %243
   %251 = load i32, ptr %11, align 8, !tbaa !53
   %252 = sext i32 %251 to i64
-  %253 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_28TypeFunctionBooleanSingletonENS_27TypeFunctionStringSingletonEEE9tableDtorE, i64 %252
+  %253 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_28TypeFunctionBooleanSingletonENS_27TypeFunctionStringSingletonEEE9tableDtorE, i64 %252
   %254 = load ptr, ptr %253, align 8, !tbaa !33
   invoke void %254(ptr noundef nonnull %201)
           to label %_ZN4Luau25TypeFunctionSingletonTypeD2Ev.exit123 unwind label %255
@@ -7435,7 +7431,7 @@ _ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23T
 _ZN4Luau25TypeFunctionSingletonTypeD2Ev.exit123:  ; preds = %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit122
   %258 = load i32, ptr %12, align 8, !tbaa !53
   %259 = sext i32 %258 to i64
-  %260 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_28TypeFunctionBooleanSingletonENS_27TypeFunctionStringSingletonEEE9tableDtorE, i64 %259
+  %260 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_28TypeFunctionBooleanSingletonENS_27TypeFunctionStringSingletonEEE9tableDtorE, i64 %259
   %261 = load ptr, ptr %260, align 8, !tbaa !33
   invoke void %261(ptr noundef nonnull %198)
           to label %_ZN4Luau7VariantIJNS_28TypeFunctionBooleanSingletonENS_27TypeFunctionStringSingletonEEED2Ev.exit124 unwind label %262
@@ -7478,7 +7474,7 @@ _ZN4Luau27TypeFunctionStringSingletonD2Ev.exit127: ; preds = %_ZN4Luau7VariantIJ
           cleanup
   %278 = load i32, ptr %10, align 8, !tbaa !31
   %279 = sext i32 %278 to i64
-  %280 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %279
+  %280 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %279
   %281 = load ptr, ptr %280, align 8, !tbaa !33
   invoke void %281(ptr noundef nonnull %202)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit128 unwind label %282
@@ -7493,7 +7489,7 @@ _ZN4Luau27TypeFunctionStringSingletonD2Ev.exit127: ; preds = %_ZN4Luau7VariantIJ
 _ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit128: ; preds = %276
   %285 = load i32, ptr %11, align 8, !tbaa !53
   %286 = sext i32 %285 to i64
-  %287 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_28TypeFunctionBooleanSingletonENS_27TypeFunctionStringSingletonEEE9tableDtorE, i64 %286
+  %287 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_28TypeFunctionBooleanSingletonENS_27TypeFunctionStringSingletonEEE9tableDtorE, i64 %286
   %288 = load ptr, ptr %287, align 8, !tbaa !33
   invoke void %288(ptr noundef nonnull %201)
           to label %_ZN4Luau25TypeFunctionSingletonTypeD2Ev.exit129 unwind label %289
@@ -7508,7 +7504,7 @@ _ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23T
 _ZN4Luau25TypeFunctionSingletonTypeD2Ev.exit129:  ; preds = %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit128
   %292 = load i32, ptr %12, align 8, !tbaa !53
   %293 = sext i32 %292 to i64
-  %294 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_28TypeFunctionBooleanSingletonENS_27TypeFunctionStringSingletonEEE9tableDtorE, i64 %293
+  %294 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_28TypeFunctionBooleanSingletonENS_27TypeFunctionStringSingletonEEE9tableDtorE, i64 %293
   %295 = load ptr, ptr %294, align 8, !tbaa !33
   invoke void %295(ptr noundef nonnull %198)
           to label %_ZN4Luau7VariantIJNS_28TypeFunctionBooleanSingletonENS_27TypeFunctionStringSingletonEEED2Ev.exit130 unwind label %296
@@ -7541,7 +7537,7 @@ _ZN4Luau27TypeFunctionStringSingletonD2Ev.exit133: ; preds = %_ZN4Luau7VariantIJ
   %305 = load i32, ptr %304, align 8, !tbaa !31
   store i32 %305, ptr %14, align 8, !tbaa !31
   %306 = sext i32 %305 to i64
-  %307 = getelementptr inbounds ptr, ptr @_ZZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEEC1ERKSD_E5table, i64 %306
+  %307 = getelementptr inbounds [8 x i8], ptr @_ZZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEEC1ERKSD_E5table, i64 %306
   %308 = load ptr, ptr %307, align 8, !tbaa !33
   %309 = getelementptr inbounds nuw i8, ptr %304, i64 8
   call void %308(ptr noundef nonnull %204, ptr noundef nonnull %309)
@@ -7551,7 +7547,7 @@ _ZN4Luau27TypeFunctionStringSingletonD2Ev.exit133: ; preds = %_ZN4Luau7VariantIJ
 310:                                              ; preds = %303
   %311 = load i32, ptr %14, align 8, !tbaa !31
   %312 = sext i32 %311 to i64
-  %313 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %312
+  %313 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %312
   %314 = load ptr, ptr %313, align 8, !tbaa !33
   invoke void %314(ptr noundef nonnull %204)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit134 unwind label %315
@@ -7572,7 +7568,7 @@ _ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23T
           cleanup
   %320 = load i32, ptr %14, align 8, !tbaa !31
   %321 = sext i32 %320 to i64
-  %322 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %321
+  %322 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %321
   %323 = load ptr, ptr %322, align 8, !tbaa !33
   invoke void %323(ptr noundef nonnull %204)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit111 unwind label %324
@@ -7594,7 +7590,7 @@ _ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23T
   %332 = load i32, ptr %331, align 8, !tbaa !31
   store i32 %332, ptr %15, align 8, !tbaa !31
   %333 = sext i32 %332 to i64
-  %334 = getelementptr inbounds ptr, ptr @_ZZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEEC1ERKSD_E5table, i64 %333
+  %334 = getelementptr inbounds [8 x i8], ptr @_ZZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEEC1ERKSD_E5table, i64 %333
   %335 = load ptr, ptr %334, align 8, !tbaa !33
   %336 = getelementptr inbounds nuw i8, ptr %331, i64 8
   call void %335(ptr noundef nonnull %205, ptr noundef nonnull %336)
@@ -7604,7 +7600,7 @@ _ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23T
 337:                                              ; preds = %330
   %338 = load i32, ptr %15, align 8, !tbaa !31
   %339 = sext i32 %338 to i64
-  %340 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %339
+  %340 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %339
   %341 = load ptr, ptr %340, align 8, !tbaa !33
   invoke void %341(ptr noundef nonnull %205)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit136 unwind label %342
@@ -7625,7 +7621,7 @@ _ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23T
           cleanup
   %347 = load i32, ptr %15, align 8, !tbaa !31
   %348 = sext i32 %347 to i64
-  %349 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %348
+  %349 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %348
   %350 = load ptr, ptr %349, align 8, !tbaa !33
   invoke void %350(ptr noundef nonnull %205)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit111 unwind label %351
@@ -7861,7 +7857,7 @@ _ZN4Luau3getINS_21TypeFunctionTableTypeEEEPKT_PKNS_16TypeFunctionTypeE.exit: ; p
   %23 = load i32, ptr %22, align 8, !tbaa !31
   store i32 %23, ptr %2, align 8, !tbaa !31
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds ptr, ptr @_ZZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEEC1ERKSD_E5table, i64 %24
+  %25 = getelementptr inbounds [8 x i8], ptr @_ZZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEEC1ERKSD_E5table, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !33
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %28 = getelementptr inbounds nuw i8, ptr %22, i64 8
@@ -7872,7 +7868,7 @@ _ZN4Luau3getINS_21TypeFunctionTableTypeEEEPKT_PKNS_16TypeFunctionTypeE.exit: ; p
 29:                                               ; preds = %20
   %30 = load i32, ptr %2, align 8, !tbaa !31
   %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %31
+  %32 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %31
   %33 = load ptr, ptr %32, align 8, !tbaa !33
   invoke void %33(ptr noundef nonnull %27)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit unwind label %34
@@ -7891,7 +7887,7 @@ _ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23T
   %39 = load i32, ptr %38, align 8, !tbaa !31
   store i32 %39, ptr %3, align 8, !tbaa !31
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds ptr, ptr @_ZZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEEC1ERKSD_E5table, i64 %40
+  %41 = getelementptr inbounds [8 x i8], ptr @_ZZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEEC1ERKSD_E5table, i64 %40
   %42 = load ptr, ptr %41, align 8, !tbaa !33
   %43 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %44 = getelementptr inbounds nuw i8, ptr %38, i64 8
@@ -7902,7 +7898,7 @@ _ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23T
 45:                                               ; preds = %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit
   %46 = load i32, ptr %3, align 8, !tbaa !31
   %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %47
+  %48 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %47
   %49 = load ptr, ptr %48, align 8, !tbaa !33
   invoke void %49(ptr noundef nonnull %43)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit60 unwind label %50
@@ -7920,7 +7916,7 @@ _ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23T
   %54 = load i32, ptr %53, align 8, !tbaa !31
   store i32 %54, ptr %4, align 8, !tbaa !31
   %55 = sext i32 %54 to i64
-  %56 = getelementptr inbounds ptr, ptr @_ZZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEEC1ERKSD_E5table, i64 %55
+  %56 = getelementptr inbounds [8 x i8], ptr @_ZZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEEC1ERKSD_E5table, i64 %55
   %57 = load ptr, ptr %56, align 8, !tbaa !33
   %58 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %59 = getelementptr inbounds nuw i8, ptr %53, i64 8
@@ -7931,7 +7927,7 @@ _ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23T
 60:                                               ; preds = %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit60
   %61 = load i32, ptr %4, align 8, !tbaa !31
   %62 = sext i32 %61 to i64
-  %63 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %62
+  %63 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %62
   %64 = load ptr, ptr %63, align 8, !tbaa !33
   invoke void %64(ptr noundef nonnull %58)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit61 unwind label %65
@@ -7952,7 +7948,7 @@ _ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23T
           cleanup
   %70 = load i32, ptr %2, align 8, !tbaa !31
   %71 = sext i32 %70 to i64
-  %72 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %71
+  %72 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %71
   %73 = load ptr, ptr %72, align 8, !tbaa !33
   invoke void %73(ptr noundef nonnull %27)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit62 unwind label %74
@@ -7969,7 +7965,7 @@ _ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23T
           cleanup
   %79 = load i32, ptr %3, align 8, !tbaa !31
   %80 = sext i32 %79 to i64
-  %81 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %80
+  %81 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %80
   %82 = load ptr, ptr %81, align 8, !tbaa !33
   invoke void %82(ptr noundef nonnull %43)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit62 unwind label %83
@@ -7986,7 +7982,7 @@ _ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23T
           cleanup
   %88 = load i32, ptr %4, align 8, !tbaa !31
   %89 = sext i32 %88 to i64
-  %90 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %89
+  %90 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %89
   %91 = load ptr, ptr %90, align 8, !tbaa !33
   invoke void %91(ptr noundef nonnull %58)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit62 unwind label %92
@@ -8015,7 +8011,7 @@ _ZN4Luau3getINS_21TypeFunctionClassTypeEEEPKT_PKNS_16TypeFunctionTypeE.exit: ; p
   %102 = load i32, ptr %101, align 8, !tbaa !31
   store i32 %102, ptr %5, align 8, !tbaa !31
   %103 = sext i32 %102 to i64
-  %104 = getelementptr inbounds ptr, ptr @_ZZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEEC1ERKSD_E5table, i64 %103
+  %104 = getelementptr inbounds [8 x i8], ptr @_ZZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEEC1ERKSD_E5table, i64 %103
   %105 = load ptr, ptr %104, align 8, !tbaa !33
   %106 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %107 = getelementptr inbounds nuw i8, ptr %101, i64 8
@@ -8026,7 +8022,7 @@ _ZN4Luau3getINS_21TypeFunctionClassTypeEEEPKT_PKNS_16TypeFunctionTypeE.exit: ; p
 108:                                              ; preds = %99
   %109 = load i32, ptr %5, align 8, !tbaa !31
   %110 = sext i32 %109 to i64
-  %111 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %110
+  %111 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %110
   %112 = load ptr, ptr %111, align 8, !tbaa !33
   invoke void %112(ptr noundef nonnull %106)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit66 unwind label %113
@@ -8045,7 +8041,7 @@ _ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23T
   %118 = load i32, ptr %117, align 8, !tbaa !31
   store i32 %118, ptr %6, align 8, !tbaa !31
   %119 = sext i32 %118 to i64
-  %120 = getelementptr inbounds ptr, ptr @_ZZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEEC1ERKSD_E5table, i64 %119
+  %120 = getelementptr inbounds [8 x i8], ptr @_ZZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEEC1ERKSD_E5table, i64 %119
   %121 = load ptr, ptr %120, align 8, !tbaa !33
   %122 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %123 = getelementptr inbounds nuw i8, ptr %117, i64 8
@@ -8056,7 +8052,7 @@ _ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23T
 124:                                              ; preds = %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit66
   %125 = load i32, ptr %6, align 8, !tbaa !31
   %126 = sext i32 %125 to i64
-  %127 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %126
+  %127 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %126
   %128 = load ptr, ptr %127, align 8, !tbaa !33
   invoke void %128(ptr noundef nonnull %122)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit67 unwind label %129
@@ -8074,7 +8070,7 @@ _ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23T
   %133 = load i32, ptr %132, align 8, !tbaa !31
   store i32 %133, ptr %7, align 8, !tbaa !31
   %134 = sext i32 %133 to i64
-  %135 = getelementptr inbounds ptr, ptr @_ZZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEEC1ERKSD_E5table, i64 %134
+  %135 = getelementptr inbounds [8 x i8], ptr @_ZZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEEC1ERKSD_E5table, i64 %134
   %136 = load ptr, ptr %135, align 8, !tbaa !33
   %137 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %138 = getelementptr inbounds nuw i8, ptr %132, i64 8
@@ -8085,7 +8081,7 @@ _ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23T
 139:                                              ; preds = %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit67
   %140 = load i32, ptr %7, align 8, !tbaa !31
   %141 = sext i32 %140 to i64
-  %142 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %141
+  %142 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %141
   %143 = load ptr, ptr %142, align 8, !tbaa !33
   invoke void %143(ptr noundef nonnull %137)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit68 unwind label %144
@@ -8106,7 +8102,7 @@ _ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23T
           cleanup
   %149 = load i32, ptr %5, align 8, !tbaa !31
   %150 = sext i32 %149 to i64
-  %151 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %150
+  %151 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %150
   %152 = load ptr, ptr %151, align 8, !tbaa !33
   invoke void %152(ptr noundef nonnull %106)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit62 unwind label %153
@@ -8123,7 +8119,7 @@ _ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23T
           cleanup
   %158 = load i32, ptr %6, align 8, !tbaa !31
   %159 = sext i32 %158 to i64
-  %160 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %159
+  %160 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %159
   %161 = load ptr, ptr %160, align 8, !tbaa !33
   invoke void %161(ptr noundef nonnull %122)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit62 unwind label %162
@@ -8140,7 +8136,7 @@ _ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23T
           cleanup
   %167 = load i32, ptr %7, align 8, !tbaa !31
   %168 = sext i32 %167 to i64
-  %169 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %168
+  %169 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %168
   %170 = load ptr, ptr %169, align 8, !tbaa !33
   invoke void %170(ptr noundef nonnull %137)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit62 unwind label %171
@@ -8241,7 +8237,7 @@ _ZN4Luau3getINS_21TypeFunctionTableTypeEEEPKT_PKNS_16TypeFunctionTypeE.exit: ; p
   %21 = load i32, ptr %20, align 8, !tbaa !31
   store i32 %21, ptr %2, align 8, !tbaa !31
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds ptr, ptr @_ZZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEEC1ERKSD_E5table, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr @_ZZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEEC1ERKSD_E5table, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !33
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %26 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -8252,7 +8248,7 @@ _ZN4Luau3getINS_21TypeFunctionTableTypeEEEPKT_PKNS_16TypeFunctionTypeE.exit: ; p
 27:                                               ; preds = %18
   %28 = load i32, ptr %2, align 8, !tbaa !31
   %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !33
   invoke void %31(ptr noundef nonnull %25)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit unwind label %32
@@ -8271,7 +8267,7 @@ _ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23T
   %37 = load i32, ptr %36, align 8, !tbaa !31
   store i32 %37, ptr %3, align 8, !tbaa !31
   %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds ptr, ptr @_ZZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEEC1ERKSD_E5table, i64 %38
+  %39 = getelementptr inbounds [8 x i8], ptr @_ZZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEEC1ERKSD_E5table, i64 %38
   %40 = load ptr, ptr %39, align 8, !tbaa !33
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %42 = getelementptr inbounds nuw i8, ptr %36, i64 8
@@ -8282,7 +8278,7 @@ _ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23T
 43:                                               ; preds = %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit
   %44 = load i32, ptr %3, align 8, !tbaa !31
   %45 = sext i32 %44 to i64
-  %46 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %45
+  %46 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %45
   %47 = load ptr, ptr %46, align 8, !tbaa !33
   invoke void %47(ptr noundef nonnull %41)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit54 unwind label %48
@@ -8303,7 +8299,7 @@ _ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23T
           cleanup
   %53 = load i32, ptr %2, align 8, !tbaa !31
   %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %54
+  %55 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %54
   %56 = load ptr, ptr %55, align 8, !tbaa !33
   invoke void %56(ptr noundef nonnull %25)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit55 unwind label %57
@@ -8320,7 +8316,7 @@ _ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23T
           cleanup
   %62 = load i32, ptr %3, align 8, !tbaa !31
   %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %63
+  %64 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %63
   %65 = load ptr, ptr %64, align 8, !tbaa !33
   invoke void %65(ptr noundef nonnull %41)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit55 unwind label %66
@@ -8349,7 +8345,7 @@ _ZN4Luau3getINS_21TypeFunctionClassTypeEEEPKT_PKNS_16TypeFunctionTypeE.exit: ; p
   %76 = load i32, ptr %75, align 8, !tbaa !31
   store i32 %76, ptr %4, align 8, !tbaa !31
   %77 = sext i32 %76 to i64
-  %78 = getelementptr inbounds ptr, ptr @_ZZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEEC1ERKSD_E5table, i64 %77
+  %78 = getelementptr inbounds [8 x i8], ptr @_ZZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEEC1ERKSD_E5table, i64 %77
   %79 = load ptr, ptr %78, align 8, !tbaa !33
   %80 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %81 = getelementptr inbounds nuw i8, ptr %75, i64 8
@@ -8360,7 +8356,7 @@ _ZN4Luau3getINS_21TypeFunctionClassTypeEEEPKT_PKNS_16TypeFunctionTypeE.exit: ; p
 82:                                               ; preds = %73
   %83 = load i32, ptr %4, align 8, !tbaa !31
   %84 = sext i32 %83 to i64
-  %85 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %84
+  %85 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %84
   %86 = load ptr, ptr %85, align 8, !tbaa !33
   invoke void %86(ptr noundef nonnull %80)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit58 unwind label %87
@@ -8379,7 +8375,7 @@ _ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23T
   %92 = load i32, ptr %91, align 8, !tbaa !31
   store i32 %92, ptr %5, align 8, !tbaa !31
   %93 = sext i32 %92 to i64
-  %94 = getelementptr inbounds ptr, ptr @_ZZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEEC1ERKSD_E5table, i64 %93
+  %94 = getelementptr inbounds [8 x i8], ptr @_ZZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEEC1ERKSD_E5table, i64 %93
   %95 = load ptr, ptr %94, align 8, !tbaa !33
   %96 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %97 = getelementptr inbounds nuw i8, ptr %91, i64 8
@@ -8390,7 +8386,7 @@ _ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23T
 98:                                               ; preds = %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit58
   %99 = load i32, ptr %5, align 8, !tbaa !31
   %100 = sext i32 %99 to i64
-  %101 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %100
+  %101 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %100
   %102 = load ptr, ptr %101, align 8, !tbaa !33
   invoke void %102(ptr noundef nonnull %96)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit59 unwind label %103
@@ -8411,7 +8407,7 @@ _ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23T
           cleanup
   %108 = load i32, ptr %4, align 8, !tbaa !31
   %109 = sext i32 %108 to i64
-  %110 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %109
+  %110 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %109
   %111 = load ptr, ptr %110, align 8, !tbaa !33
   invoke void %111(ptr noundef nonnull %80)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit55 unwind label %112
@@ -8428,7 +8424,7 @@ _ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23T
           cleanup
   %117 = load i32, ptr %5, align 8, !tbaa !31
   %118 = sext i32 %117 to i64
-  %119 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %118
+  %119 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %118
   %120 = load ptr, ptr %119, align 8, !tbaa !33
   invoke void %120(ptr noundef nonnull %96)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit55 unwind label %121
@@ -8529,7 +8525,7 @@ _ZN4Luau3getINS_21TypeFunctionTableTypeEEEPKT_PKNS_16TypeFunctionTypeE.exit: ; p
   %21 = load i32, ptr %20, align 8, !tbaa !31
   store i32 %21, ptr %2, align 8, !tbaa !31
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds ptr, ptr @_ZZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEEC1ERKSD_E5table, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr @_ZZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEEC1ERKSD_E5table, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !33
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %26 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -8540,7 +8536,7 @@ _ZN4Luau3getINS_21TypeFunctionTableTypeEEEPKT_PKNS_16TypeFunctionTypeE.exit: ; p
 27:                                               ; preds = %18
   %28 = load i32, ptr %2, align 8, !tbaa !31
   %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !33
   invoke void %31(ptr noundef nonnull %25)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit unwind label %32
@@ -8559,7 +8555,7 @@ _ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23T
   %37 = load i32, ptr %36, align 8, !tbaa !31
   store i32 %37, ptr %3, align 8, !tbaa !31
   %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds ptr, ptr @_ZZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEEC1ERKSD_E5table, i64 %38
+  %39 = getelementptr inbounds [8 x i8], ptr @_ZZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEEC1ERKSD_E5table, i64 %38
   %40 = load ptr, ptr %39, align 8, !tbaa !33
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %42 = getelementptr inbounds nuw i8, ptr %36, i64 8
@@ -8570,7 +8566,7 @@ _ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23T
 43:                                               ; preds = %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit
   %44 = load i32, ptr %3, align 8, !tbaa !31
   %45 = sext i32 %44 to i64
-  %46 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %45
+  %46 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %45
   %47 = load ptr, ptr %46, align 8, !tbaa !33
   invoke void %47(ptr noundef nonnull %41)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit54 unwind label %48
@@ -8591,7 +8587,7 @@ _ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23T
           cleanup
   %53 = load i32, ptr %2, align 8, !tbaa !31
   %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %54
+  %55 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %54
   %56 = load ptr, ptr %55, align 8, !tbaa !33
   invoke void %56(ptr noundef nonnull %25)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit55 unwind label %57
@@ -8608,7 +8604,7 @@ _ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23T
           cleanup
   %62 = load i32, ptr %3, align 8, !tbaa !31
   %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %63
+  %64 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %63
   %65 = load ptr, ptr %64, align 8, !tbaa !33
   invoke void %65(ptr noundef nonnull %41)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit55 unwind label %66
@@ -8637,7 +8633,7 @@ _ZN4Luau3getINS_21TypeFunctionClassTypeEEEPKT_PKNS_16TypeFunctionTypeE.exit: ; p
   %76 = load i32, ptr %75, align 8, !tbaa !31
   store i32 %76, ptr %4, align 8, !tbaa !31
   %77 = sext i32 %76 to i64
-  %78 = getelementptr inbounds ptr, ptr @_ZZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEEC1ERKSD_E5table, i64 %77
+  %78 = getelementptr inbounds [8 x i8], ptr @_ZZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEEC1ERKSD_E5table, i64 %77
   %79 = load ptr, ptr %78, align 8, !tbaa !33
   %80 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %81 = getelementptr inbounds nuw i8, ptr %75, i64 8
@@ -8648,7 +8644,7 @@ _ZN4Luau3getINS_21TypeFunctionClassTypeEEEPKT_PKNS_16TypeFunctionTypeE.exit: ; p
 82:                                               ; preds = %73
   %83 = load i32, ptr %4, align 8, !tbaa !31
   %84 = sext i32 %83 to i64
-  %85 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %84
+  %85 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %84
   %86 = load ptr, ptr %85, align 8, !tbaa !33
   invoke void %86(ptr noundef nonnull %80)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit58 unwind label %87
@@ -8667,7 +8663,7 @@ _ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23T
   %92 = load i32, ptr %91, align 8, !tbaa !31
   store i32 %92, ptr %5, align 8, !tbaa !31
   %93 = sext i32 %92 to i64
-  %94 = getelementptr inbounds ptr, ptr @_ZZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEEC1ERKSD_E5table, i64 %93
+  %94 = getelementptr inbounds [8 x i8], ptr @_ZZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEEC1ERKSD_E5table, i64 %93
   %95 = load ptr, ptr %94, align 8, !tbaa !33
   %96 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %97 = getelementptr inbounds nuw i8, ptr %91, i64 8
@@ -8678,7 +8674,7 @@ _ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23T
 98:                                               ; preds = %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit58
   %99 = load i32, ptr %5, align 8, !tbaa !31
   %100 = sext i32 %99 to i64
-  %101 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %100
+  %101 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %100
   %102 = load ptr, ptr %101, align 8, !tbaa !33
   invoke void %102(ptr noundef nonnull %96)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit59 unwind label %103
@@ -8699,7 +8695,7 @@ _ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23T
           cleanup
   %108 = load i32, ptr %4, align 8, !tbaa !31
   %109 = sext i32 %108 to i64
-  %110 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %109
+  %110 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %109
   %111 = load ptr, ptr %110, align 8, !tbaa !33
   invoke void %111(ptr noundef nonnull %80)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit55 unwind label %112
@@ -8716,7 +8712,7 @@ _ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23T
           cleanup
   %117 = load i32, ptr %5, align 8, !tbaa !31
   %118 = sext i32 %117 to i64
-  %119 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %118
+  %119 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %118
   %120 = load ptr, ptr %119, align 8, !tbaa !33
   invoke void %120(ptr noundef nonnull %96)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit55 unwind label %121
@@ -8928,7 +8924,7 @@ _ZN4Luau3getINS_21TypeFunctionTableTypeEEEPKT_PKNS_16TypeFunctionTypeE.exit: ; p
   %18 = load i32, ptr %17, align 8, !tbaa !31
   store i32 %18, ptr %2, align 8, !tbaa !31
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds ptr, ptr @_ZZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEEC1ERKSD_E5table, i64 %19
+  %20 = getelementptr inbounds [8 x i8], ptr @_ZZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEEC1ERKSD_E5table, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !33
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %23 = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -8939,7 +8935,7 @@ _ZN4Luau3getINS_21TypeFunctionTableTypeEEEPKT_PKNS_16TypeFunctionTypeE.exit: ; p
 24:                                               ; preds = %15
   %25 = load i32, ptr %2, align 8, !tbaa !31
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !33
   invoke void %28(ptr noundef nonnull %22)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit unwind label %29
@@ -8956,7 +8952,7 @@ _ZN4Luau3getINS_21TypeFunctionTableTypeEEEPKT_PKNS_16TypeFunctionTypeE.exit: ; p
           cleanup
   %34 = load i32, ptr %2, align 8, !tbaa !31
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %35
+  %36 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %35
   %37 = load ptr, ptr %36, align 8, !tbaa !33
   invoke void %37(ptr noundef nonnull %22)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit36 unwind label %38
@@ -8980,7 +8976,7 @@ _ZN4Luau3getINS_21TypeFunctionClassTypeEEEPKT_PKNS_16TypeFunctionTypeE.exit: ; p
   %47 = load i32, ptr %46, align 8, !tbaa !31
   store i32 %47, ptr %3, align 8, !tbaa !31
   %48 = sext i32 %47 to i64
-  %49 = getelementptr inbounds ptr, ptr @_ZZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEEC1ERKSD_E5table, i64 %48
+  %49 = getelementptr inbounds [8 x i8], ptr @_ZZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEEC1ERKSD_E5table, i64 %48
   %50 = load ptr, ptr %49, align 8, !tbaa !33
   %51 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %52 = getelementptr inbounds nuw i8, ptr %46, i64 8
@@ -8991,7 +8987,7 @@ _ZN4Luau3getINS_21TypeFunctionClassTypeEEEPKT_PKNS_16TypeFunctionTypeE.exit: ; p
 53:                                               ; preds = %44
   %54 = load i32, ptr %3, align 8, !tbaa !31
   %55 = sext i32 %54 to i64
-  %56 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %55
+  %56 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %55
   %57 = load ptr, ptr %56, align 8, !tbaa !33
   invoke void %57(ptr noundef nonnull %51)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit unwind label %58
@@ -9008,7 +9004,7 @@ _ZN4Luau3getINS_21TypeFunctionClassTypeEEEPKT_PKNS_16TypeFunctionTypeE.exit: ; p
           cleanup
   %63 = load i32, ptr %3, align 8, !tbaa !31
   %64 = sext i32 %63 to i64
-  %65 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %64
+  %65 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %64
   %66 = load ptr, ptr %65, align 8, !tbaa !33
   invoke void %66(ptr noundef nonnull %51)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit36 unwind label %67
@@ -9573,7 +9569,7 @@ _ZN4Luau6get_ifINS_27TypeFunctionGenericTypePackEJNS_20TypeFunctionTypePackENS_2
   %56 = load i32, ptr %55, align 8, !tbaa !31
   store i32 %56, ptr %4, align 8, !tbaa !31
   %57 = sext i32 %56 to i64
-  %58 = getelementptr inbounds ptr, ptr @_ZZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEEC1ERKSD_E5table, i64 %57
+  %58 = getelementptr inbounds [8 x i8], ptr @_ZZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEEC1ERKSD_E5table, i64 %57
   %59 = load ptr, ptr %58, align 8, !tbaa !33
   %60 = getelementptr inbounds nuw i8, ptr %55, i64 8
   call void %59(ptr noundef nonnull %43, ptr noundef nonnull %60)
@@ -9583,7 +9579,7 @@ _ZN4Luau6get_ifINS_27TypeFunctionGenericTypePackEJNS_20TypeFunctionTypePackENS_2
 61:                                               ; preds = %54
   %62 = load i32, ptr %4, align 8, !tbaa !31
   %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %63
+  %64 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %63
   %65 = load ptr, ptr %64, align 8, !tbaa !33
   invoke void %65(ptr noundef nonnull %43)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit unwind label %66
@@ -9607,7 +9603,7 @@ _ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23T
           cleanup
   %73 = load i32, ptr %4, align 8, !tbaa !31
   %74 = sext i32 %73 to i64
-  %75 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %74
+  %75 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %74
   %76 = load ptr, ptr %75, align 8, !tbaa !33
   invoke void %76(ptr noundef nonnull %43)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit33 unwind label %77
@@ -9706,7 +9702,7 @@ _ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23T
 106:                                              ; preds = %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEEC2ISC_EEOT_PNSt9enable_ifIXgecl9getTypeIdISF_EELi0EEvE4typeE.exit
   %107 = load i32, ptr %5, align 8, !tbaa !31
   %108 = sext i32 %107 to i64
-  %109 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %108
+  %109 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %108
   %110 = load ptr, ptr %109, align 8, !tbaa !33
   invoke void %110(ptr noundef nonnull %50)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit35 unwind label %111
@@ -9742,7 +9738,7 @@ _ZN4Luau23TypeFunctionGenericTypeD2Ev.exit:       ; preds = %_ZN4Luau7VariantIJN
           cleanup
   %122 = load i32, ptr %5, align 8, !tbaa !31
   %123 = sext i32 %122 to i64
-  %124 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %123
+  %124 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %123
   %125 = load ptr, ptr %124, align 8, !tbaa !33
   invoke void %125(ptr noundef nonnull %50)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit37 unwind label %126
@@ -9830,12 +9826,12 @@ _ZN4Luau3getINS_21TypeFunctionUnionTypeEEEPKT_PKNS_16TypeFunctionTypeE.exit: ; p
 23:                                               ; preds = %.lr.ph63, %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit
   %indvars.iv66 = phi i64 [ 0, %.lr.ph63 ], [ %indvars.iv.next67, %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit ]
   %24 = load ptr, ptr %12, align 8, !tbaa !59
-  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv66
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv66
   %26 = load ptr, ptr %25, align 8, !tbaa !29
   %27 = load i32, ptr %26, align 8, !tbaa !31
   store i32 %27, ptr %2, align 8, !tbaa !31
   %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds ptr, ptr @_ZZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEEC1ERKSD_E5table, i64 %28
+  %29 = getelementptr inbounds [8 x i8], ptr @_ZZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEEC1ERKSD_E5table, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !33
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 8
   call void %30(ptr noundef nonnull %22, ptr noundef nonnull %31)
@@ -9845,7 +9841,7 @@ _ZN4Luau3getINS_21TypeFunctionUnionTypeEEEPKT_PKNS_16TypeFunctionTypeE.exit: ; p
 32:                                               ; preds = %23
   %33 = load i32, ptr %2, align 8, !tbaa !31
   %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %34
   %36 = load ptr, ptr %35, align 8, !tbaa !33
   invoke void %36(ptr noundef nonnull %22)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit unwind label %37
@@ -9869,7 +9865,7 @@ _ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23T
           cleanup
   %43 = load i32, ptr %2, align 8, !tbaa !31
   %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %44
+  %45 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %44
   %46 = load ptr, ptr %45, align 8, !tbaa !33
   invoke void %46(ptr noundef nonnull %22)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit50 unwind label %47
@@ -9902,12 +9898,12 @@ _ZN4Luau3getINS_28TypeFunctionIntersectionTypeEEEPKT_PKNS_16TypeFunctionTypeE.ex
 60:                                               ; preds = %.lr.ph, %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit52
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit52 ]
   %61 = load ptr, ptr %12, align 8, !tbaa !59
-  %62 = getelementptr inbounds nuw ptr, ptr %61, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %indvars.iv
   %63 = load ptr, ptr %62, align 8, !tbaa !29
   %64 = load i32, ptr %63, align 8, !tbaa !31
   store i32 %64, ptr %3, align 8, !tbaa !31
   %65 = sext i32 %64 to i64
-  %66 = getelementptr inbounds ptr, ptr @_ZZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEEC1ERKSD_E5table, i64 %65
+  %66 = getelementptr inbounds [8 x i8], ptr @_ZZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEEC1ERKSD_E5table, i64 %65
   %67 = load ptr, ptr %66, align 8, !tbaa !33
   %68 = getelementptr inbounds nuw i8, ptr %63, i64 8
   call void %67(ptr noundef nonnull %59, ptr noundef nonnull %68)
@@ -9917,7 +9913,7 @@ _ZN4Luau3getINS_28TypeFunctionIntersectionTypeEEEPKT_PKNS_16TypeFunctionTypeE.ex
 69:                                               ; preds = %60
   %70 = load i32, ptr %3, align 8, !tbaa !31
   %71 = sext i32 %70 to i64
-  %72 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %71
+  %72 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %71
   %73 = load ptr, ptr %72, align 8, !tbaa !33
   invoke void %73(ptr noundef nonnull %59)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit52 unwind label %74
@@ -9941,7 +9937,7 @@ _ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23T
           cleanup
   %80 = load i32, ptr %3, align 8, !tbaa !31
   %81 = sext i32 %80 to i64
-  %82 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %81
+  %82 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %81
   %83 = load ptr, ptr %82, align 8, !tbaa !33
   invoke void %83(ptr noundef nonnull %59)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit50 unwind label %84
@@ -10064,7 +10060,7 @@ _ZN4Luau3getINS_21TypeFunctionClassTypeEEEPKT_PKNS_16TypeFunctionTypeE.exit: ; p
   %29 = load i32, ptr %28, align 8, !tbaa !31
   store i32 %29, ptr %3, align 8, !tbaa !31
   %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds ptr, ptr @_ZZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEEC1ERKSD_E5table, i64 %30
+  %31 = getelementptr inbounds [8 x i8], ptr @_ZZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEEC1ERKSD_E5table, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !33
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %34 = getelementptr inbounds nuw i8, ptr %28, i64 8
@@ -10075,7 +10071,7 @@ _ZN4Luau3getINS_21TypeFunctionClassTypeEEEPKT_PKNS_16TypeFunctionTypeE.exit: ; p
 35:                                               ; preds = %26
   %36 = load i32, ptr %3, align 8, !tbaa !31
   %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %37
   %39 = load ptr, ptr %38, align 8, !tbaa !33
   invoke void %39(ptr noundef nonnull %33)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit unwind label %40
@@ -10092,7 +10088,7 @@ _ZN4Luau3getINS_21TypeFunctionClassTypeEEEPKT_PKNS_16TypeFunctionTypeE.exit: ; p
           cleanup
   %45 = load i32, ptr %3, align 8, !tbaa !31
   %46 = sext i32 %45 to i64
-  %47 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %46
+  %47 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %46
   %48 = load ptr, ptr %47, align 8, !tbaa !33
   invoke void %48(ptr noundef nonnull %33)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit20 unwind label %49
@@ -12258,7 +12254,7 @@ define dso_local noundef ptr @_ZN4Luau9deepCloneENS_7NotNullINS_19TypeFunctionRu
   %.pn.i.i.i.i = phi i64 [ %36, %29 ], [ %46, %44 ]
   %.02028.i.i.i.i = phi i64 [ 0, %29 ], [ %45, %44 ]
   %.02129.i.i.i.i = and i64 %.pn.i.i.i.i, %32
-  %39 = getelementptr inbounds nuw %"struct.std::pair.103", ptr %37, i64 %.02129.i.i.i.i
+  %39 = getelementptr inbounds nuw [16 x i8], ptr %37, i64 %.02129.i.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !29
   %41 = icmp eq ptr %40, %1
   br i1 %41, label %_ZNK4Luau12DenseHashMapIPKNS_16TypeFunctionTypeES3_NS_16DenseHashPointerESt8equal_toIS3_EE4findERKS3_.exit.i.i, label %42
@@ -12311,7 +12307,7 @@ _ZN4Luau12DenseHashMapIPKNS_16TypeFunctionTypeES3_NS_16DenseHashPointerESt8equal
   %56 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 16
   %57 = load i32, ptr %56, align 8, !tbaa !186
   %58 = sext i32 %57 to i64
-  %59 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJPKNS_16TypeFunctionTypeEPKNS_23TypeFunctionTypePackVarEEE9tableDtorE, i64 %58
+  %59 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJPKNS_16TypeFunctionTypeEPKNS_23TypeFunctionTypePackVarEEE9tableDtorE, i64 %58
   %60 = load ptr, ptr %59, align 8, !tbaa !33
   %61 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 24
   invoke void %60(ptr noundef nonnull %61)
@@ -12327,7 +12323,7 @@ _ZN4Luau12DenseHashMapIPKNS_16TypeFunctionTypeES3_NS_16DenseHashPointerESt8equal
 _ZNSt10_Head_baseILm0EN4Luau7VariantIJPKNS0_16TypeFunctionTypeEPKNS0_23TypeFunctionTypePackVarEEEELb0EED2Ev.exit.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i
   %65 = load i32, ptr %.05.i.i.i.i.i, align 8, !tbaa !186
   %66 = sext i32 %65 to i64
-  %67 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJPKNS_16TypeFunctionTypeEPKNS_23TypeFunctionTypePackVarEEE9tableDtorE, i64 %66
+  %67 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJPKNS_16TypeFunctionTypeEPKNS_23TypeFunctionTypePackVarEEE9tableDtorE, i64 %66
   %68 = load ptr, ptr %67, align 8, !tbaa !33
   %69 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 8
   invoke void %68(ptr noundef nonnull %69)
@@ -12411,7 +12407,7 @@ _ZN4Luau12DenseHashMapIPKNS_16TypeFunctionTypeES3_NS_16DenseHashPointerESt8equal
   %12 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 16
   %13 = load i32, ptr %12, align 8, !tbaa !186
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJPKNS_16TypeFunctionTypeEPKNS_23TypeFunctionTypePackVarEEE9tableDtorE, i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJPKNS_16TypeFunctionTypeEPKNS_23TypeFunctionTypePackVarEEE9tableDtorE, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !33
   %17 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 24
   invoke void %16(ptr noundef nonnull %17)
@@ -12427,7 +12423,7 @@ _ZN4Luau12DenseHashMapIPKNS_16TypeFunctionTypeES3_NS_16DenseHashPointerESt8equal
 _ZNSt10_Head_baseILm0EN4Luau7VariantIJPKNS0_16TypeFunctionTypeEPKNS0_23TypeFunctionTypePackVarEEEELb0EED2Ev.exit.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %21 = load i32, ptr %.05.i.i.i.i, align 8, !tbaa !186
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJPKNS_16TypeFunctionTypeEPKNS_23TypeFunctionTypePackVarEEE9tableDtorE, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJPKNS_16TypeFunctionTypeEPKNS_23TypeFunctionTypePackVarEEE9tableDtorE, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !33
   %25 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 8
   invoke void %24(ptr noundef nonnull %25)
@@ -13721,7 +13717,7 @@ define internal fastcc noundef ptr @_ZN4LuauL11getTypePackEP9lua_Stateii(ptr nou
 12:                                               ; preds = %3
   %13 = load i32, ptr %5, align 8, !tbaa !44
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_20TypeFunctionTypePackENS_28TypeFunctionVariadicTypePackENS_27TypeFunctionGenericTypePackEEE9tableDtorE, i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_20TypeFunctionTypePackENS_28TypeFunctionVariadicTypePackENS_27TypeFunctionGenericTypePackEEE9tableDtorE, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !33
   invoke void %16(ptr noundef nonnull %10)
           to label %_ZN4Luau20TypeFunctionTypePackD2Ev.exit unwind label %17
@@ -13762,7 +13758,7 @@ _ZN4Luau20TypeFunctionTypePackD2Ev.exit:          ; preds = %12
           cleanup
   %28 = load i32, ptr %5, align 8, !tbaa !44
   %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_20TypeFunctionTypePackENS_28TypeFunctionVariadicTypePackENS_27TypeFunctionGenericTypePackEEE9tableDtorE, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_20TypeFunctionTypePackENS_28TypeFunctionVariadicTypePackENS_27TypeFunctionGenericTypePackEEE9tableDtorE, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !33
   invoke void %31(ptr noundef nonnull %10)
           to label %_ZNSt6vectorIPKN4Luau16TypeFunctionTypeESaIS3_EED2Ev.exit79 unwind label %32
@@ -13883,7 +13879,7 @@ _ZNSt6vectorIPKN4Luau16TypeFunctionTypeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exi
   br label %_ZNSt6vectorIPKN4Luau16TypeFunctionTypeESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIPKN4Luau16TypeFunctionTypeESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %67, %_ZNSt6vectorIPKN4Luau16TypeFunctionTypeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
-  %68 = getelementptr inbounds nuw ptr, ptr %63, i64 %61
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %61
   br label %_ZNSt6vectorIPKN4Luau16TypeFunctionTypeESaIS3_EE9push_backEOS3_.exit
 
 _ZNSt6vectorIPKN4Luau16TypeFunctionTypeESaIS3_EE9push_backEOS3_.exit: ; preds = %_ZNSt6vectorIPKN4Luau16TypeFunctionTypeESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i, %50
@@ -14051,7 +14047,7 @@ _ZN4Luau7VariantIJNS_20TypeFunctionTypePackENS_28TypeFunctionVariadicTypePackENS
 _ZNSt8optionalIPKN4Luau23TypeFunctionTypePackVarEEaSIPS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS4_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES8_ISt6__and_IJSt9is_scalarIS3_ES9_IS3_NSt5decayISC_E4typeEEEEESt16is_constructibleIS3_JSC_EESt13is_assignableIRS3_SC_EEERS4_E4typeEOSC_.exit: ; preds = %_ZN4Luau7VariantIJNS_20TypeFunctionTypePackENS_28TypeFunctionVariadicTypePackENS_27TypeFunctionGenericTypePackEEEC2IS3_EEOT_PNSt9enable_ifIXgecl9getTypeIdIS6_EELi0EEvE4typeE.exit
   %123 = load i32, ptr %6, align 8, !tbaa !44
   %124 = sext i32 %123 to i64
-  %125 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_20TypeFunctionTypePackENS_28TypeFunctionVariadicTypePackENS_27TypeFunctionGenericTypePackEEE9tableDtorE, i64 %124
+  %125 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_20TypeFunctionTypePackENS_28TypeFunctionVariadicTypePackENS_27TypeFunctionGenericTypePackEEE9tableDtorE, i64 %124
   %126 = load ptr, ptr %125, align 8, !tbaa !33
   invoke void %126(ptr noundef nonnull %109)
           to label %_ZN4Luau7VariantIJNS_20TypeFunctionTypePackENS_28TypeFunctionVariadicTypePackENS_27TypeFunctionGenericTypePackEEED2Ev.exit60 unwind label %127
@@ -14093,7 +14089,7 @@ _ZN4Luau27TypeFunctionGenericTypePackD2Ev.exit:   ; preds = %_ZN4Luau7VariantIJN
           cleanup
   %140 = load i32, ptr %6, align 8, !tbaa !44
   %141 = sext i32 %140 to i64
-  %142 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_20TypeFunctionTypePackENS_28TypeFunctionVariadicTypePackENS_27TypeFunctionGenericTypePackEEE9tableDtorE, i64 %141
+  %142 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_20TypeFunctionTypePackENS_28TypeFunctionVariadicTypePackENS_27TypeFunctionGenericTypePackEEE9tableDtorE, i64 %141
   %143 = load ptr, ptr %142, align 8, !tbaa !33
   invoke void %143(ptr noundef nonnull %109)
           to label %_ZN4Luau7VariantIJNS_20TypeFunctionTypePackENS_28TypeFunctionVariadicTypePackENS_27TypeFunctionGenericTypePackEEED2Ev.exit62 unwind label %144
@@ -14132,7 +14128,7 @@ _ZN4Luau3getINS_23TypeFunctionGenericTypeEEEPKT_PKNS_16TypeFunctionTypeE.exit.th
 _ZNSt8optionalIPKN4Luau23TypeFunctionTypePackVarEEaSIPS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS4_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES8_ISt6__and_IJSt9is_scalarIS3_ES9_IS3_NSt5decayISC_E4typeEEEEESt16is_constructibleIS3_JSC_EESt13is_assignableIRS3_SC_EEERS4_E4typeEOSC_.exit66: ; preds = %_ZN4Luau3getINS_23TypeFunctionGenericTypeEEEPKT_PKNS_16TypeFunctionTypeE.exit.thread
   %154 = load i32, ptr %8, align 8, !tbaa !44
   %155 = sext i32 %154 to i64
-  %156 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_20TypeFunctionTypePackENS_28TypeFunctionVariadicTypePackENS_27TypeFunctionGenericTypePackEEE9tableDtorE, i64 %155
+  %156 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_20TypeFunctionTypePackENS_28TypeFunctionVariadicTypePackENS_27TypeFunctionGenericTypePackEEE9tableDtorE, i64 %155
   %157 = load ptr, ptr %156, align 8, !tbaa !33
   invoke void %157(ptr noundef nonnull %151)
           to label %_ZN4Luau7VariantIJNS_20TypeFunctionTypePackENS_28TypeFunctionVariadicTypePackENS_27TypeFunctionGenericTypePackEEED2Ev.exit67 unwind label %158
@@ -14149,7 +14145,7 @@ _ZNSt8optionalIPKN4Luau23TypeFunctionTypePackVarEEaSIPS1_EENSt9enable_ifIX7__and
           cleanup
   %163 = load i32, ptr %8, align 8, !tbaa !44
   %164 = sext i32 %163 to i64
-  %165 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_20TypeFunctionTypePackENS_28TypeFunctionVariadicTypePackENS_27TypeFunctionGenericTypePackEEE9tableDtorE, i64 %164
+  %165 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_20TypeFunctionTypePackENS_28TypeFunctionVariadicTypePackENS_27TypeFunctionGenericTypePackEEE9tableDtorE, i64 %164
   %166 = load ptr, ptr %165, align 8, !tbaa !33
   invoke void %166(ptr noundef nonnull %151)
           to label %_ZN4Luau7VariantIJNS_20TypeFunctionTypePackENS_28TypeFunctionVariadicTypePackENS_27TypeFunctionGenericTypePackEEED2Ev.exit68 unwind label %167
@@ -14219,7 +14215,7 @@ _ZNSt6vectorIPKN4Luau16TypeFunctionTypeESaIS3_EEC2ERKS5_.exit: ; preds = %_ZN4Lu
 190:                                              ; preds = %_ZNSt6vectorIPKN4Luau16TypeFunctionTypeESaIS3_EEC2ERKS5_.exit
   %191 = load i32, ptr %9, align 8, !tbaa !44
   %192 = sext i32 %191 to i64
-  %193 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_20TypeFunctionTypePackENS_28TypeFunctionVariadicTypePackENS_27TypeFunctionGenericTypePackEEE9tableDtorE, i64 %192
+  %193 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_20TypeFunctionTypePackENS_28TypeFunctionVariadicTypePackENS_27TypeFunctionGenericTypePackEEE9tableDtorE, i64 %192
   %194 = load ptr, ptr %193, align 8, !tbaa !33
   invoke void %194(ptr noundef nonnull %185)
           to label %_ZN4Luau20TypeFunctionTypePackD2Ev.exit74 unwind label %195
@@ -14241,7 +14237,7 @@ _ZNSt6vectorIPKN4Luau16TypeFunctionTypeESaIS3_EEC2ERKS5_.exit: ; preds = %_ZN4Lu
           cleanup
   %202 = load i32, ptr %9, align 8, !tbaa !44
   %203 = sext i32 %202 to i64
-  %204 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_20TypeFunctionTypePackENS_28TypeFunctionVariadicTypePackENS_27TypeFunctionGenericTypePackEEE9tableDtorE, i64 %203
+  %204 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_20TypeFunctionTypePackENS_28TypeFunctionVariadicTypePackENS_27TypeFunctionGenericTypePackEEE9tableDtorE, i64 %203
   %205 = load ptr, ptr %204, align 8, !tbaa !33
   invoke void %205(ptr noundef nonnull %185)
           to label %_ZN4Luau7VariantIJNS_20TypeFunctionTypePackENS_28TypeFunctionVariadicTypePackENS_27TypeFunctionGenericTypePackEEED2Ev.exit68 unwind label %206
@@ -14545,7 +14541,7 @@ _ZNSt6vectorIPKN4Luau23TypeFunctionTypePackVarESaIS3_EE11_S_relocateEPS3_S6_S6_R
 _ZNSt6vectorIPKN4Luau23TypeFunctionTypePackVarESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %104, %_ZNSt6vectorIPKN4Luau23TypeFunctionTypePackVarESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
   store ptr %99, ptr %7, align 8, !tbaa !82
   store ptr %103, ptr %14, align 8, !tbaa !84
-  %105 = getelementptr inbounds nuw ptr, ptr %99, i64 %97
+  %105 = getelementptr inbounds nuw [8 x i8], ptr %99, i64 %97
   store ptr %105, ptr %24, align 8, !tbaa !85
   br label %_ZNSt6vectorIPKN4Luau23TypeFunctionTypePackVarESaIS3_EE9push_backEOS3_.exit
 
@@ -14554,7 +14550,7 @@ _ZNSt6vectorIPKN4Luau23TypeFunctionTypePackVarESaIS3_EE9push_backEOS3_.exit: ; p
   %107 = phi ptr [ %99, %_ZNSt6vectorIPKN4Luau23TypeFunctionTypePackVarESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %30, %84 ]
   %108 = load i32, ptr %8, align 8, !tbaa !44
   %109 = sext i32 %108 to i64
-  %110 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_20TypeFunctionTypePackENS_28TypeFunctionVariadicTypePackENS_27TypeFunctionGenericTypePackEEE9tableDtorE, i64 %109
+  %110 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_20TypeFunctionTypePackENS_28TypeFunctionVariadicTypePackENS_27TypeFunctionGenericTypePackEEE9tableDtorE, i64 %109
   %111 = load ptr, ptr %110, align 8, !tbaa !33
   invoke void %111(ptr noundef nonnull %20)
           to label %_ZN4Luau7VariantIJNS_20TypeFunctionTypePackENS_28TypeFunctionVariadicTypePackENS_27TypeFunctionGenericTypePackEEED2Ev.exit unwind label %112
@@ -14620,7 +14616,7 @@ _ZN4Luau27TypeFunctionGenericTypePackD2Ev.exit:   ; preds = %_ZN4Luau7VariantIJN
   %lpad.phi83 = phi { ptr, i32 } [ %lpad.loopexit81, %.loopexit79 ], [ %lpad.loopexit.split-lp82, %.loopexit.split-lp80 ]
   %122 = load i32, ptr %8, align 8, !tbaa !44
   %123 = sext i32 %122 to i64
-  %124 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_20TypeFunctionTypePackENS_28TypeFunctionVariadicTypePackENS_27TypeFunctionGenericTypePackEEE9tableDtorE, i64 %123
+  %124 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_20TypeFunctionTypePackENS_28TypeFunctionVariadicTypePackENS_27TypeFunctionGenericTypePackEEE9tableDtorE, i64 %123
   %125 = load ptr, ptr %124, align 8, !tbaa !33
   invoke void %125(ptr noundef nonnull %20)
           to label %_ZN4Luau7VariantIJNS_20TypeFunctionTypePackENS_28TypeFunctionVariadicTypePackENS_27TypeFunctionGenericTypePackEEED2Ev.exit50 unwind label %126
@@ -14719,7 +14715,7 @@ _ZNSt6vectorIPKN4Luau16TypeFunctionTypeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exi
 _ZNSt6vectorIPKN4Luau16TypeFunctionTypeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %156, %_ZNSt6vectorIPKN4Luau16TypeFunctionTypeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
   store ptr %151, ptr %6, align 8, !tbaa !59
   store ptr %155, ptr %15, align 8, !tbaa !61
-  %157 = getelementptr inbounds nuw ptr, ptr %151, i64 %149
+  %157 = getelementptr inbounds nuw [8 x i8], ptr %151, i64 %149
   store ptr %157, ptr %16, align 8, !tbaa !62
   br label %_ZNSt6vectorIPKN4Luau16TypeFunctionTypeESaIS3_EE9push_backERKS3_.exit
 
@@ -15089,7 +15085,7 @@ define linkonce_odr dso_local void @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitive
   %3 = load i32, ptr %1, align 8, !tbaa !53
   store i32 %3, ptr %0, align 8, !tbaa !53
   %4 = sext i32 %3 to i64
-  %5 = getelementptr inbounds ptr, ptr @_ZZN4Luau7VariantIJNS_28TypeFunctionBooleanSingletonENS_27TypeFunctionStringSingletonEEEC1ERKS3_E5table, i64 %4
+  %5 = getelementptr inbounds [8 x i8], ptr @_ZZN4Luau7VariantIJNS_28TypeFunctionBooleanSingletonENS_27TypeFunctionStringSingletonEEEC1ERKS3_E5table, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !33
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -15993,7 +15989,7 @@ _ZN4Luau3getINS_20TypeFunctionTypePackEEEPKT_PKNS_23TypeFunctionTypePackVarE.exi
   %29 = load i32, ptr %28, align 8, !tbaa !31
   store i32 %29, ptr %5, align 8, !tbaa !31
   %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds ptr, ptr @_ZZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEEC1ERKSD_E5table, i64 %30
+  %31 = getelementptr inbounds [8 x i8], ptr @_ZZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEEC1ERKSD_E5table, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !33
   %33 = getelementptr inbounds nuw i8, ptr %28, i64 8
   call void %32(ptr noundef nonnull %26, ptr noundef nonnull %33)
@@ -16003,7 +15999,7 @@ _ZN4Luau3getINS_20TypeFunctionTypePackEEEPKT_PKNS_23TypeFunctionTypePackVarE.exi
 34:                                               ; preds = %27
   %35 = load i32, ptr %5, align 8, !tbaa !31
   %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %36
   %38 = load ptr, ptr %37, align 8, !tbaa !33
   invoke void %38(ptr noundef nonnull %26)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit unwind label %39
@@ -16027,7 +16023,7 @@ _ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23T
           cleanup
   %46 = load i32, ptr %5, align 8, !tbaa !31
   %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %47
+  %48 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %47
   %49 = load ptr, ptr %48, align 8, !tbaa !33
   invoke void %49(ptr noundef nonnull %26)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit58 unwind label %50
@@ -16064,7 +16060,7 @@ _ZN4Luau3getINS_28TypeFunctionVariadicTypePackEEEPKT_PKNS_23TypeFunctionTypePack
   %63 = load i32, ptr %62, align 8, !tbaa !31
   store i32 %63, ptr %6, align 8, !tbaa !31
   %64 = sext i32 %63 to i64
-  %65 = getelementptr inbounds ptr, ptr @_ZZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEEC1ERKSD_E5table, i64 %64
+  %65 = getelementptr inbounds [8 x i8], ptr @_ZZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEEC1ERKSD_E5table, i64 %64
   %66 = load ptr, ptr %65, align 8, !tbaa !33
   %67 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %68 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -16075,7 +16071,7 @@ _ZN4Luau3getINS_28TypeFunctionVariadicTypePackEEEPKT_PKNS_23TypeFunctionTypePack
 69:                                               ; preds = %_ZN4Luau3getINS_28TypeFunctionVariadicTypePackEEEPKT_PKNS_23TypeFunctionTypePackVarE.exit
   %70 = load i32, ptr %6, align 8, !tbaa !31
   %71 = sext i32 %70 to i64
-  %72 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %71
+  %72 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %71
   %73 = load ptr, ptr %72, align 8, !tbaa !33
   invoke void %73(ptr noundef nonnull %67)
           to label %.sink.split unwind label %74
@@ -16092,7 +16088,7 @@ _ZN4Luau3getINS_28TypeFunctionVariadicTypePackEEEPKT_PKNS_23TypeFunctionTypePack
           cleanup
   %79 = load i32, ptr %6, align 8, !tbaa !31
   %80 = sext i32 %79 to i64
-  %81 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %80
+  %81 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %80
   %82 = load ptr, ptr %81, align 8, !tbaa !33
   invoke void %82(ptr noundef nonnull %67)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit58 unwind label %83
@@ -16193,7 +16189,7 @@ _ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23T
 119:                                              ; preds = %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEEC2ISC_EEOT_PNSt9enable_ifIXgecl9getTypeIdISF_EELi0EEvE4typeE.exit
   %120 = load i32, ptr %7, align 8, !tbaa !31
   %121 = sext i32 %120 to i64
-  %122 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %121
+  %122 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %121
   %123 = load ptr, ptr %122, align 8, !tbaa !33
   invoke void %123(ptr noundef nonnull %106)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit63 unwind label %124
@@ -16225,7 +16221,7 @@ _ZN4Luau23TypeFunctionGenericTypeD2Ev.exit:       ; preds = %_ZN4Luau7VariantIJN
           cleanup
   %133 = load i32, ptr %7, align 8, !tbaa !31
   %134 = sext i32 %133 to i64
-  %135 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %134
+  %135 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %134
   %136 = load ptr, ptr %135, align 8, !tbaa !33
   invoke void %136(ptr noundef nonnull %106)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit65 unwind label %137
@@ -16262,7 +16258,7 @@ _ZN4Luau3getINS_28TypeFunctionVariadicTypePackEEEPKT_PKNS_23TypeFunctionTypePack
   %145 = load i32, ptr %144, align 8, !tbaa !31
   store i32 %145, ptr %9, align 8, !tbaa !31
   %146 = sext i32 %145 to i64
-  %147 = getelementptr inbounds ptr, ptr @_ZZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEEC1ERKSD_E5table, i64 %146
+  %147 = getelementptr inbounds [8 x i8], ptr @_ZZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEEC1ERKSD_E5table, i64 %146
   %148 = load ptr, ptr %147, align 8, !tbaa !33
   %149 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %150 = getelementptr inbounds nuw i8, ptr %144, i64 8
@@ -16273,7 +16269,7 @@ _ZN4Luau3getINS_28TypeFunctionVariadicTypePackEEEPKT_PKNS_23TypeFunctionTypePack
 151:                                              ; preds = %_ZN4Luau3getINS_28TypeFunctionVariadicTypePackEEEPKT_PKNS_23TypeFunctionTypePackVarE.exit71
   %152 = load i32, ptr %9, align 8, !tbaa !31
   %153 = sext i32 %152 to i64
-  %154 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %153
+  %154 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %153
   %155 = load ptr, ptr %154, align 8, !tbaa !33
   invoke void %155(ptr noundef nonnull %149)
           to label %.sink.split unwind label %156
@@ -16290,7 +16286,7 @@ _ZN4Luau3getINS_28TypeFunctionVariadicTypePackEEEPKT_PKNS_23TypeFunctionTypePack
           cleanup
   %161 = load i32, ptr %9, align 8, !tbaa !31
   %162 = sext i32 %161 to i64
-  %163 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %162
+  %163 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %162
   %164 = load ptr, ptr %163, align 8, !tbaa !33
   invoke void %164(ptr noundef nonnull %149)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit58 unwind label %165
@@ -16391,7 +16387,7 @@ _ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23T
 200:                                              ; preds = %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEEC2ISC_EEOT_PNSt9enable_ifIXgecl9getTypeIdISF_EELi0EEvE4typeE.exit81
   %201 = load i32, ptr %10, align 8, !tbaa !31
   %202 = sext i32 %201 to i64
-  %203 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %202
+  %203 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %202
   %204 = load ptr, ptr %203, align 8, !tbaa !33
   invoke void %204(ptr noundef nonnull %187)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit82 unwind label %205
@@ -16423,7 +16419,7 @@ _ZN4Luau23TypeFunctionGenericTypeD2Ev.exit85:     ; preds = %_ZN4Luau7VariantIJN
           cleanup
   %214 = load i32, ptr %10, align 8, !tbaa !31
   %215 = sext i32 %214 to i64
-  %216 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %215
+  %216 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %215
   %217 = load ptr, ptr %216, align 8, !tbaa !33
   invoke void %217(ptr noundef nonnull %187)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit86 unwind label %218
@@ -16653,7 +16649,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %69
   store ptr %22, ptr %0, align 8, !tbaa !207
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !124
-  %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %73, ptr %68, align 8, !tbaa !127
   ret void
 }
@@ -16688,7 +16684,7 @@ define linkonce_odr dso_local void @_ZSt8_DestroyIPSt5tupleIJN4Luau7VariantIJPKN
   %4 = getelementptr inbounds nuw i8, ptr %.05.i.i, i64 16
   %5 = load i32, ptr %4, align 8, !tbaa !186
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJPKNS_16TypeFunctionTypeEPKNS_23TypeFunctionTypePackVarEEE9tableDtorE, i64 %6
+  %7 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJPKNS_16TypeFunctionTypeEPKNS_23TypeFunctionTypePackVarEEE9tableDtorE, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !33
   %9 = getelementptr inbounds nuw i8, ptr %.05.i.i, i64 24
   invoke void %8(ptr noundef nonnull %9)
@@ -16704,7 +16700,7 @@ define linkonce_odr dso_local void @_ZSt8_DestroyIPSt5tupleIJN4Luau7VariantIJPKN
 _ZNSt10_Head_baseILm0EN4Luau7VariantIJPKNS0_16TypeFunctionTypeEPKNS0_23TypeFunctionTypePackVarEEEELb0EED2Ev.exit.i.i.i.i: ; preds = %.lr.ph.i.i
   %13 = load i32, ptr %.05.i.i, align 8, !tbaa !186
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJPKNS_16TypeFunctionTypeEPKNS_23TypeFunctionTypePackVarEEE9tableDtorE, i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJPKNS_16TypeFunctionTypeEPKNS_23TypeFunctionTypePackVarEEE9tableDtorE, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !33
   %17 = getelementptr inbounds nuw i8, ptr %.05.i.i, i64 8
   invoke void %16(ptr noundef nonnull %17)
@@ -16736,7 +16732,7 @@ define linkonce_odr dso_local void @_ZSt8_DestroyIPSt5tupleIJN4Luau7VariantIJPKN
   %3 = getelementptr inbounds nuw i8, ptr %.05.i, i64 16
   %4 = load i32, ptr %3, align 8, !tbaa !186
   %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJPKNS_16TypeFunctionTypeEPKNS_23TypeFunctionTypePackVarEEE9tableDtorE, i64 %5
+  %6 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJPKNS_16TypeFunctionTypeEPKNS_23TypeFunctionTypePackVarEEE9tableDtorE, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !33
   %8 = getelementptr inbounds nuw i8, ptr %.05.i, i64 24
   invoke void %7(ptr noundef nonnull %8)
@@ -16752,7 +16748,7 @@ define linkonce_odr dso_local void @_ZSt8_DestroyIPSt5tupleIJN4Luau7VariantIJPKN
 _ZNSt10_Head_baseILm0EN4Luau7VariantIJPKNS0_16TypeFunctionTypeEPKNS0_23TypeFunctionTypePackVarEEEELb0EED2Ev.exit.i.i.i: ; preds = %.lr.ph.i
   %12 = load i32, ptr %.05.i, align 8, !tbaa !186
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJPKNS_16TypeFunctionTypeEPKNS_23TypeFunctionTypePackVarEEE9tableDtorE, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJPKNS_16TypeFunctionTypeEPKNS_23TypeFunctionTypePackVarEEE9tableDtorE, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !33
   %16 = getelementptr inbounds nuw i8, ptr %.05.i, i64 8
   invoke void %15(ptr noundef nonnull %16)
@@ -16779,7 +16775,7 @@ define linkonce_odr dso_local void @_ZNSt11_Tuple_implILm0EJN4Luau7VariantIJPKNS
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8, !tbaa !186
   %4 = sext i32 %3 to i64
-  %5 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJPKNS_16TypeFunctionTypeEPKNS_23TypeFunctionTypePackVarEEE9tableDtorE, i64 %4
+  %5 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJPKNS_16TypeFunctionTypeEPKNS_23TypeFunctionTypePackVarEEE9tableDtorE, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !33
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   invoke void %6(ptr noundef nonnull %7)
@@ -16795,7 +16791,7 @@ define linkonce_odr dso_local void @_ZNSt11_Tuple_implILm0EJN4Luau7VariantIJPKNS
 _ZNSt10_Head_baseILm0EN4Luau7VariantIJPKNS0_16TypeFunctionTypeEPKNS0_23TypeFunctionTypePackVarEEEELb0EED2Ev.exit: ; preds = %1
   %11 = load i32, ptr %0, align 8, !tbaa !186
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJPKNS_16TypeFunctionTypeEPKNS_23TypeFunctionTypePackVarEEE9tableDtorE, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJPKNS_16TypeFunctionTypeEPKNS_23TypeFunctionTypePackVarEEE9tableDtorE, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !33
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   invoke void %14(ptr noundef nonnull %15)
@@ -16866,7 +16862,7 @@ define linkonce_odr dso_local noundef ptr @_ZN4Luau18TypeFunctionCloner12shallow
   %.pn.i.i.i = phi i64 [ %32, %25 ], [ %42, %40 ]
   %.02028.i.i.i = phi i64 [ 0, %25 ], [ %41, %40 ]
   %.02129.i.i.i = and i64 %.pn.i.i.i, %28
-  %35 = getelementptr inbounds nuw %"struct.std::pair.103", ptr %33, i64 %.02129.i.i.i
+  %35 = getelementptr inbounds nuw [16 x i8], ptr %33, i64 %.02129.i.i.i
   %36 = load ptr, ptr %35, align 8, !tbaa !29
   %37 = icmp eq ptr %36, %1
   br i1 %37, label %43, label %38
@@ -16931,7 +16927,7 @@ _ZN4Luau14TypedAllocatorINS_16TypeFunctionTypeEE8allocateIJNS_25TypeFunctionPrim
   %57 = load ptr, ptr %56, align 8, !tbaa !28
   %58 = getelementptr inbounds i8, ptr %57, i64 -8
   %59 = load ptr, ptr %58, align 8, !tbaa !29
-  %60 = getelementptr inbounds nuw %"struct.Luau::TypeFunctionType", ptr %59, i64 %55
+  %60 = getelementptr inbounds nuw [152 x i8], ptr %59, i64 %55
   store i32 0, ptr %60, align 8, !tbaa !31
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
   store i32 0, ptr %61, align 8, !tbaa !51
@@ -16958,7 +16954,7 @@ _ZN4Luau14TypedAllocatorINS_16TypeFunctionTypeEE8allocateIJNS_25TypeFunctionPrim
   %71 = load ptr, ptr %70, align 8, !tbaa !28
   %72 = getelementptr inbounds i8, ptr %71, i64 -8
   %73 = load ptr, ptr %72, align 8, !tbaa !29
-  %74 = getelementptr inbounds nuw %"struct.Luau::TypeFunctionType", ptr %73, i64 %69
+  %74 = getelementptr inbounds nuw [152 x i8], ptr %73, i64 %69
   store i32 0, ptr %74, align 8, !tbaa !31
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
   store i32 1, ptr %75, align 8, !tbaa !51
@@ -16985,7 +16981,7 @@ _ZN4Luau14TypedAllocatorINS_16TypeFunctionTypeEE8allocateIJNS_25TypeFunctionPrim
   %85 = load ptr, ptr %84, align 8, !tbaa !28
   %86 = getelementptr inbounds i8, ptr %85, i64 -8
   %87 = load ptr, ptr %86, align 8, !tbaa !29
-  %88 = getelementptr inbounds nuw %"struct.Luau::TypeFunctionType", ptr %87, i64 %83
+  %88 = getelementptr inbounds nuw [152 x i8], ptr %87, i64 %83
   store i32 0, ptr %88, align 8, !tbaa !31
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
   store i32 2, ptr %89, align 8, !tbaa !51
@@ -17012,7 +17008,7 @@ _ZN4Luau14TypedAllocatorINS_16TypeFunctionTypeEE8allocateIJNS_25TypeFunctionPrim
   %99 = load ptr, ptr %98, align 8, !tbaa !28
   %100 = getelementptr inbounds i8, ptr %99, i64 -8
   %101 = load ptr, ptr %100, align 8, !tbaa !29
-  %102 = getelementptr inbounds nuw %"struct.Luau::TypeFunctionType", ptr %101, i64 %97
+  %102 = getelementptr inbounds nuw [152 x i8], ptr %101, i64 %97
   store i32 0, ptr %102, align 8, !tbaa !31
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 8
   store i32 3, ptr %103, align 8, !tbaa !51
@@ -17039,7 +17035,7 @@ _ZN4Luau14TypedAllocatorINS_16TypeFunctionTypeEE8allocateIJNS_25TypeFunctionPrim
   %113 = load ptr, ptr %112, align 8, !tbaa !28
   %114 = getelementptr inbounds i8, ptr %113, i64 -8
   %115 = load ptr, ptr %114, align 8, !tbaa !29
-  %116 = getelementptr inbounds nuw %"struct.Luau::TypeFunctionType", ptr %115, i64 %111
+  %116 = getelementptr inbounds nuw [152 x i8], ptr %115, i64 %111
   store i32 0, ptr %116, align 8, !tbaa !31
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 8
   store i32 4, ptr %117, align 8, !tbaa !51
@@ -17066,7 +17062,7 @@ _ZN4Luau14TypedAllocatorINS_16TypeFunctionTypeEE8allocateIJNS_25TypeFunctionPrim
   %127 = load ptr, ptr %126, align 8, !tbaa !28
   %128 = getelementptr inbounds i8, ptr %127, i64 -8
   %129 = load ptr, ptr %128, align 8, !tbaa !29
-  %130 = getelementptr inbounds nuw %"struct.Luau::TypeFunctionType", ptr %129, i64 %125
+  %130 = getelementptr inbounds nuw [152 x i8], ptr %129, i64 %125
   store i32 0, ptr %130, align 8, !tbaa !31
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 8
   store i32 5, ptr %131, align 8, !tbaa !51
@@ -17093,7 +17089,7 @@ _ZN4Luau14TypedAllocatorINS_16TypeFunctionTypeEE8allocateIJNS_23TypeFunctionUnkn
   %140 = load ptr, ptr %139, align 8, !tbaa !28
   %141 = getelementptr inbounds i8, ptr %140, i64 -8
   %142 = load ptr, ptr %141, align 8, !tbaa !29
-  %143 = getelementptr inbounds nuw %"struct.Luau::TypeFunctionType", ptr %142, i64 %138
+  %143 = getelementptr inbounds nuw [152 x i8], ptr %142, i64 %138
   store i32 2, ptr %143, align 8, !tbaa !31
   %144 = add i64 %138, 1
   store i64 %144, ptr %134, align 8, !tbaa !20
@@ -17118,7 +17114,7 @@ _ZN4Luau14TypedAllocatorINS_16TypeFunctionTypeEE8allocateIJNS_21TypeFunctionNeve
   %152 = load ptr, ptr %151, align 8, !tbaa !28
   %153 = getelementptr inbounds i8, ptr %152, i64 -8
   %154 = load ptr, ptr %153, align 8, !tbaa !29
-  %155 = getelementptr inbounds nuw %"struct.Luau::TypeFunctionType", ptr %154, i64 %150
+  %155 = getelementptr inbounds nuw [152 x i8], ptr %154, i64 %150
   store i32 3, ptr %155, align 8, !tbaa !31
   %156 = add i64 %150, 1
   store i64 %156, ptr %146, align 8, !tbaa !20
@@ -17143,7 +17139,7 @@ _ZN4Luau14TypedAllocatorINS_16TypeFunctionTypeEE8allocateIJNS_19TypeFunctionAnyT
   %164 = load ptr, ptr %163, align 8, !tbaa !28
   %165 = getelementptr inbounds i8, ptr %164, i64 -8
   %166 = load ptr, ptr %165, align 8, !tbaa !29
-  %167 = getelementptr inbounds nuw %"struct.Luau::TypeFunctionType", ptr %166, i64 %162
+  %167 = getelementptr inbounds nuw [152 x i8], ptr %166, i64 %162
   store i32 1, ptr %167, align 8, !tbaa !31
   %168 = add i64 %162, 1
   store i64 %168, ptr %158, align 8, !tbaa !20
@@ -17188,7 +17184,7 @@ _ZN4Luau25TypeFunctionSingletonTypeC2ENS_7VariantIJNS_28TypeFunctionBooleanSingl
   store ptr %176, ptr %4, align 8, !tbaa !29
   %178 = load i32, ptr %5, align 8, !tbaa !53
   %179 = sext i32 %178 to i64
-  %180 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_28TypeFunctionBooleanSingletonENS_27TypeFunctionStringSingletonEEE9tableDtorE, i64 %179
+  %180 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_28TypeFunctionBooleanSingletonENS_27TypeFunctionStringSingletonEEE9tableDtorE, i64 %179
   %181 = load ptr, ptr %180, align 8, !tbaa !33
   invoke void %181(ptr noundef nonnull %175)
           to label %_ZN4Luau25TypeFunctionSingletonTypeD2Ev.exit unwind label %182
@@ -17203,7 +17199,7 @@ _ZN4Luau25TypeFunctionSingletonTypeC2ENS_7VariantIJNS_28TypeFunctionBooleanSingl
 _ZN4Luau25TypeFunctionSingletonTypeD2Ev.exit:     ; preds = %177
   %185 = load i32, ptr %6, align 8, !tbaa !53
   %186 = sext i32 %185 to i64
-  %187 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_28TypeFunctionBooleanSingletonENS_27TypeFunctionStringSingletonEEE9tableDtorE, i64 %186
+  %187 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_28TypeFunctionBooleanSingletonENS_27TypeFunctionStringSingletonEEE9tableDtorE, i64 %186
   %188 = load ptr, ptr %187, align 8, !tbaa !33
   invoke void %188(ptr noundef nonnull %174)
           to label %_ZN4Luau7VariantIJNS_28TypeFunctionBooleanSingletonENS_27TypeFunctionStringSingletonEEED2Ev.exit unwind label %189
@@ -17224,7 +17220,7 @@ _ZN4Luau7VariantIJNS_28TypeFunctionBooleanSingletonENS_27TypeFunctionStringSingl
           cleanup
   %194 = load i32, ptr %5, align 8, !tbaa !53
   %195 = sext i32 %194 to i64
-  %196 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_28TypeFunctionBooleanSingletonENS_27TypeFunctionStringSingletonEEE9tableDtorE, i64 %195
+  %196 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_28TypeFunctionBooleanSingletonENS_27TypeFunctionStringSingletonEEE9tableDtorE, i64 %195
   %197 = load ptr, ptr %196, align 8, !tbaa !33
   invoke void %197(ptr noundef nonnull %175)
           to label %_ZN4Luau25TypeFunctionSingletonTypeD2Ev.exit89 unwind label %198
@@ -17239,7 +17235,7 @@ _ZN4Luau7VariantIJNS_28TypeFunctionBooleanSingletonENS_27TypeFunctionStringSingl
 _ZN4Luau25TypeFunctionSingletonTypeD2Ev.exit89:   ; preds = %192
   %201 = load i32, ptr %6, align 8, !tbaa !53
   %202 = sext i32 %201 to i64
-  %203 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_28TypeFunctionBooleanSingletonENS_27TypeFunctionStringSingletonEEE9tableDtorE, i64 %202
+  %203 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_28TypeFunctionBooleanSingletonENS_27TypeFunctionStringSingletonEEE9tableDtorE, i64 %202
   %204 = load ptr, ptr %203, align 8, !tbaa !33
   invoke void %204(ptr noundef nonnull %174)
           to label %_ZN4Luau7VariantIJNS_28TypeFunctionBooleanSingletonENS_27TypeFunctionStringSingletonEEED2Ev.exit90 unwind label %205
@@ -17327,7 +17323,7 @@ _ZN4Luau7VariantIJNS_28TypeFunctionBooleanSingletonENS_27TypeFunctionStringSingl
   store ptr %234, ptr %4, align 8, !tbaa !29
   %236 = load i32, ptr %7, align 8, !tbaa !53
   %237 = sext i32 %236 to i64
-  %238 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_28TypeFunctionBooleanSingletonENS_27TypeFunctionStringSingletonEEE9tableDtorE, i64 %237
+  %238 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_28TypeFunctionBooleanSingletonENS_27TypeFunctionStringSingletonEEE9tableDtorE, i64 %237
   %239 = load ptr, ptr %238, align 8, !tbaa !33
   invoke void %239(ptr noundef nonnull %226)
           to label %_ZN4Luau25TypeFunctionSingletonTypeD2Ev.exit93 unwind label %240
@@ -17342,7 +17338,7 @@ _ZN4Luau7VariantIJNS_28TypeFunctionBooleanSingletonENS_27TypeFunctionStringSingl
 _ZN4Luau25TypeFunctionSingletonTypeD2Ev.exit93:   ; preds = %235
   %243 = load i32, ptr %8, align 8, !tbaa !53
   %244 = sext i32 %243 to i64
-  %245 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_28TypeFunctionBooleanSingletonENS_27TypeFunctionStringSingletonEEE9tableDtorE, i64 %244
+  %245 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_28TypeFunctionBooleanSingletonENS_27TypeFunctionStringSingletonEEE9tableDtorE, i64 %244
   %246 = load ptr, ptr %245, align 8, !tbaa !33
   invoke void %246(ptr noundef nonnull %211)
           to label %_ZN4Luau7VariantIJNS_28TypeFunctionBooleanSingletonENS_27TypeFunctionStringSingletonEEED2Ev.exit94 unwind label %247
@@ -17375,7 +17371,7 @@ _ZN4Luau27TypeFunctionStringSingletonD2Ev.exit:   ; preds = %_ZN4Luau7VariantIJN
           cleanup
   %256 = load i32, ptr %7, align 8, !tbaa !53
   %257 = sext i32 %256 to i64
-  %258 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_28TypeFunctionBooleanSingletonENS_27TypeFunctionStringSingletonEEE9tableDtorE, i64 %257
+  %258 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_28TypeFunctionBooleanSingletonENS_27TypeFunctionStringSingletonEEE9tableDtorE, i64 %257
   %259 = load ptr, ptr %258, align 8, !tbaa !33
   invoke void %259(ptr noundef nonnull %226)
           to label %_ZN4Luau25TypeFunctionSingletonTypeD2Ev.exit96 unwind label %260
@@ -17390,7 +17386,7 @@ _ZN4Luau27TypeFunctionStringSingletonD2Ev.exit:   ; preds = %_ZN4Luau7VariantIJN
 _ZN4Luau25TypeFunctionSingletonTypeD2Ev.exit96:   ; preds = %254
   %263 = load i32, ptr %8, align 8, !tbaa !53
   %264 = sext i32 %263 to i64
-  %265 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_28TypeFunctionBooleanSingletonENS_27TypeFunctionStringSingletonEEE9tableDtorE, i64 %264
+  %265 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_28TypeFunctionBooleanSingletonENS_27TypeFunctionStringSingletonEEE9tableDtorE, i64 %264
   %266 = load ptr, ptr %265, align 8, !tbaa !33
   invoke void %266(ptr noundef nonnull %211)
           to label %_ZN4Luau7VariantIJNS_28TypeFunctionBooleanSingletonENS_27TypeFunctionStringSingletonEEED2Ev.exit97 unwind label %267
@@ -17762,7 +17758,7 @@ define linkonce_odr dso_local void @_ZN4Luau18TypeFunctionCloner3runEv(ptr nound
   %31 = load i32, ptr %30, align 8, !tbaa !186
   store i32 %31, ptr %2, align 8, !tbaa !186
   %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds ptr, ptr @_ZZN4Luau7VariantIJPKNS_16TypeFunctionTypeEPKNS_23TypeFunctionTypePackVarEEEC1ERKS7_E5table, i64 %32
+  %33 = getelementptr inbounds [8 x i8], ptr @_ZZN4Luau7VariantIJPKNS_16TypeFunctionTypeEPKNS_23TypeFunctionTypePackVarEEEC1ERKS7_E5table, i64 %32
   %34 = load ptr, ptr %33, align 8, !tbaa !33
   %35 = getelementptr inbounds i8, ptr %17, i64 -24
   call void %34(ptr noundef nonnull %11, ptr noundef nonnull %35)
@@ -17770,7 +17766,7 @@ define linkonce_odr dso_local void @_ZN4Luau18TypeFunctionCloner3runEv(ptr nound
   %37 = load i32, ptr %36, align 8, !tbaa !186
   store i32 %37, ptr %12, align 8, !tbaa !186
   %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds ptr, ptr @_ZZN4Luau7VariantIJPKNS_16TypeFunctionTypeEPKNS_23TypeFunctionTypePackVarEEEC1ERKS7_E5table, i64 %38
+  %39 = getelementptr inbounds [8 x i8], ptr @_ZZN4Luau7VariantIJPKNS_16TypeFunctionTypeEPKNS_23TypeFunctionTypePackVarEEEC1ERKS7_E5table, i64 %38
   %40 = load ptr, ptr %39, align 8, !tbaa !33
   %41 = getelementptr inbounds i8, ptr %17, i64 -8
   invoke void %40(ptr noundef nonnull %13, ptr noundef nonnull %41)
@@ -17781,7 +17777,7 @@ define linkonce_odr dso_local void @_ZN4Luau18TypeFunctionCloner3runEv(ptr nound
           cleanup
   %44 = load i32, ptr %2, align 8, !tbaa !186
   %45 = sext i32 %44 to i64
-  %46 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJPKNS_16TypeFunctionTypeEPKNS_23TypeFunctionTypePackVarEEE9tableDtorE, i64 %45
+  %46 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJPKNS_16TypeFunctionTypeEPKNS_23TypeFunctionTypePackVarEEE9tableDtorE, i64 %45
   %47 = load ptr, ptr %46, align 8, !tbaa !33
   invoke void %47(ptr noundef nonnull %11)
           to label %common.resume unwind label %48
@@ -17804,7 +17800,7 @@ _ZNSt5tupleIJN4Luau7VariantIJPKNS0_16TypeFunctionTypeEPKNS0_23TypeFunctionTypePa
   %53 = getelementptr inbounds i8, ptr %51, i64 -16
   %54 = load i32, ptr %53, align 8, !tbaa !186
   %55 = sext i32 %54 to i64
-  %56 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJPKNS_16TypeFunctionTypeEPKNS_23TypeFunctionTypePackVarEEE9tableDtorE, i64 %55
+  %56 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJPKNS_16TypeFunctionTypeEPKNS_23TypeFunctionTypePackVarEEE9tableDtorE, i64 %55
   %57 = load ptr, ptr %56, align 8, !tbaa !33
   %58 = getelementptr inbounds i8, ptr %51, i64 -8
   invoke void %57(ptr noundef nonnull %58)
@@ -17820,7 +17816,7 @@ _ZNSt5tupleIJN4Luau7VariantIJPKNS0_16TypeFunctionTypeEPKNS0_23TypeFunctionTypePa
 _ZNSt10_Head_baseILm0EN4Luau7VariantIJPKNS0_16TypeFunctionTypeEPKNS0_23TypeFunctionTypePackVarEEEELb0EED2Ev.exit.i.i.i.i: ; preds = %_ZNSt5tupleIJN4Luau7VariantIJPKNS0_16TypeFunctionTypeEPKNS0_23TypeFunctionTypePackVarEEEES8_EEC2ERKS9_.exit
   %62 = load i32, ptr %52, align 8, !tbaa !186
   %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJPKNS_16TypeFunctionTypeEPKNS_23TypeFunctionTypePackVarEEE9tableDtorE, i64 %63
+  %64 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJPKNS_16TypeFunctionTypeEPKNS_23TypeFunctionTypePackVarEEE9tableDtorE, i64 %63
   %65 = load ptr, ptr %64, align 8, !tbaa !33
   %66 = getelementptr inbounds i8, ptr %51, i64 -24
   invoke void %65(ptr noundef nonnull %66)
@@ -17837,7 +17833,7 @@ _ZNSt6vectorISt5tupleIJN4Luau7VariantIJPKNS1_16TypeFunctionTypeEPKNS1_23TypeFunc
   %70 = load i32, ptr %12, align 8, !tbaa !186
   store i32 %70, ptr %3, align 8, !tbaa !186
   %71 = sext i32 %70 to i64
-  %72 = getelementptr inbounds ptr, ptr @_ZZN4Luau7VariantIJPKNS_16TypeFunctionTypeEPKNS_23TypeFunctionTypePackVarEEEC1ERKS7_E5table, i64 %71
+  %72 = getelementptr inbounds [8 x i8], ptr @_ZZN4Luau7VariantIJPKNS_16TypeFunctionTypeEPKNS_23TypeFunctionTypePackVarEEEC1ERKS7_E5table, i64 %71
   %73 = load ptr, ptr %72, align 8, !tbaa !33
   invoke void %73(ptr noundef nonnull %14, ptr noundef nonnull %13)
           to label %_ZN4Luau7VariantIJPKNS_16TypeFunctionTypeEPKNS_23TypeFunctionTypePackVarEEEC2ERKS7_.exit unwind label %135
@@ -17846,7 +17842,7 @@ _ZN4Luau7VariantIJPKNS_16TypeFunctionTypeEPKNS_23TypeFunctionTypePackVarEEEC2ERK
   %74 = load i32, ptr %2, align 8, !tbaa !186
   store i32 %74, ptr %4, align 8, !tbaa !186
   %75 = sext i32 %74 to i64
-  %76 = getelementptr inbounds ptr, ptr @_ZZN4Luau7VariantIJPKNS_16TypeFunctionTypeEPKNS_23TypeFunctionTypePackVarEEEC1ERKS7_E5table, i64 %75
+  %76 = getelementptr inbounds [8 x i8], ptr @_ZZN4Luau7VariantIJPKNS_16TypeFunctionTypeEPKNS_23TypeFunctionTypePackVarEEEC1ERKS7_E5table, i64 %75
   %77 = load ptr, ptr %76, align 8, !tbaa !33
   invoke void %77(ptr noundef nonnull %15, ptr noundef nonnull %11)
           to label %_ZN4Luau7VariantIJPKNS_16TypeFunctionTypeEPKNS_23TypeFunctionTypePackVarEEEC2ERKS7_.exit8 unwind label %137
@@ -17914,7 +17910,7 @@ _ZN4Luau6get_ifINS_28TypeFunctionVariadicTypePackEJNS_20TypeFunctionTypePackES1_
 _ZN4Luau18TypeFunctionCloner13cloneChildrenENS_7VariantIJPKNS_16TypeFunctionTypeEPKNS_23TypeFunctionTypePackVarEEEES8_.exit: ; preds = %.noexc10, %_ZN4Luau6get_ifINS_28TypeFunctionVariadicTypePackEJNS_20TypeFunctionTypePackES1_NS_27TypeFunctionGenericTypePackEEEEPT_PNS_7VariantIJDpT0_EEE.exit.i.i.i, %_ZN4Luau10getMutableINS_20TypeFunctionTypePackEEEPT_PKNS_23TypeFunctionTypePackVarE.exit.i.i, %88, %85, %82, %96
   %104 = load i32, ptr %4, align 8, !tbaa !186
   %105 = sext i32 %104 to i64
-  %106 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJPKNS_16TypeFunctionTypeEPKNS_23TypeFunctionTypePackVarEEE9tableDtorE, i64 %105
+  %106 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJPKNS_16TypeFunctionTypeEPKNS_23TypeFunctionTypePackVarEEE9tableDtorE, i64 %105
   %107 = load ptr, ptr %106, align 8, !tbaa !33
   invoke void %107(ptr noundef nonnull %15)
           to label %_ZN4Luau7VariantIJPKNS_16TypeFunctionTypeEPKNS_23TypeFunctionTypePackVarEEED2Ev.exit unwind label %108
@@ -17929,7 +17925,7 @@ _ZN4Luau18TypeFunctionCloner13cloneChildrenENS_7VariantIJPKNS_16TypeFunctionType
 _ZN4Luau7VariantIJPKNS_16TypeFunctionTypeEPKNS_23TypeFunctionTypePackVarEEED2Ev.exit: ; preds = %_ZN4Luau18TypeFunctionCloner13cloneChildrenENS_7VariantIJPKNS_16TypeFunctionTypeEPKNS_23TypeFunctionTypePackVarEEEES8_.exit
   %111 = load i32, ptr %3, align 8, !tbaa !186
   %112 = sext i32 %111 to i64
-  %113 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJPKNS_16TypeFunctionTypeEPKNS_23TypeFunctionTypePackVarEEE9tableDtorE, i64 %112
+  %113 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJPKNS_16TypeFunctionTypeEPKNS_23TypeFunctionTypePackVarEEE9tableDtorE, i64 %112
   %114 = load ptr, ptr %113, align 8, !tbaa !33
   invoke void %114(ptr noundef nonnull %14)
           to label %_ZN4Luau7VariantIJPKNS_16TypeFunctionTypeEPKNS_23TypeFunctionTypePackVarEEED2Ev.exit11 unwind label %115
@@ -17944,7 +17940,7 @@ _ZN4Luau7VariantIJPKNS_16TypeFunctionTypeEPKNS_23TypeFunctionTypePackVarEEED2Ev.
 _ZN4Luau7VariantIJPKNS_16TypeFunctionTypeEPKNS_23TypeFunctionTypePackVarEEED2Ev.exit11: ; preds = %_ZN4Luau7VariantIJPKNS_16TypeFunctionTypeEPKNS_23TypeFunctionTypePackVarEEED2Ev.exit
   %118 = load i32, ptr %12, align 8, !tbaa !186
   %119 = sext i32 %118 to i64
-  %120 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJPKNS_16TypeFunctionTypeEPKNS_23TypeFunctionTypePackVarEEE9tableDtorE, i64 %119
+  %120 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJPKNS_16TypeFunctionTypeEPKNS_23TypeFunctionTypePackVarEEE9tableDtorE, i64 %119
   %121 = load ptr, ptr %120, align 8, !tbaa !33
   invoke void %121(ptr noundef nonnull %13)
           to label %_ZNSt10_Head_baseILm0EN4Luau7VariantIJPKNS0_16TypeFunctionTypeEPKNS0_23TypeFunctionTypePackVarEEEELb0EED2Ev.exit.i unwind label %122
@@ -17959,7 +17955,7 @@ _ZN4Luau7VariantIJPKNS_16TypeFunctionTypeEPKNS_23TypeFunctionTypePackVarEEED2Ev.
 _ZNSt10_Head_baseILm0EN4Luau7VariantIJPKNS0_16TypeFunctionTypeEPKNS0_23TypeFunctionTypePackVarEEEELb0EED2Ev.exit.i: ; preds = %_ZN4Luau7VariantIJPKNS_16TypeFunctionTypeEPKNS_23TypeFunctionTypePackVarEEED2Ev.exit11
   %125 = load i32, ptr %2, align 8, !tbaa !186
   %126 = sext i32 %125 to i64
-  %127 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJPKNS_16TypeFunctionTypeEPKNS_23TypeFunctionTypePackVarEEE9tableDtorE, i64 %126
+  %127 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJPKNS_16TypeFunctionTypeEPKNS_23TypeFunctionTypePackVarEEE9tableDtorE, i64 %126
   %128 = load ptr, ptr %127, align 8, !tbaa !33
   invoke void %128(ptr noundef nonnull %11)
           to label %_ZNSt11_Tuple_implILm0EJN4Luau7VariantIJPKNS0_16TypeFunctionTypeEPKNS0_23TypeFunctionTypePackVarEEEES8_EED2Ev.exit unwind label %129
@@ -17993,7 +17989,7 @@ _ZNSt11_Tuple_implILm0EJN4Luau7VariantIJPKNS0_16TypeFunctionTypeEPKNS0_23TypeFun
           cleanup
   %141 = load i32, ptr %4, align 8, !tbaa !186
   %142 = sext i32 %141 to i64
-  %143 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJPKNS_16TypeFunctionTypeEPKNS_23TypeFunctionTypePackVarEEE9tableDtorE, i64 %142
+  %143 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJPKNS_16TypeFunctionTypeEPKNS_23TypeFunctionTypePackVarEEE9tableDtorE, i64 %142
   %144 = load ptr, ptr %143, align 8, !tbaa !33
   invoke void %144(ptr noundef nonnull %15)
           to label %_ZN4Luau7VariantIJPKNS_16TypeFunctionTypeEPKNS_23TypeFunctionTypePackVarEEED2Ev.exit12 unwind label %145
@@ -18009,7 +18005,7 @@ _ZN4Luau7VariantIJPKNS_16TypeFunctionTypeEPKNS_23TypeFunctionTypePackVarEEED2Ev.
   %.pn = phi { ptr, i32 } [ %138, %137 ], [ %140, %139 ]
   %148 = load i32, ptr %3, align 8, !tbaa !186
   %149 = sext i32 %148 to i64
-  %150 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJPKNS_16TypeFunctionTypeEPKNS_23TypeFunctionTypePackVarEEE9tableDtorE, i64 %149
+  %150 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJPKNS_16TypeFunctionTypeEPKNS_23TypeFunctionTypePackVarEEE9tableDtorE, i64 %149
   %151 = load ptr, ptr %150, align 8, !tbaa !33
   invoke void %151(ptr noundef nonnull %14)
           to label %_ZN4Luau7VariantIJPKNS_16TypeFunctionTypeEPKNS_23TypeFunctionTypePackVarEEED2Ev.exit13 unwind label %152
@@ -18050,13 +18046,13 @@ define linkonce_odr dso_local noundef ptr @_ZN4Luau14TypedAllocatorINS_16TypeFun
   %11 = load ptr, ptr %10, align 8, !tbaa !28
   %12 = getelementptr inbounds i8, ptr %11, i64 -8
   %13 = load ptr, ptr %12, align 8, !tbaa !29
-  %14 = getelementptr inbounds nuw %"struct.Luau::TypeFunctionType", ptr %13, i64 %9
+  %14 = getelementptr inbounds nuw [152 x i8], ptr %13, i64 %9
   store i32 4, ptr %3, align 8, !tbaa !31
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %16 = load i32, ptr %1, align 8, !tbaa !53
   store i32 %16, ptr %15, align 8, !tbaa !53
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_28TypeFunctionBooleanSingletonENS_27TypeFunctionStringSingletonEEE9tableMoveE, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_28TypeFunctionBooleanSingletonENS_27TypeFunctionStringSingletonEEE9tableMoveE, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !33
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -18064,7 +18060,7 @@ define linkonce_odr dso_local noundef ptr @_ZN4Luau14TypedAllocatorINS_16TypeFun
   %22 = load i32, ptr %3, align 8, !tbaa !31
   store i32 %22, ptr %14, align 8, !tbaa !31
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableMoveE, i64 %23
+  %24 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableMoveE, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !33
   %26 = getelementptr inbounds nuw i8, ptr %14, i64 8
   invoke void %25(ptr noundef nonnull %26, ptr noundef nonnull %15)
@@ -18073,7 +18069,7 @@ define linkonce_odr dso_local noundef ptr @_ZN4Luau14TypedAllocatorINS_16TypeFun
 _ZN4Luau16TypeFunctionTypeC2ENS_7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEEE.exit: ; preds = %8
   %27 = load i32, ptr %3, align 8, !tbaa !31
   %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %28
+  %29 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !33
   invoke void %30(ptr noundef nonnull %15)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit unwind label %31
@@ -18096,7 +18092,7 @@ _ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23T
           cleanup
   %38 = load i32, ptr %3, align 8, !tbaa !31
   %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %39
+  %40 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 %39
   %41 = load ptr, ptr %40, align 8, !tbaa !33
   invoke void %41(ptr noundef nonnull %15)
           to label %_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEED2Ev.exit6 unwind label %42
@@ -18130,7 +18126,7 @@ _ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23T
   %9 = load ptr, ptr %8, align 8, !tbaa !28
   %10 = getelementptr inbounds i8, ptr %9, i64 -8
   %11 = load ptr, ptr %10, align 8, !tbaa !29
-  %12 = getelementptr inbounds nuw %"struct.Luau::TypeFunctionType", ptr %11, i64 %7
+  %12 = getelementptr inbounds nuw [152 x i8], ptr %11, i64 %7
   %13 = load ptr, ptr %1, align 8, !tbaa !59
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !61
@@ -18168,7 +18164,7 @@ _ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23T
   %9 = load ptr, ptr %8, align 8, !tbaa !28
   %10 = getelementptr inbounds i8, ptr %9, i64 -8
   %11 = load ptr, ptr %10, align 8, !tbaa !29
-  %12 = getelementptr inbounds nuw %"struct.Luau::TypeFunctionType", ptr %11, i64 %7
+  %12 = getelementptr inbounds nuw [152 x i8], ptr %11, i64 %7
   %13 = load ptr, ptr %1, align 8, !tbaa !59
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !61
@@ -18206,7 +18202,7 @@ _ZN4Luau16TypeFunctionTypeC2ENS_7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19Ty
   %9 = load ptr, ptr %8, align 8, !tbaa !28
   %10 = getelementptr inbounds i8, ptr %9, i64 -8
   %11 = load ptr, ptr %10, align 8, !tbaa !29
-  %12 = getelementptr inbounds nuw %"struct.Luau::TypeFunctionType", ptr %11, i64 %7
+  %12 = getelementptr inbounds nuw [152 x i8], ptr %11, i64 %7
   %13 = load i64, ptr %1, align 8, !tbaa !29
   store i32 7, ptr %12, align 8, !tbaa !31
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -18235,7 +18231,7 @@ define linkonce_odr dso_local noundef ptr @_ZN4Luau14TypedAllocatorINS_16TypeFun
   %11 = load ptr, ptr %10, align 8, !tbaa !28
   %12 = getelementptr inbounds i8, ptr %11, i64 -8
   %13 = load ptr, ptr %12, align 8, !tbaa !29
-  %14 = getelementptr inbounds nuw %"struct.Luau::TypeFunctionType", ptr %13, i64 %9
+  %14 = getelementptr inbounds nuw [152 x i8], ptr %13, i64 %9
   store i32 9, ptr %3, align 8, !tbaa !31
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -18357,7 +18353,7 @@ _ZN4Luau7VariantIJNS_20TypeFunctionTypePackENS_28TypeFunctionVariadicTypePackENS
   %9 = load ptr, ptr %8, align 8, !tbaa !41
   %10 = getelementptr inbounds i8, ptr %9, i64 -8
   %11 = load ptr, ptr %10, align 8, !tbaa !42
-  %12 = getelementptr inbounds nuw %"struct.Luau::TypeFunctionTypePackVar", ptr %11, i64 %7
+  %12 = getelementptr inbounds nuw [48 x i8], ptr %11, i64 %7
   %13 = load ptr, ptr %1, align 8, !tbaa !59
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !61
@@ -18400,7 +18396,7 @@ _ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23T
   %9 = load ptr, ptr %8, align 8, !tbaa !28
   %10 = getelementptr inbounds i8, ptr %9, i64 -8
   %11 = load ptr, ptr %10, align 8, !tbaa !29
-  %12 = getelementptr inbounds nuw %"struct.Luau::TypeFunctionType", ptr %11, i64 %7
+  %12 = getelementptr inbounds nuw [152 x i8], ptr %11, i64 %7
   %13 = load ptr, ptr %1, align 8, !tbaa !59
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !61
@@ -18456,7 +18452,7 @@ define linkonce_odr dso_local noundef ptr @_ZN4Luau14TypedAllocatorINS_16TypeFun
   %11 = load ptr, ptr %10, align 8, !tbaa !28
   %12 = getelementptr inbounds i8, ptr %11, i64 -8
   %13 = load ptr, ptr %12, align 8, !tbaa !29
-  %14 = getelementptr inbounds nuw %"struct.Luau::TypeFunctionType", ptr %13, i64 %9
+  %14 = getelementptr inbounds nuw [152 x i8], ptr %13, i64 %9
   %15 = load i16, ptr %1, align 8
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -18554,7 +18550,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   %.pn.i.i = phi i64 [ %21, %16 ], [ %31, %29 ]
   %.02028.i.i = phi i64 [ 0, %16 ], [ %30, %29 ]
   %.02129.i.i = and i64 %.pn.i.i, %17
-  %24 = getelementptr inbounds nuw %"struct.std::pair.103", ptr %22, i64 %.02129.i.i
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %.02129.i.i
   %25 = load ptr, ptr %24, align 8, !tbaa !29
   %26 = icmp eq ptr %25, %13
   br i1 %26, label %_ZN4Luau6detail14DenseHashTableIPKNS_16TypeFunctionTypeESt4pairIS4_S4_ES5_IKS4_S4_ENS0_16ItemInterfaceMapIS4_S4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERS7_.exit, label %27
@@ -18586,7 +18582,7 @@ _ZN4Luau6detail14DenseHashTableIPKNS_16TypeFunctionTypeESt4pairIS4_S4_ES5_IKS4_S
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %41 = load ptr, ptr %40, align 8, !tbaa !29
   %.02331.i5 = and i64 %38, %33
-  %42 = getelementptr inbounds nuw %"struct.std::pair.103", ptr %39, i64 %.02331.i5
+  %42 = getelementptr inbounds nuw [16 x i8], ptr %39, i64 %.02331.i5
   %43 = load ptr, ptr %42, align 8, !tbaa !29
   %44 = icmp eq ptr %43, %41
   br i1 %44, label %._crit_edge, label %.lr.ph.preheader
@@ -18615,7 +18611,7 @@ _ZN4Luau6detail14DenseHashTableIPKNS_16TypeFunctionTypeESt4pairIS4_S4_ES5_IKS4_S
   %.not.i3 = icmp ule i64 %49, %33
   tail call void @llvm.assume(i1 %.not.i3)
   %.02331.i = and i64 %50, %33
-  %51 = getelementptr inbounds nuw %"struct.std::pair.103", ptr %39, i64 %.02331.i
+  %51 = getelementptr inbounds nuw [16 x i8], ptr %39, i64 %.02331.i
   %52 = load ptr, ptr %51, align 8, !tbaa !29
   %53 = icmp eq ptr %52, %41
   br i1 %53, label %._crit_edge, label %.lr.ph
@@ -18697,7 +18693,7 @@ _ZNSt6vectorIPN4Luau16TypeFunctionTypeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
 _ZNSt6vectorIPN4Luau16TypeFunctionTypeESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %31, %_ZNSt6vectorIPN4Luau16TypeFunctionTypeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %26, ptr %6, align 8, !tbaa !230
   store ptr %30, ptr %7, align 8, !tbaa !228
-  %32 = getelementptr inbounds nuw ptr, ptr %26, i64 %24
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %24
   store ptr %32, ptr %9, align 8, !tbaa !229
   br label %_ZNSt6vectorIPN4Luau16TypeFunctionTypeESaIS2_EE12emplace_backIJS2_EEERS2_DpOT_.exit
 
@@ -18788,7 +18784,7 @@ _ZNSt6vectorIPN4Luau23TypeFunctionTypePackVarESaIS2_EE11_S_relocateEPS2_S5_S5_RS
 _ZNSt6vectorIPN4Luau23TypeFunctionTypePackVarESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %31, %_ZNSt6vectorIPN4Luau23TypeFunctionTypePackVarESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %26, ptr %6, align 8, !tbaa !233
   store ptr %30, ptr %7, align 8, !tbaa !231
-  %32 = getelementptr inbounds nuw ptr, ptr %26, i64 %24
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %24
   store ptr %32, ptr %9, align 8, !tbaa !232
   br label %_ZNSt6vectorIPN4Luau23TypeFunctionTypePackVarESaIS2_EE12emplace_backIJS2_EEERS2_DpOT_.exit
 
@@ -18883,7 +18879,7 @@ define linkonce_odr dso_local void @_ZN4Luau6detail14DenseHashTableIPKNS_16TypeF
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %8
   %.07.i.i = phi i64 [ %14, %.lr.ph.i.i ], [ 0, %8 ]
-  %12 = getelementptr inbounds nuw %"struct.std::pair.103", ptr %10, i64 %.07.i.i
+  %12 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %.07.i.i
   store ptr %11, ptr %12, align 8, !tbaa !29
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr null, ptr %13, align 8, !tbaa !29
@@ -18921,7 +18917,7 @@ _ZN4Luau6detail14DenseHashTableIPKNS_16TypeFunctionTypeESt4pairIS4_S4_ES5_IKS4_S
 
 18:                                               ; preds = %.lr.ph26, %42
   %.025 = phi i64 [ 0, %.lr.ph26 ], [ %43, %42 ]
-  %19 = getelementptr inbounds nuw %"struct.std::pair.103", ptr %.pre32, i64 %.025
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %.pre32, i64 %.025
   %20 = load ptr, ptr %19, align 8, !tbaa !29
   %21 = load ptr, ptr %6, align 8, !tbaa !29
   %22 = icmp eq ptr %20, %21
@@ -18933,7 +18929,7 @@ _ZN4Luau6detail14DenseHashTableIPKNS_16TypeFunctionTypeESt4pairIS4_S4_ES5_IKS4_S
   %26 = lshr i64 %24, 9
   %27 = xor i64 %25, %26
   %.02331.i21 = and i64 %27, %16
-  %28 = getelementptr inbounds nuw %"struct.std::pair.103", ptr %.sroa.0.0, i64 %.02331.i21
+  %28 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0.0, i64 %.02331.i21
   %29 = load ptr, ptr %28, align 8, !tbaa !29
   %30 = icmp eq ptr %29, %7
   br i1 %30, label %._crit_edge, label %.lr.ph.preheader
@@ -18959,7 +18955,7 @@ _ZN4Luau6detail14DenseHashTableIPKNS_16TypeFunctionTypeESt4pairIS4_S4_ES5_IKS4_S
   %.not.i12 = icmp ule i64 %33, %16
   tail call void @llvm.assume(i1 %.not.i12)
   %.02331.i = and i64 %34, %16
-  %35 = getelementptr inbounds nuw %"struct.std::pair.103", ptr %.sroa.0.0, i64 %.02331.i
+  %35 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0.0, i64 %.02331.i
   %36 = load ptr, ptr %35, align 8, !tbaa !29
   %37 = icmp eq ptr %36, %7
   br i1 %37, label %._crit_edge, label %.lr.ph
@@ -19045,7 +19041,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPSt5tupleIJN4Luau7VariantIJPKNS1_16Type
   %34 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 16
   %35 = load i32, ptr %34, align 8, !tbaa !186
   %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJPKNS_16TypeFunctionTypeEPKNS_23TypeFunctionTypePackVarEEE9tableDtorE, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJPKNS_16TypeFunctionTypeEPKNS_23TypeFunctionTypePackVarEEE9tableDtorE, i64 %36
   %38 = load ptr, ptr %37, align 8, !tbaa !33
   %39 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 24
   invoke void %38(ptr noundef nonnull %39)
@@ -19061,7 +19057,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPSt5tupleIJN4Luau7VariantIJPKNS1_16Type
 _ZNSt10_Head_baseILm0EN4Luau7VariantIJPKNS0_16TypeFunctionTypeEPKNS0_23TypeFunctionTypePackVarEEEELb0EED2Ev.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i
   %43 = load i32, ptr %.05.i.i.i, align 8, !tbaa !186
   %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJPKNS_16TypeFunctionTypeEPKNS_23TypeFunctionTypePackVarEEE9tableDtorE, i64 %44
+  %45 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJPKNS_16TypeFunctionTypeEPKNS_23TypeFunctionTypePackVarEEE9tableDtorE, i64 %44
   %46 = load ptr, ptr %45, align 8, !tbaa !33
   %47 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 8
   invoke void %46(ptr noundef nonnull %47)
@@ -19094,7 +19090,7 @@ _ZSt8_DestroyIPSt5tupleIJN4Luau7VariantIJPKNS1_16TypeFunctionTypeEPKNS1_23TypeFu
 _ZNSt12_Vector_baseISt5tupleIJN4Luau7VariantIJPKNS1_16TypeFunctionTypeEPKNS1_23TypeFunctionTypePackVarEEEES9_EESaISA_EE13_M_deallocateEPSA_m.exit: ; preds = %_ZSt8_DestroyIPSt5tupleIJN4Luau7VariantIJPKNS1_16TypeFunctionTypeEPKNS1_23TypeFunctionTypePackVarEEEES9_EESA_EvT_SC_RSaIT0_E.exit, %53
   store ptr %24, ptr %0, align 8, !tbaa !177
   store ptr %33, ptr %5, align 8, !tbaa !176
-  %57 = getelementptr inbounds nuw %"class.std::tuple.109", ptr %24, i64 %17
+  %57 = getelementptr inbounds nuw [32 x i8], ptr %24, i64 %17
   store ptr %57, ptr %52, align 8, !tbaa !189
   ret void
 
@@ -19145,7 +19141,7 @@ define linkonce_odr dso_local void @_ZNSt16allocator_traitsISaISt5tupleIJN4Luau7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8, !tbaa !186
   %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJPKNS_16TypeFunctionTypeEPKNS_23TypeFunctionTypePackVarEEE9tableDtorE, i64 %5
+  %6 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJPKNS_16TypeFunctionTypeEPKNS_23TypeFunctionTypePackVarEEE9tableDtorE, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !33
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   invoke void %7(ptr noundef nonnull %8)
@@ -19161,7 +19157,7 @@ define linkonce_odr dso_local void @_ZNSt16allocator_traitsISaISt5tupleIJN4Luau7
 _ZNSt10_Head_baseILm0EN4Luau7VariantIJPKNS0_16TypeFunctionTypeEPKNS0_23TypeFunctionTypePackVarEEEELb0EED2Ev.exit.i.i: ; preds = %2
   %12 = load i32, ptr %1, align 8, !tbaa !186
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJPKNS_16TypeFunctionTypeEPKNS_23TypeFunctionTypePackVarEEE9tableDtorE, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJPKNS_16TypeFunctionTypeEPKNS_23TypeFunctionTypePackVarEEE9tableDtorE, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !33
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   invoke void %15(ptr noundef nonnull %16)
@@ -19189,7 +19185,7 @@ define linkonce_odr dso_local noundef ptr @_ZSt16__do_uninit_copyIPKSt5tupleIJN4
   %4 = load i32, ptr %.01218, align 8, !tbaa !186
   store i32 %4, ptr %.019, align 8, !tbaa !186
   %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds ptr, ptr @_ZZN4Luau7VariantIJPKNS_16TypeFunctionTypeEPKNS_23TypeFunctionTypePackVarEEEC1ERKS7_E5table, i64 %5
+  %6 = getelementptr inbounds [8 x i8], ptr @_ZZN4Luau7VariantIJPKNS_16TypeFunctionTypeEPKNS_23TypeFunctionTypePackVarEEEC1ERKS7_E5table, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !33
   %8 = getelementptr inbounds nuw i8, ptr %.019, i64 8
   %9 = getelementptr inbounds nuw i8, ptr %.01218, i64 8
@@ -19202,7 +19198,7 @@ define linkonce_odr dso_local noundef ptr @_ZSt16__do_uninit_copyIPKSt5tupleIJN4
   %12 = load i32, ptr %11, align 8, !tbaa !186
   store i32 %12, ptr %10, align 8, !tbaa !186
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds ptr, ptr @_ZZN4Luau7VariantIJPKNS_16TypeFunctionTypeEPKNS_23TypeFunctionTypePackVarEEEC1ERKS7_E5table, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr @_ZZN4Luau7VariantIJPKNS_16TypeFunctionTypeEPKNS_23TypeFunctionTypePackVarEEEC1ERKS7_E5table, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !33
   %16 = getelementptr inbounds nuw i8, ptr %.019, i64 24
   %17 = getelementptr inbounds nuw i8, ptr %.01218, i64 24
@@ -19214,7 +19210,7 @@ define linkonce_odr dso_local noundef ptr @_ZSt16__do_uninit_copyIPKSt5tupleIJN4
           catch ptr null
   %20 = load i32, ptr %.019, align 8, !tbaa !186
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJPKNS_16TypeFunctionTypeEPKNS_23TypeFunctionTypePackVarEEE9tableDtorE, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJPKNS_16TypeFunctionTypeEPKNS_23TypeFunctionTypePackVarEEE9tableDtorE, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !33
   invoke void %23(ptr noundef nonnull %8)
           to label %.body unwind label %24
@@ -19455,7 +19451,7 @@ _ZNSt6vectorIPKN4Luau16TypeFunctionTypeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exi
 _ZNSt6vectorIPKN4Luau16TypeFunctionTypeESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %34, %_ZNSt6vectorIPKN4Luau16TypeFunctionTypeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
   store ptr %29, ptr %2, align 8, !tbaa !59
   store ptr %33, ptr %7, align 8, !tbaa !61
-  %35 = getelementptr inbounds nuw ptr, ptr %29, i64 %27
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %27
   store ptr %35, ptr %8, align 8, !tbaa !62
   br label %_ZNSt6vectorIPKN4Luau16TypeFunctionTypeESaIS3_EE9push_backEOS3_.exit
 
@@ -19540,7 +19536,7 @@ _ZNSt6vectorIPKN4Luau16TypeFunctionTypeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exi
 _ZNSt6vectorIPKN4Luau16TypeFunctionTypeESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %34, %_ZNSt6vectorIPKN4Luau16TypeFunctionTypeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
   store ptr %29, ptr %2, align 8, !tbaa !59
   store ptr %33, ptr %7, align 8, !tbaa !61
-  %35 = getelementptr inbounds nuw ptr, ptr %29, i64 %27
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %27
   store ptr %35, ptr %8, align 8, !tbaa !62
   br label %_ZNSt6vectorIPKN4Luau16TypeFunctionTypeESaIS3_EE9push_backEOS3_.exit
 
@@ -19841,7 +19837,7 @@ _ZNSt6vectorIPKN4Luau16TypeFunctionTypeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exi
 _ZNSt6vectorIPKN4Luau16TypeFunctionTypeESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %89, %_ZNSt6vectorIPKN4Luau16TypeFunctionTypeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
   store ptr %84, ptr %2, align 8, !tbaa !59
   store ptr %88, ptr %32, align 8, !tbaa !61
-  %90 = getelementptr inbounds nuw ptr, ptr %84, i64 %82
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %82
   store ptr %90, ptr %13, align 8, !tbaa !62
   br label %_ZNSt6vectorIPKN4Luau16TypeFunctionTypeESaIS3_EE9push_backEOS3_.exit
 
@@ -19922,7 +19918,7 @@ _ZNSt6vectorIPKN4Luau23TypeFunctionTypePackVarESaIS3_EE11_S_relocateEPS3_S6_S6_R
 _ZNSt6vectorIPKN4Luau23TypeFunctionTypePackVarESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %125, %_ZNSt6vectorIPKN4Luau23TypeFunctionTypePackVarESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
   store ptr %120, ptr %33, align 8, !tbaa !82
   store ptr %124, ptr %63, align 8, !tbaa !84
-  %126 = getelementptr inbounds nuw ptr, ptr %120, i64 %118
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %120, i64 %118
   store ptr %126, ptr %44, align 8, !tbaa !85
   br label %_ZNSt6vectorIPKN4Luau23TypeFunctionTypePackVarESaIS3_EE9push_backEOS3_.exit
 
@@ -19967,7 +19963,7 @@ define linkonce_odr dso_local noundef ptr @_ZN4Luau18TypeFunctionCloner12shallow
   %.pn.i.i.i = phi i64 [ %23, %16 ], [ %33, %31 ]
   %.02028.i.i.i = phi i64 [ 0, %16 ], [ %32, %31 ]
   %.02129.i.i.i = and i64 %.pn.i.i.i, %19
-  %26 = getelementptr inbounds nuw %"struct.std::pair.107", ptr %24, i64 %.02129.i.i.i
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %24, i64 %.02129.i.i.i
   %27 = load ptr, ptr %26, align 8, !tbaa !42
   %28 = icmp eq ptr %27, %1
   br i1 %28, label %34, label %29
@@ -20020,7 +20016,7 @@ _ZN4Luau20TypeFunctionTypePackD2Ev.exit:          ; preds = %_ZN4Luau3getINS_20T
   %45 = load ptr, ptr %44, align 8, !tbaa !41
   %46 = getelementptr inbounds i8, ptr %45, i64 -8
   %47 = load ptr, ptr %46, align 8, !tbaa !42
-  %48 = getelementptr inbounds nuw %"struct.Luau::TypeFunctionTypePackVar", ptr %47, i64 %43
+  %48 = getelementptr inbounds nuw [48 x i8], ptr %47, i64 %43
   store i32 0, ptr %48, align 8, !tbaa !44
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %.sroa.4.i.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %48, i64 40
@@ -20051,7 +20047,7 @@ _ZN4Luau14TypedAllocatorINS_23TypeFunctionTypePackVarEE8allocateIJNS_28TypeFunct
   %60 = load ptr, ptr %59, align 8, !tbaa !41
   %61 = getelementptr inbounds i8, ptr %60, i64 -8
   %62 = load ptr, ptr %61, align 8, !tbaa !42
-  %63 = getelementptr inbounds nuw %"struct.Luau::TypeFunctionTypePackVar", ptr %62, i64 %58
+  %63 = getelementptr inbounds nuw [48 x i8], ptr %62, i64 %58
   store i32 1, ptr %63, align 8, !tbaa !44
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store i64 0, ptr %64, align 8, !tbaa !29
@@ -20130,7 +20126,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   %94 = load ptr, ptr %93, align 8, !tbaa !41
   %95 = getelementptr inbounds i8, ptr %94, i64 -8
   %96 = load ptr, ptr %95, align 8, !tbaa !42
-  %97 = getelementptr inbounds nuw %"struct.Luau::TypeFunctionTypePackVar", ptr %96, i64 %92
+  %97 = getelementptr inbounds nuw [48 x i8], ptr %96, i64 %92
   %98 = load i8, ptr %7, align 8, !tbaa !118, !range !101, !noundef !102
   %99 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %100 = load ptr, ptr %70, align 8, !tbaa !15
@@ -20294,7 +20290,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   %.pn.i.i = phi i64 [ %21, %16 ], [ %31, %29 ]
   %.02028.i.i = phi i64 [ 0, %16 ], [ %30, %29 ]
   %.02129.i.i = and i64 %.pn.i.i, %17
-  %24 = getelementptr inbounds nuw %"struct.std::pair.107", ptr %22, i64 %.02129.i.i
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %.02129.i.i
   %25 = load ptr, ptr %24, align 8, !tbaa !42
   %26 = icmp eq ptr %25, %13
   br i1 %26, label %_ZN4Luau6detail14DenseHashTableIPKNS_23TypeFunctionTypePackVarESt4pairIS4_S4_ES5_IKS4_S4_ENS0_16ItemInterfaceMapIS4_S4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERS7_.exit, label %27
@@ -20326,7 +20322,7 @@ _ZN4Luau6detail14DenseHashTableIPKNS_23TypeFunctionTypePackVarESt4pairIS4_S4_ES5
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %41 = load ptr, ptr %40, align 8, !tbaa !42
   %.02331.i5 = and i64 %38, %33
-  %42 = getelementptr inbounds nuw %"struct.std::pair.107", ptr %39, i64 %.02331.i5
+  %42 = getelementptr inbounds nuw [16 x i8], ptr %39, i64 %.02331.i5
   %43 = load ptr, ptr %42, align 8, !tbaa !42
   %44 = icmp eq ptr %43, %41
   br i1 %44, label %._crit_edge, label %.lr.ph.preheader
@@ -20355,7 +20351,7 @@ _ZN4Luau6detail14DenseHashTableIPKNS_23TypeFunctionTypePackVarESt4pairIS4_S4_ES5
   %.not.i3 = icmp ule i64 %49, %33
   tail call void @llvm.assume(i1 %.not.i3)
   %.02331.i = and i64 %50, %33
-  %51 = getelementptr inbounds nuw %"struct.std::pair.107", ptr %39, i64 %.02331.i
+  %51 = getelementptr inbounds nuw [16 x i8], ptr %39, i64 %.02331.i
   %52 = load ptr, ptr %51, align 8, !tbaa !42
   %53 = icmp eq ptr %52, %41
   br i1 %53, label %._crit_edge, label %.lr.ph
@@ -20386,7 +20382,7 @@ define linkonce_odr dso_local void @_ZN4Luau6detail14DenseHashTableIPKNS_23TypeF
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %8
   %.07.i.i = phi i64 [ %14, %.lr.ph.i.i ], [ 0, %8 ]
-  %12 = getelementptr inbounds nuw %"struct.std::pair.107", ptr %10, i64 %.07.i.i
+  %12 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %.07.i.i
   store ptr %11, ptr %12, align 8, !tbaa !42
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr null, ptr %13, align 8, !tbaa !42
@@ -20424,7 +20420,7 @@ _ZN4Luau6detail14DenseHashTableIPKNS_23TypeFunctionTypePackVarESt4pairIS4_S4_ES5
 
 18:                                               ; preds = %.lr.ph26, %42
   %.025 = phi i64 [ 0, %.lr.ph26 ], [ %43, %42 ]
-  %19 = getelementptr inbounds nuw %"struct.std::pair.107", ptr %.pre32, i64 %.025
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %.pre32, i64 %.025
   %20 = load ptr, ptr %19, align 8, !tbaa !42
   %21 = load ptr, ptr %6, align 8, !tbaa !42
   %22 = icmp eq ptr %20, %21
@@ -20436,7 +20432,7 @@ _ZN4Luau6detail14DenseHashTableIPKNS_23TypeFunctionTypePackVarESt4pairIS4_S4_ES5
   %26 = lshr i64 %24, 9
   %27 = xor i64 %25, %26
   %.02331.i21 = and i64 %27, %16
-  %28 = getelementptr inbounds nuw %"struct.std::pair.107", ptr %.sroa.0.0, i64 %.02331.i21
+  %28 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0.0, i64 %.02331.i21
   %29 = load ptr, ptr %28, align 8, !tbaa !42
   %30 = icmp eq ptr %29, %7
   br i1 %30, label %._crit_edge, label %.lr.ph.preheader
@@ -20462,7 +20458,7 @@ _ZN4Luau6detail14DenseHashTableIPKNS_23TypeFunctionTypePackVarESt4pairIS4_S4_ES5
   %.not.i12 = icmp ule i64 %33, %16
   tail call void @llvm.assume(i1 %.not.i12)
   %.02331.i = and i64 %34, %16
-  %35 = getelementptr inbounds nuw %"struct.std::pair.107", ptr %.sroa.0.0, i64 %.02331.i
+  %35 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0.0, i64 %.02331.i
   %36 = load ptr, ptr %35, align 8, !tbaa !42
   %37 = icmp eq ptr %36, %7
   br i1 %37, label %._crit_edge, label %.lr.ph
@@ -20548,7 +20544,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPSt5tupleIJN4Luau7VariantIJPKNS1_16Type
   %34 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 16
   %35 = load i32, ptr %34, align 8, !tbaa !186
   %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJPKNS_16TypeFunctionTypeEPKNS_23TypeFunctionTypePackVarEEE9tableDtorE, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJPKNS_16TypeFunctionTypeEPKNS_23TypeFunctionTypePackVarEEE9tableDtorE, i64 %36
   %38 = load ptr, ptr %37, align 8, !tbaa !33
   %39 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 24
   invoke void %38(ptr noundef nonnull %39)
@@ -20564,7 +20560,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPSt5tupleIJN4Luau7VariantIJPKNS1_16Type
 _ZNSt10_Head_baseILm0EN4Luau7VariantIJPKNS0_16TypeFunctionTypeEPKNS0_23TypeFunctionTypePackVarEEEELb0EED2Ev.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i
   %43 = load i32, ptr %.05.i.i.i, align 8, !tbaa !186
   %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJPKNS_16TypeFunctionTypeEPKNS_23TypeFunctionTypePackVarEEE9tableDtorE, i64 %44
+  %45 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJPKNS_16TypeFunctionTypeEPKNS_23TypeFunctionTypePackVarEEE9tableDtorE, i64 %44
   %46 = load ptr, ptr %45, align 8, !tbaa !33
   %47 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 8
   invoke void %46(ptr noundef nonnull %47)
@@ -20597,7 +20593,7 @@ _ZSt8_DestroyIPSt5tupleIJN4Luau7VariantIJPKNS1_16TypeFunctionTypeEPKNS1_23TypeFu
 _ZNSt12_Vector_baseISt5tupleIJN4Luau7VariantIJPKNS1_16TypeFunctionTypeEPKNS1_23TypeFunctionTypePackVarEEEES9_EESaISA_EE13_M_deallocateEPSA_m.exit: ; preds = %_ZSt8_DestroyIPSt5tupleIJN4Luau7VariantIJPKNS1_16TypeFunctionTypeEPKNS1_23TypeFunctionTypePackVarEEEES9_EESA_EvT_SC_RSaIT0_E.exit, %53
   store ptr %24, ptr %0, align 8, !tbaa !177
   store ptr %33, ptr %5, align 8, !tbaa !176
-  %57 = getelementptr inbounds nuw %"class.std::tuple.109", ptr %24, i64 %17
+  %57 = getelementptr inbounds nuw [32 x i8], ptr %24, i64 %17
   store ptr %57, ptr %52, align 8, !tbaa !189
   ret void
 
@@ -20721,7 +20717,7 @@ _ZNSt6vectorIPKN4Luau16TypeFunctionTypeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exi
 _ZNSt6vectorIPKN4Luau16TypeFunctionTypeESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %37, %_ZNSt6vectorIPKN4Luau16TypeFunctionTypeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
   store ptr %32, ptr %2, align 8, !tbaa !59
   store ptr %36, ptr %7, align 8, !tbaa !61
-  %38 = getelementptr inbounds nuw ptr, ptr %32, i64 %30
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %30
   store ptr %38, ptr %8, align 8, !tbaa !62
   br label %_ZNSt6vectorIPKN4Luau16TypeFunctionTypeESaIS3_EE9push_backEOS3_.exit
 
@@ -20771,7 +20767,7 @@ define linkonce_odr dso_local void @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitive
   %3 = load i32, ptr %1, align 8, !tbaa !53
   store i32 %3, ptr %0, align 8, !tbaa !53
   %4 = sext i32 %3 to i64
-  %5 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_28TypeFunctionBooleanSingletonENS_27TypeFunctionStringSingletonEEE9tableMoveE, i64 %4
+  %5 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_28TypeFunctionBooleanSingletonENS_27TypeFunctionStringSingletonEEE9tableMoveE, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !33
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -21051,7 +21047,7 @@ define linkonce_odr dso_local void @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitive
 define linkonce_odr dso_local void @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE6fnDtorIS5_EEvPv(ptr noundef %0) #11 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load i32, ptr %0, align 8, !tbaa !53
   %3 = sext i32 %2 to i64
-  %4 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_28TypeFunctionBooleanSingletonENS_27TypeFunctionStringSingletonEEE9tableDtorE, i64 %3
+  %4 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_28TypeFunctionBooleanSingletonENS_27TypeFunctionStringSingletonEEE9tableDtorE, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !33
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   invoke void %5(ptr noundef nonnull %6)

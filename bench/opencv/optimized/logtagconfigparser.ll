@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"struct.std::pair" = type { i64, i64 }
 %"struct.cv::utils::logging::LogTagConfig" = type <{ %"class.std::__cxx11::basic_string", i32, i8, i8, i8, i8 }>
 
 $_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev = comdat any
@@ -539,7 +538,7 @@ _ZNSt6vectorISt4pairImmESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33.i.i: ; preds
   br label %_ZNSt6vectorISt4pairImmESaIS1_EE17_M_realloc_insertIJRmmEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
 
 _ZNSt6vectorISt4pairImmESaIS1_EE17_M_realloc_insertIJRmmEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %34, %_ZNSt6vectorISt4pairImmESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33.i.i
-  %35 = getelementptr inbounds nuw %"struct.std::pair", ptr %28, i64 %26
+  %35 = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %26
   br label %_ZNSt6vectorISt4pairImmESaIS1_EE12emplace_backIJRmmEEEvDpOT_.exit
 
 .loopexit48:                                      ; preds = %_ZNKSt6vectorISt4pairImmESaIS1_EE12_M_check_lenEmPKc.exit.i.i
@@ -2499,7 +2498,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %23, ptr %0, align 8, !tbaa !32
   store ptr %.0.lcssa.i.i.i.i35, ptr %5, align 8, !tbaa !33
-  %74 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %74 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %74, ptr %73, align 8, !tbaa !53
   ret void
 
@@ -2723,7 +2722,7 @@ _ZNSt12_Vector_baseIN2cv5utils7logging12LogTagConfigESaIS3_EE13_M_deallocateEPS3
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %22, ptr %0, align 8, !tbaa !36
   store ptr %.0.lcssa.i.i.i.i25, ptr %4, align 8, !tbaa !37
-  %76 = getelementptr inbounds nuw %"struct.cv::utils::logging::LogTagConfig", ptr %22, i64 %16
+  %76 = getelementptr inbounds nuw [40 x i8], ptr %22, i64 %16
   store ptr %76, ptr %75, align 8, !tbaa !89
   ret void
 }

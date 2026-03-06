@@ -23,8 +23,8 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.func_decl_info = type <{ %class.decl_info.base, i16, [5 x i8] }>
 %class.decl_info.base = type <{ i32, i32, %class.vector.43, i8 }>
 %class.vector.43 = type { ptr }
-%"class.algebraic_numbers::anum" = type { ptr }
 %class._scoped_numeral = type { ptr, %"class.algebraic_numbers::anum" }
+%"class.algebraic_numbers::anum" = type { ptr }
 %class.sort_info = type { %class.decl_info.base, %class.sort_size }
 %class.sort_size = type { i32, i64 }
 %struct.builtin_name = type { i32, %class.symbol }
@@ -433,7 +433,7 @@ _ZNK6vectorIjLb0EjE5emptyEv.exit.thread.i.i:      ; preds = %_ZNK6vectorIjLb0EjE
 _ZN6vectorIjLb0EjE4backEv.exit.i.i:               ; preds = %_ZNK6vectorIjLb0EjE5emptyEv.exit.i.i
   %46 = add i32 %42, -1
   %47 = zext i32 %46 to i64
-  %48 = getelementptr inbounds nuw i32, ptr %39, i64 %47
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %47
   %49 = load i32, ptr %48, align 4, !tbaa !40
   store i32 %46, ptr %41, align 4, !tbaa !40
   %.pre.i = add i32 %49, 1
@@ -488,7 +488,7 @@ _ZNK6vectorIN17algebraic_numbers4anumELb0EjE8capacityEv.exit.thread.i.i.i: ; pre
 .lr.ph.preheader.i.i.i:                           ; preds = %61
   %63 = zext i32 %.pre-phi.i to i64
   %64 = zext i32 %.0.i16.i.i.i.ph to i64
-  %65 = getelementptr %"class.algebraic_numbers::anum", ptr %56, i64 %64
+  %65 = getelementptr [8 x i8], ptr %56, i64 %64
   %66 = sub nsw i64 %63, %64
   %67 = shl nsw i64 %66, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %65, i8 0, i64 %67, i1 false), !tbaa !46
@@ -498,7 +498,7 @@ _ZN17arith_decl_plugin25algebraic_numbers_wrapper5mk_idERKN17algebraic_numbers4a
   %68 = phi ptr [ %56, %.lr.ph.preheader.i.i.i ], [ %51, %_ZNK6vectorIN17algebraic_numbers4anumELb0EjE4sizeEv.exit.thread.i.i ], [ %56, %61 ]
   %69 = getelementptr inbounds nuw i8, ptr %36, i64 728
   %70 = zext i32 %.0.i.i to i64
-  %71 = getelementptr inbounds nuw %"class.algebraic_numbers::anum", ptr %68, i64 %70
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %70
   tail call void @_ZN17algebraic_numbers7manager3setERNS_4anumERKS1_(ptr noundef nonnull align 8 dereferenceable(17) %69, ptr noundef nonnull align 8 dereferenceable(8) %71, ptr noundef nonnull align 8 dereferenceable(8) %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %.0.i.i, ptr %6, align 8, !tbaa !48
@@ -756,7 +756,7 @@ _ZNK6vectorIP3appLb0EjE3getEjRKS1_.exit:          ; preds = %46
 
 _ZNK6vectorIP3appLb0EjE3getEjRKS1_.exit.cont:     ; preds = %_ZNK6vectorIP3appLb0EjE3getEjRKS1_.exit
   %53 = and i64 %39, 15
-  %54 = getelementptr inbounds nuw ptr, ptr %48, i64 %53
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %53
   %.pr.then.val = load ptr, ptr %54, align 8, !tbaa !119
   %55 = icmp eq ptr %.pr.then.val, null
   br i1 %55, label %_ZNK6vectorIP3appLb0EjE3getEjRKS1_.exit.thread, label %.thread
@@ -955,7 +955,7 @@ _ZNK6vectorIP3appLb0EjE8capacityEv.exit.thread.i.i: ; preds = %_ZNK6vectorIP3app
 .lr.ph.preheader.i.i:                             ; preds = %125
   %127 = zext nneg i32 %.ph224 to i64
   %128 = zext nneg i32 %.0.i17.i.i.ph to i64
-  %129 = getelementptr ptr, ptr %121, i64 %128
+  %129 = getelementptr [8 x i8], ptr %121, i64 %128
   %130 = sub nsw i64 %127, %128
   %131 = shl nsw i64 %130, 3
   call void @llvm.memset.p0.i64(ptr align 8 %129, i8 0, i64 %131, i1 false), !tbaa !119
@@ -964,7 +964,7 @@ _ZNK6vectorIP3appLb0EjE8capacityEv.exit.thread.i.i: ; preds = %_ZNK6vectorIP3app
 .loopexit195:                                     ; preds = %.lr.ph.preheader.i.i, %125, %_ZNK6vectorIP3appLb0EjE4sizeEv.exit.i73
   %132 = phi ptr [ %117, %_ZNK6vectorIP3appLb0EjE4sizeEv.exit.i73 ], [ %121, %125 ], [ %121, %.lr.ph.preheader.i.i ]
   %133 = and i64 %39, 15
-  %134 = getelementptr inbounds nuw ptr, ptr %132, i64 %133
+  %134 = getelementptr inbounds nuw [8 x i8], ptr %132, i64 %133
   store ptr %101, ptr %134, align 8, !tbaa !119
   %135 = invoke noundef zeroext i1 @_ZN11decl_plugin28log_constant_meaning_preludeEP3app(ptr noundef nonnull align 8 dereferenceable(20) %0, ptr noundef %101)
           to label %136 unwind label %151
@@ -1062,7 +1062,7 @@ _ZNK6vectorIP3appLb0EjE3getEjRKS1_.exit81:        ; preds = %167
 
 _ZNK6vectorIP3appLb0EjE3getEjRKS1_.exit81.cont:   ; preds = %_ZNK6vectorIP3appLb0EjE3getEjRKS1_.exit81
   %174 = and i64 %39, 15
-  %175 = getelementptr inbounds nuw ptr, ptr %169, i64 %174
+  %175 = getelementptr inbounds nuw [8 x i8], ptr %169, i64 %174
   %.pr189.then.val = load ptr, ptr %175, align 8, !tbaa !119
   %176 = icmp eq ptr %.pr189.then.val, null
   br i1 %176, label %_ZNK6vectorIP3appLb0EjE3getEjRKS1_.exit81.thread, label %.thread
@@ -1261,7 +1261,7 @@ _ZNK6vectorIP3appLb0EjE8capacityEv.exit.thread.i.i122: ; preds = %_ZNK6vectorIP3
 .lr.ph.preheader.i.i118:                          ; preds = %246
   %248 = zext nneg i32 %.ph221 to i64
   %249 = zext nneg i32 %.0.i17.i.i115.ph to i64
-  %250 = getelementptr ptr, ptr %242, i64 %249
+  %250 = getelementptr [8 x i8], ptr %242, i64 %249
   %251 = sub nsw i64 %248, %249
   %252 = shl nsw i64 %251, 3
   call void @llvm.memset.p0.i64(ptr align 8 %250, i8 0, i64 %252, i1 false), !tbaa !119
@@ -1270,7 +1270,7 @@ _ZNK6vectorIP3appLb0EjE8capacityEv.exit.thread.i.i122: ; preds = %_ZNK6vectorIP3
 .loopexit193:                                     ; preds = %.lr.ph.preheader.i.i118, %246, %_ZNK6vectorIP3appLb0EjE4sizeEv.exit.i108
   %253 = phi ptr [ %238, %_ZNK6vectorIP3appLb0EjE4sizeEv.exit.i108 ], [ %242, %246 ], [ %242, %.lr.ph.preheader.i.i118 ]
   %254 = and i64 %39, 15
-  %255 = getelementptr inbounds nuw ptr, ptr %253, i64 %254
+  %255 = getelementptr inbounds nuw [8 x i8], ptr %253, i64 %254
   store ptr %222, ptr %255, align 8, !tbaa !119
   %256 = invoke noundef zeroext i1 @_ZN11decl_plugin28log_constant_meaning_preludeEP3app(ptr noundef nonnull align 8 dereferenceable(20) %0, ptr noundef %222)
           to label %257 unwind label %272
@@ -1865,7 +1865,7 @@ _ZN6vectorIjLb0EjE9push_backERKj.exit.i.i:        ; preds = %22, %16
   %24 = phi ptr [ %.pre.i.i.i, %22 ], [ %14, %16 ]
   %25 = getelementptr inbounds i8, ptr %24, i64 -4
   %26 = zext i32 %23 to i64
-  %27 = getelementptr inbounds nuw i32, ptr %24, i64 %26
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %26
   store i32 %10, ptr %27, align 4, !tbaa !40
   %28 = add i32 %23, 1
   store i32 %28, ptr %25, align 4, !tbaa !40
@@ -1876,7 +1876,7 @@ _ZN17arith_decl_plugin25algebraic_numbers_wrapper10recycle_idEj.exit: ; preds = 
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 768
   %31 = load ptr, ptr %30, align 8, !tbaa !41
   %32 = zext i32 %10 to i64
-  %33 = getelementptr inbounds nuw %"class.algebraic_numbers::anum", ptr %31, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %32
   tail call void @_ZN17algebraic_numbers7manager3delERNS_4anumE(ptr noundef nonnull align 8 dereferenceable(17) %29, ptr noundef nonnull align 8 dereferenceable(8) %33)
   br label %34
 
@@ -1954,7 +1954,7 @@ _ZNK6vectorIjLb0EjE5emptyEv.exit.thread.i.i:      ; preds = %_ZNK6vectorIjLb0EjE
 _ZN6vectorIjLb0EjE4backEv.exit.i.i:               ; preds = %_ZNK6vectorIjLb0EjE5emptyEv.exit.i.i
   %38 = add i32 %34, -1
   %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds nuw i32, ptr %31, i64 %39
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %39
   %41 = load i32, ptr %40, align 4, !tbaa !40
   store i32 %38, ptr %33, align 4, !tbaa !40
   %.pre.i = add i32 %41, 1
@@ -2009,7 +2009,7 @@ _ZNK6vectorIN17algebraic_numbers4anumELb0EjE8capacityEv.exit.thread.i.i.i: ; pre
 .lr.ph.preheader.i.i.i:                           ; preds = %53
   %55 = zext i32 %.pre-phi.i to i64
   %56 = zext i32 %.0.i16.i.i.i.ph to i64
-  %57 = getelementptr %"class.algebraic_numbers::anum", ptr %48, i64 %56
+  %57 = getelementptr [8 x i8], ptr %48, i64 %56
   %58 = sub nsw i64 %55, %56
   %59 = shl nsw i64 %58, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %57, i8 0, i64 %59, i1 false), !tbaa !46
@@ -2018,10 +2018,10 @@ _ZNK6vectorIN17algebraic_numbers4anumELb0EjE8capacityEv.exit.thread.i.i.i: ; pre
 _ZN17arith_decl_plugin25algebraic_numbers_wrapper5mk_idERKN17algebraic_numbers4anumE.exit: ; preds = %_ZNK6vectorIN17algebraic_numbers4anumELb0EjE4sizeEv.exit.thread.i.i, %53, %.lr.ph.preheader.i.i.i
   %60 = phi ptr [ %48, %.lr.ph.preheader.i.i.i ], [ %43, %_ZNK6vectorIN17algebraic_numbers4anumELb0EjE4sizeEv.exit.thread.i.i ], [ %48, %53 ]
   %61 = zext i32 %26 to i64
-  %62 = getelementptr inbounds nuw %"class.algebraic_numbers::anum", ptr %28, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %61
   %63 = getelementptr inbounds nuw i8, ptr %12, i64 728
   %64 = zext i32 %.0.i.i to i64
-  %65 = getelementptr inbounds nuw %"class.algebraic_numbers::anum", ptr %60, i64 %64
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %64
   tail call void @_ZN17algebraic_numbers7manager3setERNS_4anumERKS1_(ptr noundef nonnull align 8 dereferenceable(17) %63, ptr noundef nonnull align 8 dereferenceable(8) %65, ptr noundef nonnull align 8 dereferenceable(8) %62)
   store i32 %.0.i.i, ptr %0, align 8, !tbaa !48
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -7579,7 +7579,7 @@ _ZNK6vectorIP3appLb0EjE4sizeEv.exit:              ; preds = %_ZN11ast_manager7de
 
 .lr.ph.i:                                         ; preds = %_ZN11ast_manager7dec_refEP3ast.exit.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %_ZN11ast_manager7dec_refEP3ast.exit.i ]
-  %469 = getelementptr inbounds nuw ptr, ptr %465, i64 %indvars.iv.i
+  %469 = getelementptr inbounds nuw [8 x i8], ptr %465, i64 %indvars.iv.i
   %470 = load ptr, ptr %469, align 8, !tbaa !119
   %.not.i.i = icmp eq ptr %470, null
   br i1 %.not.i.i, label %_ZN11ast_manager7dec_refEP3ast.exit.i, label %471
@@ -7624,7 +7624,7 @@ _ZNK6vectorIP3appLb0EjE4sizeEv.exit183:           ; preds = %_ZN11ast_manager13d
 
 .lr.ph.i187:                                      ; preds = %_ZN11ast_manager7dec_refEP3ast.exit.i190, %.lr.ph.preheader.i185
   %indvars.iv.i188 = phi i64 [ 0, %.lr.ph.preheader.i185 ], [ %indvars.iv.next.i191, %_ZN11ast_manager7dec_refEP3ast.exit.i190 ]
-  %483 = getelementptr inbounds nuw ptr, ptr %479, i64 %indvars.iv.i188
+  %483 = getelementptr inbounds nuw [8 x i8], ptr %479, i64 %indvars.iv.i188
   %484 = load ptr, ptr %483, align 8, !tbaa !119
   %.not.i.i189 = icmp eq ptr %484, null
   br i1 %.not.i.i189, label %_ZN11ast_manager7dec_refEP3ast.exit.i190, label %485
@@ -8218,7 +8218,7 @@ _ZN9decl_infoD2Ev.exit73:                         ; preds = %_ZN11ast_manager12m
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %125 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv.i
+  %125 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.i
   %126 = load ptr, ptr %125, align 8, !tbaa !141
   %127 = icmp eq ptr %126, %124
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -9178,7 +9178,7 @@ _ZN9decl_infoD2Ev.exit71:                         ; preds = %_ZN11ast_manager12m
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %131 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv.i
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.i
   %132 = load ptr, ptr %131, align 8, !tbaa !196
   %133 = tail call noundef ptr @_ZNK4expr8get_sortEv(ptr noundef nonnull align 4 dereferenceable(16) %132)
   %134 = icmp eq ptr %133, %130
@@ -9267,7 +9267,7 @@ _ZN6vectorI12builtin_nameLb0EjE9push_backEOS0_.exit: ; preds = %16, %22
   %23 = phi i32 [ %.pre2.i, %22 ], [ %18, %16 ]
   %24 = phi ptr [ %.pre.i, %22 ], [ %14, %16 ]
   %25 = zext i32 %23 to i64
-  %26 = getelementptr inbounds nuw %struct.builtin_name, ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %24, i64 %25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false), !tbaa.struct !204
   %27 = load ptr, ptr %1, align 8, !tbaa !201
   %28 = getelementptr inbounds i8, ptr %27, i64 -4
@@ -9305,7 +9305,7 @@ _ZN6vectorI12builtin_nameLb0EjE9push_backEOS0_.exit9: ; preds = %35, %41
   %42 = phi i32 [ %.pre2.i8, %41 ], [ %37, %35 ]
   %43 = phi ptr [ %.pre.i6, %41 ], [ %33, %35 ]
   %44 = zext i32 %42 to i64
-  %45 = getelementptr inbounds nuw %struct.builtin_name, ptr %43, i64 %44
+  %45 = getelementptr inbounds nuw [16 x i8], ptr %43, i64 %44
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %45, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !204
   %46 = load ptr, ptr %1, align 8, !tbaa !201
   %47 = getelementptr inbounds i8, ptr %46, i64 -4
@@ -9340,7 +9340,7 @@ _ZN6vectorI12builtin_nameLb0EjE9push_backEOS0_.exit13: ; preds = %53, %59
   %60 = phi i32 [ %.pre2.i12, %59 ], [ %55, %53 ]
   %61 = phi ptr [ %.pre.i10, %59 ], [ %51, %53 ]
   %62 = zext i32 %60 to i64
-  %63 = getelementptr inbounds nuw %struct.builtin_name, ptr %61, i64 %62
+  %63 = getelementptr inbounds nuw [16 x i8], ptr %61, i64 %62
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %63, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !204
   %64 = load ptr, ptr %1, align 8, !tbaa !201
   %65 = getelementptr inbounds i8, ptr %64, i64 -4
@@ -9491,7 +9491,7 @@ _ZN6vectorI12builtin_nameLb0EjE9push_backEOS0_.exit: ; preds = %45, %51
   %52 = phi i32 [ %.pre2.i, %51 ], [ %47, %45 ]
   %53 = phi ptr [ %.pre.i, %51 ], [ %43, %45 ]
   %54 = zext i32 %52 to i64
-  %55 = getelementptr inbounds nuw %struct.builtin_name, ptr %53, i64 %54
+  %55 = getelementptr inbounds nuw [16 x i8], ptr %53, i64 %54
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %55, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false), !tbaa.struct !204
   %56 = load ptr, ptr %1, align 8, !tbaa !201
   %57 = getelementptr inbounds i8, ptr %56, i64 -4
@@ -9526,7 +9526,7 @@ _ZN6vectorI12builtin_nameLb0EjE9push_backEOS0_.exit41: ; preds = %63, %69
   %70 = phi i32 [ %.pre2.i40, %69 ], [ %65, %63 ]
   %71 = phi ptr [ %.pre.i38, %69 ], [ %61, %63 ]
   %72 = zext i32 %70 to i64
-  %73 = getelementptr inbounds nuw %struct.builtin_name, ptr %71, i64 %72
+  %73 = getelementptr inbounds nuw [16 x i8], ptr %71, i64 %72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %73, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !204
   %74 = load ptr, ptr %1, align 8, !tbaa !201
   %75 = getelementptr inbounds i8, ptr %74, i64 -4
@@ -9561,7 +9561,7 @@ _ZN6vectorI12builtin_nameLb0EjE9push_backEOS0_.exit45: ; preds = %81, %87
   %88 = phi i32 [ %.pre2.i44, %87 ], [ %83, %81 ]
   %89 = phi ptr [ %.pre.i42, %87 ], [ %79, %81 ]
   %90 = zext i32 %88 to i64
-  %91 = getelementptr inbounds nuw %struct.builtin_name, ptr %89, i64 %90
+  %91 = getelementptr inbounds nuw [16 x i8], ptr %89, i64 %90
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %91, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !204
   %92 = load ptr, ptr %1, align 8, !tbaa !201
   %93 = getelementptr inbounds i8, ptr %92, i64 -4
@@ -9596,7 +9596,7 @@ _ZN6vectorI12builtin_nameLb0EjE9push_backEOS0_.exit49: ; preds = %99, %105
   %106 = phi i32 [ %.pre2.i48, %105 ], [ %101, %99 ]
   %107 = phi ptr [ %.pre.i46, %105 ], [ %97, %99 ]
   %108 = zext i32 %106 to i64
-  %109 = getelementptr inbounds nuw %struct.builtin_name, ptr %107, i64 %108
+  %109 = getelementptr inbounds nuw [16 x i8], ptr %107, i64 %108
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %109, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !204
   %110 = load ptr, ptr %1, align 8, !tbaa !201
   %111 = getelementptr inbounds i8, ptr %110, i64 -4
@@ -9631,7 +9631,7 @@ _ZN6vectorI12builtin_nameLb0EjE9push_backEOS0_.exit53: ; preds = %117, %123
   %124 = phi i32 [ %.pre2.i52, %123 ], [ %119, %117 ]
   %125 = phi ptr [ %.pre.i50, %123 ], [ %115, %117 ]
   %126 = zext i32 %124 to i64
-  %127 = getelementptr inbounds nuw %struct.builtin_name, ptr %125, i64 %126
+  %127 = getelementptr inbounds nuw [16 x i8], ptr %125, i64 %126
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %127, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false), !tbaa.struct !204
   %128 = load ptr, ptr %1, align 8, !tbaa !201
   %129 = getelementptr inbounds i8, ptr %128, i64 -4
@@ -9666,7 +9666,7 @@ _ZN6vectorI12builtin_nameLb0EjE9push_backEOS0_.exit57: ; preds = %135, %141
   %142 = phi i32 [ %.pre2.i56, %141 ], [ %137, %135 ]
   %143 = phi ptr [ %.pre.i54, %141 ], [ %133, %135 ]
   %144 = zext i32 %142 to i64
-  %145 = getelementptr inbounds nuw %struct.builtin_name, ptr %143, i64 %144
+  %145 = getelementptr inbounds nuw [16 x i8], ptr %143, i64 %144
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %145, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false), !tbaa.struct !204
   %146 = load ptr, ptr %1, align 8, !tbaa !201
   %147 = getelementptr inbounds i8, ptr %146, i64 -4
@@ -9701,7 +9701,7 @@ _ZN6vectorI12builtin_nameLb0EjE9push_backEOS0_.exit61: ; preds = %153, %159
   %160 = phi i32 [ %.pre2.i60, %159 ], [ %155, %153 ]
   %161 = phi ptr [ %.pre.i58, %159 ], [ %151, %153 ]
   %162 = zext i32 %160 to i64
-  %163 = getelementptr inbounds nuw %struct.builtin_name, ptr %161, i64 %162
+  %163 = getelementptr inbounds nuw [16 x i8], ptr %161, i64 %162
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %163, ptr noundef nonnull align 8 dereferenceable(16) %10, i64 16, i1 false), !tbaa.struct !204
   %164 = load ptr, ptr %1, align 8, !tbaa !201
   %165 = getelementptr inbounds i8, ptr %164, i64 -4
@@ -9736,7 +9736,7 @@ _ZN6vectorI12builtin_nameLb0EjE9push_backEOS0_.exit65: ; preds = %171, %177
   %178 = phi i32 [ %.pre2.i64, %177 ], [ %173, %171 ]
   %179 = phi ptr [ %.pre.i62, %177 ], [ %169, %171 ]
   %180 = zext i32 %178 to i64
-  %181 = getelementptr inbounds nuw %struct.builtin_name, ptr %179, i64 %180
+  %181 = getelementptr inbounds nuw [16 x i8], ptr %179, i64 %180
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %181, ptr noundef nonnull align 8 dereferenceable(16) %11, i64 16, i1 false), !tbaa.struct !204
   %182 = load ptr, ptr %1, align 8, !tbaa !201
   %183 = getelementptr inbounds i8, ptr %182, i64 -4
@@ -9771,7 +9771,7 @@ _ZN6vectorI12builtin_nameLb0EjE9push_backEOS0_.exit69: ; preds = %189, %195
   %196 = phi i32 [ %.pre2.i68, %195 ], [ %191, %189 ]
   %197 = phi ptr [ %.pre.i66, %195 ], [ %187, %189 ]
   %198 = zext i32 %196 to i64
-  %199 = getelementptr inbounds nuw %struct.builtin_name, ptr %197, i64 %198
+  %199 = getelementptr inbounds nuw [16 x i8], ptr %197, i64 %198
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %199, ptr noundef nonnull align 8 dereferenceable(16) %12, i64 16, i1 false), !tbaa.struct !204
   %200 = load ptr, ptr %1, align 8, !tbaa !201
   %201 = getelementptr inbounds i8, ptr %200, i64 -4
@@ -9806,7 +9806,7 @@ _ZN6vectorI12builtin_nameLb0EjE9push_backEOS0_.exit73: ; preds = %207, %213
   %214 = phi i32 [ %.pre2.i72, %213 ], [ %209, %207 ]
   %215 = phi ptr [ %.pre.i70, %213 ], [ %205, %207 ]
   %216 = zext i32 %214 to i64
-  %217 = getelementptr inbounds nuw %struct.builtin_name, ptr %215, i64 %216
+  %217 = getelementptr inbounds nuw [16 x i8], ptr %215, i64 %216
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %217, ptr noundef nonnull align 8 dereferenceable(16) %13, i64 16, i1 false), !tbaa.struct !204
   %218 = load ptr, ptr %1, align 8, !tbaa !201
   %219 = getelementptr inbounds i8, ptr %218, i64 -4
@@ -9881,7 +9881,7 @@ _ZN6vectorI12builtin_nameLb0EjE9push_backEOS0_.exit77: ; preds = %235, %241
   %242 = phi i32 [ %.pre2.i76, %241 ], [ %237, %235 ]
   %243 = phi ptr [ %.pre.i74, %241 ], [ %233, %235 ]
   %244 = zext i32 %242 to i64
-  %245 = getelementptr inbounds nuw %struct.builtin_name, ptr %243, i64 %244
+  %245 = getelementptr inbounds nuw [16 x i8], ptr %243, i64 %244
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %245, ptr noundef nonnull align 8 dereferenceable(16) %15, i64 16, i1 false), !tbaa.struct !204
   %246 = load ptr, ptr %1, align 8, !tbaa !201
   %247 = getelementptr inbounds i8, ptr %246, i64 -4
@@ -9919,7 +9919,7 @@ _ZN6vectorI12builtin_nameLb0EjE9push_backEOS0_.exit81: ; preds = %254, %260
   %261 = phi i32 [ %.pre2.i80, %260 ], [ %256, %254 ]
   %262 = phi ptr [ %.pre.i78, %260 ], [ %252, %254 ]
   %263 = zext i32 %261 to i64
-  %264 = getelementptr inbounds nuw %struct.builtin_name, ptr %262, i64 %263
+  %264 = getelementptr inbounds nuw [16 x i8], ptr %262, i64 %263
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %264, ptr noundef nonnull align 8 dereferenceable(16) %16, i64 16, i1 false), !tbaa.struct !204
   %265 = load ptr, ptr %1, align 8, !tbaa !201
   %266 = getelementptr inbounds i8, ptr %265, i64 -4
@@ -9954,7 +9954,7 @@ _ZN6vectorI12builtin_nameLb0EjE9push_backEOS0_.exit85: ; preds = %272, %278
   %279 = phi i32 [ %.pre2.i84, %278 ], [ %274, %272 ]
   %280 = phi ptr [ %.pre.i82, %278 ], [ %270, %272 ]
   %281 = zext i32 %279 to i64
-  %282 = getelementptr inbounds nuw %struct.builtin_name, ptr %280, i64 %281
+  %282 = getelementptr inbounds nuw [16 x i8], ptr %280, i64 %281
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %282, ptr noundef nonnull align 8 dereferenceable(16) %17, i64 16, i1 false), !tbaa.struct !204
   %283 = load ptr, ptr %1, align 8, !tbaa !201
   %284 = getelementptr inbounds i8, ptr %283, i64 -4
@@ -9989,7 +9989,7 @@ _ZN6vectorI12builtin_nameLb0EjE9push_backEOS0_.exit89: ; preds = %290, %296
   %297 = phi i32 [ %.pre2.i88, %296 ], [ %292, %290 ]
   %298 = phi ptr [ %.pre.i86, %296 ], [ %288, %290 ]
   %299 = zext i32 %297 to i64
-  %300 = getelementptr inbounds nuw %struct.builtin_name, ptr %298, i64 %299
+  %300 = getelementptr inbounds nuw [16 x i8], ptr %298, i64 %299
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %300, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false), !tbaa.struct !204
   %301 = load ptr, ptr %1, align 8, !tbaa !201
   %302 = getelementptr inbounds i8, ptr %301, i64 -4
@@ -10024,7 +10024,7 @@ _ZN6vectorI12builtin_nameLb0EjE9push_backEOS0_.exit93: ; preds = %308, %314
   %315 = phi i32 [ %.pre2.i92, %314 ], [ %310, %308 ]
   %316 = phi ptr [ %.pre.i90, %314 ], [ %306, %308 ]
   %317 = zext i32 %315 to i64
-  %318 = getelementptr inbounds nuw %struct.builtin_name, ptr %316, i64 %317
+  %318 = getelementptr inbounds nuw [16 x i8], ptr %316, i64 %317
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %318, ptr noundef nonnull align 8 dereferenceable(16) %19, i64 16, i1 false), !tbaa.struct !204
   %319 = load ptr, ptr %1, align 8, !tbaa !201
   %320 = getelementptr inbounds i8, ptr %319, i64 -4
@@ -10059,7 +10059,7 @@ _ZN6vectorI12builtin_nameLb0EjE9push_backEOS0_.exit97: ; preds = %326, %332
   %333 = phi i32 [ %.pre2.i96, %332 ], [ %328, %326 ]
   %334 = phi ptr [ %.pre.i94, %332 ], [ %324, %326 ]
   %335 = zext i32 %333 to i64
-  %336 = getelementptr inbounds nuw %struct.builtin_name, ptr %334, i64 %335
+  %336 = getelementptr inbounds nuw [16 x i8], ptr %334, i64 %335
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %336, ptr noundef nonnull align 8 dereferenceable(16) %20, i64 16, i1 false), !tbaa.struct !204
   %337 = load ptr, ptr %1, align 8, !tbaa !201
   %338 = getelementptr inbounds i8, ptr %337, i64 -4
@@ -10094,7 +10094,7 @@ _ZN6vectorI12builtin_nameLb0EjE9push_backEOS0_.exit101: ; preds = %344, %350
   %351 = phi i32 [ %.pre2.i100, %350 ], [ %346, %344 ]
   %352 = phi ptr [ %.pre.i98, %350 ], [ %342, %344 ]
   %353 = zext i32 %351 to i64
-  %354 = getelementptr inbounds nuw %struct.builtin_name, ptr %352, i64 %353
+  %354 = getelementptr inbounds nuw [16 x i8], ptr %352, i64 %353
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %354, ptr noundef nonnull align 8 dereferenceable(16) %21, i64 16, i1 false), !tbaa.struct !204
   %355 = load ptr, ptr %1, align 8, !tbaa !201
   %356 = getelementptr inbounds i8, ptr %355, i64 -4
@@ -10148,7 +10148,7 @@ _ZN6vectorI12builtin_nameLb0EjE9push_backEOS0_.exit105: ; preds = %370, %376
   %377 = phi i32 [ %.pre2.i104, %376 ], [ %372, %370 ]
   %378 = phi ptr [ %.pre.i102, %376 ], [ %368, %370 ]
   %379 = zext i32 %377 to i64
-  %380 = getelementptr inbounds nuw %struct.builtin_name, ptr %378, i64 %379
+  %380 = getelementptr inbounds nuw [16 x i8], ptr %378, i64 %379
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %380, ptr noundef nonnull align 8 dereferenceable(16) %23, i64 16, i1 false), !tbaa.struct !204
   %381 = load ptr, ptr %1, align 8, !tbaa !201
   %382 = getelementptr inbounds i8, ptr %381, i64 -4
@@ -10183,7 +10183,7 @@ _ZN6vectorI12builtin_nameLb0EjE9push_backEOS0_.exit109: ; preds = %388, %394
   %395 = phi i32 [ %.pre2.i108, %394 ], [ %390, %388 ]
   %396 = phi ptr [ %.pre.i106, %394 ], [ %386, %388 ]
   %397 = zext i32 %395 to i64
-  %398 = getelementptr inbounds nuw %struct.builtin_name, ptr %396, i64 %397
+  %398 = getelementptr inbounds nuw [16 x i8], ptr %396, i64 %397
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %398, ptr noundef nonnull align 8 dereferenceable(16) %24, i64 16, i1 false), !tbaa.struct !204
   %399 = load ptr, ptr %1, align 8, !tbaa !201
   %400 = getelementptr inbounds i8, ptr %399, i64 -4
@@ -10218,7 +10218,7 @@ _ZN6vectorI12builtin_nameLb0EjE9push_backEOS0_.exit113: ; preds = %406, %412
   %413 = phi i32 [ %.pre2.i112, %412 ], [ %408, %406 ]
   %414 = phi ptr [ %.pre.i110, %412 ], [ %404, %406 ]
   %415 = zext i32 %413 to i64
-  %416 = getelementptr inbounds nuw %struct.builtin_name, ptr %414, i64 %415
+  %416 = getelementptr inbounds nuw [16 x i8], ptr %414, i64 %415
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %416, ptr noundef nonnull align 8 dereferenceable(16) %25, i64 16, i1 false), !tbaa.struct !204
   %417 = load ptr, ptr %1, align 8, !tbaa !201
   %418 = getelementptr inbounds i8, ptr %417, i64 -4
@@ -10253,7 +10253,7 @@ _ZN6vectorI12builtin_nameLb0EjE9push_backEOS0_.exit117: ; preds = %424, %430
   %431 = phi i32 [ %.pre2.i116, %430 ], [ %426, %424 ]
   %432 = phi ptr [ %.pre.i114, %430 ], [ %422, %424 ]
   %433 = zext i32 %431 to i64
-  %434 = getelementptr inbounds nuw %struct.builtin_name, ptr %432, i64 %433
+  %434 = getelementptr inbounds nuw [16 x i8], ptr %432, i64 %433
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %434, ptr noundef nonnull align 8 dereferenceable(16) %26, i64 16, i1 false), !tbaa.struct !204
   %435 = load ptr, ptr %1, align 8, !tbaa !201
   %436 = getelementptr inbounds i8, ptr %435, i64 -4
@@ -10288,7 +10288,7 @@ _ZN6vectorI12builtin_nameLb0EjE9push_backEOS0_.exit121: ; preds = %442, %448
   %449 = phi i32 [ %.pre2.i120, %448 ], [ %444, %442 ]
   %450 = phi ptr [ %.pre.i118, %448 ], [ %440, %442 ]
   %451 = zext i32 %449 to i64
-  %452 = getelementptr inbounds nuw %struct.builtin_name, ptr %450, i64 %451
+  %452 = getelementptr inbounds nuw [16 x i8], ptr %450, i64 %451
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %452, ptr noundef nonnull align 8 dereferenceable(16) %27, i64 16, i1 false), !tbaa.struct !204
   %453 = load ptr, ptr %1, align 8, !tbaa !201
   %454 = getelementptr inbounds i8, ptr %453, i64 -4
@@ -10323,7 +10323,7 @@ _ZN6vectorI12builtin_nameLb0EjE9push_backEOS0_.exit125: ; preds = %460, %466
   %467 = phi i32 [ %.pre2.i124, %466 ], [ %462, %460 ]
   %468 = phi ptr [ %.pre.i122, %466 ], [ %458, %460 ]
   %469 = zext i32 %467 to i64
-  %470 = getelementptr inbounds nuw %struct.builtin_name, ptr %468, i64 %469
+  %470 = getelementptr inbounds nuw [16 x i8], ptr %468, i64 %469
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %470, ptr noundef nonnull align 8 dereferenceable(16) %28, i64 16, i1 false), !tbaa.struct !204
   %471 = load ptr, ptr %1, align 8, !tbaa !201
   %472 = getelementptr inbounds i8, ptr %471, i64 -4
@@ -10358,7 +10358,7 @@ _ZN6vectorI12builtin_nameLb0EjE9push_backEOS0_.exit129: ; preds = %478, %484
   %485 = phi i32 [ %.pre2.i128, %484 ], [ %480, %478 ]
   %486 = phi ptr [ %.pre.i126, %484 ], [ %476, %478 ]
   %487 = zext i32 %485 to i64
-  %488 = getelementptr inbounds nuw %struct.builtin_name, ptr %486, i64 %487
+  %488 = getelementptr inbounds nuw [16 x i8], ptr %486, i64 %487
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %488, ptr noundef nonnull align 8 dereferenceable(16) %29, i64 16, i1 false), !tbaa.struct !204
   %489 = load ptr, ptr %1, align 8, !tbaa !201
   %490 = getelementptr inbounds i8, ptr %489, i64 -4
@@ -10393,7 +10393,7 @@ _ZN6vectorI12builtin_nameLb0EjE9push_backEOS0_.exit133: ; preds = %496, %502
   %503 = phi i32 [ %.pre2.i132, %502 ], [ %498, %496 ]
   %504 = phi ptr [ %.pre.i130, %502 ], [ %494, %496 ]
   %505 = zext i32 %503 to i64
-  %506 = getelementptr inbounds nuw %struct.builtin_name, ptr %504, i64 %505
+  %506 = getelementptr inbounds nuw [16 x i8], ptr %504, i64 %505
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %506, ptr noundef nonnull align 8 dereferenceable(16) %30, i64 16, i1 false), !tbaa.struct !204
   %507 = load ptr, ptr %1, align 8, !tbaa !201
   %508 = getelementptr inbounds i8, ptr %507, i64 -4
@@ -10428,7 +10428,7 @@ _ZN6vectorI12builtin_nameLb0EjE9push_backEOS0_.exit137: ; preds = %514, %520
   %521 = phi i32 [ %.pre2.i136, %520 ], [ %516, %514 ]
   %522 = phi ptr [ %.pre.i134, %520 ], [ %512, %514 ]
   %523 = zext i32 %521 to i64
-  %524 = getelementptr inbounds nuw %struct.builtin_name, ptr %522, i64 %523
+  %524 = getelementptr inbounds nuw [16 x i8], ptr %522, i64 %523
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %524, ptr noundef nonnull align 8 dereferenceable(16) %31, i64 16, i1 false), !tbaa.struct !204
   %525 = load ptr, ptr %1, align 8, !tbaa !201
   %526 = getelementptr inbounds i8, ptr %525, i64 -4
@@ -10463,7 +10463,7 @@ _ZN6vectorI12builtin_nameLb0EjE9push_backEOS0_.exit141: ; preds = %532, %538
   %539 = phi i32 [ %.pre2.i140, %538 ], [ %534, %532 ]
   %540 = phi ptr [ %.pre.i138, %538 ], [ %530, %532 ]
   %541 = zext i32 %539 to i64
-  %542 = getelementptr inbounds nuw %struct.builtin_name, ptr %540, i64 %541
+  %542 = getelementptr inbounds nuw [16 x i8], ptr %540, i64 %541
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %542, ptr noundef nonnull align 8 dereferenceable(16) %32, i64 16, i1 false), !tbaa.struct !204
   %543 = load ptr, ptr %1, align 8, !tbaa !201
   %544 = getelementptr inbounds i8, ptr %543, i64 -4
@@ -10498,7 +10498,7 @@ _ZN6vectorI12builtin_nameLb0EjE9push_backEOS0_.exit145: ; preds = %550, %556
   %557 = phi i32 [ %.pre2.i144, %556 ], [ %552, %550 ]
   %558 = phi ptr [ %.pre.i142, %556 ], [ %548, %550 ]
   %559 = zext i32 %557 to i64
-  %560 = getelementptr inbounds nuw %struct.builtin_name, ptr %558, i64 %559
+  %560 = getelementptr inbounds nuw [16 x i8], ptr %558, i64 %559
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %560, ptr noundef nonnull align 8 dereferenceable(16) %33, i64 16, i1 false), !tbaa.struct !204
   %561 = load ptr, ptr %1, align 8, !tbaa !201
   %562 = getelementptr inbounds i8, ptr %561, i64 -4
@@ -10533,7 +10533,7 @@ _ZN6vectorI12builtin_nameLb0EjE9push_backEOS0_.exit149: ; preds = %568, %574
   %575 = phi i32 [ %.pre2.i148, %574 ], [ %570, %568 ]
   %576 = phi ptr [ %.pre.i146, %574 ], [ %566, %568 ]
   %577 = zext i32 %575 to i64
-  %578 = getelementptr inbounds nuw %struct.builtin_name, ptr %576, i64 %577
+  %578 = getelementptr inbounds nuw [16 x i8], ptr %576, i64 %577
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %578, ptr noundef nonnull align 8 dereferenceable(16) %34, i64 16, i1 false), !tbaa.struct !204
   %579 = load ptr, ptr %1, align 8, !tbaa !201
   %580 = getelementptr inbounds i8, ptr %579, i64 -4
@@ -10568,7 +10568,7 @@ _ZN6vectorI12builtin_nameLb0EjE9push_backEOS0_.exit153: ; preds = %586, %592
   %593 = phi i32 [ %.pre2.i152, %592 ], [ %588, %586 ]
   %594 = phi ptr [ %.pre.i150, %592 ], [ %584, %586 ]
   %595 = zext i32 %593 to i64
-  %596 = getelementptr inbounds nuw %struct.builtin_name, ptr %594, i64 %595
+  %596 = getelementptr inbounds nuw [16 x i8], ptr %594, i64 %595
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %596, ptr noundef nonnull align 8 dereferenceable(16) %35, i64 16, i1 false), !tbaa.struct !204
   %597 = load ptr, ptr %1, align 8, !tbaa !201
   %598 = getelementptr inbounds i8, ptr %597, i64 -4
@@ -10603,7 +10603,7 @@ _ZN6vectorI12builtin_nameLb0EjE9push_backEOS0_.exit157: ; preds = %604, %610
   %611 = phi i32 [ %.pre2.i156, %610 ], [ %606, %604 ]
   %612 = phi ptr [ %.pre.i154, %610 ], [ %602, %604 ]
   %613 = zext i32 %611 to i64
-  %614 = getelementptr inbounds nuw %struct.builtin_name, ptr %612, i64 %613
+  %614 = getelementptr inbounds nuw [16 x i8], ptr %612, i64 %613
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %614, ptr noundef nonnull align 8 dereferenceable(16) %36, i64 16, i1 false), !tbaa.struct !204
   %615 = load ptr, ptr %1, align 8, !tbaa !201
   %616 = getelementptr inbounds i8, ptr %615, i64 -4
@@ -10638,7 +10638,7 @@ _ZN6vectorI12builtin_nameLb0EjE9push_backEOS0_.exit161: ; preds = %622, %628
   %629 = phi i32 [ %.pre2.i160, %628 ], [ %624, %622 ]
   %630 = phi ptr [ %.pre.i158, %628 ], [ %620, %622 ]
   %631 = zext i32 %629 to i64
-  %632 = getelementptr inbounds nuw %struct.builtin_name, ptr %630, i64 %631
+  %632 = getelementptr inbounds nuw [16 x i8], ptr %630, i64 %631
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %632, ptr noundef nonnull align 8 dereferenceable(16) %37, i64 16, i1 false), !tbaa.struct !204
   %633 = load ptr, ptr %1, align 8, !tbaa !201
   %634 = getelementptr inbounds i8, ptr %633, i64 -4
@@ -10673,7 +10673,7 @@ _ZN6vectorI12builtin_nameLb0EjE9push_backEOS0_.exit165: ; preds = %640, %646
   %647 = phi i32 [ %.pre2.i164, %646 ], [ %642, %640 ]
   %648 = phi ptr [ %.pre.i162, %646 ], [ %638, %640 ]
   %649 = zext i32 %647 to i64
-  %650 = getelementptr inbounds nuw %struct.builtin_name, ptr %648, i64 %649
+  %650 = getelementptr inbounds nuw [16 x i8], ptr %648, i64 %649
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %650, ptr noundef nonnull align 8 dereferenceable(16) %38, i64 16, i1 false), !tbaa.struct !204
   %651 = load ptr, ptr %1, align 8, !tbaa !201
   %652 = getelementptr inbounds i8, ptr %651, i64 -4
@@ -10708,7 +10708,7 @@ _ZN6vectorI12builtin_nameLb0EjE9push_backEOS0_.exit169: ; preds = %658, %664
   %665 = phi i32 [ %.pre2.i168, %664 ], [ %660, %658 ]
   %666 = phi ptr [ %.pre.i166, %664 ], [ %656, %658 ]
   %667 = zext i32 %665 to i64
-  %668 = getelementptr inbounds nuw %struct.builtin_name, ptr %666, i64 %667
+  %668 = getelementptr inbounds nuw [16 x i8], ptr %666, i64 %667
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %668, ptr noundef nonnull align 8 dereferenceable(16) %39, i64 16, i1 false), !tbaa.struct !204
   %669 = load ptr, ptr %1, align 8, !tbaa !201
   %670 = getelementptr inbounds i8, ptr %669, i64 -4
@@ -10743,7 +10743,7 @@ _ZN6vectorI12builtin_nameLb0EjE9push_backEOS0_.exit173: ; preds = %676, %682
   %683 = phi i32 [ %.pre2.i172, %682 ], [ %678, %676 ]
   %684 = phi ptr [ %.pre.i170, %682 ], [ %674, %676 ]
   %685 = zext i32 %683 to i64
-  %686 = getelementptr inbounds nuw %struct.builtin_name, ptr %684, i64 %685
+  %686 = getelementptr inbounds nuw [16 x i8], ptr %684, i64 %685
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %686, ptr noundef nonnull align 8 dereferenceable(16) %40, i64 16, i1 false), !tbaa.struct !204
   %687 = load ptr, ptr %1, align 8, !tbaa !201
   %688 = getelementptr inbounds i8, ptr %687, i64 -4
@@ -10778,7 +10778,7 @@ _ZN6vectorI12builtin_nameLb0EjE9push_backEOS0_.exit177: ; preds = %694, %700
   %701 = phi i32 [ %.pre2.i176, %700 ], [ %696, %694 ]
   %702 = phi ptr [ %.pre.i174, %700 ], [ %692, %694 ]
   %703 = zext i32 %701 to i64
-  %704 = getelementptr inbounds nuw %struct.builtin_name, ptr %702, i64 %703
+  %704 = getelementptr inbounds nuw [16 x i8], ptr %702, i64 %703
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %704, ptr noundef nonnull align 8 dereferenceable(16) %41, i64 16, i1 false), !tbaa.struct !204
   %705 = load ptr, ptr %1, align 8, !tbaa !201
   %706 = getelementptr inbounds i8, ptr %705, i64 -4
@@ -11018,10 +11018,10 @@ _ZN17arith_decl_plugin25algebraic_numbers_wrapper7to_anumEP9func_decl.exit12: ; 
   %61 = load ptr, ptr %60, align 8, !tbaa !41
   %62 = load i32, ptr %51, align 4, !tbaa !40
   %63 = zext i32 %62 to i64
-  %64 = getelementptr inbounds nuw %"class.algebraic_numbers::anum", ptr %61, i64 %63
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %63
   %65 = load i32, ptr %.pre18, align 4, !tbaa !40
   %66 = zext i32 %65 to i64
-  %67 = getelementptr inbounds nuw %"class.algebraic_numbers::anum", ptr %61, i64 %66
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %66
   %68 = tail call noundef zeroext i1 @_ZN17algebraic_numbers7manager2eqERKNS_4anumES3_(ptr noundef nonnull align 8 dereferenceable(17) %49, ptr noundef nonnull align 8 dereferenceable(8) %64, ptr noundef nonnull align 8 dereferenceable(8) %67)
   br label %_Z9is_app_ofPK4exprii.exit.thread
 
@@ -11162,10 +11162,10 @@ _ZN17arith_decl_plugin25algebraic_numbers_wrapper7to_anumEP9func_decl.exit7: ; p
   %69 = load ptr, ptr %68, align 8, !tbaa !41
   %70 = load i32, ptr %59, align 4, !tbaa !40
   %71 = zext i32 %70 to i64
-  %72 = getelementptr inbounds nuw %"class.algebraic_numbers::anum", ptr %69, i64 %71
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %71
   %73 = load i32, ptr %.pre89, align 4, !tbaa !40
   %74 = zext i32 %73 to i64
-  %75 = getelementptr inbounds nuw %"class.algebraic_numbers::anum", ptr %69, i64 %74
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %74
   %76 = tail call noundef zeroext i1 @_ZN17algebraic_numbers7manager2eqERKNS_4anumES3_(ptr noundef nonnull align 8 dereferenceable(17) %57, ptr noundef nonnull align 8 dereferenceable(8) %72, ptr noundef nonnull align 8 dereferenceable(8) %75)
   %77 = xor i1 %76, true
   br label %378
@@ -11373,7 +11373,7 @@ _ZN8rationalC2ERKS_.exit:                         ; preds = %158, %162
   %185 = getelementptr inbounds nuw i8, ptr %171, i64 768
   %186 = load ptr, ptr %185, align 8, !tbaa !41
   %187 = zext i32 %184 to i64
-  %188 = getelementptr inbounds nuw %"class.algebraic_numbers::anum", ptr %186, i64 %187
+  %188 = getelementptr inbounds nuw [8 x i8], ptr %186, i64 %187
   %189 = invoke noundef zeroext i1 @_ZN17algebraic_numbers7manager2eqERKNS_4anumERK3mpq(ptr noundef nonnull align 8 dereferenceable(17) %183, ptr noundef nonnull align 8 dereferenceable(8) %188, ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %190 unwind label %196
 
@@ -12256,7 +12256,7 @@ _Z11is_uninterpPK4expr.exit:                      ; preds = %18
   %38 = load ptr, ptr %3, align 8, !tbaa !222
   %39 = add i32 %34, -1
   %40 = zext i32 %39 to i64
-  %41 = getelementptr inbounds nuw ptr, ptr %38, i64 %40
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %40
   %42 = load ptr, ptr %41, align 8, !tbaa !196
   store i32 %39, ptr %27, align 8, !tbaa !226
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 4
@@ -12365,7 +12365,7 @@ _ZNK17arith_recognizers6is_mulEPK4expr.exit:      ; preds = %_ZNK17arith_recogni
   %99 = phi i32 [ %.pre7.i, %.lr.ph.i ], [ %114, %_ZN6bufferIPK4exprLb0ELj16EE9push_backERKS2_.exit.i ]
   %100 = phi i32 [ %.pre52, %.lr.ph.i ], [ %120, %_ZN6bufferIPK4exprLb0ELj16EE9push_backERKS2_.exit.i ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %_ZN6bufferIPK4exprLb0ELj16EE9push_backERKS2_.exit.i ]
-  %101 = getelementptr inbounds nuw ptr, ptr %97, i64 %indvars.iv.i
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %97, i64 %indvars.iv.i
   %.not.i.i22 = icmp ult i32 %100, %99
   br i1 %.not.i.i22, label %._crit_edge.i.i26, label %102
 
@@ -12406,8 +12406,8 @@ _ZNK17arith_recognizers6is_mulEPK4expr.exit:      ; preds = %_ZNK17arith_recogni
 
 110:                                              ; preds = %110, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %110 ]
-  %111 = getelementptr inbounds nuw ptr, ptr %106, i64 %indvars.iv.i.i.i
-  %112 = getelementptr inbounds nuw ptr, ptr %.pre.i.i.i, i64 %indvars.iv.i.i.i
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %indvars.iv.i.i.i
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i.i.i, i64 %indvars.iv.i.i.i
   %113 = load ptr, ptr %112, align 8, !tbaa !196
   store ptr %113, ptr %111, align 8, !tbaa !196
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -12425,7 +12425,7 @@ _ZN6bufferIPK4exprLb0ELj16EE9push_backERKS2_.exit.i: ; preds = %_ZN6bufferIPK4ex
   %115 = phi i32 [ %100, %._crit_edge.i.i26 ], [ %.pre2.i.i, %_ZN6bufferIPK4exprLb0ELj16EE6expandEv.exit.i.i ]
   %116 = phi ptr [ %.pre.i.i27, %._crit_edge.i.i26 ], [ %106, %_ZN6bufferIPK4exprLb0ELj16EE6expandEv.exit.i.i ]
   %117 = zext i32 %115 to i64
-  %118 = getelementptr inbounds nuw ptr, ptr %116, i64 %117
+  %118 = getelementptr inbounds nuw [8 x i8], ptr %116, i64 %117
   %119 = load ptr, ptr %101, align 8, !tbaa !196
   store ptr %119, ptr %118, align 8, !tbaa !196
   %120 = add i32 %115, 1
@@ -12583,7 +12583,7 @@ _ZN17arith_decl_plugin25algebraic_numbers_wrapper7to_anumEP9func_decl.exit: ; pr
   %29 = getelementptr inbounds nuw i8, ptr %16, i64 768
   %30 = load ptr, ptr %29, align 8, !tbaa !41
   %31 = zext i32 %28 to i64
-  %32 = getelementptr inbounds nuw %"class.algebraic_numbers::anum", ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %31
   ret ptr %32
 }
 
@@ -15923,7 +15923,7 @@ _ZN22_scoped_numeral_vectorIN17algebraic_numbers7managerEE5resetEv.exit.thread3.
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %.noexc.i ]
   %10 = load ptr, ptr %7, align 8, !tbaa !244
   %11 = load ptr, ptr %2, align 8, !tbaa !41
-  %12 = getelementptr inbounds nuw %"class.algebraic_numbers::anum", ptr %11, i64 %indvars.iv.i.i
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv.i.i
   invoke void @_ZN17algebraic_numbers7manager3delERNS_4anumE(ptr noundef nonnull align 8 dereferenceable(17) %10, ptr noundef nonnull align 8 dereferenceable(8) %12)
           to label %.noexc.i unwind label %17
 

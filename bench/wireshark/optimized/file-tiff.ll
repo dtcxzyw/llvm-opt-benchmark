@@ -1191,7 +1191,7 @@ tiff_data_len.exit.thread.i.i.i:                  ; preds = %435
 switch.lookup:                                    ; preds = %435
   %440 = load i32, ptr %18, align 4
   %441 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.dissect_tiff, i64 %441
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_tiff, i64 %441
   %switch.load = load i32, ptr %switch.gep, align 4
   %442 = mul i32 %switch.load, %440
   %443 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %52, ptr noundef nonnull @ei_tiff_unknown_tag)
@@ -1388,7 +1388,7 @@ define internal fastcc void @dissect_tiff_array_uint(ptr noundef %0, ptr noundef
 
 switch.lookup:                                    ; preds = %14
   %18 = sext i16 %4 to i64
-  %19 = getelementptr i32, ptr @switch.table.dissect_tiff_array_uint, i64 %18
+  %19 = getelementptr [4 x i8], ptr @switch.table.dissect_tiff_array_uint, i64 %18
   %switch.gep = getelementptr i8, ptr %19, i64 -4
   %switch.load = load i32, ptr %switch.gep, align 4
   %20 = mul i32 %switch.load, %5

@@ -62,7 +62,7 @@ define void @_ZN6BlocksC2EiPP8Variable(ptr noundef nonnull align 8 dereferenceab
 
 13:                                               ; preds = %.lr.ph
   %14 = load ptr, ptr %9, align 8, !tbaa !16
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8, !tbaa !27
   invoke void @_ZN5BlockC1EP8Variable(ptr noundef nonnull align 8 dereferenceable(112) %12, ptr noundef %16)
           to label %17 unwind label %44
@@ -291,7 +291,7 @@ define void @_ZN6Blocks10totalOrderB5cxx11Ev(ptr dead_on_unwind noalias writable
 
 11:                                               ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
-  %12 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !27
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 40
   store i8 0, ptr %14, align 8, !tbaa !48
@@ -303,7 +303,7 @@ define void @_ZN6Blocks10totalOrderB5cxx11Ev(ptr dead_on_unwind noalias writable
   %16 = phi i32 [ %6, %.lr.ph13 ], [ %31, %30 ]
   %indvars.iv15 = phi i64 [ 0, %.lr.ph13 ], [ %indvars.iv.next16, %30 ]
   %17 = load ptr, ptr %10, align 8, !tbaa !16
-  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv15
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv15
   %19 = load ptr, ptr %18, align 8, !tbaa !27
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 48
   %21 = load ptr, ptr %20, align 8, !tbaa !56

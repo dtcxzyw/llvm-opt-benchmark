@@ -154,10 +154,10 @@ define internal range(i32 -2147483648, 1) i32 @process_command(ptr noundef %0, p
 
 switch.lookup:                                    ; preds = %9
   %19 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.acrossfade_config_output.3, i64 %19
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.acrossfade_config_output.3, i64 %19
   %switch.load = load ptr, ptr %switch.gep, align 8
   %20 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep13 = getelementptr inbounds nuw ptr, ptr @switch.table.acrossfade_config_output.4, i64 %20
+  %switch.gep13 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.acrossfade_config_output.4, i64 %20
   %switch.load14 = load ptr, ptr %switch.gep13, align 8
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 96
   store ptr %switch.load, ptr %21, align 8, !tbaa !38
@@ -241,7 +241,7 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
 16:                                               ; preds = %.lr.ph, %16
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %16 ]
   %17 = load ptr, ptr %15, align 8, !tbaa !46
-  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !26
   tail call void @ff_inlink_set_status(ptr noundef %19, i32 noundef %12) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -879,10 +879,10 @@ define internal noundef i32 @config_output(ptr noundef readonly captures(none) %
 
 switch.lookup:                                    ; preds = %1
   %8 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.acrossfade_config_output.3, i64 %8
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.acrossfade_config_output.3, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
   %9 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep32 = getelementptr inbounds nuw ptr, ptr @switch.table.acrossfade_config_output.4, i64 %9
+  %switch.gep32 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.acrossfade_config_output.4, i64 %9
   %switch.load33 = load ptr, ptr %switch.gep32, align 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 96
   store ptr %switch.load, ptr %10, align 8, !tbaa !38
@@ -952,10 +952,10 @@ define internal void @fade_samples_dbl(ptr noundef readonly captures(none) %0, p
 
 21:                                               ; preds = %.lr.ph.us, %21
   %indvars.iv = phi i64 [ %19, %.lr.ph.us ], [ %indvars.iv.next, %21 ]
-  %22 = getelementptr inbounds double, ptr %12, i64 %indvars.iv
+  %22 = getelementptr inbounds [8 x i8], ptr %12, i64 %indvars.iv
   %23 = load double, ptr %22, align 8, !tbaa !72
   %24 = fmul nsz double %18, %23
-  %25 = getelementptr inbounds double, ptr %11, i64 %indvars.iv
+  %25 = getelementptr inbounds [8 x i8], ptr %11, i64 %indvars.iv
   store double %24, ptr %25, align 8, !tbaa !72
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
@@ -989,10 +989,10 @@ define internal void @scale_samples_dbl(ptr noundef readonly captures(none) %0, 
 
 12:                                               ; preds = %.preheader.us, %12
   %indvars.iv = phi i64 [ %10, %.preheader.us ], [ %indvars.iv.next, %12 ]
-  %13 = getelementptr inbounds double, ptr %7, i64 %indvars.iv
+  %13 = getelementptr inbounds [8 x i8], ptr %7, i64 %indvars.iv
   %14 = load double, ptr %13, align 8, !tbaa !72
   %15 = fmul nsz double %4, %14
-  %16 = getelementptr inbounds double, ptr %6, i64 %indvars.iv
+  %16 = getelementptr inbounds [8 x i8], ptr %6, i64 %indvars.iv
   store double %15, ptr %16, align 8, !tbaa !72
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
@@ -1030,14 +1030,14 @@ define internal void @fade_samples_dblp(ptr noundef readonly captures(none) %0, 
 
 17:                                               ; preds = %.lr.ph.us, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %17 ]
-  %18 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !71
-  %20 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8, !tbaa !71
-  %22 = getelementptr inbounds nuw double, ptr %21, i64 %indvars.iv29
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv29
   %23 = load double, ptr %22, align 8, !tbaa !72
   %24 = fmul nsz double %16, %23
-  %25 = getelementptr inbounds nuw double, ptr %19, i64 %indvars.iv29
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv29
   store double %24, ptr %25, align 8, !tbaa !72
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1070,14 +1070,14 @@ define internal void @scale_samples_dblp(ptr noundef readonly captures(none) %0,
 
 8:                                                ; preds = %.preheader.us, %8
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %8 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !71
-  %11 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !71
-  %13 = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv20
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv20
   %14 = load double, ptr %13, align 8, !tbaa !72
   %15 = fmul nsz double %4, %14
-  %16 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv20
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv20
   store double %15, ptr %16, align 8, !tbaa !72
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1118,12 +1118,12 @@ define internal void @fade_samples_flt(ptr noundef readonly captures(none) %0, p
 
 21:                                               ; preds = %.lr.ph.us, %21
   %indvars.iv = phi i64 [ %19, %.lr.ph.us ], [ %indvars.iv.next, %21 ]
-  %22 = getelementptr inbounds float, ptr %12, i64 %indvars.iv
+  %22 = getelementptr inbounds [4 x i8], ptr %12, i64 %indvars.iv
   %23 = load float, ptr %22, align 4, !tbaa !81
   %24 = fpext nsz float %23 to double
   %25 = fmul nsz double %18, %24
   %26 = fptrunc nsz double %25 to float
-  %27 = getelementptr inbounds float, ptr %11, i64 %indvars.iv
+  %27 = getelementptr inbounds [4 x i8], ptr %11, i64 %indvars.iv
   store float %26, ptr %27, align 4, !tbaa !81
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
@@ -1157,12 +1157,12 @@ define internal void @scale_samples_flt(ptr noundef readonly captures(none) %0, 
 
 12:                                               ; preds = %.preheader.us, %12
   %indvars.iv = phi i64 [ %10, %.preheader.us ], [ %indvars.iv.next, %12 ]
-  %13 = getelementptr inbounds float, ptr %7, i64 %indvars.iv
+  %13 = getelementptr inbounds [4 x i8], ptr %7, i64 %indvars.iv
   %14 = load float, ptr %13, align 4, !tbaa !81
   %15 = fpext nsz float %14 to double
   %16 = fmul nsz double %4, %15
   %17 = fptrunc nsz double %16 to float
-  %18 = getelementptr inbounds float, ptr %6, i64 %indvars.iv
+  %18 = getelementptr inbounds [4 x i8], ptr %6, i64 %indvars.iv
   store float %17, ptr %18, align 4, !tbaa !81
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
@@ -1200,16 +1200,16 @@ define internal void @fade_samples_fltp(ptr noundef readonly captures(none) %0, 
 
 17:                                               ; preds = %.lr.ph.us, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %17 ]
-  %18 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !71
-  %20 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8, !tbaa !71
-  %22 = getelementptr inbounds nuw float, ptr %21, i64 %indvars.iv29
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %indvars.iv29
   %23 = load float, ptr %22, align 4, !tbaa !81
   %24 = fpext nsz float %23 to double
   %25 = fmul nsz double %16, %24
   %26 = fptrunc nsz double %25 to float
-  %27 = getelementptr inbounds nuw float, ptr %19, i64 %indvars.iv29
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %indvars.iv29
   store float %26, ptr %27, align 4, !tbaa !81
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1242,16 +1242,16 @@ define internal void @scale_samples_fltp(ptr noundef readonly captures(none) %0,
 
 8:                                                ; preds = %.preheader.us, %8
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %8 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !71
-  %11 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !71
-  %13 = getelementptr inbounds nuw float, ptr %12, i64 %indvars.iv20
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv20
   %14 = load float, ptr %13, align 4, !tbaa !81
   %15 = fpext nsz float %14 to double
   %16 = fmul nsz double %4, %15
   %17 = fptrunc nsz double %16 to float
-  %18 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv20
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv20
   store float %17, ptr %18, align 4, !tbaa !81
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1292,12 +1292,12 @@ define internal void @fade_samples_s16(ptr noundef readonly captures(none) %0, p
 
 21:                                               ; preds = %.lr.ph.us, %21
   %indvars.iv = phi i64 [ %19, %.lr.ph.us ], [ %indvars.iv.next, %21 ]
-  %22 = getelementptr inbounds i16, ptr %12, i64 %indvars.iv
+  %22 = getelementptr inbounds [2 x i8], ptr %12, i64 %indvars.iv
   %23 = load i16, ptr %22, align 2, !tbaa !91
   %24 = sitofp i16 %23 to double
   %25 = fmul nsz double %18, %24
   %26 = fptosi double %25 to i16
-  %27 = getelementptr inbounds i16, ptr %11, i64 %indvars.iv
+  %27 = getelementptr inbounds [2 x i8], ptr %11, i64 %indvars.iv
   store i16 %26, ptr %27, align 2, !tbaa !91
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
@@ -1331,12 +1331,12 @@ define internal void @scale_samples_s16(ptr noundef readonly captures(none) %0, 
 
 12:                                               ; preds = %.preheader.us, %12
   %indvars.iv = phi i64 [ %10, %.preheader.us ], [ %indvars.iv.next, %12 ]
-  %13 = getelementptr inbounds i16, ptr %7, i64 %indvars.iv
+  %13 = getelementptr inbounds [2 x i8], ptr %7, i64 %indvars.iv
   %14 = load i16, ptr %13, align 2, !tbaa !91
   %15 = sitofp i16 %14 to double
   %16 = fmul nsz double %4, %15
   %17 = fptosi double %16 to i16
-  %18 = getelementptr inbounds i16, ptr %6, i64 %indvars.iv
+  %18 = getelementptr inbounds [2 x i8], ptr %6, i64 %indvars.iv
   store i16 %17, ptr %18, align 2, !tbaa !91
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
@@ -1374,16 +1374,16 @@ define internal void @fade_samples_s16p(ptr noundef readonly captures(none) %0, 
 
 17:                                               ; preds = %.lr.ph.us, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %17 ]
-  %18 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !71
-  %20 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8, !tbaa !71
-  %22 = getelementptr inbounds nuw i16, ptr %21, i64 %indvars.iv29
+  %22 = getelementptr inbounds nuw [2 x i8], ptr %21, i64 %indvars.iv29
   %23 = load i16, ptr %22, align 2, !tbaa !91
   %24 = sitofp i16 %23 to double
   %25 = fmul nsz double %16, %24
   %26 = fptosi double %25 to i16
-  %27 = getelementptr inbounds nuw i16, ptr %19, i64 %indvars.iv29
+  %27 = getelementptr inbounds nuw [2 x i8], ptr %19, i64 %indvars.iv29
   store i16 %26, ptr %27, align 2, !tbaa !91
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1416,16 +1416,16 @@ define internal void @scale_samples_s16p(ptr noundef readonly captures(none) %0,
 
 8:                                                ; preds = %.preheader.us, %8
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %8 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !71
-  %11 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !71
-  %13 = getelementptr inbounds nuw i16, ptr %12, i64 %indvars.iv20
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %indvars.iv20
   %14 = load i16, ptr %13, align 2, !tbaa !91
   %15 = sitofp i16 %14 to double
   %16 = fmul nsz double %4, %15
   %17 = fptosi double %16 to i16
-  %18 = getelementptr inbounds nuw i16, ptr %10, i64 %indvars.iv20
+  %18 = getelementptr inbounds nuw [2 x i8], ptr %10, i64 %indvars.iv20
   store i16 %17, ptr %18, align 2, !tbaa !91
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1466,12 +1466,12 @@ define internal void @fade_samples_s32(ptr noundef readonly captures(none) %0, p
 
 21:                                               ; preds = %.lr.ph.us, %21
   %indvars.iv = phi i64 [ %19, %.lr.ph.us ], [ %indvars.iv.next, %21 ]
-  %22 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv
+  %22 = getelementptr inbounds [4 x i8], ptr %12, i64 %indvars.iv
   %23 = load i32, ptr %22, align 4, !tbaa !50
   %24 = sitofp i32 %23 to double
   %25 = fmul nsz double %18, %24
   %26 = fptosi double %25 to i32
-  %27 = getelementptr inbounds i32, ptr %11, i64 %indvars.iv
+  %27 = getelementptr inbounds [4 x i8], ptr %11, i64 %indvars.iv
   store i32 %26, ptr %27, align 4, !tbaa !50
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
@@ -1505,12 +1505,12 @@ define internal void @scale_samples_s32(ptr noundef readonly captures(none) %0, 
 
 12:                                               ; preds = %.preheader.us, %12
   %indvars.iv = phi i64 [ %10, %.preheader.us ], [ %indvars.iv.next, %12 ]
-  %13 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv
+  %13 = getelementptr inbounds [4 x i8], ptr %7, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4, !tbaa !50
   %15 = sitofp i32 %14 to double
   %16 = fmul nsz double %4, %15
   %17 = fptosi double %16 to i32
-  %18 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv
+  %18 = getelementptr inbounds [4 x i8], ptr %6, i64 %indvars.iv
   store i32 %17, ptr %18, align 4, !tbaa !50
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
@@ -1548,16 +1548,16 @@ define internal void @fade_samples_s32p(ptr noundef readonly captures(none) %0, 
 
 17:                                               ; preds = %.lr.ph.us, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %17 ]
-  %18 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !71
-  %20 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8, !tbaa !71
-  %22 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv29
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %indvars.iv29
   %23 = load i32, ptr %22, align 4, !tbaa !50
   %24 = sitofp i32 %23 to double
   %25 = fmul nsz double %16, %24
   %26 = fptosi double %25 to i32
-  %27 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv29
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %indvars.iv29
   store i32 %26, ptr %27, align 4, !tbaa !50
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1590,16 +1590,16 @@ define internal void @scale_samples_s32p(ptr noundef readonly captures(none) %0,
 
 8:                                                ; preds = %.preheader.us, %8
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %8 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !71
-  %11 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !71
-  %13 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv20
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv20
   %14 = load i32, ptr %13, align 4, !tbaa !50
   %15 = sitofp i32 %14 to double
   %16 = fmul nsz double %4, %15
   %17 = fptosi double %16 to i32
-  %18 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv20
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv20
   store i32 %17, ptr %18, align 4, !tbaa !50
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1925,13 +1925,13 @@ define internal noundef i32 @acrossfade_config_output(ptr noundef captures(none)
 
 switch.lookup:                                    ; preds = %1
   %16 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.acrossfade_config_output, i64 %16
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.acrossfade_config_output, i64 %16
   %switch.load = load ptr, ptr %switch.gep, align 8
   %17 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep22 = getelementptr inbounds nuw ptr, ptr @switch.table.acrossfade_config_output.3, i64 %17
+  %switch.gep22 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.acrossfade_config_output.3, i64 %17
   %switch.load23 = load ptr, ptr %switch.gep22, align 8
   %18 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep24 = getelementptr inbounds nuw ptr, ptr @switch.table.acrossfade_config_output.4, i64 %18
+  %switch.gep24 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.acrossfade_config_output.4, i64 %18
   %switch.load25 = load ptr, ptr %switch.gep24, align 8
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 112
   store ptr %switch.load, ptr %19, align 8, !tbaa !60
@@ -2009,13 +2009,13 @@ define internal void @crossfade_samples_dbl(ptr noundef readonly captures(none) 
 
 21:                                               ; preds = %.lr.ph.us, %21
   %indvars.iv = phi i64 [ %19, %.lr.ph.us ], [ %indvars.iv.next, %21 ]
-  %22 = getelementptr inbounds double, ptr %9, i64 %indvars.iv
+  %22 = getelementptr inbounds [8 x i8], ptr %9, i64 %indvars.iv
   %23 = load double, ptr %22, align 8, !tbaa !72
-  %24 = getelementptr inbounds double, ptr %10, i64 %indvars.iv
+  %24 = getelementptr inbounds [8 x i8], ptr %10, i64 %indvars.iv
   %25 = load double, ptr %24, align 8, !tbaa !72
   %26 = fmul nsz double %18, %25
   %27 = tail call nsz double @llvm.fmuladd.f64(double %23, double %17, double %26)
-  %28 = getelementptr inbounds double, ptr %8, i64 %indvars.iv
+  %28 = getelementptr inbounds [8 x i8], ptr %8, i64 %indvars.iv
   store double %27, ptr %28, align 8, !tbaa !72
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
@@ -2056,19 +2056,19 @@ define internal void @crossfade_samples_dblp(ptr noundef readonly captures(none)
 
 16:                                               ; preds = %.lr.ph.us, %16
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %16 ]
-  %17 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8, !tbaa !71
-  %19 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8, !tbaa !71
-  %21 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8, !tbaa !71
-  %23 = getelementptr inbounds nuw double, ptr %20, i64 %indvars.iv35
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv35
   %24 = load double, ptr %23, align 8, !tbaa !72
-  %25 = getelementptr inbounds nuw double, ptr %22, i64 %indvars.iv35
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv35
   %26 = load double, ptr %25, align 8, !tbaa !72
   %27 = fmul nsz double %15, %26
   %28 = tail call nsz double @llvm.fmuladd.f64(double %24, double %14, double %27)
-  %29 = getelementptr inbounds nuw double, ptr %18, i64 %indvars.iv35
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv35
   store double %28, ptr %29, align 8, !tbaa !72
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2113,16 +2113,16 @@ define internal void @crossfade_samples_flt(ptr noundef readonly captures(none) 
 
 21:                                               ; preds = %.lr.ph.us, %21
   %indvars.iv = phi i64 [ %19, %.lr.ph.us ], [ %indvars.iv.next, %21 ]
-  %22 = getelementptr inbounds float, ptr %9, i64 %indvars.iv
+  %22 = getelementptr inbounds [4 x i8], ptr %9, i64 %indvars.iv
   %23 = load float, ptr %22, align 4, !tbaa !81
   %24 = fpext nsz float %23 to double
-  %25 = getelementptr inbounds float, ptr %10, i64 %indvars.iv
+  %25 = getelementptr inbounds [4 x i8], ptr %10, i64 %indvars.iv
   %26 = load float, ptr %25, align 4, !tbaa !81
   %27 = fpext nsz float %26 to double
   %28 = fmul nsz double %18, %27
   %29 = tail call nsz double @llvm.fmuladd.f64(double %24, double %17, double %28)
   %30 = fptrunc nsz double %29 to float
-  %31 = getelementptr inbounds float, ptr %8, i64 %indvars.iv
+  %31 = getelementptr inbounds [4 x i8], ptr %8, i64 %indvars.iv
   store float %30, ptr %31, align 4, !tbaa !81
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
@@ -2163,22 +2163,22 @@ define internal void @crossfade_samples_fltp(ptr noundef readonly captures(none)
 
 16:                                               ; preds = %.lr.ph.us, %16
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %16 ]
-  %17 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8, !tbaa !71
-  %19 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8, !tbaa !71
-  %21 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8, !tbaa !71
-  %23 = getelementptr inbounds nuw float, ptr %20, i64 %indvars.iv35
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv35
   %24 = load float, ptr %23, align 4, !tbaa !81
   %25 = fpext nsz float %24 to double
-  %26 = getelementptr inbounds nuw float, ptr %22, i64 %indvars.iv35
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv35
   %27 = load float, ptr %26, align 4, !tbaa !81
   %28 = fpext nsz float %27 to double
   %29 = fmul nsz double %15, %28
   %30 = tail call nsz double @llvm.fmuladd.f64(double %25, double %14, double %29)
   %31 = fptrunc nsz double %30 to float
-  %32 = getelementptr inbounds nuw float, ptr %18, i64 %indvars.iv35
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv35
   store float %31, ptr %32, align 4, !tbaa !81
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2223,16 +2223,16 @@ define internal void @crossfade_samples_s16(ptr noundef readonly captures(none) 
 
 21:                                               ; preds = %.lr.ph.us, %21
   %indvars.iv = phi i64 [ %19, %.lr.ph.us ], [ %indvars.iv.next, %21 ]
-  %22 = getelementptr inbounds i16, ptr %9, i64 %indvars.iv
+  %22 = getelementptr inbounds [2 x i8], ptr %9, i64 %indvars.iv
   %23 = load i16, ptr %22, align 2, !tbaa !91
   %24 = sitofp i16 %23 to double
-  %25 = getelementptr inbounds i16, ptr %10, i64 %indvars.iv
+  %25 = getelementptr inbounds [2 x i8], ptr %10, i64 %indvars.iv
   %26 = load i16, ptr %25, align 2, !tbaa !91
   %27 = sitofp i16 %26 to double
   %28 = fmul nsz double %18, %27
   %29 = tail call nsz double @llvm.fmuladd.f64(double %24, double %17, double %28)
   %30 = fptosi double %29 to i16
-  %31 = getelementptr inbounds i16, ptr %8, i64 %indvars.iv
+  %31 = getelementptr inbounds [2 x i8], ptr %8, i64 %indvars.iv
   store i16 %30, ptr %31, align 2, !tbaa !91
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
@@ -2273,22 +2273,22 @@ define internal void @crossfade_samples_s16p(ptr noundef readonly captures(none)
 
 16:                                               ; preds = %.lr.ph.us, %16
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %16 ]
-  %17 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8, !tbaa !71
-  %19 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8, !tbaa !71
-  %21 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8, !tbaa !71
-  %23 = getelementptr inbounds nuw i16, ptr %20, i64 %indvars.iv35
+  %23 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %indvars.iv35
   %24 = load i16, ptr %23, align 2, !tbaa !91
   %25 = sitofp i16 %24 to double
-  %26 = getelementptr inbounds nuw i16, ptr %22, i64 %indvars.iv35
+  %26 = getelementptr inbounds nuw [2 x i8], ptr %22, i64 %indvars.iv35
   %27 = load i16, ptr %26, align 2, !tbaa !91
   %28 = sitofp i16 %27 to double
   %29 = fmul nsz double %15, %28
   %30 = tail call nsz double @llvm.fmuladd.f64(double %25, double %14, double %29)
   %31 = fptosi double %30 to i16
-  %32 = getelementptr inbounds nuw i16, ptr %18, i64 %indvars.iv35
+  %32 = getelementptr inbounds nuw [2 x i8], ptr %18, i64 %indvars.iv35
   store i16 %31, ptr %32, align 2, !tbaa !91
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2333,16 +2333,16 @@ define internal void @crossfade_samples_s32(ptr noundef readonly captures(none) 
 
 21:                                               ; preds = %.lr.ph.us, %21
   %indvars.iv = phi i64 [ %19, %.lr.ph.us ], [ %indvars.iv.next, %21 ]
-  %22 = getelementptr inbounds i32, ptr %9, i64 %indvars.iv
+  %22 = getelementptr inbounds [4 x i8], ptr %9, i64 %indvars.iv
   %23 = load i32, ptr %22, align 4, !tbaa !50
   %24 = sitofp i32 %23 to double
-  %25 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv
+  %25 = getelementptr inbounds [4 x i8], ptr %10, i64 %indvars.iv
   %26 = load i32, ptr %25, align 4, !tbaa !50
   %27 = sitofp i32 %26 to double
   %28 = fmul nsz double %18, %27
   %29 = tail call nsz double @llvm.fmuladd.f64(double %24, double %17, double %28)
   %30 = fptosi double %29 to i32
-  %31 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv
+  %31 = getelementptr inbounds [4 x i8], ptr %8, i64 %indvars.iv
   store i32 %30, ptr %31, align 4, !tbaa !50
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
@@ -2383,22 +2383,22 @@ define internal void @crossfade_samples_s32p(ptr noundef readonly captures(none)
 
 16:                                               ; preds = %.lr.ph.us, %16
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %16 ]
-  %17 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8, !tbaa !71
-  %19 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8, !tbaa !71
-  %21 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8, !tbaa !71
-  %23 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv35
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv35
   %24 = load i32, ptr %23, align 4, !tbaa !50
   %25 = sitofp i32 %24 to double
-  %26 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv35
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv35
   %27 = load i32, ptr %26, align 4, !tbaa !50
   %28 = sitofp i32 %27 to double
   %29 = fmul nsz double %15, %28
   %30 = tail call nsz double @llvm.fmuladd.f64(double %25, double %14, double %29)
   %31 = fptosi double %30 to i32
-  %32 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv35
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv35
   store i32 %31, ptr %32, align 4, !tbaa !50
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

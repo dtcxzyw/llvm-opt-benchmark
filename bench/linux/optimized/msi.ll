@@ -386,7 +386,7 @@ define internal i32 @msi_set_affinity(ptr noundef %0, ptr noundef %1, i1 noundef
   tail call void @lock_vector_lock() #8
   %66 = load i32, ptr %40, align 4
   %67 = zext i32 %66 to i64
-  %68 = getelementptr ptr, ptr @vector_irq, i64 %67
+  %68 = getelementptr [8 x i8], ptr @vector_irq, i64 %67
   %69 = tail call i64 asm sideeffect "movq %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) %68) #8, !srcloc !23
   %70 = add i64 %69, 4095
   %71 = icmp ult i64 %70, 4096
@@ -395,7 +395,7 @@ define internal i32 @msi_set_affinity(ptr noundef %0, ptr noundef %1, i1 noundef
 72:                                               ; preds = %65
   %73 = load i32, ptr %40, align 4
   %74 = zext i32 %73 to i64
-  %75 = getelementptr ptr, ptr @vector_irq, i64 %74
+  %75 = getelementptr [8 x i8], ptr @vector_irq, i64 %74
   tail call void asm sideeffect "movq $1, %gs:$0", "=*m,re,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) %75, i64 -2, ptr elementtype(ptr) %75) #8, !srcloc !24
   br label %76
 

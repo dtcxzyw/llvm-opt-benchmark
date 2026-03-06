@@ -428,7 +428,7 @@ opus_packet_get_samples_per_frame.exit:           ; preds = %73, %81, %83, %87
   br i1 %117, label %.thread267, label %118
 
 118:                                              ; preds = %114
-  %119 = getelementptr %struct.FRAME_T, ptr %5, i64 %indvars.iv
+  %119 = getelementptr [4 x i8], ptr %5, i64 %indvars.iv
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 2
   %121 = zext i8 %115 to i16
   %122 = icmp ult i8 %115, -4
@@ -436,7 +436,7 @@ opus_packet_get_samples_per_frame.exit:           ; preds = %73, %81, %83, %87
 
 .thread267:                                       ; preds = %114
   %123 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.3209300)
-  %124 = getelementptr %struct.FRAME_T, ptr %5, i64 %indvars.iv
+  %124 = getelementptr [4 x i8], ptr %5, i64 %indvars.iv
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 2
   %126 = zext i8 %115 to i16
   %127 = icmp ult i8 %115, -4
@@ -478,7 +478,7 @@ parse_size_field.exit252:                         ; preds = %.thread267, %118, %
   %indvars.iv324 = phi i64 [ 0, %.lr.ph305.preheader ], [ %indvars.iv.next325, %.lr.ph305 ]
   %.4210303 = phi i32 [ %140, %.lr.ph305.preheader ], [ %146, %.lr.ph305 ]
   %141 = trunc i32 %.4210303 to i16
-  %142 = getelementptr %struct.FRAME_T, ptr %5, i64 %indvars.iv324
+  %142 = getelementptr [4 x i8], ptr %5, i64 %indvars.iv324
   store i16 %141, ptr %142, align 4
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 2
   %144 = load i16, ptr %143, align 2
@@ -504,7 +504,7 @@ parse_size_field.exit252:                         ; preds = %.thread267, %118, %
 
 151:                                              ; preds = %._crit_edge
   %152 = trunc i32 %.4210.lcssa to i16
-  %153 = getelementptr %struct.FRAME_T, ptr %5, i64 %.1201.lcssa
+  %153 = getelementptr [4 x i8], ptr %5, i64 %.1201.lcssa
   store i16 %152, ptr %153, align 4
   %154 = sub i32 %.0204, %.4210.lcssa
   %155 = trunc i32 %154 to i16
@@ -542,7 +542,7 @@ parse_size_field.exit252:                         ; preds = %.thread267, %118, %
   %169 = mul i32 %163, %168
   %170 = add i32 %169, %.0206
   %171 = trunc i32 %170 to i16
-  %172 = getelementptr %struct.FRAME_T, ptr %5, i64 %indvars.iv330
+  %172 = getelementptr [4 x i8], ptr %5, i64 %indvars.iv330
   store i16 %171, ptr %172, align 4
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 2
   store i16 %165, ptr %173, align 2
@@ -558,7 +558,7 @@ parse_size_field.exit252:                         ; preds = %.thread267, %118, %
 
 174:                                              ; preds = %.loopexit, %181
   %indvars.iv335 = phi i64 [ 0, %.loopexit ], [ %indvars.iv.next336, %181 ]
-  %175 = getelementptr %struct.FRAME_T, ptr %5, i64 %indvars.iv335
+  %175 = getelementptr [4 x i8], ptr %5, i64 %indvars.iv335
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 2
   %177 = load i16, ptr %176, align 2
   %178 = icmp slt i16 %177, 1276

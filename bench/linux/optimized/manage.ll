@@ -987,7 +987,7 @@ define dso_local range(i32 3, 1) i32 @irq_setup_affinity(ptr noundef %0) local_u
 
 40:                                               ; preds = %32
   %41 = sext i32 %3 to i64
-  %42 = getelementptr [1 x %struct.cpumask], ptr @node_to_cpumask_map, i64 %41
+  %42 = getelementptr [8 x i8], ptr @node_to_cpumask_map, i64 %41
   %43 = load i64, ptr %42, align 8
   %44 = and i64 %43, %38
   %45 = icmp eq i64 %44, 0

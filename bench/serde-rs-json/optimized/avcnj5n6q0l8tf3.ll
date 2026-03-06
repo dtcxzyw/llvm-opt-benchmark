@@ -72,7 +72,7 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h90ea
   %.val = load ptr, ptr %3, align 8, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val6 = load i64, ptr %4, align 8, !noundef !4
-  %5 = getelementptr inbounds { i8, [31 x i8] }, ptr %.val, i64 %.val6
+  %5 = getelementptr inbounds [32 x i8], ptr %.val, i64 %.val6
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6)
   %.val.i = load ptr, ptr %0, align 8, !alias.scope !9, !noalias !12, !nonnull !4, !align !5, !noundef !4
   %6 = tail call noundef ptr @_ZN3std2io5Write9write_all17h6ffa51b6097a75eaE(ptr noalias noundef nonnull align 8 dereferenceable(8) %.val.i, ptr noalias noundef nonnull readonly align 1 @anon.7383d113eafbf7870c8f4bb85f4fa11e.22, i64 noundef 1), !noalias !15

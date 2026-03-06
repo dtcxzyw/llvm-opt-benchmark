@@ -363,7 +363,7 @@ define dso_local void @php_flock_common(ptr noundef %0, i64 noundef %1, i32 noun
   br label %20
 
 20:                                               ; preds = %15, %17, %9
-  %21 = getelementptr i32, ptr @__const.php_flock_common.flock_values, i64 %6
+  %21 = getelementptr [4 x i8], ptr @__const.php_flock_common.flock_values, i64 %6
   %22 = getelementptr i8, ptr %21, i64 -4
   %23 = load i32, ptr %22, align 4, !tbaa !4
   %24 = trunc i64 %1 to i32
@@ -1049,7 +1049,7 @@ define hidden range(i32 0, 9) i32 @php_next_meta_token(ptr noundef captures(none
   %54 = tail call ptr @__ctype_b_loc() #19
   %55 = load ptr, ptr %54, align 8, !tbaa !45
   %56 = sext i32 %.2 to i64
-  %57 = getelementptr inbounds i16, ptr %55, i64 %56
+  %57 = getelementptr inbounds [2 x i8], ptr %55, i64 %56
   %58 = load i16, ptr %57, align 2, !tbaa !47
   %59 = and i16 %58, 8
   %.not148 = icmp eq i16 %59, 0
@@ -1078,7 +1078,7 @@ define hidden range(i32 0, 9) i32 @php_next_meta_token(ptr noundef captures(none
 70:                                               ; preds = %.lr.ph169
   %71 = load ptr, ptr %54, align 8, !tbaa !45
   %72 = sext i32 %69 to i64
-  %73 = getelementptr inbounds i16, ptr %71, i64 %72
+  %73 = getelementptr inbounds [2 x i8], ptr %71, i64 %72
   %74 = load i16, ptr %73, align 2, !tbaa !47
   %75 = and i16 %74, 8
   %.not150 = icmp eq i16 %75, 0
@@ -1108,7 +1108,7 @@ define hidden range(i32 0, 9) i32 @php_next_meta_token(ptr noundef captures(none
   %.pre-phi = phi i64 [ %.pre183, %.critedge9.loopexit ], [ %56, %60 ]
   %.6 = phi i32 [ %69, %.critedge9.loopexit ], [ %.2, %60 ]
   %83 = load ptr, ptr %54, align 8, !tbaa !45
-  %84 = getelementptr inbounds i16, ptr %83, i64 %.pre-phi
+  %84 = getelementptr inbounds [2 x i8], ptr %83, i64 %.pre-phi
   %85 = load i16, ptr %84, align 2, !tbaa !47
   %86 = and i16 %85, 1024
   %87 = icmp eq i16 %86, 0
@@ -3388,7 +3388,7 @@ define dso_local void @zif_fgetc(ptr noundef %0, ptr noundef writeonly captures(
 22:                                               ; preds = %17
   %23 = and i32 %18, 255
   %24 = zext nneg i32 %23 to i64
-  %25 = getelementptr inbounds nuw ptr, ptr @zend_one_char_string, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr @zend_one_char_string, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !30
   store ptr %26, ptr %1, align 8, !tbaa !21
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -6757,7 +6757,7 @@ php_fgetcsv_lookup_trailing_spaces.exit:          ; preds = %6, %._crit_edge.i, 
   %50 = phi i8 [ %46, %.lr.ph ], [ %57, %55 ]
   %.0297503 = phi ptr [ %.0263, %.lr.ph ], [ %56, %55 ]
   %51 = zext i8 %50 to i64
-  %52 = getelementptr inbounds nuw i16, ptr %48, i64 %51
+  %52 = getelementptr inbounds nuw [2 x i8], ptr %48, i64 %51
   %53 = load i16, ptr %52, align 2, !tbaa !47
   %54 = and i16 %53, 8192
   %.not345 = icmp eq i16 %54, 0

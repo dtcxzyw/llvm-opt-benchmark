@@ -637,7 +637,7 @@ define dso_local range(i32 0, 2) i32 @raxGenericInsert(ptr noundef %0, ptr nound
   %43 = and i32 %.neg.i, 7
   %44 = zext nneg i32 %43 to i64
   %45 = getelementptr inbounds nuw i8, ptr %41, i64 %44
-  %46 = getelementptr inbounds nuw ptr, ptr %45, i64 %spec.select.i
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %spec.select.i
   %.0.i = load ptr, ptr %46, align 8
   %47 = load i32, ptr %.0.i, align 4
   %48 = icmp ugt i32 %47, 7
@@ -1776,7 +1776,7 @@ define internal fastcc i64 @raxLowWalk(ptr noundef %0, ptr noundef readonly capt
 69:                                               ; preds = %65, %45
   %70 = phi i64 [ %.pre32.i, %65 ], [ %46, %45 ]
   %71 = phi ptr [ %66, %65 ], [ %.pre31.i, %45 ]
-  %72 = getelementptr inbounds nuw ptr, ptr %71, i64 %70
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %70
   store ptr %.0101, ptr %72, align 8, !tbaa !22
   %73 = add i64 %70, 1
   store i64 %73, ptr %12, align 8, !tbaa !24
@@ -1795,7 +1795,7 @@ define internal fastcc i64 @raxLowWalk(ptr noundef %0, ptr noundef readonly capt
   %83 = and i32 %75, 4
   %.not71 = icmp eq i32 %83, 0
   %spec.select = select i1 %.not71, i64 %.4, i64 0
-  %84 = getelementptr inbounds nuw ptr, ptr %82, i64 %spec.select
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %82, i64 %spec.select
   %.0 = load ptr, ptr %84, align 8
   %85 = load i32, ptr %.0, align 4
   %86 = icmp ugt i32 %85, 7
@@ -1960,7 +1960,7 @@ raxStackPop.exit:                                 ; preds = %.lr.ph, %47
   %53 = add i64 %51, -1
   store i64 %53, ptr %9, align 8, !tbaa !24
   %54 = load ptr, ptr %6, align 8, !tbaa !27
-  %55 = getelementptr inbounds nuw ptr, ptr %54, i64 %53
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %53
   %56 = load ptr, ptr %55, align 8, !tbaa !22
   %57 = load i32, ptr %56, align 4
   %58 = and i32 %57, 1
@@ -1991,7 +1991,7 @@ raxStackPop.exit:                                 ; preds = %.lr.ph, %47
 
 raxStackPeek.exit:                                ; preds = %62
   %.val = load ptr, ptr %6, align 8
-  %64 = getelementptr ptr, ptr %.val, i64 %.val164
+  %64 = getelementptr [8 x i8], ptr %.val, i64 %.val164
   %65 = getelementptr i8, ptr %64, i64 -8
   %66 = load ptr, ptr %65, align 8, !tbaa !22
   %67 = icmp eq ptr %66, null
@@ -2043,7 +2043,7 @@ raxStackPop.exit172.lr.ph:                        ; preds = %.preheader
   %87 = load ptr, ptr %6, align 8, !tbaa !27
   %88 = add i64 %.promoted214, -1
   store i64 %88, ptr %9, align 8, !tbaa !24
-  %89 = getelementptr inbounds nuw ptr, ptr %87, i64 %88
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %87, i64 %88
   %90 = load ptr, ptr %89, align 8, !tbaa !22
   %.not114290 = icmp eq ptr %90, null
   br i1 %.not114290, label %raxStackPop.exit172.thread, label %.lr.ph291
@@ -2055,7 +2055,7 @@ raxStackPop.exit172.lr.ph:                        ; preds = %.preheader
 raxStackPop.exit172:                              ; preds = %91
   %93 = add i64 %97, -1
   store i64 %93, ptr %9, align 8, !tbaa !24
-  %94 = getelementptr inbounds nuw ptr, ptr %87, i64 %93
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %87, i64 %93
   %95 = load ptr, ptr %94, align 8, !tbaa !22
   %.not114 = icmp eq ptr %95, null
   br i1 %.not114, label %raxStackPop.exit172.thread, label %.lr.ph291
@@ -2414,7 +2414,7 @@ define dso_local range(i32 0, 2) i32 @raxFind(ptr noundef readonly captures(none
   %39 = and i32 %.neg.i, 7
   %40 = zext nneg i32 %39 to i64
   %41 = getelementptr inbounds nuw i8, ptr %37, i64 %40
-  %42 = getelementptr inbounds nuw ptr, ptr %41, i64 %spec.select.i
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %spec.select.i
   %.0.i = load ptr, ptr %42, align 8
   %43 = load i32, ptr %.0.i, align 4
   %44 = icmp ugt i32 %43, 7
@@ -3072,7 +3072,7 @@ define dso_local range(i32 0, 2) i32 @raxIteratorNextStep(ptr noundef %0, i32 no
 54:                                               ; preds = %50, %28
   %55 = phi i64 [ %.pre32.i, %50 ], [ %29, %28 ]
   %56 = phi ptr [ %51, %50 ], [ %.pre31.i, %28 ]
-  %57 = getelementptr inbounds nuw ptr, ptr %56, i64 %55
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %55
   store ptr %27, ptr %57, align 8, !tbaa !22
   %58 = add i64 %55, 1
   store i64 %58, ptr %13, align 8, !tbaa !24
@@ -3243,7 +3243,7 @@ raxStackPop.exit:                                 ; preds = %122
   %141 = add i64 %139, -1
   store i64 %141, ptr %13, align 8, !tbaa !24
   %142 = load ptr, ptr %12, align 8, !tbaa !27
-  %143 = getelementptr inbounds nuw ptr, ptr %142, i64 %141
+  %143 = getelementptr inbounds nuw [8 x i8], ptr %142, i64 %141
   %144 = load ptr, ptr %143, align 8, !tbaa !22
   store ptr %144, ptr %15, align 8, !tbaa !43
   %.pre197 = load i32, ptr %144, align 4
@@ -3418,7 +3418,7 @@ raxIteratorAddChars.exit131:                      ; preds = %191, %194
 227:                                              ; preds = %223, %raxIteratorAddChars.exit131
   %228 = phi i64 [ %.pre32.i136, %223 ], [ %202, %raxIteratorAddChars.exit131 ]
   %229 = phi ptr [ %224, %223 ], [ %.pre31.i132, %raxIteratorAddChars.exit131 ]
-  %230 = getelementptr inbounds nuw ptr, ptr %229, i64 %228
+  %230 = getelementptr inbounds nuw [8 x i8], ptr %229, i64 %228
   store ptr %201, ptr %230, align 8, !tbaa !22
   %231 = add i64 %228, 1
   store i64 %231, ptr %13, align 8, !tbaa !24
@@ -3699,7 +3699,7 @@ raxIteratorAddChars.exit40:                       ; preds = %38, %.thread.i38
 104:                                              ; preds = %59, %100
   %105 = phi i64 [ %.pre32.i, %100 ], [ %81, %59 ]
   %106 = phi ptr [ %101, %100 ], [ %.pre31.i, %59 ]
-  %107 = getelementptr inbounds nuw ptr, ptr %106, i64 %105
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %105
   store ptr %62, ptr %107, align 8, !tbaa !22
   %108 = add i64 %105, 1
   store i64 %108, ptr %11, align 8, !tbaa !24
@@ -3799,7 +3799,7 @@ define dso_local range(i32 0, 2) i32 @raxIteratorPrevStep(ptr noundef %0, i32 no
   %48 = add i64 %45, -1
   store i64 %48, ptr %13, align 8, !tbaa !24
   %49 = load ptr, ptr %12, align 8, !tbaa !27
-  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %48
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %48
   %51 = load ptr, ptr %50, align 8, !tbaa !22
   br label %raxStackPop.exit
 
@@ -3981,7 +3981,7 @@ raxIteratorAddChars.exit.thread:                  ; preds = %99
 142:                                              ; preds = %138, %109
   %143 = phi i64 [ %.pre32.i, %138 ], [ %117, %109 ]
   %144 = phi ptr [ %139, %138 ], [ %.pre31.i, %109 ]
-  %145 = getelementptr inbounds nuw ptr, ptr %144, i64 %143
+  %145 = getelementptr inbounds nuw [8 x i8], ptr %144, i64 %143
   store ptr %116, ptr %145, align 8, !tbaa !22
   %146 = add i64 %143, 1
   store i64 %146, ptr %13, align 8, !tbaa !24
@@ -4574,7 +4574,7 @@ raxStackPop.exit:                                 ; preds = %.critedge
   %47 = add i64 %45, -1
   store i64 %47, ptr %32, align 8, !tbaa !24
   %48 = load ptr, ptr %31, align 8, !tbaa !27
-  %49 = getelementptr inbounds nuw ptr, ptr %48, i64 %47
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %47
   %50 = load ptr, ptr %49, align 8, !tbaa !22
   %51 = load i32, ptr %50, align 4
   %52 = and i32 %51, 4
@@ -4765,7 +4765,7 @@ raxIteratorAddChars.exit.thread:                  ; preds = %raxIteratorAddChars
 133:                                              ; preds = %129, %raxIteratorAddChars.exit.thread
   %134 = phi i64 [ %.pre32.i, %129 ], [ %108, %raxIteratorAddChars.exit.thread ]
   %135 = phi ptr [ %130, %129 ], [ %.pre31.i, %raxIteratorAddChars.exit.thread ]
-  %136 = getelementptr inbounds nuw ptr, ptr %135, i64 %134
+  %136 = getelementptr inbounds nuw [8 x i8], ptr %135, i64 %134
   store ptr %.050131, ptr %136, align 8, !tbaa !22
   %137 = add i64 %134, 1
   store i64 %137, ptr %32, align 8, !tbaa !24
@@ -4779,7 +4779,7 @@ raxIteratorAddChars.exit.thread:                  ; preds = %raxIteratorAddChars
   %144 = zext nneg i32 %143 to i64
   %145 = getelementptr inbounds nuw i8, ptr %141, i64 %144
   %146 = sext i32 %43 to i64
-  %147 = getelementptr inbounds ptr, ptr %145, i64 %146
+  %147 = getelementptr inbounds [8 x i8], ptr %145, i64 %146
   %.0.copyload = load ptr, ptr %147, align 8
   br label %148
 
@@ -5175,7 +5175,7 @@ define dso_local void @raxDebugShowNode(ptr noundef %0, ptr noundef %1) local_un
   %31 = getelementptr inbounds i8, ptr %28, i64 %30
   %narrow = sub nsw i32 1, %spec.select
   %32 = sext i32 %narrow to i64
-  %33 = getelementptr inbounds ptr, ptr %31, i64 %32
+  %33 = getelementptr inbounds [8 x i8], ptr %31, i64 %32
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph

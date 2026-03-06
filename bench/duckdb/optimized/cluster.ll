@@ -3,10 +3,7 @@ source_filename = "bench/duckdb/original/cluster.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"struct.duckdb_brotli::HistogramLiteral" = type { [256 x i32], i64, double }
 %"struct.duckdb_brotli::HistogramPair" = type { i32, i32, double, double }
-%"struct.duckdb_brotli::HistogramCommand" = type { [704 x i32], i64, double }
-%"struct.duckdb_brotli::HistogramDistance" = type { [544 x i32], i64, double }
 
 @_ZN13duckdb_brotli16kBrotliLog2TableE = external local_unnamed_addr constant [256 x double], align 16
 
@@ -19,11 +16,11 @@ define void @_ZN13duckdb_brotli34BrotliCompareAndPushToQueueLiteralEPKNS_16Histo
   %spec.select = tail call i32 @llvm.umax.i32(i32 %4, i32 %3)
   %spec.select59 = tail call i32 @llvm.umin.i32(i32 %4, i32 %3)
   %11 = zext i32 %spec.select59 to i64
-  %12 = getelementptr inbounds nuw i32, ptr %2, i64 %11
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !3
   %14 = zext i32 %13 to i64
   %15 = zext i32 %spec.select to i64
-  %16 = getelementptr inbounds nuw i32, ptr %2, i64 %15
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %15
   %17 = load i32, ptr %16, align 4, !tbaa !3
   %18 = zext i32 %17 to i64
   %19 = add nuw nsw i64 %18, %14
@@ -32,7 +29,7 @@ define void @_ZN13duckdb_brotli34BrotliCompareAndPushToQueueLiteralEPKNS_16Histo
   br i1 %21, label %22, label %25
 
 22:                                               ; preds = %10
-  %23 = getelementptr inbounds nuw double, ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %14
+  %23 = getelementptr inbounds nuw [8 x i8], ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %14
   %24 = load double, ptr %23, align 8, !tbaa !7
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit67
 
@@ -47,7 +44,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit67:            ; preds = %22, %25
   br i1 %28, label %29, label %32
 
 29:                                               ; preds = %_ZN13duckdb_brotliL8FastLog2Em.exit67
-  %30 = getelementptr inbounds nuw double, ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %18
+  %30 = getelementptr inbounds nuw [8 x i8], ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %18
   %31 = load double, ptr %30, align 8, !tbaa !7
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit65
 
@@ -64,7 +61,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit65:            ; preds = %29, %32
   br i1 %37, label %38, label %41
 
 38:                                               ; preds = %_ZN13duckdb_brotliL8FastLog2Em.exit65
-  %39 = getelementptr inbounds nuw double, ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %19
+  %39 = getelementptr inbounds nuw [8 x i8], ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %19
   %40 = load double, ptr %39, align 8, !tbaa !7
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit
 
@@ -77,11 +74,11 @@ _ZN13duckdb_brotliL8FastLog2Em.exit:              ; preds = %38, %41
   %43 = fneg double %36
   %44 = tail call noundef double @llvm.fmuladd.f64(double %43, double %.0.i63, double %35)
   %45 = fmul double %44, 5.000000e-01
-  %46 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramLiteral", ptr %0, i64 %11
+  %46 = getelementptr inbounds nuw [1040 x i8], ptr %0, i64 %11
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 1032
   %48 = load double, ptr %47, align 8, !tbaa !9
   %49 = fsub double %45, %48
-  %50 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramLiteral", ptr %0, i64 %15
+  %50 = getelementptr inbounds nuw [1040 x i8], ptr %0, i64 %15
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 1032
   %52 = load double, ptr %51, align 8, !tbaa !9
   %53 = fsub double %49, %52
@@ -120,9 +117,9 @@ _ZN13duckdb_brotliL8FastLog2Em.exit:              ; preds = %38, %41
 
 75:                                               ; preds = %69, %75
   %.0.i77 = phi i64 [ 0, %69 ], [ %81, %75 ]
-  %76 = getelementptr inbounds nuw i32, ptr %50, i64 %.0.i77
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %.0.i77
   %77 = load i32, ptr %76, align 4, !tbaa !3
-  %78 = getelementptr inbounds nuw i32, ptr %1, i64 %.0.i77
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %.0.i77
   %79 = load i32, ptr %78, align 4, !tbaa !3
   %80 = add i32 %79, %77
   store i32 %80, ptr %78, align 4, !tbaa !3
@@ -167,7 +164,7 @@ _ZL19HistogramPairIsLessPKN13duckdb_brotli13HistogramPairES2_.exit: ; preds = %8
   br i1 %100, label %101, label %105
 
 101:                                              ; preds = %99
-  %102 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramPair", ptr %6, i64 %86
+  %102 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %86
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %102, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !tbaa.struct !22
   %103 = load i64, ptr %7, align 8, !tbaa !13
   %104 = add i64 %103, 1
@@ -188,7 +185,7 @@ _ZL19HistogramPairIsLessPKN13duckdb_brotli13HistogramPairES2_.exit: ; preds = %8
   br i1 %107, label %108, label %.critedge61
 
 108:                                              ; preds = %106
-  %109 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramPair", ptr %6, i64 %86
+  %109 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %86
   store i32 %spec.select59, ptr %109, align 8, !tbaa !3
   %.sroa.7.0..sroa_idx69 = getelementptr inbounds nuw i8, ptr %109, i64 4
   store i32 %spec.select, ptr %.sroa.7.0..sroa_idx69, align 4, !tbaa !3
@@ -247,14 +244,14 @@ define noundef i64 @_ZN13duckdb_brotli29BrotliHistogramCombineLiteralEPNS_16Hist
   br i1 %21, label %.lr.ph, label %.loopexit144
 
 .lr.ph:                                           ; preds = %19
-  %22 = getelementptr inbounds nuw i32, ptr %4, i64 %.0100149
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.0100149
   br label %23
 
 23:                                               ; preds = %.lr.ph, %_ZN13duckdb_brotli34BrotliCompareAndPushToQueueLiteralEPKNS_16HistogramLiteralEPS0_PKjjjmPNS_13HistogramPairEPm.exit
   %.099147 = phi i64 [ %20, %.lr.ph ], [ %122, %_ZN13duckdb_brotli34BrotliCompareAndPushToQueueLiteralEPKNS_16HistogramLiteralEPS0_PKjjjmPNS_13HistogramPairEPm.exit ]
   %.1138146 = phi i64 [ %.0137148, %.lr.ph ], [ %.6, %_ZN13duckdb_brotli34BrotliCompareAndPushToQueueLiteralEPKNS_16HistogramLiteralEPS0_PKjjjmPNS_13HistogramPairEPm.exit ]
   %24 = load i32, ptr %22, align 4, !tbaa !3
-  %25 = getelementptr inbounds nuw i32, ptr %4, i64 %.099147
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.099147
   %26 = load i32, ptr %25, align 4, !tbaa !3
   %27 = icmp eq i32 %24, %26
   br i1 %27, label %_ZN13duckdb_brotli34BrotliCompareAndPushToQueueLiteralEPKNS_16HistogramLiteralEPS0_PKjjjmPNS_13HistogramPairEPm.exit, label %28
@@ -263,11 +260,11 @@ define noundef i64 @_ZN13duckdb_brotli29BrotliHistogramCombineLiteralEPNS_16Hist
   %spec.select.i = tail call i32 @llvm.umax.i32(i32 %26, i32 %24)
   %spec.select59.i = tail call i32 @llvm.umin.i32(i32 %26, i32 %24)
   %29 = zext i32 %spec.select59.i to i64
-  %30 = getelementptr inbounds nuw i32, ptr %2, i64 %29
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %29
   %31 = load i32, ptr %30, align 4, !tbaa !3
   %32 = zext i32 %31 to i64
   %33 = zext i32 %spec.select.i to i64
-  %34 = getelementptr inbounds nuw i32, ptr %2, i64 %33
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %33
   %35 = load i32, ptr %34, align 4, !tbaa !3
   %36 = zext i32 %35 to i64
   %37 = add nuw nsw i64 %36, %32
@@ -276,7 +273,7 @@ define noundef i64 @_ZN13duckdb_brotli29BrotliHistogramCombineLiteralEPNS_16Hist
   br i1 %39, label %40, label %43
 
 40:                                               ; preds = %28
-  %41 = getelementptr inbounds nuw double, ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %32
+  %41 = getelementptr inbounds nuw [8 x i8], ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %32
   %42 = load double, ptr %41, align 8, !tbaa !7
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit67.i
 
@@ -291,7 +288,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit67.i:          ; preds = %43, %40
   br i1 %46, label %47, label %50
 
 47:                                               ; preds = %_ZN13duckdb_brotliL8FastLog2Em.exit67.i
-  %48 = getelementptr inbounds nuw double, ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %36
+  %48 = getelementptr inbounds nuw [8 x i8], ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %36
   %49 = load double, ptr %48, align 8, !tbaa !7
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit65.i
 
@@ -308,7 +305,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit65.i:          ; preds = %50, %47
   br i1 %55, label %56, label %59
 
 56:                                               ; preds = %_ZN13duckdb_brotliL8FastLog2Em.exit65.i
-  %57 = getelementptr inbounds nuw double, ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %37
+  %57 = getelementptr inbounds nuw [8 x i8], ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %37
   %58 = load double, ptr %57, align 8, !tbaa !7
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit.i
 
@@ -321,11 +318,11 @@ _ZN13duckdb_brotliL8FastLog2Em.exit.i:            ; preds = %59, %56
   %61 = fneg double %54
   %62 = tail call noundef double @llvm.fmuladd.f64(double %61, double %.0.i63.i, double %53)
   %63 = fmul double %62, 5.000000e-01
-  %64 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramLiteral", ptr %0, i64 %29
+  %64 = getelementptr inbounds nuw [1040 x i8], ptr %0, i64 %29
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 1032
   %66 = load double, ptr %65, align 8, !tbaa !9
   %67 = fsub double %63, %66
-  %68 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramLiteral", ptr %0, i64 %33
+  %68 = getelementptr inbounds nuw [1040 x i8], ptr %0, i64 %33
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 1032
   %70 = load double, ptr %69, align 8, !tbaa !9
   %71 = fsub double %67, %70
@@ -361,9 +358,9 @@ _ZN13duckdb_brotliL8FastLog2Em.exit.i:            ; preds = %59, %56
 
 90:                                               ; preds = %90, %85
   %.0.i77.i = phi i64 [ 0, %85 ], [ %96, %90 ]
-  %91 = getelementptr inbounds nuw i32, ptr %68, i64 %.0.i77.i
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %.0.i77.i
   %92 = load i32, ptr %91, align 4, !tbaa !3
-  %93 = getelementptr inbounds nuw i32, ptr %1, i64 %.0.i77.i
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %.0.i77.i
   %94 = load i32, ptr %93, align 4, !tbaa !3
   %95 = add i32 %94, %92
   store i32 %95, ptr %93, align 4, !tbaa !3
@@ -405,7 +402,7 @@ _ZL19HistogramPairIsLessPKN13duckdb_brotli13HistogramPairES2_.exit.i: ; preds = 
   br i1 %112, label %113, label %116
 
 113:                                              ; preds = %111
-  %114 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramPair", ptr %5, i64 %.1138146
+  %114 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %.1138146
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %114, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !tbaa.struct !22
   %115 = add nuw i64 %.1138146, 1
   br label %116
@@ -423,7 +420,7 @@ _ZL19HistogramPairIsLessPKN13duckdb_brotli13HistogramPairES2_.exit.i: ; preds = 
   br i1 %118, label %119, label %_ZN13duckdb_brotli34BrotliCompareAndPushToQueueLiteralEPKNS_16HistogramLiteralEPS0_PKjjjmPNS_13HistogramPairEPm.exit
 
 119:                                              ; preds = %117
-  %120 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramPair", ptr %5, i64 %.1138146
+  %120 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %.1138146
   store i32 %spec.select59.i, ptr %120, align 8, !tbaa !3
   %.sroa.7.0..sroa_idx69.i = getelementptr inbounds nuw i8, ptr %120, i64 4
   store i32 %spec.select.i, ptr %.sroa.7.0..sroa_idx69.i, align 4, !tbaa !3
@@ -453,9 +450,9 @@ _ZN13duckdb_brotli34BrotliCompareAndPushToQueueLiteralEPKNS_16HistogramLiteralEP
   %127 = load i32, ptr %5, align 8, !tbaa !21
   %128 = load i32, ptr %16, align 4, !tbaa !20
   %129 = zext i32 %127 to i64
-  %130 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramLiteral", ptr %0, i64 %129
+  %130 = getelementptr inbounds nuw [1040 x i8], ptr %0, i64 %129
   %131 = zext i32 %128 to i64
-  %132 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramLiteral", ptr %0, i64 %131
+  %132 = getelementptr inbounds nuw [1040 x i8], ptr %0, i64 %131
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 1024
   %134 = load i64, ptr %133, align 8, !tbaa !12
   %135 = getelementptr inbounds nuw i8, ptr %130, i64 1024
@@ -466,9 +463,9 @@ _ZN13duckdb_brotli34BrotliCompareAndPushToQueueLiteralEPKNS_16HistogramLiteralEP
 
 138:                                              ; preds = %126, %138
   %.0.i152 = phi i64 [ 0, %126 ], [ %144, %138 ]
-  %139 = getelementptr inbounds nuw i32, ptr %132, i64 %.0.i152
+  %139 = getelementptr inbounds nuw [4 x i8], ptr %132, i64 %.0.i152
   %140 = load i32, ptr %139, align 4, !tbaa !3
-  %141 = getelementptr inbounds nuw i32, ptr %130, i64 %.0.i152
+  %141 = getelementptr inbounds nuw [4 x i8], ptr %130, i64 %.0.i152
   %142 = load i32, ptr %141, align 4, !tbaa !3
   %143 = add i32 %142, %140
   store i32 %143, ptr %141, align 4, !tbaa !3
@@ -480,9 +477,9 @@ _ZN13duckdb_brotliL28HistogramAddHistogramLiteralEPNS_16HistogramLiteralEPKS0_.e
   %145 = load double, ptr %17, align 8, !tbaa !26
   %146 = getelementptr inbounds nuw i8, ptr %130, i64 1032
   store double %145, ptr %146, align 8, !tbaa !9
-  %147 = getelementptr inbounds nuw i32, ptr %2, i64 %131
+  %147 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %131
   %148 = load i32, ptr %147, align 4, !tbaa !3
-  %149 = getelementptr inbounds nuw i32, ptr %2, i64 %129
+  %149 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %129
   %150 = load i32, ptr %149, align 4, !tbaa !3
   %151 = add i32 %150, %148
   store i32 %151, ptr %149, align 4, !tbaa !3
@@ -490,7 +487,7 @@ _ZN13duckdb_brotliL28HistogramAddHistogramLiteralEPNS_16HistogramLiteralEPKS0_.e
 
 .lr.ph154:                                        ; preds = %_ZN13duckdb_brotliL28HistogramAddHistogramLiteralEPNS_16HistogramLiteralEPKS0_.exit, %156
   %.093153 = phi i64 [ %157, %156 ], [ 0, %_ZN13duckdb_brotliL28HistogramAddHistogramLiteralEPNS_16HistogramLiteralEPKS0_.exit ]
-  %152 = getelementptr inbounds nuw i32, ptr %3, i64 %.093153
+  %152 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.093153
   %153 = load i32, ptr %152, align 4, !tbaa !3
   %154 = icmp eq i32 %153, %128
   br i1 %154, label %155, label %156
@@ -509,13 +506,13 @@ _ZN13duckdb_brotliL28HistogramAddHistogramLiteralEPNS_16HistogramLiteralEPKS0_.e
 
 .preheader141:                                    ; preds = %.preheader141.preheader, %167
   %.194155 = phi i64 [ %168, %167 ], [ 0, %.preheader141.preheader ]
-  %158 = getelementptr inbounds nuw i32, ptr %4, i64 %.194155
+  %158 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.194155
   %159 = load i32, ptr %158, align 4, !tbaa !3
   %160 = icmp eq i32 %159, %128
   br i1 %160, label %161, label %167
 
 161:                                              ; preds = %.preheader141
-  %162 = getelementptr inbounds nuw i32, ptr %4, i64 %.194155
+  %162 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.194155
   %163 = getelementptr i8, ptr %162, i64 4
   %164 = xor i64 %.194155, -1
   %165 = add i64 %.0167, %164
@@ -541,7 +538,7 @@ _ZN13duckdb_brotliL28HistogramAddHistogramLiteralEPNS_16HistogramLiteralEPKS0_.e
 .lr.ph158:                                        ; preds = %.loopexit142, %197
   %.091157 = phi i64 [ %.192, %197 ], [ 0, %.loopexit142 ]
   %.2156 = phi i64 [ %198, %197 ], [ 0, %.loopexit142 ]
-  %170 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramPair", ptr %5, i64 %.2156
+  %170 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %.2156
   %171 = load i32, ptr %170, align 8, !tbaa !21
   %172 = icmp eq i32 %171, %127
   br i1 %172, label %197, label %173
@@ -579,13 +576,13 @@ _ZL19HistogramPairIsLessPKN13duckdb_brotli13HistogramPairES2_.exit: ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !tbaa.struct !22
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %170, i64 24, i1 false), !tbaa.struct !22
-  %192 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramPair", ptr %5, i64 %.091157
+  %192 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %.091157
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %192, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false), !tbaa.struct !22
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %195
 
 193:                                              ; preds = %184, %_ZL19HistogramPairIsLessPKN13duckdb_brotli13HistogramPairES2_.exit
-  %194 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramPair", ptr %5, i64 %.091157
+  %194 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %.091157
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %194, ptr noundef nonnull align 8 dereferenceable(24) %170, i64 24, i1 false), !tbaa.struct !22
   br label %195
 
@@ -602,7 +599,7 @@ _ZL19HistogramPairIsLessPKN13duckdb_brotli13HistogramPairES2_.exit: ; preds = %1
 .lr.ph162:                                        ; preds = %.preheader, %_ZN13duckdb_brotli34BrotliCompareAndPushToQueueLiteralEPKNS_16HistogramLiteralEPS0_PKjjjmPNS_13HistogramPairEPm.exit130
   %.3161 = phi i64 [ %296, %_ZN13duckdb_brotli34BrotliCompareAndPushToQueueLiteralEPKNS_16HistogramLiteralEPS0_PKjjjmPNS_13HistogramPairEPm.exit130 ], [ 0, %.preheader ]
   %.4160 = phi i64 [ %.8, %_ZN13duckdb_brotli34BrotliCompareAndPushToQueueLiteralEPKNS_16HistogramLiteralEPS0_PKjjjmPNS_13HistogramPairEPm.exit130 ], [ %.091.lcssa, %.preheader ]
-  %199 = getelementptr inbounds nuw i32, ptr %4, i64 %.3161
+  %199 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.3161
   %200 = load i32, ptr %199, align 4, !tbaa !3
   %201 = icmp eq i32 %127, %200
   br i1 %201, label %_ZN13duckdb_brotli34BrotliCompareAndPushToQueueLiteralEPKNS_16HistogramLiteralEPS0_PKjjjmPNS_13HistogramPairEPm.exit130, label %202
@@ -611,11 +608,11 @@ _ZL19HistogramPairIsLessPKN13duckdb_brotli13HistogramPairES2_.exit: ; preds = %1
   %spec.select.i110 = tail call i32 @llvm.umax.i32(i32 %200, i32 %127)
   %spec.select59.i111 = tail call i32 @llvm.umin.i32(i32 %200, i32 %127)
   %203 = zext i32 %spec.select59.i111 to i64
-  %204 = getelementptr inbounds nuw i32, ptr %2, i64 %203
+  %204 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %203
   %205 = load i32, ptr %204, align 4, !tbaa !3
   %206 = zext i32 %205 to i64
   %207 = zext i32 %spec.select.i110 to i64
-  %208 = getelementptr inbounds nuw i32, ptr %2, i64 %207
+  %208 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %207
   %209 = load i32, ptr %208, align 4, !tbaa !3
   %210 = zext i32 %209 to i64
   %211 = add nuw nsw i64 %210, %206
@@ -624,7 +621,7 @@ _ZL19HistogramPairIsLessPKN13duckdb_brotli13HistogramPairES2_.exit: ; preds = %1
   br i1 %213, label %214, label %217
 
 214:                                              ; preds = %202
-  %215 = getelementptr inbounds nuw double, ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %206
+  %215 = getelementptr inbounds nuw [8 x i8], ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %206
   %216 = load double, ptr %215, align 8, !tbaa !7
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit67.i112
 
@@ -639,7 +636,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit67.i112:       ; preds = %217, %214
   br i1 %220, label %221, label %224
 
 221:                                              ; preds = %_ZN13duckdb_brotliL8FastLog2Em.exit67.i112
-  %222 = getelementptr inbounds nuw double, ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %210
+  %222 = getelementptr inbounds nuw [8 x i8], ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %210
   %223 = load double, ptr %222, align 8, !tbaa !7
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit65.i114
 
@@ -656,7 +653,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit65.i114:       ; preds = %224, %221
   br i1 %229, label %230, label %233
 
 230:                                              ; preds = %_ZN13duckdb_brotliL8FastLog2Em.exit65.i114
-  %231 = getelementptr inbounds nuw double, ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %211
+  %231 = getelementptr inbounds nuw [8 x i8], ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %211
   %232 = load double, ptr %231, align 8, !tbaa !7
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit.i116
 
@@ -669,11 +666,11 @@ _ZN13duckdb_brotliL8FastLog2Em.exit.i116:         ; preds = %233, %230
   %235 = fneg double %228
   %236 = tail call noundef double @llvm.fmuladd.f64(double %235, double %.0.i63.i117, double %227)
   %237 = fmul double %236, 5.000000e-01
-  %238 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramLiteral", ptr %0, i64 %203
+  %238 = getelementptr inbounds nuw [1040 x i8], ptr %0, i64 %203
   %239 = getelementptr inbounds nuw i8, ptr %238, i64 1032
   %240 = load double, ptr %239, align 8, !tbaa !9
   %241 = fsub double %237, %240
-  %242 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramLiteral", ptr %0, i64 %207
+  %242 = getelementptr inbounds nuw [1040 x i8], ptr %0, i64 %207
   %243 = getelementptr inbounds nuw i8, ptr %242, i64 1032
   %244 = load double, ptr %243, align 8, !tbaa !9
   %245 = fsub double %241, %244
@@ -709,9 +706,9 @@ _ZN13duckdb_brotliL8FastLog2Em.exit.i116:         ; preds = %233, %230
 
 264:                                              ; preds = %264, %259
   %.0.i77.i118 = phi i64 [ 0, %259 ], [ %270, %264 ]
-  %265 = getelementptr inbounds nuw i32, ptr %242, i64 %.0.i77.i118
+  %265 = getelementptr inbounds nuw [4 x i8], ptr %242, i64 %.0.i77.i118
   %266 = load i32, ptr %265, align 4, !tbaa !3
-  %267 = getelementptr inbounds nuw i32, ptr %1, i64 %.0.i77.i118
+  %267 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %.0.i77.i118
   %268 = load i32, ptr %267, align 4, !tbaa !3
   %269 = add i32 %268, %266
   store i32 %269, ptr %267, align 4, !tbaa !3
@@ -753,7 +750,7 @@ _ZL19HistogramPairIsLessPKN13duckdb_brotli13HistogramPairES2_.exit.i124: ; preds
   br i1 %286, label %287, label %290
 
 287:                                              ; preds = %285
-  %288 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramPair", ptr %5, i64 %.4160
+  %288 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %.4160
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %288, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !tbaa.struct !22
   %289 = add nuw i64 %.4160, 1
   br label %290
@@ -771,7 +768,7 @@ _ZL19HistogramPairIsLessPKN13duckdb_brotli13HistogramPairES2_.exit.i124: ; preds
   br i1 %292, label %293, label %_ZN13duckdb_brotli34BrotliCompareAndPushToQueueLiteralEPKNS_16HistogramLiteralEPS0_PKjjjmPNS_13HistogramPairEPm.exit130
 
 293:                                              ; preds = %291
-  %294 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramPair", ptr %5, i64 %.4160
+  %294 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %.4160
   store i32 %spec.select59.i111, ptr %294, align 8, !tbaa !3
   %.sroa.7.0..sroa_idx69.i125 = getelementptr inbounds nuw i8, ptr %294, i64 4
   store i32 %spec.select.i110, ptr %.sroa.7.0..sroa_idx69.i125, align 4, !tbaa !3
@@ -823,9 +820,9 @@ define noundef double @_ZN13duckdb_brotli37BrotliHistogramBitCostDistanceLiteral
 
 13:                                               ; preds = %7, %13
   %.0.i8 = phi i64 [ 0, %7 ], [ %19, %13 ]
-  %14 = getelementptr inbounds nuw i32, ptr %1, i64 %.0.i8
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %.0.i8
   %15 = load i32, ptr %14, align 4, !tbaa !3
-  %16 = getelementptr inbounds nuw i32, ptr %2, i64 %.0.i8
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.0.i8
   %17 = load i32, ptr %16, align 4, !tbaa !3
   %18 = add i32 %17, %15
   store i32 %18, ptr %16, align 4, !tbaa !3
@@ -858,13 +855,13 @@ define void @_ZN13duckdb_brotli27BrotliHistogramRemapLiteralEPKNS_16HistogramLit
 .lr.ph61.split.us:                                ; preds = %.lr.ph61, %._crit_edge.us
   %.059.us = phi i64 [ %63, %._crit_edge.us ], [ 0, %.lr.ph61 ]
   %9 = icmp eq i64 %.059.us, 0
-  %10 = getelementptr i32, ptr %6, i64 %.059.us
+  %10 = getelementptr [4 x i8], ptr %6, i64 %.059.us
   %11 = getelementptr i8, ptr %10, i64 -4
   %.in.us = select i1 %9, ptr %6, ptr %11
   %12 = load i32, ptr %.in.us, align 4, !tbaa !3
-  %13 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramLiteral", ptr %0, i64 %.059.us
+  %13 = getelementptr inbounds nuw [1040 x i8], ptr %0, i64 %.059.us
   %14 = zext i32 %12 to i64
-  %15 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramLiteral", ptr %4, i64 %14
+  %15 = getelementptr inbounds nuw [1040 x i8], ptr %4, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 1024
   %17 = load i64, ptr %16, align 8, !tbaa !12
   %18 = icmp eq i64 %17, 0
@@ -881,9 +878,9 @@ define void @_ZN13duckdb_brotli27BrotliHistogramRemapLiteralEPKNS_16HistogramLit
 
 24:                                               ; preds = %24, %19
   %.0.i8.i.us = phi i64 [ 0, %19 ], [ %30, %24 ]
-  %25 = getelementptr inbounds nuw i32, ptr %15, i64 %.0.i8.i.us
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %.0.i8.i.us
   %26 = load i32, ptr %25, align 4, !tbaa !3
-  %27 = getelementptr inbounds nuw i32, ptr %5, i64 %.0.i8.i.us
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.0.i8.i.us
   %28 = load i32, ptr %27, align 4, !tbaa !3
   %29 = add i32 %28, %26
   store i32 %29, ptr %27, align 4, !tbaa !3
@@ -908,10 +905,10 @@ _ZN13duckdb_brotli37BrotliHistogramBitCostDistanceLiteralEPKNS_16HistogramLitera
   %.04258.us62 = phi i64 [ %62, %61 ], [ 0, %_ZN13duckdb_brotli37BrotliHistogramBitCostDistanceLiteralEPKNS_16HistogramLiteralES2_PS0_.exit.us ]
   %.04357.us63 = phi double [ %.144.us67, %61 ], [ %34, %_ZN13duckdb_brotli37BrotliHistogramBitCostDistanceLiteralEPKNS_16HistogramLiteralES2_PS0_.exit.us ]
   %.04556.us64 = phi i32 [ %.146.us66, %61 ], [ %12, %_ZN13duckdb_brotli37BrotliHistogramBitCostDistanceLiteralEPKNS_16HistogramLiteralES2_PS0_.exit.us ]
-  %36 = getelementptr inbounds nuw i32, ptr %2, i64 %.04258.us62
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.04258.us62
   %37 = load i32, ptr %36, align 4, !tbaa !3
   %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramLiteral", ptr %4, i64 %38
+  %39 = getelementptr inbounds nuw [1040 x i8], ptr %4, i64 %38
   %40 = load i64, ptr %16, align 8, !tbaa !12
   %41 = icmp eq i64 %40, 0
   br i1 %41, label %_ZN13duckdb_brotli37BrotliHistogramBitCostDistanceLiteralEPKNS_16HistogramLiteralES2_PS0_.exit54.us65, label %42
@@ -927,9 +924,9 @@ _ZN13duckdb_brotli37BrotliHistogramBitCostDistanceLiteralEPKNS_16HistogramLitera
 
 47:                                               ; preds = %47, %42
   %.0.i8.i50.us = phi i64 [ 0, %42 ], [ %53, %47 ]
-  %48 = getelementptr inbounds nuw i32, ptr %39, i64 %.0.i8.i50.us
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %.0.i8.i50.us
   %49 = load i32, ptr %48, align 4, !tbaa !3
-  %50 = getelementptr inbounds nuw i32, ptr %5, i64 %.0.i8.i50.us
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.0.i8.i50.us
   %51 = load i32, ptr %50, align 4, !tbaa !3
   %52 = add i32 %51, %49
   store i32 %52, ptr %50, align 4, !tbaa !3
@@ -975,7 +972,7 @@ _ZN13duckdb_brotli37BrotliHistogramBitCostDistanceLiteralEPKNS_16HistogramLitera
   br i1 %64, label %65, label %68
 
 65:                                               ; preds = %_ZN13duckdb_brotli37BrotliHistogramBitCostDistanceLiteralEPKNS_16HistogramLiteralES2_PS0_.exit54.us.us
-  %66 = getelementptr inbounds nuw i32, ptr %2, i64 %.04258.us.us
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.04258.us.us
   %67 = load i32, ptr %66, align 4, !tbaa !3
   br label %68
 
@@ -996,13 +993,13 @@ _ZN13duckdb_brotli37BrotliHistogramBitCostDistanceLiteralEPKNS_16HistogramLitera
 .lr.ph61.split:                                   ; preds = %.lr.ph61, %_ZN13duckdb_brotli37BrotliHistogramBitCostDistanceLiteralEPKNS_16HistogramLiteralES2_PS0_.exit
   %.059 = phi i64 [ %93, %_ZN13duckdb_brotli37BrotliHistogramBitCostDistanceLiteralEPKNS_16HistogramLiteralES2_PS0_.exit ], [ 0, %.lr.ph61 ]
   %70 = icmp eq i64 %.059, 0
-  %71 = getelementptr i32, ptr %6, i64 %.059
+  %71 = getelementptr [4 x i8], ptr %6, i64 %.059
   %72 = getelementptr i8, ptr %71, i64 -4
   %.in = select i1 %70, ptr %6, ptr %72
   %73 = load i32, ptr %.in, align 4, !tbaa !3
-  %74 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramLiteral", ptr %0, i64 %.059
+  %74 = getelementptr inbounds nuw [1040 x i8], ptr %0, i64 %.059
   %75 = zext i32 %73 to i64
-  %76 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramLiteral", ptr %4, i64 %75
+  %76 = getelementptr inbounds nuw [1040 x i8], ptr %4, i64 %75
   %77 = getelementptr inbounds nuw i8, ptr %74, i64 1024
   %78 = load i64, ptr %77, align 8, !tbaa !12
   %79 = icmp eq i64 %78, 0
@@ -1019,9 +1016,9 @@ _ZN13duckdb_brotli37BrotliHistogramBitCostDistanceLiteralEPKNS_16HistogramLitera
 
 85:                                               ; preds = %85, %80
   %.0.i8.i = phi i64 [ 0, %80 ], [ %91, %85 ]
-  %86 = getelementptr inbounds nuw i32, ptr %76, i64 %.0.i8.i
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %.0.i8.i
   %87 = load i32, ptr %86, align 4, !tbaa !3
-  %88 = getelementptr inbounds nuw i32, ptr %5, i64 %.0.i8.i
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.0.i8.i
   %89 = load i32, ptr %88, align 4, !tbaa !3
   %90 = add i32 %89, %87
   store i32 %90, ptr %88, align 4, !tbaa !3
@@ -1044,10 +1041,10 @@ _ZN13duckdb_brotli37BrotliHistogramBitCostDistanceLiteralEPKNS_16HistogramLitera
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.171 = phi i64 [ %99, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %94 = getelementptr inbounds nuw i32, ptr %2, i64 %.171
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.171
   %95 = load i32, ptr %94, align 4, !tbaa !3
   %96 = zext i32 %95 to i64
-  %97 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramLiteral", ptr %4, i64 %96
+  %97 = getelementptr inbounds nuw [1040 x i8], ptr %4, i64 %96
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 1032
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1032) %97, i8 0, i64 1032, i1 false)
   store double 0x7FF0000000000000, ptr %98, align 8, !tbaa !9
@@ -1057,11 +1054,11 @@ _ZN13duckdb_brotli37BrotliHistogramBitCostDistanceLiteralEPKNS_16HistogramLitera
 
 .lr.ph74:                                         ; preds = %.preheader, %_ZN13duckdb_brotliL28HistogramAddHistogramLiteralEPNS_16HistogramLiteralEPKS0_.exit
   %.273 = phi i64 [ %117, %_ZN13duckdb_brotliL28HistogramAddHistogramLiteralEPNS_16HistogramLiteralEPKS0_.exit ], [ 0, %.preheader ]
-  %100 = getelementptr inbounds nuw i32, ptr %6, i64 %.273
+  %100 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.273
   %101 = load i32, ptr %100, align 4, !tbaa !3
   %102 = zext i32 %101 to i64
-  %103 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramLiteral", ptr %4, i64 %102
-  %104 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramLiteral", ptr %0, i64 %.273
+  %103 = getelementptr inbounds nuw [1040 x i8], ptr %4, i64 %102
+  %104 = getelementptr inbounds nuw [1040 x i8], ptr %0, i64 %.273
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 1024
   %106 = load i64, ptr %105, align 8, !tbaa !12
   %107 = getelementptr inbounds nuw i8, ptr %103, i64 1024
@@ -1072,9 +1069,9 @@ _ZN13duckdb_brotli37BrotliHistogramBitCostDistanceLiteralEPKNS_16HistogramLitera
 
 110:                                              ; preds = %.lr.ph74, %110
   %.0.i72 = phi i64 [ 0, %.lr.ph74 ], [ %116, %110 ]
-  %111 = getelementptr inbounds nuw i32, ptr %104, i64 %.0.i72
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %104, i64 %.0.i72
   %112 = load i32, ptr %111, align 4, !tbaa !3
-  %113 = getelementptr inbounds nuw i32, ptr %103, i64 %.0.i72
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %103, i64 %.0.i72
   %114 = load i32, ptr %113, align 4, !tbaa !3
   %115 = add i32 %114, %112
   store i32 %115, ptr %113, align 4, !tbaa !3
@@ -1110,10 +1107,10 @@ define noundef range(i64 0, 4294967296) i64 @_ZN13duckdb_brotli29BrotliHistogram
 .lr.ph62:                                         ; preds = %.lr.ph62.preheader, %16
   %.161 = phi i64 [ %17, %16 ], [ 0, %.lr.ph62.preheader ]
   %.05160 = phi i32 [ %.152, %16 ], [ 0, %.lr.ph62.preheader ]
-  %8 = getelementptr inbounds nuw i32, ptr %2, i64 %.161
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.161
   %9 = load i32, ptr %8, align 4, !tbaa !3
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw i32, ptr %6, i64 %10
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %10
   %12 = load i32, ptr %11, align 4, !tbaa !3
   %13 = icmp eq i32 %12, -1
   br i1 %13, label %14, label %16
@@ -1146,23 +1143,23 @@ define noundef range(i64 0, 4294967296) i64 @_ZN13duckdb_brotli29BrotliHistogram
 .lr.ph66:                                         ; preds = %.lr.ph66.preheader, %33
   %.264 = phi i64 [ %35, %33 ], [ 0, %.lr.ph66.preheader ]
   %.25363 = phi i32 [ %.354, %33 ], [ 0, %.lr.ph66.preheader ]
-  %22 = getelementptr inbounds nuw i32, ptr %2, i64 %.264
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.264
   %23 = load i32, ptr %22, align 4, !tbaa !3
   %24 = zext i32 %23 to i64
-  %25 = getelementptr inbounds nuw i32, ptr %6, i64 %24
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %24
   %26 = load i32, ptr %25, align 4, !tbaa !3
   %27 = icmp eq i32 %26, %.25363
   br i1 %27, label %28, label %33
 
 28:                                               ; preds = %.lr.ph66
-  %29 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramLiteral", ptr %1, i64 %24
+  %29 = getelementptr inbounds nuw [1040 x i8], ptr %1, i64 %24
   %30 = zext i32 %.25363 to i64
-  %31 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramLiteral", ptr %.ph, i64 %30
+  %31 = getelementptr inbounds nuw [1040 x i8], ptr %.ph, i64 %30
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1040) %31, ptr noundef nonnull align 8 dereferenceable(1040) %29, i64 1040, i1 false), !tbaa.struct !16
   %32 = add i32 %.25363, 1
   %.pre = load i32, ptr %22, align 4, !tbaa !3
   %.phi.trans.insert = zext i32 %.pre to i64
-  %.phi.trans.insert80 = getelementptr inbounds nuw i32, ptr %6, i64 %.phi.trans.insert
+  %.phi.trans.insert80 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.phi.trans.insert
   %.pre81 = load i32, ptr %.phi.trans.insert80, align 4, !tbaa !3
   br label %33
 
@@ -1182,8 +1179,8 @@ define noundef range(i64 0, 4294967296) i64 @_ZN13duckdb_brotli29BrotliHistogram
 
 .lr.ph71:                                         ; preds = %._crit_edge67, %.lr.ph71
   %.369 = phi i64 [ %39, %.lr.ph71 ], [ 0, %._crit_edge67 ]
-  %37 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramLiteral", ptr %.ph, i64 %.369
-  %38 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramLiteral", ptr %1, i64 %.369
+  %37 = getelementptr inbounds nuw [1040 x i8], ptr %.ph, i64 %.369
+  %38 = getelementptr inbounds nuw [1040 x i8], ptr %1, i64 %.369
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1040) %38, ptr noundef nonnull align 8 dereferenceable(1040) %37, i64 1040, i1 false), !tbaa.struct !16
   %39 = add nuw nsw i64 %.369, 1
   %exitcond79.not = icmp eq i64 %39, %36
@@ -1220,7 +1217,7 @@ define void @_ZN13duckdb_brotli30BrotliClusterHistogramsLiteralEPNS_13MemoryMana
 
 .lr.ph:                                           ; preds = %.thread, %.lr.ph
   %.0109119 = phi i64 [ %17, %.lr.ph ], [ 0, %.thread ]
-  %16 = getelementptr inbounds nuw i32, ptr %12, i64 %.0109119
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %.0109119
   store i32 1, ptr %16, align 4, !tbaa !3
   %17 = add nuw i64 %.0109119, 1
   %exitcond.not = icmp eq i64 %17, %2
@@ -1228,14 +1225,14 @@ define void @_ZN13duckdb_brotli30BrotliClusterHistogramsLiteralEPNS_13MemoryMana
 
 .lr.ph121:                                        ; preds = %.lr.ph, %.lr.ph121
   %.1120 = phi i64 [ %24, %.lr.ph121 ], [ 0, %.lr.ph ]
-  %18 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramLiteral", ptr %1, i64 %.1120
-  %19 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramLiteral", ptr %4, i64 %.1120
+  %18 = getelementptr inbounds nuw [1040 x i8], ptr %1, i64 %.1120
+  %19 = getelementptr inbounds nuw [1040 x i8], ptr %4, i64 %.1120
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1040) %19, ptr noundef nonnull align 8 dereferenceable(1040) %18, i64 1040, i1 false), !tbaa.struct !16
   %20 = tail call noundef double @_ZN13duckdb_brotli27BrotliPopulationCostLiteralEPKNS_16HistogramLiteralE(ptr noundef nonnull %18)
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 1032
   store double %20, ptr %21, align 8, !tbaa !9
   %22 = trunc i64 %.1120 to i32
-  %23 = getelementptr inbounds nuw i32, ptr %6, i64 %.1120
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.1120
   store i32 %22, ptr %23, align 4, !tbaa !3
   %24 = add nuw i64 %.1120, 1
   %exitcond132.not = icmp eq i64 %24, %2
@@ -1249,22 +1246,22 @@ define void @_ZN13duckdb_brotli30BrotliClusterHistogramsLiteralEPNS_13MemoryMana
   %umax = tail call i64 @llvm.umin.i64(i64 %25, i64 64)
   %26 = sub nuw i64 %2, %.2124
   %27 = tail call noundef i64 @llvm.umin.i64(i64 %26, i64 64)
-  %28 = getelementptr i32, ptr %13, i64 %.0108125
+  %28 = getelementptr [4 x i8], ptr %13, i64 %.0108125
   br label %29
 
 29:                                               ; preds = %.lr.ph123, %29
   %.0107122 = phi i64 [ 0, %.lr.ph123 ], [ %33, %29 ]
   %30 = add nuw nsw i64 %.0107122, %.2124
   %31 = trunc i64 %30 to i32
-  %32 = getelementptr i32, ptr %28, i64 %.0107122
+  %32 = getelementptr [4 x i8], ptr %28, i64 %.0107122
   store i32 %31, ptr %32, align 4, !tbaa !3
   %33 = add nuw nsw i64 %.0107122, 1
   %exitcond133.not = icmp eq i64 %33, %umax
   br i1 %exitcond133.not, label %._crit_edge, label %29, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %29
-  %34 = getelementptr inbounds nuw i32, ptr %6, i64 %.2124
-  %35 = getelementptr inbounds nuw i32, ptr %13, i64 %.0108125
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.2124
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %.0108125
   %36 = tail call noundef i64 @_ZN13duckdb_brotli29BrotliHistogramCombineLiteralEPNS_16HistogramLiteralES1_PjS2_S2_PNS_13HistogramPairEmmmm(ptr noundef %4, ptr noundef %15, ptr noundef %12, ptr noundef %34, ptr noundef %35, ptr noundef %14, i64 noundef %27, i64 noundef %27, i64 noundef %3, i64 noundef 2048)
   %37 = add i64 %36, %.0108125
   %38 = add i64 %.2124, 64
@@ -1316,11 +1313,11 @@ define void @_ZN13duckdb_brotli34BrotliCompareAndPushToQueueCommandEPKNS_16Histo
   %spec.select = tail call i32 @llvm.umax.i32(i32 %4, i32 %3)
   %spec.select59 = tail call i32 @llvm.umin.i32(i32 %4, i32 %3)
   %11 = zext i32 %spec.select59 to i64
-  %12 = getelementptr inbounds nuw i32, ptr %2, i64 %11
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !3
   %14 = zext i32 %13 to i64
   %15 = zext i32 %spec.select to i64
-  %16 = getelementptr inbounds nuw i32, ptr %2, i64 %15
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %15
   %17 = load i32, ptr %16, align 4, !tbaa !3
   %18 = zext i32 %17 to i64
   %19 = add nuw nsw i64 %18, %14
@@ -1329,7 +1326,7 @@ define void @_ZN13duckdb_brotli34BrotliCompareAndPushToQueueCommandEPKNS_16Histo
   br i1 %21, label %22, label %25
 
 22:                                               ; preds = %10
-  %23 = getelementptr inbounds nuw double, ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %14
+  %23 = getelementptr inbounds nuw [8 x i8], ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %14
   %24 = load double, ptr %23, align 8, !tbaa !7
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit67
 
@@ -1344,7 +1341,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit67:            ; preds = %22, %25
   br i1 %28, label %29, label %32
 
 29:                                               ; preds = %_ZN13duckdb_brotliL8FastLog2Em.exit67
-  %30 = getelementptr inbounds nuw double, ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %18
+  %30 = getelementptr inbounds nuw [8 x i8], ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %18
   %31 = load double, ptr %30, align 8, !tbaa !7
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit65
 
@@ -1361,7 +1358,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit65:            ; preds = %29, %32
   br i1 %37, label %38, label %41
 
 38:                                               ; preds = %_ZN13duckdb_brotliL8FastLog2Em.exit65
-  %39 = getelementptr inbounds nuw double, ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %19
+  %39 = getelementptr inbounds nuw [8 x i8], ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %19
   %40 = load double, ptr %39, align 8, !tbaa !7
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit
 
@@ -1374,11 +1371,11 @@ _ZN13duckdb_brotliL8FastLog2Em.exit:              ; preds = %38, %41
   %43 = fneg double %36
   %44 = tail call noundef double @llvm.fmuladd.f64(double %43, double %.0.i63, double %35)
   %45 = fmul double %44, 5.000000e-01
-  %46 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramCommand", ptr %0, i64 %11
+  %46 = getelementptr inbounds nuw [2832 x i8], ptr %0, i64 %11
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 2824
   %48 = load double, ptr %47, align 8, !tbaa !45
   %49 = fsub double %45, %48
-  %50 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramCommand", ptr %0, i64 %15
+  %50 = getelementptr inbounds nuw [2832 x i8], ptr %0, i64 %15
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 2824
   %52 = load double, ptr %51, align 8, !tbaa !45
   %53 = fsub double %49, %52
@@ -1417,9 +1414,9 @@ _ZN13duckdb_brotliL8FastLog2Em.exit:              ; preds = %38, %41
 
 75:                                               ; preds = %69, %75
   %.0.i6277 = phi i64 [ 0, %69 ], [ %81, %75 ]
-  %76 = getelementptr inbounds nuw i32, ptr %50, i64 %.0.i6277
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %.0.i6277
   %77 = load i32, ptr %76, align 4, !tbaa !3
-  %78 = getelementptr inbounds nuw i32, ptr %1, i64 %.0.i6277
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %.0.i6277
   %79 = load i32, ptr %78, align 4, !tbaa !3
   %80 = add i32 %79, %77
   store i32 %80, ptr %78, align 4, !tbaa !3
@@ -1464,7 +1461,7 @@ _ZL19HistogramPairIsLessPKN13duckdb_brotli13HistogramPairES2_.exit: ; preds = %8
   br i1 %100, label %101, label %105
 
 101:                                              ; preds = %99
-  %102 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramPair", ptr %6, i64 %86
+  %102 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %86
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %102, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !tbaa.struct !22
   %103 = load i64, ptr %7, align 8, !tbaa !13
   %104 = add i64 %103, 1
@@ -1485,7 +1482,7 @@ _ZL19HistogramPairIsLessPKN13duckdb_brotli13HistogramPairES2_.exit: ; preds = %8
   br i1 %107, label %108, label %.critedge61
 
 108:                                              ; preds = %106
-  %109 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramPair", ptr %6, i64 %86
+  %109 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %86
   store i32 %spec.select59, ptr %109, align 8, !tbaa !3
   %.sroa.7.0..sroa_idx69 = getelementptr inbounds nuw i8, ptr %109, i64 4
   store i32 %spec.select, ptr %.sroa.7.0..sroa_idx69, align 4, !tbaa !3
@@ -1541,14 +1538,14 @@ define noundef i64 @_ZN13duckdb_brotli29BrotliHistogramCombineCommandEPNS_16Hist
   br i1 %21, label %.lr.ph, label %.loopexit144
 
 .lr.ph:                                           ; preds = %19
-  %22 = getelementptr inbounds nuw i32, ptr %4, i64 %.0100149
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.0100149
   br label %23
 
 23:                                               ; preds = %.lr.ph, %_ZN13duckdb_brotli34BrotliCompareAndPushToQueueCommandEPKNS_16HistogramCommandEPS0_PKjjjmPNS_13HistogramPairEPm.exit
   %.099147 = phi i64 [ %20, %.lr.ph ], [ %122, %_ZN13duckdb_brotli34BrotliCompareAndPushToQueueCommandEPKNS_16HistogramCommandEPS0_PKjjjmPNS_13HistogramPairEPm.exit ]
   %.1138146 = phi i64 [ %.0137148, %.lr.ph ], [ %.6, %_ZN13duckdb_brotli34BrotliCompareAndPushToQueueCommandEPKNS_16HistogramCommandEPS0_PKjjjmPNS_13HistogramPairEPm.exit ]
   %24 = load i32, ptr %22, align 4, !tbaa !3
-  %25 = getelementptr inbounds nuw i32, ptr %4, i64 %.099147
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.099147
   %26 = load i32, ptr %25, align 4, !tbaa !3
   %27 = icmp eq i32 %24, %26
   br i1 %27, label %_ZN13duckdb_brotli34BrotliCompareAndPushToQueueCommandEPKNS_16HistogramCommandEPS0_PKjjjmPNS_13HistogramPairEPm.exit, label %28
@@ -1557,11 +1554,11 @@ define noundef i64 @_ZN13duckdb_brotli29BrotliHistogramCombineCommandEPNS_16Hist
   %spec.select.i = tail call i32 @llvm.umax.i32(i32 %26, i32 %24)
   %spec.select59.i = tail call i32 @llvm.umin.i32(i32 %26, i32 %24)
   %29 = zext i32 %spec.select59.i to i64
-  %30 = getelementptr inbounds nuw i32, ptr %2, i64 %29
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %29
   %31 = load i32, ptr %30, align 4, !tbaa !3
   %32 = zext i32 %31 to i64
   %33 = zext i32 %spec.select.i to i64
-  %34 = getelementptr inbounds nuw i32, ptr %2, i64 %33
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %33
   %35 = load i32, ptr %34, align 4, !tbaa !3
   %36 = zext i32 %35 to i64
   %37 = add nuw nsw i64 %36, %32
@@ -1570,7 +1567,7 @@ define noundef i64 @_ZN13duckdb_brotli29BrotliHistogramCombineCommandEPNS_16Hist
   br i1 %39, label %40, label %43
 
 40:                                               ; preds = %28
-  %41 = getelementptr inbounds nuw double, ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %32
+  %41 = getelementptr inbounds nuw [8 x i8], ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %32
   %42 = load double, ptr %41, align 8, !tbaa !7
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit67.i
 
@@ -1585,7 +1582,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit67.i:          ; preds = %43, %40
   br i1 %46, label %47, label %50
 
 47:                                               ; preds = %_ZN13duckdb_brotliL8FastLog2Em.exit67.i
-  %48 = getelementptr inbounds nuw double, ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %36
+  %48 = getelementptr inbounds nuw [8 x i8], ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %36
   %49 = load double, ptr %48, align 8, !tbaa !7
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit65.i
 
@@ -1602,7 +1599,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit65.i:          ; preds = %50, %47
   br i1 %55, label %56, label %59
 
 56:                                               ; preds = %_ZN13duckdb_brotliL8FastLog2Em.exit65.i
-  %57 = getelementptr inbounds nuw double, ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %37
+  %57 = getelementptr inbounds nuw [8 x i8], ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %37
   %58 = load double, ptr %57, align 8, !tbaa !7
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit.i
 
@@ -1615,11 +1612,11 @@ _ZN13duckdb_brotliL8FastLog2Em.exit.i:            ; preds = %59, %56
   %61 = fneg double %54
   %62 = tail call noundef double @llvm.fmuladd.f64(double %61, double %.0.i63.i, double %53)
   %63 = fmul double %62, 5.000000e-01
-  %64 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramCommand", ptr %0, i64 %29
+  %64 = getelementptr inbounds nuw [2832 x i8], ptr %0, i64 %29
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 2824
   %66 = load double, ptr %65, align 8, !tbaa !45
   %67 = fsub double %63, %66
-  %68 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramCommand", ptr %0, i64 %33
+  %68 = getelementptr inbounds nuw [2832 x i8], ptr %0, i64 %33
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 2824
   %70 = load double, ptr %69, align 8, !tbaa !45
   %71 = fsub double %67, %70
@@ -1655,9 +1652,9 @@ _ZN13duckdb_brotliL8FastLog2Em.exit.i:            ; preds = %59, %56
 
 90:                                               ; preds = %90, %85
   %.0.i6277.i = phi i64 [ 0, %85 ], [ %96, %90 ]
-  %91 = getelementptr inbounds nuw i32, ptr %68, i64 %.0.i6277.i
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %.0.i6277.i
   %92 = load i32, ptr %91, align 4, !tbaa !3
-  %93 = getelementptr inbounds nuw i32, ptr %1, i64 %.0.i6277.i
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %.0.i6277.i
   %94 = load i32, ptr %93, align 4, !tbaa !3
   %95 = add i32 %94, %92
   store i32 %95, ptr %93, align 4, !tbaa !3
@@ -1699,7 +1696,7 @@ _ZL19HistogramPairIsLessPKN13duckdb_brotli13HistogramPairES2_.exit.i: ; preds = 
   br i1 %112, label %113, label %116
 
 113:                                              ; preds = %111
-  %114 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramPair", ptr %5, i64 %.1138146
+  %114 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %.1138146
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %114, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !tbaa.struct !22
   %115 = add nuw i64 %.1138146, 1
   br label %116
@@ -1717,7 +1714,7 @@ _ZL19HistogramPairIsLessPKN13duckdb_brotli13HistogramPairES2_.exit.i: ; preds = 
   br i1 %118, label %119, label %_ZN13duckdb_brotli34BrotliCompareAndPushToQueueCommandEPKNS_16HistogramCommandEPS0_PKjjjmPNS_13HistogramPairEPm.exit
 
 119:                                              ; preds = %117
-  %120 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramPair", ptr %5, i64 %.1138146
+  %120 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %.1138146
   store i32 %spec.select59.i, ptr %120, align 8, !tbaa !3
   %.sroa.7.0..sroa_idx69.i = getelementptr inbounds nuw i8, ptr %120, i64 4
   store i32 %spec.select.i, ptr %.sroa.7.0..sroa_idx69.i, align 4, !tbaa !3
@@ -1747,9 +1744,9 @@ _ZN13duckdb_brotli34BrotliCompareAndPushToQueueCommandEPKNS_16HistogramCommandEP
   %127 = load i32, ptr %5, align 8, !tbaa !21
   %128 = load i32, ptr %16, align 4, !tbaa !20
   %129 = zext i32 %127 to i64
-  %130 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramCommand", ptr %0, i64 %129
+  %130 = getelementptr inbounds nuw [2832 x i8], ptr %0, i64 %129
   %131 = zext i32 %128 to i64
-  %132 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramCommand", ptr %0, i64 %131
+  %132 = getelementptr inbounds nuw [2832 x i8], ptr %0, i64 %131
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 2816
   %134 = load i64, ptr %133, align 8, !tbaa !47
   %135 = getelementptr inbounds nuw i8, ptr %130, i64 2816
@@ -1760,9 +1757,9 @@ _ZN13duckdb_brotli34BrotliCompareAndPushToQueueCommandEPKNS_16HistogramCommandEP
 
 138:                                              ; preds = %126, %138
   %.0.i109152 = phi i64 [ 0, %126 ], [ %144, %138 ]
-  %139 = getelementptr inbounds nuw i32, ptr %132, i64 %.0.i109152
+  %139 = getelementptr inbounds nuw [4 x i8], ptr %132, i64 %.0.i109152
   %140 = load i32, ptr %139, align 4, !tbaa !3
-  %141 = getelementptr inbounds nuw i32, ptr %130, i64 %.0.i109152
+  %141 = getelementptr inbounds nuw [4 x i8], ptr %130, i64 %.0.i109152
   %142 = load i32, ptr %141, align 4, !tbaa !3
   %143 = add i32 %142, %140
   store i32 %143, ptr %141, align 4, !tbaa !3
@@ -1774,9 +1771,9 @@ _ZN13duckdb_brotliL28HistogramAddHistogramCommandEPNS_16HistogramCommandEPKS0_.e
   %145 = load double, ptr %17, align 8, !tbaa !26
   %146 = getelementptr inbounds nuw i8, ptr %130, i64 2824
   store double %145, ptr %146, align 8, !tbaa !45
-  %147 = getelementptr inbounds nuw i32, ptr %2, i64 %131
+  %147 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %131
   %148 = load i32, ptr %147, align 4, !tbaa !3
-  %149 = getelementptr inbounds nuw i32, ptr %2, i64 %129
+  %149 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %129
   %150 = load i32, ptr %149, align 4, !tbaa !3
   %151 = add i32 %150, %148
   store i32 %151, ptr %149, align 4, !tbaa !3
@@ -1784,7 +1781,7 @@ _ZN13duckdb_brotliL28HistogramAddHistogramCommandEPNS_16HistogramCommandEPKS0_.e
 
 .lr.ph154:                                        ; preds = %_ZN13duckdb_brotliL28HistogramAddHistogramCommandEPNS_16HistogramCommandEPKS0_.exit, %156
   %.093153 = phi i64 [ %157, %156 ], [ 0, %_ZN13duckdb_brotliL28HistogramAddHistogramCommandEPNS_16HistogramCommandEPKS0_.exit ]
-  %152 = getelementptr inbounds nuw i32, ptr %3, i64 %.093153
+  %152 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.093153
   %153 = load i32, ptr %152, align 4, !tbaa !3
   %154 = icmp eq i32 %153, %128
   br i1 %154, label %155, label %156
@@ -1803,13 +1800,13 @@ _ZN13duckdb_brotliL28HistogramAddHistogramCommandEPNS_16HistogramCommandEPKS0_.e
 
 .preheader141:                                    ; preds = %.preheader141.preheader, %167
   %.194155 = phi i64 [ %168, %167 ], [ 0, %.preheader141.preheader ]
-  %158 = getelementptr inbounds nuw i32, ptr %4, i64 %.194155
+  %158 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.194155
   %159 = load i32, ptr %158, align 4, !tbaa !3
   %160 = icmp eq i32 %159, %128
   br i1 %160, label %161, label %167
 
 161:                                              ; preds = %.preheader141
-  %162 = getelementptr inbounds nuw i32, ptr %4, i64 %.194155
+  %162 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.194155
   %163 = getelementptr i8, ptr %162, i64 4
   %164 = xor i64 %.194155, -1
   %165 = add i64 %.0167, %164
@@ -1835,7 +1832,7 @@ _ZN13duckdb_brotliL28HistogramAddHistogramCommandEPNS_16HistogramCommandEPKS0_.e
 .lr.ph158:                                        ; preds = %.loopexit142, %197
   %.091157 = phi i64 [ %.192, %197 ], [ 0, %.loopexit142 ]
   %.2156 = phi i64 [ %198, %197 ], [ 0, %.loopexit142 ]
-  %170 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramPair", ptr %5, i64 %.2156
+  %170 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %.2156
   %171 = load i32, ptr %170, align 8, !tbaa !21
   %172 = icmp eq i32 %171, %127
   br i1 %172, label %197, label %173
@@ -1873,13 +1870,13 @@ _ZL19HistogramPairIsLessPKN13duckdb_brotli13HistogramPairES2_.exit: ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !tbaa.struct !22
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %170, i64 24, i1 false), !tbaa.struct !22
-  %192 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramPair", ptr %5, i64 %.091157
+  %192 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %.091157
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %192, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false), !tbaa.struct !22
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %195
 
 193:                                              ; preds = %184, %_ZL19HistogramPairIsLessPKN13duckdb_brotli13HistogramPairES2_.exit
-  %194 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramPair", ptr %5, i64 %.091157
+  %194 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %.091157
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %194, ptr noundef nonnull align 8 dereferenceable(24) %170, i64 24, i1 false), !tbaa.struct !22
   br label %195
 
@@ -1896,7 +1893,7 @@ _ZL19HistogramPairIsLessPKN13duckdb_brotli13HistogramPairES2_.exit: ; preds = %1
 .lr.ph162:                                        ; preds = %.preheader, %_ZN13duckdb_brotli34BrotliCompareAndPushToQueueCommandEPKNS_16HistogramCommandEPS0_PKjjjmPNS_13HistogramPairEPm.exit130
   %.3161 = phi i64 [ %296, %_ZN13duckdb_brotli34BrotliCompareAndPushToQueueCommandEPKNS_16HistogramCommandEPS0_PKjjjmPNS_13HistogramPairEPm.exit130 ], [ 0, %.preheader ]
   %.4160 = phi i64 [ %.8, %_ZN13duckdb_brotli34BrotliCompareAndPushToQueueCommandEPKNS_16HistogramCommandEPS0_PKjjjmPNS_13HistogramPairEPm.exit130 ], [ %.091.lcssa, %.preheader ]
-  %199 = getelementptr inbounds nuw i32, ptr %4, i64 %.3161
+  %199 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.3161
   %200 = load i32, ptr %199, align 4, !tbaa !3
   %201 = icmp eq i32 %127, %200
   br i1 %201, label %_ZN13duckdb_brotli34BrotliCompareAndPushToQueueCommandEPKNS_16HistogramCommandEPS0_PKjjjmPNS_13HistogramPairEPm.exit130, label %202
@@ -1905,11 +1902,11 @@ _ZL19HistogramPairIsLessPKN13duckdb_brotli13HistogramPairES2_.exit: ; preds = %1
   %spec.select.i110 = tail call i32 @llvm.umax.i32(i32 %200, i32 %127)
   %spec.select59.i111 = tail call i32 @llvm.umin.i32(i32 %200, i32 %127)
   %203 = zext i32 %spec.select59.i111 to i64
-  %204 = getelementptr inbounds nuw i32, ptr %2, i64 %203
+  %204 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %203
   %205 = load i32, ptr %204, align 4, !tbaa !3
   %206 = zext i32 %205 to i64
   %207 = zext i32 %spec.select.i110 to i64
-  %208 = getelementptr inbounds nuw i32, ptr %2, i64 %207
+  %208 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %207
   %209 = load i32, ptr %208, align 4, !tbaa !3
   %210 = zext i32 %209 to i64
   %211 = add nuw nsw i64 %210, %206
@@ -1918,7 +1915,7 @@ _ZL19HistogramPairIsLessPKN13duckdb_brotli13HistogramPairES2_.exit: ; preds = %1
   br i1 %213, label %214, label %217
 
 214:                                              ; preds = %202
-  %215 = getelementptr inbounds nuw double, ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %206
+  %215 = getelementptr inbounds nuw [8 x i8], ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %206
   %216 = load double, ptr %215, align 8, !tbaa !7
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit67.i112
 
@@ -1933,7 +1930,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit67.i112:       ; preds = %217, %214
   br i1 %220, label %221, label %224
 
 221:                                              ; preds = %_ZN13duckdb_brotliL8FastLog2Em.exit67.i112
-  %222 = getelementptr inbounds nuw double, ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %210
+  %222 = getelementptr inbounds nuw [8 x i8], ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %210
   %223 = load double, ptr %222, align 8, !tbaa !7
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit65.i114
 
@@ -1950,7 +1947,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit65.i114:       ; preds = %224, %221
   br i1 %229, label %230, label %233
 
 230:                                              ; preds = %_ZN13duckdb_brotliL8FastLog2Em.exit65.i114
-  %231 = getelementptr inbounds nuw double, ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %211
+  %231 = getelementptr inbounds nuw [8 x i8], ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %211
   %232 = load double, ptr %231, align 8, !tbaa !7
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit.i116
 
@@ -1963,11 +1960,11 @@ _ZN13duckdb_brotliL8FastLog2Em.exit.i116:         ; preds = %233, %230
   %235 = fneg double %228
   %236 = tail call noundef double @llvm.fmuladd.f64(double %235, double %.0.i63.i117, double %227)
   %237 = fmul double %236, 5.000000e-01
-  %238 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramCommand", ptr %0, i64 %203
+  %238 = getelementptr inbounds nuw [2832 x i8], ptr %0, i64 %203
   %239 = getelementptr inbounds nuw i8, ptr %238, i64 2824
   %240 = load double, ptr %239, align 8, !tbaa !45
   %241 = fsub double %237, %240
-  %242 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramCommand", ptr %0, i64 %207
+  %242 = getelementptr inbounds nuw [2832 x i8], ptr %0, i64 %207
   %243 = getelementptr inbounds nuw i8, ptr %242, i64 2824
   %244 = load double, ptr %243, align 8, !tbaa !45
   %245 = fsub double %241, %244
@@ -2003,9 +2000,9 @@ _ZN13duckdb_brotliL8FastLog2Em.exit.i116:         ; preds = %233, %230
 
 264:                                              ; preds = %264, %259
   %.0.i6277.i118 = phi i64 [ 0, %259 ], [ %270, %264 ]
-  %265 = getelementptr inbounds nuw i32, ptr %242, i64 %.0.i6277.i118
+  %265 = getelementptr inbounds nuw [4 x i8], ptr %242, i64 %.0.i6277.i118
   %266 = load i32, ptr %265, align 4, !tbaa !3
-  %267 = getelementptr inbounds nuw i32, ptr %1, i64 %.0.i6277.i118
+  %267 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %.0.i6277.i118
   %268 = load i32, ptr %267, align 4, !tbaa !3
   %269 = add i32 %268, %266
   store i32 %269, ptr %267, align 4, !tbaa !3
@@ -2047,7 +2044,7 @@ _ZL19HistogramPairIsLessPKN13duckdb_brotli13HistogramPairES2_.exit.i124: ; preds
   br i1 %286, label %287, label %290
 
 287:                                              ; preds = %285
-  %288 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramPair", ptr %5, i64 %.4160
+  %288 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %.4160
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %288, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !tbaa.struct !22
   %289 = add nuw i64 %.4160, 1
   br label %290
@@ -2065,7 +2062,7 @@ _ZL19HistogramPairIsLessPKN13duckdb_brotli13HistogramPairES2_.exit.i124: ; preds
   br i1 %292, label %293, label %_ZN13duckdb_brotli34BrotliCompareAndPushToQueueCommandEPKNS_16HistogramCommandEPS0_PKjjjmPNS_13HistogramPairEPm.exit130
 
 293:                                              ; preds = %291
-  %294 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramPair", ptr %5, i64 %.4160
+  %294 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %.4160
   store i32 %spec.select59.i111, ptr %294, align 8, !tbaa !3
   %.sroa.7.0..sroa_idx69.i125 = getelementptr inbounds nuw i8, ptr %294, i64 4
   store i32 %spec.select.i110, ptr %.sroa.7.0..sroa_idx69.i125, align 4, !tbaa !3
@@ -2114,9 +2111,9 @@ define noundef double @_ZN13duckdb_brotli37BrotliHistogramBitCostDistanceCommand
 
 13:                                               ; preds = %7, %13
   %.0.i8 = phi i64 [ 0, %7 ], [ %19, %13 ]
-  %14 = getelementptr inbounds nuw i32, ptr %1, i64 %.0.i8
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %.0.i8
   %15 = load i32, ptr %14, align 4, !tbaa !3
-  %16 = getelementptr inbounds nuw i32, ptr %2, i64 %.0.i8
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.0.i8
   %17 = load i32, ptr %16, align 4, !tbaa !3
   %18 = add i32 %17, %15
   store i32 %18, ptr %16, align 4, !tbaa !3
@@ -2149,13 +2146,13 @@ define void @_ZN13duckdb_brotli27BrotliHistogramRemapCommandEPKNS_16HistogramCom
 .lr.ph61.split.us:                                ; preds = %.lr.ph61, %._crit_edge.us
   %.059.us = phi i64 [ %63, %._crit_edge.us ], [ 0, %.lr.ph61 ]
   %9 = icmp eq i64 %.059.us, 0
-  %10 = getelementptr i32, ptr %6, i64 %.059.us
+  %10 = getelementptr [4 x i8], ptr %6, i64 %.059.us
   %11 = getelementptr i8, ptr %10, i64 -4
   %.in.us = select i1 %9, ptr %6, ptr %11
   %12 = load i32, ptr %.in.us, align 4, !tbaa !3
-  %13 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramCommand", ptr %0, i64 %.059.us
+  %13 = getelementptr inbounds nuw [2832 x i8], ptr %0, i64 %.059.us
   %14 = zext i32 %12 to i64
-  %15 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramCommand", ptr %4, i64 %14
+  %15 = getelementptr inbounds nuw [2832 x i8], ptr %4, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 2816
   %17 = load i64, ptr %16, align 8, !tbaa !47
   %18 = icmp eq i64 %17, 0
@@ -2172,9 +2169,9 @@ define void @_ZN13duckdb_brotli27BrotliHistogramRemapCommandEPKNS_16HistogramCom
 
 24:                                               ; preds = %24, %19
   %.0.i8.i.us = phi i64 [ 0, %19 ], [ %30, %24 ]
-  %25 = getelementptr inbounds nuw i32, ptr %15, i64 %.0.i8.i.us
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %.0.i8.i.us
   %26 = load i32, ptr %25, align 4, !tbaa !3
-  %27 = getelementptr inbounds nuw i32, ptr %5, i64 %.0.i8.i.us
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.0.i8.i.us
   %28 = load i32, ptr %27, align 4, !tbaa !3
   %29 = add i32 %28, %26
   store i32 %29, ptr %27, align 4, !tbaa !3
@@ -2199,10 +2196,10 @@ _ZN13duckdb_brotli37BrotliHistogramBitCostDistanceCommandEPKNS_16HistogramComman
   %.04258.us62 = phi i64 [ %62, %61 ], [ 0, %_ZN13duckdb_brotli37BrotliHistogramBitCostDistanceCommandEPKNS_16HistogramCommandES2_PS0_.exit.us ]
   %.04357.us63 = phi double [ %.144.us67, %61 ], [ %34, %_ZN13duckdb_brotli37BrotliHistogramBitCostDistanceCommandEPKNS_16HistogramCommandES2_PS0_.exit.us ]
   %.04556.us64 = phi i32 [ %.146.us66, %61 ], [ %12, %_ZN13duckdb_brotli37BrotliHistogramBitCostDistanceCommandEPKNS_16HistogramCommandES2_PS0_.exit.us ]
-  %36 = getelementptr inbounds nuw i32, ptr %2, i64 %.04258.us62
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.04258.us62
   %37 = load i32, ptr %36, align 4, !tbaa !3
   %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramCommand", ptr %4, i64 %38
+  %39 = getelementptr inbounds nuw [2832 x i8], ptr %4, i64 %38
   %40 = load i64, ptr %16, align 8, !tbaa !47
   %41 = icmp eq i64 %40, 0
   br i1 %41, label %_ZN13duckdb_brotli37BrotliHistogramBitCostDistanceCommandEPKNS_16HistogramCommandES2_PS0_.exit54.us65, label %42
@@ -2218,9 +2215,9 @@ _ZN13duckdb_brotli37BrotliHistogramBitCostDistanceCommandEPKNS_16HistogramComman
 
 47:                                               ; preds = %47, %42
   %.0.i8.i50.us = phi i64 [ 0, %42 ], [ %53, %47 ]
-  %48 = getelementptr inbounds nuw i32, ptr %39, i64 %.0.i8.i50.us
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %.0.i8.i50.us
   %49 = load i32, ptr %48, align 4, !tbaa !3
-  %50 = getelementptr inbounds nuw i32, ptr %5, i64 %.0.i8.i50.us
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.0.i8.i50.us
   %51 = load i32, ptr %50, align 4, !tbaa !3
   %52 = add i32 %51, %49
   store i32 %52, ptr %50, align 4, !tbaa !3
@@ -2266,7 +2263,7 @@ _ZN13duckdb_brotli37BrotliHistogramBitCostDistanceCommandEPKNS_16HistogramComman
   br i1 %64, label %65, label %68
 
 65:                                               ; preds = %_ZN13duckdb_brotli37BrotliHistogramBitCostDistanceCommandEPKNS_16HistogramCommandES2_PS0_.exit54.us.us
-  %66 = getelementptr inbounds nuw i32, ptr %2, i64 %.04258.us.us
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.04258.us.us
   %67 = load i32, ptr %66, align 4, !tbaa !3
   br label %68
 
@@ -2287,13 +2284,13 @@ _ZN13duckdb_brotli37BrotliHistogramBitCostDistanceCommandEPKNS_16HistogramComman
 .lr.ph61.split:                                   ; preds = %.lr.ph61, %_ZN13duckdb_brotli37BrotliHistogramBitCostDistanceCommandEPKNS_16HistogramCommandES2_PS0_.exit
   %.059 = phi i64 [ %93, %_ZN13duckdb_brotli37BrotliHistogramBitCostDistanceCommandEPKNS_16HistogramCommandES2_PS0_.exit ], [ 0, %.lr.ph61 ]
   %70 = icmp eq i64 %.059, 0
-  %71 = getelementptr i32, ptr %6, i64 %.059
+  %71 = getelementptr [4 x i8], ptr %6, i64 %.059
   %72 = getelementptr i8, ptr %71, i64 -4
   %.in = select i1 %70, ptr %6, ptr %72
   %73 = load i32, ptr %.in, align 4, !tbaa !3
-  %74 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramCommand", ptr %0, i64 %.059
+  %74 = getelementptr inbounds nuw [2832 x i8], ptr %0, i64 %.059
   %75 = zext i32 %73 to i64
-  %76 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramCommand", ptr %4, i64 %75
+  %76 = getelementptr inbounds nuw [2832 x i8], ptr %4, i64 %75
   %77 = getelementptr inbounds nuw i8, ptr %74, i64 2816
   %78 = load i64, ptr %77, align 8, !tbaa !47
   %79 = icmp eq i64 %78, 0
@@ -2310,9 +2307,9 @@ _ZN13duckdb_brotli37BrotliHistogramBitCostDistanceCommandEPKNS_16HistogramComman
 
 85:                                               ; preds = %85, %80
   %.0.i8.i = phi i64 [ 0, %80 ], [ %91, %85 ]
-  %86 = getelementptr inbounds nuw i32, ptr %76, i64 %.0.i8.i
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %.0.i8.i
   %87 = load i32, ptr %86, align 4, !tbaa !3
-  %88 = getelementptr inbounds nuw i32, ptr %5, i64 %.0.i8.i
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.0.i8.i
   %89 = load i32, ptr %88, align 4, !tbaa !3
   %90 = add i32 %89, %87
   store i32 %90, ptr %88, align 4, !tbaa !3
@@ -2335,10 +2332,10 @@ _ZN13duckdb_brotli37BrotliHistogramBitCostDistanceCommandEPKNS_16HistogramComman
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.171 = phi i64 [ %99, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %94 = getelementptr inbounds nuw i32, ptr %2, i64 %.171
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.171
   %95 = load i32, ptr %94, align 4, !tbaa !3
   %96 = zext i32 %95 to i64
-  %97 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramCommand", ptr %4, i64 %96
+  %97 = getelementptr inbounds nuw [2832 x i8], ptr %4, i64 %96
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 2824
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2824) %97, i8 0, i64 2824, i1 false)
   store double 0x7FF0000000000000, ptr %98, align 8, !tbaa !45
@@ -2348,11 +2345,11 @@ _ZN13duckdb_brotli37BrotliHistogramBitCostDistanceCommandEPKNS_16HistogramComman
 
 .lr.ph74:                                         ; preds = %.preheader, %_ZN13duckdb_brotliL28HistogramAddHistogramCommandEPNS_16HistogramCommandEPKS0_.exit
   %.273 = phi i64 [ %117, %_ZN13duckdb_brotliL28HistogramAddHistogramCommandEPNS_16HistogramCommandEPKS0_.exit ], [ 0, %.preheader ]
-  %100 = getelementptr inbounds nuw i32, ptr %6, i64 %.273
+  %100 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.273
   %101 = load i32, ptr %100, align 4, !tbaa !3
   %102 = zext i32 %101 to i64
-  %103 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramCommand", ptr %4, i64 %102
-  %104 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramCommand", ptr %0, i64 %.273
+  %103 = getelementptr inbounds nuw [2832 x i8], ptr %4, i64 %102
+  %104 = getelementptr inbounds nuw [2832 x i8], ptr %0, i64 %.273
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 2816
   %106 = load i64, ptr %105, align 8, !tbaa !47
   %107 = getelementptr inbounds nuw i8, ptr %103, i64 2816
@@ -2363,9 +2360,9 @@ _ZN13duckdb_brotli37BrotliHistogramBitCostDistanceCommandEPKNS_16HistogramComman
 
 110:                                              ; preds = %.lr.ph74, %110
   %.0.i72 = phi i64 [ 0, %.lr.ph74 ], [ %116, %110 ]
-  %111 = getelementptr inbounds nuw i32, ptr %104, i64 %.0.i72
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %104, i64 %.0.i72
   %112 = load i32, ptr %111, align 4, !tbaa !3
-  %113 = getelementptr inbounds nuw i32, ptr %103, i64 %.0.i72
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %103, i64 %.0.i72
   %114 = load i32, ptr %113, align 4, !tbaa !3
   %115 = add i32 %114, %112
   store i32 %115, ptr %113, align 4, !tbaa !3
@@ -2401,10 +2398,10 @@ define noundef range(i64 0, 4294967296) i64 @_ZN13duckdb_brotli29BrotliHistogram
 .lr.ph62:                                         ; preds = %.lr.ph62.preheader, %16
   %.161 = phi i64 [ %17, %16 ], [ 0, %.lr.ph62.preheader ]
   %.05160 = phi i32 [ %.152, %16 ], [ 0, %.lr.ph62.preheader ]
-  %8 = getelementptr inbounds nuw i32, ptr %2, i64 %.161
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.161
   %9 = load i32, ptr %8, align 4, !tbaa !3
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw i32, ptr %6, i64 %10
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %10
   %12 = load i32, ptr %11, align 4, !tbaa !3
   %13 = icmp eq i32 %12, -1
   br i1 %13, label %14, label %16
@@ -2437,23 +2434,23 @@ define noundef range(i64 0, 4294967296) i64 @_ZN13duckdb_brotli29BrotliHistogram
 .lr.ph66:                                         ; preds = %.lr.ph66.preheader, %33
   %.264 = phi i64 [ %35, %33 ], [ 0, %.lr.ph66.preheader ]
   %.25363 = phi i32 [ %.354, %33 ], [ 0, %.lr.ph66.preheader ]
-  %22 = getelementptr inbounds nuw i32, ptr %2, i64 %.264
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.264
   %23 = load i32, ptr %22, align 4, !tbaa !3
   %24 = zext i32 %23 to i64
-  %25 = getelementptr inbounds nuw i32, ptr %6, i64 %24
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %24
   %26 = load i32, ptr %25, align 4, !tbaa !3
   %27 = icmp eq i32 %26, %.25363
   br i1 %27, label %28, label %33
 
 28:                                               ; preds = %.lr.ph66
-  %29 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramCommand", ptr %1, i64 %24
+  %29 = getelementptr inbounds nuw [2832 x i8], ptr %1, i64 %24
   %30 = zext i32 %.25363 to i64
-  %31 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramCommand", ptr %.ph, i64 %30
+  %31 = getelementptr inbounds nuw [2832 x i8], ptr %.ph, i64 %30
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2832) %31, ptr noundef nonnull align 8 dereferenceable(2832) %29, i64 2832, i1 false), !tbaa.struct !48
   %32 = add i32 %.25363, 1
   %.pre = load i32, ptr %22, align 4, !tbaa !3
   %.phi.trans.insert = zext i32 %.pre to i64
-  %.phi.trans.insert80 = getelementptr inbounds nuw i32, ptr %6, i64 %.phi.trans.insert
+  %.phi.trans.insert80 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.phi.trans.insert
   %.pre81 = load i32, ptr %.phi.trans.insert80, align 4, !tbaa !3
   br label %33
 
@@ -2473,8 +2470,8 @@ define noundef range(i64 0, 4294967296) i64 @_ZN13duckdb_brotli29BrotliHistogram
 
 .lr.ph71:                                         ; preds = %._crit_edge67, %.lr.ph71
   %.369 = phi i64 [ %39, %.lr.ph71 ], [ 0, %._crit_edge67 ]
-  %37 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramCommand", ptr %.ph, i64 %.369
-  %38 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramCommand", ptr %1, i64 %.369
+  %37 = getelementptr inbounds nuw [2832 x i8], ptr %.ph, i64 %.369
+  %38 = getelementptr inbounds nuw [2832 x i8], ptr %1, i64 %.369
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2832) %38, ptr noundef nonnull align 8 dereferenceable(2832) %37, i64 2832, i1 false), !tbaa.struct !48
   %39 = add nuw nsw i64 %.369, 1
   %exitcond79.not = icmp eq i64 %39, %36
@@ -2507,7 +2504,7 @@ define void @_ZN13duckdb_brotli30BrotliClusterHistogramsCommandEPNS_13MemoryMana
 
 .lr.ph:                                           ; preds = %.thread, %.lr.ph
   %.0109119 = phi i64 [ %17, %.lr.ph ], [ 0, %.thread ]
-  %16 = getelementptr inbounds nuw i32, ptr %12, i64 %.0109119
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %.0109119
   store i32 1, ptr %16, align 4, !tbaa !3
   %17 = add nuw i64 %.0109119, 1
   %exitcond.not = icmp eq i64 %17, %2
@@ -2515,14 +2512,14 @@ define void @_ZN13duckdb_brotli30BrotliClusterHistogramsCommandEPNS_13MemoryMana
 
 .lr.ph121:                                        ; preds = %.lr.ph, %.lr.ph121
   %.1120 = phi i64 [ %24, %.lr.ph121 ], [ 0, %.lr.ph ]
-  %18 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramCommand", ptr %1, i64 %.1120
-  %19 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramCommand", ptr %4, i64 %.1120
+  %18 = getelementptr inbounds nuw [2832 x i8], ptr %1, i64 %.1120
+  %19 = getelementptr inbounds nuw [2832 x i8], ptr %4, i64 %.1120
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2832) %19, ptr noundef nonnull align 8 dereferenceable(2832) %18, i64 2832, i1 false), !tbaa.struct !48
   %20 = tail call noundef double @_ZN13duckdb_brotli27BrotliPopulationCostCommandEPKNS_16HistogramCommandE(ptr noundef nonnull %18)
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 2824
   store double %20, ptr %21, align 8, !tbaa !45
   %22 = trunc i64 %.1120 to i32
-  %23 = getelementptr inbounds nuw i32, ptr %6, i64 %.1120
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.1120
   store i32 %22, ptr %23, align 4, !tbaa !3
   %24 = add nuw i64 %.1120, 1
   %exitcond132.not = icmp eq i64 %24, %2
@@ -2536,22 +2533,22 @@ define void @_ZN13duckdb_brotli30BrotliClusterHistogramsCommandEPNS_13MemoryMana
   %umax = tail call i64 @llvm.umin.i64(i64 %25, i64 64)
   %26 = sub nuw i64 %2, %.2124
   %27 = tail call noundef i64 @llvm.umin.i64(i64 %26, i64 64)
-  %28 = getelementptr i32, ptr %13, i64 %.0108125
+  %28 = getelementptr [4 x i8], ptr %13, i64 %.0108125
   br label %29
 
 29:                                               ; preds = %.lr.ph123, %29
   %.0107122 = phi i64 [ 0, %.lr.ph123 ], [ %33, %29 ]
   %30 = add nuw nsw i64 %.0107122, %.2124
   %31 = trunc i64 %30 to i32
-  %32 = getelementptr i32, ptr %28, i64 %.0107122
+  %32 = getelementptr [4 x i8], ptr %28, i64 %.0107122
   store i32 %31, ptr %32, align 4, !tbaa !3
   %33 = add nuw nsw i64 %.0107122, 1
   %exitcond133.not = icmp eq i64 %33, %umax
   br i1 %exitcond133.not, label %._crit_edge, label %29, !llvm.loop !67
 
 ._crit_edge:                                      ; preds = %29
-  %34 = getelementptr inbounds nuw i32, ptr %6, i64 %.2124
-  %35 = getelementptr inbounds nuw i32, ptr %13, i64 %.0108125
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.2124
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %.0108125
   %36 = tail call noundef i64 @_ZN13duckdb_brotli29BrotliHistogramCombineCommandEPNS_16HistogramCommandES1_PjS2_S2_PNS_13HistogramPairEmmmm(ptr noundef %4, ptr noundef %15, ptr noundef %12, ptr noundef %34, ptr noundef %35, ptr noundef %14, i64 noundef %27, i64 noundef %27, i64 noundef %3, i64 noundef 2048)
   %37 = add i64 %36, %.0108125
   %38 = add i64 %.2124, 64
@@ -2603,11 +2600,11 @@ define void @_ZN13duckdb_brotli35BrotliCompareAndPushToQueueDistanceEPKNS_17Hist
   %spec.select = tail call i32 @llvm.umax.i32(i32 %4, i32 %3)
   %spec.select59 = tail call i32 @llvm.umin.i32(i32 %4, i32 %3)
   %11 = zext i32 %spec.select59 to i64
-  %12 = getelementptr inbounds nuw i32, ptr %2, i64 %11
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !3
   %14 = zext i32 %13 to i64
   %15 = zext i32 %spec.select to i64
-  %16 = getelementptr inbounds nuw i32, ptr %2, i64 %15
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %15
   %17 = load i32, ptr %16, align 4, !tbaa !3
   %18 = zext i32 %17 to i64
   %19 = add nuw nsw i64 %18, %14
@@ -2616,7 +2613,7 @@ define void @_ZN13duckdb_brotli35BrotliCompareAndPushToQueueDistanceEPKNS_17Hist
   br i1 %21, label %22, label %25
 
 22:                                               ; preds = %10
-  %23 = getelementptr inbounds nuw double, ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %14
+  %23 = getelementptr inbounds nuw [8 x i8], ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %14
   %24 = load double, ptr %23, align 8, !tbaa !7
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit67
 
@@ -2631,7 +2628,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit67:            ; preds = %22, %25
   br i1 %28, label %29, label %32
 
 29:                                               ; preds = %_ZN13duckdb_brotliL8FastLog2Em.exit67
-  %30 = getelementptr inbounds nuw double, ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %18
+  %30 = getelementptr inbounds nuw [8 x i8], ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %18
   %31 = load double, ptr %30, align 8, !tbaa !7
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit65
 
@@ -2648,7 +2645,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit65:            ; preds = %29, %32
   br i1 %37, label %38, label %41
 
 38:                                               ; preds = %_ZN13duckdb_brotliL8FastLog2Em.exit65
-  %39 = getelementptr inbounds nuw double, ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %19
+  %39 = getelementptr inbounds nuw [8 x i8], ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %19
   %40 = load double, ptr %39, align 8, !tbaa !7
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit
 
@@ -2661,11 +2658,11 @@ _ZN13duckdb_brotliL8FastLog2Em.exit:              ; preds = %38, %41
   %43 = fneg double %36
   %44 = tail call noundef double @llvm.fmuladd.f64(double %43, double %.0.i63, double %35)
   %45 = fmul double %44, 5.000000e-01
-  %46 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramDistance", ptr %0, i64 %11
+  %46 = getelementptr inbounds nuw [2192 x i8], ptr %0, i64 %11
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 2184
   %48 = load double, ptr %47, align 8, !tbaa !70
   %49 = fsub double %45, %48
-  %50 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramDistance", ptr %0, i64 %15
+  %50 = getelementptr inbounds nuw [2192 x i8], ptr %0, i64 %15
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 2184
   %52 = load double, ptr %51, align 8, !tbaa !70
   %53 = fsub double %49, %52
@@ -2704,9 +2701,9 @@ _ZN13duckdb_brotliL8FastLog2Em.exit:              ; preds = %38, %41
 
 75:                                               ; preds = %69, %75
   %.0.i6277 = phi i64 [ 0, %69 ], [ %81, %75 ]
-  %76 = getelementptr inbounds nuw i32, ptr %50, i64 %.0.i6277
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %.0.i6277
   %77 = load i32, ptr %76, align 4, !tbaa !3
-  %78 = getelementptr inbounds nuw i32, ptr %1, i64 %.0.i6277
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %.0.i6277
   %79 = load i32, ptr %78, align 4, !tbaa !3
   %80 = add i32 %79, %77
   store i32 %80, ptr %78, align 4, !tbaa !3
@@ -2751,7 +2748,7 @@ _ZL19HistogramPairIsLessPKN13duckdb_brotli13HistogramPairES2_.exit: ; preds = %8
   br i1 %100, label %101, label %105
 
 101:                                              ; preds = %99
-  %102 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramPair", ptr %6, i64 %86
+  %102 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %86
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %102, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !tbaa.struct !22
   %103 = load i64, ptr %7, align 8, !tbaa !13
   %104 = add i64 %103, 1
@@ -2772,7 +2769,7 @@ _ZL19HistogramPairIsLessPKN13duckdb_brotli13HistogramPairES2_.exit: ; preds = %8
   br i1 %107, label %108, label %.critedge61
 
 108:                                              ; preds = %106
-  %109 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramPair", ptr %6, i64 %86
+  %109 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %86
   store i32 %spec.select59, ptr %109, align 8, !tbaa !3
   %.sroa.7.0..sroa_idx69 = getelementptr inbounds nuw i8, ptr %109, i64 4
   store i32 %spec.select, ptr %.sroa.7.0..sroa_idx69, align 4, !tbaa !3
@@ -2828,14 +2825,14 @@ define noundef i64 @_ZN13duckdb_brotli30BrotliHistogramCombineDistanceEPNS_17His
   br i1 %21, label %.lr.ph, label %.loopexit144
 
 .lr.ph:                                           ; preds = %19
-  %22 = getelementptr inbounds nuw i32, ptr %4, i64 %.0100149
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.0100149
   br label %23
 
 23:                                               ; preds = %.lr.ph, %_ZN13duckdb_brotli35BrotliCompareAndPushToQueueDistanceEPKNS_17HistogramDistanceEPS0_PKjjjmPNS_13HistogramPairEPm.exit
   %.099147 = phi i64 [ %20, %.lr.ph ], [ %122, %_ZN13duckdb_brotli35BrotliCompareAndPushToQueueDistanceEPKNS_17HistogramDistanceEPS0_PKjjjmPNS_13HistogramPairEPm.exit ]
   %.1138146 = phi i64 [ %.0137148, %.lr.ph ], [ %.6, %_ZN13duckdb_brotli35BrotliCompareAndPushToQueueDistanceEPKNS_17HistogramDistanceEPS0_PKjjjmPNS_13HistogramPairEPm.exit ]
   %24 = load i32, ptr %22, align 4, !tbaa !3
-  %25 = getelementptr inbounds nuw i32, ptr %4, i64 %.099147
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.099147
   %26 = load i32, ptr %25, align 4, !tbaa !3
   %27 = icmp eq i32 %24, %26
   br i1 %27, label %_ZN13duckdb_brotli35BrotliCompareAndPushToQueueDistanceEPKNS_17HistogramDistanceEPS0_PKjjjmPNS_13HistogramPairEPm.exit, label %28
@@ -2844,11 +2841,11 @@ define noundef i64 @_ZN13duckdb_brotli30BrotliHistogramCombineDistanceEPNS_17His
   %spec.select.i = tail call i32 @llvm.umax.i32(i32 %26, i32 %24)
   %spec.select59.i = tail call i32 @llvm.umin.i32(i32 %26, i32 %24)
   %29 = zext i32 %spec.select59.i to i64
-  %30 = getelementptr inbounds nuw i32, ptr %2, i64 %29
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %29
   %31 = load i32, ptr %30, align 4, !tbaa !3
   %32 = zext i32 %31 to i64
   %33 = zext i32 %spec.select.i to i64
-  %34 = getelementptr inbounds nuw i32, ptr %2, i64 %33
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %33
   %35 = load i32, ptr %34, align 4, !tbaa !3
   %36 = zext i32 %35 to i64
   %37 = add nuw nsw i64 %36, %32
@@ -2857,7 +2854,7 @@ define noundef i64 @_ZN13duckdb_brotli30BrotliHistogramCombineDistanceEPNS_17His
   br i1 %39, label %40, label %43
 
 40:                                               ; preds = %28
-  %41 = getelementptr inbounds nuw double, ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %32
+  %41 = getelementptr inbounds nuw [8 x i8], ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %32
   %42 = load double, ptr %41, align 8, !tbaa !7
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit67.i
 
@@ -2872,7 +2869,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit67.i:          ; preds = %43, %40
   br i1 %46, label %47, label %50
 
 47:                                               ; preds = %_ZN13duckdb_brotliL8FastLog2Em.exit67.i
-  %48 = getelementptr inbounds nuw double, ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %36
+  %48 = getelementptr inbounds nuw [8 x i8], ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %36
   %49 = load double, ptr %48, align 8, !tbaa !7
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit65.i
 
@@ -2889,7 +2886,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit65.i:          ; preds = %50, %47
   br i1 %55, label %56, label %59
 
 56:                                               ; preds = %_ZN13duckdb_brotliL8FastLog2Em.exit65.i
-  %57 = getelementptr inbounds nuw double, ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %37
+  %57 = getelementptr inbounds nuw [8 x i8], ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %37
   %58 = load double, ptr %57, align 8, !tbaa !7
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit.i
 
@@ -2902,11 +2899,11 @@ _ZN13duckdb_brotliL8FastLog2Em.exit.i:            ; preds = %59, %56
   %61 = fneg double %54
   %62 = tail call noundef double @llvm.fmuladd.f64(double %61, double %.0.i63.i, double %53)
   %63 = fmul double %62, 5.000000e-01
-  %64 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramDistance", ptr %0, i64 %29
+  %64 = getelementptr inbounds nuw [2192 x i8], ptr %0, i64 %29
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 2184
   %66 = load double, ptr %65, align 8, !tbaa !70
   %67 = fsub double %63, %66
-  %68 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramDistance", ptr %0, i64 %33
+  %68 = getelementptr inbounds nuw [2192 x i8], ptr %0, i64 %33
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 2184
   %70 = load double, ptr %69, align 8, !tbaa !70
   %71 = fsub double %67, %70
@@ -2942,9 +2939,9 @@ _ZN13duckdb_brotliL8FastLog2Em.exit.i:            ; preds = %59, %56
 
 90:                                               ; preds = %90, %85
   %.0.i6277.i = phi i64 [ 0, %85 ], [ %96, %90 ]
-  %91 = getelementptr inbounds nuw i32, ptr %68, i64 %.0.i6277.i
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %.0.i6277.i
   %92 = load i32, ptr %91, align 4, !tbaa !3
-  %93 = getelementptr inbounds nuw i32, ptr %1, i64 %.0.i6277.i
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %.0.i6277.i
   %94 = load i32, ptr %93, align 4, !tbaa !3
   %95 = add i32 %94, %92
   store i32 %95, ptr %93, align 4, !tbaa !3
@@ -2986,7 +2983,7 @@ _ZL19HistogramPairIsLessPKN13duckdb_brotli13HistogramPairES2_.exit.i: ; preds = 
   br i1 %112, label %113, label %116
 
 113:                                              ; preds = %111
-  %114 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramPair", ptr %5, i64 %.1138146
+  %114 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %.1138146
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %114, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !tbaa.struct !22
   %115 = add nuw i64 %.1138146, 1
   br label %116
@@ -3004,7 +3001,7 @@ _ZL19HistogramPairIsLessPKN13duckdb_brotli13HistogramPairES2_.exit.i: ; preds = 
   br i1 %118, label %119, label %_ZN13duckdb_brotli35BrotliCompareAndPushToQueueDistanceEPKNS_17HistogramDistanceEPS0_PKjjjmPNS_13HistogramPairEPm.exit
 
 119:                                              ; preds = %117
-  %120 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramPair", ptr %5, i64 %.1138146
+  %120 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %.1138146
   store i32 %spec.select59.i, ptr %120, align 8, !tbaa !3
   %.sroa.7.0..sroa_idx69.i = getelementptr inbounds nuw i8, ptr %120, i64 4
   store i32 %spec.select.i, ptr %.sroa.7.0..sroa_idx69.i, align 4, !tbaa !3
@@ -3034,9 +3031,9 @@ _ZN13duckdb_brotli35BrotliCompareAndPushToQueueDistanceEPKNS_17HistogramDistance
   %127 = load i32, ptr %5, align 8, !tbaa !21
   %128 = load i32, ptr %16, align 4, !tbaa !20
   %129 = zext i32 %127 to i64
-  %130 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramDistance", ptr %0, i64 %129
+  %130 = getelementptr inbounds nuw [2192 x i8], ptr %0, i64 %129
   %131 = zext i32 %128 to i64
-  %132 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramDistance", ptr %0, i64 %131
+  %132 = getelementptr inbounds nuw [2192 x i8], ptr %0, i64 %131
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 2176
   %134 = load i64, ptr %133, align 8, !tbaa !72
   %135 = getelementptr inbounds nuw i8, ptr %130, i64 2176
@@ -3047,9 +3044,9 @@ _ZN13duckdb_brotli35BrotliCompareAndPushToQueueDistanceEPKNS_17HistogramDistance
 
 138:                                              ; preds = %126, %138
   %.0.i109152 = phi i64 [ 0, %126 ], [ %144, %138 ]
-  %139 = getelementptr inbounds nuw i32, ptr %132, i64 %.0.i109152
+  %139 = getelementptr inbounds nuw [4 x i8], ptr %132, i64 %.0.i109152
   %140 = load i32, ptr %139, align 4, !tbaa !3
-  %141 = getelementptr inbounds nuw i32, ptr %130, i64 %.0.i109152
+  %141 = getelementptr inbounds nuw [4 x i8], ptr %130, i64 %.0.i109152
   %142 = load i32, ptr %141, align 4, !tbaa !3
   %143 = add i32 %142, %140
   store i32 %143, ptr %141, align 4, !tbaa !3
@@ -3061,9 +3058,9 @@ _ZN13duckdb_brotliL29HistogramAddHistogramDistanceEPNS_17HistogramDistanceEPKS0_
   %145 = load double, ptr %17, align 8, !tbaa !26
   %146 = getelementptr inbounds nuw i8, ptr %130, i64 2184
   store double %145, ptr %146, align 8, !tbaa !70
-  %147 = getelementptr inbounds nuw i32, ptr %2, i64 %131
+  %147 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %131
   %148 = load i32, ptr %147, align 4, !tbaa !3
-  %149 = getelementptr inbounds nuw i32, ptr %2, i64 %129
+  %149 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %129
   %150 = load i32, ptr %149, align 4, !tbaa !3
   %151 = add i32 %150, %148
   store i32 %151, ptr %149, align 4, !tbaa !3
@@ -3071,7 +3068,7 @@ _ZN13duckdb_brotliL29HistogramAddHistogramDistanceEPNS_17HistogramDistanceEPKS0_
 
 .lr.ph154:                                        ; preds = %_ZN13duckdb_brotliL29HistogramAddHistogramDistanceEPNS_17HistogramDistanceEPKS0_.exit, %156
   %.093153 = phi i64 [ %157, %156 ], [ 0, %_ZN13duckdb_brotliL29HistogramAddHistogramDistanceEPNS_17HistogramDistanceEPKS0_.exit ]
-  %152 = getelementptr inbounds nuw i32, ptr %3, i64 %.093153
+  %152 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.093153
   %153 = load i32, ptr %152, align 4, !tbaa !3
   %154 = icmp eq i32 %153, %128
   br i1 %154, label %155, label %156
@@ -3090,13 +3087,13 @@ _ZN13duckdb_brotliL29HistogramAddHistogramDistanceEPNS_17HistogramDistanceEPKS0_
 
 .preheader141:                                    ; preds = %.preheader141.preheader, %167
   %.194155 = phi i64 [ %168, %167 ], [ 0, %.preheader141.preheader ]
-  %158 = getelementptr inbounds nuw i32, ptr %4, i64 %.194155
+  %158 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.194155
   %159 = load i32, ptr %158, align 4, !tbaa !3
   %160 = icmp eq i32 %159, %128
   br i1 %160, label %161, label %167
 
 161:                                              ; preds = %.preheader141
-  %162 = getelementptr inbounds nuw i32, ptr %4, i64 %.194155
+  %162 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.194155
   %163 = getelementptr i8, ptr %162, i64 4
   %164 = xor i64 %.194155, -1
   %165 = add i64 %.0167, %164
@@ -3122,7 +3119,7 @@ _ZN13duckdb_brotliL29HistogramAddHistogramDistanceEPNS_17HistogramDistanceEPKS0_
 .lr.ph158:                                        ; preds = %.loopexit142, %197
   %.091157 = phi i64 [ %.192, %197 ], [ 0, %.loopexit142 ]
   %.2156 = phi i64 [ %198, %197 ], [ 0, %.loopexit142 ]
-  %170 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramPair", ptr %5, i64 %.2156
+  %170 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %.2156
   %171 = load i32, ptr %170, align 8, !tbaa !21
   %172 = icmp eq i32 %171, %127
   br i1 %172, label %197, label %173
@@ -3160,13 +3157,13 @@ _ZL19HistogramPairIsLessPKN13duckdb_brotli13HistogramPairES2_.exit: ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !tbaa.struct !22
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %170, i64 24, i1 false), !tbaa.struct !22
-  %192 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramPair", ptr %5, i64 %.091157
+  %192 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %.091157
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %192, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false), !tbaa.struct !22
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %195
 
 193:                                              ; preds = %184, %_ZL19HistogramPairIsLessPKN13duckdb_brotli13HistogramPairES2_.exit
-  %194 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramPair", ptr %5, i64 %.091157
+  %194 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %.091157
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %194, ptr noundef nonnull align 8 dereferenceable(24) %170, i64 24, i1 false), !tbaa.struct !22
   br label %195
 
@@ -3183,7 +3180,7 @@ _ZL19HistogramPairIsLessPKN13duckdb_brotli13HistogramPairES2_.exit: ; preds = %1
 .lr.ph162:                                        ; preds = %.preheader, %_ZN13duckdb_brotli35BrotliCompareAndPushToQueueDistanceEPKNS_17HistogramDistanceEPS0_PKjjjmPNS_13HistogramPairEPm.exit130
   %.3161 = phi i64 [ %296, %_ZN13duckdb_brotli35BrotliCompareAndPushToQueueDistanceEPKNS_17HistogramDistanceEPS0_PKjjjmPNS_13HistogramPairEPm.exit130 ], [ 0, %.preheader ]
   %.4160 = phi i64 [ %.8, %_ZN13duckdb_brotli35BrotliCompareAndPushToQueueDistanceEPKNS_17HistogramDistanceEPS0_PKjjjmPNS_13HistogramPairEPm.exit130 ], [ %.091.lcssa, %.preheader ]
-  %199 = getelementptr inbounds nuw i32, ptr %4, i64 %.3161
+  %199 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.3161
   %200 = load i32, ptr %199, align 4, !tbaa !3
   %201 = icmp eq i32 %127, %200
   br i1 %201, label %_ZN13duckdb_brotli35BrotliCompareAndPushToQueueDistanceEPKNS_17HistogramDistanceEPS0_PKjjjmPNS_13HistogramPairEPm.exit130, label %202
@@ -3192,11 +3189,11 @@ _ZL19HistogramPairIsLessPKN13duckdb_brotli13HistogramPairES2_.exit: ; preds = %1
   %spec.select.i110 = tail call i32 @llvm.umax.i32(i32 %200, i32 %127)
   %spec.select59.i111 = tail call i32 @llvm.umin.i32(i32 %200, i32 %127)
   %203 = zext i32 %spec.select59.i111 to i64
-  %204 = getelementptr inbounds nuw i32, ptr %2, i64 %203
+  %204 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %203
   %205 = load i32, ptr %204, align 4, !tbaa !3
   %206 = zext i32 %205 to i64
   %207 = zext i32 %spec.select.i110 to i64
-  %208 = getelementptr inbounds nuw i32, ptr %2, i64 %207
+  %208 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %207
   %209 = load i32, ptr %208, align 4, !tbaa !3
   %210 = zext i32 %209 to i64
   %211 = add nuw nsw i64 %210, %206
@@ -3205,7 +3202,7 @@ _ZL19HistogramPairIsLessPKN13duckdb_brotli13HistogramPairES2_.exit: ; preds = %1
   br i1 %213, label %214, label %217
 
 214:                                              ; preds = %202
-  %215 = getelementptr inbounds nuw double, ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %206
+  %215 = getelementptr inbounds nuw [8 x i8], ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %206
   %216 = load double, ptr %215, align 8, !tbaa !7
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit67.i112
 
@@ -3220,7 +3217,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit67.i112:       ; preds = %217, %214
   br i1 %220, label %221, label %224
 
 221:                                              ; preds = %_ZN13duckdb_brotliL8FastLog2Em.exit67.i112
-  %222 = getelementptr inbounds nuw double, ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %210
+  %222 = getelementptr inbounds nuw [8 x i8], ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %210
   %223 = load double, ptr %222, align 8, !tbaa !7
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit65.i114
 
@@ -3237,7 +3234,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit65.i114:       ; preds = %224, %221
   br i1 %229, label %230, label %233
 
 230:                                              ; preds = %_ZN13duckdb_brotliL8FastLog2Em.exit65.i114
-  %231 = getelementptr inbounds nuw double, ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %211
+  %231 = getelementptr inbounds nuw [8 x i8], ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %211
   %232 = load double, ptr %231, align 8, !tbaa !7
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit.i116
 
@@ -3250,11 +3247,11 @@ _ZN13duckdb_brotliL8FastLog2Em.exit.i116:         ; preds = %233, %230
   %235 = fneg double %228
   %236 = tail call noundef double @llvm.fmuladd.f64(double %235, double %.0.i63.i117, double %227)
   %237 = fmul double %236, 5.000000e-01
-  %238 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramDistance", ptr %0, i64 %203
+  %238 = getelementptr inbounds nuw [2192 x i8], ptr %0, i64 %203
   %239 = getelementptr inbounds nuw i8, ptr %238, i64 2184
   %240 = load double, ptr %239, align 8, !tbaa !70
   %241 = fsub double %237, %240
-  %242 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramDistance", ptr %0, i64 %207
+  %242 = getelementptr inbounds nuw [2192 x i8], ptr %0, i64 %207
   %243 = getelementptr inbounds nuw i8, ptr %242, i64 2184
   %244 = load double, ptr %243, align 8, !tbaa !70
   %245 = fsub double %241, %244
@@ -3290,9 +3287,9 @@ _ZN13duckdb_brotliL8FastLog2Em.exit.i116:         ; preds = %233, %230
 
 264:                                              ; preds = %264, %259
   %.0.i6277.i118 = phi i64 [ 0, %259 ], [ %270, %264 ]
-  %265 = getelementptr inbounds nuw i32, ptr %242, i64 %.0.i6277.i118
+  %265 = getelementptr inbounds nuw [4 x i8], ptr %242, i64 %.0.i6277.i118
   %266 = load i32, ptr %265, align 4, !tbaa !3
-  %267 = getelementptr inbounds nuw i32, ptr %1, i64 %.0.i6277.i118
+  %267 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %.0.i6277.i118
   %268 = load i32, ptr %267, align 4, !tbaa !3
   %269 = add i32 %268, %266
   store i32 %269, ptr %267, align 4, !tbaa !3
@@ -3334,7 +3331,7 @@ _ZL19HistogramPairIsLessPKN13duckdb_brotli13HistogramPairES2_.exit.i124: ; preds
   br i1 %286, label %287, label %290
 
 287:                                              ; preds = %285
-  %288 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramPair", ptr %5, i64 %.4160
+  %288 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %.4160
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %288, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !tbaa.struct !22
   %289 = add nuw i64 %.4160, 1
   br label %290
@@ -3352,7 +3349,7 @@ _ZL19HistogramPairIsLessPKN13duckdb_brotli13HistogramPairES2_.exit.i124: ; preds
   br i1 %292, label %293, label %_ZN13duckdb_brotli35BrotliCompareAndPushToQueueDistanceEPKNS_17HistogramDistanceEPS0_PKjjjmPNS_13HistogramPairEPm.exit130
 
 293:                                              ; preds = %291
-  %294 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramPair", ptr %5, i64 %.4160
+  %294 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %.4160
   store i32 %spec.select59.i111, ptr %294, align 8, !tbaa !3
   %.sroa.7.0..sroa_idx69.i125 = getelementptr inbounds nuw i8, ptr %294, i64 4
   store i32 %spec.select.i110, ptr %.sroa.7.0..sroa_idx69.i125, align 4, !tbaa !3
@@ -3401,9 +3398,9 @@ define noundef double @_ZN13duckdb_brotli38BrotliHistogramBitCostDistanceDistanc
 
 13:                                               ; preds = %7, %13
   %.0.i8 = phi i64 [ 0, %7 ], [ %19, %13 ]
-  %14 = getelementptr inbounds nuw i32, ptr %1, i64 %.0.i8
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %.0.i8
   %15 = load i32, ptr %14, align 4, !tbaa !3
-  %16 = getelementptr inbounds nuw i32, ptr %2, i64 %.0.i8
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.0.i8
   %17 = load i32, ptr %16, align 4, !tbaa !3
   %18 = add i32 %17, %15
   store i32 %18, ptr %16, align 4, !tbaa !3
@@ -3436,13 +3433,13 @@ define void @_ZN13duckdb_brotli28BrotliHistogramRemapDistanceEPKNS_17HistogramDi
 .lr.ph61.split.us:                                ; preds = %.lr.ph61, %._crit_edge.us
   %.059.us = phi i64 [ %63, %._crit_edge.us ], [ 0, %.lr.ph61 ]
   %9 = icmp eq i64 %.059.us, 0
-  %10 = getelementptr i32, ptr %6, i64 %.059.us
+  %10 = getelementptr [4 x i8], ptr %6, i64 %.059.us
   %11 = getelementptr i8, ptr %10, i64 -4
   %.in.us = select i1 %9, ptr %6, ptr %11
   %12 = load i32, ptr %.in.us, align 4, !tbaa !3
-  %13 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramDistance", ptr %0, i64 %.059.us
+  %13 = getelementptr inbounds nuw [2192 x i8], ptr %0, i64 %.059.us
   %14 = zext i32 %12 to i64
-  %15 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramDistance", ptr %4, i64 %14
+  %15 = getelementptr inbounds nuw [2192 x i8], ptr %4, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 2176
   %17 = load i64, ptr %16, align 8, !tbaa !72
   %18 = icmp eq i64 %17, 0
@@ -3459,9 +3456,9 @@ define void @_ZN13duckdb_brotli28BrotliHistogramRemapDistanceEPKNS_17HistogramDi
 
 24:                                               ; preds = %24, %19
   %.0.i8.i.us = phi i64 [ 0, %19 ], [ %30, %24 ]
-  %25 = getelementptr inbounds nuw i32, ptr %15, i64 %.0.i8.i.us
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %.0.i8.i.us
   %26 = load i32, ptr %25, align 4, !tbaa !3
-  %27 = getelementptr inbounds nuw i32, ptr %5, i64 %.0.i8.i.us
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.0.i8.i.us
   %28 = load i32, ptr %27, align 4, !tbaa !3
   %29 = add i32 %28, %26
   store i32 %29, ptr %27, align 4, !tbaa !3
@@ -3486,10 +3483,10 @@ _ZN13duckdb_brotli38BrotliHistogramBitCostDistanceDistanceEPKNS_17HistogramDista
   %.04258.us62 = phi i64 [ %62, %61 ], [ 0, %_ZN13duckdb_brotli38BrotliHistogramBitCostDistanceDistanceEPKNS_17HistogramDistanceES2_PS0_.exit.us ]
   %.04357.us63 = phi double [ %.144.us67, %61 ], [ %34, %_ZN13duckdb_brotli38BrotliHistogramBitCostDistanceDistanceEPKNS_17HistogramDistanceES2_PS0_.exit.us ]
   %.04556.us64 = phi i32 [ %.146.us66, %61 ], [ %12, %_ZN13duckdb_brotli38BrotliHistogramBitCostDistanceDistanceEPKNS_17HistogramDistanceES2_PS0_.exit.us ]
-  %36 = getelementptr inbounds nuw i32, ptr %2, i64 %.04258.us62
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.04258.us62
   %37 = load i32, ptr %36, align 4, !tbaa !3
   %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramDistance", ptr %4, i64 %38
+  %39 = getelementptr inbounds nuw [2192 x i8], ptr %4, i64 %38
   %40 = load i64, ptr %16, align 8, !tbaa !72
   %41 = icmp eq i64 %40, 0
   br i1 %41, label %_ZN13duckdb_brotli38BrotliHistogramBitCostDistanceDistanceEPKNS_17HistogramDistanceES2_PS0_.exit54.us65, label %42
@@ -3505,9 +3502,9 @@ _ZN13duckdb_brotli38BrotliHistogramBitCostDistanceDistanceEPKNS_17HistogramDista
 
 47:                                               ; preds = %47, %42
   %.0.i8.i50.us = phi i64 [ 0, %42 ], [ %53, %47 ]
-  %48 = getelementptr inbounds nuw i32, ptr %39, i64 %.0.i8.i50.us
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %.0.i8.i50.us
   %49 = load i32, ptr %48, align 4, !tbaa !3
-  %50 = getelementptr inbounds nuw i32, ptr %5, i64 %.0.i8.i50.us
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.0.i8.i50.us
   %51 = load i32, ptr %50, align 4, !tbaa !3
   %52 = add i32 %51, %49
   store i32 %52, ptr %50, align 4, !tbaa !3
@@ -3553,7 +3550,7 @@ _ZN13duckdb_brotli38BrotliHistogramBitCostDistanceDistanceEPKNS_17HistogramDista
   br i1 %64, label %65, label %68
 
 65:                                               ; preds = %_ZN13duckdb_brotli38BrotliHistogramBitCostDistanceDistanceEPKNS_17HistogramDistanceES2_PS0_.exit54.us.us
-  %66 = getelementptr inbounds nuw i32, ptr %2, i64 %.04258.us.us
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.04258.us.us
   %67 = load i32, ptr %66, align 4, !tbaa !3
   br label %68
 
@@ -3574,13 +3571,13 @@ _ZN13duckdb_brotli38BrotliHistogramBitCostDistanceDistanceEPKNS_17HistogramDista
 .lr.ph61.split:                                   ; preds = %.lr.ph61, %_ZN13duckdb_brotli38BrotliHistogramBitCostDistanceDistanceEPKNS_17HistogramDistanceES2_PS0_.exit
   %.059 = phi i64 [ %93, %_ZN13duckdb_brotli38BrotliHistogramBitCostDistanceDistanceEPKNS_17HistogramDistanceES2_PS0_.exit ], [ 0, %.lr.ph61 ]
   %70 = icmp eq i64 %.059, 0
-  %71 = getelementptr i32, ptr %6, i64 %.059
+  %71 = getelementptr [4 x i8], ptr %6, i64 %.059
   %72 = getelementptr i8, ptr %71, i64 -4
   %.in = select i1 %70, ptr %6, ptr %72
   %73 = load i32, ptr %.in, align 4, !tbaa !3
-  %74 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramDistance", ptr %0, i64 %.059
+  %74 = getelementptr inbounds nuw [2192 x i8], ptr %0, i64 %.059
   %75 = zext i32 %73 to i64
-  %76 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramDistance", ptr %4, i64 %75
+  %76 = getelementptr inbounds nuw [2192 x i8], ptr %4, i64 %75
   %77 = getelementptr inbounds nuw i8, ptr %74, i64 2176
   %78 = load i64, ptr %77, align 8, !tbaa !72
   %79 = icmp eq i64 %78, 0
@@ -3597,9 +3594,9 @@ _ZN13duckdb_brotli38BrotliHistogramBitCostDistanceDistanceEPKNS_17HistogramDista
 
 85:                                               ; preds = %85, %80
   %.0.i8.i = phi i64 [ 0, %80 ], [ %91, %85 ]
-  %86 = getelementptr inbounds nuw i32, ptr %76, i64 %.0.i8.i
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %.0.i8.i
   %87 = load i32, ptr %86, align 4, !tbaa !3
-  %88 = getelementptr inbounds nuw i32, ptr %5, i64 %.0.i8.i
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.0.i8.i
   %89 = load i32, ptr %88, align 4, !tbaa !3
   %90 = add i32 %89, %87
   store i32 %90, ptr %88, align 4, !tbaa !3
@@ -3622,10 +3619,10 @@ _ZN13duckdb_brotli38BrotliHistogramBitCostDistanceDistanceEPKNS_17HistogramDista
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.171 = phi i64 [ %99, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %94 = getelementptr inbounds nuw i32, ptr %2, i64 %.171
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.171
   %95 = load i32, ptr %94, align 4, !tbaa !3
   %96 = zext i32 %95 to i64
-  %97 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramDistance", ptr %4, i64 %96
+  %97 = getelementptr inbounds nuw [2192 x i8], ptr %4, i64 %96
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 2184
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2184) %97, i8 0, i64 2184, i1 false)
   store double 0x7FF0000000000000, ptr %98, align 8, !tbaa !70
@@ -3635,11 +3632,11 @@ _ZN13duckdb_brotli38BrotliHistogramBitCostDistanceDistanceEPKNS_17HistogramDista
 
 .lr.ph74:                                         ; preds = %.preheader, %_ZN13duckdb_brotliL29HistogramAddHistogramDistanceEPNS_17HistogramDistanceEPKS0_.exit
   %.273 = phi i64 [ %117, %_ZN13duckdb_brotliL29HistogramAddHistogramDistanceEPNS_17HistogramDistanceEPKS0_.exit ], [ 0, %.preheader ]
-  %100 = getelementptr inbounds nuw i32, ptr %6, i64 %.273
+  %100 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.273
   %101 = load i32, ptr %100, align 4, !tbaa !3
   %102 = zext i32 %101 to i64
-  %103 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramDistance", ptr %4, i64 %102
-  %104 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramDistance", ptr %0, i64 %.273
+  %103 = getelementptr inbounds nuw [2192 x i8], ptr %4, i64 %102
+  %104 = getelementptr inbounds nuw [2192 x i8], ptr %0, i64 %.273
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 2176
   %106 = load i64, ptr %105, align 8, !tbaa !72
   %107 = getelementptr inbounds nuw i8, ptr %103, i64 2176
@@ -3650,9 +3647,9 @@ _ZN13duckdb_brotli38BrotliHistogramBitCostDistanceDistanceEPKNS_17HistogramDista
 
 110:                                              ; preds = %.lr.ph74, %110
   %.0.i72 = phi i64 [ 0, %.lr.ph74 ], [ %116, %110 ]
-  %111 = getelementptr inbounds nuw i32, ptr %104, i64 %.0.i72
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %104, i64 %.0.i72
   %112 = load i32, ptr %111, align 4, !tbaa !3
-  %113 = getelementptr inbounds nuw i32, ptr %103, i64 %.0.i72
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %103, i64 %.0.i72
   %114 = load i32, ptr %113, align 4, !tbaa !3
   %115 = add i32 %114, %112
   store i32 %115, ptr %113, align 4, !tbaa !3
@@ -3688,10 +3685,10 @@ define noundef range(i64 0, 4294967296) i64 @_ZN13duckdb_brotli30BrotliHistogram
 .lr.ph62:                                         ; preds = %.lr.ph62.preheader, %16
   %.161 = phi i64 [ %17, %16 ], [ 0, %.lr.ph62.preheader ]
   %.05160 = phi i32 [ %.152, %16 ], [ 0, %.lr.ph62.preheader ]
-  %8 = getelementptr inbounds nuw i32, ptr %2, i64 %.161
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.161
   %9 = load i32, ptr %8, align 4, !tbaa !3
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw i32, ptr %6, i64 %10
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %10
   %12 = load i32, ptr %11, align 4, !tbaa !3
   %13 = icmp eq i32 %12, -1
   br i1 %13, label %14, label %16
@@ -3724,23 +3721,23 @@ define noundef range(i64 0, 4294967296) i64 @_ZN13duckdb_brotli30BrotliHistogram
 .lr.ph66:                                         ; preds = %.lr.ph66.preheader, %33
   %.264 = phi i64 [ %35, %33 ], [ 0, %.lr.ph66.preheader ]
   %.25363 = phi i32 [ %.354, %33 ], [ 0, %.lr.ph66.preheader ]
-  %22 = getelementptr inbounds nuw i32, ptr %2, i64 %.264
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.264
   %23 = load i32, ptr %22, align 4, !tbaa !3
   %24 = zext i32 %23 to i64
-  %25 = getelementptr inbounds nuw i32, ptr %6, i64 %24
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %24
   %26 = load i32, ptr %25, align 4, !tbaa !3
   %27 = icmp eq i32 %26, %.25363
   br i1 %27, label %28, label %33
 
 28:                                               ; preds = %.lr.ph66
-  %29 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramDistance", ptr %1, i64 %24
+  %29 = getelementptr inbounds nuw [2192 x i8], ptr %1, i64 %24
   %30 = zext i32 %.25363 to i64
-  %31 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramDistance", ptr %.ph, i64 %30
+  %31 = getelementptr inbounds nuw [2192 x i8], ptr %.ph, i64 %30
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2192) %31, ptr noundef nonnull align 8 dereferenceable(2192) %29, i64 2192, i1 false), !tbaa.struct !73
   %32 = add i32 %.25363, 1
   %.pre = load i32, ptr %22, align 4, !tbaa !3
   %.phi.trans.insert = zext i32 %.pre to i64
-  %.phi.trans.insert80 = getelementptr inbounds nuw i32, ptr %6, i64 %.phi.trans.insert
+  %.phi.trans.insert80 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.phi.trans.insert
   %.pre81 = load i32, ptr %.phi.trans.insert80, align 4, !tbaa !3
   br label %33
 
@@ -3760,8 +3757,8 @@ define noundef range(i64 0, 4294967296) i64 @_ZN13duckdb_brotli30BrotliHistogram
 
 .lr.ph71:                                         ; preds = %._crit_edge67, %.lr.ph71
   %.369 = phi i64 [ %39, %.lr.ph71 ], [ 0, %._crit_edge67 ]
-  %37 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramDistance", ptr %.ph, i64 %.369
-  %38 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramDistance", ptr %1, i64 %.369
+  %37 = getelementptr inbounds nuw [2192 x i8], ptr %.ph, i64 %.369
+  %38 = getelementptr inbounds nuw [2192 x i8], ptr %1, i64 %.369
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2192) %38, ptr noundef nonnull align 8 dereferenceable(2192) %37, i64 2192, i1 false), !tbaa.struct !73
   %39 = add nuw nsw i64 %.369, 1
   %exitcond79.not = icmp eq i64 %39, %36
@@ -3794,7 +3791,7 @@ define void @_ZN13duckdb_brotli31BrotliClusterHistogramsDistanceEPNS_13MemoryMan
 
 .lr.ph:                                           ; preds = %.thread, %.lr.ph
   %.0109119 = phi i64 [ %17, %.lr.ph ], [ 0, %.thread ]
-  %16 = getelementptr inbounds nuw i32, ptr %12, i64 %.0109119
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %.0109119
   store i32 1, ptr %16, align 4, !tbaa !3
   %17 = add nuw i64 %.0109119, 1
   %exitcond.not = icmp eq i64 %17, %2
@@ -3802,14 +3799,14 @@ define void @_ZN13duckdb_brotli31BrotliClusterHistogramsDistanceEPNS_13MemoryMan
 
 .lr.ph121:                                        ; preds = %.lr.ph, %.lr.ph121
   %.1120 = phi i64 [ %24, %.lr.ph121 ], [ 0, %.lr.ph ]
-  %18 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramDistance", ptr %1, i64 %.1120
-  %19 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramDistance", ptr %4, i64 %.1120
+  %18 = getelementptr inbounds nuw [2192 x i8], ptr %1, i64 %.1120
+  %19 = getelementptr inbounds nuw [2192 x i8], ptr %4, i64 %.1120
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2192) %19, ptr noundef nonnull align 8 dereferenceable(2192) %18, i64 2192, i1 false), !tbaa.struct !73
   %20 = tail call noundef double @_ZN13duckdb_brotli28BrotliPopulationCostDistanceEPKNS_17HistogramDistanceE(ptr noundef nonnull %18)
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 2184
   store double %20, ptr %21, align 8, !tbaa !70
   %22 = trunc i64 %.1120 to i32
-  %23 = getelementptr inbounds nuw i32, ptr %6, i64 %.1120
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.1120
   store i32 %22, ptr %23, align 4, !tbaa !3
   %24 = add nuw i64 %.1120, 1
   %exitcond132.not = icmp eq i64 %24, %2
@@ -3823,22 +3820,22 @@ define void @_ZN13duckdb_brotli31BrotliClusterHistogramsDistanceEPNS_13MemoryMan
   %umax = tail call i64 @llvm.umin.i64(i64 %25, i64 64)
   %26 = sub nuw i64 %2, %.2124
   %27 = tail call noundef i64 @llvm.umin.i64(i64 %26, i64 64)
-  %28 = getelementptr i32, ptr %13, i64 %.0108125
+  %28 = getelementptr [4 x i8], ptr %13, i64 %.0108125
   br label %29
 
 29:                                               ; preds = %.lr.ph123, %29
   %.0107122 = phi i64 [ 0, %.lr.ph123 ], [ %33, %29 ]
   %30 = add nuw nsw i64 %.0107122, %.2124
   %31 = trunc i64 %30 to i32
-  %32 = getelementptr i32, ptr %28, i64 %.0107122
+  %32 = getelementptr [4 x i8], ptr %28, i64 %.0107122
   store i32 %31, ptr %32, align 4, !tbaa !3
   %33 = add nuw nsw i64 %.0107122, 1
   %exitcond133.not = icmp eq i64 %33, %umax
   br i1 %exitcond133.not, label %._crit_edge, label %29, !llvm.loop !92
 
 ._crit_edge:                                      ; preds = %29
-  %34 = getelementptr inbounds nuw i32, ptr %6, i64 %.2124
-  %35 = getelementptr inbounds nuw i32, ptr %13, i64 %.0108125
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.2124
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %.0108125
   %36 = tail call noundef i64 @_ZN13duckdb_brotli30BrotliHistogramCombineDistanceEPNS_17HistogramDistanceES1_PjS2_S2_PNS_13HistogramPairEmmmm(ptr noundef %4, ptr noundef %15, ptr noundef %12, ptr noundef %34, ptr noundef %35, ptr noundef %14, i64 noundef %27, i64 noundef %27, i64 noundef %3, i64 noundef 2048)
   %37 = add i64 %36, %.0108125
   %38 = add i64 %.2124, 64

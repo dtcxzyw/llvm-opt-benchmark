@@ -25,9 +25,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.llvh::SmallVectorStorage.70" = type { [64 x %"struct.llvh::AlignedCharArrayUnion.71"] }
 %"struct.llvh::AlignedCharArrayUnion.71" = type { %"struct.llvh::AlignedCharArray.72" }
 %"struct.llvh::AlignedCharArray.72" = type { [8 x i8] }
-%"struct.hermes::hbc::OverflowStringTableEntry" = type { i32, i32 }
-%"struct.llvh::detail::DenseMapPair" = type { %"struct.std::pair.base.64", [4 x i8] }
-%"struct.std::pair.base.64" = type <{ %"class.llvh::ArrayRef", i32 }>
 
 $_ZN6hermes3hbc28visitBytecodeSegmentsInOrderINS0_18BytecodeSerializerEEEvRT_ = comdat any
 
@@ -2399,7 +2396,7 @@ _ZN4llvh15SmallVectorImplIN6hermes3hbc24OverflowStringTableEntryEE12emplace_back
   %18 = phi i32 [ %.pre.i11, %if.then.i10 ], [ %14, %if.then ]
   %19 = load ptr, ptr %overflow, align 8
   %conv.i3.i = zext i32 %18 to i64
-  %add.ptr.i.i = getelementptr inbounds nuw %"struct.hermes::hbc::OverflowStringTableEntry", ptr %19, i64 %conv.i3.i
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %conv.i3.i
   store i32 %16, ptr %add.ptr.i.i, align 1
   %length3.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 4
   store i32 %and.i.i, ptr %length3.i.i, align 1
@@ -3269,7 +3266,7 @@ while.body.us.us:                                 ; preds = %if.end.split.us, %_
   %FoundTombstone.0.us.us = phi ptr [ %spec.select.us.us, %_ZN4llvh12DenseMapInfoINS_8ArrayRefIhEEE7isEqualES2_S2_.exit42.us.us ], [ null, %if.end.split.us ]
   %BucketNo.0.us.us = and i32 %call5.pn.us.us, %sub
   %idx.ext.us.us = zext i32 %BucketNo.0.us.us to i64
-  %add.ptr.us.us = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %0, i64 %idx.ext.us.us
+  %add.ptr.us.us = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %idx.ext.us.us
   %agg.tmp6.sroa.0.0.copyload.us.us = load ptr, ptr %add.ptr.us.us, align 8
   %magicptr.i.us.us = ptrtoint ptr %agg.tmp6.sroa.0.0.copyload.us.us to i64
   switch i64 %magicptr.i.us.us, label %if.end19.i.us.us [
@@ -3305,7 +3302,7 @@ while.body.us:                                    ; preds = %if.end.split.us, %_
   %FoundTombstone.0.us = phi ptr [ %spec.select.us, %_ZN4llvh12DenseMapInfoINS_8ArrayRefIhEEE7isEqualES2_S2_.exit42.us ], [ null, %if.end.split.us ]
   %BucketNo.0.us = and i32 %call5.pn.us, %sub
   %idx.ext.us = zext i32 %BucketNo.0.us to i64
-  %add.ptr.us = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %0, i64 %idx.ext.us
+  %add.ptr.us = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %idx.ext.us
   %agg.tmp6.sroa.0.0.copyload.us = load ptr, ptr %add.ptr.us, align 8
   %magicptr = ptrtoint ptr %agg.tmp6.sroa.0.0.copyload.us to i64
   switch i64 %magicptr, label %if.end19.i.us [
@@ -3344,7 +3341,7 @@ while.body.us52:                                  ; preds = %if.end.split, %_ZN4
   %FoundTombstone.0.us55 = phi ptr [ %spec.select.us74, %_ZN4llvh12DenseMapInfoINS_8ArrayRefIhEEE7isEqualES2_S2_.exit42.us70 ], [ null, %if.end.split ]
   %BucketNo.0.us56 = and i32 %call5.pn.us54, %sub
   %idx.ext.us57 = zext i32 %BucketNo.0.us56 to i64
-  %add.ptr.us58 = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %0, i64 %idx.ext.us57
+  %add.ptr.us58 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %idx.ext.us57
   %agg.tmp6.sroa.0.0.copyload.us59 = load ptr, ptr %add.ptr.us58, align 8
   %magicptr136 = ptrtoint ptr %agg.tmp6.sroa.0.0.copyload.us59 to i64
   switch i64 %magicptr136, label %if.end19.i.us63 [
@@ -3385,7 +3382,7 @@ while.body.us85:                                  ; preds = %if.end.split.split,
   %FoundTombstone.0.us88 = phi ptr [ %spec.select.us109, %_ZN4llvh12DenseMapInfoINS_8ArrayRefIhEEE7isEqualES2_S2_.exit42.us105 ], [ null, %if.end.split.split ]
   %BucketNo.0.us89 = and i32 %call5.pn.us87, %sub
   %idx.ext.us90 = zext i32 %BucketNo.0.us89 to i64
-  %add.ptr.us91 = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %0, i64 %idx.ext.us90
+  %add.ptr.us91 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %idx.ext.us90
   %agg.tmp6.sroa.0.0.copyload.us92 = load ptr, ptr %add.ptr.us91, align 8
   %magicptr137 = ptrtoint ptr %agg.tmp6.sroa.0.0.copyload.us92 to i64
   switch i64 %magicptr137, label %if.end19.i.us96 [
@@ -3423,7 +3420,7 @@ while.body:                                       ; preds = %if.end.split.split,
   %FoundTombstone.0 = phi ptr [ %spec.select, %_ZN4llvh12DenseMapInfoINS_8ArrayRefIhEEE7isEqualES2_S2_.exit42 ], [ null, %if.end.split.split ]
   %BucketNo.0 = and i32 %call5.pn, %sub
   %idx.ext = zext i32 %BucketNo.0 to i64
-  %add.ptr = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %0, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %idx.ext
   %agg.tmp6.sroa.0.0.copyload = load ptr, ptr %add.ptr, align 8
   %switch = icmp ugt ptr %agg.tmp6.sroa.0.0.copyload, inttoptr (i64 -3 to ptr)
   br i1 %switch, label %_ZN4llvh12DenseMapInfoINS_8ArrayRefIhEEE7isEqualES2_S2_.exit28, label %if.end19.i

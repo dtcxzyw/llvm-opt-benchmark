@@ -71,7 +71,7 @@ define internal range(i32 -22, 1) i32 @smjpeg_write_header(ptr noundef %0) #0 {
 28:                                               ; preds = %.lr.ph66, %57
   %indvars.iv = phi i64 [ 0, %.lr.ph66 ], [ %indvars.iv.next, %57 ]
   %29 = load ptr, ptr %10, align 8, !tbaa !31
-  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv
   %31 = load ptr, ptr %30, align 8, !tbaa !32
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %33 = load ptr, ptr %32, align 8, !tbaa !34
@@ -162,7 +162,7 @@ define internal noundef i32 @smjpeg_write_packet(ptr noundef readonly captures(n
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %10 = load i32, ptr %9, align 4, !tbaa !52
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds ptr, ptr %8, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %8, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !32
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8, !tbaa !34

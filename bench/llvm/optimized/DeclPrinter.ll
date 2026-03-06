@@ -45,15 +45,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.clang::DeclarationNameLoc" = type { %union.anon.382 }
 %union.anon.382 = type { %"struct.clang::DeclarationNameLoc::NT" }
 %"struct.clang::DeclarationNameLoc::NT" = type { ptr }
-%"struct.clang::FunctionType::FunctionTypeExtraBitfields" = type { i16, [6 x i8] }
-%"struct.clang::FunctionType::FunctionTypeArmAttributes" = type { i16, [6 x i8] }
-%"struct.clang::FunctionType::ExceptionType" = type { %"class.clang::QualType" }
-%"class.clang::DeclAccessPair" = type { %"struct.llvm::support::detail::packed_endian_specific_integral" }
-%"struct.llvm::support::detail::packed_endian_specific_integral" = type { %struct.anon.1014 }
-%struct.anon.1014 = type { [8 x i8] }
-%"class.clang::CXXBaseSpecifier" = type { %"class.clang::SourceRange", %"class.clang::SourceLocation", i8, ptr }
-%"class.clang::SourceRange" = type { %"class.clang::SourceLocation", %"class.clang::SourceLocation" }
-%"struct.std::pair" = type { ptr, i64 }
 
 $_ZN4llvm11raw_ostreamlsEPKc = comdat any
 
@@ -775,7 +766,7 @@ _ZN4llvm11raw_ostreamlsEc.exit36:                 ; preds = %49, %51
 _ZNK5clang21TemplateParameterList17getRequiresClauseEv.exit: ; preds = %_ZN4llvm11raw_ostreamlsEc.exit36
   %55 = and i32 %53, 536870911
   %56 = zext nneg i32 %55 to i64
-  %57 = getelementptr inbounds nuw ptr, ptr %40, i64 %56
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %56
   %58 = load ptr, ptr %57, align 8, !tbaa !45
   %.not30 = icmp eq ptr %58, null
   br i1 %.not30, label %_ZNK5clang21TemplateParameterList17getRequiresClauseEv.exit.thread, label %86
@@ -1608,7 +1599,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4DeclELb1EE9push_backES3_.exit: ; pred
   %190 = phi ptr [ %182, %.critedge ], [ %.pre, %187 ]
   %191 = phi i32 [ %185, %.critedge ], [ %.pre.i35, %187 ]
   %192 = zext i32 %191 to i64
-  %193 = getelementptr inbounds nuw ptr, ptr %190, i64 %192
+  %193 = getelementptr inbounds nuw [8 x i8], ptr %190, i64 %192
   %194 = ptrtoint ptr %.sroa.098.0176 to i64
   store i64 %194, ptr %193, align 1
   %195 = load i32, ptr %17, align 8, !tbaa !72
@@ -1725,7 +1716,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit76:               ; preds = %228, %230
 _ZN4llvm23SmallVectorTemplateBaseIPN5clang4DeclELb1EE9push_backES3_.exit39: ; preds = %241, %243
   %245 = phi i64 [ 0, %241 ], [ %244, %243 ]
   %246 = load ptr, ptr %4, align 8, !tbaa !70
-  %247 = getelementptr inbounds nuw ptr, ptr %246, i64 %245
+  %247 = getelementptr inbounds nuw [8 x i8], ptr %246, i64 %245
   %248 = ptrtoint ptr %.sroa.098.0176 to i64
   store i64 %248, ptr %247, align 1
   %249 = load i32, ptr %17, align 8, !tbaa !72
@@ -1782,10 +1773,10 @@ _ZN12_GLOBAL__N_111DeclPrinter6IndentEv.exit:     ; preds = %_ZN4llvm11raw_ostre
   %275 = and i32 %274, 3
   %.val = load ptr, ptr %0, align 8
   %276 = zext nneg i32 %275 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN12_GLOBAL__N_111DeclPrinter18VisitCXXRecordDeclEPN5clang13CXXRecordDeclE, i64 %276
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN12_GLOBAL__N_111DeclPrinter18VisitCXXRecordDeclEPN5clang13CXXRecordDeclE, i64 %276
   %switch.load = load ptr, ptr %switch.gep, align 8
   %277 = zext nneg i32 %275 to i64
-  %switch.gep223 = getelementptr inbounds nuw i64, ptr @switch.table._ZN12_GLOBAL__N_111DeclPrinter18VisitCXXRecordDeclEPN5clang13CXXRecordDeclE.39, i64 %277
+  %switch.gep223 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN12_GLOBAL__N_111DeclPrinter18VisitCXXRecordDeclEPN5clang13CXXRecordDeclE.39, i64 %277
   %switch.load224 = load i64, ptr %switch.gep223, align 8
   %278 = getelementptr inbounds nuw i8, ptr %.val, i64 24
   %279 = load ptr, ptr %278, align 8, !tbaa !39
@@ -3543,7 +3534,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %12, %14
   %30 = load i32, ptr %29, align 4, !tbaa !159
   %31 = zext i32 %30 to i64
   %32 = extractvalue { ptr, i64 } %27, 0
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %31
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %31
   %.not14 = icmp eq ptr %25, %33
   br i1 %.not14, label %._crit_edge, label %.lr.ph
 
@@ -3711,7 +3702,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %13, %15
   %31 = load i32, ptr %30, align 4, !tbaa !159
   %32 = zext i32 %31 to i64
   %33 = extractvalue { ptr, i64 } %28, 0
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %32
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %32
   %.not28 = icmp eq ptr %26, %34
   br i1 %.not28, label %._crit_edge, label %.lr.ph
 
@@ -7391,7 +7382,7 @@ _ZNK5clang14DeclaratorDecl28getNumTemplateParameterListsEv.exit: ; preds = %60
   %68 = inttoptr i64 %67 to ptr
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 24
   %70 = load ptr, ptr %69, align 8, !tbaa !260
-  %71 = getelementptr inbounds nuw ptr, ptr %70, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %indvars.iv
   %72 = load ptr, ptr %71, align 8, !tbaa !261
   tail call fastcc void @_ZN12_GLOBAL__N_111DeclPrinter23printTemplateParametersEPKN5clang21TemplateParameterListEb(ptr noundef nonnull align 8 dereferenceable(37) %0, ptr noundef %72, i1 noundef zeroext false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -8389,7 +8380,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %492
 
 _ZN4llvm11raw_ostreamlsEPKc.exit196:              ; preds = %528, %530
   %533 = load ptr, ptr %514, align 8, !tbaa !287
-  %534 = getelementptr inbounds nuw ptr, ptr %533, i64 %indvars.iv399
+  %534 = getelementptr inbounds nuw [8 x i8], ptr %533, i64 %indvars.iv399
   br label %535
 
 535:                                              ; preds = %.split, %_ZN4llvm11raw_ostreamlsEPKc.exit196
@@ -8551,7 +8542,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit207: ; preds = %
   %610 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull @.str, i64 noundef 2) #17
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   %611 = load ptr, ptr %600, align 8, !tbaa !287
-  %612 = getelementptr inbounds nuw ptr, ptr %611, i64 %indvars.iv402
+  %612 = getelementptr inbounds nuw [8 x i8], ptr %611, i64 %indvars.iv402
   br label %613
 
 613:                                              ; preds = %.split79, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit207
@@ -8809,10 +8800,10 @@ _ZNK5clang17FunctionProtoType16getNumExceptionsEv.exit: ; preds = %_ZNSt7__cxx11
   %723 = getelementptr inbounds nuw i8, ptr %.073, i64 48
   %724 = lshr i64 %715, 38
   %725 = and i64 %724, 65535
-  %726 = getelementptr inbounds nuw %"class.clang::QualType", ptr %723, i64 %725
+  %726 = getelementptr inbounds nuw [8 x i8], ptr %723, i64 %725
   %727 = lshr i64 %715, 60
   %728 = and i64 %727, 1
-  %729 = getelementptr inbounds nuw %"class.clang::SourceLocation", ptr %726, i64 %728
+  %729 = getelementptr inbounds nuw [4 x i8], ptr %726, i64 %728
   %730 = ptrtoint ptr %729 to i64
   %731 = add i64 %730, 7
   %732 = and i64 %731, -8
@@ -8839,10 +8830,10 @@ _ZNK5clang17FunctionProtoType16getNumExceptionsEv.exit: ; preds = %_ZNSt7__cxx11
   %740 = load i64, ptr %631, align 16
   %741 = lshr i64 %740, 38
   %742 = and i64 %741, 65535
-  %743 = getelementptr inbounds nuw %"class.clang::QualType", ptr %723, i64 %742
+  %743 = getelementptr inbounds nuw [8 x i8], ptr %723, i64 %742
   %744 = lshr i64 %740, 60
   %745 = and i64 %744, 1
-  %746 = getelementptr inbounds nuw %"class.clang::SourceLocation", ptr %743, i64 %745
+  %746 = getelementptr inbounds nuw [4 x i8], ptr %743, i64 %745
   %747 = ptrtoint ptr %746 to i64
   %748 = add i64 %747, 7
   %749 = and i64 %748, -8
@@ -8862,8 +8853,8 @@ _ZNK5clang17FunctionProtoType16getExceptionTypeEj.exit: ; preds = %.split83, %75
   %756 = phi i64 [ 0, %.split83 ], [ %755, %752 ]
   %757 = lshr i64 %740, 59
   %758 = and i64 %757, 1
-  %759 = getelementptr inbounds nuw %"struct.clang::FunctionType::FunctionTypeExtraBitfields", ptr %750, i64 %758
-  %760 = getelementptr inbounds nuw %"struct.clang::FunctionType::FunctionTypeArmAttributes", ptr %759, i64 %756
+  %759 = getelementptr inbounds nuw [8 x i8], ptr %750, i64 %758
+  %760 = getelementptr inbounds nuw [8 x i8], ptr %759, i64 %756
   br label %788
 
 .split85:                                         ; preds = %739
@@ -8883,10 +8874,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit233: ; preds = %
   %766 = load i64, ptr %631, align 16
   %767 = lshr i64 %766, 38
   %768 = and i64 %767, 65535
-  %769 = getelementptr inbounds nuw %"class.clang::QualType", ptr %723, i64 %768
+  %769 = getelementptr inbounds nuw [8 x i8], ptr %723, i64 %768
   %770 = lshr i64 %766, 60
   %771 = and i64 %770, 1
-  %772 = getelementptr inbounds nuw %"class.clang::SourceLocation", ptr %769, i64 %771
+  %772 = getelementptr inbounds nuw [4 x i8], ptr %769, i64 %771
   %773 = ptrtoint ptr %772 to i64
   %774 = add i64 %773, 7
   %775 = and i64 %774, -8
@@ -8906,9 +8897,9 @@ _ZNK5clang17FunctionProtoType16getExceptionTypeEj.exit237: ; preds = %_ZNSt7__cx
   %782 = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit233 ], [ %781, %778 ]
   %783 = lshr i64 %766, 59
   %784 = and i64 %783, 1
-  %785 = getelementptr inbounds nuw %"struct.clang::FunctionType::FunctionTypeExtraBitfields", ptr %776, i64 %784
-  %786 = getelementptr inbounds nuw %"struct.clang::FunctionType::FunctionTypeArmAttributes", ptr %785, i64 %782
-  %787 = getelementptr inbounds nuw %"class.clang::QualType", ptr %786, i64 %indvars.iv405
+  %785 = getelementptr inbounds nuw [8 x i8], ptr %776, i64 %784
+  %786 = getelementptr inbounds nuw [8 x i8], ptr %785, i64 %782
+  %787 = getelementptr inbounds nuw [8 x i8], ptr %786, i64 %indvars.iv405
   br label %788
 
 788:                                              ; preds = %_ZNK5clang17FunctionProtoType16getExceptionTypeEj.exit, %_ZNK5clang17FunctionProtoType16getExceptionTypeEj.exit237
@@ -9012,10 +9003,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit491: ; preds = %
   %829 = getelementptr inbounds nuw i8, ptr %.073, i64 48
   %830 = lshr i64 %828, 38
   %831 = and i64 %830, 65535
-  %832 = getelementptr inbounds nuw %"class.clang::QualType", ptr %829, i64 %831
+  %832 = getelementptr inbounds nuw [8 x i8], ptr %829, i64 %831
   %833 = lshr i64 %828, 60
   %834 = and i64 %833, 1
-  %835 = getelementptr inbounds nuw %"class.clang::SourceLocation", ptr %832, i64 %834
+  %835 = getelementptr inbounds nuw [4 x i8], ptr %832, i64 %834
   %836 = ptrtoint ptr %835 to i64
   %837 = add i64 %836, 7
   %838 = and i64 %837, -8
@@ -9047,9 +9038,9 @@ _ZNK4llvm15TrailingObjectsIN5clang17FunctionProtoTypeEJNS1_8QualTypeENS1_14Sourc
   %spec.select.i.i.i.i.i494 = phi i64 [ %851, %848 ], [ 0, %_ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionProtoTypeENS_15TrailingObjectsIS3_JNS2_8QualTypeENS2_14SourceLocationENS2_12FunctionType26FunctionTypeExtraBitfieldsENS7_25FunctionTypeArmAttributesENS7_13ExceptionTypeEPNS2_4ExprEPNS2_12FunctionDeclENS7_16ExtParameterInfoENS2_10QualifiersENS2_14FunctionEffectENS2_19EffectConditionExprEEEES9_JSA_SC_SE_SF_SG_SH_SI_EE22getTrailingObjectsImplEPKS3_NS0_19TrailingObjectsBase13OverloadTokenISA_EE.exit.i.i.i ]
   %852 = lshr i64 %828, 59
   %853 = and i64 %852, 1
-  %854 = getelementptr inbounds nuw %"struct.clang::FunctionType::FunctionTypeExtraBitfields", ptr %839, i64 %853
-  %855 = getelementptr inbounds nuw %"struct.clang::FunctionType::FunctionTypeArmAttributes", ptr %854, i64 %845
-  %856 = getelementptr inbounds nuw %"struct.clang::FunctionType::ExceptionType", ptr %855, i64 %spec.select.i.i.i.i.i494
+  %854 = getelementptr inbounds nuw [8 x i8], ptr %839, i64 %853
+  %855 = getelementptr inbounds nuw [8 x i8], ptr %854, i64 %845
+  %856 = getelementptr inbounds nuw [8 x i8], ptr %855, i64 %spec.select.i.i.i.i.i494
   %857 = load ptr, ptr %856, align 8, !tbaa !45
   %858 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %859 = load i32, ptr %858, align 8, !tbaa !14
@@ -9094,7 +9085,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit495: ; preds = %
   %874 = load i64, ptr %873, align 8
   %875 = lshr i64 %874, 44
   %876 = and i64 %875, 131071
-  %877 = getelementptr inbounds nuw ptr, ptr %872, i64 %876
+  %877 = getelementptr inbounds nuw [8 x i8], ptr %872, i64 %876
   %.not103.i = icmp eq ptr %871, %877
   br i1 %.not103.i, label %_ZN12_GLOBAL__N_111DeclPrinter28PrintConstructorInitializersEPN5clang18CXXConstructorDeclERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %.lr.ph106.i
 
@@ -9196,7 +9187,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i244:            ; preds = %922, %920, %_ZNSt7_
   %934 = getelementptr inbounds nuw i8, ptr %931, i64 64
   %935 = load i32, ptr %934, align 8, !tbaa !657
   %936 = zext i32 %935 to i64
-  %937 = getelementptr ptr, ptr %933, i64 %936
+  %937 = getelementptr [8 x i8], ptr %933, i64 %936
   %938 = getelementptr i8, ptr %937, i64 -8
   %939 = load ptr, ptr %938, align 8, !tbaa !37
   br label %_ZNK5clang18CXXCtorInitializer12getAnyMemberEv.exit.i
@@ -9351,7 +9342,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit65.i:             ; preds = %981, %979, %968
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %_ZN4llvm11raw_ostreamlsEPKc.exit71.i
   %indvars.iv408 = phi i64 [ 0, %.lr.ph.i.preheader ], [ %indvars.iv.next409, %_ZN4llvm11raw_ostreamlsEPKc.exit71.i ]
-  %1007 = getelementptr inbounds nuw ptr, ptr %.045.i, i64 %indvars.iv408
+  %1007 = getelementptr inbounds nuw [8 x i8], ptr %.045.i, i64 %indvars.iv408
   %1008 = load ptr, ptr %1007, align 8, !tbaa !45
   %1009 = load i16, ptr %1008, align 8
   %1010 = and i16 %1009, 511
@@ -9767,7 +9758,7 @@ _ZNK5clang12FunctionDecl17getDeletedMessageEv.exit: ; preds = %1227
   %1233 = getelementptr inbounds nuw i8, ptr %1229, i64 8
   %1234 = load i32, ptr %1229, align 8, !tbaa !665
   %1235 = zext i32 %1234 to i64
-  %1236 = getelementptr inbounds nuw %"class.clang::DeclAccessPair", ptr %1233, i64 %1235
+  %1236 = getelementptr inbounds nuw [8 x i8], ptr %1233, i64 %1235
   %1237 = load ptr, ptr %1236, align 8, !tbaa !666
   %.not127 = icmp eq ptr %1237, null
   br i1 %.not127, label %_ZN4llvm11raw_ostreamlsEPKc.exit262, label %1238
@@ -9976,7 +9967,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i.i:             ; preds = %1340, %1338
 
 _ZN12_GLOBAL__N_111DeclPrinter6IndentEv.exit:     ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit.i.i, %1327
   %1344 = load ptr, ptr %1320, align 8, !tbaa !287
-  %1345 = getelementptr inbounds nuw ptr, ptr %1344, i64 %indvars.iv411
+  %1345 = getelementptr inbounds nuw [8 x i8], ptr %1344, i64 %indvars.iv411
   %1346 = load ptr, ptr %1345, align 8, !tbaa !182
   call fastcc void @_ZN12_GLOBAL__N_111DeclPrinter12VisitVarDeclEPN5clang7VarDeclE(ptr noundef nonnull align 8 dereferenceable(37) %34, ptr noundef %1346)
   %1347 = load ptr, ptr %0, align 8, !tbaa !36
@@ -11598,7 +11589,7 @@ _ZN5clang13CXXRecordDecl9bases_endEv.exit:        ; preds = %_ZNK5clang13LazyOff
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 16
   %170 = load i32, ptr %169, align 8, !tbaa !713
   %171 = zext i32 %170 to i64
-  %172 = getelementptr inbounds nuw %"class.clang::CXXBaseSpecifier", ptr %.0.i.i.i, i64 %171
+  %172 = getelementptr inbounds nuw [24 x i8], ptr %.0.i.i.i, i64 %171
   %.not48102 = icmp eq ptr %.0.i.i67, %172
   br i1 %.not48102, label %._crit_edge, label %.lr.ph
 
@@ -11712,10 +11703,10 @@ _ZN4llvm11raw_ostreamlsEPKc.exit80:               ; preds = %224, %222, %_ZN4llv
 switch.lookup:                                    ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit80
   %.val = load ptr, ptr %0, align 8
   %230 = zext nneg i8 %229 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN12_GLOBAL__N_111DeclPrinter18VisitCXXRecordDeclEPN5clang13CXXRecordDeclE, i64 %230
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN12_GLOBAL__N_111DeclPrinter18VisitCXXRecordDeclEPN5clang13CXXRecordDeclE, i64 %230
   %switch.load = load ptr, ptr %switch.gep, align 8
   %231 = zext nneg i8 %229 to i64
-  %switch.gep118 = getelementptr inbounds nuw i64, ptr @switch.table._ZN12_GLOBAL__N_111DeclPrinter18VisitCXXRecordDeclEPN5clang13CXXRecordDeclE.39, i64 %231
+  %switch.gep118 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN12_GLOBAL__N_111DeclPrinter18VisitCXXRecordDeclEPN5clang13CXXRecordDeclE.39, i64 %231
   %switch.load119 = load i64, ptr %switch.gep118, align 8
   %232 = getelementptr inbounds nuw i8, ptr %.val, i64 24
   %233 = load ptr, ptr %232, align 8, !tbaa !39
@@ -12583,7 +12574,7 @@ _ZNK5clang14DeclaratorDecl28getNumTemplateParameterListsEv.exit: ; preds = %7
   %15 = inttoptr i64 %14 to ptr
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %17 = load ptr, ptr %16, align 8, !tbaa !260
-  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !261
   tail call fastcc void @_ZN12_GLOBAL__N_111DeclPrinter23printTemplateParametersEPKN5clang21TemplateParameterListEb(ptr noundef nonnull align 8 dereferenceable(37) %0, ptr noundef %19, i1 noundef zeroext false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -12682,7 +12673,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %35, %24, %.loopexit
   %71 = getelementptr inbounds nuw i8, ptr %68, i64 24
   %72 = load i32, ptr %71, align 8
   %73 = zext i32 %72 to i64
-  %.sroa.0.0.i.i.i = getelementptr inbounds nuw ptr, ptr %70, i64 %73
+  %.sroa.0.0.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %73
   %.not4044 = icmp eq ptr %67, %.sroa.0.0.i.i.i
   br i1 %.not4044, label %.loopexit, label %.lr.ph46
 
@@ -12839,7 +12830,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_111DeclPrinter22VisitClassTemplateD
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %14 = load i32, ptr %13, align 8
   %15 = zext i32 %14 to i64
-  %.sroa.0.0.i.i.i = getelementptr inbounds nuw ptr, ptr %12, i64 %15
+  %.sroa.0.0.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %15
   %.not17 = icmp eq ptr %9, %.sroa.0.0.i.i.i
   br i1 %.not17, label %.loopexit, label %.lr.ph
 
@@ -14725,7 +14716,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZN4l
 
 39:                                               ; preds = %.lr.ph, %39
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %39 ]
-  %40 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %41 = load ptr, ptr %40, align 8, !tbaa !261
   tail call fastcc void @_ZN12_GLOBAL__N_111DeclPrinter23printTemplateParametersEPKN5clang21TemplateParameterListEb(ptr noundef nonnull align 8 dereferenceable(37) %0, ptr noundef %41, i1 noundef zeroext false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -16359,7 +16350,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit: ; preds 
   %21 = phi i32 [ %14, %10 ], [ %.pre.i, %17 ]
   %22 = load ptr, ptr %12, align 8, !tbaa !70
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw %"struct.std::pair", ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %23
   store ptr %11, ptr %24, align 1
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 %8, ptr %.sroa.2.0..sroa_idx.i, align 1
@@ -16400,7 +16391,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12Start
   %47 = phi i32 [ %40, %32 ], [ %.pre.i.i, %43 ]
   %48 = load ptr, ptr %33, align 8, !tbaa !70
   %49 = zext i32 %47 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %49
   %51 = ptrtoint ptr %39 to i64
   store i64 %51, ptr %50, align 1
   %52 = load i32, ptr %34, align 8, !tbaa !72
@@ -17034,7 +17025,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %11, %13
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit16.us
 
 _ZN4llvm11raw_ostreamlsEPKc.exit16.us:            ; preds = %30, %27, %.lr.ph.split.us
-  %32 = getelementptr inbounds nuw %"class.clang::TemplateArgumentLoc", ptr %1, i64 %.018.us
+  %32 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %.018.us
   %33 = load ptr, ptr %0, align 8, !tbaa !36
   tail call void @_ZNK5clang16TemplateArgument5printERKNS_14PrintingPolicyERN4llvm11raw_ostreamEb(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(48) %33, i1 noundef zeroext true) #17
   %34 = add nuw i64 %.018.us, 1
@@ -17093,7 +17084,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit13:               ; preds = %41, %43
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit16
 
 _ZN4llvm11raw_ostreamlsEPKc.exit16:               ; preds = %58, %56, %.lr.ph.split
-  %61 = getelementptr inbounds nuw %"class.clang::TemplateArgumentLoc", ptr %1, i64 %.018
+  %61 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %.018
   %62 = load ptr, ptr %0, align 8, !tbaa !36
   %63 = trunc i64 %.018 to i32
   %64 = tail call noundef zeroext i1 @_ZN5clang21TemplateParameterList28shouldIncludeTypeForArgumentERKNS_14PrintingPolicyEPKS0_j(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull %3, i32 noundef %63) #17
@@ -17164,7 +17155,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %11, %13
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit16.us
 
 _ZN4llvm11raw_ostreamlsEPKc.exit16.us:            ; preds = %30, %27, %.lr.ph.split.us
-  %32 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %1, i64 %.018.us
+  %32 = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %.018.us
   %33 = load ptr, ptr %0, align 8, !tbaa !36
   tail call void @_ZNK5clang16TemplateArgument5printERKNS_14PrintingPolicyERN4llvm11raw_ostreamEb(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(48) %33, i1 noundef zeroext true) #17
   %34 = add nuw i64 %.018.us, 1
@@ -17223,7 +17214,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit13:               ; preds = %41, %43
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit16
 
 _ZN4llvm11raw_ostreamlsEPKc.exit16:               ; preds = %58, %56, %.lr.ph.split
-  %61 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %1, i64 %.018
+  %61 = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %.018
   %62 = load ptr, ptr %0, align 8, !tbaa !36
   %63 = trunc i64 %.018 to i32
   %64 = tail call noundef zeroext i1 @_ZN5clang21TemplateParameterList28shouldIncludeTypeForArgumentERKNS_14PrintingPolicyEPKS0_j(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull %3, i32 noundef %63) #17

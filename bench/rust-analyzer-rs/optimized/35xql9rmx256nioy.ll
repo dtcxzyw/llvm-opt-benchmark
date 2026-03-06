@@ -35,7 +35,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
 13:                                               ; preds = %28, %7
   %.val18.i = phi i64 [ %.sroa.6.0.copyload, %7 ], [ %30, %28 ]
   %.0.i = phi i64 [ 0, %7 ], [ %31, %28 ]
-  %14 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %0, i64 %.0.i
+  %14 = getelementptr inbounds [64 x i8], ptr %0, i64 %.0.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !7
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8.i.i)
@@ -59,7 +59,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %20 = load ptr, ptr %14, align 8, !alias.scope !23, !noalias !24, !nonnull !18, !align !26, !noundef !18
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %22 = load i64, ptr %21, align 8, !alias.scope !23, !noalias !24, !noundef !18
-  %23 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %20, i64 %22
+  %23 = getelementptr inbounds [64 x i8], ptr %20, i64 %22
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !27
   invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17ha2be78b3885a0b56E.llvm.10084979905622778545"(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %4, ptr noundef nonnull %20, ptr noundef nonnull %23)
           to label %.noexc19.i unwind label %33, !noalias !7
@@ -81,7 +81,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
 28:                                               ; preds = %.noexc20.i, %.noexc.i
   %.sroa.5.0.i.i = phi i64 [ %.sroa.5.0.copyload3.i.i, %.noexc.i ], [ %26, %.noexc20.i ]
   %.sroa.01.0.i.i = phi ptr [ %.sroa.01.0.copyload2.i.i, %.noexc.i ], [ %25, %.noexc20.i ]
-  %29 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %.sroa.9.0.copyload, i64 %.val18.i
+  %29 = getelementptr inbounds [64 x i8], ptr %.sroa.9.0.copyload, i64 %.val18.i
   store ptr %.sroa.01.0.i.i, ptr %29, align 8, !noalias !29
   %.sroa.0.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %29, i64 8
   store i64 %.sroa.5.0.i.i, ptr %.sroa.0.sroa.4.0..sroa_idx.i.i, align 8, !noalias !29
@@ -588,7 +588,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
 18:                                               ; preds = %33, %7
   %.val18 = phi i64 [ %.promoted, %7 ], [ %35, %33 ]
   %.0 = phi i64 [ 0, %7 ], [ %36, %33 ]
-  %19 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %0, i64 %.0
+  %19 = getelementptr inbounds [64 x i8], ptr %0, i64 %.0
   tail call void @llvm.experimental.noalias.scope.decl(metadata !143)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !146)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -613,7 +613,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   %25 = load ptr, ptr %19, align 8, !alias.scope !158, !noalias !159, !nonnull !18, !align !26, !noundef !18
   %26 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %27 = load i64, ptr %26, align 8, !alias.scope !158, !noalias !159, !noundef !18
-  %28 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %25, i64 %27
+  %28 = getelementptr inbounds [64 x i8], ptr %25, i64 %27
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !161
   invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17ha2be78b3885a0b56E.llvm.10084979905622778545"(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %4, ptr noundef nonnull %25, ptr noundef nonnull %28)
           to label %.noexc19 unwind label %40
@@ -637,7 +637,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   %.sroa.01.0.i = phi ptr [ %.sroa.01.0.copyload2.i, %.noexc ], [ %30, %.noexc20 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !162)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !165)
-  %34 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %14, i64 %.val18
+  %34 = getelementptr inbounds [64 x i8], ptr %14, i64 %.val18
   store ptr %.sroa.01.0.i, ptr %34, align 8, !noalias !168
   %.sroa.0.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i64 %.sroa.5.0.i, ptr %.sroa.0.sroa.4.0..sroa_idx.i, align 8, !noalias !168

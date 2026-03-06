@@ -2040,7 +2040,7 @@ define dso_local range(i32 0, 3) i32 @drm_connector_helper_tv_get_modes(ptr noun
 15:                                               ; preds = %15, %11
   %16 = phi i64 [ 0, %11 ], [ %23, %15 ]
   %17 = phi i32 [ 0, %11 ], [ %22, %15 ]
-  %18 = getelementptr i64, ptr %13, i64 %16
+  %18 = getelementptr [8 x i8], ptr %13, i64 %16
   %19 = load i64, ptr %18, align 8
   %20 = shl nuw i64 1, %19
   %21 = trunc i64 %20 to i32

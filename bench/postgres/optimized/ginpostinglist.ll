@@ -3,9 +3,6 @@ source_filename = "bench/postgres/original/ginpostinglist.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.ItemPointerData = type { %struct.BlockIdData, i16 }
-%struct.BlockIdData = type { i16, i16 }
-
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @ginCompressPostingList(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca [7 x i8], align 1
@@ -42,7 +39,7 @@ define dso_local noundef ptr @ginCompressPostingList(ptr noundef readonly captur
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %64 ]
   %.03275 = phi i64 [ %22, %.lr.ph ], [ %35, %64 ]
   %.05673 = phi ptr [ %9, %.lr.ph ], [ %.4.ph, %64 ]
-  %26 = getelementptr inbounds nuw %struct.ItemPointerData, ptr %0, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [6 x i8], ptr %0, i64 %indvars.iv
   %.val.i40 = load i16, ptr %26, align 2
   %27 = getelementptr i8, ptr %26, i64 2
   %.val4.i41 = load i16, ptr %27, align 2
@@ -211,7 +208,7 @@ define dso_local ptr @ginPostingListDecodeAllSegments(ptr noundef readonly captu
   %.140 = phi i32 [ %15, %14 ], [ %.03956, %.lr.ph61 ]
   %.137 = phi ptr [ %18, %14 ], [ %.03657, %.lr.ph61 ]
   %20 = sext i32 %.03558 to i64
-  %21 = getelementptr inbounds %struct.ItemPointerData, ptr %.137, i64 %20
+  %21 = getelementptr inbounds [6 x i8], ptr %.137, i64 %20
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %21, ptr noundef nonnull align 2 dereferenceable(6) %.059, i64 6, i1 false)
   %22 = getelementptr inbounds nuw i8, ptr %.059, i64 8
   %23 = getelementptr inbounds nuw i8, ptr %.059, i64 6
@@ -326,7 +323,7 @@ decode_varbyte.exit:                              ; preds = %41, %46, %53, %60, 
   %.0.i = phi ptr [ %82, %81 ], [ %75, %74 ], [ %68, %67 ], [ %61, %60 ], [ %54, %53 ], [ %47, %46 ], [ %42, %41 ]
   %87 = add i64 %.029.i, %.03851
   %88 = sext i32 %.153 to i64
-  %89 = getelementptr inbounds %struct.ItemPointerData, ptr %.3, i64 %88
+  %89 = getelementptr inbounds [6 x i8], ptr %.3, i64 %88
   %90 = trunc i64 %87 to i16
   %91 = and i16 %90, 2047
   %92 = getelementptr inbounds nuw i8, ptr %89, i64 4
@@ -405,7 +402,7 @@ define dso_local ptr @ginMergeItemPointers(ptr noundef %0, i32 noundef %1, ptr n
 12:                                               ; preds = %5
   %13 = add i32 %1, -1
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %struct.ItemPointerData, ptr %0, i64 %14
+  %15 = getelementptr inbounds nuw [6 x i8], ptr %0, i64 %14
   %.val.i = load i16, ptr %15, align 2
   %16 = getelementptr i8, ptr %15, i64 2
   %.val5.i = load i16, ptr %16, align 2
@@ -437,7 +434,7 @@ define dso_local ptr @ginMergeItemPointers(ptr noundef %0, i32 noundef %1, ptr n
   %36 = zext i32 %1 to i64
   %37 = mul nuw nsw i64 %36, 6
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %9, ptr align 2 %0, i64 %37, i1 false)
-  %38 = getelementptr inbounds nuw %struct.ItemPointerData, ptr %9, i64 %36
+  %38 = getelementptr inbounds nuw [6 x i8], ptr %9, i64 %36
   %39 = zext i32 %3 to i64
   %40 = mul nuw nsw i64 %39, 6
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %38, ptr align 2 %2, i64 %40, i1 false)
@@ -446,7 +443,7 @@ define dso_local ptr @ginMergeItemPointers(ptr noundef %0, i32 noundef %1, ptr n
 41:                                               ; preds = %12
   %42 = add i32 %3, -1
   %43 = zext i32 %42 to i64
-  %44 = getelementptr inbounds nuw %struct.ItemPointerData, ptr %2, i64 %43
+  %44 = getelementptr inbounds nuw [6 x i8], ptr %2, i64 %43
   %.val.i73 = load i16, ptr %44, align 2
   %45 = getelementptr i8, ptr %44, i64 2
   %.val5.i74 = load i16, ptr %45, align 2
@@ -485,7 +482,7 @@ define dso_local ptr @ginMergeItemPointers(ptr noundef %0, i32 noundef %1, ptr n
   %69 = zext i32 %3 to i64
   %70 = mul nuw nsw i64 %69, 6
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %9, ptr nonnull align 2 %2, i64 %70, i1 false)
-  %71 = getelementptr inbounds nuw %struct.ItemPointerData, ptr %9, i64 %69
+  %71 = getelementptr inbounds nuw [6 x i8], ptr %9, i64 %69
   %72 = zext i32 %1 to i64
   %73 = mul nuw nsw i64 %72, 6
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %71, ptr nonnull align 2 %0, i64 %73, i1 false)

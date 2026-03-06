@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.YYSTYPE = type { %struct.anon }
 %struct.anon = type { ptr, i32 }
 %struct.TestSpec = type { ptr, i32, ptr, ptr, i32, ptr, i32 }
-%union.yyalloc = type { %union.YYSTYPE }
 
 @spec_yychar = dso_local local_unnamed_addr global i32 0, align 4
 @yypact = internal unnamed_addr constant [43 x i8] c"\F2\02\F8\F2\03\04\F2\07\F2\F2\06\FD\F2\08\0C\F2\F2\0B\F2\01\F2\09\0C\F2\F2\0F\FE\F2\FC\F2\11\F2\F2\12\F2\FF\F2\F2\10\F2\FC\F2\F2", align 16
@@ -75,7 +74,7 @@ define dso_local range(i32 0, 3) i32 @spec_yyparse() local_unnamed_addr #0 {
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %19, ptr align 1 %.0247, i64 %13, i1 false)
   %21 = add nsw i64 %spec.store.select, 15
   %22 = sdiv i64 %21, 16
-  %23 = getelementptr inbounds %union.yyalloc, ptr %19, i64 %22
+  %23 = getelementptr inbounds [16 x i8], ptr %19, i64 %22
   %24 = shl i64 %13, 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %23, ptr align 8 %.0269, i64 %24, i1 false)
   %.not290 = icmp eq ptr %.0247, %1
@@ -87,7 +86,7 @@ define dso_local range(i32 0, 3) i32 @spec_yyparse() local_unnamed_addr #0 {
 
 26:                                               ; preds = %20, %25
   %27 = getelementptr inbounds i8, ptr %19, i64 %12
-  %28 = getelementptr inbounds %union.YYSTYPE, ptr %23, i64 %13
+  %28 = getelementptr inbounds [16 x i8], ptr %23, i64 %13
   %29 = getelementptr inbounds i8, ptr %28, i64 -16
   %30 = add nsw i64 %spec.store.select, -1
   %.not291 = icmp sgt i64 %30, %12
@@ -198,7 +197,7 @@ define dso_local range(i32 0, 3) i32 @spec_yyparse() local_unnamed_addr #0 {
   %83 = load i8, ptr %82, align 1
   %84 = sext i8 %83 to i64
   %85 = sub nsw i64 1, %84
-  %86 = getelementptr inbounds %union.YYSTYPE, ptr %.2263, i64 %85
+  %86 = getelementptr inbounds [16 x i8], ptr %.2263, i64 %85
   %.sroa.0.0.copyload = load ptr, ptr %86, align 8
   %.sroa.76.0..sroa_idx = getelementptr inbounds nuw i8, ptr %86, i64 8
   %.sroa.76.0.copyload = load i32, ptr %.sroa.76.0..sroa_idx, align 8
@@ -273,7 +272,7 @@ define dso_local range(i32 0, 3) i32 @spec_yyparse() local_unnamed_addr #0 {
   %111 = load ptr, ptr %.2263, align 8
   %112 = load i32, ptr %105, align 8
   %113 = sext i32 %112 to i64
-  %114 = getelementptr inbounds ptr, ptr %110, i64 %113
+  %114 = getelementptr inbounds [8 x i8], ptr %110, i64 %113
   store ptr %111, ptr %114, align 8
   %115 = load i32, ptr %105, align 8
   %116 = add i32 %115, 1
@@ -306,7 +305,7 @@ define dso_local range(i32 0, 3) i32 @spec_yyparse() local_unnamed_addr #0 {
   %133 = load ptr, ptr %.2263, align 8
   %134 = load i32, ptr %127, align 8
   %135 = sext i32 %134 to i64
-  %136 = getelementptr inbounds ptr, ptr %132, i64 %135
+  %136 = getelementptr inbounds [8 x i8], ptr %132, i64 %135
   store ptr %133, ptr %136, align 8
   %137 = load i32, ptr %127, align 8
   %138 = add i32 %137, 1
@@ -352,7 +351,7 @@ define dso_local range(i32 0, 3) i32 @spec_yyparse() local_unnamed_addr #0 {
   %166 = load ptr, ptr %.2263, align 8
   %167 = load i32, ptr %160, align 8
   %168 = sext i32 %167 to i64
-  %169 = getelementptr inbounds ptr, ptr %165, i64 %168
+  %169 = getelementptr inbounds [8 x i8], ptr %165, i64 %168
   store ptr %166, ptr %169, align 8
   %170 = load i32, ptr %160, align 8
   %171 = add i32 %170, 1
@@ -398,7 +397,7 @@ define dso_local range(i32 0, 3) i32 @spec_yyparse() local_unnamed_addr #0 {
   %193 = load ptr, ptr %.2263, align 8
   %194 = load i32, ptr %187, align 8
   %195 = sext i32 %194 to i64
-  %196 = getelementptr inbounds ptr, ptr %192, i64 %195
+  %196 = getelementptr inbounds [8 x i8], ptr %192, i64 %195
   store ptr %193, ptr %196, align 8
   %197 = load i32, ptr %187, align 8
   %198 = add i32 %197, 1
@@ -432,7 +431,7 @@ define dso_local range(i32 0, 3) i32 @spec_yyparse() local_unnamed_addr #0 {
   %217 = load ptr, ptr %.2263, align 8
   %218 = load i32, ptr %211, align 8
   %219 = sext i32 %218 to i64
-  %220 = getelementptr inbounds ptr, ptr %216, i64 %219
+  %220 = getelementptr inbounds [8 x i8], ptr %216, i64 %219
   store ptr %217, ptr %220, align 8
   %221 = load i32, ptr %211, align 8
   %222 = add i32 %221, 1
@@ -485,7 +484,7 @@ define dso_local range(i32 0, 3) i32 @spec_yyparse() local_unnamed_addr #0 {
   %252 = load ptr, ptr %.2263, align 8
   %253 = load i32, ptr %246, align 8
   %254 = sext i32 %253 to i64
-  %255 = getelementptr inbounds ptr, ptr %251, i64 %254
+  %255 = getelementptr inbounds [8 x i8], ptr %251, i64 %254
   store ptr %252, ptr %255, align 8
   %256 = load i32, ptr %246, align 8
   %257 = add i32 %256, 1
@@ -545,7 +544,7 @@ define dso_local range(i32 0, 3) i32 @spec_yyparse() local_unnamed_addr #0 {
   %.sroa.76.0 = phi i32 [ %.sroa.76.0.copyload, %80 ], [ %.sroa.76.0.copyload, %87 ], [ 0, %101 ], [ %116, %102 ], [ %.sroa.76.0.copyload, %117 ], [ %.sroa.76.0.copyload, %118 ], [ %.sroa.76.0.copyload, %120 ], [ %.sroa.76.0.copyload, %277 ], [ %.sroa.76.0.copyload, %122 ], [ %138, %124 ], [ 1, %139 ], [ %.sroa.76.0.copyload, %142 ], [ %171, %157 ], [ 1, %172 ], [ %.sroa.76.0.copyload, %175 ], [ %.sroa.76.0.copyload85, %183 ], [ %.sroa.76.0.copyload, %268 ], [ %198, %184 ], [ 1, %199 ], [ %.sroa.76.0.copyload, %202 ], [ %222, %208 ], [ 1, %223 ], [ %.sroa.76.0.copyload, %226 ], [ %.sroa.76.0.copyload, %232 ], [ %257, %243 ], [ 1, %258 ], [ %.sroa.76.0.copyload, %261 ]
   %.sroa.0.0 = phi ptr [ %.sroa.0.0.copyload, %80 ], [ %.sroa.0.0.copyload, %87 ], [ null, %101 ], [ %110, %102 ], [ null, %117 ], [ %119, %118 ], [ %121, %120 ], [ %278, %277 ], [ %123, %122 ], [ %132, %124 ], [ %140, %139 ], [ %143, %142 ], [ %165, %157 ], [ %173, %172 ], [ %176, %175 ], [ %.sroa.0.0.copyload82, %183 ], [ %269, %268 ], [ %192, %184 ], [ %200, %199 ], [ %203, %202 ], [ %216, %208 ], [ %224, %223 ], [ %227, %226 ], [ %233, %232 ], [ %251, %243 ], [ %259, %258 ], [ %262, %261 ]
   %284 = sub nsw i64 0, %84
-  %285 = getelementptr inbounds %union.YYSTYPE, ptr %.2263, i64 %284
+  %285 = getelementptr inbounds [16 x i8], ptr %.2263, i64 %284
   %286 = getelementptr inbounds i8, ptr %.2252, i64 %284
   %287 = getelementptr inbounds nuw i8, ptr %285, i64 16
   store ptr %.sroa.0.0, ptr %287, align 8

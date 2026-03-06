@@ -73,7 +73,7 @@ define void @_ZN5draco16GeometryMetadataC2ERKS0_(ptr noundef nonnull align 8 der
           to label %14 unwind label %51
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %12, i64 %.0920
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.0920
   %16 = load ptr, ptr %15, align 8, !tbaa !27
   invoke void @_ZN5draco17AttributeMetadataC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(100) %13, ptr noundef nonnull align 8 dereferenceable(100) %16)
           to label %17 unwind label %53
@@ -152,7 +152,7 @@ _ZNSt6vectorISt10unique_ptrIN5draco17AttributeMetadataESt14default_deleteIS2_EES
 _ZNSt6vectorISt10unique_ptrIN5draco17AttributeMetadataESt14default_deleteIS2_EESaIS5_EE9push_backEOS5_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN5draco17AttributeMetadataESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i, %41
   store ptr %35, ptr %4, align 8, !tbaa !26
   store ptr %40, ptr %9, align 8, !tbaa !23
-  %42 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %35, i64 %33
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %33
   store ptr %42, ptr %10, align 8, !tbaa !29
   br label %_ZNSt10unique_ptrIN5draco17AttributeMetadataESt14default_deleteIS1_EED2Ev.exit
 
@@ -702,7 +702,7 @@ _ZNSt6vectorISt10unique_ptrIN5draco17AttributeMetadataESt14default_deleteIS2_EES
 _ZNSt12_Vector_baseISt10unique_ptrIN5draco17AttributeMetadataESt14default_deleteIS2_EESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN5draco17AttributeMetadataESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, %31
   store ptr %20, ptr %0, align 8, !tbaa !26
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !23
-  %35 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %20, i64 %16
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %16
   store ptr %35, ptr %30, align 8, !tbaa !29
   ret void
 }

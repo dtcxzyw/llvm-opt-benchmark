@@ -6,8 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.lock_class_key = type {}
 %struct.file_operations = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.drm_rect = type { i32, i32, i32, i32 }
-%struct.__drm_crtcs_state = type { ptr, ptr, ptr, ptr, ptr, ptr, i64 }
-%struct.__drm_planes_state = type { ptr, ptr, ptr, ptr }
 %struct.drm_connector_list_iter = type { ptr, ptr }
 %struct.drm_modeset_acquire_ctx = type { %struct.ww_acquire_ctx, ptr, i32, %struct.list_head, i8, i8 }
 %struct.ww_acquire_ctx = type { ptr, i64, i32, i16, i16 }
@@ -459,7 +457,7 @@ define dso_local void @intel_psr_irq_handler(ptr noundef %0, i32 noundef %1) loc
   %76 = load ptr, ptr %75, align 8
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 64
   %78 = sext i32 %6 to i64
-  %79 = getelementptr i32, ptr %77, i64 %78
+  %79 = getelementptr [4 x i8], ptr %77, i64 %78
   %80 = load i32, ptr %79, align 4
   %81 = load i32, ptr %77, align 4
   %82 = getelementptr inbounds nuw i8, ptr %76, i64 32
@@ -1004,7 +1002,7 @@ define dso_local void @intel_psr_irq_handler(ptr noundef %0, i32 noundef %1) loc
   %315 = load ptr, ptr %314, align 8
   %316 = getelementptr inbounds nuw i8, ptr %315, i64 64
   %317 = sext i32 %6 to i64
-  %318 = getelementptr i32, ptr %316, i64 %317
+  %318 = getelementptr [4 x i8], ptr %316, i64 %317
   %319 = load i32, ptr %318, align 4
   %320 = load i32, ptr %316, align 4
   %321 = getelementptr inbounds nuw i8, ptr %315, i64 32
@@ -2202,7 +2200,7 @@ define dso_local void @intel_psr_get_config(ptr noundef %0, ptr noundef captures
   %56 = load ptr, ptr %51, align 8
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 64
   %58 = sext i32 %12 to i64
-  %59 = getelementptr i32, ptr %57, i64 %58
+  %59 = getelementptr [4 x i8], ptr %57, i64 %58
   %60 = load i32, ptr %59, align 4
   %61 = load i32, ptr %57, align 4
   %62 = getelementptr inbounds nuw i8, ptr %56, i64 32
@@ -2230,7 +2228,7 @@ define dso_local void @intel_psr_get_config(ptr noundef %0, ptr noundef captures
 76:                                               ; preds = %74
   %77 = load ptr, ptr %51, align 8
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 64
-  %79 = getelementptr i32, ptr %78, i64 %58
+  %79 = getelementptr [4 x i8], ptr %78, i64 %58
   %80 = load i32, ptr %79, align 4
   %81 = load i32, ptr %78, align 4
   %82 = getelementptr inbounds nuw i8, ptr %77, i64 32
@@ -2400,7 +2398,7 @@ define internal fastcc void @intel_psr_disable_locked(ptr noundef %0) unnamed_ad
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 64
   %51 = sext i32 %37 to i64
-  %52 = getelementptr i32, ptr %50, i64 %51
+  %52 = getelementptr [4 x i8], ptr %50, i64 %51
   %53 = load i32, ptr %52, align 4
   %54 = load i32, ptr %50, align 4
   %55 = getelementptr inbounds nuw i8, ptr %49, i64 32
@@ -2538,7 +2536,7 @@ define internal fastcc void @intel_psr_disable_locked(ptr noundef %0) unnamed_ad
   %129 = load ptr, ptr %74, align 8
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 64
   %131 = sext i32 %7 to i64
-  %132 = getelementptr i32, ptr %130, i64 %131
+  %132 = getelementptr [4 x i8], ptr %130, i64 %131
   %133 = load i32, ptr %132, align 4
   %134 = load i32, ptr %130, align 4
   %135 = getelementptr inbounds nuw i8, ptr %129, i64 32
@@ -2686,7 +2684,7 @@ define dso_local void @intel_psr_pause(ptr noundef %0) local_unnamed_addr #1 ali
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 64
   %50 = sext i32 %36 to i64
-  %51 = getelementptr i32, ptr %49, i64 %50
+  %51 = getelementptr [4 x i8], ptr %49, i64 %50
   %52 = load i32, ptr %51, align 4
   %53 = load i32, ptr %49, align 4
   %54 = getelementptr inbounds nuw i8, ptr %48, i64 32
@@ -2778,7 +2776,7 @@ define internal fastcc void @intel_psr_exit(ptr noundef %0) unnamed_addr #1 alig
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 64
   %32 = zext nneg i32 %5 to i64
-  %33 = getelementptr i32, ptr %31, i64 %32
+  %33 = getelementptr [4 x i8], ptr %31, i64 %32
   %34 = load i32, ptr %33, align 4
   %35 = load i32, ptr %31, align 4
   %36 = getelementptr inbounds nuw i8, ptr %30, i64 32
@@ -2828,7 +2826,7 @@ define internal fastcc void @intel_psr_exit(ptr noundef %0) unnamed_addr #1 alig
   %64 = load ptr, ptr %63, align 8
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 64
   %66 = sext i32 %5 to i64
-  %67 = getelementptr i32, ptr %65, i64 %66
+  %67 = getelementptr [4 x i8], ptr %65, i64 %66
   %68 = load i32, ptr %67, align 4
   %69 = load i32, ptr %65, align 4
   %70 = getelementptr inbounds nuw i8, ptr %64, i64 32
@@ -2913,7 +2911,7 @@ define internal fastcc void @intel_psr_exit(ptr noundef %0) unnamed_addr #1 alig
   %121 = load ptr, ptr %120, align 8
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 64
   %123 = sext i32 %5 to i64
-  %124 = getelementptr i32, ptr %122, i64 %123
+  %124 = getelementptr [4 x i8], ptr %122, i64 %123
   %125 = load i32, ptr %124, align 4
   %126 = load i32, ptr %122, align 4
   %127 = getelementptr inbounds nuw i8, ptr %121, i64 32
@@ -2967,7 +2965,7 @@ define internal fastcc void @intel_psr_exit(ptr noundef %0) unnamed_addr #1 alig
   %158 = load ptr, ptr %157, align 8
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 64
   %160 = sext i32 %5 to i64
-  %161 = getelementptr i32, ptr %159, i64 %160
+  %161 = getelementptr [4 x i8], ptr %159, i64 %160
   %162 = load i32, ptr %161, align 4
   %163 = load i32, ptr %159, align 4
   %164 = getelementptr inbounds nuw i8, ptr %158, i64 32
@@ -3097,7 +3095,7 @@ define internal fastcc void @intel_psr_activate(ptr noundef captures(none) %0) u
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 64
   %28 = zext nneg i32 %5 to i64
-  %29 = getelementptr i32, ptr %27, i64 %28
+  %29 = getelementptr [4 x i8], ptr %27, i64 %28
   %30 = load i32, ptr %29, align 4
   %31 = load i32, ptr %27, align 4
   %32 = getelementptr inbounds nuw i8, ptr %26, i64 32
@@ -3147,7 +3145,7 @@ define internal fastcc void @intel_psr_activate(ptr noundef captures(none) %0) u
   %60 = load ptr, ptr %59, align 8
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 64
   %62 = sext i32 %5 to i64
-  %63 = getelementptr i32, ptr %61, i64 %62
+  %63 = getelementptr [4 x i8], ptr %61, i64 %62
   %64 = load i32, ptr %63, align 4
   %65 = load i32, ptr %61, align 4
   %66 = getelementptr inbounds nuw i8, ptr %60, i64 32
@@ -3233,7 +3231,7 @@ define internal fastcc void @intel_psr_activate(ptr noundef captures(none) %0) u
   %114 = load ptr, ptr %113, align 8
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 64
   %116 = sext i32 %110 to i64
-  %117 = getelementptr i32, ptr %115, i64 %116
+  %117 = getelementptr [4 x i8], ptr %115, i64 %116
   %118 = load i32, ptr %117, align 4
   %119 = load i32, ptr %115, align 4
   %120 = getelementptr inbounds nuw i8, ptr %114, i64 32
@@ -3536,7 +3534,7 @@ define internal fastcc void @intel_psr_activate(ptr noundef captures(none) %0) u
   %326 = load ptr, ptr %171, align 8
   %327 = getelementptr inbounds nuw i8, ptr %326, i64 64
   %328 = sext i32 %110 to i64
-  %329 = getelementptr i32, ptr %327, i64 %328
+  %329 = getelementptr [4 x i8], ptr %327, i64 %328
   %330 = load i32, ptr %329, align 4
   %331 = load i32, ptr %327, align 4
   %332 = getelementptr inbounds nuw i8, ptr %326, i64 32
@@ -3583,7 +3581,7 @@ define internal fastcc void @intel_psr_activate(ptr noundef captures(none) %0) u
   %357 = load ptr, ptr %171, align 8
   %358 = getelementptr inbounds nuw i8, ptr %357, i64 64
   %359 = sext i32 %110 to i64
-  %360 = getelementptr i32, ptr %358, i64 %359
+  %360 = getelementptr [4 x i8], ptr %358, i64 %359
   %361 = load i32, ptr %360, align 4
   %362 = load i32, ptr %358, align 4
   %363 = getelementptr inbounds nuw i8, ptr %357, i64 32
@@ -3610,7 +3608,7 @@ define internal fastcc void @intel_psr_activate(ptr noundef captures(none) %0) u
   %375 = load ptr, ptr %171, align 8
   %376 = getelementptr inbounds nuw i8, ptr %375, i64 64
   %377 = sext i32 %110 to i64
-  %378 = getelementptr i32, ptr %376, i64 %377
+  %378 = getelementptr [4 x i8], ptr %376, i64 %377
   %379 = load i32, ptr %378, align 4
   %380 = load i32, ptr %376, align 4
   %381 = getelementptr inbounds nuw i8, ptr %375, i64 32
@@ -3632,7 +3630,7 @@ define internal fastcc void @intel_psr_activate(ptr noundef captures(none) %0) u
   tail call void %393(ptr noundef nonnull %391, i32 %387, i32 noundef %321, i1 noundef zeroext true) #10
   %394 = load ptr, ptr %171, align 8
   %395 = getelementptr inbounds nuw i8, ptr %394, i64 64
-  %396 = getelementptr i32, ptr %395, i64 %.pre-phi
+  %396 = getelementptr [4 x i8], ptr %395, i64 %.pre-phi
   %397 = load i32, ptr %396, align 4
   %398 = load i32, ptr %395, align 4
   %399 = getelementptr inbounds nuw i8, ptr %394, i64 32
@@ -3808,7 +3806,7 @@ define internal fastcc void @intel_psr_activate(ptr noundef captures(none) %0) u
   %506 = load ptr, ptr %505, align 8
   %507 = getelementptr inbounds nuw i8, ptr %506, i64 64
   %508 = sext i32 %110 to i64
-  %509 = getelementptr i32, ptr %507, i64 %508
+  %509 = getelementptr [4 x i8], ptr %507, i64 %508
   %510 = load i32, ptr %509, align 4
   %511 = load i32, ptr %507, align 4
   %512 = getelementptr inbounds nuw i8, ptr %506, i64 32
@@ -3909,7 +3907,7 @@ define dso_local void @intel_psr2_program_trans_man_trk_ctl(ptr noundef readonly
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 64
   %44 = sext i32 %5 to i64
-  %45 = getelementptr i32, ptr %43, i64 %44
+  %45 = getelementptr [4 x i8], ptr %43, i64 %44
   %46 = load i32, ptr %45, align 4
   %47 = load i32, ptr %43, align 4
   %48 = getelementptr inbounds nuw i8, ptr %42, i64 32
@@ -3940,7 +3938,7 @@ define dso_local i32 @intel_psr2_sel_fetch_update(ptr noundef %0, ptr noundef %1
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %10 = load i32, ptr %9, align 8
   %11 = zext i32 %10 to i64
-  %.split = getelementptr %struct.__drm_crtcs_state, ptr %8, i64 %11
+  %.split = getelementptr [56 x i8], ptr %8, i64 %11
   %12 = getelementptr i8, ptr %.split, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 1411
@@ -3974,7 +3972,7 @@ define dso_local i32 @intel_psr2_sel_fetch_update(ptr noundef %0, ptr noundef %1
   %34 = phi i32 [ -1, %25 ], [ %184, %181 ]
   %35 = phi i32 [ -1, %25 ], [ %183, %181 ]
   %36 = load ptr, ptr %26, align 8
-  %37 = getelementptr %struct.__drm_planes_state, ptr %36, i64 %33
+  %37 = getelementptr [32 x i8], ptr %36, i64 %33
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %40 = load ptr, ptr %39, align 8
@@ -4371,7 +4369,7 @@ define dso_local i32 @intel_psr2_sel_fetch_update(ptr noundef %0, ptr noundef %1
 286:                                              ; preds = %366, %281
   %287 = phi i64 [ 0, %281 ], [ %367, %366 ]
   %288 = load ptr, ptr %26, align 8
-  %289 = getelementptr %struct.__drm_planes_state, ptr %288, i64 %287
+  %289 = getelementptr [32 x i8], ptr %288, i64 %287
   %290 = load ptr, ptr %289, align 8
   %291 = getelementptr inbounds nuw i8, ptr %289, i64 16
   %292 = load ptr, ptr %291, align 8
@@ -4640,7 +4638,7 @@ define dso_local void @intel_psr_pre_plane_update(ptr noundef readonly captures(
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
-  %.split = getelementptr %struct.__drm_crtcs_state, ptr %6, i64 %9
+  %.split = getelementptr [56 x i8], ptr %6, i64 %9
   %10 = getelementptr i8, ptr %.split, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr i8, ptr %.split, i64 24
@@ -4911,7 +4909,7 @@ define dso_local void @intel_psr_post_plane_update(ptr noundef readonly captures
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %11 = load i32, ptr %10, align 8
   %12 = zext i32 %11 to i64
-  %.split = getelementptr %struct.__drm_crtcs_state, ptr %9, i64 %12
+  %.split = getelementptr [56 x i8], ptr %9, i64 %12
   %13 = getelementptr i8, ptr %.split, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 1409
@@ -5138,7 +5136,7 @@ define dso_local void @intel_psr_post_plane_update(ptr noundef readonly captures
   %156 = load ptr, ptr %155, align 8
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 64
   %158 = sext i32 %154 to i64
-  %159 = getelementptr i32, ptr %157, i64 %158
+  %159 = getelementptr [4 x i8], ptr %157, i64 %158
   %160 = load i32, ptr %159, align 4
   %161 = load i32, ptr %157, align 4
   %162 = getelementptr inbounds nuw i8, ptr %156, i64 32
@@ -5306,7 +5304,7 @@ define dso_local void @intel_psr_post_plane_update(ptr noundef readonly captures
 264:                                              ; preds = %259
   %265 = load ptr, ptr %251, align 8
   %266 = getelementptr inbounds nuw i8, ptr %265, i64 64
-  %267 = getelementptr i32, ptr %266, i64 %256
+  %267 = getelementptr [4 x i8], ptr %266, i64 %256
   %268 = load i32, ptr %267, align 4
   %269 = load i32, ptr %266, align 4
   %270 = getelementptr inbounds nuw i8, ptr %265, i64 32
@@ -5347,7 +5345,7 @@ define dso_local void @intel_psr_post_plane_update(ptr noundef readonly captures
 295:                                              ; preds = %286
   %296 = load ptr, ptr %251, align 8
   %297 = getelementptr inbounds nuw i8, ptr %296, i64 64
-  %298 = getelementptr i32, ptr %297, i64 %256
+  %298 = getelementptr [4 x i8], ptr %297, i64 %256
   %299 = load i32, ptr %298, align 4
   %300 = load i32, ptr %297, align 4
   %301 = getelementptr inbounds nuw i8, ptr %296, i64 32
@@ -5398,7 +5396,7 @@ define dso_local void @intel_psr_post_plane_update(ptr noundef readonly captures
   %334 = load ptr, ptr %251, align 8
   %335 = getelementptr inbounds nuw i8, ptr %334, i64 64
   %336 = sext i32 %250 to i64
-  %337 = getelementptr i32, ptr %335, i64 %336
+  %337 = getelementptr [4 x i8], ptr %335, i64 %336
   %338 = load i32, ptr %337, align 4
   %339 = load i32, ptr %335, align 4
   %340 = getelementptr inbounds nuw i8, ptr %334, i64 32
@@ -5450,7 +5448,7 @@ define dso_local void @intel_psr_post_plane_update(ptr noundef readonly captures
   %376 = load ptr, ptr %375, align 8
   %377 = getelementptr inbounds nuw i8, ptr %376, i64 64
   %378 = sext i32 %351 to i64
-  %379 = getelementptr i32, ptr %377, i64 %378
+  %379 = getelementptr [4 x i8], ptr %377, i64 %378
   %380 = load i32, ptr %379, align 4
   %381 = load i32, ptr %377, align 4
   %382 = getelementptr inbounds nuw i8, ptr %376, i64 32
@@ -5482,7 +5480,7 @@ psr_irq_control.exit:                             ; preds = %370, %.thread.i
   %402 = load ptr, ptr %251, align 8
   %403 = getelementptr inbounds nuw i8, ptr %402, i64 64
   %404 = sext i32 %250 to i64
-  %405 = getelementptr i32, ptr %403, i64 %404
+  %405 = getelementptr [4 x i8], ptr %403, i64 %404
   %406 = load i32, ptr %405, align 4
   %407 = load i32, ptr %403, align 4
   %408 = getelementptr inbounds nuw i8, ptr %402, i64 32
@@ -5539,7 +5537,7 @@ psr_irq_control.exit:                             ; preds = %370, %.thread.i
 
 445:                                              ; preds = %442
   %446 = sext i32 %250 to i64
-  %447 = getelementptr i32, ptr @constinit, i64 %446
+  %447 = getelementptr [4 x i8], ptr @constinit, i64 %446
   %448 = load i32, ptr %447, align 4
   %449 = getelementptr inbounds nuw i8, ptr %249, i64 7512
   %450 = load ptr, ptr %449, align 8
@@ -5666,7 +5664,7 @@ psr_irq_control.exit:                             ; preds = %370, %.thread.i
   %524 = load ptr, ptr %251, align 8
   %525 = getelementptr inbounds nuw i8, ptr %524, i64 64
   %526 = sext i32 %250 to i64
-  %527 = getelementptr i32, ptr %525, i64 %526
+  %527 = getelementptr [4 x i8], ptr %525, i64 %526
   %528 = load i32, ptr %527, align 4
   %529 = load i32, ptr %525, align 4
   %530 = getelementptr inbounds nuw i8, ptr %524, i64 32
@@ -5734,7 +5732,7 @@ psr_irq_control.exit:                             ; preds = %370, %.thread.i
   %569 = load ptr, ptr %568, align 8
   %570 = getelementptr inbounds nuw i8, ptr %569, i64 64
   %571 = sext i32 %567 to i64
-  %572 = getelementptr i32, ptr %570, i64 %571
+  %572 = getelementptr [4 x i8], ptr %570, i64 %571
   %573 = load i32, ptr %572, align 4
   %574 = load i32, ptr %570, align 4
   %575 = getelementptr inbounds nuw i8, ptr %569, i64 32
@@ -5770,7 +5768,7 @@ psr_force_hw_tracking_exit.exit:                  ; preds = %560, %.critedge.i
   %596 = getelementptr inbounds nuw i8, ptr %62, i64 3640
   %597 = load i32, ptr %596, align 8
   %598 = sext i32 %597 to i64
-  %599 = getelementptr i32, ptr %595, i64 %598
+  %599 = getelementptr [4 x i8], ptr %595, i64 %598
   %600 = load i32, ptr %599, align 4
   %601 = load i32, ptr %595, align 4
   %602 = getelementptr inbounds nuw i8, ptr %594, i64 32
@@ -5878,7 +5876,7 @@ define dso_local void @intel_psr_wait_for_idle_locked(ptr noundef readonly captu
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 64
   %49 = sext i32 %45 to i64
-  %50 = getelementptr i32, ptr %48, i64 %49
+  %50 = getelementptr [4 x i8], ptr %48, i64 %49
   %51 = load i32, ptr %50, align 4
   %52 = load i32, ptr %48, align 4
   %53 = getelementptr inbounds nuw i8, ptr %47, i64 32
@@ -5903,7 +5901,7 @@ define dso_local void @intel_psr_wait_for_idle_locked(ptr noundef readonly captu
   %68 = load ptr, ptr %67, align 8
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 64
   %70 = sext i32 %66 to i64
-  %71 = getelementptr i32, ptr %69, i64 %70
+  %71 = getelementptr [4 x i8], ptr %69, i64 %70
   %72 = load i32, ptr %71, align 4
   %73 = load i32, ptr %69, align 4
   %74 = getelementptr inbounds nuw i8, ptr %68, i64 32
@@ -6023,7 +6021,7 @@ define dso_local i32 @intel_psr_debug_set(ptr noundef %0, i64 noundef %1) local_
   %52 = load ptr, ptr %51, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 64
   %54 = sext i32 %33 to i64
-  %55 = getelementptr i32, ptr %53, i64 %54
+  %55 = getelementptr [4 x i8], ptr %53, i64 %54
   %56 = load i32, ptr %55, align 4
   %57 = load i32, ptr %53, align 4
   %58 = getelementptr inbounds nuw i8, ptr %52, i64 32
@@ -6259,7 +6257,7 @@ define dso_local void @intel_psr_invalidate(ptr noundef readonly captures(addres
   %55 = load ptr, ptr %54, align 8
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 92
   %57 = sext i32 %28 to i64
-  %58 = getelementptr i32, ptr %56, i64 %57
+  %58 = getelementptr [4 x i8], ptr %56, i64 %57
   %59 = load i32, ptr %58, align 4
   %60 = load i32, ptr %56, align 4
   %61 = getelementptr inbounds nuw i8, ptr %55, i64 32
@@ -6293,7 +6291,7 @@ define dso_local void @intel_psr_invalidate(ptr noundef readonly captures(addres
   %81 = load ptr, ptr %80, align 8
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 64
   %83 = sext i32 %45 to i64
-  %84 = getelementptr i32, ptr %82, i64 %83
+  %84 = getelementptr [4 x i8], ptr %82, i64 %83
   %85 = load i32, ptr %84, align 4
   %86 = load i32, ptr %82, align 4
   %87 = getelementptr inbounds nuw i8, ptr %81, i64 32
@@ -6309,7 +6307,7 @@ define dso_local void @intel_psr_invalidate(ptr noundef readonly captures(addres
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 92
   %97 = load i32, ptr %27, align 8
   %98 = sext i32 %97 to i64
-  %99 = getelementptr i32, ptr %96, i64 %98
+  %99 = getelementptr [4 x i8], ptr %96, i64 %98
   %100 = load i32, ptr %99, align 4
   %101 = load i32, ptr %96, align 4
   %102 = getelementptr inbounds nuw i8, ptr %95, i64 32
@@ -6450,7 +6448,7 @@ define dso_local void @intel_psr_flush(ptr noundef readonly captures(address) %0
   %71 = load ptr, ptr %70, align 8
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 64
   %73 = sext i32 %69 to i64
-  %74 = getelementptr i32, ptr %72, i64 %73
+  %74 = getelementptr [4 x i8], ptr %72, i64 %73
   %75 = load i32, ptr %74, align 4
   %76 = load i32, ptr %72, align 4
   %77 = getelementptr inbounds nuw i8, ptr %71, i64 32
@@ -6519,7 +6517,7 @@ define dso_local void @intel_psr_flush(ptr noundef readonly captures(address) %0
   %123 = load ptr, ptr %122, align 8
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 64
   %125 = sext i32 %101 to i64
-  %126 = getelementptr i32, ptr %124, i64 %125
+  %126 = getelementptr [4 x i8], ptr %124, i64 %125
   %127 = load i32, ptr %126, align 4
   %128 = load i32, ptr %124, align 4
   %129 = getelementptr inbounds nuw i8, ptr %123, i64 32
@@ -6535,7 +6533,7 @@ define dso_local void @intel_psr_flush(ptr noundef readonly captures(address) %0
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 92
   %139 = load i32, ptr %27, align 8
   %140 = sext i32 %139 to i64
-  %141 = getelementptr i32, ptr %138, i64 %140
+  %141 = getelementptr [4 x i8], ptr %138, i64 %140
   %142 = load i32, ptr %141, align 4
   %143 = load i32, ptr %138, align 4
   %144 = getelementptr inbounds nuw i8, ptr %137, i64 32
@@ -6553,7 +6551,7 @@ define dso_local void @intel_psr_flush(ptr noundef readonly captures(address) %0
   %152 = load ptr, ptr %151, align 8
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 64
   %154 = sext i32 %101 to i64
-  %155 = getelementptr i32, ptr %153, i64 %154
+  %155 = getelementptr [4 x i8], ptr %153, i64 %154
   %156 = load i32, ptr %155, align 4
   %157 = load i32, ptr %153, align 4
   %158 = getelementptr inbounds nuw i8, ptr %152, i64 32
@@ -6585,7 +6583,7 @@ psr_force_hw_tracking_exit.exit:                  ; preds = %150, %167
   %177 = load ptr, ptr %176, align 8
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 92
   %179 = sext i32 %.pre to i64
-  %180 = getelementptr i32, ptr %178, i64 %179
+  %180 = getelementptr [4 x i8], ptr %178, i64 %179
   %181 = load i32, ptr %180, align 4
   %182 = load i32, ptr %178, align 4
   %183 = getelementptr inbounds nuw i8, ptr %177, i64 32
@@ -6609,7 +6607,7 @@ psr_force_hw_tracking_exit.exit4:                 ; preds = %98
   %.phi.trans.insert13 = getelementptr inbounds nuw i8, ptr %.pre12, i64 92
   %.pre17 = load i32, ptr %.phi.trans.insert13, align 4
   %.phi.trans.insert14 = sext i32 %28 to i64
-  %.phi.trans.insert15 = getelementptr i32, ptr %.phi.trans.insert13, i64 %.phi.trans.insert14
+  %.phi.trans.insert15 = getelementptr [4 x i8], ptr %.phi.trans.insert13, i64 %.phi.trans.insert14
   %.pre16 = load i32, ptr %.phi.trans.insert15, align 4
   %191 = add i32 %.pre16, 458924
   %192 = sub i32 %191, %.pre17
@@ -6825,7 +6823,7 @@ define internal void @intel_psr_work(ptr noundef %0) #1 align 16 {
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 64
   %32 = sext i32 %18 to i64
-  %33 = getelementptr i32, ptr %31, i64 %32
+  %33 = getelementptr [4 x i8], ptr %31, i64 %32
   %34 = load i32, ptr %33, align 4
   %35 = load i32, ptr %31, align 4
   %36 = getelementptr inbounds nuw i8, ptr %30, i64 32
@@ -7777,7 +7775,7 @@ define internal fastcc void @tgl_psr2_disable_dc3co(ptr noundef readonly capture
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 64
   %36 = sext i32 %32 to i64
-  %37 = getelementptr i32, ptr %35, i64 %36
+  %37 = getelementptr [4 x i8], ptr %35, i64 %36
   %38 = load i32, ptr %37, align 4
   %39 = load i32, ptr %35, align 4
   %40 = getelementptr inbounds nuw i8, ptr %34, i64 32
@@ -8247,7 +8245,7 @@ define internal fastcc void @intel_psr_status(ptr noundef %0, ptr noundef %1) un
   %72 = load ptr, ptr %71, align 8
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 64
   %74 = sext i32 %8 to i64
-  %75 = getelementptr i32, ptr %73, i64 %74
+  %75 = getelementptr [4 x i8], ptr %73, i64 %74
   %76 = load i32, ptr %75, align 4
   %77 = load i32, ptr %73, align 4
   %78 = getelementptr inbounds nuw i8, ptr %72, i64 32
@@ -8273,7 +8271,7 @@ define internal fastcc void @intel_psr_status(ptr noundef %0, ptr noundef %1) un
   %94 = load ptr, ptr %93, align 8
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 64
   %96 = sext i32 %8 to i64
-  %97 = getelementptr i32, ptr %95, i64 %96
+  %97 = getelementptr [4 x i8], ptr %95, i64 %96
   %98 = load i32, ptr %97, align 4
   %99 = load i32, ptr %95, align 4
   %100 = getelementptr inbounds nuw i8, ptr %94, i64 32
@@ -8309,7 +8307,7 @@ define internal fastcc void @intel_psr_status(ptr noundef %0, ptr noundef %1) un
   %123 = load ptr, ptr %122, align 8
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 64
   %125 = sext i32 %117 to i64
-  %126 = getelementptr i32, ptr %124, i64 %125
+  %126 = getelementptr [4 x i8], ptr %124, i64 %125
   %127 = load i32, ptr %126, align 4
   %128 = load i32, ptr %124, align 4
   %129 = getelementptr inbounds nuw i8, ptr %123, i64 32
@@ -8339,7 +8337,7 @@ define internal fastcc void @intel_psr_status(ptr noundef %0, ptr noundef %1) un
   %147 = load ptr, ptr %146, align 8
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 64
   %149 = sext i32 %117 to i64
-  %150 = getelementptr i32, ptr %148, i64 %149
+  %150 = getelementptr [4 x i8], ptr %148, i64 %149
   %151 = load i32, ptr %150, align 4
   %152 = load i32, ptr %148, align 4
   %153 = getelementptr inbounds nuw i8, ptr %147, i64 32
@@ -8363,7 +8361,7 @@ define internal fastcc void @intel_psr_status(ptr noundef %0, ptr noundef %1) un
   %psr_source_status.live_status.145.sink = phi ptr [ @psr_source_status.live_status.145, %158 ], [ @psr_source_status.live_status, %139 ]
   %166 = phi i32 [ %163, %158 ], [ %137, %139 ]
   %167 = zext nneg i32 %.sink6 to i64
-  %168 = getelementptr ptr, ptr %psr_source_status.live_status.145.sink, i64 %167
+  %168 = getelementptr [8 x i8], ptr %psr_source_status.live_status.145.sink, i64 %167
   %169 = load ptr, ptr %168, align 8
   br label %170
 
@@ -8384,7 +8382,7 @@ define internal fastcc void @intel_psr_status(ptr noundef %0, ptr noundef %1) un
   %180 = load ptr, ptr %179, align 8
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 64
   %182 = sext i32 %8 to i64
-  %183 = getelementptr i32, ptr %181, i64 %182
+  %183 = getelementptr [4 x i8], ptr %181, i64 %182
   %184 = load i32, ptr %183, align 4
   %185 = load i32, ptr %181, align 4
   %186 = getelementptr inbounds nuw i8, ptr %180, i64 32
@@ -8433,7 +8431,7 @@ define internal fastcc void @intel_psr_status(ptr noundef %0, ptr noundef %1) un
   %214 = phi i64 [ 0, %210 ], [ %232, %213 ]
   %215 = load ptr, ptr %211, align 8
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 64
-  %217 = getelementptr i32, ptr %216, i64 %212
+  %217 = getelementptr [4 x i8], ptr %216, i64 %212
   %218 = load i32, ptr %217, align 4
   %219 = load i32, ptr %216, align 4
   %220 = getelementptr inbounds nuw i8, ptr %215, i64 32
@@ -8449,7 +8447,7 @@ define internal fastcc void @intel_psr_status(ptr noundef %0, ptr noundef %1) un
   %228 = add i32 %227, %221
   %229 = load ptr, ptr %194, align 8
   %230 = tail call i32 %229(ptr noundef nonnull %193, i32 %228, i1 noundef zeroext true) #10
-  %231 = getelementptr i32, ptr %3, i64 %.zext
+  %231 = getelementptr [4 x i8], ptr %3, i64 %.zext
   store i32 %230, ptr %231, align 4
   %232 = add nuw nsw i64 %214, 3
   %233 = icmp samesign ult i64 %214, 5
@@ -8463,7 +8461,7 @@ define internal fastcc void @intel_psr_status(ptr noundef %0, ptr noundef %1) un
   %236 = phi i32 [ 0, %234 ], [ %245, %235 ]
   %237 = udiv i32 %236, 3
   %238 = zext nneg i32 %237 to i64
-  %239 = getelementptr i32, ptr %3, i64 %238
+  %239 = getelementptr [4 x i8], ptr %3, i64 %238
   %240 = load i32, ptr %239, align 4
   %241 = urem i32 %236, 3
   %242 = mul nuw nsw i32 %241, 10
@@ -8630,7 +8628,7 @@ define internal range(i32 2, 1) i32 @i915_psr_sink_status_show(ptr noundef %0, p
   %.ph = phi i8 [ %.pre.pre, %.thread4 ], [ %67, %66 ]
   %.ph10 = phi ptr [ @.str.174, %.thread4 ], [ @.str.173, %66 ]
   %70 = zext nneg i8 %.sink to i64
-  %71 = getelementptr ptr, ptr %i915_psr_sink_status_show.sink_status.sink, i64 %70
+  %71 = getelementptr [8 x i8], ptr %i915_psr_sink_status_show.sink_status.sink, i64 %70
   %72 = load ptr, ptr %71, align 8
   br label %.thread3
 

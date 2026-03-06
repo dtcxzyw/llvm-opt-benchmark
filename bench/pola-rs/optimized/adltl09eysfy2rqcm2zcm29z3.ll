@@ -234,7 +234,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
 
 80:                                               ; preds = %._crit_edge.i
   %81 = load ptr, ptr %49, align 8, !noalias !6, !nonnull !9, !noundef !9
-  %82 = getelementptr inbounds nuw i64, ptr %81, i64 %77
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %77
   store i64 %.sroa.01.0.lcssa.i, ptr %82, align 8, !noalias !6
   %83 = load i64, ptr %26, align 8, !noalias !6, !noundef !9
   %84 = load i64, ptr %66, align 8, !noalias !6, !noundef !9
@@ -255,7 +255,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
 
 89:                                               ; preds = %80
   %90 = load ptr, ptr %65, align 8, !noalias !6, !nonnull !9, !noundef !9
-  %91 = getelementptr inbounds nuw i64, ptr %90, i64 %83
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %83
   store i64 %.sroa.01.0.lcssa.i, ptr %91, align 8, !noalias !6
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !6
   %92 = load i64, ptr %26, align 8, !noalias !6, !noundef !9
@@ -486,7 +486,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
 
 160:                                              ; preds = %109
   %161 = load ptr, ptr %102, align 8, !noalias !6, !nonnull !9, !noundef !9
-  %162 = getelementptr inbounds nuw i64, ptr %161, i64 %.sroa.028.0121.i
+  %162 = getelementptr inbounds nuw [8 x i8], ptr %161, i64 %.sroa.028.0121.i
   store i64 %.sroa.01.1122.i, ptr %162, align 8, !noalias !6
   %163 = load i64, ptr %26, align 8, !noalias !6, !noundef !9
   %.not129.i = icmp eq i64 %163, 0
@@ -496,7 +496,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
   %164 = load i64, ptr %105, align 8, !noalias !6, !noundef !9
   %165 = icmp ult i64 %.sroa.028.0121.i, %164
   %166 = load ptr, ptr %106, align 8, !noalias !6, !nonnull !9
-  %167 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %166, i64 %.sroa.028.0121.i
+  %167 = getelementptr inbounds nuw [24 x i8], ptr %166, i64 %.sroa.028.0121.i
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 8
   br i1 %165, label %.lr.ph119.split.i, label %.invoke228.i
 
@@ -515,7 +515,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
 
 174:                                              ; preds = %172
   %175 = load ptr, ptr %168, align 8, !noalias !6, !nonnull !9, !noundef !9
-  %176 = getelementptr inbounds nuw i64, ptr %175, i64 %.sroa.030.0117.i
+  %176 = getelementptr inbounds nuw [8 x i8], ptr %175, i64 %.sroa.030.0117.i
   %177 = load i64, ptr %176, align 8, !noalias !6, !noundef !9
   %178 = add i64 %177, %.sroa.01.2116.i
   %179 = add i64 %173, 1
@@ -539,7 +539,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
 
 185:                                              ; preds = %72
   %186 = load ptr, ptr %65, align 8, !noalias !6, !nonnull !9, !noundef !9
-  %187 = getelementptr inbounds nuw i64, ptr %186, i64 %.sroa.024.0111.i
+  %187 = getelementptr inbounds nuw [8 x i8], ptr %186, i64 %.sroa.024.0111.i
   store i64 %.sroa.01.0112.i, ptr %187, align 8, !noalias !6
   %188 = load i64, ptr %33, align 8, !noalias !6, !noundef !9
   %.not127.i = icmp eq i64 %188, 0
@@ -558,7 +558,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
 
 195:                                              ; preds = %.lr.ph.i
   %196 = load ptr, ptr %49, align 8, !noalias !6, !nonnull !9, !noundef !9
-  %197 = getelementptr inbounds nuw i64, ptr %196, i64 %192
+  %197 = getelementptr inbounds nuw [8 x i8], ptr %196, i64 %192
   store i64 %.sroa.01.3110.i, ptr %197, align 8, !noalias !6
   %198 = load i64, ptr %68, align 8, !noalias !6, !noundef !9
   %199 = icmp ult i64 %.sroa.026.0109.i, %198
@@ -566,7 +566,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
 
 200:                                              ; preds = %195
   %201 = load ptr, ptr %69, align 8, !noalias !6, !nonnull !9, !noundef !9
-  %202 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %201, i64 %.sroa.026.0109.i
+  %202 = getelementptr inbounds nuw [24 x i8], ptr %201, i64 %.sroa.026.0109.i
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 16
   %204 = load i64, ptr %203, align 8, !noalias !6, !noundef !9
   %205 = icmp ult i64 %.sroa.024.0111.i, %204
@@ -575,7 +575,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
 206:                                              ; preds = %200
   %207 = getelementptr inbounds nuw i8, ptr %202, i64 8
   %208 = load ptr, ptr %207, align 8, !noalias !6, !nonnull !9, !noundef !9
-  %209 = getelementptr inbounds nuw i64, ptr %208, i64 %.sroa.024.0111.i
+  %209 = getelementptr inbounds nuw [8 x i8], ptr %208, i64 %.sroa.024.0111.i
   %210 = load i64, ptr %209, align 8, !noalias !6, !noundef !9
   %211 = add i64 %210, %.sroa.01.3110.i
   %212 = add i64 %189, 1
@@ -791,7 +791,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
 
 80:                                               ; preds = %._crit_edge.i
   %81 = load ptr, ptr %49, align 8, !noalias !42, !nonnull !9, !noundef !9
-  %82 = getelementptr inbounds nuw i64, ptr %81, i64 %77
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %77
   store i64 %.sroa.01.0.lcssa.i, ptr %82, align 8, !noalias !42
   %83 = load i64, ptr %26, align 8, !noalias !42, !noundef !9
   %84 = load i64, ptr %66, align 8, !noalias !42, !noundef !9
@@ -812,7 +812,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
 
 89:                                               ; preds = %80
   %90 = load ptr, ptr %65, align 8, !noalias !42, !nonnull !9, !noundef !9
-  %91 = getelementptr inbounds nuw i64, ptr %90, i64 %83
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %83
   store i64 %.sroa.01.0.lcssa.i, ptr %91, align 8, !noalias !42
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !42
   %92 = load i64, ptr %26, align 8, !noalias !42, !noundef !9
@@ -1043,7 +1043,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
 
 160:                                              ; preds = %109
   %161 = load ptr, ptr %102, align 8, !noalias !42, !nonnull !9, !noundef !9
-  %162 = getelementptr inbounds nuw i64, ptr %161, i64 %.sroa.028.0121.i
+  %162 = getelementptr inbounds nuw [8 x i8], ptr %161, i64 %.sroa.028.0121.i
   store i64 %.sroa.01.1122.i, ptr %162, align 8, !noalias !42
   %163 = load i64, ptr %26, align 8, !noalias !42, !noundef !9
   %.not129.i = icmp eq i64 %163, 0
@@ -1053,7 +1053,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
   %164 = load i64, ptr %105, align 8, !noalias !42, !noundef !9
   %165 = icmp ult i64 %.sroa.028.0121.i, %164
   %166 = load ptr, ptr %106, align 8, !noalias !42, !nonnull !9
-  %167 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %166, i64 %.sroa.028.0121.i
+  %167 = getelementptr inbounds nuw [24 x i8], ptr %166, i64 %.sroa.028.0121.i
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 8
   br i1 %165, label %.lr.ph119.split.i, label %.invoke228.i
 
@@ -1072,7 +1072,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
 
 174:                                              ; preds = %172
   %175 = load ptr, ptr %168, align 8, !noalias !42, !nonnull !9, !noundef !9
-  %176 = getelementptr inbounds nuw i64, ptr %175, i64 %.sroa.030.0117.i
+  %176 = getelementptr inbounds nuw [8 x i8], ptr %175, i64 %.sroa.030.0117.i
   %177 = load i64, ptr %176, align 8, !noalias !42, !noundef !9
   %178 = add i64 %177, %.sroa.01.2116.i
   %179 = add i64 %173, 1
@@ -1096,7 +1096,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
 
 185:                                              ; preds = %72
   %186 = load ptr, ptr %65, align 8, !noalias !42, !nonnull !9, !noundef !9
-  %187 = getelementptr inbounds nuw i64, ptr %186, i64 %.sroa.024.0111.i
+  %187 = getelementptr inbounds nuw [8 x i8], ptr %186, i64 %.sroa.024.0111.i
   store i64 %.sroa.01.0112.i, ptr %187, align 8, !noalias !42
   %188 = load i64, ptr %33, align 8, !noalias !42, !noundef !9
   %.not127.i = icmp eq i64 %188, 0
@@ -1115,7 +1115,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
 
 195:                                              ; preds = %.lr.ph.i
   %196 = load ptr, ptr %49, align 8, !noalias !42, !nonnull !9, !noundef !9
-  %197 = getelementptr inbounds nuw i64, ptr %196, i64 %192
+  %197 = getelementptr inbounds nuw [8 x i8], ptr %196, i64 %192
   store i64 %.sroa.01.3110.i, ptr %197, align 8, !noalias !42
   %198 = load i64, ptr %68, align 8, !noalias !42, !noundef !9
   %199 = icmp ult i64 %.sroa.026.0109.i, %198
@@ -1123,7 +1123,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
 
 200:                                              ; preds = %195
   %201 = load ptr, ptr %69, align 8, !noalias !42, !nonnull !9, !noundef !9
-  %202 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %201, i64 %.sroa.026.0109.i
+  %202 = getelementptr inbounds nuw [24 x i8], ptr %201, i64 %.sroa.026.0109.i
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 16
   %204 = load i64, ptr %203, align 8, !noalias !42, !noundef !9
   %205 = icmp ult i64 %.sroa.024.0111.i, %204
@@ -1132,7 +1132,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
 206:                                              ; preds = %200
   %207 = getelementptr inbounds nuw i8, ptr %202, i64 8
   %208 = load ptr, ptr %207, align 8, !noalias !42, !nonnull !9, !noundef !9
-  %209 = getelementptr inbounds nuw i64, ptr %208, i64 %.sroa.024.0111.i
+  %209 = getelementptr inbounds nuw [8 x i8], ptr %208, i64 %.sroa.024.0111.i
   %210 = load i64, ptr %209, align 8, !noalias !42, !noundef !9
   %211 = add i64 %210, %.sroa.01.3110.i
   %212 = add i64 %189, 1
@@ -1348,7 +1348,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
 
 80:                                               ; preds = %._crit_edge.i
   %81 = load ptr, ptr %49, align 8, !noalias !72, !nonnull !9, !noundef !9
-  %82 = getelementptr inbounds nuw i64, ptr %81, i64 %77
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %77
   store i64 %.sroa.01.0.lcssa.i, ptr %82, align 8, !noalias !72
   %83 = load i64, ptr %26, align 8, !noalias !72, !noundef !9
   %84 = load i64, ptr %66, align 8, !noalias !72, !noundef !9
@@ -1369,7 +1369,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
 
 89:                                               ; preds = %80
   %90 = load ptr, ptr %65, align 8, !noalias !72, !nonnull !9, !noundef !9
-  %91 = getelementptr inbounds nuw i64, ptr %90, i64 %83
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %83
   store i64 %.sroa.01.0.lcssa.i, ptr %91, align 8, !noalias !72
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !72
   %92 = load i64, ptr %26, align 8, !noalias !72, !noundef !9
@@ -1600,7 +1600,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
 
 160:                                              ; preds = %109
   %161 = load ptr, ptr %102, align 8, !noalias !72, !nonnull !9, !noundef !9
-  %162 = getelementptr inbounds nuw i64, ptr %161, i64 %.sroa.028.0121.i
+  %162 = getelementptr inbounds nuw [8 x i8], ptr %161, i64 %.sroa.028.0121.i
   store i64 %.sroa.01.1122.i, ptr %162, align 8, !noalias !72
   %163 = load i64, ptr %26, align 8, !noalias !72, !noundef !9
   %.not129.i = icmp eq i64 %163, 0
@@ -1610,7 +1610,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
   %164 = load i64, ptr %105, align 8, !noalias !72, !noundef !9
   %165 = icmp ult i64 %.sroa.028.0121.i, %164
   %166 = load ptr, ptr %106, align 8, !noalias !72, !nonnull !9
-  %167 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %166, i64 %.sroa.028.0121.i
+  %167 = getelementptr inbounds nuw [24 x i8], ptr %166, i64 %.sroa.028.0121.i
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 8
   br i1 %165, label %.lr.ph119.split.i, label %.invoke228.i
 
@@ -1629,7 +1629,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
 
 174:                                              ; preds = %172
   %175 = load ptr, ptr %168, align 8, !noalias !72, !nonnull !9, !noundef !9
-  %176 = getelementptr inbounds nuw i64, ptr %175, i64 %.sroa.030.0117.i
+  %176 = getelementptr inbounds nuw [8 x i8], ptr %175, i64 %.sroa.030.0117.i
   %177 = load i64, ptr %176, align 8, !noalias !72, !noundef !9
   %178 = add i64 %177, %.sroa.01.2116.i
   %179 = add i64 %173, 1
@@ -1653,7 +1653,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
 
 185:                                              ; preds = %72
   %186 = load ptr, ptr %65, align 8, !noalias !72, !nonnull !9, !noundef !9
-  %187 = getelementptr inbounds nuw i64, ptr %186, i64 %.sroa.024.0111.i
+  %187 = getelementptr inbounds nuw [8 x i8], ptr %186, i64 %.sroa.024.0111.i
   store i64 %.sroa.01.0112.i, ptr %187, align 8, !noalias !72
   %188 = load i64, ptr %33, align 8, !noalias !72, !noundef !9
   %.not127.i = icmp eq i64 %188, 0
@@ -1672,7 +1672,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
 
 195:                                              ; preds = %.lr.ph.i
   %196 = load ptr, ptr %49, align 8, !noalias !72, !nonnull !9, !noundef !9
-  %197 = getelementptr inbounds nuw i64, ptr %196, i64 %192
+  %197 = getelementptr inbounds nuw [8 x i8], ptr %196, i64 %192
   store i64 %.sroa.01.3110.i, ptr %197, align 8, !noalias !72
   %198 = load i64, ptr %68, align 8, !noalias !72, !noundef !9
   %199 = icmp ult i64 %.sroa.026.0109.i, %198
@@ -1680,7 +1680,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
 
 200:                                              ; preds = %195
   %201 = load ptr, ptr %69, align 8, !noalias !72, !nonnull !9, !noundef !9
-  %202 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %201, i64 %.sroa.026.0109.i
+  %202 = getelementptr inbounds nuw [24 x i8], ptr %201, i64 %.sroa.026.0109.i
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 16
   %204 = load i64, ptr %203, align 8, !noalias !72, !noundef !9
   %205 = icmp ult i64 %.sroa.024.0111.i, %204
@@ -1689,7 +1689,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
 206:                                              ; preds = %200
   %207 = getelementptr inbounds nuw i8, ptr %202, i64 8
   %208 = load ptr, ptr %207, align 8, !noalias !72, !nonnull !9, !noundef !9
-  %209 = getelementptr inbounds nuw i64, ptr %208, i64 %.sroa.024.0111.i
+  %209 = getelementptr inbounds nuw [8 x i8], ptr %208, i64 %.sroa.024.0111.i
   %210 = load i64, ptr %209, align 8, !noalias !72, !noundef !9
   %211 = add i64 %210, %.sroa.01.3110.i
   %212 = add i64 %189, 1
@@ -1905,7 +1905,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
 
 80:                                               ; preds = %._crit_edge.i
   %81 = load ptr, ptr %49, align 8, !noalias !102, !nonnull !9, !noundef !9
-  %82 = getelementptr inbounds nuw i64, ptr %81, i64 %77
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %77
   store i64 %.sroa.01.0.lcssa.i, ptr %82, align 8, !noalias !102
   %83 = load i64, ptr %26, align 8, !noalias !102, !noundef !9
   %84 = load i64, ptr %66, align 8, !noalias !102, !noundef !9
@@ -1926,7 +1926,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
 
 89:                                               ; preds = %80
   %90 = load ptr, ptr %65, align 8, !noalias !102, !nonnull !9, !noundef !9
-  %91 = getelementptr inbounds nuw i64, ptr %90, i64 %83
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %83
   store i64 %.sroa.01.0.lcssa.i, ptr %91, align 8, !noalias !102
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !102
   %92 = load i64, ptr %26, align 8, !noalias !102, !noundef !9
@@ -2157,7 +2157,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
 
 160:                                              ; preds = %109
   %161 = load ptr, ptr %102, align 8, !noalias !102, !nonnull !9, !noundef !9
-  %162 = getelementptr inbounds nuw i64, ptr %161, i64 %.sroa.028.0121.i
+  %162 = getelementptr inbounds nuw [8 x i8], ptr %161, i64 %.sroa.028.0121.i
   store i64 %.sroa.01.1122.i, ptr %162, align 8, !noalias !102
   %163 = load i64, ptr %26, align 8, !noalias !102, !noundef !9
   %.not129.i = icmp eq i64 %163, 0
@@ -2167,7 +2167,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
   %164 = load i64, ptr %105, align 8, !noalias !102, !noundef !9
   %165 = icmp ult i64 %.sroa.028.0121.i, %164
   %166 = load ptr, ptr %106, align 8, !noalias !102, !nonnull !9
-  %167 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %166, i64 %.sroa.028.0121.i
+  %167 = getelementptr inbounds nuw [24 x i8], ptr %166, i64 %.sroa.028.0121.i
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 8
   br i1 %165, label %.lr.ph119.split.i, label %.invoke228.i
 
@@ -2186,7 +2186,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
 
 174:                                              ; preds = %172
   %175 = load ptr, ptr %168, align 8, !noalias !102, !nonnull !9, !noundef !9
-  %176 = getelementptr inbounds nuw i64, ptr %175, i64 %.sroa.030.0117.i
+  %176 = getelementptr inbounds nuw [8 x i8], ptr %175, i64 %.sroa.030.0117.i
   %177 = load i64, ptr %176, align 8, !noalias !102, !noundef !9
   %178 = add i64 %177, %.sroa.01.2116.i
   %179 = add i64 %173, 1
@@ -2210,7 +2210,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
 
 185:                                              ; preds = %72
   %186 = load ptr, ptr %65, align 8, !noalias !102, !nonnull !9, !noundef !9
-  %187 = getelementptr inbounds nuw i64, ptr %186, i64 %.sroa.024.0111.i
+  %187 = getelementptr inbounds nuw [8 x i8], ptr %186, i64 %.sroa.024.0111.i
   store i64 %.sroa.01.0112.i, ptr %187, align 8, !noalias !102
   %188 = load i64, ptr %33, align 8, !noalias !102, !noundef !9
   %.not127.i = icmp eq i64 %188, 0
@@ -2229,7 +2229,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
 
 195:                                              ; preds = %.lr.ph.i
   %196 = load ptr, ptr %49, align 8, !noalias !102, !nonnull !9, !noundef !9
-  %197 = getelementptr inbounds nuw i64, ptr %196, i64 %192
+  %197 = getelementptr inbounds nuw [8 x i8], ptr %196, i64 %192
   store i64 %.sroa.01.3110.i, ptr %197, align 8, !noalias !102
   %198 = load i64, ptr %68, align 8, !noalias !102, !noundef !9
   %199 = icmp ult i64 %.sroa.026.0109.i, %198
@@ -2237,7 +2237,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
 
 200:                                              ; preds = %195
   %201 = load ptr, ptr %69, align 8, !noalias !102, !nonnull !9, !noundef !9
-  %202 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %201, i64 %.sroa.026.0109.i
+  %202 = getelementptr inbounds nuw [24 x i8], ptr %201, i64 %.sroa.026.0109.i
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 16
   %204 = load i64, ptr %203, align 8, !noalias !102, !noundef !9
   %205 = icmp ult i64 %.sroa.024.0111.i, %204
@@ -2246,7 +2246,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
 206:                                              ; preds = %200
   %207 = getelementptr inbounds nuw i8, ptr %202, i64 8
   %208 = load ptr, ptr %207, align 8, !noalias !102, !nonnull !9, !noundef !9
-  %209 = getelementptr inbounds nuw i64, ptr %208, i64 %.sroa.024.0111.i
+  %209 = getelementptr inbounds nuw [8 x i8], ptr %208, i64 %.sroa.024.0111.i
   %210 = load i64, ptr %209, align 8, !noalias !102, !noundef !9
   %211 = add i64 %210, %.sroa.01.3110.i
   %212 = add i64 %189, 1
@@ -2462,7 +2462,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
 
 80:                                               ; preds = %._crit_edge.i
   %81 = load ptr, ptr %49, align 8, !noalias !132, !nonnull !9, !noundef !9
-  %82 = getelementptr inbounds nuw i64, ptr %81, i64 %77
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %77
   store i64 %.sroa.01.0.lcssa.i, ptr %82, align 8, !noalias !132
   %83 = load i64, ptr %26, align 8, !noalias !132, !noundef !9
   %84 = load i64, ptr %66, align 8, !noalias !132, !noundef !9
@@ -2483,7 +2483,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
 
 89:                                               ; preds = %80
   %90 = load ptr, ptr %65, align 8, !noalias !132, !nonnull !9, !noundef !9
-  %91 = getelementptr inbounds nuw i64, ptr %90, i64 %83
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %83
   store i64 %.sroa.01.0.lcssa.i, ptr %91, align 8, !noalias !132
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !132
   %92 = load i64, ptr %26, align 8, !noalias !132, !noundef !9
@@ -2714,7 +2714,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
 
 160:                                              ; preds = %109
   %161 = load ptr, ptr %102, align 8, !noalias !132, !nonnull !9, !noundef !9
-  %162 = getelementptr inbounds nuw i64, ptr %161, i64 %.sroa.028.0121.i
+  %162 = getelementptr inbounds nuw [8 x i8], ptr %161, i64 %.sroa.028.0121.i
   store i64 %.sroa.01.1122.i, ptr %162, align 8, !noalias !132
   %163 = load i64, ptr %26, align 8, !noalias !132, !noundef !9
   %.not129.i = icmp eq i64 %163, 0
@@ -2724,7 +2724,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
   %164 = load i64, ptr %105, align 8, !noalias !132, !noundef !9
   %165 = icmp ult i64 %.sroa.028.0121.i, %164
   %166 = load ptr, ptr %106, align 8, !noalias !132, !nonnull !9
-  %167 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %166, i64 %.sroa.028.0121.i
+  %167 = getelementptr inbounds nuw [24 x i8], ptr %166, i64 %.sroa.028.0121.i
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 8
   br i1 %165, label %.lr.ph119.split.i, label %.invoke228.i
 
@@ -2743,7 +2743,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
 
 174:                                              ; preds = %172
   %175 = load ptr, ptr %168, align 8, !noalias !132, !nonnull !9, !noundef !9
-  %176 = getelementptr inbounds nuw i64, ptr %175, i64 %.sroa.030.0117.i
+  %176 = getelementptr inbounds nuw [8 x i8], ptr %175, i64 %.sroa.030.0117.i
   %177 = load i64, ptr %176, align 8, !noalias !132, !noundef !9
   %178 = add i64 %177, %.sroa.01.2116.i
   %179 = add i64 %173, 1
@@ -2767,7 +2767,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
 
 185:                                              ; preds = %72
   %186 = load ptr, ptr %65, align 8, !noalias !132, !nonnull !9, !noundef !9
-  %187 = getelementptr inbounds nuw i64, ptr %186, i64 %.sroa.024.0111.i
+  %187 = getelementptr inbounds nuw [8 x i8], ptr %186, i64 %.sroa.024.0111.i
   store i64 %.sroa.01.0112.i, ptr %187, align 8, !noalias !132
   %188 = load i64, ptr %33, align 8, !noalias !132, !noundef !9
   %.not127.i = icmp eq i64 %188, 0
@@ -2786,7 +2786,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
 
 195:                                              ; preds = %.lr.ph.i
   %196 = load ptr, ptr %49, align 8, !noalias !132, !nonnull !9, !noundef !9
-  %197 = getelementptr inbounds nuw i64, ptr %196, i64 %192
+  %197 = getelementptr inbounds nuw [8 x i8], ptr %196, i64 %192
   store i64 %.sroa.01.3110.i, ptr %197, align 8, !noalias !132
   %198 = load i64, ptr %68, align 8, !noalias !132, !noundef !9
   %199 = icmp ult i64 %.sroa.026.0109.i, %198
@@ -2794,7 +2794,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
 
 200:                                              ; preds = %195
   %201 = load ptr, ptr %69, align 8, !noalias !132, !nonnull !9, !noundef !9
-  %202 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %201, i64 %.sroa.026.0109.i
+  %202 = getelementptr inbounds nuw [24 x i8], ptr %201, i64 %.sroa.026.0109.i
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 16
   %204 = load i64, ptr %203, align 8, !noalias !132, !noundef !9
   %205 = icmp ult i64 %.sroa.024.0111.i, %204
@@ -2803,7 +2803,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
 206:                                              ; preds = %200
   %207 = getelementptr inbounds nuw i8, ptr %202, i64 8
   %208 = load ptr, ptr %207, align 8, !noalias !132, !nonnull !9, !noundef !9
-  %209 = getelementptr inbounds nuw i64, ptr %208, i64 %.sroa.024.0111.i
+  %209 = getelementptr inbounds nuw [8 x i8], ptr %208, i64 %.sroa.024.0111.i
   %210 = load i64, ptr %209, align 8, !noalias !132, !noundef !9
   %211 = add i64 %210, %.sroa.01.3110.i
   %212 = add i64 %189, 1
@@ -3019,7 +3019,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
 
 80:                                               ; preds = %._crit_edge.i
   %81 = load ptr, ptr %49, align 8, !noalias !162, !nonnull !9, !noundef !9
-  %82 = getelementptr inbounds nuw i64, ptr %81, i64 %77
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %77
   store i64 %.sroa.01.0.lcssa.i, ptr %82, align 8, !noalias !162
   %83 = load i64, ptr %26, align 8, !noalias !162, !noundef !9
   %84 = load i64, ptr %66, align 8, !noalias !162, !noundef !9
@@ -3040,7 +3040,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
 
 89:                                               ; preds = %80
   %90 = load ptr, ptr %65, align 8, !noalias !162, !nonnull !9, !noundef !9
-  %91 = getelementptr inbounds nuw i64, ptr %90, i64 %83
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %83
   store i64 %.sroa.01.0.lcssa.i, ptr %91, align 8, !noalias !162
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !162
   %92 = load i64, ptr %26, align 8, !noalias !162, !noundef !9
@@ -3271,7 +3271,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
 
 160:                                              ; preds = %109
   %161 = load ptr, ptr %102, align 8, !noalias !162, !nonnull !9, !noundef !9
-  %162 = getelementptr inbounds nuw i64, ptr %161, i64 %.sroa.028.0121.i
+  %162 = getelementptr inbounds nuw [8 x i8], ptr %161, i64 %.sroa.028.0121.i
   store i64 %.sroa.01.1122.i, ptr %162, align 8, !noalias !162
   %163 = load i64, ptr %26, align 8, !noalias !162, !noundef !9
   %.not129.i = icmp eq i64 %163, 0
@@ -3281,7 +3281,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
   %164 = load i64, ptr %105, align 8, !noalias !162, !noundef !9
   %165 = icmp ult i64 %.sroa.028.0121.i, %164
   %166 = load ptr, ptr %106, align 8, !noalias !162, !nonnull !9
-  %167 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %166, i64 %.sroa.028.0121.i
+  %167 = getelementptr inbounds nuw [24 x i8], ptr %166, i64 %.sroa.028.0121.i
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 8
   br i1 %165, label %.lr.ph119.split.i, label %.invoke228.i
 
@@ -3300,7 +3300,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
 
 174:                                              ; preds = %172
   %175 = load ptr, ptr %168, align 8, !noalias !162, !nonnull !9, !noundef !9
-  %176 = getelementptr inbounds nuw i64, ptr %175, i64 %.sroa.030.0117.i
+  %176 = getelementptr inbounds nuw [8 x i8], ptr %175, i64 %.sroa.030.0117.i
   %177 = load i64, ptr %176, align 8, !noalias !162, !noundef !9
   %178 = add i64 %177, %.sroa.01.2116.i
   %179 = add i64 %173, 1
@@ -3324,7 +3324,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
 
 185:                                              ; preds = %72
   %186 = load ptr, ptr %65, align 8, !noalias !162, !nonnull !9, !noundef !9
-  %187 = getelementptr inbounds nuw i64, ptr %186, i64 %.sroa.024.0111.i
+  %187 = getelementptr inbounds nuw [8 x i8], ptr %186, i64 %.sroa.024.0111.i
   store i64 %.sroa.01.0112.i, ptr %187, align 8, !noalias !162
   %188 = load i64, ptr %33, align 8, !noalias !162, !noundef !9
   %.not127.i = icmp eq i64 %188, 0
@@ -3343,7 +3343,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
 
 195:                                              ; preds = %.lr.ph.i
   %196 = load ptr, ptr %49, align 8, !noalias !162, !nonnull !9, !noundef !9
-  %197 = getelementptr inbounds nuw i64, ptr %196, i64 %192
+  %197 = getelementptr inbounds nuw [8 x i8], ptr %196, i64 %192
   store i64 %.sroa.01.3110.i, ptr %197, align 8, !noalias !162
   %198 = load i64, ptr %68, align 8, !noalias !162, !noundef !9
   %199 = icmp ult i64 %.sroa.026.0109.i, %198
@@ -3351,7 +3351,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
 
 200:                                              ; preds = %195
   %201 = load ptr, ptr %69, align 8, !noalias !162, !nonnull !9, !noundef !9
-  %202 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %201, i64 %.sroa.026.0109.i
+  %202 = getelementptr inbounds nuw [24 x i8], ptr %201, i64 %.sroa.026.0109.i
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 16
   %204 = load i64, ptr %203, align 8, !noalias !162, !noundef !9
   %205 = icmp ult i64 %.sroa.024.0111.i, %204
@@ -3360,7 +3360,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
 206:                                              ; preds = %200
   %207 = getelementptr inbounds nuw i8, ptr %202, i64 8
   %208 = load ptr, ptr %207, align 8, !noalias !162, !nonnull !9, !noundef !9
-  %209 = getelementptr inbounds nuw i64, ptr %208, i64 %.sroa.024.0111.i
+  %209 = getelementptr inbounds nuw [8 x i8], ptr %208, i64 %.sroa.024.0111.i
   %210 = load i64, ptr %209, align 8, !noalias !162, !noundef !9
   %211 = add i64 %210, %.sroa.01.3110.i
   %212 = add i64 %189, 1
@@ -3576,7 +3576,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
 
 80:                                               ; preds = %._crit_edge.i
   %81 = load ptr, ptr %49, align 8, !noalias !192, !nonnull !9, !noundef !9
-  %82 = getelementptr inbounds nuw i64, ptr %81, i64 %77
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %77
   store i64 %.sroa.01.0.lcssa.i, ptr %82, align 8, !noalias !192
   %83 = load i64, ptr %26, align 8, !noalias !192, !noundef !9
   %84 = load i64, ptr %66, align 8, !noalias !192, !noundef !9
@@ -3597,7 +3597,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
 
 89:                                               ; preds = %80
   %90 = load ptr, ptr %65, align 8, !noalias !192, !nonnull !9, !noundef !9
-  %91 = getelementptr inbounds nuw i64, ptr %90, i64 %83
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %83
   store i64 %.sroa.01.0.lcssa.i, ptr %91, align 8, !noalias !192
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !192
   %92 = load i64, ptr %26, align 8, !noalias !192, !noundef !9
@@ -3828,7 +3828,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
 
 160:                                              ; preds = %109
   %161 = load ptr, ptr %102, align 8, !noalias !192, !nonnull !9, !noundef !9
-  %162 = getelementptr inbounds nuw i64, ptr %161, i64 %.sroa.028.0121.i
+  %162 = getelementptr inbounds nuw [8 x i8], ptr %161, i64 %.sroa.028.0121.i
   store i64 %.sroa.01.1122.i, ptr %162, align 8, !noalias !192
   %163 = load i64, ptr %26, align 8, !noalias !192, !noundef !9
   %.not129.i = icmp eq i64 %163, 0
@@ -3838,7 +3838,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
   %164 = load i64, ptr %105, align 8, !noalias !192, !noundef !9
   %165 = icmp ult i64 %.sroa.028.0121.i, %164
   %166 = load ptr, ptr %106, align 8, !noalias !192, !nonnull !9
-  %167 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %166, i64 %.sroa.028.0121.i
+  %167 = getelementptr inbounds nuw [24 x i8], ptr %166, i64 %.sroa.028.0121.i
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 8
   br i1 %165, label %.lr.ph119.split.i, label %.invoke228.i
 
@@ -3857,7 +3857,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
 
 174:                                              ; preds = %172
   %175 = load ptr, ptr %168, align 8, !noalias !192, !nonnull !9, !noundef !9
-  %176 = getelementptr inbounds nuw i64, ptr %175, i64 %.sroa.030.0117.i
+  %176 = getelementptr inbounds nuw [8 x i8], ptr %175, i64 %.sroa.030.0117.i
   %177 = load i64, ptr %176, align 8, !noalias !192, !noundef !9
   %178 = add i64 %177, %.sroa.01.2116.i
   %179 = add i64 %173, 1
@@ -3881,7 +3881,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
 
 185:                                              ; preds = %72
   %186 = load ptr, ptr %65, align 8, !noalias !192, !nonnull !9, !noundef !9
-  %187 = getelementptr inbounds nuw i64, ptr %186, i64 %.sroa.024.0111.i
+  %187 = getelementptr inbounds nuw [8 x i8], ptr %186, i64 %.sroa.024.0111.i
   store i64 %.sroa.01.0112.i, ptr %187, align 8, !noalias !192
   %188 = load i64, ptr %33, align 8, !noalias !192, !noundef !9
   %.not127.i = icmp eq i64 %188, 0
@@ -3900,7 +3900,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
 
 195:                                              ; preds = %.lr.ph.i
   %196 = load ptr, ptr %49, align 8, !noalias !192, !nonnull !9, !noundef !9
-  %197 = getelementptr inbounds nuw i64, ptr %196, i64 %192
+  %197 = getelementptr inbounds nuw [8 x i8], ptr %196, i64 %192
   store i64 %.sroa.01.3110.i, ptr %197, align 8, !noalias !192
   %198 = load i64, ptr %68, align 8, !noalias !192, !noundef !9
   %199 = icmp ult i64 %.sroa.026.0109.i, %198
@@ -3908,7 +3908,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
 
 200:                                              ; preds = %195
   %201 = load ptr, ptr %69, align 8, !noalias !192, !nonnull !9, !noundef !9
-  %202 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %201, i64 %.sroa.026.0109.i
+  %202 = getelementptr inbounds nuw [24 x i8], ptr %201, i64 %.sroa.026.0109.i
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 16
   %204 = load i64, ptr %203, align 8, !noalias !192, !noundef !9
   %205 = icmp ult i64 %.sroa.024.0111.i, %204
@@ -3917,7 +3917,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
 206:                                              ; preds = %200
   %207 = getelementptr inbounds nuw i8, ptr %202, i64 8
   %208 = load ptr, ptr %207, align 8, !noalias !192, !nonnull !9, !noundef !9
-  %209 = getelementptr inbounds nuw i64, ptr %208, i64 %.sroa.024.0111.i
+  %209 = getelementptr inbounds nuw [8 x i8], ptr %208, i64 %.sroa.024.0111.i
   %210 = load i64, ptr %209, align 8, !noalias !192, !noundef !9
   %211 = add i64 %210, %.sroa.01.3110.i
   %212 = add i64 %189, 1
@@ -4133,7 +4133,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
 
 80:                                               ; preds = %._crit_edge.i
   %81 = load ptr, ptr %49, align 8, !noalias !222, !nonnull !9, !noundef !9
-  %82 = getelementptr inbounds nuw i64, ptr %81, i64 %77
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %77
   store i64 %.sroa.01.0.lcssa.i, ptr %82, align 8, !noalias !222
   %83 = load i64, ptr %26, align 8, !noalias !222, !noundef !9
   %84 = load i64, ptr %66, align 8, !noalias !222, !noundef !9
@@ -4154,7 +4154,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
 
 89:                                               ; preds = %80
   %90 = load ptr, ptr %65, align 8, !noalias !222, !nonnull !9, !noundef !9
-  %91 = getelementptr inbounds nuw i64, ptr %90, i64 %83
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %83
   store i64 %.sroa.01.0.lcssa.i, ptr %91, align 8, !noalias !222
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !222
   %92 = load i64, ptr %26, align 8, !noalias !222, !noundef !9
@@ -4385,7 +4385,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
 
 160:                                              ; preds = %109
   %161 = load ptr, ptr %102, align 8, !noalias !222, !nonnull !9, !noundef !9
-  %162 = getelementptr inbounds nuw i64, ptr %161, i64 %.sroa.028.0121.i
+  %162 = getelementptr inbounds nuw [8 x i8], ptr %161, i64 %.sroa.028.0121.i
   store i64 %.sroa.01.1122.i, ptr %162, align 8, !noalias !222
   %163 = load i64, ptr %26, align 8, !noalias !222, !noundef !9
   %.not129.i = icmp eq i64 %163, 0
@@ -4395,7 +4395,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
   %164 = load i64, ptr %105, align 8, !noalias !222, !noundef !9
   %165 = icmp ult i64 %.sroa.028.0121.i, %164
   %166 = load ptr, ptr %106, align 8, !noalias !222, !nonnull !9
-  %167 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %166, i64 %.sroa.028.0121.i
+  %167 = getelementptr inbounds nuw [24 x i8], ptr %166, i64 %.sroa.028.0121.i
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 8
   br i1 %165, label %.lr.ph119.split.i, label %.invoke228.i
 
@@ -4414,7 +4414,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
 
 174:                                              ; preds = %172
   %175 = load ptr, ptr %168, align 8, !noalias !222, !nonnull !9, !noundef !9
-  %176 = getelementptr inbounds nuw i64, ptr %175, i64 %.sroa.030.0117.i
+  %176 = getelementptr inbounds nuw [8 x i8], ptr %175, i64 %.sroa.030.0117.i
   %177 = load i64, ptr %176, align 8, !noalias !222, !noundef !9
   %178 = add i64 %177, %.sroa.01.2116.i
   %179 = add i64 %173, 1
@@ -4438,7 +4438,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
 
 185:                                              ; preds = %72
   %186 = load ptr, ptr %65, align 8, !noalias !222, !nonnull !9, !noundef !9
-  %187 = getelementptr inbounds nuw i64, ptr %186, i64 %.sroa.024.0111.i
+  %187 = getelementptr inbounds nuw [8 x i8], ptr %186, i64 %.sroa.024.0111.i
   store i64 %.sroa.01.0112.i, ptr %187, align 8, !noalias !222
   %188 = load i64, ptr %33, align 8, !noalias !222, !noundef !9
   %.not127.i = icmp eq i64 %188, 0
@@ -4457,7 +4457,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
 
 195:                                              ; preds = %.lr.ph.i
   %196 = load ptr, ptr %49, align 8, !noalias !222, !nonnull !9, !noundef !9
-  %197 = getelementptr inbounds nuw i64, ptr %196, i64 %192
+  %197 = getelementptr inbounds nuw [8 x i8], ptr %196, i64 %192
   store i64 %.sroa.01.3110.i, ptr %197, align 8, !noalias !222
   %198 = load i64, ptr %68, align 8, !noalias !222, !noundef !9
   %199 = icmp ult i64 %.sroa.026.0109.i, %198
@@ -4465,7 +4465,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
 
 200:                                              ; preds = %195
   %201 = load ptr, ptr %69, align 8, !noalias !222, !nonnull !9, !noundef !9
-  %202 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %201, i64 %.sroa.026.0109.i
+  %202 = getelementptr inbounds nuw [24 x i8], ptr %201, i64 %.sroa.026.0109.i
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 16
   %204 = load i64, ptr %203, align 8, !noalias !222, !noundef !9
   %205 = icmp ult i64 %.sroa.024.0111.i, %204
@@ -4474,7 +4474,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
 206:                                              ; preds = %200
   %207 = getelementptr inbounds nuw i8, ptr %202, i64 8
   %208 = load ptr, ptr %207, align 8, !noalias !222, !nonnull !9, !noundef !9
-  %209 = getelementptr inbounds nuw i64, ptr %208, i64 %.sroa.024.0111.i
+  %209 = getelementptr inbounds nuw [8 x i8], ptr %208, i64 %.sroa.024.0111.i
   %210 = load i64, ptr %209, align 8, !noalias !222, !noundef !9
   %211 = add i64 %210, %.sroa.01.3110.i
   %212 = add i64 %189, 1
@@ -4690,7 +4690,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
 
 80:                                               ; preds = %._crit_edge.i
   %81 = load ptr, ptr %49, align 8, !noalias !252, !nonnull !9, !noundef !9
-  %82 = getelementptr inbounds nuw i64, ptr %81, i64 %77
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %77
   store i64 %.sroa.01.0.lcssa.i, ptr %82, align 8, !noalias !252
   %83 = load i64, ptr %26, align 8, !noalias !252, !noundef !9
   %84 = load i64, ptr %66, align 8, !noalias !252, !noundef !9
@@ -4711,7 +4711,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
 
 89:                                               ; preds = %80
   %90 = load ptr, ptr %65, align 8, !noalias !252, !nonnull !9, !noundef !9
-  %91 = getelementptr inbounds nuw i64, ptr %90, i64 %83
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %83
   store i64 %.sroa.01.0.lcssa.i, ptr %91, align 8, !noalias !252
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !252
   %92 = load i64, ptr %26, align 8, !noalias !252, !noundef !9
@@ -4942,7 +4942,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
 
 160:                                              ; preds = %109
   %161 = load ptr, ptr %102, align 8, !noalias !252, !nonnull !9, !noundef !9
-  %162 = getelementptr inbounds nuw i64, ptr %161, i64 %.sroa.028.0121.i
+  %162 = getelementptr inbounds nuw [8 x i8], ptr %161, i64 %.sroa.028.0121.i
   store i64 %.sroa.01.1122.i, ptr %162, align 8, !noalias !252
   %163 = load i64, ptr %26, align 8, !noalias !252, !noundef !9
   %.not129.i = icmp eq i64 %163, 0
@@ -4952,7 +4952,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
   %164 = load i64, ptr %105, align 8, !noalias !252, !noundef !9
   %165 = icmp ult i64 %.sroa.028.0121.i, %164
   %166 = load ptr, ptr %106, align 8, !noalias !252, !nonnull !9
-  %167 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %166, i64 %.sroa.028.0121.i
+  %167 = getelementptr inbounds nuw [24 x i8], ptr %166, i64 %.sroa.028.0121.i
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 8
   br i1 %165, label %.lr.ph119.split.i, label %.invoke228.i
 
@@ -4971,7 +4971,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
 
 174:                                              ; preds = %172
   %175 = load ptr, ptr %168, align 8, !noalias !252, !nonnull !9, !noundef !9
-  %176 = getelementptr inbounds nuw i64, ptr %175, i64 %.sroa.030.0117.i
+  %176 = getelementptr inbounds nuw [8 x i8], ptr %175, i64 %.sroa.030.0117.i
   %177 = load i64, ptr %176, align 8, !noalias !252, !noundef !9
   %178 = add i64 %177, %.sroa.01.2116.i
   %179 = add i64 %173, 1
@@ -4995,7 +4995,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
 
 185:                                              ; preds = %72
   %186 = load ptr, ptr %65, align 8, !noalias !252, !nonnull !9, !noundef !9
-  %187 = getelementptr inbounds nuw i64, ptr %186, i64 %.sroa.024.0111.i
+  %187 = getelementptr inbounds nuw [8 x i8], ptr %186, i64 %.sroa.024.0111.i
   store i64 %.sroa.01.0112.i, ptr %187, align 8, !noalias !252
   %188 = load i64, ptr %33, align 8, !noalias !252, !noundef !9
   %.not127.i = icmp eq i64 %188, 0
@@ -5014,7 +5014,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
 
 195:                                              ; preds = %.lr.ph.i
   %196 = load ptr, ptr %49, align 8, !noalias !252, !nonnull !9, !noundef !9
-  %197 = getelementptr inbounds nuw i64, ptr %196, i64 %192
+  %197 = getelementptr inbounds nuw [8 x i8], ptr %196, i64 %192
   store i64 %.sroa.01.3110.i, ptr %197, align 8, !noalias !252
   %198 = load i64, ptr %68, align 8, !noalias !252, !noundef !9
   %199 = icmp ult i64 %.sroa.026.0109.i, %198
@@ -5022,7 +5022,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
 
 200:                                              ; preds = %195
   %201 = load ptr, ptr %69, align 8, !noalias !252, !nonnull !9, !noundef !9
-  %202 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %201, i64 %.sroa.026.0109.i
+  %202 = getelementptr inbounds nuw [24 x i8], ptr %201, i64 %.sroa.026.0109.i
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 16
   %204 = load i64, ptr %203, align 8, !noalias !252, !noundef !9
   %205 = icmp ult i64 %.sroa.024.0111.i, %204
@@ -5031,7 +5031,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
 206:                                              ; preds = %200
   %207 = getelementptr inbounds nuw i8, ptr %202, i64 8
   %208 = load ptr, ptr %207, align 8, !noalias !252, !nonnull !9, !noundef !9
-  %209 = getelementptr inbounds nuw i64, ptr %208, i64 %.sroa.024.0111.i
+  %209 = getelementptr inbounds nuw [8 x i8], ptr %208, i64 %.sroa.024.0111.i
   %210 = load i64, ptr %209, align 8, !noalias !252, !noundef !9
   %211 = add i64 %210, %.sroa.01.3110.i
   %212 = add i64 %189, 1
@@ -101341,7 +101341,7 @@ define internal fastcc void @"_ZN10rayon_core4join12join_context6call_b28_$u7b$$
   %32 = load ptr, ptr %31, align 8, !noalias !7973, !nonnull !9, !noundef !9
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 288
   %34 = load i64, ptr %33, align 16, !noalias !7973, !noundef !9
-  %35 = getelementptr inbounds nuw { { { ptr, ptr } }, {}, {} }, ptr %32, i64 %34
+  %35 = getelementptr inbounds nuw [16 x i8], ptr %32, i64 %34
   %36 = getelementptr inbounds nuw i8, ptr %28, i64 56
   %37 = load ptr, ptr %36, align 8, !alias.scope !7971, !noalias !7974, !nonnull !9, !align !10, !noundef !9
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 64
@@ -102746,7 +102746,7 @@ common.resume:                                    ; preds = %.body, %244, %141, 
   %182 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %180, ptr %182, align 8, !noalias !8053
   %183 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %184 = getelementptr inbounds nuw { { i8, [47 x i8] }, { { { ptr, i64, i32, i16, i8, i8 } } }, [1 x i64] }, ptr %170, i64 %172
+  %184 = getelementptr inbounds nuw [80 x i8], ptr %170, i64 %172
   %185 = icmp eq i64 %176, 0
   br i1 %185, label %.loopexit, label %.lr.ph.i
 
@@ -102811,7 +102811,7 @@ common.resume:                                    ; preds = %.body, %244, %141, 
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !8061
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !8061
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !8053
-  %204 = getelementptr inbounds nuw { [10 x i64] }, ptr %180, i64 %.sroa.7.022.i
+  %204 = getelementptr inbounds nuw [80 x i8], ptr %180, i64 %.sroa.7.022.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %204, ptr noundef nonnull align 16 dereferenceable(80) %8, i64 80, i1 false), !noalias !8065
   %205 = icmp eq i64 %188, 0
   br i1 %205, label %.loopexit, label %187

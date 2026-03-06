@@ -2229,7 +2229,7 @@ define noundef ptr @MRIStepCoupling_MIStoMRI(ptr noundef readonly captures(addre
 21:                                               ; preds = %.lr.ph, %21
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
   %.0133174 = phi double [ %14, %.lr.ph ], [ %25, %21 ]
-  %22 = getelementptr inbounds nuw double, ptr %20, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv
   %23 = load double, ptr %22, align 8, !tbaa !18
   %24 = tail call double @llvm.fabs.f64(double %23)
   %25 = fadd double %.0133174, %24
@@ -2244,7 +2244,7 @@ define noundef ptr @MRIStepCoupling_MIStoMRI(ptr noundef readonly captures(addre
 
 27:                                               ; preds = %._crit_edge
   %28 = sext i32 %16 to i64
-  %29 = getelementptr double, ptr %12, i64 %28
+  %29 = getelementptr [8 x i8], ptr %12, i64 %28
   %30 = getelementptr i8, ptr %29, i64 -8
   %31 = load double, ptr %30, align 8, !tbaa !18
   %32 = fcmp ogt double %31, 0x3FF0000000000064
@@ -2279,7 +2279,7 @@ define noundef ptr @MRIStepCoupling_MIStoMRI(ptr noundef readonly captures(addre
 
 .lr.ph177:                                        ; preds = %.lr.ph177.preheader, %34
   %indvars.iv224 = phi i64 [ 1, %.lr.ph177.preheader ], [ %indvars.iv.next225, %34 ]
-  %39 = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv224
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv224
   %40 = load double, ptr %39, align 8, !tbaa !18
   %41 = getelementptr i8, ptr %39, i64 -8
   %42 = load double, ptr %41, align 8, !tbaa !18
@@ -2303,14 +2303,14 @@ define noundef ptr @MRIStepCoupling_MIStoMRI(ptr noundef readonly captures(addre
 
 .lr.ph181:                                        ; preds = %45
   %47 = load ptr, ptr %38, align 8, !tbaa !25
-  %48 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv236
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %indvars.iv236
   %49 = load ptr, ptr %48, align 8, !tbaa !22
   br label %50
 
 50:                                               ; preds = %.lr.ph181, %50
   %indvars.iv231 = phi i64 [ %indvars.iv229, %.lr.ph181 ], [ %indvars.iv.next232, %50 ]
   %.2135179 = phi double [ %.1134183, %.lr.ph181 ], [ %54, %50 ]
-  %51 = getelementptr inbounds nuw double, ptr %49, i64 %indvars.iv231
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %indvars.iv231
   %52 = load double, ptr %51, align 8, !tbaa !18
   %53 = tail call double @llvm.fabs.f64(double %52)
   %54 = fadd double %.2135179, %53
@@ -2329,7 +2329,7 @@ define noundef ptr @MRIStepCoupling_MIStoMRI(ptr noundef readonly captures(addre
   %.0136 = zext i1 %58 to i32
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %60 = load ptr, ptr %59, align 8, !tbaa !25
-  %61 = getelementptr ptr, ptr %60, i64 %28
+  %61 = getelementptr [8 x i8], ptr %60, i64 %28
   %62 = getelementptr i8, ptr %61, i64 -8
   %63 = load ptr, ptr %62, align 8, !tbaa !22
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2340,9 +2340,9 @@ define noundef ptr @MRIStepCoupling_MIStoMRI(ptr noundef readonly captures(addre
 66:                                               ; preds = %.lr.ph191, %66
   %indvars.iv241 = phi i64 [ 0, %.lr.ph191 ], [ %indvars.iv.next242, %66 ]
   %.1137189 = phi i32 [ %.0136, %.lr.ph191 ], [ %.2138, %66 ]
-  %67 = getelementptr inbounds nuw double, ptr %63, i64 %indvars.iv241
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %indvars.iv241
   %68 = load double, ptr %67, align 8, !tbaa !18
-  %69 = getelementptr inbounds nuw double, ptr %65, i64 %indvars.iv241
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %indvars.iv241
   %70 = load double, ptr %69, align 8, !tbaa !18
   %71 = fsub double %68, %70
   %72 = tail call double @llvm.fabs.f64(double %71)
@@ -2365,9 +2365,9 @@ define noundef ptr @MRIStepCoupling_MIStoMRI(ptr noundef readonly captures(addre
   %77 = load ptr, ptr %76, align 8, !tbaa !25
   %78 = add nsw i32 %16, -1
   %79 = sext i32 %78 to i64
-  %80 = getelementptr inbounds ptr, ptr %77, i64 %79
+  %80 = getelementptr inbounds [8 x i8], ptr %77, i64 %79
   %81 = load ptr, ptr %80, align 8, !tbaa !22
-  %82 = getelementptr inbounds double, ptr %81, i64 %79
+  %82 = getelementptr inbounds [8 x i8], ptr %81, i64 %79
   %83 = load double, ptr %82, align 8, !tbaa !18
   %84 = tail call double @llvm.fabs.f64(double %83)
   %85 = fcmp ule double %84, 0x3D19000000000000
@@ -2395,14 +2395,14 @@ define noundef ptr @MRIStepCoupling_MIStoMRI(ptr noundef readonly captures(addre
 .preheader166:                                    ; preds = %.preheader166.lr.ph, %99
   %indvars.iv246 = phi i64 [ 0, %.preheader166.lr.ph ], [ %indvars.iv.next247, %99 ]
   %.0129196 = phi i32 [ 0, %.preheader166.lr.ph ], [ %.2131, %99 ]
-  %92 = getelementptr inbounds nuw ptr, ptr %91, i64 %indvars.iv246
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %indvars.iv246
   %93 = load ptr, ptr %92, align 8, !tbaa !22
   br label %94
 
 94:                                               ; preds = %.preheader166, %94
   %indvars.iv248 = phi i64 [ %indvars.iv246, %.preheader166 ], [ %indvars.iv.next249, %94 ]
   %.1130195 = phi i32 [ %.0129196, %.preheader166 ], [ %.2131, %94 ]
-  %95 = getelementptr inbounds nuw double, ptr %93, i64 %indvars.iv248
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %indvars.iv248
   %96 = load double, ptr %95, align 8, !tbaa !18
   %97 = tail call double @llvm.fabs.f64(double %96)
   %98 = fcmp ogt double %97, 0x3D19000000000000
@@ -2440,9 +2440,9 @@ define noundef ptr @MRIStepCoupling_MIStoMRI(ptr noundef readonly captures(addre
 
 109:                                              ; preds = %.lr.ph202, %109
   %indvars.iv256 = phi i64 [ 0, %.lr.ph202 ], [ %indvars.iv.next257, %109 ]
-  %110 = getelementptr inbounds nuw double, ptr %106, i64 %indvars.iv256
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %indvars.iv256
   %111 = load double, ptr %110, align 8, !tbaa !18
-  %112 = getelementptr inbounds nuw double, ptr %108, i64 %indvars.iv256
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %108, i64 %indvars.iv256
   store double %111, ptr %112, align 8, !tbaa !18
   %indvars.iv.next257 = add nuw nsw i64 %indvars.iv256, 1
   %exitcond260.not = icmp eq i64 %indvars.iv.next257, %wide.trip.count259
@@ -2455,7 +2455,7 @@ define noundef ptr @MRIStepCoupling_MIStoMRI(ptr noundef readonly captures(addre
   %114 = getelementptr inbounds nuw i8, ptr %100, i64 24
   %115 = load ptr, ptr %114, align 8, !tbaa !17
   %116 = sext i32 %89 to i64
-  %117 = getelementptr double, ptr %115, i64 %116
+  %117 = getelementptr [8 x i8], ptr %115, i64 %116
   %118 = getelementptr i8, ptr %117, i64 -8
   store double 1.000000e+00, ptr %118, align 8, !tbaa !18
   br label %119
@@ -2476,7 +2476,7 @@ define noundef ptr @MRIStepCoupling_MIStoMRI(ptr noundef readonly captures(addre
 
 .preheader165.us:                                 ; preds = %.preheader165.us, %.preheader165.lr.ph.split.us
   %indvars.iv264 = phi i64 [ %indvars.iv.next265, %.preheader165.us ], [ 0, %.preheader165.lr.ph.split.us ]
-  %125 = getelementptr inbounds nuw ptr, ptr %122, i64 %indvars.iv264
+  %125 = getelementptr inbounds nuw [8 x i8], ptr %122, i64 %indvars.iv264
   %126 = load ptr, ptr %125, align 8, !tbaa !22
   tail call void @llvm.memset.p0.i64(ptr align 8 %126, i8 0, i64 %124, i1 false), !tbaa !18
   %indvars.iv.next265 = add nuw nsw i64 %indvars.iv264, 1
@@ -2496,22 +2496,22 @@ define noundef ptr @MRIStepCoupling_MIStoMRI(ptr noundef readonly captures(addre
 
 .preheader163.us:                                 ; preds = %._crit_edge211.us, %.preheader163.lr.ph
   %indvars.iv274 = phi i64 [ %indvars.iv.next275, %._crit_edge211.us ], [ 1, %.preheader163.lr.ph ]
-  %131 = getelementptr inbounds nuw ptr, ptr %129, i64 %indvars.iv274
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %129, i64 %indvars.iv274
   %132 = load ptr, ptr %131, align 8, !tbaa !22
   %133 = getelementptr i8, ptr %131, i64 -8
   %134 = load ptr, ptr %133, align 8, !tbaa !22
-  %135 = getelementptr inbounds nuw ptr, ptr %130, i64 %indvars.iv274
+  %135 = getelementptr inbounds nuw [8 x i8], ptr %130, i64 %indvars.iv274
   %136 = load ptr, ptr %135, align 8, !tbaa !22
   br label %137
 
 137:                                              ; preds = %.preheader163.us, %137
   %indvars.iv269 = phi i64 [ 0, %.preheader163.us ], [ %indvars.iv.next270, %137 ]
-  %138 = getelementptr inbounds nuw double, ptr %132, i64 %indvars.iv269
+  %138 = getelementptr inbounds nuw [8 x i8], ptr %132, i64 %indvars.iv269
   %139 = load double, ptr %138, align 8, !tbaa !18
-  %140 = getelementptr inbounds nuw double, ptr %134, i64 %indvars.iv269
+  %140 = getelementptr inbounds nuw [8 x i8], ptr %134, i64 %indvars.iv269
   %141 = load double, ptr %140, align 8, !tbaa !18
   %142 = fsub double %139, %141
-  %143 = getelementptr inbounds nuw double, ptr %136, i64 %indvars.iv269
+  %143 = getelementptr inbounds nuw [8 x i8], ptr %136, i64 %indvars.iv269
   store double %142, ptr %143, align 8, !tbaa !18
   %indvars.iv.next270 = add nuw nsw i64 %indvars.iv269, 1
   %exitcond273.not = icmp eq i64 %indvars.iv.next270, %wide.trip.count277
@@ -2533,24 +2533,24 @@ define noundef ptr @MRIStepCoupling_MIStoMRI(ptr noundef readonly captures(addre
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %148 = load ptr, ptr %147, align 8, !tbaa !25
   %149 = zext nneg i32 %104 to i64
-  %150 = getelementptr ptr, ptr %148, i64 %149
+  %150 = getelementptr [8 x i8], ptr %148, i64 %149
   %151 = getelementptr i8, ptr %150, i64 -8
   %152 = load ptr, ptr %151, align 8, !tbaa !22
   %153 = load ptr, ptr %.0132, align 8, !tbaa !21
   %154 = sext i32 %89 to i64
-  %155 = getelementptr ptr, ptr %153, i64 %154
+  %155 = getelementptr [8 x i8], ptr %153, i64 %154
   %156 = getelementptr i8, ptr %155, i64 -8
   %157 = load ptr, ptr %156, align 8, !tbaa !22
   br label %158
 
 158:                                              ; preds = %.lr.ph215, %158
   %indvars.iv279 = phi i64 [ 0, %.lr.ph215 ], [ %indvars.iv.next280, %158 ]
-  %159 = getelementptr inbounds nuw double, ptr %146, i64 %indvars.iv279
+  %159 = getelementptr inbounds nuw [8 x i8], ptr %146, i64 %indvars.iv279
   %160 = load double, ptr %159, align 8, !tbaa !18
-  %161 = getelementptr inbounds nuw double, ptr %152, i64 %indvars.iv279
+  %161 = getelementptr inbounds nuw [8 x i8], ptr %152, i64 %indvars.iv279
   %162 = load double, ptr %161, align 8, !tbaa !18
   %163 = fsub double %160, %162
-  %164 = getelementptr inbounds nuw double, ptr %157, i64 %indvars.iv279
+  %164 = getelementptr inbounds nuw [8 x i8], ptr %157, i64 %indvars.iv279
   store double %163, ptr %164, align 8, !tbaa !18
   %indvars.iv.next280 = add nuw nsw i64 %indvars.iv279, 1
   %exitcond283.not = icmp eq i64 %indvars.iv.next280, %149
@@ -2566,23 +2566,23 @@ define noundef ptr @MRIStepCoupling_MIStoMRI(ptr noundef readonly captures(addre
   %167 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %168 = load ptr, ptr %167, align 8, !tbaa !25
   %169 = zext nneg i32 %104 to i64
-  %170 = getelementptr ptr, ptr %168, i64 %169
+  %170 = getelementptr [8 x i8], ptr %168, i64 %169
   %171 = getelementptr i8, ptr %170, i64 -8
   %172 = load ptr, ptr %171, align 8, !tbaa !22
   %173 = load ptr, ptr %.0132, align 8, !tbaa !21
   %174 = sext i32 %89 to i64
-  %175 = getelementptr inbounds ptr, ptr %173, i64 %174
+  %175 = getelementptr inbounds [8 x i8], ptr %173, i64 %174
   %176 = load ptr, ptr %175, align 8, !tbaa !22
   br label %177
 
 177:                                              ; preds = %.lr.ph217, %177
   %indvars.iv284 = phi i64 [ 0, %.lr.ph217 ], [ %indvars.iv.next285, %177 ]
-  %178 = getelementptr inbounds nuw double, ptr %166, i64 %indvars.iv284
+  %178 = getelementptr inbounds nuw [8 x i8], ptr %166, i64 %indvars.iv284
   %179 = load double, ptr %178, align 8, !tbaa !18
-  %180 = getelementptr inbounds nuw double, ptr %172, i64 %indvars.iv284
+  %180 = getelementptr inbounds nuw [8 x i8], ptr %172, i64 %indvars.iv284
   %181 = load double, ptr %180, align 8, !tbaa !18
   %182 = fsub double %179, %181
-  %183 = getelementptr inbounds nuw double, ptr %176, i64 %indvars.iv284
+  %183 = getelementptr inbounds nuw [8 x i8], ptr %176, i64 %indvars.iv284
   store double %182, ptr %183, align 8, !tbaa !18
   %indvars.iv.next285 = add nuw nsw i64 %indvars.iv284, 1
   %exitcond288.not = icmp eq i64 %indvars.iv.next285, %169
@@ -2669,7 +2669,7 @@ define noundef ptr @MRIStepCoupling_Alloc(i32 noundef %0, i32 noundef %1, i32 no
 
 30:                                               ; preds = %.lr.ph, %28
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %28 ]
-  %31 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv
   %32 = tail call noalias ptr @calloc(i64 noundef %27, i64 noundef 8) #17
   store ptr %32, ptr %31, align 8, !tbaa !21
   %.not153 = icmp eq ptr %32, null
@@ -2677,7 +2677,7 @@ define noundef ptr @MRIStepCoupling_Alloc(i32 noundef %0, i32 noundef %1, i32 no
 
 .preheader158:                                    ; preds = %.preheader158.preheader, %._crit_edge
   %indvars.iv188 = phi i64 [ 0, %.preheader158.preheader ], [ %indvars.iv.next189, %._crit_edge ]
-  %33 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv188
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv188
   %34 = load ptr, ptr %33, align 8, !tbaa !21
   br label %36
 
@@ -2688,7 +2688,7 @@ define noundef ptr @MRIStepCoupling_Alloc(i32 noundef %0, i32 noundef %1, i32 no
 
 36:                                               ; preds = %.preheader158, %35
   %indvars.iv183 = phi i64 [ 0, %.preheader158 ], [ %indvars.iv.next184, %35 ]
-  %37 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv183
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv183
   %38 = tail call noalias ptr @calloc(i64 noundef %19, i64 noundef 8) #17
   store ptr %38, ptr %37, align 8, !tbaa !22
   %.not152 = icmp eq ptr %38, null
@@ -2731,7 +2731,7 @@ define noundef ptr @MRIStepCoupling_Alloc(i32 noundef %0, i32 noundef %1, i32 no
 
 45:                                               ; preds = %.lr.ph168, %43
   %indvars.iv193 = phi i64 [ 0, %.lr.ph168 ], [ %indvars.iv.next194, %43 ]
-  %46 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv193
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv193
   %47 = tail call noalias ptr @calloc(i64 noundef %42, i64 noundef 8) #17
   store ptr %47, ptr %46, align 8, !tbaa !21
   %.not150 = icmp eq ptr %47, null
@@ -2739,7 +2739,7 @@ define noundef ptr @MRIStepCoupling_Alloc(i32 noundef %0, i32 noundef %1, i32 no
 
 .preheader155:                                    ; preds = %.preheader155.preheader, %._crit_edge172
   %indvars.iv204 = phi i64 [ 0, %.preheader155.preheader ], [ %indvars.iv.next205, %._crit_edge172 ]
-  %48 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv204
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv204
   %49 = load ptr, ptr %48, align 8, !tbaa !21
   br label %51
 
@@ -2750,7 +2750,7 @@ define noundef ptr @MRIStepCoupling_Alloc(i32 noundef %0, i32 noundef %1, i32 no
 
 51:                                               ; preds = %.preheader155, %50
   %indvars.iv198 = phi i64 [ 0, %.preheader155 ], [ %indvars.iv.next199, %50 ]
-  %52 = getelementptr inbounds nuw ptr, ptr %49, i64 %indvars.iv198
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %indvars.iv198
   %53 = tail call noalias ptr @calloc(i64 noundef %19, i64 noundef 8) #17
   store ptr %53, ptr %52, align 8, !tbaa !22
   %.not149 = icmp eq ptr %53, null
@@ -2778,7 +2778,7 @@ define noundef ptr @MRIStepCoupling_Alloc(i32 noundef %0, i32 noundef %1, i32 no
 
 58:                                               ; preds = %.preheader.us.preheader, %.lr.ph179
   %indvars.iv212 = phi i64 [ %indvars.iv.next213, %.preheader.us.preheader ], [ 0, %.lr.ph179 ]
-  %59 = getelementptr inbounds nuw ptr, ptr %56, i64 %indvars.iv212
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %indvars.iv212
   %60 = tail call noalias ptr @malloc(i64 noundef %57) #16
   store ptr %60, ptr %59, align 8, !tbaa !30
   %.not147.us = icmp eq ptr %60, null
@@ -5089,7 +5089,7 @@ define void @MRIStepCoupling_Free(ptr noundef captures(address_is_null) %0) loca
   %14 = phi i32 [ %10, %.lr.ph85 ], [ %38, %37 ]
   %15 = phi ptr [ %8, %.lr.ph85 ], [ %39, %37 ]
   %indvars.iv98 = phi i64 [ 0, %.lr.ph85 ], [ %indvars.iv.next99, %37 ]
-  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv98
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv98
   %17 = load ptr, ptr %16, align 8, !tbaa !21
   %.not75 = icmp eq ptr %17, null
   br i1 %.not75, label %37, label %.preheader80
@@ -5103,9 +5103,9 @@ define void @MRIStepCoupling_Free(ptr noundef captures(address_is_null) %0) loca
   %19 = phi i32 [ %31, %30 ], [ %18, %.preheader80 ]
   %20 = phi ptr [ %32, %30 ], [ %15, %.preheader80 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %30 ], [ 0, %.preheader80 ]
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv98
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv98
   %22 = load ptr, ptr %21, align 8, !tbaa !21
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8, !tbaa !22
   %.not77 = icmp eq ptr %24, null
   br i1 %.not77, label %30, label %25
@@ -5113,9 +5113,9 @@ define void @MRIStepCoupling_Free(ptr noundef captures(address_is_null) %0) loca
 25:                                               ; preds = %.lr.ph
   tail call void @free(ptr noundef nonnull %24) #15
   %26 = load ptr, ptr %7, align 8, !tbaa !20
-  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv98
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv98
   %28 = load ptr, ptr %27, align 8, !tbaa !21
-  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv
   store ptr null, ptr %29, align 8, !tbaa !22
   %.pre = load i32, ptr %12, align 8, !tbaa !37
   br label %30
@@ -5133,7 +5133,7 @@ define void @MRIStepCoupling_Free(ptr noundef captures(address_is_null) %0) loca
   %34 = phi ptr [ %17, %.preheader80 ], [ %.pre110, %30 ]
   tail call void @free(ptr noundef nonnull %34) #15
   %35 = load ptr, ptr %7, align 8, !tbaa !20
-  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv98
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv98
   store ptr null, ptr %36, align 8, !tbaa !21
   %.pre111 = load i32, ptr %9, align 4, !tbaa !36
   br label %37
@@ -5171,7 +5171,7 @@ define void @MRIStepCoupling_Free(ptr noundef captures(address_is_null) %0) loca
   %51 = phi i32 [ %47, %.lr.ph92 ], [ %75, %74 ]
   %52 = phi ptr [ %45, %.lr.ph92 ], [ %76, %74 ]
   %indvars.iv104 = phi i64 [ 0, %.lr.ph92 ], [ %indvars.iv.next105, %74 ]
-  %53 = getelementptr inbounds nuw ptr, ptr %52, i64 %indvars.iv104
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %indvars.iv104
   %54 = load ptr, ptr %53, align 8, !tbaa !21
   %.not72 = icmp eq ptr %54, null
   br i1 %.not72, label %74, label %.preheader78
@@ -5185,9 +5185,9 @@ define void @MRIStepCoupling_Free(ptr noundef captures(address_is_null) %0) loca
   %56 = phi i32 [ %68, %67 ], [ %55, %.preheader78 ]
   %57 = phi ptr [ %69, %67 ], [ %52, %.preheader78 ]
   %indvars.iv101 = phi i64 [ %indvars.iv.next102, %67 ], [ 0, %.preheader78 ]
-  %58 = getelementptr inbounds nuw ptr, ptr %57, i64 %indvars.iv104
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %indvars.iv104
   %59 = load ptr, ptr %58, align 8, !tbaa !21
-  %60 = getelementptr inbounds nuw ptr, ptr %59, i64 %indvars.iv101
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %indvars.iv101
   %61 = load ptr, ptr %60, align 8, !tbaa !22
   %.not74 = icmp eq ptr %61, null
   br i1 %.not74, label %67, label %62
@@ -5195,9 +5195,9 @@ define void @MRIStepCoupling_Free(ptr noundef captures(address_is_null) %0) loca
 62:                                               ; preds = %.lr.ph89
   tail call void @free(ptr noundef nonnull %61) #15
   %63 = load ptr, ptr %44, align 8, !tbaa !23
-  %64 = getelementptr inbounds nuw ptr, ptr %63, i64 %indvars.iv104
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %indvars.iv104
   %65 = load ptr, ptr %64, align 8, !tbaa !21
-  %66 = getelementptr inbounds nuw ptr, ptr %65, i64 %indvars.iv101
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %indvars.iv101
   store ptr null, ptr %66, align 8, !tbaa !22
   %.pre112 = load i32, ptr %49, align 8, !tbaa !37
   br label %67
@@ -5215,7 +5215,7 @@ define void @MRIStepCoupling_Free(ptr noundef captures(address_is_null) %0) loca
   %71 = phi ptr [ %54, %.preheader78 ], [ %.pre114, %67 ]
   tail call void @free(ptr noundef nonnull %71) #15
   %72 = load ptr, ptr %44, align 8, !tbaa !23
-  %73 = getelementptr inbounds nuw ptr, ptr %72, i64 %indvars.iv104
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %indvars.iv104
   store ptr null, ptr %73, align 8, !tbaa !21
   %.pre115 = load i32, ptr %46, align 4, !tbaa !36
   br label %74
@@ -5249,7 +5249,7 @@ define void @MRIStepCoupling_Free(ptr noundef captures(address_is_null) %0) loca
   %86 = phi i32 [ %94, %93 ], [ %84, %.preheader ]
   %87 = phi ptr [ %95, %93 ], [ %82, %.preheader ]
   %indvars.iv107 = phi i64 [ %indvars.iv.next108, %93 ], [ 0, %.preheader ]
-  %88 = getelementptr inbounds nuw ptr, ptr %87, i64 %indvars.iv107
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %87, i64 %indvars.iv107
   %89 = load ptr, ptr %88, align 8, !tbaa !30
   %.not71 = icmp eq ptr %89, null
   br i1 %.not71, label %93, label %90
@@ -5257,7 +5257,7 @@ define void @MRIStepCoupling_Free(ptr noundef captures(address_is_null) %0) loca
 90:                                               ; preds = %.lr.ph95
   tail call void @free(ptr noundef nonnull %89) #15
   %91 = load ptr, ptr %81, align 8, !tbaa !29
-  %92 = getelementptr inbounds nuw ptr, ptr %91, i64 %indvars.iv107
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %indvars.iv107
   store ptr null, ptr %92, align 8, !tbaa !30
   %.pre116 = load i32, ptr %83, align 8, !tbaa !37
   br label %93
@@ -5327,9 +5327,9 @@ define noundef ptr @MRIStepCoupling_Create(i32 noundef %0, i32 noundef %1, i32 n
 
 23:                                               ; preds = %.lr.ph, %23
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %23 ]
-  %24 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %25 = load double, ptr %24, align 8, !tbaa !18
-  %26 = getelementptr inbounds nuw double, ptr %22, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv
   store double %25, ptr %26, align 8, !tbaa !18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -5365,9 +5365,9 @@ define noundef ptr @MRIStepCoupling_Create(i32 noundef %0, i32 noundef %1, i32 n
 .preheader124.us147.us.us:                        ; preds = %._crit_edge134.split.us.split.us.split.us.us.us.us, %.preheader124.lr.ph.split.split.us.split.us.split.us
   %indvars.iv244 = phi i64 [ %indvars.iv.next245, %._crit_edge134.split.us.split.us.split.us.us.us.us ], [ 0, %.preheader124.lr.ph.split.split.us.split.us.split.us ]
   %37 = mul nuw nsw i64 %indvars.iv244, %36
-  %38 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv244
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv244
   %39 = load ptr, ptr %38, align 8, !tbaa !21
-  %40 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv244
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv244
   %41 = load ptr, ptr %40, align 8, !tbaa !21
   br label %.preheader123.us.us.us.us.us.us
 
@@ -5375,22 +5375,22 @@ define noundef ptr @MRIStepCoupling_Create(i32 noundef %0, i32 noundef %1, i32 n
   %indvars.iv239 = phi i64 [ %indvars.iv.next240, %._crit_edge130.split.us.split.us.us.us.us.us.us.us ], [ 0, %.preheader124.us147.us.us ]
   %42 = add nuw nsw i64 %indvars.iv239, %37
   %43 = mul nuw nsw i64 %42, %35
-  %44 = getelementptr inbounds nuw ptr, ptr %39, i64 %indvars.iv239
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %indvars.iv239
   %45 = load ptr, ptr %44, align 8, !tbaa !22
-  %46 = getelementptr inbounds nuw ptr, ptr %41, i64 %indvars.iv239
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv239
   %47 = load ptr, ptr %46, align 8, !tbaa !22
   br label %48
 
 48:                                               ; preds = %48, %.preheader123.us.us.us.us.us.us
   %indvars.iv234 = phi i64 [ %indvars.iv.next235, %48 ], [ 0, %.preheader123.us.us.us.us.us.us ]
   %49 = add nuw nsw i64 %indvars.iv234, %43
-  %50 = getelementptr inbounds nuw double, ptr %4, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %49
   %51 = load double, ptr %50, align 8, !tbaa !18
-  %52 = getelementptr inbounds nuw double, ptr %45, i64 %indvars.iv234
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv234
   store double %51, ptr %52, align 8, !tbaa !18
-  %53 = getelementptr inbounds nuw double, ptr %5, i64 %49
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %49
   %54 = load double, ptr %53, align 8, !tbaa !18
-  %55 = getelementptr inbounds nuw double, ptr %47, i64 %indvars.iv234
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %indvars.iv234
   store double %54, ptr %55, align 8, !tbaa !18
   %indvars.iv.next235 = add nuw nsw i64 %indvars.iv234, 1
   %exitcond238.not = icmp eq i64 %indvars.iv.next235, %36
@@ -5409,7 +5409,7 @@ define noundef ptr @MRIStepCoupling_Create(i32 noundef %0, i32 noundef %1, i32 n
 .preheader124.us147.us:                           ; preds = %.preheader124.us147.us.preheader, %._crit_edge134.split.us.split.us.split.us157.us
   %indvars.iv228 = phi i64 [ 0, %.preheader124.us147.us.preheader ], [ %indvars.iv.next229, %._crit_edge134.split.us.split.us.split.us157.us ]
   %56 = mul nuw nsw i64 %indvars.iv228, %33
-  %57 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv228
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv228
   %58 = load ptr, ptr %57, align 8, !tbaa !21
   br label %.preheader123.us.us.us154.us
 
@@ -5417,16 +5417,16 @@ define noundef ptr @MRIStepCoupling_Create(i32 noundef %0, i32 noundef %1, i32 n
   %indvars.iv223 = phi i64 [ 0, %.preheader124.us147.us ], [ %indvars.iv.next224, %._crit_edge130.split.us.split.us139.us.us.us ]
   %59 = add nuw nsw i64 %indvars.iv223, %56
   %60 = mul nuw nsw i64 %59, %32
-  %61 = getelementptr inbounds nuw ptr, ptr %58, i64 %indvars.iv223
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %indvars.iv223
   %62 = load ptr, ptr %61, align 8, !tbaa !22
-  %invariant.gep310 = getelementptr inbounds nuw double, ptr %4, i64 %60
+  %invariant.gep310 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %60
   br label %63
 
 63:                                               ; preds = %63, %.preheader123.us.us.us154.us
   %indvars.iv218 = phi i64 [ %indvars.iv.next219, %63 ], [ 0, %.preheader123.us.us.us154.us ]
-  %gep311 = getelementptr inbounds nuw double, ptr %invariant.gep310, i64 %indvars.iv218
+  %gep311 = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep310, i64 %indvars.iv218
   %64 = load double, ptr %gep311, align 8, !tbaa !18
-  %65 = getelementptr inbounds nuw double, ptr %62, i64 %indvars.iv218
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %indvars.iv218
   store double %64, ptr %65, align 8, !tbaa !18
   %indvars.iv.next219 = add nuw nsw i64 %indvars.iv218, 1
   %exitcond222.not = icmp eq i64 %indvars.iv.next219, %33
@@ -5455,7 +5455,7 @@ define noundef ptr @MRIStepCoupling_Create(i32 noundef %0, i32 noundef %1, i32 n
 .preheader124.us147.us161:                        ; preds = %._crit_edge134.split.us.split.split.us.us.us, %.preheader124.lr.ph.split.split.us.split.split.us
   %indvars.iv213 = phi i64 [ %indvars.iv.next214, %._crit_edge134.split.us.split.split.us.us.us ], [ 0, %.preheader124.lr.ph.split.split.us.split.split.us ]
   %69 = mul nuw nsw i64 %indvars.iv213, %68
-  %70 = getelementptr inbounds nuw ptr, ptr %66, i64 %indvars.iv213
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %indvars.iv213
   %71 = load ptr, ptr %70, align 8, !tbaa !21
   br label %.preheader123.us.us143.us.us
 
@@ -5463,16 +5463,16 @@ define noundef ptr @MRIStepCoupling_Create(i32 noundef %0, i32 noundef %1, i32 n
   %indvars.iv208 = phi i64 [ %indvars.iv.next209, %._crit_edge130.split.split.us.us.us.us.us ], [ 0, %.preheader124.us147.us161 ]
   %72 = add nuw nsw i64 %indvars.iv208, %69
   %73 = mul nuw nsw i64 %72, %67
-  %74 = getelementptr inbounds nuw ptr, ptr %71, i64 %indvars.iv208
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %indvars.iv208
   %75 = load ptr, ptr %74, align 8, !tbaa !22
-  %invariant.gep = getelementptr inbounds nuw double, ptr %5, i64 %73
+  %invariant.gep = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %73
   br label %76
 
 76:                                               ; preds = %76, %.preheader123.us.us143.us.us
   %indvars.iv203 = phi i64 [ %indvars.iv.next204, %76 ], [ 0, %.preheader123.us.us143.us.us ]
-  %gep = getelementptr inbounds nuw double, ptr %invariant.gep, i64 %indvars.iv203
+  %gep = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep, i64 %indvars.iv203
   %77 = load double, ptr %gep, align 8, !tbaa !18
-  %78 = getelementptr inbounds nuw double, ptr %75, i64 %indvars.iv203
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %indvars.iv203
   store double %77, ptr %78, align 8, !tbaa !18
   %indvars.iv.next204 = add nuw nsw i64 %indvars.iv203, 1
   %exitcond207.not = icmp eq i64 %indvars.iv.next204, %68
@@ -5511,9 +5511,9 @@ define noundef ptr @MRIStepCoupling_Create(i32 noundef %0, i32 noundef %1, i32 n
 .preheader121.us.us.us:                           ; preds = %._crit_edge168.split.us.split.us.split.us.us.us.us, %.preheader121.lr.ph.split.us.split.us.split.us
   %indvars.iv292 = phi i64 [ %indvars.iv.next293, %._crit_edge168.split.us.split.us.split.us.us.us.us ], [ 0, %.preheader121.lr.ph.split.us.split.us.split.us ]
   %85 = mul nuw nsw i64 %indvars.iv292, %84
-  %86 = getelementptr inbounds nuw ptr, ptr %81, i64 %indvars.iv292
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %indvars.iv292
   %87 = load ptr, ptr %86, align 8, !tbaa !21
-  %88 = getelementptr inbounds nuw ptr, ptr %83, i64 %indvars.iv292
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %indvars.iv292
   %89 = load ptr, ptr %88, align 8, !tbaa !21
   br label %.preheader.us.us.us.us.us.us
 
@@ -5521,22 +5521,22 @@ define noundef ptr @MRIStepCoupling_Create(i32 noundef %0, i32 noundef %1, i32 n
   %indvars.iv287 = phi i64 [ %indvars.iv.next288, %._crit_edge165.split.us.split.us.us.us.us.us.us.us ], [ 0, %.preheader121.us.us.us ]
   %90 = add nuw nsw i64 %indvars.iv287, %85
   %91 = mul nuw nsw i64 %90, %84
-  %92 = getelementptr inbounds nuw ptr, ptr %87, i64 %indvars.iv287
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %87, i64 %indvars.iv287
   %93 = load ptr, ptr %92, align 8, !tbaa !22
-  %94 = getelementptr inbounds nuw ptr, ptr %89, i64 %indvars.iv287
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %89, i64 %indvars.iv287
   %95 = load ptr, ptr %94, align 8, !tbaa !22
   br label %96
 
 96:                                               ; preds = %96, %.preheader.us.us.us.us.us.us
   %indvars.iv282 = phi i64 [ %indvars.iv.next283, %96 ], [ 0, %.preheader.us.us.us.us.us.us ]
   %97 = add nuw nsw i64 %indvars.iv282, %91
-  %98 = getelementptr inbounds nuw double, ptr %4, i64 %97
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %97
   %99 = load double, ptr %98, align 8, !tbaa !18
-  %100 = getelementptr inbounds nuw double, ptr %93, i64 %indvars.iv282
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %indvars.iv282
   store double %99, ptr %100, align 8, !tbaa !18
-  %101 = getelementptr inbounds nuw double, ptr %5, i64 %97
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %97
   %102 = load double, ptr %101, align 8, !tbaa !18
-  %103 = getelementptr inbounds nuw double, ptr %95, i64 %indvars.iv282
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %indvars.iv282
   store double %102, ptr %103, align 8, !tbaa !18
   %indvars.iv.next283 = add nuw nsw i64 %indvars.iv282, 1
   %exitcond286.not = icmp eq i64 %indvars.iv.next283, %84
@@ -5555,7 +5555,7 @@ define noundef ptr @MRIStepCoupling_Create(i32 noundef %0, i32 noundef %1, i32 n
 .preheader121.us.us:                              ; preds = %.preheader121.us.us.preheader, %._crit_edge168.split.us.split.us.split.us186.us
   %indvars.iv276 = phi i64 [ 0, %.preheader121.us.us.preheader ], [ %indvars.iv.next277, %._crit_edge168.split.us.split.us.split.us186.us ]
   %104 = mul nuw nsw i64 %indvars.iv276, %82
-  %105 = getelementptr inbounds nuw ptr, ptr %81, i64 %indvars.iv276
+  %105 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %indvars.iv276
   %106 = load ptr, ptr %105, align 8, !tbaa !21
   br label %.preheader.us.us.us184.us
 
@@ -5563,16 +5563,16 @@ define noundef ptr @MRIStepCoupling_Create(i32 noundef %0, i32 noundef %1, i32 n
   %indvars.iv271 = phi i64 [ 0, %.preheader121.us.us ], [ %indvars.iv.next272, %._crit_edge165.split.us.split.us173.us.us.us ]
   %107 = add nuw nsw i64 %indvars.iv271, %104
   %108 = mul nuw nsw i64 %107, %82
-  %109 = getelementptr inbounds nuw ptr, ptr %106, i64 %indvars.iv271
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %indvars.iv271
   %110 = load ptr, ptr %109, align 8, !tbaa !22
-  %invariant.gep314 = getelementptr inbounds nuw double, ptr %4, i64 %108
+  %invariant.gep314 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %108
   br label %111
 
 111:                                              ; preds = %111, %.preheader.us.us.us184.us
   %indvars.iv266 = phi i64 [ %indvars.iv.next267, %111 ], [ 0, %.preheader.us.us.us184.us ]
-  %gep315 = getelementptr inbounds nuw double, ptr %invariant.gep314, i64 %indvars.iv266
+  %gep315 = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep314, i64 %indvars.iv266
   %112 = load double, ptr %gep315, align 8, !tbaa !18
-  %113 = getelementptr inbounds nuw double, ptr %110, i64 %indvars.iv266
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %110, i64 %indvars.iv266
   store double %112, ptr %113, align 8, !tbaa !18
   %indvars.iv.next267 = add nuw nsw i64 %indvars.iv266, 1
   %exitcond270.not = icmp eq i64 %indvars.iv.next267, %82
@@ -5600,7 +5600,7 @@ define noundef ptr @MRIStepCoupling_Create(i32 noundef %0, i32 noundef %1, i32 n
 .preheader121.us.us190:                           ; preds = %._crit_edge168.split.us.split.split.us.us.us, %.preheader121.lr.ph.split.us.split.split.us
   %indvars.iv260 = phi i64 [ %indvars.iv.next261, %._crit_edge168.split.us.split.split.us.us.us ], [ 0, %.preheader121.lr.ph.split.us.split.split.us ]
   %116 = mul nuw nsw i64 %indvars.iv260, %115
-  %117 = getelementptr inbounds nuw ptr, ptr %114, i64 %indvars.iv260
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %114, i64 %indvars.iv260
   %118 = load ptr, ptr %117, align 8, !tbaa !21
   br label %.preheader.us.us177.us.us
 
@@ -5608,16 +5608,16 @@ define noundef ptr @MRIStepCoupling_Create(i32 noundef %0, i32 noundef %1, i32 n
   %indvars.iv255 = phi i64 [ %indvars.iv.next256, %._crit_edge165.split.split.us.us.us.us.us ], [ 0, %.preheader121.us.us190 ]
   %119 = add nuw nsw i64 %indvars.iv255, %116
   %120 = mul nuw nsw i64 %119, %115
-  %121 = getelementptr inbounds nuw ptr, ptr %118, i64 %indvars.iv255
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %118, i64 %indvars.iv255
   %122 = load ptr, ptr %121, align 8, !tbaa !22
-  %invariant.gep312 = getelementptr inbounds nuw double, ptr %5, i64 %120
+  %invariant.gep312 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %120
   br label %123
 
 123:                                              ; preds = %123, %.preheader.us.us177.us.us
   %indvars.iv250 = phi i64 [ %indvars.iv.next251, %123 ], [ 0, %.preheader.us.us177.us.us ]
-  %gep313 = getelementptr inbounds nuw double, ptr %invariant.gep312, i64 %indvars.iv250
+  %gep313 = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep312, i64 %indvars.iv250
   %124 = load double, ptr %gep313, align 8, !tbaa !18
-  %125 = getelementptr inbounds nuw double, ptr %122, i64 %indvars.iv250
+  %125 = getelementptr inbounds nuw [8 x i8], ptr %122, i64 %indvars.iv250
   store double %124, ptr %125, align 8, !tbaa !18
   %indvars.iv.next251 = add nuw nsw i64 %indvars.iv250, 1
   %exitcond254.not = icmp eq i64 %indvars.iv.next251, %115
@@ -5683,9 +5683,9 @@ define noundef ptr @MRIStepCoupling_Copy(ptr noundef readonly captures(address_i
 
 23:                                               ; preds = %.lr.ph, %23
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %23 ]
-  %24 = getelementptr inbounds nuw double, ptr %20, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv
   %25 = load double, ptr %24, align 8, !tbaa !18
-  %26 = getelementptr inbounds nuw double, ptr %22, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv
   store double %25, ptr %26, align 8, !tbaa !18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -5717,25 +5717,25 @@ define noundef ptr @MRIStepCoupling_Copy(ptr noundef readonly captures(address_i
 
 .preheader93.us104:                               ; preds = %._crit_edge102.split.us.us, %.preheader93.lr.ph.split.split.us
   %indvars.iv135 = phi i64 [ %indvars.iv.next136, %._crit_edge102.split.us.us ], [ 0, %.preheader93.lr.ph.split.split.us ]
-  %33 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv135
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv135
   %34 = load ptr, ptr %33, align 8, !tbaa !21
-  %35 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv135
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv135
   %36 = load ptr, ptr %35, align 8, !tbaa !21
   br label %.preheader92.us.us
 
 .preheader92.us.us:                               ; preds = %._crit_edge99.us.us, %.preheader93.us104
   %indvars.iv130 = phi i64 [ %indvars.iv.next131, %._crit_edge99.us.us ], [ 0, %.preheader93.us104 ]
-  %37 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv130
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv130
   %38 = load ptr, ptr %37, align 8, !tbaa !22
-  %39 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv130
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv130
   %40 = load ptr, ptr %39, align 8, !tbaa !22
   br label %41
 
 41:                                               ; preds = %41, %.preheader92.us.us
   %indvars.iv125 = phi i64 [ %indvars.iv.next126, %41 ], [ 0, %.preheader92.us.us ]
-  %42 = getelementptr inbounds nuw double, ptr %38, i64 %indvars.iv125
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv125
   %43 = load double, ptr %42, align 8, !tbaa !18
-  %44 = getelementptr inbounds nuw double, ptr %40, i64 %indvars.iv125
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv125
   store double %43, ptr %44, align 8, !tbaa !18
   %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1
   %exitcond129.not = icmp eq i64 %indvars.iv.next126, %wide.trip.count128
@@ -5770,25 +5770,25 @@ define noundef ptr @MRIStepCoupling_Copy(ptr noundef readonly captures(address_i
 
 .preheader89.us113:                               ; preds = %._crit_edge111.split.us.us, %.preheader89.lr.ph.split.split.us
   %indvars.iv150 = phi i64 [ %indvars.iv.next151, %._crit_edge111.split.us.us ], [ 0, %.preheader89.lr.ph.split.split.us ]
-  %50 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv150
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv150
   %51 = load ptr, ptr %50, align 8, !tbaa !21
-  %52 = getelementptr inbounds nuw ptr, ptr %48, i64 %indvars.iv150
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %indvars.iv150
   %53 = load ptr, ptr %52, align 8, !tbaa !21
   br label %.preheader88.us.us
 
 .preheader88.us.us:                               ; preds = %._crit_edge108.us.us, %.preheader89.us113
   %indvars.iv145 = phi i64 [ %indvars.iv.next146, %._crit_edge108.us.us ], [ 0, %.preheader89.us113 ]
-  %54 = getelementptr inbounds nuw ptr, ptr %51, i64 %indvars.iv145
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %indvars.iv145
   %55 = load ptr, ptr %54, align 8, !tbaa !22
-  %56 = getelementptr inbounds nuw ptr, ptr %53, i64 %indvars.iv145
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %indvars.iv145
   %57 = load ptr, ptr %56, align 8, !tbaa !22
   br label %58
 
 58:                                               ; preds = %58, %.preheader88.us.us
   %indvars.iv140 = phi i64 [ %indvars.iv.next141, %58 ], [ 0, %.preheader88.us.us ]
-  %59 = getelementptr inbounds nuw double, ptr %55, i64 %indvars.iv140
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %indvars.iv140
   %60 = load double, ptr %59, align 8, !tbaa !18
-  %61 = getelementptr inbounds nuw double, ptr %57, i64 %indvars.iv140
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %indvars.iv140
   store double %60, ptr %61, align 8, !tbaa !18
   %indvars.iv.next141 = add nuw nsw i64 %indvars.iv140, 1
   %exitcond144.not = icmp eq i64 %indvars.iv.next141, %wide.trip.count143
@@ -5825,17 +5825,17 @@ define noundef ptr @MRIStepCoupling_Copy(ptr noundef readonly captures(address_i
 
 .preheader.us:                                    ; preds = %._crit_edge117.us, %.preheader.lr.ph
   %indvars.iv160 = phi i64 [ %indvars.iv.next161, %._crit_edge117.us ], [ 0, %.preheader.lr.ph ]
-  %70 = getelementptr inbounds nuw ptr, ptr %63, i64 %indvars.iv160
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %indvars.iv160
   %71 = load ptr, ptr %70, align 8, !tbaa !30
-  %72 = getelementptr inbounds nuw ptr, ptr %69, i64 %indvars.iv160
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %indvars.iv160
   %73 = load ptr, ptr %72, align 8, !tbaa !30
   br label %74
 
 74:                                               ; preds = %.preheader.us, %74
   %indvars.iv155 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next156, %74 ]
-  %75 = getelementptr inbounds nuw i32, ptr %71, i64 %indvars.iv155
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %71, i64 %indvars.iv155
   %76 = load i32, ptr %75, align 4, !tbaa !32
-  %77 = getelementptr inbounds nuw i32, ptr %73, i64 %indvars.iv155
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %73, i64 %indvars.iv155
   store i32 %76, ptr %77, align 4, !tbaa !32
   %indvars.iv.next156 = add nuw nsw i64 %indvars.iv155, 1
   %exitcond159.not = icmp eq i64 %indvars.iv.next156, %wide.trip.count163
@@ -5979,7 +5979,7 @@ define void @MRIStepCoupling_Write(ptr noundef readonly captures(address_is_null
 
 18:                                               ; preds = %.lr.ph166, %._crit_edge
   %indvars.iv214 = phi i64 [ 0, %.lr.ph166 ], [ %indvars.iv.next215, %._crit_edge ]
-  %19 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv214
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv214
   %20 = load ptr, ptr %19, align 8, !tbaa !21
   %.not144 = icmp eq ptr %20, null
   br i1 %.not144, label %.loopexit, label %.preheader158
@@ -6001,7 +6001,7 @@ define void @MRIStepCoupling_Write(ptr noundef readonly captures(address_is_null
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %23
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %23 ]
-  %24 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8, !tbaa !22
   %.not146 = icmp eq ptr %25, null
   br i1 %.not146, label %.loopexit, label %23
@@ -6031,7 +6031,7 @@ define void @MRIStepCoupling_Write(ptr noundef readonly captures(address_is_null
 
 33:                                               ; preds = %.lr.ph172, %._crit_edge170
   %indvars.iv224 = phi i64 [ 0, %.lr.ph172 ], [ %indvars.iv.next225, %._crit_edge170 ]
-  %34 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv224
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv224
   %35 = load ptr, ptr %34, align 8, !tbaa !21
   %.not141 = icmp eq ptr %35, null
   br i1 %.not141, label %.loopexit, label %.preheader153
@@ -6053,7 +6053,7 @@ define void @MRIStepCoupling_Write(ptr noundef readonly captures(address_is_null
 
 .lr.ph169:                                        ; preds = %.lr.ph169.preheader, %38
   %indvars.iv219 = phi i64 [ 0, %.lr.ph169.preheader ], [ %indvars.iv.next220, %38 ]
-  %39 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv219
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv219
   %40 = load ptr, ptr %39, align 8, !tbaa !22
   %.not143 = icmp eq ptr %40, null
   br i1 %.not143, label %.loopexit, label %38
@@ -6086,7 +6086,7 @@ define void @MRIStepCoupling_Write(ptr noundef readonly captures(address_is_null
 
 .lr.ph174:                                        ; preds = %.lr.ph174.preheader, %46
   %indvars.iv229 = phi i64 [ 0, %.lr.ph174.preheader ], [ %indvars.iv.next230, %46 ]
-  %47 = getelementptr inbounds nuw ptr, ptr %42, i64 %indvars.iv229
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv229
   %48 = load ptr, ptr %47, align 8, !tbaa !30
   %.not140 = icmp eq ptr %48, null
   br i1 %.not140, label %.loopexit, label %46
@@ -6146,7 +6146,7 @@ define void @MRIStepCoupling_Write(ptr noundef readonly captures(address_is_null
 .lr.ph177:                                        ; preds = %62, %.lr.ph177
   %indvars.iv234 = phi i64 [ %indvars.iv.next235, %.lr.ph177 ], [ 0, %62 ]
   %78 = load ptr, ptr %26, align 8, !tbaa !17
-  %79 = getelementptr inbounds nuw double, ptr %78, i64 %indvars.iv234
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %indvars.iv234
   %80 = load double, ptr %79, align 8, !tbaa !18
   %81 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.40, double noundef %80) #15
   %indvars.iv.next235 = add nuw nsw i64 %indvars.iv234, 1
@@ -6184,11 +6184,11 @@ define void @MRIStepCoupling_Write(ptr noundef readonly captures(address_is_null
 .lr.ph181:                                        ; preds = %.lr.ph186, %.lr.ph181
   %indvars.iv237 = phi i64 [ %indvars.iv.next238, %.lr.ph181 ], [ 0, %.lr.ph186 ]
   %94 = load ptr, ptr %4, align 8, !tbaa !20
-  %95 = getelementptr inbounds nuw ptr, ptr %94, i64 %indvars.iv243
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %indvars.iv243
   %96 = load ptr, ptr %95, align 8, !tbaa !21
-  %97 = getelementptr inbounds nuw ptr, ptr %96, i64 %indvars.iv240
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %96, i64 %indvars.iv240
   %98 = load ptr, ptr %97, align 8, !tbaa !22
-  %99 = getelementptr inbounds nuw double, ptr %98, i64 %indvars.iv237
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %indvars.iv237
   %100 = load double, ptr %99, align 8, !tbaa !18
   %101 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.44, double noundef %100) #15
   %indvars.iv.next238 = add nuw nsw i64 %indvars.iv237, 1
@@ -6241,11 +6241,11 @@ define void @MRIStepCoupling_Write(ptr noundef readonly captures(address_is_null
 .lr.ph192:                                        ; preds = %.lr.ph197, %.lr.ph192
   %indvars.iv246 = phi i64 [ %indvars.iv.next247, %.lr.ph192 ], [ 0, %.lr.ph197 ]
   %119 = load ptr, ptr %27, align 8, !tbaa !23
-  %120 = getelementptr inbounds nuw ptr, ptr %119, i64 %indvars.iv252
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %119, i64 %indvars.iv252
   %121 = load ptr, ptr %120, align 8, !tbaa !21
-  %122 = getelementptr inbounds nuw ptr, ptr %121, i64 %indvars.iv249
+  %122 = getelementptr inbounds nuw [8 x i8], ptr %121, i64 %indvars.iv249
   %123 = load ptr, ptr %122, align 8, !tbaa !22
-  %124 = getelementptr inbounds nuw double, ptr %123, i64 %indvars.iv246
+  %124 = getelementptr inbounds nuw [8 x i8], ptr %123, i64 %indvars.iv246
   %125 = load double, ptr %124, align 8, !tbaa !18
   %126 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.44, double noundef %125) #15
   %indvars.iv.next247 = add nuw nsw i64 %indvars.iv246, 1
@@ -6295,9 +6295,9 @@ define void @MRIStepCoupling_Write(ptr noundef readonly captures(address_is_null
   %146 = phi i32 [ %156, %155 ], [ %144, %.lr.ph207 ]
   %indvars.iv255 = phi i64 [ %indvars.iv.next256, %155 ], [ 0, %.lr.ph207 ]
   %147 = load ptr, ptr %41, align 8, !tbaa !29
-  %148 = getelementptr inbounds nuw ptr, ptr %147, i64 %indvars.iv258
+  %148 = getelementptr inbounds nuw [8 x i8], ptr %147, i64 %indvars.iv258
   %149 = load ptr, ptr %148, align 8, !tbaa !30
-  %150 = getelementptr inbounds nuw i32, ptr %149, i64 %indvars.iv255
+  %150 = getelementptr inbounds nuw [4 x i8], ptr %149, i64 %indvars.iv255
   %151 = load i32, ptr %150, align 4, !tbaa !32
   %152 = icmp sgt i32 %151, -1
   br i1 %152, label %153, label %155
@@ -6380,11 +6380,11 @@ define range(i32 -41, 4) i32 @mriStepCoupling_GetStageType(ptr noundef readonly 
   br i1 %.not121.us, label %21, label %.lr.ph.us158
 
 21:                                               ; preds = %.lr.ph155.split.us
-  %22 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv214
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv214
   %23 = load ptr, ptr %22, align 8, !tbaa !21
-  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %20
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %20
   %25 = load ptr, ptr %24, align 8, !tbaa !22
-  %26 = getelementptr inbounds nuw double, ptr %25, i64 %20
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %20
   %27 = load double, ptr %26, align 8, !tbaa !18
   %28 = tail call double @llvm.fabs.f64(double %27)
   %29 = fcmp ogt double %28, 0x3D19000000000000
@@ -6393,7 +6393,7 @@ define range(i32 -41, 4) i32 @mriStepCoupling_GetStageType(ptr noundef readonly 
 
 .lr.ph.us158:                                     ; preds = %21, %.lr.ph155.split.us
   %31 = phi i32 [ 1, %.lr.ph155.split.us ], [ %30, %21 ]
-  %32 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv214
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv214
   br label %33
 
 33:                                               ; preds = %.lr.ph.us158, %43
@@ -6404,9 +6404,9 @@ define range(i32 -41, 4) i32 @mriStepCoupling_GetStageType(ptr noundef readonly 
 
 34:                                               ; preds = %33
   %35 = load ptr, ptr %32, align 8, !tbaa !21
-  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %20
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %20
   %37 = load ptr, ptr %36, align 8, !tbaa !22
-  %38 = getelementptr inbounds nuw double, ptr %37, i64 %indvars.iv209
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv209
   %39 = load double, ptr %38, align 8, !tbaa !18
   %40 = tail call double @llvm.fabs.f64(double %39)
   %41 = fcmp ogt double %40, 0x3D19000000000000
@@ -6447,7 +6447,7 @@ define range(i32 -41, 4) i32 @mriStepCoupling_GetStageType(ptr noundef readonly 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us169
   %indvars.iv224 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next225, %._crit_edge.us169 ]
   %.1166.us = phi i32 [ 0, %.preheader.us.preheader ], [ %63, %._crit_edge.us169 ]
-  %51 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv224
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv224
   br label %52
 
 52:                                               ; preds = %.preheader.us, %62
@@ -6458,9 +6458,9 @@ define range(i32 -41, 4) i32 @mriStepCoupling_GetStageType(ptr noundef readonly 
 
 53:                                               ; preds = %52
   %54 = load ptr, ptr %51, align 8, !tbaa !21
-  %55 = getelementptr inbounds nuw ptr, ptr %54, i64 %50
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %50
   %56 = load ptr, ptr %55, align 8, !tbaa !22
-  %57 = getelementptr inbounds nuw double, ptr %56, i64 %indvars.iv219
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %indvars.iv219
   %58 = load double, ptr %57, align 8, !tbaa !18
   %59 = tail call double @llvm.fabs.f64(double %58)
   %60 = fcmp ogt double %59, 0x3D19000000000000
@@ -6483,7 +6483,7 @@ define range(i32 -41, 4) i32 @mriStepCoupling_GetStageType(ptr noundef readonly 
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %65 = load ptr, ptr %64, align 8, !tbaa !17
   %66 = zext nneg i32 %1 to i64
-  %67 = getelementptr inbounds nuw double, ptr %65, i64 %66
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %66
   %68 = load double, ptr %67, align 8, !tbaa !18
   %69 = getelementptr i8, ptr %67, i64 -8
   %70 = load double, ptr %69, align 8, !tbaa !18
@@ -6517,11 +6517,11 @@ define range(i32 -41, 4) i32 @mriStepCoupling_GetStageType(ptr noundef readonly 
   br i1 %.not116.us, label %77, label %.lr.ph.us
 
 77:                                               ; preds = %.lr.ph137.split.us
-  %78 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv189
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv189
   %79 = load ptr, ptr %78, align 8, !tbaa !21
-  %80 = getelementptr inbounds nuw ptr, ptr %79, i64 %76
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %79, i64 %76
   %81 = load ptr, ptr %80, align 8, !tbaa !22
-  %82 = getelementptr double, ptr %81, i64 %76
+  %82 = getelementptr [8 x i8], ptr %81, i64 %76
   %83 = getelementptr i8, ptr %82, i64 -8
   %84 = load double, ptr %83, align 8, !tbaa !18
   %85 = tail call double @llvm.fabs.f64(double %84)
@@ -6531,7 +6531,7 @@ define range(i32 -41, 4) i32 @mriStepCoupling_GetStageType(ptr noundef readonly 
 
 .lr.ph.us:                                        ; preds = %77, %.lr.ph137.split.us
   %88 = phi i32 [ 1, %.lr.ph137.split.us ], [ %87, %77 ]
-  %89 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv189
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv189
   br label %90
 
 90:                                               ; preds = %.lr.ph.us, %100
@@ -6542,9 +6542,9 @@ define range(i32 -41, 4) i32 @mriStepCoupling_GetStageType(ptr noundef readonly 
 
 91:                                               ; preds = %90
   %92 = load ptr, ptr %89, align 8, !tbaa !21
-  %93 = getelementptr inbounds nuw ptr, ptr %92, i64 %76
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %92, i64 %76
   %94 = load ptr, ptr %93, align 8, !tbaa !22
-  %95 = getelementptr inbounds nuw double, ptr %94, i64 %indvars.iv184
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %indvars.iv184
   %96 = load double, ptr %95, align 8, !tbaa !18
   %97 = tail call double @llvm.fabs.f64(double %96)
   %98 = fcmp ogt double %97, 0x3D19000000000000
@@ -6569,11 +6569,11 @@ define range(i32 -41, 4) i32 @mriStepCoupling_GetStageType(ptr noundef readonly 
   br i1 %.not116, label %102, label %113
 
 102:                                              ; preds = %.lr.ph137.split
-  %103 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   %104 = load ptr, ptr %103, align 8, !tbaa !21
-  %105 = getelementptr inbounds nuw ptr, ptr %104, i64 %76
+  %105 = getelementptr inbounds nuw [8 x i8], ptr %104, i64 %76
   %106 = load ptr, ptr %105, align 8, !tbaa !22
-  %107 = getelementptr double, ptr %106, i64 %76
+  %107 = getelementptr [8 x i8], ptr %106, i64 %76
   %108 = getelementptr i8, ptr %107, i64 -8
   %109 = load double, ptr %108, align 8, !tbaa !18
   %110 = tail call double @llvm.fabs.f64(double %109)
@@ -6614,7 +6614,7 @@ define range(i32 -41, 4) i32 @mriStepCoupling_GetStageType(ptr noundef readonly 
 .preheader127.us:                                 ; preds = %.preheader127.us.preheader, %._crit_edge.us147
   %indvars.iv199 = phi i64 [ 0, %.preheader127.us.preheader ], [ %indvars.iv.next200, %._crit_edge.us147 ]
   %.5144.us = phi i32 [ 0, %.preheader127.us.preheader ], [ %134, %._crit_edge.us147 ]
-  %122 = getelementptr inbounds nuw ptr, ptr %116, i64 %indvars.iv199
+  %122 = getelementptr inbounds nuw [8 x i8], ptr %116, i64 %indvars.iv199
   br label %123
 
 123:                                              ; preds = %.preheader127.us, %133
@@ -6625,9 +6625,9 @@ define range(i32 -41, 4) i32 @mriStepCoupling_GetStageType(ptr noundef readonly 
 
 124:                                              ; preds = %123
   %125 = load ptr, ptr %122, align 8, !tbaa !21
-  %126 = getelementptr inbounds nuw ptr, ptr %125, i64 %121
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %125, i64 %121
   %127 = load ptr, ptr %126, align 8, !tbaa !22
-  %128 = getelementptr inbounds nuw double, ptr %127, i64 %indvars.iv194
+  %128 = getelementptr inbounds nuw [8 x i8], ptr %127, i64 %indvars.iv194
   %129 = load double, ptr %128, align 8, !tbaa !18
   %130 = tail call double @llvm.fabs.f64(double %129)
   %131 = fcmp ogt double %130, 0x3D19000000000000
@@ -6650,7 +6650,7 @@ define range(i32 -41, 4) i32 @mriStepCoupling_GetStageType(ptr noundef readonly 
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %136 = load ptr, ptr %135, align 8, !tbaa !17
   %137 = zext nneg i32 %1 to i64
-  %138 = getelementptr double, ptr %136, i64 %137
+  %138 = getelementptr [8 x i8], ptr %136, i64 %137
   %139 = getelementptr i8, ptr %138, i64 -8
   %140 = load double, ptr %139, align 8, !tbaa !18
   %141 = getelementptr i8, ptr %138, i64 -16
@@ -6728,7 +6728,7 @@ define range(i32 -22, 1) i32 @mriStepCoupling_GetStageMap(ptr noundef readonly c
 
 .lr.ph125:                                        ; preds = %15, %.lr.ph125
   %indvars.iv184 = phi i64 [ %indvars.iv.next185, %.lr.ph125 ], [ 0, %15 ]
-  %19 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv184
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv184
   %20 = trunc nuw nsw i64 %indvars.iv184 to i32
   store i32 %20, ptr %19, align 4, !tbaa !32
   %indvars.iv.next185 = add nuw nsw i64 %indvars.iv184, 1
@@ -6756,7 +6756,7 @@ define range(i32 -22, 1) i32 @mriStepCoupling_GetStageMap(ptr noundef readonly c
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %.lr.ph.split.us.split.us
   %indvars.iv181 = phi i64 [ %indvars.iv.next182, %.lr.ph.split.us.split.us ], [ 0, %.lr.ph.split.us ]
-  %31 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv181
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv181
   store i32 -1, ptr %31, align 4, !tbaa !32
   %indvars.iv.next182 = add nuw nsw i64 %indvars.iv181, 1
   %32 = load i32, ptr %25, align 8, !tbaa !37
@@ -6777,9 +6777,9 @@ define range(i32 -22, 1) i32 @mriStepCoupling_GetStageMap(ptr noundef readonly c
 38:                                               ; preds = %.preheader.us106, %38
   %indvars.iv168 = phi i64 [ 0, %.preheader.us106 ], [ %indvars.iv.next169, %38 ]
   %.292.us = phi double [ %.196.us, %.preheader.us106 ], [ %44, %38 ]
-  %39 = getelementptr inbounds nuw ptr, ptr %52, i64 %indvars.iv168
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %indvars.iv168
   %40 = load ptr, ptr %39, align 8, !tbaa !22
-  %41 = getelementptr inbounds nuw double, ptr %40, i64 %indvars.iv178
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv178
   %42 = load double, ptr %41, align 8, !tbaa !18
   %43 = tail call double @llvm.fabs.f64(double %42)
   %44 = fadd double %.292.us, %43
@@ -6794,7 +6794,7 @@ define range(i32 -22, 1) i32 @mriStepCoupling_GetStageMap(ptr noundef readonly c
 .loopexit81.us.thread:                            ; preds = %.preheader80.us, %.loopexit81.us, %45
   %.sink = phi i32 [ %.061102.us, %45 ], [ -1, %.loopexit81.us ], [ -1, %.preheader80.us ]
   %.162.us = phi i32 [ %46, %45 ], [ %.061102.us, %.loopexit81.us ], [ %.061102.us, %.preheader80.us ]
-  %47 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv178
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv178
   store i32 %.sink, ptr %47, align 4, !tbaa !32
   %indvars.iv.next179 = add nuw nsw i64 %indvars.iv178, 1
   %48 = load i32, ptr %25, align 8, !tbaa !37
@@ -6805,7 +6805,7 @@ define range(i32 -22, 1) i32 @mriStepCoupling_GetStageMap(ptr noundef readonly c
 .preheader.us106:                                 ; preds = %.preheader.us106.preheader, %._crit_edge93.us
   %indvars.iv173 = phi i64 [ 0, %.preheader.us106.preheader ], [ %indvars.iv.next174, %._crit_edge93.us ]
   %.196.us = phi double [ 0.000000e+00, %.preheader.us106.preheader ], [ %44, %._crit_edge93.us ]
-  %51 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv173
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv173
   %52 = load ptr, ptr %51, align 8, !tbaa !21
   br label %38
 
@@ -6840,9 +6840,9 @@ define range(i32 -22, 1) i32 @mriStepCoupling_GetStageMap(ptr noundef readonly c
 58:                                               ; preds = %.preheader79.us116, %58
   %indvars.iv155 = phi i64 [ 0, %.preheader79.us116 ], [ %indvars.iv.next156, %58 ]
   %.26086.us = phi double [ %.15988.us, %.preheader79.us116 ], [ %64, %58 ]
-  %59 = getelementptr inbounds nuw ptr, ptr %72, i64 %indvars.iv155
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %indvars.iv155
   %60 = load ptr, ptr %59, align 8, !tbaa !22
-  %61 = getelementptr inbounds nuw double, ptr %60, i64 %indvars.iv165
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %indvars.iv165
   %62 = load double, ptr %61, align 8, !tbaa !18
   %63 = tail call double @llvm.fabs.f64(double %62)
   %64 = fadd double %.26086.us, %63
@@ -6857,7 +6857,7 @@ define range(i32 -22, 1) i32 @mriStepCoupling_GetStageMap(ptr noundef readonly c
 .loopexit83.us.thread:                            ; preds = %.preheader82.us, %.loopexit83.us, %65
   %.sink187 = phi i32 [ %.061102.us111, %65 ], [ -1, %.loopexit83.us ], [ -1, %.preheader82.us ]
   %.162.us115 = phi i32 [ %66, %65 ], [ %.061102.us111, %.loopexit83.us ], [ %.061102.us111, %.preheader82.us ]
-  %67 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv165
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv165
   store i32 %.sink187, ptr %67, align 4, !tbaa !32
   %indvars.iv.next166 = add nuw nsw i64 %indvars.iv165, 1
   %68 = load i32, ptr %25, align 8, !tbaa !37
@@ -6868,7 +6868,7 @@ define range(i32 -22, 1) i32 @mriStepCoupling_GetStageMap(ptr noundef readonly c
 .preheader79.us116:                               ; preds = %.preheader79.us116.preheader, %._crit_edge.us
   %indvars.iv160 = phi i64 [ 0, %.preheader79.us116.preheader ], [ %indvars.iv.next161, %._crit_edge.us ]
   %.15988.us = phi double [ 0.000000e+00, %.preheader79.us116.preheader ], [ %64, %._crit_edge.us ]
-  %71 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv160
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv160
   %72 = load ptr, ptr %71, align 8, !tbaa !21
   br label %58
 
@@ -6906,16 +6906,16 @@ define range(i32 -22, 1) i32 @mriStepCoupling_GetStageMap(ptr noundef readonly c
 .preheader79:                                     ; preds = %.preheader79.preheader, %._crit_edge
   %indvars.iv137 = phi i64 [ 0, %.preheader79.preheader ], [ %indvars.iv.next138, %._crit_edge ]
   %.15988 = phi double [ 0.000000e+00, %.preheader79.preheader ], [ %87, %._crit_edge ]
-  %79 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv137
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv137
   %80 = load ptr, ptr %79, align 8, !tbaa !21
   br label %81
 
 81:                                               ; preds = %.preheader79, %81
   %indvars.iv = phi i64 [ 0, %.preheader79 ], [ %indvars.iv.next, %81 ]
   %.26086 = phi double [ %.15988, %.preheader79 ], [ %87, %81 ]
-  %82 = getelementptr inbounds nuw ptr, ptr %80, i64 %indvars.iv
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %indvars.iv
   %83 = load ptr, ptr %82, align 8, !tbaa !22
-  %84 = getelementptr inbounds nuw double, ptr %83, i64 %indvars.iv152
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %indvars.iv152
   %85 = load double, ptr %84, align 8, !tbaa !18
   %86 = tail call double @llvm.fabs.f64(double %85)
   %87 = fadd double %.26086, %86
@@ -6941,16 +6941,16 @@ define range(i32 -22, 1) i32 @mriStepCoupling_GetStageMap(ptr noundef readonly c
 .preheader:                                       ; preds = %.preheader.preheader, %._crit_edge93
   %indvars.iv147 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next148, %._crit_edge93 ]
   %.196 = phi double [ 0.000000e+00, %.preheader.preheader ], [ %98, %._crit_edge93 ]
-  %90 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv147
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv147
   %91 = load ptr, ptr %90, align 8, !tbaa !21
   br label %92
 
 92:                                               ; preds = %.preheader, %92
   %indvars.iv142 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next143, %92 ]
   %.292 = phi double [ %.196, %.preheader ], [ %98, %92 ]
-  %93 = getelementptr inbounds nuw ptr, ptr %91, i64 %indvars.iv142
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %indvars.iv142
   %94 = load ptr, ptr %93, align 8, !tbaa !22
-  %95 = getelementptr inbounds nuw double, ptr %94, i64 %indvars.iv152
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %indvars.iv152
   %96 = load double, ptr %95, align 8, !tbaa !18
   %97 = tail call double @llvm.fabs.f64(double %96)
   %98 = fadd double %.292, %97
@@ -6973,7 +6973,7 @@ define range(i32 -22, 1) i32 @mriStepCoupling_GetStageMap(ptr noundef readonly c
   %spec.select = select i1 %.159.lcssa206, i32 %.061102, i32 -1
   %101 = zext i1 %.159.lcssa206 to i32
   %spec.select226 = add nuw nsw i32 %.061102, %101
-  %102 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv152
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv152
   store i32 %spec.select, ptr %102, align 4, !tbaa !32
   %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 1
   %103 = load i32, ptr %25, align 8, !tbaa !37

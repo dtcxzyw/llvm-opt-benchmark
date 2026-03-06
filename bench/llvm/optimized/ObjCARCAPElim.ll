@@ -10,7 +10,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallPtrSetImplBase.base" = type <{ ptr, i32, i32, i32, i8 }>
 %"class.llvm::SmallPtrSet.0" = type { %"class.llvm::SmallPtrSetImpl.base.2", [2 x ptr] }
 %"class.llvm::SmallPtrSetImpl.base.2" = type { %"class.llvm::SmallPtrSetImplBase.base" }
-%"class.llvm::Use" = type { ptr, ptr, ptr, ptr }
 
 $_ZN4llvm7objcarc12ModuleHasARCERKNS_6ModuleE = comdat any
 
@@ -80,7 +79,7 @@ define dso_local void @_ZN4llvm17ObjCARCAPElimPass3runERNS_6ModuleERNS_15Analysi
   %22 = and i32 %21, 134217727
   %23 = zext nneg i32 %22 to i64
   %24 = sub nsw i64 0, %23
-  %25 = getelementptr inbounds %"class.llvm::Use", ptr %19, i64 %24
+  %25 = getelementptr inbounds [32 x i8], ptr %19, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %27 = load ptr, ptr %26, align 8, !tbaa !9
   %28 = load i8, ptr %27, align 8, !tbaa !16
@@ -160,7 +159,7 @@ _ZN4llvm7objcarc19GetBasicARCInstKindEPKNS_5ValueE.exit.i.i: ; preds = %_ZN4llvm
   %61 = and i32 %60, 134217727
   %62 = zext nneg i32 %61 to i64
   %63 = sub nsw i64 0, %62
-  %64 = getelementptr inbounds %"class.llvm::Use", ptr %42, i64 %63
+  %64 = getelementptr inbounds [32 x i8], ptr %42, i64 %63
   %65 = load ptr, ptr %64, align 8, !tbaa !9
   %66 = icmp eq ptr %65, %.01330.i.i
   br i1 %66, label %67, label %_ZN4llvm7objcarc19GetBasicARCInstKindEPKNS_5ValueE.exit.thread25.i.i

@@ -281,7 +281,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm3pdb13PDBSymbolDataESt14default_deleteIS3_EESa
 _ZNSt6vectorISt10unique_ptrIN4llvm3pdb13PDBSymbolDataESt14default_deleteIS3_EESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i: ; preds = %91, %_ZNSt6vectorISt10unique_ptrIN4llvm3pdb13PDBSymbolDataESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i.i.i
   store ptr %84, ptr %14, align 8, !tbaa !84, !noalias !16
   store ptr %90, ptr %41, align 8, !tbaa !72, !noalias !16
-  %92 = getelementptr inbounds nuw %"class.std::unique_ptr.51", ptr %84, i64 %82
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %82
   store ptr %92, ptr %42, align 8, !tbaa !85, !noalias !16
   br label %_ZNSt6vectorISt10unique_ptrIN4llvm3pdb13PDBSymbolDataESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit.i.i
 
@@ -699,7 +699,7 @@ define internal void @_ZNK12_GLOBAL__N_121FunctionArgEnumerator15getChildAtIndex
 15:                                               ; preds = %3
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !106
-  %18 = getelementptr inbounds nuw %"class.std::unique_ptr.51", ptr %9, i64 %5
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %5
   %19 = load ptr, ptr %18, align 8, !tbaa !59
   %20 = tail call noundef i32 @_ZNK4llvm3pdb9PDBSymbol13getSymIndexIdEv(ptr noundef nonnull align 8 dereferenceable(32) %19) #17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !113)
@@ -1051,7 +1051,7 @@ _ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
 
 30:                                               ; preds = %.thread
   %31 = load ptr, ptr %0, align 8, !tbaa !24
-  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %27
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %27
   %33 = load ptr, ptr %32, align 8, !tbaa !159
   %.not.i.i = icmp eq ptr %33, null
   %.pre57 = load ptr, ptr %1, align 8, !tbaa !67
@@ -1174,7 +1174,7 @@ _ZNSt8__detail12_NodeBuilderINS_9_IdentityEE8_S_buildINSt7__cxx1112basic_stringI
   %87 = getelementptr inbounds nuw i8, ptr %64, i64 40
   store i64 %24, ptr %87, align 8, !tbaa !160
   %88 = load ptr, ptr %0, align 8, !tbaa !24
-  %89 = getelementptr inbounds nuw ptr, ptr %88, i64 %.0.i17
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %.0.i17
   %90 = load ptr, ptr %89, align 8, !tbaa !159
   %.not.i.i18 = icmp eq ptr %90, null
   br i1 %.not.i.i18, label %94, label %91
@@ -1199,7 +1199,7 @@ _ZNSt8__detail12_NodeBuilderINS_9_IdentityEE8_S_buildINSt7__cxx1112basic_stringI
   %99 = getelementptr inbounds nuw i8, ptr %96, i64 40
   %100 = load i64, ptr %99, align 8, !tbaa !160
   %101 = urem i64 %100, %98
-  %102 = getelementptr inbounds nuw ptr, ptr %88, i64 %101
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %101
   store ptr %64, ptr %102, align 8, !tbaa !159
   br label %103
 
@@ -1278,7 +1278,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_E
   %17 = getelementptr inbounds nuw i8, ptr %.031, i64 40
   %18 = load i64, ptr %17, align 8, !tbaa !160
   %19 = urem i64 %18, %1
-  %20 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !159
   %.not27 = icmp eq ptr %21, null
   br i1 %.not27, label %22, label %27
@@ -1293,7 +1293,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_E
   br i1 %.not28, label %30, label %25
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %26, align 8, !tbaa !159
   br label %30
 

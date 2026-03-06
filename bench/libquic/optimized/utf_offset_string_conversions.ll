@@ -432,7 +432,7 @@ define linkonce_odr ptr @_ZNSt6vectorIN4base14OffsetAdjuster10AdjustmentESaIS2_E
   %24 = ptrtoint ptr %22 to i64
   %25 = sub i64 %24, %5
   %.neg.i.i.i.i.i.i = sdiv exact i64 %25, -24
-  %26 = getelementptr inbounds %"struct.base::OffsetAdjuster::Adjustment", ptr %20, i64 %.neg.i.i.i.i.i.i
+  %26 = getelementptr inbounds [24 x i8], ptr %20, i64 %.neg.i.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %26, ptr align 8 %18, i64 %25, i1 false)
   br label %27
 
@@ -506,7 +506,7 @@ _ZNSt6vectorIN4base14OffsetAdjuster10AdjustmentESaIS2_EE11_S_relocateEPS2_S5_S5_
 _ZNSt6vectorIN4base14OffsetAdjuster10AdjustmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit: ; preds = %_ZNSt6vectorIN4base14OffsetAdjuster10AdjustmentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i, %47
   store ptr %40, ptr %0, align 8, !tbaa !36
   store ptr %.0.lcssa.i.i.i.i21.i, ptr %8, align 8, !tbaa !22
-  %48 = getelementptr inbounds nuw %"struct.base::OffsetAdjuster::Adjustment", ptr %40, i64 %38
+  %48 = getelementptr inbounds nuw [24 x i8], ptr %40, i64 %38
   store ptr %48, ptr %10, align 8, !tbaa !24
   br label %49
 
@@ -668,7 +668,7 @@ _ZNSt6vectorIN4base14OffsetAdjuster10AdjustmentESaIS2_EE11_S_relocateEPS2_S5_S5_
 _ZNSt6vectorIN4base14OffsetAdjuster10AdjustmentESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %57, %_ZNSt6vectorIN4base14OffsetAdjuster10AdjustmentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i
   store ptr %52, ptr %3, align 8, !tbaa !36
   store ptr %56, ptr %17, align 8, !tbaa !22
-  %58 = getelementptr inbounds nuw %"struct.base::OffsetAdjuster::Adjustment", ptr %52, i64 %50
+  %58 = getelementptr inbounds nuw [24 x i8], ptr %52, i64 %50
   store ptr %58, ptr %18, align 8, !tbaa !24
   br label %_ZNSt6vectorIN4base14OffsetAdjuster10AdjustmentESaIS2_EE9push_backEOS2_.exit
 
@@ -1171,7 +1171,7 @@ _ZNSt6vectorIN4base14OffsetAdjuster10AdjustmentESaIS2_EE11_S_relocateEPS2_S5_S5_
 _ZNSt6vectorIN4base14OffsetAdjuster10AdjustmentESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %57, %_ZNSt6vectorIN4base14OffsetAdjuster10AdjustmentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i
   store ptr %52, ptr %3, align 8, !tbaa !36
   store ptr %56, ptr %17, align 8, !tbaa !22
-  %58 = getelementptr inbounds nuw %"struct.base::OffsetAdjuster::Adjustment", ptr %52, i64 %50
+  %58 = getelementptr inbounds nuw [24 x i8], ptr %52, i64 %50
   store ptr %58, ptr %18, align 8, !tbaa !24
   br label %_ZNSt6vectorIN4base14OffsetAdjuster10AdjustmentESaIS2_EE9push_backEOS2_.exit
 
@@ -1253,7 +1253,7 @@ _ZSt22__uninitialized_move_aIPN4base14OffsetAdjuster10AdjustmentES3_SaIS2_EET0_T
   %29 = ptrtoint ptr %23 to i64
   %30 = sub i64 %29, %18
   %.neg.i.i.i.i.i = sdiv exact i64 %30, -24
-  %31 = getelementptr inbounds %"struct.base::OffsetAdjuster::Adjustment", ptr %13, i64 %.neg.i.i.i.i.i
+  %31 = getelementptr inbounds [24 x i8], ptr %13, i64 %.neg.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %31, ptr align 8 %1, i64 %30, i1 false)
   br label %_ZSt13move_backwardIPN4base14OffsetAdjuster10AdjustmentES3_ET0_T_S5_S4_.exit
 
@@ -1282,7 +1282,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN4base14OffsetAdju
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN4base14OffsetAdjuster10AdjustmentESt6vectorIS4_SaIS4_EEEEPS4_S4_ET0_T_SD_SC_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN4base14OffsetAdjuster10AdjustmentESt6vectorIS4_SaIS4_EEEEPS4_S4_ET0_T_SD_SC_RSaIT1_E.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4base14OffsetAdjuster10AdjustmentESt6vectorIS4_SaIS4_EEEEmEvRT_T0_.exit
   %35 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN4base14OffsetAdjuster10AdjustmentESt6vectorIS4_SaIS4_EEEEPS4_S4_ET0_T_SD_SC_RSaIT1_E.exit.loopexit ], [ %13, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4base14OffsetAdjuster10AdjustmentESt6vectorIS4_SaIS4_EEEEmEvRT_T0_.exit ]
   %36 = sub nuw nsw i64 %9, %20
-  %37 = getelementptr inbounds nuw %"struct.base::OffsetAdjuster::Adjustment", ptr %35, i64 %36
+  %37 = getelementptr inbounds nuw [24 x i8], ptr %35, i64 %36
   store ptr %37, ptr %12, align 8, !tbaa !22
   %.not11.i.i.i.i.i53 = icmp eq ptr %1, %13
   br i1 %.not11.i.i.i.i.i53, label %_ZSt22__uninitialized_move_aIPN4base14OffsetAdjuster10AdjustmentES3_SaIS2_EET0_T_S6_S5_RT1_.exit59, label %.lr.ph.i.i.i.i.i54
@@ -1390,7 +1390,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN4base14OffsetAdjuster10AdjustmentES3_
 _ZNSt12_Vector_baseIN4base14OffsetAdjuster10AdjustmentESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN4base14OffsetAdjuster10AdjustmentES3_SaIS2_EET0_T_S6_S5_RT1_.exit81, %65
   store ptr %58, ptr %0, align 8, !tbaa !36
   store ptr %.0.lcssa.i.i.i.i.i80, ptr %12, align 8, !tbaa !22
-  %66 = getelementptr inbounds nuw %"struct.base::OffsetAdjuster::Adjustment", ptr %58, i64 %54
+  %66 = getelementptr inbounds nuw [24 x i8], ptr %58, i64 %54
   store ptr %66, ptr %10, align 8, !tbaa !24
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN4base14OffsetAdjuster10AdjustmentESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit
 

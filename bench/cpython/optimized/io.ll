@@ -128,7 +128,7 @@ thread-pre-split:                                 ; preds = %_mpd_strneq.exit, %
   %.1.i = phi ptr [ %37, %31 ], [ %.0.i.lcssa, %.preheader.i ]
   %32 = load i8, ptr %.1.i, align 1, !tbaa !11
   %33 = zext i8 %32 to i64
-  %34 = getelementptr i16, ptr %30, i64 %33
+  %34 = getelementptr [2 x i8], ptr %30, i64 %33
   %35 = load i16, ptr %34, align 2, !tbaa !17
   %36 = and i16 %35, 2048
   %.not.i97 = icmp eq i16 %36, 0
@@ -208,7 +208,7 @@ thread-pre-split157:                              ; preds = %_mpd_strneq.exit106
   %.1.i109 = phi ptr [ %72, %66 ], [ %.0.i107.lcssa, %.preheader.i108 ]
   %67 = load i8, ptr %.1.i109, align 1, !tbaa !11
   %68 = zext i8 %67 to i64
-  %69 = getelementptr i16, ptr %65, i64 %68
+  %69 = getelementptr [2 x i8], ptr %65, i64 %68
   %70 = load i16, ptr %69, align 2, !tbaa !17
   %71 = and i16 %70, 2048
   %.not.i110 = icmp eq i16 %71, 0
@@ -329,7 +329,7 @@ _mpd_strneq.exit129:                              ; preds = %102, %_mpd_strneq.e
   %114 = tail call ptr @__ctype_b_loc() #20
   %115 = load ptr, ptr %114, align 8, !tbaa !15
   %116 = zext i8 %106 to i64
-  %117 = getelementptr i16, ptr %115, i64 %116
+  %117 = getelementptr [2 x i8], ptr %115, i64 %116
   %118 = load i16, ptr %117, align 2, !tbaa !17
   %119 = and i16 %118, 2048
   %.not36.i = icmp eq i16 %119, 0
@@ -351,7 +351,7 @@ _mpd_strneq.exit129:                              ; preds = %102, %_mpd_strneq.e
   %127 = getelementptr i8, ptr %.029.i, i64 1
   %128 = load i8, ptr %127, align 1, !tbaa !11
   %129 = zext i8 %128 to i64
-  %130 = getelementptr i16, ptr %115, i64 %129
+  %130 = getelementptr [2 x i8], ptr %115, i64 %129
   %131 = load i16, ptr %130, align 2, !tbaa !17
   %132 = and i16 %131, 2048
   %.not37.i = icmp eq i16 %132, 0
@@ -365,7 +365,7 @@ _mpd_strneq.exit129:                              ; preds = %102, %_mpd_strneq.e
   %136 = getelementptr i8, ptr %.029.i, i64 2
   %137 = load i8, ptr %136, align 1, !tbaa !11
   %138 = zext i8 %137 to i64
-  %139 = getelementptr i16, ptr %115, i64 %138
+  %139 = getelementptr [2 x i8], ptr %115, i64 %138
   %140 = load i16, ptr %139, align 2, !tbaa !17
   %141 = and i16 %140, 2048
   %.not38.i = icmp eq i16 %141, 0
@@ -509,7 +509,7 @@ strtoexp.exit:                                    ; preds = %147
 
 196:                                              ; preds = %191
   %197 = add nsw i64 %186, -1
-  %198 = getelementptr i64, ptr %193, i64 %197
+  %198 = getelementptr [8 x i8], ptr %193, i64 %197
   store i64 0, ptr %198, align 8, !tbaa !29
   br label %199
 
@@ -548,7 +548,7 @@ strtoexp.exit:                                    ; preds = %147
   %.in.i133 = phi i64 [ %209, %.loopexit.i ], [ %.in.i133.ph, %.lr.ph.i.preheader ]
   %.342.i = phi ptr [ %220, %.loopexit.i ], [ %.342.i.ph, %.lr.ph.i.preheader ]
   %209 = add i64 %.in.i133, -1
-  %210 = getelementptr i64, ptr %193, i64 %209
+  %210 = getelementptr [8 x i8], ptr %193, i64 %209
   store i64 0, ptr %210, align 8, !tbaa !29
   br label %211
 
@@ -736,7 +736,7 @@ define internal fastcc i64 @_mpd_to_string(ptr noundef writeonly captures(none) 
   %.013.i = phi i64 [ %42, %.lr.ph.i ], [ %50, %45 ]
   %.01112.i = phi ptr [ %40, %.lr.ph.i ], [ %49, %45 ]
   %46 = load ptr, ptr %44, align 8, !tbaa !28
-  %47 = getelementptr i64, ptr %46, i64 %.013.i
+  %47 = getelementptr [8 x i8], ptr %46, i64 %.013.i
   %48 = load i64, ptr %47, align 8, !tbaa !29
   %49 = tail call fastcc ptr @word_to_string(ptr noundef %.01112.i, i64 noundef %48, i32 noundef 19, ptr noundef null)
   %50 = add nsw i64 %.013.i, -1
@@ -890,7 +890,7 @@ define internal fastcc i64 @_mpd_to_string(ptr noundef writeonly captures(none) 
   %.013.i124 = phi i64 [ %114, %.lr.ph.i123 ], [ %122, %117 ]
   %.01112.i125 = phi ptr [ %111, %.lr.ph.i123 ], [ %121, %117 ]
   %118 = load ptr, ptr %116, align 8, !tbaa !28
-  %119 = getelementptr i64, ptr %118, i64 %.013.i124
+  %119 = getelementptr [8 x i8], ptr %118, i64 %.013.i124
   %120 = load i64, ptr %119, align 8, !tbaa !29
   %121 = tail call fastcc ptr @word_to_string(ptr noundef %.01112.i125, i64 noundef %120, i32 noundef 19, ptr noundef null)
   %122 = add nsw i64 %.013.i124, -1
@@ -920,7 +920,7 @@ define internal fastcc i64 @_mpd_to_string(ptr noundef writeonly captures(none) 
   %.013.i130 = phi i64 [ %131, %.lr.ph.i129 ], [ %139, %134 ]
   %.01112.i131 = phi ptr [ %128, %.lr.ph.i129 ], [ %138, %134 ]
   %135 = load ptr, ptr %133, align 8, !tbaa !28
-  %136 = getelementptr i64, ptr %135, i64 %.013.i130
+  %136 = getelementptr [8 x i8], ptr %135, i64 %.013.i130
   %137 = load i64, ptr %136, align 8, !tbaa !29
   %138 = tail call fastcc ptr @word_to_string(ptr noundef %.01112.i131, i64 noundef %137, i32 noundef 19, ptr noundef null)
   %139 = add nsw i64 %.013.i130, -1
@@ -964,7 +964,7 @@ coeff_to_string.exit133:                          ; preds = %134, %125
   %.015.i = phi i64 [ %155, %.lr.ph.i134 ], [ %163, %158 ]
   %.01314.i = phi ptr [ %152, %.lr.ph.i134 ], [ %162, %158 ]
   %159 = load ptr, ptr %157, align 8, !tbaa !28
-  %160 = getelementptr i64, ptr %159, i64 %.015.i
+  %160 = getelementptr [8 x i8], ptr %159, i64 %.015.i
   %161 = load i64, ptr %160, align 8, !tbaa !29
   %162 = tail call fastcc ptr @word_to_string(ptr noundef %.01314.i, i64 noundef %161, i32 noundef 19, ptr noundef readnone %149)
   %163 = add nsw i64 %.015.i, -1
@@ -1301,7 +1301,7 @@ thread-pre-split:                                 ; preds = %59, %59, %59, %59, 
   %80 = tail call ptr @__ctype_b_loc() #20
   %81 = load ptr, ptr %80, align 8, !tbaa !15
   %82 = zext i8 %78 to i64
-  %83 = getelementptr i16, ptr %81, i64 %82
+  %83 = getelementptr [2 x i8], ptr %81, i64 %82
   %84 = load i16, ptr %83, align 2, !tbaa !17
   %85 = and i16 %84, 2048
   %.not54 = icmp eq i16 %85, 0
@@ -1354,7 +1354,7 @@ thread-pre-split:                                 ; preds = %59, %59, %59, %59, 
   %104 = load ptr, ptr %80, align 8, !tbaa !15
   %105 = load i8, ptr %103, align 1, !tbaa !11
   %106 = zext i8 %105 to i64
-  %107 = getelementptr i16, ptr %104, i64 %106
+  %107 = getelementptr [2 x i8], ptr %104, i64 %106
   %108 = load i16, ptr %107, align 2, !tbaa !17
   %109 = and i16 %108, 2048
   %.not55 = icmp eq i16 %109, 0
@@ -1480,7 +1480,7 @@ define hidden ptr @mpd_qformat_spec(ptr noundef %0, ptr noundef readonly capture
   %23 = tail call ptr @__ctype_b_loc() #20
   %24 = load ptr, ptr %23, align 8, !tbaa !15
   %25 = zext i8 %22 to i64
-  %26 = getelementptr i16, ptr %24, i64 %25
+  %26 = getelementptr [2 x i8], ptr %24, i64 %25
   %27 = load i16, ptr %26, align 2, !tbaa !17
   %28 = and i16 %27, 256
   %.not = icmp eq i16 %28, 0
@@ -1489,7 +1489,7 @@ define hidden ptr @mpd_qformat_spec(ptr noundef %0, ptr noundef readonly capture
 29:                                               ; preds = %20
   %30 = tail call ptr @__ctype_tolower_loc() #20
   %31 = load ptr, ptr %30, align 8, !tbaa !54
-  %32 = getelementptr i32, ptr %31, i64 %25
+  %32 = getelementptr [4 x i8], ptr %31, i64 %25
   %33 = load i32, ptr %32, align 4, !tbaa !25
   %34 = trunc i32 %33 to i8
   br label %35
@@ -1748,7 +1748,7 @@ default.unreachable135:                           ; preds = %77
   %.1.i = getelementptr i8, ptr %.045.pn.i, i64 1
   %132 = load i8, ptr %.1.i, align 1, !tbaa !11
   %133 = zext i8 %132 to i64
-  %134 = getelementptr i16, ptr %130, i64 %133
+  %134 = getelementptr [2 x i8], ptr %130, i64 %133
   %135 = load i16, ptr %134, align 2, !tbaa !17
   %136 = and i16 %135, 2048
   %.not.i = icmp eq i16 %136, 0
@@ -2107,7 +2107,7 @@ define hidden noundef i32 @mpd_snprint_flags(ptr noundef initializes((0, 1)) %0,
 
 8:                                                ; preds = %4
   %9 = sext i32 %.02329 to i64
-  %10 = getelementptr ptr, ptr @mpd_flag_string, i64 %indvars.iv
+  %10 = getelementptr [8 x i8], ptr @mpd_flag_string, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !26
   %12 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.02230, i64 noundef %9, ptr noundef nonnull @.str.12, ptr noundef %11) #19
   %13 = icmp sgt i32 %12, -1
@@ -2175,7 +2175,7 @@ define hidden noundef i32 @mpd_lsnprint_flags(ptr noundef initializes((0, 2)) %0
 
 12:                                               ; preds = %8
   %13 = sext i32 %.02935 to i64
-  %14 = getelementptr ptr, ptr %spec.store.select, i64 %indvars.iv
+  %14 = getelementptr [8 x i8], ptr %spec.store.select, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !26
   %16 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.02836, i64 noundef %13, ptr noundef nonnull @.str.13, ptr noundef %15) #19
   %17 = icmp sgt i32 %16, -1
@@ -2247,7 +2247,7 @@ define hidden noundef i32 @mpd_lsnprint_signals(ptr noundef initializes((0, 2)) 
 15:                                               ; preds = %14, %12
   %.234 = phi i32 [ %.03260, %12 ], [ 1, %14 ]
   %16 = sext i32 %.03658 to i64
-  %17 = getelementptr ptr, ptr %spec.store.select, i64 %indvars.iv
+  %17 = getelementptr [8 x i8], ptr %spec.store.select, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8, !tbaa !26
   %19 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.03957, i64 noundef %16, ptr noundef nonnull @.str.13, ptr noundef %18) #19
   %20 = icmp sgt i32 %19, -1

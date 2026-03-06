@@ -51,7 +51,7 @@ define void @ff_init_2d_vlc_rl(ptr noundef %0, ptr noundef %1, ptr noundef reado
 
 11:                                               ; preds = %.lr.ph, %32
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %32 ]
-  %12 = getelementptr inbounds nuw %struct.VLCElem, ptr %1, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %13 = load i16, ptr %12, align 2, !tbaa !4
   %14 = sext i16 %13 to i32
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 2
@@ -158,7 +158,7 @@ define range(i32 -1094995529, 64) i32 @ff_mpeg1_decode_block_intra(ptr noundef c
   br i1 %10, label %23, label %51
 
 23:                                               ; preds = %7
-  %24 = getelementptr inbounds nuw %struct.VLCElem, ptr @ff_dc_lum_vlc, i64 %22
+  %24 = getelementptr inbounds nuw [4 x i8], ptr @ff_dc_lum_vlc, i64 %22
   %25 = load i16, ptr %24, align 4, !tbaa !4
   %26 = sext i16 %25 to i32
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 2
@@ -180,7 +180,7 @@ define range(i32 -1094995529, 64) i32 @ff_mpeg1_decode_block_intra(ptr noundef c
   %41 = lshr i32 %39, %40
   %42 = add i32 %41, %26
   %43 = zext i32 %42 to i64
-  %44 = getelementptr inbounds nuw %struct.VLCElem, ptr @ff_dc_lum_vlc, i64 %43
+  %44 = getelementptr inbounds nuw [4 x i8], ptr @ff_dc_lum_vlc, i64 %43
   %45 = load i16, ptr %44, align 4, !tbaa !4
   %46 = sext i16 %45 to i32
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 2
@@ -196,7 +196,7 @@ get_vlc2.exit.i:                                  ; preds = %31, %23
   br label %79
 
 51:                                               ; preds = %7
-  %52 = getelementptr inbounds nuw %struct.VLCElem, ptr @ff_dc_chroma_vlc, i64 %22
+  %52 = getelementptr inbounds nuw [4 x i8], ptr @ff_dc_chroma_vlc, i64 %22
   %53 = load i16, ptr %52, align 4, !tbaa !4
   %54 = sext i16 %53 to i32
   %55 = getelementptr inbounds nuw i8, ptr %52, i64 2
@@ -218,7 +218,7 @@ get_vlc2.exit.i:                                  ; preds = %31, %23
   %69 = lshr i32 %67, %68
   %70 = add i32 %69, %54
   %71 = zext i32 %70 to i64
-  %72 = getelementptr inbounds nuw %struct.VLCElem, ptr @ff_dc_chroma_vlc, i64 %71
+  %72 = getelementptr inbounds nuw [4 x i8], ptr @ff_dc_chroma_vlc, i64 %71
   %73 = load i16, ptr %72, align 4, !tbaa !4
   %74 = sext i16 %73 to i32
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 2
@@ -262,7 +262,7 @@ get_vlc2.exit10.i:                                ; preds = %59, %51
 decode_dc.exit:                                   ; preds = %79, %81
   %.0.i = phi i32 [ %95, %81 ], [ 0, %79 ]
   %96 = zext nneg i32 %9 to i64
-  %97 = getelementptr inbounds nuw i32, ptr %3, i64 %96
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %96
   %98 = load i32, ptr %97, align 4, !tbaa !39
   %99 = add nsw i32 %98, %.0.i
   store i32 %99, ptr %97, align 4, !tbaa !39
@@ -287,7 +287,7 @@ decode_dc.exit:                                   ; preds = %79, %81
   %.1 = phi i32 [ %.3, %223 ], [ 0, %decode_dc.exit ]
   %112 = lshr i32 %.0105, 23
   %113 = zext nneg i32 %112 to i64
-  %114 = getelementptr inbounds nuw %struct.VLCElem, ptr @ff_mpeg1_rl_vlc, i64 %113
+  %114 = getelementptr inbounds nuw [4 x i8], ptr @ff_mpeg1_rl_vlc, i64 %113
   %115 = load i16, ptr %114, align 4, !tbaa !4
   %116 = sext i16 %115 to i32
   %117 = getelementptr inbounds nuw i8, ptr %114, i64 2
@@ -303,7 +303,7 @@ decode_dc.exit:                                   ; preds = %79, %81
   %125 = lshr i32 %122, %124
   %126 = add i32 %125, %116
   %127 = zext i32 %126 to i64
-  %128 = getelementptr inbounds nuw %struct.VLCElem, ptr @ff_mpeg1_rl_vlc, i64 %127
+  %128 = getelementptr inbounds nuw [4 x i8], ptr @ff_mpeg1_rl_vlc, i64 %127
   %129 = load i16, ptr %128, align 4, !tbaa !4
   %130 = sext i16 %129 to i32
   %131 = getelementptr inbounds nuw i8, ptr %128, i64 2
@@ -324,7 +324,7 @@ decode_dc.exit:                                   ; preds = %79, %81
 
 137:                                              ; preds = %134
   %138 = zext i32 %.098 to i64
-  %139 = getelementptr inbounds nuw %struct.VLCElem, ptr @ff_mpeg1_rl_vlc, i64 %138
+  %139 = getelementptr inbounds nuw [4 x i8], ptr @ff_mpeg1_rl_vlc, i64 %138
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 3
   %141 = load i8, ptr %140, align 1, !tbaa !4
   %142 = zext i8 %141 to i32
@@ -338,7 +338,7 @@ decode_dc.exit:                                   ; preds = %79, %81
   %148 = load i8, ptr %147, align 1, !tbaa !4
   %149 = mul nsw i32 %.0102, %6
   %150 = zext i8 %148 to i64
-  %151 = getelementptr inbounds nuw i16, ptr %1, i64 %150
+  %151 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %150
   %152 = load i16, ptr %151, align 2, !tbaa !42
   %153 = zext i16 %152 to i32
   %154 = mul nsw i32 %149, %153
@@ -403,7 +403,7 @@ decode_dc.exit:                                   ; preds = %79, %81
 
 197:                                              ; preds = %192
   %198 = zext i8 %195 to i64
-  %199 = getelementptr inbounds nuw i16, ptr %1, i64 %198
+  %199 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %198
   %200 = load i16, ptr %199, align 2, !tbaa !42
   %201 = zext i16 %200 to i32
   %202 = mul i32 %6, %.2104
@@ -418,7 +418,7 @@ decode_dc.exit:                                   ; preds = %79, %81
 209:                                              ; preds = %192
   %210 = mul nsw i32 %.2104, %6
   %211 = zext i8 %195 to i64
-  %212 = getelementptr inbounds nuw i16, ptr %1, i64 %211
+  %212 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %211
   %213 = load i16, ptr %212, align 2, !tbaa !42
   %214 = zext i16 %213 to i32
   %215 = mul nsw i32 %210, %214
@@ -434,7 +434,7 @@ decode_dc.exit:                                   ; preds = %79, %81
   %.1103 = phi i32 [ %208, %197 ], [ %218, %209 ], [ %160, %145 ]
   %.3 = phi i32 [ %190, %197 ], [ %190, %209 ], [ %143, %145 ]
   %220 = trunc i32 %.1103 to i16
-  %221 = getelementptr inbounds nuw i16, ptr %4, i64 %.pre-phi
+  %221 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %.pre-phi
   store i16 %220, ptr %221, align 2, !tbaa !42
   %222 = icmp slt i32 %.3108, -1073741824
   br i1 %222, label %.thread126, label %223

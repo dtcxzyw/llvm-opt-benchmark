@@ -848,7 +848,7 @@ define internal void @_ZN4ncnnL10embed_int8ERKNS_3MatES2_fS2_RS0_iRKNS_6OptionE.
   %indvars.iv72 = phi i64 [ %36, %.preheader.us.us.preheader ], [ %indvars.iv.next73, %..loopexit_crit_edge.us.us ]
   %.reass.us.us = mul i64 %factor.op.mul, %indvars.iv72
   %38 = getelementptr inbounds nuw i8, ptr %23, i64 %.reass.us.us
-  %39 = getelementptr inbounds i32, ptr %29, i64 %indvars.iv72
+  %39 = getelementptr inbounds [4 x i8], ptr %29, i64 %indvars.iv72
   %40 = load i32, ptr %39, align 4, !tbaa !50
   %spec.store.select.us.us = call i32 @llvm.smax.i32(i32 %40, i32 0)
   %spec.select.us.us = call i32 @llvm.smin.i32(i32 %spec.store.select.us.us, i32 %31)
@@ -865,7 +865,7 @@ define internal void @_ZN4ncnnL10embed_int8ERKNS_3MatES2_fS2_RS0_iRKNS_6OptionE.
   %48 = load i8, ptr %47, align 1, !tbaa !56
   %49 = sitofp i8 %48 to float
   %50 = fmul fast float %49, %45
-  %51 = getelementptr inbounds nuw float, ptr %38, i64 %indvars.iv67
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %indvars.iv67
   store float %50, ptr %51, align 4, !tbaa !46
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %exitcond71.not = icmp eq i64 %indvars.iv.next68, %wide.trip.count70
@@ -890,7 +890,7 @@ define internal void @_ZN4ncnnL10embed_int8ERKNS_3MatES2_fS2_RS0_iRKNS_6OptionE.
   %indvars.iv63 = phi i64 [ %52, %.preheader46.us.preheader ], [ %indvars.iv.next64, %..loopexit47_crit_edge.us ]
   %.reass.us55 = mul i64 %factor.op.mul, %indvars.iv63
   %54 = getelementptr inbounds nuw i8, ptr %23, i64 %.reass.us55
-  %55 = getelementptr inbounds i32, ptr %29, i64 %indvars.iv63
+  %55 = getelementptr inbounds [4 x i8], ptr %29, i64 %indvars.iv63
   %56 = load i32, ptr %55, align 4, !tbaa !50
   %spec.store.select.us56 = call i32 @llvm.smax.i32(i32 %56, i32 0)
   %spec.select.us57 = call i32 @llvm.smin.i32(i32 %spec.store.select.us56, i32 %31)
@@ -907,10 +907,10 @@ define internal void @_ZN4ncnnL10embed_int8ERKNS_3MatES2_fS2_RS0_iRKNS_6OptionE.
   %64 = load i8, ptr %63, align 1, !tbaa !56
   %65 = sitofp i8 %64 to float
   %66 = fmul fast float %65, %61
-  %67 = getelementptr inbounds nuw float, ptr %34, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %indvars.iv
   %68 = load float, ptr %67, align 4, !tbaa !46
   %69 = fadd fast float %66, %68
-  %70 = getelementptr inbounds nuw float, ptr %54, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %indvars.iv
   store float %69, ptr %70, align 4, !tbaa !46
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1014,23 +1014,23 @@ define internal void @_ZN4ncnnL5embedERKNS_3MatES2_S2_RS0_iRKNS_6OptionE.omp_out
   %indvars.iv45 = phi i64 [ %37, %.preheader.us.us.preheader ], [ %indvars.iv.next46, %..loopexit_crit_edge.us.us ]
   %.reass.us = mul i64 %factor.op.mul, %indvars.iv45
   %39 = getelementptr inbounds nuw i8, ptr %27, i64 %.reass.us
-  %40 = getelementptr inbounds i32, ptr %31, i64 %indvars.iv45
+  %40 = getelementptr inbounds [4 x i8], ptr %31, i64 %indvars.iv45
   %41 = load i32, ptr %40, align 4, !tbaa !50
   %spec.store.select.us.us = call i32 @llvm.smax.i32(i32 %41, i32 0)
   %spec.select.us.us = call i32 @llvm.smin.i32(i32 %spec.store.select.us.us, i32 %33)
   %42 = mul nsw i32 %35, %spec.select.us.us
   %43 = sext i32 %42 to i64
-  %44 = getelementptr inbounds float, ptr %34, i64 %43
+  %44 = getelementptr inbounds [4 x i8], ptr %34, i64 %43
   br label %45
 
 45:                                               ; preds = %.preheader.us.us, %45
   %indvars.iv = phi i64 [ 0, %.preheader.us.us ], [ %indvars.iv.next, %45 ]
-  %46 = getelementptr inbounds nuw float, ptr %44, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %indvars.iv
   %47 = load float, ptr %46, align 4, !tbaa !46
-  %48 = getelementptr inbounds nuw float, ptr %24, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %indvars.iv
   %49 = load float, ptr %48, align 4, !tbaa !46
   %50 = fadd fast float %49, %47
-  %51 = getelementptr inbounds nuw float, ptr %39, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %indvars.iv
   store float %50, ptr %51, align 4, !tbaa !46
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1053,7 +1053,7 @@ define internal void @_ZN4ncnnL5embedERKNS_3MatES2_S2_RS0_iRKNS_6OptionE.omp_out
   %58 = mul i64 %56, %57
   %59 = getelementptr inbounds nuw i8, ptr %53, i64 %58
   %60 = load ptr, ptr %4, align 8, !tbaa !16
-  %61 = getelementptr inbounds i32, ptr %60, i64 %indvars.iv54
+  %61 = getelementptr inbounds [4 x i8], ptr %60, i64 %indvars.iv54
   %62 = load i32, ptr %61, align 4, !tbaa !50
   %spec.store.select = call i32 @llvm.smax.i32(i32 %62, i32 0)
   %63 = load i32, ptr %5, align 4, !tbaa !50
@@ -1063,7 +1063,7 @@ define internal void @_ZN4ncnnL5embedERKNS_3MatES2_S2_RS0_iRKNS_6OptionE.omp_out
   %66 = load i32, ptr %7, align 4, !tbaa !50
   %67 = mul nsw i32 %66, %spec.select
   %68 = sext i32 %67 to i64
-  %69 = getelementptr inbounds float, ptr %65, i64 %68
+  %69 = getelementptr inbounds [4 x i8], ptr %65, i64 %68
   %70 = load ptr, ptr %8, align 8, !tbaa !51
   %.not37 = icmp eq ptr %70, null
   br i1 %.not37, label %78, label %.preheader
@@ -1078,12 +1078,12 @@ define internal void @_ZN4ncnnL5embedERKNS_3MatES2_S2_RS0_iRKNS_6OptionE.omp_out
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv49 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next50, %.lr.ph ]
-  %72 = getelementptr inbounds nuw float, ptr %69, i64 %indvars.iv49
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %69, i64 %indvars.iv49
   %73 = load float, ptr %72, align 4, !tbaa !46
-  %74 = getelementptr inbounds nuw float, ptr %70, i64 %indvars.iv49
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %70, i64 %indvars.iv49
   %75 = load float, ptr %74, align 4, !tbaa !46
   %76 = fadd fast float %75, %73
-  %77 = getelementptr inbounds nuw float, ptr %59, i64 %indvars.iv49
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %indvars.iv49
   store float %76, ptr %77, align 4, !tbaa !46
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
   %exitcond53.not = icmp eq i64 %indvars.iv.next50, %wide.trip.count52

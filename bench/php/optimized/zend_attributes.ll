@@ -29,7 +29,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._zend_function_entry = type { ptr, ptr, ptr, i32, i32, ptr, ptr }
 %struct._zend_internal_arg_info = type { ptr, %struct.zend_type, ptr }
 %struct.zend_type = type { ptr, i32 }
-%struct.zend_attribute_arg = type { ptr, %struct._zval_struct }
 %struct.smart_str = type { ptr, i64 }
 %struct._zend_class_entry = type { i8, ptr, %union.anon.8, i32, i32, i32, i32, ptr, ptr, ptr, %struct._zend_array, %struct._zend_array, %struct._zend_array, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %union.anon.9, ptr, ptr, ptr, ptr, i32, i32, i32, i32, %union.anon.10, ptr, ptr, ptr, ptr, i32, ptr, ptr, %union.anon.11 }
 %union.anon.8 = type { ptr }
@@ -207,7 +206,7 @@ define dso_local range(i32 -1, 1) i32 @zend_get_attribute_value(ptr noundef %0, 
 
 7:                                                ; preds = %4
   %8 = zext i32 %2 to i64
-  %9 = getelementptr inbounds nuw %struct.zend_attribute_arg, ptr %1, i64 %8
+  %9 = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %11 = load ptr, ptr %10, align 8, !tbaa !11
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 48
@@ -951,7 +950,7 @@ zend_vm_stack_push_call_frame_ex.exit:            ; preds = %15, %21
   %.1101146 = phi ptr [ null, %.lr.ph ], [ %.3.ph, %88 ]
   %.1106144 = phi i32 [ 0, %.lr.ph ], [ %.3108.ph, %88 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %53 = getelementptr inbounds nuw %struct.zend_attribute_arg, ptr %2, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [24 x i8], ptr %2, i64 %indvars.iv
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %55 = load ptr, ptr %54, align 8, !tbaa !11
   %56 = getelementptr inbounds nuw i8, ptr %53, i64 48
@@ -993,7 +992,7 @@ zend_vm_stack_push_call_frame_ex.exit:            ; preds = %15, %21
   br i1 %.not23.i, label %73, label %92
 
 73:                                               ; preds = %68, %71
-  %74 = getelementptr inbounds nuw %struct.zend_attribute_arg, ptr %51, i64 %indvars.iv
+  %74 = getelementptr inbounds nuw [24 x i8], ptr %51, i64 %indvars.iv
   %75 = load ptr, ptr %74, align 8, !tbaa !75
   %.not120 = icmp eq ptr %75, null
   br i1 %.not120, label %82, label %76
@@ -1014,7 +1013,7 @@ zend_vm_stack_push_call_frame_ex.exit:            ; preds = %15, %21
   br label %88
 
 82:                                               ; preds = %73
-  %83 = getelementptr inbounds nuw %struct._zval_struct, ptr %48, i64 %indvars.iv
+  %83 = getelementptr inbounds nuw [16 x i8], ptr %48, i64 %indvars.iv
   %84 = load ptr, ptr %7, align 8, !tbaa !11
   %85 = load i32, ptr %50, align 8, !tbaa !11
   store ptr %84, ptr %83, align 8, !tbaa !11
@@ -1064,7 +1063,7 @@ zend_vm_stack_push_call_frame_ex.exit:            ; preds = %15, %21
 
 .lr.ph149:                                        ; preds = %.lr.ph149.preheader, %.lr.ph149
   %indvars.iv155 = phi i64 [ 0, %.lr.ph149.preheader ], [ %indvars.iv.next156, %.lr.ph149 ]
-  %95 = getelementptr inbounds nuw %struct._zval_struct, ptr %.1, i64 %indvars.iv155
+  %95 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %indvars.iv155
   call void @zval_ptr_dtor(ptr noundef %95) #16
   %indvars.iv.next156 = add nuw nsw i64 %indvars.iv155, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next156, %wide.trip.count
@@ -1237,7 +1236,7 @@ smart_str_extract_ex.exit:                        ; preds = %10, %smart_str_0.ex
   br i1 %.not.i, label %.thread, label %smart_str_get_len.exit
 
 .thread:                                          ; preds = %53
-  %54 = getelementptr inbounds nuw ptr, ptr @target_names, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [8 x i8], ptr @target_names, i64 %indvars.iv
   %55 = load ptr, ptr %54, align 8, !tbaa !86
   %56 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %55) #19
   br label %77
@@ -1275,7 +1274,7 @@ smart_str_get_len.exit:                           ; preds = %53
 69:                                               ; preds = %smart_str_get_len.exit, %.thread21
   %70 = phi i64 [ %60, %.thread21 ], [ 0, %smart_str_get_len.exit ]
   %71 = phi ptr [ %67, %.thread21 ], [ %.pr, %smart_str_get_len.exit ]
-  %72 = getelementptr inbounds nuw ptr, ptr @target_names, i64 %indvars.iv
+  %72 = getelementptr inbounds nuw [8 x i8], ptr @target_names, i64 %indvars.iv
   %73 = load ptr, ptr %72, align 8, !tbaa !86
   %74 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %73) #19
   %75 = add i64 %70, %74
@@ -1508,7 +1507,7 @@ zend_hash_next_index_insert_ptr.exit:             ; preds = %67, %zend_string_co
 
 67:                                               ; preds = %.lr.ph, %67
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %67 ]
-  %68 = getelementptr inbounds nuw %struct.zend_attribute_arg, ptr %63, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw [24 x i8], ptr %63, i64 %indvars.iv
   store ptr null, ptr %68, align 8, !tbaa !75
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 16
   store i32 0, ptr %69, align 8, !tbaa !11
@@ -1602,7 +1601,7 @@ zend_string_release.exit22:                       ; preds = %zend_string_release
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %zend_string_release.exit25.us
   %indvars.iv31 = phi i64 [ %indvars.iv.next32, %zend_string_release.exit25.us ], [ 0, %.lr.ph ]
-  %36 = getelementptr inbounds nuw %struct.zend_attribute_arg, ptr %35, i64 %indvars.iv31
+  %36 = getelementptr inbounds nuw [24 x i8], ptr %35, i64 %indvars.iv31
   %37 = load ptr, ptr %36, align 8, !tbaa !75
   %.not19.us = icmp eq ptr %37, null
   br i1 %.not19.us, label %zend_string_release.exit25.us, label %38
@@ -1650,7 +1649,7 @@ zend_string_release.exit25.us:                    ; preds = %50, %49, %42, %38, 
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %zend_string_release.exit25
   %indvars.iv = phi i64 [ %indvars.iv.next, %zend_string_release.exit25 ], [ 0, %.lr.ph ]
-  %55 = getelementptr inbounds nuw %struct.zend_attribute_arg, ptr %35, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [24 x i8], ptr %35, i64 %indvars.iv
   %56 = load ptr, ptr %55, align 8, !tbaa !75
   %.not19 = icmp eq ptr %56, null
   br i1 %.not19, label %zend_string_release.exit25, label %57

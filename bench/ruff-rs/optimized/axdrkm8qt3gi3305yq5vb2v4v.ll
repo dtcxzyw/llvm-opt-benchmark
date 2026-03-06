@@ -214,7 +214,7 @@ define internal void @"_ZN113_$LT$ruff_formatter..builders..FormatWith$LT$Contex
   %10 = load ptr, ptr %9, align 8, !noalias !17, !nonnull !3, !noundef !3
   %11 = getelementptr inbounds nuw i8, ptr %.val, i64 16
   %12 = load i64, ptr %11, align 8, !noalias !17, !noundef !3
-  %13 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { i32, [15 x i32] }, { i32, [15 x i32] }, { i32, i32 }, i8, [7 x i8] }, ptr %10, i64 %12
+  %13 = getelementptr inbounds nuw [168 x i8], ptr %10, i64 %12
   %14 = call noundef align 8 dereferenceable(40) ptr @"_ZN14ruff_formatter8builders38JoinBuilder$LT$Separator$C$Context$GT$7entries17hce11b962f5842ef3E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull %10, ptr noundef nonnull %13), !noalias !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !17
@@ -277,7 +277,7 @@ define internal void @"_ZN113_$LT$ruff_formatter..builders..FormatWith$LT$Contex
   store i64 %28, ptr %25, align 8, !noalias !25
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.06.014.i, i64 128
   %33 = sub nuw i64 %.sroa.5.012.i, %28
-  %34 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %.sroa.01.013.i, i64 %28
+  %34 = getelementptr inbounds nuw [12 x i8], ptr %.sroa.01.013.i, i64 %28
   %35 = call noundef i8 @_ZN14ruff_formatter8builders4Line3new17hf3fbd55e59bdfc74E(i8 noundef 0), !noalias !29
   %36 = call noundef align 8 dereferenceable(48) ptr @_ZN21ruff_python_formatter8builders25JoinCommaSeparatedBuilder25entry_with_line_separator17hbb35728a61fefa3aE(ptr noalias noundef nonnull align 8 dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %4, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.c27931cca1ea773dd593a5c63c8a25f7.32, i8 noundef %35), !noalias !29
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !25
@@ -592,7 +592,7 @@ define internal void @"_ZN113_$LT$ruff_formatter..builders..FormatWith$LT$Contex
   %82 = load ptr, ptr %81, align 8, !noalias !63, !nonnull !3, !noundef !3
   %83 = getelementptr inbounds nuw i8, ptr %80, i64 16
   %84 = load i64, ptr %83, align 8, !noalias !63, !noundef !3
-  %85 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { i32, [15 x i32] }, { i32, [15 x i32] }, { i32, i32 }, i8, [7 x i8] }, ptr %82, i64 %84
+  %85 = getelementptr inbounds nuw [168 x i8], ptr %82, i64 %84
   %86 = call noundef align 8 dereferenceable(40) ptr @"_ZN14ruff_formatter8builders38JoinBuilder$LT$Separator$C$Context$GT$7entries17hce11b962f5842ef3E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull %82, ptr noundef nonnull %85), !noalias !63
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %86, i64 24, i1 false), !noalias !48
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !52
@@ -708,7 +708,7 @@ define internal void @"_ZN113_$LT$ruff_formatter..builders..FormatWith$LT$Contex
   br i1 %32, label %38, label %33
 
 33:                                               ; preds = %28, %3
-  %34 = getelementptr inbounds nuw { i64, [10 x i64] }, ptr %24, i64 %26
+  %34 = getelementptr inbounds nuw [88 x i8], ptr %24, i64 %26
   %35 = call noundef align 8 dereferenceable(48) ptr @_ZN21ruff_python_formatter8builders25JoinCommaSeparatedBuilder7entries17h4b576c26d079dc41E(ptr noalias noundef nonnull align 8 dereferenceable(48) %11, ptr noundef nonnull %24, ptr noundef nonnull %34), !noalias !90
   %36 = getelementptr inbounds nuw i8, ptr %.val, i64 24
   %37 = call noundef align 8 dereferenceable(48) ptr @_ZN21ruff_python_formatter8builders25JoinCommaSeparatedBuilder5nodes17h52fc9c9fc69d0b91E(ptr noalias noundef nonnull align 8 dereferenceable(48) %35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %36), !noalias !90
@@ -1206,7 +1206,7 @@ define internal void @"_ZN113_$LT$ruff_formatter..builders..FormatWith$LT$Contex
   %10 = load ptr, ptr %9, align 8, !noalias !140, !nonnull !3, !noundef !3
   %11 = getelementptr inbounds nuw i8, ptr %.val, i64 16
   %12 = load i64, ptr %11, align 8, !noalias !140, !noundef !3
-  %13 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { i32, [15 x i32] }, { i32, [15 x i32] }, { i32, i32 }, i8, [7 x i8] }, ptr %10, i64 %12
+  %13 = getelementptr inbounds nuw [168 x i8], ptr %10, i64 %12
   %14 = call noundef align 8 dereferenceable(40) ptr @"_ZN14ruff_formatter8builders38JoinBuilder$LT$Separator$C$Context$GT$7entries17hce11b962f5842ef3E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull %10, ptr noundef nonnull %13), !noalias !144
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !140
@@ -1639,7 +1639,7 @@ define internal void @"_ZN113_$LT$ruff_formatter..builders..FormatWith$LT$Contex
   %200 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %201 = load ptr, ptr %200, align 8, !alias.scope !148, !noalias !153, !nonnull !3, !align !30, !noundef !3
   %202 = sub nuw i64 %197, %.sroa.04.0.i
-  %203 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %201, i64 %.sroa.04.0.i
+  %203 = getelementptr inbounds nuw [12 x i8], ptr %201, i64 %.sroa.04.0.i
   store ptr @anon.c27931cca1ea773dd593a5c63c8a25f7.87, ptr %44, align 8, !noalias !154
   %204 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store i64 1, ptr %204, align 8, !noalias !154
@@ -2207,7 +2207,7 @@ define internal void @"_ZN63_$LT$$RF$T$u20$as$u20$ruff_formatter..Format$LT$Cont
   %11 = load ptr, ptr %10, align 8, !noalias !306, !nonnull !3, !noundef !3
   %12 = getelementptr inbounds nuw i8, ptr %.val.i, i64 16
   %13 = load i64, ptr %12, align 8, !noalias !306, !noundef !3
-  %14 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { i32, [15 x i32] }, { i32, [15 x i32] }, { i32, i32 }, i8, [7 x i8] }, ptr %11, i64 %13
+  %14 = getelementptr inbounds nuw [168 x i8], ptr %11, i64 %13
   %15 = call noundef align 8 dereferenceable(40) ptr @"_ZN14ruff_formatter8builders38JoinBuilder$LT$Separator$C$Context$GT$7entries17hce11b962f5842ef3E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull %11, ptr noundef nonnull %14), !noalias !307
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 24, i1 false), !noalias !296
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !302
@@ -4603,7 +4603,7 @@ define hidden void @_ZN21ruff_python_formatter8comments7visitor16collect_comment
 16:                                               ; preds = %5
   %17 = extractvalue { ptr, i64 } %11, 0
   %18 = extractvalue { ptr, i64 } %11, 1
-  %19 = getelementptr inbounds nuw { i32, i32 }, ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 72
   store ptr %8, ptr %20, align 8, !alias.scope !412, !noalias !420
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 80
@@ -4710,7 +4710,7 @@ define hidden void @_ZN21ruff_python_formatter8comments7visitor15CommentsVisitor
 13:                                               ; preds = %6
   %14 = extractvalue { ptr, i64 } %10, 0
   %15 = extractvalue { ptr, i64 } %10, 1
-  %16 = getelementptr inbounds nuw { i32, i32 }, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %4, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -4800,7 +4800,7 @@ define noundef zeroext i1 @"_ZN136_$LT$ruff_python_formatter..comments..visitor.
 
 14:                                               ; preds = %3
   %15 = load ptr, ptr %11, align 8, !nonnull !3, !noundef !3
-  %16 = getelementptr { i64, [1 x i64] }, ptr %15, i64 %13
+  %16 = getelementptr [16 x i8], ptr %15, i64 %13
   %17 = getelementptr i8, ptr %16, i64 -16
   %18 = getelementptr i8, ptr %16, i64 -8
   %19 = load ptr, ptr %18, align 8, !noundef !3
@@ -4887,7 +4887,7 @@ split:                                            ; preds = %48, %"_ZN4core6opti
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h7bcdcef421eb6bd1E.exit": ; preds = %split, %57
   %58 = load ptr, ptr %11, align 8, !alias.scope !433, !nonnull !3, !noundef !3
-  %59 = getelementptr inbounds nuw { i64, [1 x i64] }, ptr %58, i64 %54
+  %59 = getelementptr inbounds nuw [16 x i8], ptr %58, i64 %54
   store i64 %52, ptr %59, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   store ptr %53, ptr %60, align 8
@@ -4946,7 +4946,7 @@ _ZN21ruff_python_formatter8comments7visitor15CommentsVisitor8can_skip17h1ce8f21b
 
 81:                                               ; preds = %75
   %82 = load ptr, ptr %11, align 8, !nonnull !3, !noundef !3
-  %83 = getelementptr inbounds nuw { i64, [1 x i64] }, ptr %82, i64 %79
+  %83 = getelementptr inbounds nuw [16 x i8], ptr %82, i64 %79
   %84 = getelementptr inbounds i8, ptr %83, i64 -32
   %85 = load i64, ptr %84, align 8, !range !421, !noundef !3
   %86 = getelementptr inbounds i8, ptr %83, i64 -24
@@ -5111,7 +5111,7 @@ define void @"_ZN136_$LT$ruff_python_formatter..comments..visitor..CommentsVisit
 
 57:                                               ; preds = %55
   %58 = load ptr, ptr %25, align 8, !nonnull !3, !noundef !3
-  %59 = getelementptr { i64, [1 x i64] }, ptr %58, i64 %56
+  %59 = getelementptr [16 x i8], ptr %58, i64 %56
   %60 = getelementptr i8, ptr %59, i64 -16
   %61 = load i64, ptr %60, align 8, !range !421, !noundef !3
   %62 = getelementptr i8, ptr %59, i64 -8
@@ -5194,7 +5194,7 @@ define void @"_ZN136_$LT$ruff_python_formatter..comments..visitor..CommentsVisit
 6:                                                ; preds = %3
   %7 = icmp ugt i64 %2, 1
   tail call void @llvm.assume(i1 %7)
-  %8 = getelementptr { i64, [14 x i64] }, ptr %1, i64 %2
+  %8 = getelementptr [120 x i8], ptr %1, i64 %2
   %9 = getelementptr i8, ptr %8, i64 -120
   %10 = tail call { i32, i32 } @"_ZN83_$LT$ruff_python_ast..generated..Stmt$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h0f2bd1b6fc512939E"(ptr noalias noundef readonly align 8 dereferenceable(120) %9)
   %11 = extractvalue { i32, i32 } %10, 1
@@ -5334,7 +5334,7 @@ define void @"_ZN134_$LT$ruff_python_formatter..comments..visitor..CommentsVecBu
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17haaa6a693a1ea5392E.exit": ; preds = %2, %7
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !alias.scope !476, !noalias !479, !nonnull !3, !noundef !3
-  %10 = getelementptr inbounds nuw { { i64, [1 x i64] }, { i64, [1 x i64] }, { i64, [1 x i64] }, { i64, [1 x i64] }, { { i32, i32 } }, i8, [7 x i8] }, ptr %9, i64 %4
+  %10 = getelementptr inbounds nuw [80 x i8], ptr %9, i64 %4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %10, ptr noundef nonnull readonly align 8 dereferenceable(80) %1, i64 80, i1 false)
   %11 = add i64 %4, 1
   store i64 %11, ptr %3, align 8, !alias.scope !476, !noalias !479
@@ -6000,7 +6000,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h98c0da1369443da1E.exit: ; preds = %4
   unreachable
 
 52:                                               ; preds = %45
-  %53 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %29, i64 %36
+  %53 = getelementptr inbounds nuw [12 x i8], ptr %29, i64 %36
   %54 = sub nuw i64 %30, %36
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %53, ptr %8, align 8
@@ -6417,7 +6417,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h98c0da1369443da1E.exit: ; preds = %4
   unreachable
 
 .lr.ph.i:                                         ; preds = %32
-  %39 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %27, i64 %31
+  %39 = getelementptr inbounds nuw [12 x i8], ptr %27, i64 %31
   %40 = sub nuw i64 %28, %31
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -8291,7 +8291,7 @@ define void @"_ZN170_$LT$ruff_python_formatter..expression..parentheses..FormatE
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %30 = sub nuw i64 %16, %17
-  %31 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %14, i64 %17
+  %31 = getelementptr inbounds nuw [12 x i8], ptr %14, i64 %17
   call void @_ZN21ruff_python_formatter8comments6format17dangling_comments17h88ab3ea87f2a5df7E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noundef nonnull align 4 %31, i64 noundef %30)
   store ptr %5, ptr %6, align 8
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -8821,7 +8821,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17ha7a76b644d81f71fE.exit.i: ; pr
 
 .thread:                                          ; preds = %_ZN4core4iter6traits8iterator8Iterator8try_fold17ha7a76b644d81f71fE.exit.i, %.noexc21, %65
   %.sroa.0.056 = phi i64 [ 0, %65 ], [ %.sroa.3.0.i, %_ZN4core4iter6traits8iterator8Iterator8try_fold17ha7a76b644d81f71fE.exit.i ], [ 0, %.noexc21 ]
-  %97 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %66, i64 %.sroa.0.056
+  %97 = getelementptr inbounds nuw [12 x i8], ptr %66, i64 %.sroa.0.056
   %98 = sub nuw i64 %67, %.sroa.0.056
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %66) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
@@ -9310,7 +9310,7 @@ define void @"_ZN158_$LT$ruff_python_formatter..other..parameters..CommentsAroun
   unreachable
 
 35:                                               ; preds = %25
-  %36 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %27, i64 %28
+  %36 = getelementptr inbounds nuw [12 x i8], ptr %27, i64 %28
   %37 = sub nuw i64 %12, %28
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -9412,7 +9412,7 @@ define hidden void @_ZN21ruff_python_formatter5other10parameters25find_parameter
   %.not = icmp ne i64 %30, 0
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %32 = load ptr, ptr %31, align 8, !nonnull !3
-  %33 = getelementptr { { i32, i32 }, ptr, { { i32, i32 }, ptr, { { i32, i32 }, { { { ptr, i64, i32, i16, i8, i8 } } } } } }, ptr %32, i64 %30
+  %33 = getelementptr [64 x i8], ptr %32, i64 %30
   %34 = getelementptr i8, ptr %33, i64 -64
   %.not127.not.not275 = icmp ne ptr %34, null
   %.not127.not.not.not = select i1 %.not, i1 %.not127.not.not275, i1 false
@@ -9572,7 +9572,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h16378a7211f09c5eE.exit171: ; p
   %.not134 = icmp ne i64 %68, 0
   %69 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %70 = load ptr, ptr %69, align 8, !nonnull !3
-  %71 = getelementptr { { i32, i32 }, ptr, { { i32, i32 }, ptr, { { i32, i32 }, { { { ptr, i64, i32, i16, i8, i8 } } } } } }, ptr %70, i64 %68
+  %71 = getelementptr [64 x i8], ptr %70, i64 %68
   %72 = getelementptr i8, ptr %71, i64 -64
   %.not135276 = icmp ne ptr %72, null
   %.not135.not = select i1 %.not134, i1 %.not135276, i1 false
@@ -10976,7 +10976,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h98c0da1369443da1E.exit: ; preds = %4
   br label %.invoke
 
 60:                                               ; preds = %58
-  %61 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %44, i64 %57
+  %61 = getelementptr inbounds nuw [12 x i8], ptr %44, i64 %57
   %62 = sub nuw i64 %45, %57
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
@@ -11193,7 +11193,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h98c0da1369443da1E.exit: ; preds = %4
   unreachable
 
 129:                                              ; preds = %126
-  %130 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %61, i64 %125
+  %130 = getelementptr inbounds nuw [12 x i8], ptr %61, i64 %125
   %131 = sub nuw i64 %62, %125
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -11201,7 +11201,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h98c0da1369443da1E.exit: ; preds = %4
   store ptr @anon.c27931cca1ea773dd593a5c63c8a25f7.131, ptr %11, align 8
   %132 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 4, ptr %132, align 8
-  %133 = getelementptr { i64, [14 x i64] }, ptr %49, i64 %48
+  %133 = getelementptr [120 x i8], ptr %49, i64 %48
   %134 = getelementptr i8, ptr %133, i64 -120
   %.not4885 = icmp eq ptr %134, null
   %.not48 = select i1 %.not, i1 true, i1 %.not4885
@@ -11549,7 +11549,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h98c0da1369443da1E.exit: ; preds = %4
 
 .lr.ph:                                           ; preds = %87
   %.sroa.054.2113 = getelementptr inbounds nuw i8, ptr %.sroa.054.0, i64 128
-  %90 = getelementptr { { { { i64, ptr, {} }, {} }, i64 }, { i64, [10 x i64] }, { i32, i32 }, ptr }, ptr %69, i64 %71
+  %90 = getelementptr [128 x i8], ptr %69, i64 %71
   %91 = getelementptr i8, ptr %90, i64 -128
   %.not67 = icmp eq ptr %91, null
   %92 = getelementptr i8, ptr %90, i64 -16
@@ -11685,7 +11685,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h98c0da1369443da1E.exit: ; preds = %4
 155:                                              ; preds = %150
   %156 = getelementptr inbounds nuw i8, ptr %.sroa.015.0114, i64 8
   %157 = load ptr, ptr %156, align 8, !nonnull !3, !noundef !3
-  %158 = getelementptr { i64, [14 x i64] }, ptr %157, i64 %154
+  %158 = getelementptr [120 x i8], ptr %157, i64 %154
   %159 = getelementptr i8, ptr %158, i64 -120
   %.not69 = icmp eq ptr %159, null
   br i1 %.not69, label %.thread95, label %160

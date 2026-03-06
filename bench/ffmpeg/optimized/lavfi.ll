@@ -285,7 +285,7 @@ define internal i32 @lavfi_read_header(ptr noundef %0) #0 {
 91:                                               ; preds = %88
   %92 = load ptr, ptr %68, align 8, !tbaa !46
   %93 = sext i32 %89 to i64
-  %94 = getelementptr inbounds i32, ptr %92, i64 %93
+  %94 = getelementptr inbounds [4 x i8], ptr %92, i64 %93
   %95 = load i32, ptr %94, align 4, !tbaa !48
   %.not244 = icmp eq i32 %95, -1
   br i1 %.not244, label %97, label %96
@@ -301,16 +301,16 @@ define internal i32 @lavfi_read_header(ptr noundef %0) #0 {
 
 97:                                               ; preds = %91
   %98 = load ptr, ptr %62, align 8, !tbaa !44
-  %99 = getelementptr inbounds nuw i32, ptr %98, i64 %indvars.iv
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %98, i64 %indvars.iv
   store i32 %89, ptr %99, align 4, !tbaa !48
   %100 = load i32, ptr %7, align 4, !tbaa !48
   %101 = sext i32 %100 to i64
-  %102 = getelementptr inbounds i32, ptr %92, i64 %101
+  %102 = getelementptr inbounds [4 x i8], ptr %92, i64 %101
   %103 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %103, ptr %102, align 4, !tbaa !48
   %104 = zext i1 %.not241 to i32
   %105 = load ptr, ptr %71, align 8, !tbaa !47
-  %106 = getelementptr inbounds nuw i32, ptr %105, i64 %indvars.iv
+  %106 = getelementptr inbounds nuw [4 x i8], ptr %105, i64 %indvars.iv
   store i32 %104, ptr %106, align 4, !tbaa !48
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -423,7 +423,7 @@ define internal i32 @lavfi_read_header(ptr noundef %0) #0 {
 153:                                              ; preds = %147, %131
   %154 = load ptr, ptr %9, align 8, !tbaa !68
   %155 = load ptr, ptr %116, align 8, !tbaa !58
-  %156 = getelementptr inbounds nuw ptr, ptr %155, i64 %indvars.iv358
+  %156 = getelementptr inbounds nuw [8 x i8], ptr %155, i64 %indvars.iv358
   store ptr %154, ptr %156, align 8, !tbaa !68
   %157 = load ptr, ptr %120, align 8, !tbaa !59
   %158 = load i32, ptr %124, align 8, !tbaa !67
@@ -484,10 +484,10 @@ define internal i32 @lavfi_read_header(ptr noundef %0) #0 {
   %indvars.iv361 = phi i64 [ 0, %.lr.ph330 ], [ %indvars.iv.next362, %229 ]
   %182 = load ptr, ptr %116, align 8, !tbaa !58
   %183 = load ptr, ptr %68, align 8, !tbaa !46
-  %184 = getelementptr inbounds nuw i32, ptr %183, i64 %indvars.iv361
+  %184 = getelementptr inbounds nuw [4 x i8], ptr %183, i64 %indvars.iv361
   %185 = load i32, ptr %184, align 4, !tbaa !48
   %186 = sext i32 %185 to i64
-  %187 = getelementptr inbounds ptr, ptr %182, i64 %186
+  %187 = getelementptr inbounds [8 x i8], ptr %182, i64 %186
   %188 = load ptr, ptr %187, align 8, !tbaa !68
   %189 = call i64 @av_buffersink_get_time_base(ptr noundef %188) #10
   %.sroa.030.0.extract.trunc = trunc i64 %189 to i32
@@ -495,7 +495,7 @@ define internal i32 @lavfi_read_header(ptr noundef %0) #0 {
   %.sroa.4.0.extract.trunc = trunc nuw i64 %.sroa.4.0.extract.shift to i32
   %190 = call i64 @av_buffersink_get_frame_rate(ptr noundef %188) #10
   %191 = load ptr, ptr %179, align 8, !tbaa !73
-  %192 = getelementptr inbounds nuw ptr, ptr %191, i64 %indvars.iv361
+  %192 = getelementptr inbounds nuw [8 x i8], ptr %191, i64 %indvars.iv361
   %193 = load ptr, ptr %192, align 8, !tbaa !74
   %194 = getelementptr inbounds nuw i8, ptr %193, i64 16
   %195 = load ptr, ptr %194, align 8, !tbaa !76
@@ -630,18 +630,18 @@ define internal i32 @lavfi_read_packet(ptr noundef readonly captures(none) %0, p
   %.070118 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph ], [ %.1.ph, %48 ]
   %.071117 = phi i32 [ 0, %.lr.ph ], [ %.172.ph, %48 ]
   %24 = load ptr, ptr %20, align 8, !tbaa !58
-  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8, !tbaa !68
   %27 = tail call i64 @av_buffersink_get_time_base(ptr noundef %26) #10
   %28 = load ptr, ptr %21, align 8, !tbaa !45
-  %29 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %indvars.iv
   %30 = load i32, ptr %29, align 4, !tbaa !48
   %.not95 = icmp eq i32 %30, 0
   br i1 %.not95, label %31, label %48
 
 31:                                               ; preds = %23
   %32 = load ptr, ptr %20, align 8, !tbaa !58
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8, !tbaa !68
   %35 = tail call i32 @av_buffersink_get_frame_flags(ptr noundef %34, ptr noundef nonnull %15, i32 noundef 1) #10
   %36 = icmp eq i32 %35, -541478725
@@ -649,7 +649,7 @@ define internal i32 @lavfi_read_packet(ptr noundef readonly captures(none) %0, p
 
 37:                                               ; preds = %31
   %38 = load ptr, ptr %21, align 8, !tbaa !45
-  %39 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %indvars.iv
   store i32 1, ptr %39, align 4, !tbaa !48
   br label %48
 
@@ -685,17 +685,17 @@ define internal i32 @lavfi_read_packet(ptr noundef readonly captures(none) %0, p
   %54 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %55 = load ptr, ptr %54, align 8, !tbaa !58
   %56 = sext i32 %.172.ph to i64
-  %57 = getelementptr inbounds ptr, ptr %55, i64 %56
+  %57 = getelementptr inbounds [8 x i8], ptr %55, i64 %56
   %58 = load ptr, ptr %57, align 8, !tbaa !68
   %59 = tail call i32 @av_buffersink_get_frame_flags(ptr noundef %58, ptr noundef nonnull %15, i32 noundef 0) #10
   %60 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %61 = load ptr, ptr %60, align 8, !tbaa !44
-  %62 = getelementptr inbounds i32, ptr %61, i64 %56
+  %62 = getelementptr inbounds [4 x i8], ptr %61, i64 %56
   %63 = load i32, ptr %62, align 4, !tbaa !48
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %65 = load ptr, ptr %64, align 8, !tbaa !73
   %66 = sext i32 %63 to i64
-  %67 = getelementptr inbounds ptr, ptr %65, i64 %66
+  %67 = getelementptr inbounds [8 x i8], ptr %65, i64 %66
   %68 = load ptr, ptr %67, align 8, !tbaa !74
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 16
   %70 = load ptr, ptr %69, align 8, !tbaa !76
@@ -945,11 +945,11 @@ define internal fastcc range(i32 -12, 1) i32 @create_subcc_streams(ptr noundef %
 11:                                               ; preds = %.lr.ph, %36
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %36 ]
   %12 = load ptr, ptr %8, align 8, !tbaa !46
-  %13 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4, !tbaa !48
   %15 = load ptr, ptr %9, align 8, !tbaa !47
   %16 = sext i32 %14 to i64
-  %17 = getelementptr inbounds i32, ptr %15, i64 %16
+  %17 = getelementptr inbounds [4 x i8], ptr %15, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !48
   %.not = icmp eq i32 %18, 0
   br i1 %.not, label %35, label %19
@@ -968,7 +968,7 @@ define internal fastcc range(i32 -12, 1) i32 @create_subcc_streams(ptr noundef %
   store i32 94218, ptr %25, align 4, !tbaa !80
   store i32 3, ptr %24, align 8, !tbaa !77
   %26 = load ptr, ptr %10, align 8, !tbaa !73
-  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv
   %28 = load ptr, ptr %27, align 8, !tbaa !74
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %30 = load i32, ptr %29, align 4, !tbaa !113
@@ -1036,7 +1036,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @create_subcc_packet(ptr %.
   %3 = getelementptr inbounds nuw i8, ptr %.24.val, i64 72
   %4 = load ptr, ptr %3, align 8, !tbaa !47
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds i32, ptr %4, i64 %5
+  %6 = getelementptr inbounds [4 x i8], ptr %4, i64 %5
   %7 = load i32, ptr %6, align 4, !tbaa !48
   %8 = icmp slt i32 %7, 0
   br i1 %8, label %28, label %9

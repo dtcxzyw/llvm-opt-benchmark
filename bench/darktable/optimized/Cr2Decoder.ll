@@ -541,7 +541,7 @@ _ZNK8rawspeed6Buffer10getSubViewEj.exit52:        ; preds = %_ZN8rawspeed10ByteS
           to label %86 unwind label %_ZNSt6vectorItSaItEED2Ev.exit.i.i, !noalias !94
 
 86:                                               ; preds = %83
-  %87 = getelementptr inbounds nuw i16, ptr %79, i64 %indvars.iv.i.i
+  %87 = getelementptr inbounds nuw [2 x i8], ptr %79, i64 %indvars.iv.i.i
   store i16 %85, ptr %87, align 2, !tbaa !97, !noalias !94
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4096
@@ -1398,7 +1398,7 @@ define hidden range(i64 4294967297, 8589934595) i64 @_ZNK8rawspeed10Cr2Decoder14
 
 switch.lookup:                                    ; preds = %14
   %19 = zext nneg i16 %15 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZNK8rawspeed10Cr2Decoder14getSubSamplingEv, i64 %19
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK8rawspeed10Cr2Decoder14getSubSamplingEv, i64 %19
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %20
 
@@ -2350,7 +2350,7 @@ switch.lookup:                                    ; preds = %_ZN8rawspeed12_GLOB
   %.sroa.079.4..sroa_idx128 = getelementptr inbounds nuw i8, ptr %.sroa.079, i64 4
   %.sroa.079.4..sroa.079.4..sroa.079.4..sroa.079.4..sroa.677.0.copyload = load i64, ptr %.sroa.079.4..sroa_idx128, align 4
   %24 = and i64 %.sroa.071.i.0..sroa.071.i.0..sroa.071.i.0..sroa.071.0..sroa.071.0..sroa.071.0..fca.0.load.i, 255
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK8rawspeed10Cr2Decoder20decodeCanonColorDataEv, i64 %24
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK8rawspeed10Cr2Decoder20decodeCanonColorDataEv, i64 %24
   %switch.load = load i32, ptr %switch.gep, align 4
   %25 = tail call noundef zeroext i16 @_ZNK8rawspeed9TiffEntry6getU16Ej(ptr noundef nonnull align 8 dereferenceable(48) %4, i32 noundef %switch.load)
   %26 = uitofp i16 %25 to float
@@ -2468,7 +2468,7 @@ _ZNK8rawspeed10Array2DRefIiE15getAsArray1DRefEv.exit: ; preds = %51, %61
   %74 = zext i16 %73 to i32
   %75 = icmp samesign ult i64 %indvars.iv, 4
   tail call void @llvm.assume(i1 %75)
-  %76 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %indvars.iv
   store i32 %74, ptr %76, align 4, !tbaa !113
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not32 = icmp eq i64 %indvars.iv.next, 4
@@ -2486,7 +2486,7 @@ _ZNK8rawspeed10Array2DRefIiE15getAsArray1DRefEv.exit: ; preds = %51, %61
   %indvars.iv111 = phi i64 [ %indvars.iv.next112, %.preheader ], [ 0, %77 ]
   %82 = icmp samesign ult i64 %indvars.iv111, 4
   tail call void @llvm.assume(i1 %82)
-  %83 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv111
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %indvars.iv111
   %84 = load i32, ptr %83, align 4, !tbaa !113
   %85 = ashr i32 %84, %78
   store i32 %85, ptr %83, align 4, !tbaa !113

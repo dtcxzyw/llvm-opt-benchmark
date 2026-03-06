@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.anon = type { ptr, ptr, ptr }
-%struct.GL_ShaderData = type { i32, i32, i32 }
 
 @.str = private unnamed_addr constant [32 x i8] c"GL_ARB_texture_non_power_of_two\00", align 1
 @.str.1 = private unnamed_addr constant [25 x i8] c"GL_ARB_texture_rectangle\00", align 1
@@ -228,7 +227,7 @@ define hidden noundef ptr @GL_CreateShaderContext() local_unnamed_addr #0 {
 
 79:                                               ; preds = %.critedge.preheader, %.critedge
   %indvars.iv = phi i64 [ 0, %.critedge.preheader ], [ %indvars.iv.next, %.critedge ]
-  %80 = getelementptr inbounds nuw %struct.GL_ShaderData, ptr %77, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw [12 x i8], ptr %77, i64 %indvars.iv
   %81 = trunc nuw nsw i64 %indvars.iv to i32
   %82 = tail call fastcc zeroext i1 @CompileShaderProgram(ptr noundef %1, i32 noundef %81, ptr noundef %80)
   br i1 %82, label %.critedge, label %83
@@ -265,7 +264,7 @@ define internal fastcc zeroext i1 @CompileShaderProgram(ptr noundef nonnull read
   %11 = trunc nuw i8 %10 to i1
   %.str.29..str.30 = select i1 %11, ptr @.str.29, ptr @.str.30
   %12 = sext i32 %1 to i64
-  %13 = getelementptr inbounds %struct.anon, ptr @shader_source, i64 %12
+  %13 = getelementptr inbounds [24 x i8], ptr @shader_source, i64 %12
   %14 = add i32 %1, -6
   %.not = icmp ult i32 %14, -2
   br i1 %.not, label %18, label %15
@@ -364,7 +363,7 @@ define hidden void @GL_DestroyShaderContext(ptr noundef %0) local_unnamed_addr #
 
 4:                                                ; preds = %1, %4
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %4 ]
-  %5 = getelementptr inbounds nuw %struct.GL_ShaderData, ptr %2, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [12 x i8], ptr %2, i64 %indvars.iv
   %6 = load ptr, ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %8 = load i32, ptr %7, align 4
@@ -389,7 +388,7 @@ define hidden void @GL_DestroyShaderContext(ptr noundef %0) local_unnamed_addr #
 define hidden void @GL_SelectShader(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds %struct.GL_ShaderData, ptr %4, i64 %5
+  %6 = getelementptr inbounds [12 x i8], ptr %4, i64 %5
   %7 = load i32, ptr %6, align 4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %9 = load ptr, ptr %8, align 8
@@ -399,7 +398,7 @@ define hidden void @GL_SelectShader(ptr noundef captures(none) %0, i32 noundef %
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %12 = getelementptr inbounds ptr, ptr %11, i64 %5
+  %12 = getelementptr inbounds [8 x i8], ptr %11, i64 %5
   %13 = load ptr, ptr %12, align 8
   %.not60 = icmp eq ptr %2, %13
   br i1 %.not60, label %85, label %14

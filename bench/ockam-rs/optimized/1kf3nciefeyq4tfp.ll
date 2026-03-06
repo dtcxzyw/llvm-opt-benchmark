@@ -18465,7 +18465,7 @@ default.unreachable164:                           ; preds = %1305, %945, %928, %
 879:                                              ; preds = %876
   call void @llvm.lifetime.start.p0(ptr nonnull %83), !noalias !2329
   store <2 x i64> <i64 240, i64 8>, ptr %83, align 16, !noalias !2329
-  %880 = getelementptr inbounds nuw i64, ptr %83, i64 %877
+  %880 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %877
   %881 = load i64, ptr %880, align 8, !noalias !2329, !noundef !5
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %84, ptr nonnull align 8 %85, i64 %881, i1 false), !noalias !2329
   call void @llvm.lifetime.end.p0(ptr nonnull %83), !noalias !2329

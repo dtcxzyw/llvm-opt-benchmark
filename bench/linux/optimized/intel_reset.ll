@@ -9,25 +9,11 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.anon.91 = type { ptr, i32, i32, i64, i64, ptr, i16, i8 }
 %struct.static_call_key = type { ptr, %union.anon.92 }
 %union.anon.92 = type { i64 }
-%struct.i915_fence_reg = type { %struct.list_head, ptr, ptr, %struct.atomic_t, %struct.i915_active, i32, i8, i32, i32, i32, i32 }
-%struct.list_head = type { ptr, ptr }
-%struct.atomic_t = type { i32 }
-%struct.i915_active = type { %struct.atomic_t, %struct.mutex, %struct.spinlock, ptr, %struct.rb_root, %struct.i915_active_fence, i64, ptr, ptr, %struct.work_struct, %struct.llist_head }
-%struct.mutex = type { %struct.atomic64_t, %struct.raw_spinlock, %struct.optimistic_spin_queue, %struct.list_head }
-%struct.atomic64_t = type { i64 }
-%struct.raw_spinlock = type { %struct.qspinlock }
-%struct.qspinlock = type { %union.anon.1 }
-%union.anon.1 = type { %struct.atomic_t }
-%struct.optimistic_spin_queue = type { %struct.atomic_t }
-%struct.spinlock = type { %union.anon.0 }
-%union.anon.0 = type { %struct.raw_spinlock }
-%struct.rb_root = type { ptr }
-%struct.i915_active_fence = type { ptr, %struct.dma_fence_cb }
-%struct.dma_fence_cb = type { %struct.list_head, ptr }
-%struct.work_struct = type { %struct.atomic64_t, %struct.list_head, ptr }
-%struct.llist_head = type { ptr }
 %struct.intel_wedge_me = type { %struct.delayed_work, ptr, ptr }
 %struct.delayed_work = type { %struct.work_struct, %struct.timer_list, ptr, i32 }
+%struct.work_struct = type { %struct.atomic64_t, %struct.list_head, ptr }
+%struct.atomic64_t = type { i64 }
+%struct.list_head = type { ptr, ptr }
 %struct.timer_list = type { %struct.hlist_node, i64, ptr, i32 }
 %struct.hlist_node = type { ptr, ptr }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
@@ -603,7 +589,7 @@ define internal fastcc void @__intel_gt_set_wedged(ptr noundef %0) unnamed_addr 
 8:                                                ; preds = %38, %5
   %9 = phi i64 [ 0, %5 ], [ %40, %38 ]
   %10 = phi i32 [ 0, %5 ], [ %39, %38 ]
-  %11 = getelementptr ptr, ptr %7, i64 %9
+  %11 = getelementptr [8 x i8], ptr %7, i64 %9
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %38, label %14
@@ -674,7 +660,7 @@ define internal fastcc void @__intel_gt_set_wedged(ptr noundef %0) unnamed_addr 
 
 52:                                               ; preds = %.preheader, %59
   %53 = phi i64 [ %60, %59 ], [ 0, %.preheader ]
-  %54 = getelementptr ptr, ptr %7, i64 %53
+  %54 = getelementptr [8 x i8], ptr %7, i64 %53
   %55 = load ptr, ptr %54, align 8
   %56 = icmp eq ptr %55, null
   br i1 %56, label %59, label %57
@@ -700,7 +686,7 @@ define internal fastcc void @__intel_gt_set_wedged(ptr noundef %0) unnamed_addr 
 
 65:                                               ; preds = %75, %62
   %66 = phi i64 [ 0, %62 ], [ %76, %75 ]
-  %67 = getelementptr ptr, ptr %7, i64 %66
+  %67 = getelementptr [8 x i8], ptr %7, i64 %66
   %68 = load ptr, ptr %67, align 8
   %69 = icmp eq ptr %68, null
   br i1 %69, label %75, label %70
@@ -940,7 +926,7 @@ define dso_local void @intel_gt_reset(ptr noundef %0, i32 noundef %1, ptr nounde
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 832
   %13 = load ptr, ptr %12, align 8
   %14 = sext i32 %11 to i64
-  %.split = getelementptr %struct.i915_fence_reg, ptr %13, i64 %14
+  %.split = getelementptr [224 x i8], ptr %13, i64 %14
   %15 = getelementptr i8, ptr %.split, i64 24
   %16 = load volatile ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
@@ -1024,7 +1010,7 @@ define dso_local void @intel_gt_reset(ptr noundef %0, i32 noundef %1, ptr nounde
 66:                                               ; preds = %96, %61
   %67 = phi i64 [ 0, %61 ], [ %98, %96 ]
   %68 = phi i32 [ 0, %61 ], [ %97, %96 ]
-  %69 = getelementptr ptr, ptr %65, i64 %67
+  %69 = getelementptr [8 x i8], ptr %65, i64 %67
   %70 = load ptr, ptr %69, align 8
   %71 = icmp eq ptr %70, null
   br i1 %71, label %96, label %72
@@ -1176,7 +1162,7 @@ define dso_local void @intel_gt_reset(ptr noundef %0, i32 noundef %1, ptr nounde
 
 157:                                              ; preds = %175, %155
   %158 = phi i64 [ 0, %155 ], [ %176, %175 ]
-  %159 = getelementptr ptr, ptr %65, i64 %158
+  %159 = getelementptr [8 x i8], ptr %65, i64 %158
   %160 = load ptr, ptr %159, align 8
   %161 = icmp eq ptr %160, null
   br i1 %161, label %175, label %162
@@ -1269,7 +1255,7 @@ define dso_local void @intel_gt_reset(ptr noundef %0, i32 noundef %1, ptr nounde
 
 .preheader:                                       ; preds = %196, %217
   %210 = phi i64 [ %218, %217 ], [ 0, %196 ]
-  %211 = getelementptr ptr, ptr %65, i64 %210
+  %211 = getelementptr [8 x i8], ptr %65, i64 %210
   %212 = load ptr, ptr %211, align 8
   %213 = icmp eq ptr %212, null
   br i1 %213, label %217, label %214
@@ -1330,7 +1316,7 @@ define internal fastcc void @reset_finish(ptr noundef %0, i32 noundef %1) unname
 
 4:                                                ; preds = %.loopexit, %2
   %5 = phi i64 [ 0, %2 ], [ %39, %.loopexit ]
-  %6 = getelementptr ptr, ptr %3, i64 %5
+  %6 = getelementptr [8 x i8], ptr %3, i64 %5
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.loopexit, label %9
@@ -1468,7 +1454,7 @@ define dso_local i32 @__intel_engine_reset_bh(ptr noundef %0, ptr noundef %1) lo
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %43 = load i8, ptr %42, align 8
   %44 = zext i8 %43 to i64
-  %45 = getelementptr %struct.atomic_t, ptr %41, i64 %44
+  %45 = getelementptr [4 x i8], ptr %41, i64 %44
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %45, ptr elementtype(i32) %45) #10, !srcloc !12
   %46 = load ptr, ptr %3, align 8
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -1661,7 +1647,7 @@ define dso_local void @intel_gt_handle_error(ptr noundef %0, i32 noundef %1, i64
   %68 = xor i32 %67, -1
   %69 = and i32 %61, %68
   %70 = sext i32 %64 to i64
-  %71 = getelementptr ptr, ptr %56, i64 %70
+  %71 = getelementptr [8 x i8], ptr %56, i64 %70
   %72 = load ptr, ptr %71, align 8
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 32
   %74 = load i32, ptr %73, align 8
@@ -1762,7 +1748,7 @@ define dso_local void @intel_gt_handle_error(ptr noundef %0, i32 noundef %1, i64
 
 126:                                              ; preds = %.loopexit7, %124
   %127 = phi i64 [ 0, %124 ], [ %155, %.loopexit7 ]
-  %128 = getelementptr ptr, ptr %125, i64 %127
+  %128 = getelementptr [8 x i8], ptr %125, i64 %127
   %129 = load ptr, ptr %128, align 8
   %130 = icmp eq ptr %129, null
   br i1 %130, label %.loopexit7, label %131
@@ -1894,7 +1880,7 @@ define dso_local void @intel_gt_handle_error(ptr noundef %0, i32 noundef %1, i64
 
 199:                                              ; preds = %209, %197
   %200 = phi i64 [ 0, %197 ], [ %210, %209 ]
-  %201 = getelementptr ptr, ptr %198, i64 %200
+  %201 = getelementptr [8 x i8], ptr %198, i64 %200
   %202 = load ptr, ptr %201, align 8
   %203 = icmp eq ptr %202, null
   br i1 %203, label %209, label %204
@@ -2516,7 +2502,7 @@ define internal i32 @gen8_reset_engines(ptr noundef readonly captures(none) %0, 
   %21 = xor i32 %20, -1
   %22 = and i32 %14, %21
   %23 = sext i32 %17 to i64
-  %24 = getelementptr ptr, ptr %12, i64 %23
+  %24 = getelementptr [8 x i8], ptr %12, i64 %23
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8
@@ -2656,7 +2642,7 @@ define internal i32 @gen8_reset_engines(ptr noundef readonly captures(none) %0, 
   %119 = xor i32 %118, -1
   %120 = and i32 %113, %119
   %121 = sext i32 %115 to i64
-  %122 = getelementptr ptr, ptr %12, i64 %121
+  %122 = getelementptr [8 x i8], ptr %12, i64 %121
   %123 = load ptr, ptr %122, align 8
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 48
   %125 = load i32, ptr %124, align 8
@@ -2703,7 +2689,7 @@ define internal i32 @gen8_reset_engines(ptr noundef readonly captures(none) %0, 
   %151 = xor i32 %150, -1
   %152 = and i32 %146, %151
   %153 = sext i32 %147 to i64
-  %154 = getelementptr ptr, ptr %12, i64 %153
+  %154 = getelementptr [8 x i8], ptr %12, i64 %153
   %155 = load ptr, ptr %154, align 8
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 16
   %157 = load ptr, ptr %156, align 8
@@ -2762,7 +2748,7 @@ define internal i32 @gen6_reset_engines(ptr noundef readonly captures(none) %0, 
   %21 = xor i32 %20, -1
   %22 = and i32 %15, %21
   %23 = sext i32 %17 to i64
-  %24 = getelementptr ptr, ptr %13, i64 %23
+  %24 = getelementptr [8 x i8], ptr %13, i64 %23
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 48
   %27 = load i32, ptr %26, align 8
@@ -3272,7 +3258,7 @@ define internal fastcc i32 @__gen11_reset_engines(ptr noundef readonly captures(
   %19 = xor i32 %18, -1
   %20 = and i32 %12, %19
   %21 = sext i32 %15 to i64
-  %22 = getelementptr ptr, ptr %8, i64 %21
+  %22 = getelementptr [8 x i8], ptr %8, i64 %21
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 48
   %25 = load i32, ptr %24, align 8
@@ -3386,7 +3372,7 @@ define internal fastcc i32 @__gen11_reset_engines(ptr noundef readonly captures(
   %106 = load ptr, ptr %29, align 8
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 4040
   %108 = zext i8 %105 to i64
-  %109 = getelementptr ptr, ptr %107, i64 %108
+  %109 = getelementptr [8 x i8], ptr %107, i64 %108
   %110 = load ptr, ptr %109, align 8
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 56
   %112 = load i8, ptr %111, align 8
@@ -3563,7 +3549,7 @@ define internal fastcc i32 @__gen11_reset_engines(ptr noundef readonly captures(
   %224 = xor i32 %223, -1
   %225 = and i32 %219, %224
   %226 = sext i32 %220 to i64
-  %227 = getelementptr ptr, ptr %217, i64 %226
+  %227 = getelementptr [8 x i8], ptr %217, i64 %226
   %228 = load ptr, ptr %227, align 8
   %229 = getelementptr inbounds nuw i8, ptr %228, i64 16
   %230 = load ptr, ptr %229, align 8

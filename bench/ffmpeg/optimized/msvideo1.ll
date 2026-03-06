@@ -481,7 +481,7 @@ msvideo1_decode_8bit.exit:                        ; preds = %64, %.split.us.i, %
   %indvars.iv.i38 = phi i64 [ %290, %.preheader146.us.i ], [ %indvars.iv.next.i39, %221 ]
   %.2126174.us.i = phi i32 [ 0, %.preheader146.us.i ], [ %223, %221 ]
   %indvars.iv.next.i39 = add nsw i64 %indvars.iv.i38, 1
-  %222 = getelementptr inbounds i16, ptr %163, i64 %indvars.iv.i38
+  %222 = getelementptr inbounds [2 x i8], ptr %163, i64 %indvars.iv.i38
   store i16 %215, ptr %222, align 2, !tbaa !55
   %223 = add nuw nsw i32 %.2126174.us.i, 1
   %exitcond.not.i40 = icmp eq i32 %223, 4
@@ -548,10 +548,10 @@ msvideo1_decode_8bit.exit:                        ; preds = %64, %.split.us.i, %
   %259 = or disjoint i32 %256, %258
   %260 = xor i32 %259, 1
   %261 = zext nneg i32 %260 to i64
-  %262 = getelementptr inbounds nuw i16, ptr %5, i64 %261
+  %262 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %261
   %263 = load i16, ptr %262, align 2, !tbaa !55
   %indvars.iv.next234.i = add nsw i64 %indvars.iv233.i, 1
-  %264 = getelementptr inbounds i16, ptr %163, i64 %indvars.iv233.i
+  %264 = getelementptr inbounds [2 x i8], ptr %163, i64 %indvars.iv233.i
   store i16 %263, ptr %264, align 2, !tbaa !55
   %265 = add nuw nsw i32 %.0124178.us.i, 1
   %266 = lshr i16 %.1118179.us.i, 1
@@ -572,10 +572,10 @@ msvideo1_decode_8bit.exit:                        ; preds = %64, %.split.us.i, %
   %272 = and i16 %.3120185.us.i, 1
   %273 = xor i16 %272, 1
   %274 = zext nneg i16 %273 to i64
-  %275 = getelementptr inbounds nuw i16, ptr %5, i64 %274
+  %275 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %274
   %276 = load i16, ptr %275, align 2, !tbaa !55
   %indvars.iv.next238.i = add nsw i64 %indvars.iv237.i, 1
-  %277 = getelementptr inbounds i16, ptr %163, i64 %indvars.iv237.i
+  %277 = getelementptr inbounds [2 x i8], ptr %163, i64 %indvars.iv237.i
   store i16 %276, ptr %277, align 2, !tbaa !55
   %278 = add nuw nsw i32 %.1125184.us.i, 1
   %279 = lshr i16 %.3120185.us.i, 1

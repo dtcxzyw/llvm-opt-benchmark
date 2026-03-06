@@ -11,9 +11,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.bdf_property_t_ = type { ptr, i32, i32, %union.anon }
 %union.anon = type { ptr }
 %struct.FT_CharMapRec_ = type { ptr, i32, i16, i16 }
-%struct.bdf_glyph_t_ = type { ptr, i64, i16, i16, %struct.bdf_bbx_t_, ptr, i64, i16 }
-%struct.bdf_bbx_t_ = type { i16, i16, i16, i16, i16, i16 }
-%struct.BDF_encoding_el_ = type { i64, i16 }
 
 @.str = private unnamed_addr constant [4 x i8] c"bdf\00", align 1
 @bdf_driver_class = hidden local_unnamed_addr constant %struct.FT_Driver_ClassRec_ { %struct.FT_Module_Class_ { i64 513, i64 56, ptr @.str, i64 65536, i64 131072, ptr null, ptr null, ptr null, ptr @bdf_driver_requester }, i64 288, i64 88, i64 304, ptr @BDF_Face_Init, ptr @BDF_Face_Done, ptr null, ptr null, ptr null, ptr null, ptr @BDF_Glyph_Load, ptr null, ptr null, ptr null, ptr @BDF_Size_Request, ptr @BDF_Size_Select }, align 8
@@ -490,7 +487,7 @@ bdf_get_font_property.exit:                       ; preds = %150
 
 156:                                              ; preds = %bdf_get_font_property.exit
   %157 = load i64, ptr %153, align 8, !tbaa !69
-  %158 = getelementptr inbounds nuw %struct.bdf_property_t_, ptr %155, i64 %157
+  %158 = getelementptr inbounds nuw [24 x i8], ptr %155, i64 %157
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 16
   %160 = load ptr, ptr %159, align 8, !tbaa !37
   %.not211 = icmp eq ptr %160, null
@@ -554,7 +551,7 @@ bdf_get_font_property.exit250:                    ; preds = %175
 
 181:                                              ; preds = %bdf_get_font_property.exit250
   %182 = load i64, ptr %178, align 8, !tbaa !69
-  %183 = getelementptr inbounds nuw %struct.bdf_property_t_, ptr %180, i64 %182
+  %183 = getelementptr inbounds nuw [24 x i8], ptr %180, i64 %182
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 16
   %185 = load ptr, ptr %184, align 8, !tbaa !37
   %.not213 = icmp eq ptr %185, null
@@ -603,7 +600,7 @@ bdf_get_font_property.exit.i:                     ; preds = %200
   %204 = getelementptr inbounds nuw i8, ptr %193, i64 144
   %205 = load ptr, ptr %204, align 8, !tbaa !68
   %206 = load i64, ptr %203, align 8, !tbaa !69
-  %207 = getelementptr inbounds nuw %struct.bdf_property_t_, ptr %205, i64 %206
+  %207 = getelementptr inbounds nuw [24 x i8], ptr %205, i64 %206
   %.not.i252 = icmp eq ptr %205, null
   br i1 %.not.i252, label %.thread.i253, label %208
 
@@ -656,7 +653,7 @@ bdf_get_font_property.exit115.i:                  ; preds = %227
   %230 = getelementptr inbounds nuw i8, ptr %193, i64 144
   %231 = load ptr, ptr %230, align 8, !tbaa !68
   %232 = load i64, ptr %229, align 8, !tbaa !69
-  %233 = getelementptr inbounds nuw %struct.bdf_property_t_, ptr %231, i64 %232
+  %233 = getelementptr inbounds nuw [24 x i8], ptr %231, i64 %232
   %.not101.i = icmp eq ptr %231, null
   br i1 %.not101.i, label %.thread129.i, label %234
 
@@ -702,7 +699,7 @@ bdf_get_font_property.exit118.i:                  ; preds = %248
   %251 = getelementptr inbounds nuw i8, ptr %193, i64 144
   %252 = load ptr, ptr %251, align 8, !tbaa !68
   %253 = load i64, ptr %250, align 8, !tbaa !69
-  %254 = getelementptr inbounds nuw %struct.bdf_property_t_, ptr %252, i64 %253
+  %254 = getelementptr inbounds nuw [24 x i8], ptr %252, i64 %253
   %.not103.i = icmp eq ptr %252, null
   br i1 %.not103.i, label %.thread135.i, label %255
 
@@ -746,7 +743,7 @@ bdf_get_font_property.exit121.i:                  ; preds = %267
   %270 = getelementptr inbounds nuw i8, ptr %193, i64 144
   %271 = load ptr, ptr %270, align 8, !tbaa !68
   %272 = load i64, ptr %269, align 8, !tbaa !69
-  %273 = getelementptr inbounds nuw %struct.bdf_property_t_, ptr %271, i64 %272
+  %273 = getelementptr inbounds nuw [24 x i8], ptr %271, i64 %272
   %.not106.i = icmp eq ptr %271, null
   br i1 %.not106.i, label %bdf_get_font_property.exit121.thread.i.preheader, label %274
 
@@ -780,9 +777,9 @@ bdf_get_font_property.exit121.thread.i.preheader: ; preds = %283, %281, %281, %2
 bdf_get_font_property.exit121.thread.i:           ; preds = %bdf_get_font_property.exit121.thread.i.preheader, %291
   %.080141.i = phi i64 [ %.181.i, %291 ], [ 0, %bdf_get_font_property.exit121.thread.i.preheader ]
   %.083140.i = phi i64 [ %292, %291 ], [ 0, %bdf_get_font_property.exit121.thread.i.preheader ]
-  %284 = getelementptr inbounds nuw i64, ptr %8, i64 %.083140.i
+  %284 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.083140.i
   store i64 0, ptr %284, align 8, !tbaa !69
-  %285 = getelementptr inbounds nuw ptr, ptr %7, i64 %.083140.i
+  %285 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.083140.i
   %286 = load ptr, ptr %285, align 8, !tbaa !75
   %.not112.i = icmp eq ptr %286, null
   br i1 %.not112.i, label %291, label %287
@@ -827,9 +824,9 @@ bdf_interpret_style.exit.thread:                  ; preds = %296
 .preheader.i:                                     ; preds = %296, %317
   %.078144.i = phi ptr [ %.179.i, %317 ], [ %297, %296 ]
   %.184143.i = phi i64 [ %318, %317 ], [ 0, %296 ]
-  %300 = getelementptr inbounds nuw ptr, ptr %7, i64 %.184143.i
+  %300 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.184143.i
   %301 = load ptr, ptr %300, align 8, !tbaa !75
-  %302 = getelementptr inbounds nuw i64, ptr %8, i64 %.184143.i
+  %302 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.184143.i
   %303 = load i64, ptr %302, align 8, !tbaa !69
   %.not110.i = icmp eq ptr %301, null
   br i1 %.not110.i, label %317, label %304
@@ -1216,10 +1213,10 @@ bdf_interpret_style.exit:                         ; preds = %317
 
 481:                                              ; preds = %.lr.ph, %492
   %.0168312 = phi i64 [ 0, %.lr.ph ], [ %493, %492 ]
-  %482 = getelementptr inbounds nuw %struct.bdf_glyph_t_, ptr %472, i64 %.0168312
+  %482 = getelementptr inbounds nuw [56 x i8], ptr %472, i64 %.0168312
   %483 = getelementptr inbounds nuw i8, ptr %482, i64 8
   %484 = load i64, ptr %483, align 8, !tbaa !97
-  %485 = getelementptr inbounds nuw %struct.BDF_encoding_el_, ptr %474, i64 %.0168312
+  %485 = getelementptr inbounds nuw [16 x i8], ptr %474, i64 %.0168312
   store i64 %484, ptr %485, align 8, !tbaa !99
   %486 = trunc i64 %.0168312 to i16
   %487 = getelementptr inbounds nuw i8, ptr %485, i64 8
@@ -1495,7 +1492,7 @@ define internal range(i32 0, 7) i32 @BDF_Glyph_Load(ptr noundef %0, ptr noundef 
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 96
   %24 = load ptr, ptr %23, align 8, !tbaa !94
   %25 = zext i32 %.0 to i64
-  %26 = getelementptr inbounds nuw %struct.bdf_glyph_t_, ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw [56 x i8], ptr %24, i64 %25
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 18
   %.sroa.3.0.copyload = load i16, ptr %.sroa.3.0..sroa_idx, align 2, !tbaa !120
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 20
@@ -1740,7 +1737,7 @@ bdf_get_font_property.exit:                       ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 144
   %20 = load ptr, ptr %19, align 8, !tbaa !68
   %21 = load i64, ptr %18, align 8, !tbaa !69
-  %22 = getelementptr inbounds nuw %struct.bdf_property_t_, ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %21
   %.not = icmp eq ptr %20, null
   br i1 %.not, label %bdf_get_font_property.exit.thread, label %23
 
@@ -1813,7 +1810,7 @@ define internal fastcc ptr @bdf_get_font_property(ptr noundef readonly captures(
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %18 = load ptr, ptr %17, align 8, !tbaa !68
   %19 = load i64, ptr %15, align 8, !tbaa !69
-  %20 = getelementptr inbounds nuw %struct.bdf_property_t_, ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw [24 x i8], ptr %18, i64 %19
   br label %21
 
 21:                                               ; preds = %16, %12, %2, %4, %9
@@ -3083,7 +3080,7 @@ define internal fastcc void @bdf_free_font(ptr noundef %0) unnamed_addr #0 {
   %18 = phi i64 [ %15, %.lr.ph ], [ %31, %30 ]
   %.06872 = phi i64 [ 0, %.lr.ph ], [ %32, %30 ]
   %19 = load ptr, ptr %16, align 8, !tbaa !68
-  %20 = getelementptr inbounds nuw %struct.bdf_property_t_, ptr %19, i64 %.06872
+  %20 = getelementptr inbounds nuw [24 x i8], ptr %19, i64 %.06872
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load i32, ptr %21, align 8, !tbaa !73
   %23 = icmp eq i32 %22, 1
@@ -3094,7 +3091,7 @@ define internal fastcc void @bdf_free_font(ptr noundef %0) unnamed_addr #0 {
   %26 = load ptr, ptr %25, align 8, !tbaa !37
   tail call void @ft_mem_free(ptr noundef %5, ptr noundef %26) #18
   %27 = load ptr, ptr %16, align 8, !tbaa !68
-  %28 = getelementptr inbounds nuw %struct.bdf_property_t_, ptr %27, i64 %.06872
+  %28 = getelementptr inbounds nuw [24 x i8], ptr %27, i64 %.06872
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   store ptr null, ptr %29, align 8, !tbaa !37
   %.pre = load i64, ptr %14, align 8, !tbaa !66
@@ -3405,13 +3402,13 @@ switch.edge46:                                    ; preds = %37, %37, %37, %37, 
   br i1 %56, label %bdf_get_property.exit.i, label %bdf_get_property.exit.thread54.i
 
 bdf_get_property.exit.thread54.i:                 ; preds = %54
-  %57 = getelementptr inbounds nuw %struct.bdf_property_t_, ptr @bdf_properties_, i64 %55
+  %57 = getelementptr inbounds nuw [24 x i8], ptr @bdf_properties_, i64 %55
   br label %62
 
 bdf_get_property.exit.i:                          ; preds = %54
   %58 = getelementptr inbounds nuw i8, ptr %8, i64 192
   %59 = load ptr, ptr %58, align 8, !tbaa !175
-  %60 = getelementptr %struct.bdf_property_t_, ptr %59, i64 %55
+  %60 = getelementptr [24 x i8], ptr %59, i64 %55
   %61 = getelementptr i8, ptr %60, i64 -1968
   %.not50.i = icmp eq ptr %61, null
   br i1 %.not50.i, label %bdf_get_property.exit.thread.i, label %62
@@ -4026,7 +4023,7 @@ bdf_strtok_.exit335:                              ; preds = %.loopexit.i331
   %164 = phi ptr [ %.pre, %._crit_edge ], [ %156, %158 ]
   %165 = add i64 %163, 1
   store i64 %165, ptr %147, align 8, !tbaa !49
-  %166 = getelementptr inbounds nuw %struct.bdf_glyph_t_, ptr %164, i64 %163
+  %166 = getelementptr inbounds nuw [56 x i8], ptr %164, i64 %163
   %167 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %168 = load ptr, ptr %167, align 8, !tbaa !59
   store ptr %168, ptr %166, align 8, !tbaa !170
@@ -4073,7 +4070,7 @@ bdf_strtok_.exit335:                              ; preds = %.loopexit.i331
 188:                                              ; preds = %._crit_edge400, %185
   %189 = phi i64 [ %175, %._crit_edge400 ], [ %.pre403, %185 ]
   %190 = phi ptr [ %.pre402, %._crit_edge400 ], [ %183, %185 ]
-  %191 = getelementptr inbounds nuw %struct.bdf_glyph_t_, ptr %190, i64 %189
+  %191 = getelementptr inbounds nuw [56 x i8], ptr %190, i64 %189
   %192 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %193 = load ptr, ptr %192, align 8, !tbaa !59
   store ptr %193, ptr %191, align 8, !tbaa !170
@@ -4605,7 +4602,7 @@ define internal fastcc i32 @bdf_add_property_(ptr noundef %0, ptr noundef %1, pt
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %13 = load ptr, ptr %12, align 8, !tbaa !68
   %14 = load i64, ptr %10, align 8, !tbaa !69
-  %15 = getelementptr inbounds nuw %struct.bdf_property_t_, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [24 x i8], ptr %13, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load i32, ptr %16, align 8, !tbaa !73
   switch i32 %17, label %244 [
@@ -4763,7 +4760,7 @@ bdf_atoul_.exit:                                  ; preds = %.lr.ph.i77, %74, %6
 
 107:                                              ; preds = %99
   %108 = load i64, ptr %100, align 8, !tbaa !176
-  %109 = getelementptr inbounds nuw %struct.bdf_property_t_, ptr %105, i64 %108
+  %109 = getelementptr inbounds nuw [24 x i8], ptr %105, i64 %108
   %110 = call ptr @ft_mem_strdup(ptr noundef %97, ptr noundef %1, ptr noundef nonnull %4) #18
   store ptr %110, ptr %109, align 8, !tbaa !159
   %111 = load i32, ptr %4, align 4, !tbaa !25
@@ -4833,12 +4830,12 @@ bdf_create_property.exit.thread:                  ; preds = %112, %107, %99
 142:                                              ; preds = %139
   %143 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %144 = load ptr, ptr %143, align 8, !tbaa !175
-  %145 = getelementptr %struct.bdf_property_t_, ptr %144, i64 %140
+  %145 = getelementptr [24 x i8], ptr %144, i64 %140
   %146 = getelementptr i8, ptr %145, i64 -1968
   br label %149
 
 147:                                              ; preds = %139
-  %148 = getelementptr inbounds nuw %struct.bdf_property_t_, ptr @bdf_properties_, i64 %140
+  %148 = getelementptr inbounds nuw [24 x i8], ptr @bdf_properties_, i64 %140
   br label %149
 
 149:                                              ; preds = %147, %142
@@ -4846,7 +4843,7 @@ bdf_create_property.exit.thread:                  ; preds = %112, %107, %99
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %151 = load ptr, ptr %150, align 8, !tbaa !68
   %152 = load i64, ptr %125, align 8, !tbaa !197
-  %153 = getelementptr inbounds nuw %struct.bdf_property_t_, ptr %151, i64 %152
+  %153 = getelementptr inbounds nuw [24 x i8], ptr %151, i64 %152
   %154 = load ptr, ptr %.061, align 8, !tbaa !159
   store ptr %154, ptr %153, align 8, !tbaa !159
   %155 = getelementptr inbounds nuw i8, ptr %.061, i64 8
@@ -5205,7 +5202,7 @@ define internal range(i32 0, 65536) i32 @bdf_cmap_char_index(ptr noundef readonl
   %.02847 = phi i64 [ %7, %.lr.ph ], [ %.230, %17 ]
   %.03146 = phi i64 [ %6, %.lr.ph ], [ %.233, %17 ]
   %.03445 = phi i64 [ 0, %.lr.ph ], [ %.236, %17 ]
-  %10 = getelementptr inbounds nuw %struct.BDF_encoding_el_, ptr %4, i64 %.02847
+  %10 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %.02847
   %11 = load i64, ptr %10, align 8, !tbaa !99
   %12 = icmp eq i64 %11, %8
   br i1 %12, label %.thread, label %17
@@ -5258,7 +5255,7 @@ define internal range(i32 0, 65536) i32 @bdf_cmap_char_next(ptr noundef readonly
   %.04068 = phi i64 [ %.2, %17 ], [ %10, %.lr.ph.preheader ]
   %.04167 = phi i64 [ %.243, %17 ], [ %9, %.lr.ph.preheader ]
   %.04466 = phi i64 [ %.246, %17 ], [ 0, %.lr.ph.preheader ]
-  %11 = getelementptr inbounds nuw %struct.BDF_encoding_el_, ptr %4, i64 %.04068
+  %11 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %.04068
   %12 = load i64, ptr %11, align 8, !tbaa !99
   %13 = icmp eq i64 %12, %7
   br i1 %13, label %.thread, label %17
@@ -5291,7 +5288,7 @@ define internal range(i32 0, 65536) i32 @bdf_cmap_char_next(ptr noundef readonly
   br i1 %26, label %27, label %.thread60
 
 27:                                               ; preds = %._crit_edge
-  %28 = getelementptr inbounds nuw %struct.BDF_encoding_el_, ptr %4, i64 %.044.lcssa
+  %28 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %.044.lcssa
   %29 = load i64, ptr %28, align 8, !tbaa !99
   %.fr = freeze i64 %29
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 8

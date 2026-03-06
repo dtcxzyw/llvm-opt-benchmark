@@ -8,7 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.H5FL_seq_head_t = type { %struct.H5FL_blk_head_t, i64 }
 %struct.H5HG_heap_t = type { %struct.H5C_cache_entry_t, i64, i64, ptr, i64, i64, ptr, ptr }
 %struct.H5C_cache_entry_t = type { ptr, i64, i64, ptr, i8, ptr, i8, i8, i8, i8, i32, i8, i8, i8, i8, i8, i32, ptr, i32, i32, i32, i32, i32, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i8, i32, i8, i64, ptr, i64, i64, i32, i8, i32, i32, i8, ptr, ptr, ptr }
-%struct.H5HG_obj_t = type { i32, i64, ptr }
 
 @.str = private unnamed_addr constant [12 x i8] c"global heap\00", align 1
 @H5AC_GHEAP = local_unnamed_addr constant [1 x { i32, [4 x i8], ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }] [{ i32, [4 x i8], ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str, i32 4, i32 1, ptr @H5HG__cache_heap_get_initial_load_size, ptr @H5HG__cache_heap_get_final_load_size, ptr null, ptr @H5HG__cache_heap_deserialize, ptr @H5HG__cache_heap_image_len, ptr null, ptr @H5HG__cache_heap_serialize, ptr null, ptr @H5HG__cache_heap_free_icr, ptr null }], align 16
@@ -302,7 +301,7 @@ define internal ptr @H5HG__cache_heap_deserialize(ptr noundef readonly captures(
 
 142:                                              ; preds = %131
   %143 = load i64, ptr %86, align 8, !tbaa !29
-  %144 = getelementptr inbounds nuw %struct.H5HG_obj_t, ptr %136, i64 %143
+  %144 = getelementptr inbounds nuw [24 x i8], ptr %136, i64 %143
   %145 = sub i64 %., %143
   %146 = mul i64 %145, 24
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %144, i8 0, i64 %146, i1 false)
@@ -336,7 +335,7 @@ define internal ptr @H5HG__cache_heap_deserialize(ptr noundef readonly captures(
   %162 = load i8, ptr %128, align 1, !tbaa !34
   %163 = zext i8 %162 to i32
   %164 = load ptr, ptr %75, align 8, !tbaa !28
-  %165 = getelementptr inbounds nuw %struct.H5HG_obj_t, ptr %164, i64 %129
+  %165 = getelementptr inbounds nuw [24 x i8], ptr %164, i64 %129
   store i32 %163, ptr %165, align 8, !tbaa !35
   %166 = getelementptr inbounds nuw i8, ptr %.0204286, i64 3
   %167 = load i8, ptr %166, align 1, !tbaa !34
@@ -400,7 +399,7 @@ define internal ptr @H5HG__cache_heap_deserialize(ptr noundef readonly captures(
   %200 = load i8, ptr %181, align 1, !tbaa !34
   %201 = zext i8 %200 to i64
   %202 = load ptr, ptr %75, align 8, !tbaa !28
-  %203 = getelementptr inbounds nuw %struct.H5HG_obj_t, ptr %202, i64 %129
+  %203 = getelementptr inbounds nuw [24 x i8], ptr %202, i64 %129
   %204 = getelementptr inbounds nuw i8, ptr %203, i64 8
   store i64 %201, ptr %204, align 8, !tbaa !32
   %205 = getelementptr inbounds nuw i8, ptr %.0204286, i64 9
@@ -425,7 +424,7 @@ define internal ptr @H5HG__cache_heap_deserialize(ptr noundef readonly captures(
 
 220:                                              ; preds = %197
   %221 = load ptr, ptr %75, align 8, !tbaa !28
-  %222 = getelementptr inbounds nuw %struct.H5HG_obj_t, ptr %221, i64 %129
+  %222 = getelementptr inbounds nuw [24 x i8], ptr %221, i64 %129
   %223 = getelementptr inbounds nuw i8, ptr %222, i64 8
   store i64 0, ptr %223, align 8, !tbaa !32
   %224 = getelementptr inbounds nuw i8, ptr %.0204286, i64 16
@@ -449,7 +448,7 @@ define internal ptr @H5HG__cache_heap_deserialize(ptr noundef readonly captures(
   %234 = load i8, ptr %181, align 1, !tbaa !34
   %235 = zext i8 %234 to i64
   %236 = load ptr, ptr %75, align 8, !tbaa !28
-  %237 = getelementptr inbounds nuw %struct.H5HG_obj_t, ptr %236, i64 %129
+  %237 = getelementptr inbounds nuw [24 x i8], ptr %236, i64 %129
   %238 = getelementptr inbounds nuw i8, ptr %237, i64 8
   store i64 %235, ptr %238, align 8, !tbaa !32
   %239 = getelementptr inbounds nuw i8, ptr %.0204286, i64 9
@@ -462,7 +461,7 @@ define internal ptr @H5HG__cache_heap_deserialize(ptr noundef readonly captures(
 
 .loopexit:                                        ; preds = %225, %..loopexit_crit_edge, %233, %199
   %244 = phi ptr [ %.pre, %..loopexit_crit_edge ], [ %202, %199 ], [ %236, %233 ], [ %221, %225 ]
-  %245 = getelementptr inbounds nuw %struct.H5HG_obj_t, ptr %244, i64 %129
+  %245 = getelementptr inbounds nuw [24 x i8], ptr %244, i64 %129
   %246 = getelementptr inbounds nuw i8, ptr %245, i64 16
   store ptr %.0204286, ptr %246, align 8, !tbaa !30
   %.not241 = icmp eq i16 %127, 0
@@ -474,7 +473,7 @@ define internal ptr @H5HG__cache_heap_deserialize(ptr noundef readonly captures(
   %250 = add nuw nsw i64 %249, 15
   %251 = and i64 %250, 504
   %252 = load ptr, ptr %75, align 8, !tbaa !28
-  %253 = getelementptr inbounds nuw %struct.H5HG_obj_t, ptr %252, i64 %129
+  %253 = getelementptr inbounds nuw [24 x i8], ptr %252, i64 %129
   %254 = getelementptr inbounds nuw i8, ptr %253, i64 8
   %255 = load i64, ptr %254, align 8, !tbaa !32
   %256 = add i64 %255, 7

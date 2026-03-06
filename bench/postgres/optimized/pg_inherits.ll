@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.ScanKeyData = type { i32, i16, i16, i32, i32, %struct.FmgrInfo, i64 }
 %struct.FmgrInfo = type { ptr, i32, i16, i8, i8, i8, ptr, ptr, ptr }
 %struct.HASHCTL = type { i64, i64, i64, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, ptr }
-%union.ListCell = type { ptr }
 
 @.str = private unnamed_addr constant [67 x i8] c"more than one partition pending detach found for table with OID %u\00", align 1
 @.str.1 = private unnamed_addr constant [14 x i8] c"pg_inherits.c\00", align 1
@@ -98,7 +97,7 @@ has_subclass.exit:                                ; preds = %5
   %.156.us.us.us = phi i32 [ %27, %26 ], [ %.055.ph88.us.us.us, %.thread.split.us.split.us.split.us.us.us.us ]
   %31 = add i32 %.054.ph89.us.us.us, 1
   %32 = sext i32 %.054.ph89.us.us.us to i64
-  %33 = getelementptr inbounds i32, ptr %.158.us.us.us, i64 %32
+  %33 = getelementptr inbounds [4 x i8], ptr %.158.us.us.us, i64 %32
   store i32 %61, ptr %33, align 4
   %34 = call ptr @systable_getnext(ptr noundef %23) #4
   %.not71.us.us.us = icmp eq ptr %34, null
@@ -177,7 +176,7 @@ HeapTupleHeaderGetXmin.exit.us.us.us.us.us.us..thread.split.us.split.us.split.us
   %.156.us.us = phi i32 [ %64, %63 ], [ %.055.ph88.us.us, %.thread.split.us.split.us.split.us108.us ]
   %68 = add i32 %.054.ph89.us.us, 1
   %69 = sext i32 %.054.ph89.us.us to i64
-  %70 = getelementptr inbounds i32, ptr %.158.us.us, i64 %69
+  %70 = getelementptr inbounds [4 x i8], ptr %.158.us.us, i64 %69
   store i32 %98, ptr %70, align 4
   %71 = call ptr @systable_getnext(ptr noundef %23) #4
   %.not71.us.us = icmp eq ptr %71, null
@@ -257,7 +256,7 @@ HeapTupleHeaderGetXmin.exit.us.us.us106.us..thread.split.us.split.us.split.us108
   %.156.us = phi i32 [ %101, %100 ], [ %.055.ph88.us, %.thread.split.us.split.us100 ]
   %105 = add i32 %.054.ph89.us, 1
   %106 = sext i32 %.054.ph89.us to i64
-  %107 = getelementptr inbounds i32, ptr %.158.us, i64 %106
+  %107 = getelementptr inbounds [4 x i8], ptr %.158.us, i64 %106
   store i32 %147, ptr %107, align 4
   %108 = call ptr @systable_getnext(ptr noundef %23) #4
   %.not71.us = icmp eq ptr %108, null
@@ -380,7 +379,7 @@ HeapTupleHeaderGetXmin.exit.us.us98..thread.split.us.split.us100_crit_edge: ; pr
   %.156.us131 = phi i32 [ %156, %155 ], [ %.055.ph88.us125, %.lr.ph.us123 ]
   %160 = add i32 %.054.ph89.us124, 1
   %161 = sext i32 %.054.ph89.us124 to i64
-  %162 = getelementptr inbounds i32, ptr %.158.us130, i64 %161
+  %162 = getelementptr inbounds [4 x i8], ptr %.158.us130, i64 %161
   store i32 %154, ptr %162, align 4
   %163 = call ptr @systable_getnext(ptr noundef %23) #4
   %.not71.us132 = icmp eq ptr %163, null
@@ -430,7 +429,7 @@ HeapTupleHeaderGetXmin.exit.us.us98..thread.split.us.split.us100_crit_edge: ; pr
   %.156 = phi i32 [ %177, %176 ], [ %.055.ph88, %.thread.split ]
   %181 = add i32 %.054.ph89, 1
   %182 = sext i32 %.054.ph89 to i64
-  %183 = getelementptr inbounds i32, ptr %.158, i64 %182
+  %183 = getelementptr inbounds [4 x i8], ptr %.158, i64 %182
   store i32 %175, ptr %183, align 4
   %184 = call ptr @systable_getnext(ptr noundef %23) #4
   %.not71 = icmp eq ptr %184, null
@@ -461,7 +460,7 @@ HeapTupleHeaderGetXmin.exit.us.us98..thread.split.us.split.us100_crit_edge: ; pr
 .lr.ph149.split.us:                               ; preds = %.lr.ph149, %.lr.ph149.split.us
   %indvars.iv179 = phi i64 [ %indvars.iv.next180, %.lr.ph149.split.us ], [ 0, %.lr.ph149 ]
   %.051147.us = phi ptr [ %191, %.lr.ph149.split.us ], [ null, %.lr.ph149 ]
-  %189 = getelementptr inbounds nuw i32, ptr %.057.ph.lcssa, i64 %indvars.iv179
+  %189 = getelementptr inbounds nuw [4 x i8], ptr %.057.ph.lcssa, i64 %indvars.iv179
   %190 = load i32, ptr %189, align 4
   %191 = call ptr @lappend_oid(ptr noundef %.051147.us, i32 noundef %190) #4
   %indvars.iv.next180 = add nuw nsw i64 %indvars.iv179, 1
@@ -471,7 +470,7 @@ HeapTupleHeaderGetXmin.exit.us.us98..thread.split.us.split.us100_crit_edge: ; pr
 .lr.ph149.split:                                  ; preds = %.lr.ph149, %199
   %indvars.iv = phi i64 [ %indvars.iv.next, %199 ], [ 0, %.lr.ph149 ]
   %.051147 = phi ptr [ %.1, %199 ], [ null, %.lr.ph149 ]
-  %192 = getelementptr inbounds nuw i32, ptr %.057.ph.lcssa, i64 %indvars.iv
+  %192 = getelementptr inbounds nuw [4 x i8], ptr %.057.ph.lcssa, i64 %indvars.iv
   %193 = load i32, ptr %192, align 4
   call void @LockRelationOid(i32 noundef %193, i32 noundef %2) #4
   %194 = zext i32 %193 to i64
@@ -610,7 +609,7 @@ define dso_local ptr @find_all_inheritors(i32 noundef %0, i32 noundef %1, ptr no
   %.06478 = phi ptr [ %.1.lcssa, %.critedge46 ], [ %13, %.lr.ph65 ]
   %indvars.iv7277 = phi i64 [ %indvars.iv.next73, %.critedge46 ], [ 0, %.lr.ph65 ]
   %19 = load ptr, ptr %16, align 8
-  %20 = getelementptr inbounds nuw %union.ListCell, ptr %19, i64 %indvars.iv7277
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv7277
   %21 = load i32, ptr %20, align 8
   %22 = call ptr @find_inheritance_children_extended(i32 noundef %21, i1 noundef zeroext true, i32 noundef %1, ptr noundef null, ptr noundef null)
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
@@ -634,7 +633,7 @@ define dso_local ptr @find_all_inheritors(i32 noundef %0, i32 noundef %1, ptr no
   %.1344858 = phi ptr [ %.235, %53 ], [ %.0336379, %.lr.ph ]
   %.14957 = phi ptr [ %.2, %53 ], [ %.06478, %.lr.ph ]
   %27 = load ptr, ptr %24, align 8
-  %28 = getelementptr inbounds nuw %union.ListCell, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %29 = load i32, ptr %28, align 8
   store i32 %29, ptr %5, align 4
@@ -659,7 +658,7 @@ define dso_local ptr @find_all_inheritors(i32 noundef %0, i32 noundef %1, ptr no
   %39 = getelementptr i8, ptr %.1344858, i64 16
   %.134.val = load ptr, ptr %39, align 8
   %40 = sext i32 %38 to i64
-  %41 = getelementptr inbounds %union.ListCell, ptr %.134.val, i64 %40
+  %41 = getelementptr inbounds [8 x i8], ptr %.134.val, i64 %40
   %42 = load i32, ptr %41, align 8
   %43 = add i32 %42, 1
   store i32 %43, ptr %41, align 8
@@ -797,7 +796,7 @@ has_subclass.exit:                                ; preds = %9
   %.0387489 = phi ptr [ %.240.ph, %52 ], [ %25, %.lr.ph76 ]
   %.0357588 = phi ptr [ %.237.ph, %52 ], [ null, %.lr.ph76 ]
   %31 = load ptr, ptr %28, align 8
-  %32 = getelementptr inbounds nuw %union.ListCell, ptr %31, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv
   %33 = load i32, ptr %32, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %34 = call zeroext i1 @list_member_oid(ptr noundef %.0357588, i32 noundef %33) #4

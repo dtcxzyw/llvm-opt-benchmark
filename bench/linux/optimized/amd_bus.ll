@@ -78,7 +78,7 @@ define internal fastcc void @early_root_info_init() unnamed_addr #0 section ".in
 .preheader53:                                     ; preds = %0, %21
   %5 = phi i64 [ %24, %21 ], [ 0, %0 ]
   %6 = phi i8 [ %23, %21 ], [ 0, %0 ]
-  %7 = getelementptr %struct.amd_hostbridge, ptr @hb_probes, i64 %5
+  %7 = getelementptr [12 x i8], ptr @hb_probes, i64 %5
   %8 = load i32, ptr %7, align 4
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %10 = load i32, ptr %9, align 4
@@ -243,7 +243,7 @@ define internal fastcc void @early_root_info_init() unnamed_addr #0 section ".in
 
 .preheader48:                                     ; preds = %113, %123
   %115 = phi i64 [ %124, %123 ], [ 0, %113 ]
-  %116 = getelementptr %struct.range, ptr %1, i64 %115
+  %116 = getelementptr [16 x i8], ptr %1, i64 %115
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 8
   %118 = load i64, ptr %117, align 8
   %119 = icmp eq i64 %118, 0
@@ -470,7 +470,7 @@ native_read_msr.exit35:                           ; preds = %219, %222
 
 .preheader44:                                     ; preds = %247, %257
   %249 = phi i64 [ %258, %257 ], [ 0, %247 ]
-  %250 = getelementptr %struct.range, ptr %1, i64 %249
+  %250 = getelementptr [16 x i8], ptr %1, i64 %249
   %251 = getelementptr inbounds nuw i8, ptr %250, i64 8
   %252 = load i64, ptr %251, align 8
   %253 = icmp eq i64 %252, 0
@@ -665,7 +665,7 @@ define internal fastcc void @pci_enable_pci_io_ecs() unnamed_addr #0 section ".i
 .backedge:                                        ; preds = %.lr.ph, %.loopexit.loopexit
   %.be = add i32 %5, 1
   %27 = zext i32 %.be to i64
-  %28 = getelementptr %struct.amd_nb_bus_dev_range, ptr @amd_nb_bus_dev_ranges, i64 %27
+  %28 = getelementptr [3 x i8], ptr @amd_nb_bus_dev_ranges, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 2
   %30 = load i8, ptr %29, align 1
   %31 = icmp eq i8 %30, 0

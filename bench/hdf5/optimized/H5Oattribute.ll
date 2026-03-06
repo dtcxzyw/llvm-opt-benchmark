@@ -19,7 +19,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.H5O_iter_ren_t = type { ptr, ptr, ptr, i8 }
 %struct.H5G_loc_t = type { ptr, ptr }
 %struct.H5O_iter_rm_t = type { ptr, ptr, i8 }
-%struct.H5O_mesg_t = type { ptr, i8, i8, i32, i32, ptr, ptr, i64 }
 %struct.H5O_iter_xst_t = type { ptr, ptr }
 
 @H5O_init_g = external local_unnamed_addr global i8, align 1
@@ -884,7 +883,7 @@ define internal fastcc range(i32 -1, 2) i32 @H5O__attr_find_opened_attr(ptr noun
 55:                                               ; preds = %.lr.ph, %89
   %.02655 = phi i64 [ 0, %.lr.ph ], [ %90, %89 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %56 = getelementptr inbounds nuw i64, ptr %34, i64 %.02655
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %.02655
   %57 = load i64, ptr %56, align 8, !tbaa !27
   %58 = call ptr @H5VL_object_verify(i64 noundef %57, i32 noundef 7) #10
   store ptr %58, ptr %1, align 8, !tbaa !64
@@ -2458,7 +2457,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__attr_remove_update(ptr noundef
   %.05582 = phi i64 [ 0, %.lr.ph ], [ %33, %32 ]
   %36 = load ptr, ptr %0, align 8, !tbaa !10
   %37 = load ptr, ptr %28, align 8, !tbaa !77
-  %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %.05582
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %.05582
   %39 = load ptr, ptr %38, align 8, !tbaa !64
   %40 = call i64 @H5O_msg_size_oh(ptr noundef %36, ptr noundef nonnull %1, i32 noundef 12, ptr noundef %39, i64 noundef 0) #10
   %41 = icmp ugt i64 %40, 65535
@@ -2477,7 +2476,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__attr_remove_update(ptr noundef
 44:                                               ; preds = %.lr.ph84, %105
   %.15683 = phi i64 [ 0, %.lr.ph84 ], [ %106, %105 ]
   %45 = load ptr, ptr %43, align 8, !tbaa !77
-  %46 = getelementptr inbounds nuw ptr, ptr %45, i64 %.15683
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %.15683
   %47 = load ptr, ptr %46, align 8, !tbaa !64
   %48 = call i32 @H5O_msg_is_shared(i32 noundef 12, ptr noundef %47) #10
   %49 = icmp slt i32 %48, 0
@@ -2496,7 +2495,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__attr_remove_update(ptr noundef
 56:                                               ; preds = %54
   %57 = load ptr, ptr %0, align 8, !tbaa !10
   %58 = load ptr, ptr %43, align 8, !tbaa !77
-  %59 = getelementptr inbounds nuw ptr, ptr %58, i64 %.15683
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %.15683
   %60 = load ptr, ptr %59, align 8, !tbaa !64
   %61 = call i32 @H5O__attr_link(ptr noundef %57, ptr noundef nonnull %1, ptr noundef %60) #10
   %62 = icmp slt i32 %61, 0
@@ -2504,7 +2503,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__attr_remove_update(ptr noundef
 
 ._crit_edge86:                                    ; preds = %56
   %.pre = load ptr, ptr %43, align 8, !tbaa !77
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre, i64 %.15683
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %.15683
   %.pre87 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !64
   br label %71
 
@@ -2516,7 +2515,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__attr_remove_update(ptr noundef
 
 67:                                               ; preds = %54
   %68 = load ptr, ptr %43, align 8, !tbaa !77
-  %69 = getelementptr inbounds nuw ptr, ptr %68, i64 %.15683
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %.15683
   %70 = load ptr, ptr %69, align 8, !tbaa !64
   store i32 0, ptr %70, align 8, !tbaa !105
   br label %71
@@ -2558,7 +2557,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__attr_remove_update(ptr noundef
 
 95:                                               ; preds = %83
   %96 = load ptr, ptr %43, align 8, !tbaa !77
-  %97 = getelementptr inbounds nuw ptr, ptr %96, i64 %.15683
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %96, i64 %.15683
   %98 = load ptr, ptr %97, align 8, !tbaa !64
   %99 = call i32 @H5O__msg_append_real(ptr noundef %87, ptr noundef nonnull %1, ptr noundef nonnull @H5O_MSG_ATTR, i32 noundef 0, i32 noundef 0, ptr noundef %98) #10
   %100 = icmp slt i32 %99, 0
@@ -2745,7 +2744,7 @@ define range(i32 -1, 1) i32 @H5O__attr_remove_by_idx(ptr noundef %0, i32 noundef
   store ptr %57, ptr %8, align 8, !tbaa !99
   %58 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %59 = load ptr, ptr %58, align 8, !tbaa !77
-  %60 = getelementptr inbounds nuw ptr, ptr %59, i64 %3
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %3
   %61 = load ptr, ptr %60, align 8, !tbaa !64
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 96
   %63 = load ptr, ptr %62, align 8, !tbaa !15
@@ -2922,7 +2921,7 @@ define range(i32 -1, 1) i32 @H5O__attr_count_real(ptr noundef %0, ptr noundef %1
   %31 = phi i64 [ 0, %.lr.ph ], [ %37, %30 ]
   %.025 = phi i32 [ 0, %.lr.ph ], [ %36, %30 ]
   %.01724 = phi i64 [ 0, %.lr.ph ], [ %spec.select, %30 ]
-  %32 = getelementptr inbounds nuw %struct.H5O_mesg_t, ptr %18, i64 %31
+  %32 = getelementptr inbounds nuw [48 x i8], ptr %18, i64 %31
   %33 = load ptr, ptr %32, align 8, !tbaa !110
   %34 = icmp eq ptr %33, @H5O_MSG_ATTR
   %35 = zext i1 %34 to i64

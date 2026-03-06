@@ -33,7 +33,7 @@ define nonnull ptr @_sfcvt(ptr noundef readonly captures(none) %0, i32 noundef %
   %.0265 = phi i64 [ %.1266, %29 ], [ 5, %8 ]
   %.2 = phi double [ %.3, %29 ], [ %.0253, %8 ]
   %13 = fpext double %.2 to x86_fp80
-  %14 = getelementptr inbounds x86_fp80, ptr @_Sftable, i64 %.0265
+  %14 = getelementptr inbounds [16 x i8], ptr @_Sftable, i64 %.0265
   %15 = load x86_fp80, ptr %14, align 16, !tbaa !9
   %16 = fcmp ogt x86_fp80 %15, %13
   br i1 %16, label %17, label %19
@@ -43,7 +43,7 @@ define nonnull ptr @_sfcvt(ptr noundef readonly captures(none) %0, i32 noundef %
   br label %29
 
 19:                                               ; preds = %.preheader324
-  %20 = getelementptr inbounds x86_fp80, ptr getelementptr inbounds nuw (i8, ptr @_Sftable, i64 96), i64 %.0265
+  %20 = getelementptr inbounds [16 x i8], ptr getelementptr inbounds nuw (i8, ptr @_Sftable, i64 96), i64 %.0265
   %21 = load x86_fp80, ptr %20, align 16, !tbaa !9
   %22 = fmul x86_fp80 %21, %13
   %23 = fptrunc x86_fp80 %22 to double

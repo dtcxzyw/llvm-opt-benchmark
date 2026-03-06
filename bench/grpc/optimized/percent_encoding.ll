@@ -85,7 +85,7 @@ _ZN9grpc_core12_GLOBAL__N_133LookupTableForPercentEncodingTypeENS_19PercentEncod
   %18 = load i8, ptr %.03957, align 1, !tbaa !9
   %19 = zext i8 %18 to i64
   %20 = lshr i64 %19, 6
-  %21 = getelementptr inbounds nuw i64, ptr %.0.i, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %20
   %22 = load i64, ptr %21, align 8, !tbaa !10
   %23 = and i64 %19, 63
   %24 = shl nuw i64 1, %23
@@ -129,7 +129,7 @@ _ZN9grpc_core12_GLOBAL__N_133LookupTableForPercentEncodingTypeENS_19PercentEncod
   %43 = load i8, ptr %.03863, align 1, !tbaa !9
   %44 = zext i8 %43 to i64
   %45 = lshr i64 %44, 6
-  %46 = getelementptr inbounds nuw i64, ptr %.0.i, i64 %45
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %45
   %47 = load i64, ptr %46, align 8, !tbaa !10
   %48 = and i64 %44, 63
   %49 = shl nuw i64 1, %48

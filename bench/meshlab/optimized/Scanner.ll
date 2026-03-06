@@ -355,7 +355,7 @@ define noalias noundef nonnull ptr @_ZN14VrmlTranslator6Buffer9GetStringEii(ptr 
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %20 = load ptr, ptr %19, align 8
   %21 = tail call noundef i32 %20(ptr noundef nonnull align 8 dereferenceable(49) %0)
-  %22 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv
   store i32 %21, ptr %22, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %5
@@ -670,7 +670,7 @@ define noundef nonnull ptr @_Z18coco_string_createPKw(ptr noundef %0) local_unna
   %9 = phi i64 [ 4, %1 ], [ %spec.select, %2 ]
   %10 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %9) #23
   %11 = tail call ptr @wcsncpy(ptr noundef nonnull %10, ptr noundef %0, i64 noundef %.011) #24
-  %12 = getelementptr inbounds i32, ptr %10, i64 %.011
+  %12 = getelementptr inbounds [4 x i8], ptr %10, i64 %.011
   store i32 0, ptr %12, align 4
   ret ptr %10
 }
@@ -695,10 +695,10 @@ define noundef nonnull ptr @_Z18coco_string_createPKwii(ptr noundef %0, i32 noun
   %8 = select i1 %6, i64 -1, i64 %7
   %9 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %8) #23
   %10 = sext i32 %1 to i64
-  %11 = getelementptr inbounds i32, ptr %0, i64 %10
+  %11 = getelementptr inbounds [4 x i8], ptr %0, i64 %10
   %12 = sext i32 %spec.select to i64
   %13 = tail call ptr @wcsncpy(ptr noundef nonnull %9, ptr noundef %11, i64 noundef %12) #24
-  %14 = getelementptr inbounds i32, ptr %9, i64 %12
+  %14 = getelementptr inbounds [4 x i8], ptr %9, i64 %12
   store i32 0, ptr %14, align 4
   ret ptr %9
 }
@@ -726,13 +726,13 @@ define noalias noundef ptr @_Z24coco_string_create_upperPKw(ptr noundef readonly
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %10 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4
   %12 = add i32 %11, -97
   %or.cond = icmp ult i32 %12, 26
   %13 = add nsw i32 %11, -32
   %spec.select = select i1 %or.cond, i32 %13, i32 %11
-  %14 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv
   store i32 %spec.select, ptr %14, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -768,13 +768,13 @@ define noalias noundef ptr @_Z24coco_string_create_lowerPKw(ptr noundef readonly
 
 .lr.ph.i:                                         ; preds = %2, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %2 ]
-  %gep.i = getelementptr i32, ptr %0, i64 %indvars.iv.i
+  %gep.i = getelementptr [4 x i8], ptr %0, i64 %indvars.iv.i
   %11 = load i32, ptr %gep.i, align 4
   %12 = add i32 %11, -65
   %or.cond.i = icmp ult i32 %12, 26
   %13 = or disjoint i32 %11, 32
   %spec.select.i = select i1 %or.cond.i, i32 %13, i32 %11
-  %14 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv.i
   store i32 %spec.select.i, ptr %14, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %6
@@ -809,18 +809,18 @@ define noalias noundef ptr @_Z24coco_string_create_lowerPKwii(ptr noundef readon
 
 .lr.ph.preheader:                                 ; preds = %4
   %11 = sext i32 %1 to i64
-  %invariant.gep = getelementptr i32, ptr %0, i64 %11
+  %invariant.gep = getelementptr [4 x i8], ptr %0, i64 %11
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %indvars.iv
   %12 = load i32, ptr %gep, align 4
   %13 = add i32 %12, -65
   %or.cond = icmp ult i32 %13, 26
   %14 = or disjoint i32 %12, 32
   %spec.select = select i1 %or.cond, i32 %14, i32 %12
-  %15 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv
   store i32 %spec.select, ptr %15, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %6
@@ -828,7 +828,7 @@ define noalias noundef ptr @_Z24coco_string_create_lowerPKwii(ptr noundef readon
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %16 = sext i32 %2 to i64
-  %17 = getelementptr inbounds i32, ptr %10, i64 %16
+  %17 = getelementptr inbounds [4 x i8], ptr %10, i64 %16
   store i32 0, ptr %17, align 4
   br label %18
 
@@ -877,13 +877,13 @@ define noundef nonnull ptr @_Z25coco_string_create_appendPKwS0_(ptr noundef %0, 
 
 21:                                               ; preds = %20
   %22 = sext i32 %.016 to i64
-  %23 = getelementptr inbounds i32, ptr %17, i64 %22
+  %23 = getelementptr inbounds [4 x i8], ptr %17, i64 %22
   %24 = tail call ptr @wcscpy(ptr noundef nonnull %23, ptr noundef nonnull %1) #24
   br label %25
 
 25:                                               ; preds = %21, %20
   %26 = sext i32 %11 to i64
-  %27 = getelementptr inbounds i32, ptr %17, i64 %26
+  %27 = getelementptr inbounds [4 x i8], ptr %17, i64 %26
   store i32 0, ptr %27, align 4
   ret ptr %17
 }
@@ -913,7 +913,7 @@ _Z18coco_string_lengthPKw.exit.thread:            ; preds = %_Z18coco_string_len
   %9 = phi i64 [ 8, %2 ], [ %spec.select, %_Z18coco_string_lengthPKw.exit ]
   %10 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %9) #23
   %11 = tail call ptr @wcsncpy(ptr noundef nonnull %10, ptr noundef %0, i64 noundef %.0.i12) #24
-  %12 = getelementptr inbounds i32, ptr %10, i64 %.0.i12
+  %12 = getelementptr inbounds [4 x i8], ptr %10, i64 %.0.i12
   store i32 %1, ptr %12, align 4
   %13 = getelementptr i8, ptr %12, i64 4
   store i32 0, ptr %13, align 4
@@ -969,7 +969,7 @@ define noundef zeroext i1 @_Z20coco_string_endswithPKwS0_(ptr noundef readonly %
   %sext8 = shl i64 %5, 32
   %10 = ashr exact i64 %sext8, 32
   %11 = sub nsw i64 0, %10
-  %12 = getelementptr inbounds i32, ptr %9, i64 %11
+  %12 = getelementptr inbounds [4 x i8], ptr %9, i64 %11
   %13 = tail call i32 @wcscmp(ptr noundef %12, ptr noundef %1) #26
   %14 = icmp eq i32 %13, 0
   br label %15
@@ -1048,10 +1048,10 @@ define void @_Z17coco_string_mergeRPwPKw(ptr noundef nonnull align 8 captures(no
 
 _Z25coco_string_create_appendPKwS0_.exit:         ; preds = %18, %8
   %20 = sext i32 %.016.i to i64
-  %21 = getelementptr inbounds i32, ptr %17, i64 %20
+  %21 = getelementptr inbounds [4 x i8], ptr %17, i64 %20
   %22 = tail call ptr @wcscpy(ptr noundef nonnull %21, ptr noundef nonnull %1) #24
   %23 = sext i32 %11 to i64
-  %24 = getelementptr inbounds i32, ptr %17, i64 %23
+  %24 = getelementptr inbounds [4 x i8], ptr %17, i64 %23
   store i32 0, ptr %24, align 4
   %25 = load ptr, ptr %0, align 8
   %26 = icmp eq ptr %25, null
@@ -1143,7 +1143,7 @@ define noalias noundef nonnull ptr @_Z18coco_string_createPKc(ptr noundef readon
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %11 = load i8, ptr %10, align 1
   %12 = sext i8 %11 to i32
-  %13 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   store i32 %12, ptr %13, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1186,7 +1186,7 @@ _Z18coco_string_lengthPKw.exit:                   ; preds = %1, %2
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %9 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4
   %11 = trunc i32 %10 to i8
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv
@@ -1641,7 +1641,7 @@ define void @_ZN14VrmlTranslator7Scanner4InitEv(ptr noundef nonnull align 8 dere
   store i32 1, ptr %15, align 4
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %17 = load ptr, ptr %5, align 8
-  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8
   store ptr %19, ptr %16, align 8
   store ptr %13, ptr %18, align 8
@@ -1671,7 +1671,7 @@ define void @_ZN14VrmlTranslator7Scanner4InitEv(ptr noundef nonnull align 8 dere
   store i32 1, ptr %28, align 4
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %30 = load ptr, ptr %5, align 8
-  %31 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv76
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv76
   %32 = load ptr, ptr %31, align 8
   store ptr %32, ptr %29, align 8
   store ptr %26, ptr %31, align 8
@@ -1688,7 +1688,7 @@ define void @_ZN14VrmlTranslator7Scanner4InitEv(ptr noundef nonnull align 8 dere
   store i32 1, ptr %36, align 4
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %38 = load ptr, ptr %5, align 8
-  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv80
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv80
   %40 = load ptr, ptr %39, align 8
   store ptr %40, ptr %37, align 8
   store ptr %34, ptr %39, align 8
@@ -1705,7 +1705,7 @@ define void @_ZN14VrmlTranslator7Scanner4InitEv(ptr noundef nonnull align 8 dere
   store i32 1, ptr %43, align 4
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %45 = load ptr, ptr %5, align 8
-  %46 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv84
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv84
   %47 = load ptr, ptr %46, align 8
   store ptr %47, ptr %44, align 8
   store ptr %41, ptr %46, align 8
@@ -1745,7 +1745,7 @@ define void @_ZN14VrmlTranslator7Scanner4InitEv(ptr noundef nonnull align 8 dere
   store i32 1, ptr %62, align 4
   %63 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %64 = load ptr, ptr %5, align 8
-  %65 = getelementptr inbounds nuw ptr, ptr %64, i64 %indvars.iv88
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %indvars.iv88
   %66 = load ptr, ptr %65, align 8
   store ptr %66, ptr %63, align 8
   store ptr %60, ptr %65, align 8
@@ -1763,7 +1763,7 @@ define void @_ZN14VrmlTranslator7Scanner4InitEv(ptr noundef nonnull align 8 dere
   %71 = and i32 %.973, 127
   %72 = load ptr, ptr %5, align 8
   %73 = zext nneg i32 %71 to i64
-  %74 = getelementptr inbounds nuw ptr, ptr %72, i64 %73
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %73
   %75 = load ptr, ptr %74, align 8
   store ptr %75, ptr %70, align 8
   store ptr %68, ptr %74, align 8
@@ -1780,7 +1780,7 @@ define void @_ZN14VrmlTranslator7Scanner4InitEv(ptr noundef nonnull align 8 dere
   store i32 35, ptr %79, align 4
   %80 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %81 = load ptr, ptr %5, align 8
-  %82 = getelementptr inbounds nuw ptr, ptr %81, i64 %indvars.iv93
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %indvars.iv93
   %83 = load ptr, ptr %82, align 8
   store ptr %83, ptr %80, align 8
   store ptr %77, ptr %82, align 8
@@ -2391,7 +2391,7 @@ define linkonce_odr void @_ZN14VrmlTranslator10KeywordMapD2Ev(ptr noundef nonnul
 3:                                                ; preds = %1, %._crit_edge
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %._crit_edge ]
   %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8
   %.not9 = icmp eq ptr %6, null
   br i1 %.not9, label %._crit_edge, label %.lr.ph
@@ -2434,7 +2434,7 @@ define linkonce_odr void @_ZN14VrmlTranslator11StartStatesD2Ev(ptr noundef nonnu
 3:                                                ; preds = %1, %._crit_edge
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %._crit_edge ]
   %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8
   %.not9 = icmp eq ptr %6, null
   br i1 %.not9, label %._crit_edge, label %.lr.ph
@@ -2477,7 +2477,7 @@ define linkonce_odr void @_ZN14VrmlTranslator11StartStatesD0Ev(ptr noundef nonnu
 3:                                                ; preds = %._crit_edge.i, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %._crit_edge.i ]
   %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.i
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i
   %6 = load ptr, ptr %5, align 8
   %.not9.i = icmp eq ptr %6, null
   br i1 %.not9.i, label %._crit_edge.i, label %.lr.ph.i
@@ -2518,7 +2518,7 @@ define linkonce_odr void @_ZN14VrmlTranslator10KeywordMapD0Ev(ptr noundef nonnul
 3:                                                ; preds = %._crit_edge.i, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %._crit_edge.i ]
   %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.i
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i
   %6 = load ptr, ptr %5, align 8
   %.not9.i = icmp eq ptr %6, null
   br i1 %.not9.i, label %._crit_edge.i, label %.lr.ph.i
@@ -2596,7 +2596,7 @@ _Z18coco_string_lengthPKw.exit.i:                 ; preds = %11, %9
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %18 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv.i
   %19 = load i32, ptr %18, align 4
   %20 = trunc i32 %19 to i8
   %21 = getelementptr inbounds nuw i8, ptr %16, i64 %indvars.iv.i
@@ -2779,7 +2779,7 @@ define void @_ZN14VrmlTranslator7ScannerD2Ev(ptr noundef nonnull align 8 capture
 21:                                               ; preds = %._crit_edge.i, %18
   %indvars.iv.i = phi i64 [ 0, %18 ], [ %indvars.iv.next.i, %._crit_edge.i ]
   %22 = load ptr, ptr %20, align 8
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv.i
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv.i
   %24 = load ptr, ptr %23, align 8
   %.not9.i = icmp eq ptr %24, null
   br i1 %.not9.i, label %._crit_edge.i, label %.lr.ph.i
@@ -2818,7 +2818,7 @@ _ZN14VrmlTranslator10KeywordMapD2Ev.exit:         ; preds = %30, %33
 36:                                               ; preds = %._crit_edge.i11, %_ZN14VrmlTranslator10KeywordMapD2Ev.exit
   %indvars.iv.i6 = phi i64 [ 0, %_ZN14VrmlTranslator10KeywordMapD2Ev.exit ], [ %indvars.iv.next.i12, %._crit_edge.i11 ]
   %37 = load ptr, ptr %35, align 8
-  %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv.i6
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv.i6
   %39 = load ptr, ptr %38, align 8
   %.not9.i7 = icmp eq ptr %39, null
   br i1 %.not9.i7, label %._crit_edge.i11, label %.lr.ph.i8
@@ -2879,7 +2879,7 @@ _Z18coco_string_createPKw.exit.i:                 ; preds = %5, %3
 
 14:                                               ; preds = %_Z18coco_string_createPKw.exit.i
   %15 = tail call ptr @wcsncpy(ptr noundef nonnull %13, ptr noundef %1, i64 noundef %.011.i.i) #24
-  %16 = getelementptr inbounds i32, ptr %13, i64 %.011.i.i
+  %16 = getelementptr inbounds [4 x i8], ptr %13, i64 %.011.i.i
   store i32 0, ptr %16, align 4
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %13, ptr %17, align 8
@@ -2915,7 +2915,7 @@ _Z16coco_string_hashPKw.exit:                     ; preds = %14, %.preheader.i, 
   %.09.i = phi i64 [ 0, %14 ], [ 0, %.preheader.i ], [ %28, %._crit_edge.loopexit.i ]
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds nuw ptr, ptr %30, i64 %.09.i
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %.09.i
   %32 = load ptr, ptr %31, align 8
   store ptr %32, ptr %19, align 8
   store ptr %4, ptr %31, align 8
@@ -3150,7 +3150,7 @@ define void @_ZN14VrmlTranslator7Scanner5AddChEv(ptr noundef nonnull align 8 cap
   %25 = add nsw i32 %21, 1
   store i32 %25, ptr %2, align 4
   %26 = sext i32 %21 to i64
-  %27 = getelementptr inbounds i32, ptr %22, i64 %26
+  %27 = getelementptr inbounds [4 x i8], ptr %22, i64 %26
   store i32 %24, ptr %27, align 4
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %29 = load i32, ptr %28, align 8
@@ -3591,7 +3591,7 @@ _ZN14VrmlTranslator7Scanner15CreateHeapBlockEv.exit: ; preds = %_ZN14VrmlTransla
   %46 = load ptr, ptr %37, align 8
   %47 = load i32, ptr %3, align 4
   %48 = sext i32 %47 to i64
-  %49 = getelementptr inbounds i32, ptr %46, i64 %48
+  %49 = getelementptr inbounds [4 x i8], ptr %46, i64 %48
   store i32 0, ptr %49, align 4
   ret void
 }
@@ -3765,7 +3765,7 @@ _ZN14VrmlTranslator7Scanner11CreateTokenEv.exit:  ; preds = %.loopexit, %_ZN14Vr
   %86 = load ptr, ptr %85, align 8
   %87 = and i32 %84, 127
   %88 = zext nneg i32 %87 to i64
-  %89 = getelementptr inbounds nuw ptr, ptr %86, i64 %88
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %86, i64 %88
   %.09.i = load ptr, ptr %89, align 8
   %cond10.i = icmp eq ptr %.09.i, null
   br i1 %cond10.i, label %_ZN14VrmlTranslator11StartStates5stateEi.exit.thread, label %.lr.ph.i
@@ -4021,7 +4021,7 @@ _ZN14VrmlTranslator7Scanner5AddChEv.exit:         ; preds = %_ZN14VrmlTranslator
   %150 = add nsw i32 %148, 1
   store i32 %150, ptr %96, align 4
   %151 = sext i32 %148 to i64
-  %152 = getelementptr inbounds i32, ptr %149, i64 %151
+  %152 = getelementptr inbounds [4 x i8], ptr %149, i64 %151
   store i32 %147, ptr %152, align 4
   %153 = load i32, ptr %3, align 8
   %154 = icmp sgt i32 %153, 0
@@ -4106,7 +4106,7 @@ _ZN14VrmlTranslator7Scanner5AddChEv.exit.backedge: ; preds = %155, %182, %187
   %199 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %198) #23
   %200 = sext i32 %spec.select.i to i64
   %201 = tail call ptr @wcsncpy(ptr noundef nonnull %199, ptr noundef %192, i64 noundef %200) #24
-  %202 = getelementptr inbounds i32, ptr %199, i64 %200
+  %202 = getelementptr inbounds [4 x i8], ptr %199, i64 %200
   store i32 0, ptr %202, align 4
   %203 = load ptr, ptr %75, align 8
   %204 = load i32, ptr %203, align 8
@@ -4135,7 +4135,7 @@ _ZN14VrmlTranslator7Scanner5AddChEv.exit.backedge: ; preds = %155, %182, %187
 
 _Z16coco_string_hashPKw.exit.i:                   ; preds = %._crit_edge.loopexit.i.i, %190
   %.09.i.i = phi i64 [ %215, %._crit_edge.loopexit.i.i ], [ 0, %190 ]
-  %216 = getelementptr inbounds nuw ptr, ptr %206, i64 %.09.i.i
+  %216 = getelementptr inbounds nuw [8 x i8], ptr %206, i64 %.09.i.i
   %.09.i236 = load ptr, ptr %216, align 8
   %cond10.i237 = icmp eq ptr %.09.i236, null
   br i1 %cond10.i237, label %_Z18coco_string_deleteRPw.exit, label %.lr.ph.i238
@@ -4492,7 +4492,7 @@ _ZN14VrmlTranslator7Scanner5AddChEv.exit252:      ; preds = %_ZN14VrmlTranslator
   %336 = add nsw i32 %334, 1
   store i32 %336, ptr %96, align 4
   %337 = sext i32 %334 to i64
-  %338 = getelementptr inbounds i32, ptr %335, i64 %337
+  %338 = getelementptr inbounds [4 x i8], ptr %335, i64 %337
   store i32 %333, ptr %338, align 4
   %339 = load i32, ptr %3, align 8
   %340 = icmp sgt i32 %339, 0
@@ -5587,7 +5587,7 @@ define linkonce_odr noundef i32 @_ZN14VrmlTranslator10KeywordMap3getEPKwi(ptr no
 
 _Z16coco_string_hashPKw.exit:                     ; preds = %3, %.preheader.i, %._crit_edge.loopexit.i
   %.09.i = phi i64 [ 0, %3 ], [ 0, %.preheader.i ], [ %14, %._crit_edge.loopexit.i ]
-  %15 = getelementptr inbounds nuw ptr, ptr %5, i64 %.09.i
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.09.i
   %.09 = load ptr, ptr %15, align 8
   %cond10 = icmp eq ptr %.09, null
   br i1 %cond10, label %.loopexit, label %.lr.ph

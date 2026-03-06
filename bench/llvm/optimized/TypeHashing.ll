@@ -119,7 +119,7 @@ define dso_local i64 @_ZN4llvm8codeview18GloballyHashedType8hashTypeENS_8ArrayRe
   br i1 %.not54, label %41, label %51
 
 41:                                               ; preds = %37
-  %42 = getelementptr inbounds nuw %"struct.llvm::codeview::GloballyHashedType", ptr %.sroa.071.0.copyload.sroa.speculated, i64 %40
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.071.0.copyload.sroa.speculated, i64 %40
   %43 = load i64, ptr %42, align 8, !tbaa !8
   %44 = icmp eq i64 %43, 0
   br i1 %44, label %51, label %.critedge

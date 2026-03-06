@@ -424,7 +424,7 @@ define ptr @dt_iop_commit_blend_params(ptr noundef %0, ptr noundef %1) local_unn
   %55 = load i32, ptr %53, align 8, !tbaa !43
   %narrow.i = tail call i32 @llvm.smin.i32(i32 %55, i32 7)
   %spec.select.i = sext i32 %narrow.i to i64
-  %56 = getelementptr inbounds ptr, ptr @__const.dt_iop_get_instance_id.ids, i64 %spec.select.i
+  %56 = getelementptr inbounds [8 x i8], ptr @__const.dt_iop_get_instance_id.ids, i64 %spec.select.i
   %57 = load ptr, ptr %56, align 8, !tbaa !80
   %.not52 = icmp eq i32 %46, 0
   %58 = select i1 %.not52, ptr @.str.100, ptr @.str.99
@@ -462,7 +462,7 @@ define ptr @dt_iop_commit_blend_params(ptr noundef %0, ptr noundef %1) local_unn
   %73 = load i32, ptr %72, align 8, !tbaa !43
   %narrow.i56 = tail call i32 @llvm.smin.i32(i32 %73, i32 7)
   %spec.select.i57 = sext i32 %narrow.i56 to i64
-  %74 = getelementptr inbounds ptr, ptr @__const.dt_iop_get_instance_id.ids, i64 %spec.select.i57
+  %74 = getelementptr inbounds [8 x i8], ptr @__const.dt_iop_get_instance_id.ids, i64 %spec.select.i57
   %75 = load ptr, ptr %74, align 8, !tbaa !80
   tail call void (ptr, ptr, ptr, i32, ptr, ptr, ptr, ...) @dt_print_pipe_ext(ptr noundef nonnull @.str.101, ptr noundef null, ptr noundef nonnull %0, i32 noundef -2, ptr noundef null, ptr noundef null, ptr noundef nonnull @.str.102, ptr noundef nonnull %71, ptr noundef %75) #25
   br label %76
@@ -1960,15 +1960,15 @@ define range(i32 0, 2) i32 @dt_iop_load_module_by_so(ptr noundef initializes((0,
 
 217:                                              ; preds = %3, %217
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %217 ]
-  %218 = getelementptr inbounds nuw float, ptr %16, i64 %indvars.iv
+  %218 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv
   store float 0.000000e+00, ptr %218, align 4, !tbaa !93
-  %219 = getelementptr inbounds nuw float, ptr %18, i64 %indvars.iv
+  %219 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv
   store float 6.660000e+02, ptr %219, align 4, !tbaa !93
-  %220 = getelementptr inbounds nuw float, ptr %19, i64 %indvars.iv
+  %220 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %indvars.iv
   store float 6.660000e+02, ptr %220, align 4, !tbaa !93
-  %221 = getelementptr inbounds nuw float, ptr %20, i64 %indvars.iv
+  %221 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv
   store float -6.660000e+02, ptr %221, align 4, !tbaa !93
-  %222 = getelementptr inbounds nuw float, ptr %21, i64 %indvars.iv
+  %222 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %indvars.iv
   store float -6.660000e+02, ptr %222, align 4, !tbaa !93
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -4988,7 +4988,7 @@ define ptr @dt_iop_get_instance_id(ptr noundef readonly captures(none) %0) local
   %3 = load i32, ptr %2, align 8, !tbaa !43
   %narrow = tail call i32 @llvm.smin.i32(i32 %3, i32 7)
   %spec.select = sext i32 %narrow to i64
-  %4 = getelementptr inbounds ptr, ptr @__const.dt_iop_get_instance_id.ids, i64 %spec.select
+  %4 = getelementptr inbounds [8 x i8], ptr @__const.dt_iop_get_instance_id.ids, i64 %spec.select
   %5 = load ptr, ptr %4, align 8, !tbaa !80
   ret ptr %5
 }
@@ -5029,7 +5029,7 @@ define range(i32 0, 2) i32 @_iop_validate_params(ptr noundef readonly captures(n
   %indvars.iv224 = phi i64 [ 0, %.lr.ph215 ], [ %indvars.iv.next225, %12 ]
   %.1214 = phi i32 [ 1, %.lr.ph215 ], [ %17, %12 ]
   %13 = load ptr, ptr %11, align 8, !tbaa !92
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv224
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv224
   %15 = load ptr, ptr %14, align 8, !tbaa !387
   %16 = tail call i32 @_iop_validate_params(ptr noundef %15, ptr noundef %1, i32 noundef %2, ptr noundef %3)
   %17 = and i32 %16, %.1214
@@ -5056,7 +5056,7 @@ define range(i32 0, 2) i32 @_iop_validate_params(ptr noundef readonly captures(n
 28:                                               ; preds = %26
   %29 = load ptr, ptr %23, align 8, !tbaa !92
   %30 = and i64 %indvars.iv.next222, 2147483647
-  %31 = getelementptr inbounds nuw ptr, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !387
   %33 = icmp eq i32 %indvars, 0
   %34 = and i1 %24, %33
@@ -6558,21 +6558,21 @@ define i32 @_iop_tooltip_callback(ptr noundef %0, i32 noundef %1, i32 noundef %2
 
 55:                                               ; preds = %35, %74
   %indvars.iv = phi i64 [ 1, %35 ], [ %indvars.iv.next, %74 ]
-  %56 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %57 = load ptr, ptr %56, align 8, !tbaa !80
   %.not57 = icmp eq ptr %57, null
   br i1 %.not57, label %74, label %58
 
 58:                                               ; preds = %55
   %59 = add nsw i64 %indvars.iv, -1
-  %60 = getelementptr inbounds ptr, ptr %7, i64 %59
+  %60 = getelementptr inbounds [8 x i8], ptr %7, i64 %59
   %61 = load ptr, ptr %60, align 8, !tbaa !80
   %62 = tail call ptr @gtk_label_new(ptr noundef %61) #25
   tail call void @gtk_widget_set_halign(ptr noundef %62, i32 noundef 1) #25
   %63 = tail call ptr @g_type_check_instance_cast(ptr noundef %19, i64 noundef %20) #25
   %64 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void @gtk_grid_attach(ptr noundef %63, ptr noundef %62, i32 noundef 0, i32 noundef %64, i32 noundef 1, i32 noundef 1) #25
-  %65 = getelementptr inbounds ptr, ptr %8, i64 %59
+  %65 = getelementptr inbounds [8 x i8], ptr %8, i64 %59
   %66 = load ptr, ptr %65, align 8, !tbaa !80
   %67 = tail call ptr @gtk_label_new(ptr noundef %66) #25
   tail call void @gtk_widget_set_halign(ptr noundef %67, i32 noundef 1) #25
@@ -9017,7 +9017,7 @@ define noundef nonnull ptr @dt_iop_colorspace_to_name(i32 noundef %0) local_unna
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dt_iop_colorspace_to_name, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dt_iop_colorspace_to_name, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -9449,12 +9449,12 @@ dt_iop_connect_accels_multi.exit.i68:             ; preds = %99, %96, %92, %88
 
 _enable_module_callback.exit:                     ; preds = %103, %dt_iop_connect_accels_multi.exit.i68, %85, %dt_iop_connect_accels_multi.exit.i, %62, %59, %56, %53, %20, %17, %135, %132, %141, %109, %120, %124, %123, %115, %126, %_request_module_focus_callback.exit, %8
   %142 = sext i32 %1 to i64
-  %143 = getelementptr inbounds %struct.dt_action_element_def_t, ptr @_action_elements, i64 %142
+  %143 = getelementptr inbounds [16 x i8], ptr @_action_elements, i64 %142
   %144 = load ptr, ptr %143, align 16, !tbaa !425
   %145 = getelementptr inbounds nuw i8, ptr %143, i64 8
   %146 = load ptr, ptr %145, align 8, !tbaa !428
   %147 = sext i32 %2 to i64
-  %148 = getelementptr inbounds ptr, ptr %146, i64 %147
+  %148 = getelementptr inbounds [8 x i8], ptr %146, i64 %147
   %149 = load ptr, ptr %148, align 8, !tbaa !80
   call void (ptr, ptr, ptr, ...) @dt_action_widget_toast(ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str.245, ptr noundef %144, ptr noundef %149) #25
   br label %150

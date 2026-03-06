@@ -2278,10 +2278,10 @@ _ZL14XXH3_mergeAccsPKmPKhm.exit:                  ; preds = %77
 
 104:                                              ; preds = %99, %104
   %indvars.iv = phi i64 [ 0, %99 ], [ %indvars.iv.next, %104 ]
-  %105 = getelementptr inbounds nuw <8 x i64>, ptr @_ZL12XXH3_kSecret, i64 %indvars.iv
+  %105 = getelementptr inbounds nuw [64 x i8], ptr @_ZL12XXH3_kSecret, i64 %indvars.iv
   %106 = load <8 x i64>, ptr %105, align 64, !tbaa !12
   %107 = add <8 x i64> %106, %103
-  %108 = getelementptr inbounds nuw <8 x i64>, ptr %6, i64 %indvars.iv
+  %108 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 %indvars.iv
   store <8 x i64> %107, ptr %108, align 64, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -3054,10 +3054,10 @@ ROCKSDB_XXH3_64bits_reset.exit:                   ; preds = %4
 
 27:                                               ; preds = %21, %27
   %indvars.iv = phi i64 [ 0, %21 ], [ %indvars.iv.next, %27 ]
-  %28 = getelementptr inbounds nuw <8 x i64>, ptr @_ZL12XXH3_kSecret, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [64 x i8], ptr @_ZL12XXH3_kSecret, i64 %indvars.iv
   %29 = load <8 x i64>, ptr %28, align 64, !tbaa !12
   %30 = add <8 x i64> %29, %26
-  %31 = getelementptr inbounds nuw <8 x i64>, ptr %22, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [64 x i8], ptr %22, i64 %indvars.iv
   store <8 x i64> %30, ptr %31, align 64, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -5633,10 +5633,10 @@ _ZL14XXH3_mergeAccsPKmPKhm.exit8:                 ; preds = %96
 
 128:                                              ; preds = %123, %128
   %indvars.iv = phi i64 [ 0, %123 ], [ %indvars.iv.next, %128 ]
-  %129 = getelementptr inbounds nuw <8 x i64>, ptr @_ZL12XXH3_kSecret, i64 %indvars.iv
+  %129 = getelementptr inbounds nuw [64 x i8], ptr @_ZL12XXH3_kSecret, i64 %indvars.iv
   %130 = load <8 x i64>, ptr %129, align 64, !tbaa !12
   %131 = add <8 x i64> %130, %127
-  %132 = getelementptr inbounds nuw <8 x i64>, ptr %6, i64 %indvars.iv
+  %132 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 %indvars.iv
   store <8 x i64> %131, ptr %132, align 64, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -6548,10 +6548,10 @@ ROCKSDB_XXH3_64bits_reset.exit.i:                 ; preds = %4
 
 27:                                               ; preds = %27, %21
   %indvars.iv.i = phi i64 [ 0, %21 ], [ %indvars.iv.next.i, %27 ]
-  %28 = getelementptr inbounds nuw <8 x i64>, ptr @_ZL12XXH3_kSecret, i64 %indvars.iv.i
+  %28 = getelementptr inbounds nuw [64 x i8], ptr @_ZL12XXH3_kSecret, i64 %indvars.iv.i
   %29 = load <8 x i64>, ptr %28, align 64, !tbaa !12
   %30 = add <8 x i64> %29, %26
-  %31 = getelementptr inbounds nuw <8 x i64>, ptr %22, i64 %indvars.iv.i
+  %31 = getelementptr inbounds nuw [64 x i8], ptr %22, i64 %indvars.iv.i
   store <8 x i64> %30, ptr %31, align 64, !tbaa !12
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
@@ -7640,10 +7640,10 @@ define void @ROCKSDB_XXH3_generateSecret_fromSeed(ptr noundef writeonly captures
 
 8:                                                ; preds = %2, %8
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %8 ]
-  %9 = getelementptr inbounds nuw <8 x i64>, ptr @_ZL12XXH3_kSecret, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [64 x i8], ptr @_ZL12XXH3_kSecret, i64 %indvars.iv
   %10 = load <8 x i64>, ptr %9, align 64, !tbaa !12
   %11 = add <8 x i64> %10, %7
-  %12 = getelementptr inbounds nuw <8 x i64>, ptr %3, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [64 x i8], ptr %3, i64 %indvars.iv
   store <8 x i64> %11, ptr %12, align 64, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3

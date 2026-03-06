@@ -4,12 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %union.anon = type { ptr }
-%struct.ePICPixHashElem = type { i32, ptr }
 %struct.GetBitContext = type { ptr, ptr, i32, i32, i32 }
-%struct.VLC = type { i32, ptr, i32, i32 }
-%struct.VLCElem = type { %union.anon.1 }
-%union.anon.1 = type { %struct.anon }
-%struct.anon = type { i16, i16 }
 
 @.str = private unnamed_addr constant [4 x i8] c"g2m\00", align 1
 @.str.1 = private unnamed_addr constant [11 x i8] c"Go2Meeting\00", align 1
@@ -1519,7 +1514,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @epic_jb_decode_tile(ptr no
 94:                                               ; preds = %.preheader233.us, %94
   %indvars.iv = phi i64 [ 0, %.preheader233.us ], [ %indvars.iv.next, %94 ]
   %.0200249.us = phi ptr [ %.0215252.us, %.preheader233.us ], [ %106, %94 ]
-  %95 = getelementptr inbounds nuw i32, ptr %.0203254.us, i64 %indvars.iv
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %.0203254.us, i64 %indvars.iv
   %96 = load i32, ptr %95, align 4, !tbaa !98
   %97 = lshr i32 %96, 16
   %98 = trunc i32 %97 to i8
@@ -1619,7 +1614,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @epic_jb_decode_tile(ptr no
   %154 = mul nsw i32 %153, %118
   %155 = add nsw i32 %152, %154
   %156 = sext i32 %155 to i64
-  %157 = getelementptr inbounds i32, ptr %.0201263.us, i64 %156
+  %157 = getelementptr inbounds [4 x i8], ptr %.0201263.us, i64 %156
   %158 = load i32, ptr %157, align 4, !tbaa !98
   %159 = icmp eq i32 %158, %128
   br i1 %159, label %160, label %148
@@ -1638,7 +1633,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @epic_jb_decode_tile(ptr no
   br i1 %164, label %142, label %._crit_edge260.us, !llvm.loop !108
 
 ._crit_edge260.us:                                ; preds = %.loopexit231.us
-  %165 = getelementptr inbounds i32, ptr %.0201263.us, i64 %136
+  %165 = getelementptr inbounds [4 x i8], ptr %.0201263.us, i64 %136
   %indvars.iv.next288 = add nuw nsw i64 %indvars.iv287, 8
   %166 = icmp samesign ult i64 %indvars.iv.next288, %138
   br i1 %166, label %.preheader232.us, label %._crit_edge265, !llvm.loop !109
@@ -1691,7 +1686,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @epic_jb_decode_tile(ptr no
 
 196:                                              ; preds = %.preheader.us, %204
   %indvars.iv290 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next291, %204 ]
-  %197 = getelementptr inbounds nuw i32, ptr %.1202272.us, i64 %indvars.iv290
+  %197 = getelementptr inbounds nuw [4 x i8], ptr %.1202272.us, i64 %indvars.iv290
   %198 = load i32, ptr %197, align 4, !tbaa !98
   %199 = icmp eq i32 %198, %128
   br i1 %199, label %200, label %204
@@ -1712,7 +1707,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @epic_jb_decode_tile(ptr no
   %205 = load i32, ptr %70, align 4, !tbaa !65
   %206 = ashr i32 %205, 2
   %207 = sext i32 %206 to i64
-  %208 = getelementptr inbounds i32, ptr %.1202272.us, i64 %207
+  %208 = getelementptr inbounds [4 x i8], ptr %.1202272.us, i64 %207
   %209 = load i32, ptr %78, align 16, !tbaa !57
   %210 = sext i32 %209 to i64
   %211 = getelementptr inbounds i8, ptr %.1216270.us, i64 %210
@@ -2285,7 +2280,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @epic_decode_tile(ptr nound
 32:                                               ; preds = %30
   %33 = add nsw i32 %.091283.us, -1
   %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds i32, ptr %.086290.us, i64 %34
+  %35 = getelementptr inbounds [4 x i8], ptr %.086290.us, i64 %34
   %36 = load i32, ptr %35, align 4, !tbaa !98
   %37 = icmp sgt i32 %.091283.us, 1
   %or.cond.us = and i1 %28, %37
@@ -2294,26 +2289,26 @@ define internal fastcc range(i32 -2147483648, 1) i32 @epic_decode_tile(ptr nound
 38:                                               ; preds = %32
   %39 = add nsw i32 %.091283.us, -2
   %40 = zext nneg i32 %39 to i64
-  %41 = getelementptr inbounds nuw i32, ptr %.086290.us, i64 %40
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %.086290.us, i64 %40
   %42 = load i32, ptr %41, align 4, !tbaa !98
   %.not104.us = icmp eq i32 %36, %42
   br i1 %.not104.us, label %epic_cache_entries_for_pixel.exit.us, label %43
 
 43:                                               ; preds = %38
-  %44 = getelementptr inbounds i32, ptr %.096288.us, i64 %34
+  %44 = getelementptr inbounds [4 x i8], ptr %.096288.us, i64 %34
   %45 = load i32, ptr %44, align 4, !tbaa !98
   %.not105.us = icmp eq i32 %36, %45
   br i1 %.not105.us, label %epic_cache_entries_for_pixel.exit.us, label %46
 
 46:                                               ; preds = %43
-  %47 = getelementptr inbounds nuw i32, ptr %.096288.us, i64 %40
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %.096288.us, i64 %40
   %48 = load i32, ptr %47, align 4, !tbaa !98
   %.not106.us = icmp eq i32 %36, %48
   br i1 %.not106.us, label %epic_cache_entries_for_pixel.exit.us, label %49
 
 49:                                               ; preds = %46
   %50 = zext nneg i32 %.091283.us to i64
-  %51 = getelementptr inbounds nuw i32, ptr %.096288.us, i64 %50
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %.096288.us, i64 %50
   %52 = load i32, ptr %51, align 4, !tbaa !98
   %.not107.us = icmp eq i32 %36, %52
   br i1 %.not107.us, label %epic_cache_entries_for_pixel.exit.us, label %53
@@ -2331,9 +2326,9 @@ define internal fastcc range(i32 -2147483648, 1) i32 @epic_decode_tile(ptr nound
   %63 = xor i32 %62, %36
   %64 = and i32 %63, 255
   %65 = zext nneg i32 %64 to i64
-  %66 = getelementptr inbounds nuw ptr, ptr %10, i64 %65
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %65
   %67 = load ptr, ptr %66, align 8, !tbaa !122
-  %68 = getelementptr inbounds nuw i32, ptr %11, i64 %65
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %65
   %69 = load i32, ptr %68, align 4, !tbaa !98
   %70 = icmp sgt i32 %69, 0
   br i1 %70, label %.lr.ph.preheader.i.i.us, label %.loopexit240.us
@@ -2344,7 +2339,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @epic_decode_tile(ptr nound
 
 .lr.ph.i.i.us:                                    ; preds = %74, %.lr.ph.preheader.i.i.us
   %indvars.iv.i.i.us = phi i64 [ 0, %.lr.ph.preheader.i.i.us ], [ %indvars.iv.next.i.i.us, %74 ]
-  %71 = getelementptr inbounds nuw %struct.ePICPixHashElem, ptr %67, i64 %indvars.iv.i.i.us
+  %71 = getelementptr inbounds nuw [16 x i8], ptr %67, i64 %indvars.iv.i.i.us
   %72 = load i32, ptr %71, align 8, !tbaa !124
   %73 = icmp eq i32 %72, %36
   br i1 %73, label %epic_hash_find.exit.i.us, label %74
@@ -2362,7 +2357,7 @@ epic_hash_find.exit.i.us:                         ; preds = %.lr.ph.i.i.us
 
 .loopexit240.us:                                  ; preds = %74, %epic_hash_find.exit.i.us, %53
   %77 = tail call fastcc i32 @epic_decode_pixel_pred(ptr noundef %0, i32 noundef %.091283.us, i32 noundef %.097287.us, ptr noundef %.086290.us, ptr noundef %.096288.us)
-  %78 = getelementptr inbounds nuw i32, ptr %.086290.us, i64 %50
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %.086290.us, i64 %50
   store i32 %77, ptr %78, align 4, !tbaa !98
   %79 = add nuw nsw i32 %.091283.us, 1
   br label %.loopexit.us
@@ -2377,28 +2372,28 @@ epic_cache_entries_for_pixel.exit.us:             ; preds = %epic_hash_find.exit
 
 82:                                               ; preds = %epic_cache_entries_for_pixel.exit.us
   %83 = zext nneg i32 %33 to i64
-  %84 = getelementptr inbounds nuw i32, ptr %.086290.us, i64 %83
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %.086290.us, i64 %83
   %85 = load i32, ptr %84, align 4, !tbaa !98
   %86 = zext nneg i32 %.091283.us to i64
-  %87 = getelementptr inbounds nuw i32, ptr %.096288.us, i64 %86
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %.096288.us, i64 %86
   %88 = load i32, ptr %87, align 4, !tbaa !98
   %89 = add nsw i32 %.091283.us, -2
   %90 = zext nneg i32 %89 to i64
-  %91 = getelementptr inbounds nuw i32, ptr %.086290.us, i64 %90
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %.086290.us, i64 %90
   %92 = load i32, ptr %91, align 4, !tbaa !98
-  %93 = getelementptr inbounds nuw i32, ptr %.096288.us, i64 %83
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %.096288.us, i64 %83
   %94 = load i32, ptr %93, align 4, !tbaa !98
   %95 = add nuw nsw i32 %.091283.us, 1
   %96 = zext nneg i32 %95 to i64
-  %97 = getelementptr inbounds nuw i32, ptr %.096288.us, i64 %96
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %.096288.us, i64 %96
   %98 = load i32, ptr %97, align 4, !tbaa !98
-  %99 = getelementptr inbounds nuw i32, ptr %.095289.us, i64 %86
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %.095289.us, i64 %86
   %100 = load i32, ptr %99, align 4, !tbaa !98
-  %101 = getelementptr inbounds nuw i32, ptr %.095289.us, i64 %83
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %.095289.us, i64 %83
   %102 = load i32, ptr %101, align 4, !tbaa !98
-  %103 = getelementptr inbounds nuw i32, ptr %.096288.us, i64 %90
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %.096288.us, i64 %90
   %104 = load i32, ptr %103, align 4, !tbaa !98
-  %105 = getelementptr inbounds nuw i32, ptr %.095289.us, i64 %96
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %.095289.us, i64 %96
   %106 = load i32, ptr %105, align 4, !tbaa !98
   %107 = load i32, ptr %7, align 8, !tbaa !120
   %108 = icmp eq i32 %107, %.091283.us
@@ -2448,7 +2443,7 @@ epic_cache_entries_for_pixel.exit.us:             ; preds = %epic_hash_find.exit
   store i32 %130, ptr %12, align 8, !tbaa !129
   %131 = and i32 %129, 1023
   %132 = zext nneg i32 %131 to i64
-  %133 = getelementptr inbounds nuw i32, ptr %15, i64 %132
+  %133 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %132
   store i32 %85, ptr %133, align 4, !tbaa !98
   br label %.preheader
 
@@ -2508,7 +2503,7 @@ epic_cache_entries_for_pixel.exit.us:             ; preds = %epic_hash_find.exit
 
 .lr.ph.i.i123.us:                                 ; preds = %149, %.lr.ph.preheader.i.i121.us
   %indvars.iv.i.i124.us = phi i64 [ 0, %.lr.ph.preheader.i.i121.us ], [ %indvars.iv.next.i.i125.us, %149 ]
-  %146 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv.i.i124.us
+  %146 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv.i.i124.us
   %147 = load i32, ptr %146, align 4, !tbaa !98
   %148 = icmp eq i32 %147, %.0233.i.us
   br i1 %148, label %._crit_edge.loopexit.split.loop.exit.i.i.us, label %149
@@ -2570,7 +2565,7 @@ is_pixel_on_stack.exit.thread.i.us:               ; preds = %149, %is_pixel_on_s
 
 .lr.ph.i294.i.us:                                 ; preds = %181, %.lr.ph.preheader.i292.i.us
   %indvars.iv.i295.i.us = phi i64 [ 0, %.lr.ph.preheader.i292.i.us ], [ %indvars.iv.next.i296.i.us, %181 ]
-  %178 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv.i295.i.us
+  %178 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv.i295.i.us
   %179 = load i32, ptr %178, align 4, !tbaa !98
   %180 = icmp eq i32 %179, %.0233.i.us
   br i1 %180, label %._crit_edge.loopexit.split.loop.exit.i298.i.us, label %181
@@ -2594,7 +2589,7 @@ is_pixel_on_stack.exit299.thread.i.us:            ; preds = %181, %is_pixel_on_s
   store i32 %183, ptr %12, align 8, !tbaa !129
   %184 = and i32 %176, 1023
   %185 = zext nneg i32 %184 to i64
-  %186 = getelementptr inbounds nuw i32, ptr %15, i64 %185
+  %186 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %185
   store i32 %.0233.i.us, ptr %186, align 4, !tbaa !98
   br label %187
 
@@ -2612,9 +2607,9 @@ is_pixel_on_stack.exit299.thread.i.us:            ; preds = %181, %is_pixel_on_s
 190:                                              ; preds = %187
   %191 = add nsw i32 %189, 1
   %192 = sext i32 %191 to i64
-  %193 = getelementptr inbounds i32, ptr %.096288.us, i64 %192
+  %193 = getelementptr inbounds [4 x i8], ptr %.096288.us, i64 %192
   %194 = load i32, ptr %193, align 4, !tbaa !98
-  %195 = getelementptr inbounds i32, ptr %.095289.us, i64 %192
+  %195 = getelementptr inbounds [4 x i8], ptr %.095289.us, i64 %192
   %196 = load i32, ptr %195, align 4, !tbaa !98
   br i1 %.0205.shrunk.i.us, label %270, label %197
 
@@ -2635,7 +2630,7 @@ is_pixel_on_stack.exit299.thread.i.us:            ; preds = %181, %is_pixel_on_s
 
 .lr.ph.i.us:                                      ; preds = %208, %.lr.ph.preheader.i.us
   %indvars.iv.i.us = phi i64 [ %203, %.lr.ph.preheader.i.us ], [ %indvars.iv.next.i.us, %208 ]
-  %204 = getelementptr inbounds i32, ptr %.096288.us, i64 %indvars.iv.i.us
+  %204 = getelementptr inbounds [4 x i8], ptr %.096288.us, i64 %indvars.iv.i.us
   %205 = load i32, ptr %204, align 4, !tbaa !98
   %206 = icmp eq i32 %205, %.0233.i.us
   br i1 %206, label %208, label %._crit_edge.loopexit.split.loop.exit.i.us
@@ -2684,28 +2679,28 @@ is_pixel_on_stack.exit299.thread.i.us:            ; preds = %181, %is_pixel_on_s
 228:                                              ; preds = %225
   %229 = add nsw i32 %227, -1
   %230 = sext i32 %229 to i64
-  %231 = getelementptr inbounds i32, ptr %.086290.us, i64 %230
+  %231 = getelementptr inbounds [4 x i8], ptr %.086290.us, i64 %230
   %232 = load i32, ptr %231, align 4, !tbaa !98
   %233 = sext i32 %227 to i64
-  %234 = getelementptr inbounds i32, ptr %.096288.us, i64 %233
+  %234 = getelementptr inbounds [4 x i8], ptr %.096288.us, i64 %233
   %235 = load i32, ptr %234, align 4, !tbaa !98
   %236 = add nsw i32 %227, -2
   %237 = sext i32 %236 to i64
-  %238 = getelementptr inbounds i32, ptr %.086290.us, i64 %237
+  %238 = getelementptr inbounds [4 x i8], ptr %.086290.us, i64 %237
   %239 = load i32, ptr %238, align 4, !tbaa !98
-  %240 = getelementptr inbounds i32, ptr %.096288.us, i64 %230
+  %240 = getelementptr inbounds [4 x i8], ptr %.096288.us, i64 %230
   %241 = load i32, ptr %240, align 4, !tbaa !98
   %242 = add nsw i32 %227, 1
   %243 = sext i32 %242 to i64
-  %244 = getelementptr inbounds i32, ptr %.096288.us, i64 %243
+  %244 = getelementptr inbounds [4 x i8], ptr %.096288.us, i64 %243
   %245 = load i32, ptr %244, align 4, !tbaa !98
-  %246 = getelementptr inbounds i32, ptr %.095289.us, i64 %233
+  %246 = getelementptr inbounds [4 x i8], ptr %.095289.us, i64 %233
   %247 = load i32, ptr %246, align 4, !tbaa !98
-  %248 = getelementptr inbounds i32, ptr %.095289.us, i64 %230
+  %248 = getelementptr inbounds [4 x i8], ptr %.095289.us, i64 %230
   %249 = load i32, ptr %248, align 4, !tbaa !98
-  %250 = getelementptr inbounds i32, ptr %.096288.us, i64 %237
+  %250 = getelementptr inbounds [4 x i8], ptr %.096288.us, i64 %237
   %251 = load i32, ptr %250, align 4, !tbaa !98
-  %252 = getelementptr inbounds i32, ptr %.095289.us, i64 %243
+  %252 = getelementptr inbounds [4 x i8], ptr %.095289.us, i64 %243
   %253 = load i32, ptr %252, align 4, !tbaa !98
   br label %270
 
@@ -2816,7 +2811,7 @@ epic_handle_edges.exit.us:                        ; preds = %187, %epic_decode_r
 
 292:                                              ; preds = %291
   %293 = sext i32 %.091283.us to i64
-  %294 = getelementptr i32, ptr %.086290.us, i64 %293
+  %294 = getelementptr [4 x i8], ptr %.086290.us, i64 %293
   %295 = getelementptr i8, ptr %294, i64 -4
   %296 = load i32, ptr %295, align 4, !tbaa !98
   %297 = tail call i32 @ff_els_decode_bit(ptr noundef nonnull %0, ptr noundef nonnull %21) #12
@@ -2829,7 +2824,7 @@ epic_handle_edges.exit.us:                        ; preds = %187, %epic_decode_r
   store i32 %300, ptr %12, align 8, !tbaa !129
   %301 = and i32 %299, 1023
   %302 = zext nneg i32 %301 to i64
-  %303 = getelementptr inbounds nuw i32, ptr %15, i64 %302
+  %303 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %302
   store i32 %296, ptr %303, align 4, !tbaa !98
   br i1 %.not28.i.us, label %.critedge.i.thread.us.thread380, label %309
 
@@ -2846,14 +2841,14 @@ epic_handle_edges.exit.us:                        ; preds = %187, %epic_decode_r
 
 .thread372:                                       ; preds = %.thread369
   %306 = zext nneg i32 %.091283.us to i64
-  %307 = getelementptr inbounds nuw i32, ptr %.096288.us, i64 %306
+  %307 = getelementptr inbounds nuw [4 x i8], ptr %.096288.us, i64 %306
   %308 = load i32, ptr %307, align 4, !tbaa !98
   br label %316
 
 309:                                              ; preds = %298
   %310 = icmp eq i32 %300, 0
   %311 = sext i32 %.091283.us to i64
-  %312 = getelementptr inbounds i32, ptr %.096288.us, i64 %311
+  %312 = getelementptr inbounds [4 x i8], ptr %.096288.us, i64 %311
   %313 = load i32, ptr %312, align 4, !tbaa !98
   br i1 %310, label %316, label %314
 
@@ -2874,7 +2869,7 @@ epic_predict_pixel.exit35.thread.i.us:            ; preds = %316
   store i32 %320, ptr %12, align 8, !tbaa !129
   %321 = and i32 %319, 1023
   %322 = zext nneg i32 %321 to i64
-  %323 = getelementptr inbounds nuw i32, ptr %15, i64 %322
+  %323 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %322
   store i32 %317, ptr %323, align 4, !tbaa !98
   br label %epic_handle_edges.exit.thread.us
 
@@ -2885,7 +2880,7 @@ epic_handle_edges.exit.thread.us:                 ; preds = %epic_predict_pixel.
   br i1 %or.cond.i127.us, label %325, label %.critedge.i.us
 
 325:                                              ; preds = %epic_handle_edges.exit.thread.us
-  %326 = getelementptr inbounds i32, ptr %.096288.us, i64 %34
+  %326 = getelementptr inbounds [4 x i8], ptr %.096288.us, i64 %34
   %327 = load i32, ptr %326, align 4, !tbaa !98
   %328 = load i32, ptr %35, align 4, !tbaa !98
   %.not.i129.us = icmp eq i32 %327, %328
@@ -2893,7 +2888,7 @@ epic_handle_edges.exit.thread.us:                 ; preds = %epic_predict_pixel.
 
 329:                                              ; preds = %325
   %330 = sext i32 %.091283.us to i64
-  %331 = getelementptr inbounds i32, ptr %.096288.us, i64 %330
+  %331 = getelementptr inbounds [4 x i8], ptr %.096288.us, i64 %330
   %332 = load i32, ptr %331, align 4, !tbaa !98
   %.not45.i.us = icmp eq i32 %327, %332
   br i1 %.not45.i.us, label %.critedge.i.us, label %333
@@ -2909,7 +2904,7 @@ epic_handle_edges.exit.thread.us:                 ; preds = %epic_predict_pixel.
 
 .lr.ph.i.i136.us:                                 ; preds = %339, %.lr.ph.preheader.i.i134.us
   %indvars.iv.i.i137.us = phi i64 [ 0, %.lr.ph.preheader.i.i134.us ], [ %indvars.iv.next.i.i138.us, %339 ]
-  %336 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv.i.i137.us
+  %336 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv.i.i137.us
   %337 = load i32, ptr %336, align 4, !tbaa !98
   %338 = icmp eq i32 %337, %327
   br i1 %338, label %._crit_edge.loopexit.split.loop.exit.i.i140.us, label %339
@@ -2942,7 +2937,7 @@ epic_predict_pixel2.exit.thread.i.us:             ; preds = %is_pixel_on_stack.e
   store i32 %346, ptr %12, align 8, !tbaa !129
   %347 = and i32 %345, 1023
   %348 = zext nneg i32 %347 to i64
-  %349 = getelementptr inbounds nuw i32, ptr %15, i64 %348
+  %349 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %348
   store i32 %327, ptr %349, align 4, !tbaa !98
   br label %.critedge.i.us
 
@@ -2954,7 +2949,7 @@ epic_predict_pixel2.exit.thread.i.us:             ; preds = %is_pixel_on_stack.e
 
 352:                                              ; preds = %.critedge.i.us
   %353 = sext i32 %350 to i64
-  %354 = getelementptr inbounds i32, ptr %.096288.us, i64 %353
+  %354 = getelementptr inbounds [4 x i8], ptr %.096288.us, i64 %353
   %355 = load i32, ptr %354, align 4, !tbaa !98
   %356 = getelementptr i8, ptr %354, i64 -4
   %357 = load i32, ptr %356, align 4, !tbaa !98
@@ -2972,7 +2967,7 @@ epic_predict_pixel2.exit.thread.i.us:             ; preds = %is_pixel_on_stack.e
 
 .lr.ph.i56.i.us:                                  ; preds = %364, %.lr.ph.preheader.i54.i.us
   %indvars.iv.i57.i.us = phi i64 [ 0, %.lr.ph.preheader.i54.i.us ], [ %indvars.iv.next.i58.i.us, %364 ]
-  %361 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv.i57.i.us
+  %361 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv.i57.i.us
   %362 = load i32, ptr %361, align 4, !tbaa !98
   %363 = icmp eq i32 %362, %355
   br i1 %363, label %._crit_edge.loopexit.split.loop.exit.i60.i.us, label %364
@@ -3005,7 +3000,7 @@ epic_predict_pixel2.exit64.thread.i.us:           ; preds = %is_pixel_on_stack.e
   store i32 %371, ptr %12, align 8, !tbaa !129
   %372 = and i32 %370, 1023
   %373 = zext nneg i32 %372 to i64
-  %374 = getelementptr inbounds nuw i32, ptr %15, i64 %373
+  %374 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %373
   store i32 %355, ptr %374, align 4, !tbaa !98
   br label %.critedge.i.thread.us
 
@@ -3029,9 +3024,9 @@ epic_predict_pixel2.exit64.thread.i.us:           ; preds = %is_pixel_on_stack.e
   %387 = xor i32 %386, %377
   %388 = and i32 %387, 255
   %389 = zext nneg i32 %388 to i64
-  %390 = getelementptr inbounds nuw ptr, ptr %10, i64 %389
+  %390 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %389
   %391 = load ptr, ptr %390, align 8, !tbaa !122
-  %392 = getelementptr inbounds nuw i32, ptr %11, i64 %389
+  %392 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %389
   %393 = load i32, ptr %392, align 4, !tbaa !98
   %394 = icmp sgt i32 %393, 0
   br i1 %394, label %.lr.ph.preheader.i.i143.us, label %.split98.us
@@ -3042,7 +3037,7 @@ epic_predict_pixel2.exit64.thread.i.us:           ; preds = %is_pixel_on_stack.e
 
 .lr.ph.i.i145.us:                                 ; preds = %398, %.lr.ph.preheader.i.i143.us
   %indvars.iv.i.i146.us = phi i64 [ 0, %.lr.ph.preheader.i.i143.us ], [ %indvars.iv.next.i.i147.us, %398 ]
-  %395 = getelementptr inbounds nuw %struct.ePICPixHashElem, ptr %391, i64 %indvars.iv.i.i146.us
+  %395 = getelementptr inbounds nuw [16 x i8], ptr %391, i64 %indvars.iv.i.i146.us
   %396 = load i32, ptr %395, align 8, !tbaa !124
   %397 = icmp eq i32 %396, %377
   br i1 %397, label %epic_hash_find.exit.i149.us, label %398
@@ -3077,7 +3072,7 @@ epic_hash_find.exit.i149.us:                      ; preds = %.lr.ph.i.i145.us
 
 .lr.ph.i36.i.us:                                  ; preds = %409, %.lr.ph.preheader.i34.i.us
   %indvars.iv.i37.i.us = phi i64 [ 0, %.lr.ph.preheader.i34.i.us ], [ %indvars.iv.next.i38.i.us, %409 ]
-  %406 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv.i37.i.us
+  %406 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv.i37.i.us
   %407 = load i32, ptr %406, align 4, !tbaa !98
   %408 = icmp eq i32 %407, %404
   br i1 %408, label %._crit_edge.loopexit.split.loop.exit.i.i156.us, label %409
@@ -3121,7 +3116,7 @@ is_pixel_on_stack.exit.thread.i155.us:            ; preds = %409, %is_pixel_on_s
   store i32 %420, ptr %12, align 8, !tbaa !129
   %421 = and i32 %419, 1023
   %422 = zext nneg i32 %421 to i64
-  %423 = getelementptr inbounds nuw i32, ptr %15, i64 %422
+  %423 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %422
   store i32 %413, ptr %423, align 4, !tbaa !98
   br label %424
 
@@ -3147,7 +3142,7 @@ is_pixel_on_stack.exit.thread.i155.us:            ; preds = %409, %is_pixel_on_s
 
 .lr.ph.i159.us:                                   ; preds = %434, %.lr.ph.preheader.i158.us
   %indvars.iv.i160.us = phi i64 [ 0, %.lr.ph.preheader.i158.us ], [ %indvars.iv.next.i161.us, %434 ]
-  %431 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv.i160.us
+  %431 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv.i160.us
   %432 = load i32, ptr %431, align 4, !tbaa !98
   %433 = icmp eq i32 %432, %428
   br i1 %433, label %._crit_edge.loopexit.split.loop.exit.i162.us, label %434
@@ -3180,9 +3175,9 @@ is_pixel_on_stack.exit.us:                        ; preds = %434, %._crit_edge.l
   %446 = xor i32 %445, %427
   %447 = and i32 %446, 255
   %448 = zext nneg i32 %447 to i64
-  %449 = getelementptr inbounds nuw ptr, ptr %10, i64 %448
+  %449 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %448
   %450 = load ptr, ptr %449, align 8, !tbaa !122
-  %451 = getelementptr inbounds nuw i32, ptr %11, i64 %448
+  %451 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %448
   %452 = load i32, ptr %451, align 4, !tbaa !98
   %453 = icmp sgt i32 %452, 0
   br i1 %453, label %.lr.ph.preheader.i.i165.us, label %.loopexit.i.us
@@ -3193,7 +3188,7 @@ is_pixel_on_stack.exit.us:                        ; preds = %434, %._crit_edge.l
 
 .lr.ph.i.i167.us:                                 ; preds = %457, %.lr.ph.preheader.i.i165.us
   %indvars.iv.i.i168.us = phi i64 [ 0, %.lr.ph.preheader.i.i165.us ], [ %indvars.iv.next.i.i169.us, %457 ]
-  %454 = getelementptr inbounds nuw %struct.ePICPixHashElem, ptr %450, i64 %indvars.iv.i.i168.us
+  %454 = getelementptr inbounds nuw [16 x i8], ptr %450, i64 %indvars.iv.i.i168.us
   %455 = load i32, ptr %454, align 8, !tbaa !124
   %456 = icmp eq i32 %455, %427
   br i1 %456, label %epic_hash_find.exit.i163.us, label %457
@@ -3204,7 +3199,7 @@ is_pixel_on_stack.exit.us:                        ; preds = %434, %._crit_edge.l
   br i1 %exitcond.not.i.i170.us, label %.loopexit.i.us, label %.lr.ph.i.i167.us, !llvm.loop !127
 
 .loopexit.i.us:                                   ; preds = %457, %436
-  %458 = getelementptr inbounds nuw i32, ptr %25, i64 %448
+  %458 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %448
   %459 = load i32, ptr %458, align 4, !tbaa !98
   %460 = icmp ugt i32 %459, 134217727
   br i1 %460, label %.thread, label %461
@@ -3233,7 +3228,7 @@ epic_hash_add.exit.i.us:                          ; preds = %468, %461
   %471 = add nsw i32 %469, 1
   store i32 %471, ptr %451, align 4, !tbaa !98
   %472 = sext i32 %469 to i64
-  %473 = getelementptr inbounds %struct.ePICPixHashElem, ptr %470, i64 %472
+  %473 = getelementptr inbounds [16 x i8], ptr %470, i64 %472
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %473, i8 0, i64 16, i1 false)
   store i32 %427, ptr %473, align 8, !tbaa !124
   br label %epic_hash_find.exit.i163.us
@@ -3290,7 +3285,7 @@ epic_predict_from_NW_NE.exit.us:                  ; preds = %epic_decode_from_ca
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %.lr.ph.us
   %indvars.iv = phi i64 [ %487, %.lr.ph.us.preheader ], [ %indvars.iv.next, %.lr.ph.us ]
   %.1182281.us = phi i32 [ %.0181207.us387, %.lr.ph.us.preheader ], [ %491, %.lr.ph.us ]
-  %490 = getelementptr inbounds i32, ptr %.086290.us, i64 %indvars.iv
+  %490 = getelementptr inbounds [4 x i8], ptr %.086290.us, i64 %indvars.iv
   store i32 %.1188.us388, ptr %490, align 4, !tbaa !98
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %491 = add nsw i32 %.1182281.us, -1
@@ -3320,20 +3315,20 @@ define internal fastcc void @epic_free_pixel_cache(ptr noundef %0) unnamed_addr 
 
 .preheader:                                       ; preds = %1, %._crit_edge27
   %indvars.iv32 = phi i64 [ 0, %1 ], [ %indvars.iv.next33, %._crit_edge27 ]
-  %4 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv32
+  %4 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv32
   %5 = load i32, ptr %4, align 4, !tbaa !98
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph26, label %._crit_edge27
 
 .lr.ph26:                                         ; preds = %.preheader
-  %7 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv32
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv32
   br label %8
 
 8:                                                ; preds = %.lr.ph26, %._crit_edge
   %9 = phi i32 [ %5, %.lr.ph26 ], [ %15, %._crit_edge ]
   %indvars.iv = phi i64 [ 0, %.lr.ph26 ], [ %indvars.iv.next, %._crit_edge ]
   %10 = load ptr, ptr %7, align 8, !tbaa !122
-  %11 = getelementptr inbounds nuw %struct.ePICPixHashElem, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %indvars.iv
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !128
   %.not21 = icmp eq ptr %13, null
@@ -3358,10 +3353,10 @@ define internal fastcc void @epic_free_pixel_cache(ptr noundef %0) unnamed_addr 
   br i1 %17, label %8, label %._crit_edge27, !llvm.loop !142
 
 ._crit_edge27:                                    ; preds = %._crit_edge, %.preheader
-  %18 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv32
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv32
   tail call void @av_freep(ptr noundef %18) #12
   store i32 0, ptr %4, align 4, !tbaa !98
-  %19 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv32
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv32
   store i32 0, ptr %19, align 4, !tbaa !98
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next33, 256
@@ -3458,7 +3453,7 @@ jpg_unescape.exit:                                ; preds = %jpg_unescape.exit.l
 
 54:                                               ; preds = %52, %54
   %indvars.iv = phi i64 [ 0, %52 ], [ %indvars.iv.next, %54 ]
-  %55 = getelementptr inbounds nuw i32, ptr %53, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %indvars.iv
   store i32 1024, ptr %55, align 4, !tbaa !98
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -3578,20 +3573,20 @@ jpg_unescape.exit:                                ; preds = %jpg_unescape.exit.l
   %105 = lshr i64 %indvars.iv205, 3
   %.masked = and i64 %105, 536870911
   %106 = or i64 %.masked, %98
-  %107 = getelementptr inbounds nuw [64 x i16], ptr %65, i64 %106
+  %107 = getelementptr inbounds nuw [128 x i8], ptr %65, i64 %106
   %108 = and i64 %indvars.iv205, 7
-  %109 = getelementptr inbounds nuw i16, ptr %107, i64 %108
-  %110 = getelementptr inbounds nuw i16, ptr %109, i64 %100
+  %109 = getelementptr inbounds nuw [2 x i8], ptr %107, i64 %108
+  %110 = getelementptr inbounds nuw [2 x i8], ptr %109, i64 %100
   %111 = load i16, ptr %110, align 2, !tbaa !156
   %112 = sext i16 %111 to i32
   %113 = lshr i64 %indvars.iv205, 1
   %.masked234 = and i64 %113, 2147483647
   %114 = or i64 %.masked234, %102
-  %115 = getelementptr inbounds nuw i16, ptr %69, i64 %114
+  %115 = getelementptr inbounds nuw [2 x i8], ptr %69, i64 %114
   %116 = load i16, ptr %115, align 2, !tbaa !156
   %117 = sext i16 %116 to i32
   %118 = add nsw i32 %117, -128
-  %119 = getelementptr inbounds nuw i16, ptr %70, i64 %114
+  %119 = getelementptr inbounds nuw [2 x i8], ptr %70, i64 %114
   %120 = load i16, ptr %119, align 2, !tbaa !156
   %121 = sext i16 %120 to i32
   %122 = add nsw i32 %121, -128
@@ -3639,7 +3634,7 @@ jpg_unescape.exit:                                ; preds = %jpg_unescape.exit.l
 150:                                              ; preds = %.preheader136.us, %155
   %exitcond204.not = phi i1 [ false, %.preheader136.us ], [ true, %155 ]
   %indvars.iv201 = phi i64 [ 1, %.preheader136.us ], [ 2, %155 ]
-  %151 = getelementptr inbounds nuw [64 x i16], ptr %65, i64 %indvars.iv201
+  %151 = getelementptr inbounds nuw [128 x i8], ptr %65, i64 %indvars.iv201
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 384
   %153 = trunc nuw nsw i64 %indvars.iv201 to i32
   %154 = call fastcc i32 @jpg_decode_block(ptr noundef %0, ptr noundef %12, i32 noundef %153, ptr noundef nonnull %152)
@@ -3664,7 +3659,7 @@ jpg_unescape.exit:                                ; preds = %jpg_unescape.exit.l
   br i1 %.not131.us, label %166, label %161
 
 161:                                              ; preds = %157
-  %gep = getelementptr inbounds nuw [64 x i16], ptr %invariant.gep, i64 %indvars.iv189
+  %gep = getelementptr inbounds nuw [128 x i8], ptr %invariant.gep, i64 %indvars.iv189
   %162 = call fastcc i32 @jpg_decode_block(ptr noundef %0, ptr noundef %12, i32 noundef 0, ptr noundef nonnull %gep)
   %.not132.us = icmp eq i32 %162, 0
   br i1 %.not132.us, label %163, label %.loopexit
@@ -3711,7 +3706,7 @@ jpg_unescape.exit:                                ; preds = %jpg_unescape.exit.l
 173:                                              ; preds = %176, %.preheader.us.us
   %174 = phi i1 [ false, %176 ], [ true, %.preheader.us.us ]
   %indvars.iv195 = phi i64 [ 1, %176 ], [ 0, %.preheader.us.us ]
-  %gep248 = getelementptr inbounds nuw [64 x i16], ptr %invariant.gep247, i64 %indvars.iv195
+  %gep248 = getelementptr inbounds nuw [128 x i8], ptr %invariant.gep247, i64 %indvars.iv195
   %175 = call fastcc i32 @jpg_decode_block(ptr noundef %0, ptr noundef %12, i32 noundef 0, ptr noundef nonnull %gep248)
   %.not132.us.us.us = icmp eq i32 %175, 0
   br i1 %.not132.us.us.us, label %176, label %.loopexit
@@ -3748,12 +3743,12 @@ define internal fastcc range(i32 0, 16777216) i32 @epic_decode_pixel_pred(ptr no
 8:                                                ; preds = %5
   %9 = add nsw i32 %1, -1
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds i32, ptr %3, i64 %10
+  %11 = getelementptr inbounds [4 x i8], ptr %3, i64 %10
   %12 = load i32, ptr %11, align 4, !tbaa !98
   %13 = sext i32 %1 to i64
-  %14 = getelementptr inbounds i32, ptr %4, i64 %13
+  %14 = getelementptr inbounds [4 x i8], ptr %4, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !98
-  %16 = getelementptr inbounds i32, ptr %4, i64 %10
+  %16 = getelementptr inbounds [4 x i8], ptr %4, i64 %10
   %17 = load i32, ptr %16, align 4, !tbaa !98
   %18 = lshr i32 %15, 8
   %19 = and i32 %18, 255
@@ -3870,7 +3865,7 @@ epic_decode_component_pred.exit86:                ; preds = %75, %77, %78, %80
 
 87:                                               ; preds = %5
   %88 = sext i32 %1 to i64
-  %89 = getelementptr i32, ptr %3, i64 %88
+  %89 = getelementptr [4 x i8], ptr %3, i64 %88
   %90 = getelementptr i8, ptr %89, i64 -4
   %.077.in = select i1 %6, ptr %90, ptr %4
   %.077 = load i32, ptr %.077.in, align 4, !tbaa !98
@@ -3956,7 +3951,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @jpg_decode_block(ptr nound
   %10 = load ptr, ptr %0, align 16, !tbaa !163
   tail call void %10(ptr noundef %3) #12
   %11 = zext i1 %5 to i64
-  %12 = getelementptr inbounds nuw %struct.VLC, ptr %0, i64 %11
+  %12 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 224
   %14 = load ptr, ptr %13, align 8, !tbaa !164
   %15 = load i32, ptr %7, align 8, !tbaa !151
@@ -3972,7 +3967,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @jpg_decode_block(ptr nound
   %25 = shl i32 %23, %24
   %26 = lshr i32 %25, 23
   %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr inbounds nuw %struct.VLCElem, ptr %14, i64 %27
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %27
   %29 = load i16, ptr %28, align 2, !tbaa !45
   %30 = sext i16 %29 to i32
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 2
@@ -3995,7 +3990,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @jpg_decode_block(ptr nound
   %46 = lshr i32 %44, %45
   %47 = add i32 %46, %30
   %48 = zext i32 %47 to i64
-  %49 = getelementptr inbounds nuw %struct.VLCElem, ptr %14, i64 %48
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %48
   %50 = load i16, ptr %49, align 2, !tbaa !45
   %51 = sext i16 %50 to i32
   %52 = getelementptr inbounds nuw i8, ptr %49, i64 2
@@ -4044,7 +4039,7 @@ get_vlc2.exit:                                    ; preds = %9, %35
   %78 = mul nsw i32 %.042, %77
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %80 = zext nneg i32 %2 to i64
-  %81 = getelementptr inbounds nuw i32, ptr %79, i64 %80
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %79, i64 %80
   %82 = load i32, ptr %81, align 4, !tbaa !98
   %83 = add nsw i32 %78, %82
   %84 = trunc i32 %83 to i16
@@ -4069,7 +4064,7 @@ get_vlc2.exit:                                    ; preds = %9, %35
   %97 = shl i32 %95, %96
   %98 = lshr i32 %97, 23
   %99 = zext nneg i32 %98 to i64
-  %100 = getelementptr inbounds nuw %struct.VLCElem, ptr %86, i64 %99
+  %100 = getelementptr inbounds nuw [4 x i8], ptr %86, i64 %99
   %101 = load i16, ptr %100, align 2, !tbaa !45
   %102 = sext i16 %101 to i32
   %103 = getelementptr inbounds nuw i8, ptr %100, i64 2
@@ -4092,7 +4087,7 @@ get_vlc2.exit:                                    ; preds = %9, %35
   %118 = lshr i32 %116, %117
   %119 = add i32 %118, %102
   %120 = zext i32 %119 to i64
-  %121 = getelementptr inbounds nuw %struct.VLCElem, ptr %86, i64 %120
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %86, i64 %120
   %122 = load i16, ptr %121, align 2, !tbaa !45
   %123 = sext i16 %122 to i32
   %124 = getelementptr inbounds nuw i8, ptr %121, i64 2
@@ -4152,7 +4147,7 @@ get_vlc2.exit53:                                  ; preds = %89, %107
   %160 = getelementptr inbounds nuw i8, ptr %88, i64 %154
   %161 = load i8, ptr %160, align 1, !tbaa !45
   %162 = zext i8 %161 to i64
-  %163 = getelementptr inbounds nuw i16, ptr %3, i64 %162
+  %163 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %162
   store i16 %159, ptr %163, align 2, !tbaa !156
   br label %164
 

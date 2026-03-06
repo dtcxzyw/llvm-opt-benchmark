@@ -5,9 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.AttStatsSlot = type { i32, i32, i32, ptr, i32, ptr, i32, ptr, ptr }
 %struct.VariableStatData = type { ptr, ptr, ptr, ptr, i32, i32, i32, i8, i8 }
-%struct.TextFreq = type { ptr, float }
-%union.QueryItem = type { %struct.QueryOperand }
-%struct.QueryOperand = type { i8, i8, i8, i32, i32 }
 
 @.str = private unnamed_addr constant [26 x i8] c"unrecognized operator: %d\00", align 1
 @.str.1 = private unnamed_addr constant [14 x i8] c"ts_selfuncs.c\00", align 1
@@ -137,12 +134,12 @@ define dso_local i64 @tsmatchsel(ptr noundef readonly captures(none) %0) local_u
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
-  %78 = getelementptr inbounds nuw i64, ptr %58, i64 %indvars.iv.i.i
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %indvars.iv.i.i
   %79 = load i64, ptr %78, align 8
   %80 = inttoptr i64 %79 to ptr
-  %81 = getelementptr inbounds nuw %struct.TextFreq, ptr %76, i64 %indvars.iv.i.i
+  %81 = getelementptr inbounds nuw [16 x i8], ptr %76, i64 %indvars.iv.i.i
   store ptr %80, ptr %81, align 8
-  %82 = getelementptr inbounds nuw float, ptr %62, i64 %indvars.iv.i.i
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %indvars.iv.i.i
   %83 = load float, ptr %82, align 4
   %84 = getelementptr inbounds nuw i8, ptr %81, i64 8
   store float %83, ptr %84, align 8
@@ -153,7 +150,7 @@ define dso_local i64 @tsmatchsel(ptr noundef readonly captures(none) %0) local_u
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %73
   %85 = add i32 %64, -2
   %86 = sext i32 %85 to i64
-  %87 = getelementptr inbounds float, ptr %62, i64 %86
+  %87 = getelementptr inbounds [4 x i8], ptr %62, i64 %86
   %88 = load float, ptr %87, align 4
   %89 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %90 = load i32, ptr %45, align 4
@@ -279,7 +276,7 @@ define internal fastcc double @tsquery_opr_selec(ptr noundef %0, ptr noundef %1,
   %.0103162 = phi double [ 0.000000e+00, %.preheader ], [ %.1104, %59 ]
   %.0109161 = phi i32 [ 0, %.preheader ], [ %.1110, %59 ]
   %.0112159 = phi double [ 0.000000e+00, %.preheader ], [ %65, %59 ]
-  %23 = getelementptr inbounds nuw %struct.TextFreq, ptr %2, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i32
@@ -512,7 +509,7 @@ compare_lexeme_textfreq.exit.thread:              ; preds = %121, %.thread138, %
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %149 = load i32, ptr %148, align 4
   %150 = zext i32 %149 to i64
-  %151 = getelementptr inbounds nuw %union.QueryItem, ptr %0, i64 %150
+  %151 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %150
   %152 = tail call fastcc double @tsquery_opr_selec(ptr noundef nonnull %151, ptr noundef %1, ptr noundef %2, i32 noundef %3, float noundef %4)
   %153 = fmul double %147, %152
   br label %170
@@ -523,7 +520,7 @@ compare_lexeme_textfreq.exit.thread:              ; preds = %121, %.thread138, %
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %158 = load i32, ptr %157, align 4
   %159 = zext i32 %158 to i64
-  %160 = getelementptr inbounds nuw %union.QueryItem, ptr %0, i64 %159
+  %160 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %159
   %161 = tail call fastcc double @tsquery_opr_selec(ptr noundef nonnull %160, ptr noundef %1, ptr noundef %2, i32 noundef %3, float noundef %4)
   %162 = fadd double %156, %161
   %163 = fneg double %156

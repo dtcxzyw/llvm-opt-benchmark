@@ -1059,7 +1059,7 @@ define internal fastcc ptr @hamt_node_assoc(ptr noundef %0, i32 noundef %1, i32 
   %13 = and i32 %12, 31
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = zext nneg i32 %13 to i64
-  %16 = getelementptr ptr, ptr %14, i64 %15
+  %16 = getelementptr [8 x i8], ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !18
   %18 = icmp eq ptr %17, null
   %19 = add i32 %1, 5
@@ -1144,7 +1144,7 @@ hamt_node_array_new.exit:                         ; preds = %28
 
 65:                                               ; preds = %hamt_node_array_new.exit, %_Py_XNewRef.exit
   %.049.i52 = phi i64 [ 0, %hamt_node_array_new.exit ], [ %74, %_Py_XNewRef.exit ]
-  %66 = getelementptr ptr, ptr %14, i64 %.049.i52
+  %66 = getelementptr [8 x i8], ptr %14, i64 %.049.i52
   %67 = load ptr, ptr %66, align 8, !tbaa !18
   %.not.i.i26 = icmp eq ptr %67, null
   br i1 %.not.i.i26, label %_Py_XNewRef.exit, label %68
@@ -1160,14 +1160,14 @@ hamt_node_array_new.exit:                         ; preds = %28
   br label %_Py_XNewRef.exit
 
 _Py_XNewRef.exit:                                 ; preds = %65, %68, %71
-  %73 = getelementptr ptr, ptr %34, i64 %.049.i52
+  %73 = getelementptr [8 x i8], ptr %34, i64 %.049.i52
   store ptr %67, ptr %73, align 8, !tbaa !18
   %74 = add nuw nsw i64 %.049.i52, 1
   %exitcond.not = icmp eq i64 %74, 32
   br i1 %exitcond.not, label %75, label %65, !llvm.loop !103
 
 75:                                               ; preds = %_Py_XNewRef.exit
-  %76 = getelementptr ptr, ptr %34, i64 %15
+  %76 = getelementptr [8 x i8], ptr %34, i64 %15
   store ptr %21, ptr %76, align 8, !tbaa !18
   br label %hamt_node_array_assoc.exit
 
@@ -1238,7 +1238,7 @@ hamt_node_array_new.exit.i:                       ; preds = %88
 
 118:                                              ; preds = %_Py_XNewRef.exit.i, %hamt_node_array_new.exit.i
   %.011.i = phi i64 [ 0, %hamt_node_array_new.exit.i ], [ %127, %_Py_XNewRef.exit.i ]
-  %119 = getelementptr ptr, ptr %14, i64 %.011.i
+  %119 = getelementptr [8 x i8], ptr %14, i64 %.011.i
   %120 = load ptr, ptr %119, align 8, !tbaa !18
   %.not.i.i.i = icmp eq ptr %120, null
   br i1 %.not.i.i.i, label %_Py_XNewRef.exit.i, label %121
@@ -1254,7 +1254,7 @@ hamt_node_array_new.exit.i:                       ; preds = %88
   br label %_Py_XNewRef.exit.i
 
 _Py_XNewRef.exit.i:                               ; preds = %124, %121, %118
-  %126 = getelementptr ptr, ptr %93, i64 %.011.i
+  %126 = getelementptr [8 x i8], ptr %93, i64 %.011.i
   store ptr %120, ptr %126, align 8, !tbaa !18
   %127 = add nuw nsw i64 %.011.i, 1
   %exitcond.not.i = icmp eq i64 %127, 32
@@ -1276,7 +1276,7 @@ _Py_XNewRef.exit.i:                               ; preds = %124, %121, %118
   br label %hamt_node_array_assoc.exit
 
 hamt_node_array_clone.exit:                       ; preds = %_Py_XNewRef.exit.i
-  %134 = getelementptr ptr, ptr %93, i64 %15
+  %134 = getelementptr [8 x i8], ptr %93, i64 %15
   %135 = load ptr, ptr %134, align 8, !tbaa !18
   store ptr %78, ptr %134, align 8, !tbaa !18
   %136 = load i32, ptr %135, align 8, !tbaa !15
@@ -1311,7 +1311,7 @@ hamt_node_array_clone.exit:                       ; preds = %_Py_XNewRef.exit.i
 
 149:                                              ; preds = %156, %.lr.ph.i34
   %.01319.i = phi i64 [ 0, %.lr.ph.i34 ], [ %157, %156 ]
-  %150 = getelementptr ptr, ptr %148, i64 %.01319.i
+  %150 = getelementptr [8 x i8], ptr %148, i64 %.01319.i
   %151 = load ptr, ptr %150, align 8, !tbaa !110
   %152 = tail call i32 @PyObject_RichCompareBool(ptr noundef %3, ptr noundef %151, i32 noundef 2) #13
   %153 = icmp slt i32 %152, 0
@@ -1393,7 +1393,7 @@ hamt_node_collision_new.exit:                     ; preds = %.preheader.i33, %.l
 194:                                              ; preds = %.lr.ph, %_Py_NewRef.exit32
   %.val68.i56 = phi i64 [ %.val68.i46, %.lr.ph ], [ %.val68.i, %_Py_NewRef.exit32 ]
   %.058.i47 = phi i64 [ 0, %.lr.ph ], [ %202, %_Py_NewRef.exit32 ]
-  %195 = getelementptr ptr, ptr %192, i64 %.058.i47
+  %195 = getelementptr [8 x i8], ptr %192, i64 %.058.i47
   %196 = load ptr, ptr %195, align 8, !tbaa !110
   %197 = load i32, ptr %196, align 8, !tbaa !15
   %198 = icmp slt i32 %197, 0
@@ -1407,7 +1407,7 @@ hamt_node_collision_new.exit:                     ; preds = %.preheader.i33, %.l
 
 _Py_NewRef.exit32:                                ; preds = %194, %199
   %.val68.i = phi i64 [ %.val68.i56, %194 ], [ %.val68.i.pre, %199 ]
-  %201 = getelementptr ptr, ptr %193, i64 %.058.i47
+  %201 = getelementptr [8 x i8], ptr %193, i64 %.058.i47
   store ptr %196, ptr %201, align 8, !tbaa !110
   %202 = add nuw nsw i64 %.058.i47, 1
   %203 = icmp slt i64 %202, %.val68.i
@@ -1426,7 +1426,7 @@ _Py_NewRef.exit32:                                ; preds = %194, %199
 
 _Py_NewRef.exit31:                                ; preds = %._crit_edge, %206
   %208 = getelementptr inbounds nuw i8, ptr %161, i64 32
-  %209 = getelementptr ptr, ptr %208, i64 %.058.i.lcssa
+  %209 = getelementptr [8 x i8], ptr %208, i64 %.058.i.lcssa
   store ptr %3, ptr %209, align 8, !tbaa !110
   %210 = load i32, ptr %4, align 8, !tbaa !15
   %211 = icmp slt i32 %210, 0
@@ -1445,7 +1445,7 @@ _Py_NewRef.exit30:                                ; preds = %_Py_NewRef.exit31, 
 
 hamt_node_collision_find_index.exit:              ; preds = %154
   %215 = or disjoint i64 %.01319.i, 1
-  %216 = getelementptr ptr, ptr %148, i64 %215
+  %216 = getelementptr [8 x i8], ptr %148, i64 %215
   %217 = load ptr, ptr %216, align 8, !tbaa !110
   %218 = icmp eq ptr %217, %4
   br i1 %218, label %219, label %224
@@ -1520,7 +1520,7 @@ hamt_node_collision_find_index.exit:              ; preds = %154
 258:                                              ; preds = %.lr.ph50, %_Py_NewRef.exit28
   %.val70.i58 = phi i64 [ %.val70.i48, %.lr.ph50 ], [ %.val70.i, %_Py_NewRef.exit28 ]
   %.159.i49 = phi i64 [ 0, %.lr.ph50 ], [ %266, %_Py_NewRef.exit28 ]
-  %259 = getelementptr ptr, ptr %148, i64 %.159.i49
+  %259 = getelementptr [8 x i8], ptr %148, i64 %.159.i49
   %260 = load ptr, ptr %259, align 8, !tbaa !110
   %261 = load i32, ptr %260, align 8, !tbaa !15
   %262 = icmp slt i32 %261, 0
@@ -1534,7 +1534,7 @@ hamt_node_collision_find_index.exit:              ; preds = %154
 
 _Py_NewRef.exit28:                                ; preds = %258, %263
   %.val70.i = phi i64 [ %.val70.i58, %258 ], [ %.val70.i.pre, %263 ]
-  %265 = getelementptr ptr, ptr %257, i64 %.159.i49
+  %265 = getelementptr [8 x i8], ptr %257, i64 %.159.i49
   store ptr %260, ptr %265, align 8, !tbaa !110
   %266 = add nuw nsw i64 %.159.i49, 1
   %267 = icmp slt i64 %266, %.val70.i
@@ -1542,7 +1542,7 @@ _Py_NewRef.exit28:                                ; preds = %258, %263
 
 ._crit_edge51:                                    ; preds = %_Py_NewRef.exit28, %.preheader
   %268 = getelementptr inbounds nuw i8, ptr %226, i64 32
-  %269 = getelementptr ptr, ptr %268, i64 %215
+  %269 = getelementptr [8 x i8], ptr %268, i64 %215
   %270 = load ptr, ptr %269, align 8, !tbaa !110
   %271 = load i32, ptr %4, align 8, !tbaa !15
   %272 = icmp slt i32 %271, 0
@@ -1768,14 +1768,14 @@ define internal fastcc range(i32 0, 4) i32 @hamt_node_without(ptr noundef readon
   %22 = or disjoint i32 %21, 1
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %24 = zext nneg i32 %21 to i64
-  %25 = getelementptr ptr, ptr %23, i64 %24
+  %25 = getelementptr [8 x i8], ptr %23, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !110
   %27 = zext nneg i32 %22 to i64
   %28 = icmp eq ptr %26, null
   br i1 %28, label %29, label %138
 
 29:                                               ; preds = %17
-  %30 = getelementptr ptr, ptr %23, i64 %27
+  %30 = getelementptr [8 x i8], ptr %23, i64 %27
   %31 = load ptr, ptr %30, align 8, !tbaa !110
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8, !tbaa !18
@@ -1829,7 +1829,7 @@ define internal fastcc range(i32 0, 4) i32 @hamt_node_without(ptr noundef readon
   %56 = getelementptr i8, ptr %36, i64 40
   %57 = load ptr, ptr %56, align 8, !tbaa !110
   %58 = getelementptr inbounds nuw i8, ptr %46, i64 32
-  %59 = getelementptr ptr, ptr %58, i64 %24
+  %59 = getelementptr [8 x i8], ptr %58, i64 %24
   %60 = load ptr, ptr %59, align 8, !tbaa !110
   %61 = load i32, ptr %55, align 8, !tbaa !15
   %62 = icmp slt i32 %61, 0
@@ -1843,7 +1843,7 @@ define internal fastcc range(i32 0, 4) i32 @hamt_node_without(ptr noundef readon
 _Py_NewRef.exit40:                                ; preds = %54, %63
   store ptr %55, ptr %59, align 8, !tbaa !110
   tail call fastcc void @Py_XDECREF(ptr noundef %60)
-  %65 = getelementptr ptr, ptr %58, i64 %27
+  %65 = getelementptr [8 x i8], ptr %58, i64 %27
   %66 = load ptr, ptr %65, align 8, !tbaa !110
   %67 = load i32, ptr %57, align 8, !tbaa !15
   %68 = icmp slt i32 %67, 0
@@ -1953,7 +1953,7 @@ hamt_node_bitmap_new.exit.i:                      ; preds = %.lr.ph.i.i39, %86
 117:                                              ; preds = %_Py_XNewRef.exit.i38, %.lr.ph.i36
   %.val1419.i = phi i64 [ %.val1416.pre.i, %.lr.ph.i36 ], [ %.val14.i, %_Py_XNewRef.exit.i38 ]
   %.017.i = phi i64 [ 0, %.lr.ph.i36 ], [ %126, %_Py_XNewRef.exit.i38 ]
-  %118 = getelementptr ptr, ptr %23, i64 %.017.i
+  %118 = getelementptr [8 x i8], ptr %23, i64 %.017.i
   %119 = load ptr, ptr %118, align 8, !tbaa !110
   %.not.i.i.i37 = icmp eq ptr %119, null
   br i1 %.not.i.i.i37, label %_Py_XNewRef.exit.i38, label %120
@@ -1971,7 +1971,7 @@ hamt_node_bitmap_new.exit.i:                      ; preds = %.lr.ph.i.i39, %86
 
 _Py_XNewRef.exit.i38:                             ; preds = %123, %120, %117
   %.val14.i = phi i64 [ %.val1419.i, %117 ], [ %.val1419.i, %120 ], [ %.val14.pre.i, %123 ]
-  %125 = getelementptr ptr, ptr %116, i64 %.017.i
+  %125 = getelementptr [8 x i8], ptr %116, i64 %.017.i
   store ptr %119, ptr %125, align 8, !tbaa !110
   %126 = add nuw nsw i64 %.017.i, 1
   %127 = icmp slt i64 %126, %.val14.i
@@ -1983,7 +1983,7 @@ _Py_XNewRef.exit.i38:                             ; preds = %123, %120, %117
   %129 = getelementptr inbounds nuw i8, ptr %.013.i27.i, i64 24
   store i32 %128, ptr %129, align 8, !tbaa !106
   %130 = getelementptr inbounds nuw i8, ptr %.013.i27.i, i64 32
-  %131 = getelementptr ptr, ptr %130, i64 %27
+  %131 = getelementptr [8 x i8], ptr %130, i64 %27
   %132 = load ptr, ptr %131, align 8, !tbaa !110
   store ptr %36, ptr %131, align 8, !tbaa !110
   %133 = load i32, ptr %132, align 8, !tbaa !15
@@ -2087,7 +2087,7 @@ Py_DECREF.exit71.i.thread:                        ; preds = %83, %48, %50, %53, 
 
 186:                                              ; preds = %_Py_XNewRef.exit.i, %.lr.ph.i28
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i28 ], [ %indvars.iv.next.i, %_Py_XNewRef.exit.i ]
-  %187 = getelementptr ptr, ptr %23, i64 %indvars.iv.i
+  %187 = getelementptr [8 x i8], ptr %23, i64 %indvars.iv.i
   %188 = load ptr, ptr %187, align 8, !tbaa !110
   %.not.i.i.i = icmp eq ptr %188, null
   br i1 %.not.i.i.i, label %_Py_XNewRef.exit.i, label %189
@@ -2103,7 +2103,7 @@ Py_DECREF.exit71.i.thread:                        ; preds = %83, %48, %50, %53, 
   br label %_Py_XNewRef.exit.i
 
 _Py_XNewRef.exit.i:                               ; preds = %192, %189, %186
-  %194 = getelementptr ptr, ptr %185, i64 %indvars.iv.i
+  %194 = getelementptr [8 x i8], ptr %185, i64 %indvars.iv.i
   store ptr %188, ptr %194, align 8, !tbaa !110
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i29 = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -2124,7 +2124,7 @@ _Py_XNewRef.exit.i:                               ; preds = %192, %189, %186
 200:                                              ; preds = %_Py_XNewRef.exit29.i, %.lr.ph36.i
   %.val42.i = phi i64 [ %.val33.i, %.lr.ph36.i ], [ %.val.i32, %_Py_XNewRef.exit29.i ]
   %indvars.iv39.i = phi i64 [ %198, %.lr.ph36.i ], [ %indvars.iv.next40.i, %_Py_XNewRef.exit29.i ]
-  %201 = getelementptr ptr, ptr %23, i64 %indvars.iv39.i
+  %201 = getelementptr [8 x i8], ptr %23, i64 %indvars.iv39.i
   %202 = load ptr, ptr %201, align 8, !tbaa !110
   %.not.i.i28.i = icmp eq ptr %202, null
   br i1 %.not.i.i28.i, label %_Py_XNewRef.exit29.i, label %203
@@ -2142,7 +2142,7 @@ _Py_XNewRef.exit.i:                               ; preds = %192, %189, %186
 
 _Py_XNewRef.exit29.i:                             ; preds = %206, %203, %200
   %.val.i32 = phi i64 [ %.val42.i, %200 ], [ %.val42.i, %203 ], [ %.val.pre.i31, %206 ]
-  %208 = getelementptr ptr, ptr %199, i64 %indvars.iv39.i
+  %208 = getelementptr [8 x i8], ptr %199, i64 %indvars.iv39.i
   store ptr %202, ptr %208, align 8, !tbaa !110
   %indvars.iv.next40.i = add nuw nsw i64 %indvars.iv39.i, 1
   %209 = and i64 %.val.i32, 4294967295
@@ -2172,7 +2172,7 @@ hamt_node_bitmap_clone_without.exit:              ; preds = %147, %._crit_edge37
   %219 = and i32 %218, 31
   %220 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %221 = zext nneg i32 %219 to i64
-  %222 = getelementptr ptr, ptr %220, i64 %221
+  %222 = getelementptr [8 x i8], ptr %220, i64 %221
   %223 = load ptr, ptr %222, align 8, !tbaa !18
   %224 = icmp eq ptr %223, null
   br i1 %224, label %hamt_node_bitmap_without.exit, label %225
@@ -2232,7 +2232,7 @@ hamt_node_array_new.exit.i:                       ; preds = %228
 
 258:                                              ; preds = %_Py_XNewRef.exit.i46, %hamt_node_array_new.exit.i
   %.011.i = phi i64 [ 0, %hamt_node_array_new.exit.i ], [ %267, %_Py_XNewRef.exit.i46 ]
-  %259 = getelementptr ptr, ptr %220, i64 %.011.i
+  %259 = getelementptr [8 x i8], ptr %220, i64 %.011.i
   %260 = load ptr, ptr %259, align 8, !tbaa !18
   %.not.i.i.i45 = icmp eq ptr %260, null
   br i1 %.not.i.i.i45, label %_Py_XNewRef.exit.i46, label %261
@@ -2248,7 +2248,7 @@ hamt_node_array_new.exit.i:                       ; preds = %228
   br label %_Py_XNewRef.exit.i46
 
 _Py_XNewRef.exit.i46:                             ; preds = %264, %261, %258
-  %266 = getelementptr ptr, ptr %233, i64 %.011.i
+  %266 = getelementptr [8 x i8], ptr %233, i64 %.011.i
   store ptr %260, ptr %266, align 8, !tbaa !18
   %267 = add nuw nsw i64 %.011.i, 1
   %exitcond.not.i47 = icmp eq i64 %267, 32
@@ -2271,7 +2271,7 @@ _Py_XNewRef.exit.i46:                             ; preds = %264, %261, %258
   br label %Py_DECREF.exit94.i
 
 hamt_node_array_clone.exit:                       ; preds = %_Py_XNewRef.exit.i46
-  %275 = getelementptr ptr, ptr %233, i64 %221
+  %275 = getelementptr [8 x i8], ptr %233, i64 %221
   %276 = load ptr, ptr %275, align 8, !tbaa !18
   %277 = load ptr, ptr %6, align 8, !tbaa !18
   store ptr %277, ptr %275, align 8, !tbaa !18
@@ -2313,7 +2313,7 @@ Py_DECREF.exit92.i:                               ; preds = %282, %279, %hamt_no
   %294 = getelementptr inbounds nuw i8, ptr %291, i64 272
   store i64 %286, ptr %294, align 8, !tbaa !19
   %295 = getelementptr inbounds nuw i8, ptr %291, i64 16
-  %296 = getelementptr ptr, ptr %295, i64 %221
+  %296 = getelementptr [8 x i8], ptr %295, i64 %221
   %297 = load ptr, ptr %296, align 8, !tbaa !18
   %.not90.i = icmp eq ptr %297, null
   br i1 %.not90.i, label %Py_DECREF.exit.i23, label %298
@@ -2362,7 +2362,7 @@ Py_DECREF.exit.i23:                               ; preds = %298, %300, %303, %2
   br i1 %312, label %350, label %313
 
 313:                                              ; preds = %311
-  %314 = getelementptr ptr, ptr %220, i64 %indvars.iv
+  %314 = getelementptr [8 x i8], ptr %220, i64 %indvars.iv
   %315 = load ptr, ptr %314, align 8, !tbaa !18
   %316 = icmp eq ptr %315, null
   br i1 %316, label %350, label %317
@@ -2402,21 +2402,21 @@ Py_DECREF.exit.i23:                               ; preds = %298, %300, %303, %2
   br label %_Py_NewRef.exit44
 
 _Py_NewRef.exit44:                                ; preds = %329, %334
-  %336 = getelementptr ptr, ptr %308, i64 %.077.i56
+  %336 = getelementptr [8 x i8], ptr %308, i64 %.077.i56
   store ptr %328, ptr %336, align 8, !tbaa !110
   %337 = load i32, ptr %331, align 8, !tbaa !15
   %338 = icmp slt i32 %337, 0
   br i1 %338, label %_Py_NewRef.exit43, label %_Py_NewRef.exit43.sink.split
 
 339:                                              ; preds = %326, %322
-  %340 = getelementptr ptr, ptr %308, i64 %.077.i56
+  %340 = getelementptr [8 x i8], ptr %308, i64 %.077.i56
   store ptr null, ptr %340, align 8, !tbaa !110
   %341 = load i32, ptr %315, align 8, !tbaa !15
   %342 = icmp slt i32 %341, 0
   br i1 %342, label %_Py_NewRef.exit43, label %_Py_NewRef.exit43.sink.split
 
 343:                                              ; preds = %317
-  %344 = getelementptr ptr, ptr %308, i64 %.077.i56
+  %344 = getelementptr [8 x i8], ptr %308, i64 %.077.i56
   store ptr null, ptr %344, align 8, !tbaa !110
   %345 = load i32, ptr %315, align 8, !tbaa !15
   %346 = icmp slt i32 %345, 0
@@ -2471,7 +2471,7 @@ Py_DECREF.exit94.i:                               ; preds = %268, %271, %274, %3
 
 358:                                              ; preds = %365, %.lr.ph.i.i
   %.01319.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %366, %365 ]
-  %359 = getelementptr ptr, ptr %357, i64 %.01319.i.i
+  %359 = getelementptr [8 x i8], ptr %357, i64 %.01319.i.i
   %360 = load ptr, ptr %359, align 8, !tbaa !110
   %361 = tail call i32 @PyObject_RichCompareBool(ptr noundef %3, ptr noundef %360, i32 noundef 2) #13
   %362 = icmp slt i32 %361, 0
@@ -2651,7 +2651,7 @@ hamt_node_collision_new.exit.i:                   ; preds = %.lr.ph.i53.i, %.pre
 
 461:                                              ; preds = %_Py_NewRef.exit54.i, %.lr.ph.i
   %.065.i = phi i64 [ 0, %.lr.ph.i ], [ %469, %_Py_NewRef.exit54.i ]
-  %462 = getelementptr ptr, ptr %357, i64 %.065.i
+  %462 = getelementptr [8 x i8], ptr %357, i64 %.065.i
   %463 = load ptr, ptr %462, align 8, !tbaa !110
   %464 = load i32, ptr %463, align 8, !tbaa !15
   %465 = icmp slt i32 %464, 0
@@ -2663,7 +2663,7 @@ hamt_node_collision_new.exit.i:                   ; preds = %.lr.ph.i53.i, %.pre
   br label %_Py_NewRef.exit54.i
 
 _Py_NewRef.exit54.i:                              ; preds = %466, %461
-  %468 = getelementptr ptr, ptr %460, i64 %.065.i
+  %468 = getelementptr [8 x i8], ptr %460, i64 %.065.i
   store ptr %463, ptr %468, align 8, !tbaa !110
   %469 = add nuw nsw i64 %.065.i, 1
   %exitcond.not.i = icmp eq i64 %469, %.01319.i.i
@@ -2678,7 +2678,7 @@ _Py_NewRef.exit54.i:                              ; preds = %466, %461
 .lr.ph69.i:                                       ; preds = %._crit_edge.i, %_Py_NewRef.exit55.i
   %.val73.i = phi i64 [ %.val.i26, %_Py_NewRef.exit55.i ], [ %.val66.i, %._crit_edge.i ]
   %.167.i = phi i64 [ %479, %_Py_NewRef.exit55.i ], [ %470, %._crit_edge.i ]
-  %472 = getelementptr ptr, ptr %357, i64 %.167.i
+  %472 = getelementptr [8 x i8], ptr %357, i64 %.167.i
   %473 = load ptr, ptr %472, align 8, !tbaa !110
   %474 = load i32, ptr %473, align 8, !tbaa !15
   %475 = icmp slt i32 %474, 0
@@ -2692,7 +2692,7 @@ _Py_NewRef.exit54.i:                              ; preds = %466, %461
 
 _Py_NewRef.exit55.i:                              ; preds = %476, %.lr.ph69.i
   %.val.i26 = phi i64 [ %.val73.i, %.lr.ph69.i ], [ %.val.pre.i, %476 ]
-  %478 = getelementptr ptr, ptr %434, i64 %.167.i
+  %478 = getelementptr [8 x i8], ptr %434, i64 %.167.i
   store ptr %473, ptr %478, align 8, !tbaa !110
   %479 = add nsw i64 %.167.i, 1
   %480 = icmp slt i64 %479, %.val.i26
@@ -2782,7 +2782,7 @@ tailrecurse.i:                                    ; preds = %tailrecurse.backedg
   %29 = shl nuw nsw i32 %28, 1
   %30 = getelementptr inbounds nuw i8, ptr %.tr.i, i64 32
   %31 = zext nneg i32 %29 to i64
-  %32 = getelementptr ptr, ptr %30, i64 %31
+  %32 = getelementptr [8 x i8], ptr %30, i64 %31
   %33 = load ptr, ptr %32, align 8, !tbaa !110
   %34 = getelementptr i8, ptr %32, i64 8
   %35 = load ptr, ptr %34, align 8, !tbaa !110
@@ -2812,7 +2812,7 @@ tailrecurse.backedge.i:                           ; preds = %43, %25
   %45 = and i32 %44, 31
   %46 = getelementptr inbounds nuw i8, ptr %.tr.i, i64 16
   %47 = zext nneg i32 %45 to i64
-  %48 = getelementptr ptr, ptr %46, i64 %47
+  %48 = getelementptr [8 x i8], ptr %46, i64 %47
   %49 = load ptr, ptr %48, align 8, !tbaa !18
   %50 = icmp eq ptr %49, null
   br i1 %50, label %hamt_node_find.exit, label %tailrecurse.backedge.i
@@ -2829,7 +2829,7 @@ tailrecurse.backedge.i:                           ; preds = %43, %25
 
 55:                                               ; preds = %62, %.lr.ph.i.i.i
   %.01319.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %63, %62 ]
-  %56 = getelementptr ptr, ptr %54, i64 %.01319.i.i.i
+  %56 = getelementptr [8 x i8], ptr %54, i64 %.01319.i.i.i
   %57 = load ptr, ptr %56, align 8, !tbaa !110
   %58 = tail call i32 @PyObject_RichCompareBool(ptr noundef %1, ptr noundef %57, i32 noundef 2) #13
   %59 = icmp slt i32 %58, 0
@@ -2847,7 +2847,7 @@ tailrecurse.backedge.i:                           ; preds = %43, %25
 
 hamt_node_collision_find_index.exit.i.i:          ; preds = %60
   %65 = getelementptr i8, ptr %.tr.i, i64 40
-  %66 = getelementptr ptr, ptr %65, i64 %.01319.i.i.i
+  %66 = getelementptr [8 x i8], ptr %65, i64 %.01319.i.i.i
   %67 = load ptr, ptr %66, align 8, !tbaa !110
   br label %hamt_node_bitmap_find.exit.sink.split.i
 
@@ -2948,7 +2948,7 @@ define internal fastcc range(i32 0, 2) i32 @hamt_iterator_next(ptr noundef captu
 7:                                                ; preds = %.lr.ph, %tailrecurse.backedge
   %8 = phi i8 [ %.promoted, %.lr.ph ], [ %20, %tailrecurse.backedge ]
   %9 = zext nneg i8 %8 to i64
-  %10 = getelementptr ptr, ptr %0, i64 %9
+  %10 = getelementptr [8 x i8], ptr %0, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !18
   %12 = getelementptr i8, ptr %11, i64 8
   %.val = load ptr, ptr %12, align 8, !tbaa !17
@@ -2956,7 +2956,7 @@ define internal fastcc range(i32 0, 2) i32 @hamt_iterator_next(ptr noundef captu
   br i1 %.not, label %13, label %39
 
 13:                                               ; preds = %7
-  %14 = getelementptr i64, ptr %6, i64 %9
+  %14 = getelementptr [8 x i8], ptr %6, i64 %9
   %15 = load i64, ptr %14, align 8, !tbaa !123
   %16 = add i64 %15, 1
   %17 = getelementptr i8, ptr %11, i64 16
@@ -2976,7 +2976,7 @@ tailrecurse.backedge:                             ; preds = %18, %27, %45, %52, 
 
 22:                                               ; preds = %13
   %23 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %24 = getelementptr ptr, ptr %23, i64 %15
+  %24 = getelementptr [8 x i8], ptr %23, i64 %15
   %25 = load ptr, ptr %24, align 8, !tbaa !110
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %35
@@ -2987,17 +2987,17 @@ tailrecurse.backedge:                             ; preds = %18, %27, %45, %52, 
   %29 = add nuw i8 %8, 1
   store i8 %29, ptr %4, align 8, !tbaa !121
   %30 = sext i8 %29 to i64
-  %31 = getelementptr i64, ptr %6, i64 %30
+  %31 = getelementptr [8 x i8], ptr %6, i64 %30
   store i64 0, ptr %31, align 8, !tbaa !123
-  %32 = getelementptr ptr, ptr %23, i64 %16
+  %32 = getelementptr [8 x i8], ptr %23, i64 %16
   %33 = load ptr, ptr %32, align 8, !tbaa !110
-  %34 = getelementptr ptr, ptr %0, i64 %30
+  %34 = getelementptr [8 x i8], ptr %0, i64 %30
   store ptr %33, ptr %34, align 8, !tbaa !18
   br label %tailrecurse.backedge
 
 35:                                               ; preds = %22
   store ptr %25, ptr %1, align 8, !tbaa !110
-  %36 = getelementptr ptr, ptr %23, i64 %16
+  %36 = getelementptr [8 x i8], ptr %23, i64 %16
   %37 = load ptr, ptr %36, align 8, !tbaa !110
   store ptr %37, ptr %2, align 8, !tbaa !110
   %38 = add i64 %15, 2
@@ -3006,7 +3006,7 @@ tailrecurse.backedge:                             ; preds = %18, %27, %45, %52, 
 
 39:                                               ; preds = %7
   %.not22 = icmp eq ptr %.val, @_PyHamt_ArrayNode_Type
-  %40 = getelementptr i64, ptr %6, i64 %9
+  %40 = getelementptr [8 x i8], ptr %6, i64 %9
   %41 = load i64, ptr %40, align 8, !tbaa !123
   br i1 %.not22, label %42, label %59
 
@@ -3025,7 +3025,7 @@ tailrecurse.backedge:                             ; preds = %18, %27, %45, %52, 
 
 47:                                               ; preds = %.preheader, %51
   %.035.i35 = phi i64 [ %41, %.preheader ], [ %50, %51 ]
-  %48 = getelementptr ptr, ptr %44, i64 %.035.i35
+  %48 = getelementptr [8 x i8], ptr %44, i64 %.035.i35
   %49 = load ptr, ptr %48, align 8, !tbaa !18
   %.not.i16 = icmp eq ptr %49, null
   %50 = add nsw i64 %.035.i35, 1
@@ -3039,9 +3039,9 @@ tailrecurse.backedge:                             ; preds = %18, %27, %45, %52, 
   store i64 %50, ptr %40, align 8, !tbaa !123
   %53 = add nuw i8 %8, 1
   %54 = sext i8 %53 to i64
-  %55 = getelementptr i64, ptr %6, i64 %54
+  %55 = getelementptr [8 x i8], ptr %6, i64 %54
   store i64 0, ptr %55, align 8, !tbaa !123
-  %56 = getelementptr ptr, ptr %0, i64 %54
+  %56 = getelementptr [8 x i8], ptr %0, i64 %54
   store ptr %49, ptr %56, align 8, !tbaa !18
   store i8 %53, ptr %4, align 8, !tbaa !121
   br label %tailrecurse.backedge
@@ -3064,12 +3064,12 @@ tailrecurse.backedge:                             ; preds = %18, %27, %45, %52, 
   br label %tailrecurse.backedge
 
 64:                                               ; preds = %59
-  %65 = getelementptr i64, ptr %6, i64 %9
+  %65 = getelementptr [8 x i8], ptr %6, i64 %9
   %66 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %67 = getelementptr ptr, ptr %66, i64 %41
+  %67 = getelementptr [8 x i8], ptr %66, i64 %41
   %68 = load ptr, ptr %67, align 8, !tbaa !110
   store ptr %68, ptr %1, align 8, !tbaa !110
-  %69 = getelementptr ptr, ptr %66, i64 %60
+  %69 = getelementptr [8 x i8], ptr %66, i64 %60
   %70 = load ptr, ptr %69, align 8, !tbaa !110
   store ptr %70, ptr %2, align 8, !tbaa !110
   %71 = add i64 %41, 2
@@ -3640,7 +3640,7 @@ define internal void @hamt_node_array_dealloc(ptr noundef %0) #0 {
 
 24:                                               ; preds = %12, %Py_XDECREF.exit
   %.017 = phi i64 [ 0, %12 ], [ %33, %Py_XDECREF.exit ]
-  %25 = getelementptr ptr, ptr %14, i64 %.017
+  %25 = getelementptr [8 x i8], ptr %14, i64 %.017
   %26 = load ptr, ptr %25, align 8, !tbaa !18
   %.not.i = icmp eq ptr %26, null
   br i1 %.not.i, label %Py_XDECREF.exit, label %27
@@ -3680,7 +3680,7 @@ define internal i32 @hamt_node_array_traverse(ptr noundef readonly captures(none
 
 5:                                                ; preds = %3, %10
   %.01620 = phi i64 [ 0, %3 ], [ %11, %10 ]
-  %6 = getelementptr ptr, ptr %4, i64 %.01620
+  %6 = getelementptr [8 x i8], ptr %4, i64 %.01620
   %7 = load ptr, ptr %6, align 8, !tbaa !18
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %10, label %8
@@ -3742,7 +3742,7 @@ define internal void @hamt_node_bitmap_dealloc(ptr noundef %0) #0 {
 19:                                               ; preds = %.preheader, %Py_XDECREF.exit
   %.023 = phi i64 [ %.val22, %.preheader ], [ %20, %Py_XDECREF.exit ]
   %20 = add nsw i64 %.023, -1
-  %21 = getelementptr ptr, ptr %18, i64 %20
+  %21 = getelementptr [8 x i8], ptr %18, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !110
   %.not.i = icmp eq ptr %22, null
   br i1 %.not.i, label %Py_XDECREF.exit, label %23
@@ -3804,7 +3804,7 @@ define internal i32 @hamt_node_bitmap_traverse(ptr noundef readonly captures(non
 
 8:                                                ; preds = %.lr.ph, %14
   %9 = phi i64 [ %5, %.lr.ph ], [ %15, %14 ]
-  %10 = getelementptr ptr, ptr %7, i64 %9
+  %10 = getelementptr [8 x i8], ptr %7, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !110
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %14, label %12
@@ -3860,7 +3860,7 @@ define internal void @hamt_node_collision_dealloc(ptr noundef %0) #0 {
 17:                                               ; preds = %.preheader, %Py_XDECREF.exit
   %.021 = phi i64 [ %.val20, %.preheader ], [ %18, %Py_XDECREF.exit ]
   %18 = add nsw i64 %.021, -1
-  %19 = getelementptr ptr, ptr %16, i64 %18
+  %19 = getelementptr [8 x i8], ptr %16, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !110
   %.not.i = icmp eq ptr %20, null
   br i1 %.not.i, label %Py_XDECREF.exit, label %21
@@ -3922,7 +3922,7 @@ define internal i32 @hamt_node_collision_traverse(ptr noundef readonly captures(
 
 8:                                                ; preds = %.lr.ph, %14
   %9 = phi i64 [ %5, %.lr.ph ], [ %15, %14 ]
-  %10 = getelementptr ptr, ptr %7, i64 %9
+  %10 = getelementptr [8 x i8], ptr %7, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !110
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %14, label %12
@@ -3964,10 +3964,10 @@ define internal fastcc ptr @hamt_node_bitmap_assoc(ptr noundef captures(ret: add
   %19 = or disjoint i32 %18, 1
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %21 = zext nneg i32 %18 to i64
-  %22 = getelementptr ptr, ptr %20, i64 %21
+  %22 = getelementptr [8 x i8], ptr %20, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !110
   %24 = zext nneg i32 %19 to i64
-  %25 = getelementptr ptr, ptr %20, i64 %24
+  %25 = getelementptr [8 x i8], ptr %20, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !110
   %27 = icmp eq ptr %23, null
   br i1 %27, label %28, label %102
@@ -4071,7 +4071,7 @@ hamt_node_bitmap_new.exit.i:                      ; preds = %.lr.ph.i.i, %50
 81:                                               ; preds = %_Py_XNewRef.exit.i, %.lr.ph.i
   %.val1419.i = phi i64 [ %.val1416.pre.i, %.lr.ph.i ], [ %.val14.i, %_Py_XNewRef.exit.i ]
   %.017.i = phi i64 [ 0, %.lr.ph.i ], [ %90, %_Py_XNewRef.exit.i ]
-  %82 = getelementptr ptr, ptr %20, i64 %.017.i
+  %82 = getelementptr [8 x i8], ptr %20, i64 %.017.i
   %83 = load ptr, ptr %82, align 8, !tbaa !110
   %.not.i.i.i = icmp eq ptr %83, null
   br i1 %.not.i.i.i, label %_Py_XNewRef.exit.i, label %84
@@ -4089,7 +4089,7 @@ hamt_node_bitmap_new.exit.i:                      ; preds = %.lr.ph.i.i, %50
 
 _Py_XNewRef.exit.i:                               ; preds = %87, %84, %81
   %.val14.i = phi i64 [ %.val1419.i, %81 ], [ %.val1419.i, %84 ], [ %.val14.pre.i, %87 ]
-  %89 = getelementptr ptr, ptr %80, i64 %.017.i
+  %89 = getelementptr [8 x i8], ptr %80, i64 %.017.i
   store ptr %83, ptr %89, align 8, !tbaa !110
   %90 = add nuw nsw i64 %.017.i, 1
   %91 = icmp slt i64 %90, %.val14.i
@@ -4101,7 +4101,7 @@ _Py_XNewRef.exit.i:                               ; preds = %87, %84, %81
   %93 = getelementptr inbounds nuw i8, ptr %.013.i27.i, i64 24
   store i32 %92, ptr %93, align 8, !tbaa !106
   %94 = getelementptr inbounds nuw i8, ptr %.013.i27.i, i64 32
-  %95 = getelementptr ptr, ptr %94, i64 %24
+  %95 = getelementptr [8 x i8], ptr %94, i64 %24
   %96 = load ptr, ptr %95, align 8, !tbaa !110
   store ptr %30, ptr %95, align 8, !tbaa !110
   %97 = load i32, ptr %96, align 8, !tbaa !15
@@ -4205,7 +4205,7 @@ hamt_node_bitmap_new.exit.i195:                   ; preds = %.lr.ph.i.i207, %120
 151:                                              ; preds = %_Py_XNewRef.exit.i205, %.lr.ph.i200
   %.val1419.i201 = phi i64 [ %.val1416.pre.i196, %.lr.ph.i200 ], [ %.val14.i206, %_Py_XNewRef.exit.i205 ]
   %.017.i202 = phi i64 [ 0, %.lr.ph.i200 ], [ %160, %_Py_XNewRef.exit.i205 ]
-  %152 = getelementptr ptr, ptr %20, i64 %.017.i202
+  %152 = getelementptr [8 x i8], ptr %20, i64 %.017.i202
   %153 = load ptr, ptr %152, align 8, !tbaa !110
   %.not.i.i.i203 = icmp eq ptr %153, null
   br i1 %.not.i.i.i203, label %_Py_XNewRef.exit.i205, label %154
@@ -4223,7 +4223,7 @@ hamt_node_bitmap_new.exit.i195:                   ; preds = %.lr.ph.i.i207, %120
 
 _Py_XNewRef.exit.i205:                            ; preds = %157, %154, %151
   %.val14.i206 = phi i64 [ %.val1419.i201, %151 ], [ %.val1419.i201, %154 ], [ %.val14.pre.i204, %157 ]
-  %159 = getelementptr ptr, ptr %150, i64 %.017.i202
+  %159 = getelementptr [8 x i8], ptr %150, i64 %.017.i202
   store ptr %153, ptr %159, align 8, !tbaa !110
   %160 = add nuw nsw i64 %.017.i202, 1
   %161 = icmp slt i64 %160, %.val14.i206
@@ -4235,7 +4235,7 @@ _Py_XNewRef.exit.i205:                            ; preds = %157, %154, %151
   %163 = getelementptr inbounds nuw i8, ptr %.013.i27.i198, i64 24
   store i32 %162, ptr %163, align 8, !tbaa !106
   %164 = getelementptr inbounds nuw i8, ptr %.013.i27.i198, i64 32
-  %165 = getelementptr ptr, ptr %164, i64 %24
+  %165 = getelementptr [8 x i8], ptr %164, i64 %24
   %166 = load ptr, ptr %165, align 8, !tbaa !110
   %167 = load i32, ptr %4, align 8, !tbaa !15
   %168 = icmp slt i32 %167, 0
@@ -4475,7 +4475,7 @@ hamt_node_bitmap_new.exit.i211:                   ; preds = %.lr.ph.i.i223, %256
 287:                                              ; preds = %_Py_XNewRef.exit.i221, %.lr.ph.i216
   %.val1419.i217 = phi i64 [ %.val1416.pre.i212, %.lr.ph.i216 ], [ %.val14.i222, %_Py_XNewRef.exit.i221 ]
   %.017.i218 = phi i64 [ 0, %.lr.ph.i216 ], [ %296, %_Py_XNewRef.exit.i221 ]
-  %288 = getelementptr ptr, ptr %20, i64 %.017.i218
+  %288 = getelementptr [8 x i8], ptr %20, i64 %.017.i218
   %289 = load ptr, ptr %288, align 8, !tbaa !110
   %.not.i.i.i219 = icmp eq ptr %289, null
   br i1 %.not.i.i.i219, label %_Py_XNewRef.exit.i221, label %290
@@ -4493,7 +4493,7 @@ hamt_node_bitmap_new.exit.i211:                   ; preds = %.lr.ph.i.i223, %256
 
 _Py_XNewRef.exit.i221:                            ; preds = %293, %290, %287
   %.val14.i222 = phi i64 [ %.val1419.i217, %287 ], [ %.val1419.i217, %290 ], [ %.val14.pre.i220, %293 ]
-  %295 = getelementptr ptr, ptr %286, i64 %.017.i218
+  %295 = getelementptr [8 x i8], ptr %286, i64 %.017.i218
   store ptr %289, ptr %295, align 8, !tbaa !110
   %296 = add nuw nsw i64 %.017.i218, 1
   %297 = icmp slt i64 %296, %.val14.i222
@@ -4520,7 +4520,7 @@ _Py_XNewRef.exit.i221:                            ; preds = %293, %290, %287
   %305 = getelementptr inbounds nuw i8, ptr %.013.i27.i214, i64 24
   store i32 %304, ptr %305, align 8, !tbaa !106
   %306 = getelementptr inbounds nuw i8, ptr %.013.i27.i214, i64 32
-  %307 = getelementptr ptr, ptr %306, i64 %21
+  %307 = getelementptr [8 x i8], ptr %306, i64 %21
   %308 = load ptr, ptr %307, align 8, !tbaa !110
   store ptr null, ptr %307, align 8, !tbaa !110
   %309 = load i32, ptr %308, align 8, !tbaa !15
@@ -4538,7 +4538,7 @@ _Py_XNewRef.exit.i221:                            ; preds = %293, %290, %287
   br label %Py_DECREF.exit179
 
 Py_DECREF.exit179:                                ; preds = %.loopexit280, %310, %313
-  %314 = getelementptr ptr, ptr %306, i64 %24
+  %314 = getelementptr [8 x i8], ptr %306, i64 %24
   %315 = load ptr, ptr %314, align 8, !tbaa !110
   store ptr %.0.i257, ptr %314, align 8, !tbaa !110
   %316 = load i32, ptr %315, align 8, !tbaa !15
@@ -4606,7 +4606,7 @@ Py_DECREF.exit:                                   ; preds = %Py_DECREF.exit179, 
   %355 = add i32 %1, 5
   %356 = tail call fastcc ptr @hamt_node_assoc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 89016), i32 noundef %355, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   %357 = zext nneg i32 %9 to i64
-  %358 = getelementptr ptr, ptr %330, i64 %357
+  %358 = getelementptr [8 x i8], ptr %330, i64 %357
   store ptr %356, ptr %358, align 8, !tbaa !18
   %359 = icmp eq ptr %356, null
   br i1 %359, label %.thread, label %.preheader
@@ -4626,7 +4626,7 @@ Py_DECREF.exit:                                   ; preds = %Py_DECREF.exit179, 
   br i1 %.not176, label %393, label %366
 
 366:                                              ; preds = %361
-  %367 = getelementptr ptr, ptr %360, i64 %.0155288
+  %367 = getelementptr [8 x i8], ptr %360, i64 %.0155288
   %368 = load ptr, ptr %367, align 8, !tbaa !110
   %369 = icmp eq ptr %368, null
   br i1 %369, label %370, label %378
@@ -4644,7 +4644,7 @@ Py_DECREF.exit:                                   ; preds = %Py_DECREF.exit179, 
   br label %_Py_NewRef.exit225
 
 _Py_NewRef.exit225:                               ; preds = %370, %375
-  %377 = getelementptr ptr, ptr %330, i64 %.0157286
+  %377 = getelementptr [8 x i8], ptr %330, i64 %.0157286
   store ptr %372, ptr %377, align 8, !tbaa !18
   br label %391
 
@@ -4662,7 +4662,7 @@ hamt_hash.exit:                                   ; preds = %378
   %386 = getelementptr i8, ptr %367, i64 8
   %387 = load ptr, ptr %386, align 8, !tbaa !110
   %388 = tail call fastcc ptr @hamt_node_assoc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 89016), i32 noundef %355, i32 noundef %384, ptr noundef %385, ptr noundef %387, ptr noundef %5)
-  %389 = getelementptr ptr, ptr %330, i64 %.0157286
+  %389 = getelementptr [8 x i8], ptr %330, i64 %.0157286
   store ptr %388, ptr %389, align 8, !tbaa !18
   %390 = icmp eq ptr %388, null
   br i1 %390, label %.thread, label %391
@@ -4767,7 +4767,7 @@ hamt_node_bitmap_new.exit:                        ; preds = %406
 
 441:                                              ; preds = %.lr.ph, %_Py_XNewRef.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_Py_XNewRef.exit ]
-  %442 = getelementptr ptr, ptr %440, i64 %indvars.iv
+  %442 = getelementptr [8 x i8], ptr %440, i64 %indvars.iv
   %443 = load ptr, ptr %442, align 8, !tbaa !110
   %.not.i.i236 = icmp eq ptr %443, null
   br i1 %.not.i.i236, label %_Py_XNewRef.exit, label %444
@@ -4783,7 +4783,7 @@ hamt_node_bitmap_new.exit:                        ; preds = %406
   br label %_Py_XNewRef.exit
 
 _Py_XNewRef.exit:                                 ; preds = %441, %444, %447
-  %449 = getelementptr ptr, ptr %414, i64 %indvars.iv
+  %449 = getelementptr [8 x i8], ptr %414, i64 %indvars.iv
   store ptr %443, ptr %449, align 8, !tbaa !110
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -4801,7 +4801,7 @@ _Py_XNewRef.exit:                                 ; preds = %441, %444, %447
 
 _Py_NewRef.exit237:                               ; preds = %._crit_edge, %452
   %454 = zext nneg i32 %407 to i64
-  %455 = getelementptr ptr, ptr %414, i64 %454
+  %455 = getelementptr [8 x i8], ptr %414, i64 %454
   store ptr %3, ptr %455, align 8, !tbaa !110
   %456 = load i32, ptr %4, align 8, !tbaa !15
   %457 = icmp slt i32 %456, 0
@@ -4830,7 +4830,7 @@ _Py_NewRef.exit238:                               ; preds = %_Py_NewRef.exit237,
 467:                                              ; preds = %.lr.ph284, %_Py_XNewRef.exit240
   %.val295 = phi i64 [ %.val282, %.lr.ph284 ], [ %.val, %_Py_XNewRef.exit240 ]
   %indvars.iv291 = phi i64 [ %466, %.lr.ph284 ], [ %indvars.iv.next292, %_Py_XNewRef.exit240 ]
-  %468 = getelementptr ptr, ptr %464, i64 %indvars.iv291
+  %468 = getelementptr [8 x i8], ptr %464, i64 %indvars.iv291
   %469 = load ptr, ptr %468, align 8, !tbaa !110
   %.not.i.i239 = icmp eq ptr %469, null
   br i1 %.not.i.i239, label %_Py_XNewRef.exit240, label %470
@@ -4850,7 +4850,7 @@ _Py_XNewRef.exit240:                              ; preds = %467, %470, %473
   %.val = phi i64 [ %.val295, %467 ], [ %.val295, %470 ], [ %.val.pre, %473 ]
   %475 = add nuw nsw i64 %indvars.iv291, 2
   %476 = and i64 %475, 4294967295
-  %477 = getelementptr ptr, ptr %414, i64 %476
+  %477 = getelementptr [8 x i8], ptr %414, i64 %476
   store ptr %469, ptr %477, align 8, !tbaa !110
   %indvars.iv.next292 = add nuw nsw i64 %indvars.iv291, 1
   %478 = and i64 %.val, 4294967295
@@ -4934,7 +4934,7 @@ hamt_node_bitmap_new.exit:                        ; preds = %7, %.lr.ph.i
 39:                                               ; preds = %.lr.ph, %_Py_XNewRef.exit
   %.val1419 = phi i64 [ %.val1416.pre, %.lr.ph ], [ %.val14, %_Py_XNewRef.exit ]
   %.017 = phi i64 [ 0, %.lr.ph ], [ %48, %_Py_XNewRef.exit ]
-  %40 = getelementptr ptr, ptr %37, i64 %.017
+  %40 = getelementptr [8 x i8], ptr %37, i64 %.017
   %41 = load ptr, ptr %40, align 8, !tbaa !110
   %.not.i.i = icmp eq ptr %41, null
   br i1 %.not.i.i, label %_Py_XNewRef.exit, label %42
@@ -4952,7 +4952,7 @@ hamt_node_bitmap_new.exit:                        ; preds = %7, %.lr.ph.i
 
 _Py_XNewRef.exit:                                 ; preds = %39, %42, %45
   %.val14 = phi i64 [ %.val1419, %39 ], [ %.val1419, %42 ], [ %.val14.pre, %45 ]
-  %47 = getelementptr ptr, ptr %38, i64 %.017
+  %47 = getelementptr [8 x i8], ptr %38, i64 %.017
   store ptr %41, ptr %47, align 8, !tbaa !110
   %48 = add nuw nsw i64 %.017, 1
   %49 = icmp slt i64 %48, %.val14
@@ -5106,7 +5106,7 @@ hamt_node_array_new.exit:                         ; preds = %1
 
 32:                                               ; preds = %hamt_node_array_new.exit, %_Py_XNewRef.exit
   %.011 = phi i64 [ 0, %hamt_node_array_new.exit ], [ %41, %_Py_XNewRef.exit ]
-  %33 = getelementptr ptr, ptr %31, i64 %.011
+  %33 = getelementptr [8 x i8], ptr %31, i64 %.011
   %34 = load ptr, ptr %33, align 8, !tbaa !18
   %.not.i.i = icmp eq ptr %34, null
   br i1 %.not.i.i, label %_Py_XNewRef.exit, label %35
@@ -5122,7 +5122,7 @@ hamt_node_array_new.exit:                         ; preds = %1
   br label %_Py_XNewRef.exit
 
 _Py_XNewRef.exit:                                 ; preds = %32, %35, %38
-  %40 = getelementptr ptr, ptr %6, i64 %.011
+  %40 = getelementptr [8 x i8], ptr %6, i64 %.011
   store ptr %34, ptr %40, align 8, !tbaa !18
   %41 = add nuw nsw i64 %.011, 1
   %exitcond.not = icmp eq i64 %41, 32

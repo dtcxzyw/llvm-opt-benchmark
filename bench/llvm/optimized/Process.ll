@@ -236,7 +236,7 @@ define dso_local void @_ZN4llvm3sys7Process13FindInEnvPathENS_9StringRefES2_NS_8
 115:                                              ; preds = %.backedge
   %.val = load ptr, ptr %5, align 8, !tbaa !25
   %.val16 = load i64, ptr %57, align 8, !tbaa !28
-  %116 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.val, i64 %.val16
+  %116 = getelementptr inbounds nuw [32 x i8], ptr %.val, i64 %.val16
   %117 = ptrtoint ptr %116 to i64
   %118 = lshr i64 %.val16, 2
   %.not.i = icmp eq i64 %118, 0
@@ -1528,9 +1528,9 @@ define dso_local noundef zeroext i1 @_ZN4llvm3sys7Process15ColorNeedsFlushEv() l
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef nonnull ptr @_ZN4llvm3sys7Process11OutputColorEcbb(i8 noundef signext %0, i1 noundef zeroext %1, i1 noundef zeroext %2) local_unnamed_addr #4 align 2 {
   %4 = zext i1 %2 to i64
-  %5 = getelementptr inbounds nuw [2 x [16 x [11 x i8]]], ptr @_ZL10colorcodes, i64 %4
+  %5 = getelementptr inbounds nuw [352 x i8], ptr @_ZL10colorcodes, i64 %4
   %6 = zext i1 %1 to i64
-  %7 = getelementptr inbounds nuw [16 x [11 x i8]], ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [176 x i8], ptr %5, i64 %6
   %8 = and i8 %0, 15
   %9 = zext nneg i8 %8 to i64
   %10 = getelementptr inbounds nuw [11 x i8], ptr %7, i64 %9

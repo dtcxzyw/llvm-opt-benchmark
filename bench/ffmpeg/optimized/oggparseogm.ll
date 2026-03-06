@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.AVCodecTag = type { i32, i32 }
-%struct.ogg_stream = type { ptr, i32, i32, i32, i32, i32, i32, i32, i64, i64, i64, i64, i64, i64, i32, ptr, i32, i32, i32, [255 x i8], i32, i32, i32, i32, i32, i32, i32, i32, ptr, i64, ptr }
 
 @.str = private unnamed_addr constant [7 x i8] c"\01video\00", align 1
 @ff_ogm_video_codec = local_unnamed_addr constant { ptr, i8, [7 x i8], ptr, ptr, ptr, ptr, i32, i32, ptr } { ptr @.str, i8 6, [7 x i8] zeroinitializer, ptr null, ptr @ogm_header, ptr @ogm_packet, ptr null, i32 1, i32 2, ptr null }, align 8
@@ -28,10 +27,10 @@ define internal range(i32 -2147483648, 2) i32 @ogm_header(ptr noundef %0, i32 no
   %5 = load ptr, ptr %4, align 8, !tbaa !4
   %6 = load ptr, ptr %5, align 8, !tbaa !24
   %7 = sext i32 %1 to i64
-  %8 = getelementptr inbounds %struct.ogg_stream, ptr %6, i64 %7
+  %8 = getelementptr inbounds [432 x i8], ptr %6, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = load ptr, ptr %9, align 8, !tbaa !28
-  %11 = getelementptr inbounds ptr, ptr %10, i64 %7
+  %11 = getelementptr inbounds [8 x i8], ptr %10, i64 %7
   %12 = load ptr, ptr %11, align 8, !tbaa !29
   %13 = load ptr, ptr %8, align 8, !tbaa !31
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -380,7 +379,7 @@ define internal range(i32 -1094995529, 1) i32 @ogm_packet(ptr noundef readonly c
   %4 = load ptr, ptr %3, align 8, !tbaa !4
   %5 = load ptr, ptr %4, align 8, !tbaa !24
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds %struct.ogg_stream, ptr %5, i64 %6
+  %7 = getelementptr inbounds [432 x i8], ptr %5, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !31
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %10 = load i32, ptr %9, align 8, !tbaa !34
@@ -452,10 +451,10 @@ define internal range(i32 -1094995529, 2) i32 @ogm_dshow_header(ptr noundef read
   %4 = load ptr, ptr %3, align 8, !tbaa !4
   %5 = load ptr, ptr %4, align 8, !tbaa !24
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds %struct.ogg_stream, ptr %5, i64 %6
+  %7 = getelementptr inbounds [432 x i8], ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %9 = load ptr, ptr %8, align 8, !tbaa !28
-  %10 = getelementptr inbounds ptr, ptr %9, i64 %6
+  %10 = getelementptr inbounds [8 x i8], ptr %9, i64 %6
   %11 = load ptr, ptr %10, align 8, !tbaa !29
   %12 = load ptr, ptr %7, align 8, !tbaa !31
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 16

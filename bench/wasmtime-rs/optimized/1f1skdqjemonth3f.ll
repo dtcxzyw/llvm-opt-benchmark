@@ -364,7 +364,7 @@ define hidden void @_ZN10wasmparser9validator9operators17OperatorValidator8new_f
   %34 = phi i64 [ %.pre.i, %.noexc ], [ %28, %6 ]
   %35 = getelementptr inbounds nuw i8, ptr %12, i64 128
   %36 = load ptr, ptr %35, align 8, !alias.scope !20, !noalias !23, !nonnull !13, !noundef !13
-  %37 = getelementptr inbounds { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %36, i64 %34
+  %37 = getelementptr inbounds [32 x i8], ptr %36, i64 %34
   %.sroa.5.0..sroa_idx29 = getelementptr inbounds nuw i8, ptr %37, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %37, i8 0, i64 16, i1 false)
   store i8 2, ptr %.sroa.5.0..sroa_idx29, align 8
@@ -590,7 +590,7 @@ define hidden void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$
   tail call void @llvm.assume(i1 %11)
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %13 = load ptr, ptr %12, align 8, !alias.scope !42, !nonnull !13, !noundef !13
-  %14 = getelementptr inbounds { i8, [3 x i8] }, ptr %13, i64 %9
+  %14 = getelementptr inbounds [4 x i8], ptr %13, i64 %9
   %.sroa.01.0.copyload.i = load i32, ptr %14, align 1, !noalias !42
   %.sroa.032.0.extract.trunc = trunc i32 %.sroa.01.0.copyload.i to i8
   %15 = add i8 %.sroa.032.0.extract.trunc, -9
@@ -624,7 +624,7 @@ define hidden void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$
 25:                                               ; preds = %.critedge
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %27 = load ptr, ptr %26, align 8, !nonnull !13, !noundef !13
-  %28 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %27, i64 %24
+  %28 = getelementptr [32 x i8], ptr %27, i64 %24
   %29 = getelementptr i8, ptr %28, i64 -32
   %.not41 = icmp eq ptr %29, null
   br i1 %.not41, label %.critedge45, label %30
@@ -655,7 +655,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %7 = load ptr, ptr %6, align 8, !nonnull !13, !noundef !13
-  %8 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %7, i64 %4
+  %8 = getelementptr [32 x i8], ptr %7, i64 %4
   %9 = getelementptr i8, ptr %8, i64 -32
   %10 = icmp eq ptr %9, null
   br i1 %10, label %.thread, label %14
@@ -708,7 +708,7 @@ define internal fastcc void @"_ZN10wasmparser9validator9operators30OperatorValid
 19:                                               ; preds = %4
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 128
   %21 = load ptr, ptr %20, align 8, !nonnull !13, !noundef !13
-  %22 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %21, i64 %18
+  %22 = getelementptr [32 x i8], ptr %21, i64 %18
   %23 = getelementptr i8, ptr %22, i64 -32
   %24 = icmp eq ptr %23, null
   br i1 %24, label %.thread, label %29
@@ -751,7 +751,7 @@ define internal fastcc void @"_ZN10wasmparser9validator9operators30OperatorValid
   tail call void @llvm.assume(i1 %43)
   %44 = getelementptr inbounds nuw i8, ptr %15, i64 152
   %45 = load ptr, ptr %44, align 8, !alias.scope !49, !nonnull !13, !noundef !13
-  %46 = getelementptr inbounds { i8, [3 x i8] }, ptr %45, i64 %41
+  %46 = getelementptr inbounds [4 x i8], ptr %45, i64 %41
   %.sroa.01.0.copyload.i = load i32, ptr %46, align 1, !noalias !49
   %.sroa.045.0.extract.trunc = trunc i32 %.sroa.01.0.copyload.i to i8
   %47 = icmp eq i8 %.sroa.045.0.extract.trunc, 8
@@ -943,7 +943,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
   tail call void @llvm.assume(i1 %12)
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 152
   %14 = load ptr, ptr %13, align 8, !alias.scope !75, !noalias !78, !nonnull !13, !noundef !13
-  %15 = getelementptr inbounds { i8, [3 x i8] }, ptr %14, i64 %10
+  %15 = getelementptr inbounds [4 x i8], ptr %14, i64 %10
   %.sroa.01.0.copyload.i.i = load i32, ptr %15, align 1, !noalias !79
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %16 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -972,7 +972,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
 26:                                               ; preds = %.critedge.i
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 128
   %28 = load ptr, ptr %27, align 8, !noalias !78, !nonnull !13, !noundef !13
-  %29 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %28, i64 %25
+  %29 = getelementptr [32 x i8], ptr %28, i64 %25
   %30 = getelementptr i8, ptr %29, i64 -32
   %.not41.i = icmp eq ptr %30, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %31
@@ -1012,7 +1012,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
   tail call void @llvm.assume(i1 %40)
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 152
   %42 = load ptr, ptr %41, align 8, !alias.scope !80, !noalias !83, !nonnull !13, !noundef !13
-  %43 = getelementptr inbounds { i8, [3 x i8] }, ptr %42, i64 %38
+  %43 = getelementptr inbounds [4 x i8], ptr %42, i64 %38
   %.sroa.01.0.copyload.i.i33 = load i32, ptr %43, align 1, !noalias !87
   %.sroa.032.0.extract.trunc.i34 = trunc i32 %.sroa.01.0.copyload.i.i33 to i8
   %44 = add i8 %.sroa.032.0.extract.trunc.i34, -9
@@ -1041,7 +1041,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
 54:                                               ; preds = %.critedge.i42
   %55 = getelementptr inbounds nuw i8, ptr %5, i64 128
   %56 = load ptr, ptr %55, align 8, !noalias !83, !nonnull !13, !noundef !13
-  %57 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %56, i64 %53
+  %57 = getelementptr [32 x i8], ptr %56, i64 %53
   %58 = getelementptr i8, ptr %57, i64 -32
   %.not41.i44 = icmp eq ptr %58, null
   br i1 %.not41.i44, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit46", label %59
@@ -1081,7 +1081,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
   %68 = phi i64 [ %.pre.i.i, %67 ], [ %64, %62 ]
   %69 = getelementptr inbounds nuw i8, ptr %5, i64 152
   %70 = load ptr, ptr %69, align 8, !alias.scope !88, !noalias !91, !nonnull !13, !noundef !13
-  %71 = getelementptr inbounds { i8, [3 x i8] }, ptr %70, i64 %68
+  %71 = getelementptr inbounds [4 x i8], ptr %70, i64 %68
   store i32 0, ptr %71, align 1, !noalias !91
   %72 = load i64, ptr %6, align 8, !alias.scope !88, !noalias !91, !noundef !13
   %73 = add i64 %72, 1
@@ -1275,7 +1275,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
   %33 = icmp ult i64 %31, %32
   tail call void @llvm.assume(i1 %33)
   %34 = load ptr, ptr %23, align 8, !alias.scope !105, !noalias !108, !nonnull !13, !noundef !13
-  %35 = getelementptr inbounds { i8, [3 x i8] }, ptr %34, i64 %31
+  %35 = getelementptr inbounds [4 x i8], ptr %34, i64 %31
   %.sroa.01.0.copyload.i.i.us = load i32, ptr %35, align 1, !noalias !112
   %.sroa.032.0.extract.trunc.i.us = trunc i32 %.sroa.01.0.copyload.i.i.us to i8
   %36 = add i8 %.sroa.032.0.extract.trunc.i.us, -9
@@ -1299,7 +1299,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
 
 43:                                               ; preds = %.critedge.i.us
   %44 = load ptr, ptr %13, align 8, !noalias !108, !nonnull !13, !noundef !13
-  %45 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %44, i64 %42
+  %45 = getelementptr [32 x i8], ptr %44, i64 %42
   %46 = getelementptr i8, ptr %45, i64 -32
   %.not41.i.us = icmp eq ptr %46, null
   br i1 %.not41.i.us, label %.critedge45.i.us, label %47
@@ -1341,7 +1341,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
 
 56:                                               ; preds = %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h91810b11eb1b7648E.exit.thread"
   %57 = load ptr, ptr %13, align 8, !noalias !118, !nonnull !13, !noundef !13
-  %58 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %57, i64 %55
+  %58 = getelementptr [32 x i8], ptr %57, i64 %55
   %59 = getelementptr i8, ptr %58, i64 -32
   %60 = icmp eq ptr %59, null
   br i1 %60, label %.thread.i, label %62
@@ -1376,7 +1376,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
   %73 = icmp ult i64 %71, %72
   tail call void @llvm.assume(i1 %73)
   %74 = load ptr, ptr %23, align 8, !alias.scope !105, !noalias !108, !nonnull !13, !noundef !13
-  %75 = getelementptr inbounds { i8, [3 x i8] }, ptr %74, i64 %71
+  %75 = getelementptr inbounds [4 x i8], ptr %74, i64 %71
   %.sroa.01.0.copyload.i.i = load i32, ptr %75, align 1, !noalias !112
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %76 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -1413,7 +1413,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
 
 86:                                               ; preds = %.critedge.i
   %87 = load ptr, ptr %13, align 8, !noalias !108, !nonnull !13, !noundef !13
-  %88 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %87, i64 %85
+  %88 = getelementptr [32 x i8], ptr %87, i64 %85
   %89 = getelementptr i8, ptr %88, i64 -32
   %.not41.i = icmp eq ptr %89, null
   br i1 %.not41.i, label %.critedge45.i, label %90
@@ -1450,7 +1450,7 @@ define internal fastcc void @"_ZN10wasmparser9validator9operators30OperatorValid
   %.sroa.01.0.insert.insert.i.i = or disjoint i32 %.sroa.2.0.insert.shift.i.i, 5
   %9 = getelementptr inbounds nuw i8, ptr %.0.val, i64 152
   %10 = load ptr, ptr %9, align 8, !alias.scope !124, !nonnull !13, !noundef !13
-  %11 = getelementptr inbounds { i8, [3 x i8] }, ptr %10, i64 %8
+  %11 = getelementptr inbounds [4 x i8], ptr %10, i64 %8
   store i32 %.sroa.01.0.insert.insert.i.i, ptr %11, align 1
   %12 = load i64, ptr %3, align 8, !alias.scope !124, !noundef !13
   %13 = add i64 %12, 1
@@ -1477,7 +1477,7 @@ define hidden noalias noundef align 8 ptr @"_ZN10wasmparser9validator9operators3
   %10 = phi i64 [ %.pre.i, %9 ], [ %6, %2 ]
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %12 = load ptr, ptr %11, align 8, !alias.scope !127, !nonnull !13, !noundef !13
-  %13 = getelementptr inbounds { i8, [3 x i8] }, ptr %12, i64 %10
+  %13 = getelementptr inbounds [4 x i8], ptr %12, i64 %10
   store i32 %1, ptr %13, align 1
   %14 = load i64, ptr %5, align 8, !alias.scope !127, !noundef !13
   %15 = add i64 %14, 1
@@ -1530,7 +1530,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
   %25 = icmp ult i64 %23, %24
   tail call void @llvm.assume(i1 %25)
   %26 = load ptr, ptr %15, align 8, !alias.scope !133, !noalias !136, !nonnull !13, !noundef !13
-  %27 = getelementptr inbounds { i8, [3 x i8] }, ptr %26, i64 %23
+  %27 = getelementptr inbounds [4 x i8], ptr %26, i64 %23
   %.sroa.01.0.copyload.i.i = load i32, ptr %27, align 1, !noalias !140
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %28 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -1570,7 +1570,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
 
 40:                                               ; preds = %.critedge.i
   %41 = load ptr, ptr %17, align 8, !noalias !136, !nonnull !13, !noundef !13
-  %42 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %41, i64 %39
+  %42 = getelementptr [32 x i8], ptr %41, i64 %39
   %43 = getelementptr i8, ptr %42, i64 -32
   %.not41.i = icmp eq ptr %43, null
   br i1 %.not41.i, label %.critedge45.i, label %44
@@ -1585,7 +1585,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
   br label %.backedge
 
 ._crit_edge:                                      ; preds = %.backedge, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h4b4336bc4c2fdfe8E.exit"
-  %46 = getelementptr inbounds { i8, [3 x i8] }, ptr %4, i64 %6
+  %46 = getelementptr inbounds [4 x i8], ptr %4, i64 %6
   %47 = icmp eq i64 %8, %6
   br i1 %47, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb77ba305180dea4cE.exit.thread", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb77ba305180dea4cE.exit.lr.ph"
 
@@ -1610,7 +1610,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12push_operand17hb1ff6b0126921329E.llvm.8213084322371663677.exit": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb77ba305180dea4cE.exit", %52
   %53 = phi i64 [ %.pre.i.i, %52 ], [ %48, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb77ba305180dea4cE.exit" ]
   %54 = load ptr, ptr %15, align 8, !alias.scope !141, !noalias !144, !nonnull !13, !noundef !13
-  %55 = getelementptr inbounds { i8, [3 x i8] }, ptr %54, i64 %53
+  %55 = getelementptr inbounds [4 x i8], ptr %54, i64 %53
   store i32 %.sroa.014.0.copyload, ptr %55, align 1, !noalias !144
   %56 = load i64, ptr %13, align 8, !alias.scope !141, !noalias !144, !noundef !13
   %57 = add i64 %56, 1
@@ -1850,7 +1850,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
   %17 = phi i64 [ %.pre.i.i, %16 ], [ %13, %9 ]
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 152
   %19 = load ptr, ptr %18, align 8, !alias.scope !159, !noalias !156, !nonnull !13, !noundef !13
-  %20 = getelementptr inbounds { i8, [3 x i8] }, ptr %19, i64 %17
+  %20 = getelementptr inbounds [4 x i8], ptr %19, i64 %17
   store i32 %.sroa.06.0.copyload, ptr %20, align 1, !noalias !156
   %21 = load i64, ptr %12, align 8, !alias.scope !159, !noalias !156, !noundef !13
   %22 = add i64 %21, 1
@@ -1893,7 +1893,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
   %16 = phi i64 [ %.pre.i.i, %15 ], [ %12, %8 ]
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 152
   %18 = load ptr, ptr %17, align 8, !alias.scope !165, !noalias !162, !nonnull !13, !noundef !13
-  %19 = getelementptr inbounds { i8, [3 x i8] }, ptr %18, i64 %16
+  %19 = getelementptr inbounds [4 x i8], ptr %18, i64 %16
   store i32 0, ptr %19, align 1, !noalias !162
   %20 = load i64, ptr %11, align 8, !alias.scope !165, !noalias !162, !noundef !13
   %21 = add i64 %20, 1
@@ -1926,7 +1926,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
   tail call void @llvm.assume(i1 %11)
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %13 = load ptr, ptr %12, align 8, !alias.scope !173, !noalias !176, !nonnull !13, !noundef !13
-  %14 = getelementptr inbounds { i8, [3 x i8] }, ptr %13, i64 %9
+  %14 = getelementptr inbounds [4 x i8], ptr %13, i64 %9
   %.sroa.01.0.copyload.i.i = load i32, ptr %14, align 1, !noalias !177
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %15 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -1955,7 +1955,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
 25:                                               ; preds = %.critedge.i
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %27 = load ptr, ptr %26, align 8, !noalias !176, !nonnull !13, !noundef !13
-  %28 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %27, i64 %24
+  %28 = getelementptr [32 x i8], ptr %27, i64 %24
   %29 = getelementptr i8, ptr %28, i64 -32
   %.not41.i = icmp eq ptr %29, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %30
@@ -1995,7 +1995,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
   %39 = phi i64 [ %.pre.i.i, %38 ], [ %35, %33 ]
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %41 = load ptr, ptr %40, align 8, !alias.scope !178, !noalias !181, !nonnull !13, !noundef !13
-  %42 = getelementptr inbounds { i8, [3 x i8] }, ptr %41, i64 %39
+  %42 = getelementptr inbounds [4 x i8], ptr %41, i64 %39
   store i32 %1, ptr %42, align 1, !noalias !181
   %43 = load i64, ptr %5, align 8, !alias.scope !178, !noalias !181, !noundef !13
   %44 = add i64 %43, 1
@@ -2029,7 +2029,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
   tail call void @llvm.assume(i1 %12)
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 152
   %14 = load ptr, ptr %13, align 8, !alias.scope !189, !noalias !192, !nonnull !13, !noundef !13
-  %15 = getelementptr inbounds { i8, [3 x i8] }, ptr %14, i64 %10
+  %15 = getelementptr inbounds [4 x i8], ptr %14, i64 %10
   %.sroa.01.0.copyload.i.i = load i32, ptr %15, align 1, !noalias !193
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %16 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -2058,7 +2058,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
 26:                                               ; preds = %.critedge.i
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 128
   %28 = load ptr, ptr %27, align 8, !noalias !192, !nonnull !13, !noundef !13
-  %29 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %28, i64 %25
+  %29 = getelementptr [32 x i8], ptr %28, i64 %25
   %30 = getelementptr i8, ptr %29, i64 -32
   %.not41.i = icmp eq ptr %30, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %31
@@ -2098,7 +2098,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
   tail call void @llvm.assume(i1 %40)
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 152
   %42 = load ptr, ptr %41, align 8, !alias.scope !194, !noalias !197, !nonnull !13, !noundef !13
-  %43 = getelementptr inbounds { i8, [3 x i8] }, ptr %42, i64 %38
+  %43 = getelementptr inbounds [4 x i8], ptr %42, i64 %38
   %.sroa.01.0.copyload.i.i33 = load i32, ptr %43, align 1, !noalias !201
   %.sroa.032.0.extract.trunc.i34 = trunc i32 %.sroa.01.0.copyload.i.i33 to i8
   %44 = add i8 %.sroa.032.0.extract.trunc.i34, -9
@@ -2127,7 +2127,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
 54:                                               ; preds = %.critedge.i42
   %55 = getelementptr inbounds nuw i8, ptr %5, i64 128
   %56 = load ptr, ptr %55, align 8, !noalias !197, !nonnull !13, !noundef !13
-  %57 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %56, i64 %53
+  %57 = getelementptr [32 x i8], ptr %56, i64 %53
   %58 = getelementptr i8, ptr %57, i64 -32
   %.not41.i44 = icmp eq ptr %58, null
   br i1 %.not41.i44, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit46", label %59
@@ -2167,7 +2167,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
   %68 = phi i64 [ %.pre.i.i, %67 ], [ %64, %62 ]
   %69 = getelementptr inbounds nuw i8, ptr %5, i64 152
   %70 = load ptr, ptr %69, align 8, !alias.scope !202, !noalias !205, !nonnull !13, !noundef !13
-  %71 = getelementptr inbounds { i8, [3 x i8] }, ptr %70, i64 %68
+  %71 = getelementptr inbounds [4 x i8], ptr %70, i64 %68
   store i32 %1, ptr %71, align 1, !noalias !205
   %72 = load i64, ptr %6, align 8, !alias.scope !202, !noalias !205, !noundef !13
   %73 = add i64 %72, 1
@@ -2296,7 +2296,7 @@ define internal fastcc void @"_ZN10wasmparser9validator9operators30OperatorValid
 37:                                               ; preds = %31
   %38 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %39 = load ptr, ptr %38, align 8, !nonnull !13, !align !217, !noundef !13
-  %40 = getelementptr inbounds nuw { i8, { i8, [3 x i8] } }, ptr %39, i64 %9
+  %40 = getelementptr inbounds nuw [5 x i8], ptr %39, i64 %9
   %.sroa.019.0.copyload = load i8, ptr %40, align 1
   %41 = icmp eq i8 %.sroa.019.0.copyload, 2
   br i1 %41, label %.thread5, label %44
@@ -2529,7 +2529,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
   tail call void @llvm.assume(i1 %11)
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %13 = load ptr, ptr %12, align 8, !alias.scope !244, !noalias !247, !nonnull !13, !noundef !13
-  %14 = getelementptr inbounds { i8, [3 x i8] }, ptr %13, i64 %9
+  %14 = getelementptr inbounds [4 x i8], ptr %13, i64 %9
   %.sroa.01.0.copyload.i.i = load i32, ptr %14, align 1, !noalias !248
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %15 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -2558,7 +2558,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
 25:                                               ; preds = %.critedge.i
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %27 = load ptr, ptr %26, align 8, !noalias !247, !nonnull !13, !noundef !13
-  %28 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %27, i64 %24
+  %28 = getelementptr [32 x i8], ptr %27, i64 %24
   %29 = getelementptr i8, ptr %28, i64 -32
   %.not41.i = icmp eq ptr %29, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %30
@@ -2598,7 +2598,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
   %39 = phi i64 [ %.pre.i.i, %38 ], [ %35, %33 ]
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %41 = load ptr, ptr %40, align 8, !alias.scope !249, !noalias !252, !nonnull !13, !noundef !13
-  %42 = getelementptr inbounds { i8, [3 x i8] }, ptr %41, i64 %39
+  %42 = getelementptr inbounds [4 x i8], ptr %41, i64 %39
   store i32 4, ptr %42, align 1, !noalias !252
   %43 = load i64, ptr %5, align 8, !alias.scope !249, !noalias !252, !noundef !13
   %44 = add i64 %43, 1
@@ -2653,7 +2653,7 @@ define internal fastcc void @"_ZN10wasmparser9validator9operators30OperatorValid
   call void @llvm.assume(i1 %22)
   %23 = getelementptr inbounds nuw i8, ptr %15, i64 152
   %24 = load ptr, ptr %23, align 8, !alias.scope !260, !noalias !263, !nonnull !13, !noundef !13
-  %25 = getelementptr inbounds { i8, [3 x i8] }, ptr %24, i64 %20
+  %25 = getelementptr inbounds [4 x i8], ptr %24, i64 %20
   %.sroa.01.0.copyload.i.i = load i32, ptr %25, align 1, !noalias !264
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %26 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -2680,7 +2680,7 @@ define internal fastcc void @"_ZN10wasmparser9validator9operators30OperatorValid
 32:                                               ; preds = %.critedge.i
   %33 = getelementptr inbounds nuw i8, ptr %15, i64 128
   %34 = load ptr, ptr %33, align 8, !noalias !263, !nonnull !13, !noundef !13
-  %35 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %34, i64 %31
+  %35 = getelementptr [32 x i8], ptr %34, i64 %31
   %36 = getelementptr i8, ptr %35, i64 -32
   %.not41.i = icmp eq ptr %36, null
   br i1 %.not41.i, label %.critedge45.i, label %37
@@ -2817,7 +2817,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
   tail call void @llvm.assume(i1 %40)
   %41 = getelementptr inbounds nuw i8, ptr %33, i64 152
   %42 = load ptr, ptr %41, align 8, !alias.scope !285, !noalias !288, !nonnull !13, !noundef !13
-  %43 = getelementptr inbounds { i8, [3 x i8] }, ptr %42, i64 %38
+  %43 = getelementptr inbounds [4 x i8], ptr %42, i64 %38
   %.sroa.01.0.copyload.i.i = load i32, ptr %43, align 1, !noalias !289
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %44 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -2835,7 +2835,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
 49:                                               ; preds = %.critedge.i
   %50 = getelementptr inbounds nuw i8, ptr %33, i64 128
   %51 = load ptr, ptr %50, align 8, !noalias !288, !nonnull !13, !noundef !13
-  %52 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %51, i64 %48
+  %52 = getelementptr [32 x i8], ptr %51, i64 %48
   %53 = getelementptr i8, ptr %52, i64 -32
   %.not41.i = icmp eq ptr %53, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %54
@@ -2875,7 +2875,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
   %63 = phi i64 [ %.pre.i.i, %62 ], [ %59, %57 ]
   %64 = getelementptr inbounds nuw i8, ptr %33, i64 152
   %65 = load ptr, ptr %64, align 8, !alias.scope !290, !noalias !293, !nonnull !13, !noundef !13
-  %66 = getelementptr inbounds { i8, [3 x i8] }, ptr %65, i64 %63
+  %66 = getelementptr inbounds [4 x i8], ptr %65, i64 %63
   store i32 %2, ptr %66, align 1, !noalias !293
   %67 = load i64, ptr %34, align 8, !alias.scope !290, !noalias !293, !noundef !13
   %68 = add i64 %67, 1
@@ -2929,7 +2929,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
   %.sroa.01.0.insert.insert.i.i.i = or disjoint i32 %.sroa.420.0.extract.shift, 5
   %21 = getelementptr inbounds nuw i8, ptr %.val, i64 152
   %22 = load ptr, ptr %21, align 8, !alias.scope !296, !nonnull !13, !noundef !13
-  %23 = getelementptr inbounds { i8, [3 x i8] }, ptr %22, i64 %20
+  %23 = getelementptr inbounds [4 x i8], ptr %22, i64 %20
   store i32 %.sroa.01.0.insert.insert.i.i.i, ptr %23, align 1
   %24 = load i64, ptr %15, align 8, !alias.scope !296, !noundef !13
   %25 = add i64 %24, 1
@@ -3052,7 +3052,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
   tail call void @llvm.assume(i1 %41)
   %42 = getelementptr inbounds nuw i8, ptr %34, i64 152
   %43 = load ptr, ptr %42, align 8, !alias.scope !319, !noalias !322, !nonnull !13, !noundef !13
-  %44 = getelementptr inbounds { i8, [3 x i8] }, ptr %43, i64 %39
+  %44 = getelementptr inbounds [4 x i8], ptr %43, i64 %39
   %.sroa.01.0.copyload.i.i = load i32, ptr %44, align 1, !noalias !323
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %45 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -3081,7 +3081,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
 55:                                               ; preds = %.critedge.i
   %56 = getelementptr inbounds nuw i8, ptr %34, i64 128
   %57 = load ptr, ptr %56, align 8, !noalias !322, !nonnull !13, !noundef !13
-  %58 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %57, i64 %54
+  %58 = getelementptr [32 x i8], ptr %57, i64 %54
   %59 = getelementptr i8, ptr %58, i64 -32
   %.not41.i = icmp eq ptr %59, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %60
@@ -3121,7 +3121,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
   tail call void @llvm.assume(i1 %69)
   %70 = getelementptr inbounds nuw i8, ptr %34, i64 152
   %71 = load ptr, ptr %70, align 8, !alias.scope !324, !noalias !327, !nonnull !13, !noundef !13
-  %72 = getelementptr inbounds { i8, [3 x i8] }, ptr %71, i64 %67
+  %72 = getelementptr inbounds [4 x i8], ptr %71, i64 %67
   %.sroa.01.0.copyload.i.i39 = load i32, ptr %72, align 1, !noalias !331
   %.sroa.032.0.extract.trunc.i40 = trunc i32 %.sroa.01.0.copyload.i.i39 to i8
   %73 = add i8 %.sroa.032.0.extract.trunc.i40, -9
@@ -3149,7 +3149,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
 80:                                               ; preds = %.critedge.i48
   %81 = getelementptr inbounds nuw i8, ptr %34, i64 128
   %82 = load ptr, ptr %81, align 8, !noalias !327, !nonnull !13, !noundef !13
-  %83 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %82, i64 %79
+  %83 = getelementptr [32 x i8], ptr %82, i64 %79
   %84 = getelementptr i8, ptr %83, i64 -32
   %.not41.i50 = icmp eq ptr %84, null
   br i1 %.not41.i50, label %.critedge45.i44, label %85
@@ -3207,7 +3207,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
   tail call void @llvm.assume(i1 %19)
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 152
   %21 = load ptr, ptr %20, align 8, !alias.scope !337, !noalias !340, !nonnull !13, !noundef !13
-  %22 = getelementptr inbounds { i8, [3 x i8] }, ptr %21, i64 %17
+  %22 = getelementptr inbounds [4 x i8], ptr %21, i64 %17
   %.sroa.01.0.copyload.i.i = load i32, ptr %22, align 1, !noalias !341
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %23 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -3236,7 +3236,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
 33:                                               ; preds = %.critedge.i
   %34 = getelementptr inbounds nuw i8, ptr %12, i64 128
   %35 = load ptr, ptr %34, align 8, !noalias !340, !nonnull !13, !noundef !13
-  %36 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %35, i64 %32
+  %36 = getelementptr [32 x i8], ptr %35, i64 %32
   %37 = getelementptr i8, ptr %36, i64 -32
   %.not41.i = icmp eq ptr %37, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %38
@@ -3276,7 +3276,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
   %47 = phi i64 [ %.pre.i.i, %46 ], [ %43, %41 ]
   %48 = getelementptr inbounds nuw i8, ptr %12, i64 152
   %49 = load ptr, ptr %48, align 8, !alias.scope !342, !noalias !345, !nonnull !13, !noundef !13
-  %50 = getelementptr inbounds { i8, [3 x i8] }, ptr %49, i64 %47
+  %50 = getelementptr inbounds [4 x i8], ptr %49, i64 %47
   store i32 4, ptr %50, align 1, !noalias !345
   %51 = load i64, ptr %13, align 8, !alias.scope !342, !noalias !345, !noundef !13
   %52 = add i64 %51, 1
@@ -3446,7 +3446,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
   tail call void @llvm.assume(i1 %71)
   %72 = getelementptr inbounds nuw i8, ptr %64, i64 152
   %73 = load ptr, ptr %72, align 8, !alias.scope !360, !noalias !363, !nonnull !13, !noundef !13
-  %74 = getelementptr inbounds { i8, [3 x i8] }, ptr %73, i64 %69
+  %74 = getelementptr inbounds [4 x i8], ptr %73, i64 %69
   %.sroa.01.0.copyload.i.i = load i32, ptr %74, align 1, !noalias !364
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %75 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -3465,7 +3465,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
 81:                                               ; preds = %78
   %82 = getelementptr inbounds nuw i8, ptr %64, i64 128
   %83 = load ptr, ptr %82, align 8, !noalias !363, !nonnull !13, !noundef !13
-  %84 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %83, i64 %80
+  %84 = getelementptr [32 x i8], ptr %83, i64 %80
   %85 = getelementptr i8, ptr %84, i64 -32
   %.not41.i = icmp eq ptr %85, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %86
@@ -3590,7 +3590,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
   %125 = icmp ult i64 %123, %124
   tail call void @llvm.assume(i1 %125)
   %126 = load ptr, ptr %109, align 8, !alias.scope !389, !noalias !392, !nonnull !13, !noundef !13
-  %127 = getelementptr inbounds { i8, [3 x i8] }, ptr %126, i64 %123
+  %127 = getelementptr inbounds [4 x i8], ptr %126, i64 %123
   %.sroa.01.0.copyload.i.i73 = load i32, ptr %127, align 1, !noalias !396
   %.sroa.032.0.extract.trunc.i74 = trunc i32 %.sroa.01.0.copyload.i.i73 to i8
   %128 = add i8 %.sroa.032.0.extract.trunc.i74, -9
@@ -3633,7 +3633,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
 
 140:                                              ; preds = %.critedge.i
   %141 = load ptr, ptr %111, align 8, !noalias !392, !nonnull !13, !noundef !13
-  %142 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %141, i64 %139
+  %142 = getelementptr [32 x i8], ptr %141, i64 %139
   %143 = getelementptr i8, ptr %142, i64 -32
   %.not41.i80 = icmp eq ptr %143, null
   br i1 %.not41.i80, label %.critedge45.i77, label %144
@@ -3645,12 +3645,12 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
 
 146:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$wasmparser..readers..core..types..FuncType$GT$17h30ba12af5e277479E.exit71"
   %147 = load ptr, ptr %63, align 8, !nonnull !13, !noundef !13
-  %148 = getelementptr inbounds { i8, [3 x i8] }, ptr %147, i64 %117
+  %148 = getelementptr inbounds [4 x i8], ptr %147, i64 %117
   %149 = icmp eq i64 %101, %117
   br i1 %149, label %"_ZN4core3ptr63drop_in_place$LT$wasmparser..readers..core..types..FuncType$GT$17h30ba12af5e277479E.exit86", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb77ba305180dea4cE.exit.lr.ph"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb77ba305180dea4cE.exit.lr.ph": ; preds = %146
-  %150 = getelementptr inbounds { i8, [3 x i8] }, ptr %147, i64 %101
+  %150 = getelementptr inbounds [4 x i8], ptr %147, i64 %101
   %.pre103 = load i64, ptr %65, align 8, !alias.scope !397, !noalias !400
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb77ba305180dea4cE.exit"
 
@@ -3675,7 +3675,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12push_operand17hb1ff6b0126921329E.llvm.8213084322371663677.exit": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb77ba305180dea4cE.exit", %156
   %157 = phi i64 [ %.pre.i.i, %156 ], [ %152, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb77ba305180dea4cE.exit" ]
   %158 = load ptr, ptr %109, align 8, !alias.scope !397, !noalias !400, !nonnull !13, !noundef !13
-  %159 = getelementptr inbounds { i8, [3 x i8] }, ptr %158, i64 %157
+  %159 = getelementptr inbounds [4 x i8], ptr %158, i64 %157
   store i32 %.sroa.036.0.copyload, ptr %159, align 1, !noalias !400
   %160 = load i64, ptr %65, align 8, !alias.scope !397, !noalias !400, !noundef !13
   %161 = add i64 %160, 1
@@ -3721,7 +3721,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
   tail call void @llvm.assume(i1 %12)
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 152
   %14 = load ptr, ptr %13, align 8, !alias.scope !415, !noalias !418, !nonnull !13, !noundef !13
-  %15 = getelementptr inbounds { i8, [3 x i8] }, ptr %14, i64 %10
+  %15 = getelementptr inbounds [4 x i8], ptr %14, i64 %10
   %.sroa.01.0.copyload.i.i = load i32, ptr %15, align 1, !noalias !419
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %16 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -3750,7 +3750,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
 26:                                               ; preds = %.critedge.i
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 128
   %28 = load ptr, ptr %27, align 8, !noalias !418, !nonnull !13, !noundef !13
-  %29 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %28, i64 %25
+  %29 = getelementptr [32 x i8], ptr %28, i64 %25
   %30 = getelementptr i8, ptr %29, i64 -32
   %.not41.i = icmp eq ptr %30, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %31
@@ -3790,7 +3790,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
   %40 = phi i64 [ %.pre.i.i, %39 ], [ %36, %34 ]
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 152
   %42 = load ptr, ptr %41, align 8, !alias.scope !420, !noalias !423, !nonnull !13, !noundef !13
-  %43 = getelementptr inbounds { i8, [3 x i8] }, ptr %42, i64 %40
+  %43 = getelementptr inbounds [4 x i8], ptr %42, i64 %40
   store i32 %1, ptr %43, align 1, !noalias !423
   %44 = load i64, ptr %6, align 8, !alias.scope !420, !noalias !423, !noundef !13
   %45 = add i64 %44, 1
@@ -3824,7 +3824,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
   tail call void @llvm.assume(i1 %11)
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %13 = load ptr, ptr %12, align 8, !alias.scope !431, !noalias !434, !nonnull !13, !noundef !13
-  %14 = getelementptr inbounds { i8, [3 x i8] }, ptr %13, i64 %9
+  %14 = getelementptr inbounds [4 x i8], ptr %13, i64 %9
   %.sroa.01.0.copyload.i.i = load i32, ptr %14, align 1, !noalias !435
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %15 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -3843,7 +3843,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
 21:                                               ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %23 = load ptr, ptr %22, align 8, !noalias !434, !nonnull !13, !noundef !13
-  %24 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %23, i64 %20
+  %24 = getelementptr [32 x i8], ptr %23, i64 %20
   %25 = getelementptr i8, ptr %24, i64 -32
   %.not41.i = icmp eq ptr %25, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %26
@@ -3883,7 +3883,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
   tail call void @llvm.assume(i1 %35)
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %37 = load ptr, ptr %36, align 8, !alias.scope !436, !noalias !439, !nonnull !13, !noundef !13
-  %38 = getelementptr inbounds { i8, [3 x i8] }, ptr %37, i64 %33
+  %38 = getelementptr inbounds [4 x i8], ptr %37, i64 %33
   %.sroa.01.0.copyload.i.i41 = load i32, ptr %38, align 1, !noalias !443
   %.sroa.032.0.extract.trunc.i42 = trunc i32 %.sroa.01.0.copyload.i.i41 to i8
   %39 = add i8 %.sroa.032.0.extract.trunc.i42, -9
@@ -3902,7 +3902,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
 45:                                               ; preds = %42
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %47 = load ptr, ptr %46, align 8, !noalias !439, !nonnull !13, !noundef !13
-  %48 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %47, i64 %44
+  %48 = getelementptr [32 x i8], ptr %47, i64 %44
   %49 = getelementptr i8, ptr %48, i64 -32
   %.not41.i48 = icmp eq ptr %49, null
   br i1 %.not41.i48, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit50", label %50
@@ -3942,7 +3942,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
   %59 = phi i64 [ %.pre.i.i, %58 ], [ %55, %53 ]
   %60 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %61 = load ptr, ptr %60, align 8, !alias.scope !444, !noalias !447, !nonnull !13, !noundef !13
-  %62 = getelementptr inbounds { i8, [3 x i8] }, ptr %61, i64 %59
+  %62 = getelementptr inbounds [4 x i8], ptr %61, i64 %59
   store i32 4, ptr %62, align 1, !noalias !447
   %63 = load i64, ptr %5, align 8, !alias.scope !444, !noalias !447, !noundef !13
   %64 = add i64 %63, 1
@@ -3975,7 +3975,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
   tail call void @llvm.assume(i1 %10)
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %12 = load ptr, ptr %11, align 8, !alias.scope !455, !noalias !458, !nonnull !13, !noundef !13
-  %13 = getelementptr inbounds { i8, [3 x i8] }, ptr %12, i64 %8
+  %13 = getelementptr inbounds [4 x i8], ptr %12, i64 %8
   %.sroa.01.0.copyload.i.i = load i32, ptr %13, align 1, !noalias !459
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %14 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -3994,7 +3994,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %22 = load ptr, ptr %21, align 8, !noalias !458, !nonnull !13, !noundef !13
-  %23 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %22, i64 %19
+  %23 = getelementptr [32 x i8], ptr %22, i64 %19
   %24 = getelementptr i8, ptr %23, i64 -32
   %.not41.i = icmp eq ptr %24, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %25
@@ -4034,7 +4034,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
   %34 = phi i64 [ %.pre.i.i, %33 ], [ %30, %28 ]
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %36 = load ptr, ptr %35, align 8, !alias.scope !460, !noalias !463, !nonnull !13, !noundef !13
-  %37 = getelementptr inbounds { i8, [3 x i8] }, ptr %36, i64 %34
+  %37 = getelementptr inbounds [4 x i8], ptr %36, i64 %34
   store i32 4, ptr %37, align 1, !noalias !463
   %38 = load i64, ptr %4, align 8, !alias.scope !460, !noalias !463, !noundef !13
   %39 = add i64 %38, 1
@@ -4137,7 +4137,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
   tail call void @llvm.assume(i1 %11)
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %13 = load ptr, ptr %12, align 8, !alias.scope !474, !noalias !477, !nonnull !13, !noundef !13
-  %14 = getelementptr inbounds { i8, [3 x i8] }, ptr %13, i64 %9
+  %14 = getelementptr inbounds [4 x i8], ptr %13, i64 %9
   %.sroa.01.0.copyload.i.i = load i32, ptr %14, align 1, !noalias !478
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %15 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -4156,7 +4156,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
 21:                                               ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %23 = load ptr, ptr %22, align 8, !noalias !477, !nonnull !13, !noundef !13
-  %24 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %23, i64 %20
+  %24 = getelementptr [32 x i8], ptr %23, i64 %20
   %25 = getelementptr i8, ptr %24, i64 -32
   %.not41.i = icmp eq ptr %25, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %26
@@ -4196,7 +4196,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
   tail call void @llvm.assume(i1 %35)
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %37 = load ptr, ptr %36, align 8, !alias.scope !479, !noalias !482, !nonnull !13, !noundef !13
-  %38 = getelementptr inbounds { i8, [3 x i8] }, ptr %37, i64 %33
+  %38 = getelementptr inbounds [4 x i8], ptr %37, i64 %33
   %.sroa.01.0.copyload.i.i41 = load i32, ptr %38, align 1, !noalias !486
   %.sroa.032.0.extract.trunc.i42 = trunc i32 %.sroa.01.0.copyload.i.i41 to i8
   %39 = add i8 %.sroa.032.0.extract.trunc.i42, -9
@@ -4215,7 +4215,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
 45:                                               ; preds = %42
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %47 = load ptr, ptr %46, align 8, !noalias !482, !nonnull !13, !noundef !13
-  %48 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %47, i64 %44
+  %48 = getelementptr [32 x i8], ptr %47, i64 %44
   %49 = getelementptr i8, ptr %48, i64 -32
   %.not41.i49 = icmp eq ptr %49, null
   br i1 %.not41.i49, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit51", label %50
@@ -4255,7 +4255,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
   %59 = phi i64 [ %.pre.i.i, %58 ], [ %55, %53 ]
   %60 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %61 = load ptr, ptr %60, align 8, !alias.scope !487, !noalias !490, !nonnull !13, !noundef !13
-  %62 = getelementptr inbounds { i8, [3 x i8] }, ptr %61, i64 %59
+  %62 = getelementptr inbounds [4 x i8], ptr %61, i64 %59
   store i32 4, ptr %62, align 1, !noalias !490
   %63 = load i64, ptr %5, align 8, !alias.scope !487, !noalias !490, !noundef !13
   %64 = add i64 %63, 1
@@ -4313,7 +4313,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
   tail call void @llvm.assume(i1 %22)
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %24 = load ptr, ptr %23, align 8, !alias.scope !499, !noalias !502, !nonnull !13, !noundef !13
-  %25 = getelementptr inbounds { i8, [3 x i8] }, ptr %24, i64 %20
+  %25 = getelementptr inbounds [4 x i8], ptr %24, i64 %20
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %25, align 1, !noalias !506
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %26 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -4332,7 +4332,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
 32:                                               ; preds = %29
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %34 = load ptr, ptr %33, align 8, !noalias !502, !nonnull !13, !noundef !13
-  %35 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %34, i64 %31
+  %35 = getelementptr [32 x i8], ptr %34, i64 %31
   %36 = getelementptr i8, ptr %35, i64 -32
   %.not41.i.i = icmp eq ptr %36, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i", label %37
@@ -4378,7 +4378,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
   %46 = phi i64 [ %.pre.i.i.i, %44 ], [ %42, %40 ]
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %48 = load ptr, ptr %47, align 8, !alias.scope !507, !noalias !510, !nonnull !13, !noundef !13
-  %49 = getelementptr inbounds { i8, [3 x i8] }, ptr %48, i64 %46
+  %49 = getelementptr inbounds [4 x i8], ptr %48, i64 %46
   store i32 4, ptr %49, align 1, !noalias !510
   %50 = load i64, ptr %16, align 8, !alias.scope !507, !noalias !510, !noundef !13
   %51 = add i64 %50, 1
@@ -4474,7 +4474,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
   %39 = icmp ult i64 %37, %38
   tail call void @llvm.assume(i1 %39)
   %40 = load ptr, ptr %21, align 8, !alias.scope !534, !noalias !537, !nonnull !13, !noundef !13
-  %41 = getelementptr inbounds { i8, [3 x i8] }, ptr %40, i64 %37
+  %41 = getelementptr inbounds [4 x i8], ptr %40, i64 %37
   %.sroa.01.0.copyload.i.i.us = load i32, ptr %41, align 1, !noalias !541
   %.sroa.032.0.extract.trunc.i.us = trunc i32 %.sroa.01.0.copyload.i.i.us to i8
   %42 = add i8 %.sroa.032.0.extract.trunc.i.us, -9
@@ -4498,7 +4498,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
 
 49:                                               ; preds = %.critedge.i.us
   %50 = load ptr, ptr %23, align 8, !noalias !537, !nonnull !13, !noundef !13
-  %51 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %50, i64 %48
+  %51 = getelementptr [32 x i8], ptr %50, i64 %48
   %52 = getelementptr i8, ptr %51, i64 -32
   %.not41.i.us = icmp eq ptr %52, null
   br i1 %.not41.i.us, label %.critedge45.i.us, label %53
@@ -4566,7 +4566,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
   %80 = icmp ult i64 %78, %79
   tail call void @llvm.assume(i1 %80)
   %81 = load ptr, ptr %70, align 8, !alias.scope !534, !noalias !537, !nonnull !13, !noundef !13
-  %82 = getelementptr inbounds { i8, [3 x i8] }, ptr %81, i64 %78
+  %82 = getelementptr inbounds [4 x i8], ptr %81, i64 %78
   %.sroa.01.0.copyload.i.i.us71 = load i32, ptr %82, align 1, !noalias !541
   %.sroa.032.0.extract.trunc.i.us72 = trunc i32 %.sroa.01.0.copyload.i.i.us71 to i8
   %83 = add i8 %.sroa.032.0.extract.trunc.i.us72, -9
@@ -4590,7 +4590,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
 
 90:                                               ; preds = %.critedge.i.us77
   %91 = load ptr, ptr %72, align 8, !noalias !537, !nonnull !13, !noundef !13
-  %92 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %91, i64 %89
+  %92 = getelementptr [32 x i8], ptr %91, i64 %89
   %93 = getelementptr i8, ptr %92, i64 -32
   %.not41.i.us79 = icmp eq ptr %93, null
   br i1 %.not41.i.us79, label %.critedge45.i.us81, label %94
@@ -4674,7 +4674,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12push_operand17hb1ff6b0126921329E.llvm.8213084322371663677.exit.us": ; preds = %118, %114
   %119 = phi i64 [ %.pre.i.i.us, %118 ], [ %115, %114 ]
   %120 = load ptr, ptr %101, align 8, !alias.scope !562, !noalias !565, !nonnull !13, !noundef !13
-  %121 = getelementptr inbounds { i8, [3 x i8] }, ptr %120, i64 %119
+  %121 = getelementptr inbounds [4 x i8], ptr %120, i64 %119
   store i32 %.sroa.0.0.i36.us, ptr %121, align 1, !noalias !565
   %122 = load i64, ptr %103, align 8, !alias.scope !562, !noalias !565, !noundef !13
   %123 = add i64 %122, 1
@@ -4695,7 +4695,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
   %129 = icmp ult i64 %127, %128
   tail call void @llvm.assume(i1 %129)
   %130 = load ptr, ptr %60, align 8, !alias.scope !534, !noalias !537, !nonnull !13, !noundef !13
-  %131 = getelementptr inbounds { i8, [3 x i8] }, ptr %130, i64 %127
+  %131 = getelementptr inbounds [4 x i8], ptr %130, i64 %127
   %.sroa.01.0.copyload.i.i = load i32, ptr %131, align 1, !noalias !541
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %132 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -4732,7 +4732,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
 
 142:                                              ; preds = %.critedge.i
   %143 = load ptr, ptr %62, align 8, !noalias !537, !nonnull !13, !noundef !13
-  %144 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %143, i64 %141
+  %144 = getelementptr [32 x i8], ptr %143, i64 %141
   %145 = getelementptr i8, ptr %144, i64 -32
   %.not41.i = icmp eq ptr %145, null
   br i1 %.not41.i, label %.critedge45.i, label %146
@@ -4792,7 +4792,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12push_operand17hb1ff6b0126921329E.llvm.8213084322371663677.exit": ; preds = %158, %162
   %163 = phi i64 [ %.pre.i.i, %162 ], [ %159, %158 ]
   %164 = load ptr, ptr %101, align 8, !alias.scope !562, !noalias !565, !nonnull !13, !noundef !13
-  %165 = getelementptr inbounds { i8, [3 x i8] }, ptr %164, i64 %163
+  %165 = getelementptr inbounds [4 x i8], ptr %164, i64 %163
   store i32 %.sroa.0.0.i36, ptr %165, align 1, !noalias !565
   %166 = load i64, ptr %103, align 8, !alias.scope !562, !noalias !565, !noundef !13
   %167 = add i64 %166, 1
@@ -4825,7 +4825,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
   tail call void @llvm.assume(i1 %10)
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %12 = load ptr, ptr %11, align 8, !alias.scope !578, !noalias !581, !nonnull !13, !noundef !13
-  %13 = getelementptr inbounds { i8, [3 x i8] }, ptr %12, i64 %8
+  %13 = getelementptr inbounds [4 x i8], ptr %12, i64 %8
   %.sroa.01.0.copyload.i.i = load i32, ptr %13, align 1, !noalias !582
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %14 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -4844,7 +4844,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %22 = load ptr, ptr %21, align 8, !noalias !581, !nonnull !13, !noundef !13
-  %23 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %22, i64 %19
+  %23 = getelementptr [32 x i8], ptr %22, i64 %19
   %24 = getelementptr i8, ptr %23, i64 -32
   %.not41.i = icmp eq ptr %24, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %25
@@ -4884,7 +4884,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
   %34 = phi i64 [ %.pre.i.i, %33 ], [ %30, %28 ]
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %36 = load ptr, ptr %35, align 8, !alias.scope !583, !noalias !586, !nonnull !13, !noundef !13
-  %37 = getelementptr inbounds { i8, [3 x i8] }, ptr %36, i64 %34
+  %37 = getelementptr inbounds [4 x i8], ptr %36, i64 %34
   store i32 0, ptr %37, align 1, !noalias !586
   %38 = load i64, ptr %4, align 8, !alias.scope !583, !noalias !586, !noundef !13
   %39 = add i64 %38, 1
@@ -4956,7 +4956,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
   tail call void @llvm.assume(i1 %12)
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 152
   %14 = load ptr, ptr %13, align 8, !alias.scope !597, !noalias !600, !nonnull !13, !noundef !13
-  %15 = getelementptr inbounds { i8, [3 x i8] }, ptr %14, i64 %10
+  %15 = getelementptr inbounds [4 x i8], ptr %14, i64 %10
   %.sroa.01.0.copyload.i.i = load i32, ptr %15, align 1, !noalias !601
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %16 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -4975,7 +4975,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
 22:                                               ; preds = %19
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 128
   %24 = load ptr, ptr %23, align 8, !noalias !600, !nonnull !13, !noundef !13
-  %25 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %24, i64 %21
+  %25 = getelementptr [32 x i8], ptr %24, i64 %21
   %26 = getelementptr i8, ptr %25, i64 -32
   %.not41.i = icmp eq ptr %26, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %27
@@ -5015,7 +5015,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
   tail call void @llvm.assume(i1 %36)
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 152
   %38 = load ptr, ptr %37, align 8, !alias.scope !602, !noalias !605, !nonnull !13, !noundef !13
-  %39 = getelementptr inbounds { i8, [3 x i8] }, ptr %38, i64 %34
+  %39 = getelementptr inbounds [4 x i8], ptr %38, i64 %34
   %.sroa.01.0.copyload.i.i56 = load i32, ptr %39, align 1, !noalias !609
   %.sroa.032.0.extract.trunc.i57 = trunc i32 %.sroa.01.0.copyload.i.i56 to i8
   %40 = add i8 %.sroa.032.0.extract.trunc.i57, -9
@@ -5034,7 +5034,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
 46:                                               ; preds = %43
   %47 = getelementptr inbounds nuw i8, ptr %5, i64 128
   %48 = load ptr, ptr %47, align 8, !noalias !605, !nonnull !13, !noundef !13
-  %49 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %48, i64 %45
+  %49 = getelementptr [32 x i8], ptr %48, i64 %45
   %50 = getelementptr i8, ptr %49, i64 -32
   %.not41.i64 = icmp eq ptr %50, null
   br i1 %.not41.i64, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit66", label %51
@@ -5074,7 +5074,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
   tail call void @llvm.assume(i1 %60)
   %61 = getelementptr inbounds nuw i8, ptr %5, i64 152
   %62 = load ptr, ptr %61, align 8, !alias.scope !610, !noalias !613, !nonnull !13, !noundef !13
-  %63 = getelementptr inbounds { i8, [3 x i8] }, ptr %62, i64 %58
+  %63 = getelementptr inbounds [4 x i8], ptr %62, i64 %58
   %.sroa.01.0.copyload.i.i68 = load i32, ptr %63, align 1, !noalias !617
   %.sroa.032.0.extract.trunc.i69 = trunc i32 %.sroa.01.0.copyload.i.i68 to i8
   %64 = add i8 %.sroa.032.0.extract.trunc.i69, -9
@@ -5093,7 +5093,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
 70:                                               ; preds = %67
   %71 = getelementptr inbounds nuw i8, ptr %5, i64 128
   %72 = load ptr, ptr %71, align 8, !noalias !613, !nonnull !13, !noundef !13
-  %73 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %72, i64 %69
+  %73 = getelementptr [32 x i8], ptr %72, i64 %69
   %74 = getelementptr i8, ptr %73, i64 -32
   %.not41.i76 = icmp eq ptr %74, null
   br i1 %.not41.i76, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit78", label %75
@@ -5133,7 +5133,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
   %84 = phi i64 [ %.pre.i.i, %83 ], [ %80, %78 ]
   %85 = getelementptr inbounds nuw i8, ptr %5, i64 152
   %86 = load ptr, ptr %85, align 8, !alias.scope !618, !noalias !621, !nonnull !13, !noundef !13
-  %87 = getelementptr inbounds { i8, [3 x i8] }, ptr %86, i64 %84
+  %87 = getelementptr inbounds [4 x i8], ptr %86, i64 %84
   store i32 4, ptr %87, align 1, !noalias !621
   %88 = load i64, ptr %6, align 8, !alias.scope !618, !noalias !621, !noundef !13
   %89 = add i64 %88, 1
@@ -5240,7 +5240,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
   tail call void @llvm.assume(i1 %41)
   %42 = getelementptr inbounds nuw i8, ptr %34, i64 152
   %43 = load ptr, ptr %42, align 8, !alias.scope !644, !noalias !647, !nonnull !13, !noundef !13
-  %44 = getelementptr inbounds { i8, [3 x i8] }, ptr %43, i64 %39
+  %44 = getelementptr inbounds [4 x i8], ptr %43, i64 %39
   %.sroa.01.0.copyload.i.i = load i32, ptr %44, align 1, !noalias !648
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %45 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -5269,7 +5269,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
 55:                                               ; preds = %.critedge.i
   %56 = getelementptr inbounds nuw i8, ptr %34, i64 128
   %57 = load ptr, ptr %56, align 8, !noalias !647, !nonnull !13, !noundef !13
-  %58 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %57, i64 %54
+  %58 = getelementptr [32 x i8], ptr %57, i64 %54
   %59 = getelementptr i8, ptr %58, i64 -32
   %.not41.i = icmp eq ptr %59, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %60
@@ -5309,7 +5309,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
   tail call void @llvm.assume(i1 %69)
   %70 = getelementptr inbounds nuw i8, ptr %34, i64 152
   %71 = load ptr, ptr %70, align 8, !alias.scope !649, !noalias !652, !nonnull !13, !noundef !13
-  %72 = getelementptr inbounds { i8, [3 x i8] }, ptr %71, i64 %67
+  %72 = getelementptr inbounds [4 x i8], ptr %71, i64 %67
   %.sroa.01.0.copyload.i.i47 = load i32, ptr %72, align 1, !noalias !656
   %.sroa.032.0.extract.trunc.i48 = trunc i32 %.sroa.01.0.copyload.i.i47 to i8
   %73 = add i8 %.sroa.032.0.extract.trunc.i48, -9
@@ -5327,7 +5327,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
 78:                                               ; preds = %.critedge.i56
   %79 = getelementptr inbounds nuw i8, ptr %34, i64 128
   %80 = load ptr, ptr %79, align 8, !noalias !652, !nonnull !13, !noundef !13
-  %81 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %80, i64 %77
+  %81 = getelementptr [32 x i8], ptr %80, i64 %77
   %82 = getelementptr i8, ptr %81, i64 -32
   %.not41.i58 = icmp eq ptr %82, null
   br i1 %.not41.i58, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit60", label %83
@@ -5367,7 +5367,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
   %92 = phi i64 [ %.pre.i.i, %91 ], [ %88, %86 ]
   %93 = getelementptr inbounds nuw i8, ptr %34, i64 152
   %94 = load ptr, ptr %93, align 8, !alias.scope !657, !noalias !660, !nonnull !13, !noundef !13
-  %95 = getelementptr inbounds { i8, [3 x i8] }, ptr %94, i64 %92
+  %95 = getelementptr inbounds [4 x i8], ptr %94, i64 %92
   store i32 %2, ptr %95, align 1, !noalias !660
   %96 = load i64, ptr %35, align 8, !alias.scope !657, !noalias !660, !noundef !13
   %97 = add i64 %96, 1
@@ -5475,7 +5475,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
   tail call void @llvm.assume(i1 %42)
   %43 = getelementptr inbounds nuw i8, ptr %35, i64 152
   %44 = load ptr, ptr %43, align 8, !alias.scope !683, !noalias !686, !nonnull !13, !noundef !13
-  %45 = getelementptr inbounds { i8, [3 x i8] }, ptr %44, i64 %40
+  %45 = getelementptr inbounds [4 x i8], ptr %44, i64 %40
   %.sroa.01.0.copyload.i.i = load i32, ptr %45, align 1, !noalias !687
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %46 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -5504,7 +5504,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
 56:                                               ; preds = %.critedge.i
   %57 = getelementptr inbounds nuw i8, ptr %35, i64 128
   %58 = load ptr, ptr %57, align 8, !noalias !686, !nonnull !13, !noundef !13
-  %59 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %58, i64 %55
+  %59 = getelementptr [32 x i8], ptr %58, i64 %55
   %60 = getelementptr i8, ptr %59, i64 -32
   %.not41.i = icmp eq ptr %60, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %61
@@ -5544,7 +5544,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
   tail call void @llvm.assume(i1 %70)
   %71 = getelementptr inbounds nuw i8, ptr %35, i64 152
   %72 = load ptr, ptr %71, align 8, !alias.scope !688, !noalias !691, !nonnull !13, !noundef !13
-  %73 = getelementptr inbounds { i8, [3 x i8] }, ptr %72, i64 %68
+  %73 = getelementptr inbounds [4 x i8], ptr %72, i64 %68
   %.sroa.01.0.copyload.i.i61 = load i32, ptr %73, align 1, !noalias !695
   %.sroa.032.0.extract.trunc.i62 = trunc i32 %.sroa.01.0.copyload.i.i61 to i8
   %74 = add i8 %.sroa.032.0.extract.trunc.i62, -9
@@ -5573,7 +5573,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
 84:                                               ; preds = %.critedge.i70
   %85 = getelementptr inbounds nuw i8, ptr %35, i64 128
   %86 = load ptr, ptr %85, align 8, !noalias !691, !nonnull !13, !noundef !13
-  %87 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %86, i64 %83
+  %87 = getelementptr [32 x i8], ptr %86, i64 %83
   %88 = getelementptr i8, ptr %87, i64 -32
   %.not41.i72 = icmp eq ptr %88, null
   br i1 %.not41.i72, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit74", label %89
@@ -5613,7 +5613,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
   tail call void @llvm.assume(i1 %98)
   %99 = getelementptr inbounds nuw i8, ptr %35, i64 152
   %100 = load ptr, ptr %99, align 8, !alias.scope !696, !noalias !699, !nonnull !13, !noundef !13
-  %101 = getelementptr inbounds { i8, [3 x i8] }, ptr %100, i64 %96
+  %101 = getelementptr inbounds [4 x i8], ptr %100, i64 %96
   %.sroa.01.0.copyload.i.i76 = load i32, ptr %101, align 1, !noalias !703
   %.sroa.032.0.extract.trunc.i77 = trunc i32 %.sroa.01.0.copyload.i.i76 to i8
   %102 = add i8 %.sroa.032.0.extract.trunc.i77, -9
@@ -5631,7 +5631,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
 107:                                              ; preds = %.critedge.i85
   %108 = getelementptr inbounds nuw i8, ptr %35, i64 128
   %109 = load ptr, ptr %108, align 8, !noalias !699, !nonnull !13, !noundef !13
-  %110 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %109, i64 %106
+  %110 = getelementptr [32 x i8], ptr %109, i64 %106
   %111 = getelementptr i8, ptr %110, i64 -32
   %.not41.i87 = icmp eq ptr %111, null
   br i1 %.not41.i87, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit89", label %112
@@ -5756,7 +5756,7 @@ define internal fastcc void @"_ZN10wasmparser9validator9operators30OperatorValid
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h4b4336bc4c2fdfe8E.exit": ; preds = %34
   %41 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %42 = load ptr, ptr %41, align 8, !nonnull !13, !noundef !13
-  %43 = getelementptr inbounds { i8, [3 x i8] }, ptr %42, i64 %38
+  %43 = getelementptr inbounds [4 x i8], ptr %42, i64 %38
   br label %32
 
 44:                                               ; preds = %23, %17
@@ -5799,7 +5799,7 @@ define internal fastcc void @"_ZN10wasmparser9validator9operators30OperatorValid
   tail call void @llvm.assume(i1 %14)
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %16 = load ptr, ptr %15, align 8, !alias.scope !718, !noalias !721, !nonnull !13, !noundef !13
-  %17 = getelementptr inbounds { i8, [3 x i8] }, ptr %16, i64 %12
+  %17 = getelementptr inbounds [4 x i8], ptr %16, i64 %12
   %.sroa.01.0.copyload.i.i = load i32, ptr %17, align 1, !noalias !722
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit"
 
@@ -5994,8 +5994,8 @@ define internal fastcc void @"_ZN10wasmparser9validator9operators30OperatorValid
 43:                                               ; preds = %36
   %44 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %45 = load ptr, ptr %44, align 8, !nonnull !13, !noundef !13
-  %46 = getelementptr inbounds { i8, [3 x i8] }, ptr %45, i64 %40
-  %47 = getelementptr inbounds { i8, [3 x i8] }, ptr %45, i64 %38
+  %46 = getelementptr inbounds [4 x i8], ptr %45, i64 %40
+  %47 = getelementptr inbounds [4 x i8], ptr %45, i64 %38
   br label %34
 
 48:                                               ; preds = %36
@@ -6028,7 +6028,7 @@ define internal fastcc void @"_ZN10wasmparser9validator9operators30OperatorValid
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 128
   %13 = load ptr, ptr %12, align 8, !nonnull !13, !noundef !13
-  %14 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %13, i64 %10
+  %14 = getelementptr [32 x i8], ptr %13, i64 %10
   %15 = getelementptr i8, ptr %14, i64 -32
   %16 = icmp eq ptr %15, null
   br i1 %16, label %.thread, label %21
@@ -6066,7 +6066,7 @@ define internal fastcc void @"_ZN10wasmparser9validator9operators30OperatorValid
   store i64 %25, ptr %26, align 8, !alias.scope !735, !noalias !738
   %34 = getelementptr inbounds nuw i8, ptr %8, i64 176
   %35 = load ptr, ptr %34, align 8, !alias.scope !735, !noalias !738, !nonnull !13, !noundef !13
-  %36 = getelementptr inbounds i32, ptr %35, i64 %25
+  %36 = getelementptr inbounds [4 x i8], ptr %35, i64 %25
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %33) ]
   %37 = shl i64 %30, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %33, ptr nonnull align 4 %36, i64 %37, i1 false), !noalias !740
@@ -6170,7 +6170,7 @@ common.resume:                                    ; preds = %43, %46
   %67 = icmp ult i64 %65, %66
   call void @llvm.assume(i1 %67)
   %68 = load ptr, ptr %57, align 8, !alias.scope !746, !noalias !749, !nonnull !13, !noundef !13
-  %69 = getelementptr inbounds { i8, [3 x i8] }, ptr %68, i64 %65
+  %69 = getelementptr inbounds [4 x i8], ptr %68, i64 %65
   %.sroa.01.0.copyload.i.i.us = load i32, ptr %69, align 1, !noalias !753
   %.sroa.032.0.extract.trunc.i.us = trunc i32 %.sroa.01.0.copyload.i.i.us to i8
   %70 = add i8 %.sroa.032.0.extract.trunc.i.us, -9
@@ -6194,7 +6194,7 @@ common.resume:                                    ; preds = %43, %46
 
 77:                                               ; preds = %.critedge.i.us
   %78 = load ptr, ptr %12, align 8, !noalias !749, !nonnull !13, !noundef !13
-  %79 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %78, i64 %76
+  %79 = getelementptr [32 x i8], ptr %78, i64 %76
   %80 = getelementptr i8, ptr %79, i64 -32
   %.not41.i.us = icmp eq ptr %80, null
   br i1 %.not41.i.us, label %.critedge45.i.us, label %81
@@ -6262,7 +6262,7 @@ common.resume:                                    ; preds = %43, %46
   %103 = icmp ult i64 %101, %102
   call void @llvm.assume(i1 %103)
   %104 = load ptr, ptr %57, align 8, !alias.scope !746, !noalias !749, !nonnull !13, !noundef !13
-  %105 = getelementptr inbounds { i8, [3 x i8] }, ptr %104, i64 %101
+  %105 = getelementptr inbounds [4 x i8], ptr %104, i64 %101
   %.sroa.01.0.copyload.i.i = load i32, ptr %105, align 1, !noalias !753
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %106 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -6299,7 +6299,7 @@ common.resume:                                    ; preds = %43, %46
 
 116:                                              ; preds = %.critedge.i
   %117 = load ptr, ptr %12, align 8, !noalias !749, !nonnull !13, !noundef !13
-  %118 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %117, i64 %115
+  %118 = getelementptr [32 x i8], ptr %117, i64 %115
   %119 = getelementptr i8, ptr %118, i64 -32
   %.not41.i = icmp eq ptr %119, null
   br i1 %.not41.i, label %.critedge45.i, label %120
@@ -6327,7 +6327,7 @@ common.resume:                                    ; preds = %43, %46
   %128 = icmp ult i64 %126, %127
   call void @llvm.assume(i1 %128)
   %129 = load ptr, ptr %12, align 8, !alias.scope !763, !noalias !766, !nonnull !13, !noundef !13
-  %130 = getelementptr inbounds { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %129, i64 %126
+  %130 = getelementptr inbounds [32 x i8], ptr %129, i64 %126
   %.sroa.460.0..sroa_idx61 = getelementptr inbounds nuw i8, ptr %130, i64 25
   %.sroa.460.0.copyload62 = load i8, ptr %.sroa.460.0..sroa_idx61, align 1, !noalias !763
   %131 = icmp eq i8 %.sroa.460.0.copyload62, 2
@@ -6418,7 +6418,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
   %16 = phi i64 [ %.pre.i, %15 ], [ %12, %3 ]
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 128
   %18 = load ptr, ptr %17, align 8, !alias.scope !770, !noalias !773, !nonnull !13, !noundef !13
-  %19 = getelementptr inbounds { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %18, i64 %16
+  %19 = getelementptr inbounds [32 x i8], ptr %18, i64 %16
   store i64 %7, ptr %19, align 8
   %.sroa.4.0..sroa_idx27 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i64 %9, ptr %.sroa.4.0..sroa_idx27, align 8
@@ -6499,7 +6499,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12push_operand17hb1ff6b0126921329E.llvm.8213084322371663677.exit": ; preds = %39, %43
   %44 = phi i64 [ %.pre.i.i, %43 ], [ %40, %39 ]
   %45 = load ptr, ptr %27, align 8, !alias.scope !780, !noalias !783, !nonnull !13, !noundef !13
-  %46 = getelementptr inbounds { i8, [3 x i8] }, ptr %45, i64 %44
+  %46 = getelementptr inbounds [4 x i8], ptr %45, i64 %44
   store i32 %.sroa.0.0.i, ptr %46, align 1, !noalias !783
   %47 = load i64, ptr %6, align 8, !alias.scope !780, !noalias !783, !noundef !13
   %48 = add i64 %47, 1
@@ -6629,7 +6629,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %10)
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %12 = load ptr, ptr %11, align 8, !alias.scope !806, !noalias !809, !nonnull !13, !noundef !13
-  %13 = getelementptr inbounds { i8, [3 x i8] }, ptr %12, i64 %8
+  %13 = getelementptr inbounds [4 x i8], ptr %12, i64 %8
   %.sroa.01.0.copyload.i.i = load i32, ptr %13, align 1, !noalias !810
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit"
 
@@ -6755,7 +6755,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %29 = icmp ult i64 %27, %28
   call void @llvm.assume(i1 %29)
   %30 = load ptr, ptr %17, align 8, !alias.scope !811, !noalias !814, !nonnull !13, !noundef !13
-  %31 = getelementptr inbounds { i8, [3 x i8] }, ptr %30, i64 %27
+  %31 = getelementptr inbounds [4 x i8], ptr %30, i64 %27
   %.sroa.01.0.copyload.i.i.us = load i32, ptr %31, align 1, !noalias !818
   %.sroa.032.0.extract.trunc.i.us = trunc i32 %.sroa.01.0.copyload.i.i.us to i8
   %32 = add i8 %.sroa.032.0.extract.trunc.i.us, -9
@@ -6779,7 +6779,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 
 39:                                               ; preds = %.critedge.i.us
   %40 = load ptr, ptr %19, align 8, !noalias !814, !nonnull !13, !noundef !13
-  %41 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %40, i64 %38
+  %41 = getelementptr [32 x i8], ptr %40, i64 %38
   %42 = getelementptr i8, ptr %41, i64 -32
   %.not41.i.us = icmp eq ptr %42, null
   br i1 %.not41.i.us, label %.critedge45.i.us, label %43
@@ -6833,7 +6833,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %57 = icmp ult i64 %55, %56
   call void @llvm.assume(i1 %57)
   %58 = load ptr, ptr %17, align 8, !alias.scope !811, !noalias !814, !nonnull !13, !noundef !13
-  %59 = getelementptr inbounds { i8, [3 x i8] }, ptr %58, i64 %55
+  %59 = getelementptr inbounds [4 x i8], ptr %58, i64 %55
   %.sroa.01.0.copyload.i.i = load i32, ptr %59, align 1, !noalias !818
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %60 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -6870,7 +6870,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 
 70:                                               ; preds = %.critedge.i
   %71 = load ptr, ptr %19, align 8, !noalias !814, !nonnull !13, !noundef !13
-  %72 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %71, i64 %69
+  %72 = getelementptr [32 x i8], ptr %71, i64 %69
   %73 = getelementptr i8, ptr %72, i64 -32
   %.not41.i = icmp eq ptr %73, null
   br i1 %.not41.i, label %.critedge45.i, label %74
@@ -6952,7 +6952,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %29 = icmp ult i64 %27, %28
   call void @llvm.assume(i1 %29)
   %30 = load ptr, ptr %17, align 8, !alias.scope !824, !noalias !827, !nonnull !13, !noundef !13
-  %31 = getelementptr inbounds { i8, [3 x i8] }, ptr %30, i64 %27
+  %31 = getelementptr inbounds [4 x i8], ptr %30, i64 %27
   %.sroa.01.0.copyload.i.i.us = load i32, ptr %31, align 1, !noalias !831
   %.sroa.032.0.extract.trunc.i.us = trunc i32 %.sroa.01.0.copyload.i.i.us to i8
   %32 = add i8 %.sroa.032.0.extract.trunc.i.us, -9
@@ -6976,7 +6976,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 
 39:                                               ; preds = %.critedge.i.us
   %40 = load ptr, ptr %19, align 8, !noalias !827, !nonnull !13, !noundef !13
-  %41 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %40, i64 %38
+  %41 = getelementptr [32 x i8], ptr %40, i64 %38
   %42 = getelementptr i8, ptr %41, i64 -32
   %.not41.i.us = icmp eq ptr %42, null
   br i1 %.not41.i.us, label %.critedge45.i.us, label %43
@@ -7030,7 +7030,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %57 = icmp ult i64 %55, %56
   call void @llvm.assume(i1 %57)
   %58 = load ptr, ptr %17, align 8, !alias.scope !824, !noalias !827, !nonnull !13, !noundef !13
-  %59 = getelementptr inbounds { i8, [3 x i8] }, ptr %58, i64 %55
+  %59 = getelementptr inbounds [4 x i8], ptr %58, i64 %55
   %.sroa.01.0.copyload.i.i = load i32, ptr %59, align 1, !noalias !831
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %60 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -7067,7 +7067,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 
 70:                                               ; preds = %.critedge.i
   %71 = load ptr, ptr %19, align 8, !noalias !827, !nonnull !13, !noundef !13
-  %72 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %71, i64 %69
+  %72 = getelementptr [32 x i8], ptr %71, i64 %69
   %73 = getelementptr i8, ptr %72, i64 -32
   %.not41.i = icmp eq ptr %73, null
   br i1 %.not41.i, label %.critedge45.i, label %74
@@ -7111,7 +7111,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %15)
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 152
   %17 = load ptr, ptr %16, align 8, !alias.scope !842, !noalias !845, !nonnull !13, !noundef !13
-  %18 = getelementptr inbounds { i8, [3 x i8] }, ptr %17, i64 %13
+  %18 = getelementptr inbounds [4 x i8], ptr %17, i64 %13
   %.sroa.01.0.copyload.i.i = load i32, ptr %18, align 1, !noalias !846
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %19 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -7130,7 +7130,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 25:                                               ; preds = %22
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 128
   %27 = load ptr, ptr %26, align 8, !noalias !845, !nonnull !13, !noundef !13
-  %28 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %27, i64 %24
+  %28 = getelementptr [32 x i8], ptr %27, i64 %24
   %29 = getelementptr i8, ptr %28, i64 -32
   %.not41.i = icmp eq ptr %29, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %30
@@ -7199,7 +7199,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 53:                                               ; preds = %50
   %54 = getelementptr inbounds nuw i8, ptr %8, i64 128
   %55 = load ptr, ptr %54, align 8, !noalias !847, !nonnull !13, !noundef !13
-  %56 = getelementptr inbounds { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %55, i64 %43
+  %56 = getelementptr inbounds [32 x i8], ptr %55, i64 %43
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %58 = load i64, ptr %57, align 8
   %59 = getelementptr inbounds nuw i8, ptr %56, i64 24
@@ -7398,7 +7398,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %57 = icmp ult i64 %55, %56
   tail call void @llvm.assume(i1 %57)
   %58 = load ptr, ptr %41, align 8, !alias.scope !884, !noalias !887, !nonnull !13, !noundef !13
-  %59 = getelementptr inbounds { i8, [3 x i8] }, ptr %58, i64 %55
+  %59 = getelementptr inbounds [4 x i8], ptr %58, i64 %55
   %.sroa.01.0.copyload.i.i = load i32, ptr %59, align 1, !noalias !891
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %60 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -7441,7 +7441,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 
 72:                                               ; preds = %.critedge.i
   %73 = load ptr, ptr %43, align 8, !noalias !887, !nonnull !13, !noundef !13
-  %74 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %73, i64 %71
+  %74 = getelementptr [32 x i8], ptr %73, i64 %71
   %75 = getelementptr i8, ptr %74, i64 -32
   %.not41.i = icmp eq ptr %75, null
   br i1 %.not41.i, label %.critedge45.i, label %76
@@ -7466,7 +7466,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 
 82:                                               ; preds = %80
   %83 = load ptr, ptr %43, align 8, !noalias !892, !nonnull !13, !noundef !13
-  %84 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %83, i64 %81
+  %84 = getelementptr [32 x i8], ptr %83, i64 %81
   %85 = getelementptr i8, ptr %84, i64 -32
   %86 = icmp eq ptr %85, null
   br i1 %86, label %.thread.i, label %88
@@ -7545,7 +7545,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %11)
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %13 = load ptr, ptr %12, align 8, !alias.scope !910, !noalias !913, !nonnull !13, !noundef !13
-  %14 = getelementptr inbounds { i8, [3 x i8] }, ptr %13, i64 %9
+  %14 = getelementptr inbounds [4 x i8], ptr %13, i64 %9
   %.sroa.01.0.copyload.i.i = load i32, ptr %14, align 1, !noalias !914
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %15 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -7567,7 +7567,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 21:                                               ; preds = %.critedge.i
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %23 = load ptr, ptr %22, align 8, !noalias !913, !nonnull !13, !noundef !13
-  %24 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %23, i64 %20
+  %24 = getelementptr [32 x i8], ptr %23, i64 %20
   %25 = getelementptr i8, ptr %24, i64 -32
   %.not41.i = icmp eq ptr %25, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %26
@@ -7607,7 +7607,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %35)
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %37 = load ptr, ptr %36, align 8, !alias.scope !915, !noalias !918, !nonnull !13, !noundef !13
-  %38 = getelementptr inbounds { i8, [3 x i8] }, ptr %37, i64 %33
+  %38 = getelementptr inbounds [4 x i8], ptr %37, i64 %33
   %.sroa.01.0.copyload.i.i63 = load i32, ptr %38, align 1, !noalias !922
   %.sroa.032.0.extract.trunc.i64 = trunc i32 %.sroa.01.0.copyload.i.i63 to i8
   %39 = add i8 %.sroa.032.0.extract.trunc.i64, -9
@@ -7629,7 +7629,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 45:                                               ; preds = %.critedge.i70
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %47 = load ptr, ptr %46, align 8, !noalias !918, !nonnull !13, !noundef !13
-  %48 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %47, i64 %44
+  %48 = getelementptr [32 x i8], ptr %47, i64 %44
   %49 = getelementptr i8, ptr %48, i64 -32
   %.not41.i72 = icmp eq ptr %49, null
   br i1 %.not41.i72, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit74", label %50
@@ -7669,7 +7669,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %59 = phi i64 [ %.pre.i.i, %58 ], [ %55, %53 ]
   %60 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %61 = load ptr, ptr %60, align 8, !alias.scope !923, !noalias !926, !nonnull !13, !noundef !13
-  %62 = getelementptr inbounds { i8, [3 x i8] }, ptr %61, i64 %59
+  %62 = getelementptr inbounds [4 x i8], ptr %61, i64 %59
   store i32 0, ptr %62, align 1, !noalias !926
   %63 = load i64, ptr %5, align 8, !alias.scope !923, !noalias !926, !noundef !13
   %64 = add i64 %63, 1
@@ -7712,7 +7712,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %14)
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %16 = load ptr, ptr %15, align 8, !alias.scope !934, !noalias !937, !nonnull !13, !noundef !13
-  %17 = getelementptr inbounds { i8, [3 x i8] }, ptr %16, i64 %12
+  %17 = getelementptr inbounds [4 x i8], ptr %16, i64 %12
   %.sroa.01.0.copyload.i.i = load i32, ptr %17, align 1, !noalias !938
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %18 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -7731,7 +7731,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 24:                                               ; preds = %21
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 128
   %26 = load ptr, ptr %25, align 8, !noalias !937, !nonnull !13, !noundef !13
-  %27 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %26, i64 %23
+  %27 = getelementptr [32 x i8], ptr %26, i64 %23
   %28 = getelementptr i8, ptr %27, i64 -32
   %.not41.i = icmp eq ptr %28, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %29
@@ -7771,7 +7771,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %38)
   %39 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %40 = load ptr, ptr %39, align 8, !alias.scope !939, !noalias !942, !nonnull !13, !noundef !13
-  %41 = getelementptr inbounds { i8, [3 x i8] }, ptr %40, i64 %36
+  %41 = getelementptr inbounds [4 x i8], ptr %40, i64 %36
   %.sroa.01.0.copyload.i.i75 = load i32, ptr %41, align 1, !noalias !946
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit84"
 
@@ -7805,7 +7805,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %52)
   %53 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %54 = load ptr, ptr %53, align 8, !alias.scope !947, !noalias !950, !nonnull !13, !noundef !13
-  %55 = getelementptr inbounds { i8, [3 x i8] }, ptr %54, i64 %50
+  %55 = getelementptr inbounds [4 x i8], ptr %54, i64 %50
   %.sroa.01.0.copyload.i.i86 = load i32, ptr %55, align 1, !noalias !954
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit95"
 
@@ -7896,7 +7896,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %90 = phi i64 [ %.pre.i.i, %89 ], [ %86, %.critedge ]
   %91 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %92 = load ptr, ptr %91, align 8, !alias.scope !955, !nonnull !13, !noundef !13
-  %93 = getelementptr inbounds { i8, [3 x i8] }, ptr %92, i64 %90
+  %93 = getelementptr inbounds [4 x i8], ptr %92, i64 %90
   store i32 %.sroa.039.0.insert.insert, ptr %93, align 1
   %94 = load i64, ptr %8, align 8, !alias.scope !955, !noundef !13
   %95 = add i64 %94, 1
@@ -7949,7 +7949,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %10)
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %12 = load ptr, ptr %11, align 8, !alias.scope !963, !noalias !966, !nonnull !13, !noundef !13
-  %13 = getelementptr inbounds { i8, [3 x i8] }, ptr %12, i64 %8
+  %13 = getelementptr inbounds [4 x i8], ptr %12, i64 %8
   %.sroa.01.0.copyload.i.i = load i32, ptr %13, align 1, !noalias !967
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %14 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -7968,7 +7968,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %22 = load ptr, ptr %21, align 8, !noalias !966, !nonnull !13, !noundef !13
-  %23 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %22, i64 %19
+  %23 = getelementptr [32 x i8], ptr %22, i64 %19
   %24 = getelementptr i8, ptr %23, i64 -32
   %.not41.i = icmp eq ptr %24, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %25
@@ -8008,7 +8008,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %34 = phi i64 [ %.pre.i.i, %33 ], [ %30, %28 ]
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %36 = load ptr, ptr %35, align 8, !alias.scope !968, !noalias !971, !nonnull !13, !noundef !13
-  %37 = getelementptr inbounds { i8, [3 x i8] }, ptr %36, i64 %34
+  %37 = getelementptr inbounds [4 x i8], ptr %36, i64 %34
   store i32 0, ptr %37, align 1, !noalias !971
   %38 = load i64, ptr %4, align 8, !alias.scope !968, !noalias !971, !noundef !13
   %39 = add i64 %38, 1
@@ -8041,7 +8041,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %10)
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %12 = load ptr, ptr %11, align 8, !alias.scope !979, !noalias !982, !nonnull !13, !noundef !13
-  %13 = getelementptr inbounds { i8, [3 x i8] }, ptr %12, i64 %8
+  %13 = getelementptr inbounds [4 x i8], ptr %12, i64 %8
   %.sroa.01.0.copyload.i.i = load i32, ptr %13, align 1, !noalias !983
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %14 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -8060,7 +8060,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %22 = load ptr, ptr %21, align 8, !noalias !982, !nonnull !13, !noundef !13
-  %23 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %22, i64 %19
+  %23 = getelementptr [32 x i8], ptr %22, i64 %19
   %24 = getelementptr i8, ptr %23, i64 -32
   %.not41.i = icmp eq ptr %24, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %25
@@ -8100,7 +8100,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %34 = phi i64 [ %.pre.i.i, %33 ], [ %30, %28 ]
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %36 = load ptr, ptr %35, align 8, !alias.scope !984, !noalias !987, !nonnull !13, !noundef !13
-  %37 = getelementptr inbounds { i8, [3 x i8] }, ptr %36, i64 %34
+  %37 = getelementptr inbounds [4 x i8], ptr %36, i64 %34
   store i32 0, ptr %37, align 1, !noalias !987
   %38 = load i64, ptr %4, align 8, !alias.scope !984, !noalias !987, !noundef !13
   %39 = add i64 %38, 1
@@ -8133,7 +8133,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %10)
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %12 = load ptr, ptr %11, align 8, !alias.scope !995, !noalias !998, !nonnull !13, !noundef !13
-  %13 = getelementptr inbounds { i8, [3 x i8] }, ptr %12, i64 %8
+  %13 = getelementptr inbounds [4 x i8], ptr %12, i64 %8
   %.sroa.01.0.copyload.i.i = load i32, ptr %13, align 1, !noalias !999
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %14 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -8152,7 +8152,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %22 = load ptr, ptr %21, align 8, !noalias !998, !nonnull !13, !noundef !13
-  %23 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %22, i64 %19
+  %23 = getelementptr [32 x i8], ptr %22, i64 %19
   %24 = getelementptr i8, ptr %23, i64 -32
   %.not41.i = icmp eq ptr %24, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %25
@@ -8192,7 +8192,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %34 = phi i64 [ %.pre.i.i, %33 ], [ %30, %28 ]
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %36 = load ptr, ptr %35, align 8, !alias.scope !1000, !noalias !1003, !nonnull !13, !noundef !13
-  %37 = getelementptr inbounds { i8, [3 x i8] }, ptr %36, i64 %34
+  %37 = getelementptr inbounds [4 x i8], ptr %36, i64 %34
   store i32 536870917, ptr %37, align 1, !noalias !1003
   %38 = load i64, ptr %4, align 8, !alias.scope !1000, !noalias !1003, !noundef !13
   %39 = add i64 %38, 1
@@ -8237,7 +8237,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %23)
   %24 = getelementptr inbounds nuw i8, ptr %16, i64 152
   %25 = load ptr, ptr %24, align 8, !alias.scope !1011, !noalias !1014, !nonnull !13, !noundef !13
-  %26 = getelementptr inbounds { i8, [3 x i8] }, ptr %25, i64 %21
+  %26 = getelementptr inbounds [4 x i8], ptr %25, i64 %21
   %.sroa.01.0.copyload.i.i = load i32, ptr %26, align 1, !noalias !1015
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %27 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -8256,7 +8256,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 33:                                               ; preds = %30
   %34 = getelementptr inbounds nuw i8, ptr %16, i64 128
   %35 = load ptr, ptr %34, align 8, !noalias !1014, !nonnull !13, !noundef !13
-  %36 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %35, i64 %32
+  %36 = getelementptr [32 x i8], ptr %35, i64 %32
   %37 = getelementptr i8, ptr %36, i64 -32
   %.not41.i = icmp eq ptr %37, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %38
@@ -8330,7 +8330,7 @@ default.unreachable455:                           ; preds = %105
 63:                                               ; preds = %60
   %64 = getelementptr inbounds nuw i8, ptr %16, i64 128
   %65 = load ptr, ptr %64, align 8, !noalias !1016, !nonnull !13, !noundef !13
-  %66 = getelementptr inbounds { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %65, i64 %53
+  %66 = getelementptr inbounds [32 x i8], ptr %65, i64 %53
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 16
   %68 = load i64, ptr %67, align 8
   %69 = getelementptr inbounds nuw i8, ptr %66, i64 24
@@ -8480,7 +8480,7 @@ default.unreachable455:                           ; preds = %105
   %123 = icmp ult i64 %121, %122
   call void @llvm.assume(i1 %123)
   %124 = load ptr, ptr %101, align 8, !alias.scope !1029, !noalias !1032, !nonnull !13, !noundef !13
-  %125 = getelementptr inbounds { i8, [3 x i8] }, ptr %124, i64 %121
+  %125 = getelementptr inbounds [4 x i8], ptr %124, i64 %121
   %.sroa.01.0.copyload.i.i179.us = load i32, ptr %125, align 1, !noalias !1036
   %.sroa.032.0.extract.trunc.i180.us = trunc i32 %.sroa.01.0.copyload.i.i179.us to i8
   %126 = add i8 %.sroa.032.0.extract.trunc.i180.us, -9
@@ -8504,7 +8504,7 @@ default.unreachable455:                           ; preds = %105
 
 133:                                              ; preds = %.critedge.i.us
   %134 = load ptr, ptr %64, align 8, !noalias !1032, !nonnull !13, !noundef !13
-  %135 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %134, i64 %132
+  %135 = getelementptr [32 x i8], ptr %134, i64 %132
   %136 = getelementptr i8, ptr %135, i64 -32
   %.not41.i186.us = icmp eq ptr %136, null
   br i1 %.not41.i186.us, label %.critedge45.i183.us, label %137
@@ -8557,7 +8557,7 @@ default.unreachable455:                           ; preds = %105
   %148 = icmp ult i64 %146, %147
   call void @llvm.assume(i1 %148)
   %149 = load ptr, ptr %101, align 8, !alias.scope !1029, !noalias !1032, !nonnull !13, !noundef !13
-  %150 = getelementptr inbounds { i8, [3 x i8] }, ptr %149, i64 %146
+  %150 = getelementptr inbounds [4 x i8], ptr %149, i64 %146
   %.sroa.01.0.copyload.i.i179.us381 = load i32, ptr %150, align 1, !noalias !1036
   %.sroa.032.0.extract.trunc.i180.us382 = trunc i32 %.sroa.01.0.copyload.i.i179.us381 to i8
   %151 = add i8 %.sroa.032.0.extract.trunc.i180.us382, -9
@@ -8581,7 +8581,7 @@ default.unreachable455:                           ; preds = %105
 
 158:                                              ; preds = %.critedge.i.us387
   %159 = load ptr, ptr %64, align 8, !noalias !1032, !nonnull !13, !noundef !13
-  %160 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %159, i64 %157
+  %160 = getelementptr [32 x i8], ptr %159, i64 %157
   %161 = getelementptr i8, ptr %160, i64 -32
   %.not41.i186.us389 = icmp eq ptr %161, null
   br i1 %.not41.i186.us389, label %.critedge45.i183.us391, label %162
@@ -8630,7 +8630,7 @@ default.unreachable455:                           ; preds = %105
   %175 = icmp ult i64 %173, %174
   call void @llvm.assume(i1 %175)
   %176 = load ptr, ptr %101, align 8, !alias.scope !1029, !noalias !1032, !nonnull !13, !noundef !13
-  %177 = getelementptr inbounds { i8, [3 x i8] }, ptr %176, i64 %173
+  %177 = getelementptr inbounds [4 x i8], ptr %176, i64 %173
   %.sroa.01.0.copyload.i.i179 = load i32, ptr %177, align 1, !noalias !1036
   %.sroa.032.0.extract.trunc.i180 = trunc i32 %.sroa.01.0.copyload.i.i179 to i8
   %178 = add i8 %.sroa.032.0.extract.trunc.i180, -9
@@ -8667,7 +8667,7 @@ default.unreachable455:                           ; preds = %105
 
 188:                                              ; preds = %.critedge.i
   %189 = load ptr, ptr %64, align 8, !noalias !1032, !nonnull !13, !noundef !13
-  %190 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %189, i64 %187
+  %190 = getelementptr [32 x i8], ptr %189, i64 %187
   %191 = getelementptr i8, ptr %190, i64 -32
   %.not41.i186 = icmp eq ptr %191, null
   br i1 %.not41.i186, label %.critedge45.i183, label %192
@@ -8732,7 +8732,7 @@ default.unreachable455:                           ; preds = %105
 
 213:                                              ; preds = %209
   %214 = load ptr, ptr %64, align 8, !noalias !1042, !nonnull !13, !noundef !13
-  %215 = getelementptr inbounds { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %214, i64 %202
+  %215 = getelementptr inbounds [32 x i8], ptr %214, i64 %202
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 16
   %217 = load i32, ptr %216, align 8
   %.sroa_idx255 = getelementptr inbounds nuw i8, ptr %215, i64 20
@@ -8933,9 +8933,9 @@ default.unreachable455:                           ; preds = %105
   %293 = extractvalue { i64, i64 } %291, 1
   store i64 %292, ptr %99, align 8, !alias.scope !1063, !noalias !1066
   %294 = load ptr, ptr %104, align 8, !alias.scope !1063, !noalias !1066, !nonnull !13, !noundef !13
-  %295 = getelementptr inbounds { i8, [3 x i8] }, ptr %294, i64 %292
+  %295 = getelementptr inbounds [4 x i8], ptr %294, i64 %292
   %296 = sub i64 %290, %293
-  %297 = getelementptr inbounds { i8, [3 x i8] }, ptr %294, i64 %293
+  %297 = getelementptr inbounds [4 x i8], ptr %294, i64 %293
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %295, ptr %10, align 8
   store ptr %297, ptr %.sroa.063.sroa.2.0..sroa_idx, align 8
@@ -8959,7 +8959,7 @@ default.unreachable455:                           ; preds = %105
   %304 = icmp ult i64 %302, %303
   call void @llvm.assume(i1 %304)
   %305 = load ptr, ptr %101, align 8, !alias.scope !1069, !noalias !1072, !nonnull !13, !noundef !13
-  %306 = getelementptr inbounds { i8, [3 x i8] }, ptr %305, i64 %302
+  %306 = getelementptr inbounds [4 x i8], ptr %305, i64 %302
   %.sroa.01.0.copyload.i.i231 = load i32, ptr %306, align 1, !noalias !1076
   %.sroa.032.0.extract.trunc.i232 = trunc i32 %.sroa.01.0.copyload.i.i231 to i8
   %307 = add i8 %.sroa.032.0.extract.trunc.i232, -9
@@ -8983,7 +8983,7 @@ default.unreachable455:                           ; preds = %105
 
 314:                                              ; preds = %.critedge.i240
   %315 = load ptr, ptr %64, align 8, !noalias !1072, !nonnull !13, !noundef !13
-  %316 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %315, i64 %313
+  %316 = getelementptr [32 x i8], ptr %315, i64 %313
   %317 = getelementptr i8, ptr %316, i64 -32
   %.not41.i242 = icmp eq ptr %317, null
   br i1 %.not41.i242, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit244", label %318
@@ -9050,7 +9050,7 @@ default.unreachable455:                           ; preds = %105
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h8fcb9e4b5dc38d24E.llvm.8213084322371663677.exit": ; preds = %327, %.noexc
   %332 = phi i64 [ %.pre.i, %.noexc ], [ %328, %327 ]
   %333 = load ptr, ptr %101, align 8, !alias.scope !1082, !nonnull !13, !noundef !13
-  %334 = getelementptr inbounds { i8, [3 x i8] }, ptr %333, i64 %332
+  %334 = getelementptr inbounds [4 x i8], ptr %333, i64 %332
   store i32 %.sroa.068.0.insert.insert, ptr %334, align 1
   %335 = load i64, ptr %17, align 8, !alias.scope !1082, !noundef !13
   %336 = add i64 %335, 1
@@ -9084,7 +9084,7 @@ default.unreachable455:                           ; preds = %105
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h8fcb9e4b5dc38d24E.llvm.8213084322371663677.exit247": ; preds = %342, %346
   %347 = phi i64 [ %.pre.i246, %346 ], [ %343, %342 ]
   %348 = load ptr, ptr %104, align 8, !alias.scope !1086, !nonnull !13, !noundef !13
-  %349 = getelementptr inbounds { i8, [3 x i8] }, ptr %348, i64 %347
+  %349 = getelementptr inbounds [4 x i8], ptr %348, i64 %347
   store i32 %.sroa.0128.0.copyload459, ptr %349, align 1
   %350 = load i64, ptr %99, align 8, !alias.scope !1086, !noundef !13
   %351 = add i64 %350, 1
@@ -9305,7 +9305,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %31)
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %33 = load ptr, ptr %32, align 8, !alias.scope !1101, !noalias !1104, !nonnull !13, !noundef !13
-  %34 = getelementptr inbounds { i8, [3 x i8] }, ptr %33, i64 %29
+  %34 = getelementptr inbounds [4 x i8], ptr %33, i64 %29
   %.sroa.01.0.copyload.i.i = load i32, ptr %34, align 1, !noalias !1108
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %35 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -9334,7 +9334,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 45:                                               ; preds = %.critedge.i
   %46 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %47 = load ptr, ptr %46, align 8, !noalias !1104, !nonnull !13, !noundef !13
-  %48 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %47, i64 %44
+  %48 = getelementptr [32 x i8], ptr %47, i64 %44
   %49 = getelementptr i8, ptr %48, i64 -32
   %.not41.i = icmp eq ptr %49, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %50
@@ -9374,7 +9374,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %59 = phi i64 [ %.pre.i.i, %58 ], [ %55, %53 ]
   %60 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %61 = load ptr, ptr %60, align 8, !alias.scope !1109, !noalias !1112, !nonnull !13, !noundef !13
-  %62 = getelementptr inbounds { i8, [3 x i8] }, ptr %61, i64 %59
+  %62 = getelementptr inbounds [4 x i8], ptr %61, i64 %59
   store i32 2, ptr %62, align 1, !noalias !1112
   %63 = load i64, ptr %25, align 8, !alias.scope !1109, !noalias !1112, !noundef !13
   %64 = add i64 %63, 1
@@ -9449,7 +9449,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %31)
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %33 = load ptr, ptr %32, align 8, !alias.scope !1118, !noalias !1121, !nonnull !13, !noundef !13
-  %34 = getelementptr inbounds { i8, [3 x i8] }, ptr %33, i64 %29
+  %34 = getelementptr inbounds [4 x i8], ptr %33, i64 %29
   %.sroa.01.0.copyload.i.i = load i32, ptr %34, align 1, !noalias !1125
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %35 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -9478,7 +9478,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 45:                                               ; preds = %.critedge.i
   %46 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %47 = load ptr, ptr %46, align 8, !noalias !1121, !nonnull !13, !noundef !13
-  %48 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %47, i64 %44
+  %48 = getelementptr [32 x i8], ptr %47, i64 %44
   %49 = getelementptr i8, ptr %48, i64 -32
   %.not41.i = icmp eq ptr %49, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %50
@@ -9518,7 +9518,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %59 = phi i64 [ %.pre.i.i, %58 ], [ %55, %53 ]
   %60 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %61 = load ptr, ptr %60, align 8, !alias.scope !1126, !noalias !1129, !nonnull !13, !noundef !13
-  %62 = getelementptr inbounds { i8, [3 x i8] }, ptr %61, i64 %59
+  %62 = getelementptr inbounds [4 x i8], ptr %61, i64 %59
   store i32 3, ptr %62, align 1, !noalias !1129
   %63 = load i64, ptr %25, align 8, !alias.scope !1126, !noalias !1129, !noundef !13
   %64 = add i64 %63, 1
@@ -9568,7 +9568,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %19)
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 152
   %21 = load ptr, ptr %20, align 8, !alias.scope !1137, !noalias !1140, !nonnull !13, !noundef !13
-  %22 = getelementptr inbounds { i8, [3 x i8] }, ptr %21, i64 %17
+  %22 = getelementptr inbounds [4 x i8], ptr %21, i64 %17
   %.sroa.01.0.copyload.i.i = load i32, ptr %22, align 1, !noalias !1141
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %23 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -9597,7 +9597,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 33:                                               ; preds = %.critedge.i
   %34 = getelementptr inbounds nuw i8, ptr %12, i64 128
   %35 = load ptr, ptr %34, align 8, !noalias !1140, !nonnull !13, !noundef !13
-  %36 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %35, i64 %32
+  %36 = getelementptr [32 x i8], ptr %35, i64 %32
   %37 = getelementptr i8, ptr %36, i64 -32
   %.not41.i = icmp eq ptr %37, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %38
@@ -9637,7 +9637,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %47 = phi i64 [ %.pre.i.i, %46 ], [ %43, %41 ]
   %48 = getelementptr inbounds nuw i8, ptr %12, i64 152
   %49 = load ptr, ptr %48, align 8, !alias.scope !1142, !noalias !1145, !nonnull !13, !noundef !13
-  %50 = getelementptr inbounds { i8, [3 x i8] }, ptr %49, i64 %47
+  %50 = getelementptr inbounds [4 x i8], ptr %49, i64 %47
   store i32 0, ptr %50, align 1, !noalias !1145
   %51 = load i64, ptr %13, align 8, !alias.scope !1142, !noalias !1145, !noundef !13
   %52 = add i64 %51, 1
@@ -9687,7 +9687,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %19)
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 152
   %21 = load ptr, ptr %20, align 8, !alias.scope !1153, !noalias !1156, !nonnull !13, !noundef !13
-  %22 = getelementptr inbounds { i8, [3 x i8] }, ptr %21, i64 %17
+  %22 = getelementptr inbounds [4 x i8], ptr %21, i64 %17
   %.sroa.01.0.copyload.i.i = load i32, ptr %22, align 1, !noalias !1157
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %23 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -9716,7 +9716,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 33:                                               ; preds = %.critedge.i
   %34 = getelementptr inbounds nuw i8, ptr %12, i64 128
   %35 = load ptr, ptr %34, align 8, !noalias !1156, !nonnull !13, !noundef !13
-  %36 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %35, i64 %32
+  %36 = getelementptr [32 x i8], ptr %35, i64 %32
   %37 = getelementptr i8, ptr %36, i64 -32
   %.not41.i = icmp eq ptr %37, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %38
@@ -9756,7 +9756,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %47 = phi i64 [ %.pre.i.i, %46 ], [ %43, %41 ]
   %48 = getelementptr inbounds nuw i8, ptr %12, i64 152
   %49 = load ptr, ptr %48, align 8, !alias.scope !1158, !noalias !1161, !nonnull !13, !noundef !13
-  %50 = getelementptr inbounds { i8, [3 x i8] }, ptr %49, i64 %47
+  %50 = getelementptr inbounds [4 x i8], ptr %49, i64 %47
   store i32 1, ptr %50, align 1, !noalias !1161
   %51 = load i64, ptr %13, align 8, !alias.scope !1158, !noalias !1161, !noundef !13
   %52 = add i64 %51, 1
@@ -9787,7 +9787,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %.val, i64 144
   %15 = load ptr, ptr %14, align 8, !nonnull !13, !noundef !13
-  %16 = getelementptr inbounds nuw i32, ptr %15, i64 %11
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %11
   %17 = load i32, ptr %16, align 4, !noundef !13
   %18 = getelementptr inbounds nuw i8, ptr %.val, i64 32
   %19 = load i64, ptr %18, align 8, !noundef !13
@@ -9798,7 +9798,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 "_ZN110_$LT$wasmparser..validator..core..ValidatorResources$u20$as$u20$wasmparser..resources..WasmModuleResources$GT$19type_id_of_function17h18335f668f023c7bE.exit": ; preds = %13
   %22 = getelementptr inbounds nuw i8, ptr %.val, i64 24
   %23 = load ptr, ptr %22, align 8, !nonnull !13, !noundef !13
-  %24 = getelementptr inbounds nuw { i32 }, ptr %23, i64 %20
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %20
   %.sroa.017.0.copyload.i = load i32, ptr %24, align 4
   %25 = tail call noundef zeroext i1 @"_ZN110_$LT$wasmparser..validator..core..ValidatorResources$u20$as$u20$wasmparser..resources..WasmModuleResources$GT$22is_function_referenced17hfadeb289627576b5E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %8, i32 noundef %1)
   br i1 %25, label %43, label %35
@@ -9875,7 +9875,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %55 = phi i64 [ %.pre.i.i, %54 ], [ %51, %47 ]
   %56 = getelementptr inbounds nuw i8, ptr %48, i64 152
   %57 = load ptr, ptr %56, align 8, !alias.scope !1173, !noalias !1170, !nonnull !13, !noundef !13
-  %58 = getelementptr inbounds { i8, [3 x i8] }, ptr %57, i64 %55
+  %58 = getelementptr inbounds [4 x i8], ptr %57, i64 %55
   store i32 %.sroa.04.0.insert.insert, ptr %58, align 1, !noalias !1170
   %59 = load i64, ptr %50, align 8, !alias.scope !1173, !noalias !1170, !noundef !13
   %60 = add i64 %59, 1
@@ -9958,7 +9958,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %33 = phi i64 [ %.pre.i.i, %32 ], [ %29, %25 ]
   %34 = getelementptr inbounds nuw i8, ptr %26, i64 152
   %35 = load ptr, ptr %34, align 8, !alias.scope !1179, !noalias !1176, !nonnull !13, !noundef !13
-  %36 = getelementptr inbounds { i8, [3 x i8] }, ptr %35, i64 %33
+  %36 = getelementptr inbounds [4 x i8], ptr %35, i64 %33
   store i32 %.sroa.014.0.insert.insert, ptr %36, align 1, !noalias !1176
   %37 = load i64, ptr %28, align 8, !alias.scope !1179, !noalias !1176, !noundef !13
   %38 = add i64 %37, 1
@@ -10067,7 +10067,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %45)
   %46 = getelementptr inbounds nuw i8, ptr %38, i64 152
   %47 = load ptr, ptr %46, align 8, !alias.scope !1193, !noalias !1196, !nonnull !13, !noundef !13
-  %48 = getelementptr inbounds { i8, [3 x i8] }, ptr %47, i64 %43
+  %48 = getelementptr inbounds [4 x i8], ptr %47, i64 %43
   %.sroa.01.0.copyload.i.i = load i32, ptr %48, align 1, !noalias !1197
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %49 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -10086,7 +10086,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 55:                                               ; preds = %52
   %56 = getelementptr inbounds nuw i8, ptr %38, i64 128
   %57 = load ptr, ptr %56, align 8, !noalias !1196, !nonnull !13, !noundef !13
-  %58 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %57, i64 %54
+  %58 = getelementptr [32 x i8], ptr %57, i64 %54
   %59 = getelementptr i8, ptr %58, i64 -32
   %.not41.i = icmp eq ptr %59, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %60
@@ -10151,7 +10151,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %79 = phi i64 [ %.pre.i.i, %78 ], [ %75, %73 ]
   %80 = getelementptr inbounds nuw i8, ptr %38, i64 152
   %81 = load ptr, ptr %80, align 8, !alias.scope !1198, !noalias !1201, !nonnull !13, !noundef !13
-  %82 = getelementptr inbounds { i8, [3 x i8] }, ptr %81, i64 %79
+  %82 = getelementptr inbounds [4 x i8], ptr %81, i64 %79
   store i32 %.sroa.05.0.copyload, ptr %82, align 1, !noalias !1201
   %83 = load i64, ptr %39, align 8, !alias.scope !1198, !noalias !1201, !noundef !13
   %84 = add i64 %83, 1
@@ -10184,7 +10184,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %10)
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %12 = load ptr, ptr %11, align 8, !alias.scope !1209, !noalias !1212, !nonnull !13, !noundef !13
-  %13 = getelementptr inbounds { i8, [3 x i8] }, ptr %12, i64 %8
+  %13 = getelementptr inbounds [4 x i8], ptr %12, i64 %8
   %.sroa.01.0.copyload.i.i = load i32, ptr %13, align 1, !noalias !1213
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %14 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -10206,7 +10206,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 20:                                               ; preds = %.critedge.i
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %22 = load ptr, ptr %21, align 8, !noalias !1212, !nonnull !13, !noundef !13
-  %23 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %22, i64 %19
+  %23 = getelementptr [32 x i8], ptr %22, i64 %19
   %24 = getelementptr i8, ptr %23, i64 -32
   %.not41.i = icmp eq ptr %24, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %25
@@ -10246,7 +10246,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %34 = phi i64 [ %.pre.i.i, %33 ], [ %30, %28 ]
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %36 = load ptr, ptr %35, align 8, !alias.scope !1214, !noalias !1217, !nonnull !13, !noundef !13
-  %37 = getelementptr inbounds { i8, [3 x i8] }, ptr %36, i64 %34
+  %37 = getelementptr inbounds [4 x i8], ptr %36, i64 %34
   store i32 0, ptr %37, align 1, !noalias !1217
   %38 = load i64, ptr %4, align 8, !alias.scope !1214, !noalias !1217, !noundef !13
   %39 = add i64 %38, 1
@@ -10351,7 +10351,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %41)
   %42 = getelementptr inbounds nuw i8, ptr %34, i64 152
   %43 = load ptr, ptr %42, align 8, !alias.scope !1231, !noalias !1234, !nonnull !13, !noundef !13
-  %44 = getelementptr inbounds { i8, [3 x i8] }, ptr %43, i64 %39
+  %44 = getelementptr inbounds [4 x i8], ptr %43, i64 %39
   %.sroa.01.0.copyload.i.i = load i32, ptr %44, align 1, !noalias !1235
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %45 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -10370,7 +10370,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 51:                                               ; preds = %48
   %52 = getelementptr inbounds nuw i8, ptr %34, i64 128
   %53 = load ptr, ptr %52, align 8, !noalias !1234, !nonnull !13, !noundef !13
-  %54 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %53, i64 %50
+  %54 = getelementptr [32 x i8], ptr %53, i64 %50
   %55 = getelementptr i8, ptr %54, i64 -32
   %.not41.i = icmp eq ptr %55, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %56
@@ -10418,7 +10418,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %69)
   %70 = getelementptr inbounds nuw i8, ptr %34, i64 152
   %71 = load ptr, ptr %70, align 8, !alias.scope !1237, !noalias !1240, !nonnull !13, !noundef !13
-  %72 = getelementptr inbounds { i8, [3 x i8] }, ptr %71, i64 %67
+  %72 = getelementptr inbounds [4 x i8], ptr %71, i64 %67
   %.sroa.01.0.copyload.i.i45 = load i32, ptr %72, align 1, !noalias !1244
   %.sroa.032.0.extract.trunc.i46 = trunc i32 %.sroa.01.0.copyload.i.i45 to i8
   %73 = add i8 %.sroa.032.0.extract.trunc.i46, -9
@@ -10447,7 +10447,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 83:                                               ; preds = %.critedge.i
   %84 = getelementptr inbounds nuw i8, ptr %34, i64 128
   %85 = load ptr, ptr %84, align 8, !noalias !1240, !nonnull !13, !noundef !13
-  %86 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %85, i64 %82
+  %86 = getelementptr [32 x i8], ptr %85, i64 %82
   %87 = getelementptr i8, ptr %86, i64 -32
   %.not41.i52 = icmp eq ptr %87, null
   br i1 %.not41.i52, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit54", label %88
@@ -10626,7 +10626,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %63)
   %64 = getelementptr inbounds nuw i8, ptr %56, i64 152
   %65 = load ptr, ptr %64, align 8, !alias.scope !1256, !noalias !1259, !nonnull !13, !noundef !13
-  %66 = getelementptr inbounds { i8, [3 x i8] }, ptr %65, i64 %61
+  %66 = getelementptr inbounds [4 x i8], ptr %65, i64 %61
   %.sroa.01.0.copyload.i.i = load i32, ptr %66, align 1, !noalias !1260
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %67 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -10655,7 +10655,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 77:                                               ; preds = %.critedge.i
   %78 = getelementptr inbounds nuw i8, ptr %56, i64 128
   %79 = load ptr, ptr %78, align 8, !noalias !1259, !nonnull !13, !noundef !13
-  %80 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %79, i64 %76
+  %80 = getelementptr [32 x i8], ptr %79, i64 %76
   %81 = getelementptr i8, ptr %80, i64 -32
   %.not41.i = icmp eq ptr %81, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %82
@@ -10695,7 +10695,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %91)
   %92 = getelementptr inbounds nuw i8, ptr %56, i64 152
   %93 = load ptr, ptr %92, align 8, !alias.scope !1261, !noalias !1264, !nonnull !13, !noundef !13
-  %94 = getelementptr inbounds { i8, [3 x i8] }, ptr %93, i64 %89
+  %94 = getelementptr inbounds [4 x i8], ptr %93, i64 %89
   %.sroa.01.0.copyload.i.i51 = load i32, ptr %94, align 1, !noalias !1268
   %.sroa.032.0.extract.trunc.i52 = trunc i32 %.sroa.01.0.copyload.i.i51 to i8
   %95 = add i8 %.sroa.032.0.extract.trunc.i52, -9
@@ -10714,7 +10714,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 101:                                              ; preds = %98
   %102 = getelementptr inbounds nuw i8, ptr %56, i64 128
   %103 = load ptr, ptr %102, align 8, !noalias !1264, !nonnull !13, !noundef !13
-  %104 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %103, i64 %100
+  %104 = getelementptr [32 x i8], ptr %103, i64 %100
   %105 = getelementptr i8, ptr %104, i64 -32
   %.not41.i61 = icmp eq ptr %105, null
   br i1 %.not41.i61, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit63", label %106
@@ -10903,7 +10903,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %22 = phi i64 [ %.pre.i.i, %21 ], [ %18, %15 ]
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %24 = load ptr, ptr %23, align 8, !alias.scope !1288, !noalias !1291, !nonnull !13, !noundef !13
-  %25 = getelementptr inbounds { i8, [3 x i8] }, ptr %24, i64 %22
+  %25 = getelementptr inbounds [4 x i8], ptr %24, i64 %22
   store i32 2, ptr %25, align 1, !noalias !1291
   %26 = load i64, ptr %17, align 8, !alias.scope !1288, !noalias !1291, !noundef !13
   %27 = add i64 %26, 1
@@ -10979,7 +10979,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %32)
   %33 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %34 = load ptr, ptr %33, align 8, !alias.scope !1297, !noalias !1300, !nonnull !13, !noundef !13
-  %35 = getelementptr inbounds { i8, [3 x i8] }, ptr %34, i64 %30
+  %35 = getelementptr inbounds [4 x i8], ptr %34, i64 %30
   %.sroa.01.0.copyload.i.i = load i32, ptr %35, align 1, !noalias !1304
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %36 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -10998,7 +10998,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 42:                                               ; preds = %39
   %43 = getelementptr inbounds nuw i8, ptr %7, i64 128
   %44 = load ptr, ptr %43, align 8, !noalias !1300, !nonnull !13, !noundef !13
-  %45 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %44, i64 %41
+  %45 = getelementptr [32 x i8], ptr %44, i64 %41
   %46 = getelementptr i8, ptr %45, i64 -32
   %.not41.i = icmp eq ptr %46, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %47
@@ -11038,7 +11038,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %56)
   %57 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %58 = load ptr, ptr %57, align 8, !alias.scope !1305, !noalias !1308, !nonnull !13, !noundef !13
-  %59 = getelementptr inbounds { i8, [3 x i8] }, ptr %58, i64 %54
+  %59 = getelementptr inbounds [4 x i8], ptr %58, i64 %54
   %.sroa.01.0.copyload.i.i46 = load i32, ptr %59, align 1, !noalias !1312
   %.sroa.032.0.extract.trunc.i47 = trunc i32 %.sroa.01.0.copyload.i.i46 to i8
   %60 = add i8 %.sroa.032.0.extract.trunc.i47, -9
@@ -11077,7 +11077,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 72:                                               ; preds = %.critedge.i
   %73 = getelementptr inbounds nuw i8, ptr %7, i64 128
   %74 = load ptr, ptr %73, align 8, !noalias !1308, !nonnull !13, !noundef !13
-  %75 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %74, i64 %71
+  %75 = getelementptr [32 x i8], ptr %74, i64 %71
   %76 = getelementptr i8, ptr %75, i64 -32
   %.not41.i54 = icmp eq ptr %76, null
   br i1 %.not41.i54, label %.critedge45.i50, label %77
@@ -11142,7 +11142,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %22 = phi i64 [ %.pre.i.i, %21 ], [ %18, %15 ]
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %24 = load ptr, ptr %23, align 8, !alias.scope !1316, !noalias !1319, !nonnull !13, !noundef !13
-  %25 = getelementptr inbounds { i8, [3 x i8] }, ptr %24, i64 %22
+  %25 = getelementptr inbounds [4 x i8], ptr %24, i64 %22
   store i32 3, ptr %25, align 1, !noalias !1319
   %26 = load i64, ptr %17, align 8, !alias.scope !1316, !noalias !1319, !noundef !13
   %27 = add i64 %26, 1
@@ -11218,7 +11218,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %32)
   %33 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %34 = load ptr, ptr %33, align 8, !alias.scope !1325, !noalias !1328, !nonnull !13, !noundef !13
-  %35 = getelementptr inbounds { i8, [3 x i8] }, ptr %34, i64 %30
+  %35 = getelementptr inbounds [4 x i8], ptr %34, i64 %30
   %.sroa.01.0.copyload.i.i = load i32, ptr %35, align 1, !noalias !1332
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %36 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -11237,7 +11237,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 42:                                               ; preds = %39
   %43 = getelementptr inbounds nuw i8, ptr %7, i64 128
   %44 = load ptr, ptr %43, align 8, !noalias !1328, !nonnull !13, !noundef !13
-  %45 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %44, i64 %41
+  %45 = getelementptr [32 x i8], ptr %44, i64 %41
   %46 = getelementptr i8, ptr %45, i64 -32
   %.not41.i = icmp eq ptr %46, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %47
@@ -11277,7 +11277,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %56)
   %57 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %58 = load ptr, ptr %57, align 8, !alias.scope !1333, !noalias !1336, !nonnull !13, !noundef !13
-  %59 = getelementptr inbounds { i8, [3 x i8] }, ptr %58, i64 %54
+  %59 = getelementptr inbounds [4 x i8], ptr %58, i64 %54
   %.sroa.01.0.copyload.i.i46 = load i32, ptr %59, align 1, !noalias !1340
   %.sroa.032.0.extract.trunc.i47 = trunc i32 %.sroa.01.0.copyload.i.i46 to i8
   %60 = add i8 %.sroa.032.0.extract.trunc.i47, -9
@@ -11316,7 +11316,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 72:                                               ; preds = %.critedge.i
   %73 = getelementptr inbounds nuw i8, ptr %7, i64 128
   %74 = load ptr, ptr %73, align 8, !noalias !1336, !nonnull !13, !noundef !13
-  %75 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %74, i64 %71
+  %75 = getelementptr [32 x i8], ptr %74, i64 %71
   %76 = getelementptr i8, ptr %75, i64 -32
   %.not41.i54 = icmp eq ptr %76, null
   br i1 %.not41.i54, label %.critedge45.i50, label %77
@@ -11357,7 +11357,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %10)
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %12 = load ptr, ptr %11, align 8, !alias.scope !1346, !noalias !1349, !nonnull !13, !noundef !13
-  %13 = getelementptr inbounds { i8, [3 x i8] }, ptr %12, i64 %8
+  %13 = getelementptr inbounds [4 x i8], ptr %12, i64 %8
   %.sroa.01.0.copyload.i.i = load i32, ptr %13, align 1, !noalias !1350
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %14 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -11379,7 +11379,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 20:                                               ; preds = %.critedge.i
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %22 = load ptr, ptr %21, align 8, !noalias !1349, !nonnull !13, !noundef !13
-  %23 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %22, i64 %19
+  %23 = getelementptr [32 x i8], ptr %22, i64 %19
   %24 = getelementptr i8, ptr %23, i64 -32
   %.not41.i = icmp eq ptr %24, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %25
@@ -11419,7 +11419,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %34 = phi i64 [ %.pre.i.i, %33 ], [ %30, %28 ]
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %36 = load ptr, ptr %35, align 8, !alias.scope !1351, !noalias !1354, !nonnull !13, !noundef !13
-  %37 = getelementptr inbounds { i8, [3 x i8] }, ptr %36, i64 %34
+  %37 = getelementptr inbounds [4 x i8], ptr %36, i64 %34
   store i32 0, ptr %37, align 1, !noalias !1354
   %38 = load i64, ptr %4, align 8, !alias.scope !1351, !noalias !1354, !noundef !13
   %39 = add i64 %38, 1
@@ -11452,7 +11452,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %10)
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %12 = load ptr, ptr %11, align 8, !alias.scope !1362, !noalias !1365, !nonnull !13, !noundef !13
-  %13 = getelementptr inbounds { i8, [3 x i8] }, ptr %12, i64 %8
+  %13 = getelementptr inbounds [4 x i8], ptr %12, i64 %8
   %.sroa.01.0.copyload.i.i = load i32, ptr %13, align 1, !noalias !1366
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %14 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -11474,7 +11474,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 20:                                               ; preds = %.critedge.i
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %22 = load ptr, ptr %21, align 8, !noalias !1365, !nonnull !13, !noundef !13
-  %23 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %22, i64 %19
+  %23 = getelementptr [32 x i8], ptr %22, i64 %19
   %24 = getelementptr i8, ptr %23, i64 -32
   %.not41.i = icmp eq ptr %24, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %25
@@ -11514,7 +11514,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %34 = phi i64 [ %.pre.i.i, %33 ], [ %30, %28 ]
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %36 = load ptr, ptr %35, align 8, !alias.scope !1367, !noalias !1370, !nonnull !13, !noundef !13
-  %37 = getelementptr inbounds { i8, [3 x i8] }, ptr %36, i64 %34
+  %37 = getelementptr inbounds [4 x i8], ptr %36, i64 %34
   store i32 0, ptr %37, align 1, !noalias !1370
   %38 = load i64, ptr %4, align 8, !alias.scope !1367, !noalias !1370, !noundef !13
   %39 = add i64 %38, 1
@@ -11546,7 +11546,7 @@ define hidden noalias noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..op
   %10 = phi i64 [ %.pre.i.i, %9 ], [ %6, %2 ]
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %12 = load ptr, ptr %11, align 8, !alias.scope !1376, !noalias !1373, !nonnull !13, !noundef !13
-  %13 = getelementptr inbounds { i8, [3 x i8] }, ptr %12, i64 %10
+  %13 = getelementptr inbounds [4 x i8], ptr %12, i64 %10
   store i32 0, ptr %13, align 1, !noalias !1373
   %14 = load i64, ptr %5, align 8, !alias.scope !1376, !noalias !1373, !noundef !13
   %15 = add i64 %14, 1
@@ -11593,7 +11593,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %20)
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 152
   %22 = load ptr, ptr %21, align 8, !alias.scope !1384, !noalias !1387, !nonnull !13, !noundef !13
-  %23 = getelementptr inbounds { i8, [3 x i8] }, ptr %22, i64 %18
+  %23 = getelementptr inbounds [4 x i8], ptr %22, i64 %18
   %.sroa.01.0.copyload.i.i = load i32, ptr %23, align 1, !noalias !1388
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %24 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -11612,7 +11612,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 30:                                               ; preds = %27
   %31 = getelementptr inbounds nuw i8, ptr %13, i64 128
   %32 = load ptr, ptr %31, align 8, !noalias !1387, !nonnull !13, !noundef !13
-  %33 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %32, i64 %29
+  %33 = getelementptr [32 x i8], ptr %32, i64 %29
   %34 = getelementptr i8, ptr %33, i64 -32
   %.not41.i = icmp eq ptr %34, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %35
@@ -11652,7 +11652,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %44)
   %45 = getelementptr inbounds nuw i8, ptr %13, i64 152
   %46 = load ptr, ptr %45, align 8, !alias.scope !1389, !noalias !1392, !nonnull !13, !noundef !13
-  %47 = getelementptr inbounds { i8, [3 x i8] }, ptr %46, i64 %42
+  %47 = getelementptr inbounds [4 x i8], ptr %46, i64 %42
   %.sroa.01.0.copyload.i.i39 = load i32, ptr %47, align 1, !noalias !1396
   %.sroa.032.0.extract.trunc.i40 = trunc i32 %.sroa.01.0.copyload.i.i39 to i8
   %48 = add i8 %.sroa.032.0.extract.trunc.i40, -9
@@ -11691,7 +11691,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 60:                                               ; preds = %.critedge.i
   %61 = getelementptr inbounds nuw i8, ptr %13, i64 128
   %62 = load ptr, ptr %61, align 8, !noalias !1392, !nonnull !13, !noundef !13
-  %63 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %62, i64 %59
+  %63 = getelementptr [32 x i8], ptr %62, i64 %59
   %64 = getelementptr i8, ptr %63, i64 -32
   %.not41.i46 = icmp eq ptr %64, null
   br i1 %.not41.i46, label %.critedge45.i43, label %65
@@ -11731,7 +11731,7 @@ define hidden noalias noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..op
   %10 = phi i64 [ %.pre.i.i, %9 ], [ %6, %2 ]
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %12 = load ptr, ptr %11, align 8, !alias.scope !1400, !noalias !1397, !nonnull !13, !noundef !13
-  %13 = getelementptr inbounds { i8, [3 x i8] }, ptr %12, i64 %10
+  %13 = getelementptr inbounds [4 x i8], ptr %12, i64 %10
   store i32 1, ptr %13, align 1, !noalias !1397
   %14 = load i64, ptr %5, align 8, !alias.scope !1400, !noalias !1397, !noundef !13
   %15 = add i64 %14, 1
@@ -11778,7 +11778,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %20)
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 152
   %22 = load ptr, ptr %21, align 8, !alias.scope !1408, !noalias !1411, !nonnull !13, !noundef !13
-  %23 = getelementptr inbounds { i8, [3 x i8] }, ptr %22, i64 %18
+  %23 = getelementptr inbounds [4 x i8], ptr %22, i64 %18
   %.sroa.01.0.copyload.i.i = load i32, ptr %23, align 1, !noalias !1412
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %24 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -11797,7 +11797,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 30:                                               ; preds = %27
   %31 = getelementptr inbounds nuw i8, ptr %13, i64 128
   %32 = load ptr, ptr %31, align 8, !noalias !1411, !nonnull !13, !noundef !13
-  %33 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %32, i64 %29
+  %33 = getelementptr [32 x i8], ptr %32, i64 %29
   %34 = getelementptr i8, ptr %33, i64 -32
   %.not41.i = icmp eq ptr %34, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %35
@@ -11837,7 +11837,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %44)
   %45 = getelementptr inbounds nuw i8, ptr %13, i64 152
   %46 = load ptr, ptr %45, align 8, !alias.scope !1413, !noalias !1416, !nonnull !13, !noundef !13
-  %47 = getelementptr inbounds { i8, [3 x i8] }, ptr %46, i64 %42
+  %47 = getelementptr inbounds [4 x i8], ptr %46, i64 %42
   %.sroa.01.0.copyload.i.i39 = load i32, ptr %47, align 1, !noalias !1420
   %.sroa.032.0.extract.trunc.i40 = trunc i32 %.sroa.01.0.copyload.i.i39 to i8
   %48 = add i8 %.sroa.032.0.extract.trunc.i40, -9
@@ -11876,7 +11876,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 60:                                               ; preds = %.critedge.i
   %61 = getelementptr inbounds nuw i8, ptr %13, i64 128
   %62 = load ptr, ptr %61, align 8, !noalias !1416, !nonnull !13, !noundef !13
-  %63 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %62, i64 %59
+  %63 = getelementptr [32 x i8], ptr %62, i64 %59
   %64 = getelementptr i8, ptr %63, i64 -32
   %.not41.i47 = icmp eq ptr %64, null
   br i1 %.not41.i47, label %.critedge45.i43, label %65
@@ -11925,7 +11925,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 16:                                               ; preds = %2
   %17 = getelementptr inbounds nuw i8, ptr %.val, i64 24
   %18 = load ptr, ptr %17, align 8, !alias.scope !1424, !noalias !1421, !nonnull !13
-  %19 = getelementptr inbounds nuw { i8, [3 x i8] }, ptr %18, i64 %12
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %12
   %.sroa.03.0.copyload.i.i = load i32, ptr %19, align 1, !noalias !1427
   br label %_ZN10wasmparser9validator9operators6Locals3get17hb503a9c89e1a3beeE.exit.i
 
@@ -12012,7 +12012,7 @@ _ZN10wasmparser9validator9operators6Locals3get17hb503a9c89e1a3beeE.exit.i: ; pre
   %54 = phi i64 [ %.pre.i.i, %53 ], [ %50, %47 ]
   %55 = getelementptr inbounds nuw i8, ptr %.val, i64 152
   %56 = load ptr, ptr %55, align 8, !alias.scope !1440, !noalias !1443, !nonnull !13, !noundef !13
-  %57 = getelementptr inbounds { i8, [3 x i8] }, ptr %56, i64 %54
+  %57 = getelementptr inbounds [4 x i8], ptr %56, i64 %54
   store i32 %.sroa.0.0.i.i, ptr %57, align 1, !noalias !1443
   %58 = load i64, ptr %49, align 8, !alias.scope !1440, !noalias !1443, !noundef !13
   %59 = add i64 %58, 1
@@ -12050,7 +12050,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 14:                                               ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %.val, i64 24
   %16 = load ptr, ptr %15, align 8, !alias.scope !1449, !noalias !1446, !nonnull !13
-  %17 = getelementptr inbounds nuw { i8, [3 x i8] }, ptr %16, i64 %10
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %10
   %.sroa.03.0.copyload.i.i = load i32, ptr %17, align 1, !noalias !1452
   br label %_ZN10wasmparser9validator9operators6Locals3get17hb503a9c89e1a3beeE.exit.i
 
@@ -12078,7 +12078,7 @@ _ZN10wasmparser9validator9operators6Locals3get17hb503a9c89e1a3beeE.exit.i: ; pre
   tail call void @llvm.assume(i1 %27)
   %28 = getelementptr inbounds nuw i8, ptr %.val, i64 152
   %29 = load ptr, ptr %28, align 8, !alias.scope !1453, !noalias !1456, !nonnull !13, !noundef !13
-  %30 = getelementptr inbounds { i8, [3 x i8] }, ptr %29, i64 %25
+  %30 = getelementptr inbounds [4 x i8], ptr %29, i64 %25
   %.sroa.01.0.copyload.i.i = load i32, ptr %30, align 1, !noalias !1460
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %31 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -12104,7 +12104,7 @@ _ZN10wasmparser9validator9operators6Locals3get17hb503a9c89e1a3beeE.exit.i: ; pre
 39:                                               ; preds = %.critedge.i
   %40 = getelementptr inbounds nuw i8, ptr %.val, i64 128
   %41 = load ptr, ptr %40, align 8, !noalias !1456, !nonnull !13, !noundef !13
-  %42 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %41, i64 %38
+  %42 = getelementptr [32 x i8], ptr %41, i64 %38
   %43 = getelementptr i8, ptr %42, i64 -32
   %.not41.i = icmp eq ptr %43, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %44
@@ -12185,7 +12185,7 @@ _ZN10wasmparser9validator9operators6Locals3get17hb503a9c89e1a3beeE.exit.i: ; pre
   %72 = phi i64 [ %.pre.i, %71 ], [ %68, %65 ]
   %73 = getelementptr inbounds nuw i8, ptr %.val, i64 176
   %74 = load ptr, ptr %73, align 8, !alias.scope !1467, !nonnull !13, !noundef !13
-  %75 = getelementptr inbounds i32, ptr %74, i64 %72
+  %75 = getelementptr inbounds [4 x i8], ptr %74, i64 %72
   store i32 %1, ptr %75, align 4
   %76 = load i64, ptr %67, align 8, !alias.scope !1467, !noundef !13
   %77 = add i64 %76, 1
@@ -12223,7 +12223,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 14:                                               ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %.val39, i64 24
   %16 = load ptr, ptr %15, align 8, !alias.scope !1473, !noalias !1470, !nonnull !13
-  %17 = getelementptr inbounds nuw { i8, [3 x i8] }, ptr %16, i64 %10
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %10
   %.sroa.03.0.copyload.i.i = load i32, ptr %17, align 1, !noalias !1476
   br label %_ZN10wasmparser9validator9operators6Locals3get17hb503a9c89e1a3beeE.exit.i
 
@@ -12251,7 +12251,7 @@ _ZN10wasmparser9validator9operators6Locals3get17hb503a9c89e1a3beeE.exit.i: ; pre
   tail call void @llvm.assume(i1 %27)
   %28 = getelementptr inbounds nuw i8, ptr %.val39, i64 152
   %29 = load ptr, ptr %28, align 8, !alias.scope !1477, !noalias !1480, !nonnull !13, !noundef !13
-  %30 = getelementptr inbounds { i8, [3 x i8] }, ptr %29, i64 %25
+  %30 = getelementptr inbounds [4 x i8], ptr %29, i64 %25
   %.sroa.01.0.copyload.i.i = load i32, ptr %30, align 1, !noalias !1484
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %31 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -12277,7 +12277,7 @@ _ZN10wasmparser9validator9operators6Locals3get17hb503a9c89e1a3beeE.exit.i: ; pre
 39:                                               ; preds = %.critedge.i
   %40 = getelementptr inbounds nuw i8, ptr %.val39, i64 128
   %41 = load ptr, ptr %40, align 8, !noalias !1480, !nonnull !13, !noundef !13
-  %42 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %41, i64 %38
+  %42 = getelementptr [32 x i8], ptr %41, i64 %38
   %43 = getelementptr i8, ptr %42, i64 -32
   %.not41.i = icmp eq ptr %43, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %44
@@ -12361,7 +12361,7 @@ _ZN10wasmparser9validator9operators6Locals3get17hb503a9c89e1a3beeE.exit.i: ; pre
   %72 = phi i64 [ %.pre.i, %71 ], [ %68, %65 ]
   %73 = getelementptr inbounds nuw i8, ptr %.val39, i64 176
   %74 = load ptr, ptr %73, align 8, !alias.scope !1491, !nonnull !13, !noundef !13
-  %75 = getelementptr inbounds i32, ptr %74, i64 %72
+  %75 = getelementptr inbounds [4 x i8], ptr %74, i64 %72
   store i32 %1, ptr %75, align 4
   %76 = load i64, ptr %67, align 8, !alias.scope !1491, !noundef !13
   %77 = add i64 %76, 1
@@ -12384,7 +12384,7 @@ _ZN10wasmparser9validator9operators6Locals3get17hb503a9c89e1a3beeE.exit.i: ; pre
   %84 = phi i64 [ %.pre.i.i, %83 ], [ %80, %78 ]
   %85 = getelementptr inbounds nuw i8, ptr %.val39, i64 152
   %86 = load ptr, ptr %85, align 8, !alias.scope !1494, !nonnull !13, !noundef !13
-  %87 = getelementptr inbounds { i8, [3 x i8] }, ptr %86, i64 %84
+  %87 = getelementptr inbounds [4 x i8], ptr %86, i64 %84
   store i32 %.sroa.020.0.copyload60, ptr %87, align 1
   %88 = load i64, ptr %21, align 8, !alias.scope !1494, !noundef !13
   %89 = add i64 %88, 1
@@ -12449,7 +12449,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %27)
   %28 = getelementptr inbounds nuw i8, ptr %20, i64 152
   %29 = load ptr, ptr %28, align 8, !alias.scope !1502, !noalias !1505, !nonnull !13, !noundef !13
-  %30 = getelementptr inbounds { i8, [3 x i8] }, ptr %29, i64 %25
+  %30 = getelementptr inbounds [4 x i8], ptr %29, i64 %25
   %.sroa.01.0.copyload.i.i = load i32, ptr %30, align 1, !noalias !1506
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %31 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -12468,7 +12468,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 37:                                               ; preds = %34
   %38 = getelementptr inbounds nuw i8, ptr %20, i64 128
   %39 = load ptr, ptr %38, align 8, !noalias !1505, !nonnull !13, !noundef !13
-  %40 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %39, i64 %36
+  %40 = getelementptr [32 x i8], ptr %39, i64 %36
   %41 = getelementptr i8, ptr %40, i64 -32
   %.not41.i = icmp eq ptr %41, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %42
@@ -12515,7 +12515,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %52 = phi i64 [ %.pre.i.i, %51 ], [ %48, %46 ]
   %53 = getelementptr inbounds nuw i8, ptr %20, i64 152
   %54 = load ptr, ptr %53, align 8, !alias.scope !1507, !noalias !1510, !nonnull !13, !noundef !13
-  %55 = getelementptr inbounds { i8, [3 x i8] }, ptr %54, i64 %52
+  %55 = getelementptr inbounds [4 x i8], ptr %54, i64 %52
   store i32 %.sroa.0.0.insert.insert, ptr %55, align 1, !noalias !1510
   %56 = load i64, ptr %21, align 8, !alias.scope !1507, !noalias !1510, !noundef !13
   %57 = add i64 %56, 1
@@ -12580,7 +12580,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %28)
   %29 = getelementptr inbounds nuw i8, ptr %21, i64 152
   %30 = load ptr, ptr %29, align 8, !alias.scope !1518, !noalias !1521, !nonnull !13, !noundef !13
-  %31 = getelementptr inbounds { i8, [3 x i8] }, ptr %30, i64 %26
+  %31 = getelementptr inbounds [4 x i8], ptr %30, i64 %26
   %.sroa.01.0.copyload.i.i = load i32, ptr %31, align 1, !noalias !1522
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %32 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -12602,7 +12602,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 38:                                               ; preds = %.critedge.i
   %39 = getelementptr inbounds nuw i8, ptr %21, i64 128
   %40 = load ptr, ptr %39, align 8, !noalias !1521, !nonnull !13, !noundef !13
-  %41 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %40, i64 %37
+  %41 = getelementptr [32 x i8], ptr %40, i64 %37
   %42 = getelementptr i8, ptr %41, i64 -32
   %.not41.i = icmp eq ptr %42, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %43
@@ -12646,7 +12646,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %53)
   %54 = getelementptr inbounds nuw i8, ptr %21, i64 152
   %55 = load ptr, ptr %54, align 8, !alias.scope !1523, !noalias !1526, !nonnull !13, !noundef !13
-  %56 = getelementptr inbounds { i8, [3 x i8] }, ptr %55, i64 %51
+  %56 = getelementptr inbounds [4 x i8], ptr %55, i64 %51
   %.sroa.01.0.copyload.i.i32 = load i32, ptr %56, align 1, !noalias !1530
   %.sroa.032.0.extract.trunc.i33 = trunc i32 %.sroa.01.0.copyload.i.i32 to i8
   %57 = add i8 %.sroa.032.0.extract.trunc.i33, -9
@@ -12675,7 +12675,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 65:                                               ; preds = %62
   %66 = getelementptr inbounds nuw i8, ptr %21, i64 128
   %67 = load ptr, ptr %66, align 8, !noalias !1526, !nonnull !13, !noundef !13
-  %68 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %67, i64 %64
+  %68 = getelementptr [32 x i8], ptr %67, i64 %64
   %69 = getelementptr i8, ptr %68, i64 -32
   %.not41.i41 = icmp eq ptr %69, null
   br i1 %.not41.i41, label %.critedge45.i36, label %70
@@ -12712,7 +12712,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %10)
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %12 = load ptr, ptr %11, align 8, !alias.scope !1536, !noalias !1539, !nonnull !13, !noundef !13
-  %13 = getelementptr inbounds { i8, [3 x i8] }, ptr %12, i64 %8
+  %13 = getelementptr inbounds [4 x i8], ptr %12, i64 %8
   %.sroa.01.0.copyload.i.i = load i32, ptr %13, align 1, !noalias !1540
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %14 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -12734,7 +12734,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 20:                                               ; preds = %.critedge.i
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %22 = load ptr, ptr %21, align 8, !noalias !1539, !nonnull !13, !noundef !13
-  %23 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %22, i64 %19
+  %23 = getelementptr [32 x i8], ptr %22, i64 %19
   %24 = getelementptr i8, ptr %23, i64 -32
   %.not41.i = icmp eq ptr %24, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %25
@@ -12768,7 +12768,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 31:                                               ; preds = %28
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %33 = load ptr, ptr %32, align 8, !noalias !1541, !nonnull !13, !noundef !13
-  %34 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %33, i64 %30
+  %34 = getelementptr [32 x i8], ptr %33, i64 %30
   %35 = getelementptr i8, ptr %34, i64 -32
   %36 = icmp eq ptr %35, null
   br i1 %36, label %.thread.i, label %40
@@ -12895,7 +12895,7 @@ default.unreachable:                              ; preds = %"_ZN103_$LT$alloc..
   %59 = icmp ult i64 %57, %58
   tail call void @llvm.assume(i1 %59)
   %60 = load ptr, ptr %47, align 8, !alias.scope !1547, !noalias !1550, !nonnull !13, !noundef !13
-  %61 = getelementptr inbounds { i8, [3 x i8] }, ptr %60, i64 %57
+  %61 = getelementptr inbounds [4 x i8], ptr %60, i64 %57
   %.sroa.01.0.copyload.i.i.us = load i32, ptr %61, align 1, !noalias !1554
   %.sroa.032.0.extract.trunc.i.us = trunc i32 %.sroa.01.0.copyload.i.i.us to i8
   %62 = add i8 %.sroa.032.0.extract.trunc.i.us, -9
@@ -12919,7 +12919,7 @@ default.unreachable:                              ; preds = %"_ZN103_$LT$alloc..
 
 69:                                               ; preds = %.critedge.i.us
   %70 = load ptr, ptr %49, align 8, !noalias !1550, !nonnull !13, !noundef !13
-  %71 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %70, i64 %68
+  %71 = getelementptr [32 x i8], ptr %70, i64 %68
   %72 = getelementptr i8, ptr %71, i64 -32
   %.not41.i.us = icmp eq ptr %72, null
   br i1 %.not41.i.us, label %.critedge45.i.us, label %73
@@ -12976,7 +12976,7 @@ default.unreachable:                              ; preds = %"_ZN103_$LT$alloc..
   %86 = icmp ult i64 %84, %85
   tail call void @llvm.assume(i1 %86)
   %87 = load ptr, ptr %47, align 8, !alias.scope !1547, !noalias !1550, !nonnull !13, !noundef !13
-  %88 = getelementptr inbounds { i8, [3 x i8] }, ptr %87, i64 %84
+  %88 = getelementptr inbounds [4 x i8], ptr %87, i64 %84
   %.sroa.01.0.copyload.i.i = load i32, ptr %88, align 1, !noalias !1554
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %89 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -13016,7 +13016,7 @@ default.unreachable:                              ; preds = %"_ZN103_$LT$alloc..
 
 99:                                               ; preds = %.critedge.i
   %100 = load ptr, ptr %49, align 8, !noalias !1550, !nonnull !13, !noundef !13
-  %101 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %100, i64 %98
+  %101 = getelementptr [32 x i8], ptr %100, i64 %98
   %102 = getelementptr i8, ptr %101, i64 -32
   %.not41.i = icmp eq ptr %102, null
   br i1 %.not41.i, label %.critedge45.i, label %103
@@ -13304,7 +13304,7 @@ default.unreachable:                              ; preds = %"_ZN103_$LT$alloc..
 
 194:                                              ; preds = %187
   %195 = load ptr, ptr %49, align 8, !noalias !1583, !nonnull !13, !noundef !13
-  %196 = getelementptr inbounds { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %195, i64 %178
+  %196 = getelementptr inbounds [32 x i8], ptr %195, i64 %178
   %.sroa_idx = getelementptr inbounds nuw i8, ptr %196, i64 20
   %197 = load i32, ptr %.sroa_idx, align 4
   %.sroa.6508.8.insert.ext = zext i32 %197 to i64
@@ -13403,7 +13403,7 @@ default.unreachable:                              ; preds = %"_ZN103_$LT$alloc..
           to label %289 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 230:                                              ; preds = %"_ZN123_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..exact_size..ExactSizeIterator$GT$3len17h05908b900844d4baE.exit"
-  %231 = getelementptr inbounds nuw { i8, [3 x i8] }, ptr %188, i64 %192
+  %231 = getelementptr inbounds nuw [4 x i8], ptr %188, i64 %192
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %230
@@ -13514,7 +13514,7 @@ default.unreachable:                              ; preds = %"_ZN103_$LT$alloc..
 263:                                              ; preds = %.noexc365, %255
   %264 = phi i64 [ %.pre.i.i, %.noexc365 ], [ %256, %255 ]
   %265 = load ptr, ptr %47, align 8, !alias.scope !1604, !noalias !1607, !nonnull !13, !noundef !13
-  %266 = getelementptr inbounds { i8, [3 x i8] }, ptr %265, i64 %264
+  %266 = getelementptr inbounds [4 x i8], ptr %265, i64 %264
   store i32 %.sroa.067.0.copyload, ptr %266, align 1, !noalias !1607
   %267 = load i64, ptr %45, align 8, !alias.scope !1604, !noalias !1607, !noundef !13
   %268 = add i64 %267, 1
@@ -13530,7 +13530,7 @@ default.unreachable:                              ; preds = %"_ZN103_$LT$alloc..
   %271 = icmp ult i64 %267, %270
   call void @llvm.assume(i1 %271)
   %272 = load ptr, ptr %47, align 8, !alias.scope !1612, !noalias !1615, !nonnull !13, !noundef !13
-  %273 = getelementptr inbounds { i8, [3 x i8] }, ptr %272, i64 %267
+  %273 = getelementptr inbounds [4 x i8], ptr %272, i64 %267
   %.sroa.01.0.copyload.i.i367 = load i32, ptr %273, align 1, !noalias !1619
   %.sroa.032.0.extract.trunc.i368 = trunc i32 %.sroa.01.0.copyload.i.i367 to i8
   %274 = add i8 %.sroa.032.0.extract.trunc.i368, -9
@@ -13569,7 +13569,7 @@ default.unreachable:                              ; preds = %"_ZN103_$LT$alloc..
 
 283:                                              ; preds = %.critedge.i376
   %284 = load ptr, ptr %49, align 8, !noalias !1615, !nonnull !13, !noundef !13
-  %285 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %284, i64 %282
+  %285 = getelementptr [32 x i8], ptr %284, i64 %282
   %286 = getelementptr i8, ptr %285, i64 -32
   %.not41.i378 = icmp eq ptr %286, null
   br i1 %.not41.i378, label %.critedge45.i372, label %287
@@ -13686,7 +13686,7 @@ default.unreachable:                              ; preds = %"_ZN103_$LT$alloc..
 
 323:                                              ; preds = %314
   %324 = load ptr, ptr %49, align 8, !noalias !1625, !nonnull !13, !noundef !13
-  %325 = getelementptr inbounds { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %324, i64 %303
+  %325 = getelementptr inbounds [32 x i8], ptr %324, i64 %303
   %.sroa_idx535 = getelementptr inbounds nuw i8, ptr %325, i64 20
   %326 = load i32, ptr %.sroa_idx535, align 4
   %.sroa.6539.8.insert.ext = zext i32 %326 to i64
@@ -13694,7 +13694,7 @@ default.unreachable:                              ; preds = %"_ZN103_$LT$alloc..
   %328 = load i8, ptr %327, align 8, !range !850, !noalias !1625, !noundef !13
   %329 = getelementptr inbounds nuw i8, ptr %325, i64 16
   %330 = load i32, ptr %329, align 8
-  %331 = getelementptr inbounds { i8, [3 x i8] }, ptr %315, i64 %319
+  %331 = getelementptr inbounds [4 x i8], ptr %315, i64 %319
   %.sroa.2244.0.insert.ext = shl nuw i64 %.sroa.6539.8.insert.ext, 32
   %.sroa.0243.0.insert.ext = zext i32 %330 to i64
   %.sroa.0243.0.insert.insert = or disjoint i64 %.sroa.2244.0.insert.ext, %.sroa.0243.0.insert.ext
@@ -13958,7 +13958,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h4826023f4fcc8e6aE.exit.thread.
 415:                                              ; preds = %.noexc428, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h8b4d7294ee84b164E.exit"
   %416 = phi i64 [ %.pre.i.i427, %.noexc428 ], [ %408, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h8b4d7294ee84b164E.exit" ]
   %417 = load ptr, ptr %47, align 8, !alias.scope !1697, !noalias !1700, !nonnull !13, !noundef !13
-  %418 = getelementptr inbounds { i8, [3 x i8] }, ptr %417, i64 %416
+  %418 = getelementptr inbounds [4 x i8], ptr %417, i64 %416
   store i32 %.sroa.5255.0.extract.trunc, ptr %418, align 1, !noalias !1700
   %419 = load i64, ptr %45, align 8, !alias.scope !1697, !noalias !1700, !noundef !13
   %420 = add i64 %419, 1
@@ -13975,7 +13975,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h4826023f4fcc8e6aE.exit.thread.
   %423 = icmp ult i64 %419, %422
   call void @llvm.assume(i1 %423)
   %424 = load ptr, ptr %47, align 8, !alias.scope !1710, !noalias !1713, !nonnull !13, !noundef !13
-  %425 = getelementptr inbounds { i8, [3 x i8] }, ptr %424, i64 %419
+  %425 = getelementptr inbounds [4 x i8], ptr %424, i64 %419
   %.sroa.01.0.copyload.i.i431 = load i32, ptr %425, align 1, !noalias !1717
   %.sroa.032.0.extract.trunc.i432 = trunc i32 %.sroa.01.0.copyload.i.i431 to i8
   %426 = add i8 %.sroa.032.0.extract.trunc.i432, -9
@@ -14014,7 +14014,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h4826023f4fcc8e6aE.exit.thread.
 
 435:                                              ; preds = %.critedge.i440
   %436 = load ptr, ptr %49, align 8, !noalias !1713, !nonnull !13, !noundef !13
-  %437 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %436, i64 %434
+  %437 = getelementptr [32 x i8], ptr %436, i64 %434
   %438 = getelementptr i8, ptr %437, i64 -32
   %.not41.i442 = icmp eq ptr %438, null
   br i1 %.not41.i442, label %.critedge45.i436, label %439
@@ -14053,7 +14053,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h4826023f4fcc8e6aE.exit.thread.
 
 449:                                              ; preds = %154
   %450 = load ptr, ptr %49, align 8, !noalias !1577, !nonnull !13, !noundef !13
-  %451 = getelementptr inbounds { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %450, i64 %147
+  %451 = getelementptr inbounds [32 x i8], ptr %450, i64 %147
   %452 = getelementptr inbounds nuw i8, ptr %451, i64 16
   %453 = load i32, ptr %452, align 8
   %.sroa_idx568 = getelementptr inbounds nuw i8, ptr %451, i64 20
@@ -14155,7 +14155,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h4826023f4fcc8e6aE.exit.thread.
 
 489:                                              ; preds = %169
   %490 = load ptr, ptr %49, align 8, !noalias !1580, !nonnull !13, !noundef !13
-  %491 = getelementptr inbounds { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %490, i64 %162
+  %491 = getelementptr inbounds [32 x i8], ptr %490, i64 %162
   %492 = getelementptr inbounds nuw i8, ptr %491, i64 16
   %493 = load i32, ptr %492, align 8
   %.sroa_idx582 = getelementptr inbounds nuw i8, ptr %491, i64 20
@@ -14374,7 +14374,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %19)
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 152
   %21 = load ptr, ptr %20, align 8, !alias.scope !1768, !noalias !1771, !nonnull !13, !noundef !13
-  %22 = getelementptr inbounds { i8, [3 x i8] }, ptr %21, i64 %17
+  %22 = getelementptr inbounds [4 x i8], ptr %21, i64 %17
   %.sroa.01.0.copyload.i.i = load i32, ptr %22, align 1, !noalias !1772
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %23 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -14403,7 +14403,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 33:                                               ; preds = %.critedge.i
   %34 = getelementptr inbounds nuw i8, ptr %12, i64 128
   %35 = load ptr, ptr %34, align 8, !noalias !1771, !nonnull !13, !noundef !13
-  %36 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %35, i64 %32
+  %36 = getelementptr [32 x i8], ptr %35, i64 %32
   %37 = getelementptr i8, ptr %36, i64 -32
   %.not41.i = icmp eq ptr %37, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %38
@@ -14443,7 +14443,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %47 = phi i64 [ %.pre.i.i, %46 ], [ %43, %41 ]
   %48 = getelementptr inbounds nuw i8, ptr %12, i64 152
   %49 = load ptr, ptr %48, align 8, !alias.scope !1773, !noalias !1776, !nonnull !13, !noundef !13
-  %50 = getelementptr inbounds { i8, [3 x i8] }, ptr %49, i64 %47
+  %50 = getelementptr inbounds [4 x i8], ptr %49, i64 %47
   store i32 4, ptr %50, align 1, !noalias !1776
   %51 = load i64, ptr %13, align 8, !alias.scope !1773, !noalias !1776, !noundef !13
   %52 = add i64 %51, 1
@@ -14683,7 +14683,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %107)
   %108 = getelementptr inbounds nuw i8, ptr %100, i64 152
   %109 = load ptr, ptr %108, align 8, !alias.scope !1796, !noalias !1799, !nonnull !13, !noundef !13
-  %110 = getelementptr inbounds { i8, [3 x i8] }, ptr %109, i64 %105
+  %110 = getelementptr inbounds [4 x i8], ptr %109, i64 %105
   %.sroa.01.0.copyload.i.i = load i32, ptr %110, align 1, !noalias !1800
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %111 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -14702,7 +14702,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 117:                                              ; preds = %114
   %118 = getelementptr inbounds nuw i8, ptr %100, i64 128
   %119 = load ptr, ptr %118, align 8, !noalias !1799, !nonnull !13, !noundef !13
-  %120 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %119, i64 %116
+  %120 = getelementptr [32 x i8], ptr %119, i64 %116
   %121 = getelementptr i8, ptr %120, i64 -32
   %.not41.i = icmp eq ptr %121, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %122
@@ -14871,7 +14871,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %166)
   %167 = getelementptr inbounds nuw i8, ptr %100, i64 152
   %168 = load ptr, ptr %167, align 8, !alias.scope !1825, !noalias !1828, !nonnull !13, !noundef !13
-  %169 = getelementptr inbounds { i8, [3 x i8] }, ptr %168, i64 %164
+  %169 = getelementptr inbounds [4 x i8], ptr %168, i64 %164
   %.sroa.01.0.copyload.i.i126 = load i32, ptr %169, align 1, !noalias !1832
   %.sroa.032.0.extract.trunc.i127 = trunc i32 %.sroa.01.0.copyload.i.i126 to i8
   %170 = add i8 %.sroa.032.0.extract.trunc.i127, -9
@@ -14890,7 +14890,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 176:                                              ; preds = %173
   %177 = getelementptr inbounds nuw i8, ptr %100, i64 128
   %178 = load ptr, ptr %177, align 8, !noalias !1828, !nonnull !13, !noundef !13
-  %179 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %178, i64 %175
+  %179 = getelementptr [32 x i8], ptr %178, i64 %175
   %180 = getelementptr i8, ptr %179, i64 -32
   %.not41.i133 = icmp eq ptr %180, null
   br i1 %.not41.i133, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit135", label %181
@@ -15063,7 +15063,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %54)
   %55 = getelementptr inbounds nuw i8, ptr %47, i64 152
   %56 = load ptr, ptr %55, align 8, !alias.scope !1844, !noalias !1847, !nonnull !13, !noundef !13
-  %57 = getelementptr inbounds { i8, [3 x i8] }, ptr %56, i64 %52
+  %57 = getelementptr inbounds [4 x i8], ptr %56, i64 %52
   %.sroa.01.0.copyload.i.i = load i32, ptr %57, align 1, !noalias !1848
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %58 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -15082,7 +15082,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 64:                                               ; preds = %61
   %65 = getelementptr inbounds nuw i8, ptr %47, i64 128
   %66 = load ptr, ptr %65, align 8, !noalias !1847, !nonnull !13, !noundef !13
-  %67 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %66, i64 %63
+  %67 = getelementptr [32 x i8], ptr %66, i64 %63
   %68 = getelementptr i8, ptr %67, i64 -32
   %.not41.i = icmp eq ptr %68, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %69
@@ -15134,7 +15134,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %83)
   %84 = getelementptr inbounds nuw i8, ptr %47, i64 152
   %85 = load ptr, ptr %84, align 8, !alias.scope !1849, !noalias !1852, !nonnull !13, !noundef !13
-  %86 = getelementptr inbounds { i8, [3 x i8] }, ptr %85, i64 %81
+  %86 = getelementptr inbounds [4 x i8], ptr %85, i64 %81
   %.sroa.01.0.copyload.i.i73 = load i32, ptr %86, align 1, !noalias !1856
   %.sroa.032.0.extract.trunc.i74 = trunc i32 %.sroa.01.0.copyload.i.i73 to i8
   %87 = add i8 %.sroa.032.0.extract.trunc.i74, -9
@@ -15163,7 +15163,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 97:                                               ; preds = %.critedge.i
   %98 = getelementptr inbounds nuw i8, ptr %47, i64 128
   %99 = load ptr, ptr %98, align 8, !noalias !1852, !nonnull !13, !noundef !13
-  %100 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %99, i64 %96
+  %100 = getelementptr [32 x i8], ptr %99, i64 %96
   %101 = getelementptr i8, ptr %100, i64 -32
   %.not41.i80 = icmp eq ptr %101, null
   br i1 %.not41.i80, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit82", label %102
@@ -15212,7 +15212,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %116)
   %117 = getelementptr inbounds nuw i8, ptr %47, i64 152
   %118 = load ptr, ptr %117, align 8, !alias.scope !1857, !noalias !1860, !nonnull !13, !noundef !13
-  %119 = getelementptr inbounds { i8, [3 x i8] }, ptr %118, i64 %114
+  %119 = getelementptr inbounds [4 x i8], ptr %118, i64 %114
   %.sroa.01.0.copyload.i.i84 = load i32, ptr %119, align 1, !noalias !1864
   %.sroa.032.0.extract.trunc.i85 = trunc i32 %.sroa.01.0.copyload.i.i84 to i8
   %120 = add i8 %.sroa.032.0.extract.trunc.i85, -9
@@ -15231,7 +15231,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 126:                                              ; preds = %123
   %127 = getelementptr inbounds nuw i8, ptr %47, i64 128
   %128 = load ptr, ptr %127, align 8, !noalias !1860, !nonnull !13, !noundef !13
-  %129 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %128, i64 %125
+  %129 = getelementptr [32 x i8], ptr %128, i64 %125
   %130 = getelementptr i8, ptr %129, i64 -32
   %.not41.i94 = icmp eq ptr %130, null
   br i1 %.not41.i94, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit96", label %131
@@ -15381,7 +15381,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 58:                                               ; preds = %54
   %59 = getelementptr inbounds nuw i8, ptr %.val, i64 128
   %60 = load ptr, ptr %59, align 8, !noalias !1871, !nonnull !13, !noundef !13
-  %61 = getelementptr inbounds { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %60, i64 %47
+  %61 = getelementptr inbounds [32 x i8], ptr %60, i64 %47
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %63 = load i64, ptr %62, align 8
   %64 = getelementptr inbounds nuw i8, ptr %61, i64 24
@@ -15540,7 +15540,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   call void @llvm.assume(i1 %116)
   %117 = getelementptr inbounds nuw i8, ptr %.val, i64 152
   %118 = load ptr, ptr %117, align 8, !alias.scope !1895, !noalias !1898, !nonnull !13, !noundef !13
-  %119 = getelementptr inbounds { i8, [3 x i8] }, ptr %118, i64 %114
+  %119 = getelementptr inbounds [4 x i8], ptr %118, i64 %114
   %.sroa.01.0.copyload.i.i = load i32, ptr %119, align 1, !noalias !1902
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %120 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -15560,7 +15560,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 
 125:                                              ; preds = %.critedge.i
   %126 = load ptr, ptr %59, align 8, !noalias !1898, !nonnull !13, !noundef !13
-  %127 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %126, i64 %124
+  %127 = getelementptr [32 x i8], ptr %126, i64 %124
   %128 = getelementptr i8, ptr %127, i64 -32
   %.not41.i = icmp eq ptr %128, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %129
@@ -15672,7 +15672,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 33:                                               ; preds = %30
   %34 = getelementptr inbounds nuw i8, ptr %.val, i64 128
   %35 = load ptr, ptr %34, align 8, !noalias !1903, !nonnull !13, !noundef !13
-  %36 = getelementptr inbounds { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %35, i64 %23
+  %36 = getelementptr inbounds [32 x i8], ptr %35, i64 %23
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load i64, ptr %37, align 8
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 24
@@ -15741,7 +15741,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %59 = phi i64 [ %.pre.i.i, %58 ], [ %55, %52 ]
   %60 = getelementptr inbounds nuw i8, ptr %.val, i64 152
   %61 = load ptr, ptr %60, align 8, !alias.scope !1909, !nonnull !13, !noundef !13
-  %62 = getelementptr inbounds { i8, [3 x i8] }, ptr %61, i64 %59
+  %62 = getelementptr inbounds [4 x i8], ptr %61, i64 %59
   store i32 %.sroa.3.sroa.0.0, ptr %62, align 1
   %63 = load i64, ptr %54, align 8, !alias.scope !1909, !noundef !13
   %64 = add i64 %63, 1
@@ -15784,7 +15784,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %15 = phi i64 [ %.pre.i.i, %14 ], [ %11, %7 ]
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 152
   %17 = load ptr, ptr %16, align 8, !alias.scope !1915, !noalias !1912, !nonnull !13, !noundef !13
-  %18 = getelementptr inbounds { i8, [3 x i8] }, ptr %17, i64 %15
+  %18 = getelementptr inbounds [4 x i8], ptr %17, i64 %15
   store i32 %.2.extract.trunc, ptr %18, align 1, !noalias !1912
   %19 = load i64, ptr %10, align 8, !alias.scope !1915, !noalias !1912, !noundef !13
   %20 = add i64 %19, 1
@@ -15884,7 +15884,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %35)
   %36 = getelementptr inbounds nuw i8, ptr %28, i64 152
   %37 = load ptr, ptr %36, align 8, !alias.scope !1923, !noalias !1926, !nonnull !13, !noundef !13
-  %38 = getelementptr inbounds { i8, [3 x i8] }, ptr %37, i64 %33
+  %38 = getelementptr inbounds [4 x i8], ptr %37, i64 %33
   %.sroa.01.0.copyload.i.i = load i32, ptr %38, align 1, !noalias !1927
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %39 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -15923,7 +15923,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 51:                                               ; preds = %.critedge.i
   %52 = getelementptr inbounds nuw i8, ptr %28, i64 128
   %53 = load ptr, ptr %52, align 8, !noalias !1926, !nonnull !13, !noundef !13
-  %54 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %53, i64 %50
+  %54 = getelementptr [32 x i8], ptr %53, i64 %50
   %55 = getelementptr i8, ptr %54, i64 -32
   %.not41.i = icmp eq ptr %55, null
   br i1 %.not41.i, label %.critedge45.i, label %56
@@ -15982,7 +15982,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %20)
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 152
   %22 = load ptr, ptr %21, align 8, !alias.scope !1933, !noalias !1936, !nonnull !13, !noundef !13
-  %23 = getelementptr inbounds { i8, [3 x i8] }, ptr %22, i64 %18
+  %23 = getelementptr inbounds [4 x i8], ptr %22, i64 %18
   %.sroa.01.0.copyload.i.i = load i32, ptr %23, align 1, !noalias !1937
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %24 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -16001,7 +16001,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 30:                                               ; preds = %27
   %31 = getelementptr inbounds nuw i8, ptr %13, i64 128
   %32 = load ptr, ptr %31, align 8, !noalias !1936, !nonnull !13, !noundef !13
-  %33 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %32, i64 %29
+  %33 = getelementptr [32 x i8], ptr %32, i64 %29
   %34 = getelementptr i8, ptr %33, i64 -32
   %.not41.i = icmp eq ptr %34, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %35
@@ -16041,7 +16041,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %44)
   %45 = getelementptr inbounds nuw i8, ptr %13, i64 152
   %46 = load ptr, ptr %45, align 8, !alias.scope !1938, !noalias !1941, !nonnull !13, !noundef !13
-  %47 = getelementptr inbounds { i8, [3 x i8] }, ptr %46, i64 %42
+  %47 = getelementptr inbounds [4 x i8], ptr %46, i64 %42
   %.sroa.01.0.copyload.i.i39 = load i32, ptr %47, align 1, !noalias !1945
   %.sroa.032.0.extract.trunc.i40 = trunc i32 %.sroa.01.0.copyload.i.i39 to i8
   %48 = add i8 %.sroa.032.0.extract.trunc.i40, -9
@@ -16080,7 +16080,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 60:                                               ; preds = %.critedge.i
   %61 = getelementptr inbounds nuw i8, ptr %13, i64 128
   %62 = load ptr, ptr %61, align 8, !noalias !1941, !nonnull !13, !noundef !13
-  %63 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %62, i64 %59
+  %63 = getelementptr [32 x i8], ptr %62, i64 %59
   %64 = getelementptr i8, ptr %63, i64 -32
   %.not41.i46 = icmp eq ptr %64, null
   br i1 %.not41.i46, label %.critedge45.i43, label %65
@@ -16139,7 +16139,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %20)
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 152
   %22 = load ptr, ptr %21, align 8, !alias.scope !1951, !noalias !1954, !nonnull !13, !noundef !13
-  %23 = getelementptr inbounds { i8, [3 x i8] }, ptr %22, i64 %18
+  %23 = getelementptr inbounds [4 x i8], ptr %22, i64 %18
   %.sroa.01.0.copyload.i.i = load i32, ptr %23, align 1, !noalias !1955
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %24 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -16158,7 +16158,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 30:                                               ; preds = %27
   %31 = getelementptr inbounds nuw i8, ptr %13, i64 128
   %32 = load ptr, ptr %31, align 8, !noalias !1954, !nonnull !13, !noundef !13
-  %33 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %32, i64 %29
+  %33 = getelementptr [32 x i8], ptr %32, i64 %29
   %34 = getelementptr i8, ptr %33, i64 -32
   %.not41.i = icmp eq ptr %34, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %35
@@ -16198,7 +16198,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %44)
   %45 = getelementptr inbounds nuw i8, ptr %13, i64 152
   %46 = load ptr, ptr %45, align 8, !alias.scope !1956, !noalias !1959, !nonnull !13, !noundef !13
-  %47 = getelementptr inbounds { i8, [3 x i8] }, ptr %46, i64 %42
+  %47 = getelementptr inbounds [4 x i8], ptr %46, i64 %42
   %.sroa.01.0.copyload.i.i39 = load i32, ptr %47, align 1, !noalias !1963
   %.sroa.032.0.extract.trunc.i40 = trunc i32 %.sroa.01.0.copyload.i.i39 to i8
   %48 = add i8 %.sroa.032.0.extract.trunc.i40, -9
@@ -16237,7 +16237,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 60:                                               ; preds = %.critedge.i
   %61 = getelementptr inbounds nuw i8, ptr %13, i64 128
   %62 = load ptr, ptr %61, align 8, !noalias !1959, !nonnull !13, !noundef !13
-  %63 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %62, i64 %59
+  %63 = getelementptr [32 x i8], ptr %62, i64 %59
   %64 = getelementptr i8, ptr %63, i64 -32
   %.not41.i47 = icmp eq ptr %64, null
   br i1 %.not41.i47, label %.critedge45.i43, label %65
@@ -16330,7 +16330,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %33 = phi i64 [ %.pre.i.i, %32 ], [ %29, %25 ]
   %34 = getelementptr inbounds nuw i8, ptr %26, i64 152
   %35 = load ptr, ptr %34, align 8, !alias.scope !1967, !noalias !1964, !nonnull !13, !noundef !13
-  %36 = getelementptr inbounds { i8, [3 x i8] }, ptr %35, i64 %33
+  %36 = getelementptr inbounds [4 x i8], ptr %35, i64 %33
   store i32 %.sroa.414.0.copyload, ptr %36, align 1, !noalias !1964
   %37 = load i64, ptr %28, align 8, !alias.scope !1967, !noalias !1964, !noundef !13
   %38 = add i64 %37, 1
@@ -16478,7 +16478,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %59 = icmp ult i64 %57, %58
   tail call void @llvm.assume(i1 %59)
   %60 = load ptr, ptr %40, align 8, !alias.scope !1976, !noalias !1979, !nonnull !13, !noundef !13
-  %61 = getelementptr inbounds { i8, [3 x i8] }, ptr %60, i64 %57
+  %61 = getelementptr inbounds [4 x i8], ptr %60, i64 %57
   %.sroa.01.0.copyload.i.i = load i32, ptr %61, align 1, !noalias !1983
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %62 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -16515,7 +16515,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 
 72:                                               ; preds = %.critedge.i
   %73 = load ptr, ptr %42, align 8, !noalias !1979, !nonnull !13, !noundef !13
-  %74 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %73, i64 %71
+  %74 = getelementptr [32 x i8], ptr %73, i64 %71
   %75 = getelementptr i8, ptr %74, i64 -32
   %.not41.i = icmp eq ptr %75, null
   br i1 %.not41.i, label %.critedge45.i, label %76
@@ -16598,7 +16598,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %32)
   %33 = getelementptr inbounds nuw i8, ptr %25, i64 152
   %34 = load ptr, ptr %33, align 8, !alias.scope !1989, !noalias !1992, !nonnull !13, !noundef !13
-  %35 = getelementptr inbounds { i8, [3 x i8] }, ptr %34, i64 %30
+  %35 = getelementptr inbounds [4 x i8], ptr %34, i64 %30
   %.sroa.01.0.copyload.i.i = load i32, ptr %35, align 1, !noalias !1993
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %36 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -16627,7 +16627,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 46:                                               ; preds = %.critedge.i
   %47 = getelementptr inbounds nuw i8, ptr %25, i64 128
   %48 = load ptr, ptr %47, align 8, !noalias !1992, !nonnull !13, !noundef !13
-  %49 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %48, i64 %45
+  %49 = getelementptr [32 x i8], ptr %48, i64 %45
   %50 = getelementptr i8, ptr %49, i64 -32
   %.not41.i = icmp eq ptr %50, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %51
@@ -16754,7 +16754,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %43)
   %44 = getelementptr inbounds nuw i8, ptr %36, i64 152
   %45 = load ptr, ptr %44, align 8, !alias.scope !1999, !noalias !2002, !nonnull !13, !noundef !13
-  %46 = getelementptr inbounds { i8, [3 x i8] }, ptr %45, i64 %41
+  %46 = getelementptr inbounds [4 x i8], ptr %45, i64 %41
   %.sroa.01.0.copyload.i.i = load i32, ptr %46, align 1, !noalias !2003
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %47 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -16773,7 +16773,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 53:                                               ; preds = %50
   %54 = getelementptr inbounds nuw i8, ptr %36, i64 128
   %55 = load ptr, ptr %54, align 8, !noalias !2002, !nonnull !13, !noundef !13
-  %56 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %55, i64 %52
+  %56 = getelementptr [32 x i8], ptr %55, i64 %52
   %57 = getelementptr i8, ptr %56, i64 -32
   %.not41.i = icmp eq ptr %57, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %58
@@ -16817,7 +16817,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %68)
   %69 = getelementptr inbounds nuw i8, ptr %36, i64 152
   %70 = load ptr, ptr %69, align 8, !alias.scope !2004, !noalias !2007, !nonnull !13, !noundef !13
-  %71 = getelementptr inbounds { i8, [3 x i8] }, ptr %70, i64 %66
+  %71 = getelementptr inbounds [4 x i8], ptr %70, i64 %66
   %.sroa.01.0.copyload.i.i49 = load i32, ptr %71, align 1, !noalias !2011
   %.sroa.032.0.extract.trunc.i50 = trunc i32 %.sroa.01.0.copyload.i.i49 to i8
   %72 = add i8 %.sroa.032.0.extract.trunc.i50, -9
@@ -16836,7 +16836,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 78:                                               ; preds = %75
   %79 = getelementptr inbounds nuw i8, ptr %36, i64 128
   %80 = load ptr, ptr %79, align 8, !noalias !2007, !nonnull !13, !noundef !13
-  %81 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %80, i64 %77
+  %81 = getelementptr [32 x i8], ptr %80, i64 %77
   %82 = getelementptr i8, ptr %81, i64 -32
   %.not41.i56 = icmp eq ptr %82, null
   br i1 %.not41.i56, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit58", label %83
@@ -16876,7 +16876,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %92)
   %93 = getelementptr inbounds nuw i8, ptr %36, i64 152
   %94 = load ptr, ptr %93, align 8, !alias.scope !2012, !noalias !2015, !nonnull !13, !noundef !13
-  %95 = getelementptr inbounds { i8, [3 x i8] }, ptr %94, i64 %90
+  %95 = getelementptr inbounds [4 x i8], ptr %94, i64 %90
   %.sroa.01.0.copyload.i.i60 = load i32, ptr %95, align 1, !noalias !2019
   %.sroa.032.0.extract.trunc.i61 = trunc i32 %.sroa.01.0.copyload.i.i60 to i8
   %96 = add i8 %.sroa.032.0.extract.trunc.i61, -9
@@ -16905,7 +16905,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 104:                                              ; preds = %101
   %105 = getelementptr inbounds nuw i8, ptr %36, i64 128
   %106 = load ptr, ptr %105, align 8, !noalias !2015, !nonnull !13, !noundef !13
-  %107 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %106, i64 %103
+  %107 = getelementptr [32 x i8], ptr %106, i64 %103
   %108 = getelementptr i8, ptr %107, i64 -32
   %.not41.i67 = icmp eq ptr %108, null
   br i1 %.not41.i67, label %.critedge45.i64, label %109
@@ -16976,7 +16976,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %29)
   %30 = getelementptr inbounds nuw i8, ptr %22, i64 152
   %31 = load ptr, ptr %30, align 8, !alias.scope !2025, !noalias !2028, !nonnull !13, !noundef !13
-  %32 = getelementptr inbounds { i8, [3 x i8] }, ptr %31, i64 %27
+  %32 = getelementptr inbounds [4 x i8], ptr %31, i64 %27
   %.sroa.01.0.copyload.i.i = load i32, ptr %32, align 1, !noalias !2029
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %33 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -16995,7 +16995,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 39:                                               ; preds = %36
   %40 = getelementptr inbounds nuw i8, ptr %22, i64 128
   %41 = load ptr, ptr %40, align 8, !noalias !2028, !nonnull !13, !noundef !13
-  %42 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %41, i64 %38
+  %42 = getelementptr [32 x i8], ptr %41, i64 %38
   %43 = getelementptr i8, ptr %42, i64 -32
   %.not41.i = icmp eq ptr %43, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %44
@@ -17042,7 +17042,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %54)
   %55 = getelementptr inbounds nuw i8, ptr %22, i64 152
   %56 = load ptr, ptr %55, align 8, !alias.scope !2030, !noalias !2033, !nonnull !13, !noundef !13
-  %57 = getelementptr inbounds { i8, [3 x i8] }, ptr %56, i64 %52
+  %57 = getelementptr inbounds [4 x i8], ptr %56, i64 %52
   %.sroa.01.0.copyload.i.i43 = load i32, ptr %57, align 1, !noalias !2037
   %.sroa.032.0.extract.trunc.i44 = trunc i32 %.sroa.01.0.copyload.i.i43 to i8
   %58 = add i8 %.sroa.032.0.extract.trunc.i44, -9
@@ -17064,7 +17064,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 64:                                               ; preds = %.critedge.i
   %65 = getelementptr inbounds nuw i8, ptr %22, i64 128
   %66 = load ptr, ptr %65, align 8, !noalias !2033, !nonnull !13, !noundef !13
-  %67 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %66, i64 %63
+  %67 = getelementptr [32 x i8], ptr %66, i64 %63
   %68 = getelementptr i8, ptr %67, i64 -32
   %.not41.i50 = icmp eq ptr %68, null
   br i1 %.not41.i50, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit52", label %69
@@ -17104,7 +17104,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %78)
   %79 = getelementptr inbounds nuw i8, ptr %22, i64 152
   %80 = load ptr, ptr %79, align 8, !alias.scope !2038, !noalias !2041, !nonnull !13, !noundef !13
-  %81 = getelementptr inbounds { i8, [3 x i8] }, ptr %80, i64 %76
+  %81 = getelementptr inbounds [4 x i8], ptr %80, i64 %76
   %.sroa.01.0.copyload.i.i54 = load i32, ptr %81, align 1, !noalias !2045
   %.sroa.032.0.extract.trunc.i55 = trunc i32 %.sroa.01.0.copyload.i.i54 to i8
   %82 = add i8 %.sroa.032.0.extract.trunc.i55, -9
@@ -17133,7 +17133,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 90:                                               ; preds = %87
   %91 = getelementptr inbounds nuw i8, ptr %22, i64 128
   %92 = load ptr, ptr %91, align 8, !noalias !2041, !nonnull !13, !noundef !13
-  %93 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %92, i64 %89
+  %93 = getelementptr [32 x i8], ptr %92, i64 %89
   %94 = getelementptr i8, ptr %93, i64 -32
   %.not41.i63 = icmp eq ptr %94, null
   br i1 %.not41.i63, label %.critedge45.i58, label %95
@@ -17203,7 +17203,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %28)
   %29 = getelementptr inbounds nuw i8, ptr %21, i64 152
   %30 = load ptr, ptr %29, align 8, !alias.scope !2051, !noalias !2054, !nonnull !13, !noundef !13
-  %31 = getelementptr inbounds { i8, [3 x i8] }, ptr %30, i64 %26
+  %31 = getelementptr inbounds [4 x i8], ptr %30, i64 %26
   %.sroa.01.0.copyload.i.i = load i32, ptr %31, align 1, !noalias !2055
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %32 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -17222,7 +17222,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 38:                                               ; preds = %35
   %39 = getelementptr inbounds nuw i8, ptr %21, i64 128
   %40 = load ptr, ptr %39, align 8, !noalias !2054, !nonnull !13, !noundef !13
-  %41 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %40, i64 %37
+  %41 = getelementptr [32 x i8], ptr %40, i64 %37
   %42 = getelementptr i8, ptr %41, i64 -32
   %.not41.i = icmp eq ptr %42, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %43
@@ -17269,7 +17269,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %53)
   %54 = getelementptr inbounds nuw i8, ptr %21, i64 152
   %55 = load ptr, ptr %54, align 8, !alias.scope !2056, !noalias !2059, !nonnull !13, !noundef !13
-  %56 = getelementptr inbounds { i8, [3 x i8] }, ptr %55, i64 %51
+  %56 = getelementptr inbounds [4 x i8], ptr %55, i64 %51
   %.sroa.01.0.copyload.i.i42 = load i32, ptr %56, align 1, !noalias !2063
   %.sroa.032.0.extract.trunc.i43 = trunc i32 %.sroa.01.0.copyload.i.i42 to i8
   %57 = add i8 %.sroa.032.0.extract.trunc.i43, -9
@@ -17291,7 +17291,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 63:                                               ; preds = %.critedge.i
   %64 = getelementptr inbounds nuw i8, ptr %21, i64 128
   %65 = load ptr, ptr %64, align 8, !noalias !2059, !nonnull !13, !noundef !13
-  %66 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %65, i64 %62
+  %66 = getelementptr [32 x i8], ptr %65, i64 %62
   %67 = getelementptr i8, ptr %66, i64 -32
   %.not41.i49 = icmp eq ptr %67, null
   br i1 %.not41.i49, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit51", label %68
@@ -17331,7 +17331,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %77 = phi i64 [ %.pre.i.i, %76 ], [ %73, %71 ]
   %78 = getelementptr inbounds nuw i8, ptr %21, i64 152
   %79 = load ptr, ptr %78, align 8, !alias.scope !2064, !noalias !2067, !nonnull !13, !noundef !13
-  %80 = getelementptr inbounds { i8, [3 x i8] }, ptr %79, i64 %77
+  %80 = getelementptr inbounds [4 x i8], ptr %79, i64 %77
   store i32 0, ptr %80, align 1, !noalias !2067
   %81 = load i64, ptr %22, align 8, !alias.scope !2064, !noalias !2067, !noundef !13
   %82 = add i64 %81, 1
@@ -17465,7 +17465,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %57)
   %58 = getelementptr inbounds nuw i8, ptr %50, i64 152
   %59 = load ptr, ptr %58, align 8, !alias.scope !2090, !noalias !2093, !nonnull !13, !noundef !13
-  %60 = getelementptr inbounds { i8, [3 x i8] }, ptr %59, i64 %55
+  %60 = getelementptr inbounds [4 x i8], ptr %59, i64 %55
   %.sroa.01.0.copyload.i.i = load i32, ptr %60, align 1, !noalias !2094
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %61 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -17484,7 +17484,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 67:                                               ; preds = %64
   %68 = getelementptr inbounds nuw i8, ptr %50, i64 128
   %69 = load ptr, ptr %68, align 8, !noalias !2093, !nonnull !13, !noundef !13
-  %70 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %69, i64 %66
+  %70 = getelementptr [32 x i8], ptr %69, i64 %66
   %71 = getelementptr i8, ptr %70, i64 -32
   %.not41.i = icmp eq ptr %71, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %72
@@ -17524,7 +17524,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %81)
   %82 = getelementptr inbounds nuw i8, ptr %50, i64 152
   %83 = load ptr, ptr %82, align 8, !alias.scope !2095, !noalias !2098, !nonnull !13, !noundef !13
-  %84 = getelementptr inbounds { i8, [3 x i8] }, ptr %83, i64 %79
+  %84 = getelementptr inbounds [4 x i8], ptr %83, i64 %79
   %.sroa.01.0.copyload.i.i62 = load i32, ptr %84, align 1, !noalias !2102
   %.sroa.032.0.extract.trunc.i63 = trunc i32 %.sroa.01.0.copyload.i.i62 to i8
   %85 = add i8 %.sroa.032.0.extract.trunc.i63, -9
@@ -17543,7 +17543,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 91:                                               ; preds = %88
   %92 = getelementptr inbounds nuw i8, ptr %50, i64 128
   %93 = load ptr, ptr %92, align 8, !noalias !2098, !nonnull !13, !noundef !13
-  %94 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %93, i64 %90
+  %94 = getelementptr [32 x i8], ptr %93, i64 %90
   %95 = getelementptr i8, ptr %94, i64 -32
   %.not41.i69 = icmp eq ptr %95, null
   br i1 %.not41.i69, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit71", label %96
@@ -17583,7 +17583,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %105)
   %106 = getelementptr inbounds nuw i8, ptr %50, i64 152
   %107 = load ptr, ptr %106, align 8, !alias.scope !2103, !noalias !2106, !nonnull !13, !noundef !13
-  %108 = getelementptr inbounds { i8, [3 x i8] }, ptr %107, i64 %103
+  %108 = getelementptr inbounds [4 x i8], ptr %107, i64 %103
   %.sroa.01.0.copyload.i.i73 = load i32, ptr %108, align 1, !noalias !2110
   %.sroa.032.0.extract.trunc.i74 = trunc i32 %.sroa.01.0.copyload.i.i73 to i8
   %109 = add i8 %.sroa.032.0.extract.trunc.i74, -9
@@ -17612,7 +17612,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 117:                                              ; preds = %114
   %118 = getelementptr inbounds nuw i8, ptr %50, i64 128
   %119 = load ptr, ptr %118, align 8, !noalias !2106, !nonnull !13, !noundef !13
-  %120 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %119, i64 %116
+  %120 = getelementptr [32 x i8], ptr %119, i64 %116
   %121 = getelementptr i8, ptr %120, i64 -32
   %.not41.i80 = icmp eq ptr %121, null
   br i1 %.not41.i80, label %.critedge45.i77, label %122
@@ -17660,7 +17660,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %16 = phi i64 [ %.pre.i.i, %15 ], [ %12, %8 ]
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 152
   %18 = load ptr, ptr %17, align 8, !alias.scope !2114, !noalias !2111, !nonnull !13, !noundef !13
-  %19 = getelementptr inbounds { i8, [3 x i8] }, ptr %18, i64 %16
+  %19 = getelementptr inbounds [4 x i8], ptr %18, i64 %16
   store i32 0, ptr %19, align 1, !noalias !2111
   %20 = load i64, ptr %11, align 8, !alias.scope !2114, !noalias !2111, !noundef !13
   %21 = add i64 %20, 1
@@ -17709,7 +17709,7 @@ define hidden noalias noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..op
   %10 = phi i64 [ %.pre.i.i, %9 ], [ %6, %2 ]
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %12 = load ptr, ptr %11, align 8, !alias.scope !2120, !noalias !2117, !nonnull !13, !noundef !13
-  %13 = getelementptr inbounds { i8, [3 x i8] }, ptr %12, i64 %10
+  %13 = getelementptr inbounds [4 x i8], ptr %12, i64 %10
   store i32 4, ptr %13, align 1, !noalias !2117
   %14 = load i64, ptr %5, align 8, !alias.scope !2120, !noalias !2117, !noundef !13
   %15 = add i64 %14, 1
@@ -17756,7 +17756,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %20)
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 152
   %22 = load ptr, ptr %21, align 8, !alias.scope !2128, !noalias !2131, !nonnull !13, !noundef !13
-  %23 = getelementptr inbounds { i8, [3 x i8] }, ptr %22, i64 %18
+  %23 = getelementptr inbounds [4 x i8], ptr %22, i64 %18
   %.sroa.01.0.copyload.i.i = load i32, ptr %23, align 1, !noalias !2132
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %24 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -17775,7 +17775,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 30:                                               ; preds = %27
   %31 = getelementptr inbounds nuw i8, ptr %13, i64 128
   %32 = load ptr, ptr %31, align 8, !noalias !2131, !nonnull !13, !noundef !13
-  %33 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %32, i64 %29
+  %33 = getelementptr [32 x i8], ptr %32, i64 %29
   %34 = getelementptr i8, ptr %33, i64 -32
   %.not41.i = icmp eq ptr %34, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %35
@@ -17815,7 +17815,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %44)
   %45 = getelementptr inbounds nuw i8, ptr %13, i64 152
   %46 = load ptr, ptr %45, align 8, !alias.scope !2133, !noalias !2136, !nonnull !13, !noundef !13
-  %47 = getelementptr inbounds { i8, [3 x i8] }, ptr %46, i64 %42
+  %47 = getelementptr inbounds [4 x i8], ptr %46, i64 %42
   %.sroa.01.0.copyload.i.i39 = load i32, ptr %47, align 1, !noalias !2140
   %.sroa.032.0.extract.trunc.i40 = trunc i32 %.sroa.01.0.copyload.i.i39 to i8
   %48 = add i8 %.sroa.032.0.extract.trunc.i40, -9
@@ -17854,7 +17854,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 60:                                               ; preds = %.critedge.i
   %61 = getelementptr inbounds nuw i8, ptr %13, i64 128
   %62 = load ptr, ptr %61, align 8, !noalias !2136, !nonnull !13, !noundef !13
-  %63 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %62, i64 %59
+  %63 = getelementptr [32 x i8], ptr %62, i64 %59
   %64 = getelementptr i8, ptr %63, i64 -32
   %.not41.i47 = icmp eq ptr %64, null
   br i1 %.not41.i47, label %.critedge45.i43, label %65
@@ -17990,7 +17990,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %51)
   %52 = getelementptr inbounds nuw i8, ptr %44, i64 152
   %53 = load ptr, ptr %52, align 8, !alias.scope !2152, !noalias !2155, !nonnull !13, !noundef !13
-  %54 = getelementptr inbounds { i8, [3 x i8] }, ptr %53, i64 %49
+  %54 = getelementptr inbounds [4 x i8], ptr %53, i64 %49
   %.sroa.01.0.copyload.i.i = load i32, ptr %54, align 1, !noalias !2156
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %55 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -18009,7 +18009,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 61:                                               ; preds = %58
   %62 = getelementptr inbounds nuw i8, ptr %44, i64 128
   %63 = load ptr, ptr %62, align 8, !noalias !2155, !nonnull !13, !noundef !13
-  %64 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %63, i64 %60
+  %64 = getelementptr [32 x i8], ptr %63, i64 %60
   %65 = getelementptr i8, ptr %64, i64 -32
   %.not41.i = icmp eq ptr %65, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %66
@@ -18059,7 +18059,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %79 = phi i64 [ %.pre.i.i, %78 ], [ %75, %73 ]
   %80 = getelementptr inbounds nuw i8, ptr %44, i64 152
   %81 = load ptr, ptr %80, align 8, !alias.scope !2157, !noalias !2160, !nonnull !13, !noundef !13
-  %82 = getelementptr inbounds { i8, [3 x i8] }, ptr %81, i64 %79
+  %82 = getelementptr inbounds [4 x i8], ptr %81, i64 %79
   store i32 0, ptr %82, align 1, !noalias !2160
   %83 = load i64, ptr %45, align 8, !alias.scope !2157, !noalias !2160, !noundef !13
   %84 = add i64 %83, 1
@@ -18187,7 +18187,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %51)
   %52 = getelementptr inbounds nuw i8, ptr %44, i64 152
   %53 = load ptr, ptr %52, align 8, !alias.scope !2174, !noalias !2177, !nonnull !13, !noundef !13
-  %54 = getelementptr inbounds { i8, [3 x i8] }, ptr %53, i64 %49
+  %54 = getelementptr inbounds [4 x i8], ptr %53, i64 %49
   %.sroa.01.0.copyload.i.i = load i32, ptr %54, align 1, !noalias !2178
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %55 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -18206,7 +18206,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 61:                                               ; preds = %58
   %62 = getelementptr inbounds nuw i8, ptr %44, i64 128
   %63 = load ptr, ptr %62, align 8, !noalias !2177, !nonnull !13, !noundef !13
-  %64 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %63, i64 %60
+  %64 = getelementptr [32 x i8], ptr %63, i64 %60
   %65 = getelementptr i8, ptr %64, i64 -32
   %.not41.i = icmp eq ptr %65, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %66
@@ -18256,7 +18256,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %79 = phi i64 [ %.pre.i.i, %78 ], [ %75, %73 ]
   %80 = getelementptr inbounds nuw i8, ptr %44, i64 152
   %81 = load ptr, ptr %80, align 8, !alias.scope !2179, !noalias !2182, !nonnull !13, !noundef !13
-  %82 = getelementptr inbounds { i8, [3 x i8] }, ptr %81, i64 %79
+  %82 = getelementptr inbounds [4 x i8], ptr %81, i64 %79
   store i32 0, ptr %82, align 1, !noalias !2182
   %83 = load i64, ptr %45, align 8, !alias.scope !2179, !noalias !2182, !noundef !13
   %84 = add i64 %83, 1
@@ -18380,7 +18380,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %19)
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 152
   %21 = load ptr, ptr %20, align 8, !alias.scope !2196, !noalias !2199, !nonnull !13, !noundef !13
-  %22 = getelementptr inbounds { i8, [3 x i8] }, ptr %21, i64 %17
+  %22 = getelementptr inbounds [4 x i8], ptr %21, i64 %17
   %.sroa.01.0.copyload.i.i = load i32, ptr %22, align 1, !noalias !2200
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %23 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -18409,7 +18409,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 33:                                               ; preds = %.critedge.i
   %34 = getelementptr inbounds nuw i8, ptr %12, i64 128
   %35 = load ptr, ptr %34, align 8, !noalias !2199, !nonnull !13, !noundef !13
-  %36 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %35, i64 %32
+  %36 = getelementptr [32 x i8], ptr %35, i64 %32
   %37 = getelementptr i8, ptr %36, i64 -32
   %.not41.i = icmp eq ptr %37, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %38
@@ -18449,7 +18449,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %47 = phi i64 [ %.pre.i.i, %46 ], [ %43, %41 ]
   %48 = getelementptr inbounds nuw i8, ptr %12, i64 152
   %49 = load ptr, ptr %48, align 8, !alias.scope !2201, !noalias !2204, !nonnull !13, !noundef !13
-  %50 = getelementptr inbounds { i8, [3 x i8] }, ptr %49, i64 %47
+  %50 = getelementptr inbounds [4 x i8], ptr %49, i64 %47
   store i32 0, ptr %50, align 1, !noalias !2204
   %51 = load i64, ptr %13, align 8, !alias.scope !2201, !noalias !2204, !noundef !13
   %52 = add i64 %51, 1
@@ -18500,7 +18500,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %20)
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 152
   %22 = load ptr, ptr %21, align 8, !alias.scope !2212, !noalias !2215, !nonnull !13, !noundef !13
-  %23 = getelementptr inbounds { i8, [3 x i8] }, ptr %22, i64 %18
+  %23 = getelementptr inbounds [4 x i8], ptr %22, i64 %18
   %.sroa.01.0.copyload.i.i = load i32, ptr %23, align 1, !noalias !2216
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %24 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -18519,7 +18519,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 30:                                               ; preds = %27
   %31 = getelementptr inbounds nuw i8, ptr %13, i64 128
   %32 = load ptr, ptr %31, align 8, !noalias !2215, !nonnull !13, !noundef !13
-  %33 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %32, i64 %29
+  %33 = getelementptr [32 x i8], ptr %32, i64 %29
   %34 = getelementptr i8, ptr %33, i64 -32
   %.not41.i = icmp eq ptr %34, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %35
@@ -18559,7 +18559,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %44)
   %45 = getelementptr inbounds nuw i8, ptr %13, i64 152
   %46 = load ptr, ptr %45, align 8, !alias.scope !2217, !noalias !2220, !nonnull !13, !noundef !13
-  %47 = getelementptr inbounds { i8, [3 x i8] }, ptr %46, i64 %42
+  %47 = getelementptr inbounds [4 x i8], ptr %46, i64 %42
   %.sroa.01.0.copyload.i.i39 = load i32, ptr %47, align 1, !noalias !2224
   %.sroa.032.0.extract.trunc.i40 = trunc i32 %.sroa.01.0.copyload.i.i39 to i8
   %48 = add i8 %.sroa.032.0.extract.trunc.i40, -9
@@ -18598,7 +18598,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 60:                                               ; preds = %.critedge.i
   %61 = getelementptr inbounds nuw i8, ptr %13, i64 128
   %62 = load ptr, ptr %61, align 8, !noalias !2220, !nonnull !13, !noundef !13
-  %63 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %62, i64 %59
+  %63 = getelementptr [32 x i8], ptr %62, i64 %59
   %64 = getelementptr i8, ptr %63, i64 -32
   %.not41.i46 = icmp eq ptr %64, null
   br i1 %.not41.i46, label %.critedge45.i43, label %65
@@ -18656,7 +18656,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %19)
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 152
   %21 = load ptr, ptr %20, align 8, !alias.scope !2230, !noalias !2233, !nonnull !13, !noundef !13
-  %22 = getelementptr inbounds { i8, [3 x i8] }, ptr %21, i64 %17
+  %22 = getelementptr inbounds [4 x i8], ptr %21, i64 %17
   %.sroa.01.0.copyload.i.i = load i32, ptr %22, align 1, !noalias !2234
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %23 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -18685,7 +18685,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 33:                                               ; preds = %.critedge.i
   %34 = getelementptr inbounds nuw i8, ptr %12, i64 128
   %35 = load ptr, ptr %34, align 8, !noalias !2233, !nonnull !13, !noundef !13
-  %36 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %35, i64 %32
+  %36 = getelementptr [32 x i8], ptr %35, i64 %32
   %37 = getelementptr i8, ptr %36, i64 -32
   %.not41.i = icmp eq ptr %37, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %38
@@ -18725,7 +18725,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %47 = phi i64 [ %.pre.i.i, %46 ], [ %43, %41 ]
   %48 = getelementptr inbounds nuw i8, ptr %12, i64 152
   %49 = load ptr, ptr %48, align 8, !alias.scope !2235, !noalias !2238, !nonnull !13, !noundef !13
-  %50 = getelementptr inbounds { i8, [3 x i8] }, ptr %49, i64 %47
+  %50 = getelementptr inbounds [4 x i8], ptr %49, i64 %47
   store i32 1, ptr %50, align 1, !noalias !2238
   %51 = load i64, ptr %13, align 8, !alias.scope !2235, !noalias !2238, !noundef !13
   %52 = add i64 %51, 1
@@ -18776,7 +18776,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %20)
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 152
   %22 = load ptr, ptr %21, align 8, !alias.scope !2246, !noalias !2249, !nonnull !13, !noundef !13
-  %23 = getelementptr inbounds { i8, [3 x i8] }, ptr %22, i64 %18
+  %23 = getelementptr inbounds [4 x i8], ptr %22, i64 %18
   %.sroa.01.0.copyload.i.i = load i32, ptr %23, align 1, !noalias !2250
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %24 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -18795,7 +18795,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 30:                                               ; preds = %27
   %31 = getelementptr inbounds nuw i8, ptr %13, i64 128
   %32 = load ptr, ptr %31, align 8, !noalias !2249, !nonnull !13, !noundef !13
-  %33 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %32, i64 %29
+  %33 = getelementptr [32 x i8], ptr %32, i64 %29
   %34 = getelementptr i8, ptr %33, i64 -32
   %.not41.i = icmp eq ptr %34, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %35
@@ -18835,7 +18835,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %44)
   %45 = getelementptr inbounds nuw i8, ptr %13, i64 152
   %46 = load ptr, ptr %45, align 8, !alias.scope !2251, !noalias !2254, !nonnull !13, !noundef !13
-  %47 = getelementptr inbounds { i8, [3 x i8] }, ptr %46, i64 %42
+  %47 = getelementptr inbounds [4 x i8], ptr %46, i64 %42
   %.sroa.01.0.copyload.i.i39 = load i32, ptr %47, align 1, !noalias !2258
   %.sroa.032.0.extract.trunc.i40 = trunc i32 %.sroa.01.0.copyload.i.i39 to i8
   %48 = add i8 %.sroa.032.0.extract.trunc.i40, -9
@@ -18874,7 +18874,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 60:                                               ; preds = %.critedge.i
   %61 = getelementptr inbounds nuw i8, ptr %13, i64 128
   %62 = load ptr, ptr %61, align 8, !noalias !2254, !nonnull !13, !noundef !13
-  %63 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %62, i64 %59
+  %63 = getelementptr [32 x i8], ptr %62, i64 %59
   %64 = getelementptr i8, ptr %63, i64 -32
   %.not41.i47 = icmp eq ptr %64, null
   br i1 %.not41.i47, label %.critedge45.i43, label %65
@@ -18933,7 +18933,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %20)
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 152
   %22 = load ptr, ptr %21, align 8, !alias.scope !2264, !noalias !2267, !nonnull !13, !noundef !13
-  %23 = getelementptr inbounds { i8, [3 x i8] }, ptr %22, i64 %18
+  %23 = getelementptr inbounds [4 x i8], ptr %22, i64 %18
   %.sroa.01.0.copyload.i.i = load i32, ptr %23, align 1, !noalias !2268
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %24 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -18952,7 +18952,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 30:                                               ; preds = %27
   %31 = getelementptr inbounds nuw i8, ptr %13, i64 128
   %32 = load ptr, ptr %31, align 8, !noalias !2267, !nonnull !13, !noundef !13
-  %33 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %32, i64 %29
+  %33 = getelementptr [32 x i8], ptr %32, i64 %29
   %34 = getelementptr i8, ptr %33, i64 -32
   %.not41.i = icmp eq ptr %34, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %35
@@ -18992,7 +18992,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %44)
   %45 = getelementptr inbounds nuw i8, ptr %13, i64 152
   %46 = load ptr, ptr %45, align 8, !alias.scope !2269, !noalias !2272, !nonnull !13, !noundef !13
-  %47 = getelementptr inbounds { i8, [3 x i8] }, ptr %46, i64 %42
+  %47 = getelementptr inbounds [4 x i8], ptr %46, i64 %42
   %.sroa.01.0.copyload.i.i39 = load i32, ptr %47, align 1, !noalias !2276
   %.sroa.032.0.extract.trunc.i40 = trunc i32 %.sroa.01.0.copyload.i.i39 to i8
   %48 = add i8 %.sroa.032.0.extract.trunc.i40, -9
@@ -19031,7 +19031,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 60:                                               ; preds = %.critedge.i
   %61 = getelementptr inbounds nuw i8, ptr %13, i64 128
   %62 = load ptr, ptr %61, align 8, !noalias !2272, !nonnull !13, !noundef !13
-  %63 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %62, i64 %59
+  %63 = getelementptr [32 x i8], ptr %62, i64 %59
   %64 = getelementptr i8, ptr %63, i64 -32
   %.not41.i47 = icmp eq ptr %64, null
   br i1 %.not41.i47, label %.critedge45.i43, label %65
@@ -19140,7 +19140,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %38)
   %39 = getelementptr inbounds nuw i8, ptr %31, i64 152
   %40 = load ptr, ptr %39, align 8, !alias.scope !2294, !noalias !2297, !nonnull !13, !noundef !13
-  %41 = getelementptr inbounds { i8, [3 x i8] }, ptr %40, i64 %36
+  %41 = getelementptr inbounds [4 x i8], ptr %40, i64 %36
   %.sroa.01.0.copyload.i.i = load i32, ptr %41, align 1, !noalias !2298
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %42 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -19159,7 +19159,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 47:                                               ; preds = %.critedge.i
   %48 = getelementptr inbounds nuw i8, ptr %31, i64 128
   %49 = load ptr, ptr %48, align 8, !noalias !2297, !nonnull !13, !noundef !13
-  %50 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %49, i64 %46
+  %50 = getelementptr [32 x i8], ptr %49, i64 %46
   %51 = getelementptr i8, ptr %50, i64 -32
   %.not41.i = icmp eq ptr %51, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %52
@@ -19221,7 +19221,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %68)
   %69 = getelementptr inbounds nuw i8, ptr %31, i64 152
   %70 = load ptr, ptr %69, align 8, !alias.scope !2305, !noalias !2308, !nonnull !13, !noundef !13
-  %71 = getelementptr inbounds { i8, [3 x i8] }, ptr %70, i64 %66
+  %71 = getelementptr inbounds [4 x i8], ptr %70, i64 %66
   %.sroa.01.0.copyload.i.i73 = load i32, ptr %71, align 1, !noalias !2312
   %.sroa.032.0.extract.trunc.i74 = trunc i32 %.sroa.01.0.copyload.i.i73 to i8
   %72 = add i8 %.sroa.032.0.extract.trunc.i74, -9
@@ -19239,7 +19239,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 77:                                               ; preds = %.critedge.i82
   %78 = getelementptr inbounds nuw i8, ptr %31, i64 128
   %79 = load ptr, ptr %78, align 8, !noalias !2308, !nonnull !13, !noundef !13
-  %80 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %79, i64 %76
+  %80 = getelementptr [32 x i8], ptr %79, i64 %76
   %81 = getelementptr i8, ptr %80, i64 -32
   %.not41.i84 = icmp eq ptr %81, null
   br i1 %.not41.i84, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit86", label %82
@@ -19325,7 +19325,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %22)
   %23 = getelementptr inbounds nuw i8, ptr %15, i64 152
   %24 = load ptr, ptr %23, align 8, !alias.scope !2321, !noalias !2324, !nonnull !13, !noundef !13
-  %25 = getelementptr inbounds { i8, [3 x i8] }, ptr %24, i64 %20
+  %25 = getelementptr inbounds [4 x i8], ptr %24, i64 %20
   %.sroa.01.0.copyload.i.i = load i32, ptr %25, align 1, !noalias !2325
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %26 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -19343,7 +19343,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 31:                                               ; preds = %.critedge.i
   %32 = getelementptr inbounds nuw i8, ptr %15, i64 128
   %33 = load ptr, ptr %32, align 8, !noalias !2324, !nonnull !13, !noundef !13
-  %34 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %33, i64 %30
+  %34 = getelementptr [32 x i8], ptr %33, i64 %30
   %35 = getelementptr i8, ptr %34, i64 -32
   %.not41.i = icmp eq ptr %35, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %36
@@ -19405,7 +19405,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %52)
   %53 = getelementptr inbounds nuw i8, ptr %15, i64 152
   %54 = load ptr, ptr %53, align 8, !alias.scope !2332, !noalias !2335, !nonnull !13, !noundef !13
-  %55 = getelementptr inbounds { i8, [3 x i8] }, ptr %54, i64 %50
+  %55 = getelementptr inbounds [4 x i8], ptr %54, i64 %50
   %.sroa.01.0.copyload.i.i53 = load i32, ptr %55, align 1, !noalias !2339
   %.sroa.032.0.extract.trunc.i54 = trunc i32 %.sroa.01.0.copyload.i.i53 to i8
   %56 = add i8 %.sroa.032.0.extract.trunc.i54, -9
@@ -19424,7 +19424,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 62:                                               ; preds = %59
   %63 = getelementptr inbounds nuw i8, ptr %15, i64 128
   %64 = load ptr, ptr %63, align 8, !noalias !2335, !nonnull !13, !noundef !13
-  %65 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %64, i64 %61
+  %65 = getelementptr [32 x i8], ptr %64, i64 %61
   %66 = getelementptr i8, ptr %65, i64 -32
   %.not41.i63 = icmp eq ptr %66, null
   br i1 %.not41.i63, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit65", label %67
@@ -19464,7 +19464,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %76)
   %77 = getelementptr inbounds nuw i8, ptr %15, i64 152
   %78 = load ptr, ptr %77, align 8, !alias.scope !2340, !noalias !2343, !nonnull !13, !noundef !13
-  %79 = getelementptr inbounds { i8, [3 x i8] }, ptr %78, i64 %74
+  %79 = getelementptr inbounds [4 x i8], ptr %78, i64 %74
   %.sroa.01.0.copyload.i.i67 = load i32, ptr %79, align 1, !noalias !2347
   %.sroa.032.0.extract.trunc.i68 = trunc i32 %.sroa.01.0.copyload.i.i67 to i8
   %80 = add i8 %.sroa.032.0.extract.trunc.i68, -9
@@ -19492,7 +19492,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 87:                                               ; preds = %.critedge.i76
   %88 = getelementptr inbounds nuw i8, ptr %15, i64 128
   %89 = load ptr, ptr %88, align 8, !noalias !2343, !nonnull !13, !noundef !13
-  %90 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %89, i64 %86
+  %90 = getelementptr [32 x i8], ptr %89, i64 %86
   %91 = getelementptr i8, ptr %90, i64 -32
   %.not41.i78 = icmp eq ptr %91, null
   br i1 %.not41.i78, label %.critedge45.i72, label %92
@@ -19590,7 +19590,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %38)
   %39 = getelementptr inbounds nuw i8, ptr %31, i64 152
   %40 = load ptr, ptr %39, align 8, !alias.scope !2356, !noalias !2359, !nonnull !13, !noundef !13
-  %41 = getelementptr inbounds { i8, [3 x i8] }, ptr %40, i64 %36
+  %41 = getelementptr inbounds [4 x i8], ptr %40, i64 %36
   %.sroa.01.0.copyload.i.i = load i32, ptr %41, align 1, !noalias !2360
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %42 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -19608,7 +19608,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 47:                                               ; preds = %.critedge.i
   %48 = getelementptr inbounds nuw i8, ptr %31, i64 128
   %49 = load ptr, ptr %48, align 8, !noalias !2359, !nonnull !13, !noundef !13
-  %50 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %49, i64 %46
+  %50 = getelementptr [32 x i8], ptr %49, i64 %46
   %51 = getelementptr i8, ptr %50, i64 -32
   %.not41.i = icmp eq ptr %51, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %52
@@ -19670,7 +19670,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %68 = phi i64 [ %.pre.i.i, %67 ], [ %64, %62 ]
   %69 = getelementptr inbounds nuw i8, ptr %31, i64 152
   %70 = load ptr, ptr %69, align 8, !alias.scope !2367, !noalias !2370, !nonnull !13, !noundef !13
-  %71 = getelementptr inbounds { i8, [3 x i8] }, ptr %70, i64 %68
+  %71 = getelementptr inbounds [4 x i8], ptr %70, i64 %68
   store i32 %.sroa.4.1.insert.ext, ptr %71, align 1, !noalias !2370
   %72 = load i64, ptr %32, align 8, !alias.scope !2367, !noalias !2370, !noundef !13
   %73 = add i64 %72, 1
@@ -19799,7 +19799,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %55)
   %56 = getelementptr inbounds nuw i8, ptr %48, i64 152
   %57 = load ptr, ptr %56, align 8, !alias.scope !2393, !noalias !2396, !nonnull !13, !noundef !13
-  %58 = getelementptr inbounds { i8, [3 x i8] }, ptr %57, i64 %53
+  %58 = getelementptr inbounds [4 x i8], ptr %57, i64 %53
   %.sroa.01.0.copyload.i.i = load i32, ptr %58, align 1, !noalias !2397
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %59 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -19818,7 +19818,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 65:                                               ; preds = %62
   %66 = getelementptr inbounds nuw i8, ptr %48, i64 128
   %67 = load ptr, ptr %66, align 8, !noalias !2396, !nonnull !13, !noundef !13
-  %68 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %67, i64 %64
+  %68 = getelementptr [32 x i8], ptr %67, i64 %64
   %69 = getelementptr i8, ptr %68, i64 -32
   %.not41.i = icmp eq ptr %69, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %70
@@ -19862,7 +19862,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %80)
   %81 = getelementptr inbounds nuw i8, ptr %48, i64 152
   %82 = load ptr, ptr %81, align 8, !alias.scope !2398, !noalias !2401, !nonnull !13, !noundef !13
-  %83 = getelementptr inbounds { i8, [3 x i8] }, ptr %82, i64 %78
+  %83 = getelementptr inbounds [4 x i8], ptr %82, i64 %78
   %.sroa.01.0.copyload.i.i58 = load i32, ptr %83, align 1, !noalias !2405
   %.sroa.032.0.extract.trunc.i59 = trunc i32 %.sroa.01.0.copyload.i.i58 to i8
   %84 = add i8 %.sroa.032.0.extract.trunc.i59, -9
@@ -19881,7 +19881,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 90:                                               ; preds = %87
   %91 = getelementptr inbounds nuw i8, ptr %48, i64 128
   %92 = load ptr, ptr %91, align 8, !noalias !2401, !nonnull !13, !noundef !13
-  %93 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %92, i64 %89
+  %93 = getelementptr [32 x i8], ptr %92, i64 %89
   %94 = getelementptr i8, ptr %93, i64 -32
   %.not41.i65 = icmp eq ptr %94, null
   br i1 %.not41.i65, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit67", label %95
@@ -19921,7 +19921,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %104)
   %105 = getelementptr inbounds nuw i8, ptr %48, i64 152
   %106 = load ptr, ptr %105, align 8, !alias.scope !2406, !noalias !2409, !nonnull !13, !noundef !13
-  %107 = getelementptr inbounds { i8, [3 x i8] }, ptr %106, i64 %102
+  %107 = getelementptr inbounds [4 x i8], ptr %106, i64 %102
   %.sroa.01.0.copyload.i.i69 = load i32, ptr %107, align 1, !noalias !2413
   %.sroa.032.0.extract.trunc.i70 = trunc i32 %.sroa.01.0.copyload.i.i69 to i8
   %108 = add i8 %.sroa.032.0.extract.trunc.i70, -9
@@ -19949,7 +19949,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 115:                                              ; preds = %.critedge.i
   %116 = getelementptr inbounds nuw i8, ptr %48, i64 128
   %117 = load ptr, ptr %116, align 8, !noalias !2409, !nonnull !13, !noundef !13
-  %118 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %117, i64 %114
+  %118 = getelementptr [32 x i8], ptr %117, i64 %114
   %119 = getelementptr i8, ptr %118, i64 -32
   %.not41.i76 = icmp eq ptr %119, null
   br i1 %.not41.i76, label %.critedge45.i73, label %120
@@ -20042,7 +20042,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %37 = phi i64 [ %.pre.i.i, %36 ], [ %33, %29 ]
   %38 = getelementptr inbounds nuw i8, ptr %30, i64 152
   %39 = load ptr, ptr %38, align 8, !alias.scope !2420, !noalias !2417, !nonnull !13, !noundef !13
-  %40 = getelementptr inbounds { i8, [3 x i8] }, ptr %39, i64 %37
+  %40 = getelementptr inbounds [4 x i8], ptr %39, i64 %37
   store i32 %.sroa.4.1.insert.ext, ptr %40, align 1, !noalias !2417
   %41 = load i64, ptr %32, align 8, !alias.scope !2420, !noalias !2417, !noundef !13
   %42 = add i64 %41, 1
@@ -20103,7 +20103,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %14 = phi i64 [ %.pre.i.i, %13 ], [ %10, %6 ]
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %16 = load ptr, ptr %15, align 8, !alias.scope !2432, !noalias !2429, !nonnull !13, !noundef !13
-  %17 = getelementptr inbounds { i8, [3 x i8] }, ptr %16, i64 %14
+  %17 = getelementptr inbounds [4 x i8], ptr %16, i64 %14
   store i32 0, ptr %17, align 1, !noalias !2429
   %18 = load i64, ptr %9, align 8, !alias.scope !2432, !noalias !2429, !noundef !13
   %19 = add i64 %18, 1
@@ -20179,7 +20179,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %7 = load ptr, ptr %6, align 8, !noalias !2444, !nonnull !13, !noundef !13
-  %8 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %7, i64 %4
+  %8 = getelementptr [32 x i8], ptr %7, i64 %4
   %9 = getelementptr i8, ptr %8, i64 -32
   %10 = icmp eq ptr %9, null
   br i1 %10, label %.thread.i, label %14
@@ -20246,7 +20246,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %19)
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 152
   %21 = load ptr, ptr %20, align 8, !alias.scope !2455, !noalias !2458, !nonnull !13, !noundef !13
-  %22 = getelementptr inbounds { i8, [3 x i8] }, ptr %21, i64 %17
+  %22 = getelementptr inbounds [4 x i8], ptr %21, i64 %17
   %.sroa.01.0.copyload.i.i = load i32, ptr %22, align 1, !noalias !2459
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %23 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -20275,7 +20275,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 33:                                               ; preds = %.critedge.i
   %34 = getelementptr inbounds nuw i8, ptr %12, i64 128
   %35 = load ptr, ptr %34, align 8, !noalias !2458, !nonnull !13, !noundef !13
-  %36 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %35, i64 %32
+  %36 = getelementptr [32 x i8], ptr %35, i64 %32
   %37 = getelementptr i8, ptr %36, i64 -32
   %.not41.i = icmp eq ptr %37, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %38
@@ -20315,7 +20315,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %47 = phi i64 [ %.pre.i.i, %46 ], [ %43, %41 ]
   %48 = getelementptr inbounds nuw i8, ptr %12, i64 152
   %49 = load ptr, ptr %48, align 8, !alias.scope !2460, !noalias !2463, !nonnull !13, !noundef !13
-  %50 = getelementptr inbounds { i8, [3 x i8] }, ptr %49, i64 %47
+  %50 = getelementptr inbounds [4 x i8], ptr %49, i64 %47
   store i32 0, ptr %50, align 1, !noalias !2463
   %51 = load i64, ptr %13, align 8, !alias.scope !2460, !noalias !2463, !noundef !13
   %52 = add i64 %51, 1
@@ -20365,7 +20365,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %19)
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 152
   %21 = load ptr, ptr %20, align 8, !alias.scope !2471, !noalias !2474, !nonnull !13, !noundef !13
-  %22 = getelementptr inbounds { i8, [3 x i8] }, ptr %21, i64 %17
+  %22 = getelementptr inbounds [4 x i8], ptr %21, i64 %17
   %.sroa.01.0.copyload.i.i = load i32, ptr %22, align 1, !noalias !2475
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %23 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -20394,7 +20394,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 33:                                               ; preds = %.critedge.i
   %34 = getelementptr inbounds nuw i8, ptr %12, i64 128
   %35 = load ptr, ptr %34, align 8, !noalias !2474, !nonnull !13, !noundef !13
-  %36 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %35, i64 %32
+  %36 = getelementptr [32 x i8], ptr %35, i64 %32
   %37 = getelementptr i8, ptr %36, i64 -32
   %.not41.i = icmp eq ptr %37, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %38
@@ -20434,7 +20434,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %47 = phi i64 [ %.pre.i.i, %46 ], [ %43, %41 ]
   %48 = getelementptr inbounds nuw i8, ptr %12, i64 152
   %49 = load ptr, ptr %48, align 8, !alias.scope !2476, !noalias !2479, !nonnull !13, !noundef !13
-  %50 = getelementptr inbounds { i8, [3 x i8] }, ptr %49, i64 %47
+  %50 = getelementptr inbounds [4 x i8], ptr %49, i64 %47
   store i32 1, ptr %50, align 1, !noalias !2479
   %51 = load i64, ptr %13, align 8, !alias.scope !2476, !noalias !2479, !noundef !13
   %52 = add i64 %51, 1
@@ -20484,7 +20484,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %19)
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 152
   %21 = load ptr, ptr %20, align 8, !alias.scope !2487, !noalias !2490, !nonnull !13, !noundef !13
-  %22 = getelementptr inbounds { i8, [3 x i8] }, ptr %21, i64 %17
+  %22 = getelementptr inbounds [4 x i8], ptr %21, i64 %17
   %.sroa.01.0.copyload.i.i = load i32, ptr %22, align 1, !noalias !2491
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %23 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -20513,7 +20513,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 33:                                               ; preds = %.critedge.i
   %34 = getelementptr inbounds nuw i8, ptr %12, i64 128
   %35 = load ptr, ptr %34, align 8, !noalias !2490, !nonnull !13, !noundef !13
-  %36 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %35, i64 %32
+  %36 = getelementptr [32 x i8], ptr %35, i64 %32
   %37 = getelementptr i8, ptr %36, i64 -32
   %.not41.i = icmp eq ptr %37, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %38
@@ -20553,7 +20553,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %47 = phi i64 [ %.pre.i.i, %46 ], [ %43, %41 ]
   %48 = getelementptr inbounds nuw i8, ptr %12, i64 152
   %49 = load ptr, ptr %48, align 8, !alias.scope !2492, !noalias !2495, !nonnull !13, !noundef !13
-  %50 = getelementptr inbounds { i8, [3 x i8] }, ptr %49, i64 %47
+  %50 = getelementptr inbounds [4 x i8], ptr %49, i64 %47
   store i32 1, ptr %50, align 1, !noalias !2495
   %51 = load i64, ptr %13, align 8, !alias.scope !2492, !noalias !2495, !noundef !13
   %52 = add i64 %51, 1
@@ -20638,7 +20638,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %33 = phi i64 [ %.pre.i.i, %32 ], [ %29, %25 ]
   %34 = getelementptr inbounds nuw i8, ptr %26, i64 152
   %35 = load ptr, ptr %34, align 8, !alias.scope !2501, !noalias !2498, !nonnull !13, !noundef !13
-  %36 = getelementptr inbounds { i8, [3 x i8] }, ptr %35, i64 %33
+  %36 = getelementptr inbounds [4 x i8], ptr %35, i64 %33
   store i32 0, ptr %36, align 1, !noalias !2498
   %37 = load i64, ptr %28, align 8, !alias.scope !2501, !noalias !2498, !noundef !13
   %38 = add i64 %37, 1
@@ -20723,7 +20723,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %33 = phi i64 [ %.pre.i.i, %32 ], [ %29, %25 ]
   %34 = getelementptr inbounds nuw i8, ptr %26, i64 152
   %35 = load ptr, ptr %34, align 8, !alias.scope !2507, !noalias !2504, !nonnull !13, !noundef !13
-  %36 = getelementptr inbounds { i8, [3 x i8] }, ptr %35, i64 %33
+  %36 = getelementptr inbounds [4 x i8], ptr %35, i64 %33
   store i32 0, ptr %36, align 1, !noalias !2504
   %37 = load i64, ptr %28, align 8, !alias.scope !2507, !noalias !2504, !noundef !13
   %38 = add i64 %37, 1
@@ -20786,7 +20786,7 @@ _ZN10wasmparser9resources19WasmModuleResources16check_value_type17h1a4e924215582
   call void @llvm.assume(i1 %30)
   %31 = getelementptr inbounds nuw i8, ptr %9, i64 152
   %32 = load ptr, ptr %31, align 8, !alias.scope !2519, !noalias !2522, !nonnull !13, !noundef !13
-  %33 = getelementptr inbounds { i8, [3 x i8] }, ptr %32, i64 %28
+  %33 = getelementptr inbounds [4 x i8], ptr %32, i64 %28
   %.sroa.01.0.copyload.i.i = load i32, ptr %33, align 1, !noalias !2526
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %34 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -20805,7 +20805,7 @@ _ZN10wasmparser9resources19WasmModuleResources16check_value_type17h1a4e924215582
 40:                                               ; preds = %37
   %41 = getelementptr inbounds nuw i8, ptr %9, i64 128
   %42 = load ptr, ptr %41, align 8, !noalias !2522, !nonnull !13, !noundef !13
-  %43 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %42, i64 %39
+  %43 = getelementptr [32 x i8], ptr %42, i64 %39
   %44 = getelementptr i8, ptr %43, i64 -32
   %.not41.i = icmp eq ptr %44, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %45
@@ -20846,7 +20846,7 @@ _ZN10wasmparser9resources19WasmModuleResources16check_value_type17h1a4e924215582
   call void @llvm.assume(i1 %54)
   %55 = getelementptr inbounds nuw i8, ptr %9, i64 152
   %56 = load ptr, ptr %55, align 8, !alias.scope !2527, !noalias !2530, !nonnull !13, !noundef !13
-  %57 = getelementptr inbounds { i8, [3 x i8] }, ptr %56, i64 %52
+  %57 = getelementptr inbounds [4 x i8], ptr %56, i64 %52
   %.sroa.01.0.copyload.i.i56 = load i32, ptr %57, align 1, !noalias !2534
   %.sroa.032.0.extract.trunc.i57 = trunc i32 %.sroa.01.0.copyload.i.i56 to i8
   %58 = add i8 %.sroa.032.0.extract.trunc.i57, -9
@@ -20875,7 +20875,7 @@ _ZN10wasmparser9resources19WasmModuleResources16check_value_type17h1a4e924215582
 68:                                               ; preds = %.critedge.i
   %69 = getelementptr inbounds nuw i8, ptr %9, i64 128
   %70 = load ptr, ptr %69, align 8, !noalias !2530, !nonnull !13, !noundef !13
-  %71 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %70, i64 %67
+  %71 = getelementptr [32 x i8], ptr %70, i64 %67
   %72 = getelementptr i8, ptr %71, i64 -32
   %.not41.i63 = icmp eq ptr %72, null
   br i1 %.not41.i63, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit65", label %73
@@ -20916,7 +20916,7 @@ _ZN10wasmparser9resources19WasmModuleResources16check_value_type17h1a4e924215582
   call void @llvm.assume(i1 %82)
   %83 = getelementptr inbounds nuw i8, ptr %9, i64 152
   %84 = load ptr, ptr %83, align 8, !alias.scope !2535, !noalias !2538, !nonnull !13, !noundef !13
-  %85 = getelementptr inbounds { i8, [3 x i8] }, ptr %84, i64 %80
+  %85 = getelementptr inbounds [4 x i8], ptr %84, i64 %80
   %.sroa.01.0.copyload.i.i67 = load i32, ptr %85, align 1, !noalias !2542
   %.sroa.032.0.extract.trunc.i68 = trunc i32 %.sroa.01.0.copyload.i.i67 to i8
   %86 = add i8 %.sroa.032.0.extract.trunc.i68, -9
@@ -20945,7 +20945,7 @@ _ZN10wasmparser9resources19WasmModuleResources16check_value_type17h1a4e924215582
 96:                                               ; preds = %.critedge.i76
   %97 = getelementptr inbounds nuw i8, ptr %9, i64 128
   %98 = load ptr, ptr %97, align 8, !noalias !2538, !nonnull !13, !noundef !13
-  %99 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %98, i64 %95
+  %99 = getelementptr [32 x i8], ptr %98, i64 %95
   %100 = getelementptr i8, ptr %99, i64 -32
   %.not41.i78 = icmp eq ptr %100, null
   br i1 %.not41.i78, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit80", label %101
@@ -21043,7 +21043,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %14)
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %16 = load ptr, ptr %15, align 8, !alias.scope !2548, !noalias !2551, !nonnull !13, !noundef !13
-  %17 = getelementptr inbounds { i8, [3 x i8] }, ptr %16, i64 %12
+  %17 = getelementptr inbounds [4 x i8], ptr %16, i64 %12
   %.sroa.01.0.copyload.i.i = load i32, ptr %17, align 1, !noalias !2552
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %18 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -21062,7 +21062,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 24:                                               ; preds = %21
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 128
   %26 = load ptr, ptr %25, align 8, !noalias !2551, !nonnull !13, !noundef !13
-  %27 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %26, i64 %23
+  %27 = getelementptr [32 x i8], ptr %26, i64 %23
   %28 = getelementptr i8, ptr %27, i64 -32
   %.not41.i = icmp eq ptr %28, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %29
@@ -21102,7 +21102,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %38)
   %39 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %40 = load ptr, ptr %39, align 8, !alias.scope !2553, !noalias !2556, !nonnull !13, !noundef !13
-  %41 = getelementptr inbounds { i8, [3 x i8] }, ptr %40, i64 %36
+  %41 = getelementptr inbounds [4 x i8], ptr %40, i64 %36
   %.sroa.01.0.copyload.i.i55 = load i32, ptr %41, align 1, !noalias !2560
   %.sroa.032.0.extract.trunc.i56 = trunc i32 %.sroa.01.0.copyload.i.i55 to i8
   %42 = add i8 %.sroa.032.0.extract.trunc.i56, -9
@@ -21121,7 +21121,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 48:                                               ; preds = %45
   %49 = getelementptr inbounds nuw i8, ptr %7, i64 128
   %50 = load ptr, ptr %49, align 8, !noalias !2556, !nonnull !13, !noundef !13
-  %51 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %50, i64 %47
+  %51 = getelementptr [32 x i8], ptr %50, i64 %47
   %52 = getelementptr i8, ptr %51, i64 -32
   %.not41.i63 = icmp eq ptr %52, null
   br i1 %.not41.i63, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit65", label %53
@@ -21176,7 +21176,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %64 = phi i64 [ %.pre.i.i, %63 ], [ %60, %58 ]
   %65 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %66 = load ptr, ptr %65, align 8, !alias.scope !2561, !noalias !2564, !nonnull !13, !noundef !13
-  %67 = getelementptr inbounds { i8, [3 x i8] }, ptr %66, i64 %64
+  %67 = getelementptr inbounds [4 x i8], ptr %66, i64 %64
   store i32 4, ptr %67, align 1, !noalias !2564
   %68 = load i64, ptr %8, align 8, !alias.scope !2561, !noalias !2564, !noundef !13
   %69 = add i64 %68, 1
@@ -21235,7 +21235,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %11)
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %13 = load ptr, ptr %12, align 8, !alias.scope !2575, !noalias !2578, !nonnull !13, !noundef !13
-  %14 = getelementptr inbounds { i8, [3 x i8] }, ptr %13, i64 %9
+  %14 = getelementptr inbounds [4 x i8], ptr %13, i64 %9
   %.sroa.01.0.copyload.i.i = load i32, ptr %14, align 1, !noalias !2579
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %15 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -21254,7 +21254,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 21:                                               ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %23 = load ptr, ptr %22, align 8, !noalias !2578, !nonnull !13, !noundef !13
-  %24 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %23, i64 %20
+  %24 = getelementptr [32 x i8], ptr %23, i64 %20
   %25 = getelementptr i8, ptr %24, i64 -32
   %.not41.i = icmp eq ptr %25, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %26
@@ -21294,7 +21294,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %35)
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %37 = load ptr, ptr %36, align 8, !alias.scope !2580, !noalias !2583, !nonnull !13, !noundef !13
-  %38 = getelementptr inbounds { i8, [3 x i8] }, ptr %37, i64 %33
+  %38 = getelementptr inbounds [4 x i8], ptr %37, i64 %33
   %.sroa.01.0.copyload.i.i41 = load i32, ptr %38, align 1, !noalias !2587
   %.sroa.032.0.extract.trunc.i42 = trunc i32 %.sroa.01.0.copyload.i.i41 to i8
   %39 = add i8 %.sroa.032.0.extract.trunc.i42, -9
@@ -21313,7 +21313,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 45:                                               ; preds = %42
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %47 = load ptr, ptr %46, align 8, !noalias !2583, !nonnull !13, !noundef !13
-  %48 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %47, i64 %44
+  %48 = getelementptr [32 x i8], ptr %47, i64 %44
   %49 = getelementptr i8, ptr %48, i64 -32
   %.not41.i49 = icmp eq ptr %49, null
   br i1 %.not41.i49, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit51", label %50
@@ -21353,7 +21353,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %59 = phi i64 [ %.pre.i.i, %58 ], [ %55, %53 ]
   %60 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %61 = load ptr, ptr %60, align 8, !alias.scope !2588, !noalias !2591, !nonnull !13, !noundef !13
-  %62 = getelementptr inbounds { i8, [3 x i8] }, ptr %61, i64 %59
+  %62 = getelementptr inbounds [4 x i8], ptr %61, i64 %59
   store i32 4, ptr %62, align 1, !noalias !2591
   %63 = load i64, ptr %5, align 8, !alias.scope !2588, !noalias !2591, !noundef !13
   %64 = add i64 %63, 1
@@ -21533,7 +21533,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %78)
   %79 = getelementptr inbounds nuw i8, ptr %71, i64 152
   %80 = load ptr, ptr %79, align 8, !alias.scope !2611, !noalias !2614, !nonnull !13, !noundef !13
-  %81 = getelementptr inbounds { i8, [3 x i8] }, ptr %80, i64 %76
+  %81 = getelementptr inbounds [4 x i8], ptr %80, i64 %76
   %.sroa.01.0.copyload.i.i = load i32, ptr %81, align 1, !noalias !2615
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %82 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -21552,7 +21552,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 88:                                               ; preds = %85
   %89 = getelementptr inbounds nuw i8, ptr %71, i64 128
   %90 = load ptr, ptr %89, align 8, !noalias !2614, !nonnull !13, !noundef !13
-  %91 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %90, i64 %87
+  %91 = getelementptr [32 x i8], ptr %90, i64 %87
   %92 = getelementptr i8, ptr %91, i64 -32
   %.not41.i = icmp eq ptr %92, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %93
@@ -21592,7 +21592,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %102)
   %103 = getelementptr inbounds nuw i8, ptr %71, i64 152
   %104 = load ptr, ptr %103, align 8, !alias.scope !2616, !noalias !2619, !nonnull !13, !noundef !13
-  %105 = getelementptr inbounds { i8, [3 x i8] }, ptr %104, i64 %100
+  %105 = getelementptr inbounds [4 x i8], ptr %104, i64 %100
   %.sroa.01.0.copyload.i.i45 = load i32, ptr %105, align 1, !noalias !2623
   %.sroa.032.0.extract.trunc.i46 = trunc i32 %.sroa.01.0.copyload.i.i45 to i8
   %106 = add i8 %.sroa.032.0.extract.trunc.i46, -9
@@ -21611,7 +21611,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 112:                                              ; preds = %109
   %113 = getelementptr inbounds nuw i8, ptr %71, i64 128
   %114 = load ptr, ptr %113, align 8, !noalias !2619, !nonnull !13, !noundef !13
-  %115 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %114, i64 %111
+  %115 = getelementptr [32 x i8], ptr %114, i64 %111
   %116 = getelementptr i8, ptr %115, i64 -32
   %.not41.i52 = icmp eq ptr %116, null
   br i1 %.not41.i52, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit54", label %117
@@ -21847,7 +21847,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %83)
   %84 = getelementptr inbounds nuw i8, ptr %76, i64 152
   %85 = load ptr, ptr %84, align 8, !alias.scope !2650, !noalias !2653, !nonnull !13, !noundef !13
-  %86 = getelementptr inbounds { i8, [3 x i8] }, ptr %85, i64 %81
+  %86 = getelementptr inbounds [4 x i8], ptr %85, i64 %81
   %.sroa.01.0.copyload.i.i = load i32, ptr %86, align 1, !noalias !2654
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %87 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -21866,7 +21866,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 93:                                               ; preds = %90
   %94 = getelementptr inbounds nuw i8, ptr %76, i64 128
   %95 = load ptr, ptr %94, align 8, !noalias !2653, !nonnull !13, !noundef !13
-  %96 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %95, i64 %92
+  %96 = getelementptr [32 x i8], ptr %95, i64 %92
   %97 = getelementptr i8, ptr %96, i64 -32
   %.not41.i = icmp eq ptr %97, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %98
@@ -21911,7 +21911,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %108)
   %109 = getelementptr inbounds nuw i8, ptr %76, i64 152
   %110 = load ptr, ptr %109, align 8, !alias.scope !2655, !noalias !2658, !nonnull !13, !noundef !13
-  %111 = getelementptr inbounds { i8, [3 x i8] }, ptr %110, i64 %106
+  %111 = getelementptr inbounds [4 x i8], ptr %110, i64 %106
   %.sroa.01.0.copyload.i.i70 = load i32, ptr %111, align 1, !noalias !2662
   %.sroa.032.0.extract.trunc.i71 = trunc i32 %.sroa.01.0.copyload.i.i70 to i8
   %112 = add i8 %.sroa.032.0.extract.trunc.i71, -9
@@ -21930,7 +21930,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 118:                                              ; preds = %115
   %119 = getelementptr inbounds nuw i8, ptr %76, i64 128
   %120 = load ptr, ptr %119, align 8, !noalias !2658, !nonnull !13, !noundef !13
-  %121 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %120, i64 %117
+  %121 = getelementptr [32 x i8], ptr %120, i64 %117
   %122 = getelementptr i8, ptr %121, i64 -32
   %.not41.i77 = icmp eq ptr %122, null
   br i1 %.not41.i77, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit79", label %123
@@ -22035,7 +22035,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 38:                                               ; preds = %35
   %39 = getelementptr inbounds nuw i8, ptr %.val, i64 128
   %40 = load ptr, ptr %39, align 8, !noalias !2663, !nonnull !13, !noundef !13
-  %41 = getelementptr inbounds { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %40, i64 %28
+  %41 = getelementptr inbounds [32 x i8], ptr %40, i64 %28
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load i64, ptr %42, align 8
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 24
@@ -22275,7 +22275,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %21)
   %22 = getelementptr inbounds nuw i8, ptr %14, i64 152
   %23 = load ptr, ptr %22, align 8, !alias.scope !2695, !noalias !2698, !nonnull !13, !noundef !13
-  %24 = getelementptr inbounds { i8, [3 x i8] }, ptr %23, i64 %19
+  %24 = getelementptr inbounds [4 x i8], ptr %23, i64 %19
   %.sroa.01.0.copyload.i.i = load i32, ptr %24, align 1, !noalias !2699
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %25 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -22293,7 +22293,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 30:                                               ; preds = %.critedge.i
   %31 = getelementptr inbounds nuw i8, ptr %14, i64 128
   %32 = load ptr, ptr %31, align 8, !noalias !2698, !nonnull !13, !noundef !13
-  %33 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %32, i64 %29
+  %33 = getelementptr [32 x i8], ptr %32, i64 %29
   %34 = getelementptr i8, ptr %33, i64 -32
   %.not41.i = icmp eq ptr %34, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %35
@@ -22355,7 +22355,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %51)
   %52 = getelementptr inbounds nuw i8, ptr %14, i64 152
   %53 = load ptr, ptr %52, align 8, !alias.scope !2706, !noalias !2709, !nonnull !13, !noundef !13
-  %54 = getelementptr inbounds { i8, [3 x i8] }, ptr %53, i64 %49
+  %54 = getelementptr inbounds [4 x i8], ptr %53, i64 %49
   %.sroa.01.0.copyload.i.i38 = load i32, ptr %54, align 1, !noalias !2713
   %.sroa.032.0.extract.trunc.i39 = trunc i32 %.sroa.01.0.copyload.i.i38 to i8
   %55 = add i8 %.sroa.032.0.extract.trunc.i39, -9
@@ -22383,7 +22383,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 62:                                               ; preds = %.critedge.i47
   %63 = getelementptr inbounds nuw i8, ptr %14, i64 128
   %64 = load ptr, ptr %63, align 8, !noalias !2709, !nonnull !13, !noundef !13
-  %65 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %64, i64 %61
+  %65 = getelementptr [32 x i8], ptr %64, i64 %61
   %66 = getelementptr i8, ptr %65, i64 -32
   %.not41.i49 = icmp eq ptr %66, null
   br i1 %.not41.i49, label %.critedge45.i43, label %67
@@ -22426,7 +22426,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %12)
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 152
   %14 = load ptr, ptr %13, align 8, !alias.scope !2719, !noalias !2722, !nonnull !13, !noundef !13
-  %15 = getelementptr inbounds { i8, [3 x i8] }, ptr %14, i64 %10
+  %15 = getelementptr inbounds [4 x i8], ptr %14, i64 %10
   %.sroa.01.0.copyload.i.i = load i32, ptr %15, align 1, !noalias !2723
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %16 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -22445,7 +22445,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 22:                                               ; preds = %19
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 128
   %24 = load ptr, ptr %23, align 8, !noalias !2722, !nonnull !13, !noundef !13
-  %25 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %24, i64 %21
+  %25 = getelementptr [32 x i8], ptr %24, i64 %21
   %26 = getelementptr i8, ptr %25, i64 -32
   %.not41.i = icmp eq ptr %26, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %27
@@ -22485,7 +22485,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %36)
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 152
   %38 = load ptr, ptr %37, align 8, !alias.scope !2724, !noalias !2727, !nonnull !13, !noundef !13
-  %39 = getelementptr inbounds { i8, [3 x i8] }, ptr %38, i64 %34
+  %39 = getelementptr inbounds [4 x i8], ptr %38, i64 %34
   %.sroa.01.0.copyload.i.i56 = load i32, ptr %39, align 1, !noalias !2731
   %.sroa.032.0.extract.trunc.i57 = trunc i32 %.sroa.01.0.copyload.i.i56 to i8
   %40 = add i8 %.sroa.032.0.extract.trunc.i57, -9
@@ -22504,7 +22504,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 46:                                               ; preds = %43
   %47 = getelementptr inbounds nuw i8, ptr %5, i64 128
   %48 = load ptr, ptr %47, align 8, !noalias !2727, !nonnull !13, !noundef !13
-  %49 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %48, i64 %45
+  %49 = getelementptr [32 x i8], ptr %48, i64 %45
   %50 = getelementptr i8, ptr %49, i64 -32
   %.not41.i64 = icmp eq ptr %50, null
   br i1 %.not41.i64, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit66", label %51
@@ -22544,7 +22544,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %60)
   %61 = getelementptr inbounds nuw i8, ptr %5, i64 152
   %62 = load ptr, ptr %61, align 8, !alias.scope !2732, !noalias !2735, !nonnull !13, !noundef !13
-  %63 = getelementptr inbounds { i8, [3 x i8] }, ptr %62, i64 %58
+  %63 = getelementptr inbounds [4 x i8], ptr %62, i64 %58
   %.sroa.01.0.copyload.i.i68 = load i32, ptr %63, align 1, !noalias !2739
   %.sroa.032.0.extract.trunc.i69 = trunc i32 %.sroa.01.0.copyload.i.i68 to i8
   %64 = add i8 %.sroa.032.0.extract.trunc.i69, -9
@@ -22563,7 +22563,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 70:                                               ; preds = %67
   %71 = getelementptr inbounds nuw i8, ptr %5, i64 128
   %72 = load ptr, ptr %71, align 8, !noalias !2735, !nonnull !13, !noundef !13
-  %73 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %72, i64 %69
+  %73 = getelementptr [32 x i8], ptr %72, i64 %69
   %74 = getelementptr i8, ptr %73, i64 -32
   %.not41.i76 = icmp eq ptr %74, null
   br i1 %.not41.i76, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit78", label %75
@@ -22603,7 +22603,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %84 = phi i64 [ %.pre.i.i, %83 ], [ %80, %78 ]
   %85 = getelementptr inbounds nuw i8, ptr %5, i64 152
   %86 = load ptr, ptr %85, align 8, !alias.scope !2740, !noalias !2743, !nonnull !13, !noundef !13
-  %87 = getelementptr inbounds { i8, [3 x i8] }, ptr %86, i64 %84
+  %87 = getelementptr inbounds [4 x i8], ptr %86, i64 %84
   store i32 4, ptr %87, align 1, !noalias !2743
   %88 = load i64, ptr %6, align 8, !alias.scope !2740, !noalias !2743, !noundef !13
   %89 = add i64 %88, 1
@@ -22811,7 +22811,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %92)
   %93 = getelementptr inbounds nuw i8, ptr %85, i64 152
   %94 = load ptr, ptr %93, align 8, !alias.scope !2763, !noalias !2766, !nonnull !13, !noundef !13
-  %95 = getelementptr inbounds { i8, [3 x i8] }, ptr %94, i64 %90
+  %95 = getelementptr inbounds [4 x i8], ptr %94, i64 %90
   %.sroa.01.0.copyload.i.i = load i32, ptr %95, align 1, !noalias !2767
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %96 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -22830,7 +22830,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 102:                                              ; preds = %99
   %103 = getelementptr inbounds nuw i8, ptr %85, i64 128
   %104 = load ptr, ptr %103, align 8, !noalias !2766, !nonnull !13, !noundef !13
-  %105 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %104, i64 %101
+  %105 = getelementptr [32 x i8], ptr %104, i64 %101
   %106 = getelementptr i8, ptr %105, i64 -32
   %.not41.i = icmp eq ptr %106, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %107
@@ -22870,7 +22870,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %116)
   %117 = getelementptr inbounds nuw i8, ptr %85, i64 152
   %118 = load ptr, ptr %117, align 8, !alias.scope !2768, !noalias !2771, !nonnull !13, !noundef !13
-  %119 = getelementptr inbounds { i8, [3 x i8] }, ptr %118, i64 %114
+  %119 = getelementptr inbounds [4 x i8], ptr %118, i64 %114
   %.sroa.01.0.copyload.i.i73 = load i32, ptr %119, align 1, !noalias !2775
   %.sroa.032.0.extract.trunc.i74 = trunc i32 %.sroa.01.0.copyload.i.i73 to i8
   %120 = add i8 %.sroa.032.0.extract.trunc.i74, -9
@@ -22889,7 +22889,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 126:                                              ; preds = %123
   %127 = getelementptr inbounds nuw i8, ptr %85, i64 128
   %128 = load ptr, ptr %127, align 8, !noalias !2771, !nonnull !13, !noundef !13
-  %129 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %128, i64 %125
+  %129 = getelementptr [32 x i8], ptr %128, i64 %125
   %130 = getelementptr i8, ptr %129, i64 -32
   %.not41.i80 = icmp eq ptr %130, null
   br i1 %.not41.i80, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit82", label %131
@@ -22929,7 +22929,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %140)
   %141 = getelementptr inbounds nuw i8, ptr %85, i64 152
   %142 = load ptr, ptr %141, align 8, !alias.scope !2776, !noalias !2779, !nonnull !13, !noundef !13
-  %143 = getelementptr inbounds { i8, [3 x i8] }, ptr %142, i64 %138
+  %143 = getelementptr inbounds [4 x i8], ptr %142, i64 %138
   %.sroa.01.0.copyload.i.i84 = load i32, ptr %143, align 1, !noalias !2783
   %.sroa.032.0.extract.trunc.i85 = trunc i32 %.sroa.01.0.copyload.i.i84 to i8
   %144 = add i8 %.sroa.032.0.extract.trunc.i85, -9
@@ -22948,7 +22948,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 150:                                              ; preds = %147
   %151 = getelementptr inbounds nuw i8, ptr %85, i64 128
   %152 = load ptr, ptr %151, align 8, !noalias !2779, !nonnull !13, !noundef !13
-  %153 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %152, i64 %149
+  %153 = getelementptr [32 x i8], ptr %152, i64 %149
   %154 = getelementptr i8, ptr %153, i64 -32
   %.not41.i91 = icmp eq ptr %154, null
   br i1 %.not41.i91, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit93", label %155
@@ -23215,7 +23215,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %97)
   %98 = getelementptr inbounds nuw i8, ptr %90, i64 152
   %99 = load ptr, ptr %98, align 8, !alias.scope !2810, !noalias !2813, !nonnull !13, !noundef !13
-  %100 = getelementptr inbounds { i8, [3 x i8] }, ptr %99, i64 %95
+  %100 = getelementptr inbounds [4 x i8], ptr %99, i64 %95
   %.sroa.01.0.copyload.i.i = load i32, ptr %100, align 1, !noalias !2814
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %101 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -23234,7 +23234,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 107:                                              ; preds = %104
   %108 = getelementptr inbounds nuw i8, ptr %90, i64 128
   %109 = load ptr, ptr %108, align 8, !noalias !2813, !nonnull !13, !noundef !13
-  %110 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %109, i64 %106
+  %110 = getelementptr [32 x i8], ptr %109, i64 %106
   %111 = getelementptr i8, ptr %110, i64 -32
   %.not41.i = icmp eq ptr %111, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %112
@@ -23279,7 +23279,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %122)
   %123 = getelementptr inbounds nuw i8, ptr %90, i64 152
   %124 = load ptr, ptr %123, align 8, !alias.scope !2815, !noalias !2818, !nonnull !13, !noundef !13
-  %125 = getelementptr inbounds { i8, [3 x i8] }, ptr %124, i64 %120
+  %125 = getelementptr inbounds [4 x i8], ptr %124, i64 %120
   %.sroa.01.0.copyload.i.i98 = load i32, ptr %125, align 1, !noalias !2822
   %.sroa.032.0.extract.trunc.i99 = trunc i32 %.sroa.01.0.copyload.i.i98 to i8
   %126 = add i8 %.sroa.032.0.extract.trunc.i99, -9
@@ -23298,7 +23298,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 132:                                              ; preds = %129
   %133 = getelementptr inbounds nuw i8, ptr %90, i64 128
   %134 = load ptr, ptr %133, align 8, !noalias !2818, !nonnull !13, !noundef !13
-  %135 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %134, i64 %131
+  %135 = getelementptr [32 x i8], ptr %134, i64 %131
   %136 = getelementptr i8, ptr %135, i64 -32
   %.not41.i105 = icmp eq ptr %136, null
   br i1 %.not41.i105, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit107", label %137
@@ -23487,7 +23487,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %66 = icmp ult i64 %64, %65
   tail call void @llvm.assume(i1 %66)
   %67 = load ptr, ptr %54, align 8, !alias.scope !2832, !noalias !2835, !nonnull !13, !noundef !13
-  %68 = getelementptr inbounds { i8, [3 x i8] }, ptr %67, i64 %64
+  %68 = getelementptr inbounds [4 x i8], ptr %67, i64 %64
   %.sroa.01.0.copyload.i.i.us = load i32, ptr %68, align 1, !noalias !2837
   br label %.critedge45.i.us
 
@@ -23530,7 +23530,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %84 = icmp ult i64 %82, %83
   tail call void @llvm.assume(i1 %84)
   %85 = load ptr, ptr %73, align 8, !alias.scope !2832, !noalias !2835, !nonnull !13, !noundef !13
-  %86 = getelementptr inbounds { i8, [3 x i8] }, ptr %85, i64 %82
+  %86 = getelementptr inbounds [4 x i8], ptr %85, i64 %82
   %.sroa.01.0.copyload.i.i.us39 = load i32, ptr %86, align 1, !noalias !2837
   %.sroa.032.0.extract.trunc.i.us = trunc i32 %.sroa.01.0.copyload.i.i.us39 to i8
   %87 = add i8 %.sroa.032.0.extract.trunc.i.us, -9
@@ -23547,7 +23547,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 
 91:                                               ; preds = %.critedge.i.us
   %92 = load ptr, ptr %76, align 8, !noalias !2835, !nonnull !13, !noundef !13
-  %93 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %92, i64 %90
+  %93 = getelementptr [32 x i8], ptr %92, i64 %90
   %94 = getelementptr i8, ptr %93, i64 -32
   %.not41.i.us = icmp eq ptr %94, null
   br i1 %.not41.i.us, label %.critedge45.i.us40, label %95
@@ -23596,7 +23596,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %105 = icmp ult i64 %103, %104
   tail call void @llvm.assume(i1 %105)
   %106 = load ptr, ptr %54, align 8, !alias.scope !2832, !noalias !2835, !nonnull !13, !noundef !13
-  %107 = getelementptr inbounds { i8, [3 x i8] }, ptr %106, i64 %103
+  %107 = getelementptr inbounds [4 x i8], ptr %106, i64 %103
   %.sroa.01.0.copyload.i.i = load i32, ptr %107, align 1, !noalias !2837
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %108 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -23629,7 +23629,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 
 115:                                              ; preds = %.critedge.i
   %116 = load ptr, ptr %57, align 8, !noalias !2835, !nonnull !13, !noundef !13
-  %117 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %116, i64 %114
+  %117 = getelementptr [32 x i8], ptr %116, i64 %114
   %118 = getelementptr i8, ptr %117, i64 -32
   %.not41.i = icmp eq ptr %118, null
   br i1 %.not41.i, label %.critedge45.i, label %119
@@ -23763,7 +23763,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 59:                                               ; preds = %55
   %60 = getelementptr inbounds nuw i8, ptr %.val, i64 128
   %61 = load ptr, ptr %60, align 8, !noalias !2845, !nonnull !13, !noundef !13
-  %62 = getelementptr inbounds { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %61, i64 %48
+  %62 = getelementptr inbounds [32 x i8], ptr %61, i64 %48
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %64 = load i64, ptr %63, align 8
   %65 = getelementptr inbounds nuw i8, ptr %62, i64 24
@@ -23930,7 +23930,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   call void @llvm.assume(i1 %118)
   %119 = getelementptr inbounds nuw i8, ptr %.val, i64 152
   %120 = load ptr, ptr %119, align 8, !alias.scope !2869, !noalias !2872, !nonnull !13, !noundef !13
-  %121 = getelementptr inbounds { i8, [3 x i8] }, ptr %120, i64 %116
+  %121 = getelementptr inbounds [4 x i8], ptr %120, i64 %116
   %.sroa.01.0.copyload.i.i = load i32, ptr %121, align 1, !noalias !2876
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %122 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -23950,7 +23950,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 
 127:                                              ; preds = %.critedge.i
   %128 = load ptr, ptr %60, align 8, !noalias !2872, !nonnull !13, !noundef !13
-  %129 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %128, i64 %126
+  %129 = getelementptr [32 x i8], ptr %128, i64 %126
   %130 = getelementptr i8, ptr %129, i64 -32
   %.not41.i = icmp eq ptr %130, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %131
@@ -24034,7 +24034,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %15 = phi i64 [ %.pre.i.i, %14 ], [ %11, %7 ]
   %16 = getelementptr inbounds nuw i8, ptr %.val, i64 152
   %17 = load ptr, ptr %16, align 8, !alias.scope !2877, !nonnull !13, !noundef !13
-  %18 = getelementptr inbounds { i8, [3 x i8] }, ptr %17, i64 %15
+  %18 = getelementptr inbounds [4 x i8], ptr %17, i64 %15
   store i32 %.sroa.012.0.insert.insert, ptr %18, align 1
   %19 = load i64, ptr %10, align 8, !alias.scope !2877, !noundef !13
   %20 = add i64 %19, 1
@@ -24120,7 +24120,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %28)
   %29 = getelementptr inbounds nuw i8, ptr %21, i64 152
   %30 = load ptr, ptr %29, align 8, !alias.scope !2885, !noalias !2888, !nonnull !13, !noundef !13
-  %31 = getelementptr inbounds { i8, [3 x i8] }, ptr %30, i64 %26
+  %31 = getelementptr inbounds [4 x i8], ptr %30, i64 %26
   %.sroa.01.0.copyload.i.i = load i32, ptr %31, align 1, !noalias !2889
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %32 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -24139,7 +24139,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 38:                                               ; preds = %35
   %39 = getelementptr inbounds nuw i8, ptr %21, i64 128
   %40 = load ptr, ptr %39, align 8, !noalias !2888, !nonnull !13, !noundef !13
-  %41 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %40, i64 %37
+  %41 = getelementptr [32 x i8], ptr %40, i64 %37
   %42 = getelementptr i8, ptr %41, i64 -32
   %.not41.i = icmp eq ptr %42, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %43
@@ -24179,7 +24179,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %52)
   %53 = getelementptr inbounds nuw i8, ptr %21, i64 152
   %54 = load ptr, ptr %53, align 8, !alias.scope !2890, !noalias !2893, !nonnull !13, !noundef !13
-  %55 = getelementptr inbounds { i8, [3 x i8] }, ptr %54, i64 %50
+  %55 = getelementptr inbounds [4 x i8], ptr %54, i64 %50
   %.sroa.01.0.copyload.i.i62 = load i32, ptr %55, align 1, !noalias !2897
   %.sroa.032.0.extract.trunc.i63 = trunc i32 %.sroa.01.0.copyload.i.i62 to i8
   %56 = add i8 %.sroa.032.0.extract.trunc.i63, -9
@@ -24208,7 +24208,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 66:                                               ; preds = %.critedge.i
   %67 = getelementptr inbounds nuw i8, ptr %21, i64 128
   %68 = load ptr, ptr %67, align 8, !noalias !2893, !nonnull !13, !noundef !13
-  %69 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %68, i64 %65
+  %69 = getelementptr [32 x i8], ptr %68, i64 %65
   %70 = getelementptr i8, ptr %69, i64 -32
   %.not41.i70 = icmp eq ptr %70, null
   br i1 %.not41.i70, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit72", label %71
@@ -24300,7 +24300,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %28)
   %29 = getelementptr inbounds nuw i8, ptr %21, i64 152
   %30 = load ptr, ptr %29, align 8, !alias.scope !2903, !noalias !2906, !nonnull !13, !noundef !13
-  %31 = getelementptr inbounds { i8, [3 x i8] }, ptr %30, i64 %26
+  %31 = getelementptr inbounds [4 x i8], ptr %30, i64 %26
   %.sroa.01.0.copyload.i.i = load i32, ptr %31, align 1, !noalias !2907
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %32 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -24319,7 +24319,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 38:                                               ; preds = %35
   %39 = getelementptr inbounds nuw i8, ptr %21, i64 128
   %40 = load ptr, ptr %39, align 8, !noalias !2906, !nonnull !13, !noundef !13
-  %41 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %40, i64 %37
+  %41 = getelementptr [32 x i8], ptr %40, i64 %37
   %42 = getelementptr i8, ptr %41, i64 -32
   %.not41.i = icmp eq ptr %42, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %43
@@ -24359,7 +24359,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %52)
   %53 = getelementptr inbounds nuw i8, ptr %21, i64 152
   %54 = load ptr, ptr %53, align 8, !alias.scope !2908, !noalias !2911, !nonnull !13, !noundef !13
-  %55 = getelementptr inbounds { i8, [3 x i8] }, ptr %54, i64 %50
+  %55 = getelementptr inbounds [4 x i8], ptr %54, i64 %50
   %.sroa.01.0.copyload.i.i62 = load i32, ptr %55, align 1, !noalias !2915
   %.sroa.032.0.extract.trunc.i63 = trunc i32 %.sroa.01.0.copyload.i.i62 to i8
   %56 = add i8 %.sroa.032.0.extract.trunc.i63, -9
@@ -24388,7 +24388,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 66:                                               ; preds = %.critedge.i
   %67 = getelementptr inbounds nuw i8, ptr %21, i64 128
   %68 = load ptr, ptr %67, align 8, !noalias !2911, !nonnull !13, !noundef !13
-  %69 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %68, i64 %65
+  %69 = getelementptr [32 x i8], ptr %68, i64 %65
   %70 = getelementptr i8, ptr %69, i64 -32
   %.not41.i70 = icmp eq ptr %70, null
   br i1 %.not41.i70, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit72", label %71
@@ -24480,7 +24480,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %28)
   %29 = getelementptr inbounds nuw i8, ptr %21, i64 152
   %30 = load ptr, ptr %29, align 8, !alias.scope !2921, !noalias !2924, !nonnull !13, !noundef !13
-  %31 = getelementptr inbounds { i8, [3 x i8] }, ptr %30, i64 %26
+  %31 = getelementptr inbounds [4 x i8], ptr %30, i64 %26
   %.sroa.01.0.copyload.i.i = load i32, ptr %31, align 1, !noalias !2925
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %32 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -24499,7 +24499,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 38:                                               ; preds = %35
   %39 = getelementptr inbounds nuw i8, ptr %21, i64 128
   %40 = load ptr, ptr %39, align 8, !noalias !2924, !nonnull !13, !noundef !13
-  %41 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %40, i64 %37
+  %41 = getelementptr [32 x i8], ptr %40, i64 %37
   %42 = getelementptr i8, ptr %41, i64 -32
   %.not41.i = icmp eq ptr %42, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %43
@@ -24539,7 +24539,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %52)
   %53 = getelementptr inbounds nuw i8, ptr %21, i64 152
   %54 = load ptr, ptr %53, align 8, !alias.scope !2926, !noalias !2929, !nonnull !13, !noundef !13
-  %55 = getelementptr inbounds { i8, [3 x i8] }, ptr %54, i64 %50
+  %55 = getelementptr inbounds [4 x i8], ptr %54, i64 %50
   %.sroa.01.0.copyload.i.i62 = load i32, ptr %55, align 1, !noalias !2933
   %.sroa.032.0.extract.trunc.i63 = trunc i32 %.sroa.01.0.copyload.i.i62 to i8
   %56 = add i8 %.sroa.032.0.extract.trunc.i63, -9
@@ -24568,7 +24568,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 66:                                               ; preds = %.critedge.i
   %67 = getelementptr inbounds nuw i8, ptr %21, i64 128
   %68 = load ptr, ptr %67, align 8, !noalias !2929, !nonnull !13, !noundef !13
-  %69 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %68, i64 %65
+  %69 = getelementptr [32 x i8], ptr %68, i64 %65
   %70 = getelementptr i8, ptr %69, i64 -32
   %.not41.i70 = icmp eq ptr %70, null
   br i1 %.not41.i70, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit72", label %71
@@ -24660,7 +24660,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %28)
   %29 = getelementptr inbounds nuw i8, ptr %21, i64 152
   %30 = load ptr, ptr %29, align 8, !alias.scope !2939, !noalias !2942, !nonnull !13, !noundef !13
-  %31 = getelementptr inbounds { i8, [3 x i8] }, ptr %30, i64 %26
+  %31 = getelementptr inbounds [4 x i8], ptr %30, i64 %26
   %.sroa.01.0.copyload.i.i = load i32, ptr %31, align 1, !noalias !2943
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %32 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -24679,7 +24679,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 38:                                               ; preds = %35
   %39 = getelementptr inbounds nuw i8, ptr %21, i64 128
   %40 = load ptr, ptr %39, align 8, !noalias !2942, !nonnull !13, !noundef !13
-  %41 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %40, i64 %37
+  %41 = getelementptr [32 x i8], ptr %40, i64 %37
   %42 = getelementptr i8, ptr %41, i64 -32
   %.not41.i = icmp eq ptr %42, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %43
@@ -24719,7 +24719,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %52)
   %53 = getelementptr inbounds nuw i8, ptr %21, i64 152
   %54 = load ptr, ptr %53, align 8, !alias.scope !2944, !noalias !2947, !nonnull !13, !noundef !13
-  %55 = getelementptr inbounds { i8, [3 x i8] }, ptr %54, i64 %50
+  %55 = getelementptr inbounds [4 x i8], ptr %54, i64 %50
   %.sroa.01.0.copyload.i.i62 = load i32, ptr %55, align 1, !noalias !2951
   %.sroa.032.0.extract.trunc.i63 = trunc i32 %.sroa.01.0.copyload.i.i62 to i8
   %56 = add i8 %.sroa.032.0.extract.trunc.i63, -9
@@ -24748,7 +24748,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 66:                                               ; preds = %.critedge.i
   %67 = getelementptr inbounds nuw i8, ptr %21, i64 128
   %68 = load ptr, ptr %67, align 8, !noalias !2947, !nonnull !13, !noundef !13
-  %69 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %68, i64 %65
+  %69 = getelementptr [32 x i8], ptr %68, i64 %65
   %70 = getelementptr i8, ptr %69, i64 -32
   %.not41.i70 = icmp eq ptr %70, null
   br i1 %.not41.i70, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit72", label %71
@@ -24819,7 +24819,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %19)
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 152
   %21 = load ptr, ptr %20, align 8, !alias.scope !2957, !noalias !2960, !nonnull !13, !noundef !13
-  %22 = getelementptr inbounds { i8, [3 x i8] }, ptr %21, i64 %17
+  %22 = getelementptr inbounds [4 x i8], ptr %21, i64 %17
   %.sroa.01.0.copyload.i.i = load i32, ptr %22, align 1, !noalias !2961
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %23 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -24848,7 +24848,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 33:                                               ; preds = %.critedge.i
   %34 = getelementptr inbounds nuw i8, ptr %12, i64 128
   %35 = load ptr, ptr %34, align 8, !noalias !2960, !nonnull !13, !noundef !13
-  %36 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %35, i64 %32
+  %36 = getelementptr [32 x i8], ptr %35, i64 %32
   %37 = getelementptr i8, ptr %36, i64 -32
   %.not41.i = icmp eq ptr %37, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %38
@@ -24888,7 +24888,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %47 = phi i64 [ %.pre.i.i, %46 ], [ %43, %41 ]
   %48 = getelementptr inbounds nuw i8, ptr %12, i64 152
   %49 = load ptr, ptr %48, align 8, !alias.scope !2962, !noalias !2965, !nonnull !13, !noundef !13
-  %50 = getelementptr inbounds { i8, [3 x i8] }, ptr %49, i64 %47
+  %50 = getelementptr inbounds [4 x i8], ptr %49, i64 %47
   store i32 4, ptr %50, align 1, !noalias !2965
   %51 = load i64, ptr %13, align 8, !alias.scope !2962, !noalias !2965, !noundef !13
   %52 = add i64 %51, 1
@@ -24959,7 +24959,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %28)
   %29 = getelementptr inbounds nuw i8, ptr %21, i64 152
   %30 = load ptr, ptr %29, align 8, !alias.scope !2973, !noalias !2976, !nonnull !13, !noundef !13
-  %31 = getelementptr inbounds { i8, [3 x i8] }, ptr %30, i64 %26
+  %31 = getelementptr inbounds [4 x i8], ptr %30, i64 %26
   %.sroa.01.0.copyload.i.i = load i32, ptr %31, align 1, !noalias !2977
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %32 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -24978,7 +24978,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 38:                                               ; preds = %35
   %39 = getelementptr inbounds nuw i8, ptr %21, i64 128
   %40 = load ptr, ptr %39, align 8, !noalias !2976, !nonnull !13, !noundef !13
-  %41 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %40, i64 %37
+  %41 = getelementptr [32 x i8], ptr %40, i64 %37
   %42 = getelementptr i8, ptr %41, i64 -32
   %.not41.i = icmp eq ptr %42, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %43
@@ -25018,7 +25018,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %52)
   %53 = getelementptr inbounds nuw i8, ptr %21, i64 152
   %54 = load ptr, ptr %53, align 8, !alias.scope !2978, !noalias !2981, !nonnull !13, !noundef !13
-  %55 = getelementptr inbounds { i8, [3 x i8] }, ptr %54, i64 %50
+  %55 = getelementptr inbounds [4 x i8], ptr %54, i64 %50
   %.sroa.01.0.copyload.i.i47 = load i32, ptr %55, align 1, !noalias !2985
   %.sroa.032.0.extract.trunc.i48 = trunc i32 %.sroa.01.0.copyload.i.i47 to i8
   %56 = add i8 %.sroa.032.0.extract.trunc.i48, -9
@@ -25057,7 +25057,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 68:                                               ; preds = %.critedge.i
   %69 = getelementptr inbounds nuw i8, ptr %21, i64 128
   %70 = load ptr, ptr %69, align 8, !noalias !2981, !nonnull !13, !noundef !13
-  %71 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %70, i64 %67
+  %71 = getelementptr [32 x i8], ptr %70, i64 %67
   %72 = getelementptr i8, ptr %71, i64 -32
   %.not41.i55 = icmp eq ptr %72, null
   br i1 %.not41.i55, label %.critedge45.i51, label %73
@@ -25207,7 +25207,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %56)
   %57 = getelementptr inbounds nuw i8, ptr %49, i64 152
   %58 = load ptr, ptr %57, align 8, !alias.scope !3003, !noalias !3006, !nonnull !13, !noundef !13
-  %59 = getelementptr inbounds { i8, [3 x i8] }, ptr %58, i64 %54
+  %59 = getelementptr inbounds [4 x i8], ptr %58, i64 %54
   %.sroa.01.0.copyload.i.i = load i32, ptr %59, align 1, !noalias !3007
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %60 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -25226,7 +25226,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 66:                                               ; preds = %63
   %67 = getelementptr inbounds nuw i8, ptr %49, i64 128
   %68 = load ptr, ptr %67, align 8, !noalias !3006, !nonnull !13, !noundef !13
-  %69 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %68, i64 %65
+  %69 = getelementptr [32 x i8], ptr %68, i64 %65
   %70 = getelementptr i8, ptr %69, i64 -32
   %.not41.i = icmp eq ptr %70, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %71
@@ -25315,7 +25315,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %25 = phi i64 [ %.pre.i.i.i, %16 ], [ %13, %9 ]
   %26 = getelementptr inbounds nuw i8, ptr %10, i64 152
   %27 = load ptr, ptr %26, align 8, !alias.scope !3015, !noalias !3014, !nonnull !13, !noundef !13
-  %28 = getelementptr inbounds { i8, [3 x i8] }, ptr %27, i64 %25
+  %28 = getelementptr inbounds [4 x i8], ptr %27, i64 %25
   store i32 %.2.extract.trunc.i, ptr %28, align 1, !noalias !3014
   %29 = load i64, ptr %12, align 8, !alias.scope !3015, !noalias !3014, !noundef !13
   %30 = add i64 %29, 1
@@ -25452,7 +25452,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %19)
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 152
   %21 = load ptr, ptr %20, align 8, !alias.scope !3023, !noalias !3026, !nonnull !13, !noundef !13
-  %22 = getelementptr inbounds { i8, [3 x i8] }, ptr %21, i64 %17
+  %22 = getelementptr inbounds [4 x i8], ptr %21, i64 %17
   %.sroa.01.0.copyload.i.i = load i32, ptr %22, align 1, !noalias !3027
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %23 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -25481,7 +25481,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 33:                                               ; preds = %.critedge.i
   %34 = getelementptr inbounds nuw i8, ptr %12, i64 128
   %35 = load ptr, ptr %34, align 8, !noalias !3026, !nonnull !13, !noundef !13
-  %36 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %35, i64 %32
+  %36 = getelementptr [32 x i8], ptr %35, i64 %32
   %37 = getelementptr i8, ptr %36, i64 -32
   %.not41.i = icmp eq ptr %37, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %38
@@ -25521,7 +25521,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %47 = phi i64 [ %.pre.i.i, %46 ], [ %43, %41 ]
   %48 = getelementptr inbounds nuw i8, ptr %12, i64 152
   %49 = load ptr, ptr %48, align 8, !alias.scope !3028, !noalias !3031, !nonnull !13, !noundef !13
-  %50 = getelementptr inbounds { i8, [3 x i8] }, ptr %49, i64 %47
+  %50 = getelementptr inbounds [4 x i8], ptr %49, i64 %47
   store i32 4, ptr %50, align 1, !noalias !3031
   %51 = load i64, ptr %13, align 8, !alias.scope !3028, !noalias !3031, !noundef !13
   %52 = add i64 %51, 1
@@ -25571,7 +25571,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %19)
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 152
   %21 = load ptr, ptr %20, align 8, !alias.scope !3039, !noalias !3042, !nonnull !13, !noundef !13
-  %22 = getelementptr inbounds { i8, [3 x i8] }, ptr %21, i64 %17
+  %22 = getelementptr inbounds [4 x i8], ptr %21, i64 %17
   %.sroa.01.0.copyload.i.i = load i32, ptr %22, align 1, !noalias !3043
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %23 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -25600,7 +25600,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 33:                                               ; preds = %.critedge.i
   %34 = getelementptr inbounds nuw i8, ptr %12, i64 128
   %35 = load ptr, ptr %34, align 8, !noalias !3042, !nonnull !13, !noundef !13
-  %36 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %35, i64 %32
+  %36 = getelementptr [32 x i8], ptr %35, i64 %32
   %37 = getelementptr i8, ptr %36, i64 -32
   %.not41.i = icmp eq ptr %37, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %38
@@ -25640,7 +25640,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %47 = phi i64 [ %.pre.i.i, %46 ], [ %43, %41 ]
   %48 = getelementptr inbounds nuw i8, ptr %12, i64 152
   %49 = load ptr, ptr %48, align 8, !alias.scope !3044, !noalias !3047, !nonnull !13, !noundef !13
-  %50 = getelementptr inbounds { i8, [3 x i8] }, ptr %49, i64 %47
+  %50 = getelementptr inbounds [4 x i8], ptr %49, i64 %47
   store i32 4, ptr %50, align 1, !noalias !3047
   %51 = load i64, ptr %13, align 8, !alias.scope !3044, !noalias !3047, !noundef !13
   %52 = add i64 %51, 1
@@ -25711,7 +25711,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %28)
   %29 = getelementptr inbounds nuw i8, ptr %21, i64 152
   %30 = load ptr, ptr %29, align 8, !alias.scope !3055, !noalias !3058, !nonnull !13, !noundef !13
-  %31 = getelementptr inbounds { i8, [3 x i8] }, ptr %30, i64 %26
+  %31 = getelementptr inbounds [4 x i8], ptr %30, i64 %26
   %.sroa.01.0.copyload.i.i = load i32, ptr %31, align 1, !noalias !3059
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %32 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -25730,7 +25730,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 38:                                               ; preds = %35
   %39 = getelementptr inbounds nuw i8, ptr %21, i64 128
   %40 = load ptr, ptr %39, align 8, !noalias !3058, !nonnull !13, !noundef !13
-  %41 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %40, i64 %37
+  %41 = getelementptr [32 x i8], ptr %40, i64 %37
   %42 = getelementptr i8, ptr %41, i64 -32
   %.not41.i = icmp eq ptr %42, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %43
@@ -25770,7 +25770,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %52)
   %53 = getelementptr inbounds nuw i8, ptr %21, i64 152
   %54 = load ptr, ptr %53, align 8, !alias.scope !3060, !noalias !3063, !nonnull !13, !noundef !13
-  %55 = getelementptr inbounds { i8, [3 x i8] }, ptr %54, i64 %50
+  %55 = getelementptr inbounds [4 x i8], ptr %54, i64 %50
   %.sroa.01.0.copyload.i.i47 = load i32, ptr %55, align 1, !noalias !3067
   %.sroa.032.0.extract.trunc.i48 = trunc i32 %.sroa.01.0.copyload.i.i47 to i8
   %56 = add i8 %.sroa.032.0.extract.trunc.i48, -9
@@ -25809,7 +25809,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 68:                                               ; preds = %.critedge.i
   %69 = getelementptr inbounds nuw i8, ptr %21, i64 128
   %70 = load ptr, ptr %69, align 8, !noalias !3063, !nonnull !13, !noundef !13
-  %71 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %70, i64 %67
+  %71 = getelementptr [32 x i8], ptr %70, i64 %67
   %72 = getelementptr i8, ptr %71, i64 -32
   %.not41.i55 = icmp eq ptr %72, null
   br i1 %.not41.i55, label %.critedge45.i51, label %73
@@ -25888,7 +25888,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %28)
   %29 = getelementptr inbounds nuw i8, ptr %21, i64 152
   %30 = load ptr, ptr %29, align 8, !alias.scope !3073, !noalias !3076, !nonnull !13, !noundef !13
-  %31 = getelementptr inbounds { i8, [3 x i8] }, ptr %30, i64 %26
+  %31 = getelementptr inbounds [4 x i8], ptr %30, i64 %26
   %.sroa.01.0.copyload.i.i = load i32, ptr %31, align 1, !noalias !3077
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %32 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -25907,7 +25907,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 38:                                               ; preds = %35
   %39 = getelementptr inbounds nuw i8, ptr %21, i64 128
   %40 = load ptr, ptr %39, align 8, !noalias !3076, !nonnull !13, !noundef !13
-  %41 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %40, i64 %37
+  %41 = getelementptr [32 x i8], ptr %40, i64 %37
   %42 = getelementptr i8, ptr %41, i64 -32
   %.not41.i = icmp eq ptr %42, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %43
@@ -25947,7 +25947,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %52)
   %53 = getelementptr inbounds nuw i8, ptr %21, i64 152
   %54 = load ptr, ptr %53, align 8, !alias.scope !3078, !noalias !3081, !nonnull !13, !noundef !13
-  %55 = getelementptr inbounds { i8, [3 x i8] }, ptr %54, i64 %50
+  %55 = getelementptr inbounds [4 x i8], ptr %54, i64 %50
   %.sroa.01.0.copyload.i.i47 = load i32, ptr %55, align 1, !noalias !3085
   %.sroa.032.0.extract.trunc.i48 = trunc i32 %.sroa.01.0.copyload.i.i47 to i8
   %56 = add i8 %.sroa.032.0.extract.trunc.i48, -9
@@ -25986,7 +25986,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 68:                                               ; preds = %.critedge.i
   %69 = getelementptr inbounds nuw i8, ptr %21, i64 128
   %70 = load ptr, ptr %69, align 8, !noalias !3081, !nonnull !13, !noundef !13
-  %71 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %70, i64 %67
+  %71 = getelementptr [32 x i8], ptr %70, i64 %67
   %72 = getelementptr i8, ptr %71, i64 -32
   %.not41.i55 = icmp eq ptr %72, null
   br i1 %.not41.i55, label %.critedge45.i51, label %73
@@ -26065,7 +26065,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %28)
   %29 = getelementptr inbounds nuw i8, ptr %21, i64 152
   %30 = load ptr, ptr %29, align 8, !alias.scope !3091, !noalias !3094, !nonnull !13, !noundef !13
-  %31 = getelementptr inbounds { i8, [3 x i8] }, ptr %30, i64 %26
+  %31 = getelementptr inbounds [4 x i8], ptr %30, i64 %26
   %.sroa.01.0.copyload.i.i = load i32, ptr %31, align 1, !noalias !3095
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %32 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -26084,7 +26084,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 38:                                               ; preds = %35
   %39 = getelementptr inbounds nuw i8, ptr %21, i64 128
   %40 = load ptr, ptr %39, align 8, !noalias !3094, !nonnull !13, !noundef !13
-  %41 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %40, i64 %37
+  %41 = getelementptr [32 x i8], ptr %40, i64 %37
   %42 = getelementptr i8, ptr %41, i64 -32
   %.not41.i = icmp eq ptr %42, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %43
@@ -26124,7 +26124,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %52)
   %53 = getelementptr inbounds nuw i8, ptr %21, i64 152
   %54 = load ptr, ptr %53, align 8, !alias.scope !3096, !noalias !3099, !nonnull !13, !noundef !13
-  %55 = getelementptr inbounds { i8, [3 x i8] }, ptr %54, i64 %50
+  %55 = getelementptr inbounds [4 x i8], ptr %54, i64 %50
   %.sroa.01.0.copyload.i.i47 = load i32, ptr %55, align 1, !noalias !3103
   %.sroa.032.0.extract.trunc.i48 = trunc i32 %.sroa.01.0.copyload.i.i47 to i8
   %56 = add i8 %.sroa.032.0.extract.trunc.i48, -9
@@ -26163,7 +26163,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 68:                                               ; preds = %.critedge.i
   %69 = getelementptr inbounds nuw i8, ptr %21, i64 128
   %70 = load ptr, ptr %69, align 8, !noalias !3099, !nonnull !13, !noundef !13
-  %71 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %70, i64 %67
+  %71 = getelementptr [32 x i8], ptr %70, i64 %67
   %72 = getelementptr i8, ptr %71, i64 -32
   %.not41.i55 = icmp eq ptr %72, null
   br i1 %.not41.i55, label %.critedge45.i51, label %73
@@ -26204,7 +26204,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %10)
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %12 = load ptr, ptr %11, align 8, !alias.scope !3109, !noalias !3112, !nonnull !13, !noundef !13
-  %13 = getelementptr inbounds { i8, [3 x i8] }, ptr %12, i64 %8
+  %13 = getelementptr inbounds [4 x i8], ptr %12, i64 %8
   %.sroa.01.0.copyload.i.i = load i32, ptr %13, align 1, !noalias !3113
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %14 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -26226,7 +26226,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 20:                                               ; preds = %.critedge.i
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %22 = load ptr, ptr %21, align 8, !noalias !3112, !nonnull !13, !noundef !13
-  %23 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %22, i64 %19
+  %23 = getelementptr [32 x i8], ptr %22, i64 %19
   %24 = getelementptr i8, ptr %23, i64 -32
   %.not41.i = icmp eq ptr %24, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %25
@@ -26299,7 +26299,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %.sroa.01.0.insert.insert.i.i.i = or disjoint i32 %.sroa.421.0.extract.shift, 5
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %42 = load ptr, ptr %41, align 8, !alias.scope !3114, !nonnull !13, !noundef !13
-  %43 = getelementptr inbounds { i8, [3 x i8] }, ptr %42, i64 %40
+  %43 = getelementptr inbounds [4 x i8], ptr %42, i64 %40
   store i32 %.sroa.01.0.insert.insert.i.i.i, ptr %43, align 1
   %44 = load i64, ptr %4, align 8, !alias.scope !3114, !noundef !13
   %45 = add i64 %44, 1
@@ -26332,7 +26332,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %10)
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %12 = load ptr, ptr %11, align 8, !alias.scope !3122, !noalias !3125, !nonnull !13, !noundef !13
-  %13 = getelementptr inbounds { i8, [3 x i8] }, ptr %12, i64 %8
+  %13 = getelementptr inbounds [4 x i8], ptr %12, i64 %8
   %.sroa.01.0.copyload.i.i = load i32, ptr %13, align 1, !noalias !3126
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %14 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -26354,7 +26354,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 20:                                               ; preds = %.critedge.i
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %22 = load ptr, ptr %21, align 8, !noalias !3125, !nonnull !13, !noundef !13
-  %23 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %22, i64 %19
+  %23 = getelementptr [32 x i8], ptr %22, i64 %19
   %24 = getelementptr i8, ptr %23, i64 -32
   %.not41.i = icmp eq ptr %24, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %25
@@ -26427,7 +26427,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %.sroa.01.0.insert.insert.i.i.i = or disjoint i32 %.sroa.435.0.extract.shift, 5
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %42 = load ptr, ptr %41, align 8, !alias.scope !3127, !nonnull !13, !noundef !13
-  %43 = getelementptr inbounds { i8, [3 x i8] }, ptr %42, i64 %40
+  %43 = getelementptr inbounds [4 x i8], ptr %42, i64 %40
   store i32 %.sroa.01.0.insert.insert.i.i.i, ptr %43, align 1
   %44 = load i64, ptr %4, align 8, !alias.scope !3127, !noundef !13
   %45 = add i64 %44, 1
@@ -26507,7 +26507,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %31)
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %33 = load ptr, ptr %32, align 8, !alias.scope !3133, !noalias !3136, !nonnull !13, !noundef !13
-  %34 = getelementptr inbounds { i8, [3 x i8] }, ptr %33, i64 %29
+  %34 = getelementptr inbounds [4 x i8], ptr %33, i64 %29
   %.sroa.01.0.copyload.i.i = load i32, ptr %34, align 1, !noalias !3140
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %35 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -26526,7 +26526,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 41:                                               ; preds = %38
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %43 = load ptr, ptr %42, align 8, !noalias !3136, !nonnull !13, !noundef !13
-  %44 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %43, i64 %40
+  %44 = getelementptr [32 x i8], ptr %43, i64 %40
   %45 = getelementptr i8, ptr %44, i64 -32
   %.not41.i = icmp eq ptr %45, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %46
@@ -26566,7 +26566,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %55 = phi i64 [ %.pre.i.i, %54 ], [ %51, %49 ]
   %56 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %57 = load ptr, ptr %56, align 8, !alias.scope !3141, !noalias !3144, !nonnull !13, !noundef !13
-  %58 = getelementptr inbounds { i8, [3 x i8] }, ptr %57, i64 %55
+  %58 = getelementptr inbounds [4 x i8], ptr %57, i64 %55
   store i32 2, ptr %58, align 1, !noalias !3144
   %59 = load i64, ptr %25, align 8, !alias.scope !3141, !noalias !3144, !noundef !13
   %60 = add i64 %59, 1
@@ -26647,7 +26647,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %32)
   %33 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %34 = load ptr, ptr %33, align 8, !alias.scope !3150, !noalias !3153, !nonnull !13, !noundef !13
-  %35 = getelementptr inbounds { i8, [3 x i8] }, ptr %34, i64 %30
+  %35 = getelementptr inbounds [4 x i8], ptr %34, i64 %30
   %.sroa.01.0.copyload.i.i = load i32, ptr %35, align 1, !noalias !3157
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %36 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -26666,7 +26666,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 42:                                               ; preds = %39
   %43 = getelementptr inbounds nuw i8, ptr %7, i64 128
   %44 = load ptr, ptr %43, align 8, !noalias !3153, !nonnull !13, !noundef !13
-  %45 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %44, i64 %41
+  %45 = getelementptr [32 x i8], ptr %44, i64 %41
   %46 = getelementptr i8, ptr %45, i64 -32
   %.not41.i = icmp eq ptr %46, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %47
@@ -26706,7 +26706,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %56)
   %57 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %58 = load ptr, ptr %57, align 8, !alias.scope !3158, !noalias !3161, !nonnull !13, !noundef !13
-  %59 = getelementptr inbounds { i8, [3 x i8] }, ptr %58, i64 %54
+  %59 = getelementptr inbounds [4 x i8], ptr %58, i64 %54
   %.sroa.01.0.copyload.i.i58 = load i32, ptr %59, align 1, !noalias !3165
   %.sroa.032.0.extract.trunc.i59 = trunc i32 %.sroa.01.0.copyload.i.i58 to i8
   %60 = add i8 %.sroa.032.0.extract.trunc.i59, -9
@@ -26725,7 +26725,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 66:                                               ; preds = %63
   %67 = getelementptr inbounds nuw i8, ptr %7, i64 128
   %68 = load ptr, ptr %67, align 8, !noalias !3161, !nonnull !13, !noundef !13
-  %69 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %68, i64 %65
+  %69 = getelementptr [32 x i8], ptr %68, i64 %65
   %70 = getelementptr i8, ptr %69, i64 -32
   %.not41.i66 = icmp eq ptr %70, null
   br i1 %.not41.i66, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit68", label %71
@@ -26826,7 +26826,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %31)
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %33 = load ptr, ptr %32, align 8, !alias.scope !3169, !noalias !3172, !nonnull !13, !noundef !13
-  %34 = getelementptr inbounds { i8, [3 x i8] }, ptr %33, i64 %29
+  %34 = getelementptr inbounds [4 x i8], ptr %33, i64 %29
   %.sroa.01.0.copyload.i.i = load i32, ptr %34, align 1, !noalias !3176
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %35 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -26845,7 +26845,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 41:                                               ; preds = %38
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %43 = load ptr, ptr %42, align 8, !noalias !3172, !nonnull !13, !noundef !13
-  %44 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %43, i64 %40
+  %44 = getelementptr [32 x i8], ptr %43, i64 %40
   %45 = getelementptr i8, ptr %44, i64 -32
   %.not41.i = icmp eq ptr %45, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %46
@@ -26885,7 +26885,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %55 = phi i64 [ %.pre.i.i, %54 ], [ %51, %49 ]
   %56 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %57 = load ptr, ptr %56, align 8, !alias.scope !3177, !noalias !3180, !nonnull !13, !noundef !13
-  %58 = getelementptr inbounds { i8, [3 x i8] }, ptr %57, i64 %55
+  %58 = getelementptr inbounds [4 x i8], ptr %57, i64 %55
   store i32 3, ptr %58, align 1, !noalias !3180
   %59 = load i64, ptr %25, align 8, !alias.scope !3177, !noalias !3180, !noundef !13
   %60 = add i64 %59, 1
@@ -26966,7 +26966,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %32)
   %33 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %34 = load ptr, ptr %33, align 8, !alias.scope !3186, !noalias !3189, !nonnull !13, !noundef !13
-  %35 = getelementptr inbounds { i8, [3 x i8] }, ptr %34, i64 %30
+  %35 = getelementptr inbounds [4 x i8], ptr %34, i64 %30
   %.sroa.01.0.copyload.i.i = load i32, ptr %35, align 1, !noalias !3193
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %36 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -26985,7 +26985,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 42:                                               ; preds = %39
   %43 = getelementptr inbounds nuw i8, ptr %7, i64 128
   %44 = load ptr, ptr %43, align 8, !noalias !3189, !nonnull !13, !noundef !13
-  %45 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %44, i64 %41
+  %45 = getelementptr [32 x i8], ptr %44, i64 %41
   %46 = getelementptr i8, ptr %45, i64 -32
   %.not41.i = icmp eq ptr %46, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %47
@@ -27025,7 +27025,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %56)
   %57 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %58 = load ptr, ptr %57, align 8, !alias.scope !3194, !noalias !3197, !nonnull !13, !noundef !13
-  %59 = getelementptr inbounds { i8, [3 x i8] }, ptr %58, i64 %54
+  %59 = getelementptr inbounds [4 x i8], ptr %58, i64 %54
   %.sroa.01.0.copyload.i.i58 = load i32, ptr %59, align 1, !noalias !3201
   %.sroa.032.0.extract.trunc.i59 = trunc i32 %.sroa.01.0.copyload.i.i58 to i8
   %60 = add i8 %.sroa.032.0.extract.trunc.i59, -9
@@ -27044,7 +27044,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 66:                                               ; preds = %63
   %67 = getelementptr inbounds nuw i8, ptr %7, i64 128
   %68 = load ptr, ptr %67, align 8, !noalias !3197, !nonnull !13, !noundef !13
-  %69 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %68, i64 %65
+  %69 = getelementptr [32 x i8], ptr %68, i64 %65
   %70 = getelementptr i8, ptr %69, i64 -32
   %.not41.i66 = icmp eq ptr %70, null
   br i1 %.not41.i66, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit68", label %71
@@ -27121,7 +27121,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %20)
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 152
   %22 = load ptr, ptr %21, align 8, !alias.scope !3207, !noalias !3210, !nonnull !13, !noundef !13
-  %23 = getelementptr inbounds { i8, [3 x i8] }, ptr %22, i64 %18
+  %23 = getelementptr inbounds [4 x i8], ptr %22, i64 %18
   %.sroa.01.0.copyload.i.i = load i32, ptr %23, align 1, !noalias !3211
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %24 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -27140,7 +27140,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 30:                                               ; preds = %27
   %31 = getelementptr inbounds nuw i8, ptr %13, i64 128
   %32 = load ptr, ptr %31, align 8, !noalias !3210, !nonnull !13, !noundef !13
-  %33 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %32, i64 %29
+  %33 = getelementptr [32 x i8], ptr %32, i64 %29
   %34 = getelementptr i8, ptr %33, i64 -32
   %.not41.i = icmp eq ptr %34, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %35
@@ -27180,7 +27180,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %44)
   %45 = getelementptr inbounds nuw i8, ptr %13, i64 152
   %46 = load ptr, ptr %45, align 8, !alias.scope !3212, !noalias !3215, !nonnull !13, !noundef !13
-  %47 = getelementptr inbounds { i8, [3 x i8] }, ptr %46, i64 %42
+  %47 = getelementptr inbounds [4 x i8], ptr %46, i64 %42
   %.sroa.01.0.copyload.i.i48 = load i32, ptr %47, align 1, !noalias !3219
   %.sroa.032.0.extract.trunc.i49 = trunc i32 %.sroa.01.0.copyload.i.i48 to i8
   %48 = add i8 %.sroa.032.0.extract.trunc.i49, -9
@@ -27199,7 +27199,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 54:                                               ; preds = %51
   %55 = getelementptr inbounds nuw i8, ptr %13, i64 128
   %56 = load ptr, ptr %55, align 8, !noalias !3215, !nonnull !13, !noundef !13
-  %57 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %56, i64 %53
+  %57 = getelementptr [32 x i8], ptr %56, i64 %53
   %58 = getelementptr i8, ptr %57, i64 -32
   %.not41.i55 = icmp eq ptr %58, null
   br i1 %.not41.i55, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit57", label %59
@@ -27239,7 +27239,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %68 = phi i64 [ %.pre.i.i, %67 ], [ %64, %62 ]
   %69 = getelementptr inbounds nuw i8, ptr %13, i64 152
   %70 = load ptr, ptr %69, align 8, !alias.scope !3220, !noalias !3223, !nonnull !13, !noundef !13
-  %71 = getelementptr inbounds { i8, [3 x i8] }, ptr %70, i64 %68
+  %71 = getelementptr inbounds [4 x i8], ptr %70, i64 %68
   store i32 4, ptr %71, align 1, !noalias !3223
   %72 = load i64, ptr %14, align 8, !alias.scope !3220, !noalias !3223, !noundef !13
   %73 = add i64 %72, 1
@@ -27294,7 +27294,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %19)
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 152
   %21 = load ptr, ptr %20, align 8, !alias.scope !3231, !noalias !3234, !nonnull !13, !noundef !13
-  %22 = getelementptr inbounds { i8, [3 x i8] }, ptr %21, i64 %17
+  %22 = getelementptr inbounds [4 x i8], ptr %21, i64 %17
   %.sroa.01.0.copyload.i.i = load i32, ptr %22, align 1, !noalias !3235
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %23 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -27313,7 +27313,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 29:                                               ; preds = %26
   %30 = getelementptr inbounds nuw i8, ptr %12, i64 128
   %31 = load ptr, ptr %30, align 8, !noalias !3234, !nonnull !13, !noundef !13
-  %32 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %31, i64 %28
+  %32 = getelementptr [32 x i8], ptr %31, i64 %28
   %33 = getelementptr i8, ptr %32, i64 -32
   %.not41.i = icmp eq ptr %33, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %34
@@ -27353,7 +27353,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %43 = phi i64 [ %.pre.i.i, %42 ], [ %39, %37 ]
   %44 = getelementptr inbounds nuw i8, ptr %12, i64 152
   %45 = load ptr, ptr %44, align 8, !alias.scope !3236, !noalias !3239, !nonnull !13, !noundef !13
-  %46 = getelementptr inbounds { i8, [3 x i8] }, ptr %45, i64 %43
+  %46 = getelementptr inbounds [4 x i8], ptr %45, i64 %43
   store i32 0, ptr %46, align 1, !noalias !3239
   %47 = load i64, ptr %13, align 8, !alias.scope !3236, !noalias !3239, !noundef !13
   %48 = add i64 %47, 1
@@ -27409,7 +27409,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %20)
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 152
   %22 = load ptr, ptr %21, align 8, !alias.scope !3247, !noalias !3250, !nonnull !13, !noundef !13
-  %23 = getelementptr inbounds { i8, [3 x i8] }, ptr %22, i64 %18
+  %23 = getelementptr inbounds [4 x i8], ptr %22, i64 %18
   %.sroa.01.0.copyload.i.i = load i32, ptr %23, align 1, !noalias !3251
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %24 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -27428,7 +27428,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 30:                                               ; preds = %27
   %31 = getelementptr inbounds nuw i8, ptr %13, i64 128
   %32 = load ptr, ptr %31, align 8, !noalias !3250, !nonnull !13, !noundef !13
-  %33 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %32, i64 %29
+  %33 = getelementptr [32 x i8], ptr %32, i64 %29
   %34 = getelementptr i8, ptr %33, i64 -32
   %.not41.i = icmp eq ptr %34, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %35
@@ -27468,7 +27468,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %44)
   %45 = getelementptr inbounds nuw i8, ptr %13, i64 152
   %46 = load ptr, ptr %45, align 8, !alias.scope !3252, !noalias !3255, !nonnull !13, !noundef !13
-  %47 = getelementptr inbounds { i8, [3 x i8] }, ptr %46, i64 %42
+  %47 = getelementptr inbounds [4 x i8], ptr %46, i64 %42
   %.sroa.01.0.copyload.i.i48 = load i32, ptr %47, align 1, !noalias !3259
   %.sroa.032.0.extract.trunc.i49 = trunc i32 %.sroa.01.0.copyload.i.i48 to i8
   %48 = add i8 %.sroa.032.0.extract.trunc.i49, -9
@@ -27487,7 +27487,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 54:                                               ; preds = %51
   %55 = getelementptr inbounds nuw i8, ptr %13, i64 128
   %56 = load ptr, ptr %55, align 8, !noalias !3255, !nonnull !13, !noundef !13
-  %57 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %56, i64 %53
+  %57 = getelementptr [32 x i8], ptr %56, i64 %53
   %58 = getelementptr i8, ptr %57, i64 -32
   %.not41.i55 = icmp eq ptr %58, null
   br i1 %.not41.i55, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit57", label %59
@@ -27527,7 +27527,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %68 = phi i64 [ %.pre.i.i, %67 ], [ %64, %62 ]
   %69 = getelementptr inbounds nuw i8, ptr %13, i64 152
   %70 = load ptr, ptr %69, align 8, !alias.scope !3260, !noalias !3263, !nonnull !13, !noundef !13
-  %71 = getelementptr inbounds { i8, [3 x i8] }, ptr %70, i64 %68
+  %71 = getelementptr inbounds [4 x i8], ptr %70, i64 %68
   store i32 4, ptr %71, align 1, !noalias !3263
   %72 = load i64, ptr %14, align 8, !alias.scope !3260, !noalias !3263, !noundef !13
   %73 = add i64 %72, 1
@@ -27582,7 +27582,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %19)
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 152
   %21 = load ptr, ptr %20, align 8, !alias.scope !3271, !noalias !3274, !nonnull !13, !noundef !13
-  %22 = getelementptr inbounds { i8, [3 x i8] }, ptr %21, i64 %17
+  %22 = getelementptr inbounds [4 x i8], ptr %21, i64 %17
   %.sroa.01.0.copyload.i.i = load i32, ptr %22, align 1, !noalias !3275
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %23 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -27601,7 +27601,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 29:                                               ; preds = %26
   %30 = getelementptr inbounds nuw i8, ptr %12, i64 128
   %31 = load ptr, ptr %30, align 8, !noalias !3274, !nonnull !13, !noundef !13
-  %32 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %31, i64 %28
+  %32 = getelementptr [32 x i8], ptr %31, i64 %28
   %33 = getelementptr i8, ptr %32, i64 -32
   %.not41.i = icmp eq ptr %33, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %34
@@ -27641,7 +27641,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %43 = phi i64 [ %.pre.i.i, %42 ], [ %39, %37 ]
   %44 = getelementptr inbounds nuw i8, ptr %12, i64 152
   %45 = load ptr, ptr %44, align 8, !alias.scope !3276, !noalias !3279, !nonnull !13, !noundef !13
-  %46 = getelementptr inbounds { i8, [3 x i8] }, ptr %45, i64 %43
+  %46 = getelementptr inbounds [4 x i8], ptr %45, i64 %43
   store i32 1, ptr %46, align 1, !noalias !3279
   %47 = load i64, ptr %13, align 8, !alias.scope !3276, !noalias !3279, !noundef !13
   %48 = add i64 %47, 1
@@ -27697,7 +27697,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %20)
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 152
   %22 = load ptr, ptr %21, align 8, !alias.scope !3287, !noalias !3290, !nonnull !13, !noundef !13
-  %23 = getelementptr inbounds { i8, [3 x i8] }, ptr %22, i64 %18
+  %23 = getelementptr inbounds [4 x i8], ptr %22, i64 %18
   %.sroa.01.0.copyload.i.i = load i32, ptr %23, align 1, !noalias !3291
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %24 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -27716,7 +27716,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 30:                                               ; preds = %27
   %31 = getelementptr inbounds nuw i8, ptr %13, i64 128
   %32 = load ptr, ptr %31, align 8, !noalias !3290, !nonnull !13, !noundef !13
-  %33 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %32, i64 %29
+  %33 = getelementptr [32 x i8], ptr %32, i64 %29
   %34 = getelementptr i8, ptr %33, i64 -32
   %.not41.i = icmp eq ptr %34, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %35
@@ -27756,7 +27756,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %44)
   %45 = getelementptr inbounds nuw i8, ptr %13, i64 152
   %46 = load ptr, ptr %45, align 8, !alias.scope !3292, !noalias !3295, !nonnull !13, !noundef !13
-  %47 = getelementptr inbounds { i8, [3 x i8] }, ptr %46, i64 %42
+  %47 = getelementptr inbounds [4 x i8], ptr %46, i64 %42
   %.sroa.01.0.copyload.i.i48 = load i32, ptr %47, align 1, !noalias !3299
   %.sroa.032.0.extract.trunc.i49 = trunc i32 %.sroa.01.0.copyload.i.i48 to i8
   %48 = add i8 %.sroa.032.0.extract.trunc.i49, -9
@@ -27775,7 +27775,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 54:                                               ; preds = %51
   %55 = getelementptr inbounds nuw i8, ptr %13, i64 128
   %56 = load ptr, ptr %55, align 8, !noalias !3295, !nonnull !13, !noundef !13
-  %57 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %56, i64 %53
+  %57 = getelementptr [32 x i8], ptr %56, i64 %53
   %58 = getelementptr i8, ptr %57, i64 -32
   %.not41.i56 = icmp eq ptr %58, null
   br i1 %.not41.i56, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit58", label %59
@@ -27815,7 +27815,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %68 = phi i64 [ %.pre.i.i, %67 ], [ %64, %62 ]
   %69 = getelementptr inbounds nuw i8, ptr %13, i64 152
   %70 = load ptr, ptr %69, align 8, !alias.scope !3300, !noalias !3303, !nonnull !13, !noundef !13
-  %71 = getelementptr inbounds { i8, [3 x i8] }, ptr %70, i64 %68
+  %71 = getelementptr inbounds [4 x i8], ptr %70, i64 %68
   store i32 4, ptr %71, align 1, !noalias !3303
   %72 = load i64, ptr %14, align 8, !alias.scope !3300, !noalias !3303, !noundef !13
   %73 = add i64 %72, 1
@@ -27871,7 +27871,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %20)
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 152
   %22 = load ptr, ptr %21, align 8, !alias.scope !3311, !noalias !3314, !nonnull !13, !noundef !13
-  %23 = getelementptr inbounds { i8, [3 x i8] }, ptr %22, i64 %18
+  %23 = getelementptr inbounds [4 x i8], ptr %22, i64 %18
   %.sroa.01.0.copyload.i.i = load i32, ptr %23, align 1, !noalias !3315
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %24 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -27890,7 +27890,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 30:                                               ; preds = %27
   %31 = getelementptr inbounds nuw i8, ptr %13, i64 128
   %32 = load ptr, ptr %31, align 8, !noalias !3314, !nonnull !13, !noundef !13
-  %33 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %32, i64 %29
+  %33 = getelementptr [32 x i8], ptr %32, i64 %29
   %34 = getelementptr i8, ptr %33, i64 -32
   %.not41.i = icmp eq ptr %34, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %35
@@ -27930,7 +27930,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %44)
   %45 = getelementptr inbounds nuw i8, ptr %13, i64 152
   %46 = load ptr, ptr %45, align 8, !alias.scope !3316, !noalias !3319, !nonnull !13, !noundef !13
-  %47 = getelementptr inbounds { i8, [3 x i8] }, ptr %46, i64 %42
+  %47 = getelementptr inbounds [4 x i8], ptr %46, i64 %42
   %.sroa.01.0.copyload.i.i48 = load i32, ptr %47, align 1, !noalias !3323
   %.sroa.032.0.extract.trunc.i49 = trunc i32 %.sroa.01.0.copyload.i.i48 to i8
   %48 = add i8 %.sroa.032.0.extract.trunc.i49, -9
@@ -27949,7 +27949,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 54:                                               ; preds = %51
   %55 = getelementptr inbounds nuw i8, ptr %13, i64 128
   %56 = load ptr, ptr %55, align 8, !noalias !3319, !nonnull !13, !noundef !13
-  %57 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %56, i64 %53
+  %57 = getelementptr [32 x i8], ptr %56, i64 %53
   %58 = getelementptr i8, ptr %57, i64 -32
   %.not41.i55 = icmp eq ptr %58, null
   br i1 %.not41.i55, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit57", label %59
@@ -27989,7 +27989,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %68 = phi i64 [ %.pre.i.i, %67 ], [ %64, %62 ]
   %69 = getelementptr inbounds nuw i8, ptr %13, i64 152
   %70 = load ptr, ptr %69, align 8, !alias.scope !3324, !noalias !3327, !nonnull !13, !noundef !13
-  %71 = getelementptr inbounds { i8, [3 x i8] }, ptr %70, i64 %68
+  %71 = getelementptr inbounds [4 x i8], ptr %70, i64 %68
   store i32 4, ptr %71, align 1, !noalias !3327
   %72 = load i64, ptr %14, align 8, !alias.scope !3324, !noalias !3327, !noundef !13
   %73 = add i64 %72, 1
@@ -28181,7 +28181,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %19)
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 152
   %21 = load ptr, ptr %20, align 8, !alias.scope !3347, !noalias !3350, !nonnull !13, !noundef !13
-  %22 = getelementptr inbounds { i8, [3 x i8] }, ptr %21, i64 %17
+  %22 = getelementptr inbounds [4 x i8], ptr %21, i64 %17
   %.sroa.01.0.copyload.i.i = load i32, ptr %22, align 1, !noalias !3351
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %23 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -28200,7 +28200,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 29:                                               ; preds = %26
   %30 = getelementptr inbounds nuw i8, ptr %12, i64 128
   %31 = load ptr, ptr %30, align 8, !noalias !3350, !nonnull !13, !noundef !13
-  %32 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %31, i64 %28
+  %32 = getelementptr [32 x i8], ptr %31, i64 %28
   %33 = getelementptr i8, ptr %32, i64 -32
   %.not41.i = icmp eq ptr %33, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %34
@@ -28240,7 +28240,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %43 = phi i64 [ %.pre.i.i, %42 ], [ %39, %37 ]
   %44 = getelementptr inbounds nuw i8, ptr %12, i64 152
   %45 = load ptr, ptr %44, align 8, !alias.scope !3352, !noalias !3355, !nonnull !13, !noundef !13
-  %46 = getelementptr inbounds { i8, [3 x i8] }, ptr %45, i64 %43
+  %46 = getelementptr inbounds [4 x i8], ptr %45, i64 %43
   store i32 0, ptr %46, align 1, !noalias !3355
   %47 = load i64, ptr %13, align 8, !alias.scope !3352, !noalias !3355, !noundef !13
   %48 = add i64 %47, 1
@@ -28295,7 +28295,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %19)
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 152
   %21 = load ptr, ptr %20, align 8, !alias.scope !3363, !noalias !3366, !nonnull !13, !noundef !13
-  %22 = getelementptr inbounds { i8, [3 x i8] }, ptr %21, i64 %17
+  %22 = getelementptr inbounds [4 x i8], ptr %21, i64 %17
   %.sroa.01.0.copyload.i.i = load i32, ptr %22, align 1, !noalias !3367
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %23 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -28314,7 +28314,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 29:                                               ; preds = %26
   %30 = getelementptr inbounds nuw i8, ptr %12, i64 128
   %31 = load ptr, ptr %30, align 8, !noalias !3366, !nonnull !13, !noundef !13
-  %32 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %31, i64 %28
+  %32 = getelementptr [32 x i8], ptr %31, i64 %28
   %33 = getelementptr i8, ptr %32, i64 -32
   %.not41.i = icmp eq ptr %33, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %34
@@ -28354,7 +28354,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %43 = phi i64 [ %.pre.i.i, %42 ], [ %39, %37 ]
   %44 = getelementptr inbounds nuw i8, ptr %12, i64 152
   %45 = load ptr, ptr %44, align 8, !alias.scope !3368, !noalias !3371, !nonnull !13, !noundef !13
-  %46 = getelementptr inbounds { i8, [3 x i8] }, ptr %45, i64 %43
+  %46 = getelementptr inbounds [4 x i8], ptr %45, i64 %43
   store i32 0, ptr %46, align 1, !noalias !3371
   %47 = load i64, ptr %13, align 8, !alias.scope !3368, !noalias !3371, !noundef !13
   %48 = add i64 %47, 1
@@ -28462,7 +28462,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %41)
   %42 = getelementptr inbounds nuw i8, ptr %34, i64 152
   %43 = load ptr, ptr %42, align 8, !alias.scope !3394, !noalias !3397, !nonnull !13, !noundef !13
-  %44 = getelementptr inbounds { i8, [3 x i8] }, ptr %43, i64 %39
+  %44 = getelementptr inbounds [4 x i8], ptr %43, i64 %39
   %.sroa.01.0.copyload.i.i = load i32, ptr %44, align 1, !noalias !3398
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %45 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -28481,7 +28481,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 51:                                               ; preds = %48
   %52 = getelementptr inbounds nuw i8, ptr %34, i64 128
   %53 = load ptr, ptr %52, align 8, !noalias !3397, !nonnull !13, !noundef !13
-  %54 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %53, i64 %50
+  %54 = getelementptr [32 x i8], ptr %53, i64 %50
   %55 = getelementptr i8, ptr %54, i64 -32
   %.not41.i = icmp eq ptr %55, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %56
@@ -28521,7 +28521,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %65)
   %66 = getelementptr inbounds nuw i8, ptr %34, i64 152
   %67 = load ptr, ptr %66, align 8, !alias.scope !3399, !noalias !3402, !nonnull !13, !noundef !13
-  %68 = getelementptr inbounds { i8, [3 x i8] }, ptr %67, i64 %63
+  %68 = getelementptr inbounds [4 x i8], ptr %67, i64 %63
   %.sroa.01.0.copyload.i.i69 = load i32, ptr %68, align 1, !noalias !3406
   %.sroa.032.0.extract.trunc.i70 = trunc i32 %.sroa.01.0.copyload.i.i69 to i8
   %69 = add i8 %.sroa.032.0.extract.trunc.i70, -9
@@ -28540,7 +28540,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 75:                                               ; preds = %72
   %76 = getelementptr inbounds nuw i8, ptr %34, i64 128
   %77 = load ptr, ptr %76, align 8, !noalias !3402, !nonnull !13, !noundef !13
-  %78 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %77, i64 %74
+  %78 = getelementptr [32 x i8], ptr %77, i64 %74
   %79 = getelementptr i8, ptr %78, i64 -32
   %.not41.i77 = icmp eq ptr %79, null
   br i1 %.not41.i77, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit79", label %80
@@ -28580,7 +28580,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %89)
   %90 = getelementptr inbounds nuw i8, ptr %34, i64 152
   %91 = load ptr, ptr %90, align 8, !alias.scope !3407, !noalias !3410, !nonnull !13, !noundef !13
-  %92 = getelementptr inbounds { i8, [3 x i8] }, ptr %91, i64 %87
+  %92 = getelementptr inbounds [4 x i8], ptr %91, i64 %87
   %.sroa.01.0.copyload.i.i81 = load i32, ptr %92, align 1, !noalias !3414
   %.sroa.032.0.extract.trunc.i82 = trunc i32 %.sroa.01.0.copyload.i.i81 to i8
   %93 = add i8 %.sroa.032.0.extract.trunc.i82, -9
@@ -28598,7 +28598,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 98:                                               ; preds = %.critedge.i
   %99 = getelementptr inbounds nuw i8, ptr %34, i64 128
   %100 = load ptr, ptr %99, align 8, !noalias !3410, !nonnull !13, !noundef !13
-  %101 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %100, i64 %97
+  %101 = getelementptr [32 x i8], ptr %100, i64 %97
   %102 = getelementptr i8, ptr %101, i64 -32
   %.not41.i89 = icmp eq ptr %102, null
   br i1 %.not41.i89, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit91", label %103
@@ -28727,7 +28727,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %41)
   %42 = getelementptr inbounds nuw i8, ptr %34, i64 152
   %43 = load ptr, ptr %42, align 8, !alias.scope !3435, !noalias !3438, !nonnull !13, !noundef !13
-  %44 = getelementptr inbounds { i8, [3 x i8] }, ptr %43, i64 %39
+  %44 = getelementptr inbounds [4 x i8], ptr %43, i64 %39
   %.sroa.01.0.copyload.i.i = load i32, ptr %44, align 1, !noalias !3439
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %45 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -28746,7 +28746,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 51:                                               ; preds = %48
   %52 = getelementptr inbounds nuw i8, ptr %34, i64 128
   %53 = load ptr, ptr %52, align 8, !noalias !3438, !nonnull !13, !noundef !13
-  %54 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %53, i64 %50
+  %54 = getelementptr [32 x i8], ptr %53, i64 %50
   %55 = getelementptr i8, ptr %54, i64 -32
   %.not41.i = icmp eq ptr %55, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %56
@@ -28786,7 +28786,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %65)
   %66 = getelementptr inbounds nuw i8, ptr %34, i64 152
   %67 = load ptr, ptr %66, align 8, !alias.scope !3440, !noalias !3443, !nonnull !13, !noundef !13
-  %68 = getelementptr inbounds { i8, [3 x i8] }, ptr %67, i64 %63
+  %68 = getelementptr inbounds [4 x i8], ptr %67, i64 %63
   %.sroa.01.0.copyload.i.i62 = load i32, ptr %68, align 1, !noalias !3447
   %.sroa.032.0.extract.trunc.i63 = trunc i32 %.sroa.01.0.copyload.i.i62 to i8
   %69 = add i8 %.sroa.032.0.extract.trunc.i63, -9
@@ -28805,7 +28805,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 75:                                               ; preds = %72
   %76 = getelementptr inbounds nuw i8, ptr %34, i64 128
   %77 = load ptr, ptr %76, align 8, !noalias !3443, !nonnull !13, !noundef !13
-  %78 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %77, i64 %74
+  %78 = getelementptr [32 x i8], ptr %77, i64 %74
   %79 = getelementptr i8, ptr %78, i64 -32
   %.not41.i70 = icmp eq ptr %79, null
   br i1 %.not41.i70, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit72", label %80
@@ -28845,7 +28845,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %89)
   %90 = getelementptr inbounds nuw i8, ptr %34, i64 152
   %91 = load ptr, ptr %90, align 8, !alias.scope !3448, !noalias !3451, !nonnull !13, !noundef !13
-  %92 = getelementptr inbounds { i8, [3 x i8] }, ptr %91, i64 %87
+  %92 = getelementptr inbounds [4 x i8], ptr %91, i64 %87
   %.sroa.01.0.copyload.i.i74 = load i32, ptr %92, align 1, !noalias !3455
   %.sroa.032.0.extract.trunc.i75 = trunc i32 %.sroa.01.0.copyload.i.i74 to i8
   %93 = add i8 %.sroa.032.0.extract.trunc.i75, -9
@@ -28863,7 +28863,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 98:                                               ; preds = %.critedge.i
   %99 = getelementptr inbounds nuw i8, ptr %34, i64 128
   %100 = load ptr, ptr %99, align 8, !noalias !3451, !nonnull !13, !noundef !13
-  %101 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %100, i64 %97
+  %101 = getelementptr [32 x i8], ptr %100, i64 %97
   %102 = getelementptr i8, ptr %101, i64 -32
   %.not41.i82 = icmp eq ptr %102, null
   br i1 %.not41.i82, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit84", label %103
@@ -28933,7 +28933,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %11)
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %13 = load ptr, ptr %12, align 8, !alias.scope !3461, !noalias !3464, !nonnull !13, !noundef !13
-  %14 = getelementptr inbounds { i8, [3 x i8] }, ptr %13, i64 %9
+  %14 = getelementptr inbounds [4 x i8], ptr %13, i64 %9
   %.sroa.01.0.copyload.i.i = load i32, ptr %14, align 1, !noalias !3465
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %15 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -28952,7 +28952,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 21:                                               ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %23 = load ptr, ptr %22, align 8, !noalias !3464, !nonnull !13, !noundef !13
-  %24 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %23, i64 %20
+  %24 = getelementptr [32 x i8], ptr %23, i64 %20
   %25 = getelementptr i8, ptr %24, i64 -32
   %.not41.i = icmp eq ptr %25, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %26
@@ -28992,7 +28992,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %35)
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %37 = load ptr, ptr %36, align 8, !alias.scope !3466, !noalias !3469, !nonnull !13, !noundef !13
-  %38 = getelementptr inbounds { i8, [3 x i8] }, ptr %37, i64 %33
+  %38 = getelementptr inbounds [4 x i8], ptr %37, i64 %33
   %.sroa.01.0.copyload.i.i41 = load i32, ptr %38, align 1, !noalias !3473
   %.sroa.032.0.extract.trunc.i42 = trunc i32 %.sroa.01.0.copyload.i.i41 to i8
   %39 = add i8 %.sroa.032.0.extract.trunc.i42, -9
@@ -29011,7 +29011,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 45:                                               ; preds = %42
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %47 = load ptr, ptr %46, align 8, !noalias !3469, !nonnull !13, !noundef !13
-  %48 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %47, i64 %44
+  %48 = getelementptr [32 x i8], ptr %47, i64 %44
   %49 = getelementptr i8, ptr %48, i64 -32
   %.not41.i49 = icmp eq ptr %49, null
   br i1 %.not41.i49, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit51", label %50
@@ -29051,7 +29051,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %59 = phi i64 [ %.pre.i.i, %58 ], [ %55, %53 ]
   %60 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %61 = load ptr, ptr %60, align 8, !alias.scope !3474, !noalias !3477, !nonnull !13, !noundef !13
-  %62 = getelementptr inbounds { i8, [3 x i8] }, ptr %61, i64 %59
+  %62 = getelementptr inbounds [4 x i8], ptr %61, i64 %59
   store i32 4, ptr %62, align 1, !noalias !3477
   %63 = load i64, ptr %5, align 8, !alias.scope !3474, !noalias !3477, !noundef !13
   %64 = add i64 %63, 1
@@ -29114,7 +29114,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 26:                                               ; preds = %23
   %27 = getelementptr inbounds nuw i8, ptr %.val, i64 128
   %28 = load ptr, ptr %27, align 8, !noalias !3480, !nonnull !13, !noundef !13
-  %29 = getelementptr inbounds { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %28, i64 %16
+  %29 = getelementptr inbounds [32 x i8], ptr %28, i64 %16
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %31 = load i64, ptr %30, align 8
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 24
@@ -29186,7 +29186,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %53 = icmp ult i64 %51, %52
   tail call void @llvm.assume(i1 %53)
   %54 = load ptr, ptr %43, align 8, !alias.scope !3486, !noalias !3489, !nonnull !13, !noundef !13
-  %55 = getelementptr inbounds { i8, [3 x i8] }, ptr %54, i64 %51
+  %55 = getelementptr inbounds [4 x i8], ptr %54, i64 %51
   %.sroa.01.0.copyload.i.i.us.us = load i32, ptr %55, align 1, !noalias !3493
   %.sroa.032.0.extract.trunc.i.us.us = trunc i32 %.sroa.01.0.copyload.i.i.us.us to i8
   %56 = add i8 %.sroa.032.0.extract.trunc.i.us.us, -9
@@ -29210,7 +29210,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 
 63:                                               ; preds = %.critedge.i.us.us
   %64 = load ptr, ptr %27, align 8, !noalias !3489, !nonnull !13, !noundef !13
-  %65 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %64, i64 %62
+  %65 = getelementptr [32 x i8], ptr %64, i64 %62
   %66 = getelementptr i8, ptr %65, i64 -32
   %.not41.i.us.us = icmp eq ptr %66, null
   br i1 %.not41.i.us.us, label %.critedge45.i.us.us, label %67
@@ -29251,7 +29251,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %79 = icmp ult i64 %77, %78
   tail call void @llvm.assume(i1 %79)
   %80 = load ptr, ptr %43, align 8, !alias.scope !3486, !noalias !3489, !nonnull !13, !noundef !13
-  %81 = getelementptr inbounds { i8, [3 x i8] }, ptr %80, i64 %77
+  %81 = getelementptr inbounds [4 x i8], ptr %80, i64 %77
   %.sroa.01.0.copyload.i.i.us = load i32, ptr %81, align 1, !noalias !3493
   %.sroa.032.0.extract.trunc.i.us = trunc i32 %.sroa.01.0.copyload.i.i.us to i8
   %82 = add i8 %.sroa.032.0.extract.trunc.i.us, -9
@@ -29275,7 +29275,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 
 89:                                               ; preds = %.critedge.i.us
   %90 = load ptr, ptr %27, align 8, !noalias !3489, !nonnull !13, !noundef !13
-  %91 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %90, i64 %88
+  %91 = getelementptr [32 x i8], ptr %90, i64 %88
   %92 = getelementptr i8, ptr %91, i64 -32
   %.not41.i.us = icmp eq ptr %92, null
   br i1 %.not41.i.us, label %.critedge45.i.us, label %93
@@ -29335,7 +29335,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %110 = icmp ult i64 %108, %109
   tail call void @llvm.assume(i1 %110)
   %111 = load ptr, ptr %100, align 8, !alias.scope !3486, !noalias !3489, !nonnull !13, !noundef !13
-  %112 = getelementptr inbounds { i8, [3 x i8] }, ptr %111, i64 %108
+  %112 = getelementptr inbounds [4 x i8], ptr %111, i64 %108
   %.sroa.01.0.copyload.i.i.us92 = load i32, ptr %112, align 1, !noalias !3493
   %.sroa.032.0.extract.trunc.i.us93 = trunc i32 %.sroa.01.0.copyload.i.i.us92 to i8
   %113 = add i8 %.sroa.032.0.extract.trunc.i.us93, -9
@@ -29359,7 +29359,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 
 120:                                              ; preds = %.critedge.i.us98
   %121 = load ptr, ptr %27, align 8, !noalias !3489, !nonnull !13, !noundef !13
-  %122 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %121, i64 %119
+  %122 = getelementptr [32 x i8], ptr %121, i64 %119
   %123 = getelementptr i8, ptr %122, i64 -32
   %.not41.i.us100 = icmp eq ptr %123, null
   br i1 %.not41.i.us100, label %.critedge45.i.us102, label %124
@@ -29399,7 +29399,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 
 133:                                              ; preds = %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h2dbbd35987098d39E.exit.thread"
   %134 = load ptr, ptr %27, align 8, !noalias !3506, !nonnull !13, !noundef !13
-  %135 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %134, i64 %132
+  %135 = getelementptr [32 x i8], ptr %134, i64 %132
   %136 = getelementptr i8, ptr %135, i64 -32
   %137 = icmp eq ptr %136, null
   br i1 %137, label %.thread.i, label %139
@@ -29434,7 +29434,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %150 = icmp ult i64 %148, %149
   tail call void @llvm.assume(i1 %150)
   %151 = load ptr, ptr %100, align 8, !alias.scope !3486, !noalias !3489, !nonnull !13, !noundef !13
-  %152 = getelementptr inbounds { i8, [3 x i8] }, ptr %151, i64 %148
+  %152 = getelementptr inbounds [4 x i8], ptr %151, i64 %148
   %.sroa.01.0.copyload.i.i = load i32, ptr %152, align 1, !noalias !3493
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %153 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -29471,7 +29471,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 
 163:                                              ; preds = %.critedge.i
   %164 = load ptr, ptr %27, align 8, !noalias !3489, !nonnull !13, !noundef !13
-  %165 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %164, i64 %162
+  %165 = getelementptr [32 x i8], ptr %164, i64 %162
   %166 = getelementptr i8, ptr %165, i64 -32
   %.not41.i = icmp eq ptr %166, null
   br i1 %.not41.i, label %.critedge45.i, label %167
@@ -29520,7 +29520,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   call void @llvm.assume(i1 %17)
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 152
   %19 = load ptr, ptr %18, align 8, !alias.scope !3517, !noalias !3520, !nonnull !13, !noundef !13
-  %20 = getelementptr inbounds { i8, [3 x i8] }, ptr %19, i64 %15
+  %20 = getelementptr inbounds [4 x i8], ptr %19, i64 %15
   %.sroa.01.0.copyload.i.i = load i32, ptr %20, align 1, !noalias !3521
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %21 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -29539,7 +29539,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 27:                                               ; preds = %24
   %28 = getelementptr inbounds nuw i8, ptr %10, i64 128
   %29 = load ptr, ptr %28, align 8, !noalias !3520, !nonnull !13, !noundef !13
-  %30 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %29, i64 %26
+  %30 = getelementptr [32 x i8], ptr %29, i64 %26
   %31 = getelementptr i8, ptr %30, i64 -32
   %.not41.i = icmp eq ptr %31, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", label %32
@@ -29614,7 +29614,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %54 = icmp ult i64 %52, %53
   call void @llvm.assume(i1 %54)
   %55 = load ptr, ptr %42, align 8, !alias.scope !3522, !noalias !3525, !nonnull !13, !noundef !13
-  %56 = getelementptr inbounds { i8, [3 x i8] }, ptr %55, i64 %52
+  %56 = getelementptr inbounds [4 x i8], ptr %55, i64 %52
   %.sroa.01.0.copyload.i.i70.us = load i32, ptr %56, align 1, !noalias !3529
   %.sroa.032.0.extract.trunc.i71.us = trunc i32 %.sroa.01.0.copyload.i.i70.us to i8
   %57 = add i8 %.sroa.032.0.extract.trunc.i71.us, -9
@@ -29638,7 +29638,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 
 64:                                               ; preds = %.critedge.i.us
   %65 = load ptr, ptr %44, align 8, !noalias !3525, !nonnull !13, !noundef !13
-  %66 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %65, i64 %63
+  %66 = getelementptr [32 x i8], ptr %65, i64 %63
   %67 = getelementptr i8, ptr %66, i64 -32
   %.not41.i77.us = icmp eq ptr %67, null
   br i1 %.not41.i77.us, label %.critedge45.i74.us, label %68
@@ -29692,7 +29692,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %82 = icmp ult i64 %80, %81
   call void @llvm.assume(i1 %82)
   %83 = load ptr, ptr %42, align 8, !alias.scope !3522, !noalias !3525, !nonnull !13, !noundef !13
-  %84 = getelementptr inbounds { i8, [3 x i8] }, ptr %83, i64 %80
+  %84 = getelementptr inbounds [4 x i8], ptr %83, i64 %80
   %.sroa.01.0.copyload.i.i70 = load i32, ptr %84, align 1, !noalias !3529
   %.sroa.032.0.extract.trunc.i71 = trunc i32 %.sroa.01.0.copyload.i.i70 to i8
   %85 = add i8 %.sroa.032.0.extract.trunc.i71, -9
@@ -29729,7 +29729,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 
 95:                                               ; preds = %.critedge.i
   %96 = load ptr, ptr %44, align 8, !noalias !3525, !nonnull !13, !noundef !13
-  %97 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %96, i64 %94
+  %97 = getelementptr [32 x i8], ptr %96, i64 %94
   %98 = getelementptr i8, ptr %97, i64 -32
   %.not41.i77 = icmp eq ptr %98, null
   br i1 %.not41.i77, label %.critedge45.i74, label %99
@@ -29866,7 +29866,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12push_operand17hb1ff6b0126921329E.llvm.8213084322371663677.exit": ; preds = %41, %45
   %46 = phi i64 [ %.pre.i.i, %45 ], [ %42, %41 ]
   %47 = load ptr, ptr %26, align 8, !alias.scope !3540, !noalias !3543, !nonnull !13, !noundef !13
-  %48 = getelementptr inbounds { i8, [3 x i8] }, ptr %47, i64 %46
+  %48 = getelementptr inbounds [4 x i8], ptr %47, i64 %46
   store i32 %.sroa.0.0.i, ptr %48, align 1, !noalias !3543
   %49 = load i64, ptr %25, align 8, !alias.scope !3540, !noalias !3543, !noundef !13
   %50 = add i64 %49, 1
@@ -29968,7 +29968,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %10)
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %12 = load ptr, ptr %11, align 8, !alias.scope !3568, !noalias !3571, !nonnull !13, !noundef !13
-  %13 = getelementptr inbounds { i8, [3 x i8] }, ptr %12, i64 %8
+  %13 = getelementptr inbounds [4 x i8], ptr %12, i64 %8
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %13, align 1, !noalias !3572
   br label %"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$10visit_drop17h4de7bf2a38b875bdE.llvm.8213084322371663677.exit"
 
@@ -31360,7 +31360,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %10)
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %12 = load ptr, ptr %11, align 8, !alias.scope !3817, !noalias !3820, !nonnull !13, !noundef !13
-  %13 = getelementptr inbounds { i8, [3 x i8] }, ptr %12, i64 %8
+  %13 = getelementptr inbounds [4 x i8], ptr %12, i64 %8
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %13, align 1, !noalias !3821
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %14 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -31379,7 +31379,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %22 = load ptr, ptr %21, align 8, !noalias !3820, !nonnull !13, !noundef !13
-  %23 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %22, i64 %19
+  %23 = getelementptr [32 x i8], ptr %22, i64 %19
   %24 = getelementptr i8, ptr %23, i64 -32
   %.not41.i.i = icmp eq ptr %24, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i", label %25
@@ -31425,7 +31425,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %34 = phi i64 [ %.pre.i.i.i, %32 ], [ %30, %28 ]
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %36 = load ptr, ptr %35, align 8, !alias.scope !3822, !noalias !3825, !nonnull !13, !noundef !13
-  %37 = getelementptr inbounds { i8, [3 x i8] }, ptr %36, i64 %34
+  %37 = getelementptr inbounds [4 x i8], ptr %36, i64 %34
   store i32 0, ptr %37, align 1, !noalias !3825
   %38 = load i64, ptr %4, align 8, !alias.scope !3822, !noalias !3825, !noundef !13
   %39 = add i64 %38, 1
@@ -31459,7 +31459,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %10)
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %12 = load ptr, ptr %11, align 8, !alias.scope !3837, !noalias !3840, !nonnull !13, !noundef !13
-  %13 = getelementptr inbounds { i8, [3 x i8] }, ptr %12, i64 %8
+  %13 = getelementptr inbounds [4 x i8], ptr %12, i64 %8
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %13, align 1, !noalias !3841
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %14 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -31478,7 +31478,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %22 = load ptr, ptr %21, align 8, !noalias !3840, !nonnull !13, !noundef !13
-  %23 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %22, i64 %19
+  %23 = getelementptr [32 x i8], ptr %22, i64 %19
   %24 = getelementptr i8, ptr %23, i64 -32
   %.not41.i.i = icmp eq ptr %24, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i", label %25
@@ -31524,7 +31524,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %34 = phi i64 [ %.pre.i.i.i, %32 ], [ %30, %28 ]
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %36 = load ptr, ptr %35, align 8, !alias.scope !3842, !noalias !3845, !nonnull !13, !noundef !13
-  %37 = getelementptr inbounds { i8, [3 x i8] }, ptr %36, i64 %34
+  %37 = getelementptr inbounds [4 x i8], ptr %36, i64 %34
   store i32 0, ptr %37, align 1, !noalias !3845
   %38 = load i64, ptr %4, align 8, !alias.scope !3842, !noalias !3845, !noundef !13
   %39 = add i64 %38, 1
@@ -31558,7 +31558,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %10)
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %12 = load ptr, ptr %11, align 8, !alias.scope !3857, !noalias !3860, !nonnull !13, !noundef !13
-  %13 = getelementptr inbounds { i8, [3 x i8] }, ptr %12, i64 %8
+  %13 = getelementptr inbounds [4 x i8], ptr %12, i64 %8
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %13, align 1, !noalias !3861
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %14 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -31577,7 +31577,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %22 = load ptr, ptr %21, align 8, !noalias !3860, !nonnull !13, !noundef !13
-  %23 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %22, i64 %19
+  %23 = getelementptr [32 x i8], ptr %22, i64 %19
   %24 = getelementptr i8, ptr %23, i64 -32
   %.not41.i.i = icmp eq ptr %24, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i", label %25
@@ -31623,7 +31623,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %34 = phi i64 [ %.pre.i.i.i, %32 ], [ %30, %28 ]
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %36 = load ptr, ptr %35, align 8, !alias.scope !3862, !noalias !3865, !nonnull !13, !noundef !13
-  %37 = getelementptr inbounds { i8, [3 x i8] }, ptr %36, i64 %34
+  %37 = getelementptr inbounds [4 x i8], ptr %36, i64 %34
   store i32 0, ptr %37, align 1, !noalias !3865
   %38 = load i64, ptr %4, align 8, !alias.scope !3862, !noalias !3865, !noundef !13
   %39 = add i64 %38, 1
@@ -31705,7 +31705,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %10)
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %12 = load ptr, ptr %11, align 8, !alias.scope !3877, !noalias !3880, !nonnull !13, !noundef !13
-  %13 = getelementptr inbounds { i8, [3 x i8] }, ptr %12, i64 %8
+  %13 = getelementptr inbounds [4 x i8], ptr %12, i64 %8
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %13, align 1, !noalias !3881
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %14 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -31724,7 +31724,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %22 = load ptr, ptr %21, align 8, !noalias !3880, !nonnull !13, !noundef !13
-  %23 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %22, i64 %19
+  %23 = getelementptr [32 x i8], ptr %22, i64 %19
   %24 = getelementptr i8, ptr %23, i64 -32
   %.not41.i.i = icmp eq ptr %24, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i", label %25
@@ -31770,7 +31770,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %34 = phi i64 [ %.pre.i.i.i, %32 ], [ %30, %28 ]
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %36 = load ptr, ptr %35, align 8, !alias.scope !3882, !noalias !3885, !nonnull !13, !noundef !13
-  %37 = getelementptr inbounds { i8, [3 x i8] }, ptr %36, i64 %34
+  %37 = getelementptr inbounds [4 x i8], ptr %36, i64 %34
   store i32 0, ptr %37, align 1, !noalias !3885
   %38 = load i64, ptr %4, align 8, !alias.scope !3882, !noalias !3885, !noundef !13
   %39 = add i64 %38, 1
@@ -31865,7 +31865,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %26)
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %28 = load ptr, ptr %27, align 8, !alias.scope !3903, !noalias !3906, !nonnull !13, !noundef !13
-  %29 = getelementptr inbounds { i8, [3 x i8] }, ptr %28, i64 %24
+  %29 = getelementptr inbounds [4 x i8], ptr %28, i64 %24
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %29, align 1, !noalias !3910
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %30 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -31884,7 +31884,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %38 = load ptr, ptr %37, align 8, !noalias !3906, !nonnull !13, !noundef !13
-  %39 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %38, i64 %35
+  %39 = getelementptr [32 x i8], ptr %38, i64 %35
   %40 = getelementptr i8, ptr %39, i64 -32
   %.not41.i.i = icmp eq ptr %40, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i", label %41
@@ -31930,7 +31930,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %50 = phi i64 [ %.pre.i.i.i, %48 ], [ %46, %44 ]
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %52 = load ptr, ptr %51, align 8, !alias.scope !3911, !noalias !3914, !nonnull !13, !noundef !13
-  %53 = getelementptr inbounds { i8, [3 x i8] }, ptr %52, i64 %50
+  %53 = getelementptr inbounds [4 x i8], ptr %52, i64 %50
   store i32 536870917, ptr %53, align 1, !noalias !3914
   %54 = load i64, ptr %20, align 8, !alias.scope !3911, !noalias !3914, !noundef !13
   %55 = add i64 %54, 1
@@ -33981,7 +33981,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %26)
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %28 = load ptr, ptr %27, align 8, !alias.scope !4368, !noalias !4371, !nonnull !13, !noundef !13
-  %29 = getelementptr inbounds { i8, [3 x i8] }, ptr %28, i64 %24
+  %29 = getelementptr inbounds [4 x i8], ptr %28, i64 %24
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %29, align 1, !noalias !4375
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %30 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -34000,7 +34000,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %38 = load ptr, ptr %37, align 8, !noalias !4371, !nonnull !13, !noundef !13
-  %39 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %38, i64 %35
+  %39 = getelementptr [32 x i8], ptr %38, i64 %35
   %40 = getelementptr i8, ptr %39, i64 -32
   %.not41.i.i = icmp eq ptr %40, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i", label %41
@@ -34046,7 +34046,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %50 = phi i64 [ %.pre.i.i.i, %48 ], [ %46, %44 ]
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %52 = load ptr, ptr %51, align 8, !alias.scope !4376, !noalias !4379, !nonnull !13, !noundef !13
-  %53 = getelementptr inbounds { i8, [3 x i8] }, ptr %52, i64 %50
+  %53 = getelementptr inbounds [4 x i8], ptr %52, i64 %50
   store i32 4, ptr %53, align 1, !noalias !4379
   %54 = load i64, ptr %20, align 8, !alias.scope !4376, !noalias !4379, !noundef !13
   %55 = add i64 %54, 1
@@ -34620,7 +34620,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %22 = phi i64 [ %.pre.i.i.i, %21 ], [ %18, %15 ]
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %24 = load ptr, ptr %23, align 8, !alias.scope !4507, !noalias !4510, !nonnull !13, !noundef !13
-  %25 = getelementptr inbounds { i8, [3 x i8] }, ptr %24, i64 %22
+  %25 = getelementptr inbounds [4 x i8], ptr %24, i64 %22
   store i32 2, ptr %25, align 1, !noalias !4510
   %26 = load i64, ptr %17, align 8, !alias.scope !4507, !noalias !4510, !noundef !13
   %27 = add i64 %26, 1
@@ -35310,7 +35310,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %22 = phi i64 [ %.pre.i.i.i, %21 ], [ %18, %15 ]
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %24 = load ptr, ptr %23, align 8, !alias.scope !4672, !noalias !4675, !nonnull !13, !noundef !13
-  %25 = getelementptr inbounds { i8, [3 x i8] }, ptr %24, i64 %22
+  %25 = getelementptr inbounds [4 x i8], ptr %24, i64 %22
   store i32 3, ptr %25, align 1, !noalias !4675
   %26 = load i64, ptr %17, align 8, !alias.scope !4672, !noalias !4675, !noundef !13
   %27 = add i64 %26, 1
@@ -36013,7 +36013,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %26)
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %28 = load ptr, ptr %27, align 8, !alias.scope !4845, !noalias !4848, !nonnull !13, !noundef !13
-  %29 = getelementptr inbounds { i8, [3 x i8] }, ptr %28, i64 %24
+  %29 = getelementptr inbounds [4 x i8], ptr %28, i64 %24
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %29, align 1, !noalias !4852
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %30 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -36032,7 +36032,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %38 = load ptr, ptr %37, align 8, !noalias !4848, !nonnull !13, !noundef !13
-  %39 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %38, i64 %35
+  %39 = getelementptr [32 x i8], ptr %38, i64 %35
   %40 = getelementptr i8, ptr %39, i64 -32
   %.not41.i.i = icmp eq ptr %40, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i", label %41
@@ -36078,7 +36078,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %50 = phi i64 [ %.pre.i.i.i, %48 ], [ %46, %44 ]
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %52 = load ptr, ptr %51, align 8, !alias.scope !4853, !noalias !4856, !nonnull !13, !noundef !13
-  %53 = getelementptr inbounds { i8, [3 x i8] }, ptr %52, i64 %50
+  %53 = getelementptr inbounds [4 x i8], ptr %52, i64 %50
   store i32 4, ptr %53, align 1, !noalias !4856
   %54 = load i64, ptr %20, align 8, !alias.scope !4853, !noalias !4856, !noundef !13
   %55 = add i64 %54, 1
@@ -36249,7 +36249,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %26)
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %28 = load ptr, ptr %27, align 8, !alias.scope !4898, !noalias !4901, !nonnull !13, !noundef !13
-  %29 = getelementptr inbounds { i8, [3 x i8] }, ptr %28, i64 %24
+  %29 = getelementptr inbounds [4 x i8], ptr %28, i64 %24
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %29, align 1, !noalias !4905
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %30 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -36268,7 +36268,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %38 = load ptr, ptr %37, align 8, !noalias !4901, !nonnull !13, !noundef !13
-  %39 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %38, i64 %35
+  %39 = getelementptr [32 x i8], ptr %38, i64 %35
   %40 = getelementptr i8, ptr %39, i64 -32
   %.not41.i.i = icmp eq ptr %40, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i", label %41
@@ -36314,7 +36314,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %50 = phi i64 [ %.pre.i.i.i, %48 ], [ %46, %44 ]
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %52 = load ptr, ptr %51, align 8, !alias.scope !4906, !noalias !4909, !nonnull !13, !noundef !13
-  %53 = getelementptr inbounds { i8, [3 x i8] }, ptr %52, i64 %50
+  %53 = getelementptr inbounds [4 x i8], ptr %52, i64 %50
   store i32 4, ptr %53, align 1, !noalias !4909
   %54 = load i64, ptr %20, align 8, !alias.scope !4906, !noalias !4909, !noundef !13
   %55 = add i64 %54, 1
@@ -36547,7 +36547,7 @@ define hidden noalias noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..op
   %10 = phi i64 [ %.pre.i.i.i, %9 ], [ %6, %2 ]
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %12 = load ptr, ptr %11, align 8, !alias.scope !4967, !noalias !4966, !nonnull !13, !noundef !13
-  %13 = getelementptr inbounds { i8, [3 x i8] }, ptr %12, i64 %10
+  %13 = getelementptr inbounds [4 x i8], ptr %12, i64 %10
   store i32 0, ptr %13, align 1, !noalias !4966
   %14 = load i64, ptr %5, align 8, !alias.scope !4967, !noalias !4966, !noundef !13
   %15 = add i64 %14, 1
@@ -36656,7 +36656,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %26)
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %28 = load ptr, ptr %27, align 8, !alias.scope !4985, !noalias !4988, !nonnull !13, !noundef !13
-  %29 = getelementptr inbounds { i8, [3 x i8] }, ptr %28, i64 %24
+  %29 = getelementptr inbounds [4 x i8], ptr %28, i64 %24
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %29, align 1, !noalias !4992
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %30 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -36675,7 +36675,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %38 = load ptr, ptr %37, align 8, !noalias !4988, !nonnull !13, !noundef !13
-  %39 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %38, i64 %35
+  %39 = getelementptr [32 x i8], ptr %38, i64 %35
   %40 = getelementptr i8, ptr %39, i64 -32
   %.not41.i.i = icmp eq ptr %40, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i", label %41
@@ -36721,7 +36721,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %50 = phi i64 [ %.pre.i.i.i, %48 ], [ %46, %44 ]
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %52 = load ptr, ptr %51, align 8, !alias.scope !4993, !noalias !4996, !nonnull !13, !noundef !13
-  %53 = getelementptr inbounds { i8, [3 x i8] }, ptr %52, i64 %50
+  %53 = getelementptr inbounds [4 x i8], ptr %52, i64 %50
   store i32 4, ptr %53, align 1, !noalias !4996
   %54 = load i64, ptr %20, align 8, !alias.scope !4993, !noalias !4996, !noundef !13
   %55 = add i64 %54, 1
@@ -36892,7 +36892,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %26)
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %28 = load ptr, ptr %27, align 8, !alias.scope !5038, !noalias !5041, !nonnull !13, !noundef !13
-  %29 = getelementptr inbounds { i8, [3 x i8] }, ptr %28, i64 %24
+  %29 = getelementptr inbounds [4 x i8], ptr %28, i64 %24
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %29, align 1, !noalias !5045
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %30 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -36911,7 +36911,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %38 = load ptr, ptr %37, align 8, !noalias !5041, !nonnull !13, !noundef !13
-  %39 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %38, i64 %35
+  %39 = getelementptr [32 x i8], ptr %38, i64 %35
   %40 = getelementptr i8, ptr %39, i64 -32
   %.not41.i.i = icmp eq ptr %40, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i", label %41
@@ -36957,7 +36957,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %50 = phi i64 [ %.pre.i.i.i, %48 ], [ %46, %44 ]
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %52 = load ptr, ptr %51, align 8, !alias.scope !5046, !noalias !5049, !nonnull !13, !noundef !13
-  %53 = getelementptr inbounds { i8, [3 x i8] }, ptr %52, i64 %50
+  %53 = getelementptr inbounds [4 x i8], ptr %52, i64 %50
   store i32 4, ptr %53, align 1, !noalias !5049
   %54 = load i64, ptr %20, align 8, !alias.scope !5046, !noalias !5049, !noundef !13
   %55 = add i64 %54, 1
@@ -37090,7 +37090,7 @@ define hidden noalias noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..op
   %10 = phi i64 [ %.pre.i.i.i, %9 ], [ %6, %2 ]
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %12 = load ptr, ptr %11, align 8, !alias.scope !5083, !noalias !5082, !nonnull !13, !noundef !13
-  %13 = getelementptr inbounds { i8, [3 x i8] }, ptr %12, i64 %10
+  %13 = getelementptr inbounds [4 x i8], ptr %12, i64 %10
   store i32 1, ptr %13, align 1, !noalias !5082
   %14 = load i64, ptr %5, align 8, !alias.scope !5083, !noalias !5082, !noundef !13
   %15 = add i64 %14, 1
@@ -37199,7 +37199,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %26)
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %28 = load ptr, ptr %27, align 8, !alias.scope !5101, !noalias !5104, !nonnull !13, !noundef !13
-  %29 = getelementptr inbounds { i8, [3 x i8] }, ptr %28, i64 %24
+  %29 = getelementptr inbounds [4 x i8], ptr %28, i64 %24
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %29, align 1, !noalias !5108
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %30 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -37218,7 +37218,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %38 = load ptr, ptr %37, align 8, !noalias !5104, !nonnull !13, !noundef !13
-  %39 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %38, i64 %35
+  %39 = getelementptr [32 x i8], ptr %38, i64 %35
   %40 = getelementptr i8, ptr %39, i64 -32
   %.not41.i.i = icmp eq ptr %40, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i", label %41
@@ -37264,7 +37264,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %50 = phi i64 [ %.pre.i.i.i, %48 ], [ %46, %44 ]
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %52 = load ptr, ptr %51, align 8, !alias.scope !5109, !noalias !5112, !nonnull !13, !noundef !13
-  %53 = getelementptr inbounds { i8, [3 x i8] }, ptr %52, i64 %50
+  %53 = getelementptr inbounds [4 x i8], ptr %52, i64 %50
   store i32 4, ptr %53, align 1, !noalias !5112
   %54 = load i64, ptr %20, align 8, !alias.scope !5109, !noalias !5112, !noundef !13
   %55 = add i64 %54, 1
@@ -37435,7 +37435,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %26)
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %28 = load ptr, ptr %27, align 8, !alias.scope !5154, !noalias !5157, !nonnull !13, !noundef !13
-  %29 = getelementptr inbounds { i8, [3 x i8] }, ptr %28, i64 %24
+  %29 = getelementptr inbounds [4 x i8], ptr %28, i64 %24
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %29, align 1, !noalias !5161
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %30 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -37454,7 +37454,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %38 = load ptr, ptr %37, align 8, !noalias !5157, !nonnull !13, !noundef !13
-  %39 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %38, i64 %35
+  %39 = getelementptr [32 x i8], ptr %38, i64 %35
   %40 = getelementptr i8, ptr %39, i64 -32
   %.not41.i.i = icmp eq ptr %40, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i", label %41
@@ -37500,7 +37500,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %50 = phi i64 [ %.pre.i.i.i, %48 ], [ %46, %44 ]
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %52 = load ptr, ptr %51, align 8, !alias.scope !5162, !noalias !5165, !nonnull !13, !noundef !13
-  %53 = getelementptr inbounds { i8, [3 x i8] }, ptr %52, i64 %50
+  %53 = getelementptr inbounds [4 x i8], ptr %52, i64 %50
   store i32 4, ptr %53, align 1, !noalias !5165
   %54 = load i64, ptr %20, align 8, !alias.scope !5162, !noalias !5165, !noundef !13
   %55 = add i64 %54, 1
@@ -37671,7 +37671,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %26)
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %28 = load ptr, ptr %27, align 8, !alias.scope !5207, !noalias !5210, !nonnull !13, !noundef !13
-  %29 = getelementptr inbounds { i8, [3 x i8] }, ptr %28, i64 %24
+  %29 = getelementptr inbounds [4 x i8], ptr %28, i64 %24
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %29, align 1, !noalias !5214
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %30 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -37690,7 +37690,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %38 = load ptr, ptr %37, align 8, !noalias !5210, !nonnull !13, !noundef !13
-  %39 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %38, i64 %35
+  %39 = getelementptr [32 x i8], ptr %38, i64 %35
   %40 = getelementptr i8, ptr %39, i64 -32
   %.not41.i.i = icmp eq ptr %40, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i", label %41
@@ -37736,7 +37736,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %50 = phi i64 [ %.pre.i.i.i, %48 ], [ %46, %44 ]
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %52 = load ptr, ptr %51, align 8, !alias.scope !5215, !noalias !5218, !nonnull !13, !noundef !13
-  %53 = getelementptr inbounds { i8, [3 x i8] }, ptr %52, i64 %50
+  %53 = getelementptr inbounds [4 x i8], ptr %52, i64 %50
   store i32 4, ptr %53, align 1, !noalias !5218
   %54 = load i64, ptr %20, align 8, !alias.scope !5215, !noalias !5218, !noundef !13
   %55 = add i64 %54, 1
@@ -37857,7 +37857,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %26)
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %28 = load ptr, ptr %27, align 8, !alias.scope !5248, !noalias !5251, !nonnull !13, !noundef !13
-  %29 = getelementptr inbounds { i8, [3 x i8] }, ptr %28, i64 %24
+  %29 = getelementptr inbounds [4 x i8], ptr %28, i64 %24
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %29, align 1, !noalias !5255
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %30 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -37876,7 +37876,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %38 = load ptr, ptr %37, align 8, !noalias !5251, !nonnull !13, !noundef !13
-  %39 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %38, i64 %35
+  %39 = getelementptr [32 x i8], ptr %38, i64 %35
   %40 = getelementptr i8, ptr %39, i64 -32
   %.not41.i.i = icmp eq ptr %40, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i", label %41
@@ -37922,7 +37922,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %50 = phi i64 [ %.pre.i.i.i, %48 ], [ %46, %44 ]
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %52 = load ptr, ptr %51, align 8, !alias.scope !5256, !noalias !5259, !nonnull !13, !noundef !13
-  %53 = getelementptr inbounds { i8, [3 x i8] }, ptr %52, i64 %50
+  %53 = getelementptr inbounds [4 x i8], ptr %52, i64 %50
   store i32 4, ptr %53, align 1, !noalias !5259
   %54 = load i64, ptr %20, align 8, !alias.scope !5256, !noalias !5259, !noundef !13
   %55 = add i64 %54, 1
@@ -39077,7 +39077,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %15 = phi i64 [ %.pre.i.i.i, %14 ], [ %11, %7 ]
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 152
   %17 = load ptr, ptr %16, align 8, !alias.scope !5534, !noalias !5533, !nonnull !13, !noundef !13
-  %18 = getelementptr inbounds { i8, [3 x i8] }, ptr %17, i64 %15
+  %18 = getelementptr inbounds [4 x i8], ptr %17, i64 %15
   store i32 %.2.extract.trunc.i, ptr %18, align 1, !noalias !5533
   %19 = load i64, ptr %10, align 8, !alias.scope !5534, !noalias !5533, !noundef !13
   %20 = add i64 %19, 1
@@ -39534,7 +39534,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %10)
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %12 = load ptr, ptr %11, align 8, !alias.scope !5642, !noalias !5645, !nonnull !13, !noundef !13
-  %13 = getelementptr inbounds { i8, [3 x i8] }, ptr %12, i64 %8
+  %13 = getelementptr inbounds [4 x i8], ptr %12, i64 %8
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %13, align 1, !noalias !5646
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %14 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -39553,7 +39553,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %22 = load ptr, ptr %21, align 8, !noalias !5645, !nonnull !13, !noundef !13
-  %23 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %22, i64 %19
+  %23 = getelementptr [32 x i8], ptr %22, i64 %19
   %24 = getelementptr i8, ptr %23, i64 -32
   %.not41.i.i = icmp eq ptr %24, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i", label %25
@@ -39599,7 +39599,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %34 = phi i64 [ %.pre.i.i.i, %32 ], [ %30, %28 ]
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %36 = load ptr, ptr %35, align 8, !alias.scope !5647, !noalias !5650, !nonnull !13, !noundef !13
-  %37 = getelementptr inbounds { i8, [3 x i8] }, ptr %36, i64 %34
+  %37 = getelementptr inbounds [4 x i8], ptr %36, i64 %34
   store i32 0, ptr %37, align 1, !noalias !5650
   %38 = load i64, ptr %4, align 8, !alias.scope !5647, !noalias !5650, !noundef !13
   %39 = add i64 %38, 1
@@ -41050,7 +41050,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %32 = phi i64 [ %.pre.i.i.i, %31 ], [ %28, %25 ]
   %33 = getelementptr inbounds nuw i8, ptr %8, i64 152
   %34 = load ptr, ptr %33, align 8, !alias.scope !5992, !noalias !5995, !nonnull !13, !noundef !13
-  %35 = getelementptr inbounds { i8, [3 x i8] }, ptr %34, i64 %32
+  %35 = getelementptr inbounds [4 x i8], ptr %34, i64 %32
   store i32 0, ptr %35, align 1, !noalias !5995
   %36 = load i64, ptr %27, align 8, !alias.scope !5992, !noalias !5995, !noundef !13
   %37 = add i64 %36, 1
@@ -41137,7 +41137,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %26 = phi i64 [ %.pre.i.i.i, %25 ], [ %22, %19 ]
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %28 = load ptr, ptr %27, align 8, !alias.scope !6010, !noalias !6013, !nonnull !13, !noundef !13
-  %29 = getelementptr inbounds { i8, [3 x i8] }, ptr %28, i64 %26
+  %29 = getelementptr inbounds [4 x i8], ptr %28, i64 %26
   store i32 4, ptr %29, align 1, !noalias !6013
   %30 = load i64, ptr %21, align 8, !alias.scope !6010, !noalias !6013, !noundef !13
   %31 = add i64 %30, 1
@@ -42084,7 +42084,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %26)
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %28 = load ptr, ptr %27, align 8, !alias.scope !6241, !noalias !6244, !nonnull !13, !noundef !13
-  %29 = getelementptr inbounds { i8, [3 x i8] }, ptr %28, i64 %24
+  %29 = getelementptr inbounds [4 x i8], ptr %28, i64 %24
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %29, align 1, !noalias !6248
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %30 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -42103,7 +42103,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %38 = load ptr, ptr %37, align 8, !noalias !6244, !nonnull !13, !noundef !13
-  %39 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %38, i64 %35
+  %39 = getelementptr [32 x i8], ptr %38, i64 %35
   %40 = getelementptr i8, ptr %39, i64 -32
   %.not41.i.i = icmp eq ptr %40, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i", label %41
@@ -42149,7 +42149,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %50 = phi i64 [ %.pre.i.i.i, %48 ], [ %46, %44 ]
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %52 = load ptr, ptr %51, align 8, !alias.scope !6249, !noalias !6252, !nonnull !13, !noundef !13
-  %53 = getelementptr inbounds { i8, [3 x i8] }, ptr %52, i64 %50
+  %53 = getelementptr inbounds [4 x i8], ptr %52, i64 %50
   store i32 4, ptr %53, align 1, !noalias !6252
   %54 = load i64, ptr %20, align 8, !alias.scope !6249, !noalias !6252, !noundef !13
   %55 = add i64 %54, 1
@@ -42538,7 +42538,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %26)
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %28 = load ptr, ptr %27, align 8, !alias.scope !6342, !noalias !6345, !nonnull !13, !noundef !13
-  %29 = getelementptr inbounds { i8, [3 x i8] }, ptr %28, i64 %24
+  %29 = getelementptr inbounds [4 x i8], ptr %28, i64 %24
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %29, align 1, !noalias !6349
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %30 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -42557,7 +42557,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %38 = load ptr, ptr %37, align 8, !noalias !6345, !nonnull !13, !noundef !13
-  %39 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %38, i64 %35
+  %39 = getelementptr [32 x i8], ptr %38, i64 %35
   %40 = getelementptr i8, ptr %39, i64 -32
   %.not41.i.i = icmp eq ptr %40, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i", label %41
@@ -42603,7 +42603,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %50 = phi i64 [ %.pre.i.i.i, %48 ], [ %46, %44 ]
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %52 = load ptr, ptr %51, align 8, !alias.scope !6350, !noalias !6353, !nonnull !13, !noundef !13
-  %53 = getelementptr inbounds { i8, [3 x i8] }, ptr %52, i64 %50
+  %53 = getelementptr inbounds [4 x i8], ptr %52, i64 %50
   store i32 4, ptr %53, align 1, !noalias !6353
   %54 = load i64, ptr %20, align 8, !alias.scope !6350, !noalias !6353, !noundef !13
   %55 = add i64 %54, 1
@@ -43148,7 +43148,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %26)
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %28 = load ptr, ptr %27, align 8, !alias.scope !6479, !noalias !6482, !nonnull !13, !noundef !13
-  %29 = getelementptr inbounds { i8, [3 x i8] }, ptr %28, i64 %24
+  %29 = getelementptr inbounds [4 x i8], ptr %28, i64 %24
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %29, align 1, !noalias !6486
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %30 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -43167,7 +43167,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %38 = load ptr, ptr %37, align 8, !noalias !6482, !nonnull !13, !noundef !13
-  %39 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %38, i64 %35
+  %39 = getelementptr [32 x i8], ptr %38, i64 %35
   %40 = getelementptr i8, ptr %39, i64 -32
   %.not41.i.i = icmp eq ptr %40, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i", label %41
@@ -43213,7 +43213,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %50 = phi i64 [ %.pre.i.i.i, %48 ], [ %46, %44 ]
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %52 = load ptr, ptr %51, align 8, !alias.scope !6487, !noalias !6490, !nonnull !13, !noundef !13
-  %53 = getelementptr inbounds { i8, [3 x i8] }, ptr %52, i64 %50
+  %53 = getelementptr inbounds [4 x i8], ptr %52, i64 %50
   store i32 4, ptr %53, align 1, !noalias !6490
   %54 = load i64, ptr %20, align 8, !alias.scope !6487, !noalias !6490, !noundef !13
   %55 = add i64 %54, 1
@@ -43456,7 +43456,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %30 = phi i64 [ %.pre.i.i.i, %29 ], [ %26, %23 ]
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %32 = load ptr, ptr %31, align 8, !alias.scope !6544, !noalias !6547, !nonnull !13, !noundef !13
-  %33 = getelementptr inbounds { i8, [3 x i8] }, ptr %32, i64 %30
+  %33 = getelementptr inbounds [4 x i8], ptr %32, i64 %30
   store i32 0, ptr %33, align 1, !noalias !6547
   %34 = load i64, ptr %25, align 8, !alias.scope !6544, !noalias !6547, !noundef !13
   %35 = add i64 %34, 1
@@ -43574,7 +43574,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %7 = load ptr, ptr %6, align 8, !noalias !6581, !nonnull !13, !noundef !13
-  %8 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %7, i64 %4
+  %8 = getelementptr [32 x i8], ptr %7, i64 %4
   %9 = getelementptr i8, ptr %8, i64 -32
   %10 = icmp eq ptr %9, null
   br i1 %10, label %.thread.i.i, label %14
@@ -43858,7 +43858,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %10)
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %12 = load ptr, ptr %11, align 8, !alias.scope !6644, !noalias !6647, !nonnull !13, !noundef !13
-  %13 = getelementptr inbounds { i8, [3 x i8] }, ptr %12, i64 %8
+  %13 = getelementptr inbounds [4 x i8], ptr %12, i64 %8
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %13, align 1, !noalias !6648
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %14 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -43877,7 +43877,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %22 = load ptr, ptr %21, align 8, !noalias !6647, !nonnull !13, !noundef !13
-  %23 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %22, i64 %19
+  %23 = getelementptr [32 x i8], ptr %22, i64 %19
   %24 = getelementptr i8, ptr %23, i64 -32
   %.not41.i.i = icmp eq ptr %24, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i", label %25
@@ -43923,7 +43923,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %34 = phi i64 [ %.pre.i.i.i, %32 ], [ %30, %28 ]
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %36 = load ptr, ptr %35, align 8, !alias.scope !6649, !noalias !6652, !nonnull !13, !noundef !13
-  %37 = getelementptr inbounds { i8, [3 x i8] }, ptr %36, i64 %34
+  %37 = getelementptr inbounds [4 x i8], ptr %36, i64 %34
   store i32 0, ptr %37, align 1, !noalias !6652
   %38 = load i64, ptr %4, align 8, !alias.scope !6649, !noalias !6652, !noundef !13
   %39 = add i64 %38, 1
@@ -44068,7 +44068,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %26)
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %28 = load ptr, ptr %27, align 8, !alias.scope !6682, !noalias !6685, !nonnull !13, !noundef !13
-  %29 = getelementptr inbounds { i8, [3 x i8] }, ptr %28, i64 %24
+  %29 = getelementptr inbounds [4 x i8], ptr %28, i64 %24
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %29, align 1, !noalias !6689
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %30 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -44087,7 +44087,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %38 = load ptr, ptr %37, align 8, !noalias !6685, !nonnull !13, !noundef !13
-  %39 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %38, i64 %35
+  %39 = getelementptr [32 x i8], ptr %38, i64 %35
   %40 = getelementptr i8, ptr %39, i64 -32
   %.not41.i.i = icmp eq ptr %40, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i", label %41
@@ -44133,7 +44133,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %50 = phi i64 [ %.pre.i.i.i, %48 ], [ %46, %44 ]
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %52 = load ptr, ptr %51, align 8, !alias.scope !6690, !noalias !6693, !nonnull !13, !noundef !13
-  %53 = getelementptr inbounds { i8, [3 x i8] }, ptr %52, i64 %50
+  %53 = getelementptr inbounds [4 x i8], ptr %52, i64 %50
   store i32 4, ptr %53, align 1, !noalias !6693
   %54 = load i64, ptr %20, align 8, !alias.scope !6690, !noalias !6693, !noundef !13
   %55 = add i64 %54, 1
@@ -44495,7 +44495,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %26)
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %28 = load ptr, ptr %27, align 8, !alias.scope !6774, !noalias !6777, !nonnull !13, !noundef !13
-  %29 = getelementptr inbounds { i8, [3 x i8] }, ptr %28, i64 %24
+  %29 = getelementptr inbounds [4 x i8], ptr %28, i64 %24
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %29, align 1, !noalias !6781
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %30 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -44514,7 +44514,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %38 = load ptr, ptr %37, align 8, !noalias !6777, !nonnull !13, !noundef !13
-  %39 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %38, i64 %35
+  %39 = getelementptr [32 x i8], ptr %38, i64 %35
   %40 = getelementptr i8, ptr %39, i64 -32
   %.not41.i.i = icmp eq ptr %40, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i", label %41
@@ -44560,7 +44560,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %50 = phi i64 [ %.pre.i.i.i, %48 ], [ %46, %44 ]
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %52 = load ptr, ptr %51, align 8, !alias.scope !6782, !noalias !6785, !nonnull !13, !noundef !13
-  %53 = getelementptr inbounds { i8, [3 x i8] }, ptr %52, i64 %50
+  %53 = getelementptr inbounds [4 x i8], ptr %52, i64 %50
   store i32 0, ptr %53, align 1, !noalias !6785
   %54 = load i64, ptr %20, align 8, !alias.scope !6782, !noalias !6785, !noundef !13
   %55 = add i64 %54, 1
@@ -44631,7 +44631,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %26)
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %28 = load ptr, ptr %27, align 8, !alias.scope !6803, !noalias !6806, !nonnull !13, !noundef !13
-  %29 = getelementptr inbounds { i8, [3 x i8] }, ptr %28, i64 %24
+  %29 = getelementptr inbounds [4 x i8], ptr %28, i64 %24
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %29, align 1, !noalias !6810
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %30 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -44650,7 +44650,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %38 = load ptr, ptr %37, align 8, !noalias !6806, !nonnull !13, !noundef !13
-  %39 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %38, i64 %35
+  %39 = getelementptr [32 x i8], ptr %38, i64 %35
   %40 = getelementptr i8, ptr %39, i64 -32
   %.not41.i.i = icmp eq ptr %40, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i", label %41
@@ -44696,7 +44696,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %50 = phi i64 [ %.pre.i.i.i, %48 ], [ %46, %44 ]
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %52 = load ptr, ptr %51, align 8, !alias.scope !6811, !noalias !6814, !nonnull !13, !noundef !13
-  %53 = getelementptr inbounds { i8, [3 x i8] }, ptr %52, i64 %50
+  %53 = getelementptr inbounds [4 x i8], ptr %52, i64 %50
   store i32 0, ptr %53, align 1, !noalias !6814
   %54 = load i64, ptr %20, align 8, !alias.scope !6811, !noalias !6814, !noundef !13
   %55 = add i64 %54, 1
@@ -44767,7 +44767,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %26)
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %28 = load ptr, ptr %27, align 8, !alias.scope !6832, !noalias !6835, !nonnull !13, !noundef !13
-  %29 = getelementptr inbounds { i8, [3 x i8] }, ptr %28, i64 %24
+  %29 = getelementptr inbounds [4 x i8], ptr %28, i64 %24
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %29, align 1, !noalias !6839
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %30 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -44786,7 +44786,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %38 = load ptr, ptr %37, align 8, !noalias !6835, !nonnull !13, !noundef !13
-  %39 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %38, i64 %35
+  %39 = getelementptr [32 x i8], ptr %38, i64 %35
   %40 = getelementptr i8, ptr %39, i64 -32
   %.not41.i.i = icmp eq ptr %40, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i", label %41
@@ -44832,7 +44832,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %50 = phi i64 [ %.pre.i.i.i, %48 ], [ %46, %44 ]
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %52 = load ptr, ptr %51, align 8, !alias.scope !6840, !noalias !6843, !nonnull !13, !noundef !13
-  %53 = getelementptr inbounds { i8, [3 x i8] }, ptr %52, i64 %50
+  %53 = getelementptr inbounds [4 x i8], ptr %52, i64 %50
   store i32 0, ptr %53, align 1, !noalias !6843
   %54 = load i64, ptr %20, align 8, !alias.scope !6840, !noalias !6843, !noundef !13
   %55 = add i64 %54, 1
@@ -44953,7 +44953,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %26)
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %28 = load ptr, ptr %27, align 8, !alias.scope !6873, !noalias !6876, !nonnull !13, !noundef !13
-  %29 = getelementptr inbounds { i8, [3 x i8] }, ptr %28, i64 %24
+  %29 = getelementptr inbounds [4 x i8], ptr %28, i64 %24
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %29, align 1, !noalias !6880
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %30 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -44972,7 +44972,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %38 = load ptr, ptr %37, align 8, !noalias !6876, !nonnull !13, !noundef !13
-  %39 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %38, i64 %35
+  %39 = getelementptr [32 x i8], ptr %38, i64 %35
   %40 = getelementptr i8, ptr %39, i64 -32
   %.not41.i.i = icmp eq ptr %40, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i", label %41
@@ -45018,7 +45018,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %50 = phi i64 [ %.pre.i.i.i, %48 ], [ %46, %44 ]
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %52 = load ptr, ptr %51, align 8, !alias.scope !6881, !noalias !6884, !nonnull !13, !noundef !13
-  %53 = getelementptr inbounds { i8, [3 x i8] }, ptr %52, i64 %50
+  %53 = getelementptr inbounds [4 x i8], ptr %52, i64 %50
   store i32 0, ptr %53, align 1, !noalias !6884
   %54 = load i64, ptr %20, align 8, !alias.scope !6881, !noalias !6884, !noundef !13
   %55 = add i64 %54, 1
@@ -45089,7 +45089,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %26)
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %28 = load ptr, ptr %27, align 8, !alias.scope !6902, !noalias !6905, !nonnull !13, !noundef !13
-  %29 = getelementptr inbounds { i8, [3 x i8] }, ptr %28, i64 %24
+  %29 = getelementptr inbounds [4 x i8], ptr %28, i64 %24
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %29, align 1, !noalias !6909
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %30 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -45108,7 +45108,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %38 = load ptr, ptr %37, align 8, !noalias !6905, !nonnull !13, !noundef !13
-  %39 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %38, i64 %35
+  %39 = getelementptr [32 x i8], ptr %38, i64 %35
   %40 = getelementptr i8, ptr %39, i64 -32
   %.not41.i.i = icmp eq ptr %40, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i", label %41
@@ -45154,7 +45154,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %50 = phi i64 [ %.pre.i.i.i, %48 ], [ %46, %44 ]
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %52 = load ptr, ptr %51, align 8, !alias.scope !6910, !noalias !6913, !nonnull !13, !noundef !13
-  %53 = getelementptr inbounds { i8, [3 x i8] }, ptr %52, i64 %50
+  %53 = getelementptr inbounds [4 x i8], ptr %52, i64 %50
   store i32 0, ptr %53, align 1, !noalias !6913
   %54 = load i64, ptr %20, align 8, !alias.scope !6910, !noalias !6913, !noundef !13
   %55 = add i64 %54, 1
@@ -45325,7 +45325,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %26)
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %28 = load ptr, ptr %27, align 8, !alias.scope !6955, !noalias !6958, !nonnull !13, !noundef !13
-  %29 = getelementptr inbounds { i8, [3 x i8] }, ptr %28, i64 %24
+  %29 = getelementptr inbounds [4 x i8], ptr %28, i64 %24
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %29, align 1, !noalias !6962
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %30 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -45344,7 +45344,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %38 = load ptr, ptr %37, align 8, !noalias !6958, !nonnull !13, !noundef !13
-  %39 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %38, i64 %35
+  %39 = getelementptr [32 x i8], ptr %38, i64 %35
   %40 = getelementptr i8, ptr %39, i64 -32
   %.not41.i.i = icmp eq ptr %40, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i", label %41
@@ -45390,7 +45390,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %50 = phi i64 [ %.pre.i.i.i, %48 ], [ %46, %44 ]
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %52 = load ptr, ptr %51, align 8, !alias.scope !6963, !noalias !6966, !nonnull !13, !noundef !13
-  %53 = getelementptr inbounds { i8, [3 x i8] }, ptr %52, i64 %50
+  %53 = getelementptr inbounds [4 x i8], ptr %52, i64 %50
   store i32 0, ptr %53, align 1, !noalias !6966
   %54 = load i64, ptr %20, align 8, !alias.scope !6963, !noalias !6966, !noundef !13
   %55 = add i64 %54, 1
@@ -45599,7 +45599,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %22)
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %24 = load ptr, ptr %23, align 8, !alias.scope !7015, !noalias !7018, !nonnull !13, !noundef !13
-  %25 = getelementptr inbounds { i8, [3 x i8] }, ptr %24, i64 %20
+  %25 = getelementptr inbounds [4 x i8], ptr %24, i64 %20
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %25, align 1, !noalias !7022
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %26 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -45618,7 +45618,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 32:                                               ; preds = %29
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %34 = load ptr, ptr %33, align 8, !noalias !7018, !nonnull !13, !noundef !13
-  %35 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %34, i64 %31
+  %35 = getelementptr [32 x i8], ptr %34, i64 %31
   %36 = getelementptr i8, ptr %35, i64 -32
   %.not41.i.i = icmp eq ptr %36, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i", label %37
@@ -45664,7 +45664,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %46 = phi i64 [ %.pre.i.i.i, %44 ], [ %42, %40 ]
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %48 = load ptr, ptr %47, align 8, !alias.scope !7023, !noalias !7026, !nonnull !13, !noundef !13
-  %49 = getelementptr inbounds { i8, [3 x i8] }, ptr %48, i64 %46
+  %49 = getelementptr inbounds [4 x i8], ptr %48, i64 %46
   store i32 2, ptr %49, align 1, !noalias !7026
   %50 = load i64, ptr %16, align 8, !alias.scope !7023, !noalias !7026, !noundef !13
   %51 = add i64 %50, 1
@@ -45735,7 +45735,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %26)
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %28 = load ptr, ptr %27, align 8, !alias.scope !7044, !noalias !7047, !nonnull !13, !noundef !13
-  %29 = getelementptr inbounds { i8, [3 x i8] }, ptr %28, i64 %24
+  %29 = getelementptr inbounds [4 x i8], ptr %28, i64 %24
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %29, align 1, !noalias !7051
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %30 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -45754,7 +45754,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %38 = load ptr, ptr %37, align 8, !noalias !7047, !nonnull !13, !noundef !13
-  %39 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %38, i64 %35
+  %39 = getelementptr [32 x i8], ptr %38, i64 %35
   %40 = getelementptr i8, ptr %39, i64 -32
   %.not41.i.i = icmp eq ptr %40, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i", label %41
@@ -45800,7 +45800,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %50 = phi i64 [ %.pre.i.i.i, %48 ], [ %46, %44 ]
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %52 = load ptr, ptr %51, align 8, !alias.scope !7052, !noalias !7055, !nonnull !13, !noundef !13
-  %53 = getelementptr inbounds { i8, [3 x i8] }, ptr %52, i64 %50
+  %53 = getelementptr inbounds [4 x i8], ptr %52, i64 %50
   store i32 0, ptr %53, align 1, !noalias !7055
   %54 = load i64, ptr %20, align 8, !alias.scope !7052, !noalias !7055, !noundef !13
   %55 = add i64 %54, 1
@@ -45871,7 +45871,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %26)
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %28 = load ptr, ptr %27, align 8, !alias.scope !7073, !noalias !7076, !nonnull !13, !noundef !13
-  %29 = getelementptr inbounds { i8, [3 x i8] }, ptr %28, i64 %24
+  %29 = getelementptr inbounds [4 x i8], ptr %28, i64 %24
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %29, align 1, !noalias !7080
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %30 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -45890,7 +45890,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %38 = load ptr, ptr %37, align 8, !noalias !7076, !nonnull !13, !noundef !13
-  %39 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %38, i64 %35
+  %39 = getelementptr [32 x i8], ptr %38, i64 %35
   %40 = getelementptr i8, ptr %39, i64 -32
   %.not41.i.i = icmp eq ptr %40, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i", label %41
@@ -45936,7 +45936,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %50 = phi i64 [ %.pre.i.i.i, %48 ], [ %46, %44 ]
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %52 = load ptr, ptr %51, align 8, !alias.scope !7081, !noalias !7084, !nonnull !13, !noundef !13
-  %53 = getelementptr inbounds { i8, [3 x i8] }, ptr %52, i64 %50
+  %53 = getelementptr inbounds [4 x i8], ptr %52, i64 %50
   store i32 0, ptr %53, align 1, !noalias !7084
   %54 = load i64, ptr %20, align 8, !alias.scope !7081, !noalias !7084, !noundef !13
   %55 = add i64 %54, 1
@@ -46007,7 +46007,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %26)
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %28 = load ptr, ptr %27, align 8, !alias.scope !7102, !noalias !7105, !nonnull !13, !noundef !13
-  %29 = getelementptr inbounds { i8, [3 x i8] }, ptr %28, i64 %24
+  %29 = getelementptr inbounds [4 x i8], ptr %28, i64 %24
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %29, align 1, !noalias !7109
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %30 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -46026,7 +46026,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %38 = load ptr, ptr %37, align 8, !noalias !7105, !nonnull !13, !noundef !13
-  %39 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %38, i64 %35
+  %39 = getelementptr [32 x i8], ptr %38, i64 %35
   %40 = getelementptr i8, ptr %39, i64 -32
   %.not41.i.i = icmp eq ptr %40, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i", label %41
@@ -46072,7 +46072,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %50 = phi i64 [ %.pre.i.i.i, %48 ], [ %46, %44 ]
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %52 = load ptr, ptr %51, align 8, !alias.scope !7110, !noalias !7113, !nonnull !13, !noundef !13
-  %53 = getelementptr inbounds { i8, [3 x i8] }, ptr %52, i64 %50
+  %53 = getelementptr inbounds [4 x i8], ptr %52, i64 %50
   store i32 0, ptr %53, align 1, !noalias !7113
   %54 = load i64, ptr %20, align 8, !alias.scope !7110, !noalias !7113, !noundef !13
   %55 = add i64 %54, 1
@@ -46243,7 +46243,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %26)
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %28 = load ptr, ptr %27, align 8, !alias.scope !7155, !noalias !7158, !nonnull !13, !noundef !13
-  %29 = getelementptr inbounds { i8, [3 x i8] }, ptr %28, i64 %24
+  %29 = getelementptr inbounds [4 x i8], ptr %28, i64 %24
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %29, align 1, !noalias !7162
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %30 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -46262,7 +46262,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %38 = load ptr, ptr %37, align 8, !noalias !7158, !nonnull !13, !noundef !13
-  %39 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %38, i64 %35
+  %39 = getelementptr [32 x i8], ptr %38, i64 %35
   %40 = getelementptr i8, ptr %39, i64 -32
   %.not41.i.i = icmp eq ptr %40, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i", label %41
@@ -46308,7 +46308,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %50 = phi i64 [ %.pre.i.i.i, %48 ], [ %46, %44 ]
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %52 = load ptr, ptr %51, align 8, !alias.scope !7163, !noalias !7166, !nonnull !13, !noundef !13
-  %53 = getelementptr inbounds { i8, [3 x i8] }, ptr %52, i64 %50
+  %53 = getelementptr inbounds [4 x i8], ptr %52, i64 %50
   store i32 0, ptr %53, align 1, !noalias !7166
   %54 = load i64, ptr %20, align 8, !alias.scope !7163, !noalias !7166, !noundef !13
   %55 = add i64 %54, 1
@@ -46379,7 +46379,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %26)
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %28 = load ptr, ptr %27, align 8, !alias.scope !7184, !noalias !7187, !nonnull !13, !noundef !13
-  %29 = getelementptr inbounds { i8, [3 x i8] }, ptr %28, i64 %24
+  %29 = getelementptr inbounds [4 x i8], ptr %28, i64 %24
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %29, align 1, !noalias !7191
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %30 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -46398,7 +46398,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %38 = load ptr, ptr %37, align 8, !noalias !7187, !nonnull !13, !noundef !13
-  %39 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %38, i64 %35
+  %39 = getelementptr [32 x i8], ptr %38, i64 %35
   %40 = getelementptr i8, ptr %39, i64 -32
   %.not41.i.i = icmp eq ptr %40, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i", label %41
@@ -46444,7 +46444,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %50 = phi i64 [ %.pre.i.i.i, %48 ], [ %46, %44 ]
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %52 = load ptr, ptr %51, align 8, !alias.scope !7192, !noalias !7195, !nonnull !13, !noundef !13
-  %53 = getelementptr inbounds { i8, [3 x i8] }, ptr %52, i64 %50
+  %53 = getelementptr inbounds [4 x i8], ptr %52, i64 %50
   store i32 0, ptr %53, align 1, !noalias !7195
   %54 = load i64, ptr %20, align 8, !alias.scope !7192, !noalias !7195, !noundef !13
   %55 = add i64 %54, 1
@@ -46903,7 +46903,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %22)
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %24 = load ptr, ptr %23, align 8, !alias.scope !7304, !noalias !7307, !nonnull !13, !noundef !13
-  %25 = getelementptr inbounds { i8, [3 x i8] }, ptr %24, i64 %20
+  %25 = getelementptr inbounds [4 x i8], ptr %24, i64 %20
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %25, align 1, !noalias !7311
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %26 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -46922,7 +46922,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 32:                                               ; preds = %29
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %34 = load ptr, ptr %33, align 8, !noalias !7307, !nonnull !13, !noundef !13
-  %35 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %34, i64 %31
+  %35 = getelementptr [32 x i8], ptr %34, i64 %31
   %36 = getelementptr i8, ptr %35, i64 -32
   %.not41.i.i = icmp eq ptr %36, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i", label %37
@@ -46968,7 +46968,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %46 = phi i64 [ %.pre.i.i.i, %44 ], [ %42, %40 ]
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %48 = load ptr, ptr %47, align 8, !alias.scope !7312, !noalias !7315, !nonnull !13, !noundef !13
-  %49 = getelementptr inbounds { i8, [3 x i8] }, ptr %48, i64 %46
+  %49 = getelementptr inbounds [4 x i8], ptr %48, i64 %46
   store i32 3, ptr %49, align 1, !noalias !7315
   %50 = load i64, ptr %16, align 8, !alias.scope !7312, !noalias !7315, !noundef !13
   %51 = add i64 %50, 1
@@ -47252,7 +47252,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %10)
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %12 = load ptr, ptr %11, align 8, !alias.scope !7387, !noalias !7390, !nonnull !13, !noundef !13
-  %13 = getelementptr inbounds { i8, [3 x i8] }, ptr %12, i64 %8
+  %13 = getelementptr inbounds [4 x i8], ptr %12, i64 %8
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %13, align 1, !noalias !7391
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %14 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -47271,7 +47271,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %22 = load ptr, ptr %21, align 8, !noalias !7390, !nonnull !13, !noundef !13
-  %23 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %22, i64 %19
+  %23 = getelementptr [32 x i8], ptr %22, i64 %19
   %24 = getelementptr i8, ptr %23, i64 -32
   %.not41.i.i = icmp eq ptr %24, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i", label %25
@@ -47317,7 +47317,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %34 = phi i64 [ %.pre.i.i.i, %32 ], [ %30, %28 ]
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %36 = load ptr, ptr %35, align 8, !alias.scope !7392, !noalias !7395, !nonnull !13, !noundef !13
-  %37 = getelementptr inbounds { i8, [3 x i8] }, ptr %36, i64 %34
+  %37 = getelementptr inbounds [4 x i8], ptr %36, i64 %34
   store i32 0, ptr %37, align 1, !noalias !7395
   %38 = load i64, ptr %4, align 8, !alias.scope !7392, !noalias !7395, !noundef !13
   %39 = add i64 %38, 1
@@ -47351,7 +47351,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %10)
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %12 = load ptr, ptr %11, align 8, !alias.scope !7407, !noalias !7410, !nonnull !13, !noundef !13
-  %13 = getelementptr inbounds { i8, [3 x i8] }, ptr %12, i64 %8
+  %13 = getelementptr inbounds [4 x i8], ptr %12, i64 %8
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %13, align 1, !noalias !7411
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %14 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -47370,7 +47370,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %22 = load ptr, ptr %21, align 8, !noalias !7410, !nonnull !13, !noundef !13
-  %23 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %22, i64 %19
+  %23 = getelementptr [32 x i8], ptr %22, i64 %19
   %24 = getelementptr i8, ptr %23, i64 -32
   %.not41.i.i = icmp eq ptr %24, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i", label %25
@@ -47416,7 +47416,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %34 = phi i64 [ %.pre.i.i.i, %32 ], [ %30, %28 ]
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %36 = load ptr, ptr %35, align 8, !alias.scope !7412, !noalias !7415, !nonnull !13, !noundef !13
-  %37 = getelementptr inbounds { i8, [3 x i8] }, ptr %36, i64 %34
+  %37 = getelementptr inbounds [4 x i8], ptr %36, i64 %34
   store i32 0, ptr %37, align 1, !noalias !7415
   %38 = load i64, ptr %4, align 8, !alias.scope !7412, !noalias !7415, !noundef !13
   %39 = add i64 %38, 1
@@ -47450,7 +47450,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %10)
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %12 = load ptr, ptr %11, align 8, !alias.scope !7427, !noalias !7430, !nonnull !13, !noundef !13
-  %13 = getelementptr inbounds { i8, [3 x i8] }, ptr %12, i64 %8
+  %13 = getelementptr inbounds [4 x i8], ptr %12, i64 %8
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %13, align 1, !noalias !7431
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %14 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -47469,7 +47469,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %22 = load ptr, ptr %21, align 8, !noalias !7430, !nonnull !13, !noundef !13
-  %23 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %22, i64 %19
+  %23 = getelementptr [32 x i8], ptr %22, i64 %19
   %24 = getelementptr i8, ptr %23, i64 -32
   %.not41.i.i = icmp eq ptr %24, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i", label %25
@@ -47515,7 +47515,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %34 = phi i64 [ %.pre.i.i.i, %32 ], [ %30, %28 ]
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %36 = load ptr, ptr %35, align 8, !alias.scope !7432, !noalias !7435, !nonnull !13, !noundef !13
-  %37 = getelementptr inbounds { i8, [3 x i8] }, ptr %36, i64 %34
+  %37 = getelementptr inbounds [4 x i8], ptr %36, i64 %34
   store i32 0, ptr %37, align 1, !noalias !7435
   %38 = load i64, ptr %4, align 8, !alias.scope !7432, !noalias !7435, !noundef !13
   %39 = add i64 %38, 1
@@ -47549,7 +47549,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %10)
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %12 = load ptr, ptr %11, align 8, !alias.scope !7447, !noalias !7450, !nonnull !13, !noundef !13
-  %13 = getelementptr inbounds { i8, [3 x i8] }, ptr %12, i64 %8
+  %13 = getelementptr inbounds [4 x i8], ptr %12, i64 %8
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %13, align 1, !noalias !7451
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %14 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -47568,7 +47568,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %22 = load ptr, ptr %21, align 8, !noalias !7450, !nonnull !13, !noundef !13
-  %23 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %22, i64 %19
+  %23 = getelementptr [32 x i8], ptr %22, i64 %19
   %24 = getelementptr i8, ptr %23, i64 -32
   %.not41.i.i = icmp eq ptr %24, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i", label %25
@@ -47614,7 +47614,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %34 = phi i64 [ %.pre.i.i.i, %32 ], [ %30, %28 ]
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %36 = load ptr, ptr %35, align 8, !alias.scope !7452, !noalias !7455, !nonnull !13, !noundef !13
-  %37 = getelementptr inbounds { i8, [3 x i8] }, ptr %36, i64 %34
+  %37 = getelementptr inbounds [4 x i8], ptr %36, i64 %34
   store i32 0, ptr %37, align 1, !noalias !7455
   %38 = load i64, ptr %4, align 8, !alias.scope !7452, !noalias !7455, !noundef !13
   %39 = add i64 %38, 1
@@ -47698,7 +47698,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %10)
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %12 = load ptr, ptr %11, align 8, !alias.scope !7479, !noalias !7482, !nonnull !13, !noundef !13
-  %13 = getelementptr inbounds { i8, [3 x i8] }, ptr %12, i64 %8
+  %13 = getelementptr inbounds [4 x i8], ptr %12, i64 %8
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %13, align 1, !noalias !7483
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %14 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -47717,7 +47717,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %22 = load ptr, ptr %21, align 8, !noalias !7482, !nonnull !13, !noundef !13
-  %23 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %22, i64 %19
+  %23 = getelementptr [32 x i8], ptr %22, i64 %19
   %24 = getelementptr i8, ptr %23, i64 -32
   %.not41.i.i = icmp eq ptr %24, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i", label %25
@@ -47763,7 +47763,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %34 = phi i64 [ %.pre.i.i.i, %32 ], [ %30, %28 ]
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %36 = load ptr, ptr %35, align 8, !alias.scope !7484, !noalias !7487, !nonnull !13, !noundef !13
-  %37 = getelementptr inbounds { i8, [3 x i8] }, ptr %36, i64 %34
+  %37 = getelementptr inbounds [4 x i8], ptr %36, i64 %34
   store i32 1, ptr %37, align 1, !noalias !7487
   %38 = load i64, ptr %4, align 8, !alias.scope !7484, !noalias !7487, !noundef !13
   %39 = add i64 %38, 1
@@ -47797,7 +47797,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %10)
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %12 = load ptr, ptr %11, align 8, !alias.scope !7499, !noalias !7502, !nonnull !13, !noundef !13
-  %13 = getelementptr inbounds { i8, [3 x i8] }, ptr %12, i64 %8
+  %13 = getelementptr inbounds [4 x i8], ptr %12, i64 %8
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %13, align 1, !noalias !7503
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %14 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -47816,7 +47816,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %22 = load ptr, ptr %21, align 8, !noalias !7502, !nonnull !13, !noundef !13
-  %23 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %22, i64 %19
+  %23 = getelementptr [32 x i8], ptr %22, i64 %19
   %24 = getelementptr i8, ptr %23, i64 -32
   %.not41.i.i = icmp eq ptr %24, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i", label %25
@@ -47862,7 +47862,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %34 = phi i64 [ %.pre.i.i.i, %32 ], [ %30, %28 ]
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %36 = load ptr, ptr %35, align 8, !alias.scope !7504, !noalias !7507, !nonnull !13, !noundef !13
-  %37 = getelementptr inbounds { i8, [3 x i8] }, ptr %36, i64 %34
+  %37 = getelementptr inbounds [4 x i8], ptr %36, i64 %34
   store i32 1, ptr %37, align 1, !noalias !7507
   %38 = load i64, ptr %4, align 8, !alias.scope !7504, !noalias !7507, !noundef !13
   %39 = add i64 %38, 1
@@ -47896,7 +47896,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %10)
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %12 = load ptr, ptr %11, align 8, !alias.scope !7519, !noalias !7522, !nonnull !13, !noundef !13
-  %13 = getelementptr inbounds { i8, [3 x i8] }, ptr %12, i64 %8
+  %13 = getelementptr inbounds [4 x i8], ptr %12, i64 %8
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %13, align 1, !noalias !7523
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %14 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -47915,7 +47915,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %22 = load ptr, ptr %21, align 8, !noalias !7522, !nonnull !13, !noundef !13
-  %23 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %22, i64 %19
+  %23 = getelementptr [32 x i8], ptr %22, i64 %19
   %24 = getelementptr i8, ptr %23, i64 -32
   %.not41.i.i = icmp eq ptr %24, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i", label %25
@@ -47961,7 +47961,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %34 = phi i64 [ %.pre.i.i.i, %32 ], [ %30, %28 ]
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %36 = load ptr, ptr %35, align 8, !alias.scope !7524, !noalias !7527, !nonnull !13, !noundef !13
-  %37 = getelementptr inbounds { i8, [3 x i8] }, ptr %36, i64 %34
+  %37 = getelementptr inbounds [4 x i8], ptr %36, i64 %34
   store i32 1, ptr %37, align 1, !noalias !7527
   %38 = load i64, ptr %4, align 8, !alias.scope !7524, !noalias !7527, !noundef !13
   %39 = add i64 %38, 1
@@ -47995,7 +47995,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %10)
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %12 = load ptr, ptr %11, align 8, !alias.scope !7539, !noalias !7542, !nonnull !13, !noundef !13
-  %13 = getelementptr inbounds { i8, [3 x i8] }, ptr %12, i64 %8
+  %13 = getelementptr inbounds [4 x i8], ptr %12, i64 %8
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %13, align 1, !noalias !7543
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %14 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -48014,7 +48014,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %22 = load ptr, ptr %21, align 8, !noalias !7542, !nonnull !13, !noundef !13
-  %23 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %22, i64 %19
+  %23 = getelementptr [32 x i8], ptr %22, i64 %19
   %24 = getelementptr i8, ptr %23, i64 -32
   %.not41.i.i = icmp eq ptr %24, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i", label %25
@@ -48060,7 +48060,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %34 = phi i64 [ %.pre.i.i.i, %32 ], [ %30, %28 ]
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %36 = load ptr, ptr %35, align 8, !alias.scope !7544, !noalias !7547, !nonnull !13, !noundef !13
-  %37 = getelementptr inbounds { i8, [3 x i8] }, ptr %36, i64 %34
+  %37 = getelementptr inbounds [4 x i8], ptr %36, i64 %34
   store i32 1, ptr %37, align 1, !noalias !7547
   %38 = load i64, ptr %4, align 8, !alias.scope !7544, !noalias !7547, !noundef !13
   %39 = add i64 %38, 1
@@ -48347,7 +48347,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %32 = phi i64 [ %.pre.i.i.i, %31 ], [ %28, %24 ]
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %34 = load ptr, ptr %33, align 8, !alias.scope !7613, !noalias !7610, !nonnull !13, !noundef !13
-  %35 = getelementptr inbounds { i8, [3 x i8] }, ptr %34, i64 %32
+  %35 = getelementptr inbounds [4 x i8], ptr %34, i64 %32
   store i32 %.sroa.012.0.insert.insert.i, ptr %35, align 1, !noalias !7610
   %36 = load i64, ptr %27, align 8, !alias.scope !7613, !noalias !7610, !noundef !13
   %37 = add i64 %36, 1
@@ -48786,7 +48786,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %10)
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %12 = load ptr, ptr %11, align 8, !alias.scope !7721, !noalias !7724, !nonnull !13, !noundef !13
-  %13 = getelementptr inbounds { i8, [3 x i8] }, ptr %12, i64 %8
+  %13 = getelementptr inbounds [4 x i8], ptr %12, i64 %8
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %13, align 1, !noalias !7725
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %14 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -48805,7 +48805,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %22 = load ptr, ptr %21, align 8, !noalias !7724, !nonnull !13, !noundef !13
-  %23 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %22, i64 %19
+  %23 = getelementptr [32 x i8], ptr %22, i64 %19
   %24 = getelementptr i8, ptr %23, i64 -32
   %.not41.i.i = icmp eq ptr %24, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i", label %25
@@ -48851,7 +48851,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %34 = phi i64 [ %.pre.i.i.i, %32 ], [ %30, %28 ]
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %36 = load ptr, ptr %35, align 8, !alias.scope !7726, !noalias !7729, !nonnull !13, !noundef !13
-  %37 = getelementptr inbounds { i8, [3 x i8] }, ptr %36, i64 %34
+  %37 = getelementptr inbounds [4 x i8], ptr %36, i64 %34
   store i32 1, ptr %37, align 1, !noalias !7729
   %38 = load i64, ptr %4, align 8, !alias.scope !7726, !noalias !7729, !noundef !13
   %39 = add i64 %38, 1
@@ -48885,7 +48885,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %10)
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %12 = load ptr, ptr %11, align 8, !alias.scope !7741, !noalias !7744, !nonnull !13, !noundef !13
-  %13 = getelementptr inbounds { i8, [3 x i8] }, ptr %12, i64 %8
+  %13 = getelementptr inbounds [4 x i8], ptr %12, i64 %8
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %13, align 1, !noalias !7745
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %14 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -48904,7 +48904,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %22 = load ptr, ptr %21, align 8, !noalias !7744, !nonnull !13, !noundef !13
-  %23 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %22, i64 %19
+  %23 = getelementptr [32 x i8], ptr %22, i64 %19
   %24 = getelementptr i8, ptr %23, i64 -32
   %.not41.i.i = icmp eq ptr %24, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i", label %25
@@ -48950,7 +48950,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %34 = phi i64 [ %.pre.i.i.i, %32 ], [ %30, %28 ]
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %36 = load ptr, ptr %35, align 8, !alias.scope !7746, !noalias !7749, !nonnull !13, !noundef !13
-  %37 = getelementptr inbounds { i8, [3 x i8] }, ptr %36, i64 %34
+  %37 = getelementptr inbounds [4 x i8], ptr %36, i64 %34
   store i32 1, ptr %37, align 1, !noalias !7749
   %38 = load i64, ptr %4, align 8, !alias.scope !7746, !noalias !7749, !noundef !13
   %39 = add i64 %38, 1
@@ -49409,7 +49409,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %22)
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %24 = load ptr, ptr %23, align 8, !alias.scope !7858, !noalias !7861, !nonnull !13, !noundef !13
-  %25 = getelementptr inbounds { i8, [3 x i8] }, ptr %24, i64 %20
+  %25 = getelementptr inbounds [4 x i8], ptr %24, i64 %20
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %25, align 1, !noalias !7865
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %26 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -49428,7 +49428,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 32:                                               ; preds = %29
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %34 = load ptr, ptr %33, align 8, !noalias !7861, !nonnull !13, !noundef !13
-  %35 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %34, i64 %31
+  %35 = getelementptr [32 x i8], ptr %34, i64 %31
   %36 = getelementptr i8, ptr %35, i64 -32
   %.not41.i.i = icmp eq ptr %36, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i", label %37
@@ -49474,7 +49474,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %46 = phi i64 [ %.pre.i.i.i, %44 ], [ %42, %40 ]
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %48 = load ptr, ptr %47, align 8, !alias.scope !7866, !noalias !7869, !nonnull !13, !noundef !13
-  %49 = getelementptr inbounds { i8, [3 x i8] }, ptr %48, i64 %46
+  %49 = getelementptr inbounds [4 x i8], ptr %48, i64 %46
   store i32 2, ptr %49, align 1, !noalias !7869
   %50 = load i64, ptr %16, align 8, !alias.scope !7866, !noalias !7869, !noundef !13
   %51 = add i64 %50, 1
@@ -49533,7 +49533,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %22)
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %24 = load ptr, ptr %23, align 8, !alias.scope !7882, !noalias !7885, !nonnull !13, !noundef !13
-  %25 = getelementptr inbounds { i8, [3 x i8] }, ptr %24, i64 %20
+  %25 = getelementptr inbounds [4 x i8], ptr %24, i64 %20
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %25, align 1, !noalias !7889
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %26 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -49552,7 +49552,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 32:                                               ; preds = %29
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %34 = load ptr, ptr %33, align 8, !noalias !7885, !nonnull !13, !noundef !13
-  %35 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %34, i64 %31
+  %35 = getelementptr [32 x i8], ptr %34, i64 %31
   %36 = getelementptr i8, ptr %35, i64 -32
   %.not41.i.i = icmp eq ptr %36, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i", label %37
@@ -49598,7 +49598,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %46 = phi i64 [ %.pre.i.i.i, %44 ], [ %42, %40 ]
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %48 = load ptr, ptr %47, align 8, !alias.scope !7890, !noalias !7893, !nonnull !13, !noundef !13
-  %49 = getelementptr inbounds { i8, [3 x i8] }, ptr %48, i64 %46
+  %49 = getelementptr inbounds [4 x i8], ptr %48, i64 %46
   store i32 2, ptr %49, align 1, !noalias !7893
   %50 = load i64, ptr %16, align 8, !alias.scope !7890, !noalias !7893, !noundef !13
   %51 = add i64 %50, 1
@@ -49657,7 +49657,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %22)
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %24 = load ptr, ptr %23, align 8, !alias.scope !7906, !noalias !7909, !nonnull !13, !noundef !13
-  %25 = getelementptr inbounds { i8, [3 x i8] }, ptr %24, i64 %20
+  %25 = getelementptr inbounds [4 x i8], ptr %24, i64 %20
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %25, align 1, !noalias !7913
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %26 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -49676,7 +49676,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 32:                                               ; preds = %29
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %34 = load ptr, ptr %33, align 8, !noalias !7909, !nonnull !13, !noundef !13
-  %35 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %34, i64 %31
+  %35 = getelementptr [32 x i8], ptr %34, i64 %31
   %36 = getelementptr i8, ptr %35, i64 -32
   %.not41.i.i = icmp eq ptr %36, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i", label %37
@@ -49722,7 +49722,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %46 = phi i64 [ %.pre.i.i.i, %44 ], [ %42, %40 ]
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %48 = load ptr, ptr %47, align 8, !alias.scope !7914, !noalias !7917, !nonnull !13, !noundef !13
-  %49 = getelementptr inbounds { i8, [3 x i8] }, ptr %48, i64 %46
+  %49 = getelementptr inbounds [4 x i8], ptr %48, i64 %46
   store i32 2, ptr %49, align 1, !noalias !7917
   %50 = load i64, ptr %16, align 8, !alias.scope !7914, !noalias !7917, !noundef !13
   %51 = add i64 %50, 1
@@ -49781,7 +49781,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %22)
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %24 = load ptr, ptr %23, align 8, !alias.scope !7930, !noalias !7933, !nonnull !13, !noundef !13
-  %25 = getelementptr inbounds { i8, [3 x i8] }, ptr %24, i64 %20
+  %25 = getelementptr inbounds [4 x i8], ptr %24, i64 %20
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %25, align 1, !noalias !7937
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %26 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -49800,7 +49800,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 32:                                               ; preds = %29
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %34 = load ptr, ptr %33, align 8, !noalias !7933, !nonnull !13, !noundef !13
-  %35 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %34, i64 %31
+  %35 = getelementptr [32 x i8], ptr %34, i64 %31
   %36 = getelementptr i8, ptr %35, i64 -32
   %.not41.i.i = icmp eq ptr %36, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i", label %37
@@ -49846,7 +49846,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %46 = phi i64 [ %.pre.i.i.i, %44 ], [ %42, %40 ]
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %48 = load ptr, ptr %47, align 8, !alias.scope !7938, !noalias !7941, !nonnull !13, !noundef !13
-  %49 = getelementptr inbounds { i8, [3 x i8] }, ptr %48, i64 %46
+  %49 = getelementptr inbounds [4 x i8], ptr %48, i64 %46
   store i32 2, ptr %49, align 1, !noalias !7941
   %50 = load i64, ptr %16, align 8, !alias.scope !7938, !noalias !7941, !noundef !13
   %51 = add i64 %50, 1
@@ -50005,7 +50005,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %22)
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %24 = load ptr, ptr %23, align 8, !alias.scope !7978, !noalias !7981, !nonnull !13, !noundef !13
-  %25 = getelementptr inbounds { i8, [3 x i8] }, ptr %24, i64 %20
+  %25 = getelementptr inbounds [4 x i8], ptr %24, i64 %20
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %25, align 1, !noalias !7985
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %26 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -50024,7 +50024,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 32:                                               ; preds = %29
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %34 = load ptr, ptr %33, align 8, !noalias !7981, !nonnull !13, !noundef !13
-  %35 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %34, i64 %31
+  %35 = getelementptr [32 x i8], ptr %34, i64 %31
   %36 = getelementptr i8, ptr %35, i64 -32
   %.not41.i.i = icmp eq ptr %36, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i", label %37
@@ -50070,7 +50070,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %46 = phi i64 [ %.pre.i.i.i, %44 ], [ %42, %40 ]
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %48 = load ptr, ptr %47, align 8, !alias.scope !7986, !noalias !7989, !nonnull !13, !noundef !13
-  %49 = getelementptr inbounds { i8, [3 x i8] }, ptr %48, i64 %46
+  %49 = getelementptr inbounds [4 x i8], ptr %48, i64 %46
   store i32 3, ptr %49, align 1, !noalias !7989
   %50 = load i64, ptr %16, align 8, !alias.scope !7986, !noalias !7989, !noundef !13
   %51 = add i64 %50, 1
@@ -50129,7 +50129,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %22)
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %24 = load ptr, ptr %23, align 8, !alias.scope !8002, !noalias !8005, !nonnull !13, !noundef !13
-  %25 = getelementptr inbounds { i8, [3 x i8] }, ptr %24, i64 %20
+  %25 = getelementptr inbounds [4 x i8], ptr %24, i64 %20
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %25, align 1, !noalias !8009
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %26 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -50148,7 +50148,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 32:                                               ; preds = %29
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %34 = load ptr, ptr %33, align 8, !noalias !8005, !nonnull !13, !noundef !13
-  %35 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %34, i64 %31
+  %35 = getelementptr [32 x i8], ptr %34, i64 %31
   %36 = getelementptr i8, ptr %35, i64 -32
   %.not41.i.i = icmp eq ptr %36, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i", label %37
@@ -50194,7 +50194,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %46 = phi i64 [ %.pre.i.i.i, %44 ], [ %42, %40 ]
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %48 = load ptr, ptr %47, align 8, !alias.scope !8010, !noalias !8013, !nonnull !13, !noundef !13
-  %49 = getelementptr inbounds { i8, [3 x i8] }, ptr %48, i64 %46
+  %49 = getelementptr inbounds [4 x i8], ptr %48, i64 %46
   store i32 3, ptr %49, align 1, !noalias !8013
   %50 = load i64, ptr %16, align 8, !alias.scope !8010, !noalias !8013, !noundef !13
   %51 = add i64 %50, 1
@@ -50253,7 +50253,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %22)
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %24 = load ptr, ptr %23, align 8, !alias.scope !8026, !noalias !8029, !nonnull !13, !noundef !13
-  %25 = getelementptr inbounds { i8, [3 x i8] }, ptr %24, i64 %20
+  %25 = getelementptr inbounds [4 x i8], ptr %24, i64 %20
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %25, align 1, !noalias !8033
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %26 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -50272,7 +50272,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 32:                                               ; preds = %29
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %34 = load ptr, ptr %33, align 8, !noalias !8029, !nonnull !13, !noundef !13
-  %35 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %34, i64 %31
+  %35 = getelementptr [32 x i8], ptr %34, i64 %31
   %36 = getelementptr i8, ptr %35, i64 -32
   %.not41.i.i = icmp eq ptr %36, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i", label %37
@@ -50318,7 +50318,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %46 = phi i64 [ %.pre.i.i.i, %44 ], [ %42, %40 ]
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %48 = load ptr, ptr %47, align 8, !alias.scope !8034, !noalias !8037, !nonnull !13, !noundef !13
-  %49 = getelementptr inbounds { i8, [3 x i8] }, ptr %48, i64 %46
+  %49 = getelementptr inbounds [4 x i8], ptr %48, i64 %46
   store i32 3, ptr %49, align 1, !noalias !8037
   %50 = load i64, ptr %16, align 8, !alias.scope !8034, !noalias !8037, !noundef !13
   %51 = add i64 %50, 1
@@ -50377,7 +50377,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %22)
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %24 = load ptr, ptr %23, align 8, !alias.scope !8050, !noalias !8053, !nonnull !13, !noundef !13
-  %25 = getelementptr inbounds { i8, [3 x i8] }, ptr %24, i64 %20
+  %25 = getelementptr inbounds [4 x i8], ptr %24, i64 %20
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %25, align 1, !noalias !8057
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %26 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -50396,7 +50396,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 32:                                               ; preds = %29
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %34 = load ptr, ptr %33, align 8, !noalias !8053, !nonnull !13, !noundef !13
-  %35 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %34, i64 %31
+  %35 = getelementptr [32 x i8], ptr %34, i64 %31
   %36 = getelementptr i8, ptr %35, i64 -32
   %.not41.i.i = icmp eq ptr %36, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i", label %37
@@ -50442,7 +50442,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %46 = phi i64 [ %.pre.i.i.i, %44 ], [ %42, %40 ]
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %48 = load ptr, ptr %47, align 8, !alias.scope !8058, !noalias !8061, !nonnull !13, !noundef !13
-  %49 = getelementptr inbounds { i8, [3 x i8] }, ptr %48, i64 %46
+  %49 = getelementptr inbounds [4 x i8], ptr %48, i64 %46
   store i32 3, ptr %49, align 1, !noalias !8061
   %50 = load i64, ptr %16, align 8, !alias.scope !8058, !noalias !8061, !noundef !13
   %51 = add i64 %50, 1
@@ -50975,7 +50975,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %32 = phi i64 [ %.pre.i.i.i, %31 ], [ %28, %25 ]
   %33 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %34 = load ptr, ptr %33, align 8, !alias.scope !8187, !noalias !8190, !nonnull !13, !noundef !13
-  %35 = getelementptr inbounds { i8, [3 x i8] }, ptr %34, i64 %32
+  %35 = getelementptr inbounds [4 x i8], ptr %34, i64 %32
   store i32 %.sroa.06.0.copyload.i, ptr %35, align 1, !noalias !8190
   %36 = load i64, ptr %27, align 8, !alias.scope !8187, !noalias !8190, !noundef !13
   %37 = add i64 %36, 1
@@ -51058,7 +51058,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %32 = phi i64 [ %.pre.i.i.i, %31 ], [ %28, %25 ]
   %33 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %34 = load ptr, ptr %33, align 8, !alias.scope !8208, !noalias !8211, !nonnull !13, !noundef !13
-  %35 = getelementptr inbounds { i8, [3 x i8] }, ptr %34, i64 %32
+  %35 = getelementptr inbounds [4 x i8], ptr %34, i64 %32
   store i32 %.sroa.06.0.copyload.i, ptr %35, align 1, !noalias !8211
   %36 = load i64, ptr %27, align 8, !alias.scope !8208, !noalias !8211, !noundef !13
   %37 = add i64 %36, 1
@@ -51139,7 +51139,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %31 = phi i64 [ %.pre.i.i.i, %30 ], [ %27, %24 ]
   %32 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %33 = load ptr, ptr %32, align 8, !alias.scope !8229, !noalias !8232, !nonnull !13, !noundef !13
-  %34 = getelementptr inbounds { i8, [3 x i8] }, ptr %33, i64 %31
+  %34 = getelementptr inbounds [4 x i8], ptr %33, i64 %31
   store i32 0, ptr %34, align 1, !noalias !8232
   %35 = load i64, ptr %26, align 8, !alias.scope !8229, !noalias !8232, !noundef !13
   %36 = add i64 %35, 1
@@ -51220,7 +51220,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %31 = phi i64 [ %.pre.i.i.i, %30 ], [ %27, %24 ]
   %32 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %33 = load ptr, ptr %32, align 8, !alias.scope !8250, !noalias !8253, !nonnull !13, !noundef !13
-  %34 = getelementptr inbounds { i8, [3 x i8] }, ptr %33, i64 %31
+  %34 = getelementptr inbounds [4 x i8], ptr %33, i64 %31
   store i32 0, ptr %34, align 1, !noalias !8253
   %35 = load i64, ptr %26, align 8, !alias.scope !8250, !noalias !8253, !noundef !13
   %36 = add i64 %35, 1
@@ -52979,7 +52979,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %22)
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %24 = load ptr, ptr %23, align 8, !alias.scope !8674, !noalias !8677, !nonnull !13, !noundef !13
-  %25 = getelementptr inbounds { i8, [3 x i8] }, ptr %24, i64 %20
+  %25 = getelementptr inbounds [4 x i8], ptr %24, i64 %20
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %25, align 1, !noalias !8681
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %26 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -52998,7 +52998,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 32:                                               ; preds = %29
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %34 = load ptr, ptr %33, align 8, !noalias !8677, !nonnull !13, !noundef !13
-  %35 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %34, i64 %31
+  %35 = getelementptr [32 x i8], ptr %34, i64 %31
   %36 = getelementptr i8, ptr %35, i64 -32
   %.not41.i.i = icmp eq ptr %36, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i", label %37
@@ -53044,7 +53044,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %46 = phi i64 [ %.pre.i.i.i, %44 ], [ %42, %40 ]
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %48 = load ptr, ptr %47, align 8, !alias.scope !8682, !noalias !8685, !nonnull !13, !noundef !13
-  %49 = getelementptr inbounds { i8, [3 x i8] }, ptr %48, i64 %46
+  %49 = getelementptr inbounds [4 x i8], ptr %48, i64 %46
   store i32 2, ptr %49, align 1, !noalias !8685
   %50 = load i64, ptr %16, align 8, !alias.scope !8682, !noalias !8685, !noundef !13
   %51 = add i64 %50, 1
@@ -53153,7 +53153,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %22)
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %24 = load ptr, ptr %23, align 8, !alias.scope !8710, !noalias !8713, !nonnull !13, !noundef !13
-  %25 = getelementptr inbounds { i8, [3 x i8] }, ptr %24, i64 %20
+  %25 = getelementptr inbounds [4 x i8], ptr %24, i64 %20
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %25, align 1, !noalias !8717
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %26 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -53172,7 +53172,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 32:                                               ; preds = %29
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %34 = load ptr, ptr %33, align 8, !noalias !8713, !nonnull !13, !noundef !13
-  %35 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %34, i64 %31
+  %35 = getelementptr [32 x i8], ptr %34, i64 %31
   %36 = getelementptr i8, ptr %35, i64 -32
   %.not41.i.i = icmp eq ptr %36, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i", label %37
@@ -53218,7 +53218,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %46 = phi i64 [ %.pre.i.i.i, %44 ], [ %42, %40 ]
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %48 = load ptr, ptr %47, align 8, !alias.scope !8718, !noalias !8721, !nonnull !13, !noundef !13
-  %49 = getelementptr inbounds { i8, [3 x i8] }, ptr %48, i64 %46
+  %49 = getelementptr inbounds [4 x i8], ptr %48, i64 %46
   store i32 3, ptr %49, align 1, !noalias !8721
   %50 = load i64, ptr %16, align 8, !alias.scope !8718, !noalias !8721, !noundef !13
   %51 = add i64 %50, 1
@@ -53452,7 +53452,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %10)
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %12 = load ptr, ptr %11, align 8, !alias.scope !8781, !noalias !8784, !nonnull !13, !noundef !13
-  %13 = getelementptr inbounds { i8, [3 x i8] }, ptr %12, i64 %8
+  %13 = getelementptr inbounds [4 x i8], ptr %12, i64 %8
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %13, align 1, !noalias !8785
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %14 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -53471,7 +53471,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %22 = load ptr, ptr %21, align 8, !noalias !8784, !nonnull !13, !noundef !13
-  %23 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %22, i64 %19
+  %23 = getelementptr [32 x i8], ptr %22, i64 %19
   %24 = getelementptr i8, ptr %23, i64 -32
   %.not41.i.i = icmp eq ptr %24, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i", label %25
@@ -53517,7 +53517,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %34 = phi i64 [ %.pre.i.i.i, %32 ], [ %30, %28 ]
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %36 = load ptr, ptr %35, align 8, !alias.scope !8786, !noalias !8789, !nonnull !13, !noundef !13
-  %37 = getelementptr inbounds { i8, [3 x i8] }, ptr %36, i64 %34
+  %37 = getelementptr inbounds [4 x i8], ptr %36, i64 %34
   store i32 0, ptr %37, align 1, !noalias !8789
   %38 = load i64, ptr %4, align 8, !alias.scope !8786, !noalias !8789, !noundef !13
   %39 = add i64 %38, 1
@@ -53588,7 +53588,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %26)
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %28 = load ptr, ptr %27, align 8, !alias.scope !8807, !noalias !8810, !nonnull !13, !noundef !13
-  %29 = getelementptr inbounds { i8, [3 x i8] }, ptr %28, i64 %24
+  %29 = getelementptr inbounds [4 x i8], ptr %28, i64 %24
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %29, align 1, !noalias !8814
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %30 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -53607,7 +53607,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %38 = load ptr, ptr %37, align 8, !noalias !8810, !nonnull !13, !noundef !13
-  %39 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %38, i64 %35
+  %39 = getelementptr [32 x i8], ptr %38, i64 %35
   %40 = getelementptr i8, ptr %39, i64 -32
   %.not41.i.i = icmp eq ptr %40, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i", label %41
@@ -53653,7 +53653,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %50 = phi i64 [ %.pre.i.i.i, %48 ], [ %46, %44 ]
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %52 = load ptr, ptr %51, align 8, !alias.scope !8815, !noalias !8818, !nonnull !13, !noundef !13
-  %53 = getelementptr inbounds { i8, [3 x i8] }, ptr %52, i64 %50
+  %53 = getelementptr inbounds [4 x i8], ptr %52, i64 %50
   store i32 0, ptr %53, align 1, !noalias !8818
   %54 = load i64, ptr %20, align 8, !alias.scope !8815, !noalias !8818, !noundef !13
   %55 = add i64 %54, 1
@@ -53724,7 +53724,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %26)
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %28 = load ptr, ptr %27, align 8, !alias.scope !8836, !noalias !8839, !nonnull !13, !noundef !13
-  %29 = getelementptr inbounds { i8, [3 x i8] }, ptr %28, i64 %24
+  %29 = getelementptr inbounds [4 x i8], ptr %28, i64 %24
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %29, align 1, !noalias !8843
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %30 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -53743,7 +53743,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %38 = load ptr, ptr %37, align 8, !noalias !8839, !nonnull !13, !noundef !13
-  %39 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %38, i64 %35
+  %39 = getelementptr [32 x i8], ptr %38, i64 %35
   %40 = getelementptr i8, ptr %39, i64 -32
   %.not41.i.i = icmp eq ptr %40, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i", label %41
@@ -53789,7 +53789,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %50 = phi i64 [ %.pre.i.i.i, %48 ], [ %46, %44 ]
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %52 = load ptr, ptr %51, align 8, !alias.scope !8844, !noalias !8847, !nonnull !13, !noundef !13
-  %53 = getelementptr inbounds { i8, [3 x i8] }, ptr %52, i64 %50
+  %53 = getelementptr inbounds [4 x i8], ptr %52, i64 %50
   store i32 0, ptr %53, align 1, !noalias !8847
   %54 = load i64, ptr %20, align 8, !alias.scope !8844, !noalias !8847, !noundef !13
   %55 = add i64 %54, 1
@@ -53860,7 +53860,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %26)
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %28 = load ptr, ptr %27, align 8, !alias.scope !8865, !noalias !8868, !nonnull !13, !noundef !13
-  %29 = getelementptr inbounds { i8, [3 x i8] }, ptr %28, i64 %24
+  %29 = getelementptr inbounds [4 x i8], ptr %28, i64 %24
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %29, align 1, !noalias !8872
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %30 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -53879,7 +53879,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %38 = load ptr, ptr %37, align 8, !noalias !8868, !nonnull !13, !noundef !13
-  %39 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %38, i64 %35
+  %39 = getelementptr [32 x i8], ptr %38, i64 %35
   %40 = getelementptr i8, ptr %39, i64 -32
   %.not41.i.i = icmp eq ptr %40, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i", label %41
@@ -53925,7 +53925,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %50 = phi i64 [ %.pre.i.i.i, %48 ], [ %46, %44 ]
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %52 = load ptr, ptr %51, align 8, !alias.scope !8873, !noalias !8876, !nonnull !13, !noundef !13
-  %53 = getelementptr inbounds { i8, [3 x i8] }, ptr %52, i64 %50
+  %53 = getelementptr inbounds [4 x i8], ptr %52, i64 %50
   store i32 0, ptr %53, align 1, !noalias !8876
   %54 = load i64, ptr %20, align 8, !alias.scope !8873, !noalias !8876, !noundef !13
   %55 = add i64 %54, 1
@@ -53996,7 +53996,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %26)
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %28 = load ptr, ptr %27, align 8, !alias.scope !8894, !noalias !8897, !nonnull !13, !noundef !13
-  %29 = getelementptr inbounds { i8, [3 x i8] }, ptr %28, i64 %24
+  %29 = getelementptr inbounds [4 x i8], ptr %28, i64 %24
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %29, align 1, !noalias !8901
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %30 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -54015,7 +54015,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %38 = load ptr, ptr %37, align 8, !noalias !8897, !nonnull !13, !noundef !13
-  %39 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %38, i64 %35
+  %39 = getelementptr [32 x i8], ptr %38, i64 %35
   %40 = getelementptr i8, ptr %39, i64 -32
   %.not41.i.i = icmp eq ptr %40, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i", label %41
@@ -54061,7 +54061,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %50 = phi i64 [ %.pre.i.i.i, %48 ], [ %46, %44 ]
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %52 = load ptr, ptr %51, align 8, !alias.scope !8902, !noalias !8905, !nonnull !13, !noundef !13
-  %53 = getelementptr inbounds { i8, [3 x i8] }, ptr %52, i64 %50
+  %53 = getelementptr inbounds [4 x i8], ptr %52, i64 %50
   store i32 0, ptr %53, align 1, !noalias !8905
   %54 = load i64, ptr %20, align 8, !alias.scope !8902, !noalias !8905, !noundef !13
   %55 = add i64 %54, 1
@@ -54245,7 +54245,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %10)
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %12 = load ptr, ptr %11, align 8, !alias.scope !8953, !noalias !8956, !nonnull !13, !noundef !13
-  %13 = getelementptr inbounds { i8, [3 x i8] }, ptr %12, i64 %8
+  %13 = getelementptr inbounds [4 x i8], ptr %12, i64 %8
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %13, align 1, !noalias !8957
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %14 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -54264,7 +54264,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %22 = load ptr, ptr %21, align 8, !noalias !8956, !nonnull !13, !noundef !13
-  %23 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %22, i64 %19
+  %23 = getelementptr [32 x i8], ptr %22, i64 %19
   %24 = getelementptr i8, ptr %23, i64 -32
   %.not41.i.i = icmp eq ptr %24, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i", label %25
@@ -54310,7 +54310,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %34 = phi i64 [ %.pre.i.i.i, %32 ], [ %30, %28 ]
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %36 = load ptr, ptr %35, align 8, !alias.scope !8958, !noalias !8961, !nonnull !13, !noundef !13
-  %37 = getelementptr inbounds { i8, [3 x i8] }, ptr %36, i64 %34
+  %37 = getelementptr inbounds [4 x i8], ptr %36, i64 %34
   store i32 1, ptr %37, align 1, !noalias !8961
   %38 = load i64, ptr %4, align 8, !alias.scope !8958, !noalias !8961, !noundef !13
   %39 = add i64 %38, 1
@@ -54381,7 +54381,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %26)
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %28 = load ptr, ptr %27, align 8, !alias.scope !8979, !noalias !8982, !nonnull !13, !noundef !13
-  %29 = getelementptr inbounds { i8, [3 x i8] }, ptr %28, i64 %24
+  %29 = getelementptr inbounds [4 x i8], ptr %28, i64 %24
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %29, align 1, !noalias !8986
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %30 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -54400,7 +54400,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %38 = load ptr, ptr %37, align 8, !noalias !8982, !nonnull !13, !noundef !13
-  %39 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %38, i64 %35
+  %39 = getelementptr [32 x i8], ptr %38, i64 %35
   %40 = getelementptr i8, ptr %39, i64 -32
   %.not41.i.i = icmp eq ptr %40, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i", label %41
@@ -54446,7 +54446,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %50 = phi i64 [ %.pre.i.i.i, %48 ], [ %46, %44 ]
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %52 = load ptr, ptr %51, align 8, !alias.scope !8987, !noalias !8990, !nonnull !13, !noundef !13
-  %53 = getelementptr inbounds { i8, [3 x i8] }, ptr %52, i64 %50
+  %53 = getelementptr inbounds [4 x i8], ptr %52, i64 %50
   store i32 1, ptr %53, align 1, !noalias !8990
   %54 = load i64, ptr %20, align 8, !alias.scope !8987, !noalias !8990, !noundef !13
   %55 = add i64 %54, 1
@@ -54517,7 +54517,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %26)
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %28 = load ptr, ptr %27, align 8, !alias.scope !9008, !noalias !9011, !nonnull !13, !noundef !13
-  %29 = getelementptr inbounds { i8, [3 x i8] }, ptr %28, i64 %24
+  %29 = getelementptr inbounds [4 x i8], ptr %28, i64 %24
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %29, align 1, !noalias !9015
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %30 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -54536,7 +54536,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %38 = load ptr, ptr %37, align 8, !noalias !9011, !nonnull !13, !noundef !13
-  %39 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %38, i64 %35
+  %39 = getelementptr [32 x i8], ptr %38, i64 %35
   %40 = getelementptr i8, ptr %39, i64 -32
   %.not41.i.i = icmp eq ptr %40, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i", label %41
@@ -54582,7 +54582,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %50 = phi i64 [ %.pre.i.i.i, %48 ], [ %46, %44 ]
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %52 = load ptr, ptr %51, align 8, !alias.scope !9016, !noalias !9019, !nonnull !13, !noundef !13
-  %53 = getelementptr inbounds { i8, [3 x i8] }, ptr %52, i64 %50
+  %53 = getelementptr inbounds [4 x i8], ptr %52, i64 %50
   store i32 1, ptr %53, align 1, !noalias !9019
   %54 = load i64, ptr %20, align 8, !alias.scope !9016, !noalias !9019, !noundef !13
   %55 = add i64 %54, 1
@@ -54653,7 +54653,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %26)
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %28 = load ptr, ptr %27, align 8, !alias.scope !9037, !noalias !9040, !nonnull !13, !noundef !13
-  %29 = getelementptr inbounds { i8, [3 x i8] }, ptr %28, i64 %24
+  %29 = getelementptr inbounds [4 x i8], ptr %28, i64 %24
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %29, align 1, !noalias !9044
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %30 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -54672,7 +54672,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %38 = load ptr, ptr %37, align 8, !noalias !9040, !nonnull !13, !noundef !13
-  %39 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %38, i64 %35
+  %39 = getelementptr [32 x i8], ptr %38, i64 %35
   %40 = getelementptr i8, ptr %39, i64 -32
   %.not41.i.i = icmp eq ptr %40, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i", label %41
@@ -54718,7 +54718,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %50 = phi i64 [ %.pre.i.i.i, %48 ], [ %46, %44 ]
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %52 = load ptr, ptr %51, align 8, !alias.scope !9045, !noalias !9048, !nonnull !13, !noundef !13
-  %53 = getelementptr inbounds { i8, [3 x i8] }, ptr %52, i64 %50
+  %53 = getelementptr inbounds [4 x i8], ptr %52, i64 %50
   store i32 1, ptr %53, align 1, !noalias !9048
   %54 = load i64, ptr %20, align 8, !alias.scope !9045, !noalias !9048, !noundef !13
   %55 = add i64 %54, 1
@@ -54789,7 +54789,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %26)
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %28 = load ptr, ptr %27, align 8, !alias.scope !9066, !noalias !9069, !nonnull !13, !noundef !13
-  %29 = getelementptr inbounds { i8, [3 x i8] }, ptr %28, i64 %24
+  %29 = getelementptr inbounds [4 x i8], ptr %28, i64 %24
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %29, align 1, !noalias !9073
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %30 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -54808,7 +54808,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %38 = load ptr, ptr %37, align 8, !noalias !9069, !nonnull !13, !noundef !13
-  %39 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %38, i64 %35
+  %39 = getelementptr [32 x i8], ptr %38, i64 %35
   %40 = getelementptr i8, ptr %39, i64 -32
   %.not41.i.i = icmp eq ptr %40, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i", label %41
@@ -54854,7 +54854,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %50 = phi i64 [ %.pre.i.i.i, %48 ], [ %46, %44 ]
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %52 = load ptr, ptr %51, align 8, !alias.scope !9074, !noalias !9077, !nonnull !13, !noundef !13
-  %53 = getelementptr inbounds { i8, [3 x i8] }, ptr %52, i64 %50
+  %53 = getelementptr inbounds [4 x i8], ptr %52, i64 %50
   store i32 1, ptr %53, align 1, !noalias !9077
   %54 = load i64, ptr %20, align 8, !alias.scope !9074, !noalias !9077, !noundef !13
   %55 = add i64 %54, 1
@@ -57530,7 +57530,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %26)
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %28 = load ptr, ptr %27, align 8, !alias.scope !9719, !noalias !9722, !nonnull !13, !noundef !13
-  %29 = getelementptr inbounds { i8, [3 x i8] }, ptr %28, i64 %24
+  %29 = getelementptr inbounds [4 x i8], ptr %28, i64 %24
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %29, align 1, !noalias !9726
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %30 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -57549,7 +57549,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %38 = load ptr, ptr %37, align 8, !noalias !9722, !nonnull !13, !noundef !13
-  %39 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %38, i64 %35
+  %39 = getelementptr [32 x i8], ptr %38, i64 %35
   %40 = getelementptr i8, ptr %39, i64 -32
   %.not41.i.i = icmp eq ptr %40, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i", label %41
@@ -57595,7 +57595,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %50 = phi i64 [ %.pre.i.i.i, %48 ], [ %46, %44 ]
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %52 = load ptr, ptr %51, align 8, !alias.scope !9727, !noalias !9730, !nonnull !13, !noundef !13
-  %53 = getelementptr inbounds { i8, [3 x i8] }, ptr %52, i64 %50
+  %53 = getelementptr inbounds [4 x i8], ptr %52, i64 %50
   store i32 4, ptr %53, align 1, !noalias !9730
   %54 = load i64, ptr %20, align 8, !alias.scope !9727, !noalias !9730, !noundef !13
   %55 = add i64 %54, 1
@@ -57666,7 +57666,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %26)
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %28 = load ptr, ptr %27, align 8, !alias.scope !9748, !noalias !9751, !nonnull !13, !noundef !13
-  %29 = getelementptr inbounds { i8, [3 x i8] }, ptr %28, i64 %24
+  %29 = getelementptr inbounds [4 x i8], ptr %28, i64 %24
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %29, align 1, !noalias !9755
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %30 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -57685,7 +57685,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %38 = load ptr, ptr %37, align 8, !noalias !9751, !nonnull !13, !noundef !13
-  %39 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %38, i64 %35
+  %39 = getelementptr [32 x i8], ptr %38, i64 %35
   %40 = getelementptr i8, ptr %39, i64 -32
   %.not41.i.i = icmp eq ptr %40, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i", label %41
@@ -57731,7 +57731,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %50 = phi i64 [ %.pre.i.i.i, %48 ], [ %46, %44 ]
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %52 = load ptr, ptr %51, align 8, !alias.scope !9756, !noalias !9759, !nonnull !13, !noundef !13
-  %53 = getelementptr inbounds { i8, [3 x i8] }, ptr %52, i64 %50
+  %53 = getelementptr inbounds [4 x i8], ptr %52, i64 %50
   store i32 4, ptr %53, align 1, !noalias !9759
   %54 = load i64, ptr %20, align 8, !alias.scope !9756, !noalias !9759, !noundef !13
   %55 = add i64 %54, 1
@@ -57952,7 +57952,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %26)
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %28 = load ptr, ptr %27, align 8, !alias.scope !9813, !noalias !9816, !nonnull !13, !noundef !13
-  %29 = getelementptr inbounds { i8, [3 x i8] }, ptr %28, i64 %24
+  %29 = getelementptr inbounds [4 x i8], ptr %28, i64 %24
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %29, align 1, !noalias !9820
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %30 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -57971,7 +57971,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %38 = load ptr, ptr %37, align 8, !noalias !9816, !nonnull !13, !noundef !13
-  %39 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %38, i64 %35
+  %39 = getelementptr [32 x i8], ptr %38, i64 %35
   %40 = getelementptr i8, ptr %39, i64 -32
   %.not41.i.i = icmp eq ptr %40, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i", label %41
@@ -58017,7 +58017,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %50 = phi i64 [ %.pre.i.i.i, %48 ], [ %46, %44 ]
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %52 = load ptr, ptr %51, align 8, !alias.scope !9821, !noalias !9824, !nonnull !13, !noundef !13
-  %53 = getelementptr inbounds { i8, [3 x i8] }, ptr %52, i64 %50
+  %53 = getelementptr inbounds [4 x i8], ptr %52, i64 %50
   store i32 4, ptr %53, align 1, !noalias !9824
   %54 = load i64, ptr %20, align 8, !alias.scope !9821, !noalias !9824, !noundef !13
   %55 = add i64 %54, 1
@@ -58088,7 +58088,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %26)
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %28 = load ptr, ptr %27, align 8, !alias.scope !9842, !noalias !9845, !nonnull !13, !noundef !13
-  %29 = getelementptr inbounds { i8, [3 x i8] }, ptr %28, i64 %24
+  %29 = getelementptr inbounds [4 x i8], ptr %28, i64 %24
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %29, align 1, !noalias !9849
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %30 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -58107,7 +58107,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %38 = load ptr, ptr %37, align 8, !noalias !9845, !nonnull !13, !noundef !13
-  %39 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %38, i64 %35
+  %39 = getelementptr [32 x i8], ptr %38, i64 %35
   %40 = getelementptr i8, ptr %39, i64 -32
   %.not41.i.i = icmp eq ptr %40, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i", label %41
@@ -58153,7 +58153,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %50 = phi i64 [ %.pre.i.i.i, %48 ], [ %46, %44 ]
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %52 = load ptr, ptr %51, align 8, !alias.scope !9850, !noalias !9853, !nonnull !13, !noundef !13
-  %53 = getelementptr inbounds { i8, [3 x i8] }, ptr %52, i64 %50
+  %53 = getelementptr inbounds [4 x i8], ptr %52, i64 %50
   store i32 4, ptr %53, align 1, !noalias !9853
   %54 = load i64, ptr %20, align 8, !alias.scope !9850, !noalias !9853, !noundef !13
   %55 = add i64 %54, 1
@@ -58374,7 +58374,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %26)
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %28 = load ptr, ptr %27, align 8, !alias.scope !9907, !noalias !9910, !nonnull !13, !noundef !13
-  %29 = getelementptr inbounds { i8, [3 x i8] }, ptr %28, i64 %24
+  %29 = getelementptr inbounds [4 x i8], ptr %28, i64 %24
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %29, align 1, !noalias !9914
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %30 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -58393,7 +58393,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %38 = load ptr, ptr %37, align 8, !noalias !9910, !nonnull !13, !noundef !13
-  %39 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %38, i64 %35
+  %39 = getelementptr [32 x i8], ptr %38, i64 %35
   %40 = getelementptr i8, ptr %39, i64 -32
   %.not41.i.i = icmp eq ptr %40, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i", label %41
@@ -58439,7 +58439,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %50 = phi i64 [ %.pre.i.i.i, %48 ], [ %46, %44 ]
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %52 = load ptr, ptr %51, align 8, !alias.scope !9915, !noalias !9918, !nonnull !13, !noundef !13
-  %53 = getelementptr inbounds { i8, [3 x i8] }, ptr %52, i64 %50
+  %53 = getelementptr inbounds [4 x i8], ptr %52, i64 %50
   store i32 4, ptr %53, align 1, !noalias !9918
   %54 = load i64, ptr %20, align 8, !alias.scope !9915, !noalias !9918, !noundef !13
   %55 = add i64 %54, 1
@@ -58510,7 +58510,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %26)
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %28 = load ptr, ptr %27, align 8, !alias.scope !9936, !noalias !9939, !nonnull !13, !noundef !13
-  %29 = getelementptr inbounds { i8, [3 x i8] }, ptr %28, i64 %24
+  %29 = getelementptr inbounds [4 x i8], ptr %28, i64 %24
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %29, align 1, !noalias !9943
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %30 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -58529,7 +58529,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %38 = load ptr, ptr %37, align 8, !noalias !9939, !nonnull !13, !noundef !13
-  %39 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %38, i64 %35
+  %39 = getelementptr [32 x i8], ptr %38, i64 %35
   %40 = getelementptr i8, ptr %39, i64 -32
   %.not41.i.i = icmp eq ptr %40, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i", label %41
@@ -58575,7 +58575,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %50 = phi i64 [ %.pre.i.i.i, %48 ], [ %46, %44 ]
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %52 = load ptr, ptr %51, align 8, !alias.scope !9944, !noalias !9947, !nonnull !13, !noundef !13
-  %53 = getelementptr inbounds { i8, [3 x i8] }, ptr %52, i64 %50
+  %53 = getelementptr inbounds [4 x i8], ptr %52, i64 %50
   store i32 4, ptr %53, align 1, !noalias !9947
   %54 = load i64, ptr %20, align 8, !alias.scope !9944, !noalias !9947, !noundef !13
   %55 = add i64 %54, 1
@@ -58946,7 +58946,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %26)
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %28 = load ptr, ptr %27, align 8, !alias.scope !10037, !noalias !10040, !nonnull !13, !noundef !13
-  %29 = getelementptr inbounds { i8, [3 x i8] }, ptr %28, i64 %24
+  %29 = getelementptr inbounds [4 x i8], ptr %28, i64 %24
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %29, align 1, !noalias !10044
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %30 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -58965,7 +58965,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %38 = load ptr, ptr %37, align 8, !noalias !10040, !nonnull !13, !noundef !13
-  %39 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %38, i64 %35
+  %39 = getelementptr [32 x i8], ptr %38, i64 %35
   %40 = getelementptr i8, ptr %39, i64 -32
   %.not41.i.i = icmp eq ptr %40, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i", label %41
@@ -59011,7 +59011,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %50 = phi i64 [ %.pre.i.i.i, %48 ], [ %46, %44 ]
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %52 = load ptr, ptr %51, align 8, !alias.scope !10045, !noalias !10048, !nonnull !13, !noundef !13
-  %53 = getelementptr inbounds { i8, [3 x i8] }, ptr %52, i64 %50
+  %53 = getelementptr inbounds [4 x i8], ptr %52, i64 %50
   store i32 4, ptr %53, align 1, !noalias !10048
   %54 = load i64, ptr %20, align 8, !alias.scope !10045, !noalias !10048, !noundef !13
   %55 = add i64 %54, 1
@@ -59082,7 +59082,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %26)
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %28 = load ptr, ptr %27, align 8, !alias.scope !10066, !noalias !10069, !nonnull !13, !noundef !13
-  %29 = getelementptr inbounds { i8, [3 x i8] }, ptr %28, i64 %24
+  %29 = getelementptr inbounds [4 x i8], ptr %28, i64 %24
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %29, align 1, !noalias !10073
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %30 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -59101,7 +59101,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %38 = load ptr, ptr %37, align 8, !noalias !10069, !nonnull !13, !noundef !13
-  %39 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %38, i64 %35
+  %39 = getelementptr [32 x i8], ptr %38, i64 %35
   %40 = getelementptr i8, ptr %39, i64 -32
   %.not41.i.i = icmp eq ptr %40, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i", label %41
@@ -59147,7 +59147,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %50 = phi i64 [ %.pre.i.i.i, %48 ], [ %46, %44 ]
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %52 = load ptr, ptr %51, align 8, !alias.scope !10074, !noalias !10077, !nonnull !13, !noundef !13
-  %53 = getelementptr inbounds { i8, [3 x i8] }, ptr %52, i64 %50
+  %53 = getelementptr inbounds [4 x i8], ptr %52, i64 %50
   store i32 4, ptr %53, align 1, !noalias !10077
   %54 = load i64, ptr %20, align 8, !alias.scope !10074, !noalias !10077, !noundef !13
   %55 = add i64 %54, 1
@@ -59368,7 +59368,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %26)
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %28 = load ptr, ptr %27, align 8, !alias.scope !10131, !noalias !10134, !nonnull !13, !noundef !13
-  %29 = getelementptr inbounds { i8, [3 x i8] }, ptr %28, i64 %24
+  %29 = getelementptr inbounds [4 x i8], ptr %28, i64 %24
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %29, align 1, !noalias !10138
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %30 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -59387,7 +59387,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %38 = load ptr, ptr %37, align 8, !noalias !10134, !nonnull !13, !noundef !13
-  %39 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %38, i64 %35
+  %39 = getelementptr [32 x i8], ptr %38, i64 %35
   %40 = getelementptr i8, ptr %39, i64 -32
   %.not41.i.i = icmp eq ptr %40, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i", label %41
@@ -59433,7 +59433,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %50 = phi i64 [ %.pre.i.i.i, %48 ], [ %46, %44 ]
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %52 = load ptr, ptr %51, align 8, !alias.scope !10139, !noalias !10142, !nonnull !13, !noundef !13
-  %53 = getelementptr inbounds { i8, [3 x i8] }, ptr %52, i64 %50
+  %53 = getelementptr inbounds [4 x i8], ptr %52, i64 %50
   store i32 4, ptr %53, align 1, !noalias !10142
   %54 = load i64, ptr %20, align 8, !alias.scope !10139, !noalias !10142, !noundef !13
   %55 = add i64 %54, 1
@@ -59504,7 +59504,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %26)
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %28 = load ptr, ptr %27, align 8, !alias.scope !10160, !noalias !10163, !nonnull !13, !noundef !13
-  %29 = getelementptr inbounds { i8, [3 x i8] }, ptr %28, i64 %24
+  %29 = getelementptr inbounds [4 x i8], ptr %28, i64 %24
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %29, align 1, !noalias !10167
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %30 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -59523,7 +59523,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %38 = load ptr, ptr %37, align 8, !noalias !10163, !nonnull !13, !noundef !13
-  %39 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %38, i64 %35
+  %39 = getelementptr [32 x i8], ptr %38, i64 %35
   %40 = getelementptr i8, ptr %39, i64 -32
   %.not41.i.i = icmp eq ptr %40, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i", label %41
@@ -59569,7 +59569,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %50 = phi i64 [ %.pre.i.i.i, %48 ], [ %46, %44 ]
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %52 = load ptr, ptr %51, align 8, !alias.scope !10168, !noalias !10171, !nonnull !13, !noundef !13
-  %53 = getelementptr inbounds { i8, [3 x i8] }, ptr %52, i64 %50
+  %53 = getelementptr inbounds [4 x i8], ptr %52, i64 %50
   store i32 4, ptr %53, align 1, !noalias !10171
   %54 = load i64, ptr %20, align 8, !alias.scope !10168, !noalias !10171, !noundef !13
   %55 = add i64 %54, 1
@@ -59790,7 +59790,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %26)
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %28 = load ptr, ptr %27, align 8, !alias.scope !10225, !noalias !10228, !nonnull !13, !noundef !13
-  %29 = getelementptr inbounds { i8, [3 x i8] }, ptr %28, i64 %24
+  %29 = getelementptr inbounds [4 x i8], ptr %28, i64 %24
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %29, align 1, !noalias !10232
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %30 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -59809,7 +59809,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %38 = load ptr, ptr %37, align 8, !noalias !10228, !nonnull !13, !noundef !13
-  %39 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %38, i64 %35
+  %39 = getelementptr [32 x i8], ptr %38, i64 %35
   %40 = getelementptr i8, ptr %39, i64 -32
   %.not41.i.i = icmp eq ptr %40, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i", label %41
@@ -59855,7 +59855,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %50 = phi i64 [ %.pre.i.i.i, %48 ], [ %46, %44 ]
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %52 = load ptr, ptr %51, align 8, !alias.scope !10233, !noalias !10236, !nonnull !13, !noundef !13
-  %53 = getelementptr inbounds { i8, [3 x i8] }, ptr %52, i64 %50
+  %53 = getelementptr inbounds [4 x i8], ptr %52, i64 %50
   store i32 4, ptr %53, align 1, !noalias !10236
   %54 = load i64, ptr %20, align 8, !alias.scope !10233, !noalias !10236, !noundef !13
   %55 = add i64 %54, 1
@@ -59926,7 +59926,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %26)
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %28 = load ptr, ptr %27, align 8, !alias.scope !10254, !noalias !10257, !nonnull !13, !noundef !13
-  %29 = getelementptr inbounds { i8, [3 x i8] }, ptr %28, i64 %24
+  %29 = getelementptr inbounds [4 x i8], ptr %28, i64 %24
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %29, align 1, !noalias !10261
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %30 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -59945,7 +59945,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %38 = load ptr, ptr %37, align 8, !noalias !10257, !nonnull !13, !noundef !13
-  %39 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %38, i64 %35
+  %39 = getelementptr [32 x i8], ptr %38, i64 %35
   %40 = getelementptr i8, ptr %39, i64 -32
   %.not41.i.i = icmp eq ptr %40, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i", label %41
@@ -59991,7 +59991,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %50 = phi i64 [ %.pre.i.i.i, %48 ], [ %46, %44 ]
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %52 = load ptr, ptr %51, align 8, !alias.scope !10262, !noalias !10265, !nonnull !13, !noundef !13
-  %53 = getelementptr inbounds { i8, [3 x i8] }, ptr %52, i64 %50
+  %53 = getelementptr inbounds [4 x i8], ptr %52, i64 %50
   store i32 4, ptr %53, align 1, !noalias !10265
   %54 = load i64, ptr %20, align 8, !alias.scope !10262, !noalias !10265, !noundef !13
   %55 = add i64 %54, 1
@@ -60312,7 +60312,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %26)
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %28 = load ptr, ptr %27, align 8, !alias.scope !10343, !noalias !10346, !nonnull !13, !noundef !13
-  %29 = getelementptr inbounds { i8, [3 x i8] }, ptr %28, i64 %24
+  %29 = getelementptr inbounds [4 x i8], ptr %28, i64 %24
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %29, align 1, !noalias !10350
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %30 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -60331,7 +60331,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %38 = load ptr, ptr %37, align 8, !noalias !10346, !nonnull !13, !noundef !13
-  %39 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %38, i64 %35
+  %39 = getelementptr [32 x i8], ptr %38, i64 %35
   %40 = getelementptr i8, ptr %39, i64 -32
   %.not41.i.i = icmp eq ptr %40, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i", label %41
@@ -60377,7 +60377,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %50 = phi i64 [ %.pre.i.i.i, %48 ], [ %46, %44 ]
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %52 = load ptr, ptr %51, align 8, !alias.scope !10351, !noalias !10354, !nonnull !13, !noundef !13
-  %53 = getelementptr inbounds { i8, [3 x i8] }, ptr %52, i64 %50
+  %53 = getelementptr inbounds [4 x i8], ptr %52, i64 %50
   store i32 4, ptr %53, align 1, !noalias !10354
   %54 = load i64, ptr %20, align 8, !alias.scope !10351, !noalias !10354, !noundef !13
   %55 = add i64 %54, 1
@@ -60448,7 +60448,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %26)
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %28 = load ptr, ptr %27, align 8, !alias.scope !10372, !noalias !10375, !nonnull !13, !noundef !13
-  %29 = getelementptr inbounds { i8, [3 x i8] }, ptr %28, i64 %24
+  %29 = getelementptr inbounds [4 x i8], ptr %28, i64 %24
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %29, align 1, !noalias !10379
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %30 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -60467,7 +60467,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %38 = load ptr, ptr %37, align 8, !noalias !10375, !nonnull !13, !noundef !13
-  %39 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %38, i64 %35
+  %39 = getelementptr [32 x i8], ptr %38, i64 %35
   %40 = getelementptr i8, ptr %39, i64 -32
   %.not41.i.i = icmp eq ptr %40, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i", label %41
@@ -60513,7 +60513,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %50 = phi i64 [ %.pre.i.i.i, %48 ], [ %46, %44 ]
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %52 = load ptr, ptr %51, align 8, !alias.scope !10380, !noalias !10383, !nonnull !13, !noundef !13
-  %53 = getelementptr inbounds { i8, [3 x i8] }, ptr %52, i64 %50
+  %53 = getelementptr inbounds [4 x i8], ptr %52, i64 %50
   store i32 4, ptr %53, align 1, !noalias !10383
   %54 = load i64, ptr %20, align 8, !alias.scope !10380, !noalias !10383, !noundef !13
   %55 = add i64 %54, 1
@@ -60684,7 +60684,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %26)
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %28 = load ptr, ptr %27, align 8, !alias.scope !10425, !noalias !10428, !nonnull !13, !noundef !13
-  %29 = getelementptr inbounds { i8, [3 x i8] }, ptr %28, i64 %24
+  %29 = getelementptr inbounds [4 x i8], ptr %28, i64 %24
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %29, align 1, !noalias !10432
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %30 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -60703,7 +60703,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %38 = load ptr, ptr %37, align 8, !noalias !10428, !nonnull !13, !noundef !13
-  %39 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %38, i64 %35
+  %39 = getelementptr [32 x i8], ptr %38, i64 %35
   %40 = getelementptr i8, ptr %39, i64 -32
   %.not41.i.i = icmp eq ptr %40, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i", label %41
@@ -60749,7 +60749,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %50 = phi i64 [ %.pre.i.i.i, %48 ], [ %46, %44 ]
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %52 = load ptr, ptr %51, align 8, !alias.scope !10433, !noalias !10436, !nonnull !13, !noundef !13
-  %53 = getelementptr inbounds { i8, [3 x i8] }, ptr %52, i64 %50
+  %53 = getelementptr inbounds [4 x i8], ptr %52, i64 %50
   store i32 4, ptr %53, align 1, !noalias !10436
   %54 = load i64, ptr %20, align 8, !alias.scope !10433, !noalias !10436, !noundef !13
   %55 = add i64 %54, 1
@@ -60820,7 +60820,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %26)
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %28 = load ptr, ptr %27, align 8, !alias.scope !10454, !noalias !10457, !nonnull !13, !noundef !13
-  %29 = getelementptr inbounds { i8, [3 x i8] }, ptr %28, i64 %24
+  %29 = getelementptr inbounds [4 x i8], ptr %28, i64 %24
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %29, align 1, !noalias !10461
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %30 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -60839,7 +60839,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %38 = load ptr, ptr %37, align 8, !noalias !10457, !nonnull !13, !noundef !13
-  %39 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %38, i64 %35
+  %39 = getelementptr [32 x i8], ptr %38, i64 %35
   %40 = getelementptr i8, ptr %39, i64 -32
   %.not41.i.i = icmp eq ptr %40, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i", label %41
@@ -60885,7 +60885,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %50 = phi i64 [ %.pre.i.i.i, %48 ], [ %46, %44 ]
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %52 = load ptr, ptr %51, align 8, !alias.scope !10462, !noalias !10465, !nonnull !13, !noundef !13
-  %53 = getelementptr inbounds { i8, [3 x i8] }, ptr %52, i64 %50
+  %53 = getelementptr inbounds [4 x i8], ptr %52, i64 %50
   store i32 4, ptr %53, align 1, !noalias !10465
   %54 = load i64, ptr %20, align 8, !alias.scope !10462, !noalias !10465, !noundef !13
   %55 = add i64 %54, 1
@@ -60956,7 +60956,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %26)
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %28 = load ptr, ptr %27, align 8, !alias.scope !10483, !noalias !10486, !nonnull !13, !noundef !13
-  %29 = getelementptr inbounds { i8, [3 x i8] }, ptr %28, i64 %24
+  %29 = getelementptr inbounds [4 x i8], ptr %28, i64 %24
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %29, align 1, !noalias !10490
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %30 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -60975,7 +60975,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %38 = load ptr, ptr %37, align 8, !noalias !10486, !nonnull !13, !noundef !13
-  %39 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %38, i64 %35
+  %39 = getelementptr [32 x i8], ptr %38, i64 %35
   %40 = getelementptr i8, ptr %39, i64 -32
   %.not41.i.i = icmp eq ptr %40, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i", label %41
@@ -61021,7 +61021,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %50 = phi i64 [ %.pre.i.i.i, %48 ], [ %46, %44 ]
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %52 = load ptr, ptr %51, align 8, !alias.scope !10491, !noalias !10494, !nonnull !13, !noundef !13
-  %53 = getelementptr inbounds { i8, [3 x i8] }, ptr %52, i64 %50
+  %53 = getelementptr inbounds [4 x i8], ptr %52, i64 %50
   store i32 4, ptr %53, align 1, !noalias !10494
   %54 = load i64, ptr %20, align 8, !alias.scope !10491, !noalias !10494, !noundef !13
   %55 = add i64 %54, 1
@@ -61092,7 +61092,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %26)
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %28 = load ptr, ptr %27, align 8, !alias.scope !10512, !noalias !10515, !nonnull !13, !noundef !13
-  %29 = getelementptr inbounds { i8, [3 x i8] }, ptr %28, i64 %24
+  %29 = getelementptr inbounds [4 x i8], ptr %28, i64 %24
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %29, align 1, !noalias !10519
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %30 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -61111,7 +61111,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %38 = load ptr, ptr %37, align 8, !noalias !10515, !nonnull !13, !noundef !13
-  %39 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %38, i64 %35
+  %39 = getelementptr [32 x i8], ptr %38, i64 %35
   %40 = getelementptr i8, ptr %39, i64 -32
   %.not41.i.i = icmp eq ptr %40, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i", label %41
@@ -61157,7 +61157,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %50 = phi i64 [ %.pre.i.i.i, %48 ], [ %46, %44 ]
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %52 = load ptr, ptr %51, align 8, !alias.scope !10520, !noalias !10523, !nonnull !13, !noundef !13
-  %53 = getelementptr inbounds { i8, [3 x i8] }, ptr %52, i64 %50
+  %53 = getelementptr inbounds [4 x i8], ptr %52, i64 %50
   store i32 4, ptr %53, align 1, !noalias !10523
   %54 = load i64, ptr %20, align 8, !alias.scope !10520, !noalias !10523, !noundef !13
   %55 = add i64 %54, 1
@@ -61278,7 +61278,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %26)
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %28 = load ptr, ptr %27, align 8, !alias.scope !10553, !noalias !10556, !nonnull !13, !noundef !13
-  %29 = getelementptr inbounds { i8, [3 x i8] }, ptr %28, i64 %24
+  %29 = getelementptr inbounds [4 x i8], ptr %28, i64 %24
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %29, align 1, !noalias !10560
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %30 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -61297,7 +61297,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %38 = load ptr, ptr %37, align 8, !noalias !10556, !nonnull !13, !noundef !13
-  %39 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %38, i64 %35
+  %39 = getelementptr [32 x i8], ptr %38, i64 %35
   %40 = getelementptr i8, ptr %39, i64 -32
   %.not41.i.i = icmp eq ptr %40, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i", label %41
@@ -61343,7 +61343,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %50 = phi i64 [ %.pre.i.i.i, %48 ], [ %46, %44 ]
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %52 = load ptr, ptr %51, align 8, !alias.scope !10561, !noalias !10564, !nonnull !13, !noundef !13
-  %53 = getelementptr inbounds { i8, [3 x i8] }, ptr %52, i64 %50
+  %53 = getelementptr inbounds [4 x i8], ptr %52, i64 %50
   store i32 4, ptr %53, align 1, !noalias !10564
   %54 = load i64, ptr %20, align 8, !alias.scope !10561, !noalias !10564, !noundef !13
   %55 = add i64 %54, 1
@@ -61414,7 +61414,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   tail call void @llvm.assume(i1 %26)
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %28 = load ptr, ptr %27, align 8, !alias.scope !10582, !noalias !10585, !nonnull !13, !noundef !13
-  %29 = getelementptr inbounds { i8, [3 x i8] }, ptr %28, i64 %24
+  %29 = getelementptr inbounds [4 x i8], ptr %28, i64 %24
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %29, align 1, !noalias !10589
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %30 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -61433,7 +61433,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %38 = load ptr, ptr %37, align 8, !noalias !10585, !nonnull !13, !noundef !13
-  %39 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %38, i64 %35
+  %39 = getelementptr [32 x i8], ptr %38, i64 %35
   %40 = getelementptr i8, ptr %39, i64 -32
   %.not41.i.i = icmp eq ptr %40, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i", label %41
@@ -61479,7 +61479,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %50 = phi i64 [ %.pre.i.i.i, %48 ], [ %46, %44 ]
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %52 = load ptr, ptr %51, align 8, !alias.scope !10590, !noalias !10593, !nonnull !13, !noundef !13
-  %53 = getelementptr inbounds { i8, [3 x i8] }, ptr %52, i64 %50
+  %53 = getelementptr inbounds [4 x i8], ptr %52, i64 %50
   store i32 4, ptr %53, align 1, !noalias !10593
   %54 = load i64, ptr %20, align 8, !alias.scope !10590, !noalias !10593, !noundef !13
   %55 = add i64 %54, 1
@@ -61714,7 +61714,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h8fcb9e4b5dc38d24E.ll
   %9 = phi i64 [ %.pre, %7 ], [ %4, %2 ]
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !nonnull !13, !noundef !13
-  %12 = getelementptr inbounds { i8, [3 x i8] }, ptr %11, i64 %9
+  %12 = getelementptr inbounds [4 x i8], ptr %11, i64 %9
   store i32 %1, ptr %12, align 1
   %13 = load i64, ptr %3, align 8, !noundef !13
   %14 = add i64 %13, 1

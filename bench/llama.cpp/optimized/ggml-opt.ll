@@ -215,7 +215,7 @@ _ZNSt6vectorIlSaIlEE6resizeEm.exit:               ; preds = %40, %46
 
 48:                                               ; preds = %.lr.ph, %48
   %.044 = phi i64 [ 0, %.lr.ph ], [ %50, %48 ]
-  %49 = getelementptr inbounds nuw i64, ptr %47, i64 %.044
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %.044
   store i64 %.044, ptr %49, align 8, !tbaa !18
   %50 = add nuw nsw i64 %.044, 1
   %51 = icmp slt i64 %50, %45
@@ -329,7 +329,7 @@ define void @ggml_opt_dataset_shuffle(ptr noundef %0, ptr noundef readonly captu
 22:                                               ; preds = %15
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %24 = load ptr, ptr %23, align 8, !tbaa !32
-  %25 = getelementptr inbounds i64, ptr %24, i64 %19
+  %25 = getelementptr inbounds [8 x i8], ptr %24, i64 %19
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @_ZSt7shuffleIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEvT_SA_OT0_(ptr %24, ptr %25, ptr noundef nonnull align 8 dereferenceable(5000) %26)
   br label %27
@@ -369,7 +369,7 @@ define linkonce_odr void @_ZSt7shuffleIN9__gnu_cxx17__normal_iteratorIPlSt6vecto
   store i64 1, ptr %20, align 8, !tbaa !35
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = call noundef i64 @_ZNSt24uniform_int_distributionImEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEmRT_RKNS0_10param_typeE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(5000) %2, ptr noundef nonnull align 8 dereferenceable(16) %5)
-  %23 = getelementptr inbounds i64, ptr %0, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr %0, i64 %22
   %24 = load i64, ptr %16, align 8, !tbaa !18
   %25 = load i64, ptr %23, align 8, !tbaa !18
   store i64 %25, ptr %16, align 8, !tbaa !18
@@ -403,13 +403,13 @@ define linkonce_odr void @_ZSt7shuffleIN9__gnu_cxx17__normal_iteratorIPlSt6vecto
   %37 = udiv i64 %36, %33
   %38 = urem i64 %36, %33
   %39 = getelementptr inbounds nuw i8, ptr %.sroa.018.140, i64 8
-  %40 = getelementptr inbounds i64, ptr %0, i64 %37
+  %40 = getelementptr inbounds [8 x i8], ptr %0, i64 %37
   %41 = load i64, ptr %.sroa.018.140, align 8, !tbaa !18
   %42 = load i64, ptr %40, align 8, !tbaa !18
   store i64 %42, ptr %.sroa.018.140, align 8, !tbaa !18
   store i64 %41, ptr %40, align 8, !tbaa !18
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.018.140, i64 16
-  %44 = getelementptr inbounds i64, ptr %0, i64 %38
+  %44 = getelementptr inbounds [8 x i8], ptr %0, i64 %38
   %45 = load i64, ptr %39, align 8, !tbaa !18
   %46 = load i64, ptr %44, align 8, !tbaa !18
   store i64 %46, ptr %39, align 8, !tbaa !18
@@ -443,7 +443,7 @@ define linkonce_odr void @_ZSt7shuffleIN9__gnu_cxx17__normal_iteratorIPlSt6vecto
   store i64 0, ptr %7, align 8, !tbaa !33
   store i64 %53, ptr %49, align 8, !tbaa !35
   %54 = call noundef i64 @_ZNSt24uniform_int_distributionImEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEmRT_RKNS0_10param_typeE(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(5000) %2, ptr noundef nonnull align 8 dereferenceable(16) %7)
-  %55 = getelementptr inbounds i64, ptr %0, i64 %54
+  %55 = getelementptr inbounds [8 x i8], ptr %0, i64 %54
   %56 = load i64, ptr %.sroa.0.043, align 8, !tbaa !18
   %57 = load i64, ptr %55, align 8, !tbaa !18
   store i64 %57, ptr %.sroa.0.043, align 8, !tbaa !18
@@ -548,8 +548,8 @@ define void @ggml_opt_dataset_get_batch(ptr noundef readonly captures(none) %0, 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %.047.us = phi i64 [ %60, %.lr.ph.split.us ], [ 0, %.lr.ph ]
   %49 = load ptr, ptr %37, align 8, !tbaa !28
-  %50 = getelementptr i64, ptr %49, i64 %46
-  %51 = getelementptr i64, ptr %50, i64 %.047.us
+  %50 = getelementptr [8 x i8], ptr %49, i64 %46
+  %51 = getelementptr [8 x i8], ptr %50, i64 %.047.us
   %52 = load i64, ptr %51, align 8, !tbaa !18
   %53 = load ptr, ptr %47, align 8, !tbaa !23
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 248
@@ -573,8 +573,8 @@ define void @ggml_opt_dataset_get_batch(ptr noundef readonly captures(none) %0, 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %.047 = phi i64 [ %81, %.lr.ph.split ], [ 0, %.lr.ph ]
   %63 = load ptr, ptr %37, align 8, !tbaa !28
-  %64 = getelementptr i64, ptr %63, i64 %46
-  %65 = getelementptr i64, ptr %64, i64 %.047
+  %64 = getelementptr [8 x i8], ptr %63, i64 %46
+  %65 = getelementptr [8 x i8], ptr %64, i64 %.047
   %66 = load i64, ptr %65, align 8, !tbaa !18
   %67 = load ptr, ptr %47, align 8, !tbaa !23
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 248
@@ -650,7 +650,7 @@ define noundef nonnull ptr @ggml_opt_init(ptr noundef readonly byval(%struct.ggm
 6:                                                ; preds = %6, %1
   %store_forwarded = phi i64 [ 5489, %1 ], [ %12, %6 ]
   %.011.i.i.i.i = phi i64 [ 1, %1 ], [ %13, %6 ]
-  %7 = getelementptr i64, ptr %5, i64 %.011.i.i.i.i
+  %7 = getelementptr [8 x i8], ptr %5, i64 %.011.i.i.i.i
   %8 = lshr i64 %store_forwarded, 30
   %9 = xor i64 %8, %store_forwarded
   %10 = mul nuw nsw i64 %9, 1812433253
@@ -798,7 +798,7 @@ define noundef nonnull ptr @ggml_opt_init(ptr noundef readonly byval(%struct.ggm
 80:                                               ; preds = %.lr.ph, %80
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %80 ]
   %.0167178 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %80 ]
-  %81 = getelementptr inbounds nuw ptr, ptr %63, i64 %indvars.iv
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %indvars.iv
   %82 = load ptr, ptr %81, align 8, !tbaa !92
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 148
   %84 = load i32, ptr %83, align 4, !tbaa !93
@@ -1046,7 +1046,7 @@ define noundef nonnull ptr @ggml_opt_init(ptr noundef readonly byval(%struct.ggm
   %240 = load ptr, ptr %219, align 8, !tbaa !101
   %241 = getelementptr inbounds nuw i8, ptr %240, i64 16
   %242 = load ptr, ptr %241, align 8, !tbaa !89
-  %243 = getelementptr inbounds nuw ptr, ptr %242, i64 %indvars.iv.next186
+  %243 = getelementptr inbounds nuw [8 x i8], ptr %242, i64 %indvars.iv.next186
   %244 = load ptr, ptr %243, align 8, !tbaa !92
   %245 = tail call ptr @ggml_graph_get_grad(ptr noundef %240, ptr noundef %244)
   %246 = getelementptr inbounds nuw i8, ptr %244, i64 148
@@ -1435,9 +1435,9 @@ define void @ggml_opt_result_pred(ptr noundef readonly captures(none) %0, ptr no
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.06 = phi i64 [ %14, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %11 = getelementptr inbounds nuw i32, ptr %6, i64 %.06
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.06
   %12 = load i32, ptr %11, align 4, !tbaa !130
-  %13 = getelementptr inbounds nuw i32, ptr %1, i64 %.06
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %.06
   store i32 %12, ptr %13, align 4, !tbaa !130
   %14 = add nuw i64 %.06, 1
   %exitcond.not = icmp eq i64 %14, %10
@@ -1701,7 +1701,7 @@ define internal fastcc void @_ZL19ggml_opt_eval_graphP16ggml_opt_contextP11ggml_
 106:                                              ; preds = %112, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %112 ]
   %107 = load ptr, ptr %96, align 8, !tbaa !145
-  %108 = getelementptr inbounds nuw ptr, ptr %107, i64 %indvars.iv.i.i
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %indvars.iv.i.i
   %109 = load ptr, ptr %108, align 8, !tbaa !92
   %110 = invoke fastcc noundef ptr @_ZL10map_tensorRSt3mapIP11ggml_tensorS1_St4lessIS1_ESaISt4pairIKS1_S1_EEEP12ggml_contextS1_(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef %84, ptr noundef %109)
           to label %111 unwind label %116
@@ -1758,7 +1758,7 @@ define internal fastcc void @_ZL19ggml_opt_eval_graphP16ggml_opt_contextP11ggml_
 140:                                              ; preds = %146, %.lr.ph73.i.i
   %indvars.iv82.i.i = phi i64 [ 0, %.lr.ph73.i.i ], [ %indvars.iv.next83.i.i, %146 ]
   %141 = load ptr, ptr %103, align 8, !tbaa !89
-  %142 = getelementptr inbounds nuw ptr, ptr %141, i64 %indvars.iv82.i.i
+  %142 = getelementptr inbounds nuw [8 x i8], ptr %141, i64 %indvars.iv82.i.i
   %143 = load ptr, ptr %142, align 8, !tbaa !92
   %144 = invoke fastcc noundef ptr @_ZL10map_tensorRSt3mapIP11ggml_tensorS1_St4lessIS1_ESaISt4pairIKS1_S1_EEEP12ggml_contextS1_(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef %84, ptr noundef %143)
           to label %145 unwind label %150
@@ -1802,7 +1802,7 @@ define internal fastcc void @_ZL19ggml_opt_eval_graphP16ggml_opt_contextP11ggml_
 
 158:                                              ; preds = %224, %.lr.ph77.i.i
   %indvars.iv85.i.i = phi i64 [ 0, %.lr.ph77.i.i ], [ %indvars.iv.next86.i.i, %224 ]
-  %159 = getelementptr inbounds nuw ptr, ptr %124, i64 %indvars.iv85.i.i
+  %159 = getelementptr inbounds nuw [8 x i8], ptr %124, i64 %indvars.iv85.i.i
   %160 = load ptr, ptr %159, align 8, !tbaa !92
   %161 = ptrtoint ptr %160 to i64
   %162 = lshr i64 %161, 4
@@ -1813,7 +1813,7 @@ define internal fastcc void @_ZL19ggml_opt_eval_graphP16ggml_opt_contextP11ggml_
   %.0.i.i.i = phi i64 [ %163, %158 ], [ %179, %176 ]
   %.0.fr.i.i.i = freeze i64 %.0.i.i.i
   %165 = lshr i64 %.0.fr.i.i.i, 5
-  %166 = getelementptr inbounds nuw i32, ptr %128, i64 %165
+  %166 = getelementptr inbounds nuw [4 x i8], ptr %128, i64 %165
   %167 = load i32, ptr %166, align 4, !tbaa !130
   %168 = trunc i64 %.0.fr.i.i.i to i32
   %169 = and i32 %168, 31
@@ -1824,7 +1824,7 @@ define internal fastcc void @_ZL19ggml_opt_eval_graphP16ggml_opt_contextP11ggml_
 
 172:                                              ; preds = %164
   %173 = load ptr, ptr %126, align 8, !tbaa !150
-  %174 = getelementptr inbounds nuw ptr, ptr %173, i64 %.0.fr.i.i.i
+  %174 = getelementptr inbounds nuw [8 x i8], ptr %173, i64 %.0.fr.i.i.i
   %175 = load ptr, ptr %174, align 8, !tbaa !92
   %.not.i.i.i = icmp eq ptr %175, %160
   br i1 %.not.i.i.i, label %_ZL14ggml_hash_findPK13ggml_hash_setPK11ggml_tensor.exit.i.i, label %176
@@ -1838,7 +1838,7 @@ define internal fastcc void @_ZL19ggml_opt_eval_graphP16ggml_opt_contextP11ggml_
 
 _ZL14ggml_hash_findPK13ggml_hash_setPK11ggml_tensor.exit.i.i: ; preds = %176, %172, %164
   %.013.i.i.i = phi i64 [ -1, %176 ], [ %.0.fr.i.i.i, %164 ], [ %.0.fr.i.i.i, %172 ]
-  %181 = getelementptr inbounds nuw ptr, ptr %131, i64 %indvars.iv85.i.i
+  %181 = getelementptr inbounds nuw [8 x i8], ptr %131, i64 %indvars.iv85.i.i
   %182 = load ptr, ptr %181, align 8, !tbaa !92
   %183 = ptrtoint ptr %182 to i64
   %184 = lshr i64 %183, 4
@@ -1849,7 +1849,7 @@ _ZL14ggml_hash_findPK13ggml_hash_setPK11ggml_tensor.exit.i.i: ; preds = %176, %1
   %.0.i58.i.i = phi i64 [ %185, %_ZL14ggml_hash_findPK13ggml_hash_setPK11ggml_tensor.exit.i.i ], [ %201, %198 ]
   %.0.fr.i59.i.i = freeze i64 %.0.i58.i.i
   %187 = lshr i64 %.0.fr.i59.i.i, 5
-  %188 = getelementptr inbounds nuw i32, ptr %135, i64 %187
+  %188 = getelementptr inbounds nuw [4 x i8], ptr %135, i64 %187
   %189 = load i32, ptr %188, align 4, !tbaa !130
   %190 = trunc i64 %.0.fr.i59.i.i to i32
   %191 = and i32 %190, 31
@@ -1860,7 +1860,7 @@ _ZL14ggml_hash_findPK13ggml_hash_setPK11ggml_tensor.exit.i.i: ; preds = %176, %1
 
 194:                                              ; preds = %186
   %195 = load ptr, ptr %133, align 8, !tbaa !150
-  %196 = getelementptr inbounds nuw ptr, ptr %195, i64 %.0.fr.i59.i.i
+  %196 = getelementptr inbounds nuw [8 x i8], ptr %195, i64 %.0.fr.i59.i.i
   %197 = load ptr, ptr %196, align 8, !tbaa !92
   %.not.i61.i.i = icmp eq ptr %197, %182
   br i1 %.not.i61.i.i, label %_ZL14ggml_hash_findPK13ggml_hash_setPK11ggml_tensor.exit63.i.i, label %198
@@ -1884,7 +1884,7 @@ _ZL14ggml_hash_findPK13ggml_hash_setPK11ggml_tensor.exit63.i.i: ; preds = %198, 
 
 205:                                              ; preds = %_ZL14ggml_hash_findPK13ggml_hash_setPK11ggml_tensor.exit63.i.i
   %206 = lshr i64 %.013.i.i.i, 5
-  %207 = getelementptr inbounds nuw i32, ptr %128, i64 %206
+  %207 = getelementptr inbounds nuw [4 x i8], ptr %128, i64 %206
   %208 = load i32, ptr %207, align 4, !tbaa !130
   %209 = trunc i64 %.013.i.i.i to i32
   %210 = and i32 %209, 31
@@ -1899,7 +1899,7 @@ _ZL14ggml_hash_findPK13ggml_hash_setPK11ggml_tensor.exit63.i.i: ; preds = %198, 
 
 214:                                              ; preds = %213
   %215 = lshr i64 %.013.i62.i.i, 5
-  %216 = getelementptr inbounds nuw i32, ptr %135, i64 %215
+  %216 = getelementptr inbounds nuw [4 x i8], ptr %135, i64 %215
   %217 = load i32, ptr %216, align 4, !tbaa !130
   %218 = trunc i64 %.013.i62.i.i to i32
   %219 = and i32 %218, 31
@@ -1919,16 +1919,16 @@ _ZL14ggml_hash_findPK13ggml_hash_setPK11ggml_tensor.exit63.i.i: ; preds = %198, 
 
 224:                                              ; preds = %214
   %225 = load ptr, ptr %136, align 8, !tbaa !152
-  %226 = getelementptr inbounds nuw ptr, ptr %225, i64 %.013.i.i.i
+  %226 = getelementptr inbounds nuw [8 x i8], ptr %225, i64 %.013.i.i.i
   %227 = load ptr, ptr %226, align 8, !tbaa !92
   %228 = load ptr, ptr %137, align 8, !tbaa !152
-  %229 = getelementptr inbounds nuw ptr, ptr %228, i64 %.013.i62.i.i
+  %229 = getelementptr inbounds nuw [8 x i8], ptr %228, i64 %.013.i62.i.i
   store ptr %227, ptr %229, align 8, !tbaa !92
   %230 = load ptr, ptr %138, align 8, !tbaa !153
-  %231 = getelementptr inbounds nuw ptr, ptr %230, i64 %.013.i.i.i
+  %231 = getelementptr inbounds nuw [8 x i8], ptr %230, i64 %.013.i.i.i
   %232 = load ptr, ptr %231, align 8, !tbaa !92
   %233 = load ptr, ptr %139, align 8, !tbaa !153
-  %234 = getelementptr inbounds nuw ptr, ptr %233, i64 %.013.i62.i.i
+  %234 = getelementptr inbounds nuw [8 x i8], ptr %233, i64 %.013.i62.i.i
   store ptr %232, ptr %234, align 8, !tbaa !92
   %indvars.iv.next86.i.i = add nuw nsw i64 %indvars.iv85.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next86.i.i, %wide.trip.count.i.i
@@ -2118,7 +2118,7 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i: ; preds = %329, %_ZNK
 _ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i: ; preds = %331, %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i
   store ptr %325, ptr %282, align 8, !tbaa !119
   store ptr %330, ptr %283, align 8, !tbaa !122
-  %332 = getelementptr inbounds nuw float, ptr %325, i64 %323
+  %332 = getelementptr inbounds nuw [4 x i8], ptr %325, i64 %323
   store ptr %332, ptr %307, align 8, !tbaa !120
   br label %_ZNSt6vectorIfSaIfEE9push_backERKf.exit
 
@@ -2154,7 +2154,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %338
           to label %.noexc73 unwind label %369
 
 .noexc73:                                         ; preds = %341
-  %344 = getelementptr inbounds nuw i32, ptr %343, i64 %281
+  %344 = getelementptr inbounds nuw [4 x i8], ptr %343, i64 %281
   store i32 0, ptr %343, align 4, !tbaa !130
   %345 = getelementptr i8, ptr %343, i64 4
   %346 = add nsw i64 %281, -1
@@ -2886,7 +2886,7 @@ ggml_opt_dataset_shuffle.exit:                    ; preds = %46
 
 94:                                               ; preds = %88
   %95 = load ptr, ptr %67, align 8, !tbaa !32
-  %96 = getelementptr inbounds i64, ptr %95, i64 %91
+  %96 = getelementptr inbounds [8 x i8], ptr %95, i64 %91
   call void @_ZSt7shuffleIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEvT_SA_OT0_(ptr %95, ptr %96, ptr noundef nonnull align 8 dereferenceable(5000) %68)
   br label %ggml_opt_dataset_shuffle.exit64
 
@@ -3175,9 +3175,9 @@ _ZNSt3mapIP11ggml_tensorS1_St4lessIS1_ESaISt4pairIKS1_S1_EEE4findERS5_.exit.thre
 
 53:                                               ; preds = %_ZNSt3mapIP11ggml_tensorS1_St4lessIS1_ESaISt4pairIKS1_S1_EEE4findERS5_.exit.thread, %53
   %indvars.iv = phi i64 [ 0, %_ZNSt3mapIP11ggml_tensorS1_St4lessIS1_ESaISt4pairIKS1_S1_EEE4findERS5_.exit.thread ], [ %indvars.iv.next, %53 ]
-  %54 = getelementptr inbounds nuw i64, ptr %25, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv
   %55 = load i64, ptr %54, align 8, !tbaa !18
-  %56 = getelementptr inbounds nuw i64, ptr %26, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv
   store i64 %55, ptr %56, align 8, !tbaa !18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -3187,10 +3187,10 @@ _ZNSt3mapIP11ggml_tensorS1_St4lessIS1_ESaISt4pairIKS1_S1_EEE4findERS5_.exit.thre
   %indvars.iv38 = phi i64 [ 0, %27 ], [ %indvars.iv.next39, %57 ]
   %58 = load ptr, ptr %4, align 8, !tbaa !92
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 152
-  %60 = getelementptr inbounds nuw ptr, ptr %59, i64 %indvars.iv38
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %indvars.iv38
   %61 = load ptr, ptr %60, align 8, !tbaa !92
   %62 = call fastcc noundef ptr @_ZL10map_tensorRSt3mapIP11ggml_tensorS1_St4lessIS1_ESaISt4pairIKS1_S1_EEEP12ggml_contextS1_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef %61)
-  %63 = getelementptr inbounds nuw ptr, ptr %52, i64 %indvars.iv38
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %indvars.iv38
   store ptr %62, ptr %63, align 8, !tbaa !92
   %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
   %exitcond41.not = icmp eq i64 %indvars.iv.next39, 10
@@ -3597,7 +3597,7 @@ _ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit: ; preds = %17
   %27 = sub i64 %26, %18
   %28 = ashr exact i64 %27, 2
   %29 = sub nsw i64 0, %28
-  %30 = getelementptr inbounds i32, ptr %13, i64 %29
+  %30 = getelementptr inbounds [4 x i8], ptr %13, i64 %29
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %30, ptr align 4 %1, i64 %27, i1 false)
   br label %_ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit
 
@@ -3620,7 +3620,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEmEvRT_T0_.exit:
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_iET0_T_S8_S7_RSaIT1_E.exit: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEmEvRT_T0_.exit, %32
   %35 = phi ptr [ %13, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEmEvRT_T0_.exit ], [ %.pre, %32 ]
   %36 = sub nuw nsw i64 %9, %20
-  %37 = getelementptr inbounds nuw i32, ptr %35, i64 %36
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %36
   store ptr %37, ptr %12, align 8, !tbaa !123
   %.not.i.i.i.i.i.i.i.i.i52 = icmp eq ptr %13, %1
   br i1 %.not.i.i.i.i.i.i.i.i.i52, label %_ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit53, label %38
@@ -3704,7 +3704,7 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit:  ; preds = %_ZNKSt6vectorIiSaIi
 _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit: ; preds = %66, %68
   store ptr %57, ptr %0, align 8, !tbaa !117
   store ptr %67, ptr %12, align 8, !tbaa !123
-  %70 = getelementptr inbounds nuw i32, ptr %57, i64 %53
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %53
   store ptr %70, ptr %10, align 8, !tbaa !118
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit
 
@@ -3801,9 +3801,9 @@ _ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit36: ; preds = %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !28
-  %39 = getelementptr inbounds nuw i64, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !38
-  %40 = getelementptr inbounds nuw i64, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !31
   br label %41
 
@@ -3897,10 +3897,10 @@ define linkonce_odr noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm39
 6:                                                ; preds = %6, %5
   %7 = phi i64 [ %.pre.i, %5 ], [ %12, %6 ]
   %.021.i = phi i64 [ 0, %5 ], [ %10, %6 ]
-  %8 = getelementptr inbounds nuw i64, ptr %0, i64 %.021.i
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.021.i
   %9 = and i64 %7, -2147483648
   %10 = add nuw nsw i64 %.021.i, 1
-  %11 = getelementptr inbounds nuw i64, ptr %0, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %10
   %12 = load i64, ptr %11, align 8, !tbaa !18
   %13 = and i64 %12, 2147483646
   %14 = or disjoint i64 %13, %9
@@ -3924,10 +3924,10 @@ define linkonce_odr noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm39
 .preheader.i:                                     ; preds = %.preheader.i, %.preheader.preheader.i
   %22 = phi i64 [ %27, %.preheader.i ], [ %.pre24.i, %.preheader.preheader.i ]
   %.01822.i = phi i64 [ %25, %.preheader.i ], [ 227, %.preheader.preheader.i ]
-  %23 = getelementptr inbounds nuw i64, ptr %0, i64 %.01822.i
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.01822.i
   %24 = and i64 %22, -2147483648
   %25 = add nuw nsw i64 %.01822.i, 1
-  %26 = getelementptr inbounds nuw i64, ptr %0, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %25
   %27 = load i64, ptr %26, align 8, !tbaa !18
   %28 = and i64 %27, 2147483646
   %29 = or disjoint i64 %28, %24
@@ -3965,7 +3965,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %51 = phi i64 [ 0, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit ], [ %3, %1 ]
   %52 = add nuw nsw i64 %51, 1
   store i64 %52, ptr %2, align 8, !tbaa !67
-  %53 = getelementptr inbounds nuw i64, ptr %0, i64 %51
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %51
   %54 = load i64, ptr %53, align 8, !tbaa !18
   %55 = lshr i64 %54, 11
   %56 = and i64 %55, 4294967295

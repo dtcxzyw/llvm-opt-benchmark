@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %union.anon = type { ptr }
-%struct.ChannelContext = type { [128 x float], [128 x float], [128 x float], [128 x float], [128 x float], [128 x i8], [128 x i8], [8 x i8], ptr, i32, i32, [8 x i8] }
 
 @.str = private unnamed_addr constant [4 x i8] c"hca\00", align 1
 @.str.1 = private unnamed_addr constant [8 x i8] c"CRI HCA\00", align 1
@@ -278,7 +277,7 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
 123:                                              ; preds = %.lr.ph199, %unpack.exit
   %indvars.iv225 = phi i64 [ 0, %.lr.ph199 ], [ %indvars.iv.next226, %unpack.exit ]
   %.sroa.14.0197 = phi i32 [ %105, %.lr.ph199 ], [ %.sroa.14.5, %unpack.exit ]
-  %124 = getelementptr inbounds nuw %struct.ChannelContext, ptr %110, i64 %indvars.iv225
+  %124 = getelementptr inbounds nuw [2848 x i8], ptr %110, i64 %indvars.iv225
   %125 = load i32, ptr %111, align 4, !tbaa !54
   %126 = lshr i32 %.sroa.14.0197, 3
   %127 = zext nneg i32 %126 to i64
@@ -552,15 +551,15 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   %291 = getelementptr inbounds nuw i8, ptr %263, i64 %indvars.iv43.i
   %292 = load i8, ptr %291, align 1, !tbaa !41
   %293 = sext i8 %292 to i64
-  %294 = getelementptr inbounds float, ptr @dequantizer_scaling_table, i64 %293
+  %294 = getelementptr inbounds [4 x i8], ptr @dequantizer_scaling_table, i64 %293
   %295 = load float, ptr %294, align 4, !tbaa !27
   %296 = getelementptr inbounds nuw i8, ptr %259, i64 %indvars.iv43.i
   %297 = load i8, ptr %296, align 1, !tbaa !41
   %298 = zext i8 %297 to i64
-  %299 = getelementptr inbounds nuw float, ptr @quant_step_size, i64 %298
+  %299 = getelementptr inbounds nuw [4 x i8], ptr @quant_step_size, i64 %298
   %300 = load float, ptr %299, align 4, !tbaa !27
   %301 = fmul nsz float %295, %300
-  %302 = getelementptr inbounds nuw float, ptr %124, i64 %indvars.iv43.i
+  %302 = getelementptr inbounds nuw [4 x i8], ptr %124, i64 %indvars.iv43.i
   store float %301, ptr %302, align 4, !tbaa !27
   %indvars.iv.next44.i = add nuw nsw i64 %indvars.iv43.i, 1
   %exitcond47.not.i = icmp eq i64 %indvars.iv.next44.i, %wide.trip.count46.i
@@ -614,7 +613,7 @@ unpack.exit:                                      ; preds = %290, %._crit_edge.i
 .lr.ph202:                                        ; preds = %.preheader187, %dequantize_coefficients.exit
   %indvars.iv228 = phi i64 [ %indvars.iv.next229, %dequantize_coefficients.exit ], [ 0, %.preheader187 ]
   %.sroa.14.2200 = phi i32 [ %.sroa.14.14, %dequantize_coefficients.exit ], [ %.sroa.14.1211, %.preheader187 ]
-  %322 = getelementptr inbounds nuw %struct.ChannelContext, ptr %114, i64 %indvars.iv228
+  %322 = getelementptr inbounds nuw [2848 x i8], ptr %114, i64 %indvars.iv228
   %323 = getelementptr inbounds nuw i8, ptr %322, i64 512
   %324 = getelementptr inbounds nuw i8, ptr %322, i64 2832
   %325 = load i32, ptr %324, align 16, !tbaa !55
@@ -701,7 +700,7 @@ get_bitsz.exit.thread.i:                          ; preds = %get_bitsz.exit.i, %
 375:                                              ; preds = %get_bitsz.exit.thread.i, %357
   %.sroa.14.12 = phi i32 [ %371, %get_bitsz.exit.thread.i ], [ %.sroa.14.13, %357 ]
   %.0.i = phi nsz float [ %374, %get_bitsz.exit.thread.i ], [ %358, %357 ]
-  %376 = getelementptr inbounds nuw float, ptr %323, i64 %indvars.iv.i130
+  %376 = getelementptr inbounds nuw [4 x i8], ptr %323, i64 %indvars.iv.i130
   store float %.0.i, ptr %376, align 4, !tbaa !27
   %indvars.iv.next.i131 = add nuw nsw i64 %indvars.iv.i130, 1
   %exitcond.not.i132 = icmp eq i64 %indvars.iv.next.i131, %wide.trip.count.i129
@@ -711,7 +710,7 @@ dequantize_coefficients.exit:                     ; preds = %375, %.lr.ph202
   %.sroa.14.14 = phi i32 [ %.sroa.14.2200, %.lr.ph202 ], [ %.sroa.14.12, %375 ]
   %.pre-phi.i = phi i64 [ 0, %.lr.ph202 ], [ %wide.trip.count.i129, %375 ]
   %377 = getelementptr inbounds nuw i8, ptr %322, i64 1024
-  %378 = getelementptr inbounds nuw float, ptr %323, i64 %.pre-phi.i
+  %378 = getelementptr inbounds nuw [4 x i8], ptr %323, i64 %.pre-phi.i
   %379 = shl nuw nsw i64 %.pre-phi.i, 2
   %380 = sub nsw i64 512, %379
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %378, i8 0, i64 %380, i1 false)
@@ -745,7 +744,7 @@ dequantize_coefficients.exit:                     ; preds = %375, %.lr.ph202
 
 .lr.ph206.split:                                  ; preds = %.lr.ph206.split.preheader, %reconstruct_hfr.exit
   %indvars.iv231 = phi i64 [ 0, %.lr.ph206.split.preheader ], [ %indvars.iv.next232, %reconstruct_hfr.exit ]
-  %395 = getelementptr inbounds nuw %struct.ChannelContext, ptr %114, i64 %indvars.iv231
+  %395 = getelementptr inbounds nuw [2848 x i8], ptr %114, i64 %indvars.iv231
   %396 = getelementptr inbounds nuw i8, ptr %395, i64 2836
   %397 = load i32, ptr %396, align 4, !tbaa !59
   %.not215 = icmp eq i32 %397, 2
@@ -802,13 +801,13 @@ dequantize_coefficients.exit:                     ; preds = %375, %.lr.ph202
   %417 = tail call i32 @llvm.smax.i32(i32 %416, i32 -64)
   %.0.i.i141 = tail call i32 @llvm.smin.i32(i32 %417, i32 63)
   %418 = sext i32 %.0.i.i141 to i64
-  %419 = getelementptr float, ptr @scale_conversion_table, i64 %418
+  %419 = getelementptr [4 x i8], ptr @scale_conversion_table, i64 %418
   %420 = getelementptr i8, ptr %419, i64 256
   %421 = load float, ptr %420, align 4, !tbaa !27
-  %422 = getelementptr inbounds nuw float, ptr %401, i64 %412
+  %422 = getelementptr inbounds nuw [4 x i8], ptr %401, i64 %412
   %423 = load float, ptr %422, align 4, !tbaa !27
   %424 = fmul nsz float %421, %423
-  %425 = getelementptr inbounds nuw float, ptr %401, i64 %indvars.iv.i139
+  %425 = getelementptr inbounds nuw [4 x i8], ptr %401, i64 %indvars.iv.i139
   store float %424, ptr %425, align 4, !tbaa !27
   %426 = add nuw nsw i32 %.03.i, 1
   %indvars.iv.next.i142 = add nuw nsw i64 %indvars.iv.i139, 1
@@ -827,20 +826,20 @@ reconstruct_hfr.exit:                             ; preds = %.lr.ph206.split, %.
 
 428:                                              ; preds = %.lr.ph208, %apply_intensity_stereo.exit
   %indvars.iv234 = phi i64 [ 0, %.lr.ph208 ], [ %indvars.iv.next235, %apply_intensity_stereo.exit ]
-  %429 = getelementptr inbounds nuw %struct.ChannelContext, ptr %114, i64 %indvars.iv234
+  %429 = getelementptr inbounds nuw [2848 x i8], ptr %114, i64 %indvars.iv234
   %indvars.iv.next235 = add nuw nsw i64 %indvars.iv234, 1
-  %430 = getelementptr inbounds nuw %struct.ChannelContext, ptr %114, i64 %indvars.iv.next235
+  %430 = getelementptr inbounds nuw [2848 x i8], ptr %114, i64 %indvars.iv.next235
   %431 = getelementptr inbounds nuw i8, ptr %430, i64 2816
   %432 = getelementptr inbounds nuw i8, ptr %431, i64 %indvars.iv242
   %433 = load i8, ptr %432, align 1, !tbaa !41
   %434 = sext i8 %433 to i64
-  %435 = getelementptr inbounds float, ptr @intensity_ratio_table, i64 %434
+  %435 = getelementptr inbounds [4 x i8], ptr @intensity_ratio_table, i64 %434
   %436 = load float, ptr %435, align 4, !tbaa !27
   %437 = fadd nsz float %436, -2.000000e+00
   %438 = getelementptr inbounds nuw i8, ptr %429, i64 1024
-  %439 = getelementptr inbounds nuw float, ptr %438, i64 %390
+  %439 = getelementptr inbounds nuw [4 x i8], ptr %438, i64 %390
   %440 = getelementptr inbounds nuw i8, ptr %430, i64 1024
-  %441 = getelementptr inbounds nuw float, ptr %440, i64 %390
+  %441 = getelementptr inbounds nuw [4 x i8], ptr %440, i64 %390
   %442 = getelementptr inbounds nuw i8, ptr %429, i64 2836
   %443 = load i32, ptr %442, align 4, !tbaa !59
   %444 = icmp eq i32 %443, 1
@@ -849,10 +848,10 @@ reconstruct_hfr.exit:                             ; preds = %.lr.ph206.split, %.
 
 .lr.ph.i147:                                      ; preds = %428, %.lr.ph.i147
   %indvars.iv.i148 = phi i64 [ %indvars.iv.next.i149, %.lr.ph.i147 ], [ 0, %428 ]
-  %445 = getelementptr inbounds nuw float, ptr %439, i64 %indvars.iv.i148
+  %445 = getelementptr inbounds nuw [4 x i8], ptr %439, i64 %indvars.iv.i148
   %446 = load float, ptr %445, align 4, !tbaa !27
   %447 = fmul nsz float %437, %446
-  %448 = getelementptr inbounds nuw float, ptr %441, i64 %indvars.iv.i148
+  %448 = getelementptr inbounds nuw [4 x i8], ptr %441, i64 %indvars.iv.i148
   store float %447, ptr %448, align 4, !tbaa !27
   %449 = fmul nsz float %436, %446
   store float %449, ptr %445, align 4, !tbaa !27
@@ -866,8 +865,8 @@ apply_intensity_stereo.exit:                      ; preds = %.lr.ph.i147, %428
 
 450:                                              ; preds = %.lr.ph210, %450
   %indvars.iv239 = phi i64 [ 0, %.lr.ph210 ], [ %indvars.iv.next240, %450 ]
-  %451 = getelementptr inbounds nuw %struct.ChannelContext, ptr %114, i64 %indvars.iv239
-  %452 = getelementptr inbounds nuw ptr, ptr %86, i64 %indvars.iv239
+  %451 = getelementptr inbounds nuw [2848 x i8], ptr %114, i64 %indvars.iv239
+  %452 = getelementptr inbounds nuw [8 x i8], ptr %86, i64 %indvars.iv239
   %453 = load ptr, ptr %452, align 8, !tbaa !80
   %454 = getelementptr inbounds nuw i8, ptr %453, i64 %.idx
   %455 = load ptr, ptr %121, align 16, !tbaa !82
@@ -922,7 +921,7 @@ define internal void @decode_flush(ptr noundef readonly captures(none) %0) #2 {
 
 5:                                                ; preds = %1, %5
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %5 ]
-  %6 = getelementptr inbounds nuw %struct.ChannelContext, ptr %3, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [2848 x i8], ptr %3, i64 %indvars.iv
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 2064
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %7, i8 0, i64 512, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1606,7 +1605,7 @@ ceil2.exit:                                       ; preds = %299, %304
   %325 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv
   %326 = load i8, ptr %325, align 1, !tbaa !41
   %327 = sext i8 %326 to i32
-  %328 = getelementptr inbounds nuw %struct.ChannelContext, ptr %322, i64 %indvars.iv
+  %328 = getelementptr inbounds nuw [2848 x i8], ptr %322, i64 %indvars.iv
   %329 = getelementptr inbounds nuw i8, ptr %328, i64 2836
   store i32 %327, ptr %329, align 4, !tbaa !59
   %.not165 = icmp eq i8 %326, 2

@@ -29,8 +29,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.cv::_InputArray" = type { i32, ptr, %"class.cv::Size_" }
 %"class.cv::Size_" = type { i32, i32 }
 %"class.cv::Mat" = type { i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, %"struct.cv::MatSize", %"struct.cv::MatStep" }
-%"class.cv::KeyPoint" = type { %"class.cv::Point_", float, float, float, i32, i32 }
-%"class.cv::Point_" = type { float, float }
 
 $_ZN2cv9Algorithm5clearEv = comdat any
 
@@ -1798,7 +1796,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %158, 
   br i1 %175, label %176, label %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit
 
 176:                                              ; preds = %174
-  %177 = getelementptr inbounds nuw %"class.cv::KeyPoint", ptr %166, i64 %144
+  %177 = getelementptr inbounds nuw [28 x i8], ptr %166, i64 %144
   %.not.i.i62 = icmp eq ptr %165, %177
   br i1 %.not.i.i62, label %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit, label %178
 
@@ -1844,15 +1842,15 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit:    ; preds = %_ZNSt6vectorIfSaIfE
 187:                                              ; preds = %.lr.ph, %187
   %188 = phi ptr [ %179, %.lr.ph ], [ %199, %187 ]
   %.01870 = phi i64 [ 0, %.lr.ph ], [ %197, %187 ]
-  %189 = getelementptr inbounds nuw %"class.cv::Point_", ptr %188, i64 %.01870
+  %189 = getelementptr inbounds nuw [8 x i8], ptr %188, i64 %.01870
   %.sroa.0.0.copyload = load <2 x float>, ptr %189, align 4
   %190 = load i32, ptr %181, align 8, !tbaa !24
   %191 = sitofp i32 %190 to float
   %192 = load ptr, ptr %7, align 8, !tbaa !93
-  %193 = getelementptr inbounds nuw float, ptr %192, i64 %.01870
+  %193 = getelementptr inbounds nuw [4 x i8], ptr %192, i64 %.01870
   %194 = load float, ptr %193, align 4, !tbaa !94
   %195 = load ptr, ptr %2, align 8, !tbaa !65
-  %196 = getelementptr inbounds nuw %"class.cv::KeyPoint", ptr %195, i64 %.01870
+  %196 = getelementptr inbounds nuw [28 x i8], ptr %195, i64 %.01870
   store <2 x float> %.sroa.0.0.copyload, ptr %196, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %196, i64 8
   store float %191, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !94
@@ -2214,9 +2212,9 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = 
 
 _ZNSt12_Vector_baseIN2cv8KeyPointESaIS1_EE13_M_deallocateEPS1_m.exit38: ; preds = %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %45
   store ptr %33, ptr %0, align 8, !tbaa !65
-  %46 = getelementptr inbounds nuw %"class.cv::KeyPoint", ptr %34, i64 %1
+  %46 = getelementptr inbounds nuw [28 x i8], ptr %34, i64 %1
   store ptr %46, ptr %4, align 8, !tbaa !68
-  %47 = getelementptr inbounds nuw %"class.cv::KeyPoint", ptr %33, i64 %31
+  %47 = getelementptr inbounds nuw [28 x i8], ptr %33, i64 %31
   store ptr %47, ptr %11, align 8, !tbaa !101
   br label %48
 

@@ -327,10 +327,10 @@ for.body:                                         ; preds = %for.cond.preheader,
   %jMax.0125 = phi i32 [ 0, %for.cond.preheader ], [ %62, %_ZN8QuantLib13TrinomialTree9BranchingD2Ev.exit ]
   %i.0124 = phi i64 [ 0, %for.cond.preheader ], [ %inc146, %_ZN8QuantLib13TrinomialTree9BranchingD2Ev.exit ]
   %29 = load ptr, ptr %timeGrid, align 8, !tbaa !8
-  %add.ptr.i.i = getelementptr inbounds nuw double, ptr %29, i64 %i.0124
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %i.0124
   %30 = load double, ptr %add.ptr.i.i, align 8, !tbaa !13
   %31 = load ptr, ptr %dt_.i, align 8, !tbaa !8
-  %add.ptr.i.i69 = getelementptr inbounds nuw double, ptr %31, i64 %i.0124
+  %add.ptr.i.i69 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %i.0124
   %32 = load double, ptr %add.ptr.i.i69, align 8, !tbaa !13
   %33 = load ptr, ptr %process, align 8, !tbaa !15
   %cmp.not.i70 = icmp eq ptr %33, null
@@ -416,7 +416,7 @@ if.then.i18.i.i.i:                                ; preds = %_ZNSt6vectorIdSaIdE
 _ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i: ; preds = %if.then.i18.i.i.i, %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit17.i.i.i
   store ptr %call5.i.i.i.i.i.i79, ptr %dx_, align 8, !tbaa !8
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i7.i, align 8, !tbaa !3
-  %add.ptr19.i.i.i = getelementptr inbounds nuw double, ptr %call5.i.i.i.i.i.i79, i64 %cond.i.i.i.i
+  %add.ptr19.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i79, i64 %cond.i.i.i.i
   store ptr %add.ptr19.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !12
   br label %invoke.cont61
 
@@ -483,7 +483,7 @@ for.body68:                                       ; preds = %_ZN8QuantLib13Trino
   %j.0123 = phi i32 [ %inc130, %invoke.cont120 ], [ %jMin.0126, %_ZN8QuantLib13TrinomialTree9BranchingC2Ev.exit ]
   %45 = load double, ptr %x0_, align 8, !tbaa !21
   %46 = load ptr, ptr %dx_, align 8, !tbaa !8
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %46, i64 %i.0124
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %i.0124
   %47 = load double, ptr %add.ptr.i, align 8, !tbaa !13
   %48 = load ptr, ptr %process, align 8, !tbaa !15
   %cmp.not.i84 = icmp eq ptr %48, null
@@ -511,7 +511,7 @@ invoke.cont78:                                    ; preds = %invoke.cont74
   %52 = load double, ptr %x0_, align 8, !tbaa !21
   %sub81 = fsub double %call79, %52
   %53 = load ptr, ptr %dx_, align 8, !tbaa !8
-  %54 = getelementptr inbounds nuw double, ptr %53, i64 %i.0124
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %i.0124
   %add.ptr.i89 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %55 = load double, ptr %add.ptr.i89, align 8, !tbaa !13
   %div = fdiv double %sub81, %55
@@ -1046,7 +1046,7 @@ if.then.i18.i.i:                                  ; preds = %_ZNSt6vectorIiSaIiE
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i: ; preds = %if.then.i18.i.i, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i
   store ptr %call5.i.i.i.i.i, ptr %this, align 8, !tbaa !59
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i, align 8, !tbaa !67
-  %add.ptr19.i.i = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
+  %add.ptr19.i.i = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
   store ptr %add.ptr19.i.i, ptr %_M_end_of_storage.i, align 8, !tbaa !60
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
 
@@ -1112,7 +1112,7 @@ _ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIP
   %.pre = phi ptr [ %.pre.pre, %if.then.i18.i.i23 ], [ %4, %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit17.i.i ]
   store ptr %call5.i.i.i.i.i18, ptr %4, align 8, !tbaa !8
   store ptr %incdec.ptr.i.i21, ptr %_M_finish.i1, align 8, !tbaa !3
-  %add.ptr19.i.i24 = getelementptr inbounds nuw double, ptr %call5.i.i.i.i.i18, i64 %cond.i.i.i15
+  %add.ptr19.i.i24 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i18, i64 %cond.i.i.i15
   store ptr %add.ptr19.i.i24, ptr %_M_end_of_storage.i2, align 8, !tbaa !12
   br label %_ZNSt6vectorIdSaIdEE9push_backERKd.exit
 
@@ -1178,7 +1178,7 @@ _ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIP
   %.pre104 = phi ptr [ %.pre104.pre, %if.then.i18.i.i51 ], [ %9, %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit17.i.i48 ]
   store ptr %call5.i.i.i.i.i45, ptr %add.ptr.i, align 8, !tbaa !8
   store ptr %incdec.ptr.i.i49, ptr %_M_finish.i27, align 8, !tbaa !3
-  %add.ptr19.i.i53 = getelementptr inbounds nuw double, ptr %call5.i.i.i.i.i45, i64 %cond.i.i.i42
+  %add.ptr19.i.i53 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i45, i64 %cond.i.i.i42
   store ptr %add.ptr19.i.i53, ptr %_M_end_of_storage.i28, align 8, !tbaa !12
   br label %_ZNSt6vectorIdSaIdEE9push_backERKd.exit56
 
@@ -1242,7 +1242,7 @@ if.then.i18.i.i82:                                ; preds = %_ZNSt6vectorIdSaIdE
 _ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i83: ; preds = %if.then.i18.i.i82, %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit17.i.i79
   store ptr %call5.i.i.i.i.i76, ptr %add.ptr.i57, align 8, !tbaa !8
   store ptr %incdec.ptr.i.i80, ptr %_M_finish.i58, align 8, !tbaa !3
-  %add.ptr19.i.i84 = getelementptr inbounds nuw double, ptr %call5.i.i.i.i.i76, i64 %cond.i.i.i73
+  %add.ptr19.i.i84 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i76, i64 %cond.i.i.i73
   store ptr %add.ptr19.i.i84, ptr %_M_end_of_storage.i59, align 8, !tbaa !12
   br label %_ZNSt6vectorIdSaIdEE9push_backERKd.exit87
 
@@ -1680,7 +1680,7 @@ if.then.i39:                                      ; preds = %_ZNSt6vectorIN8Quan
 _ZNSt12_Vector_baseIN8QuantLib13TrinomialTree9BranchingESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN8QuantLib13TrinomialTree9BranchingESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit38, %if.then.i39
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !68
   store ptr %__cur.0.lcssa.i.i.i37, ptr %_M_finish.i.i, align 8, !tbaa !53
-  %add.ptr26 = getelementptr inbounds nuw %"class.QuantLib::TrinomialTree::Branching", ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr26 = getelementptr inbounds nuw [64 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr26, ptr %_M_end_of_storage, align 8, !tbaa !54
   ret void
 

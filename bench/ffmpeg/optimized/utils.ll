@@ -23,7 +23,7 @@ define noundef ptr @av_get_media_type_string(i32 noundef %0) local_unnamed_addr 
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.av_get_media_type_string, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.av_get_media_type_string, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -82,7 +82,7 @@ define i32 @av_int_list_length_for_size(i32 noundef %0, ptr noundef readonly cap
 15:                                               ; preds = %15, %.preheader33
   %.2 = phi i32 [ %19, %15 ], [ 0, %.preheader33 ]
   %16 = zext i32 %.2 to i64
-  %17 = getelementptr inbounds nuw i16, ptr %1, i64 %16
+  %17 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %16
   %18 = load i16, ptr %17, align 2, !tbaa !9
   %.not31 = icmp eq i16 %18, %8
   %19 = add i32 %.2, 1
@@ -95,7 +95,7 @@ define i32 @av_int_list_length_for_size(i32 noundef %0, ptr noundef readonly cap
 22:                                               ; preds = %22, %20
   %.3 = phi i32 [ 0, %20 ], [ %26, %22 ]
   %23 = zext i32 %.3 to i64
-  %24 = getelementptr inbounds nuw i32, ptr %1, i64 %23
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %23
   %25 = load i32, ptr %24, align 4, !tbaa !12
   %.not30 = icmp eq i32 %25, %21
   %26 = add i32 %.3, 1
@@ -104,7 +104,7 @@ define i32 @av_int_list_length_for_size(i32 noundef %0, ptr noundef readonly cap
 .preheader36:                                     ; preds = %.split, %.preheader36
   %.4 = phi i32 [ %30, %.preheader36 ], [ 0, %.split ]
   %27 = zext i32 %.4 to i64
-  %28 = getelementptr inbounds nuw i64, ptr %1, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %27
   %29 = load i64, ptr %28, align 8, !tbaa !15
   %.not29 = icmp eq i64 %29, %2
   %30 = add i32 %.4, 1

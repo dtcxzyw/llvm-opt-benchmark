@@ -15,7 +15,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.absl::lts_20240722::AlphaNum" = type { %"class.std::basic_string_view", [32 x i8] }
 %"class.std::basic_string_view" = type { i64, ptr }
-%"struct.grpc_core::HistogramView" = type { ptr, ptr, i32, ptr }
 %"class.grpc_core::PerCpuOptions" = type { i64, i64 }
 
 $_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev = comdat any
@@ -155,7 +154,7 @@ define void @_ZN9grpc_core12stats_detail11StatsAsJsonB5cxx11EN4absl12lts_2024072
   store i64 1, ptr %26, align 8
   store ptr @.str, ptr %46, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
-  %98 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %3, i64 %.0287
+  %98 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %.0287
   %.sroa.010.0.copyload = load i64, ptr %98, align 8, !tbaa !14
   %.sroa.211.0..sroa_idx = getelementptr inbounds nuw i8, ptr %98, i64 8
   %.sroa.211.0.copyload = load ptr, ptr %.sroa.211.0..sroa_idx, align 8, !tbaa !15
@@ -165,7 +164,7 @@ define void @_ZN9grpc_core12stats_detail11StatsAsJsonB5cxx11EN4absl12lts_2024072
   store i64 3, ptr %28, align 8
   store ptr @.str.1, ptr %47, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
-  %99 = getelementptr inbounds nuw i64, ptr %1, i64 %.0287
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.0287
   %100 = load i64, ptr %99, align 8, !tbaa !14
   %101 = invoke noundef ptr @_ZN4absl12lts_2024072216numbers_internal15FastIntToBufferEmPc(i64 noundef %100, ptr noundef nonnull %48)
           to label %102 unwind label %125
@@ -277,7 +276,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54: ; preds = %127
   store i64 1, ptr %31, align 8
   store ptr @.str, ptr %57, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
-  %136 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %135, i64 %.033288
+  %136 = getelementptr inbounds nuw [16 x i8], ptr %135, i64 %.033288
   %.sroa.01.0.copyload = load i64, ptr %136, align 8, !tbaa !14
   %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %136, i64 8
   %.sroa.22.0.copyload = load ptr, ptr %.sroa.22.0..sroa_idx, align 8, !tbaa !15
@@ -288,7 +287,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54: ; preds = %127
   store ptr @.str.1, ptr %58, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
   call void @llvm.lifetime.start.p0(ptr nonnull %35)
-  %137 = getelementptr inbounds nuw %"struct.grpc_core::HistogramView", ptr %134, i64 %.033288
+  %137 = getelementptr inbounds nuw [32 x i8], ptr %134, i64 %.033288
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 24
   %139 = load ptr, ptr %138, align 8, !tbaa !32
   %140 = getelementptr inbounds nuw i8, ptr %137, i64 16
@@ -522,7 +521,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit.i: ; preds = %217, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26.i
   store ptr %189, ptr %17, align 8, !tbaa !63, !noalias !38
   store ptr %216, ptr %64, align 8, !tbaa !20, !noalias !38
-  %221 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %189, i64 %185
+  %221 = getelementptr inbounds nuw [32 x i8], ptr %189, i64 %185
   store ptr %221, ptr %65, align 8, !tbaa !23, !noalias !38
   %.pre37.i = load ptr, ptr %18, align 8, !tbaa !26, !noalias !38
   %222 = icmp eq ptr %.pre37.i, %62
@@ -834,7 +833,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   store ptr @.str, ptr %78, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %38)
   %314 = load ptr, ptr %6, align 8, !tbaa !10
-  %315 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %314, i64 %.033288
+  %315 = getelementptr inbounds nuw [16 x i8], ptr %314, i64 %.033288
   %.sroa.0.0.copyload = load i64, ptr %315, align 8, !tbaa !14
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %315, i64 8
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !15
@@ -846,7 +845,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   call void @llvm.lifetime.start.p0(ptr nonnull %40)
   call void @llvm.lifetime.start.p0(ptr nonnull %41)
   %316 = load ptr, ptr %5, align 8, !tbaa !13
-  %317 = getelementptr inbounds nuw %"struct.grpc_core::HistogramView", ptr %316, i64 %.033288
+  %317 = getelementptr inbounds nuw [32 x i8], ptr %316, i64 %.033288
   %318 = getelementptr inbounds nuw i8, ptr %317, i64 8
   %319 = load ptr, ptr %318, align 8, !tbaa !79
   %320 = getelementptr inbounds nuw i8, ptr %317, i64 16
@@ -1080,7 +1079,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit.i124: ; preds = %397, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26.i206
   store ptr %369, ptr %9, align 8, !tbaa !63, !noalias !80
   store ptr %396, ptr %85, align 8, !tbaa !20, !noalias !80
-  %401 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %369, i64 %365
+  %401 = getelementptr inbounds nuw [32 x i8], ptr %369, i64 %365
   store ptr %401, ptr %86, align 8, !tbaa !23, !noalias !80
   %.pre37.i125 = load ptr, ptr %10, align 8, !tbaa !26, !noalias !80
   %402 = icmp eq ptr %.pre37.i125, %83
@@ -1949,7 +1948,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %69
   store ptr %22, ptr %0, align 8, !tbaa !63
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !20
-  %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %73, ptr %68, align 8, !tbaa !23
   ret void
 }

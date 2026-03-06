@@ -2051,7 +2051,7 @@ define hidden noundef zeroext i1 @"_ZN53_$LT$F$u20$as$u20$core..str..pattern..Mu
   %17 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %8, %5 ]
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %19 = load ptr, ptr %18, align 8, !alias.scope !194, !noalias !197, !nonnull !4, !noundef !4
-  %20 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %19, i64 %17
+  %20 = getelementptr inbounds [24 x i8], ptr %19, i64 %17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !noalias !190
   %21 = load i64, ptr %7, align 8, !alias.scope !194, !noalias !197, !noundef !4
   %22 = add i64 %21, 1
@@ -2111,7 +2111,7 @@ define hidden noundef zeroext i1 @"_ZN53_$LT$F$u20$as$u20$core..str..pattern..Mu
   %17 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %8, %5 ]
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %19 = load ptr, ptr %18, align 8, !alias.scope !202, !noalias !205, !nonnull !4, !noundef !4
-  %20 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %19, i64 %17
+  %20 = getelementptr inbounds [24 x i8], ptr %19, i64 %17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !noalias !199
   %21 = load i64, ptr %7, align 8, !alias.scope !202, !noalias !205, !noundef !4
   %22 = add i64 %21, 1
@@ -2619,7 +2619,7 @@ define hidden void @"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$
   %67 = phi i64 [ %.pre.i.i.i, %._crit_edge.i.i.i ], [ %57, %54 ]
   %68 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %69 = load ptr, ptr %68, align 8, !alias.scope !263, !noalias !266, !nonnull !4, !noundef !4
-  %70 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %69, i64 %67
+  %70 = getelementptr inbounds [24 x i8], ptr %69, i64 %67
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %70, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !noalias !262
   %71 = load i64, ptr %56, align 8, !alias.scope !263, !noalias !266, !noundef !4
   %72 = add i64 %71, 1
@@ -2766,7 +2766,7 @@ define hidden void @"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$
   %67 = phi i64 [ %.pre.i.i.i, %._crit_edge.i.i.i ], [ %57, %54 ]
   %68 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %69 = load ptr, ptr %68, align 8, !alias.scope !297, !noalias !300, !nonnull !4, !noundef !4
-  %70 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %69, i64 %67
+  %70 = getelementptr inbounds [24 x i8], ptr %69, i64 %67
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %70, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !noalias !296
   %71 = load i64, ptr %56, align 8, !alias.scope !297, !noalias !300, !noundef !4
   %72 = add i64 %71, 1
@@ -3517,7 +3517,7 @@ define hidden noundef zeroext i1 @"_ZN4stdx13to_snake_case28_$u7b$$u7b$closure$u
   %17 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %8, %5 ]
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %19 = load ptr, ptr %18, align 8, !alias.scope !382, !noalias !385, !nonnull !4, !noundef !4
-  %20 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %19, i64 %17
+  %20 = getelementptr inbounds [24 x i8], ptr %19, i64 %17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   %21 = load i64, ptr %7, align 8, !alias.scope !382, !noalias !385, !noundef !4
   %22 = add i64 %21, 1
@@ -3576,7 +3576,7 @@ define hidden noundef zeroext i1 @"_ZN4stdx13to_snake_case28_$u7b$$u7b$closure$u
   %17 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %8, %5 ]
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %19 = load ptr, ptr %18, align 8, !alias.scope !387, !noalias !390, !nonnull !4, !noundef !4
-  %20 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %19, i64 %17
+  %20 = getelementptr inbounds [24 x i8], ptr %19, i64 %17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   %21 = load i64, ptr %7, align 8, !alias.scope !387, !noalias !390, !noundef !4
   %22 = add i64 %21, 1

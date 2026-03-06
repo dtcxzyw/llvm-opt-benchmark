@@ -304,7 +304,7 @@ define range(i32 -1, 1) i32 @H5T__conv_enum(ptr noundef %0, ptr noundef %1, ptr 
 156:                                              ; preds = %154
   %157 = load ptr, ptr %125, align 8, !tbaa !40
   %158 = zext nneg i32 %152 to i64
-  %159 = getelementptr inbounds nuw i32, ptr %157, i64 %158
+  %159 = getelementptr inbounds nuw [4 x i8], ptr %157, i64 %158
   %160 = load i32, ptr %159, align 4, !tbaa !38
   %161 = icmp slt i32 %160, 0
   br i1 %161, label %162, label %184
@@ -463,7 +463,7 @@ define range(i32 -1, 1) i32 @H5T__conv_enum(ptr noundef %0, ptr noundef %1, ptr 
 232:                                              ; preds = %206
   %233 = load ptr, ptr %134, align 8, !tbaa !35
   %234 = load ptr, ptr %135, align 8, !tbaa !40
-  %235 = getelementptr inbounds nuw i32, ptr %234, i64 %201
+  %235 = getelementptr inbounds nuw [4 x i8], ptr %234, i64 %201
   %236 = load i32, ptr %235, align 4, !tbaa !38
   %237 = zext i32 %236 to i64
   %238 = load i64, ptr %136, align 8, !tbaa !33
@@ -650,7 +650,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5T__conv_enum_init(ptr noundef non
 .split.us:                                        ; preds = %.split.us, %.lr.ph
   %.0153216 = phi i64 [ 0, %.lr.ph ], [ %100, %.split.us ]
   %98 = trunc nuw i64 %.0153216 to i32
-  %99 = getelementptr inbounds nuw i32, ptr %97, i64 %.0153216
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %97, i64 %.0153216
   store i32 %98, ptr %99, align 4, !tbaa !38
   %100 = add nuw nsw i64 %.0153216, 1
   %exitcond.not = icmp eq i64 %100, %81
@@ -776,10 +776,10 @@ define internal fastcc range(i32 -1, 1) i32 @H5T__conv_enum_init(ptr noundef non
   %149 = load i8, ptr %148, align 1, !tbaa !35
   %150 = sext i8 %149 to i32
   %151 = sub nsw i32 %150, %136
-  %152 = getelementptr inbounds nuw i32, ptr %.pre244, i64 %.0141226.us
+  %152 = getelementptr inbounds nuw [4 x i8], ptr %.pre244, i64 %.0141226.us
   %153 = load i32, ptr %152, align 4, !tbaa !38
   %154 = sext i32 %151 to i64
-  %155 = getelementptr inbounds i32, ptr %141, i64 %154
+  %155 = getelementptr inbounds [4 x i8], ptr %141, i64 %154
   store i32 %153, ptr %155, align 4, !tbaa !38
   %156 = add nuw nsw i64 %.0141226.us, 1
   %exitcond240.not = icmp eq i64 %156, %81
@@ -792,10 +792,10 @@ define internal fastcc range(i32 -1, 1) i32 @H5T__conv_enum_init(ptr noundef non
   %159 = load i16, ptr %158, align 2, !tbaa !36
   %160 = sext i16 %159 to i32
   %161 = sub nsw i32 %160, %136
-  %162 = getelementptr inbounds nuw i32, ptr %.pre244, i64 %.0141226.us229
+  %162 = getelementptr inbounds nuw [4 x i8], ptr %.pre244, i64 %.0141226.us229
   %163 = load i32, ptr %162, align 4, !tbaa !38
   %164 = sext i32 %161 to i64
-  %165 = getelementptr inbounds i32, ptr %141, i64 %164
+  %165 = getelementptr inbounds [4 x i8], ptr %141, i64 %164
   store i32 %163, ptr %165, align 4, !tbaa !38
   %166 = add nuw nsw i64 %.0141226.us229, 1
   %exitcond239.not = icmp eq i64 %166, %81
@@ -812,10 +812,10 @@ define internal fastcc range(i32 -1, 1) i32 @H5T__conv_enum_init(ptr noundef non
   %168 = getelementptr inbounds nuw i8, ptr %.pre243, i64 %167
   %169 = load i32, ptr %168, align 4, !tbaa !38
   %170 = sub nsw i32 %169, %136
-  %171 = getelementptr inbounds nuw i32, ptr %.pre244, i64 %.0141226
+  %171 = getelementptr inbounds nuw [4 x i8], ptr %.pre244, i64 %.0141226
   %172 = load i32, ptr %171, align 4, !tbaa !38
   %173 = sext i32 %170 to i64
-  %174 = getelementptr inbounds i32, ptr %141, i64 %173
+  %174 = getelementptr inbounds [4 x i8], ptr %141, i64 %173
   store i32 %172, ptr %174, align 4, !tbaa !38
   %175 = add nuw nsw i64 %.0141226, 1
   %exitcond241.not = icmp eq i64 %175, %81

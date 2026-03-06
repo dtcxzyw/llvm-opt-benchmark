@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"struct.dpx::ImageElement" = type { i32, i32, float, i32, float, i8, i8, i8, i8, i16, i16, i32, i32, i32, [32 x i8] }
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
@@ -104,7 +103,7 @@ define hidden noundef zeroext i1 @_ZN3dpx17RunLengthEncoding4ReadERKNS_6HeaderEP
 
 _ZNK3dpx13GenericHeader13ImageEncodingEi.exit:    ; preds = %7
   %8 = zext nneg i32 %3 to i64
-  %9 = getelementptr inbounds nuw %"struct.dpx::ImageElement", ptr %1, i64 %8
+  %9 = getelementptr inbounds nuw [72 x i8], ptr %1, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 806
   %11 = load i16, ptr %10, align 2, !tbaa !13
   %12 = icmp eq i16 %11, 1

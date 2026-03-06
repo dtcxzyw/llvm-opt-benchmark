@@ -17,7 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 define internal i32 @mbc_enc_len(ptr noundef readonly captures(none) %0) #0 {
   %2 = load i8, ptr %0, align 1, !tbaa !4
   %3 = zext i8 %2 to i64
-  %4 = getelementptr inbounds nuw i32, ptr @EncLen_SJIS, i64 %3
+  %4 = getelementptr inbounds nuw [4 x i8], ptr @EncLen_SJIS, i64 %3
   %5 = load i32, ptr %4, align 4, !tbaa !7
   ret i32 %5
 }
@@ -67,7 +67,7 @@ define internal range(i32 -400, 3) i32 @code_to_mbclen(i32 noundef %0) #3 {
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr inbounds nuw i32, ptr @EncLen_SJIS, i64 %4
+  %5 = getelementptr inbounds nuw [4 x i8], ptr @EncLen_SJIS, i64 %4
   %6 = load i32, ptr %5, align 4, !tbaa !7
   %7 = icmp eq i32 %6, 1
   br i1 %7, label %17, label %16
@@ -79,7 +79,7 @@ define internal range(i32 -400, 3) i32 @code_to_mbclen(i32 noundef %0) #3 {
 10:                                               ; preds = %8
   %11 = lshr i32 %0, 8
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr inbounds nuw i32, ptr @EncLen_SJIS, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr @EncLen_SJIS, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !7
   %15 = icmp eq i32 %14, 2
   br i1 %15, label %17, label %16
@@ -210,7 +210,7 @@ define internal i32 @is_code_ctype(i32 noundef %0, i32 noundef %1) #2 {
 
 6:                                                ; preds = %4
   %7 = zext nneg i32 %0 to i64
-  %8 = getelementptr inbounds nuw i16, ptr @OnigEncAsciiCtypeTable, i64 %7
+  %8 = getelementptr inbounds nuw [2 x i8], ptr @OnigEncAsciiCtypeTable, i64 %7
   %9 = load i16, ptr %8, align 2, !tbaa !19
   %10 = zext i16 %9 to i32
   %11 = lshr i32 %10, %1
@@ -230,7 +230,7 @@ define internal i32 @is_code_ctype(i32 noundef %0, i32 noundef %1) #2 {
 
 19:                                               ; preds = %17
   %20 = zext nneg i32 %0 to i64
-  %21 = getelementptr inbounds nuw i32, ptr @EncLen_SJIS, i64 %20
+  %21 = getelementptr inbounds nuw [4 x i8], ptr @EncLen_SJIS, i64 %20
   %22 = load i32, ptr %21, align 4, !tbaa !7
   %23 = icmp eq i32 %22, 1
   br i1 %23, label %code_to_mbclen.exit, label %32
@@ -242,7 +242,7 @@ define internal i32 @is_code_ctype(i32 noundef %0, i32 noundef %1) #2 {
 26:                                               ; preds = %24
   %27 = lshr i32 %0, 8
   %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr inbounds nuw i32, ptr @EncLen_SJIS, i64 %28
+  %29 = getelementptr inbounds nuw [4 x i8], ptr @EncLen_SJIS, i64 %28
   %30 = load i32, ptr %29, align 4, !tbaa !7
   %31 = icmp eq i32 %30, 2
   br i1 %31, label %code_to_mbclen.exit, label %32
@@ -257,7 +257,7 @@ define internal i32 @is_code_ctype(i32 noundef %0, i32 noundef %1) #2 {
 
 36:                                               ; preds = %33
   %37 = zext nneg i32 %34 to i64
-  %38 = getelementptr inbounds nuw ptr, ptr @PropertyList, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr @PropertyList, i64 %37
   %39 = load ptr, ptr %38, align 8, !tbaa !21
   %40 = tail call i32 @onig_is_in_code_range(ptr noundef %39, i32 noundef %0) #8
   br label %code_to_mbclen.exit
@@ -280,7 +280,7 @@ define internal range(i32 -6, 1) i32 @get_ctype_code_range(i32 noundef %0, ptr n
 
 8:                                                ; preds = %5
   %9 = zext nneg i32 %6 to i64
-  %10 = getelementptr inbounds nuw ptr, ptr @PropertyList, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr @PropertyList, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !21
   store ptr %11, ptr %2, align 8, !tbaa !21
   br label %12
@@ -312,7 +312,7 @@ define internal ptr @left_adjust_char_head(ptr noundef readnone captures(address
   %10 = getelementptr inbounds i8, ptr %.1, i64 -1
   %11 = load i8, ptr %10, align 1, !tbaa !4
   %12 = zext i8 %11 to i64
-  %13 = getelementptr inbounds nuw i32, ptr @EncLen_SJIS, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr @EncLen_SJIS, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !7
   %15 = icmp sgt i32 %14, 1
   br i1 %15, label %.preheader, label %.loopexit, !llvm.loop !23

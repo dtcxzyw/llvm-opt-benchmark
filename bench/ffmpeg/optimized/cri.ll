@@ -411,7 +411,7 @@ bytestream2_get_le32.exit267:                     ; preds = %141, %142
 bytestream2_get_le64.exit:                        ; preds = %152, %153
   %156 = phi ptr [ %29, %152 ], [ %154, %153 ]
   %.0.i271 = phi i64 [ 0, %152 ], [ %155, %153 ]
-  %157 = getelementptr inbounds nuw i64, ptr %24, i64 %indvars.iv
+  %157 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv
   store i64 %.0.i271, ptr %157, align 8, !tbaa !51
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -530,7 +530,7 @@ bytestream2_get_le64.exit:                        ; preds = %152, %153
 
 188:                                              ; preds = %.preheader295, %187
   %indvars.iv346 = phi i64 [ 0, %.preheader295 ], [ %indvars.iv.next347, %187 ]
-  %189 = getelementptr inbounds nuw i64, ptr %184, i64 %indvars.iv346
+  %189 = getelementptr inbounds nuw [8 x i8], ptr %184, i64 %indvars.iv346
   %190 = load i64, ptr %189, align 8, !tbaa !51
   %.not229 = icmp ult i64 %190, %186
   br i1 %.not229, label %187, label %.critedge248.thread
@@ -688,7 +688,7 @@ bytestream2_init.exit251:                         ; preds = %226
   %275 = tail call i32 @llvm.umin.i32(i32 %251, i32 %274)
   %276 = shl nuw nsw i32 %273, %245
   %277 = trunc i32 %276 to i16
-  %278 = getelementptr inbounds nuw i16, ptr %265, i64 %indvars.iv354
+  %278 = getelementptr inbounds nuw [2 x i8], ptr %265, i64 %indvars.iv354
   store i16 %277, ptr %278, align 2, !tbaa !62
   %indvars.iv.next355 = add nuw nsw i64 %indvars.iv354, 1
   %exitcond357.not = icmp eq i64 %indvars.iv.next355, %wide.trip.count
@@ -710,7 +710,7 @@ bytestream2_init.exit251:                         ; preds = %226
   %284 = load ptr, ptr %217, align 8, !tbaa !33
   %285 = getelementptr inbounds nuw i8, ptr %284, i64 24
   store ptr %283, ptr %285, align 8, !tbaa !42
-  %286 = getelementptr inbounds nuw i64, ptr %218, i64 %indvars.iv350
+  %286 = getelementptr inbounds nuw [8 x i8], ptr %218, i64 %indvars.iv350
   %287 = load i64, ptr %286, align 8, !tbaa !51
   %288 = trunc i64 %287 to i32
   %289 = getelementptr inbounds nuw i8, ptr %284, i64 32
@@ -819,11 +819,11 @@ bytestream2_init.exit251:                         ; preds = %226
   %345 = sext i32 %344 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %337, ptr align 2 %343, i64 %345, i1 false)
   %346 = sext i32 %328 to i64
-  %347 = getelementptr inbounds i16, ptr %343, i64 %346
+  %347 = getelementptr inbounds [2 x i8], ptr %343, i64 %346
   %348 = load i32, ptr %222, align 8, !tbaa !61
   %349 = sdiv i32 %348, 2
   %350 = sext i32 %349 to i64
-  %351 = getelementptr inbounds i16, ptr %337, i64 %350
+  %351 = getelementptr inbounds [2 x i8], ptr %337, i64 %350
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %351, ptr align 2 %347, i64 %345, i1 false)
   %352 = add nuw nsw i32 %.0194319, 1
   %353 = load ptr, ptr %9, align 8, !tbaa !34
@@ -986,7 +986,7 @@ bytestream2_get_le32.exit:                        ; preds = %37, %38
   %.tr = trunc nuw nsw i32 %45 to i16
   %46 = shl nuw i16 %.tr, 4
   %47 = sext i32 %.0111165 to i64
-  %48 = getelementptr inbounds i16, ptr %.0108167, i64 %47
+  %48 = getelementptr inbounds [2 x i8], ptr %.0108167, i64 %47
   store i16 %46, ptr %48, align 2, !tbaa !62
   %49 = add nsw i32 %.0111165, 1
   %.not = icmp slt i32 %49, %2
@@ -997,7 +997,7 @@ bytestream2_get_le32.exit:                        ; preds = %37, %38
   br i1 %51, label %.thread, label %52
 
 52:                                               ; preds = %50
-  %53 = getelementptr inbounds i16, ptr %.0108167, i64 %4
+  %53 = getelementptr inbounds [2 x i8], ptr %.0108167, i64 %4
   br label %54
 
 54:                                               ; preds = %52, %bytestream2_get_le32.exit
@@ -1011,7 +1011,7 @@ bytestream2_get_le32.exit:                        ; preds = %37, %38
   %.tr140 = trunc nuw nsw i32 %59 to i16
   %60 = shl nuw i16 %.tr140, 4
   %61 = sext i32 %.2113 to i64
-  %62 = getelementptr inbounds i16, ptr %.2, i64 %61
+  %62 = getelementptr inbounds [2 x i8], ptr %.2, i64 %61
   store i16 %60, ptr %62, align 2, !tbaa !62
   %63 = add nsw i32 %.2113, 1
   %.not141 = icmp slt i32 %63, %2
@@ -1022,7 +1022,7 @@ bytestream2_get_le32.exit:                        ; preds = %37, %38
   br i1 %65, label %.thread, label %66
 
 66:                                               ; preds = %64
-  %67 = getelementptr inbounds i16, ptr %.2, i64 %4
+  %67 = getelementptr inbounds [2 x i8], ptr %.2, i64 %4
   br label %68
 
 68:                                               ; preds = %66, %54
@@ -1035,7 +1035,7 @@ bytestream2_get_le32.exit:                        ; preds = %37, %38
   %.tr142 = trunc i32 %72 to i16
   %73 = shl i16 %.tr142, 4
   %74 = sext i32 %.3114 to i64
-  %75 = getelementptr inbounds i16, ptr %.3, i64 %74
+  %75 = getelementptr inbounds [2 x i8], ptr %.3, i64 %74
   store i16 %73, ptr %75, align 2, !tbaa !62
   %76 = add nsw i32 %.3114, 1
   %.not143 = icmp slt i32 %76, %2
@@ -1046,7 +1046,7 @@ bytestream2_get_le32.exit:                        ; preds = %37, %38
   br i1 %78, label %.thread, label %79
 
 79:                                               ; preds = %77
-  %80 = getelementptr inbounds i16, ptr %.3, i64 %4
+  %80 = getelementptr inbounds [2 x i8], ptr %.3, i64 %4
   br label %81
 
 81:                                               ; preds = %79, %68
@@ -1060,7 +1060,7 @@ bytestream2_get_le32.exit:                        ; preds = %37, %38
   %.tr144 = trunc nuw nsw i32 %86 to i16
   %87 = shl nuw i16 %.tr144, 4
   %88 = sext i32 %.4115 to i64
-  %89 = getelementptr inbounds i16, ptr %.4, i64 %88
+  %89 = getelementptr inbounds [2 x i8], ptr %.4, i64 %88
   store i16 %87, ptr %89, align 2, !tbaa !62
   %90 = add nsw i32 %.4115, 1
   %.not145 = icmp slt i32 %90, %2
@@ -1071,7 +1071,7 @@ bytestream2_get_le32.exit:                        ; preds = %37, %38
   br i1 %92, label %.thread, label %93
 
 93:                                               ; preds = %91
-  %94 = getelementptr inbounds i16, ptr %.4, i64 %4
+  %94 = getelementptr inbounds [2 x i8], ptr %.4, i64 %4
   br label %95
 
 95:                                               ; preds = %93, %81
@@ -1084,7 +1084,7 @@ bytestream2_get_le32.exit:                        ; preds = %37, %38
   %.tr146 = trunc i32 %99 to i16
   %100 = shl i16 %.tr146, 4
   %101 = sext i32 %.5116 to i64
-  %102 = getelementptr inbounds i16, ptr %.5, i64 %101
+  %102 = getelementptr inbounds [2 x i8], ptr %.5, i64 %101
   store i16 %100, ptr %102, align 2, !tbaa !62
   %103 = add nsw i32 %.5116, 1
   %.not147 = icmp slt i32 %103, %2
@@ -1095,7 +1095,7 @@ bytestream2_get_le32.exit:                        ; preds = %37, %38
   br i1 %105, label %.thread, label %106
 
 106:                                              ; preds = %104
-  %107 = getelementptr inbounds i16, ptr %.5, i64 %4
+  %107 = getelementptr inbounds [2 x i8], ptr %.5, i64 %4
   br label %108
 
 108:                                              ; preds = %106, %95
@@ -1109,7 +1109,7 @@ bytestream2_get_le32.exit:                        ; preds = %37, %38
   %.tr148 = trunc nuw nsw i32 %113 to i16
   %114 = shl nuw i16 %.tr148, 4
   %115 = sext i32 %.6117 to i64
-  %116 = getelementptr inbounds i16, ptr %.6, i64 %115
+  %116 = getelementptr inbounds [2 x i8], ptr %.6, i64 %115
   store i16 %114, ptr %116, align 2, !tbaa !62
   %117 = add nsw i32 %.6117, 1
   %.not149 = icmp slt i32 %117, %2
@@ -1120,7 +1120,7 @@ bytestream2_get_le32.exit:                        ; preds = %37, %38
   br i1 %119, label %.thread, label %120
 
 120:                                              ; preds = %118
-  %121 = getelementptr inbounds i16, ptr %.6, i64 %4
+  %121 = getelementptr inbounds [2 x i8], ptr %.6, i64 %4
   br label %122
 
 122:                                              ; preds = %120, %108
@@ -1133,7 +1133,7 @@ bytestream2_get_le32.exit:                        ; preds = %37, %38
   %.tr150 = trunc i32 %126 to i16
   %127 = shl i16 %.tr150, 4
   %128 = sext i32 %.7118 to i64
-  %129 = getelementptr inbounds i16, ptr %.7, i64 %128
+  %129 = getelementptr inbounds [2 x i8], ptr %.7, i64 %128
   store i16 %127, ptr %129, align 2, !tbaa !62
   %130 = add nsw i32 %.7118, 1
   %.not151 = icmp slt i32 %130, %2
@@ -1144,7 +1144,7 @@ bytestream2_get_le32.exit:                        ; preds = %37, %38
   br i1 %132, label %.thread, label %133
 
 133:                                              ; preds = %131
-  %134 = getelementptr inbounds i16, ptr %.7, i64 %4
+  %134 = getelementptr inbounds [2 x i8], ptr %.7, i64 %4
   br label %135
 
 135:                                              ; preds = %133, %122
@@ -1156,7 +1156,7 @@ bytestream2_get_le32.exit:                        ; preds = %37, %38
   %138 = or disjoint i32 %137, %.mask
   %139 = trunc nuw i32 %138 to i16
   %140 = sext i32 %.8119 to i64
-  %141 = getelementptr inbounds i16, ptr %.8, i64 %140
+  %141 = getelementptr inbounds [2 x i8], ptr %.8, i64 %140
   store i16 %139, ptr %141, align 2, !tbaa !62
   %142 = add nsw i32 %.8119, 1
   %.not152 = icmp slt i32 %142, %2
@@ -1167,7 +1167,7 @@ bytestream2_get_le32.exit:                        ; preds = %37, %38
   br i1 %144, label %.thread, label %145
 
 145:                                              ; preds = %143
-  %146 = getelementptr inbounds i16, ptr %.8, i64 %4
+  %146 = getelementptr inbounds [2 x i8], ptr %.8, i64 %4
   br label %147
 
 147:                                              ; preds = %145, %135
@@ -1181,7 +1181,7 @@ bytestream2_get_le32.exit:                        ; preds = %37, %38
   %.tr153 = trunc nuw nsw i32 %152 to i16
   %153 = shl nuw i16 %.tr153, 4
   %154 = sext i32 %.9120 to i64
-  %155 = getelementptr inbounds i16, ptr %.9, i64 %154
+  %155 = getelementptr inbounds [2 x i8], ptr %.9, i64 %154
   store i16 %153, ptr %155, align 2, !tbaa !62
   %156 = add nsw i32 %.9120, 1
   %.not154 = icmp slt i32 %156, %2
@@ -1192,7 +1192,7 @@ bytestream2_get_le32.exit:                        ; preds = %37, %38
   br i1 %158, label %.thread, label %159
 
 159:                                              ; preds = %157
-  %160 = getelementptr inbounds i16, ptr %.9, i64 %4
+  %160 = getelementptr inbounds [2 x i8], ptr %.9, i64 %4
   br label %161
 
 161:                                              ; preds = %147, %159

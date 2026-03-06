@@ -23,8 +23,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.cv::Vec" = type { %"class.cv::Matx" }
 %"class.cv::Matx" = type { [4 x double] }
 %"class.cv::_OutputArray" = type { %"class.cv::_InputArray" }
-%"class.cv::Vec.3" = type { %"class.cv::Matx.4" }
-%"class.cv::Matx.4" = type { [3 x i8] }
 
 $_ZN2cv7MatExprD2Ev = comdat any
 
@@ -740,7 +738,7 @@ _ZNSt6vectorIN2cv3VecIhLi3EEESaIS2_EEC2EmRKS3_.exit: ; preds = %_ZNSt6vectorIN2c
   %55 = trunc i32 %54 to i8
   %56 = call i32 @rand() #15
   %57 = trunc i32 %56 to i8
-  %58 = getelementptr inbounds nuw %"class.cv::Vec.3", ptr %44, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [3 x i8], ptr %44, i64 %indvars.iv
   store i8 %53, ptr %58, align 1
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %58, i64 1
   store i8 %55, ptr %.sroa.5.0..sroa_idx, align 1
@@ -841,16 +839,16 @@ _ZNSt6vectorIN2cv3VecIhLi3EEESaIS2_EEC2EmRKS3_.exit: ; preds = %_ZNSt6vectorIN2c
   %93 = load i64, ptr %92, align 8, !tbaa !10
   %94 = mul i64 %93, %indvars.iv76
   %95 = getelementptr inbounds nuw i8, ptr %91, i64 %94
-  %96 = getelementptr inbounds nuw i32, ptr %95, i64 %indvars.iv73
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %95, i64 %indvars.iv73
   %97 = load i32, ptr %96, align 4, !tbaa !50
   %98 = load ptr, ptr %69, align 8, !tbaa !74
   %99 = load ptr, ptr %70, align 8, !tbaa !75
   %100 = load i64, ptr %99, align 8, !tbaa !10
   %101 = mul i64 %100, %indvars.iv76
   %102 = getelementptr inbounds nuw i8, ptr %98, i64 %101
-  %103 = getelementptr inbounds nuw %"class.cv::Vec.3", ptr %102, i64 %indvars.iv73
+  %103 = getelementptr inbounds nuw [3 x i8], ptr %102, i64 %indvars.iv73
   %104 = sext i32 %97 to i64
-  %105 = getelementptr inbounds nuw %"class.cv::Vec.3", ptr %44, i64 %104
+  %105 = getelementptr inbounds nuw [3 x i8], ptr %44, i64 %104
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %103, ptr noundef nonnull align 1 dereferenceable(3) %105, i64 3, i1 false)
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
   %106 = load i32, ptr %66, align 4, !tbaa !71

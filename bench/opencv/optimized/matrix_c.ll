@@ -87,10 +87,10 @@ define void @_Z7cvMatNDRKN2cv3MatE(ptr dead_on_unwind noalias writable sret(%str
 
 16:                                               ; preds = %.lr.ph, %16
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %16 ]
-  %17 = getelementptr inbounds nuw i64, ptr %15, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   %18 = load i64, ptr %17, align 8, !tbaa !20
   %19 = trunc i64 %18 to i32
-  %20 = getelementptr inbounds nuw %struct.anon, ptr %0, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 36
   store i32 %19, ptr %21, align 4, !tbaa !22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -387,14 +387,14 @@ common.resume:                                    ; preds = %_ZNSt7__cxx1112basi
 
 112:                                              ; preds = %112, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %112 ]
-  %113 = getelementptr inbounds nuw %struct.anon, ptr %111, i64 %indvars.iv.i
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %111, i64 %indvars.iv.i
   %114 = load i32, ptr %113, align 8, !tbaa !52, !noalias !48
-  %115 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.i
+  %115 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv.i
   store i32 %114, ptr %115, align 4, !tbaa !31, !noalias !48
   %116 = getelementptr inbounds nuw i8, ptr %113, i64 4
   %117 = load i32, ptr %116, align 4, !tbaa !22, !noalias !48
   %118 = sext i32 %117 to i64
-  %119 = getelementptr inbounds nuw i64, ptr %15, i64 %indvars.iv.i
+  %119 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv.i
   store i64 %118, ptr %119, align 8, !tbaa !20, !noalias !48
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -2291,7 +2291,7 @@ define noundef ptr @cvRange(ptr noundef returned %0, double noundef %1, double n
 66:                                               ; preds = %.preheader.us, %66
   %indvars.iv133 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next134, %66 ]
   %.1111.us = phi i32 [ %.081114.us, %.preheader.us ], [ %68, %66 ]
-  %67 = getelementptr inbounds nuw i32, ptr %.082113.us, i64 %indvars.iv133
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %.082113.us, i64 %indvars.iv133
   store i32 %.1111.us, ptr %67, align 4, !tbaa !31
   %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 1
   %68 = add nsw i32 %.1111.us, %54
@@ -2300,7 +2300,7 @@ define noundef ptr @cvRange(ptr noundef returned %0, double noundef %1, double n
 
 ._crit_edge.us116:                                ; preds = %66
   %69 = add nuw nsw i32 %.079115.us, 1
-  %70 = getelementptr inbounds i32, ptr %.082113.us, i64 %.084
+  %70 = getelementptr inbounds [4 x i8], ptr %.082113.us, i64 %.084
   %exitcond138.not = icmp eq i32 %69, %.088
   br i1 %exitcond138.not, label %.loopexit, label %.preheader.us, !llvm.loop !107
 
@@ -2325,7 +2325,7 @@ define noundef ptr @cvRange(ptr noundef returned %0, double noundef %1, double n
   %.186104.us = phi double [ %.085106.us, %.preheader95.us ], [ %78, %74 ]
   %75 = insertelement <2 x double> poison, double %.186104.us, i64 0
   %76 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %75)
-  %77 = getelementptr inbounds nuw i32, ptr %.183107.us, i64 %indvars.iv127
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %.183107.us, i64 %indvars.iv127
   store i32 %76, ptr %77, align 4, !tbaa !31
   %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 1
   %78 = fadd double %32, %.186104.us
@@ -2334,7 +2334,7 @@ define noundef ptr @cvRange(ptr noundef returned %0, double noundef %1, double n
 
 ._crit_edge.us109:                                ; preds = %74
   %79 = add nuw nsw i32 %.077108.us, 1
-  %80 = getelementptr inbounds i32, ptr %.183107.us, i64 %.084
+  %80 = getelementptr inbounds [4 x i8], ptr %.183107.us, i64 %.084
   %exitcond132.not = icmp eq i32 %79, %.088
   br i1 %exitcond132.not, label %.loopexit, label %.preheader95.us, !llvm.loop !109
 
@@ -2360,7 +2360,7 @@ define noundef ptr @cvRange(ptr noundef returned %0, double noundef %1, double n
   %indvars.iv = phi i64 [ 0, %.preheader97.us ], [ %indvars.iv.next, %86 ]
   %.399.us = phi double [ %.2101.us, %.preheader97.us ], [ %89, %86 ]
   %87 = fptrunc double %.399.us to float
-  %88 = getelementptr inbounds nuw float, ptr %.075102.us, i64 %indvars.iv
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %.075102.us, i64 %indvars.iv
   store float %87, ptr %88, align 4, !tbaa !110
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %89 = fadd double %32, %.399.us
@@ -2369,7 +2369,7 @@ define noundef ptr @cvRange(ptr noundef returned %0, double noundef %1, double n
 
 ._crit_edge.us:                                   ; preds = %86
   %90 = add nuw nsw i32 %.074103.us, 1
-  %91 = getelementptr inbounds float, ptr %.075102.us, i64 %.084
+  %91 = getelementptr inbounds [4 x i8], ptr %.075102.us, i64 %.084
   %exitcond126.not = icmp eq i32 %90, %.088
   br i1 %exitcond126.not, label %.loopexit, label %.preheader97.us, !llvm.loop !113
 

@@ -847,7 +847,7 @@ _ZN20QMutableListIteratorIN10LabelStack10_StackItemEEC2ER5QListIS1_E.exit: ; pre
   %20 = phi ptr [ %11, %_ZNK17QArrayDataPointerIN10LabelStack10_StackItemEE11needsDetachEv.exit.i.i.i4.i ], [ %.pre8, %_ZNK17QArrayDataPointerIN10LabelStack10_StackItemEE11needsDetachEv.exit.thread.i.i.i5.i ]
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %22 = load i64, ptr %21, align 8
-  %23 = getelementptr %"struct.LabelStack::_StackItem", ptr %20, i64 %22
+  %23 = getelementptr [56 x i8], ptr %20, i64 %22
   br label %24
 
 24:                                               ; preds = %25, %_ZN20QMutableListIteratorIN10LabelStack10_StackItemEEC2ER5QListIS1_E.exit
@@ -1553,7 +1553,7 @@ _ZNK17QArrayDataPointerIN10LabelStack10_StackItemEE11needsDetachEv.exit.thread: 
 28:                                               ; preds = %_ZN10LabelStack10_StackItemC2ERKS0_.exit.i, %.lr.ph.i
   %29 = phi i64 [ %.pre.i, %.lr.ph.i ], [ %56, %_ZN10LabelStack10_StackItemC2ERKS0_.exit.i ]
   %.010.i = phi ptr [ %23, %.lr.ph.i ], [ %54, %_ZN10LabelStack10_StackItemC2ERKS0_.exit.i ]
-  %30 = getelementptr %"struct.LabelStack::_StackItem", ptr %8, i64 %29
+  %30 = getelementptr [56 x i8], ptr %8, i64 %29
   %31 = load ptr, ptr %.010.i, align 8
   store ptr %31, ptr %30, align 8
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
@@ -1621,7 +1621,7 @@ _ZN10LabelStack10_StackItemC2ERKS0_.exit.i:       ; preds = %49, %_ZN7QStringC2E
 65:                                               ; preds = %65, %.lr.ph.i19
   %66 = phi i64 [ %.pre.i20, %.lr.ph.i19 ], [ %93, %65 ]
   %.010.i21 = phi ptr [ %60, %.lr.ph.i19 ], [ %91, %65 ]
-  %67 = getelementptr %"struct.LabelStack::_StackItem", ptr %8, i64 %66
+  %67 = getelementptr [56 x i8], ptr %8, i64 %66
   call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(24) dereferenceable_or_null(52) %67, i8 0, i64 24, i1 false)
   %68 = load ptr, ptr %.010.i21, align 8
   store ptr %68, ptr %67, align 8
@@ -1861,8 +1861,8 @@ _ZNK17QArrayDataPointerIN10LabelStack10_StackItemEE16freeSpaceAtBeginEv.exit33: 
   %54 = sdiv i64 %53, 2
   %55 = call noundef i64 @llvm.smax.i64(i64 %54, i64 0)
   %.pr.pre = load ptr, ptr %1, align 8
-  %56 = getelementptr %"struct.LabelStack::_StackItem", ptr %32, i64 %55
-  %57 = getelementptr %"struct.LabelStack::_StackItem", ptr %56, i64 %2
+  %56 = getelementptr [56 x i8], ptr %32, i64 %55
+  %57 = getelementptr [56 x i8], ptr %56, i64 %2
   %.not.i34 = icmp eq ptr %.pr.pre, null
   br i1 %.not.i34, label %_ZNK17QArrayDataPointerIN10LabelStack10_StackItemEE5flagsEv.exit, label %58
 
@@ -1934,7 +1934,7 @@ _ZNK17QArrayDataPointerIN10LabelStack10_StackItemEE14freeSpaceAtEndEv.exit: ; pr
   br i1 %.not, label %49, label %22
 
 22:                                               ; preds = %_ZNK17QArrayDataPointerIN10LabelStack10_StackItemEE14freeSpaceAtEndEv.exit
-  %23 = getelementptr %"struct.LabelStack::_StackItem", ptr %16, i64 %1
+  %23 = getelementptr [56 x i8], ptr %16, i64 %1
   %24 = load ptr, ptr %2, align 8
   store ptr %24, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
@@ -2309,13 +2309,13 @@ define linkonce_odr void @_ZN9QtPrivate16QGenericArrayOpsIN10LabelStack10_StackI
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr %"struct.LabelStack::_StackItem", ptr %5, i64 %7
+  %8 = getelementptr [56 x i8], ptr %5, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %8, ptr %9, align 8
   %10 = getelementptr i8, ptr %8, i64 -56
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %10, ptr %11, align 8
-  %12 = getelementptr %"struct.LabelStack::_StackItem", ptr %5, i64 %1
+  %12 = getelementptr [56 x i8], ptr %5, i64 %1
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %12, ptr %13, align 8
   %14 = sub i64 %7, %1
@@ -2463,7 +2463,7 @@ _ZN9QtPrivate16QGenericArrayOpsIN10LabelStack10_StackItemEE8Inserter5setupExx.ex
 .lr.ph:                                           ; preds = %_ZN9QtPrivate16QGenericArrayOpsIN10LabelStack10_StackItemEE8Inserter5setupExx.exitthread-pre-split, %.lr.ph
   %.09 = phi i64 [ %123, %.lr.ph ], [ 0, %_ZN9QtPrivate16QGenericArrayOpsIN10LabelStack10_StackItemEE8Inserter5setupExx.exitthread-pre-split ]
   %95 = load ptr, ptr %11, align 8
-  %96 = getelementptr %"struct.LabelStack::_StackItem", ptr %95, i64 %.09
+  %96 = getelementptr [56 x i8], ptr %95, i64 %.09
   %97 = getelementptr i8, ptr %96, i64 -56
   %98 = load ptr, ptr %96, align 8
   %99 = load ptr, ptr %97, align 8
@@ -2607,8 +2607,8 @@ _ZNK17QArrayDataPointerIN10LabelStack10_StackItemEE14freeSpaceAtEndEv.exit: ; pr
   br label %_ZN9QtPrivate20q_relocate_overlap_nIN10LabelStack10_StackItemExEEvPT_T0_S4_.exit.i
 
 57:                                               ; preds = %54
-  %58 = getelementptr %"struct.LabelStack::_StackItem", ptr %46, i64 %43
-  %59 = getelementptr %"struct.LabelStack::_StackItem", ptr %47, i64 %43
+  %58 = getelementptr [56 x i8], ptr %46, i64 %43
+  %59 = getelementptr [56 x i8], ptr %47, i64 %43
   store ptr %58, ptr %5, align 8
   store ptr %59, ptr %6, align 8
   call void @_ZN9QtPrivate30q_relocate_overlap_n_left_moveISt16reverse_iteratorIPN10LabelStack10_StackItemEExEEvT_T0_S6_(ptr noundef nonnull %5, i64 noundef %43, ptr noundef nonnull %6)
@@ -2624,14 +2624,14 @@ _ZN9QtPrivate20q_relocate_overlap_nIN10LabelStack10_StackItemExEEvPT_T0_S4_.exit
   %61 = load ptr, ptr %3, align 8
   %62 = load ptr, ptr %45, align 8
   %63 = load i64, ptr %48, align 8
-  %64 = getelementptr %"struct.LabelStack::_StackItem", ptr %62, i64 %63
+  %64 = getelementptr [56 x i8], ptr %62, i64 %63
   %65 = icmp uge ptr %61, %62
   %66 = icmp ult ptr %61, %64
   %spec.select.i.i = and i1 %65, %66
   br i1 %spec.select.i.i, label %67, label %_ZN17QArrayDataPointerIN10LabelStack10_StackItemEE8relocateExPPKS1_.exit
 
 67:                                               ; preds = %60
-  %68 = getelementptr %"struct.LabelStack::_StackItem", ptr %61, i64 %44
+  %68 = getelementptr [56 x i8], ptr %61, i64 %44
   store ptr %68, ptr %3, align 8
   br label %_ZN17QArrayDataPointerIN10LabelStack10_StackItemEE8relocateExPPKS1_.exit
 
@@ -2650,7 +2650,7 @@ define linkonce_odr void @_ZN9QtPrivate30q_relocate_overlap_n_left_moveIPN10Labe
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %2, ptr %5, align 8
-  %6 = getelementptr %"struct.LabelStack::_StackItem", ptr %2, i64 %1
+  %6 = getelementptr [56 x i8], ptr %2, i64 %1
   %7 = icmp ult ptr %0, %6
   %8 = select i1 %7, ptr %0, ptr %6
   %9 = select i1 %7, ptr %6, ptr %0
@@ -2820,7 +2820,7 @@ _ZN10LabelStack10_StackItemD2Ev.exit:             ; preds = %_ZN7QStringD2Ev.exi
 83:                                               ; preds = %.lr.ph.i, %_ZN10LabelStack10_StackItemD2Ev.exit.i
   %84 = phi ptr [ %79, %.lr.ph.i ], [ %99, %_ZN10LabelStack10_StackItemD2Ev.exit.i ]
   %85 = phi ptr [ %78, %.lr.ph.i ], [ %98, %_ZN10LabelStack10_StackItemD2Ev.exit.i ]
-  %86 = getelementptr %"struct.LabelStack::_StackItem", ptr %84, i64 %82
+  %86 = getelementptr [56 x i8], ptr %84, i64 %82
   store ptr %86, ptr %85, align 8
   %87 = load ptr, ptr %4, align 8
   %88 = load ptr, ptr %87, align 8
@@ -2875,7 +2875,7 @@ define linkonce_odr void @_ZN9QtPrivate30q_relocate_overlap_n_left_moveISt16reve
   store ptr %6, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = sub i64 0, %1
-  %9 = getelementptr %"struct.LabelStack::_StackItem", ptr %6, i64 %8
+  %9 = getelementptr [56 x i8], ptr %6, i64 %8
   %10 = load ptr, ptr %0, align 8
   %11 = icmp ult ptr %9, %10
   %12 = select i1 %11, ptr %10, ptr %9
@@ -3062,7 +3062,7 @@ _ZN10LabelStack10_StackItemD2Ev.exit:             ; preds = %_ZN7QStringD2Ev.exi
 100:                                              ; preds = %.lr.ph.i, %_ZN10LabelStack10_StackItemD2Ev.exit.i
   %101 = phi ptr [ %98, %.lr.ph.i ], [ %117, %_ZN10LabelStack10_StackItemD2Ev.exit.i ]
   %102 = phi ptr [ %96, %.lr.ph.i ], [ %116, %_ZN10LabelStack10_StackItemD2Ev.exit.i ]
-  %103 = getelementptr %"struct.LabelStack::_StackItem", ptr %101, i64 %.neg.i
+  %103 = getelementptr [56 x i8], ptr %101, i64 %.neg.i
   store ptr %103, ptr %102, align 8
   %104 = load ptr, ptr %4, align 8
   %105 = load ptr, ptr %104, align 8
@@ -3111,13 +3111,13 @@ _ZZN9QtPrivate30q_relocate_overlap_n_left_moveISt16reverse_iteratorIPN10LabelSta
 
 ; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
 define linkonce_odr void @_ZN9QtPrivate16QGenericArrayOpsIN10LabelStack10_StackItemEE5eraseEPS2_x(ptr noundef align 8 dereferenceable_or_null(24) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 comdat align 2 {
-  %4 = getelementptr %"struct.LabelStack::_StackItem", ptr %1, i64 %2
+  %4 = getelementptr [56 x i8], ptr %1, i64 %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = icmp ne ptr %1, %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr %"struct.LabelStack::_StackItem", ptr %6, i64 %9
+  %10 = getelementptr [56 x i8], ptr %6, i64 %9
   %.not = icmp eq ptr %4, %10
   %or.cond = select i1 %7, i1 true, i1 %.not
   br i1 %or.cond, label %._crit_edge, label %11
@@ -3128,7 +3128,7 @@ define linkonce_odr void @_ZN9QtPrivate16QGenericArrayOpsIN10LabelStack10_StackI
 
 ._crit_edge:                                      ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = getelementptr %"struct.LabelStack::_StackItem", ptr %6, i64 %9
+  %13 = getelementptr [56 x i8], ptr %6, i64 %9
   %.not1819 = icmp eq ptr %4, %13
   br i1 %.not1819, label %.loopexit, label %.lr.ph
 

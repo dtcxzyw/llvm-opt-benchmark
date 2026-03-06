@@ -3,8 +3,6 @@ source_filename = "bench/clamav/original/yc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.cli_exe_section = type { i32, i32, i32, i32, i32, i32, i32, i32, i32 }
-
 @.str = private unnamed_addr constant [28 x i8] c"yC: offset: %x, length: %x\0A\00", align 1
 @.str.1 = private unnamed_addr constant [37 x i8] c"yC: decrypting decryptor on sect %d\0A\00", align 1
 @.str.2 = private unnamed_addr constant [23 x i8] c"yC: decrypting sect%d\0A\00", align 1
@@ -17,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 8) i32 @yc_decrypt(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i16 noundef signext %8) local_unnamed_addr #0 {
   %10 = zext i32 %4 to i64
-  %11 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %3, i64 %10
+  %11 = getelementptr inbounds nuw [36 x i8], ptr %3, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load i32, ptr %12, align 4, !tbaa !3
   %14 = sext i16 %8 to i32
@@ -64,7 +62,7 @@ define range(i32 0, 8) i32 @yc_decrypt(ptr noundef %0, ptr noundef %1, i32 nound
   %39 = and i64 %38, 4294967288
   %40 = getelementptr inbounds nuw i8, ptr %22, i64 %39
   %41 = load i32, ptr %40, align 1, !tbaa !12
-  %42 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %3, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [36 x i8], ptr %3, i64 %indvars.iv
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load i32, ptr %43, align 4, !tbaa !3
   %.not = icmp eq i32 %44, 0

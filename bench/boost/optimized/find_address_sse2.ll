@@ -28,7 +28,7 @@ define hidden noundef i64 @_ZN5boost7atomics6detail17find_address_sse2EPVKvPKS3_
 
 15:                                               ; preds = %.lr.ph, %85
   %.0154193 = phi i64 [ 0, %.lr.ph ], [ %86, %85 ]
-  %16 = getelementptr inbounds nuw ptr, ptr %1, i64 %.0154193
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.0154193
   %17 = load <4 x i32>, ptr %16, align 16, !tbaa !3
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %19 = load <4 x i32>, ptr %18, align 16, !tbaa !3
@@ -118,7 +118,7 @@ define hidden noundef i64 @_ZN5boost7atomics6detail17find_address_sse2EPVKvPKS3_
   br i1 %93, label %94, label %136
 
 94:                                               ; preds = %._crit_edge
-  %95 = getelementptr inbounds nuw ptr, ptr %1, i64 %.0154.lcssa
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.0154.lcssa
   %96 = load <4 x i32>, ptr %95, align 16, !tbaa !3
   %97 = getelementptr inbounds nuw i8, ptr %95, i64 16
   %98 = load <4 x i32>, ptr %97, align 16, !tbaa !3
@@ -176,7 +176,7 @@ define hidden noundef i64 @_ZN5boost7atomics6detail17find_address_sse2EPVKvPKS3_
   br i1 %138, label %139, label %162
 
 139:                                              ; preds = %136
-  %140 = getelementptr inbounds nuw ptr, ptr %1, i64 %.4
+  %140 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.4
   %141 = load <4 x i32>, ptr %140, align 16, !tbaa !3
   %142 = getelementptr inbounds nuw i8, ptr %140, i64 16
   %143 = load <4 x i32>, ptr %142, align 16, !tbaa !3
@@ -214,7 +214,7 @@ define hidden noundef i64 @_ZN5boost7atomics6detail17find_address_sse2EPVKvPKS3_
   br i1 %163, label %164, label %178
 
 164:                                              ; preds = %162
-  %165 = getelementptr inbounds nuw ptr, ptr %1, i64 %.6
+  %165 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.6
   %166 = load <4 x i32>, ptr %165, align 16, !tbaa !3
   %167 = bitcast <2 x i64> %10 to <4 x i32>
   %168 = icmp eq <4 x i32> %166, %167

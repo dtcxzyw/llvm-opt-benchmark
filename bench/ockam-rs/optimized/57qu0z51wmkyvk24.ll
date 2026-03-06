@@ -95,7 +95,7 @@ define hidden void @"_ZN15crossbeam_queue9seg_queue17SegQueue$LT$T$GT$4push17h91
 
 22:                                               ; preds = %21, %22
   %23 = phi i64 [ 0, %21 ], [ %25, %22 ]
-  %24 = getelementptr inbounds nuw { i64, { i64 } }, ptr %4, i64 %23
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
   %25 = add nuw nsw i64 %23, 1
   %exitcond.not = icmp eq i64 %25, 31
@@ -147,7 +147,7 @@ define hidden void @"_ZN15crossbeam_queue9seg_queue17SegQueue$LT$T$GT$4push17h91
 
 33:                                               ; preds = %32, %33
   %34 = phi i64 [ 0, %32 ], [ %36, %33 ]
-  %35 = getelementptr inbounds nuw { i64, { i64 } }, ptr %3, i64 %34
+  %35 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %34
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, i8 0, i64 16, i1 false)
   %36 = add nuw nsw i64 %34, 1
   %exitcond111.not = icmp eq i64 %36, 31
@@ -231,7 +231,7 @@ define hidden void @"_ZN15crossbeam_queue9seg_queue17SegQueue$LT$T$GT$4push17h91
   ret void
 
 69:                                               ; preds = %58
-  %70 = getelementptr inbounds nuw { i64, { i64 } }, ptr %.137, i64 %.lcssa
+  %70 = getelementptr inbounds nuw [16 x i8], ptr %.137, i64 %.lcssa
   store i64 %1, ptr %70, align 8
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %72 = atomicrmw or ptr %71, i64 1 release, align 8

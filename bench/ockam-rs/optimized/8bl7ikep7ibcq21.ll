@@ -496,7 +496,7 @@ define void @_ZN14ockam_executor8executor8Executor9poll_task17h11f618e72fe568e9E
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !noalias !42
   %.sroa.3.0.copyload.i.i = load i64, ptr %.sroa.3.0..sroa_idx.i.i, align 8, !noalias !42
   %37 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 280
-  %38 = getelementptr inbounds ptr, ptr %37, i64 %.sroa.3.0.copyload.i.i
+  %38 = getelementptr inbounds [8 x i8], ptr %37, i64 %.sroa.3.0.copyload.i.i
   %39 = load ptr, ptr %38, align 8, !noalias !44, !nonnull !5, !noundef !5
   %40 = add i64 %.sroa.2.0.copyload.i.i, -1
   call void @"_ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$$GT$11search_node17he2fc915ebbf6f083E.llvm.9530856623662163121"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %9, ptr noundef nonnull %39, i64 noundef %40, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %24), !noalias !38
@@ -523,7 +523,7 @@ define void @_ZN14ockam_executor8executor8Executor9poll_task17h11f618e72fe568e9E
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !37
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !37
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !37
-  %46 = getelementptr inbounds { ptr, ptr }, ptr %.sroa.4.sroa.0.0.copyload11.i, i64 %.sroa.4.sroa.5.0.copyload14.i
+  %46 = getelementptr inbounds [16 x i8], ptr %.sroa.4.sroa.0.0.copyload11.i, i64 %.sroa.4.sroa.5.0.copyload14.i
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %48 = load i64, ptr %24, align 8, !noundef !5

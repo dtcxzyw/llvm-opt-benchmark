@@ -952,7 +952,7 @@ _ZN8uu_split24should_extract_obs_lines17h905e7fbe3d79f69fE.exit.thread: ; preds 
 
 59:                                               ; preds = %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17ha299db6724b792cfE.exit.i"
   %60 = load ptr, ptr %47, align 8, !noalias !174, !nonnull !4, !noundef !4
-  %61 = getelementptr inbounds i32, ptr %60, i64 %56
+  %61 = getelementptr inbounds [4 x i8], ptr %60, i64 %56
   invoke void @"_ZN99_$LT$alloc..string..String$u20$as$u20$core..iter..traits..collect..FromIterator$LT$$RF$char$GT$$GT$9from_iter17hc34f7fb5e3d7300fE"(ptr noalias noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 captures(none) dereferenceable(24) %12, ptr noundef nonnull %60, ptr noundef nonnull %61)
           to label %75 unwind label %63, !noalias !177
 
@@ -1044,7 +1044,7 @@ _ZN8uu_split24should_extract_obs_lines17h905e7fbe3d79f69fE.exit.thread: ; preds 
 92:                                               ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h272887803d931122E.exit.i"
   %93 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %94 = load ptr, ptr %93, align 8, !noalias !174, !nonnull !4, !noundef !4
-  %95 = getelementptr inbounds i32, ptr %94, i64 %90
+  %95 = getelementptr inbounds [4 x i8], ptr %94, i64 %90
   invoke void @"_ZN99_$LT$alloc..string..String$u20$as$u20$core..iter..traits..collect..FromIterator$LT$$RF$char$GT$$GT$9from_iter17hc34f7fb5e3d7300fE"(ptr noalias noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 captures(none) dereferenceable(24) %11, ptr noundef nonnull %94, ptr noundef nonnull %95)
           to label %96 unwind label %63, !noalias !178
 

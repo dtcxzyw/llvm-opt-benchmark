@@ -5,12 +5,10 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.tls12_lookup = type { i32, i32 }
 %struct.cbs_st = type { ptr, i64 }
-%struct.tls_extension = type { i16, ptr, ptr, ptr, ptr, ptr }
 %struct.cbb_st = type { ptr, ptr, i64, i8, i8, i8 }
 %struct.hmac_ctx_st = type { ptr, %struct.env_md_ctx_st, %struct.env_md_ctx_st, %struct.env_md_ctx_st }
 %struct.env_md_ctx_st = type { ptr, ptr, ptr, ptr }
 %struct.evp_cipher_ctx_st = type { ptr, ptr, ptr, i32, i32, i32, [16 x i8], [16 x i8], [32 x i8], i32, i32, i32, i32, [32 x i8] }
-%struct.tls_sigalgs_st = type { i8, i8 }
 
 @tls12_sigalgs = internal constant [16 x i8] c"\06\01\06\03\05\01\05\03\04\01\04\03\02\01\02\03", align 16
 @.str = private unnamed_addr constant [116 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/ssl/t1_lib.c\00", align 1
@@ -231,7 +229,7 @@ define internal fastcc range(i32 0, 2) i32 @tls1_check_duplicate_extensions(ptr 
 20:                                               ; preds = %19, %25
   %.02651 = phi i64 [ 0, %19 ], [ %26, %25 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %21 = getelementptr inbounds nuw i16, ptr %16, i64 %.02651
+  %21 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %.02651
   %22 = call i32 @CBS_get_u16(ptr noundef nonnull %2, ptr noundef nonnull %21) #21
   %.not33 = icmp eq i32 %22, 0
   br i1 %.not33, label %.thread46, label %23
@@ -263,7 +261,7 @@ define internal fastcc range(i32 0, 2) i32 @tls1_check_duplicate_extensions(ptr 
 
 .lr.ph54:                                         ; preds = %27, %28
   %.12752 = phi i64 [ %29, %28 ], [ 1, %27 ]
-  %30 = getelementptr i16, ptr %16, i64 %.12752
+  %30 = getelementptr [2 x i8], ptr %16, i64 %.12752
   %31 = getelementptr i8, ptr %30, i64 -2
   %32 = load i16, ptr %31, align 2, !tbaa !56
   %33 = load i16, ptr %30, align 2, !tbaa !56
@@ -383,7 +381,7 @@ tls1_get_curvelist.exit:                          ; preds = %2
 
 .preheader.us:                                    ; preds = %12, %._crit_edge.us
   %.01732.us = phi i64 [ %30, %._crit_edge.us ], [ 0, %12 ]
-  %22 = getelementptr inbounds nuw i16, ptr %.021.sroa.speculated, i64 %.01732.us
+  %22 = getelementptr inbounds nuw [2 x i8], ptr %.021.sroa.speculated, i64 %.01732.us
   %23 = load i16, ptr %22, align 2, !tbaa !56
   br label %26
 
@@ -394,7 +392,7 @@ tls1_get_curvelist.exit:                          ; preds = %2
 
 26:                                               ; preds = %.preheader.us, %24
   %.031.us = phi i64 [ 0, %.preheader.us ], [ %25, %24 ]
-  %27 = getelementptr inbounds nuw i16, ptr %.020.sroa.speculated, i64 %.031.us
+  %27 = getelementptr inbounds nuw [2 x i8], ptr %.020.sroa.speculated, i64 %.031.us
   %28 = load i16, ptr %27, align 2, !tbaa !56
   %29 = icmp eq i16 %23, %28
   br i1 %29, label %.split.us, label %24
@@ -431,8 +429,8 @@ define hidden range(i32 0, 2) i32 @tls1_set_curves(ptr noundef captures(none) %0
 
 .lr.ph:                                           ; preds = %.preheader, %8
   %.018 = phi i64 [ %9, %8 ], [ 0, %.preheader ]
-  %10 = getelementptr inbounds nuw i16, ptr %6, i64 %.018
-  %11 = getelementptr inbounds nuw i32, ptr %2, i64 %.018
+  %10 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %.018
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.018
   %12 = load i32, ptr %11, align 4, !tbaa !80
   %13 = tail call i32 @ssl_nid_to_curve_id(ptr noundef nonnull %10, i32 noundef %12) #21
   %.not = icmp eq i32 %13, 0
@@ -505,7 +503,7 @@ tls1_get_curvelist.exit:                          ; preds = %8
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %23
   %.01321 = phi i64 [ %24, %23 ], [ 0, %.lr.ph.preheader ]
-  %20 = getelementptr inbounds nuw i16, ptr %.12932, i64 %.01321
+  %20 = getelementptr inbounds nuw [2 x i8], ptr %.12932, i64 %.01321
   %21 = load i16, ptr %20, align 2, !tbaa !56
   %22 = icmp eq i16 %21, %1
   br i1 %22, label %._crit_edge, label %23
@@ -608,7 +606,7 @@ tls1_get_curvelist.exit.i:                        ; preds = %26
 
 .lr.ph.i:                                         ; preds = %41, %.lr.ph.preheader.i
   %.01321.i = phi i64 [ %42, %41 ], [ 0, %.lr.ph.preheader.i ]
-  %38 = getelementptr inbounds nuw i16, ptr %.12932.i, i64 %.01321.i
+  %38 = getelementptr inbounds nuw [2 x i8], ptr %.12932.i, i64 %.01321.i
   %39 = load i16, ptr %38, align 2, !tbaa !56
   %40 = icmp eq i16 %39, %15
   br i1 %40, label %._crit_edge.i, label %41
@@ -656,7 +654,7 @@ define hidden range(i32 0, 2) i32 @tls12_check_peer_sigalg(ptr noundef readnone 
 9:                                                ; preds = %13, %6
   %exitcond.not.i.i = phi i1 [ false, %6 ], [ true, %13 ]
   %.09.i.i = phi i64 [ 0, %6 ], [ 1, %13 ]
-  %10 = getelementptr inbounds nuw %struct.tls12_lookup, ptr @tls12_sig, i64 %.09.i.i
+  %10 = getelementptr inbounds nuw [8 x i8], ptr @tls12_sig, i64 %.09.i.i
   %11 = load i32, ptr %10, align 8, !tbaa !86
   %12 = icmp eq i32 %11, %8
   br i1 %12, label %tls12_get_sigid.exit, label %13
@@ -669,7 +667,7 @@ tls12_get_sigid.exit.thread:                      ; preds = %13
   br label %.sink.split
 
 tls12_get_sigid.exit:                             ; preds = %9
-  %14 = getelementptr inbounds nuw %struct.tls12_lookup, ptr @tls12_sig, i64 %.09.i.i
+  %14 = getelementptr inbounds nuw [8 x i8], ptr @tls12_sig, i64 %.09.i.i
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %16 = load i32, ptr %15, align 4, !tbaa !89
   %17 = zext i8 %4 to i32
@@ -758,13 +756,13 @@ define hidden i32 @tls12_get_sigid(i32 noundef %0) local_unnamed_addr #7 {
 2:                                                ; preds = %10, %1
   %exitcond.not.i = phi i1 [ false, %1 ], [ true, %10 ]
   %.09.i = phi i64 [ 0, %1 ], [ 1, %10 ]
-  %3 = getelementptr inbounds nuw %struct.tls12_lookup, ptr @tls12_sig, i64 %.09.i
+  %3 = getelementptr inbounds nuw [8 x i8], ptr @tls12_sig, i64 %.09.i
   %4 = load i32, ptr %3, align 8, !tbaa !86
   %5 = icmp eq i32 %4, %0
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds nuw %struct.tls12_lookup, ptr @tls12_sig, i64 %.09.i
+  %7 = getelementptr inbounds nuw [8 x i8], ptr @tls12_sig, i64 %.09.i
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %9 = load i32, ptr %8, align 4, !tbaa !89
   br label %tls12_find_id.exit
@@ -900,7 +898,7 @@ define hidden range(i32 0, 2) i32 @SSL_extension_supported(i32 noundef %0) local
 
 5:                                                ; preds = %5, %3
   %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %5 ]
-  %6 = getelementptr inbounds nuw %struct.tls_extension, ptr @kExtensions, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw [48 x i8], ptr @kExtensions, i64 %indvars.iv.i
   %7 = load i16, ptr %6, align 16, !tbaa !106
   %8 = icmp eq i16 %7, %4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -958,7 +956,7 @@ define hidden i32 @ssl_add_clienthello_tlsext(ptr noundef %0, ptr noundef %1, i6
   br i1 %.not50.not, label %25, label %29
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds nuw %struct.tls_extension, ptr @kExtensions, i64 %.03758
+  %26 = getelementptr inbounds nuw [48 x i8], ptr @kExtensions, i64 %.03758
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load ptr, ptr %27, align 8, !tbaa !111
   call void %28(ptr noundef %0) #21
@@ -972,7 +970,7 @@ define hidden i32 @ssl_add_clienthello_tlsext(ptr noundef %0, ptr noundef %1, i6
 .preheader:                                       ; preds = %29, %48
   %.13859 = phi i64 [ %49, %48 ], [ 0, %29 ]
   %31 = call i64 @CBB_len(ptr noundef nonnull %4) #21
-  %32 = getelementptr inbounds nuw %struct.tls_extension, ptr @kExtensions, i64 %.13859
+  %32 = getelementptr inbounds nuw [48 x i8], ptr @kExtensions, i64 %.13859
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %34 = load ptr, ptr %33, align 16, !tbaa !113
   %35 = call i32 %34(ptr noundef %0, ptr noundef nonnull %4) #21
@@ -1126,7 +1124,7 @@ define hidden i32 @ssl_add_serverhello_tlsext(ptr noundef %0, ptr noundef %1) lo
   br i1 %.not14, label %21, label %13
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds nuw %struct.tls_extension, ptr @kExtensions, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [48 x i8], ptr @kExtensions, i64 %indvars.iv
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %16 = load ptr, ptr %15, align 8, !tbaa !115
   %17 = call i32 %16(ptr noundef nonnull %0, ptr noundef nonnull %3) #21
@@ -1196,7 +1194,7 @@ define hidden range(i32 0, 2) i32 @ssl_parse_clienthello_tlsext(ptr noundef %0, 
   br i1 %.not51.not.i, label %13, label %17
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds nuw %struct.tls_extension, ptr @kExtensions, i64 %.03869.i
+  %14 = getelementptr inbounds nuw [48 x i8], ptr @kExtensions, i64 %.03869.i
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !111
   tail call void %16(ptr noundef %0) #21
@@ -1272,7 +1270,7 @@ define hidden range(i32 0, 2) i32 @ssl_parse_clienthello_tlsext(ptr noundef %0, 
 
 .preheader.i:                                     ; preds = %36, %44
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %44 ], [ 0, %36 ]
-  %41 = getelementptr inbounds nuw %struct.tls_extension, ptr @kExtensions, i64 %indvars.iv.i.i
+  %41 = getelementptr inbounds nuw [48 x i8], ptr @kExtensions, i64 %indvars.iv.i.i
   %42 = load i16, ptr %41, align 16, !tbaa !106
   %43 = icmp eq i16 %42, %39
   br i1 %43, label %48, label %44
@@ -1355,7 +1353,7 @@ define hidden range(i32 0, 2) i32 @ssl_parse_clienthello_tlsext(ptr noundef %0, 
 72:                                               ; preds = %65
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i8 50, ptr %8, align 1, !tbaa !90
-  %73 = getelementptr inbounds nuw %struct.tls_extension, ptr @kExtensions, i64 %.13971.i
+  %73 = getelementptr inbounds nuw [48 x i8], ptr @kExtensions, i64 %.13971.i
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 32
   %75 = load ptr, ptr %74, align 16, !tbaa !120
   %76 = call i32 %75(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef null) #21
@@ -1512,7 +1510,7 @@ define hidden range(i32 0, 2) i32 @ssl_parse_serverhello_tlsext(ptr noundef %0, 
 
 24:                                               ; preds = %28, %22
   %indvars.iv.i.i = phi i64 [ 0, %22 ], [ %indvars.iv.next.i.i, %28 ]
-  %25 = getelementptr inbounds nuw %struct.tls_extension, ptr @kExtensions, i64 %indvars.iv.i.i
+  %25 = getelementptr inbounds nuw [48 x i8], ptr @kExtensions, i64 %indvars.iv.i.i
   %26 = load i16, ptr %25, align 16, !tbaa !106
   %27 = icmp eq i16 %26, %23
   br i1 %27, label %31, label %28
@@ -1614,7 +1612,7 @@ define hidden range(i32 0, 2) i32 @ssl_parse_serverhello_tlsext(ptr noundef %0, 
 58:                                               ; preds = %54
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i8 50, ptr %8, align 1, !tbaa !90
-  %59 = getelementptr inbounds nuw %struct.tls_extension, ptr @kExtensions, i64 %.073.i
+  %59 = getelementptr inbounds nuw [48 x i8], ptr @kExtensions, i64 %.073.i
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 24
   %61 = load ptr, ptr %60, align 8, !tbaa !129
   %62 = call i32 %61(ptr noundef %0, ptr noundef nonnull %8, ptr noundef null) #21
@@ -1885,13 +1883,13 @@ define hidden range(i32 0, 2) i32 @tls12_add_sigandhash(ptr noundef %0, ptr noun
 
 5:                                                ; preds = %13, %3
   %.09.i = phi i64 [ 0, %3 ], [ %14, %13 ]
-  %6 = getelementptr inbounds nuw %struct.tls12_lookup, ptr @tls12_md, i64 %.09.i
+  %6 = getelementptr inbounds nuw [8 x i8], ptr @tls12_md, i64 %.09.i
   %7 = load i32, ptr %6, align 8, !tbaa !86
   %8 = icmp eq i32 %7, %4
   br i1 %8, label %9, label %13
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds nuw %struct.tls12_lookup, ptr @tls12_md, i64 %.09.i
+  %10 = getelementptr inbounds nuw [8 x i8], ptr @tls12_md, i64 %.09.i
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %12 = load i32, ptr %11, align 4, !tbaa !89
   br label %tls12_find_id.exit
@@ -1909,7 +1907,7 @@ tls12_find_id.exit:                               ; preds = %13, %9
 16:                                               ; preds = %20, %tls12_find_id.exit
   %exitcond.not.i.i = phi i1 [ false, %tls12_find_id.exit ], [ true, %20 ]
   %.09.i.i = phi i64 [ 0, %tls12_find_id.exit ], [ 1, %20 ]
-  %17 = getelementptr inbounds nuw %struct.tls12_lookup, ptr @tls12_sig, i64 %.09.i.i
+  %17 = getelementptr inbounds nuw [8 x i8], ptr @tls12_sig, i64 %.09.i.i
   %18 = load i32, ptr %17, align 8, !tbaa !86
   %19 = icmp eq i32 %18, %15
   br i1 %19, label %tls12_get_sigid.exit, label %20
@@ -1918,7 +1916,7 @@ tls12_find_id.exit:                               ; preds = %13, %9
   br i1 %exitcond.not.i.i, label %tls12_get_sigid.exit.thread, label %16, !llvm.loop !88
 
 tls12_get_sigid.exit:                             ; preds = %16
-  %21 = getelementptr inbounds nuw %struct.tls12_lookup, ptr @tls12_sig, i64 %.09.i.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr @tls12_sig, i64 %.09.i.i
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %23 = load i32, ptr %22, align 4, !tbaa !89
   %.not11 = icmp eq i32 %.08.i, -1
@@ -2001,7 +1999,7 @@ define hidden range(i32 0, 2) i32 @tls1_parse_peer_sigalgs(ptr noundef %0, ptr n
 25:                                               ; preds = %20, %23
   %.02429 = phi i64 [ 0, %20 ], [ %24, %23 ]
   %26 = load ptr, ptr %9, align 8, !tbaa !136
-  %27 = getelementptr inbounds nuw %struct.tls_sigalgs_st, ptr %26, i64 %.02429
+  %27 = getelementptr inbounds nuw [2 x i8], ptr %26, i64 %.02429
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 1
   %29 = call i32 @CBS_get_u8(ptr noundef nonnull %3, ptr noundef nonnull %28) #21
   %.not27 = icmp eq i32 %29, 0
@@ -2054,7 +2052,7 @@ define hidden ptr @tls1_choose_signing_digest(ptr noundef %0) local_unnamed_addr
 .lr.ph50.split:                                   ; preds = %.lr.ph50, %._crit_edge
   %13 = phi i64 [ %37, %._crit_edge ], [ 1, %.lr.ph50 ]
   %.02747 = phi i64 [ %38, %._crit_edge ], [ 0, %.lr.ph50 ]
-  %14 = getelementptr inbounds nuw i32, ptr %.02963, i64 %.02747
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %.02963, i64 %.02747
   %15 = load i32, ptr %14, align 4, !tbaa !80
   %.not3544.not = icmp eq i64 %13, 0
   br i1 %.not3544.not, label %._crit_edge, label %.lr.ph
@@ -2062,7 +2060,7 @@ define hidden ptr @tls1_choose_signing_digest(ptr noundef %0) local_unnamed_addr
 .lr.ph:                                           ; preds = %.lr.ph50.split, %.thread
   %.03045 = phi i64 [ %35, %.thread ], [ 0, %.lr.ph50.split ]
   %16 = load ptr, ptr %11, align 8, !tbaa !136
-  %17 = getelementptr inbounds nuw %struct.tls_sigalgs_st, ptr %16, i64 %.03045
+  %17 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %.03045
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 1
   %19 = load i8, ptr %18, align 1, !tbaa !141
   switch i8 %19, label %.thread [
@@ -2100,7 +2098,7 @@ tls12_get_hash.exit:                              ; preds = %20, %22, %24, %26
 
 31:                                               ; preds = %29
   %32 = load ptr, ptr %11, align 8, !tbaa !136
-  %33 = getelementptr inbounds nuw %struct.tls_sigalgs_st, ptr %32, i64 %.03045
+  %33 = getelementptr inbounds nuw [2 x i8], ptr %32, i64 %.03045
   %34 = load i8, ptr %33, align 1, !tbaa !143
   %switch.selectcmp.i = icmp eq i8 %34, 3
   %switch.select.i = select i1 %switch.selectcmp.i, i32 408, i32 -1
@@ -4806,7 +4804,7 @@ tls1_get_curvelist.exit:                          ; preds = %28
 
 .lr.ph:                                           ; preds = %tls1_get_curvelist.exit, %34
   %.018 = phi i64 [ %35, %34 ], [ 0, %tls1_get_curvelist.exit ]
-  %36 = getelementptr inbounds nuw i16, ptr %spec.select, i64 %.018
+  %36 = getelementptr inbounds nuw [2 x i8], ptr %spec.select, i64 %.018
   %37 = load i16, ptr %36, align 2, !tbaa !56
   %38 = call i32 @CBB_add_u16(ptr noundef nonnull %4, i16 noundef zeroext %37) #21
   %.not12 = icmp eq i32 %38, 0
@@ -4890,7 +4888,7 @@ define internal range(i32 0, 2) i32 @ext_ec_curves_parse_clienthello(ptr noundef
   %29 = load ptr, ptr %19, align 8, !tbaa !58
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 520
   %31 = load ptr, ptr %30, align 8, !tbaa !73
-  %32 = getelementptr inbounds nuw i16, ptr %31, i64 %.022
+  %32 = getelementptr inbounds nuw [2 x i8], ptr %31, i64 %.022
   %33 = call i32 @CBS_get_u16(ptr noundef nonnull %4, ptr noundef %32) #21
   %.not21 = icmp eq i32 %33, 0
   br i1 %.not21, label %36, label %27

@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"struct.cv::ximgproc::EstimateCovariance::Combination" = type { i32, i32, i32, i32, i32, i32 }
 %"class.cv::Mat" = type { i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, %"struct.cv::MatSize", %"struct.cv::MatStep" }
 %"struct.cv::MatSize" = type { ptr }
 %"struct.cv::MatStep" = type { ptr, [2 x i64] }
@@ -17,7 +16,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.1" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" }
 %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::complex" = type { { float, float } }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -114,7 +112,7 @@ define hidden void @_ZN2cv8ximgproc18EstimateCovariance26initInternalDataStructu
   br i1 %24, label %25, label %_ZNSt6vectorIN2cv8ximgproc18EstimateCovariance11CombinationESaIS3_EE6resizeEm.exit
 
 25:                                               ; preds = %23
-  %26 = getelementptr inbounds nuw %"struct.cv::ximgproc::EstimateCovariance::Combination", ptr %15, i64 %12
+  %26 = getelementptr inbounds nuw [24 x i8], ptr %15, i64 %12
   %.not.i.i = icmp eq ptr %14, %26
   br i1 %.not.i.i, label %_ZNSt6vectorIN2cv8ximgproc18EstimateCovariance11CombinationESaIS3_EE6resizeEm.exit, label %27
 
@@ -153,7 +151,7 @@ _ZNSt6vectorIN2cv8ximgproc18EstimateCovariance11CombinationESaIS3_EE6resizeEm.ex
   %.02933.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %41, %.lr.ph.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %38 = load ptr, ptr %11, align 8, !tbaa !14
-  %39 = getelementptr inbounds nuw %"struct.cv::ximgproc::EstimateCovariance::Combination", ptr %38, i64 %indvars.iv.i
+  %39 = getelementptr inbounds nuw [24 x i8], ptr %38, i64 %indvars.iv.i
   store i32 0, ptr %39, align 4
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %39, i64 4
   store i32 0, ptr %.sroa.6.0..sroa_idx.i, align 4
@@ -201,7 +199,7 @@ _ZNSt6vectorIN2cv8ximgproc18EstimateCovariance11CombinationESaIS3_EE6resizeEm.ex
   %.12838.i = phi i32 [ 1, %.lr.ph40.preheader.i ], [ %56, %.lr.ph40.i ]
   %indvars.iv.next51.i = add nsw i64 %indvars.iv50.i, 1
   %53 = load ptr, ptr %11, align 8, !tbaa !14
-  %54 = getelementptr inbounds nuw %"struct.cv::ximgproc::EstimateCovariance::Combination", ptr %53, i64 %indvars.iv50.i
+  %54 = getelementptr inbounds nuw [24 x i8], ptr %53, i64 %indvars.iv50.i
   store i32 %.13043.i, ptr %54, align 4
   %.sroa.6.0..sroa_idx2.i = getelementptr inbounds nuw i8, ptr %54, i64 4
   store i32 0, ptr %.sroa.6.0..sroa_idx2.i, align 4
@@ -298,7 +296,7 @@ define hidden void @_ZN2cv8ximgproc18EstimateCovariance22buildCombinationsTableE
   %.02933 = phi i32 [ 0, %.lr.ph.preheader ], [ %22, %.lr.ph ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %19 = load ptr, ptr %6, align 8, !tbaa !14
-  %20 = getelementptr inbounds nuw %"struct.cv::ximgproc::EstimateCovariance::Combination", ptr %19, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [24 x i8], ptr %19, i64 %indvars.iv
   store i32 0, ptr %20, align 4
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 4
   store i32 0, ptr %.sroa.6.0..sroa_idx, align 4
@@ -346,7 +344,7 @@ define hidden void @_ZN2cv8ximgproc18EstimateCovariance22buildCombinationsTableE
   %.12838 = phi i32 [ 1, %.lr.ph40.preheader ], [ %37, %.lr.ph40 ]
   %indvars.iv.next51 = add nsw i64 %indvars.iv50, 1
   %34 = load ptr, ptr %17, align 8, !tbaa !14
-  %35 = getelementptr inbounds nuw %"struct.cv::ximgproc::EstimateCovariance::Combination", ptr %34, i64 %indvars.iv50
+  %35 = getelementptr inbounds nuw [24 x i8], ptr %34, i64 %indvars.iv50
   store i32 %.13043, ptr %35, align 4
   %.sroa.6.0..sroa_idx2 = getelementptr inbounds nuw i8, ptr %35, i64 4
   store i32 0, ptr %.sroa.6.0..sroa_idx2, align 4
@@ -576,7 +574,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit67.thread:           ; preds = %.noexc34
 .lr.ph:                                           ; preds = %61, %.lr.ph
   %64 = phi i64 [ %67, %.lr.ph ], [ 0, %61 ]
   %.012111 = phi i32 [ %66, %.lr.ph ], [ 0, %61 ]
-  %65 = getelementptr inbounds nuw i32, ptr %.sroa.080.095, i64 %64
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.080.095, i64 %64
   store i32 0, ptr %65, align 4, !tbaa !34
   %66 = add i32 %.012111, 1
   %67 = zext i32 %66 to i64
@@ -590,7 +588,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit67.thread:           ; preds = %.noexc34
 .lr.ph113:                                        ; preds = %.preheader, %.lr.ph113
   %69 = phi i64 [ %72, %.lr.ph113 ], [ 0, %.preheader ]
   %.0112 = phi i32 [ %71, %.lr.ph113 ], [ 0, %.preheader ]
-  %70 = getelementptr inbounds nuw i32, ptr %.sroa.070.0, i64 %69
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.070.0, i64 %69
   store i32 0, ptr %70, align 4, !tbaa !34
   %71 = add i32 %.0112, 1
   %72 = zext i32 %71 to i64
@@ -792,7 +790,7 @@ define hidden void @_ZN2cv8ximgproc18EstimateCovariance21computeOneCombinationEi
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = sext i32 %1 to i64
   %10 = load ptr, ptr %8, align 8, !tbaa !14
-  %11 = getelementptr inbounds nuw %"struct.cv::ximgproc::EstimateCovariance::Combination", ptr %10, i64 %9
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %10, i64 %9
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load i32, ptr %12, align 4, !tbaa !47
   %14 = load i32, ptr %11, align 4, !tbaa !49
@@ -877,11 +875,11 @@ define hidden void @_ZN2cv8ximgproc18EstimateCovariance21computeOneCombinationEi
   %56 = load i64, ptr %55, align 8, !tbaa !55
   %57 = mul i64 %56, %indvars.iv544
   %58 = getelementptr inbounds nuw i8, ptr %54, i64 %57
-  %59 = getelementptr inbounds nuw %"class.std::complex", ptr %58, i64 %indvars.iv539
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %indvars.iv539
   %60 = mul i64 %56, %52
   %61 = getelementptr inbounds nuw i8, ptr %54, i64 %60
-  %62 = getelementptr inbounds nuw %"class.std::complex", ptr %61, i64 %indvars.iv539
-  %63 = getelementptr inbounds nuw %"class.std::complex", ptr %62, i64 %46
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %indvars.iv539
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %46
   %64 = load <2 x float>, ptr %59, align 4, !tbaa !57
   %65 = load float, ptr %63, align 4
   %66 = getelementptr inbounds nuw i8, ptr %63, i64 4
@@ -937,11 +935,11 @@ _ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.e
   %87 = load i64, ptr %86, align 8, !tbaa !55
   %88 = mul i64 %87, %83
   %89 = getelementptr inbounds nuw i8, ptr %85, i64 %88
-  %90 = getelementptr inbounds nuw %"class.std::complex", ptr %89, i64 %indvars.iv
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %89, i64 %indvars.iv
   %91 = mul i64 %87, %indvars.iv534
   %92 = getelementptr inbounds nuw i8, ptr %85, i64 %91
-  %93 = getelementptr inbounds nuw %"class.std::complex", ptr %92, i64 %indvars.iv
-  %94 = getelementptr inbounds nuw %"class.std::complex", ptr %93, i64 %38
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %92, i64 %indvars.iv
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %38
   %95 = load <2 x float>, ptr %90, align 4, !tbaa !57
   %96 = load float, ptr %94, align 4
   %97 = getelementptr inbounds nuw i8, ptr %94, i64 4
@@ -1115,10 +1113,10 @@ _ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.e
   %174 = load i64, ptr %173, align 8, !tbaa !55
   %175 = mul i64 %174, %168
   %176 = getelementptr inbounds nuw i8, ptr %172, i64 %175
-  %177 = getelementptr inbounds nuw %"class.std::complex", ptr %176, i64 %indvars.iv554
+  %177 = getelementptr inbounds nuw [8 x i8], ptr %176, i64 %indvars.iv554
   %178 = mul i64 %174, %169
   %179 = getelementptr inbounds nuw i8, ptr %172, i64 %178
-  %180 = getelementptr inbounds nuw %"class.std::complex", ptr %179, i64 %171
+  %180 = getelementptr inbounds nuw [8 x i8], ptr %179, i64 %171
   %181 = load <2 x float>, ptr %177, align 4, !tbaa !57
   %182 = load float, ptr %180, align 4
   %183 = getelementptr inbounds nuw i8, ptr %180, i64 4
@@ -1156,10 +1154,10 @@ _ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.e
   %201 = fadd float %.sroa.8393.0456, %199
   %202 = mul i64 %196, %161
   %203 = getelementptr inbounds nuw i8, ptr %197, i64 %202
-  %204 = getelementptr inbounds nuw %"class.std::complex", ptr %203, i64 %indvars.iv554
+  %204 = getelementptr inbounds nuw [8 x i8], ptr %203, i64 %indvars.iv554
   %205 = mul i64 %196, %165
   %206 = getelementptr inbounds nuw i8, ptr %197, i64 %205
-  %207 = getelementptr inbounds nuw %"class.std::complex", ptr %206, i64 %171
+  %207 = getelementptr inbounds nuw [8 x i8], ptr %206, i64 %171
   %208 = load <2 x float>, ptr %204, align 4, !tbaa !57
   %209 = load float, ptr %207, align 4
   %210 = getelementptr inbounds nuw i8, ptr %207, i64 4
@@ -1206,10 +1204,10 @@ _ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.e
   %231 = load i64, ptr %230, align 8, !tbaa !55
   %232 = mul i64 %231, %166
   %233 = getelementptr inbounds nuw i8, ptr %229, i64 %232
-  %234 = getelementptr inbounds nuw %"class.std::complex", ptr %233, i64 %indvars.iv549
+  %234 = getelementptr inbounds nuw [8 x i8], ptr %233, i64 %indvars.iv549
   %235 = mul i64 %231, %167
   %236 = getelementptr inbounds nuw i8, ptr %229, i64 %235
-  %237 = getelementptr inbounds nuw %"class.std::complex", ptr %236, i64 %228
+  %237 = getelementptr inbounds nuw [8 x i8], ptr %236, i64 %228
   %238 = load <2 x float>, ptr %234, align 4, !tbaa !57
   %239 = load float, ptr %237, align 4
   %240 = getelementptr inbounds nuw i8, ptr %237, i64 4
@@ -1247,10 +1245,10 @@ _ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.e
   %258 = fadd float %.sroa.8393.2445, %256
   %259 = mul i64 %253, %165
   %260 = getelementptr inbounds nuw i8, ptr %254, i64 %259
-  %261 = getelementptr inbounds nuw %"class.std::complex", ptr %260, i64 %indvars.iv549
+  %261 = getelementptr inbounds nuw [8 x i8], ptr %260, i64 %indvars.iv549
   %262 = mul i64 %253, %161
   %263 = getelementptr inbounds nuw i8, ptr %254, i64 %262
-  %264 = getelementptr inbounds nuw %"class.std::complex", ptr %263, i64 %228
+  %264 = getelementptr inbounds nuw [8 x i8], ptr %263, i64 %228
   %265 = load <2 x float>, ptr %261, align 4, !tbaa !57
   %266 = load float, ptr %264, align 4
   %267 = getelementptr inbounds nuw i8, ptr %264, i64 4
@@ -1324,16 +1322,16 @@ _ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.e
   store float %311, ptr %307, align 4
   store float %312, ptr %309, align 4
   %313 = load ptr, ptr %5, align 8, !tbaa !44
-  %314 = getelementptr inbounds nuw i32, ptr %313, i64 %161
+  %314 = getelementptr inbounds nuw [4 x i8], ptr %313, i64 %161
   %315 = load i32, ptr %314, align 4, !tbaa !34
   %316 = add nsw i32 %315, 1
-  %317 = getelementptr inbounds nuw i32, ptr %313, i64 %indvars.iv559
+  %317 = getelementptr inbounds nuw [4 x i8], ptr %313, i64 %indvars.iv559
   store i32 %316, ptr %317, align 4, !tbaa !34
   %318 = load ptr, ptr %6, align 8, !tbaa !44
-  %319 = getelementptr inbounds nuw i32, ptr %318, i64 %161
+  %319 = getelementptr inbounds nuw [4 x i8], ptr %318, i64 %161
   %320 = load i32, ptr %319, align 4, !tbaa !34
   %321 = add nsw i32 %320, 1
-  %322 = getelementptr inbounds nuw i32, ptr %318, i64 %indvars.iv559
+  %322 = getelementptr inbounds nuw [4 x i8], ptr %318, i64 %indvars.iv559
   store i32 %321, ptr %322, align 4, !tbaa !34
   %indvars.iv.next560 = add nuw nsw i64 %indvars.iv559, 1
   %323 = load i32, ptr %25, align 8, !tbaa !3
@@ -1391,10 +1389,10 @@ _ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.e
   %345 = load i64, ptr %344, align 8, !tbaa !55
   %346 = mul i64 %345, %indvars.iv569
   %347 = getelementptr inbounds nuw i8, ptr %343, i64 %346
-  %348 = getelementptr inbounds %"class.std::complex", ptr %347, i64 %339
+  %348 = getelementptr inbounds [8 x i8], ptr %347, i64 %339
   %349 = mul i64 %345, %342
   %350 = getelementptr inbounds nuw i8, ptr %343, i64 %349
-  %351 = getelementptr inbounds %"class.std::complex", ptr %350, i64 %340
+  %351 = getelementptr inbounds [8 x i8], ptr %350, i64 %340
   %352 = load <2 x float>, ptr %348, align 4, !tbaa !57
   %353 = load float, ptr %351, align 4
   %354 = getelementptr inbounds nuw i8, ptr %351, i64 4
@@ -1434,9 +1432,9 @@ _ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.e
   %370 = fadd float %.sroa.0372.0484, %368
   %371 = fadd float %.sroa.8375.0483, %369
   %372 = getelementptr inbounds nuw i8, ptr %367, i64 %.pre-phi638
-  %373 = getelementptr inbounds %"class.std::complex", ptr %372, i64 %332
+  %373 = getelementptr inbounds [8 x i8], ptr %372, i64 %332
   %374 = getelementptr inbounds nuw i8, ptr %367, i64 %.pre-phi640
-  %375 = getelementptr inbounds %"class.std::complex", ptr %374, i64 %335
+  %375 = getelementptr inbounds [8 x i8], ptr %374, i64 %335
   %376 = load <2 x float>, ptr %373, align 4, !tbaa !57
   %377 = load float, ptr %375, align 4
   %378 = getelementptr inbounds nuw i8, ptr %375, i64 4
@@ -1483,10 +1481,10 @@ _ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.e
   %399 = load i64, ptr %398, align 8, !tbaa !55
   %400 = mul i64 %399, %396
   %401 = getelementptr inbounds nuw i8, ptr %397, i64 %400
-  %402 = getelementptr inbounds %"class.std::complex", ptr %401, i64 %337
+  %402 = getelementptr inbounds [8 x i8], ptr %401, i64 %337
   %403 = mul i64 %399, %indvars.iv564
   %404 = getelementptr inbounds nuw i8, ptr %397, i64 %403
-  %405 = getelementptr inbounds %"class.std::complex", ptr %404, i64 %338
+  %405 = getelementptr inbounds [8 x i8], ptr %404, i64 %338
   %406 = load <2 x float>, ptr %402, align 4, !tbaa !57
   %407 = load float, ptr %405, align 4
   %408 = getelementptr inbounds nuw i8, ptr %405, i64 4
@@ -1526,9 +1524,9 @@ _ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.e
   %424 = fadd float %.sroa.0372.2473, %422
   %425 = fadd float %.sroa.8375.2472, %423
   %426 = getelementptr inbounds nuw i8, ptr %421, i64 %.pre-phi642
-  %427 = getelementptr inbounds %"class.std::complex", ptr %426, i64 %332
+  %427 = getelementptr inbounds [8 x i8], ptr %426, i64 %332
   %428 = getelementptr inbounds nuw i8, ptr %421, i64 %.pre-phi644
-  %429 = getelementptr inbounds %"class.std::complex", ptr %428, i64 %335
+  %429 = getelementptr inbounds [8 x i8], ptr %428, i64 %335
   %430 = load <2 x float>, ptr %427, align 4, !tbaa !57
   %431 = load float, ptr %429, align 4
   %432 = getelementptr inbounds nuw i8, ptr %429, i64 4
@@ -1606,19 +1604,19 @@ _ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.e
   %480 = sub nsw i32 %.2502, %27
   %481 = sext i32 %480 to i64
   %482 = load ptr, ptr %5, align 8, !tbaa !44
-  %483 = getelementptr inbounds nuw i32, ptr %482, i64 %481
+  %483 = getelementptr inbounds nuw [4 x i8], ptr %482, i64 %481
   %484 = load i32, ptr %483, align 4, !tbaa !34
   %485 = load i32, ptr %25, align 8, !tbaa !3
   %486 = add nsw i32 %485, %484
   %487 = sext i32 %.2502 to i64
-  %488 = getelementptr inbounds nuw i32, ptr %482, i64 %487
+  %488 = getelementptr inbounds nuw [4 x i8], ptr %482, i64 %487
   store i32 %486, ptr %488, align 4, !tbaa !34
   %489 = load ptr, ptr %6, align 8, !tbaa !44
-  %490 = getelementptr inbounds nuw i32, ptr %489, i64 %481
+  %490 = getelementptr inbounds nuw [4 x i8], ptr %489, i64 %481
   %491 = load i32, ptr %490, align 4, !tbaa !34
   %492 = load i32, ptr %25, align 8, !tbaa !3
   %493 = add nsw i32 %492, %491
-  %494 = getelementptr inbounds nuw i32, ptr %489, i64 %487
+  %494 = getelementptr inbounds nuw [4 x i8], ptr %489, i64 %487
   store i32 %493, ptr %494, align 4, !tbaa !34
   %.3493 = add i32 %.2502, 1
   br i1 %153, label %.lr.ph498, label %._crit_edge499
@@ -1646,10 +1644,10 @@ _ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.e
 507:                                              ; preds = %498
   %508 = mul i64 %506, %499
   %509 = getelementptr inbounds nuw i8, ptr %504, i64 %508
-  %510 = getelementptr inbounds %"class.std::complex", ptr %509, i64 %332
+  %510 = getelementptr inbounds [8 x i8], ptr %509, i64 %332
   %511 = mul i64 %506, %502
   %512 = getelementptr inbounds nuw i8, ptr %504, i64 %511
-  %513 = getelementptr inbounds %"class.std::complex", ptr %512, i64 %335
+  %513 = getelementptr inbounds [8 x i8], ptr %512, i64 %335
   %514 = load <2 x float>, ptr %510, align 4, !tbaa !57
   %515 = load float, ptr %513, align 4
   %516 = getelementptr inbounds nuw i8, ptr %513, i64 4
@@ -1690,9 +1688,9 @@ _ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit: ;
   %.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %531, i64 0
   %.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i, float %532, i64 1
   %533 = getelementptr inbounds nuw i8, ptr %530, i64 %.pre-phi
-  %534 = getelementptr inbounds %"class.std::complex", ptr %533, i64 %495
+  %534 = getelementptr inbounds [8 x i8], ptr %533, i64 %495
   %535 = getelementptr inbounds nuw i8, ptr %530, i64 %.pre-phi624
-  %536 = getelementptr inbounds %"class.std::complex", ptr %535, i64 %496
+  %536 = getelementptr inbounds [8 x i8], ptr %535, i64 %496
   %537 = load <2 x float>, ptr %534, align 4, !tbaa !57
   %538 = load float, ptr %536, align 4
   %539 = getelementptr inbounds nuw i8, ptr %536, i64 4
@@ -1731,11 +1729,11 @@ _ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit288
   %556 = sext i32 %501 to i64
   %557 = mul i64 %552, %556
   %558 = getelementptr inbounds nuw i8, ptr %553, i64 %557
-  %559 = getelementptr inbounds %"class.std::complex", ptr %558, i64 %332
+  %559 = getelementptr inbounds [8 x i8], ptr %558, i64 %332
   %560 = sext i32 %503 to i64
   %561 = mul i64 %552, %560
   %562 = getelementptr inbounds nuw i8, ptr %553, i64 %561
-  %563 = getelementptr inbounds %"class.std::complex", ptr %562, i64 %335
+  %563 = getelementptr inbounds [8 x i8], ptr %562, i64 %335
   %564 = load <2 x float>, ptr %559, align 4, !tbaa !57
   %565 = load float, ptr %563, align 4
   %566 = getelementptr inbounds nuw i8, ptr %563, i64 4
@@ -1775,9 +1773,9 @@ _ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit295
   %.sroa.0.0.vec.insert.i.i291 = insertelement <2 x float> poison, float %580, i64 0
   %.sroa.0.4.vec.insert.i.i292 = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i291, float %581, i64 1
   %582 = getelementptr inbounds nuw i8, ptr %579, i64 %.pre-phi626
-  %583 = getelementptr inbounds %"class.std::complex", ptr %582, i64 %495
+  %583 = getelementptr inbounds [8 x i8], ptr %582, i64 %495
   %584 = getelementptr inbounds nuw i8, ptr %579, i64 %.pre-phi628
-  %585 = getelementptr inbounds %"class.std::complex", ptr %584, i64 %496
+  %585 = getelementptr inbounds [8 x i8], ptr %584, i64 %496
   %586 = load <2 x float>, ptr %583, align 4, !tbaa !57
   %587 = load float, ptr %585, align 4
   %588 = getelementptr inbounds nuw i8, ptr %585, i64 4
@@ -1806,10 +1804,10 @@ _ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit295
 601:                                              ; preds = %498
   %602 = mul i64 %506, %502
   %603 = getelementptr inbounds nuw i8, ptr %504, i64 %602
-  %604 = getelementptr inbounds %"class.std::complex", ptr %603, i64 %332
+  %604 = getelementptr inbounds [8 x i8], ptr %603, i64 %332
   %605 = mul i64 %506, %499
   %606 = getelementptr inbounds nuw i8, ptr %504, i64 %605
-  %607 = getelementptr inbounds %"class.std::complex", ptr %606, i64 %335
+  %607 = getelementptr inbounds [8 x i8], ptr %606, i64 %335
   %608 = load <2 x float>, ptr %604, align 4, !tbaa !57
   %609 = load float, ptr %607, align 4
   %610 = getelementptr inbounds nuw i8, ptr %607, i64 4
@@ -1850,9 +1848,9 @@ _ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit309
   %.sroa.0.0.vec.insert.i.i305 = insertelement <2 x float> poison, float %625, i64 0
   %.sroa.0.4.vec.insert.i.i306 = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i305, float %626, i64 1
   %627 = getelementptr inbounds nuw i8, ptr %624, i64 %.pre-phi630
-  %628 = getelementptr inbounds %"class.std::complex", ptr %627, i64 %495
+  %628 = getelementptr inbounds [8 x i8], ptr %627, i64 %495
   %629 = getelementptr inbounds nuw i8, ptr %624, i64 %.pre-phi632
-  %630 = getelementptr inbounds %"class.std::complex", ptr %629, i64 %496
+  %630 = getelementptr inbounds [8 x i8], ptr %629, i64 %496
   %631 = load <2 x float>, ptr %628, align 4, !tbaa !57
   %632 = load float, ptr %630, align 4
   %633 = getelementptr inbounds nuw i8, ptr %630, i64 4
@@ -1891,11 +1889,11 @@ _ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit316
   %650 = sext i32 %503 to i64
   %651 = mul i64 %646, %650
   %652 = getelementptr inbounds nuw i8, ptr %647, i64 %651
-  %653 = getelementptr inbounds %"class.std::complex", ptr %652, i64 %332
+  %653 = getelementptr inbounds [8 x i8], ptr %652, i64 %332
   %654 = sext i32 %501 to i64
   %655 = mul i64 %646, %654
   %656 = getelementptr inbounds nuw i8, ptr %647, i64 %655
-  %657 = getelementptr inbounds %"class.std::complex", ptr %656, i64 %335
+  %657 = getelementptr inbounds [8 x i8], ptr %656, i64 %335
   %658 = load <2 x float>, ptr %653, align 4, !tbaa !57
   %659 = load float, ptr %657, align 4
   %660 = getelementptr inbounds nuw i8, ptr %657, i64 4
@@ -1935,9 +1933,9 @@ _ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit323
   %.sroa.0.0.vec.insert.i.i319 = insertelement <2 x float> poison, float %674, i64 0
   %.sroa.0.4.vec.insert.i.i320 = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i319, float %675, i64 1
   %676 = getelementptr inbounds nuw i8, ptr %673, i64 %.pre-phi634
-  %677 = getelementptr inbounds %"class.std::complex", ptr %676, i64 %495
+  %677 = getelementptr inbounds [8 x i8], ptr %676, i64 %495
   %678 = getelementptr inbounds nuw i8, ptr %673, i64 %.pre-phi636
-  %679 = getelementptr inbounds %"class.std::complex", ptr %678, i64 %496
+  %679 = getelementptr inbounds [8 x i8], ptr %678, i64 %496
   %680 = load <2 x float>, ptr %677, align 4, !tbaa !57
   %681 = load float, ptr %679, align 4
   %682 = getelementptr inbounds nuw i8, ptr %679, i64 4
@@ -2024,16 +2022,16 @@ _ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit302
   store float %739, ptr %736, align 4
   %740 = sext i32 %.3.in495 to i64
   %741 = load ptr, ptr %5, align 8, !tbaa !44
-  %742 = getelementptr inbounds nuw i32, ptr %741, i64 %740
+  %742 = getelementptr inbounds nuw [4 x i8], ptr %741, i64 %740
   %743 = load i32, ptr %742, align 4, !tbaa !34
   %744 = add nsw i32 %743, 1
-  %745 = getelementptr inbounds nuw i32, ptr %741, i64 %indvars.iv574
+  %745 = getelementptr inbounds nuw [4 x i8], ptr %741, i64 %indvars.iv574
   store i32 %744, ptr %745, align 4, !tbaa !34
   %746 = load ptr, ptr %6, align 8, !tbaa !44
-  %747 = getelementptr inbounds nuw i32, ptr %746, i64 %740
+  %747 = getelementptr inbounds nuw [4 x i8], ptr %746, i64 %740
   %748 = load i32, ptr %747, align 4, !tbaa !34
   %749 = add nsw i32 %748, 1
-  %750 = getelementptr inbounds nuw i32, ptr %746, i64 %indvars.iv574
+  %750 = getelementptr inbounds nuw [4 x i8], ptr %746, i64 %indvars.iv574
   store i32 %749, ptr %750, align 4, !tbaa !34
   %indvars.iv.next577 = add nuw nsw i64 %indvars.iv576, 1
   %indvars.iv.next575 = add nsw i64 %indvars.iv574, 1
@@ -2059,10 +2057,10 @@ _ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit302
   %757 = mul i64 %756, %indvars.iv588
   %758 = getelementptr inbounds nuw i8, ptr %754, i64 %757
   %759 = load ptr, ptr %5, align 8, !tbaa !44
-  %760 = getelementptr inbounds nuw i32, ptr %759, i64 %indvars.iv588
+  %760 = getelementptr inbounds nuw [4 x i8], ptr %759, i64 %indvars.iv588
   %761 = load i32, ptr %760, align 4, !tbaa !34
   %762 = load ptr, ptr %6, align 8, !tbaa !44
-  %763 = getelementptr inbounds nuw i32, ptr %762, i64 %indvars.iv588
+  %763 = getelementptr inbounds nuw [4 x i8], ptr %762, i64 %indvars.iv588
   %764 = load i32, ptr %763, align 4, !tbaa !34
   %765 = load ptr, ptr %329, align 8, !tbaa !53
   %766 = load ptr, ptr %330, align 8, !tbaa !54
@@ -2071,7 +2069,7 @@ _ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit302
   %769 = mul i64 %767, %768
   %770 = getelementptr inbounds nuw i8, ptr %765, i64 %769
   %771 = sext i32 %764 to i64
-  %772 = getelementptr inbounds %"class.std::complex", ptr %770, i64 %771
+  %772 = getelementptr inbounds [8 x i8], ptr %770, i64 %771
   %773 = load i64, ptr %758, align 4, !tbaa !57
   store i64 %773, ptr %772, align 4, !tbaa !57
   %indvars.iv.next589 = add nuw nsw i64 %indvars.iv588, 1
@@ -2602,9 +2600,9 @@ _ZNSt6vectorIN2cv8ximgproc18EstimateCovariance11CombinationESaIS3_EE11_S_relocat
 
 _ZNSt12_Vector_baseIN2cv8ximgproc18EstimateCovariance11CombinationESaIS3_EE13_M_deallocateEPS3_m.exit38: ; preds = %_ZNSt6vectorIN2cv8ximgproc18EstimateCovariance11CombinationESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %42
   store ptr %32, ptr %0, align 8, !tbaa !14
-  %43 = getelementptr inbounds nuw %"struct.cv::ximgproc::EstimateCovariance::Combination", ptr %33, i64 %1
+  %43 = getelementptr inbounds nuw [24 x i8], ptr %33, i64 %1
   store ptr %43, ptr %4, align 8, !tbaa !15
-  %44 = getelementptr inbounds nuw %"struct.cv::ximgproc::EstimateCovariance::Combination", ptr %32, i64 %30
+  %44 = getelementptr inbounds nuw [24 x i8], ptr %32, i64 %30
   store ptr %44, ptr %11, align 8, !tbaa !94
   br label %45
 

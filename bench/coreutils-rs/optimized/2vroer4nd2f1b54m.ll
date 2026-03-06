@@ -11776,8 +11776,8 @@ define hidden void @_ZN4core3ptr19swap_nonoverlapping17h3c6ffe4f6a7551d1E.llvm.7
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.05 = phi i64 [ %9, %.lr.ph ], [ 0, %3 ]
-  %5 = getelementptr inbounds i64, ptr %0, i64 %.05
-  %6 = getelementptr inbounds i64, ptr %1, i64 %.05
+  %5 = getelementptr inbounds [8 x i8], ptr %0, i64 %.05
+  %6 = getelementptr inbounds [8 x i8], ptr %1, i64 %.05
   %7 = load i64, ptr %5, align 8
   %8 = load i64, ptr %6, align 8
   store i64 %8, ptr %5, align 8
@@ -14927,8 +14927,8 @@ define hidden void @"_ZN5alloc11collections11linked_list19LinkedList$LT$T$GT$6ap
 
 .lr.ph.i:                                         ; preds = %2, %.lr.ph.i
   %.05.i = phi i64 [ %10, %.lr.ph.i ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw i64, ptr %0, i64 %.05.i
-  %7 = getelementptr inbounds nuw i64, ptr %1, i64 %.05.i
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.05.i
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.05.i
   %8 = load i64, ptr %6, align 8
   %9 = load i64, ptr %7, align 8
   store i64 %9, ptr %6, align 8

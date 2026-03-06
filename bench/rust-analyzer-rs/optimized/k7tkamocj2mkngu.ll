@@ -85,7 +85,7 @@ define hidden void @"_ZN146_$LT$$LT$cargo_metadata..messages..ArtifactDebuginfo$
   br i1 %3, label %switch.lookup, label %4
 
 switch.lookup:                                    ; preds = %2
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5serde2de7Visitor9visit_u3217he419088b055fde97E, i64 %1
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5serde2de7Visitor9visit_u3217he419088b055fde97E, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %4
 
@@ -156,7 +156,7 @@ define hidden void @"_ZN146_$LT$$LT$cargo_metadata..messages..ArtifactDebuginfo$
   br i1 %3, label %switch.lookup, label %4
 
 switch.lookup:                                    ; preds = %2
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5serde2de7Visitor9visit_u3217he419088b055fde97E, i64 %1
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5serde2de7Visitor9visit_u3217he419088b055fde97E, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %4
 
@@ -369,7 +369,7 @@ define hidden void @_ZN14cargo_metadata8messages7Message19BuildScriptExecuted17h
 define hidden { i64, i32 } @_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h09638652a50a5b0fE(ptr noundef %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = ptrtoint ptr %0 to i64
   %3 = urem i64 %2, 67
-  %4 = getelementptr inbounds nuw { { { i64 } }, [15 x i64] }, ptr @_ZN15crossbeam_utils6atomic11atomic_cell4lock5LOCKS17h1d6d82bcdf51e06aE, i64 %3
+  %4 = getelementptr inbounds nuw [128 x i8], ptr @_ZN15crossbeam_utils6atomic11atomic_cell4lock5LOCKS17h1d6d82bcdf51e06aE, i64 %3
   %5 = load atomic i64, ptr %4 acquire, align 8
   %.not = icmp eq i64 %5, 1
   br i1 %.not, label %10, label %6
@@ -441,7 +441,7 @@ _ZN15crossbeam_utils6atomic8seq_lock7SeqLock5write17hcee33be407eb2aebE.exit: ; p
 define hidden void @_ZN15crossbeam_utils6atomic11atomic_cell28atomic_compare_exchange_weak17h6378c4ee3185df4bE(ptr noalias noundef writeonly sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5) unnamed_addr #1 personality ptr @rust_eh_personality {
   %7 = ptrtoint ptr %1 to i64
   %8 = urem i64 %7, 67
-  %9 = getelementptr inbounds nuw { { { i64 } }, [15 x i64] }, ptr @_ZN15crossbeam_utils6atomic11atomic_cell4lock5LOCKS17h1d6d82bcdf51e06aE, i64 %8
+  %9 = getelementptr inbounds nuw [128 x i8], ptr @_ZN15crossbeam_utils6atomic11atomic_cell4lock5LOCKS17h1d6d82bcdf51e06aE, i64 %8
   %10 = atomicrmw xchg ptr %9, i64 1 acquire, align 8
   %11 = icmp eq i64 %10, 1
   br i1 %11, label %.lr.ph.i, label %.loopexit
@@ -4295,7 +4295,7 @@ define hidden void @_ZN5serde2de7Visitor8visit_i817h6ab2c0c809d6341fE(ptr noalia
 
 switch.lookup:                                    ; preds = %2
   %4 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5serde2de7Visitor9visit_u3217he419088b055fde97E, i64 %4
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5serde2de7Visitor9visit_u3217he419088b055fde97E, i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %"_ZN146_$LT$$LT$cargo_metadata..messages..ArtifactDebuginfo$u20$as$u20$serde..de..Deserialize$GT$..deserialize..Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_i6417h151abb43a1bae355E.llvm.14766313156815909311.exit"
 
@@ -4373,7 +4373,7 @@ define hidden void @_ZN5serde2de7Visitor8visit_u817h3bb84b76cb478ad0E(ptr noalia
 
 switch.lookup:                                    ; preds = %2
   %4 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5serde2de7Visitor9visit_u3217he419088b055fde97E, i64 %4
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5serde2de7Visitor9visit_u3217he419088b055fde97E, i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %"_ZN146_$LT$$LT$cargo_metadata..messages..ArtifactDebuginfo$u20$as$u20$serde..de..Deserialize$GT$..deserialize..Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h08a12908a9e535edE.llvm.14766313156815909311.exit"
 
@@ -4464,7 +4464,7 @@ define hidden void @_ZN5serde2de7Visitor9visit_i1617h56e97799f6da2677E(ptr noali
 
 switch.lookup:                                    ; preds = %2
   %4 = zext nneg i16 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5serde2de7Visitor9visit_u3217he419088b055fde97E, i64 %4
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5serde2de7Visitor9visit_u3217he419088b055fde97E, i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %"_ZN146_$LT$$LT$cargo_metadata..messages..ArtifactDebuginfo$u20$as$u20$serde..de..Deserialize$GT$..deserialize..Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_i6417h151abb43a1bae355E.llvm.14766313156815909311.exit"
 
@@ -4484,7 +4484,7 @@ define hidden void @_ZN5serde2de7Visitor9visit_i3217h00200844fb73c1e3E(ptr noali
 
 switch.lookup:                                    ; preds = %2
   %4 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5serde2de7Visitor9visit_u3217he419088b055fde97E, i64 %4
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5serde2de7Visitor9visit_u3217he419088b055fde97E, i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %"_ZN146_$LT$$LT$cargo_metadata..messages..ArtifactDebuginfo$u20$as$u20$serde..de..Deserialize$GT$..deserialize..Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_i6417h151abb43a1bae355E.llvm.14766313156815909311.exit"
 
@@ -4532,7 +4532,7 @@ define hidden void @_ZN5serde2de7Visitor9visit_u1617h8a5c4281ad7b329cE(ptr noali
 
 switch.lookup:                                    ; preds = %2
   %4 = zext nneg i16 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5serde2de7Visitor9visit_u3217he419088b055fde97E, i64 %4
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5serde2de7Visitor9visit_u3217he419088b055fde97E, i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %"_ZN146_$LT$$LT$cargo_metadata..messages..ArtifactDebuginfo$u20$as$u20$serde..de..Deserialize$GT$..deserialize..Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h08a12908a9e535edE.llvm.14766313156815909311.exit"
 
@@ -4552,7 +4552,7 @@ define hidden void @_ZN5serde2de7Visitor9visit_u3217he419088b055fde97E(ptr noali
 
 switch.lookup:                                    ; preds = %2
   %4 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5serde2de7Visitor9visit_u3217he419088b055fde97E, i64 %4
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5serde2de7Visitor9visit_u3217he419088b055fde97E, i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %"_ZN146_$LT$$LT$cargo_metadata..messages..ArtifactDebuginfo$u20$as$u20$serde..de..Deserialize$GT$..deserialize..Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h08a12908a9e535edE.llvm.14766313156815909311.exit"
 

@@ -517,7 +517,7 @@ _ZN4core3ops8function6FnOnce9call_once17heae92c8194d8b71dE.exit: ; preds = %14
   br i1 %60, label %"_ZN4core3ptr45drop_in_place$LT$syn..buffer..TokenBuffer$GT$17h7fb2265c46bf69b2E.exit46", label %61
 
 61:                                               ; preds = %59
-  %62 = getelementptr inbounds { i32, [9 x i32] }, ptr %57, i64 %.0.i.i.i
+  %62 = getelementptr inbounds [40 x i8], ptr %57, i64 %.0.i.i.i
   %63 = add i64 %.0.i.i.i, 1
   invoke void @"_ZN4core3ptr39drop_in_place$LT$syn..buffer..Entry$GT$17h367669b455029e71E.llvm.566609780180471337"(ptr noalias noundef nonnull align 8 dereferenceable(40) %62)
           to label %59 unwind label %66, !noalias !63
@@ -533,7 +533,7 @@ _ZN4core3ops8function6FnOnce9call_once17heae92c8194d8b71dE.exit: ; preds = %14
   br label %64
 
 68:                                               ; preds = %64
-  %69 = getelementptr inbounds { i32, [9 x i32] }, ptr %57, i64 %.1.i.i.i
+  %69 = getelementptr inbounds [40 x i8], ptr %57, i64 %.1.i.i.i
   %70 = add i64 %.1.i.i.i, 1
   invoke void @"_ZN4core3ptr39drop_in_place$LT$syn..buffer..Entry$GT$17h367669b455029e71E.llvm.566609780180471337"(ptr noalias noundef nonnull align 8 dereferenceable(40) %69) #10
           to label %64 unwind label %71, !noalias !63
@@ -616,7 +616,7 @@ common.resume:                                    ; preds = %.body, %.body.i.i45
   br i1 %94, label %"_ZN4core3ptr45drop_in_place$LT$syn..buffer..TokenBuffer$GT$17h7fb2265c46bf69b2E.exit46", label %95
 
 95:                                               ; preds = %93
-  %96 = getelementptr inbounds { i32, [9 x i32] }, ptr %91, i64 %.0.i.i.i43
+  %96 = getelementptr inbounds [40 x i8], ptr %91, i64 %.0.i.i.i43
   %97 = add i64 %.0.i.i.i43, 1
   invoke void @"_ZN4core3ptr39drop_in_place$LT$syn..buffer..Entry$GT$17h367669b455029e71E.llvm.566609780180471337"(ptr noalias noundef nonnull align 8 dereferenceable(40) %96)
           to label %93 unwind label %100, !noalias !86
@@ -632,7 +632,7 @@ common.resume:                                    ; preds = %.body, %.body.i.i45
   br label %98
 
 102:                                              ; preds = %98
-  %103 = getelementptr inbounds { i32, [9 x i32] }, ptr %91, i64 %.1.i.i.i44
+  %103 = getelementptr inbounds [40 x i8], ptr %91, i64 %.1.i.i.i44
   %104 = add i64 %.1.i.i.i44, 1
   invoke void @"_ZN4core3ptr39drop_in_place$LT$syn..buffer..Entry$GT$17h367669b455029e71E.llvm.566609780180471337"(ptr noalias noundef nonnull align 8 dereferenceable(40) %103) #10
           to label %98 unwind label %105, !noalias !86
@@ -862,7 +862,7 @@ _ZN4core3ops8function6FnOnce9call_once17hd8cc605bb2df6d39E.exit: ; preds = %13
   br i1 %63, label %"_ZN4core3ptr45drop_in_place$LT$syn..buffer..TokenBuffer$GT$17h7fb2265c46bf69b2E.exit51", label %64
 
 64:                                               ; preds = %62
-  %65 = getelementptr inbounds { i32, [9 x i32] }, ptr %60, i64 %.0.i.i.i
+  %65 = getelementptr inbounds [40 x i8], ptr %60, i64 %.0.i.i.i
   %66 = add i64 %.0.i.i.i, 1
   invoke void @"_ZN4core3ptr39drop_in_place$LT$syn..buffer..Entry$GT$17h367669b455029e71E.llvm.566609780180471337"(ptr noalias noundef nonnull align 8 dereferenceable(40) %65)
           to label %62 unwind label %69, !noalias !113
@@ -878,7 +878,7 @@ _ZN4core3ops8function6FnOnce9call_once17hd8cc605bb2df6d39E.exit: ; preds = %13
   br label %67
 
 71:                                               ; preds = %67
-  %72 = getelementptr inbounds { i32, [9 x i32] }, ptr %60, i64 %.1.i.i.i
+  %72 = getelementptr inbounds [40 x i8], ptr %60, i64 %.1.i.i.i
   %73 = add i64 %.1.i.i.i, 1
   invoke void @"_ZN4core3ptr39drop_in_place$LT$syn..buffer..Entry$GT$17h367669b455029e71E.llvm.566609780180471337"(ptr noalias noundef nonnull align 8 dereferenceable(40) %72) #10
           to label %67 unwind label %74, !noalias !113
@@ -960,7 +960,7 @@ common.resume:                                    ; preds = %.body37, %.body.i.i
   br i1 %96, label %"_ZN4core3ptr45drop_in_place$LT$syn..buffer..TokenBuffer$GT$17h7fb2265c46bf69b2E.exit51", label %97
 
 97:                                               ; preds = %95
-  %98 = getelementptr inbounds { i32, [9 x i32] }, ptr %93, i64 %.0.i.i.i48
+  %98 = getelementptr inbounds [40 x i8], ptr %93, i64 %.0.i.i.i48
   %99 = add i64 %.0.i.i.i48, 1
   invoke void @"_ZN4core3ptr39drop_in_place$LT$syn..buffer..Entry$GT$17h367669b455029e71E.llvm.566609780180471337"(ptr noalias noundef nonnull align 8 dereferenceable(40) %98)
           to label %95 unwind label %102, !noalias !136
@@ -976,7 +976,7 @@ common.resume:                                    ; preds = %.body37, %.body.i.i
   br label %100
 
 104:                                              ; preds = %100
-  %105 = getelementptr inbounds { i32, [9 x i32] }, ptr %93, i64 %.1.i.i.i49
+  %105 = getelementptr inbounds [40 x i8], ptr %93, i64 %.1.i.i.i49
   %106 = add i64 %.1.i.i.i49, 1
   invoke void @"_ZN4core3ptr39drop_in_place$LT$syn..buffer..Entry$GT$17h367669b455029e71E.llvm.566609780180471337"(ptr noalias noundef nonnull align 8 dereferenceable(40) %105) #10
           to label %100 unwind label %107, !noalias !136
@@ -1185,7 +1185,7 @@ _ZN4core3ops8function6FnOnce9call_once17haf7bb7d8e75da6a5E.exit: ; preds = %14
   br i1 %58, label %"_ZN4core3ptr45drop_in_place$LT$syn..buffer..TokenBuffer$GT$17h7fb2265c46bf69b2E.exit49", label %59
 
 59:                                               ; preds = %57
-  %60 = getelementptr inbounds { i32, [9 x i32] }, ptr %55, i64 %.0.i.i.i
+  %60 = getelementptr inbounds [40 x i8], ptr %55, i64 %.0.i.i.i
   %61 = add i64 %.0.i.i.i, 1
   invoke void @"_ZN4core3ptr39drop_in_place$LT$syn..buffer..Entry$GT$17h367669b455029e71E.llvm.566609780180471337"(ptr noalias noundef nonnull align 8 dereferenceable(40) %60)
           to label %57 unwind label %64, !noalias !163
@@ -1201,7 +1201,7 @@ _ZN4core3ops8function6FnOnce9call_once17haf7bb7d8e75da6a5E.exit: ; preds = %14
   br label %62
 
 66:                                               ; preds = %62
-  %67 = getelementptr inbounds { i32, [9 x i32] }, ptr %55, i64 %.1.i.i.i
+  %67 = getelementptr inbounds [40 x i8], ptr %55, i64 %.1.i.i.i
   %68 = add i64 %.1.i.i.i, 1
   invoke void @"_ZN4core3ptr39drop_in_place$LT$syn..buffer..Entry$GT$17h367669b455029e71E.llvm.566609780180471337"(ptr noalias noundef nonnull align 8 dereferenceable(40) %67) #10
           to label %62 unwind label %69, !noalias !163
@@ -1284,7 +1284,7 @@ common.resume:                                    ; preds = %.body, %.body.i.i48
   br i1 %91, label %"_ZN4core3ptr45drop_in_place$LT$syn..buffer..TokenBuffer$GT$17h7fb2265c46bf69b2E.exit49", label %92
 
 92:                                               ; preds = %90
-  %93 = getelementptr inbounds { i32, [9 x i32] }, ptr %88, i64 %.0.i.i.i46
+  %93 = getelementptr inbounds [40 x i8], ptr %88, i64 %.0.i.i.i46
   %94 = add i64 %.0.i.i.i46, 1
   invoke void @"_ZN4core3ptr39drop_in_place$LT$syn..buffer..Entry$GT$17h367669b455029e71E.llvm.566609780180471337"(ptr noalias noundef nonnull align 8 dereferenceable(40) %93)
           to label %90 unwind label %97, !noalias !186
@@ -1300,7 +1300,7 @@ common.resume:                                    ; preds = %.body, %.body.i.i48
   br label %95
 
 99:                                               ; preds = %95
-  %100 = getelementptr inbounds { i32, [9 x i32] }, ptr %88, i64 %.1.i.i.i47
+  %100 = getelementptr inbounds [40 x i8], ptr %88, i64 %.1.i.i.i47
   %101 = add i64 %.1.i.i.i47, 1
   invoke void @"_ZN4core3ptr39drop_in_place$LT$syn..buffer..Entry$GT$17h367669b455029e71E.llvm.566609780180471337"(ptr noalias noundef nonnull align 8 dereferenceable(40) %100) #10
           to label %95 unwind label %102, !noalias !186

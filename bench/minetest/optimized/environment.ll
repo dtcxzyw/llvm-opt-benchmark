@@ -22,32 +22,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base.123" = type { %"struct.std::_Vector_base<irr::core::aabbox3d<float>, std::allocator<irr::core::aabbox3d<float>>>::_Vector_impl" }
 %"struct.std::_Vector_base<irr::core::aabbox3d<float>, std::allocator<irr::core::aabbox3d<float>>>::_Vector_impl" = type { %"struct.std::_Vector_base<irr::core::aabbox3d<float>, std::allocator<irr::core::aabbox3d<float>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<irr::core::aabbox3d<float>, std::allocator<irr::core::aabbox3d<float>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%struct.ContentFeatures = type <{ [6 x %struct.TileSpec], [6 x %struct.TileSpec], i8, i8, i8, i8, i8, i8, i8, i8, %"class.std::__cxx11::basic_string", %"class.std::unordered_map.130", i8, i8, i8, [5 x i8], %"class.std::__cxx11::basic_string", [24 x ptr], %"class.irr::video::SColor", float, [6 x %struct.TileDef], [6 x %struct.TileDef], [6 x %struct.TileDef], i8, [3 x i8], %"class.irr::video::SColor", %"class.std::__cxx11::basic_string", ptr, i8, i8, [6 x i8], %"class.std::vector.146", %"class.std::vector.151", %"class.irr::video::SColor", i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, [3 x i8], i32, %"class.std::__cxx11::basic_string", i8, i8, i8, [5 x i8], %"class.std::__cxx11::basic_string", i16, [6 x i8], %"class.std::__cxx11::basic_string", i16, i8, i8, i8, i8, i8, i8, %struct.NodeBox, %struct.NodeBox, %struct.NodeBox, %struct.SoundSpec, %struct.SoundSpec, %struct.SoundSpec, i8, i8, [6 x i8] }>
-%struct.TileSpec = type { i8, i8, i8, [5 x i8], [2 x %struct.TileLayer] }
-%struct.TileLayer = type <{ ptr, ptr, ptr, i32, i32, i16, i16, i8, i8, i8, i8, ptr, %"class.irr::video::SColor", i8, [3 x i8] }>
-%"class.std::unordered_map.130" = type { %"class.std::_Hashtable.131" }
-%"class.std::_Hashtable.131" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"struct.std::__detail::_Hash_node_base" = type { ptr }
-%"struct.std::__detail::_Prime_rehash_policy" = type { float, i64 }
-%struct.TileDef = type <{ %"class.std::__cxx11::basic_string", i8, i8, i8, i8, %"class.irr::video::SColor", i8, i8, [2 x i8], %struct.TileAnimationParams, [4 x i8] }>
-%struct.TileAnimationParams = type { i8, %union.anon.144 }
-%union.anon.144 = type { %struct.anon }
-%struct.anon = type { i32, i32, float }
-%"class.std::vector.146" = type { %"struct.std::_Vector_base.147" }
-%"struct.std::_Vector_base.147" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.151" = type { %"struct.std::_Vector_base.152" }
-%"struct.std::_Vector_base.152" = type { %"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.irr::video::SColor" = type { i32 }
-%struct.NodeBox = type { i8, %"class.std::vector.122", %"class.irr::core::aabbox3d.116", %"class.irr::core::aabbox3d.116", %"class.irr::core::aabbox3d.116", %"class.std::shared_ptr" }
-%"class.irr::core::aabbox3d.116" = type { %"class.irr::core::vector3d", %"class.irr::core::vector3d" }
-%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
-%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
-%struct.SoundSpec = type <{ %"class.std::__cxx11::basic_string", float, float, float, float, i8, i8, [6 x i8] }>
 %"struct.__gnu_cxx::__ops::_Iter_comp_iter" = type { %struct.RaycastSort }
 
 $_ZNSt14priority_queueI12PointedThingSt6vectorIS0_SaIS0_EE11RaycastSortE4pushERKS0_ = comdat any
@@ -739,7 +713,7 @@ if.end48.i:                                       ; preds = %for.inc75.6.i, %for
   %i38.0117.lcssa.wide.i = phi i64 [ 4294967295, %for.body42.preheader.i ], [ 0, %for.inc75.i ], [ 1, %for.inc75.1.i ], [ 2, %for.inc75.2.i ], [ 3, %for.inc75.3.i ], [ 4, %for.inc75.4.i ], [ 5, %for.inc75.5.i ], [ 6, %for.inc75.6.i ]
   %arrayidx44.lcssa.i = phi ptr [ @__const._Z22time_to_daynight_ratiofb.values, %for.body42.preheader.i ], [ getelementptr inbounds nuw (i8, ptr @__const._Z22time_to_daynight_ratiofb.values, i64 8), %for.inc75.i ], [ getelementptr inbounds nuw (i8, ptr @__const._Z22time_to_daynight_ratiofb.values, i64 16), %for.inc75.1.i ], [ getelementptr inbounds nuw (i8, ptr @__const._Z22time_to_daynight_ratiofb.values, i64 24), %for.inc75.2.i ], [ getelementptr inbounds nuw (i8, ptr @__const._Z22time_to_daynight_ratiofb.values, i64 32), %for.inc75.3.i ], [ getelementptr inbounds nuw (i8, ptr @__const._Z22time_to_daynight_ratiofb.values, i64 40), %for.inc75.4.i ], [ getelementptr inbounds nuw (i8, ptr @__const._Z22time_to_daynight_ratiofb.values, i64 48), %for.inc75.5.i ], [ getelementptr inbounds nuw (i8, ptr @__const._Z22time_to_daynight_ratiofb.values, i64 56), %for.inc75.6.i ]
   %.lcssa.i = phi float [ 4.375000e+03, %for.body42.preheader.i ], [ 4.625000e+03, %for.inc75.i ], [ 4.875000e+03, %for.inc75.1.i ], [ 5.125000e+03, %for.inc75.2.i ], [ 5.375000e+03, %for.inc75.3.i ], [ 5.625000e+03, %for.inc75.4.i ], [ 5.875000e+03, %for.inc75.5.i ], [ 6.125000e+03, %for.inc75.6.i ]
-  %arrayidx54.i = getelementptr inbounds nuw [2 x float], ptr @__const._Z22time_to_daynight_ratiofb.values, i64 %i38.0117.lcssa.wide.i
+  %arrayidx54.i = getelementptr inbounds nuw [8 x i8], ptr @__const._Z22time_to_daynight_ratiofb.values, i64 %i38.0117.lcssa.wide.i
   %7 = load float, ptr %arrayidx54.i, align 8, !tbaa !42
   %sub56.i = fsub nsz float %.lcssa.i, %7
   %sub61.i = fsub nsz float %t.2.i, %7
@@ -1313,7 +1287,7 @@ if.end160:                                        ; preds = %for.body154
   br i1 %cmp.i.i.i531, label %land.lhs.true.i.i.i, label %cond.false.i.i.i
 
 land.lhs.true.i.i.i:                              ; preds = %if.end160
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw %struct.ContentFeatures, ptr %call2.val, i64 %conv.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [3712 x i8], ptr %call2.val, i64 %conv.i.i.i
   %_M_string_length.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i, i64 1456
   %37 = load i64, ptr %_M_string_length.i.i.i.i.i, align 8, !tbaa !30
   %cmp.i.i.i.i = icmp eq i64 %37, 0
@@ -1695,7 +1669,7 @@ if.then.i41.i.i.i:                                ; preds = %_ZNSt6vectorI12Poin
 _ZNSt6vectorI12PointedThingSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i: ; preds = %if.then.i41.i.i.i, %_ZNSt6vectorI12PointedThingSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit40.i.i.i
   store ptr %call5.i.i.i.i.i.i645, ptr %m_found27, align 8, !tbaa !84
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i.i, align 8, !tbaa !145
-  %add.ptr19.i.i.i = getelementptr inbounds nuw %struct.PointedThing, ptr %call5.i.i.i.i.i.i645, i64 %cond.i.i.i.i
+  %add.ptr19.i.i.i = getelementptr inbounds nuw [72 x i8], ptr %call5.i.i.i.i.i.i645, i64 %cond.i.i.i.i
   store ptr %add.ptr19.i.i.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !136
   br label %_ZNSt6vectorI12PointedThingSaIS0_EE9push_backERKS0_.exit.i
 
@@ -1718,7 +1692,7 @@ land.rhs.i.i.i:                                   ; preds = %_ZNSt6vectorI12Poin
   %__holeIndex.addr.032.i.i.i = phi i64 [ %__parent.033.i1011.i.i, %while.body.i.i.i ], [ %sub.i.i642, %_ZNSt6vectorI12PointedThingSaIS0_EE9push_backERKS0_.exit.i ]
   %__parent.033.in.i.i.i = add nsw i64 %__holeIndex.addr.032.i.i.i, -1
   %__parent.033.i1011.i.i = lshr i64 %__parent.033.in.i.i.i, 1
-  %add.ptr.i.i.i.i643 = getelementptr inbounds nuw %struct.PointedThing, ptr %85, i64 %__parent.033.i1011.i.i
+  %add.ptr.i.i.i.i643 = getelementptr inbounds nuw [72 x i8], ptr %85, i64 %__parent.033.i1011.i.i
   %call2.i.i.i.i646 = invoke noundef zeroext i1 @_ZNK11RaycastSortclERK12PointedThingS2_(ptr noundef nonnull align 1 dereferenceable(1) %__cmp.i.i, ptr noundef nonnull align 4 dereferenceable(69) %add.ptr.i.i.i.i643, ptr noundef nonnull align 4 dereferenceable(69) %agg.tmp68.i.i)
           to label %call2.i.i.i.i.noexc unwind label %lpad252.loopexit
 
@@ -1726,14 +1700,14 @@ call2.i.i.i.i.noexc:                              ; preds = %land.rhs.i.i.i
   br i1 %call2.i.i.i.i646, label %while.body.i.i.i, label %invoke.cont305
 
 while.body.i.i.i:                                 ; preds = %call2.i.i.i.i.noexc
-  %add.ptr.i24.i.i.i = getelementptr inbounds %struct.PointedThing, ptr %85, i64 %__holeIndex.addr.032.i.i.i
+  %add.ptr.i24.i.i.i = getelementptr inbounds [72 x i8], ptr %85, i64 %__holeIndex.addr.032.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(69) %add.ptr.i24.i.i.i, ptr noundef nonnull align 4 dereferenceable(69) %add.ptr.i.i.i.i643, i64 69, i1 false), !tbaa.struct !146
   %cmp.i.not.i.i = icmp ult i64 %__parent.033.in.i.i.i, 2
   br i1 %cmp.i.not.i.i, label %invoke.cont305, label %land.rhs.i.i.i, !llvm.loop !152
 
 invoke.cont305:                                   ; preds = %while.body.i.i.i, %call2.i.i.i.i.noexc, %_ZNSt6vectorI12PointedThingSaIS0_EE9push_backERKS0_.exit.i
   %__holeIndex.addr.0.lcssa.i.i.i = phi i64 [ %sub.i.i642, %_ZNSt6vectorI12PointedThingSaIS0_EE9push_backERKS0_.exit.i ], [ 0, %while.body.i.i.i ], [ %__holeIndex.addr.032.i.i.i, %call2.i.i.i.i.noexc ]
-  %add.ptr.i25.i.i.i = getelementptr inbounds %struct.PointedThing, ptr %85, i64 %__holeIndex.addr.0.lcssa.i.i.i
+  %add.ptr.i25.i.i.i = getelementptr inbounds [72 x i8], ptr %85, i64 %__holeIndex.addr.0.lcssa.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(69) %add.ptr.i25.i.i.i, ptr noundef nonnull align 8 dereferenceable(69) %agg.tmp68.i.i, i64 69, i1 false), !tbaa.struct !146
   call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp68.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %__cmp.i.i)
@@ -1911,7 +1885,7 @@ if.then.i41.i.i:                                  ; preds = %_ZNSt6vectorI12Poin
 _ZNSt6vectorI12PointedThingSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i: ; preds = %if.then.i41.i.i, %_ZNSt6vectorI12PointedThingSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit40.i.i
   store ptr %call5.i.i.i.i.i, ptr %this, align 8, !tbaa !84
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i, align 8, !tbaa !145
-  %add.ptr19.i.i = getelementptr inbounds nuw %struct.PointedThing, ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
+  %add.ptr19.i.i = getelementptr inbounds nuw [72 x i8], ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
   store ptr %add.ptr19.i.i, ptr %_M_end_of_storage.i, align 8, !tbaa !136
   br label %_ZNSt6vectorI12PointedThingSaIS0_EE9push_backERKS0_.exit
 
@@ -1934,19 +1908,19 @@ land.rhs.i.i:                                     ; preds = %_ZNSt6vectorI12Poin
   %__holeIndex.addr.032.i.i = phi i64 [ %__parent.033.i1011.i, %while.body.i.i ], [ %sub.i, %_ZNSt6vectorI12PointedThingSaIS0_EE9push_backERKS0_.exit ]
   %__parent.033.in.i.i = add nsw i64 %__holeIndex.addr.032.i.i, -1
   %__parent.033.i1011.i = lshr i64 %__parent.033.in.i.i, 1
-  %add.ptr.i.i.i = getelementptr inbounds nuw %struct.PointedThing, ptr %6, i64 %__parent.033.i1011.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [72 x i8], ptr %6, i64 %__parent.033.i1011.i
   %call2.i.i.i = call noundef zeroext i1 @_ZNK11RaycastSortclERK12PointedThingS2_(ptr noundef nonnull align 1 dereferenceable(1) %__cmp.i, ptr noundef nonnull align 4 dereferenceable(69) %add.ptr.i.i.i, ptr noundef nonnull align 4 dereferenceable(69) %agg.tmp68.i)
   br i1 %call2.i.i.i, label %while.body.i.i, label %_ZSt9push_heapIN9__gnu_cxx17__normal_iteratorIP12PointedThingSt6vectorIS2_SaIS2_EEEE11RaycastSortEvT_S9_T0_.exit
 
 while.body.i.i:                                   ; preds = %land.rhs.i.i
-  %add.ptr.i24.i.i = getelementptr inbounds %struct.PointedThing, ptr %6, i64 %__holeIndex.addr.032.i.i
+  %add.ptr.i24.i.i = getelementptr inbounds [72 x i8], ptr %6, i64 %__holeIndex.addr.032.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(69) %add.ptr.i24.i.i, ptr noundef nonnull align 4 dereferenceable(69) %add.ptr.i.i.i, i64 69, i1 false), !tbaa.struct !146
   %cmp.i.not.i = icmp ult i64 %__parent.033.in.i.i, 2
   br i1 %cmp.i.not.i, label %_ZSt9push_heapIN9__gnu_cxx17__normal_iteratorIP12PointedThingSt6vectorIS2_SaIS2_EEEE11RaycastSortEvT_S9_T0_.exit, label %land.rhs.i.i, !llvm.loop !152
 
 _ZSt9push_heapIN9__gnu_cxx17__normal_iteratorIP12PointedThingSt6vectorIS2_SaIS2_EEEE11RaycastSortEvT_S9_T0_.exit: ; preds = %while.body.i.i, %land.rhs.i.i, %_ZNSt6vectorI12PointedThingSaIS0_EE9push_backERKS0_.exit
   %__holeIndex.addr.0.lcssa.i.i = phi i64 [ %sub.i, %_ZNSt6vectorI12PointedThingSaIS0_EE9push_backERKS0_.exit ], [ %__holeIndex.addr.032.i.i, %land.rhs.i.i ], [ 0, %while.body.i.i ]
-  %add.ptr.i25.i.i = getelementptr inbounds %struct.PointedThing, ptr %6, i64 %__holeIndex.addr.0.lcssa.i.i
+  %add.ptr.i25.i.i = getelementptr inbounds [72 x i8], ptr %6, i64 %__holeIndex.addr.0.lcssa.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(69) %add.ptr.i25.i.i, ptr noundef nonnull align 8 dereferenceable(69) %agg.tmp68.i, i64 69, i1 false), !tbaa.struct !146
   call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp68.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %__cmp.i)
@@ -1995,13 +1969,13 @@ while.body.i.i.i:                                 ; preds = %if.then.i, %while.b
   %__holeIndex.addr.065.i.i.i = phi i64 [ %spec.select.i.i.i, %while.body.i.i.i ], [ 0, %if.then.i ]
   %add.i.i.i = shl i64 %__holeIndex.addr.065.i.i.i, 1
   %mul.i.i.i = add i64 %add.i.i.i, 2
-  %add.ptr.i.i.i.i = getelementptr inbounds %struct.PointedThing, ptr %0, i64 %mul.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds [72 x i8], ptr %0, i64 %mul.i.i.i
   %sub3.i.i.i = or disjoint i64 %add.i.i.i, 1
-  %add.ptr.i53.i.i.i = getelementptr inbounds %struct.PointedThing, ptr %0, i64 %sub3.i.i.i
+  %add.ptr.i53.i.i.i = getelementptr inbounds [72 x i8], ptr %0, i64 %sub3.i.i.i
   %call4.i.i.i.i = call noundef zeroext i1 @_ZNK11RaycastSortclERK12PointedThingS2_(ptr noundef nonnull align 1 dereferenceable(1) %__comp.i.i.i, ptr noundef nonnull align 4 dereferenceable(69) %add.ptr.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(69) %add.ptr.i53.i.i.i)
   %spec.select.i.i.i = select i1 %call4.i.i.i.i, i64 %sub3.i.i.i, i64 %mul.i.i.i
-  %add.ptr.i54.i.i.i = getelementptr inbounds %struct.PointedThing, ptr %0, i64 %spec.select.i.i.i
-  %add.ptr.i55.i.i.i = getelementptr inbounds %struct.PointedThing, ptr %0, i64 %__holeIndex.addr.065.i.i.i
+  %add.ptr.i54.i.i.i = getelementptr inbounds [72 x i8], ptr %0, i64 %spec.select.i.i.i
+  %add.ptr.i55.i.i.i = getelementptr inbounds [72 x i8], ptr %0, i64 %__holeIndex.addr.065.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(69) %add.ptr.i55.i.i.i, ptr noundef nonnull align 4 dereferenceable(69) %add.ptr.i54.i.i.i, i64 69, i1 false), !tbaa.struct !146
   %cmp.i.i.i = icmp slt i64 %spec.select.i.i.i, %div.i.i.i
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %while.end.i.i.i, !llvm.loop !162
@@ -2021,8 +1995,8 @@ land.lhs.true.i.i.i:                              ; preds = %while.end.i.i.i
 if.then20.i.i.i:                                  ; preds = %land.lhs.true.i.i.i
   %add21.i.i.i = shl nsw i64 %__holeIndex.addr.0.lcssa.i.i.i, 1
   %sub24.i.i.i = or disjoint i64 %add21.i.i.i, 1
-  %add.ptr.i56.i.i.i = getelementptr inbounds %struct.PointedThing, ptr %0, i64 %sub24.i.i.i
-  %add.ptr.i57.i.i.i = getelementptr inbounds %struct.PointedThing, ptr %0, i64 %__holeIndex.addr.0.lcssa.i.i.i
+  %add.ptr.i56.i.i.i = getelementptr inbounds [72 x i8], ptr %0, i64 %sub24.i.i.i
+  %add.ptr.i57.i.i.i = getelementptr inbounds [72 x i8], ptr %0, i64 %__holeIndex.addr.0.lcssa.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(69) %add.ptr.i57.i.i.i, ptr noundef nonnull align 4 dereferenceable(69) %add.ptr.i56.i.i.i, i64 69, i1 false), !tbaa.struct !146
   br label %if.end33.i.i.i
 
@@ -2038,19 +2012,19 @@ land.rhs.i.i.i.i:                                 ; preds = %if.end33.i.i.i, %wh
   %__holeIndex.addr.032.i.i.i.i = phi i64 [ %__parent.033.i.i1213.i.i, %while.body.i.i.i.i ], [ %__holeIndex.addr.1.i.i.i, %if.end33.i.i.i ]
   %__parent.033.in.i.i.i.i = add nsw i64 %__holeIndex.addr.032.i.i.i.i, -1
   %__parent.033.i.i1213.i.i = lshr i64 %__parent.033.in.i.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw %struct.PointedThing, ptr %0, i64 %__parent.033.i.i1213.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw [72 x i8], ptr %0, i64 %__parent.033.i.i1213.i.i
   %call2.i.i.i.i.i = call noundef zeroext i1 @_ZNK11RaycastSortclERK12PointedThingS2_(ptr noundef nonnull align 1 dereferenceable(1) %__cmp.i.i.i, ptr noundef nonnull align 4 dereferenceable(69) %add.ptr.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(69) %agg.tmp3558.i.i.i)
   br i1 %call2.i.i.i.i.i, label %while.body.i.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIP12PointedThingSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterI11RaycastSortEEEvT_SC_SC_RT0_.exit.i
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
-  %add.ptr.i24.i.i.i.i = getelementptr inbounds nuw %struct.PointedThing, ptr %0, i64 %__holeIndex.addr.032.i.i.i.i
+  %add.ptr.i24.i.i.i.i = getelementptr inbounds nuw [72 x i8], ptr %0, i64 %__holeIndex.addr.032.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(69) %add.ptr.i24.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(69) %add.ptr.i.i.i.i.i, i64 69, i1 false), !tbaa.struct !146
   %cmp.i.i.not.i.i = icmp ult i64 %__parent.033.in.i.i.i.i, 2
   br i1 %cmp.i.i.not.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIP12PointedThingSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterI11RaycastSortEEEvT_SC_SC_RT0_.exit.i, label %land.rhs.i.i.i.i, !llvm.loop !152
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIP12PointedThingSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterI11RaycastSortEEEvT_SC_SC_RT0_.exit.i: ; preds = %while.body.i.i.i.i, %land.rhs.i.i.i.i, %if.end33.i.i.i
   %__holeIndex.addr.0.lcssa.i.i.i.i = phi i64 [ %__holeIndex.addr.1.i.i.i, %if.end33.i.i.i ], [ %__holeIndex.addr.032.i.i.i.i, %land.rhs.i.i.i.i ], [ 0, %while.body.i.i.i.i ]
-  %add.ptr.i25.i.i.i.i = getelementptr inbounds %struct.PointedThing, ptr %0, i64 %__holeIndex.addr.0.lcssa.i.i.i.i
+  %add.ptr.i25.i.i.i.i = getelementptr inbounds [72 x i8], ptr %0, i64 %__holeIndex.addr.0.lcssa.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(69) %add.ptr.i25.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(69) %agg.tmp3558.i.i.i, i64 69, i1 false), !tbaa.struct !146
   call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp3558.i.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %__cmp.i.i.i)

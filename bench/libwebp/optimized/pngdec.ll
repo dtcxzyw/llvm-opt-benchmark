@@ -530,7 +530,7 @@ define internal fastcc range(i32 0, 2) i32 @ExtractMetadataFromPNG(ptr noundef %
 
 19:                                               ; preds = %.preheader, %18
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %18 ]
-  %20 = getelementptr inbounds nuw %struct.anon, ptr @kPNGMetadataMap, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [24 x i8], ptr @kPNGMetadataMap, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8, !tbaa !39
   %22 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) %21) #21
   %.not39 = icmp eq i32 %22, 0

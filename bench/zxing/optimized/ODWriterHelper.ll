@@ -48,7 +48,7 @@ define void @_ZN5ZXing4OneD12WriterHelper12RenderResultERKSt6vectorIbSaIbEEiii(p
   %22 = load ptr, ptr %1, align 8, !tbaa !3
   %23 = lshr i32 %.036, 6
   %.zext = zext nneg i32 %23 to i64
-  %24 = getelementptr inbounds nuw i64, ptr %22, i64 %.zext
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %.zext
   %25 = and i32 %.036, 63
   %26 = zext nneg i32 %25 to i64
   %27 = shl nuw i64 1, %26
@@ -210,7 +210,7 @@ define noundef i32 @_ZN5ZXing4OneD12WriterHelper13AppendPatternERSt6vectorIbSaIb
   %.01625 = phi i64 [ 0, %.lr.ph28 ], [ %26, %._crit_edge ]
   %.01724 = phi i32 [ 0, %.lr.ph28 ], [ %24, %._crit_edge ]
   %.018.in23 = phi i1 [ %4, %.lr.ph28 ], [ %25, %._crit_edge ]
-  %8 = getelementptr inbounds nuw i32, ptr %2, i64 %.01625
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.01625
   %9 = load i32, ptr %8, align 4, !tbaa !26
   %10 = icmp sgt i32 %9, 0
   br i1 %10, label %.lr.ph, label %._crit_edge
@@ -226,7 +226,7 @@ _ZNSt14_Bit_referenceaSEb.exit.us:                ; preds = %.lr.ph, %_ZNSt14_Bi
   %12 = trunc nsw i64 %indvars.iv35 to i32
   %13 = sdiv i32 %12, 64
   %.sext.us = sext i32 %13 to i64
-  %14 = getelementptr inbounds i64, ptr %6, i64 %.sext.us
+  %14 = getelementptr inbounds [8 x i8], ptr %6, i64 %.sext.us
   %15 = and i64 %indvars.iv35, -9223372036854775745
   %16 = icmp ugt i64 %15, -9223372036854775808
   %storemerge.idx.i.i.i.i.i.us = select i1 %16, i64 -8, i64 0
@@ -263,7 +263,7 @@ _ZNSt14_Bit_referenceaSEb.exit:                   ; preds = %.lr.ph, %_ZNSt14_Bi
   %27 = trunc nsw i64 %indvars.iv to i32
   %28 = sdiv i32 %27, 64
   %.sext = sext i32 %28 to i64
-  %29 = getelementptr inbounds i64, ptr %6, i64 %.sext
+  %29 = getelementptr inbounds [8 x i8], ptr %6, i64 %.sext
   %30 = and i64 %indvars.iv, -9223372036854775745
   %31 = icmp ugt i64 %30, -9223372036854775808
   %storemerge.idx.i.i.i.i.i = select i1 %31, i64 -8, i64 0

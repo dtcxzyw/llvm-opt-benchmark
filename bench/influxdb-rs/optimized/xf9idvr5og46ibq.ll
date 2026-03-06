@@ -7081,10 +7081,10 @@ define internal { ptr, i64 } @"_ZN70_$LT$core..num..error..ParseIntError$u20$as$
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !159, !noundef !4
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN70_$LT$core..num..error..ParseIntError$u20$as$u20$core..error..Error$GT$11description17h8ca43abc0c0fd6b6E", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN70_$LT$core..num..error..ParseIntError$u20$as$u20$core..error..Error$GT$11description17h8ca43abc0c0fd6b6E", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN70_$LT$core..num..error..ParseIntError$u20$as$u20$core..error..Error$GT$11description17h8ca43abc0c0fd6b6E.72", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN70_$LT$core..num..error..ParseIntError$u20$as$u20$core..error..Error$GT$11description17h8ca43abc0c0fd6b6E.72", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -9577,7 +9577,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17he62257500e7c8da9E.exit.i:
 268:                                              ; preds = %._crit_edge.i.i, %256
   %269 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %257, %256 ]
   %270 = load ptr, ptr %65, align 8, !alias.scope !1898, !noalias !1901, !nonnull !4, !noundef !4
-  %271 = getelementptr inbounds { { { { { { ptr, i64 }, i64 } } } }, i32, [1 x i32] }, ptr %270, i64 %269
+  %271 = getelementptr inbounds [32 x i8], ptr %270, i64 %269
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %271, ptr noundef nonnull align 8 dereferenceable(32) %56, i64 32, i1 false), !noalias !1847
   %272 = add i64 %269, 1
   store i64 %272, ptr %71, align 8, !alias.scope !1898, !noalias !1901
@@ -14252,7 +14252,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17he62257500e7c8da9E.exit231
 783:                                              ; preds = %._crit_edge.i.i, %770
   %784 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %774, %770 ]
   %785 = load ptr, ptr %771, align 8, !alias.scope !2675, !noalias !2678, !nonnull !4, !noundef !4
-  %786 = getelementptr inbounds { { { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, i64 } }, ptr %785, i64 %784
+  %786 = getelementptr inbounds [56 x i8], ptr %785, i64 %784
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %786, ptr noundef nonnull align 8 dereferenceable(56) %772, i64 56, i1 false)
   %787 = load i64, ptr %773, align 8, !alias.scope !2675, !noalias !2678, !noundef !4
   %788 = add i64 %787, 1
@@ -14358,7 +14358,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17he62257500e7c8da9E.exit231
 819:                                              ; preds = %._crit_edge.i212.i, %807
   %820 = phi i64 [ %.pre.i213.i, %._crit_edge.i212.i ], [ %810, %807 ]
   %821 = load ptr, ptr %808, align 8, !alias.scope !2690, !noalias !2693, !nonnull !4, !noundef !4
-  %822 = getelementptr inbounds { { { i64, [3 x i64] }, ptr }, ptr }, ptr %821, i64 %820
+  %822 = getelementptr inbounds [48 x i8], ptr %821, i64 %820
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %822, ptr noundef nonnull align 8 dereferenceable(48) %110, i64 48, i1 false)
   %823 = load i64, ptr %809, align 8, !alias.scope !2690, !noalias !2693, !noundef !4
   %824 = add i64 %823, 1

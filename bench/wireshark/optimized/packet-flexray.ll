@@ -10,7 +10,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.anon.0 = type { ptr, ptr, ptr }
 %struct.anon.1 = type { ptr, ptr, ptr }
 %struct.flexray_info = type { i16, i8, i8, i16 }
-%struct._sender_receiver_config = type { i32, i32, i32, i32, ptr, ptr }
 
 @flexrayid_subdissector_table = internal unnamed_addr global ptr null, align 8
 @subdissector_table = internal unnamed_addr global ptr null, align 8
@@ -988,7 +987,7 @@ define internal void @post_update_sender_receiver_cb() #0 {
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %3 ]
   %6 = tail call noalias dereferenceable_or_null(8) ptr @g_malloc(i64 noundef 8) #10
   %7 = load ptr, ptr @sender_receiver_configs, align 8
-  %8 = getelementptr %struct._sender_receiver_config, ptr %7, i64 %indvars.iv
+  %8 = getelementptr [32 x i8], ptr %7, i64 %indvars.iv
   %9 = load i32, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %11 = load i32, ptr %10, align 4

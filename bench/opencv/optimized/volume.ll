@@ -169,7 +169,7 @@ _ZN2cv7Affine3IfEC2Ev.exit:                       ; preds = %19
 
 22:                                               ; preds = %22, %21
   %indvars.iv.i = phi i64 [ 0, %21 ], [ %indvars.iv.next.i, %22 ]
-  %23 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv.i
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv.i
   store i32 512, ptr %23, align 4, !tbaa !22, !alias.scope !23
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
@@ -223,7 +223,7 @@ _ZN2cv3VecIiLi3EE3allEi.exit:                     ; preds = %22
 
 42:                                               ; preds = %42, %41
   %indvars.iv.i10 = phi i64 [ 0, %41 ], [ %indvars.iv.next.i11, %42 ]
-  %43 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv.i10
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv.i10
   store i32 512, ptr %43, align 4, !tbaa !22, !alias.scope !46
   %indvars.iv.next.i11 = add nuw nsw i64 %indvars.iv.i10, 1
   %exitcond.not.i12 = icmp eq i64 %indvars.iv.next.i11, 3
@@ -325,7 +325,7 @@ define void @_ZN2cv5kinfu12VolumeParams12coarseParamsENS0_10VolumeTypeE(ptr dead
 
 11:                                               ; preds = %11, %10
   %indvars.iv.i = phi i64 [ 0, %10 ], [ %indvars.iv.next.i, %11 ]
-  %12 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv.i
   store i32 128, ptr %12, align 4, !tbaa !22, !alias.scope !67
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
@@ -344,7 +344,7 @@ _ZN2cv3VecIiLi3EE3allEi.exit:                     ; preds = %11
 
 15:                                               ; preds = %15, %14
   %indvars.iv.i12 = phi i64 [ 0, %14 ], [ %indvars.iv.next.i13, %15 ]
-  %16 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i12
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i12
   store i32 128, ptr %16, align 4, !tbaa !22, !alias.scope !70
   %indvars.iv.next.i13 = add nuw nsw i64 %indvars.iv.i12, 1
   %exitcond.not.i14 = icmp eq i64 %indvars.iv.next.i13, 3

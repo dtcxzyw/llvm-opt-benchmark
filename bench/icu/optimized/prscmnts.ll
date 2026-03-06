@@ -390,7 +390,7 @@ define dso_local noundef i32 @getText(ptr noundef %0, i32 noundef %1, ptr nounde
 
 .preheader:                                       ; preds = %41, %46
   %indvars.iv = phi i64 [ %indvars.iv.next, %46 ], [ 0, %41 ]
-  %47 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %7, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 %indvars.iv
   %48 = invoke noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7712RegexMatcher5resetERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(336) %10, ptr noundef nonnull align 8 dereferenceable(64) %47)
           to label %49 unwind label %58
 
@@ -765,7 +765,7 @@ define dso_local i32 @getCount(ptr noundef %0, i32 noundef %1, i32 noundef %2, p
 35:                                               ; preds = %33
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %36 = zext i32 %2 to i64
-  %37 = getelementptr inbounds nuw ptr, ptr @patternStrings, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr @patternStrings, i64 %36
   %38 = load ptr, ptr %37, align 8, !tbaa !19
   invoke void @_ZN6icu_7713UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef %38)
           to label %39 unwind label %46
@@ -810,7 +810,7 @@ define dso_local i32 @getCount(ptr noundef %0, i32 noundef %1, i32 noundef %2, p
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %56
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %56 ]
   %.02353 = phi i32 [ 0, %.lr.ph.preheader ], [ %spec.select, %56 ]
-  %52 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %5, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 %indvars.iv
   %53 = invoke noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7712RegexMatcher5resetERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(336) %9, ptr noundef nonnull align 8 dereferenceable(64) %52)
           to label %54 unwind label %58
 
@@ -988,7 +988,7 @@ define dso_local noundef i32 @getAt(ptr noundef %0, i32 noundef %1, ptr noundef 
 40:                                               ; preds = %38
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %41 = zext i32 %5 to i64
-  %42 = getelementptr inbounds nuw ptr, ptr @patternStrings, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr @patternStrings, i64 %41
   %43 = load ptr, ptr %42, align 8, !tbaa !19
   invoke void @_ZN6icu_7713UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef %43)
           to label %44 unwind label %50
@@ -1027,7 +1027,7 @@ define dso_local noundef i32 @getAt(ptr noundef %0, i32 noundef %1, ptr noundef 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %77
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %77 ]
   %.02664 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %77 ]
-  %54 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %8, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [64 x i8], ptr %8, i64 %indvars.iv
   %55 = invoke noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7712RegexMatcher5resetERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(336) %12, ptr noundef nonnull align 8 dereferenceable(64) %54)
           to label %56 unwind label %67
 

@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %union.anon = type { ptr }
-%struct.SliceContext = type { ptr, ptr, i32, i32 }
 
 @.str = private unnamed_addr constant [5 x i8] c"vmix\00", align 1
 @.str.1 = private unnamed_addr constant [11 x i8] c"vMix Video\00", align 1
@@ -115,7 +114,7 @@ thread-pre-split.thread:                          ; preds = %10, %thread-pre-spl
   %42 = load i8, ptr %41, align 1, !tbaa !40
   %43 = zext i8 %42 to i16
   %44 = mul nuw i16 %43, %26
-  %45 = getelementptr inbounds nuw i16, ptr %27, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [2 x i8], ptr %27, i64 %indvars.iv
   store i16 %44, ptr %45, align 2, !tbaa !43
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
@@ -149,7 +148,7 @@ thread-pre-split.thread:                          ; preds = %10, %thread-pre-spl
   br i1 %60, label %.critedge, label %61
 
 61:                                               ; preds = %56
-  %62 = getelementptr inbounds nuw %struct.SliceContext, ptr %37, i64 %indvars.iv127
+  %62 = getelementptr inbounds nuw [24 x i8], ptr %37, i64 %indvars.iv127
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   store i32 %54, ptr %63, align 8, !tbaa !47
   %64 = getelementptr inbounds nuw i8, ptr %53, i64 4
@@ -182,7 +181,7 @@ thread-pre-split.thread:                          ; preds = %10, %thread-pre-spl
   br i1 %79, label %.critedge, label %80
 
 80:                                               ; preds = %75
-  %81 = getelementptr inbounds nuw %struct.SliceContext, ptr %37, i64 %indvars.iv131
+  %81 = getelementptr inbounds nuw [24 x i8], ptr %37, i64 %indvars.iv131
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 20
   store i32 %73, ptr %82, align 4, !tbaa !51
   %83 = getelementptr inbounds nuw i8, ptr %72, i64 4
@@ -237,7 +236,7 @@ define internal range(i32 -1094995529, 1) i32 @decode_slices(ptr noundef readonl
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 200
   %9 = load ptr, ptr %8, align 8, !tbaa !42
   %10 = sext i32 %2 to i64
-  %11 = getelementptr inbounds %struct.SliceContext, ptr %9, i64 %10
+  %11 = getelementptr inbounds [24 x i8], ptr %9, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !49
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !52
@@ -314,10 +313,10 @@ bits_init8_be.exit31.i:                           ; preds = %33, %30
   %46 = load i32, ptr %38, align 8, !tbaa !56
   %47 = ashr i32 %46, %45
   %.val.i = load ptr, ptr %6, align 8, !tbaa !4
-  %48 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv.i
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %indvars.iv.i
   %49 = load i32, ptr %48, align 4, !tbaa !55
   %50 = sext i32 %49 to i64
-  %51 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.i
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.i
   %52 = load ptr, ptr %51, align 8, !tbaa !61
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %53 = getelementptr inbounds nuw i8, ptr %.val.i, i64 8
@@ -798,13 +797,13 @@ get_ue_golomb_long.exit149.us.i.i:                ; preds = %bits_read_nz_be.exi
   %286 = getelementptr inbounds nuw i8, ptr %54, i64 %indvars.iv.i.i
   %287 = load i8, ptr %286, align 1, !tbaa !40
   %288 = zext i8 %287 to i64
-  %289 = getelementptr inbounds nuw i16, ptr %53, i64 %288
+  %289 = getelementptr inbounds nuw [2 x i8], ptr %53, i64 %288
   %290 = load i16, ptr %289, align 2, !tbaa !43
   %291 = sext i16 %290 to i32
   %292 = mul i32 %285, %291
   %293 = lshr i32 %292, 4
   %294 = trunc i32 %293 to i16
-  %295 = getelementptr inbounds nuw i16, ptr %5, i64 %288
+  %295 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %288
   store i16 %294, ptr %295, align 2, !tbaa !43
   %.not87.us.i.i = icmp eq i32 %283, %284
   br i1 %.not87.us.i.i, label %296, label %get_ue_golomb_long.exit.us.i.i

@@ -308,7 +308,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN75_$LT$usize$u
   br i1 %5, label %6, label %8, !prof !45
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds ptr, ptr %1, i64 %0
+  %7 = getelementptr inbounds [8 x i8], ptr %1, i64 %0
   ret ptr %7
 
 8:                                                ; preds = %4
@@ -322,7 +322,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN75_$LT$usize$u
   br i1 %5, label %6, label %8, !prof !45
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds ptr, ptr %1, i64 %0
+  %7 = getelementptr inbounds [8 x i8], ptr %1, i64 %0
   ret ptr %7
 
 8:                                                ; preds = %4
@@ -351,7 +351,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN80_$LT$smallve
   %11 = load ptr, ptr %10, align 8, !nonnull !11
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sink8.i = select i1 %5, ptr %11, ptr %12
-  %13 = getelementptr inbounds ptr, ptr %.sink8.i, i64 %1
+  %13 = getelementptr inbounds [8 x i8], ptr %.sink8.i, i64 %1
   ret ptr %13
 }
 
@@ -442,7 +442,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN83_$LT$smallve
   %11 = load ptr, ptr %10, align 8, !nonnull !11
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sink13.i = select i1 %5, ptr %11, ptr %12
-  %13 = getelementptr inbounds ptr, ptr %.sink13.i, i64 %1
+  %13 = getelementptr inbounds [8 x i8], ptr %.sink13.i, i64 %1
   ret ptr %13
 }
 
@@ -823,7 +823,7 @@ define hidden void @"_ZN8smallvec17SmallVec$LT$A$GT$6insert17h999ac5928038a5a5E"
   br label %22
 
 29:                                               ; preds = %22
-  %30 = getelementptr inbounds ptr, ptr %.sroa.04.0, i64 %1
+  %30 = getelementptr inbounds [8 x i8], ptr %.sroa.04.0, i64 %1
   %31 = icmp ult i64 %1, %23
   br i1 %31, label %36, label %33
 

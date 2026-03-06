@@ -14,14 +14,9 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.agxbuf = type { %union.anon.4 }
 %union.anon.4 = type { %struct.anon.5 }
 %struct.anon.5 = type { ptr, i64, i64, [7 x i8], i8 }
-%struct.parse_block = type { i32, ptr, %struct.case_infos_t, %struct.case_infos_t }
 %struct.case_infos_t = type { ptr, i64, i64, i64 }
-%struct.comp_block = type { ptr, i8, i64, i64, ptr, ptr }
 %union.EX_STYPE = type { ptr }
-%struct.TrieState = type { i16, i16, i64 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
-%struct.case_info = type { i32, ptr, i32, ptr }
-%struct.case_stmt = type { ptr, ptr }
 
 @TrieStateTbl = local_unnamed_addr global [70 x { i16, i16, [4 x i8], i64 }] [{ i16, i16, [4 x i8], i64 } { i16 -1, i16 0, [4 x i8] zeroinitializer, i64 3900960 }, { i16, i16, [4 x i8], i64 } { i16 -1, i16 9, [4 x i8] zeroinitializer, i64 1088 }, { i16, i16, [4 x i8], i64 } { i16 -1, i16 11, [4 x i8] zeroinitializer, i64 256 }, { i16, i16, [4 x i8], i64 } { i16 -1, i16 12, [4 x i8] zeroinitializer, i64 524288 }, { i16, i16, [4 x i8], i64 } { i16 -1, i16 13, [4 x i8] zeroinitializer, i64 64 }, { i16, i16, [4 x i8], i64 } { i16 -1, i16 14, [4 x i8] zeroinitializer, i64 64 }, { i16, i16, [4 x i8], i64 } { i16 16, i16 15, [4 x i8] zeroinitializer, i64 0 }, { i16, i16, [4 x i8], i64 } { i16 -1, i16 15, [4 x i8] zeroinitializer, i64 524288 }, { i16, i16, [4 x i8], i64 } { i16 -1, i16 16, [4 x i8] zeroinitializer, i64 64 }, { i16, i16, [4 x i8], i64 } { i16 -1, i16 17, [4 x i8] zeroinitializer, i64 16 }, { i16, i16, [4 x i8], i64 } { i16 -1, i16 18, [4 x i8] zeroinitializer, i64 2097152 }, { i16, i16, [4 x i8], i64 } { i16 -1, i16 19, [4 x i8] zeroinitializer, i64 64 }, { i16, i16, [4 x i8], i64 } { i16 -1, i16 20, [4 x i8] zeroinitializer, i64 32 }, { i16, i16, [4 x i8], i64 } { i16 64, i16 21, [4 x i8] zeroinitializer, i64 0 }, { i16, i16, [4 x i8], i64 } { i16 -1, i16 21, [4 x i8] zeroinitializer, i64 64 }, { i16, i16, [4 x i8], i64 } { i16 -1, i16 22, [4 x i8] zeroinitializer, i64 4 }, { i16, i16, [4 x i8], i64 } { i16 -1, i16 23, [4 x i8] zeroinitializer, i64 32 }, { i16, i16, [4 x i8], i64 } { i16 32, i16 24, [4 x i8] zeroinitializer, i64 0 }, { i16, i16, [4 x i8], i64 } { i16 -1, i16 24, [4 x i8] zeroinitializer, i64 32768 }, { i16, i16, [4 x i8], i64 } { i16 -1, i16 25, [4 x i8] zeroinitializer, i64 32 }, { i16, i16, [4 x i8], i64 } { i16 -1, i16 26, [4 x i8] zeroinitializer, i64 64 }, { i16, i16, [4 x i8], i64 } { i16 -1, i16 27, [4 x i8] zeroinitializer, i64 256 }, { i16, i16, [4 x i8], i64 } { i16 -1, i16 28, [4 x i8] zeroinitializer, i64 524288 }, { i16, i16, [4 x i8], i64 } { i16 -1, i16 29, [4 x i8] zeroinitializer, i64 64 }, { i16, i16, [4 x i8], i64 } { i16 -1, i16 30, [4 x i8] zeroinitializer, i64 64 }, { i16, i16, [4 x i8], i64 } { i16 16, i16 31, [4 x i8] zeroinitializer, i64 0 }, { i16, i16, [4 x i8], i64 } { i16 -1, i16 31, [4 x i8] zeroinitializer, i64 5 }, { i16, i16, [4 x i8], i64 } { i16 -1, i16 33, [4 x i8] zeroinitializer, i64 32832 }, { i16, i16, [4 x i8], i64 } { i16 -1, i16 35, [4 x i8] zeroinitializer, i64 32 }, { i16, i16, [4 x i8], i64 } { i16 -1, i16 36, [4 x i8] zeroinitializer, i64 256 }, { i16, i16, [4 x i8], i64 } { i16 -1, i16 37, [4 x i8] zeroinitializer, i64 64 }, { i16, i16, [4 x i8], i64 } { i16 -1, i16 38, [4 x i8] zeroinitializer, i64 1048576 }, { i16, i16, [4 x i8], i64 } { i16 64, i16 39, [4 x i8] zeroinitializer, i64 0 }, { i16, i16, [4 x i8], i64 } { i16 -1, i16 39, [4 x i8] zeroinitializer, i64 65536 }, { i16, i16, [4 x i8], i64 } { i16 -1, i16 40, [4 x i8] zeroinitializer, i64 32 }, { i16, i16, [4 x i8], i64 } { i16 -1, i16 41, [4 x i8] zeroinitializer, i64 64 }, { i16, i16, [4 x i8], i64 } { i16 -1, i16 42, [4 x i8] zeroinitializer, i64 1048576 }, { i16, i16, [4 x i8], i64 } { i16 64, i16 43, [4 x i8] zeroinitializer, i64 0 }, { i16, i16, [4 x i8], i64 } { i16 -1, i16 43, [4 x i8] zeroinitializer, i64 16384 }, { i16, i16, [4 x i8], i64 } { i16 -1, i16 44, [4 x i8] zeroinitializer, i64 64 }, { i16, i16, [4 x i8], i64 } { i16 112, i16 45, [4 x i8] zeroinitializer, i64 0 }, { i16, i16, [4 x i8], i64 } { i16 -1, i16 45, [4 x i8] zeroinitializer, i64 4194304 }, { i16, i16, [4 x i8], i64 } { i16 -1, i16 46, [4 x i8] zeroinitializer, i64 2097152 }, { i16, i16, [4 x i8], i64 } { i16 -1, i16 47, [4 x i8] zeroinitializer, i64 32 }, { i16, i16, [4 x i8], i64 } { i16 -1, i16 48, [4 x i8] zeroinitializer, i64 64 }, { i16, i16, [4 x i8], i64 } { i16 -1, i16 49, [4 x i8] zeroinitializer, i64 256 }, { i16, i16, [4 x i8], i64 } { i16 -1, i16 50, [4 x i8] zeroinitializer, i64 524288 }, { i16, i16, [4 x i8], i64 } { i16 -1, i16 51, [4 x i8] zeroinitializer, i64 64 }, { i16, i16, [4 x i8], i64 } { i16 -1, i16 52, [4 x i8] zeroinitializer, i64 64 }, { i16, i16, [4 x i8], i64 } { i16 16, i16 53, [4 x i8] zeroinitializer, i64 0 }, { i16, i16, [4 x i8], i64 } { i16 -1, i16 53, [4 x i8] zeroinitializer, i64 4 }, { i16, i16, [4 x i8], i64 } { i16 -1, i16 54, [4 x i8] zeroinitializer, i64 524288 }, { i16, i16, [4 x i8], i64 } { i16 -1, i16 55, [4 x i8] zeroinitializer, i64 64 }, { i16, i16, [4 x i8], i64 } { i16 -1, i16 56, [4 x i8] zeroinitializer, i64 32768 }, { i16, i16, [4 x i8], i64 } { i16 -1, i16 57, [4 x i8] zeroinitializer, i64 2097152 }, { i16, i16, [4 x i8], i64 } { i16 64, i16 58, [4 x i8] zeroinitializer, i64 0 }, { i16, i16, [4 x i8], i64 } { i16 -1, i16 58, [4 x i8] zeroinitializer, i64 65536 }, { i16, i16, [4 x i8], i64 } { i16 -1, i16 59, [4 x i8] zeroinitializer, i64 65536 }, { i16, i16, [4 x i8], i64 } { i16 -1, i16 60, [4 x i8] zeroinitializer, i64 2097152 }, { i16, i16, [4 x i8], i64 } { i16 112, i16 61, [4 x i8] zeroinitializer, i64 0 }, { i16, i16, [4 x i8], i64 } { i16 -1, i16 61, [4 x i8] zeroinitializer, i64 2097152 }, { i16, i16, [4 x i8], i64 } { i16 -1, i16 62, [4 x i8] zeroinitializer, i64 524288 }, { i16, i16, [4 x i8], i64 } { i16 -1, i16 63, [4 x i8] zeroinitializer, i64 1024 }, { i16, i16, [4 x i8], i64 } { i16 -1, i16 64, [4 x i8] zeroinitializer, i64 16 }, { i16, i16, [4 x i8], i64 } { i16 -1, i16 65, [4 x i8] zeroinitializer, i64 2097152 }, { i16, i16, [4 x i8], i64 } { i16 64, i16 66, [4 x i8] zeroinitializer, i64 0 }, { i16, i16, [4 x i8], i64 } { i16 -1, i16 66, [4 x i8] zeroinitializer, i64 4 }, { i16, i16, [4 x i8], i64 } { i16 -1, i16 67, [4 x i8] zeroinitializer, i64 1024 }, { i16, i16, [4 x i8], i64 } { i16 -1, i16 68, [4 x i8] zeroinitializer, i64 8192 }, { i16, i16, [4 x i8], i64 } { i16 32, i16 69, [4 x i8] zeroinitializer, i64 0 }], align 16
 @TrieTransTbl = local_unnamed_addr global [69 x %struct.TrieTrans] [%struct.TrieTrans { i16 100, i16 1 }, %struct.TrieTrans { i16 104, i16 14 }, %struct.TrieTrans { i16 105, i16 18 }, %struct.TrieTrans { i16 110, i16 26 }, %struct.TrieTrans { i16 111, i16 41 }, %struct.TrieTrans { i16 112, i16 50 }, %struct.TrieTrans { i16 114, i16 56 }, %struct.TrieTrans { i16 115, i16 60 }, %struct.TrieTrans { i16 116, i16 66 }, %struct.TrieTrans { i16 101, i16 2 }, %struct.TrieTrans { i16 105, i16 7 }, %struct.TrieTrans { i16 103, i16 3 }, %struct.TrieTrans { i16 114, i16 4 }, %struct.TrieTrans { i16 101, i16 5 }, %struct.TrieTrans { i16 101, i16 6 }, %struct.TrieTrans { i16 114, i16 8 }, %struct.TrieTrans { i16 101, i16 9 }, %struct.TrieTrans { i16 99, i16 10 }, %struct.TrieTrans { i16 116, i16 11 }, %struct.TrieTrans { i16 101, i16 12 }, %struct.TrieTrans { i16 100, i16 13 }, %struct.TrieTrans { i16 101, i16 15 }, %struct.TrieTrans { i16 97, i16 16 }, %struct.TrieTrans { i16 100, i16 17 }, %struct.TrieTrans { i16 110, i16 19 }, %struct.TrieTrans { i16 100, i16 20 }, %struct.TrieTrans { i16 101, i16 21 }, %struct.TrieTrans { i16 103, i16 22 }, %struct.TrieTrans { i16 114, i16 23 }, %struct.TrieTrans { i16 101, i16 24 }, %struct.TrieTrans { i16 101, i16 25 }, %struct.TrieTrans { i16 95, i16 27 }, %struct.TrieTrans { i16 97, i16 38 }, %struct.TrieTrans { i16 101, i16 28 }, %struct.TrieTrans { i16 110, i16 33 }, %struct.TrieTrans { i16 100, i16 29 }, %struct.TrieTrans { i16 103, i16 30 }, %struct.TrieTrans { i16 101, i16 31 }, %struct.TrieTrans { i16 115, i16 32 }, %struct.TrieTrans { i16 111, i16 34 }, %struct.TrieTrans { i16 100, i16 35 }, %struct.TrieTrans { i16 101, i16 36 }, %struct.TrieTrans { i16 115, i16 37 }, %struct.TrieTrans { i16 109, i16 39 }, %struct.TrieTrans { i16 101, i16 40 }, %struct.TrieTrans { i16 117, i16 42 }, %struct.TrieTrans { i16 116, i16 43 }, %struct.TrieTrans { i16 100, i16 44 }, %struct.TrieTrans { i16 101, i16 45 }, %struct.TrieTrans { i16 103, i16 46 }, %struct.TrieTrans { i16 114, i16 47 }, %struct.TrieTrans { i16 101, i16 48 }, %struct.TrieTrans { i16 101, i16 49 }, %struct.TrieTrans { i16 97, i16 51 }, %struct.TrieTrans { i16 114, i16 52 }, %struct.TrieTrans { i16 101, i16 53 }, %struct.TrieTrans { i16 110, i16 54 }, %struct.TrieTrans { i16 116, i16 55 }, %struct.TrieTrans { i16 111, i16 57 }, %struct.TrieTrans { i16 111, i16 58 }, %struct.TrieTrans { i16 116, i16 59 }, %struct.TrieTrans { i16 116, i16 61 }, %struct.TrieTrans { i16 114, i16 62 }, %struct.TrieTrans { i16 105, i16 63 }, %struct.TrieTrans { i16 99, i16 64 }, %struct.TrieTrans { i16 116, i16 65 }, %struct.TrieTrans { i16 97, i16 67 }, %struct.TrieTrans { i16 105, i16 68 }, %struct.TrieTrans { i16 108, i16 69 }], align 16
@@ -378,7 +373,7 @@ initDisc.exit.thread:                             ; preds = %8
   %78 = add i64 %77, %.055101
   %79 = load i64, ptr %63, align 8, !tbaa !55
   %80 = urem i64 %78, %79
-  %81 = getelementptr inbounds nuw %struct.parse_block, ptr %76, i64 %80
+  %81 = getelementptr inbounds nuw [80 x i8], ptr %76, i64 %80
   %82 = load ptr, ptr %0, align 8, !tbaa !47
   store i32 1, ptr @codePhase, align 4, !tbaa !43
   %83 = getelementptr inbounds nuw i8, ptr %81, i64 8
@@ -803,7 +798,7 @@ mkBlock.exit:                                     ; preds = %180, %181
 
 .lr.ph.i:                                         ; preds = %220, %.lr.ph.i
   %.011.i = phi i64 [ %226, %.lr.ph.i ], [ 0, %220 ]
-  %221 = getelementptr inbounds nuw %struct.comp_block, ptr %215, i64 %.011.i
+  %221 = getelementptr inbounds nuw [48 x i8], ptr %215, i64 %.011.i
   %222 = getelementptr inbounds nuw i8, ptr %221, i64 32
   %223 = load ptr, ptr %222, align 8, !tbaa !69
   call void @free(ptr noundef %223) #25
@@ -970,7 +965,7 @@ define void @freeCompileProg(ptr noundef captures(address_is_null) %0) local_unn
 10:                                               ; preds = %.lr.ph, %10
   %.011 = phi i64 [ 0, %.lr.ph ], [ %17, %10 ]
   %11 = load ptr, ptr %7, align 8, !tbaa !52
-  %12 = getelementptr inbounds nuw %struct.comp_block, ptr %11, i64 %.011
+  %12 = getelementptr inbounds nuw [48 x i8], ptr %11, i64 %.011
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %14 = load ptr, ptr %13, align 8, !tbaa !69
   tail call void @free(ptr noundef %14) #25
@@ -1309,7 +1304,7 @@ define internal range(i32 -1, 1) i32 @stringOf(ptr noundef %0, ptr noundef captu
   br label %tvtypeToStr.exit
 
 switch.lookup:                                    ; preds = %10
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.tvtypeToStr, i64 %9
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.tvtypeToStr, i64 %9
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %tvtypeToStr.exit
 
@@ -1324,7 +1319,7 @@ tvtypeToStr.exit:                                 ; preds = %switch.lookup, %12
   br i1 %.not14, label %14, label %18
 
 14:                                               ; preds = %13
-  %15 = getelementptr ptr, ptr @typenames, i64 %6
+  %15 = getelementptr [8 x i8], ptr @typenames, i64 %6
   %16 = getelementptr i8, ptr %15, i64 -216
   %17 = load ptr, ptr %16, align 8, !tbaa !88
   tail call void (ptr, ...) @exerror(ptr noundef nonnull @.str.42, ptr noundef %17) #25
@@ -1566,7 +1561,7 @@ define internal range(i32 -1, 1) i32 @binary(ptr noundef captures(none) %0, ptr 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define internal ptr @typeName(i64 noundef %0) #4 {
-  %2 = getelementptr ptr, ptr @typenames, i64 %0
+  %2 = getelementptr [8 x i8], ptr @typenames, i64 %0
   %3 = getelementptr i8, ptr %2, i64 -216
   %4 = load ptr, ptr %3, align 8, !tbaa !88
   ret ptr %4
@@ -4795,7 +4790,7 @@ agxbfree.exit77:                                  ; preds = %deparse.exit76, %11
   %119 = tail call ptr @__ctype_b_loc() #29
   %120 = load ptr, ptr %119, align 8, !tbaa !121
   %121 = zext nneg i8 %narrow.i to i64
-  %122 = getelementptr inbounds nuw i16, ptr %120, i64 %121
+  %122 = getelementptr inbounds nuw [2 x i8], ptr %120, i64 %121
   %123 = load i16, ptr %122, align 2, !tbaa !62
   %124 = zext i16 %123 to i32
   %125 = and i32 %124, 256
@@ -4805,7 +4800,7 @@ agxbfree.exit77:                                  ; preds = %deparse.exit76, %11
 126:                                              ; preds = %118
   %127 = tail call ptr @__ctype_tolower_loc() #29
   %.pn.i = load ptr, ptr %127, align 8, !tbaa !123
-  %.035.in.i = getelementptr inbounds nuw i32, ptr %.pn.i, i64 %121
+  %.035.in.i = getelementptr inbounds nuw [4 x i8], ptr %.pn.i, i64 %121
   %.035.i = load i32, ptr %.035.in.i, align 4, !tbaa !43
   %128 = trunc i32 %.035.i to i8
   br label %133
@@ -4820,11 +4815,11 @@ agxbfree.exit77:                                  ; preds = %deparse.exit76, %11
 133:                                              ; preds = %129, %126
   %.034.i = phi i8 [ %128, %126 ], [ %narrow.i, %129 ]
   %134 = zext nneg i16 %116 to i64
-  %135 = getelementptr inbounds nuw %struct.TrieState, ptr @TrieStateTbl, i64 %134
+  %135 = getelementptr inbounds nuw [16 x i8], ptr @TrieStateTbl, i64 %134
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 8
   %137 = load i64, ptr %136, align 8, !tbaa !124
   %138 = sext i8 %.034.i to i64
-  %139 = getelementptr i64, ptr @CharMask, i64 %138
+  %139 = getelementptr [8 x i8], ptr @CharMask, i64 %138
   %140 = getelementptr i8, ptr %139, i64 -760
   %141 = load i64, ptr %140, align 8, !tbaa !126
   %142 = and i64 %141, %137
@@ -4840,7 +4835,7 @@ agxbfree.exit77:                                  ; preds = %deparse.exit76, %11
 147:                                              ; preds = %147, %143
   %.0.i = phi i16 [ %145, %143 ], [ %151, %147 ]
   %148 = sext i16 %.0.i to i64
-  %149 = getelementptr inbounds %struct.TrieTrans, ptr @TrieTransTbl, i64 %148
+  %149 = getelementptr inbounds [4 x i8], ptr @TrieTransTbl, i64 %148
   %150 = load i16, ptr %149, align 4, !tbaa !128
   %.not43.i = icmp eq i16 %150, %146
   %151 = add i16 %.0.i, 1
@@ -4855,7 +4850,7 @@ agxbfree.exit77:                                  ; preds = %deparse.exit76, %11
 
 157:                                              ; preds = %115
   %158 = zext nneg i16 %116 to i64
-  %159 = getelementptr inbounds nuw %struct.TrieState, ptr @TrieStateTbl, i64 %158
+  %159 = getelementptr inbounds nuw [16 x i8], ptr @TrieStateTbl, i64 %158
   %160 = load i16, ptr %159, align 16, !tbaa !133
   %161 = icmp slt i16 %160, 0
   br i1 %161, label %assignable.exit, label %162
@@ -4921,7 +4916,7 @@ define internal fastcc noundef ptr @tvtypeToStr(i64 noundef %0) unnamed_addr #0 
   br label %4
 
 switch.lookup:                                    ; preds = %1
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.tvtypeToStr, i64 %0
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.tvtypeToStr, i64 %0
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -6416,7 +6411,7 @@ thread-pre-split:                                 ; preds = %3
 
 16:                                               ; preds = %11
   %17 = zext nneg i32 %1 to i64
-  %18 = getelementptr inbounds nuw double, ptr %4, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %17
   %19 = load double, ptr %18, align 8, !tbaa !141
   store double %19, ptr %2, align 8, !tbaa !141
   br label %20
@@ -6532,7 +6527,7 @@ define internal fastcc zeroext i16 @typeChk(i16 noundef zeroext %0, ptr noundef 
 
 36:                                               ; preds = %.sink.split, %20, %21, %24
   %37 = load i64, ptr %17, align 8, !tbaa !94
-  %38 = getelementptr inbounds [2 x i16], ptr @tchk, i64 %37
+  %38 = getelementptr inbounds [4 x i8], ptr @tchk, i64 %37
   %39 = load i16, ptr %38, align 4, !tbaa !62
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 2
   %41 = load i16, ptr %40, align 2, !tbaa !62
@@ -6786,7 +6781,7 @@ define internal fastcc noalias noundef ptr @mkStmts(ptr noundef %0, ptr noundef 
   %.074 = phi i64 [ 0, %.lr.ph ], [ %124, %123 ]
   %28 = add i64 %21, %.074
   %29 = urem i64 %28, %23
-  %30 = getelementptr inbounds nuw %struct.case_info, ptr %19, i64 %29
+  %30 = getelementptr inbounds nuw [32 x i8], ptr %19, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load ptr, ptr %31, align 8, !tbaa !143
   %.not = icmp eq ptr %32, null
@@ -6864,7 +6859,7 @@ agxbclear.exit.thread.i:                          ; preds = %agxbputc.exit.i, %3
 agxbuse.exit:                                     ; preds = %agxbclear.exit.thread.i, %53
   %55 = phi ptr [ %54, %53 ], [ %5, %agxbclear.exit.thread.i ]
   %56 = call fastcc ptr @compile(ptr noundef %0, ptr noundef %1, ptr noundef %34, i32 noundef %35, ptr noundef %55, ptr noundef null, i32 noundef 259)
-  %57 = getelementptr inbounds nuw %struct.case_stmt, ptr %13, i64 %.074
+  %57 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %.074
   store ptr %56, ptr %57, align 8, !tbaa !146
   %58 = call i32 @getErrorErrors() #25
   %.not36 = icmp eq i32 %58, 0
@@ -6972,7 +6967,7 @@ agxbclear.exit.thread.i45:                        ; preds = %agxbputc.exit.i53, 
 agxbuse.exit58:                                   ; preds = %agxbclear.exit.thread.i45, %91
   %93 = phi ptr [ %92, %91 ], [ %5, %agxbclear.exit.thread.i45 ]
   %94 = call fastcc ptr @compile(ptr noundef %0, ptr noundef %1, ptr noundef %71, i32 noundef %73, ptr noundef %93, ptr noundef null, i32 noundef 259)
-  %95 = getelementptr inbounds nuw %struct.case_stmt, ptr %13, i64 %.074
+  %95 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %.074
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
   store ptr %94, ptr %96, align 8, !tbaa !150
   %97 = call i32 @getErrorErrors() #25

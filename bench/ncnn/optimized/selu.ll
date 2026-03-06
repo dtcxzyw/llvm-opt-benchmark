@@ -158,7 +158,7 @@ define internal void @_ZNK4ncnn4SELU15forward_inplaceERNS_3MatERKNS_6OptionE.omp
 
 31:                                               ; preds = %.noexc.us, %43
   %indvars.iv = phi i64 [ 0, %.noexc.us ], [ %indvars.iv.next, %43 ]
-  %32 = getelementptr inbounds nuw float, ptr %30, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %indvars.iv
   %33 = load float, ptr %32, align 4, !tbaa !35
   %34 = fcmp fast olt float %33, 0.000000e+00
   br i1 %34, label %38, label %35

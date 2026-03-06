@@ -174,10 +174,10 @@ define void @_ZN6LibRaw10bad_pixelsEPKc(ptr noundef nonnull align 8 dereferencea
   %78 = lshr i32 %.04269, %73
   %79 = add nuw nsw i32 %77, %78
   %80 = zext nneg i32 %79 to i64
-  %81 = getelementptr inbounds nuw [4 x i16], ptr %71, i64 %80
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %80
   %82 = call noundef i32 @_ZN6LibRaw4fcolEii(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %.03576, i32 noundef %.04269)
   %83 = sext i32 %82 to i64
-  %84 = getelementptr inbounds i16, ptr %81, i64 %83
+  %84 = getelementptr inbounds [2 x i8], ptr %81, i64 %83
   %85 = load i16, ptr %84, align 2, !tbaa !86
   %86 = zext i16 %85 to i32
   %87 = add nsw i32 %.23970, %86
@@ -224,10 +224,10 @@ define void @_ZN6LibRaw10bad_pixelsEPKc(ptr noundef nonnull align 8 dereferencea
   %111 = ashr i32 %91, %106
   %112 = add nsw i32 %110, %111
   %113 = sext i32 %112 to i64
-  %114 = getelementptr inbounds [4 x i16], ptr %104, i64 %113
+  %114 = getelementptr inbounds [8 x i8], ptr %104, i64 %113
   %115 = call noundef i32 @_ZN6LibRaw4fcolEii(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %.pre, i32 noundef %91)
   %116 = sext i32 %115 to i64
-  %117 = getelementptr inbounds i16, ptr %114, i64 %116
+  %117 = getelementptr inbounds [2 x i8], ptr %114, i64 %116
   store i16 %103, ptr %117, align 2, !tbaa !86
   br label %.backedge
 
@@ -373,7 +373,7 @@ define void @_ZN6LibRaw8subtractEPKc(ptr noundef nonnull align 8 captures(none) 
 
 33:                                               ; preds = %32
   %34 = sext i32 %.061.ph104 to i64
-  %35 = getelementptr inbounds i32, ptr %3, i64 %34
+  %35 = getelementptr inbounds [4 x i8], ptr %3, i64 %34
   %36 = load i32, ptr %35, align 4, !tbaa !77
   %37 = mul nsw i32 %36, 10
   %38 = add nsw i32 %26, -48
@@ -444,7 +444,7 @@ define void @_ZN6LibRaw8subtractEPKc(ptr noundef nonnull align 8 captures(none) 
   %70 = shl nuw nsw i64 %69, 1
   %71 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %70) #14
   tail call void @llvm.memset.p0.i64(ptr nonnull align 2 %71, i8 0, i64 %70, i1 false), !tbaa !86
-  %72 = getelementptr inbounds nuw i16, ptr %71, i64 %69
+  %72 = getelementptr inbounds nuw [2 x i8], ptr %71, i64 %69
   %73 = ptrtoint ptr %72 to i64
   br label %_ZNSt6vectorItSaItEEC2EmRKtRKS0_.exit
 
@@ -488,16 +488,16 @@ _ZNSt6vectorItSaItEEC2EmRKtRKS0_.exit:            ; preds = %.noexc, %68
   %94 = lshr i32 %93, %88
   %95 = add nuw nsw i32 %92, %94
   %96 = zext nneg i32 %95 to i64
-  %97 = getelementptr inbounds nuw [4 x i16], ptr %82, i64 %96
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %82, i64 %96
   %98 = and i32 %93, 1
   %99 = or disjoint i32 %98, %85
   %100 = shl nuw nsw i32 %99, 1
   %101 = lshr i32 %83, %100
   %102 = and i32 %101, 3
   %103 = zext nneg i32 %102 to i64
-  %104 = getelementptr inbounds nuw i16, ptr %97, i64 %103
+  %104 = getelementptr inbounds nuw [2 x i8], ptr %97, i64 %103
   %105 = load i16, ptr %104, align 2, !tbaa !86
-  %106 = getelementptr inbounds nuw i16, ptr %.sroa.085.0, i64 %indvars.iv
+  %106 = getelementptr inbounds nuw [2 x i8], ptr %.sroa.085.0, i64 %indvars.iv
   %107 = load i16, ptr %106, align 2, !tbaa !86
   %rev.i = tail call noundef i16 @llvm.bswap.i16(i16 %107)
   %spec.select92 = tail call i16 @llvm.usub.sat.i16(i16 %105, i16 %rev.i)

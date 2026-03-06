@@ -12,7 +12,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_drm_color_lu
 %struct.drm_modeset_acquire_ctx = type { %struct.ww_acquire_ctx, ptr, i32, %struct.list_head, i8, i8 }
 %struct.ww_acquire_ctx = type { ptr, i64, i32, i16, i16 }
 %struct.list_head = type { ptr, ptr }
-%struct.drm_color_lut = type { i16, i16, i16, i16 }
 %struct.drm_prop_enum_list = type { i32, ptr }
 
 @.str = private unnamed_addr constant [33 x i8] c"drivers/gpu/drm/drm_color_mgmt.c\00", align 1
@@ -144,8 +143,8 @@ define dso_local noundef range(i32 -12, 1) i32 @drm_mode_crtc_set_gamma_size(ptr
   br label %.loopexit
 
 14:                                               ; preds = %8
-  %15 = getelementptr i16, ptr %10, i64 %4
-  %16 = getelementptr i16, ptr %15, i64 %4
+  %15 = getelementptr [2 x i8], ptr %10, i64 %4
+  %16 = getelementptr [2 x i8], ptr %15, i64 %4
   %17 = icmp sgt i32 %1, 0
   br i1 %17, label %18, label %.loopexit
 
@@ -157,11 +156,11 @@ define dso_local noundef range(i32 -12, 1) i32 @drm_mode_crtc_set_gamma_size(ptr
   %21 = phi i64 [ 0, %18 ], [ %27, %20 ]
   %22 = trunc i64 %21 to i16
   %23 = shl i16 %22, 8
-  %24 = getelementptr i16, ptr %10, i64 %21
+  %24 = getelementptr [2 x i8], ptr %10, i64 %21
   store i16 %23, ptr %24, align 2
-  %25 = getelementptr i16, ptr %15, i64 %21
+  %25 = getelementptr [2 x i8], ptr %15, i64 %21
   store i16 %23, ptr %25, align 2
-  %26 = getelementptr i16, ptr %16, i64 %21
+  %26 = getelementptr [2 x i8], ptr %16, i64 %21
   store i16 %23, ptr %26, align 2
   %27 = add nuw nsw i64 %21, 1
   %28 = icmp eq i64 %27, %19
@@ -372,15 +371,15 @@ define dso_local i32 @drm_mode_gamma_set_ioctl(ptr noundef %0, ptr noundef reado
 .preheader:                                       ; preds = %135, %.preheader
   %139 = phi i32 [ %150, %.preheader ], [ 0, %135 ]
   %140 = sext i32 %139 to i64
-  %141 = getelementptr i16, ptr %80, i64 %140
+  %141 = getelementptr [2 x i8], ptr %80, i64 %140
   %142 = load i16, ptr %141, align 2
-  %143 = getelementptr %struct.drm_color_lut, ptr %137, i64 %140
+  %143 = getelementptr [8 x i8], ptr %137, i64 %140
   store i16 %142, ptr %143, align 2
-  %144 = getelementptr i16, ptr %89, i64 %140
+  %144 = getelementptr [2 x i8], ptr %89, i64 %140
   %145 = load i16, ptr %144, align 2
   %146 = getelementptr inbounds nuw i8, ptr %143, i64 2
   store i16 %145, ptr %146, align 2
-  %147 = getelementptr i16, ptr %95, i64 %140
+  %147 = getelementptr [2 x i8], ptr %95, i64 %140
   %148 = load i16, ptr %147, align 2
   %149 = getelementptr inbounds nuw i8, ptr %143, i64 4
   store i16 %148, ptr %149, align 2
@@ -618,7 +617,7 @@ define dso_local ptr @drm_get_color_encoding_name(i32 noundef %0) local_unnamed_
 
 4:                                                ; preds = %1
   %5 = zext nneg i32 %0 to i64
-  %6 = getelementptr ptr, ptr @color_encoding_name, i64 %5
+  %6 = getelementptr [8 x i8], ptr @color_encoding_name, i64 %5
   %7 = load ptr, ptr %6, align 8
   br label %8
 
@@ -640,7 +639,7 @@ define dso_local ptr @drm_get_color_range_name(i32 noundef %0) local_unnamed_add
 
 4:                                                ; preds = %1
   %5 = zext nneg i32 %0 to i64
-  %6 = getelementptr ptr, ptr @color_range_name, i64 %5
+  %6 = getelementptr [8 x i8], ptr @color_range_name, i64 %5
   %7 = load ptr, ptr %6, align 8
   br label %8
 
@@ -705,10 +704,10 @@ define dso_local noundef range(i32 -22, 1) i32 @drm_plane_create_color_propertie
 
 32:                                               ; preds = %.preheader
   %33 = sext i32 %28 to i64
-  %34 = getelementptr %struct.drm_prop_enum_list, ptr %6, i64 %33
+  %34 = getelementptr [16 x i8], ptr %6, i64 %33
   %35 = trunc nuw nsw i64 %27 to i32
   store i32 %35, ptr %34, align 16
-  %36 = getelementptr ptr, ptr @color_encoding_name, i64 %27
+  %36 = getelementptr [8 x i8], ptr @color_encoding_name, i64 %27
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store ptr %37, ptr %38, align 8
@@ -755,10 +754,10 @@ define dso_local noundef range(i32 -22, 1) i32 @drm_plane_create_color_propertie
 
 62:                                               ; preds = %55
   %63 = sext i32 %58 to i64
-  %64 = getelementptr %struct.drm_prop_enum_list, ptr %6, i64 %63
+  %64 = getelementptr [16 x i8], ptr %6, i64 %63
   %65 = trunc nuw nsw i64 %57 to i32
   store i32 %65, ptr %64, align 16
-  %66 = getelementptr ptr, ptr @color_range_name, i64 %57
+  %66 = getelementptr [8 x i8], ptr @color_range_name, i64 %57
   %67 = load ptr, ptr %66, align 8
   %68 = getelementptr inbounds nuw i8, ptr %64, i64 8
   store ptr %67, ptr %68, align 8
@@ -826,7 +825,7 @@ define dso_local noundef range(i32 -22, 1) i32 @drm_color_lut_check(ptr noundef 
 
 .split.us.split:                                  ; preds = %.split.us, %30
   %20 = phi i64 [ %31, %30 ], [ 0, %.split.us ]
-  %21 = getelementptr %struct.drm_color_lut, ptr %8, i64 %20
+  %21 = getelementptr [8 x i8], ptr %8, i64 %20
   %22 = load i16, ptr %21, align 2
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %24 = load i16, ptr %23, align 2
@@ -853,7 +852,7 @@ define dso_local noundef range(i32 -22, 1) i32 @drm_color_lut_check(ptr noundef 
   br i1 %34, label %53, label %35
 
 35:                                               ; preds = %.split.split.us
-  %36 = getelementptr %struct.drm_color_lut, ptr %8, i64 %33
+  %36 = getelementptr [8 x i8], ptr %8, i64 %33
   %37 = load i16, ptr %36, align 2
   %38 = getelementptr i8, ptr %36, i64 -8
   %39 = load i16, ptr %38, align 2
@@ -883,7 +882,7 @@ define dso_local noundef range(i32 -22, 1) i32 @drm_color_lut_check(ptr noundef 
 
 .split.split:                                     ; preds = %.split, %80
   %56 = phi i64 [ %81, %80 ], [ 0, %.split ]
-  %57 = getelementptr %struct.drm_color_lut, ptr %8, i64 %56
+  %57 = getelementptr [8 x i8], ptr %8, i64 %56
   %58 = load i16, ptr %57, align 2
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 4
   %60 = load i16, ptr %59, align 2

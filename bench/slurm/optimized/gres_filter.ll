@@ -111,10 +111,10 @@ define dso_local void @gres_filter_sock_core(ptr noundef readonly captures(none)
   %62 = tail call i32 @bit_set_count_range(ptr noundef %13, i32 noundef %61, i32 noundef %60) #5
   %63 = trunc i32 %62 to i16
   %64 = load ptr, ptr @avail_cores_per_sock, align 8
-  %65 = getelementptr inbounds nuw i16, ptr %64, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw [2 x i8], ptr %64, i64 %indvars.iv
   store i16 %63, ptr %65, align 2
   %66 = load ptr, ptr @avail_cores_per_sock, align 8
-  %67 = getelementptr inbounds nuw i16, ptr %66, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw [2 x i8], ptr %66, i64 %indvars.iv
   %68 = load i16, ptr %67, align 2
   %69 = zext i16 %68 to i32
   %70 = add nuw nsw i32 %.0598886, %69
@@ -177,7 +177,7 @@ define dso_local void @gres_filter_sock_core(ptr noundef readonly captures(none)
   br i1 %.not725, label %.thread, label %95
 
 95:                                               ; preds = %92
-  %96 = getelementptr inbounds ptr, ptr %94, i64 %43
+  %96 = getelementptr inbounds [8 x i8], ptr %94, i64 %43
   %97 = load ptr, ptr %96, align 8
   %.not726.not = icmp eq ptr %97, null
   br i1 %.not726.not, label %.thread, label %98
@@ -211,10 +211,10 @@ define dso_local void @gres_filter_sock_core(ptr noundef readonly captures(none)
   %108 = call i32 @bit_set_count_range(ptr noundef %106, i32 noundef %107, i32 noundef %105) #5
   %109 = trunc i32 %108 to i16
   %110 = load ptr, ptr %22, align 8
-  %111 = getelementptr inbounds nuw i16, ptr %110, i64 %indvars.iv1046
+  %111 = getelementptr inbounds nuw [2 x i8], ptr %110, i64 %indvars.iv1046
   store i16 %109, ptr %111, align 2
   %112 = load ptr, ptr %22, align 8
-  %113 = getelementptr inbounds nuw i16, ptr %112, i64 %indvars.iv1046
+  %113 = getelementptr inbounds nuw [2 x i8], ptr %112, i64 %indvars.iv1046
   %114 = load i16, ptr %113, align 2
   %115 = add i16 %102, %114
   %indvars.iv.next1047 = add nuw nsw i64 %indvars.iv1046, 1
@@ -476,7 +476,7 @@ _estimate_cpus_per_gres.exit:                     ; preds = %211, %220, %202, %s
 
 .lr.ph896:                                        ; preds = %228, %.lr.ph896
   %indvars.iv1050 = phi i64 [ %indvars.iv.next1051, %.lr.ph896 ], [ 0, %228 ]
-  %238 = getelementptr inbounds nuw i32, ptr %.pre1084, i64 %indvars.iv1050
+  %238 = getelementptr inbounds nuw [4 x i8], ptr %.pre1084, i64 %indvars.iv1050
   %239 = trunc nuw nsw i64 %indvars.iv1050 to i32
   store i32 %239, ptr %238, align 4
   %indvars.iv.next1051 = add nuw nsw i64 %indvars.iv1050, 1
@@ -502,7 +502,7 @@ _estimate_cpus_per_gres.exit:                     ; preds = %211, %220, %202, %s
   %.0638922 = phi i32 [ 0, %.lr.ph927 ], [ %.1639, %373 ]
   %241 = phi i16 [ %.promoted917, %.lr.ph927 ], [ %351, %373 ]
   %242 = phi i16 [ 0, %.lr.ph927 ], [ %356, %373 ]
-  %243 = getelementptr inbounds nuw i32, ptr %.pre1084, i64 %indvars.iv1060
+  %243 = getelementptr inbounds nuw [4 x i8], ptr %.pre1084, i64 %indvars.iv1060
   %244 = load i32, ptr %243, align 4
   %245 = load ptr, ptr %231, align 8
   %.not777 = icmp ne ptr %245, null
@@ -510,7 +510,7 @@ _estimate_cpus_per_gres.exit:                     ; preds = %211, %220, %202, %s
 
 246:                                              ; preds = %240
   %247 = sext i32 %244 to i64
-  %248 = getelementptr inbounds i64, ptr %245, i64 %247
+  %248 = getelementptr inbounds [8 x i8], ptr %245, i64 %247
   %249 = load i64, ptr %248, align 8
   br label %250
 
@@ -521,7 +521,7 @@ _estimate_cpus_per_gres.exit:                     ; preds = %211, %220, %202, %s
 251:                                              ; preds = %250
   %252 = load ptr, ptr @avail_cores_per_sock, align 8
   %253 = sext i32 %244 to i64
-  %254 = getelementptr inbounds i16, ptr %252, i64 %253
+  %254 = getelementptr inbounds [2 x i8], ptr %252, i64 %253
   %255 = load i16, ptr %254, align 2
   %256 = zext i16 %255 to i32
   %257 = mul nuw nsw i32 %256, %47
@@ -547,7 +547,7 @@ _estimate_cpus_per_gres.exit:                     ; preds = %211, %220, %202, %s
 
 268:                                              ; preds = %267
   %269 = sext i32 %244 to i64
-  %270 = getelementptr inbounds i64, ptr %245, i64 %269
+  %270 = getelementptr inbounds [8 x i8], ptr %245, i64 %269
   %271 = load i64, ptr %270, align 8
   %272 = load i64, ptr %235, align 8
   %273 = sub i64 %272, %271
@@ -585,7 +585,7 @@ _estimate_cpus_per_gres.exit:                     ; preds = %211, %220, %202, %s
 283:                                              ; preds = %.lr.ph903.split.us
   call void @bit_clear(ptr noundef %13, i64 noundef %281) #5
   %284 = load ptr, ptr @avail_cores_per_sock, align 8
-  %285 = getelementptr inbounds i16, ptr %284, i64 %278
+  %285 = getelementptr inbounds [2 x i8], ptr %284, i64 %278
   %286 = load i16, ptr %285, align 2
   %287 = add i16 %286, -1
   store i16 %287, ptr %285, align 2
@@ -603,7 +603,7 @@ _estimate_cpus_per_gres.exit:                     ; preds = %211, %220, %202, %s
 
 295:                                              ; preds = %293, %283
   %296 = load ptr, ptr %236, align 8
-  %297 = getelementptr inbounds ptr, ptr %296, i64 %43
+  %297 = getelementptr inbounds [8 x i8], ptr %296, i64 %43
   %298 = load ptr, ptr %297, align 8
   %299 = call i32 @slurm_bit_test(ptr noundef %298, i64 noundef %281) #5
   %.not780.us = icmp eq i32 %299, 0
@@ -612,7 +612,7 @@ _estimate_cpus_per_gres.exit:                     ; preds = %211, %220, %202, %s
 300:                                              ; preds = %295
   %301 = add i16 %280, -1
   %302 = load ptr, ptr %22, align 8
-  %303 = getelementptr inbounds i16, ptr %302, i64 %278
+  %303 = getelementptr inbounds [2 x i8], ptr %302, i64 %278
   %304 = load i16, ptr %303, align 2
   %305 = add i16 %304, -1
   store i16 %305, ptr %303, align 2
@@ -625,7 +625,7 @@ _estimate_cpus_per_gres.exit:                     ; preds = %211, %220, %202, %s
 
 308:                                              ; preds = %306
   %309 = load ptr, ptr @avail_cores_per_sock, align 8
-  %310 = getelementptr inbounds i16, ptr %309, i64 %278
+  %310 = getelementptr inbounds [2 x i8], ptr %309, i64 %278
   %311 = load i16, ptr %310, align 2
   %.not782.us = icmp eq i16 %311, 0
   br i1 %.not782.us, label %.thread832, label %312
@@ -648,7 +648,7 @@ _estimate_cpus_per_gres.exit:                     ; preds = %211, %220, %202, %s
 317:                                              ; preds = %.lr.ph903.split
   call void @bit_clear(ptr noundef %13, i64 noundef %315) #5
   %318 = load ptr, ptr @avail_cores_per_sock, align 8
-  %319 = getelementptr inbounds i16, ptr %318, i64 %278
+  %319 = getelementptr inbounds [2 x i8], ptr %318, i64 %278
   %320 = load i16, ptr %319, align 2
   %321 = add i16 %320, -1
   store i16 %321, ptr %319, align 2
@@ -670,7 +670,7 @@ _estimate_cpus_per_gres.exit:                     ; preds = %211, %220, %202, %s
 
 330:                                              ; preds = %329
   %331 = load ptr, ptr @avail_cores_per_sock, align 8
-  %332 = getelementptr inbounds i16, ptr %331, i64 %278
+  %332 = getelementptr inbounds [2 x i8], ptr %331, i64 %278
   %333 = load i16, ptr %332, align 2
   %.not782 = icmp eq i16 %333, 0
   br i1 %.not782, label %.thread832, label %334
@@ -686,7 +686,7 @@ _estimate_cpus_per_gres.exit:                     ; preds = %211, %220, %202, %s
   %336 = phi i16 [ %241, %..thread832_crit_edge ], [ %313, %312 ], [ %307, %306 ], [ %307, %308 ], [ %241, %330 ], [ %241, %329 ], [ %241, %334 ]
   %.6 = phi i32 [ %.3925, %..thread832_crit_edge ], [ %.7.us, %312 ], [ %288, %306 ], [ %288, %308 ], [ %.7, %334 ], [ %322, %329 ], [ %322, %330 ]
   %337 = load ptr, ptr @avail_cores_per_sock, align 8
-  %338 = getelementptr inbounds i16, ptr %337, i64 %.pre-phi1095
+  %338 = getelementptr inbounds [2 x i8], ptr %337, i64 %.pre-phi1095
   %339 = load i16, ptr %338, align 2
   %.not783 = icmp eq i16 %339, 0
   br i1 %.not783, label %340, label %350
@@ -703,7 +703,7 @@ _estimate_cpus_per_gres.exit:                     ; preds = %211, %220, %202, %s
 
 347:                                              ; preds = %340
   %348 = load ptr, ptr %22, align 8
-  %349 = getelementptr inbounds i16, ptr %348, i64 %.pre-phi1095
+  %349 = getelementptr inbounds [2 x i8], ptr %348, i64 %.pre-phi1095
   store i16 0, ptr %349, align 2
   br label %350
 
@@ -712,7 +712,7 @@ _estimate_cpus_per_gres.exit:                     ; preds = %211, %220, %202, %s
   %.4 = phi i32 [ %.6, %.thread832 ], [ %.3925, %274 ], [ %.3925, %261 ], [ %.6, %347 ], [ %.6, %340 ]
   %352 = load ptr, ptr @avail_cores_per_sock, align 8
   %353 = sext i32 %244 to i64
-  %354 = getelementptr inbounds i16, ptr %352, i64 %353
+  %354 = getelementptr inbounds [2 x i8], ptr %352, i64 %353
   %355 = load i16, ptr %354, align 2
   %356 = add i16 %242, %355
   %357 = icmp eq i16 %355, 0
@@ -888,20 +888,20 @@ _estimate_cpus_per_gres.exit:                     ; preds = %211, %220, %202, %s
 
 438:                                              ; preds = %.lr.ph.split.us.split.us.i
   %439 = load ptr, ptr %430, align 8
-  %440 = getelementptr inbounds nuw i32, ptr %439, i64 %indvars.iv114.i
+  %440 = getelementptr inbounds nuw [4 x i8], ptr %439, i64 %indvars.iv114.i
   %441 = load i32, ptr %440, align 4
   %.not47.us.us.i = icmp eq i32 %436, %441
   br i1 %.not47.us.us.i, label %442, label %459
 
 442:                                              ; preds = %438, %.lr.ph.split.us.split.us.i
   %443 = load ptr, ptr %434, align 8
-  %444 = getelementptr inbounds nuw i64, ptr %443, i64 %indvars.iv114.i
+  %444 = getelementptr inbounds nuw [8 x i8], ptr %443, i64 %indvars.iv114.i
   %445 = load i64, ptr %444, align 8
   br i1 %415, label %451, label %446
 
 446:                                              ; preds = %442
   %447 = load ptr, ptr %435, align 8
-  %448 = getelementptr inbounds nuw i64, ptr %447, i64 %indvars.iv114.i
+  %448 = getelementptr inbounds nuw [8 x i8], ptr %447, i64 %indvars.iv114.i
   %449 = load i64, ptr %448, align 8
   %450 = sub i64 %445, %449
   br label %451
@@ -939,20 +939,20 @@ _estimate_cpus_per_gres.exit:                     ; preds = %211, %220, %202, %s
 
 460:                                              ; preds = %.lr.ph.split.us.split.split.us.i
   %461 = load ptr, ptr %430, align 8
-  %462 = getelementptr inbounds nuw i32, ptr %461, i64 %indvars.iv108.i
+  %462 = getelementptr inbounds nuw [4 x i8], ptr %461, i64 %indvars.iv108.i
   %463 = load i32, ptr %462, align 4
   %.not47.us.us86.i = icmp eq i32 %436, %463
   br i1 %.not47.us.us86.i, label %464, label %479
 
 464:                                              ; preds = %460, %.lr.ph.split.us.split.split.us.i
   %465 = load ptr, ptr %434, align 8
-  %466 = getelementptr inbounds nuw i64, ptr %465, i64 %indvars.iv108.i
+  %466 = getelementptr inbounds nuw [8 x i8], ptr %465, i64 %indvars.iv108.i
   %467 = load i64, ptr %466, align 8
   br i1 %415, label %473, label %468
 
 468:                                              ; preds = %464
   %469 = load ptr, ptr %435, align 8
-  %470 = getelementptr inbounds nuw i64, ptr %469, i64 %indvars.iv108.i
+  %470 = getelementptr inbounds nuw [8 x i8], ptr %469, i64 %indvars.iv108.i
   %471 = load i64, ptr %470, align 8
   %472 = sub i64 %467, %471
   br label %473
@@ -980,20 +980,20 @@ _estimate_cpus_per_gres.exit:                     ; preds = %211, %220, %202, %s
 
 480:                                              ; preds = %.lr.ph.split.us.split.split.i
   %481 = load ptr, ptr %430, align 8
-  %482 = getelementptr inbounds nuw i32, ptr %481, i64 %indvars.iv105.i
+  %482 = getelementptr inbounds nuw [4 x i8], ptr %481, i64 %indvars.iv105.i
   %483 = load i32, ptr %482, align 4
   %.not47.us.i = icmp eq i32 %436, %483
   br i1 %.not47.us.i, label %484, label %499
 
 484:                                              ; preds = %480, %.lr.ph.split.us.split.split.i
   %485 = load ptr, ptr %434, align 8
-  %486 = getelementptr inbounds nuw i64, ptr %485, i64 %indvars.iv105.i
+  %486 = getelementptr inbounds nuw [8 x i8], ptr %485, i64 %indvars.iv105.i
   %487 = load i64, ptr %486, align 8
   br i1 %415, label %493, label %488
 
 488:                                              ; preds = %484
   %489 = load ptr, ptr %435, align 8
-  %490 = getelementptr inbounds nuw i64, ptr %489, i64 %indvars.iv105.i
+  %490 = getelementptr inbounds nuw [8 x i8], ptr %489, i64 %indvars.iv105.i
   %491 = load i64, ptr %490, align 8
   %492 = sub i64 %487, %491
   br label %493
@@ -1026,7 +1026,7 @@ _estimate_cpus_per_gres.exit:                     ; preds = %211, %220, %202, %s
 
 501:                                              ; preds = %.lr.ph.split.split.us.i
   %502 = load ptr, ptr %430, align 8
-  %503 = getelementptr inbounds nuw i32, ptr %502, i64 %indvars.iv102.i
+  %503 = getelementptr inbounds nuw [4 x i8], ptr %502, i64 %indvars.iv102.i
   %504 = load i32, ptr %503, align 4
   %.not47.us60.i = icmp eq i32 %500, %504
   br i1 %.not47.us60.i, label %505, label %530
@@ -1042,7 +1042,7 @@ _estimate_cpus_per_gres.exit:                     ; preds = %211, %220, %202, %s
   br i1 %.not49.us.i, label %514, label %509
 
 509:                                              ; preds = %507
-  %510 = getelementptr inbounds nuw ptr, ptr %508, i64 %indvars.iv102.i
+  %510 = getelementptr inbounds nuw [8 x i8], ptr %508, i64 %indvars.iv102.i
   %511 = load ptr, ptr %510, align 8
   %.not50.us.i = icmp eq ptr %511, null
   br i1 %.not50.us.i, label %514, label %512
@@ -1054,10 +1054,10 @@ _estimate_cpus_per_gres.exit:                     ; preds = %211, %220, %202, %s
 
 514:                                              ; preds = %512, %509, %507, %505
   %515 = load ptr, ptr %434, align 8
-  %516 = getelementptr inbounds nuw i64, ptr %515, i64 %indvars.iv102.i
+  %516 = getelementptr inbounds nuw [8 x i8], ptr %515, i64 %indvars.iv102.i
   %517 = load i64, ptr %516, align 8
   %518 = load ptr, ptr %435, align 8
-  %519 = getelementptr inbounds nuw i64, ptr %518, i64 %indvars.iv102.i
+  %519 = getelementptr inbounds nuw [8 x i8], ptr %518, i64 %indvars.iv102.i
   %520 = load i64, ptr %519, align 8
   %521 = sub i64 %517, %520
   %sext52.us62.i = shl i64 %521, 32
@@ -1094,7 +1094,7 @@ _estimate_cpus_per_gres.exit:                     ; preds = %211, %220, %202, %s
 
 535:                                              ; preds = %.lr.ph.split.split.split.i
   %536 = load ptr, ptr %430, align 8
-  %537 = getelementptr inbounds nuw i32, ptr %536, i64 %indvars.iv.i
+  %537 = getelementptr inbounds nuw [4 x i8], ptr %536, i64 %indvars.iv.i
   %538 = load i32, ptr %537, align 4
   %.not47.i = icmp eq i32 %534, %538
   br i1 %.not47.i, label %539, label %565
@@ -1110,7 +1110,7 @@ _estimate_cpus_per_gres.exit:                     ; preds = %211, %220, %202, %s
   br i1 %.not49.i, label %548, label %543
 
 543:                                              ; preds = %541
-  %544 = getelementptr inbounds nuw ptr, ptr %542, i64 %indvars.iv.i
+  %544 = getelementptr inbounds nuw [8 x i8], ptr %542, i64 %indvars.iv.i
   %545 = load ptr, ptr %544, align 8
   %.not50.i = icmp eq ptr %545, null
   br i1 %.not50.i, label %548, label %546
@@ -1122,10 +1122,10 @@ _estimate_cpus_per_gres.exit:                     ; preds = %211, %220, %202, %s
 
 548:                                              ; preds = %546, %543, %541, %539
   %549 = load ptr, ptr %434, align 8
-  %550 = getelementptr inbounds nuw i64, ptr %549, i64 %indvars.iv.i
+  %550 = getelementptr inbounds nuw [8 x i8], ptr %549, i64 %indvars.iv.i
   %551 = load i64, ptr %550, align 8
   %552 = load ptr, ptr %435, align 8
-  %553 = getelementptr inbounds nuw i64, ptr %552, i64 %indvars.iv.i
+  %553 = getelementptr inbounds nuw [8 x i8], ptr %552, i64 %indvars.iv.i
   %554 = load i64, ptr %553, align 8
   %555 = sub i64 %551, %554
   %sext.i = shl i64 %555, 32
@@ -1275,7 +1275,7 @@ _shared_gres_task_limit.exit:                     ; preds = %530, %565, %459, %4
   call void @bit_clear(ptr noundef %13, i64 noundef %615) #5
   %618 = add i16 %613, -1
   %619 = load ptr, ptr @avail_cores_per_sock, align 8
-  %620 = getelementptr inbounds nuw i16, ptr %619, i64 %indvars.iv1066
+  %620 = getelementptr inbounds nuw [2 x i8], ptr %619, i64 %indvars.iv1066
   %621 = load i16, ptr %620, align 2
   %622 = add i16 %621, -1
   store i16 %622, ptr %620, align 2
@@ -1297,7 +1297,7 @@ _shared_gres_task_limit.exit:                     ; preds = %530, %565, %459, %4
 
 631:                                              ; preds = %630
   %632 = load ptr, ptr %606, align 8
-  %633 = getelementptr inbounds ptr, ptr %632, i64 %43
+  %633 = getelementptr inbounds [8 x i8], ptr %632, i64 %43
   %634 = load ptr, ptr %633, align 8
   %635 = call i32 @slurm_bit_test(ptr noundef %634, i64 noundef %615) #5
   %.not775 = icmp eq i32 %635, 0
@@ -1306,7 +1306,7 @@ _shared_gres_task_limit.exit:                     ; preds = %530, %565, %459, %4
 636:                                              ; preds = %631
   %637 = add i16 %614, -1
   %638 = load ptr, ptr %22, align 8
-  %639 = getelementptr inbounds nuw i16, ptr %638, i64 %indvars.iv1066
+  %639 = getelementptr inbounds nuw [2 x i8], ptr %638, i64 %indvars.iv1066
   %640 = load i16, ptr %639, align 2
   %641 = add i16 %640, -1
   store i16 %641, ptr %639, align 2
@@ -1339,7 +1339,7 @@ _shared_gres_task_limit.exit:                     ; preds = %530, %565, %459, %4
   %648 = mul i64 %.6626, %52
   %649 = getelementptr inbounds nuw i8, ptr %86, i64 112
   %650 = load ptr, ptr %649, align 8
-  %651 = getelementptr inbounds ptr, ptr %650, i64 %43
+  %651 = getelementptr inbounds [8 x i8], ptr %650, i64 %43
   %652 = load ptr, ptr %651, align 8
   %653 = load ptr, ptr %22, align 8
   %654 = load ptr, ptr %20, align 8
@@ -1494,7 +1494,7 @@ _shared_gres_task_limit.exit:                     ; preds = %530, %565, %459, %4
 727:                                              ; preds = %725
   %728 = mul nuw nsw i64 %spec.select804, %52
   %729 = load ptr, ptr %691, align 8
-  %730 = getelementptr inbounds ptr, ptr %729, i64 %43
+  %730 = getelementptr inbounds [8 x i8], ptr %729, i64 %43
   %731 = load ptr, ptr %730, align 8
   %732 = load ptr, ptr %22, align 8
   %733 = and i64 %728, 4294967295
@@ -1733,7 +1733,7 @@ _shared_gres_task_limit.exit:                     ; preds = %530, %565, %459, %4
 
 848:                                              ; preds = %843
   %849 = load ptr, ptr @avail_cores_per_sock, align 8
-  %850 = getelementptr inbounds nuw i16, ptr %849, i64 %indvars.iv1070
+  %850 = getelementptr inbounds nuw [2 x i8], ptr %849, i64 %indvars.iv1070
   %851 = load i16, ptr %850, align 2
   %852 = zext i16 %851 to i32
   %853 = call i32 @llvm.smin.i32(i32 %841, i32 %852)
@@ -1755,7 +1755,7 @@ _shared_gres_task_limit.exit:                     ; preds = %530, %565, %459, %4
 
 864:                                              ; preds = %862, %848
   %865 = load ptr, ptr @avail_cores_per_sock, align 8
-  %866 = getelementptr inbounds nuw i16, ptr %865, i64 %indvars.iv1070
+  %866 = getelementptr inbounds nuw [2 x i8], ptr %865, i64 %indvars.iv1070
   %867 = load i16, ptr %866, align 2
   %.not766 = icmp eq i16 %867, 0
   br i1 %.not766, label %868, label %876
@@ -1770,7 +1770,7 @@ _shared_gres_task_limit.exit:                     ; preds = %530, %565, %459, %4
 
 873:                                              ; preds = %868
   %874 = load ptr, ptr %22, align 8
-  %875 = getelementptr inbounds nuw i16, ptr %874, i64 %indvars.iv1070
+  %875 = getelementptr inbounds nuw [2 x i8], ptr %874, i64 %indvars.iv1070
   store i16 0, ptr %875, align 2
   br label %876
 
@@ -1813,7 +1813,7 @@ _shared_gres_task_limit.exit:                     ; preds = %530, %565, %459, %4
   br i1 %889, label %890, label %903
 
 890:                                              ; preds = %886
-  %891 = getelementptr inbounds nuw i16, ptr %885, i64 %indvars.iv1074
+  %891 = getelementptr inbounds nuw [2 x i8], ptr %885, i64 %indvars.iv1074
   %892 = load i16, ptr %891, align 2
   %893 = icmp eq i16 %892, 0
   br i1 %893, label %903, label %894
@@ -1824,7 +1824,7 @@ _shared_gres_task_limit.exit:                     ; preds = %530, %565, %459, %4
 
 896:                                              ; preds = %894
   %897 = sext i32 %.0605984 to i64
-  %898 = getelementptr inbounds i16, ptr %885, i64 %897
+  %898 = getelementptr inbounds [2 x i8], ptr %885, i64 %897
   %899 = load i16, ptr %898, align 2
   %900 = icmp ult i16 %899, %892
   br i1 %900, label %901, label %903
@@ -1846,7 +1846,7 @@ _shared_gres_task_limit.exit:                     ; preds = %530, %565, %459, %4
 905:                                              ; preds = %._crit_edge987.split
   %906 = load ptr, ptr @avail_cores_per_sock, align 8
   %907 = sext i32 %.1606 to i64
-  %908 = getelementptr inbounds i16, ptr %906, i64 %907
+  %908 = getelementptr inbounds [2 x i8], ptr %906, i64 %907
   %909 = load i16, ptr %908, align 2
   %910 = add i16 %909, -1
   store i16 %910, ptr %908, align 2
@@ -1865,7 +1865,7 @@ _shared_gres_task_limit.exit:                     ; preds = %530, %565, %459, %4
 
 919:                                              ; preds = %917, %905
   %920 = load ptr, ptr @avail_cores_per_sock, align 8
-  %921 = getelementptr inbounds i16, ptr %920, i64 %907
+  %921 = getelementptr inbounds [2 x i8], ptr %920, i64 %907
   %922 = load i16, ptr %921, align 2
   %.not767 = icmp eq i16 %922, 0
   br i1 %.not767, label %923, label %933
@@ -1882,7 +1882,7 @@ _shared_gres_task_limit.exit:                     ; preds = %530, %565, %459, %4
 
 930:                                              ; preds = %923
   %931 = load ptr, ptr %22, align 8
-  %932 = getelementptr inbounds i16, ptr %931, i64 %907
+  %932 = getelementptr inbounds [2 x i8], ptr %931, i64 %907
   store i16 0, ptr %932, align 2
   br label %933
 
@@ -2188,10 +2188,10 @@ define internal i32 @_sort_sockets_by_avail_cores(ptr noundef readonly captures(
   %3 = load ptr, ptr @avail_cores_per_sock, align 8
   %4 = load i32, ptr %0, align 4
   %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds i16, ptr %3, i64 %5
+  %6 = getelementptr inbounds [2 x i8], ptr %3, i64 %5
   %7 = load i32, ptr %1, align 4
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds i16, ptr %3, i64 %8
+  %9 = getelementptr inbounds [2 x i8], ptr %3, i64 %8
   %10 = tail call i32 @slurm_sort_uint16_list_desc(ptr noundef %6, ptr noundef %9) #5
   ret i32 %10
 }
@@ -2235,7 +2235,7 @@ define internal fastcc void @_reduce_restricted_cores(ptr noundef %0, ptr nounde
   br i1 %21, label %.loopexit91.us, label %22
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds nuw i16, ptr %5, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %indvars.iv
   %24 = load i16, ptr %23, align 2
   %.not75.us = icmp eq i16 %24, 0
   br i1 %.not75.us, label %.loopexit91.us, label %.preheader90.us
@@ -2256,7 +2256,7 @@ define internal fastcc void @_reduce_restricted_cores(ptr noundef %0, ptr nounde
 30:                                               ; preds = %28
   tail call void @bit_clear(ptr noundef %0, i64 noundef %26) #5
   %31 = load ptr, ptr @avail_cores_per_sock, align 8
-  %32 = getelementptr inbounds nuw i16, ptr %31, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [2 x i8], ptr %31, i64 %indvars.iv
   %33 = load i16, ptr %32, align 2
   %34 = add i16 %33, -1
   store i16 %34, ptr %32, align 2
@@ -2323,7 +2323,7 @@ select.unfold.us:                                 ; preds = %28, %.backedge116
   br i1 %53, label %54, label %.loopexit.us
 
 54:                                               ; preds = %50
-  %55 = getelementptr inbounds nuw i16, ptr %5, i64 %indvars.iv119
+  %55 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %indvars.iv119
   %56 = load i16, ptr %55, align 2
   %.not80.us = icmp eq i16 %56, 0
   br i1 %.not80.us, label %.loopexit.us, label %.preheader.us
@@ -2344,7 +2344,7 @@ select.unfold.us:                                 ; preds = %28, %.backedge116
 62:                                               ; preds = %60
   tail call void @bit_clear(ptr noundef %0, i64 noundef %58) #5
   %63 = load ptr, ptr @avail_cores_per_sock, align 8
-  %64 = getelementptr inbounds nuw i16, ptr %63, i64 %indvars.iv119
+  %64 = getelementptr inbounds nuw [2 x i8], ptr %63, i64 %indvars.iv119
   %65 = load i16, ptr %64, align 2
   %66 = add i16 %65, -1
   store i16 %66, ptr %64, align 2

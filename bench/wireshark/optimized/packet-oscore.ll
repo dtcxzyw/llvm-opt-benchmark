@@ -14,7 +14,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._value_string = type { i32, ptr }
 %struct.anon.2 = type { ptr, ptr, ptr }
 %struct.anon.3 = type { ptr, ptr, ptr }
-%struct.oscore_context = type { ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 
 @proto_register_oscore.hf = internal global [47 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_oscore_tag, %struct._header_field_info { ptr @.str, ptr @.str.1, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @dissect_oscore_hf, %struct._header_field_info { ptr @.str.2, ptr @.str.3, i32 4, i32 513, ptr @coap_vals_code_ext, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @dissect_oscore_hf, i64 4), %struct._header_field_info { ptr @.str.4, ptr @.str.5, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @dissect_oscore_hf, i64 8), %struct._header_field_info { ptr @.str.6, ptr @.str.7, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @dissect_oscore_hf, i64 12), %struct._header_field_info { ptr @.str.8, ptr @.str.9, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @dissect_oscore_hf, i64 16), %struct._header_field_info { ptr @.str.10, ptr @.str.11, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @dissect_oscore_hf, i64 20), %struct._header_field_info { ptr @.str.12, ptr @.str.13, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @dissect_oscore_hf, i64 24), %struct._header_field_info { ptr @.str.14, ptr @.str.15, i32 4, i32 1, ptr null, i64 240, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @dissect_oscore_hf, i64 28), %struct._header_field_info { ptr @.str.16, ptr @.str.17, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @dissect_oscore_hf, i64 32), %struct._header_field_info { ptr @.str.18, ptr @.str.19, i32 4, i32 1, ptr null, i64 15, ptr @.str.20, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @dissect_oscore_hf, i64 36), %struct._header_field_info { ptr @.str.21, ptr @.str.22, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @dissect_oscore_hf, i64 40), %struct._header_field_info { ptr @.str.23, ptr @.str.24, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @dissect_oscore_hf, i64 44), %struct._header_field_info { ptr @.str.25, ptr @.str.26, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @dissect_oscore_hf, i64 48), %struct._header_field_info { ptr @.str.27, ptr @.str.28, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @dissect_oscore_hf, i64 52), %struct._header_field_info { ptr @.str.29, ptr @.str.30, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @dissect_oscore_hf, i64 56), %struct._header_field_info { ptr @.str.31, ptr @.str.32, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @dissect_oscore_hf, i64 60), %struct._header_field_info { ptr @.str.33, ptr @.str.34, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @dissect_oscore_hf, i64 64), %struct._header_field_info { ptr @.str.35, ptr @.str.36, i32 30, i32 0, ptr null, i64 0, ptr @.str.37, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @dissect_oscore_hf, i64 68), %struct._header_field_info { ptr @.str.38, ptr @.str.39, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @dissect_oscore_hf, i64 72), %struct._header_field_info { ptr @.str.40, ptr @.str.41, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @dissect_oscore_hf, i64 76), %struct._header_field_info { ptr @.str.42, ptr @.str.43, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @dissect_oscore_hf, i64 80), %struct._header_field_info { ptr @.str.44, ptr @.str.45, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @dissect_oscore_hf, i64 152), %struct._header_field_info { ptr @.str.46, ptr @.str.47, i32 2, i32 8, ptr null, i64 224, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @dissect_oscore_hf, i64 156), %struct._header_field_info { ptr @.str.48, ptr @.str.49, i32 2, i32 8, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @dissect_oscore_hf, i64 160), %struct._header_field_info { ptr @.str.50, ptr @.str.51, i32 2, i32 8, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @dissect_oscore_hf, i64 164), %struct._header_field_info { ptr @.str.52, ptr @.str.53, i32 4, i32 1, ptr null, i64 7, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @dissect_oscore_hf, i64 168), %struct._header_field_info { ptr @.str.54, ptr @.str.55, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @dissect_oscore_hf, i64 172), %struct._header_field_info { ptr @.str.56, ptr @.str.57, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @dissect_oscore_hf, i64 176), %struct._header_field_info { ptr @.str.58, ptr @.str.59, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @dissect_oscore_hf, i64 180), %struct._header_field_info { ptr @.str.60, ptr @.str.61, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @dissect_oscore_hf, i64 84), %struct._header_field_info { ptr @.str.62, ptr @.str.63, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @dissect_oscore_hf, i64 88), %struct._header_field_info { ptr @.str.62, ptr @.str.64, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @dissect_oscore_hf, i64 92), %struct._header_field_info { ptr @.str.65, ptr @.str.66, i32 7, i32 1, ptr @coap_vals_observe_options, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @dissect_oscore_hf, i64 96), %struct._header_field_info { ptr @.str.67, ptr @.str.66, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @dissect_oscore_hf, i64 100), %struct._header_field_info { ptr @.str.68, ptr @.str.69, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @dissect_oscore_hf, i64 104), %struct._header_field_info { ptr @.str.70, ptr @.str.71, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @dissect_oscore_hf, i64 108), %struct._header_field_info { ptr @.str.72, ptr @.str.73, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @dissect_oscore_hf, i64 112), %struct._header_field_info { ptr @.str.74, ptr @.str.75, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @dissect_oscore_hf, i64 116), %struct._header_field_info { ptr @.str.76, ptr @.str.77, i32 4, i32 1, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @dissect_oscore_hf, i64 120), %struct._header_field_info { ptr @.str.78, ptr @.str.79, i32 4, i32 1, ptr null, i64 7, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @dissect_oscore_hf, i64 124), %struct._header_field_info { ptr @.str.80, ptr @.str.81, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @dissect_oscore_hf, i64 128), %struct._header_field_info { ptr @.str.82, ptr @.str.83, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @dissect_oscore_hf, i64 132), %struct._header_field_info { ptr @.str.84, ptr @.str.85, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @dissect_oscore_hf, i64 136), %struct._header_field_info { ptr @.str.86, ptr @.str.87, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @dissect_oscore_hf, i64 140), %struct._header_field_info { ptr @.str.88, ptr @.str.89, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @dissect_oscore_hf, i64 144), %struct._header_field_info { ptr @.str.90, ptr @.str.91, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @dissect_oscore_hf, i64 148), %struct._header_field_info { ptr @.str.92, ptr @.str.93, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
 @hf_oscore_tag = internal global i32 0, align 4
@@ -439,7 +438,7 @@ define internal void @oscore_context_uat_algorithm_set_cb(ptr noundef writeonly 
   %.01622 = phi i32 [ %12, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %12 = add i32 %.01622, 1
   %13 = zext i32 %12 to i64
-  %14 = getelementptr %struct._value_string, ptr %3, i64 %13
+  %14 = getelementptr [16 x i8], ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
@@ -479,7 +478,7 @@ define internal void @oscore_context_uat_algorithm_tostr_cb(ptr noundef readonly
   %.01520 = phi i32 [ %12, %17 ], [ 0, %.lr.ph ]
   %12 = add i32 %.01520, 1
   %13 = zext i32 %12 to i64
-  %14 = getelementptr %struct._value_string, ptr %3, i64 %13
+  %14 = getelementptr [16 x i8], ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
@@ -700,69 +699,69 @@ define internal void @oscore_context_post_update_cb() #0 {
 7:                                                ; preds = %.lr.ph, %oscore_context_derive_params.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %oscore_context_derive_params.exit ]
   %8 = load ptr, ptr @oscore_contexts, align 8
-  %9 = getelementptr %struct.oscore_context, ptr %8, i64 %indvars.iv
+  %9 = getelementptr [112 x i8], ptr %8, i64 %indvars.iv
   call fastcc void @oscore_context_free_byte_arrays(ptr noundef %9)
   %10 = call ptr @g_byte_array_new()
   %11 = load ptr, ptr @oscore_contexts, align 8
-  %12 = getelementptr %struct.oscore_context, ptr %11, i64 %indvars.iv
+  %12 = getelementptr [112 x i8], ptr %11, i64 %indvars.iv
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 48
   store ptr %10, ptr %13, align 8
   %14 = call ptr @g_byte_array_new()
   %15 = load ptr, ptr @oscore_contexts, align 8
-  %16 = getelementptr %struct.oscore_context, ptr %15, i64 %indvars.iv
+  %16 = getelementptr [112 x i8], ptr %15, i64 %indvars.iv
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 56
   store ptr %14, ptr %17, align 8
   %18 = call ptr @g_byte_array_new()
   %19 = load ptr, ptr @oscore_contexts, align 8
-  %20 = getelementptr %struct.oscore_context, ptr %19, i64 %indvars.iv
+  %20 = getelementptr [112 x i8], ptr %19, i64 %indvars.iv
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 64
   store ptr %18, ptr %21, align 8
   %22 = call ptr @g_byte_array_new()
   %23 = load ptr, ptr @oscore_contexts, align 8
-  %24 = getelementptr %struct.oscore_context, ptr %23, i64 %indvars.iv
+  %24 = getelementptr [112 x i8], ptr %23, i64 %indvars.iv
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 72
   store ptr %22, ptr %25, align 8
   %26 = call ptr @g_byte_array_new()
   %27 = load ptr, ptr @oscore_contexts, align 8
-  %28 = getelementptr %struct.oscore_context, ptr %27, i64 %indvars.iv
+  %28 = getelementptr [112 x i8], ptr %27, i64 %indvars.iv
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 80
   store ptr %26, ptr %29, align 8
   %30 = load ptr, ptr @oscore_contexts, align 8
-  %31 = getelementptr %struct.oscore_context, ptr %30, i64 %indvars.iv
+  %31 = getelementptr [112 x i8], ptr %30, i64 %indvars.iv
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 72
   %35 = load ptr, ptr %34, align 8
   %36 = call zeroext i1 @hex_str_to_bytes(ptr noundef %33, ptr noundef %35, i1 noundef zeroext false)
   %37 = load ptr, ptr @oscore_contexts, align 8
-  %38 = getelementptr %struct.oscore_context, ptr %37, i64 %indvars.iv
+  %38 = getelementptr [112 x i8], ptr %37, i64 %indvars.iv
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 32
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 80
   %42 = load ptr, ptr %41, align 8
   %43 = call zeroext i1 @hex_str_to_bytes(ptr noundef %40, ptr noundef %42, i1 noundef zeroext false)
   %44 = load ptr, ptr @oscore_contexts, align 8
-  %45 = getelementptr %struct.oscore_context, ptr %44, i64 %indvars.iv
+  %45 = getelementptr [112 x i8], ptr %44, i64 %indvars.iv
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds nuw i8, ptr %45, i64 64
   %49 = load ptr, ptr %48, align 8
   %50 = call zeroext i1 @hex_str_to_bytes(ptr noundef %47, ptr noundef %49, i1 noundef zeroext false)
   %51 = load ptr, ptr @oscore_contexts, align 8
-  %52 = getelementptr %struct.oscore_context, ptr %51, i64 %indvars.iv
+  %52 = getelementptr [112 x i8], ptr %51, i64 %indvars.iv
   %53 = load ptr, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 48
   %55 = load ptr, ptr %54, align 8
   %56 = call zeroext i1 @hex_str_to_bytes(ptr noundef %53, ptr noundef %55, i1 noundef zeroext false)
   %57 = load ptr, ptr @oscore_contexts, align 8
-  %58 = getelementptr %struct.oscore_context, ptr %57, i64 %indvars.iv
+  %58 = getelementptr [112 x i8], ptr %57, i64 %indvars.iv
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %60 = load ptr, ptr %59, align 8
   %61 = getelementptr inbounds nuw i8, ptr %58, i64 56
   %62 = load ptr, ptr %61, align 8
   %63 = call zeroext i1 @hex_str_to_bytes(ptr noundef %60, ptr noundef %62, i1 noundef zeroext false)
   %64 = load ptr, ptr @oscore_contexts, align 8
-  %65 = getelementptr %struct.oscore_context, ptr %64, i64 %indvars.iv
+  %65 = getelementptr [112 x i8], ptr %64, i64 %indvars.iv
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 40
   %67 = load i32, ptr %66, align 8
   %cond.i = icmp eq i32 %67, 10
@@ -770,21 +769,21 @@ define internal void @oscore_context_post_update_cb() #0 {
   %..i28 = select i1 %cond.i, i32 13, i32 0
   %68 = call ptr @g_byte_array_sized_new(i32 noundef %..i)
   %69 = load ptr, ptr @oscore_contexts, align 8
-  %70 = getelementptr %struct.oscore_context, ptr %69, i64 %indvars.iv
+  %70 = getelementptr [112 x i8], ptr %69, i64 %indvars.iv
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 88
   store ptr %68, ptr %71, align 8
   %72 = call ptr @g_byte_array_sized_new(i32 noundef %..i)
   %73 = load ptr, ptr @oscore_contexts, align 8
-  %74 = getelementptr %struct.oscore_context, ptr %73, i64 %indvars.iv
+  %74 = getelementptr [112 x i8], ptr %73, i64 %indvars.iv
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 96
   store ptr %72, ptr %75, align 8
   %76 = call ptr @g_byte_array_sized_new(i32 noundef %..i28)
   %77 = load ptr, ptr @oscore_contexts, align 8
-  %78 = getelementptr %struct.oscore_context, ptr %77, i64 %indvars.iv
+  %78 = getelementptr [112 x i8], ptr %77, i64 %indvars.iv
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 104
   store ptr %76, ptr %79, align 8
   %80 = load ptr, ptr @oscore_contexts, align 8
-  %81 = getelementptr %struct.oscore_context, ptr %80, i64 %indvars.iv
+  %81 = getelementptr [112 x i8], ptr %80, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 40
@@ -1279,7 +1278,7 @@ define internal i32 @oscore_dissect(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 42:                                               ; preds = %66, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %66 ]
-  %43 = getelementptr %struct.oscore_context, ptr %38, i64 %indvars.iv.i
+  %43 = getelementptr [112 x i8], ptr %38, i64 %indvars.iv.i
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 72
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8

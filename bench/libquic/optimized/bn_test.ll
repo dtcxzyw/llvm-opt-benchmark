@@ -373,14 +373,14 @@ _ZL7messageP8_IO_FILEPKc.exit:                    ; preds = %50, %51
   %87 = add i32 %86, 1
   %88 = and i32 %86, 7
   %89 = zext nneg i32 %88 to i64
-  %90 = getelementptr inbounds nuw i32, ptr @_ZZL8rand_negvE4sign, i64 %89
+  %90 = getelementptr inbounds nuw [4 x i8], ptr @_ZZL8rand_negvE4sign, i64 %89
   %91 = load i32, ptr %90, align 4, !tbaa !13
   store i32 %91, ptr %69, align 8, !tbaa !22
   %92 = add i32 %86, 2
   store i32 %92, ptr @_ZZL8rand_negvE3neg, align 4, !tbaa !13
   %93 = and i32 %87, 7
   %94 = zext nneg i32 %93 to i64
-  %95 = getelementptr inbounds nuw i32, ptr @_ZZL8rand_negvE4sign, i64 %94
+  %95 = getelementptr inbounds nuw [4 x i8], ptr @_ZZL8rand_negvE4sign, i64 %94
   %96 = load i32, ptr %95, align 4, !tbaa !13
   store i32 %96, ptr %70, align 8, !tbaa !22
   %97 = invoke i32 @BN_add(ptr noundef nonnull %61, ptr noundef nonnull %58, ptr noundef nonnull %59)
@@ -640,14 +640,14 @@ _ZL7messageP8_IO_FILEPKc.exit35:                  ; preds = %141, %142
   %186 = add i32 %185, 1
   %187 = and i32 %185, 7
   %188 = zext nneg i32 %187 to i64
-  %189 = getelementptr inbounds nuw i32, ptr @_ZZL8rand_negvE4sign, i64 %188
+  %189 = getelementptr inbounds nuw [4 x i8], ptr @_ZZL8rand_negvE4sign, i64 %188
   %190 = load i32, ptr %189, align 4, !tbaa !13
   store i32 %190, ptr %155, align 8, !tbaa !22
   %191 = add i32 %185, 2
   store i32 %191, ptr @_ZZL8rand_negvE3neg, align 4, !tbaa !13
   %192 = and i32 %186, 7
   %193 = zext nneg i32 %192 to i64
-  %194 = getelementptr inbounds nuw i32, ptr @_ZZL8rand_negvE4sign, i64 %193
+  %194 = getelementptr inbounds nuw [4 x i8], ptr @_ZZL8rand_negvE4sign, i64 %193
   %195 = load i32, ptr %194, align 4, !tbaa !13
   store i32 %195, ptr %156, align 8, !tbaa !22
   br label %196
@@ -842,7 +842,7 @@ _ZL7messageP8_IO_FILEPKc.exit57:                  ; preds = %234, %235
   store i32 %259, ptr @_ZZL8rand_negvE3neg, align 4, !tbaa !13
   %260 = and i32 %258, 7
   %261 = zext nneg i32 %260 to i64
-  %262 = getelementptr inbounds nuw i32, ptr @_ZZL8rand_negvE4sign, i64 %261
+  %262 = getelementptr inbounds nuw [4 x i8], ptr @_ZZL8rand_negvE4sign, i64 %261
   %263 = load i32, ptr %262, align 4, !tbaa !13
   %264 = getelementptr inbounds nuw i8, ptr %240, i64 16
   store i32 %263, ptr %264, align 8, !tbaa !22
@@ -1579,7 +1579,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEE5resetEPS0_.ex
   store i32 %20, ptr @_ZZL8rand_negvE3neg, align 4, !tbaa !13
   %21 = and i32 %19, 7
   %22 = zext nneg i32 %21 to i64
-  %23 = getelementptr inbounds nuw i32, ptr @_ZZL8rand_negvE4sign, i64 %22
+  %23 = getelementptr inbounds nuw [4 x i8], ptr @_ZZL8rand_negvE4sign, i64 %22
   %24 = load i32, ptr %23, align 4, !tbaa !13
   %25 = load ptr, ptr %2, align 8, !tbaa !19
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
@@ -1957,7 +1957,7 @@ define internal fastcc noundef zeroext i1 @_ZL12test_rshift1P8_IO_FILE(ptr nound
   store i32 %24, ptr @_ZZL8rand_negvE3neg, align 4, !tbaa !13
   %25 = and i32 %23, 7
   %26 = zext nneg i32 %25 to i64
-  %27 = getelementptr inbounds nuw i32, ptr @_ZZL8rand_negvE4sign, i64 %26
+  %27 = getelementptr inbounds nuw [4 x i8], ptr @_ZZL8rand_negvE4sign, i64 %26
   %28 = load i32, ptr %27, align 4, !tbaa !13
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 %28, ptr %29, align 8, !tbaa !22
@@ -2277,7 +2277,7 @@ define internal fastcc noundef zeroext i1 @_ZL11test_rshiftP8_IO_FILEP10bignum_c
   store i32 %39, ptr @_ZZL8rand_negvE3neg, align 4, !tbaa !13
   %40 = and i32 %38, 7
   %41 = zext nneg i32 %40 to i64
-  %42 = getelementptr inbounds nuw i32, ptr @_ZZL8rand_negvE4sign, i64 %41
+  %42 = getelementptr inbounds nuw [4 x i8], ptr @_ZZL8rand_negvE4sign, i64 %41
   %43 = load i32, ptr %42, align 4, !tbaa !13
   %44 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 %43, ptr %44, align 8, !tbaa !22
@@ -2608,7 +2608,7 @@ define internal fastcc noundef zeroext i1 @_ZL8test_sqrP8_IO_FILEP10bignum_ctx(p
   store i32 %37, ptr @_ZZL8rand_negvE3neg, align 4, !tbaa !13
   %38 = and i32 %36, 7
   %39 = zext nneg i32 %38 to i64
-  %40 = getelementptr inbounds nuw i32, ptr @_ZZL8rand_negvE4sign, i64 %39
+  %40 = getelementptr inbounds nuw [4 x i8], ptr @_ZZL8rand_negvE4sign, i64 %39
   %41 = load i32, ptr %40, align 4, !tbaa !13
   store i32 %41, ptr %19, align 8, !tbaa !22
   %42 = invoke i32 @BN_sqr(ptr noundef nonnull %9, ptr noundef nonnull %8, ptr noundef %1)
@@ -3027,14 +3027,14 @@ define internal fastcc noundef zeroext i1 @_ZL8test_mulP8_IO_FILE(ptr noundef %0
   %55 = add i32 %54, 1
   %56 = and i32 %54, 7
   %57 = zext nneg i32 %56 to i64
-  %58 = getelementptr inbounds nuw i32, ptr @_ZZL8rand_negvE4sign, i64 %57
+  %58 = getelementptr inbounds nuw [4 x i8], ptr @_ZZL8rand_negvE4sign, i64 %57
   %59 = load i32, ptr %58, align 4, !tbaa !13
   store i32 %59, ptr %25, align 8, !tbaa !22
   %60 = add i32 %54, 2
   store i32 %60, ptr @_ZZL8rand_negvE3neg, align 4, !tbaa !13
   %61 = and i32 %55, 7
   %62 = zext nneg i32 %61 to i64
-  %63 = getelementptr inbounds nuw i32, ptr @_ZZL8rand_negvE4sign, i64 %62
+  %63 = getelementptr inbounds nuw [4 x i8], ptr @_ZZL8rand_negvE4sign, i64 %62
   %64 = load i32, ptr %63, align 4, !tbaa !13
   store i32 %64, ptr %26, align 8, !tbaa !22
   %65 = invoke i32 @BN_mul(ptr noundef nonnull %13, ptr noundef nonnull %9, ptr noundef nonnull %11, ptr noundef nonnull %8)
@@ -3461,14 +3461,14 @@ define internal fastcc noundef zeroext i1 @_ZL8test_divP8_IO_FILEP10bignum_ctx(p
   %71 = add i32 %70, 1
   %72 = and i32 %70, 7
   %73 = zext nneg i32 %72 to i64
-  %74 = getelementptr inbounds nuw i32, ptr @_ZZL8rand_negvE4sign, i64 %73
+  %74 = getelementptr inbounds nuw [4 x i8], ptr @_ZZL8rand_negvE4sign, i64 %73
   %75 = load i32, ptr %74, align 4, !tbaa !13
   store i32 %75, ptr %43, align 8, !tbaa !22
   %76 = add i32 %70, 2
   store i32 %76, ptr @_ZZL8rand_negvE3neg, align 4, !tbaa !13
   %77 = and i32 %71, 7
   %78 = zext nneg i32 %77 to i64
-  %79 = getelementptr inbounds nuw i32, ptr @_ZZL8rand_negvE4sign, i64 %78
+  %79 = getelementptr inbounds nuw [4 x i8], ptr @_ZZL8rand_negvE4sign, i64 %78
   %80 = load i32, ptr %79, align 4, !tbaa !13
   store i32 %80, ptr %44, align 8, !tbaa !22
   %81 = invoke i32 @BN_div(ptr noundef nonnull %13, ptr noundef nonnull %11, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef %1)
@@ -4086,14 +4086,14 @@ define internal fastcc noundef zeroext i1 @_ZL8test_modP8_IO_FILEP10bignum_ctx(p
   %48 = add i32 %47, 1
   %49 = and i32 %47, 7
   %50 = zext nneg i32 %49 to i64
-  %51 = getelementptr inbounds nuw i32, ptr @_ZZL8rand_negvE4sign, i64 %50
+  %51 = getelementptr inbounds nuw [4 x i8], ptr @_ZZL8rand_negvE4sign, i64 %50
   %52 = load i32, ptr %51, align 4, !tbaa !13
   store i32 %52, ptr %25, align 8, !tbaa !22
   %53 = add i32 %47, 2
   store i32 %53, ptr @_ZZL8rand_negvE3neg, align 4, !tbaa !13
   %54 = and i32 %48, 7
   %55 = zext nneg i32 %54 to i64
-  %56 = getelementptr inbounds nuw i32, ptr @_ZZL8rand_negvE4sign, i64 %55
+  %56 = getelementptr inbounds nuw [4 x i8], ptr @_ZZL8rand_negvE4sign, i64 %55
   %57 = load i32, ptr %56, align 4, !tbaa !13
   store i32 %57, ptr %26, align 8, !tbaa !22
   %58 = invoke i32 @BN_div(ptr noundef null, ptr noundef nonnull %11, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef %1)
@@ -4447,7 +4447,7 @@ define internal fastcc noundef zeroext i1 @_ZL12test_mod_mulP8_IO_FILEP10bignum_
   %68 = add i32 %67, 1
   %69 = and i32 %67, 7
   %70 = zext nneg i32 %69 to i64
-  %71 = getelementptr inbounds nuw i32, ptr @_ZZL8rand_negvE4sign, i64 %70
+  %71 = getelementptr inbounds nuw [4 x i8], ptr @_ZZL8rand_negvE4sign, i64 %70
   %72 = load i32, ptr %71, align 4, !tbaa !13
   %73 = load ptr, ptr %3, align 8, !tbaa !19
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
@@ -4456,7 +4456,7 @@ define internal fastcc noundef zeroext i1 @_ZL12test_mod_mulP8_IO_FILEP10bignum_
   store i32 %75, ptr @_ZZL8rand_negvE3neg, align 4, !tbaa !13
   %76 = and i32 %68, 7
   %77 = zext nneg i32 %76 to i64
-  %78 = getelementptr inbounds nuw i32, ptr @_ZZL8rand_negvE4sign, i64 %77
+  %78 = getelementptr inbounds nuw [4 x i8], ptr @_ZZL8rand_negvE4sign, i64 %77
   %79 = load i32, ptr %78, align 4, !tbaa !13
   %80 = getelementptr inbounds nuw i8, ptr %61, i64 16
   store i32 %79, ptr %80, align 8, !tbaa !22
@@ -6872,7 +6872,7 @@ define internal fastcc noundef zeroext i1 @_ZL13test_mod_sqrtP8_IO_FILEP10bignum
   br i1 %20, label %21, label %29
 
 21:                                               ; preds = %.preheader
-  %22 = getelementptr inbounds nuw i32, ptr @__const._ZL13test_mod_sqrtP8_IO_FILEP10bignum_ctx.kPrimes, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [4 x i8], ptr @__const._ZL13test_mod_sqrtP8_IO_FILEP10bignum_ctx.kPrimes, i64 %indvars.iv
   %23 = load i32, ptr %22, align 4, !tbaa !13
   %24 = zext i32 %23 to i64
   %25 = invoke i32 @BN_set_word(ptr noundef %17, i64 noundef %24)
@@ -6924,7 +6924,7 @@ define internal fastcc noundef zeroext i1 @_ZL13test_mod_sqrtP8_IO_FILEP10bignum
   store i32 %44, ptr @_ZZL8rand_negvE3neg, align 4, !tbaa !13
   %45 = and i32 %43, 7
   %46 = zext nneg i32 %45 to i64
-  %47 = getelementptr inbounds nuw i32, ptr @_ZZL8rand_negvE4sign, i64 %46
+  %47 = getelementptr inbounds nuw [4 x i8], ptr @_ZZL8rand_negvE4sign, i64 %46
   %48 = load i32, ptr %47, align 4, !tbaa !13
   %49 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i32 %48, ptr %49, align 8, !tbaa !22
@@ -8623,7 +8623,7 @@ define internal fastcc noundef zeroext i1 @_ZL8test_mpiv() unnamed_addr #0 perso
 
 5:                                                ; preds = %0, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit50
   %.031107 = phi i64 [ 0, %0 ], [ %55, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit50 ]
-  %6 = getelementptr inbounds nuw %struct.MPITest, ptr @_ZL9kMPITests, i64 %.031107
+  %6 = getelementptr inbounds nuw [24 x i8], ptr @_ZL9kMPITests, i64 %.031107
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %7 = load ptr, ptr %6, align 8, !tbaa !79
   call void @llvm.experimental.noalias.scope.decl(metadata !81)

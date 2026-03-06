@@ -47,7 +47,7 @@ define void @Abc_TruthRpoPerform(ptr noundef readonly captures(none) %0, i32 nou
 
 13:                                               ; preds = %10, %9
   %14 = load ptr, ptr %8, align 8, !tbaa !10
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8, !tbaa !11
   %17 = load i32, ptr %0, align 8, !tbaa !13
   %18 = tail call ptr @Rpo_Factorize(ptr noundef %16, i32 noundef %17, i32 noundef %1, i32 noundef %2) #11
@@ -255,7 +255,7 @@ define void @Abc_TruthRpoTest(ptr noundef %0, i32 noundef %1, i32 noundef %2, i3
   %26 = call noalias ptr @malloc(i64 noundef %25) #13
   %27 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr %26, ptr %27, align 8, !tbaa !10
-  %28 = getelementptr inbounds ptr, ptr %26, i64 %24
+  %28 = getelementptr inbounds [8 x i8], ptr %26, i64 %24
   store ptr %28, ptr %26, align 8, !tbaa !11
   %29 = select i1 %15, i32 0, i32 %16
   %30 = zext nneg i32 %29 to i64
@@ -273,8 +273,8 @@ define void @Abc_TruthRpoTest(ptr noundef %0, i32 noundef %1, i32 noundef %2, i3
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %store_forwarded = phi ptr [ %load_initial, %.lr.ph.preheader.i.i ], [ %35, %.lr.ph.i.i ]
   %indvars.iv.i.i = phi i64 [ 1, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
-  %34 = getelementptr ptr, ptr %26, i64 %indvars.iv.i.i
-  %35 = getelementptr inbounds nuw i64, ptr %store_forwarded, i64 %21
+  %34 = getelementptr [8 x i8], ptr %26, i64 %indvars.iv.i.i
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %store_forwarded, i64 %21
   store ptr %35, ptr %34, align 8, !tbaa !11
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
@@ -303,7 +303,7 @@ Abc_TruthStoreAlloc.exit.i:                       ; preds = %.lr.ph.i.i, %13
   %44 = phi ptr [ %80, %78 ], [ %36, %.lr.ph.i39.i ]
   %.01418.us.i.i = phi i64 [ %indvars.iv.next26.i.i, %78 ], [ 0, %.lr.ph.i39.i ]
   %indvars.iv.next29.i.i = add nuw nsw i64 %indvars.iv28.i.i, 1
-  %45 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv28.i.i
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv28.i.i
   %46 = load ptr, ptr %45, align 8, !tbaa !11
   %47 = icmp eq i8 %43, 48
   br i1 %47, label %48, label %.lr.ph.preheader.i.us.i.i
@@ -358,7 +358,7 @@ Abc_TruthReadHexDigit.exit.i.us.i.i:              ; preds = %65, %63, %60
   %69 = shl i64 %.0.i.i.us.i.i, %68
   %70 = lshr i64 %indvars.iv.i.us.i.i, 4
   %71 = and i64 %70, 268435455
-  %72 = getelementptr inbounds nuw i64, ptr %46, i64 %71
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %71
   %73 = load i64, ptr %72, align 8, !tbaa !34
   %74 = or i64 %73, %69
   store i64 %74, ptr %72, align 8, !tbaa !34
@@ -444,8 +444,8 @@ Abc_TruthReadHex.exit.loopexit.us.i.i:            ; preds = %Abc_TruthReadHex.ex
 106:                                              ; preds = %106, %.lr.ph.i43.i
   %store_forwarded23 = phi ptr [ %load_initial22, %.lr.ph.i43.i ], [ %108, %106 ]
   %indvars.iv.i45.i = phi i64 [ 1, %.lr.ph.i43.i ], [ %indvars.iv.next.i46.i, %106 ]
-  %107 = getelementptr ptr, ptr %102, i64 %indvars.iv.i45.i
-  %108 = getelementptr inbounds i64, ptr %store_forwarded23, i64 %105
+  %107 = getelementptr [8 x i8], ptr %102, i64 %indvars.iv.i45.i
+  %108 = getelementptr inbounds [8 x i8], ptr %store_forwarded23, i64 %105
   store ptr %108, ptr %107, align 8, !tbaa !11
   %indvars.iv.next.i46.i = add nuw nsw i64 %indvars.iv.i45.i, 1
   %exitcond.not.i47.i = icmp eq i64 %indvars.iv.next.i46.i, %wide.trip.count.i44.i

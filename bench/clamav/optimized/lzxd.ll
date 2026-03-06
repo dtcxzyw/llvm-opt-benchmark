@@ -106,7 +106,7 @@ define ptr @lzxd_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 nounde
   %56 = getelementptr inbounds nuw i8, ptr %25, i64 108
   store i32 0, ptr %56, align 4, !tbaa !31
   %57 = zext nneg i32 %3 to i64
-  %58 = getelementptr i32, ptr @position_slots, i64 %57
+  %58 = getelementptr [4 x i8], ptr @position_slots, i64 %57
   %59 = getelementptr i8, ptr %58, i64 -60
   %60 = load i32, ptr %59, align 4, !tbaa !32
   %61 = shl i32 %60, 3
@@ -1803,7 +1803,7 @@ define i32 @lzxd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %.501012.lcssa = phi ptr [ %.4910113486, %.preheader1886 ], [ %723, %722 ]
   %734 = lshr i32 %.271160.lcssa, 20
   %735 = zext nneg i32 %734 to i64
-  %736 = getelementptr inbounds nuw i16, ptr %86, i64 %735
+  %736 = getelementptr inbounds nuw [2 x i8], ptr %86, i64 %735
   %737 = load i16, ptr %736, align 2, !tbaa !54
   %738 = icmp ugt i16 %737, 2575
   br i1 %738, label %.preheader1884, label %.loopexit1885
@@ -1826,7 +1826,7 @@ define i32 @lzxd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %745 = zext i1 %.not1485 to i64
   %.idx = shl nuw nsw i64 %743, 2
   %746 = getelementptr inbounds nuw i8, ptr %86, i64 %.idx
-  %747 = getelementptr inbounds nuw i16, ptr %746, i64 %745
+  %747 = getelementptr inbounds nuw [2 x i8], ptr %746, i64 %745
   %748 = load i16, ptr %747, align 2, !tbaa !54
   %749 = icmp ugt i16 %748, 2575
   br i1 %749, label %.preheader1884, label %.loopexit1885
@@ -1994,7 +1994,7 @@ define i32 @lzxd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %.571019.lcssa = phi ptr [ %.501012.lcssa, %.preheader1883 ], [ %820, %819 ]
   %831 = lshr i32 %.321165.lcssa, 20
   %832 = zext nneg i32 %831 to i64
-  %833 = getelementptr inbounds nuw i16, ptr %89, i64 %832
+  %833 = getelementptr inbounds nuw [2 x i8], ptr %89, i64 %832
   %834 = load i16, ptr %833, align 2, !tbaa !54
   %835 = icmp ugt i16 %834, 249
   br i1 %835, label %.preheader1881, label %.loopexit1882
@@ -2017,7 +2017,7 @@ define i32 @lzxd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %842 = zext i1 %.not1487 to i64
   %.idx1488 = shl nuw nsw i64 %840, 2
   %843 = getelementptr inbounds nuw i8, ptr %89, i64 %.idx1488
-  %844 = getelementptr inbounds nuw i16, ptr %843, i64 %842
+  %844 = getelementptr inbounds nuw [2 x i8], ptr %843, i64 %842
   %845 = load i16, ptr %844, align 2, !tbaa !54
   %846 = icmp ugt i16 %845, 249
   br i1 %846, label %.preheader1881, label %.loopexit1882
@@ -2063,7 +2063,7 @@ define i32 @lzxd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %863 = getelementptr inbounds nuw i8, ptr @extra_bits, i64 %861
   %864 = load i8, ptr %863, align 1, !tbaa !43
   %865 = zext i8 %864 to i32
-  %866 = getelementptr inbounds nuw i32, ptr @position_base, i64 %861
+  %866 = getelementptr inbounds nuw [4 x i8], ptr @position_base, i64 %861
   %867 = load i32, ptr %866, align 4, !tbaa !32
   %868 = add i32 %867, -2
   %869 = add nsw i32 %856, -8
@@ -2076,7 +2076,7 @@ define i32 @lzxd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   br i1 %873, label %879, label %975
 
 .thread3738:                                      ; preds = %859
-  %874 = getelementptr inbounds nuw i32, ptr @position_base, i64 %861
+  %874 = getelementptr inbounds nuw [4 x i8], ptr @position_base, i64 %861
   %875 = load i32, ptr %874, align 4, !tbaa !32
   %876 = add i32 %875, -2
   %877 = load i8, ptr %68, align 1, !tbaa !42
@@ -2244,7 +2244,7 @@ define i32 @lzxd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %.67.lcssa = phi ptr [ %.66, %920 ], [ %940, %939 ]
   %951 = lshr i32 %.381171.lcssa, 25
   %952 = zext nneg i32 %951 to i64
-  %953 = getelementptr inbounds nuw i16, ptr %84, i64 %952
+  %953 = getelementptr inbounds nuw [2 x i8], ptr %84, i64 %952
   %954 = load i16, ptr %953, align 2, !tbaa !54
   %955 = icmp ugt i16 %954, 7
   br i1 %955, label %.preheader1877, label %.loopexit1878
@@ -2267,7 +2267,7 @@ define i32 @lzxd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %962 = zext i1 %.not1495 to i64
   %.idx1496 = shl nuw nsw i64 %960, 2
   %963 = getelementptr inbounds nuw i8, ptr %84, i64 %.idx1496
-  %964 = getelementptr inbounds nuw i16, ptr %963, i64 %962
+  %964 = getelementptr inbounds nuw [2 x i8], ptr %963, i64 %962
   %965 = load i16, ptr %964, align 2, !tbaa !54
   %966 = icmp ugt i16 %965, 7
   br i1 %966, label %.preheader1877, label %.loopexit1878
@@ -3566,7 +3566,7 @@ define internal fastcc range(i32 0, 2) i32 @make_decode_table(i32 noundef range(
   %22 = add nsw i32 %.077112, -1
   %23 = add i32 %.079111, 1
   %24 = zext i32 %.079111 to i64
-  %25 = getelementptr inbounds nuw i16, ptr %3, i64 %24
+  %25 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %24
   store i16 %.087113, ptr %25, align 2, !tbaa !54
   %.not100 = icmp eq i32 %22, 0
   br i1 %.not100, label %..loopexit102_crit_edge, label %.preheader101
@@ -3600,7 +3600,7 @@ define internal fastcc range(i32 0, 2) i32 @make_decode_table(i32 noundef range(
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.188119 = phi i16 [ %38, %.lr.ph ], [ %35, %.lr.ph.preheader ]
   %36 = zext i16 %.188119 to i64
-  %37 = getelementptr inbounds nuw i16, ptr %3, i64 %36
+  %37 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %36
   store i16 -1, ptr %37, align 2, !tbaa !54
   %38 = add i16 %.188119, 1
   %39 = zext i16 %38 to i32
@@ -3655,7 +3655,7 @@ define internal fastcc range(i32 0, 2) i32 @make_decode_table(i32 noundef range(
   %.180121.us = phi i32 [ %52, %.lr.ph124.us ], [ %spec.select.us, %66 ]
   %.385120.us = phi i16 [ %.183128.us, %.lr.ph124.us ], [ %.486.us, %66 ]
   %57 = zext nneg i32 %.180121.us to i64
-  %58 = getelementptr inbounds nuw i16, ptr %3, i64 %57
+  %58 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %57
   %59 = load i16, ptr %58, align 2, !tbaa !54
   %60 = icmp eq i16 %59, -1
   br i1 %60, label %61, label %66
@@ -3686,7 +3686,7 @@ define internal fastcc range(i32 0, 2) i32 @make_decode_table(i32 noundef range(
 
 ._crit_edge125.us:                                ; preds = %66
   %74 = zext nneg i32 %spec.select.us to i64
-  %75 = getelementptr inbounds nuw i16, ptr %3, i64 %74
+  %75 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %74
   store i16 %.289127.us, ptr %75, align 2, !tbaa !54
   %76 = add i32 %.4129.us, %.1137
   br label %53
@@ -4036,7 +4036,7 @@ define internal fastcc i32 @lzxd_read_lens(ptr noundef nonnull %0, ptr noundef n
   %.6235.lcssa = phi ptr [ %.5234704, %.preheader467 ], [ %150, %149 ]
   %161 = lshr i32 %.4276.lcssa, 26
   %162 = zext nneg i32 %161 to i64
-  %163 = getelementptr inbounds nuw i16, ptr %90, i64 %162
+  %163 = getelementptr inbounds nuw [2 x i8], ptr %90, i64 %162
   %164 = load i16, ptr %163, align 2, !tbaa !54
   %165 = icmp ugt i16 %164, 19
   br i1 %165, label %.preheader465, label %.loopexit466
@@ -4060,7 +4060,7 @@ define internal fastcc i32 @lzxd_read_lens(ptr noundef nonnull %0, ptr noundef n
   %173 = zext i1 %.not344 to i64
   %.idx = shl nuw nsw i64 %171, 2
   %174 = getelementptr inbounds nuw i8, ptr %90, i64 %.idx
-  %175 = getelementptr inbounds nuw i16, ptr %174, i64 %173
+  %175 = getelementptr inbounds nuw [2 x i8], ptr %174, i64 %173
   %176 = load i16, ptr %175, align 2, !tbaa !54
   %177 = icmp ugt i16 %176, 19
   br i1 %177, label %.preheader465, label %.loopexit466
@@ -4497,7 +4497,7 @@ define internal fastcc i32 @lzxd_read_lens(ptr noundef nonnull %0, ptr noundef n
   %.23.lcssa = phi ptr [ %.19.lcssa, %._crit_edge658 ], [ %370, %369 ]
   %381 = lshr i32 %.13285.lcssa, 26
   %382 = zext nneg i32 %381 to i64
-  %383 = getelementptr inbounds nuw i16, ptr %90, i64 %382
+  %383 = getelementptr inbounds nuw [2 x i8], ptr %90, i64 %382
   %384 = load i16, ptr %383, align 2, !tbaa !54
   %385 = icmp ugt i16 %384, 19
   br i1 %385, label %.preheader462, label %.loopexit463
@@ -4521,7 +4521,7 @@ define internal fastcc i32 @lzxd_read_lens(ptr noundef nonnull %0, ptr noundef n
   %393 = zext i1 %.not345 to i64
   %.idx346 = shl nuw nsw i64 %391, 2
   %394 = getelementptr inbounds nuw i8, ptr %90, i64 %.idx346
-  %395 = getelementptr inbounds nuw i16, ptr %394, i64 %393
+  %395 = getelementptr inbounds nuw [2 x i8], ptr %394, i64 %393
   %396 = load i16, ptr %395, align 2, !tbaa !54
   %397 = icmp ugt i16 %396, 19
   br i1 %397, label %.preheader462, label %.loopexit463

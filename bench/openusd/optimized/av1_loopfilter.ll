@@ -3,10 +3,7 @@ source_filename = "bench/openusd/original/av1_loopfilter.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.loop_filter_thresh = type { [16 x i8], [16 x i8], [16 x i8] }
 %struct.AV1_DEBLOCKING_PARAMETERS = type { i32, ptr, ptr, ptr }
-%struct.macroblockd_plane = type { i8, i32, i32, %struct.buf_2d, [2 x %struct.buf_2d], ptr, ptr, [8 x [2 x i16]], ptr, i8, i8, [8 x [19 x ptr]], [8 x [19 x ptr]] }
-%struct.buf_2d = type { ptr, ptr, i32, i32, i32 }
 
 @delta_lf_id_lut = internal unnamed_addr constant [3 x [2 x i32]] [[2 x i32] [i32 0, i32 1], [2 x i32] [i32 2, i32 2], [2 x i32] [i32 3, i32 3]], align 16
 @seg_lvl_lf_lut = internal unnamed_addr constant [3 x [2 x i8]] [[2 x i8] c"\01\02", [2 x i8] c"\03\03", [2 x i8] c"\04\04"], align 1
@@ -45,9 +42,9 @@ define hidden zeroext i8 @av1_get_filter_level(ptr noundef readonly captures(non
 
 14:                                               ; preds = %11
   %15 = sext i32 %3 to i64
-  %16 = getelementptr inbounds [2 x i32], ptr @delta_lf_id_lut, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr @delta_lf_id_lut, i64 %15
   %17 = sext i32 %2 to i64
-  %18 = getelementptr inbounds i32, ptr %16, i64 %17
+  %18 = getelementptr inbounds [4 x i8], ptr %16, i64 %17
   %19 = load i32, ptr %18, align 4
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 171
   %21 = sext i32 %19 to i64
@@ -69,7 +66,7 @@ define hidden zeroext i8 @av1_get_filter_level(ptr noundef readonly captures(non
 26:                                               ; preds = %25
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 23568
   %28 = sext i32 %2 to i64
-  %29 = getelementptr inbounds i32, ptr %27, i64 %28
+  %29 = getelementptr inbounds [4 x i8], ptr %27, i64 %28
   br label %34
 
 30:                                               ; preds = %25
@@ -100,7 +97,7 @@ define hidden zeroext i8 @av1_get_filter_level(ptr noundef readonly captures(non
 segfeature_active.exit:                           ; preds = %34
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 19668
   %47 = zext nneg i16 %8 to i64
-  %48 = getelementptr inbounds nuw i32, ptr %46, i64 %47
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %47
   %49 = load i32, ptr %48, align 4
   %50 = zext nneg i8 %43 to i32
   %51 = shl nuw i32 1, %50
@@ -110,9 +107,9 @@ segfeature_active.exit:                           ; preds = %34
 
 53:                                               ; preds = %segfeature_active.exit
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 19540
-  %55 = getelementptr inbounds nuw [8 x i16], ptr %54, i64 %47
+  %55 = getelementptr inbounds nuw [16 x i8], ptr %54, i64 %47
   %56 = zext i8 %43 to i64
-  %57 = getelementptr inbounds nuw i16, ptr %55, i64 %56
+  %57 = getelementptr inbounds nuw [2 x i8], ptr %55, i64 %56
   %58 = load i16, ptr %57, align 2
   %59 = sext i16 %58 to i32
   %60 = add nsw i32 %38, %59
@@ -144,7 +141,7 @@ segfeature_active.exit.thread:                    ; preds = %34, %53, %segfeatur
   %77 = getelementptr inbounds nuw i8, ptr %4, i64 2
   %78 = load i8, ptr %77, align 2
   %79 = zext i8 %78 to i64
-  %80 = getelementptr inbounds nuw i32, ptr @mode_lf_lut, i64 %79
+  %80 = getelementptr inbounds nuw [4 x i8], ptr @mode_lf_lut, i64 %79
   %81 = load i32, ptr %80, align 4
   %82 = sext i32 %81 to i64
   %83 = getelementptr inbounds i8, ptr %76, i64 %82
@@ -169,11 +166,11 @@ segfeature_active.exit.thread:                    ; preds = %34, %53, %segfeatur
 92:                                               ; preds = %5
   %93 = getelementptr inbounds nuw i8, ptr %1, i64 3072
   %94 = sext i32 %3 to i64
-  %95 = getelementptr inbounds [8 x [2 x [8 x [2 x i8]]]], ptr %93, i64 %94
+  %95 = getelementptr inbounds [256 x i8], ptr %93, i64 %94
   %96 = zext nneg i16 %8 to i64
-  %97 = getelementptr inbounds nuw [2 x [8 x [2 x i8]]], ptr %95, i64 %96
+  %97 = getelementptr inbounds nuw [32 x i8], ptr %95, i64 %96
   %98 = sext i32 %2 to i64
-  %99 = getelementptr inbounds [8 x [2 x i8]], ptr %97, i64 %98
+  %99 = getelementptr inbounds [16 x i8], ptr %97, i64 %98
   %100 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %101 = load i8, ptr %100, align 8
   %102 = sext i8 %101 to i64
@@ -181,7 +178,7 @@ segfeature_active.exit.thread:                    ; preds = %34, %53, %segfeatur
   %104 = getelementptr inbounds nuw i8, ptr %4, i64 2
   %105 = load i8, ptr %104, align 2
   %106 = zext i8 %105 to i64
-  %107 = getelementptr inbounds nuw i32, ptr @mode_lf_lut, i64 %106
+  %107 = getelementptr inbounds nuw [4 x i8], ptr @mode_lf_lut, i64 %106
   %108 = load i32, ptr %107, align 4
   %109 = sext i32 %108 to i64
   %110 = getelementptr inbounds i8, ptr %103, i64 %109
@@ -214,7 +211,7 @@ define hidden void @av1_loop_filter_init(ptr noundef captures(none) initializes(
   %13 = lshr i32 %12, %10
   %spec.select.us.i = tail call i32 @llvm.smin.i32(i32 %13, i32 %11)
   %spec.store.select.us.i = tail call i32 @llvm.smax.i32(i32 %spec.select.us.i, i32 1)
-  %14 = getelementptr inbounds nuw %struct.loop_filter_thresh, ptr %2, i64 %indvars.iv25.i
+  %14 = getelementptr inbounds nuw [48 x i8], ptr %2, i64 %indvars.iv25.i
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = trunc nuw nsw i32 %spec.store.select.us.i to i8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %15, i8 %16, i64 16, i1 false)
@@ -232,7 +229,7 @@ define hidden void @av1_loop_filter_init(ptr noundef captures(none) initializes(
   %21 = trunc i64 %indvars.iv.i to i32
   %22 = lshr i32 %21, %10
   %spec.store.select.i = tail call i32 @llvm.smax.i32(i32 %22, i32 1)
-  %23 = getelementptr inbounds nuw %struct.loop_filter_thresh, ptr %2, i64 %indvars.iv.i
+  %23 = getelementptr inbounds nuw [48 x i8], ptr %2, i64 %indvars.iv.i
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = trunc nuw nsw i32 %spec.store.select.i to i8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %24, i8 %25, i64 16, i1 false)
@@ -250,7 +247,7 @@ update_sharpness.exit.preheader:                  ; preds = %.split.i, %.split.u
 
 update_sharpness.exit:                            ; preds = %update_sharpness.exit.preheader, %update_sharpness.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %update_sharpness.exit ], [ 0, %update_sharpness.exit.preheader ]
-  %30 = getelementptr inbounds nuw %struct.loop_filter_thresh, ptr %2, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [48 x i8], ptr %2, i64 %indvars.iv
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %32 = lshr i64 %indvars.iv, 4
   %33 = trunc i64 %32 to i8
@@ -289,7 +286,7 @@ define hidden void @av1_loop_filter_frame_init(ptr noundef captures(none) %0, i3
   %18 = lshr i32 %17, %15
   %spec.select.us.i = tail call i32 @llvm.smin.i32(i32 %18, i32 %16)
   %spec.store.select.us.i = tail call i32 @llvm.smax.i32(i32 %spec.select.us.i, i32 1)
-  %19 = getelementptr inbounds nuw %struct.loop_filter_thresh, ptr %6, i64 %indvars.iv25.i
+  %19 = getelementptr inbounds nuw [48 x i8], ptr %6, i64 %indvars.iv25.i
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = trunc nuw nsw i32 %spec.store.select.us.i to i8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %20, i8 %21, i64 16, i1 false)
@@ -307,7 +304,7 @@ define hidden void @av1_loop_filter_frame_init(ptr noundef captures(none) %0, i3
   %26 = trunc i64 %indvars.iv.i to i32
   %27 = lshr i32 %26, %15
   %spec.store.select.i = tail call i32 @llvm.smax.i32(i32 %27, i32 1)
-  %28 = getelementptr inbounds nuw %struct.loop_filter_thresh, ptr %6, i64 %indvars.iv.i
+  %28 = getelementptr inbounds nuw [48 x i8], ptr %6, i64 %indvars.iv.i
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = trunc nuw nsw i32 %spec.store.select.i to i8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %29, i8 %30, i64 16, i1 false)
@@ -372,21 +369,21 @@ update_sharpness.exit:                            ; preds = %.split.i, %.split.u
 
 .preheader86:                                     ; preds = %60
   %63 = getelementptr inbounds [2 x i8], ptr @seg_lvl_lf_lut, i64 %indvars.iv108
-  %64 = getelementptr inbounds [8 x [2 x [8 x [2 x i8]]]], ptr %55, i64 %indvars.iv108
+  %64 = getelementptr inbounds [256 x i8], ptr %55, i64 %indvars.iv108
   br label %.preheader85
 
 .preheader85:                                     ; preds = %.preheader86, %117
   %indvars.iv104 = phi i64 [ 0, %.preheader86 ], [ %indvars.iv.next105, %117 ]
-  %65 = getelementptr inbounds nuw i32, ptr %52, i64 %indvars.iv104
-  %66 = getelementptr inbounds nuw [8 x i16], ptr %53, i64 %indvars.iv104
-  %67 = getelementptr inbounds nuw [2 x [8 x [2 x i8]]], ptr %64, i64 %indvars.iv104
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %indvars.iv104
+  %66 = getelementptr inbounds nuw [16 x i8], ptr %53, i64 %indvars.iv104
+  %67 = getelementptr inbounds nuw [32 x i8], ptr %64, i64 %indvars.iv104
   br label %68
 
 68:                                               ; preds = %.preheader85, %.loopexit
   %69 = phi i1 [ true, %.preheader85 ], [ false, %.loopexit ]
   %indvars.iv101 = phi i64 [ 0, %.preheader85 ], [ 1, %.loopexit ]
   %.in.v = select i1 %69, ptr %4, ptr %5
-  %.in = getelementptr inbounds i32, ptr %.in.v, i64 %indvars.iv108
+  %.in = getelementptr inbounds [4 x i8], ptr %.in.v, i64 %indvars.iv108
   %70 = load i32, ptr %.in, align 4
   %71 = getelementptr inbounds nuw i8, ptr %63, i64 %indvars.iv101
   %72 = load i8, ptr %71, align 1
@@ -404,7 +401,7 @@ segfeature_active.exit:                           ; preds = %68
 
 78:                                               ; preds = %segfeature_active.exit
   %79 = zext i8 %72 to i64
-  %80 = getelementptr inbounds nuw i16, ptr %66, i64 %79
+  %80 = getelementptr inbounds nuw [2 x i8], ptr %66, i64 %79
   %81 = load i16, ptr %80, align 2
   %82 = sext i16 %81 to i32
   %83 = add nsw i32 %70, %82
@@ -419,7 +416,7 @@ segfeature_active.exit.thread:                    ; preds = %68, %78, %segfeatur
   br i1 %.not83, label %87, label %90
 
 87:                                               ; preds = %segfeature_active.exit.thread
-  %88 = getelementptr inbounds nuw [8 x [2 x i8]], ptr %67, i64 %indvars.iv101
+  %88 = getelementptr inbounds nuw [16 x i8], ptr %67, i64 %indvars.iv101
   %89 = trunc i32 %.082 to i8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %88, i8 %89, i64 16, i1 false)
   br label %.loopexit
@@ -433,7 +430,7 @@ segfeature_active.exit.thread:                    ; preds = %68, %78, %segfeatur
   %96 = tail call i32 @llvm.smax.i32(i32 %95, i32 0)
   %97 = tail call noundef range(i32 0, 64) i32 @llvm.umin.i32(i32 %96, i32 63)
   %98 = trunc nuw nsw i32 %97 to i8
-  %99 = getelementptr inbounds nuw [8 x [2 x i8]], ptr %67, i64 %indvars.iv101
+  %99 = getelementptr inbounds nuw [16 x i8], ptr %67, i64 %indvars.iv101
   store i8 %98, ptr %99, align 16
   br label %.preheader
 
@@ -644,7 +641,7 @@ define hidden void @av1_filter_block_plane_vert(ptr noundef %0, ptr noundef read
 93:                                               ; preds = %.thread, %89, %82, %77, %70, %65, %58, %53, %46, %40
   %.059.us76.shrunk = phi i8 [ 0, %.thread ], [ %38, %89 ], [ %38, %82 ], [ %38, %77 ], [ %38, %70 ], [ %38, %65 ], [ %38, %58 ], [ %38, %53 ], [ %38, %46 ], [ %38, %40 ]
   %.059.us76 = zext i8 %.059.us76.shrunk to i64
-  %94 = getelementptr inbounds nuw i32, ptr @tx_size_wide_unit, i64 %.059.us76
+  %94 = getelementptr inbounds nuw [4 x i8], ptr @tx_size_wide_unit, i64 %.059.us76
   %95 = load i32, ptr %94, align 4
   %96 = add i32 %95, %.06064.us
   %97 = shl i32 %95, 2
@@ -693,9 +690,9 @@ define internal fastcc zeroext i8 @set_lpf_parameters(ptr noundef nonnull writeo
   %29 = load i32, ptr %28, align 4
   %30 = mul nsw i32 %22, %29
   %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds ptr, ptr %27, i64 %31
+  %32 = getelementptr inbounds [8 x i8], ptr %27, i64 %31
   %33 = sext i32 %25 to i64
-  %34 = getelementptr inbounds ptr, ptr %32, i64 %33
+  %34 = getelementptr inbounds [8 x i8], ptr %32, i64 %33
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, null
   br i1 %36, label %.thread, label %37
@@ -707,7 +704,7 @@ define internal fastcc zeroext i8 @set_lpf_parameters(ptr noundef nonnull writeo
   %41 = select i1 %40, i32 %5, i32 %6
   %42 = zext i8 %38 to i64
   %.in.in.v = select i1 %40, ptr @tx_size_wide, ptr @tx_size_high
-  %.in.in = getelementptr inbounds nuw i32, ptr %.in.in.v, i64 %42
+  %.in.in = getelementptr inbounds nuw [4 x i8], ptr %.in.in.v, i64 %42
   %.in = load i32, ptr %.in.in, align 4
   %43 = add nsw i32 %.in, -1
   %44 = and i32 %43, %41
@@ -742,7 +739,7 @@ is_inter_block.exit:                              ; preds = %53, %50, %45
 
 58:                                               ; preds = %is_inter_block.exit
   %59 = sub i64 0, %1
-  %60 = getelementptr inbounds ptr, ptr %34, i64 %59
+  %60 = getelementptr inbounds [8 x i8], ptr %34, i64 %59
   %61 = load ptr, ptr %60, align 8
   %62 = icmp eq ptr %61, null
   br i1 %62, label %.thread, label %63
@@ -790,7 +787,7 @@ is_inter_block.exit137:                           ; preds = %72, %75
 85:                                               ; preds = %82
   %86 = load i8, ptr %35, align 8
   %87 = zext i8 %86 to i64
-  %88 = getelementptr inbounds nuw [2 x [2 x i8]], ptr @ss_size_lookup, i64 %87
+  %88 = getelementptr inbounds nuw [4 x i8], ptr @ss_size_lookup, i64 %87
   %89 = sext i32 %17 to i64
   %90 = getelementptr inbounds [2 x i8], ptr %88, i64 %89
   %91 = sext i32 %19 to i64
@@ -829,7 +826,7 @@ is_inter_block.exit137:                           ; preds = %72, %75
   store i32 %spec.store.select.sink, ptr %0, align 8
   %.v = select i1 %83, i8 %47, i8 %69
   %102 = zext i8 %.v to i64
-  %103 = getelementptr inbounds nuw %struct.loop_filter_thresh, ptr %46, i64 %102
+  %103 = getelementptr inbounds nuw [48 x i8], ptr %46, i64 %102
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 16
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %104, ptr %105, align 8
@@ -1022,7 +1019,7 @@ define hidden void @av1_filter_block_plane_horz(ptr noundef %0, ptr noundef read
 94:                                               ; preds = %.thread, %90, %83, %78, %71, %66, %59, %54, %47, %41
   %.060.us78.shrunk = phi i8 [ 0, %.thread ], [ %39, %90 ], [ %39, %83 ], [ %39, %78 ], [ %39, %71 ], [ %39, %66 ], [ %39, %59 ], [ %39, %54 ], [ %39, %47 ], [ %39, %41 ]
   %.060.us78 = zext i8 %.060.us78.shrunk to i64
-  %95 = getelementptr inbounds nuw i32, ptr @tx_size_high_unit, i64 %.060.us78
+  %95 = getelementptr inbounds nuw [4 x i8], ptr @tx_size_high_unit, i64 %.060.us78
   %96 = load i32, ptr %95, align 4
   %97 = add i32 %96, %.06165.us
   %98 = mul i32 %28, %96
@@ -1096,7 +1093,7 @@ define hidden void @av1_filter_block_plane_vert_test(ptr noundef %0, ptr noundef
   %32 = icmp eq i8 %31, -1
   %spec.select = select i1 %32, i8 0, i8 %31
   %33 = zext i8 %spec.select to i64
-  %34 = getelementptr inbounds nuw i32, ptr @tx_size_wide_unit, i64 %33
+  %34 = getelementptr inbounds nuw [4 x i8], ptr @tx_size_wide_unit, i64 %33
   %35 = load i32, ptr %34, align 4
   %36 = add i32 %35, %.03637.us
   %37 = icmp slt i32 %36, %17
@@ -1153,7 +1150,7 @@ define hidden void @av1_filter_block_plane_horz_test(ptr noundef %0, ptr noundef
   %34 = icmp eq i8 %33, -1
   %spec.select = select i1 %34, i8 0, i8 %33
   %35 = zext i8 %spec.select to i64
-  %36 = getelementptr inbounds nuw i32, ptr @tx_size_high_unit, i64 %35
+  %36 = getelementptr inbounds nuw [4 x i8], ptr @tx_size_high_unit, i64 %35
   %37 = load i32, ptr %36, align 4
   %38 = add i32 %37, %.03738.us
   %39 = icmp slt i32 %38, %14
@@ -1246,7 +1243,7 @@ define hidden void @av1_loop_filter_frame(ptr noundef %0, ptr noundef %1, ptr no
 
 .preheader117.lr.ph.i:                            ; preds = %.preheader120.i
   %40 = add nsw i32 %indvars142.i, 1
-  %41 = getelementptr inbounds %struct.macroblockd_plane, ptr %16, i64 %indvars.iv.i
+  %41 = getelementptr inbounds [2608 x i8], ptr %16, i64 %indvars.iv.i
   br label %.preheader117.i
 
 .preheader119.i:                                  ; preds = %38
@@ -1254,7 +1251,7 @@ define hidden void @av1_loop_filter_frame(ptr noundef %0, ptr noundef %1, ptr no
 
 .preheader116.lr.ph.i:                            ; preds = %.preheader119.i
   %42 = add nsw i32 %indvars142.i, 1
-  %43 = getelementptr inbounds %struct.macroblockd_plane, ptr %16, i64 %indvars.iv.i
+  %43 = getelementptr inbounds [2608 x i8], ptr %16, i64 %indvars.iv.i
   br i1 %26, label %.preheader116.us.i, label %.loopexit.i
 
 .preheader116.us.i:                               ; preds = %.preheader116.lr.ph.i, %._crit_edge126.us.i
@@ -1347,7 +1344,7 @@ define internal fastcc zeroext i8 @get_transform_size(ptr noundef readonly captu
   %11 = load i16, ptr %10, align 1
   %12 = and i16 %11, 7
   %13 = zext nneg i16 %12 to i64
-  %14 = getelementptr inbounds nuw i32, ptr %9, i64 %13
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %13
   %15 = load i32, ptr %14, align 4
   %.not27 = icmp eq i32 %15, 0
   br i1 %.not27, label %16, label %79
@@ -1363,7 +1360,7 @@ define internal fastcc zeroext i8 @get_transform_size(ptr noundef readonly captu
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %23 = load i32, ptr %22, align 8
   %24 = zext i8 %19 to i64
-  %25 = getelementptr inbounds nuw [2 x [2 x i8]], ptr @ss_size_lookup, i64 %24
+  %25 = getelementptr inbounds nuw [4 x i8], ptr @ss_size_lookup, i64 %24
   %26 = sext i32 %21 to i64
   %27 = getelementptr inbounds [2 x i8], ptr %25, i64 %26
   %28 = sext i32 %23 to i64

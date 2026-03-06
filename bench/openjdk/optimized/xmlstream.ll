@@ -799,7 +799,7 @@ define hidden void @_ZN9xmlStream11method_textEP6Method(ptr noundef nonnull alig
   %30 = load i16, ptr %29, align 4
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 72
   %32 = zext i16 %30 to i64
-  %33 = getelementptr inbounds nuw i64, ptr %31, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %32
   %34 = load ptr, ptr %33, align 8
   %35 = load ptr, ptr %17, align 8
   tail call void @_ZNK6Symbol15print_symbol_onEP12outputStream(ptr noundef nonnull align 4 dereferenceable(8) %34, ptr noundef %35) #8
@@ -811,7 +811,7 @@ define hidden void @_ZN9xmlStream11method_textEP6Method(ptr noundef nonnull alig
   %40 = load i16, ptr %39, align 2
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 72
   %42 = zext i16 %40 to i64
-  %43 = getelementptr inbounds nuw i64, ptr %41, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %42
   %44 = load ptr, ptr %43, align 8
   %45 = load ptr, ptr %17, align 8
   tail call void @_ZNK6Symbol15print_symbol_onEP12outputStream(ptr noundef nonnull align 4 dereferenceable(8) %44, ptr noundef %45) #8

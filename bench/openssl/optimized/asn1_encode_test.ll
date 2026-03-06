@@ -207,7 +207,7 @@ define internal fastcc range(i32 0, 2) i32 @test_intern(ptr noundef readonly cap
   %25 = mul i64 %24, %indvars.iv
   %26 = load ptr, ptr %17, align 8, !tbaa !14
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 %25
-  %28 = getelementptr inbounds nuw %struct.TEST_CUSTOM_DATA, ptr @test_custom_data, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [32 x i8], ptr @test_custom_data, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8, !tbaa !15
   %29 = call fastcc i64 @make_custom_der(ptr noundef nonnull readonly %28, ptr noundef %7, i32 noundef 0)

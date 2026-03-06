@@ -801,7 +801,7 @@ define dso_local noundef zeroext i1 @xstring_is_whitespace(ptr noundef readonly 
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %5 ]
   %9 = phi i8 [ %2, %.lr.ph ], [ %7, %5 ]
   %10 = sext i8 %9 to i64
-  %11 = getelementptr inbounds i16, ptr %4, i64 %10
+  %11 = getelementptr inbounds [2 x i8], ptr %4, i64 %10
   %12 = load i16, ptr %11, align 2
   %13 = and i16 %12, 8192
   %.not7.not.not = icmp ne i16 %13, 0
@@ -834,7 +834,7 @@ define dso_local zeroext i1 @xstrtolower(ptr noundef captures(address_is_null) %
   %6 = sext i8 %4 to i32
   %7 = load ptr, ptr %3, align 8
   %8 = sext i8 %4 to i64
-  %9 = getelementptr inbounds i32, ptr %7, i64 %8
+  %9 = getelementptr inbounds [4 x i8], ptr %7, i64 %8
   %.026 = load i32, ptr %9, align 4
   %.not31 = icmp ne i32 %.026, %6
   %spec.select = select i1 %.not31, i1 true, i1 %.02534
@@ -1012,12 +1012,12 @@ define dso_local ptr @xstrcasestr(ptr noundef readonly captures(address_is_null,
   %16 = getelementptr inbounds nuw i8, ptr %.04756, i64 %indvars.iv
   %17 = load i8, ptr %16, align 1
   %18 = sext i8 %17 to i64
-  %19 = getelementptr inbounds i32, ptr %13, i64 %18
+  %19 = getelementptr inbounds [4 x i8], ptr %13, i64 %18
   %.048 = load i32, ptr %19, align 4
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %21 = load i8, ptr %20, align 1
   %22 = sext i8 %21 to i64
-  %23 = getelementptr inbounds i32, ptr %15, i64 %22
+  %23 = getelementptr inbounds [4 x i8], ptr %15, i64 %22
   %.045 = load i32, ptr %23, align 4
   %.not = icmp eq i32 %.048, %.045
   br i1 %.not, label %24, label %._crit_edge.loopexit
@@ -1350,7 +1350,7 @@ define dso_local void @xstrtrim(ptr noundef %0) local_unnamed_addr #18 {
   %.044 = phi ptr [ %0, %.preheader42 ], [ %20, %19 ]
   %7 = phi i8 [ %3, %.preheader42 ], [ %.pr, %19 ]
   %8 = sext i8 %7 to i64
-  %9 = getelementptr inbounds i16, ptr %5, i64 %8
+  %9 = getelementptr inbounds [2 x i8], ptr %5, i64 %8
   %10 = load i16, ptr %9, align 2
   %11 = and i16 %10, 8192
   %.not32 = icmp eq i16 %11, 0
@@ -1369,7 +1369,7 @@ define dso_local void @xstrtrim(ptr noundef %0) local_unnamed_addr #18 {
 .lr.ph.preheader:                                 ; preds = %.critedge.preheader
   %14 = load ptr, ptr %4, align 8
   %15 = sext i8 %13 to i64
-  %16 = getelementptr inbounds i16, ptr %14, i64 %15
+  %16 = getelementptr inbounds [2 x i8], ptr %14, i64 %15
   %17 = load i16, ptr %16, align 2
   %18 = and i16 %17, 8192
   %.not3760 = icmp eq i16 %18, 0
@@ -1388,7 +1388,7 @@ define dso_local void @xstrtrim(ptr noundef %0) local_unnamed_addr #18 {
 .lr.ph:                                           ; preds = %.lr.ph61
   %22 = load ptr, ptr %4, align 8
   %23 = sext i8 %29 to i64
-  %24 = getelementptr inbounds i16, ptr %22, i64 %23
+  %24 = getelementptr inbounds [2 x i8], ptr %22, i64 %23
   %25 = load i16, ptr %24, align 2
   %26 = and i16 %25, 8192
   %.not37 = icmp eq i16 %26, 0
@@ -1507,7 +1507,7 @@ define dso_local ptr @xstring_bytes2printable(ptr noundef readonly captures(none
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %14 = load i8, ptr %13, align 1
   %15 = zext i8 %14 to i64
-  %16 = getelementptr inbounds nuw i16, ptr %12, i64 %15
+  %16 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %15
   %17 = load i16, ptr %16, align 2
   %18 = and i16 %17, 12
   %or.cond = icmp ne i16 %18, 0

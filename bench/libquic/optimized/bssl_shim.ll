@@ -2033,7 +2033,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit250:                 ; preds = %426, %423, %421
 
 477:                                              ; preds = %472, %473
   %.0154327 = phi i64 [ 0, %472 ], [ %474, %473 ]
-  %478 = getelementptr inbounds nuw i64, ptr @_ZZL10DoExchangePSt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS0_XadL_Z16SSL_SESSION_freeEEEEP10ssl_ctx_stPK10TestConfigbPS0_E12kRecordSizes, i64 %.0154327
+  %478 = getelementptr inbounds nuw [8 x i8], ptr @_ZZL10DoExchangePSt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS0_XadL_Z16SSL_SESSION_freeEEEEP10ssl_ctx_stPK10TestConfigbPS0_E12kRecordSizes, i64 %.0154327
   %479 = load i64, ptr %478, align 8, !tbaa !144
   %480 = invoke fastcc noundef i32 @_ZL8WriteAllP6ssl_stPKhm(ptr noundef nonnull %20, ptr noundef nonnull %471, i64 noundef %479)
           to label %481 unwind label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit
@@ -3770,7 +3770,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i: ; preds = %42, %.no
   br label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i: ; preds = %43, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i
-  %44 = getelementptr inbounds nuw i32, ptr %39, i64 %37
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %37
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit
 
 _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %26, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i

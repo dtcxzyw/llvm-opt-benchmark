@@ -13,12 +13,10 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::TypedTrackingMDRef" = type { %"class.llvm::TrackingMDRef" }
 %"class.llvm::TrackingMDRef" = type { ptr }
 %"class.llvm::DbgRecordParamRef" = type { %"class.llvm::TypedTrackingMDRef" }
-%"class.llvm::Use" = type { ptr, ptr, ptr, ptr }
 %"class.llvm::ArrayRef.29" = type { ptr, i64 }
 %"class.llvm::Twine" = type <{ %"union.llvm::Twine::Child", %"union.llvm::Twine::Child", i8, i8, [6 x i8] }>
 %"union.llvm::Twine::Child" = type { %struct.anon }
 %struct.anon = type { ptr, i64 }
-%"class.llvm::MDOperand" = type { ptr }
 %"class.llvm::iterator_range" = type { %"class.llvm::DbgVariableRecord::location_op_iterator", %"class.llvm::DbgVariableRecord::location_op_iterator" }
 %"class.llvm::DbgVariableRecord::location_op_iterator" = type { %"class.llvm::PointerUnion.14" }
 %"class.llvm::PointerUnion.14" = type { %"class.llvm::pointer_union_detail::PointerUnionMembers.15" }
@@ -413,7 +411,7 @@ _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %_ZN4llvm9DbgRecordC
   %16 = and i32 %15, 134217727
   %17 = zext nneg i32 %16 to i64
   %18 = sub nsw i64 0, %17
-  %19 = getelementptr inbounds %"class.llvm::Use", ptr %1, i64 %18
+  %19 = getelementptr inbounds [32 x i8], ptr %1, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !20
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = load ptr, ptr %21, align 8, !tbaa !26
@@ -427,7 +425,7 @@ _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %_ZN4llvm9DbgRecordC
   %25 = and i32 %24, 134217727
   %26 = zext nneg i32 %25 to i64
   %27 = sub nsw i64 0, %26
-  %28 = getelementptr inbounds %"class.llvm::Use", ptr %1, i64 %27
+  %28 = getelementptr inbounds [32 x i8], ptr %1, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %30 = load ptr, ptr %29, align 8, !tbaa !20
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
@@ -438,7 +436,7 @@ _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %_ZN4llvm9DbgRecordC
   %35 = and i32 %34, 134217727
   %36 = zext nneg i32 %35 to i64
   %37 = sub nsw i64 0, %36
-  %38 = getelementptr inbounds %"class.llvm::Use", ptr %1, i64 %37
+  %38 = getelementptr inbounds [32 x i8], ptr %1, i64 %37
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 64
   %40 = load ptr, ptr %39, align 8, !tbaa !20
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
@@ -471,7 +469,7 @@ _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %_ZN4llvm9DbgRecordC
   %53 = and i32 %52, 134217727
   %54 = zext nneg i32 %53 to i64
   %55 = sub nsw i64 0, %54
-  %56 = getelementptr inbounds %"class.llvm::Use", ptr %1, i64 %55
+  %56 = getelementptr inbounds [32 x i8], ptr %1, i64 %55
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 128
   %58 = load ptr, ptr %57, align 8, !tbaa !20
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 24
@@ -484,7 +482,7 @@ _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %_ZN4llvm9DbgRecordC
   %62 = and i32 %61, 134217727
   %63 = zext nneg i32 %62 to i64
   %64 = sub nsw i64 0, %63
-  %65 = getelementptr inbounds %"class.llvm::Use", ptr %1, i64 %64
+  %65 = getelementptr inbounds [32 x i8], ptr %1, i64 %64
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 160
   %67 = load ptr, ptr %66, align 8, !tbaa !20
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 24
@@ -527,7 +525,7 @@ _ZN4llvm17DbgRecordParamRefINS_12DIExpressionEED2Ev.exit: ; preds = %75, %_ZN4ll
   %79 = and i32 %78, 134217727
   %80 = zext nneg i32 %79 to i64
   %81 = sub nsw i64 0, %80
-  %82 = getelementptr inbounds %"class.llvm::Use", ptr %1, i64 %81
+  %82 = getelementptr inbounds [32 x i8], ptr %1, i64 %81
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 96
   %84 = load ptr, ptr %83, align 8, !tbaa !20
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 24
@@ -1092,7 +1090,7 @@ _ZNK4llvm9DbgRecord11getDebugLocEv.exit:          ; preds = %3, %15
   %25 = lshr i64 %19, 2
   %26 = and i64 %25, 15
   %27 = sub nsw i64 0, %26
-  %28 = getelementptr inbounds %"class.llvm::MDOperand", ptr %18, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %18, i64 %27
   br label %_ZNK4llvm10DILocation8getScopeEv.exit
 
 _ZNK4llvm10DILocation8getScopeEv.exit:            ; preds = %21, %24
@@ -1153,7 +1151,7 @@ _ZN4llvm8DebugLocD2Ev.exit33:                     ; preds = %_ZNK4llvm6MDNode10g
 
 switch.lookup:                                    ; preds = %_ZN4llvm8DebugLocD2Ev.exit33
   %48 = zext nneg i8 %46 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK4llvm17DbgVariableRecord20createDebugIntrinsicEPNS_6ModuleEPNS_11InstructionE, i64 %48
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK4llvm17DbgVariableRecord20createDebugIntrinsicEPNS_6ModuleEPNS_11InstructionE, i64 %48
   %switch.load = load i32, ptr %switch.gep, align 4
   %49 = call noundef ptr @_ZN4llvm9Intrinsic22getOrInsertDeclarationEPNS_6ModuleEjNS_8ArrayRefIPNS_4TypeEEE(ptr noundef %1, i32 noundef %switch.load, ptr null, i64 0) #18
   %.pr = load i8, ptr %45, align 8, !tbaa !38
@@ -1739,7 +1737,7 @@ define dso_local void @_ZNK4llvm17DbgVariableRecord12location_opsEv(ptr dead_on_
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 136
   %22 = load i32, ptr %21, align 8, !tbaa !101
   %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds nuw ptr, ptr %18, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %23
   %25 = ptrtoint ptr %24 to i64
   %26 = or i64 %25, 4
   store i64 %20, ptr %0, align 8
@@ -1789,7 +1787,7 @@ define dso_local noundef ptr @_ZNK4llvm17DbgVariableRecord21getVariableLocationO
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %9 = load ptr, ptr %8, align 8, !tbaa !60
   %10 = zext i32 %1 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !102
   br label %.sink.split
 
@@ -1879,7 +1877,7 @@ define dso_local void @_ZN4llvm17DbgVariableRecord25replaceVariableLocationOpEPN
   %39 = getelementptr inbounds nuw i8, ptr %24, i64 136
   %40 = load i32, ptr %39, align 8, !tbaa !101, !noalias !106
   %41 = zext i32 %40 to i64
-  %42 = getelementptr inbounds nuw ptr, ptr %36, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %41
   %43 = ptrtoint ptr %42 to i64
   %44 = or i64 %43, 4
   br label %_ZNK4llvm17DbgVariableRecord12location_opsEv.exit
@@ -2044,7 +2042,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_15ValueAsMetadataELb1EE9push_backES2_.exit
   %122 = phi i32 [ %117, %_ZN4llvmL13getAsMetadataEPNS_5ValueE.exit15.us ], [ %.pre.i.us, %119 ]
   %123 = load ptr, ptr %5, align 8, !tbaa !60
   %124 = zext i32 %122 to i64
-  %125 = getelementptr inbounds nuw ptr, ptr %123, i64 %124
+  %125 = getelementptr inbounds nuw [8 x i8], ptr %123, i64 %124
   %126 = ptrtoint ptr %116 to i64
   store i64 %126, ptr %125, align 1
   %127 = load i32, ptr %77, align 8, !tbaa !101
@@ -2162,7 +2160,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_15ValueAsMetadataELb1EE9push_backES2_.exit
   %182 = phi i32 [ %177, %_ZN4llvmL13getAsMetadataEPNS_5ValueE.exit15 ], [ %.pre.i, %179 ]
   %183 = load ptr, ptr %5, align 8, !tbaa !60
   %184 = zext i32 %182 to i64
-  %185 = getelementptr inbounds nuw ptr, ptr %183, i64 %184
+  %185 = getelementptr inbounds nuw [8 x i8], ptr %183, i64 %184
   %186 = ptrtoint ptr %176 to i64
   store i64 %186, ptr %185, align 1
   %187 = load i32, ptr %77, align 8, !tbaa !101
@@ -2334,7 +2332,7 @@ _ZN4llvm11SmallVectorIPNS_15ValueAsMetadataELj4EED2Ev.exit: ; preds = %.sink.spl
 60:                                               ; preds = %58
   %61 = getelementptr inbounds nuw i8, ptr %36, i64 128
   %62 = load ptr, ptr %61, align 8, !tbaa !60
-  %63 = getelementptr inbounds nuw ptr, ptr %62, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %indvars.iv
   %64 = load ptr, ptr %63, align 8, !tbaa !102
   br label %.sink.split.i10
 
@@ -2386,7 +2384,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_15ValueAsMetadataELb1EE9push_backES2_.exit
   %83 = phi i32 [ %78, %_ZN4llvmL13getAsMetadataEPNS_5ValueE.exit16 ], [ %.pre.i, %80 ]
   %84 = load ptr, ptr %4, align 8, !tbaa !60
   %85 = zext i32 %83 to i64
-  %86 = getelementptr inbounds nuw ptr, ptr %84, i64 %85
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %85
   %87 = ptrtoint ptr %77 to i64
   store i64 %87, ptr %86, align 1
   %88 = load i32, ptr %21, align 8, !tbaa !101
@@ -2477,7 +2475,7 @@ _ZN4llvm17DbgVariableRecord13setExpressionEPNS_12DIExpressionE.exit: ; preds = %
   %35 = getelementptr inbounds nuw i8, ptr %20, i64 136
   %36 = load i32, ptr %35, align 8, !tbaa !101, !noalias !124
   %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds nuw ptr, ptr %32, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %37
   %39 = ptrtoint ptr %38 to i64
   %40 = or i64 %39, 4
   br label %_ZNK4llvm17DbgVariableRecord12location_opsEv.exit
@@ -2548,7 +2546,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_15ValueAsMetadataELb1EE9push_backES2_.exit
   %68 = phi i32 [ %62, %_ZN4llvmL13getAsMetadataEPNS_5ValueE.exit ], [ %.pre.i, %65 ]
   %69 = load ptr, ptr %6, align 8, !tbaa !60
   %70 = zext i32 %68 to i64
-  %71 = getelementptr inbounds nuw ptr, ptr %69, i64 %70
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %70
   %72 = ptrtoint ptr %63 to i64
   store i64 %72, ptr %71, align 1
   %73 = load i32, ptr %17, align 8, !tbaa !101
@@ -2648,7 +2646,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_15ValueAsMetadataELb1EE9push_backES2_.exit
   %116 = phi i32 [ %110, %_ZN4llvmL13getAsMetadataEPNS_5ValueE.exit18 ], [ %.pre.i20, %113 ]
   %117 = load ptr, ptr %6, align 8, !tbaa !60
   %118 = zext i32 %116 to i64
-  %119 = getelementptr inbounds nuw ptr, ptr %117, i64 %118
+  %119 = getelementptr inbounds nuw [8 x i8], ptr %117, i64 %118
   %120 = ptrtoint ptr %111 to i64
   store i64 %120, ptr %119, align 1
   %121 = load i32, ptr %17, align 8, !tbaa !101
@@ -2704,7 +2702,7 @@ define dso_local void @_ZN4llvm17DbgVariableRecord15setKillLocationEv(ptr nounde
   %24 = getelementptr inbounds nuw i8, ptr %9, i64 136
   %25 = load i32, ptr %24, align 8, !tbaa !101, !noalias !134
   %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds nuw ptr, ptr %21, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %26
   %28 = ptrtoint ptr %27 to i64
   %29 = or i64 %28, 4
   br label %_ZNK4llvm17DbgVariableRecord12location_opsEv.exit
@@ -2871,7 +2869,7 @@ _ZNK4llvm17DbgVariableRecord25getNumVariableLocationOpsEv.exit.thread.thread: ; 
   %29 = getelementptr inbounds nuw i8, ptr %16, i64 136
   %30 = load i32, ptr %29, align 8, !tbaa !101, !noalias !144
   %31 = zext i32 %30 to i64
-  %32 = getelementptr inbounds nuw ptr, ptr %26, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %31
   %33 = ptrtoint ptr %32 to i64
   %34 = or i64 %33, 4
   br label %_ZNK4llvm17DbgVariableRecord12location_opsEv.exit

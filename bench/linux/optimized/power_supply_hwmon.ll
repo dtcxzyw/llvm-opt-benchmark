@@ -58,7 +58,7 @@ define dso_local i32 @power_supply_add_hwmon_sysfs(ptr noundef %0) #0 align 16 {
   %21 = phi i64 [ 0, %17 ], [ %31, %28 ]
   %22 = phi i32 [ 0, %17 ], [ %30, %28 ]
   %23 = load ptr, ptr %18, align 8
-  %24 = getelementptr i32, ptr %23, i64 %21
+  %24 = getelementptr [4 x i8], ptr %23, i64 %21
   %25 = load i32, ptr %24, align 4
   switch i32 %25, label %28 [
     i32 18, label %26
@@ -180,7 +180,7 @@ define internal zeroext range(i16 0, 421) i16 @power_supply_hwmon_is_visible(ptr
 .split.us:                                        ; preds = %8, %power_supply_hwmon_to_property.exit.us
   %11 = phi i1 [ %25, %power_supply_hwmon_to_property.exit.us ], [ true, %8 ]
   %12 = phi i64 [ %24, %power_supply_hwmon_to_property.exit.us ], [ 0, %8 ]
-  %13 = getelementptr i32, ptr @ps_temp_attrs, i64 %12
+  %13 = getelementptr [4 x i8], ptr @ps_temp_attrs, i64 %12
   %14 = load i32, ptr %13, align 4
   switch i32 %14, label %power_supply_hwmon_to_property.exit.us [
     i32 1, label %19
@@ -220,7 +220,7 @@ power_supply_hwmon_to_property.exit.us:           ; preds = %19, %.split.us
 .split:                                           ; preds = %8, %power_supply_hwmon_to_property.exit
   %27 = phi i1 [ %39, %power_supply_hwmon_to_property.exit ], [ true, %8 ]
   %28 = phi i64 [ %38, %power_supply_hwmon_to_property.exit ], [ 0, %8 ]
-  %29 = getelementptr i32, ptr @ps_temp_attrs, i64 %28
+  %29 = getelementptr [4 x i8], ptr @ps_temp_attrs, i64 %28
   %30 = load i32, ptr %29, align 4
   switch i32 %30, label %power_supply_hwmon_to_property.exit [
     i32 1, label %33
@@ -506,7 +506,7 @@ define internal noundef i32 @power_supply_hwmon_read_string(ptr readnone capture
 
 7:                                                ; preds = %5
   %8 = sext i32 %3 to i64
-  %9 = getelementptr ptr, ptr @ps_temp_label, i64 %8
+  %9 = getelementptr [8 x i8], ptr @ps_temp_label, i64 %8
   %10 = load ptr, ptr %9, align 8
   store ptr %10, ptr %4, align 8
   br label %11

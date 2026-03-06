@@ -229,7 +229,7 @@ check_flag.exit107:                               ; preds = %74
 
 91:                                               ; preds = %87, %91
   %.1177 = phi i64 [ 0, %87 ], [ %95, %91 ]
-  %92 = getelementptr inbounds nuw double, ptr %90, i64 %.1177
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %.1177
   %93 = load double, ptr %92, align 8, !tbaa !18
   %94 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %89, ptr noundef nonnull @.str.18, double noundef %93) #9
   %95 = add nuw nsw i64 %.1177, 1
@@ -269,7 +269,7 @@ check_flag.exit109:                               ; preds = %101
 
 112:                                              ; preds = %106, %112
   %.2178 = phi i64 [ 0, %106 ], [ %116, %112 ]
-  %113 = getelementptr inbounds nuw double, ptr %90, i64 %.2178
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %.2178
   %114 = load double, ptr %113, align 8, !tbaa !18
   %115 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %89, ptr noundef nonnull @.str.18, double noundef %114) #9
   %116 = add nuw nsw i64 %.2178, 1
@@ -500,26 +500,26 @@ check_flag.exit40:                                ; preds = %14
 
 .lr.ph:                                           ; preds = %19, %.lr.ph
   %.03645 = phi i64 [ %34, %.lr.ph ], [ 1, %19 ]
-  %28 = getelementptr double, ptr %10, i64 %.03645
+  %28 = getelementptr [8 x i8], ptr %10, i64 %.03645
   %29 = getelementptr i8, ptr %28, i64 -8
   %30 = load double, ptr %29, align 8, !tbaa !18
   %31 = load double, ptr %28, align 8, !tbaa !18
   %32 = fmul double %24, %31
   %33 = tail call double @llvm.fmuladd.f64(double %21, double %30, double %32)
   %34 = add nuw nsw i64 %.03645, 1
-  %35 = getelementptr inbounds nuw double, ptr %10, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %34
   %36 = load double, ptr %35, align 8, !tbaa !18
   %37 = tail call double @llvm.fmuladd.f64(double %21, double %36, double %33)
-  %38 = getelementptr inbounds nuw double, ptr %15, i64 %.03645
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %.03645
   store double %37, ptr %38, align 8, !tbaa !18
   %exitcond.not = icmp eq i64 %34, %26
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %19
-  %39 = getelementptr inbounds double, ptr %15, i64 %26
+  %39 = getelementptr inbounds [8 x i8], ptr %15, i64 %26
   store double 0.000000e+00, ptr %39, align 8, !tbaa !18
   %40 = fdiv double 1.000000e-02, %9
-  %41 = getelementptr inbounds double, ptr %15, i64 %25
+  %41 = getelementptr inbounds [8 x i8], ptr %15, i64 %25
   %42 = load double, ptr %41, align 8, !tbaa !18
   %43 = fadd double %40, %42
   store double %43, ptr %41, align 8, !tbaa !18
@@ -584,23 +584,23 @@ check_flag.exit36:                                ; preds = %17
 
 .lr.ph:                                           ; preds = %22, %.lr.ph
   %.041 = phi i64 [ %36, %.lr.ph ], [ 1, %22 ]
-  %30 = getelementptr double, ptr %13, i64 %.041
+  %30 = getelementptr [8 x i8], ptr %13, i64 %.041
   %31 = getelementptr i8, ptr %30, i64 -8
   %32 = load double, ptr %31, align 8, !tbaa !18
   %33 = load double, ptr %30, align 8, !tbaa !18
   %34 = fmul double %27, %33
   %35 = tail call double @llvm.fmuladd.f64(double %24, double %32, double %34)
   %36 = add nuw nsw i64 %.041, 1
-  %37 = getelementptr inbounds nuw double, ptr %13, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %36
   %38 = load double, ptr %37, align 8, !tbaa !18
   %39 = tail call double @llvm.fmuladd.f64(double %24, double %38, double %35)
-  %40 = getelementptr inbounds nuw double, ptr %18, i64 %.041
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %.041
   store double %39, ptr %40, align 8, !tbaa !18
   %exitcond.not = icmp eq i64 %36, %28
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %22
-  %41 = getelementptr inbounds double, ptr %18, i64 %28
+  %41 = getelementptr inbounds [8 x i8], ptr %18, i64 %28
   store double 0.000000e+00, ptr %41, align 8, !tbaa !18
   br label %42
 

@@ -83,7 +83,7 @@ thread-pre-split.i:                               ; preds = %10, %32
 
 .preheader.i:                                     ; preds = %15, %17
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %17 ], [ 0, %15 ]
-  %18 = getelementptr inbounds nuw %struct.anon, ptr @webvtt_tag_replace, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw [16 x i8], ptr @webvtt_tag_replace, i64 %indvars.iv.i
   %19 = load ptr, ptr %18, align 16, !tbaa !33
   %20 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #5
   %21 = call i32 @strncmp(ptr noundef nonnull %.024.i, ptr noundef nonnull %19, i64 noundef %20) #5

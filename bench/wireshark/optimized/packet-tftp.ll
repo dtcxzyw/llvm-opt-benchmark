@@ -1324,7 +1324,7 @@ define internal fastcc noundef zeroext i1 @is_valid_request_body(ptr noundef %0,
 
 9:                                                ; preds = %5
   %10 = zext i8 %6 to i64
-  %11 = getelementptr i16, ptr %4, i64 %10
+  %11 = getelementptr [2 x i8], ptr %4, i64 %10
   %12 = load i16, ptr %11, align 2
   %13 = and i16 %12, 64
   %.not.not = icmp eq i16 %13, 0
@@ -1354,7 +1354,7 @@ define internal fastcc noundef zeroext i1 @is_valid_request_body(ptr noundef %0,
 
 26:                                               ; preds = %26, %19
   %indvars.iv = phi i64 [ 0, %19 ], [ %indvars.iv.next, %26 ]
-  %27 = getelementptr ptr, ptr @__const.is_valid_request_body.modes, i64 %indvars.iv
+  %27 = getelementptr [8 x i8], ptr @__const.is_valid_request_body.modes, i64 %indvars.iv
   %28 = load ptr, ptr %27, align 8
   %29 = tail call i32 @g_ascii_strcasecmp(ptr noundef %25, ptr noundef %28)
   %30 = icmp eq i32 %29, 0

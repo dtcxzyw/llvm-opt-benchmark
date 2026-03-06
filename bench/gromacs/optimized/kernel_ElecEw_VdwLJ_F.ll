@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"struct.std::array.82" = type { [4 x ptr] }
-%"struct.gmx::nbnxn_cj_t" = type { i32, i32 }
 
 $_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE = comdat any
 
@@ -111,19 +110,19 @@ _ZN3gmx14DiagonalMaskerILi2EL12KernelLayout1EL24KernelLayoutClusterRatio0EEC2ERK
   %55 = icmp eq i32 %48, 22
   %56 = select i1 %55, i32 %54, i32 -1
   %57 = zext nneg i32 %49 to i64
-  %58 = getelementptr inbounds nuw float, ptr %3, i64 %57
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %57
   %59 = load float, ptr %58, align 4, !tbaa !59
   %60 = insertelement <8 x float> poison, float %59, i64 0
   %61 = shufflevector <8 x float> %60, <8 x float> poison, <8 x i32> zeroinitializer
   %62 = add nuw nsw i32 %49, 1
   %63 = zext nneg i32 %62 to i64
-  %64 = getelementptr inbounds nuw float, ptr %3, i64 %63
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %63
   %65 = load float, ptr %64, align 4, !tbaa !59
   %66 = insertelement <8 x float> poison, float %65, i64 0
   %67 = shufflevector <8 x float> %66, <8 x float> poison, <8 x i32> zeroinitializer
   %68 = add nuw nsw i32 %49, 2
   %69 = zext nneg i32 %68 to i64
-  %70 = getelementptr inbounds nuw float, ptr %3, i64 %69
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %69
   %71 = load float, ptr %70, align 4, !tbaa !59
   %72 = insertelement <8 x float> poison, float %71, i64 0
   %73 = shufflevector <8 x float> %72, <8 x float> poison, <8 x i32> zeroinitializer
@@ -137,7 +136,7 @@ _ZN3gmx14DiagonalMaskerILi2EL12KernelLayout1EL24KernelLayoutClusterRatio0EEC2ERK
   %79 = add nsw i32 %75, 4
   %80 = add nsw i32 %75, 8
   %81 = sext i32 %75 to i64
-  %82 = getelementptr inbounds float, ptr %36, i64 %81
+  %82 = getelementptr inbounds [4 x i8], ptr %36, i64 %81
   %.val.i541 = load float, ptr %82, align 1, !tbaa !18, !noalias !60
   %83 = getelementptr i8, ptr %82, i64 4
   %.val3.i = load float, ptr %83, align 1, !tbaa !18, !noalias !60
@@ -154,7 +153,7 @@ _ZN3gmx14DiagonalMaskerILi2EL12KernelLayout1EL24KernelLayoutClusterRatio0EEC2ERK
   %92 = shufflevector <4 x float> %90, <4 x float> %91, <8 x i32> <i32 0, i32 0, i32 0, i32 0, i32 4, i32 4, i32 4, i32 4>
   %93 = fadd <8 x float> %61, %92
   %94 = sext i32 %79 to i64
-  %95 = getelementptr inbounds float, ptr %36, i64 %94
+  %95 = getelementptr inbounds [4 x i8], ptr %36, i64 %94
   %.val.i546 = load float, ptr %95, align 1, !tbaa !18, !noalias !63
   %96 = getelementptr i8, ptr %95, i64 4
   %.val3.i547 = load float, ptr %96, align 1, !tbaa !18, !noalias !63
@@ -171,7 +170,7 @@ _ZN3gmx14DiagonalMaskerILi2EL12KernelLayout1EL24KernelLayoutClusterRatio0EEC2ERK
   %105 = shufflevector <4 x float> %103, <4 x float> %104, <8 x i32> <i32 0, i32 0, i32 0, i32 0, i32 4, i32 4, i32 4, i32 4>
   %106 = fadd <8 x float> %67, %105
   %107 = sext i32 %80 to i64
-  %108 = getelementptr inbounds float, ptr %36, i64 %107
+  %108 = getelementptr inbounds [4 x i8], ptr %36, i64 %107
   %.val.i552 = load float, ptr %108, align 1, !tbaa !18, !noalias !66
   %109 = getelementptr i8, ptr %108, i64 4
   %.val3.i553 = load float, ptr %109, align 1, !tbaa !18, !noalias !66
@@ -191,7 +190,7 @@ _ZN3gmx14DiagonalMaskerILi2EL12KernelLayout1EL24KernelLayoutClusterRatio0EEC2ERK
   br i1 %77, label %121, label %._crit_edge2993
 
 121:                                              ; preds = %45
-  %122 = getelementptr inbounds float, ptr %34, i64 %120
+  %122 = getelementptr inbounds [4 x i8], ptr %34, i64 %120
   %.val.i558 = load float, ptr %122, align 1, !tbaa !18, !noalias !69
   %123 = getelementptr i8, ptr %122, i64 4
   %.val2.i = load float, ptr %123, align 1, !tbaa !18, !noalias !69
@@ -215,7 +214,7 @@ _ZN3gmx14DiagonalMaskerILi2EL12KernelLayout1EL24KernelLayoutClusterRatio0EEC2ERK
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %134 = load i32, ptr %1, align 8, !tbaa !72
   %135 = shl i32 %134, 1
-  %invariant.gep = getelementptr i32, ptr %14, i64 %120
+  %invariant.gep = getelementptr [4 x i8], ptr %14, i64 %120
   br label %141
 
 136:                                              ; preds = %141
@@ -234,12 +233,12 @@ _ZN3gmx14DiagonalMaskerILi2EL12KernelLayout1EL24KernelLayoutClusterRatio0EEC2ERK
 
 141:                                              ; preds = %._crit_edge2993, %141
   %indvars.iv = phi i64 [ 0, %._crit_edge2993 ], [ %indvars.iv.next, %141 ]
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %indvars.iv
   %142 = load i32, ptr %gep, align 4, !tbaa !95
   %143 = mul i32 %135, %142
   %144 = sext i32 %143 to i64
-  %145 = getelementptr inbounds float, ptr %12, i64 %144
-  %146 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %145 = getelementptr inbounds [4 x i8], ptr %12, i64 %144
+  %146 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   store ptr %145, ptr %146, align 8, !tbaa !96
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -254,14 +253,14 @@ _ZN3gmx14DiagonalMaskerILi2EL12KernelLayout1EL24KernelLayoutClusterRatio0EEC2ERK
   %.sroa.16.02816 = phi <8 x float> [ zeroinitializer, %.lr.ph2824 ], [ %328, %_ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_eqT0_LS1_1EESt5arrayINS_9SimdFBoolEXdvclL_ZL15sc_iClusterSizeS1_ET0_ELi2EEEE4typeEiPNS_10SimdFInt32E.exit.critedge ]
   %.sroa.02237.02815 = phi <8 x float> [ zeroinitializer, %.lr.ph2824 ], [ %327, %_ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_eqT0_LS1_1EESt5arrayINS_9SimdFBoolEXdvclL_ZL15sc_iClusterSizeS1_ET0_ELi2EEEE4typeEiPNS_10SimdFInt32E.exit.critedge ]
   %148 = load ptr, ptr %37, align 8, !tbaa !48
-  %149 = getelementptr inbounds nuw %"struct.gmx::nbnxn_cj_t", ptr %148, i64 %indvars.iv2983
+  %149 = getelementptr inbounds nuw [8 x i8], ptr %148, i64 %indvars.iv2983
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 4
   %151 = load i32, ptr %150, align 4, !tbaa !95
   %.not473 = icmp eq i32 %151, -1
   br i1 %.not473, label %.critedge.loopexit, label %_ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_eqT0_LS1_1EESt5arrayINS_9SimdFBoolEXdvclL_ZL15sc_iClusterSizeS1_ET0_ELi2EEEE4typeEiPNS_10SimdFInt32E.exit.critedge
 
 _ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_eqT0_LS1_1EESt5arrayINS_9SimdFBoolEXdvclL_ZL15sc_iClusterSizeS1_ET0_ELi2EEEE4typeEiPNS_10SimdFInt32E.exit.critedge: ; preds = %147
-  %152 = getelementptr inbounds %"struct.gmx::nbnxn_cj_t", ptr %38, i64 %indvars.iv2983
+  %152 = getelementptr inbounds [8 x i8], ptr %38, i64 %indvars.iv2983
   %153 = load i32, ptr %152, align 4, !tbaa !98
   %154 = getelementptr inbounds nuw i8, ptr %152, i64 4
   %155 = load i32, ptr %154, align 4, !tbaa !100
@@ -274,7 +273,7 @@ _ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_
   %160 = shl nsw i32 %153, 2
   %161 = mul nsw i32 %153, 12
   %162 = sext i32 %161 to i64
-  %163 = getelementptr float, ptr %36, i64 %162
+  %163 = getelementptr [4 x i8], ptr %36, i64 %162
   %.val540 = load <4 x float>, ptr %163, align 1, !tbaa !18
   %164 = shufflevector <4 x float> %.val540, <4 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
   %165 = getelementptr i8, ptr %163, i64 16
@@ -325,7 +324,7 @@ _ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_
   %206 = bitcast <8 x float> %200 to <8 x i32>
   %207 = bitcast <8 x float> %205 to <8 x i32>
   %208 = sext i32 %160 to i64
-  %209 = getelementptr inbounds float, ptr %34, i64 %208
+  %209 = getelementptr inbounds [4 x i8], ptr %34, i64 %208
   %.val537 = load <4 x float>, ptr %209, align 1, !tbaa !18
   %210 = shufflevector <4 x float> %.val537, <4 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
   %211 = fmul <8 x float> %.sroa.02428.1, %210
@@ -384,37 +383,37 @@ _ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_
   %264 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %262, <8 x float> %228, <8 x float> %222)
   %265 = fmul <8 x float> %211, %263
   %266 = fmul <8 x float> %212, %264
-  %267 = getelementptr inbounds i32, ptr %14, i64 %208
+  %267 = getelementptr inbounds [4 x i8], ptr %14, i64 %208
   %268 = load i32, ptr %267, align 4, !tbaa !95
   %269 = shl nsw i32 %268, 1
   %270 = sext i32 %269 to i64
-  %271 = getelementptr inbounds float, ptr %138, i64 %270
+  %271 = getelementptr inbounds [4 x i8], ptr %138, i64 %270
   %272 = load <2 x float>, ptr %271, align 1, !tbaa !18
   %273 = getelementptr inbounds nuw i8, ptr %267, i64 4
   %274 = load i32, ptr %273, align 4, !tbaa !95
   %275 = shl nsw i32 %274, 1
   %276 = sext i32 %275 to i64
-  %277 = getelementptr inbounds float, ptr %138, i64 %276
+  %277 = getelementptr inbounds [4 x i8], ptr %138, i64 %276
   %278 = load <2 x float>, ptr %277, align 1, !tbaa !18
   %279 = getelementptr inbounds nuw i8, ptr %267, i64 8
   %280 = load i32, ptr %279, align 4, !tbaa !95
   %281 = shl nsw i32 %280, 1
   %282 = sext i32 %281 to i64
-  %283 = getelementptr inbounds float, ptr %138, i64 %282
+  %283 = getelementptr inbounds [4 x i8], ptr %138, i64 %282
   %284 = load <2 x float>, ptr %283, align 1, !tbaa !18
   %285 = getelementptr inbounds nuw i8, ptr %267, i64 12
   %286 = load i32, ptr %285, align 4, !tbaa !95
   %287 = shl nsw i32 %286, 1
   %288 = sext i32 %287 to i64
-  %289 = getelementptr inbounds float, ptr %138, i64 %288
+  %289 = getelementptr inbounds [4 x i8], ptr %138, i64 %288
   %290 = load <2 x float>, ptr %289, align 1, !tbaa !18
-  %291 = getelementptr inbounds float, ptr %139, i64 %270
+  %291 = getelementptr inbounds [4 x i8], ptr %139, i64 %270
   %292 = load <2 x float>, ptr %291, align 1, !tbaa !18
-  %293 = getelementptr inbounds float, ptr %139, i64 %276
+  %293 = getelementptr inbounds [4 x i8], ptr %139, i64 %276
   %294 = load <2 x float>, ptr %293, align 1, !tbaa !18
-  %295 = getelementptr inbounds float, ptr %139, i64 %282
+  %295 = getelementptr inbounds [4 x i8], ptr %139, i64 %282
   %296 = load <2 x float>, ptr %295, align 1, !tbaa !18
-  %297 = getelementptr inbounds float, ptr %139, i64 %288
+  %297 = getelementptr inbounds [4 x i8], ptr %139, i64 %288
   %298 = load <2 x float>, ptr %297, align 1, !tbaa !18
   %299 = shufflevector <2 x float> %272, <2 x float> %292, <8 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 2, i32 3, i32 poison, i32 poison>
   %300 = shufflevector <2 x float> %278, <2 x float> %294, <8 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 2, i32 3, i32 poison, i32 poison>
@@ -446,7 +445,7 @@ _ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_
   %326 = fadd <8 x float> %.sroa.162261.02818, %320
   %327 = fadd <8 x float> %.sroa.02237.02815, %321
   %328 = fadd <8 x float> %.sroa.16.02816, %322
-  %329 = getelementptr inbounds float, ptr %8, i64 %162
+  %329 = getelementptr inbounds [4 x i8], ptr %8, i64 %162
   %330 = fadd <8 x float> %318, %317
   %331 = fadd <8 x float> %320, %319
   %332 = fadd <8 x float> %322, %321
@@ -504,12 +503,12 @@ _ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_
   %.sroa.02254.12899 = phi <8 x float> [ %.sroa.02254.0.lcssa, %.lr.ph2904 ], [ %505, %355 ]
   %.sroa.16.12898 = phi <8 x float> [ %.sroa.16.0.lcssa, %.lr.ph2904 ], [ %508, %355 ]
   %.sroa.02237.12897 = phi <8 x float> [ %.sroa.02237.0.lcssa, %.lr.ph2904 ], [ %507, %355 ]
-  %356 = getelementptr inbounds %"struct.gmx::nbnxn_cj_t", ptr %38, i64 %indvars.iv2988
+  %356 = getelementptr inbounds [8 x i8], ptr %38, i64 %indvars.iv2988
   %357 = load i32, ptr %356, align 4, !tbaa !98
   %358 = shl nsw i32 %357, 2
   %359 = mul nsw i32 %357, 12
   %360 = sext i32 %359 to i64
-  %361 = getelementptr float, ptr %36, i64 %360
+  %361 = getelementptr [4 x i8], ptr %36, i64 %360
   %.val536 = load <4 x float>, ptr %361, align 1, !tbaa !18
   %362 = shufflevector <4 x float> %.val536, <4 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
   %363 = getelementptr i8, ptr %361, i64 16
@@ -549,7 +548,7 @@ _ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_
   %395 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %393, <8 x float> %392, <8 x float> splat (float -3.000000e+00))
   %396 = fmul <8 x float> %394, %395
   %397 = sext i32 %358 to i64
-  %398 = getelementptr inbounds float, ptr %34, i64 %397
+  %398 = getelementptr inbounds [4 x i8], ptr %34, i64 %397
   %.val533 = load <4 x float>, ptr %398, align 1, !tbaa !18
   %399 = shufflevector <4 x float> %.val533, <4 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
   %400 = fmul <8 x float> %.sroa.02428.1, %399
@@ -600,37 +599,37 @@ _ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_
   %445 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %443, <8 x float> %409, <8 x float> %403)
   %446 = fmul <8 x float> %400, %444
   %447 = fmul <8 x float> %401, %445
-  %448 = getelementptr inbounds i32, ptr %14, i64 %397
+  %448 = getelementptr inbounds [4 x i8], ptr %14, i64 %397
   %449 = load i32, ptr %448, align 4, !tbaa !95
   %450 = shl nsw i32 %449, 1
   %451 = sext i32 %450 to i64
-  %452 = getelementptr inbounds float, ptr %352, i64 %451
+  %452 = getelementptr inbounds [4 x i8], ptr %352, i64 %451
   %453 = load <2 x float>, ptr %452, align 1, !tbaa !18
   %454 = getelementptr inbounds nuw i8, ptr %448, i64 4
   %455 = load i32, ptr %454, align 4, !tbaa !95
   %456 = shl nsw i32 %455, 1
   %457 = sext i32 %456 to i64
-  %458 = getelementptr inbounds float, ptr %352, i64 %457
+  %458 = getelementptr inbounds [4 x i8], ptr %352, i64 %457
   %459 = load <2 x float>, ptr %458, align 1, !tbaa !18
   %460 = getelementptr inbounds nuw i8, ptr %448, i64 8
   %461 = load i32, ptr %460, align 4, !tbaa !95
   %462 = shl nsw i32 %461, 1
   %463 = sext i32 %462 to i64
-  %464 = getelementptr inbounds float, ptr %352, i64 %463
+  %464 = getelementptr inbounds [4 x i8], ptr %352, i64 %463
   %465 = load <2 x float>, ptr %464, align 1, !tbaa !18
   %466 = getelementptr inbounds nuw i8, ptr %448, i64 12
   %467 = load i32, ptr %466, align 4, !tbaa !95
   %468 = shl nsw i32 %467, 1
   %469 = sext i32 %468 to i64
-  %470 = getelementptr inbounds float, ptr %352, i64 %469
+  %470 = getelementptr inbounds [4 x i8], ptr %352, i64 %469
   %471 = load <2 x float>, ptr %470, align 1, !tbaa !18
-  %472 = getelementptr inbounds float, ptr %353, i64 %451
+  %472 = getelementptr inbounds [4 x i8], ptr %353, i64 %451
   %473 = load <2 x float>, ptr %472, align 1, !tbaa !18
-  %474 = getelementptr inbounds float, ptr %353, i64 %457
+  %474 = getelementptr inbounds [4 x i8], ptr %353, i64 %457
   %475 = load <2 x float>, ptr %474, align 1, !tbaa !18
-  %476 = getelementptr inbounds float, ptr %353, i64 %463
+  %476 = getelementptr inbounds [4 x i8], ptr %353, i64 %463
   %477 = load <2 x float>, ptr %476, align 1, !tbaa !18
-  %478 = getelementptr inbounds float, ptr %353, i64 %469
+  %478 = getelementptr inbounds [4 x i8], ptr %353, i64 %469
   %479 = load <2 x float>, ptr %478, align 1, !tbaa !18
   %480 = shufflevector <2 x float> %453, <2 x float> %473, <8 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 2, i32 3, i32 poison, i32 poison>
   %481 = shufflevector <2 x float> %459, <2 x float> %475, <8 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 2, i32 3, i32 poison, i32 poison>
@@ -661,7 +660,7 @@ _ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_
   %506 = fadd <8 x float> %.sroa.162261.12900, %500
   %507 = fadd <8 x float> %.sroa.02237.12897, %501
   %508 = fadd <8 x float> %.sroa.16.12898, %502
-  %509 = getelementptr inbounds float, ptr %8, i64 %360
+  %509 = getelementptr inbounds [4 x i8], ptr %8, i64 %360
   %510 = fadd <8 x float> %498, %497
   %511 = fadd <8 x float> %500, %499
   %512 = fadd <8 x float> %502, %501
@@ -717,14 +716,14 @@ _ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_
   %.sroa.16.32724 = phi <8 x float> [ zeroinitializer, %.lr.ph2730.preheader ], [ %698, %569 ]
   %.sroa.02237.32723 = phi <8 x float> [ zeroinitializer, %.lr.ph2730.preheader ], [ %697, %569 ]
   %533 = load ptr, ptr %37, align 8, !tbaa !48
-  %534 = getelementptr inbounds nuw %"struct.gmx::nbnxn_cj_t", ptr %533, i64 %indvars.iv2967
+  %534 = getelementptr inbounds nuw [8 x i8], ptr %533, i64 %indvars.iv2967
   %535 = getelementptr inbounds nuw i8, ptr %534, i64 4
   %536 = load i32, ptr %535, align 4, !tbaa !95
   %.not472 = icmp eq i32 %536, -1
   br i1 %.not472, label %.critedge3.loopexit, label %_ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_eqT0_LS1_1EESt5arrayINS_9SimdFBoolEXdvclL_ZL15sc_iClusterSizeS1_ET0_ELi2EEEE4typeEiPNS_10SimdFInt32E.exit477.critedge
 
 _ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_eqT0_LS1_1EESt5arrayINS_9SimdFBoolEXdvclL_ZL15sc_iClusterSizeS1_ET0_ELi2EEEE4typeEiPNS_10SimdFInt32E.exit477.critedge: ; preds = %.lr.ph2730
-  %537 = getelementptr inbounds %"struct.gmx::nbnxn_cj_t", ptr %38, i64 %indvars.iv2967
+  %537 = getelementptr inbounds [8 x i8], ptr %38, i64 %indvars.iv2967
   %538 = load i32, ptr %537, align 4, !tbaa !98
   %539 = getelementptr inbounds nuw i8, ptr %537, i64 4
   %540 = load i32, ptr %539, align 4, !tbaa !100
@@ -737,20 +736,20 @@ _ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_
   %545 = shl nsw i32 %538, 2
   %546 = mul nsw i32 %538, 12
   %547 = sext i32 %546 to i64
-  %548 = getelementptr float, ptr %36, i64 %547
+  %548 = getelementptr [4 x i8], ptr %36, i64 %547
   %.val532 = load <4 x float>, ptr %548, align 1, !tbaa !18
   %549 = getelementptr i8, ptr %548, i64 16
   %.val531 = load <4 x float>, ptr %549, align 1, !tbaa !18
   %550 = getelementptr i8, ptr %548, i64 32
   %.val530 = load <4 x float>, ptr %550, align 1, !tbaa !18
   %551 = sext i32 %545 to i64
-  %552 = getelementptr inbounds float, ptr %34, i64 %551
+  %552 = getelementptr inbounds [4 x i8], ptr %34, i64 %551
   %.val529 = load <4 x float>, ptr %552, align 1, !tbaa !18
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.03256)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.43257)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.03252)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.43253)
-  %553 = getelementptr inbounds i32, ptr %14, i64 %551
+  %553 = getelementptr inbounds [4 x i8], ptr %14, i64 %551
   %554 = load i32, ptr %553, align 4, !tbaa !95
   %555 = shl nsw i32 %554, 1
   %556 = sext i32 %555 to i64
@@ -908,7 +907,7 @@ _ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_
   %696 = fadd <8 x float> %.sroa.162261.32726, %690
   %697 = fadd <8 x float> %.sroa.02237.32723, %691
   %698 = fadd <8 x float> %.sroa.16.32724, %692
-  %699 = getelementptr inbounds float, ptr %8, i64 %547
+  %699 = getelementptr inbounds [4 x i8], ptr %8, i64 %547
   %700 = fadd <8 x float> %687, %688
   %701 = fadd <8 x float> %689, %690
   %702 = fadd <8 x float> %691, %692
@@ -945,21 +944,21 @@ _ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_
   %723 = load ptr, ptr %722, align 8, !tbaa !96
   %724 = getelementptr inbounds nuw i8, ptr %722, i64 8
   %725 = load ptr, ptr %724, align 8, !tbaa !96
-  %726 = getelementptr inbounds float, ptr %723, i64 %556
+  %726 = getelementptr inbounds [4 x i8], ptr %723, i64 %556
   %727 = load <2 x float>, ptr %726, align 1, !tbaa !18
-  %728 = getelementptr inbounds float, ptr %723, i64 %560
+  %728 = getelementptr inbounds [4 x i8], ptr %723, i64 %560
   %729 = load <2 x float>, ptr %728, align 1, !tbaa !18
-  %730 = getelementptr inbounds float, ptr %723, i64 %564
+  %730 = getelementptr inbounds [4 x i8], ptr %723, i64 %564
   %731 = load <2 x float>, ptr %730, align 1, !tbaa !18
-  %732 = getelementptr inbounds float, ptr %723, i64 %568
+  %732 = getelementptr inbounds [4 x i8], ptr %723, i64 %568
   %733 = load <2 x float>, ptr %732, align 1, !tbaa !18
-  %734 = getelementptr inbounds float, ptr %725, i64 %556
+  %734 = getelementptr inbounds [4 x i8], ptr %725, i64 %556
   %735 = load <2 x float>, ptr %734, align 1, !tbaa !18
-  %736 = getelementptr inbounds float, ptr %725, i64 %560
+  %736 = getelementptr inbounds [4 x i8], ptr %725, i64 %560
   %737 = load <2 x float>, ptr %736, align 1, !tbaa !18
-  %738 = getelementptr inbounds float, ptr %725, i64 %564
+  %738 = getelementptr inbounds [4 x i8], ptr %725, i64 %564
   %739 = load <2 x float>, ptr %738, align 1, !tbaa !18
-  %740 = getelementptr inbounds float, ptr %725, i64 %568
+  %740 = getelementptr inbounds [4 x i8], ptr %725, i64 %568
   %741 = load <2 x float>, ptr %740, align 1, !tbaa !18
   %742 = shufflevector <2 x float> %727, <2 x float> %735, <8 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 2, i32 3, i32 poison, i32 poison>
   %743 = shufflevector <2 x float> %729, <2 x float> %737, <8 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 2, i32 3, i32 poison, i32 poison>
@@ -1001,25 +1000,25 @@ _ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_
   %.sroa.02254.42749 = phi <8 x float> [ %.sroa.02254.3.lcssa, %.lr.ph2754.preheader ], [ %886, %779 ]
   %.sroa.16.42748 = phi <8 x float> [ %.sroa.16.3.lcssa, %.lr.ph2754.preheader ], [ %889, %779 ]
   %.sroa.02237.42747 = phi <8 x float> [ %.sroa.02237.3.lcssa, %.lr.ph2754.preheader ], [ %888, %779 ]
-  %753 = getelementptr inbounds %"struct.gmx::nbnxn_cj_t", ptr %38, i64 %indvars.iv2975
+  %753 = getelementptr inbounds [8 x i8], ptr %38, i64 %indvars.iv2975
   %754 = load i32, ptr %753, align 4, !tbaa !98
   %755 = shl nsw i32 %754, 2
   %756 = mul nsw i32 %754, 12
   %757 = sext i32 %756 to i64
-  %758 = getelementptr float, ptr %36, i64 %757
+  %758 = getelementptr [4 x i8], ptr %36, i64 %757
   %.val528 = load <4 x float>, ptr %758, align 1, !tbaa !18
   %759 = getelementptr i8, ptr %758, i64 16
   %.val527 = load <4 x float>, ptr %759, align 1, !tbaa !18
   %760 = getelementptr i8, ptr %758, i64 32
   %.val526 = load <4 x float>, ptr %760, align 1, !tbaa !18
   %761 = sext i32 %755 to i64
-  %762 = getelementptr inbounds float, ptr %34, i64 %761
+  %762 = getelementptr inbounds [4 x i8], ptr %34, i64 %761
   %.val525 = load <4 x float>, ptr %762, align 1, !tbaa !18
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.03249)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.43250)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.03245)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.43246)
-  %763 = getelementptr inbounds i32, ptr %14, i64 %761
+  %763 = getelementptr inbounds [4 x i8], ptr %14, i64 %761
   %764 = load i32, ptr %763, align 4, !tbaa !95
   %765 = shl nsw i32 %764, 1
   %766 = sext i32 %765 to i64
@@ -1156,7 +1155,7 @@ _ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_
   %887 = fadd <8 x float> %.sroa.162261.42750, %881
   %888 = fadd <8 x float> %.sroa.02237.42747, %882
   %889 = fadd <8 x float> %.sroa.16.42748, %883
-  %890 = getelementptr inbounds float, ptr %8, i64 %757
+  %890 = getelementptr inbounds [4 x i8], ptr %8, i64 %757
   %891 = fadd <8 x float> %878, %879
   %892 = fadd <8 x float> %880, %881
   %893 = fadd <8 x float> %882, %883
@@ -1193,21 +1192,21 @@ _ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_
   %914 = load ptr, ptr %913, align 8, !tbaa !96
   %915 = getelementptr inbounds nuw i8, ptr %913, i64 8
   %916 = load ptr, ptr %915, align 8, !tbaa !96
-  %917 = getelementptr inbounds float, ptr %914, i64 %766
+  %917 = getelementptr inbounds [4 x i8], ptr %914, i64 %766
   %918 = load <2 x float>, ptr %917, align 1, !tbaa !18
-  %919 = getelementptr inbounds float, ptr %914, i64 %770
+  %919 = getelementptr inbounds [4 x i8], ptr %914, i64 %770
   %920 = load <2 x float>, ptr %919, align 1, !tbaa !18
-  %921 = getelementptr inbounds float, ptr %914, i64 %774
+  %921 = getelementptr inbounds [4 x i8], ptr %914, i64 %774
   %922 = load <2 x float>, ptr %921, align 1, !tbaa !18
-  %923 = getelementptr inbounds float, ptr %914, i64 %778
+  %923 = getelementptr inbounds [4 x i8], ptr %914, i64 %778
   %924 = load <2 x float>, ptr %923, align 1, !tbaa !18
-  %925 = getelementptr inbounds float, ptr %916, i64 %766
+  %925 = getelementptr inbounds [4 x i8], ptr %916, i64 %766
   %926 = load <2 x float>, ptr %925, align 1, !tbaa !18
-  %927 = getelementptr inbounds float, ptr %916, i64 %770
+  %927 = getelementptr inbounds [4 x i8], ptr %916, i64 %770
   %928 = load <2 x float>, ptr %927, align 1, !tbaa !18
-  %929 = getelementptr inbounds float, ptr %916, i64 %774
+  %929 = getelementptr inbounds [4 x i8], ptr %916, i64 %774
   %930 = load <2 x float>, ptr %929, align 1, !tbaa !18
-  %931 = getelementptr inbounds float, ptr %916, i64 %778
+  %931 = getelementptr inbounds [4 x i8], ptr %916, i64 %778
   %932 = load <2 x float>, ptr %931, align 1, !tbaa !18
   %933 = shufflevector <2 x float> %918, <2 x float> %926, <8 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 2, i32 3, i32 poison, i32 poison>
   %934 = shufflevector <2 x float> %920, <2 x float> %928, <8 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 2, i32 3, i32 poison, i32 poison>
@@ -1230,14 +1229,14 @@ _ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_
   %.sroa.16.52686 = phi <8 x float> [ zeroinitializer, %.lr.ph.preheader ], [ %1041, %978 ]
   %.sroa.02237.52685 = phi <8 x float> [ zeroinitializer, %.lr.ph.preheader ], [ %1040, %978 ]
   %941 = load ptr, ptr %37, align 8, !tbaa !48
-  %942 = getelementptr inbounds nuw %"struct.gmx::nbnxn_cj_t", ptr %941, i64 %indvars.iv2949
+  %942 = getelementptr inbounds nuw [8 x i8], ptr %941, i64 %indvars.iv2949
   %943 = getelementptr inbounds nuw i8, ptr %942, i64 4
   %944 = load i32, ptr %943, align 4, !tbaa !95
   %.not = icmp eq i32 %944, -1
   br i1 %.not, label %.critedge5.loopexit, label %_ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_eqT0_LS1_1EESt5arrayINS_9SimdFBoolEXdvclL_ZL15sc_iClusterSizeS1_ET0_ELi2EEEE4typeEiPNS_10SimdFInt32E.exit481.critedge
 
 _ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_eqT0_LS1_1EESt5arrayINS_9SimdFBoolEXdvclL_ZL15sc_iClusterSizeS1_ET0_ELi2EEEE4typeEiPNS_10SimdFInt32E.exit481.critedge: ; preds = %.lr.ph
-  %945 = getelementptr inbounds %"struct.gmx::nbnxn_cj_t", ptr %38, i64 %indvars.iv2949
+  %945 = getelementptr inbounds [8 x i8], ptr %38, i64 %indvars.iv2949
   %946 = load i32, ptr %945, align 4, !tbaa !98
   %947 = getelementptr inbounds nuw i8, ptr %945, i64 4
   %948 = load i32, ptr %947, align 4, !tbaa !100
@@ -1250,7 +1249,7 @@ _ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_
   %955 = shl nsw i32 %946, 2
   %956 = mul nsw i32 %946, 12
   %957 = sext i32 %956 to i64
-  %958 = getelementptr float, ptr %36, i64 %957
+  %958 = getelementptr [4 x i8], ptr %36, i64 %957
   %.val524 = load <4 x float>, ptr %958, align 1, !tbaa !18
   %959 = getelementptr i8, ptr %958, i64 16
   %.val523 = load <4 x float>, ptr %959, align 1, !tbaa !18
@@ -1261,7 +1260,7 @@ _ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.03236)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.43237)
   %961 = sext i32 %955 to i64
-  %962 = getelementptr inbounds i32, ptr %14, i64 %961
+  %962 = getelementptr inbounds [4 x i8], ptr %14, i64 %961
   %963 = load i32, ptr %962, align 4, !tbaa !95
   %964 = shl nsw i32 %963, 1
   %965 = sext i32 %964 to i64
@@ -1353,7 +1352,7 @@ _ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_
   %1039 = fadd <8 x float> %.sroa.162261.52688, %1033
   %1040 = fadd <8 x float> %.sroa.02237.52685, %1034
   %1041 = fadd <8 x float> %.sroa.16.52686, %1035
-  %1042 = getelementptr inbounds float, ptr %8, i64 %957
+  %1042 = getelementptr inbounds [4 x i8], ptr %8, i64 %957
   %1043 = fadd <8 x float> %1030, %1031
   %1044 = fadd <8 x float> %1032, %1033
   %1045 = fadd <8 x float> %1034, %1035
@@ -1390,21 +1389,21 @@ _ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_
   %1066 = load ptr, ptr %1065, align 8, !tbaa !96
   %1067 = getelementptr inbounds nuw i8, ptr %1065, i64 8
   %1068 = load ptr, ptr %1067, align 8, !tbaa !96
-  %1069 = getelementptr inbounds float, ptr %1066, i64 %965
+  %1069 = getelementptr inbounds [4 x i8], ptr %1066, i64 %965
   %1070 = load <2 x float>, ptr %1069, align 1, !tbaa !18
-  %1071 = getelementptr inbounds float, ptr %1066, i64 %969
+  %1071 = getelementptr inbounds [4 x i8], ptr %1066, i64 %969
   %1072 = load <2 x float>, ptr %1071, align 1, !tbaa !18
-  %1073 = getelementptr inbounds float, ptr %1066, i64 %973
+  %1073 = getelementptr inbounds [4 x i8], ptr %1066, i64 %973
   %1074 = load <2 x float>, ptr %1073, align 1, !tbaa !18
-  %1075 = getelementptr inbounds float, ptr %1066, i64 %977
+  %1075 = getelementptr inbounds [4 x i8], ptr %1066, i64 %977
   %1076 = load <2 x float>, ptr %1075, align 1, !tbaa !18
-  %1077 = getelementptr inbounds float, ptr %1068, i64 %965
+  %1077 = getelementptr inbounds [4 x i8], ptr %1068, i64 %965
   %1078 = load <2 x float>, ptr %1077, align 1, !tbaa !18
-  %1079 = getelementptr inbounds float, ptr %1068, i64 %969
+  %1079 = getelementptr inbounds [4 x i8], ptr %1068, i64 %969
   %1080 = load <2 x float>, ptr %1079, align 1, !tbaa !18
-  %1081 = getelementptr inbounds float, ptr %1068, i64 %973
+  %1081 = getelementptr inbounds [4 x i8], ptr %1068, i64 %973
   %1082 = load <2 x float>, ptr %1081, align 1, !tbaa !18
-  %1083 = getelementptr inbounds float, ptr %1068, i64 %977
+  %1083 = getelementptr inbounds [4 x i8], ptr %1068, i64 %977
   %1084 = load <2 x float>, ptr %1083, align 1, !tbaa !18
   %1085 = shufflevector <2 x float> %1070, <2 x float> %1078, <8 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 2, i32 3, i32 poison, i32 poison>
   %1086 = shufflevector <2 x float> %1072, <2 x float> %1080, <8 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 2, i32 3, i32 poison, i32 poison>
@@ -1446,12 +1445,12 @@ _ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_
   %.sroa.02254.62709 = phi <8 x float> [ %.sroa.02254.5.lcssa, %.lr.ph2714.preheader ], [ %1181, %1121 ]
   %.sroa.16.62708 = phi <8 x float> [ %.sroa.16.5.lcssa, %.lr.ph2714.preheader ], [ %1184, %1121 ]
   %.sroa.02237.62707 = phi <8 x float> [ %.sroa.02237.5.lcssa, %.lr.ph2714.preheader ], [ %1183, %1121 ]
-  %1096 = getelementptr inbounds %"struct.gmx::nbnxn_cj_t", ptr %38, i64 %indvars.iv2956
+  %1096 = getelementptr inbounds [8 x i8], ptr %38, i64 %indvars.iv2956
   %1097 = load i32, ptr %1096, align 4, !tbaa !98
   %1098 = shl nsw i32 %1097, 2
   %1099 = mul nsw i32 %1097, 12
   %1100 = sext i32 %1099 to i64
-  %1101 = getelementptr float, ptr %36, i64 %1100
+  %1101 = getelementptr [4 x i8], ptr %36, i64 %1100
   %.val521 = load <4 x float>, ptr %1101, align 1, !tbaa !18
   %1102 = getelementptr i8, ptr %1101, i64 16
   %.val520 = load <4 x float>, ptr %1102, align 1, !tbaa !18
@@ -1462,7 +1461,7 @@ _ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4)
   %1104 = sext i32 %1098 to i64
-  %1105 = getelementptr inbounds i32, ptr %14, i64 %1104
+  %1105 = getelementptr inbounds [4 x i8], ptr %14, i64 %1104
   %1106 = load i32, ptr %1105, align 4, !tbaa !95
   %1107 = shl nsw i32 %1106, 1
   %1108 = sext i32 %1107 to i64
@@ -1552,7 +1551,7 @@ _ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_
   %1182 = fadd <8 x float> %.sroa.162261.62710, %1176
   %1183 = fadd <8 x float> %.sroa.02237.62707, %1177
   %1184 = fadd <8 x float> %.sroa.16.62708, %1178
-  %1185 = getelementptr inbounds float, ptr %8, i64 %1100
+  %1185 = getelementptr inbounds [4 x i8], ptr %8, i64 %1100
   %1186 = fadd <8 x float> %1173, %1174
   %1187 = fadd <8 x float> %1175, %1176
   %1188 = fadd <8 x float> %1177, %1178
@@ -1589,21 +1588,21 @@ _ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_
   %1209 = load ptr, ptr %1208, align 8, !tbaa !96
   %1210 = getelementptr inbounds nuw i8, ptr %1208, i64 8
   %1211 = load ptr, ptr %1210, align 8, !tbaa !96
-  %1212 = getelementptr inbounds float, ptr %1209, i64 %1108
+  %1212 = getelementptr inbounds [4 x i8], ptr %1209, i64 %1108
   %1213 = load <2 x float>, ptr %1212, align 1, !tbaa !18
-  %1214 = getelementptr inbounds float, ptr %1209, i64 %1112
+  %1214 = getelementptr inbounds [4 x i8], ptr %1209, i64 %1112
   %1215 = load <2 x float>, ptr %1214, align 1, !tbaa !18
-  %1216 = getelementptr inbounds float, ptr %1209, i64 %1116
+  %1216 = getelementptr inbounds [4 x i8], ptr %1209, i64 %1116
   %1217 = load <2 x float>, ptr %1216, align 1, !tbaa !18
-  %1218 = getelementptr inbounds float, ptr %1209, i64 %1120
+  %1218 = getelementptr inbounds [4 x i8], ptr %1209, i64 %1120
   %1219 = load <2 x float>, ptr %1218, align 1, !tbaa !18
-  %1220 = getelementptr inbounds float, ptr %1211, i64 %1108
+  %1220 = getelementptr inbounds [4 x i8], ptr %1211, i64 %1108
   %1221 = load <2 x float>, ptr %1220, align 1, !tbaa !18
-  %1222 = getelementptr inbounds float, ptr %1211, i64 %1112
+  %1222 = getelementptr inbounds [4 x i8], ptr %1211, i64 %1112
   %1223 = load <2 x float>, ptr %1222, align 1, !tbaa !18
-  %1224 = getelementptr inbounds float, ptr %1211, i64 %1116
+  %1224 = getelementptr inbounds [4 x i8], ptr %1211, i64 %1116
   %1225 = load <2 x float>, ptr %1224, align 1, !tbaa !18
-  %1226 = getelementptr inbounds float, ptr %1211, i64 %1120
+  %1226 = getelementptr inbounds [4 x i8], ptr %1211, i64 %1120
   %1227 = load <2 x float>, ptr %1226, align 1, !tbaa !18
   %1228 = shufflevector <2 x float> %1213, <2 x float> %1221, <8 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 2, i32 3, i32 poison, i32 poison>
   %1229 = shufflevector <2 x float> %1215, <2 x float> %1223, <8 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 2, i32 3, i32 poison, i32 poison>
@@ -1624,7 +1623,7 @@ _ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_
   %.sroa.162261.2 = phi <8 x float> [ %1182, %1121 ], [ %887, %779 ], [ %.sroa.162261.0.lcssa, %.critedge ], [ %.sroa.162261.3.lcssa, %.critedge3 ], [ %.sroa.162261.5.lcssa, %.critedge5 ], [ %326, %_ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_eqT0_LS1_1EESt5arrayINS_9SimdFBoolEXdvclL_ZL15sc_iClusterSizeS1_ET0_ELi2EEEE4typeEiPNS_10SimdFInt32E.exit.critedge ], [ %696, %569 ], [ %506, %355 ], [ %1039, %978 ]
   %.sroa.02272.2 = phi <8 x float> [ %1179, %1121 ], [ %884, %779 ], [ %.sroa.02272.0.lcssa, %.critedge ], [ %.sroa.02272.3.lcssa, %.critedge3 ], [ %.sroa.02272.5.lcssa, %.critedge5 ], [ %323, %_ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_eqT0_LS1_1EESt5arrayINS_9SimdFBoolEXdvclL_ZL15sc_iClusterSizeS1_ET0_ELi2EEEE4typeEiPNS_10SimdFInt32E.exit.critedge ], [ %693, %569 ], [ %503, %355 ], [ %1036, %978 ]
   %.sroa.162279.2 = phi <8 x float> [ %1180, %1121 ], [ %885, %779 ], [ %.sroa.162279.0.lcssa, %.critedge ], [ %.sroa.162279.3.lcssa, %.critedge3 ], [ %.sroa.162279.5.lcssa, %.critedge5 ], [ %324, %_ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_eqT0_LS1_1EESt5arrayINS_9SimdFBoolEXdvclL_ZL15sc_iClusterSizeS1_ET0_ELi2EEEE4typeEiPNS_10SimdFInt32E.exit.critedge ], [ %694, %569 ], [ %504, %355 ], [ %1037, %978 ]
-  %1236 = getelementptr inbounds float, ptr %8, i64 %81
+  %1236 = getelementptr inbounds [4 x i8], ptr %8, i64 %81
   %1237 = tail call noundef <8 x float> @llvm.x86.avx.hadd.ps.256(<8 x float> %.sroa.02272.2, <8 x float> %.sroa.162279.2)
   %1238 = shufflevector <8 x float> %1237, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %1239 = shufflevector <8 x float> %1237, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -1638,7 +1637,7 @@ _ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_
   %shift = shufflevector <4 x float> %1245, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop3161 = fadd <4 x float> %1245, %shift
   %1246 = extractelement <4 x float> %foldExtExtBinop3161, i64 0
-  %1247 = getelementptr inbounds float, ptr %8, i64 %94
+  %1247 = getelementptr inbounds [4 x i8], ptr %8, i64 %94
   %1248 = tail call noundef <8 x float> @llvm.x86.avx.hadd.ps.256(<8 x float> %.sroa.02254.2, <8 x float> %.sroa.162261.2)
   %1249 = shufflevector <8 x float> %1248, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %1250 = shufflevector <8 x float> %1248, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -1652,7 +1651,7 @@ _ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_
   %shift3163 = shufflevector <4 x float> %1256, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop3164 = fadd <4 x float> %1256, %shift3163
   %1257 = extractelement <4 x float> %foldExtExtBinop3164, i64 0
-  %1258 = getelementptr inbounds float, ptr %8, i64 %107
+  %1258 = getelementptr inbounds [4 x i8], ptr %8, i64 %107
   %1259 = tail call noundef <8 x float> @llvm.x86.avx.hadd.ps.256(<8 x float> %.sroa.02237.2, <8 x float> %.sroa.16.2)
   %1260 = shufflevector <8 x float> %1259, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %1261 = shufflevector <8 x float> %1259, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -1666,15 +1665,15 @@ _ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_
   %shift3166 = shufflevector <4 x float> %1267, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop3167 = fadd <4 x float> %1267, %shift3166
   %1268 = extractelement <4 x float> %foldExtExtBinop3167, i64 0
-  %1269 = getelementptr inbounds nuw float, ptr %10, i64 %57
+  %1269 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %57
   %1270 = load float, ptr %1269, align 4, !tbaa !59
   %1271 = fadd float %1246, %1270
   store float %1271, ptr %1269, align 4, !tbaa !59
-  %1272 = getelementptr inbounds nuw float, ptr %10, i64 %63
+  %1272 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %63
   %1273 = load float, ptr %1272, align 4, !tbaa !59
   %1274 = fadd float %1257, %1273
   store float %1274, ptr %1272, align 4, !tbaa !59
-  %1275 = getelementptr inbounds nuw float, ptr %10, i64 %69
+  %1275 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %69
   %1276 = load float, ptr %1275, align 4, !tbaa !59
   %1277 = fadd float %1268, %1276
   store float %1277, ptr %1275, align 4, !tbaa !59

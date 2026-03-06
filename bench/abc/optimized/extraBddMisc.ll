@@ -138,12 +138,12 @@ define ptr @Extra_TransferLevelByLevel(ptr noundef %0, ptr noundef %1, ptr nound
 
 18:                                               ; preds = %.lr.ph, %18
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %18 ]
-  %19 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv
   %20 = load i32, ptr %19, align 4, !tbaa !31
-  %21 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %indvars.iv
   %22 = load i32, ptr %21, align 4, !tbaa !31
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds i32, ptr %12, i64 %23
+  %24 = getelementptr inbounds [4 x i8], ptr %12, i64 %23
   store i32 %20, ptr %24, align 4, !tbaa !31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -164,10 +164,10 @@ define ptr @Extra_TransferLevelByLevel(ptr noundef %0, ptr noundef %1, ptr nound
 
 29:                                               ; preds = %.lr.ph38, %29
   %indvars.iv40 = phi i64 [ %28, %.lr.ph38 ], [ %indvars.iv.next41, %29 ]
-  %30 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv40
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %indvars.iv40
   %31 = load i32, ptr %30, align 4, !tbaa !31
   %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds i32, ptr %12, i64 %32
+  %33 = getelementptr inbounds [4 x i8], ptr %12, i64 %32
   store i32 -1, ptr %33, align 4, !tbaa !31
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
   %exitcond44.not = icmp eq i64 %indvars.iv.next41, %wide.trip.count43
@@ -221,11 +221,11 @@ define noundef ptr @Extra_bddRemapUp(ptr noundef %0, ptr noundef %1) local_unnam
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
   %.02125 = phi ptr [ %8, %.lr.ph ], [ %20, %13 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %14 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4, !tbaa !31
   %16 = load i32, ptr %.02125, align 8, !tbaa !35
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw i32, ptr %7, i64 %17
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %17
   store i32 %15, ptr %18, align 4, !tbaa !31
   %19 = getelementptr inbounds nuw i8, ptr %.02125, i64 16
   %20 = load ptr, ptr %19, align 8, !tbaa !36
@@ -279,14 +279,14 @@ define ptr @Extra_bddMove(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_
 
 15:                                               ; preds = %11
   %16 = zext nneg i32 %2 to i64
-  %17 = getelementptr inbounds nuw ptr, ptr %14, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !25
   br label %27
 
 19:                                               ; preds = %11
   %20 = sub nsw i32 0, %2
   %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr inbounds nuw ptr, ptr %14, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !25
   %24 = ptrtoint ptr %23 to i64
   %25 = xor i64 %24, 1
@@ -399,7 +399,7 @@ define ptr @extraBddMove(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %58 = load ptr, ptr %57, align 8, !tbaa !38
   %59 = sext i32 %.0 to i64
-  %60 = getelementptr inbounds ptr, ptr %58, i64 %59
+  %60 = getelementptr inbounds [8 x i8], ptr %58, i64 %59
   %61 = load ptr, ptr %60, align 8, !tbaa !25
   %62 = tail call ptr @cuddBddIteRecur(ptr noundef %0, ptr noundef %61, ptr noundef nonnull %47, ptr noundef nonnull %38) #19
   %63 = icmp eq ptr %62, null
@@ -511,7 +511,7 @@ define void @Extra_bddPrint(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %32
   %indvars.iv = phi i64 [ %indvars.iv.next, %32 ], [ 0, %.lr.ph.us.preheader ]
   %26 = load ptr, ptr %3, align 8, !tbaa !40
-  %27 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv
   %28 = load i32, ptr %27, align 4, !tbaa !31
   switch i32 %28, label %32 [
     i32 0, label %29
@@ -660,10 +660,10 @@ define range(i32 0, 2) i32 @Extra_bddSuppOverlapping(ptr noundef readonly captur
 11:                                               ; preds = %9
   %12 = load ptr, ptr %5, align 8, !tbaa !45
   %13 = zext i32 %7 to i64
-  %14 = getelementptr inbounds nuw i32, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !31
   %16 = zext i32 %8 to i64
-  %17 = getelementptr inbounds nuw i32, ptr %12, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !31
   %19 = icmp slt i32 %15, %18
   br i1 %19, label %20, label %23
@@ -739,10 +739,10 @@ define i32 @Extra_bddSuppDifferentVars(ptr noundef readonly captures(none) %0, p
 22:                                               ; preds = %20
   %23 = load ptr, ptr %6, align 8, !tbaa !45
   %24 = zext i32 %10 to i64
-  %25 = getelementptr inbounds nuw i32, ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %24
   %26 = load i32, ptr %25, align 4, !tbaa !31
   %27 = zext i32 %11 to i64
-  %28 = getelementptr inbounds nuw i32, ptr %23, i64 %27
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %27
   %29 = load i32, ptr %28, align 4, !tbaa !31
   %30 = icmp slt i32 %26, %29
   br i1 %30, label %31, label %34
@@ -861,11 +861,11 @@ define range(i32 0, 2) i32 @Extra_bddSuppCheckContainment(ptr noundef readonly c
   %17 = load ptr, ptr %9, align 8, !tbaa !45
   %18 = load i32, ptr %.047, align 8, !tbaa !35
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw i32, ptr %17, i64 %19
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %19
   %21 = load i32, ptr %20, align 4, !tbaa !31
   %22 = load i32, ptr %.045, align 8, !tbaa !35
   %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds nuw i32, ptr %17, i64 %23
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %23
   %25 = load i32, ptr %24, align 4, !tbaa !31
   %26 = icmp slt i32 %21, %25
   %27 = icmp eq i32 %22, %18
@@ -957,7 +957,7 @@ common.ret10:                                     ; preds = %2, %5, %10
 
 10:                                               ; preds = %5
   %11 = zext i32 %3 to i64
-  %12 = getelementptr inbounds nuw i32, ptr %1, i64 %11
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %11
   store i32 1, ptr %12, align 4, !tbaa !31
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8, !tbaa !36
@@ -1046,7 +1046,7 @@ define noundef ptr @Extra_VectorSupportArray(ptr noundef readonly captures(none)
 
 .lr.ph26:                                         ; preds = %.lr.ph26.preheader, %.lr.ph26
   %indvars.iv = phi i64 [ 0, %.lr.ph26.preheader ], [ %indvars.iv.next, %.lr.ph26 ]
-  %13 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8, !tbaa !25
   %15 = ptrtoint ptr %14 to i64
   %16 = and i64 %15, -2
@@ -1058,7 +1058,7 @@ define noundef ptr @Extra_VectorSupportArray(ptr noundef readonly captures(none)
 
 .lr.ph28:                                         ; preds = %.lr.ph28.preheader, %.lr.ph28
   %indvars.iv31 = phi i64 [ 0, %.lr.ph28.preheader ], [ %indvars.iv.next32, %.lr.ph28 ]
-  %18 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv31
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv31
   %19 = load ptr, ptr %18, align 8, !tbaa !25
   %20 = ptrtoint ptr %19 to i64
   %21 = and i64 %20, -2
@@ -1102,7 +1102,7 @@ define ptr @Extra_bddFindOneCube(ptr noundef %0, ptr noundef %1) local_unnamed_a
 
 16:                                               ; preds = %13
   %17 = load ptr, ptr %12, align 8, !tbaa !38
-  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !25
   %20 = ptrtoint ptr %19 to i64
   %21 = xor i64 %20, 1
@@ -1111,7 +1111,7 @@ define ptr @Extra_bddFindOneCube(ptr noundef %0, ptr noundef %1) local_unnamed_a
 
 23:                                               ; preds = %13
   %24 = load ptr, ptr %12, align 8, !tbaa !38
-  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8, !tbaa !25
   br label %.sink.split
 
@@ -1202,7 +1202,7 @@ define noundef ptr @Extra_bddGetOneCube(ptr noundef %0, ptr noundef %1) local_un
   %32 = load ptr, ptr %31, align 8, !tbaa !38
   %33 = load i32, ptr %5, align 8, !tbaa !35
   %34 = zext i32 %33 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr %32, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %34
   %36 = load ptr, ptr %35, align 8, !tbaa !25
   %37 = ptrtoint ptr %36 to i64
   %38 = xor i64 %37, 1
@@ -1218,7 +1218,7 @@ define noundef ptr @Extra_bddGetOneCube(ptr noundef %0, ptr noundef %1) local_un
   %44 = load ptr, ptr %43, align 8, !tbaa !38
   %45 = load i32, ptr %5, align 8, !tbaa !35
   %46 = zext i32 %45 to i64
-  %47 = getelementptr inbounds nuw ptr, ptr %44, i64 %46
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %46
   %48 = load ptr, ptr %47, align 8, !tbaa !25
   %49 = tail call ptr @Cudd_bddAnd(ptr noundef nonnull %0, ptr noundef %42, ptr noundef %48) #19
   br label %50
@@ -1253,7 +1253,7 @@ define noundef ptr @Extra_bddComputeRangeCube(ptr noundef %0, i32 noundef %1, i3
   %indvars.iv = phi i64 [ %8, %.lr.ph ], [ %indvars.iv.next, %9 ]
   %.01415 = phi ptr [ %5, %.lr.ph ], [ %13, %9 ]
   %10 = load ptr, ptr %7, align 8, !tbaa !38
-  %11 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds [8 x i8], ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !25
   %13 = tail call ptr @Cudd_bddAnd(ptr noundef nonnull %0, ptr noundef %.01415, ptr noundef %12) #19
   tail call void @Cudd_Ref(ptr noundef %13) #19
@@ -1292,7 +1292,7 @@ define noundef ptr @Extra_bddBitsToCube(ptr noundef %0, i32 noundef %1, i32 noun
   %indvars.iv56 = phi i64 [ %indvars.iv.next57, %.lr.ph.split.us.split.us ], [ 0, %.lr.ph.split.us ]
   %.031.us.us = phi ptr [ %20, %.lr.ph.split.us.split.us ], [ %7, %.lr.ph.split.us ]
   %11 = load ptr, ptr %9, align 8, !tbaa !38
-  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv56
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv56
   %13 = load ptr, ptr %12, align 8, !tbaa !25
   %14 = ptrtoint ptr %13 to i64
   %15 = trunc nuw nsw i64 %indvars.iv56 to i32
@@ -1311,7 +1311,7 @@ define noundef ptr @Extra_bddBitsToCube(ptr noundef %0, i32 noundef %1, i32 noun
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %.lr.ph.split.us.split
   %indvars.iv51 = phi i64 [ %indvars.iv.next52, %.lr.ph.split.us.split ], [ 0, %.lr.ph.split.us ]
   %.031.us = phi ptr [ %29, %.lr.ph.split.us.split ], [ %7, %.lr.ph.split.us ]
-  %21 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv51
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv51
   %22 = load ptr, ptr %21, align 8, !tbaa !25
   %23 = ptrtoint ptr %22 to i64
   %24 = trunc nuw nsw i64 %indvars.iv51 to i32
@@ -1334,7 +1334,7 @@ define noundef ptr @Extra_bddBitsToCube(ptr noundef %0, i32 noundef %1, i32 noun
   %indvars.iv46 = phi i64 [ %indvars.iv.next47, %.lr.ph.split.split.us ], [ 0, %.lr.ph.split ]
   %.031.us32 = phi ptr [ %41, %.lr.ph.split.split.us ], [ %7, %.lr.ph.split ]
   %30 = load ptr, ptr %9, align 8, !tbaa !38
-  %31 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv46
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv46
   %32 = load ptr, ptr %31, align 8, !tbaa !25
   %33 = ptrtoint ptr %32 to i64
   %34 = trunc nuw nsw i64 %indvars.iv46 to i32
@@ -1355,7 +1355,7 @@ define noundef ptr @Extra_bddBitsToCube(ptr noundef %0, i32 noundef %1, i32 noun
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %.lr.ph.split.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split.split ], [ 0, %.lr.ph.split ]
   %.031 = phi ptr [ %52, %.lr.ph.split.split ], [ %7, %.lr.ph.split ]
-  %42 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %43 = load ptr, ptr %42, align 8, !tbaa !25
   %44 = ptrtoint ptr %43 to i64
   %45 = trunc nuw nsw i64 %indvars.iv to i32
@@ -1446,14 +1446,14 @@ define ptr @Extra_bddSupportNegativeCube(ptr noundef %0, ptr noundef %1) local_u
 
 34:                                               ; preds = %30
   %35 = load ptr, ptr %21, align 8, !tbaa !30
-  %36 = getelementptr inbounds nuw i32, ptr %35, i64 %indvars.iv.next
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %indvars.iv.next
   %37 = load i32, ptr %36, align 4, !tbaa !31
   br label %38
 
 38:                                               ; preds = %34, %30
   %39 = phi i32 [ %37, %34 ], [ %33, %30 ]
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds i32, ptr %9, i64 %40
+  %41 = getelementptr inbounds [4 x i8], ptr %9, i64 %40
   %42 = load i32, ptr %41, align 4, !tbaa !31
   %43 = icmp eq i32 %42, 1
   br i1 %43, label %44, label %67
@@ -1910,10 +1910,10 @@ define void @Extra_bddPermuteArray(ptr noundef initializes((448, 452)) %0, ptr n
 9:                                                ; preds = %.lr.ph.us, %15
   %indvars.iv39 = phi i32 [ 0, %.lr.ph.us ], [ %indvars.iv.next40, %15 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !25
   %12 = tail call fastcc ptr @cuddBddPermuteRecur(ptr noundef %0, ptr noundef %8, ptr noundef %11, ptr noundef %4)
-  %13 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   store ptr %12, ptr %13, align 8, !tbaa !25
   %14 = icmp eq ptr %12, null
   br i1 %14, label %.preheader.us, label %15
@@ -1939,7 +1939,7 @@ define void @Extra_bddPermuteArray(ptr noundef initializes((448, 452)) %0, ptr n
 
 .lr.ph29.us:                                      ; preds = %.lr.ph29.us.preheader, %.lr.ph29.us
   %indvars.iv36 = phi i64 [ 0, %.lr.ph29.us.preheader ], [ %indvars.iv.next37, %.lr.ph29.us ]
-  %24 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv36
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv36
   %25 = load ptr, ptr %24, align 8, !tbaa !25
   tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %25) #19
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
@@ -2031,12 +2031,12 @@ define internal fastcc ptr @cuddBddPermuteRecur(ptr noundef %0, ptr noundef %1, 
   store i32 %44, ptr %42, align 4, !tbaa !24
   %45 = load i32, ptr %7, align 8, !tbaa !35
   %46 = zext i32 %45 to i64
-  %47 = getelementptr inbounds nuw i32, ptr %3, i64 %46
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %46
   %48 = load i32, ptr %47, align 4, !tbaa !31
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %50 = load ptr, ptr %49, align 8, !tbaa !38
   %51 = sext i32 %48 to i64
-  %52 = getelementptr inbounds ptr, ptr %50, i64 %51
+  %52 = getelementptr inbounds [8 x i8], ptr %50, i64 %51
   %53 = load ptr, ptr %52, align 8, !tbaa !25
   %54 = tail call ptr @cuddBddIteRecur(ptr noundef %0, ptr noundef %53, ptr noundef nonnull %24, ptr noundef nonnull %35) #19
   %55 = icmp eq ptr %54, null
@@ -2104,7 +2104,7 @@ define noundef ptr @Extra_bddComputeCube(ptr noundef %0, ptr noundef readonly ca
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.01314 = phi ptr [ %5, %.lr.ph.preheader ], [ %9, %.lr.ph ]
-  %7 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8, !tbaa !25
   %9 = tail call ptr @Cudd_bddAnd(ptr noundef nonnull %0, ptr noundef %.01314, ptr noundef %8) #19
   tail call void @Cudd_Ref(ptr noundef %9) #19
@@ -2160,11 +2160,11 @@ define ptr @extraBddChangePolarity(ptr noundef %0, ptr noundef %1, ptr noundef %
   %17 = load ptr, ptr %16, align 8, !tbaa !45
   %18 = load i32, ptr %10, align 8, !tbaa !35
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw i32, ptr %17, i64 %19
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %19
   %21 = load i32, ptr %20, align 4, !tbaa !31
   %22 = load i32, ptr %2, align 8, !tbaa !35
   %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds nuw i32, ptr %17, i64 %23
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %23
   %25 = load i32, ptr %24, align 4, !tbaa !31
   %26 = icmp slt i32 %25, %21
   br i1 %26, label %27, label %31
@@ -2516,7 +2516,7 @@ Abc_Clock.exit118:                                ; preds = %46, %49
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 312
   %66 = load ptr, ptr %65, align 8, !tbaa !45
   %67 = zext i32 %62 to i64
-  %68 = getelementptr inbounds nuw i32, ptr %66, i64 %67
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %67
   %69 = load i32, ptr %68, align 4, !tbaa !31
   br label %70
 
@@ -2536,7 +2536,7 @@ Abc_Clock.exit118:                                ; preds = %46, %49
 .thread:                                          ; preds = %70
   %78 = load i32, ptr %74, align 8, !tbaa !35
   %79 = zext i32 %78 to i64
-  %80 = getelementptr inbounds nuw i32, ptr %5, i64 %79
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %79
   %81 = load i32, ptr %80, align 4, !tbaa !31
   %82 = icmp eq i32 %81, 2147483647
   br i1 %82, label %.thread120, label %83
@@ -2546,7 +2546,7 @@ Abc_Clock.exit118:                                ; preds = %46, %49
   %.in = getelementptr inbounds nuw i8, ptr %1, i64 312
   %85 = load ptr, ptr %.in, align 8, !tbaa !45
   %86 = zext i32 %84 to i64
-  %87 = getelementptr inbounds nuw i32, ptr %85, i64 %86
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %85, i64 %86
   %.pre = load i32, ptr %87, align 4, !tbaa !31
   br label %.thread120
 
@@ -2558,10 +2558,10 @@ Abc_Clock.exit118:                                ; preds = %46, %49
   %92 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %93 = load ptr, ptr %92, align 8, !tbaa !30
   %94 = sext i32 %89 to i64
-  %95 = getelementptr inbounds i32, ptr %93, i64 %94
+  %95 = getelementptr inbounds [4 x i8], ptr %93, i64 %94
   %96 = load i32, ptr %95, align 4, !tbaa !31
   %97 = sext i32 %96 to i64
-  %98 = getelementptr inbounds ptr, ptr %91, i64 %97
+  %98 = getelementptr inbounds [8 x i8], ptr %91, i64 %97
   %99 = load ptr, ptr %98, align 8, !tbaa !25
   %100 = icmp slt i32 %88, %71
   br i1 %100, label %.thread122, label %101
@@ -2702,14 +2702,14 @@ define void @extraDecomposeCover(ptr noundef readonly captures(none) %0, ptr nou
 
 16:                                               ; preds = %9
   %17 = zext i32 %14 to i64
-  %18 = getelementptr inbounds nuw i32, ptr %.pre, i64 %17
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %.pre, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !31
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9, %16
   %20 = phi i32 [ %19, %16 ], [ 2147483647, %9 ]
   %21 = zext i32 %6 to i64
-  %22 = getelementptr inbounds nuw i32, ptr %.pre, i64 %21
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %.pre, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !31
   %24 = add nsw i32 %23, 1
   %25 = icmp eq i32 %20, %24
@@ -2776,7 +2776,7 @@ define i32 @Extra_bddCountCubes(ptr noundef %0, ptr noundef captures(none) %1, i
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %48
   %indvars.iv120 = phi i64 [ %indvars.iv.next121, %48 ], [ 0, %.lr.ph.split.us ]
   %.06072.us.us = phi i32 [ %.1.us.us, %48 ], [ 0, %.lr.ph.split.us ]
-  %20 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv120
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv120
   %21 = load ptr, ptr %20, align 8, !tbaa !25
   %.not.us.us = icmp eq ptr %21, null
   br i1 %.not.us.us, label %48, label %22
@@ -2806,7 +2806,7 @@ define i32 @Extra_bddCountCubes(ptr noundef %0, ptr noundef captures(none) %1, i
   br i1 %31, label %38, label %.thread67.us.us
 
 .thread67.us.us:                                  ; preds = %36
-  %37 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv120
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv120
   store i32 1, ptr %37, align 4, !tbaa !31
   br label %46
 
@@ -2814,14 +2814,14 @@ define i32 @Extra_bddCountCubes(ptr noundef %0, ptr noundef captures(none) %1, i
   br i1 %24, label %41, label %39
 
 39:                                               ; preds = %38
-  %40 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv120
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv120
   store i32 0, ptr %40, align 4, !tbaa !31
   br label %46
 
 41:                                               ; preds = %38
   %42 = load i32, ptr %7, align 4, !tbaa !31
   %.not63.us.us = icmp sgt i32 %29, %42
-  %43 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv120
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv120
   br i1 %.not63.us.us, label %45, label %44
 
 44:                                               ; preds = %41
@@ -2847,7 +2847,7 @@ define i32 @Extra_bddCountCubes(ptr noundef %0, ptr noundef captures(none) %1, i
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %63
   %indvars.iv126 = phi i64 [ %indvars.iv.next127, %63 ], [ 0, %.lr.ph.split.us ]
   %.06072.us = phi i32 [ %.1.us, %63 ], [ 0, %.lr.ph.split.us ]
-  %49 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv126
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv126
   %50 = load ptr, ptr %49, align 8, !tbaa !25
   %.not.us = icmp eq ptr %50, null
   br i1 %.not.us, label %63, label %51
@@ -2868,7 +2868,7 @@ define i32 @Extra_bddCountCubes(ptr noundef %0, ptr noundef captures(none) %1, i
   br i1 %.not105, label %._crit_edge.loopexit135.split.loop.exit, label %60
 
 60:                                               ; preds = %51
-  %61 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv126
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv126
   store i32 0, ptr %61, align 4, !tbaa !31
   %.061.us = load i32, ptr %7, align 4, !tbaa !31
   %62 = add nsw i32 %.061.us, %.06072.us
@@ -2887,7 +2887,7 @@ define i32 @Extra_bddCountCubes(ptr noundef %0, ptr noundef captures(none) %1, i
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %69
   %indvars.iv = phi i64 [ %indvars.iv.next, %69 ], [ 0, %.lr.ph.split ]
   %.06072.us83 = phi i32 [ %.1.us89, %69 ], [ 0, %.lr.ph.split ]
-  %64 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %65 = load ptr, ptr %64, align 8, !tbaa !25
   %.not.us85 = icmp eq ptr %65, null
   br i1 %.not.us85, label %69, label %.thread.us
@@ -2899,7 +2899,7 @@ define i32 @Extra_bddCountCubes(ptr noundef %0, ptr noundef captures(none) %1, i
   br i1 %.not104, label %.thread._crit_edge, label %.thread67.us87
 
 .thread67.us87:                                   ; preds = %.thread.us
-  %67 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   store i32 1, ptr %67, align 4, !tbaa !31
   %.061.us88 = load i32, ptr %8, align 4, !tbaa !31
   %68 = add nsw i32 %.061.us88, %.06072.us83
@@ -2913,7 +2913,7 @@ define i32 @Extra_bddCountCubes(ptr noundef %0, ptr noundef captures(none) %1, i
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %72
   %indvars.iv115 = phi i64 [ %indvars.iv.next116, %72 ], [ 0, %.lr.ph.split ]
-  %70 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv115
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv115
   %71 = load ptr, ptr %70, align 8, !tbaa !25
   %.not = icmp eq ptr %71, null
   br i1 %.not, label %72, label %.thread._crit_edge
@@ -3016,14 +3016,14 @@ define internal fastcc ptr @extraBddCountCubes(ptr noundef %0, ptr noundef %1, p
   %33 = inttoptr i64 %32 to ptr
   %34 = load i32, ptr %33, align 8, !tbaa !35
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds nuw i32, ptr %30, i64 %35
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %35
   %37 = load i32, ptr %36, align 4, !tbaa !31
   %38 = ptrtoint ptr %2 to i64
   %39 = and i64 %38, -2
   %40 = inttoptr i64 %39 to ptr
   %41 = load i32, ptr %40, align 8, !tbaa !35
   %42 = zext i32 %41 to i64
-  %43 = getelementptr inbounds nuw i32, ptr %30, i64 %42
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %42
   %44 = load i32, ptr %43, align 4, !tbaa !31
   %.not278 = icmp sgt i32 %37, %44
   br i1 %.not278, label %58, label %45
@@ -3713,7 +3713,7 @@ define void @Extra_GraphExperiment() local_unnamed_addr #0 {
 .lr.ph.preheader:                                 ; preds = %0, %._crit_edge
   %indvars.iv47 = phi i64 [ 0, %0 ], [ %indvars.iv.next48, %._crit_edge ]
   %.03643 = phi ptr [ %3, %0 ], [ %15, %._crit_edge ]
-  %5 = getelementptr inbounds nuw [5 x i32], ptr @__const.Extra_GraphExperiment.Edges, i64 %indvars.iv47
+  %5 = getelementptr inbounds nuw [20 x i8], ptr @__const.Extra_GraphExperiment.Edges, i64 %indvars.iv47
   %6 = load ptr, ptr %4, align 8, !tbaa !34
   tail call void @Cudd_Ref(ptr noundef %6) #19
   %7 = load i32, ptr %5, align 4, !tbaa !31
@@ -3732,7 +3732,7 @@ define void @Extra_GraphExperiment() local_unnamed_addr #0 {
   tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %1, ptr noundef %.03542) #19
   tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %1, ptr noundef %11) #19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.next
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv.next
   %14 = load i32, ptr %13, align 4, !tbaa !31
   %.not39 = icmp eq i32 %14, 0
   br i1 %.not39, label %._crit_edge, label %.lr.ph, !llvm.loop !82
@@ -3792,14 +3792,14 @@ define ptr @extraZddCombination(ptr noundef %0, ptr noundef readonly captures(no
 
 21:                                               ; preds = %17
   %22 = load ptr, ptr %14, align 8, !tbaa !84
-  %23 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv.next
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv.next
   %24 = load i32, ptr %23, align 4, !tbaa !31
   br label %25
 
 25:                                               ; preds = %17, %21
   %26 = phi i32 [ %24, %21 ], [ %20, %17 ]
   %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds i32, ptr %1, i64 %27
+  %28 = getelementptr inbounds [4 x i8], ptr %1, i64 %27
   %29 = load i32, ptr %28, align 4, !tbaa !31
   %30 = icmp eq i32 %29, 1
   br i1 %30, label %31, label %49
@@ -3891,14 +3891,14 @@ define ptr @Extra_zddCombination(ptr noundef initializes((448, 452)) %0, ptr nou
 
 22:                                               ; preds = %18
   %23 = load ptr, ptr %8, align 8, !tbaa !84
-  %24 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv.next.i.us
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %indvars.iv.next.i.us
   %25 = load i32, ptr %24, align 4, !tbaa !31
   br label %26
 
 26:                                               ; preds = %22, %18
   %27 = phi i32 [ %25, %22 ], [ %21, %18 ]
   %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds i32, ptr %1, i64 %28
+  %29 = getelementptr inbounds [4 x i8], ptr %1, i64 %28
   %30 = load i32, ptr %29, align 4, !tbaa !31
   %31 = icmp eq i32 %30, 1
   br i1 %31, label %32, label %49
@@ -4009,7 +4009,7 @@ define ptr @Extra_zddRandomSet(ptr noundef %0, i32 noundef %1, i32 noundef %2, d
   %26 = tail call i64 @Cudd_Random() #19
   %.not66 = icmp sle i64 %26, %21
   %spec.select = zext i1 %.not66 to i32
-  %27 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv
   store i32 %spec.select, ptr %27, align 4, !tbaa !31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %10
@@ -4039,14 +4039,14 @@ define ptr @Extra_zddRandomSet(ptr noundef %0, i32 noundef %1, i32 noundef %2, d
 
 39:                                               ; preds = %35
   %40 = load ptr, ptr %25, align 8, !tbaa !84
-  %41 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv.next.i.us.i
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %indvars.iv.next.i.us.i
   %42 = load i32, ptr %41, align 4, !tbaa !31
   br label %43
 
 43:                                               ; preds = %39, %35
   %44 = phi i32 [ %42, %39 ], [ %38, %35 ]
   %45 = sext i32 %44 to i64
-  %46 = getelementptr inbounds i32, ptr %12, i64 %45
+  %46 = getelementptr inbounds [4 x i8], ptr %12, i64 %45
   %47 = load i32, ptr %46, align 4, !tbaa !31
   %48 = icmp eq i32 %47, 1
   br i1 %48, label %49, label %66
@@ -4195,7 +4195,7 @@ define ptr @extraBddTuples(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %8 = load ptr, ptr %7, align 8, !tbaa !45
   %9 = zext i32 %4 to i64
-  %10 = getelementptr inbounds nuw i32, ptr %8, i64 %9
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !31
   br label %12
 
@@ -4209,7 +4209,7 @@ define ptr @extraBddTuples(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %18 = load ptr, ptr %17, align 8, !tbaa !45
   %19 = zext i32 %14 to i64
-  %20 = getelementptr inbounds nuw i32, ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %19
   %21 = load i32, ptr %20, align 4, !tbaa !31
   br label %22
 
@@ -4518,7 +4518,7 @@ Abc_Clock.exit73:                                 ; preds = %46, %49
 
 .split:                                           ; preds = %58
   %60 = zext i32 %59 to i64
-  %61 = getelementptr inbounds nuw i32, ptr %4, i64 %60
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %60
   %62 = load i32, ptr %61, align 4, !tbaa !31
   br label %.split64
 

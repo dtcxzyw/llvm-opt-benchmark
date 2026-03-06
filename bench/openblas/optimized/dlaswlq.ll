@@ -17,11 +17,11 @@ define void @dlaswlq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %15 = load i32, ptr %5, align 4, !tbaa !3
   %narrow = xor i32 %15, -1
   %16 = sext i32 %narrow to i64
-  %17 = getelementptr inbounds double, ptr %4, i64 %16
+  %17 = getelementptr inbounds [8 x i8], ptr %4, i64 %16
   %18 = load i32, ptr %7, align 4, !tbaa !3
   %narrow152 = xor i32 %18, -1
   %19 = sext i32 %narrow152 to i64
-  %20 = getelementptr inbounds double, ptr %6, i64 %19
+  %20 = getelementptr inbounds [8 x i8], ptr %6, i64 %19
   store i32 0, ptr %10, align 4, !tbaa !3
   %21 = load i32, ptr %9, align 4, !tbaa !3
   %22 = icmp eq i32 %21, -1
@@ -127,13 +127,13 @@ define void @dlaswlq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %71 = sub nsw i32 %69, %70
   store i32 %71, ptr %13, align 4, !tbaa !3
   %72 = mul nsw i64 %indvars.iv, %68
-  %73 = getelementptr double, ptr %17, i64 %72
+  %73 = getelementptr [8 x i8], ptr %17, i64 %72
   %74 = getelementptr i8, ptr %73, i64 8
   %75 = mul nsw i32 %70, %.0162
   %76 = add nsw i32 %75, 1
   %77 = mul nsw i32 %76, %18
   %78 = sext i32 %77 to i64
-  %79 = getelementptr double, ptr %20, i64 %78
+  %79 = getelementptr [8 x i8], ptr %20, i64 %78
   %80 = getelementptr i8, ptr %79, i64 8
   call void @dtplqt_(ptr noundef nonnull %0, ptr noundef nonnull %13, ptr noundef nonnull @c__0, ptr noundef nonnull %2, ptr noundef %4, ptr noundef nonnull %5, ptr noundef %74, ptr noundef nonnull %5, ptr noundef %80, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %10) #4
   %81 = add nuw nsw i32 %.0162, 1
@@ -159,12 +159,12 @@ define void @dlaswlq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
 86:                                               ; preds = %._crit_edge
   %87 = mul nsw i32 %56, %15
   %88 = sext i32 %87 to i64
-  %89 = getelementptr double, ptr %17, i64 %88
+  %89 = getelementptr [8 x i8], ptr %17, i64 %88
   %90 = getelementptr i8, ptr %89, i64 8
   %91 = add nsw i32 %.0.lcssa, 1
   %92 = mul nsw i32 %91, %18
   %93 = sext i32 %92 to i64
-  %94 = getelementptr double, ptr %20, i64 %93
+  %94 = getelementptr [8 x i8], ptr %20, i64 %93
   %95 = getelementptr i8, ptr %94, i64 8
   call void @dtplqt_(ptr noundef nonnull %0, ptr noundef nonnull %14, ptr noundef nonnull @c__0, ptr noundef nonnull %2, ptr noundef %4, ptr noundef nonnull %5, ptr noundef %90, ptr noundef nonnull %5, ptr noundef %95, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %10) #4
   %.pre = load i32, ptr %0, align 4, !tbaa !3

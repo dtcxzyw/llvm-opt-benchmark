@@ -86,7 +86,7 @@ define noundef ptr @_ZN9grpc_core28CompressionAlgorithmAsStringE26grpc_compressi
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._GLOBAL__sub_I_compression_internal.cc, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._GLOBAL__sub_I_compression_internal.cc, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -246,7 +246,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %17, %
 54:                                               ; preds = %50
   %55 = load ptr, ptr %31, align 8, !noalias !24
   %.sink2.i.i.i.i = select i1 %52, ptr %55, ptr %31
-  %56 = getelementptr inbounds nuw i32, ptr %.sink2.i.i.i.i, i64 %.sink1.i.i.i.i
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %.sink2.i.i.i.i, i64 %.sink1.i.i.i.i
   store i32 %41, ptr %56, align 4, !tbaa !21
   %57 = add i64 %51, 2
   store i64 %57, ptr %6, align 8, !tbaa !23
@@ -301,7 +301,7 @@ _ZN4absl12lts_2024072213InlinedVectorI26grpc_compression_algorithmLm3ESaIS2_EE9p
   %76 = trunc i64 %39 to i1
   %77 = load ptr, ptr %31, align 8
   %78 = select i1 %76, ptr %77, ptr %31
-  %79 = getelementptr inbounds nuw i32, ptr %78, i64 %75
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %78, i64 %75
   %80 = load i32, ptr %79, align 4, !tbaa !21
   br i1 %76, label %89, label %_ZN4absl12lts_2024072213InlinedVectorI26grpc_compression_algorithmLm3ESaIS2_EED2Ev.exit22
 
@@ -313,7 +313,7 @@ default.unreachable:                              ; preds = %68
   %83 = load ptr, ptr %31, align 8
   %84 = select i1 %82, ptr %83, ptr %31
   %85 = lshr i64 %39, 1
-  %86 = getelementptr i32, ptr %84, i64 %85
+  %86 = getelementptr [4 x i8], ptr %84, i64 %85
   %87 = getelementptr i8, ptr %86, i64 -4
   %88 = load i32, ptr %87, align 4, !tbaa !21
   br i1 %82, label %89, label %_ZN4absl12lts_2024072213InlinedVectorI26grpc_compression_algorithmLm3ESaIS2_EED2Ev.exit22
@@ -508,7 +508,7 @@ define { i64, ptr } @_ZNK9grpc_core23CompressionAlgorithmSet8ToStringEv(ptr noun
 
 _ZNK9grpc_core23CompressionAlgorithmSet15ToLegacyBitmaskEv.exit: ; preds = %3
   %11 = zext nneg i32 %.1.i.i to i64
-  %12 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr @_ZN9grpc_core12_GLOBAL__N_120kCommaSeparatedListsE, i64 %11
+  %12 = getelementptr inbounds nuw [16 x i8], ptr @_ZN9grpc_core12_GLOBAL__N_120kCommaSeparatedListsE, i64 %11
   %.sroa.0.0.copyload.i = load i64, ptr %12, align 8, !tbaa !23
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.sroa.2.0.copyload.i = load ptr, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !31
@@ -563,7 +563,7 @@ define void @_ZNK9grpc_core23CompressionAlgorithmSet7ToSliceEv(ptr dead_on_unwin
 
 _ZNK9grpc_core23CompressionAlgorithmSet8ToStringEv.exit: ; preds = %4
   %12 = zext nneg i32 %.1.i.i.i to i64
-  %13 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr @_ZN9grpc_core12_GLOBAL__N_120kCommaSeparatedListsE, i64 %12
+  %13 = getelementptr inbounds nuw [16 x i8], ptr @_ZN9grpc_core12_GLOBAL__N_120kCommaSeparatedListsE, i64 %12
   %.sroa.0.0.copyload.i.i = load i64, ptr %13, align 8, !tbaa !23
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %13, i64 8
   %.sroa.2.0.copyload.i.i = load ptr, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !31
@@ -1216,7 +1216,7 @@ define linkonce_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZN4absl12lt
 _ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaI26grpc_compression_algorithmELb0EE8AllocateERS4_m.exit.i: ; preds = %2
   %14 = shl nuw nsw i64 %10, 2
   %15 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %14) #32
-  %16 = getelementptr inbounds nuw i32, ptr %15, i64 %.sink1.i
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %.sink1.i
   %17 = load i32, ptr %1, align 4, !tbaa !21
   store i32 %17, ptr %16, align 4, !tbaa !21
   %.not.i = icmp eq i64 %.sink1.i, 0
@@ -1229,7 +1229,7 @@ _ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaI26grpc_compres
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %.012.i = phi i64 [ %22, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
   %18 = phi ptr [ %21, %.lr.ph.i ], [ %.sink2.i, %.lr.ph.i.preheader ]
-  %19 = getelementptr inbounds nuw i32, ptr %15, i64 %.012.i
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %.012.i
   %20 = load i32, ptr %18, align 4, !tbaa !21
   store i32 %20, ptr %19, align 4, !tbaa !21
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 4
@@ -1288,7 +1288,7 @@ define internal void @_GLOBAL__sub_I_compression_internal.cc() #24 section ".tex
   %5 = ptrtoint ptr %.4.i.i to i64
   %6 = ptrtoint ptr %.0823.i.i to i64
   %7 = sub i64 %5, %6
-  %8 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr @_ZN9grpc_core12_GLOBAL__N_120kCommaSeparatedListsE, i64 %.01524.i.i
+  %8 = getelementptr inbounds nuw [16 x i8], ptr @_ZN9grpc_core12_GLOBAL__N_120kCommaSeparatedListsE, i64 %.01524.i.i
   store i64 %7, ptr %8, align 8, !tbaa !23
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %.0823.i.i, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !tbaa !31
@@ -1340,7 +1340,7 @@ _ZZN9grpc_core12_GLOBAL__N_119CommaSeparatedListsC1EvENKUlcE_clEc.exit26.i.i: ; 
 switch.lookup:                                    ; preds = %16, %_ZZN9grpc_core12_GLOBAL__N_119CommaSeparatedListsC1EvENKUlcE_clEc.exit26.i.i
   %.2.i.i = phi ptr [ %.0823.i.i, %16 ], [ %27, %_ZZN9grpc_core12_GLOBAL__N_119CommaSeparatedListsC1EvENKUlcE_clEc.exit26.i.i ]
   %28 = and i64 %.01622.i.i, 4294967295
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._GLOBAL__sub_I_compression_internal.cc, i64 %28
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._GLOBAL__sub_I_compression_internal.cc, i64 %28
   %switch.load = load ptr, ptr %switch.gep, align 8
   %29 = load i8, ptr %switch.load, align 1, !tbaa !6
   %.not2018.i.i = icmp eq i8 %29, 0

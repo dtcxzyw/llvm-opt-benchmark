@@ -813,7 +813,7 @@ _ZN5boost6nowide5widenINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEENS
   %143 = load ptr, ptr %21, align 8, !tbaa !38
   %144 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %145 = load i64, ptr %144, align 8, !tbaa !41
-  %146 = getelementptr inbounds nuw i32, ptr %143, i64 %145
+  %146 = getelementptr inbounds nuw [4 x i8], ptr %143, i64 %145
   store i64 0, ptr %142, align 8, !tbaa !17
   store i8 0, ptr %141, align 8, !tbaa !16
   invoke void @_ZN5boost10filesystem6detail11path_traits7convertEPKwS4_RNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKSt7codecvtIwc11__mbstate_tE(ptr noundef %143, ptr noundef %146, ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef null)
@@ -1091,7 +1091,7 @@ _ZN5boost6nowide5widenINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEENS
   %243 = load ptr, ptr %24, align 8, !tbaa !38
   %244 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %245 = load i64, ptr %244, align 8, !tbaa !41
-  %246 = getelementptr inbounds nuw i32, ptr %243, i64 %245
+  %246 = getelementptr inbounds nuw [4 x i8], ptr %243, i64 %245
   store i64 0, ptr %242, align 8, !tbaa !17
   store i8 0, ptr %241, align 8, !tbaa !16
   invoke void @_ZN5boost10filesystem6detail11path_traits7convertEPKwS4_RNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKSt7codecvtIwc11__mbstate_tE(ptr noundef %243, ptr noundef %246, ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef null)
@@ -8531,10 +8531,10 @@ _ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE8capacityEv.exit.i.i.i: ; 
 
 _ZN5boost6nowide3utf10utf_traitsIwLi4EE6encodeISt20back_insert_iteratorINSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEEEET_jSD_.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE8capacityEv.exit.i.i.i, %.noexc
   %22 = phi ptr [ %.pre.i.i.i, %.noexc ], [ %14, %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE8capacityEv.exit.i.i.i ]
-  %23 = getelementptr inbounds nuw i32, ptr %22, i64 %12
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %12
   store i32 %spec.store.select, ptr %23, align 4, !tbaa !135
   store i64 %13, ptr %6, align 8, !tbaa !41
-  %24 = getelementptr inbounds nuw i32, ptr %22, i64 %13
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %13
   store i32 0, ptr %24, align 4, !tbaa !135
   %25 = load ptr, ptr %4, align 8, !tbaa !7
   %.not = icmp eq ptr %25, %2
@@ -9887,7 +9887,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN5
   call void @llvm.experimental.noalias.scope.decl(metadata !288)
   %20 = load ptr, ptr %3, align 8, !tbaa !38, !noalias !291
   %21 = load i64, ptr %8, align 8, !tbaa !41, !noalias !291
-  %22 = getelementptr inbounds nuw i32, ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %21
   call void @llvm.experimental.noalias.scope.decl(metadata !292)
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %23, ptr %6, align 8, !tbaa !10, !alias.scope !295
@@ -11201,10 +11201,10 @@ _ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE8capacityEv.exit.i.i: ; pr
 
 _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEpLEw.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE8capacityEv.exit.i.i, %68
   %69 = phi ptr [ %.pre.i.i, %68 ], [ %60, %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE8capacityEv.exit.i.i ]
-  %70 = getelementptr inbounds nuw i32, ptr %69, i64 %58
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %69, i64 %58
   store i32 %55, ptr %70, align 4, !tbaa !135
   store i64 %59, ptr %57, align 8, !tbaa !41
-  %71 = getelementptr inbounds nuw i32, ptr %69, i64 %59
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %69, i64 %59
   store i32 0, ptr %71, align 4, !tbaa !135
   %72 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZStrsIwSt11char_traitsIwEERSt13basic_istreamIT_T0_ES6_RS3_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(4) %3)
   %73 = load ptr, ptr %0, align 8, !tbaa !4
@@ -11410,7 +11410,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN5
   call void @llvm.experimental.noalias.scope.decl(metadata !332)
   %20 = load ptr, ptr %3, align 8, !tbaa !38, !noalias !335
   %21 = load i64, ptr %8, align 8, !tbaa !41, !noalias !335
-  %22 = getelementptr inbounds nuw i32, ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %21
   call void @llvm.experimental.noalias.scope.decl(metadata !336)
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %23, ptr %6, align 8, !tbaa !10, !alias.scope !339

@@ -7176,7 +7176,7 @@ common.ret:                                       ; preds = %76, %18
   %.sroa.49.0.copyload.i.i = load ptr, ptr %.sroa.49.0..sroa_idx.i.i, align 8, !alias.scope !1328, !noalias !1334, !nonnull !5, !noundef !5
   %.sroa.510.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %9, i64 16
   %.sroa.510.0.copyload.i.i = load i64, ptr %.sroa.510.0..sroa_idx.i.i, align 8, !alias.scope !1328, !noalias !1334
-  %84 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } } }, ptr %.sroa.49.0.copyload.i.i, i64 %.sroa.510.0.copyload.i.i
+  %84 = getelementptr inbounds [24 x i8], ptr %.sroa.49.0.copyload.i.i, i64 %.sroa.510.0.copyload.i.i
   store ptr %.sroa.49.0.copyload.i.i, ptr %7, align 8, !noalias !1331
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %.sroa.49.0.copyload.i.i, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !noalias !1331
@@ -7203,7 +7203,7 @@ common.ret:                                       ; preds = %76, %18
   %.sroa.416.0.copyload.i.i = load ptr, ptr %.sroa.416.0..sroa_idx.i.i, align 8, !alias.scope !1328, !noalias !1334, !nonnull !5, !noundef !5
   %.sroa.517.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %9, i64 40
   %.sroa.517.0.copyload.i.i = load i64, ptr %.sroa.517.0..sroa_idx.i.i, align 8, !alias.scope !1328, !noalias !1334
-  %90 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } } }, { i64, [2 x i64] }, { i64, [2 x i64] }, i64, { { i32, { i32, i32 } }, {} }, [1 x i32] }, ptr %.sroa.416.0.copyload.i.i, i64 %.sroa.517.0.copyload.i.i
+  %90 = getelementptr inbounds [96 x i8], ptr %.sroa.416.0.copyload.i.i, i64 %.sroa.517.0.copyload.i.i
   store ptr %.sroa.416.0.copyload.i.i, ptr %5, align 8, !noalias !1331
   %.sroa.412.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %.sroa.416.0.copyload.i.i, ptr %.sroa.412.0..sroa_idx.i.i, align 8, !noalias !1331

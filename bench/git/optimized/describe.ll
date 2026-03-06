@@ -25,7 +25,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.decoration = type { ptr, i32, i32, ptr }
 %struct.oidset = type { %struct.kh_oid_set }
 %struct.kh_oid_set = type { i32, i32, i32, i32, ptr, ptr, ptr }
-%struct.string_list_item = type { ptr, ptr }
 %struct.hashmap_entry = type { ptr, i32 }
 %struct.object_id = type { [32 x i8], i32 }
 %struct.process_commit_data = type { %struct.object_id, %struct.object_id, ptr, ptr }
@@ -534,7 +533,7 @@ define dso_local i32 @cmd_describe(i32 noundef %0, ptr noundef %1, ptr noundef %
 .lr.ph.preheader:                                 ; preds = %182
   %185 = load ptr, ptr @patterns, align 8, !tbaa !23
   %186 = load i64, ptr getelementptr inbounds nuw (i8, ptr @patterns, i64 8), align 8, !tbaa !26
-  %187 = getelementptr inbounds nuw %struct.string_list_item, ptr %185, i64 %186
+  %187 = getelementptr inbounds nuw [16 x i8], ptr %185, i64 %186
   %188 = icmp ult ptr %184, %187
   br i1 %188, label %.lr.ph, label %.critedge
 
@@ -545,7 +544,7 @@ define dso_local i32 @cmd_describe(i32 noundef %0, ptr noundef %1, ptr noundef %
   %191 = getelementptr inbounds nuw i8, ptr %.0375474, i64 16
   %192 = load ptr, ptr @patterns, align 8, !tbaa !23
   %193 = load i64, ptr getelementptr inbounds nuw (i8, ptr @patterns, i64 8), align 8, !tbaa !26
-  %194 = getelementptr inbounds nuw %struct.string_list_item, ptr %192, i64 %193
+  %194 = getelementptr inbounds nuw [16 x i8], ptr %192, i64 %193
   %195 = icmp ult ptr %191, %194
   br i1 %195, label %.lr.ph, label %.critedge
 
@@ -557,7 +556,7 @@ define dso_local i32 @cmd_describe(i32 noundef %0, ptr noundef %1, ptr noundef %
 .lr.ph58.preheader:                               ; preds = %.critedge
   %197 = load ptr, ptr @exclude_patterns, align 8, !tbaa !23
   %198 = load i64, ptr getelementptr inbounds nuw (i8, ptr @exclude_patterns, i64 8), align 8, !tbaa !26
-  %199 = getelementptr inbounds nuw %struct.string_list_item, ptr %197, i64 %198
+  %199 = getelementptr inbounds nuw [16 x i8], ptr %197, i64 %198
   %200 = icmp ult ptr %196, %199
   br i1 %200, label %.lr.ph58, label %.critedge3
 
@@ -568,7 +567,7 @@ define dso_local i32 @cmd_describe(i32 noundef %0, ptr noundef %1, ptr noundef %
   %203 = getelementptr inbounds nuw i8, ptr %.15776, i64 16
   %204 = load ptr, ptr @exclude_patterns, align 8, !tbaa !23
   %205 = load i64, ptr getelementptr inbounds nuw (i8, ptr @exclude_patterns, i64 8), align 8, !tbaa !26
-  %206 = getelementptr inbounds nuw %struct.string_list_item, ptr %204, i64 %205
+  %206 = getelementptr inbounds nuw [16 x i8], ptr %204, i64 %205
   %207 = icmp ult ptr %203, %206
   br i1 %207, label %.lr.ph58, label %.critedge3
 
@@ -607,7 +606,7 @@ st_mult.exit:                                     ; preds = %211
   br label %225
 
 ._crit_edge:                                      ; preds = %225, %st_mult.exit
-  %221 = getelementptr inbounds nuw ptr, ptr %218, i64 %219
+  %221 = getelementptr inbounds nuw [8 x i8], ptr %218, i64 %219
   store ptr null, ptr %221, align 8, !tbaa !33
   %222 = trunc i64 %219 to i32
   %223 = load ptr, ptr @the_repository, align 8, !tbaa !21
@@ -619,9 +618,9 @@ st_mult.exit:                                     ; preds = %211
 
 225:                                              ; preds = %.lr.ph61, %225
   %.03460 = phi i64 [ 0, %.lr.ph61 ], [ %229, %225 ]
-  %226 = getelementptr inbounds nuw ptr, ptr %220, i64 %.03460
+  %226 = getelementptr inbounds nuw [8 x i8], ptr %220, i64 %.03460
   %227 = load ptr, ptr %226, align 8, !tbaa !33
-  %228 = getelementptr inbounds nuw ptr, ptr %218, i64 %.03460
+  %228 = getelementptr inbounds nuw [8 x i8], ptr %218, i64 %.03460
   store ptr %227, ptr %228, align 8, !tbaa !33
   %229 = add nuw i64 %.03460, 1
   %exitcond.not = icmp eq i64 %229, %219
@@ -985,7 +984,7 @@ skip_prefix.exit.thread:                          ; preds = %.preheader, %skip_p
 .lr.ph.preheader:                                 ; preds = %skip_prefix.exit.thread
   %31 = load ptr, ptr @exclude_patterns, align 8, !tbaa !23
   %32 = load i64, ptr getelementptr inbounds nuw (i8, ptr @exclude_patterns, i64 8), align 8, !tbaa !26
-  %33 = getelementptr inbounds nuw %struct.string_list_item, ptr %31, i64 %32
+  %33 = getelementptr inbounds nuw [16 x i8], ptr %31, i64 %32
   %34 = icmp ult ptr %30, %33
   br i1 %34, label %.lr.ph119, label %.critedge
 
@@ -993,7 +992,7 @@ skip_prefix.exit.thread:                          ; preds = %.preheader, %skip_p
   %35 = getelementptr inbounds nuw i8, ptr %.02881118, i64 16
   %36 = load ptr, ptr @exclude_patterns, align 8, !tbaa !23
   %37 = load i64, ptr getelementptr inbounds nuw (i8, ptr @exclude_patterns, i64 8), align 8, !tbaa !26
-  %38 = getelementptr inbounds nuw %struct.string_list_item, ptr %36, i64 %37
+  %38 = getelementptr inbounds nuw [16 x i8], ptr %36, i64 %37
   %39 = icmp ult ptr %35, %38
   br i1 %39, label %.lr.ph119, label %.critedge
 
@@ -1017,7 +1016,7 @@ skip_prefix.exit.thread:                          ; preds = %.preheader, %skip_p
 .lr.ph85.preheader:                               ; preds = %42
   %44 = load ptr, ptr @patterns, align 8, !tbaa !23
   %45 = load i64, ptr getelementptr inbounds nuw (i8, ptr @patterns, i64 8), align 8, !tbaa !26
-  %46 = getelementptr inbounds nuw %struct.string_list_item, ptr %44, i64 %45
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %44, i64 %45
   %47 = icmp ult ptr %43, %46
   br i1 %47, label %.lr.ph121, label %.critedge47
 
@@ -1025,7 +1024,7 @@ skip_prefix.exit.thread:                          ; preds = %.preheader, %skip_p
   %48 = getelementptr inbounds nuw i8, ptr %.084120, i64 16
   %49 = load ptr, ptr @patterns, align 8, !tbaa !23
   %50 = load i64, ptr getelementptr inbounds nuw (i8, ptr @patterns, i64 8), align 8, !tbaa !26
-  %51 = getelementptr inbounds nuw %struct.string_list_item, ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [16 x i8], ptr %49, i64 %50
   %52 = icmp ult ptr %48, %51
   br i1 %52, label %.lr.ph121, label %.critedge47
 
@@ -1513,7 +1512,7 @@ _.exit:                                           ; preds = %48, %51
 .lr.ph.i.i:                                       ; preds = %65, %.lr.ph.i.i
   %.0302.i.i = phi i32 [ %73, %.lr.ph.i.i ], [ %70, %65 ]
   %71 = zext i32 %.0302.i.i to i64
-  %72 = getelementptr inbounds nuw ptr, ptr %69, i64 %71
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %71
   store ptr null, ptr %72, align 8, !tbaa !91
   %73 = add i32 %.0302.i.i, 1
   %.not34.i.i = icmp ugt i32 %73, %62
@@ -1521,7 +1520,7 @@ _.exit:                                           ; preds = %48, %51
 
 74:                                               ; preds = %60
   %75 = zext nneg i32 %62 to i64
-  %76 = getelementptr inbounds nuw ptr, ptr %.pre.i.i, i64 %75
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i.i, i64 %75
   %77 = load ptr, ptr %76, align 8, !tbaa !91
   %.not35.i.i = icmp eq ptr %77, null
   br i1 %.not35.i.i, label %.thread7.i.i, label %commit_names_at.exit
@@ -1529,7 +1528,7 @@ _.exit:                                           ; preds = %48, %51
 .thread.i.i:                                      ; preds = %.lr.ph.i.i, %65
   store i32 %66, ptr @commit_names.2, align 8, !tbaa !83
   %78 = zext nneg i32 %62 to i64
-  %79 = getelementptr inbounds nuw ptr, ptr %69, i64 %78
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %78
   %80 = load ptr, ptr %79, align 8, !tbaa !91
   %.not356.i.i = icmp eq ptr %80, null
   br i1 %.not356.i.i, label %.thread7.i.i, label %commit_names_at.exit
@@ -1538,14 +1537,14 @@ _.exit:                                           ; preds = %48, %51
   %81 = phi i64 [ %75, %74 ], [ %78, %.thread.i.i ]
   %82 = call ptr @xcalloc(i64 noundef 65532, i64 noundef 8) #16
   %83 = load ptr, ptr @commit_names.3, align 8, !tbaa !86
-  %84 = getelementptr inbounds nuw ptr, ptr %83, i64 %81
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %81
   store ptr %82, ptr %84, align 8, !tbaa !91
   br label %commit_names_at.exit
 
 commit_names_at.exit:                             ; preds = %74, %.thread.i.i, %.thread7.i.i
   %85 = phi ptr [ %82, %.thread7.i.i ], [ %77, %74 ], [ %80, %.thread.i.i ]
   %86 = zext nneg i32 %63 to i64
-  %87 = getelementptr inbounds nuw ptr, ptr %85, i64 %86
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %86
   store ptr %.0146231, ptr %87, align 8, !tbaa !94
   br label %88
 
@@ -1610,7 +1609,7 @@ hashmap_get_size.exit:                            ; preds = %102
 113:                                              ; preds = %108
   %.pre.i.i184 = load ptr, ptr @commit_names.3, align 8, !tbaa !86
   %114 = zext nneg i32 %110 to i64
-  %115 = getelementptr inbounds nuw ptr, ptr %.pre.i.i184, i64 %114
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i.i184, i64 %114
   %116 = load ptr, ptr %115, align 8, !tbaa !91
   %.not35.i.i185 = icmp eq ptr %116, null
   br i1 %.not35.i.i185, label %.thread, label %commit_names_peek.exit
@@ -1619,7 +1618,7 @@ commit_names_peek.exit:                           ; preds = %113
   %.b351 = load i1, ptr @commit_names.1, align 4
   %117 = zext nneg i32 %111 to i64
   %118 = select i1 %.b351, i64 %117, i64 0
-  %119 = getelementptr inbounds nuw ptr, ptr %116, i64 %118
+  %119 = getelementptr inbounds nuw [8 x i8], ptr %116, i64 %118
   %120 = load ptr, ptr %119, align 8, !tbaa !94
   %.not165 = icmp eq ptr %120, null
   br i1 %.not165, label %.thread, label %121
@@ -1650,7 +1649,7 @@ commit_names_peek.exit:                           ; preds = %113
 .thread.thread:                                   ; preds = %132
   %134 = add nuw i32 %.0121244, 1
   %135 = zext i32 %.0121244 to i64
-  %136 = getelementptr inbounds nuw %struct.possible_tag, ptr %5, i64 %135
+  %136 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %135
   store ptr %120, ptr %136, align 8, !tbaa !99
   %137 = trunc i64 %.0135242 to i32
   %138 = getelementptr inbounds nuw i8, ptr %136, i64 8
@@ -1686,7 +1685,7 @@ commit_names_peek.exit:                           ; preds = %113
 
 .lr.ph233:                                        ; preds = %.lr.ph233.preheader, %160
   %indvars.iv = phi i64 [ 0, %.lr.ph233.preheader ], [ %indvars.iv.next, %160 ]
-  %150 = getelementptr inbounds nuw %struct.possible_tag, ptr %5, i64 %indvars.iv
+  %150 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %indvars.iv
   %151 = load i32, ptr %96, align 8
   %152 = lshr i32 %151, 4
   %153 = getelementptr inbounds nuw i8, ptr %150, i64 16
@@ -1732,7 +1731,7 @@ commit_names_peek.exit:                           ; preds = %113
   %indvars.iv277 = phi i64 [ 0, %.lr.ph238.preheader ], [ %indvars.iv.next278, %177 ]
   %.0131236 = phi i32 [ 0, %.lr.ph238.preheader ], [ %.1132, %177 ]
   %.0133235 = phi i32 [ 2147483647, %.lr.ph238.preheader ], [ %.1134, %177 ]
-  %164 = getelementptr inbounds nuw %struct.possible_tag, ptr %5, i64 %indvars.iv277
+  %164 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %indvars.iv277
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 8
   %166 = load i32, ptr %165, align 8, !tbaa !101
   %167 = icmp slt i32 %166, %.0133235
@@ -1983,7 +1982,7 @@ finish_depth_computation.exit:                    ; preds = %.loopexit.i, %.preh
 .preheader:                                       ; preds = %266, %282
   %269 = phi i32 [ %283, %282 ], [ %267, %266 ]
   %indvars.iv282 = phi i64 [ %indvars.iv.next283, %282 ], [ 0, %266 ]
-  %270 = getelementptr inbounds nuw ptr, ptr @prio_names, i64 %indvars.iv282
+  %270 = getelementptr inbounds nuw [8 x i8], ptr @prio_names, i64 %indvars.iv282
   %271 = load ptr, ptr %270, align 8, !tbaa !33
   %272 = load i8, ptr %271, align 1, !tbaa !57
   %.not.i191 = icmp eq i8 %272, 0
@@ -2027,7 +2026,7 @@ _.exit194:                                        ; preds = %.preheader, %273, %
 
 .lr.ph263:                                        ; preds = %.lr.ph263.preheader, %_.exit198
   %indvars.iv286 = phi i64 [ 0, %.lr.ph263.preheader ], [ %indvars.iv.next287, %_.exit198 ]
-  %284 = getelementptr inbounds nuw %struct.possible_tag, ptr %5, i64 %indvars.iv286
+  %284 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %indvars.iv286
   %285 = load ptr, ptr @stderr, align 8, !tbaa !73
   %286 = load i32, ptr @describe_commit.label_width, align 4, !tbaa !4
   %287 = load ptr, ptr %284, align 8, !tbaa !99
@@ -2035,7 +2034,7 @@ _.exit194:                                        ; preds = %.preheader, %273, %
   %289 = load i8, ptr %288, align 8
   %290 = and i8 %289, 3
   %291 = zext nneg i8 %290 to i64
-  %292 = getelementptr inbounds nuw ptr, ptr @prio_names, i64 %291
+  %292 = getelementptr inbounds nuw [8 x i8], ptr @prio_names, i64 %291
   %293 = load ptr, ptr %292, align 8, !tbaa !33
   %294 = load i8, ptr %293, align 1, !tbaa !57
   %.not.i195 = icmp eq i8 %294, 0

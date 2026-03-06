@@ -1165,7 +1165,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5ZXing8IsInsideINS_6PointTIiEEEEbRKT_
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %.cont ]
   %.025 = phi i32 [ 0, %2 ], [ %.0., %.cont ]
   %.01524 = phi i32 [ 0, %2 ], [ %..015, %.cont ]
-  %10 = getelementptr inbounds nuw %"struct.ZXing::PointT", ptr %1, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4, !tbaa !84
   %12 = sub nsw i32 %3, %11
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 4
@@ -1173,7 +1173,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5ZXing8IsInsideINS_6PointTIiEEEEbRKT_
   %.neg = sub i32 %14, %5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %15 = and i64 %indvars.iv.next, 3
-  %16 = getelementptr inbounds nuw %"struct.ZXing::PointT", ptr %1, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %15
   %17 = load i32, ptr %16, align 4, !tbaa !84
   %18 = sub nsw i32 %17, %11
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 4
@@ -2958,7 +2958,7 @@ _ZNSt16allocator_traitsISaIN5ZXing6ResultEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0
 _ZNSt12_Vector_baseIN5ZXing6ResultESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt16allocator_traitsISaIN5ZXing6ResultEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit, %16
   store ptr %10, ptr %0, align 8, !tbaa !139
   store ptr %14, ptr %5, align 8, !tbaa !136
-  %20 = getelementptr inbounds nuw %"class.ZXing::Result", ptr %10, i64 %3
+  %20 = getelementptr inbounds nuw [216 x i8], ptr %10, i64 %3
   store ptr %20, ptr %15, align 8, !tbaa !138
   ret void
 
@@ -3368,7 +3368,7 @@ _ZNSt12_Vector_baseIN5ZXing6ResultESaIS1_EE11_M_allocateEm.exit: ; preds = %3, %
 _ZNSt12_Vector_baseIN5ZXing6ResultESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt12_Vector_baseIN5ZXing6ResultESaIS1_EE11_M_allocateEm.exit, %20
   store ptr %13, ptr %0, align 8, !tbaa !139
   store ptr %18, ptr %6, align 8, !tbaa !136
-  %24 = getelementptr inbounds nuw %"class.ZXing::Result", ptr %13, i64 %4
+  %24 = getelementptr inbounds nuw [216 x i8], ptr %13, i64 %4
   store ptr %24, ptr %19, align 8, !tbaa !138
   ret void
 }

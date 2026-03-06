@@ -135,29 +135,29 @@ define internal noundef i32 @lum_convert(ptr noundef %0, ptr noundef readonly ca
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %43 = getelementptr inbounds nuw i8, ptr %31, i64 40
   %44 = load ptr, ptr %43, align 8, !tbaa !31
-  %45 = getelementptr inbounds ptr, ptr %44, i64 %35
+  %45 = getelementptr inbounds [8 x i8], ptr %44, i64 %35
   %46 = load ptr, ptr %45, align 8, !tbaa !32
   store ptr %46, ptr %5, align 16, !tbaa !32
   %47 = getelementptr inbounds nuw i8, ptr %31, i64 72
   %48 = load ptr, ptr %47, align 8, !tbaa !31
   %49 = sext i32 %42 to i64
-  %50 = getelementptr inbounds ptr, ptr %48, i64 %49
+  %50 = getelementptr inbounds [8 x i8], ptr %48, i64 %49
   %51 = load ptr, ptr %50, align 8, !tbaa !32
   store ptr %51, ptr %18, align 8, !tbaa !32
   %52 = getelementptr inbounds nuw i8, ptr %31, i64 104
   %53 = load ptr, ptr %52, align 8, !tbaa !31
-  %54 = getelementptr inbounds ptr, ptr %53, i64 %49
+  %54 = getelementptr inbounds [8 x i8], ptr %53, i64 %49
   %55 = load ptr, ptr %54, align 8, !tbaa !32
   store ptr %55, ptr %19, align 16, !tbaa !32
   %56 = getelementptr inbounds nuw i8, ptr %31, i64 136
   %57 = load ptr, ptr %56, align 8, !tbaa !31
-  %58 = getelementptr inbounds ptr, ptr %57, i64 %35
+  %58 = getelementptr inbounds [8 x i8], ptr %57, i64 %35
   %59 = load ptr, ptr %58, align 8, !tbaa !32
   store ptr %59, ptr %20, align 8, !tbaa !32
   %60 = load ptr, ptr %11, align 8, !tbaa !22
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 40
   %62 = load ptr, ptr %61, align 8, !tbaa !31
-  %63 = getelementptr inbounds nuw ptr, ptr %62, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %indvars.iv
   %64 = load ptr, ptr %63, align 8, !tbaa !32
   %65 = load ptr, ptr %21, align 8, !tbaa !33
   %.not = icmp eq ptr %65, null
@@ -187,7 +187,7 @@ define internal noundef i32 @lum_convert(ptr noundef %0, ptr noundef readonly ca
   %75 = load ptr, ptr %11, align 8, !tbaa !22
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 136
   %77 = load ptr, ptr %76, align 8, !tbaa !31
-  %78 = getelementptr inbounds nuw ptr, ptr %77, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %indvars.iv
   %79 = load ptr, ptr %78, align 8, !tbaa !32
   %80 = load ptr, ptr %26, align 16, !tbaa !49
   %.not64 = icmp eq ptr %80, null
@@ -345,10 +345,10 @@ define internal noundef i32 @lum_h_scale(ptr noundef %0, ptr noundef readonly ca
 
 38:                                               ; preds = %23
   %39 = sext i32 %36 to i64
-  %40 = getelementptr inbounds ptr, ptr %29, i64 %39
+  %40 = getelementptr inbounds [8 x i8], ptr %29, i64 %39
   %41 = load ptr, ptr %40, align 8, !tbaa !32
   %42 = sext i32 %33 to i64
-  %43 = getelementptr inbounds ptr, ptr %26, i64 %42
+  %43 = getelementptr inbounds [8 x i8], ptr %26, i64 %42
   %44 = load ptr, ptr %43, align 8, !tbaa !32
   tail call void %37(ptr noundef nonnull %0, ptr noundef %41, i32 noundef %11, ptr noundef %44, i32 noundef %8, i32 noundef %13) #6
   br label %56
@@ -356,10 +356,10 @@ define internal noundef i32 @lum_h_scale(ptr noundef %0, ptr noundef readonly ca
 45:                                               ; preds = %23
   %46 = load ptr, ptr %16, align 8, !tbaa !59
   %47 = sext i32 %36 to i64
-  %48 = getelementptr inbounds ptr, ptr %29, i64 %47
+  %48 = getelementptr inbounds [8 x i8], ptr %29, i64 %47
   %49 = load ptr, ptr %48, align 8, !tbaa !32
   %50 = sext i32 %33 to i64
-  %51 = getelementptr inbounds ptr, ptr %26, i64 %50
+  %51 = getelementptr inbounds [8 x i8], ptr %26, i64 %50
   %52 = load ptr, ptr %51, align 8, !tbaa !32
   %53 = load ptr, ptr %6, align 8, !tbaa !53
   %54 = load ptr, ptr %17, align 8, !tbaa !55
@@ -374,7 +374,7 @@ define internal noundef i32 @lum_h_scale(ptr noundef %0, ptr noundef readonly ca
 
 58:                                               ; preds = %56
   %59 = sext i32 %36 to i64
-  %60 = getelementptr inbounds ptr, ptr %29, i64 %59
+  %60 = getelementptr inbounds [8 x i8], ptr %29, i64 %59
   %61 = load ptr, ptr %60, align 8, !tbaa !32
   %62 = load i32, ptr %20, align 8, !tbaa !61
   %63 = load i64, ptr %21, align 16, !tbaa !62
@@ -413,10 +413,10 @@ define internal noundef i32 @lum_h_scale(ptr noundef %0, ptr noundef readonly ca
 
 86:                                               ; preds = %70
   %87 = sext i32 %81 to i64
-  %88 = getelementptr inbounds ptr, ptr %75, i64 %87
+  %88 = getelementptr inbounds [8 x i8], ptr %75, i64 %87
   %89 = load ptr, ptr %88, align 8, !tbaa !32
   %90 = sext i32 %78 to i64
-  %91 = getelementptr inbounds ptr, ptr %73, i64 %90
+  %91 = getelementptr inbounds [8 x i8], ptr %73, i64 %90
   %92 = load ptr, ptr %91, align 8, !tbaa !32
   tail call void %85(ptr noundef nonnull %0, ptr noundef %89, i32 noundef %11, ptr noundef %92, i32 noundef %8, i32 noundef %13) #6
   br label %104
@@ -424,10 +424,10 @@ define internal noundef i32 @lum_h_scale(ptr noundef %0, ptr noundef readonly ca
 93:                                               ; preds = %70
   %94 = load ptr, ptr %16, align 8, !tbaa !59
   %95 = sext i32 %81 to i64
-  %96 = getelementptr inbounds ptr, ptr %75, i64 %95
+  %96 = getelementptr inbounds [8 x i8], ptr %75, i64 %95
   %97 = load ptr, ptr %96, align 8, !tbaa !32
   %98 = sext i32 %78 to i64
-  %99 = getelementptr inbounds ptr, ptr %73, i64 %98
+  %99 = getelementptr inbounds [8 x i8], ptr %73, i64 %98
   %100 = load ptr, ptr %99, align 8, !tbaa !32
   %101 = load ptr, ptr %6, align 8, !tbaa !53
   %102 = load ptr, ptr %17, align 8, !tbaa !55
@@ -522,33 +522,33 @@ define internal noundef i32 @chr_convert(ptr noundef %0, ptr noundef readonly ca
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 40
   %45 = load ptr, ptr %44, align 8, !tbaa !31
   %46 = add nsw i64 %indvars.iv, %40
-  %47 = getelementptr inbounds ptr, ptr %45, i64 %46
+  %47 = getelementptr inbounds [8 x i8], ptr %45, i64 %46
   %48 = load ptr, ptr %47, align 8, !tbaa !32
   store ptr %48, ptr %5, align 16, !tbaa !32
   %49 = getelementptr inbounds nuw i8, ptr %43, i64 72
   %50 = load ptr, ptr %49, align 8, !tbaa !31
   %51 = add nsw i64 %indvars.iv, %41
-  %52 = getelementptr inbounds ptr, ptr %50, i64 %51
+  %52 = getelementptr inbounds [8 x i8], ptr %50, i64 %51
   %53 = load ptr, ptr %52, align 8, !tbaa !32
   store ptr %53, ptr %33, align 8, !tbaa !32
   %54 = getelementptr inbounds nuw i8, ptr %43, i64 104
   %55 = load ptr, ptr %54, align 8, !tbaa !31
-  %56 = getelementptr inbounds ptr, ptr %55, i64 %51
+  %56 = getelementptr inbounds [8 x i8], ptr %55, i64 %51
   %57 = load ptr, ptr %56, align 8, !tbaa !32
   store ptr %57, ptr %34, align 16, !tbaa !32
   %58 = getelementptr inbounds nuw i8, ptr %43, i64 136
   %59 = load ptr, ptr %58, align 8, !tbaa !31
-  %60 = getelementptr inbounds ptr, ptr %59, i64 %46
+  %60 = getelementptr inbounds [8 x i8], ptr %59, i64 %46
   %61 = load ptr, ptr %60, align 8, !tbaa !32
   store ptr %61, ptr %35, align 8, !tbaa !32
   %62 = load ptr, ptr %22, align 8, !tbaa !22
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 72
   %64 = load ptr, ptr %63, align 8, !tbaa !31
-  %65 = getelementptr inbounds nuw ptr, ptr %64, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %indvars.iv
   %66 = load ptr, ptr %65, align 8, !tbaa !32
   %67 = getelementptr inbounds nuw i8, ptr %62, i64 104
   %68 = load ptr, ptr %67, align 8, !tbaa !31
-  %69 = getelementptr inbounds nuw ptr, ptr %68, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %indvars.iv
   %70 = load ptr, ptr %69, align 8, !tbaa !32
   %71 = load ptr, ptr %36, align 8, !tbaa !65
   %.not = icmp eq ptr %71, null
@@ -714,16 +714,16 @@ define internal noundef i32 @chr_h_scale(ptr noundef %0, ptr noundef readonly ca
   %54 = sext i32 %44 to i64
   %55 = sext i32 %38 to i64
   %wide.trip.count = zext nneg i32 %3 to i64
-  %invariant.gep = getelementptr ptr, ptr %30, i64 %52
-  %invariant.gep93 = getelementptr ptr, ptr %26, i64 %53
-  %invariant.gep95 = getelementptr ptr, ptr %32, i64 %54
-  %invariant.gep97 = getelementptr ptr, ptr %28, i64 %55
-  %invariant.gep99 = getelementptr ptr, ptr %30, i64 %52
-  %invariant.gep101 = getelementptr ptr, ptr %32, i64 %54
-  %invariant.gep103 = getelementptr ptr, ptr %26, i64 %53
-  %invariant.gep105 = getelementptr ptr, ptr %28, i64 %55
-  %invariant.gep107 = getelementptr ptr, ptr %30, i64 %52
-  %invariant.gep109 = getelementptr ptr, ptr %26, i64 %53
+  %invariant.gep = getelementptr [8 x i8], ptr %30, i64 %52
+  %invariant.gep93 = getelementptr [8 x i8], ptr %26, i64 %53
+  %invariant.gep95 = getelementptr [8 x i8], ptr %32, i64 %54
+  %invariant.gep97 = getelementptr [8 x i8], ptr %28, i64 %55
+  %invariant.gep99 = getelementptr [8 x i8], ptr %30, i64 %52
+  %invariant.gep101 = getelementptr [8 x i8], ptr %32, i64 %54
+  %invariant.gep103 = getelementptr [8 x i8], ptr %26, i64 %53
+  %invariant.gep105 = getelementptr [8 x i8], ptr %28, i64 %55
+  %invariant.gep107 = getelementptr [8 x i8], ptr %30, i64 %52
+  %invariant.gep109 = getelementptr [8 x i8], ptr %26, i64 %53
   br label %56
 
 56:                                               ; preds = %.lr.ph, %83
@@ -733,31 +733,31 @@ define internal noundef i32 @chr_h_scale(ptr noundef %0, ptr noundef readonly ca
   br i1 %.not, label %63, label %58
 
 58:                                               ; preds = %56
-  %gep = getelementptr ptr, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %indvars.iv
   %59 = load ptr, ptr %gep, align 8, !tbaa !32
-  %gep94 = getelementptr ptr, ptr %invariant.gep93, i64 %indvars.iv
+  %gep94 = getelementptr [8 x i8], ptr %invariant.gep93, i64 %indvars.iv
   %60 = load ptr, ptr %gep94, align 8, !tbaa !32
-  %gep96 = getelementptr ptr, ptr %invariant.gep95, i64 %indvars.iv
+  %gep96 = getelementptr [8 x i8], ptr %invariant.gep95, i64 %indvars.iv
   %61 = load ptr, ptr %gep96, align 8, !tbaa !32
-  %gep98 = getelementptr ptr, ptr %invariant.gep97, i64 %indvars.iv
+  %gep98 = getelementptr [8 x i8], ptr %invariant.gep97, i64 %indvars.iv
   %62 = load ptr, ptr %gep98, align 8, !tbaa !32
   tail call void %57(ptr noundef nonnull %0, ptr noundef %59, ptr noundef %60, i32 noundef %21, ptr noundef %61, ptr noundef %62, i32 noundef %13, i32 noundef %23) #6
   br label %76
 
 63:                                               ; preds = %56
   %64 = load ptr, ptr %46, align 16, !tbaa !69
-  %gep100 = getelementptr ptr, ptr %invariant.gep99, i64 %indvars.iv
+  %gep100 = getelementptr [8 x i8], ptr %invariant.gep99, i64 %indvars.iv
   %65 = load ptr, ptr %gep100, align 8, !tbaa !32
-  %gep102 = getelementptr ptr, ptr %invariant.gep101, i64 %indvars.iv
+  %gep102 = getelementptr [8 x i8], ptr %invariant.gep101, i64 %indvars.iv
   %66 = load ptr, ptr %gep102, align 8, !tbaa !32
   %67 = load ptr, ptr %6, align 8, !tbaa !53
   %68 = load ptr, ptr %47, align 8, !tbaa !55
   %69 = load i32, ptr %48, align 8, !tbaa !56
   tail call void %64(ptr noundef nonnull %0, ptr noundef %65, i32 noundef %21, ptr noundef %66, ptr noundef %67, ptr noundef %68, i32 noundef %69) #6
   %70 = load ptr, ptr %46, align 16, !tbaa !69
-  %gep104 = getelementptr ptr, ptr %invariant.gep103, i64 %indvars.iv
+  %gep104 = getelementptr [8 x i8], ptr %invariant.gep103, i64 %indvars.iv
   %71 = load ptr, ptr %gep104, align 8, !tbaa !32
-  %gep106 = getelementptr ptr, ptr %invariant.gep105, i64 %indvars.iv
+  %gep106 = getelementptr [8 x i8], ptr %invariant.gep105, i64 %indvars.iv
   %72 = load ptr, ptr %gep106, align 8, !tbaa !32
   %73 = load ptr, ptr %6, align 8, !tbaa !53
   %74 = load ptr, ptr %47, align 8, !tbaa !55
@@ -771,9 +771,9 @@ define internal noundef i32 @chr_h_scale(ptr noundef %0, ptr noundef readonly ca
   br i1 %.not87, label %83, label %78
 
 78:                                               ; preds = %76
-  %gep108 = getelementptr ptr, ptr %invariant.gep107, i64 %indvars.iv
+  %gep108 = getelementptr [8 x i8], ptr %invariant.gep107, i64 %indvars.iv
   %79 = load ptr, ptr %gep108, align 8, !tbaa !32
-  %gep110 = getelementptr ptr, ptr %invariant.gep109, i64 %indvars.iv
+  %gep110 = getelementptr [8 x i8], ptr %invariant.gep109, i64 %indvars.iv
   %80 = load ptr, ptr %gep110, align 8, !tbaa !32
   %81 = load i32, ptr %50, align 4, !tbaa !71
   %82 = load i64, ptr %51, align 8, !tbaa !72

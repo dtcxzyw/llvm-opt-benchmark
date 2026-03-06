@@ -52,7 +52,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.LogStreamImplBase = type { %class.outputStream, %"class.LogStreamImplBase::LineBuffer" }
 %"class.LogStreamImplBase::LineBuffer" = type { [64 x i8], ptr, i64, i64 }
 %class.LogTargetHandle = type { i32, ptr }
-%class.ImmutableOopMapPair = type { i32, i32 }
 
 $_ZN9LogStreamD2Ev = comdat any
 
@@ -828,7 +827,7 @@ _ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit: ; preds = %44, %_ZN12ar
   br i1 %.not6.i.i.i, label %_ZN4Copy21fill_to_aligned_wordsEPP12HeapWordImplmj.exit, label %.lr.ph.i.i.i.preheader
 
 .lr.ph.i.i.i.preheader:                           ; preds = %56
-  %58 = getelementptr ptr, ptr %27, i64 %57
+  %58 = getelementptr [8 x i8], ptr %27, i64 %57
   %59 = shl i64 %36, 3
   %60 = and i64 %.0, -8
   %61 = sub i64 %59, %60
@@ -879,7 +878,7 @@ define hidden noundef ptr @_ZN11OptoRuntime20multianewarray2_TypeEv() #0 align 2
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %0
   %indvars.iv.i = phi i64 [ 1, %0 ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %4 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.i
+  %4 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.i
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr %.pre.i, ptr %5, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1031,7 +1030,7 @@ define hidden noundef ptr @_ZN11OptoRuntime20multianewarray3_TypeEv() #0 align 2
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %0
   %indvars.iv.i = phi i64 [ 1, %0 ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %4 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.i
+  %4 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.i
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr %.pre.i, ptr %5, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1185,7 +1184,7 @@ define hidden noundef ptr @_ZN11OptoRuntime20multianewarray4_TypeEv() #0 align 2
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %0
   %indvars.iv.i = phi i64 [ 1, %0 ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %4 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.i
+  %4 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.i
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr %.pre.i, ptr %5, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1341,7 +1340,7 @@ define hidden noundef ptr @_ZN11OptoRuntime20multianewarray5_TypeEv() #0 align 2
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %0
   %indvars.iv.i = phi i64 [ 1, %0 ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %4 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.i
+  %4 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.i
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr %.pre.i, ptr %5, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -2190,7 +2189,7 @@ define hidden noundef ptr @_ZN11OptoRuntime19multianewarray_TypeEi(i32 noundef %
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store ptr %.pre, ptr %7, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2327,7 +2326,7 @@ define hidden noundef ptr @_ZN11OptoRuntime23Math_Vector_Vector_TypeEjPK8TypeVec
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %5 = add nuw i64 %indvars.iv, 5
   %6 = and i64 %5, 4294967295
-  %7 = getelementptr inbounds nuw ptr, ptr %4, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %6
   store ptr %1, ptr %7, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2491,7 +2490,7 @@ define internal fastcc noundef ptr @_ZL19make_arraycopy_Type13ArrayCopyType(i32 
   %.042 = phi i32 [ %6, %.lr.ph.preheader ], [ %18, %.lr.ph ]
   %18 = add nsw i32 %.042, -1
   %19 = load ptr, ptr @_ZN8TypeLong4LONGE, align 8
-  %20 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   store ptr %19, ptr %20, align 8
   %21 = load ptr, ptr @_ZN4Type4HALFE, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
@@ -2510,7 +2509,7 @@ define internal fastcc noundef ptr @_ZL19make_arraycopy_Type13ArrayCopyType(i32 
 
 .thread40:                                        ; preds = %._crit_edge
   %25 = load ptr, ptr @_ZN7TypePtr7NOTNULLE, align 8
-  %26 = getelementptr inbounds nuw ptr, ptr %8, i64 %.2.lcssa
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.2.lcssa
   store ptr %25, ptr %26, align 8
   %27 = add nuw nsw i32 %7, 5
   %28 = tail call noundef ptr @_ZN9TypeTuple4makeEjPPK4Type(i32 noundef %27, ptr noundef nonnull %8) #12
@@ -2867,7 +2866,7 @@ define hidden noundef ptr @_ZN11OptoRuntime30digestBase_implCompressMB_TypeEb(i1
 
 9:                                                ; preds = %7, %1
   %.0 = phi i64 [ 8, %7 ], [ 7, %1 ]
-  %10 = getelementptr inbounds nuw ptr, ptr %3, i64 %.0
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.0
   store ptr %.pre, ptr %10, align 8
   %11 = load ptr, ptr @_ZN7TypeInt3INTE, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -4338,7 +4337,7 @@ define linkonce_odr hidden void @_ZNK5frame25sender_for_compiled_frameEP11Regist
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 44
   %9 = load i32, ptr %8, align 4
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds i64, ptr %5, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %5, i64 %10
   %12 = getelementptr inbounds i8, ptr %11, i64 -8
   %13 = load i64, ptr %12, align 8
   %14 = inttoptr i64 %13 to ptr
@@ -4393,7 +4392,7 @@ _ZNK5frame7oop_mapEv.exit.thread23:               ; preds = %42
   %45 = lshr i32 %44, 24
   %46 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %47 = zext nneg i32 %45 to i64
-  %48 = getelementptr inbounds nuw %class.ImmutableOopMapPair, ptr %46, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 4
   %50 = load i32, ptr %49, align 4
   %51 = load i32, ptr %36, align 4

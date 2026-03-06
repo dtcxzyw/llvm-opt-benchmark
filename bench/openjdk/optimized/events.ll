@@ -4,13 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %class.ThreadCritical = type { i8 }
-%"class.EventLogBase<FormatStringLogMessage<256>>::EventRecord" = type { double, ptr, %class.FormatStringLogMessage }
-%class.FormatStringLogMessage = type { %class.FormatBuffer }
-%class.FormatBuffer = type { %class.FormatBufferBase, [256 x i8] }
-%class.FormatBufferBase = type { ptr }
-%"class.EventLogBase<FormatStringLogMessage<512>>::EventRecord" = type { double, ptr, %class.FormatStringLogMessage.3 }
-%class.FormatStringLogMessage.3 = type { %class.FormatBuffer.4 }
-%class.FormatBuffer.4 = type { %class.FormatBufferBase, [512 x i8] }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 %class.stringStream = type <{ %class.outputStream, ptr, i64, i64, i8, [48 x i8], [7 x i8] }>
 %class.outputStream = type { ptr, i32, i8, i32, i64, %class.TimeStamp, ptr, i64 }
@@ -280,7 +273,7 @@ define hidden void @_ZN6Events4initEv() local_unnamed_addr #0 align 2 {
   br i1 %31, label %_ZN20FormatStringEventLogILm256EEC2EPKcS2_i.exit, label %32
 
 32:                                               ; preds = %14
-  %33 = getelementptr inbounds %"class.EventLogBase<FormatStringLogMessage<256>>::EventRecord", ptr %30, i64 %25
+  %33 = getelementptr inbounds [280 x i8], ptr %30, i64 %25
   br label %34
 
 34:                                               ; preds = %34, %32
@@ -332,7 +325,7 @@ _ZN20FormatStringEventLogILm256EEC2EPKcS2_i.exit: ; preds = %34, %14
   br i1 %57, label %_ZN20FormatStringEventLogILm256EEC2EPKcS2_i.exit33, label %58
 
 58:                                               ; preds = %_ZN20FormatStringEventLogILm256EEC2EPKcS2_i.exit
-  %59 = getelementptr inbounds %"class.EventLogBase<FormatStringLogMessage<256>>::EventRecord", ptr %56, i64 %51
+  %59 = getelementptr inbounds [280 x i8], ptr %56, i64 %51
   br label %60
 
 60:                                               ; preds = %60, %58
@@ -384,7 +377,7 @@ _ZN20FormatStringEventLogILm256EEC2EPKcS2_i.exit33: ; preds = %60, %_ZN20FormatS
   br i1 %83, label %_ZN20FormatStringEventLogILm256EEC2EPKcS2_i.exit34, label %84
 
 84:                                               ; preds = %_ZN20FormatStringEventLogILm256EEC2EPKcS2_i.exit33
-  %85 = getelementptr inbounds %"class.EventLogBase<FormatStringLogMessage<256>>::EventRecord", ptr %82, i64 %77
+  %85 = getelementptr inbounds [280 x i8], ptr %82, i64 %77
   br label %86
 
 86:                                               ; preds = %86, %84
@@ -436,7 +429,7 @@ _ZN20FormatStringEventLogILm256EEC2EPKcS2_i.exit34: ; preds = %86, %_ZN20FormatS
   br i1 %109, label %_ZN20FormatStringEventLogILm256EEC2EPKcS2_i.exit35, label %110
 
 110:                                              ; preds = %_ZN20FormatStringEventLogILm256EEC2EPKcS2_i.exit34
-  %111 = getelementptr inbounds %"class.EventLogBase<FormatStringLogMessage<256>>::EventRecord", ptr %108, i64 %103
+  %111 = getelementptr inbounds [280 x i8], ptr %108, i64 %103
   br label %112
 
 112:                                              ; preds = %112, %110
@@ -493,7 +486,7 @@ _ZN20FormatStringEventLogILm256EEC2EPKcS2_i.exit35: ; preds = %112, %_ZN20Format
   br i1 %138, label %_ZN20FormatStringEventLogILm256EEC2EPKcS2_i.exit36, label %139
 
 139:                                              ; preds = %121
-  %140 = getelementptr inbounds %"class.EventLogBase<FormatStringLogMessage<256>>::EventRecord", ptr %137, i64 %132
+  %140 = getelementptr inbounds [280 x i8], ptr %137, i64 %132
   br label %141
 
 141:                                              ; preds = %141, %139
@@ -548,7 +541,7 @@ _ZN20FormatStringEventLogILm256EEC2EPKcS2_i.exit36: ; preds = %141, %121
   br i1 %165, label %_ZN18ExceptionsEventLogC2EPKcS1_i.exit, label %166
 
 166:                                              ; preds = %148
-  %167 = getelementptr inbounds %"class.EventLogBase<FormatStringLogMessage<512>>::EventRecord", ptr %164, i64 %159
+  %167 = getelementptr inbounds [536 x i8], ptr %164, i64 %159
   br label %168
 
 168:                                              ; preds = %168, %166
@@ -600,7 +593,7 @@ _ZN18ExceptionsEventLogC2EPKcS1_i.exit:           ; preds = %168, %148
   br i1 %191, label %_ZN20FormatStringEventLogILm256EEC2EPKcS2_i.exit37, label %192
 
 192:                                              ; preds = %_ZN18ExceptionsEventLogC2EPKcS1_i.exit
-  %193 = getelementptr inbounds %"class.EventLogBase<FormatStringLogMessage<256>>::EventRecord", ptr %190, i64 %185
+  %193 = getelementptr inbounds [280 x i8], ptr %190, i64 %185
   br label %194
 
 194:                                              ; preds = %194, %192
@@ -652,7 +645,7 @@ _ZN20FormatStringEventLogILm256EEC2EPKcS2_i.exit37: ; preds = %194, %_ZN18Except
   br i1 %217, label %_ZN17UnloadingEventLogC2EPKcS1_i.exit, label %218
 
 218:                                              ; preds = %_ZN20FormatStringEventLogILm256EEC2EPKcS2_i.exit37
-  %219 = getelementptr inbounds %"class.EventLogBase<FormatStringLogMessage<256>>::EventRecord", ptr %216, i64 %211
+  %219 = getelementptr inbounds [280 x i8], ptr %216, i64 %211
   br label %220
 
 220:                                              ; preds = %220, %218
@@ -704,7 +697,7 @@ _ZN17UnloadingEventLogC2EPKcS1_i.exit:            ; preds = %220, %_ZN20FormatSt
   br i1 %243, label %_ZN20FormatStringEventLogILm256EEC2EPKcS2_i.exit38, label %244
 
 244:                                              ; preds = %_ZN17UnloadingEventLogC2EPKcS1_i.exit
-  %245 = getelementptr inbounds %"class.EventLogBase<FormatStringLogMessage<256>>::EventRecord", ptr %242, i64 %237
+  %245 = getelementptr inbounds [280 x i8], ptr %242, i64 %237
   br label %246
 
 246:                                              ; preds = %246, %244
@@ -756,7 +749,7 @@ _ZN20FormatStringEventLogILm256EEC2EPKcS2_i.exit38: ; preds = %246, %_ZN17Unload
   br i1 %269, label %_ZN20FormatStringEventLogILm256EEC2EPKcS2_i.exit39, label %270
 
 270:                                              ; preds = %_ZN20FormatStringEventLogILm256EEC2EPKcS2_i.exit38
-  %271 = getelementptr inbounds %"class.EventLogBase<FormatStringLogMessage<256>>::EventRecord", ptr %268, i64 %263
+  %271 = getelementptr inbounds [280 x i8], ptr %268, i64 %263
   br label %272
 
 272:                                              ; preds = %272, %270
@@ -808,7 +801,7 @@ _ZN20FormatStringEventLogILm256EEC2EPKcS2_i.exit39: ; preds = %272, %_ZN20Format
   br i1 %295, label %_ZN20FormatStringEventLogILm256EEC2EPKcS2_i.exit40, label %296
 
 296:                                              ; preds = %_ZN20FormatStringEventLogILm256EEC2EPKcS2_i.exit39
-  %297 = getelementptr inbounds %"class.EventLogBase<FormatStringLogMessage<256>>::EventRecord", ptr %294, i64 %289
+  %297 = getelementptr inbounds [280 x i8], ptr %294, i64 %289
   br label %298
 
 298:                                              ; preds = %298, %296
@@ -916,14 +909,14 @@ _ZN12EventLogBaseI22FormatStringLogMessageILm256EEE17compute_log_indexEv.exit: ;
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %19 = load ptr, ptr %18, align 8
   %20 = sext i32 %9 to i64
-  %21 = getelementptr inbounds %"class.EventLogBase<FormatStringLogMessage<256>>::EventRecord", ptr %19, i64 %20
+  %21 = getelementptr inbounds [280 x i8], ptr %19, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %1, ptr %22, align 8
   %23 = load ptr, ptr %18, align 8
-  %24 = getelementptr inbounds %"class.EventLogBase<FormatStringLogMessage<256>>::EventRecord", ptr %23, i64 %20
+  %24 = getelementptr inbounds [280 x i8], ptr %23, i64 %20
   store double %7, ptr %24, align 8
   %25 = load ptr, ptr %18, align 8
-  %26 = getelementptr inbounds %"class.EventLogBase<FormatStringLogMessage<256>>::EventRecord", ptr %25, i64 %20
+  %26 = getelementptr inbounds [280 x i8], ptr %25, i64 %20
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load ptr, ptr %27, align 8
   call void @_ZN12stringStreamC1EPcm(ptr noundef nonnull align 8 dereferenceable(129) %4, ptr noundef %28, i64 noundef 256) #11
@@ -980,14 +973,14 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %9, %19
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %23 = load ptr, ptr %22, align 8
   %24 = sext i32 %13 to i64
-  %25 = getelementptr inbounds %"class.EventLogBase<FormatStringLogMessage<512>>::EventRecord", ptr %23, i64 %24
+  %25 = getelementptr inbounds [536 x i8], ptr %23, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr %1, ptr %26, align 8
   %27 = load ptr, ptr %22, align 8
-  %28 = getelementptr inbounds %"class.EventLogBase<FormatStringLogMessage<512>>::EventRecord", ptr %27, i64 %24
+  %28 = getelementptr inbounds [536 x i8], ptr %27, i64 %24
   store double %10, ptr %28, align 8
   %29 = load ptr, ptr %22, align 8
-  %30 = getelementptr inbounds %"class.EventLogBase<FormatStringLogMessage<512>>::EventRecord", ptr %29, i64 %24
+  %30 = getelementptr inbounds [536 x i8], ptr %29, i64 %24
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %32 = load ptr, ptr %31, align 8
   call void @_ZN12stringStreamC1EPcm(ptr noundef nonnull align 8 dereferenceable(129) %7, ptr noundef %32, i64 noundef 512) #11
@@ -1125,7 +1118,7 @@ define linkonce_odr hidden void @_ZN12EventLogBaseI22FormatStringLogMessageILm51
 .lr.ph59.split.us:                                ; preds = %.lr.ph59, %_ZN12EventLogBaseI22FormatStringLogMessageILm512EEE5printEP12outputStreamRNS2_11EventRecordIS1_EE.exit.us
   %indvars.iv81 = phi i64 [ %indvars.iv.next82, %_ZN12EventLogBaseI22FormatStringLogMessageILm512EEE5printEP12outputStreamRNS2_11EventRecordIS1_EE.exit.us ], [ 0, %.lr.ph59 ]
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds nuw %"class.EventLogBase<FormatStringLogMessage<512>>::EventRecord", ptr %17, i64 %indvars.iv81
+  %18 = getelementptr inbounds nuw [536 x i8], ptr %17, i64 %indvars.iv81
   %19 = load double, ptr %18, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.37, double noundef %19) #11
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
@@ -1157,7 +1150,7 @@ _ZN12EventLogBaseI22FormatStringLogMessageILm512EEE5printEP12outputStreamRNS2_11
 
 30:                                               ; preds = %.lr.ph59.split
   %31 = load ptr, ptr %16, align 8
-  %32 = getelementptr inbounds nuw %"class.EventLogBase<FormatStringLogMessage<512>>::EventRecord", ptr %31, i64 %indvars.iv86
+  %32 = getelementptr inbounds nuw [536 x i8], ptr %31, i64 %indvars.iv86
   %33 = load double, ptr %32, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.37, double noundef %33) #11
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 8
@@ -1198,7 +1191,7 @@ _ZN12EventLogBaseI22FormatStringLogMessageILm512EEE5printEP12outputStreamRNS2_11
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN12EventLogBaseI22FormatStringLogMessageILm512EEE5printEP12outputStreamRNS2_11EventRecordIS1_EE.exit41.us ], [ %50, %.lr.ph ]
   %.245.us = phi i32 [ %61, %_ZN12EventLogBaseI22FormatStringLogMessageILm512EEE5printEP12outputStreamRNS2_11EventRecordIS1_EE.exit41.us ], [ 0, %.lr.ph ]
   %51 = load ptr, ptr %49, align 8
-  %52 = getelementptr inbounds %"class.EventLogBase<FormatStringLogMessage<512>>::EventRecord", ptr %51, i64 %indvars.iv
+  %52 = getelementptr inbounds [536 x i8], ptr %51, i64 %indvars.iv
   %53 = load double, ptr %52, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.37, double noundef %53) #11
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 8
@@ -1232,7 +1225,7 @@ _ZN12EventLogBaseI22FormatStringLogMessageILm512EEE5printEP12outputStreamRNS2_11
 
 66:                                               ; preds = %.lr.ph.split
   %67 = load ptr, ptr %49, align 8
-  %68 = getelementptr inbounds %"class.EventLogBase<FormatStringLogMessage<512>>::EventRecord", ptr %67, i64 %indvars.iv72
+  %68 = getelementptr inbounds [536 x i8], ptr %67, i64 %indvars.iv72
   %69 = load double, ptr %68, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.37, double noundef %69) #11
   %70 = getelementptr inbounds nuw i8, ptr %68, i64 8
@@ -1278,7 +1271,7 @@ _ZN12EventLogBaseI22FormatStringLogMessageILm512EEE5printEP12outputStreamRNS2_11
   %indvars.iv75 = phi i64 [ %indvars.iv.next76, %_ZN12EventLogBaseI22FormatStringLogMessageILm512EEE5printEP12outputStreamRNS2_11EventRecordIS1_EE.exit43.us ], [ 0, %.lr.ph52 ]
   %.349.us = phi i32 [ %95, %_ZN12EventLogBaseI22FormatStringLogMessageILm512EEE5printEP12outputStreamRNS2_11EventRecordIS1_EE.exit43.us ], [ %.2.lcssa, %.lr.ph52 ]
   %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr inbounds nuw %"class.EventLogBase<FormatStringLogMessage<512>>::EventRecord", ptr %85, i64 %indvars.iv75
+  %86 = getelementptr inbounds nuw [536 x i8], ptr %85, i64 %indvars.iv75
   %87 = load double, ptr %86, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.37, double noundef %87) #11
   %88 = getelementptr inbounds nuw i8, ptr %86, i64 8
@@ -1312,7 +1305,7 @@ _ZN12EventLogBaseI22FormatStringLogMessageILm512EEE5printEP12outputStreamRNS2_11
 
 100:                                              ; preds = %.lr.ph52.split
   %101 = load ptr, ptr %84, align 8
-  %102 = getelementptr inbounds nuw %"class.EventLogBase<FormatStringLogMessage<512>>::EventRecord", ptr %101, i64 %indvars.iv78
+  %102 = getelementptr inbounds nuw [536 x i8], ptr %101, i64 %indvars.iv78
   %103 = load double, ptr %102, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.37, double noundef %103) #11
   %104 = getelementptr inbounds nuw i8, ptr %102, i64 8
@@ -1486,7 +1479,7 @@ define linkonce_odr hidden void @_ZN12EventLogBaseI22FormatStringLogMessageILm25
 .lr.ph59.split.us:                                ; preds = %.lr.ph59, %_ZN12EventLogBaseI22FormatStringLogMessageILm256EEE5printEP12outputStreamRNS2_11EventRecordIS1_EE.exit.us
   %indvars.iv81 = phi i64 [ %indvars.iv.next82, %_ZN12EventLogBaseI22FormatStringLogMessageILm256EEE5printEP12outputStreamRNS2_11EventRecordIS1_EE.exit.us ], [ 0, %.lr.ph59 ]
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds nuw %"class.EventLogBase<FormatStringLogMessage<256>>::EventRecord", ptr %17, i64 %indvars.iv81
+  %18 = getelementptr inbounds nuw [280 x i8], ptr %17, i64 %indvars.iv81
   %19 = load double, ptr %18, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.37, double noundef %19) #11
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
@@ -1518,7 +1511,7 @@ _ZN12EventLogBaseI22FormatStringLogMessageILm256EEE5printEP12outputStreamRNS2_11
 
 30:                                               ; preds = %.lr.ph59.split
   %31 = load ptr, ptr %16, align 8
-  %32 = getelementptr inbounds nuw %"class.EventLogBase<FormatStringLogMessage<256>>::EventRecord", ptr %31, i64 %indvars.iv86
+  %32 = getelementptr inbounds nuw [280 x i8], ptr %31, i64 %indvars.iv86
   %33 = load double, ptr %32, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.37, double noundef %33) #11
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 8
@@ -1559,7 +1552,7 @@ _ZN12EventLogBaseI22FormatStringLogMessageILm256EEE5printEP12outputStreamRNS2_11
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN12EventLogBaseI22FormatStringLogMessageILm256EEE5printEP12outputStreamRNS2_11EventRecordIS1_EE.exit41.us ], [ %50, %.lr.ph ]
   %.245.us = phi i32 [ %61, %_ZN12EventLogBaseI22FormatStringLogMessageILm256EEE5printEP12outputStreamRNS2_11EventRecordIS1_EE.exit41.us ], [ 0, %.lr.ph ]
   %51 = load ptr, ptr %49, align 8
-  %52 = getelementptr inbounds %"class.EventLogBase<FormatStringLogMessage<256>>::EventRecord", ptr %51, i64 %indvars.iv
+  %52 = getelementptr inbounds [280 x i8], ptr %51, i64 %indvars.iv
   %53 = load double, ptr %52, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.37, double noundef %53) #11
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 8
@@ -1593,7 +1586,7 @@ _ZN12EventLogBaseI22FormatStringLogMessageILm256EEE5printEP12outputStreamRNS2_11
 
 66:                                               ; preds = %.lr.ph.split
   %67 = load ptr, ptr %49, align 8
-  %68 = getelementptr inbounds %"class.EventLogBase<FormatStringLogMessage<256>>::EventRecord", ptr %67, i64 %indvars.iv72
+  %68 = getelementptr inbounds [280 x i8], ptr %67, i64 %indvars.iv72
   %69 = load double, ptr %68, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.37, double noundef %69) #11
   %70 = getelementptr inbounds nuw i8, ptr %68, i64 8
@@ -1639,7 +1632,7 @@ _ZN12EventLogBaseI22FormatStringLogMessageILm256EEE5printEP12outputStreamRNS2_11
   %indvars.iv75 = phi i64 [ %indvars.iv.next76, %_ZN12EventLogBaseI22FormatStringLogMessageILm256EEE5printEP12outputStreamRNS2_11EventRecordIS1_EE.exit43.us ], [ 0, %.lr.ph52 ]
   %.349.us = phi i32 [ %95, %_ZN12EventLogBaseI22FormatStringLogMessageILm256EEE5printEP12outputStreamRNS2_11EventRecordIS1_EE.exit43.us ], [ %.2.lcssa, %.lr.ph52 ]
   %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr inbounds nuw %"class.EventLogBase<FormatStringLogMessage<256>>::EventRecord", ptr %85, i64 %indvars.iv75
+  %86 = getelementptr inbounds nuw [280 x i8], ptr %85, i64 %indvars.iv75
   %87 = load double, ptr %86, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.37, double noundef %87) #11
   %88 = getelementptr inbounds nuw i8, ptr %86, i64 8
@@ -1673,7 +1666,7 @@ _ZN12EventLogBaseI22FormatStringLogMessageILm256EEE5printEP12outputStreamRNS2_11
 
 100:                                              ; preds = %.lr.ph52.split
   %101 = load ptr, ptr %84, align 8
-  %102 = getelementptr inbounds nuw %"class.EventLogBase<FormatStringLogMessage<256>>::EventRecord", ptr %101, i64 %indvars.iv78
+  %102 = getelementptr inbounds nuw [280 x i8], ptr %101, i64 %indvars.iv78
   %103 = load double, ptr %102, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.37, double noundef %103) #11
   %104 = getelementptr inbounds nuw i8, ptr %102, i64 8

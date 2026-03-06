@@ -37,7 +37,7 @@ define internal i32 @decode_init(ptr noundef %0) #0 {
 
 switch.lookup:                                    ; preds = %1
   %10 = zext nneg i32 %7 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.decode_init, i64 %10
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.decode_init, i64 %10
   %switch.load = load i32, ptr %switch.gep, align 4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i32 %switch.load, ptr %11, align 8, !tbaa !28
@@ -196,7 +196,7 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   %60 = getelementptr inbounds nuw i8, ptr %53, i64 %59
   %61 = load i32, ptr %60, align 1, !tbaa !46
   %62 = or i32 %61, -16777216
-  %63 = getelementptr inbounds nuw i32, ptr %57, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %indvars.iv
   store i32 %62, ptr %63, align 4, !tbaa !49
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256

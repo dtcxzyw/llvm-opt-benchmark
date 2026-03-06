@@ -152,7 +152,7 @@ define internal fastcc void @SDL_DispatchMainCallbackEvents() unnamed_addr #1 {
 
 7:                                                ; preds = %.preheader, %SDL_DispatchMainCallbackEvent.exit
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %SDL_DispatchMainCallbackEvent.exit ]
-  %8 = getelementptr inbounds nuw %union.SDL_Event, ptr %1, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [128 x i8], ptr %1, i64 %indvars.iv
   %.val = load i32, ptr %8, align 16
   %.off.i = add i32 %.val, -257
   %switch.i = icmp ult i32 %.off.i, 6

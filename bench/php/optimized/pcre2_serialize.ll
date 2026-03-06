@@ -31,7 +31,7 @@ define dso_local range(i32 -51, -2147483648) i32 @php_pcre2_serialize_encode(ptr
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %23 ]
   %.05875 = phi ptr [ null, %.preheader.preheader ], [ %.1, %23 ]
   %.05974 = phi i64 [ 1104, %.preheader.preheader ], [ %26, %23 ]
-  %12 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !4
   %14 = icmp eq ptr %13, null
   br i1 %14, label %.loopexit, label %15
@@ -88,7 +88,7 @@ define dso_local range(i32 -51, -2147483648) i32 @php_pcre2_serialize_encode(ptr
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv79 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next80, %.lr.ph ]
   %.06276 = phi ptr [ %39, %.lr.ph.preheader ], [ %45, %.lr.ph ]
-  %40 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv79
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv79
   %41 = load ptr, ptr %40, align 8, !tbaa !4
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 72
   %43 = load i64, ptr %42, align 8, !tbaa !17
@@ -199,7 +199,7 @@ define dso_local range(i32 -62, -2147483648) i32 @php_pcre2_serialize_decode(ptr
 .lr.ph91:                                         ; preds = %.lr.ph91.preheader, %.lr.ph91
   %indvars.iv98 = phi i64 [ 0, %.lr.ph91.preheader ], [ %indvars.iv.next99, %.lr.ph91 ]
   %41 = load ptr, ptr %38, align 8, !tbaa !27
-  %42 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv98
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv98
   %43 = load ptr, ptr %42, align 8, !tbaa !4
   %44 = load ptr, ptr %24, align 8, !tbaa !19
   tail call void %41(ptr noundef %43, ptr noundef %44) #6
@@ -245,7 +245,7 @@ define dso_local range(i32 -62, -2147483648) i32 @php_pcre2_serialize_decode(ptr
   %66 = load i32, ptr %65, align 8, !tbaa !31
   %67 = or i32 %66, 262144
   store i32 %67, ptr %65, align 8, !tbaa !31
-  %68 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   store ptr %35, ptr %68, align 8, !tbaa !4
   %69 = getelementptr inbounds nuw i8, ptr %.06786, i64 %.0.copyload
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

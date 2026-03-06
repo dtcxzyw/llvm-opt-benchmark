@@ -393,7 +393,7 @@ _ZN14regex_automata4meta5regex5Regex17search_slots_with17ha1828de0215e32b7E.exit
   br i1 %94, label %95, label %_ZN14regex_automata4util8captures8Captures9get_match17h97cfbafd45e73072E.exit
 
 95:                                               ; preds = %91
-  %96 = getelementptr inbounds nuw i64, ptr %92, i64 %.061.i.i
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %92, i64 %.061.i.i
   %97 = load i64, ptr %96, align 8, !noalias !44, !noundef !4
   %98 = icmp ne i64 %97, 0
   %99 = icmp ult i64 %.0.i.i, %93
@@ -401,7 +401,7 @@ _ZN14regex_automata4meta5regex5Regex17search_slots_with17ha1828de0215e32b7E.exit
   br i1 %or.cond.i.i, label %100, label %_ZN14regex_automata4util8captures8Captures9get_match17h97cfbafd45e73072E.exit
 
 100:                                              ; preds = %95
-  %101 = getelementptr inbounds nuw i64, ptr %92, i64 %.0.i.i
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %92, i64 %.0.i.i
   %102 = load i64, ptr %101, align 8, !noalias !44, !noundef !4
   %103 = icmp eq i64 %102, 0
   br i1 %103, label %_ZN14regex_automata4util8captures8Captures9get_match17h97cfbafd45e73072E.exit, label %104
@@ -2040,8 +2040,8 @@ define hidden noundef range(i8 -1, 2) i8 @"_ZN48_$LT$A$u20$as$u20$core..slice..c
 
 8:                                                ; preds = %5
   %9 = add i64 %.sroa.0.0, 1
-  %10 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 %.sroa.0.0
-  %11 = getelementptr inbounds { ptr, i64 }, ptr %2, i64 %.sroa.0.0
+  %10 = getelementptr inbounds [16 x i8], ptr %0, i64 %.sroa.0.0
+  %11 = getelementptr inbounds [16 x i8], ptr %2, i64 %.sroa.0.0
   %.val = load ptr, ptr %10, align 8, !nonnull !4, !align !138, !noundef !4
   %12 = getelementptr i8, ptr %10, i64 8
   %.val18 = load i64, ptr %12, align 8, !noundef !4
@@ -3858,7 +3858,7 @@ common.resume:                                    ; preds = %27, %50, %19
   %57 = add nuw nsw i64 %.sroa.12.038.i.i.i, 1
   %58 = shl nuw nsw i64 %.sroa.12.038.i.i.i, 2
   %59 = getelementptr inbounds nuw i8, ptr %11, i64 %58
-  %60 = getelementptr inbounds nuw i32, ptr %15, i64 %.sroa.12.038.i.i.i
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %.sroa.12.038.i.i.i
   %61 = load i32, ptr %60, align 4, !alias.scope !940, !noalias !941, !noundef !4
   %62 = call i32 @llvm.bswap.i32(i32 %61)
   store i32 %62, ptr %59, align 1, !alias.scope !969, !noalias !973
@@ -5627,9 +5627,9 @@ define hidden { i64, ptr } @_ZN4just8function3get17h1ec02fc764b64019E(ptr noalia
 define hidden { i64, i64 } @_ZN4just8function8Function4argc17h1644bc8653966dd9E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #16 {
 switch.lookup:
   %1 = load i64, ptr %0, align 8, !range !1454, !noundef !4
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4just8function8Function4argc17h1644bc8653966dd9E, i64 %1
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4just8function8Function4argc17h1644bc8653966dd9E, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
-  %switch.gep2 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4just8function8Function4argc17h1644bc8653966dd9E.70, i64 %1
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4just8function8Function4argc17h1644bc8653966dd9E.70, i64 %1
   %switch.load3 = load i64, ptr %switch.gep2, align 8
   %2 = insertvalue { i64, i64 } poison, i64 %switch.load3, 0
   %3 = insertvalue { i64, i64 } %2, i64 %switch.load, 1
@@ -6886,7 +6886,7 @@ define internal void @_ZN4just8function7env_var17h23ee024acf343086E(ptr noalias 
   %27 = icmp ult i64 %.sroa.27.0.copyload.i, 11
   tail call void @llvm.assume(i1 %27)
   %28 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 272
-  %29 = getelementptr inbounds nuw { [3 x i64] }, ptr %28, i64 %.sroa.27.0.copyload.i
+  %29 = getelementptr inbounds nuw [24 x i8], ptr %28, i64 %.sroa.27.0.copyload.i
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !1742
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17hf54273bb14505f61E"(ptr noalias noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 captures(none) dereferenceable(24) %15, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %29)
@@ -7050,7 +7050,7 @@ define internal void @_ZN4just8function18env_var_or_default17h72ace15f96d3daf8E(
   %26 = icmp ult i64 %.sroa.27.0.copyload.i, 11
   tail call void @llvm.assume(i1 %26)
   %27 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 272
-  %28 = getelementptr inbounds nuw { [3 x i64] }, ptr %27, i64 %.sroa.27.0.copyload.i
+  %28 = getelementptr inbounds nuw [24 x i8], ptr %27, i64 %.sroa.27.0.copyload.i
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !1784
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17hf54273bb14505f61E"(ptr noalias noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 captures(none) dereferenceable(24) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %28)
@@ -7599,7 +7599,7 @@ define internal void @_ZN4just8function4join17h9d5e022d123e3de7E(ptr noalias nou
   %15 = extractvalue { ptr, i64 } %14, 0
   %16 = extractvalue { ptr, i64 } %14, 1
   call void @_ZN3std4path4Path5_join17h9500bce508c32853E(ptr noalias noundef nonnull sret({ { { { { i64, ptr, {} }, i64 } } } }) align 8 captures(none) dereferenceable(24) %13, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noalias noundef nonnull readonly align 1 %15, i64 noundef %16), !noalias !4
-  %17 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %6, i64 %7
+  %17 = getelementptr inbounds [24 x i8], ptr %6, i64 %7
   br label %_ZN6camino11Utf8PathBuf4push17hdf3a2af6110bb7d7E.exit
 
 _ZN6camino11Utf8PathBuf4push17hdf3a2af6110bb7d7E.exit: ; preds = %.noexc, %8
@@ -10512,7 +10512,7 @@ _ZN14regex_automata4meta5regex5Regex13captures_iter17h4b557bb0d1a0168cE.exit.i: 
   br i1 %342, label %343, label %353
 
 343:                                              ; preds = %339
-  %344 = getelementptr inbounds nuw i64, ptr %340, i64 %.061.i.i
+  %344 = getelementptr inbounds nuw [8 x i8], ptr %340, i64 %.061.i.i
   %345 = load i64, ptr %344, align 8, !noalias !2552, !noundef !4
   %346 = icmp ne i64 %345, 0
   %347 = icmp ult i64 %.0.i.i, %341
@@ -10520,7 +10520,7 @@ _ZN14regex_automata4meta5regex5Regex13captures_iter17h4b557bb0d1a0168cE.exit.i: 
   br i1 %or.cond.i.i, label %348, label %353
 
 348:                                              ; preds = %343
-  %349 = getelementptr inbounds nuw i64, ptr %340, i64 %.0.i.i
+  %349 = getelementptr inbounds nuw [8 x i8], ptr %340, i64 %.0.i.i
   %350 = load i64, ptr %349, align 8, !noalias !2552, !noundef !4
   %351 = icmp eq i64 %350, 0
   br i1 %351, label %353, label %354
@@ -12370,10 +12370,10 @@ define hidden noundef range(i8 0, 22) i8 @_ZN4just7keyword7Keyword11from_lexeme1
 define hidden { ptr, i64 } @_ZN4just7keyword7Keyword6lexeme17h5904af8a12d4bdb2E(i8 noundef %0) unnamed_addr #11 {
 switch.lookup:
   %1 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN4just7keyword91_$LT$impl$u20$core..convert..From$LT$$RF$just..keyword..Keyword$GT$$u20$for$u20$$RF$str$GT$4from17ha19a83734763de6cE.74", i64 %1
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN4just7keyword91_$LT$impl$u20$core..convert..From$LT$$RF$just..keyword..Keyword$GT$$u20$for$u20$$RF$str$GT$4from17ha19a83734763de6cE.74", i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %2 = zext nneg i8 %0 to i64
-  %switch.gep1 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN4just7keyword91_$LT$impl$u20$core..convert..From$LT$$RF$just..keyword..Keyword$GT$$u20$for$u20$$RF$str$GT$4from17ha19a83734763de6cE", i64 %2
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN4just7keyword91_$LT$impl$u20$core..convert..From$LT$$RF$just..keyword..Keyword$GT$$u20$for$u20$$RF$str$GT$4from17ha19a83734763de6cE", i64 %2
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load2, 1
@@ -12385,7 +12385,7 @@ define noundef zeroext i1 @"_ZN78_$LT$just..keyword..Keyword$u20$as$u20$core..cm
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !3046, !noundef !4
   %3 = zext nneg i8 %2 to i64
-  %switch.gep5 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN4just7keyword91_$LT$impl$u20$core..convert..From$LT$$RF$just..keyword..Keyword$GT$$u20$for$u20$$RF$str$GT$4from17ha19a83734763de6cE", i64 %3
+  %switch.gep5 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN4just7keyword91_$LT$impl$u20$core..convert..From$LT$$RF$just..keyword..Keyword$GT$$u20$for$u20$$RF$str$GT$4from17ha19a83734763de6cE", i64 %3
   %switch.load6 = load i64, ptr %switch.gep5, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !noundef !4
@@ -12394,7 +12394,7 @@ switch.lookup:
 
 6:                                                ; preds = %switch.lookup
   %7 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN4just7keyword91_$LT$impl$u20$core..convert..From$LT$$RF$just..keyword..Keyword$GT$$u20$for$u20$$RF$str$GT$4from17ha19a83734763de6cE.74", i64 %7
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN4just7keyword91_$LT$impl$u20$core..convert..From$LT$$RF$just..keyword..Keyword$GT$$u20$for$u20$$RF$str$GT$4from17ha19a83734763de6cE.74", i64 %7
   %switch.load = load ptr, ptr %switch.gep, align 8
   %8 = load ptr, ptr %1, align 8, !nonnull !4, !align !138, !noundef !4
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(1) %switch.load, ptr noundef nonnull readonly align 1 dereferenceable(1) %8, i64 %switch.load6), !alias.scope !3047
@@ -12621,7 +12621,7 @@ define hidden { ptr, i64 } @_ZN4just5scope5Scope5value17h51b77275d313c355E(ptr n
   %14 = icmp ult i64 %.sroa.27.0.copyload.i, 11
   tail call void @llvm.assume(i1 %14)
   %15 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 184
-  %16 = getelementptr inbounds nuw { [13 x i64] }, ptr %15, i64 %.sroa.27.0.copyload.i
+  %16 = getelementptr inbounds nuw [104 x i8], ptr %15, i64 %.sroa.27.0.copyload.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !3083
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8, !nonnull !4, !noundef !4
@@ -12923,10 +12923,10 @@ default.unreachable5:                             ; preds = %2
 define { ptr, i64 } @"_ZN4just7keyword87_$LT$impl$u20$core..convert..From$LT$just..keyword..Keyword$GT$$u20$for$u20$$RF$str$GT$4from17he6399c2d8b854637E"(i8 noundef %0) unnamed_addr #11 {
 switch.lookup:
   %1 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN4just7keyword91_$LT$impl$u20$core..convert..From$LT$$RF$just..keyword..Keyword$GT$$u20$for$u20$$RF$str$GT$4from17ha19a83734763de6cE.74", i64 %1
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN4just7keyword91_$LT$impl$u20$core..convert..From$LT$$RF$just..keyword..Keyword$GT$$u20$for$u20$$RF$str$GT$4from17ha19a83734763de6cE.74", i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %2 = zext nneg i8 %0 to i64
-  %switch.gep1 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN4just7keyword91_$LT$impl$u20$core..convert..From$LT$$RF$just..keyword..Keyword$GT$$u20$for$u20$$RF$str$GT$4from17ha19a83734763de6cE", i64 %2
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN4just7keyword91_$LT$impl$u20$core..convert..From$LT$$RF$just..keyword..Keyword$GT$$u20$for$u20$$RF$str$GT$4from17ha19a83734763de6cE", i64 %2
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load2, 1
@@ -12938,10 +12938,10 @@ define { ptr, i64 } @"_ZN4just7keyword91_$LT$impl$u20$core..convert..From$LT$$RF
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !3046, !noundef !4
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN4just7keyword91_$LT$impl$u20$core..convert..From$LT$$RF$just..keyword..Keyword$GT$$u20$for$u20$$RF$str$GT$4from17ha19a83734763de6cE", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN4just7keyword91_$LT$impl$u20$core..convert..From$LT$$RF$just..keyword..Keyword$GT$$u20$for$u20$$RF$str$GT$4from17ha19a83734763de6cE", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN4just7keyword91_$LT$impl$u20$core..convert..From$LT$$RF$just..keyword..Keyword$GT$$u20$for$u20$$RF$str$GT$4from17ha19a83734763de6cE.74", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN4just7keyword91_$LT$impl$u20$core..convert..From$LT$$RF$just..keyword..Keyword$GT$$u20$for$u20$$RF$str$GT$4from17ha19a83734763de6cE.74", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1

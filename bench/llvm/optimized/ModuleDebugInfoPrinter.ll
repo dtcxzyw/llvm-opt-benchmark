@@ -10,7 +10,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallPtrSetImplBase.base" = type <{ ptr, i32, i32, i32, i8 }>
 %"class.llvm::SmallPtrSet.23" = type { %"class.llvm::SmallPtrSetImpl.base.25", [2 x ptr] }
 %"class.llvm::SmallPtrSetImpl.base.25" = type { %"class.llvm::SmallPtrSetImplBase.base" }
-%"class.llvm::MDOperand" = type { ptr }
 
 @_ZN4llvm24DisableABIBreakingChecksE = external global i32, align 4
 @_ZN4llvm30VerifyDisableABIBreakingChecksE = weak hidden local_unnamed_addr global ptr @_ZN4llvm24DisableABIBreakingChecksE, align 8
@@ -231,7 +230,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i:    ; preds = %70, %68, %50, %48
   %83 = lshr i64 %77, 2
   %84 = and i64 %83, 15
   %85 = sub nsw i64 0, %84
-  %86 = getelementptr inbounds %"class.llvm::MDOperand", ptr %76, i64 %85
+  %86 = getelementptr inbounds [8 x i8], ptr %76, i64 %85
   br label %_ZNK4llvm7DIScope7getFileEv.exit.i.i
 
 _ZNK4llvm7DIScope7getFileEv.exit.i.i:             ; preds = %82, %79
@@ -257,7 +256,7 @@ _ZNK4llvm7DIScope7getFileEv.exit.thread.i.i:      ; preds = %_ZNK4llvm7DIScope7g
   %96 = lshr i64 %90, 2
   %97 = and i64 %96, 15
   %98 = sub nsw i64 0, %97
-  %99 = getelementptr inbounds %"class.llvm::MDOperand", ptr %89, i64 %98
+  %99 = getelementptr inbounds [8 x i8], ptr %89, i64 %98
   br label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.i.i
 
 _ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.i.i: ; preds = %95, %92
@@ -303,7 +302,7 @@ _ZNK4llvm7DIScope11getFilenameEv.exit.thread.i:   ; preds = %_ZNK4llvm7DIScope11
   %114 = lshr i64 %107, 2
   %115 = and i64 %114, 15
   %116 = sub nsw i64 0, %115
-  %117 = getelementptr inbounds %"class.llvm::MDOperand", ptr %113, i64 %116
+  %117 = getelementptr inbounds [8 x i8], ptr %113, i64 %116
   br label %_ZNK4llvm7DIScope7getFileEv.exit.i138.i
 
 _ZNK4llvm7DIScope7getFileEv.exit.i138.i:          ; preds = %112, %109
@@ -331,7 +330,7 @@ _ZNK4llvm7DIScope7getFileEv.exit.thread.i141.i:   ; preds = %_ZNK4llvm7DIScope7g
   %127 = lshr i64 %121, 2
   %128 = and i64 %127, 15
   %129 = sub nsw i64 0, %128
-  %130 = getelementptr inbounds %"class.llvm::MDOperand", ptr %120, i64 %129
+  %130 = getelementptr inbounds [8 x i8], ptr %120, i64 %129
   br label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.i143.i
 
 _ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.i143.i: ; preds = %126, %123
@@ -428,7 +427,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit156.i:            ; preds = %162, %160
   %172 = lshr i64 %166, 2
   %173 = and i64 %172, 15
   %174 = sub nsw i64 0, %173
-  %175 = getelementptr inbounds %"class.llvm::MDOperand", ptr %165, i64 %174
+  %175 = getelementptr inbounds [8 x i8], ptr %165, i64 %174
   br label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.i
 
 _ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.i: ; preds = %171, %168
@@ -487,7 +486,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit163.i: ; preds = %192, %191, %189, %_
   %204 = lshr i64 %198, 2
   %205 = and i64 %204, 15
   %206 = sub nsw i64 0, %205
-  %207 = getelementptr inbounds %"class.llvm::MDOperand", ptr %165, i64 %206
+  %207 = getelementptr inbounds [8 x i8], ptr %165, i64 %206
   br label %_ZNK4llvm7DIScope7getFileEv.exit.i165.i
 
 _ZNK4llvm7DIScope7getFileEv.exit.i165.i:          ; preds = %203, %200
@@ -513,7 +512,7 @@ _ZNK4llvm7DIScope7getFileEv.exit.thread.i168.i:   ; preds = %_ZNK4llvm7DIScope7g
   %217 = lshr i64 %211, 2
   %218 = and i64 %217, 15
   %219 = sub nsw i64 0, %218
-  %220 = getelementptr inbounds %"class.llvm::MDOperand", ptr %210, i64 %219
+  %220 = getelementptr inbounds [8 x i8], ptr %210, i64 %219
   br label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.i170.i
 
 _ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.i170.i: ; preds = %216, %213
@@ -557,7 +556,7 @@ _ZNK4llvm7DIScope11getFilenameEv.exit177.thread.i: ; preds = %_ZNK4llvm7DIScope1
   %234 = lshr i64 %228, 2
   %235 = and i64 %234, 15
   %236 = sub nsw i64 0, %235
-  %237 = getelementptr inbounds %"class.llvm::MDOperand", ptr %165, i64 %236
+  %237 = getelementptr inbounds [8 x i8], ptr %165, i64 %236
   br label %_ZNK4llvm7DIScope7getFileEv.exit.i179.i
 
 _ZNK4llvm7DIScope7getFileEv.exit.i179.i:          ; preds = %233, %230
@@ -585,7 +584,7 @@ _ZNK4llvm7DIScope7getFileEv.exit.thread.i182.i:   ; preds = %_ZNK4llvm7DIScope7g
   %247 = lshr i64 %241, 2
   %248 = and i64 %247, 15
   %249 = sub nsw i64 0, %248
-  %250 = getelementptr inbounds %"class.llvm::MDOperand", ptr %240, i64 %249
+  %250 = getelementptr inbounds [8 x i8], ptr %240, i64 %249
   br label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.i184.i
 
 _ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.i184.i: ; preds = %246, %243
@@ -623,7 +622,7 @@ _ZNK4llvm7DIScope12getDirectoryEv.exit191.i:      ; preds = %253, %_ZNK4llvm6DIN
   %265 = lshr i64 %259, 2
   %266 = and i64 %265, 15
   %267 = sub nsw i64 0, %266
-  %268 = getelementptr inbounds %"class.llvm::MDOperand", ptr %165, i64 %267
+  %268 = getelementptr inbounds [8 x i8], ptr %165, i64 %267
   br label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i193.i
 
 _ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i193.i: ; preds = %264, %261
@@ -675,7 +674,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit202.i:            ; preds = %283, %281
   %292 = lshr i64 %286, 2
   %293 = and i64 %292, 15
   %294 = sub nsw i64 0, %293
-  %295 = getelementptr inbounds %"class.llvm::MDOperand", ptr %165, i64 %294
+  %295 = getelementptr inbounds [8 x i8], ptr %165, i64 %294
   br label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i204.i
 
 _ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i204.i: ; preds = %291, %288
@@ -792,7 +791,7 @@ _ZN4llvm11raw_ostreamlsEc.exit220.i:              ; preds = %332, %330
   %352 = lshr i64 %346, 2
   %353 = and i64 %352, 15
   %354 = sub nsw i64 0, %353
-  %355 = getelementptr inbounds %"class.llvm::MDOperand", ptr %345, i64 %354
+  %355 = getelementptr inbounds [8 x i8], ptr %345, i64 %354
   br label %_ZNK4llvm26DIGlobalVariableExpression11getVariableEv.exit.i
 
 _ZNK4llvm26DIGlobalVariableExpression11getVariableEv.exit.i: ; preds = %351, %348
@@ -834,7 +833,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit225.i:            ; preds = %365, %363
   %375 = lshr i64 %369, 2
   %376 = and i64 %375, 15
   %377 = sub nsw i64 0, %376
-  %378 = getelementptr inbounds %"class.llvm::MDOperand", ptr %368, i64 %377
+  %378 = getelementptr inbounds [8 x i8], ptr %368, i64 %377
   br label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i227.i
 
 _ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i227.i: ; preds = %374, %371
@@ -888,7 +887,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit236.i: ; preds = %395, %394, %392, %_
   %404 = lshr i64 %398, 2
   %405 = and i64 %404, 15
   %406 = sub nsw i64 0, %405
-  %407 = getelementptr inbounds %"class.llvm::MDOperand", ptr %368, i64 %406
+  %407 = getelementptr inbounds [8 x i8], ptr %368, i64 %406
   br label %_ZNK4llvm10DIVariable7getFileEv.exit.i.i
 
 _ZNK4llvm10DIVariable7getFileEv.exit.i.i:         ; preds = %403, %400
@@ -914,7 +913,7 @@ _ZNK4llvm10DIVariable7getFileEv.exit.i.i:         ; preds = %403, %400
   %418 = lshr i64 %412, 2
   %419 = and i64 %418, 15
   %420 = sub nsw i64 0, %419
-  %421 = getelementptr inbounds %"class.llvm::MDOperand", ptr %411, i64 %420
+  %421 = getelementptr inbounds [8 x i8], ptr %411, i64 %420
   br label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.i241.i
 
 _ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.i241.i: ; preds = %417, %414
@@ -947,7 +946,7 @@ _ZNK4llvm10DIVariable11getFilenameEv.exit.i:      ; preds = %423, %_ZNK4llvm6DIN
   %433 = lshr i64 %427, 2
   %434 = and i64 %433, 15
   %435 = sub nsw i64 0, %434
-  %436 = getelementptr inbounds %"class.llvm::MDOperand", ptr %368, i64 %435
+  %436 = getelementptr inbounds [8 x i8], ptr %368, i64 %435
   br label %_ZNK4llvm10DIVariable7getFileEv.exit.i249.i
 
 _ZNK4llvm10DIVariable7getFileEv.exit.i249.i:      ; preds = %432, %429
@@ -973,7 +972,7 @@ _ZNK4llvm10DIVariable7getFileEv.exit.i249.i:      ; preds = %432, %429
   %447 = lshr i64 %441, 2
   %448 = and i64 %447, 15
   %449 = sub nsw i64 0, %448
-  %450 = getelementptr inbounds %"class.llvm::MDOperand", ptr %440, i64 %449
+  %450 = getelementptr inbounds [8 x i8], ptr %440, i64 %449
   br label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.i253.i
 
 _ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.i253.i: ; preds = %446, %443
@@ -1009,7 +1008,7 @@ _ZNK4llvm10DIVariable12getDirectoryEv.exit.i:     ; preds = %453, %_ZNK4llvm6DIN
   %465 = lshr i64 %459, 2
   %466 = and i64 %465, 15
   %467 = sub nsw i64 0, %466
-  %468 = getelementptr inbounds %"class.llvm::MDOperand", ptr %368, i64 %467
+  %468 = getelementptr inbounds [8 x i8], ptr %368, i64 %467
   br label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i261.i
 
 _ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i261.i: ; preds = %464, %461
@@ -1061,7 +1060,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit270.i:            ; preds = %483, %481
   %492 = lshr i64 %486, 2
   %493 = and i64 %492, 15
   %494 = sub nsw i64 0, %493
-  %495 = getelementptr inbounds %"class.llvm::MDOperand", ptr %368, i64 %494
+  %495 = getelementptr inbounds [8 x i8], ptr %368, i64 %494
   br label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i272.i
 
 _ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i272.i: ; preds = %491, %488
@@ -1182,7 +1181,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit291.i:            ; preds = %545, %543
   %555 = lshr i64 %549, 2
   %556 = and i64 %555, 15
   %557 = sub nsw i64 0, %556
-  %558 = getelementptr inbounds %"class.llvm::MDOperand", ptr %548, i64 %557
+  %558 = getelementptr inbounds [8 x i8], ptr %548, i64 %557
   br label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i293.i
 
 _ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i293.i: ; preds = %554, %551
@@ -1230,7 +1229,7 @@ _ZN4llvm11raw_ostreamlsEc.exit302.i:              ; preds = %569, %567
   %577 = lshr i64 %571, 2
   %578 = and i64 %577, 15
   %579 = sub nsw i64 0, %578
-  %580 = getelementptr inbounds %"class.llvm::MDOperand", ptr %548, i64 %579
+  %580 = getelementptr inbounds [8 x i8], ptr %548, i64 %579
   br label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i304.i
 
 _ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i304.i: ; preds = %576, %573
@@ -1289,7 +1288,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit314.i: ; preds = %597, %596, %594, %_
   %609 = lshr i64 %603, 2
   %610 = and i64 %609, 15
   %611 = sub nsw i64 0, %610
-  %612 = getelementptr inbounds %"class.llvm::MDOperand", ptr %548, i64 %611
+  %612 = getelementptr inbounds [8 x i8], ptr %548, i64 %611
   br label %_ZNK4llvm7DIScope7getFileEv.exit.i316.i
 
 _ZNK4llvm7DIScope7getFileEv.exit.i316.i:          ; preds = %608, %605
@@ -1315,7 +1314,7 @@ _ZNK4llvm7DIScope7getFileEv.exit.thread.i319.i:   ; preds = %_ZNK4llvm7DIScope7g
   %622 = lshr i64 %616, 2
   %623 = and i64 %622, 15
   %624 = sub nsw i64 0, %623
-  %625 = getelementptr inbounds %"class.llvm::MDOperand", ptr %615, i64 %624
+  %625 = getelementptr inbounds [8 x i8], ptr %615, i64 %624
   br label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.i321.i
 
 _ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.i321.i: ; preds = %621, %618
@@ -1359,7 +1358,7 @@ _ZNK4llvm7DIScope11getFilenameEv.exit328.thread.i: ; preds = %_ZNK4llvm7DIScope1
   %639 = lshr i64 %633, 2
   %640 = and i64 %639, 15
   %641 = sub nsw i64 0, %640
-  %642 = getelementptr inbounds %"class.llvm::MDOperand", ptr %548, i64 %641
+  %642 = getelementptr inbounds [8 x i8], ptr %548, i64 %641
   br label %_ZNK4llvm7DIScope7getFileEv.exit.i330.i
 
 _ZNK4llvm7DIScope7getFileEv.exit.i330.i:          ; preds = %638, %635
@@ -1387,7 +1386,7 @@ _ZNK4llvm7DIScope7getFileEv.exit.thread.i333.i:   ; preds = %_ZNK4llvm7DIScope7g
   %652 = lshr i64 %646, 2
   %653 = and i64 %652, 15
   %654 = sub nsw i64 0, %653
-  %655 = getelementptr inbounds %"class.llvm::MDOperand", ptr %645, i64 %654
+  %655 = getelementptr inbounds [8 x i8], ptr %645, i64 %654
   br label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.i335.i
 
 _ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.i335.i: ; preds = %651, %648
@@ -1601,7 +1600,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit348.i: ; preds = %752, %750, %732, %7
   %763 = lshr i64 %757, 2
   %764 = and i64 %763, 15
   %765 = sub nsw i64 0, %764
-  %766 = getelementptr inbounds %"class.llvm::MDOperand", ptr %548, i64 %765
+  %766 = getelementptr inbounds [8 x i8], ptr %548, i64 %765
   br label %_ZNK4llvm15DICompositeType16getRawIdentifierEv.exit.i
 
 _ZNK4llvm15DICompositeType16getRawIdentifierEv.exit.i: ; preds = %762, %759

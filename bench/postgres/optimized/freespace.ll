@@ -78,7 +78,7 @@ define internal fastcc i32 @fsm_search(ptr noundef %0, i8 noundef zeroext range(
   %14 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %15 = xor i32 %6, -1
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds nuw ptr, ptr %14, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %16
   %18 = load ptr, ptr %17, align 8
   br label %BufferGetPage.exit
 
@@ -144,7 +144,7 @@ fsm_does_block_exist.exit:                        ; preds = %RelationGetSmgr.exi
   %46 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %47 = xor i32 %6, -1
   %48 = zext nneg i32 %47 to i64
-  %49 = getelementptr inbounds nuw ptr, ptr %46, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %48
   %50 = load ptr, ptr %49, align 8
   br label %57
 
@@ -195,7 +195,7 @@ fsm_does_block_exist.exit:                        ; preds = %RelationGetSmgr.exi
   %75 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %76 = xor i32 %72, -1
   %77 = zext nneg i32 %76 to i64
-  %78 = getelementptr inbounds nuw ptr, ptr %75, i64 %77
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %77
   %79 = load ptr, ptr %78, align 8
   br label %BufferGetPage.exit.i
 
@@ -319,7 +319,7 @@ define internal fastcc i32 @fsm_set_and_search(ptr noundef %0, i64 %1, i16 nound
   %9 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %10 = xor i32 %6, -1
   %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr inbounds nuw ptr, ptr %9, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %11
   %13 = load ptr, ptr %12, align 8
   br label %BufferGetPage.exit
 
@@ -376,7 +376,7 @@ define dso_local void @RecordPageWithFreeSpace(ptr noundef %0, i32 noundef %1, i
   %12 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %13 = xor i32 %9, -1
   %14 = zext nneg i32 %13 to i64
-  %15 = getelementptr inbounds nuw ptr, ptr %12, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %14
   %16 = load ptr, ptr %15, align 8
   br label %BufferGetPage.exit.i
 
@@ -436,7 +436,7 @@ fsm_logical_to_physical.exit:                     ; preds = %6
   %17 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %18 = xor i32 %14, -1
   %19 = zext nneg i32 %18 to i64
-  %20 = getelementptr inbounds nuw ptr, ptr %17, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %19
   %21 = load ptr, ptr %20, align 8
   br label %BufferGetPage.exit
 
@@ -502,7 +502,7 @@ define dso_local range(i64 0, 8161) i64 @GetRecordedFreeSpace(ptr noundef %0, i3
   %9 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %10 = xor i32 %5, -1
   %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr inbounds nuw ptr, ptr %9, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %11
   %13 = load ptr, ptr %12, align 8
   br label %BufferGetPage.exit
 
@@ -633,7 +633,7 @@ BufferGetPage.exit:                               ; preds = %38
   %40 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %41 = xor i32 %.021, -1
   %42 = zext nneg i32 %41 to i64
-  %43 = getelementptr inbounds nuw ptr, ptr %40, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %42
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr i8, ptr %44, i64 14
   %.val25 = load i16, ptr %45, align 2
@@ -654,7 +654,7 @@ BufferGetPage.exit.thread:                        ; preds = %38
 BufferGetPage.exit27:                             ; preds = %BufferGetPage.exit
   tail call void @LockBuffer(i32 noundef %.021, i32 noundef 2) #7
   %54 = load ptr, ptr @LocalBufferBlockPointers, align 8
-  %55 = getelementptr inbounds nuw ptr, ptr %54, i64 %42
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %42
   %56 = load ptr, ptr %55, align 8
   %57 = getelementptr i8, ptr %56, i64 14
   %.val = load i16, ptr %57, align 2
@@ -737,7 +737,7 @@ RelationGetSmgr.exit:                             ; preds = %2, %6
   %22 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %23 = xor i32 %16, -1
   %24 = zext nneg i32 %23 to i64
-  %25 = getelementptr inbounds nuw ptr, ptr %22, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %24
   %26 = load ptr, ptr %25, align 8
   br label %BufferGetPage.exit
 
@@ -902,7 +902,7 @@ define internal fastcc zeroext i8 @fsm_vacuum_page(ptr noundef %0, i64 %1, i32 n
   %12 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %13 = xor i32 %7, -1
   %14 = zext nneg i32 %13 to i64
-  %15 = getelementptr inbounds nuw ptr, ptr %12, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %14
   %16 = load ptr, ptr %15, align 8
   br label %BufferGetPage.exit
 

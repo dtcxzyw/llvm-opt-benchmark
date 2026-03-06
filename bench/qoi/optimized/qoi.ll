@@ -216,7 +216,7 @@ define dso_local noalias noundef ptr @qoi_encode(ptr noundef readonly captures(a
   %109 = add nuw nsw i32 %107, %108
   %110 = and i32 %109, 63
   %111 = zext nneg i32 %110 to i64
-  %112 = getelementptr inbounds nuw %union.qoi_rgba_t, ptr %4, i64 %111
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %111
   %113 = load i32, ptr %112, align 4, !tbaa !12
   %114 = icmp eq i32 %113, %.sroa.066.0.insert.insert
   br i1 %114, label %115, label %120
@@ -532,7 +532,7 @@ define dso_local noalias noundef ptr @qoi_decode(ptr noundef readonly captures(a
 
 129:                                              ; preds = %127
   %130 = zext i8 %105 to i64
-  %131 = getelementptr inbounds nuw %union.qoi_rgba_t, ptr %5, i64 %130
+  %131 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %130
   %.sroa.0.0.copyload = load i8, ptr %131, align 4
   %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %131, i64 1
   %.sroa.13.0.copyload = load i8, ptr %.sroa.13.0..sroa_idx, align 1
@@ -603,7 +603,7 @@ default.unreachable:                              ; preds = %127
   %175 = mul nuw nsw i64 %174, 11
   %176 = add nuw nsw i64 %173, %175
   %177 = and i64 %176, 63
-  %178 = getelementptr inbounds nuw %union.qoi_rgba_t, ptr %5, i64 %177
+  %178 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %177
   store i8 %.sroa.0.2, ptr %178, align 4
   %.sroa.13.0..sroa_idx41 = getelementptr inbounds nuw i8, ptr %178, i64 1
   store i8 %.sroa.13.2, ptr %.sroa.13.0..sroa_idx41, align 1

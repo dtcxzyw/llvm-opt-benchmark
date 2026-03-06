@@ -4228,7 +4228,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit33.i:                ; preds = %1523, %1521
   %1549 = getelementptr inbounds nuw i8, ptr %1446, i64 76
   %1550 = load i32, ptr %1549, align 4
   %1551 = sext i32 %1550 to i64
-  %1552 = getelementptr i32, ptr %1530, i64 %1551
+  %1552 = getelementptr [4 x i8], ptr %1530, i64 %1551
   %1553 = getelementptr i8, ptr %1552, i64 8
   %1554 = load i32, ptr %1553, align 4
   store i32 %1554, ptr %59, align 4
@@ -4257,7 +4257,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit33.i:                ; preds = %1523, %1521
 1561:                                             ; preds = %1548
   %1562 = mul nsw i32 %1550, 3
   %1563 = sext i32 %1562 to i64
-  %1564 = getelementptr i32, ptr %1530, i64 %1563
+  %1564 = getelementptr [4 x i8], ptr %1530, i64 %1563
   %1565 = getelementptr i8, ptr %1564, i64 16
   %1566 = load i32, ptr %1565, align 4
   store i32 %1566, ptr %63, align 4
@@ -4530,7 +4530,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit24.i: 
   %1651 = load i32, ptr %1650, align 4
   %1652 = load ptr, ptr %1649, align 8
   %1653 = sext i32 %1651 to i64
-  %1654 = getelementptr i32, ptr %1652, i64 %1653
+  %1654 = getelementptr [4 x i8], ptr %1652, i64 %1653
   %1655 = getelementptr i8, ptr %1654, i64 16
   %1656 = load i32, ptr %1655, align 4
   store i32 %1656, ptr %38, align 4

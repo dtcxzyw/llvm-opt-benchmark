@@ -914,7 +914,7 @@ _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPwE
   %121 = add nsw i64 %.0, -1
   %122 = lshr i64 %15, 1
   %123 = icmp samesign ugt i64 %15, 128
-  %124 = getelementptr i32, ptr %.088, i64 %122
+  %124 = getelementptr [4 x i8], ptr %.088, i64 %122
   %125 = load i32, ptr %8, align 4, !tbaa !19
   br i1 %123, label %126, label %168
 
@@ -2401,7 +2401,7 @@ _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPsE
   %121 = add nsw i64 %.0, -1
   %122 = lshr i64 %15, 1
   %123 = icmp samesign ugt i64 %15, 128
-  %124 = getelementptr i16, ptr %.088, i64 %122
+  %124 = getelementptr [2 x i8], ptr %.088, i64 %122
   %125 = load i16, ptr %8, align 2, !tbaa !54
   br i1 %123, label %126, label %168
 
@@ -2898,7 +2898,7 @@ _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPtE
   %121 = add nsw i64 %.0, -1
   %122 = lshr i64 %15, 1
   %123 = icmp samesign ugt i64 %15, 128
-  %124 = getelementptr i16, ptr %.088, i64 %122
+  %124 = getelementptr [2 x i8], ptr %.088, i64 %122
   %125 = load i16, ptr %8, align 2, !tbaa !54
   br i1 %123, label %126, label %168
 
@@ -3395,7 +3395,7 @@ _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPiE
   %121 = add nsw i64 %.0, -1
   %122 = lshr i64 %15, 1
   %123 = icmp samesign ugt i64 %15, 128
-  %124 = getelementptr i32, ptr %.088, i64 %122
+  %124 = getelementptr [4 x i8], ptr %.088, i64 %122
   %125 = load i32, ptr %8, align 4, !tbaa !78
   br i1 %123, label %126, label %168
 
@@ -3892,7 +3892,7 @@ _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPjE
   %121 = add nsw i64 %.0, -1
   %122 = lshr i64 %15, 1
   %123 = icmp samesign ugt i64 %15, 128
-  %124 = getelementptr i32, ptr %.088, i64 %122
+  %124 = getelementptr [4 x i8], ptr %.088, i64 %122
   %125 = load i32, ptr %8, align 4, !tbaa !78
   br i1 %123, label %126, label %168
 
@@ -4389,7 +4389,7 @@ _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPlE
   %121 = add nsw i64 %.0, -1
   %122 = lshr i64 %15, 1
   %123 = icmp samesign ugt i64 %15, 128
-  %124 = getelementptr i64, ptr %.088, i64 %122
+  %124 = getelementptr [8 x i8], ptr %.088, i64 %122
   %125 = load i64, ptr %8, align 8, !tbaa !102
   br i1 %123, label %126, label %168
 
@@ -4886,7 +4886,7 @@ _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPmE
   %121 = add nsw i64 %.0, -1
   %122 = lshr i64 %15, 1
   %123 = icmp samesign ugt i64 %15, 128
-  %124 = getelementptr i64, ptr %.088, i64 %122
+  %124 = getelementptr [8 x i8], ptr %.088, i64 %122
   %125 = load i64, ptr %8, align 8, !tbaa !102
   br i1 %123, label %126, label %168
 
@@ -5383,7 +5383,7 @@ _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPxE
   %121 = add nsw i64 %.0, -1
   %122 = lshr i64 %15, 1
   %123 = icmp samesign ugt i64 %15, 128
-  %124 = getelementptr i64, ptr %.088, i64 %122
+  %124 = getelementptr [8 x i8], ptr %.088, i64 %122
   %125 = load i64, ptr %8, align 8, !tbaa !126
   br i1 %123, label %126, label %168
 
@@ -5880,7 +5880,7 @@ _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPyE
   %121 = add nsw i64 %.0, -1
   %122 = lshr i64 %15, 1
   %123 = icmp samesign ugt i64 %15, 128
-  %124 = getelementptr i64, ptr %.088, i64 %122
+  %124 = getelementptr [8 x i8], ptr %.088, i64 %122
   %125 = load i64, ptr %8, align 8, !tbaa !126
   br i1 %123, label %126, label %168
 
@@ -6390,7 +6390,7 @@ _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPfE
   %138 = add nsw i64 %.0, -1
   %139 = lshr i64 %15, 1
   %140 = icmp samesign ugt i64 %15, 128
-  %141 = getelementptr float, ptr %.091, i64 %139
+  %141 = getelementptr [4 x i8], ptr %.091, i64 %139
   %142 = load float, ptr %8, align 4, !tbaa !150
   br i1 %140, label %143, label %197
 
@@ -6910,7 +6910,7 @@ _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPdE
   %138 = add nsw i64 %.0, -1
   %139 = lshr i64 %15, 1
   %140 = icmp samesign ugt i64 %15, 128
-  %141 = getelementptr double, ptr %.091, i64 %139
+  %141 = getelementptr [8 x i8], ptr %.091, i64 %139
   %142 = load double, ptr %8, align 8, !tbaa !163
   br i1 %140, label %143, label %197
 
@@ -7528,7 +7528,7 @@ _ZNSt3__17__sort4B8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPeTnNS_9enabl
   %146 = add nsw i64 %.0, -1
   %147 = lshr i64 %15, 1
   %148 = icmp samesign ugt i64 %15, 128
-  %149 = getelementptr x86_fp80, ptr %.090, i64 %147
+  %149 = getelementptr [16 x i8], ptr %.090, i64 %147
   %150 = load x86_fp80, ptr %8, align 16, !tbaa !176
   br i1 %148, label %151, label %222
 
@@ -8926,9 +8926,9 @@ _ZNSt3__123__populate_right_bitsetB8ne210000INS_6ranges4lessEPwwEEvT0_T_RT1_Rm.e
   %50 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.279, i1 false)
   %51 = add i64 %.279, -1
   %52 = and i64 %51, %.279
-  %53 = getelementptr inbounds nuw i32, ptr %.4117, i64 %47
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %.4117, i64 %47
   %54 = sub nsw i64 0, %50
-  %55 = getelementptr inbounds i32, ptr %.092114, i64 %54
+  %55 = getelementptr inbounds [4 x i8], ptr %.092114, i64 %54
   %56 = load i32, ptr %53, align 4, !tbaa !19
   %57 = load i32, ptr %55, align 4, !tbaa !19
   store i32 %57, ptr %53, align 4, !tbaa !19
@@ -8943,10 +8943,10 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPwEEvT0_S3_RmS4_.e
   %.380 = phi i64 [ %.178, %_ZNSt3__123__populate_right_bitsetB8ne210000INS_6ranges4lessEPwwEEvT0_T_RT1_Rm.exit ], [ %52, %.lr.ph.i ]
   %58 = icmp eq i64 %.287, 0
   %59 = select i1 %58, i64 64, i64 0
-  %60 = getelementptr inbounds nuw i32, ptr %.4117, i64 %59
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %.4117, i64 %59
   %61 = icmp eq i64 %.380, 0
   %.neg = select i1 %61, i64 -64, i64 0
-  %62 = getelementptr inbounds i32, ptr %.092114, i64 %.neg
+  %62 = getelementptr inbounds [4 x i8], ptr %.092114, i64 %.neg
   %63 = ptrtoint ptr %62 to i64
   %64 = ptrtoint ptr %60 to i64
   %65 = sub i64 %63, %64
@@ -9048,9 +9048,9 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPwEEvT0_S3_RmS4_.e
   %102 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.582, i1 false)
   %103 = add i64 %.582, -1
   %104 = and i64 %103, %.582
-  %105 = getelementptr inbounds nuw i32, ptr %.4.lcssa169, i64 %99
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %.4.lcssa169, i64 %99
   %106 = sub nsw i64 0, %102
-  %107 = getelementptr inbounds i32, ptr %.092.lcssa160, i64 %106
+  %107 = getelementptr inbounds [4 x i8], ptr %.092.lcssa160, i64 %106
   %108 = load i32, ptr %105, align 4, !tbaa !19
   %109 = load i32, ptr %107, align 4, !tbaa !19
   store i32 %109, ptr %105, align 4, !tbaa !19
@@ -9069,16 +9069,16 @@ _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS
   %113 = icmp eq i64 %.fr.i, 0
   %spec.select = select i1 %113, i64 %.04350.i, i64 0
   %114 = sub nsw i64 0, %spec.select
-  %115 = getelementptr inbounds i32, ptr %.092.lcssa160, i64 %114
+  %115 = getelementptr inbounds [4 x i8], ptr %.092.lcssa160, i64 %114
   %.not.i15 = icmp eq i64 %110, 0
   br i1 %.not.i15, label %135, label %.preheader30.i.preheader
 
 _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPwwEEvRT1_S6_T0_RT2_RmSA_.exit.thread: ; preds = %.preheader.i
   %116 = icmp eq i64 %.388, 0
   %117 = select i1 %116, i64 %.053.i, i64 0
-  %.6180 = getelementptr inbounds i32, ptr %.4.lcssa169, i64 %117
+  %.6180 = getelementptr inbounds [4 x i8], ptr %.4.lcssa169, i64 %117
   %118 = sub nsw i64 0, %.04350.i
-  %119 = getelementptr inbounds nuw i32, ptr %.092.lcssa160, i64 %118
+  %119 = getelementptr inbounds nuw [4 x i8], ptr %.092.lcssa160, i64 %118
   %.not.i15181 = icmp eq i64 %.388, 0
   br i1 %.not.i15181, label %_ZNSt3__124__swap_bitmap_pos_withinB8ne210000INS_17_ClassicAlgPolicyEPwEEvRT0_S4_RmS5_.exit, label %.preheader30.i.preheader
 
@@ -9086,7 +9086,7 @@ _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS
   %120 = phi ptr [ %119, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPwwEEvRT1_S6_T0_RT2_RmSA_.exit.thread ], [ %115, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPwwEEvRT1_S6_T0_RT2_RmSA_.exit ]
   %121 = phi i64 [ %117, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPwwEEvRT1_S6_T0_RT2_RmSA_.exit.thread ], [ %112, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPwwEEvRT1_S6_T0_RT2_RmSA_.exit ]
   %.691182 = phi i64 [ %.388, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPwwEEvRT1_S6_T0_RT2_RmSA_.exit.thread ], [ %110, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPwwEEvRT1_S6_T0_RT2_RmSA_.exit ]
-  %122 = getelementptr inbounds i32, ptr %.4.lcssa169, i64 %121
+  %122 = getelementptr inbounds [4 x i8], ptr %.4.lcssa169, i64 %121
   br label %.preheader30.i
 
 .preheader30.i:                                   ; preds = %.preheader30.i.preheader, %133
@@ -9097,7 +9097,7 @@ _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS
   %notmask26.i = shl nsw i64 -1, %126
   %127 = xor i64 %notmask26.i, -1
   %128 = and i64 %124, %127
-  %129 = getelementptr inbounds nuw i32, ptr %122, i64 %126
+  %129 = getelementptr inbounds nuw [4 x i8], ptr %122, i64 %126
   %.not27.i = icmp eq ptr %129, %123
   br i1 %.not27.i, label %133, label %130
 
@@ -9114,7 +9114,7 @@ _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS
   br i1 %.not25.i, label %_ZNSt3__124__swap_bitmap_pos_withinB8ne210000INS_17_ClassicAlgPolicyEPwEEvRT0_S4_RmS5_.exit, label %.preheader30.i, !llvm.loop !223
 
 135:                                              ; preds = %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPwwEEvRT1_S6_T0_RT2_RmSA_.exit
-  %.6 = getelementptr inbounds i32, ptr %.4.lcssa169, i64 %112
+  %.6 = getelementptr inbounds [4 x i8], ptr %.4.lcssa169, i64 %112
   %.not22.i = icmp eq i64 %.fr.i, 0
   br i1 %.not22.i, label %_ZNSt3__124__swap_bitmap_pos_withinB8ne210000INS_17_ClassicAlgPolicyEPwEEvRT0_S4_RmS5_.exit, label %.preheader.i17
 
@@ -9127,7 +9127,7 @@ _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS
   %140 = xor i64 %notmask.i, -1
   %141 = and i64 %137, %140
   %142 = sub nsw i64 0, %139
-  %143 = getelementptr inbounds i32, ptr %115, i64 %142
+  %143 = getelementptr inbounds [4 x i8], ptr %115, i64 %142
   %.not24.i = icmp eq ptr %143, %136
   br i1 %.not24.i, label %147, label %144
 
@@ -9383,14 +9383,14 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__119__partial_sort_implB8ne210000
 
 15:                                               ; preds = %_ZNSt3__111__sift_downB8ne210000INS_17_ClassicAlgPolicyERNS_6ranges4lessEPwEEvT1_OT0_NS_15iterator_traitsIS6_E15difference_typeES6_.exit.i, %12
   %.013.i = phi i64 [ %14, %12 ], [ %52, %_ZNSt3__111__sift_downB8ne210000INS_17_ClassicAlgPolicyERNS_6ranges4lessEPwEEvT1_OT0_NS_15iterator_traitsIS6_E15difference_typeES6_.exit.i ]
-  %16 = getelementptr inbounds nuw i32, ptr %0, i64 %.013.i
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.013.i
   %17 = icmp samesign ult i64 %14, %.013.i
   br i1 %17, label %_ZNSt3__111__sift_downB8ne210000INS_17_ClassicAlgPolicyERNS_6ranges4lessEPwEEvT1_OT0_NS_15iterator_traitsIS6_E15difference_typeES6_.exit.i, label %18
 
 18:                                               ; preds = %15
   %19 = shl nuw nsw i64 %.013.i, 1
   %20 = or disjoint i64 %19, 1
-  %21 = getelementptr inbounds nuw i32, ptr %0, i64 %20
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %20
   %22 = add nuw nsw i64 %19, 2
   %23 = icmp slt i64 %22, %10
   br i1 %23, label %24, label %._crit_edge.i.i
@@ -9429,7 +9429,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__119__partial_sort_implB8ne210000
 36:                                               ; preds = %.preheader.i.i
   %37 = shl nuw nsw i64 %.1.i.i, 1
   %38 = or disjoint i64 %37, 1
-  %39 = getelementptr inbounds nuw i32, ptr %0, i64 %38
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %38
   %40 = add nuw nsw i64 %37, 2
   %41 = icmp slt i64 %40, %10
   br i1 %41, label %42, label %._crit_edge43.i.i
@@ -9539,7 +9539,7 @@ _ZNSt3__111__sift_downB8ne210000INS_17_ClassicAlgPolicyERNS_6ranges4lessEPwEEvT1
 77:                                               ; preds = %.preheader.i
   %78 = shl nsw i64 %.1.i, 1
   %79 = or disjoint i64 %78, 1
-  %80 = getelementptr inbounds i32, ptr %0, i64 %79
+  %80 = getelementptr inbounds [4 x i8], ptr %0, i64 %79
   %81 = add nsw i64 %78, 2
   %82 = icmp slt i64 %81, %10
   br i1 %82, label %83, label %._crit_edge43.i
@@ -9589,7 +9589,7 @@ _ZNSt3__111__sift_downB8ne210000INS_17_ClassicAlgPolicyERNS_6ranges4lessEPwEEvT1
 97:                                               ; preds = %110, %.lr.ph.i
   %.016.i.i.i = phi ptr [ %0, %.lr.ph.i ], [ %.117.i.i.i, %110 ]
   %.0.i.i.i = phi i64 [ 0, %.lr.ph.i ], [ %.1.i.i.i, %110 ]
-  %98 = getelementptr i32, ptr %.016.i.i.i, i64 %.0.i.i.i
+  %98 = getelementptr [4 x i8], ptr %.016.i.i.i, i64 %.0.i.i.i
   %99 = getelementptr i8, ptr %98, i64 4
   %100 = shl nsw i64 %.0.i.i.i, 1
   %101 = or disjoint i64 %100, 1
@@ -9642,7 +9642,7 @@ _ZNSt3__117__floyd_sift_downB8ne210000INS_17_ClassicAlgPolicyERNS_6ranges4lessEP
 123:                                              ; preds = %116
   %124 = add nsw i64 %121, -2
   %125 = lshr i64 %124, 1
-  %126 = getelementptr inbounds nuw i32, ptr %0, i64 %125
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %125
   %127 = load i32, ptr %126, align 4, !tbaa !19
   %128 = load i32, ptr %.117.i.i.i, align 4, !tbaa !19
   %129 = icmp slt i32 %127, %128
@@ -9660,7 +9660,7 @@ _ZNSt3__117__floyd_sift_downB8ne210000INS_17_ClassicAlgPolicyERNS_6ranges4lessEP
 132:                                              ; preds = %.preheader.i.i.i
   %133 = add nsw i64 %.0.i14.i.i, -1
   %134 = lshr i64 %133, 1
-  %135 = getelementptr inbounds nuw i32, ptr %0, i64 %134
+  %135 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %134
   %136 = load i32, ptr %135, align 4, !tbaa !19
   %137 = icmp slt i32 %136, %128
   br i1 %137, label %.preheader.i.i.i, label %138, !llvm.loop !231
@@ -11478,9 +11478,9 @@ _ZNSt3__123__populate_right_bitsetB8ne210000INS_6ranges4lessEPssEEvT0_T_RT1_Rm.e
   %50 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.279, i1 false)
   %51 = add i64 %.279, -1
   %52 = and i64 %51, %.279
-  %53 = getelementptr inbounds nuw i16, ptr %.4117, i64 %47
+  %53 = getelementptr inbounds nuw [2 x i8], ptr %.4117, i64 %47
   %54 = sub nsw i64 0, %50
-  %55 = getelementptr inbounds i16, ptr %.092114, i64 %54
+  %55 = getelementptr inbounds [2 x i8], ptr %.092114, i64 %54
   %56 = load i16, ptr %53, align 2, !tbaa !54
   %57 = load i16, ptr %55, align 2, !tbaa !54
   store i16 %57, ptr %53, align 2, !tbaa !54
@@ -11495,10 +11495,10 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPsEEvT0_S3_RmS4_.e
   %.380 = phi i64 [ %.178, %_ZNSt3__123__populate_right_bitsetB8ne210000INS_6ranges4lessEPssEEvT0_T_RT1_Rm.exit ], [ %52, %.lr.ph.i ]
   %58 = icmp eq i64 %.287, 0
   %59 = select i1 %58, i64 64, i64 0
-  %60 = getelementptr inbounds nuw i16, ptr %.4117, i64 %59
+  %60 = getelementptr inbounds nuw [2 x i8], ptr %.4117, i64 %59
   %61 = icmp eq i64 %.380, 0
   %.neg = select i1 %61, i64 -64, i64 0
-  %62 = getelementptr inbounds i16, ptr %.092114, i64 %.neg
+  %62 = getelementptr inbounds [2 x i8], ptr %.092114, i64 %.neg
   %63 = ptrtoint ptr %62 to i64
   %64 = ptrtoint ptr %60 to i64
   %65 = sub i64 %63, %64
@@ -11600,9 +11600,9 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPsEEvT0_S3_RmS4_.e
   %102 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.582, i1 false)
   %103 = add i64 %.582, -1
   %104 = and i64 %103, %.582
-  %105 = getelementptr inbounds nuw i16, ptr %.4.lcssa169, i64 %99
+  %105 = getelementptr inbounds nuw [2 x i8], ptr %.4.lcssa169, i64 %99
   %106 = sub nsw i64 0, %102
-  %107 = getelementptr inbounds i16, ptr %.092.lcssa160, i64 %106
+  %107 = getelementptr inbounds [2 x i8], ptr %.092.lcssa160, i64 %106
   %108 = load i16, ptr %105, align 2, !tbaa !54
   %109 = load i16, ptr %107, align 2, !tbaa !54
   store i16 %109, ptr %105, align 2, !tbaa !54
@@ -11621,16 +11621,16 @@ _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS
   %113 = icmp eq i64 %.fr.i, 0
   %spec.select = select i1 %113, i64 %.04350.i, i64 0
   %114 = sub nsw i64 0, %spec.select
-  %115 = getelementptr inbounds i16, ptr %.092.lcssa160, i64 %114
+  %115 = getelementptr inbounds [2 x i8], ptr %.092.lcssa160, i64 %114
   %.not.i15 = icmp eq i64 %110, 0
   br i1 %.not.i15, label %135, label %.preheader30.i.preheader
 
 _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPssEEvRT1_S6_T0_RT2_RmSA_.exit.thread: ; preds = %.preheader.i
   %116 = icmp eq i64 %.388, 0
   %117 = select i1 %116, i64 %.053.i, i64 0
-  %.6180 = getelementptr inbounds i16, ptr %.4.lcssa169, i64 %117
+  %.6180 = getelementptr inbounds [2 x i8], ptr %.4.lcssa169, i64 %117
   %118 = sub nsw i64 0, %.04350.i
-  %119 = getelementptr inbounds nuw i16, ptr %.092.lcssa160, i64 %118
+  %119 = getelementptr inbounds nuw [2 x i8], ptr %.092.lcssa160, i64 %118
   %.not.i15181 = icmp eq i64 %.388, 0
   br i1 %.not.i15181, label %_ZNSt3__124__swap_bitmap_pos_withinB8ne210000INS_17_ClassicAlgPolicyEPsEEvRT0_S4_RmS5_.exit, label %.preheader30.i.preheader
 
@@ -11638,7 +11638,7 @@ _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS
   %120 = phi ptr [ %119, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPssEEvRT1_S6_T0_RT2_RmSA_.exit.thread ], [ %115, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPssEEvRT1_S6_T0_RT2_RmSA_.exit ]
   %121 = phi i64 [ %117, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPssEEvRT1_S6_T0_RT2_RmSA_.exit.thread ], [ %112, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPssEEvRT1_S6_T0_RT2_RmSA_.exit ]
   %.691182 = phi i64 [ %.388, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPssEEvRT1_S6_T0_RT2_RmSA_.exit.thread ], [ %110, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPssEEvRT1_S6_T0_RT2_RmSA_.exit ]
-  %122 = getelementptr inbounds i16, ptr %.4.lcssa169, i64 %121
+  %122 = getelementptr inbounds [2 x i8], ptr %.4.lcssa169, i64 %121
   br label %.preheader30.i
 
 .preheader30.i:                                   ; preds = %.preheader30.i.preheader, %133
@@ -11649,7 +11649,7 @@ _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS
   %notmask26.i = shl nsw i64 -1, %126
   %127 = xor i64 %notmask26.i, -1
   %128 = and i64 %124, %127
-  %129 = getelementptr inbounds nuw i16, ptr %122, i64 %126
+  %129 = getelementptr inbounds nuw [2 x i8], ptr %122, i64 %126
   %.not27.i = icmp eq ptr %129, %123
   br i1 %.not27.i, label %133, label %130
 
@@ -11666,7 +11666,7 @@ _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS
   br i1 %.not25.i, label %_ZNSt3__124__swap_bitmap_pos_withinB8ne210000INS_17_ClassicAlgPolicyEPsEEvRT0_S4_RmS5_.exit, label %.preheader30.i, !llvm.loop !280
 
 135:                                              ; preds = %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPssEEvRT1_S6_T0_RT2_RmSA_.exit
-  %.6 = getelementptr inbounds i16, ptr %.4.lcssa169, i64 %112
+  %.6 = getelementptr inbounds [2 x i8], ptr %.4.lcssa169, i64 %112
   %.not22.i = icmp eq i64 %.fr.i, 0
   br i1 %.not22.i, label %_ZNSt3__124__swap_bitmap_pos_withinB8ne210000INS_17_ClassicAlgPolicyEPsEEvRT0_S4_RmS5_.exit, label %.preheader.i17
 
@@ -11679,7 +11679,7 @@ _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS
   %140 = xor i64 %notmask.i, -1
   %141 = and i64 %137, %140
   %142 = sub nsw i64 0, %139
-  %143 = getelementptr inbounds i16, ptr %115, i64 %142
+  %143 = getelementptr inbounds [2 x i8], ptr %115, i64 %142
   %.not24.i = icmp eq ptr %143, %136
   br i1 %.not24.i, label %147, label %144
 
@@ -11935,14 +11935,14 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__119__partial_sort_implB8ne210000
 
 15:                                               ; preds = %_ZNSt3__111__sift_downB8ne210000INS_17_ClassicAlgPolicyERNS_6ranges4lessEPsEEvT1_OT0_NS_15iterator_traitsIS6_E15difference_typeES6_.exit.i, %12
   %.013.i = phi i64 [ %14, %12 ], [ %51, %_ZNSt3__111__sift_downB8ne210000INS_17_ClassicAlgPolicyERNS_6ranges4lessEPsEEvT1_OT0_NS_15iterator_traitsIS6_E15difference_typeES6_.exit.i ]
-  %16 = getelementptr inbounds nuw i16, ptr %0, i64 %.013.i
+  %16 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %.013.i
   %17 = icmp samesign ult i64 %14, %.013.i
   br i1 %17, label %_ZNSt3__111__sift_downB8ne210000INS_17_ClassicAlgPolicyERNS_6ranges4lessEPsEEvT1_OT0_NS_15iterator_traitsIS6_E15difference_typeES6_.exit.i, label %18
 
 18:                                               ; preds = %15
   %.idx.i = shl nuw nsw i64 %.013.i, 1
   %19 = or disjoint i64 %.idx.i, 1
-  %20 = getelementptr inbounds nuw i16, ptr %0, i64 %19
+  %20 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %19
   %21 = add nuw nsw i64 %.idx.i, 2
   %22 = icmp slt i64 %21, %10
   br i1 %22, label %23, label %._crit_edge.i.i
@@ -11981,7 +11981,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__119__partial_sort_implB8ne210000
 35:                                               ; preds = %.preheader.i.i
   %36 = shl nuw nsw i64 %.1.i.i, 1
   %37 = or disjoint i64 %36, 1
-  %38 = getelementptr inbounds nuw i16, ptr %0, i64 %37
+  %38 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %37
   %39 = add nuw nsw i64 %36, 2
   %40 = icmp slt i64 %39, %10
   br i1 %40, label %41, label %._crit_edge42.i.i
@@ -12091,7 +12091,7 @@ _ZNSt3__111__sift_downB8ne210000INS_17_ClassicAlgPolicyERNS_6ranges4lessEPsEEvT1
 76:                                               ; preds = %.preheader.i
   %77 = shl nsw i64 %.1.i, 1
   %78 = or disjoint i64 %77, 1
-  %79 = getelementptr inbounds i16, ptr %0, i64 %78
+  %79 = getelementptr inbounds [2 x i8], ptr %0, i64 %78
   %80 = add nsw i64 %77, 2
   %81 = icmp slt i64 %80, %10
   br i1 %81, label %82, label %._crit_edge42.i
@@ -12141,7 +12141,7 @@ _ZNSt3__111__sift_downB8ne210000INS_17_ClassicAlgPolicyERNS_6ranges4lessEPsEEvT1
 96:                                               ; preds = %109, %.lr.ph.i
   %.016.i.i.i = phi ptr [ %0, %.lr.ph.i ], [ %.117.i.i.i, %109 ]
   %.0.i.i.i = phi i64 [ 0, %.lr.ph.i ], [ %.1.i.i.i, %109 ]
-  %97 = getelementptr i16, ptr %.016.i.i.i, i64 %.0.i.i.i
+  %97 = getelementptr [2 x i8], ptr %.016.i.i.i, i64 %.0.i.i.i
   %98 = getelementptr i8, ptr %97, i64 2
   %99 = shl nsw i64 %.0.i.i.i, 1
   %100 = or disjoint i64 %99, 1
@@ -12194,7 +12194,7 @@ _ZNSt3__117__floyd_sift_downB8ne210000INS_17_ClassicAlgPolicyERNS_6ranges4lessEP
 122:                                              ; preds = %115
   %123 = add nsw i64 %120, -2
   %124 = lshr i64 %123, 1
-  %125 = getelementptr inbounds nuw i16, ptr %0, i64 %124
+  %125 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %124
   %126 = load i16, ptr %125, align 2, !tbaa !54
   %127 = load i16, ptr %.117.i.i.i, align 2, !tbaa !54
   %128 = icmp slt i16 %126, %127
@@ -12212,7 +12212,7 @@ _ZNSt3__117__floyd_sift_downB8ne210000INS_17_ClassicAlgPolicyERNS_6ranges4lessEP
 131:                                              ; preds = %.preheader.i.i.i
   %132 = add nsw i64 %.0.i14.i.i, -1
   %133 = lshr i64 %132, 1
-  %134 = getelementptr inbounds nuw i16, ptr %0, i64 %133
+  %134 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %133
   %135 = load i16, ptr %134, align 2, !tbaa !54
   %136 = icmp slt i16 %135, %127
   br i1 %136, label %.preheader.i.i.i, label %137, !llvm.loop !288
@@ -12348,9 +12348,9 @@ _ZNSt3__123__populate_right_bitsetB8ne210000INS_6ranges4lessEPttEEvT0_T_RT1_Rm.e
   %50 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.279, i1 false)
   %51 = add i64 %.279, -1
   %52 = and i64 %51, %.279
-  %53 = getelementptr inbounds nuw i16, ptr %.4117, i64 %47
+  %53 = getelementptr inbounds nuw [2 x i8], ptr %.4117, i64 %47
   %54 = sub nsw i64 0, %50
-  %55 = getelementptr inbounds i16, ptr %.092114, i64 %54
+  %55 = getelementptr inbounds [2 x i8], ptr %.092114, i64 %54
   %56 = load i16, ptr %53, align 2, !tbaa !54
   %57 = load i16, ptr %55, align 2, !tbaa !54
   store i16 %57, ptr %53, align 2, !tbaa !54
@@ -12365,10 +12365,10 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPtEEvT0_S3_RmS4_.e
   %.380 = phi i64 [ %.178, %_ZNSt3__123__populate_right_bitsetB8ne210000INS_6ranges4lessEPttEEvT0_T_RT1_Rm.exit ], [ %52, %.lr.ph.i ]
   %58 = icmp eq i64 %.287, 0
   %59 = select i1 %58, i64 64, i64 0
-  %60 = getelementptr inbounds nuw i16, ptr %.4117, i64 %59
+  %60 = getelementptr inbounds nuw [2 x i8], ptr %.4117, i64 %59
   %61 = icmp eq i64 %.380, 0
   %.neg = select i1 %61, i64 -64, i64 0
-  %62 = getelementptr inbounds i16, ptr %.092114, i64 %.neg
+  %62 = getelementptr inbounds [2 x i8], ptr %.092114, i64 %.neg
   %63 = ptrtoint ptr %62 to i64
   %64 = ptrtoint ptr %60 to i64
   %65 = sub i64 %63, %64
@@ -12470,9 +12470,9 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPtEEvT0_S3_RmS4_.e
   %102 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.582, i1 false)
   %103 = add i64 %.582, -1
   %104 = and i64 %103, %.582
-  %105 = getelementptr inbounds nuw i16, ptr %.4.lcssa169, i64 %99
+  %105 = getelementptr inbounds nuw [2 x i8], ptr %.4.lcssa169, i64 %99
   %106 = sub nsw i64 0, %102
-  %107 = getelementptr inbounds i16, ptr %.092.lcssa160, i64 %106
+  %107 = getelementptr inbounds [2 x i8], ptr %.092.lcssa160, i64 %106
   %108 = load i16, ptr %105, align 2, !tbaa !54
   %109 = load i16, ptr %107, align 2, !tbaa !54
   store i16 %109, ptr %105, align 2, !tbaa !54
@@ -12491,16 +12491,16 @@ _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS
   %113 = icmp eq i64 %.fr.i, 0
   %spec.select = select i1 %113, i64 %.04350.i, i64 0
   %114 = sub nsw i64 0, %spec.select
-  %115 = getelementptr inbounds i16, ptr %.092.lcssa160, i64 %114
+  %115 = getelementptr inbounds [2 x i8], ptr %.092.lcssa160, i64 %114
   %.not.i15 = icmp eq i64 %110, 0
   br i1 %.not.i15, label %135, label %.preheader30.i.preheader
 
 _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPttEEvRT1_S6_T0_RT2_RmSA_.exit.thread: ; preds = %.preheader.i
   %116 = icmp eq i64 %.388, 0
   %117 = select i1 %116, i64 %.053.i, i64 0
-  %.6180 = getelementptr inbounds i16, ptr %.4.lcssa169, i64 %117
+  %.6180 = getelementptr inbounds [2 x i8], ptr %.4.lcssa169, i64 %117
   %118 = sub nsw i64 0, %.04350.i
-  %119 = getelementptr inbounds nuw i16, ptr %.092.lcssa160, i64 %118
+  %119 = getelementptr inbounds nuw [2 x i8], ptr %.092.lcssa160, i64 %118
   %.not.i15181 = icmp eq i64 %.388, 0
   br i1 %.not.i15181, label %_ZNSt3__124__swap_bitmap_pos_withinB8ne210000INS_17_ClassicAlgPolicyEPtEEvRT0_S4_RmS5_.exit, label %.preheader30.i.preheader
 
@@ -12508,7 +12508,7 @@ _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS
   %120 = phi ptr [ %119, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPttEEvRT1_S6_T0_RT2_RmSA_.exit.thread ], [ %115, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPttEEvRT1_S6_T0_RT2_RmSA_.exit ]
   %121 = phi i64 [ %117, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPttEEvRT1_S6_T0_RT2_RmSA_.exit.thread ], [ %112, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPttEEvRT1_S6_T0_RT2_RmSA_.exit ]
   %.691182 = phi i64 [ %.388, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPttEEvRT1_S6_T0_RT2_RmSA_.exit.thread ], [ %110, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPttEEvRT1_S6_T0_RT2_RmSA_.exit ]
-  %122 = getelementptr inbounds i16, ptr %.4.lcssa169, i64 %121
+  %122 = getelementptr inbounds [2 x i8], ptr %.4.lcssa169, i64 %121
   br label %.preheader30.i
 
 .preheader30.i:                                   ; preds = %.preheader30.i.preheader, %133
@@ -12519,7 +12519,7 @@ _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS
   %notmask26.i = shl nsw i64 -1, %126
   %127 = xor i64 %notmask26.i, -1
   %128 = and i64 %124, %127
-  %129 = getelementptr inbounds nuw i16, ptr %122, i64 %126
+  %129 = getelementptr inbounds nuw [2 x i8], ptr %122, i64 %126
   %.not27.i = icmp eq ptr %129, %123
   br i1 %.not27.i, label %133, label %130
 
@@ -12536,7 +12536,7 @@ _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS
   br i1 %.not25.i, label %_ZNSt3__124__swap_bitmap_pos_withinB8ne210000INS_17_ClassicAlgPolicyEPtEEvRT0_S4_RmS5_.exit, label %.preheader30.i, !llvm.loop !299
 
 135:                                              ; preds = %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPttEEvRT1_S6_T0_RT2_RmSA_.exit
-  %.6 = getelementptr inbounds i16, ptr %.4.lcssa169, i64 %112
+  %.6 = getelementptr inbounds [2 x i8], ptr %.4.lcssa169, i64 %112
   %.not22.i = icmp eq i64 %.fr.i, 0
   br i1 %.not22.i, label %_ZNSt3__124__swap_bitmap_pos_withinB8ne210000INS_17_ClassicAlgPolicyEPtEEvRT0_S4_RmS5_.exit, label %.preheader.i17
 
@@ -12549,7 +12549,7 @@ _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS
   %140 = xor i64 %notmask.i, -1
   %141 = and i64 %137, %140
   %142 = sub nsw i64 0, %139
-  %143 = getelementptr inbounds i16, ptr %115, i64 %142
+  %143 = getelementptr inbounds [2 x i8], ptr %115, i64 %142
   %.not24.i = icmp eq ptr %143, %136
   br i1 %.not24.i, label %147, label %144
 
@@ -12805,14 +12805,14 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__119__partial_sort_implB8ne210000
 
 15:                                               ; preds = %_ZNSt3__111__sift_downB8ne210000INS_17_ClassicAlgPolicyERNS_6ranges4lessEPtEEvT1_OT0_NS_15iterator_traitsIS6_E15difference_typeES6_.exit.i, %12
   %.013.i = phi i64 [ %14, %12 ], [ %51, %_ZNSt3__111__sift_downB8ne210000INS_17_ClassicAlgPolicyERNS_6ranges4lessEPtEEvT1_OT0_NS_15iterator_traitsIS6_E15difference_typeES6_.exit.i ]
-  %16 = getelementptr inbounds nuw i16, ptr %0, i64 %.013.i
+  %16 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %.013.i
   %17 = icmp samesign ult i64 %14, %.013.i
   br i1 %17, label %_ZNSt3__111__sift_downB8ne210000INS_17_ClassicAlgPolicyERNS_6ranges4lessEPtEEvT1_OT0_NS_15iterator_traitsIS6_E15difference_typeES6_.exit.i, label %18
 
 18:                                               ; preds = %15
   %.idx.i = shl nuw nsw i64 %.013.i, 1
   %19 = or disjoint i64 %.idx.i, 1
-  %20 = getelementptr inbounds nuw i16, ptr %0, i64 %19
+  %20 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %19
   %21 = add nuw nsw i64 %.idx.i, 2
   %22 = icmp slt i64 %21, %10
   br i1 %22, label %23, label %._crit_edge.i.i
@@ -12851,7 +12851,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__119__partial_sort_implB8ne210000
 35:                                               ; preds = %.preheader.i.i
   %36 = shl nuw nsw i64 %.1.i.i, 1
   %37 = or disjoint i64 %36, 1
-  %38 = getelementptr inbounds nuw i16, ptr %0, i64 %37
+  %38 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %37
   %39 = add nuw nsw i64 %36, 2
   %40 = icmp slt i64 %39, %10
   br i1 %40, label %41, label %._crit_edge42.i.i
@@ -12961,7 +12961,7 @@ _ZNSt3__111__sift_downB8ne210000INS_17_ClassicAlgPolicyERNS_6ranges4lessEPtEEvT1
 76:                                               ; preds = %.preheader.i
   %77 = shl nsw i64 %.1.i, 1
   %78 = or disjoint i64 %77, 1
-  %79 = getelementptr inbounds i16, ptr %0, i64 %78
+  %79 = getelementptr inbounds [2 x i8], ptr %0, i64 %78
   %80 = add nsw i64 %77, 2
   %81 = icmp slt i64 %80, %10
   br i1 %81, label %82, label %._crit_edge42.i
@@ -13011,7 +13011,7 @@ _ZNSt3__111__sift_downB8ne210000INS_17_ClassicAlgPolicyERNS_6ranges4lessEPtEEvT1
 96:                                               ; preds = %109, %.lr.ph.i
   %.016.i.i.i = phi ptr [ %0, %.lr.ph.i ], [ %.117.i.i.i, %109 ]
   %.0.i.i.i = phi i64 [ 0, %.lr.ph.i ], [ %.1.i.i.i, %109 ]
-  %97 = getelementptr i16, ptr %.016.i.i.i, i64 %.0.i.i.i
+  %97 = getelementptr [2 x i8], ptr %.016.i.i.i, i64 %.0.i.i.i
   %98 = getelementptr i8, ptr %97, i64 2
   %99 = shl nsw i64 %.0.i.i.i, 1
   %100 = or disjoint i64 %99, 1
@@ -13064,7 +13064,7 @@ _ZNSt3__117__floyd_sift_downB8ne210000INS_17_ClassicAlgPolicyERNS_6ranges4lessEP
 122:                                              ; preds = %115
   %123 = add nsw i64 %120, -2
   %124 = lshr i64 %123, 1
-  %125 = getelementptr inbounds nuw i16, ptr %0, i64 %124
+  %125 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %124
   %126 = load i16, ptr %125, align 2, !tbaa !54
   %127 = load i16, ptr %.117.i.i.i, align 2, !tbaa !54
   %128 = icmp ult i16 %126, %127
@@ -13082,7 +13082,7 @@ _ZNSt3__117__floyd_sift_downB8ne210000INS_17_ClassicAlgPolicyERNS_6ranges4lessEP
 131:                                              ; preds = %.preheader.i.i.i
   %132 = add nsw i64 %.0.i14.i.i, -1
   %133 = lshr i64 %132, 1
-  %134 = getelementptr inbounds nuw i16, ptr %0, i64 %133
+  %134 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %133
   %135 = load i16, ptr %134, align 2, !tbaa !54
   %136 = icmp ult i16 %135, %127
   br i1 %136, label %.preheader.i.i.i, label %137, !llvm.loop !307
@@ -13218,9 +13218,9 @@ _ZNSt3__123__populate_right_bitsetB8ne210000INS_6ranges4lessEPiiEEvT0_T_RT1_Rm.e
   %50 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.279, i1 false)
   %51 = add i64 %.279, -1
   %52 = and i64 %51, %.279
-  %53 = getelementptr inbounds nuw i32, ptr %.4117, i64 %47
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %.4117, i64 %47
   %54 = sub nsw i64 0, %50
-  %55 = getelementptr inbounds i32, ptr %.092114, i64 %54
+  %55 = getelementptr inbounds [4 x i8], ptr %.092114, i64 %54
   %56 = load i32, ptr %53, align 4, !tbaa !78
   %57 = load i32, ptr %55, align 4, !tbaa !78
   store i32 %57, ptr %53, align 4, !tbaa !78
@@ -13235,10 +13235,10 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPiEEvT0_S3_RmS4_.e
   %.380 = phi i64 [ %.178, %_ZNSt3__123__populate_right_bitsetB8ne210000INS_6ranges4lessEPiiEEvT0_T_RT1_Rm.exit ], [ %52, %.lr.ph.i ]
   %58 = icmp eq i64 %.287, 0
   %59 = select i1 %58, i64 64, i64 0
-  %60 = getelementptr inbounds nuw i32, ptr %.4117, i64 %59
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %.4117, i64 %59
   %61 = icmp eq i64 %.380, 0
   %.neg = select i1 %61, i64 -64, i64 0
-  %62 = getelementptr inbounds i32, ptr %.092114, i64 %.neg
+  %62 = getelementptr inbounds [4 x i8], ptr %.092114, i64 %.neg
   %63 = ptrtoint ptr %62 to i64
   %64 = ptrtoint ptr %60 to i64
   %65 = sub i64 %63, %64
@@ -13340,9 +13340,9 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPiEEvT0_S3_RmS4_.e
   %102 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.582, i1 false)
   %103 = add i64 %.582, -1
   %104 = and i64 %103, %.582
-  %105 = getelementptr inbounds nuw i32, ptr %.4.lcssa169, i64 %99
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %.4.lcssa169, i64 %99
   %106 = sub nsw i64 0, %102
-  %107 = getelementptr inbounds i32, ptr %.092.lcssa160, i64 %106
+  %107 = getelementptr inbounds [4 x i8], ptr %.092.lcssa160, i64 %106
   %108 = load i32, ptr %105, align 4, !tbaa !78
   %109 = load i32, ptr %107, align 4, !tbaa !78
   store i32 %109, ptr %105, align 4, !tbaa !78
@@ -13361,16 +13361,16 @@ _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS
   %113 = icmp eq i64 %.fr.i, 0
   %spec.select = select i1 %113, i64 %.04350.i, i64 0
   %114 = sub nsw i64 0, %spec.select
-  %115 = getelementptr inbounds i32, ptr %.092.lcssa160, i64 %114
+  %115 = getelementptr inbounds [4 x i8], ptr %.092.lcssa160, i64 %114
   %.not.i15 = icmp eq i64 %110, 0
   br i1 %.not.i15, label %135, label %.preheader30.i.preheader
 
 _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPiiEEvRT1_S6_T0_RT2_RmSA_.exit.thread: ; preds = %.preheader.i
   %116 = icmp eq i64 %.388, 0
   %117 = select i1 %116, i64 %.053.i, i64 0
-  %.6180 = getelementptr inbounds i32, ptr %.4.lcssa169, i64 %117
+  %.6180 = getelementptr inbounds [4 x i8], ptr %.4.lcssa169, i64 %117
   %118 = sub nsw i64 0, %.04350.i
-  %119 = getelementptr inbounds nuw i32, ptr %.092.lcssa160, i64 %118
+  %119 = getelementptr inbounds nuw [4 x i8], ptr %.092.lcssa160, i64 %118
   %.not.i15181 = icmp eq i64 %.388, 0
   br i1 %.not.i15181, label %_ZNSt3__124__swap_bitmap_pos_withinB8ne210000INS_17_ClassicAlgPolicyEPiEEvRT0_S4_RmS5_.exit, label %.preheader30.i.preheader
 
@@ -13378,7 +13378,7 @@ _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS
   %120 = phi ptr [ %119, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPiiEEvRT1_S6_T0_RT2_RmSA_.exit.thread ], [ %115, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPiiEEvRT1_S6_T0_RT2_RmSA_.exit ]
   %121 = phi i64 [ %117, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPiiEEvRT1_S6_T0_RT2_RmSA_.exit.thread ], [ %112, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPiiEEvRT1_S6_T0_RT2_RmSA_.exit ]
   %.691182 = phi i64 [ %.388, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPiiEEvRT1_S6_T0_RT2_RmSA_.exit.thread ], [ %110, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPiiEEvRT1_S6_T0_RT2_RmSA_.exit ]
-  %122 = getelementptr inbounds i32, ptr %.4.lcssa169, i64 %121
+  %122 = getelementptr inbounds [4 x i8], ptr %.4.lcssa169, i64 %121
   br label %.preheader30.i
 
 .preheader30.i:                                   ; preds = %.preheader30.i.preheader, %133
@@ -13389,7 +13389,7 @@ _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS
   %notmask26.i = shl nsw i64 -1, %126
   %127 = xor i64 %notmask26.i, -1
   %128 = and i64 %124, %127
-  %129 = getelementptr inbounds nuw i32, ptr %122, i64 %126
+  %129 = getelementptr inbounds nuw [4 x i8], ptr %122, i64 %126
   %.not27.i = icmp eq ptr %129, %123
   br i1 %.not27.i, label %133, label %130
 
@@ -13406,7 +13406,7 @@ _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS
   br i1 %.not25.i, label %_ZNSt3__124__swap_bitmap_pos_withinB8ne210000INS_17_ClassicAlgPolicyEPiEEvRT0_S4_RmS5_.exit, label %.preheader30.i, !llvm.loop !318
 
 135:                                              ; preds = %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPiiEEvRT1_S6_T0_RT2_RmSA_.exit
-  %.6 = getelementptr inbounds i32, ptr %.4.lcssa169, i64 %112
+  %.6 = getelementptr inbounds [4 x i8], ptr %.4.lcssa169, i64 %112
   %.not22.i = icmp eq i64 %.fr.i, 0
   br i1 %.not22.i, label %_ZNSt3__124__swap_bitmap_pos_withinB8ne210000INS_17_ClassicAlgPolicyEPiEEvRT0_S4_RmS5_.exit, label %.preheader.i17
 
@@ -13419,7 +13419,7 @@ _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS
   %140 = xor i64 %notmask.i, -1
   %141 = and i64 %137, %140
   %142 = sub nsw i64 0, %139
-  %143 = getelementptr inbounds i32, ptr %115, i64 %142
+  %143 = getelementptr inbounds [4 x i8], ptr %115, i64 %142
   %.not24.i = icmp eq ptr %143, %136
   br i1 %.not24.i, label %147, label %144
 
@@ -13675,14 +13675,14 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__119__partial_sort_implB8ne210000
 
 15:                                               ; preds = %_ZNSt3__111__sift_downB8ne210000INS_17_ClassicAlgPolicyERNS_6ranges4lessEPiEEvT1_OT0_NS_15iterator_traitsIS6_E15difference_typeES6_.exit.i, %12
   %.013.i = phi i64 [ %14, %12 ], [ %52, %_ZNSt3__111__sift_downB8ne210000INS_17_ClassicAlgPolicyERNS_6ranges4lessEPiEEvT1_OT0_NS_15iterator_traitsIS6_E15difference_typeES6_.exit.i ]
-  %16 = getelementptr inbounds nuw i32, ptr %0, i64 %.013.i
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.013.i
   %17 = icmp samesign ult i64 %14, %.013.i
   br i1 %17, label %_ZNSt3__111__sift_downB8ne210000INS_17_ClassicAlgPolicyERNS_6ranges4lessEPiEEvT1_OT0_NS_15iterator_traitsIS6_E15difference_typeES6_.exit.i, label %18
 
 18:                                               ; preds = %15
   %19 = shl nuw nsw i64 %.013.i, 1
   %20 = or disjoint i64 %19, 1
-  %21 = getelementptr inbounds nuw i32, ptr %0, i64 %20
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %20
   %22 = add nuw nsw i64 %19, 2
   %23 = icmp slt i64 %22, %10
   br i1 %23, label %24, label %._crit_edge.i.i
@@ -13721,7 +13721,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__119__partial_sort_implB8ne210000
 36:                                               ; preds = %.preheader.i.i
   %37 = shl nuw nsw i64 %.1.i.i, 1
   %38 = or disjoint i64 %37, 1
-  %39 = getelementptr inbounds nuw i32, ptr %0, i64 %38
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %38
   %40 = add nuw nsw i64 %37, 2
   %41 = icmp slt i64 %40, %10
   br i1 %41, label %42, label %._crit_edge43.i.i
@@ -13831,7 +13831,7 @@ _ZNSt3__111__sift_downB8ne210000INS_17_ClassicAlgPolicyERNS_6ranges4lessEPiEEvT1
 77:                                               ; preds = %.preheader.i
   %78 = shl nsw i64 %.1.i, 1
   %79 = or disjoint i64 %78, 1
-  %80 = getelementptr inbounds i32, ptr %0, i64 %79
+  %80 = getelementptr inbounds [4 x i8], ptr %0, i64 %79
   %81 = add nsw i64 %78, 2
   %82 = icmp slt i64 %81, %10
   br i1 %82, label %83, label %._crit_edge43.i
@@ -13881,7 +13881,7 @@ _ZNSt3__111__sift_downB8ne210000INS_17_ClassicAlgPolicyERNS_6ranges4lessEPiEEvT1
 97:                                               ; preds = %110, %.lr.ph.i
   %.016.i.i.i = phi ptr [ %0, %.lr.ph.i ], [ %.117.i.i.i, %110 ]
   %.0.i.i.i = phi i64 [ 0, %.lr.ph.i ], [ %.1.i.i.i, %110 ]
-  %98 = getelementptr i32, ptr %.016.i.i.i, i64 %.0.i.i.i
+  %98 = getelementptr [4 x i8], ptr %.016.i.i.i, i64 %.0.i.i.i
   %99 = getelementptr i8, ptr %98, i64 4
   %100 = shl nsw i64 %.0.i.i.i, 1
   %101 = or disjoint i64 %100, 1
@@ -13934,7 +13934,7 @@ _ZNSt3__117__floyd_sift_downB8ne210000INS_17_ClassicAlgPolicyERNS_6ranges4lessEP
 123:                                              ; preds = %116
   %124 = add nsw i64 %121, -2
   %125 = lshr i64 %124, 1
-  %126 = getelementptr inbounds nuw i32, ptr %0, i64 %125
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %125
   %127 = load i32, ptr %126, align 4, !tbaa !78
   %128 = load i32, ptr %.117.i.i.i, align 4, !tbaa !78
   %129 = icmp slt i32 %127, %128
@@ -13952,7 +13952,7 @@ _ZNSt3__117__floyd_sift_downB8ne210000INS_17_ClassicAlgPolicyERNS_6ranges4lessEP
 132:                                              ; preds = %.preheader.i.i.i
   %133 = add nsw i64 %.0.i14.i.i, -1
   %134 = lshr i64 %133, 1
-  %135 = getelementptr inbounds nuw i32, ptr %0, i64 %134
+  %135 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %134
   %136 = load i32, ptr %135, align 4, !tbaa !78
   %137 = icmp slt i32 %136, %128
   br i1 %137, label %.preheader.i.i.i, label %138, !llvm.loop !326
@@ -14088,9 +14088,9 @@ _ZNSt3__123__populate_right_bitsetB8ne210000INS_6ranges4lessEPjjEEvT0_T_RT1_Rm.e
   %50 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.279, i1 false)
   %51 = add i64 %.279, -1
   %52 = and i64 %51, %.279
-  %53 = getelementptr inbounds nuw i32, ptr %.4117, i64 %47
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %.4117, i64 %47
   %54 = sub nsw i64 0, %50
-  %55 = getelementptr inbounds i32, ptr %.092114, i64 %54
+  %55 = getelementptr inbounds [4 x i8], ptr %.092114, i64 %54
   %56 = load i32, ptr %53, align 4, !tbaa !78
   %57 = load i32, ptr %55, align 4, !tbaa !78
   store i32 %57, ptr %53, align 4, !tbaa !78
@@ -14105,10 +14105,10 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPjEEvT0_S3_RmS4_.e
   %.380 = phi i64 [ %.178, %_ZNSt3__123__populate_right_bitsetB8ne210000INS_6ranges4lessEPjjEEvT0_T_RT1_Rm.exit ], [ %52, %.lr.ph.i ]
   %58 = icmp eq i64 %.287, 0
   %59 = select i1 %58, i64 64, i64 0
-  %60 = getelementptr inbounds nuw i32, ptr %.4117, i64 %59
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %.4117, i64 %59
   %61 = icmp eq i64 %.380, 0
   %.neg = select i1 %61, i64 -64, i64 0
-  %62 = getelementptr inbounds i32, ptr %.092114, i64 %.neg
+  %62 = getelementptr inbounds [4 x i8], ptr %.092114, i64 %.neg
   %63 = ptrtoint ptr %62 to i64
   %64 = ptrtoint ptr %60 to i64
   %65 = sub i64 %63, %64
@@ -14210,9 +14210,9 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPjEEvT0_S3_RmS4_.e
   %102 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.582, i1 false)
   %103 = add i64 %.582, -1
   %104 = and i64 %103, %.582
-  %105 = getelementptr inbounds nuw i32, ptr %.4.lcssa169, i64 %99
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %.4.lcssa169, i64 %99
   %106 = sub nsw i64 0, %102
-  %107 = getelementptr inbounds i32, ptr %.092.lcssa160, i64 %106
+  %107 = getelementptr inbounds [4 x i8], ptr %.092.lcssa160, i64 %106
   %108 = load i32, ptr %105, align 4, !tbaa !78
   %109 = load i32, ptr %107, align 4, !tbaa !78
   store i32 %109, ptr %105, align 4, !tbaa !78
@@ -14231,16 +14231,16 @@ _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS
   %113 = icmp eq i64 %.fr.i, 0
   %spec.select = select i1 %113, i64 %.04350.i, i64 0
   %114 = sub nsw i64 0, %spec.select
-  %115 = getelementptr inbounds i32, ptr %.092.lcssa160, i64 %114
+  %115 = getelementptr inbounds [4 x i8], ptr %.092.lcssa160, i64 %114
   %.not.i15 = icmp eq i64 %110, 0
   br i1 %.not.i15, label %135, label %.preheader30.i.preheader
 
 _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPjjEEvRT1_S6_T0_RT2_RmSA_.exit.thread: ; preds = %.preheader.i
   %116 = icmp eq i64 %.388, 0
   %117 = select i1 %116, i64 %.053.i, i64 0
-  %.6180 = getelementptr inbounds i32, ptr %.4.lcssa169, i64 %117
+  %.6180 = getelementptr inbounds [4 x i8], ptr %.4.lcssa169, i64 %117
   %118 = sub nsw i64 0, %.04350.i
-  %119 = getelementptr inbounds nuw i32, ptr %.092.lcssa160, i64 %118
+  %119 = getelementptr inbounds nuw [4 x i8], ptr %.092.lcssa160, i64 %118
   %.not.i15181 = icmp eq i64 %.388, 0
   br i1 %.not.i15181, label %_ZNSt3__124__swap_bitmap_pos_withinB8ne210000INS_17_ClassicAlgPolicyEPjEEvRT0_S4_RmS5_.exit, label %.preheader30.i.preheader
 
@@ -14248,7 +14248,7 @@ _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS
   %120 = phi ptr [ %119, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPjjEEvRT1_S6_T0_RT2_RmSA_.exit.thread ], [ %115, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPjjEEvRT1_S6_T0_RT2_RmSA_.exit ]
   %121 = phi i64 [ %117, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPjjEEvRT1_S6_T0_RT2_RmSA_.exit.thread ], [ %112, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPjjEEvRT1_S6_T0_RT2_RmSA_.exit ]
   %.691182 = phi i64 [ %.388, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPjjEEvRT1_S6_T0_RT2_RmSA_.exit.thread ], [ %110, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPjjEEvRT1_S6_T0_RT2_RmSA_.exit ]
-  %122 = getelementptr inbounds i32, ptr %.4.lcssa169, i64 %121
+  %122 = getelementptr inbounds [4 x i8], ptr %.4.lcssa169, i64 %121
   br label %.preheader30.i
 
 .preheader30.i:                                   ; preds = %.preheader30.i.preheader, %133
@@ -14259,7 +14259,7 @@ _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS
   %notmask26.i = shl nsw i64 -1, %126
   %127 = xor i64 %notmask26.i, -1
   %128 = and i64 %124, %127
-  %129 = getelementptr inbounds nuw i32, ptr %122, i64 %126
+  %129 = getelementptr inbounds nuw [4 x i8], ptr %122, i64 %126
   %.not27.i = icmp eq ptr %129, %123
   br i1 %.not27.i, label %133, label %130
 
@@ -14276,7 +14276,7 @@ _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS
   br i1 %.not25.i, label %_ZNSt3__124__swap_bitmap_pos_withinB8ne210000INS_17_ClassicAlgPolicyEPjEEvRT0_S4_RmS5_.exit, label %.preheader30.i, !llvm.loop !337
 
 135:                                              ; preds = %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPjjEEvRT1_S6_T0_RT2_RmSA_.exit
-  %.6 = getelementptr inbounds i32, ptr %.4.lcssa169, i64 %112
+  %.6 = getelementptr inbounds [4 x i8], ptr %.4.lcssa169, i64 %112
   %.not22.i = icmp eq i64 %.fr.i, 0
   br i1 %.not22.i, label %_ZNSt3__124__swap_bitmap_pos_withinB8ne210000INS_17_ClassicAlgPolicyEPjEEvRT0_S4_RmS5_.exit, label %.preheader.i17
 
@@ -14289,7 +14289,7 @@ _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS
   %140 = xor i64 %notmask.i, -1
   %141 = and i64 %137, %140
   %142 = sub nsw i64 0, %139
-  %143 = getelementptr inbounds i32, ptr %115, i64 %142
+  %143 = getelementptr inbounds [4 x i8], ptr %115, i64 %142
   %.not24.i = icmp eq ptr %143, %136
   br i1 %.not24.i, label %147, label %144
 
@@ -14545,14 +14545,14 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__119__partial_sort_implB8ne210000
 
 15:                                               ; preds = %_ZNSt3__111__sift_downB8ne210000INS_17_ClassicAlgPolicyERNS_6ranges4lessEPjEEvT1_OT0_NS_15iterator_traitsIS6_E15difference_typeES6_.exit.i, %12
   %.013.i = phi i64 [ %14, %12 ], [ %52, %_ZNSt3__111__sift_downB8ne210000INS_17_ClassicAlgPolicyERNS_6ranges4lessEPjEEvT1_OT0_NS_15iterator_traitsIS6_E15difference_typeES6_.exit.i ]
-  %16 = getelementptr inbounds nuw i32, ptr %0, i64 %.013.i
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.013.i
   %17 = icmp samesign ult i64 %14, %.013.i
   br i1 %17, label %_ZNSt3__111__sift_downB8ne210000INS_17_ClassicAlgPolicyERNS_6ranges4lessEPjEEvT1_OT0_NS_15iterator_traitsIS6_E15difference_typeES6_.exit.i, label %18
 
 18:                                               ; preds = %15
   %19 = shl nuw nsw i64 %.013.i, 1
   %20 = or disjoint i64 %19, 1
-  %21 = getelementptr inbounds nuw i32, ptr %0, i64 %20
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %20
   %22 = add nuw nsw i64 %19, 2
   %23 = icmp slt i64 %22, %10
   br i1 %23, label %24, label %._crit_edge.i.i
@@ -14591,7 +14591,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__119__partial_sort_implB8ne210000
 36:                                               ; preds = %.preheader.i.i
   %37 = shl nuw nsw i64 %.1.i.i, 1
   %38 = or disjoint i64 %37, 1
-  %39 = getelementptr inbounds nuw i32, ptr %0, i64 %38
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %38
   %40 = add nuw nsw i64 %37, 2
   %41 = icmp slt i64 %40, %10
   br i1 %41, label %42, label %._crit_edge43.i.i
@@ -14701,7 +14701,7 @@ _ZNSt3__111__sift_downB8ne210000INS_17_ClassicAlgPolicyERNS_6ranges4lessEPjEEvT1
 77:                                               ; preds = %.preheader.i
   %78 = shl nsw i64 %.1.i, 1
   %79 = or disjoint i64 %78, 1
-  %80 = getelementptr inbounds i32, ptr %0, i64 %79
+  %80 = getelementptr inbounds [4 x i8], ptr %0, i64 %79
   %81 = add nsw i64 %78, 2
   %82 = icmp slt i64 %81, %10
   br i1 %82, label %83, label %._crit_edge43.i
@@ -14751,7 +14751,7 @@ _ZNSt3__111__sift_downB8ne210000INS_17_ClassicAlgPolicyERNS_6ranges4lessEPjEEvT1
 97:                                               ; preds = %110, %.lr.ph.i
   %.016.i.i.i = phi ptr [ %0, %.lr.ph.i ], [ %.117.i.i.i, %110 ]
   %.0.i.i.i = phi i64 [ 0, %.lr.ph.i ], [ %.1.i.i.i, %110 ]
-  %98 = getelementptr i32, ptr %.016.i.i.i, i64 %.0.i.i.i
+  %98 = getelementptr [4 x i8], ptr %.016.i.i.i, i64 %.0.i.i.i
   %99 = getelementptr i8, ptr %98, i64 4
   %100 = shl nsw i64 %.0.i.i.i, 1
   %101 = or disjoint i64 %100, 1
@@ -14804,7 +14804,7 @@ _ZNSt3__117__floyd_sift_downB8ne210000INS_17_ClassicAlgPolicyERNS_6ranges4lessEP
 123:                                              ; preds = %116
   %124 = add nsw i64 %121, -2
   %125 = lshr i64 %124, 1
-  %126 = getelementptr inbounds nuw i32, ptr %0, i64 %125
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %125
   %127 = load i32, ptr %126, align 4, !tbaa !78
   %128 = load i32, ptr %.117.i.i.i, align 4, !tbaa !78
   %129 = icmp ult i32 %127, %128
@@ -14822,7 +14822,7 @@ _ZNSt3__117__floyd_sift_downB8ne210000INS_17_ClassicAlgPolicyERNS_6ranges4lessEP
 132:                                              ; preds = %.preheader.i.i.i
   %133 = add nsw i64 %.0.i14.i.i, -1
   %134 = lshr i64 %133, 1
-  %135 = getelementptr inbounds nuw i32, ptr %0, i64 %134
+  %135 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %134
   %136 = load i32, ptr %135, align 4, !tbaa !78
   %137 = icmp ult i32 %136, %128
   br i1 %137, label %.preheader.i.i.i, label %138, !llvm.loop !345
@@ -14958,9 +14958,9 @@ _ZNSt3__123__populate_right_bitsetB8ne210000INS_6ranges4lessEPllEEvT0_T_RT1_Rm.e
   %50 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.281, i1 false)
   %51 = add i64 %.281, -1
   %52 = and i64 %51, %.281
-  %53 = getelementptr inbounds nuw i64, ptr %.4115, i64 %47
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %.4115, i64 %47
   %54 = sub nsw i64 0, %50
-  %55 = getelementptr inbounds i64, ptr %.090112, i64 %54
+  %55 = getelementptr inbounds [8 x i8], ptr %.090112, i64 %54
   %56 = load i64, ptr %53, align 8, !tbaa !102
   %57 = load i64, ptr %55, align 8, !tbaa !102
   store i64 %57, ptr %53, align 8, !tbaa !102
@@ -14975,10 +14975,10 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPlEEvT0_S3_RmS4_.e
   %.382 = phi i64 [ %.180, %_ZNSt3__123__populate_right_bitsetB8ne210000INS_6ranges4lessEPllEEvT0_T_RT1_Rm.exit ], [ %52, %.lr.ph.i ]
   %58 = icmp eq i64 %.287, 0
   %59 = select i1 %58, i64 64, i64 0
-  %60 = getelementptr inbounds nuw i64, ptr %.4115, i64 %59
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %.4115, i64 %59
   %61 = icmp eq i64 %.382, 0
   %.neg = select i1 %61, i64 -64, i64 0
-  %62 = getelementptr inbounds i64, ptr %.090112, i64 %.neg
+  %62 = getelementptr inbounds [8 x i8], ptr %.090112, i64 %.neg
   %63 = ptrtoint ptr %62 to i64
   %64 = ptrtoint ptr %60 to i64
   %65 = sub i64 %63, %64
@@ -15078,9 +15078,9 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPlEEvT0_S3_RmS4_.e
   %102 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.584, i1 false)
   %103 = add i64 %.584, -1
   %104 = and i64 %103, %.584
-  %105 = getelementptr inbounds nuw i64, ptr %.4.lcssa168, i64 %99
+  %105 = getelementptr inbounds nuw [8 x i8], ptr %.4.lcssa168, i64 %99
   %106 = sub nsw i64 0, %102
-  %107 = getelementptr inbounds i64, ptr %.090.lcssa159, i64 %106
+  %107 = getelementptr inbounds [8 x i8], ptr %.090.lcssa159, i64 %106
   %108 = load i64, ptr %105, align 8, !tbaa !102
   %109 = load i64, ptr %107, align 8, !tbaa !102
   store i64 %109, ptr %105, align 8, !tbaa !102
@@ -15095,11 +15095,11 @@ _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS
   %110 = phi i64 [ %.388, %.loopexit.i ], [ %101, %.lr.ph.i.i ]
   %111 = icmp eq i64 %110, 0
   %112 = select i1 %111, i64 %.053.i, i64 0
-  %113 = getelementptr inbounds i64, ptr %.4.lcssa168, i64 %112
+  %113 = getelementptr inbounds [8 x i8], ptr %.4.lcssa168, i64 %112
   %114 = icmp eq i64 %.6, 0
   %115 = select i1 %114, i64 %.04350.i, i64 0
   %116 = sub nsw i64 0, %115
-  %117 = getelementptr inbounds i64, ptr %.090.lcssa159, i64 %116
+  %117 = getelementptr inbounds [8 x i8], ptr %.090.lcssa159, i64 %116
   br i1 %111, label %130, label %.preheader30.i
 
 .preheader30.i:                                   ; preds = %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPllEEvRT1_S6_T0_RT2_RmSA_.exit, %128
@@ -15110,7 +15110,7 @@ _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS
   %notmask26.i = shl nsw i64 -1, %121
   %122 = xor i64 %notmask26.i, -1
   %123 = and i64 %119, %122
-  %124 = getelementptr inbounds nuw i64, ptr %113, i64 %121
+  %124 = getelementptr inbounds nuw [8 x i8], ptr %113, i64 %121
   %.not27.i = icmp eq ptr %124, %118
   br i1 %.not27.i, label %128, label %125
 
@@ -15138,7 +15138,7 @@ _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS
   %135 = xor i64 %notmask.i, -1
   %136 = and i64 %132, %135
   %137 = sub nsw i64 0, %134
-  %138 = getelementptr inbounds i64, ptr %117, i64 %137
+  %138 = getelementptr inbounds [8 x i8], ptr %117, i64 %137
   %.not24.i = icmp eq ptr %138, %131
   br i1 %.not24.i, label %142, label %139
 
@@ -15394,14 +15394,14 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__119__partial_sort_implB8ne210000
 
 15:                                               ; preds = %_ZNSt3__111__sift_downB8ne210000INS_17_ClassicAlgPolicyERNS_6ranges4lessEPlEEvT1_OT0_NS_15iterator_traitsIS6_E15difference_typeES6_.exit.i, %12
   %.013.i = phi i64 [ %14, %12 ], [ %52, %_ZNSt3__111__sift_downB8ne210000INS_17_ClassicAlgPolicyERNS_6ranges4lessEPlEEvT1_OT0_NS_15iterator_traitsIS6_E15difference_typeES6_.exit.i ]
-  %16 = getelementptr inbounds nuw i64, ptr %0, i64 %.013.i
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.013.i
   %17 = icmp samesign ult i64 %14, %.013.i
   br i1 %17, label %_ZNSt3__111__sift_downB8ne210000INS_17_ClassicAlgPolicyERNS_6ranges4lessEPlEEvT1_OT0_NS_15iterator_traitsIS6_E15difference_typeES6_.exit.i, label %18
 
 18:                                               ; preds = %15
   %19 = shl nuw nsw i64 %.013.i, 1
   %20 = or disjoint i64 %19, 1
-  %21 = getelementptr inbounds nuw i64, ptr %0, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %20
   %22 = add nuw nsw i64 %19, 2
   %23 = icmp slt i64 %22, %10
   br i1 %23, label %24, label %._crit_edge.i.i
@@ -15440,7 +15440,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__119__partial_sort_implB8ne210000
 36:                                               ; preds = %.preheader.i.i
   %37 = shl nuw nsw i64 %.1.i.i, 1
   %38 = or disjoint i64 %37, 1
-  %39 = getelementptr inbounds nuw i64, ptr %0, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %38
   %40 = add nuw nsw i64 %37, 2
   %41 = icmp slt i64 %40, %10
   br i1 %41, label %42, label %._crit_edge43.i.i
@@ -15550,7 +15550,7 @@ _ZNSt3__111__sift_downB8ne210000INS_17_ClassicAlgPolicyERNS_6ranges4lessEPlEEvT1
 77:                                               ; preds = %.preheader.i
   %78 = shl nsw i64 %.1.i, 1
   %79 = or disjoint i64 %78, 1
-  %80 = getelementptr inbounds i64, ptr %0, i64 %79
+  %80 = getelementptr inbounds [8 x i8], ptr %0, i64 %79
   %81 = add nsw i64 %78, 2
   %82 = icmp slt i64 %81, %10
   br i1 %82, label %83, label %._crit_edge43.i
@@ -15600,7 +15600,7 @@ _ZNSt3__111__sift_downB8ne210000INS_17_ClassicAlgPolicyERNS_6ranges4lessEPlEEvT1
 97:                                               ; preds = %110, %.lr.ph.i
   %.016.i.i.i = phi ptr [ %0, %.lr.ph.i ], [ %.117.i.i.i, %110 ]
   %.0.i.i.i = phi i64 [ 0, %.lr.ph.i ], [ %.1.i.i.i, %110 ]
-  %98 = getelementptr i64, ptr %.016.i.i.i, i64 %.0.i.i.i
+  %98 = getelementptr [8 x i8], ptr %.016.i.i.i, i64 %.0.i.i.i
   %99 = getelementptr i8, ptr %98, i64 8
   %100 = shl nsw i64 %.0.i.i.i, 1
   %101 = or disjoint i64 %100, 1
@@ -15653,7 +15653,7 @@ _ZNSt3__117__floyd_sift_downB8ne210000INS_17_ClassicAlgPolicyERNS_6ranges4lessEP
 123:                                              ; preds = %116
   %124 = add nsw i64 %121, -2
   %125 = lshr i64 %124, 1
-  %126 = getelementptr inbounds nuw i64, ptr %0, i64 %125
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %125
   %127 = load i64, ptr %126, align 8, !tbaa !102
   %128 = load i64, ptr %.117.i.i.i, align 8, !tbaa !102
   %129 = icmp slt i64 %127, %128
@@ -15671,7 +15671,7 @@ _ZNSt3__117__floyd_sift_downB8ne210000INS_17_ClassicAlgPolicyERNS_6ranges4lessEP
 132:                                              ; preds = %.preheader.i.i.i
   %133 = add nsw i64 %.0.i14.i.i, -1
   %134 = lshr i64 %133, 1
-  %135 = getelementptr inbounds nuw i64, ptr %0, i64 %134
+  %135 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %134
   %136 = load i64, ptr %135, align 8, !tbaa !102
   %137 = icmp slt i64 %136, %128
   br i1 %137, label %.preheader.i.i.i, label %138, !llvm.loop !364
@@ -15807,9 +15807,9 @@ _ZNSt3__123__populate_right_bitsetB8ne210000INS_6ranges4lessEPmmEEvT0_T_RT1_Rm.e
   %50 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.281, i1 false)
   %51 = add i64 %.281, -1
   %52 = and i64 %51, %.281
-  %53 = getelementptr inbounds nuw i64, ptr %.4115, i64 %47
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %.4115, i64 %47
   %54 = sub nsw i64 0, %50
-  %55 = getelementptr inbounds i64, ptr %.090112, i64 %54
+  %55 = getelementptr inbounds [8 x i8], ptr %.090112, i64 %54
   %56 = load i64, ptr %53, align 8, !tbaa !102
   %57 = load i64, ptr %55, align 8, !tbaa !102
   store i64 %57, ptr %53, align 8, !tbaa !102
@@ -15824,10 +15824,10 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPmEEvT0_S3_RmS4_.e
   %.382 = phi i64 [ %.180, %_ZNSt3__123__populate_right_bitsetB8ne210000INS_6ranges4lessEPmmEEvT0_T_RT1_Rm.exit ], [ %52, %.lr.ph.i ]
   %58 = icmp eq i64 %.287, 0
   %59 = select i1 %58, i64 64, i64 0
-  %60 = getelementptr inbounds nuw i64, ptr %.4115, i64 %59
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %.4115, i64 %59
   %61 = icmp eq i64 %.382, 0
   %.neg = select i1 %61, i64 -64, i64 0
-  %62 = getelementptr inbounds i64, ptr %.090112, i64 %.neg
+  %62 = getelementptr inbounds [8 x i8], ptr %.090112, i64 %.neg
   %63 = ptrtoint ptr %62 to i64
   %64 = ptrtoint ptr %60 to i64
   %65 = sub i64 %63, %64
@@ -15927,9 +15927,9 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPmEEvT0_S3_RmS4_.e
   %102 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.584, i1 false)
   %103 = add i64 %.584, -1
   %104 = and i64 %103, %.584
-  %105 = getelementptr inbounds nuw i64, ptr %.4.lcssa168, i64 %99
+  %105 = getelementptr inbounds nuw [8 x i8], ptr %.4.lcssa168, i64 %99
   %106 = sub nsw i64 0, %102
-  %107 = getelementptr inbounds i64, ptr %.090.lcssa159, i64 %106
+  %107 = getelementptr inbounds [8 x i8], ptr %.090.lcssa159, i64 %106
   %108 = load i64, ptr %105, align 8, !tbaa !102
   %109 = load i64, ptr %107, align 8, !tbaa !102
   store i64 %109, ptr %105, align 8, !tbaa !102
@@ -15944,11 +15944,11 @@ _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS
   %110 = phi i64 [ %.388, %.loopexit.i ], [ %101, %.lr.ph.i.i ]
   %111 = icmp eq i64 %110, 0
   %112 = select i1 %111, i64 %.053.i, i64 0
-  %113 = getelementptr inbounds i64, ptr %.4.lcssa168, i64 %112
+  %113 = getelementptr inbounds [8 x i8], ptr %.4.lcssa168, i64 %112
   %114 = icmp eq i64 %.6, 0
   %115 = select i1 %114, i64 %.04350.i, i64 0
   %116 = sub nsw i64 0, %115
-  %117 = getelementptr inbounds i64, ptr %.090.lcssa159, i64 %116
+  %117 = getelementptr inbounds [8 x i8], ptr %.090.lcssa159, i64 %116
   br i1 %111, label %130, label %.preheader30.i
 
 .preheader30.i:                                   ; preds = %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPmmEEvRT1_S6_T0_RT2_RmSA_.exit, %128
@@ -15959,7 +15959,7 @@ _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS
   %notmask26.i = shl nsw i64 -1, %121
   %122 = xor i64 %notmask26.i, -1
   %123 = and i64 %119, %122
-  %124 = getelementptr inbounds nuw i64, ptr %113, i64 %121
+  %124 = getelementptr inbounds nuw [8 x i8], ptr %113, i64 %121
   %.not27.i = icmp eq ptr %124, %118
   br i1 %.not27.i, label %128, label %125
 
@@ -15987,7 +15987,7 @@ _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS
   %135 = xor i64 %notmask.i, -1
   %136 = and i64 %132, %135
   %137 = sub nsw i64 0, %134
-  %138 = getelementptr inbounds i64, ptr %117, i64 %137
+  %138 = getelementptr inbounds [8 x i8], ptr %117, i64 %137
   %.not24.i = icmp eq ptr %138, %131
   br i1 %.not24.i, label %142, label %139
 
@@ -16243,14 +16243,14 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__119__partial_sort_implB8ne210000
 
 15:                                               ; preds = %_ZNSt3__111__sift_downB8ne210000INS_17_ClassicAlgPolicyERNS_6ranges4lessEPmEEvT1_OT0_NS_15iterator_traitsIS6_E15difference_typeES6_.exit.i, %12
   %.013.i = phi i64 [ %14, %12 ], [ %52, %_ZNSt3__111__sift_downB8ne210000INS_17_ClassicAlgPolicyERNS_6ranges4lessEPmEEvT1_OT0_NS_15iterator_traitsIS6_E15difference_typeES6_.exit.i ]
-  %16 = getelementptr inbounds nuw i64, ptr %0, i64 %.013.i
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.013.i
   %17 = icmp samesign ult i64 %14, %.013.i
   br i1 %17, label %_ZNSt3__111__sift_downB8ne210000INS_17_ClassicAlgPolicyERNS_6ranges4lessEPmEEvT1_OT0_NS_15iterator_traitsIS6_E15difference_typeES6_.exit.i, label %18
 
 18:                                               ; preds = %15
   %19 = shl nuw nsw i64 %.013.i, 1
   %20 = or disjoint i64 %19, 1
-  %21 = getelementptr inbounds nuw i64, ptr %0, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %20
   %22 = add nuw nsw i64 %19, 2
   %23 = icmp slt i64 %22, %10
   br i1 %23, label %24, label %._crit_edge.i.i
@@ -16289,7 +16289,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__119__partial_sort_implB8ne210000
 36:                                               ; preds = %.preheader.i.i
   %37 = shl nuw nsw i64 %.1.i.i, 1
   %38 = or disjoint i64 %37, 1
-  %39 = getelementptr inbounds nuw i64, ptr %0, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %38
   %40 = add nuw nsw i64 %37, 2
   %41 = icmp slt i64 %40, %10
   br i1 %41, label %42, label %._crit_edge43.i.i
@@ -16399,7 +16399,7 @@ _ZNSt3__111__sift_downB8ne210000INS_17_ClassicAlgPolicyERNS_6ranges4lessEPmEEvT1
 77:                                               ; preds = %.preheader.i
   %78 = shl nsw i64 %.1.i, 1
   %79 = or disjoint i64 %78, 1
-  %80 = getelementptr inbounds i64, ptr %0, i64 %79
+  %80 = getelementptr inbounds [8 x i8], ptr %0, i64 %79
   %81 = add nsw i64 %78, 2
   %82 = icmp slt i64 %81, %10
   br i1 %82, label %83, label %._crit_edge43.i
@@ -16449,7 +16449,7 @@ _ZNSt3__111__sift_downB8ne210000INS_17_ClassicAlgPolicyERNS_6ranges4lessEPmEEvT1
 97:                                               ; preds = %110, %.lr.ph.i
   %.016.i.i.i = phi ptr [ %0, %.lr.ph.i ], [ %.117.i.i.i, %110 ]
   %.0.i.i.i = phi i64 [ 0, %.lr.ph.i ], [ %.1.i.i.i, %110 ]
-  %98 = getelementptr i64, ptr %.016.i.i.i, i64 %.0.i.i.i
+  %98 = getelementptr [8 x i8], ptr %.016.i.i.i, i64 %.0.i.i.i
   %99 = getelementptr i8, ptr %98, i64 8
   %100 = shl nsw i64 %.0.i.i.i, 1
   %101 = or disjoint i64 %100, 1
@@ -16502,7 +16502,7 @@ _ZNSt3__117__floyd_sift_downB8ne210000INS_17_ClassicAlgPolicyERNS_6ranges4lessEP
 123:                                              ; preds = %116
   %124 = add nsw i64 %121, -2
   %125 = lshr i64 %124, 1
-  %126 = getelementptr inbounds nuw i64, ptr %0, i64 %125
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %125
   %127 = load i64, ptr %126, align 8, !tbaa !102
   %128 = load i64, ptr %.117.i.i.i, align 8, !tbaa !102
   %129 = icmp ult i64 %127, %128
@@ -16520,7 +16520,7 @@ _ZNSt3__117__floyd_sift_downB8ne210000INS_17_ClassicAlgPolicyERNS_6ranges4lessEP
 132:                                              ; preds = %.preheader.i.i.i
   %133 = add nsw i64 %.0.i14.i.i, -1
   %134 = lshr i64 %133, 1
-  %135 = getelementptr inbounds nuw i64, ptr %0, i64 %134
+  %135 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %134
   %136 = load i64, ptr %135, align 8, !tbaa !102
   %137 = icmp ult i64 %136, %128
   br i1 %137, label %.preheader.i.i.i, label %138, !llvm.loop !383
@@ -16656,9 +16656,9 @@ _ZNSt3__123__populate_right_bitsetB8ne210000INS_6ranges4lessEPxxEEvT0_T_RT1_Rm.e
   %50 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.279, i1 false)
   %51 = add i64 %.279, -1
   %52 = and i64 %51, %.279
-  %53 = getelementptr inbounds nuw i64, ptr %.4117, i64 %47
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %.4117, i64 %47
   %54 = sub nsw i64 0, %50
-  %55 = getelementptr inbounds i64, ptr %.092114, i64 %54
+  %55 = getelementptr inbounds [8 x i8], ptr %.092114, i64 %54
   %56 = load i64, ptr %53, align 8, !tbaa !126
   %57 = load i64, ptr %55, align 8, !tbaa !126
   store i64 %57, ptr %53, align 8, !tbaa !126
@@ -16673,10 +16673,10 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPxEEvT0_S3_RmS4_.e
   %.380 = phi i64 [ %.178, %_ZNSt3__123__populate_right_bitsetB8ne210000INS_6ranges4lessEPxxEEvT0_T_RT1_Rm.exit ], [ %52, %.lr.ph.i ]
   %58 = icmp eq i64 %.287, 0
   %59 = select i1 %58, i64 64, i64 0
-  %60 = getelementptr inbounds nuw i64, ptr %.4117, i64 %59
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %.4117, i64 %59
   %61 = icmp eq i64 %.380, 0
   %.neg = select i1 %61, i64 -64, i64 0
-  %62 = getelementptr inbounds i64, ptr %.092114, i64 %.neg
+  %62 = getelementptr inbounds [8 x i8], ptr %.092114, i64 %.neg
   %63 = ptrtoint ptr %62 to i64
   %64 = ptrtoint ptr %60 to i64
   %65 = sub i64 %63, %64
@@ -16778,9 +16778,9 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPxEEvT0_S3_RmS4_.e
   %102 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.582, i1 false)
   %103 = add i64 %.582, -1
   %104 = and i64 %103, %.582
-  %105 = getelementptr inbounds nuw i64, ptr %.4.lcssa169, i64 %99
+  %105 = getelementptr inbounds nuw [8 x i8], ptr %.4.lcssa169, i64 %99
   %106 = sub nsw i64 0, %102
-  %107 = getelementptr inbounds i64, ptr %.092.lcssa160, i64 %106
+  %107 = getelementptr inbounds [8 x i8], ptr %.092.lcssa160, i64 %106
   %108 = load i64, ptr %105, align 8, !tbaa !126
   %109 = load i64, ptr %107, align 8, !tbaa !126
   store i64 %109, ptr %105, align 8, !tbaa !126
@@ -16799,16 +16799,16 @@ _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS
   %113 = icmp eq i64 %.fr.i, 0
   %spec.select = select i1 %113, i64 %.04350.i, i64 0
   %114 = sub nsw i64 0, %spec.select
-  %115 = getelementptr inbounds i64, ptr %.092.lcssa160, i64 %114
+  %115 = getelementptr inbounds [8 x i8], ptr %.092.lcssa160, i64 %114
   %.not.i15 = icmp eq i64 %110, 0
   br i1 %.not.i15, label %135, label %.preheader30.i.preheader
 
 _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPxxEEvRT1_S6_T0_RT2_RmSA_.exit.thread: ; preds = %.preheader.i
   %116 = icmp eq i64 %.388, 0
   %117 = select i1 %116, i64 %.053.i, i64 0
-  %.6180 = getelementptr inbounds i64, ptr %.4.lcssa169, i64 %117
+  %.6180 = getelementptr inbounds [8 x i8], ptr %.4.lcssa169, i64 %117
   %118 = sub nsw i64 0, %.04350.i
-  %119 = getelementptr inbounds nuw i64, ptr %.092.lcssa160, i64 %118
+  %119 = getelementptr inbounds nuw [8 x i8], ptr %.092.lcssa160, i64 %118
   %.not.i15181 = icmp eq i64 %.388, 0
   br i1 %.not.i15181, label %_ZNSt3__124__swap_bitmap_pos_withinB8ne210000INS_17_ClassicAlgPolicyEPxEEvRT0_S4_RmS5_.exit, label %.preheader30.i.preheader
 
@@ -16816,7 +16816,7 @@ _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS
   %120 = phi ptr [ %119, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPxxEEvRT1_S6_T0_RT2_RmSA_.exit.thread ], [ %115, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPxxEEvRT1_S6_T0_RT2_RmSA_.exit ]
   %121 = phi i64 [ %117, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPxxEEvRT1_S6_T0_RT2_RmSA_.exit.thread ], [ %112, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPxxEEvRT1_S6_T0_RT2_RmSA_.exit ]
   %.691182 = phi i64 [ %.388, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPxxEEvRT1_S6_T0_RT2_RmSA_.exit.thread ], [ %110, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPxxEEvRT1_S6_T0_RT2_RmSA_.exit ]
-  %122 = getelementptr inbounds i64, ptr %.4.lcssa169, i64 %121
+  %122 = getelementptr inbounds [8 x i8], ptr %.4.lcssa169, i64 %121
   br label %.preheader30.i
 
 .preheader30.i:                                   ; preds = %.preheader30.i.preheader, %133
@@ -16827,7 +16827,7 @@ _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS
   %notmask26.i = shl nsw i64 -1, %126
   %127 = xor i64 %notmask26.i, -1
   %128 = and i64 %124, %127
-  %129 = getelementptr inbounds nuw i64, ptr %122, i64 %126
+  %129 = getelementptr inbounds nuw [8 x i8], ptr %122, i64 %126
   %.not27.i = icmp eq ptr %129, %123
   br i1 %.not27.i, label %133, label %130
 
@@ -16844,7 +16844,7 @@ _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS
   br i1 %.not25.i, label %_ZNSt3__124__swap_bitmap_pos_withinB8ne210000INS_17_ClassicAlgPolicyEPxEEvRT0_S4_RmS5_.exit, label %.preheader30.i, !llvm.loop !394
 
 135:                                              ; preds = %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPxxEEvRT1_S6_T0_RT2_RmSA_.exit
-  %.6 = getelementptr inbounds i64, ptr %.4.lcssa169, i64 %112
+  %.6 = getelementptr inbounds [8 x i8], ptr %.4.lcssa169, i64 %112
   %.not22.i = icmp eq i64 %.fr.i, 0
   br i1 %.not22.i, label %_ZNSt3__124__swap_bitmap_pos_withinB8ne210000INS_17_ClassicAlgPolicyEPxEEvRT0_S4_RmS5_.exit, label %.preheader.i17
 
@@ -16857,7 +16857,7 @@ _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS
   %140 = xor i64 %notmask.i, -1
   %141 = and i64 %137, %140
   %142 = sub nsw i64 0, %139
-  %143 = getelementptr inbounds i64, ptr %115, i64 %142
+  %143 = getelementptr inbounds [8 x i8], ptr %115, i64 %142
   %.not24.i = icmp eq ptr %143, %136
   br i1 %.not24.i, label %147, label %144
 
@@ -17113,14 +17113,14 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__119__partial_sort_implB8ne210000
 
 15:                                               ; preds = %_ZNSt3__111__sift_downB8ne210000INS_17_ClassicAlgPolicyERNS_6ranges4lessEPxEEvT1_OT0_NS_15iterator_traitsIS6_E15difference_typeES6_.exit.i, %12
   %.013.i = phi i64 [ %14, %12 ], [ %52, %_ZNSt3__111__sift_downB8ne210000INS_17_ClassicAlgPolicyERNS_6ranges4lessEPxEEvT1_OT0_NS_15iterator_traitsIS6_E15difference_typeES6_.exit.i ]
-  %16 = getelementptr inbounds nuw i64, ptr %0, i64 %.013.i
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.013.i
   %17 = icmp samesign ult i64 %14, %.013.i
   br i1 %17, label %_ZNSt3__111__sift_downB8ne210000INS_17_ClassicAlgPolicyERNS_6ranges4lessEPxEEvT1_OT0_NS_15iterator_traitsIS6_E15difference_typeES6_.exit.i, label %18
 
 18:                                               ; preds = %15
   %19 = shl nuw nsw i64 %.013.i, 1
   %20 = or disjoint i64 %19, 1
-  %21 = getelementptr inbounds nuw i64, ptr %0, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %20
   %22 = add nuw nsw i64 %19, 2
   %23 = icmp slt i64 %22, %10
   br i1 %23, label %24, label %._crit_edge.i.i
@@ -17159,7 +17159,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__119__partial_sort_implB8ne210000
 36:                                               ; preds = %.preheader.i.i
   %37 = shl nuw nsw i64 %.1.i.i, 1
   %38 = or disjoint i64 %37, 1
-  %39 = getelementptr inbounds nuw i64, ptr %0, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %38
   %40 = add nuw nsw i64 %37, 2
   %41 = icmp slt i64 %40, %10
   br i1 %41, label %42, label %._crit_edge43.i.i
@@ -17269,7 +17269,7 @@ _ZNSt3__111__sift_downB8ne210000INS_17_ClassicAlgPolicyERNS_6ranges4lessEPxEEvT1
 77:                                               ; preds = %.preheader.i
   %78 = shl nsw i64 %.1.i, 1
   %79 = or disjoint i64 %78, 1
-  %80 = getelementptr inbounds i64, ptr %0, i64 %79
+  %80 = getelementptr inbounds [8 x i8], ptr %0, i64 %79
   %81 = add nsw i64 %78, 2
   %82 = icmp slt i64 %81, %10
   br i1 %82, label %83, label %._crit_edge43.i
@@ -17319,7 +17319,7 @@ _ZNSt3__111__sift_downB8ne210000INS_17_ClassicAlgPolicyERNS_6ranges4lessEPxEEvT1
 97:                                               ; preds = %110, %.lr.ph.i
   %.016.i.i.i = phi ptr [ %0, %.lr.ph.i ], [ %.117.i.i.i, %110 ]
   %.0.i.i.i = phi i64 [ 0, %.lr.ph.i ], [ %.1.i.i.i, %110 ]
-  %98 = getelementptr i64, ptr %.016.i.i.i, i64 %.0.i.i.i
+  %98 = getelementptr [8 x i8], ptr %.016.i.i.i, i64 %.0.i.i.i
   %99 = getelementptr i8, ptr %98, i64 8
   %100 = shl nsw i64 %.0.i.i.i, 1
   %101 = or disjoint i64 %100, 1
@@ -17372,7 +17372,7 @@ _ZNSt3__117__floyd_sift_downB8ne210000INS_17_ClassicAlgPolicyERNS_6ranges4lessEP
 123:                                              ; preds = %116
   %124 = add nsw i64 %121, -2
   %125 = lshr i64 %124, 1
-  %126 = getelementptr inbounds nuw i64, ptr %0, i64 %125
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %125
   %127 = load i64, ptr %126, align 8, !tbaa !126
   %128 = load i64, ptr %.117.i.i.i, align 8, !tbaa !126
   %129 = icmp slt i64 %127, %128
@@ -17390,7 +17390,7 @@ _ZNSt3__117__floyd_sift_downB8ne210000INS_17_ClassicAlgPolicyERNS_6ranges4lessEP
 132:                                              ; preds = %.preheader.i.i.i
   %133 = add nsw i64 %.0.i14.i.i, -1
   %134 = lshr i64 %133, 1
-  %135 = getelementptr inbounds nuw i64, ptr %0, i64 %134
+  %135 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %134
   %136 = load i64, ptr %135, align 8, !tbaa !126
   %137 = icmp slt i64 %136, %128
   br i1 %137, label %.preheader.i.i.i, label %138, !llvm.loop !402
@@ -17526,9 +17526,9 @@ _ZNSt3__123__populate_right_bitsetB8ne210000INS_6ranges4lessEPyyEEvT0_T_RT1_Rm.e
   %50 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.279, i1 false)
   %51 = add i64 %.279, -1
   %52 = and i64 %51, %.279
-  %53 = getelementptr inbounds nuw i64, ptr %.4117, i64 %47
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %.4117, i64 %47
   %54 = sub nsw i64 0, %50
-  %55 = getelementptr inbounds i64, ptr %.092114, i64 %54
+  %55 = getelementptr inbounds [8 x i8], ptr %.092114, i64 %54
   %56 = load i64, ptr %53, align 8, !tbaa !126
   %57 = load i64, ptr %55, align 8, !tbaa !126
   store i64 %57, ptr %53, align 8, !tbaa !126
@@ -17543,10 +17543,10 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPyEEvT0_S3_RmS4_.e
   %.380 = phi i64 [ %.178, %_ZNSt3__123__populate_right_bitsetB8ne210000INS_6ranges4lessEPyyEEvT0_T_RT1_Rm.exit ], [ %52, %.lr.ph.i ]
   %58 = icmp eq i64 %.287, 0
   %59 = select i1 %58, i64 64, i64 0
-  %60 = getelementptr inbounds nuw i64, ptr %.4117, i64 %59
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %.4117, i64 %59
   %61 = icmp eq i64 %.380, 0
   %.neg = select i1 %61, i64 -64, i64 0
-  %62 = getelementptr inbounds i64, ptr %.092114, i64 %.neg
+  %62 = getelementptr inbounds [8 x i8], ptr %.092114, i64 %.neg
   %63 = ptrtoint ptr %62 to i64
   %64 = ptrtoint ptr %60 to i64
   %65 = sub i64 %63, %64
@@ -17648,9 +17648,9 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPyEEvT0_S3_RmS4_.e
   %102 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.582, i1 false)
   %103 = add i64 %.582, -1
   %104 = and i64 %103, %.582
-  %105 = getelementptr inbounds nuw i64, ptr %.4.lcssa169, i64 %99
+  %105 = getelementptr inbounds nuw [8 x i8], ptr %.4.lcssa169, i64 %99
   %106 = sub nsw i64 0, %102
-  %107 = getelementptr inbounds i64, ptr %.092.lcssa160, i64 %106
+  %107 = getelementptr inbounds [8 x i8], ptr %.092.lcssa160, i64 %106
   %108 = load i64, ptr %105, align 8, !tbaa !126
   %109 = load i64, ptr %107, align 8, !tbaa !126
   store i64 %109, ptr %105, align 8, !tbaa !126
@@ -17669,16 +17669,16 @@ _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS
   %113 = icmp eq i64 %.fr.i, 0
   %spec.select = select i1 %113, i64 %.04350.i, i64 0
   %114 = sub nsw i64 0, %spec.select
-  %115 = getelementptr inbounds i64, ptr %.092.lcssa160, i64 %114
+  %115 = getelementptr inbounds [8 x i8], ptr %.092.lcssa160, i64 %114
   %.not.i15 = icmp eq i64 %110, 0
   br i1 %.not.i15, label %135, label %.preheader30.i.preheader
 
 _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPyyEEvRT1_S6_T0_RT2_RmSA_.exit.thread: ; preds = %.preheader.i
   %116 = icmp eq i64 %.388, 0
   %117 = select i1 %116, i64 %.053.i, i64 0
-  %.6180 = getelementptr inbounds i64, ptr %.4.lcssa169, i64 %117
+  %.6180 = getelementptr inbounds [8 x i8], ptr %.4.lcssa169, i64 %117
   %118 = sub nsw i64 0, %.04350.i
-  %119 = getelementptr inbounds nuw i64, ptr %.092.lcssa160, i64 %118
+  %119 = getelementptr inbounds nuw [8 x i8], ptr %.092.lcssa160, i64 %118
   %.not.i15181 = icmp eq i64 %.388, 0
   br i1 %.not.i15181, label %_ZNSt3__124__swap_bitmap_pos_withinB8ne210000INS_17_ClassicAlgPolicyEPyEEvRT0_S4_RmS5_.exit, label %.preheader30.i.preheader
 
@@ -17686,7 +17686,7 @@ _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS
   %120 = phi ptr [ %119, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPyyEEvRT1_S6_T0_RT2_RmSA_.exit.thread ], [ %115, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPyyEEvRT1_S6_T0_RT2_RmSA_.exit ]
   %121 = phi i64 [ %117, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPyyEEvRT1_S6_T0_RT2_RmSA_.exit.thread ], [ %112, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPyyEEvRT1_S6_T0_RT2_RmSA_.exit ]
   %.691182 = phi i64 [ %.388, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPyyEEvRT1_S6_T0_RT2_RmSA_.exit.thread ], [ %110, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPyyEEvRT1_S6_T0_RT2_RmSA_.exit ]
-  %122 = getelementptr inbounds i64, ptr %.4.lcssa169, i64 %121
+  %122 = getelementptr inbounds [8 x i8], ptr %.4.lcssa169, i64 %121
   br label %.preheader30.i
 
 .preheader30.i:                                   ; preds = %.preheader30.i.preheader, %133
@@ -17697,7 +17697,7 @@ _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS
   %notmask26.i = shl nsw i64 -1, %126
   %127 = xor i64 %notmask26.i, -1
   %128 = and i64 %124, %127
-  %129 = getelementptr inbounds nuw i64, ptr %122, i64 %126
+  %129 = getelementptr inbounds nuw [8 x i8], ptr %122, i64 %126
   %.not27.i = icmp eq ptr %129, %123
   br i1 %.not27.i, label %133, label %130
 
@@ -17714,7 +17714,7 @@ _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS
   br i1 %.not25.i, label %_ZNSt3__124__swap_bitmap_pos_withinB8ne210000INS_17_ClassicAlgPolicyEPyEEvRT0_S4_RmS5_.exit, label %.preheader30.i, !llvm.loop !413
 
 135:                                              ; preds = %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPyyEEvRT1_S6_T0_RT2_RmSA_.exit
-  %.6 = getelementptr inbounds i64, ptr %.4.lcssa169, i64 %112
+  %.6 = getelementptr inbounds [8 x i8], ptr %.4.lcssa169, i64 %112
   %.not22.i = icmp eq i64 %.fr.i, 0
   br i1 %.not22.i, label %_ZNSt3__124__swap_bitmap_pos_withinB8ne210000INS_17_ClassicAlgPolicyEPyEEvRT0_S4_RmS5_.exit, label %.preheader.i17
 
@@ -17727,7 +17727,7 @@ _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS
   %140 = xor i64 %notmask.i, -1
   %141 = and i64 %137, %140
   %142 = sub nsw i64 0, %139
-  %143 = getelementptr inbounds i64, ptr %115, i64 %142
+  %143 = getelementptr inbounds [8 x i8], ptr %115, i64 %142
   %.not24.i = icmp eq ptr %143, %136
   br i1 %.not24.i, label %147, label %144
 
@@ -17983,14 +17983,14 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__119__partial_sort_implB8ne210000
 
 15:                                               ; preds = %_ZNSt3__111__sift_downB8ne210000INS_17_ClassicAlgPolicyERNS_6ranges4lessEPyEEvT1_OT0_NS_15iterator_traitsIS6_E15difference_typeES6_.exit.i, %12
   %.013.i = phi i64 [ %14, %12 ], [ %52, %_ZNSt3__111__sift_downB8ne210000INS_17_ClassicAlgPolicyERNS_6ranges4lessEPyEEvT1_OT0_NS_15iterator_traitsIS6_E15difference_typeES6_.exit.i ]
-  %16 = getelementptr inbounds nuw i64, ptr %0, i64 %.013.i
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.013.i
   %17 = icmp samesign ult i64 %14, %.013.i
   br i1 %17, label %_ZNSt3__111__sift_downB8ne210000INS_17_ClassicAlgPolicyERNS_6ranges4lessEPyEEvT1_OT0_NS_15iterator_traitsIS6_E15difference_typeES6_.exit.i, label %18
 
 18:                                               ; preds = %15
   %19 = shl nuw nsw i64 %.013.i, 1
   %20 = or disjoint i64 %19, 1
-  %21 = getelementptr inbounds nuw i64, ptr %0, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %20
   %22 = add nuw nsw i64 %19, 2
   %23 = icmp slt i64 %22, %10
   br i1 %23, label %24, label %._crit_edge.i.i
@@ -18029,7 +18029,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__119__partial_sort_implB8ne210000
 36:                                               ; preds = %.preheader.i.i
   %37 = shl nuw nsw i64 %.1.i.i, 1
   %38 = or disjoint i64 %37, 1
-  %39 = getelementptr inbounds nuw i64, ptr %0, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %38
   %40 = add nuw nsw i64 %37, 2
   %41 = icmp slt i64 %40, %10
   br i1 %41, label %42, label %._crit_edge43.i.i
@@ -18139,7 +18139,7 @@ _ZNSt3__111__sift_downB8ne210000INS_17_ClassicAlgPolicyERNS_6ranges4lessEPyEEvT1
 77:                                               ; preds = %.preheader.i
   %78 = shl nsw i64 %.1.i, 1
   %79 = or disjoint i64 %78, 1
-  %80 = getelementptr inbounds i64, ptr %0, i64 %79
+  %80 = getelementptr inbounds [8 x i8], ptr %0, i64 %79
   %81 = add nsw i64 %78, 2
   %82 = icmp slt i64 %81, %10
   br i1 %82, label %83, label %._crit_edge43.i
@@ -18189,7 +18189,7 @@ _ZNSt3__111__sift_downB8ne210000INS_17_ClassicAlgPolicyERNS_6ranges4lessEPyEEvT1
 97:                                               ; preds = %110, %.lr.ph.i
   %.016.i.i.i = phi ptr [ %0, %.lr.ph.i ], [ %.117.i.i.i, %110 ]
   %.0.i.i.i = phi i64 [ 0, %.lr.ph.i ], [ %.1.i.i.i, %110 ]
-  %98 = getelementptr i64, ptr %.016.i.i.i, i64 %.0.i.i.i
+  %98 = getelementptr [8 x i8], ptr %.016.i.i.i, i64 %.0.i.i.i
   %99 = getelementptr i8, ptr %98, i64 8
   %100 = shl nsw i64 %.0.i.i.i, 1
   %101 = or disjoint i64 %100, 1
@@ -18242,7 +18242,7 @@ _ZNSt3__117__floyd_sift_downB8ne210000INS_17_ClassicAlgPolicyERNS_6ranges4lessEP
 123:                                              ; preds = %116
   %124 = add nsw i64 %121, -2
   %125 = lshr i64 %124, 1
-  %126 = getelementptr inbounds nuw i64, ptr %0, i64 %125
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %125
   %127 = load i64, ptr %126, align 8, !tbaa !126
   %128 = load i64, ptr %.117.i.i.i, align 8, !tbaa !126
   %129 = icmp ult i64 %127, %128
@@ -18260,7 +18260,7 @@ _ZNSt3__117__floyd_sift_downB8ne210000INS_17_ClassicAlgPolicyERNS_6ranges4lessEP
 132:                                              ; preds = %.preheader.i.i.i
   %133 = add nsw i64 %.0.i14.i.i, -1
   %134 = lshr i64 %133, 1
-  %135 = getelementptr inbounds nuw i64, ptr %0, i64 %134
+  %135 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %134
   %136 = load i64, ptr %135, align 8, !tbaa !126
   %137 = icmp ult i64 %136, %128
   br i1 %137, label %.preheader.i.i.i, label %138, !llvm.loop !421
@@ -18396,9 +18396,9 @@ _ZNSt3__123__populate_right_bitsetB8ne210000INS_6ranges4lessEPffEEvT0_T_RT1_Rm.e
   %50 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.279, i1 false)
   %51 = add i64 %.279, -1
   %52 = and i64 %51, %.279
-  %53 = getelementptr inbounds nuw float, ptr %.4117, i64 %47
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %.4117, i64 %47
   %54 = sub nsw i64 0, %50
-  %55 = getelementptr inbounds float, ptr %.092114, i64 %54
+  %55 = getelementptr inbounds [4 x i8], ptr %.092114, i64 %54
   %56 = load float, ptr %53, align 4, !tbaa !150
   %57 = load float, ptr %55, align 4, !tbaa !150
   store float %57, ptr %53, align 4, !tbaa !150
@@ -18413,10 +18413,10 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPfEEvT0_S3_RmS4_.e
   %.380 = phi i64 [ %.178, %_ZNSt3__123__populate_right_bitsetB8ne210000INS_6ranges4lessEPffEEvT0_T_RT1_Rm.exit ], [ %52, %.lr.ph.i ]
   %58 = icmp eq i64 %.287, 0
   %59 = select i1 %58, i64 64, i64 0
-  %60 = getelementptr inbounds nuw float, ptr %.4117, i64 %59
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %.4117, i64 %59
   %61 = icmp eq i64 %.380, 0
   %.neg = select i1 %61, i64 -64, i64 0
-  %62 = getelementptr inbounds float, ptr %.092114, i64 %.neg
+  %62 = getelementptr inbounds [4 x i8], ptr %.092114, i64 %.neg
   %63 = ptrtoint ptr %62 to i64
   %64 = ptrtoint ptr %60 to i64
   %65 = sub i64 %63, %64
@@ -18518,9 +18518,9 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPfEEvT0_S3_RmS4_.e
   %102 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.582, i1 false)
   %103 = add i64 %.582, -1
   %104 = and i64 %103, %.582
-  %105 = getelementptr inbounds nuw float, ptr %.4.lcssa169, i64 %99
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %.4.lcssa169, i64 %99
   %106 = sub nsw i64 0, %102
-  %107 = getelementptr inbounds float, ptr %.092.lcssa160, i64 %106
+  %107 = getelementptr inbounds [4 x i8], ptr %.092.lcssa160, i64 %106
   %108 = load float, ptr %105, align 4, !tbaa !150
   %109 = load float, ptr %107, align 4, !tbaa !150
   store float %109, ptr %105, align 4, !tbaa !150
@@ -18539,16 +18539,16 @@ _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS
   %113 = icmp eq i64 %.fr.i, 0
   %spec.select = select i1 %113, i64 %.04350.i, i64 0
   %114 = sub nsw i64 0, %spec.select
-  %115 = getelementptr inbounds float, ptr %.092.lcssa160, i64 %114
+  %115 = getelementptr inbounds [4 x i8], ptr %.092.lcssa160, i64 %114
   %.not.i15 = icmp eq i64 %110, 0
   br i1 %.not.i15, label %135, label %.preheader30.i.preheader
 
 _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPffEEvRT1_S6_T0_RT2_RmSA_.exit.thread: ; preds = %.preheader.i
   %116 = icmp eq i64 %.388, 0
   %117 = select i1 %116, i64 %.053.i, i64 0
-  %.6180 = getelementptr inbounds float, ptr %.4.lcssa169, i64 %117
+  %.6180 = getelementptr inbounds [4 x i8], ptr %.4.lcssa169, i64 %117
   %118 = sub nsw i64 0, %.04350.i
-  %119 = getelementptr inbounds nuw float, ptr %.092.lcssa160, i64 %118
+  %119 = getelementptr inbounds nuw [4 x i8], ptr %.092.lcssa160, i64 %118
   %.not.i15181 = icmp eq i64 %.388, 0
   br i1 %.not.i15181, label %_ZNSt3__124__swap_bitmap_pos_withinB8ne210000INS_17_ClassicAlgPolicyEPfEEvRT0_S4_RmS5_.exit, label %.preheader30.i.preheader
 
@@ -18556,7 +18556,7 @@ _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS
   %120 = phi ptr [ %119, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPffEEvRT1_S6_T0_RT2_RmSA_.exit.thread ], [ %115, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPffEEvRT1_S6_T0_RT2_RmSA_.exit ]
   %121 = phi i64 [ %117, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPffEEvRT1_S6_T0_RT2_RmSA_.exit.thread ], [ %112, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPffEEvRT1_S6_T0_RT2_RmSA_.exit ]
   %.691182 = phi i64 [ %.388, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPffEEvRT1_S6_T0_RT2_RmSA_.exit.thread ], [ %110, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPffEEvRT1_S6_T0_RT2_RmSA_.exit ]
-  %122 = getelementptr inbounds float, ptr %.4.lcssa169, i64 %121
+  %122 = getelementptr inbounds [4 x i8], ptr %.4.lcssa169, i64 %121
   br label %.preheader30.i
 
 .preheader30.i:                                   ; preds = %.preheader30.i.preheader, %133
@@ -18567,7 +18567,7 @@ _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS
   %notmask26.i = shl nsw i64 -1, %126
   %127 = xor i64 %notmask26.i, -1
   %128 = and i64 %124, %127
-  %129 = getelementptr inbounds nuw float, ptr %122, i64 %126
+  %129 = getelementptr inbounds nuw [4 x i8], ptr %122, i64 %126
   %.not27.i = icmp eq ptr %129, %123
   br i1 %.not27.i, label %133, label %130
 
@@ -18584,7 +18584,7 @@ _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS
   br i1 %.not25.i, label %_ZNSt3__124__swap_bitmap_pos_withinB8ne210000INS_17_ClassicAlgPolicyEPfEEvRT0_S4_RmS5_.exit, label %.preheader30.i, !llvm.loop !432
 
 135:                                              ; preds = %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPffEEvRT1_S6_T0_RT2_RmSA_.exit
-  %.6 = getelementptr inbounds float, ptr %.4.lcssa169, i64 %112
+  %.6 = getelementptr inbounds [4 x i8], ptr %.4.lcssa169, i64 %112
   %.not22.i = icmp eq i64 %.fr.i, 0
   br i1 %.not22.i, label %_ZNSt3__124__swap_bitmap_pos_withinB8ne210000INS_17_ClassicAlgPolicyEPfEEvRT0_S4_RmS5_.exit, label %.preheader.i17
 
@@ -18597,7 +18597,7 @@ _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS
   %140 = xor i64 %notmask.i, -1
   %141 = and i64 %137, %140
   %142 = sub nsw i64 0, %139
-  %143 = getelementptr inbounds float, ptr %115, i64 %142
+  %143 = getelementptr inbounds [4 x i8], ptr %115, i64 %142
   %.not24.i = icmp eq ptr %143, %136
   br i1 %.not24.i, label %147, label %144
 
@@ -18868,14 +18868,14 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__119__partial_sort_implB8ne210000
 
 15:                                               ; preds = %_ZNSt3__111__sift_downB8ne210000INS_17_ClassicAlgPolicyERNS_6ranges4lessEPfEEvT1_OT0_NS_15iterator_traitsIS6_E15difference_typeES6_.exit.i, %12
   %.013.i = phi i64 [ %14, %12 ], [ %52, %_ZNSt3__111__sift_downB8ne210000INS_17_ClassicAlgPolicyERNS_6ranges4lessEPfEEvT1_OT0_NS_15iterator_traitsIS6_E15difference_typeES6_.exit.i ]
-  %16 = getelementptr inbounds nuw float, ptr %0, i64 %.013.i
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.013.i
   %17 = icmp samesign ult i64 %14, %.013.i
   br i1 %17, label %_ZNSt3__111__sift_downB8ne210000INS_17_ClassicAlgPolicyERNS_6ranges4lessEPfEEvT1_OT0_NS_15iterator_traitsIS6_E15difference_typeES6_.exit.i, label %18
 
 18:                                               ; preds = %15
   %19 = shl nuw nsw i64 %.013.i, 1
   %20 = or disjoint i64 %19, 1
-  %21 = getelementptr inbounds nuw float, ptr %0, i64 %20
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %20
   %22 = add nuw nsw i64 %19, 2
   %23 = icmp slt i64 %22, %10
   br i1 %23, label %24, label %30
@@ -18910,7 +18910,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__119__partial_sort_implB8ne210000
 36:                                               ; preds = %.preheader.i.i
   %37 = shl nuw nsw i64 %.1.i.i, 1
   %38 = or disjoint i64 %37, 1
-  %39 = getelementptr inbounds nuw float, ptr %0, i64 %38
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %38
   %40 = add nuw nsw i64 %37, 2
   %41 = icmp slt i64 %40, %10
   br i1 %41, label %42, label %48
@@ -19016,7 +19016,7 @@ _ZNSt3__111__sift_downB8ne210000INS_17_ClassicAlgPolicyERNS_6ranges4lessEPfEEvT1
 79:                                               ; preds = %.preheader.i
   %80 = shl nsw i64 %.1.i, 1
   %81 = or disjoint i64 %80, 1
-  %82 = getelementptr inbounds float, ptr %0, i64 %81
+  %82 = getelementptr inbounds [4 x i8], ptr %0, i64 %81
   %83 = add nsw i64 %80, 2
   %84 = icmp slt i64 %83, %10
   br i1 %84, label %85, label %91
@@ -19062,7 +19062,7 @@ _ZNSt3__111__sift_downB8ne210000INS_17_ClassicAlgPolicyERNS_6ranges4lessEPfEEvT1
 99:                                               ; preds = %112, %.lr.ph.i
   %.016.i.i.i = phi ptr [ %0, %.lr.ph.i ], [ %.117.i.i.i, %112 ]
   %.0.i.i.i = phi i64 [ 0, %.lr.ph.i ], [ %.1.i.i.i, %112 ]
-  %100 = getelementptr float, ptr %.016.i.i.i, i64 %.0.i.i.i
+  %100 = getelementptr [4 x i8], ptr %.016.i.i.i, i64 %.0.i.i.i
   %101 = getelementptr i8, ptr %100, i64 4
   %102 = shl nsw i64 %.0.i.i.i, 1
   %103 = or disjoint i64 %102, 1
@@ -19111,7 +19111,7 @@ _ZNSt3__117__floyd_sift_downB8ne210000INS_17_ClassicAlgPolicyERNS_6ranges4lessEP
 125:                                              ; preds = %118
   %126 = add nsw i64 %123, -2
   %127 = lshr i64 %126, 1
-  %128 = getelementptr inbounds nuw float, ptr %0, i64 %127
+  %128 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %127
   %129 = load float, ptr %128, align 4, !tbaa !150
   %130 = load float, ptr %.117.i.i.i, align 4, !tbaa !150
   %131 = fcmp olt float %129, %130
@@ -19129,7 +19129,7 @@ _ZNSt3__117__floyd_sift_downB8ne210000INS_17_ClassicAlgPolicyERNS_6ranges4lessEP
 134:                                              ; preds = %.preheader.i.i.i
   %135 = add nsw i64 %.0.i13.i.i, -1
   %136 = lshr i64 %135, 1
-  %137 = getelementptr inbounds nuw float, ptr %0, i64 %136
+  %137 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %136
   %138 = load float, ptr %137, align 4, !tbaa !150
   %139 = fcmp olt float %138, %130
   br i1 %139, label %.preheader.i.i.i, label %140, !llvm.loop !440
@@ -19265,9 +19265,9 @@ _ZNSt3__123__populate_right_bitsetB8ne210000INS_6ranges4lessEPddEEvT0_T_RT1_Rm.e
   %50 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.279, i1 false)
   %51 = add i64 %.279, -1
   %52 = and i64 %51, %.279
-  %53 = getelementptr inbounds nuw double, ptr %.4117, i64 %47
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %.4117, i64 %47
   %54 = sub nsw i64 0, %50
-  %55 = getelementptr inbounds double, ptr %.092114, i64 %54
+  %55 = getelementptr inbounds [8 x i8], ptr %.092114, i64 %54
   %56 = load double, ptr %53, align 8, !tbaa !163
   %57 = load double, ptr %55, align 8, !tbaa !163
   store double %57, ptr %53, align 8, !tbaa !163
@@ -19282,10 +19282,10 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPdEEvT0_S3_RmS4_.e
   %.380 = phi i64 [ %.178, %_ZNSt3__123__populate_right_bitsetB8ne210000INS_6ranges4lessEPddEEvT0_T_RT1_Rm.exit ], [ %52, %.lr.ph.i ]
   %58 = icmp eq i64 %.287, 0
   %59 = select i1 %58, i64 64, i64 0
-  %60 = getelementptr inbounds nuw double, ptr %.4117, i64 %59
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %.4117, i64 %59
   %61 = icmp eq i64 %.380, 0
   %.neg = select i1 %61, i64 -64, i64 0
-  %62 = getelementptr inbounds double, ptr %.092114, i64 %.neg
+  %62 = getelementptr inbounds [8 x i8], ptr %.092114, i64 %.neg
   %63 = ptrtoint ptr %62 to i64
   %64 = ptrtoint ptr %60 to i64
   %65 = sub i64 %63, %64
@@ -19387,9 +19387,9 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPdEEvT0_S3_RmS4_.e
   %102 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.582, i1 false)
   %103 = add i64 %.582, -1
   %104 = and i64 %103, %.582
-  %105 = getelementptr inbounds nuw double, ptr %.4.lcssa169, i64 %99
+  %105 = getelementptr inbounds nuw [8 x i8], ptr %.4.lcssa169, i64 %99
   %106 = sub nsw i64 0, %102
-  %107 = getelementptr inbounds double, ptr %.092.lcssa160, i64 %106
+  %107 = getelementptr inbounds [8 x i8], ptr %.092.lcssa160, i64 %106
   %108 = load double, ptr %105, align 8, !tbaa !163
   %109 = load double, ptr %107, align 8, !tbaa !163
   store double %109, ptr %105, align 8, !tbaa !163
@@ -19408,16 +19408,16 @@ _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS
   %113 = icmp eq i64 %.fr.i, 0
   %spec.select = select i1 %113, i64 %.04350.i, i64 0
   %114 = sub nsw i64 0, %spec.select
-  %115 = getelementptr inbounds double, ptr %.092.lcssa160, i64 %114
+  %115 = getelementptr inbounds [8 x i8], ptr %.092.lcssa160, i64 %114
   %.not.i15 = icmp eq i64 %110, 0
   br i1 %.not.i15, label %135, label %.preheader30.i.preheader
 
 _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPddEEvRT1_S6_T0_RT2_RmSA_.exit.thread: ; preds = %.preheader.i
   %116 = icmp eq i64 %.388, 0
   %117 = select i1 %116, i64 %.053.i, i64 0
-  %.6180 = getelementptr inbounds double, ptr %.4.lcssa169, i64 %117
+  %.6180 = getelementptr inbounds [8 x i8], ptr %.4.lcssa169, i64 %117
   %118 = sub nsw i64 0, %.04350.i
-  %119 = getelementptr inbounds nuw double, ptr %.092.lcssa160, i64 %118
+  %119 = getelementptr inbounds nuw [8 x i8], ptr %.092.lcssa160, i64 %118
   %.not.i15181 = icmp eq i64 %.388, 0
   br i1 %.not.i15181, label %_ZNSt3__124__swap_bitmap_pos_withinB8ne210000INS_17_ClassicAlgPolicyEPdEEvRT0_S4_RmS5_.exit, label %.preheader30.i.preheader
 
@@ -19425,7 +19425,7 @@ _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS
   %120 = phi ptr [ %119, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPddEEvRT1_S6_T0_RT2_RmSA_.exit.thread ], [ %115, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPddEEvRT1_S6_T0_RT2_RmSA_.exit ]
   %121 = phi i64 [ %117, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPddEEvRT1_S6_T0_RT2_RmSA_.exit.thread ], [ %112, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPddEEvRT1_S6_T0_RT2_RmSA_.exit ]
   %.691182 = phi i64 [ %.388, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPddEEvRT1_S6_T0_RT2_RmSA_.exit.thread ], [ %110, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPddEEvRT1_S6_T0_RT2_RmSA_.exit ]
-  %122 = getelementptr inbounds double, ptr %.4.lcssa169, i64 %121
+  %122 = getelementptr inbounds [8 x i8], ptr %.4.lcssa169, i64 %121
   br label %.preheader30.i
 
 .preheader30.i:                                   ; preds = %.preheader30.i.preheader, %133
@@ -19436,7 +19436,7 @@ _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS
   %notmask26.i = shl nsw i64 -1, %126
   %127 = xor i64 %notmask26.i, -1
   %128 = and i64 %124, %127
-  %129 = getelementptr inbounds nuw double, ptr %122, i64 %126
+  %129 = getelementptr inbounds nuw [8 x i8], ptr %122, i64 %126
   %.not27.i = icmp eq ptr %129, %123
   br i1 %.not27.i, label %133, label %130
 
@@ -19453,7 +19453,7 @@ _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS
   br i1 %.not25.i, label %_ZNSt3__124__swap_bitmap_pos_withinB8ne210000INS_17_ClassicAlgPolicyEPdEEvRT0_S4_RmS5_.exit, label %.preheader30.i, !llvm.loop !451
 
 135:                                              ; preds = %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPddEEvRT1_S6_T0_RT2_RmSA_.exit
-  %.6 = getelementptr inbounds double, ptr %.4.lcssa169, i64 %112
+  %.6 = getelementptr inbounds [8 x i8], ptr %.4.lcssa169, i64 %112
   %.not22.i = icmp eq i64 %.fr.i, 0
   br i1 %.not22.i, label %_ZNSt3__124__swap_bitmap_pos_withinB8ne210000INS_17_ClassicAlgPolicyEPdEEvRT0_S4_RmS5_.exit, label %.preheader.i17
 
@@ -19466,7 +19466,7 @@ _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS
   %140 = xor i64 %notmask.i, -1
   %141 = and i64 %137, %140
   %142 = sub nsw i64 0, %139
-  %143 = getelementptr inbounds double, ptr %115, i64 %142
+  %143 = getelementptr inbounds [8 x i8], ptr %115, i64 %142
   %.not24.i = icmp eq ptr %143, %136
   br i1 %.not24.i, label %147, label %144
 
@@ -19737,14 +19737,14 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__119__partial_sort_implB8ne210000
 
 15:                                               ; preds = %_ZNSt3__111__sift_downB8ne210000INS_17_ClassicAlgPolicyERNS_6ranges4lessEPdEEvT1_OT0_NS_15iterator_traitsIS6_E15difference_typeES6_.exit.i, %12
   %.013.i = phi i64 [ %14, %12 ], [ %52, %_ZNSt3__111__sift_downB8ne210000INS_17_ClassicAlgPolicyERNS_6ranges4lessEPdEEvT1_OT0_NS_15iterator_traitsIS6_E15difference_typeES6_.exit.i ]
-  %16 = getelementptr inbounds nuw double, ptr %0, i64 %.013.i
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.013.i
   %17 = icmp samesign ult i64 %14, %.013.i
   br i1 %17, label %_ZNSt3__111__sift_downB8ne210000INS_17_ClassicAlgPolicyERNS_6ranges4lessEPdEEvT1_OT0_NS_15iterator_traitsIS6_E15difference_typeES6_.exit.i, label %18
 
 18:                                               ; preds = %15
   %19 = shl nuw nsw i64 %.013.i, 1
   %20 = or disjoint i64 %19, 1
-  %21 = getelementptr inbounds nuw double, ptr %0, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %20
   %22 = add nuw nsw i64 %19, 2
   %23 = icmp slt i64 %22, %10
   br i1 %23, label %24, label %30
@@ -19779,7 +19779,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__119__partial_sort_implB8ne210000
 36:                                               ; preds = %.preheader.i.i
   %37 = shl nuw nsw i64 %.1.i.i, 1
   %38 = or disjoint i64 %37, 1
-  %39 = getelementptr inbounds nuw double, ptr %0, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %38
   %40 = add nuw nsw i64 %37, 2
   %41 = icmp slt i64 %40, %10
   br i1 %41, label %42, label %48
@@ -19885,7 +19885,7 @@ _ZNSt3__111__sift_downB8ne210000INS_17_ClassicAlgPolicyERNS_6ranges4lessEPdEEvT1
 79:                                               ; preds = %.preheader.i
   %80 = shl nsw i64 %.1.i, 1
   %81 = or disjoint i64 %80, 1
-  %82 = getelementptr inbounds double, ptr %0, i64 %81
+  %82 = getelementptr inbounds [8 x i8], ptr %0, i64 %81
   %83 = add nsw i64 %80, 2
   %84 = icmp slt i64 %83, %10
   br i1 %84, label %85, label %91
@@ -19931,7 +19931,7 @@ _ZNSt3__111__sift_downB8ne210000INS_17_ClassicAlgPolicyERNS_6ranges4lessEPdEEvT1
 99:                                               ; preds = %112, %.lr.ph.i
   %.016.i.i.i = phi ptr [ %0, %.lr.ph.i ], [ %.117.i.i.i, %112 ]
   %.0.i.i.i = phi i64 [ 0, %.lr.ph.i ], [ %.1.i.i.i, %112 ]
-  %100 = getelementptr double, ptr %.016.i.i.i, i64 %.0.i.i.i
+  %100 = getelementptr [8 x i8], ptr %.016.i.i.i, i64 %.0.i.i.i
   %101 = getelementptr i8, ptr %100, i64 8
   %102 = shl nsw i64 %.0.i.i.i, 1
   %103 = or disjoint i64 %102, 1
@@ -19980,7 +19980,7 @@ _ZNSt3__117__floyd_sift_downB8ne210000INS_17_ClassicAlgPolicyERNS_6ranges4lessEP
 125:                                              ; preds = %118
   %126 = add nsw i64 %123, -2
   %127 = lshr i64 %126, 1
-  %128 = getelementptr inbounds nuw double, ptr %0, i64 %127
+  %128 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %127
   %129 = load double, ptr %128, align 8, !tbaa !163
   %130 = load double, ptr %.117.i.i.i, align 8, !tbaa !163
   %131 = fcmp olt double %129, %130
@@ -19998,7 +19998,7 @@ _ZNSt3__117__floyd_sift_downB8ne210000INS_17_ClassicAlgPolicyERNS_6ranges4lessEP
 134:                                              ; preds = %.preheader.i.i.i
   %135 = add nsw i64 %.0.i13.i.i, -1
   %136 = lshr i64 %135, 1
-  %137 = getelementptr inbounds nuw double, ptr %0, i64 %136
+  %137 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %136
   %138 = load double, ptr %137, align 8, !tbaa !163
   %139 = fcmp olt double %138, %130
   br i1 %139, label %.preheader.i.i.i, label %140, !llvm.loop !459
@@ -20377,14 +20377,14 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__119__partial_sort_implB8ne210000
 
 15:                                               ; preds = %_ZNSt3__111__sift_downB8ne210000INS_17_ClassicAlgPolicyERNS_6ranges4lessEPeEEvT1_OT0_NS_15iterator_traitsIS6_E15difference_typeES6_.exit.i, %12
   %.013.i = phi i64 [ %14, %12 ], [ %52, %_ZNSt3__111__sift_downB8ne210000INS_17_ClassicAlgPolicyERNS_6ranges4lessEPeEEvT1_OT0_NS_15iterator_traitsIS6_E15difference_typeES6_.exit.i ]
-  %16 = getelementptr inbounds nuw x86_fp80, ptr %0, i64 %.013.i
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %.013.i
   %17 = icmp samesign ult i64 %14, %.013.i
   br i1 %17, label %_ZNSt3__111__sift_downB8ne210000INS_17_ClassicAlgPolicyERNS_6ranges4lessEPeEEvT1_OT0_NS_15iterator_traitsIS6_E15difference_typeES6_.exit.i, label %18
 
 18:                                               ; preds = %15
   %19 = shl nuw nsw i64 %.013.i, 1
   %20 = or disjoint i64 %19, 1
-  %21 = getelementptr inbounds nuw x86_fp80, ptr %0, i64 %20
+  %21 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %20
   %22 = add nuw nsw i64 %19, 2
   %23 = icmp slt i64 %22, %10
   br i1 %23, label %24, label %30
@@ -20419,7 +20419,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__119__partial_sort_implB8ne210000
 36:                                               ; preds = %.preheader.i.i
   %37 = shl nuw nsw i64 %.1.i.i, 1
   %38 = or disjoint i64 %37, 1
-  %39 = getelementptr inbounds nuw x86_fp80, ptr %0, i64 %38
+  %39 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %38
   %40 = add nuw nsw i64 %37, 2
   %41 = icmp slt i64 %40, %10
   br i1 %41, label %42, label %48
@@ -20525,7 +20525,7 @@ _ZNSt3__111__sift_downB8ne210000INS_17_ClassicAlgPolicyERNS_6ranges4lessEPeEEvT1
 79:                                               ; preds = %.preheader.i
   %80 = shl nsw i64 %.1.i, 1
   %81 = or disjoint i64 %80, 1
-  %82 = getelementptr inbounds x86_fp80, ptr %0, i64 %81
+  %82 = getelementptr inbounds [16 x i8], ptr %0, i64 %81
   %83 = add nsw i64 %80, 2
   %84 = icmp slt i64 %83, %10
   br i1 %84, label %85, label %91
@@ -20571,7 +20571,7 @@ _ZNSt3__111__sift_downB8ne210000INS_17_ClassicAlgPolicyERNS_6ranges4lessEPeEEvT1
 99:                                               ; preds = %112, %.lr.ph.i
   %.016.i.i.i = phi ptr [ %0, %.lr.ph.i ], [ %.117.i.i.i, %112 ]
   %.0.i.i.i = phi i64 [ 0, %.lr.ph.i ], [ %.1.i.i.i, %112 ]
-  %100 = getelementptr x86_fp80, ptr %.016.i.i.i, i64 %.0.i.i.i
+  %100 = getelementptr [16 x i8], ptr %.016.i.i.i, i64 %.0.i.i.i
   %101 = getelementptr i8, ptr %100, i64 16
   %102 = shl nsw i64 %.0.i.i.i, 1
   %103 = or disjoint i64 %102, 1
@@ -20620,7 +20620,7 @@ _ZNSt3__117__floyd_sift_downB8ne210000INS_17_ClassicAlgPolicyERNS_6ranges4lessEP
 125:                                              ; preds = %118
   %126 = add nsw i64 %123, -2
   %127 = lshr i64 %126, 1
-  %128 = getelementptr inbounds nuw x86_fp80, ptr %0, i64 %127
+  %128 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %127
   %129 = load x86_fp80, ptr %128, align 16, !tbaa !176
   %130 = load x86_fp80, ptr %.117.i.i.i, align 16, !tbaa !176
   %131 = fcmp olt x86_fp80 %129, %130
@@ -20638,7 +20638,7 @@ _ZNSt3__117__floyd_sift_downB8ne210000INS_17_ClassicAlgPolicyERNS_6ranges4lessEP
 134:                                              ; preds = %.preheader.i.i.i
   %135 = add nsw i64 %.0.i13.i.i, -1
   %136 = lshr i64 %135, 1
-  %137 = getelementptr inbounds nuw x86_fp80, ptr %0, i64 %136
+  %137 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %136
   %138 = load x86_fp80, ptr %137, align 16, !tbaa !176
   %139 = fcmp olt x86_fp80 %138, %130
   br i1 %139, label %.preheader.i.i.i, label %140, !llvm.loop !467

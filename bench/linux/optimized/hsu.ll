@@ -8,20 +8,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_hsu_dma_do_i
 module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_hsu_dma_probe: ; .asciz \22GPL\22 ; .asciz \22\22 ; .balign 8 ; .quad hsu_dma_probe ; .previous"
 module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_hsu_dma_remove: ; .asciz \22GPL\22 ; .asciz \22\22 ; .balign 8 ; .quad hsu_dma_remove ; .previous"
 
-%struct.hsu_dma_chan = type { %struct.virt_dma_chan, ptr, i32, %struct.dma_slave_config, ptr }
-%struct.virt_dma_chan = type { %struct.dma_chan, %struct.tasklet_struct, ptr, %struct.spinlock, %struct.list_head, %struct.list_head, %struct.list_head, %struct.list_head, %struct.list_head, ptr }
-%struct.dma_chan = type { ptr, ptr, i32, i32, i32, ptr, ptr, ptr, %struct.list_head, ptr, i32, i32, ptr, ptr, ptr }
-%struct.tasklet_struct = type { ptr, i64, %struct.atomic_t, i8, %union.anon.2, i64 }
-%struct.atomic_t = type { i32 }
-%union.anon.2 = type { ptr }
-%struct.spinlock = type { %union.anon }
-%union.anon = type { %struct.raw_spinlock }
-%struct.raw_spinlock = type { %struct.qspinlock }
-%struct.qspinlock = type { %union.anon.0 }
-%union.anon.0 = type { %struct.atomic_t }
 %struct.list_head = type { ptr, ptr }
-%struct.dma_slave_config = type { i32, i64, i64, i32, i32, i32, i32, i32, i32, i8, ptr, i64 }
-%struct.hsu_dma_sg = type { i64, i32 }
 
 @__UNIQUE_ID___addressable_hsu_dma_get_status356 = internal global ptr @hsu_dma_get_status, section ".discard.addressable", align 8
 @this_cpu_off = external dso_local global i64, section ".data..percpu..read_mostly", align 8
@@ -50,7 +37,7 @@ define dso_local range(i32 -22, 2) i32 @hsu_dma_get_status(ptr noundef readonly 
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 384
   %11 = load ptr, ptr %10, align 8
   %12 = zext i16 %1 to i64
-  %13 = getelementptr %struct.hsu_dma_chan, ptr %11, i64 %12
+  %13 = getelementptr [352 x i8], ptr %11, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 160
   %15 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %14) #11
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 256
@@ -101,7 +88,7 @@ define dso_local noundef range(i32 0, 2) i32 @hsu_dma_do_irq(ptr noundef readonl
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 384
   %11 = load ptr, ptr %10, align 8
   %12 = zext i16 %1 to i64
-  %13 = getelementptr %struct.hsu_dma_chan, ptr %11, i64 %12
+  %13 = getelementptr [352 x i8], ptr %11, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 72
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %15) #12, !srcloc !6
@@ -275,7 +262,7 @@ define internal fastcc void @hsu_dma_start_channel(ptr noundef readonly captures
   %40 = phi i32 [ 8421376, %34 ], [ %57, %38 ]
   %41 = shl nuw nsw i64 %39, 3
   %42 = load ptr, ptr %36, align 8
-  %43 = getelementptr %struct.hsu_dma_sg, ptr %42, i64 %39
+  %43 = getelementptr [16 x i8], ptr %42, i64 %39
   %44 = load i64, ptr %43, align 8
   %45 = trunc i64 %44 to i32
   %46 = load ptr, ptr %19, align 8
@@ -283,7 +270,7 @@ define internal fastcc void @hsu_dma_start_channel(ptr noundef readonly captures
   %48 = getelementptr i8, ptr %47, i64 32
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %45, ptr elementtype(i32) %48) #11, !srcloc !11
   %49 = load ptr, ptr %36, align 8
-  %.split = getelementptr %struct.hsu_dma_sg, ptr %49, i64 %39
+  %.split = getelementptr [16 x i8], ptr %49, i64 %39
   %50 = getelementptr i8, ptr %.split, i64 8
   %51 = load i32, ptr %50, align 8
   %52 = load ptr, ptr %19, align 8
@@ -369,7 +356,7 @@ define dso_local i32 @hsu_dma_probe(ptr noundef captures(none) %0) #0 align 16 {
 .preheader:                                       ; preds = %27, %.preheader
   %32 = phi i64 [ %43, %.preheader ], [ 0, %27 ]
   %33 = load ptr, ptr %25, align 8
-  %34 = getelementptr %struct.hsu_dma_chan, ptr %33, i64 %32
+  %34 = getelementptr [352 x i8], ptr %33, i64 %32
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 152
   store ptr @hsu_dma_desc_free, ptr %35, align 8
   tail call void @vchan_init(ptr noundef %34, ptr noundef nonnull %9) #11
@@ -618,12 +605,12 @@ define internal noundef ptr @hsu_dma_prep_slave_sg(ptr noundef %0, ptr noundef %
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load i64, ptr %24, align 8
   %26 = load ptr, ptr %14, align 8
-  %27 = getelementptr %struct.hsu_dma_sg, ptr %26, i64 %22
+  %27 = getelementptr [16 x i8], ptr %26, i64 %22
   store i64 %25, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %29 = load i32, ptr %28, align 8
   %30 = load ptr, ptr %14, align 8
-  %.split = getelementptr %struct.hsu_dma_sg, ptr %30, i64 %22
+  %.split = getelementptr [16 x i8], ptr %30, i64 %22
   %31 = getelementptr i8, ptr %.split, i64 8
   store i32 %29, ptr %31, align 8
   %32 = zext i32 %29 to i64
@@ -808,7 +795,7 @@ define internal i32 @hsu_dma_tx_status(ptr noundef %0, i32 noundef %1, ptr nound
   %43 = phi i32 [ %33, %37 ], [ %49, %42 ]
   %44 = phi i32 [ 0, %37 ], [ %48, %42 ]
   %45 = sext i32 %43 to i64
-  %.split = getelementptr %struct.hsu_dma_sg, ptr %39, i64 %45
+  %.split = getelementptr [16 x i8], ptr %39, i64 %45
   %46 = getelementptr i8, ptr %.split, i64 8
   %47 = load i32, ptr %46, align 8
   %48 = add i32 %47, %44
@@ -1125,7 +1112,7 @@ define dso_local noundef i32 @hsu_dma_remove(ptr noundef readonly captures(none)
 9:                                                ; preds = %9, %7
   %10 = phi i64 [ 0, %7 ], [ %13, %9 ]
   %11 = load ptr, ptr %8, align 8
-  %.split = getelementptr %struct.hsu_dma_chan, ptr %11, i64 %10
+  %.split = getelementptr [352 x i8], ptr %11, i64 %10
   %12 = getelementptr i8, ptr %.split, i64 112
   tail call void @tasklet_kill(ptr noundef %12) #11
   %13 = add nuw nsw i64 %10, 1

@@ -2105,7 +2105,7 @@ declare void @lean_free_object(ptr noundef) local_unnamed_addr #1
 define internal fastcc void @lean_ctor_release(ptr noundef captures(none) %0, i32 noundef range(i32 0, 4) %1) unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = zext nneg i32 %1 to i64
-  %5 = getelementptr inbounds nuw ptr, ptr %3, i64 %4
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = ptrtoint ptr %6 to i64
   %8 = trunc i64 %7 to i1
@@ -39008,7 +39008,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lake_InputDir_defaultFacetConfig___sp
 6:                                                ; preds = %.lr.ph, %37
   %.02236 = phi i64 [ %1, %.lr.ph ], [ %40, %37 ]
   %.02435 = phi ptr [ %3, %.lr.ph ], [ %39, %37 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %.02236
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.02236
   %8 = load ptr, ptr %7, align 8, !tbaa !4
   %9 = ptrtoint ptr %8 to i64
   %10 = trunc i64 %9 to i1
@@ -39101,7 +39101,7 @@ define ptr @l_Array_mapMUnsafe_map___at_Lake_InputDir_defaultFacetConfig___spec_
   %.02040 = phi i64 [ %36, %52 ], [ %1, %3 ]
   %.02239 = phi ptr [ %.0.i.i29, %52 ], [ %2, %3 ]
   %4 = getelementptr inbounds nuw i8, ptr %.02239, i64 24
-  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %.02040
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.02040
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = ptrtoint ptr %6 to i64
   %8 = trunc i64 %7 to i1
@@ -39137,7 +39137,7 @@ lean_array_uget.exit:                             ; preds = %.lr.ph, %11, %13, %
 lean_ensure_exclusive_array.exit.i:               ; preds = %16, %lean_array_uget.exit
   %.0.i.i = phi ptr [ %17, %16 ], [ %.02239, %lean_array_uget.exit ]
   %18 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %.02040
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %.02040
   %20 = load ptr, ptr %19, align 8, !tbaa !4
   %21 = ptrtoint ptr %20 to i64
   %22 = trunc i64 %21 to i1
@@ -39191,7 +39191,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_array_uset.exi
 lean_ensure_exclusive_array.exit.i28:             ; preds = %38, %lean_alloc_ctor.exit
   %.0.i.i29 = phi ptr [ %39, %38 ], [ %.0.i.i, %lean_alloc_ctor.exit ]
   %40 = getelementptr inbounds nuw i8, ptr %.0.i.i29, i64 24
-  %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %.02040
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %.02040
   %42 = load ptr, ptr %41, align 8, !tbaa !4
   %43 = ptrtoint ptr %42 to i64
   %44 = trunc i64 %43 to i1

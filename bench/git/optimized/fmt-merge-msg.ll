@@ -24,8 +24,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.decoration = type { ptr, i32, i32, ptr }
 %struct.oidset = type { %struct.kh_oid_set }
 %struct.kh_oid_set = type { i32, i32, i32, i32, ptr, ptr, ptr }
-%struct.merge_parent = type { %struct.object_id, %struct.object_id, i8 }
-%struct.string_list_item = type { ptr, ptr }
 
 @.str = private unnamed_addr constant [10 x i8] c"merge.log\00", align 1
 @.str.1 = private unnamed_addr constant [14 x i8] c"merge.summary\00", align 1
@@ -330,7 +328,7 @@ define dso_local noundef i32 @fmt_merge_msg(ptr noundef readonly captures(none) 
 
 .lr.ph.split.split.i.i.i:                         ; preds = %78, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %78 ], [ 0, %.lr.ph.i.i.i ]
-  %75 = getelementptr inbounds nuw %struct.merge_parent, ptr %.sroa.15.0, i64 %indvars.iv.i.i.i
+  %75 = getelementptr inbounds nuw [76 x i8], ptr %.sroa.15.0, i64 %indvars.iv.i.i.i
   %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %75, ptr noundef nonnull readonly dereferenceable(32) %72, i64 32)
   %.not.i.not.i.i.i = icmp eq i32 %bcmp.i.i.i.i, 0
   br i1 %.not.i.not.i.i.i, label %76, label %78
@@ -373,7 +371,7 @@ find_merge_parent.exit.thread._crit_edge.i.i:     ; preds = %find_merge_parent.e
   %.sroa.0.2 = phi i32 [ %..i.i, %st_mult.exit.i.i ], [ %.sroa.0.0, %find_merge_parent.exit.thread.i.i ]
   %.sroa.15.3 = phi ptr [ %87, %st_mult.exit.i.i ], [ %.sroa.15.0, %find_merge_parent.exit.thread.i.i ]
   %88 = sext i32 %.sroa.5.0 to i64
-  %89 = getelementptr inbounds %struct.merge_parent, ptr %.sroa.15.3, i64 %88
+  %89 = getelementptr inbounds [76 x i8], ptr %.sroa.15.3, i64 %88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %89, ptr noundef nonnull readonly align 4 dereferenceable(32) %72, i64 32, i1 false)
   %90 = getelementptr inbounds nuw i8, ptr %67, i64 36
   %91 = load i32, ptr %90, align 4, !tbaa !28
@@ -430,7 +428,7 @@ add_merge_parent.exit.i:                          ; preds = %76, %find_merge_par
 
 110:                                              ; preds = %115, %.lr.ph65.i.us
   %indvars.iv.i.us = phi i64 [ 0, %.lr.ph65.i.us ], [ %indvars.iv.next.i.us, %115 ]
-  %111 = getelementptr inbounds nuw %struct.merge_parent, ptr %.sroa.15.2, i64 %indvars.iv.i.us
+  %111 = getelementptr inbounds nuw [76 x i8], ptr %.sroa.15.2, i64 %indvars.iv.i.us
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 36
   %bcmp.i.i.us = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %112, ptr noundef nonnull readonly dereferenceable(32) %109, i64 32)
   %.not.i.not.i.us = icmp eq i32 %bcmp.i.i.us, 0
@@ -468,7 +466,7 @@ add_merge_parent.exit.i:                          ; preds = %76, %find_merge_par
 .lr.ph68.i:                                       ; preds = %.lr.ph68.i.preheader, %131
   %indvars.iv72.i = phi i64 [ %indvars.iv.next73.i, %131 ], [ 0, %.lr.ph68.i.preheader ]
   %.04466.i = phi i32 [ %.145.i, %131 ], [ 0, %.lr.ph68.i.preheader ]
-  %121 = getelementptr inbounds nuw %struct.merge_parent, ptr %.sroa.15.2, i64 %indvars.iv72.i
+  %121 = getelementptr inbounds nuw [76 x i8], ptr %.sroa.15.2, i64 %indvars.iv72.i
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 72
   %123 = load i8, ptr %122, align 4, !tbaa !30
   %.not51.i = icmp eq i8 %123, 0
@@ -481,7 +479,7 @@ add_merge_parent.exit.i:                          ; preds = %76, %find_merge_par
 
 126:                                              ; preds = %124
   %127 = sext i32 %.04466.i to i64
-  %128 = getelementptr inbounds %struct.merge_parent, ptr %.sroa.15.2, i64 %127
+  %128 = getelementptr inbounds [76 x i8], ptr %.sroa.15.2, i64 %127
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %128, ptr noundef nonnull align 4 dereferenceable(76) %121, i64 76, i1 false), !tbaa.struct !34
   br label %129
 
@@ -581,7 +579,7 @@ find_merge_parents.exit:                          ; preds = %.lr.ph65.i, %131, %
 
 .lr.ph.split.split.us.i:                          ; preds = %178, %180
   %indvars.iv36.i = phi i64 [ %indvars.iv.next37.i, %180 ], [ 0, %178 ]
-  %179 = getelementptr inbounds nuw %struct.merge_parent, ptr %.sroa.15.2, i64 %indvars.iv36.i
+  %179 = getelementptr inbounds nuw [76 x i8], ptr %.sroa.15.2, i64 %indvars.iv36.i
   %bcmp.i.us.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %179, ptr noundef nonnull readonly dereferenceable(32) %17, i64 32)
   %.not.i.not.us.i = icmp eq i32 %bcmp.i.us.i, 0
   br i1 %.not.i.not.us.i, label %find_merge_parent.exit, label %180
@@ -861,7 +859,7 @@ find_merge_parent.exit.thread:                    ; preds = %180, %178, %168, %2
   %indvars.iv.i57 = phi i64 [ %indvars.iv.next.i63, %351 ], [ 0, %301 ]
   %.03848.i = phi ptr [ @.str.23, %351 ], [ @.str.21, %301 ]
   %303 = load ptr, ptr @srcs, align 8, !tbaa !66
-  %304 = getelementptr inbounds nuw %struct.string_list_item, ptr %303, i64 %indvars.iv.i57
+  %304 = getelementptr inbounds nuw [16 x i8], ptr %303, i64 %indvars.iv.i57
   %305 = getelementptr inbounds nuw i8, ptr %304, i64 8
   %306 = load ptr, ptr %305, align 8, !tbaa !57
   %307 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.03848.i) #13
@@ -875,7 +873,7 @@ find_merge_parent.exit.thread:                    ; preds = %180, %178, %168, %2
 
 310:                                              ; preds = %.lr.ph.i56
   %311 = load ptr, ptr @srcs, align 8, !tbaa !66
-  %312 = getelementptr inbounds nuw %struct.string_list_item, ptr %311, i64 %indvars.iv.i57
+  %312 = getelementptr inbounds nuw [16 x i8], ptr %311, i64 %indvars.iv.i57
   %313 = load ptr, ptr %312, align 8, !tbaa !67
   %314 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %313) #13
   call void @strbuf_add(ptr noundef %1, ptr noundef nonnull %313, i64 noundef %314) #14
@@ -942,7 +940,7 @@ find_merge_parent.exit.thread:                    ; preds = %180, %178, %168, %2
 
 sub_0.i60:                                        ; preds = %336, %333
   %339 = load ptr, ptr @srcs, align 8, !tbaa !66
-  %340 = getelementptr inbounds nuw %struct.string_list_item, ptr %339, i64 %indvars.iv.i57
+  %340 = getelementptr inbounds nuw [16 x i8], ptr %339, i64 %indvars.iv.i57
   %341 = load ptr, ptr %340, align 8, !tbaa !67
   %342 = load i8, ptr %341, align 1
   %343 = zext i8 %342 to i32
@@ -984,7 +982,7 @@ sub_1.i68:                                        ; preds = %sub_0.i60
   %356 = getelementptr inbounds nuw i8, ptr %.08.i50.i, i64 16
   %357 = load ptr, ptr @suppress_dest_patterns, align 8, !tbaa !66
   %358 = load i64, ptr getelementptr inbounds nuw (i8, ptr @suppress_dest_patterns, i64 8), align 8, !tbaa !65
-  %359 = getelementptr inbounds nuw %struct.string_list_item, ptr %357, i64 %358
+  %359 = getelementptr inbounds nuw [16 x i8], ptr %357, i64 %358
   %360 = icmp ult ptr %356, %359
   br i1 %360, label %.lr.ph51.i, label %.loopexit.i66
 
@@ -1059,7 +1057,7 @@ fmt_merge_msg_title.exit:                         ; preds = %strbuf_avail.exit.i
   %.02654.i = phi i32 [ 0, %.lr.ph.i70 ], [ %.1.i75, %446 ]
   %.02753.i = phi i32 [ 0, %.lr.ph.i70 ], [ %.128.i, %446 ]
   %388 = load ptr, ptr @origins, align 8, !tbaa !66
-  %389 = getelementptr inbounds nuw %struct.string_list_item, ptr %388, i64 %indvars.iv.i71
+  %389 = getelementptr inbounds nuw [16 x i8], ptr %388, i64 %indvars.iv.i71
   %390 = getelementptr inbounds nuw i8, ptr %389, i64 8
   %391 = load ptr, ptr %390, align 8, !tbaa !57
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -1140,7 +1138,7 @@ strbuf_addch.exit.i:                              ; preds = %417
   store i8 0, ptr %422, align 1, !tbaa !12
   %423 = load ptr, ptr @origins, align 8, !tbaa !66
   %424 = sext i32 %.02753.i to i64
-  %425 = getelementptr inbounds %struct.string_list_item, ptr %423, i64 %424
+  %425 = getelementptr inbounds [16 x i8], ptr %423, i64 %424
   %426 = load ptr, ptr %425, align 8, !tbaa !67
   %427 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %426) #13
   %428 = load ptr, ptr @comment_line_str, align 8, !tbaa !26
@@ -1181,7 +1179,7 @@ strbuf_addch.exit42.i:                            ; preds = %strbuf_avail.exit.t
   %439 = getelementptr inbounds nuw i8, ptr %437, i64 %438
   store i8 0, ptr %439, align 1, !tbaa !12
   %440 = load ptr, ptr @origins, align 8, !tbaa !66
-  %441 = getelementptr inbounds nuw %struct.string_list_item, ptr %440, i64 %indvars.iv.i71
+  %441 = getelementptr inbounds nuw [16 x i8], ptr %440, i64 %indvars.iv.i71
   %442 = load ptr, ptr %441, align 8, !tbaa !67
   %443 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %442) #13
   %444 = load ptr, ptr @comment_line_str, align 8, !tbaa !26
@@ -1336,7 +1334,7 @@ strbuf_complete_line.exit:                        ; preds = %465, %474, %strbuf_
 499:                                              ; preds = %.lr.ph147, %shortlog.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph147 ], [ %indvars.iv.next, %shortlog.exit ]
   %500 = load ptr, ptr @origins, align 8, !tbaa !66
-  %501 = getelementptr inbounds nuw %struct.string_list_item, ptr %500, i64 %indvars.iv
+  %501 = getelementptr inbounds nuw [16 x i8], ptr %500, i64 %indvars.iv
   %502 = load ptr, ptr %501, align 8, !tbaa !67
   %503 = getelementptr inbounds nuw i8, ptr %501, i64 8
   %504 = load ptr, ptr %503, align 8, !tbaa !57
@@ -1624,7 +1622,7 @@ add_branch_desc.exit.i:                           ; preds = %strbuf_addch.exit.i
 
 610:                                              ; preds = %.lr.ph75.i
   %611 = load ptr, ptr %5, align 8, !tbaa !66
-  %612 = getelementptr inbounds nuw %struct.string_list_item, ptr %611, i64 %indvars.iv.i95
+  %612 = getelementptr inbounds nuw [16 x i8], ptr %611, i64 %indvars.iv.i95
   %613 = load ptr, ptr %612, align 8, !tbaa !67
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %1, ptr noundef nonnull @.str.43, ptr noundef %613) #14
   br label %614
@@ -1800,7 +1798,7 @@ define internal fastcc void @print_joined(ptr noundef %0, ptr noundef %1, ptr no
   %.not = icmp eq i64 %indvars.iv, 0
   %13 = select i1 %.not, ptr @.str.21, ptr @.str.24
   %14 = load ptr, ptr %2, align 8, !tbaa !66
-  %15 = getelementptr inbounds nuw %struct.string_list_item, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8, !tbaa !67
   tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %3, ptr noundef nonnull @.str.32, ptr noundef nonnull %13, ptr noundef %16) #14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1812,7 +1810,7 @@ define internal fastcc void @print_joined(ptr noundef %0, ptr noundef %1, ptr no
 ._crit_edge:                                      ; preds = %.lr.ph, %10
   %.lcssa = phi i64 [ 0, %10 ], [ %18, %.lr.ph ]
   %20 = load ptr, ptr %2, align 8, !tbaa !66
-  %21 = getelementptr inbounds nuw %struct.string_list_item, ptr %20, i64 %.lcssa
+  %21 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %.lcssa
   %22 = load ptr, ptr %21, align 8, !tbaa !67
   tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %3, ptr noundef nonnull @.str.33, ptr noundef %22) #14
   br label %23

@@ -286,7 +286,7 @@ define noundef zeroext i1 @_ZN3url13IsRelativeURLEPKcRKNS_6ParsedEPKtibPbPNS_9Co
 
 .lr.ph.i.i:                                       ; preds = %17
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i85.i, 1
-  %14 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv.next.i.i
+  %14 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv.next.i.i
   %15 = load i16, ptr %14, align 2, !tbaa !18
   %16 = icmp ult i16 %15, 33
   br i1 %16, label %17, label %.critedge.i.i, !llvm.loop !20
@@ -302,7 +302,7 @@ define noundef zeroext i1 @_ZN3url13IsRelativeURLEPKcRKNS_6ParsedEPKtibPbPNS_9Co
 
 .lr.ph14.preheader.i.i:                           ; preds = %.lr.ph.i.preheader.i, %.critedge.i.i
   %.175109.i = phi i32 [ %18, %.critedge.i.i ], [ 0, %.lr.ph.i.preheader.i ]
-  %19 = getelementptr i16, ptr %2, i64 %12
+  %19 = getelementptr [2 x i8], ptr %2, i64 %12
   %20 = getelementptr i8, ptr %19, i64 -2
   %21 = load i16, ptr %20, align 2, !tbaa !18
   %22 = icmp ult i16 %21, 33
@@ -313,7 +313,7 @@ define noundef zeroext i1 @_ZN3url13IsRelativeURLEPKcRKNS_6ParsedEPKtibPbPNS_9Co
   br label %28
 
 .lr.ph14.i.i:                                     ; preds = %28
-  %24 = getelementptr i16, ptr %2, i64 %indvars.iv.next18.i.i
+  %24 = getelementptr [2 x i8], ptr %2, i64 %indvars.iv.next18.i.i
   %25 = getelementptr i8, ptr %24, i64 -2
   %26 = load i16, ptr %25, align 2, !tbaa !18
   %27 = icmp ult i16 %26, 33
@@ -361,7 +361,7 @@ _ZN3url7TrimURLItEEvPKT_PiS4_b.exit.thread.i:     ; preds = %17, %_ZN3url7TrimUR
 
 37:                                               ; preds = %32
   %38 = sext i32 %.276.i to i64
-  %39 = getelementptr inbounds i16, ptr %2, i64 %38
+  %39 = getelementptr inbounds [2 x i8], ptr %2, i64 %38
   %40 = load i16, ptr %39, align 2, !tbaa !18
   %41 = icmp eq i16 %40, 35
   %or.cond3.i = or i1 %4, %41
@@ -395,7 +395,7 @@ _ZN3url7TrimURLItEEvPKT_PiS4_b.exit.thread.i:     ; preds = %17, %_ZN3url7TrimUR
 
 .lr.ph93.i:                                       ; preds = %49, %.lr.ph93.preheader.i
   %indvars.iv.i = phi i64 [ %47, %.lr.ph93.preheader.i ], [ %indvars.iv.next.i, %49 ]
-  %50 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv.i
+  %50 = getelementptr inbounds [2 x i8], ptr %2, i64 %indvars.iv.i
   %51 = load i16, ptr %50, align 2, !tbaa !18
   %52 = call noundef signext i8 @_ZN3url19CanonicalSchemeCharEt(i16 noundef zeroext %51)
   %.not41.i = icmp eq i8 %52, 0
@@ -440,7 +440,7 @@ _ZN3url7TrimURLItEEvPKT_PiS4_b.exit.thread.i:     ; preds = %17, %_ZN3url7TrimUR
   %63 = load i32, ptr %8, align 4, !tbaa !11
   %64 = add nsw i32 %63, %.01215.i.i
   %65 = sext i32 %64 to i64
-  %66 = getelementptr inbounds i16, ptr %2, i64 %65
+  %66 = getelementptr inbounds [2 x i8], ptr %2, i64 %65
   %67 = load i16, ptr %66, align 2, !tbaa !18
   %68 = call noundef signext i8 @_ZN3url19CanonicalSchemeCharEt(i16 noundef zeroext %67)
   %69 = load i32, ptr %1, align 8, !tbaa !11
@@ -475,12 +475,12 @@ _ZN3url12_GLOBAL__N_115AreSchemesEqualItEEbPKcRKNS_9ComponentEPKT_S6_.exit.i: ; 
   %82 = sext i32 %80 to i64
   %83 = sub i32 %.173.i, %80
   %wide.trip.count.i.i = zext i32 %83 to i64
-  %invariant.gep.i.i = getelementptr i16, ptr %2, i64 %82
+  %invariant.gep.i.i = getelementptr [2 x i8], ptr %2, i64 %82
   br label %.lr.ph.i52.i
 
 .lr.ph.i52.i:                                     ; preds = %85, %.lr.ph.preheader.i51.i
   %indvars.iv.i53.i = phi i64 [ 0, %.lr.ph.preheader.i51.i ], [ %indvars.iv.next.i54.i, %85 ]
-  %gep.i.i = getelementptr i16, ptr %invariant.gep.i.i, i64 %indvars.iv.i53.i
+  %gep.i.i = getelementptr [2 x i8], ptr %invariant.gep.i.i, i64 %indvars.iv.i53.i
   %84 = load i16, ptr %gep.i.i, align 2, !tbaa !18
   switch i16 %84, label %.critedge.loopexit.split.loop.exit.i.i [
     i16 92, label %85
@@ -1461,12 +1461,12 @@ _ZN3url12CanonOutputTIcE4GrowEi.exit.thread.i.i:  ; preds = %63
   %83 = load i32, ptr %4, align 4, !tbaa !11
   %84 = sext i32 %83 to i64
   %wide.trip.count.i53.i = zext nneg i32 %46 to i64
-  %invariant.gep.i.i = getelementptr i16, ptr %3, i64 %84
+  %invariant.gep.i.i = getelementptr [2 x i8], ptr %3, i64 %84
   br label %.lr.ph.i54.i
 
 .lr.ph.i54.i:                                     ; preds = %86, %.lr.ph.preheader.i.i
   %indvars.iv.i55.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i56.i, %86 ]
-  %gep.i.i = getelementptr i16, ptr %invariant.gep.i.i, i64 %indvars.iv.i55.i
+  %gep.i.i = getelementptr [2 x i8], ptr %invariant.gep.i.i, i64 %indvars.iv.i55.i
   %85 = load i16, ptr %gep.i.i, align 2, !tbaa !18
   switch i16 %85, label %.critedge.loopexit.split.loop.exit.i.i [
     i16 92, label %86
@@ -1497,7 +1497,7 @@ _ZN3url23CountConsecutiveSlashesItEEiPKT_ii.exit.i: ; preds = %86, %.critedge.lo
   call void @_ZN3url6ParsedC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %14)
   %92 = load i32, ptr %4, align 4, !tbaa !11
   %93 = sext i32 %92 to i64
-  %94 = getelementptr inbounds i16, ptr %3, i64 %93
+  %94 = getelementptr inbounds [2 x i8], ptr %3, i64 %93
   %95 = load i32, ptr %45, align 4, !tbaa !14
   invoke void @_ZN3url12ParseFileURLEPKtiPNS_6ParsedE(ptr noundef %94, i32 noundef %95, ptr noundef nonnull %14)
           to label %96 unwind label %102
@@ -1505,7 +1505,7 @@ _ZN3url23CountConsecutiveSlashesItEEiPKT_ii.exit.i: ; preds = %86, %.critedge.lo
 96:                                               ; preds = %91
   %97 = load i32, ptr %4, align 4, !tbaa !11
   %98 = sext i32 %97 to i64
-  %99 = getelementptr inbounds i16, ptr %3, i64 %98
+  %99 = getelementptr inbounds [2 x i8], ptr %3, i64 %98
   %100 = load i32, ptr %45, align 4, !tbaa !14
   %101 = invoke noundef zeroext i1 @_ZN3url19CanonicalizeFileURLEPKtiRKNS_6ParsedEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS2_(ptr noundef %99, i32 noundef %100, ptr noundef nonnull align 8 dereferenceable(72) %14, ptr noundef %5, ptr noundef %6, ptr noundef nonnull %7)
           to label %_ZN3url12_GLOBAL__N_121DoResolveAbsoluteFileItEEbPKT_RKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPNS_6ParsedE.exit.i unwind label %102
@@ -1710,7 +1710,7 @@ _ZN3url12CanonOutputTIcE6AppendEPKci.exit.i.i:    ; preds = %select.unfold.i.i.i
 184:                                              ; preds = %_ZN3url12CanonOutputTIcE6AppendEPKci.exit.i.i
   %185 = load i32, ptr %9, align 4, !tbaa !11
   %186 = sext i32 %185 to i64
-  %187 = getelementptr inbounds i16, ptr %3, i64 %186
+  %187 = getelementptr inbounds [2 x i8], ptr %3, i64 %186
   %188 = load i16, ptr %187, align 2, !tbaa !18
   switch i16 %188, label %192 [
     i16 92, label %189

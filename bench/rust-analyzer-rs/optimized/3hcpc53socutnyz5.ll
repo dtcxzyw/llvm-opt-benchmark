@@ -1337,7 +1337,7 @@ define hidden void @_ZN4stdx13to_snake_case17h30f59952f9ea95abE(ptr noalias noun
 96:                                               ; preds = %._crit_edge.i, %.thread71
   %97 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %87, %.thread71 ]
   %98 = load ptr, ptr %14, align 8, !alias.scope !177, !noalias !180, !nonnull !12, !noundef !12
-  %99 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %98, i64 %97
+  %99 = getelementptr inbounds [24 x i8], ptr %98, i64 %97
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %99, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
   %100 = load i64, ptr %15, align 8, !alias.scope !177, !noalias !180, !noundef !12
   %101 = add i64 %100, 1
@@ -1408,7 +1408,7 @@ define hidden void @_ZN4stdx13to_snake_case17h30f59952f9ea95abE(ptr noalias noun
 121:                                              ; preds = %._crit_edge.i54, %112
   %122 = phi i64 [ %.pre.i55, %._crit_edge.i54 ], [ %113, %112 ]
   %123 = load ptr, ptr %14, align 8, !alias.scope !182, !noalias !185, !nonnull !12, !noundef !12
-  %124 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %123, i64 %122
+  %124 = getelementptr inbounds [24 x i8], ptr %123, i64 %122
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %124, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
   %125 = load i64, ptr %15, align 8, !alias.scope !182, !noalias !185, !noundef !12
   %126 = add i64 %125, 1
@@ -1751,7 +1751,7 @@ define hidden void @_ZN4stdx13to_snake_case17h34d72628df4af1caE(ptr noalias noun
 96:                                               ; preds = %._crit_edge.i, %.thread71
   %97 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %87, %.thread71 ]
   %98 = load ptr, ptr %14, align 8, !alias.scope !224, !noalias !227, !nonnull !12, !noundef !12
-  %99 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %98, i64 %97
+  %99 = getelementptr inbounds [24 x i8], ptr %98, i64 %97
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %99, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
   %100 = load i64, ptr %15, align 8, !alias.scope !224, !noalias !227, !noundef !12
   %101 = add i64 %100, 1
@@ -1822,7 +1822,7 @@ define hidden void @_ZN4stdx13to_snake_case17h34d72628df4af1caE(ptr noalias noun
 121:                                              ; preds = %._crit_edge.i54, %112
   %122 = phi i64 [ %.pre.i55, %._crit_edge.i54 ], [ %113, %112 ]
   %123 = load ptr, ptr %14, align 8, !alias.scope !229, !noalias !232, !nonnull !12, !noundef !12
-  %124 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %123, i64 %122
+  %124 = getelementptr inbounds [24 x i8], ptr %123, i64 %122
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %124, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
   %125 = load i64, ptr %15, align 8, !alias.scope !229, !noalias !232, !noundef !12
   %126 = add i64 %125, 1

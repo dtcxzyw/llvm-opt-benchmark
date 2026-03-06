@@ -284,13 +284,13 @@ define weak_odr dso_local void @_ZN4pbrt12SquareMatrixILi2EEC2EN4pstd4spanIKfEE(
 
 10:                                               ; preds = %8, %10
   %indvars.iv = phi i64 [ 0, %8 ], [ %indvars.iv.next, %10 ]
-  %11 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %12 = load float, ptr %11, align 4, !tbaa !4
   %13 = lshr i64 %indvars.iv, 1
   %14 = and i64 %13, 2147483647
-  %15 = getelementptr inbounds nuw [2 x float], ptr %0, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %14
   %16 = and i64 %indvars.iv, 1
-  %17 = getelementptr inbounds nuw float, ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %16
   store float %12, ptr %17, align 4, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -363,7 +363,7 @@ define weak_odr dso_local { <2 x float>, <2 x float> } @_ZNK4pbrt12SquareMatrixI
   %4 = phi i1 [ true, %2 ], [ false, %.preheader ]
   %indvars.iv13.sroa.phi = phi ptr [ %3, %2 ], [ %indvars.iv13.sroa.gep16, %.preheader ]
   %indvars.iv13 = phi i64 [ 0, %2 ], [ 1, %.preheader ]
-  %5 = getelementptr inbounds nuw [2 x float], ptr %1, i64 %indvars.iv13
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv13
   %6 = load float, ptr %5, align 4, !tbaa !4
   %7 = load float, ptr %indvars.iv13.sroa.phi, align 4, !tbaa !4
   %8 = fadd float %6, %7
@@ -441,8 +441,8 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK4pbrt12SquareMatrixILi2EEeqERK
 .preheader:                                       ; preds = %2, %12
   %.not21 = phi i1 [ true, %2 ], [ false, %12 ]
   %indvars.iv25 = phi i64 [ 0, %2 ], [ 1, %12 ]
-  %3 = getelementptr inbounds nuw [2 x float], ptr %0, i64 %indvars.iv25
-  %4 = getelementptr inbounds nuw [2 x float], ptr %1, i64 %indvars.iv25
+  %3 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv25
+  %4 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv25
   br label %6
 
 5:                                                ; preds = %6
@@ -451,9 +451,9 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK4pbrt12SquareMatrixILi2EEeqERK
 6:                                                ; preds = %.preheader, %5
   %.not = phi i1 [ true, %.preheader ], [ false, %5 ]
   %indvars.iv = phi i64 [ 0, %.preheader ], [ 1, %5 ]
-  %7 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %8 = load float, ptr %7, align 4, !tbaa !4
-  %9 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   %10 = load float, ptr %9, align 4, !tbaa !4
   %11 = fcmp oeq float %8, %10
   br i1 %11, label %5, label %.loopexit
@@ -472,8 +472,8 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK4pbrt12SquareMatrixILi2EEneERK
 .preheader:                                       ; preds = %2, %13
   %3 = phi i1 [ true, %2 ], [ false, %13 ]
   %indvars.iv26 = phi i64 [ 0, %2 ], [ 1, %13 ]
-  %4 = getelementptr inbounds nuw [2 x float], ptr %0, i64 %indvars.iv26
-  %5 = getelementptr inbounds nuw [2 x float], ptr %1, i64 %indvars.iv26
+  %4 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv26
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv26
   br label %7
 
 6:                                                ; preds = %7
@@ -482,9 +482,9 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK4pbrt12SquareMatrixILi2EEneERK
 7:                                                ; preds = %.preheader, %6
   %.not = phi i1 [ true, %.preheader ], [ false, %6 ]
   %indvars.iv = phi i64 [ 0, %.preheader ], [ 1, %6 ]
-  %8 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   %9 = load float, ptr %8, align 4, !tbaa !4
-  %10 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   %11 = load float, ptr %10, align 4, !tbaa !4
   %12 = fcmp une float %9, %11
   br i1 %12, label %.loopexit, label %6
@@ -503,8 +503,8 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK4pbrt12SquareMatrixILi2EEltERK
 .preheader:                                       ; preds = %2, %12
   %3 = phi i1 [ true, %2 ], [ false, %12 ]
   %indvars.iv34 = phi i64 [ 0, %2 ], [ 1, %12 ]
-  %4 = getelementptr inbounds nuw [2 x float], ptr %0, i64 %indvars.iv34
-  %5 = getelementptr inbounds nuw [2 x float], ptr %1, i64 %indvars.iv34
+  %4 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv34
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv34
   br label %7
 
 6:                                                ; preds = %7
@@ -513,9 +513,9 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK4pbrt12SquareMatrixILi2EEltERK
 7:                                                ; preds = %.preheader, %6
   %.not = phi i1 [ true, %.preheader ], [ false, %6 ]
   %indvars.iv = phi i64 [ 0, %.preheader ], [ 1, %6 ]
-  %8 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   %9 = load float, ptr %8, align 4, !tbaa !4
-  %10 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   %11 = load float, ptr %10, align 4, !tbaa !4
   %or.cond = fcmp ueq float %9, %11
   br i1 %or.cond, label %6, label %.loopexit.loopexit
@@ -539,8 +539,8 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK4pbrt12SquareMatrixILi2EE10IsI
 .preheader:                                       ; preds = %1, %14
   %.not22 = phi i1 [ true, %1 ], [ false, %14 ]
   %indvars.iv25 = phi i64 [ 0, %1 ], [ 1, %14 ]
-  %2 = getelementptr inbounds nuw [2 x float], ptr %0, i64 %indvars.iv25
-  %3 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv25
+  %2 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv25
+  %3 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv25
   br label %4
 
 4:                                                ; preds = %.preheader, %13
@@ -555,7 +555,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK4pbrt12SquareMatrixILi2EE10IsI
   br i1 %8, label %.thread, label %13
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %11 = load float, ptr %10, align 4, !tbaa !4
   %12 = fcmp une float %11, 0.000000e+00
   br i1 %12, label %.thread, label %13
@@ -589,7 +589,7 @@ define weak_odr dso_local void @_ZNK4pbrt12SquareMatrixILi2EE8ToStringB5cxx11Ev(
 .preheader:                                       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i36, %._crit_edge.i.i
   %8 = phi i1 [ true, %._crit_edge.i.i ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i36 ]
   %indvars.iv65 = phi i64 [ 0, %._crit_edge.i.i ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i36 ]
-  %9 = getelementptr inbounds nuw [2 x float], ptr %1, i64 %indvars.iv65
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv65
   br label %17
 
 10:                                               ; preds = %15
@@ -616,7 +616,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i: ; preds
   %18 = phi i1 [ true, %.preheader ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit35 ]
   %indvars.iv = phi i64 [ 0, %.preheader ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit35 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %19 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv
   store ptr %6, ptr %2, align 8, !tbaa !14, !alias.scope !35
   store i64 0, ptr %7, align 8, !tbaa !21, !alias.scope !35
   store i8 0, ptr %6, align 8, !tbaa !23, !alias.scope !35
@@ -815,7 +815,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi2EEixEi(ptr noundef nonnull align 4 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #3 comdat align 2 {
   %3 = sext i32 %1 to i64
-  %4 = getelementptr inbounds [2 x float], ptr %0, i64 %3
+  %4 = getelementptr inbounds [8 x i8], ptr %0, i64 %3
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %4, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 2, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -824,7 +824,7 @@ define weak_odr dso_local { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi2EEixEi(ptr no
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local { ptr, i64 } @_ZN4pbrt12SquareMatrixILi2EEixEi(ptr noundef nonnull align 4 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #3 comdat align 2 {
   %3 = sext i32 %1 to i64
-  %4 = getelementptr inbounds [2 x float], ptr %0, i64 %3
+  %4 = getelementptr inbounds [8 x i8], ptr %0, i64 %3
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %4, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 2, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -881,7 +881,7 @@ define weak_odr dso_local void @_ZN4pbrt7InverseILi2EEEN4pstd8optionalINS_12Squa
   br i1 %9, label %10, label %17
 
 10:                                               ; preds = %.preheader119
-  %11 = getelementptr inbounds nuw float, ptr %indvars.iv155.sroa.phi, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %indvars.iv155.sroa.phi, i64 %indvars.iv
   %12 = load float, ptr %11, align 4, !tbaa !4
   %13 = tail call noundef float @llvm.fabs.f32(float %12)
   %14 = fcmp ult float %13, %.192135
@@ -913,7 +913,7 @@ define weak_odr dso_local void @_ZN4pbrt7InverseILi2EEEN4pstd8optionalINS_12Squa
 
 .thread:                                          ; preds = %.critedge
   %21 = zext i32 %.4 to i64
-  %22 = getelementptr inbounds nuw i32, ptr %4, i64 %21
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !8
   %24 = add nsw i32 %23, 1
   store i32 %24, ptr %22, align 4, !tbaa !8
@@ -922,8 +922,8 @@ define weak_odr dso_local void @_ZN4pbrt7InverseILi2EEEN4pstd8optionalINS_12Squa
 
 .preheader121:                                    ; preds = %.thread
   %25 = zext nneg i32 %.4103 to i64
-  %26 = getelementptr inbounds nuw [2 x float], ptr %5, i64 %25
-  %27 = getelementptr inbounds nuw [2 x float], ptr %5, i64 %21
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %25
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %21
   %28 = load float, ptr %26, align 8, !tbaa !4
   %29 = load float, ptr %27, align 8, !tbaa !4
   store float %29, ptr %26, align 8, !tbaa !4
@@ -939,8 +939,8 @@ define weak_odr dso_local void @_ZN4pbrt7InverseILi2EEEN4pstd8optionalINS_12Squa
 .loopexit122:                                     ; preds = %.preheader121, %.thread
   store i32 %.4103, ptr %indvars.iv170.sroa.phi, align 4, !tbaa !8
   store i32 %.4, ptr %indvars.iv170.sroa.phi196, align 4, !tbaa !8
-  %34 = getelementptr inbounds nuw [2 x float], ptr %5, i64 %21
-  %35 = getelementptr inbounds nuw float, ptr %34, i64 %21
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %21
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %21
   %36 = load float, ptr %35, align 4, !tbaa !4
   %37 = fcmp oeq float %36, 0.000000e+00
   br i1 %37, label %38, label %.preheader120.preheader.critedge
@@ -970,7 +970,7 @@ define weak_odr dso_local void @_ZN4pbrt7InverseILi2EEEN4pstd8optionalINS_12Squa
   br i1 %.not109, label %.loopexit118, label %.loopexit118.loopexit.critedge
 
 .loopexit118.loopexit.critedge:                   ; preds = %.preheader120
-  %47 = getelementptr inbounds nuw float, ptr %indvars.iv167.sroa.phi, i64 %21
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %indvars.iv167.sroa.phi, i64 %21
   %48 = load float, ptr %47, align 4, !tbaa !4
   store float 0.000000e+00, ptr %47, align 4, !tbaa !4
   %49 = load float, ptr %34, align 8, !tbaa !4
@@ -1004,9 +1004,9 @@ define weak_odr dso_local void @_ZN4pbrt7InverseILi2EEEN4pstd8optionalINS_12Squa
 
 .critedge113.preheader:                           ; preds = %.critedge113.preheader.preheader, %.critedge113
   %indvars.iv176 = phi i64 [ %indvars.iv.next177, %.critedge113 ], [ 1, %.critedge113.preheader.preheader ]
-  %62 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv176
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv176
   %63 = load i32, ptr %62, align 4, !tbaa !8
-  %64 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv176
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv176
   %65 = load i32, ptr %64, align 4, !tbaa !8
   %.not110 = icmp eq i32 %63, %65
   br i1 %.not110, label %.critedge113, label %.preheader
@@ -1014,14 +1014,14 @@ define weak_odr dso_local void @_ZN4pbrt7InverseILi2EEEN4pstd8optionalINS_12Squa
 .preheader:                                       ; preds = %.critedge113.preheader
   %66 = sext i32 %63 to i64
   %67 = sext i32 %65 to i64
-  %68 = getelementptr inbounds float, ptr %5, i64 %66
-  %69 = getelementptr inbounds float, ptr %5, i64 %67
+  %68 = getelementptr inbounds [4 x i8], ptr %5, i64 %66
+  %69 = getelementptr inbounds [4 x i8], ptr %5, i64 %67
   %70 = load float, ptr %68, align 4, !tbaa !4
   %71 = load float, ptr %69, align 4, !tbaa !4
   store float %71, ptr %68, align 4, !tbaa !4
   store float %70, ptr %69, align 4, !tbaa !4
-  %72 = getelementptr inbounds float, ptr %59, i64 %66
-  %73 = getelementptr inbounds float, ptr %59, i64 %67
+  %72 = getelementptr inbounds [4 x i8], ptr %59, i64 %66
+  %73 = getelementptr inbounds [4 x i8], ptr %59, i64 %67
   %74 = load float, ptr %72, align 4, !tbaa !4
   %75 = load float, ptr %73, align 4, !tbaa !4
   store float %75, ptr %72, align 4, !tbaa !4
@@ -1055,7 +1055,7 @@ define weak_odr dso_local { <2 x float>, <2 x float> } @_ZN4pbrtmlILi2EEENS_12Sq
   %4 = phi i1 [ true, %2 ], [ false, %7 ]
   %indvars.iv42.sroa.phi = phi ptr [ %3, %2 ], [ %indvars.iv42.sroa.gep45, %7 ]
   %indvars.iv42 = phi i64 [ 0, %2 ], [ 1, %7 ]
-  %5 = getelementptr inbounds nuw [2 x float], ptr %0, i64 %indvars.iv42
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv42
   br label %8
 
 6:                                                ; preds = %7
@@ -1072,8 +1072,8 @@ define weak_odr dso_local { <2 x float>, <2 x float> } @_ZN4pbrtmlILi2EEENS_12Sq
 8:                                                ; preds = %.preheader, %11
   %9 = phi i1 [ true, %.preheader ], [ false, %11 ]
   %indvars.iv39 = phi i64 [ 0, %.preheader ], [ 1, %11 ]
-  %10 = getelementptr inbounds nuw float, ptr %indvars.iv42.sroa.phi, i64 %indvars.iv39
-  %invariant.gep = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv39
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %indvars.iv42.sroa.phi, i64 %indvars.iv39
+  %invariant.gep = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv39
   br label %12
 
 11:                                               ; preds = %12
@@ -1084,9 +1084,9 @@ define weak_odr dso_local { <2 x float>, <2 x float> } @_ZN4pbrtmlILi2EEENS_12Sq
   %13 = phi i1 [ true, %8 ], [ false, %12 ]
   %indvars.iv = phi i64 [ 0, %8 ], [ 1, %12 ]
   %14 = phi float [ 0.000000e+00, %8 ], [ %18, %12 ]
-  %15 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   %16 = load float, ptr %15, align 4, !tbaa !4
-  %gep = getelementptr inbounds nuw [2 x float], ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep, i64 %indvars.iv
   %17 = load float, ptr %gep, align 4, !tbaa !4
   %18 = call noundef float @llvm.fma.f32(float %16, float %17, float %14)
   br i1 %13, label %12, label %11, !llvm.loop !50
@@ -1105,7 +1105,7 @@ define weak_odr dso_local void @_ZN4pbrt12SquareMatrixILi3EEC2Ev(ptr noundef non
 
 .preheader:                                       ; preds = %1, %4
   %indvars.iv12 = phi i64 [ 0, %1 ], [ %indvars.iv.next13, %4 ]
-  %2 = getelementptr inbounds nuw [3 x float], ptr %0, i64 %indvars.iv12
+  %2 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %indvars.iv12
   br label %5
 
 3:                                                ; preds = %4
@@ -1120,7 +1120,7 @@ define weak_odr dso_local void @_ZN4pbrt12SquareMatrixILi3EEC2Ev(ptr noundef non
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %5 ]
   %6 = icmp eq i64 %indvars.iv12, %indvars.iv
   %7 = uitofp i1 %6 to float
-  %8 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   store float %7, ptr %8, align 4, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -1133,8 +1133,8 @@ define weak_odr dso_local void @_ZN4pbrt12SquareMatrixILi3EEC2EPA3_Kf(ptr nounde
 
 .preheader:                                       ; preds = %2, %6
   %indvars.iv14 = phi i64 [ 0, %2 ], [ %indvars.iv.next15, %6 ]
-  %3 = getelementptr inbounds nuw [3 x float], ptr %1, i64 %indvars.iv14
-  %4 = getelementptr inbounds nuw [3 x float], ptr %0, i64 %indvars.iv14
+  %3 = getelementptr inbounds nuw [12 x i8], ptr %1, i64 %indvars.iv14
+  %4 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %indvars.iv14
   br label %7
 
 5:                                                ; preds = %6
@@ -1147,9 +1147,9 @@ define weak_odr dso_local void @_ZN4pbrt12SquareMatrixILi3EEC2EPA3_Kf(ptr nounde
 
 7:                                                ; preds = %.preheader, %7
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %7 ]
-  %8 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %9 = load float, ptr %8, align 4, !tbaa !4
-  %10 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   store float %9, ptr %10, align 4, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -1181,15 +1181,15 @@ define weak_odr dso_local void @_ZN4pbrt12SquareMatrixILi3EEC2EN4pstd4spanIKfEE(
 
 10:                                               ; preds = %8, %10
   %indvars.iv = phi i64 [ 0, %8 ], [ %indvars.iv.next, %10 ]
-  %11 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %12 = load float, ptr %11, align 4, !tbaa !4
   %.lhs.trunc = trunc i64 %indvars.iv to i8
   %13 = udiv i8 %.lhs.trunc, 3
   %14 = zext nneg i8 %13 to i64
-  %15 = getelementptr inbounds nuw [3 x float], ptr %0, i64 %14
+  %15 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %14
   %16 = urem i8 %.lhs.trunc, 3
   %17 = zext nneg i8 %16 to i64
-  %18 = getelementptr inbounds nuw float, ptr %15, i64 %17
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %17
   store float %12, ptr %18, align 4, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 9
@@ -1203,8 +1203,8 @@ define weak_odr dso_local void @_ZNK4pbrt12SquareMatrixILi3EEplERKS1_(ptr dead_o
 
 .preheader:                                       ; preds = %3, %7
   %indvars.iv13 = phi i64 [ 0, %3 ], [ %indvars.iv.next14, %7 ]
-  %4 = getelementptr inbounds nuw [3 x float], ptr %2, i64 %indvars.iv13
-  %5 = getelementptr inbounds nuw [3 x float], ptr %0, i64 %indvars.iv13
+  %4 = getelementptr inbounds nuw [12 x i8], ptr %2, i64 %indvars.iv13
+  %5 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %indvars.iv13
   br label %8
 
 6:                                                ; preds = %7
@@ -1217,9 +1217,9 @@ define weak_odr dso_local void @_ZNK4pbrt12SquareMatrixILi3EEplERKS1_(ptr dead_o
 
 8:                                                ; preds = %.preheader, %8
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %8 ]
-  %9 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   %10 = load float, ptr %9, align 4, !tbaa !4
-  %11 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   %12 = load float, ptr %11, align 4, !tbaa !4
   %13 = fadd float %10, %12
   store float %13, ptr %11, align 4, !tbaa !4
@@ -1235,7 +1235,7 @@ define weak_odr dso_local void @_ZNK4pbrt12SquareMatrixILi3EEmlEf(ptr dead_on_un
 
 .preheader:                                       ; preds = %3, %6
   %indvars.iv11 = phi i64 [ 0, %3 ], [ %indvars.iv.next12, %6 ]
-  %4 = getelementptr inbounds nuw [3 x float], ptr %0, i64 %indvars.iv11
+  %4 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %indvars.iv11
   br label %7
 
 5:                                                ; preds = %6
@@ -1248,7 +1248,7 @@ define weak_odr dso_local void @_ZNK4pbrt12SquareMatrixILi3EEmlEf(ptr dead_on_un
 
 7:                                                ; preds = %.preheader, %7
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %7 ]
-  %8 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   %9 = load float, ptr %8, align 4, !tbaa !4
   %10 = fmul float %2, %9
   store float %10, ptr %8, align 4, !tbaa !4
@@ -1264,7 +1264,7 @@ define weak_odr dso_local void @_ZNK4pbrt12SquareMatrixILi3EEdvEf(ptr dead_on_un
 
 .preheader:                                       ; preds = %3, %6
   %indvars.iv11 = phi i64 [ 0, %3 ], [ %indvars.iv.next12, %6 ]
-  %4 = getelementptr inbounds nuw [3 x float], ptr %0, i64 %indvars.iv11
+  %4 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %indvars.iv11
   br label %7
 
 5:                                                ; preds = %6
@@ -1277,7 +1277,7 @@ define weak_odr dso_local void @_ZNK4pbrt12SquareMatrixILi3EEdvEf(ptr dead_on_un
 
 7:                                                ; preds = %.preheader, %7
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %7 ]
-  %8 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   %9 = load float, ptr %8, align 4, !tbaa !4
   %10 = fdiv float %9, %2
   store float %10, ptr %8, align 4, !tbaa !4
@@ -1292,8 +1292,8 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK4pbrt12SquareMatrixILi3EEeqERK
 
 .preheader:                                       ; preds = %2, %12
   %indvars.iv24 = phi i64 [ 0, %2 ], [ %indvars.iv.next25, %12 ]
-  %3 = getelementptr inbounds nuw [3 x float], ptr %0, i64 %indvars.iv24
-  %4 = getelementptr inbounds nuw [3 x float], ptr %1, i64 %indvars.iv24
+  %3 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %indvars.iv24
+  %4 = getelementptr inbounds nuw [12 x i8], ptr %1, i64 %indvars.iv24
   br label %6
 
 5:                                                ; preds = %6
@@ -1303,9 +1303,9 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK4pbrt12SquareMatrixILi3EEeqERK
 
 6:                                                ; preds = %.preheader, %5
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %5 ]
-  %7 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %8 = load float, ptr %7, align 4, !tbaa !4
-  %9 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   %10 = load float, ptr %9, align 4, !tbaa !4
   %11 = fcmp oeq float %8, %10
   br i1 %11, label %5, label %.loopexit
@@ -1325,8 +1325,8 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK4pbrt12SquareMatrixILi3EEneERK
 
 .preheader:                                       ; preds = %2, %12
   %indvars.iv26 = phi i64 [ 0, %2 ], [ %indvars.iv.next27, %12 ]
-  %3 = getelementptr inbounds nuw [3 x float], ptr %0, i64 %indvars.iv26
-  %4 = getelementptr inbounds nuw [3 x float], ptr %1, i64 %indvars.iv26
+  %3 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %indvars.iv26
+  %4 = getelementptr inbounds nuw [12 x i8], ptr %1, i64 %indvars.iv26
   br label %6
 
 5:                                                ; preds = %6
@@ -1336,9 +1336,9 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK4pbrt12SquareMatrixILi3EEneERK
 
 6:                                                ; preds = %.preheader, %5
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %5 ]
-  %7 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %8 = load float, ptr %7, align 4, !tbaa !4
-  %9 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   %10 = load float, ptr %9, align 4, !tbaa !4
   %11 = fcmp une float %8, %10
   br i1 %11, label %.loopexit, label %5
@@ -1358,8 +1358,8 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK4pbrt12SquareMatrixILi3EEltERK
 
 .preheader:                                       ; preds = %2, %11
   %indvars.iv34 = phi i64 [ 0, %2 ], [ %indvars.iv.next35, %11 ]
-  %3 = getelementptr inbounds nuw [3 x float], ptr %0, i64 %indvars.iv34
-  %4 = getelementptr inbounds nuw [3 x float], ptr %1, i64 %indvars.iv34
+  %3 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %indvars.iv34
+  %4 = getelementptr inbounds nuw [12 x i8], ptr %1, i64 %indvars.iv34
   br label %6
 
 5:                                                ; preds = %6
@@ -1369,9 +1369,9 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK4pbrt12SquareMatrixILi3EEltERK
 
 6:                                                ; preds = %.preheader, %5
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %5 ]
-  %7 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %8 = load float, ptr %7, align 4, !tbaa !4
-  %9 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   %10 = load float, ptr %9, align 4, !tbaa !4
   %or.cond = fcmp ueq float %8, %10
   br i1 %or.cond, label %5, label %.loopexit.loopexit
@@ -1396,8 +1396,8 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK4pbrt12SquareMatrixILi3EE10IsI
 
 .preheader:                                       ; preds = %1, %14
   %indvars.iv24 = phi i64 [ 0, %1 ], [ %indvars.iv.next25, %14 ]
-  %2 = getelementptr inbounds nuw [3 x float], ptr %0, i64 %indvars.iv24
-  %3 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv24
+  %2 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %indvars.iv24
+  %3 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv24
   br label %4
 
 4:                                                ; preds = %.preheader, %13
@@ -1411,7 +1411,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK4pbrt12SquareMatrixILi3EE10IsI
   br i1 %8, label %.thread, label %13
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %11 = load float, ptr %10, align 4, !tbaa !4
   %12 = fcmp une float %11, 0.000000e+00
   br i1 %12, label %.thread, label %13
@@ -1448,7 +1448,7 @@ define weak_odr dso_local void @_ZNK4pbrt12SquareMatrixILi3EE8ToStringB5cxx11Ev(
 
 .preheader:                                       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit40, %._crit_edge.i.i
   %indvars.iv66 = phi i64 [ 0, %._crit_edge.i.i ], [ %indvars.iv.next67, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit40 ]
-  %8 = getelementptr inbounds nuw [3 x float], ptr %1, i64 %indvars.iv66
+  %8 = getelementptr inbounds nuw [12 x i8], ptr %1, i64 %indvars.iv66
   br label %16
 
 9:                                                ; preds = %14
@@ -1475,7 +1475,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i: ; preds
 16:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit36, %.preheader
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit36 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %17 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   store ptr %6, ptr %2, align 8, !tbaa !14, !alias.scope !71
   store i64 0, ptr %7, align 8, !tbaa !21, !alias.scope !71
   store i8 0, ptr %6, align 8, !tbaa !23, !alias.scope !71
@@ -1678,7 +1678,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43: ; preds = %.lo
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi3EEixEi(ptr noundef nonnull align 4 dereferenceable(36) %0, i32 noundef %1) local_unnamed_addr #3 comdat align 2 {
   %3 = sext i32 %1 to i64
-  %4 = getelementptr inbounds [3 x float], ptr %0, i64 %3
+  %4 = getelementptr inbounds [12 x i8], ptr %0, i64 %3
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %4, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 3, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -1687,7 +1687,7 @@ define weak_odr dso_local { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi3EEixEi(ptr no
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local { ptr, i64 } @_ZN4pbrt12SquareMatrixILi3EEixEi(ptr noundef nonnull align 4 dereferenceable(36) %0, i32 noundef %1) local_unnamed_addr #3 comdat align 2 {
   %3 = sext i32 %1 to i64
-  %4 = getelementptr inbounds [3 x float], ptr %0, i64 %3
+  %4 = getelementptr inbounds [12 x i8], ptr %0, i64 %3
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %4, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 3, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -1706,7 +1706,7 @@ define weak_odr dso_local void @_ZN4pbrt12SquareMatrixILi4EEC2Ev(ptr noundef non
 
 .preheader:                                       ; preds = %1, %4
   %indvars.iv12 = phi i64 [ 0, %1 ], [ %indvars.iv.next13, %4 ]
-  %2 = getelementptr inbounds nuw [4 x float], ptr %0, i64 %indvars.iv12
+  %2 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %indvars.iv12
   br label %5
 
 3:                                                ; preds = %4
@@ -1721,7 +1721,7 @@ define weak_odr dso_local void @_ZN4pbrt12SquareMatrixILi4EEC2Ev(ptr noundef non
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %5 ]
   %6 = icmp eq i64 %indvars.iv12, %indvars.iv
   %7 = uitofp i1 %6 to float
-  %8 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   store float %7, ptr %8, align 4, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -1734,8 +1734,8 @@ define weak_odr dso_local void @_ZN4pbrt12SquareMatrixILi4EEC2EPA4_Kf(ptr nounde
 
 .preheader:                                       ; preds = %2, %6
   %indvars.iv14 = phi i64 [ 0, %2 ], [ %indvars.iv.next15, %6 ]
-  %3 = getelementptr inbounds nuw [4 x float], ptr %1, i64 %indvars.iv14
-  %4 = getelementptr inbounds nuw [4 x float], ptr %0, i64 %indvars.iv14
+  %3 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %indvars.iv14
+  %4 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %indvars.iv14
   br label %7
 
 5:                                                ; preds = %6
@@ -1748,9 +1748,9 @@ define weak_odr dso_local void @_ZN4pbrt12SquareMatrixILi4EEC2EPA4_Kf(ptr nounde
 
 7:                                                ; preds = %.preheader, %7
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %7 ]
-  %8 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %9 = load float, ptr %8, align 4, !tbaa !4
-  %10 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   store float %9, ptr %10, align 4, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -1782,13 +1782,13 @@ define weak_odr dso_local void @_ZN4pbrt12SquareMatrixILi4EEC2EN4pstd4spanIKfEE(
 
 10:                                               ; preds = %8, %10
   %indvars.iv = phi i64 [ 0, %8 ], [ %indvars.iv.next, %10 ]
-  %11 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %12 = load float, ptr %11, align 4, !tbaa !4
   %13 = lshr i64 %indvars.iv, 2
   %14 = and i64 %13, 1073741823
-  %15 = getelementptr inbounds nuw [4 x float], ptr %0, i64 %14
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %14
   %16 = and i64 %indvars.iv, 3
-  %17 = getelementptr inbounds nuw float, ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %16
   store float %12, ptr %17, align 4, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
@@ -1802,8 +1802,8 @@ define weak_odr dso_local void @_ZNK4pbrt12SquareMatrixILi4EEplERKS1_(ptr dead_o
 
 .preheader:                                       ; preds = %3, %7
   %indvars.iv13 = phi i64 [ 0, %3 ], [ %indvars.iv.next14, %7 ]
-  %4 = getelementptr inbounds nuw [4 x float], ptr %2, i64 %indvars.iv13
-  %5 = getelementptr inbounds nuw [4 x float], ptr %0, i64 %indvars.iv13
+  %4 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %indvars.iv13
+  %5 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %indvars.iv13
   br label %8
 
 6:                                                ; preds = %7
@@ -1816,9 +1816,9 @@ define weak_odr dso_local void @_ZNK4pbrt12SquareMatrixILi4EEplERKS1_(ptr dead_o
 
 8:                                                ; preds = %.preheader, %8
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %8 ]
-  %9 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   %10 = load float, ptr %9, align 4, !tbaa !4
-  %11 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   %12 = load float, ptr %11, align 4, !tbaa !4
   %13 = fadd float %10, %12
   store float %13, ptr %11, align 4, !tbaa !4
@@ -1834,7 +1834,7 @@ define weak_odr dso_local void @_ZNK4pbrt12SquareMatrixILi4EEmlEf(ptr dead_on_un
 
 .preheader:                                       ; preds = %3, %6
   %indvars.iv11 = phi i64 [ 0, %3 ], [ %indvars.iv.next12, %6 ]
-  %4 = getelementptr inbounds nuw [4 x float], ptr %0, i64 %indvars.iv11
+  %4 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %indvars.iv11
   br label %7
 
 5:                                                ; preds = %6
@@ -1847,7 +1847,7 @@ define weak_odr dso_local void @_ZNK4pbrt12SquareMatrixILi4EEmlEf(ptr dead_on_un
 
 7:                                                ; preds = %.preheader, %7
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %7 ]
-  %8 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   %9 = load float, ptr %8, align 4, !tbaa !4
   %10 = fmul float %2, %9
   store float %10, ptr %8, align 4, !tbaa !4
@@ -1863,7 +1863,7 @@ define weak_odr dso_local void @_ZNK4pbrt12SquareMatrixILi4EEdvEf(ptr dead_on_un
 
 .preheader:                                       ; preds = %3, %6
   %indvars.iv11 = phi i64 [ 0, %3 ], [ %indvars.iv.next12, %6 ]
-  %4 = getelementptr inbounds nuw [4 x float], ptr %0, i64 %indvars.iv11
+  %4 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %indvars.iv11
   br label %7
 
 5:                                                ; preds = %6
@@ -1876,7 +1876,7 @@ define weak_odr dso_local void @_ZNK4pbrt12SquareMatrixILi4EEdvEf(ptr dead_on_un
 
 7:                                                ; preds = %.preheader, %7
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %7 ]
-  %8 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   %9 = load float, ptr %8, align 4, !tbaa !4
   %10 = fdiv float %9, %2
   store float %10, ptr %8, align 4, !tbaa !4
@@ -1891,8 +1891,8 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK4pbrt12SquareMatrixILi4EEeqERK
 
 .preheader:                                       ; preds = %2, %12
   %indvars.iv24 = phi i64 [ 0, %2 ], [ %indvars.iv.next25, %12 ]
-  %3 = getelementptr inbounds nuw [4 x float], ptr %0, i64 %indvars.iv24
-  %4 = getelementptr inbounds nuw [4 x float], ptr %1, i64 %indvars.iv24
+  %3 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %indvars.iv24
+  %4 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %indvars.iv24
   br label %6
 
 5:                                                ; preds = %6
@@ -1902,9 +1902,9 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK4pbrt12SquareMatrixILi4EEeqERK
 
 6:                                                ; preds = %.preheader, %5
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %5 ]
-  %7 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %8 = load float, ptr %7, align 4, !tbaa !4
-  %9 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   %10 = load float, ptr %9, align 4, !tbaa !4
   %11 = fcmp oeq float %8, %10
   br i1 %11, label %5, label %.loopexit
@@ -1924,8 +1924,8 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK4pbrt12SquareMatrixILi4EEneERK
 
 .preheader:                                       ; preds = %2, %12
   %indvars.iv26 = phi i64 [ 0, %2 ], [ %indvars.iv.next27, %12 ]
-  %3 = getelementptr inbounds nuw [4 x float], ptr %0, i64 %indvars.iv26
-  %4 = getelementptr inbounds nuw [4 x float], ptr %1, i64 %indvars.iv26
+  %3 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %indvars.iv26
+  %4 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %indvars.iv26
   br label %6
 
 5:                                                ; preds = %6
@@ -1935,9 +1935,9 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK4pbrt12SquareMatrixILi4EEneERK
 
 6:                                                ; preds = %.preheader, %5
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %5 ]
-  %7 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %8 = load float, ptr %7, align 4, !tbaa !4
-  %9 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   %10 = load float, ptr %9, align 4, !tbaa !4
   %11 = fcmp une float %8, %10
   br i1 %11, label %.loopexit, label %5
@@ -1957,8 +1957,8 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK4pbrt12SquareMatrixILi4EEltERK
 
 .preheader:                                       ; preds = %2, %11
   %indvars.iv34 = phi i64 [ 0, %2 ], [ %indvars.iv.next35, %11 ]
-  %3 = getelementptr inbounds nuw [4 x float], ptr %0, i64 %indvars.iv34
-  %4 = getelementptr inbounds nuw [4 x float], ptr %1, i64 %indvars.iv34
+  %3 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %indvars.iv34
+  %4 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %indvars.iv34
   br label %6
 
 5:                                                ; preds = %6
@@ -1968,9 +1968,9 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK4pbrt12SquareMatrixILi4EEltERK
 
 6:                                                ; preds = %.preheader, %5
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %5 ]
-  %7 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %8 = load float, ptr %7, align 4, !tbaa !4
-  %9 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   %10 = load float, ptr %9, align 4, !tbaa !4
   %or.cond = fcmp ueq float %8, %10
   br i1 %or.cond, label %5, label %.loopexit.loopexit
@@ -1995,8 +1995,8 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK4pbrt12SquareMatrixILi4EE10IsI
 
 .preheader:                                       ; preds = %1, %14
   %indvars.iv24 = phi i64 [ 0, %1 ], [ %indvars.iv.next25, %14 ]
-  %2 = getelementptr inbounds nuw [4 x float], ptr %0, i64 %indvars.iv24
-  %3 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv24
+  %2 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %indvars.iv24
+  %3 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv24
   br label %4
 
 4:                                                ; preds = %.preheader, %13
@@ -2010,7 +2010,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK4pbrt12SquareMatrixILi4EE10IsI
   br i1 %8, label %.thread, label %13
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %11 = load float, ptr %10, align 4, !tbaa !4
   %12 = fcmp une float %11, 0.000000e+00
   br i1 %12, label %.thread, label %13
@@ -2047,7 +2047,7 @@ define weak_odr dso_local void @_ZNK4pbrt12SquareMatrixILi4EE8ToStringB5cxx11Ev(
 
 .preheader:                                       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit40, %._crit_edge.i.i
   %indvars.iv66 = phi i64 [ 0, %._crit_edge.i.i ], [ %indvars.iv.next67, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit40 ]
-  %8 = getelementptr inbounds nuw [4 x float], ptr %1, i64 %indvars.iv66
+  %8 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %indvars.iv66
   br label %16
 
 9:                                                ; preds = %14
@@ -2074,7 +2074,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i: ; preds
 16:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit36, %.preheader
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit36 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %17 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   store ptr %6, ptr %2, align 8, !tbaa !14, !alias.scope !94
   store i64 0, ptr %7, align 8, !tbaa !21, !alias.scope !94
   store i8 0, ptr %6, align 8, !tbaa !23, !alias.scope !94
@@ -2277,7 +2277,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43: ; preds = %.lo
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %0, i32 noundef %1) local_unnamed_addr #3 comdat align 2 {
   %3 = sext i32 %1 to i64
-  %4 = getelementptr inbounds [4 x float], ptr %0, i64 %3
+  %4 = getelementptr inbounds [16 x i8], ptr %0, i64 %3
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %4, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 4, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -2286,7 +2286,7 @@ define weak_odr dso_local { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr no
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local { ptr, i64 } @_ZN4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %0, i32 noundef %1) local_unnamed_addr #3 comdat align 2 {
   %3 = sext i32 %1 to i64
-  %4 = getelementptr inbounds [4 x float], ptr %0, i64 %3
+  %4 = getelementptr inbounds [16 x i8], ptr %0, i64 %3
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %4, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 4, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -2433,7 +2433,7 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i: ; preds = %17
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i: ; preds = %32, %.noexc19
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 4
   tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.056, i64 noundef %20) #28
-  %34 = getelementptr inbounds nuw i32, ptr %29, i64 %27
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %27
   br label %"_ZZN4pbrt9NextPrimeEiENK3$_0clEi.exit"
 
 "_ZZN4pbrt9NextPrimeEiENK3$_0clEi.exit":          ; preds = %11, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i, %15
@@ -2544,7 +2544,7 @@ define dso_local noundef zeroext i1 @_ZN4pbrt17CatmullRomWeightsEN4pstd4spanIKfE
   br i1 %13, label %85, label %14
 
 14:                                               ; preds = %11
-  %15 = getelementptr float, ptr %0, i64 %1
+  %15 = getelementptr [4 x i8], ptr %0, i64 %1
   %16 = getelementptr i8, ptr %15, i64 -4
   %17 = load float, ptr %16, align 4, !tbaa !4
   %18 = fcmp ugt float %2, %17
@@ -2617,7 +2617,7 @@ define dso_local noundef zeroext i1 @_ZN4pbrt17CatmullRomWeightsEN4pstd4spanIKfE
 59:                                               ; preds = %"_ZN4pbrt12FindIntervalIZNS_17CatmullRomWeightsEN4pstd4spanIKfEEfPiNS2_IfEEE3$_0EEmmRKT_.exit"
   %60 = fmul float %44, %58
   %61 = zext nneg i32 %36 to i64
-  %62 = getelementptr inbounds nuw float, ptr %0, i64 %61
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %61
   %63 = load float, ptr %62, align 4, !tbaa !4
   %64 = fsub float %42, %63
   %65 = fdiv float %60, %64
@@ -2644,7 +2644,7 @@ define dso_local noundef zeroext i1 @_ZN4pbrt17CatmullRomWeightsEN4pstd4spanIKfE
 
 74:                                               ; preds = %69
   %75 = fmul float %44, %73
-  %76 = getelementptr inbounds nuw float, ptr %0, i64 %71
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %71
   %77 = load float, ptr %76, align 4, !tbaa !4
   %78 = fsub float %77, %39
   %79 = fdiv float %75, %78
@@ -2748,7 +2748,7 @@ define dso_local noundef float @_ZN4pbrt10CatmullRomEN4pstd4spanIKfEES3_f(ptr re
   br i1 %12, label %95, label %13
 
 13:                                               ; preds = %10
-  %14 = getelementptr float, ptr %0, i64 %1
+  %14 = getelementptr [4 x i8], ptr %0, i64 %1
   %15 = getelementptr i8, ptr %14, i64 -4
   %16 = load float, ptr %15, align 4, !tbaa !4
   %17 = fcmp ugt float %4, %16
@@ -2790,15 +2790,15 @@ define dso_local noundef float @_ZN4pbrt10CatmullRomEN4pstd4spanIKfEES3_f(ptr re
   %34 = trunc i64 %33 to i32
   %sext = shl i64 %33, 32
   %35 = ashr exact i64 %sext, 32
-  %36 = getelementptr inbounds nuw float, ptr %0, i64 %35
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %35
   %37 = load float, ptr %36, align 4, !tbaa !4
   %sext46 = add i64 %sext, 4294967296
   %38 = ashr exact i64 %sext46, 32
-  %39 = getelementptr inbounds nuw float, ptr %0, i64 %38
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %38
   %40 = load float, ptr %39, align 4, !tbaa !4
-  %41 = getelementptr inbounds nuw float, ptr %2, i64 %35
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %35
   %42 = load float, ptr %41, align 4, !tbaa !4
-  %43 = getelementptr inbounds nuw float, ptr %2, i64 %38
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %38
   %44 = load float, ptr %43, align 4, !tbaa !4
   %45 = fsub float %40, %37
   %46 = icmp sgt i32 %34, 0
@@ -2807,11 +2807,11 @@ define dso_local noundef float @_ZN4pbrt10CatmullRomEN4pstd4spanIKfEES3_f(ptr re
 47:                                               ; preds = %"_ZN4pbrt12FindIntervalIZNS_10CatmullRomEN4pstd4spanIKfEES4_fE3$_0EEmmRKT_.exit"
   %48 = add nuw i64 %33, 4294967295
   %49 = and i64 %48, 4294967295
-  %50 = getelementptr inbounds nuw float, ptr %2, i64 %49
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %49
   %51 = load float, ptr %50, align 4, !tbaa !4
   %52 = fsub float %44, %51
   %53 = fmul float %45, %52
-  %54 = getelementptr inbounds nuw float, ptr %0, i64 %49
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %49
   %55 = load float, ptr %54, align 4, !tbaa !4
   %56 = fsub float %40, %55
   %57 = fdiv float %53, %56
@@ -2829,11 +2829,11 @@ define dso_local noundef float @_ZN4pbrt10CatmullRomEN4pstd4spanIKfEES3_f(ptr re
   br i1 %62, label %63, label %72
 
 63:                                               ; preds = %60
-  %64 = getelementptr inbounds nuw float, ptr %2, i64 %61
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %61
   %65 = load float, ptr %64, align 4, !tbaa !4
   %66 = fsub float %65, %42
   %67 = fmul float %45, %66
-  %68 = getelementptr inbounds nuw float, ptr %0, i64 %61
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %61
   %69 = load float, ptr %68, align 4, !tbaa !4
   %70 = fsub float %69, %37
   %71 = fdiv float %67, %70
@@ -2938,14 +2938,14 @@ define dso_local noundef float @_ZN4pbrt16InvertCatmullRomEN4pstd4spanIKfEES3_f(
   br label %151
 
 10:                                               ; preds = %5
-  %11 = getelementptr float, ptr %2, i64 %3
+  %11 = getelementptr [4 x i8], ptr %2, i64 %3
   %12 = getelementptr i8, ptr %11, i64 -4
   %13 = load float, ptr %12, align 4, !tbaa !4
   %14 = fcmp olt float %4, %13
   br i1 %14, label %19, label %15
 
 15:                                               ; preds = %10
-  %16 = getelementptr float, ptr %0, i64 %1
+  %16 = getelementptr [4 x i8], ptr %0, i64 %1
   %17 = getelementptr i8, ptr %16, i64 -4
   %18 = load float, ptr %17, align 4, !tbaa !4
   br label %151
@@ -2986,15 +2986,15 @@ define dso_local noundef float @_ZN4pbrt16InvertCatmullRomEN4pstd4spanIKfEES3_f(
   %35 = trunc i64 %34 to i32
   %sext = shl i64 %34, 32
   %36 = ashr exact i64 %sext, 32
-  %37 = getelementptr inbounds nuw float, ptr %0, i64 %36
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %36
   %38 = load float, ptr %37, align 4, !tbaa !4
   %sext21 = add i64 %sext, 4294967296
   %39 = ashr exact i64 %sext21, 32
-  %40 = getelementptr inbounds nuw float, ptr %0, i64 %39
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %39
   %41 = load float, ptr %40, align 4, !tbaa !4
-  %42 = getelementptr inbounds nuw float, ptr %2, i64 %36
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %36
   %43 = load float, ptr %42, align 4, !tbaa !4
-  %44 = getelementptr inbounds nuw float, ptr %2, i64 %39
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %39
   %45 = load float, ptr %44, align 4, !tbaa !4
   %46 = fsub float %41, %38
   %47 = icmp sgt i32 %35, 0
@@ -3003,11 +3003,11 @@ define dso_local noundef float @_ZN4pbrt16InvertCatmullRomEN4pstd4spanIKfEES3_f(
 48:                                               ; preds = %"_ZN4pbrt12FindIntervalIZNS_16InvertCatmullRomEN4pstd4spanIKfEES4_fE3$_0EEmmRKT_.exit"
   %49 = add nuw i64 %34, 4294967295
   %50 = and i64 %49, 4294967295
-  %51 = getelementptr inbounds nuw float, ptr %2, i64 %50
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %50
   %52 = load float, ptr %51, align 4, !tbaa !4
   %53 = fsub float %45, %52
   %54 = fmul float %46, %53
-  %55 = getelementptr inbounds nuw float, ptr %0, i64 %50
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %50
   %56 = load float, ptr %55, align 4, !tbaa !4
   %57 = fsub float %41, %56
   %58 = fdiv float %54, %57
@@ -3025,11 +3025,11 @@ define dso_local noundef float @_ZN4pbrt16InvertCatmullRomEN4pstd4spanIKfEES3_f(
   br i1 %64, label %65, label %74
 
 65:                                               ; preds = %61
-  %66 = getelementptr inbounds nuw float, ptr %2, i64 %63
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %63
   %67 = load float, ptr %66, align 4, !tbaa !4
   %68 = fsub float %67, %43
   %69 = fmul float %46, %68
-  %70 = getelementptr inbounds nuw float, ptr %0, i64 %63
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %63
   %71 = load float, ptr %70, align 4, !tbaa !4
   %72 = fsub float %71, %38
   %73 = fdiv float %69, %72
@@ -3171,14 +3171,14 @@ define dso_local noundef float @_ZN4pbrt19IntegrateCatmullRomEN4pstd4spanIKfEES3
 .lr.ph:                                           ; preds = %11, %49
   %indvars.iv = phi i64 [ %indvars.iv.next, %49 ], [ 0, %11 ]
   %.048 = phi float [ %57, %49 ], [ 0.000000e+00, %11 ]
-  %13 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %14 = load float, ptr %13, align 4, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %15 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv.next
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv.next
   %16 = load float, ptr %15, align 4, !tbaa !4
-  %17 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %18 = load float, ptr %17, align 4, !tbaa !4
-  %19 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv.next
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv.next
   %20 = load float, ptr %19, align 4, !tbaa !4
   %21 = fsub float %16, %14
   %.not = icmp eq i64 %indvars.iv, 0
@@ -3186,11 +3186,11 @@ define dso_local noundef float @_ZN4pbrt19IntegrateCatmullRomEN4pstd4spanIKfEES3
 
 22:                                               ; preds = %.lr.ph
   %23 = add nsw i64 %indvars.iv, -1
-  %24 = getelementptr inbounds nuw float, ptr %2, i64 %23
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %23
   %25 = load float, ptr %24, align 4, !tbaa !4
   %26 = fsub float %20, %25
   %27 = fmul float %21, %26
-  %28 = getelementptr inbounds nuw float, ptr %0, i64 %23
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %23
   %29 = load float, ptr %28, align 4, !tbaa !4
   %30 = fsub float %16, %29
   %31 = fdiv float %27, %30
@@ -3207,11 +3207,11 @@ define dso_local noundef float @_ZN4pbrt19IntegrateCatmullRomEN4pstd4spanIKfEES3
   br i1 %37, label %38, label %47
 
 38:                                               ; preds = %34
-  %39 = getelementptr inbounds nuw float, ptr %2, i64 %36
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %36
   %40 = load float, ptr %39, align 4, !tbaa !4
   %41 = fsub float %40, %18
   %42 = fmul float %21, %41
-  %43 = getelementptr inbounds nuw float, ptr %0, i64 %36
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %36
   %44 = load float, ptr %43, align 4, !tbaa !4
   %45 = fsub float %44, %14
   %46 = fdiv float %42, %45
@@ -3230,7 +3230,7 @@ define dso_local noundef float @_ZN4pbrt19IntegrateCatmullRomEN4pstd4spanIKfEES3
   %55 = fadd float %52, %54
   %56 = fmul float %21, %55
   %57 = fadd float %.048, %56
-  %58 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv.next
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.next
   store float %57, ptr %58, align 4, !tbaa !4
   %exitcond.not = icmp eq i64 %indvars.iv.next, %12
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !114

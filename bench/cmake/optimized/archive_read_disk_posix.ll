@@ -5,11 +5,9 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.archive_vtable = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.archive_string = type { ptr, i64, i64 }
-%struct.filesystem = type { i64, i32, i32, i32, i64, i64, i64, i64, ptr, ptr, i64 }
 %struct.statfs = type { i64, i64, i64, i64, i64, i64, i64, %struct.__fsid_t, i64, i64, i64, [4 x i64] }
 %struct.__fsid_t = type { [2 x i32] }
 %struct.statvfs = type { i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, [6 x i32] }
-%struct.entry_sparse = type { i64, i64 }
 %struct.timespec = type { i64, i64 }
 %struct.timeval = type { i64, i64 }
 
@@ -1173,7 +1171,7 @@ define internal range(i32 -30, 1) i32 @_archive_read_free(ptr noundef %0) #0 {
 22:                                               ; preds = %22, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %22 ]
   %23 = load ptr, ptr %21, align 8, !tbaa !107
-  %24 = getelementptr inbounds nuw %struct.filesystem, ptr %23, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw [80 x i8], ptr %23, i64 %indvars.iv.i
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 56
   %26 = load ptr, ptr %25, align 8, !tbaa !108
   tail call void @free(ptr noundef %26) #17
@@ -2066,7 +2064,7 @@ tree_target_is_same_as_parent.exit.thread.i:      ; preds = %385, %tree_current_
 
 418:                                              ; preds = %425, %.lr.ph.i223.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i223.i ], [ %indvars.iv.next.i.i, %425 ]
-  %419 = getelementptr inbounds nuw %struct.filesystem, ptr %417, i64 %indvars.iv.i.i
+  %419 = getelementptr inbounds nuw [80 x i8], ptr %417, i64 %indvars.iv.i.i
   %420 = load i64, ptr %419, align 8, !tbaa !123
   %421 = icmp eq i64 %420, %405
   br i1 %421, label %422, label %425
@@ -2122,7 +2120,7 @@ update_current_filesystem.exit.thread243.i:       ; preds = %429
   %440 = getelementptr inbounds nuw i8, ptr %406, i64 508
   store i32 %414, ptr %440, align 4, !tbaa !58
   %441 = sext i32 %414 to i64
-  %442 = getelementptr inbounds %struct.filesystem, ptr %439, i64 %441
+  %442 = getelementptr inbounds [80 x i8], ptr %439, i64 %441
   store ptr %442, ptr %407, align 8, !tbaa !92
   store i64 %405, ptr %442, align 8, !tbaa !123
   %443 = getelementptr inbounds nuw i8, ptr %442, i64 56
@@ -2748,7 +2746,7 @@ tree_enter_initial_dir.exit:                      ; preds = %680, %684, %688
   %723 = call i32 @archive_entry_sparse_next(ptr noundef %1, ptr noundef nonnull %4, ptr noundef nonnull %3) #17
   %724 = load i64, ptr %4, align 8, !tbaa !153
   %725 = load ptr, ptr %722, align 8, !tbaa !105
-  %726 = getelementptr inbounds nuw %struct.entry_sparse, ptr %725, i64 %indvars.iv.i
+  %726 = getelementptr inbounds nuw [16 x i8], ptr %725, i64 %indvars.iv.i
   %727 = getelementptr inbounds nuw i8, ptr %726, i64 8
   store i64 %724, ptr %727, align 8, !tbaa !154
   %728 = load i64, ptr %3, align 8, !tbaa !153
@@ -2763,7 +2761,7 @@ tree_enter_initial_dir.exit:                      ; preds = %680, %684, %688
   %732 = call i64 @archive_entry_size(ptr noundef %1) #17
   %733 = load ptr, ptr %722, align 8, !tbaa !105
   %734 = and i64 %indvars.iv.next.i, 4294967295
-  %735 = getelementptr inbounds nuw %struct.entry_sparse, ptr %733, i64 %734
+  %735 = getelementptr inbounds nuw [16 x i8], ptr %733, i64 %734
   %736 = getelementptr inbounds nuw i8, ptr %735, i64 8
   store i64 %732, ptr %736, align 8, !tbaa !154
   store i64 0, ptr %735, align 8, !tbaa !156

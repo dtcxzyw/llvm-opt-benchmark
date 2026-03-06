@@ -97,7 +97,7 @@ acpi_get_entry_type.exit:                         ; preds = %29, %30, %33, %36, 
 
 45:                                               ; preds = %43, %acpi_get_entry_type.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %43 ], [ 0, %acpi_get_entry_type.exit ]
-  %46 = getelementptr %struct.acpi_subtable_proc, ptr %3, i64 %indvars.iv
+  %46 = getelementptr [40 x i8], ptr %3, i64 %indvars.iv
   %47 = load i32, ptr %46, align 8
   %48 = sext i32 %47 to i64
   %49 = icmp eq i64 %42, %48

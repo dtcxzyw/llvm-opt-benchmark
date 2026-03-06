@@ -479,7 +479,7 @@ define hidden noundef ptr @_ZN19ZMarkStackAllocator26create_magazine_from_spaceE
 11:                                               ; preds = %7
   %12 = add i64 %10, 1
   store i64 %12, ptr %4, align 8
-  %13 = getelementptr inbounds ptr, ptr %6, i64 %10
+  %13 = getelementptr inbounds [8 x i8], ptr %6, i64 %10
   store ptr %9, ptr %13, align 8
   br label %_ZN6ZStackIPS_I15ZMarkStackEntryLm254EELm15EE4pushES2_.exit
 
@@ -586,7 +586,7 @@ _ZN15ZMarkStackSpace5allocEm.exit.thread:         ; preds = %_ZN15ZMarkStackSpac
 55:                                               ; preds = %51
   %56 = add i64 %54, 1
   store i64 %56, ptr %49, align 8
-  %57 = getelementptr inbounds ptr, ptr %50, i64 %54
+  %57 = getelementptr inbounds [8 x i8], ptr %50, i64 %54
   store ptr %53, ptr %57, align 8
   br label %_ZN6ZStackIPS_I15ZMarkStackEntryLm254EELm15EE4pushES2_.exit.i
 

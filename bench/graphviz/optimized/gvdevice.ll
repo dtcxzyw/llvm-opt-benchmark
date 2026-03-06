@@ -8,7 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon.0 = type { %struct.anon }
 %struct.anon = type { ptr, i64, i64, [7 x i8], i8 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
-%struct.pointf_s = type { double, double }
 
 @.str = private unnamed_addr constant [2 x i8] c"w\00", align 1
 @.str.1 = private unnamed_addr constant [38 x i8] c"Could not open \22%s\22 for writing : %s\0A\00", align 1
@@ -1780,7 +1779,7 @@ define void @gvprintpointflist(ptr noundef %0, ptr noundef readonly captures(non
   %.078 = phi ptr [ @.str.14, %.lr.ph ], [ @.str.15, %3 ]
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.078) #22
   %5 = tail call i64 @gvwrite(ptr noundef %0, ptr noundef nonnull %.078, i64 noundef %4)
-  %6 = getelementptr inbounds nuw %struct.pointf_s, ptr %1, i64 %.09
+  %6 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %.09
   %7 = load double, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = load double, ptr %8, align 8

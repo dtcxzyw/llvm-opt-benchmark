@@ -144,7 +144,7 @@ define dso_local noundef nonnull ptr @php_image_type_to_mime_type(i32 noundef %0
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.php_getimagesize_from_any, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.php_getimagesize_from_any, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -202,7 +202,7 @@ zend_parse_arg_long_ex.exit..critedge_crit_edge:  ; preds = %zend_parse_arg_long
 
 switch.lookup:                                    ; preds = %.critedge
   %17 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.php_getimagesize_from_any, i64 %17
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.php_getimagesize_from_any, i64 %17
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %php_image_type_to_mime_type.exit
 
@@ -314,7 +314,7 @@ zend_parse_arg_bool_ex.exit:                      ; preds = %18
   br i1 %24, label %switch.lookup, label %.critedge64
 
 switch.lookup:                                    ; preds = %.critedge
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.zif_image_type_to_extension, i64 %switch.tableidx
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.zif_image_type_to_extension, i64 %switch.tableidx
   %switch.load = load ptr, ptr %switch.gep, align 8
   %25 = load i8, ptr %4, align 1, !tbaa !22, !range !28, !noundef !29
   %26 = xor i8 %25, 1
@@ -1807,7 +1807,7 @@ php_handle_avif.exit.i:                           ; preds = %560, %557
 
 switch.lookup:                                    ; preds = %594
   %596 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.php_getimagesize_from_any, i64 %596
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.php_getimagesize_from_any, i64 %596
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %php_image_type_to_mime_type.exit.i
 

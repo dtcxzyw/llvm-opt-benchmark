@@ -116,12 +116,12 @@ define void @_ZN3vcg9CICubeMap14DrawEnvCubeOldERNS_8Matrix44IfEE(ptr noundef non
   %indvars.iv15.i.i.i = phi i64 [ 1, %2 ], [ %indvars.iv.next16.i.i.i, %7 ]
   %.idx.i.i.i = shl nuw nsw i64 %indvars.iv15.i.i.i, 4
   %invariant.gep.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i.i.i
-  %invariant.gep20.i.i.i = getelementptr float, ptr %3, i64 %indvars.iv15.i.i.i
+  %invariant.gep20.i.i.i = getelementptr [4 x i8], ptr %3, i64 %indvars.iv15.i.i.i
   br label %4
 
 4:                                                ; preds = %4, %.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %4 ]
-  %gep.i.i.i = getelementptr inbounds nuw float, ptr %invariant.gep.i.i.i, i64 %indvars.iv.i.i.i
+  %gep.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep.i.i.i, i64 %indvars.iv.i.i.i
   %.idx19.i.i.i = shl i64 %indvars.iv.i.i.i, 4
   %gep21.i.i.i = getelementptr i8, ptr %invariant.gep20.i.i.i, i64 %.idx19.i.i.i
   %5 = load float, ptr %gep.i.i.i, align 4, !alias.scope !5
@@ -148,24 +148,24 @@ _ZN3vcg12glMultMatrixERKNS_8Matrix44IfEE.exit:    ; preds = %7
 
 11:                                               ; preds = %_ZN3vcg12glMultMatrixERKNS_8Matrix44IfEE.exit, %24
   %indvars.iv14 = phi i64 [ 0, %_ZN3vcg12glMultMatrixERKNS_8Matrix44IfEE.exit ], [ %indvars.iv.next15, %24 ]
-  %12 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv14
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv14
   %13 = load i32, ptr %12, align 4
   call void @glBindTexture(i32 noundef 3553, i32 noundef %13)
   call void @glBegin(i32 noundef 7)
-  %14 = getelementptr inbounds nuw [4 x i32], ptr @_ZL10cube_faces, i64 %indvars.iv14
+  %14 = getelementptr inbounds nuw [16 x i8], ptr @_ZL10cube_faces, i64 %indvars.iv14
   br label %15
 
 15:                                               ; preds = %11, %15
   %indvars.iv = phi i64 [ 0, %11 ], [ %indvars.iv.next, %15 ]
-  %16 = getelementptr inbounds nuw [2 x float], ptr @_ZL8tex_vert, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr @_ZL8tex_vert, i64 %indvars.iv
   %17 = load float, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %19 = load float, ptr %18, align 4
   call void @glTexCoord2f(float noundef %17, float noundef %19)
-  %20 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv
   %21 = load i32, ptr %20, align 4
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds %"class.vcg::Point3", ptr @_ZL13cube_vertices, i64 %22
+  %23 = getelementptr inbounds [12 x i8], ptr @_ZL13cube_vertices, i64 %22
   call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %23)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -228,12 +228,12 @@ define void @_ZN3vcg9CICubeMap14DrawEnvCubeExtERNS_8Matrix44IfEE(ptr noundef non
   %indvars.iv15.i.i.i = phi i64 [ 1, %2 ], [ %indvars.iv.next16.i.i.i, %12 ]
   %.idx.i.i.i = shl nuw nsw i64 %indvars.iv15.i.i.i, 4
   %invariant.gep.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i.i.i
-  %invariant.gep20.i.i.i = getelementptr float, ptr %3, i64 %indvars.iv15.i.i.i
+  %invariant.gep20.i.i.i = getelementptr [4 x i8], ptr %3, i64 %indvars.iv15.i.i.i
   br label %9
 
 9:                                                ; preds = %9, %.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %9 ]
-  %gep.i.i.i = getelementptr inbounds nuw float, ptr %invariant.gep.i.i.i, i64 %indvars.iv.i.i.i
+  %gep.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep.i.i.i, i64 %indvars.iv.i.i.i
   %.idx19.i.i.i = shl i64 %indvars.iv.i.i.i, 4
   %gep21.i.i.i = getelementptr i8, ptr %invariant.gep20.i.i.i, i64 %.idx19.i.i.i
   %10 = load float, ptr %gep.i.i.i, align 4, !alias.scope !13
@@ -258,15 +258,15 @@ _ZNK3vcg8Matrix44IfE9transposeEv.exit.i:          ; preds = %12
 13:                                               ; preds = %_ZNK3vcg8Matrix44IfE9transposeEv.exit.i, %27
   %indvars.iv15 = phi i64 [ 0, %_ZNK3vcg8Matrix44IfE9transposeEv.exit.i ], [ %indvars.iv.next16, %27 ]
   call void @glBegin(i32 noundef 7)
-  %14 = getelementptr inbounds nuw [4 x i32], ptr @_ZL10cube_faces, i64 %indvars.iv15
+  %14 = getelementptr inbounds nuw [16 x i8], ptr @_ZL10cube_faces, i64 %indvars.iv15
   br label %_ZN3vcg8glNormalERKNS_6Point3IfEE.exit
 
 _ZN3vcg8glNormalERKNS_6Point3IfEE.exit:           ; preds = %13, %_ZN3vcg8glNormalERKNS_6Point3IfEE.exit
   %indvars.iv = phi i64 [ 0, %13 ], [ %indvars.iv.next, %_ZN3vcg8glNormalERKNS_6Point3IfEE.exit ]
-  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds %"class.vcg::Point3", ptr @_ZL13cube_vertices, i64 %17
+  %18 = getelementptr inbounds [12 x i8], ptr @_ZL13cube_vertices, i64 %17
   %19 = load float, ptr %18, align 4
   %20 = fneg float %19
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 4
@@ -903,12 +903,12 @@ define linkonce_odr void @_ZN3vcg7InverseIfEENS_8Matrix44IT_EERKS3_(ptr dead_on_
   %indvars.iv13.i = phi i64 [ 0, %2 ], [ %indvars.iv.next14.i, %12 ]
   %.idx.i = shl nuw nsw i64 %indvars.iv13.i, 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx.i
-  %6 = getelementptr double, ptr %3, i64 %indvars.iv13.i
+  %6 = getelementptr [8 x i8], ptr %3, i64 %indvars.iv13.i
   br label %7
 
 7:                                                ; preds = %7, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %7 ]
-  %8 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv.i
   %9 = load float, ptr %8, align 4
   %10 = fpext float %9 to double
   %.idx.i.i.i.i = shl nuw nsw i64 %indvars.iv.i, 5
@@ -1086,7 +1086,7 @@ _ZNK3vcg8Matrix44IfE13ToEigenMatrixIN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEEEEvRT_
 
 .preheader.i3:                                    ; preds = %154, %_ZNK3vcg8Matrix44IfE13ToEigenMatrixIN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEEEEvRT_.exit
   %indvars.iv13.i4 = phi i64 [ 0, %_ZNK3vcg8Matrix44IfE13ToEigenMatrixIN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEEEEvRT_.exit ], [ %indvars.iv.next14.i9, %154 ]
-  %148 = getelementptr double, ptr %4, i64 %indvars.iv13.i4
+  %148 = getelementptr [8 x i8], ptr %4, i64 %indvars.iv13.i4
   %.idx.i5 = shl nuw nsw i64 %indvars.iv13.i4, 4
   %invariant.gep.i = getelementptr inbounds nuw i8, ptr %0, i64 %.idx.i5
   br label %149
@@ -1097,7 +1097,7 @@ _ZNK3vcg8Matrix44IfE13ToEigenMatrixIN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEEEEvRT_
   %151 = getelementptr i8, ptr %148, i64 %150
   %152 = load double, ptr %151, align 8
   %153 = fptrunc double %152 to float
-  %gep.i = getelementptr inbounds nuw float, ptr %invariant.gep.i, i64 %indvars.iv.i6
+  %gep.i = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep.i, i64 %indvars.iv.i6
   store float %153, ptr %gep.i, align 4
   %indvars.iv.next.i7 = add nuw nsw i64 %indvars.iv.i6, 1
   %exitcond.not.i8 = icmp eq i64 %indvars.iv.next.i7, 4
@@ -1369,7 +1369,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
 
 _ZN7QStringD2Ev.exit:                             ; preds = %65, %_ZN9QtPrivate8RefCount5derefEv.exit.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
   %71 = sext i32 %1 to i64
-  %72 = getelementptr inbounds %class.QString, ptr %11, i64 %71
+  %72 = getelementptr inbounds [8 x i8], ptr %11, i64 %71
   %73 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN7QString6appendERKS_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %72)
           to label %74 unwind label %83
 
@@ -1520,7 +1520,7 @@ define noundef zeroext i1 @_ZN3vcg9CICubeMap7LoadOldEPKc(ptr noundef nonnull ali
 
 12:                                               ; preds = %11, %50
   %indvars.iv = phi i64 [ 0, %11 ], [ %indvars.iv.next, %50 ]
-  %13 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4
   invoke void @glBindTexture(i32 noundef 3553, i32 noundef %14)
           to label %15 unwind label %.loopexit
@@ -1814,7 +1814,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %29, %_ZN9QtPrivate8
           to label %42 unwind label %35
 
 42:                                               ; preds = %41
-  %43 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %44 = load i32, ptr %43, align 4
   %45 = invoke noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %46 unwind label %59

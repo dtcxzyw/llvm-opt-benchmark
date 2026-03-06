@@ -137,7 +137,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i: ; preds = %24, %_ZNKS
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i: ; preds = %26, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i
   store ptr %21, ptr getelementptr inbounds nuw (i8, ptr @gCoverage, i64 8), align 8, !tbaa !4
   store ptr %25, ptr getelementptr inbounds nuw (i8, ptr @gCoverage, i64 16), align 8, !tbaa !17
-  %27 = getelementptr inbounds nuw i32, ptr %21, i64 %19
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %19
   store ptr %27, ptr getelementptr inbounds nuw (i8, ptr @gCoverage, i64 24), align 8, !tbaa !10
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
 
@@ -1039,7 +1039,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit: ; preds = %18,
 
 .lr.ph:                                           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit, %331
   %.026122 = phi i64 [ %332, %331 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit ]
-  %333 = getelementptr inbounds nuw i32, ptr %4, i64 %.026122
+  %333 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.026122
   %334 = load i32, ptr %333, align 4, !tbaa !18
   %.not38 = icmp eq i32 %334, -1
   br i1 %.not38, label %331, label %.loopexit
@@ -1069,7 +1069,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit108: ; preds = %._
 
 .lr.ph124:                                        ; preds = %.lr.ph124.preheader, %346
   %.0123 = phi i64 [ %347, %346 ], [ 0, %.lr.ph124.preheader ]
-  %341 = getelementptr inbounds nuw i32, ptr %4, i64 %.0123
+  %341 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.0123
   %342 = load i32, ptr %341, align 4, !tbaa !18
   %.not39 = icmp eq i32 %342, -1
   br i1 %.not39, label %346, label %343

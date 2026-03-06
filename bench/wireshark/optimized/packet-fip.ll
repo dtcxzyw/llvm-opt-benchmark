@@ -334,7 +334,7 @@ define internal i32 @dissect_fip(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 switch.lookup:                                    ; preds = %33
   %52 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_fip, i64 %52
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_fip, i64 %52
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %53
 

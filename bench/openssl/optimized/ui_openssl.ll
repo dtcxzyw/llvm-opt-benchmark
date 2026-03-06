@@ -303,7 +303,7 @@ define internal fastcc range(i32 -1, 2) i32 @read_string_inner(ptr noundef %0, p
   ]
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds nuw %struct.sigaction, ptr @savsig, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw [152 x i8], ptr @savsig, i64 %indvars.iv.i
   %13 = call i32 @sigaction(i32 noundef %10, ptr noundef nonnull %6, ptr noundef nonnull %12) #15
   br label %14
 
@@ -450,7 +450,7 @@ echo_console.exit:                                ; preds = %echo_console.exitth
   ]
 
 65:                                               ; preds = %.preheader
-  %66 = getelementptr inbounds nuw %struct.sigaction, ptr @savsig, i64 %indvars.iv.i25
+  %66 = getelementptr inbounds nuw [152 x i8], ptr @savsig, i64 %indvars.iv.i25
   %67 = call i32 @sigaction(i32 noundef %64, ptr noundef nonnull %66, ptr noundef null) #15
   br label %68
 

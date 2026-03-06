@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.AACISError = type { i32, i32, float, float, float, float }
-%struct.FFPsyChannel = type { [128 x %struct.FFPsyBand], float }
-%struct.FFPsyBand = type { i32, float, float, float }
 
 @ff_aac_pow34sf_tab = external local_unnamed_addr global [428 x float], align 16
 @aac_maxval_cb = internal unnamed_addr constant [14 x i8] c"\00\01\03\05\05\07\07\07\09\09\09\09\09\0B", align 1
@@ -74,7 +72,7 @@ define void @ff_aac_search_for_is(ptr noundef %0, ptr noundef readonly captures(
   br i1 %.not.i, label %35, label %43
 
 35:                                               ; preds = %31
-  %36 = getelementptr inbounds nuw i32, ptr %22, i64 %32
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %32
   %37 = load i32, ptr %36, align 4, !tbaa !38
   %38 = icmp ult i32 %37, 12
   br i1 %38, label %39, label %43
@@ -174,7 +172,7 @@ ff_init_nextband_map.exit:                        ; preds = %._crit_edge.i, %.pr
   br i1 %83, label %85, label %ff_sfdelta_can_remove_band.exit.thread
 
 85:                                               ; preds = %77
-  %86 = getelementptr inbounds nuw i32, ptr %55, i64 %84
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %84
   %87 = load i32, ptr %86, align 4, !tbaa !38
   %.not158 = icmp eq i32 %87, 13
   br i1 %.not158, label %ff_sfdelta_can_remove_band.exit.thread, label %88
@@ -186,7 +184,7 @@ ff_init_nextband_map.exit:                        ; preds = %._crit_edge.i, %.pr
   br i1 %.not159, label %91, label %ff_sfdelta_can_remove_band.exit.thread
 
 91:                                               ; preds = %88
-  %92 = getelementptr inbounds nuw i32, ptr %57, i64 %84
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %84
   %93 = load i32, ptr %92, align 4, !tbaa !38
   %.not160 = icmp eq i32 %93, 13
   br i1 %.not160, label %ff_sfdelta_can_remove_band.exit.thread, label %94
@@ -203,7 +201,7 @@ ff_init_nextband_map.exit:                        ; preds = %._crit_edge.i, %.pr
   %99 = getelementptr inbounds nuw i8, ptr %4, i64 %84
   %100 = load i8, ptr %99, align 1, !tbaa !35
   %101 = zext i8 %100 to i64
-  %102 = getelementptr inbounds nuw i32, ptr %59, i64 %101
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %101
   %103 = load i32, ptr %102, align 4, !tbaa !38
   %104 = add nsw i32 %.1154214, -60
   %.not.i168 = icmp slt i32 %103, %104
@@ -249,9 +247,9 @@ ff_init_nextband_map.exit:                        ; preds = %._crit_edge.i, %.pr
   %.1143194.us = phi float [ %.0142202.us, %.preheader.us ], [ %122, %115 ]
   %.1145193.us = phi float [ %.0144201.us, %.preheader.us ], [ %121, %115 ]
   %116 = add nuw nsw i64 %indvars.iv, %114
-  %117 = getelementptr inbounds nuw float, ptr %62, i64 %116
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %116
   %118 = load float, ptr %117, align 4, !tbaa !68
-  %119 = getelementptr inbounds nuw float, ptr %63, i64 %116
+  %119 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %116
   %120 = load float, ptr %119, align 4, !tbaa !68
   %121 = tail call nsz float @llvm.fmuladd.f32(float %118, float %118, float %.1145193.us)
   %122 = tail call nsz float @llvm.fmuladd.f32(float %120, float %120, float %.1143194.us)
@@ -306,10 +304,10 @@ ff_init_nextband_map.exit:                        ; preds = %._crit_edge.i, %.pr
   store i8 0, ptr %133, align 1, !tbaa !35
   %134 = fdiv nsz float %.0144.lcssa, %131
   %135 = tail call nsz float @llvm.sqrt.f32(float %134)
-  %136 = getelementptr inbounds nuw float, ptr %66, i64 %84
+  %136 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %84
   store float %135, ptr %136, align 4, !tbaa !68
   %137 = fdiv nsz float %.0144.lcssa, %.0142.lcssa
-  %138 = getelementptr inbounds nuw float, ptr %67, i64 %84
+  %138 = getelementptr inbounds nuw [4 x i8], ptr %67, i64 %84
   store float %137, ptr %138, align 4, !tbaa !68
   %139 = icmp sgt i32 %130, 0
   %140 = select i1 %139, i32 15, i32 14
@@ -339,13 +337,13 @@ ff_sfdelta_can_remove_band.exit.thread:           ; preds = %77, %129, %143, %98
   br i1 %.not167, label %148, label %155
 
 148:                                              ; preds = %ff_sfdelta_can_remove_band.exit.thread
-  %149 = getelementptr inbounds nuw i32, ptr %57, i64 %84
+  %149 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %84
   %150 = load i32, ptr %149, align 4, !tbaa !38
   %151 = icmp ult i32 %150, 12
   br i1 %151, label %152, label %155
 
 152:                                              ; preds = %148
-  %153 = getelementptr inbounds nuw i32, ptr %59, i64 %84
+  %153 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %84
   %154 = load i32, ptr %153, align 4, !tbaa !38
   br label %155
 
@@ -432,7 +430,7 @@ define internal fastcc void @aac_is_encoding_err(ptr dead_on_unwind noalias nonn
   %26 = shl nsw i32 %4, 4
   %27 = add nsw i32 %26, %5
   %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds i32, ptr %25, i64 %28
+  %29 = getelementptr inbounds [4 x i8], ptr %25, i64 %28
   %30 = sitofp i32 %9 to float
   %31 = fdiv nsz float %7, %6
   %32 = tail call nsz float @llvm.sqrt.f32(float %31)
@@ -446,13 +444,13 @@ define internal fastcc void @aac_is_encoding_err(ptr dead_on_unwind noalias nonn
   %40 = tail call nsz double @llvm.sqrt.f64(double %39)
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 567256
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 5916
-  %43 = getelementptr inbounds i32, ptr %42, i64 %28
+  %43 = getelementptr inbounds [4 x i8], ptr %42, i64 %28
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 38424
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 46656
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 53292
-  %47 = getelementptr inbounds i32, ptr %46, i64 %28
+  %47 = getelementptr inbounds [4 x i8], ptr %46, i64 %28
   %48 = getelementptr inbounds nuw i8, ptr %2, i64 52268
-  %49 = getelementptr inbounds i32, ptr %48, i64 %28
+  %49 = getelementptr inbounds [4 x i8], ptr %48, i64 %28
   %50 = sext i32 %3 to i64
   %.pre = load ptr, ptr %36, align 16, !tbaa !67
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 %37
@@ -468,11 +466,11 @@ define internal fastcc void @aac_is_encoding_err(ptr dead_on_unwind noalias nonn
   %54 = load ptr, ptr %23, align 16, !tbaa !74
   %55 = load i32, ptr %24, align 16, !tbaa !75
   %56 = sext i32 %55 to i64
-  %57 = getelementptr inbounds %struct.FFPsyChannel, ptr %54, i64 %56
+  %57 = getelementptr inbounds [2052 x i8], ptr %54, i64 %56
   %58 = add nsw i64 %indvars.iv198, %20
   %.idx = shl i64 %58, 8
   %59 = getelementptr i8, ptr %57, i64 %.idx
-  %60 = getelementptr %struct.FFPsyBand, ptr %59, i64 %37
+  %60 = getelementptr [16 x i8], ptr %59, i64 %37
   %61 = load i32, ptr %29, align 4, !tbaa !38
   %62 = tail call i32 @llvm.smax.i32(i32 %61, i32 5)
   %spec.select = add nsw i32 %62, -4
@@ -491,15 +489,15 @@ define internal fastcc void @aac_is_encoding_err(ptr dead_on_unwind noalias nonn
 .lr.ph:                                           ; preds = %51, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %51 ]
   %70 = add nsw i64 %.pre203, %indvars.iv
-  %71 = getelementptr inbounds float, ptr %11, i64 %70
+  %71 = getelementptr inbounds [4 x i8], ptr %11, i64 %70
   %72 = load float, ptr %71, align 4, !tbaa !68
-  %73 = getelementptr inbounds float, ptr %12, i64 %70
+  %73 = getelementptr inbounds [4 x i8], ptr %12, i64 %70
   %74 = load float, ptr %73, align 4, !tbaa !68
   %75 = tail call nsz float @llvm.fmuladd.f32(float %30, float %74, float %72)
   %76 = fpext nsz float %75 to double
   %77 = fmul nsz double %40, %76
   %78 = fptrunc nsz double %77 to float
-  %79 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv
   store float %78, ptr %79, align 4, !tbaa !68
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %80 = load i8, ptr %69, align 1, !tbaa !35
@@ -514,10 +512,10 @@ define internal fastcc void @aac_is_encoding_err(ptr dead_on_unwind noalias nonn
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %51
   %.lcssa.in = phi i32 [ 0, %51 ], [ %83, %._crit_edge.loopexit ]
   %84 = load ptr, ptr %41, align 8, !tbaa !79
-  %85 = getelementptr inbounds float, ptr %11, i64 %.pre203
+  %85 = getelementptr inbounds [4 x i8], ptr %11, i64 %.pre203
   tail call void %84(ptr noundef nonnull %13, ptr noundef nonnull %85, i32 noundef %.lcssa.in) #6
   %86 = load ptr, ptr %41, align 8, !tbaa !79
-  %87 = getelementptr inbounds float, ptr %12, i64 %.pre203
+  %87 = getelementptr inbounds [4 x i8], ptr %12, i64 %.pre203
   %88 = load ptr, ptr %36, align 16, !tbaa !67
   %89 = getelementptr inbounds i8, ptr %88, i64 %37
   %90 = load i8, ptr %89, align 1, !tbaa !35
@@ -543,7 +541,7 @@ define internal fastcc void @aac_is_encoding_err(ptr dead_on_unwind noalias nonn
 .preheader.us.i:                                  ; preds = %.preheader.us.i, %.preheader.us.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.preheader.i ], [ %indvars.iv.next.i, %.preheader.us.i ]
   %.117.us.i = phi float [ 0.000000e+00, %.preheader.us.preheader.i ], [ %.1..us.i, %.preheader.us.i ]
-  %101 = getelementptr inbounds nuw float, ptr %16, i64 %indvars.iv.i
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv.i
   %102 = load float, ptr %101, align 4, !tbaa !68
   %103 = fcmp nsz ogt float %.117.us.i, %102
   %.1..us.i = select nsz i1 %103, float %.117.us.i, float %102
@@ -555,7 +553,7 @@ find_max_val.exit:                                ; preds = %.preheader.us.i, %.
   %.us-phi.i = phi float [ 0.000000e+00, %._crit_edge ], [ %.1..us.i, %.preheader.us.i ]
   %104 = sub nsw i32 308, %62
   %105 = sext i32 %104 to i64
-  %106 = getelementptr inbounds float, ptr @ff_aac_pow34sf_tab, i64 %105
+  %106 = getelementptr inbounds [4 x i8], ptr @ff_aac_pow34sf_tab, i64 %105
   %107 = load float, ptr %106, align 4, !tbaa !68
   %108 = tail call nsz float @llvm.fmuladd.f32(float %.us-phi.i, float %107, float 0x3FD9F212E0000000)
   %109 = fptosi float %108 to i32
@@ -610,13 +608,13 @@ find_min_book.exit:                               ; preds = %find_max_val.exit, 
 .lr.ph179:                                        ; preds = %.lr.ph179.preheader, %.lr.ph179
   %indvars.iv195 = phi i64 [ 0, %.lr.ph179.preheader ], [ %indvars.iv.next196, %.lr.ph179 ]
   %.0163177 = phi float [ 0.000000e+00, %.lr.ph179.preheader ], [ %155, %.lr.ph179 ]
-  %145 = getelementptr inbounds nuw float, ptr %13, i64 %indvars.iv195
+  %145 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv195
   %146 = load float, ptr %145, align 4, !tbaa !68
-  %147 = getelementptr inbounds nuw float, ptr %16, i64 %indvars.iv195
+  %147 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv195
   %148 = load float, ptr %147, align 4, !tbaa !68
   %149 = fsub nsz float %146, %148
   %150 = tail call nsz float @llvm.fmuladd.f32(float %149, float %149, float %.0163177)
-  %151 = getelementptr inbounds nuw float, ptr %14, i64 %indvars.iv195
+  %151 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv195
   %152 = load float, ptr %151, align 4, !tbaa !68
   %153 = fneg nsz float %148
   %154 = tail call nsz float @llvm.fmuladd.f32(float %153, float %35, float %152)

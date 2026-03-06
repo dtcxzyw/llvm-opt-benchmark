@@ -244,7 +244,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %5
 .noexc10:                                         ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
   %8 = shl nuw nsw i64 %6, 2
   %9 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %8) #30
-  %10 = getelementptr inbounds nuw float, ptr %9, i64 %6
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %6
   store float 0.000000e+00, ptr %9, align 4, !tbaa !16
   %11 = add nsw i64 %6, -1
   %12 = icmp eq i64 %11, 0
@@ -668,12 +668,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %26, %
 38:                                               ; preds = %.preheader.us, %53
   %.02933.us = phi i64 [ 0, %.preheader.us ], [ %54, %53 ]
   %39 = add nuw nsw i64 %.02933.us, %37
-  %40 = getelementptr inbounds nuw i64, ptr %5, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %39
   %41 = load i64, ptr %40, align 8, !tbaa !10
   %42 = load i32, ptr %36, align 8, !tbaa !26
   %43 = sext i32 %42 to i64
   %44 = mul nsw i64 %39, %43
-  %45 = getelementptr inbounds float, ptr %6, i64 %44
+  %45 = getelementptr inbounds [4 x i8], ptr %6, i64 %44
   %46 = icmp slt i64 %41, 0
   br i1 %46, label %51, label %47
 
@@ -723,9 +723,9 @@ define void @_ZNK5faiss5Index16compute_residualEPKfPfl(ptr noundef nonnull align
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %.010 = phi i64 [ %16, %.lr.ph ], [ 0, %4 ]
-  %11 = getelementptr inbounds nuw float, ptr %1, i64 %.010
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %.010
   %12 = load float, ptr %11, align 4, !tbaa !16
-  %13 = getelementptr inbounds nuw float, ptr %2, i64 %.010
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.010
   %14 = load float, ptr %13, align 4, !tbaa !16
   %15 = fsub float %12, %14
   store float %15, ptr %13, align 4, !tbaa !16
@@ -1435,13 +1435,13 @@ define internal void @_ZNK5faiss5Index17reconstruct_batchElPKlPf.omp_outlined(pt
 22:                                               ; preds = %.lr.ph, %51
   %.026 = phi i64 [ %20, %.lr.ph ], [ %52, %51 ]
   %23 = load ptr, ptr %4, align 8, !tbaa !20
-  %24 = getelementptr inbounds i64, ptr %23, i64 %.026
+  %24 = getelementptr inbounds [8 x i8], ptr %23, i64 %.026
   %25 = load i64, ptr %24, align 8, !tbaa !10
   %26 = load ptr, ptr %5, align 8, !tbaa !22
   %27 = load i32, ptr %21, align 8, !tbaa !26
   %28 = sext i32 %27 to i64
   %29 = mul nsw i64 %.026, %28
-  %30 = getelementptr inbounds float, ptr %26, i64 %29
+  %30 = getelementptr inbounds [4 x i8], ptr %26, i64 %29
   %31 = load ptr, ptr %3, align 8, !tbaa !18
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 80
   %33 = load ptr, ptr %32, align 8
@@ -1601,7 +1601,7 @@ define internal void @_ZNK5faiss5Index13reconstruct_nEllPf.omp_outlined(ptr noal
   %24 = load i32, ptr %19, align 8, !tbaa !26
   %25 = sext i32 %24 to i64
   %26 = mul nsw i64 %.016, %25
-  %27 = getelementptr inbounds float, ptr %23, i64 %26
+  %27 = getelementptr inbounds [4 x i8], ptr %23, i64 %26
   %28 = load ptr, ptr %3, align 8, !tbaa !18
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 80
   %30 = load ptr, ptr %29, align 8
@@ -1677,11 +1677,11 @@ define internal void @_ZNK5faiss5Index18compute_residual_nElPKfPfPKl.omp_outline
   %23 = load i32, ptr %20, align 8, !tbaa !26
   %24 = sext i32 %23 to i64
   %25 = mul nsw i64 %.018, %24
-  %26 = getelementptr inbounds float, ptr %22, i64 %25
+  %26 = getelementptr inbounds [4 x i8], ptr %22, i64 %25
   %27 = load ptr, ptr %5, align 8, !tbaa !22
-  %28 = getelementptr inbounds float, ptr %27, i64 %25
+  %28 = getelementptr inbounds [4 x i8], ptr %27, i64 %25
   %29 = load ptr, ptr %6, align 8, !tbaa !20
-  %30 = getelementptr inbounds i64, ptr %29, i64 %.018
+  %30 = getelementptr inbounds [8 x i8], ptr %29, i64 %.018
   %31 = load i64, ptr %30, align 8, !tbaa !10
   %32 = load ptr, ptr %3, align 8, !tbaa !18
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 112
@@ -1779,14 +1779,14 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_123GenericDistanceComputer1
   %12 = load ptr, ptr %6, align 8, !tbaa !44
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load i64, ptr %13, align 8, !tbaa !37
-  %15 = getelementptr inbounds nuw float, ptr %12, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %14
   %16 = load ptr, ptr %11, align 8, !tbaa !18
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 80
   %18 = load ptr, ptr %17, align 8
   tail call void %18(ptr noundef nonnull align 8 dereferenceable(36) %11, i64 noundef %2, ptr noundef %15)
   %19 = load ptr, ptr %6, align 8, !tbaa !44
   %20 = load i64, ptr %13, align 8, !tbaa !37
-  %21 = getelementptr inbounds nuw float, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %20
   %22 = tail call noundef float @_ZN5faiss10fvec_L2sqrEPKfS1_m(ptr noundef %21, ptr noundef %19, i64 noundef %20)
   ret float %22
 }
@@ -1923,9 +1923,9 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36: ; preds = %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !44
-  %39 = getelementptr inbounds nuw float, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !50
-  %40 = getelementptr inbounds nuw float, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !45
   br label %41
 

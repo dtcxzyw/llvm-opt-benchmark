@@ -55,7 +55,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::basic_ostream.base" = type { ptr }
 %"class.std::__cxx11::basic_stringbuf" = type { %"class.std::basic_streambuf", i32, %"class.std::__cxx11::basic_string" }
 %"class.std::basic_streambuf" = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, %"class.std::locale" }
-%"class.cv::Point_" = type { i32, i32 }
 
 $__clang_call_terminate = comdat any
 
@@ -2660,7 +2659,7 @@ define linkonce_odr hidden void @_ZNK6TheApp11drawResultsERN2cv3MatE(ptr noundef
   br label %.lr.ph.i.i.i.i.preheader.i.i
 
 70:                                               ; preds = %62
-  %71 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %64, i64 %54
+  %71 = getelementptr inbounds nuw [32 x i8], ptr %64, i64 %54
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %73 = load i64, ptr %72, align 8, !tbaa !15
   %.fr = freeze i64 %73
@@ -2673,7 +2672,7 @@ define linkonce_odr hidden void @_ZNK6TheApp11drawResultsERN2cv3MatE(ptr noundef
   %75 = phi i1 [ false, %.thread ], [ %74, %70 ]
   %76 = phi ptr [ @_ZL8redColor, %.thread ], [ %spec.select, %70 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %76, i64 32, i1 false), !tbaa !115
-  %77 = getelementptr inbounds %"class.cv::Point_", ptr %53, i64 %.0120
+  %77 = getelementptr inbounds [8 x i8], ptr %53, i64 %.0120
   %78 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %78, ptr noundef nonnull align 4 dereferenceable(32) %77, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -2777,7 +2776,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit:    ; preds = %88, %90
   store i64 0, ptr %33, align 8
   store i32 50397184, ptr %8, align 8, !tbaa !97
   store ptr %1, ptr %32, align 8, !tbaa !99
-  %102 = getelementptr inbounds nuw %"class.cv::Point_", ptr %78, i64 %.025119
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %.025119
   %.sroa.01.0.copyload = load i64, ptr %102, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.experimental.noalias.scope.decl(metadata !123)
@@ -2840,7 +2839,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit:    ; preds = %88, %90
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %132
   %134 = load ptr, ptr %20, align 8, !tbaa !110
-  %135 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %134, i64 %54
+  %135 = getelementptr inbounds nuw [32 x i8], ptr %134, i64 %54
   %136 = load ptr, ptr %135, align 8, !tbaa !12
   %137 = getelementptr inbounds nuw i8, ptr %135, i64 8
   %138 = load i64, ptr %137, align 8, !tbaa !15
@@ -2853,7 +2852,7 @@ _ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit65: ; preds = %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit
   %141 = load ptr, ptr %18, align 8, !tbaa !110
-  %142 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %141, i64 %54
+  %142 = getelementptr inbounds nuw [32 x i8], ptr %141, i64 %54
   %143 = load ptr, ptr %142, align 8, !tbaa !12
   %144 = getelementptr inbounds nuw i8, ptr %142, i64 8
   %145 = load i64, ptr %144, align 8, !tbaa !15

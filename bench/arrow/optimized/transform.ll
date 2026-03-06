@@ -1666,7 +1666,7 @@ _ZN5arrow6ResultISt10shared_ptrINS_6BufferEEED2Ev.exit70: ; preds = %171, %_ZN5a
   %.026126 = phi ptr [ %237, %_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit75 ], [ %3, %200 ]
   %.0125 = phi i64 [ %238, %_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit75 ], [ %2, %200 ]
   %.0118124 = phi i64 [ %239, %_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit75 ], [ 0, %200 ]
-  %224 = getelementptr inbounds nuw %"class.std::shared_ptr.2", ptr %223, i64 %.025127
+  %224 = getelementptr inbounds nuw [16 x i8], ptr %223, i64 %.025127
   %225 = load ptr, ptr %224, align 8, !tbaa !92
   %226 = getelementptr inbounds nuw i8, ptr %224, i64 8
   %227 = load ptr, ptr %226, align 8, !tbaa !13
@@ -4423,7 +4423,7 @@ _ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_
 _ZNSt12_Vector_baseISt10shared_ptrIN5arrow6BufferEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22, %48
   store ptr %20, ptr %0, align 8, !tbaa !123
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !117
-  %52 = getelementptr inbounds nuw %"class.std::shared_ptr.2", ptr %20, i64 %16
+  %52 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %52, ptr %47, align 8, !tbaa !120
   ret void
 }
@@ -4529,7 +4529,7 @@ _ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_
 _ZNSt12_Vector_baseISt10shared_ptrIN5arrow6BufferEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22, %40
   store ptr %20, ptr %0, align 8, !tbaa !123
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !117
-  %44 = getelementptr inbounds nuw %"class.std::shared_ptr.2", ptr %20, i64 %16
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %44, ptr %39, align 8, !tbaa !120
   ret void
 }

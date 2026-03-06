@@ -53,7 +53,7 @@ define internal i32 @microdvd_init(ptr noundef %0) #0 {
   %.12953 = phi i32 [ 0, %6 ], [ %.432, %.loopexit ]
   %.13452 = phi i32 [ 16777215, %6 ], [ %.235, %.loopexit ]
   %.13751 = phi i32 [ 16, %6 ], [ %.238, %.loopexit ]
-  %9 = getelementptr inbounds nuw %struct.microdvd_tag, ptr %3, i64 %indvars.iv58
+  %9 = getelementptr inbounds nuw [32 x i8], ptr %3, i64 %indvars.iv58
   %10 = load i8, ptr %9, align 16, !tbaa !27
   %11 = sext i8 %10 to i32
   %12 = add nsw i32 %11, -65
@@ -191,7 +191,7 @@ define internal i32 @microdvd_decode_frame(ptr noundef readonly captures(none) %
 
 19:                                               ; preds = %61, %17
   %indvars.iv41.i = phi i64 [ 0, %17 ], [ %indvars.iv.next42.i, %61 ]
-  %20 = getelementptr inbounds nuw %struct.microdvd_tag, ptr %6, i64 %indvars.iv41.i
+  %20 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %indvars.iv41.i
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %22 = load i32, ptr %21, align 4, !tbaa !42
   %23 = icmp eq i32 %22, 2
@@ -305,7 +305,7 @@ microdvd_open_tags.exit:                          ; preds = %.lr.ph
 
 .preheader:                                       ; preds = %.lr.ph, %84
   %indvars.iv22.i = phi i64 [ %indvars.iv.next23.i, %84 ], [ 7, %.lr.ph ]
-  %66 = getelementptr inbounds nuw %struct.microdvd_tag, ptr %6, i64 %indvars.iv22.i
+  %66 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %indvars.iv22.i
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 4
   %68 = load i32, ptr %67, align 4, !tbaa !42
   %.not.i40 = icmp eq i32 %68, 0
@@ -634,7 +634,7 @@ check_for_italic_slash_marker.exit:               ; preds = %2, %microdvd_set_ta
 
 104:                                              ; preds = %.thread55
   %105 = zext nneg i32 %102 to i64
-  %106 = getelementptr inbounds nuw %struct.microdvd_tag, ptr %0, i64 %105
+  %106 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %105
   store i8 %.sroa.0.067, ptr %106, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %106, i64 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.5.0..sroa_idx, i8 0, i64 3, i1 false)

@@ -140,7 +140,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i: ; preds = %if.then5.i.i
   %type_.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 2
   %10 = load i8, ptr %type_.i.i.i, align 2
   %idxprom.i.i = zext i8 %10 to i64
-  %arrayidx.i.i = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %idxprom.i.i
   %11 = load i32, ptr %arrayidx.i.i, align 4
   %cmp.not.i = icmp eq i32 %11, 10
   br i1 %cmp.not.i, label %lor.rhs.i, label %for.inc48
@@ -241,7 +241,7 @@ invoke.cont6:                                     ; preds = %call1.i.i.noexc, %i
   %type_.i.i11.i.i = getelementptr inbounds nuw i8, ptr %18, i64 90
   %24 = load i8, ptr %type_.i.i11.i.i, align 2
   %idxprom.i.i.i = zext i8 %24 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %idxprom.i.i.i
   %25 = load i32, ptr %arrayidx.i.i.i, align 4
   %cmp.i.i.not = icmp eq i32 %25, 10
   br i1 %cmp.i.i.not, label %invoke.cont8, label %for.inc48
@@ -563,7 +563,7 @@ invoke.cont19:                                    ; preds = %invoke.cont17
 
 invoke.cont22:                                    ; preds = %invoke.cont19
   %idxprom.i = zext i32 %call23 to i64
-  %arrayidx.i = getelementptr inbounds nuw ptr, ptr @_ZN6google8protobuf15FieldDescriptor14kCppTypeToNameE, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr @_ZN6google8protobuf15FieldDescriptor14kCppTypeToNameE, i64 %idxprom.i
   %4 = load ptr, ptr %arrayidx.i, align 8
   store ptr %4, ptr %ref.tmp21, align 8
   %call27 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2023080212log_internal10LogMessagelsIPKcTnNSt9enable_ifIXntsr16strings_internal16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS7_(ptr noundef nonnull align 8 dereferenceable(16) %call16, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp21)

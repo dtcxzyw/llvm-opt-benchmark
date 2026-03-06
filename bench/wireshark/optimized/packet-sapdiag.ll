@@ -2132,7 +2132,7 @@ switch.hole_check:                                ; preds = %28
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %37 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_sapdiag_payload, i64 %37
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_sapdiag_payload, i64 %37
   %switch.load = load ptr, ptr %switch.gep, align 8
   %38 = zext i8 %35 to i32
   %39 = tail call ptr @val_to_str_const(i32 noundef %38, ptr noundef nonnull %switch.load, ptr noundef nonnull @.str.850)

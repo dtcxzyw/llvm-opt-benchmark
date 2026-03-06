@@ -1245,7 +1245,7 @@ define hidden void @_ZN10aws_config4meta11credentials5chain24CredentialsProvider
   %35 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %26, %21 ]
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %37 = load ptr, ptr %36, align 8, !alias.scope !224, !noalias !227, !nonnull !7, !noundef !7
-  %38 = getelementptr inbounds { { i64, [2 x i64] }, { { { { ptr, ptr } }, {} }, {} } }, ptr %37, i64 %35
+  %38 = getelementptr inbounds [40 x i8], ptr %37, i64 %35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %38, ptr noundef nonnull align 8 dereferenceable(40) %9, i64 40, i1 false)
   %39 = load i64, ptr %25, align 8, !alias.scope !224, !noalias !227, !noundef !7
   %40 = add i64 %39, 1
@@ -1350,7 +1350,7 @@ define hidden void @_ZN10aws_config4meta11credentials5chain24CredentialsProvider
   %32 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %23, %19 ]
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %34 = load ptr, ptr %33, align 8, !alias.scope !240, !noalias !243, !nonnull !7, !noundef !7
-  %35 = getelementptr inbounds { { i64, [2 x i64] }, { { { { ptr, ptr } }, {} }, {} } }, ptr %34, i64 %32
+  %35 = getelementptr inbounds [40 x i8], ptr %34, i64 %32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %35, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 40, i1 false)
   %36 = load i64, ptr %22, align 8, !alias.scope !240, !noalias !243, !noundef !7
   %37 = add i64 %36, 1
@@ -1455,7 +1455,7 @@ define hidden void @_ZN10aws_config4meta11credentials5chain24CredentialsProvider
   %32 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %23, %19 ]
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %34 = load ptr, ptr %33, align 8, !alias.scope !256, !noalias !259, !nonnull !7, !noundef !7
-  %35 = getelementptr inbounds { { i64, [2 x i64] }, { { { { ptr, ptr } }, {} }, {} } }, ptr %34, i64 %32
+  %35 = getelementptr inbounds [40 x i8], ptr %34, i64 %32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %35, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 40, i1 false)
   %36 = load i64, ptr %22, align 8, !alias.scope !256, !noalias !259, !noundef !7
   %37 = add i64 %36, 1
@@ -1560,7 +1560,7 @@ define hidden void @_ZN10aws_config4meta11credentials5chain24CredentialsProvider
   %32 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %23, %19 ]
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %34 = load ptr, ptr %33, align 8, !alias.scope !272, !noalias !275, !nonnull !7, !noundef !7
-  %35 = getelementptr inbounds { { i64, [2 x i64] }, { { { { ptr, ptr } }, {} }, {} } }, ptr %34, i64 %32
+  %35 = getelementptr inbounds [40 x i8], ptr %34, i64 %32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %35, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 40, i1 false)
   %36 = load i64, ptr %22, align 8, !alias.scope !272, !noalias !275, !noundef !7
   %37 = add i64 %36, 1
@@ -1665,7 +1665,7 @@ define hidden void @_ZN10aws_config4meta11credentials5chain24CredentialsProvider
   %32 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %23, %19 ]
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %34 = load ptr, ptr %33, align 8, !alias.scope !288, !noalias !291, !nonnull !7, !noundef !7
-  %35 = getelementptr inbounds { { i64, [2 x i64] }, { { { { ptr, ptr } }, {} }, {} } }, ptr %34, i64 %32
+  %35 = getelementptr inbounds [40 x i8], ptr %34, i64 %32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %35, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 40, i1 false)
   %36 = load i64, ptr %22, align 8, !alias.scope !288, !noalias !291, !noundef !7
   %37 = add i64 %36, 1
@@ -1940,7 +1940,7 @@ define hidden void @_ZN10aws_config4meta6region19RegionProviderChain7or_else17h3
   %25 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %16, %13 ]
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %27 = load ptr, ptr %26, align 8, !alias.scope !321, !noalias !326, !nonnull !7, !noundef !7
-  %28 = getelementptr inbounds { { { { ptr, ptr } }, {} }, {} }, ptr %27, i64 %25
+  %28 = getelementptr inbounds [16 x i8], ptr %27, i64 %25
   store ptr %6, ptr %28, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store ptr @anon.e9045b00a1ae718fdaff1813a74cc412.117.llvm.8209374114036670355, ptr %29, align 8
@@ -2030,7 +2030,7 @@ define hidden void @_ZN10aws_config4meta6region19RegionProviderChain7or_else17hf
   %25 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %16, %13 ]
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %27 = load ptr, ptr %26, align 8, !alias.scope !330, !noalias !335, !nonnull !7, !noundef !7
-  %28 = getelementptr inbounds { { { { ptr, ptr } }, {} }, {} }, ptr %27, i64 %25
+  %28 = getelementptr inbounds [16 x i8], ptr %27, i64 %25
   store ptr %6, ptr %28, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store ptr @anon.e9045b00a1ae718fdaff1813a74cc412.118.llvm.8209374114036670355, ptr %29, align 8
@@ -22100,7 +22100,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h31123d873c6f755fE.ll
   %9 = phi i64 [ %.pre, %._crit_edge ], [ %4, %2 ]
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !nonnull !7, !noundef !7
-  %12 = getelementptr inbounds { { i64, [2 x i64] }, { { { { ptr, ptr } }, {} }, {} } }, ptr %11, i64 %9
+  %12 = getelementptr inbounds [40 x i8], ptr %11, i64 %9
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false)
   %13 = load i64, ptr %3, align 8, !noundef !7
   %14 = add i64 %13, 1
@@ -22147,7 +22147,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h34ac6c16e41013caE.ll
   %12 = phi i64 [ %.pre, %._crit_edge ], [ %7, %3 ]
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8, !nonnull !7, !noundef !7
-  %15 = getelementptr inbounds { { { { ptr, ptr } }, {} }, {} }, ptr %14, i64 %12
+  %15 = getelementptr inbounds [16 x i8], ptr %14, i64 %12
   store ptr %1, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %2, ptr %16, align 8

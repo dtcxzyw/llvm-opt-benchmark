@@ -7070,7 +7070,7 @@ _ZNSt6vectorIN5osgeo4proj4util15BaseObjectNNPtrESaIS3_EE11_S_relocateEPS3_S6_S6_
 _ZNSt12_Vector_baseIN5osgeo4proj4util15BaseObjectNNPtrESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorIN5osgeo4proj4util15BaseObjectNNPtrESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit25, %64
   store ptr %20, ptr %0, align 8, !tbaa !101
   store ptr %.0.lcssa.i.i.i24, ptr %4, align 8, !tbaa !104
-  %68 = getelementptr inbounds nuw %"struct.osgeo::proj::util::BaseObjectNNPtr", ptr %20, i64 %16
+  %68 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %68, ptr %63, align 8, !tbaa !106
   ret void
 }

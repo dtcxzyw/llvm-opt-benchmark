@@ -3,8 +3,6 @@ source_filename = "bench/llvm/original/X86InstPrinterCommon.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"class.llvm::MCOperand" = type { i8, %union.anon }
-%union.anon = type { i64 }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.0 }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon.0 = type { i64, [8 x i8] }
@@ -19,8 +17,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple.10" = type { %"struct.std::_Tuple_impl.11" }
 %"struct.std::_Tuple_impl.11" = type { %"struct.std::_Head_base.12" }
 %"struct.std::_Head_base.12" = type { i64 }
-%"class.llvm::MCInstrDesc" = type { i16, i16, i8, i8, i16, i8, i8, i16, i16, i64, i64 }
-%"class.llvm::MCOperandInfo" = type { i16, i8, i8, i16 }
 
 $_ZN4llvm5X86II18getMemoryOperandNoEm = comdat any
 
@@ -124,7 +120,7 @@ define dso_local void @_ZN4llvm20X86InstPrinterCommon13printCondCodeEPKNS_6MCIns
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = zext i32 %2 to i64
   %7 = load ptr, ptr %5, align 8, !tbaa !3
-  %8 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %7, i64 %6
+  %8 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %6
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load i64, ptr %9, align 8, !tbaa !9
   %11 = load i32, ptr %1, align 8, !tbaa !10
@@ -506,7 +502,7 @@ define dso_local void @_ZN4llvm20X86InstPrinterCommon14printCondFlagsEPKNS_6MCIn
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = zext i32 %2 to i64
   %9 = load ptr, ptr %7, align 8, !tbaa !3
-  %10 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %9, i64 %8
+  %10 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load i64, ptr %11, align 8, !tbaa !9
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -690,7 +686,7 @@ define dso_local void @_ZN4llvm20X86InstPrinterCommon13printSSEAVXCCEPKNS_6MCIns
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = zext i32 %2 to i64
   %7 = load ptr, ptr %5, align 8, !tbaa !3
-  %8 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %7, i64 %6
+  %8 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %6
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load i64, ptr %9, align 8, !tbaa !9
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -1252,7 +1248,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %12, %14
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %21 = zext i32 %19 to i64
   %22 = load ptr, ptr %20, align 8, !tbaa !3
-  %23 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %22, i64 %21
+  %23 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %21
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load i64, ptr %24, align 8, !tbaa !9
   %26 = load ptr, ptr %4, align 8, !tbaa !19
@@ -2117,7 +2113,7 @@ define dso_local void @_ZN4llvm20X86InstPrinterCommon20printRoundingControlEPKNS
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = zext i32 %2 to i64
   %7 = load ptr, ptr %5, align 8, !tbaa !3
-  %8 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %7, i64 %6
+  %8 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %6
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load i64, ptr %9, align 8, !tbaa !9
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -2216,7 +2212,7 @@ define dso_local void @_ZN4llvm20X86InstPrinterCommon13printPCRelImmEPKNS_6MCIns
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %18 = zext i32 %3 to i64
   %19 = load ptr, ptr %17, align 8, !tbaa !3
-  %20 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %19, i64 %18
+  %20 = getelementptr inbounds nuw [16 x i8], ptr %19, i64 %18
   %21 = load i8, ptr %20, align 8, !tbaa !50
   %22 = icmp eq i8 %21, 2
   br i1 %22, label %23, label %51
@@ -2339,7 +2335,7 @@ define dso_local void @_ZN4llvm20X86InstPrinterCommon19printOptionalSegRegEPKNS_
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = zext i32 %2 to i64
   %7 = load ptr, ptr %5, align 8, !tbaa !3
-  %8 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %7, i64 %6
+  %8 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %6
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load i32, ptr %9, align 8, !tbaa !9
   %.not = icmp eq i32 %10, 0
@@ -2379,7 +2375,7 @@ define dso_local void @_ZN4llvm20X86InstPrinterCommon14printInstFlagsEPKNS_6MCIn
   %8 = load ptr, ptr %6, align 8, !tbaa !82
   %9 = zext i32 %7 to i64
   %10 = sub nsw i64 0, %9
-  %11 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %8, i64 %10
+  %11 = getelementptr inbounds [32 x i8], ptr %8, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load i64, ptr %12, align 8, !tbaa !86
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -2724,11 +2720,11 @@ _ZN4llvm11raw_ostreamlsEPKc.exit88:               ; preds = %192, %190, %176, %1
 204:                                              ; preds = %202
   %205 = load i16, ptr %11, align 8, !tbaa !92
   %206 = zext i16 %205 to i64
-  %207 = getelementptr inbounds nuw %"class.llvm::MCInstrDesc", ptr %11, i64 %206
+  %207 = getelementptr inbounds nuw [32 x i8], ptr %11, i64 %206
   %208 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %209 = load i16, ptr %208, align 4, !tbaa !93
   %210 = zext i16 %209 to i64
-  %211 = getelementptr inbounds nuw %"class.llvm::MCOperandInfo", ptr %207, i64 %210
+  %211 = getelementptr inbounds nuw [6 x i8], ptr %207, i64 %210
   %212 = getelementptr inbounds nuw i8, ptr %211, i64 42
   %213 = load i16, ptr %212, align 2, !tbaa !94
   %214 = and i16 %213, 241
@@ -2756,11 +2752,11 @@ _ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit.
 222:                                              ; preds = %220
   %223 = load i16, ptr %11, align 8, !tbaa !92
   %224 = zext i16 %223 to i64
-  %225 = getelementptr inbounds nuw %"class.llvm::MCInstrDesc", ptr %11, i64 %224
+  %225 = getelementptr inbounds nuw [32 x i8], ptr %11, i64 %224
   %226 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %227 = load i16, ptr %226, align 4, !tbaa !93
   %228 = zext i16 %227 to i64
-  %229 = getelementptr inbounds nuw %"class.llvm::MCOperandInfo", ptr %225, i64 %228
+  %229 = getelementptr inbounds nuw [6 x i8], ptr %225, i64 %228
   %230 = getelementptr inbounds nuw i8, ptr %229, i64 48
   %231 = load i16, ptr %230, align 2, !tbaa !94
   %232 = and i16 %231, 241
@@ -3049,7 +3045,7 @@ switch.lookup:
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = zext i32 %2 to i64
   %6 = load ptr, ptr %4, align 8, !tbaa !3
-  %7 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %6, i64 %5
+  %7 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %5
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i32, ptr %8, align 8, !tbaa !9
   %10 = load ptr, ptr %0, align 8, !tbaa !79
@@ -3067,7 +3063,7 @@ switch.lookup:
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = zext i32 %2 to i64
   %6 = load ptr, ptr %4, align 8, !tbaa !3
-  %7 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %6, i64 %5
+  %7 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %5
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i32, ptr %8, align 8, !tbaa !9
   %10 = load ptr, ptr %0, align 8, !tbaa !79

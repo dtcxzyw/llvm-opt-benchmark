@@ -302,7 +302,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit.preheader: ; 
   %.0132847 = phi i32 [ %11, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit.preheader ]
   %11 = add i32 %.0132847, 1
   %12 = zext i32 %11 to i64
-  %13 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::Element", ptr @_ZN19OpenColorIO_v2_5devL4eltsE, i64 %12
+  %13 = getelementptr inbounds nuw [40 x i8], ptr @_ZN19OpenColorIO_v2_5devL4eltsE, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load i64, ptr %14, align 8, !tbaa !16
   %16 = icmp eq i64 %15, 0
@@ -446,7 +446,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev28ConvertXmlTokenToSpecialCharERKNSt
 15:                                               ; preds = %.lr.ph
   %16 = add i32 %.02474, 1
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::Element", ptr @_ZN19OpenColorIO_v2_5devL4eltsE, i64 %17
+  %18 = getelementptr inbounds nuw [40 x i8], ptr @_ZN19OpenColorIO_v2_5devL4eltsE, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load i64, ptr %19, align 8, !tbaa !16
   %21 = icmp eq i64 %20, 0
@@ -965,7 +965,7 @@ define noundef nonnull ptr @_ZN19OpenColorIO_v2_5dev20LoggingLevelToStringENS_12
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN19OpenColorIO_v2_5dev20LoggingLevelToStringENS_12LoggingLevelE, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN19OpenColorIO_v2_5dev20LoggingLevelToStringENS_12LoggingLevelE, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -1209,7 +1209,7 @@ define noundef nonnull ptr @_ZN19OpenColorIO_v2_5dev16BitDepthToStringENS_8BitDe
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN19OpenColorIO_v2_5dev16BitDepthToStringENS_8BitDepthE, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN19OpenColorIO_v2_5dev16BitDepthToStringENS_8BitDepthE, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -1298,7 +1298,7 @@ define noundef range(i32 0, 33) i32 @_ZN19OpenColorIO_v2_5dev13BitDepthToIntENS_
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN19OpenColorIO_v2_5dev13BitDepthToIntENS_8BitDepthE, i64 %3
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN19OpenColorIO_v2_5dev13BitDepthToIntENS_8BitDepthE, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %4
 
@@ -1457,7 +1457,7 @@ define noundef nonnull ptr @_ZN19OpenColorIO_v2_5dev19GpuLanguageToStringENS_11G
 
 switch.lookup:                                    ; preds = %1
   %8 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN19OpenColorIO_v2_5dev19GpuLanguageToStringENS_11GpuLanguageE, i64 %8
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN19OpenColorIO_v2_5dev19GpuLanguageToStringENS_11GpuLanguageE, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -2326,7 +2326,7 @@ define noundef nonnull ptr @_ZN19OpenColorIO_v2_5dev20GradingStyleToStringENS_12
 
 switch.lookup:                                    ; preds = %1
   %8 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN19OpenColorIO_v2_5dev20GradingStyleToStringENS_12GradingStyleE, i64 %8
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN19OpenColorIO_v2_5dev20GradingStyleToStringENS_12GradingStyleE, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -2495,7 +2495,7 @@ define noundef nonnull ptr @_ZN19OpenColorIO_v2_5dev29ExposureContrastStyleToStr
 
 switch.lookup:                                    ; preds = %1
   %8 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN19OpenColorIO_v2_5dev29ExposureContrastStyleToStringENS_21ExposureContrastStyleE, i64 %8
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN19OpenColorIO_v2_5dev29ExposureContrastStyleToStringENS_21ExposureContrastStyleE, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -2664,7 +2664,7 @@ define noundef nonnull ptr @_ZN19OpenColorIO_v2_5dev21NegativeStyleToStringENS_1
 
 switch.lookup:                                    ; preds = %1
   %8 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN19OpenColorIO_v2_5dev21NegativeStyleToStringENS_13NegativeStyleE, i64 %8
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN19OpenColorIO_v2_5dev21NegativeStyleToStringENS_13NegativeStyleE, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -3047,7 +3047,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %.body
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %48, %47
-  %52 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %53 = load float, ptr %52, align 4, !tbaa !58
   %54 = fpext float %53 to double
   %55 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %4, double noundef %54)
@@ -3597,7 +3597,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %.body
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %48, %47
-  %52 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %53 = load double, ptr %52, align 8, !tbaa !80
   %54 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %4, double noundef %53)
           to label %_ZNSolsEd.exit unwind label %50
@@ -3680,7 +3680,7 @@ define hidden noundef zeroext i1 @_ZN19OpenColorIO_v2_5dev19StringVecToFloatVecE
   br i1 %22, label %23, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 23:                                               ; preds = %21
-  %24 = getelementptr inbounds nuw float, ptr %13, i64 %10
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %10
   %.not.i.i = icmp eq ptr %12, %24
   br i1 %.not.i.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %25
 
@@ -3698,7 +3698,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %19, %21, %23, %25
   %29 = phi ptr [ %51, %45 ], [ %26, %_ZNSt6vectorIfSaIfEE6resizeEm.exit ]
   %30 = phi i64 [ %49, %45 ], [ 0, %_ZNSt6vectorIfSaIfEE6resizeEm.exit ]
   %.01533 = phi i32 [ %48, %45 ], [ 0, %_ZNSt6vectorIfSaIfEE6resizeEm.exit ]
-  %31 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [32 x i8], ptr %29, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !9
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %34 = load i64, ptr %33, align 8, !tbaa !16
@@ -3733,7 +3733,7 @@ _ZN19OpenColorIO_v2_5dev11NumberUtils10from_charsEPKcS2_Rf.exit.thread25: ; pred
 45:                                               ; preds = %42
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %46 = load ptr, ptr %0, align 8, !tbaa !90
-  %47 = getelementptr inbounds nuw float, ptr %46, i64 %30
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %30
   store float %40, ptr %47, align 4, !tbaa !58
   %48 = add i32 %.01533, 1
   %49 = zext i32 %48 to i64
@@ -3783,7 +3783,7 @@ define hidden noundef zeroext i1 @_ZN19OpenColorIO_v2_5dev17StringVecToIntVecERS
   br i1 %22, label %23, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 23:                                               ; preds = %21
-  %24 = getelementptr inbounds nuw i32, ptr %13, i64 %10
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %10
   %.not.i.i = icmp eq ptr %12, %24
   br i1 %.not.i.i, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit, label %25
 
@@ -3802,7 +3802,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %19, %21, %23, %25
   %30 = phi i64 [ %39, %34 ], [ 0, %_ZNSt6vectorIiSaIiEE6resizeEm.exit ]
   %.01116 = phi i32 [ %38, %34 ], [ 0, %_ZNSt6vectorIiSaIiEE6resizeEm.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %31 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [32 x i8], ptr %29, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !9
   %33 = call noundef zeroext i1 @_ZN19OpenColorIO_v2_5dev11StringToIntEPiPKcb(ptr noundef nonnull %3, ptr noundef %32, i1 noundef zeroext true)
   br i1 %33, label %34, label %.critedge
@@ -3810,7 +3810,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %19, %21, %23, %25
 34:                                               ; preds = %.lr.ph
   %35 = load i32, ptr %3, align 4, !tbaa !61
   %36 = load ptr, ptr %0, align 8, !tbaa !95
-  %37 = getelementptr inbounds nuw i32, ptr %36, i64 %30
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %30
   store i32 %35, ptr %37, align 4, !tbaa !61
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %38 = add i32 %.01116, 1
@@ -5705,7 +5705,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i
   %85 = load ptr, ptr %1, align 8, !tbaa !86
-  %86 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %85, i64 %.086
+  %86 = getelementptr inbounds nuw [32 x i8], ptr %85, i64 %.086
   call void @llvm.experimental.noalias.scope.decl(metadata !136)
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
   %88 = load i64, ptr %87, align 8, !tbaa !16, !noalias !136
@@ -6621,7 +6621,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %51 = phi i64 [ 0, %.lr.ph ], [ %107, %105 ]
   %.01056 = phi i32 [ 0, %.lr.ph ], [ %106, %105 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %52 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %50, i64 %51
+  %52 = getelementptr inbounds nuw [32 x i8], ptr %50, i64 %51
   store ptr %45, ptr %8, align 8, !tbaa !15
   %53 = load ptr, ptr %52, align 8, !tbaa !9
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 8
@@ -7161,7 +7161,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %69
   store ptr %22, ptr %0, align 8, !tbaa !86
   store ptr %.0.lcssa.i.i.i.i25, ptr %4, align 8, !tbaa !83
-  %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %73, ptr %68, align 8, !tbaa !111
   ret void
 }
@@ -7315,9 +7315,9 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36: ; preds = %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !90
-  %39 = getelementptr inbounds nuw float, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !87
-  %40 = getelementptr inbounds nuw float, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !181
   br label %41
 
@@ -7417,9 +7417,9 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit36: ; preds = %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !95
-  %39 = getelementptr inbounds nuw i32, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !92
-  %40 = getelementptr inbounds nuw i32, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !182
   br label %41
 
@@ -7618,7 +7618,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit36, %73
   store ptr %23, ptr %0, align 8, !tbaa !86
   store ptr %.0.lcssa.i.i.i.i35, ptr %5, align 8, !tbaa !83
-  %77 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %77, ptr %72, align 8, !tbaa !111
   ret void
 

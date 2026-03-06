@@ -233,7 +233,7 @@ bytestream2_init.exit:                            ; preds = %4
 gif_read_palette.exit.i:                          ; preds = %80
   %98 = load i32, ptr %74, align 4, !tbaa !54
   %99 = sext i32 %98 to i64
-  %100 = getelementptr inbounds i32, ptr %79, i64 %99
+  %100 = getelementptr inbounds [4 x i8], ptr %79, i64 %99
   %101 = load i32, ptr %100, align 4, !tbaa !55
   %102 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i32 %101, ptr %102, align 8, !tbaa !58
@@ -461,7 +461,7 @@ gif_read_palette.exit.i.i:                        ; preds = %184, %202
 
 228:                                              ; preds = %228, %.preheader.us.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.preheader.us.i.i.i ], [ %indvars.iv.next.i.i.i, %228 ]
-  %229 = getelementptr inbounds nuw i32, ptr %.01519.us.i.i.i, i64 %indvars.iv.i.i.i
+  %229 = getelementptr inbounds nuw [4 x i8], ptr %.01519.us.i.i.i, i64 %indvars.iv.i.i.i
   store i32 %217, ptr %229, align 4, !tbaa !55
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i238.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
@@ -500,7 +500,7 @@ gif_read_palette.exit.i.i:                        ; preds = %184, %202
 
 245:                                              ; preds = %245, %.preheader.us.i242.i.i
   %indvars.iv.i245.i.i = phi i64 [ 0, %.preheader.us.i242.i.i ], [ %indvars.iv.next.i246.i.i, %245 ]
-  %246 = getelementptr inbounds nuw i32, ptr %.01519.us.i243.i.i, i64 %indvars.iv.i245.i.i
+  %246 = getelementptr inbounds nuw [4 x i8], ptr %.01519.us.i243.i.i, i64 %indvars.iv.i245.i.i
   store i32 %234, ptr %246, align 4, !tbaa !55
   %indvars.iv.next.i246.i.i = add nuw nsw i64 %indvars.iv.i245.i.i, 1
   %exitcond.not.i247.i.i = icmp eq i64 %indvars.iv.next.i246.i.i, %wide.trip.count.i241.i.i
@@ -641,12 +641,12 @@ gif_fill.exit.i.i:                                ; preds = %._crit_edge.us.i.i.
 .lr.ph.us.i.i.i:                                  ; preds = %._crit_edge.us.i255.i.i, %.lr.ph.us.preheader.i.i.i
   %.0163.us.i.i.i = phi ptr [ %318, %._crit_edge.us.i255.i.i ], [ %314, %.lr.ph.us.preheader.i.i.i ]
   %.0172.us.i.i.i = phi i32 [ %319, %._crit_edge.us.i255.i.i ], [ 0, %.lr.ph.us.preheader.i.i.i ]
-  %315 = getelementptr inbounds i32, ptr %.0163.us.i.i.i, i64 %310
+  %315 = getelementptr inbounds [4 x i8], ptr %.0163.us.i.i.i, i64 %310
   br label %316
 
 316:                                              ; preds = %316, %.lr.ph.us.i.i.i
   %indvars.iv.i252.i.i = phi i64 [ 0, %.lr.ph.us.i.i.i ], [ %indvars.iv.next.i253.i.i, %316 ]
-  %317 = getelementptr inbounds nuw i32, ptr %315, i64 %indvars.iv.i252.i.i
+  %317 = getelementptr inbounds nuw [4 x i8], ptr %315, i64 %indvars.iv.i252.i.i
   store i32 %298, ptr %317, align 4, !tbaa !55
   %indvars.iv.next.i253.i.i = add nuw nsw i64 %indvars.iv.i252.i.i, 1
   %exitcond.not.i254.i.i = icmp eq i64 %indvars.iv.next.i253.i.i, %wide.trip.count.i251.i.i
@@ -820,7 +820,7 @@ gif_copy_img_rect.exit262.i.i:                    ; preds = %391, %375, %gif_cop
   %423 = mul nsw i64 %420, %422
   %424 = getelementptr inbounds i8, ptr %421, i64 %423
   %425 = zext i16 %159 to i64
-  %426 = getelementptr inbounds nuw i32, ptr %424, i64 %425
+  %426 = getelementptr inbounds nuw [4 x i8], ptr %424, i64 %425
   %427 = icmp sgt i32 %.1.i.i, 0
   br i1 %427, label %.lr.ph290.i.i, label %.loopexit
 
@@ -875,7 +875,7 @@ gif_copy_img_rect.exit262.i.i:                    ; preds = %391, %375, %gif_cop
 
 447:                                              ; preds = %.lr.ph.i.i54
   %448 = zext i8 %444 to i64
-  %449 = getelementptr inbounds nuw i32, ptr %430, i64 %448
+  %449 = getelementptr inbounds nuw [4 x i8], ptr %430, i64 %448
   %450 = load i32, ptr %449, align 4, !tbaa !55
   store i32 %450, ptr %.0188273.i.i, align 4, !tbaa !55
   br label %451
@@ -902,12 +902,12 @@ gif_copy_img_rect.exit262.i.i:                    ; preds = %391, %375, %gif_cop
 
 459:                                              ; preds = %455
   %460 = add nsw i32 %.0196285.i.i, 4
-  %461 = getelementptr inbounds i32, ptr %.0190287.i.i, i64 %420
+  %461 = getelementptr inbounds [4 x i8], ptr %.0190287.i.i, i64 %420
   br label %465
 
 462:                                              ; preds = %455
   %463 = add nsw i32 %.0196285.i.i, 2
-  %464 = getelementptr inbounds i32, ptr %.0190287.i.i, i64 %.sext.i.i
+  %464 = getelementptr inbounds [4 x i8], ptr %.0190287.i.i, i64 %.sext.i.i
   br label %465
 
 465:                                              ; preds = %462, %459, %456
@@ -924,13 +924,13 @@ gif_copy_img_rect.exit262.i.i:                    ; preds = %391, %375, %gif_cop
   br i1 %.not233.i.i, label %..loopexit_crit_edge.i.i, label %.lr.ph278.i.i, !llvm.loop !80
 
 468:                                              ; preds = %._crit_edge.i.i
-  %469 = getelementptr inbounds i32, ptr %.0190287.i.i, i64 %.sext329.i.i
+  %469 = getelementptr inbounds [4 x i8], ptr %.0190287.i.i, i64 %.sext329.i.i
   br label %.loopexit.i.i
 
 ..loopexit_crit_edge.i.i:                         ; preds = %.lr.ph278.i.i
   %470 = zext nneg i32 %466 to i64
   %471 = mul nsw i64 %470, %.sext329.i.i
-  %472 = getelementptr inbounds i32, ptr %426, i64 %471
+  %472 = getelementptr inbounds [4 x i8], ptr %426, i64 %471
   br label %.loopexit.i.i
 
 .loopexit.i.i:                                    ; preds = %..loopexit_crit_edge.i.i, %468, %465

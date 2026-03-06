@@ -119,14 +119,14 @@ ustr_resize.exit._crit_edge.i:                    ; preds = %ustr_resize.exit.i
   %55 = phi i32 [ %39, %37 ], [ %.pre13.i, %ustr_resize.exit._crit_edge.i ]
   %56 = phi ptr [ %.pre.i, %37 ], [ %49, %ustr_resize.exit._crit_edge.i ]
   %57 = sext i32 %55 to i64
-  %58 = getelementptr inbounds i16, ptr %56, i64 %57
+  %58 = getelementptr inbounds [2 x i8], ptr %56, i64 %57
   store i16 %34, ptr %58, align 2
   %59 = load i32, ptr %10, align 8, !tbaa !12
   %60 = add nsw i32 %59, 1
   store i32 %60, ptr %10, align 8, !tbaa !12
   %61 = load ptr, ptr %0, align 8, !tbaa !8
   %62 = sext i32 %60 to i64
-  %63 = getelementptr inbounds i16, ptr %61, i64 %62
+  %63 = getelementptr inbounds [2 x i8], ptr %61, i64 %62
   store i16 0, ptr %63, align 2, !tbaa !14
   br label %ustr_ucat.exit
 
@@ -194,14 +194,14 @@ ustr_resize.exit._crit_edge:                      ; preds = %ustr_resize.exit
   %26 = phi i32 [ %10, %6 ], [ %.pre13, %ustr_resize.exit._crit_edge ]
   %27 = phi ptr [ %.pre, %6 ], [ %20, %ustr_resize.exit._crit_edge ]
   %28 = sext i32 %26 to i64
-  %29 = getelementptr inbounds i16, ptr %27, i64 %28
+  %29 = getelementptr inbounds [2 x i8], ptr %27, i64 %28
   store i16 %1, ptr %29, align 2
   %30 = load i32, ptr %9, align 8, !tbaa !12
   %31 = add nsw i32 %30, 1
   store i32 %31, ptr %9, align 8, !tbaa !12
   %32 = load ptr, ptr %0, align 8, !tbaa !8
   %33 = sext i32 %31 to i64
-  %34 = getelementptr inbounds i16, ptr %32, i64 %33
+  %34 = getelementptr inbounds [2 x i8], ptr %32, i64 %33
   store i16 0, ptr %34, align 2, !tbaa !14
   br label %35
 
@@ -288,7 +288,7 @@ ustr_resize.exit:                                 ; preds = %13, %25
   store i32 %38, ptr %39, align 8, !tbaa !12
   %40 = load ptr, ptr %0, align 8, !tbaa !8
   %41 = sext i32 %38 to i64
-  %42 = getelementptr inbounds i16, ptr %40, i64 %41
+  %42 = getelementptr inbounds [2 x i8], ptr %40, i64 %41
   store i16 0, ptr %42, align 2, !tbaa !14
   br label %43
 
@@ -343,7 +343,7 @@ ustr_resize.exit:                                 ; preds = %9, %20
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %26, align 8, !tbaa !12
   %27 = sext i32 %1 to i64
-  %28 = getelementptr inbounds i16, ptr %25, i64 %27
+  %28 = getelementptr inbounds [2 x i8], ptr %25, i64 %27
   store i16 0, ptr %28, align 2, !tbaa !14
   br label %29
 
@@ -406,7 +406,7 @@ ustr_resize.exit._crit_edge.i:                    ; preds = %ustr_resize.exit.i
   %32 = phi i32 [ %13, %9 ], [ %.pre22.i, %ustr_resize.exit._crit_edge.i ]
   %33 = phi ptr [ %.pre.i, %9 ], [ %26, %ustr_resize.exit._crit_edge.i ]
   %34 = sext i32 %32 to i64
-  %35 = getelementptr inbounds i16, ptr %33, i64 %34
+  %35 = getelementptr inbounds [2 x i8], ptr %33, i64 %34
   %36 = load ptr, ptr %1, align 8, !tbaa !8
   %37 = sext i32 %5 to i64
   %38 = shl nsw i64 %37, 1
@@ -417,7 +417,7 @@ ustr_resize.exit._crit_edge.i:                    ; preds = %ustr_resize.exit.i
   store i32 %41, ptr %12, align 8, !tbaa !12
   %42 = load ptr, ptr %0, align 8, !tbaa !8
   %43 = sext i32 %41 to i64
-  %44 = getelementptr inbounds i16, ptr %42, i64 %43
+  %44 = getelementptr inbounds [2 x i8], ptr %42, i64 %43
   store i16 0, ptr %44, align 2, !tbaa !14
   br label %ustr_ncat.exit
 
@@ -478,7 +478,7 @@ ustr_resize.exit._crit_edge:                      ; preds = %ustr_resize.exit
   %31 = phi i32 [ %12, %8 ], [ %.pre22, %ustr_resize.exit._crit_edge ]
   %32 = phi ptr [ %.pre, %8 ], [ %25, %ustr_resize.exit._crit_edge ]
   %33 = sext i32 %31 to i64
-  %34 = getelementptr inbounds i16, ptr %32, i64 %33
+  %34 = getelementptr inbounds [2 x i8], ptr %32, i64 %33
   %35 = load ptr, ptr %1, align 8, !tbaa !8
   %36 = sext i32 %2 to i64
   %37 = shl nsw i64 %36, 1
@@ -490,7 +490,7 @@ ustr_resize.exit._crit_edge:                      ; preds = %ustr_resize.exit
   store i32 %41, ptr %11, align 8, !tbaa !12
   %42 = load ptr, ptr %0, align 8, !tbaa !8
   %43 = sext i32 %41 to i64
-  %44 = getelementptr inbounds i16, ptr %42, i64 %43
+  %44 = getelementptr inbounds [2 x i8], ptr %42, i64 %43
   store i16 0, ptr %44, align 2, !tbaa !14
   br label %45
 
@@ -565,14 +565,14 @@ ustr_ucat.exit:                                   ; preds = %14, %ustr_resize.ex
   %33 = phi i32 [ %18, %14 ], [ %.pre13.i, %ustr_resize.exit._crit_edge.i ]
   %34 = phi ptr [ %.pre.i, %14 ], [ %28, %ustr_resize.exit._crit_edge.i ]
   %35 = sext i32 %33 to i64
-  %36 = getelementptr inbounds i16, ptr %34, i64 %35
+  %36 = getelementptr inbounds [2 x i8], ptr %34, i64 %35
   store i16 %11, ptr %36, align 2
   %37 = load i32, ptr %17, align 8, !tbaa !12
   %38 = add nsw i32 %37, 1
   store i32 %38, ptr %17, align 8, !tbaa !12
   %39 = load ptr, ptr %0, align 8, !tbaa !8
   %40 = sext i32 %38 to i64
-  %41 = getelementptr inbounds i16, ptr %39, i64 %40
+  %41 = getelementptr inbounds [2 x i8], ptr %39, i64 %40
   store i16 0, ptr %41, align 2, !tbaa !14
   %.pr = load i32, ptr %2, align 4, !tbaa !4
   %42 = trunc i32 %1 to i16
@@ -620,14 +620,14 @@ ustr_resize.exit._crit_edge.i15:                  ; preds = %ustr_resize.exit.i1
 62:                                               ; preds = %ustr_resize.exit._crit_edge.i15, %46
   %.pre-phi = phi i64 [ %.pre, %ustr_resize.exit._crit_edge.i15 ], [ %40, %46 ]
   %63 = phi ptr [ %57, %ustr_resize.exit._crit_edge.i15 ], [ %39, %46 ]
-  %64 = getelementptr inbounds i16, ptr %63, i64 %.pre-phi
+  %64 = getelementptr inbounds [2 x i8], ptr %63, i64 %.pre-phi
   store i16 %44, ptr %64, align 2
   %65 = load i32, ptr %17, align 8, !tbaa !12
   %66 = add nsw i32 %65, 1
   store i32 %66, ptr %17, align 8, !tbaa !12
   %67 = load ptr, ptr %0, align 8, !tbaa !8
   %68 = sext i32 %66 to i64
-  %69 = getelementptr inbounds i16, ptr %67, i64 %68
+  %69 = getelementptr inbounds [2 x i8], ptr %67, i64 %68
   store i16 0, ptr %69, align 2, !tbaa !14
   br label %ustr_ucat.exit17
 
@@ -680,14 +680,14 @@ ustr_resize.exit._crit_edge.i22:                  ; preds = %ustr_resize.exit.i2
   %94 = phi i32 [ %78, %74 ], [ %.pre13.i23, %ustr_resize.exit._crit_edge.i22 ]
   %95 = phi ptr [ %.pre.i19, %74 ], [ %88, %ustr_resize.exit._crit_edge.i22 ]
   %96 = sext i32 %94 to i64
-  %97 = getelementptr inbounds i16, ptr %95, i64 %96
+  %97 = getelementptr inbounds [2 x i8], ptr %95, i64 %96
   store i16 %71, ptr %97, align 2
   %98 = load i32, ptr %77, align 8, !tbaa !12
   %99 = add nsw i32 %98, 1
   store i32 %99, ptr %77, align 8, !tbaa !12
   %100 = load ptr, ptr %0, align 8, !tbaa !8
   %101 = sext i32 %99 to i64
-  %102 = getelementptr inbounds i16, ptr %100, i64 %101
+  %102 = getelementptr inbounds [2 x i8], ptr %100, i64 %101
   store i16 0, ptr %102, align 2, !tbaa !14
   br label %ustr_ucat.exit17
 
@@ -746,7 +746,7 @@ ustr_resize.exit._crit_edge:                      ; preds = %ustr_resize.exit
   %30 = phi i32 [ %11, %7 ], [ %.pre18, %ustr_resize.exit._crit_edge ]
   %31 = phi ptr [ %.pre, %7 ], [ %24, %ustr_resize.exit._crit_edge ]
   %32 = sext i32 %30 to i64
-  %33 = getelementptr inbounds i16, ptr %31, i64 %32
+  %33 = getelementptr inbounds [2 x i8], ptr %31, i64 %32
   %34 = sext i32 %2 to i64
   %35 = shl nsw i64 %34, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %33, ptr align 2 %1, i64 %35, i1 false)
@@ -755,7 +755,7 @@ ustr_resize.exit._crit_edge:                      ; preds = %ustr_resize.exit
   store i32 %37, ptr %10, align 8, !tbaa !12
   %38 = load ptr, ptr %0, align 8, !tbaa !8
   %39 = sext i32 %37 to i64
-  %40 = getelementptr inbounds i16, ptr %38, i64 %39
+  %40 = getelementptr inbounds [2 x i8], ptr %38, i64 %39
   store i16 0, ptr %40, align 2, !tbaa !14
   br label %41
 

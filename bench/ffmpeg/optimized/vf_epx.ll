@@ -169,13 +169,13 @@ define internal noundef i32 @epx2_slice(ptr readnone captures(none) %0, ptr noun
   %34 = tail call i32 @llvm.smin.i32(i32 %21, i32 %33)
   %35 = mul nsw i32 %27, %34
   %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds i32, ptr %17, i64 %36
+  %37 = getelementptr inbounds [4 x i8], ptr %17, i64 %36
   %38 = mul nsw i32 %27, %11
   %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds i32, ptr %17, i64 %39
+  %40 = getelementptr inbounds [4 x i8], ptr %17, i64 %39
   %41 = mul nsw i32 %27, %20
   %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds i32, ptr %17, i64 %42
+  %43 = getelementptr inbounds [4 x i8], ptr %17, i64 %42
   %44 = sext i32 %11 to i64
   %45 = sext i32 %32 to i64
   %46 = sext i32 %31 to i64
@@ -191,32 +191,32 @@ define internal noundef i32 @epx2_slice(ptr readnone captures(none) %0, ptr noun
   %.sroa.549.0115.us.us = phi ptr [ %40, %.lr.ph.us.us.preheader ], [ %.sroa.12.0116.us.us, %._crit_edge.us.us ]
   %.sroa.048.0114.us.us = phi ptr [ %43, %.lr.ph.us.us.preheader ], [ %.sroa.549.0115.us.us, %._crit_edge.us.us ]
   %49 = mul nsw i64 %indvars.iv131, %45
-  %50 = getelementptr inbounds i32, ptr %18, i64 %49
+  %50 = getelementptr inbounds [4 x i8], ptr %18, i64 %49
   %51 = shl nsw i64 %indvars.iv131, 1
   %52 = or disjoint i64 %51, 1
   %53 = mul nsw i64 %52, %46
-  %54 = getelementptr inbounds i32, ptr %18, i64 %53
+  %54 = getelementptr inbounds [4 x i8], ptr %18, i64 %53
   br label %55
 
 55:                                               ; preds = %82, %.lr.ph.us.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %82 ], [ 0, %.lr.ph.us.us ]
-  %56 = getelementptr inbounds nuw i32, ptr %.sroa.048.0114.us.us, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.048.0114.us.us, i64 %indvars.iv
   %57 = load i32, ptr %56, align 4, !tbaa !53
   %58 = trunc nuw nsw i64 %indvars.iv to i32
   %59 = tail call i32 @llvm.smax.i32(i32 %58, i32 1)
   %60 = zext nneg i32 %59 to i64
-  %61 = getelementptr i32, ptr %.sroa.549.0115.us.us, i64 %60
+  %61 = getelementptr [4 x i8], ptr %.sroa.549.0115.us.us, i64 %60
   %62 = getelementptr i8, ptr %61, i64 -4
   %63 = load i32, ptr %62, align 4, !tbaa !53
-  %64 = getelementptr inbounds nuw i32, ptr %.sroa.549.0115.us.us, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.549.0115.us.us, i64 %indvars.iv
   %65 = load i32, ptr %64, align 4, !tbaa !53
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %66 = trunc nuw nsw i64 %indvars.iv.next to i32
   %67 = tail call i32 @llvm.smin.i32(i32 %66, i32 %28)
   %68 = sext i32 %67 to i64
-  %69 = getelementptr inbounds i32, ptr %.sroa.549.0115.us.us, i64 %68
+  %69 = getelementptr inbounds [4 x i8], ptr %.sroa.549.0115.us.us, i64 %68
   %70 = load i32, ptr %69, align 4, !tbaa !53
-  %71 = getelementptr inbounds nuw i32, ptr %.sroa.12.0116.us.us, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.12.0116.us.us, i64 %indvars.iv
   %72 = load i32, ptr %71, align 4, !tbaa !53
   %.not.us.us = icmp eq i32 %57, %72
   %.not111.us.us = icmp eq i32 %63, %70
@@ -240,14 +240,14 @@ define internal noundef i32 @epx2_slice(ptr readnone captures(none) %0, ptr noun
   %.0101.us.us = phi i32 [ %79, %73 ], [ %65, %55 ]
   %.0100.us.us = phi i32 [ %81, %73 ], [ %65, %55 ]
   %83 = shl nuw nsw i64 %indvars.iv, 1
-  %84 = getelementptr inbounds nuw i32, ptr %50, i64 %83
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %83
   store i32 %.0103.us.us, ptr %84, align 4, !tbaa !53
   %85 = or disjoint i64 %83, 1
-  %86 = getelementptr inbounds nuw i32, ptr %50, i64 %85
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %85
   store i32 %.0102.us.us, ptr %86, align 4, !tbaa !53
-  %87 = getelementptr inbounds nuw i32, ptr %54, i64 %83
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %83
   store i32 %.0101.us.us, ptr %87, align 4, !tbaa !53
-  %88 = getelementptr inbounds nuw i32, ptr %54, i64 %85
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %85
   store i32 %.0100.us.us, ptr %88, align 4, !tbaa !53
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us.us, label %55, !llvm.loop !54
@@ -255,7 +255,7 @@ define internal noundef i32 @epx2_slice(ptr readnone captures(none) %0, ptr noun
 ._crit_edge.us.us:                                ; preds = %82
   %89 = icmp slt i64 %indvars.iv131, %47
   %.sroa.12.1.idx.us.us = select i1 %89, i64 %48, i64 0
-  %.sroa.12.1.us.us = getelementptr inbounds i32, ptr %.sroa.12.0116.us.us, i64 %.sroa.12.1.idx.us.us
+  %.sroa.12.1.us.us = getelementptr inbounds [4 x i8], ptr %.sroa.12.0116.us.us, i64 %.sroa.12.1.idx.us.us
   %indvars.iv.next132 = add nsw i64 %indvars.iv131, 1
   %exitcond135.not = icmp eq i64 %indvars.iv.next132, %wide.trip.count134
   br i1 %exitcond135.not, label %.split127.us, label %.lr.ph.us.us, !llvm.loop !56
@@ -304,13 +304,13 @@ define internal noundef i32 @epx3_slice(ptr readnone captures(none) %0, ptr noun
   %34 = tail call i32 @llvm.smin.i32(i32 %21, i32 %33)
   %35 = mul nsw i32 %27, %34
   %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds i32, ptr %17, i64 %36
+  %37 = getelementptr inbounds [4 x i8], ptr %17, i64 %36
   %38 = mul nsw i32 %27, %11
   %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds i32, ptr %17, i64 %39
+  %40 = getelementptr inbounds [4 x i8], ptr %17, i64 %39
   %41 = mul nsw i32 %27, %20
   %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds i32, ptr %17, i64 %42
+  %43 = getelementptr inbounds [4 x i8], ptr %17, i64 %42
   %44 = sext i32 %11 to i64
   %45 = sext i32 %32 to i64
   %46 = sext i32 %31 to i64
@@ -326,14 +326,14 @@ define internal noundef i32 @epx3_slice(ptr readnone captures(none) %0, ptr noun
   %.sroa.7.0221.us.us = phi ptr [ %40, %.lr.ph.us.us.preheader ], [ %.sroa.14.0222.us.us, %._crit_edge.us.us ]
   %.sroa.0117.0220.us.us = phi ptr [ %43, %.lr.ph.us.us.preheader ], [ %.sroa.7.0221.us.us, %._crit_edge.us.us ]
   %49 = mul nsw i64 %indvars.iv237, %45
-  %50 = getelementptr inbounds i32, ptr %18, i64 %49
+  %50 = getelementptr inbounds [4 x i8], ptr %18, i64 %49
   %51 = mul nsw i64 %indvars.iv237, 3
   %52 = add nsw i64 %51, 1
   %53 = mul nsw i64 %52, %46
-  %54 = getelementptr inbounds i32, ptr %18, i64 %53
+  %54 = getelementptr inbounds [4 x i8], ptr %18, i64 %53
   %55 = add nsw i64 %51, 2
   %56 = mul nsw i64 %55, %46
-  %57 = getelementptr inbounds i32, ptr %18, i64 %56
+  %57 = getelementptr inbounds [4 x i8], ptr %18, i64 %56
   br label %58
 
 58:                                               ; preds = %102, %.lr.ph.us.us
@@ -342,19 +342,19 @@ define internal noundef i32 @epx3_slice(ptr readnone captures(none) %0, ptr noun
   %60 = tail call i32 @llvm.smax.i32(i32 %59, i32 1)
   %61 = add nsw i32 %60, -1
   %62 = zext nneg i32 %61 to i64
-  %63 = getelementptr inbounds nuw i32, ptr %.sroa.0117.0220.us.us, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0117.0220.us.us, i64 %indvars.iv
   %64 = load i32, ptr %63, align 4, !tbaa !53
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %65 = trunc nuw nsw i64 %indvars.iv.next to i32
   %66 = tail call i32 @llvm.smin.i32(i32 %65, i32 %28)
   %67 = sext i32 %66 to i64
-  %68 = getelementptr inbounds nuw i32, ptr %.sroa.7.0221.us.us, i64 %62
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.7.0221.us.us, i64 %62
   %69 = load i32, ptr %68, align 4, !tbaa !53
-  %70 = getelementptr inbounds nuw i32, ptr %.sroa.7.0221.us.us, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.7.0221.us.us, i64 %indvars.iv
   %71 = load i32, ptr %70, align 4, !tbaa !53
-  %72 = getelementptr inbounds i32, ptr %.sroa.7.0221.us.us, i64 %67
+  %72 = getelementptr inbounds [4 x i8], ptr %.sroa.7.0221.us.us, i64 %67
   %73 = load i32, ptr %72, align 4, !tbaa !53
-  %74 = getelementptr inbounds nuw i32, ptr %.sroa.14.0222.us.us, i64 %indvars.iv
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.14.0222.us.us, i64 %indvars.iv
   %75 = load i32, ptr %74, align 4, !tbaa !53
   %.not.us.us = icmp eq i32 %64, %75
   %.not194.us.us = icmp eq i32 %69, %73
@@ -362,13 +362,13 @@ define internal noundef i32 @epx3_slice(ptr readnone captures(none) %0, ptr noun
   br i1 %or.cond.us.us, label %102, label %76
 
 76:                                               ; preds = %58
-  %77 = getelementptr inbounds i32, ptr %.sroa.14.0222.us.us, i64 %67
+  %77 = getelementptr inbounds [4 x i8], ptr %.sroa.14.0222.us.us, i64 %67
   %78 = load i32, ptr %77, align 4, !tbaa !53
-  %79 = getelementptr inbounds nuw i32, ptr %.sroa.14.0222.us.us, i64 %62
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.14.0222.us.us, i64 %62
   %80 = load i32, ptr %79, align 4, !tbaa !53
-  %81 = getelementptr inbounds i32, ptr %.sroa.0117.0220.us.us, i64 %67
+  %81 = getelementptr inbounds [4 x i8], ptr %.sroa.0117.0220.us.us, i64 %67
   %82 = load i32, ptr %81, align 4, !tbaa !53
-  %83 = getelementptr inbounds nuw i32, ptr %.sroa.0117.0220.us.us, i64 %62
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0117.0220.us.us, i64 %62
   %84 = load i32, ptr %83, align 4, !tbaa !53
   %85 = icmp ne i32 %69, %64
   %86 = select i1 %85, i32 %71, i32 %69
@@ -411,25 +411,25 @@ define internal noundef i32 @epx3_slice(ptr readnone captures(none) %0, ptr noun
   %.0181.us.us = phi i32 [ %89, %76 ], [ %71, %58 ]
   %.0180.us.us = phi i32 [ %86, %76 ], [ %71, %58 ]
   %103 = mul nuw nsw i64 %indvars.iv, 3
-  %104 = getelementptr inbounds nuw i32, ptr %50, i64 %103
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %103
   store i32 %.0180.us.us, ptr %104, align 4, !tbaa !53
   %105 = add nuw nsw i64 %103, 1
-  %106 = getelementptr inbounds nuw i32, ptr %50, i64 %105
+  %106 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %105
   store i32 %.0181.us.us, ptr %106, align 4, !tbaa !53
   %107 = add nuw nsw i64 %103, 2
-  %108 = getelementptr inbounds nuw i32, ptr %50, i64 %107
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %107
   store i32 %.0188.us.us, ptr %108, align 4, !tbaa !53
-  %109 = getelementptr inbounds nuw i32, ptr %54, i64 %103
+  %109 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %103
   store i32 %.0187.us.us, ptr %109, align 4, !tbaa !53
-  %110 = getelementptr inbounds nuw i32, ptr %54, i64 %105
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %105
   store i32 %71, ptr %110, align 4, !tbaa !53
-  %111 = getelementptr inbounds nuw i32, ptr %54, i64 %107
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %107
   store i32 %.0185.us.us, ptr %111, align 4, !tbaa !53
-  %112 = getelementptr inbounds nuw i32, ptr %57, i64 %103
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %103
   store i32 %.0184.us.us, ptr %112, align 4, !tbaa !53
-  %113 = getelementptr inbounds nuw i32, ptr %57, i64 %105
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %105
   store i32 %.0183.us.us, ptr %113, align 4, !tbaa !53
-  %114 = getelementptr inbounds nuw i32, ptr %57, i64 %107
+  %114 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %107
   store i32 %.0182.us.us, ptr %114, align 4, !tbaa !53
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us.us, label %58, !llvm.loop !57
@@ -437,7 +437,7 @@ define internal noundef i32 @epx3_slice(ptr readnone captures(none) %0, ptr noun
 ._crit_edge.us.us:                                ; preds = %102
   %115 = icmp slt i64 %indvars.iv237, %47
   %.sroa.14.1.idx.us.us = select i1 %115, i64 %48, i64 0
-  %.sroa.14.1.us.us = getelementptr inbounds i32, ptr %.sroa.14.0222.us.us, i64 %.sroa.14.1.idx.us.us
+  %.sroa.14.1.us.us = getelementptr inbounds [4 x i8], ptr %.sroa.14.0222.us.us, i64 %.sroa.14.1.idx.us.us
   %indvars.iv.next238 = add nsw i64 %indvars.iv237, 1
   %exitcond241.not = icmp eq i64 %indvars.iv.next238, %wide.trip.count240
   br i1 %exitcond241.not, label %.split233.us, label %.lr.ph.us.us, !llvm.loop !58

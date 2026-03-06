@@ -22,12 +22,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.28" }
 %"struct.std::_Head_base.28" = type { ptr }
-%"class.QuantLib::Path" = type { %"class.QuantLib::TimeGrid", %"class.QuantLib::Array" }
-%"class.QuantLib::TimeGrid" = type { %"class.std::vector.29", %"class.std::vector.29", %"class.std::vector.29" }
-%"class.std::vector.29" = type { %"struct.std::_Vector_base.30" }
-%"struct.std::_Vector_base.30" = type { %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl" }
-%"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl" = type { %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 
 $__clang_call_terminate = comdat any
 
@@ -523,15 +517,15 @@ invoke.cont72.lr.ph:                              ; preds = %do.end
 
 invoke.cont72:                                    ; preds = %invoke.cont72.lr.ph, %invoke.cont72
   %j.0101 = phi i64 [ 0, %invoke.cont72.lr.ph ], [ %inc, %invoke.cont72 ]
-  %add.ptr.i.i59 = getelementptr inbounds nuw %"class.QuantLib::Path", ptr %0, i64 %j.0101
+  %add.ptr.i.i59 = getelementptr inbounds nuw [88 x i8], ptr %0, i64 %j.0101
   %values_.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i59, i64 72
   %n_.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i59, i64 80
   %41 = load i64, ptr %n_.i.i, align 8, !tbaa !31
   %42 = load ptr, ptr %values_.i, align 8, !tbaa !30
-  %43 = getelementptr double, ptr %42, i64 %41
+  %43 = getelementptr [8 x i8], ptr %42, i64 %41
   %arrayidx.i.i = getelementptr i8, ptr %43, i64 -8
   %44 = load double, ptr %arrayidx.i.i, align 8, !tbaa !39
-  %arrayidx.i = getelementptr inbounds nuw double, ptr %call.i, i64 %j.0101
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %call.i, i64 %j.0101
   store double %44, ptr %arrayidx.i, align 8, !tbaa !39
   %inc = add nuw i64 %j.0101, 1
   %exitcond.not = icmp eq i64 %inc, %sub.ptr.div.i.i

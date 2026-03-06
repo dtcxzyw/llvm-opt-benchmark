@@ -5,16 +5,14 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %"class.irr::core::rect" = type { %"class.irr::core::vector2d", %"class.irr::core::vector2d" }
 %"class.irr::core::vector2d" = type { i32, i32 }
-%"struct.irr::gui::CGUIButton::ButtonSprite" = type <{ i32, %"class.irr::video::SColor", i8, i8, [2 x i8] }>
-%"class.irr::video::SColor" = type { i32 }
 %"struct.irr::SEvent" = type { i32, %union.anon.11 }
 %union.anon.11 = type { %"struct.irr::SEvent::SGUIEvent", [24 x i8] }
 %"struct.irr::SEvent::SGUIEvent" = type { ptr, ptr, i32 }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<wchar_t>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<wchar_t>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
+%"class.irr::video::SColor" = type { i32 }
 %"class.irr::core::string" = type { %"class.std::__cxx11::basic_string" }
-%"struct.irr::gui::CGUIButton::ButtonImage" = type { ptr, %"class.irr::core::rect" }
 %"class.std::__cxx11::basic_string.6" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.10 }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon.10 = type { i64, [8 x i8] }
@@ -964,7 +962,7 @@ entry:
   %frombool1 = zext i1 %scale to i8
   %ButtonSprites = getelementptr inbounds nuw i8, ptr %this, i64 308
   %idxprom = zext i32 %state to i64
-  %arrayidx = getelementptr inbounds nuw %"struct.irr::gui::CGUIButton::ButtonSprite", ptr %ButtonSprites, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [12 x i8], ptr %ButtonSprites, i64 %idxprom
   store i32 %index, ptr %arrayidx, align 4, !tbaa !6
   %Color = getelementptr inbounds nuw i8, ptr %arrayidx, i64 4
   store i32 %color.coerce, ptr %Color, align 4, !tbaa !62
@@ -980,7 +978,7 @@ define noundef i32 @_ZNK3irr3gui10CGUIButton14getSpriteIndexENS0_17EGUI_BUTTON_S
 entry:
   %ButtonSprites = getelementptr inbounds nuw i8, ptr %this, i64 308
   %idxprom = zext i32 %state to i64
-  %arrayidx = getelementptr inbounds nuw %"struct.irr::gui::CGUIButton::ButtonSprite", ptr %ButtonSprites, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [12 x i8], ptr %ButtonSprites, i64 %idxprom
   %0 = load i32, ptr %arrayidx, align 4, !tbaa !6
   ret i32 %0
 }
@@ -1481,7 +1479,7 @@ land.rhs.lr.ph.i:                                 ; preds = %if.else23.i, %if.el
 land.rhs.i:                                       ; preds = %sw.epilog.i, %land.rhs.lr.ph.i
   %state.168.i = phi i32 [ %state.073.i, %land.rhs.lr.ph.i ], [ %state.2.i, %sw.epilog.i ]
   %idxprom.i = zext nneg i32 %state.168.i to i64
-  %arrayidx.i = getelementptr inbounds nuw %"struct.irr::gui::CGUIButton::ButtonImage", ptr %ButtonImages74.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [24 x i8], ptr %ButtonImages74.i, i64 %idxprom.i
   %18 = load ptr, ptr %arrayidx.i, align 8, !tbaa !60
   %tobool41.not.i = icmp eq ptr %18, null
   br i1 %tobool41.not.i, label %while.body.i, label %_ZNK3irr3gui10CGUIButton13getImageStateEb.exit
@@ -1520,7 +1518,7 @@ _ZNK3irr3gui10CGUIButton13getImageStateEb.exit:   ; preds = %sw.epilog.i, %while
   %state.1.lcssa.i = phi i32 [ 0, %if.else23.i ], [ 0, %while.body.i ], [ 0, %sw.epilog.i ], [ %state.168.i, %land.rhs.i ]
   %ButtonImages = getelementptr inbounds nuw i8, ptr %this, i64 400
   %idxprom = zext nneg i32 %state.1.lcssa.i to i64
-  %arrayidx = getelementptr inbounds nuw %"struct.irr::gui::CGUIButton::ButtonImage", ptr %ButtonImages, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [24 x i8], ptr %ButtonImages, i64 %idxprom
   %19 = load ptr, ptr %arrayidx, align 8, !tbaa !60
   %tobool23.not = icmp eq ptr %19, null
   br i1 %tobool23.not, label %if.end80, label %if.then24
@@ -1595,7 +1593,7 @@ if.then.i214:                                     ; preds = %if.then45
 land.rhs.lr.ph.i196:                              ; preds = %if.then.i214, %if.then45
   %state.073.i197 = phi i32 [ %.mux351.mux, %if.then.i214 ], [ 8, %if.then45 ]
   %idxprom.i201354 = zext nneg i32 %state.073.i197 to i64
-  %arrayidx.i202355 = getelementptr inbounds nuw %"struct.irr::gui::CGUIButton::ButtonImage", ptr %ButtonImages, i64 %idxprom.i201354
+  %arrayidx.i202355 = getelementptr inbounds nuw [24 x i8], ptr %ButtonImages, i64 %idxprom.i201354
   %36 = load ptr, ptr %arrayidx.i202355, align 8, !tbaa !60
   %tobool41.not.i203356 = icmp eq ptr %36, null
   br i1 %tobool41.not.i203356, label %while.body.i205, label %_ZNK3irr3gui10CGUIButton13getImageStateEb.exit219
@@ -1615,10 +1613,10 @@ switch.hole_check:                                ; preds = %while.body.i205
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %40 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN3irr3gui10CGUIButton4drawEv, i64 %40
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN3irr3gui10CGUIButton4drawEv, i64 %40
   %switch.load = load i32, ptr %switch.gep, align 4
   %idxprom.i201 = zext nneg i32 %switch.load to i64
-  %arrayidx.i202 = getelementptr inbounds nuw %"struct.irr::gui::CGUIButton::ButtonImage", ptr %ButtonImages, i64 %idxprom.i201
+  %arrayidx.i202 = getelementptr inbounds nuw [24 x i8], ptr %ButtonImages, i64 %idxprom.i201
   %41 = load ptr, ptr %arrayidx.i202, align 8, !tbaa !60
   %tobool41.not.i203 = icmp eq ptr %41, null
   br i1 %tobool41.not.i203, label %while.body.i205, label %_ZNK3irr3gui10CGUIButton13getImageStateEb.exit219, !llvm.loop !79
@@ -1630,7 +1628,7 @@ _ZNK3irr3gui10CGUIButton13getImageStateEb.exit219: ; preds = %switch.lookup, %sw
 
 lor.lhs.false:                                    ; preds = %_ZNK3irr3gui10CGUIButton13getImageStateEb.exit219
   %idxprom52 = zext nneg i32 %state.1.lcssa.i204 to i64
-  %arrayidx53 = getelementptr inbounds nuw %"struct.irr::gui::CGUIButton::ButtonImage", ptr %ButtonImages, i64 %idxprom52
+  %arrayidx53 = getelementptr inbounds nuw [24 x i8], ptr %ButtonImages, i64 %idxprom52
   %42 = load ptr, ptr %arrayidx, align 8, !tbaa !60
   %43 = load ptr, ptr %arrayidx53, align 8, !tbaa !60
   %cmp.i220 = icmp eq ptr %42, %43
@@ -1757,7 +1755,7 @@ if.then101:                                       ; preds = %if.end97
   %70 = load i32, ptr %ClickTime, align 8, !tbaa !87
   %ButtonSprites.i = getelementptr inbounds nuw i8, ptr %this, i64 308
   %idxprom.i234 = zext nneg i8 %69 to i64
-  %arrayidx.i235 = getelementptr inbounds nuw %"struct.irr::gui::CGUIButton::ButtonSprite", ptr %ButtonSprites.i, i64 %idxprom.i234
+  %arrayidx.i235 = getelementptr inbounds nuw [12 x i8], ptr %ButtonSprites.i, i64 %idxprom.i234
   %71 = load i32, ptr %arrayidx.i235, align 4, !tbaa !6
   %cmp.not.i = icmp eq i32 %71, -1
   br i1 %cmp.not.i, label %_ZN3irr3gui10CGUIButton10drawSpriteENS0_17EGUI_BUTTON_STATEEjRKNS_4core8vector2dIiEE.exit, label %if.then.i236
@@ -1812,7 +1810,7 @@ _ZN3irr3gui10CGUIButton10drawSpriteENS0_17EGUI_BUTTON_STATEEjRKNS_4core8vector2d
   %FocusTime = getelementptr inbounds nuw i8, ptr %this, i64 640
   %84 = load i32, ptr %FocusTime, align 8, !tbaa !71
   %idxprom.i244 = select i1 %call107, i64 4, i64 5
-  %arrayidx.i245 = getelementptr inbounds nuw %"struct.irr::gui::CGUIButton::ButtonSprite", ptr %ButtonSprites.i, i64 %idxprom.i244
+  %arrayidx.i245 = getelementptr inbounds nuw [12 x i8], ptr %ButtonSprites.i, i64 %idxprom.i244
   %85 = load i32, ptr %arrayidx.i245, align 4, !tbaa !6
   %cmp.not.i246 = icmp eq i32 %85, -1
   br i1 %cmp.not.i246, label %_ZN3irr3gui10CGUIButton10drawSpriteENS0_17EGUI_BUTTON_STATEEjRKNS_4core8vector2dIiEE.exit273, label %if.then.i247
@@ -1868,7 +1866,7 @@ _ZN3irr3gui10CGUIButton10drawSpriteENS0_17EGUI_BUTTON_STATEEjRKNS_4core8vector2d
   %HoverTime = getelementptr inbounds nuw i8, ptr %this, i64 636
   %98 = load i32, ptr %HoverTime, align 4, !tbaa !72
   %idxprom.i276 = select i1 %cmp113, i64 2, i64 3
-  %arrayidx.i277 = getelementptr inbounds nuw %"struct.irr::gui::CGUIButton::ButtonSprite", ptr %ButtonSprites.i, i64 %idxprom.i276
+  %arrayidx.i277 = getelementptr inbounds nuw [12 x i8], ptr %ButtonSprites.i, i64 %idxprom.i276
   %99 = load i32, ptr %arrayidx.i277, align 4, !tbaa !6
   %cmp.not.i278 = icmp eq i32 %99, -1
   br i1 %cmp.not.i278, label %if.end116, label %if.then.i279
@@ -2060,11 +2058,11 @@ vector.ph:                                        ; preds = %for.body.lr.ph.i.i
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
   %index = phi i64 [ 0, %vector.ph ], [ %index.next, %vector.body ]
-  %137 = getelementptr inbounds i32, ptr %129, i64 %index
+  %137 = getelementptr inbounds [4 x i8], ptr %129, i64 %index
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 16
   %wide.load = load <4 x i32>, ptr %137, align 4, !tbaa !91
   %wide.load361 = load <4 x i32>, ptr %138, align 4, !tbaa !91
-  %139 = getelementptr inbounds i32, ptr %134, i64 %index
+  %139 = getelementptr inbounds [4 x i8], ptr %134, i64 %index
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 16
   store <4 x i32> %wide.load, ptr %139, align 4, !tbaa !91
   store <4 x i32> %wide.load361, ptr %140, align 4, !tbaa !91
@@ -2086,9 +2084,9 @@ for.body.i.i.preheader:                           ; preds = %middle.block, %for.
 for.body.i.i.prol:                                ; preds = %for.body.i.i.preheader, %for.body.i.i.prol
   %indvars.iv.i.i.prol = phi i64 [ %indvars.iv.next.i.i.prol, %for.body.i.i.prol ], [ %indvars.iv.i.i.ph, %for.body.i.i.preheader ]
   %prol.iter = phi i64 [ %prol.iter.next, %for.body.i.i.prol ], [ 0, %for.body.i.i.preheader ]
-  %arrayidx.i.i.prol = getelementptr inbounds nuw i32, ptr %129, i64 %indvars.iv.i.i.prol
+  %arrayidx.i.i.prol = getelementptr inbounds nuw [4 x i8], ptr %129, i64 %indvars.iv.i.i.prol
   %142 = load i32, ptr %arrayidx.i.i.prol, align 4, !tbaa !91
-  %arrayidx.i.i.i.prol = getelementptr inbounds nuw i32, ptr %134, i64 %indvars.iv.i.i.prol
+  %arrayidx.i.i.i.prol = getelementptr inbounds nuw [4 x i8], ptr %134, i64 %indvars.iv.i.i.prol
   store i32 %142, ptr %arrayidx.i.i.i.prol, align 4, !tbaa !91
   %indvars.iv.next.i.i.prol = add nuw nsw i64 %indvars.iv.i.i.prol, 1
   %prol.iter.next = add nuw nsw i64 %prol.iter, 1
@@ -2103,24 +2101,24 @@ for.body.i.i.prol.loopexit:                       ; preds = %for.body.i.i.prol, 
 
 for.body.i.i:                                     ; preds = %for.body.i.i.prol.loopexit, %for.body.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i.3, %for.body.i.i ], [ %indvars.iv.i.i.unr, %for.body.i.i.prol.loopexit ]
-  %arrayidx.i.i = getelementptr inbounds i32, ptr %129, i64 %indvars.iv.i.i
+  %arrayidx.i.i = getelementptr inbounds [4 x i8], ptr %129, i64 %indvars.iv.i.i
   %145 = load i32, ptr %arrayidx.i.i, align 4, !tbaa !91
-  %arrayidx.i.i.i = getelementptr inbounds i32, ptr %134, i64 %indvars.iv.i.i
+  %arrayidx.i.i.i = getelementptr inbounds [4 x i8], ptr %134, i64 %indvars.iv.i.i
   store i32 %145, ptr %arrayidx.i.i.i, align 4, !tbaa !91
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %arrayidx.i.i.1 = getelementptr inbounds i32, ptr %129, i64 %indvars.iv.next.i.i
+  %arrayidx.i.i.1 = getelementptr inbounds [4 x i8], ptr %129, i64 %indvars.iv.next.i.i
   %146 = load i32, ptr %arrayidx.i.i.1, align 4, !tbaa !91
-  %arrayidx.i.i.i.1 = getelementptr inbounds i32, ptr %134, i64 %indvars.iv.next.i.i
+  %arrayidx.i.i.i.1 = getelementptr inbounds [4 x i8], ptr %134, i64 %indvars.iv.next.i.i
   store i32 %146, ptr %arrayidx.i.i.i.1, align 4, !tbaa !91
   %indvars.iv.next.i.i.1 = add nuw nsw i64 %indvars.iv.i.i, 2
-  %arrayidx.i.i.2 = getelementptr inbounds i32, ptr %129, i64 %indvars.iv.next.i.i.1
+  %arrayidx.i.i.2 = getelementptr inbounds [4 x i8], ptr %129, i64 %indvars.iv.next.i.i.1
   %147 = load i32, ptr %arrayidx.i.i.2, align 4, !tbaa !91
-  %arrayidx.i.i.i.2 = getelementptr inbounds i32, ptr %134, i64 %indvars.iv.next.i.i.1
+  %arrayidx.i.i.i.2 = getelementptr inbounds [4 x i8], ptr %134, i64 %indvars.iv.next.i.i.1
   store i32 %147, ptr %arrayidx.i.i.i.2, align 4, !tbaa !91
   %indvars.iv.next.i.i.2 = add nuw nsw i64 %indvars.iv.i.i, 3
-  %arrayidx.i.i.3 = getelementptr inbounds i32, ptr %129, i64 %indvars.iv.next.i.i.2
+  %arrayidx.i.i.3 = getelementptr inbounds [4 x i8], ptr %129, i64 %indvars.iv.next.i.i.2
   %148 = load i32, ptr %arrayidx.i.i.3, align 4, !tbaa !91
-  %arrayidx.i.i.i.3 = getelementptr inbounds i32, ptr %134, i64 %indvars.iv.next.i.i.2
+  %arrayidx.i.i.i.3 = getelementptr inbounds [4 x i8], ptr %134, i64 %indvars.iv.next.i.i.2
   store i32 %148, ptr %arrayidx.i.i.i.3, align 4, !tbaa !91
   %indvars.iv.next.i.i.3 = add nuw nsw i64 %indvars.iv.i.i, 4
   %exitcond.not.i.i.3 = icmp eq i64 %indvars.iv.next.i.i.3, %conv.i.i
@@ -2228,7 +2226,7 @@ land.rhs.lr.ph:                                   ; preds = %if.else23, %if.else
 land.rhs:                                         ; preds = %sw.epilog, %land.rhs.lr.ph
   %state.168 = phi i32 [ %state.073, %land.rhs.lr.ph ], [ %state.2, %sw.epilog ]
   %idxprom = zext nneg i32 %state.168 to i64
-  %arrayidx = getelementptr inbounds nuw %"struct.irr::gui::CGUIButton::ButtonImage", ptr %ButtonImages74, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [24 x i8], ptr %ButtonImages74, i64 %idxprom
   %5 = load ptr, ptr %arrayidx, align 8, !tbaa !60
   %tobool41.not = icmp eq ptr %5, null
   br i1 %tobool41.not, label %while.body, label %while.end
@@ -2274,7 +2272,7 @@ entry:
   %colors = alloca [4 x %"class.irr::video::SColor"], align 16
   %ButtonSprites = getelementptr inbounds nuw i8, ptr %this, i64 308
   %idxprom = zext i32 %state to i64
-  %arrayidx = getelementptr inbounds nuw %"struct.irr::gui::CGUIButton::ButtonSprite", ptr %ButtonSprites, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [12 x i8], ptr %ButtonSprites, i64 %idxprom
   %0 = load i32, ptr %arrayidx, align 4, !tbaa !6
   %cmp.not = icmp eq i32 %0, -1
   br i1 %cmp.not, label %if.end49, label %if.then
@@ -2561,7 +2559,7 @@ if.then2:                                         ; preds = %if.end
 if.end3:                                          ; preds = %if.then2, %if.end
   %ButtonImages = getelementptr inbounds nuw i8, ptr %this, i64 400
   %idxprom = zext i32 %state to i64
-  %arrayidx = getelementptr inbounds nuw %"struct.irr::gui::CGUIButton::ButtonImage", ptr %ButtonImages, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [24 x i8], ptr %ButtonImages, i64 %idxprom
   %1 = load ptr, ptr %arrayidx, align 8, !tbaa !60
   %tobool4.not = icmp eq ptr %1, null
   br i1 %tobool4.not, label %if.end14, label %if.then5
@@ -3213,11 +3211,11 @@ vector.ph:                                        ; preds = %for.body.lr.ph.i
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
   %index = phi i64 [ 0, %vector.ph ], [ %index.next, %vector.body ]
-  %5 = getelementptr inbounds i32, ptr %text, i64 %index
+  %5 = getelementptr inbounds [4 x i8], ptr %text, i64 %index
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %wide.load = load <4 x i32>, ptr %5, align 4, !tbaa !91
   %wide.load3 = load <4 x i32>, ptr %6, align 4, !tbaa !91
-  %7 = getelementptr inbounds i32, ptr %2, i64 %index
+  %7 = getelementptr inbounds [4 x i8], ptr %2, i64 %index
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store <4 x i32> %wide.load, ptr %7, align 4, !tbaa !91
   store <4 x i32> %wide.load3, ptr %8, align 4, !tbaa !91
@@ -3239,9 +3237,9 @@ for.body.i.preheader:                             ; preds = %middle.block, %for.
 for.body.i.prol:                                  ; preds = %for.body.i.preheader, %for.body.i.prol
   %indvars.iv.i.prol = phi i64 [ %indvars.iv.next.i.prol, %for.body.i.prol ], [ %indvars.iv.i.ph, %for.body.i.preheader ]
   %prol.iter = phi i64 [ %prol.iter.next, %for.body.i.prol ], [ 0, %for.body.i.preheader ]
-  %arrayidx.i.prol = getelementptr inbounds nuw i32, ptr %text, i64 %indvars.iv.i.prol
+  %arrayidx.i.prol = getelementptr inbounds nuw [4 x i8], ptr %text, i64 %indvars.iv.i.prol
   %10 = load i32, ptr %arrayidx.i.prol, align 4, !tbaa !91
-  %arrayidx.i.i.prol = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.i.prol
+  %arrayidx.i.i.prol = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv.i.prol
   store i32 %10, ptr %arrayidx.i.i.prol, align 4, !tbaa !91
   %indvars.iv.next.i.prol = add nuw nsw i64 %indvars.iv.i.prol, 1
   %prol.iter.next = add nuw nsw i64 %prol.iter, 1
@@ -3256,24 +3254,24 @@ for.body.i.prol.loopexit:                         ; preds = %for.body.i.prol, %f
 
 for.body.i:                                       ; preds = %for.body.i.prol.loopexit, %for.body.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i.3, %for.body.i ], [ %indvars.iv.i.unr, %for.body.i.prol.loopexit ]
-  %arrayidx.i = getelementptr inbounds i32, ptr %text, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds [4 x i8], ptr %text, i64 %indvars.iv.i
   %13 = load i32, ptr %arrayidx.i, align 4, !tbaa !91
-  %arrayidx.i.i = getelementptr inbounds i32, ptr %2, i64 %indvars.iv.i
+  %arrayidx.i.i = getelementptr inbounds [4 x i8], ptr %2, i64 %indvars.iv.i
   store i32 %13, ptr %arrayidx.i.i, align 4, !tbaa !91
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %arrayidx.i.1 = getelementptr inbounds i32, ptr %text, i64 %indvars.iv.next.i
+  %arrayidx.i.1 = getelementptr inbounds [4 x i8], ptr %text, i64 %indvars.iv.next.i
   %14 = load i32, ptr %arrayidx.i.1, align 4, !tbaa !91
-  %arrayidx.i.i.1 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv.next.i
+  %arrayidx.i.i.1 = getelementptr inbounds [4 x i8], ptr %2, i64 %indvars.iv.next.i
   store i32 %14, ptr %arrayidx.i.i.1, align 4, !tbaa !91
   %indvars.iv.next.i.1 = add nuw nsw i64 %indvars.iv.i, 2
-  %arrayidx.i.2 = getelementptr inbounds i32, ptr %text, i64 %indvars.iv.next.i.1
+  %arrayidx.i.2 = getelementptr inbounds [4 x i8], ptr %text, i64 %indvars.iv.next.i.1
   %15 = load i32, ptr %arrayidx.i.2, align 4, !tbaa !91
-  %arrayidx.i.i.2 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv.next.i.1
+  %arrayidx.i.i.2 = getelementptr inbounds [4 x i8], ptr %2, i64 %indvars.iv.next.i.1
   store i32 %15, ptr %arrayidx.i.i.2, align 4, !tbaa !91
   %indvars.iv.next.i.2 = add nuw nsw i64 %indvars.iv.i, 3
-  %arrayidx.i.3 = getelementptr inbounds i32, ptr %text, i64 %indvars.iv.next.i.2
+  %arrayidx.i.3 = getelementptr inbounds [4 x i8], ptr %text, i64 %indvars.iv.next.i.2
   %16 = load i32, ptr %arrayidx.i.3, align 4, !tbaa !91
-  %arrayidx.i.i.3 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv.next.i.2
+  %arrayidx.i.i.3 = getelementptr inbounds [4 x i8], ptr %2, i64 %indvars.iv.next.i.2
   store i32 %16, ptr %arrayidx.i.i.3, align 4, !tbaa !91
   %indvars.iv.next.i.3 = add nuw nsw i64 %indvars.iv.i, 4
   %exitcond.not.i.3 = icmp eq i64 %indvars.iv.next.i.3, %conv.i
@@ -3342,11 +3340,11 @@ vector.ph:                                        ; preds = %for.body.lr.ph.i
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
   %index = phi i64 [ 0, %vector.ph ], [ %index.next, %vector.body ]
-  %5 = getelementptr inbounds i32, ptr %text, i64 %index
+  %5 = getelementptr inbounds [4 x i8], ptr %text, i64 %index
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %wide.load = load <4 x i32>, ptr %5, align 4, !tbaa !91
   %wide.load3 = load <4 x i32>, ptr %6, align 4, !tbaa !91
-  %7 = getelementptr inbounds i32, ptr %2, i64 %index
+  %7 = getelementptr inbounds [4 x i8], ptr %2, i64 %index
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store <4 x i32> %wide.load, ptr %7, align 4, !tbaa !91
   store <4 x i32> %wide.load3, ptr %8, align 4, !tbaa !91
@@ -3368,9 +3366,9 @@ for.body.i.preheader:                             ; preds = %middle.block, %for.
 for.body.i.prol:                                  ; preds = %for.body.i.preheader, %for.body.i.prol
   %indvars.iv.i.prol = phi i64 [ %indvars.iv.next.i.prol, %for.body.i.prol ], [ %indvars.iv.i.ph, %for.body.i.preheader ]
   %prol.iter = phi i64 [ %prol.iter.next, %for.body.i.prol ], [ 0, %for.body.i.preheader ]
-  %arrayidx.i.prol = getelementptr inbounds nuw i32, ptr %text, i64 %indvars.iv.i.prol
+  %arrayidx.i.prol = getelementptr inbounds nuw [4 x i8], ptr %text, i64 %indvars.iv.i.prol
   %10 = load i32, ptr %arrayidx.i.prol, align 4, !tbaa !91
-  %arrayidx.i.i.prol = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.i.prol
+  %arrayidx.i.i.prol = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv.i.prol
   store i32 %10, ptr %arrayidx.i.i.prol, align 4, !tbaa !91
   %indvars.iv.next.i.prol = add nuw nsw i64 %indvars.iv.i.prol, 1
   %prol.iter.next = add nuw nsw i64 %prol.iter, 1
@@ -3385,24 +3383,24 @@ for.body.i.prol.loopexit:                         ; preds = %for.body.i.prol, %f
 
 for.body.i:                                       ; preds = %for.body.i.prol.loopexit, %for.body.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i.3, %for.body.i ], [ %indvars.iv.i.unr, %for.body.i.prol.loopexit ]
-  %arrayidx.i = getelementptr inbounds i32, ptr %text, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds [4 x i8], ptr %text, i64 %indvars.iv.i
   %13 = load i32, ptr %arrayidx.i, align 4, !tbaa !91
-  %arrayidx.i.i = getelementptr inbounds i32, ptr %2, i64 %indvars.iv.i
+  %arrayidx.i.i = getelementptr inbounds [4 x i8], ptr %2, i64 %indvars.iv.i
   store i32 %13, ptr %arrayidx.i.i, align 4, !tbaa !91
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %arrayidx.i.1 = getelementptr inbounds i32, ptr %text, i64 %indvars.iv.next.i
+  %arrayidx.i.1 = getelementptr inbounds [4 x i8], ptr %text, i64 %indvars.iv.next.i
   %14 = load i32, ptr %arrayidx.i.1, align 4, !tbaa !91
-  %arrayidx.i.i.1 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv.next.i
+  %arrayidx.i.i.1 = getelementptr inbounds [4 x i8], ptr %2, i64 %indvars.iv.next.i
   store i32 %14, ptr %arrayidx.i.i.1, align 4, !tbaa !91
   %indvars.iv.next.i.1 = add nuw nsw i64 %indvars.iv.i, 2
-  %arrayidx.i.2 = getelementptr inbounds i32, ptr %text, i64 %indvars.iv.next.i.1
+  %arrayidx.i.2 = getelementptr inbounds [4 x i8], ptr %text, i64 %indvars.iv.next.i.1
   %15 = load i32, ptr %arrayidx.i.2, align 4, !tbaa !91
-  %arrayidx.i.i.2 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv.next.i.1
+  %arrayidx.i.i.2 = getelementptr inbounds [4 x i8], ptr %2, i64 %indvars.iv.next.i.1
   store i32 %15, ptr %arrayidx.i.i.2, align 4, !tbaa !91
   %indvars.iv.next.i.2 = add nuw nsw i64 %indvars.iv.i, 3
-  %arrayidx.i.3 = getelementptr inbounds i32, ptr %text, i64 %indvars.iv.next.i.2
+  %arrayidx.i.3 = getelementptr inbounds [4 x i8], ptr %text, i64 %indvars.iv.next.i.2
   %16 = load i32, ptr %arrayidx.i.3, align 4, !tbaa !91
-  %arrayidx.i.i.3 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv.next.i.2
+  %arrayidx.i.i.3 = getelementptr inbounds [4 x i8], ptr %2, i64 %indvars.iv.next.i.2
   store i32 %16, ptr %arrayidx.i.i.3, align 4, !tbaa !91
   %indvars.iv.next.i.3 = add nuw nsw i64 %indvars.iv.i, 4
   %exitcond.not.i.3 = icmp eq i64 %indvars.iv.next.i.3, %conv.i
@@ -3588,7 +3586,7 @@ entry:
   %Type = getelementptr inbounds nuw i8, ptr %this, i64 304
   %0 = load i32, ptr %Type, align 8, !tbaa !125
   %idxprom = zext i32 %0 to i64
-  %arrayidx = getelementptr inbounds nuw ptr, ptr @_ZN3irr3guiL19GUIElementTypeNamesE, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [8 x i8], ptr @_ZN3irr3guiL19GUIElementTypeNamesE, i64 %idxprom
   %1 = load ptr, ptr %arrayidx, align 8, !tbaa !53
   ret ptr %1
 }

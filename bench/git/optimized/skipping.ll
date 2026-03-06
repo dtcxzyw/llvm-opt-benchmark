@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.prio_queue = type { ptr, i64, ptr, i64, i64, ptr }
-%struct.prio_queue_entry = type { i64, ptr }
 
 @marked = internal unnamed_addr global i1 false, align 4
 @the_repository = external local_unnamed_addr global ptr, align 8
@@ -187,7 +186,7 @@ define internal ptr @next(ptr noundef captures(none) initializes((0, 16)) %0) #0
 
 45:                                               ; preds = %43, %.lr.ph.i.i
   %.02838.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %44, %43 ]
-  %46 = getelementptr inbounds nuw %struct.prio_queue_entry, ptr %42, i64 %.02838.i.i
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %42, i64 %.02838.i.i
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %48 = load ptr, ptr %47, align 8, !tbaa !36
   %49 = load ptr, ptr %48, align 8, !tbaa !22
@@ -390,7 +389,7 @@ define internal void @release(ptr noundef readonly captures(none) %0) #0 {
 7:                                                ; preds = %.lr.ph, %7
   %.07 = phi i64 [ 0, %.lr.ph ], [ %12, %7 ]
   %8 = load ptr, ptr %6, align 8, !tbaa !33
-  %9 = getelementptr inbounds nuw %struct.prio_queue_entry, ptr %8, i64 %.07
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %.07
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !36
   tail call void @free(ptr noundef %11) #6

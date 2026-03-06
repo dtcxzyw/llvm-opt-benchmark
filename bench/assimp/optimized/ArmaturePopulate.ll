@@ -446,7 +446,7 @@ define void @_ZN6Assimp16ArmaturePopulate13BuildBoneListEP6aiNodePKS1_PK7aiScene
 11:                                               ; preds = %.lr.ph47, %._crit_edge44
   %indvars.iv59 = phi i64 [ 0, %.lr.ph47 ], [ %indvars.iv.next60, %._crit_edge44 ]
   %12 = load ptr, ptr %7, align 8
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv59
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv59
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 1120
   %16 = load i32, ptr %15, align 8
@@ -469,11 +469,11 @@ define void @_ZN6Assimp16ArmaturePopulate13BuildBoneListEP6aiNodePKS1_PK7aiScene
   %22 = phi i32 [ %16, %.lr.ph43 ], [ %33, %._crit_edge ]
   %indvars.iv56 = phi i64 [ 0, %.lr.ph43 ], [ %indvars.iv.next57, %._crit_edge ]
   %23 = load ptr, ptr %17, align 8
-  %24 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv56
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %indvars.iv56
   %25 = load i32, ptr %24, align 4
   %26 = load ptr, ptr %8, align 8
   %27 = zext i32 %25 to i64
-  %28 = getelementptr inbounds nuw ptr, ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %27
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 216
   %31 = load i32, ptr %30, align 8
@@ -500,7 +500,7 @@ define void @_ZN6Assimp16ArmaturePopulate13BuildBoneListEP6aiNodePKS1_PK7aiScene
   %37 = phi ptr [ %.pre, %.lr.ph ], [ %103, %_ZNSt6vectorIP6aiBoneSaIS1_EE12emplace_backIJRS1_EEES5_DpOT_.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNSt6vectorIP6aiBoneSaIS1_EE12emplace_backIJRS1_EEES5_DpOT_.exit ]
   %38 = load ptr, ptr %32, align 8
-  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv
   %40 = load ptr, ptr %39, align 8
   %41 = load ptr, ptr %3, align 8
   %42 = ptrtoint ptr %37 to i64
@@ -656,7 +656,7 @@ _ZNSt6vectorIP6aiBoneSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; preds = 
 _ZNSt6vectorIP6aiBoneSaIS1_EE17_M_realloc_insertIJRS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %101, %_ZNSt6vectorIP6aiBoneSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   store ptr %96, ptr %3, align 8
   store ptr %100, ptr %9, align 8
-  %102 = getelementptr inbounds nuw ptr, ptr %96, i64 %94
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %96, i64 %94
   store ptr %102, ptr %10, align 8
   br label %_ZNSt6vectorIP6aiBoneSaIS1_EE12emplace_backIJRS1_EEES5_DpOT_.exit
 
@@ -690,7 +690,7 @@ define void @_ZN6Assimp16ArmaturePopulate13BuildNodeListEPK6aiNodeRSt6vectorIPS1
 8:                                                ; preds = %.lr.ph, %_ZNSt6vectorIP6aiNodeSaIS1_EE12emplace_backIJRS1_EEES5_DpOT_.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNSt6vectorIP6aiNodeSaIS1_EE12emplace_backIJRS1_EEES5_DpOT_.exit ]
   %9 = load ptr, ptr %5, align 8
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 1120
   %13 = load i32, ptr %12, align 8
@@ -754,7 +754,7 @@ _ZNSt6vectorIP6aiNodeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; preds = 
 _ZNSt6vectorIP6aiNodeSaIS1_EE17_M_realloc_insertIJRS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %39, %_ZNSt6vectorIP6aiNodeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   store ptr %34, ptr %1, align 8
   store ptr %38, ptr %6, align 8
-  %40 = getelementptr inbounds nuw ptr, ptr %34, i64 %32
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %32
   store ptr %40, ptr %7, align 8
   br label %_ZNSt6vectorIP6aiNodeSaIS1_EE12emplace_backIJRS1_EEES5_DpOT_.exit
 

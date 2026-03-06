@@ -867,7 +867,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %28, %
 
 .noexc73:                                         ; preds = %107
   store ptr %109, ptr %15, align 8, !tbaa !50
-  %110 = getelementptr inbounds nuw double, ptr %109, i64 %104
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %109, i64 %104
   %111 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store ptr %110, ptr %111, align 8, !tbaa !53
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %109, i8 0, i64 %108, i1 false), !tbaa !54
@@ -927,7 +927,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %28, %
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.03580 = phi i64 [ %135, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %.03679 = phi double [ %134, %.lr.ph ], [ 0.000000e+00, %.lr.ph.preheader ]
-  %132 = getelementptr inbounds nuw double, ptr %122, i64 %.03580
+  %132 = getelementptr inbounds nuw [8 x i8], ptr %122, i64 %.03580
   %133 = load double, ptr %132, align 8, !tbaa !54
   %134 = fadd double %.03679, %133
   %135 = add nuw i64 %.03580, 1
@@ -1980,7 +1980,7 @@ define linkonce_odr hidden void @_ZNK2cv2ml17ParallelCalcErrorclERKNS_5RangeE(pt
   %85 = load ptr, ptr %84, align 8, !tbaa !118
   %86 = sext i32 %14 to i64
   %87 = load ptr, ptr %85, align 8, !tbaa !50
-  %88 = getelementptr inbounds nuw double, ptr %87, i64 %86
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %87, i64 %86
   store double %.045.lcssa, ptr %88, align 8, !tbaa !54
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %11) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -2052,7 +2052,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %._crit_edge, %91
   br i1 %.not, label %114, label %111
 
 111:                                              ; preds = %109
-  %112 = getelementptr inbounds i32, ptr %47, i64 %indvars.iv
+  %112 = getelementptr inbounds [4 x i8], ptr %47, i64 %indvars.iv
   %113 = load i32, ptr %112, align 4, !tbaa !44
   br label %114
 
@@ -2061,7 +2061,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %._crit_edge, %91
   br i1 %.not50, label %120, label %116
 
 116:                                              ; preds = %114
-  %117 = getelementptr inbounds float, ptr %66, i64 %indvars.iv
+  %117 = getelementptr inbounds [4 x i8], ptr %66, i64 %indvars.iv
   %118 = load float, ptr %117, align 4, !tbaa !106
   %119 = fpext float %118 to double
   br label %120
@@ -2137,7 +2137,7 @@ _ZNK2cv3Mat3colEi.exit:                           ; preds = %124
 142:                                              ; preds = %138, %137
   %143 = load ptr, ptr %80, align 8, !tbaa !98
   %144 = sext i32 %115 to i64
-  %145 = getelementptr inbounds i32, ptr %143, i64 %144
+  %145 = getelementptr inbounds [4 x i8], ptr %143, i64 %144
   br label %_ZN2cv3Mat2atIiEERT_i.exit
 
 146:                                              ; preds = %138
@@ -2167,7 +2167,7 @@ _ZNK2cv3Mat3colEi.exit:                           ; preds = %124
   %165 = mul i64 %163, %164
   %166 = getelementptr inbounds nuw i8, ptr %161, i64 %165
   %167 = sext i32 %.recomposed to i64
-  %168 = getelementptr inbounds i32, ptr %166, i64 %167
+  %168 = getelementptr inbounds [4 x i8], ptr %166, i64 %167
   br label %_ZN2cv3Mat2atIiEERT_i.exit
 
 _ZN2cv3Mat2atIiEERT_i.exit:                       ; preds = %157, %150, %142
@@ -2188,7 +2188,7 @@ _ZN2cv3Mat2atIiEERT_i.exit:                       ; preds = %157, %150, %142
 176:                                              ; preds = %172, %171
   %177 = load ptr, ptr %80, align 8, !tbaa !98
   %178 = sext i32 %115 to i64
-  %179 = getelementptr inbounds float, ptr %177, i64 %178
+  %179 = getelementptr inbounds [4 x i8], ptr %177, i64 %178
   br label %_ZN2cv3Mat2atIfEERT_i.exit
 
 180:                                              ; preds = %172
@@ -2218,7 +2218,7 @@ _ZN2cv3Mat2atIiEERT_i.exit:                       ; preds = %157, %150, %142
   %199 = mul i64 %197, %198
   %200 = getelementptr inbounds nuw i8, ptr %195, i64 %199
   %201 = sext i32 %.recomposed87 to i64
-  %202 = getelementptr inbounds float, ptr %200, i64 %201
+  %202 = getelementptr inbounds [4 x i8], ptr %200, i64 %201
   br label %_ZN2cv3Mat2atIfEERT_i.exit
 
 _ZN2cv3Mat2atIfEERT_i.exit:                       ; preds = %176, %184, %191
@@ -2288,7 +2288,7 @@ _ZN2cv3Mat2atIfEERT_i.exit:                       ; preds = %176, %184, %191
 237:                                              ; preds = %232, %228
   %238 = getelementptr inbounds nuw i8, ptr %229, i64 16
   %239 = load ptr, ptr %238, align 8, !tbaa !98
-  %240 = getelementptr inbounds float, ptr %239, i64 %indvars.iv
+  %240 = getelementptr inbounds [4 x i8], ptr %239, i64 %indvars.iv
   br label %_ZN2cv3Mat2atIfEERT_i.exit67
 
 241:                                              ; preds = %232
@@ -2322,7 +2322,7 @@ _ZN2cv3Mat2atIfEERT_i.exit:                       ; preds = %176, %184, %191
   %265 = sext i32 %256 to i64
   %266 = mul i64 %264, %265
   %267 = getelementptr inbounds nuw i8, ptr %261, i64 %266
-  %268 = getelementptr inbounds float, ptr %267, i64 %259
+  %268 = getelementptr inbounds [4 x i8], ptr %267, i64 %259
   br label %_ZN2cv3Mat2atIfEERT_i.exit67
 
 _ZN2cv3Mat2atIfEERT_i.exit67:                     ; preds = %237, %245, %253

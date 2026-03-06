@@ -4,13 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.reftable_iterator_vtable = type { ptr, ptr, ptr }
-%struct.merged_subiter = type { %struct.reftable_iterator, %struct.reftable_record }
-%struct.reftable_iterator = type { ptr, ptr }
-%struct.reftable_record = type { i8, %union.anon }
-%union.anon = type { %struct.reftable_log_record }
-%struct.reftable_log_record = type { ptr, i64, i64, i32, %union.anon.1 }
-%union.anon.1 = type { %struct.anon.2 }
-%struct.anon.2 = type { [32 x i8], [32 x i8], ptr, ptr, i64, i16, ptr, i64 }
 %struct.pq_entry = type { i64, ptr }
 
 @merged_iter_vtable = internal global %struct.reftable_iterator_vtable { ptr @merged_iter_seek_void, ptr @merged_iter_next_void, ptr @merged_iter_close }, align 8
@@ -24,7 +17,7 @@ define dso_local range(i32 -13, 1) i32 @reftable_merged_table_new(ptr noundef wr
   %.03661 = phi i64 [ %16, %12 ], [ 0, %4 ]
   %.03760 = phi i64 [ %.340, %12 ], [ 0, %4 ]
   %.04159 = phi i64 [ %.344, %12 ], [ 0, %4 ]
-  %5 = getelementptr inbounds nuw ptr, ptr %1, i64 %.03661
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.03661
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = tail call i64 @reftable_reader_min_update_index(ptr noundef %6) #6
   %8 = load ptr, ptr %5, align 8, !tbaa !4
@@ -131,11 +124,11 @@ define dso_local range(i32 -2147483648, 1) i32 @merged_table_init_iter(ptr nound
 
 .lr.ph:                                           ; preds = %8, %10
   %.03962 = phi i64 [ %11, %10 ], [ 0, %8 ]
-  %14 = getelementptr inbounds nuw %struct.merged_subiter, ptr %7, i64 %.03962
+  %14 = getelementptr inbounds nuw [168 x i8], ptr %7, i64 %.03962
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   tail call void @reftable_record_init(ptr noundef nonnull %15, i8 noundef zeroext %2) #6
   %16 = load ptr, ptr %0, align 8, !tbaa !11
-  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %.03962
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.03962
   %18 = load ptr, ptr %17, align 8, !tbaa !4
   %19 = tail call i32 @reader_init_iter(ptr noundef %18, ptr noundef nonnull %14, i8 noundef zeroext %2) #6
   %20 = icmp slt i32 %19, 0
@@ -183,7 +176,7 @@ define dso_local range(i32 -2147483648, 1) i32 @merged_table_init_iter(ptr nound
 
 .lr.ph68:                                         ; preds = %.lr.ph65.split, %.lr.ph68
   %.06367 = phi i64 [ %32, %.lr.ph68 ], [ 0, %.lr.ph65.split ]
-  %30 = getelementptr inbounds nuw %struct.merged_subiter, ptr %.14389, i64 %.06367
+  %30 = getelementptr inbounds nuw [168 x i8], ptr %.14389, i64 %.06367
   tail call void @reftable_iterator_destroy(ptr noundef nonnull %30) #6
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   tail call void @reftable_record_release(ptr noundef nonnull %31) #6
@@ -254,7 +247,7 @@ define internal range(i32 -2147483648, 1) i32 @merged_iter_seek_void(ptr noundef
 11:                                               ; preds = %25, %.lr.ph28.i
   %.01727.i = phi i64 [ 0, %.lr.ph28.i ], [ %26, %25 ]
   %12 = load ptr, ptr %0, align 8, !tbaa !30
-  %13 = getelementptr inbounds nuw %struct.merged_subiter, ptr %12, i64 %.01727.i
+  %13 = getelementptr inbounds nuw [168 x i8], ptr %12, i64 %.01727.i
   %14 = call i32 @iterator_seek(ptr noundef %13, ptr noundef %1) #6
   %15 = icmp slt i32 %14, 0
   br i1 %15, label %merged_iter_seek.exit, label %16
@@ -267,7 +260,7 @@ define internal range(i32 -2147483648, 1) i32 @merged_iter_seek_void(ptr noundef
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %.01727.i, ptr %3, align 8, !tbaa !38
   %18 = load ptr, ptr %0, align 8, !tbaa !30
-  %19 = getelementptr inbounds nuw %struct.merged_subiter, ptr %18, i64 %.01727.i
+  %19 = getelementptr inbounds nuw [168 x i8], ptr %18, i64 %.01727.i
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store ptr %20, ptr %9, align 8, !tbaa !41
   %21 = call i32 @iterator_next(ptr noundef %19, ptr noundef nonnull %20) #6
@@ -322,7 +315,7 @@ define internal i32 @merged_iter_next_void(ptr noundef %0, ptr noundef %1) #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %13, ptr %4, align 8, !tbaa !38
   %17 = load ptr, ptr %0, align 8, !tbaa !30
-  %18 = getelementptr inbounds nuw %struct.merged_subiter, ptr %17, i64 %13
+  %18 = getelementptr inbounds nuw [168 x i8], ptr %17, i64 %13
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store ptr %19, ptr %9, align 8, !tbaa !41
   %20 = call i32 @iterator_next(ptr noundef %18, ptr noundef nonnull %19) #6
@@ -371,7 +364,7 @@ merged_iter_advance_subiter.exit.i:               ; preds = %21, %16
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %.val45.val.i, ptr %3, align 8, !tbaa !38
   %36 = load ptr, ptr %0, align 8, !tbaa !30
-  %37 = getelementptr inbounds nuw %struct.merged_subiter, ptr %36, i64 %.val45.val.i
+  %37 = getelementptr inbounds nuw [168 x i8], ptr %36, i64 %.val45.val.i
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   store ptr %38, ptr %10, align 8, !tbaa !41
   %39 = call i32 @iterator_next(ptr noundef %37, ptr noundef nonnull %38) #6
@@ -399,7 +392,7 @@ merged_iter_next_entry.exit.thread14:             ; preds = %29, %30
 
 merged_iter_next_entry.exit:                      ; preds = %15
   %43 = load ptr, ptr %0, align 8, !tbaa !30
-  %44 = getelementptr inbounds nuw %struct.merged_subiter, ptr %43, i64 %13
+  %44 = getelementptr inbounds nuw [168 x i8], ptr %43, i64 %13
   %45 = call i32 @iterator_next(ptr noundef %44, ptr noundef %1) #6
   %.not = icmp eq i32 %45, 0
   br i1 %.not, label %46, label %merged_iter_next_entry.exit.thread
@@ -436,10 +429,10 @@ define internal void @merged_iter_close(ptr noundef %0) #0 {
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.09 = phi i64 [ %11, %.lr.ph ], [ 0, %1 ]
   %6 = load ptr, ptr %0, align 8, !tbaa !30
-  %7 = getelementptr inbounds nuw %struct.merged_subiter, ptr %6, i64 %.09
+  %7 = getelementptr inbounds nuw [168 x i8], ptr %6, i64 %.09
   tail call void @reftable_iterator_destroy(ptr noundef %7) #6
   %8 = load ptr, ptr %0, align 8, !tbaa !30
-  %9 = getelementptr inbounds nuw %struct.merged_subiter, ptr %8, i64 %.09
+  %9 = getelementptr inbounds nuw [168 x i8], ptr %8, i64 %.09
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   tail call void @reftable_record_release(ptr noundef nonnull %10) #6
   %11 = add nuw i64 %.09, 1

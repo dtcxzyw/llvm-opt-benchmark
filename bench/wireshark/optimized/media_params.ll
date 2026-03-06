@@ -30,7 +30,7 @@ define noalias ptr @ws_find_media_type_parameter(ptr noundef %0, ptr noundef %1,
   %13 = phi i8 [ %10, %.lr.ph.i.preheader ], [ %.be, %.lr.ph.i.backedge ]
   %.080110.i = phi ptr [ %1, %.lr.ph.i.preheader ], [ %.080110.i.be, %.lr.ph.i.backedge ]
   %14 = zext i8 %13 to i64
-  %15 = getelementptr i16, ptr %12, i64 %14
+  %15 = getelementptr [2 x i8], ptr %12, i64 %14
   %16 = load i16, ptr %15, align 2
   %17 = and i16 %16, 256
   %.not91.i = icmp eq i16 %17, 0
@@ -217,7 +217,7 @@ ws_get_next_media_type_parameter.exit:            ; preds = %.loopexit.i, %27, %
   %.3142 = phi ptr [ %88, %86 ], [ %.2115, %69 ]
   %81 = phi i8 [ %.pr, %86 ], [ %72, %69 ]
   %82 = zext i8 %81 to i64
-  %83 = getelementptr i16, ptr %12, i64 %82
+  %83 = getelementptr [2 x i8], ptr %12, i64 %82
   %84 = load i16, ptr %83, align 2
   %.fr124 = freeze i16 %84
   %85 = and i16 %.fr124, 16

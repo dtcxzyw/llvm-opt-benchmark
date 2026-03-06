@@ -434,7 +434,7 @@ _ZNSt3__114__split_bufferIfRNS_9allocatorIfEEE5clearB8ne190000Ev.exit.i.i: ; pre
 
 .noexc63:                                         ; preds = %_ZNSt3__114__split_bufferIfRNS_9allocatorIfEEE5clearB8ne190000Ev.exit.i.i
   %85 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %86 = getelementptr inbounds nuw float, ptr %84, i64 %47
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %84, i64 %47
   store ptr %84, ptr %12, align 8
   store ptr %84, ptr %85, align 8
   store ptr %86, ptr %79, align 8
@@ -453,7 +453,7 @@ _ZNSt3__114__split_bufferIfRNS_9allocatorIfEEE5clearB8ne190000Ev.exit.i.i64: ; p
 
 .noexc67:                                         ; preds = %_ZNSt3__114__split_bufferIfRNS_9allocatorIfEEE5clearB8ne190000Ev.exit.i.i64
   %91 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %92 = getelementptr inbounds nuw float, ptr %90, i64 %47
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %90, i64 %47
   store ptr %90, ptr %13, align 8
   store ptr %90, ptr %91, align 8
   store ptr %92, ptr %88, align 8
@@ -471,7 +471,7 @@ _ZNSt3__16vectorIfNS_9allocatorIfEEE7reserveEm.exit68: ; preds = %.noexc67, %_ZN
 96:                                               ; preds = %.lr.ph162, %189
   %.041161 = phi i64 [ 0, %.lr.ph162 ], [ %190, %189 ]
   %97 = load ptr, ptr %4, align 8
-  %98 = getelementptr inbounds %"class.std::__1::basic_string", ptr %97, i64 %.041161
+  %98 = getelementptr inbounds [24 x i8], ptr %97, i64 %.041161
   %99 = invoke noundef float @_ZN7mitsuba6string4stofIfEET_RKNSt3__112basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(24) %98)
           to label %100 unwind label %.loopexit
 
@@ -529,11 +529,11 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIfEEEENS_19__allocation_re
 
 .noexc71:                                         ; preds = %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIfEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERS5_m.exit.i.i.i
   %123 = getelementptr inbounds i8, ptr %122, i64 %110
-  %124 = getelementptr inbounds nuw float, ptr %122, i64 %.0.i.i.i
+  %124 = getelementptr inbounds nuw [4 x i8], ptr %122, i64 %.0.i.i.i
   store float %99, ptr %123, align 4
   %125 = getelementptr inbounds nuw i8, ptr %123, i64 4
   %126 = sub nsw i64 0, %111
-  %127 = getelementptr inbounds float, ptr %123, i64 %126
+  %127 = getelementptr inbounds [4 x i8], ptr %123, i64 %126
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %127, ptr align 4 %107, i64 %110, i1 false)
   store ptr %127, ptr %13, align 8
   store ptr %124, ptr %88, align 8
@@ -565,7 +565,7 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIfEEEENS_19__allocation_re
   %133 = call ptr @__cxa_begin_catch(ptr %132) #30
   %134 = load ptr, ptr @_ZN7mitsuba17IrregularSpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE7m_classE, align 8
   %135 = load ptr, ptr %4, align 8
-  %136 = getelementptr inbounds %"class.std::__1::basic_string", ptr %135, i64 %.041161
+  %136 = getelementptr inbounds [24 x i8], ptr %135, i64 %.041161
   invoke void @_ZN10tinyformat6formatIJNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEEEES7_PKcDpRKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::basic_string") align 8 %14, ptr noundef nonnull @.str.5, ptr noundef nonnull align 8 dereferenceable(24) %136)
           to label %137 unwind label %139
 
@@ -591,7 +591,7 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIfEEEENS_19__allocation_re
   %.0.i = phi ptr [ %105, %104 ], [ %125, %.noexc71 ], [ %125, %128 ]
   store ptr %.0.i, ptr %94, align 8
   %144 = load ptr, ptr %8, align 8
-  %145 = getelementptr inbounds %"class.std::__1::basic_string", ptr %144, i64 %.041161
+  %145 = getelementptr inbounds [24 x i8], ptr %144, i64 %.041161
   %146 = invoke noundef float @_ZN7mitsuba6string4stofIfEET_RKNSt3__112basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(24) %145)
           to label %147 unwind label %.loopexit145
 
@@ -649,11 +649,11 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIfEEEENS_19__allocation_re
 
 .noexc81:                                         ; preds = %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIfEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERS5_m.exit.i.i.i76
   %170 = getelementptr inbounds i8, ptr %169, i64 %157
-  %171 = getelementptr inbounds nuw float, ptr %169, i64 %.0.i.i.i75
+  %171 = getelementptr inbounds nuw [4 x i8], ptr %169, i64 %.0.i.i.i75
   store float %146, ptr %170, align 4
   %172 = getelementptr inbounds nuw i8, ptr %170, i64 4
   %173 = sub nsw i64 0, %158
-  %174 = getelementptr inbounds float, ptr %170, i64 %173
+  %174 = getelementptr inbounds [4 x i8], ptr %170, i64 %173
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %174, ptr align 4 %154, i64 %157, i1 false)
   store ptr %174, ptr %12, align 8
   store ptr %172, ptr %95, align 8
@@ -686,7 +686,7 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIfEEEENS_19__allocation_re
   %179 = call ptr @__cxa_begin_catch(ptr %178) #30
   %180 = load ptr, ptr @_ZN7mitsuba17IrregularSpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE7m_classE, align 8
   %181 = load ptr, ptr %8, align 8
-  %182 = getelementptr inbounds %"class.std::__1::basic_string", ptr %181, i64 %.041161
+  %182 = getelementptr inbounds [24 x i8], ptr %181, i64 %.041161
   invoke void @_ZN10tinyformat6formatIJNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEEEES7_PKcDpRKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::basic_string") align 8 %15, ptr noundef nonnull @.str.5, ptr noundef nonnull align 8 dereferenceable(24) %182)
           to label %183 unwind label %185
 
@@ -1036,7 +1036,7 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIfEEEENS_19__allocation_re
 
 _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIfEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERS5_m.exit.i.i117: ; preds = %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIfEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERS5_m.exit.i.i
   store ptr %302, ptr %20, align 8
-  %307 = getelementptr inbounds nuw float, ptr %302, i64 %288
+  %307 = getelementptr inbounds nuw [4 x i8], ptr %302, i64 %288
   store ptr %307, ptr %297, align 8
   %308 = getelementptr i8, ptr %302, i64 %301
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %302, i8 0, i64 %301, i1 false)
@@ -1055,15 +1055,15 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIfEEEENS_19__allocation_re
 
 311:                                              ; preds = %.lr.ph, %311
   %.0160 = phi i64 [ 0, %.lr.ph ], [ %320, %311 ]
-  %312 = getelementptr inbounds double, ptr %295, i64 %.0160
+  %312 = getelementptr inbounds [8 x i8], ptr %295, i64 %.0160
   %313 = load double, ptr %312, align 8
   %314 = fptrunc double %313 to float
-  %315 = getelementptr inbounds float, ptr %302, i64 %.0160
+  %315 = getelementptr inbounds [4 x i8], ptr %302, i64 %.0160
   store float %314, ptr %315, align 4
-  %316 = getelementptr inbounds double, ptr %292, i64 %.0160
+  %316 = getelementptr inbounds [8 x i8], ptr %292, i64 %.0160
   %317 = load double, ptr %316, align 8
   %318 = fptrunc double %317 to float
-  %319 = getelementptr inbounds float, ptr %309, i64 %.0160
+  %319 = getelementptr inbounds [4 x i8], ptr %309, i64 %.0160
   store float %318, ptr %319, align 4
   %320 = add nuw i64 %.0160, 1
   %exitcond.not = icmp eq i64 %320, %288
@@ -3056,7 +3056,7 @@ _ZN10tinyformat6detail24printFormatStringLiteralERNSt3__113basic_ostreamIcNS1_11
 
 67:                                               ; preds = %_ZN10tinyformat6detail24printFormatStringLiteralERNSt3__113basic_ostreamIcNS1_11char_traitsIcEEEEPKc.exit
   %68 = sext i32 %66 to i64
-  %69 = getelementptr inbounds %"class.tinyformat::detail::FormatArg", ptr %2, i64 %68
+  %69 = getelementptr inbounds [24 x i8], ptr %2, i64 %68
   %70 = load i8, ptr %8, align 1
   %71 = trunc i8 %70 to i1
   br i1 %71, label %77, label %72
@@ -3614,7 +3614,7 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit: ; preds = %.lr.ph.i
   %153 = add nsw i32 %150, 1
   store i32 %153, ptr %5, align 4
   %154 = sext i32 %150 to i64
-  %155 = getelementptr inbounds %"class.tinyformat::detail::FormatArg", ptr %4, i64 %154
+  %155 = getelementptr inbounds [24 x i8], ptr %4, i64 %154
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 16
   %157 = load ptr, ptr %156, align 8
   %158 = load ptr, ptr %155, align 8
@@ -3707,7 +3707,7 @@ _ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit86: ; preds = %1
   %206 = add nsw i32 %203, 1
   store i32 %206, ptr %5, align 4
   %207 = sext i32 %203 to i64
-  %208 = getelementptr inbounds %"class.tinyformat::detail::FormatArg", ptr %4, i64 %207
+  %208 = getelementptr inbounds [24 x i8], ptr %4, i64 %207
   %209 = getelementptr inbounds nuw i8, ptr %208, i64 16
   %210 = load ptr, ptr %209, align 8
   %211 = load ptr, ptr %208, align 8
@@ -4354,7 +4354,7 @@ common.resume:                                    ; preds = %14, %115, %24, %27
   store float %..i138, ptr %16, align 8
   %58 = fadd contract double %.0127169, %52
   %59 = fptrunc double %58 to float
-  %60 = getelementptr inbounds float, ptr %23, i64 %.0126170
+  %60 = getelementptr inbounds [4 x i8], ptr %23, i64 %.0126170
   store float %59, ptr %60, align 4
   %61 = fcmp contract ogt float %42, %39
   br i1 %61, label %70, label %62
@@ -4478,7 +4478,7 @@ _ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.thread: ; preds = %.preh
 _ZNSt3__16vectorIfNS_9allocatorIfEEED2B8ne190000Ev.exit: ; preds = %97, %105
   %108 = phi ptr [ %.pre184, %105 ], [ %96, %97 ]
   %109 = phi i64 [ %spec.select, %105 ], [ %.sroa.4.0.insert.ext, %97 ]
-  %110 = getelementptr inbounds nuw float, ptr %108, i64 %109
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %108, i64 %109
   %111 = load float, ptr %110, align 4
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store float %111, ptr %112, align 8
@@ -4818,7 +4818,7 @@ _ZN5drjit12StringBuffer3putEc.exit:               ; preds = %3, %9
   %38 = icmp eq i64 %37, 1
   %spec.store.select.i = select i1 %38, i64 0, i64 %.020
   %39 = load ptr, ptr %1, align 8
-  %40 = getelementptr inbounds float, ptr %39, i64 %spec.store.select.i
+  %40 = getelementptr inbounds [4 x i8], ptr %39, i64 %spec.store.select.i
   %41 = load float, ptr %40, align 4
   %42 = fpext float %41 to double
   %43 = tail call noundef nonnull align 8 dereferenceable(24) ptr (ptr, ptr, ...) @_ZN5drjit12StringBuffer3fmtEPKcz(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull @.str.33, double noundef %42)

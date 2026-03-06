@@ -970,7 +970,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i: ; pr
   %24 = load ptr, ptr %0, align 8, !tbaa !17
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 %13
   store i8 0, ptr %25, align 1, !tbaa !16
-  %26 = getelementptr inbounds nuw i32, ptr @_ZL11kUuidGroups, i64 %.01843
+  %26 = getelementptr inbounds nuw [4 x i8], ptr @_ZL11kUuidGroups, i64 %.01843
   br label %.split
 
 27:                                               ; preds = %21
@@ -1189,7 +1189,7 @@ _ZNSt6vectorIhSaIhEE7reserveEm.exit:              ; preds = %_ZNSt6vectorIhSaIhE
 
 .split27:                                         ; preds = %24
   %28 = add i64 %.02139, 1
-  %29 = getelementptr inbounds nuw i32, ptr @_ZL11kUuidGroups, i64 %.02438
+  %29 = getelementptr inbounds nuw [4 x i8], ptr @_ZL11kUuidGroups, i64 %.02438
   br label %.split
 
 .split:                                           ; preds = %23, %.split27

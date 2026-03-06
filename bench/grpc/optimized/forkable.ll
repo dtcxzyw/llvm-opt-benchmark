@@ -21,9 +21,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
 %"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
 %"class.std::__shared_count" = type { ptr }
-%"class.std::weak_ptr" = type { %"class.std::__weak_ptr" }
-%"class.std::__weak_ptr" = type { ptr, %"class.std::__weak_count" }
-%"class.std::__weak_count" = type { ptr }
 
 $_ZNSt12__shared_ptrIN17grpc_event_engine12experimental8ForkableELN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
 
@@ -1404,7 +1401,7 @@ _ZNSt6vectorISt8weak_ptrIN17grpc_event_engine12experimental8ForkableEESaIS4_EE11
 _ZNSt12_Vector_baseISt8weak_ptrIN17grpc_event_engine12experimental8ForkableEESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZNSt6vectorISt8weak_ptrIN17grpc_event_engine12experimental8ForkableEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22, %48
   store ptr %20, ptr %0, align 8, !tbaa !68
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !31
-  %52 = getelementptr inbounds nuw %"class.std::weak_ptr", ptr %20, i64 %16
+  %52 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %52, ptr %47, align 8, !tbaa !32
   ret void
 }

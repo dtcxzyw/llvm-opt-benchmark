@@ -26,7 +26,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.forward = type { %struct.slurm_node_alias_addrs_t, i16, i16, ptr, i32, i16, i16 }
 %struct.slurm_node_alias_addrs_t = type { i64, ptr, ptr, i32, ptr }
 %struct.sockaddr_storage = type { i16, [118 x i8], i64 }
-%struct.slurm_step_id_msg = type { i64, i32, i32, i32 }
 %struct.tls_cert_request_msg_t = type { ptr, ptr, ptr }
 %struct.node_config_load_t = type { i32, ptr, i8, ptr }
 %struct.cpu_set_t = type { [16 x i64] }
@@ -3445,7 +3444,7 @@ define dso_local i32 @send_registration_msg(i32 noundef %0) local_unnamed_addr #
   %211 = call i32 @close(i32 noundef %193) #18
   %212 = load ptr, ptr %184, align 8
   %213 = sext i32 %.0108.i to i64
-  %214 = getelementptr inbounds %struct.slurm_step_id_msg, ptr %212, i64 %213
+  %214 = getelementptr inbounds [24 x i8], ptr %212, i64 %213
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %214, ptr noundef nonnull align 8 dereferenceable(24) %191, i64 24, i1 false)
   %215 = getelementptr inbounds nuw i8, ptr %187, i64 40
   %216 = load i32, ptr %215, align 8
@@ -4125,7 +4124,7 @@ define internal noalias noundef ptr @_try_to_reconfig(ptr readnone captures(none
   %53 = load i32, ptr %52, align 4
   %54 = add nuw nsw i32 %.033, 1
   %55 = zext nneg i32 %.033 to i64
-  %56 = getelementptr inbounds nuw i32, ptr %5, i64 %55
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %55
   store i32 %53, ptr %56, align 4
   %57 = call i32 @get_log_level() #18
   %58 = icmp sgt i32 %57, 6
@@ -4164,7 +4163,7 @@ define internal noalias noundef ptr @_try_to_reconfig(ptr readnone captures(none
   %73 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %3, ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.64, i32 noundef %72) #18
   %74 = load i32, ptr %71, align 4
   %75 = zext nneg i32 %.134 to i64
-  %76 = getelementptr inbounds nuw i32, ptr %5, i64 %75
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %75
   store i32 %74, ptr %76, align 4
   %77 = call i32 @fork() #18
   %78 = icmp slt i32 %77, 0
@@ -5879,12 +5878,12 @@ define internal fastcc void @_read_config() unnamed_addr #0 {
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %29 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %30 = load ptr, ptr %25, align 8
-  %31 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv
   %32 = load ptr, ptr %31, align 8
   store ptr %32, ptr %3, align 8
   %33 = call ptr @get_extra_conf_path(ptr noundef %32) #18
   %34 = load ptr, ptr %25, align 8
-  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv
   store ptr %33, ptr %35, align 8
   call void @slurm_xfree(ptr noundef nonnull %3) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -5913,12 +5912,12 @@ define internal fastcc void @_read_config() unnamed_addr #0 {
   %indvars.iv97 = phi i64 [ 0, %.lr.ph93 ], [ %indvars.iv.next98, %48 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %49 = load ptr, ptr %28, align 8
-  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %indvars.iv97
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %indvars.iv97
   %51 = load ptr, ptr %50, align 8
   store ptr %51, ptr %4, align 8
   %52 = call ptr @get_extra_conf_path(ptr noundef %51) #18
   %53 = load ptr, ptr %28, align 8
-  %54 = getelementptr inbounds nuw ptr, ptr %53, i64 %indvars.iv97
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %indvars.iv97
   store ptr %52, ptr %54, align 8
   call void @slurm_xfree(ptr noundef nonnull %4) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -7332,7 +7331,7 @@ _resource_spec_fini.exit45.i:                     ; preds = %239, %237
   %258 = and i64 %indvars.iv.i, 63
   %259 = shl nuw i64 1, %258
   %260 = lshr i64 %indvars.iv.i, 6
-  %261 = getelementptr inbounds nuw i64, ptr %2, i64 %260
+  %261 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %260
   %262 = load i64, ptr %261, align 8
   %263 = or i64 %262, %259
   store i64 %263, ptr %261, align 8
@@ -7724,7 +7723,7 @@ define internal fastcc void @_print_conf() unnamed_addr #0 {
   %134 = select i1 %.not28, ptr @.str.133, ptr @.str.255
   %135 = getelementptr inbounds nuw i8, ptr %132, i64 4240
   %136 = load ptr, ptr %135, align 8
-  %137 = getelementptr inbounds nuw i16, ptr %136, i64 %indvars.iv
+  %137 = getelementptr inbounds nuw [2 x i8], ptr %136, i64 %indvars.iv
   %138 = load i16, ptr %137, align 2
   %139 = zext i16 %138 to i32
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %1, ptr noundef nonnull @.str.254, ptr noundef nonnull %134, i32 noundef %139) #18
@@ -7762,7 +7761,7 @@ define internal fastcc void @_print_conf() unnamed_addr #0 {
   %155 = select i1 %.not, ptr @.str.133, ptr @.str.255
   %156 = getelementptr inbounds nuw i8, ptr %153, i64 4248
   %157 = load ptr, ptr %156, align 8
-  %158 = getelementptr inbounds nuw i16, ptr %157, i64 %indvars.iv47
+  %158 = getelementptr inbounds nuw [2 x i8], ptr %157, i64 %indvars.iv47
   %159 = load i16, ptr %158, align 2
   %160 = zext i16 %159 to i32
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %1, ptr noundef nonnull @.str.254, ptr noundef nonnull %155, i32 noundef %160) #18
@@ -7844,7 +7843,7 @@ define internal fastcc void @_print_conf() unnamed_addr #0 {
 
 200:                                              ; preds = %197
   %201 = load ptr, ptr %194, align 8
-  %202 = getelementptr inbounds nuw ptr, ptr %201, i64 %indvars.iv50
+  %202 = getelementptr inbounds nuw [8 x i8], ptr %201, i64 %indvars.iv50
   %203 = load ptr, ptr %202, align 8
   %204 = trunc nuw nsw i64 %indvars.iv50 to i32
   call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.261, i32 noundef %204, ptr noundef %203) #18
@@ -7923,7 +7922,7 @@ define internal fastcc void @_print_conf() unnamed_addr #0 {
 
 243:                                              ; preds = %240
   %244 = load ptr, ptr %237, align 8
-  %245 = getelementptr inbounds nuw ptr, ptr %244, i64 %indvars.iv53
+  %245 = getelementptr inbounds nuw [8 x i8], ptr %244, i64 %indvars.iv53
   %246 = load ptr, ptr %245, align 8
   %247 = trunc nuw nsw i64 %indvars.iv53 to i32
   call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.265, i32 noundef %247, ptr noundef %246) #18

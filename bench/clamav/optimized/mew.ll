@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.lzmastate = type { ptr, i32, i32 }
-%struct.cli_exe_section = type { i32, i32, i32, i32, i32, i32, i32, i32, i32 }
 
 @.str = private unnamed_addr constant [33 x i8] c"MEWlzma: entering do while loop\0A\00", align 1
 @.str.1 = private unnamed_addr constant [21 x i8] c"MEWlen: %08x ? %08x\0A\00", align 1
@@ -2420,7 +2419,7 @@ define range(i32 -1, 2) i32 @unmew11(ptr noundef %0, i32 noundef %1, i32 noundef
   br i1 %or.cond295.not.us.us, label %70, label %.split.us
 
 47:                                               ; preds = %.split350.us.us
-  %48 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %.0233.ph.us, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [36 x i8], ptr %.0233.ph.us, i64 %indvars.iv
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load i32, ptr %49, align 4, !tbaa !15
   %51 = icmp ult i32 %106, %50
@@ -2437,7 +2436,7 @@ define range(i32 -1, 2) i32 @unmew11(ptr noundef %0, i32 noundef %1, i32 noundef
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   store i32 0, ptr %56, align 4, !tbaa !15
   store i32 %5, ptr %55, align 4, !tbaa !17
-  %57 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %55, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [36 x i8], ptr %55, i64 %indvars.iv
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 36
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 44
   store i32 %106, ptr %59, align 4, !tbaa !15

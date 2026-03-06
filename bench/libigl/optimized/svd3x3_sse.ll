@@ -21,8 +21,8 @@ define weak_odr dso_local void @_ZN3igl10svd3x3_sseIfEEvRKN5Eigen6MatrixIT_Li12E
 
 .preheader1481:                                   ; preds = %4, %58
   %indvars.iv1514 = phi i64 [ 0, %4 ], [ %indvars.iv.next1515, %58 ]
-  %invariant.gep1547 = getelementptr inbounds nuw [4 x float], ptr %5, i64 %indvars.iv1514
-  %invariant.gep1548 = getelementptr float, ptr %0, i64 %indvars.iv1514
+  %invariant.gep1547 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %indvars.iv1514
+  %invariant.gep1548 = getelementptr [4 x i8], ptr %0, i64 %indvars.iv1514
   br label %.preheader1480
 
 9:                                                ; preds = %58
@@ -98,7 +98,7 @@ define weak_odr dso_local void @_ZN3igl10svd3x3_sseIfEEvRKN5Eigen6MatrixIT_Li12E
   %.idx1540 = mul i64 %indvars.iv, 12
   %gep1546 = getelementptr i8, ptr %gep1549, i64 %.idx1540
   %61 = load float, ptr %gep1546, align 4, !tbaa !10
-  %62 = getelementptr inbounds nuw float, ptr %gep, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %gep, i64 %indvars.iv
   store float %61, ptr %62, align 4, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -792,10 +792,10 @@ define weak_odr dso_local void @_ZN3igl10svd3x3_sseIfEEvRKN5Eigen6MatrixIT_Li12E
   %indvars.iv1523 = phi i64 [ 0, %.preheader1479 ], [ %indvars.iv.next1524, %712 ]
   %706 = mul nuw nsw i64 %indvars.iv1523, 3
   %707 = add nuw nsw i64 %706, %indvars.iv1528
-  %708 = getelementptr inbounds nuw [4 x float], ptr %6, i64 %707
+  %708 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %707
   %709 = mul nuw nsw i64 %indvars.iv1523, 48
   %invariant.gep1496 = getelementptr i8, ptr %1, i64 %709
-  %710 = getelementptr inbounds nuw [4 x float], ptr %7, i64 %707
+  %710 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %707
   %invariant.gep1498 = getelementptr i8, ptr %3, i64 %709
   br label %713
 
@@ -811,15 +811,15 @@ define weak_odr dso_local void @_ZN3igl10svd3x3_sseIfEEvRKN5Eigen6MatrixIT_Li12E
 
 713:                                              ; preds = %.preheader1478, %713
   %indvars.iv1519 = phi i64 [ 0, %.preheader1478 ], [ %indvars.iv.next1520, %713 ]
-  %714 = getelementptr inbounds nuw float, ptr %708, i64 %indvars.iv1519
+  %714 = getelementptr inbounds nuw [4 x i8], ptr %708, i64 %indvars.iv1519
   %715 = load float, ptr %714, align 4, !tbaa !10
   %716 = mul nuw nsw i64 %indvars.iv1519, 3
   %717 = add nuw nsw i64 %716, %indvars.iv1528
-  %gep1497 = getelementptr float, ptr %invariant.gep1496, i64 %717
+  %gep1497 = getelementptr [4 x i8], ptr %invariant.gep1496, i64 %717
   store float %715, ptr %gep1497, align 4, !tbaa !10
-  %718 = getelementptr inbounds nuw float, ptr %710, i64 %indvars.iv1519
+  %718 = getelementptr inbounds nuw [4 x i8], ptr %710, i64 %indvars.iv1519
   %719 = load float, ptr %718, align 4, !tbaa !10
-  %gep1499 = getelementptr float, ptr %invariant.gep1498, i64 %717
+  %gep1499 = getelementptr [4 x i8], ptr %invariant.gep1498, i64 %717
   store float %719, ptr %gep1499, align 4, !tbaa !10
   %indvars.iv.next1520 = add nuw nsw i64 %indvars.iv1519, 1
   %exitcond1522.not = icmp eq i64 %indvars.iv.next1520, 4
@@ -827,8 +827,8 @@ define weak_odr dso_local void @_ZN3igl10svd3x3_sseIfEEvRKN5Eigen6MatrixIT_Li12E
 
 .preheader:                                       ; preds = %711, %722
   %indvars.iv1536 = phi i64 [ %indvars.iv.next1537, %722 ], [ 0, %711 ]
-  %720 = getelementptr inbounds nuw [4 x float], ptr %8, i64 %indvars.iv1536
-  %invariant.gep = getelementptr float, ptr %2, i64 %indvars.iv1536
+  %720 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %indvars.iv1536
+  %invariant.gep = getelementptr [4 x i8], ptr %2, i64 %indvars.iv1536
   br label %723
 
 721:                                              ; preds = %722
@@ -845,7 +845,7 @@ define weak_odr dso_local void @_ZN3igl10svd3x3_sseIfEEvRKN5Eigen6MatrixIT_Li12E
 
 723:                                              ; preds = %.preheader, %723
   %indvars.iv1532 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next1533, %723 ]
-  %724 = getelementptr inbounds nuw float, ptr %720, i64 %indvars.iv1532
+  %724 = getelementptr inbounds nuw [4 x i8], ptr %720, i64 %indvars.iv1532
   %725 = load float, ptr %724, align 4, !tbaa !10
   %.idx1541 = mul i64 %indvars.iv1532, 12
   %gep1550 = getelementptr i8, ptr %invariant.gep, i64 %.idx1541

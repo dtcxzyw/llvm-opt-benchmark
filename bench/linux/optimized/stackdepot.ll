@@ -155,7 +155,7 @@ define dso_local noundef range(i32 -12, 1) i32 @stack_depot_early_init() local_u
 
 .preheader:                                       ; preds = %16, %.preheader
   %21 = phi i64 [ %24, %.preheader ], [ 0, %16 ]
-  %22 = getelementptr %struct.list_head, ptr %12, i64 %21
+  %22 = getelementptr [16 x i8], ptr %12, i64 %21
   store volatile ptr %22, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store volatile ptr %22, ptr %23, align 8
@@ -214,7 +214,7 @@ define dso_local noundef range(i32 -12, 1) i32 @stack_depot_init() #3 align 16 {
 
 25:                                               ; preds = %25, %22
   %26 = phi i64 [ 0, %22 ], [ %29, %25 ]
-  %27 = getelementptr %struct.list_head, ptr %18, i64 %26
+  %27 = getelementptr [16 x i8], ptr %18, i64 %26
   store volatile ptr %27, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store volatile ptr %27, ptr %28, align 8
@@ -371,7 +371,7 @@ default.unreachable112:                           ; preds = %.loopexit54
   %103 = load i32, ptr @stack_hash_mask, align 4
   %104 = and i32 %103, %101
   %105 = zext i32 %104 to i64
-  %106 = getelementptr %struct.list_head, ptr %102, i64 %105
+  %106 = getelementptr [16 x i8], ptr %102, i64 %105
   tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #11, !srcloc !25
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !26
   %107 = load volatile ptr, ptr %106, align 8
@@ -788,7 +788,7 @@ default.unreachable112:                           ; preds = %.loopexit54
   %336 = phi ptr [ null, %.thread36 ], [ %205, %333 ]
   %337 = phi ptr [ %205, %.thread36 ], [ %329, %333 ]
   %338 = sext i32 %315 to i64
-  %339 = getelementptr ptr, ptr @stack_pools, i64 %338
+  %339 = getelementptr [8 x i8], ptr @stack_pools, i64 %338
   store ptr %337, ptr %339, align 8
   store volatile ptr null, ptr @new_pool, align 8
   %340 = add nsw i32 %315, 1
@@ -812,7 +812,7 @@ thread-pre-split:                                 ; preds = %.thread35, %335
 346:                                              ; preds = %thread-pre-split
   %347 = add nsw i32 %342, -1
   %348 = zext nneg i32 %347 to i64
-  %349 = getelementptr ptr, ptr @stack_pools, i64 %348
+  %349 = getelementptr [8 x i8], ptr @stack_pools, i64 %348
   %350 = load ptr, ptr %349, align 8
   %351 = icmp eq ptr %350, null
   br i1 %351, label %352, label %353, !prof !6
@@ -982,7 +982,7 @@ define dso_local i32 @stack_depot_fetch(i32 noundef %0, ptr noundef writeonly ca
 
 15:                                               ; preds = %7
   %16 = zext nneg i32 %12 to i64
-  %17 = getelementptr ptr, ptr @stack_pools, i64 %16
+  %17 = getelementptr [8 x i8], ptr @stack_pools, i64 %16
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %21, !prof !6
@@ -1062,7 +1062,7 @@ define dso_local void @stack_depot_put(i32 noundef %0) #3 align 16 {
 
 14:                                               ; preds = %6
   %15 = zext nneg i32 %11 to i64
-  %16 = getelementptr ptr, ptr @stack_pools, i64 %15
+  %16 = getelementptr [8 x i8], ptr @stack_pools, i64 %15
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %19, label %20, !prof !6
@@ -1178,7 +1178,7 @@ define dso_local void @stack_depot_print(i32 noundef %0) #3 align 16 {
 
 14:                                               ; preds = %6
   %15 = zext nneg i32 %11 to i64
-  %16 = getelementptr ptr, ptr @stack_pools, i64 %15
+  %16 = getelementptr [8 x i8], ptr @stack_pools, i64 %15
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %19, label %20, !prof !6
@@ -1261,7 +1261,7 @@ define dso_local i32 @stack_depot_snprint(i32 noundef %0, ptr noundef %1, i64 no
 
 17:                                               ; preds = %9
   %18 = zext nneg i32 %14 to i64
-  %19 = getelementptr ptr, ptr @stack_pools, i64 %18
+  %19 = getelementptr [8 x i8], ptr @stack_pools, i64 %18
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %22, label %23, !prof !6
@@ -1412,9 +1412,9 @@ define internal noundef i32 @stats_show(ptr noundef %0, ptr readnone captures(no
 
 5:                                                ; preds = %5, %2
   %6 = phi i64 [ 0, %2 ], [ %11, %5 ]
-  %7 = getelementptr ptr, ptr @counter_names, i64 %6
+  %7 = getelementptr [8 x i8], ptr @counter_names, i64 %6
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr i64, ptr @counters, i64 %6
+  %9 = getelementptr [8 x i8], ptr @counters, i64 %6
   %10 = load i64, ptr %9, align 8
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.12, ptr noundef %8, i64 noundef %10) #10
   %11 = add nuw nsw i64 %6, 1

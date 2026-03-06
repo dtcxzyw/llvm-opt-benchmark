@@ -175,7 +175,7 @@ define noundef nonnull ptr @_Z7ftp2exti(i32 noundef %0) local_unnamed_addr #0 {
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr inbounds nuw %struct.t_deffile, ptr @_ZL7deffile, i64 %3
+  %4 = getelementptr inbounds nuw [56 x i8], ptr @_ZL7deffile, i64 %3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = load i8, ptr %6, align 1, !tbaa !12
@@ -217,7 +217,7 @@ define noundef nonnull ptr @_Z15ftp2ext_generici(i32 noundef %0) local_unnamed_a
 
 _Z7ftp2exti.exit:                                 ; preds = %2
   %7 = zext nneg i32 %0 to i64
-  %8 = getelementptr inbounds nuw %struct.t_deffile, ptr @_ZL7deffile, i64 %7
+  %8 = getelementptr inbounds nuw [56 x i8], ptr @_ZL7deffile, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !4
   %11 = load i8, ptr %10, align 1, !tbaa !12
@@ -238,7 +238,7 @@ define noundef ptr @_Z16ftp2ext_with_doti(i32 noundef %0) local_unnamed_addr #1 
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr inbounds nuw %struct.t_deffile, ptr @_ZL7deffile, i64 %3
+  %4 = getelementptr inbounds nuw [56 x i8], ptr @_ZL7deffile, i64 %3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   br label %7
@@ -255,7 +255,7 @@ define noundef i32 @_Z17ftp2generic_counti(i32 noundef %0) local_unnamed_addr #1
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr inbounds nuw %struct.t_deffile, ptr @_ZL7deffile, i64 %3
+  %4 = getelementptr inbounds nuw [56 x i8], ptr @_ZL7deffile, i64 %3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %6 = load i32, ptr %5, align 8, !tbaa !13
   br label %7
@@ -272,7 +272,7 @@ define noundef ptr @_Z16ftp2generic_listi(i32 noundef %0) local_unnamed_addr #1 
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr inbounds nuw %struct.t_deffile, ptr @_ZL7deffile, i64 %3
+  %4 = getelementptr inbounds nuw [56 x i8], ptr @_ZL7deffile, i64 %3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %6 = load ptr, ptr %5, align 8, !tbaa !14
   br label %7
@@ -289,7 +289,7 @@ define noundef ptr @_Z8ftp2desci(i32 noundef %0) local_unnamed_addr #1 {
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr inbounds nuw %struct.t_deffile, ptr @_ZL7deffile, i64 %3
+  %4 = getelementptr inbounds nuw [56 x i8], ptr @_ZL7deffile, i64 %3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8, !tbaa !15
   br label %7
@@ -326,7 +326,7 @@ define noundef ptr @_Z9ftp2defnmi(i32 noundef %0) local_unnamed_addr #1 {
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr inbounds nuw %struct.t_deffile, ptr @_ZL7deffile, i64 %3
+  %4 = getelementptr inbounds nuw [56 x i8], ptr @_ZL7deffile, i64 %3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !16
   br label %7
@@ -343,7 +343,7 @@ define noundef ptr @_Z10ftp2defopti(i32 noundef %0) local_unnamed_addr #1 {
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr inbounds nuw %struct.t_deffile, ptr @_ZL7deffile, i64 %3
+  %4 = getelementptr inbounds nuw [56 x i8], ptr @_ZL7deffile, i64 %3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !17
   br label %7
@@ -658,7 +658,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit41: ; preds = %80,
 
 100:                                              ; preds = %96, %134
   %indvars.iv = phi i64 [ 0, %96 ], [ %indvars.iv.next, %134 ]
-  %101 = getelementptr inbounds nuw %struct.t_deffile, ptr @_ZL7deffile, i64 %indvars.iv
+  %101 = getelementptr inbounds nuw [56 x i8], ptr @_ZL7deffile, i64 %indvars.iv
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
   %103 = load ptr, ptr %102, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(ptr nonnull %9)

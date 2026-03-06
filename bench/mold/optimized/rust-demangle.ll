@@ -5165,7 +5165,7 @@ print_str.exit21:                                 ; preds = %47, %print_str.exit
 
 switch.lookup:                                    ; preds = %print_str.exit21
   %76 = sext i8 %1 to i64
-  %77 = getelementptr ptr, ptr @switch.table.demangle_const_uint, i64 %76
+  %77 = getelementptr [8 x i8], ptr @switch.table.demangle_const_uint, i64 %76
   %switch.gep = getelementptr i8, ptr %77, i64 -776
   %switch.load = load ptr, ptr %switch.gep, align 8
   %78 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #12

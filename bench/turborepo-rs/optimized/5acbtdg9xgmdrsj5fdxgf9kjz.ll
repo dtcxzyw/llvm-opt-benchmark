@@ -192,7 +192,7 @@ _RINvMsa_NtCs7oQ2vmvFkJi_9hashbrown3rawNtB6_13RawTableInner17new_uninitializedNt
   %96 = add i64 %.sroa.5.2.lcssa, %93
   %97 = add i64 %.sroa.9.061, -1
   %98 = sub nsw i64 0, %96
-  %99 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr %84, i64 %98
+  %99 = getelementptr inbounds [32 x i8], ptr %84, i64 %98
   %100 = getelementptr inbounds i8, ptr %99, i64 -32
   %.val3.i = load ptr, ptr %100, align 8, !alias.scope !41, !noalias !46, !nonnull !9, !align !52, !noundef !9
   %101 = getelementptr i8, ptr %99, i64 -24
@@ -224,8 +224,8 @@ _RINvMsa_NtCs7oQ2vmvFkJi_9hashbrown3rawNtB6_13RawTableInner17new_uninitializedNt
 
 104:                                              ; preds = %104, %.thread40
   %.sroa.0.05.i.i = phi i64 [ 0, %.thread40 ], [ %109, %104 ]
-  %105 = getelementptr inbounds nuw i64, ptr %0, i64 %.sroa.0.05.i.i
-  %106 = getelementptr inbounds nuw i64, ptr %.sroa.628.0..sroa_idx.i.i, i64 %.sroa.0.05.i.i
+  %105 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.sroa.0.05.i.i
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.628.0..sroa_idx.i.i, i64 %.sroa.0.05.i.i
   %107 = load i64, ptr %105, align 8
   %108 = load i64, ptr %106, align 8
   store i64 %108, ptr %105, align 8
@@ -466,7 +466,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr19swap_nonoverlappinghECsjIaN6dkKMFO_12turborepo_c
 _RINvNtCs1LoaDTb72WA_4core3ptr19swap_nonoverlappinghECsjIaN6dkKMFO_12turborepo_ci.exit.i: ; preds = %_RINvNtCs1LoaDTb72WA_4core3ptr19swap_nonoverlappinghECsjIaN6dkKMFO_12turborepo_ci.exit.loopexit.i, %205
   %210 = phi ptr [ %.pre.i, %_RINvNtCs1LoaDTb72WA_4core3ptr19swap_nonoverlappinghECsjIaN6dkKMFO_12turborepo_ci.exit.loopexit.i ], [ %202, %205 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !112)
-  %211 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr %210, i64 %209
+  %211 = getelementptr inbounds [32 x i8], ptr %210, i64 %209
   %212 = getelementptr inbounds i8, ptr %211, i64 -32
   %.val3.i.i = load ptr, ptr %212, align 8, !alias.scope !113, !noalias !118, !nonnull !9, !align !52, !noundef !9
   %213 = getelementptr i8, ptr %211, i64 -24
@@ -853,7 +853,7 @@ define noundef nonnull ptr @_RINvMsi_NtCs7oQ2vmvFkJi_9hashbrown3rawINtB6_12RawIt
   %10 = and i16 %9, %.lcssa
   store i16 %10, ptr %2, align 8
   %11 = sub nsw i64 0, %8
-  %12 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr %6, i64 %11
+  %12 = getelementptr inbounds [32 x i8], ptr %6, i64 %11
   ret ptr %12
 
 13:                                               ; preds = %.lr.ph, %13

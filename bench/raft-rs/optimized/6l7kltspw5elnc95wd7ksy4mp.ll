@@ -272,7 +272,7 @@ define hidden void @_ZN14slog_envlogger3new17h12b8267a09aaaa5dE(ptr dead_on_unwi
 
 57:                                               ; preds = %52, %48
   %58 = load ptr, ptr %45, align 8, !alias.scope !31, !noalias !34, !nonnull !12, !noundef !12
-  %59 = getelementptr inbounds nuw { { i64, [2 x i64] }, i8, [7 x i8] }, ptr %58, i64 %49
+  %59 = getelementptr inbounds nuw [32 x i8], ptr %58, i64 %49
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %59, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false), !noalias !20
   %60 = add i64 %49, 1
   store i64 %60, ptr %44, align 8, !alias.scope !31, !noalias !34
@@ -1314,7 +1314,7 @@ define hidden noundef ptr @"_ZN66_$LT$slog_envlogger..EnvLogger$LT$T$GT$$u20$as$
   %.val = load ptr, ptr %20, align 8, !nonnull !12, !noundef !12
   %21 = getelementptr i8, ptr %0, i64 16
   %.val7 = load i64, ptr %21, align 8, !noundef !12
-  %22 = getelementptr inbounds nuw { { i64, [2 x i64] }, i8, [7 x i8] }, ptr %.val, i64 %.val7
+  %22 = getelementptr inbounds nuw [32 x i8], ptr %.val, i64 %.val7
   br label %23
 
 23:                                               ; preds = %28, %3

@@ -284,7 +284,7 @@ _ZN3MD56updateEPKhj.exit12:                       ; preds = %48, %53
 .lr.ph.i13:                                       ; preds = %.lr.ph.i13, %_ZN3MD56updateEPKhj.exit12
   %indvars.iv22.i14 = phi i64 [ 0, %_ZN3MD56updateEPKhj.exit12 ], [ %indvars.iv.next23.i16, %.lr.ph.i13 ]
   %indvars.iv.i15 = phi i64 [ 0, %_ZN3MD56updateEPKhj.exit12 ], [ %indvars.iv.next.i17, %.lr.ph.i13 ]
-  %62 = getelementptr inbounds nuw i32, ptr %61, i64 %indvars.iv22.i14
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %indvars.iv22.i14
   %63 = load i32, ptr %62, align 4, !tbaa !11
   %64 = trunc i32 %63 to i8
   %65 = getelementptr inbounds nuw i8, ptr %60, i64 %indvars.iv.i15
@@ -359,7 +359,7 @@ define void @_ZN3MD56decodeEPjPKhj(ptr noundef writeonly captures(none) %0, ptr 
   %25 = zext i8 %24 to i32
   %26 = shl nuw i32 %25, 24
   %27 = or disjoint i32 %21, %26
-  %28 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv16
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv16
   store i32 %27, ptr %28, align 4, !tbaa !11
   %indvars.iv.next17 = add nuw nsw i64 %indvars.iv16, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
@@ -385,7 +385,7 @@ define void @_ZN3MD56encodeEPhPKjj(ptr noundef writeonly captures(none) %0, ptr 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv22 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next23, %.lr.ph ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %7 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv22
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv22
   %8 = load i32, ptr %7, align 4, !tbaa !11
   %9 = trunc i32 %8 to i8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv

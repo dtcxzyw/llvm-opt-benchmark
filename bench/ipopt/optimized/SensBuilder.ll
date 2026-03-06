@@ -23,7 +23,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.Ipopt::SmartPtr.52" = type { ptr }
 %"class.Ipopt::SmartPtr.67" = type { ptr }
 %"class.Ipopt::SmartPtr.26" = type { ptr }
-%"class.Ipopt::SmartPtr.66" = type { ptr }
 %"class.Ipopt::SmartPtr.68" = type { ptr }
 %"class.std::allocator.14" = type { i8 }
 
@@ -778,7 +777,7 @@ _ZNSt6vectorIN5Ipopt8SmartPtrINS0_11SchurDriverEEESaIS3_EE17_S_check_init_lenEmR
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader.i.i.i.i.i
   store ptr %290, ptr %21, align 8, !tbaa !44
-  %291 = getelementptr inbounds nuw %"class.Ipopt::SmartPtr.66", ptr %290, i64 %282
+  %291 = getelementptr inbounds nuw [8 x i8], ptr %290, i64 %282
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %290, i8 0, i64 %289, i1 false), !tbaa !47
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %290, i64 %289
   %292 = getelementptr inbounds nuw i8, ptr %21, i64 8
@@ -853,7 +852,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit191: ; preds = %30
 
 320:                                              ; preds = %317
   %321 = load ptr, ptr %21, align 8, !tbaa !44
-  %322 = getelementptr inbounds nuw %"class.Ipopt::SmartPtr.66", ptr %321, i64 %indvars.iv
+  %322 = getelementptr inbounds nuw [8 x i8], ptr %321, i64 %indvars.iv
   %323 = getelementptr inbounds nuw i8, ptr %310, i64 8
   %324 = load i32, ptr %323, align 8, !tbaa !3
   %325 = add nsw i32 %324, 1
@@ -943,14 +942,14 @@ _ZN5Ipopt8SmartPtrINS_11PCalculatorEED2Ev.exit:   ; preds = %_ZN5Ipopt8SmartPtrI
 
 _ZN5Ipopt8SmartPtrINS_14SensBacksolverEED2Ev.exit202: ; preds = %_ZN5Ipopt8SmartPtrINS_11PCalculatorEED2Ev.exit, %358, %363
   %367 = load ptr, ptr %21, align 8, !tbaa !44
-  %368 = getelementptr inbounds nuw %"class.Ipopt::SmartPtr.66", ptr %367, i64 %indvars.iv
+  %368 = getelementptr inbounds nuw [8 x i8], ptr %367, i64 %indvars.iv
   %369 = load ptr, ptr %368, align 8, !tbaa !47
   %370 = invoke noundef zeroext i1 @_ZN5Ipopt23AlgorithmStrategyObject10InitializeERKNS_10JournalistERNS_8IpoptNLPERNS_9IpoptDataERNS_25IpoptCalculatedQuantitiesERKNS_11OptionsListERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(49) %369, ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(2232) %6, ptr noundef nonnull align 8 dereferenceable(2185) %7, ptr noundef nonnull align 8 dereferenceable(112) %3, ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %371 unwind label %391
 
 371:                                              ; preds = %_ZN5Ipopt8SmartPtrINS_14SensBacksolverEED2Ev.exit202
   %372 = load ptr, ptr %21, align 8, !tbaa !44
-  %373 = getelementptr inbounds nuw %"class.Ipopt::SmartPtr.66", ptr %372, i64 %indvars.iv
+  %373 = getelementptr inbounds nuw [8 x i8], ptr %372, i64 %indvars.iv
   %374 = load ptr, ptr %373, align 8, !tbaa !47
   %375 = load ptr, ptr %374, align 8, !tbaa !8
   %376 = getelementptr inbounds nuw i8, ptr %375, i64 72
@@ -960,7 +959,7 @@ _ZN5Ipopt8SmartPtrINS_14SensBacksolverEED2Ev.exit202: ; preds = %_ZN5Ipopt8Smart
 
 379:                                              ; preds = %371
   %380 = load ptr, ptr %21, align 8, !tbaa !44
-  %381 = getelementptr inbounds nuw %"class.Ipopt::SmartPtr.66", ptr %380, i64 %indvars.iv
+  %381 = getelementptr inbounds nuw [8 x i8], ptr %380, i64 %indvars.iv
   %382 = load ptr, ptr %381, align 8, !tbaa !47
   %383 = load ptr, ptr %382, align 8, !tbaa !8
   %384 = getelementptr inbounds nuw i8, ptr %383, i64 80

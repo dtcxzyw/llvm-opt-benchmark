@@ -2286,7 +2286,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN5vcpkg15StatusParagraphESt14default_deleteIS
   %67 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %66, ptr %10, align 8, !tbaa !93, !alias.scope !86
   store ptr %66, ptr %67, align 8, !tbaa !96, !alias.scope !86
-  %68 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %66, i64 %60
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %60
   store ptr %68, ptr %64, align 8, !tbaa !97, !alias.scope !86
   br label %71
 
@@ -2381,7 +2381,7 @@ _ZNSt6vectorISt10unique_ptrIN5vcpkg15StatusParagraphESt14default_deleteIS2_EESaI
   call void @_ZdlPvm(ptr noundef nonnull %72, i64 noundef %84) #22, !noalias !86
   store ptr %93, ptr %10, align 8, !tbaa !93, !alias.scope !86
   store ptr %98, ptr %67, align 8, !tbaa !96, !alias.scope !86
-  %99 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %93, i64 %91
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %91
   store ptr %99, ptr %64, align 8, !tbaa !97, !alias.scope !86
   %.pr.i = load ptr, ptr %2, align 8, !tbaa !105, !noalias !86
   %.not.i15.i = icmp eq ptr %.pr.i, null
@@ -2989,7 +2989,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN5vcpkg15StatusParagraphESt14default_deleteIS
   %67 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %66, ptr %10, align 8, !tbaa !93, !alias.scope !148
   store ptr %66, ptr %67, align 8, !tbaa !96, !alias.scope !148
-  %68 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %66, i64 %60
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %60
   store ptr %68, ptr %64, align 8, !tbaa !97, !alias.scope !148
   br label %71
 
@@ -3084,7 +3084,7 @@ _ZNSt6vectorISt10unique_ptrIN5vcpkg15StatusParagraphESt14default_deleteIS2_EESaI
   call void @_ZdlPvm(ptr noundef nonnull %72, i64 noundef %84) #22, !noalias !148
   store ptr %93, ptr %10, align 8, !tbaa !93, !alias.scope !148
   store ptr %98, ptr %67, align 8, !tbaa !96, !alias.scope !148
-  %99 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %93, i64 %91
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %91
   store ptr %99, ptr %64, align 8, !tbaa !97, !alias.scope !148
   %.pr.i = load ptr, ptr %2, align 8, !tbaa !105, !noalias !148
   %.not.i15.i = icmp eq ptr %.pr.i, null
@@ -3703,7 +3703,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN5vcpkg15StatusParagraphESt14default_deleteIS
   %78 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %77, ptr %11, align 8, !tbaa !93, !alias.scope !179
   store ptr %77, ptr %78, align 8, !tbaa !96, !alias.scope !179
-  %79 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %77, i64 %71
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %71
   store ptr %79, ptr %75, align 8, !tbaa !97, !alias.scope !179
   br label %82
 
@@ -3798,7 +3798,7 @@ _ZNSt6vectorISt10unique_ptrIN5vcpkg15StatusParagraphESt14default_deleteIS2_EESaI
   call void @_ZdlPvm(ptr noundef nonnull %83, i64 noundef %95) #22, !noalias !179
   store ptr %104, ptr %11, align 8, !tbaa !93, !alias.scope !179
   store ptr %109, ptr %78, align 8, !tbaa !96, !alias.scope !179
-  %110 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %104, i64 %102
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %104, i64 %102
   store ptr %110, ptr %75, align 8, !tbaa !97, !alias.scope !179
   %.pr.i = load ptr, ptr %3, align 8, !tbaa !105, !noalias !179
   %.not.i15.i = icmp eq ptr %.pr.i, null
@@ -4659,7 +4659,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN5vcpkg15StatusParagraphESt14default_deleteIS
   %68 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %67, ptr %10, align 8, !tbaa !93, !alias.scope !220
   store ptr %67, ptr %68, align 8, !tbaa !96, !alias.scope !220
-  %69 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %67, i64 %61
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %61
   store ptr %69, ptr %65, align 8, !tbaa !97, !alias.scope !220
   br label %72
 
@@ -4754,7 +4754,7 @@ _ZNSt6vectorISt10unique_ptrIN5vcpkg15StatusParagraphESt14default_deleteIS2_EESaI
   call void @_ZdlPvm(ptr noundef nonnull %73, i64 noundef %85) #22, !noalias !220
   store ptr %94, ptr %10, align 8, !tbaa !93, !alias.scope !220
   store ptr %99, ptr %68, align 8, !tbaa !96, !alias.scope !220
-  %100 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %94, i64 %92
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %92
   store ptr %100, ptr %65, align 8, !tbaa !97, !alias.scope !220
   %.pr.i = load ptr, ptr %2, align 8, !tbaa !105, !noalias !220
   %.not.i15.i = icmp eq ptr %.pr.i, null

@@ -334,7 +334,7 @@ define internal fastcc range(i64 -1, 512) i64 @_popul_ehdr(ptr noundef nonnull %
   store i64 0, ptr %14, align 8, !tbaa !34
   %15 = tail call ptr @archive_strncat(ptr noundef nonnull %0, ptr noundef nonnull @_popul_ehdr._ver, i64 noundef 10) #14
   %16 = zext nneg i32 %11 to i64
-  %17 = getelementptr inbounds nuw ptr, ptr @_popul_ehdr._typ, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr @_popul_ehdr._typ, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !39
   tail call void (ptr, ptr, ...) @archive_string_sprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.13, ptr noundef %18) #14
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 8

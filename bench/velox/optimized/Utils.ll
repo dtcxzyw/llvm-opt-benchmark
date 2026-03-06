@@ -558,7 +558,7 @@ for.body:                                         ; preds = %invoke.cont, %invok
           to label %invoke.cont4 unwind label %lpad.loopexit
 
 invoke.cont4:                                     ; preds = %for.body
-  %arrayidx = getelementptr inbounds i32, ptr %9, i64 %i.013
+  %arrayidx = getelementptr inbounds [4 x i8], ptr %9, i64 %i.013
   store i32 %call.i9, ptr %arrayidx, align 4
   %inc = add nuw i64 %i.013, 1
   %exitcond.not = icmp eq i64 %inc, %conv
@@ -823,10 +823,10 @@ if.then:                                          ; preds = %entry
 for.body.i:                                       ; preds = %for.body.i, %if.then
   %1 = phi i64 [ %.pre.i, %if.then ], [ %2, %for.body.i ]
   %__k.014.i = phi i64 [ 0, %if.then ], [ %add.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds nuw i64, ptr %this, i64 %__k.014.i
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %this, i64 %__k.014.i
   %and.i = and i64 %1, -2147483648
   %add.i = add nuw nsw i64 %__k.014.i, 1
-  %arrayidx3.i = getelementptr inbounds nuw i64, ptr %this, i64 %add.i
+  %arrayidx3.i = getelementptr inbounds nuw [8 x i8], ptr %this, i64 %add.i
   %2 = load i64, ptr %arrayidx3.i, align 8
   %and4.i = and i64 %2, 2147483646
   %or.i = or disjoint i64 %and4.i, %and.i
@@ -850,10 +850,10 @@ for.body15.preheader.i:                           ; preds = %for.body.i
 for.body15.i:                                     ; preds = %for.body15.i, %for.body15.preheader.i
   %4 = phi i64 [ %5, %for.body15.i ], [ %.pre17.i, %for.body15.preheader.i ]
   %__k12.015.i = phi i64 [ %add21.i, %for.body15.i ], [ 227, %for.body15.preheader.i ]
-  %arrayidx18.i = getelementptr inbounds nuw i64, ptr %this, i64 %__k12.015.i
+  %arrayidx18.i = getelementptr inbounds nuw [8 x i8], ptr %this, i64 %__k12.015.i
   %and19.i = and i64 %4, -2147483648
   %add21.i = add nuw nsw i64 %__k12.015.i, 1
-  %arrayidx22.i = getelementptr inbounds nuw i64, ptr %this, i64 %add21.i
+  %arrayidx22.i = getelementptr inbounds nuw [8 x i8], ptr %this, i64 %add21.i
   %5 = load i64, ptr %arrayidx22.i, align 8
   %and23.i = and i64 %5, 2147483646
   %or24.i = or disjoint i64 %and23.i, %and19.i
@@ -891,7 +891,7 @@ if.end:                                           ; preds = %_ZNSt23mersenne_twi
   %10 = phi i64 [ 0, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit ], [ %0, %entry ]
   %inc = add nuw nsw i64 %10, 1
   store i64 %inc, ptr %_M_p, align 8
-  %arrayidx = getelementptr inbounds nuw i64, ptr %this, i64 %10
+  %arrayidx = getelementptr inbounds nuw [8 x i8], ptr %this, i64 %10
   %11 = load i64, ptr %arrayidx, align 8
   %shr = lshr i64 %11, 11
   %and = and i64 %shr, 4294967295

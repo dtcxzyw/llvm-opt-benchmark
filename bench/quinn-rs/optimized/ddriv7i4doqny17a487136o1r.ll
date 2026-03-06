@@ -569,7 +569,7 @@ define internal fastcc void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he1a0898f206
 8:                                                ; preds = %2, %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !nonnull !3, !noundef !3
-  %11 = getelementptr inbounds nuw { { { { i64, i32, [1 x i32] } } }, { i16, [15 x i16] }, { { i8, [79 x i8] }, { { ptr, i64, i64, ptr }, i64 } }, { ptr, [3 x i64] }, i8, [7 x i8] }, ptr %10, i64 %4
+  %11 = getelementptr inbounds nuw [208 x i8], ptr %10, i64 %4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %11, ptr noundef nonnull align 8 dereferenceable(208) %1, i64 208, i1 false)
   %12 = add i64 %4, 1
   store i64 %12, ptr %3, align 8
@@ -2425,7 +2425,7 @@ define void @_ZN11quinn_proto8endpoint8Endpoint6handle17hb03fbac1aeee8bedE(ptr d
   %267 = add i64 %.sroa.01.0.i.i.i.i, %266
   %268 = and i64 %267, %259
   %269 = sub nsw i64 0, %268
-  %270 = getelementptr inbounds { { [20 x i8], i8 }, [3 x i8], i64 }, ptr %260, i64 %269
+  %270 = getelementptr inbounds [32 x i8], ptr %260, i64 %269
   %271 = getelementptr inbounds i8, ptr %270, i64 -32
   %272 = invoke noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h2062d3addcda3714E"(ptr noalias noundef nonnull readonly align 1 dereferenceable(21) %248, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %271)
           to label %.noexc437 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -2514,7 +2514,7 @@ define void @_ZN11quinn_proto8endpoint8Endpoint6handle17hb03fbac1aeee8bedE(ptr d
   %306 = add i64 %.sroa.01.0.i.i.i32.i, %305
   %307 = and i64 %306, %298
   %308 = sub nsw i64 0, %307
-  %309 = getelementptr inbounds { { [20 x i8], i8 }, [3 x i8], { i64, [1 x i64] } }, ptr %299, i64 %308
+  %309 = getelementptr inbounds [40 x i8], ptr %299, i64 %308
   %310 = getelementptr inbounds i8, ptr %309, i64 -40
   %311 = invoke noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h2062d3addcda3714E"(ptr noalias noundef nonnull readonly align 1 dereferenceable(21) %288, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %310)
           to label %.noexc442 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -2594,7 +2594,7 @@ define void @_ZN11quinn_proto8endpoint8Endpoint6handle17hb03fbac1aeee8bedE(ptr d
   %344 = add i64 %.sroa.01.0.i.i.i46.i, %343
   %345 = and i64 %344, %336
   %346 = sub nsw i64 0, %345
-  %347 = getelementptr inbounds { { { i16, [15 x i16] }, { i8, [16 x i8] }, [3 x i8] }, [1 x i32], i64 }, ptr %337, i64 %346
+  %347 = getelementptr inbounds [64 x i8], ptr %337, i64 %346
   %348 = getelementptr inbounds i8, ptr %347, i64 -64
   %349 = invoke noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17he14618121d092f31E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(52) %166, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %348)
           to label %.noexc446 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -2666,7 +2666,7 @@ select.unfold77.i:                                ; preds = %._crit_edge.i.i52.i
   %379 = add i64 %.sroa.01.0.i.i.i60.i, %378
   %380 = and i64 %379, %371
   %381 = sub nsw i64 0, %380
-  %382 = getelementptr inbounds { { i16, [15 x i16] }, i64 }, ptr %372, i64 %381
+  %382 = getelementptr inbounds [40 x i8], ptr %372, i64 %381
   %383 = getelementptr inbounds i8, ptr %382, i64 -40
   %384 = invoke noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h6fb177af30605440E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(52) %166, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %383)
           to label %.noexc448 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -2760,7 +2760,7 @@ select.unfold77.i:                                ; preds = %._crit_edge.i.i52.i
   %421 = add i64 %.sroa.01.0.i.i.i.i.i, %420
   %422 = and i64 %421, %413
   %423 = sub nsw i64 0, %422
-  %424 = getelementptr inbounds { { i16, [15 x i16] }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, ptr %414, i64 %423
+  %424 = getelementptr inbounds [80 x i8], ptr %414, i64 %423
   %425 = getelementptr inbounds i8, ptr %424, i64 -80
   %426 = invoke noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h6fb177af30605440E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(32) %123, ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %425)
           to label %.noexc452 unwind label %.loopexit.split-lp.loopexit
@@ -2827,7 +2827,7 @@ select.unfold77.i:                                ; preds = %._crit_edge.i.i52.i
   %454 = add i64 %.sroa.01.0.i.i.i16.i.i, %453
   %455 = and i64 %454, %446
   %456 = sub nsw i64 0, %455
-  %457 = getelementptr inbounds { { [16 x i8] }, i64 }, ptr %447, i64 %456
+  %457 = getelementptr inbounds [24 x i8], ptr %447, i64 %456
   %458 = getelementptr inbounds i8, ptr %457, i64 -24
   %459 = invoke noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17hf4c3b3f344918dadE"(ptr noalias noundef nonnull readonly align 1 dereferenceable(16) %122, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %458)
           to label %.noexc454 unwind label %.loopexit
@@ -6048,7 +6048,7 @@ _ZN11quinn_proto8endpoint8Endpoint14cids_exhausted17hc771a0d18a2ee089E.exit.thre
 
 "_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u3217h6e1912263b9494f7E.exit": ; preds = %1503, %1507
   %1509 = phi i64 [ %1505, %1503 ], [ 0, %1507 ]
-  %1510 = getelementptr inbounds nuw i32, ptr %1, i64 %1509
+  %1510 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %1509
   %1511 = load i32, ptr %1510, align 4, !alias.scope !350, !noundef !3
   %1512 = add nuw nsw i64 %1509, 1
   store i64 %1512, ptr %1504, align 16, !alias.scope !350
@@ -6897,7 +6897,7 @@ define internal fastcc void @_ZN11quinn_proto8endpoint8Endpoint15stateless_reset
 
 168:                                              ; preds = %167, %164
   %169 = phi i64 [ %165, %164 ], [ 0, %167 ]
-  %170 = getelementptr inbounds nuw i32, ptr %1, i64 %169
+  %170 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %169
   %171 = sub nuw nsw i64 64, %169
   %172 = sub nuw i64 %.sroa.0110.0, %.sroa.0.010.i
   %173 = getelementptr inbounds nuw i8, ptr %157, i64 %.sroa.0.010.i
@@ -7548,7 +7548,7 @@ _ZN11quinn_proto8endpoint8Endpoint14cids_exhausted17hc771a0d18a2ee089E.exit.thre
   %105 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %.val = load i32, ptr %105, align 8
   %106 = and i64 %104, -16
-  %107 = getelementptr inbounds nuw i32, ptr %102, i64 %106
+  %107 = getelementptr inbounds nuw [4 x i8], ptr %102, i64 %106
   %108 = and i64 %104, 15
   br label %109
 
@@ -7561,7 +7561,7 @@ _ZN11quinn_proto8endpoint8Endpoint14cids_exhausted17hc771a0d18a2ee089E.exit.thre
 .preheader:                                       ; preds = %109, %.preheader
   %.sroa.07.0.i.i = phi i1 [ %113, %.preheader ], [ false, %109 ]
   %.sroa.09.0.i.i131 = phi i64 [ %114, %.preheader ], [ 0, %109 ]
-  %111 = getelementptr inbounds nuw i32, ptr %.sroa.0.03.i, i64 %.sroa.09.0.i.i131
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0.03.i, i64 %.sroa.09.0.i.i131
   %.val19.i.i = load i32, ptr %111, align 4, !alias.scope !388, !noalias !391, !noundef !3
   %112 = icmp eq i32 %.val19.i.i, %.val
   %113 = or i1 %.sroa.07.0.i.i, %112
@@ -7575,7 +7575,7 @@ _ZN11quinn_proto8endpoint8Endpoint14cids_exhausted17hc771a0d18a2ee089E.exit.thre
   br i1 %113, label %.loopexit, label %109
 
 118:                                              ; preds = %109
-  %119 = getelementptr inbounds nuw i32, ptr %107, i64 %108
+  %119 = getelementptr inbounds nuw [4 x i8], ptr %107, i64 %108
   br label %120
 
 120:                                              ; preds = %122, %118
@@ -8265,7 +8265,7 @@ define internal fastcc void @_ZN11quinn_proto8endpoint8Endpoint20send_new_identi
 
 45:                                               ; preds = %40, %44
   %46 = load ptr, ptr %13, align 8, !alias.scope !500, !noalias !503, !nonnull !3, !noundef !3
-  %47 = getelementptr inbounds nuw { { [16 x i8] }, i64, { [20 x i8], i8 }, [3 x i8] }, ptr %46, i64 %41
+  %47 = getelementptr inbounds nuw [48 x i8], ptr %46, i64 %41
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %47, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0, i64 16, i1 false)
   %.sroa.46.0..sroa_idx = getelementptr inbounds nuw i8, ptr %47, i64 16
   store i64 %25, ptr %.sroa.46.0..sroa_idx, align 8
@@ -10966,7 +10966,7 @@ _ZN11quinn_proto8endpoint15ConnectionIndex14remove_initial17h6a81b2c56d9edad3E.e
 "_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u6417h9b7ce490156d28cfE.exit": ; preds = %78
   %97 = add nuw nsw i64 %82, 2
   store i64 %97, ptr %81, align 16, !alias.scope !591
-  %98 = getelementptr inbounds nuw i32, ptr %1, i64 %82
+  %98 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %82
   %99 = load i64, ptr %98, align 4, !alias.scope !603
   %100 = icmp ult i64 %82, 61
   br i1 %100, label %102, label %101
@@ -10980,7 +10980,7 @@ _ZN11quinn_proto8endpoint15ConnectionIndex14remove_initial17h6a81b2c56d9edad3E.e
   %103 = phi i64 [ 2, %"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u6417h9b7ce490156d28cfE.exit.thread" ], [ %97, %"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u6417h9b7ce490156d28cfE.exit" ], [ 1, %"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u6417h9b7ce490156d28cfE.exit.thread58" ]
   %104 = add nuw nsw i64 %103, 2
   store i64 %104, ptr %81, align 16, !alias.scope !606
-  %105 = getelementptr inbounds nuw i32, ptr %1, i64 %103
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %103
   %106 = load i64, ptr %105, align 4, !alias.scope !609
   br label %"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u6417h9b7ce490156d28cfE.exit27"
 
@@ -11404,7 +11404,7 @@ define internal fastcc void @_ZN11quinn_proto8endpoint8Endpoint14add_connection1
 
 39:                                               ; preds = %.noexc, %35
   %40 = phi i64 [ %36, %35 ], [ 0, %.noexc ]
-  %41 = getelementptr inbounds nuw i32, ptr %1, i64 %40
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %40
   %42 = sub nuw nsw i64 64, %40
   %43 = sub nuw nsw i64 32, %.sroa.0.010.i
   %44 = getelementptr inbounds nuw i8, ptr %31, i64 %.sroa.0.010.i

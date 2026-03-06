@@ -595,7 +595,7 @@ define internal noundef ptr @cgroup_pidlist_start(ptr noundef readonly captures(
 64:                                               ; preds = %59
   %65 = add i32 %61, 1
   %66 = sext i32 %61 to i64
-  %67 = getelementptr i32, ptr %49, i64 %66
+  %67 = getelementptr [4 x i8], ptr %49, i64 %66
   store i32 %62, ptr %67, align 4
   br label %68
 
@@ -627,11 +627,11 @@ define internal noundef ptr @cgroup_pidlist_start(ptr noundef readonly captures(
 81:                                               ; preds = %91, %.preheader33
   %82 = phi i32 [ %92, %91 ], [ %80, %.preheader33 ]
   %83 = sext i32 %82 to i64
-  %84 = getelementptr i32, ptr %49, i64 %83
+  %84 = getelementptr [4 x i8], ptr %49, i64 %83
   %85 = load i32, ptr %84, align 4
   %86 = add i32 %82, -1
   %87 = sext i32 %86 to i64
-  %88 = getelementptr i32, ptr %49, i64 %87
+  %88 = getelementptr [4 x i8], ptr %49, i64 %87
   %89 = load i32, ptr %88, align 4
   %90 = icmp eq i32 %85, %89
   br i1 %90, label %91, label %94
@@ -643,7 +643,7 @@ define internal noundef ptr @cgroup_pidlist_start(ptr noundef readonly captures(
 
 94:                                               ; preds = %81
   %95 = sext i32 %79 to i64
-  %96 = getelementptr i32, ptr %49, i64 %95
+  %96 = getelementptr [4 x i8], ptr %49, i64 %95
   store i32 %85, ptr %96, align 4
   %97 = add i32 %79, 1
   %98 = add i32 %82, 1
@@ -779,7 +779,7 @@ define internal noundef ptr @cgroup_pidlist_start(ptr noundef readonly captures(
   %164 = sdiv i32 %163, 2
   %165 = load ptr, ptr %157, align 8
   %166 = sext i32 %164 to i64
-  %167 = getelementptr i32, ptr %165, i64 %166
+  %167 = getelementptr [4 x i8], ptr %165, i64 %166
   %168 = load i32, ptr %167, align 4
   %169 = icmp eq i32 %168, %18
   %170 = icmp slt i32 %168, %18
@@ -798,7 +798,7 @@ define internal noundef ptr @cgroup_pidlist_start(ptr noundef readonly captures(
   %178 = getelementptr inbounds nuw i8, ptr %154, i64 16
   %179 = load ptr, ptr %178, align 8
   %180 = sext i32 %175 to i64
-  %181 = getelementptr i32, ptr %179, i64 %180
+  %181 = getelementptr [4 x i8], ptr %179, i64 %180
   %182 = load i32, ptr %181, align 4
   %183 = sext i32 %182 to i64
   store i64 %183, ptr %1, align 8
@@ -822,7 +822,7 @@ define internal noundef ptr @cgroup_pidlist_next(ptr noundef readonly captures(n
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %13 = load i32, ptr %12, align 8
   %14 = sext i32 %13 to i64
-  %15 = getelementptr i32, ptr %11, i64 %14
+  %15 = getelementptr [4 x i8], ptr %11, i64 %14
   %16 = getelementptr i8, ptr %1, i64 4
   %17 = icmp ult ptr %16, %15
   br i1 %17, label %21, label %18
@@ -1008,7 +1008,7 @@ define dso_local noundef i32 @proc_cgroupstats_show(ptr noundef %0, ptr noundef 
 
 3:                                                ; preds = %3, %2
   %4 = phi i64 [ 0, %2 ], [ %18, %3 ]
-  %5 = getelementptr ptr, ptr @cgroup_subsys, i64 %4
+  %5 = getelementptr [8 x i8], ptr @cgroup_subsys, i64 %4
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 168
   %8 = load ptr, ptr %7, align 8
@@ -1369,7 +1369,7 @@ define dso_local range(i32 -518, -519) i32 @cgroup1_parse_param(ptr noundef %0, 
 
 14:                                               ; preds = %41, %12
   %15 = phi i64 [ 0, %12 ], [ %42, %41 ]
-  %16 = getelementptr ptr, ptr @cgroup_subsys, i64 %15
+  %16 = getelementptr [8 x i8], ptr @cgroup_subsys, i64 %15
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 168
   %19 = load ptr, ptr %18, align 8
@@ -1935,7 +1935,7 @@ define internal noundef i32 @cgroup1_show_options(ptr noundef %0, ptr noundef %1
   br i1 %11, label %18, label %12
 
 12:                                               ; preds = %5
-  %13 = getelementptr ptr, ptr @cgroup_subsys, i64 %6
+  %13 = getelementptr [8 x i8], ptr @cgroup_subsys, i64 %6
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 168
   %16 = load ptr, ptr %15, align 8
@@ -2142,7 +2142,7 @@ define dso_local range(i32 -2147483648, 1) i32 @cgroup1_get_tree(ptr noundef %0)
   br i1 %29, label %83, label %30
 
 30:                                               ; preds = %22
-  %31 = getelementptr ptr, ptr @cgroup_subsys, i64 %23
+  %31 = getelementptr [8 x i8], ptr @cgroup_subsys, i64 %23
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 176
   %34 = load ptr, ptr %33, align 8
@@ -2603,7 +2603,7 @@ define internal noundef i32 @cgroup_no_v1(ptr noundef %0) #9 section ".init.text
 20:                                               ; preds = %39, %17
   %21 = phi i64 [ 0, %17 ], [ %41, %39 ]
   %22 = phi i16 [ %18, %17 ], [ %40, %39 ]
-  %23 = getelementptr ptr, ptr @cgroup_subsys, i64 %21
+  %23 = getelementptr [8 x i8], ptr @cgroup_subsys, i64 %21
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 160
   %26 = load ptr, ptr %25, align 8

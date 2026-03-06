@@ -221,7 +221,7 @@ define hidden noundef zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display
 "_ZN8nalgebra4base3ops134_$LT$impl$u20$core..ops..index..Index$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$5index17h0b90919bb44cb52bE.exit198.lr.ph.us.i": ; preds = %..loopexit_crit_edge.us.i, %.preheader245.i
   %.sroa.0112.0249.us.i = phi i64 [ 0, %.preheader245.i ], [ %32, %..loopexit_crit_edge.us.i ]
   %.sroa.06.0248.us.i = phi i64 [ 0, %.preheader245.i ], [ %.sroa.0.0.sroa.speculated.i.us.i, %..loopexit_crit_edge.us.i ]
-  %invariant.gep.us.i = getelementptr double, ptr %26, i64 %.sroa.0112.0249.us.i
+  %invariant.gep.us.i = getelementptr [8 x i8], ptr %26, i64 %.sroa.0112.0249.us.i
   br label %"_ZN8nalgebra4base3ops134_$LT$impl$u20$core..ops..index..Index$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$5index17h0b90919bb44cb52bE.exit198.us.i"
 
 "_ZN8nalgebra4base3ops134_$LT$impl$u20$core..ops..index..Index$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$5index17h0b90919bb44cb52bE.exit198.us.i": ; preds = %"_ZN8nalgebra4base3ops134_$LT$impl$u20$core..ops..index..Index$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$5index17h0b90919bb44cb52bE.exit198.us.i", %"_ZN8nalgebra4base3ops134_$LT$impl$u20$core..ops..index..Index$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$5index17h0b90919bb44cb52bE.exit198.lr.ph.us.i"
@@ -229,7 +229,7 @@ define hidden noundef zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display
   %.sroa.06.1246.us.i = phi i64 [ %.sroa.06.0248.us.i, %"_ZN8nalgebra4base3ops134_$LT$impl$u20$core..ops..index..Index$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$5index17h0b90919bb44cb52bE.exit198.lr.ph.us.i" ], [ %.sroa.0.0.sroa.speculated.i.us.i, %"_ZN8nalgebra4base3ops134_$LT$impl$u20$core..ops..index..Index$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$5index17h0b90919bb44cb52bE.exit198.us.i" ]
   %29 = add nuw i64 %.sroa.0114.0247.us.i, 1
   %30 = mul i64 %.sroa.0114.0247.us.i, %20
-  %gep.us.i = getelementptr double, ptr %invariant.gep.us.i, i64 %30
+  %gep.us.i = getelementptr [8 x i8], ptr %invariant.gep.us.i, i64 %30
   %31 = tail call fastcc noundef i64 @"_ZN90_$LT$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..fmt..Display$GT$3fmt9val_width17hcae4d48b7b9206c5E"(ptr noalias noundef readonly align 8 dereferenceable(8) %gep.us.i, i64 %.val147.fr.i, i64 %.val150.i), !noalias !17
   %.sroa.0.0.sroa.speculated.i.us.i = tail call noundef i64 @llvm.umax.i64(i64 %.sroa.06.1246.us.i, i64 %31)
   %exitcond.not.i = icmp eq i64 %29, %22
@@ -352,14 +352,14 @@ _ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i163.us
   br i1 %51, label %"_ZN90_$LT$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17hd3762af269b2b826E.exit", label %.preheader.us.us.i
 
 .preheader.us.us.i:                               ; preds = %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i163.us.us.i
-  %invariant.gep.us258.us.i = getelementptr double, ptr %26, i64 %.sroa.0116.0.us.us.i
+  %invariant.gep.us258.us.i = getelementptr [8 x i8], ptr %26, i64 %.sroa.0116.0.us.us.i
   br label %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit180.us.us.us.i
 
 _ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit180.us.us.us.i: ; preds = %58, %.preheader.us.us.i
   %.sroa.0118.0250.us.us.us.i = phi i64 [ 0, %.preheader.us.us.i ], [ %52, %58 ]
   %52 = add nuw i64 %.sroa.0118.0250.us.us.us.i, 1
   %53 = mul i64 %.sroa.0118.0250.us.us.us.i, %20
-  %gep.us251.us.us.i = getelementptr double, ptr %invariant.gep.us258.us.i, i64 %53
+  %gep.us251.us.us.i = getelementptr [8 x i8], ptr %invariant.gep.us258.us.i, i64 %53
   %54 = call fastcc noundef i64 @"_ZN90_$LT$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..fmt..Display$GT$3fmt9val_width17hcae4d48b7b9206c5E"(ptr noalias noundef readonly align 8 dereferenceable(8) %gep.us251.us.us.i, i64 %.val147.fr.i, i64 %.val150.i), !noalias !17
   %55 = sub i64 %.sroa.0.0.sroa.speculated.i.us.i, %54
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !17
@@ -437,7 +437,7 @@ _ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit180.us255.i: ; preds = 
   %.sroa.0118.0250.us256.i = phi i64 [ 0, %.preheader.us.i ], [ %62, %68 ]
   %62 = add nuw i64 %.sroa.0118.0250.us256.i, 1
   %63 = mul i64 %.sroa.0118.0250.us256.i, %20
-  %gep.us257.i = getelementptr double, ptr %invariant.gep.us258.i, i64 %63
+  %gep.us257.i = getelementptr [8 x i8], ptr %invariant.gep.us258.i, i64 %63
   %64 = call fastcc noundef i64 @"_ZN90_$LT$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..fmt..Display$GT$3fmt9val_width17hcae4d48b7b9206c5E"(ptr noalias noundef readonly align 8 dereferenceable(8) %gep.us257.i, i64 %.val147.fr.i, i64 %.val150.i), !noalias !17
   %65 = sub i64 %.sroa.0.0.sroa.speculated.i.us.i, %64
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !17
@@ -486,7 +486,7 @@ _ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit188.us.i: ; preds = %_Z
   br i1 %exitcond271.not.i, label %._ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i169_crit_edge.split.us259.i, label %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit180.us255.i
 
 .preheader.us.i:                                  ; preds = %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i163.us.i
-  %invariant.gep.us258.i = getelementptr double, ptr %26, i64 %.sroa.0116.0.us.i
+  %invariant.gep.us258.i = getelementptr [8 x i8], ptr %26, i64 %.sroa.0116.0.us.i
   br label %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit180.us255.i
 
 ._ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i169_crit_edge.split.us259.i: ; preds = %68
@@ -617,7 +617,7 @@ _ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i160.i:
   %.sroa.0112.050.i = phi i64 [ 0, %.preheader47.i ], [ %34, %"_ZN8nalgebra4base3ops134_$LT$impl$u20$core..ops..index..Index$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$5index17h07a3c7818eef0299E.exit207.i" ]
   %.sroa.06.049.i = phi i64 [ 0, %.preheader47.i ], [ %.sroa.0.0.sroa.speculated.i.i, %"_ZN8nalgebra4base3ops134_$LT$impl$u20$core..ops..index..Index$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$5index17h07a3c7818eef0299E.exit207.i" ]
   %34 = add nuw i64 %.sroa.0112.050.i, 1
-  %35 = getelementptr double, ptr %.val, i64 %.sroa.0112.050.i
+  %35 = getelementptr [8 x i8], ptr %.val, i64 %.sroa.0112.050.i
   %36 = tail call fastcc noundef i64 @"_ZN90_$LT$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..fmt..Display$GT$3fmt9val_width17hcae4d48b7b9206c5E"(ptr noalias noundef readonly align 8 dereferenceable(8) %35, i64 %.val149.i, i64 %.val150.i), !noalias !42
   %.sroa.0.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %.sroa.06.049.i, i64 %36)
   %exitcond.not.i = icmp eq i64 %34, %.val1
@@ -712,7 +712,7 @@ _ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i172.us
   br i1 %43, label %"_ZN90_$LT$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17he6cd07f6d640c05eE.exit", label %.preheader.us.i
 
 .preheader.us.i:                                  ; preds = %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i172.us.i
-  %44 = getelementptr double, ptr %.val, i64 %.sroa.0116.0.us.i
+  %44 = getelementptr [8 x i8], ptr %.val, i64 %.sroa.0116.0.us.i
   %45 = call fastcc noundef i64 @"_ZN90_$LT$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..fmt..Display$GT$3fmt9val_width17hcae4d48b7b9206c5E"(ptr noalias noundef readonly align 8 dereferenceable(8) %44, i64 1, i64 %.val150.i), !noalias !42
   %46 = sub i64 %.sroa.0.0.sroa.speculated.i.i, %45
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !42
@@ -824,7 +824,7 @@ _ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i172.i:
   br i1 %53, label %"_ZN90_$LT$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17he6cd07f6d640c05eE.exit", label %.preheader.i
 
 .preheader.i:                                     ; preds = %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i172.i
-  %54 = getelementptr double, ptr %.val, i64 %.sroa.0116.0.i
+  %54 = getelementptr [8 x i8], ptr %.val, i64 %.sroa.0116.0.i
   %55 = call fastcc noundef i64 @"_ZN90_$LT$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..fmt..Display$GT$3fmt9val_width17hcae4d48b7b9206c5E"(ptr noalias noundef readonly align 8 dereferenceable(8) %54, i64 0, i64 %.val150.i), !noalias !42
   %56 = sub i64 %.sroa.0.0.sroa.speculated.i.i, %55
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !42
@@ -1059,8 +1059,8 @@ define hidden void @"_ZN8nalgebra4base11matrix_view69_$LT$impl$u20$nalgebra..bas
   %11 = load i64, ptr %10, align 8, !alias.scope !88, !noalias !80, !noundef !4
   %12 = mul i64 %11, %3
   %13 = load ptr, ptr %1, align 8, !alias.scope !91, !noalias !80, !noundef !4
-  %14 = getelementptr double, ptr %13, i64 %12
-  %15 = getelementptr double, ptr %14, i64 %2
+  %14 = getelementptr [8 x i8], ptr %13, i64 %12
+  %15 = getelementptr [8 x i8], ptr %14, i64 %2
   store ptr %15, ptr %0, align 8, !alias.scope !80, !noalias !83
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %9, ptr %.sroa.2.0..sroa_idx.i, align 8, !alias.scope !80, !noalias !83
@@ -1090,8 +1090,8 @@ define hidden void @"_ZN8nalgebra4base11matrix_view69_$LT$impl$u20$nalgebra..bas
   %12 = mul i64 %6, %3
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8, !alias.scope !109, !noalias !101, !nonnull !4, !noundef !4
-  %15 = getelementptr double, ptr %14, i64 %12
-  %16 = getelementptr double, ptr %15, i64 %2
+  %15 = getelementptr [8 x i8], ptr %14, i64 %12
+  %16 = getelementptr [8 x i8], ptr %15, i64 %2
   store ptr %16, ptr %0, align 8, !alias.scope !101, !noalias !104
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %11, ptr %.sroa.2.0..sroa_idx.i, align 8, !alias.scope !101, !noalias !104
@@ -1127,8 +1127,8 @@ define hidden void @"_ZN8nalgebra4base11matrix_view69_$LT$impl$u20$nalgebra..bas
   %14 = load i64, ptr %13, align 8, !alias.scope !124, !noundef !4
   %15 = mul i64 %14, %3
   %16 = load ptr, ptr %1, align 8, !alias.scope !127, !noundef !4
-  %17 = getelementptr double, ptr %16, i64 %15
-  %18 = getelementptr double, ptr %17, i64 %2
+  %17 = getelementptr [8 x i8], ptr %16, i64 %15
+  %18 = getelementptr [8 x i8], ptr %17, i64 %2
   store ptr %18, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %4, ptr %.sroa.2.0..sroa_idx, align 8
@@ -1165,8 +1165,8 @@ define hidden void @"_ZN8nalgebra4base11matrix_view69_$LT$impl$u20$nalgebra..bas
   %15 = mul i64 %7, %3
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8, !alias.scope !142, !nonnull !4, !noundef !4
-  %18 = getelementptr double, ptr %17, i64 %15
-  %19 = getelementptr double, ptr %18, i64 %2
+  %18 = getelementptr [8 x i8], ptr %17, i64 %15
+  %19 = getelementptr [8 x i8], ptr %18, i64 %2
   store ptr %19, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %4, ptr %.sroa.2.0..sroa_idx, align 8
@@ -1217,8 +1217,8 @@ define hidden void @"_ZN8nalgebra4base11matrix_view69_$LT$impl$u20$nalgebra..bas
   %10 = mul i64 %5, %3
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8, !alias.scope !175, !noalias !170, !nonnull !4, !noundef !4
-  %13 = getelementptr double, ptr %12, i64 %10
-  %14 = getelementptr double, ptr %13, i64 %2
+  %13 = getelementptr [8 x i8], ptr %12, i64 %10
+  %14 = getelementptr [8 x i8], ptr %13, i64 %2
   store i64 %8, ptr %0, align 8, !alias.scope !170, !noalias !173
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %9, ptr %.sroa.2.0..sroa_idx.i, align 8, !alias.scope !170, !noalias !173
@@ -1240,7 +1240,7 @@ define hidden void @"_ZN8nalgebra4base11matrix_view69_$LT$impl$u20$nalgebra..bas
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i64, ptr %6, align 8, !alias.scope !190, !noalias !185, !noundef !4
   %8 = load ptr, ptr %1, align 8, !alias.scope !193, !noalias !185, !noundef !4
-  %9 = getelementptr double, ptr %8, i64 %2
+  %9 = getelementptr [8 x i8], ptr %8, i64 %2
   store ptr %9, ptr %0, align 8, !alias.scope !185, !noalias !188
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %5, ptr %.sroa.2.0..sroa_idx.i, align 8, !alias.scope !185, !noalias !188
@@ -1270,8 +1270,8 @@ define hidden void @"_ZN8nalgebra4base11matrix_view69_$LT$impl$u20$nalgebra..bas
   %12 = mul i64 %6, %3
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8, !alias.scope !211, !noalias !203, !nonnull !4, !noundef !4
-  %15 = getelementptr double, ptr %14, i64 %12
-  %16 = getelementptr double, ptr %15, i64 %2
+  %15 = getelementptr [8 x i8], ptr %14, i64 %12
+  %16 = getelementptr [8 x i8], ptr %15, i64 %2
   store ptr %16, ptr %0, align 8, !alias.scope !203, !noalias !206
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %11, ptr %.sroa.2.0..sroa_idx.i, align 8, !alias.scope !203, !noalias !206
@@ -1308,8 +1308,8 @@ define hidden void @"_ZN8nalgebra4base11matrix_view69_$LT$impl$u20$nalgebra..bas
   %15 = mul i64 %7, %3
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8, !alias.scope !226, !nonnull !4, !noundef !4
-  %18 = getelementptr double, ptr %17, i64 %15
-  %19 = getelementptr double, ptr %18, i64 %2
+  %18 = getelementptr [8 x i8], ptr %17, i64 %15
+  %19 = getelementptr [8 x i8], ptr %18, i64 %2
   store ptr %19, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %4, ptr %.sroa.2.0..sroa_idx, align 8
@@ -1345,8 +1345,8 @@ define hidden void @"_ZN8nalgebra4base11matrix_view69_$LT$impl$u20$nalgebra..bas
   %14 = load i64, ptr %13, align 8, !alias.scope !241, !noundef !4
   %15 = mul i64 %14, %3
   %16 = load ptr, ptr %1, align 8, !alias.scope !244, !noundef !4
-  %17 = getelementptr double, ptr %16, i64 %15
-  %18 = getelementptr double, ptr %17, i64 %2
+  %17 = getelementptr [8 x i8], ptr %16, i64 %15
+  %18 = getelementptr [8 x i8], ptr %17, i64 %2
   store ptr %18, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %4, ptr %.sroa.2.0..sroa_idx, align 8
@@ -1383,8 +1383,8 @@ define hidden void @"_ZN8nalgebra4base11matrix_view69_$LT$impl$u20$nalgebra..bas
   %16 = mul i64 %8, %3
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8, !alias.scope !259, !nonnull !4, !noundef !4
-  %19 = getelementptr double, ptr %18, i64 %16
-  %20 = getelementptr double, ptr %19, i64 %2
+  %19 = getelementptr [8 x i8], ptr %18, i64 %16
+  %20 = getelementptr [8 x i8], ptr %19, i64 %2
   store i64 %4, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %5, ptr %.sroa.2.0..sroa_idx, align 8
@@ -1476,7 +1476,7 @@ define hidden void @"_ZN8nalgebra4base11matrix_view69_$LT$impl$u20$nalgebra..bas
   %10 = mul i64 %9, %2
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8, !alias.scope !282, !nonnull !4, !noundef !4
-  %13 = getelementptr double, ptr %12, i64 %10
+  %13 = getelementptr [8 x i8], ptr %12, i64 %10
   store ptr %13, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %9, ptr %.sroa.2.0..sroa_idx, align 8
@@ -1508,9 +1508,9 @@ define hidden noundef double @"_ZN8nalgebra4base4blas69_$LT$impl$u20$nalgebra..b
   %.sroa.074.1136.us = phi i64 [ %15, %.lr.ph138.us ], [ %78, %._crit_edge.us ]
   %.sroa.0.1135.us = phi double [ %21, %.lr.ph138.us ], [ %88, %._crit_edge.us ]
   %15 = add nuw i64 %.sroa.074.1136.us, 1
-  %16 = getelementptr double, ptr %13, i64 %.sroa.074.1136.us
+  %16 = getelementptr [8 x i8], ptr %13, i64 %.sroa.074.1136.us
   %17 = load double, ptr %16, align 8, !alias.scope !299, !noundef !4
-  %18 = getelementptr double, ptr %14, i64 %.sroa.074.1136.us
+  %18 = getelementptr [8 x i8], ptr %14, i64 %.sroa.074.1136.us
   %19 = load double, ptr %18, align 8, !alias.scope !302, !noundef !4
   %20 = fmul double %17, %19
   %21 = fadd double %.sroa.0.1135.us, %20
@@ -1527,58 +1527,58 @@ define hidden noundef double @"_ZN8nalgebra4base4blas69_$LT$impl$u20$nalgebra..b
   %.sroa.0111.0120.us = phi double [ %63, %.preheader.us ], [ 0.000000e+00, %.preheader117 ]
   %.sroa.0113.0119.us = phi double [ %70, %.preheader.us ], [ 0.000000e+00, %.preheader117 ]
   %.sroa.0115.0118.us = phi double [ %77, %.preheader.us ], [ 0.000000e+00, %.preheader117 ]
-  %23 = getelementptr double, ptr %13, i64 %.sroa.074.0126.us
+  %23 = getelementptr [8 x i8], ptr %13, i64 %.sroa.074.0126.us
   %24 = load double, ptr %23, align 8, !alias.scope !305, !noundef !4
-  %25 = getelementptr double, ptr %14, i64 %.sroa.074.0126.us
+  %25 = getelementptr [8 x i8], ptr %14, i64 %.sroa.074.0126.us
   %26 = load double, ptr %25, align 8, !alias.scope !308, !noundef !4
   %27 = fmul double %24, %26
   %28 = fadd double %.sroa.0101.0125.us, %27
   %29 = or disjoint i64 %.sroa.074.0126.us, 1
-  %30 = getelementptr double, ptr %13, i64 %29
+  %30 = getelementptr [8 x i8], ptr %13, i64 %29
   %31 = load double, ptr %30, align 8, !alias.scope !311, !noundef !4
-  %32 = getelementptr double, ptr %14, i64 %29
+  %32 = getelementptr [8 x i8], ptr %14, i64 %29
   %33 = load double, ptr %32, align 8, !alias.scope !314, !noundef !4
   %34 = fmul double %31, %33
   %35 = fadd double %.sroa.0103.0124.us, %34
   %36 = or disjoint i64 %.sroa.074.0126.us, 2
-  %37 = getelementptr double, ptr %13, i64 %36
+  %37 = getelementptr [8 x i8], ptr %13, i64 %36
   %38 = load double, ptr %37, align 8, !alias.scope !317, !noundef !4
-  %39 = getelementptr double, ptr %14, i64 %36
+  %39 = getelementptr [8 x i8], ptr %14, i64 %36
   %40 = load double, ptr %39, align 8, !alias.scope !320, !noundef !4
   %41 = fmul double %38, %40
   %42 = fadd double %.sroa.0105.0123.us, %41
   %43 = or disjoint i64 %.sroa.074.0126.us, 3
-  %44 = getelementptr double, ptr %13, i64 %43
+  %44 = getelementptr [8 x i8], ptr %13, i64 %43
   %45 = load double, ptr %44, align 8, !alias.scope !323, !noundef !4
-  %46 = getelementptr double, ptr %14, i64 %43
+  %46 = getelementptr [8 x i8], ptr %14, i64 %43
   %47 = load double, ptr %46, align 8, !alias.scope !326, !noundef !4
   %48 = fmul double %45, %47
   %49 = fadd double %.sroa.0107.0122.us, %48
   %50 = or disjoint i64 %.sroa.074.0126.us, 4
-  %51 = getelementptr double, ptr %13, i64 %50
+  %51 = getelementptr [8 x i8], ptr %13, i64 %50
   %52 = load double, ptr %51, align 8, !alias.scope !329, !noundef !4
-  %53 = getelementptr double, ptr %14, i64 %50
+  %53 = getelementptr [8 x i8], ptr %14, i64 %50
   %54 = load double, ptr %53, align 8, !alias.scope !332, !noundef !4
   %55 = fmul double %52, %54
   %56 = fadd double %.sroa.0109.0121.us, %55
   %57 = or disjoint i64 %.sroa.074.0126.us, 5
-  %58 = getelementptr double, ptr %13, i64 %57
+  %58 = getelementptr [8 x i8], ptr %13, i64 %57
   %59 = load double, ptr %58, align 8, !alias.scope !335, !noundef !4
-  %60 = getelementptr double, ptr %14, i64 %57
+  %60 = getelementptr [8 x i8], ptr %14, i64 %57
   %61 = load double, ptr %60, align 8, !alias.scope !338, !noundef !4
   %62 = fmul double %59, %61
   %63 = fadd double %.sroa.0111.0120.us, %62
   %64 = or disjoint i64 %.sroa.074.0126.us, 6
-  %65 = getelementptr double, ptr %13, i64 %64
+  %65 = getelementptr [8 x i8], ptr %13, i64 %64
   %66 = load double, ptr %65, align 8, !alias.scope !341, !noundef !4
-  %67 = getelementptr double, ptr %14, i64 %64
+  %67 = getelementptr [8 x i8], ptr %14, i64 %64
   %68 = load double, ptr %67, align 8, !alias.scope !344, !noundef !4
   %69 = fmul double %66, %68
   %70 = fadd double %.sroa.0113.0119.us, %69
   %71 = or disjoint i64 %.sroa.074.0126.us, 7
-  %72 = getelementptr double, ptr %13, i64 %71
+  %72 = getelementptr [8 x i8], ptr %13, i64 %71
   %73 = load double, ptr %72, align 8, !alias.scope !347, !noundef !4
-  %74 = getelementptr double, ptr %14, i64 %71
+  %74 = getelementptr [8 x i8], ptr %14, i64 %71
   %75 = load double, ptr %74, align 8, !alias.scope !350, !noundef !4
   %76 = fmul double %73, %75
   %77 = fadd double %.sroa.0115.0118.us, %76
@@ -1607,9 +1607,9 @@ define hidden noundef double @"_ZN8nalgebra4base4blas69_$LT$impl$u20$nalgebra..b
   %.sroa.074.1136.us143 = phi i64 [ %90, %.preheader.us141 ], [ 0, %.preheader117.split ]
   %.sroa.0.1135.us144 = phi double [ %96, %.preheader.us141 ], [ 0.000000e+00, %.preheader117.split ]
   %90 = add nuw i64 %.sroa.074.1136.us143, 1
-  %91 = getelementptr double, ptr %13, i64 %.sroa.074.1136.us143
+  %91 = getelementptr [8 x i8], ptr %13, i64 %.sroa.074.1136.us143
   %92 = load double, ptr %91, align 8, !alias.scope !299, !noundef !4
-  %93 = getelementptr double, ptr %14, i64 %.sroa.074.1136.us143
+  %93 = getelementptr [8 x i8], ptr %14, i64 %.sroa.074.1136.us143
   %94 = load double, ptr %93, align 8, !alias.scope !302, !noundef !4
   %95 = fmul double %92, %94
   %96 = fadd double %.sroa.0.1135.us144, %95
@@ -1721,8 +1721,8 @@ define hidden noundef align 8 dereferenceable(8) ptr @_ZN8nalgebra4base7storage1
   %5 = load i64, ptr %4, align 8, !alias.scope !374, !noundef !4
   %6 = mul i64 %5, %2
   %7 = load ptr, ptr %0, align 8, !alias.scope !379, !noundef !4
-  %8 = getelementptr double, ptr %7, i64 %6
-  %9 = getelementptr double, ptr %8, i64 %1
+  %8 = getelementptr [8 x i8], ptr %7, i64 %6
+  %9 = getelementptr [8 x i8], ptr %8, i64 %1
   ret ptr %9
 }
 
@@ -1733,15 +1733,15 @@ define hidden noundef align 8 dereferenceable(8) ptr @_ZN8nalgebra4base7storage1
   %6 = mul i64 %5, %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !alias.scope !391, !nonnull !4, !noundef !4
-  %9 = getelementptr double, ptr %8, i64 %6
-  %10 = getelementptr double, ptr %9, i64 %1
+  %9 = getelementptr [8 x i8], ptr %8, i64 %6
+  %10 = getelementptr [8 x i8], ptr %9, i64 %1
   ret ptr %10
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef align 8 dereferenceable(8) ptr @_ZN8nalgebra4base7storage10RawStorage20get_unchecked_linear17h8a1699b8e9446672E.llvm.4752837998330011175(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, i64 noundef %1) unnamed_addr #2 {
   %3 = load ptr, ptr %0, align 8, !alias.scope !398, !noundef !4
-  %4 = getelementptr double, ptr %3, i64 %1
+  %4 = getelementptr [8 x i8], ptr %3, i64 %1
   ret ptr %4
 }
 
@@ -1749,7 +1749,7 @@ define hidden noundef align 8 dereferenceable(8) ptr @_ZN8nalgebra4base7storage1
 define hidden noundef align 8 dereferenceable(8) ptr @_ZN8nalgebra4base7storage10RawStorage20get_unchecked_linear17hdccc1be74ade1d3eE.llvm.4752837998330011175(ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %0, i64 noundef %1) unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !alias.scope !403, !nonnull !4, !noundef !4
-  %5 = getelementptr double, ptr %4, i64 %1
+  %5 = getelementptr [8 x i8], ptr %4, i64 %1
   ret ptr %5
 }
 
@@ -1760,8 +1760,8 @@ define hidden noundef ptr @_ZN8nalgebra4base7storage10RawStorage21get_address_un
   %6 = mul i64 %5, %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !alias.scope !413, !nonnull !4, !noundef !4
-  %9 = getelementptr double, ptr %8, i64 %6
-  %10 = getelementptr double, ptr %9, i64 %1
+  %9 = getelementptr [8 x i8], ptr %8, i64 %6
+  %10 = getelementptr [8 x i8], ptr %9, i64 %1
   ret ptr %10
 }
 
@@ -1771,8 +1771,8 @@ define hidden noundef ptr @_ZN8nalgebra4base7storage10RawStorage21get_address_un
   %5 = load i64, ptr %4, align 8, !alias.scope !418, !noundef !4
   %6 = mul i64 %5, %2
   %7 = load ptr, ptr %0, align 8, !alias.scope !423, !noundef !4
-  %8 = getelementptr double, ptr %7, i64 %6
-  %9 = getelementptr double, ptr %8, i64 %1
+  %8 = getelementptr [8 x i8], ptr %7, i64 %6
+  %9 = getelementptr [8 x i8], ptr %8, i64 %1
   ret ptr %9
 }
 
@@ -1780,21 +1780,21 @@ define hidden noundef ptr @_ZN8nalgebra4base7storage10RawStorage21get_address_un
 define hidden noundef ptr @_ZN8nalgebra4base7storage10RawStorage28get_address_unchecked_linear17h15b8bc70cbf33dbaE.llvm.4752837998330011175(ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %0, i64 noundef %1) unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !alias.scope !428, !nonnull !4, !noundef !4
-  %5 = getelementptr double, ptr %4, i64 %1
+  %5 = getelementptr [8 x i8], ptr %4, i64 %1
   ret ptr %5
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef ptr @_ZN8nalgebra4base7storage10RawStorage28get_address_unchecked_linear17hbe1d0902190d21f7E.llvm.4752837998330011175(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, i64 noundef %1) unnamed_addr #2 {
   %3 = load ptr, ptr %0, align 8, !alias.scope !431, !noundef !4
-  %4 = getelementptr double, ptr %3, i64 %1
+  %4 = getelementptr [8 x i8], ptr %3, i64 %1
   ret ptr %4
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef ptr @_ZN8nalgebra4base7storage10RawStorage28get_address_unchecked_linear17hfaa22402c6e8e712E.llvm.4752837998330011175(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, i64 noundef %1) unnamed_addr #2 {
   %3 = load ptr, ptr %0, align 8, !alias.scope !434, !noundef !4
-  %4 = getelementptr double, ptr %3, i64 %1
+  %4 = getelementptr [8 x i8], ptr %3, i64 %1
   ret ptr %4
 }
 
@@ -1805,8 +1805,8 @@ define hidden noundef ptr @_ZN8nalgebra4base7storage13RawStorageMut25get_address
   %6 = mul i64 %5, %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !alias.scope !442, !nonnull !4, !noundef !4
-  %9 = getelementptr double, ptr %8, i64 %6
-  %10 = getelementptr double, ptr %9, i64 %1
+  %9 = getelementptr [8 x i8], ptr %8, i64 %6
+  %10 = getelementptr [8 x i8], ptr %9, i64 %1
   ret ptr %10
 }
 
@@ -1816,8 +1816,8 @@ define hidden noundef ptr @_ZN8nalgebra4base7storage13RawStorageMut25get_address
   %5 = load i64, ptr %4, align 8, !alias.scope !447, !noundef !4
   %6 = mul i64 %5, %2
   %7 = load ptr, ptr %0, align 8, !alias.scope !452, !noundef !4
-  %8 = getelementptr double, ptr %7, i64 %6
-  %9 = getelementptr double, ptr %8, i64 %1
+  %8 = getelementptr [8 x i8], ptr %7, i64 %6
+  %9 = getelementptr [8 x i8], ptr %8, i64 %1
   ret ptr %9
 }
 
@@ -1825,14 +1825,14 @@ define hidden noundef ptr @_ZN8nalgebra4base7storage13RawStorageMut25get_address
 define hidden noundef ptr @_ZN8nalgebra4base7storage13RawStorageMut32get_address_unchecked_linear_mut17h2fd1474aef155b2dE.llvm.4752837998330011175(ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %0, i64 noundef %1) unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !alias.scope !457, !nonnull !4, !noundef !4
-  %5 = getelementptr double, ptr %4, i64 %1
+  %5 = getelementptr [8 x i8], ptr %4, i64 %1
   ret ptr %5
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef ptr @_ZN8nalgebra4base7storage13RawStorageMut32get_address_unchecked_linear_mut17hf04c77f69f243258E.llvm.4752837998330011175(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, i64 noundef %1) unnamed_addr #2 {
   %3 = load ptr, ptr %0, align 8, !alias.scope !460, !noundef !4
-  %4 = getelementptr double, ptr %3, i64 %1
+  %4 = getelementptr [8 x i8], ptr %3, i64 %1
   ret ptr %4
 }
 
@@ -1883,7 +1883,7 @@ define hidden void @"_ZN8nalgebra6linalg5solve69_$LT$impl$u20$nalgebra..base..ma
   tail call void @llvm.experimental.noalias.scope.decl(metadata !479)
   %10 = add nuw i64 %.sroa.01.03, 1
   %11 = mul i64 %.sroa.01.03, %5
-  %12 = getelementptr double, ptr %9, i64 %11
+  %12 = getelementptr [8 x i8], ptr %9, i64 %11
   store ptr %12, ptr %3, align 8, !alias.scope !477, !noalias !479
   store i64 %5, ptr %.sroa.2.0..sroa_idx.i, align 8, !alias.scope !477, !noalias !479
   store i64 %5, ptr %.sroa.3.0..sroa_idx.i, align 8, !alias.scope !477, !noalias !479
@@ -1926,7 +1926,7 @@ define hidden void @"_ZN8nalgebra6linalg5solve69_$LT$impl$u20$nalgebra..base..ma
   %.sroa.01.039.us41 = phi i64 [ %20, %"._ZN8nalgebra6linalg5solve69_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$D$C$D$C$S$GT$$GT$46xx_solve_lower_triangular_vector_unchecked_mut17hfb277736e9b71268E.llvm.4752837998330011175.exit.loopexit_crit_edge.split.us.us" ], [ 0, %"_ZN8nalgebra4base11matrix_view69_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$19columns_generic_mut17hc7f61ebe3b4262c7E.llvm.4752837998330011175.exit.lr.ph.split" ]
   %20 = add nuw i64 %.sroa.01.039.us41, 1
   %21 = mul i64 %.sroa.01.039.us41, %8
-  %22 = getelementptr double, ptr %12, i64 %21
+  %22 = getelementptr [8 x i8], ptr %12, i64 %21
   br label %23
 
 23:                                               ; preds = %"_ZN8nalgebra6linalg5solve69_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$D$C$D$C$S$GT$$GT$39ad_solve_lower_triangular_unchecked_mut28_$u7b$$u7b$closure$u7d$$u7d$17ha65c27453772bbceE.llvm.4752837998330011175.exit.us.us", %"_ZN8nalgebra4base11matrix_view69_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$19columns_generic_mut17hc7f61ebe3b4262c7E.llvm.4752837998330011175.exit.us40"
@@ -1938,9 +1938,9 @@ define hidden void @"_ZN8nalgebra6linalg5solve69_$LT$impl$u20$nalgebra..base..ma
 "_ZN8nalgebra4base11matrix_view69_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$10view_range17h9baf0db005325195E.llvm.4752837998330011175.exit.us.us": ; preds = %23
   %25 = sub i64 %8, %.sroa.4.031.us.us
   %26 = mul i64 %24, %8
-  %27 = getelementptr double, ptr %18, i64 %26
-  %28 = getelementptr double, ptr %27, i64 %.sroa.4.031.us.us
-  %29 = getelementptr double, ptr %22, i64 %.sroa.4.031.us.us
+  %27 = getelementptr [8 x i8], ptr %18, i64 %26
+  %28 = getelementptr [8 x i8], ptr %27, i64 %.sroa.4.031.us.us
+  %29 = getelementptr [8 x i8], ptr %22, i64 %.sroa.4.031.us.us
   %30 = icmp ugt i64 %25, 7
   br i1 %30, label %.preheader.us.i.us.us, label %.preheader22.split.i.us.us
 
@@ -1952,9 +1952,9 @@ define hidden void @"_ZN8nalgebra6linalg5solve69_$LT$impl$u20$nalgebra..base..ma
   %.sroa.074.1.i41.us48.i.us.us = phi i64 [ %31, %.preheader.us46.i.us.us ], [ 0, %.preheader22.split.i.us.us ]
   %.sroa.0.140.us49.i.us.us = phi double [ %37, %.preheader.us46.i.us.us ], [ 0.000000e+00, %.preheader22.split.i.us.us ]
   %31 = add nuw i64 %.sroa.074.1.i41.us48.i.us.us, 1
-  %32 = getelementptr double, ptr %28, i64 %.sroa.074.1.i41.us48.i.us.us
+  %32 = getelementptr [8 x i8], ptr %28, i64 %.sroa.074.1.i41.us48.i.us.us
   %33 = load double, ptr %32, align 8, !alias.scope !504, !noalias !507, !noundef !4
-  %34 = getelementptr double, ptr %29, i64 %.sroa.074.1.i41.us48.i.us.us
+  %34 = getelementptr [8 x i8], ptr %29, i64 %.sroa.074.1.i41.us48.i.us.us
   %35 = load double, ptr %34, align 8, !alias.scope !511, !noalias !507, !noundef !4
   %36 = fmul double %33, %35
   %37 = fadd double %.sroa.0.140.us49.i.us.us, %36
@@ -1971,58 +1971,58 @@ define hidden void @"_ZN8nalgebra6linalg5solve69_$LT$impl$u20$nalgebra..base..ma
   %.sroa.016.025.us.i.us.us = phi double [ %78, %.preheader.us.i.us.us ], [ 0.000000e+00, %"_ZN8nalgebra4base11matrix_view69_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$10view_range17h9baf0db005325195E.llvm.4752837998330011175.exit.us.us" ]
   %.sroa.018.024.us.i.us.us = phi double [ %85, %.preheader.us.i.us.us ], [ 0.000000e+00, %"_ZN8nalgebra4base11matrix_view69_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$10view_range17h9baf0db005325195E.llvm.4752837998330011175.exit.us.us" ]
   %.sroa.020.023.us.i.us.us = phi double [ %92, %.preheader.us.i.us.us ], [ 0.000000e+00, %"_ZN8nalgebra4base11matrix_view69_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$10view_range17h9baf0db005325195E.llvm.4752837998330011175.exit.us.us" ]
-  %38 = getelementptr double, ptr %28, i64 %.sroa.074.0.i31.us.i.us.us
+  %38 = getelementptr [8 x i8], ptr %28, i64 %.sroa.074.0.i31.us.i.us.us
   %39 = load double, ptr %38, align 8, !alias.scope !514, !noalias !507, !noundef !4
-  %40 = getelementptr double, ptr %29, i64 %.sroa.074.0.i31.us.i.us.us
+  %40 = getelementptr [8 x i8], ptr %29, i64 %.sroa.074.0.i31.us.i.us.us
   %41 = load double, ptr %40, align 8, !alias.scope !517, !noalias !507, !noundef !4
   %42 = fmul double %39, %41
   %43 = fadd double %.sroa.06.030.us.i.us.us, %42
   %44 = or disjoint i64 %.sroa.074.0.i31.us.i.us.us, 1
-  %45 = getelementptr double, ptr %28, i64 %44
+  %45 = getelementptr [8 x i8], ptr %28, i64 %44
   %46 = load double, ptr %45, align 8, !alias.scope !520, !noalias !507, !noundef !4
-  %47 = getelementptr double, ptr %29, i64 %44
+  %47 = getelementptr [8 x i8], ptr %29, i64 %44
   %48 = load double, ptr %47, align 8, !alias.scope !523, !noalias !507, !noundef !4
   %49 = fmul double %46, %48
   %50 = fadd double %.sroa.08.029.us.i.us.us, %49
   %51 = or disjoint i64 %.sroa.074.0.i31.us.i.us.us, 2
-  %52 = getelementptr double, ptr %28, i64 %51
+  %52 = getelementptr [8 x i8], ptr %28, i64 %51
   %53 = load double, ptr %52, align 8, !alias.scope !526, !noalias !507, !noundef !4
-  %54 = getelementptr double, ptr %29, i64 %51
+  %54 = getelementptr [8 x i8], ptr %29, i64 %51
   %55 = load double, ptr %54, align 8, !alias.scope !529, !noalias !507, !noundef !4
   %56 = fmul double %53, %55
   %57 = fadd double %.sroa.010.028.us.i.us.us, %56
   %58 = or disjoint i64 %.sroa.074.0.i31.us.i.us.us, 3
-  %59 = getelementptr double, ptr %28, i64 %58
+  %59 = getelementptr [8 x i8], ptr %28, i64 %58
   %60 = load double, ptr %59, align 8, !alias.scope !532, !noalias !507, !noundef !4
-  %61 = getelementptr double, ptr %29, i64 %58
+  %61 = getelementptr [8 x i8], ptr %29, i64 %58
   %62 = load double, ptr %61, align 8, !alias.scope !535, !noalias !507, !noundef !4
   %63 = fmul double %60, %62
   %64 = fadd double %.sroa.012.027.us.i.us.us, %63
   %65 = or disjoint i64 %.sroa.074.0.i31.us.i.us.us, 4
-  %66 = getelementptr double, ptr %28, i64 %65
+  %66 = getelementptr [8 x i8], ptr %28, i64 %65
   %67 = load double, ptr %66, align 8, !alias.scope !538, !noalias !507, !noundef !4
-  %68 = getelementptr double, ptr %29, i64 %65
+  %68 = getelementptr [8 x i8], ptr %29, i64 %65
   %69 = load double, ptr %68, align 8, !alias.scope !541, !noalias !507, !noundef !4
   %70 = fmul double %67, %69
   %71 = fadd double %.sroa.014.026.us.i.us.us, %70
   %72 = or disjoint i64 %.sroa.074.0.i31.us.i.us.us, 5
-  %73 = getelementptr double, ptr %28, i64 %72
+  %73 = getelementptr [8 x i8], ptr %28, i64 %72
   %74 = load double, ptr %73, align 8, !alias.scope !544, !noalias !507, !noundef !4
-  %75 = getelementptr double, ptr %29, i64 %72
+  %75 = getelementptr [8 x i8], ptr %29, i64 %72
   %76 = load double, ptr %75, align 8, !alias.scope !547, !noalias !507, !noundef !4
   %77 = fmul double %74, %76
   %78 = fadd double %.sroa.016.025.us.i.us.us, %77
   %79 = or disjoint i64 %.sroa.074.0.i31.us.i.us.us, 6
-  %80 = getelementptr double, ptr %28, i64 %79
+  %80 = getelementptr [8 x i8], ptr %28, i64 %79
   %81 = load double, ptr %80, align 8, !alias.scope !550, !noalias !507, !noundef !4
-  %82 = getelementptr double, ptr %29, i64 %79
+  %82 = getelementptr [8 x i8], ptr %29, i64 %79
   %83 = load double, ptr %82, align 8, !alias.scope !553, !noalias !507, !noundef !4
   %84 = fmul double %81, %83
   %85 = fadd double %.sroa.018.024.us.i.us.us, %84
   %86 = or disjoint i64 %.sroa.074.0.i31.us.i.us.us, 7
-  %87 = getelementptr double, ptr %28, i64 %86
+  %87 = getelementptr [8 x i8], ptr %28, i64 %86
   %88 = load double, ptr %87, align 8, !alias.scope !556, !noalias !507, !noundef !4
-  %89 = getelementptr double, ptr %29, i64 %86
+  %89 = getelementptr [8 x i8], ptr %29, i64 %86
   %90 = load double, ptr %89, align 8, !alias.scope !559, !noalias !507, !noundef !4
   %91 = fmul double %88, %90
   %92 = fadd double %.sroa.020.023.us.i.us.us, %91
@@ -2047,9 +2047,9 @@ define hidden void @"_ZN8nalgebra6linalg5solve69_$LT$impl$u20$nalgebra..base..ma
   %.sroa.074.1.i41.us.i.us.us = phi i64 [ %105, %.lr.ph43.us.i.us.us ], [ %93, %._crit_edge.us.i.us.us ]
   %.sroa.0.140.us.i.us.us = phi double [ %111, %.lr.ph43.us.i.us.us ], [ %103, %._crit_edge.us.i.us.us ]
   %105 = add nuw i64 %.sroa.074.1.i41.us.i.us.us, 1
-  %106 = getelementptr double, ptr %28, i64 %.sroa.074.1.i41.us.i.us.us
+  %106 = getelementptr [8 x i8], ptr %28, i64 %.sroa.074.1.i41.us.i.us.us
   %107 = load double, ptr %106, align 8, !alias.scope !504, !noalias !507, !noundef !4
-  %108 = getelementptr double, ptr %29, i64 %.sroa.074.1.i41.us.i.us.us
+  %108 = getelementptr [8 x i8], ptr %29, i64 %.sroa.074.1.i41.us.i.us.us
   %109 = load double, ptr %108, align 8, !alias.scope !511, !noalias !507, !noundef !4
   %110 = fmul double %107, %109
   %111 = fadd double %.sroa.0.140.us.i.us.us, %110
@@ -2058,8 +2058,8 @@ define hidden void @"_ZN8nalgebra6linalg5solve69_$LT$impl$u20$nalgebra..base..ma
 
 "_ZN8nalgebra6linalg5solve69_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$D$C$D$C$S$GT$$GT$39ad_solve_lower_triangular_unchecked_mut28_$u7b$$u7b$closure$u7d$$u7d$17ha65c27453772bbceE.llvm.4752837998330011175.exit.us.us": ; preds = %.preheader.us46.i.us.us, %.lr.ph43.us.i.us.us, %._crit_edge.us.i.us.us, %.preheader22.split.i.us.us
   %.us-phi.i.us.us = phi double [ 0.000000e+00, %.preheader22.split.i.us.us ], [ %103, %._crit_edge.us.i.us.us ], [ %111, %.lr.ph43.us.i.us.us ], [ %37, %.preheader.us46.i.us.us ]
-  %113 = getelementptr double, ptr %22, i64 %24
-  %114 = getelementptr double, ptr %27, i64 %24
+  %113 = getelementptr [8 x i8], ptr %22, i64 %24
+  %114 = getelementptr [8 x i8], ptr %27, i64 %24
   %115 = load double, ptr %114, align 8, !alias.scope !562, !noundef !4
   %116 = load double, ptr %113, align 8, !alias.scope !565, !noundef !4
   %117 = fsub double %116, %.us-phi.i.us.us
@@ -2143,9 +2143,9 @@ define hidden noundef double @"_ZN8nalgebra6linalg5solve69_$LT$impl$u20$nalgebra
   %.sroa.074.1.i41.us = phi i64 [ %16, %.lr.ph43.us ], [ %79, %._crit_edge.us ]
   %.sroa.0.140.us = phi double [ %22, %.lr.ph43.us ], [ %89, %._crit_edge.us ]
   %16 = add nuw i64 %.sroa.074.1.i41.us, 1
-  %17 = getelementptr double, ptr %14, i64 %.sroa.074.1.i41.us
+  %17 = getelementptr [8 x i8], ptr %14, i64 %.sroa.074.1.i41.us
   %18 = load double, ptr %17, align 8, !alias.scope !594, !noundef !4
-  %19 = getelementptr double, ptr %15, i64 %.sroa.074.1.i41.us
+  %19 = getelementptr [8 x i8], ptr %15, i64 %.sroa.074.1.i41.us
   %20 = load double, ptr %19, align 8, !alias.scope !597, !noundef !4
   %21 = fmul double %18, %20
   %22 = fadd double %.sroa.0.140.us, %21
@@ -2162,58 +2162,58 @@ define hidden noundef double @"_ZN8nalgebra6linalg5solve69_$LT$impl$u20$nalgebra
   %.sroa.016.025.us = phi double [ %64, %.preheader.us ], [ 0.000000e+00, %.preheader22 ]
   %.sroa.018.024.us = phi double [ %71, %.preheader.us ], [ 0.000000e+00, %.preheader22 ]
   %.sroa.020.023.us = phi double [ %78, %.preheader.us ], [ 0.000000e+00, %.preheader22 ]
-  %24 = getelementptr double, ptr %14, i64 %.sroa.074.0.i31.us
+  %24 = getelementptr [8 x i8], ptr %14, i64 %.sroa.074.0.i31.us
   %25 = load double, ptr %24, align 8, !alias.scope !600, !noundef !4
-  %26 = getelementptr double, ptr %15, i64 %.sroa.074.0.i31.us
+  %26 = getelementptr [8 x i8], ptr %15, i64 %.sroa.074.0.i31.us
   %27 = load double, ptr %26, align 8, !alias.scope !603, !noundef !4
   %28 = fmul double %25, %27
   %29 = fadd double %.sroa.06.030.us, %28
   %30 = or disjoint i64 %.sroa.074.0.i31.us, 1
-  %31 = getelementptr double, ptr %14, i64 %30
+  %31 = getelementptr [8 x i8], ptr %14, i64 %30
   %32 = load double, ptr %31, align 8, !alias.scope !606, !noundef !4
-  %33 = getelementptr double, ptr %15, i64 %30
+  %33 = getelementptr [8 x i8], ptr %15, i64 %30
   %34 = load double, ptr %33, align 8, !alias.scope !609, !noundef !4
   %35 = fmul double %32, %34
   %36 = fadd double %.sroa.08.029.us, %35
   %37 = or disjoint i64 %.sroa.074.0.i31.us, 2
-  %38 = getelementptr double, ptr %14, i64 %37
+  %38 = getelementptr [8 x i8], ptr %14, i64 %37
   %39 = load double, ptr %38, align 8, !alias.scope !612, !noundef !4
-  %40 = getelementptr double, ptr %15, i64 %37
+  %40 = getelementptr [8 x i8], ptr %15, i64 %37
   %41 = load double, ptr %40, align 8, !alias.scope !615, !noundef !4
   %42 = fmul double %39, %41
   %43 = fadd double %.sroa.010.028.us, %42
   %44 = or disjoint i64 %.sroa.074.0.i31.us, 3
-  %45 = getelementptr double, ptr %14, i64 %44
+  %45 = getelementptr [8 x i8], ptr %14, i64 %44
   %46 = load double, ptr %45, align 8, !alias.scope !618, !noundef !4
-  %47 = getelementptr double, ptr %15, i64 %44
+  %47 = getelementptr [8 x i8], ptr %15, i64 %44
   %48 = load double, ptr %47, align 8, !alias.scope !621, !noundef !4
   %49 = fmul double %46, %48
   %50 = fadd double %.sroa.012.027.us, %49
   %51 = or disjoint i64 %.sroa.074.0.i31.us, 4
-  %52 = getelementptr double, ptr %14, i64 %51
+  %52 = getelementptr [8 x i8], ptr %14, i64 %51
   %53 = load double, ptr %52, align 8, !alias.scope !624, !noundef !4
-  %54 = getelementptr double, ptr %15, i64 %51
+  %54 = getelementptr [8 x i8], ptr %15, i64 %51
   %55 = load double, ptr %54, align 8, !alias.scope !627, !noundef !4
   %56 = fmul double %53, %55
   %57 = fadd double %.sroa.014.026.us, %56
   %58 = or disjoint i64 %.sroa.074.0.i31.us, 5
-  %59 = getelementptr double, ptr %14, i64 %58
+  %59 = getelementptr [8 x i8], ptr %14, i64 %58
   %60 = load double, ptr %59, align 8, !alias.scope !630, !noundef !4
-  %61 = getelementptr double, ptr %15, i64 %58
+  %61 = getelementptr [8 x i8], ptr %15, i64 %58
   %62 = load double, ptr %61, align 8, !alias.scope !633, !noundef !4
   %63 = fmul double %60, %62
   %64 = fadd double %.sroa.016.025.us, %63
   %65 = or disjoint i64 %.sroa.074.0.i31.us, 6
-  %66 = getelementptr double, ptr %14, i64 %65
+  %66 = getelementptr [8 x i8], ptr %14, i64 %65
   %67 = load double, ptr %66, align 8, !alias.scope !636, !noundef !4
-  %68 = getelementptr double, ptr %15, i64 %65
+  %68 = getelementptr [8 x i8], ptr %15, i64 %65
   %69 = load double, ptr %68, align 8, !alias.scope !639, !noundef !4
   %70 = fmul double %67, %69
   %71 = fadd double %.sroa.018.024.us, %70
   %72 = or disjoint i64 %.sroa.074.0.i31.us, 7
-  %73 = getelementptr double, ptr %14, i64 %72
+  %73 = getelementptr [8 x i8], ptr %14, i64 %72
   %74 = load double, ptr %73, align 8, !alias.scope !642, !noundef !4
-  %75 = getelementptr double, ptr %15, i64 %72
+  %75 = getelementptr [8 x i8], ptr %15, i64 %72
   %76 = load double, ptr %75, align 8, !alias.scope !645, !noundef !4
   %77 = fmul double %74, %76
   %78 = fadd double %.sroa.020.023.us, %77
@@ -2242,9 +2242,9 @@ define hidden noundef double @"_ZN8nalgebra6linalg5solve69_$LT$impl$u20$nalgebra
   %.sroa.074.1.i41.us48 = phi i64 [ %91, %.preheader.us46 ], [ 0, %.preheader22.split ]
   %.sroa.0.140.us49 = phi double [ %97, %.preheader.us46 ], [ 0.000000e+00, %.preheader22.split ]
   %91 = add nuw i64 %.sroa.074.1.i41.us48, 1
-  %92 = getelementptr double, ptr %14, i64 %.sroa.074.1.i41.us48
+  %92 = getelementptr [8 x i8], ptr %14, i64 %.sroa.074.1.i41.us48
   %93 = load double, ptr %92, align 8, !alias.scope !594, !noundef !4
-  %94 = getelementptr double, ptr %15, i64 %.sroa.074.1.i41.us48
+  %94 = getelementptr [8 x i8], ptr %15, i64 %.sroa.074.1.i41.us48
   %95 = load double, ptr %94, align 8, !alias.scope !597, !noundef !4
   %96 = fmul double %93, %95
   %97 = fadd double %.sroa.0.140.us49, %96
@@ -2310,10 +2310,10 @@ define hidden void @"_ZN8nalgebra6linalg5solve69_$LT$impl$u20$nalgebra..base..ma
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %"_ZN8nalgebra4base11matrix_view69_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$10view_range17h9baf0db005325195E.llvm.4752837998330011175.exit.us"
   %.sroa.07.018.us = phi i64 [ %23, %"_ZN8nalgebra4base11matrix_view69_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$10view_range17h9baf0db005325195E.llvm.4752837998330011175.exit.us" ], [ 0, %.lr.ph ]
   %15 = mul i64 %.sroa.07.018.us, %7
-  %16 = getelementptr double, ptr %11, i64 %15
-  %17 = getelementptr double, ptr %16, i64 %.sroa.07.018.us
+  %16 = getelementptr [8 x i8], ptr %11, i64 %15
+  %17 = getelementptr [8 x i8], ptr %16, i64 %.sroa.07.018.us
   %18 = load double, ptr %17, align 8, !alias.scope !676, !noundef !4
-  %19 = getelementptr double, ptr %.val, i64 %.sroa.07.018.us
+  %19 = getelementptr [8 x i8], ptr %.val, i64 %.sroa.07.018.us
   %20 = load double, ptr %19, align 8, !alias.scope !679, !noundef !4
   %21 = fdiv double %20, %18
   store double %21, ptr %19, align 8
@@ -2323,11 +2323,11 @@ define hidden void @"_ZN8nalgebra6linalg5solve69_$LT$impl$u20$nalgebra..base..ma
 "_ZN8nalgebra4base11matrix_view69_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$10view_range17h9baf0db005325195E.llvm.4752837998330011175.exit.us": ; preds = %.lr.ph.split.us
   %22 = fneg double %21
   %23 = add nuw i64 %.sroa.07.018.us, 1
-  %24 = getelementptr double, ptr %.val, i64 %23
+  %24 = getelementptr [8 x i8], ptr %.val, i64 %23
   %25 = sub i64 %7, %23
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !682
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !682
-  %26 = getelementptr double, ptr %16, i64 %23
+  %26 = getelementptr [8 x i8], ptr %16, i64 %23
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !682
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !682
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val) ]
@@ -2413,22 +2413,22 @@ define hidden void @"_ZN8nalgebra6linalg5solve69_$LT$impl$u20$nalgebra..base..ma
   %18 = add i64 %.sroa.4.018, -1
   %19 = sub i64 %6, %.sroa.4.018
   %20 = mul i64 %18, %6
-  %21 = getelementptr double, ptr %10, i64 %20
-  %22 = getelementptr double, ptr %21, i64 %.sroa.4.018
+  %21 = getelementptr [8 x i8], ptr %10, i64 %20
+  %22 = getelementptr [8 x i8], ptr %21, i64 %.sroa.4.018
   store ptr %22, ptr %4, align 8, !alias.scope !711, !noalias !712
   store i64 %19, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !alias.scope !711, !noalias !712
   store i64 %6, ptr %.sroa.3.0..sroa_idx.i.i, align 8, !alias.scope !711, !noalias !712
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %23 = sub i64 %12, %.sroa.4.018
-  %24 = getelementptr double, ptr %15, i64 %.sroa.4.018
+  %24 = getelementptr [8 x i8], ptr %15, i64 %.sroa.4.018
   store ptr %24, ptr %3, align 8, !alias.scope !713, !noalias !718
   store i64 %23, ptr %.sroa.2.0..sroa_idx.i.i12, align 8, !alias.scope !713, !noalias !718
   store i64 %14, ptr %.sroa.3.0..sroa_idx.i.i13, align 8, !alias.scope !713, !noalias !718
   %25 = call noundef double @"_ZN8nalgebra6linalg5solve69_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$D$C$D$C$S$GT$$GT$39ad_solve_lower_triangular_unchecked_mut28_$u7b$$u7b$closure$u7d$$u7d$17ha65c27453772bbceE.llvm.4752837998330011175"(ptr noalias nonnull readonly align 1 poison, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %26 = getelementptr double, ptr %15, i64 %18
-  %27 = getelementptr double, ptr %21, i64 %18
+  %26 = getelementptr [8 x i8], ptr %15, i64 %18
+  %27 = getelementptr [8 x i8], ptr %21, i64 %18
   %28 = load double, ptr %27, align 8, !alias.scope !721, !noundef !4
   %29 = load double, ptr %26, align 8, !alias.scope !724, !noundef !4
   %30 = fsub double %29, %25

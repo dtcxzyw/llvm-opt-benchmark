@@ -433,7 +433,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit71.i: ; preds = %1
   %144 = phi i64 [ %192, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit.i ], [ 1, %134 ]
   %.050147.i = phi i32 [ %191, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit.i ], [ 1, %134 ]
   %.051146.i = phi i32 [ %.152.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit.i ], [ 0, %134 ]
-  %145 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %143, i64 %144
+  %145 = getelementptr inbounds nuw [32 x i8], ptr %143, i64 %144
   %146 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %145, ptr noundef nonnull @.str.8) #12
   %147 = icmp eq i32 %146, 0
   br i1 %147, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit.i, label %150
@@ -445,21 +445,21 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit71.i: ; preds = %1
 
 150:                                              ; preds = %.lr.ph.i
   %151 = load ptr, ptr %0, align 8, !tbaa !10
-  %152 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %151, i64 %144
+  %152 = getelementptr inbounds nuw [32 x i8], ptr %151, i64 %144
   %153 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %152, ptr noundef nonnull @.str.9) #12
   %154 = icmp eq i32 %153, 0
   br i1 %154, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit.i, label %155
 
 155:                                              ; preds = %150
   %156 = load ptr, ptr %0, align 8, !tbaa !10
-  %157 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %156, i64 %144
+  %157 = getelementptr inbounds nuw [32 x i8], ptr %156, i64 %144
   %158 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %157, ptr noundef nonnull @.str.10) #12
   %159 = icmp eq i32 %158, 0
   br i1 %159, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit.i, label %160
 
 160:                                              ; preds = %155
   %161 = load ptr, ptr %0, align 8, !tbaa !10
-  %162 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %161, i64 %144
+  %162 = getelementptr inbounds nuw [32 x i8], ptr %161, i64 %144
   %163 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %162, ptr noundef nonnull @.str.11) #12
   %164 = icmp eq i32 %163, 0
   br i1 %164, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit.i, label %165
@@ -484,14 +484,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit71.i: ; preds = %1
 .invoke.i:                                        ; preds = %168, %167, %166, %165
   %169 = phi ptr [ %9, %168 ], [ %8, %167 ], [ %7, %166 ], [ %6, %165 ]
   %170 = load ptr, ptr %0, align 8, !tbaa !10
-  %171 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %170, i64 %144
+  %171 = getelementptr inbounds nuw [32 x i8], ptr %170, i64 %144
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %169, ptr noundef nonnull align 8 dereferenceable(32) %171)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit.i unwind label %148
 
 172:                                              ; preds = %165
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %173 = load ptr, ptr %0, align 8, !tbaa !10
-  %174 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %173, i64 %144
+  %174 = getelementptr inbounds nuw [32 x i8], ptr %173, i64 %144
   invoke void @_Z8cmStrCatIRA19_KcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRA2_S0_EES8_OT_OT0_DpOT1_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %10, ptr noundef nonnull align 1 dereferenceable(19) @.str.12, ptr noundef nonnull align 8 dereferenceable(32) %174, ptr noundef nonnull align 1 dereferenceable(2) @.str.13)
           to label %175 unwind label %182
 

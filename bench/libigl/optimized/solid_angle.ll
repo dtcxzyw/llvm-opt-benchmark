@@ -135,22 +135,22 @@ define weak_odr dso_local noundef double @_ZN3igl11solid_angleIN5Eigen5BlockIKNS
 82:                                               ; preds = %4, %82
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %82 ]
   %83 = mul nsw i64 %10, %indvars.iv
-  %84 = getelementptr inbounds double, ptr %6, i64 %83
+  %84 = getelementptr inbounds [8 x i8], ptr %6, i64 %83
   %85 = load double, ptr %84, align 8, !tbaa !19
-  %86 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %87 = load double, ptr %86, align 8, !tbaa !19
   %88 = fsub double %85, %87
   %.idx.i.i.i = mul nuw nsw i64 %indvars.iv, 24
   %89 = getelementptr i8, ptr %5, i64 %.idx.i.i.i
   store double %88, ptr %89, align 8, !tbaa !19
   %90 = mul nsw i64 %15, %indvars.iv
-  %91 = getelementptr inbounds double, ptr %11, i64 %90
+  %91 = getelementptr inbounds [8 x i8], ptr %11, i64 %90
   %92 = load double, ptr %91, align 8, !tbaa !19
   %93 = fsub double %92, %87
   %94 = getelementptr i8, ptr %16, i64 %.idx.i.i.i
   store double %93, ptr %94, align 8, !tbaa !19
   %95 = mul nsw i64 %21, %indvars.iv
-  %96 = getelementptr inbounds double, ptr %17, i64 %95
+  %96 = getelementptr inbounds [8 x i8], ptr %17, i64 %95
   %97 = load double, ptr %96, align 8, !tbaa !19
   %98 = fsub double %97, %87
   %99 = getelementptr i8, ptr %22, i64 %.idx.i.i.i
@@ -257,22 +257,22 @@ define weak_odr dso_local noundef double @_ZN3igl11solid_angleIN5Eigen5BlockIKNS
 82:                                               ; preds = %4, %82
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %82 ]
   %83 = mul nsw i64 %10, %indvars.iv
-  %84 = getelementptr inbounds double, ptr %6, i64 %83
+  %84 = getelementptr inbounds [8 x i8], ptr %6, i64 %83
   %85 = load double, ptr %84, align 8, !tbaa !19
-  %86 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %87 = load double, ptr %86, align 8, !tbaa !19
   %88 = fsub double %85, %87
   %.idx.i.i.i = mul nuw nsw i64 %indvars.iv, 24
   %89 = getelementptr i8, ptr %5, i64 %.idx.i.i.i
   store double %88, ptr %89, align 8, !tbaa !19
   %90 = mul nsw i64 %15, %indvars.iv
-  %91 = getelementptr inbounds double, ptr %11, i64 %90
+  %91 = getelementptr inbounds [8 x i8], ptr %11, i64 %90
   %92 = load double, ptr %91, align 8, !tbaa !19
   %93 = fsub double %92, %87
   %94 = getelementptr i8, ptr %16, i64 %.idx.i.i.i
   store double %93, ptr %94, align 8, !tbaa !19
   %95 = mul nsw i64 %21, %indvars.iv
-  %96 = getelementptr inbounds double, ptr %17, i64 %95
+  %96 = getelementptr inbounds [8 x i8], ptr %17, i64 %95
   %97 = load double, ptr %96, align 8, !tbaa !19
   %98 = fsub double %97, %87
   %99 = getelementptr i8, ptr %22, i64 %.idx.i.i.i
@@ -373,22 +373,22 @@ define weak_odr dso_local noundef double @_ZN3igl11solid_angleIN5Eigen5BlockIKNS
 82:                                               ; preds = %4, %82
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %82 ]
   %83 = mul nsw i64 %10, %indvars.iv
-  %84 = getelementptr inbounds double, ptr %6, i64 %83
+  %84 = getelementptr inbounds [8 x i8], ptr %6, i64 %83
   %85 = load double, ptr %84, align 8, !tbaa !19
-  %86 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %87 = load double, ptr %86, align 8, !tbaa !19
   %88 = fsub double %85, %87
   %.idx.i.i.i = mul nuw nsw i64 %indvars.iv, 24
   %89 = getelementptr i8, ptr %5, i64 %.idx.i.i.i
   store double %88, ptr %89, align 8, !tbaa !19
   %90 = mul nsw i64 %15, %indvars.iv
-  %91 = getelementptr inbounds double, ptr %11, i64 %90
+  %91 = getelementptr inbounds [8 x i8], ptr %11, i64 %90
   %92 = load double, ptr %91, align 8, !tbaa !19
   %93 = fsub double %92, %87
   %94 = getelementptr i8, ptr %16, i64 %.idx.i.i.i
   store double %93, ptr %94, align 8, !tbaa !19
   %95 = mul nsw i64 %21, %indvars.iv
-  %96 = getelementptr inbounds double, ptr %17, i64 %95
+  %96 = getelementptr inbounds [8 x i8], ptr %17, i64 %95
   %97 = load double, ptr %96, align 8, !tbaa !19
   %98 = fsub double %97, %87
   %99 = getelementptr i8, ptr %22, i64 %.idx.i.i.i
@@ -494,23 +494,23 @@ define weak_odr dso_local noundef double @_ZN3igl11solid_angleIN5Eigen5BlockIKNS
 87:                                               ; preds = %4, %87
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %87 ]
   %88 = mul nsw i64 %10, %indvars.iv
-  %89 = getelementptr inbounds double, ptr %6, i64 %88
+  %89 = getelementptr inbounds [8 x i8], ptr %6, i64 %88
   %90 = load double, ptr %89, align 8, !tbaa !19
   %91 = mul nsw i64 %15, %indvars.iv
-  %92 = getelementptr inbounds double, ptr %11, i64 %91
+  %92 = getelementptr inbounds [8 x i8], ptr %11, i64 %91
   %93 = load double, ptr %92, align 8, !tbaa !19
   %94 = fsub double %90, %93
   %.idx.i.i.i = mul nuw nsw i64 %indvars.iv, 24
   %95 = getelementptr i8, ptr %5, i64 %.idx.i.i.i
   store double %94, ptr %95, align 8, !tbaa !19
   %96 = mul nsw i64 %20, %indvars.iv
-  %97 = getelementptr inbounds double, ptr %16, i64 %96
+  %97 = getelementptr inbounds [8 x i8], ptr %16, i64 %96
   %98 = load double, ptr %97, align 8, !tbaa !19
   %99 = fsub double %98, %93
   %100 = getelementptr i8, ptr %21, i64 %.idx.i.i.i
   store double %99, ptr %100, align 8, !tbaa !19
   %101 = mul nsw i64 %26, %indvars.iv
-  %102 = getelementptr inbounds double, ptr %22, i64 %101
+  %102 = getelementptr inbounds [8 x i8], ptr %22, i64 %101
   %103 = load double, ptr %102, align 8, !tbaa !19
   %104 = fsub double %103, %93
   %105 = getelementptr i8, ptr %27, i64 %.idx.i.i.i
@@ -598,20 +598,20 @@ define weak_odr dso_local noundef double @_ZN3igl11solid_angleIN5Eigen5BlockIKNS
 
 70:                                               ; preds = %4, %70
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %70 ]
-  %71 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %72 = load double, ptr %71, align 8, !tbaa !19
-  %73 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %74 = load double, ptr %73, align 8, !tbaa !19
   %75 = fsub double %72, %74
   %.idx.i.i.i = mul nuw nsw i64 %indvars.iv, 24
   %76 = getelementptr i8, ptr %5, i64 %.idx.i.i.i
   store double %75, ptr %76, align 8, !tbaa !19
-  %77 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %78 = load double, ptr %77, align 8, !tbaa !19
   %79 = fsub double %78, %74
   %80 = getelementptr i8, ptr %8, i64 %.idx.i.i.i
   store double %79, ptr %80, align 8, !tbaa !19
-  %81 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %82 = load double, ptr %81, align 8, !tbaa !19
   %83 = fsub double %82, %74
   %84 = getelementptr i8, ptr %10, i64 %.idx.i.i.i
@@ -699,20 +699,20 @@ define weak_odr dso_local noundef double @_ZN3igl11solid_angleIN5Eigen5BlockIKNS
 
 70:                                               ; preds = %4, %70
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %70 ]
-  %71 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %72 = load double, ptr %71, align 8, !tbaa !19
-  %73 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %74 = load double, ptr %73, align 8, !tbaa !19
   %75 = fsub double %72, %74
   %.idx.i.i.i = mul nuw nsw i64 %indvars.iv, 24
   %76 = getelementptr i8, ptr %5, i64 %.idx.i.i.i
   store double %75, ptr %76, align 8, !tbaa !19
-  %77 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %78 = load double, ptr %77, align 8, !tbaa !19
   %79 = fsub double %78, %74
   %80 = getelementptr i8, ptr %8, i64 %.idx.i.i.i
   store double %79, ptr %80, align 8, !tbaa !19
-  %81 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %82 = load double, ptr %81, align 8, !tbaa !19
   %83 = fsub double %82, %74
   %84 = getelementptr i8, ptr %10, i64 %.idx.i.i.i
@@ -819,22 +819,22 @@ define weak_odr dso_local noundef float @_ZN3igl11solid_angleIN5Eigen5BlockIKNS1
 91:                                               ; preds = %4, %91
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %91 ]
   %92 = mul nsw i64 %10, %indvars.iv
-  %93 = getelementptr inbounds float, ptr %6, i64 %92
+  %93 = getelementptr inbounds [4 x i8], ptr %6, i64 %92
   %94 = load float, ptr %93, align 4, !tbaa !55
-  %95 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %96 = load float, ptr %95, align 4, !tbaa !55
   %97 = fsub float %94, %96
   %.idx.i.i.i = mul nuw nsw i64 %indvars.iv, 12
   %98 = getelementptr i8, ptr %5, i64 %.idx.i.i.i
   store float %97, ptr %98, align 4, !tbaa !55
   %99 = mul nsw i64 %15, %indvars.iv
-  %100 = getelementptr inbounds float, ptr %11, i64 %99
+  %100 = getelementptr inbounds [4 x i8], ptr %11, i64 %99
   %101 = load float, ptr %100, align 4, !tbaa !55
   %102 = fsub float %101, %96
   %103 = getelementptr i8, ptr %16, i64 %.idx.i.i.i
   store float %102, ptr %103, align 4, !tbaa !55
   %104 = mul nsw i64 %21, %indvars.iv
-  %105 = getelementptr inbounds float, ptr %17, i64 %104
+  %105 = getelementptr inbounds [4 x i8], ptr %17, i64 %104
   %106 = load float, ptr %105, align 4, !tbaa !55
   %107 = fsub float %106, %96
   %108 = getelementptr i8, ptr %22, i64 %.idx.i.i.i
@@ -931,20 +931,20 @@ define weak_odr dso_local noundef float @_ZN3igl11solid_angleIN5Eigen5BlockIKNS1
 
 79:                                               ; preds = %4, %79
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %79 ]
-  %80 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   %81 = load float, ptr %80, align 4, !tbaa !55
-  %82 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %83 = load float, ptr %82, align 4, !tbaa !55
   %84 = fsub float %81, %83
   %.idx.i.i.i = mul nuw nsw i64 %indvars.iv, 12
   %85 = getelementptr i8, ptr %5, i64 %.idx.i.i.i
   store float %84, ptr %85, align 4, !tbaa !55
-  %86 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv
   %87 = load float, ptr %86, align 4, !tbaa !55
   %88 = fsub float %87, %83
   %89 = getelementptr i8, ptr %8, i64 %.idx.i.i.i
   store float %88, ptr %89, align 4, !tbaa !55
-  %90 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv
   %91 = load float, ptr %90, align 4, !tbaa !55
   %92 = fsub float %91, %83
   %93 = getelementptr i8, ptr %10, i64 %.idx.i.i.i
@@ -1038,20 +1038,20 @@ define weak_odr dso_local noundef float @_ZN3igl11solid_angleIN5Eigen5BlockIKNS1
 
 79:                                               ; preds = %4, %79
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %79 ]
-  %80 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   %81 = load float, ptr %80, align 4, !tbaa !55
-  %82 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %83 = load float, ptr %82, align 4, !tbaa !55
   %84 = fsub float %81, %83
   %.idx.i.i.i = mul nuw nsw i64 %indvars.iv, 12
   %85 = getelementptr i8, ptr %5, i64 %.idx.i.i.i
   store float %84, ptr %85, align 4, !tbaa !55
-  %86 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv
   %87 = load float, ptr %86, align 4, !tbaa !55
   %88 = fsub float %87, %83
   %89 = getelementptr i8, ptr %8, i64 %.idx.i.i.i
   store float %88, ptr %89, align 4, !tbaa !55
-  %90 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv
   %91 = load float, ptr %90, align 4, !tbaa !55
   %92 = fsub float %91, %83
   %93 = getelementptr i8, ptr %10, i64 %.idx.i.i.i
@@ -1158,22 +1158,22 @@ define weak_odr dso_local noundef float @_ZN3igl11solid_angleIN5Eigen5BlockIKNS1
 91:                                               ; preds = %4, %91
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %91 ]
   %92 = mul nsw i64 %10, %indvars.iv
-  %93 = getelementptr inbounds float, ptr %6, i64 %92
+  %93 = getelementptr inbounds [4 x i8], ptr %6, i64 %92
   %94 = load float, ptr %93, align 4, !tbaa !55
-  %95 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %96 = load float, ptr %95, align 4, !tbaa !55
   %97 = fsub float %94, %96
   %.idx.i.i.i = mul nuw nsw i64 %indvars.iv, 12
   %98 = getelementptr i8, ptr %5, i64 %.idx.i.i.i
   store float %97, ptr %98, align 4, !tbaa !55
   %99 = mul nsw i64 %15, %indvars.iv
-  %100 = getelementptr inbounds float, ptr %11, i64 %99
+  %100 = getelementptr inbounds [4 x i8], ptr %11, i64 %99
   %101 = load float, ptr %100, align 4, !tbaa !55
   %102 = fsub float %101, %96
   %103 = getelementptr i8, ptr %16, i64 %.idx.i.i.i
   store float %102, ptr %103, align 4, !tbaa !55
   %104 = mul nsw i64 %21, %indvars.iv
-  %105 = getelementptr inbounds float, ptr %17, i64 %104
+  %105 = getelementptr inbounds [4 x i8], ptr %17, i64 %104
   %106 = load float, ptr %105, align 4, !tbaa !55
   %107 = fsub float %106, %96
   %108 = getelementptr i8, ptr %22, i64 %.idx.i.i.i
@@ -1280,22 +1280,22 @@ define weak_odr dso_local noundef float @_ZN3igl11solid_angleIN5Eigen5BlockIKNS1
 91:                                               ; preds = %4, %91
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %91 ]
   %92 = mul nsw i64 %10, %indvars.iv
-  %93 = getelementptr inbounds float, ptr %6, i64 %92
+  %93 = getelementptr inbounds [4 x i8], ptr %6, i64 %92
   %94 = load float, ptr %93, align 4, !tbaa !55
-  %95 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %96 = load float, ptr %95, align 4, !tbaa !55
   %97 = fsub float %94, %96
   %.idx.i.i.i = mul nuw nsw i64 %indvars.iv, 12
   %98 = getelementptr i8, ptr %5, i64 %.idx.i.i.i
   store float %97, ptr %98, align 4, !tbaa !55
   %99 = mul nsw i64 %15, %indvars.iv
-  %100 = getelementptr inbounds float, ptr %11, i64 %99
+  %100 = getelementptr inbounds [4 x i8], ptr %11, i64 %99
   %101 = load float, ptr %100, align 4, !tbaa !55
   %102 = fsub float %101, %96
   %103 = getelementptr i8, ptr %16, i64 %.idx.i.i.i
   store float %102, ptr %103, align 4, !tbaa !55
   %104 = mul nsw i64 %21, %indvars.iv
-  %105 = getelementptr inbounds float, ptr %17, i64 %104
+  %105 = getelementptr inbounds [4 x i8], ptr %17, i64 %104
   %106 = load float, ptr %105, align 4, !tbaa !55
   %107 = fsub float %106, %96
   %108 = getelementptr i8, ptr %22, i64 %.idx.i.i.i
@@ -1401,23 +1401,23 @@ define weak_odr dso_local noundef double @_ZN3igl11solid_angleIN5Eigen5BlockIKNS
 87:                                               ; preds = %4, %87
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %87 ]
   %88 = mul nsw i64 %10, %indvars.iv
-  %89 = getelementptr inbounds double, ptr %6, i64 %88
+  %89 = getelementptr inbounds [8 x i8], ptr %6, i64 %88
   %90 = load double, ptr %89, align 8, !tbaa !19
   %91 = mul nsw i64 %15, %indvars.iv
-  %92 = getelementptr inbounds double, ptr %11, i64 %91
+  %92 = getelementptr inbounds [8 x i8], ptr %11, i64 %91
   %93 = load double, ptr %92, align 8, !tbaa !19
   %94 = fsub double %90, %93
   %.idx.i.i.i = mul nuw nsw i64 %indvars.iv, 24
   %95 = getelementptr i8, ptr %5, i64 %.idx.i.i.i
   store double %94, ptr %95, align 8, !tbaa !19
   %96 = mul nsw i64 %20, %indvars.iv
-  %97 = getelementptr inbounds double, ptr %16, i64 %96
+  %97 = getelementptr inbounds [8 x i8], ptr %16, i64 %96
   %98 = load double, ptr %97, align 8, !tbaa !19
   %99 = fsub double %98, %93
   %100 = getelementptr i8, ptr %21, i64 %.idx.i.i.i
   store double %99, ptr %100, align 8, !tbaa !19
   %101 = mul nsw i64 %26, %indvars.iv
-  %102 = getelementptr inbounds double, ptr %22, i64 %101
+  %102 = getelementptr inbounds [8 x i8], ptr %22, i64 %101
   %103 = load double, ptr %102, align 8, !tbaa !19
   %104 = fsub double %103, %93
   %105 = getelementptr i8, ptr %27, i64 %.idx.i.i.i
@@ -1518,22 +1518,22 @@ define weak_odr dso_local noundef double @_ZN3igl11solid_angleIN5Eigen5BlockIKNS
 82:                                               ; preds = %4, %82
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %82 ]
   %83 = mul nsw i64 %10, %indvars.iv
-  %84 = getelementptr inbounds double, ptr %6, i64 %83
+  %84 = getelementptr inbounds [8 x i8], ptr %6, i64 %83
   %85 = load double, ptr %84, align 8, !tbaa !19
-  %86 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %87 = load double, ptr %86, align 8, !tbaa !19
   %88 = fsub double %85, %87
   %.idx.i.i.i = mul nuw nsw i64 %indvars.iv, 24
   %89 = getelementptr i8, ptr %5, i64 %.idx.i.i.i
   store double %88, ptr %89, align 8, !tbaa !19
   %90 = mul nsw i64 %15, %indvars.iv
-  %91 = getelementptr inbounds double, ptr %11, i64 %90
+  %91 = getelementptr inbounds [8 x i8], ptr %11, i64 %90
   %92 = load double, ptr %91, align 8, !tbaa !19
   %93 = fsub double %92, %87
   %94 = getelementptr i8, ptr %16, i64 %.idx.i.i.i
   store double %93, ptr %94, align 8, !tbaa !19
   %95 = mul nsw i64 %21, %indvars.iv
-  %96 = getelementptr inbounds double, ptr %17, i64 %95
+  %96 = getelementptr inbounds [8 x i8], ptr %17, i64 %95
   %97 = load double, ptr %96, align 8, !tbaa !19
   %98 = fsub double %97, %87
   %99 = getelementptr i8, ptr %22, i64 %.idx.i.i.i
@@ -1634,22 +1634,22 @@ define weak_odr dso_local noundef double @_ZN3igl11solid_angleIN5Eigen5BlockIKNS
 82:                                               ; preds = %4, %82
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %82 ]
   %83 = mul nsw i64 %10, %indvars.iv
-  %84 = getelementptr inbounds double, ptr %6, i64 %83
+  %84 = getelementptr inbounds [8 x i8], ptr %6, i64 %83
   %85 = load double, ptr %84, align 8, !tbaa !19
-  %86 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %87 = load double, ptr %86, align 8, !tbaa !19
   %88 = fsub double %85, %87
   %.idx.i.i.i = mul nuw nsw i64 %indvars.iv, 24
   %89 = getelementptr i8, ptr %5, i64 %.idx.i.i.i
   store double %88, ptr %89, align 8, !tbaa !19
   %90 = mul nsw i64 %15, %indvars.iv
-  %91 = getelementptr inbounds double, ptr %11, i64 %90
+  %91 = getelementptr inbounds [8 x i8], ptr %11, i64 %90
   %92 = load double, ptr %91, align 8, !tbaa !19
   %93 = fsub double %92, %87
   %94 = getelementptr i8, ptr %16, i64 %.idx.i.i.i
   store double %93, ptr %94, align 8, !tbaa !19
   %95 = mul nsw i64 %21, %indvars.iv
-  %96 = getelementptr inbounds double, ptr %17, i64 %95
+  %96 = getelementptr inbounds [8 x i8], ptr %17, i64 %95
   %97 = load double, ptr %96, align 8, !tbaa !19
   %98 = fsub double %97, %87
   %99 = getelementptr i8, ptr %22, i64 %.idx.i.i.i
@@ -1750,22 +1750,22 @@ define weak_odr dso_local noundef double @_ZN3igl11solid_angleIN5Eigen5BlockIKNS
 82:                                               ; preds = %4, %82
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %82 ]
   %83 = mul nsw i64 %10, %indvars.iv
-  %84 = getelementptr inbounds double, ptr %6, i64 %83
+  %84 = getelementptr inbounds [8 x i8], ptr %6, i64 %83
   %85 = load double, ptr %84, align 8, !tbaa !19
-  %86 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %87 = load double, ptr %86, align 8, !tbaa !19
   %88 = fsub double %85, %87
   %.idx.i.i.i = mul nuw nsw i64 %indvars.iv, 24
   %89 = getelementptr i8, ptr %5, i64 %.idx.i.i.i
   store double %88, ptr %89, align 8, !tbaa !19
   %90 = mul nsw i64 %15, %indvars.iv
-  %91 = getelementptr inbounds double, ptr %11, i64 %90
+  %91 = getelementptr inbounds [8 x i8], ptr %11, i64 %90
   %92 = load double, ptr %91, align 8, !tbaa !19
   %93 = fsub double %92, %87
   %94 = getelementptr i8, ptr %16, i64 %.idx.i.i.i
   store double %93, ptr %94, align 8, !tbaa !19
   %95 = mul nsw i64 %21, %indvars.iv
-  %96 = getelementptr inbounds double, ptr %17, i64 %95
+  %96 = getelementptr inbounds [8 x i8], ptr %17, i64 %95
   %97 = load double, ptr %96, align 8, !tbaa !19
   %98 = fsub double %97, %87
   %99 = getelementptr i8, ptr %22, i64 %.idx.i.i.i

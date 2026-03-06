@@ -2474,7 +2474,7 @@ define hidden void @_ZN20ruff_python_semantic3cfg9visualize12MermaidGraph10draw_
 
 37:                                               ; preds = %32, %26
   %38 = load ptr, ptr %17, align 8, !alias.scope !274, !noalias !277, !nonnull !7, !noundef !7
-  %39 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %38, i64 %29
+  %39 = getelementptr inbounds nuw [24 x i8], ptr %38, i64 %29
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %39, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 24, i1 false)
   %40 = add i64 %29, 1
   store i64 %40, ptr %18, align 8, !alias.scope !274, !noalias !277
@@ -2615,7 +2615,7 @@ define hidden void @_ZN20ruff_python_semantic3cfg9visualize12MermaidGraph10draw_
 
 71:                                               ; preds = %66, %62
   %72 = load ptr, ptr %17, align 8, !alias.scope !299, !noalias !302, !nonnull !7, !noundef !7
-  %73 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %72, i64 %63
+  %73 = getelementptr inbounds nuw [24 x i8], ptr %72, i64 %63
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %73, ptr noundef nonnull align 8 dereferenceable(24) %13, i64 24, i1 false)
   %74 = add i64 %63, 1
   store i64 %74, ptr %18, align 8, !alias.scope !299, !noalias !302
@@ -2838,7 +2838,7 @@ define hidden noundef range(i32 1, 0) i32 @_ZN20ruff_python_semantic10definition
   %12 = add nuw i32 %11, 1
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8, !alias.scope !321, !noalias !324, !nonnull !7, !noundef !7
-  %15 = getelementptr inbounds nuw { i64, [7 x i64] }, ptr %14, i64 %4
+  %15 = getelementptr inbounds nuw [64 x i8], ptr %14, i64 %4
   store i64 2, ptr %15, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
@@ -2922,7 +2922,7 @@ define void @_ZN20ruff_python_semantic10definition11Definitions7resolve17hd3c6ce
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %.not20 = icmp eq ptr %2, null
-  %31 = getelementptr inbounds nuw { { ptr, i64 }, { i32, i32 } }, ptr %2, i64 %3
+  %31 = getelementptr inbounds nuw [24 x i8], ptr %2, i64 %3
   br label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h463809a63e88abdfE.exit"
 
 .loopexit:                                        ; preds = %87, %.noexc28, %.noexc29
@@ -3055,7 +3055,7 @@ default.unreachable102:                           ; preds = %38
 
 74:                                               ; preds = %50
   %75 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !nonnull !7, !noundef !7
-  %76 = getelementptr inbounds nuw { { i64, [7 x i64] }, i8, [7 x i8] }, ptr %75, i64 %54
+  %76 = getelementptr inbounds nuw [72 x i8], ptr %75, i64 %54
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 64
   %78 = load i8, ptr %77, align 8, !range !10, !noundef !7
   %79 = trunc nuw i8 %78 to i1
@@ -3110,7 +3110,7 @@ default.unreachable102:                           ; preds = %38
 
 97:                                               ; preds = %56
   %98 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !nonnull !7, !noundef !7
-  %99 = getelementptr inbounds nuw { { i64, [7 x i64] }, i8, [7 x i8] }, ptr %98, i64 %60
+  %99 = getelementptr inbounds nuw [72 x i8], ptr %98, i64 %60
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 64
   %101 = load i8, ptr %100, align 8, !range !10, !noundef !7
   %102 = trunc nuw i8 %101 to i1
@@ -3127,7 +3127,7 @@ default.unreachable102:                           ; preds = %38
 
 109:                                              ; preds = %62
   %110 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !nonnull !7, !noundef !7
-  %111 = getelementptr inbounds nuw { { i64, [7 x i64] }, i8, [7 x i8] }, ptr %110, i64 %66
+  %111 = getelementptr inbounds nuw [72 x i8], ptr %110, i64 %66
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 64
   %113 = load i8, ptr %112, align 8, !range !10, !noundef !7
   %114 = trunc nuw i8 %113 to i1
@@ -3172,7 +3172,7 @@ default.unreachable102:                           ; preds = %38
 
 129:                                              ; preds = %68
   %130 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !nonnull !7, !noundef !7
-  %131 = getelementptr inbounds nuw { { i64, [7 x i64] }, i8, [7 x i8] }, ptr %130, i64 %72
+  %131 = getelementptr inbounds nuw [72 x i8], ptr %130, i64 %72
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 64
   %133 = load i8, ptr %132, align 8, !range !10, !noundef !7
   %134 = trunc nuw i8 %133 to i1
@@ -3184,7 +3184,7 @@ default.unreachable102:                           ; preds = %38
 
 137:                                              ; preds = %"_ZN87_$LT$ruff_python_semantic..definition..DefinitionId$u20$as$u20$ruff_index..idx..Idx$GT$3new17h21dcced26d9f6714E.exit.i", %49
   %138 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !342, !noalias !345, !nonnull !7, !noundef !7
-  %139 = getelementptr inbounds nuw { { i64, [7 x i64] }, i8, [7 x i8] }, ptr %138, i64 %43
+  %139 = getelementptr inbounds nuw [72 x i8], ptr %138, i64 %43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %139, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.044, i64 64, i1 false)
   %.sroa.445.0..sroa_idx = getelementptr inbounds nuw i8, ptr %139, i64 64
   store i8 %42, ptr %.sroa.445.0..sroa_idx, align 8
@@ -3266,7 +3266,7 @@ define void @"_ZN107_$LT$ruff_python_semantic..definition..Definitions$u20$as$u2
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 8
   %3 = icmp ult i64 %.sroa.3.0.copyload, 144115188075855872
   tail call void @llvm.assume(i1 %3)
-  %4 = getelementptr inbounds nuw { i64, [7 x i64] }, ptr %.sroa.2.0.copyload, i64 %.sroa.3.0.copyload
+  %4 = getelementptr inbounds nuw [64 x i8], ptr %.sroa.2.0.copyload, i64 %.sroa.3.0.copyload
   %5 = icmp sgt i64 %.sroa.0.0.copyload, -1
   tail call void @llvm.assume(i1 %5)
   store ptr %.sroa.2.0.copyload, ptr %0, align 8, !alias.scope !356, !noalias !359
@@ -3285,7 +3285,7 @@ define { ptr, ptr } @_ZN20ruff_python_semantic10definition25ContextualizedDefini
   %3 = load ptr, ptr %2, align 8, !nonnull !7, !noundef !7
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !7
-  %6 = getelementptr inbounds nuw { { i64, [7 x i64] }, i8, [7 x i8] }, ptr %3, i64 %5
+  %6 = getelementptr inbounds nuw [72 x i8], ptr %3, i64 %5
   %7 = insertvalue { ptr, ptr } poison, ptr %3, 0
   %8 = insertvalue { ptr, ptr } %7, ptr %6, 1
   ret { ptr, ptr } %8

@@ -118,7 +118,7 @@ define hidden noundef align 16 dereferenceable_or_null(112) ptr @"_ZN12clap_buil
 20:                                               ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %22 = load ptr, ptr %21, align 8, !nonnull !4, !noundef !4
-  %23 = getelementptr inbounds nuw { { i128, [2 x i64] }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, i8, i8, [6 x i8] }, ptr %22, i64 %.sroa.8.025
+  %23 = getelementptr inbounds nuw [112 x i8], ptr %22, i64 %.sroa.8.025
   br label %.loopexit
 
 24:                                               ; preds = %16
@@ -581,7 +581,7 @@ common.resume:                                    ; preds = %33, %27, %80
   %42 = urem i64 %2, %16
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %44 = load ptr, ptr %43, align 8, !nonnull !4, !noundef !4
-  %45 = getelementptr inbounds { { { { i32 } }, { { i8 } }, [3 x i8], { { { i64, ptr, {} }, i64 } } }, [4 x i64] }, ptr %44, i64 %42
+  %45 = getelementptr inbounds [64 x i8], ptr %44, i64 %42
   tail call void @llvm.experimental.noalias.scope.decl(metadata !71)
   %46 = cmpxchg ptr %45, i32 0, i32 1 acquire monotonic, align 4, !noalias !71
   %47 = extractvalue { i32, i1 } %46, 1
@@ -704,7 +704,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i.i: ; preds = %68, %_ZN3
   tail call void @llvm.assume(i1 %90)
   %91 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %92 = load ptr, ptr %91, align 8, !alias.scope !77, !nonnull !4, !noundef !4
-  %93 = getelementptr inbounds ptr, ptr %92, i64 %88
+  %93 = getelementptr inbounds [8 x i8], ptr %92, i64 %88
   %94 = load ptr, ptr %93, align 8, !noalias !77, !nonnull !4, !align !63, !noundef !4
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %95, align 8

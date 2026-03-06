@@ -22,16 +22,12 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::allocator" = type { i8 }
-%"class.Imf_3_4::Header" = type <{ %"class.std::map.13", i8, [7 x i8] }>
-%"class.std::map.13" = type { %"class.std::_Rb_tree.14" }
-%"class.std::_Rb_tree.14" = type { %"struct.std::_Rb_tree<Imf_3_4::Name, std::pair<const Imf_3_4::Name, Imf_3_4::Attribute *>, std::_Select1st<std::pair<const Imf_3_4::Name, Imf_3_4::Attribute *>>, std::less<Imf_3_4::Name>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<Imf_3_4::Name, std::pair<const Imf_3_4::Name, Imf_3_4::Attribute *>, std::_Select1st<std::pair<const Imf_3_4::Name, Imf_3_4::Attribute *>>, std::less<Imf_3_4::Name>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
-%"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
 %"class.Imf_3_4::Name" = type { [256 x i8] }
 %"class.std::set" = type { %"class.std::_Rb_tree.30" }
 %"class.std::_Rb_tree.30" = type { %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>, std::_Identity<std::__cxx11::basic_string<char>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" }
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>, std::_Identity<std::__cxx11::basic_string<char>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
+%"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
+%"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
 %"class.Imath_3_2::Vec2.29" = type { float, float }
 
 $_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_ = comdat any
@@ -322,7 +318,7 @@ _ZNSt3mapIiPN7Imf_3_417GenericOutputFileESt4lessIiESaISt4pairIKiS2_EEE4findERS6_
   %60 = getelementptr inbounds nuw i8, ptr %46, i64 56
   %61 = zext nneg i32 %1 to i64
   %62 = load ptr, ptr %60, align 8, !tbaa !33
-  %63 = getelementptr inbounds nuw ptr, ptr %62, i64 %61
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %61
   %64 = load ptr, ptr %63, align 8, !tbaa !37
   invoke void @_ZN7Imf_3_410OutputFileC1EPKNS_14OutputPartDataE(ptr noundef nonnull align 8 dereferenceable(16) %58, ptr noundef %64)
           to label %65 unwind label %101
@@ -708,7 +704,7 @@ _ZNSt3mapIiPN7Imf_3_417GenericOutputFileESt4lessIiESaISt4pairIKiS2_EEE4findERS6_
   %60 = getelementptr inbounds nuw i8, ptr %46, i64 56
   %61 = zext nneg i32 %1 to i64
   %62 = load ptr, ptr %60, align 8, !tbaa !33
-  %63 = getelementptr inbounds nuw ptr, ptr %62, i64 %61
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %61
   %64 = load ptr, ptr %63, align 8, !tbaa !37
   invoke void @_ZN7Imf_3_415TiledOutputFileC1EPKNS_14OutputPartDataE(ptr noundef nonnull align 8 dereferenceable(25) %58, ptr noundef %64)
           to label %65 unwind label %101
@@ -977,7 +973,7 @@ _ZNSt3mapIiPN7Imf_3_417GenericOutputFileESt4lessIiESaISt4pairIKiS2_EEE4findERS6_
   %60 = getelementptr inbounds nuw i8, ptr %46, i64 56
   %61 = zext nneg i32 %1 to i64
   %62 = load ptr, ptr %60, align 8, !tbaa !33
-  %63 = getelementptr inbounds nuw ptr, ptr %62, i64 %61
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %61
   %64 = load ptr, ptr %63, align 8, !tbaa !37
   invoke void @_ZN7Imf_3_422DeepScanLineOutputFileC1EPKNS_14OutputPartDataE(ptr noundef nonnull align 8 dereferenceable(16) %58, ptr noundef %64)
           to label %65 unwind label %101
@@ -1246,7 +1242,7 @@ _ZNSt3mapIiPN7Imf_3_417GenericOutputFileESt4lessIiESaISt4pairIKiS2_EEE4findERS6_
   %60 = getelementptr inbounds nuw i8, ptr %46, i64 56
   %61 = zext nneg i32 %1 to i64
   %62 = load ptr, ptr %60, align 8, !tbaa !33
-  %63 = getelementptr inbounds nuw ptr, ptr %62, i64 %61
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %61
   %64 = load ptr, ptr %63, align 8, !tbaa !37
   invoke void @_ZN7Imf_3_419DeepTiledOutputFileC1EPKNS_14OutputPartDataE(ptr noundef nonnull align 8 dereferenceable(16) %58, ptr noundef %64)
           to label %65 unwind label %101
@@ -1438,21 +1434,21 @@ define hidden void @_ZN7Imf_3_419MultiPartOutputFile4Data23do_header_sanity_chec
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %35
   %.02480.us = phi i64 [ %44, %35 ], [ 1, %.lr.ph ]
   %32 = load ptr, ptr %9, align 8, !tbaa !24
-  %33 = getelementptr inbounds nuw %"class.Imf_3_4::Header", ptr %32, i64 %.02480.us
+  %33 = getelementptr inbounds nuw [56 x i8], ptr %32, i64 %.02480.us
   %34 = tail call noundef zeroext i1 @_ZNK7Imf_3_46Header7hasTypeEv(ptr noundef nonnull align 8 dereferenceable(49) %33)
   br i1 %34, label %35, label %.split.us
 
 35:                                               ; preds = %.lr.ph.split.us
   %36 = load ptr, ptr %9, align 8, !tbaa !24
-  %37 = getelementptr inbounds nuw %"class.Imf_3_4::Header", ptr %36, i64 %.02480.us
+  %37 = getelementptr inbounds nuw [56 x i8], ptr %36, i64 %.02480.us
   %38 = tail call noundef i32 @_ZN7Imf_3_423getChunkOffsetTableSizeERKNS_6HeaderE(ptr noundef nonnull align 8 dereferenceable(49) %37)
   tail call void @_ZN7Imf_3_46Header13setChunkCountEi(ptr noundef nonnull align 8 dereferenceable(49) %37, i32 noundef %38)
   %39 = load ptr, ptr %9, align 8, !tbaa !24
-  %40 = getelementptr inbounds nuw %"class.Imf_3_4::Header", ptr %39, i64 %.02480.us
+  %40 = getelementptr inbounds nuw [56 x i8], ptr %39, i64 %.02480.us
   %41 = tail call noundef zeroext i1 @_ZNK7Imf_3_46Header18hasTileDescriptionEv(ptr noundef nonnull align 8 dereferenceable(49) %40)
   tail call void @_ZNK7Imf_3_46Header11sanityCheckEbb(ptr noundef nonnull align 8 dereferenceable(49) %40, i1 noundef zeroext %41, i1 noundef zeroext true)
   %42 = load ptr, ptr %9, align 8, !tbaa !24
-  %43 = getelementptr inbounds nuw %"class.Imf_3_4::Header", ptr %42, i64 %.02480.us
+  %43 = getelementptr inbounds nuw [56 x i8], ptr %42, i64 %.02480.us
   tail call void @_ZN7Imf_3_419MultiPartOutputFile4Data30overrideSharedAttributesValuesERKNS_6HeaderERS2_(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(49) %42, ptr noundef nonnull align 8 dereferenceable(49) %43)
   %44 = add nuw i64 %.02480.us, 1
   %exitcond89.not = icmp eq i64 %44, %16
@@ -1465,7 +1461,7 @@ define hidden void @_ZN7Imf_3_419MultiPartOutputFile4Data23do_header_sanity_chec
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
   %.02480 = phi i64 [ %176, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ], [ 1, %.lr.ph ]
   %45 = load ptr, ptr %9, align 8, !tbaa !24
-  %46 = getelementptr inbounds nuw %"class.Imf_3_4::Header", ptr %45, i64 %.02480
+  %46 = getelementptr inbounds nuw [56 x i8], ptr %45, i64 %.02480
   %47 = call noundef zeroext i1 @_ZNK7Imf_3_46Header7hasTypeEv(ptr noundef nonnull align 8 dereferenceable(49) %46)
   br i1 %47, label %52, label %.split.us
 
@@ -1486,17 +1482,17 @@ define hidden void @_ZN7Imf_3_419MultiPartOutputFile4Data23do_header_sanity_chec
 
 52:                                               ; preds = %.lr.ph.split
   %53 = load ptr, ptr %9, align 8, !tbaa !24
-  %54 = getelementptr inbounds nuw %"class.Imf_3_4::Header", ptr %53, i64 %.02480
+  %54 = getelementptr inbounds nuw [56 x i8], ptr %53, i64 %.02480
   %55 = call noundef i32 @_ZN7Imf_3_423getChunkOffsetTableSizeERKNS_6HeaderE(ptr noundef nonnull align 8 dereferenceable(49) %54)
   call void @_ZN7Imf_3_46Header13setChunkCountEi(ptr noundef nonnull align 8 dereferenceable(49) %54, i32 noundef %55)
   %56 = load ptr, ptr %9, align 8, !tbaa !24
-  %57 = getelementptr inbounds nuw %"class.Imf_3_4::Header", ptr %56, i64 %.02480
+  %57 = getelementptr inbounds nuw [56 x i8], ptr %56, i64 %.02480
   %58 = call noundef zeroext i1 @_ZNK7Imf_3_46Header18hasTileDescriptionEv(ptr noundef nonnull align 8 dereferenceable(49) %57)
   call void @_ZNK7Imf_3_46Header11sanityCheckEbb(ptr noundef nonnull align 8 dereferenceable(49) %57, i1 noundef zeroext %58, i1 noundef zeroext true)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %59 = load ptr, ptr %9, align 8, !tbaa !24
-  %60 = getelementptr inbounds nuw %"class.Imf_3_4::Header", ptr %59, i64 %.02480
+  %60 = getelementptr inbounds nuw [56 x i8], ptr %59, i64 %.02480
   %61 = invoke noundef zeroext i1 @_ZNK7Imf_3_419MultiPartOutputFile4Data27checkSharedAttributesValuesERKNS_6HeaderES4_RSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(49) %59, ptr noundef nonnull align 8 dereferenceable(49) %60, ptr noundef nonnull align 8 dereferenceable(24) %3)
           to label %62 unwind label %77
 
@@ -1512,7 +1508,7 @@ define hidden void @_ZN7Imf_3_419MultiPartOutputFile4Data23do_header_sanity_chec
 64:                                               ; preds = %63
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %65 = load ptr, ptr %9, align 8, !tbaa !24
-  %66 = getelementptr inbounds nuw %"class.Imf_3_4::Header", ptr %65, i64 %.02480
+  %66 = getelementptr inbounds nuw [56 x i8], ptr %65, i64 %.02480
   %67 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN7Imf_3_46Header4nameB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(49) %66)
           to label %68 unwind label %81
 
@@ -1559,7 +1555,7 @@ define hidden void @_ZN7Imf_3_419MultiPartOutputFile4Data23do_header_sanity_chec
   %.081 = phi i64 [ 0, %.lr.ph82 ], [ %119, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %85 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %84, i64 %.081
+  %85 = getelementptr inbounds nuw [32 x i8], ptr %84, i64 %.081
   invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr noundef nonnull @.str.14, ptr noundef nonnull align 8 dereferenceable(32) %85)
           to label %86 unwind label %127
 
@@ -3008,7 +3004,7 @@ _ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_
 .lr.ph:                                           ; preds = %2, %_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EE6insertERKS5_.exit
   %16 = phi ptr [ %55, %_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EE6insertERKS5_.exit ], [ %11, %2 ]
   %.018 = phi i64 [ %53, %_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EE6insertERKS5_.exit ], [ 0, %2 ]
-  %17 = getelementptr inbounds nuw %"class.Imf_3_4::Header", ptr %16, i64 %.018
+  %17 = getelementptr inbounds nuw [56 x i8], ptr %16, i64 %.018
   %18 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK7Imf_3_46Header4nameB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(49) %17)
           to label %19 unwind label %44
 
@@ -3120,7 +3116,7 @@ _ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_
 
 _ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EE4findERKS5_.exit.thread: ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRKS5_.exit.i.i, %19, %_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EE4findERKS5_.exit
   %48 = load ptr, ptr %1, align 8, !tbaa !24
-  %49 = getelementptr inbounds nuw %"class.Imf_3_4::Header", ptr %48, i64 %.018
+  %49 = getelementptr inbounds nuw [56 x i8], ptr %48, i64 %.018
   %50 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK7Imf_3_46Header4nameB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(49) %49)
           to label %51 unwind label %.loopexit
 
@@ -3208,11 +3204,11 @@ _ZNSt6vectorIN7Imf_3_46HeaderESaIS1_EE6resizeEm.exit: ; preds = %18
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %31
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %31 ]
-  %25 = getelementptr inbounds nuw %"class.Imf_3_4::Header", ptr %2, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [56 x i8], ptr %2, i64 %indvars.iv
   %26 = load ptr, ptr %8, align 8, !tbaa !17
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 136
   %28 = load ptr, ptr %27, align 8, !tbaa !24
-  %29 = getelementptr inbounds nuw %"class.Imf_3_4::Header", ptr %28, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [56 x i8], ptr %28, i64 %indvars.iv
   %30 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7Imf_3_46HeaderaSERKS0_(ptr noundef nonnull align 8 dereferenceable(49) %29, ptr noundef nonnull align 8 dereferenceable(49) %25)
           to label %31 unwind label %32
 
@@ -3285,7 +3281,7 @@ _ZNSt6vectorIN7Imf_3_46HeaderESaIS1_EE6resizeEm.exit: ; preds = %18
 
 56:                                               ; preds = %51
   %57 = load ptr, ptr %52, align 8, !tbaa !24
-  %58 = getelementptr inbounds nuw %"class.Imf_3_4::Header", ptr %57, i64 %.02463
+  %58 = getelementptr inbounds nuw [56 x i8], ptr %57, i64 %.02463
   %59 = trunc i64 %.02463 to i32
   invoke void @_ZN7Imf_3_414OutputPartDataC1EPNS_17OutputStreamMutexERKNS_6HeaderEiib(ptr noundef nonnull align 8 dereferenceable(96) %55, ptr noundef nonnull %53, ptr noundef nonnull align 8 dereferenceable(49) %58, i32 noundef %59, i32 noundef %5, i1 noundef zeroext %44)
           to label %60 unwind label %98
@@ -3354,7 +3350,7 @@ _ZNSt6vectorIPN7Imf_3_414OutputPartDataESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exi
 _ZNSt6vectorIPN7Imf_3_414OutputPartDataESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %85, %_ZNSt6vectorIPN7Imf_3_414OutputPartDataESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
   store ptr %80, ptr %54, align 8, !tbaa !33
   store ptr %84, ptr %61, align 8, !tbaa !93
-  %86 = getelementptr inbounds nuw ptr, ptr %80, i64 %78
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %78
   store ptr %86, ptr %63, align 8, !tbaa !94
   br label %_ZNSt6vectorIPN7Imf_3_414OutputPartDataESaIS2_EE9push_backEOS2_.exit
 
@@ -3551,7 +3547,7 @@ define hidden void @_ZN7Imf_3_419MultiPartOutputFile4Data18writeHeadersToFileERK
 9:                                                ; preds = %.lr.ph, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread
   %10 = phi ptr [ %5, %.lr.ph ], [ %32, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread ]
   %.013 = phi i64 [ 0, %.lr.ph ], [ %30, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread ]
-  %11 = getelementptr inbounds nuw %"class.Imf_3_4::Header", ptr %10, i64 %.013
+  %11 = getelementptr inbounds nuw [56 x i8], ptr %10, i64 %.013
   %12 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK7Imf_3_46Header4typeB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(49) %11)
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load i64, ptr %13, align 8, !tbaa !14
@@ -3576,11 +3572,11 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit, %17, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread12
   %.sink24 = phi i1 [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread12 ], [ true, %17 ], [ true, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ]
   %22 = load ptr, ptr %1, align 8, !tbaa !24
-  %23 = getelementptr inbounds nuw %"class.Imf_3_4::Header", ptr %22, i64 %.013
+  %23 = getelementptr inbounds nuw [56 x i8], ptr %22, i64 %.013
   %24 = load ptr, ptr %6, align 8, !tbaa !92
   %25 = tail call noundef i64 @_ZNK7Imf_3_46Header7writeToERNS_7OStreamEb(ptr noundef nonnull align 8 dereferenceable(49) %23, ptr noundef nonnull align 8 dereferenceable(40) %24, i1 noundef zeroext %.sink24)
   %26 = load ptr, ptr %7, align 8, !tbaa !33
-  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %.013
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %.013
   %28 = load ptr, ptr %27, align 8, !tbaa !37
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 64
   store i64 %25, ptr %29, align 8, !tbaa !96
@@ -3630,7 +3626,7 @@ define hidden void @_ZN7Imf_3_419MultiPartOutputFile4Data22writeChunkTableOffset
 12:                                               ; preds = %.lr.ph25, %._crit_edge
   %13 = phi ptr [ %8, %.lr.ph25 ], [ %48, %._crit_edge ]
   %.023 = phi i64 [ 0, %.lr.ph25 ], [ %49, %._crit_edge ]
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %.023
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.023
   %15 = load ptr, ptr %14, align 8, !tbaa !37
   %16 = call noundef i32 @_ZN7Imf_3_423getChunkOffsetTableSizeERKNS_6HeaderE(ptr noundef nonnull align 8 dereferenceable(49) %15)
   %17 = load ptr, ptr %9, align 8, !tbaa !92
@@ -3697,7 +3693,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20: ; preds = %31,
   %41 = load ptr, ptr %40, align 8
   %42 = call noundef i64 %41(ptr noundef nonnull align 8 dereferenceable(40) %38)
   %43 = load ptr, ptr %1, align 8, !tbaa !33
-  %44 = getelementptr inbounds nuw ptr, ptr %43, i64 %.023
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %.023
   %45 = load ptr, ptr %44, align 8, !tbaa !37
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 56
   store i64 %42, ptr %46, align 8, !tbaa !106
@@ -3835,7 +3831,7 @@ _ZNSt6vectorIPN7Imf_3_414OutputPartDataESaIS2_EED2Ev.exit: ; preds = %_ZNSt3mapI
   %43 = phi ptr [ %50, %49 ], [ %17, %13 ]
   %44 = phi ptr [ %51, %49 ], [ %16, %13 ]
   %.06 = phi i64 [ %52, %49 ], [ 0, %13 ]
-  %45 = getelementptr inbounds nuw ptr, ptr %43, i64 %.06
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %.06
   %46 = load ptr, ptr %45, align 8, !tbaa !37
   %47 = icmp eq ptr %46, null
   br i1 %47, label %49, label %48
@@ -3956,11 +3952,11 @@ _ZNSt6vectorIN7Imf_3_46HeaderESaIS1_EE6resizeEm.exit: ; preds = %18
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %38
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %38 ]
-  %32 = getelementptr inbounds nuw %"class.Imf_3_4::Header", ptr %2, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [56 x i8], ptr %2, i64 %indvars.iv
   %33 = load ptr, ptr %8, align 8, !tbaa !17
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 136
   %35 = load ptr, ptr %34, align 8, !tbaa !24
-  %36 = getelementptr inbounds nuw %"class.Imf_3_4::Header", ptr %35, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [56 x i8], ptr %35, i64 %indvars.iv
   %37 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7Imf_3_46HeaderaSERKS0_(ptr noundef nonnull align 8 dereferenceable(49) %36, ptr noundef nonnull align 8 dereferenceable(49) %32)
           to label %38 unwind label %39
 
@@ -4003,7 +3999,7 @@ _ZNSt6vectorIN7Imf_3_46HeaderESaIS1_EE6resizeEm.exit: ; preds = %18
 
 51:                                               ; preds = %46
   %52 = load ptr, ptr %47, align 8, !tbaa !24
-  %53 = getelementptr inbounds nuw %"class.Imf_3_4::Header", ptr %52, i64 %.02463
+  %53 = getelementptr inbounds nuw [56 x i8], ptr %52, i64 %.02463
   %54 = trunc i64 %.02463 to i32
   invoke void @_ZN7Imf_3_414OutputPartDataC1EPNS_17OutputStreamMutexERKNS_6HeaderEiib(ptr noundef nonnull align 8 dereferenceable(96) %50, ptr noundef nonnull %48, ptr noundef nonnull align 8 dereferenceable(49) %53, i32 noundef %54, i32 noundef %5, i1 noundef zeroext %29)
           to label %55 unwind label %93
@@ -4072,7 +4068,7 @@ _ZNSt6vectorIPN7Imf_3_414OutputPartDataESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exi
 _ZNSt6vectorIPN7Imf_3_414OutputPartDataESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %80, %_ZNSt6vectorIPN7Imf_3_414OutputPartDataESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
   store ptr %75, ptr %49, align 8, !tbaa !33
   store ptr %79, ptr %56, align 8, !tbaa !93
-  %81 = getelementptr inbounds nuw ptr, ptr %75, i64 %73
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %73
   store ptr %81, ptr %58, align 8, !tbaa !94
   br label %_ZNSt6vectorIPN7Imf_3_414OutputPartDataESaIS2_EE9push_backEOS2_.exit
 
@@ -4328,7 +4324,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit10: ; preds = %_ZNSo
 
 42:                                               ; preds = %5
   %43 = zext nneg i32 %1 to i64
-  %44 = getelementptr inbounds nuw %"class.Imf_3_4::Header", ptr %11, i64 %43
+  %44 = getelementptr inbounds nuw [56 x i8], ptr %11, i64 %43
   ret ptr %44
 
 45:                                               ; preds = %36
@@ -4683,9 +4679,9 @@ _ZSt8_DestroyIPN7Imf_3_46HeaderES1_EvT_S3_RSaIT0_E.exit44: ; preds = %.lr.ph.i.i
 
 _ZNSt12_Vector_baseIN7Imf_3_46HeaderESaIS1_EE13_M_deallocateEPS1_m.exit46: ; preds = %_ZSt8_DestroyIPN7Imf_3_46HeaderES1_EvT_S3_RSaIT0_E.exit44, %54
   store ptr %27, ptr %0, align 8, !tbaa !24
-  %58 = getelementptr inbounds nuw %"class.Imf_3_4::Header", ptr %28, i64 %1
+  %58 = getelementptr inbounds nuw [56 x i8], ptr %28, i64 %1
   store ptr %58, ptr %4, align 8, !tbaa !21
-  %59 = getelementptr inbounds nuw %"class.Imf_3_4::Header", ptr %27, i64 %25
+  %59 = getelementptr inbounds nuw [56 x i8], ptr %27, i64 %25
   store ptr %59, ptr %11, align 8, !tbaa !112
   br label %60
 
@@ -5196,7 +5192,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %69
   store ptr %22, ptr %0, align 8, !tbaa !49
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !46
-  %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %73, ptr %68, align 8, !tbaa !55
   ret void
 }

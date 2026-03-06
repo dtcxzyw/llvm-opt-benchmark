@@ -253,18 +253,18 @@ define dso_local void @_ZN41TestSIMDLib_TestCmpltAndBlendInplace_Test8TestBodyEv
 
 34:                                               ; preds = %44, %1
   %.012.i = phi i64 [ 0, %1 ], [ %45, %44 ]
-  %35 = getelementptr inbounds nuw float, ptr %9, i64 %.012.i
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %.012.i
   %36 = load float, ptr %35, align 4, !tbaa !5
-  %37 = getelementptr inbounds nuw float, ptr %10, i64 %.012.i
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %.012.i
   %38 = load float, ptr %37, align 4, !tbaa !5
   %39 = fcmp olt float %36, %38
   br i1 %39, label %40, label %44
 
 40:                                               ; preds = %34
   store float %36, ptr %37, align 4, !tbaa !5
-  %41 = getelementptr inbounds nuw i32, ptr %8, i64 %.012.i
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %.012.i
   %42 = load i32, ptr %41, align 4, !tbaa !5
-  %43 = getelementptr inbounds nuw i32, ptr %11, i64 %.012.i
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %.012.i
   store i32 %42, ptr %43, align 4, !tbaa !5
   br label %44
 
@@ -312,18 +312,18 @@ _ZN5faiss12_GLOBAL__N_123cmplt_and_blend_inplaceENS_12simd8float32ENS_11simd8uin
 
 46:                                               ; preds = %56, %_ZN5faiss12_GLOBAL__N_123cmplt_and_blend_inplaceENS_12simd8float32ENS_11simd8uint32ERS1_RS2_.exit
   %.012.i21 = phi i64 [ 0, %_ZN5faiss12_GLOBAL__N_123cmplt_and_blend_inplaceENS_12simd8float32ENS_11simd8uint32ERS1_RS2_.exit ], [ %57, %56 ]
-  %47 = getelementptr inbounds nuw float, ptr %7, i64 %.012.i21
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.012.i21
   %48 = load float, ptr %47, align 4, !tbaa !5
-  %49 = getelementptr inbounds nuw float, ptr %10, i64 %.012.i21
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %.012.i21
   %50 = load float, ptr %49, align 4, !tbaa !5
   %51 = fcmp olt float %48, %50
   br i1 %51, label %52, label %56
 
 52:                                               ; preds = %46
   store float %48, ptr %49, align 4, !tbaa !5
-  %53 = getelementptr inbounds nuw i32, ptr %6, i64 %.012.i21
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.012.i21
   %54 = load i32, ptr %53, align 4, !tbaa !5
-  %55 = getelementptr inbounds nuw i32, ptr %11, i64 %.012.i21
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %.012.i21
   store i32 %54, ptr %55, align 4, !tbaa !5
   br label %56
 
@@ -371,18 +371,18 @@ _ZN5faiss12_GLOBAL__N_123cmplt_and_blend_inplaceENS_12simd8float32ENS_11simd8uin
 
 58:                                               ; preds = %68, %_ZN5faiss12_GLOBAL__N_123cmplt_and_blend_inplaceENS_12simd8float32ENS_11simd8uint32ERS1_RS2_.exit23
   %.012.i24 = phi i64 [ 0, %_ZN5faiss12_GLOBAL__N_123cmplt_and_blend_inplaceENS_12simd8float32ENS_11simd8uint32ERS1_RS2_.exit23 ], [ %69, %68 ]
-  %59 = getelementptr inbounds nuw float, ptr %5, i64 %.012.i24
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.012.i24
   %60 = load float, ptr %59, align 4, !tbaa !5
-  %61 = getelementptr inbounds nuw float, ptr %10, i64 %.012.i24
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %.012.i24
   %62 = load float, ptr %61, align 4, !tbaa !5
   %63 = fcmp olt float %60, %62
   br i1 %63, label %64, label %68
 
 64:                                               ; preds = %58
   store float %60, ptr %61, align 4, !tbaa !5
-  %65 = getelementptr inbounds nuw i32, ptr %4, i64 %.012.i24
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.012.i24
   %66 = load i32, ptr %65, align 4, !tbaa !5
-  %67 = getelementptr inbounds nuw i32, ptr %11, i64 %.012.i24
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %.012.i24
   store i32 %66, ptr %67, align 4, !tbaa !5
   br label %68
 
@@ -415,9 +415,9 @@ _ZN5faiss12_GLOBAL__N_123cmplt_and_blend_inplaceENS_12simd8float32ENS_11simd8uin
 
 70:                                               ; preds = %70, %_ZN5faiss12_GLOBAL__N_123cmplt_and_blend_inplaceENS_12simd8float32ENS_11simd8uint32ERS1_RS2_.exit26
   %.068.i = phi i64 [ 0, %_ZN5faiss12_GLOBAL__N_123cmplt_and_blend_inplaceENS_12simd8float32ENS_11simd8uint32ERS1_RS2_.exit26 ], [ %75, %70 ]
-  %71 = getelementptr inbounds nuw i32, ptr %10, i64 %.068.i
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %.068.i
   %72 = load i32, ptr %71, align 4, !tbaa !5
-  %73 = getelementptr inbounds nuw i32, ptr %3, i64 %.068.i
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.068.i
   %74 = load i32, ptr %73, align 4, !tbaa !5
   %.not.i = icmp eq i32 %72, %74
   %75 = add nuw nsw i64 %.068.i, 1
@@ -585,9 +585,9 @@ _ZN7testing7MessageD2Ev.exit33:                   ; preds = %_ZNKSt14default_del
 
 119:                                              ; preds = %119, %118
   %.068.i39 = phi i64 [ 0, %118 ], [ %124, %119 ]
-  %120 = getelementptr inbounds nuw i32, ptr %11, i64 %.068.i39
+  %120 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %.068.i39
   %121 = load i32, ptr %120, align 4, !tbaa !5
-  %122 = getelementptr inbounds nuw i32, ptr %2, i64 %.068.i39
+  %122 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.068.i39
   %123 = load i32, ptr %122, align 4, !tbaa !5
   %.not.i40 = icmp eq i32 %121, %123
   %124 = add nuw nsw i64 %.068.i39, 1
@@ -862,26 +862,26 @@ define dso_local void @_ZN37TestSIMDLib_TestCmpltMinMaxFloat_Test8TestBodyEv(ptr
 
 30:                                               ; preds = %30, %1
   %.029.i = phi i64 [ 0, %1 ], [ %43, %30 ]
-  %31 = getelementptr inbounds nuw float, ptr %9, i64 %.029.i
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %.029.i
   %32 = load float, ptr %31, align 4, !tbaa !5
-  %33 = getelementptr inbounds nuw float, ptr %7, i64 %.029.i
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.029.i
   %34 = load float, ptr %33, align 4, !tbaa !5
   %35 = fcmp olt float %32, %34
   %..i = select i1 %35, float %32, float %34
-  %36 = getelementptr inbounds nuw float, ptr %10, i64 %.029.i
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %.029.i
   store float %..i, ptr %36, align 4, !tbaa !5
   %.pn.i = select i1 %35, ptr %8, ptr %6
-  %.in.i = getelementptr inbounds nuw i32, ptr %.pn.i, i64 %.029.i
+  %.in.i = getelementptr inbounds nuw [4 x i8], ptr %.pn.i, i64 %.029.i
   %37 = load i32, ptr %.in.i, align 4, !tbaa !5
-  %38 = getelementptr inbounds nuw i32, ptr %11, i64 %.029.i
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %.029.i
   store i32 %37, ptr %38, align 4, !tbaa !5
   %39 = select i1 %35, float %34, float %32
-  %40 = getelementptr inbounds nuw float, ptr %12, i64 %.029.i
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %.029.i
   store float %39, ptr %40, align 4, !tbaa !5
   %.pn27.i = select i1 %35, ptr %6, ptr %8
-  %.in26.i = getelementptr inbounds nuw i32, ptr %.pn27.i, i64 %.029.i
+  %.in26.i = getelementptr inbounds nuw [4 x i8], ptr %.pn27.i, i64 %.029.i
   %41 = load i32, ptr %.in26.i, align 4, !tbaa !5
-  %42 = getelementptr inbounds nuw i32, ptr %13, i64 %.029.i
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %.029.i
   store i32 %41, ptr %42, align 4, !tbaa !5
   %43 = add nuw nsw i64 %.029.i, 1
   %exitcond.not.i = icmp eq i64 %43, 8
@@ -913,9 +913,9 @@ _ZN5faiss12_GLOBAL__N_118cmplt_min_max_fastENS_12simd8float32ENS_11simd8uint32ES
 
 44:                                               ; preds = %44, %_ZN5faiss12_GLOBAL__N_118cmplt_min_max_fastENS_12simd8float32ENS_11simd8uint32ES1_S2_RS1_RS2_S3_S4_.exit
   %.068.i = phi i64 [ 0, %_ZN5faiss12_GLOBAL__N_118cmplt_min_max_fastENS_12simd8float32ENS_11simd8uint32ES1_S2_RS1_RS2_S3_S4_.exit ], [ %49, %44 ]
-  %45 = getelementptr inbounds nuw i32, ptr %10, i64 %.068.i
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %.068.i
   %46 = load i32, ptr %45, align 4, !tbaa !5
-  %47 = getelementptr inbounds nuw i32, ptr %5, i64 %.068.i
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.068.i
   %48 = load i32, ptr %47, align 4, !tbaa !5
   %.not.i = icmp eq i32 %46, %48
   %49 = add nuw nsw i64 %.068.i, 1
@@ -1083,9 +1083,9 @@ _ZN7testing7MessageD2Ev.exit53:                   ; preds = %_ZNKSt14default_del
 
 93:                                               ; preds = %93, %92
   %.068.i59 = phi i64 [ 0, %92 ], [ %98, %93 ]
-  %94 = getelementptr inbounds nuw i32, ptr %11, i64 %.068.i59
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %.068.i59
   %95 = load i32, ptr %94, align 4, !tbaa !5
-  %96 = getelementptr inbounds nuw i32, ptr %4, i64 %.068.i59
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.068.i59
   %97 = load i32, ptr %96, align 4, !tbaa !5
   %.not.i60 = icmp eq i32 %95, %97
   %98 = add nuw nsw i64 %.068.i59, 1
@@ -1253,9 +1253,9 @@ _ZN7testing7MessageD2Ev.exit80:                   ; preds = %_ZNKSt14default_del
 
 142:                                              ; preds = %142, %141
   %.068.i86 = phi i64 [ 0, %141 ], [ %147, %142 ]
-  %143 = getelementptr inbounds nuw i32, ptr %12, i64 %.068.i86
+  %143 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %.068.i86
   %144 = load i32, ptr %143, align 4, !tbaa !5
-  %145 = getelementptr inbounds nuw i32, ptr %3, i64 %.068.i86
+  %145 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.068.i86
   %146 = load i32, ptr %145, align 4, !tbaa !5
   %.not.i87 = icmp eq i32 %144, %146
   %147 = add nuw nsw i64 %.068.i86, 1
@@ -1423,9 +1423,9 @@ _ZN7testing7MessageD2Ev.exit107:                  ; preds = %_ZNKSt14default_del
 
 191:                                              ; preds = %191, %190
   %.068.i113 = phi i64 [ 0, %190 ], [ %196, %191 ]
-  %192 = getelementptr inbounds nuw i32, ptr %13, i64 %.068.i113
+  %192 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %.068.i113
   %193 = load i32, ptr %192, align 4, !tbaa !5
-  %194 = getelementptr inbounds nuw i32, ptr %2, i64 %.068.i113
+  %194 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.068.i113
   %195 = load i32, ptr %194, align 4, !tbaa !5
   %.not.i114 = icmp eq i32 %193, %195
   %196 = add nuw nsw i64 %.068.i113, 1
@@ -1699,26 +1699,26 @@ define dso_local void @_ZN35TestSIMDLib_TestCmpltMinMaxInt_Test8TestBodyEv(ptr n
 
 30:                                               ; preds = %30, %1
   %.029.i = phi i64 [ 0, %1 ], [ %43, %30 ]
-  %31 = getelementptr inbounds nuw i32, ptr %9, i64 %.029.i
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %.029.i
   %32 = load i32, ptr %31, align 4, !tbaa !5
-  %33 = getelementptr inbounds nuw i32, ptr %7, i64 %.029.i
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.029.i
   %34 = load i32, ptr %33, align 4, !tbaa !5
   %35 = icmp ult i32 %32, %34
   %..i = tail call i32 @llvm.umin.i32(i32 %32, i32 %34)
-  %36 = getelementptr inbounds nuw i32, ptr %10, i64 %.029.i
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %.029.i
   store i32 %..i, ptr %36, align 4, !tbaa !5
   %.pn.i = select i1 %35, ptr %8, ptr %6
-  %.in.i = getelementptr inbounds nuw i32, ptr %.pn.i, i64 %.029.i
+  %.in.i = getelementptr inbounds nuw [4 x i8], ptr %.pn.i, i64 %.029.i
   %37 = load i32, ptr %.in.i, align 4, !tbaa !5
-  %38 = getelementptr inbounds nuw i32, ptr %11, i64 %.029.i
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %.029.i
   store i32 %37, ptr %38, align 4, !tbaa !5
   %39 = tail call i32 @llvm.umax.i32(i32 %32, i32 %34)
-  %40 = getelementptr inbounds nuw i32, ptr %12, i64 %.029.i
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %.029.i
   store i32 %39, ptr %40, align 4, !tbaa !5
   %.pn27.i = select i1 %35, ptr %6, ptr %8
-  %.in26.i = getelementptr inbounds nuw i32, ptr %.pn27.i, i64 %.029.i
+  %.in26.i = getelementptr inbounds nuw [4 x i8], ptr %.pn27.i, i64 %.029.i
   %41 = load i32, ptr %.in26.i, align 4, !tbaa !5
-  %42 = getelementptr inbounds nuw i32, ptr %13, i64 %.029.i
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %.029.i
   store i32 %41, ptr %42, align 4, !tbaa !5
   %43 = add nuw nsw i64 %.029.i, 1
   %exitcond.not.i = icmp eq i64 %43, 8
@@ -1750,9 +1750,9 @@ _ZN5faiss18cmplt_min_max_fastENS_11simd8uint32ES0_S0_S0_RS0_S1_S1_S1_.exit: ; pr
 
 44:                                               ; preds = %44, %_ZN5faiss18cmplt_min_max_fastENS_11simd8uint32ES0_S0_S0_RS0_S1_S1_S1_.exit
   %.068.i = phi i64 [ 0, %_ZN5faiss18cmplt_min_max_fastENS_11simd8uint32ES0_S0_S0_RS0_S1_S1_S1_.exit ], [ %49, %44 ]
-  %45 = getelementptr inbounds nuw i32, ptr %10, i64 %.068.i
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %.068.i
   %46 = load i32, ptr %45, align 4, !tbaa !5
-  %47 = getelementptr inbounds nuw i32, ptr %5, i64 %.068.i
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.068.i
   %48 = load i32, ptr %47, align 4, !tbaa !5
   %.not.i = icmp eq i32 %46, %48
   %49 = add nuw nsw i64 %.068.i, 1
@@ -1920,9 +1920,9 @@ _ZN7testing7MessageD2Ev.exit53:                   ; preds = %_ZNKSt14default_del
 
 93:                                               ; preds = %93, %92
   %.068.i59 = phi i64 [ 0, %92 ], [ %98, %93 ]
-  %94 = getelementptr inbounds nuw i32, ptr %11, i64 %.068.i59
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %.068.i59
   %95 = load i32, ptr %94, align 4, !tbaa !5
-  %96 = getelementptr inbounds nuw i32, ptr %4, i64 %.068.i59
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.068.i59
   %97 = load i32, ptr %96, align 4, !tbaa !5
   %.not.i60 = icmp eq i32 %95, %97
   %98 = add nuw nsw i64 %.068.i59, 1
@@ -2090,9 +2090,9 @@ _ZN7testing7MessageD2Ev.exit80:                   ; preds = %_ZNKSt14default_del
 
 142:                                              ; preds = %142, %141
   %.068.i86 = phi i64 [ 0, %141 ], [ %147, %142 ]
-  %143 = getelementptr inbounds nuw i32, ptr %12, i64 %.068.i86
+  %143 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %.068.i86
   %144 = load i32, ptr %143, align 4, !tbaa !5
-  %145 = getelementptr inbounds nuw i32, ptr %3, i64 %.068.i86
+  %145 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.068.i86
   %146 = load i32, ptr %145, align 4, !tbaa !5
   %.not.i87 = icmp eq i32 %144, %146
   %147 = add nuw nsw i64 %.068.i86, 1
@@ -2260,9 +2260,9 @@ _ZN7testing7MessageD2Ev.exit107:                  ; preds = %_ZNKSt14default_del
 
 191:                                              ; preds = %191, %190
   %.068.i113 = phi i64 [ 0, %190 ], [ %196, %191 ]
-  %192 = getelementptr inbounds nuw i32, ptr %13, i64 %.068.i113
+  %192 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %.068.i113
   %193 = load i32, ptr %192, align 4, !tbaa !5
-  %194 = getelementptr inbounds nuw i32, ptr %2, i64 %.068.i113
+  %194 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.068.i113
   %195 = load i32, ptr %194, align 4, !tbaa !5
   %.not.i114 = icmp eq i32 %193, %195
   %196 = add nuw nsw i64 %.068.i113, 1
@@ -2603,26 +2603,26 @@ define dso_local void @_ZN37TestSIMDLib_TestCmpltMinMaxInt16_Test8TestBodyEv(ptr
 
 30:                                               ; preds = %30, %1
   %.027.i = phi i64 [ 0, %1 ], [ %43, %30 ]
-  %31 = getelementptr inbounds nuw i16, ptr %9, i64 %.027.i
+  %31 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %.027.i
   %32 = load i16, ptr %31, align 2, !tbaa !5
-  %33 = getelementptr inbounds nuw i16, ptr %7, i64 %.027.i
+  %33 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %.027.i
   %34 = load i16, ptr %33, align 2, !tbaa !5
   %35 = icmp ult i16 %32, %34
   %..i = tail call i16 @llvm.umin.i16(i16 %32, i16 %34)
-  %36 = getelementptr inbounds nuw i16, ptr %10, i64 %.027.i
+  %36 = getelementptr inbounds nuw [2 x i8], ptr %10, i64 %.027.i
   store i16 %..i, ptr %36, align 2, !tbaa !5
   %.pn.i = select i1 %35, ptr %8, ptr %6
-  %.in.i = getelementptr inbounds nuw i16, ptr %.pn.i, i64 %.027.i
+  %.in.i = getelementptr inbounds nuw [2 x i8], ptr %.pn.i, i64 %.027.i
   %37 = load i16, ptr %.in.i, align 2, !tbaa !5
-  %38 = getelementptr inbounds nuw i16, ptr %11, i64 %.027.i
+  %38 = getelementptr inbounds nuw [2 x i8], ptr %11, i64 %.027.i
   store i16 %37, ptr %38, align 2, !tbaa !5
   %39 = tail call i16 @llvm.umax.i16(i16 %32, i16 %34)
-  %40 = getelementptr inbounds nuw i16, ptr %12, i64 %.027.i
+  %40 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %.027.i
   store i16 %39, ptr %40, align 2, !tbaa !5
   %.pn25.i = select i1 %35, ptr %6, ptr %8
-  %.in24.i = getelementptr inbounds nuw i16, ptr %.pn25.i, i64 %.027.i
+  %.in24.i = getelementptr inbounds nuw [2 x i8], ptr %.pn25.i, i64 %.027.i
   %41 = load i16, ptr %.in24.i, align 2, !tbaa !5
-  %42 = getelementptr inbounds nuw i16, ptr %13, i64 %.027.i
+  %42 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %.027.i
   store i16 %41, ptr %42, align 2, !tbaa !5
   %43 = add nuw nsw i64 %.027.i, 1
   %exitcond.not.i = icmp eq i64 %43, 16
@@ -2670,9 +2670,9 @@ _ZN5faiss18cmplt_min_max_fastENS_12simd16uint16ES0_S0_S0_RS0_S1_S1_S1_.exit: ; p
 
 44:                                               ; preds = %44, %_ZN5faiss18cmplt_min_max_fastENS_12simd16uint16ES0_S0_S0_RS0_S1_S1_S1_.exit
   %.068.i = phi i64 [ 0, %_ZN5faiss18cmplt_min_max_fastENS_12simd16uint16ES0_S0_S0_RS0_S1_S1_S1_.exit ], [ %49, %44 ]
-  %45 = getelementptr inbounds nuw i32, ptr %10, i64 %.068.i
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %.068.i
   %46 = load i32, ptr %45, align 4, !tbaa !5
-  %47 = getelementptr inbounds nuw i32, ptr %5, i64 %.068.i
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.068.i
   %48 = load i32, ptr %47, align 4, !tbaa !5
   %.not.i = icmp eq i32 %46, %48
   %49 = add nuw nsw i64 %.068.i, 1
@@ -2856,9 +2856,9 @@ _ZN7testing7MessageD2Ev.exit53:                   ; preds = %_ZNKSt14default_del
 
 93:                                               ; preds = %93, %92
   %.068.i59 = phi i64 [ 0, %92 ], [ %98, %93 ]
-  %94 = getelementptr inbounds nuw i32, ptr %11, i64 %.068.i59
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %.068.i59
   %95 = load i32, ptr %94, align 4, !tbaa !5
-  %96 = getelementptr inbounds nuw i32, ptr %4, i64 %.068.i59
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.068.i59
   %97 = load i32, ptr %96, align 4, !tbaa !5
   %.not.i60 = icmp eq i32 %95, %97
   %98 = add nuw nsw i64 %.068.i59, 1
@@ -3042,9 +3042,9 @@ _ZN7testing7MessageD2Ev.exit80:                   ; preds = %_ZNKSt14default_del
 
 142:                                              ; preds = %142, %141
   %.068.i86 = phi i64 [ 0, %141 ], [ %147, %142 ]
-  %143 = getelementptr inbounds nuw i32, ptr %12, i64 %.068.i86
+  %143 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %.068.i86
   %144 = load i32, ptr %143, align 4, !tbaa !5
-  %145 = getelementptr inbounds nuw i32, ptr %3, i64 %.068.i86
+  %145 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.068.i86
   %146 = load i32, ptr %145, align 4, !tbaa !5
   %.not.i87 = icmp eq i32 %144, %146
   %147 = add nuw nsw i64 %.068.i86, 1
@@ -3228,9 +3228,9 @@ _ZN7testing7MessageD2Ev.exit107:                  ; preds = %_ZNKSt14default_del
 
 191:                                              ; preds = %191, %190
   %.068.i113 = phi i64 [ 0, %190 ], [ %196, %191 ]
-  %192 = getelementptr inbounds nuw i32, ptr %13, i64 %.068.i113
+  %192 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %.068.i113
   %193 = load i32, ptr %192, align 4, !tbaa !5
-  %194 = getelementptr inbounds nuw i32, ptr %2, i64 %.068.i113
+  %194 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.068.i113
   %195 = load i32, ptr %194, align 4, !tbaa !5
   %.not.i114 = icmp eq i32 %193, %195
   %196 = add nuw nsw i64 %.068.i113, 1

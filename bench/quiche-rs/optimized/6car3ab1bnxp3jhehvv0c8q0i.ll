@@ -476,7 +476,7 @@ define hidden void @"_ZN6quiche6stream18StreamMap$LT$F$GT$13get_or_create17hd556
   %40 = add i64 %.sroa.01.0.i.i.i, %39
   %41 = and i64 %40, %32
   %42 = sub nsw i64 0, %41
-  %43 = getelementptr inbounds i64, ptr %33, i64 %42
+  %43 = getelementptr inbounds [8 x i8], ptr %33, i64 %42
   %44 = getelementptr inbounds i8, ptr %43, i64 -8
   %45 = call noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h8b8df4d57d44b01bE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %15, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %44), !noalias !69
   br i1 %45, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17hf5f4c5084261a390E.exit", label %49, !prof !72

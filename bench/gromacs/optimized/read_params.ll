@@ -11,7 +11,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.gmx::EnumerationArray.1" = type { [2 x ptr] }
 %"struct.gmx::EnumerationArray.2" = type { [2 x ptr] }
 %"struct.gmx::EnumerationArray.3" = type { [2 x ptr] }
-%struct.t_inpfile = type <{ i32, i8, i8, i8, i8, %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i32, [4 x i8] }>
 %"class.std::filesystem::__cxx11::path" = type { %"class.std::__cxx11::basic_string", %"struct.std::filesystem::__cxx11::path::_List" }
 %"struct.std::filesystem::__cxx11::path::_List" = type { %"class.std::unique_ptr" }
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
@@ -20,20 +19,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.6" }
 %"struct.std::_Head_base.6" = type { ptr }
-%"class.gmx::AwhDimParams" = type { i32, i32, double, double, double, double, double, double, double }
-%"class.gmx::AwhBiasParams" = type <{ %"class.std::vector.13", i32, [4 x i8], double, double, i32, [4 x i8], double, i8, i8, [6 x i8], double, double, i32, i8, [3 x i8] }>
-%"class.std::vector.13" = type { %"struct.std::_Vector_base.14" }
-%"struct.std::_Vector_base.14" = type { %"struct.std::_Vector_base<gmx::AwhDimParams, std::allocator<gmx::AwhDimParams>>::_Vector_impl" }
-%"struct.std::_Vector_base<gmx::AwhDimParams, std::allocator<gmx::AwhDimParams>>::_Vector_impl" = type { %"struct.std::_Vector_base<gmx::AwhDimParams, std::allocator<gmx::AwhDimParams>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<gmx::AwhDimParams, std::allocator<gmx::AwhDimParams>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %struct.t_pbc = type { i32, i32, i32, i32, [3 x [3 x float]], [3 x float], [3 x float], [3 x float], float, i32, [12 x [3 x i32]], [12 x [3 x float]] }
-%struct.t_pull_coord = type { i32, %"class.std::__cxx11::basic_string", i32, %"class.std::__cxx11::basic_string", double, i32, %"struct.std::array", %"class.gmx::BasicVector", %"class.gmx::BasicVector.133", %"class.gmx::BasicVector.133", i8, float, float, float, float, i32 }
-%"struct.std::array" = type { [6 x i32] }
-%"class.gmx::BasicVector" = type { [3 x i32] }
-%"class.gmx::BasicVector.133" = type { [3 x float] }
-%"struct.gmx::MtsLevel" = type <{ %"class.std::bitset", i32, [4 x i8] }>
-%"class.std::bitset" = type { %"struct.std::_Base_bitset" }
-%"struct.std::_Base_bitset" = type { i64 }
 
 $_ZN3gmx16EnumerationArrayINS_14MtsForceGroupsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELS1_7EED2Ev = comdat any
 
@@ -292,7 +278,7 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #7
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef ptr @_ZN3gmx17enumValueToStringENS_13AwhTargetTypeE(i32 noundef %0) local_unnamed_addr #8 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds nuw ptr, ptr @__const._ZN3gmx17enumValueToStringENS_13AwhTargetTypeE.awhTargetTypeNames, i64 %2
+  %3 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZN3gmx17enumValueToStringENS_13AwhTargetTypeE.awhTargetTypeNames, i64 %2
   %4 = load ptr, ptr %3, align 8, !tbaa !13
   ret ptr %4
 }
@@ -300,7 +286,7 @@ define noundef ptr @_ZN3gmx17enumValueToStringENS_13AwhTargetTypeE(i32 noundef %
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef ptr @_ZN3gmx17enumValueToStringENS_22AwhHistogramGrowthTypeE(i32 noundef %0) local_unnamed_addr #8 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds nuw ptr, ptr @__const._ZN3gmx17enumValueToStringENS_22AwhHistogramGrowthTypeE.awhHistogramGrowthTypeNames, i64 %2
+  %3 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZN3gmx17enumValueToStringENS_22AwhHistogramGrowthTypeE.awhHistogramGrowthTypeNames, i64 %2
   %4 = load ptr, ptr %3, align 8, !tbaa !13
   ret ptr %4
 }
@@ -308,7 +294,7 @@ define noundef ptr @_ZN3gmx17enumValueToStringENS_22AwhHistogramGrowthTypeE(i32 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef ptr @_ZN3gmx17enumValueToStringENS_16AwhPotentialTypeE(i32 noundef %0) local_unnamed_addr #8 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds nuw ptr, ptr @__const._ZN3gmx17enumValueToStringENS_16AwhPotentialTypeE.awhPotentialTypeNames, i64 %2
+  %3 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZN3gmx17enumValueToStringENS_16AwhPotentialTypeE.awhPotentialTypeNames, i64 %2
   %4 = load ptr, ptr %3, align 8, !tbaa !13
   ret ptr %4
 }
@@ -316,7 +302,7 @@ define noundef ptr @_ZN3gmx17enumValueToStringENS_16AwhPotentialTypeE(i32 nounde
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef ptr @_ZN3gmx17enumValueToStringENS_25AwhCoordinateProviderTypeE(i32 noundef %0) local_unnamed_addr #8 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds nuw ptr, ptr @__const._ZN3gmx17enumValueToStringENS_25AwhCoordinateProviderTypeE.awhCoordinateProviderTypeNames, i64 %2
+  %3 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZN3gmx17enumValueToStringENS_25AwhCoordinateProviderTypeE.awhCoordinateProviderTypeNames, i64 %2
   %4 = load ptr, ptr %3, align 8, !tbaa !13
   ret ptr %4
 }
@@ -1786,7 +1772,7 @@ define linkonce_odr noundef i32 @_Z7getEnumIN3gmx25AwhCoordinateProviderTypeEET_
 16:                                               ; preds = %3
   %17 = sext i32 %7 to i64
   %18 = load ptr, ptr %0, align 8, !tbaa !51
-  %19 = getelementptr inbounds nuw %struct.t_inpfile, ptr %18, i64 %17
+  %19 = getelementptr inbounds nuw [80 x i8], ptr %18, i64 %17
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 40
   %21 = load ptr, ptr %20, align 8, !tbaa !4
   br label %22
@@ -1794,7 +1780,7 @@ define linkonce_odr noundef i32 @_Z7getEnumIN3gmx25AwhCoordinateProviderTypeEET_
 22:                                               ; preds = %16, %26
   %.not80 = phi i1 [ false, %16 ], [ true, %26 ]
   %indvars.iv = phi i64 [ 0, %16 ], [ 1, %26 ]
-  %23 = getelementptr inbounds nuw ptr, ptr @__const._ZN3gmx17enumValueToStringENS_25AwhCoordinateProviderTypeE.awhCoordinateProviderTypeNames, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZN3gmx17enumValueToStringENS_25AwhCoordinateProviderTypeE.awhCoordinateProviderTypeNames, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8, !tbaa !13
   %25 = tail call noundef i32 @_Z18gmx_strcasecmp_minPKcS0_(ptr noundef %24, ptr noundef %21)
   %.not = icmp eq i32 %25, 0
@@ -1881,7 +1867,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54: ; preds = %48,
   %.not81 = phi i1 [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61 ]
   %indvars.iv88 = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %56 = getelementptr inbounds nuw ptr, ptr @__const._ZN3gmx17enumValueToStringENS_25AwhCoordinateProviderTypeE.awhCoordinateProviderTypeNames, i64 %indvars.iv88
+  %56 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZN3gmx17enumValueToStringENS_25AwhCoordinateProviderTypeE.awhCoordinateProviderTypeNames, i64 %indvars.iv88
   %57 = load ptr, ptr %56, align 8, !tbaa !13
   invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull @.str.35, ptr noundef %57)
           to label %58 unwind label %70
@@ -1971,7 +1957,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit64: ; preds = %72,
 
 86:                                               ; preds = %77, %82
   %87 = load ptr, ptr %0, align 8, !tbaa !51
-  %88 = getelementptr inbounds nuw %struct.t_inpfile, ptr %87, i64 %17
+  %88 = getelementptr inbounds nuw [80 x i8], ptr %87, i64 %17
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 40
   %90 = getelementptr inbounds nuw i8, ptr %88, i64 48
   %91 = load i64, ptr %90, align 8, !tbaa !15
@@ -4004,7 +3990,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit255: ; preds = %_Z
 648:                                              ; preds = %645
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
   %649 = zext nneg i32 %646 to i64
-  %650 = getelementptr inbounds nuw ptr, ptr @__const._ZN3gmx17enumValueToStringENS_13AwhTargetTypeE.awhTargetTypeNames, i64 %649
+  %650 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZN3gmx17enumValueToStringENS_13AwhTargetTypeE.awhTargetTypeNames, i64 %649
   %651 = load ptr, ptr %650, align 8, !tbaa !13
   %652 = load ptr, ptr %21, align 8, !tbaa !4
   invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %31, ptr noundef nonnull @.str.62, ptr noundef %651, ptr noundef %652)
@@ -4766,7 +4752,7 @@ define linkonce_odr noundef i32 @_Z7getEnumIN3gmx22AwhHistogramGrowthTypeEET_PSt
 16:                                               ; preds = %3
   %17 = sext i32 %7 to i64
   %18 = load ptr, ptr %0, align 8, !tbaa !51
-  %19 = getelementptr inbounds nuw %struct.t_inpfile, ptr %18, i64 %17
+  %19 = getelementptr inbounds nuw [80 x i8], ptr %18, i64 %17
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 40
   %21 = load ptr, ptr %20, align 8, !tbaa !4
   br label %22
@@ -4774,7 +4760,7 @@ define linkonce_odr noundef i32 @_Z7getEnumIN3gmx22AwhHistogramGrowthTypeEET_PSt
 22:                                               ; preds = %16, %26
   %.not80 = phi i1 [ false, %16 ], [ true, %26 ]
   %indvars.iv = phi i64 [ 0, %16 ], [ 1, %26 ]
-  %23 = getelementptr inbounds nuw ptr, ptr @__const._ZN3gmx17enumValueToStringENS_22AwhHistogramGrowthTypeE.awhHistogramGrowthTypeNames, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZN3gmx17enumValueToStringENS_22AwhHistogramGrowthTypeE.awhHistogramGrowthTypeNames, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8, !tbaa !13
   %25 = tail call noundef i32 @_Z18gmx_strcasecmp_minPKcS0_(ptr noundef %24, ptr noundef %21)
   %.not = icmp eq i32 %25, 0
@@ -4861,7 +4847,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54: ; preds = %48,
   %.not81 = phi i1 [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61 ]
   %indvars.iv88 = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %56 = getelementptr inbounds nuw ptr, ptr @__const._ZN3gmx17enumValueToStringENS_22AwhHistogramGrowthTypeE.awhHistogramGrowthTypeNames, i64 %indvars.iv88
+  %56 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZN3gmx17enumValueToStringENS_22AwhHistogramGrowthTypeE.awhHistogramGrowthTypeNames, i64 %indvars.iv88
   %57 = load ptr, ptr %56, align 8, !tbaa !13
   invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull @.str.35, ptr noundef %57)
           to label %58 unwind label %70
@@ -4951,7 +4937,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit64: ; preds = %72,
 
 86:                                               ; preds = %77, %82
   %87 = load ptr, ptr %0, align 8, !tbaa !51
-  %88 = getelementptr inbounds nuw %struct.t_inpfile, ptr %87, i64 %17
+  %88 = getelementptr inbounds nuw [80 x i8], ptr %87, i64 %17
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 40
   %90 = getelementptr inbounds nuw i8, ptr %88, i64 48
   %91 = load i64, ptr %90, align 8, !tbaa !15
@@ -5023,7 +5009,7 @@ define linkonce_odr noundef i32 @_Z7getEnumI7BooleanET_PSt6vectorI9t_inpfileSaIS
 18:                                               ; preds = %3
   %19 = sext i32 %8 to i64
   %20 = load ptr, ptr %0, align 8, !tbaa !51
-  %21 = getelementptr inbounds nuw %struct.t_inpfile, ptr %20, i64 %19
+  %21 = getelementptr inbounds nuw [80 x i8], ptr %20, i64 %19
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 40
   %23 = load ptr, ptr %22, align 8, !tbaa !4
   br label %24
@@ -5209,7 +5195,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit64: ; preds = %73,
 
 87:                                               ; preds = %78, %83
   %88 = load ptr, ptr %0, align 8, !tbaa !51
-  %89 = getelementptr inbounds nuw %struct.t_inpfile, ptr %88, i64 %19
+  %89 = getelementptr inbounds nuw [80 x i8], ptr %88, i64 %19
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 40
   %91 = getelementptr inbounds nuw i8, ptr %89, i64 48
   %92 = load i64, ptr %91, align 8, !tbaa !15
@@ -5276,14 +5262,14 @@ define linkonce_odr noundef i32 @_Z7getEnumIN3gmx13AwhTargetTypeEET_PSt6vectorI9
 16:                                               ; preds = %3
   %17 = sext i32 %7 to i64
   %18 = load ptr, ptr %0, align 8, !tbaa !51
-  %19 = getelementptr inbounds nuw %struct.t_inpfile, ptr %18, i64 %17
+  %19 = getelementptr inbounds nuw [80 x i8], ptr %18, i64 %17
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 40
   %21 = load ptr, ptr %20, align 8, !tbaa !4
   br label %22
 
 22:                                               ; preds = %16, %26
   %indvars.iv = phi i64 [ 0, %16 ], [ %indvars.iv.next, %26 ]
-  %23 = getelementptr inbounds nuw ptr, ptr @__const._ZN3gmx17enumValueToStringENS_13AwhTargetTypeE.awhTargetTypeNames, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZN3gmx17enumValueToStringENS_13AwhTargetTypeE.awhTargetTypeNames, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8, !tbaa !13
   %25 = tail call noundef i32 @_Z18gmx_strcasecmp_minPKcS0_(ptr noundef %24, ptr noundef %21)
   %.not = icmp eq i32 %25, 0
@@ -5371,7 +5357,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54: ; preds = %48,
 55:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61
   %indvars.iv88 = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %indvars.iv.next89, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %56 = getelementptr inbounds nuw ptr, ptr @__const._ZN3gmx17enumValueToStringENS_13AwhTargetTypeE.awhTargetTypeNames, i64 %indvars.iv88
+  %56 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZN3gmx17enumValueToStringENS_13AwhTargetTypeE.awhTargetTypeNames, i64 %indvars.iv88
   %57 = load ptr, ptr %56, align 8, !tbaa !13
   invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull @.str.35, ptr noundef %57)
           to label %58 unwind label %70
@@ -5463,7 +5449,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit64: ; preds = %72,
 
 86:                                               ; preds = %77, %82
   %87 = load ptr, ptr %0, align 8, !tbaa !51
-  %88 = getelementptr inbounds nuw %struct.t_inpfile, ptr %87, i64 %17
+  %88 = getelementptr inbounds nuw [80 x i8], ptr %87, i64 %17
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 40
   %90 = getelementptr inbounds nuw i8, ptr %88, i64 48
   %91 = load i64, ptr %90, align 8, !tbaa !15
@@ -5723,7 +5709,7 @@ _ZNSt6vectorIN3gmx12AwhDimParamsESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit35: ; 
 _ZNSt12_Vector_baseIN3gmx12AwhDimParamsESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN3gmx12AwhDimParamsESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit35, %35
   store ptr %23, ptr %0, align 8, !tbaa !129
   store ptr %.0.lcssa.i.i.i34, ptr %7, align 8, !tbaa !125
-  %39 = getelementptr inbounds nuw %"class.gmx::AwhDimParams", ptr %23, i64 %19
+  %39 = getelementptr inbounds nuw [64 x i8], ptr %23, i64 %19
   store ptr %39, ptr %34, align 8, !tbaa !126
   ret void
 
@@ -6100,7 +6086,7 @@ _ZNSt6vectorIN3gmx12AwhDimParamsESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32: ; 
 _ZNSt12_Vector_baseIN3gmx12AwhDimParamsESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN3gmx12AwhDimParamsESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32, %29
   store ptr %20, ptr %0, align 8, !tbaa !129
   store ptr %.0.lcssa.i.i.i31, ptr %4, align 8, !tbaa !125
-  %33 = getelementptr inbounds nuw %"class.gmx::AwhDimParams", ptr %20, i64 %16
+  %33 = getelementptr inbounds nuw [64 x i8], ptr %20, i64 %16
   store ptr %33, ptr %28, align 8, !tbaa !126
   ret void
 
@@ -6247,7 +6233,7 @@ define void @_ZN3gmx13AwhBiasParams9serializeEPNS_11ISerializerE(ptr noundef non
 .lr.ph:                                           ; preds = %12, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %12 ]
   %76 = load ptr, ptr %0, align 8, !tbaa !129
-  %77 = getelementptr inbounds nuw %"class.gmx::AwhDimParams", ptr %76, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw [64 x i8], ptr %76, i64 %indvars.iv
   call void @_ZN3gmx12AwhDimParams9serializeEPNS_11ISerializerE(ptr noundef nonnull align 8 dereferenceable(64) %77, ptr noundef nonnull %1)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %78 = load i32, ptr %6, align 4, !tbaa !58
@@ -6506,7 +6492,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit24: ; preds = %8
   %118 = phi ptr [ %105, %.lr.ph99.i ], [ %133, %._crit_edge95.i ]
   %indvars.iv121.i = phi i64 [ 0, %.lr.ph99.i ], [ %indvars.iv.next122.pre-phi.i, %._crit_edge95.i ]
   %.097.i = phi i1 [ false, %.lr.ph99.i ], [ %spec.select.i, %._crit_edge95.i ]
-  %119 = getelementptr inbounds nuw %"class.gmx::AwhBiasParams", ptr %104, i64 %indvars.iv121.i
+  %119 = getelementptr inbounds nuw [96 x i8], ptr %104, i64 %indvars.iv121.i
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 88
   %121 = load i32, ptr %120, align 8, !tbaa !110
   %122 = icmp sgt i32 %121, 0
@@ -6545,7 +6531,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit24: ; preds = %8
 
 135:                                              ; preds = %._crit_edge.i, %.lr.ph.i
   %indvars.iv123.i = phi i64 [ %indvars.iv121.i, %.lr.ph.i ], [ %indvars.iv.next124.pre-phi.i, %._crit_edge.i ]
-  %136 = getelementptr inbounds nuw %"class.gmx::AwhBiasParams", ptr %104, i64 %indvars.iv123.i
+  %136 = getelementptr inbounds nuw [96 x i8], ptr %104, i64 %indvars.iv123.i
   %137 = load ptr, ptr %119, align 8, !tbaa !129
   %138 = load ptr, ptr %129, align 8, !tbaa !125
   %139 = ptrtoint ptr %138 to i64
@@ -6580,7 +6566,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit24: ; preds = %8
 
 .lr.ph79.split.us.split.us.i:                     ; preds = %.lr.ph79.split.us.i, %..loopexit_crit_edge.split.us84.us.i
   %indvars.iv117.i = phi i64 [ %indvars.iv.next118.pre-phi.i, %..loopexit_crit_edge.split.us84.us.i ], [ 0, %.lr.ph79.split.us.i ]
-  %154 = getelementptr inbounds nuw %"class.gmx::AwhDimParams", ptr %137, i64 %indvars.iv117.i
+  %154 = getelementptr inbounds nuw [64 x i8], ptr %137, i64 %indvars.iv117.i
   %155 = load i32, ptr %154, align 8, !tbaa !20
   %156 = icmp eq i32 %155, 1
   br i1 %156, label %.lr.ph79.split.us.split.us...loopexit_crit_edge.split.us84.us_crit_edge.i, label %.preheader.us.us.i
@@ -6591,7 +6577,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit24: ; preds = %8
 
 157:                                              ; preds = %.preheader.us.us.i, %177
   %indvars.iv113.i = phi i64 [ 0, %.preheader.us.us.i ], [ %indvars.iv.next114.i, %177 ]
-  %158 = getelementptr inbounds nuw %"class.gmx::AwhDimParams", ptr %142, i64 %indvars.iv113.i
+  %158 = getelementptr inbounds nuw [64 x i8], ptr %142, i64 %indvars.iv113.i
   %159 = load i32, ptr %158, align 8, !tbaa !20
   %160 = icmp eq i32 %159, 1
   %.not51.us.us.i = icmp eq i64 %indvars.iv117.i, %indvars.iv113.i
@@ -6657,7 +6643,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.us83.us.i: ; pred
 
 .lr.ph79.split.us.split.i:                        ; preds = %.lr.ph79.split.us.i, %..loopexit_crit_edge.split.us.us.i
   %indvars.iv109.i = phi i64 [ %indvars.iv.next110.pre-phi.i, %..loopexit_crit_edge.split.us.us.i ], [ 0, %.lr.ph79.split.us.i ]
-  %182 = getelementptr inbounds nuw %"class.gmx::AwhDimParams", ptr %137, i64 %indvars.iv109.i
+  %182 = getelementptr inbounds nuw [64 x i8], ptr %137, i64 %indvars.iv109.i
   %183 = load i32, ptr %182, align 8, !tbaa !20
   %184 = icmp eq i32 %183, 1
   br i1 %184, label %.lr.ph79.split.us.split...loopexit_crit_edge.split.us.us_crit_edge.i, label %.preheader.us.i
@@ -6679,7 +6665,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.us83.us.i: ; pred
 
 188:                                              ; preds = %208, %.preheader.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %208 ], [ 0, %.preheader.us.i ]
-  %189 = getelementptr inbounds nuw %"class.gmx::AwhDimParams", ptr %142, i64 %indvars.iv.i
+  %189 = getelementptr inbounds nuw [64 x i8], ptr %142, i64 %indvars.iv.i
   %190 = load i32, ptr %189, align 8, !tbaa !20
   %191 = icmp eq i32 %190, 1
   br i1 %191, label %208, label %192
@@ -6965,7 +6951,7 @@ define linkonce_odr noundef i32 @_Z7getEnumIN3gmx16AwhPotentialTypeEET_PSt6vecto
 16:                                               ; preds = %3
   %17 = sext i32 %7 to i64
   %18 = load ptr, ptr %0, align 8, !tbaa !51
-  %19 = getelementptr inbounds nuw %struct.t_inpfile, ptr %18, i64 %17
+  %19 = getelementptr inbounds nuw [80 x i8], ptr %18, i64 %17
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 40
   %21 = load ptr, ptr %20, align 8, !tbaa !4
   br label %22
@@ -6973,7 +6959,7 @@ define linkonce_odr noundef i32 @_Z7getEnumIN3gmx16AwhPotentialTypeEET_PSt6vecto
 22:                                               ; preds = %16, %26
   %.not80 = phi i1 [ false, %16 ], [ true, %26 ]
   %indvars.iv = phi i64 [ 0, %16 ], [ 1, %26 ]
-  %23 = getelementptr inbounds nuw ptr, ptr @__const._ZN3gmx17enumValueToStringENS_16AwhPotentialTypeE.awhPotentialTypeNames, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZN3gmx17enumValueToStringENS_16AwhPotentialTypeE.awhPotentialTypeNames, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8, !tbaa !13
   %25 = tail call noundef i32 @_Z18gmx_strcasecmp_minPKcS0_(ptr noundef %24, ptr noundef %21)
   %.not = icmp eq i32 %25, 0
@@ -7060,7 +7046,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54: ; preds = %48,
   %.not81 = phi i1 [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61 ]
   %indvars.iv88 = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %56 = getelementptr inbounds nuw ptr, ptr @__const._ZN3gmx17enumValueToStringENS_16AwhPotentialTypeE.awhPotentialTypeNames, i64 %indvars.iv88
+  %56 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZN3gmx17enumValueToStringENS_16AwhPotentialTypeE.awhPotentialTypeNames, i64 %indvars.iv88
   %57 = load ptr, ptr %56, align 8, !tbaa !13
   invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull @.str.35, ptr noundef %57)
           to label %58 unwind label %70
@@ -7150,7 +7136,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit64: ; preds = %72,
 
 86:                                               ; preds = %77, %82
   %87 = load ptr, ptr %0, align 8, !tbaa !51
-  %88 = getelementptr inbounds nuw %struct.t_inpfile, ptr %87, i64 %17
+  %88 = getelementptr inbounds nuw [80 x i8], ptr %87, i64 %17
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 40
   %90 = getelementptr inbounds nuw i8, ptr %88, i64 48
   %91 = load i64, ptr %90, align 8, !tbaa !15
@@ -7361,7 +7347,7 @@ _ZNSt6vectorIN3gmx13AwhBiasParamsESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit35: ;
 _ZNSt12_Vector_baseIN3gmx13AwhBiasParamsESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN3gmx13AwhBiasParamsESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit35, %53
   store ptr %23, ptr %0, align 8, !tbaa !170
   store ptr %.0.lcssa.i.i.i34, ptr %7, align 8, !tbaa !171
-  %57 = getelementptr inbounds nuw %"class.gmx::AwhBiasParams", ptr %23, i64 %19
+  %57 = getelementptr inbounds nuw [96 x i8], ptr %23, i64 %19
   store ptr %57, ptr %52, align 8, !tbaa !176
   ret void
 
@@ -7683,7 +7669,7 @@ _ZNSt6vectorIN3gmx13AwhBiasParamsESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit34: ;
 _ZNSt12_Vector_baseIN3gmx13AwhBiasParamsESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN3gmx13AwhBiasParamsESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit34, %53
   store ptr %22, ptr %0, align 8, !tbaa !170
   store ptr %.0.lcssa.i.i.i33, ptr %6, align 8, !tbaa !171
-  %57 = getelementptr inbounds nuw %"class.gmx::AwhBiasParams", ptr %22, i64 %18
+  %57 = getelementptr inbounds nuw [96 x i8], ptr %22, i64 %18
   store ptr %57, ptr %52, align 8, !tbaa !176
   ret void
 
@@ -7788,7 +7774,7 @@ define void @_ZN3gmx9AwhParams9serializeEPNS_11ISerializerE(ptr noundef nonnull 
 .lr.ph:                                           ; preds = %10, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %10 ]
   %50 = load ptr, ptr %0, align 8, !tbaa !170
-  %51 = getelementptr inbounds nuw %"class.gmx::AwhBiasParams", ptr %50, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [96 x i8], ptr %50, i64 %indvars.iv
   call void @_ZN3gmx13AwhBiasParams9serializeEPNS_11ISerializerE(ptr noundef nonnull align 8 dereferenceable(93) %51, ptr noundef nonnull %1)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %52 = load i32, ptr %4, align 4, !tbaa !58
@@ -7880,7 +7866,7 @@ common.resume:                                    ; preds = %184, %225, %_ZNSt7_
 
 48:                                               ; preds = %._crit_edge.i, %.lr.ph28.i
   %indvars.iv48.i = phi i64 [ 0, %.lr.ph28.i ], [ %58, %._crit_edge.i ]
-  %49 = getelementptr inbounds nuw %"class.gmx::AwhBiasParams", ptr %.lcssa81, i64 %indvars.iv48.i
+  %49 = getelementptr inbounds nuw [96 x i8], ptr %.lcssa81, i64 %indvars.iv48.i
   %50 = load ptr, ptr %49, align 8, !tbaa !129
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %52 = load ptr, ptr %51, align 8, !tbaa !125
@@ -7902,7 +7888,7 @@ common.resume:                                    ; preds = %184, %225, %_ZNSt7_
 
 60:                                               ; preds = %_ZN3gmxL17valueIsInIntervalEdddd.exit.thread.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %_ZN3gmxL17valueIsInIntervalEdddd.exit.thread.i ]
-  %61 = getelementptr inbounds nuw %"class.gmx::AwhDimParams", ptr %50, i64 %indvars.iv.i
+  %61 = getelementptr inbounds nuw [64 x i8], ptr %50, i64 %indvars.iv.i
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 4
   %63 = load i32, ptr %62, align 4, !tbaa !28
   %64 = getelementptr inbounds nuw i8, ptr %61, i64 8
@@ -8062,7 +8048,7 @@ _ZN3gmxL29checkInputConsistencyIntervalERKNS_9AwhParamsEP14WarningHandler.exit: 
   %134 = phi ptr [ %29, %.lr.ph90 ], [ %148, %._crit_edge ]
   %135 = phi ptr [ %31, %.lr.ph90 ], [ %149, %._crit_edge ]
   %indvars.iv119 = phi i64 [ 0, %.lr.ph90 ], [ %146, %._crit_edge ]
-  %136 = getelementptr inbounds nuw %"class.gmx::AwhBiasParams", ptr %29, i64 %indvars.iv119
+  %136 = getelementptr inbounds nuw [96 x i8], ptr %29, i64 %indvars.iv119
   %137 = load ptr, ptr %136, align 8, !tbaa !129
   %138 = getelementptr inbounds nuw i8, ptr %136, i64 8
   %139 = load ptr, ptr %138, align 8, !tbaa !125
@@ -8098,7 +8084,7 @@ _ZN3gmxL29checkInputConsistencyIntervalERKNS_9AwhParamsEP14WarningHandler.exit: 
 
 156:                                              ; preds = %.lr.ph, %_ZN3gmx12_GLOBAL__N_138checkFepLambdaDimDecouplingConsistencyERK10gmx_mtop_tP14WarningHandler.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN3gmx12_GLOBAL__N_138checkFepLambdaDimDecouplingConsistencyERK10gmx_mtop_tP14WarningHandler.exit ]
-  %157 = getelementptr inbounds nuw %"class.gmx::AwhDimParams", ptr %137, i64 %indvars.iv
+  %157 = getelementptr inbounds nuw [64 x i8], ptr %137, i64 %indvars.iv
   %158 = load i32, ptr %157, align 8, !tbaa !20
   %159 = icmp eq i32 %158, 0
   br i1 %159, label %160, label %275
@@ -8114,7 +8100,7 @@ _ZN3gmxL29checkInputConsistencyIntervalERKNS_9AwhParamsEP14WarningHandler.exit: 
 
 165:                                              ; preds = %160
   %166 = sext i32 %.pre124 to i64
-  %167 = getelementptr inbounds nuw %struct.t_pull_coord, ptr %.val40.pre122, i64 %166
+  %167 = getelementptr inbounds nuw [176 x i8], ptr %.val40.pre122, i64 %166
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 40
   %169 = load i32, ptr %168, align 8, !tbaa !216
   %.off = add i32 %169, -5
@@ -8131,7 +8117,7 @@ _ZN3gmxL29checkInputConsistencyIntervalERKNS_9AwhParamsEP14WarningHandler.exit: 
   %172 = phi i32 [ %.pre124, %165 ], [ %.pre, %170 ], [ %.pre124, %160 ]
   %.val40 = phi ptr [ %.val40.pre122, %165 ], [ %.val40.pre, %170 ], [ %.val40.pre122, %160 ]
   %173 = sext i32 %172 to i64
-  %174 = getelementptr inbounds nuw %struct.t_pull_coord, ptr %.val40, i64 %173
+  %174 = getelementptr inbounds nuw [176 x i8], ptr %.val40, i64 %173
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 40
   %176 = load i32, ptr %175, align 8, !tbaa !216
   %177 = icmp eq i32 %176, 3
@@ -8191,7 +8177,7 @@ _ZN3gmxL29checkInputConsistencyIntervalERKNS_9AwhParamsEP14WarningHandler.exit: 
 201:                                              ; preds = %232, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %232 ]
   %.031.i.i = phi double [ 0.000000e+00, %.lr.ph.i.i ], [ %.1.i.i, %232 ]
-  %202 = getelementptr inbounds nuw [3 x float], ptr %41, i64 %indvars.iv.i.i
+  %202 = getelementptr inbounds nuw [12 x i8], ptr %41, i64 %indvars.iv.i.i
   %203 = load float, ptr %202, align 4, !tbaa !227
   %204 = getelementptr inbounds nuw i8, ptr %202, i64 4
   %205 = load float, ptr %204, align 4, !tbaa !227
@@ -8276,13 +8262,13 @@ _ZN3gmxL21get_pull_coord_periodERK12t_pull_coordRK5t_pbcf.exit.i: ; preds = %232
 
 238:                                              ; preds = %253, %.outer.i
   %indvars.iv.i43 = phi i64 [ %indvars.iv.next.i44, %253 ], [ %indvars.iv.ph.i, %.outer.i ]
-  %239 = getelementptr inbounds nuw float, ptr %195, i64 %indvars.iv.i43
+  %239 = getelementptr inbounds nuw [4 x i8], ptr %195, i64 %indvars.iv.i43
   %240 = load float, ptr %239, align 4, !tbaa !227
   %241 = fcmp une float %240, 0.000000e+00
   br i1 %241, label %242, label %253
 
 242:                                              ; preds = %238
-  %243 = getelementptr inbounds nuw [3 x float], ptr %5, i64 %indvars.iv.i43
+  %243 = getelementptr inbounds nuw [12 x i8], ptr %5, i64 %indvars.iv.i43
   %244 = load float, ptr %243, align 4, !tbaa !227
   %245 = getelementptr inbounds nuw i8, ptr %243, i64 4
   %246 = load float, ptr %245, align 4, !tbaa !227
@@ -8610,7 +8596,7 @@ _ZN3gmxL18forceGroupMtsLevelENS_8ArrayRefIKNS_8MtsLevelEEENS_14MtsForceGroupsE.e
   %105 = load ptr, ptr %68, align 8, !tbaa !322
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 36
   %107 = load i32, ptr %106, align 4, !tbaa !167
-  %108 = getelementptr inbounds nuw %"struct.gmx::MtsLevel", ptr %104, i64 %.pre-phi.i
+  %108 = getelementptr inbounds nuw [16 x i8], ptr %104, i64 %.pre-phi.i
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 8
   %110 = load i32, ptr %109, align 8, !tbaa !325
   %111 = srem i32 %107, %110
@@ -8987,7 +8973,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i99
           to label %298 unwind label %1359
 
 298:                                              ; preds = %296
-  %299 = getelementptr inbounds nuw %"class.gmx::AwhBiasParams", ptr %216, i64 %indvars.iv
+  %299 = getelementptr inbounds nuw [96 x i8], ptr %216, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
   call void @llvm.experimental.noalias.scope.decl(metadata !332)
   store ptr %225, ptr %27, align 8, !tbaa !14, !alias.scope !332
@@ -9845,7 +9831,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit189.i: ; preds = %
   call void @llvm.lifetime.start.p0(ptr nonnull %35)
   %570 = load ptr, ptr %27, align 8, !tbaa !4
   %571 = zext nneg i32 %560 to i64
-  %572 = getelementptr inbounds nuw ptr, ptr @__const._ZN3gmx17enumValueToStringENS_13AwhTargetTypeE.awhTargetTypeNames, i64 %571
+  %572 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZN3gmx17enumValueToStringENS_13AwhTargetTypeE.awhTargetTypeNames, i64 %571
   %573 = load ptr, ptr %572, align 8, !tbaa !13
   invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %35, ptr noundef nonnull @.str.128, ptr noundef %570, double noundef %563, ptr noundef %573)
           to label %574 unwind label %582
@@ -9902,7 +9888,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit197.i: ; preds = %
   call void @llvm.lifetime.start.p0(ptr nonnull %36)
   %593 = load ptr, ptr %27, align 8, !tbaa !4
   %594 = sext i32 %560 to i64
-  %595 = getelementptr inbounds nuw ptr, ptr @__const._ZN3gmx17enumValueToStringENS_13AwhTargetTypeE.awhTargetTypeNames, i64 %594
+  %595 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZN3gmx17enumValueToStringENS_13AwhTargetTypeE.awhTargetTypeNames, i64 %594
   %596 = load ptr, ptr %595, align 8, !tbaa !13
   invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %36, ptr noundef nonnull @.str.129, ptr noundef %593, double noundef %563, ptr noundef %596)
           to label %597 unwind label %605
@@ -10194,7 +10180,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit236.i: ; preds = %
   call void @llvm.lifetime.start.p0(ptr nonnull %39)
   %689 = load ptr, ptr %27, align 8, !tbaa !4
   %690 = sext i32 %661 to i64
-  %691 = getelementptr inbounds nuw ptr, ptr @__const._ZN3gmx17enumValueToStringENS_13AwhTargetTypeE.awhTargetTypeNames, i64 %690
+  %691 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZN3gmx17enumValueToStringENS_13AwhTargetTypeE.awhTargetTypeNames, i64 %690
   %692 = load ptr, ptr %691, align 8, !tbaa !13
   invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %39, ptr noundef nonnull @.str.129, ptr noundef %689, double noundef %663, ptr noundef %692)
           to label %693 unwind label %701
@@ -10766,7 +10752,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i30
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit307.i: ; preds = %863, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i305.i
   call void @llvm.lifetime.end.p0(ptr nonnull %44)
   %870 = load ptr, ptr %299, align 8, !tbaa !129
-  %871 = getelementptr inbounds nuw %"class.gmx::AwhDimParams", ptr %870, i64 %indvars.iv.i
+  %871 = getelementptr inbounds nuw [64 x i8], ptr %870, i64 %indvars.iv.i
   %872 = load i32, ptr %871, align 8, !tbaa !20
   switch i32 %872, label %1278 [
     i32 0, label %873
@@ -10891,7 +10877,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79.i.i.i: ; preds 
   %917 = getelementptr inbounds nuw i8, ptr %877, i64 56
   %918 = sext i32 %916 to i64
   %919 = load ptr, ptr %917, align 8, !tbaa !213
-  %920 = getelementptr inbounds nuw %struct.t_pull_coord, ptr %919, i64 %918
+  %920 = getelementptr inbounds nuw [176 x i8], ptr %919, i64 %918
   %921 = getelementptr inbounds nuw i8, ptr %920, i64 160
   %922 = load float, ptr %921, align 8, !tbaa !368
   %923 = fcmp une float %922, 0.000000e+00
@@ -11014,7 +11000,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit95.i.i.i: ; preds 
   %969 = load i32, ptr %878, align 4, !tbaa !28
   %970 = sext i32 %969 to i64
   %971 = load ptr, ptr %917, align 8, !tbaa !213
-  %972 = getelementptr inbounds nuw %struct.t_pull_coord, ptr %971, i64 %970
+  %972 = getelementptr inbounds nuw [176 x i8], ptr %971, i64 %970
   %973 = getelementptr inbounds nuw i8, ptr %972, i64 40
   %974 = load i32, ptr %973, align 8, !tbaa !216
   %975 = icmp eq i32 %974, 0
@@ -12220,7 +12206,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135: ; preds = %13
   %1405 = load ptr, ptr %46, align 8, !tbaa !4
   %1406 = load i32, ptr %1399, align 4, !tbaa !157
   %1407 = sext i32 %1406 to i64
-  %1408 = getelementptr inbounds nuw ptr, ptr @__const._ZN3gmx17enumValueToStringENS_16AwhPotentialTypeE.awhPotentialTypeNames, i64 %1407
+  %1408 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZN3gmx17enumValueToStringENS_16AwhPotentialTypeE.awhPotentialTypeNames, i64 %1407
   %1409 = load ptr, ptr %1408, align 8, !tbaa !13
   invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %52, ptr noundef nonnull @.str.115, ptr noundef %1405, ptr noundef %1409, ptr noundef nonnull @.str.15)
           to label %1410 unwind label %1420

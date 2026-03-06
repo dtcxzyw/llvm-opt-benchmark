@@ -3,8 +3,6 @@ source_filename = "bench/sdl/original/SDL_dialog_utils.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.SDL_DialogFileFilter = type { ptr, ptr }
-
 @.str = private unnamed_addr constant [53 x i8] c"Called convert_filters() with NULL filters (SDL bug)\00", align 1
 @.str.1 = private unnamed_addr constant [11 x i8] c"%s%s%s%s%s\00", align 1
 @.str.2 = private unnamed_addr constant [2 x i8] c"*\00", align 1
@@ -38,7 +36,7 @@ define hidden ptr @convert_filters(ptr noundef readonly captures(address_is_null
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %36
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %36 ]
   %.05267 = phi ptr [ %16, %.lr.ph.preheader ], [ %34, %36 ]
-  %19 = getelementptr inbounds nuw %struct.SDL_DialogFileFilter, ptr %0, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %22 = load ptr, ptr %21, align 8
@@ -328,7 +326,7 @@ define hidden noundef ptr @validate_filters(ptr noundef readonly captures(addres
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %29
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %29 ]
-  %4 = getelementptr inbounds nuw %struct.SDL_DialogFileFilter, ptr %0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %indvars.iv
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 @SDL_strcmp_REAL(ptr noundef %6, ptr noundef nonnull @.str.2) #4

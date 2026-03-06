@@ -269,7 +269,7 @@ define internal fastcc noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..s
   %77 = icmp eq <16 x i8> %.0.copyload.i.i, %60
   %78 = icmp eq <16 x i8> %.0.copyload2.i.i, %61
   %79 = and <16 x i1> %77, %78
-  %80 = getelementptr inbounds nuw i16, ptr %5, i64 %.sroa.022.0138.i
+  %80 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %.sroa.022.0138.i
   store <16 x i1> %79, ptr %80, align 2, !noalias !33
   %exitcond.not.i38 = icmp eq i64 %73, 4
   br i1 %exitcond.not.i38, label %.preheader134.i, label %72
@@ -287,7 +287,7 @@ define internal fastcc noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..s
   %.sroa.028.0140.i = phi i64 [ %86, %90 ], [ 0, %72 ]
   %.2139.i = phi i8 [ %.3.i, %90 ], [ 0, %72 ]
   %86 = add nuw nsw i64 %.sroa.028.0140.i, 1
-  %87 = getelementptr inbounds nuw i16, ptr %5, i64 %.sroa.028.0140.i
+  %87 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %.sroa.028.0140.i
   %88 = load i16, ptr %87, align 2, !noalias !33, !noundef !4
   %89 = icmp eq i16 %88, 0
   br i1 %89, label %90, label %91

@@ -4,10 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.StringInfoData = type { ptr, i32, i32, i32 }
-%union.ListCell = type { ptr }
-%struct.FormData_pg_attribute = type { i32, %struct.nameData, i32, i16, i16, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i32 }
-%struct.nameData = type { [64 x i8] }
-%struct.FmgrInfo = type { ptr, i32, i16, i8, i8, i8, ptr, ptr, ptr }
 
 @PqCommMethods = external local_unnamed_addr global ptr, align 8
 @BinarySignature = internal constant [11 x i8] c"PGCOPY\0A\FF\0D\0A\00", align 1
@@ -452,7 +448,7 @@ list_length.exit58:                               ; preds = %36, %40
 .lr.ph76:                                         ; preds = %.lr.ph, %45
   %indvars.iv = phi i64 [ %indvars.iv.next, %45 ], [ 0, %.lr.ph ]
   %49 = load ptr, ptr %32, align 8
-  %50 = getelementptr inbounds nuw %union.ListCell, ptr %49, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %indvars.iv
   %51 = load i32, ptr %50, align 8
   %52 = add i32 %51, -1
   %53 = load i32, ptr %14, align 8
@@ -461,10 +457,10 @@ list_length.exit58:                               ; preds = %36, %40
   %56 = getelementptr i8, ptr %14, i64 %55
   %57 = getelementptr i8, ptr %56, i64 24
   %58 = sext i32 %52 to i64
-  %59 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %57, i64 %58
+  %59 = getelementptr inbounds [100 x i8], ptr %57, i64 %58
   %60 = load ptr, ptr %33, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %61 = getelementptr inbounds nuw ptr, ptr %60, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %indvars.iv
   %62 = load ptr, ptr %61, align 8
   %63 = icmp eq ptr %62, null
   br i1 %63, label %.split, label %71
@@ -1344,7 +1340,7 @@ define internal fastcc i32 @CopyReadAttributesCSV(ptr noundef %0) unnamed_addr #
 49:                                               ; preds = %44, %.backedge242
   %50 = phi ptr [ %48, %44 ], [ %.pre205, %.backedge242 ]
   %51 = sext i32 %.093 to i64
-  %52 = getelementptr inbounds ptr, ptr %50, i64 %51
+  %52 = getelementptr inbounds [8 x i8], ptr %50, i64 %51
   store ptr %.094, ptr %52, align 8
   %.not124157182 = icmp ult ptr %.096, %34
   br i1 %.not124157182, label %.lr.ph, label %._crit_edge.thread231
@@ -1469,7 +1465,7 @@ define internal fastcc i32 @CopyReadAttributesCSV(ptr noundef %0) unnamed_addr #
 
 98:                                               ; preds = %93
   %99 = load ptr, ptr %35, align 8
-  %100 = getelementptr inbounds ptr, ptr %99, i64 %51
+  %100 = getelementptr inbounds [8 x i8], ptr %99, i64 %51
   store ptr null, ptr %100, align 8
   %101 = add i32 %.093, 1
   br i1 %.not124.lcssa238, label %.backedge242.backedge, label %151
@@ -1515,12 +1511,12 @@ list_length.exit:                                 ; preds = %102, %107
 121:                                              ; preds = %117
   %122 = getelementptr i8, ptr %106, i64 16
   %.val = load ptr, ptr %122, align 8
-  %123 = getelementptr inbounds %union.ListCell, ptr %.val, i64 %51
+  %123 = getelementptr inbounds [8 x i8], ptr %.val, i64 %51
   %124 = load i32, ptr %123, align 8
   %125 = add i32 %124, -1
   %126 = load ptr, ptr %41, align 8
   %127 = sext i32 %125 to i64
-  %128 = getelementptr inbounds ptr, ptr %126, i64 %127
+  %128 = getelementptr inbounds [8 x i8], ptr %126, i64 %127
   %129 = load ptr, ptr %128, align 8
   %.not128 = icmp eq ptr %129, null
   br i1 %.not128, label %134, label %130
@@ -1541,7 +1537,7 @@ list_length.exit:                                 ; preds = %102, %107
   %140 = sext i32 %139 to i64
   %141 = shl nsw i64 %140, 4
   %142 = getelementptr i8, ptr %138, i64 %141
-  %143 = getelementptr %struct.FormData_pg_attribute, ptr %142, i64 %127
+  %143 = getelementptr [100 x i8], ptr %142, i64 %127
   %144 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
   %145 = tail call i32 @errcode(i32 noundef 67240066) #15
   %146 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31) #15
@@ -1653,7 +1649,7 @@ define internal fastcc i32 @CopyReadAttributesText(ptr noundef %0) unnamed_addr 
 44:                                               ; preds = %39, %37
   %45 = phi ptr [ %43, %39 ], [ %.pre208, %37 ]
   %46 = sext i32 %.0119 to i64
-  %47 = getelementptr inbounds ptr, ptr %45, i64 %46
+  %47 = getelementptr inbounds [8 x i8], ptr %45, i64 %46
   store ptr %.0120, ptr %47, align 8
   %.not158185 = icmp ult ptr %.0121, %28
   br i1 %.not158185, label %.lr.ph, label %._crit_edge
@@ -1744,7 +1740,7 @@ define internal fastcc i32 @CopyReadAttributesText(ptr noundef %0) unnamed_addr 
   %82 = tail call ptr @__ctype_b_loc() #19
   %83 = load ptr, ptr %82, align 8
   %84 = zext i8 %81 to i64
-  %85 = getelementptr inbounds nuw i16, ptr %83, i64 %84
+  %85 = getelementptr inbounds nuw [2 x i8], ptr %83, i64 %84
   %86 = load i16, ptr %85, align 2
   %87 = and i16 %86, 4096
   %.not160 = icmp eq i16 %87, 0
@@ -1763,7 +1759,7 @@ define internal fastcc i32 @CopyReadAttributesText(ptr noundef %0) unnamed_addr 
 93:                                               ; preds = %88
   %94 = tail call ptr @__ctype_tolower_loc() #19
   %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr inbounds nuw i32, ptr %95, i64 %84
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %95, i64 %84
   %97 = load i32, ptr %96, align 4
   %98 = add i32 %97, -87
   br label %GetDecimalFromHex.exit
@@ -1777,7 +1773,7 @@ GetDecimalFromHex.exit:                           ; preds = %90, %93
 101:                                              ; preds = %GetDecimalFromHex.exit
   %102 = load i8, ptr %99, align 1
   %103 = zext i8 %102 to i64
-  %104 = getelementptr inbounds nuw i16, ptr %83, i64 %103
+  %104 = getelementptr inbounds nuw [2 x i8], ptr %83, i64 %103
   %105 = load i16, ptr %104, align 2
   %106 = and i16 %105, 4096
   %.not161 = icmp eq i16 %106, 0
@@ -1798,7 +1794,7 @@ GetDecimalFromHex.exit:                           ; preds = %90, %93
 114:                                              ; preds = %107
   %115 = tail call ptr @__ctype_tolower_loc() #19
   %116 = load ptr, ptr %115, align 8
-  %117 = getelementptr inbounds nuw i32, ptr %116, i64 %103
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %116, i64 %103
   %118 = load i32, ptr %117, align 4
   %119 = add i32 %118, -87
   br label %GetDecimalFromHex.exit172
@@ -1871,7 +1867,7 @@ GetDecimalFromHex.exit172:                        ; preds = %111, %114
 
 144:                                              ; preds = %139
   %145 = load ptr, ptr %29, align 8
-  %146 = getelementptr inbounds ptr, ptr %145, i64 %46
+  %146 = getelementptr inbounds [8 x i8], ptr %145, i64 %46
   store ptr null, ptr %146, align 8
   br label %200
 
@@ -1910,12 +1906,12 @@ list_length.exit:                                 ; preds = %147, %149
 163:                                              ; preds = %159
   %164 = getelementptr i8, ptr %148, i64 16
   %.val = load ptr, ptr %164, align 8
-  %165 = getelementptr inbounds %union.ListCell, ptr %.val, i64 %46
+  %165 = getelementptr inbounds [8 x i8], ptr %.val, i64 %46
   %166 = load i32, ptr %165, align 8
   %167 = add i32 %166, -1
   %168 = load ptr, ptr %35, align 8
   %169 = sext i32 %167 to i64
-  %170 = getelementptr inbounds ptr, ptr %168, i64 %169
+  %170 = getelementptr inbounds [8 x i8], ptr %168, i64 %169
   %171 = load ptr, ptr %170, align 8
   %.not166 = icmp eq ptr %171, null
   br i1 %.not166, label %175, label %172
@@ -1935,7 +1931,7 @@ list_length.exit:                                 ; preds = %147, %149
   %181 = sext i32 %180 to i64
   %182 = shl nsw i64 %181, 4
   %183 = getelementptr i8, ptr %179, i64 %182
-  %184 = getelementptr %struct.FormData_pg_attribute, ptr %183, i64 %169
+  %184 = getelementptr [100 x i8], ptr %183, i64 %169
   %185 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
   %186 = tail call i32 @errcode(i32 noundef 67240066) #15
   %187 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31) #15
@@ -1949,7 +1945,7 @@ list_length.exit:                                 ; preds = %147, %149
 
 191:                                              ; preds = %190
   %192 = load ptr, ptr %29, align 8
-  %193 = getelementptr inbounds ptr, ptr %192, i64 %46
+  %193 = getelementptr inbounds [8 x i8], ptr %192, i64 %46
   %194 = load ptr, ptr %193, align 8
   %195 = ptrtoint ptr %.1.lcssa to i64
   %196 = ptrtoint ptr %194 to i64
@@ -2137,7 +2133,7 @@ list_length.exit:                                 ; preds = %4, %28
 .lr.ph:                                           ; preds = %.lr.ph247, %191
   %indvars.iv285 = phi i64 [ %indvars.iv.next, %191 ], [ 0, %.lr.ph247 ]
   %92 = load ptr, ptr %80, align 8
-  %93 = getelementptr inbounds nuw %union.ListCell, ptr %92, i64 %indvars.iv285
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %92, i64 %indvars.iv285
   %94 = load i32, ptr %93, align 8
   %95 = add i32 %94, -1
   %96 = load i32, ptr %23, align 8
@@ -2146,7 +2142,7 @@ list_length.exit:                                 ; preds = %4, %28
   %99 = getelementptr i8, ptr %23, i64 %98
   %100 = getelementptr i8, ptr %99, i64 24
   %101 = sext i32 %95 to i64
-  %102 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %100, i64 %101
+  %102 = getelementptr inbounds [100 x i8], ptr %100, i64 %101
   %exitcond.not = icmp eq i64 %indvars.iv285, %wide.trip.count
   br i1 %exitcond.not, label %103, label %108
 
@@ -2160,7 +2156,7 @@ list_length.exit:                                 ; preds = %4, %28
 
 108:                                              ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv285, 1
-  %109 = getelementptr inbounds nuw ptr, ptr %89, i64 %indvars.iv285
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %89, i64 %indvars.iv285
   %110 = load ptr, ptr %109, align 8
   %111 = load ptr, ptr %81, align 8
   %.not208 = icmp eq ptr %111, null
@@ -2237,11 +2233,11 @@ list_length.exit:                                 ; preds = %4, %28
   %144 = getelementptr inbounds i8, ptr %143, i64 %101
   %145 = load i8, ptr %144, align 1, !range !4, !noundef !5
   %146 = trunc nuw i8 %145 to i1
-  %147 = getelementptr inbounds i64, ptr %2, i64 %101
+  %147 = getelementptr inbounds [8 x i8], ptr %2, i64 %101
   br i1 %146, label %148, label %155
 
 148:                                              ; preds = %142
-  %149 = getelementptr inbounds ptr, ptr %19, i64 %101
+  %149 = getelementptr inbounds [8 x i8], ptr %19, i64 %101
   %150 = load ptr, ptr %149, align 8
   %151 = getelementptr inbounds i8, ptr %3, i64 %101
   %152 = getelementptr inbounds nuw i8, ptr %150, i64 32
@@ -2251,8 +2247,8 @@ list_length.exit:                                 ; preds = %4, %28
   br label %190
 
 155:                                              ; preds = %142
-  %156 = getelementptr inbounds %struct.FmgrInfo, ptr %13, i64 %101
-  %157 = getelementptr inbounds i32, ptr %15, i64 %101
+  %156 = getelementptr inbounds [48 x i8], ptr %13, i64 %101
+  %157 = getelementptr inbounds [4 x i8], ptr %15, i64 %101
   %158 = load i32, ptr %157, align 4
   %159 = getelementptr inbounds nuw i8, ptr %102, i64 76
   %160 = load i32, ptr %159, align 4
@@ -2395,7 +2391,7 @@ list_length.exit:                                 ; preds = %4, %28
 .lr.ph287:                                        ; preds = %.lr.ph250, %CopyReadBinaryAttribute.exit
   %indvars.iv263286 = phi i64 [ %indvars.iv.next264, %CopyReadBinaryAttribute.exit ], [ 0, %.lr.ph250 ]
   %228 = load ptr, ptr %221, align 8
-  %229 = getelementptr inbounds nuw %union.ListCell, ptr %228, i64 %indvars.iv263286
+  %229 = getelementptr inbounds nuw [8 x i8], ptr %228, i64 %indvars.iv263286
   %230 = load i32, ptr %229, align 8
   %231 = add i32 %230, -1
   %232 = load i32, ptr %23, align 8
@@ -2404,11 +2400,11 @@ list_length.exit:                                 ; preds = %4, %28
   %235 = getelementptr i8, ptr %23, i64 %234
   %236 = getelementptr i8, ptr %235, i64 24
   %237 = sext i32 %231 to i64
-  %238 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %236, i64 %237
+  %238 = getelementptr inbounds [100 x i8], ptr %236, i64 %237
   %239 = getelementptr inbounds nuw i8, ptr %238, i64 4
   store ptr %239, ptr %222, align 8
-  %240 = getelementptr inbounds %struct.FmgrInfo, ptr %13, i64 %237
-  %241 = getelementptr inbounds i32, ptr %15, i64 %237
+  %240 = getelementptr inbounds [48 x i8], ptr %13, i64 %237
+  %241 = getelementptr inbounds [4 x i8], ptr %15, i64 %237
   %242 = load i32, ptr %241, align 4
   %243 = getelementptr inbounds nuw i8, ptr %238, i64 76
   %244 = load i32, ptr %243, align 4
@@ -2488,7 +2484,7 @@ list_length.exit:                                 ; preds = %4, %28
 
 CopyReadBinaryAttribute.exit:                     ; preds = %255, %281
   %.0.i = phi i64 [ %256, %255 ], [ %274, %281 ]
-  %282 = getelementptr inbounds i64, ptr %2, i64 %237
+  %282 = getelementptr inbounds [8 x i8], ptr %2, i64 %237
   store i64 %.0.i, ptr %282, align 8
   store ptr null, ptr %222, align 8
   %indvars.iv.next264 = add nuw nsw i64 %indvars.iv263286, 1
@@ -2507,10 +2503,10 @@ CopyReadBinaryAttribute.exit:                     ; preds = %255, %281
 
 .lr.ph253:                                        ; preds = %.lr.ph253.preheader, %.lr.ph253
   %indvars.iv266 = phi i64 [ 0, %.lr.ph253.preheader ], [ %indvars.iv.next267, %.lr.ph253 ]
-  %287 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv266
+  %287 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %indvars.iv266
   %288 = load i32, ptr %287, align 4
   %289 = sext i32 %288 to i64
-  %290 = getelementptr inbounds ptr, ptr %19, i64 %289
+  %290 = getelementptr inbounds [8 x i8], ptr %19, i64 %289
   %291 = load ptr, ptr %290, align 8
   %292 = getelementptr inbounds i8, ptr %3, i64 %289
   %293 = getelementptr inbounds nuw i8, ptr %291, i64 32
@@ -2518,7 +2514,7 @@ CopyReadBinaryAttribute.exit:                     ; preds = %255, %281
   %295 = tail call i64 %294(ptr noundef %291, ptr noundef %1, ptr noundef %292) #15
   %296 = load i32, ptr %287, align 4
   %297 = sext i32 %296 to i64
-  %298 = getelementptr inbounds i64, ptr %2, i64 %297
+  %298 = getelementptr inbounds [8 x i8], ptr %2, i64 %297
   store i64 %295, ptr %298, align 8
   %indvars.iv.next267 = add nuw nsw i64 %indvars.iv266, 1
   %exitcond270.not = icmp eq i64 %indvars.iv.next267, %wide.trip.count269

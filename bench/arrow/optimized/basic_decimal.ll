@@ -8,10 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::array" = type { [2 x i64] }
 %"struct.std::array.2" = type { [4 x i64] }
 %"struct.std::array.3" = type { [32 x i8] }
-%"class.arrow::BasicDecimal32" = type { %"class.arrow::SmallBasicDecimal" }
-%"class.arrow::SmallBasicDecimal" = type { i32 }
-%"class.arrow::BasicDecimal64" = type { %"class.arrow::SmallBasicDecimal.6" }
-%"class.arrow::SmallBasicDecimal.6" = type { i64 }
 %"class.arrow::BasicDecimal128" = type { %"class.arrow::GenericBasicDecimal" }
 %"class.arrow::GenericBasicDecimal" = type { %"struct.std::array" }
 %"class.arrow::BasicDecimal256" = type { %"class.arrow::GenericBasicDecimal.1" }
@@ -660,7 +656,7 @@ define noundef nonnull align 4 dereferenceable(4) ptr @_ZN5arrow14BasicDecimal32
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZNK5arrow14BasicDecimal3219GetWholeAndFractionEiPS0_S1_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0, i32 noundef %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #4 align 2 {
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds %"class.arrow::BasicDecimal32", ptr @_ZN5arrowL21kDecimal32PowersOfTenE, i64 %5
+  %6 = getelementptr inbounds [4 x i8], ptr @_ZN5arrowL21kDecimal32PowersOfTenE, i64 %5
   %7 = load i32, ptr %6, align 4
   %8 = load i32, ptr %0, align 4, !tbaa !10
   %9 = sdiv i32 %8, %7
@@ -686,7 +682,7 @@ define noundef nonnull align 4 dereferenceable(4) ptr @_ZN5arrow14BasicDecimal32
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define i32 @_ZN5arrow14BasicDecimal3211GetMaxValueEi(i32 noundef %0) local_unnamed_addr #5 align 2 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds %"class.arrow::BasicDecimal32", ptr @_ZN5arrowL21kDecimal32PowersOfTenE, i64 %2
+  %3 = getelementptr inbounds [4 x i8], ptr @_ZN5arrowL21kDecimal32PowersOfTenE, i64 %2
   %.sroa.0.0.copyload = load i32, ptr %3, align 4
   ret i32 %.sroa.0.0.copyload
 }
@@ -694,7 +690,7 @@ define i32 @_ZN5arrow14BasicDecimal3211GetMaxValueEi(i32 noundef %0) local_unnam
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @_ZNK5arrow14BasicDecimal3215IncreaseScaleByEi(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
   %3 = sext i32 %1 to i64
-  %4 = getelementptr inbounds %"class.arrow::BasicDecimal32", ptr @_ZN5arrowL21kDecimal32PowersOfTenE, i64 %3
+  %4 = getelementptr inbounds [4 x i8], ptr @_ZN5arrowL21kDecimal32PowersOfTenE, i64 %3
   %5 = load i32, ptr %0, align 4
   %6 = load i32, ptr %4, align 4, !tbaa !10
   %7 = mul i32 %6, %5
@@ -720,7 +716,7 @@ define i32 @_ZNK5arrow14BasicDecimal3213ReduceScaleByEib(ptr noundef nonnull rea
 
 _ZNK5arrow14BasicDecimal326DivideERKS0_PS0_S3_.exit: ; preds = %3
   %7 = sext i32 %1 to i64
-  %8 = getelementptr inbounds %"class.arrow::BasicDecimal32", ptr @_ZN5arrowL21kDecimal32PowersOfTenE, i64 %7
+  %8 = getelementptr inbounds [4 x i8], ptr @_ZN5arrowL21kDecimal32PowersOfTenE, i64 %7
   %9 = load i32, ptr %8, align 4
   %10 = load i32, ptr %0, align 4, !tbaa !10
   %11 = sdiv i32 %10, %9
@@ -728,7 +724,7 @@ _ZNK5arrow14BasicDecimal326DivideERKS0_PS0_S3_.exit: ; preds = %3
   br i1 %2, label %_ZN5arrow14BasicDecimal323AbsEv.exit, label %20
 
 _ZN5arrow14BasicDecimal323AbsEv.exit:             ; preds = %_ZNK5arrow14BasicDecimal326DivideERKS0_PS0_S3_.exit
-  %13 = getelementptr inbounds %"class.arrow::BasicDecimal32", ptr @_ZN5arrowL25kDecimal32HalfPowersOfTenE, i64 %7
+  %13 = getelementptr inbounds [4 x i8], ptr @_ZN5arrowL25kDecimal32HalfPowersOfTenE, i64 %7
   %14 = load i32, ptr %13, align 4
   %spec.select = tail call i32 @llvm.abs.i32(i32 %12, i1 true)
   %15 = icmp slt i32 %spec.select, %14
@@ -756,14 +752,14 @@ define noundef zeroext i1 @_ZN5arrowgeERKNS_14BasicDecimal32ES2_(ptr noundef non
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef nonnull align 4 dereferenceable(4) ptr @_ZN5arrow14BasicDecimal3218GetScaleMultiplierEi(i32 noundef %0) local_unnamed_addr #5 align 2 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds %"class.arrow::BasicDecimal32", ptr @_ZN5arrowL21kDecimal32PowersOfTenE, i64 %2
+  %3 = getelementptr inbounds [4 x i8], ptr @_ZN5arrowL21kDecimal32PowersOfTenE, i64 %2
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef nonnull align 4 dereferenceable(4) ptr @_ZN5arrow14BasicDecimal3222GetHalfScaleMultiplierEi(i32 noundef %0) local_unnamed_addr #5 align 2 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds %"class.arrow::BasicDecimal32", ptr @_ZN5arrowL25kDecimal32HalfPowersOfTenE, i64 %2
+  %3 = getelementptr inbounds [4 x i8], ptr @_ZN5arrowL25kDecimal32HalfPowersOfTenE, i64 %2
   ret ptr %3
 }
 
@@ -846,7 +842,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN5arrow14BasicDecimal64
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZNK5arrow14BasicDecimal6419GetWholeAndFractionEiPS0_S1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, i32 noundef %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #4 align 2 {
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds %"class.arrow::BasicDecimal64", ptr @_ZN5arrowL21kDecimal64PowersOfTenE, i64 %5
+  %6 = getelementptr inbounds [8 x i8], ptr @_ZN5arrowL21kDecimal64PowersOfTenE, i64 %5
   %7 = load i64, ptr %6, align 8
   %8 = load i64, ptr %0, align 8, !tbaa !13
   %9 = sdiv i64 %8, %7
@@ -872,7 +868,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN5arrow14BasicDecimal64
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define i64 @_ZN5arrow14BasicDecimal6411GetMaxValueEi(i32 noundef %0) local_unnamed_addr #5 align 2 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds %"class.arrow::BasicDecimal64", ptr @_ZN5arrowL21kDecimal64PowersOfTenE, i64 %2
+  %3 = getelementptr inbounds [8 x i8], ptr @_ZN5arrowL21kDecimal64PowersOfTenE, i64 %2
   %.sroa.0.0.copyload = load i64, ptr %3, align 8
   ret i64 %.sroa.0.0.copyload
 }
@@ -880,7 +876,7 @@ define i64 @_ZN5arrow14BasicDecimal6411GetMaxValueEi(i32 noundef %0) local_unnam
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i64 @_ZNK5arrow14BasicDecimal6415IncreaseScaleByEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
   %3 = sext i32 %1 to i64
-  %4 = getelementptr inbounds %"class.arrow::BasicDecimal64", ptr @_ZN5arrowL21kDecimal64PowersOfTenE, i64 %3
+  %4 = getelementptr inbounds [8 x i8], ptr @_ZN5arrowL21kDecimal64PowersOfTenE, i64 %3
   %5 = load i64, ptr %0, align 8
   %6 = load i64, ptr %4, align 8, !tbaa !13
   %7 = mul i64 %6, %5
@@ -906,7 +902,7 @@ define i64 @_ZNK5arrow14BasicDecimal6413ReduceScaleByEib(ptr noundef nonnull rea
 
 _ZNK5arrow14BasicDecimal646DivideERKS0_PS0_S3_.exit: ; preds = %3
   %7 = sext i32 %1 to i64
-  %8 = getelementptr inbounds %"class.arrow::BasicDecimal64", ptr @_ZN5arrowL21kDecimal64PowersOfTenE, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr @_ZN5arrowL21kDecimal64PowersOfTenE, i64 %7
   %9 = load i64, ptr %8, align 8
   %10 = load i64, ptr %0, align 8, !tbaa !13
   %11 = sdiv i64 %10, %9
@@ -914,7 +910,7 @@ _ZNK5arrow14BasicDecimal646DivideERKS0_PS0_S3_.exit: ; preds = %3
   br i1 %2, label %_ZN5arrow14BasicDecimal643AbsEv.exit, label %20
 
 _ZN5arrow14BasicDecimal643AbsEv.exit:             ; preds = %_ZNK5arrow14BasicDecimal646DivideERKS0_PS0_S3_.exit
-  %13 = getelementptr inbounds %"class.arrow::BasicDecimal64", ptr @_ZN5arrowL25kDecimal64HalfPowersOfTenE, i64 %7
+  %13 = getelementptr inbounds [8 x i8], ptr @_ZN5arrowL25kDecimal64HalfPowersOfTenE, i64 %7
   %14 = load i64, ptr %13, align 8
   %spec.select = tail call i64 @llvm.abs.i64(i64 %12, i1 true)
   %15 = icmp slt i64 %spec.select, %14
@@ -942,14 +938,14 @@ define noundef zeroext i1 @_ZN5arrowgeERKNS_14BasicDecimal64ES2_(ptr noundef non
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef nonnull align 8 dereferenceable(8) ptr @_ZN5arrow14BasicDecimal6418GetScaleMultiplierEi(i32 noundef %0) local_unnamed_addr #5 align 2 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds %"class.arrow::BasicDecimal64", ptr @_ZN5arrowL21kDecimal64PowersOfTenE, i64 %2
+  %3 = getelementptr inbounds [8 x i8], ptr @_ZN5arrowL21kDecimal64PowersOfTenE, i64 %2
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef nonnull align 8 dereferenceable(8) ptr @_ZN5arrow14BasicDecimal6422GetHalfScaleMultiplierEi(i32 noundef %0) local_unnamed_addr #5 align 2 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds %"class.arrow::BasicDecimal64", ptr @_ZN5arrowL25kDecimal64HalfPowersOfTenE, i64 %2
+  %3 = getelementptr inbounds [8 x i8], ptr @_ZN5arrowL25kDecimal64HalfPowersOfTenE, i64 %2
   ret ptr %3
 }
 
@@ -962,7 +958,7 @@ define noundef zeroext i1 @_ZNK5arrow14BasicDecimal3215FitsInPrecisionEi(ptr nou
 5:                                                ; preds = %2
   %spec.select.i = tail call i32 @llvm.abs.i32(i32 %3, i1 true)
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds %"class.arrow::BasicDecimal32", ptr @_ZN5arrowL21kDecimal32PowersOfTenE, i64 %6
+  %7 = getelementptr inbounds [4 x i8], ptr @_ZN5arrowL21kDecimal32PowersOfTenE, i64 %6
   %8 = load i32, ptr %7, align 4, !tbaa !10
   %9 = icmp slt i32 %spec.select.i, %8
   br label %10
@@ -989,7 +985,7 @@ define noundef zeroext i1 @_ZNK5arrow14BasicDecimal6415FitsInPrecisionEi(ptr nou
 5:                                                ; preds = %2
   %spec.select.i = tail call i64 @llvm.abs.i64(i64 %3, i1 true)
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds %"class.arrow::BasicDecimal64", ptr @_ZN5arrowL21kDecimal64PowersOfTenE, i64 %6
+  %7 = getelementptr inbounds [8 x i8], ptr @_ZN5arrowL21kDecimal64PowersOfTenE, i64 %6
   %8 = load i64, ptr %7, align 8, !tbaa !13
   %9 = icmp slt i64 %spec.select.i, %8
   br label %10
@@ -1252,7 +1248,7 @@ _ZN5arrow15BasicDecimal1283AbsERKS0_.exit:        ; preds = %2, %_ZN5arrowltERKN
   %.sroa.6.0.i = phi i64 [ %.sroa.6.0.i.i.i, %_ZN5arrowltERKNS_15BasicDecimal128ES2_.exit.i.i ], [ %.sroa.6.0.copyload.i, %2 ]
   %.sroa.0.0.i = phi i64 [ %7, %_ZN5arrowltERKNS_15BasicDecimal128ES2_.exit.i.i ], [ %.sroa.0.0.copyload1.i, %2 ]
   %8 = sext i32 %1 to i64
-  %9 = getelementptr inbounds %"class.arrow::BasicDecimal128", ptr @_ZN5arrowL22kDecimal128PowersOfTenE, i64 %8
+  %9 = getelementptr inbounds [16 x i8], ptr @_ZN5arrowL22kDecimal128PowersOfTenE, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load i64, ptr %10, align 8, !tbaa !7
   %12 = icmp slt i64 %.sroa.6.0.i, %11
@@ -1553,7 +1549,7 @@ _ZN5arrowL11FillInArrayERKNS_15BasicDecimal128EPjRb.exit112.i: ; preds = %79, %7
   %91 = phi i1 [ false, %96 ], [ true, %88 ]
   %.02234.i.sroa.phi.i.i.i = phi ptr [ %.sroa.428.i.i, %96 ], [ %.sroa.027.i.i, %88 ]
   %.02433.i.i.i.i = phi i64 [ %97, %96 ], [ %.0.i.i, %88 ]
-  %92 = getelementptr inbounds nuw i32, ptr %5, i64 %.02433.i.i.i.i
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.02433.i.i.i.i
   %93 = load i32, ptr %92, align 4, !tbaa !15
   %94 = zext i32 %93 to i64
   %95 = icmp eq i64 %.02433.i.i.i.i, 0
@@ -1584,13 +1580,13 @@ _ZN5arrowL14BuildFromArrayEPNS_15BasicDecimal128EPKjl.exit.i.i: ; preds = %88
   %.02236.i.i = phi i64 [ 0, %86 ], [ %115, %105 ]
   %.02335.i.i = phi i64 [ 0, %86 ], [ %114, %105 ]
   %106 = shl nuw i64 %.02335.i.i, 32
-  %107 = getelementptr inbounds nuw i32, ptr %6, i64 %.02236.i.i
+  %107 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.02236.i.i
   %108 = load i32, ptr %107, align 4, !tbaa !15
   %109 = zext i32 %108 to i64
   %110 = or disjoint i64 %106, %109
   %111 = udiv i64 %110, %87
   %112 = trunc i64 %111 to i32
-  %113 = getelementptr inbounds nuw i32, ptr %5, i64 %.02236.i.i
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.02236.i.i
   store i32 %112, ptr %113, align 4, !tbaa !15
   %114 = urem i64 %110, %87
   %115 = add nuw nsw i64 %.02236.i.i, 1
@@ -1642,7 +1638,7 @@ _ZN5arrowL12SingleDivideINS_15BasicDecimal128EEENS_13DecimalStatusEPKjljPT_bbS6_
   br label %138
 
 _ZN5arrowL14ShiftArrayLeftEPjll.exit.thread.i:    ; preds = %138
-  %135 = getelementptr inbounds nuw i32, ptr %7, i64 %.pre42
+  %135 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.pre42
   %136 = load i32, ptr %135, align 4, !tbaa !15
   %137 = shl i32 %136, %133
   store i32 %137, ptr %135, align 4, !tbaa !15
@@ -1651,10 +1647,10 @@ _ZN5arrowL14ShiftArrayLeftEPjll.exit.thread.i:    ; preds = %138
 138:                                              ; preds = %138, %.lr.ph.i.i
   %139 = phi i32 [ %82, %.lr.ph.i.i ], [ %144, %138 ]
   %.019.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %142, %138 ]
-  %140 = getelementptr inbounds nuw i32, ptr %7, i64 %.019.i.i
+  %140 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.019.i.i
   %141 = shl i32 %139, %133
   %142 = add nuw nsw i64 %.019.i.i, 1
-  %143 = getelementptr inbounds nuw i32, ptr %7, i64 %142
+  %143 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %142
   %144 = load i32, ptr %143, align 4, !tbaa !15
   %145 = lshr i32 %144, %134
   %146 = or disjoint i32 %145, %141
@@ -1678,10 +1674,10 @@ _ZN5arrowL14ShiftArrayLeftEPjll.exit.thread.i:    ; preds = %138
 .lr.ph.i118.i:                                    ; preds = %_ZN5arrowL14ShiftArrayLeftEPjll.exit.thread.i, %.lr.ph.i118.i
   %149 = phi i32 [ %154, %.lr.ph.i118.i ], [ 0, %_ZN5arrowL14ShiftArrayLeftEPjll.exit.thread.i ]
   %.019.i120.i = phi i64 [ %152, %.lr.ph.i118.i ], [ 0, %_ZN5arrowL14ShiftArrayLeftEPjll.exit.thread.i ]
-  %150 = getelementptr inbounds nuw i32, ptr %6, i64 %.019.i120.i
+  %150 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.019.i120.i
   %151 = shl i32 %149, %133
   %152 = add nuw nsw i64 %.019.i120.i, 1
-  %153 = getelementptr inbounds nuw i32, ptr %6, i64 %152
+  %153 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %152
   %154 = load i32, ptr %153, align 4, !tbaa !15
   %155 = lshr i32 %154, %134
   %156 = or disjoint i32 %155, %151
@@ -1715,10 +1711,10 @@ _ZN5arrowL14ShiftArrayLeftEPjll.exit.thread.i:    ; preds = %138
 164:                                              ; preds = %164, %.lr.ph.i126.i
   %.0.in17.i.i = phi i64 [ %45, %.lr.ph.i126.i ], [ %.0.i127.i, %164 ]
   %.0.i127.i = add nsw i64 %.0.in17.i.i, -1
-  %165 = getelementptr inbounds nuw i32, ptr %6, i64 %.0.i127.i
+  %165 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.0.i127.i
   %166 = load i32, ptr %165, align 4, !tbaa !15
   %167 = lshr i32 %166, %133
-  %168 = getelementptr i32, ptr %6, i64 %.0.in17.i.i
+  %168 = getelementptr [4 x i8], ptr %6, i64 %.0.in17.i.i
   %169 = getelementptr i8, ptr %168, i64 -8
   %170 = load i32, ptr %169, align 4, !tbaa !15
   %171 = shl i32 %170, %161
@@ -1760,7 +1756,7 @@ _ZN5arrowL15ShiftArrayRightEPjll.exit.i:          ; preds = %._crit_edge.i125.i,
   %177 = phi i1 [ false, %182 ], [ true, %.lr.ph36.preheader.i.i.i ]
   %.02234.i.sroa.phi.i.i = phi ptr [ %.sroa.5.i, %182 ], [ %.sroa.0.i, %.lr.ph36.preheader.i.i.i ]
   %.02433.i.i.i = phi i64 [ %183, %182 ], [ %176, %.lr.ph36.preheader.i.i.i ]
-  %178 = getelementptr inbounds nuw i32, ptr %8, i64 %.02433.i.i.i
+  %178 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %.02433.i.i.i
   %179 = load i32, ptr %178, align 4, !tbaa !15
   %180 = zext i32 %179 to i64
   %181 = icmp eq i64 %.02433.i.i.i, 0
@@ -1789,10 +1785,10 @@ _ZN5arrowL14BuildFromArrayEPNS_15BasicDecimal128EPKjl.exit.i: ; preds = %_ZN5arr
 
 191:                                              ; preds = %._crit_edge.thread.i, %.lr.ph43.i
   %.08442.i = phi i64 [ 0, %.lr.ph43.i ], [ %194, %._crit_edge.thread.i ]
-  %192 = getelementptr inbounds nuw i32, ptr %6, i64 %.08442.i
+  %192 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.08442.i
   %193 = load i32, ptr %192, align 4, !tbaa !15
   %194 = add nuw nsw i64 %.08442.i, 1
-  %195 = getelementptr inbounds nuw i32, ptr %6, i64 %194
+  %195 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %194
   %196 = load i32, ptr %195, align 4, !tbaa !15
   %.not98.i = icmp eq i32 %193, %158
   br i1 %.not98.i, label %204, label %197
@@ -1850,12 +1846,12 @@ _ZN5arrowL14BuildFromArrayEPNS_15BasicDecimal128EPKjl.exit.i: ; preds = %_ZN5arr
 226:                                              ; preds = %226, %.lr.ph.i
   %.08535.i = phi i64 [ %.pre42, %.lr.ph.i ], [ %240, %226 ]
   %.08634.i = phi i64 [ 0, %.lr.ph.i ], [ %spec.select.i, %226 ]
-  %227 = getelementptr inbounds nuw i32, ptr %7, i64 %.08535.i
+  %227 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.08535.i
   %228 = load i32, ptr %227, align 4, !tbaa !15
   %229 = zext i32 %228 to i64
   %230 = mul nuw i64 %229, %222
   %231 = add nuw i64 %230, %.08634.i
-  %232 = getelementptr inbounds nuw i32, ptr %192, i64 %.08535.i
+  %232 = getelementptr inbounds nuw [4 x i8], ptr %192, i64 %.08535.i
   %233 = getelementptr inbounds nuw i8, ptr %232, i64 4
   %234 = load i32, ptr %233, align 4, !tbaa !15
   %235 = trunc i64 %231 to i32
@@ -1879,10 +1875,10 @@ _ZN5arrowL14BuildFromArrayEPNS_15BasicDecimal128EPKjl.exit.i: ; preds = %_ZN5arr
 .lr.ph39.i:                                       ; preds = %._crit_edge.i, %.lr.ph39.i
   %.08237.i = phi i64 [ %256, %.lr.ph39.i ], [ %.pre42, %._crit_edge.i ]
   %.08336.i = phi i64 [ %255, %.lr.ph39.i ], [ 0, %._crit_edge.i ]
-  %245 = getelementptr inbounds nuw i32, ptr %7, i64 %.08237.i
+  %245 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.08237.i
   %246 = load i32, ptr %245, align 4, !tbaa !15
   %247 = zext i32 %246 to i64
-  %248 = getelementptr inbounds nuw i32, ptr %192, i64 %.08237.i
+  %248 = getelementptr inbounds nuw [4 x i8], ptr %192, i64 %.08237.i
   %249 = getelementptr inbounds nuw i8, ptr %248, i64 4
   %250 = load i32, ptr %249, align 4, !tbaa !15
   %251 = zext i32 %250 to i64
@@ -1897,7 +1893,7 @@ _ZN5arrowL14BuildFromArrayEPNS_15BasicDecimal128EPKjl.exit.i: ; preds = %_ZN5arr
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge40.i, %._crit_edge.i, %221
   %.3.i = phi i32 [ %242, %._crit_edge40.i ], [ %.2.i, %._crit_edge.i ], [ %.2.i, %221 ]
-  %258 = getelementptr inbounds nuw i32, ptr %8, i64 %.08442.i
+  %258 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %.08442.i
   store i32 %.3.i, ptr %258, align 4, !tbaa !15
   %exitcond.not.i = icmp eq i64 %194, %132
   br i1 %exitcond.not.i, label %._crit_edge44.i, label %191, !llvm.loop !24
@@ -1925,7 +1921,7 @@ _ZN5arrowL14BuildFromArrayEPNS_15BasicDecimal128EPKjl.exit.i: ; preds = %_ZN5arr
   %262 = phi i1 [ false, %267 ], [ true, %.lr.ph36.i.i140.i.preheader ]
   %.02234.i.sroa.phi.i141.i = phi ptr [ %.sroa.410.i, %267 ], [ %.sroa.09.i, %.lr.ph36.i.i140.i.preheader ]
   %.02433.i.i142.i = phi i64 [ %268, %267 ], [ %.0.i.i, %.lr.ph36.i.i140.i.preheader ]
-  %263 = getelementptr inbounds nuw i32, ptr %6, i64 %.02433.i.i142.i
+  %263 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.02433.i.i142.i
   %264 = load i32, ptr %263, align 4, !tbaa !15
   %265 = zext i32 %264 to i64
   %266 = icmp eq i64 %.02433.i.i142.i, 0
@@ -2436,7 +2432,7 @@ define noundef range(i32 0, 4) i32 @_ZNK5arrow14BasicDecimal327RescaleEiiPS0_(pt
   %9 = sub nsw i32 %2, %1
   %10 = tail call i32 @llvm.abs.i32(i32 %9, i1 true)
   %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr inbounds nuw %"class.arrow::BasicDecimal32", ptr @_ZN5arrowL21kDecimal32PowersOfTenE, i64 %11
+  %12 = getelementptr inbounds nuw [4 x i8], ptr @_ZN5arrowL21kDecimal32PowersOfTenE, i64 %11
   %13 = load i32, ptr %12, align 4
   %14 = icmp slt i32 %9, 0
   %15 = load i32, ptr %0, align 4
@@ -2490,7 +2486,7 @@ define noundef range(i32 0, 4) i32 @_ZNK5arrow14BasicDecimal647RescaleEiiPS0_(pt
   %9 = sub nsw i32 %2, %1
   %10 = tail call i32 @llvm.abs.i32(i32 %9, i1 true)
   %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr inbounds nuw %"class.arrow::BasicDecimal64", ptr @_ZN5arrowL21kDecimal64PowersOfTenE, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5arrowL21kDecimal64PowersOfTenE, i64 %11
   %13 = load i64, ptr %12, align 8
   %14 = icmp slt i32 %9, 0
   %15 = load i64, ptr %0, align 8
@@ -2551,7 +2547,7 @@ define linkonce_odr noundef i32 @_ZN5arrow14DecimalRescaleINS_15BasicDecimal128E
   %10 = sub nsw i32 %2, %1
   %11 = tail call i32 @llvm.abs.i32(i32 %10, i1 true)
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr inbounds nuw %"class.arrow::BasicDecimal128", ptr @_ZN5arrowL22kDecimal128PowersOfTenE, i64 %12
+  %13 = getelementptr inbounds nuw [16 x i8], ptr @_ZN5arrowL22kDecimal128PowersOfTenE, i64 %12
   %.sroa.0.0.copyload = load i64, ptr %13, align 16
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 8
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
@@ -2662,7 +2658,7 @@ _ZN5arrowL25RescaleWouldCauseDataLossINS_15BasicDecimal128EEEbRKT_iS4_PS2_.exit.
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @_ZNK5arrow15BasicDecimal12819GetWholeAndFractionEiPS0_S1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #7 align 2 {
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds %"class.arrow::BasicDecimal128", ptr @_ZN5arrowL22kDecimal128PowersOfTenE, i64 %5
+  %6 = getelementptr inbounds [16 x i8], ptr @_ZN5arrowL22kDecimal128PowersOfTenE, i64 %5
   %7 = tail call noundef i32 @_ZNK5arrow15BasicDecimal1286DivideERKS0_PS0_S3_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef %2, ptr noundef %3)
   ret void
 }
@@ -2670,14 +2666,14 @@ define void @_ZNK5arrow15BasicDecimal12819GetWholeAndFractionEiPS0_S1_(ptr nound
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow15BasicDecimal12818GetScaleMultiplierEi(i32 noundef %0) local_unnamed_addr #5 align 2 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds %"class.arrow::BasicDecimal128", ptr @_ZN5arrowL22kDecimal128PowersOfTenE, i64 %2
+  %3 = getelementptr inbounds [16 x i8], ptr @_ZN5arrowL22kDecimal128PowersOfTenE, i64 %2
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow15BasicDecimal12822GetHalfScaleMultiplierEi(i32 noundef %0) local_unnamed_addr #5 align 2 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds %"class.arrow::BasicDecimal128", ptr @_ZN5arrowL26kDecimal128HalfPowersOfTenE, i64 %2
+  %3 = getelementptr inbounds [16 x i8], ptr @_ZN5arrowL26kDecimal128HalfPowersOfTenE, i64 %2
   ret ptr %3
 }
 
@@ -2689,7 +2685,7 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow15BasicDecimal1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define { i64, i64 } @_ZN5arrow15BasicDecimal12811GetMaxValueEi(i32 noundef %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds %"class.arrow::BasicDecimal128", ptr @_ZN5arrowL22kDecimal128PowersOfTenE, i64 %2
+  %3 = getelementptr inbounds [16 x i8], ptr @_ZN5arrowL22kDecimal128PowersOfTenE, i64 %2
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !7
   %6 = load i64, ptr %3, align 16, !tbaa !7
@@ -2702,7 +2698,7 @@ define { i64, i64 } @_ZN5arrow15BasicDecimal12811GetMaxValueEi(i32 noundef %0) l
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define { i64, i64 } @_ZNK5arrow15BasicDecimal12815IncreaseScaleByEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %3 = sext i32 %1 to i64
-  %4 = getelementptr inbounds %"class.arrow::BasicDecimal128", ptr @_ZN5arrowL22kDecimal128PowersOfTenE, i64 %3
+  %4 = getelementptr inbounds [16 x i8], ptr @_ZN5arrowL22kDecimal128PowersOfTenE, i64 %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !7
   %7 = load i64, ptr %0, align 8, !tbaa !7
@@ -2768,7 +2764,7 @@ define { i64, i64 } @_ZNK5arrow15BasicDecimal12813ReduceScaleByEib(ptr noundef n
 
 8:                                                ; preds = %3
   %9 = sext i32 %1 to i64
-  %10 = getelementptr inbounds %"class.arrow::BasicDecimal128", ptr @_ZN5arrowL22kDecimal128PowersOfTenE, i64 %9
+  %10 = getelementptr inbounds [16 x i8], ptr @_ZN5arrowL22kDecimal128PowersOfTenE, i64 %9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
@@ -2776,7 +2772,7 @@ define { i64, i64 } @_ZNK5arrow15BasicDecimal12813ReduceScaleByEib(ptr noundef n
   br i1 %2, label %12, label %_ZN5arrowgeERKNS_15BasicDecimal128ES2_.exit.thread7
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds %"class.arrow::BasicDecimal128", ptr @_ZN5arrowL26kDecimal128HalfPowersOfTenE, i64 %9
+  %13 = getelementptr inbounds [16 x i8], ptr @_ZN5arrowL26kDecimal128HalfPowersOfTenE, i64 %9
   %.sroa.05.0.copyload = load i64, ptr %13, align 16
   %.sroa.46.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 8
   %.sroa.46.0.copyload = load i64, ptr %.sroa.46.0..sroa_idx, align 8
@@ -2871,7 +2867,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal2
 3:                                                ; preds = %1, %3
   %.010 = phi i64 [ 1, %1 ], [ %9, %3 ]
   %.089 = phi i64 [ 0, %1 ], [ %10, %3 ]
-  %4 = getelementptr inbounds nuw i64, ptr %0, i64 %.089
+  %4 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.089
   %5 = load i64, ptr %4, align 8, !tbaa !7
   %6 = xor i64 %5, -1
   %7 = add i64 %.010, %6
@@ -2893,7 +2889,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal2
 .preheader:                                       ; preds = %1, %.preheader
   %.010.i = phi i64 [ %10, %.preheader ], [ 1, %1 ]
   %.089.i = phi i64 [ %11, %.preheader ], [ 0, %1 ]
-  %5 = getelementptr inbounds nuw i64, ptr %0, i64 %.089.i
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.089.i
   %6 = load i64, ptr %5, align 8, !tbaa !7
   %7 = xor i64 %6, -1
   %8 = add i64 %.010.i, %7
@@ -2969,7 +2965,7 @@ define void @_ZN5arrow15BasicDecimal2563AbsERKS0_(ptr dead_on_unwind noalias wri
 .preheader.i:                                     ; preds = %2, %.preheader.i
   %.010.i.i = phi i64 [ %12, %.preheader.i ], [ 1, %2 ]
   %.089.i.i = phi i64 [ %13, %.preheader.i ], [ 0, %2 ]
-  %7 = getelementptr inbounds nuw i64, ptr %3, i64 %.089.i.i
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.089.i.i
   %8 = load i64, ptr %7, align 8, !tbaa !7
   %9 = xor i64 %8, -1
   %10 = add i64 %.010.i.i, %9
@@ -2996,12 +2992,12 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal2
 4:                                                ; preds = %2, %4
   %.021 = phi i64 [ 0, %2 ], [ %.2, %4 ]
   %.01620 = phi i64 [ 0, %2 ], [ %14, %4 ]
-  %5 = getelementptr inbounds nuw i64, ptr %1, i64 %.01620
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.01620
   %6 = load i64, ptr %5, align 8, !tbaa !7
   %7 = add i64 %6, %.021
   %8 = icmp ult i64 %7, %6
   %spec.select = zext i1 %8 to i64
-  %9 = getelementptr inbounds nuw i64, ptr %0, i64 %.01620
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.01620
   %10 = load i64, ptr %9, align 8, !tbaa !7
   %11 = add i64 %7, %10
   %12 = icmp ult i64 %11, %10
@@ -3022,7 +3018,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal2
 4:                                                ; preds = %4, %2
   %.010.i.i = phi i64 [ 1, %2 ], [ %10, %4 ]
   %.089.i.i = phi i64 [ 0, %2 ], [ %11, %4 ]
-  %5 = getelementptr inbounds nuw i64, ptr %3, i64 %.089.i.i
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.089.i.i
   %6 = load i64, ptr %5, align 8
   %7 = xor i64 %6, -1
   %8 = add i64 %.010.i.i, %7
@@ -3036,12 +3032,12 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal2
 _ZN5arrowngERKNS_15BasicDecimal256E.exit:         ; preds = %4, %_ZN5arrowngERKNS_15BasicDecimal256E.exit
   %.021.i = phi i64 [ %.2.i, %_ZN5arrowngERKNS_15BasicDecimal256E.exit ], [ 0, %4 ]
   %.01620.i = phi i64 [ %21, %_ZN5arrowngERKNS_15BasicDecimal256E.exit ], [ 0, %4 ]
-  %12 = getelementptr inbounds nuw i64, ptr %3, i64 %.01620.i
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.01620.i
   %13 = load i64, ptr %12, align 8
   %14 = add i64 %13, %.021.i
   %15 = icmp ult i64 %14, %13
   %spec.select.i = zext i1 %15 to i64
-  %16 = getelementptr inbounds nuw i64, ptr %0, i64 %.01620.i
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.01620.i
   %17 = load i64, ptr %16, align 8, !tbaa !7
   %18 = add i64 %14, %17
   %19 = icmp ult i64 %18, %17
@@ -3066,7 +3062,7 @@ define void @_ZN5arrowngERKNS_15BasicDecimal256E(ptr dead_on_unwind noalias writ
 4:                                                ; preds = %4, %2
   %.010.i = phi i64 [ 1, %2 ], [ %10, %4 ]
   %.089.i = phi i64 [ 0, %2 ], [ %11, %4 ]
-  %5 = getelementptr inbounds nuw i64, ptr %3, i64 %.089.i
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.089.i
   %6 = load i64, ptr %5, align 8, !tbaa !7
   %7 = xor i64 %6, -1
   %8 = add i64 %.010.i, %7
@@ -3105,9 +3101,9 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal2
   %.neg = xor i32 %5, -1
   %11 = zext nneg i32 %5 to i64
   %12 = sext i32 %.neg to i64
-  %invariant.gep = getelementptr i64, ptr %0, i64 %12
+  %invariant.gep = getelementptr [8 x i8], ptr %0, i64 %12
   %13 = sub nuw nsw i64 3, %11
-  %14 = getelementptr inbounds nuw i64, ptr %0, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %13
   %15 = load i64, ptr %14, align 8, !tbaa !7
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = shl i64 %15, %8
@@ -3122,9 +3118,9 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal2
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %.lr.ph.split.us
   %indvars.iv44 = phi i64 [ 3, %.lr.ph.split.us.preheader ], [ %indvars.iv.next45, %.lr.ph.split.us ]
   %19 = sub nsw i64 %indvars.iv44, %18
-  %20 = getelementptr inbounds nuw i64, ptr %0, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %19
   %21 = load i64, ptr %20, align 8, !tbaa !7
-  %22 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv44
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv44
   store i64 %21, ptr %22, align 8, !tbaa !7
   %indvars.iv.next45 = add nsw i64 %indvars.iv44, -1
   %.not.us.not = icmp samesign ugt i64 %indvars.iv44, %18
@@ -3144,16 +3140,16 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal2
   %26 = phi i64 [ %35, %.lr.ph.split ], [ %17, %.lr.ph.split.preheader ]
   %27 = phi ptr [ %34, %.lr.ph.split ], [ %16, %.lr.ph.split.preheader ]
   %indvars.iv53 = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 3, %.lr.ph.split.preheader ]
-  %gep = getelementptr i64, ptr %invariant.gep, i64 %indvars.iv53
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %indvars.iv53
   %28 = load i64, ptr %gep, align 8, !tbaa !7
   %29 = lshr i64 %28, %10
   %30 = or i64 %29, %26
   store i64 %30, ptr %27, align 8, !tbaa !7
   %indvars.iv.next = add nsw i64 %indvars.iv53, -1
   %31 = sub nsw i64 %indvars.iv.next, %11
-  %32 = getelementptr inbounds nuw i64, ptr %0, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %31
   %33 = load i64, ptr %32, align 8, !tbaa !7
-  %34 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv.next
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.next
   %35 = shl i64 %33, %8
   store i64 %35, ptr %34, align 8, !tbaa !7
   %.not31.not = icmp samesign ugt i64 %indvars.iv.next, %11
@@ -3238,11 +3234,11 @@ _ZNSt5arrayImLm4EE4fillERKm.exit29._crit_edge:    ; preds = %_ZNSt5arrayImLm4EE4
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %_ZNSt5arrayImLm4EE4fillERKm.exit29
   %indvars.iv = phi i64 [ %18, %.lr.ph.split.preheader ], [ %indvars.iv.next, %_ZNSt5arrayImLm4EE4fillERKm.exit29 ]
-  %26 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %27 = load i64, ptr %26, align 8, !tbaa !7
   %28 = lshr i64 %27, %14
   %29 = sub nuw nsw i64 %indvars.iv, %19
-  %30 = getelementptr inbounds nuw i64, ptr %3, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %29
   %.not23 = icmp eq i64 %indvars.iv, 3
   br i1 %.not23, label %_ZNSt5arrayImLm4EE4fillERKm.exit29, label %31
 
@@ -3284,7 +3280,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal2
 .preheader.i.i:                                   ; preds = %2, %.preheader.i.i
   %.010.i.i.i = phi i64 [ %19, %.preheader.i.i ], [ 1, %2 ]
   %.089.i.i.i = phi i64 [ %20, %.preheader.i.i ], [ 0, %2 ]
-  %14 = getelementptr inbounds nuw i64, ptr %4, i64 %.089.i.i.i
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.089.i.i.i
   %15 = load i64, ptr %14, align 8
   %16 = xor i64 %15, -1
   %17 = add i64 %.010.i.i.i, %16
@@ -3305,7 +3301,7 @@ _ZN5arrow15BasicDecimal2563AbsERKS0_.exit:        ; preds = %.preheader.i.i, %2
 .preheader.i.i3:                                  ; preds = %_ZN5arrow15BasicDecimal2563AbsERKS0_.exit, %.preheader.i.i3
   %.010.i.i.i4 = phi i64 [ %29, %.preheader.i.i3 ], [ 1, %_ZN5arrow15BasicDecimal2563AbsERKS0_.exit ]
   %.089.i.i.i5 = phi i64 [ %30, %.preheader.i.i3 ], [ 0, %_ZN5arrow15BasicDecimal2563AbsERKS0_.exit ]
-  %24 = getelementptr inbounds nuw i64, ptr %3, i64 %.089.i.i.i5
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.089.i.i.i5
   %25 = load i64, ptr %24, align 8
   %26 = xor i64 %25, -1
   %27 = add i64 %.010.i.i.i4, %26
@@ -3324,8 +3320,8 @@ _ZN5arrow15BasicDecimal2563AbsERKS0_.exit7:       ; preds = %.preheader.i.i3, %_
 .lr.ph.i:                                         ; preds = %._crit_edge.i, %_ZN5arrow15BasicDecimal2563AbsERKS0_.exit7
   %indvars.iv39.i = phi i64 [ 0, %_ZN5arrow15BasicDecimal2563AbsERKS0_.exit7 ], [ %indvars.iv.next40.i, %._crit_edge.i ]
   %indvars.iv37.i = phi i64 [ 4, %_ZN5arrow15BasicDecimal2563AbsERKS0_.exit7 ], [ %indvars.iv.next38.i, %._crit_edge.i ]
-  %31 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv39.i
-  %invariant.gep.i = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv39.i
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv39.i
+  %invariant.gep.i = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv39.i
   %32 = load i64, ptr %31, align 8
   %33 = zext i64 %32 to i128
   br label %34
@@ -3339,11 +3335,11 @@ _ZN5arrow15BasicDecimal2563AbsERKS0_.exit7:       ; preds = %.preheader.i.i3, %_
 34:                                               ; preds = %34, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %34 ]
   %.01431.i = phi i64 [ 0, %.lr.ph.i ], [ %46, %34 ]
-  %35 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv.i
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i
   %36 = load i64, ptr %35, align 8
   %37 = zext i64 %36 to i128
   %38 = mul nuw i128 %33, %37
-  %gep.i = getelementptr inbounds nuw i64, ptr %invariant.gep.i, i64 %indvars.iv.i
+  %gep.i = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep.i, i64 %indvars.iv.i
   %39 = load i64, ptr %gep.i, align 8, !tbaa !7
   %40 = zext i64 %39 to i128
   %41 = zext i64 %.01431.i to i128
@@ -3364,7 +3360,7 @@ _ZN5arrow12_GLOBAL__N_121MultiplyUnsignedArrayILi4EEEvRKSt5arrayImXT_EES5_PS3_.e
 .preheader:                                       ; preds = %_ZN5arrow12_GLOBAL__N_121MultiplyUnsignedArrayILi4EEEvRKSt5arrayImXT_EES5_PS3_.exit, %.preheader
   %.010.i = phi i64 [ %52, %.preheader ], [ 1, %_ZN5arrow12_GLOBAL__N_121MultiplyUnsignedArrayILi4EEEvRKSt5arrayImXT_EES5_PS3_.exit ]
   %.089.i = phi i64 [ %53, %.preheader ], [ 0, %_ZN5arrow12_GLOBAL__N_121MultiplyUnsignedArrayILi4EEEvRKSt5arrayImXT_EES5_PS3_.exit ]
-  %47 = getelementptr inbounds nuw i64, ptr %0, i64 %.089.i
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.089.i
   %48 = load i64, ptr %47, align 8, !tbaa !7
   %49 = xor i64 %48, -1
   %50 = add i64 %.010.i, %49
@@ -3405,7 +3401,7 @@ define noundef range(i32 0, 3) i32 @_ZNK5arrow15BasicDecimal2566DivideERKS0_PS0_
 .preheader.i.i:                                   ; preds = %4, %.preheader.i.i
   %.010.i.i.i = phi i64 [ %23, %.preheader.i.i ], [ 1, %4 ]
   %.089.i.i.i = phi i64 [ %24, %.preheader.i.i ], [ 0, %4 ]
-  %18 = getelementptr inbounds nuw i64, ptr %10, i64 %.089.i.i.i
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.089.i.i.i
   %19 = load i64, ptr %18, align 8, !tbaa !7
   %20 = xor i64 %19, -1
   %21 = add i64 %.010.i.i.i, %20
@@ -3421,7 +3417,7 @@ _ZN5arrow15BasicDecimal2566NegateEv.exit.i.i.preheader: ; preds = %.preheader.i.
 
 _ZN5arrow15BasicDecimal2566NegateEv.exit.i.i:     ; preds = %_ZN5arrow15BasicDecimal2566NegateEv.exit.i.i.preheader, %31
   %.01827.i.i.i = phi i64 [ %32, %31 ], [ 3, %_ZN5arrow15BasicDecimal2566NegateEv.exit.i.i.preheader ]
-  %25 = getelementptr inbounds nuw i64, ptr %10, i64 %.01827.i.i.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.01827.i.i.i
   %26 = load i64, ptr %25, align 8, !tbaa !7
   %.not.i.i.i = icmp eq i64 %26, 0
   br i1 %.not.i.i.i, label %31, label %27
@@ -3450,11 +3446,11 @@ _ZN5arrow15BasicDecimal2566NegateEv.exit.i.i:     ; preds = %_ZN5arrow15BasicDec
 .lr.ph.i.i.i:                                     ; preds = %.loopexit.i.i.i, %.lr.ph.i.i.i
   %.029.i.i.i = phi i64 [ %42, %.lr.ph.i.i.i ], [ %.1.i.i.i, %.loopexit.i.i.i ]
   %.12028.i.i.i = phi i64 [ %40, %.lr.ph.i.i.i ], [ %.019.i.i.i, %.loopexit.i.i.i ]
-  %34 = getelementptr inbounds nuw i64, ptr %10, i64 %.029.i.i.i
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.029.i.i.i
   %35 = load i64, ptr %34, align 8, !tbaa !7
   %36 = lshr i64 %35, 32
   %37 = trunc nuw i64 %36 to i32
-  %38 = getelementptr inbounds nuw i32, ptr %14, i64 %.12028.i.i.i
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %.12028.i.i.i
   store i32 %37, ptr %38, align 4, !tbaa !15
   %39 = trunc i64 %35 to i32
   %40 = add nuw nsw i64 %.12028.i.i.i, 2
@@ -3478,7 +3474,7 @@ _ZN5arrowL11FillInArrayERKNS_15BasicDecimal256EPjRb.exit.i: ; preds = %31, %.lr.
 .preheader.i111.i:                                ; preds = %_ZN5arrowL11FillInArrayERKNS_15BasicDecimal256EPjRb.exit.i, %.preheader.i111.i
   %.010.i.i112.i = phi i64 [ %52, %.preheader.i111.i ], [ 1, %_ZN5arrowL11FillInArrayERKNS_15BasicDecimal256EPjRb.exit.i ]
   %.089.i.i113.i = phi i64 [ %53, %.preheader.i111.i ], [ 0, %_ZN5arrowL11FillInArrayERKNS_15BasicDecimal256EPjRb.exit.i ]
-  %47 = getelementptr inbounds nuw i64, ptr %9, i64 %.089.i.i113.i
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.089.i.i113.i
   %48 = load i64, ptr %47, align 8, !tbaa !7
   %49 = xor i64 %48, -1
   %50 = add i64 %.010.i.i112.i, %49
@@ -3494,7 +3490,7 @@ _ZN5arrow15BasicDecimal2566NegateEv.exit.i115.i.preheader: ; preds = %.preheader
 
 _ZN5arrow15BasicDecimal2566NegateEv.exit.i115.i:  ; preds = %_ZN5arrow15BasicDecimal2566NegateEv.exit.i115.i.preheader, %60
   %.01827.i.i99.i = phi i64 [ %61, %60 ], [ 3, %_ZN5arrow15BasicDecimal2566NegateEv.exit.i115.i.preheader ]
-  %54 = getelementptr inbounds nuw i64, ptr %9, i64 %.01827.i.i99.i
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.01827.i.i99.i
   %55 = load i64, ptr %54, align 8, !tbaa !7
   %.not.i.i100.i = icmp eq i64 %55, 0
   br i1 %.not.i.i100.i, label %60, label %56
@@ -3523,11 +3519,11 @@ _ZN5arrow15BasicDecimal2566NegateEv.exit.i115.i:  ; preds = %_ZN5arrow15BasicDec
 .lr.ph.i.i106.i:                                  ; preds = %.loopexit.i.i102.i, %.lr.ph.i.i106.i
   %.029.i.i107.i = phi i64 [ %71, %.lr.ph.i.i106.i ], [ %.1.i.i104.i, %.loopexit.i.i102.i ]
   %.12028.i.i108.i = phi i64 [ %69, %.lr.ph.i.i106.i ], [ %.019.i.i103.i, %.loopexit.i.i102.i ]
-  %63 = getelementptr inbounds nuw i64, ptr %9, i64 %.029.i.i107.i
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.029.i.i107.i
   %64 = load i64, ptr %63, align 8, !tbaa !7
   %65 = lshr i64 %64, 32
   %66 = trunc nuw i64 %65 to i32
-  %67 = getelementptr inbounds nuw i32, ptr %12, i64 %.12028.i.i108.i
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %.12028.i.i108.i
   store i32 %66, ptr %67, align 4, !tbaa !15
   %68 = trunc i64 %64 to i32
   %69 = add nuw nsw i64 %.12028.i.i108.i, 2
@@ -3576,7 +3572,7 @@ _ZN5arrowL11FillInArrayERKNS_15BasicDecimal256EPjRb.exit116.i: ; preds = %60, %.
 
 .lr.ph.i.i.i.i:                                   ; preds = %._crit_edge.i.i, %78
   %.02732.i.i.i.i = phi i64 [ %79, %78 ], [ %76, %._crit_edge.i.i ]
-  %81 = getelementptr inbounds nuw i32, ptr %8, i64 %.02732.i.i.i.i
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %.02732.i.i.i.i
   %82 = load i32, ptr %81, align 4, !tbaa !15
   %.not.i.i.i.i = icmp eq i32 %82, 0
   br i1 %.not.i.i.i.i, label %78, label %_ZN5arrowL14BuildFromArrayEPNS_15BasicDecimal256EPKjl.exit.i.i
@@ -3596,14 +3592,14 @@ _ZN5arrowL11FillInArrayERKNS_15BasicDecimal256EPjRb.exit116.i: ; preds = %60, %.
 .lr.ph36.i.i.i.i:                                 ; preds = %.lr.ph36.i.i.i.i.preheader, %92
   %.02234.i.i.i.i = phi i64 [ %100, %92 ], [ 0, %.lr.ph36.i.i.i.i.preheader ]
   %.02433.i.i.i.i = phi i64 [ %93, %92 ], [ %.120.lcssa.i.i.i, %.lr.ph36.i.i.i.i.preheader ]
-  %86 = getelementptr inbounds nuw i32, ptr %8, i64 %.02433.i.i.i.i
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %.02433.i.i.i.i
   %87 = load i32, ptr %86, align 4, !tbaa !15
   %88 = zext i32 %87 to i64
   %89 = icmp eq i64 %.02433.i.i.i.i, 0
   br i1 %89, label %.thread.i.i.i.i, label %92
 
 .thread.i.i.i.i:                                  ; preds = %.lr.ph36.i.i.i.i
-  %90 = getelementptr inbounds nuw i64, ptr %7, i64 %.02234.i.i.i.i
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.02234.i.i.i.i
   store i64 %88, ptr %90, align 8
   %91 = add nuw nsw i64 %.02234.i.i.i.i, 1
   br label %.preheader.i.i.i.i
@@ -3615,7 +3611,7 @@ _ZN5arrowL11FillInArrayERKNS_15BasicDecimal256EPjRb.exit116.i: ; preds = %60, %.
   %96 = zext i32 %95 to i64
   %97 = shl nuw i64 %96, 32
   %98 = or disjoint i64 %97, %88
-  %99 = getelementptr inbounds nuw i64, ptr %7, i64 %.02234.i.i.i.i
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.02234.i.i.i.i
   store i64 %98, ptr %99, align 8
   %100 = add nuw nsw i64 %.02234.i.i.i.i, 1
   %101 = icmp samesign ult i64 %.02234.i.i.i.i, 3
@@ -3631,13 +3627,13 @@ _ZN5arrowL14BuildFromArrayEPNS_15BasicDecimal256EPKjl.exit.i.i: ; preds = %.lr.p
   %.02232.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %114, %104 ]
   %.02331.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %113, %104 ]
   %105 = shl nuw i64 %.02331.i.i, 32
-  %106 = getelementptr inbounds nuw i32, ptr %11, i64 %.02232.i.i
+  %106 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %.02232.i.i
   %107 = load i32, ptr %106, align 4, !tbaa !15
   %108 = zext i32 %107 to i64
   %109 = or disjoint i64 %105, %108
   %110 = udiv i64 %109, %75
   %111 = trunc i64 %110 to i32
-  %112 = getelementptr inbounds nuw i32, ptr %8, i64 %.02232.i.i
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %.02232.i.i
   store i32 %111, ptr %112, align 4, !tbaa !15
   %113 = urem i64 %109, %75
   %114 = add nuw nsw i64 %.02232.i.i, 1
@@ -3656,7 +3652,7 @@ _ZN5arrowL14BuildFromArrayEPNS_15BasicDecimal256EPKjl.exit.i.i: ; preds = %.lr.p
 .preheader8.i.i.i:                                ; preds = %115, %.preheader8.i.i.i
   %.010.i.i.i.i = phi i64 [ %122, %.preheader8.i.i.i ], [ 1, %115 ]
   %.089.i.i.i.i = phi i64 [ %123, %.preheader8.i.i.i ], [ 0, %115 ]
-  %117 = getelementptr inbounds nuw i64, ptr %2, i64 %.089.i.i.i.i
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.089.i.i.i.i
   %118 = load i64, ptr %117, align 8, !tbaa !7
   %119 = xor i64 %118, -1
   %120 = add i64 %.010.i.i.i.i, %119
@@ -3673,7 +3669,7 @@ _ZN5arrow15BasicDecimal2566NegateEv.exit.i.i.i:   ; preds = %.preheader8.i.i.i, 
 .preheader.i.i.i:                                 ; preds = %_ZN5arrow15BasicDecimal2566NegateEv.exit.i.i.i, %.preheader.i.i.i
   %.010.i4.i.i.i = phi i64 [ %129, %.preheader.i.i.i ], [ 1, %_ZN5arrow15BasicDecimal2566NegateEv.exit.i.i.i ]
   %.089.i5.i.i.i = phi i64 [ %130, %.preheader.i.i.i ], [ 0, %_ZN5arrow15BasicDecimal2566NegateEv.exit.i.i.i ]
-  %124 = getelementptr inbounds nuw i64, ptr %3, i64 %.089.i5.i.i.i
+  %124 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.089.i5.i.i.i
   %125 = load i64, ptr %124, align 8, !tbaa !7
   %126 = xor i64 %125, -1
   %127 = add i64 %.010.i4.i.i.i, %126
@@ -3705,7 +3701,7 @@ _ZN5arrowL12SingleDivideINS_15BasicDecimal256EEENS_13DecimalStatusEPKjljPT_bbS6_
   br label %142
 
 _ZN5arrowL14ShiftArrayLeftEPjll.exit.thread.i:    ; preds = %142
-  %139 = getelementptr inbounds nuw i32, ptr %12, i64 %137
+  %139 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %137
   %140 = load i32, ptr %139, align 4, !tbaa !15
   %141 = shl i32 %140, %134
   store i32 %141, ptr %139, align 4, !tbaa !15
@@ -3714,10 +3710,10 @@ _ZN5arrowL14ShiftArrayLeftEPjll.exit.thread.i:    ; preds = %142
 142:                                              ; preds = %142, %.lr.ph.i119.i
   %143 = phi i32 [ %133, %.lr.ph.i119.i ], [ %148, %142 ]
   %.019.i.i = phi i64 [ 0, %.lr.ph.i119.i ], [ %146, %142 ]
-  %144 = getelementptr inbounds nuw i32, ptr %12, i64 %.019.i.i
+  %144 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %.019.i.i
   %145 = shl i32 %143, %134
   %146 = add nuw nsw i64 %.019.i.i, 1
-  %147 = getelementptr inbounds nuw i32, ptr %12, i64 %146
+  %147 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %146
   %148 = load i32, ptr %147, align 4, !tbaa !15
   %149 = lshr i32 %148, %138
   %150 = or disjoint i32 %149, %145
@@ -3737,7 +3733,7 @@ _ZN5arrowL14ShiftArrayLeftEPjll.exit.i:           ; preds = %131
   br label %156
 
 ._crit_edge.i123.i:                               ; preds = %156, %.preheader.i122.i
-  %153 = getelementptr inbounds nuw i32, ptr %11, i64 %.120.lcssa.i.i.i
+  %153 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %.120.lcssa.i.i.i
   %154 = load i32, ptr %153, align 4, !tbaa !15
   %155 = shl i32 %154, %134
   store i32 %155, ptr %153, align 4, !tbaa !15
@@ -3746,10 +3742,10 @@ _ZN5arrowL14ShiftArrayLeftEPjll.exit.i:           ; preds = %131
 156:                                              ; preds = %156, %.lr.ph.i124.i
   %157 = phi i32 [ 0, %.lr.ph.i124.i ], [ %162, %156 ]
   %.019.i126.i = phi i64 [ 0, %.lr.ph.i124.i ], [ %160, %156 ]
-  %158 = getelementptr inbounds nuw i32, ptr %11, i64 %.019.i126.i
+  %158 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %.019.i126.i
   %159 = shl i32 %157, %134
   %160 = add nuw nsw i64 %.019.i126.i, 1
-  %161 = getelementptr inbounds nuw i32, ptr %11, i64 %160
+  %161 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %160
   %162 = load i32, ptr %161, align 4, !tbaa !15
   %163 = lshr i32 %162, %152
   %164 = or disjoint i32 %163, %159
@@ -3790,10 +3786,10 @@ _ZN5arrowL14ShiftArrayLeftEPjll.exit128.i:        ; preds = %._crit_edge.i123.i,
 176:                                              ; preds = %176, %.lr.ph.i132.i
   %.0.in17.i.i = phi i64 [ %43, %.lr.ph.i132.i ], [ %.0.i133.i, %176 ]
   %.0.i133.i = add nsw i64 %.0.in17.i.i, -1
-  %177 = getelementptr inbounds nuw i32, ptr %11, i64 %.0.i133.i
+  %177 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %.0.i133.i
   %178 = load i32, ptr %177, align 4, !tbaa !15
   %179 = lshr i32 %178, %134
-  %180 = getelementptr i32, ptr %11, i64 %.0.in17.i.i
+  %180 = getelementptr [4 x i8], ptr %11, i64 %.0.in17.i.i
   %181 = getelementptr i8, ptr %180, i64 -8
   %182 = load i32, ptr %181, align 4, !tbaa !15
   %183 = shl i32 %182, %173
@@ -3815,7 +3811,7 @@ _ZN5arrowL15ShiftArrayRightEPjll.exit.i:          ; preds = %._crit_edge.i131.i,
 
 .lr.ph.i.i136.i:                                  ; preds = %_ZN5arrowL15ShiftArrayRightEPjll.exit.i, %188
   %.02732.i.i.i = phi i64 [ %189, %188 ], [ %186, %_ZN5arrowL15ShiftArrayRightEPjll.exit.i ]
-  %191 = getelementptr inbounds nuw i32, ptr %13, i64 %.02732.i.i.i
+  %191 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %.02732.i.i.i
   %192 = load i32, ptr %191, align 4, !tbaa !15
   %.not.i.i137.i = icmp eq i32 %192, 0
   br i1 %.not.i.i137.i, label %188, label %_ZN5arrowL14BuildFromArrayEPNS_15BasicDecimal256EPKjl.exit.i
@@ -3839,14 +3835,14 @@ _ZN5arrowL15ShiftArrayRightEPjll.exit.i:          ; preds = %._crit_edge.i131.i,
 .lr.ph36.i.i.i:                                   ; preds = %203, %.lr.ph36.preheader.i.i.i
   %.02234.i.i.i = phi i64 [ %211, %203 ], [ 0, %.lr.ph36.preheader.i.i.i ]
   %.02433.i.i.i = phi i64 [ %204, %203 ], [ %193, %.lr.ph36.preheader.i.i.i ]
-  %197 = getelementptr inbounds nuw i32, ptr %13, i64 %.02433.i.i.i
+  %197 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %.02433.i.i.i
   %198 = load i32, ptr %197, align 4, !tbaa !15
   %199 = zext i32 %198 to i64
   %200 = icmp eq i64 %.02433.i.i.i, 0
   br i1 %200, label %.thread.i.i.i, label %203
 
 .thread.i.i.i:                                    ; preds = %.lr.ph36.i.i.i
-  %201 = getelementptr inbounds nuw i64, ptr %6, i64 %.02234.i.i.i
+  %201 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.02234.i.i.i
   store i64 %199, ptr %201, align 8
   %202 = add nuw nsw i64 %.02234.i.i.i, 1
   br label %.preheader.i.i135.i
@@ -3858,7 +3854,7 @@ _ZN5arrowL15ShiftArrayRightEPjll.exit.i:          ; preds = %._crit_edge.i131.i,
   %207 = zext i32 %206 to i64
   %208 = shl nuw i64 %207, 32
   %209 = or disjoint i64 %208, %199
-  %210 = getelementptr inbounds nuw i64, ptr %6, i64 %.02234.i.i.i
+  %210 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.02234.i.i.i
   store i64 %209, ptr %210, align 8
   %211 = add nuw nsw i64 %.02234.i.i.i, 1
   %212 = icmp samesign ult i64 %.02234.i.i.i, 3
@@ -3872,10 +3868,10 @@ _ZN5arrowL14BuildFromArrayEPNS_15BasicDecimal256EPKjl.exit.i: ; preds = %.lr.ph.
 
 215:                                              ; preds = %._crit_edge.thread.i, %.lr.ph199.i
   %.084198.i = phi i64 [ 0, %.lr.ph199.i ], [ %218, %._crit_edge.thread.i ]
-  %216 = getelementptr inbounds nuw i32, ptr %11, i64 %.084198.i
+  %216 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %.084198.i
   %217 = load i32, ptr %216, align 4, !tbaa !15
   %218 = add nuw nsw i64 %.084198.i, 1
-  %219 = getelementptr inbounds nuw i32, ptr %11, i64 %218
+  %219 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %218
   %220 = load i32, ptr %219, align 4, !tbaa !15
   %.not98.i = icmp eq i32 %217, %166
   br i1 %.not98.i, label %228, label %221
@@ -3933,12 +3929,12 @@ _ZN5arrowL14BuildFromArrayEPNS_15BasicDecimal256EPKjl.exit.i: ; preds = %.lr.ph.
 250:                                              ; preds = %250, %.lr.ph.i
   %.085191.i = phi i64 [ %171, %.lr.ph.i ], [ %264, %250 ]
   %.086190.i = phi i64 [ 0, %.lr.ph.i ], [ %spec.select.i, %250 ]
-  %251 = getelementptr inbounds nuw i32, ptr %12, i64 %.085191.i
+  %251 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %.085191.i
   %252 = load i32, ptr %251, align 4, !tbaa !15
   %253 = zext i32 %252 to i64
   %254 = mul nuw i64 %253, %246
   %255 = add nuw i64 %254, %.086190.i
-  %256 = getelementptr inbounds nuw i32, ptr %216, i64 %.085191.i
+  %256 = getelementptr inbounds nuw [4 x i8], ptr %216, i64 %.085191.i
   %257 = getelementptr inbounds nuw i8, ptr %256, i64 4
   %258 = load i32, ptr %257, align 4, !tbaa !15
   %259 = trunc i64 %255 to i32
@@ -3962,10 +3958,10 @@ _ZN5arrowL14BuildFromArrayEPNS_15BasicDecimal256EPKjl.exit.i: ; preds = %.lr.ph.
 .lr.ph195.i:                                      ; preds = %._crit_edge.i, %.lr.ph195.i
   %.082193.i = phi i64 [ %279, %.lr.ph195.i ], [ %171, %._crit_edge.i ]
   %.083192.i = phi i64 [ %278, %.lr.ph195.i ], [ 0, %._crit_edge.i ]
-  %268 = getelementptr inbounds nuw i32, ptr %12, i64 %.082193.i
+  %268 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %.082193.i
   %269 = load i32, ptr %268, align 4, !tbaa !15
   %270 = zext i32 %269 to i64
-  %271 = getelementptr inbounds nuw i32, ptr %216, i64 %.082193.i
+  %271 = getelementptr inbounds nuw [4 x i8], ptr %216, i64 %.082193.i
   %272 = getelementptr inbounds nuw i8, ptr %271, i64 4
   %273 = load i32, ptr %272, align 4, !tbaa !15
   %274 = zext i32 %273 to i64
@@ -3980,7 +3976,7 @@ _ZN5arrowL14BuildFromArrayEPNS_15BasicDecimal256EPKjl.exit.i: ; preds = %.lr.ph.
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge196.i, %._crit_edge.i, %245
   %.3.i = phi i32 [ %265, %._crit_edge196.i ], [ %.2.i, %._crit_edge.i ], [ %.2.i, %245 ]
-  %280 = getelementptr inbounds nuw i32, ptr %13, i64 %.084198.i
+  %280 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %.084198.i
   store i32 %.3.i, ptr %280, align 4, !tbaa !15
   %exitcond.not.i = icmp eq i64 %218, %132
   br i1 %exitcond.not.i, label %._crit_edge200.i, label %215, !llvm.loop !44
@@ -4003,7 +3999,7 @@ _ZN5arrowL14BuildFromArrayEPNS_15BasicDecimal256EPKjl.exit.i: ; preds = %.lr.ph.
 
 .lr.ph.i.i150.i:                                  ; preds = %281, %284
   %.02732.i.i151.i = phi i64 [ %285, %284 ], [ %282, %281 ]
-  %287 = getelementptr inbounds nuw i32, ptr %11, i64 %.02732.i.i151.i
+  %287 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %.02732.i.i151.i
   %288 = load i32, ptr %287, align 4, !tbaa !15
   %.not.i.i152.i = icmp eq i32 %288, 0
   br i1 %.not.i.i152.i, label %284, label %_ZN5arrowL14BuildFromArrayEPNS_15BasicDecimal256EPKjl.exit153.i
@@ -4023,14 +4019,14 @@ _ZN5arrowL14BuildFromArrayEPNS_15BasicDecimal256EPKjl.exit.i: ; preds = %.lr.ph.
 .lr.ph36.i.i144.i:                                ; preds = %.lr.ph36.i.i144.i.preheader, %298
   %.02234.i.i145.i = phi i64 [ %306, %298 ], [ 0, %.lr.ph36.i.i144.i.preheader ]
   %.02433.i.i146.i = phi i64 [ %299, %298 ], [ %.120.lcssa.i.i.i, %.lr.ph36.i.i144.i.preheader ]
-  %292 = getelementptr inbounds nuw i32, ptr %11, i64 %.02433.i.i146.i
+  %292 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %.02433.i.i146.i
   %293 = load i32, ptr %292, align 4, !tbaa !15
   %294 = zext i32 %293 to i64
   %295 = icmp eq i64 %.02433.i.i146.i, 0
   br i1 %295, label %.thread.i.i149.i, label %298
 
 .thread.i.i149.i:                                 ; preds = %.lr.ph36.i.i144.i
-  %296 = getelementptr inbounds nuw i64, ptr %5, i64 %.02234.i.i145.i
+  %296 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.02234.i.i145.i
   store i64 %294, ptr %296, align 8
   %297 = add nuw nsw i64 %.02234.i.i145.i, 1
   br label %.preheader.i.i147.i
@@ -4042,7 +4038,7 @@ _ZN5arrowL14BuildFromArrayEPNS_15BasicDecimal256EPKjl.exit.i: ; preds = %.lr.ph.
   %302 = zext i32 %301 to i64
   %303 = shl nuw i64 %302, 32
   %304 = or disjoint i64 %303, %294
-  %305 = getelementptr inbounds nuw i64, ptr %5, i64 %.02234.i.i145.i
+  %305 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.02234.i.i145.i
   store i64 %304, ptr %305, align 8
   %306 = add nuw nsw i64 %.02234.i.i145.i, 1
   %307 = icmp samesign ult i64 %.02234.i.i145.i, 3
@@ -4063,7 +4059,7 @@ _ZN5arrowL14BuildFromArrayEPNS_15BasicDecimal256EPKjl.exit153.i: ; preds = %.lr.
 .preheader8.i.i:                                  ; preds = %310, %.preheader8.i.i
   %.010.i.i156.i = phi i64 [ %317, %.preheader8.i.i ], [ 1, %310 ]
   %.089.i.i157.i = phi i64 [ %318, %.preheader8.i.i ], [ 0, %310 ]
-  %312 = getelementptr inbounds nuw i64, ptr %2, i64 %.089.i.i157.i
+  %312 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.089.i.i157.i
   %313 = load i64, ptr %312, align 8, !tbaa !7
   %314 = xor i64 %313, -1
   %315 = add i64 %.010.i.i156.i, %314
@@ -4080,7 +4076,7 @@ _ZN5arrow15BasicDecimal2566NegateEv.exit.i154.i:  ; preds = %.preheader8.i.i, %3
 .preheader.i155.i:                                ; preds = %_ZN5arrow15BasicDecimal2566NegateEv.exit.i154.i, %.preheader.i155.i
   %.010.i4.i.i = phi i64 [ %324, %.preheader.i155.i ], [ 1, %_ZN5arrow15BasicDecimal2566NegateEv.exit.i154.i ]
   %.089.i5.i.i = phi i64 [ %325, %.preheader.i155.i ], [ 0, %_ZN5arrow15BasicDecimal2566NegateEv.exit.i154.i ]
-  %319 = getelementptr inbounds nuw i64, ptr %3, i64 %.089.i5.i.i
+  %319 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.089.i5.i.i
   %320 = load i64, ptr %319, align 8, !tbaa !7
   %321 = xor i64 %320, -1
   %322 = add i64 %.010.i4.i.i, %321
@@ -4125,7 +4121,7 @@ define linkonce_odr noundef i32 @_ZN5arrow14DecimalRescaleINS_15BasicDecimal256E
   %11 = sub nsw i32 %2, %1
   %12 = tail call i32 @llvm.abs.i32(i32 %11, i1 true)
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds nuw %"class.arrow::BasicDecimal256", ptr @_ZN5arrowL22kDecimal256PowersOfTenE, i64 %13
+  %14 = getelementptr inbounds nuw [32 x i8], ptr @_ZN5arrowL22kDecimal256PowersOfTenE, i64 %13
   %15 = icmp slt i32 %11, 0
   br i1 %15, label %16, label %18
 
@@ -4242,7 +4238,7 @@ _ZN5arrowL25RescaleWouldCauseDataLossINS_15BasicDecimal256EEEbRKT_iS4_PS2_.exit:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @_ZNK5arrow15BasicDecimal25615IncreaseScaleByEi(ptr dead_on_unwind noalias nonnull writable sret(%"class.arrow::BasicDecimal256") align 8 captures(none) initializes((0, 32)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, i32 noundef %2) local_unnamed_addr #7 align 2 {
   %4 = sext i32 %2 to i64
-  %5 = getelementptr inbounds %"class.arrow::BasicDecimal256", ptr @_ZN5arrowL22kDecimal256PowersOfTenE, i64 %4
+  %5 = getelementptr inbounds [32 x i8], ptr @_ZN5arrowL22kDecimal256PowersOfTenE, i64 %4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %1, i64 32, i1 false)
   %6 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal256mLERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %5)
   ret void
@@ -4268,7 +4264,7 @@ define void @_ZNK5arrow15BasicDecimal25613ReduceScaleByEib(ptr dead_on_unwind no
 
 9:                                                ; preds = %4
   %10 = sext i32 %2 to i64
-  %11 = getelementptr inbounds %"class.arrow::BasicDecimal256", ptr @_ZN5arrowL22kDecimal256PowersOfTenE, i64 %10
+  %11 = getelementptr inbounds [32 x i8], ptr @_ZN5arrowL22kDecimal256PowersOfTenE, i64 %10
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
@@ -4276,7 +4272,7 @@ define void @_ZNK5arrow15BasicDecimal25613ReduceScaleByEib(ptr dead_on_unwind no
   br i1 %3, label %13, label %58
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds %"class.arrow::BasicDecimal256", ptr @_ZN5arrowL26kDecimal256HalfPowersOfTenE, i64 %10
+  %14 = getelementptr inbounds [32 x i8], ptr @_ZN5arrowL26kDecimal256HalfPowersOfTenE, i64 %10
   %.sroa.0.0.copyload = load i64, ptr %14, align 16
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 8
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
@@ -4292,7 +4288,7 @@ define void @_ZNK5arrow15BasicDecimal25613ReduceScaleByEib(ptr dead_on_unwind no
 .preheader.i:                                     ; preds = %13, %.preheader.i
   %.010.i.i = phi i64 [ %23, %.preheader.i ], [ 1, %13 ]
   %.089.i.i = phi i64 [ %24, %.preheader.i ], [ 0, %13 ]
-  %18 = getelementptr inbounds nuw i64, ptr %5, i64 %.089.i.i
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.089.i.i
   %19 = load i64, ptr %18, align 8, !tbaa !7
   %20 = xor i64 %19, -1
   %21 = add i64 %.010.i.i, %20
@@ -4363,12 +4359,12 @@ _ZN5arrow15BasicDecimal256CI2NS_19GenericBasicDecimalIS0_Li256ELi4EEEIllEET_.exi
 47:                                               ; preds = %47, %_ZN5arrow15BasicDecimal256CI2NS_19GenericBasicDecimalIS0_Li256ELi4EEEIllEET_.exit
   %.021.i = phi i64 [ 0, %_ZN5arrow15BasicDecimal256CI2NS_19GenericBasicDecimalIS0_Li256ELi4EEEIllEET_.exit ], [ %.2.i, %47 ]
   %.01620.i = phi i64 [ 0, %_ZN5arrow15BasicDecimal256CI2NS_19GenericBasicDecimalIS0_Li256ELi4EEEIllEET_.exit ], [ %57, %47 ]
-  %48 = getelementptr inbounds nuw i64, ptr %6, i64 %.01620.i
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.01620.i
   %49 = load i64, ptr %48, align 8, !tbaa !7
   %50 = add i64 %49, %.021.i
   %51 = icmp ult i64 %50, %49
   %spec.select.i = zext i1 %51 to i64
-  %52 = getelementptr inbounds nuw i64, ptr %0, i64 %.01620.i
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.01620.i
   %53 = load i64, ptr %52, align 8, !tbaa !7
   %54 = add i64 %50, %53
   %55 = icmp ult i64 %54, %53
@@ -4404,7 +4400,7 @@ define noundef zeroext i1 @_ZNK5arrow15BasicDecimal25615FitsInPrecisionEi(ptr no
 .preheader.i.i:                                   ; preds = %2, %.preheader.i.i
   %.010.i.i.i = phi i64 [ %12, %.preheader.i.i ], [ 1, %2 ]
   %.089.i.i.i = phi i64 [ %13, %.preheader.i.i ], [ 0, %2 ]
-  %7 = getelementptr inbounds nuw i64, ptr %3, i64 %.089.i.i.i
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.089.i.i.i
   %8 = load i64, ptr %7, align 8, !tbaa !7, !noalias !49
   %9 = xor i64 %8, -1
   %10 = add i64 %.010.i.i.i, %9
@@ -4428,7 +4424,7 @@ _ZN5arrow15BasicDecimal2563AbsERKS0_.exit:        ; preds = %_ZN5arrow15BasicDec
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !49
   %14 = sext i32 %1 to i64
-  %15 = getelementptr inbounds %"class.arrow::BasicDecimal256", ptr @_ZN5arrowL22kDecimal256PowersOfTenE, i64 %14
+  %15 = getelementptr inbounds [32 x i8], ptr @_ZN5arrowL22kDecimal256PowersOfTenE, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %17 = load i64, ptr %16, align 8, !tbaa !7
   %.not.i = icmp eq i64 %.sroa.6.0.copyload, %17
@@ -4471,7 +4467,7 @@ _ZN5arrowltERKNS_15BasicDecimal256ES2_.exit:      ; preds = %18, %23, %28, %30
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @_ZNK5arrow15BasicDecimal25619GetWholeAndFractionEiPS0_S1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #7 align 2 {
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds %"class.arrow::BasicDecimal256", ptr @_ZN5arrowL22kDecimal256PowersOfTenE, i64 %5
+  %6 = getelementptr inbounds [32 x i8], ptr @_ZN5arrowL22kDecimal256PowersOfTenE, i64 %5
   %7 = tail call noundef i32 @_ZNK5arrow15BasicDecimal2566DivideERKS0_PS0_S3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %2, ptr noundef %3)
   ret void
 }
@@ -4479,14 +4475,14 @@ define void @_ZNK5arrow15BasicDecimal25619GetWholeAndFractionEiPS0_S1_(ptr nound
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal25618GetScaleMultiplierEi(i32 noundef %0) local_unnamed_addr #5 align 2 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds %"class.arrow::BasicDecimal256", ptr @_ZN5arrowL22kDecimal256PowersOfTenE, i64 %2
+  %3 = getelementptr inbounds [32 x i8], ptr @_ZN5arrowL22kDecimal256PowersOfTenE, i64 %2
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal25622GetHalfScaleMultiplierEi(i32 noundef %0) local_unnamed_addr #5 align 2 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds %"class.arrow::BasicDecimal256", ptr @_ZN5arrowL26kDecimal256HalfPowersOfTenE, i64 %2
+  %3 = getelementptr inbounds [32 x i8], ptr @_ZN5arrowL26kDecimal256HalfPowersOfTenE, i64 %2
   ret ptr %3
 }
 
@@ -4494,7 +4490,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal2
 define void @_ZN5arrow15BasicDecimal25611GetMaxValueEi(ptr dead_on_unwind noalias writable sret(%"class.arrow::BasicDecimal256") align 8 captures(none) initializes((0, 32)) %0, i32 noundef %1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.arrow::BasicDecimal256", align 8
   %4 = sext i32 %1 to i64
-  %5 = getelementptr inbounds %"class.arrow::BasicDecimal256", ptr @_ZN5arrowL22kDecimal256PowersOfTenE, i64 %4
+  %5 = getelementptr inbounds [32 x i8], ptr @_ZN5arrowL22kDecimal256PowersOfTenE, i64 %4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !52)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 -1, i64 32, i1 false)
@@ -4504,12 +4500,12 @@ define void @_ZN5arrow15BasicDecimal25611GetMaxValueEi(ptr dead_on_unwind noalia
 6:                                                ; preds = %6, %2
   %.021.i.i = phi i64 [ 0, %2 ], [ %.2.i.i, %6 ]
   %.01620.i.i = phi i64 [ 0, %2 ], [ %16, %6 ]
-  %7 = getelementptr inbounds nuw i64, ptr %3, i64 %.01620.i.i
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.01620.i.i
   %8 = load i64, ptr %7, align 8, !tbaa !7, !noalias !52
   %9 = add i64 %8, %.021.i.i
   %10 = icmp ult i64 %9, %8
   %spec.select.i.i = zext i1 %10 to i64
-  %11 = getelementptr inbounds nuw i64, ptr %0, i64 %.01620.i.i
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.01620.i.i
   %12 = load i64, ptr %11, align 8, !tbaa !7, !alias.scope !52
   %13 = add i64 %9, %12
   %14 = icmp ult i64 %13, %12
@@ -4533,12 +4529,12 @@ define void @_ZN5arrowplERKNS_15BasicDecimal256ES2_(ptr dead_on_unwind noalias w
 4:                                                ; preds = %4, %3
   %.021.i = phi i64 [ 0, %3 ], [ %.2.i, %4 ]
   %.01620.i = phi i64 [ 0, %3 ], [ %14, %4 ]
-  %5 = getelementptr inbounds nuw i64, ptr %2, i64 %.01620.i
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.01620.i
   %6 = load i64, ptr %5, align 8, !tbaa !7
   %7 = add i64 %6, %.021.i
   %8 = icmp ult i64 %7, %6
   %spec.select.i = zext i1 %8 to i64
-  %9 = getelementptr inbounds nuw i64, ptr %0, i64 %.01620.i
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.01620.i
   %10 = load i64, ptr %9, align 8, !tbaa !7
   %11 = add i64 %7, %10
   %12 = icmp ult i64 %11, %10

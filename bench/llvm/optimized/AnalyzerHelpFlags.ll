@@ -5888,7 +5888,7 @@ _ZSt14__partial_sortIPSt4pairIN4llvm9StringRefENSt7__cxx1112basic_stringIcSt11ch
 19:                                               ; preds = %11
   %20 = add nsw i64 %.01720, -1
   %21 = udiv i64 %12, 96
-  %22 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %21
+  %22 = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %21
   %23 = getelementptr inbounds i8, ptr %.021, i64 -48
   tail call void @_ZSt22__move_median_to_firstIPSt4pairIN4llvm9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_SG_SG_SG_T0_(ptr noundef %0, ptr noundef nonnull %10, ptr noundef %22, ptr noundef nonnull %23)
   %24 = tail call noundef ptr @_ZSt21__unguarded_partitionIPSt4pairIN4llvm9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEET_SG_SG_SG_T0_(ptr noundef nonnull %10, ptr noundef %.021, ptr noundef %0)
@@ -5927,7 +5927,7 @@ define linkonce_odr void @_ZSt11__make_heapIPSt4pairIN4llvm9StringRefENSt7__cxx1
 20:                                               ; preds = %_ZNSt4pairIN4llvm9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit19, %11
   %.013 = phi i64 [ %13, %11 ], [ %44, %_ZNSt4pairIN4llvm9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit19 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %21 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %.013
+  %21 = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %.013
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %21, i64 16, i1 false), !tbaa.struct !911
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8, !tbaa !67
@@ -6181,8 +6181,8 @@ define linkonce_odr void @_ZSt13__adjust_heapIPSt4pairIN4llvm9StringRefENSt7__cx
   %.044 = phi i64 [ %spec.select43, %_ZNSt4pairIN4llvm9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSEOS8_.exit ], [ %1, %4 ]
   %10 = shl i64 %.044, 1
   %11 = add i64 %10, 2
-  %12 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %11
-  %13 = getelementptr %"struct.std::pair", ptr %0, i64 %10
+  %12 = getelementptr inbounds [48 x i8], ptr %0, i64 %11
+  %13 = getelementptr [48 x i8], ptr %0, i64 %10
   %.sroa.22.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.sroa.22.0.copyload.i.i.i.i = load i64, ptr %.sroa.22.0..sroa_idx.i.i.i.i, align 8, !tbaa !913
   %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr i8, ptr %13, i64 56
@@ -6212,8 +6212,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEclIPSt4pairINS2_9String
   %.sink = phi i1 [ %17, %.thread.i.i.i.i.i.i ], [ %18, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEclIPSt4pairINS2_9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESF_EEbT_T0_.exit ]
   %19 = or disjoint i64 %10, 1
   %spec.select43 = select i1 %.sink, i64 %19, i64 %11
-  %20 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %spec.select43
-  %21 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.044
+  %20 = getelementptr inbounds [48 x i8], ptr %0, i64 %spec.select43
+  %21 = getelementptr inbounds [48 x i8], ptr %0, i64 %.044
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %21, ptr noundef nonnull align 8 dereferenceable(48) %20, i64 16, i1 false), !tbaa.struct !911
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 16
@@ -6318,8 +6318,8 @@ _ZNSt4pairIN4llvm9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
 62:                                               ; preds = %58
   %63 = shl nsw i64 %.0.lcssa, 1
   %64 = or disjoint i64 %63, 1
-  %65 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %64
-  %66 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.0.lcssa
+  %65 = getelementptr inbounds [48 x i8], ptr %0, i64 %64
+  %66 = getelementptr inbounds [48 x i8], ptr %0, i64 %.0.lcssa
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %66, ptr noundef nonnull align 8 dereferenceable(48) %65, i64 16, i1 false), !tbaa.struct !911
   %67 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %68 = getelementptr inbounds nuw i8, ptr %66, i64 16
@@ -6475,7 +6475,7 @@ define linkonce_odr void @_ZSt11__push_heapIPSt4pairIN4llvm9StringRefENSt7__cxx1
   %.01328 = phi i64 [ %1, %.lr.ph ], [ %.029, %_ZNSt4pairIN4llvm9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSEOS8_.exit ]
   %.029.in = add nsw i64 %.01328, -1
   %.029 = sdiv i64 %.029.in, 2
-  %8 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.029
+  %8 = getelementptr inbounds [48 x i8], ptr %0, i64 %.029
   %.sroa.22.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.sroa.22.0.copyload.i.i.i.i = load i64, ptr %.sroa.22.0..sroa_idx.i.i.i.i, align 8, !tbaa !913
   %.sroa.2.0.copyload.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8, !tbaa !913
@@ -6500,7 +6500,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIN4llvm10less_firstEEclIPSt4pairINS2_9StringR
   br i1 %12, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN4llvm10less_firstEEclIPSt4pairINS2_9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESE_EEbT_RT0_.exit.thread24, label %.critedge
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN4llvm10less_firstEEclIPSt4pairINS2_9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESE_EEbT_RT0_.exit.thread24: ; preds = %.thread.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN4llvm10less_firstEEclIPSt4pairINS2_9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESE_EEbT_RT0_.exit
-  %13 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.01328
+  %13 = getelementptr inbounds [48 x i8], ptr %0, i64 %.01328
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef nonnull align 8 dereferenceable(48) %8, i64 16, i1 false), !tbaa.struct !911
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -6592,7 +6592,7 @@ _ZNSt4pairIN4llvm9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
 
 .critedge:                                        ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN4llvm10less_firstEEclIPSt4pairINS2_9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESE_EEbT_RT0_.exit, %_ZNSt4pairIN4llvm9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSEOS8_.exit, %.thread.i.i.i.i.i.i, %5
   %.013.lcssa = phi i64 [ %1, %5 ], [ %.01328, %.thread.i.i.i.i.i.i ], [ %.029, %_ZNSt4pairIN4llvm9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSEOS8_.exit ], [ %.01328, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN4llvm10less_firstEEclIPSt4pairINS2_9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESE_EEbT_RT0_.exit ]
-  %48 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.013.lcssa
+  %48 = getelementptr inbounds [48 x i8], ptr %0, i64 %.013.lcssa
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %48, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 16, i1 false), !tbaa.struct !911
   %49 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 16

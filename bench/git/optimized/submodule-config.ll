@@ -16,7 +16,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.submodule_update_strategy = type { i32, ptr }
 %struct.tree_desc = type { ptr, ptr, %struct.name_entry, i32, i32 }
 %struct.name_entry = type { %struct.object_id, ptr, i32, i32 }
-%struct.submodule_tree_entry = type { ptr, ptr, ptr }
 %struct.fetch_config = type { ptr, ptr }
 
 @.str = private unnamed_addr constant [7 x i8] c"git://\00", align 1
@@ -772,7 +771,7 @@ submodule_cache_check_init.exit:                  ; preds = %7, %13
 
 23:                                               ; preds = %25, %19
   %.0811.i.i.i = phi i64 [ 0, %19 ], [ %26, %25 ]
-  %24 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i.i
+  %24 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %.0811.i.i.i
   %.not.i.i.i = icmp eq ptr %22, %24
   br i1 %.not.i.i.i, label %.split.loop.exit9.i.i.i, label %25
 
@@ -901,7 +900,7 @@ define internal fastcc ptr @config_from(ptr noundef %0, ptr noundef %1, ptr noun
 
 33:                                               ; preds = %35, %29
   %.0811.i.i.i = phi i64 [ 0, %29 ], [ %36, %35 ]
-  %34 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i.i
+  %34 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %.0811.i.i.i
   %.not.i.i.i = icmp eq ptr %32, %34
   br i1 %.not.i.i.i, label %.split.loop.exit9.i.i.i, label %35
 
@@ -1229,7 +1228,7 @@ st_mult.exit:                                     ; preds = %30
   %44 = add nsw i32 %42, 1
   store i32 %44, ptr %12, align 8, !tbaa !93
   %45 = sext i32 %42 to i64
-  %46 = getelementptr inbounds %struct.submodule_tree_entry, ptr %43, i64 %45
+  %46 = getelementptr inbounds [24 x i8], ptr %43, i64 %45
   %47 = call ptr @xmalloc(i64 noundef 56) #16
   store ptr %47, ptr %46, align 8, !tbaa !98
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %47, ptr noundef nonnull align 8 dereferenceable(56) %7, i64 56, i1 false), !tbaa.struct !101
@@ -1289,16 +1288,16 @@ define dso_local void @submodule_entry_list_release(ptr noundef readonly capture
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.09 = phi i64 [ %16, %.lr.ph ], [ 0, %1 ]
   %5 = load ptr, ptr %0, align 8, !tbaa !90
-  %6 = getelementptr inbounds nuw %struct.submodule_tree_entry, ptr %5, i64 %.09
+  %6 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %.09
   %7 = load ptr, ptr %6, align 8, !tbaa !98
   tail call void @free(ptr noundef %7) #16
   %8 = load ptr, ptr %0, align 8, !tbaa !90
-  %9 = getelementptr inbounds nuw %struct.submodule_tree_entry, ptr %8, i64 %.09
+  %9 = getelementptr inbounds nuw [24 x i8], ptr %8, i64 %.09
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !104
   tail call void @repo_clear(ptr noundef %11) #16
   %12 = load ptr, ptr %0, align 8, !tbaa !90
-  %13 = getelementptr inbounds nuw %struct.submodule_tree_entry, ptr %12, i64 %.09
+  %13 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %.09
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !104
   tail call void @free(ptr noundef %15) #16

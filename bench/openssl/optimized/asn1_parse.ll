@@ -240,7 +240,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @asn1_parse2(ptr noundef %0, 
 
 95:                                               ; preds = %92
   %96 = zext nneg i32 %spec.select.i.i to i64
-  %97 = getelementptr inbounds nuw ptr, ptr @ASN1_tag2str.tag2str, i64 %96
+  %97 = getelementptr inbounds nuw [8 x i8], ptr @ASN1_tag2str.tag2str, i64 %96
   %98 = load ptr, ptr %97, align 8, !tbaa !3
   br label %ASN1_tag2str.exit.i
 
@@ -838,7 +838,7 @@ define ptr @ASN1_tag2str(i32 noundef %0) local_unnamed_addr #1 {
 
 4:                                                ; preds = %1
   %5 = zext nneg i32 %spec.select to i64
-  %6 = getelementptr inbounds nuw ptr, ptr @ASN1_tag2str.tag2str, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr @ASN1_tag2str.tag2str, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !3
   br label %8
 

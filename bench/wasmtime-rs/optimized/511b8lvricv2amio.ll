@@ -432,7 +432,7 @@ define hidden noundef zeroext i1 @_ZN14cranelift_isle7codegen7Codegen10emit_bloc
   %113 = load ptr, ptr %112, align 8, !nonnull !3, !noundef !3
   %114 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %115 = load i64, ptr %114, align 8, !noundef !3
-  %116 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { i16, [19 x i16] } }, ptr %113, i64 %115
+  %116 = getelementptr inbounds [64 x i8], ptr %113, i64 %115
   store ptr %113, ptr %104, align 8
   %117 = getelementptr inbounds nuw i8, ptr %104, i64 8
   store ptr %116, ptr %117, align 8
@@ -569,7 +569,7 @@ define hidden noundef zeroext i1 @_ZN14cranelift_isle7codegen7Codegen10emit_bloc
   %242 = load ptr, ptr %241, align 8, !nonnull !3, !noundef !3
   %243 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %244 = load i64, ptr %243, align 8, !noundef !3
-  %245 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { i16, [19 x i16] } }, ptr %242, i64 %244
+  %245 = getelementptr inbounds [64 x i8], ptr %242, i64 %244
   store ptr %242, ptr %109, align 8
   %246 = getelementptr inbounds nuw i8, ptr %109, i64 8
   store ptr %245, ptr %246, align 8
@@ -608,7 +608,7 @@ define hidden noundef zeroext i1 @_ZN14cranelift_isle7codegen7Codegen10emit_bloc
   %262 = load ptr, ptr %261, align 8, !nonnull !3, !noundef !3
   %263 = getelementptr inbounds nuw i8, ptr %260, i64 16
   %264 = load i64, ptr %263, align 8, !noundef !3
-  %265 = getelementptr inbounds i16, ptr %262, i64 %264
+  %265 = getelementptr inbounds [2 x i8], ptr %262, i64 %264
   store ptr %262, ptr %103, align 8
   store ptr %265, ptr %119, align 8
   %266 = call align 2 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbef9659f8d3ed28aE"(ptr nonnull align 8 %103)
@@ -967,7 +967,7 @@ default.unreachable592:                           ; preds = %._crit_edge
   br i1 %381, label %.critedge331, label %383
 
 383:                                              ; preds = %382
-  %384 = getelementptr inbounds { { i8, [31 x i8] }, { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } } }, ptr %364, i64 %365
+  %384 = getelementptr inbounds [80 x i8], ptr %364, i64 %365
   store ptr %364, ptr %60, align 8
   store ptr %384, ptr %215, align 8
   br label %385
@@ -1185,7 +1185,7 @@ default.unreachable592:                           ; preds = %._crit_edge
 450:                                              ; preds = %286
   %451 = getelementptr inbounds nuw i8, ptr %287, i64 32
   %452 = load ptr, ptr %451, align 8, !nonnull !3, !noundef !3
-  %453 = getelementptr inbounds { i8, [47 x i8] }, ptr %452, i64 %290
+  %453 = getelementptr inbounds [48 x i8], ptr %452, i64 %290
   %454 = load i8, ptr %453, align 16, !range !9, !noundef !3
   %455 = icmp eq i8 %454, 5
   br i1 %455, label %457, label %462
@@ -1434,7 +1434,7 @@ default.unreachable592:                           ; preds = %._crit_edge
 526:                                              ; preds = %.lr.ph
   %527 = getelementptr inbounds nuw i8, ptr %273, i64 32
   %528 = load ptr, ptr %527, align 8, !nonnull !3, !noundef !3
-  %529 = getelementptr inbounds { i8, [47 x i8] }, ptr %528, i64 %274
+  %529 = getelementptr inbounds [48 x i8], ptr %528, i64 %274
   %530 = load i8, ptr %529, align 16, !range !9, !noundef !3
   switch i8 %530, label %.thread404 [
     i8 3, label %532
@@ -1472,7 +1472,7 @@ default.unreachable592:                           ; preds = %._crit_edge
 548:                                              ; preds = %532
   %549 = getelementptr inbounds nuw i8, ptr %533, i64 8
   %550 = load ptr, ptr %549, align 8, !nonnull !3, !noundef !3
-  %551 = getelementptr inbounds { { i64, [19 x i64] }, { i64, i64, i64, i64 }, { { i64, ptr, {} }, i64 }, i64, i64, i64 }, ptr %550, i64 %536
+  %551 = getelementptr inbounds [240 x i8], ptr %550, i64 %536
   %552 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
   call void @_ZN14cranelift_isle4sema4Term13extractor_sig17h4e321f171638b969E(ptr nonnull sret({ i64, [12 x i64] }) align 8 %100, ptr nonnull align 16 %551, ptr nonnull align 8 %552)
   %553 = load i64, ptr %100, align 8, !range !10, !noundef !3
@@ -1547,7 +1547,7 @@ default.unreachable592:                           ; preds = %._crit_edge
 572:                                              ; preds = %540
   %573 = getelementptr inbounds nuw i8, ptr %541, i64 8
   %574 = load ptr, ptr %573, align 8, !nonnull !3, !noundef !3
-  %575 = getelementptr inbounds { { i64, [19 x i64] }, { i64, i64, i64, i64 }, { { i64, ptr, {} }, i64 }, i64, i64, i64 }, ptr %574, i64 %544
+  %575 = getelementptr inbounds [240 x i8], ptr %574, i64 %544
   %576 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
   call void @_ZN14cranelift_isle4sema4Term15constructor_sig17h9d5b9ef455e5a236E(ptr nonnull sret({ i64, [12 x i64] }) align 8 %93, ptr nonnull align 16 %575, ptr nonnull align 8 %576)
   %577 = load i64, ptr %93, align 8, !range !10, !noundef !3
@@ -1829,7 +1829,7 @@ define internal fastcc zeroext i1 @_ZN14cranelift_isle7codegen7Codegen9emit_expr
 53:                                               ; preds = %40
   %54 = getelementptr inbounds nuw i8, ptr %42, i64 32
   %55 = load ptr, ptr %54, align 8, !nonnull !3, !noundef !3
-  %56 = getelementptr inbounds { i8, [47 x i8] }, ptr %55, i64 %43
+  %56 = getelementptr inbounds [48 x i8], ptr %55, i64 %43
   store ptr %0, ptr %32, align 8
   %57 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store ptr %1, ptr %57, align 8
@@ -1952,7 +1952,7 @@ default.unreachable135:                           ; preds = %53
 126:                                              ; preds = %67
   %127 = getelementptr inbounds nuw i8, ptr %70, i64 56
   %128 = load ptr, ptr %127, align 8, !nonnull !3, !noundef !3
-  %129 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %128, i64 %73
+  %129 = getelementptr inbounds [24 x i8], ptr %128, i64 %73
   store ptr %129, ptr %29, align 8
   store ptr %29, ptr %30, align 8
   %130 = getelementptr inbounds nuw i8, ptr %30, i64 8
@@ -1983,7 +1983,7 @@ default.unreachable135:                           ; preds = %53
 141:                                              ; preds = %102
   %142 = getelementptr inbounds nuw i8, ptr %103, i64 80
   %143 = load ptr, ptr %142, align 8, !nonnull !3, !noundef !3
-  %144 = getelementptr inbounds { i64, [9 x i64] }, ptr %143, i64 %106
+  %144 = getelementptr inbounds [80 x i8], ptr %143, i64 %106
   %145 = load i64, ptr %144, align 8, !range !10, !noundef !3
   %.not = icmp eq i64 %145, -9223372036854775808
   br i1 %.not, label %154, label %147
@@ -2010,7 +2010,7 @@ default.unreachable135:                           ; preds = %53
   %156 = getelementptr inbounds nuw i8, ptr %144, i64 8
   %157 = load ptr, ptr %156, align 8, !nonnull !3, !noundef !3
   %158 = getelementptr inbounds nuw i8, ptr %144, i64 24
-  %159 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i64, i64, i64 }, ptr %157, i64 %150
+  %159 = getelementptr inbounds [48 x i8], ptr %157, i64 %150
   %160 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %161 = load ptr, ptr %160, align 8, !nonnull !3, !align !4, !noundef !3
   %162 = load i64, ptr %158, align 8, !noundef !3
@@ -2027,7 +2027,7 @@ default.unreachable135:                           ; preds = %53
   unreachable
 
 170:                                              ; preds = %155
-  %171 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %165, i64 %163
+  %171 = getelementptr inbounds [24 x i8], ptr %165, i64 %163
   store ptr %171, ptr %22, align 8
   %172 = getelementptr inbounds nuw i8, ptr %159, i64 24
   %173 = load i64, ptr %172, align 8, !noundef !3
@@ -2040,7 +2040,7 @@ default.unreachable135:                           ; preds = %53
   unreachable
 
 177:                                              ; preds = %170
-  %178 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %165, i64 %174
+  %178 = getelementptr inbounds [24 x i8], ptr %165, i64 %174
   store ptr %178, ptr %21, align 8
   store ptr %22, ptr %23, align 8
   %179 = getelementptr inbounds nuw i8, ptr %23, i64 8
@@ -2074,8 +2074,8 @@ default.unreachable135:                           ; preds = %53
   %194 = load ptr, ptr %193, align 8, !nonnull !3, !noundef !3
   %195 = getelementptr inbounds nuw i8, ptr %159, i64 16
   %196 = load i64, ptr %195, align 8, !noundef !3
-  %197 = getelementptr inbounds { i64, i64, i64 }, ptr %194, i64 %196
-  %198 = getelementptr inbounds i16, ptr %186, i64 %188
+  %197 = getelementptr inbounds [24 x i8], ptr %194, i64 %196
+  %198 = getelementptr inbounds [2 x i8], ptr %186, i64 %188
   call void @_ZN4core4iter6traits8iterator8Iterator3zip17he7dc7aeb69b77302E(ptr nonnull sret({ { ptr, ptr, {} }, { ptr, ptr, {} }, i64, i64, i64 }) align 8 %20, ptr nonnull %194, ptr nonnull %197, ptr nonnull %186, ptr nonnull %198)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %19, ptr noundef nonnull align 8 dereferenceable(56) %20, i64 56, i1 false)
   %199 = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -2113,7 +2113,7 @@ default.unreachable135:                           ; preds = %53
   br i1 %222, label %223, label %226, !prof !6
 
 223:                                              ; preds = %218
-  %224 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %165, i64 %221
+  %224 = getelementptr inbounds [24 x i8], ptr %165, i64 %221
   store ptr %224, ptr %15, align 8
   store ptr %16, ptr %17, align 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h8a0941390e01f928E", ptr %199, align 8
@@ -2229,7 +2229,7 @@ define internal fastcc zeroext i1 @"_ZN14cranelift_isle7codegen7Codegen9emit_exp
 32:                                               ; preds = %5
   %33 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %34 = load ptr, ptr %33, align 8, !nonnull !3, !noundef !3
-  %35 = getelementptr inbounds { { i64, [19 x i64] }, { i64, i64, i64, i64 }, { { i64, ptr, {} }, i64 }, i64, i64, i64 }, ptr %34, i64 %28
+  %35 = getelementptr inbounds [240 x i8], ptr %34, i64 %28
   %36 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
   %37 = load ptr, ptr %36, align 8, !nonnull !3, !align !4, !noundef !3
   call void %4(ptr nonnull sret({ i64, [12 x i64] }) align 8 %23, ptr nonnull align 16 %35, ptr nonnull align 8 %37), !callees !13
@@ -2328,12 +2328,12 @@ define internal fastcc zeroext i1 @"_ZN14cranelift_isle7codegen7Codegen9emit_exp
   br i1 %81, label %.loopexit57, label %83
 
 83:                                               ; preds = %82
-  %84 = getelementptr inbounds i16, ptr %2, i64 %3
+  %84 = getelementptr inbounds [2 x i8], ptr %2, i64 %3
   %85 = getelementptr inbounds nuw i8, ptr %24, i64 56
   %86 = load ptr, ptr %85, align 8, !nonnull !3, !noundef !3
   %87 = getelementptr inbounds nuw i8, ptr %24, i64 64
   %88 = load i64, ptr %87, align 8, !noundef !3
-  %89 = getelementptr inbounds i64, ptr %86, i64 %88
+  %89 = getelementptr inbounds [8 x i8], ptr %86, i64 %88
   invoke void @_ZN4core4iter6traits8iterator8Iterator3zip17hc58d57921ee207c2E(ptr nonnull sret({ { ptr, ptr, {} }, { ptr, ptr, {} }, i64, i64, i64 }) align 8 %19, ptr nonnull %2, ptr nonnull %84, ptr nonnull %86, ptr nonnull %89)
           to label %90 unwind label %.loopexit.split-lp
 
@@ -2592,7 +2592,7 @@ define internal fastcc zeroext i1 @_ZN14cranelift_isle7codegen7Codegen15emit_con
   %37 = load ptr, ptr %36, align 8, !nonnull !3, !noundef !3
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %39 = load i64, ptr %38, align 16, !noundef !3
-  %40 = getelementptr inbounds { i16, [1 x i16] }, ptr %37, i64 %39
+  %40 = getelementptr inbounds [4 x i8], ptr %37, i64 %39
   store ptr %37, ptr %34, align 8
   %41 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store ptr %40, ptr %41, align 8
@@ -2677,7 +2677,7 @@ default.unreachable143:                           ; preds = %._crit_edge
 85:                                               ; preds = %51
   %86 = getelementptr inbounds nuw i8, ptr %56, i64 80
   %87 = load ptr, ptr %86, align 8, !nonnull !3, !noundef !3
-  %88 = getelementptr inbounds { i64, [9 x i64] }, ptr %87, i64 %57
+  %88 = getelementptr inbounds [80 x i8], ptr %87, i64 %57
   %89 = load i64, ptr %88, align 8, !range !10, !noundef !3
   %.not118 = icmp eq i64 %89, -9223372036854775808
   br i1 %.not118, label %96, label %91
@@ -2702,7 +2702,7 @@ default.unreachable143:                           ; preds = %._crit_edge
   %98 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %99 = load ptr, ptr %98, align 8, !nonnull !3, !noundef !3
   %100 = getelementptr inbounds nuw i8, ptr %88, i64 24
-  %101 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i64, i64, i64 }, ptr %99, i64 %92
+  %101 = getelementptr inbounds [48 x i8], ptr %99, i64 %92
   %102 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %103 = load ptr, ptr %102, align 8, !nonnull !3, !align !4, !noundef !3
   %104 = load i64, ptr %100, align 8, !noundef !3
@@ -2719,7 +2719,7 @@ default.unreachable143:                           ; preds = %._crit_edge
   unreachable
 
 112:                                              ; preds = %97
-  %113 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %107, i64 %105
+  %113 = getelementptr inbounds [24 x i8], ptr %107, i64 %105
   store ptr %113, ptr %27, align 8
   %114 = getelementptr inbounds nuw i8, ptr %101, i64 24
   %115 = load i64, ptr %114, align 8, !noundef !3
@@ -2732,7 +2732,7 @@ default.unreachable143:                           ; preds = %._crit_edge
   unreachable
 
 119:                                              ; preds = %112
-  %120 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %107, i64 %116
+  %120 = getelementptr inbounds [24 x i8], ptr %107, i64 %116
   store ptr %120, ptr %26, align 8
   store ptr %27, ptr %28, align 8
   %121 = getelementptr inbounds nuw i8, ptr %28, i64 8
@@ -2775,7 +2775,7 @@ default.unreachable143:                           ; preds = %._crit_edge
   %137 = load ptr, ptr %136, align 8, !nonnull !3, !noundef !3
   %138 = getelementptr inbounds nuw i8, ptr %101, i64 16
   %139 = load i64, ptr %138, align 8, !noundef !3
-  %140 = getelementptr inbounds { i64, i64, i64 }, ptr %137, i64 %139
+  %140 = getelementptr inbounds [24 x i8], ptr %137, i64 %139
   call void @_ZN4core4iter6traits8iterator8Iterator3zip17hbc87311a9c1630cfE(ptr nonnull sret({ { ptr, ptr, {} }, { ptr, ptr, {} }, i64, i64, i64 }) align 8 %25, ptr nonnull %37, ptr nonnull %40, ptr nonnull %137, ptr nonnull %140)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %24, ptr noundef nonnull align 8 dereferenceable(56) %25, i64 56, i1 false)
   %141 = getelementptr inbounds nuw i8, ptr %22, i64 8
@@ -2838,7 +2838,7 @@ default.unreachable143:                           ; preds = %._crit_edge
   br i1 %170, label %171, label %174, !prof !6
 
 171:                                              ; preds = %166
-  %172 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %107, i64 %169
+  %172 = getelementptr inbounds [24 x i8], ptr %107, i64 %169
   store ptr %172, ptr %20, align 8
   store ptr %21, ptr %22, align 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h8a0941390e01f928E", ptr %141, align 8
@@ -2883,7 +2883,7 @@ default.unreachable143:                           ; preds = %._crit_edge
 188:                                              ; preds = %67
   %189 = getelementptr inbounds nuw i8, ptr %72, i64 56
   %190 = load ptr, ptr %189, align 8, !nonnull !3, !noundef !3
-  %191 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %190, i64 %73
+  %191 = getelementptr inbounds [24 x i8], ptr %190, i64 %73
   store ptr %191, ptr %31, align 8
   store ptr %31, ptr %32, align 8
   %192 = getelementptr inbounds nuw i8, ptr %32, i64 8
@@ -3023,7 +3023,7 @@ define internal fastcc zeroext i1 @_ZN14cranelift_isle7codegen7Codegen8emit_int1
 31:                                               ; preds = %25
   %32 = getelementptr inbounds nuw i8, ptr %26, i64 80
   %33 = load ptr, ptr %32, align 8, !nonnull !3, !noundef !3
-  %34 = getelementptr inbounds { i64, [9 x i64] }, ptr %33, i64 %27
+  %34 = getelementptr inbounds [80 x i8], ptr %33, i64 %27
   %35 = tail call { ptr, i64 } @_ZN14cranelift_isle4sema4Type4name17ha1c7cd4aff672dacE(ptr nonnull align 8 %34, ptr nonnull align 8 %26)
   %36 = extractvalue { ptr, i64 } %35, 0
   %37 = extractvalue { ptr, i64 } %35, 1

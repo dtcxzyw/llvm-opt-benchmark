@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.AVBitStreamFilter = type { ptr, ptr, ptr }
 %union.anon = type { i64 }
-%struct.CodedBitstreamUnit = type { i32, ptr, i64, i64, ptr, ptr, ptr }
 
 @.str = private unnamed_addr constant [13 x i8] c"apv_metadata\00", align 1
 @apv_metadata_codec_ids = internal constant [2 x i32] [i32 273, i32 0], align 4
@@ -60,7 +59,7 @@ define internal noundef i32 @apv_metadata_update_fragment(ptr noundef readonly c
 
 10:                                               ; preds = %.lr.ph, %apv_metadata_update_frame_header.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %apv_metadata_update_frame_header.exit ]
-  %11 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %8, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [56 x i8], ptr %8, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8, !tbaa !15
   %13 = icmp eq i32 %12, 1
   br i1 %13, label %14, label %apv_metadata_update_frame_header.exit

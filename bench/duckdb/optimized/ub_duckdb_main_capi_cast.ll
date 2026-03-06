@@ -22,7 +22,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__shared_ptr.38" = type { ptr, %"class.std::__shared_count" }
 %"struct.duckdb::string_t" = type { %union.anon }
 %union.anon = type { %struct.anon }
-%struct.duckdb_column = type { ptr, ptr, i32, ptr, ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.17 }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon.17 = type { i64, [8 x i8] }
@@ -280,7 +279,7 @@ _Z21CanUseDeprecatedFetchP13duckdb_resultmm.exit: ; preds = %6
 10:                                               ; preds = %_Z21CanUseDeprecatedFetchP13duckdb_resultmm.exit
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8, !tbaa !19
-  %13 = getelementptr inbounds nuw %struct.duckdb_column, ptr %12, i64 %1
+  %13 = getelementptr inbounds nuw [40 x i8], ptr %12, i64 %1
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !20
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 %2
@@ -318,9 +317,9 @@ define noundef zeroext i1 @_ZN6duckdb20CastDecimalCInternalI13duckdb_stringEEbP1
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load ptr, ptr %18, align 8, !tbaa !19
-  %20 = getelementptr inbounds nuw %struct.duckdb_column, ptr %19, i64 %2
+  %20 = getelementptr inbounds nuw [40 x i8], ptr %19, i64 %2
   %21 = load ptr, ptr %20, align 8, !tbaa !29
-  %22 = getelementptr inbounds nuw %"struct.duckdb::hugeint_t", ptr %21, i64 %3
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %3
   %23 = getelementptr inbounds nuw i8, ptr %14, i64 1
   %24 = load i8, ptr %23, align 1, !tbaa !30
   switch i8 %24, label %48 [
@@ -609,7 +608,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %1
   unreachable
 
 _ZN6duckdb6vectorINS_11LogicalTypeELb1EE3getILb1EEERS1_m.exit: ; preds = %2
-  %25 = getelementptr inbounds nuw %"struct.duckdb::LogicalType", ptr %7, i64 %1
+  %25 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %1
   ret ptr %25
 }
 
@@ -1008,9 +1007,9 @@ define noundef zeroext i1 @_ZN6duckdb20CastDecimalCInternalI14duckdb_decimalEEbP
   %25 = tail call noundef zeroext i1 @_ZNK6duckdb11LogicalType20GetDecimalPropertiesERhS1_(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %24)
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %27 = load ptr, ptr %26, align 8, !tbaa !19
-  %28 = getelementptr inbounds nuw %struct.duckdb_column, ptr %27, i64 %2
+  %28 = getelementptr inbounds nuw [40 x i8], ptr %27, i64 %2
   %29 = load ptr, ptr %28, align 8, !tbaa !29
-  %30 = getelementptr inbounds nuw %"struct.duckdb::hugeint_t", ptr %29, i64 %3
+  %30 = getelementptr inbounds nuw [16 x i8], ptr %29, i64 %3
   %31 = load i8, ptr %1, align 8, !tbaa !9
   %32 = icmp ugt i8 %31, 18
   br i1 %32, label %33, label %38
@@ -1717,7 +1716,7 @@ _ZNSt12_Vector_baseIN6duckdb20ExceptionFormatValueESaIS1_EE13_M_deallocateEPS1_m
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !68
   store ptr %.0.lcssa.i.i.i.i25, ptr %4, align 8, !tbaa !71
-  %74 = getelementptr inbounds nuw %"struct.duckdb::ExceptionFormatValue", ptr %20, i64 %16
+  %74 = getelementptr inbounds nuw [56 x i8], ptr %20, i64 %16
   store ptr %74, ptr %73, align 8, !tbaa !74
   ret void
 }

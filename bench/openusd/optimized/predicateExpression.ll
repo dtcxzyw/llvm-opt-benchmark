@@ -20,7 +20,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.18" = type { %"struct.std::_Vector_base<std::pair<pxrInternal_v0_24__pxrReserved__::SdfPredicateExpression::Op, int>, std::allocator<std::pair<pxrInternal_v0_24__pxrReserved__::SdfPredicateExpression::Op, int>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::pair<pxrInternal_v0_24__pxrReserved__::SdfPredicateExpression::Op, int>, std::allocator<std::pair<pxrInternal_v0_24__pxrReserved__::SdfPredicateExpression::Op, int>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::pair<pxrInternal_v0_24__pxrReserved__::SdfPredicateExpression::Op, int>, std::allocator<std::pair<pxrInternal_v0_24__pxrReserved__::SdfPredicateExpression::Op, int>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::pair<pxrInternal_v0_24__pxrReserved__::SdfPredicateExpression::Op, int>, std::allocator<std::pair<pxrInternal_v0_24__pxrReserved__::SdfPredicateExpression::Op, int>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.std::pair" = type { i32, i32 }
 %"class.pxrInternal_v0_24__pxrReserved__::TfFunctionRef.22" = type { ptr, ptr }
 %class.anon = type { ptr }
 %class.anon.23 = type { i8 }
@@ -53,11 +52,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.42" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.pxrInternal_v0_24__pxrReserved__::SdfPredicateExprBuilder::_Stack" = type { %"class.std::vector", %"class.std::vector.49" }
-%"class.std::vector.49" = type { %"struct.std::_Vector_base.50" }
-%"struct.std::_Vector_base.50" = type { %"struct.std::_Vector_base<pxrInternal_v0_24__pxrReserved__::SdfPredicateExpression, std::allocator<pxrInternal_v0_24__pxrReserved__::SdfPredicateExpression>>::_Vector_impl" }
-%"struct.std::_Vector_base<pxrInternal_v0_24__pxrReserved__::SdfPredicateExpression, std::allocator<pxrInternal_v0_24__pxrReserved__::SdfPredicateExpression>>::_Vector_impl" = type { %"struct.std::_Vector_base<pxrInternal_v0_24__pxrReserved__::SdfPredicateExpression, std::allocator<pxrInternal_v0_24__pxrReserved__::SdfPredicateExpression>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<pxrInternal_v0_24__pxrReserved__::SdfPredicateExpression, std::allocator<pxrInternal_v0_24__pxrReserved__::SdfPredicateExpression>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"struct.std::__cxx11::basic_string<char>::__sv_wrapper" = type { %"class.std::basic_string_view" }
 %"class.std::basic_string_view" = type { i64, ptr }
 %"class.PXR_INTERNAL_NS_pegtl::internal::action_input" = type { %"struct.PXR_INTERNAL_NS_pegtl::internal::iterator", ptr }
@@ -757,7 +751,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression2OpESaIS
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression2OpESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %55, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression2OpESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
   store ptr %50, ptr %0, align 8
   store ptr %54, ptr %6, align 8
-  %56 = getelementptr inbounds nuw i32, ptr %50, i64 %48
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %48
   store ptr %56, ptr %7, align 8
   br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression2OpESaIS2_EE9push_backEOS2_.exit
 
@@ -883,7 +877,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression2
   store ptr %43, ptr %0, align 8
   %47 = getelementptr inbounds i8, ptr %43, i64 %24
   store ptr %47, ptr %8, align 8
-  %48 = getelementptr inbounds nuw i32, ptr %43, i64 %34
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %34
   store ptr %48, ptr %9, align 8
   br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression2OpESaIS2_EE7reserveEm.exit
 
@@ -959,7 +953,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression2OpESaIS
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression2OpESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %77, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression2OpESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %72, ptr %0, align 8
   store ptr %76, ptr %8, align 8
-  %78 = getelementptr inbounds nuw i32, ptr %72, i64 %70
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %70
   store ptr %78, ptr %9, align 8
   br label %79
 
@@ -1080,7 +1074,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression2OpESaIS
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression2OpESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %29, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression2OpESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
   store ptr %24, ptr %0, align 8
   store ptr %28, ptr %4, align 8
-  %30 = getelementptr inbounds nuw i32, ptr %24, i64 %22
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %22
   store ptr %30, ptr %6, align 8
   br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression2OpESaIS2_EE9push_backEOS2_.exit
 
@@ -1295,7 +1289,7 @@ _ZNSt6vectorISt4pairIN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression
 _ZNSt6vectorISt4pairIN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression2OpEiESaIS4_EE17_M_realloc_insertIJRKS3_iEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i: ; preds = %69, %_ZNSt6vectorISt4pairIN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression2OpEiESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit33.i.i
   store ptr %61, ptr %6, align 8
   store ptr %68, ptr %16, align 8
-  %70 = getelementptr inbounds nuw %"struct.std::pair", ptr %61, i64 %59
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %59
   store ptr %70, ptr %18, align 8
   br label %_ZNSt6vectorISt4pairIN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression2OpEiESaIS4_EE12emplace_backIJRKS3_iEEERS4_DpOT_.exit
 
@@ -2743,7 +2737,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, %28
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8
-  %32 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %20, i64 %16
+  %32 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %16
   store ptr %32, ptr %27, align 8
   ret void
 }
@@ -2988,7 +2982,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__23SdfPredicateExprBuilder6_Stack
 _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__23SdfPredicateExprBuilder6_StackESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__23SdfPredicateExprBuilder6_StackESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit21, %59
   store ptr %19, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i20, ptr %3, align 8
-  %63 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::SdfPredicateExprBuilder::_Stack", ptr %19, i64 %15
+  %63 = getelementptr inbounds nuw [48 x i8], ptr %19, i64 %15
   store ptr %63, ptr %58, align 8
   ret void
 }
@@ -3699,7 +3693,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression2OpESaIS
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression2OpESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %40, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression2OpESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %35, ptr %0, align 8
   store ptr %39, ptr %3, align 8
-  %41 = getelementptr inbounds nuw i32, ptr %35, i64 %33
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %33
   store ptr %41, ptr %18, align 8
   br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression2OpESaIS2_EE9push_backERKS2_.exit
 
@@ -4207,7 +4201,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpressionESaIS1_E
 _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpressionESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpressionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit24, %94
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i23, ptr %4, align 8
-  %98 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::SdfPredicateExpression", ptr %20, i64 %16
+  %98 = getelementptr inbounds nuw [80 x i8], ptr %20, i64 %16
   store ptr %98, ptr %93, align 8
   ret void
 }
@@ -6283,7 +6277,7 @@ _ZNSt6vectorIN21PXR_INTERNAL_NS_pegtl8positionESaIS1_EE11_S_relocateEPS1_S4_S4_R
 _ZNSt12_Vector_baseIN21PXR_INTERNAL_NS_pegtl8positionESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN21PXR_INTERNAL_NS_pegtl8positionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22, %55
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8
-  %59 = getelementptr inbounds nuw %"struct.PXR_INTERNAL_NS_pegtl::position", ptr %20, i64 %16
+  %59 = getelementptr inbounds nuw [56 x i8], ptr %20, i64 %16
   store ptr %59, ptr %54, align 8
   ret void
 }
@@ -6827,7 +6821,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression5FnArgES
 _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression5FnArgESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression5FnArgESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit25, %63
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i24, ptr %4, align 8
-  %67 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::SdfPredicateExpression::FnArg", ptr %20, i64 %16
+  %67 = getelementptr inbounds nuw [48 x i8], ptr %20, i64 %16
   store ptr %67, ptr %62, align 8
   ret void
 }
@@ -16197,7 +16191,7 @@ _ZSt22__uninitialized_move_aIPN32pxrInternal_v0_24__pxrReserved__22SdfPredicateE
   %27 = sub i64 %26, %18
   %28 = ashr exact i64 %27, 2
   %29 = sub nsw i64 0, %28
-  %30 = getelementptr inbounds i32, ptr %13, i64 %29
+  %30 = getelementptr inbounds [4 x i8], ptr %13, i64 %29
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %30, ptr align 4 %1, i64 %27, i1 false)
   br label %_ZSt13move_backwardIPN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression2OpES3_ET0_T_S5_S4_.exit
 
@@ -16220,7 +16214,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression2OpESt6vectorIS4_SaIS4_EEEES5_S4_ET0_T_SB_SA_RSaIT1_E.exit: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression2OpESt6vectorIS4_SaIS4_EEEEmEvRT_T0_.exit, %32
   %35 = phi ptr [ %13, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression2OpESt6vectorIS4_SaIS4_EEEEmEvRT_T0_.exit ], [ %.pre, %32 ]
   %36 = sub nuw nsw i64 %9, %20
-  %37 = getelementptr inbounds i32, ptr %35, i64 %36
+  %37 = getelementptr inbounds [4 x i8], ptr %35, i64 %36
   store ptr %37, ptr %12, align 8
   %.not.i.i.i.i.i.i.i.i.i52 = icmp eq ptr %13, %1
   br i1 %.not.i.i.i.i.i.i.i.i.i52, label %_ZSt22__uninitialized_move_aIPN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression2OpES3_SaIS2_EET0_T_S6_S5_RT1_.exit53, label %38
@@ -16304,7 +16298,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression2
 _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression2OpESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %66, %68
   store ptr %57, ptr %0, align 8
   store ptr %67, ptr %12, align 8
-  %70 = getelementptr inbounds nuw i32, ptr %57, i64 %53
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %53
   store ptr %70, ptr %10, align 8
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression2OpESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit
 
@@ -16444,7 +16438,7 @@ _ZSt22__uninitialized_copy_aISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPN
 _ZSt22__uninitialized_copy_aISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression6FnCallESt6vectorIS5_SaIS5_EEEEES6_S5_ET0_T_SD_SC_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression6FnCallESt6vectorIS5_SaIS5_EEEEES6_S5_ET0_T_SD_SC_RSaIT1_E.exit.loopexit, %_ZSt7advanceISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression6FnCallESt6vectorIS5_SaIS5_EEEEEmEvRT_T0_.exit
   %70 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression6FnCallESt6vectorIS5_SaIS5_EEEEES6_S5_ET0_T_SD_SC_RSaIT1_E.exit.loopexit ], [ %13, %_ZSt7advanceISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression6FnCallESt6vectorIS5_SaIS5_EEEEEmEvRT_T0_.exit ]
   %71 = sub nuw nsw i64 %9, %20
-  %72 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::SdfPredicateExpression::FnCall", ptr %70, i64 %71
+  %72 = getelementptr inbounds [64 x i8], ptr %70, i64 %71
   store ptr %72, ptr %12, align 8
   %.not11.i.i.i.i.i53 = icmp eq ptr %1, %13
   br i1 %.not11.i.i.i.i.i53, label %_ZSt22__uninitialized_move_aIPN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression6FnCallES3_SaIS2_EET0_T_S6_S5_RT1_.exit59, label %.lr.ph.i.i.i.i.i54
@@ -16703,7 +16697,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression6FnCal
 _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression6FnCallESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression6FnCallES2_EvT_S4_RSaIT0_E.exit, %182
   store ptr %111, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i.i84, ptr %12, align 8
-  %186 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::SdfPredicateExpression::FnCall", ptr %111, i64 %107
+  %186 = getelementptr inbounds nuw [64 x i8], ptr %111, i64 %107
   store ptr %186, ptr %10, align 8
   br label %_ZSt4copyISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression6FnCallESt6vectorIS5_SaIS5_EEEEESA_ET0_T_SD_SC_.exit
 
@@ -16916,7 +16910,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression6FnCallE
 _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression6FnCallESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression6FnCallESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22, %64
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8
-  %68 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::SdfPredicateExpression::FnCall", ptr %20, i64 %16
+  %68 = getelementptr inbounds nuw [64 x i8], ptr %20, i64 %16
   store ptr %68, ptr %63, align 8
   ret void
 }

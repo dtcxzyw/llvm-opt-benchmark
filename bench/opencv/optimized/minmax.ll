@@ -288,7 +288,7 @@ _ZNK2cv11_InputArray6getMatEi.exit160:            ; preds = %66, %69
 
 87:                                               ; preds = %_ZNK2cv11_InputArray6getMatEi.exit160, %83, %77, %80
   %88 = zext nneg i32 %27 to i64
-  %89 = getelementptr inbounds nuw ptr, ptr @_ZZN2cvL12getMinmaxTabEiE9minmaxTab, i64 %88
+  %89 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN2cvL12getMinmaxTabEiE9minmaxTab, i64 %88
   %90 = load ptr, ptr %89, align 8, !tbaa !30
   %.not129 = icmp eq i32 %27, 7
   br i1 %.not129, label %91, label %101
@@ -538,12 +538,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit181: ; preds = %96
   %indvars.iv.i185 = phi i64 [ %177, %.lr.ph.preheader.i183 ], [ %indvars.iv.next.i187, %.lr.ph.i184 ]
   %.03.i186 = phi i64 [ %176, %.lr.ph.preheader.i183 ], [ %184, %.lr.ph.i184 ]
   %indvars.iv.next.i187 = add nsw i64 %indvars.iv.i185, -1
-  %178 = getelementptr inbounds nuw i32, ptr %.val152, i64 %indvars.iv.next.i187
+  %178 = getelementptr inbounds nuw [4 x i8], ptr %.val152, i64 %indvars.iv.next.i187
   %179 = load i32, ptr %178, align 4, !tbaa !34
   %180 = sext i32 %179 to i64
   %181 = urem i64 %.03.i186, %180
   %182 = trunc i64 %181 to i32
-  %183 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.next.i187
+  %183 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv.next.i187
   store i32 %182, ptr %183, align 4, !tbaa !34
   %184 = udiv i64 %.03.i186, %180
   %185 = icmp samesign ugt i64 %indvars.iv.i185, 1
@@ -583,12 +583,12 @@ _ZN2cvL7ofs2idxERKNS_3MatEmPi.exit190:            ; preds = %.lr.ph.i184, %175, 
   %indvars.iv.i194 = phi i64 [ %194, %.lr.ph.preheader.i192 ], [ %indvars.iv.next.i196, %.lr.ph.i193 ]
   %.03.i195 = phi i64 [ %193, %.lr.ph.preheader.i192 ], [ %201, %.lr.ph.i193 ]
   %indvars.iv.next.i196 = add nsw i64 %indvars.iv.i194, -1
-  %195 = getelementptr inbounds nuw i32, ptr %.val154, i64 %indvars.iv.next.i196
+  %195 = getelementptr inbounds nuw [4 x i8], ptr %.val154, i64 %indvars.iv.next.i196
   %196 = load i32, ptr %195, align 4, !tbaa !34
   %197 = sext i32 %196 to i64
   %198 = urem i64 %.03.i195, %197
   %199 = trunc i64 %198 to i32
-  %200 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.next.i196
+  %200 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.next.i196
   store i32 %199, ptr %200, align 4, !tbaa !34
   %201 = udiv i64 %.03.i195, %197
   %202 = icmp samesign ugt i64 %indvars.iv.i194, 1
@@ -949,7 +949,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %.noexc42, %_ZSt6fil
   %53 = load ptr, ptr %52, align 8, !tbaa !57
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %48, ptr align 4 %53, i64 %47, i1 false)
   %54 = zext nneg i32 %25 to i64
-  %55 = getelementptr inbounds nuw i32, ptr %48, i64 %54
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %54
   store i32 1, ptr %55, align 4, !tbaa !34
   invoke void @_ZNK2cv12_OutputArray6createEiPKiiibNS0_9DepthMaskE(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %23, ptr noundef nonnull %48, i32 noundef 4, i32 noundef -1, i1 noundef zeroext false, i32 noundef 0)
           to label %56 unwind label %78
@@ -1575,7 +1575,7 @@ define internal void @_ZN2cvL13minMaxIdx_16uEPKtPKhPiS4_PmS5_im(ptr noundef read
   %.04788.i = phi i32 [ %10, %.lr.ph90.preheader.i ], [ %.148.i, %.lr.ph90.i ]
   %.05386.i = phi i64 [ %12, %.lr.ph90.preheader.i ], [ %.154.i, %.lr.ph90.i ]
   %.05885.i = phi i64 [ %11, %.lr.ph90.preheader.i ], [ %spec.select.i, %.lr.ph90.i ]
-  %14 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv97.i
+  %14 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv97.i
   %15 = load i16, ptr %14, align 2, !tbaa !67
   %16 = zext i16 %15 to i32
   %17 = icmp sgt i32 %.089.i, %16
@@ -1595,7 +1595,7 @@ define internal void @_ZN2cvL13minMaxIdx_16uEPKtPKhPiS4_PmS5_im(ptr noundef read
   %.35079.i = phi i32 [ %10, %.lr.ph.preheader.i ], [ %.451.i, %.lr.ph.i ]
   %.35678.i = phi i64 [ %12, %.lr.ph.preheader.i ], [ %.457.i, %.lr.ph.i ]
   %.36177.i = phi i64 [ %11, %.lr.ph.preheader.i ], [ %.462.i, %.lr.ph.i ]
-  %20 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv.i
   %21 = load i16, ptr %20, align 2, !tbaa !67
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i
   %23 = load i8, ptr %22, align 1, !tbaa !62
@@ -1658,7 +1658,7 @@ define internal void @_ZN2cvL13minMaxIdx_16sEPKsPKhPiS4_PmS5_im(ptr noundef read
   %.04788.i = phi i32 [ %10, %.lr.ph90.preheader.i ], [ %.148.i, %.lr.ph90.i ]
   %.05386.i = phi i64 [ %12, %.lr.ph90.preheader.i ], [ %.154.i, %.lr.ph90.i ]
   %.05885.i = phi i64 [ %11, %.lr.ph90.preheader.i ], [ %spec.select.i, %.lr.ph90.i ]
-  %14 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv97.i
+  %14 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv97.i
   %15 = load i16, ptr %14, align 2, !tbaa !67
   %16 = sext i16 %15 to i32
   %17 = icmp sgt i32 %.089.i, %16
@@ -1678,7 +1678,7 @@ define internal void @_ZN2cvL13minMaxIdx_16sEPKsPKhPiS4_PmS5_im(ptr noundef read
   %.35079.i = phi i32 [ %10, %.lr.ph.preheader.i ], [ %.451.i, %.lr.ph.i ]
   %.35678.i = phi i64 [ %12, %.lr.ph.preheader.i ], [ %.457.i, %.lr.ph.i ]
   %.36177.i = phi i64 [ %11, %.lr.ph.preheader.i ], [ %.462.i, %.lr.ph.i ]
-  %20 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv.i
   %21 = load i16, ptr %20, align 2, !tbaa !67
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i
   %23 = load i8, ptr %22, align 1, !tbaa !62
@@ -1741,7 +1741,7 @@ define internal void @_ZN2cvL13minMaxIdx_32sEPKiPKhPiS4_PmS5_im(ptr noundef read
   %.04785.i = phi i32 [ %10, %.lr.ph87.preheader.i ], [ %.148.i, %.lr.ph87.i ]
   %.05383.i = phi i64 [ %12, %.lr.ph87.preheader.i ], [ %.154.i, %.lr.ph87.i ]
   %.05882.i = phi i64 [ %11, %.lr.ph87.preheader.i ], [ %spec.select.i, %.lr.ph87.i ]
-  %14 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv94.i
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv94.i
   %15 = load i32, ptr %14, align 4, !tbaa !34
   %16 = icmp slt i32 %15, %.086.i
   %17 = add i64 %indvars.iv94.i, %7
@@ -1760,7 +1760,7 @@ define internal void @_ZN2cvL13minMaxIdx_32sEPKiPKhPiS4_PmS5_im(ptr noundef read
   %.35076.i = phi i32 [ %10, %.lr.ph.preheader.i ], [ %.451.i, %.lr.ph.i ]
   %.35675.i = phi i64 [ %12, %.lr.ph.preheader.i ], [ %.457.i, %.lr.ph.i ]
   %.36174.i = phi i64 [ %11, %.lr.ph.preheader.i ], [ %.462.i, %.lr.ph.i ]
-  %19 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv.i
   %20 = load i32, ptr %19, align 4, !tbaa !34
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i
   %22 = load i8, ptr %21, align 1, !tbaa !62
@@ -1820,7 +1820,7 @@ define internal void @_ZN2cvL13minMaxIdx_32fEPKfPKhPfS4_PmS5_im(ptr noundef read
   %.04784.i = phi float [ %10, %.lr.ph86.preheader.i ], [ %.148.i, %.lr.ph86.i ]
   %.05382.i = phi i64 [ %12, %.lr.ph86.preheader.i ], [ %.154.i, %.lr.ph86.i ]
   %.05881.i = phi i64 [ %11, %.lr.ph86.preheader.i ], [ %.159.i, %.lr.ph86.i ]
-  %14 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv93.i
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv93.i
   %15 = load float, ptr %14, align 4, !tbaa !35
   %16 = fcmp olt float %15, %.085.i
   %17 = add i64 %indvars.iv93.i, %7
@@ -1839,7 +1839,7 @@ define internal void @_ZN2cvL13minMaxIdx_32fEPKfPKhPfS4_PmS5_im(ptr noundef read
   %.35075.i = phi float [ %10, %.lr.ph.preheader.i ], [ %.451.i, %.lr.ph.i ]
   %.35674.i = phi i64 [ %12, %.lr.ph.preheader.i ], [ %.457.i, %.lr.ph.i ]
   %.36173.i = phi i64 [ %11, %.lr.ph.preheader.i ], [ %.462.i, %.lr.ph.i ]
-  %19 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv.i
   %20 = load float, ptr %19, align 4, !tbaa !35
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i
   %22 = load i8, ptr %21, align 1, !tbaa !62
@@ -1899,7 +1899,7 @@ define internal void @_ZN2cvL13minMaxIdx_64fEPKdPKhPdS4_PmS5_im(ptr noundef read
   %.04784.i = phi double [ %10, %.lr.ph86.preheader.i ], [ %.148.i, %.lr.ph86.i ]
   %.05382.i = phi i64 [ %12, %.lr.ph86.preheader.i ], [ %.154.i, %.lr.ph86.i ]
   %.05881.i = phi i64 [ %11, %.lr.ph86.preheader.i ], [ %.159.i, %.lr.ph86.i ]
-  %14 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv93.i
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv93.i
   %15 = load double, ptr %14, align 8, !tbaa !37
   %16 = fcmp olt double %15, %.085.i
   %17 = add i64 %indvars.iv93.i, %7
@@ -1918,7 +1918,7 @@ define internal void @_ZN2cvL13minMaxIdx_64fEPKdPKhPdS4_PmS5_im(ptr noundef read
   %.35075.i = phi double [ %10, %.lr.ph.preheader.i ], [ %.451.i, %.lr.ph.i ]
   %.35674.i = phi i64 [ %12, %.lr.ph.preheader.i ], [ %.457.i, %.lr.ph.i ]
   %.36173.i = phi i64 [ %11, %.lr.ph.preheader.i ], [ %.462.i, %.lr.ph.i ]
-  %19 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.i
   %20 = load double, ptr %19, align 8, !tbaa !37
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i
   %22 = load i8, ptr %21, align 1, !tbaa !62
@@ -1996,7 +1996,7 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIhE17reduceMinMaxApplyISt4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load ptr, ptr %9, align 8, !tbaa !80
   %11 = sext i32 %2 to i64
-  %12 = getelementptr inbounds i32, ptr %10, i64 %11
+  %12 = getelementptr inbounds [4 x i8], ptr %10, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !34
   %14 = sext i32 %13 to i64
   %15 = tail call noundef i64 @_ZNK2cv3Mat5totalEii(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %2, i32 noundef 2147483647)
@@ -2014,7 +2014,7 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIhE17reduceMinMaxApplyISt4
   %.051.us52 = phi i64 [ %41, %._crit_edge50.split.us.us ], [ 0, %3 ]
   %19 = mul i64 %.051.us52, %15
   %20 = mul i64 %.051.us52, %16
-  %21 = getelementptr i32, ptr %7, i64 %20
+  %21 = getelementptr [4 x i8], ptr %7, i64 %20
   %22 = getelementptr i8, ptr %5, i64 %19
   br label %.lr.ph.us.us
 
@@ -2027,7 +2027,7 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIhE17reduceMinMaxApplyISt4
 
 26:                                               ; preds = %38, %.lr.ph.us.us
   %.04345.us.us = phi i64 [ 0, %.lr.ph.us.us ], [ %39, %38 ]
-  %27 = getelementptr i32, ptr %21, i64 %.04345.us.us
+  %27 = getelementptr [4 x i8], ptr %21, i64 %.04345.us.us
   %28 = load i32, ptr %27, align 4, !tbaa !34
   %29 = sext i32 %28 to i64
   %30 = mul i64 %18, %29
@@ -2072,7 +2072,7 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIhE17reduceMinMaxApplyISt1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load ptr, ptr %9, align 8, !tbaa !80
   %11 = sext i32 %2 to i64
-  %12 = getelementptr inbounds i32, ptr %10, i64 %11
+  %12 = getelementptr inbounds [4 x i8], ptr %10, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !34
   %14 = sext i32 %13 to i64
   %15 = tail call noundef i64 @_ZNK2cv3Mat5totalEii(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %2, i32 noundef 2147483647)
@@ -2090,7 +2090,7 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIhE17reduceMinMaxApplyISt1
   %.052.us53 = phi i64 [ %40, %._crit_edge51.split.us.us ], [ 0, %3 ]
   %19 = mul i64 %.052.us53, %15
   %20 = mul i64 %.052.us53, %16
-  %21 = getelementptr i32, ptr %7, i64 %20
+  %21 = getelementptr [4 x i8], ptr %7, i64 %20
   %22 = getelementptr i8, ptr %5, i64 %19
   br label %.lr.ph.us.us
 
@@ -2103,7 +2103,7 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIhE17reduceMinMaxApplyISt1
 
 26:                                               ; preds = %37, %.lr.ph.us.us
   %.04346.us.us = phi i64 [ 0, %.lr.ph.us.us ], [ %38, %37 ]
-  %27 = getelementptr i32, ptr %21, i64 %.04346.us.us
+  %27 = getelementptr [4 x i8], ptr %21, i64 %.04346.us.us
   %28 = load i32, ptr %27, align 4, !tbaa !34
   %29 = sext i32 %28 to i64
   %30 = mul i64 %18, %29
@@ -2148,7 +2148,7 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIhE17reduceMinMaxApplyISt7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load ptr, ptr %9, align 8, !tbaa !80
   %11 = sext i32 %2 to i64
-  %12 = getelementptr inbounds i32, ptr %10, i64 %11
+  %12 = getelementptr inbounds [4 x i8], ptr %10, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !34
   %14 = sext i32 %13 to i64
   %15 = tail call noundef i64 @_ZNK2cv3Mat5totalEii(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %2, i32 noundef 2147483647)
@@ -2166,7 +2166,7 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIhE17reduceMinMaxApplyISt7
   %.051.us52 = phi i64 [ %41, %._crit_edge50.split.us.us ], [ 0, %3 ]
   %19 = mul i64 %.051.us52, %15
   %20 = mul i64 %.051.us52, %16
-  %21 = getelementptr i32, ptr %7, i64 %20
+  %21 = getelementptr [4 x i8], ptr %7, i64 %20
   %22 = getelementptr i8, ptr %5, i64 %19
   br label %.lr.ph.us.us
 
@@ -2179,7 +2179,7 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIhE17reduceMinMaxApplyISt7
 
 26:                                               ; preds = %38, %.lr.ph.us.us
   %.04345.us.us = phi i64 [ 0, %.lr.ph.us.us ], [ %39, %38 ]
-  %27 = getelementptr i32, ptr %21, i64 %.04345.us.us
+  %27 = getelementptr [4 x i8], ptr %21, i64 %.04345.us.us
   %28 = load i32, ptr %27, align 4, !tbaa !34
   %29 = sext i32 %28 to i64
   %30 = mul i64 %18, %29
@@ -2224,7 +2224,7 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIhE17reduceMinMaxApplyISt1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load ptr, ptr %9, align 8, !tbaa !80
   %11 = sext i32 %2 to i64
-  %12 = getelementptr inbounds i32, ptr %10, i64 %11
+  %12 = getelementptr inbounds [4 x i8], ptr %10, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !34
   %14 = sext i32 %13 to i64
   %15 = tail call noundef i64 @_ZNK2cv3Mat5totalEii(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %2, i32 noundef 2147483647)
@@ -2242,7 +2242,7 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIhE17reduceMinMaxApplyISt1
   %.052.us53 = phi i64 [ %40, %._crit_edge51.split.us.us ], [ 0, %3 ]
   %19 = mul i64 %.052.us53, %15
   %20 = mul i64 %.052.us53, %16
-  %21 = getelementptr i32, ptr %7, i64 %20
+  %21 = getelementptr [4 x i8], ptr %7, i64 %20
   %22 = getelementptr i8, ptr %5, i64 %19
   br label %.lr.ph.us.us
 
@@ -2255,7 +2255,7 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIhE17reduceMinMaxApplyISt1
 
 26:                                               ; preds = %37, %.lr.ph.us.us
   %.04346.us.us = phi i64 [ 0, %.lr.ph.us.us ], [ %38, %37 ]
-  %27 = getelementptr i32, ptr %21, i64 %.04346.us.us
+  %27 = getelementptr [4 x i8], ptr %21, i64 %.04346.us.us
   %28 = load i32, ptr %27, align 4, !tbaa !34
   %29 = sext i32 %28 to i64
   %30 = mul i64 %18, %29
@@ -2302,7 +2302,7 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIaE17reduceMinMaxApplyISt4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load ptr, ptr %9, align 8, !tbaa !80
   %11 = sext i32 %2 to i64
-  %12 = getelementptr inbounds i32, ptr %10, i64 %11
+  %12 = getelementptr inbounds [4 x i8], ptr %10, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !34
   %14 = sext i32 %13 to i64
   %15 = tail call noundef i64 @_ZNK2cv3Mat5totalEii(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %2, i32 noundef 2147483647)
@@ -2320,7 +2320,7 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIaE17reduceMinMaxApplyISt4
   %.051.us52 = phi i64 [ %41, %._crit_edge50.split.us.us ], [ 0, %3 ]
   %19 = mul i64 %.051.us52, %15
   %20 = mul i64 %.051.us52, %16
-  %21 = getelementptr i32, ptr %7, i64 %20
+  %21 = getelementptr [4 x i8], ptr %7, i64 %20
   %22 = getelementptr i8, ptr %5, i64 %19
   br label %.lr.ph.us.us
 
@@ -2333,7 +2333,7 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIaE17reduceMinMaxApplyISt4
 
 26:                                               ; preds = %38, %.lr.ph.us.us
   %.04345.us.us = phi i64 [ 0, %.lr.ph.us.us ], [ %39, %38 ]
-  %27 = getelementptr i32, ptr %21, i64 %.04345.us.us
+  %27 = getelementptr [4 x i8], ptr %21, i64 %.04345.us.us
   %28 = load i32, ptr %27, align 4, !tbaa !34
   %29 = sext i32 %28 to i64
   %30 = mul i64 %18, %29
@@ -2378,7 +2378,7 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIaE17reduceMinMaxApplyISt1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load ptr, ptr %9, align 8, !tbaa !80
   %11 = sext i32 %2 to i64
-  %12 = getelementptr inbounds i32, ptr %10, i64 %11
+  %12 = getelementptr inbounds [4 x i8], ptr %10, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !34
   %14 = sext i32 %13 to i64
   %15 = tail call noundef i64 @_ZNK2cv3Mat5totalEii(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %2, i32 noundef 2147483647)
@@ -2396,7 +2396,7 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIaE17reduceMinMaxApplyISt1
   %.052.us53 = phi i64 [ %40, %._crit_edge51.split.us.us ], [ 0, %3 ]
   %19 = mul i64 %.052.us53, %15
   %20 = mul i64 %.052.us53, %16
-  %21 = getelementptr i32, ptr %7, i64 %20
+  %21 = getelementptr [4 x i8], ptr %7, i64 %20
   %22 = getelementptr i8, ptr %5, i64 %19
   br label %.lr.ph.us.us
 
@@ -2409,7 +2409,7 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIaE17reduceMinMaxApplyISt1
 
 26:                                               ; preds = %37, %.lr.ph.us.us
   %.04346.us.us = phi i64 [ 0, %.lr.ph.us.us ], [ %38, %37 ]
-  %27 = getelementptr i32, ptr %21, i64 %.04346.us.us
+  %27 = getelementptr [4 x i8], ptr %21, i64 %.04346.us.us
   %28 = load i32, ptr %27, align 4, !tbaa !34
   %29 = sext i32 %28 to i64
   %30 = mul i64 %18, %29
@@ -2454,7 +2454,7 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIaE17reduceMinMaxApplyISt7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load ptr, ptr %9, align 8, !tbaa !80
   %11 = sext i32 %2 to i64
-  %12 = getelementptr inbounds i32, ptr %10, i64 %11
+  %12 = getelementptr inbounds [4 x i8], ptr %10, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !34
   %14 = sext i32 %13 to i64
   %15 = tail call noundef i64 @_ZNK2cv3Mat5totalEii(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %2, i32 noundef 2147483647)
@@ -2472,7 +2472,7 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIaE17reduceMinMaxApplyISt7
   %.051.us52 = phi i64 [ %41, %._crit_edge50.split.us.us ], [ 0, %3 ]
   %19 = mul i64 %.051.us52, %15
   %20 = mul i64 %.051.us52, %16
-  %21 = getelementptr i32, ptr %7, i64 %20
+  %21 = getelementptr [4 x i8], ptr %7, i64 %20
   %22 = getelementptr i8, ptr %5, i64 %19
   br label %.lr.ph.us.us
 
@@ -2485,7 +2485,7 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIaE17reduceMinMaxApplyISt7
 
 26:                                               ; preds = %38, %.lr.ph.us.us
   %.04345.us.us = phi i64 [ 0, %.lr.ph.us.us ], [ %39, %38 ]
-  %27 = getelementptr i32, ptr %21, i64 %.04345.us.us
+  %27 = getelementptr [4 x i8], ptr %21, i64 %.04345.us.us
   %28 = load i32, ptr %27, align 4, !tbaa !34
   %29 = sext i32 %28 to i64
   %30 = mul i64 %18, %29
@@ -2530,7 +2530,7 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIaE17reduceMinMaxApplyISt1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load ptr, ptr %9, align 8, !tbaa !80
   %11 = sext i32 %2 to i64
-  %12 = getelementptr inbounds i32, ptr %10, i64 %11
+  %12 = getelementptr inbounds [4 x i8], ptr %10, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !34
   %14 = sext i32 %13 to i64
   %15 = tail call noundef i64 @_ZNK2cv3Mat5totalEii(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %2, i32 noundef 2147483647)
@@ -2548,7 +2548,7 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIaE17reduceMinMaxApplyISt1
   %.052.us53 = phi i64 [ %40, %._crit_edge51.split.us.us ], [ 0, %3 ]
   %19 = mul i64 %.052.us53, %15
   %20 = mul i64 %.052.us53, %16
-  %21 = getelementptr i32, ptr %7, i64 %20
+  %21 = getelementptr [4 x i8], ptr %7, i64 %20
   %22 = getelementptr i8, ptr %5, i64 %19
   br label %.lr.ph.us.us
 
@@ -2561,7 +2561,7 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIaE17reduceMinMaxApplyISt1
 
 26:                                               ; preds = %37, %.lr.ph.us.us
   %.04346.us.us = phi i64 [ 0, %.lr.ph.us.us ], [ %38, %37 ]
-  %27 = getelementptr i32, ptr %21, i64 %.04346.us.us
+  %27 = getelementptr [4 x i8], ptr %21, i64 %.04346.us.us
   %28 = load i32, ptr %27, align 4, !tbaa !34
   %29 = sext i32 %28 to i64
   %30 = mul i64 %18, %29
@@ -2606,7 +2606,7 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplItE17reduceMinMaxApplyISt4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load ptr, ptr %9, align 8, !tbaa !80
   %11 = sext i32 %2 to i64
-  %12 = getelementptr inbounds i32, ptr %10, i64 %11
+  %12 = getelementptr inbounds [4 x i8], ptr %10, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !34
   %14 = sext i32 %13 to i64
   %15 = tail call noundef i64 @_ZNK2cv3Mat5totalEii(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %2, i32 noundef 2147483647)
@@ -2624,26 +2624,26 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplItE17reduceMinMaxApplyISt4
   %.051.us52 = phi i64 [ %41, %._crit_edge50.split.us.us ], [ 0, %3 ]
   %19 = mul i64 %.051.us52, %15
   %20 = mul i64 %.051.us52, %16
-  %21 = getelementptr i32, ptr %7, i64 %20
-  %22 = getelementptr i16, ptr %5, i64 %19
+  %21 = getelementptr [4 x i8], ptr %7, i64 %20
+  %22 = getelementptr [2 x i8], ptr %5, i64 %19
   br label %.lr.ph.us.us
 
 .lr.ph.us.us:                                     ; preds = %._crit_edge.us.us, %.lr.ph49.us
   %.04247.us.us = phi i64 [ 0, %.lr.ph49.us ], [ %40, %._crit_edge.us.us ]
   %23 = mul i64 %.04247.us.us, %18
-  %24 = getelementptr i16, ptr %22, i64 %23
+  %24 = getelementptr [2 x i8], ptr %22, i64 %23
   %25 = trunc i64 %.04247.us.us to i32
   br label %26
 
 26:                                               ; preds = %38, %.lr.ph.us.us
   %.04345.us.us = phi i64 [ 0, %.lr.ph.us.us ], [ %39, %38 ]
-  %27 = getelementptr i32, ptr %21, i64 %.04345.us.us
+  %27 = getelementptr [4 x i8], ptr %21, i64 %.04345.us.us
   %28 = load i32, ptr %27, align 4, !tbaa !34
   %29 = sext i32 %28 to i64
   %30 = mul i64 %18, %29
-  %31 = getelementptr i16, ptr %24, i64 %.04345.us.us
-  %32 = getelementptr i16, ptr %22, i64 %30
-  %33 = getelementptr i16, ptr %32, i64 %.04345.us.us
+  %31 = getelementptr [2 x i8], ptr %24, i64 %.04345.us.us
+  %32 = getelementptr [2 x i8], ptr %22, i64 %30
+  %33 = getelementptr [2 x i8], ptr %32, i64 %.04345.us.us
   %34 = load i16, ptr %31, align 2, !tbaa !67
   %35 = load i16, ptr %33, align 2, !tbaa !67
   %36 = icmp ult i16 %34, %35
@@ -2682,7 +2682,7 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplItE17reduceMinMaxApplyISt1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load ptr, ptr %9, align 8, !tbaa !80
   %11 = sext i32 %2 to i64
-  %12 = getelementptr inbounds i32, ptr %10, i64 %11
+  %12 = getelementptr inbounds [4 x i8], ptr %10, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !34
   %14 = sext i32 %13 to i64
   %15 = tail call noundef i64 @_ZNK2cv3Mat5totalEii(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %2, i32 noundef 2147483647)
@@ -2700,26 +2700,26 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplItE17reduceMinMaxApplyISt1
   %.052.us53 = phi i64 [ %40, %._crit_edge51.split.us.us ], [ 0, %3 ]
   %19 = mul i64 %.052.us53, %15
   %20 = mul i64 %.052.us53, %16
-  %21 = getelementptr i32, ptr %7, i64 %20
-  %22 = getelementptr i16, ptr %5, i64 %19
+  %21 = getelementptr [4 x i8], ptr %7, i64 %20
+  %22 = getelementptr [2 x i8], ptr %5, i64 %19
   br label %.lr.ph.us.us
 
 .lr.ph.us.us:                                     ; preds = %._crit_edge.us.us, %.lr.ph50.us
   %.04248.us.us = phi i64 [ 0, %.lr.ph50.us ], [ %39, %._crit_edge.us.us ]
   %23 = mul i64 %.04248.us.us, %18
-  %24 = getelementptr i16, ptr %22, i64 %23
+  %24 = getelementptr [2 x i8], ptr %22, i64 %23
   %25 = trunc i64 %.04248.us.us to i32
   br label %26
 
 26:                                               ; preds = %37, %.lr.ph.us.us
   %.04346.us.us = phi i64 [ 0, %.lr.ph.us.us ], [ %38, %37 ]
-  %27 = getelementptr i32, ptr %21, i64 %.04346.us.us
+  %27 = getelementptr [4 x i8], ptr %21, i64 %.04346.us.us
   %28 = load i32, ptr %27, align 4, !tbaa !34
   %29 = sext i32 %28 to i64
   %30 = mul i64 %18, %29
-  %31 = getelementptr i16, ptr %24, i64 %.04346.us.us
-  %32 = getelementptr i16, ptr %22, i64 %30
-  %33 = getelementptr i16, ptr %32, i64 %.04346.us.us
+  %31 = getelementptr [2 x i8], ptr %24, i64 %.04346.us.us
+  %32 = getelementptr [2 x i8], ptr %22, i64 %30
+  %33 = getelementptr [2 x i8], ptr %32, i64 %.04346.us.us
   %34 = load i16, ptr %31, align 2, !tbaa !67
   %35 = load i16, ptr %33, align 2, !tbaa !67
   %.not45.us.us = icmp ugt i16 %34, %35
@@ -2758,7 +2758,7 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplItE17reduceMinMaxApplyISt7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load ptr, ptr %9, align 8, !tbaa !80
   %11 = sext i32 %2 to i64
-  %12 = getelementptr inbounds i32, ptr %10, i64 %11
+  %12 = getelementptr inbounds [4 x i8], ptr %10, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !34
   %14 = sext i32 %13 to i64
   %15 = tail call noundef i64 @_ZNK2cv3Mat5totalEii(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %2, i32 noundef 2147483647)
@@ -2776,26 +2776,26 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplItE17reduceMinMaxApplyISt7
   %.051.us52 = phi i64 [ %41, %._crit_edge50.split.us.us ], [ 0, %3 ]
   %19 = mul i64 %.051.us52, %15
   %20 = mul i64 %.051.us52, %16
-  %21 = getelementptr i32, ptr %7, i64 %20
-  %22 = getelementptr i16, ptr %5, i64 %19
+  %21 = getelementptr [4 x i8], ptr %7, i64 %20
+  %22 = getelementptr [2 x i8], ptr %5, i64 %19
   br label %.lr.ph.us.us
 
 .lr.ph.us.us:                                     ; preds = %._crit_edge.us.us, %.lr.ph49.us
   %.04247.us.us = phi i64 [ 0, %.lr.ph49.us ], [ %40, %._crit_edge.us.us ]
   %23 = mul i64 %.04247.us.us, %18
-  %24 = getelementptr i16, ptr %22, i64 %23
+  %24 = getelementptr [2 x i8], ptr %22, i64 %23
   %25 = trunc i64 %.04247.us.us to i32
   br label %26
 
 26:                                               ; preds = %38, %.lr.ph.us.us
   %.04345.us.us = phi i64 [ 0, %.lr.ph.us.us ], [ %39, %38 ]
-  %27 = getelementptr i32, ptr %21, i64 %.04345.us.us
+  %27 = getelementptr [4 x i8], ptr %21, i64 %.04345.us.us
   %28 = load i32, ptr %27, align 4, !tbaa !34
   %29 = sext i32 %28 to i64
   %30 = mul i64 %18, %29
-  %31 = getelementptr i16, ptr %24, i64 %.04345.us.us
-  %32 = getelementptr i16, ptr %22, i64 %30
-  %33 = getelementptr i16, ptr %32, i64 %.04345.us.us
+  %31 = getelementptr [2 x i8], ptr %24, i64 %.04345.us.us
+  %32 = getelementptr [2 x i8], ptr %22, i64 %30
+  %33 = getelementptr [2 x i8], ptr %32, i64 %.04345.us.us
   %34 = load i16, ptr %31, align 2, !tbaa !67
   %35 = load i16, ptr %33, align 2, !tbaa !67
   %36 = icmp ugt i16 %34, %35
@@ -2834,7 +2834,7 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplItE17reduceMinMaxApplyISt1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load ptr, ptr %9, align 8, !tbaa !80
   %11 = sext i32 %2 to i64
-  %12 = getelementptr inbounds i32, ptr %10, i64 %11
+  %12 = getelementptr inbounds [4 x i8], ptr %10, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !34
   %14 = sext i32 %13 to i64
   %15 = tail call noundef i64 @_ZNK2cv3Mat5totalEii(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %2, i32 noundef 2147483647)
@@ -2852,26 +2852,26 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplItE17reduceMinMaxApplyISt1
   %.052.us53 = phi i64 [ %40, %._crit_edge51.split.us.us ], [ 0, %3 ]
   %19 = mul i64 %.052.us53, %15
   %20 = mul i64 %.052.us53, %16
-  %21 = getelementptr i32, ptr %7, i64 %20
-  %22 = getelementptr i16, ptr %5, i64 %19
+  %21 = getelementptr [4 x i8], ptr %7, i64 %20
+  %22 = getelementptr [2 x i8], ptr %5, i64 %19
   br label %.lr.ph.us.us
 
 .lr.ph.us.us:                                     ; preds = %._crit_edge.us.us, %.lr.ph50.us
   %.04248.us.us = phi i64 [ 0, %.lr.ph50.us ], [ %39, %._crit_edge.us.us ]
   %23 = mul i64 %.04248.us.us, %18
-  %24 = getelementptr i16, ptr %22, i64 %23
+  %24 = getelementptr [2 x i8], ptr %22, i64 %23
   %25 = trunc i64 %.04248.us.us to i32
   br label %26
 
 26:                                               ; preds = %37, %.lr.ph.us.us
   %.04346.us.us = phi i64 [ 0, %.lr.ph.us.us ], [ %38, %37 ]
-  %27 = getelementptr i32, ptr %21, i64 %.04346.us.us
+  %27 = getelementptr [4 x i8], ptr %21, i64 %.04346.us.us
   %28 = load i32, ptr %27, align 4, !tbaa !34
   %29 = sext i32 %28 to i64
   %30 = mul i64 %18, %29
-  %31 = getelementptr i16, ptr %24, i64 %.04346.us.us
-  %32 = getelementptr i16, ptr %22, i64 %30
-  %33 = getelementptr i16, ptr %32, i64 %.04346.us.us
+  %31 = getelementptr [2 x i8], ptr %24, i64 %.04346.us.us
+  %32 = getelementptr [2 x i8], ptr %22, i64 %30
+  %33 = getelementptr [2 x i8], ptr %32, i64 %.04346.us.us
   %34 = load i16, ptr %31, align 2, !tbaa !67
   %35 = load i16, ptr %33, align 2, !tbaa !67
   %.not45.us.us = icmp ult i16 %34, %35
@@ -2910,7 +2910,7 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIsE17reduceMinMaxApplyISt4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load ptr, ptr %9, align 8, !tbaa !80
   %11 = sext i32 %2 to i64
-  %12 = getelementptr inbounds i32, ptr %10, i64 %11
+  %12 = getelementptr inbounds [4 x i8], ptr %10, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !34
   %14 = sext i32 %13 to i64
   %15 = tail call noundef i64 @_ZNK2cv3Mat5totalEii(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %2, i32 noundef 2147483647)
@@ -2928,26 +2928,26 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIsE17reduceMinMaxApplyISt4
   %.051.us52 = phi i64 [ %41, %._crit_edge50.split.us.us ], [ 0, %3 ]
   %19 = mul i64 %.051.us52, %15
   %20 = mul i64 %.051.us52, %16
-  %21 = getelementptr i32, ptr %7, i64 %20
-  %22 = getelementptr i16, ptr %5, i64 %19
+  %21 = getelementptr [4 x i8], ptr %7, i64 %20
+  %22 = getelementptr [2 x i8], ptr %5, i64 %19
   br label %.lr.ph.us.us
 
 .lr.ph.us.us:                                     ; preds = %._crit_edge.us.us, %.lr.ph49.us
   %.04247.us.us = phi i64 [ 0, %.lr.ph49.us ], [ %40, %._crit_edge.us.us ]
   %23 = mul i64 %.04247.us.us, %18
-  %24 = getelementptr i16, ptr %22, i64 %23
+  %24 = getelementptr [2 x i8], ptr %22, i64 %23
   %25 = trunc i64 %.04247.us.us to i32
   br label %26
 
 26:                                               ; preds = %38, %.lr.ph.us.us
   %.04345.us.us = phi i64 [ 0, %.lr.ph.us.us ], [ %39, %38 ]
-  %27 = getelementptr i32, ptr %21, i64 %.04345.us.us
+  %27 = getelementptr [4 x i8], ptr %21, i64 %.04345.us.us
   %28 = load i32, ptr %27, align 4, !tbaa !34
   %29 = sext i32 %28 to i64
   %30 = mul i64 %18, %29
-  %31 = getelementptr i16, ptr %24, i64 %.04345.us.us
-  %32 = getelementptr i16, ptr %22, i64 %30
-  %33 = getelementptr i16, ptr %32, i64 %.04345.us.us
+  %31 = getelementptr [2 x i8], ptr %24, i64 %.04345.us.us
+  %32 = getelementptr [2 x i8], ptr %22, i64 %30
+  %33 = getelementptr [2 x i8], ptr %32, i64 %.04345.us.us
   %34 = load i16, ptr %31, align 2, !tbaa !67
   %35 = load i16, ptr %33, align 2, !tbaa !67
   %36 = icmp slt i16 %34, %35
@@ -2986,7 +2986,7 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIsE17reduceMinMaxApplyISt1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load ptr, ptr %9, align 8, !tbaa !80
   %11 = sext i32 %2 to i64
-  %12 = getelementptr inbounds i32, ptr %10, i64 %11
+  %12 = getelementptr inbounds [4 x i8], ptr %10, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !34
   %14 = sext i32 %13 to i64
   %15 = tail call noundef i64 @_ZNK2cv3Mat5totalEii(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %2, i32 noundef 2147483647)
@@ -3004,26 +3004,26 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIsE17reduceMinMaxApplyISt1
   %.052.us53 = phi i64 [ %40, %._crit_edge51.split.us.us ], [ 0, %3 ]
   %19 = mul i64 %.052.us53, %15
   %20 = mul i64 %.052.us53, %16
-  %21 = getelementptr i32, ptr %7, i64 %20
-  %22 = getelementptr i16, ptr %5, i64 %19
+  %21 = getelementptr [4 x i8], ptr %7, i64 %20
+  %22 = getelementptr [2 x i8], ptr %5, i64 %19
   br label %.lr.ph.us.us
 
 .lr.ph.us.us:                                     ; preds = %._crit_edge.us.us, %.lr.ph50.us
   %.04248.us.us = phi i64 [ 0, %.lr.ph50.us ], [ %39, %._crit_edge.us.us ]
   %23 = mul i64 %.04248.us.us, %18
-  %24 = getelementptr i16, ptr %22, i64 %23
+  %24 = getelementptr [2 x i8], ptr %22, i64 %23
   %25 = trunc i64 %.04248.us.us to i32
   br label %26
 
 26:                                               ; preds = %37, %.lr.ph.us.us
   %.04346.us.us = phi i64 [ 0, %.lr.ph.us.us ], [ %38, %37 ]
-  %27 = getelementptr i32, ptr %21, i64 %.04346.us.us
+  %27 = getelementptr [4 x i8], ptr %21, i64 %.04346.us.us
   %28 = load i32, ptr %27, align 4, !tbaa !34
   %29 = sext i32 %28 to i64
   %30 = mul i64 %18, %29
-  %31 = getelementptr i16, ptr %24, i64 %.04346.us.us
-  %32 = getelementptr i16, ptr %22, i64 %30
-  %33 = getelementptr i16, ptr %32, i64 %.04346.us.us
+  %31 = getelementptr [2 x i8], ptr %24, i64 %.04346.us.us
+  %32 = getelementptr [2 x i8], ptr %22, i64 %30
+  %33 = getelementptr [2 x i8], ptr %32, i64 %.04346.us.us
   %34 = load i16, ptr %31, align 2, !tbaa !67
   %35 = load i16, ptr %33, align 2, !tbaa !67
   %.not45.us.us = icmp sgt i16 %34, %35
@@ -3062,7 +3062,7 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIsE17reduceMinMaxApplyISt7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load ptr, ptr %9, align 8, !tbaa !80
   %11 = sext i32 %2 to i64
-  %12 = getelementptr inbounds i32, ptr %10, i64 %11
+  %12 = getelementptr inbounds [4 x i8], ptr %10, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !34
   %14 = sext i32 %13 to i64
   %15 = tail call noundef i64 @_ZNK2cv3Mat5totalEii(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %2, i32 noundef 2147483647)
@@ -3080,26 +3080,26 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIsE17reduceMinMaxApplyISt7
   %.051.us52 = phi i64 [ %41, %._crit_edge50.split.us.us ], [ 0, %3 ]
   %19 = mul i64 %.051.us52, %15
   %20 = mul i64 %.051.us52, %16
-  %21 = getelementptr i32, ptr %7, i64 %20
-  %22 = getelementptr i16, ptr %5, i64 %19
+  %21 = getelementptr [4 x i8], ptr %7, i64 %20
+  %22 = getelementptr [2 x i8], ptr %5, i64 %19
   br label %.lr.ph.us.us
 
 .lr.ph.us.us:                                     ; preds = %._crit_edge.us.us, %.lr.ph49.us
   %.04247.us.us = phi i64 [ 0, %.lr.ph49.us ], [ %40, %._crit_edge.us.us ]
   %23 = mul i64 %.04247.us.us, %18
-  %24 = getelementptr i16, ptr %22, i64 %23
+  %24 = getelementptr [2 x i8], ptr %22, i64 %23
   %25 = trunc i64 %.04247.us.us to i32
   br label %26
 
 26:                                               ; preds = %38, %.lr.ph.us.us
   %.04345.us.us = phi i64 [ 0, %.lr.ph.us.us ], [ %39, %38 ]
-  %27 = getelementptr i32, ptr %21, i64 %.04345.us.us
+  %27 = getelementptr [4 x i8], ptr %21, i64 %.04345.us.us
   %28 = load i32, ptr %27, align 4, !tbaa !34
   %29 = sext i32 %28 to i64
   %30 = mul i64 %18, %29
-  %31 = getelementptr i16, ptr %24, i64 %.04345.us.us
-  %32 = getelementptr i16, ptr %22, i64 %30
-  %33 = getelementptr i16, ptr %32, i64 %.04345.us.us
+  %31 = getelementptr [2 x i8], ptr %24, i64 %.04345.us.us
+  %32 = getelementptr [2 x i8], ptr %22, i64 %30
+  %33 = getelementptr [2 x i8], ptr %32, i64 %.04345.us.us
   %34 = load i16, ptr %31, align 2, !tbaa !67
   %35 = load i16, ptr %33, align 2, !tbaa !67
   %36 = icmp sgt i16 %34, %35
@@ -3138,7 +3138,7 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIsE17reduceMinMaxApplyISt1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load ptr, ptr %9, align 8, !tbaa !80
   %11 = sext i32 %2 to i64
-  %12 = getelementptr inbounds i32, ptr %10, i64 %11
+  %12 = getelementptr inbounds [4 x i8], ptr %10, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !34
   %14 = sext i32 %13 to i64
   %15 = tail call noundef i64 @_ZNK2cv3Mat5totalEii(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %2, i32 noundef 2147483647)
@@ -3156,26 +3156,26 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIsE17reduceMinMaxApplyISt1
   %.052.us53 = phi i64 [ %40, %._crit_edge51.split.us.us ], [ 0, %3 ]
   %19 = mul i64 %.052.us53, %15
   %20 = mul i64 %.052.us53, %16
-  %21 = getelementptr i32, ptr %7, i64 %20
-  %22 = getelementptr i16, ptr %5, i64 %19
+  %21 = getelementptr [4 x i8], ptr %7, i64 %20
+  %22 = getelementptr [2 x i8], ptr %5, i64 %19
   br label %.lr.ph.us.us
 
 .lr.ph.us.us:                                     ; preds = %._crit_edge.us.us, %.lr.ph50.us
   %.04248.us.us = phi i64 [ 0, %.lr.ph50.us ], [ %39, %._crit_edge.us.us ]
   %23 = mul i64 %.04248.us.us, %18
-  %24 = getelementptr i16, ptr %22, i64 %23
+  %24 = getelementptr [2 x i8], ptr %22, i64 %23
   %25 = trunc i64 %.04248.us.us to i32
   br label %26
 
 26:                                               ; preds = %37, %.lr.ph.us.us
   %.04346.us.us = phi i64 [ 0, %.lr.ph.us.us ], [ %38, %37 ]
-  %27 = getelementptr i32, ptr %21, i64 %.04346.us.us
+  %27 = getelementptr [4 x i8], ptr %21, i64 %.04346.us.us
   %28 = load i32, ptr %27, align 4, !tbaa !34
   %29 = sext i32 %28 to i64
   %30 = mul i64 %18, %29
-  %31 = getelementptr i16, ptr %24, i64 %.04346.us.us
-  %32 = getelementptr i16, ptr %22, i64 %30
-  %33 = getelementptr i16, ptr %32, i64 %.04346.us.us
+  %31 = getelementptr [2 x i8], ptr %24, i64 %.04346.us.us
+  %32 = getelementptr [2 x i8], ptr %22, i64 %30
+  %33 = getelementptr [2 x i8], ptr %32, i64 %.04346.us.us
   %34 = load i16, ptr %31, align 2, !tbaa !67
   %35 = load i16, ptr %33, align 2, !tbaa !67
   %.not45.us.us = icmp slt i16 %34, %35
@@ -3214,7 +3214,7 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIiE17reduceMinMaxApplyISt4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load ptr, ptr %9, align 8, !tbaa !80
   %11 = sext i32 %2 to i64
-  %12 = getelementptr inbounds i32, ptr %10, i64 %11
+  %12 = getelementptr inbounds [4 x i8], ptr %10, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !34
   %14 = sext i32 %13 to i64
   %15 = tail call noundef i64 @_ZNK2cv3Mat5totalEii(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %2, i32 noundef 2147483647)
@@ -3232,26 +3232,26 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIiE17reduceMinMaxApplyISt4
   %.051.us52 = phi i64 [ %41, %._crit_edge50.split.us.us ], [ 0, %3 ]
   %19 = mul i64 %.051.us52, %15
   %20 = mul i64 %.051.us52, %16
-  %21 = getelementptr i32, ptr %7, i64 %20
-  %22 = getelementptr i32, ptr %5, i64 %19
+  %21 = getelementptr [4 x i8], ptr %7, i64 %20
+  %22 = getelementptr [4 x i8], ptr %5, i64 %19
   br label %.lr.ph.us.us
 
 .lr.ph.us.us:                                     ; preds = %._crit_edge.us.us, %.lr.ph49.us
   %.04247.us.us = phi i64 [ 0, %.lr.ph49.us ], [ %40, %._crit_edge.us.us ]
   %23 = mul i64 %.04247.us.us, %18
-  %24 = getelementptr i32, ptr %22, i64 %23
+  %24 = getelementptr [4 x i8], ptr %22, i64 %23
   %25 = trunc i64 %.04247.us.us to i32
   br label %26
 
 26:                                               ; preds = %38, %.lr.ph.us.us
   %.04345.us.us = phi i64 [ 0, %.lr.ph.us.us ], [ %39, %38 ]
-  %27 = getelementptr i32, ptr %21, i64 %.04345.us.us
+  %27 = getelementptr [4 x i8], ptr %21, i64 %.04345.us.us
   %28 = load i32, ptr %27, align 4, !tbaa !34
   %29 = sext i32 %28 to i64
   %30 = mul i64 %18, %29
-  %31 = getelementptr i32, ptr %24, i64 %.04345.us.us
-  %32 = getelementptr i32, ptr %22, i64 %30
-  %33 = getelementptr i32, ptr %32, i64 %.04345.us.us
+  %31 = getelementptr [4 x i8], ptr %24, i64 %.04345.us.us
+  %32 = getelementptr [4 x i8], ptr %22, i64 %30
+  %33 = getelementptr [4 x i8], ptr %32, i64 %.04345.us.us
   %34 = load i32, ptr %31, align 4, !tbaa !34
   %35 = load i32, ptr %33, align 4, !tbaa !34
   %36 = icmp slt i32 %34, %35
@@ -3290,7 +3290,7 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIiE17reduceMinMaxApplyISt1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load ptr, ptr %9, align 8, !tbaa !80
   %11 = sext i32 %2 to i64
-  %12 = getelementptr inbounds i32, ptr %10, i64 %11
+  %12 = getelementptr inbounds [4 x i8], ptr %10, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !34
   %14 = sext i32 %13 to i64
   %15 = tail call noundef i64 @_ZNK2cv3Mat5totalEii(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %2, i32 noundef 2147483647)
@@ -3308,26 +3308,26 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIiE17reduceMinMaxApplyISt1
   %.052.us53 = phi i64 [ %40, %._crit_edge51.split.us.us ], [ 0, %3 ]
   %19 = mul i64 %.052.us53, %15
   %20 = mul i64 %.052.us53, %16
-  %21 = getelementptr i32, ptr %7, i64 %20
-  %22 = getelementptr i32, ptr %5, i64 %19
+  %21 = getelementptr [4 x i8], ptr %7, i64 %20
+  %22 = getelementptr [4 x i8], ptr %5, i64 %19
   br label %.lr.ph.us.us
 
 .lr.ph.us.us:                                     ; preds = %._crit_edge.us.us, %.lr.ph50.us
   %.04248.us.us = phi i64 [ 0, %.lr.ph50.us ], [ %39, %._crit_edge.us.us ]
   %23 = mul i64 %.04248.us.us, %18
-  %24 = getelementptr i32, ptr %22, i64 %23
+  %24 = getelementptr [4 x i8], ptr %22, i64 %23
   %25 = trunc i64 %.04248.us.us to i32
   br label %26
 
 26:                                               ; preds = %37, %.lr.ph.us.us
   %.04346.us.us = phi i64 [ 0, %.lr.ph.us.us ], [ %38, %37 ]
-  %27 = getelementptr i32, ptr %21, i64 %.04346.us.us
+  %27 = getelementptr [4 x i8], ptr %21, i64 %.04346.us.us
   %28 = load i32, ptr %27, align 4, !tbaa !34
   %29 = sext i32 %28 to i64
   %30 = mul i64 %18, %29
-  %31 = getelementptr i32, ptr %24, i64 %.04346.us.us
-  %32 = getelementptr i32, ptr %22, i64 %30
-  %33 = getelementptr i32, ptr %32, i64 %.04346.us.us
+  %31 = getelementptr [4 x i8], ptr %24, i64 %.04346.us.us
+  %32 = getelementptr [4 x i8], ptr %22, i64 %30
+  %33 = getelementptr [4 x i8], ptr %32, i64 %.04346.us.us
   %34 = load i32, ptr %31, align 4, !tbaa !34
   %35 = load i32, ptr %33, align 4, !tbaa !34
   %.not45.us.us = icmp sgt i32 %34, %35
@@ -3366,7 +3366,7 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIiE17reduceMinMaxApplyISt7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load ptr, ptr %9, align 8, !tbaa !80
   %11 = sext i32 %2 to i64
-  %12 = getelementptr inbounds i32, ptr %10, i64 %11
+  %12 = getelementptr inbounds [4 x i8], ptr %10, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !34
   %14 = sext i32 %13 to i64
   %15 = tail call noundef i64 @_ZNK2cv3Mat5totalEii(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %2, i32 noundef 2147483647)
@@ -3384,26 +3384,26 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIiE17reduceMinMaxApplyISt7
   %.051.us52 = phi i64 [ %41, %._crit_edge50.split.us.us ], [ 0, %3 ]
   %19 = mul i64 %.051.us52, %15
   %20 = mul i64 %.051.us52, %16
-  %21 = getelementptr i32, ptr %7, i64 %20
-  %22 = getelementptr i32, ptr %5, i64 %19
+  %21 = getelementptr [4 x i8], ptr %7, i64 %20
+  %22 = getelementptr [4 x i8], ptr %5, i64 %19
   br label %.lr.ph.us.us
 
 .lr.ph.us.us:                                     ; preds = %._crit_edge.us.us, %.lr.ph49.us
   %.04247.us.us = phi i64 [ 0, %.lr.ph49.us ], [ %40, %._crit_edge.us.us ]
   %23 = mul i64 %.04247.us.us, %18
-  %24 = getelementptr i32, ptr %22, i64 %23
+  %24 = getelementptr [4 x i8], ptr %22, i64 %23
   %25 = trunc i64 %.04247.us.us to i32
   br label %26
 
 26:                                               ; preds = %38, %.lr.ph.us.us
   %.04345.us.us = phi i64 [ 0, %.lr.ph.us.us ], [ %39, %38 ]
-  %27 = getelementptr i32, ptr %21, i64 %.04345.us.us
+  %27 = getelementptr [4 x i8], ptr %21, i64 %.04345.us.us
   %28 = load i32, ptr %27, align 4, !tbaa !34
   %29 = sext i32 %28 to i64
   %30 = mul i64 %18, %29
-  %31 = getelementptr i32, ptr %24, i64 %.04345.us.us
-  %32 = getelementptr i32, ptr %22, i64 %30
-  %33 = getelementptr i32, ptr %32, i64 %.04345.us.us
+  %31 = getelementptr [4 x i8], ptr %24, i64 %.04345.us.us
+  %32 = getelementptr [4 x i8], ptr %22, i64 %30
+  %33 = getelementptr [4 x i8], ptr %32, i64 %.04345.us.us
   %34 = load i32, ptr %31, align 4, !tbaa !34
   %35 = load i32, ptr %33, align 4, !tbaa !34
   %36 = icmp sgt i32 %34, %35
@@ -3442,7 +3442,7 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIiE17reduceMinMaxApplyISt1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load ptr, ptr %9, align 8, !tbaa !80
   %11 = sext i32 %2 to i64
-  %12 = getelementptr inbounds i32, ptr %10, i64 %11
+  %12 = getelementptr inbounds [4 x i8], ptr %10, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !34
   %14 = sext i32 %13 to i64
   %15 = tail call noundef i64 @_ZNK2cv3Mat5totalEii(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %2, i32 noundef 2147483647)
@@ -3460,26 +3460,26 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIiE17reduceMinMaxApplyISt1
   %.052.us53 = phi i64 [ %40, %._crit_edge51.split.us.us ], [ 0, %3 ]
   %19 = mul i64 %.052.us53, %15
   %20 = mul i64 %.052.us53, %16
-  %21 = getelementptr i32, ptr %7, i64 %20
-  %22 = getelementptr i32, ptr %5, i64 %19
+  %21 = getelementptr [4 x i8], ptr %7, i64 %20
+  %22 = getelementptr [4 x i8], ptr %5, i64 %19
   br label %.lr.ph.us.us
 
 .lr.ph.us.us:                                     ; preds = %._crit_edge.us.us, %.lr.ph50.us
   %.04248.us.us = phi i64 [ 0, %.lr.ph50.us ], [ %39, %._crit_edge.us.us ]
   %23 = mul i64 %.04248.us.us, %18
-  %24 = getelementptr i32, ptr %22, i64 %23
+  %24 = getelementptr [4 x i8], ptr %22, i64 %23
   %25 = trunc i64 %.04248.us.us to i32
   br label %26
 
 26:                                               ; preds = %37, %.lr.ph.us.us
   %.04346.us.us = phi i64 [ 0, %.lr.ph.us.us ], [ %38, %37 ]
-  %27 = getelementptr i32, ptr %21, i64 %.04346.us.us
+  %27 = getelementptr [4 x i8], ptr %21, i64 %.04346.us.us
   %28 = load i32, ptr %27, align 4, !tbaa !34
   %29 = sext i32 %28 to i64
   %30 = mul i64 %18, %29
-  %31 = getelementptr i32, ptr %24, i64 %.04346.us.us
-  %32 = getelementptr i32, ptr %22, i64 %30
-  %33 = getelementptr i32, ptr %32, i64 %.04346.us.us
+  %31 = getelementptr [4 x i8], ptr %24, i64 %.04346.us.us
+  %32 = getelementptr [4 x i8], ptr %22, i64 %30
+  %33 = getelementptr [4 x i8], ptr %32, i64 %.04346.us.us
   %34 = load i32, ptr %31, align 4, !tbaa !34
   %35 = load i32, ptr %33, align 4, !tbaa !34
   %.not45.us.us = icmp slt i32 %34, %35
@@ -3518,7 +3518,7 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIfE17reduceMinMaxApplyISt4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load ptr, ptr %9, align 8, !tbaa !80
   %11 = sext i32 %2 to i64
-  %12 = getelementptr inbounds i32, ptr %10, i64 %11
+  %12 = getelementptr inbounds [4 x i8], ptr %10, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !34
   %14 = sext i32 %13 to i64
   %15 = tail call noundef i64 @_ZNK2cv3Mat5totalEii(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %2, i32 noundef 2147483647)
@@ -3536,26 +3536,26 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIfE17reduceMinMaxApplyISt4
   %.051.us52 = phi i64 [ %41, %._crit_edge50.split.us.us ], [ 0, %3 ]
   %19 = mul i64 %.051.us52, %15
   %20 = mul i64 %.051.us52, %16
-  %21 = getelementptr i32, ptr %7, i64 %20
-  %22 = getelementptr float, ptr %5, i64 %19
+  %21 = getelementptr [4 x i8], ptr %7, i64 %20
+  %22 = getelementptr [4 x i8], ptr %5, i64 %19
   br label %.lr.ph.us.us
 
 .lr.ph.us.us:                                     ; preds = %._crit_edge.us.us, %.lr.ph49.us
   %.04247.us.us = phi i64 [ 0, %.lr.ph49.us ], [ %40, %._crit_edge.us.us ]
   %23 = mul i64 %.04247.us.us, %18
-  %24 = getelementptr float, ptr %22, i64 %23
+  %24 = getelementptr [4 x i8], ptr %22, i64 %23
   %25 = trunc i64 %.04247.us.us to i32
   br label %26
 
 26:                                               ; preds = %38, %.lr.ph.us.us
   %.04345.us.us = phi i64 [ 0, %.lr.ph.us.us ], [ %39, %38 ]
-  %27 = getelementptr i32, ptr %21, i64 %.04345.us.us
+  %27 = getelementptr [4 x i8], ptr %21, i64 %.04345.us.us
   %28 = load i32, ptr %27, align 4, !tbaa !34
   %29 = sext i32 %28 to i64
   %30 = mul i64 %18, %29
-  %31 = getelementptr float, ptr %24, i64 %.04345.us.us
-  %32 = getelementptr float, ptr %22, i64 %30
-  %33 = getelementptr float, ptr %32, i64 %.04345.us.us
+  %31 = getelementptr [4 x i8], ptr %24, i64 %.04345.us.us
+  %32 = getelementptr [4 x i8], ptr %22, i64 %30
+  %33 = getelementptr [4 x i8], ptr %32, i64 %.04345.us.us
   %34 = load float, ptr %31, align 4, !tbaa !35
   %35 = load float, ptr %33, align 4, !tbaa !35
   %36 = fcmp olt float %34, %35
@@ -3594,7 +3594,7 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIfE17reduceMinMaxApplyISt1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load ptr, ptr %9, align 8, !tbaa !80
   %11 = sext i32 %2 to i64
-  %12 = getelementptr inbounds i32, ptr %10, i64 %11
+  %12 = getelementptr inbounds [4 x i8], ptr %10, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !34
   %14 = sext i32 %13 to i64
   %15 = tail call noundef i64 @_ZNK2cv3Mat5totalEii(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %2, i32 noundef 2147483647)
@@ -3612,26 +3612,26 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIfE17reduceMinMaxApplyISt1
   %.051.us52 = phi i64 [ %41, %._crit_edge50.split.us.us ], [ 0, %3 ]
   %19 = mul i64 %.051.us52, %15
   %20 = mul i64 %.051.us52, %16
-  %21 = getelementptr i32, ptr %7, i64 %20
-  %22 = getelementptr float, ptr %5, i64 %19
+  %21 = getelementptr [4 x i8], ptr %7, i64 %20
+  %22 = getelementptr [4 x i8], ptr %5, i64 %19
   br label %.lr.ph.us.us
 
 .lr.ph.us.us:                                     ; preds = %._crit_edge.us.us, %.lr.ph49.us
   %.04247.us.us = phi i64 [ 0, %.lr.ph49.us ], [ %40, %._crit_edge.us.us ]
   %23 = mul i64 %.04247.us.us, %18
-  %24 = getelementptr float, ptr %22, i64 %23
+  %24 = getelementptr [4 x i8], ptr %22, i64 %23
   %25 = trunc i64 %.04247.us.us to i32
   br label %26
 
 26:                                               ; preds = %38, %.lr.ph.us.us
   %.04345.us.us = phi i64 [ 0, %.lr.ph.us.us ], [ %39, %38 ]
-  %27 = getelementptr i32, ptr %21, i64 %.04345.us.us
+  %27 = getelementptr [4 x i8], ptr %21, i64 %.04345.us.us
   %28 = load i32, ptr %27, align 4, !tbaa !34
   %29 = sext i32 %28 to i64
   %30 = mul i64 %18, %29
-  %31 = getelementptr float, ptr %24, i64 %.04345.us.us
-  %32 = getelementptr float, ptr %22, i64 %30
-  %33 = getelementptr float, ptr %32, i64 %.04345.us.us
+  %31 = getelementptr [4 x i8], ptr %24, i64 %.04345.us.us
+  %32 = getelementptr [4 x i8], ptr %22, i64 %30
+  %33 = getelementptr [4 x i8], ptr %32, i64 %.04345.us.us
   %34 = load float, ptr %31, align 4, !tbaa !35
   %35 = load float, ptr %33, align 4, !tbaa !35
   %36 = fcmp ugt float %34, %35
@@ -3670,7 +3670,7 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIfE17reduceMinMaxApplyISt7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load ptr, ptr %9, align 8, !tbaa !80
   %11 = sext i32 %2 to i64
-  %12 = getelementptr inbounds i32, ptr %10, i64 %11
+  %12 = getelementptr inbounds [4 x i8], ptr %10, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !34
   %14 = sext i32 %13 to i64
   %15 = tail call noundef i64 @_ZNK2cv3Mat5totalEii(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %2, i32 noundef 2147483647)
@@ -3688,26 +3688,26 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIfE17reduceMinMaxApplyISt7
   %.051.us52 = phi i64 [ %41, %._crit_edge50.split.us.us ], [ 0, %3 ]
   %19 = mul i64 %.051.us52, %15
   %20 = mul i64 %.051.us52, %16
-  %21 = getelementptr i32, ptr %7, i64 %20
-  %22 = getelementptr float, ptr %5, i64 %19
+  %21 = getelementptr [4 x i8], ptr %7, i64 %20
+  %22 = getelementptr [4 x i8], ptr %5, i64 %19
   br label %.lr.ph.us.us
 
 .lr.ph.us.us:                                     ; preds = %._crit_edge.us.us, %.lr.ph49.us
   %.04247.us.us = phi i64 [ 0, %.lr.ph49.us ], [ %40, %._crit_edge.us.us ]
   %23 = mul i64 %.04247.us.us, %18
-  %24 = getelementptr float, ptr %22, i64 %23
+  %24 = getelementptr [4 x i8], ptr %22, i64 %23
   %25 = trunc i64 %.04247.us.us to i32
   br label %26
 
 26:                                               ; preds = %38, %.lr.ph.us.us
   %.04345.us.us = phi i64 [ 0, %.lr.ph.us.us ], [ %39, %38 ]
-  %27 = getelementptr i32, ptr %21, i64 %.04345.us.us
+  %27 = getelementptr [4 x i8], ptr %21, i64 %.04345.us.us
   %28 = load i32, ptr %27, align 4, !tbaa !34
   %29 = sext i32 %28 to i64
   %30 = mul i64 %18, %29
-  %31 = getelementptr float, ptr %24, i64 %.04345.us.us
-  %32 = getelementptr float, ptr %22, i64 %30
-  %33 = getelementptr float, ptr %32, i64 %.04345.us.us
+  %31 = getelementptr [4 x i8], ptr %24, i64 %.04345.us.us
+  %32 = getelementptr [4 x i8], ptr %22, i64 %30
+  %33 = getelementptr [4 x i8], ptr %32, i64 %.04345.us.us
   %34 = load float, ptr %31, align 4, !tbaa !35
   %35 = load float, ptr %33, align 4, !tbaa !35
   %36 = fcmp ogt float %34, %35
@@ -3746,7 +3746,7 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIfE17reduceMinMaxApplyISt1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load ptr, ptr %9, align 8, !tbaa !80
   %11 = sext i32 %2 to i64
-  %12 = getelementptr inbounds i32, ptr %10, i64 %11
+  %12 = getelementptr inbounds [4 x i8], ptr %10, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !34
   %14 = sext i32 %13 to i64
   %15 = tail call noundef i64 @_ZNK2cv3Mat5totalEii(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %2, i32 noundef 2147483647)
@@ -3764,26 +3764,26 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIfE17reduceMinMaxApplyISt1
   %.051.us52 = phi i64 [ %41, %._crit_edge50.split.us.us ], [ 0, %3 ]
   %19 = mul i64 %.051.us52, %15
   %20 = mul i64 %.051.us52, %16
-  %21 = getelementptr i32, ptr %7, i64 %20
-  %22 = getelementptr float, ptr %5, i64 %19
+  %21 = getelementptr [4 x i8], ptr %7, i64 %20
+  %22 = getelementptr [4 x i8], ptr %5, i64 %19
   br label %.lr.ph.us.us
 
 .lr.ph.us.us:                                     ; preds = %._crit_edge.us.us, %.lr.ph49.us
   %.04247.us.us = phi i64 [ 0, %.lr.ph49.us ], [ %40, %._crit_edge.us.us ]
   %23 = mul i64 %.04247.us.us, %18
-  %24 = getelementptr float, ptr %22, i64 %23
+  %24 = getelementptr [4 x i8], ptr %22, i64 %23
   %25 = trunc i64 %.04247.us.us to i32
   br label %26
 
 26:                                               ; preds = %38, %.lr.ph.us.us
   %.04345.us.us = phi i64 [ 0, %.lr.ph.us.us ], [ %39, %38 ]
-  %27 = getelementptr i32, ptr %21, i64 %.04345.us.us
+  %27 = getelementptr [4 x i8], ptr %21, i64 %.04345.us.us
   %28 = load i32, ptr %27, align 4, !tbaa !34
   %29 = sext i32 %28 to i64
   %30 = mul i64 %18, %29
-  %31 = getelementptr float, ptr %24, i64 %.04345.us.us
-  %32 = getelementptr float, ptr %22, i64 %30
-  %33 = getelementptr float, ptr %32, i64 %.04345.us.us
+  %31 = getelementptr [4 x i8], ptr %24, i64 %.04345.us.us
+  %32 = getelementptr [4 x i8], ptr %22, i64 %30
+  %33 = getelementptr [4 x i8], ptr %32, i64 %.04345.us.us
   %34 = load float, ptr %31, align 4, !tbaa !35
   %35 = load float, ptr %33, align 4, !tbaa !35
   %36 = fcmp ult float %34, %35
@@ -3822,7 +3822,7 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIdE17reduceMinMaxApplyISt4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load ptr, ptr %9, align 8, !tbaa !80
   %11 = sext i32 %2 to i64
-  %12 = getelementptr inbounds i32, ptr %10, i64 %11
+  %12 = getelementptr inbounds [4 x i8], ptr %10, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !34
   %14 = sext i32 %13 to i64
   %15 = tail call noundef i64 @_ZNK2cv3Mat5totalEii(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %2, i32 noundef 2147483647)
@@ -3840,26 +3840,26 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIdE17reduceMinMaxApplyISt4
   %.051.us52 = phi i64 [ %41, %._crit_edge50.split.us.us ], [ 0, %3 ]
   %19 = mul i64 %.051.us52, %15
   %20 = mul i64 %.051.us52, %16
-  %21 = getelementptr i32, ptr %7, i64 %20
-  %22 = getelementptr double, ptr %5, i64 %19
+  %21 = getelementptr [4 x i8], ptr %7, i64 %20
+  %22 = getelementptr [8 x i8], ptr %5, i64 %19
   br label %.lr.ph.us.us
 
 .lr.ph.us.us:                                     ; preds = %._crit_edge.us.us, %.lr.ph49.us
   %.04247.us.us = phi i64 [ 0, %.lr.ph49.us ], [ %40, %._crit_edge.us.us ]
   %23 = mul i64 %.04247.us.us, %18
-  %24 = getelementptr double, ptr %22, i64 %23
+  %24 = getelementptr [8 x i8], ptr %22, i64 %23
   %25 = trunc i64 %.04247.us.us to i32
   br label %26
 
 26:                                               ; preds = %38, %.lr.ph.us.us
   %.04345.us.us = phi i64 [ 0, %.lr.ph.us.us ], [ %39, %38 ]
-  %27 = getelementptr i32, ptr %21, i64 %.04345.us.us
+  %27 = getelementptr [4 x i8], ptr %21, i64 %.04345.us.us
   %28 = load i32, ptr %27, align 4, !tbaa !34
   %29 = sext i32 %28 to i64
   %30 = mul i64 %18, %29
-  %31 = getelementptr double, ptr %24, i64 %.04345.us.us
-  %32 = getelementptr double, ptr %22, i64 %30
-  %33 = getelementptr double, ptr %32, i64 %.04345.us.us
+  %31 = getelementptr [8 x i8], ptr %24, i64 %.04345.us.us
+  %32 = getelementptr [8 x i8], ptr %22, i64 %30
+  %33 = getelementptr [8 x i8], ptr %32, i64 %.04345.us.us
   %34 = load double, ptr %31, align 8, !tbaa !37
   %35 = load double, ptr %33, align 8, !tbaa !37
   %36 = fcmp olt double %34, %35
@@ -3898,7 +3898,7 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIdE17reduceMinMaxApplyISt1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load ptr, ptr %9, align 8, !tbaa !80
   %11 = sext i32 %2 to i64
-  %12 = getelementptr inbounds i32, ptr %10, i64 %11
+  %12 = getelementptr inbounds [4 x i8], ptr %10, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !34
   %14 = sext i32 %13 to i64
   %15 = tail call noundef i64 @_ZNK2cv3Mat5totalEii(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %2, i32 noundef 2147483647)
@@ -3916,26 +3916,26 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIdE17reduceMinMaxApplyISt1
   %.051.us52 = phi i64 [ %41, %._crit_edge50.split.us.us ], [ 0, %3 ]
   %19 = mul i64 %.051.us52, %15
   %20 = mul i64 %.051.us52, %16
-  %21 = getelementptr i32, ptr %7, i64 %20
-  %22 = getelementptr double, ptr %5, i64 %19
+  %21 = getelementptr [4 x i8], ptr %7, i64 %20
+  %22 = getelementptr [8 x i8], ptr %5, i64 %19
   br label %.lr.ph.us.us
 
 .lr.ph.us.us:                                     ; preds = %._crit_edge.us.us, %.lr.ph49.us
   %.04247.us.us = phi i64 [ 0, %.lr.ph49.us ], [ %40, %._crit_edge.us.us ]
   %23 = mul i64 %.04247.us.us, %18
-  %24 = getelementptr double, ptr %22, i64 %23
+  %24 = getelementptr [8 x i8], ptr %22, i64 %23
   %25 = trunc i64 %.04247.us.us to i32
   br label %26
 
 26:                                               ; preds = %38, %.lr.ph.us.us
   %.04345.us.us = phi i64 [ 0, %.lr.ph.us.us ], [ %39, %38 ]
-  %27 = getelementptr i32, ptr %21, i64 %.04345.us.us
+  %27 = getelementptr [4 x i8], ptr %21, i64 %.04345.us.us
   %28 = load i32, ptr %27, align 4, !tbaa !34
   %29 = sext i32 %28 to i64
   %30 = mul i64 %18, %29
-  %31 = getelementptr double, ptr %24, i64 %.04345.us.us
-  %32 = getelementptr double, ptr %22, i64 %30
-  %33 = getelementptr double, ptr %32, i64 %.04345.us.us
+  %31 = getelementptr [8 x i8], ptr %24, i64 %.04345.us.us
+  %32 = getelementptr [8 x i8], ptr %22, i64 %30
+  %33 = getelementptr [8 x i8], ptr %32, i64 %.04345.us.us
   %34 = load double, ptr %31, align 8, !tbaa !37
   %35 = load double, ptr %33, align 8, !tbaa !37
   %36 = fcmp ugt double %34, %35
@@ -3974,7 +3974,7 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIdE17reduceMinMaxApplyISt7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load ptr, ptr %9, align 8, !tbaa !80
   %11 = sext i32 %2 to i64
-  %12 = getelementptr inbounds i32, ptr %10, i64 %11
+  %12 = getelementptr inbounds [4 x i8], ptr %10, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !34
   %14 = sext i32 %13 to i64
   %15 = tail call noundef i64 @_ZNK2cv3Mat5totalEii(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %2, i32 noundef 2147483647)
@@ -3992,26 +3992,26 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIdE17reduceMinMaxApplyISt7
   %.051.us52 = phi i64 [ %41, %._crit_edge50.split.us.us ], [ 0, %3 ]
   %19 = mul i64 %.051.us52, %15
   %20 = mul i64 %.051.us52, %16
-  %21 = getelementptr i32, ptr %7, i64 %20
-  %22 = getelementptr double, ptr %5, i64 %19
+  %21 = getelementptr [4 x i8], ptr %7, i64 %20
+  %22 = getelementptr [8 x i8], ptr %5, i64 %19
   br label %.lr.ph.us.us
 
 .lr.ph.us.us:                                     ; preds = %._crit_edge.us.us, %.lr.ph49.us
   %.04247.us.us = phi i64 [ 0, %.lr.ph49.us ], [ %40, %._crit_edge.us.us ]
   %23 = mul i64 %.04247.us.us, %18
-  %24 = getelementptr double, ptr %22, i64 %23
+  %24 = getelementptr [8 x i8], ptr %22, i64 %23
   %25 = trunc i64 %.04247.us.us to i32
   br label %26
 
 26:                                               ; preds = %38, %.lr.ph.us.us
   %.04345.us.us = phi i64 [ 0, %.lr.ph.us.us ], [ %39, %38 ]
-  %27 = getelementptr i32, ptr %21, i64 %.04345.us.us
+  %27 = getelementptr [4 x i8], ptr %21, i64 %.04345.us.us
   %28 = load i32, ptr %27, align 4, !tbaa !34
   %29 = sext i32 %28 to i64
   %30 = mul i64 %18, %29
-  %31 = getelementptr double, ptr %24, i64 %.04345.us.us
-  %32 = getelementptr double, ptr %22, i64 %30
-  %33 = getelementptr double, ptr %32, i64 %.04345.us.us
+  %31 = getelementptr [8 x i8], ptr %24, i64 %.04345.us.us
+  %32 = getelementptr [8 x i8], ptr %22, i64 %30
+  %33 = getelementptr [8 x i8], ptr %32, i64 %.04345.us.us
   %34 = load double, ptr %31, align 8, !tbaa !37
   %35 = load double, ptr %33, align 8, !tbaa !37
   %36 = fcmp ogt double %34, %35
@@ -4050,7 +4050,7 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIdE17reduceMinMaxApplyISt1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load ptr, ptr %9, align 8, !tbaa !80
   %11 = sext i32 %2 to i64
-  %12 = getelementptr inbounds i32, ptr %10, i64 %11
+  %12 = getelementptr inbounds [4 x i8], ptr %10, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !34
   %14 = sext i32 %13 to i64
   %15 = tail call noundef i64 @_ZNK2cv3Mat5totalEii(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %2, i32 noundef 2147483647)
@@ -4068,26 +4068,26 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIdE17reduceMinMaxApplyISt1
   %.051.us52 = phi i64 [ %41, %._crit_edge50.split.us.us ], [ 0, %3 ]
   %19 = mul i64 %.051.us52, %15
   %20 = mul i64 %.051.us52, %16
-  %21 = getelementptr i32, ptr %7, i64 %20
-  %22 = getelementptr double, ptr %5, i64 %19
+  %21 = getelementptr [4 x i8], ptr %7, i64 %20
+  %22 = getelementptr [8 x i8], ptr %5, i64 %19
   br label %.lr.ph.us.us
 
 .lr.ph.us.us:                                     ; preds = %._crit_edge.us.us, %.lr.ph49.us
   %.04247.us.us = phi i64 [ 0, %.lr.ph49.us ], [ %40, %._crit_edge.us.us ]
   %23 = mul i64 %.04247.us.us, %18
-  %24 = getelementptr double, ptr %22, i64 %23
+  %24 = getelementptr [8 x i8], ptr %22, i64 %23
   %25 = trunc i64 %.04247.us.us to i32
   br label %26
 
 26:                                               ; preds = %38, %.lr.ph.us.us
   %.04345.us.us = phi i64 [ 0, %.lr.ph.us.us ], [ %39, %38 ]
-  %27 = getelementptr i32, ptr %21, i64 %.04345.us.us
+  %27 = getelementptr [4 x i8], ptr %21, i64 %.04345.us.us
   %28 = load i32, ptr %27, align 4, !tbaa !34
   %29 = sext i32 %28 to i64
   %30 = mul i64 %18, %29
-  %31 = getelementptr double, ptr %24, i64 %.04345.us.us
-  %32 = getelementptr double, ptr %22, i64 %30
-  %33 = getelementptr double, ptr %32, i64 %.04345.us.us
+  %31 = getelementptr [8 x i8], ptr %24, i64 %.04345.us.us
+  %32 = getelementptr [8 x i8], ptr %22, i64 %30
+  %33 = getelementptr [8 x i8], ptr %32, i64 %.04345.us.us
   %34 = load double, ptr %31, align 8, !tbaa !37
   %35 = load double, ptr %33, align 8, !tbaa !37
   %36 = fcmp ult double %34, %35

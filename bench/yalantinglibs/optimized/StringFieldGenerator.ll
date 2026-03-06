@@ -1244,7 +1244,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i: ; preds = %_ZN6google8p
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3.i.i.i)
   %idxprom.i.i = zext i32 %7 to i64
-  %arrayidx.i.i = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %idxprom.i.i
   %8 = load i32, ptr %arrayidx.i.i, align 4
   %cmp.i = icmp ne i32 %8, 10
   %containing_oneof_.i.i = getelementptr inbounds nuw i8, ptr %0, i64 88

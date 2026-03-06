@@ -8,11 +8,11 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
 %"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
 %"union.std::_Nocopy_types" = type { { i64, i64 } }
+%class.command_t = type { ptr, i64, %"class.std::function.7" }
+%"class.std::function.7" = type { %"class.std::_Function_base", ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%class.command_t = type { ptr, i64, %"class.std::function.7" }
-%"class.std::function.7" = type { %"class.std::_Function_base", ptr }
 %"class.std::allocator.10" = type { i8 }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
@@ -396,7 +396,7 @@ define void @_ZN8device_t16register_commandEmSt8functionIFv9command_tEEPKc(ptr n
   %5 = alloca %"class.std::function", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !6
-  %8 = getelementptr inbounds nuw %"class.std::function", ptr %7, i64 %1
+  %8 = getelementptr inbounds nuw [32 x i8], ptr %7, i64 %1
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -471,7 +471,7 @@ _ZNSt8functionIFv9command_tEEaSERKS2_.exit:       ; preds = %_ZNSt8functionIFv9c
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %39 = load ptr, ptr %38, align 8, !tbaa !13
-  %40 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %39, i64 %1
+  %40 = getelementptr inbounds nuw [32 x i8], ptr %39, i64 %1
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = load i64, ptr %41, align 8, !tbaa !20
   %43 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #29
@@ -506,7 +506,7 @@ define void @_ZN8device_t15handle_identifyE9command_t(ptr noundef nonnull align 
 14:                                               ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load ptr, ptr %15, align 8, !tbaa !13
-  %17 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %16, i64 %7
+  %17 = getelementptr inbounds nuw [32 x i8], ptr %16, i64 %7
   %18 = load ptr, ptr %17, align 8, !tbaa !47
   br label %19
 
@@ -654,7 +654,7 @@ define void @_ZN8device_t14handle_commandE9command_t(ptr noundef nonnull readonl
   %7 = lshr i64 %6, 48
   %8 = and i64 %7, 255
   %9 = load ptr, ptr %4, align 8, !tbaa !6
-  %10 = getelementptr inbounds nuw %"class.std::function", ptr %9, i64 %8
+  %10 = getelementptr inbounds nuw [32 x i8], ptr %9, i64 %8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 16, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -3108,7 +3108,7 @@ define void @_ZN13device_list_t15register_deviceEP8device_t(ptr noundef nonnull 
   %5 = add i64 %4, 1
   store i64 %5, ptr %3, align 8, !tbaa !123
   %6 = load ptr, ptr %0, align 8, !tbaa !117
-  %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %4
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %4
   store ptr %1, ptr %7, align 8, !tbaa !33
   ret void
 }
@@ -3120,7 +3120,7 @@ define void @_ZN13device_list_t14handle_commandE9command_t(ptr noundef nonnull r
   %5 = load i64, ptr %4, align 8, !tbaa !43
   %6 = lshr i64 %5, 56
   %7 = load ptr, ptr %0, align 8, !tbaa !117
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %6
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %6
   %9 = load ptr, ptr %8, align 8, !tbaa !33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 16, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -3222,7 +3222,7 @@ define void @_ZN13device_list_t4tickEv(ptr noundef nonnull readonly align 8 capt
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.03 = phi i64 [ %10, %.lr.ph ], [ 0, %1 ]
   %4 = load ptr, ptr %0, align 8, !tbaa !117
-  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %.03
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.03
   %6 = load ptr, ptr %5, align 8, !tbaa !33
   %7 = load ptr, ptr %6, align 8, !tbaa !3
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
@@ -4221,7 +4221,7 @@ _ZNSt11_Deque_baseI9command_tSaIS0_EE15_M_allocate_mapEm.exit: ; preds = %2
   store ptr %11, ptr %0, align 8, !tbaa !136
   %12 = sub nsw i64 %.sroa.speculated, %9
   %13 = lshr i64 %12, 1
-  %14 = getelementptr inbounds nuw ptr, ptr %11, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %13
   %.idx = shl nuw nsw i64 %9, 3
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx
   br label %.lr.ph.i
@@ -4314,7 +4314,7 @@ _ZNSt11_Deque_baseI9command_tSaIS0_EE15_M_create_nodesEPPS0_S4_.exit: ; preds = 
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %52, ptr %53, align 8, !tbaa !79
   store ptr %43, ptr %41, align 8, !tbaa !72
-  %54 = getelementptr inbounds nuw %class.command_t, ptr %50, i64 %4
+  %54 = getelementptr inbounds nuw [48 x i8], ptr %50, i64 %4
   store ptr %54, ptr %47, align 8, !tbaa !62
   ret void
 
@@ -4629,9 +4629,9 @@ define linkonce_odr void @_ZNSt5dequeI9command_tSaIS0_EE17_M_reallocate_mapEmb(p
   %19 = load ptr, ptr %0, align 8, !tbaa !136
   %20 = sub i64 %15, %13
   %21 = lshr i64 %20, 1
-  %22 = getelementptr inbounds nuw ptr, ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %21
   %23 = select i1 %2, i64 %1, i64 0
-  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %23
   %25 = icmp ult ptr %24, %7
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %26, %7
@@ -4650,12 +4650,12 @@ define linkonce_odr void @_ZNSt5dequeI9command_tSaIS0_EE17_M_reallocate_mapEmb(p
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIPP9command_tS2_ET0_T_S4_S3_.exit, label %32
 
 32:                                               ; preds = %31
-  %33 = getelementptr inbounds nuw ptr, ptr %24, i64 %12
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %12
   %34 = ptrtoint ptr %26 to i64
   %35 = sub i64 %34, %9
   %36 = ashr exact i64 %35, 3
   %37 = sub nsw i64 0, %36
-  %38 = getelementptr inbounds ptr, ptr %33, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %33, i64 %37
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %38, ptr align 8 %7, i64 %35, i1 false)
   br label %_ZSt4copyIPP9command_tS2_ET0_T_S4_S3_.exit
 
@@ -4683,9 +4683,9 @@ _ZNSt11_Deque_baseI9command_tSaIS0_EE15_M_allocate_mapEm.exit: ; preds = %39
   %48 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %47) #27
   %49 = sub i64 %41, %13
   %50 = lshr i64 %49, 1
-  %51 = getelementptr inbounds nuw ptr, ptr %48, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %50
   %52 = select i1 %2, i64 %1, i64 0
-  %53 = getelementptr inbounds nuw ptr, ptr %51, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %52
   %54 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i25 = icmp eq ptr %54, %7
   br i1 %.not.i.i.i.i.i25, label %_ZSt4copyIPP9command_tS2_ET0_T_S4_S3_.exit26, label %55
@@ -4713,7 +4713,7 @@ _ZSt4copyIPP9command_tS2_ET0_T_S4_S3_.exit:       ; preds = %32, %31, %28, %27, 
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 480
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %62, ptr %63, align 8, !tbaa !79
-  %64 = getelementptr inbounds nuw ptr, ptr %.0, i64 %12
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %.0, i64 %12
   %65 = getelementptr inbounds i8, ptr %64, i64 -8
   store ptr %65, ptr %4, align 8, !tbaa !76
   %66 = load ptr, ptr %65, align 8, !tbaa !77

@@ -26,11 +26,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"union.std::aligned_storage<16, 4>::type" = type { [16 x i8] }
 %"class.pstd::vector" = type { %"class.pstd::pmr::polymorphic_allocator.18", ptr, i64, i64 }
 %"class.pstd::pmr::polymorphic_allocator.18" = type { ptr }
-%"class.pbrt::Triangle" = type { i32, i32 }
-%"class.pbrt::Shape" = type { %"class.pbrt::TaggedPointer.21" }
-%"class.pbrt::TaggedPointer.21" = type { i64 }
-%"class.pbrt::Normal3" = type { %"class.pbrt::Tuple3.4" }
-%"class.pbrt::Tuple3.4" = type { float, float, float }
 %"class.pstd::optional.22" = type { %"union.std::aligned_storage<256, 8>::type", i8, [7 x i8] }
 %"union.std::aligned_storage<256, 8>::type" = type { [256 x i8] }
 %"class.pbrt::SurfaceInteraction" = type { %"class.pbrt::Interaction", %"class.pbrt::Vector3", %"class.pbrt::Vector3", %"class.pbrt::Normal3", %"class.pbrt::Normal3", %struct.anon.25, i32, %"class.pbrt::Material", %"class.pbrt::Light", %"class.pbrt::Vector3", %"class.pbrt::Vector3", float, float, float, float }
@@ -39,6 +34,8 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.pbrt::Tuple2" = type { float, float }
 %"class.pbrt::Medium" = type { %"class.pbrt::TaggedPointer" }
 %"class.pbrt::TaggedPointer" = type { i64 }
+%"class.pbrt::Normal3" = type { %"class.pbrt::Tuple3.4" }
+%"class.pbrt::Tuple3.4" = type { float, float, float }
 %struct.anon.25 = type { %"class.pbrt::Normal3", %"class.pbrt::Vector3", %"class.pbrt::Vector3", %"class.pbrt::Normal3", %"class.pbrt::Normal3" }
 %"class.pbrt::Material" = type { %"class.pbrt::TaggedPointer.26" }
 %"class.pbrt::TaggedPointer.26" = type { i64 }
@@ -68,7 +65,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.pstd::span" = type { ptr, i64 }
 %"class.pstd::span.63" = type { ptr, i64 }
 %"class.pstd::span.62" = type { ptr, i64 }
-%"class.pbrt::Curve" = type { ptr, float, float }
 %"class.pstd::array.64" = type { [4 x %"class.pbrt::Point3"] }
 %"class.pbrt::Ray" = type { %"class.pbrt::Point3", %"class.pbrt::Vector3", float, %"class.pbrt::Medium" }
 %"class.pbrt::Transform" = type { %"class.pbrt::SquareMatrix.2", %"class.pbrt::SquareMatrix.2" }
@@ -110,10 +106,8 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::vector<std::__cxx11::basic_string<char>>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::vector<std::__cxx11::basic_string<char>>>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
 %"class.pbrt::Array2D" = type { %"class.pbrt::Bounds2.111", %"class.pstd::pmr::polymorphic_allocator", ptr }
 %"class.pbrt::Bounds2.111" = type { %"class.pbrt::Point2.84", %"class.pbrt::Point2.84" }
-%"class.pbrt::BilinearPatch" = type { i32, i32, float }
 %"class.pstd::optional.117" = type { %"union.std::aligned_storage<12, 4>::type", i8, [3 x i8] }
 %"union.std::aligned_storage<12, 4>::type" = type { [12 x i8] }
-%"class.pbrt::PiecewiseConstant1D" = type <{ %"class.pstd::vector.93", %"class.pstd::vector.93", float, float, float, [4 x i8] }>
 %"class.std::allocator" = type { i8 }
 %"struct.pbrt::TriQuadMesh" = type { %"class.std::vector.31", %"class.std::vector.48", %"class.std::vector.36", %"class.std::vector", %"class.std::vector", %"class.std::vector" }
 %"class.pbrt::FloatTexture" = type { %"class.pbrt::TaggedPointer.138" }
@@ -127,7 +121,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.pbrt::HashMap" = type { %"class.pstd::vector.182", i64 }
 %"class.pstd::vector.182" = type { %"class.pstd::pmr::polymorphic_allocator.183", ptr, i64, i64 }
 %"class.pstd::pmr::polymorphic_allocator.183" = type { ptr }
-%"class.pstd::optional.184" = type { %"union.std::aligned_storage<12, 4>::type", i8, [3 x i8] }
 %"class.std::__cxx11::basic_stringstream" = type { %"class.std::basic_iostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_iostream.base" = type { %"class.std::basic_istream.base", %"class.std::basic_ostream.base" }
 %"class.std::basic_istream.base" = type { ptr, i64 }
@@ -142,6 +135,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.pbrt::ImageChannelValues" = type { %"class.pbrt::InlinedVector.154" }
 %"class.pbrt::InlinedVector.154" = type { %"class.pstd::pmr::polymorphic_allocator.94", ptr, %union.anon.155, i64, i64 }
 %union.anon.155 = type { [4 x float] }
+%"class.pbrt::PiecewiseConstant1D" = type <{ %"class.pstd::vector.93", %"class.pstd::vector.93", float, float, float, [4 x i8] }>
 %"struct.std::pair.188" = type { i32, i32 }
 %"class.pbrt::UniversalTextureEvaluator" = type { i8 }
 %"struct.pbrt::TextureEvalContext" = type { %"class.pbrt::Point3", %"class.pbrt::Vector3", %"class.pbrt::Vector3", %"class.pbrt::Normal3", %"class.pbrt::Point2", float, float, float, float, i32 }
@@ -3346,8 +3340,8 @@ _ZN4pstd3pmr21polymorphic_allocatorIPKN4pbrt12TriangleMeshEE17deallocate_objectI
 
 .lr.ph.i.i:                                       ; preds = %_ZN4pstd3pmr21polymorphic_allocatorIPKN4pbrt12TriangleMeshEE15allocate_objectIS5_EEPT_m.exit.i.i, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %_ZN4pstd3pmr21polymorphic_allocatorIPKN4pbrt12TriangleMeshEE15allocate_objectIS5_EEPT_m.exit.i.i ]
-  %36 = getelementptr inbounds nuw ptr, ptr %.0.i.i.i.i.i, i64 %indvars.iv.i.i
-  %37 = getelementptr inbounds nuw ptr, ptr %.pre.i.i, i64 %indvars.iv.i.i
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i.i.i.i, i64 %indvars.iv.i.i
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i.i, i64 %indvars.iv.i.i
   %38 = load ptr, ptr %37, align 8, !tbaa !103
   store ptr %38, ptr %36, align 8, !tbaa !103
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -3358,7 +3352,7 @@ _ZN4pstd6vectorIPKN4pbrt12TriangleMeshENS_3pmr21polymorphic_allocatorIS4_EEE9pus
   %39 = phi i64 [ %.pre2.i, %_ZN4pstd3pmr21polymorphic_allocatorIPKN4pbrt12TriangleMeshEE17deallocate_objectIS5_EEvPT_m.exit.i.i ], [ %10, %18 ], [ %10, %13 ]
   %40 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %41 = load ptr, ptr %40, align 8, !tbaa !102
-  %42 = getelementptr inbounds nuw ptr, ptr %41, i64 %39
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %39
   store ptr %1, ptr %42, align 8, !tbaa !103
   %43 = add i64 %39, 1
   store i64 %43, ptr %9, align 8, !tbaa !95
@@ -3428,14 +3422,14 @@ _ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectIN4pbrt8TriangleEEE
 
 73:                                               ; preds = %.lr.ph, %73
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %73 ]
-  %74 = getelementptr inbounds nuw %"class.pbrt::Triangle", ptr %63, i64 %indvars.iv
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %indvars.iv
   store i32 %14, ptr %74, align 4, !tbaa !121
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 4
   %76 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %76, ptr %75, align 4, !tbaa !123
   %77 = ptrtoint ptr %74 to i64
   %78 = or i64 %77, 576460752303423488
-  %79 = getelementptr inbounds nuw %"class.pbrt::Shape", ptr %55, i64 %indvars.iv
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %indvars.iv
   store i64 %78, ptr %79, align 8, !tbaa !119
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -3538,7 +3532,7 @@ define dso_local void @_ZNK4pbrt8Triangle6BoundsEv(ptr dead_on_unwind noalias wr
   %5 = sext i32 %4 to i64
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !102
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %5
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %5
   %9 = load ptr, ptr %8, align 8, !tbaa !103
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !129
@@ -3546,26 +3540,26 @@ define dso_local void @_ZNK4pbrt8Triangle6BoundsEv(ptr dead_on_unwind noalias wr
   %13 = load i32, ptr %12, align 4, !tbaa !123
   %14 = mul nsw i32 %13, 3
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds i32, ptr %11, i64 %15
+  %16 = getelementptr inbounds [4 x i8], ptr %11, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %18 = load ptr, ptr %17, align 8, !tbaa !130
   %19 = load i32, ptr %16, align 4, !tbaa !15
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds %"class.pbrt::Point3", ptr %18, i64 %20
+  %21 = getelementptr inbounds [12 x i8], ptr %18, i64 %20
   %.sroa.014.0.copyload = load <2 x float>, ptr %21, align 4
   %.sroa.415.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 8
   %.sroa.415.0.copyload = load float, ptr %.sroa.415.0..sroa_idx, align 4
   %22 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %23 = load i32, ptr %22, align 4, !tbaa !15
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds %"class.pbrt::Point3", ptr %18, i64 %24
+  %25 = getelementptr inbounds [12 x i8], ptr %18, i64 %24
   %.sroa.012.0.copyload = load <2 x float>, ptr %25, align 4
   %.sroa.413.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 8
   %.sroa.413.0.copyload = load float, ptr %.sroa.413.0..sroa_idx, align 4
   %26 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %27 = load i32, ptr %26, align 4, !tbaa !15
   %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds %"class.pbrt::Point3", ptr %18, i64 %28
+  %29 = getelementptr inbounds [12 x i8], ptr %18, i64 %28
   %.sroa.011.0.copyload = load <2 x float>, ptr %29, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 8
   %.sroa.4.0.copyload = load float, ptr %.sroa.4.0..sroa_idx, align 4
@@ -3622,7 +3616,7 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK4pbrt8Triangle12NormalBoundsE
   %4 = sext i32 %3 to i64
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !102
-  %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %4
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %4
   %8 = load ptr, ptr %7, align 8, !tbaa !103
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !129
@@ -3630,19 +3624,19 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK4pbrt8Triangle12NormalBoundsE
   %12 = load i32, ptr %11, align 4, !tbaa !123
   %13 = mul nsw i32 %12, 3
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds i32, ptr %10, i64 %14
+  %15 = getelementptr inbounds [4 x i8], ptr %10, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %17 = load ptr, ptr %16, align 8, !tbaa !130
   %18 = load i32, ptr %15, align 4, !tbaa !15
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds %"class.pbrt::Point3", ptr %17, i64 %19
+  %20 = getelementptr inbounds [12 x i8], ptr %17, i64 %19
   %.sroa.072.0.copyload = load <2 x float>, ptr %20, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 8
   %.sroa.5.0.copyload = load float, ptr %.sroa.5.0..sroa_idx, align 4
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %22 = load i32, ptr %21, align 4, !tbaa !15
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds %"class.pbrt::Point3", ptr %17, i64 %23
+  %24 = getelementptr inbounds [12 x i8], ptr %17, i64 %23
   %.sroa.0131.0.copyload = load float, ptr %24, align 4
   %.sroa.4132.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 4
   %.sroa.4132.0.copyload = load float, ptr %.sroa.4132.0..sroa_idx, align 4
@@ -3651,7 +3645,7 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK4pbrt8Triangle12NormalBoundsE
   %25 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %26 = load i32, ptr %25, align 4, !tbaa !15
   %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds %"class.pbrt::Point3", ptr %17, i64 %27
+  %28 = getelementptr inbounds [12 x i8], ptr %17, i64 %27
   %.sroa.0129.0.copyload = load float, ptr %28, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 4
   %.sroa.4.0.copyload = load float, ptr %.sroa.4.0..sroa_idx, align 4
@@ -3700,8 +3694,8 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK4pbrt8Triangle12NormalBoundsE
   br i1 %.not, label %88, label %63
 
 63:                                               ; preds = %1
-  %64 = getelementptr inbounds %"class.pbrt::Normal3", ptr %62, i64 %19
-  %65 = getelementptr inbounds %"class.pbrt::Normal3", ptr %62, i64 %23
+  %64 = getelementptr inbounds [12 x i8], ptr %62, i64 %19
+  %65 = getelementptr inbounds [12 x i8], ptr %62, i64 %23
   %.sroa.030.0.copyload = load <2 x float>, ptr %65, align 4
   %.sroa.231.0..sroa_idx = getelementptr inbounds nuw i8, ptr %65, i64 8
   %.sroa.231.0.copyload = load float, ptr %.sroa.231.0..sroa_idx, align 4
@@ -3715,7 +3709,7 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK4pbrt8Triangle12NormalBoundsE
   %71 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %72 = load float, ptr %71, align 4, !tbaa !137
   %73 = fadd float %.sroa.231.0.copyload, %72
-  %74 = getelementptr inbounds %"class.pbrt::Normal3", ptr %62, i64 %27
+  %74 = getelementptr inbounds [12 x i8], ptr %62, i64 %27
   %.sroa.022.0.copyload = load <2 x float>, ptr %74, align 4
   %.sroa.223.0..sroa_idx = getelementptr inbounds nuw i8, ptr %74, i64 8
   %.sroa.223.0.copyload = load float, ptr %.sroa.223.0..sroa_idx, align 4
@@ -3792,7 +3786,7 @@ define dso_local void @_ZNK4pbrt8Triangle9IntersectERKNS_3RayEf(ptr dead_on_unwi
   %12 = sext i32 %11 to i64
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !102
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %12
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %12
   %16 = load ptr, ptr %15, align 8, !tbaa !103
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !129
@@ -3800,26 +3794,26 @@ define dso_local void @_ZNK4pbrt8Triangle9IntersectERKNS_3RayEf(ptr dead_on_unwi
   %20 = load i32, ptr %19, align 4, !tbaa !123
   %21 = mul nsw i32 %20, 3
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds i32, ptr %18, i64 %22
+  %23 = getelementptr inbounds [4 x i8], ptr %18, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %25 = load ptr, ptr %24, align 8, !tbaa !130
   %26 = load i32, ptr %23, align 4, !tbaa !15
   %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds %"class.pbrt::Point3", ptr %25, i64 %27
+  %28 = getelementptr inbounds [12 x i8], ptr %25, i64 %27
   %.sroa.022.0.copyload = load <2 x float>, ptr %28, align 4
   %.sroa.523.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 8
   %.sroa.523.0.copyload = load float, ptr %.sroa.523.0..sroa_idx, align 4
   %29 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %30 = load i32, ptr %29, align 4, !tbaa !15
   %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds %"class.pbrt::Point3", ptr %25, i64 %31
+  %32 = getelementptr inbounds [12 x i8], ptr %25, i64 %31
   %.sroa.020.0.copyload = load <2 x float>, ptr %32, align 4
   %.sroa.521.0..sroa_idx = getelementptr inbounds nuw i8, ptr %32, i64 8
   %.sroa.521.0.copyload = load float, ptr %.sroa.521.0..sroa_idx, align 4
   %33 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %34 = load i32, ptr %33, align 4, !tbaa !15
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds %"class.pbrt::Point3", ptr %25, i64 %35
+  %36 = getelementptr inbounds [12 x i8], ptr %25, i64 %35
   %.sroa.019.0.copyload = load <2 x float>, ptr %36, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 8
   %.sroa.5.0.copyload = load float, ptr %.sroa.5.0..sroa_idx, align 4
@@ -3897,26 +3891,26 @@ define linkonce_odr dso_local void @_ZN4pbrt8Triangle27InteractionFromIntersecti
   %12 = load ptr, ptr %11, align 8, !tbaa !129
   %13 = mul nsw i32 %2, 3
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds i32, ptr %12, i64 %14
+  %15 = getelementptr inbounds [4 x i8], ptr %12, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %17 = load ptr, ptr %16, align 8, !tbaa !130
   %18 = load i32, ptr %15, align 4, !tbaa !15
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds %"class.pbrt::Point3", ptr %17, i64 %19
+  %20 = getelementptr inbounds [12 x i8], ptr %17, i64 %19
   %.sroa.01275.0.copyload = load <2 x float>, ptr %20, align 4
   %.sroa.111282.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 8
   %.sroa.111282.0.copyload = load float, ptr %.sroa.111282.0..sroa_idx, align 4
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %22 = load i32, ptr %21, align 4, !tbaa !15
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds %"class.pbrt::Point3", ptr %17, i64 %23
+  %24 = getelementptr inbounds [12 x i8], ptr %17, i64 %23
   %.sroa.01261.0.copyload = load <2 x float>, ptr %24, align 4
   %.sroa.111272.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 8
   %.sroa.111272.0.copyload = load float, ptr %.sroa.111272.0..sroa_idx, align 4
   %25 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %26 = load i32, ptr %25, align 4, !tbaa !15
   %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds %"class.pbrt::Point3", ptr %17, i64 %27
+  %28 = getelementptr inbounds [12 x i8], ptr %17, i64 %27
   %.sroa.01251.0.copyload = load <2 x float>, ptr %28, align 4
   %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 8
   %.sroa.11.0.copyload = load float, ptr %.sroa.11.0..sroa_idx, align 4
@@ -3926,11 +3920,11 @@ define linkonce_odr dso_local void @_ZN4pbrt8Triangle27InteractionFromIntersecti
   br i1 %.not, label %_ZN4pstd5arrayIN4pbrt6Point2IfEELi3EEC2ESt16initializer_listIS3_E.exit, label %_ZN4pstd5arrayIN4pbrt6Point2IfEELi3EEC2ESt16initializer_listIS3_E.exit.loopexit1314
 
 _ZN4pstd5arrayIN4pbrt6Point2IfEELi3EEC2ESt16initializer_listIS3_E.exit.loopexit1314: ; preds = %8
-  %31 = getelementptr inbounds %"class.pbrt::Point2", ptr %30, i64 %19
+  %31 = getelementptr inbounds [8 x i8], ptr %30, i64 %19
   %32 = load <2 x float>, ptr %31, align 4
-  %33 = getelementptr inbounds %"class.pbrt::Point2", ptr %30, i64 %23
+  %33 = getelementptr inbounds [8 x i8], ptr %30, i64 %23
   %34 = load <2 x float>, ptr %33, align 4
-  %35 = getelementptr inbounds %"class.pbrt::Point2", ptr %30, i64 %27
+  %35 = getelementptr inbounds [8 x i8], ptr %30, i64 %27
   %36 = load <2 x float>, ptr %35, align 4
   br label %_ZN4pstd5arrayIN4pbrt6Point2IfEELi3EEC2ESt16initializer_listIS3_E.exit
 
@@ -4470,7 +4464,7 @@ _ZN4pbrt8Point3fiC2ENS_6Point3IfEENS_7Vector3IfEE.exit: ; preds = %283, %_ZN4pbr
 
 348:                                              ; preds = %_ZN4pbrt8Point3fiC2ENS_6Point3IfEENS_7Vector3IfEE.exit
   %349 = sext i32 %2 to i64
-  %350 = getelementptr inbounds i32, ptr %347, i64 %349
+  %350 = getelementptr inbounds [4 x i8], ptr %347, i64 %349
   %351 = load i32, ptr %350, align 4, !tbaa !15
   br label %352
 
@@ -4542,7 +4536,7 @@ _ZN4pbrt8Point3fiC2ENS_6Point3IfEENS_7Vector3IfEE.exit: ; preds = %283, %_ZN4pbr
 394:                                              ; preds = %388
   %395 = load i32, ptr %15, align 4, !tbaa !15
   %396 = sext i32 %395 to i64
-  %397 = getelementptr inbounds %"class.pbrt::Normal3", ptr %390, i64 %396
+  %397 = getelementptr inbounds [12 x i8], ptr %390, i64 %396
   %.sroa.0260.0.copyload = load <2 x float>, ptr %397, align 4
   %.sroa.2261.0..sroa_idx = getelementptr inbounds nuw i8, ptr %397, i64 8
   %.sroa.2261.0.copyload = load float, ptr %.sroa.2261.0..sroa_idx, align 4, !tbaa !17
@@ -4553,7 +4547,7 @@ _ZN4pbrt8Point3fiC2ENS_6Point3IfEENS_7Vector3IfEE.exit: ; preds = %283, %_ZN4pbr
   %399 = fmul float %.sroa.0672.0.vec.extract, %.sroa.2261.0.copyload
   %400 = load i32, ptr %21, align 4, !tbaa !15
   %401 = sext i32 %400 to i64
-  %402 = getelementptr inbounds %"class.pbrt::Normal3", ptr %390, i64 %401
+  %402 = getelementptr inbounds [12 x i8], ptr %390, i64 %401
   %.sroa.0250.0.copyload = load <2 x float>, ptr %402, align 4
   %.sroa.2251.0..sroa_idx = getelementptr inbounds nuw i8, ptr %402, i64 8
   %.sroa.2251.0.copyload = load float, ptr %.sroa.2251.0..sroa_idx, align 4, !tbaa !17
@@ -4567,7 +4561,7 @@ _ZN4pbrt8Point3fiC2ENS_6Point3IfEENS_7Vector3IfEE.exit: ; preds = %283, %_ZN4pbr
   %406 = fadd float %399, %404
   %407 = load i32, ptr %25, align 4, !tbaa !15
   %408 = sext i32 %407 to i64
-  %409 = getelementptr inbounds %"class.pbrt::Normal3", ptr %390, i64 %408
+  %409 = getelementptr inbounds [12 x i8], ptr %390, i64 %408
   %.sroa.0234.0.copyload = load <2 x float>, ptr %409, align 4
   %.sroa.2235.0..sroa_idx = getelementptr inbounds nuw i8, ptr %409, i64 8
   %.sroa.2235.0.copyload = load float, ptr %.sroa.2235.0..sroa_idx, align 4, !tbaa !17
@@ -4619,7 +4613,7 @@ _ZN4pbrt8Point3fiC2ENS_6Point3IfEENS_7Vector3IfEE.exit: ; preds = %283, %_ZN4pbr
 430:                                              ; preds = %427
   %431 = load i32, ptr %15, align 4, !tbaa !15
   %432 = sext i32 %431 to i64
-  %433 = getelementptr inbounds %"class.pbrt::Vector3", ptr %429, i64 %432
+  %433 = getelementptr inbounds [12 x i8], ptr %429, i64 %432
   %.sroa.0201.0.copyload = load <2 x float>, ptr %433, align 4
   %.sroa.2202.0..sroa_idx = getelementptr inbounds nuw i8, ptr %433, i64 8
   %.sroa.2202.0.copyload = load float, ptr %.sroa.2202.0..sroa_idx, align 4, !tbaa !17
@@ -4630,7 +4624,7 @@ _ZN4pbrt8Point3fiC2ENS_6Point3IfEENS_7Vector3IfEE.exit: ; preds = %283, %_ZN4pbr
   %435 = fmul float %.sroa.0672.0.vec.extract, %.sroa.2202.0.copyload
   %436 = load i32, ptr %21, align 4, !tbaa !15
   %437 = sext i32 %436 to i64
-  %438 = getelementptr inbounds %"class.pbrt::Vector3", ptr %429, i64 %437
+  %438 = getelementptr inbounds [12 x i8], ptr %429, i64 %437
   %.sroa.0191.0.copyload = load <2 x float>, ptr %438, align 4
   %.sroa.2192.0..sroa_idx = getelementptr inbounds nuw i8, ptr %438, i64 8
   %.sroa.2192.0.copyload = load float, ptr %.sroa.2192.0..sroa_idx, align 4, !tbaa !17
@@ -4644,7 +4638,7 @@ _ZN4pbrt8Point3fiC2ENS_6Point3IfEENS_7Vector3IfEE.exit: ; preds = %283, %_ZN4pbr
   %442 = fadd float %435, %440
   %443 = load i32, ptr %25, align 4, !tbaa !15
   %444 = sext i32 %443 to i64
-  %445 = getelementptr inbounds %"class.pbrt::Vector3", ptr %429, i64 %444
+  %445 = getelementptr inbounds [12 x i8], ptr %429, i64 %444
   %.sroa.0175.0.copyload = load <2 x float>, ptr %445, align 4
   %.sroa.2176.0..sroa_idx = getelementptr inbounds nuw i8, ptr %445, i64 8
   %.sroa.2176.0.copyload = load float, ptr %.sroa.2176.0..sroa_idx, align 4, !tbaa !17
@@ -4759,17 +4753,17 @@ _ZN4pbrt8Point3fiC2ENS_6Point3IfEENS_7Vector3IfEE.exit: ; preds = %283, %_ZN4pbr
 518:                                              ; preds = %517
   %519 = load i32, ptr %15, align 4, !tbaa !15
   %520 = sext i32 %519 to i64
-  %521 = getelementptr inbounds %"class.pbrt::Normal3", ptr %390, i64 %520
+  %521 = getelementptr inbounds [12 x i8], ptr %390, i64 %520
   %522 = load i32, ptr %25, align 4, !tbaa !15
   %523 = sext i32 %522 to i64
-  %524 = getelementptr inbounds %"class.pbrt::Normal3", ptr %390, i64 %523
+  %524 = getelementptr inbounds [12 x i8], ptr %390, i64 %523
   %.sroa.2119.0..sroa_idx = getelementptr inbounds nuw i8, ptr %524, i64 8
   %.sroa.2119.0.copyload = load float, ptr %.sroa.2119.0..sroa_idx, align 4
   %525 = getelementptr inbounds nuw i8, ptr %521, i64 8
   %526 = load float, ptr %525, align 4, !tbaa !137
   %527 = load i32, ptr %21, align 4, !tbaa !15
   %528 = sext i32 %527 to i64
-  %529 = getelementptr inbounds %"class.pbrt::Normal3", ptr %390, i64 %528
+  %529 = getelementptr inbounds [12 x i8], ptr %390, i64 %528
   %530 = load float, ptr %529, align 4, !tbaa !135
   %531 = getelementptr inbounds nuw i8, ptr %529, i64 4
   %532 = load float, ptr %531, align 4, !tbaa !136
@@ -5012,7 +5006,7 @@ define dso_local noundef zeroext i1 @_ZNK4pbrt8Triangle10IntersectPERKNS_3RayEf(
   %10 = sext i32 %9 to i64
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !102
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %10
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %10
   %14 = load ptr, ptr %13, align 8, !tbaa !103
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !129
@@ -5020,26 +5014,26 @@ define dso_local noundef zeroext i1 @_ZNK4pbrt8Triangle10IntersectPERKNS_3RayEf(
   %18 = load i32, ptr %17, align 4, !tbaa !123
   %19 = mul nsw i32 %18, 3
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds i32, ptr %16, i64 %20
+  %21 = getelementptr inbounds [4 x i8], ptr %16, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %23 = load ptr, ptr %22, align 8, !tbaa !130
   %24 = load i32, ptr %21, align 4, !tbaa !15
   %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds %"class.pbrt::Point3", ptr %23, i64 %25
+  %26 = getelementptr inbounds [12 x i8], ptr %23, i64 %25
   %.sroa.014.0.copyload = load <2 x float>, ptr %26, align 4
   %.sroa.415.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 8
   %.sroa.415.0.copyload = load float, ptr %.sroa.415.0..sroa_idx, align 4
   %27 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %28 = load i32, ptr %27, align 4, !tbaa !15
   %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds %"class.pbrt::Point3", ptr %23, i64 %29
+  %30 = getelementptr inbounds [12 x i8], ptr %23, i64 %29
   %.sroa.012.0.copyload = load <2 x float>, ptr %30, align 4
   %.sroa.413.0..sroa_idx = getelementptr inbounds nuw i8, ptr %30, i64 8
   %.sroa.413.0.copyload = load float, ptr %.sroa.413.0..sroa_idx, align 4
   %31 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %32 = load i32, ptr %31, align 4, !tbaa !15
   %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds %"class.pbrt::Point3", ptr %23, i64 %33
+  %34 = getelementptr inbounds [12 x i8], ptr %23, i64 %33
   %.sroa.011.0.copyload = load <2 x float>, ptr %34, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %34, i64 8
   %.sroa.4.0.copyload = load float, ptr %.sroa.4.0..sroa_idx, align 4
@@ -5069,7 +5063,7 @@ define dso_local void @_ZNK4pbrt8Triangle8ToStringB5cxx11Ev(ptr dead_on_unwind n
   %5 = sext i32 %4 to i64
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !102
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %5
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %5
   %9 = load ptr, ptr %8, align 8, !tbaa !103
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !129
@@ -5077,20 +5071,20 @@ define dso_local void @_ZNK4pbrt8Triangle8ToStringB5cxx11Ev(ptr dead_on_unwind n
   %13 = load i32, ptr %12, align 4, !tbaa !123
   %14 = mul nsw i32 %13, 3
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds i32, ptr %11, i64 %15
+  %16 = getelementptr inbounds [4 x i8], ptr %11, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %18 = load ptr, ptr %17, align 8, !tbaa !130
   %19 = load i32, ptr %16, align 4, !tbaa !15
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds %"class.pbrt::Point3", ptr %18, i64 %20
+  %21 = getelementptr inbounds [12 x i8], ptr %18, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %23 = load i32, ptr %22, align 4, !tbaa !15
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds %"class.pbrt::Point3", ptr %18, i64 %24
+  %25 = getelementptr inbounds [12 x i8], ptr %18, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %27 = load i32, ptr %26, align 4, !tbaa !15
   %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds %"class.pbrt::Point3", ptr %18, i64 %28
+  %29 = getelementptr inbounds [12 x i8], ptr %18, i64 %28
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %30, ptr %0, align 8, !tbaa !46, !alias.scope !166
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5673,14 +5667,14 @@ _ZNSt6vectorIN4pbrt7Normal3IfEESaIS2_EEaSESt16initializer_listIS2_E.exit: ; pred
 
 240:                                              ; preds = %.lr.ph267, %267
   %.0266 = phi i64 [ 0, %.lr.ph267 ], [ %268, %267 ]
-  %241 = getelementptr inbounds nuw i32, ptr %229, i64 %.0266
+  %241 = getelementptr inbounds nuw [4 x i8], ptr %229, i64 %.0266
   %242 = load i32, ptr %241, align 4, !tbaa !15
   %243 = sext i32 %242 to i64
   %.not56 = icmp ugt i64 %239, %243
   br i1 %.not56, label %267, label %244
 
 244:                                              ; preds = %240
-  %245 = getelementptr inbounds nuw i32, ptr %229, i64 %.0266
+  %245 = getelementptr inbounds nuw [4 x i8], ptr %229, i64 %.0266
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %246 = trunc i64 %239 to i32
   store i32 %246, ptr %22, align 4, !tbaa !15
@@ -6231,8 +6225,8 @@ define dso_local void @_ZN4pbrt11CurveCommonC2EN4pstd4spanIKNS_6Point3IfEEEEffNS
 
 28:                                               ; preds = %25, %28
   %indvars.iv = phi i64 [ 0, %25 ], [ %indvars.iv.next, %28 ]
-  %29 = getelementptr inbounds nuw %"class.pbrt::Point3", ptr %1, i64 %indvars.iv
-  %30 = getelementptr inbounds nuw %"class.pbrt::Point3", ptr %.ptr35, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [12 x i8], ptr %1, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [12 x i8], ptr %.ptr35, i64 %indvars.iv
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %30, ptr noundef nonnull align 4 dereferenceable(12) %29, i64 12, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -6533,7 +6527,7 @@ _ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectIN4pbrt5CurveEEEPT_
   %44 = trunc nuw nsw i64 %indvars.iv.next to i32
   %45 = uitofp nneg i32 %44 to float
   %46 = fdiv float %45, %31
-  %47 = getelementptr inbounds nuw %"class.pbrt::Curve", ptr %30, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [16 x i8], ptr %30, i64 %indvars.iv
   store ptr %16, ptr %47, align 8, !tbaa !224
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store float %43, ptr %48, align 8, !tbaa !227
@@ -6541,7 +6535,7 @@ _ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectIN4pbrt5CurveEEEPT_
   store float %46, ptr %49, align 4, !tbaa !228
   %50 = ptrtoint ptr %47 to i64
   %51 = or i64 %50, 864691128455135232
-  %52 = getelementptr inbounds nuw %"class.pbrt::Shape", ptr %26, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv
   store i64 %51, ptr %52, align 8, !tbaa !119
   %53 = add nsw i64 %40, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -6805,7 +6799,7 @@ define dso_local noundef float @_ZNK4pbrt5Curve4AreaEv(ptr noundef nonnull reado
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %28 ]
   %.019 = phi float [ 0.000000e+00, %1 ], [ %34, %28 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %29 = getelementptr inbounds nuw %"class.pbrt::Point3", ptr %2, i64 %indvars.iv.next
+  %29 = getelementptr inbounds nuw [12 x i8], ptr %2, i64 %indvars.iv.next
   %.sroa.03.0.copyload = load <2 x float>, ptr %29, align 4
   %.sroa.24.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 8
   %.sroa.24.0.copyload = load float, ptr %.sroa.24.0..sroa_idx, align 4
@@ -10082,7 +10076,7 @@ _ZN4pstd5arrayIN4pbrt6Point3IfEELi4EEC2Ev.exit:   ; preds = %.lr.ph, %_ZN4pstd6v
   br label %.loopexit
 
 441:                                              ; preds = %439
-  %442 = getelementptr inbounds nuw %"class.pbrt::Point3", ptr %437, i64 %438
+  %442 = getelementptr inbounds nuw [12 x i8], ptr %437, i64 %438
   %.sroa.019.0.copyload.i = load <2 x float>, ptr %442, align 4, !noalias !287
   %.sroa.220.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %442, i64 8
   %.sroa.220.0.copyload.i = load float, ptr %.sroa.220.0..sroa_idx.i, align 4, !tbaa !17, !noalias !287
@@ -10131,7 +10125,7 @@ _ZN4pstd5arrayIN4pbrt6Point3IfEELi4EEC2Ev.exit:   ; preds = %.lr.ph, %_ZN4pstd6v
   br label %.loopexit
 
 463:                                              ; preds = %_ZN4pstd5arrayIN4pbrt6Point3IfEELi4EEC2Ev.exit
-  %464 = getelementptr inbounds nuw %"class.pbrt::Point3", ptr %437, i64 %438
+  %464 = getelementptr inbounds nuw [12 x i8], ptr %437, i64 %438
   %.sroa.022.0.copyload.i = load <2 x float>, ptr %464, align 4, !noalias !20
   %.sroa.223.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %464, i64 8
   %.sroa.223.0.copyload.i = load float, ptr %.sroa.223.0..sroa_idx.i, align 4, !noalias !20
@@ -10298,7 +10292,7 @@ _ZN4pstd5arrayIN4pbrt6Point3IfEELi4EEC2Ev.exit:   ; preds = %.lr.ph, %_ZN4pstd6v
   %558 = load ptr, ptr %32, align 8, !tbaa !191
   %559 = load ptr, ptr %331, align 8, !tbaa !191
   %560 = icmp eq ptr %558, %559
-  %561 = getelementptr inbounds nuw %"class.pbrt::Normal3", ptr %558, i64 %indvars.iv
+  %561 = getelementptr inbounds nuw [12 x i8], ptr %558, i64 %indvars.iv
   %.sroa.6.0 = select i1 %560, i64 0, i64 2
   %.sroa.0383.0 = select i1 %560, ptr null, ptr %561
   call void @llvm.lifetime.start.p0(ptr nonnull %38)
@@ -10327,10 +10321,10 @@ _ZN4pstd5arrayIN4pbrt6Point3IfEELi4EEC2Ev.exit:   ; preds = %.lr.ph, %_ZN4pstd6v
 578:                                              ; preds = %.loopexit
   %579 = load ptr, ptr %426, align 8, !tbaa !118
   %580 = load i64, ptr %429, align 8, !tbaa !113
-  %581 = getelementptr inbounds nuw %"class.pbrt::Shape", ptr %579, i64 %580
+  %581 = getelementptr inbounds nuw [8 x i8], ptr %579, i64 %580
   %582 = load ptr, ptr %430, align 8, !tbaa !118
   %583 = load i64, ptr %431, align 8, !tbaa !113
-  %584 = getelementptr inbounds nuw %"class.pbrt::Shape", ptr %582, i64 %583
+  %584 = getelementptr inbounds nuw [8 x i8], ptr %582, i64 %583
   %585 = invoke noundef ptr @_ZN4pstd6vectorIN4pbrt5ShapeENS_3pmr21polymorphic_allocatorIS2_EEE6insertIPS2_EES8_PKS2_T_SB_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %581, ptr noundef %582, ptr noundef %584)
           to label %586 unwind label %603
 
@@ -10554,7 +10548,7 @@ define linkonce_odr dso_local noundef ptr @_ZN4pstd6vectorIN4pbrt5ShapeENS_3pmr2
   %6 = load ptr, ptr %5, align 8, !tbaa !118
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load i64, ptr %7, align 8, !tbaa !113
-  %9 = getelementptr inbounds nuw %"class.pbrt::Shape", ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %8
   %10 = icmp eq ptr %1, %9
   br i1 %10, label %.preheader, label %47
 
@@ -10569,7 +10563,7 @@ define linkonce_odr dso_local noundef ptr @_ZN4pstd6vectorIN4pbrt5ShapeENS_3pmr2
 
 ._crit_edge:                                      ; preds = %_ZN4pstd6vectorIN4pbrt5ShapeENS_3pmr21polymorphic_allocatorIS2_EEE9push_backERKS2_.exit, %.preheader
   %12 = phi ptr [ %6, %.preheader ], [ %40, %_ZN4pstd6vectorIN4pbrt5ShapeENS_3pmr21polymorphic_allocatorIS2_EEE9push_backERKS2_.exit ]
-  %13 = getelementptr inbounds nuw %"class.pbrt::Shape", ptr %12, i64 %8
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %8
   ret ptr %13
 
 14:                                               ; preds = %.lr.ph, %_ZN4pstd6vectorIN4pbrt5ShapeENS_3pmr21polymorphic_allocatorIS2_EEE9push_backERKS2_.exit
@@ -10632,8 +10626,8 @@ _ZN4pstd3pmr21polymorphic_allocatorIN4pbrt5ShapeEE17deallocate_objectIS3_EEvPT_m
 
 .lr.ph.i.i:                                       ; preds = %_ZN4pstd3pmr21polymorphic_allocatorIN4pbrt5ShapeEE15allocate_objectIS3_EEPT_m.exit.i.i, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %_ZN4pstd3pmr21polymorphic_allocatorIN4pbrt5ShapeEE15allocate_objectIS3_EEPT_m.exit.i.i ]
-  %37 = getelementptr inbounds nuw %"class.pbrt::Shape", ptr %.0.i.i.i.i.i, i64 %indvars.iv.i.i
-  %38 = getelementptr inbounds nuw %"class.pbrt::Shape", ptr %.pre.i.i, i64 %indvars.iv.i.i
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i.i.i.i, i64 %indvars.iv.i.i
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i.i, i64 %indvars.iv.i.i
   store i64 0, ptr %37, align 8, !tbaa !119
   %39 = load i64, ptr %38, align 8, !tbaa !119
   store i64 %39, ptr %37, align 8, !tbaa !119
@@ -10645,7 +10639,7 @@ _ZN4pstd6vectorIN4pbrt5ShapeENS_3pmr21polymorphic_allocatorIS2_EEE9push_backERKS
   %40 = phi ptr [ %.0.i.i.i.i.i, %_ZN4pstd3pmr21polymorphic_allocatorIN4pbrt5ShapeEE17deallocate_objectIS3_EEvPT_m.exit.i.i ], [ %15, %19 ], [ %15, %14 ]
   %41 = phi i64 [ %spec.select.i, %_ZN4pstd3pmr21polymorphic_allocatorIN4pbrt5ShapeEE17deallocate_objectIS3_EEvPT_m.exit.i.i ], [ %16, %19 ], [ %17, %14 ]
   %42 = phi i64 [ %.pre2.i, %_ZN4pstd3pmr21polymorphic_allocatorIN4pbrt5ShapeEE17deallocate_objectIS3_EEvPT_m.exit.i.i ], [ %16, %19 ], [ %16, %14 ]
-  %43 = getelementptr inbounds nuw %"class.pbrt::Shape", ptr %40, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %42
   store i64 0, ptr %43, align 8, !tbaa !119
   %44 = load i64, ptr %.08, align 8, !tbaa !119
   store i64 %44, ptr %43, align 8, !tbaa !119
@@ -11177,14 +11171,14 @@ _ZNSt6vectorIN4pbrt7Normal3IfEESaIS2_EEaSESt16initializer_listIS2_E.exit: ; pred
 
 215:                                              ; preds = %.lr.ph295, %242
   %.026294 = phi i64 [ 0, %.lr.ph295 ], [ %243, %242 ]
-  %216 = getelementptr inbounds nuw i32, ptr %204, i64 %.026294
+  %216 = getelementptr inbounds nuw [4 x i8], ptr %204, i64 %.026294
   %217 = load i32, ptr %216, align 4, !tbaa !15
   %218 = sext i32 %217 to i64
   %.not60 = icmp ugt i64 %214, %218
   br i1 %.not60, label %242, label %219
 
 219:                                              ; preds = %215
-  %220 = getelementptr inbounds nuw i32, ptr %204, i64 %.026294
+  %220 = getelementptr inbounds nuw [4 x i8], ptr %204, i64 %.026294
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %221 = trunc i64 %214 to i32
   store i32 %221, ptr %23, align 4, !tbaa !15
@@ -12317,8 +12311,8 @@ _ZN4pstd3pmr21polymorphic_allocatorIPKN4pbrt17BilinearPatchMeshEE17deallocate_ob
 
 .lr.ph.i.i:                                       ; preds = %_ZN4pstd3pmr21polymorphic_allocatorIPKN4pbrt17BilinearPatchMeshEE15allocate_objectIS5_EEPT_m.exit.i.i, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %_ZN4pstd3pmr21polymorphic_allocatorIPKN4pbrt17BilinearPatchMeshEE15allocate_objectIS5_EEPT_m.exit.i.i ]
-  %36 = getelementptr inbounds nuw ptr, ptr %.0.i.i.i.i.i, i64 %indvars.iv.i.i
-  %37 = getelementptr inbounds nuw ptr, ptr %.pre.i.i, i64 %indvars.iv.i.i
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i.i.i.i, i64 %indvars.iv.i.i
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i.i, i64 %indvars.iv.i.i
   %38 = load ptr, ptr %37, align 8, !tbaa !354
   store ptr %38, ptr %36, align 8, !tbaa !354
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -12329,7 +12323,7 @@ _ZN4pstd6vectorIPKN4pbrt17BilinearPatchMeshENS_3pmr21polymorphic_allocatorIS4_EE
   %39 = phi i64 [ %.pre2.i, %_ZN4pstd3pmr21polymorphic_allocatorIPKN4pbrt17BilinearPatchMeshEE17deallocate_objectIS5_EEvPT_m.exit.i.i ], [ %10, %18 ], [ %10, %13 ]
   %40 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %41 = load ptr, ptr %40, align 8, !tbaa !353
-  %42 = getelementptr inbounds nuw ptr, ptr %41, i64 %39
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %39
   store ptr %1, ptr %42, align 8, !tbaa !354
   %43 = add i64 %39, 1
   store i64 %43, ptr %9, align 8, !tbaa !347
@@ -12388,7 +12382,7 @@ _ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectIN4pbrt13BilinearPa
 
 .lr.ph:                                           ; preds = %_ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectIN4pbrt13BilinearPatchEEEPT_m.exit, %70
   %indvars.iv = phi i64 [ %indvars.iv.next, %70 ], [ 0, %_ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectIN4pbrt13BilinearPatchEEEPT_m.exit ]
-  %68 = getelementptr inbounds nuw %"class.pbrt::BilinearPatch", ptr %64, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw [12 x i8], ptr %64, i64 %indvars.iv
   %69 = trunc nuw nsw i64 %indvars.iv to i32
   invoke void @_ZN4pbrt13BilinearPatchC2EPKNS_17BilinearPatchMeshEii(ptr noundef nonnull align 4 dereferenceable(12) %68, ptr noundef nonnull %1, i32 noundef %14, i32 noundef %69)
           to label %70 unwind label %77
@@ -12396,7 +12390,7 @@ _ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectIN4pbrt13BilinearPa
 70:                                               ; preds = %.lr.ph
   %71 = ptrtoint ptr %68 to i64
   %72 = or i64 %71, 720575940379279360
-  %73 = getelementptr inbounds nuw %"class.pbrt::Shape", ptr %56, i64 %indvars.iv
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %indvars.iv
   store i64 %72, ptr %73, align 8, !tbaa !119
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %74 = load i32, ptr %45, align 4, !tbaa !357
@@ -12443,33 +12437,33 @@ define dso_local void @_ZN4pbrt13BilinearPatchC2EPKNS_17BilinearPatchMeshEii(ptr
   %11 = load ptr, ptr %10, align 8, !tbaa !363
   %12 = shl nsw i32 %3, 2
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds i32, ptr %11, i64 %13
+  %14 = getelementptr inbounds [4 x i8], ptr %11, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %16 = load ptr, ptr %15, align 8, !tbaa !364
   %17 = load i32, ptr %14, align 4, !tbaa !15
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds %"class.pbrt::Point3", ptr %16, i64 %18
+  %19 = getelementptr inbounds [12 x i8], ptr %16, i64 %18
   %.sroa.0114.0.copyload = load <2 x float>, ptr %19, align 4
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 8
   %.sroa.6.0.copyload = load float, ptr %.sroa.6.0..sroa_idx, align 4
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %21 = load i32, ptr %20, align 4, !tbaa !15
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds %"class.pbrt::Point3", ptr %16, i64 %22
+  %23 = getelementptr inbounds [12 x i8], ptr %16, i64 %22
   %.sroa.0111.0.copyload = load <2 x float>, ptr %23, align 4
   %.sroa.5113.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 8
   %.sroa.5113.0.copyload = load float, ptr %.sroa.5113.0..sroa_idx, align 4
   %24 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %25 = load i32, ptr %24, align 4, !tbaa !15
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds %"class.pbrt::Point3", ptr %16, i64 %26
+  %27 = getelementptr inbounds [12 x i8], ptr %16, i64 %26
   %.sroa.0109.0.copyload = load <2 x float>, ptr %27, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 8
   %.sroa.5.0.copyload = load float, ptr %.sroa.5.0..sroa_idx, align 4
   %28 = getelementptr inbounds nuw i8, ptr %14, i64 12
   %29 = load i32, ptr %28, align 4, !tbaa !15
   %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds %"class.pbrt::Point3", ptr %16, i64 %30
+  %31 = getelementptr inbounds [12 x i8], ptr %16, i64 %30
   %.sroa.0107.0.copyload = load <2 x float>, ptr %31, align 4
   %.sroa.4108.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 8
   %.sroa.4108.0.copyload = load float, ptr %.sroa.4108.0..sroa_idx, align 4
@@ -12527,7 +12521,7 @@ define dso_local void @_ZN4pbrt13BilinearPatchC2EPKNS_17BilinearPatchMeshEii(ptr
   %48 = uitofp nneg i32 %47 to float
   %49 = fdiv float %48, 3.000000e+00
   %50 = fsub float 1.000000e+00, %49
-  %51 = getelementptr inbounds nuw [4 x %"class.pbrt::Point3"], ptr %5, i64 %indvars.iv177
+  %51 = getelementptr inbounds nuw [48 x i8], ptr %5, i64 %indvars.iv177
   br label %53
 
 52:                                               ; preds = %53
@@ -12570,7 +12564,7 @@ define dso_local void @_ZN4pbrt13BilinearPatchC2EPKNS_17BilinearPatchMeshEii(ptr
   %84 = fadd float %78, %81
   %.sroa.0.0.vec.insert.i.i152 = insertelement <2 x float> poison, float %82, i64 0
   %.sroa.0.4.vec.insert.i.i153 = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i152, float %83, i64 1
-  %85 = getelementptr inbounds nuw %"class.pbrt::Point3", ptr %51, i64 %indvars.iv
+  %85 = getelementptr inbounds nuw [12 x i8], ptr %51, i64 %indvars.iv
   store <2 x float> %.sroa.0.4.vec.insert.i.i153, ptr %85, align 4
   %.sroa.480.0..sroa_idx = getelementptr inbounds nuw i8, ptr %85, i64 8
   store float %84, ptr %.sroa.480.0..sroa_idx, align 4
@@ -12581,7 +12575,7 @@ define dso_local void @_ZN4pbrt13BilinearPatchC2EPKNS_17BilinearPatchMeshEii(ptr
 .preheader:                                       ; preds = %44, %89
   %indvars.iv185 = phi i64 [ 0, %44 ], [ %indvars.iv.next186, %89 ]
   %.lcssa173174 = phi float [ 0.000000e+00, %44 ], [ %132, %89 ]
-  %86 = getelementptr inbounds nuw [4 x %"class.pbrt::Point3"], ptr %5, i64 %indvars.iv185
+  %86 = getelementptr inbounds nuw [48 x i8], ptr %5, i64 %indvars.iv185
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 48
   %.sroa.023.0.copyload.pre = load <2 x float>, ptr %86, align 16
   %.sroa.224.0..sroa_idx.phi.trans.insert = getelementptr inbounds nuw i8, ptr %86, i64 8
@@ -12612,7 +12606,7 @@ define dso_local void @_ZN4pbrt13BilinearPatchC2EPKNS_17BilinearPatchMeshEii(ptr
   %indvars.iv181 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next182, %90 ]
   %94 = phi float [ %.lcssa173174, %.preheader ], [ %132, %90 ]
   %indvars.iv.next182 = add nuw nsw i64 %indvars.iv181, 1
-  %95 = getelementptr inbounds nuw %"class.pbrt::Point3", ptr %87, i64 %indvars.iv.next182
+  %95 = getelementptr inbounds nuw [12 x i8], ptr %87, i64 %indvars.iv.next182
   %96 = load float, ptr %95, align 4, !tbaa !243
   %.sroa.03.0.vec.extract.i = extractelement <2 x float> %.sroa.023.0.copyload, i64 0
   %97 = fsub float %96, %.sroa.03.0.vec.extract.i
@@ -12623,7 +12617,7 @@ define dso_local void @_ZN4pbrt13BilinearPatchC2EPKNS_17BilinearPatchMeshEii(ptr
   %101 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %102 = load float, ptr %101, align 4, !tbaa !245
   %103 = fsub float %102, %.sroa.224.0.copyload
-  %104 = getelementptr inbounds nuw %"class.pbrt::Point3", ptr %86, i64 %indvars.iv.next182
+  %104 = getelementptr inbounds nuw [12 x i8], ptr %86, i64 %indvars.iv.next182
   %.sroa.013.0.copyload = load <2 x float>, ptr %104, align 4
   %.sroa.214.0..sroa_idx = getelementptr inbounds nuw i8, ptr %104, i64 8
   %.sroa.214.0.copyload = load float, ptr %.sroa.214.0..sroa_idx, align 4
@@ -12674,33 +12668,33 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK4pbrt13BilinearPatch11IsRe
   %7 = load i32, ptr %6, align 4, !tbaa !362
   %8 = shl nsw i32 %7, 2
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds i32, ptr %5, i64 %9
+  %10 = getelementptr inbounds [4 x i8], ptr %5, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %12 = load ptr, ptr %11, align 8, !tbaa !364
   %13 = load i32, ptr %10, align 4, !tbaa !15
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds %"class.pbrt::Point3", ptr %12, i64 %14
+  %15 = getelementptr inbounds [12 x i8], ptr %12, i64 %14
   %.sroa.0265.0.copyload = load <2 x float>, ptr %15, align 4
   %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 8
   %.sroa.12.0.copyload = load float, ptr %.sroa.12.0..sroa_idx, align 4
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %17 = load i32, ptr %16, align 4, !tbaa !15
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds %"class.pbrt::Point3", ptr %12, i64 %18
+  %19 = getelementptr inbounds [12 x i8], ptr %12, i64 %18
   %.sroa.0255.0.copyload = load <2 x float>, ptr %19, align 4
   %.sroa.10263.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 8
   %.sroa.10263.0.copyload = load float, ptr %.sroa.10263.0..sroa_idx, align 4
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %21 = load i32, ptr %20, align 4, !tbaa !15
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds %"class.pbrt::Point3", ptr %12, i64 %22
+  %23 = getelementptr inbounds [12 x i8], ptr %12, i64 %22
   %.sroa.0245.0.copyload = load <2 x float>, ptr %23, align 4
   %.sroa.10253.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 8
   %.sroa.10253.0.copyload = load float, ptr %.sroa.10253.0..sroa_idx, align 4
   %24 = getelementptr inbounds nuw i8, ptr %10, i64 12
   %25 = load i32, ptr %24, align 4, !tbaa !15
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds %"class.pbrt::Point3", ptr %12, i64 %26
+  %27 = getelementptr inbounds [12 x i8], ptr %12, i64 %26
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 8
   %.sroa.10.0.copyload = load float, ptr %.sroa.10.0..sroa_idx, align 4
   %.sroa.0265.0.vec.extract = extractelement <2 x float> %.sroa.0265.0.copyload, i64 0
@@ -12864,7 +12858,7 @@ _ZNK4pbrt6Tuple3INS_6Point3EfEeqENS1_IfEE.exit167.thread: ; preds = %_ZNK4pbrt6T
 
 141:                                              ; preds = %141, %95
   %indvars.iv = phi i64 [ 1, %95 ], [ %indvars.iv.next, %141 ]
-  %142 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv
+  %142 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %143 = load float, ptr %142, align 4, !tbaa !17
   %144 = fsub float %143, %113
   %145 = tail call noundef float @llvm.fabs.f32(float %144)
@@ -12891,7 +12885,7 @@ define dso_local void @_ZNK4pbrt13BilinearPatch6BoundsEv(ptr dead_on_unwind noal
   %5 = sext i32 %4 to i64
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !353
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %5
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %5
   %9 = load ptr, ptr %8, align 8, !tbaa !354
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8, !tbaa !363
@@ -12899,33 +12893,33 @@ define dso_local void @_ZNK4pbrt13BilinearPatch6BoundsEv(ptr dead_on_unwind noal
   %13 = load i32, ptr %12, align 4, !tbaa !362
   %14 = shl nsw i32 %13, 2
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds i32, ptr %11, i64 %15
+  %16 = getelementptr inbounds [4 x i8], ptr %11, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %18 = load ptr, ptr %17, align 8, !tbaa !364
   %19 = load i32, ptr %16, align 4, !tbaa !15
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds %"class.pbrt::Point3", ptr %18, i64 %20
+  %21 = getelementptr inbounds [12 x i8], ptr %18, i64 %20
   %.sroa.020.0.copyload = load <2 x float>, ptr %21, align 4
   %.sroa.421.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 8
   %.sroa.421.0.copyload = load float, ptr %.sroa.421.0..sroa_idx, align 4
   %22 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %23 = load i32, ptr %22, align 4, !tbaa !15
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds %"class.pbrt::Point3", ptr %18, i64 %24
+  %25 = getelementptr inbounds [12 x i8], ptr %18, i64 %24
   %.sroa.018.0.copyload = load <2 x float>, ptr %25, align 4
   %.sroa.419.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 8
   %.sroa.419.0.copyload = load float, ptr %.sroa.419.0..sroa_idx, align 4
   %26 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %27 = load i32, ptr %26, align 4, !tbaa !15
   %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds %"class.pbrt::Point3", ptr %18, i64 %28
+  %29 = getelementptr inbounds [12 x i8], ptr %18, i64 %28
   %.sroa.016.0.copyload = load <2 x float>, ptr %29, align 4
   %.sroa.417.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 8
   %.sroa.417.0.copyload = load float, ptr %.sroa.417.0..sroa_idx, align 4
   %30 = getelementptr inbounds nuw i8, ptr %16, i64 12
   %31 = load i32, ptr %30, align 4, !tbaa !15
   %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds %"class.pbrt::Point3", ptr %18, i64 %32
+  %33 = getelementptr inbounds [12 x i8], ptr %18, i64 %32
   %.sroa.015.0.copyload = load <2 x float>, ptr %33, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 8
   %.sroa.4.0.copyload = load float, ptr %.sroa.4.0..sroa_idx, align 4
@@ -12999,7 +12993,7 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK4pbrt13BilinearPatch12NormalB
   %5 = sext i32 %4 to i64
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !353
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %5
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %5
   %9 = load ptr, ptr %8, align 8, !tbaa !354
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8, !tbaa !363
@@ -13007,33 +13001,33 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK4pbrt13BilinearPatch12NormalB
   %13 = load i32, ptr %12, align 4, !tbaa !362
   %14 = shl nsw i32 %13, 2
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds i32, ptr %11, i64 %15
+  %16 = getelementptr inbounds [4 x i8], ptr %11, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %18 = load ptr, ptr %17, align 8, !tbaa !364
   %19 = load i32, ptr %16, align 4, !tbaa !15
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds %"class.pbrt::Point3", ptr %18, i64 %20
+  %21 = getelementptr inbounds [12 x i8], ptr %18, i64 %20
   %.sroa.0864.0.copyload = load <2 x float>, ptr %21, align 4
   %.sroa.14878.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 8
   %.sroa.14878.0.copyload = load float, ptr %.sroa.14878.0..sroa_idx, align 4
   %22 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %23 = load i32, ptr %22, align 4, !tbaa !15
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds %"class.pbrt::Point3", ptr %18, i64 %24
+  %25 = getelementptr inbounds [12 x i8], ptr %18, i64 %24
   %.sroa.0847.0.copyload = load <2 x float>, ptr %25, align 4
   %.sroa.14861.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 8
   %.sroa.14861.0.copyload = load float, ptr %.sroa.14861.0..sroa_idx, align 4
   %26 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %27 = load i32, ptr %26, align 4, !tbaa !15
   %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds %"class.pbrt::Point3", ptr %18, i64 %28
+  %29 = getelementptr inbounds [12 x i8], ptr %18, i64 %28
   %.sroa.0830.0.copyload = load <2 x float>, ptr %29, align 4
   %.sroa.14844.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 8
   %.sroa.14844.0.copyload = load float, ptr %.sroa.14844.0..sroa_idx, align 4
   %30 = getelementptr inbounds nuw i8, ptr %16, i64 12
   %31 = load i32, ptr %30, align 4, !tbaa !15
   %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds %"class.pbrt::Point3", ptr %18, i64 %32
+  %33 = getelementptr inbounds [12 x i8], ptr %18, i64 %32
   %.sroa.0814.0.copyload = load <2 x float>, ptr %33, align 4
   %.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 8
   %.sroa.14.0.copyload = load float, ptr %.sroa.14.0..sroa_idx, align 4
@@ -13152,8 +13146,8 @@ _ZNK4pbrt6Tuple3INS_6Point3EfEeqENS1_IfEE.exit501.thread: ; preds = %_ZNK4pbrt6T
   br i1 %.not492, label %141, label %109
 
 109:                                              ; preds = %50
-  %110 = getelementptr inbounds %"class.pbrt::Normal3", ptr %108, i64 %20
-  %111 = getelementptr inbounds %"class.pbrt::Normal3", ptr %108, i64 %24
+  %110 = getelementptr inbounds [12 x i8], ptr %108, i64 %20
+  %111 = getelementptr inbounds [12 x i8], ptr %108, i64 %24
   %.sroa.0345.0.copyload = load <2 x float>, ptr %111, align 4
   %.sroa.2346.0..sroa_idx = getelementptr inbounds nuw i8, ptr %111, i64 8
   %.sroa.2346.0.copyload = load float, ptr %.sroa.2346.0..sroa_idx, align 4
@@ -13167,7 +13161,7 @@ _ZNK4pbrt6Tuple3INS_6Point3EfEeqENS1_IfEE.exit501.thread: ; preds = %_ZNK4pbrt6T
   %117 = getelementptr inbounds nuw i8, ptr %110, i64 8
   %118 = load float, ptr %117, align 4, !tbaa !137
   %119 = fadd float %.sroa.2346.0.copyload, %118
-  %120 = getelementptr inbounds %"class.pbrt::Normal3", ptr %108, i64 %28
+  %120 = getelementptr inbounds [12 x i8], ptr %108, i64 %28
   %.sroa.0337.0.copyload = load <2 x float>, ptr %120, align 4
   %.sroa.2338.0..sroa_idx = getelementptr inbounds nuw i8, ptr %120, i64 8
   %.sroa.2338.0.copyload = load float, ptr %.sroa.2338.0..sroa_idx, align 4
@@ -13176,7 +13170,7 @@ _ZNK4pbrt6Tuple3INS_6Point3EfEeqENS1_IfEE.exit501.thread: ; preds = %_ZNK4pbrt6T
   %.sroa.03.4.vec.extract.i553 = extractelement <2 x float> %.sroa.0337.0.copyload, i64 1
   %122 = fadd float %116, %.sroa.03.4.vec.extract.i553
   %123 = fadd float %119, %.sroa.2338.0.copyload
-  %124 = getelementptr inbounds %"class.pbrt::Normal3", ptr %108, i64 %32
+  %124 = getelementptr inbounds [12 x i8], ptr %108, i64 %32
   %.sroa.0329.0.copyload = load <2 x float>, ptr %124, align 4
   %.sroa.2330.0..sroa_idx = getelementptr inbounds nuw i8, ptr %124, i64 8
   %.sroa.2330.0.copyload = load float, ptr %.sroa.2330.0..sroa_idx, align 4
@@ -13283,7 +13277,7 @@ _ZNK4pbrt6Tuple3INS_6Point3EfEeqENS1_IfEE.exit505.thread: ; preds = %_ZNK4pbrt6T
   br i1 %.not, label %204, label %192
 
 192:                                              ; preds = %_ZNK4pbrt6Tuple3INS_6Point3EfEeqENS1_IfEE.exit505.thread
-  %193 = getelementptr inbounds %"class.pbrt::Normal3", ptr %191, i64 %20
+  %193 = getelementptr inbounds [12 x i8], ptr %191, i64 %20
   %.sroa.0253.0.copyload = load <2 x float>, ptr %193, align 4
   %.sroa.2254.0..sroa_idx = getelementptr inbounds nuw i8, ptr %193, i64 8
   %.sroa.2254.0.copyload = load float, ptr %.sroa.2254.0..sroa_idx, align 4
@@ -13437,7 +13431,7 @@ _ZNK4pbrt6Tuple3INS_6Point3EfEeqENS1_IfEE.exit505.thread: ; preds = %_ZNK4pbrt6T
   br i1 %.not, label %343, label %309
 
 309:                                              ; preds = %212
-  %310 = getelementptr inbounds %"class.pbrt::Normal3", ptr %191, i64 %24
+  %310 = getelementptr inbounds [12 x i8], ptr %191, i64 %24
   %.sroa.0125.0.copyload = load <2 x float>, ptr %310, align 4
   %.sroa.2126.0..sroa_idx = getelementptr inbounds nuw i8, ptr %310, i64 8
   %.sroa.2126.0.copyload = load float, ptr %.sroa.2126.0..sroa_idx, align 4
@@ -13457,7 +13451,7 @@ _ZNK4pbrt6Tuple3INS_6Point3EfEeqENS1_IfEE.exit505.thread: ; preds = %_ZNK4pbrt6T
   %.sroa.0.4.vec.insert.i.i701 = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i700, float %319, i64 1
   %.sroa.0.4.vec.insert.i.pn.i702 = select i1 %317, <2 x float> %.sroa.0.4.vec.insert.i.i701, <2 x float> %.sroa.0.4.vec.insert.i.i639
   %.pn.i703 = select i1 %317, float %320, float %244
-  %321 = getelementptr inbounds %"class.pbrt::Normal3", ptr %191, i64 %28
+  %321 = getelementptr inbounds [12 x i8], ptr %191, i64 %28
   %.sroa.0111.0.copyload = load <2 x float>, ptr %321, align 4
   %.sroa.2112.0..sroa_idx = getelementptr inbounds nuw i8, ptr %321, i64 8
   %.sroa.2112.0.copyload = load float, ptr %.sroa.2112.0..sroa_idx, align 4
@@ -13477,7 +13471,7 @@ _ZNK4pbrt6Tuple3INS_6Point3EfEeqENS1_IfEE.exit505.thread: ; preds = %_ZNK4pbrt6T
   %.sroa.0.4.vec.insert.i.i711 = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i710, float %330, i64 1
   %.sroa.0.4.vec.insert.i.pn.i712 = select i1 %328, <2 x float> %.sroa.0.4.vec.insert.i.i711, <2 x float> %.sroa.0.4.vec.insert.i.i666
   %.pn.i713 = select i1 %328, float %331, float %276
-  %332 = getelementptr inbounds %"class.pbrt::Normal3", ptr %191, i64 %32
+  %332 = getelementptr inbounds [12 x i8], ptr %191, i64 %32
   %.sroa.097.0.copyload = load <2 x float>, ptr %332, align 4
   %.sroa.298.0..sroa_idx = getelementptr inbounds nuw i8, ptr %332, i64 8
   %.sroa.298.0.copyload = load float, ptr %.sroa.298.0..sroa_idx, align 4
@@ -13642,7 +13636,7 @@ define dso_local void @_ZNK4pbrt13BilinearPatch9IntersectERKNS_3RayEf(ptr dead_o
   %10 = sext i32 %9 to i64
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !353
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %10
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %10
   %14 = load ptr, ptr %13, align 8, !tbaa !354
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8, !tbaa !363
@@ -13650,33 +13644,33 @@ define dso_local void @_ZNK4pbrt13BilinearPatch9IntersectERKNS_3RayEf(ptr dead_o
   %18 = load i32, ptr %17, align 4, !tbaa !362
   %19 = shl nsw i32 %18, 2
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds i32, ptr %16, i64 %20
+  %21 = getelementptr inbounds [4 x i8], ptr %16, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %23 = load ptr, ptr %22, align 8, !tbaa !364
   %24 = load i32, ptr %21, align 4, !tbaa !15
   %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds %"class.pbrt::Point3", ptr %23, i64 %25
+  %26 = getelementptr inbounds [12 x i8], ptr %23, i64 %25
   %.sroa.022.0.copyload = load <2 x float>, ptr %26, align 4
   %.sroa.523.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 8
   %.sroa.523.0.copyload = load float, ptr %.sroa.523.0..sroa_idx, align 4
   %27 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %28 = load i32, ptr %27, align 4, !tbaa !15
   %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds %"class.pbrt::Point3", ptr %23, i64 %29
+  %30 = getelementptr inbounds [12 x i8], ptr %23, i64 %29
   %.sroa.020.0.copyload = load <2 x float>, ptr %30, align 4
   %.sroa.521.0..sroa_idx = getelementptr inbounds nuw i8, ptr %30, i64 8
   %.sroa.521.0.copyload = load float, ptr %.sroa.521.0..sroa_idx, align 4
   %31 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %32 = load i32, ptr %31, align 4, !tbaa !15
   %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds %"class.pbrt::Point3", ptr %23, i64 %33
+  %34 = getelementptr inbounds [12 x i8], ptr %23, i64 %33
   %.sroa.019.0.copyload = load <2 x float>, ptr %34, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %34, i64 8
   %.sroa.5.0.copyload = load float, ptr %.sroa.5.0..sroa_idx, align 4
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 12
   %36 = load i32, ptr %35, align 4, !tbaa !15
   %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds %"class.pbrt::Point3", ptr %23, i64 %37
+  %38 = getelementptr inbounds [12 x i8], ptr %23, i64 %37
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %6, ptr noundef nonnull align 4 dereferenceable(12) %38, i64 12, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN4pbrt22IntersectBilinearPatchERKNS_3RayEfNS_6Point3IfEES4_S4_S4_(ptr dead_on_unwind nonnull writable sret(%"class.pstd::optional.117") align 4 %5, ptr noundef nonnull align 8 dereferenceable(40) %2, float noundef %3, <2 x float> %.sroa.022.0.copyload, float %.sroa.523.0.copyload, <2 x float> %.sroa.020.0.copyload, float %.sroa.521.0.copyload, <2 x float> %.sroa.019.0.copyload, float %.sroa.5.0.copyload, ptr noundef nonnull byval(%"class.pbrt::Point3") align 8 %6)
@@ -14353,33 +14347,33 @@ define linkonce_odr dso_local void @_ZN4pbrt13BilinearPatch27InteractionFromInte
   %10 = load ptr, ptr %9, align 8, !tbaa !363
   %11 = shl nsw i32 %2, 2
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds i32, ptr %10, i64 %12
+  %13 = getelementptr inbounds [4 x i8], ptr %10, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load ptr, ptr %14, align 8, !tbaa !364
   %16 = load i32, ptr %13, align 4, !tbaa !15
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds %"class.pbrt::Point3", ptr %15, i64 %17
+  %18 = getelementptr inbounds [12 x i8], ptr %15, i64 %17
   %.sroa.01415.0.copyload = load <2 x float>, ptr %18, align 4
   %.sroa.91420.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 8
   %.sroa.91420.0.copyload = load float, ptr %.sroa.91420.0..sroa_idx, align 4
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %20 = load i32, ptr %19, align 4, !tbaa !15
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds %"class.pbrt::Point3", ptr %15, i64 %21
+  %22 = getelementptr inbounds [12 x i8], ptr %15, i64 %21
   %.sroa.0773.0.copyload = load <2 x float>, ptr %22, align 4
   %.sroa.8778.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 8
   %.sroa.8778.0.copyload = load float, ptr %.sroa.8778.0..sroa_idx, align 4
   %23 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %24 = load i32, ptr %23, align 4, !tbaa !15
   %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds %"class.pbrt::Point3", ptr %15, i64 %25
+  %26 = getelementptr inbounds [12 x i8], ptr %15, i64 %25
   %.sroa.0767.0.copyload = load <2 x float>, ptr %26, align 4
   %.sroa.8772.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 8
   %.sroa.8772.0.copyload = load float, ptr %.sroa.8772.0..sroa_idx, align 4
   %27 = getelementptr inbounds nuw i8, ptr %13, i64 12
   %28 = load i32, ptr %27, align 4, !tbaa !15
   %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds %"class.pbrt::Point3", ptr %15, i64 %29
+  %30 = getelementptr inbounds [12 x i8], ptr %15, i64 %29
   %.sroa.01409.0.copyload = load <2 x float>, ptr %30, align 4
   %.sroa.91414.0..sroa_idx = getelementptr inbounds nuw i8, ptr %30, i64 8
   %.sroa.91414.0.copyload = load float, ptr %.sroa.91414.0..sroa_idx, align 4
@@ -14459,13 +14453,13 @@ define linkonce_odr dso_local void @_ZN4pbrt13BilinearPatch27InteractionFromInte
   br i1 %.not, label %208, label %86
 
 86:                                               ; preds = %7
-  %87 = getelementptr inbounds %"class.pbrt::Point2", ptr %85, i64 %17
+  %87 = getelementptr inbounds [8 x i8], ptr %85, i64 %17
   %.sroa.0645.0.copyload = load <2 x float>, ptr %87, align 4
-  %88 = getelementptr inbounds %"class.pbrt::Point2", ptr %85, i64 %21
+  %88 = getelementptr inbounds [8 x i8], ptr %85, i64 %21
   %.sroa.0642.0.copyload = load <2 x float>, ptr %88, align 4
-  %89 = getelementptr inbounds %"class.pbrt::Point2", ptr %85, i64 %25
+  %89 = getelementptr inbounds [8 x i8], ptr %85, i64 %25
   %.sroa.0639.0.copyload = load <2 x float>, ptr %89, align 4
-  %90 = getelementptr inbounds %"class.pbrt::Point2", ptr %85, i64 %29
+  %90 = getelementptr inbounds [8 x i8], ptr %85, i64 %29
   %.sroa.0636.0.copyload = load <2 x float>, ptr %90, align 4
   %.sroa.0.0.vec.extract.i.i879 = extractelement <2 x float> %.sroa.0645.0.copyload, i64 0
   %91 = fmul float %31, %.sroa.0.0.vec.extract.i.i879
@@ -14786,7 +14780,7 @@ _ZNK4pbrt6Tuple3INS_7Vector3EfEneENS1_IfEE.exit.thread: ; preds = %86
 
 352:                                              ; preds = %208
   %353 = sext i32 %2 to i64
-  %354 = getelementptr inbounds i32, ptr %351, i64 %353
+  %354 = getelementptr inbounds [4 x i8], ptr %351, i64 %353
   %355 = load i32, ptr %354, align 4, !tbaa !15
   br label %356
 
@@ -15040,25 +15034,25 @@ _ZN4pbrt18SurfaceInteractionC2ENS_8Point3fiENS_6Point2IfEENS_7Vector3IfEES5_S5_N
 447:                                              ; preds = %_ZN4pbrt18SurfaceInteractionC2ENS_8Point3fiENS_6Point2IfEENS_7Vector3IfEES5_S5_NS_7Normal3IfEES7_fbi.exit
   %448 = load i32, ptr %13, align 4, !tbaa !15
   %449 = sext i32 %448 to i64
-  %450 = getelementptr inbounds %"class.pbrt::Normal3", ptr %446, i64 %449
+  %450 = getelementptr inbounds [12 x i8], ptr %446, i64 %449
   %.sroa.0217.0.copyload = load <2 x float>, ptr %450, align 4
   %.sroa.6220.0..sroa_idx = getelementptr inbounds nuw i8, ptr %450, i64 8
   %.sroa.6220.0.copyload = load float, ptr %.sroa.6220.0..sroa_idx, align 4
   %451 = load i32, ptr %19, align 4, !tbaa !15
   %452 = sext i32 %451 to i64
-  %453 = getelementptr inbounds %"class.pbrt::Normal3", ptr %446, i64 %452
+  %453 = getelementptr inbounds [12 x i8], ptr %446, i64 %452
   %.sroa.0213.0.copyload = load <2 x float>, ptr %453, align 4
   %.sroa.6216.0..sroa_idx = getelementptr inbounds nuw i8, ptr %453, i64 8
   %.sroa.6216.0.copyload = load float, ptr %.sroa.6216.0..sroa_idx, align 4
   %454 = load i32, ptr %23, align 4, !tbaa !15
   %455 = sext i32 %454 to i64
-  %456 = getelementptr inbounds %"class.pbrt::Normal3", ptr %446, i64 %455
+  %456 = getelementptr inbounds [12 x i8], ptr %446, i64 %455
   %.sroa.0209.0.copyload = load <2 x float>, ptr %456, align 4
   %.sroa.6212.0..sroa_idx = getelementptr inbounds nuw i8, ptr %456, i64 8
   %.sroa.6212.0.copyload = load float, ptr %.sroa.6212.0..sroa_idx, align 4
   %457 = load i32, ptr %27, align 4, !tbaa !15
   %458 = sext i32 %457 to i64
-  %459 = getelementptr inbounds %"class.pbrt::Normal3", ptr %446, i64 %458
+  %459 = getelementptr inbounds [12 x i8], ptr %446, i64 %458
   %.sroa.0206.0.copyload = load <2 x float>, ptr %459, align 4
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %459, i64 8
   %.sroa.6.0.copyload = load float, ptr %.sroa.6.0..sroa_idx, align 4
@@ -15326,7 +15320,7 @@ _ZN4pstd8optionalIN4pbrt20BilinearIntersectionEED2Ev.exit:
   %7 = sext i32 %6 to i64
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !353
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %7
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %7
   %11 = load ptr, ptr %10, align 8, !tbaa !354
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8, !tbaa !363
@@ -15334,33 +15328,33 @@ _ZN4pstd8optionalIN4pbrt20BilinearIntersectionEED2Ev.exit:
   %15 = load i32, ptr %14, align 4, !tbaa !362
   %16 = shl nsw i32 %15, 2
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds i32, ptr %13, i64 %17
+  %18 = getelementptr inbounds [4 x i8], ptr %13, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %20 = load ptr, ptr %19, align 8, !tbaa !364
   %21 = load i32, ptr %18, align 4, !tbaa !15
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds %"class.pbrt::Point3", ptr %20, i64 %22
+  %23 = getelementptr inbounds [12 x i8], ptr %20, i64 %22
   %.sroa.015.0.copyload = load <2 x float>, ptr %23, align 4
   %.sroa.416.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 8
   %.sroa.416.0.copyload = load float, ptr %.sroa.416.0..sroa_idx, align 4
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %25 = load i32, ptr %24, align 4, !tbaa !15
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds %"class.pbrt::Point3", ptr %20, i64 %26
+  %27 = getelementptr inbounds [12 x i8], ptr %20, i64 %26
   %.sroa.013.0.copyload = load <2 x float>, ptr %27, align 4
   %.sroa.414.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 8
   %.sroa.414.0.copyload = load float, ptr %.sroa.414.0..sroa_idx, align 4
   %28 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %29 = load i32, ptr %28, align 4, !tbaa !15
   %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds %"class.pbrt::Point3", ptr %20, i64 %30
+  %31 = getelementptr inbounds [12 x i8], ptr %20, i64 %30
   %.sroa.012.0.copyload = load <2 x float>, ptr %31, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 8
   %.sroa.4.0.copyload = load float, ptr %.sroa.4.0..sroa_idx, align 4
   %32 = getelementptr inbounds nuw i8, ptr %18, i64 12
   %33 = load i32, ptr %32, align 4, !tbaa !15
   %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds %"class.pbrt::Point3", ptr %20, i64 %34
+  %35 = getelementptr inbounds [12 x i8], ptr %20, i64 %34
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 4 dereferenceable(12) %35, i64 12, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN4pbrt22IntersectBilinearPatchERKNS_3RayEfNS_6Point3IfEES4_S4_S4_(ptr dead_on_unwind nonnull writable sret(%"class.pstd::optional.117") align 4 %3, ptr noundef nonnull align 8 dereferenceable(40) %1, float noundef %2, <2 x float> %.sroa.015.0.copyload, float %.sroa.416.0.copyload, <2 x float> %.sroa.013.0.copyload, float %.sroa.414.0.copyload, <2 x float> %.sroa.012.0.copyload, float %.sroa.4.0.copyload, ptr noundef nonnull byval(%"class.pbrt::Point3") align 8 %4)
@@ -15379,7 +15373,7 @@ define dso_local void @_ZNK4pbrt13BilinearPatch6SampleENS_6Point2IfEE(ptr dead_o
   %7 = sext i32 %6 to i64
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !353
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %7
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %7
   %11 = load ptr, ptr %10, align 8, !tbaa !354
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8, !tbaa !363
@@ -15387,33 +15381,33 @@ define dso_local void @_ZNK4pbrt13BilinearPatch6SampleENS_6Point2IfEE(ptr dead_o
   %15 = load i32, ptr %14, align 4, !tbaa !362
   %16 = shl nsw i32 %15, 2
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds i32, ptr %13, i64 %17
+  %18 = getelementptr inbounds [4 x i8], ptr %13, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %20 = load ptr, ptr %19, align 8, !tbaa !364
   %21 = load i32, ptr %18, align 4, !tbaa !15
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds %"class.pbrt::Point3", ptr %20, i64 %22
+  %23 = getelementptr inbounds [12 x i8], ptr %20, i64 %22
   %.sroa.0435.0.copyload = load <2 x float>, ptr %23, align 4
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 8
   %.sroa.10.0.copyload = load float, ptr %.sroa.10.0..sroa_idx, align 4
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %25 = load i32, ptr %24, align 4, !tbaa !15
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds %"class.pbrt::Point3", ptr %20, i64 %26
+  %27 = getelementptr inbounds [12 x i8], ptr %20, i64 %26
   %.sroa.0810.0.copyload = load <2 x float>, ptr %27, align 4
   %.sroa.12820.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 8
   %.sroa.12820.0.copyload = load float, ptr %.sroa.12820.0..sroa_idx, align 4
   %28 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %29 = load i32, ptr %28, align 4, !tbaa !15
   %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds %"class.pbrt::Point3", ptr %20, i64 %30
+  %31 = getelementptr inbounds [12 x i8], ptr %20, i64 %30
   %.sroa.0798.0.copyload = load <2 x float>, ptr %31, align 4
   %.sroa.12808.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 8
   %.sroa.12808.0.copyload = load float, ptr %.sroa.12808.0..sroa_idx, align 4
   %32 = getelementptr inbounds nuw i8, ptr %18, i64 12
   %33 = load i32, ptr %32, align 4, !tbaa !15
   %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds %"class.pbrt::Point3", ptr %20, i64 %34
+  %35 = getelementptr inbounds [12 x i8], ptr %20, i64 %34
   %.sroa.0778.0.copyload = load <2 x float>, ptr %35, align 4
   %.sroa.14794.0..sroa_idx = getelementptr inbounds nuw i8, ptr %35, i64 8
   %.sroa.14794.0.copyload = load float, ptr %.sroa.14794.0..sroa_idx, align 4
@@ -15740,19 +15734,19 @@ _ZN4pbrt11BilinearPDFENS_6Point2IfEEN4pstd4spanIKfEE.exit: ; preds = %_ZN4pbrt14
 278:                                              ; preds = %275
   %279 = load i32, ptr %18, align 4, !tbaa !15
   %280 = sext i32 %279 to i64
-  %281 = getelementptr inbounds %"class.pbrt::Point2", ptr %277, i64 %280
+  %281 = getelementptr inbounds [8 x i8], ptr %277, i64 %280
   %.sroa.0203.0.copyload = load <2 x float>, ptr %281, align 4
   %282 = load i32, ptr %24, align 4, !tbaa !15
   %283 = sext i32 %282 to i64
-  %284 = getelementptr inbounds %"class.pbrt::Point2", ptr %277, i64 %283
+  %284 = getelementptr inbounds [8 x i8], ptr %277, i64 %283
   %.sroa.0202.0.copyload = load <2 x float>, ptr %284, align 4
   %285 = load i32, ptr %28, align 4, !tbaa !15
   %286 = sext i32 %285 to i64
-  %287 = getelementptr inbounds %"class.pbrt::Point2", ptr %277, i64 %286
+  %287 = getelementptr inbounds [8 x i8], ptr %277, i64 %286
   %.sroa.0201.0.copyload = load <2 x float>, ptr %287, align 4
   %288 = load i32, ptr %32, align 4, !tbaa !15
   %289 = sext i32 %288 to i64
-  %290 = getelementptr inbounds %"class.pbrt::Point2", ptr %277, i64 %289
+  %290 = getelementptr inbounds [8 x i8], ptr %277, i64 %289
   %.sroa.0200.0.copyload = load <2 x float>, ptr %290, align 4
   %.sroa.0.0.vec.extract.i.i608 = extractelement <2 x float> %.sroa.0203.0.copyload, i64 0
   %291 = fmul float %208, %.sroa.0.0.vec.extract.i.i608
@@ -15823,25 +15817,25 @@ _ZN4pbrt11BilinearPDFENS_6Point2IfEEN4pstd4spanIKfEE.exit: ; preds = %_ZN4pbrt14
 338:                                              ; preds = %309
   %339 = load i32, ptr %18, align 4, !tbaa !15
   %340 = sext i32 %339 to i64
-  %341 = getelementptr inbounds %"class.pbrt::Normal3", ptr %337, i64 %340
+  %341 = getelementptr inbounds [12 x i8], ptr %337, i64 %340
   %.sroa.0165.0.copyload = load <2 x float>, ptr %341, align 4
   %.sroa.4166.0..sroa_idx = getelementptr inbounds nuw i8, ptr %341, i64 8
   %.sroa.4166.0.copyload = load float, ptr %.sroa.4166.0..sroa_idx, align 4
   %342 = load i32, ptr %24, align 4, !tbaa !15
   %343 = sext i32 %342 to i64
-  %344 = getelementptr inbounds %"class.pbrt::Normal3", ptr %337, i64 %343
+  %344 = getelementptr inbounds [12 x i8], ptr %337, i64 %343
   %.sroa.0163.0.copyload = load <2 x float>, ptr %344, align 4
   %.sroa.4164.0..sroa_idx = getelementptr inbounds nuw i8, ptr %344, i64 8
   %.sroa.4164.0.copyload = load float, ptr %.sroa.4164.0..sroa_idx, align 4
   %345 = load i32, ptr %28, align 4, !tbaa !15
   %346 = sext i32 %345 to i64
-  %347 = getelementptr inbounds %"class.pbrt::Normal3", ptr %337, i64 %346
+  %347 = getelementptr inbounds [12 x i8], ptr %337, i64 %346
   %.sroa.0161.0.copyload = load <2 x float>, ptr %347, align 4
   %.sroa.4162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %347, i64 8
   %.sroa.4162.0.copyload = load float, ptr %.sroa.4162.0..sroa_idx, align 4
   %348 = load i32, ptr %32, align 4, !tbaa !15
   %349 = sext i32 %348 to i64
-  %350 = getelementptr inbounds %"class.pbrt::Normal3", ptr %337, i64 %349
+  %350 = getelementptr inbounds [12 x i8], ptr %337, i64 %349
   %.sroa.0159.0.copyload = load <2 x float>, ptr %350, align 4
   %.sroa.4160.0..sroa_idx = getelementptr inbounds nuw i8, ptr %350, i64 8
   %.sroa.4160.0.copyload = load float, ptr %.sroa.4160.0..sroa_idx, align 4
@@ -16147,7 +16141,7 @@ define linkonce_odr dso_local <2 x float> @_ZNK4pbrt19PiecewiseConstant2D6Sample
 
 _ZN4pbrt12FindIntervalIZNKS_19PiecewiseConstant1D6SampleEfPfPiEUliE_EEmmRKT_.exit.i: ; preds = %4, %._crit_edge.i.i
   %24 = phi i64 [ %spec.select.i.i, %._crit_edge.i.i ], [ 0, %4 ]
-  %25 = getelementptr inbounds nuw float, ptr %11, i64 %24
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %24
   %26 = load float, ptr %25, align 4, !tbaa !17
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %28 = load float, ptr %27, align 4, !tbaa !17
@@ -16159,7 +16153,7 @@ _ZN4pbrt12FindIntervalIZNKS_19PiecewiseConstant1D6SampleEfPfPiEUliE_EEmmRKT_.exi
 32:                                               ; preds = %_ZN4pbrt12FindIntervalIZNKS_19PiecewiseConstant1D6SampleEfPfPiEUliE_EEmmRKT_.exit.i
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %34 = load ptr, ptr %33, align 8, !tbaa !388
-  %35 = getelementptr inbounds nuw float, ptr %34, i64 %24
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %24
   %36 = load float, ptr %35, align 4, !tbaa !17
   %37 = fdiv float %36, %30
   br label %_ZNK4pbrt19PiecewiseConstant1D6SampleEfPfPi.exit
@@ -16174,7 +16168,7 @@ _ZNK4pbrt19PiecewiseConstant1D6SampleEfPfPi.exit: ; preds = %_ZN4pbrt12FindInter
   %44 = load float, ptr %43, align 4, !tbaa !393
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %46 = load ptr, ptr %45, align 8, !tbaa !394
-  %47 = getelementptr inbounds nuw %"class.pbrt::PiecewiseConstant1D", ptr %46, i64 %24
+  %47 = getelementptr inbounds nuw [80 x i8], ptr %46, i64 %24
   %.sroa.024.0.vec.extract = extractelement <2 x float> %1, i64 0
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 56
   %49 = load i64, ptr %48, align 8, !tbaa !385
@@ -16214,7 +16208,7 @@ _ZNK4pbrt19PiecewiseConstant1D6SampleEfPfPi.exit: ; preds = %_ZN4pbrt12FindInter
 
 _ZN4pbrt12FindIntervalIZNKS_19PiecewiseConstant1D6SampleEfPfPiEUliE_EEmmRKT_.exit.i10: ; preds = %_ZNK4pbrt19PiecewiseConstant1D6SampleEfPfPi.exit, %._crit_edge.i.i18
   %67 = phi i64 [ %spec.select.i.i21, %._crit_edge.i.i18 ], [ 0, %_ZNK4pbrt19PiecewiseConstant1D6SampleEfPfPi.exit ]
-  %68 = getelementptr inbounds nuw float, ptr %54, i64 %67
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %67
   %69 = load float, ptr %68, align 4, !tbaa !17
   %70 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %71 = load float, ptr %70, align 4, !tbaa !17
@@ -16226,7 +16220,7 @@ _ZN4pbrt12FindIntervalIZNKS_19PiecewiseConstant1D6SampleEfPfPiEUliE_EEmmRKT_.exi
 75:                                               ; preds = %_ZN4pbrt12FindIntervalIZNKS_19PiecewiseConstant1D6SampleEfPfPiEUliE_EEmmRKT_.exit.i10
   %76 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %77 = load ptr, ptr %76, align 8, !tbaa !388
-  %78 = getelementptr inbounds nuw float, ptr %77, i64 %67
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %67
   %79 = load float, ptr %78, align 4, !tbaa !17
   %80 = fdiv float %79, %73
   br label %_ZNK4pbrt19PiecewiseConstant1D6SampleEfPfPi.exit22
@@ -16298,7 +16292,7 @@ define dso_local noundef float @_ZNK4pbrt13BilinearPatch3PDFERKNS_11InteractionE
   %5 = sext i32 %4 to i64
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !353
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %5
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %5
   %9 = load ptr, ptr %8, align 8, !tbaa !354
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8, !tbaa !363
@@ -16306,33 +16300,33 @@ define dso_local noundef float @_ZNK4pbrt13BilinearPatch3PDFERKNS_11InteractionE
   %13 = load i32, ptr %12, align 4, !tbaa !362
   %14 = shl nsw i32 %13, 2
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds i32, ptr %11, i64 %15
+  %16 = getelementptr inbounds [4 x i8], ptr %11, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %18 = load ptr, ptr %17, align 8, !tbaa !364
   %19 = load i32, ptr %16, align 4, !tbaa !15
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds %"class.pbrt::Point3", ptr %18, i64 %20
+  %21 = getelementptr inbounds [12 x i8], ptr %18, i64 %20
   %.sroa.0222.0.copyload = load <2 x float>, ptr %21, align 4
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 8
   %.sroa.9.0.copyload = load float, ptr %.sroa.9.0..sroa_idx, align 4
   %22 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %23 = load i32, ptr %22, align 4, !tbaa !15
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds %"class.pbrt::Point3", ptr %18, i64 %24
+  %25 = getelementptr inbounds [12 x i8], ptr %18, i64 %24
   %.sroa.0429.0.copyload = load <2 x float>, ptr %25, align 4
   %.sroa.11438.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 8
   %.sroa.11438.0.copyload = load float, ptr %.sroa.11438.0..sroa_idx, align 4
   %26 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %27 = load i32, ptr %26, align 4, !tbaa !15
   %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds %"class.pbrt::Point3", ptr %18, i64 %28
+  %29 = getelementptr inbounds [12 x i8], ptr %18, i64 %28
   %.sroa.0419.0.copyload = load <2 x float>, ptr %29, align 4
   %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 8
   %.sroa.11.0.copyload = load float, ptr %.sroa.11.0..sroa_idx, align 4
   %30 = getelementptr inbounds nuw i8, ptr %16, i64 12
   %31 = load i32, ptr %30, align 4, !tbaa !15
   %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds %"class.pbrt::Point3", ptr %18, i64 %32
+  %33 = getelementptr inbounds [12 x i8], ptr %18, i64 %32
   %.sroa.0401.0.copyload = load <2 x float>, ptr %33, align 4
   %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 8
   %.sroa.13.0.copyload = load float, ptr %.sroa.13.0..sroa_idx, align 4
@@ -16344,13 +16338,13 @@ define dso_local noundef float @_ZNK4pbrt13BilinearPatch3PDFERKNS_11InteractionE
   br i1 %.not, label %_ZN4pbrt14InvertBilinearENS_6Point2IfEEN4pstd4spanIKS1_EE.exit, label %38
 
 38:                                               ; preds = %2
-  %39 = getelementptr inbounds %"class.pbrt::Point2", ptr %37, i64 %20
+  %39 = getelementptr inbounds [8 x i8], ptr %37, i64 %20
   %40 = load <2 x float>, ptr %39, align 4
-  %41 = getelementptr inbounds %"class.pbrt::Point2", ptr %37, i64 %24
+  %41 = getelementptr inbounds [8 x i8], ptr %37, i64 %24
   %42 = load <2 x float>, ptr %41, align 4
-  %43 = getelementptr inbounds %"class.pbrt::Point2", ptr %37, i64 %28
+  %43 = getelementptr inbounds [8 x i8], ptr %37, i64 %28
   %44 = load <2 x float>, ptr %43, align 4
-  %45 = getelementptr inbounds %"class.pbrt::Point2", ptr %37, i64 %32
+  %45 = getelementptr inbounds [8 x i8], ptr %37, i64 %32
   %46 = load float, ptr %45, align 4
   %.sroa_idx = getelementptr inbounds nuw i8, ptr %45, i64 4
   %47 = load float, ptr %.sroa_idx, align 4
@@ -16543,13 +16537,13 @@ _ZN4pbrt14InvertBilinearENS_6Point2IfEEN4pstd4spanIKS1_EE.exit: ; preds = %141, 
   %175 = shl i64 %spec.select11.i6.i, 32
   %176 = ashr exact i64 %175, 32
   %177 = select i1 %173, i64 0, i64 %176
-  %178 = getelementptr inbounds nuw %"class.pbrt::PiecewiseConstant1D", ptr %158, i64 %177
+  %178 = getelementptr inbounds nuw [80 x i8], ptr %158, i64 %177
   %179 = shl i64 %spec.select11.i.i, 32
   %180 = ashr exact i64 %179, 32
   %181 = select i1 %165, i64 0, i64 %180
   %182 = getelementptr inbounds nuw i8, ptr %178, i64 8
   %183 = load ptr, ptr %182, align 8, !tbaa !388
-  %184 = getelementptr inbounds nuw float, ptr %183, i64 %181
+  %184 = getelementptr inbounds nuw [4 x i8], ptr %183, i64 %181
   %185 = load float, ptr %184, align 4, !tbaa !17
   %186 = getelementptr inbounds nuw i8, ptr %143, i64 120
   %187 = load float, ptr %186, align 8, !tbaa !390
@@ -16809,7 +16803,7 @@ define dso_local void @_ZNK4pbrt13BilinearPatch6SampleERKNS_18ShapeSampleContext
   %10 = sext i32 %9 to i64
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !353
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %10
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %10
   %14 = load ptr, ptr %13, align 8, !tbaa !354
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8, !tbaa !363
@@ -16817,33 +16811,33 @@ define dso_local void @_ZNK4pbrt13BilinearPatch6SampleERKNS_18ShapeSampleContext
   %18 = load i32, ptr %17, align 4, !tbaa !362
   %19 = shl nsw i32 %18, 2
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds i32, ptr %16, i64 %20
+  %21 = getelementptr inbounds [4 x i8], ptr %16, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %23 = load ptr, ptr %22, align 8, !tbaa !364
   %24 = load i32, ptr %21, align 4, !tbaa !15
   %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds %"class.pbrt::Point3", ptr %23, i64 %25
+  %26 = getelementptr inbounds [12 x i8], ptr %23, i64 %25
   %.sroa.0863.0.copyload = load <2 x float>, ptr %26, align 4
   %.sroa.13871.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 8
   %.sroa.13871.0.copyload = load float, ptr %.sroa.13871.0..sroa_idx, align 4
   %27 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %28 = load i32, ptr %27, align 4, !tbaa !15
   %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds %"class.pbrt::Point3", ptr %23, i64 %29
+  %30 = getelementptr inbounds [12 x i8], ptr %23, i64 %29
   %.sroa.0855.0.copyload = load <2 x float>, ptr %30, align 4
   %.sroa.9861.0..sroa_idx = getelementptr inbounds nuw i8, ptr %30, i64 8
   %.sroa.9861.0.copyload = load float, ptr %.sroa.9861.0..sroa_idx, align 4
   %31 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %32 = load i32, ptr %31, align 4, !tbaa !15
   %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds %"class.pbrt::Point3", ptr %23, i64 %33
+  %34 = getelementptr inbounds [12 x i8], ptr %23, i64 %33
   %.sroa.0847.0.copyload = load <2 x float>, ptr %34, align 4
   %.sroa.9853.0..sroa_idx = getelementptr inbounds nuw i8, ptr %34, i64 8
   %.sroa.9853.0.copyload = load float, ptr %.sroa.9853.0..sroa_idx, align 4
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 12
   %36 = load i32, ptr %35, align 4, !tbaa !15
   %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds %"class.pbrt::Point3", ptr %23, i64 %37
+  %38 = getelementptr inbounds [12 x i8], ptr %23, i64 %37
   %.sroa.0844.0.copyload = load float, ptr %38, align 4
   %.sroa.5845.0..sroa_idx = getelementptr inbounds nuw i8, ptr %38, i64 4
   %.sroa.5845.0.copyload = load float, ptr %.sroa.5845.0..sroa_idx, align 4
@@ -17294,25 +17288,25 @@ _ZN4pbrt11BilinearPDFENS_6Point2IfEEN4pstd4spanIKfEE.exit: ; preds = %245, %_ZN4
 329:                                              ; preds = %_ZN4pbrt11BilinearPDFENS_6Point2IfEEN4pstd4spanIKfEE.exit
   %330 = load i32, ptr %21, align 4, !tbaa !15
   %331 = sext i32 %330 to i64
-  %332 = getelementptr inbounds %"class.pbrt::Normal3", ptr %328, i64 %331
+  %332 = getelementptr inbounds [12 x i8], ptr %328, i64 %331
   %.sroa.083.0.copyload = load <2 x float>, ptr %332, align 4
   %.sroa.484.0..sroa_idx = getelementptr inbounds nuw i8, ptr %332, i64 8
   %.sroa.484.0.copyload = load float, ptr %.sroa.484.0..sroa_idx, align 4
   %333 = load i32, ptr %27, align 4, !tbaa !15
   %334 = sext i32 %333 to i64
-  %335 = getelementptr inbounds %"class.pbrt::Normal3", ptr %328, i64 %334
+  %335 = getelementptr inbounds [12 x i8], ptr %328, i64 %334
   %.sroa.081.0.copyload = load <2 x float>, ptr %335, align 4
   %.sroa.482.0..sroa_idx = getelementptr inbounds nuw i8, ptr %335, i64 8
   %.sroa.482.0.copyload = load float, ptr %.sroa.482.0..sroa_idx, align 4
   %336 = load i32, ptr %31, align 4, !tbaa !15
   %337 = sext i32 %336 to i64
-  %338 = getelementptr inbounds %"class.pbrt::Normal3", ptr %328, i64 %337
+  %338 = getelementptr inbounds [12 x i8], ptr %328, i64 %337
   %.sroa.079.0.copyload = load <2 x float>, ptr %338, align 4
   %.sroa.480.0..sroa_idx = getelementptr inbounds nuw i8, ptr %338, i64 8
   %.sroa.480.0.copyload = load float, ptr %.sroa.480.0..sroa_idx, align 4
   %339 = load i32, ptr %35, align 4, !tbaa !15
   %340 = sext i32 %339 to i64
-  %341 = getelementptr inbounds %"class.pbrt::Normal3", ptr %328, i64 %340
+  %341 = getelementptr inbounds [12 x i8], ptr %328, i64 %340
   %.sroa.077.0.copyload = load <2 x float>, ptr %341, align 4
   %.sroa.478.0..sroa_idx = getelementptr inbounds nuw i8, ptr %341, i64 8
   %.sroa.478.0.copyload = load float, ptr %.sroa.478.0..sroa_idx, align 4
@@ -17395,19 +17389,19 @@ _ZN4pbrt11BilinearPDFENS_6Point2IfEEN4pstd4spanIKfEE.exit: ; preds = %245, %_ZN4
 392:                                              ; preds = %389
   %393 = load i32, ptr %21, align 4, !tbaa !15
   %394 = sext i32 %393 to i64
-  %395 = getelementptr inbounds %"class.pbrt::Point2", ptr %391, i64 %394
+  %395 = getelementptr inbounds [8 x i8], ptr %391, i64 %394
   %.sroa.016.0.copyload = load <2 x float>, ptr %395, align 4
   %396 = load i32, ptr %27, align 4, !tbaa !15
   %397 = sext i32 %396 to i64
-  %398 = getelementptr inbounds %"class.pbrt::Point2", ptr %391, i64 %397
+  %398 = getelementptr inbounds [8 x i8], ptr %391, i64 %397
   %.sroa.015.0.copyload = load <2 x float>, ptr %398, align 4
   %399 = load i32, ptr %31, align 4, !tbaa !15
   %400 = sext i32 %399 to i64
-  %401 = getelementptr inbounds %"class.pbrt::Point2", ptr %391, i64 %400
+  %401 = getelementptr inbounds [8 x i8], ptr %391, i64 %400
   %.sroa.014.0.copyload = load <2 x float>, ptr %401, align 4
   %402 = load i32, ptr %35, align 4, !tbaa !15
   %403 = sext i32 %402 to i64
-  %404 = getelementptr inbounds %"class.pbrt::Point2", ptr %391, i64 %403
+  %404 = getelementptr inbounds [8 x i8], ptr %391, i64 %403
   %.sroa.013.0.copyload = load <2 x float>, ptr %404, align 4
   %405 = fsub float 1.000000e+00, %300
   %.sroa.0.0.vec.extract.i.i767 = extractelement <2 x float> %.sroa.016.0.copyload, i64 0
@@ -17671,7 +17665,7 @@ define dso_local noundef float @_ZNK4pbrt13BilinearPatch3PDFERKNS_18ShapeSampleC
   %10 = sext i32 %9 to i64
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !353
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %10
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %10
   %14 = load ptr, ptr %13, align 8, !tbaa !354
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8, !tbaa !363
@@ -17679,19 +17673,19 @@ define dso_local noundef float @_ZNK4pbrt13BilinearPatch3PDFERKNS_18ShapeSampleC
   %18 = load i32, ptr %17, align 4, !tbaa !362
   %19 = shl nsw i32 %18, 2
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds i32, ptr %16, i64 %20
+  %21 = getelementptr inbounds [4 x i8], ptr %16, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %23 = load ptr, ptr %22, align 8, !tbaa !364
   %24 = load i32, ptr %21, align 4, !tbaa !15
   %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds %"class.pbrt::Point3", ptr %23, i64 %25
+  %26 = getelementptr inbounds [12 x i8], ptr %23, i64 %25
   %.sroa.0507.0.copyload = load <2 x float>, ptr %26, align 4
   %.sroa.8510.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 8
   %.sroa.8510.0.copyload = load float, ptr %.sroa.8510.0..sroa_idx, align 4
   %27 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %28 = load i32, ptr %27, align 4, !tbaa !15
   %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds %"class.pbrt::Point3", ptr %23, i64 %29
+  %30 = getelementptr inbounds [12 x i8], ptr %23, i64 %29
   %.sroa.0501.0.copyload = load float, ptr %30, align 4
   %.sroa.6503.0..sroa_idx = getelementptr inbounds nuw i8, ptr %30, i64 4
   %.sroa.6503.0.copyload = load float, ptr %.sroa.6503.0..sroa_idx, align 4
@@ -17700,7 +17694,7 @@ define dso_local noundef float @_ZNK4pbrt13BilinearPatch3PDFERKNS_18ShapeSampleC
   %31 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %32 = load i32, ptr %31, align 4, !tbaa !15
   %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds %"class.pbrt::Point3", ptr %23, i64 %33
+  %34 = getelementptr inbounds [12 x i8], ptr %23, i64 %33
   %.sroa.0496.0.copyload = load float, ptr %34, align 4
   %.sroa.6498.0..sroa_idx = getelementptr inbounds nuw i8, ptr %34, i64 4
   %.sroa.6498.0.copyload = load float, ptr %.sroa.6498.0..sroa_idx, align 4
@@ -17709,7 +17703,7 @@ define dso_local noundef float @_ZNK4pbrt13BilinearPatch3PDFERKNS_18ShapeSampleC
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 12
   %36 = load i32, ptr %35, align 4, !tbaa !15
   %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds %"class.pbrt::Point3", ptr %23, i64 %37
+  %38 = getelementptr inbounds [12 x i8], ptr %23, i64 %37
   %.sroa.0495.0.copyload = load float, ptr %38, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %38, i64 4
   %.sroa.5.0.copyload = load float, ptr %.sroa.5.0..sroa_idx, align 4
@@ -19277,12 +19271,12 @@ _ZN4pstd3pmr21polymorphic_allocatorISt4byteE10new_objectIN4pbrt17BilinearPatchMe
   %452 = load ptr, ptr %56, align 8, !tbaa !118
   %453 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %454 = load i64, ptr %453, align 8, !tbaa !113
-  %455 = getelementptr inbounds nuw %"class.pbrt::Shape", ptr %452, i64 %454
+  %455 = getelementptr inbounds nuw [8 x i8], ptr %452, i64 %454
   %456 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %457 = load ptr, ptr %456, align 8, !tbaa !118
   %458 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %459 = load i64, ptr %458, align 8, !tbaa !113
-  %460 = getelementptr inbounds nuw %"class.pbrt::Shape", ptr %457, i64 %459
+  %460 = getelementptr inbounds nuw [8 x i8], ptr %457, i64 %459
   %461 = invoke noundef ptr @_ZN4pstd6vectorIN4pbrt5ShapeENS_3pmr21polymorphic_allocatorIS2_EEE6insertIPS2_EES8_PKS2_T_SB_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %455, ptr noundef %457, ptr noundef %460)
           to label %462 unwind label %467
 
@@ -19944,8 +19938,8 @@ _ZN4pstd3pmr21polymorphic_allocatorIN4pbrt5ShapeEE17deallocate_objectIS3_EEvPT_m
 
 .lr.ph.i:                                         ; preds = %_ZN4pstd3pmr21polymorphic_allocatorIN4pbrt5ShapeEE15allocate_objectIS3_EEPT_m.exit.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %_ZN4pstd3pmr21polymorphic_allocatorIN4pbrt5ShapeEE15allocate_objectIS3_EEPT_m.exit.i ]
-  %40 = getelementptr inbounds nuw %"class.pbrt::Shape", ptr %33, i64 %indvars.iv.i
-  %41 = getelementptr inbounds nuw %"class.pbrt::Shape", ptr %.pre.i, i64 %indvars.iv.i
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv.i
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i, i64 %indvars.iv.i
   store i64 0, ptr %40, align 8, !tbaa !119
   %42 = load i64, ptr %41, align 8, !tbaa !119
   store i64 %42, ptr %40, align 8, !tbaa !119
@@ -19971,8 +19965,8 @@ _ZN4pstd6vectorIN4pbrt5ShapeENS_3pmr21polymorphic_allocatorIS2_EEE7reserveEm.exi
 
 48:                                               ; preds = %.lr.ph, %48
   %.017 = phi i64 [ 0, %.lr.ph ], [ %52, %48 ]
-  %49 = getelementptr inbounds nuw %"class.pbrt::Shape", ptr %45, i64 %.017
-  %50 = getelementptr inbounds nuw %"class.pbrt::Shape", ptr %47, i64 %.017
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %.017
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %.017
   store i64 0, ptr %49, align 8, !tbaa !119
   %51 = load i64, ptr %50, align 8, !tbaa !119
   store i64 %51, ptr %49, align 8, !tbaa !119
@@ -20296,8 +20290,8 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %_ZNSt6vectorIiSaIiE
 
 .lr.ph.i.i.i:                                     ; preds = %.noexc22, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIS3_IiiEiEEEE7destroyIS6_EEvPT_.exit.i.i.i
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIS3_IiiEiEEEE7destroyIS6_EEvPT_.exit.i.i.i ], [ 0, %.noexc22 ]
-  %50 = getelementptr inbounds nuw %"class.pstd::optional.184", ptr %49, i64 %indvars.iv.i.i.i
-  %51 = getelementptr inbounds nuw %"class.pstd::optional.184", ptr %.pre16.i.i.i, i64 %indvars.iv.i.i.i
+  %50 = getelementptr inbounds nuw [16 x i8], ptr %49, i64 %indvars.iv.i.i.i
+  %51 = getelementptr inbounds nuw [16 x i8], ptr %.pre16.i.i.i, i64 %indvars.iv.i.i.i
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 12
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 12
   %54 = load i8, ptr %53, align 4, !tbaa !438, !range !19, !noundef !20
@@ -20337,7 +20331,7 @@ _ZN4pstd6vectorINS_8optionalISt4pairIS2_IiiEiEEENS_3pmr21polymorphic_allocatorIS
 
 _ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIS3_IiiEiEEEE9constructIS6_JRKS6_EEEvPT_DpOT0_.exit.i.i: ; preds = %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIS3_IiiEiEEEE9constructIS6_JRKS6_EEEvPT_DpOT0_.exit.i.i, %.lr.ph.i.i
   %.016.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %66, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIS3_IiiEiEEEE9constructIS6_JRKS6_EEEvPT_DpOT0_.exit.i.i ]
-  %64 = getelementptr inbounds nuw %"class.pstd::optional.184", ptr %49, i64 %.016.i.i
+  %64 = getelementptr inbounds nuw [16 x i8], ptr %49, i64 %.016.i.i
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 12
   store i8 0, ptr %65, align 4, !tbaa !438
   %66 = add nuw nsw i64 %.016.i.i, 1
@@ -20513,7 +20507,7 @@ _ZN4pbrt7HashMapISt4pairIiiEiNS_11HashIntPairEN4pstd3pmr21polymorphic_allocatorI
 
 .lr.ph.i.i.i27:                                   ; preds = %136, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIS3_IiiEiEEEE7destroyIS6_EEvPT_.exit.i.i.i29
   %indvars.iv.i.i.i28 = phi i64 [ %indvars.iv.next.i.i.i30, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIS3_IiiEiEEEE7destroyIS6_EEvPT_.exit.i.i.i29 ], [ 0, %136 ]
-  %138 = getelementptr inbounds nuw %"class.pstd::optional.184", ptr %.pre.i.i, i64 %indvars.iv.i.i.i28
+  %138 = getelementptr inbounds nuw [16 x i8], ptr %.pre.i.i, i64 %indvars.iv.i.i.i28
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 12
   %140 = load i8, ptr %139, align 4, !tbaa !438, !range !19, !noundef !20
   %141 = trunc nuw i8 %140 to i1
@@ -21109,7 +21103,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   %66 = sext i32 %65 to i64
   %67 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %68 = load ptr, ptr %67, align 8, !tbaa !102, !noalias !509
-  %69 = getelementptr inbounds nuw ptr, ptr %68, i64 %66
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %66
   %70 = load ptr, ptr %69, align 8, !tbaa !103, !noalias !509
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %72 = load ptr, ptr %71, align 8, !tbaa !129, !noalias !509
@@ -21117,20 +21111,20 @@ common.resume:                                    ; preds = %common.resume.sink.
   %74 = load i32, ptr %73, align 4, !tbaa !123, !noalias !509
   %75 = mul nsw i32 %74, 3
   %76 = sext i32 %75 to i64
-  %77 = getelementptr inbounds i32, ptr %72, i64 %76
+  %77 = getelementptr inbounds [4 x i8], ptr %72, i64 %76
   %78 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %79 = load ptr, ptr %78, align 8, !tbaa !130, !noalias !509
   %80 = load i32, ptr %77, align 4, !tbaa !15, !noalias !509
   %81 = sext i32 %80 to i64
-  %82 = getelementptr inbounds %"class.pbrt::Point3", ptr %79, i64 %81
+  %82 = getelementptr inbounds [12 x i8], ptr %79, i64 %81
   %83 = getelementptr inbounds nuw i8, ptr %77, i64 4
   %84 = load i32, ptr %83, align 4, !tbaa !15, !noalias !509
   %85 = sext i32 %84 to i64
-  %86 = getelementptr inbounds %"class.pbrt::Point3", ptr %79, i64 %85
+  %86 = getelementptr inbounds [12 x i8], ptr %79, i64 %85
   %87 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %88 = load i32, ptr %87, align 4, !tbaa !15, !noalias !509
   %89 = sext i32 %88 to i64
-  %90 = getelementptr inbounds %"class.pbrt::Point3", ptr %79, i64 %89
+  %90 = getelementptr inbounds [12 x i8], ptr %79, i64 %89
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %91, ptr %0, align 8, !tbaa !46, !alias.scope !510
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -24588,7 +24582,7 @@ define linkonce_odr dso_local void @_ZN4pbrt6RotateEffNS_7Vector3IfEE(ptr dead_o
 
 .preheader.i:                                     ; preds = %9, %5
   %indvars.iv12.i = phi i64 [ 0, %5 ], [ %indvars.iv.next13.i, %9 ]
-  %8 = getelementptr inbounds nuw [4 x float], ptr %6, i64 %indvars.iv12.i
+  %8 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %indvars.iv12.i
   br label %10
 
 9:                                                ; preds = %10
@@ -24600,7 +24594,7 @@ define linkonce_odr dso_local void @_ZN4pbrt6RotateEffNS_7Vector3IfEE(ptr dead_o
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %10 ]
   %11 = icmp eq i64 %indvars.iv12.i, %indvars.iv.i
   %12 = uitofp i1 %11 to float
-  %13 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv.i
   store float %12, ptr %13, align 4, !tbaa !17
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
@@ -24676,7 +24670,7 @@ _ZN4pbrt12SquareMatrixILi4EEC2Ev.exit:            ; preds = %9
 
 .preheader.i.i:                                   ; preds = %62, %_ZN4pbrt12SquareMatrixILi4EEC2Ev.exit
   %indvars.iv12.i.i = phi i64 [ 0, %_ZN4pbrt12SquareMatrixILi4EEC2Ev.exit ], [ %indvars.iv.next13.i.i, %62 ]
-  %61 = getelementptr inbounds nuw [4 x float], ptr %7, i64 %indvars.iv12.i.i
+  %61 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %indvars.iv12.i.i
   br label %63
 
 62:                                               ; preds = %63
@@ -24688,7 +24682,7 @@ _ZN4pbrt12SquareMatrixILi4EEC2Ev.exit:            ; preds = %9
   %indvars.iv.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next.i.i, %63 ]
   %64 = icmp eq i64 %indvars.iv12.i.i, %indvars.iv.i.i
   %65 = uitofp i1 %64 to float
-  %66 = getelementptr inbounds nuw float, ptr %61, i64 %indvars.iv.i.i
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %indvars.iv.i.i
   store float %65, ptr %66, align 4, !tbaa !17, !alias.scope !630
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
@@ -24696,8 +24690,8 @@ _ZN4pbrt12SquareMatrixILi4EEC2Ev.exit:            ; preds = %9
 
 .preheader.i91:                                   ; preds = %62, %_ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i
   %indvars.iv16.i = phi i64 [ %indvars.iv.next17.i, %_ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i ], [ 0, %62 ]
-  %invariant.gep.i = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv16.i
-  %67 = getelementptr inbounds nuw [4 x float], ptr %7, i64 %indvars.iv16.i
+  %invariant.gep.i = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv16.i
+  %67 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %indvars.iv16.i
   br label %68
 
 _ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i:          ; preds = %68
@@ -24707,9 +24701,9 @@ _ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i:          ; preds = %68
 
 68:                                               ; preds = %68, %.preheader.i91
   %indvars.iv.i92 = phi i64 [ 0, %.preheader.i91 ], [ %indvars.iv.next.i93, %68 ]
-  %gep.i = getelementptr inbounds nuw [4 x float], ptr %invariant.gep.i, i64 %indvars.iv.i92
+  %gep.i = getelementptr inbounds nuw [16 x i8], ptr %invariant.gep.i, i64 %indvars.iv.i92
   %69 = load float, ptr %gep.i, align 4, !tbaa !17, !noalias !630
-  %70 = getelementptr inbounds nuw float, ptr %67, i64 %indvars.iv.i92
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %67, i64 %indvars.iv.i92
   store float %69, ptr %70, align 4, !tbaa !17, !alias.scope !630
   %indvars.iv.next.i93 = add nuw nsw i64 %indvars.iv.i92, 1
   %exitcond.not.i94 = icmp eq i64 %indvars.iv.next.i93, 4
@@ -24993,7 +24987,7 @@ define linkonce_odr dso_local void @_ZZN4pbrt5Image23GetSamplingDistributionIZNS
 24:                                               ; preds = %24, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %24 ]
   %.057.i = phi float [ 0.000000e+00, %.lr.ph.i ], [ %27, %24 ]
-  %25 = getelementptr inbounds nuw float, ptr %23, i64 %indvars.iv.i
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %indvars.iv.i
   %26 = load float, ptr %25, align 4, !tbaa !17
   %27 = fadd float %.057.i, %26
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -25042,7 +25036,7 @@ _ZN4pbrt13InlinedVectorIfLi4EN4pstd3pmr21polymorphic_allocatorIfEEED2Ev.exit: ; 
   %52 = mul nsw i32 %51, %46
   %53 = add nsw i32 %43, %52
   %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds float, ptr %48, i64 %54
+  %55 = getelementptr inbounds [4 x i8], ptr %48, i64 %54
   store float %29, ptr %55, align 4, !tbaa !17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %56 = load i32, ptr %8, align 4, !tbaa !15
@@ -25155,7 +25149,7 @@ _ZN4pstd6vectorIhNS_3pmr21polymorphic_allocatorIhEEED2Ev.exit: ; preds = %_ZN4ps
   %51 = phi i64 [ %48, %.lr.ph.i.i ], [ %59, %_ZN4pstd3pmr21polymorphic_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7destroyIS7_EEvPT_.exit.i.i ]
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %_ZN4pstd3pmr21polymorphic_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7destroyIS7_EEvPT_.exit.i.i ]
   %52 = load ptr, ptr %49, align 8, !tbaa !674
-  %53 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %52, i64 %indvars.iv.i.i
+  %53 = getelementptr inbounds nuw [32 x i8], ptr %52, i64 %indvars.iv.i.i
   %54 = load ptr, ptr %53, align 8, !tbaa !55
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %56 = icmp eq ptr %54, %55
@@ -25862,7 +25856,7 @@ define linkonce_odr dso_local void @_ZN4pbrt12RotateFromToENS_7Vector3IfEES1_(pt
 
 .preheader.i:                                     ; preds = %19, %17
   %indvars.iv12.i = phi i64 [ 0, %17 ], [ %indvars.iv.next13.i, %19 ]
-  %18 = getelementptr inbounds nuw [4 x float], ptr %6, i64 %indvars.iv12.i
+  %18 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %indvars.iv12.i
   br label %46
 
 19:                                               ; preds = %46
@@ -25905,7 +25899,7 @@ _ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.preheader:  ; preds = %19
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %46 ]
   %47 = icmp eq i64 %indvars.iv12.i, %indvars.iv.i
   %48 = uitofp i1 %47 to float
-  %49 = getelementptr inbounds nuw float, ptr %18, i64 %indvars.iv.i
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv.i
   store float %48, ptr %49, align 4, !tbaa !17
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
@@ -25913,7 +25907,7 @@ _ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.preheader:  ; preds = %19
 
 .preheader:                                       ; preds = %_ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.preheader, %_ZN4pbrt12SquareMatrixILi4EEC2Ev.exit
   %indvars.iv169 = phi i64 [ 0, %_ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.preheader ], [ %indvars.iv.next170, %_ZN4pbrt12SquareMatrixILi4EEC2Ev.exit ]
-  %50 = getelementptr inbounds nuw [4 x float], ptr %6, i64 %indvars.iv169
+  %50 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %indvars.iv169
   %51 = trunc nuw nsw i64 %indvars.iv169 to i32
   br label %64
 
@@ -25924,7 +25918,7 @@ _ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.preheader:  ; preds = %19
 
 .preheader.i.i:                                   ; preds = %54, %52
   %indvars.iv12.i.i = phi i64 [ 0, %52 ], [ %indvars.iv.next13.i.i, %54 ]
-  %53 = getelementptr inbounds nuw [4 x float], ptr %7, i64 %indvars.iv12.i.i
+  %53 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %indvars.iv12.i.i
   br label %55
 
 54:                                               ; preds = %55
@@ -25936,7 +25930,7 @@ _ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.preheader:  ; preds = %19
   %indvars.iv.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next.i.i, %55 ]
   %56 = icmp eq i64 %indvars.iv12.i.i, %indvars.iv.i.i
   %57 = uitofp i1 %56 to float
-  %58 = getelementptr inbounds nuw float, ptr %53, i64 %indvars.iv.i.i
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %indvars.iv.i.i
   store float %57, ptr %58, align 4, !tbaa !17, !alias.scope !703
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
@@ -25944,8 +25938,8 @@ _ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.preheader:  ; preds = %19
 
 .preheader.i82:                                   ; preds = %54, %_ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i
   %indvars.iv16.i = phi i64 [ %indvars.iv.next17.i, %_ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i ], [ 0, %54 ]
-  %invariant.gep.i = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv16.i
-  %59 = getelementptr inbounds nuw [4 x float], ptr %7, i64 %indvars.iv16.i
+  %invariant.gep.i = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv16.i
+  %59 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %indvars.iv16.i
   br label %60
 
 _ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i:          ; preds = %60
@@ -25955,9 +25949,9 @@ _ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i:          ; preds = %60
 
 60:                                               ; preds = %60, %.preheader.i82
   %indvars.iv.i83 = phi i64 [ 0, %.preheader.i82 ], [ %indvars.iv.next.i84, %60 ]
-  %gep.i = getelementptr inbounds nuw [4 x float], ptr %invariant.gep.i, i64 %indvars.iv.i83
+  %gep.i = getelementptr inbounds nuw [16 x i8], ptr %invariant.gep.i, i64 %indvars.iv.i83
   %61 = load float, ptr %gep.i, align 4, !tbaa !17, !noalias !703
-  %62 = getelementptr inbounds nuw float, ptr %59, i64 %indvars.iv.i83
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %indvars.iv.i83
   store float %61, ptr %62, align 4, !tbaa !17, !alias.scope !703
   %indvars.iv.next.i84 = add nuw nsw i64 %indvars.iv.i83, 1
   %exitcond.not.i85 = icmp eq i64 %indvars.iv.next.i84, 4
@@ -26068,7 +26062,7 @@ _ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit111:       ; preds = %_ZN4pbrt6Tuple3INS_
   %.0.i110.sroa.speculated = phi float [ %22, %86 ], [ %21, %85 ], [ %20, %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit109 ]
   %87 = fmul float %84, %.0.i110.sroa.speculated
   %88 = fadd float %81, %87
-  %89 = getelementptr inbounds nuw float, ptr %50, i64 %indvars.iv
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %indvars.iv
   store float %88, ptr %89, align 4, !tbaa !17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -41688,7 +41682,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
 
 11:                                               ; preds = %.lr.ph, %36
   %.011 = phi i64 [ 0, %.lr.ph ], [ %38, %36 ]
-  %12 = getelementptr inbounds nuw %"class.pbrt::Point3", ptr %5, i64 %.011
+  %12 = getelementptr inbounds nuw [12 x i8], ptr %5, i64 %.011
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %13 = load float, ptr %12, align 4, !tbaa !243, !noalias !1155
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 4
@@ -41802,7 +41796,7 @@ define linkonce_odr dso_local void @_ZN4pbrt6detail21stringPrintfRecursiveIN4pst
 
 .lr.ph.i:                                         ; preds = %.noexc, %42
   %.011.i = phi i64 [ %44, %42 ], [ 0, %.noexc ]
-  %33 = getelementptr inbounds nuw float, ptr %29, i64 %.011.i
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %.011.i
   %34 = load float, ptr %33, align 4, !tbaa !17
   %35 = fpext float %34 to double
   %36 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %27, double noundef %35)
@@ -42471,7 +42465,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
 
 11:                                               ; preds = %.lr.ph, %36
   %.011 = phi i64 [ 0, %.lr.ph ], [ %38, %36 ]
-  %12 = getelementptr inbounds nuw %"class.pbrt::Normal3", ptr %5, i64 %.011
+  %12 = getelementptr inbounds nuw [12 x i8], ptr %5, i64 %.011
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %13 = load float, ptr %12, align 4, !tbaa !135, !noalias !1186
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 4
@@ -51485,7 +51479,7 @@ _ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEE7reserveEm.exit: ; preds = %
   %48 = mul nsw i64 %indvars.iv, %21
   %49 = sub i64 %2, %48
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %21, i64 %49)
-  %50 = getelementptr inbounds nuw float, ptr %1, i64 %48
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %48
   %51 = load i64, ptr %31, align 8, !tbaa !1446
   %52 = icmp eq i64 %51, %47
   br i1 %52, label %53, label %56
@@ -51504,7 +51498,7 @@ _ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEE7reserveEm.exit: ; preds = %
 56:                                               ; preds = %.noexc33, %46
   %57 = phi i64 [ %.pre.i32, %.noexc33 ], [ %47, %46 ]
   %58 = load ptr, ptr %15, align 8, !tbaa !394
-  %59 = getelementptr inbounds nuw %"class.pbrt::PiecewiseConstant1D", ptr %58, i64 %57
+  %59 = getelementptr inbounds nuw [80 x i8], ptr %58, i64 %57
   invoke void @_ZN4pbrt19PiecewiseConstant1DC2EN4pstd4spanIKfEEffNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(76) %59, ptr %50, i64 %spec.select.i, float noundef %.sroa.068.0.vec.extract, float noundef %.sroa.4.8.vec.extract, ptr %7)
           to label %60 unwind label %63
 
@@ -51541,7 +51535,7 @@ _ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEE7reserveEm.exit: ; preds = %
   %72 = phi i64 [ %22, %.lr.ph74 ], [ %99, %97 ]
   %indvars.iv77 = phi i64 [ 0, %.lr.ph74 ], [ %indvars.iv.next78, %97 ]
   %73 = load ptr, ptr %15, align 8, !tbaa !394
-  %74 = getelementptr inbounds nuw %"class.pbrt::PiecewiseConstant1D", ptr %73, i64 %indvars.iv77
+  %74 = getelementptr inbounds nuw [80 x i8], ptr %73, i64 %indvars.iv77
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 72
   %76 = load float, ptr %75, align 8, !tbaa !390
   %77 = icmp eq i64 %72, %71
@@ -51603,8 +51597,8 @@ _ZN4pstd3pmr21polymorphic_allocatorIfE17deallocate_objectIfEEvPT_m.exit.i.i: ; p
 
 .lr.ph.i.i:                                       ; preds = %_ZN4pstd3pmr21polymorphic_allocatorIfE15allocate_objectIfEEPT_m.exit.i.i, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %_ZN4pstd3pmr21polymorphic_allocatorIfE15allocate_objectIfEEPT_m.exit.i.i ]
-  %94 = getelementptr inbounds nuw float, ptr %.0.i.i.i.i.i, i64 %indvars.iv.i.i
-  %95 = getelementptr inbounds nuw float, ptr %.pre.i.i, i64 %indvars.iv.i.i
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %.0.i.i.i.i.i, i64 %indvars.iv.i.i
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %.pre.i.i, i64 %indvars.iv.i.i
   %96 = load float, ptr %95, align 4, !tbaa !17
   store float %96, ptr %94, align 4, !tbaa !17
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -51615,7 +51609,7 @@ _ZN4pstd3pmr21polymorphic_allocatorIfE17deallocate_objectIfEEvPT_m.exit.i.i: ; p
   %98 = phi ptr [ %.0.i.i.i.i.i, %_ZN4pstd3pmr21polymorphic_allocatorIfE17deallocate_objectIfEEvPT_m.exit.i.i ], [ %70, %78 ], [ %70, %69 ]
   %99 = phi i64 [ %spec.select.i35, %_ZN4pstd3pmr21polymorphic_allocatorIfE17deallocate_objectIfEEvPT_m.exit.i.i ], [ %71, %78 ], [ %72, %69 ]
   %100 = phi i64 [ %.pre2.i, %_ZN4pstd3pmr21polymorphic_allocatorIfE17deallocate_objectIfEEvPT_m.exit.i.i ], [ %71, %78 ], [ %71, %69 ]
-  %101 = getelementptr inbounds nuw float, ptr %98, i64 %100
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %98, i64 %100
   store float %76, ptr %101, align 4, !tbaa !17
   %102 = add i64 %100, 1
   store i64 %102, ptr %43, align 8, !tbaa !385
@@ -51717,8 +51711,8 @@ _ZN4pstd3pmr21polymorphic_allocatorIfE17deallocate_objectIfEEvPT_m.exit.i.i59: ;
 
 .lr.ph.i.i54:                                     ; preds = %.noexc62, %.lr.ph.i.i54
   %indvars.iv.i.i55 = phi i64 [ %indvars.iv.next.i.i56, %.lr.ph.i.i54 ], [ 0, %.noexc62 ]
-  %142 = getelementptr inbounds nuw float, ptr %135, i64 %indvars.iv.i.i55
-  %143 = getelementptr inbounds nuw float, ptr %.pre.i.i53, i64 %indvars.iv.i.i55
+  %142 = getelementptr inbounds nuw [4 x i8], ptr %135, i64 %indvars.iv.i.i55
+  %143 = getelementptr inbounds nuw [4 x i8], ptr %.pre.i.i53, i64 %indvars.iv.i.i55
   %144 = load float, ptr %143, align 4, !tbaa !17
   store float %144, ptr %142, align 4, !tbaa !17
   %indvars.iv.next.i.i56 = add nuw nsw i64 %indvars.iv.i.i55, 1
@@ -51742,8 +51736,8 @@ _ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEE7reserveEm.exit.i: ; preds =
 
 149:                                              ; preds = %149, %.lr.ph.i46
   %.017.i = phi i64 [ 0, %.lr.ph.i46 ], [ %153, %149 ]
-  %150 = getelementptr inbounds nuw float, ptr %146, i64 %.017.i
-  %151 = getelementptr inbounds nuw float, ptr %148, i64 %.017.i
+  %150 = getelementptr inbounds nuw [4 x i8], ptr %146, i64 %.017.i
+  %151 = getelementptr inbounds nuw [4 x i8], ptr %148, i64 %.017.i
   %152 = load float, ptr %151, align 4, !tbaa !17
   store float %152, ptr %150, align 4, !tbaa !17
   %153 = add nuw i64 %.017.i, 1
@@ -51975,9 +51969,9 @@ _ZN4pstd3pmr21polymorphic_allocatorIN4pbrt19PiecewiseConstant1DEE17deallocate_ob
 
 26:                                               ; preds = %.lr.ph, %_ZN4pstd3pmr21polymorphic_allocatorIN4pbrt19PiecewiseConstant1DEE7destroyIS3_EEvPT_.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN4pstd3pmr21polymorphic_allocatorIN4pbrt19PiecewiseConstant1DEE7destroyIS3_EEvPT_.exit ]
-  %27 = getelementptr inbounds nuw %"class.pbrt::PiecewiseConstant1D", ptr %.0.i.i.i, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [80 x i8], ptr %.0.i.i.i, i64 %indvars.iv
   %28 = load ptr, ptr %16, align 8, !tbaa !394
-  %29 = getelementptr inbounds nuw %"class.pbrt::PiecewiseConstant1D", ptr %28, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [80 x i8], ptr %28, i64 %indvars.iv
   %30 = load i64, ptr %29, align 8, !tbaa !87
   store i64 %30, ptr %27, align 8, !tbaa !87
   %31 = getelementptr inbounds nuw i8, ptr %27, i64 8
@@ -52016,7 +52010,7 @@ _ZN4pstd3pmr21polymorphic_allocatorIN4pbrt19PiecewiseConstant1DEE17deallocate_ob
   %53 = getelementptr inbounds nuw i8, ptr %29, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %52, ptr noundef nonnull align 8 dereferenceable(12) %53, i64 12, i1 false)
   %54 = load ptr, ptr %16, align 8, !tbaa !394
-  %55 = getelementptr inbounds nuw %"class.pbrt::PiecewiseConstant1D", ptr %54, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [80 x i8], ptr %54, i64 %indvars.iv
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 56
   store i64 0, ptr %56, align 8, !tbaa !385
   %57 = getelementptr inbounds nuw i8, ptr %55, i64 40
@@ -52131,8 +52125,8 @@ _ZN4pstd3pmr21polymorphic_allocatorIfE15allocate_objectIfEEPT_m.exit.i.i: ; pred
 
 .lr.ph.i.i:                                       ; preds = %_ZN4pstd3pmr21polymorphic_allocatorIfE15allocate_objectIfEEPT_m.exit.i.i, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %_ZN4pstd3pmr21polymorphic_allocatorIfE15allocate_objectIfEEPT_m.exit.i.i ]
-  %31 = getelementptr inbounds nuw float, ptr %23, i64 %indvars.iv.i.i
-  %32 = getelementptr inbounds nuw float, ptr %.pre.i.i, i64 %indvars.iv.i.i
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %indvars.iv.i.i
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %.pre.i.i, i64 %indvars.iv.i.i
   %33 = load float, ptr %32, align 4, !tbaa !17
   store float %33, ptr %31, align 4, !tbaa !17
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -52147,7 +52141,7 @@ _ZN4pstd3pmr21polymorphic_allocatorIfE15allocate_objectIfEEPT_m.exit.i.i: ; pred
 34:                                               ; preds = %34, %.lr.ph.i
   %.013.i = phi ptr [ %1, %.lr.ph.i ], [ %37, %34 ]
   %.01012.i = phi i64 [ 0, %.lr.ph.i ], [ %38, %34 ]
-  %35 = getelementptr inbounds nuw float, ptr %23, i64 %.01012.i
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %.01012.i
   %36 = load float, ptr %.013.i, align 4, !tbaa !17
   store float %36, ptr %35, align 4, !tbaa !17
   %37 = getelementptr inbounds nuw i8, ptr %.013.i, i64 4
@@ -52207,8 +52201,8 @@ _ZN4pstd3pmr21polymorphic_allocatorIfE15allocate_objectIfEEPT_m.exit.i.i.i: ; pr
 
 .lr.ph.i.i.i:                                     ; preds = %.noexc, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %.lr.ph.i.i.i ], [ 0, %.noexc ]
-  %63 = getelementptr inbounds nuw float, ptr %56, i64 %indvars.iv.i.i.i
-  %64 = getelementptr inbounds nuw float, ptr %.pre.i.i.i, i64 %indvars.iv.i.i.i
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %indvars.iv.i.i.i
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %.pre.i.i.i, i64 %indvars.iv.i.i.i
   %65 = load float, ptr %64, align 4, !tbaa !17
   store float %65, ptr %63, align 4, !tbaa !17
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -52296,14 +52290,14 @@ _ZN4pstd3pmr21polymorphic_allocatorIfE15allocate_objectIfEEPT_m.exit.i.i.i: ; pr
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge62:                                    ; preds = %112
-  %97 = getelementptr inbounds nuw float, ptr %76, i64 %2
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %2
   %98 = load float, ptr %97, align 4, !tbaa !17
   store float %98, ptr %79, align 8, !tbaa !390
   %99 = fcmp oeq float %98, 0.000000e+00
   br i1 %99, label %.lr.ph66, label %.lr.ph64
 
 ._crit_edge62.thread:                             ; preds = %._crit_edge
-  %100 = getelementptr inbounds nuw float, ptr %76, i64 %2
+  %100 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %2
   %101 = load float, ptr %100, align 4, !tbaa !17
   store float %101, ptr %79, align 8, !tbaa !390
   br label %.loopexit
@@ -52316,7 +52310,7 @@ _ZN4pstd3pmr21polymorphic_allocatorIfE15allocate_objectIfEEPT_m.exit.i.i.i: ; pr
   %.03659 = phi i64 [ 1, %.lr.ph61 ], [ %119, %112 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %104 = add i64 %.03659, -1
-  %105 = getelementptr inbounds nuw float, ptr %88, i64 %104
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %88, i64 %104
   %106 = load float, ptr %105, align 4, !tbaa !17
   store float %106, ptr %9, align 4, !tbaa !17
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -52341,12 +52335,12 @@ _ZN4pstd3pmr21polymorphic_allocatorIfE15allocate_objectIfEEPT_m.exit.i.i.i: ; pr
 112:                                              ; preds = %103
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %113 = getelementptr inbounds nuw float, ptr %76, i64 %104
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %104
   %114 = load float, ptr %113, align 4, !tbaa !17
   %115 = fmul float %92, %106
   %116 = fdiv float %115, %93
   %117 = fadd float %114, %116
-  %118 = getelementptr inbounds nuw float, ptr %76, i64 %.03659
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %.03659
   store float %117, ptr %118, align 4, !tbaa !17
   %119 = add nuw i64 %.03659, 1
   %exitcond.not = icmp eq i64 %.03659, %2
@@ -52356,7 +52350,7 @@ _ZN4pstd3pmr21polymorphic_allocatorIfE15allocate_objectIfEEPT_m.exit.i.i.i: ; pr
   %.03565 = phi i64 [ 1, %.lr.ph66 ], [ %124, %120 ]
   %121 = uitofp i64 %.03565 to float
   %122 = fdiv float %121, %102
-  %123 = getelementptr inbounds nuw float, ptr %76, i64 %.03565
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %.03565
   store float %122, ptr %123, align 4, !tbaa !17
   %124 = add nuw i64 %.03565, 1
   %exitcond70.not = icmp eq i64 %.03565, %2
@@ -52365,7 +52359,7 @@ _ZN4pstd3pmr21polymorphic_allocatorIfE15allocate_objectIfEEPT_m.exit.i.i.i: ; pr
 .lr.ph64:                                         ; preds = %._crit_edge62, %.lr.ph64
   %.063 = phi i64 [ %129, %.lr.ph64 ], [ 1, %._crit_edge62 ]
   %125 = load float, ptr %79, align 8, !tbaa !390
-  %126 = getelementptr inbounds nuw float, ptr %76, i64 %.063
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %.063
   %127 = load float, ptr %126, align 4, !tbaa !17
   %128 = fdiv float %127, %125
   store float %128, ptr %126, align 4, !tbaa !17
@@ -52459,7 +52453,7 @@ define linkonce_odr dso_local void @_ZN4pstd6vectorIN4pbrt19PiecewiseConstant1DE
 5:                                                ; preds = %_ZN4pstd3pmr21polymorphic_allocatorIN4pbrt19PiecewiseConstant1DEE7destroyIS3_EEvPT_.exit.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %_ZN4pstd3pmr21polymorphic_allocatorIN4pbrt19PiecewiseConstant1DEE7destroyIS3_EEvPT_.exit.i ]
   %6 = load ptr, ptr %4, align 8, !tbaa !394
-  %7 = getelementptr inbounds nuw %"class.pbrt::PiecewiseConstant1D", ptr %6, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw [80 x i8], ptr %6, i64 %indvars.iv.i
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store i64 0, ptr %8, align 8, !tbaa !385
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 40
@@ -59255,8 +59249,8 @@ _ZN4pstd3pmr21polymorphic_allocatorIfE17deallocate_objectIfEEvPT_m.exit.i: ; pre
 
 .lr.ph.i:                                         ; preds = %_ZN4pstd3pmr21polymorphic_allocatorIfE15allocate_objectIfEEPT_m.exit.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %_ZN4pstd3pmr21polymorphic_allocatorIfE15allocate_objectIfEEPT_m.exit.i ]
-  %40 = getelementptr inbounds nuw float, ptr %33, i64 %indvars.iv.i
-  %41 = getelementptr inbounds nuw float, ptr %.pre.i, i64 %indvars.iv.i
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %indvars.iv.i
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %.pre.i, i64 %indvars.iv.i
   %42 = load float, ptr %41, align 4, !tbaa !17
   store float %42, ptr %40, align 4, !tbaa !17
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -59281,8 +59275,8 @@ _ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEE7reserveEm.exit: ; preds = %
 
 48:                                               ; preds = %.lr.ph, %48
   %.017 = phi i64 [ 0, %.lr.ph ], [ %52, %48 ]
-  %49 = getelementptr inbounds nuw float, ptr %45, i64 %.017
-  %50 = getelementptr inbounds nuw float, ptr %47, i64 %.017
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %.017
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %.017
   %51 = load float, ptr %50, align 4, !tbaa !17
   store float %51, ptr %49, align 4, !tbaa !17
   %52 = add nuw i64 %.017, 1
@@ -61494,17 +61488,17 @@ define internal fastcc void @"_ZN4pbrt11TriQuadMesh6RefineIRZNS_5Shape6CreateERK
   %9 = alloca i32, align 4
   %10 = sext i32 %3 to i64
   %11 = load ptr, ptr %0, align 8, !tbaa !173
-  %12 = getelementptr inbounds nuw %"class.pbrt::Point3", ptr %11, i64 %10
+  %12 = getelementptr inbounds nuw [12 x i8], ptr %11, i64 %10
   %.sroa.080.0.copyload = load <2 x float>, ptr %12, align 4
   %.sroa.582.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.sroa.582.0.copyload = load float, ptr %.sroa.582.0..sroa_idx, align 4
   %13 = sext i32 %4 to i64
-  %14 = getelementptr inbounds nuw %"class.pbrt::Point3", ptr %11, i64 %13
+  %14 = getelementptr inbounds nuw [12 x i8], ptr %11, i64 %13
   %.sroa.077.0.copyload = load <2 x float>, ptr %14, align 4
   %.sroa.579.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 8
   %.sroa.579.0.copyload = load float, ptr %.sroa.579.0..sroa_idx, align 4
   %15 = sext i32 %5 to i64
-  %16 = getelementptr inbounds nuw %"class.pbrt::Point3", ptr %11, i64 %15
+  %16 = getelementptr inbounds nuw [12 x i8], ptr %11, i64 %15
   %.sroa.074.0.copyload = load <2 x float>, ptr %16, align 4
   %.sroa.576.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 8
   %.sroa.576.0.copyload = load float, ptr %.sroa.576.0..sroa_idx, align 4
@@ -61733,7 +61727,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i: ; preds = %183, %_ZNK
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i: ; preds = %185, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i
   store ptr %180, ptr %160, align 8, !tbaa !176
   store ptr %184, ptr %161, align 8, !tbaa !177
-  %186 = getelementptr inbounds nuw i32, ptr %180, i64 %178
+  %186 = getelementptr inbounds nuw [4 x i8], ptr %180, i64 %178
   store ptr %186, ptr %163, align 8, !tbaa !174
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
 
@@ -61793,7 +61787,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i130: ; preds = %207, %_
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i132: ; preds = %209, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i130
   store ptr %204, ptr %160, align 8, !tbaa !176
   store ptr %208, ptr %161, align 8, !tbaa !177
-  %210 = getelementptr inbounds nuw i32, ptr %204, i64 %202
+  %210 = getelementptr inbounds nuw [4 x i8], ptr %204, i64 %202
   store ptr %210, ptr %163, align 8, !tbaa !174
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit133
 
@@ -61853,7 +61847,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i138: ; preds = %231, %_
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i140: ; preds = %233, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i138
   store ptr %228, ptr %160, align 8, !tbaa !176
   store ptr %232, ptr %161, align 8, !tbaa !177
-  %234 = getelementptr inbounds nuw i32, ptr %228, i64 %226
+  %234 = getelementptr inbounds nuw [4 x i8], ptr %228, i64 %226
   store ptr %234, ptr %163, align 8, !tbaa !174
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit141
 
@@ -61911,7 +61905,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
   %261 = and i64 %257, %260
   %262 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %263 = load ptr, ptr %262, align 8, !tbaa !437
-  %264 = getelementptr inbounds nuw %"class.pstd::optional.184", ptr %263, i64 %261
+  %264 = getelementptr inbounds nuw [16 x i8], ptr %263, i64 %261
   %265 = getelementptr inbounds nuw i8, ptr %264, i64 12
   %266 = load i8, ptr %265, align 4, !tbaa !438, !range !19, !noundef !20
   %267 = trunc nuw i8 %266 to i1
@@ -61940,7 +61934,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
   %282 = zext nneg i32 %281 to i64
   %283 = add i64 %279, %282
   %284 = and i64 %283, %260
-  %285 = getelementptr inbounds nuw %"class.pstd::optional.184", ptr %263, i64 %284
+  %285 = getelementptr inbounds nuw [16 x i8], ptr %263, i64 %284
   %286 = getelementptr inbounds nuw i8, ptr %285, i64 12
   %287 = load i8, ptr %286, align 4, !tbaa !438, !range !19, !noundef !20
   %288 = trunc nuw i8 %287 to i1
@@ -61969,7 +61963,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
   %300 = zext nneg i32 %299 to i64
   %301 = add i64 %297, %300
   %302 = and i64 %301, %260
-  %303 = getelementptr inbounds nuw %"class.pstd::optional.184", ptr %263, i64 %302
+  %303 = getelementptr inbounds nuw [16 x i8], ptr %263, i64 %302
   %304 = getelementptr inbounds nuw i8, ptr %303, i64 12
   %305 = load i8, ptr %304, align 4, !tbaa !438, !range !19, !noundef !20
   %306 = trunc nuw i8 %305 to i1
@@ -61990,7 +61984,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
 
 _ZNK4pbrt7HashMapISt4pairIiiEiNS_11HashIntPairEN4pstd3pmr21polymorphic_allocatorINS4_8optionalIS1_IS2_iEEEEEEixERKS2_.exit: ; preds = %.lr.ph.i.i147, %.lr.ph.i.preheader.i
   %.117.i.ph.i = phi i64 [ %261, %.lr.ph.i.preheader.i ], [ %302, %.lr.ph.i.i147 ]
-  %312 = getelementptr inbounds nuw %"class.pstd::optional.184", ptr %263, i64 %.117.i.ph.i
+  %312 = getelementptr inbounds nuw [16 x i8], ptr %263, i64 %.117.i.ph.i
   %313 = getelementptr inbounds nuw i8, ptr %312, i64 8
   %314 = load i32, ptr %313, align 4, !tbaa !15
   store i32 %314, ptr %9, align 4, !tbaa !15
@@ -62008,9 +62002,9 @@ _ZNK4pbrt7HashMapISt4pairIiiEiNS_11HashIntPairEN4pstd3pmr21polymorphic_allocator
   call void @_ZN4pbrt7HashMapISt4pairIiiEiNS_11HashIntPairEN4pstd3pmr21polymorphic_allocatorINS4_8optionalIS1_IS2_iEEEEEE6InsertERKS2_RKi(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 4 dereferenceable(8) %8, ptr noundef nonnull align 4 dereferenceable(4) %9)
   %322 = sext i32 %.sroa.0188.0 to i64
   %323 = load ptr, ptr %0, align 8, !tbaa !173
-  %324 = getelementptr inbounds nuw %"class.pbrt::Point3", ptr %323, i64 %322
+  %324 = getelementptr inbounds nuw [12 x i8], ptr %323, i64 %322
   %325 = sext i32 %.sroa.12.0 to i64
-  %326 = getelementptr inbounds nuw %"class.pbrt::Point3", ptr %323, i64 %325
+  %326 = getelementptr inbounds nuw [12 x i8], ptr %323, i64 %325
   %.sroa.029.0.copyload = load <2 x float>, ptr %326, align 4
   %.sroa.230.0..sroa_idx = getelementptr inbounds nuw i8, ptr %326, i64 8
   %.sroa.230.0.copyload = load float, ptr %.sroa.230.0..sroa_idx, align 4
@@ -62088,7 +62082,7 @@ _ZNSt6vectorIN4pbrt6Point3IfEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17_
   call void @_ZdlPvm(ptr noundef nonnull %323, i64 noundef %347) #33
   store ptr %356, ptr %0, align 8, !tbaa !173
   store ptr %360, ptr %315, align 8, !tbaa !171
-  %361 = getelementptr inbounds nuw %"class.pbrt::Point3", ptr %356, i64 %354
+  %361 = getelementptr inbounds nuw [12 x i8], ptr %356, i64 %354
   store ptr %361, ptr %339, align 8, !tbaa !207
   br label %_ZNSt6vectorIN4pbrt6Point3IfEESaIS2_EE9push_backEOS2_.exit
 
@@ -62101,8 +62095,8 @@ _ZNSt6vectorIN4pbrt6Point3IfEESaIS2_EE9push_backEOS2_.exit: ; preds = %341, %_ZN
   br i1 %366, label %_ZNSt6vectorIN4pbrt7Normal3IfEESaIS2_EE9push_backERKS2_.exit, label %367
 
 367:                                              ; preds = %_ZNSt6vectorIN4pbrt6Point3IfEESaIS2_EE9push_backEOS2_.exit
-  %368 = getelementptr inbounds nuw %"class.pbrt::Normal3", ptr %363, i64 %322
-  %369 = getelementptr inbounds nuw %"class.pbrt::Normal3", ptr %363, i64 %325
+  %368 = getelementptr inbounds nuw [12 x i8], ptr %363, i64 %322
+  %369 = getelementptr inbounds nuw [12 x i8], ptr %363, i64 %325
   %.sroa.017.0.copyload = load <2 x float>, ptr %369, align 4
   %.sroa.218.0..sroa_idx = getelementptr inbounds nuw i8, ptr %369, i64 8
   %.sroa.218.0.copyload = load float, ptr %.sroa.218.0..sroa_idx, align 4
@@ -62191,7 +62185,7 @@ _ZNSt6vectorIN4pbrt7Normal3IfEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx
   call void @_ZdlPvm(ptr noundef nonnull %363, i64 noundef %397) #33
   store ptr %406, ptr %362, align 8, !tbaa !192
   store ptr %410, ptr %364, align 8, !tbaa !194
-  %411 = getelementptr inbounds nuw %"class.pbrt::Normal3", ptr %406, i64 %404
+  %411 = getelementptr inbounds nuw [12 x i8], ptr %406, i64 %404
   store ptr %411, ptr %389, align 8, !tbaa !204
   br label %_ZNSt6vectorIN4pbrt7Normal3IfEESaIS2_EE9push_backERKS2_.exit
 
@@ -62204,8 +62198,8 @@ _ZNSt6vectorIN4pbrt7Normal3IfEESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6v
   br i1 %416, label %_ZNSt6vectorIN4pbrt6Point2IfEESaIS2_EE9push_backEOS2_.exit, label %417
 
 417:                                              ; preds = %_ZNSt6vectorIN4pbrt7Normal3IfEESaIS2_EE9push_backERKS2_.exit
-  %418 = getelementptr inbounds nuw %"class.pbrt::Point2", ptr %413, i64 %322
-  %419 = getelementptr inbounds nuw %"class.pbrt::Point2", ptr %413, i64 %325
+  %418 = getelementptr inbounds nuw [8 x i8], ptr %413, i64 %322
+  %419 = getelementptr inbounds nuw [8 x i8], ptr %413, i64 %325
   %.sroa.0.0.copyload = load <2 x float>, ptr %419, align 4
   %420 = load float, ptr %418, align 4, !tbaa !398
   %.sroa.0.0.vec.extract.i = extractelement <2 x float> %.sroa.0.0.copyload, i64 0
@@ -62270,7 +62264,7 @@ _ZNSt6vectorIN4pbrt6Point2IfEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17_
   call void @_ZdlPvm(ptr noundef nonnull %413, i64 noundef %435) #33
   store ptr %444, ptr %412, align 8, !tbaa !184
   store ptr %449, ptr %414, align 8, !tbaa !186
-  %450 = getelementptr inbounds nuw %"class.pbrt::Point2", ptr %444, i64 %442
+  %450 = getelementptr inbounds nuw [8 x i8], ptr %444, i64 %442
   store ptr %450, ptr %427, align 8, !tbaa !206
   br label %_ZNSt6vectorIN4pbrt6Point2IfEESaIS2_EE9push_backEOS2_.exit
 
@@ -62298,7 +62292,7 @@ define linkonce_odr dso_local void @_ZN4pbrt7HashMapISt4pairIiiEiNS_11HashIntPai
 
 .lr.ph.i.i:                                       ; preds = %1, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIS3_IiiEiEEEE7destroyIS6_EEvPT_.exit.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIS3_IiiEiEEEE7destroyIS6_EEvPT_.exit.i.i ], [ 0, %1 ]
-  %4 = getelementptr inbounds nuw %"class.pstd::optional.184", ptr %.pre.i, i64 %indvars.iv.i.i
+  %4 = getelementptr inbounds nuw [16 x i8], ptr %.pre.i, i64 %indvars.iv.i.i
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %6 = load i8, ptr %5, align 4, !tbaa !438, !range !19, !noundef !20
   %7 = trunc nuw i8 %6 to i1
@@ -62363,7 +62357,7 @@ define linkonce_odr dso_local void @_ZN4pbrt7HashMapISt4pairIiiEiNS_11HashIntPai
   %17 = and i64 %13, %16
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !437
-  %20 = getelementptr inbounds nuw %"class.pstd::optional.184", ptr %19, i64 %17
+  %20 = getelementptr inbounds nuw [16 x i8], ptr %19, i64 %17
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 12
   %22 = load i8, ptr %21, align 4, !tbaa !438, !range !19, !noundef !20
   %23 = trunc nuw i8 %22 to i1
@@ -62392,7 +62386,7 @@ define linkonce_odr dso_local void @_ZN4pbrt7HashMapISt4pairIiiEiNS_11HashIntPai
   %38 = zext nneg i32 %37 to i64
   %39 = add i64 %35, %38
   %40 = and i64 %39, %16
-  %41 = getelementptr inbounds nuw %"class.pstd::optional.184", ptr %19, i64 %40
+  %41 = getelementptr inbounds nuw [16 x i8], ptr %19, i64 %40
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 12
   %43 = load i8, ptr %42, align 4, !tbaa !438, !range !19, !noundef !20
   %44 = trunc nuw i8 %43 to i1
@@ -62442,7 +62436,7 @@ _ZNK4pbrt7HashMapISt4pairIiiEiNS_11HashIntPairEN4pstd3pmr21polymorphic_allocator
   %67 = add i64 %66, -1
   %68 = and i64 %65, %67
   %69 = load ptr, ptr %18, align 8, !tbaa !437
-  %70 = getelementptr inbounds nuw %"class.pstd::optional.184", ptr %69, i64 %68
+  %70 = getelementptr inbounds nuw [16 x i8], ptr %69, i64 %68
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 12
   %72 = load i8, ptr %71, align 4, !tbaa !438, !range !19, !noundef !20
   %73 = trunc nuw i8 %72 to i1
@@ -62471,7 +62465,7 @@ _ZNK4pbrt7HashMapISt4pairIiiEiNS_11HashIntPairEN4pstd3pmr21polymorphic_allocator
   %88 = zext nneg i32 %87 to i64
   %89 = add i64 %85, %88
   %90 = and i64 %89, %67
-  %91 = getelementptr inbounds nuw %"class.pstd::optional.184", ptr %69, i64 %90
+  %91 = getelementptr inbounds nuw [16 x i8], ptr %69, i64 %90
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 12
   %93 = load i8, ptr %92, align 4, !tbaa !438, !range !19, !noundef !20
   %94 = trunc nuw i8 %93 to i1
@@ -62494,7 +62488,7 @@ _ZNK4pbrt7HashMapISt4pairIiiEiNS_11HashIntPairEN4pstd3pmr21polymorphic_allocator
   %101 = phi i64 [ %.sroa.0.0.copyload.i6, %._ZNK4pbrt7HashMapISt4pairIiiEiNS_11HashIntPairEN4pstd3pmr21polymorphic_allocatorINS4_8optionalIS1_IS2_iEEEEEE10FindOffsetERKS2_.exit12.loopexit_crit_edge ], [ %.pre, %._ZNK4pbrt7HashMapISt4pairIiiEiNS_11HashIntPairEN4pstd3pmr21polymorphic_allocatorINS4_8optionalIS1_IS2_iEEEEEE10FindOffsetERKS2_.exit12_crit_edge ], [ %.sroa.0.0.copyload.i6, %55 ]
   %.0 = phi i64 [ %90, %._ZNK4pbrt7HashMapISt4pairIiiEiNS_11HashIntPairEN4pstd3pmr21polymorphic_allocatorINS4_8optionalIS1_IS2_iEEEEEE10FindOffsetERKS2_.exit12.loopexit_crit_edge ], [ %.117.i, %._ZNK4pbrt7HashMapISt4pairIiiEiNS_11HashIntPairEN4pstd3pmr21polymorphic_allocatorINS4_8optionalIS1_IS2_iEEEEEE10FindOffsetERKS2_.exit12_crit_edge ], [ %68, %55 ]
   %102 = load i32, ptr %2, align 4, !tbaa !15
-  %103 = getelementptr inbounds nuw %"class.pstd::optional.184", ptr %100, i64 %.0
+  %103 = getelementptr inbounds nuw [16 x i8], ptr %100, i64 %.0
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 12
   br label %_ZN4pstd8optionalISt4pairIS1_IiiEiEEaSEOS3_.exit
 
@@ -62503,7 +62497,7 @@ _ZN4pstd8optionalISt4pairIS1_IiiEiEE5valueEv.exit.i.i: ; preds = %.lr.ph.i, %.lr
   %.ph25 = phi i64 [ %.sroa.0.0.copyload.i6, %.lr.ph.i9 ], [ %.sroa.0.0.copyload.i6, %.lr.ph.i9.preheader ], [ %.sroa.0.0.copyload.i, %.lr.ph.i.preheader ], [ %.sroa.0.0.copyload.i, %.lr.ph.i ]
   %.0.ph = phi i64 [ %90, %.lr.ph.i9 ], [ %68, %.lr.ph.i9.preheader ], [ %17, %.lr.ph.i.preheader ], [ %40, %.lr.ph.i ]
   %105 = load i32, ptr %2, align 4, !tbaa !15
-  %106 = getelementptr inbounds nuw %"class.pstd::optional.184", ptr %.ph, i64 %.0.ph
+  %106 = getelementptr inbounds nuw [16 x i8], ptr %.ph, i64 %.0.ph
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 12
   store i8 0, ptr %107, align 4, !tbaa !438
   br label %_ZN4pstd8optionalISt4pairIS1_IiiEiEEaSEOS3_.exit
@@ -63015,7 +63009,7 @@ define linkonce_odr dso_local void @_ZN4pbrt7HashMapISt4pairIiiEiNS_11HashIntPai
 
 _ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIS3_IiiEiEEEE9constructIS6_JRKS6_EEEvPT_DpOT0_.exit.i: ; preds = %.lr.ph.i, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIS3_IiiEiEEEE9constructIS6_JRKS6_EEEvPT_DpOT0_.exit.i
   %.016.i = phi i64 [ 0, %.lr.ph.i ], [ %19, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIS3_IiiEiEEEE9constructIS6_JRKS6_EEEvPT_DpOT0_.exit.i ]
-  %17 = getelementptr inbounds nuw %"class.pstd::optional.184", ptr %16, i64 %.016.i
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %.016.i
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 12
   store i8 0, ptr %18, align 4, !tbaa !438
   %19 = add nuw i64 %.016.i, 1
@@ -63039,7 +63033,7 @@ _ZN4pstd6vectorINS_8optionalISt4pairIS2_IiiEiEEENS_3pmr21polymorphic_allocatorIS
 23:                                               ; preds = %.lr.ph, %56
   %.042 = phi i64 [ 0, %.lr.ph ], [ %57, %56 ]
   %24 = load ptr, ptr %20, align 8, !tbaa !437
-  %25 = getelementptr inbounds nuw %"class.pstd::optional.184", ptr %24, i64 %.042
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %24, i64 %.042
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 12
   %27 = load i8, ptr %26, align 4, !tbaa !438, !range !19, !noundef !20
   %28 = trunc nuw i8 %27 to i1
@@ -63071,7 +63065,7 @@ _ZN4pstd6vectorINS_8optionalISt4pairIS2_IiiEiEEENS_3pmr21polymorphic_allocatorIS
   %46 = zext nneg i32 %45 to i64
   %47 = add i64 %43, %46
   %48 = and i64 %47, %21
-  %49 = getelementptr inbounds nuw %"class.pstd::optional.184", ptr %16, i64 %48
+  %49 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %48
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 12
   %51 = load i8, ptr %50, align 4, !tbaa !438, !range !19, !noundef !20
   %52 = trunc nuw i8 %51 to i1
@@ -63097,7 +63091,7 @@ _ZN4pstd6vectorINS_8optionalISt4pairIS2_IiiEiEEENS_3pmr21polymorphic_allocatorIS
 
 .lr.ph.i.i:                                       ; preds = %58, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIS3_IiiEiEEEE7destroyIS6_EEvPT_.exit.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIS3_IiiEiEEEE7destroyIS6_EEvPT_.exit.i.i ], [ 0, %58 ]
-  %60 = getelementptr inbounds nuw %"class.pstd::optional.184", ptr %.pre.i, i64 %indvars.iv.i.i
+  %60 = getelementptr inbounds nuw [16 x i8], ptr %.pre.i, i64 %indvars.iv.i.i
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 12
   %62 = load i8, ptr %61, align 4, !tbaa !438, !range !19, !noundef !20
   %63 = trunc nuw i8 %62 to i1
@@ -63194,7 +63188,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(32) ptr @_
 
 26:                                               ; preds = %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIS3_IiiEiEEEE7destroyIS6_EEvPT_.exit.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIS3_IiiEiEEEE7destroyIS6_EEvPT_.exit.i ]
-  %27 = getelementptr inbounds nuw %"class.pstd::optional.184", ptr %25, i64 %indvars.iv.i
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %25, i64 %indvars.iv.i
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 12
   %29 = load i8, ptr %28, align 4, !tbaa !438, !range !19, !noundef !20
   %30 = trunc nuw i8 %29 to i1
@@ -63270,8 +63264,8 @@ _ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIS3_IiiEiEEEE17deallocat
 .lr.ph.i18:                                       ; preds = %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIS3_IiiEiEEEE15allocate_objectIS6_EEPT_m.exit.i, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIS3_IiiEiEEEE7destroyIS6_EEvPT_.exit.i20
   %50 = phi ptr [ %59, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIS3_IiiEiEEEE7destroyIS6_EEvPT_.exit.i20 ], [ %.pre16.i, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIS3_IiiEiEEEE15allocate_objectIS6_EEPT_m.exit.i ]
   %indvars.iv.i19 = phi i64 [ %indvars.iv.next.i21, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIS3_IiiEiEEEE7destroyIS6_EEvPT_.exit.i20 ], [ 0, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIS3_IiiEiEEEE15allocate_objectIS6_EEPT_m.exit.i ]
-  %51 = getelementptr inbounds nuw %"class.pstd::optional.184", ptr %41, i64 %indvars.iv.i19
-  %52 = getelementptr inbounds nuw %"class.pstd::optional.184", ptr %50, i64 %indvars.iv.i19
+  %51 = getelementptr inbounds nuw [16 x i8], ptr %41, i64 %indvars.iv.i19
+  %52 = getelementptr inbounds nuw [16 x i8], ptr %50, i64 %indvars.iv.i19
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 12
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 12
   %55 = load i8, ptr %54, align 4, !tbaa !438, !range !19, !noundef !20
@@ -63291,7 +63285,7 @@ _ZN4pstd8optionalISt4pairIS1_IiiEiEE5valueEv.exit.i.i.i.i22: ; preds = %_ZN4pstd
 
 _ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIS3_IiiEiEEEE9constructIS6_JS6_EEEvPT_DpOT0_.exit.i: ; preds = %_ZN4pstd8optionalISt4pairIS1_IiiEiEE5valueEv.exit.i.i.i.i22, %_ZN4pstd8optionalISt4pairIS1_IiiEiEE5valueEv.exit.i.i.i, %.lr.ph.i18
   %59 = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !437
-  %60 = getelementptr inbounds nuw %"class.pstd::optional.184", ptr %59, i64 %indvars.iv.i19
+  %60 = getelementptr inbounds nuw [16 x i8], ptr %59, i64 %indvars.iv.i19
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 12
   %62 = load i8, ptr %61, align 4, !tbaa !438, !range !19, !noundef !20
   %63 = trunc nuw i8 %62 to i1
@@ -63325,9 +63319,9 @@ _ZN4pstd6vectorINS_8optionalISt4pairIS2_IiiEiEEENS_3pmr21polymorphic_allocatorIS
 69:                                               ; preds = %.lr.ph, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIS3_IiiEiEEEE9constructIS6_JS6_EEEvPT_DpOT0_.exit
   %.025 = phi i64 [ 0, %.lr.ph ], [ %80, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIS3_IiiEiEEEE9constructIS6_JS6_EEEvPT_DpOT0_.exit ]
   %70 = load ptr, ptr %67, align 8, !tbaa !437
-  %71 = getelementptr inbounds nuw %"class.pstd::optional.184", ptr %70, i64 %.025
+  %71 = getelementptr inbounds nuw [16 x i8], ptr %70, i64 %.025
   %72 = load ptr, ptr %68, align 8, !tbaa !437
-  %73 = getelementptr inbounds nuw %"class.pstd::optional.184", ptr %72, i64 %.025
+  %73 = getelementptr inbounds nuw [16 x i8], ptr %72, i64 %.025
   %74 = getelementptr inbounds nuw i8, ptr %71, i64 12
   %75 = getelementptr inbounds nuw i8, ptr %73, i64 12
   %76 = load i8, ptr %75, align 4, !tbaa !438, !range !19, !noundef !20
@@ -63366,7 +63360,7 @@ define linkonce_odr dso_local void @_ZN4pstd6vectorINS_8optionalISt4pairIS2_IiiE
 
 .lr.ph.i:                                         ; preds = %1, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIS3_IiiEiEEEE7destroyIS6_EEvPT_.exit.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIS3_IiiEiEEEE7destroyIS6_EEvPT_.exit.i ], [ 0, %1 ]
-  %4 = getelementptr inbounds nuw %"class.pstd::optional.184", ptr %.pre, i64 %indvars.iv.i
+  %4 = getelementptr inbounds nuw [16 x i8], ptr %.pre, i64 %indvars.iv.i
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %6 = load i8, ptr %5, align 4, !tbaa !438, !range !19, !noundef !20
   %7 = trunc nuw i8 %6 to i1
@@ -63490,13 +63484,13 @@ define internal void @"_ZNSt17_Function_handlerIFvlEZZN4pbrt5Shape6CreateERKNSt7
   %6 = load ptr, ptr %.val, align 8, !tbaa !1759
   %sext.i.i = shl i64 %.val2, 32
   %7 = ashr exact i64 %sext.i.i, 32
-  %8 = getelementptr inbounds %"class.pbrt::Point3", ptr %6, i64 %7
+  %8 = getelementptr inbounds [12 x i8], ptr %6, i64 %7
   %.sroa.018.i.i.i.12.i.i.i.12.i.i.i.12.i.i.12.i.i.12.i.12.i.12..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.018.i.i.i, i64 12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %.sroa.018.i.i.i.12.i.i.i.12.i.i.i.12.i.i.12.i.i.12.i.12.i.12..sroa_idx, i8 0, i64 36, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.018.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %8, i64 12, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !1760
-  %11 = getelementptr inbounds %"class.pbrt::Point2", ptr %10, i64 %7
+  %11 = getelementptr inbounds [8 x i8], ptr %10, i64 %7
   %12 = load i64, ptr %11, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %13 = getelementptr inbounds nuw i8, ptr %.val, i64 16
@@ -63509,7 +63503,7 @@ define internal void @"_ZNSt17_Function_handlerIFvlEZZN4pbrt5Shape6CreateERKNSt7
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %16 = getelementptr inbounds nuw i8, ptr %.val, i64 24
   %17 = load ptr, ptr %16, align 8, !tbaa !446
-  %18 = getelementptr inbounds %"class.pbrt::Normal3", ptr %17, i64 %7
+  %18 = getelementptr inbounds [12 x i8], ptr %17, i64 %7
   %.sroa.07.0.copyload.i.i.i = load <2 x float>, ptr %18, align 4
   %.sroa.28.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %18, i64 8
   %.sroa.28.0.copyload.i.i.i = load float, ptr %.sroa.28.0..sroa_idx.i.i.i, align 4, !tbaa !17
@@ -63519,7 +63513,7 @@ define internal void @"_ZNSt17_Function_handlerIFvlEZZN4pbrt5Shape6CreateERKNSt7
   %20 = fmul float %15, %.sroa.0.4.vec.extract.i.i.i.i
   %21 = fmul float %15, %.sroa.28.0.copyload.i.i.i
   %22 = load ptr, ptr %.val, align 8, !tbaa !1759
-  %23 = getelementptr inbounds %"class.pbrt::Point3", ptr %22, i64 %7
+  %23 = getelementptr inbounds [12 x i8], ptr %22, i64 %7
   %24 = load float, ptr %23, align 4, !tbaa !243
   %25 = fadd float %19, %24
   store float %25, ptr %23, align 4, !tbaa !243

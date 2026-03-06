@@ -59,7 +59,6 @@ module asm ".previous\09\09\09\09\09"
 %struct.attribute = type { ptr, i16 }
 %struct.file_operations = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.dma_tx_state = type { i32, i32, i32, i32 }
-%struct.dma_slave_map = type { ptr, ptr, ptr }
 
 @__UNIQUE_ID___addressable_dma_channel_table_init363 = internal global ptr @dma_channel_table_init, section ".discard.addressable", align 8
 @jiffies = external dso_local global i64, section ".data..cacheline_aligned", align 64
@@ -192,7 +191,7 @@ define internal noundef range(i32 -12, 1) i32 @dma_channel_table_init() #0 secti
 15:                                               ; preds = %11
   %16 = tail call noalias dereferenceable_or_null(8) ptr @__alloc_percpu(i64 noundef 8, i64 noundef 8) #14
   %17 = and i64 %12, 15
-  %18 = getelementptr ptr, ptr @channel_table, i64 %17
+  %18 = getelementptr [8 x i8], ptr @channel_table, i64 %17
   store ptr %16, ptr %18, align 8
   %19 = icmp eq ptr %16, null
   %20 = add nuw nsw i64 %12, 1
@@ -219,7 +218,7 @@ define internal noundef range(i32 -12, 1) i32 @dma_channel_table_init() #0 secti
 
 34:                                               ; preds = %30
   %35 = and i64 %31, 15
-  %36 = getelementptr ptr, ptr @channel_table, i64 %35
+  %36 = getelementptr [8 x i8], ptr @channel_table, i64 %35
   %37 = load ptr, ptr %36, align 8
   tail call void @free_percpu(ptr noundef %37) #12
   %38 = add nuw nsw i64 %31, 1
@@ -290,7 +289,7 @@ declare dso_local void @_dev_err(ptr noundef, ptr noundef, ...) local_unnamed_ad
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @dma_find_channel(i32 noundef %0) #1 align 16 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr ptr, ptr @channel_table, i64 %2
+  %3 = getelementptr [8 x i8], ptr @channel_table, i64 %2
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i64 asm sideeffect "movq %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) %4) #12, !srcloc !16
   %6 = inttoptr i64 %5 to ptr
@@ -896,7 +895,7 @@ define dso_local ptr @dma_request_chan(ptr noundef %0, ptr noundef %1) #1 align 
 
 36:                                               ; preds = %47, %.split.us
   %37 = phi i64 [ 0, %.split.us ], [ %48, %47 ]
-  %38 = getelementptr %struct.dma_slave_map, ptr %31, i64 %37
+  %38 = getelementptr [24 x i8], ptr %31, i64 %37
   %39 = load ptr, ptr %38, align 8
   %40 = call i32 @strcmp(ptr noundef %39, ptr noundef %35) #12
   %41 = icmp eq i32 %40, 0
@@ -921,7 +920,7 @@ define dso_local ptr @dma_request_chan(ptr noundef %0, ptr noundef %1) #1 align 
 
 .split:                                           ; preds = %29, %50
   %53 = phi i64 [ %51, %50 ], [ 0, %29 ]
-  %54 = getelementptr %struct.dma_slave_map, ptr %31, i64 %53
+  %54 = getelementptr [24 x i8], ptr %31, i64 %53
   %55 = load ptr, ptr %54, align 8
   %56 = call i32 @strcmp(ptr noundef %55, ptr noundef nonnull dereferenceable(1) %32) #12
   %57 = icmp eq i32 %56, 0
@@ -1369,7 +1368,7 @@ define internal fastcc void @dma_channel_rebalance() unnamed_addr #1 align 16 {
   %29 = load ptr, ptr %15, align 8
   %30 = ptrtoint ptr %29 to i64
   %31 = and i64 %25, 63
-  %32 = getelementptr i64, ptr @__per_cpu_offset, i64 %31
+  %32 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %31
   %33 = load i64, ptr %32, align 8
   %34 = add i64 %33, %30
   %35 = inttoptr i64 %34 to ptr
@@ -1522,7 +1521,7 @@ define internal fastcc void @dma_channel_rebalance() unnamed_addr #1 align 16 {
 
 129:                                              ; preds = %121
   %130 = sext i32 %127 to i64
-  %131 = getelementptr [1 x %struct.cpumask], ptr @node_to_cpumask_map, i64 %130
+  %131 = getelementptr [8 x i8], ptr @node_to_cpumask_map, i64 %130
   %132 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %131, i64 %88) #12, !srcloc !45
   %133 = icmp ult i8 %132, 2
   tail call void @llvm.assume(i1 %133)
@@ -1577,7 +1576,7 @@ define internal fastcc void @dma_channel_rebalance() unnamed_addr #1 align 16 {
   %163 = load ptr, ptr %73, align 8
   %164 = ptrtoint ptr %163 to i64
   %165 = and i64 %81, 63
-  %166 = getelementptr i64, ptr @__per_cpu_offset, i64 %165
+  %166 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %165
   %167 = load i64, ptr %166, align 8
   %168 = add i64 %167, %164
   %169 = inttoptr i64 %168 to ptr
@@ -2391,7 +2390,7 @@ define dso_local void @dmaengine_unmap_put(ptr noundef %0) #1 align 16 {
 
 21:                                               ; preds = %21, %17
   %22 = phi i64 [ 0, %17 ], [ %26, %21 ]
-  %23 = getelementptr i64, ptr %18, i64 %22
+  %23 = getelementptr [8 x i8], ptr %18, i64 %22
   %24 = load i64, ptr %23, align 8
   %25 = load i64, ptr %19, align 8
   tail call void @dma_unmap_page_attrs(ptr noundef %12, i64 noundef %24, i64 noundef %25, i32 noundef 1, i64 noundef 0) #12
@@ -2421,7 +2420,7 @@ define dso_local void @dmaengine_unmap_put(ptr noundef %0) #1 align 16 {
 
 42:                                               ; preds = %42, %37
   %43 = phi i64 [ %40, %37 ], [ %47, %42 ]
-  %44 = getelementptr i64, ptr %38, i64 %43
+  %44 = getelementptr [8 x i8], ptr %38, i64 %43
   %45 = load i64, ptr %44, align 8
   %46 = load i64, ptr %39, align 8
   tail call void @dma_unmap_page_attrs(ptr noundef %12, i64 noundef %45, i64 noundef %46, i32 noundef 2, i64 noundef 0) #12
@@ -2447,7 +2446,7 @@ define dso_local void @dmaengine_unmap_put(ptr noundef %0) #1 align 16 {
 
 60:                                               ; preds = %67, %55
   %61 = phi i64 [ %58, %55 ], [ %68, %67 ]
-  %62 = getelementptr i64, ptr %56, i64 %61
+  %62 = getelementptr [8 x i8], ptr %56, i64 %61
   %63 = load i64, ptr %62, align 8
   %64 = icmp eq i64 %63, 0
   br i1 %64, label %67, label %65
@@ -2891,7 +2890,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @memcpy_count_show(ptr no
   %21 = load ptr, ptr %9, align 8
   %22 = ptrtoint ptr %21 to i64
   %23 = and i64 %17, 63
-  %24 = getelementptr i64, ptr @__per_cpu_offset, i64 %23
+  %24 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %23
   %25 = load i64, ptr %24, align 8
   %26 = add i64 %25, %22
   %27 = inttoptr i64 %26 to ptr
@@ -2948,7 +2947,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @bytes_transferred_show(p
   %21 = load ptr, ptr %9, align 8
   %22 = ptrtoint ptr %21 to i64
   %23 = and i64 %17, 63
-  %24 = getelementptr i64, ptr @__per_cpu_offset, i64 %23
+  %24 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %23
   %25 = load i64, ptr %24, align 8
   %26 = add i64 %25, %22
   %27 = inttoptr i64 %26 to ptr

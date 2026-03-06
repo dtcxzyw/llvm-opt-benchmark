@@ -391,12 +391,12 @@ _ZN13ShadowMapping25renderingFromLightUnsetupEv.exit: ; preds = %.noexc41
   %indvars.iv15.i.i = phi i64 [ 1, %.preheader.preheader ], [ %indvars.iv.next16.i.i, %58 ]
   %.idx.i.i = shl nuw nsw i64 %indvars.iv15.i.i, 4
   %invariant.gep.i.i = getelementptr inbounds nuw i8, ptr %11, i64 %.idx.i.i
-  %invariant.gep20.i.i = getelementptr float, ptr %11, i64 %indvars.iv15.i.i
+  %invariant.gep20.i.i = getelementptr [4 x i8], ptr %11, i64 %indvars.iv15.i.i
   br label %55
 
 55:                                               ; preds = %55, %.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next.i.i, %55 ]
-  %gep.i.i = getelementptr inbounds nuw float, ptr %invariant.gep.i.i, i64 %indvars.iv.i.i
+  %gep.i.i = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep.i.i, i64 %indvars.iv.i.i
   %.idx19.i.i = shl i64 %indvars.iv.i.i, 4
   %gep21.i.i = getelementptr i8, ptr %invariant.gep20.i.i, i64 %.idx19.i.i
   %56 = load float, ptr %gep.i.i, align 4, !alias.scope !5
@@ -420,12 +420,12 @@ _ZNK3vcg8Matrix44IfE9transposeEv.exit.preheader:  ; preds = %58
   %indvars.iv15.i.i48 = phi i64 [ 1, %_ZNK3vcg8Matrix44IfE9transposeEv.exit.preheader ], [ %indvars.iv.next16.i.i58, %62 ]
   %.idx.i.i49 = shl nuw nsw i64 %indvars.iv15.i.i48, 4
   %invariant.gep.i.i50 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx.i.i49
-  %invariant.gep20.i.i51 = getelementptr float, ptr %12, i64 %indvars.iv15.i.i48
+  %invariant.gep20.i.i51 = getelementptr [4 x i8], ptr %12, i64 %indvars.iv15.i.i48
   br label %59
 
 59:                                               ; preds = %59, %.preheader.i.i47
   %indvars.iv.i.i52 = phi i64 [ 0, %.preheader.i.i47 ], [ %indvars.iv.next.i.i56, %59 ]
-  %gep.i.i53 = getelementptr inbounds nuw float, ptr %invariant.gep.i.i50, i64 %indvars.iv.i.i52
+  %gep.i.i53 = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep.i.i50, i64 %indvars.iv.i.i52
   %.idx19.i.i54 = shl i64 %indvars.iv.i.i52, 4
   %gep21.i.i55 = getelementptr i8, ptr %invariant.gep20.i.i51, i64 %.idx19.i.i54
   %60 = load float, ptr %gep.i.i53, align 4, !alias.scope !11
@@ -448,19 +448,19 @@ _ZNK3vcg8Matrix44IfE9transposeEv.exit60:          ; preds = %62
 .preheader19.i:                                   ; preds = %69, %_ZNK3vcg8Matrix44IfE9transposeEv.exit60
   %indvars.iv29.i = phi i64 [ 0, %_ZNK3vcg8Matrix44IfE9transposeEv.exit60 ], [ %indvars.iv.next30.i, %69 ]
   %63 = shl nuw nsw i64 %indvars.iv29.i, 2
-  %invariant.gep.i = getelementptr inbounds nuw float, ptr %11, i64 %63
-  %invariant.gep35.i = getelementptr inbounds nuw float, ptr %10, i64 %63
+  %invariant.gep.i = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %63
+  %invariant.gep35.i = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %63
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %68, %.preheader19.i
   %indvars.iv25.i = phi i64 [ 0, %.preheader19.i ], [ %indvars.iv.next26.i, %68 ]
-  %invariant.gep33.i = getelementptr inbounds nuw float, ptr %12, i64 %indvars.iv25.i
+  %invariant.gep33.i = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv25.i
   br label %64
 
 64:                                               ; preds = %64, %.preheader.i
   %indvars.iv.i61 = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i62, %64 ]
   %.01620.i = phi float [ 0.000000e+00, %.preheader.i ], [ %67, %64 ]
-  %gep.i = getelementptr inbounds nuw float, ptr %invariant.gep.i, i64 %indvars.iv.i61
+  %gep.i = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep.i, i64 %indvars.iv.i61
   %65 = load float, ptr %gep.i, align 4, !noalias !14
   %.idx.i = shl nuw nsw i64 %indvars.iv.i61, 4
   %gep34.i = getelementptr inbounds nuw i8, ptr %invariant.gep33.i, i64 %.idx.i
@@ -471,7 +471,7 @@ _ZNK3vcg8Matrix44IfE9transposeEv.exit60:          ; preds = %62
   br i1 %exitcond.not.i63, label %68, label %64, !llvm.loop !17
 
 68:                                               ; preds = %64
-  %gep36.i = getelementptr inbounds nuw float, ptr %invariant.gep35.i, i64 %indvars.iv25.i
+  %gep36.i = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep35.i, i64 %indvars.iv25.i
   store float %67, ptr %gep36.i, align 4, !alias.scope !14
   %indvars.iv.next26.i = add nuw nsw i64 %indvars.iv25.i, 1
   %exitcond28.not.i = icmp eq i64 %indvars.iv.next26.i, 4
@@ -490,12 +490,12 @@ _ZNK3vcg8Matrix44IfEmlERKS1_.exit:                ; preds = %69
   %indvars.iv15.i.i65 = phi i64 [ 1, %_ZNK3vcg8Matrix44IfEmlERKS1_.exit ], [ %indvars.iv.next16.i.i75, %73 ]
   %.idx.i.i66 = shl nuw nsw i64 %indvars.iv15.i.i65, 4
   %invariant.gep.i.i67 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx.i.i66
-  %invariant.gep20.i.i68 = getelementptr float, ptr %9, i64 %indvars.iv15.i.i65
+  %invariant.gep20.i.i68 = getelementptr [4 x i8], ptr %9, i64 %indvars.iv15.i.i65
   br label %70
 
 70:                                               ; preds = %70, %.preheader.i.i64
   %indvars.iv.i.i69 = phi i64 [ 0, %.preheader.i.i64 ], [ %indvars.iv.next.i.i73, %70 ]
-  %gep.i.i70 = getelementptr inbounds nuw float, ptr %invariant.gep.i.i67, i64 %indvars.iv.i.i69
+  %gep.i.i70 = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep.i.i67, i64 %indvars.iv.i.i69
   %.idx19.i.i71 = shl i64 %indvars.iv.i.i69, 4
   %gep21.i.i72 = getelementptr i8, ptr %invariant.gep20.i.i68, i64 %.idx19.i.i71
   %71 = load float, ptr %gep.i.i70, align 4, !alias.scope !20
@@ -2134,12 +2134,12 @@ define void @_ZN13ShadowMapping23renderingFromLightSetupER12MeshDocumentP6GLArea
   %indvars.iv15.i.i = phi i64 [ 1, %3 ], [ %indvars.iv.next16.i.i, %82 ]
   %.idx.i.i = shl nuw nsw i64 %indvars.iv15.i.i, 4
   %invariant.gep.i.i = getelementptr inbounds nuw i8, ptr %10, i64 %.idx.i.i
-  %invariant.gep20.i.i = getelementptr float, ptr %10, i64 %indvars.iv15.i.i
+  %invariant.gep20.i.i = getelementptr [4 x i8], ptr %10, i64 %indvars.iv15.i.i
   br label %79
 
 79:                                               ; preds = %79, %.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next.i.i, %79 ]
-  %gep.i.i = getelementptr inbounds nuw float, ptr %invariant.gep.i.i, i64 %indvars.iv.i.i
+  %gep.i.i = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep.i.i, i64 %indvars.iv.i.i
   %.idx19.i.i = shl i64 %indvars.iv.i.i, 4
   %gep21.i.i = getelementptr i8, ptr %invariant.gep20.i.i, i64 %.idx19.i.i
   %80 = load float, ptr %gep.i.i, align 4, !alias.scope !39

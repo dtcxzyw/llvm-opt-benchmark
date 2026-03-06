@@ -74,9 +74,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorBase" = type { ptr, i64, i64 }
 %"struct.llvm::SmallVectorStorage.445" = type { [32 x i8] }
 %"class.(anonymous namespace)::ThunksSet" = type { i32, i32, i32, [32 x i32], [32 x i32] }
-%"class.llvm::MCInstrDesc" = type { i16, i16, i8, i8, i16, i8, i8, i16, i16, i64, i64 }
-%"struct.llvm::MachineBasicBlock::RegisterMaskPair" = type { %"class.llvm::MCRegister", %"struct.llvm::LaneBitmask" }
-%"class.llvm::MCRegister" = type { i32 }
 
 $_ZN4llvm4Pass14doFinalizationERNS_6ModuleE = comdat any
 
@@ -662,7 +659,7 @@ _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit.i.i.i.i: ; preds = %_ZN
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %78, i8 0, i64 16, i1 false), !noalias !296
   %221 = load ptr, ptr %167, align 8, !tbaa !364, !noalias !296
   %.neg.i.i.i.i = select i1 %211, i64 -1257, i64 -1256
-  %222 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %221, i64 %.neg.i.i.i.i
+  %222 = getelementptr inbounds [32 x i8], ptr %221, i64 %.neg.i.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !296
   %223 = load ptr, ptr %160, align 8, !tbaa !299, !noalias !296
   store ptr %220, ptr %15, align 8, !tbaa !362, !noalias !296
@@ -986,7 +983,7 @@ _ZL15createThunkNameRKN12_GLOBAL__N_19ThunkKindEN4llvm8RegisterES4_.exit.i.i.i.i
   %spec.select.i.i.i.i.i.i.i.i = select i1 %313, i32 31, i32 %312
   %.0.i.i.i.i.i.i.i.i = select i1 %311, i32 29, i32 %spec.select.i.i.i.i.i.i.i.i
   %314 = zext i32 %.0.i.i.i.i.i.i.i.i to i64
-  %315 = getelementptr inbounds nuw i32, ptr %117, i64 %314
+  %315 = getelementptr inbounds nuw [4 x i8], ptr %117, i64 %314
   br label %_ZN12_GLOBAL__N_19ThunksSet3getENS_9ThunkKind11ThunkKindIdEN4llvm8RegisterES4_.exit.i.i.i.i.i
 
 316:                                              ; preds = %_ZL15createThunkNameRKN12_GLOBAL__N_19ThunkKindEN4llvm8RegisterES4_.exit.i.i.i.i.i
@@ -996,7 +993,7 @@ _ZL15createThunkNameRKN12_GLOBAL__N_19ThunkKindEN4llvm8RegisterES4_.exit.i.i.i.i
   %spec.select.i5.i.i.i.i.i.i.i = select i1 %319, i32 31, i32 %318
   %.0.i6.i.i.i.i.i.i.i = select i1 %317, i32 29, i32 %spec.select.i5.i.i.i.i.i.i.i
   %320 = zext i32 %.0.i6.i.i.i.i.i.i.i to i64
-  %321 = getelementptr inbounds nuw i32, ptr %116, i64 %320
+  %321 = getelementptr inbounds nuw [4 x i8], ptr %116, i64 %320
   br label %_ZN12_GLOBAL__N_19ThunksSet3getENS_9ThunkKind11ThunkKindIdEN4llvm8RegisterES4_.exit.i.i.i.i.i
 
 322:                                              ; preds = %_ZL15createThunkNameRKN12_GLOBAL__N_19ThunkKindEN4llvm8RegisterES4_.exit.i.i.i.i.i
@@ -1037,7 +1034,7 @@ _ZN12_GLOBAL__N_19ThunksSet3getENS_9ThunkKind11ThunkKindIdEN4llvm8RegisterES4_.e
   %spec.select.i.i.i66.i.i.i.i.i = select i1 %337, i32 31, i32 %336
   %.0.i.i.i67.i.i.i.i.i = select i1 %335, i32 29, i32 %spec.select.i.i.i66.i.i.i.i.i
   %338 = zext i32 %.0.i.i.i67.i.i.i.i.i to i64
-  %339 = getelementptr inbounds nuw i32, ptr %117, i64 %338
+  %339 = getelementptr inbounds nuw [4 x i8], ptr %117, i64 %338
   br label %_ZN12_GLOBAL__N_19ThunksSet3setENS_9ThunkKind11ThunkKindIdEN4llvm8RegisterES4_.exit.i.i.i.i.i
 
 340:                                              ; preds = %328
@@ -1047,7 +1044,7 @@ _ZN12_GLOBAL__N_19ThunksSet3getENS_9ThunkKind11ThunkKindIdEN4llvm8RegisterES4_.e
   %spec.select.i5.i.i63.i.i.i.i.i = select i1 %343, i32 31, i32 %342
   %.0.i6.i.i64.i.i.i.i.i = select i1 %341, i32 29, i32 %spec.select.i5.i.i63.i.i.i.i.i
   %344 = zext i32 %.0.i6.i.i64.i.i.i.i.i to i64
-  %345 = getelementptr inbounds nuw i32, ptr %116, i64 %344
+  %345 = getelementptr inbounds nuw [4 x i8], ptr %116, i64 %344
   br label %_ZN12_GLOBAL__N_19ThunksSet3setENS_9ThunkKind11ThunkKindIdEN4llvm8RegisterES4_.exit.i.i.i.i.i
 
 346:                                              ; preds = %328
@@ -1328,7 +1325,7 @@ _ZN4llvm8DebugLocD2Ev.exit.i.i.i.i.i:             ; preds = %421, %_ZN4llvm10MIM
   %indvars.iv.i.i.i.i.i = phi i64 [ %429, %.lr.ph.i.i.i.i.i ], [ %indvars.iv.next.i.i.i.i.i, %.critedge2.i.i.i.i.i ]
   %.0104115.i.i.i.i.i = phi i32 [ -1, %.lr.ph.i.i.i.i.i ], [ %.1.i.i.i.i.i, %.critedge2.i.i.i.i.i ]
   %.0105114.i.i.i.i.i = phi i32 [ -1, %.lr.ph.i.i.i.i.i ], [ %.1106.i.i.i.i.i, %.critedge2.i.i.i.i.i ]
-  %431 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %428, i64 %indvars.iv.i.i.i.i.i
+  %431 = getelementptr inbounds nuw [32 x i8], ptr %428, i64 %indvars.iv.i.i.i.i.i
   %.sroa.079.0.copyload.i.i.i.i.i = load i32, ptr %431, align 8, !tbaa !373, !noalias !296
   %432 = and i32 %.sroa.079.0.copyload.i.i.i.i.i, 255
   %433 = icmp eq i32 %432, 0
@@ -1387,7 +1384,7 @@ _ZN4llvm11SmallVectorIcLj32EED2Ev.exit.i.i.i.i.i: ; preds = %445, %441
   %449 = phi i1 [ %267, %._crit_edge.i.i.i.i.i ], [ false, %448 ]
   %indvars.iv120.i.i.i.i.i = phi i64 [ 0, %._crit_edge.i.i.i.i.i ], [ 1, %448 ]
   %450 = load ptr, ptr %268, align 8, !tbaa !372, !noalias !296
-  %451 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %450, i64 %indvars.iv120.i.i.i.i.i
+  %451 = getelementptr inbounds nuw [32 x i8], ptr %450, i64 %indvars.iv120.i.i.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %36), !noalias !296
   %452 = getelementptr inbounds nuw i8, ptr %451, i64 4
   %453 = load i32, ptr %452, align 4, !tbaa !373, !noalias !296
@@ -1452,9 +1449,9 @@ _ZN12_GLOBAL__N_120SLSHardeningInserter12insertThunksERN4llvm17MachineModuleInfo
 
 478:                                              ; preds = %478, %_ZN12_GLOBAL__N_120SLSHardeningInserter12insertThunksERN4llvm17MachineModuleInfoERNS1_15MachineFunctionENS_9ThunksSetE.exit.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %_ZN12_GLOBAL__N_120SLSHardeningInserter12insertThunksERN4llvm17MachineModuleInfoERNS1_15MachineFunctionENS_9ThunksSetE.exit.i.i ], [ %indvars.iv.next.i.i.i, %478 ]
-  %479 = getelementptr inbounds nuw i32, ptr %474, i64 %indvars.iv.i.i.i
+  %479 = getelementptr inbounds nuw [4 x i8], ptr %474, i64 %indvars.iv.i.i.i
   %480 = load i32, ptr %479, align 4, !tbaa !379
-  %481 = getelementptr inbounds nuw i32, ptr %475, i64 %indvars.iv.i.i.i
+  %481 = getelementptr inbounds nuw [4 x i8], ptr %475, i64 %indvars.iv.i.i.i
   %482 = load i32, ptr %481, align 4, !tbaa !379
   %483 = or i32 %482, %480
   store i32 %483, ptr %481, align 4, !tbaa !379
@@ -1464,9 +1461,9 @@ _ZN12_GLOBAL__N_120SLSHardeningInserter12insertThunksERN4llvm17MachineModuleInfo
 
 484:                                              ; preds = %484, %.preheader.i.i.i
   %indvars.iv17.i.i.i = phi i64 [ 0, %.preheader.i.i.i ], [ %indvars.iv.next18.i.i.i, %484 ]
-  %485 = getelementptr inbounds nuw i32, ptr %476, i64 %indvars.iv17.i.i.i
+  %485 = getelementptr inbounds nuw [4 x i8], ptr %476, i64 %indvars.iv17.i.i.i
   %486 = load i32, ptr %485, align 4, !tbaa !379
-  %487 = getelementptr inbounds nuw i32, ptr %477, i64 %indvars.iv17.i.i.i
+  %487 = getelementptr inbounds nuw [4 x i8], ptr %477, i64 %indvars.iv17.i.i.i
   %488 = load i32, ptr %487, align 4, !tbaa !379
   %489 = or i32 %488, %486
   store i32 %489, ptr %487, align 4, !tbaa !379
@@ -1581,7 +1578,7 @@ _ZNK4llvm9StringRef5splitEc.exit.i.i.i.i:         ; preds = %509, %508
   %522 = load ptr, ptr %521, align 8, !tbaa !707, !noalias !694
   %523 = and i64 %519, 4294967295
   %524 = select i1 %520, i64 0, i64 %523
-  %525 = getelementptr inbounds nuw i16, ptr %522, i64 %524
+  %525 = getelementptr inbounds nuw [2 x i8], ptr %522, i64 %524
   %526 = load i16, ptr %525, align 2, !tbaa !709, !noalias !694
   %527 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i9.i.i, i64 24
   %528 = load i8, ptr %527, align 8, !tbaa !370, !range !291, !noalias !694, !noundef !292
@@ -1603,7 +1600,7 @@ _ZNK4llvm9StringRef5splitEc.exit.i.i.i.i:         ; preds = %509, %508
   %538 = load ptr, ptr %537, align 8, !tbaa !707, !noalias !694
   %539 = and i64 %535, 4294967295
   %540 = select i1 %536, i64 0, i64 %539
-  %541 = getelementptr inbounds nuw i16, ptr %538, i64 %540
+  %541 = getelementptr inbounds nuw [2 x i8], ptr %538, i64 %540
   %542 = load i16, ptr %541, align 2, !tbaa !709, !noalias !694
   %543 = zext i16 %542 to i32
   br label %_ZL14parseThunkNameN4llvm9StringRefE.exit.i.i.i
@@ -1802,7 +1799,7 @@ _ZNSt6vectorIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE11_S_relocateEP
 _ZNSt6vectorIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i.i.i.i: ; preds = %621, %_ZNSt6vectorIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i.i.i.i.i
   store ptr %616, ptr %596, align 8, !tbaa !715
   store ptr %620, ptr %597, align 8, !tbaa !713
-  %622 = getelementptr inbounds nuw %"struct.llvm::MachineBasicBlock::RegisterMaskPair", ptr %616, i64 %614
+  %622 = getelementptr inbounds nuw [16 x i8], ptr %616, i64 %614
   store ptr %622, ptr %599, align 8, !tbaa !714
   br label %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit.i.i.i
 
@@ -1857,7 +1854,7 @@ _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit47.i.i.i: ; preds = %637
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %638 = zext i32 %.pre.i11.i.i to i64
   %639 = sub nsw i64 0, %638
-  %640 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %.pre27.i.i.i, i64 %639
+  %640 = getelementptr inbounds [32 x i8], ptr %.pre27.i.i.i, i64 %639
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
   %641 = call { ptr, ptr } @_ZN4llvm7BuildMIERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_10MIMetadataERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(288) %582, ptr nonnull %584, ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(32) %640)
   %642 = extractvalue { ptr, ptr } %641, 0
@@ -1951,7 +1948,7 @@ _ZNSt6vectorIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE11_S_relocateEP
 _ZNSt6vectorIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i66.i.i.i: ; preds = %672, %_ZNSt6vectorIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i.i63.i.i.i
   store ptr %667, ptr %596, align 8, !tbaa !715
   store ptr %671, ptr %597, align 8, !tbaa !713
-  %673 = getelementptr inbounds nuw %"struct.llvm::MachineBasicBlock::RegisterMaskPair", ptr %667, i64 %665
+  %673 = getelementptr inbounds nuw [16 x i8], ptr %667, i64 %665
   store ptr %673, ptr %599, align 8, !tbaa !714
   br label %_ZN4llvm17MachineBasicBlock9addLiveInENS_10MCRegisterENS_11LaneBitmaskE.exit67.i.i.i
 

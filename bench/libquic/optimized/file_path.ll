@@ -2002,7 +2002,7 @@ _ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
   %.0102.us = phi i64 [ %78, %77 ], [ 0, %63 ]
   %70 = load ptr, ptr %5, align 8, !tbaa !13
   %71 = load i64, ptr %65, align 8, !tbaa !9
-  %72 = getelementptr inbounds nuw ptr, ptr @_ZN4base12_GLOBAL__N_130kCommonDoubleExtensionSuffixesE, i64 %.0102.us
+  %72 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4base12_GLOBAL__N_130kCommonDoubleExtensionSuffixesE, i64 %.0102.us
   %73 = load ptr, ptr %72, align 8, !tbaa !36
   %74 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %73) #22
   %75 = invoke noundef zeroext i1 @_ZN4base20LowerCaseEqualsASCIIENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES7_(ptr %70, i64 %71, ptr nonnull %73, i64 %74)
@@ -2030,7 +2030,7 @@ _ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
   %.0102 = phi i64 [ %89, %88 ], [ 0, %63 ]
   %82 = load ptr, ptr %5, align 8, !tbaa !13
   %83 = load i64, ptr %65, align 8, !tbaa !9
-  %84 = getelementptr inbounds nuw ptr, ptr @_ZN4base12_GLOBAL__N_130kCommonDoubleExtensionSuffixesE, i64 %.0102
+  %84 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4base12_GLOBAL__N_130kCommonDoubleExtensionSuffixesE, i64 %.0102
   %85 = load ptr, ptr %84, align 8, !tbaa !36
   %86 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %85) #22
   %87 = invoke noundef zeroext i1 @_ZN4base20LowerCaseEqualsASCIIENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES7_(ptr %82, i64 %83, ptr nonnull %85, i64 %86)
@@ -3754,7 +3754,7 @@ define void @_ZN4base8FilePath15FromUTF16UnsafeENS_16BasicStringPieceINSt7__cxx1
   %28 = phi i64 [ %.pre11.i.i.i, %._ZZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE12_M_constructIPKtEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev.exit_crit_edge.i.i.i ], [ 1, %18 ]
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %28, ptr %29, align 8, !tbaa !65, !alias.scope !59
-  %30 = getelementptr inbounds nuw i16, ptr %27, i64 %28
+  %30 = getelementptr inbounds nuw [2 x i8], ptr %27, i64 %28
   store i16 0, ptr %30, align 2, !tbaa !67
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !59
   br label %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE9as_stringEv.exit
@@ -4333,7 +4333,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %23, ptr %0, align 8, !tbaa !17
   store ptr %.0.lcssa.i.i.i.i35, ptr %5, align 8, !tbaa !20
-  %74 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %74 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %74, ptr %73, align 8, !tbaa !23
   ret void
 

@@ -37,13 +37,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base<std::pair<unsigned long, unsigned long>, std::allocator<std::pair<unsigned long, unsigned long>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::pair<unsigned long, unsigned long>, std::allocator<std::pair<unsigned long, unsigned long>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::pair<unsigned long, unsigned long>, std::allocator<std::pair<unsigned long, unsigned long>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::valarray" = type { i64, ptr }
-%"struct.QuantLib::MarketModelMultiProduct::CashFlow" = type { i64, double }
-%"class.QuantLib::MarketModelDiscounter" = type { i64, double }
-%"class.std::vector.33" = type { %"struct.std::_Vector_base.34" }
-%"struct.std::_Vector_base.34" = type { %"struct.std::_Vector_base<QuantLib::NodeData, std::allocator<QuantLib::NodeData>>::_Vector_impl" }
-%"struct.std::_Vector_base<QuantLib::NodeData, std::allocator<QuantLib::NodeData>>::_Vector_impl" = type { %"struct.std::_Vector_base<QuantLib::NodeData, std::allocator<QuantLib::NodeData>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<QuantLib::NodeData, std::allocator<QuantLib::NodeData>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.QuantLib::NodeData" = type <{ double, double, %"class.std::vector", double, i8, [7 x i8] }>
 
 $_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_ = comdat any
 
@@ -297,7 +290,7 @@ if.else.i:                                        ; preds = %invoke.cont43
   br i1 %cmp4.i, label %if.then5.i, label %invoke.cont45
 
 if.then5.i:                                       ; preds = %if.else.i
-  %add.ptr.i = getelementptr inbounds nuw %"struct.QuantLib::MarketModelMultiProduct::CashFlow", ptr %22, i64 %call44
+  %add.ptr.i = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %call44
   %tobool.not.i.i = icmp eq ptr %21, %add.ptr.i
   br i1 %tobool.not.i.i, label %invoke.cont45, label %invoke.cont.i.i
 
@@ -423,7 +416,7 @@ _ZNSt12_Vector_baseIN8QuantLib21MarketModelDiscounterESaIS1_EE13_M_deallocateEPS
   %_M_finish.i.i171 = getelementptr inbounds nuw i8, ptr %productDiscounters, i64 8
   store ptr %call5.i.i.i.i178, ptr %productDiscounters, align 8, !tbaa !31
   store ptr %call5.i.i.i.i178, ptr %_M_finish.i.i171, align 8, !tbaa !33
-  %add.ptr21.i = getelementptr inbounds nuw %"class.QuantLib::MarketModelDiscounter", ptr %call5.i.i.i.i178, i64 %sub.ptr.div.i
+  %add.ptr21.i = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i.i178, i64 %sub.ptr.div.i
   store ptr %add.ptr21.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !34
   br label %_ZNSt6vectorIN8QuantLib21MarketModelDiscounterESaIS1_EE7reserveEm.exit
 
@@ -438,7 +431,7 @@ for.body.lr.ph:                                   ; preds = %_ZNSt6vectorIN8Quan
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %i.0644 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %33 = load ptr, ptr %cashFlowTimes, align 8, !tbaa !27
-  %add.ptr.i179 = getelementptr inbounds nuw double, ptr %33, i64 %i.0644
+  %add.ptr.i179 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %i.0644
   %34 = load ptr, ptr %_M_finish.i180, align 8, !tbaa !33
   %35 = load ptr, ptr %_M_end_of_storage.i.i, align 8, !tbaa !34
   %cmp.not.i = icmp eq ptr %34, %35
@@ -543,7 +536,7 @@ _ZNSt12_Vector_baseIN8QuantLib21MarketModelDiscounterESaIS1_EE13_M_deallocateEPS
   %_M_finish.i.i201 = getelementptr inbounds nuw i8, ptr %rebateDiscounters, i64 8
   store ptr %call5.i.i.i.i221, ptr %rebateDiscounters, align 8, !tbaa !31
   store ptr %call5.i.i.i.i221, ptr %_M_finish.i.i201, align 8, !tbaa !33
-  %add.ptr21.i217 = getelementptr inbounds nuw %"class.QuantLib::MarketModelDiscounter", ptr %call5.i.i.i.i221, i64 %sub.ptr.div.i191
+  %add.ptr21.i217 = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i.i221, i64 %sub.ptr.div.i191
   store ptr %add.ptr21.i217, ptr %_M_end_of_storage.i.i194, align 8, !tbaa !34
   br label %_ZNSt6vectorIN8QuantLib21MarketModelDiscounterESaIS1_EE7reserveEm.exit222
 
@@ -558,7 +551,7 @@ for.body78.lr.ph:                                 ; preds = %_ZNSt6vectorIN8Quan
 for.body78:                                       ; preds = %for.body78.lr.ph, %for.inc82
   %i.1646 = phi i64 [ 0, %for.body78.lr.ph ], [ %inc83, %for.inc82 ]
   %47 = load ptr, ptr %rebateTimes, align 8, !tbaa !27
-  %add.ptr.i223 = getelementptr inbounds nuw double, ptr %47, i64 %i.1646
+  %add.ptr.i223 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %i.1646
   %48 = load ptr, ptr %_M_finish.i224, align 8, !tbaa !33
   %49 = load ptr, ptr %_M_end_of_storage.i.i194, align 8, !tbaa !34
   %cmp.not.i226 = icmp eq ptr %48, %49
@@ -628,7 +621,7 @@ _ZNSt12_Vector_baseIN8QuantLib21MarketModelDiscounterESaIS1_EE13_M_deallocateEPS
   %_M_finish.i.i250 = getelementptr inbounds nuw i8, ptr %controlDiscounters, i64 8
   store ptr %call5.i.i.i.i270, ptr %controlDiscounters, align 8, !tbaa !31
   store ptr %call5.i.i.i.i270, ptr %_M_finish.i.i250, align 8, !tbaa !33
-  %add.ptr21.i266 = getelementptr inbounds nuw %"class.QuantLib::MarketModelDiscounter", ptr %call5.i.i.i.i270, i64 %sub.ptr.div.i240
+  %add.ptr21.i266 = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i.i270, i64 %sub.ptr.div.i240
   store ptr %add.ptr21.i266, ptr %_M_end_of_storage.i.i243, align 8, !tbaa !34
   br label %_ZNSt6vectorIN8QuantLib21MarketModelDiscounterESaIS1_EE7reserveEm.exit271
 
@@ -643,7 +636,7 @@ for.body90.lr.ph:                                 ; preds = %_ZNSt6vectorIN8Quan
 for.body90:                                       ; preds = %for.body90.lr.ph, %for.inc94
   %i.2648 = phi i64 [ 0, %for.body90.lr.ph ], [ %inc95, %for.inc94 ]
   %54 = load ptr, ptr %controlTimes, align 8, !tbaa !27
-  %add.ptr.i272 = getelementptr inbounds nuw double, ptr %54, i64 %i.2648
+  %add.ptr.i272 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %i.2648
   %55 = load ptr, ptr %_M_finish.i273, align 8, !tbaa !33
   %56 = load ptr, ptr %_M_end_of_storage.i.i243, align 8, !tbaa !34
   %cmp.not.i275 = icmp eq ptr %55, %56
@@ -911,7 +904,7 @@ if.else.i308:                                     ; preds = %for.end168
   br i1 %cmp4.i309, label %if.then5.i310, label %_ZNSt6vectorIS_IN8QuantLib8NodeDataESaIS1_EESaIS3_EE6resizeEm.exit
 
 if.then5.i310:                                    ; preds = %if.else.i308
-  %add.ptr.i311 = getelementptr inbounds nuw %"class.std::vector.33", ptr %84, i64 %add
+  %add.ptr.i311 = getelementptr inbounds nuw [24 x i8], ptr %84, i64 %add
   %tobool.not.i.i312 = icmp eq ptr %83, %add.ptr.i311
   br i1 %tobool.not.i.i312, label %_ZNSt6vectorIS_IN8QuantLib8NodeDataESaIS1_EESaIS3_EE6resizeEm.exit, label %for.body.i.i.i.i.i
 
@@ -991,7 +984,7 @@ for.body182.lr.ph:                                ; preds = %for.cond180.prehead
 for.body174:                                      ; preds = %_ZNSt6vectorIS_IN8QuantLib8NodeDataESaIS1_EESaIS3_EE6resizeEm.exit, %for.inc177
   %93 = phi ptr [ %99, %for.inc177 ], [ %92, %_ZNSt6vectorIS_IN8QuantLib8NodeDataESaIS1_EESaIS3_EE6resizeEm.exit ]
   %i.4658 = phi i64 [ %inc178, %for.inc177 ], [ 0, %_ZNSt6vectorIS_IN8QuantLib8NodeDataESaIS1_EESaIS3_EE6resizeEm.exit ]
-  %add.ptr.i325 = getelementptr inbounds nuw %"class.std::vector.33", ptr %93, i64 %i.4658
+  %add.ptr.i325 = getelementptr inbounds nuw [24 x i8], ptr %93, i64 %i.4658
   %_M_finish.i.i326 = getelementptr inbounds nuw i8, ptr %add.ptr.i325, i64 8
   %94 = load ptr, ptr %_M_finish.i.i326, align 8, !tbaa !53
   %95 = load ptr, ptr %add.ptr.i325, align 8, !tbaa !51
@@ -1012,7 +1005,7 @@ if.else.i332:                                     ; preds = %for.body174
   br i1 %cmp4.i333, label %if.then5.i334, label %for.inc177
 
 if.then5.i334:                                    ; preds = %if.else.i332
-  %add.ptr.i335 = getelementptr inbounds nuw %"struct.QuantLib::NodeData", ptr %95, i64 %numberOfPaths
+  %add.ptr.i335 = getelementptr inbounds nuw [56 x i8], ptr %95, i64 %numberOfPaths
   %tobool.not.i.i336 = icmp eq ptr %94, %add.ptr.i335
   br i1 %tobool.not.i.i336, label %for.inc177, label %for.body.i.i.i.i.i337
 
@@ -1106,7 +1099,7 @@ invoke.cont195:                                   ; preds = %invoke.cont192
 invoke.cont198:                                   ; preds = %invoke.cont195
   %105 = load ptr, ptr %collectedData, align 8, !tbaa !50
   %106 = load ptr, ptr %105, align 8, !tbaa !51
-  %add.ptr.i349 = getelementptr inbounds nuw %"struct.QuantLib::NodeData", ptr %106, i64 %i.5664
+  %add.ptr.i349 = getelementptr inbounds nuw [56 x i8], ptr %106, i64 %i.5664
   %cumulatedCashFlows = getelementptr inbounds nuw i8, ptr %add.ptr.i349, i64 8
   store double 0.000000e+00, ptr %cumulatedCashFlows, align 8, !tbaa !58
   br label %do.body201
@@ -1136,7 +1129,7 @@ invoke.cont209:                                   ; preds = %invoke.cont205
 
 invoke.cont214:                                   ; preds = %invoke.cont209
   %110 = load ptr, ptr %call107, align 8, !tbaa !13
-  %add.ptr.i350 = getelementptr inbounds nuw i64, ptr %110, i64 %call206
+  %add.ptr.i350 = getelementptr inbounds nuw [8 x i8], ptr %110, i64 %call206
   %111 = load i64, ptr %add.ptr.i350, align 8, !tbaa !16
   %112 = load ptr, ptr %_M_data.i351, align 8, !tbaa !43
   %arrayidx.i352 = getelementptr inbounds nuw i8, ptr %112, i64 %call206
@@ -1203,9 +1196,9 @@ if.end238:                                        ; preds = %if.then234, %if.end
 if.then241:                                       ; preds = %if.end238
   %add242 = add i64 %nextExercise.0, 1
   %125 = load ptr, ptr %collectedData, align 8, !tbaa !50
-  %add.ptr.i359 = getelementptr inbounds nuw %"class.std::vector.33", ptr %125, i64 %add242
+  %add.ptr.i359 = getelementptr inbounds nuw [24 x i8], ptr %125, i64 %add242
   %126 = load ptr, ptr %add.ptr.i359, align 8, !tbaa !51
-  %add.ptr.i360 = getelementptr inbounds nuw %"struct.QuantLib::NodeData", ptr %126, i64 %i.5664
+  %add.ptr.i360 = getelementptr inbounds nuw [56 x i8], ptr %126, i64 %i.5664
   %vtable245 = load ptr, ptr %rebate, align 8, !tbaa !3
   %vfn246 = getelementptr inbounds nuw i8, ptr %vtable245, i64 64
   %127 = load ptr, ptr %vfn246, align 8
@@ -1215,7 +1208,7 @@ if.then241:                                       ; preds = %if.end238
 invoke.cont248:                                   ; preds = %if.then241
   %128 = extractvalue { i64, double } %call249, 0
   %129 = load ptr, ptr %rebateDiscounters, align 8, !tbaa !31
-  %add.ptr.i361 = getelementptr inbounds nuw %"class.QuantLib::MarketModelDiscounter", ptr %129, i64 %128
+  %add.ptr.i361 = getelementptr inbounds nuw [16 x i8], ptr %129, i64 %128
   %call252 = invoke noundef double @_ZNK8QuantLib21MarketModelDiscounter14numeraireBondsERKNS_10CurveStateEm(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i361, ptr noundef nonnull align 8 dereferenceable(64) %call215, i64 noundef %111)
           to label %invoke.cont251 unwind label %lpad247
 
@@ -1241,7 +1234,7 @@ invoke.cont256:                                   ; preds = %invoke.cont251
 invoke.cont260:                                   ; preds = %invoke.cont256
   %133 = extractvalue { i64, double } %call261, 0
   %134 = load ptr, ptr %controlDiscounters, align 8, !tbaa !31
-  %add.ptr.i362 = getelementptr inbounds nuw %"class.QuantLib::MarketModelDiscounter", ptr %134, i64 %133
+  %add.ptr.i362 = getelementptr inbounds nuw [16 x i8], ptr %134, i64 %133
   %call266 = invoke noundef double @_ZNK8QuantLib21MarketModelDiscounter14numeraireBondsERKNS_10CurveStateEm(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i362, ptr noundef nonnull align 8 dereferenceable(64) %call215, i64 noundef %111)
           to label %invoke.cont265 unwind label %lpad259
 
@@ -1292,12 +1285,12 @@ for.body286:                                      ; preds = %for.cond283.prehead
   %j.0660 = phi i64 [ %inc303, %invoke.cont293 ], [ 0, %for.cond283.preheader ]
   %143 = load ptr, ptr %cashFlowsGenerated, align 8, !tbaa !18
   %144 = load ptr, ptr %143, align 8, !tbaa !24
-  %add.ptr.i367 = getelementptr inbounds nuw %"struct.QuantLib::MarketModelMultiProduct::CashFlow", ptr %144, i64 %j.0660
+  %add.ptr.i367 = getelementptr inbounds nuw [16 x i8], ptr %144, i64 %j.0660
   %amount289 = getelementptr inbounds nuw i8, ptr %add.ptr.i367, i64 8
   %145 = load double, ptr %amount289, align 8, !tbaa !66
   %146 = load i64, ptr %add.ptr.i367, align 8, !tbaa !68
   %147 = load ptr, ptr %productDiscounters, align 8, !tbaa !31
-  %add.ptr.i368 = getelementptr inbounds nuw %"class.QuantLib::MarketModelDiscounter", ptr %147, i64 %146
+  %add.ptr.i368 = getelementptr inbounds nuw [16 x i8], ptr %147, i64 %146
   %call294 = invoke noundef double @_ZNK8QuantLib21MarketModelDiscounter14numeraireBondsERKNS_10CurveStateEm(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i368, ptr noundef nonnull align 8 dereferenceable(64) %call215, i64 noundef %111)
           to label %invoke.cont293 unwind label %lpad292
 
@@ -1305,9 +1298,9 @@ invoke.cont293:                                   ; preds = %for.body286
   %mul295 = fmul double %145, %call294
   %div296 = fdiv double %mul295, %principalInNumerairePortfolio.0
   %148 = load ptr, ptr %collectedData, align 8, !tbaa !50
-  %add.ptr.i369 = getelementptr inbounds nuw %"class.std::vector.33", ptr %148, i64 %nextExercise.1
+  %add.ptr.i369 = getelementptr inbounds nuw [24 x i8], ptr %148, i64 %nextExercise.1
   %149 = load ptr, ptr %add.ptr.i369, align 8, !tbaa !51
-  %add.ptr.i370 = getelementptr inbounds nuw %"struct.QuantLib::NodeData", ptr %149, i64 %i.5664
+  %add.ptr.i370 = getelementptr inbounds nuw [56 x i8], ptr %149, i64 %i.5664
   %cumulatedCashFlows299 = getelementptr inbounds nuw i8, ptr %add.ptr.i370, i64 8
   %150 = load double, ptr %cumulatedCashFlows299, align 8, !tbaa !58
   %add300 = fadd double %div296, %150
@@ -1336,7 +1329,7 @@ for.body329.lr.ph:                                ; preds = %for.cond326.prehead
 
 if.then308:                                       ; preds = %if.end275, %if.end306
   %155 = load ptr, ptr %call107, align 8, !tbaa !13
-  %156 = getelementptr i64, ptr %155, i64 %call206
+  %156 = getelementptr [8 x i8], ptr %155, i64 %call206
   %add.ptr.i371 = getelementptr i8, ptr %156, i64 8
   %157 = load i64, ptr %add.ptr.i371, align 8, !tbaa !16
   %vtable311 = load ptr, ptr %call215, align 8, !tbaa !3
@@ -1362,9 +1355,9 @@ for.cond.cleanup328:                              ; preds = %for.body329, %for.c
 for.body329:                                      ; preds = %for.body329.lr.ph, %for.body329
   %j325.0662 = phi i64 [ %nextExercise.1, %for.body329.lr.ph ], [ %add331, %for.body329 ]
   %add331 = add nuw i64 %j325.0662, 1
-  %add.ptr.i372 = getelementptr inbounds nuw %"class.std::vector.33", ptr %154, i64 %add331
+  %add.ptr.i372 = getelementptr inbounds nuw [24 x i8], ptr %154, i64 %add331
   %160 = load ptr, ptr %add.ptr.i372, align 8, !tbaa !51
-  %add.ptr.i373 = getelementptr inbounds nuw %"struct.QuantLib::NodeData", ptr %160, i64 %i.5664
+  %add.ptr.i373 = getelementptr inbounds nuw [56 x i8], ptr %160, i64 %i.5664
   %controlValue334 = getelementptr inbounds nuw i8, ptr %add.ptr.i373, i64 40
   store double 0.000000e+00, ptr %controlValue334, align 8, !tbaa !64
   %isValid337 = getelementptr inbounds nuw i8, ptr %add.ptr.i373, i64 48
@@ -2568,9 +2561,9 @@ if.then.i39:                                      ; preds = %_ZNSt6vectorIN8Quan
 
 _ZNSt12_Vector_baseIN8QuantLib23MarketModelMultiProduct8CashFlowESaIS2_EE13_M_deallocateEPS2_m.exit41: ; preds = %_ZNSt6vectorIN8QuantLib23MarketModelMultiProduct8CashFlowESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %if.then.i39
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !24
-  %add.ptr37 = getelementptr inbounds nuw %"struct.QuantLib::MarketModelMultiProduct::CashFlow", ptr %add.ptr, i64 %__n
+  %add.ptr37 = getelementptr inbounds nuw [16 x i8], ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8, !tbaa !22
-  %add.ptr40 = getelementptr inbounds nuw %"struct.QuantLib::MarketModelMultiProduct::CashFlow", ptr %call5.i.i.i, i64 %3
+  %add.ptr40 = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i, i64 %3
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8, !tbaa !75
   br label %if.end44
 
@@ -2656,7 +2649,7 @@ if.then.i27:                                      ; preds = %_ZNSt6vectorIN8Quan
 _ZNSt12_Vector_baseIN8QuantLib21MarketModelDiscounterESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN8QuantLib21MarketModelDiscounterESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26, %if.then.i27
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !31
   store ptr %__cur.0.lcssa.i.i.i25, ptr %_M_finish.i.i, align 8, !tbaa !33
-  %add.ptr28 = getelementptr inbounds nuw %"class.QuantLib::MarketModelDiscounter", ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr28 = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr28, ptr %_M_end_of_storage, align 8, !tbaa !34
   ret void
 
@@ -2782,9 +2775,9 @@ if.then.i29:                                      ; preds = %_ZNSt6vectorIS_IN8Q
 
 _ZNSt12_Vector_baseISt6vectorIN8QuantLib8NodeDataESaIS2_EESaIS4_EE13_M_deallocateEPS4_m.exit31: ; preds = %_ZNSt6vectorIS_IN8QuantLib8NodeDataESaIS1_EESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %if.then.i29
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !50
-  %add.ptr37 = getelementptr inbounds nuw %"class.std::vector.33", ptr %add.ptr, i64 %__n
+  %add.ptr37 = getelementptr inbounds nuw [24 x i8], ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8, !tbaa !48
-  %add.ptr40 = getelementptr inbounds nuw %"class.std::vector.33", ptr %call5.i.i.i, i64 %4
+  %add.ptr40 = getelementptr inbounds nuw [24 x i8], ptr %call5.i.i.i, i64 %4
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8, !tbaa !102
   br label %if.end44
 
@@ -2886,9 +2879,9 @@ if.then.i29:                                      ; preds = %_ZNSt6vectorIN8Quan
 
 _ZNSt12_Vector_baseIN8QuantLib8NodeDataESaIS1_EE13_M_deallocateEPS1_m.exit31: ; preds = %_ZNSt6vectorIN8QuantLib8NodeDataESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %if.then.i29
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !51
-  %add.ptr37 = getelementptr inbounds nuw %"struct.QuantLib::NodeData", ptr %add.ptr, i64 %__n
+  %add.ptr37 = getelementptr inbounds nuw [56 x i8], ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8, !tbaa !53
-  %add.ptr40 = getelementptr inbounds nuw %"struct.QuantLib::NodeData", ptr %call5.i.i.i, i64 %4
+  %add.ptr40 = getelementptr inbounds nuw [56 x i8], ptr %call5.i.i.i, i64 %4
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8, !tbaa !55
   br label %if.end44
 

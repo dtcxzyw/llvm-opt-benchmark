@@ -20,8 +20,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.cv::Scalar_" = type { %"class.cv::Vec.3" }
 %"class.cv::Vec.3" = type { %"class.cv::Matx.4" }
 %"class.cv::Matx.4" = type { [4 x double] }
-%"class.cv::Vec" = type { %"class.cv::Matx" }
-%"class.cv::Matx" = type { [3 x float] }
 
 @.str = private unnamed_addr constant [8 x i8] c"circles\00", align 1
 @.str.1 = private unnamed_addr constant [50 x i8] c"basic_string: construction from null is not valid\00", align 1
@@ -289,7 +287,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit80: ; preds = %54,
 100:                                              ; preds = %.lr.ph, %115
   %101 = phi ptr [ %82, %.lr.ph ], [ %118, %115 ]
   %.025114 = phi i64 [ 0, %.lr.ph ], [ %116, %115 ]
-  %102 = getelementptr inbounds nuw %"class.cv::Vec", ptr %101, i64 %.025114
+  %102 = getelementptr inbounds nuw [12 x i8], ptr %101, i64 %.025114
   %103 = load float, ptr %102, align 4, !tbaa !37
   %104 = insertelement <4 x float> poison, float %103, i64 0
   %105 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %104)

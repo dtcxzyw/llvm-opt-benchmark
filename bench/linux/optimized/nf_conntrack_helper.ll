@@ -35,21 +35,12 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_nf_nat_helpe
 %struct.mutex = type { %struct.atomic64_t, %struct.raw_spinlock, %struct.optimistic_spin_queue, %struct.list_head }
 %struct.atomic64_t = type { i64 }
 %struct.optimistic_spin_queue = type { %struct.atomic_t }
-%struct.hlist_head = type { ptr }
 %struct.va_format = type { ptr, ptr }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 %struct.nf_conntrack_tuple_mask = type { %struct.anon.19 }
 %struct.anon.19 = type { %union.nf_inet_addr, %union.nf_conntrack_man_proto }
 %union.nf_inet_addr = type { [4 x i32] }
 %union.nf_conntrack_man_proto = type { i16 }
-%struct.nf_conntrack_helper = type { %struct.hlist_node, [16 x i8], %struct.refcount_struct, ptr, ptr, %struct.nf_conntrack_tuple, ptr, ptr, ptr, ptr, i32, i32, i32, i16, [16 x i8] }
-%struct.hlist_node = type { ptr, ptr }
-%struct.refcount_struct = type { %struct.atomic_t }
-%struct.nf_conntrack_tuple = type { %struct.nf_conntrack_man, %struct.anon.5 }
-%struct.nf_conntrack_man = type { %union.nf_inet_addr, %union.nf_conntrack_man_proto, i16 }
-%struct.anon.5 = type { %union.nf_inet_addr, %union.anon.6, i8, %struct.anon.13, i8 }
-%union.anon.6 = type { i16 }
-%struct.anon.13 = type {}
 
 @nf_ct_helper_hash = dso_local global ptr null, section ".data..read_mostly", align 8
 @__UNIQUE_ID___addressable_nf_ct_helper_hash854 = internal global ptr @nf_ct_helper_hash, section ".discard.addressable", align 8
@@ -101,7 +92,7 @@ define dso_local ptr @__nf_conntrack_helper_find(ptr noundef readonly captures(n
 
 9:                                                ; preds = %.loopexit4, %6
   %10 = phi i64 [ 0, %6 ], [ %31, %.loopexit4 ]
-  %11 = getelementptr %struct.hlist_head, ptr %7, i64 %10
+  %11 = getelementptr [8 x i8], ptr %7, i64 %10
   %12 = load volatile ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %.loopexit4, label %.preheader
@@ -159,7 +150,7 @@ define dso_local ptr @nf_conntrack_helper_try_module_get(ptr noundef %0, i16 nou
 
 9:                                                ; preds = %.loopexit22, %6
   %10 = phi i64 [ 0, %6 ], [ %31, %.loopexit22 ]
-  %11 = getelementptr %struct.hlist_head, ptr %7, i64 %10
+  %11 = getelementptr [8 x i8], ptr %7, i64 %10
   %12 = load volatile ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %.loopexit22, label %.preheader20
@@ -214,7 +205,7 @@ define dso_local ptr @nf_conntrack_helper_try_module_get(ptr noundef %0, i16 nou
 
 41:                                               ; preds = %.loopexit19, %38
   %42 = phi i64 [ 0, %38 ], [ %63, %.loopexit19 ]
-  %43 = getelementptr %struct.hlist_head, ptr %39, i64 %42
+  %43 = getelementptr [8 x i8], ptr %39, i64 %42
   %44 = load volatile ptr, ptr %43, align 8
   %45 = icmp eq ptr %44, null
   br i1 %45, label %.loopexit19, label %.preheader18
@@ -352,7 +343,7 @@ define dso_local range(i32 -2, 1) i32 @nf_nat_helper_try_module_get(ptr noundef 
 
 10:                                               ; preds = %.loopexit, %7
   %11 = phi i64 [ 0, %7 ], [ %32, %.loopexit ]
-  %12 = getelementptr %struct.hlist_head, ptr %8, i64 %11
+  %12 = getelementptr [8 x i8], ptr %8, i64 %11
   %13 = load volatile ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %.loopexit, label %.preheader
@@ -902,7 +893,7 @@ define dso_local noundef range(i32 -22, 1) i32 @nf_conntrack_helper_register(ptr
 .preheader28:                                     ; preds = %40, %.loopexit14
   %43 = phi i32 [ %67, %.loopexit14 ], [ 0, %40 ]
   %44 = sext i32 %43 to i64
-  %45 = getelementptr %struct.hlist_head, ptr %.pre.pre, i64 %44
+  %45 = getelementptr [8 x i8], ptr %.pre.pre, i64 %44
   %46 = load ptr, ptr %45, align 8
   %47 = icmp eq ptr %46, null
   br i1 %47, label %.loopexit14, label %.preheader12
@@ -951,7 +942,7 @@ define dso_local noundef range(i32 -22, 1) i32 @nf_conntrack_helper_register(ptr
   br i1 %72, label %74, label %.loopexit11
 
 74:                                               ; preds = %.loopexit15
-  %75 = getelementptr %struct.hlist_head, ptr %.pre.pre, i64 %73
+  %75 = getelementptr [8 x i8], ptr %.pre.pre, i64 %73
   %76 = load ptr, ptr %75, align 8
   %77 = icmp eq ptr %76, null
   br i1 %77, label %.loopexit11, label %.preheader
@@ -968,12 +959,12 @@ define dso_local noundef range(i32 -22, 1) i32 @nf_conntrack_helper_register(ptr
 
 83:                                               ; preds = %80, %.preheader
   %84 = phi i64 [ 0, %.preheader ], [ %81, %80 ]
-  %85 = getelementptr i32, ptr %79, i64 %84
+  %85 = getelementptr [4 x i8], ptr %79, i64 %84
   %86 = load i32, ptr %85, align 4
-  %87 = getelementptr i32, ptr %5, i64 %84
+  %87 = getelementptr [4 x i8], ptr %5, i64 %84
   %88 = load i32, ptr %87, align 4
   %89 = xor i32 %88, %86
-  %90 = getelementptr i32, ptr %2, i64 %84
+  %90 = getelementptr [4 x i8], ptr %2, i64 %84
   %91 = load i32, ptr %90, align 4
   %92 = and i32 %89, %91
   %93 = icmp eq i32 %92, 0
@@ -1008,7 +999,7 @@ define dso_local noundef range(i32 -22, 1) i32 @nf_conntrack_helper_register(ptr
 .loopexit11:                                      ; preds = %.loopexit, %.loopexit15, %74
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store volatile i32 1, ptr %111, align 4
-  %112 = getelementptr %struct.hlist_head, ptr %.pre.pre, i64 %73
+  %112 = getelementptr [8 x i8], ptr %.pre.pre, i64 %73
   %113 = load ptr, ptr %112, align 8
   store ptr %113, ptr %0, align 8
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1228,7 +1219,7 @@ define dso_local noundef range(i32 -22, 1) i32 @nf_conntrack_helpers_register(pt
 
 6:                                                ; preds = %11, %4
   %7 = phi i64 [ 0, %4 ], [ %12, %11 ]
-  %8 = getelementptr %struct.nf_conntrack_helper, ptr %0, i64 %7
+  %8 = getelementptr [160 x i8], ptr %0, i64 %7
   %9 = tail call i32 @nf_conntrack_helper_register(ptr noundef %8), !range !39
   %10 = icmp slt i32 %9, 0
   br i1 %10, label %14, label %11
@@ -1246,7 +1237,7 @@ define dso_local noundef range(i32 -22, 1) i32 @nf_conntrack_helpers_register(pt
 .preheader:                                       ; preds = %14, %26
   %17 = phi i64 [ %18, %26 ], [ %15, %14 ]
   %18 = add nsw i64 %17, -1
-  %19 = getelementptr %struct.nf_conntrack_helper, ptr %0, i64 %18
+  %19 = getelementptr [160 x i8], ptr %0, i64 %18
   tail call void @mutex_lock(ptr noundef nonnull @nf_ct_helper_mutex) #11
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -1289,7 +1280,7 @@ define dso_local void @nf_conntrack_helpers_unregister(ptr noundef %0, i32 nound
 6:                                                ; preds = %16, %4
   %7 = phi i64 [ %5, %4 ], [ %8, %16 ]
   %8 = add nsw i64 %7, -1
-  %9 = getelementptr %struct.nf_conntrack_helper, ptr %0, i64 %8
+  %9 = getelementptr [160 x i8], ptr %0, i64 %8
   tail call void @mutex_lock(ptr noundef nonnull @nf_ct_helper_mutex) #11
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8

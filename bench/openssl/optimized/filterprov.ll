@@ -192,9 +192,9 @@ define dso_local range(i32 0, 2) i32 @filter_provider_set_filter(i32 noundef %0,
 29:                                               ; preds = %25
   %30 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ourglobals, i64 2016), align 8, !tbaa !28
   %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds %struct.anon, ptr getelementptr inbounds nuw (i8, ptr @ourglobals, i64 16), i64 %31
+  %32 = getelementptr inbounds [200 x i8], ptr getelementptr inbounds nuw (i8, ptr @ourglobals, i64 16), i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %34 = getelementptr inbounds nuw %struct.ossl_algorithm_st, ptr %33, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [32 x i8], ptr %33, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull align 8 dereferenceable(32) %.04677, i64 32, i1 false), !tbaa.struct !29
   %.pr = load ptr, ptr %.04677, align 8, !tbaa !24
   %35 = icmp eq ptr %.pr, null
@@ -208,7 +208,7 @@ define dso_local range(i32 0, 2) i32 @filter_provider_set_filter(i32 noundef %0,
 38:                                               ; preds = %36
   %39 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ourglobals, i64 2016), align 8, !tbaa !28
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds %struct.anon, ptr getelementptr inbounds nuw (i8, ptr @ourglobals, i64 16), i64 %40
+  %41 = getelementptr inbounds [200 x i8], ptr getelementptr inbounds nuw (i8, ptr @ourglobals, i64 16), i64 %40
   store i32 %0, ptr %41, align 8, !tbaa !32
   %42 = load i32, ptr %3, align 4, !tbaa !22
   store i32 %42, ptr getelementptr inbounds nuw (i8, ptr @ourglobals, i64 2020), align 4, !tbaa !34
@@ -290,7 +290,7 @@ define internal ptr @filter_query(ptr readnone captures(none) %0, i32 noundef %1
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %8 ]
-  %9 = getelementptr inbounds nuw %struct.anon, ptr getelementptr inbounds nuw (i8, ptr @ourglobals, i64 16), i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [200 x i8], ptr getelementptr inbounds nuw (i8, ptr @ourglobals, i64 16), i64 %indvars.iv
   %10 = load i32, ptr %9, align 8, !tbaa !32
   %11 = icmp eq i32 %10, %1
   br i1 %11, label %12, label %8
@@ -344,7 +344,7 @@ define internal void @filter_unquery(ptr readnone captures(none) %0, i32 noundef
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %13 ]
-  %14 = getelementptr inbounds nuw %struct.anon, ptr getelementptr inbounds nuw (i8, ptr @ourglobals, i64 16), i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [200 x i8], ptr getelementptr inbounds nuw (i8, ptr @ourglobals, i64 16), i64 %indvars.iv
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = icmp eq ptr %15, %2
   br i1 %16, label %.loopexit, label %13

@@ -171,7 +171,7 @@ define void @_ZN10line_index9LineIndex3new17haaa10d7242ffbeb2E(ptr noalias nound
   %.0167.i.i.i = phi i64 [ %.0.be.i.i.i, %.backedge.i.i.i ], [ 0, %14 ]
   %.sroa.0.0166.i.i.i = phi i64 [ %21, %.backedge.i.i.i ], [ 0, %14 ]
   %21 = add nuw nsw i64 %.sroa.0.0166.i.i.i, 1
-  %22 = getelementptr inbounds nuw <2 x i64>, ptr %1, i64 %.sroa.0.0166.i.i.i
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %.sroa.0.0166.i.i.i
   %.0.copyload162.i.i.i = load <16 x i8>, ptr %22, align 1, !alias.scope !29, !noalias !30
   %23 = icmp slt <16 x i8> %.0.copyload162.i.i.i, zeroinitializer
   %24 = bitcast <16 x i1> %23 to i16
@@ -290,7 +290,7 @@ define void @_ZN10line_index9LineIndex3new17haaa10d7242ffbeb2E(ptr noalias nound
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf305d59fb8d87cabE.exit.i.i.i": ; preds = %.noexc13.i, %.lr.ph.i.i.i
   %74 = phi i64 [ %.pre.i.i.i.i, %.noexc13.i ], [ %68, %.lr.ph.i.i.i ]
   %75 = load ptr, ptr %15, align 8, !alias.scope !57, !noalias !60, !nonnull !5, !noundef !5
-  %76 = getelementptr inbounds i32, ptr %75, i64 %74
+  %76 = getelementptr inbounds [4 x i8], ptr %75, i64 %74
   store i32 %70, ptr %76, align 4, !noalias !16
   %77 = load i64, ptr %16, align 8, !alias.scope !57, !noalias !60, !noundef !5
   %78 = add i64 %77, 1
@@ -502,7 +502,7 @@ define void @_ZN10line_index9LineIndex12try_line_col17h1d47f607c226e7daE(ptr noa
   br i1 %.not, label %19, label %72
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i32, ptr %12, i64 %18
+  %20 = getelementptr inbounds [4 x i8], ptr %12, i64 %18
   %21 = load i32, ptr %20, align 4, !noundef !5
   br label %23
 
@@ -561,7 +561,7 @@ define void @_ZN10line_index9LineIndex12try_line_col17h1d47f607c226e7daE(ptr noa
   %47 = add i64 %.sroa.01.0.i.i.i.i, %44
   %48 = and i64 %47, %.val5.i
   %49 = sub nsw i64 0, %48
-  %50 = getelementptr inbounds { i32, [1 x i32], { { { { ptr, i64 } }, {} }, {} } }, ptr %.val.i, i64 %49
+  %50 = getelementptr inbounds [24 x i8], ptr %.val.i, i64 %49
   %51 = getelementptr inbounds i8, ptr %50, i64 -24
   %.val4.i.i.i.i = load i32, ptr %51, align 4, !alias.scope !109, !noalias !114, !noundef !5
   %52 = icmp eq i32 %.val4.i.i.i.i, %26
@@ -671,7 +671,7 @@ define { i32, i32 } @_ZN10line_index9LineIndex6offset17h9ad6f3ac77bd320aE(ptr no
   br i1 %10, label %_ZN10line_index9LineIndex12start_offset17h55fef644bcc0771fE.exit, label %11
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds nuw i32, ptr %.val, i64 %7
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %.val, i64 %7
   %13 = load i32, ptr %12, align 4, !noundef !5
   br label %_ZN10line_index9LineIndex12start_offset17h55fef644bcc0771fE.exit
 
@@ -729,7 +729,7 @@ define void @_ZN10line_index9LineIndex7to_wide17h5b212e3666f7baa6E(ptr noalias n
   %26 = add i64 %.sroa.01.0.i.i.i.i, %23
   %27 = and i64 %26, %.val5.i
   %28 = sub nsw i64 0, %27
-  %29 = getelementptr inbounds { i32, [1 x i32], { { { { ptr, i64 } }, {} }, {} } }, ptr %.val.i, i64 %28
+  %29 = getelementptr inbounds [24 x i8], ptr %.val.i, i64 %28
   %30 = getelementptr inbounds i8, ptr %29, i64 -24
   %.val4.i.i.i.i = load i32, ptr %30, align 4, !alias.scope !167, !noalias !172, !noundef !5
   %31 = icmp eq i32 %3, %.val4.i.i.i.i
@@ -745,7 +745,7 @@ define void @_ZN10line_index9LineIndex7to_wide17h5b212e3666f7baa6E(ptr noalias n
   %37 = load ptr, ptr %36, align 8, !nonnull !5, !align !86, !noundef !5
   %38 = getelementptr inbounds i8, ptr %29, i64 -8
   %39 = load i64, ptr %38, align 8, !noundef !5
-  %40 = getelementptr inbounds { i32, i32 }, ptr %37, i64 %39
+  %40 = getelementptr inbounds [8 x i8], ptr %37, i64 %39
   br i1 %2, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %35, %45
@@ -851,7 +851,7 @@ define void @_ZN10line_index9LineIndex7to_utf817he2b6c042a708d224E(ptr noalias n
   %26 = add i64 %.sroa.01.0.i.i.i.i, %23
   %27 = and i64 %26, %.val5.i
   %28 = sub nsw i64 0, %27
-  %29 = getelementptr inbounds { i32, [1 x i32], { { { { ptr, i64 } }, {} }, {} } }, ptr %.val.i, i64 %28
+  %29 = getelementptr inbounds [24 x i8], ptr %.val.i, i64 %28
   %30 = getelementptr inbounds i8, ptr %29, i64 -24
   %.val4.i.i.i.i = load i32, ptr %30, align 4, !alias.scope !195, !noalias !200, !noundef !5
   %31 = icmp eq i32 %3, %.val4.i.i.i.i
@@ -867,7 +867,7 @@ define void @_ZN10line_index9LineIndex7to_utf817he2b6c042a708d224E(ptr noalias n
   %37 = load ptr, ptr %36, align 8, !nonnull !5, !align !86, !noundef !5
   %38 = getelementptr inbounds i8, ptr %29, i64 -8
   %39 = load i64, ptr %38, align 8, !noundef !5
-  %40 = getelementptr inbounds { i32, i32 }, ptr %37, i64 %39
+  %40 = getelementptr inbounds [8 x i8], ptr %37, i64 %39
   br i1 %2, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %35, %45
@@ -968,8 +968,8 @@ define void @_ZN10line_index9LineIndex5lines17h0fc6f51b63424abaE(ptr noalias nou
   unreachable
 
 "_ZN86_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hbfccd3bd47e004fbE.exit": ; preds = %18
-  %22 = getelementptr inbounds i32, ptr %9, i64 %13
-  %23 = getelementptr inbounds i32, ptr %9, i64 %15
+  %22 = getelementptr inbounds [4 x i8], ptr %9, i64 %13
+  %23 = getelementptr inbounds [4 x i8], ptr %9, i64 %15
   %24 = load i32, ptr %8, align 4, !noundef !5
   store i32 1, ptr %0, align 8
   %.sroa.010.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -1070,7 +1070,7 @@ define internal fastcc noundef i64 @_ZN10line_index27analyze_source_file_generic
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf305d59fb8d87cabE.exit": ; preds = %28, %34
   %35 = phi i64 [ %.pre.i, %34 ], [ %31, %28 ]
   %36 = load ptr, ptr %13, align 8, !alias.scope !216, !nonnull !5, !noundef !5
-  %37 = getelementptr inbounds i32, ptr %36, i64 %35
+  %37 = getelementptr inbounds [4 x i8], ptr %36, i64 %35
   store i32 %30, ptr %37, align 4
   %38 = load i64, ptr %12, align 8, !alias.scope !216, !noundef !5
   %39 = add i64 %38, 1
@@ -1163,7 +1163,7 @@ define internal fastcc noundef i64 @_ZN10line_index27analyze_source_file_generic
   %87 = load i64, ptr %12, align 8, !noundef !5
   %.not39 = icmp eq i64 %87, 0
   %88 = load ptr, ptr %13, align 8, !nonnull !5
-  %89 = getelementptr i32, ptr %88, i64 %87
+  %89 = getelementptr [4 x i8], ptr %88, i64 %87
   %90 = getelementptr i8, ptr %89, i64 -4
   %91 = icmp eq ptr %90, null
   %92 = select i1 %.not39, i1 true, i1 %91
@@ -1249,7 +1249,7 @@ define internal fastcc noundef i64 @_ZN10line_index27analyze_source_file_generic
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !241
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !230
   %128 = sub nsw i64 0, %117
-  %129 = getelementptr inbounds { i32, [1 x i32], { { i64, ptr, {} }, i64 } }, ptr %103, i64 %128
+  %129 = getelementptr inbounds [32 x i8], ptr %103, i64 %128
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !225
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %"_ZN3std11collections4hash3map18Entry$LT$K$C$V$GT$10or_default17ha40e447211d9fe84E.exit"
@@ -1294,7 +1294,7 @@ define internal fastcc noundef i64 @_ZN10line_index27analyze_source_file_generic
   store i8 0, ptr %145, align 1, !noalias !256
   %146 = load ptr, ptr %5, align 8, !alias.scope !263, !noalias !256, !nonnull !5, !noundef !5
   %147 = sub nsw i64 0, %132
-  %148 = getelementptr inbounds { i32, [1 x i32], { { i64, ptr, {} }, i64 } }, ptr %146, i64 %147
+  %148 = getelementptr inbounds [32 x i8], ptr %146, i64 %147
   %149 = and i8 %139, 1
   %150 = zext nneg i8 %149 to i64
   %151 = load i64, ptr %17, align 8, !alias.scope !263, !noalias !256, !noundef !5
@@ -1326,7 +1326,7 @@ define internal fastcc noundef i64 @_ZN10line_index27analyze_source_file_generic
   %161 = phi i64 [ %.pre.i43, %160 ], [ %157, %"_ZN3std11collections4hash3map18Entry$LT$K$C$V$GT$10or_default17ha40e447211d9fe84E.exit" ]
   %162 = getelementptr inbounds i8, ptr %.sroa.0.sroa.2.0.copyload.pn.i, i64 -16
   %163 = load ptr, ptr %162, align 8, !alias.scope !264, !nonnull !5, !noundef !5
-  %164 = getelementptr inbounds { i32, i32 }, ptr %163, i64 %161
+  %164 = getelementptr inbounds [8 x i8], ptr %163, i64 %161
   store i32 %94, ptr %164, align 4
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 4
   store i32 %99, ptr %165, align 4

@@ -3,8 +3,6 @@ source_filename = "bench/ffmpeg/original/oggparsetheora.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.ogg_stream = type { ptr, i32, i32, i32, i32, i32, i32, i32, i64, i64, i64, i64, i64, i64, i32, ptr, i32, i32, i32, [255 x i8], i32, i32, i32, i32, i32, i32, i32, i32, ptr, i64, ptr }
-
 @.str = private unnamed_addr constant [8 x i8] c"\80theora\00", align 1
 @ff_theora_codec = local_unnamed_addr constant { ptr, i8, [7 x i8], ptr, ptr, ptr, ptr, i32, i32, ptr } { ptr @.str, i8 7, [7 x i8] zeroinitializer, ptr null, ptr @theora_header, ptr @theora_packet, ptr @theora_gptopts, i32 0, i32 3, ptr null }, align 8
 @.str.1 = private unnamed_addr constant [36 x i8] c"Too old or unsupported Theora (%x)\0A\00", align 1
@@ -17,10 +15,10 @@ define internal range(i32 -2147483648, 2) i32 @theora_header(ptr noundef %0, i32
   %4 = load ptr, ptr %3, align 8, !tbaa !4
   %5 = load ptr, ptr %4, align 8, !tbaa !24
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds %struct.ogg_stream, ptr %5, i64 %6
+  %7 = getelementptr inbounds [432 x i8], ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %9 = load ptr, ptr %8, align 8, !tbaa !28
-  %10 = getelementptr inbounds ptr, ptr %9, i64 %6
+  %10 = getelementptr inbounds [8 x i8], ptr %9, i64 %6
   %11 = load ptr, ptr %10, align 8, !tbaa !29
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 424
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -385,7 +383,7 @@ define internal noundef i32 @theora_packet(ptr noundef readonly captures(none) %
   %4 = load ptr, ptr %3, align 8, !tbaa !4
   %5 = load ptr, ptr %4, align 8, !tbaa !24
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds %struct.ogg_stream, ptr %5, i64 %6
+  %7 = getelementptr inbounds [432 x i8], ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %9 = load i64, ptr %8, align 8, !tbaa !72
   switch i64 %9, label %73 [
@@ -483,7 +481,7 @@ theora_gptopts.exit.thread:                       ; preds = %._crit_edge, %47, %
   store i64 %.0, ptr %8, align 8, !tbaa !72
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %56 = load ptr, ptr %55, align 8, !tbaa !28
-  %57 = getelementptr inbounds ptr, ptr %56, i64 %6
+  %57 = getelementptr inbounds [8 x i8], ptr %56, i64 %6
   %58 = load ptr, ptr %57, align 8, !tbaa !29
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 40
   %60 = load i64, ptr %59, align 8, !tbaa !81
@@ -530,7 +528,7 @@ define internal i64 @theora_gptopts(ptr noundef readonly captures(none) %0, i32 
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = load ptr, ptr %6, align 8, !tbaa !24
   %8 = sext i32 %1 to i64
-  %9 = getelementptr inbounds %struct.ogg_stream, ptr %7, i64 %8
+  %9 = getelementptr inbounds [432 x i8], ptr %7, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 424
   %11 = load ptr, ptr %10, align 8, !tbaa !47
   %.not = icmp eq ptr %11, null

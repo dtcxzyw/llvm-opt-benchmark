@@ -37,7 +37,6 @@ module asm ".globl _ZSt21ios_base_library_initv"
 %"struct.Eigen::internal::evaluator.184" = type { %"struct.Eigen::internal::evaluator.185" }
 %"struct.Eigen::internal::evaluator.185" = type { %"class.Eigen::internal::plainobjectbase_evaluator_data.188" }
 %"class.Eigen::internal::generic_dense_assignment_kernel.189" = type { ptr, ptr, ptr, ptr }
-%"class.CGAL::Lazy_exact_nt" = type <{ %"class.CGAL::Lazy", [8 x i8] }>
 %"struct.Eigen::internal::evaluator.198" = type { %"struct.Eigen::internal::unary_evaluator.199" }
 %"struct.Eigen::internal::unary_evaluator.199" = type { %"struct.Eigen::internal::evaluator.202", ptr }
 %"struct.Eigen::internal::evaluator.202" = type { %"struct.Eigen::internal::evaluator.203" }
@@ -271,7 +270,7 @@ define linkonce_odr dso_local void @_ZN3igl19remove_unreferencedIN5Eigen6MatrixI
   %.05.i = phi ptr [ %11, %.lr.ph.i ], [ %24, %19 ]
   %20 = load i32, ptr %.05.i, align 4, !tbaa !18
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds i32, ptr %18, i64 %21
+  %22 = getelementptr inbounds [4 x i8], ptr %18, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !18
   store i32 %23, ptr %.05.i, align 4, !tbaa !18
   %24 = getelementptr inbounds nuw i8, ptr %.05.i, i64 4
@@ -350,7 +349,7 @@ define linkonce_odr dso_local void @_ZN3igl19remove_unreferencedIN5Eigen6MatrixI
   %.05.i = phi ptr [ %11, %.lr.ph.i ], [ %24, %19 ]
   %20 = load i32, ptr %.05.i, align 4, !tbaa !18
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds i32, ptr %18, i64 %21
+  %22 = getelementptr inbounds [4 x i8], ptr %18, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !18
   store i32 %23, ptr %.05.i, align 4, !tbaa !18
   %24 = getelementptr inbounds nuw i8, ptr %.05.i, i64 4
@@ -449,8 +448,8 @@ thread-pre-split.i.i.i.i.i.i.i:                   ; preds = %_ZN5Eigen15PlainObj
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %._crit_edge.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i.i = phi i64 [ %30, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %24, %._crit_edge.i.i.i.i.i.i.i.i ]
-  %27 = getelementptr inbounds i32, ptr %21, i64 %.05.i.i.i.i.i.i.i.i.i
-  %28 = getelementptr inbounds i32, ptr %15, i64 %.05.i.i.i.i.i.i.i.i.i
+  %27 = getelementptr inbounds [4 x i8], ptr %21, i64 %.05.i.i.i.i.i.i.i.i.i
+  %28 = getelementptr inbounds [4 x i8], ptr %15, i64 %.05.i.i.i.i.i.i.i.i.i
   %29 = load i32, ptr %28, align 4, !tbaa !18
   store i32 %29, ptr %27, align 4, !tbaa !18
   %30 = add nsw i64 %.05.i.i.i.i.i.i.i.i.i, 1
@@ -459,8 +458,8 @@ thread-pre-split.i.i.i.i.i.i.i:                   ; preds = %_ZN5Eigen15PlainObj
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %19, %.lr.ph.i.i.i.i.i.i.i.i
   %.011.i.i.i.i.i.i.i.i = phi i64 [ %34, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %19 ]
-  %31 = getelementptr inbounds nuw i32, ptr %21, i64 %.011.i.i.i.i.i.i.i.i
-  %32 = getelementptr inbounds nuw i32, ptr %15, i64 %.011.i.i.i.i.i.i.i.i
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %.011.i.i.i.i.i.i.i.i
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %.011.i.i.i.i.i.i.i.i
   %33 = load <2 x i64>, ptr %32, align 16, !tbaa !31
   store <2 x i64> %33, ptr %31, align 16, !tbaa !31
   %34 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i, 4
@@ -483,7 +482,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi3ELi1ELin1ELi3EEEEaSIS2_EERS2_RKNS
   %.05.i = phi ptr [ %36, %.lr.ph.i ], [ %45, %40 ]
   %41 = load i32, ptr %.05.i, align 4, !tbaa !18
   %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds i32, ptr %39, i64 %42
+  %43 = getelementptr inbounds [4 x i8], ptr %39, i64 %42
   %44 = load i32, ptr %43, align 4, !tbaa !18
   store i32 %44, ptr %.05.i, align 4, !tbaa !18
   %45 = getelementptr inbounds nuw i8, ptr %.05.i, i64 4
@@ -562,7 +561,7 @@ define linkonce_odr dso_local void @_ZN3igl19remove_unreferencedIN5Eigen6MatrixI
   %.05.i = phi ptr [ %11, %.lr.ph.i ], [ %24, %19 ]
   %20 = load i32, ptr %.05.i, align 4, !tbaa !18
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds i32, ptr %18, i64 %21
+  %22 = getelementptr inbounds [4 x i8], ptr %18, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !18
   store i32 %23, ptr %.05.i, align 4, !tbaa !18
   %24 = getelementptr inbounds nuw i8, ptr %.05.i, i64 4
@@ -645,7 +644,7 @@ define linkonce_odr dso_local void @_ZN3igl19remove_unreferencedIN5Eigen6MatrixI
   %.05.i = phi ptr [ %15, %.lr.ph.i ], [ %28, %23 ]
   %24 = load i32, ptr %.05.i, align 4, !tbaa !18
   %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds i32, ptr %22, i64 %25
+  %26 = getelementptr inbounds [4 x i8], ptr %22, i64 %25
   %27 = load i32, ptr %26, align 4, !tbaa !18
   store i32 %27, ptr %.05.i, align 4, !tbaa !18
   %28 = getelementptr inbounds nuw i8, ptr %.05.i, i64 4
@@ -1044,13 +1043,13 @@ _ZN5Eigen6MatrixIbLin1ELi1ELi0ELin1ELi1EEC2INS_14CwiseNullaryOpINS_8internal18sc
 
 .preheader51.us:                                  ; preds = %._crit_edge.us, %.preheader51.lr.ph.split.us
   %indvars.iv60 = phi i64 [ %indvars.iv.next61, %._crit_edge.us ], [ 0, %.preheader51.lr.ph.split.us ]
-  %16 = getelementptr i32, ptr %15, i64 %indvars.iv60
+  %16 = getelementptr [4 x i8], ptr %15, i64 %indvars.iv60
   br label %17
 
 17:                                               ; preds = %.preheader51.us, %24
   %indvars.iv = phi i64 [ 0, %.preheader51.us ], [ %indvars.iv.next, %24 ]
   %18 = mul nuw nsw i64 %indvars.iv, %10
-  %19 = getelementptr i32, ptr %16, i64 %18
+  %19 = getelementptr [4 x i8], ptr %16, i64 %18
   %20 = load i32, ptr %19, align 4, !tbaa !18
   %.not.us = icmp eq i32 %20, -1
   br i1 %.not.us, label %24, label %21
@@ -1127,13 +1126,13 @@ common.resume:                                    ; preds = %35, %_ZNK5Eigen9Den
   %41 = getelementptr inbounds nuw i8, ptr %.sroa.044.0, i64 %indvars.iv64
   %42 = load i8, ptr %41, align 1, !tbaa !82, !range !65, !noundef !66
   %43 = trunc nuw i8 %42 to i1
-  %44 = getelementptr inbounds nuw i32, ptr %37, i64 %indvars.iv64
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %indvars.iv64
   br i1 %43, label %45, label %50
 
 45:                                               ; preds = %40
   store i32 %.03055, ptr %44, align 4, !tbaa !18
   %46 = sext i32 %.03055 to i64
-  %47 = getelementptr inbounds i32, ptr %38, i64 %46
+  %47 = getelementptr inbounds [4 x i8], ptr %38, i64 %46
   %48 = trunc nuw nsw i64 %indvars.iv64 to i32
   store i32 %48, ptr %47, align 4, !tbaa !18
   %49 = add nsw i32 %.03055, 1
@@ -1227,8 +1226,8 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %._crit_edge.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i = phi i64 [ %42, %.lr.ph.i.i.i.i.i.i.i.i ], [ %36, %._crit_edge.i.i.i.i.i.i.i ]
-  %39 = getelementptr inbounds i32, ptr %33, i64 %.05.i.i.i.i.i.i.i.i
-  %40 = getelementptr inbounds i32, ptr %15, i64 %.05.i.i.i.i.i.i.i.i
+  %39 = getelementptr inbounds [4 x i8], ptr %33, i64 %.05.i.i.i.i.i.i.i.i
+  %40 = getelementptr inbounds [4 x i8], ptr %15, i64 %.05.i.i.i.i.i.i.i.i
   %41 = load i32, ptr %40, align 4, !tbaa !18
   store i32 %41, ptr %39, align 4, !tbaa !18
   %42 = add nsw i64 %.05.i.i.i.i.i.i.i.i, 1
@@ -1237,8 +1236,8 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %30, %.lr.ph.i.i.i.i.i.i.i
   %.011.i.i.i.i.i.i.i = phi i64 [ %46, %.lr.ph.i.i.i.i.i.i.i ], [ 0, %30 ]
-  %43 = getelementptr inbounds nuw i32, ptr %33, i64 %.011.i.i.i.i.i.i.i
-  %44 = getelementptr inbounds nuw i32, ptr %15, i64 %.011.i.i.i.i.i.i.i
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %.011.i.i.i.i.i.i.i
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %.011.i.i.i.i.i.i.i
   %45 = load <2 x i64>, ptr %44, align 16, !tbaa !31
   store <2 x i64> %45, ptr %43, align 16, !tbaa !31
   %46 = add nuw nsw i64 %.011.i.i.i.i.i.i.i, 4
@@ -1563,7 +1562,7 @@ define linkonce_odr dso_local void @_ZN5Eigen12DenseStorageIN4CGAL13Lazy_exact_n
 .preheader.i.i:                                   ; preds = %10, %_ZN4CGAL6HandleD2Ev.exit.i.i
   %.0.i.i = phi i64 [ %14, %_ZN4CGAL6HandleD2Ev.exit.i.i ], [ %9, %10 ]
   %14 = add i64 %.0.i.i, -1
-  %15 = getelementptr inbounds nuw %"class.CGAL::Lazy_exact_nt", ptr %11, i64 %14
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !107
   %.not.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i, label %_ZN4CGAL6HandleD2Ev.exit.i.i, label %17
@@ -1714,7 +1713,7 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal26destruct_elements_of_arr
 .preheader:                                       ; preds = %2, %_ZN4CGAL6HandleD2Ev.exit
   %.0 = phi i64 [ %5, %_ZN4CGAL6HandleD2Ev.exit ], [ %1, %2 ]
   %5 = add i64 %.0, -1
-  %6 = getelementptr inbounds nuw %"class.CGAL::Lazy_exact_nt", ptr %0, i64 %5
+  %6 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !107
   %.not.i.i = icmp eq ptr %7, null
   br i1 %.not.i.i, label %_ZN4CGAL6HandleD2Ev.exit, label %8
@@ -1786,7 +1785,7 @@ define linkonce_odr dso_local noundef ptr @_ZN5Eigen8internal27construct_element
 
 4:                                                ; preds = %.lr.ph, %_ZN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEEEC2Ev.exit
   %.012 = phi i64 [ 0, %.lr.ph ], [ %22, %_ZN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEEEC2Ev.exit ]
-  %5 = getelementptr inbounds nuw %"class.CGAL::Lazy_exact_nt", ptr %0, i64 %.012
+  %5 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %.012
   %6 = load i8, ptr @_ZGVZN4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE4zeroEvE1z, align 8
   %7 = icmp eq i8 %6, 0
   br i1 %7, label %8, label %_ZN4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE4zeroEv.exit.i.i, !prof !110
@@ -2111,22 +2110,22 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal21dense_assignment_loopINS
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %23 = load i64, ptr %22, align 8, !tbaa !49
   %24 = mul nsw i64 %23, %.0810
-  %25 = getelementptr %"class.CGAL::Lazy_exact_nt", ptr %21, i64 %.09
-  %26 = getelementptr %"class.CGAL::Lazy_exact_nt", ptr %25, i64 %24
+  %25 = getelementptr [16 x i8], ptr %21, i64 %.09
+  %26 = getelementptr [16 x i8], ptr %25, i64 %24
   %27 = load ptr, ptr %7, align 8, !tbaa !126
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = load ptr, ptr %28, align 8, !tbaa !127, !noalias !131
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !4, !noalias !131
-  %32 = getelementptr inbounds nuw i32, ptr %31, i64 %.09
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %.09
   %33 = load i32, ptr %32, align 4, !tbaa !18, !noalias !131
   %34 = sext i32 %33 to i64
   %35 = load ptr, ptr %27, align 8, !tbaa !124, !noalias !131
   %36 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %37 = load i64, ptr %36, align 8, !tbaa !49, !noalias !131
   %38 = mul nsw i64 %37, %.0810
-  %39 = getelementptr %"class.CGAL::Lazy_exact_nt", ptr %35, i64 %34
-  %40 = getelementptr %"class.CGAL::Lazy_exact_nt", ptr %39, i64 %38
+  %39 = getelementptr [16 x i8], ptr %35, i64 %34
+  %40 = getelementptr [16 x i8], ptr %39, i64 %38
   %41 = load ptr, ptr %40, align 8, !tbaa !107, !noalias !131
   %42 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !31
   %.not.i.i.i.i.i.i = icmp eq i8 %42, 0
@@ -2445,7 +2444,7 @@ define linkonce_odr dso_local void @_ZN5Eigen12DenseStorageIN4CGAL13Lazy_exact_n
 .preheader.i.i:                                   ; preds = %10, %_ZN4CGAL6HandleD2Ev.exit.i.i
   %.0.i.i = phi i64 [ %14, %_ZN4CGAL6HandleD2Ev.exit.i.i ], [ %9, %10 ]
   %14 = add i64 %.0.i.i, -1
-  %15 = getelementptr inbounds nuw %"class.CGAL::Lazy_exact_nt", ptr %11, i64 %14
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !107
   %.not.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i, label %_ZN4CGAL6HandleD2Ev.exit.i.i, label %17
@@ -2564,22 +2563,22 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal21dense_assignment_loopINS
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %23 = load i64, ptr %22, align 8, !tbaa !49
   %24 = mul nsw i64 %23, %.0810
-  %25 = getelementptr %"class.CGAL::Lazy_exact_nt", ptr %21, i64 %24
-  %26 = getelementptr %"class.CGAL::Lazy_exact_nt", ptr %25, i64 %.09
+  %25 = getelementptr [16 x i8], ptr %21, i64 %24
+  %26 = getelementptr [16 x i8], ptr %25, i64 %.09
   %27 = load ptr, ptr %7, align 8, !tbaa !156
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = load ptr, ptr %28, align 8, !tbaa !157, !noalias !161
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !4, !noalias !161
-  %32 = getelementptr inbounds nuw i32, ptr %31, i64 %.0810
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %.0810
   %33 = load i32, ptr %32, align 4, !tbaa !18, !noalias !161
   %34 = sext i32 %33 to i64
   %35 = load ptr, ptr %27, align 8, !tbaa !154, !noalias !161
   %36 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %37 = load i64, ptr %36, align 8, !tbaa !49, !noalias !161
   %38 = mul nsw i64 %37, %34
-  %39 = getelementptr %"class.CGAL::Lazy_exact_nt", ptr %35, i64 %38
-  %40 = getelementptr %"class.CGAL::Lazy_exact_nt", ptr %39, i64 %.09
+  %39 = getelementptr [16 x i8], ptr %35, i64 %38
+  %40 = getelementptr [16 x i8], ptr %39, i64 %.09
   %41 = load ptr, ptr %40, align 8, !tbaa !107, !noalias !161
   %42 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !31
   %.not.i.i.i.i.i.i = icmp eq i8 %42, 0
@@ -2763,7 +2762,7 @@ _ZN5Eigen6MatrixIbLin1ELi1ELi0ELin1ELi1EEC2INS_14CwiseNullaryOpINS_8internal18sc
 
 25:                                               ; preds = %.preheader52, %31
   %indvars.iv = phi i64 [ 0, %.preheader52 ], [ %indvars.iv.next, %31 ]
-  %26 = getelementptr i32, ptr %13, i64 %indvars.iv
+  %26 = getelementptr [4 x i8], ptr %13, i64 %indvars.iv
   %27 = load i32, ptr %26, align 4, !tbaa !18
   %.not = icmp eq i32 %27, -1
   br i1 %.not, label %31, label %28
@@ -2814,13 +2813,13 @@ common.resume:                                    ; preds = %32, %_ZNK5Eigen9Den
   %38 = getelementptr inbounds nuw i8, ptr %.sroa.045.0, i64 %indvars.iv63
   %39 = load i8, ptr %38, align 1, !tbaa !82, !range !65, !noundef !66
   %40 = trunc nuw i8 %39 to i1
-  %41 = getelementptr inbounds nuw i32, ptr %34, i64 %indvars.iv63
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %indvars.iv63
   br i1 %40, label %42, label %47
 
 42:                                               ; preds = %37
   store i32 %.03055, ptr %41, align 4, !tbaa !18
   %43 = sext i32 %.03055 to i64
-  %44 = getelementptr inbounds i32, ptr %35, i64 %43
+  %44 = getelementptr inbounds [4 x i8], ptr %35, i64 %43
   %45 = trunc nuw nsw i64 %indvars.iv63 to i32
   store i32 %45, ptr %44, align 4, !tbaa !18
   %46 = add nsw i32 %.03055, 1
@@ -3095,22 +3094,22 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal21dense_assignment_loopINS
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %23 = load i64, ptr %22, align 8, !tbaa !49
   %24 = mul nsw i64 %23, %.0810
-  %25 = getelementptr %"class.CGAL::Lazy_exact_nt", ptr %21, i64 %24
-  %26 = getelementptr %"class.CGAL::Lazy_exact_nt", ptr %25, i64 %.09
+  %25 = getelementptr [16 x i8], ptr %21, i64 %24
+  %26 = getelementptr [16 x i8], ptr %25, i64 %.09
   %27 = load ptr, ptr %7, align 8, !tbaa !175
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = load ptr, ptr %28, align 8, !tbaa !176, !noalias !181
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !4, !noalias !181
-  %32 = getelementptr inbounds nuw i32, ptr %31, i64 %.0810
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %.0810
   %33 = load i32, ptr %32, align 4, !tbaa !18, !noalias !181
   %34 = sext i32 %33 to i64
   %35 = load ptr, ptr %27, align 8, !tbaa !184, !noalias !181
   %36 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %37 = load i64, ptr %36, align 8, !tbaa !49, !noalias !181
   %38 = mul nsw i64 %37, %.09
-  %39 = getelementptr %"class.CGAL::Lazy_exact_nt", ptr %35, i64 %34
-  %40 = getelementptr %"class.CGAL::Lazy_exact_nt", ptr %39, i64 %38
+  %39 = getelementptr [16 x i8], ptr %35, i64 %34
+  %40 = getelementptr [16 x i8], ptr %39, i64 %38
   %41 = load ptr, ptr %40, align 8, !tbaa !107, !noalias !181
   %42 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !31
   %.not.i.i.i.i.i.i = icmp eq i8 %42, 0
@@ -3269,7 +3268,7 @@ _ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit: ; pr
 .preheader.i.i.i:                                 ; preds = %15, %_ZN4CGAL6HandleD2Ev.exit.i.i.i
   %.0.i.i.i = phi i64 [ %19, %_ZN4CGAL6HandleD2Ev.exit.i.i.i ], [ %14, %15 ]
   %19 = add i64 %.0.i.i.i, -1
-  %20 = getelementptr inbounds nuw %"class.CGAL::Lazy_exact_nt", ptr %16, i64 %19
+  %20 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !107
   %.not.i.i.i.i.i = icmp eq ptr %21, null
   br i1 %.not.i.i.i.i.i, label %_ZN4CGAL6HandleD2Ev.exit.i.i.i, label %22
@@ -3379,22 +3378,22 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal21dense_assignment_loopINS
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %17 = load i64, ptr %16, align 8, !tbaa !49
   %18 = mul nsw i64 %17, %.0810
-  %19 = getelementptr %"class.CGAL::Lazy_exact_nt", ptr %15, i64 %.09
-  %20 = getelementptr %"class.CGAL::Lazy_exact_nt", ptr %19, i64 %18
+  %19 = getelementptr [16 x i8], ptr %15, i64 %.09
+  %20 = getelementptr [16 x i8], ptr %19, i64 %18
   %21 = load ptr, ptr %3, align 8, !tbaa !190
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8, !tbaa !176, !noalias !191
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !4, !noalias !191
-  %26 = getelementptr inbounds nuw i32, ptr %25, i64 %.09
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %.09
   %27 = load i32, ptr %26, align 4, !tbaa !18, !noalias !191
   %28 = sext i32 %27 to i64
   %29 = load ptr, ptr %21, align 8, !tbaa !184, !noalias !191
   %30 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %31 = load i64, ptr %30, align 8, !tbaa !49, !noalias !191
   %32 = mul nsw i64 %31, %.0810
-  %33 = getelementptr %"class.CGAL::Lazy_exact_nt", ptr %29, i64 %28
-  %34 = getelementptr %"class.CGAL::Lazy_exact_nt", ptr %33, i64 %32
+  %33 = getelementptr [16 x i8], ptr %29, i64 %28
+  %34 = getelementptr [16 x i8], ptr %33, i64 %32
   %35 = load ptr, ptr %34, align 8, !tbaa !107, !noalias !191
   %36 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !31
   %.not.i.i.i.i.i.i = icmp eq i8 %36, 0

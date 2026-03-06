@@ -143,7 +143,7 @@ define internal ptr @list_get_item(ptr readnone captures(none) %0, ptr noundef %
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %15 = load ptr, ptr %14, align 8, !tbaa !22
   %16 = load i64, ptr %4, align 8, !tbaa !25
-  %17 = getelementptr ptr, ptr %15, i64 %16
+  %17 = getelementptr [8 x i8], ptr %15, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !21
   %.not.i.i = icmp eq ptr %18, null
   br i1 %.not.i.i, label %_Py_XNewRef.exit, label %19
@@ -248,7 +248,7 @@ _Py_XNewRef.exit:                                 ; preds = %.thread, %16, %18, 
 PyList_SET_ITEM.exit:                             ; preds = %32
   %37 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %38 = load ptr, ptr %37, align 8, !tbaa !22
-  %39 = getelementptr ptr, ptr %38, i64 %23
+  %39 = getelementptr [8 x i8], ptr %38, i64 %23
   store ptr %24, ptr %39, align 8, !tbaa !21
   br label %40
 
@@ -409,7 +409,7 @@ define internal noundef ptr @test_list_api(ptr readnone captures(none) %0, ptr r
 
 23:                                               ; preds = %19
   %24 = load ptr, ptr %7, align 8, !tbaa !22
-  %25 = getelementptr ptr, ptr %24, i64 %indvars.iv
+  %25 = getelementptr [8 x i8], ptr %24, i64 %indvars.iv
   store ptr %9, ptr %25, align 8, !tbaa !21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 30
@@ -451,7 +451,7 @@ define internal noundef ptr @test_list_api(ptr readnone captures(none) %0, ptr r
 
 .critedge:                                        ; preds = %.preheader
   %37 = load ptr, ptr %7, align 8, !tbaa !22
-  %38 = getelementptr ptr, ptr %37, i64 %indvars.iv48
+  %38 = getelementptr [8 x i8], ptr %37, i64 %indvars.iv48
   %39 = load ptr, ptr %38, align 8, !tbaa !21
   %40 = tail call i64 @PyLong_AsLong(ptr noundef %39) #5
   %41 = sub nuw nsw i64 29, %indvars.iv48

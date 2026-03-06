@@ -30,8 +30,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::allocator.5" = type { i8 }
-%"struct.Yosys::hashlib::dict<std::__cxx11::basic_string<char>, Yosys::AST::AstNode *>::entry_t" = type <{ %"struct.std::pair.26", i32, [4 x i8] }>
-%"struct.std::pair.26" = type { %"class.std::__cxx11::basic_string", ptr }
 
 $_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev = comdat any
 
@@ -418,7 +416,7 @@ define noundef range(i32 -128, 401) i32 @_Z22frontend_verilog_yylexP24FRONTEND_V
 
 156:                                              ; preds = %154
   %157 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8, !tbaa !34
-  %158 = getelementptr inbounds nuw ptr, ptr %155, i64 %157
+  %158 = getelementptr inbounds nuw [8 x i8], ptr %155, i64 %157
   %159 = load ptr, ptr %158, align 8, !tbaa !35
   %160 = icmp eq ptr %159, null
   br i1 %160, label %.critedge2136, label %186
@@ -458,7 +456,7 @@ define noundef range(i32 -128, 401) i32 @_Z22frontend_verilog_yylexP24FRONTEND_V
   unreachable
 
 172:                                              ; preds = %167
-  %173 = getelementptr inbounds nuw ptr, ptr %170, i64 %165
+  %173 = getelementptr inbounds nuw [8 x i8], ptr %170, i64 %165
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %173, i8 0, i64 64, i1 false)
   store i64 %168, ptr @_ZL19yy_buffer_stack_max, align 8, !tbaa !34
   %.pre = load ptr, ptr @frontend_verilog_yyin, align 8, !tbaa !29
@@ -493,7 +491,7 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   tail call fastcc void @_ZL31frontend_verilog_yy_init_bufferP15yy_buffer_stateP8_IO_FILE(ptr noundef nonnull %175, ptr noundef %174)
   %183 = load ptr, ptr @_ZL15yy_buffer_stack, align 8, !tbaa !31
   %184 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8, !tbaa !34
-  %185 = getelementptr inbounds nuw ptr, ptr %183, i64 %184
+  %185 = getelementptr inbounds nuw [8 x i8], ptr %183, i64 %184
   store ptr %175, ptr %185, align 8, !tbaa !35
   br label %186
 
@@ -570,12 +568,12 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   %216 = getelementptr inbounds nuw i8, ptr @_ZL5yy_ec, i64 %215
   %217 = load i8, ptr %216, align 1, !tbaa !18
   %218 = sext i32 %.11105 to i64
-  %219 = getelementptr inbounds i16, ptr @_ZL7yy_base, i64 %218
+  %219 = getelementptr inbounds [2 x i8], ptr @_ZL7yy_base, i64 %218
   %220 = load i16, ptr %219, align 2, !tbaa !45
   %221 = sext i16 %220 to i64
   %222 = zext i8 %217 to i64
   %223 = add nsw i64 %221, %222
-  %224 = getelementptr inbounds i16, ptr @_ZL6yy_chk, i64 %223
+  %224 = getelementptr inbounds [2 x i8], ptr @_ZL6yy_chk, i64 %223
   %225 = load i16, ptr %224, align 2, !tbaa !45
   %226 = sext i16 %225 to i32
   %.not16153039 = icmp eq i32 %.11105, %226
@@ -585,7 +583,7 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   %227 = phi i64 [ %240, %235 ], [ %222, %212 ]
   %228 = phi i64 [ %236, %235 ], [ %218, %212 ]
   %.013973040 = phi i8 [ %.11398, %235 ], [ %217, %212 ]
-  %229 = getelementptr inbounds i16, ptr @_ZL6yy_def, i64 %228
+  %229 = getelementptr inbounds [2 x i8], ptr @_ZL6yy_def, i64 %228
   %230 = load i16, ptr %229, align 2, !tbaa !45
   %231 = icmp sgt i16 %230, 947
   br i1 %231, label %232, label %235
@@ -598,19 +596,19 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 235:                                              ; preds = %232, %.lr.ph
   %.11398 = phi i8 [ %234, %232 ], [ %.013973040, %.lr.ph ]
   %236 = sext i16 %230 to i64
-  %237 = getelementptr inbounds i16, ptr @_ZL7yy_base, i64 %236
+  %237 = getelementptr inbounds [2 x i8], ptr @_ZL7yy_base, i64 %236
   %238 = load i16, ptr %237, align 2, !tbaa !45
   %239 = sext i16 %238 to i64
   %240 = zext i8 %.11398 to i64
   %241 = add nsw i64 %239, %240
-  %242 = getelementptr inbounds i16, ptr @_ZL6yy_chk, i64 %241
+  %242 = getelementptr inbounds [2 x i8], ptr @_ZL6yy_chk, i64 %241
   %243 = load i16, ptr %242, align 2, !tbaa !45
   %.not1615 = icmp eq i16 %230, %243
   br i1 %.not1615, label %._crit_edge, label %.lr.ph, !llvm.loop !47
 
 ._crit_edge:                                      ; preds = %235, %212
   %.lcssa2622 = phi i64 [ %223, %212 ], [ %241, %235 ]
-  %244 = getelementptr inbounds i16, ptr @_ZL6yy_nxt, i64 %.lcssa2622
+  %244 = getelementptr inbounds [2 x i8], ptr @_ZL6yy_nxt, i64 %.lcssa2622
   %245 = load i16, ptr %244, align 2, !tbaa !45
   %246 = sext i16 %245 to i32
   %247 = getelementptr inbounds nuw i8, ptr %213, i64 4
@@ -618,7 +616,7 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   store i32 %246, ptr %213, align 4, !tbaa !27
   %248 = getelementptr inbounds nuw i8, ptr %.11181, i64 1
   %249 = sext i16 %245 to i64
-  %250 = getelementptr inbounds i16, ptr @_ZL7yy_base, i64 %249
+  %250 = getelementptr inbounds [2 x i8], ptr @_ZL7yy_base, i64 %249
   %251 = load i16, ptr %250, align 2, !tbaa !45
   %.not1616 = icmp eq i16 %251, 4532
   br i1 %.not1616, label %.preheader, label %212, !llvm.loop !48
@@ -637,7 +635,7 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   store ptr %253, ptr @_ZL12yy_state_ptr, align 8, !tbaa !26
   %254 = load i32, ptr %253, align 4, !tbaa !27
   %255 = sext i32 %254 to i64
-  %256 = getelementptr inbounds i16, ptr @_ZL9yy_accept, i64 %255
+  %256 = getelementptr inbounds [2 x i8], ptr @_ZL9yy_accept, i64 %255
   %257 = load i16, ptr %256, align 2, !tbaa !45
   %258 = sext i16 %257 to i32
   br label %.outer
@@ -668,7 +666,7 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 
 264:                                              ; preds = %261
   %265 = sext i32 %.4 to i64
-  %266 = getelementptr i16, ptr @_ZL9yy_accept, i64 %265
+  %266 = getelementptr [2 x i8], ptr @_ZL9yy_accept, i64 %265
   %267 = getelementptr i8, ptr %266, i64 2
   %268 = load i16, ptr %267, align 2, !tbaa !45
   %269 = sext i16 %268 to i32
@@ -677,7 +675,7 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 
 271:                                              ; preds = %264
   %272 = sext i32 %263 to i64
-  %273 = getelementptr inbounds i16, ptr @_ZL10yy_acclist, i64 %272
+  %273 = getelementptr inbounds [2 x i8], ptr @_ZL10yy_acclist, i64 %272
   %274 = load i16, ptr %273, align 2, !tbaa !45
   %275 = sext i16 %274 to i32
   %276 = and i16 %274, 16384
@@ -726,7 +724,7 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   store ptr %294, ptr @_ZL12yy_state_ptr, align 8, !tbaa !26
   %295 = load i32, ptr %294, align 4, !tbaa !27
   %296 = sext i32 %295 to i64
-  %297 = getelementptr inbounds i16, ptr @_ZL9yy_accept, i64 %296
+  %297 = getelementptr inbounds [2 x i8], ptr @_ZL9yy_accept, i64 %296
   %298 = load i16, ptr %297, align 2, !tbaa !45
   %299 = sext i16 %298 to i32
   br label %261, !llvm.loop !49
@@ -752,7 +750,7 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 
 310:                                              ; preds = %300
   %311 = sext i32 %.01207 to i64
-  %312 = getelementptr inbounds i32, ptr @_ZL21yy_rule_can_match_eol, i64 %311
+  %312 = getelementptr inbounds [4 x i8], ptr @_ZL21yy_rule_can_match_eol, i64 %311
   %313 = load i32, ptr %312, align 4, !tbaa !27
   %.not1620 = icmp eq i32 %313, 0
   br i1 %.not1620, label %.loopexit2572.preheader, label %314
@@ -12868,7 +12866,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2532: ; preds = %4
   store i8 %4769, ptr %.41184, align 1, !tbaa !18
   %4770 = load ptr, ptr @_ZL15yy_buffer_stack, align 8, !tbaa !31
   %4771 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8, !tbaa !34
-  %4772 = getelementptr inbounds nuw ptr, ptr %4770, i64 %4771
+  %4772 = getelementptr inbounds nuw [8 x i8], ptr %4770, i64 %4771
   %4773 = load ptr, ptr %4772, align 8, !tbaa !35
   %4774 = getelementptr inbounds nuw i8, ptr %4773, i64 56
   %4775 = load i32, ptr %4774, align 8, !tbaa !260
@@ -12936,12 +12934,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2532: ; preds = %4
 4810:                                             ; preds = %4806, %.lr.ph24.i
   %4811 = phi i8 [ %4809, %4806 ], [ 1, %.lr.ph24.i ]
   %4812 = sext i32 %.01521.i to i64
-  %4813 = getelementptr inbounds i16, ptr @_ZL7yy_base, i64 %4812
+  %4813 = getelementptr inbounds [2 x i8], ptr @_ZL7yy_base, i64 %4812
   %4814 = load i16, ptr %4813, align 2, !tbaa !45
   %4815 = sext i16 %4814 to i64
   %4816 = zext i8 %4811 to i64
   %4817 = add nsw i64 %4815, %4816
-  %4818 = getelementptr inbounds i16, ptr @_ZL6yy_chk, i64 %4817
+  %4818 = getelementptr inbounds [2 x i8], ptr @_ZL6yy_chk, i64 %4817
   %4819 = load i16, ptr %4818, align 2, !tbaa !45
   %4820 = sext i16 %4819 to i32
   %.not1819.i = icmp eq i32 %.01521.i, %4820
@@ -12951,7 +12949,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2532: ; preds = %4
   %4821 = phi i64 [ %4834, %4829 ], [ %4816, %4810 ]
   %4822 = phi i64 [ %4830, %4829 ], [ %4812, %4810 ]
   %.020.i = phi i8 [ %.1.i, %4829 ], [ %4811, %4810 ]
-  %4823 = getelementptr inbounds i16, ptr @_ZL6yy_def, i64 %4822
+  %4823 = getelementptr inbounds [2 x i8], ptr @_ZL6yy_def, i64 %4822
   %4824 = load i16, ptr %4823, align 2, !tbaa !45
   %4825 = icmp sgt i16 %4824, 947
   br i1 %4825, label %4826, label %4829
@@ -12964,19 +12962,19 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2532: ; preds = %4
 4829:                                             ; preds = %4826, %.lr.ph.i
   %.1.i = phi i8 [ %4828, %4826 ], [ %.020.i, %.lr.ph.i ]
   %4830 = sext i16 %4824 to i64
-  %4831 = getelementptr inbounds i16, ptr @_ZL7yy_base, i64 %4830
+  %4831 = getelementptr inbounds [2 x i8], ptr @_ZL7yy_base, i64 %4830
   %4832 = load i16, ptr %4831, align 2, !tbaa !45
   %4833 = sext i16 %4832 to i64
   %4834 = zext i8 %.1.i to i64
   %4835 = add nsw i64 %4833, %4834
-  %4836 = getelementptr inbounds i16, ptr @_ZL6yy_chk, i64 %4835
+  %4836 = getelementptr inbounds [2 x i8], ptr @_ZL6yy_chk, i64 %4835
   %4837 = load i16, ptr %4836, align 2, !tbaa !45
   %.not18.i = icmp eq i16 %4824, %4837
   br i1 %.not18.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !261
 
 ._crit_edge.i:                                    ; preds = %4829, %4810
   %.lcssa.i = phi i64 [ %4817, %4810 ], [ %4835, %4829 ]
-  %4838 = getelementptr inbounds i16, ptr @_ZL6yy_nxt, i64 %.lcssa.i
+  %4838 = getelementptr inbounds [2 x i8], ptr @_ZL6yy_nxt, i64 %.lcssa.i
   %4839 = load i16, ptr %4838, align 2, !tbaa !45
   %4840 = sext i16 %4839 to i32
   %4841 = getelementptr inbounds nuw i8, ptr %4804, i64 4
@@ -12993,11 +12991,11 @@ _ZL21yy_get_previous_statev.exit:                 ; preds = %4788, %._crit_edge2
   %4844 = phi ptr [ %4841, %._crit_edge25.i ], [ %4799, %4788 ]
   %.015.lcssa.i = phi i32 [ %4840, %._crit_edge25.i ], [ %4797, %4788 ]
   %4845 = sext i32 %.015.lcssa.i to i64
-  %4846 = getelementptr inbounds i16, ptr @_ZL7yy_base, i64 %4845
+  %4846 = getelementptr inbounds [2 x i8], ptr @_ZL7yy_base, i64 %4845
   %4847 = load i16, ptr %4846, align 2, !tbaa !45
   %4848 = sext i16 %4847 to i64
   %4849 = add nsw i64 %4848, 1
-  %4850 = getelementptr inbounds i16, ptr @_ZL6yy_chk, i64 %4849
+  %4850 = getelementptr inbounds [2 x i8], ptr @_ZL6yy_chk, i64 %4849
   %4851 = load i16, ptr %4850, align 2, !tbaa !45
   %4852 = sext i16 %4851 to i32
   %.not15.i = icmp eq i32 %.015.lcssa.i, %4852
@@ -13005,21 +13003,21 @@ _ZL21yy_get_previous_statev.exit:                 ; preds = %4788, %._crit_edge2
 
 .lr.ph.i2534:                                     ; preds = %_ZL21yy_get_previous_statev.exit, %.lr.ph.i2534
   %4853 = phi i64 [ %4856, %.lr.ph.i2534 ], [ %4845, %_ZL21yy_get_previous_statev.exit ]
-  %4854 = getelementptr inbounds i16, ptr @_ZL6yy_def, i64 %4853
+  %4854 = getelementptr inbounds [2 x i8], ptr @_ZL6yy_def, i64 %4853
   %4855 = load i16, ptr %4854, align 2, !tbaa !45
   %4856 = sext i16 %4855 to i64
-  %4857 = getelementptr inbounds i16, ptr @_ZL7yy_base, i64 %4856
+  %4857 = getelementptr inbounds [2 x i8], ptr @_ZL7yy_base, i64 %4856
   %4858 = load i16, ptr %4857, align 2, !tbaa !45
   %4859 = sext i16 %4858 to i64
   %4860 = add nsw i64 %4859, 1
-  %4861 = getelementptr inbounds i16, ptr @_ZL6yy_chk, i64 %4860
+  %4861 = getelementptr inbounds [2 x i8], ptr @_ZL6yy_chk, i64 %4860
   %4862 = load i16, ptr %4861, align 2, !tbaa !45
   %.not.i2535 = icmp eq i16 %4855, %4862
   br i1 %.not.i2535, label %._crit_edge.i2536, label %.lr.ph.i2534, !llvm.loop !263
 
 ._crit_edge.i2536:                                ; preds = %.lr.ph.i2534, %_ZL21yy_get_previous_statev.exit
   %.lcssa.i2537 = phi i64 [ %4849, %_ZL21yy_get_previous_statev.exit ], [ %4860, %.lr.ph.i2534 ]
-  %4863 = getelementptr inbounds i16, ptr @_ZL6yy_nxt, i64 %.lcssa.i2537
+  %4863 = getelementptr inbounds [2 x i8], ptr @_ZL6yy_nxt, i64 %.lcssa.i2537
   %4864 = load i16, ptr %4863, align 2, !tbaa !45
   %4865 = icmp eq i16 %4864, 947
   br i1 %4865, label %.preheader.loopexit, label %_ZL16yy_try_NUL_transi.exit
@@ -13083,12 +13081,12 @@ _ZL16yy_try_NUL_transi.exit:                      ; preds = %._crit_edge.i2536
 4894:                                             ; preds = %4890, %.lr.ph24.i2539
   %4895 = phi i8 [ %4893, %4890 ], [ 1, %.lr.ph24.i2539 ]
   %4896 = sext i32 %.01521.i2541 to i64
-  %4897 = getelementptr inbounds i16, ptr @_ZL7yy_base, i64 %4896
+  %4897 = getelementptr inbounds [2 x i8], ptr @_ZL7yy_base, i64 %4896
   %4898 = load i16, ptr %4897, align 2, !tbaa !45
   %4899 = sext i16 %4898 to i64
   %4900 = zext i8 %4895 to i64
   %4901 = add nsw i64 %4899, %4900
-  %4902 = getelementptr inbounds i16, ptr @_ZL6yy_chk, i64 %4901
+  %4902 = getelementptr inbounds [2 x i8], ptr @_ZL6yy_chk, i64 %4901
   %4903 = load i16, ptr %4902, align 2, !tbaa !45
   %4904 = sext i16 %4903 to i32
   %.not1819.i2543 = icmp eq i32 %.01521.i2541, %4904
@@ -13098,7 +13096,7 @@ _ZL16yy_try_NUL_transi.exit:                      ; preds = %._crit_edge.i2536
   %4905 = phi i64 [ %4918, %4913 ], [ %4900, %4894 ]
   %4906 = phi i64 [ %4914, %4913 ], [ %4896, %4894 ]
   %.020.i2545 = phi i8 [ %.1.i2546, %4913 ], [ %4895, %4894 ]
-  %4907 = getelementptr inbounds i16, ptr @_ZL6yy_def, i64 %4906
+  %4907 = getelementptr inbounds [2 x i8], ptr @_ZL6yy_def, i64 %4906
   %4908 = load i16, ptr %4907, align 2, !tbaa !45
   %4909 = icmp sgt i16 %4908, 947
   br i1 %4909, label %4910, label %4913
@@ -13111,19 +13109,19 @@ _ZL16yy_try_NUL_transi.exit:                      ; preds = %._crit_edge.i2536
 4913:                                             ; preds = %4910, %.lr.ph.i2544
   %.1.i2546 = phi i8 [ %4912, %4910 ], [ %.020.i2545, %.lr.ph.i2544 ]
   %4914 = sext i16 %4908 to i64
-  %4915 = getelementptr inbounds i16, ptr @_ZL7yy_base, i64 %4914
+  %4915 = getelementptr inbounds [2 x i8], ptr @_ZL7yy_base, i64 %4914
   %4916 = load i16, ptr %4915, align 2, !tbaa !45
   %4917 = sext i16 %4916 to i64
   %4918 = zext i8 %.1.i2546 to i64
   %4919 = add nsw i64 %4917, %4918
-  %4920 = getelementptr inbounds i16, ptr @_ZL6yy_chk, i64 %4919
+  %4920 = getelementptr inbounds [2 x i8], ptr @_ZL6yy_chk, i64 %4919
   %4921 = load i16, ptr %4920, align 2, !tbaa !45
   %.not18.i2547 = icmp eq i16 %4908, %4921
   br i1 %.not18.i2547, label %._crit_edge.i2548, label %.lr.ph.i2544, !llvm.loop !261
 
 ._crit_edge.i2548:                                ; preds = %4913, %4894
   %.lcssa.i2549 = phi i64 [ %4901, %4894 ], [ %4919, %4913 ]
-  %4922 = getelementptr inbounds i16, ptr @_ZL6yy_nxt, i64 %.lcssa.i2549
+  %4922 = getelementptr inbounds [2 x i8], ptr @_ZL6yy_nxt, i64 %.lcssa.i2549
   %4923 = load i16, ptr %4922, align 2, !tbaa !45
   %4924 = sext i16 %4923 to i32
   %4925 = getelementptr inbounds nuw i8, ptr %4888, i64 4
@@ -13139,7 +13137,7 @@ _ZL16yy_try_NUL_transi.exit:                      ; preds = %._crit_edge.i2536
 4928:                                             ; preds = %4870
   %4929 = load ptr, ptr @_ZL15yy_buffer_stack, align 8, !tbaa !31
   %4930 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8, !tbaa !34
-  %4931 = getelementptr inbounds nuw ptr, ptr %4929, i64 %4930
+  %4931 = getelementptr inbounds nuw [8 x i8], ptr %4929, i64 %4930
   %4932 = load ptr, ptr %4931, align 8, !tbaa !35
   %4933 = getelementptr inbounds nuw i8, ptr %4932, i64 8
   %4934 = load ptr, ptr %4933, align 8, !tbaa !39
@@ -13176,12 +13174,12 @@ _ZL16yy_try_NUL_transi.exit:                      ; preds = %._crit_edge.i2536
 4952:                                             ; preds = %4948, %.lr.ph24.i2553
   %4953 = phi i8 [ %4951, %4948 ], [ 1, %.lr.ph24.i2553 ]
   %4954 = sext i32 %.01521.i2555 to i64
-  %4955 = getelementptr inbounds i16, ptr @_ZL7yy_base, i64 %4954
+  %4955 = getelementptr inbounds [2 x i8], ptr @_ZL7yy_base, i64 %4954
   %4956 = load i16, ptr %4955, align 2, !tbaa !45
   %4957 = sext i16 %4956 to i64
   %4958 = zext i8 %4953 to i64
   %4959 = add nsw i64 %4957, %4958
-  %4960 = getelementptr inbounds i16, ptr @_ZL6yy_chk, i64 %4959
+  %4960 = getelementptr inbounds [2 x i8], ptr @_ZL6yy_chk, i64 %4959
   %4961 = load i16, ptr %4960, align 2, !tbaa !45
   %4962 = sext i16 %4961 to i32
   %.not1819.i2557 = icmp eq i32 %.01521.i2555, %4962
@@ -13191,7 +13189,7 @@ _ZL16yy_try_NUL_transi.exit:                      ; preds = %._crit_edge.i2536
   %4963 = phi i64 [ %4976, %4971 ], [ %4958, %4952 ]
   %4964 = phi i64 [ %4972, %4971 ], [ %4954, %4952 ]
   %.020.i2559 = phi i8 [ %.1.i2560, %4971 ], [ %4953, %4952 ]
-  %4965 = getelementptr inbounds i16, ptr @_ZL6yy_def, i64 %4964
+  %4965 = getelementptr inbounds [2 x i8], ptr @_ZL6yy_def, i64 %4964
   %4966 = load i16, ptr %4965, align 2, !tbaa !45
   %4967 = icmp sgt i16 %4966, 947
   br i1 %4967, label %4968, label %4971
@@ -13204,19 +13202,19 @@ _ZL16yy_try_NUL_transi.exit:                      ; preds = %._crit_edge.i2536
 4971:                                             ; preds = %4968, %.lr.ph.i2558
   %.1.i2560 = phi i8 [ %4970, %4968 ], [ %.020.i2559, %.lr.ph.i2558 ]
   %4972 = sext i16 %4966 to i64
-  %4973 = getelementptr inbounds i16, ptr @_ZL7yy_base, i64 %4972
+  %4973 = getelementptr inbounds [2 x i8], ptr @_ZL7yy_base, i64 %4972
   %4974 = load i16, ptr %4973, align 2, !tbaa !45
   %4975 = sext i16 %4974 to i64
   %4976 = zext i8 %.1.i2560 to i64
   %4977 = add nsw i64 %4975, %4976
-  %4978 = getelementptr inbounds i16, ptr @_ZL6yy_chk, i64 %4977
+  %4978 = getelementptr inbounds [2 x i8], ptr @_ZL6yy_chk, i64 %4977
   %4979 = load i16, ptr %4978, align 2, !tbaa !45
   %.not18.i2561 = icmp eq i16 %4966, %4979
   br i1 %.not18.i2561, label %._crit_edge.i2562, label %.lr.ph.i2558, !llvm.loop !261
 
 ._crit_edge.i2562:                                ; preds = %4971, %4952
   %.lcssa.i2563 = phi i64 [ %4959, %4952 ], [ %4977, %4971 ]
-  %4980 = getelementptr inbounds i16, ptr @_ZL6yy_nxt, i64 %.lcssa.i2563
+  %4980 = getelementptr inbounds [2 x i8], ptr @_ZL6yy_nxt, i64 %.lcssa.i2563
   %4981 = load i16, ptr %4980, align 2, !tbaa !45
   %4982 = sext i16 %4981 to i32
   %4983 = getelementptr inbounds nuw i8, ptr %4946, i64 4
@@ -13437,7 +13435,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i: ; preds = %27, %_ZNKS
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i: ; preds = %29, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i
   store ptr %23, ptr %0, align 8, !tbaa !22
   store ptr %28, ptr %3, align 8, !tbaa !60
-  %30 = getelementptr inbounds nuw i32, ptr %23, i64 %21
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %21
   store ptr %30, ptr %5, align 8, !tbaa !25
   br label %_ZNSt6vectorIiSaIiEE12emplace_backIJiEEERiDpOT_.exit
 
@@ -13762,7 +13760,7 @@ declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i6
 define internal fastcc noundef range(i32 0, 3) i32 @_ZL18yy_get_next_bufferv() unnamed_addr #4 {
   %1 = load ptr, ptr @_ZL15yy_buffer_stack, align 8, !tbaa !31
   %2 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8, !tbaa !34
-  %3 = getelementptr inbounds nuw ptr, ptr %1, i64 %2
+  %3 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %2
   %4 = load ptr, ptr %3, align 8, !tbaa !35
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !39
@@ -13856,7 +13854,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @_ZL18yy_get_next_bufferv() u
   store i32 %55, ptr @_ZL10yy_n_chars, align 4, !tbaa !27
   %56 = load ptr, ptr @_ZL15yy_buffer_stack, align 8, !tbaa !31
   %57 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8, !tbaa !34
-  %58 = getelementptr inbounds nuw ptr, ptr %56, i64 %57
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %57
   %59 = load ptr, ptr %58, align 8, !tbaa !35
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 28
   store i32 %55, ptr %60, align 4, !tbaa !41
@@ -13877,7 +13875,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @_ZL18yy_get_next_bufferv() u
   %.pre30 = load i32, ptr @_ZL10yy_n_chars, align 4, !tbaa !27
   %.pre31 = load ptr, ptr @_ZL15yy_buffer_stack, align 8, !tbaa !31
   %.pre32 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8, !tbaa !34
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre31, i64 %.pre32
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre31, i64 %.pre32
   %.pre33 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !35
   br label %72
 
@@ -13893,7 +13891,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @_ZL18yy_get_next_bufferv() u
   %76 = phi i32 [ %.pre30, %68 ], [ 0, %70 ], [ %55, %48 ]
   %.017 = phi i32 [ 1, %68 ], [ 2, %70 ], [ 0, %48 ]
   %77 = add nsw i32 %76, %30
-  %78 = getelementptr inbounds nuw ptr, ptr %75, i64 %74
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %74
   %79 = getelementptr inbounds nuw i8, ptr %73, i64 24
   %80 = load i32, ptr %79, align 8, !tbaa !37
   %81 = icmp sgt i32 %77, %80
@@ -13958,7 +13956,7 @@ define void @_Z26frontend_verilog_yyrestartP8_IO_FILE(ptr noundef %0) local_unna
 
 3:                                                ; preds = %1
   %4 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8, !tbaa !34
-  %5 = getelementptr inbounds nuw ptr, ptr %2, i64 %4
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !35
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.critedge, label %33
@@ -13998,7 +13996,7 @@ define void @_Z26frontend_verilog_yyrestartP8_IO_FILE(ptr noundef %0) local_unna
   unreachable
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds nuw ptr, ptr %17, i64 %12
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %20, i8 0, i64 64, i1 false)
   store i64 %15, ptr @_ZL19yy_buffer_stack_max, align 8, !tbaa !34
   br label %_ZL38frontend_verilog_yyensure_buffer_stackv.exit
@@ -14032,7 +14030,7 @@ _ZL38frontend_verilog_yyensure_buffer_stackv.exit: ; preds = %11, %.critedge, %1
   tail call fastcc void @_ZL31frontend_verilog_yy_init_bufferP15yy_buffer_stateP8_IO_FILE(ptr noundef nonnull %22, ptr noundef %21)
   %30 = load ptr, ptr @_ZL15yy_buffer_stack, align 8, !tbaa !31
   %31 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8, !tbaa !34
-  %32 = getelementptr inbounds nuw ptr, ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %31
   store ptr %22, ptr %32, align 8, !tbaa !35
   br label %33
 
@@ -14041,7 +14039,7 @@ _ZL38frontend_verilog_yyensure_buffer_stackv.exit: ; preds = %11, %.critedge, %1
   tail call fastcc void @_ZL31frontend_verilog_yy_init_bufferP15yy_buffer_stateP8_IO_FILE(ptr noundef nonnull %34, ptr noundef %0)
   %35 = load ptr, ptr @_ZL15yy_buffer_stack, align 8, !tbaa !31
   %36 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8, !tbaa !34
-  %37 = getelementptr inbounds nuw ptr, ptr %35, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %36
   %38 = load ptr, ptr %37, align 8, !tbaa !35
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 28
   %40 = load i32, ptr %39, align 4, !tbaa !41
@@ -14092,7 +14090,7 @@ _Z32frontend_verilog_yy_flush_bufferP15yy_buffer_state.exit.thread: ; preds = %5
 
 16:                                               ; preds = %5
   %17 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8, !tbaa !34
-  %18 = getelementptr inbounds nuw ptr, ptr %.pr.pre, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.pr.pre, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !35
   %20 = icmp eq ptr %0, %19
   br i1 %20, label %21, label %_Z32frontend_verilog_yy_flush_bufferP15yy_buffer_state.exit.thread17
@@ -14126,7 +14124,7 @@ _Z32frontend_verilog_yy_flush_bufferP15yy_buffer_state.exit: ; preds = %2
 
 30:                                               ; preds = %_Z32frontend_verilog_yy_flush_bufferP15yy_buffer_state.exit.thread17, %_Z32frontend_verilog_yy_flush_bufferP15yy_buffer_state.exit
   %31 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8, !tbaa !34
-  %32 = getelementptr inbounds nuw ptr, ptr %.pr.pre, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %.pr.pre, i64 %31
   %33 = load ptr, ptr %32, align 8, !tbaa !35
   %34 = icmp eq ptr %0, %33
   br i1 %34, label %37, label %.critedge
@@ -14199,7 +14197,7 @@ define void @_Z36frontend_verilog_yy_switch_to_bufferP15yy_buffer_state(ptr noun
   unreachable
 
 16:                                               ; preds = %11
-  %17 = getelementptr inbounds nuw ptr, ptr %14, i64 %9
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %9
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %17, i8 0, i64 64, i1 false)
   store i64 %12, ptr @_ZL19yy_buffer_stack_max, align 8, !tbaa !34
   br label %.thread
@@ -14207,7 +14205,7 @@ define void @_Z36frontend_verilog_yy_switch_to_bufferP15yy_buffer_state(ptr noun
 .thread:                                          ; preds = %16, %7, %6
   %18 = phi i64 [ 0, %6 ], [ %8, %7 ], [ %8, %16 ]
   %19 = phi ptr [ %4, %6 ], [ %2, %7 ], [ %14, %16 ]
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %18
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %18
   %21 = load ptr, ptr %20, align 8, !tbaa !35
   %22 = icmp eq ptr %21, %0
   br i1 %22, label %39, label %23
@@ -14229,7 +14227,7 @@ define void @_Z36frontend_verilog_yy_switch_to_bufferP15yy_buffer_state(ptr noun
   br label %.critedge
 
 .critedge:                                        ; preds = %25, %23
-  %32 = getelementptr inbounds nuw ptr, ptr %19, i64 %18
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %18
   store ptr %0, ptr %32, align 8, !tbaa !35
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %34 = load i32, ptr %33, align 4, !tbaa !41
@@ -14260,7 +14258,7 @@ define void @_Z33frontend_verilog_yy_delete_bufferP15yy_buffer_state(ptr noundef
 
 4:                                                ; preds = %2
   %5 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8, !tbaa !34
-  %6 = getelementptr inbounds nuw ptr, ptr %3, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !35
   %8 = icmp eq ptr %0, %7
   br i1 %8, label %9, label %.critedge
@@ -14322,7 +14320,7 @@ define void @_Z32frontend_verilog_yy_flush_bufferP15yy_buffer_state(ptr noundef 
 
 13:                                               ; preds = %2
   %14 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8, !tbaa !34
-  %15 = getelementptr inbounds nuw ptr, ptr %12, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !35
   %17 = icmp eq ptr %0, %16
   br i1 %17, label %18, label %.critedge
@@ -14391,7 +14389,7 @@ define void @_Z36frontend_verilog_yypush_buffer_stateP15yy_buffer_state(ptr noun
   unreachable
 
 18:                                               ; preds = %13
-  %19 = getelementptr inbounds nuw ptr, ptr %16, i64 %11
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %11
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %19, i8 0, i64 64, i1 false)
   store i64 %14, ptr @_ZL19yy_buffer_stack_max, align 8, !tbaa !34
   br label %_ZL38frontend_verilog_yyensure_buffer_stackv.exit
@@ -14399,7 +14397,7 @@ define void @_Z36frontend_verilog_yypush_buffer_stateP15yy_buffer_state(ptr noun
 _ZL38frontend_verilog_yyensure_buffer_stackv.exit: ; preds = %18, %9, %8
   %20 = phi i64 [ 0, %8 ], [ %10, %9 ], [ %10, %18 ]
   %21 = phi ptr [ %6, %8 ], [ %4, %9 ], [ %16, %18 ]
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %20
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %20
   %23 = load ptr, ptr %22, align 8, !tbaa !35
   %24 = icmp eq ptr %23, null
   br i1 %24, label %.critedge8, label %25
@@ -14420,7 +14418,7 @@ _ZL38frontend_verilog_yyensure_buffer_stackv.exit: ; preds = %18, %9, %8
 
 .critedge8:                                       ; preds = %_ZL38frontend_verilog_yyensure_buffer_stackv.exit, %25
   %33 = phi i64 [ %32, %25 ], [ %20, %_ZL38frontend_verilog_yyensure_buffer_stackv.exit ]
-  %34 = getelementptr inbounds nuw ptr, ptr %21, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %33
   store ptr %0, ptr %34, align 8, !tbaa !35
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %36 = load i32, ptr %35, align 4, !tbaa !41
@@ -14447,7 +14445,7 @@ define void @_Z35frontend_verilog_yypop_buffer_statev() local_unnamed_addr #19 {
 
 2:                                                ; preds = %0
   %3 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8, !tbaa !34
-  %4 = getelementptr inbounds nuw ptr, ptr %1, i64 %3
+  %4 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !35
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.critedge, label %.critedge.i
@@ -14474,7 +14472,7 @@ _Z33frontend_verilog_yy_delete_bufferP15yy_buffer_state.exit: ; preds = %.crited
 12:                                               ; preds = %_Z33frontend_verilog_yy_delete_bufferP15yy_buffer_state.exit
   %13 = add i64 %3, -1
   store i64 %13, ptr @_ZL19yy_buffer_stack_top, align 8, !tbaa !34
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %1, i64 %13
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %13
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !35
   %14 = icmp eq ptr %.pre, null
   br i1 %14, label %.critedge, label %15
@@ -14691,13 +14689,13 @@ define noundef i32 @_Z30frontend_verilog_yylex_destroyv() local_unnamed_addr #22
 
 .lr.ph.preheader:                                 ; preds = %0
   %.pre = load i64, ptr @_ZL19yy_buffer_stack_top, align 8, !tbaa !34
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pr, i64 %.pre
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pr, i64 %.pre
   %.pre10 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !35
   %1 = icmp eq ptr %.pre10, null
   br i1 %1, label %.critedge, label %.critedge.i
 
 .critedge.i:                                      ; preds = %.lr.ph.preheader
-  %2 = getelementptr inbounds nuw ptr, ptr %.pr, i64 %.pre
+  %2 = getelementptr inbounds nuw [8 x i8], ptr %.pr, i64 %.pre
   store ptr null, ptr %2, align 8, !tbaa !35
   %3 = getelementptr inbounds nuw i8, ptr %.pre10, i64 32
   %4 = load i32, ptr %3, align 8, !tbaa !40
@@ -14716,7 +14714,7 @@ _Z35frontend_verilog_yypop_buffer_statev.exit:    ; preds = %.critedge.i, %5
   %8 = phi i64 [ %.pre, %.critedge.i ], [ %.pre12, %5 ]
   %9 = phi ptr [ %.pr, %.critedge.i ], [ %.pre11, %5 ]
   tail call void @free(ptr noundef nonnull %.pre10) #43
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %8
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %8
   store ptr null, ptr %10, align 8, !tbaa !35
   br label %.critedge
 
@@ -14768,7 +14766,7 @@ define internal noundef range(i32 0, 256) i32 @_ZL7yyinputv() #4 {
 4:                                                ; preds = %0
   %5 = load ptr, ptr @_ZL15yy_buffer_stack, align 8, !tbaa !31
   %6 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8, !tbaa !34
-  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !35
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !39
@@ -15078,7 +15076,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit36, %73
   store ptr %23, ptr %0, align 8, !tbaa !6
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8, !tbaa !12
-  %77 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %77, ptr %72, align 8, !tbaa !21
   ret void
 
@@ -15203,7 +15201,7 @@ _ZNK5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_
   %53 = phi ptr [ %4, %._crit_edge ], [ %24, %_ZNK5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_3AST7AstNodeENS0_8hash_opsIS7_EEE7do_hashERKS7_.exit ]
   %54 = phi i32 [ %.pre, %._crit_edge ], [ %.0.i, %_ZNK5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_3AST7AstNodeENS0_8hash_opsIS7_EEE7do_hashERKS7_.exit ]
   %55 = zext i32 %54 to i64
-  %56 = getelementptr inbounds nuw i32, ptr %53, i64 %55
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %55
   %57 = load i32, ptr %56, align 4, !tbaa !27
   %58 = icmp sgt i32 %57, -1
   br i1 %58, label %.lr.ph, label %.critedge
@@ -15219,7 +15217,7 @@ _ZNK5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_
 64:                                               ; preds = %.lr.ph, %_ZN5Yosys7hashlib8hash_opsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3cmpERKS7_SA_.exit.thread13
   %.014 = phi i32 [ %57, %.lr.ph ], [ %74, %_ZN5Yosys7hashlib8hash_opsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3cmpERKS7_SA_.exit.thread13 ]
   %65 = zext nneg i32 %.014 to i64
-  %66 = getelementptr inbounds nuw %"struct.Yosys::hashlib::dict<std::__cxx11::basic_string<char>, Yosys::AST::AstNode *>::entry_t", ptr %59, i64 %65
+  %66 = getelementptr inbounds nuw [48 x i8], ptr %59, i64 %65
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %68 = load i64, ptr %67, align 8, !tbaa !57
   %69 = icmp eq i64 %68, %61
@@ -15292,7 +15290,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %1, %6
   br i1 %29, label %30, label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit
 
 30:                                               ; preds = %28
-  %31 = getelementptr inbounds nuw i32, ptr %20, i64 %18
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %18
   %.not.i.i9 = icmp eq ptr %19, %31
   br i1 %.not.i.i9, label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit, label %32
 
@@ -15332,7 +15330,7 @@ _ZNK5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_
 _ZNK5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_3AST7AstNodeENS0_8hash_opsIS7_EEE7do_hashERKS7_.exit.us: ; preds = %_ZNK5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_3AST7AstNodeENS0_8hash_opsIS7_EEE7do_hashERKS7_.exit.us.preheader, %_ZNK5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_3AST7AstNodeENS0_8hash_opsIS7_EEE7do_hashERKS7_.exit.us
   %50 = phi i32 [ %.pre, %_ZNK5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_3AST7AstNodeENS0_8hash_opsIS7_EEE7do_hashERKS7_.exit.us.preheader ], [ %53, %_ZNK5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_3AST7AstNodeENS0_8hash_opsIS7_EEE7do_hashERKS7_.exit.us ]
   %indvars.iv13 = phi i64 [ 0, %_ZNK5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_3AST7AstNodeENS0_8hash_opsIS7_EEE7do_hashERKS7_.exit.us.preheader ], [ %indvars.iv.next14, %_ZNK5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_3AST7AstNodeENS0_8hash_opsIS7_EEE7do_hashERKS7_.exit.us ]
-  %51 = getelementptr inbounds nuw %"struct.Yosys::hashlib::dict<std::__cxx11::basic_string<char>, Yosys::AST::AstNode *>::entry_t", ptr %35, i64 %indvars.iv13
+  %51 = getelementptr inbounds nuw [48 x i8], ptr %35, i64 %indvars.iv13
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 40
   store i32 %50, ptr %52, align 8, !tbaa !307
   %53 = trunc nuw nsw i64 %indvars.iv13 to i32
@@ -15346,7 +15344,7 @@ _ZNK5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZN5Yosys7hashlib8hash_opsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4hashERKS7_.exit.i
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5Yosys7hashlib8hash_opsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4hashERKS7_.exit.i ], [ 0, %.lr.ph ]
-  %54 = getelementptr inbounds nuw %"struct.Yosys::hashlib::dict<std::__cxx11::basic_string<char>, Yosys::AST::AstNode *>::entry_t", ptr %35, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [48 x i8], ptr %35, i64 %indvars.iv
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 40
   %56 = load ptr, ptr %54, align 8, !tbaa !13
   %57 = getelementptr inbounds nuw i8, ptr %54, i64 8
@@ -15381,7 +15379,7 @@ _ZN5Yosys7hashlib8hash_opsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
   %.sroa.06.0.lcssa.i.i.i = phi i32 [ 5381, %.lr.ph.split ], [ %72, %61 ]
   %74 = urem i32 %.sroa.06.0.lcssa.i.i.i, %49
   %75 = zext i32 %74 to i64
-  %76 = getelementptr inbounds nuw i32, ptr %42, i64 %75
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %75
   %77 = load i32, ptr %76, align 4, !tbaa !27
   store i32 %77, ptr %55, align 8, !tbaa !307
   %78 = trunc nuw nsw i64 %indvars.iv to i32
@@ -15503,7 +15501,7 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE14_M_fill_insertEN9__gnu_cxx17__no
 
 _ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit: ; preds = %23, %20
   %24 = phi ptr [ %.pre, %23 ], [ %9, %20 ]
-  %25 = getelementptr inbounds nuw i32, ptr %24, i64 %2
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %2
   store ptr %25, ptr %8, align 8, !tbaa !60
   %.not.i.i.i.i.i = icmp eq ptr %21, %1
   br i1 %.not.i.i.i.i.i, label %_ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit, label %26
@@ -15512,7 +15510,7 @@ _ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit: ; preds = %23, %20
   %27 = sub i64 %22, %16
   %28 = ashr exact i64 %27, 2
   %29 = sub nsw i64 0, %28
-  %30 = getelementptr inbounds i32, ptr %9, i64 %29
+  %30 = getelementptr inbounds [4 x i8], ptr %9, i64 %29
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %30, ptr align 4 %1, i64 %27, i1 false)
   br label %_ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit
 
@@ -15623,7 +15621,7 @@ _ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit80: ; preds = %.l
   br label %_ZSt34__uninitialized_move_if_noexcept_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit
 
 _ZSt34__uninitialized_move_if_noexcept_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit: ; preds = %67, %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit80
-  %68 = getelementptr inbounds nuw i32, ptr %63, i64 %2
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %2
   %69 = sub i64 %11, %56
   %.not.i.i.i.i.i.i.i.i.i82 = icmp eq ptr %9, %1
   br i1 %.not.i.i.i.i.i.i.i.i.i82, label %71, label %70
@@ -15645,7 +15643,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit: ; pred
 _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit: ; preds = %71, %73
   store ptr %62, ptr %0, align 8, !tbaa !22
   store ptr %72, ptr %8, align 8, !tbaa !60
-  %75 = getelementptr inbounds nuw i32, ptr %62, i64 %55
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %55
   store ptr %75, ptr %6, align 8, !tbaa !25
   br label %_ZSt4fillIPiiEvT_S1_RKT0_.exit
 

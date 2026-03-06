@@ -24,14 +24,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base.70" = type { %"struct.std::_Vector_base<QuantLib::DefaultProbKey, std::allocator<QuantLib::DefaultProbKey>>::_Vector_impl" }
 %"struct.std::_Vector_base<QuantLib::DefaultProbKey, std::allocator<QuantLib::DefaultProbKey>>::_Vector_impl" = type { %"struct.std::_Vector_base<QuantLib::DefaultProbKey, std::allocator<QuantLib::DefaultProbKey>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<QuantLib::DefaultProbKey, std::allocator<QuantLib::DefaultProbKey>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.QuantLib::DefaultProbKey" = type <{ %"class.std::vector.56", %"class.QuantLib::Currency", i32, [4 x i8] }>
-%"class.std::vector.56" = type { %"struct.std::_Vector_base.57" }
-%"struct.std::_Vector_base.57" = type { %"struct.std::_Vector_base<boost::shared_ptr<QuantLib::DefaultType>, std::allocator<boost::shared_ptr<QuantLib::DefaultType>>>::_Vector_impl" }
-%"struct.std::_Vector_base<boost::shared_ptr<QuantLib::DefaultType>, std::allocator<boost::shared_ptr<QuantLib::DefaultType>>>::_Vector_impl" = type { %"struct.std::_Vector_base<boost::shared_ptr<QuantLib::DefaultType>, std::allocator<boost::shared_ptr<QuantLib::DefaultType>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<boost::shared_ptr<QuantLib::DefaultType>, std::allocator<boost::shared_ptr<QuantLib::DefaultType>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.QuantLib::Currency" = type { %"class.boost::shared_ptr.61" }
-%"class.boost::shared_ptr.61" = type { ptr, %"class.boost::detail::shared_count" }
-%"class.boost::detail::shared_count" = type { ptr }
 %"struct.std::_Rb_tree<boost::shared_ptr<QuantLib::DefaultEvent>, boost::shared_ptr<QuantLib::DefaultEvent>, std::_Identity<boost::shared_ptr<QuantLib::DefaultEvent>>, QuantLib::earlier_than<boost::shared_ptr<QuantLib::DefaultEvent>>>::_Reuse_or_alloc_node" = type { ptr, ptr, ptr }
 %"class.std::vector.45" = type { %"struct.std::_Vector_base.46" }
 %"struct.std::_Vector_base.46" = type { %"struct.std::_Vector_base<std::pair<QuantLib::DefaultProbKey, QuantLib::Handle<QuantLib::DefaultProbabilityTermStructure>>, std::allocator<std::pair<QuantLib::DefaultProbKey, QuantLib::Handle<QuantLib::DefaultProbabilityTermStructure>>>>::_Vector_impl" }
@@ -2238,7 +2230,7 @@ _ZNSt12_Vector_baseIN8QuantLib14DefaultProbKeyESaIS1_EE13_M_deallocateEPS1_m.exi
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !55
   %add.ptr = getelementptr inbounds nuw i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i8
   store ptr %add.ptr, ptr %_M_finish.i, align 8, !tbaa !56
-  %add.ptr21 = getelementptr inbounds nuw %"class.QuantLib::DefaultProbKey", ptr %call5.i.i.i, i64 %__n
+  %add.ptr21 = getelementptr inbounds nuw [48 x i8], ptr %call5.i.i.i, i64 %__n
   store ptr %add.ptr21, ptr %_M_end_of_storage.i, align 8, !tbaa !53
   br label %if.end24
 
@@ -5652,7 +5644,7 @@ if.then.i39:                                      ; preds = %_ZNSt6vectorINSt7__
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit38, %if.then.i39
   store ptr %cond.i17, ptr %this, align 8, !tbaa !15
   store ptr %__cur.0.lcssa.i.i.i33, ptr %_M_finish.i.i, align 8, !tbaa !17
-  %add.ptr26 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %cond.i17, i64 %cond.i
+  %add.ptr26 = getelementptr inbounds nuw [32 x i8], ptr %cond.i17, i64 %cond.i
   store ptr %add.ptr26, ptr %_M_end_of_storage, align 8, !tbaa !29
   ret void
 
@@ -6651,7 +6643,7 @@ if.then.i38:                                      ; preds = %_ZNSt6vectorIN8Quan
 _ZNSt12_Vector_baseIN8QuantLib14DefaultProbKeyESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN8QuantLib14DefaultProbKeyESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit37, %if.then.i38
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !55
   store ptr %__cur.0.lcssa.i.i.i36, ptr %_M_finish.i.i, align 8, !tbaa !56
-  %add.ptr26 = getelementptr inbounds nuw %"class.QuantLib::DefaultProbKey", ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr26 = getelementptr inbounds nuw [48 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr26, ptr %_M_end_of_storage, align 8, !tbaa !53
   ret void
 

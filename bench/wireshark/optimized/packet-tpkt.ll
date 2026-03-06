@@ -130,7 +130,7 @@ define hidden zeroext range(i16 -1, 2) i16 @is_asciitpkt(ptr noundef %0) local_u
   %indvars.iv = phi i32 [ 0, %.preheader ], [ %indvars.iv.next, %7 ]
   %9 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %indvars.iv)
   %10 = zext i8 %9 to i64
-  %11 = getelementptr i16, ptr %6, i64 %10
+  %11 = getelementptr [2 x i8], ptr %6, i64 %10
   %12 = load i16, ptr %11, align 2
   %13 = and i16 %12, 1
   %.not = icmp eq i16 %13, 0

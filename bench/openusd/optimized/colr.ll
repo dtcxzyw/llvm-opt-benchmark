@@ -47,7 +47,7 @@ define hidden void @avifColorPrimariesGetValues(i16 noundef zeroext %0, ptr noun
 
 4:                                                ; preds = %2, %3
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %3 ]
-  %5 = getelementptr inbounds nuw %struct.avifColorPrimariesTable, ptr @avifColorPrimariesTables, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [48 x i8], ptr @avifColorPrimariesTables, i64 %indvars.iv
   %6 = load i16, ptr %5, align 16
   %7 = icmp eq i16 %6, %0
   br i1 %7, label %8, label %3
@@ -90,7 +90,7 @@ define hidden zeroext i16 @avifColorPrimariesFind(ptr noundef readonly captures(
 
 13:                                               ; preds = %4, %primariesMatch.exit.thread
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %primariesMatch.exit.thread ]
-  %14 = getelementptr inbounds nuw %struct.avifColorPrimariesTable, ptr @avifColorPrimariesTables, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [48 x i8], ptr @avifColorPrimariesTables, i64 %indvars.iv
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load float, ptr %15, align 16
   %17 = fsub float %5, %16
@@ -259,7 +259,7 @@ define hidden void @avifCalcYUVCoefficients(ptr noundef readonly captures(none) 
 
 .preheader.i:                                     ; preds = %4, %12
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %12 ], [ 0, %4 ]
-  %13 = getelementptr inbounds nuw %struct.avifMatrixCoefficientsTable, ptr @matrixCoefficientsTables, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw [24 x i8], ptr @matrixCoefficientsTables, i64 %indvars.iv.i
   %14 = load i16, ptr %13, align 8
   %15 = icmp eq i16 %14, %7
   br i1 %15, label %16, label %12
@@ -294,7 +294,7 @@ define hidden ptr @avifTransferCharacteristicsGetGammaToLinearFunction(i16 nound
 
 3:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %4 = getelementptr inbounds nuw %struct.avifTransferCharacteristicsTable, ptr @transferCharacteristicsTables, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [32 x i8], ptr @transferCharacteristicsTables, i64 %indvars.iv
   %5 = load i16, ptr %4, align 16
   %6 = icmp eq i16 %5, %0
   br i1 %6, label %7, label %2
@@ -348,7 +348,7 @@ define hidden ptr @avifTransferCharacteristicsGetLinearToGammaFunction(i16 nound
 
 3:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %4 = getelementptr inbounds nuw %struct.avifTransferCharacteristicsTable, ptr @transferCharacteristicsTables, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [32 x i8], ptr @transferCharacteristicsTables, i64 %indvars.iv
   %5 = load i16, ptr %4, align 16
   %6 = icmp eq i16 %5, %0
   br i1 %6, label %7, label %2
@@ -401,7 +401,7 @@ define hidden void @avifColorPrimariesComputeYCoeffs(i16 noundef zeroext %0, ptr
 
 4:                                                ; preds = %3, %2
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %3 ]
-  %5 = getelementptr inbounds nuw %struct.avifColorPrimariesTable, ptr @avifColorPrimariesTables, i64 %indvars.iv.i
+  %5 = getelementptr inbounds nuw [48 x i8], ptr @avifColorPrimariesTables, i64 %indvars.iv.i
   %6 = load i16, ptr %5, align 16
   %7 = icmp eq i16 %6, %0
   br i1 %7, label %8, label %3

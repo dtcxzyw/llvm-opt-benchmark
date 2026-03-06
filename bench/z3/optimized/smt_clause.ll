@@ -102,7 +102,7 @@ define hidden noundef ptr @_ZN3smt6clause2mkER11ast_managerjPN3sat7literalENS_11
 
 36:                                               ; preds = %8
   %37 = zext nneg i32 %22 to i64
-  %38 = getelementptr inbounds nuw %"class.sat::literal", ptr %32, i64 %37
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %37
   store i32 1, ptr %38, align 4, !tbaa !8
   br label %39
 
@@ -111,7 +111,7 @@ define hidden noundef ptr @_ZN3smt6clause2mkER11ast_managerjPN3sat7literalENS_11
 
 40:                                               ; preds = %39
   %41 = zext nneg i32 %22 to i64
-  %42 = getelementptr inbounds nuw %"class.sat::literal", ptr %32, i64 %41
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %41
   %43 = lshr exact i32 %23, 23
   %44 = and i32 %43, 4
   %spec.select.idx.i = zext nneg i32 %44 to i64
@@ -130,7 +130,7 @@ define hidden noundef ptr @_ZN3smt6clause2mkER11ast_managerjPN3sat7literalENS_11
   %51 = load i32, ptr %21, align 4
   %52 = and i32 %51, 16777215
   %53 = zext nneg i32 %52 to i64
-  %54 = getelementptr inbounds nuw %"class.sat::literal", ptr %32, i64 %53
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %53
   %55 = lshr i32 %51, 23
   %56 = and i32 %55, 4
   %spec.select.idx.i.i = zext nneg i32 %56 to i64
@@ -153,11 +153,11 @@ define hidden noundef ptr @_ZN3smt6clause2mkER11ast_managerjPN3sat7literalENS_11
 
 .lr.ph:                                           ; preds = %63, %_ZN11ast_manager7inc_refEP3ast.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN11ast_manager7inc_refEP3ast.exit ], [ 0, %63 ]
-  %65 = getelementptr inbounds nuw %"class.sat::literal", ptr %2, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %66 = load i32, ptr %65, align 4, !tbaa !14
   %67 = lshr i32 %66, 1
   %68 = zext nneg i32 %67 to i64
-  %69 = getelementptr inbounds nuw ptr, ptr %7, i64 %68
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %68
   %70 = load ptr, ptr %69, align 8, !tbaa !16
   %.not.i = icmp eq ptr %70, null
   br i1 %.not.i, label %_ZN11ast_manager7inc_refEP3ast.exit, label %71
@@ -178,7 +178,7 @@ _ZN11ast_manager7inc_refEP3ast.exit:              ; preds = %.lr.ph, %71
   %80 = load i32, ptr %21, align 4
   %81 = and i32 %80, 16777215
   %82 = zext nneg i32 %81 to i64
-  %83 = getelementptr inbounds nuw %"class.sat::literal", ptr %32, i64 %82
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %82
   %84 = lshr i32 %80, 23
   %85 = and i32 %84, 4
   %spec.select.idx.i.i.i = zext nneg i32 %85 to i64
@@ -195,7 +195,7 @@ _ZN11ast_manager7inc_refEP3ast.exit:              ; preds = %.lr.ph, %71
   %93 = and i32 %92, 8
   %spec.select.idx.i60 = zext nneg i32 %93 to i64
   %spec.select.i61 = getelementptr inbounds nuw i8, ptr %spec.select.i.i59, i64 %spec.select.idx.i60
-  %94 = getelementptr inbounds nuw ptr, ptr %spec.select.i61, i64 %indvars.iv
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %spec.select.i61, i64 %indvars.iv
   store ptr %79, ptr %94, align 8, !tbaa !16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %33
@@ -222,7 +222,7 @@ _ZNK3smt6clause10get_del_ehEv.exit:               ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = and i32 %4, 16777215
   %8 = zext nneg i32 %7 to i64
-  %9 = getelementptr inbounds nuw %"class.sat::literal", ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %8
   %10 = lshr i32 %4, 23
   %11 = and i32 %10, 4
   %spec.select.idx.i.i = zext nneg i32 %11 to i64
@@ -252,7 +252,7 @@ _ZNK3smt6clause10get_del_ehEv.exit.thread:        ; preds = %2, %17, %_ZNK3smt6c
 _ZNK3smt6clause17get_justificationEv.exit:        ; preds = %_ZNK3smt6clause10get_del_ehEv.exit.thread
   %23 = and i32 %21, 16777215
   %24 = zext nneg i32 %23 to i64
-  %25 = getelementptr inbounds nuw %"class.sat::literal", ptr %0, i64 %24
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %24
   %spec.select.i.i.i = getelementptr inbounds nuw i8, ptr %25, i64 12
   %26 = ptrtoint ptr %spec.select.i.i.i to i64
   %27 = add i64 %26, 4
@@ -328,7 +328,7 @@ _Z7deallocIN3smt13justificationEEvPT_.exit:       ; preds = %_ZNK3smt6clause17ge
   %60 = load i32, ptr %3, align 4
   %61 = and i32 %60, 16777215
   %62 = zext nneg i32 %61 to i64
-  %63 = getelementptr inbounds nuw %"class.sat::literal", ptr %44, i64 %62
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %62
   %64 = lshr i32 %60, 23
   %65 = and i32 %64, 4
   %spec.select.idx.i.i.i.i = zext nneg i32 %65 to i64
@@ -345,7 +345,7 @@ _Z7deallocIN3smt13justificationEEvPT_.exit:       ; preds = %_ZNK3smt6clause17ge
   %73 = and i32 %72, 8
   %spec.select.idx.i.i24 = zext nneg i32 %73 to i64
   %spec.select.i.i25 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i23, i64 %spec.select.idx.i.i24
-  %74 = getelementptr inbounds nuw ptr, ptr %spec.select.i.i25, i64 %indvars.iv
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %spec.select.i.i25, i64 %indvars.iv
   %75 = load ptr, ptr %74, align 8, !tbaa !16
   %76 = ptrtoint ptr %75 to i64
   %77 = and i64 %76, -8
@@ -398,7 +398,7 @@ define hidden void @_ZN3smt6clause13release_atomsER11ast_manager(ptr noundef non
   %10 = load i32, ptr %3, align 4
   %11 = and i32 %10, 16777215
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr inbounds nuw %"class.sat::literal", ptr %9, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %12
   %14 = lshr i32 %10, 23
   %15 = and i32 %14, 4
   %spec.select.idx.i.i.i.i = zext nneg i32 %15 to i64
@@ -415,7 +415,7 @@ define hidden void @_ZN3smt6clause13release_atomsER11ast_manager(ptr noundef non
   %23 = and i32 %22, 8
   %spec.select.idx.i.i = zext nneg i32 %23 to i64
   %spec.select.i.i = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i, i64 %spec.select.idx.i.i
-  %24 = getelementptr inbounds nuw ptr, ptr %spec.select.i.i, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %spec.select.i.i, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8, !tbaa !16
   %26 = ptrtoint ptr %25 to i64
   %27 = and i64 %26, -8
@@ -439,7 +439,7 @@ _ZN11ast_manager7dec_refEP3ast.exit:              ; preds = %.lr.ph.split, %29, 
   %35 = load i32, ptr %3, align 4
   %36 = and i32 %35, 16777215
   %37 = zext nneg i32 %36 to i64
-  %38 = getelementptr inbounds nuw %"class.sat::literal", ptr %9, i64 %37
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %37
   %39 = lshr i32 %35, 23
   %40 = and i32 %39, 4
   %spec.select.idx.i.i.i7 = zext nneg i32 %40 to i64
@@ -456,7 +456,7 @@ _ZN11ast_manager7dec_refEP3ast.exit:              ; preds = %.lr.ph.split, %29, 
   %48 = and i32 %47, 8
   %spec.select.idx.i = zext nneg i32 %48 to i64
   %spec.select.i11 = getelementptr inbounds nuw i8, ptr %spec.select.i.i10, i64 %spec.select.idx.i
-  %49 = getelementptr inbounds nuw ptr, ptr %spec.select.i11, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %spec.select.i11, i64 %indvars.iv
   store ptr null, ptr %49, align 8, !tbaa !16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -481,7 +481,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3smt6clause7di
 9:                                                ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
   %10 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.4, i64 noundef 1)
-  %11 = getelementptr inbounds nuw %"class.sat::literal", ptr %7, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv
   %.sroa.0.0.copyload = load i32, ptr %11, align 4, !tbaa !8
   %12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN3smt7displayERSoN3sat7literalER11ast_managerPKP4expr(ptr noundef nonnull align 8 dereferenceable(8) %1, i32 %.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(976) %2, ptr noundef %3)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -511,7 +511,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3smt6clause15d
 9:                                                ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
   %10 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.4, i64 noundef 1)
-  %11 = getelementptr inbounds nuw %"class.sat::literal", ptr %7, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv
   %.sroa.0.0.copyload = load i32, ptr %11, align 4, !tbaa !8
   %12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN3smt15display_compactERSoN3sat7literalEPKP4expr(ptr noundef nonnull align 8 dereferenceable(8) %1, i32 %.sroa.0.0.copyload, ptr noundef %3)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -564,11 +564,11 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit:
 
 18:                                               ; preds = %.lr.ph, %76
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %76 ]
-  %19 = getelementptr inbounds nuw %"class.sat::literal", ptr %11, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   %20 = load i32, ptr %19, align 4, !tbaa !8
   %21 = lshr i32 %20, 1
   %22 = zext nneg i32 %21 to i64
-  %23 = getelementptr inbounds nuw ptr, ptr %3, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !16
   %.not.i.i.i.i = icmp eq ptr %24, null
   br i1 %.not.i.i.i.i, label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i, label %25
@@ -608,7 +608,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.
   %40 = phi ptr [ %.pre.i.i, %.noexc ], [ %29, %31 ]
   %41 = getelementptr inbounds i8, ptr %40, i64 -4
   %42 = zext i32 %39 to i64
-  %43 = getelementptr inbounds nuw ptr, ptr %40, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %42
   store ptr %24, ptr %43, align 8, !tbaa !16
   %44 = add i32 %39, 1
   store i32 %44, ptr %41, align 4, !tbaa !8
@@ -616,7 +616,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.
   br i1 %45, label %46, label %76
 
 46:                                               ; preds = %38
-  %47 = getelementptr inbounds nuw ptr, ptr %40, i64 %42
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %42
   %48 = load ptr, ptr %47, align 8, !tbaa !16
   %49 = invoke noundef ptr @_ZN11ast_manager6mk_appEiiP4expr(ptr noundef nonnull align 8 dereferenceable(976) %2, i32 noundef 0, i32 noundef 8, ptr noundef %48)
           to label %_ZN11ast_manager6mk_notEP4expr.exit unwind label %72
@@ -635,7 +635,7 @@ _ZN11ast_manager6mk_notEP4expr.exit:              ; preds = %46
 
 57:                                               ; preds = %52, %_ZN11ast_manager6mk_notEP4expr.exit
   %.0.i.i23 = phi i64 [ %56, %52 ], [ 4294967295, %_ZN11ast_manager6mk_notEP4expr.exit ]
-  %58 = getelementptr inbounds nuw ptr, ptr %50, i64 %.0.i.i23
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %.0.i.i23
   %59 = load ptr, ptr %5, align 8, !tbaa !34
   %.not.i.i = icmp eq ptr %49, null
   br i1 %.not.i.i, label %_ZN11ast_manager7inc_refEP3ast.exit.i, label %60

@@ -1964,7 +1964,7 @@ _ZNSt6vectorIP9AstActiveSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; preds
 _ZNSt6vectorIP9AstActiveSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %195, %_ZNSt6vectorIP9AstActiveSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   store ptr %190, ptr %45, align 8, !tbaa !131
   store ptr %194, ptr %47, align 8, !tbaa !132
-  %196 = getelementptr inbounds nuw ptr, ptr %190, i64 %188
+  %196 = getelementptr inbounds nuw [8 x i8], ptr %190, i64 %188
   store ptr %196, ptr %75, align 8, !tbaa !133
   br label %_ZNSt6vectorIP9AstActiveSaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.exit
 
@@ -4119,7 +4119,7 @@ define linkonce_odr dso_local void @_ZN7AstNode11foreachImplIKS_ZNKS_9nodeCountE
 
 10:                                               ; preds = %.noexc, %10
   %indvars.iv = phi i64 [ -2, %.noexc ], [ %indvars.iv.next, %10 ]
-  %11 = getelementptr inbounds ptr, ptr %.ptr81, i64 %indvars.iv
+  %11 = getelementptr inbounds [8 x i8], ptr %.ptr81, i64 %indvars.iv
   store ptr %0, ptr %11, align 8, !tbaa !244
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %12 = icmp eq i64 %indvars.iv.next, 0
@@ -4240,7 +4240,7 @@ _ZZN7AstNode11foreachImplIKS_ZNKS_9nodeCountEvEUlPS1_E_EEvPNSt11conditionalIXsr3
   br i1 %54, label %55, label %_ZZN7AstNode11foreachImplIKS_ZNKS_9nodeCountEvEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueES1_S_E4typeERKT0_bENKUlmE_clEm.exit28
 
 55:                                               ; preds = %53
-  %56 = getelementptr inbounds nuw ptr, ptr %36, i64 %49
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %49
   %.not.i.i.i22 = icmp eq ptr %44, %56
   br i1 %.not.i.i.i22, label %_ZZN7AstNode11foreachImplIKS_ZNKS_9nodeCountEvEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueES1_S_E4typeERKT0_bENKUlmE_clEm.exit28, label %57
 
@@ -4255,7 +4255,7 @@ _ZZN7AstNode11foreachImplIKS_ZNKS_9nodeCountEvEUlPS1_E_EEvPNSt11conditionalIXsr3
   %61 = sub i64 %59, %60
   %62 = getelementptr inbounds nuw i8, ptr %58, i64 16
   %63 = getelementptr inbounds i8, ptr %62, i64 %61
-  %64 = getelementptr inbounds nuw ptr, ptr %62, i64 %49
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %49
   %65 = getelementptr inbounds i8, ptr %64, i64 -40
   br label %68
 
@@ -4463,9 +4463,9 @@ _ZNSt6vectorIPK7AstNodeSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %_ZS
 
 _ZNSt12_Vector_baseIPK7AstNodeSaIS2_EE13_M_deallocateEPS2_m.exit36: ; preds = %_ZNSt6vectorIPK7AstNodeSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !242
-  %39 = getelementptr inbounds nuw ptr, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !252
-  %40 = getelementptr inbounds nuw ptr, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !254
   br label %41
 

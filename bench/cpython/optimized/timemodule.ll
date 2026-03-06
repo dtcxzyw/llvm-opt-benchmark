@@ -1092,7 +1092,7 @@ _PyUnicode_DATA.exit.i:                           ; preds = %52, %50
 
 _PyUnicode_DATA.exit17.i:                         ; preds = %59, %57
   %.0.i15.i = phi ptr [ %.0.i.i14.i, %57 ], [ %.val4.i16.i, %59 ]
-  %60 = getelementptr i16, ptr %.0.i15.i, i64 %.157133
+  %60 = getelementptr [2 x i8], ptr %.0.i15.i, i64 %.157133
   %61 = load i16, ptr %60, align 2, !tbaa !41
   %62 = zext i16 %61 to i32
   br label %PyUnicode_READ_CHAR.exit
@@ -1113,7 +1113,7 @@ _PyUnicode_DATA.exit17.i:                         ; preds = %59, %57
 
 _PyUnicode_DATA.exit25.i:                         ; preds = %66, %64
   %.0.i23.i = phi ptr [ %.0.i.i22.i, %64 ], [ %.val4.i24.i, %66 ]
-  %67 = getelementptr i32, ptr %.0.i23.i, i64 %.157133
+  %67 = getelementptr [4 x i8], ptr %.0.i23.i, i64 %.157133
   %68 = load i32, ptr %67, align 4, !tbaa !25
   br label %PyUnicode_READ_CHAR.exit
 
@@ -1125,7 +1125,7 @@ PyUnicode_READ_CHAR.exit:                         ; preds = %_PyUnicode_DATA.exi
 
 70:                                               ; preds = %PyUnicode_READ_CHAR.exit
   %71 = add i64 %.048134, 1
-  %72 = getelementptr i32, ptr %33, i64 %.048134
+  %72 = getelementptr [4 x i8], ptr %33, i64 %.048134
   store i32 %.0.i, ptr %72, align 4, !tbaa !25
   %73 = add nsw i64 %.157133, 1
   %exitcond.not = icmp eq i64 %71, %44
@@ -1138,7 +1138,7 @@ PyUnicode_READ_CHAR.exit:                         ; preds = %_PyUnicode_DATA.exi
   br i1 %.not69, label %100, label %75
 
 75:                                               ; preds = %74
-  %76 = getelementptr i32, ptr %33, i64 %.048.lcssa
+  %76 = getelementptr [4 x i8], ptr %33, i64 %.048.lcssa
   store i32 0, ptr %76, align 4, !tbaa !25
   %77 = icmp ugt i64 %.0102, 2305843009213693951
   br i1 %77, label %.thread116.sink.split, label %.lr.ph.i
@@ -1259,7 +1259,7 @@ _PyUnicode_DATA.exit.i87.us:                      ; preds = %.lr.ph.split.us, %1
 
 _PyUnicode_DATA.exit17.i80.us.us:                 ; preds = %121, %.lr.ph.split.us138.split.us
   %.258135.us139.us = phi i64 [ %.157.lcssa, %.lr.ph.split.us138.split.us ], [ %122, %121 ]
-  %118 = getelementptr i16, ptr %.val4.i16.i83.us.us, i64 %.258135.us139.us
+  %118 = getelementptr [2 x i8], ptr %.val4.i16.i83.us.us, i64 %.258135.us139.us
   %119 = load i16, ptr %118, align 2, !tbaa !41
   %120 = icmp eq i16 %119, 37
   br i1 %120, label %PyUnicode_READ_CHAR.exit96._crit_edge, label %121
@@ -1271,7 +1271,7 @@ _PyUnicode_DATA.exit17.i80.us.us:                 ; preds = %121, %.lr.ph.split.
 
 _PyUnicode_DATA.exit17.i80.us:                    ; preds = %.lr.ph.split.us138, %126
   %.258135.us139 = phi i64 [ %127, %126 ], [ %.157.lcssa, %.lr.ph.split.us138 ]
-  %123 = getelementptr i16, ptr %.0.i.i14.i79, i64 %.258135.us139
+  %123 = getelementptr [2 x i8], ptr %.0.i.i14.i79, i64 %.258135.us139
   %124 = load i16, ptr %123, align 2, !tbaa !41
   %125 = icmp eq i16 %124, 37
   br i1 %125, label %PyUnicode_READ_CHAR.exit96._crit_edge, label %126
@@ -1290,7 +1290,7 @@ _PyUnicode_DATA.exit17.i80.us:                    ; preds = %.lr.ph.split.us138,
 
 _PyUnicode_DATA.exit25.i93.us:                    ; preds = %131, %.lr.ph.split.split.us
   %.258135.us146 = phi i64 [ %.157.lcssa, %.lr.ph.split.split.us ], [ %132, %131 ]
-  %128 = getelementptr i32, ptr %.val4.i24.i95.us, i64 %.258135.us146
+  %128 = getelementptr [4 x i8], ptr %.val4.i24.i95.us, i64 %.258135.us146
   %129 = load i32, ptr %128, align 4, !tbaa !25
   %130 = icmp eq i32 %129, 37
   br i1 %130, label %PyUnicode_READ_CHAR.exit96._crit_edge, label %131
@@ -1302,7 +1302,7 @@ _PyUnicode_DATA.exit25.i93.us:                    ; preds = %131, %.lr.ph.split.
 
 _PyUnicode_DATA.exit25.i93:                       ; preds = %.lr.ph.split, %136
   %.258135 = phi i64 [ %137, %136 ], [ %.157.lcssa, %.lr.ph.split ]
-  %133 = getelementptr i32, ptr %.0.i.i14.i79, i64 %.258135
+  %133 = getelementptr [4 x i8], ptr %.0.i.i14.i79, i64 %.258135
   %134 = load i32, ptr %133, align 4, !tbaa !25
   %135 = icmp eq i32 %134, 37
   br i1 %135, label %PyUnicode_READ_CHAR.exit96._crit_edge, label %136

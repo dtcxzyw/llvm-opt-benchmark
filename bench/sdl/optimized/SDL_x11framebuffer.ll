@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.XGCValues = type { i32, i64, i64, i64, i32, i32, i32, i32, i32, i32, i32, i64, i64, i32, i32, i64, i32, i32, i32, i32, i64, i32, i8 }
 %struct.XVisualInfo = type { ptr, i64, i32, i32, i32, i64, i64, i64, i32, i32 }
-%struct.SDL_Rect = type { i32, i32, i32, i32 }
 
 @X11_XCreateGC = external local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [33 x i8] c"Couldn't create graphics context\00", align 1
@@ -437,7 +436,7 @@ define hidden noundef zeroext i1 @X11_UpdateWindowFramebuffer(ptr noundef readno
 
 23:                                               ; preds = %.lr.ph137, %56
   %indvars.iv140 = phi i64 [ 0, %.lr.ph137 ], [ %indvars.iv.next141, %56 ]
-  %24 = getelementptr inbounds nuw %struct.SDL_Rect, ptr %2, i64 %indvars.iv140
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %indvars.iv140
   %25 = load i32, ptr %24, align 4
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %27 = load i32, ptr %26, align 4
@@ -491,7 +490,7 @@ define hidden noundef zeroext i1 @X11_UpdateWindowFramebuffer(ptr noundef readno
 
 57:                                               ; preds = %.lr.ph, %90
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %90 ]
-  %58 = getelementptr inbounds nuw %struct.SDL_Rect, ptr %2, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %indvars.iv
   %59 = load i32, ptr %58, align 4
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 4
   %61 = load i32, ptr %60, align 4

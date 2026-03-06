@@ -30,7 +30,6 @@ module asm ".previous\09\09\09\09\09"
 %struct.anon.0 = type { i32 }
 %union._cpuid4_leaf_ecx = type { %struct.anon.1 }
 %struct.anon.1 = type { i32 }
-%struct.cacheinfo = type { i32, i32, i32, i32, i32, i32, i32, i32, %struct.cpumask, i32, ptr, i8, ptr }
 
 @cache_private_group = internal global %struct.attribute_group { ptr null, ptr @cache_private_attrs_is_visible, ptr null, ptr null, ptr null }, align 8
 @boot_cpu_data = external dso_local global %struct.cpuinfo_x86, align 8
@@ -117,7 +116,7 @@ define dso_local noundef ptr @cache_get_priv_group(ptr noundef readonly captures
   br i1 %32, label %33, label %35
 
 33:                                               ; preds = %30
-  %34 = getelementptr ptr, ptr %.pre, i64 %31
+  %34 = getelementptr [8 x i8], ptr %.pre, i64 %31
   store ptr @dev_attr_subcaches, ptr %34, align 8
   br label %35
 
@@ -516,7 +515,7 @@ thread-pre-split:                                 ; preds = %7
 
 139:                                              ; preds = %139, %128
   %140 = phi i64 [ 0, %128 ], [ %144, %139 ]
-  %141 = getelementptr i32, ptr %3, i64 %140
+  %141 = getelementptr [4 x i8], ptr %3, i64 %140
   %142 = load i32, ptr %141, align 4
   %143 = tail call i32 @llvm.smax.i32(i32 %142, i32 0)
   store i32 %143, ptr %141, align 4
@@ -536,7 +535,7 @@ thread-pre-split:                                 ; preds = %7
 
 153:                                              ; preds = %158
   %154 = add nuw nsw i64 %159, 1
-  %155 = getelementptr %struct._cache_table, ptr @cache_table, i64 %154
+  %155 = getelementptr [4 x i8], ptr @cache_table, i64 %154
   %156 = load i8, ptr %155, align 4
   %157 = icmp eq i64 %154, 72
   br i1 %157, label %.loopexit, label %158, !llvm.loop !13
@@ -548,7 +547,7 @@ thread-pre-split:                                 ; preds = %7
   br i1 %161, label %162, label %153
 
 162:                                              ; preds = %158
-  %163 = getelementptr %struct._cache_table, ptr @cache_table, i64 %159
+  %163 = getelementptr [4 x i8], ptr @cache_table, i64 %159
   br i1 %113, label %168, label %164
 
 164:                                              ; preds = %162
@@ -737,7 +736,7 @@ define internal fastcc noundef range(i32 -5, 1) i32 @cpuid4_cache_lookup_regs(i3
   %25 = lshr i32 %22, 16
   %26 = and i32 %25, 255
   %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr i16, ptr @assocs, i64 %27
+  %28 = getelementptr [2 x i8], ptr @assocs, i64 %27
   %29 = load i16, ptr %28, align 2
   %30 = zext i16 %29 to i32
   %31 = lshr i32 %22, 8
@@ -753,7 +752,7 @@ define internal fastcc noundef range(i32 -5, 1) i32 @cpuid4_cache_lookup_regs(i3
   %37 = lshr i32 %17, 12
   %38 = and i32 %37, 15
   %39 = zext nneg i32 %38 to i64
-  %40 = getelementptr i16, ptr @assocs, i64 %39
+  %40 = getelementptr [2 x i8], ptr @assocs, i64 %39
   %41 = load i16, ptr %40, align 2
   %42 = zext i16 %41 to i32
   %43 = lshr i32 %17, 8
@@ -769,7 +768,7 @@ define internal fastcc noundef range(i32 -5, 1) i32 @cpuid4_cache_lookup_regs(i3
   %49 = lshr i32 %18, 12
   %50 = and i32 %49, 15
   %51 = zext nneg i32 %50 to i64
-  %52 = getelementptr i16, ptr @assocs, i64 %51
+  %52 = getelementptr [2 x i8], ptr @assocs, i64 %51
   %53 = load i16, ptr %52, align 2
   %54 = zext i16 %53 to i32
   %55 = lshr i32 %18, 8
@@ -929,13 +928,13 @@ define dso_local noundef range(i32 -5, 1) i32 @populate_cache_leaves(i32 noundef
 
 8:                                                ; preds = %1
   %9 = sext i32 %0 to i64
-  %10 = getelementptr i64, ptr @__per_cpu_offset, i64 %9
+  %10 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %15 = zext i32 %0 to i64
-  %16 = getelementptr i64, ptr @__per_cpu_offset, i64 %15
+  %16 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %15
   br label %17
 
 17:                                               ; preds = %.thread, %8
@@ -967,7 +966,7 @@ define dso_local noundef range(i32 -5, 1) i32 @populate_cache_leaves(i32 noundef
   store i32 %37, ptr %38, align 8
   %39 = and i32 %24, 31
   %40 = zext nneg i32 %39 to i64
-  %41 = getelementptr i32, ptr @cache_type_map, i64 %40
+  %41 = getelementptr [4 x i8], ptr @cache_type_map, i64 %40
   %42 = load i32, ptr %41, align 4
   %43 = getelementptr inbounds nuw i8, ptr %18, i64 4
   store i32 %42, ptr %43, align 4
@@ -1117,7 +1116,7 @@ define dso_local noundef range(i32 -5, 1) i32 @populate_cache_leaves(i32 noundef
 
 141:                                              ; preds = %137
   %142 = and i64 %134, 63
-  %143 = getelementptr i64, ptr @__per_cpu_offset, i64 %142
+  %143 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %142
   %144 = load i64, ptr %143, align 8
   %145 = add i64 %144, ptrtoint (ptr @cpu_info to i64)
   %146 = inttoptr i64 %145 to ptr
@@ -1129,7 +1128,7 @@ define dso_local noundef range(i32 -5, 1) i32 @populate_cache_leaves(i32 noundef
   br i1 %151, label %.thread29, label %152
 
 152:                                              ; preds = %141
-  %.split = getelementptr %struct.cacheinfo, ptr %139, i64 %126
+  %.split = getelementptr [72 x i8], ptr %139, i64 %126
   %153 = getelementptr i8, ptr %.split, i64 32
   %.pre39 = load i64, ptr @__cpu_online_mask, align 8
   br label %154
@@ -1150,7 +1149,7 @@ define dso_local noundef range(i32 -5, 1) i32 @populate_cache_leaves(i32 noundef
 
 164:                                              ; preds = %160
   %165 = and i64 %161, 63
-  %166 = getelementptr i64, ptr @__per_cpu_offset, i64 %165
+  %166 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %165
   %167 = load i64, ptr %166, align 8
   %168 = add i64 %167, ptrtoint (ptr @cpu_info to i64)
   %169 = inttoptr i64 %168 to ptr
@@ -1182,7 +1181,7 @@ define dso_local noundef range(i32 -5, 1) i32 @populate_cache_leaves(i32 noundef
 184:                                              ; preds = %115, %22
   %185 = load ptr, ptr %63, align 8
   %186 = sext i32 %19 to i64
-  %.split22 = getelementptr %struct.cacheinfo, ptr %185, i64 %186
+  %.split22 = getelementptr [72 x i8], ptr %185, i64 %186
   %187 = getelementptr i8, ptr %.split22, i64 32
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %187, i64 %15) #13, !srcloc !20
   %188 = icmp eq i32 %26, 0
@@ -1210,7 +1209,7 @@ define dso_local noundef range(i32 -5, 1) i32 @populate_cache_leaves(i32 noundef
 
 203:                                              ; preds = %199
   %204 = and i64 %200, 63
-  %205 = getelementptr i64, ptr @__per_cpu_offset, i64 %204
+  %205 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %204
   %206 = load i64, ptr %205, align 8
   %207 = add i64 %206, ptrtoint (ptr @cpu_info to i64)
   %208 = inttoptr i64 %207 to ptr
@@ -1234,7 +1233,7 @@ define dso_local noundef range(i32 -5, 1) i32 @populate_cache_leaves(i32 noundef
 
 221:                                              ; preds = %218
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %187, i64 %204) #13, !srcloc !20
-  %.split23 = getelementptr %struct.cacheinfo, ptr %219, i64 %186
+  %.split23 = getelementptr [72 x i8], ptr %219, i64 %186
   %222 = getelementptr i8, ptr %.split23, i64 32
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %222, i64 %15) #13, !srcloc !20
   br label %223
@@ -1848,7 +1847,7 @@ define internal fastcc void @amd_init_l3_cache(ptr noundef writeonly captures(no
 5:                                                ; preds = %2
   %6 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #15, !srcloc !41
   %7 = sext i32 %6 to i64
-  %8 = getelementptr i64, ptr @__per_cpu_offset, i64 %7
+  %8 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %7
   %9 = load i64, ptr %8, align 8
   %10 = add i64 %9, ptrtoint (ptr @cpu_info to i64)
   %11 = inttoptr i64 %10 to ptr

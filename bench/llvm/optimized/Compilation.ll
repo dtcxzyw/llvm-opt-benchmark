@@ -21,11 +21,8 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"struct.llvm::detail::DenseMapPair" = type { %"struct.std::pair.129" }
-%"struct.std::pair.129" = type { ptr, ptr }
 %"class.llvm::opt::OptSpecifier" = type { i32 }
 %"class.std::error_code" = type { i32, ptr }
-%"struct.std::pair.171" = type { i32, ptr }
 
 $_ZN4llvm3opt12InputArgListD2Ev = comdat any
 
@@ -1357,7 +1354,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang6driver11Compilation14CleanupFile
   br i1 %7, label %12, label %14
 
 12:                                               ; preds = %4
-  %13 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %8, i64 %11
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %11
   br label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang6driver9JobActionEPKcNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_S8_EEEES6_S8_SA_SD_E5beginEv.exit
 
 14:                                               ; preds = %4
@@ -1383,7 +1380,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang6driver11Compilation14CleanupFile
 _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang6driver9JobActionEPKcNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_S8_EEEES6_S8_SA_SD_E5beginEv.exit: ; preds = %.lr.ph.i6.i12.i3.i, %.critedge2.i8.i14.i6.i, %12, %14
   %.pn14.i = phi ptr [ %13, %12 ], [ %8, %14 ], [ %.sroa.0.3.i4.i, %.lr.ph.i6.i12.i3.i ], [ %15, %.critedge2.i8.i14.i6.i ]
   %.pn12.i = phi ptr [ %13, %12 ], [ %15, %14 ], [ %15, %.critedge2.i8.i14.i6.i ], [ %15, %.lr.ph.i6.i12.i3.i ]
-  %18 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %8, i64 %11
+  %18 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %11
   %.not1516 = icmp eq ptr %.pn14.i, %18
   br i1 %.not1516, label %._crit_edge, label %.lr.ph
 
@@ -1499,8 +1496,8 @@ define dso_local noundef i32 @_ZNK5clang6driver11Compilation14ExecuteCommandERKN
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !69, !noalias !221
   %23 = and i64 %20, 4294967295
-  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
-  %25 = getelementptr ptr, ptr %22, i64 %.sroa.4.0.extract.shift.i.i
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %23
+  %25 = getelementptr [8 x i8], ptr %22, i64 %.sroa.4.0.extract.shift.i.i
   %.not29.i.i.i.i = icmp samesign eq i64 %23, %.sroa.4.0.extract.shift.i.i
   br i1 %.not29.i.i.i.i, label %_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit.i, label %.lr.ph.i.i.i.i
 
@@ -1937,7 +1934,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIiPKN5clang6driver7CommandEELb1EE9push_
   %27 = phi i32 [ %22, %20 ], [ %.pre.i, %24 ]
   %28 = load ptr, ptr %2, align 8, !tbaa !69
   %29 = zext i32 %27 to i64
-  %30 = getelementptr inbounds nuw %"struct.std::pair.171", ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %29
   store i32 %19, ptr %30, align 1
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %30, i64 8
   store ptr %21, ptr %.sroa.22.0..sroa_idx.i, align 1
@@ -2585,7 +2582,7 @@ define linkonce_odr hidden void @_ZN5clang20DiagStorageAllocator10DeallocateEPNS
   %9 = add i32 %8, 1
   store i32 %9, ptr %7, align 8, !tbaa !299
   %10 = zext i32 %8 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr %4, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %10
   store ptr %1, ptr %11, align 8, !tbaa !301
   br label %43
 
@@ -3668,7 +3665,7 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i:        ; preds = %15
   %29 = add i32 %11, -1
   store i32 %29, ptr %10, align 8, !tbaa !299
   %30 = zext i32 %29 to i64
-  %31 = getelementptr inbounds nuw ptr, ptr %28, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !301
   store i8 0, ptr %32, align 8, !tbaa !311
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 424
@@ -3776,7 +3773,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_
   %73 = add i8 %72, 1
   store i8 %73, ptr %70, align 8, !tbaa !311
   %74 = zext i8 %72 to i64
-  %75 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %71, i64 %74
+  %75 = getelementptr inbounds nuw [32 x i8], ptr %71, i64 %74
   %76 = load ptr, ptr %75, align 8, !tbaa !167
   %77 = getelementptr inbounds nuw i8, ptr %75, i64 16
   %78 = icmp eq ptr %76, %77
@@ -3992,8 +3989,8 @@ define linkonce_odr hidden noundef ptr @_ZNK4llvm3opt7ArgList10getLastArgIJNS0_1
   %6 = load ptr, ptr %5, align 8, !tbaa !69, !noalias !325
   %7 = ptrtoint ptr %6 to i64
   %8 = and i64 %4, 4294967295
-  %9 = getelementptr inbounds nuw ptr, ptr %6, i64 %8
-  %10 = getelementptr ptr, ptr %6, i64 %.sroa.4.0.extract.shift.i
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %8
+  %10 = getelementptr [8 x i8], ptr %6, i64 %.sroa.4.0.extract.shift.i
   %.not29.i.i.i = icmp samesign eq i64 %8, %.sroa.4.0.extract.shift.i
   br i1 %.not29.i.i.i, label %_ZNK4llvm3opt7ArgList8filteredIJNS0_12OptSpecifierEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit, label %.lr.ph.i.i.preheader.i
 

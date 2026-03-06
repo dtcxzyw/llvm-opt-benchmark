@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %union.anon = type { <2 x i64> }
-%struct.FDRFlood = type { i64, i32, i16, [16 x i32], [16 x i64] }
 
 @p_mask_arr256 = hidden local_unnamed_addr constant <{ [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], <{ [32 x i8], [32 x i8] }> }> <{ [64 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF", [64 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\00\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF", [64 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\00\00\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF", [64 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\00\00\00\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF", [64 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\00\00\00\00\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF", [64 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\00\00\00\00\00\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF", [64 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\00\00\00\00\00\00\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF", [64 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\00\00\00\00\00\00\00\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF", [64 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\00\00\00\00\00\00\00\00\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF", [64 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\00\00\00\00\00\00\00\00\00\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF", [64 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\00\00\00\00\00\00\00\00\00\00\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF", [64 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\00\00\00\00\00\00\00\00\00\00\00\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF", [64 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\00\00\00\00\00\00\00\00\00\00\00\00\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF", [64 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\00\00\00\00\00\00\00\00\00\00\00\00\00\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF", [64 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\00\00\00\00\00\00\00\00\00\00\00\00\00\00\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF", [64 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF", [64 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF", [64 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF", [64 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF", [64 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF", [64 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF", [64 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF", [64 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF", [64 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\FF\FF\FF\FF\FF\FF\FF\FF\FF", [64 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\FF\FF\FF\FF\FF\FF\FF\FF", [64 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\FF\FF\FF\FF\FF\FF\FF", [64 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\FF\FF\FF\FF\FF\FF", [64 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\FF\FF\FF\FF\FF", [64 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\FF\FF\FF\FF", [64 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\FF\FF\FF", [64 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\FF\FF", [64 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\FF", <{ [32 x i8], [32 x i8] }> <{ [32 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF", [32 x i8] zeroinitializer }> }>, align 32
 @p_mask_arr = external local_unnamed_addr constant [17 x [32 x i8]], align 16
@@ -238,7 +237,7 @@ vectoredLoad128.exit355:                          ; preds = %110, %108, %101, %9
   %155 = extractvalue { i64, i64 } %153, 1
   %156 = lshr i64 %154, 4
   %157 = and i64 %154, 15
-  %158 = getelementptr inbounds nuw i32, ptr %43, i64 %157
+  %158 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %157
   %159 = load i32, ptr %158, align 4
   %.not.i = icmp eq i32 %159, 0
   br i1 %.not.i, label %252, label %160
@@ -324,7 +323,7 @@ getConfVal.exit438:                               ; preds = %171, %lv_u64a_ce.ex
   %205 = lshr i64 %202, %204
   %206 = getelementptr inbounds nuw i8, ptr %162, i64 32
   %207 = and i64 %205, 4294967295
-  %208 = getelementptr inbounds nuw i32, ptr %206, i64 %207
+  %208 = getelementptr inbounds nuw [4 x i8], ptr %206, i64 %207
   %209 = load i32, ptr %208, align 4
   %.not.i594 = icmp eq i32 %209, 0
   br i1 %.not.i594, label %confWithBit.exit600, label %210, !prof !5
@@ -444,7 +443,7 @@ do_confWithBit_teddy.exit:                        ; preds = %252
   %266 = lshr i32 %265, 4
   %267 = add nuw nsw i32 %266, 4
   %268 = and i64 %263, 15
-  %269 = getelementptr inbounds nuw i32, ptr %43, i64 %268
+  %269 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %268
   %270 = load i32, ptr %269, align 4
   %.not.i256 = icmp eq i32 %270, 0
   br i1 %.not.i256, label %363, label %271
@@ -530,7 +529,7 @@ getConfVal.exit434:                               ; preds = %282, %lv_u64a_ce.ex
   %316 = lshr i64 %313, %315
   %317 = getelementptr inbounds nuw i8, ptr %273, i64 32
   %318 = and i64 %316, 4294967295
-  %319 = getelementptr inbounds nuw i32, ptr %317, i64 %318
+  %319 = getelementptr inbounds nuw [4 x i8], ptr %317, i64 %318
   %320 = load i32, ptr %319, align 4
   %.not.i587 = icmp eq i32 %320, 0
   br i1 %.not.i587, label %confWithBit.exit593, label %321, !prof !5
@@ -650,7 +649,7 @@ do_confWithBit_teddy.exit259:                     ; preds = %363
   %377 = lshr i32 %376, 4
   %378 = add nuw nsw i32 %377, 8
   %379 = and i64 %374, 15
-  %380 = getelementptr inbounds nuw i32, ptr %43, i64 %379
+  %380 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %379
   %381 = load i32, ptr %380, align 4
   %.not.i260 = icmp eq i32 %381, 0
   br i1 %.not.i260, label %474, label %382
@@ -736,7 +735,7 @@ getConfVal.exit430:                               ; preds = %393, %lv_u64a_ce.ex
   %427 = lshr i64 %424, %426
   %428 = getelementptr inbounds nuw i8, ptr %384, i64 32
   %429 = and i64 %427, 4294967295
-  %430 = getelementptr inbounds nuw i32, ptr %428, i64 %429
+  %430 = getelementptr inbounds nuw [4 x i8], ptr %428, i64 %429
   %431 = load i32, ptr %430, align 4
   %.not.i580 = icmp eq i32 %431, 0
   br i1 %.not.i580, label %confWithBit.exit586, label %432, !prof !5
@@ -856,7 +855,7 @@ do_confWithBit_teddy.exit263:                     ; preds = %474
   %488 = lshr i32 %487, 4
   %489 = add nuw nsw i32 %488, 12
   %490 = and i64 %485, 15
-  %491 = getelementptr inbounds nuw i32, ptr %43, i64 %490
+  %491 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %490
   %492 = load i32, ptr %491, align 4
   %.not.i264 = icmp eq i32 %492, 0
   br i1 %.not.i264, label %585, label %493
@@ -942,7 +941,7 @@ getConfVal.exit426:                               ; preds = %504, %lv_u64a_ce.ex
   %538 = lshr i64 %535, %537
   %539 = getelementptr inbounds nuw i8, ptr %495, i64 32
   %540 = and i64 %538, 4294967295
-  %541 = getelementptr inbounds nuw i32, ptr %539, i64 %540
+  %541 = getelementptr inbounds nuw [4 x i8], ptr %539, i64 %540
   %542 = load i32, ptr %541, align 4
   %.not.i573 = icmp eq i32 %542, 0
   br i1 %.not.i573, label %confWithBit.exit579, label %543, !prof !5
@@ -1098,7 +1097,7 @@ do_confWithBit_teddy.exit267:                     ; preds = %585
   %626 = extractvalue { i64, i64 } %624, 1
   %627 = lshr i64 %625, 4
   %628 = and i64 %625, 15
-  %629 = getelementptr inbounds nuw i32, ptr %43, i64 %628
+  %629 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %628
   %630 = load i32, ptr %629, align 4
   %.not.i268 = icmp eq i32 %630, 0
   br i1 %.not.i268, label %723, label %631
@@ -1184,7 +1183,7 @@ getConfVal.exit422:                               ; preds = %642, %lv_u64a_ce.ex
   %676 = lshr i64 %673, %675
   %677 = getelementptr inbounds nuw i8, ptr %633, i64 32
   %678 = and i64 %676, 4294967295
-  %679 = getelementptr inbounds nuw i32, ptr %677, i64 %678
+  %679 = getelementptr inbounds nuw [4 x i8], ptr %677, i64 %678
   %680 = load i32, ptr %679, align 4
   %.not.i566 = icmp eq i32 %680, 0
   br i1 %.not.i566, label %confWithBit.exit572, label %681, !prof !5
@@ -1305,7 +1304,7 @@ do_confWithBit_teddy.exit271:                     ; preds = %723
   %738 = lshr i32 %737, 4
   %739 = add nuw nsw i32 %738, 4
   %740 = and i64 %735, 15
-  %741 = getelementptr inbounds nuw i32, ptr %43, i64 %740
+  %741 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %740
   %742 = load i32, ptr %741, align 4
   %.not.i272 = icmp eq i32 %742, 0
   br i1 %.not.i272, label %835, label %743
@@ -1391,7 +1390,7 @@ getConfVal.exit418:                               ; preds = %754, %lv_u64a_ce.ex
   %788 = lshr i64 %785, %787
   %789 = getelementptr inbounds nuw i8, ptr %745, i64 32
   %790 = and i64 %788, 4294967295
-  %791 = getelementptr inbounds nuw i32, ptr %789, i64 %790
+  %791 = getelementptr inbounds nuw [4 x i8], ptr %789, i64 %790
   %792 = load i32, ptr %791, align 4
   %.not.i559 = icmp eq i32 %792, 0
   br i1 %.not.i559, label %confWithBit.exit565, label %793, !prof !5
@@ -1512,7 +1511,7 @@ do_confWithBit_teddy.exit275:                     ; preds = %835
   %850 = lshr i32 %849, 4
   %851 = add nuw nsw i32 %850, 8
   %852 = and i64 %847, 15
-  %853 = getelementptr inbounds nuw i32, ptr %43, i64 %852
+  %853 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %852
   %854 = load i32, ptr %853, align 4
   %.not.i276 = icmp eq i32 %854, 0
   br i1 %.not.i276, label %947, label %855
@@ -1598,7 +1597,7 @@ getConfVal.exit414:                               ; preds = %866, %lv_u64a_ce.ex
   %900 = lshr i64 %897, %899
   %901 = getelementptr inbounds nuw i8, ptr %857, i64 32
   %902 = and i64 %900, 4294967295
-  %903 = getelementptr inbounds nuw i32, ptr %901, i64 %902
+  %903 = getelementptr inbounds nuw [4 x i8], ptr %901, i64 %902
   %904 = load i32, ptr %903, align 4
   %.not.i552 = icmp eq i32 %904, 0
   br i1 %.not.i552, label %confWithBit.exit558, label %905, !prof !5
@@ -1719,7 +1718,7 @@ do_confWithBit_teddy.exit279:                     ; preds = %947
   %962 = lshr i32 %961, 4
   %963 = add nuw nsw i32 %962, 12
   %964 = and i64 %959, 15
-  %965 = getelementptr inbounds nuw i32, ptr %43, i64 %964
+  %965 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %964
   %966 = load i32, ptr %965, align 4
   %.not.i280 = icmp eq i32 %966, 0
   br i1 %.not.i280, label %1059, label %967
@@ -1805,7 +1804,7 @@ getConfVal.exit410:                               ; preds = %978, %lv_u64a_ce.ex
   %1012 = lshr i64 %1009, %1011
   %1013 = getelementptr inbounds nuw i8, ptr %969, i64 32
   %1014 = and i64 %1012, 4294967295
-  %1015 = getelementptr inbounds nuw i32, ptr %1013, i64 %1014
+  %1015 = getelementptr inbounds nuw [4 x i8], ptr %1013, i64 %1014
   %1016 = load i32, ptr %1015, align 4
   %.not.i545 = icmp eq i32 %1016, 0
   br i1 %.not.i545, label %confWithBit.exit551, label %1017, !prof !5
@@ -1944,11 +1943,11 @@ do_confWithBit_teddy.exit283:                     ; preds = %1059
   %1084 = zext i32 %1083 to i64
   %1085 = getelementptr inbounds nuw i8, ptr %0, i64 %1084
   %1086 = zext i8 %1082 to i64
-  %1087 = getelementptr inbounds nuw i32, ptr %1085, i64 %1086
+  %1087 = getelementptr inbounds nuw [4 x i8], ptr %1085, i64 %1086
   %1088 = load i32, ptr %1087, align 4
   %1089 = getelementptr inbounds nuw i8, ptr %1085, i64 1024
   %1090 = zext i32 %1088 to i64
-  %1091 = getelementptr inbounds nuw %struct.FDRFlood, ptr %1089, i64 %1090
+  %1091 = getelementptr inbounds nuw [208 x i8], ptr %1089, i64 %1090
   %1092 = shl nuw nsw i64 %1086, 8
   %1093 = or disjoint i64 %1092, %1086
   %1094 = shl nuw nsw i64 %1093, 16
@@ -2510,14 +2509,14 @@ split:                                            ; preds = %1141, %.thread1103
   %1397 = phi i16 [ %1390, %.lr.ph1180 ], [ %1406, %1405 ]
   %indvars.iv1238 = phi i64 [ 4, %.lr.ph1180 ], [ %indvars.iv.next1239, %1405 ]
   %.10810571177 = phi i64 [ %.1071056, %.lr.ph1180 ], [ %.1151064, %1405 ]
-  %1398 = getelementptr inbounds nuw i64, ptr %1183, i64 %indvars.iv1238
+  %1398 = getelementptr inbounds nuw [8 x i8], ptr %1183, i64 %indvars.iv1238
   %1399 = load i64, ptr %1398, align 8
   %1400 = and i64 %1399, %.10810571177
   %.not421.i = icmp eq i64 %1400, 0
   br i1 %.not421.i, label %1405, label %1401
 
 1401:                                             ; preds = %1396
-  %1402 = getelementptr inbounds nuw i32, ptr %1184, i64 %indvars.iv1238
+  %1402 = getelementptr inbounds nuw [4 x i8], ptr %1184, i64 %indvars.iv1238
   %1403 = load i32, ptr %1402, align 4
   %1404 = call i64 %1073(i64 noundef %1393, i32 noundef %1403, ptr noundef %1074) #8
   %.pre1253 = load i16, ptr %1104, align 4
@@ -2606,14 +2605,14 @@ split:                                            ; preds = %1141, %.thread1103
   %1450 = phi i16 [ %1443, %.lr.ph1186 ], [ %1459, %1458 ]
   %indvars.iv1241 = phi i64 [ 4, %.lr.ph1186 ], [ %indvars.iv.next1242, %1458 ]
   %.11310621183 = phi i64 [ %.1121061, %.lr.ph1186 ], [ %.1141063, %1458 ]
-  %1451 = getelementptr inbounds nuw i64, ptr %1183, i64 %indvars.iv1241
+  %1451 = getelementptr inbounds nuw [8 x i8], ptr %1183, i64 %indvars.iv1241
   %1452 = load i64, ptr %1451, align 8
   %1453 = and i64 %1452, %.11310621183
   %.not420.i = icmp eq i64 %1453, 0
   br i1 %.not420.i, label %1458, label %1454
 
 1454:                                             ; preds = %1449
-  %1455 = getelementptr inbounds nuw i32, ptr %1184, i64 %indvars.iv1241
+  %1455 = getelementptr inbounds nuw [4 x i8], ptr %1184, i64 %indvars.iv1241
   %1456 = load i32, ptr %1455, align 4
   %1457 = call i64 %1073(i64 noundef %1447, i32 noundef %1456, ptr noundef %1074) #8
   %.pre1254 = load i16, ptr %1104, align 4
@@ -2708,7 +2707,7 @@ floodDetect.exit:                                 ; preds = %1107, %1114, %.crit
   %1510 = extractvalue { i64, i64 } %1508, 1
   %1511 = lshr i64 %1509, 4
   %1512 = and i64 %1509, 15
-  %1513 = getelementptr inbounds nuw i32, ptr %43, i64 %1512
+  %1513 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %1512
   %1514 = load i32, ptr %1513, align 4
   %.not.i284 = icmp eq i32 %1514, 0
   br i1 %.not.i284, label %1586, label %1515
@@ -2745,7 +2744,7 @@ floodDetect.exit:                                 ; preds = %1107, %1114, %.crit
   %1539 = lshr i64 %1536, %1538
   %1540 = getelementptr inbounds nuw i8, ptr %1517, i64 32
   %1541 = and i64 %1539, 4294967295
-  %1542 = getelementptr inbounds nuw i32, ptr %1540, i64 %1541
+  %1542 = getelementptr inbounds nuw [4 x i8], ptr %1540, i64 %1541
   %1543 = load i32, ptr %1542, align 4
   %.not.i538 = icmp eq i32 %1543, 0
   br i1 %.not.i538, label %confWithBit.exit544, label %1544, !prof !5
@@ -2862,7 +2861,7 @@ do_confWithBit_teddy.exit287:                     ; preds = %1586
   %1597 = lshr i32 %1596, 4
   %1598 = add nuw nsw i32 %1597, 4
   %1599 = and i64 %1594, 15
-  %1600 = getelementptr inbounds nuw i32, ptr %43, i64 %1599
+  %1600 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %1599
   %1601 = load i32, ptr %1600, align 4
   %.not.i288 = icmp eq i32 %1601, 0
   br i1 %.not.i288, label %1673, label %1602
@@ -2899,7 +2898,7 @@ do_confWithBit_teddy.exit287:                     ; preds = %1586
   %1626 = lshr i64 %1623, %1625
   %1627 = getelementptr inbounds nuw i8, ptr %1604, i64 32
   %1628 = and i64 %1626, 4294967295
-  %1629 = getelementptr inbounds nuw i32, ptr %1627, i64 %1628
+  %1629 = getelementptr inbounds nuw [4 x i8], ptr %1627, i64 %1628
   %1630 = load i32, ptr %1629, align 4
   %.not.i531 = icmp eq i32 %1630, 0
   br i1 %.not.i531, label %confWithBit.exit537, label %1631, !prof !5
@@ -3016,7 +3015,7 @@ do_confWithBit_teddy.exit291:                     ; preds = %1673
   %1684 = lshr i32 %1683, 4
   %1685 = add nuw nsw i32 %1684, 8
   %1686 = and i64 %1681, 15
-  %1687 = getelementptr inbounds nuw i32, ptr %43, i64 %1686
+  %1687 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %1686
   %1688 = load i32, ptr %1687, align 4
   %.not.i292 = icmp eq i32 %1688, 0
   br i1 %.not.i292, label %1760, label %1689
@@ -3053,7 +3052,7 @@ do_confWithBit_teddy.exit291:                     ; preds = %1673
   %1713 = lshr i64 %1710, %1712
   %1714 = getelementptr inbounds nuw i8, ptr %1691, i64 32
   %1715 = and i64 %1713, 4294967295
-  %1716 = getelementptr inbounds nuw i32, ptr %1714, i64 %1715
+  %1716 = getelementptr inbounds nuw [4 x i8], ptr %1714, i64 %1715
   %1717 = load i32, ptr %1716, align 4
   %.not.i524 = icmp eq i32 %1717, 0
   br i1 %.not.i524, label %confWithBit.exit530, label %1718, !prof !5
@@ -3170,7 +3169,7 @@ do_confWithBit_teddy.exit295:                     ; preds = %1760
   %1771 = lshr i32 %1770, 4
   %1772 = add nuw nsw i32 %1771, 12
   %1773 = and i64 %1768, 15
-  %1774 = getelementptr inbounds nuw i32, ptr %43, i64 %1773
+  %1774 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %1773
   %1775 = load i32, ptr %1774, align 4
   %.not.i296 = icmp eq i32 %1775, 0
   br i1 %.not.i296, label %1847, label %1776
@@ -3207,7 +3206,7 @@ do_confWithBit_teddy.exit295:                     ; preds = %1760
   %1800 = lshr i64 %1797, %1799
   %1801 = getelementptr inbounds nuw i8, ptr %1778, i64 32
   %1802 = and i64 %1800, 4294967295
-  %1803 = getelementptr inbounds nuw i32, ptr %1801, i64 %1802
+  %1803 = getelementptr inbounds nuw [4 x i8], ptr %1801, i64 %1802
   %1804 = load i32, ptr %1803, align 4
   %.not.i517 = icmp eq i32 %1804, 0
   br i1 %.not.i517, label %confWithBit.exit523, label %1805, !prof !5
@@ -3355,7 +3354,7 @@ do_confWithBit_teddy.exit299:                     ; preds = %1847
   %1884 = lshr i32 %1883, 4
   %1885 = add nuw nsw i32 %1884, 16
   %1886 = and i64 %1881, 15
-  %1887 = getelementptr inbounds nuw i32, ptr %43, i64 %1886
+  %1887 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %1886
   %1888 = load i32, ptr %1887, align 4
   %.not.i300 = icmp eq i32 %1888, 0
   br i1 %.not.i300, label %1960, label %1889
@@ -3392,7 +3391,7 @@ do_confWithBit_teddy.exit299:                     ; preds = %1847
   %1913 = lshr i64 %1910, %1912
   %1914 = getelementptr inbounds nuw i8, ptr %1891, i64 32
   %1915 = and i64 %1913, 4294967295
-  %1916 = getelementptr inbounds nuw i32, ptr %1914, i64 %1915
+  %1916 = getelementptr inbounds nuw [4 x i8], ptr %1914, i64 %1915
   %1917 = load i32, ptr %1916, align 4
   %.not.i510 = icmp eq i32 %1917, 0
   br i1 %.not.i510, label %confWithBit.exit516, label %1918, !prof !5
@@ -3509,7 +3508,7 @@ do_confWithBit_teddy.exit303:                     ; preds = %1960
   %1971 = lshr i32 %1970, 4
   %1972 = add nuw nsw i32 %1971, 20
   %1973 = and i64 %1968, 15
-  %1974 = getelementptr inbounds nuw i32, ptr %43, i64 %1973
+  %1974 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %1973
   %1975 = load i32, ptr %1974, align 4
   %.not.i304 = icmp eq i32 %1975, 0
   br i1 %.not.i304, label %2047, label %1976
@@ -3546,7 +3545,7 @@ do_confWithBit_teddy.exit303:                     ; preds = %1960
   %2000 = lshr i64 %1997, %1999
   %2001 = getelementptr inbounds nuw i8, ptr %1978, i64 32
   %2002 = and i64 %2000, 4294967295
-  %2003 = getelementptr inbounds nuw i32, ptr %2001, i64 %2002
+  %2003 = getelementptr inbounds nuw [4 x i8], ptr %2001, i64 %2002
   %2004 = load i32, ptr %2003, align 4
   %.not.i503 = icmp eq i32 %2004, 0
   br i1 %.not.i503, label %confWithBit.exit509, label %2005, !prof !5
@@ -3663,7 +3662,7 @@ do_confWithBit_teddy.exit307:                     ; preds = %2047
   %2058 = lshr i32 %2057, 4
   %2059 = add nuw nsw i32 %2058, 24
   %2060 = and i64 %2055, 15
-  %2061 = getelementptr inbounds nuw i32, ptr %43, i64 %2060
+  %2061 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %2060
   %2062 = load i32, ptr %2061, align 4
   %.not.i308 = icmp eq i32 %2062, 0
   br i1 %.not.i308, label %2134, label %2063
@@ -3700,7 +3699,7 @@ do_confWithBit_teddy.exit307:                     ; preds = %2047
   %2087 = lshr i64 %2084, %2086
   %2088 = getelementptr inbounds nuw i8, ptr %2065, i64 32
   %2089 = and i64 %2087, 4294967295
-  %2090 = getelementptr inbounds nuw i32, ptr %2088, i64 %2089
+  %2090 = getelementptr inbounds nuw [4 x i8], ptr %2088, i64 %2089
   %2091 = load i32, ptr %2090, align 4
   %.not.i496 = icmp eq i32 %2091, 0
   br i1 %.not.i496, label %confWithBit.exit502, label %2092, !prof !5
@@ -3817,7 +3816,7 @@ do_confWithBit_teddy.exit311:                     ; preds = %2134
   %2145 = lshr i32 %2144, 4
   %2146 = add nuw nsw i32 %2145, 28
   %2147 = and i64 %2142, 15
-  %2148 = getelementptr inbounds nuw i32, ptr %43, i64 %2147
+  %2148 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %2147
   %2149 = load i32, ptr %2148, align 4
   %.not.i312 = icmp eq i32 %2149, 0
   br i1 %.not.i312, label %2221, label %2150
@@ -3854,7 +3853,7 @@ do_confWithBit_teddy.exit311:                     ; preds = %2134
   %2174 = lshr i64 %2171, %2173
   %2175 = getelementptr inbounds nuw i8, ptr %2152, i64 32
   %2176 = and i64 %2174, 4294967295
-  %2177 = getelementptr inbounds nuw i32, ptr %2175, i64 %2176
+  %2177 = getelementptr inbounds nuw [4 x i8], ptr %2175, i64 %2176
   %2178 = load i32, ptr %2177, align 4
   %.not.i489 = icmp eq i32 %2178, 0
   br i1 %.not.i489, label %confWithBit.exit495, label %2179, !prof !5
@@ -4017,7 +4016,7 @@ do_confWithBit_teddy.exit315:                     ; preds = %2221
   %2263 = extractvalue { i64, i64 } %2261, 1
   %2264 = lshr i64 %2262, 4
   %2265 = and i64 %2262, 15
-  %2266 = getelementptr inbounds nuw i32, ptr %43, i64 %2265
+  %2266 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %2265
   %2267 = load i32, ptr %2266, align 4
   %.not.i316 = icmp eq i32 %2267, 0
   br i1 %.not.i316, label %2339, label %2268
@@ -4054,7 +4053,7 @@ do_confWithBit_teddy.exit315:                     ; preds = %2221
   %2292 = lshr i64 %2289, %2291
   %2293 = getelementptr inbounds nuw i8, ptr %2270, i64 32
   %2294 = and i64 %2292, 4294967295
-  %2295 = getelementptr inbounds nuw i32, ptr %2293, i64 %2294
+  %2295 = getelementptr inbounds nuw [4 x i8], ptr %2293, i64 %2294
   %2296 = load i32, ptr %2295, align 4
   %.not.i482 = icmp eq i32 %2296, 0
   br i1 %.not.i482, label %confWithBit.exit488, label %2297, !prof !5
@@ -4174,7 +4173,7 @@ do_confWithBit_teddy.exit319:                     ; preds = %2339
   %2353 = lshr i32 %2352, 4
   %2354 = add nuw nsw i32 %2353, 4
   %2355 = and i64 %2350, 15
-  %2356 = getelementptr inbounds nuw i32, ptr %43, i64 %2355
+  %2356 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %2355
   %2357 = load i32, ptr %2356, align 4
   %.not.i320 = icmp eq i32 %2357, 0
   br i1 %.not.i320, label %2429, label %2358
@@ -4211,7 +4210,7 @@ do_confWithBit_teddy.exit319:                     ; preds = %2339
   %2382 = lshr i64 %2379, %2381
   %2383 = getelementptr inbounds nuw i8, ptr %2360, i64 32
   %2384 = and i64 %2382, 4294967295
-  %2385 = getelementptr inbounds nuw i32, ptr %2383, i64 %2384
+  %2385 = getelementptr inbounds nuw [4 x i8], ptr %2383, i64 %2384
   %2386 = load i32, ptr %2385, align 4
   %.not.i475 = icmp eq i32 %2386, 0
   br i1 %.not.i475, label %confWithBit.exit481, label %2387, !prof !5
@@ -4331,7 +4330,7 @@ do_confWithBit_teddy.exit323:                     ; preds = %2429
   %2443 = lshr i32 %2442, 4
   %2444 = add nuw nsw i32 %2443, 8
   %2445 = and i64 %2440, 15
-  %2446 = getelementptr inbounds nuw i32, ptr %43, i64 %2445
+  %2446 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %2445
   %2447 = load i32, ptr %2446, align 4
   %.not.i324 = icmp eq i32 %2447, 0
   br i1 %.not.i324, label %2519, label %2448
@@ -4368,7 +4367,7 @@ do_confWithBit_teddy.exit323:                     ; preds = %2429
   %2472 = lshr i64 %2469, %2471
   %2473 = getelementptr inbounds nuw i8, ptr %2450, i64 32
   %2474 = and i64 %2472, 4294967295
-  %2475 = getelementptr inbounds nuw i32, ptr %2473, i64 %2474
+  %2475 = getelementptr inbounds nuw [4 x i8], ptr %2473, i64 %2474
   %2476 = load i32, ptr %2475, align 4
   %.not.i468 = icmp eq i32 %2476, 0
   br i1 %.not.i468, label %confWithBit.exit474, label %2477, !prof !5
@@ -4488,7 +4487,7 @@ do_confWithBit_teddy.exit327:                     ; preds = %2519
   %2533 = lshr i32 %2532, 4
   %2534 = add nuw nsw i32 %2533, 12
   %2535 = and i64 %2530, 15
-  %2536 = getelementptr inbounds nuw i32, ptr %43, i64 %2535
+  %2536 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %2535
   %2537 = load i32, ptr %2536, align 4
   %.not.i328 = icmp eq i32 %2537, 0
   br i1 %.not.i328, label %2609, label %2538
@@ -4525,7 +4524,7 @@ do_confWithBit_teddy.exit327:                     ; preds = %2519
   %2562 = lshr i64 %2559, %2561
   %2563 = getelementptr inbounds nuw i8, ptr %2540, i64 32
   %2564 = and i64 %2562, 4294967295
-  %2565 = getelementptr inbounds nuw i32, ptr %2563, i64 %2564
+  %2565 = getelementptr inbounds nuw [4 x i8], ptr %2563, i64 %2564
   %2566 = load i32, ptr %2565, align 4
   %.not.i461 = icmp eq i32 %2566, 0
   br i1 %.not.i461, label %confWithBit.exit467, label %2567, !prof !5
@@ -4764,7 +4763,7 @@ vectoredLoad128.exit:                             ; preds = %2644, %2642, %2635,
   %2688 = extractvalue { i64, i64 } %2686, 1
   %2689 = lshr i64 %2687, 4
   %2690 = and i64 %2687, 15
-  %2691 = getelementptr inbounds nuw i32, ptr %43, i64 %2690
+  %2691 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %2690
   %2692 = load i32, ptr %2691, align 4
   %.not.i332 = icmp eq i32 %2692, 0
   br i1 %.not.i332, label %2785, label %2693
@@ -4850,7 +4849,7 @@ getConfVal.exit370:                               ; preds = %2704, %lv_u64a_ce.e
   %2738 = lshr i64 %2735, %2737
   %2739 = getelementptr inbounds nuw i8, ptr %2695, i64 32
   %2740 = and i64 %2738, 4294967295
-  %2741 = getelementptr inbounds nuw i32, ptr %2739, i64 %2740
+  %2741 = getelementptr inbounds nuw [4 x i8], ptr %2739, i64 %2740
   %2742 = load i32, ptr %2741, align 4
   %.not.i454 = icmp eq i32 %2742, 0
   br i1 %.not.i454, label %confWithBit.exit460, label %2743, !prof !5
@@ -4969,7 +4968,7 @@ do_confWithBit_teddy.exit335:                     ; preds = %2785
   %2798 = lshr i32 %2797, 4
   %2799 = add nuw nsw i32 %2798, 4
   %2800 = and i64 %2795, 15
-  %2801 = getelementptr inbounds nuw i32, ptr %43, i64 %2800
+  %2801 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %2800
   %2802 = load i32, ptr %2801, align 4
   %.not.i336 = icmp eq i32 %2802, 0
   br i1 %.not.i336, label %2895, label %2803
@@ -5055,7 +5054,7 @@ getConfVal.exit366:                               ; preds = %2814, %lv_u64a_ce.e
   %2848 = lshr i64 %2845, %2847
   %2849 = getelementptr inbounds nuw i8, ptr %2805, i64 32
   %2850 = and i64 %2848, 4294967295
-  %2851 = getelementptr inbounds nuw i32, ptr %2849, i64 %2850
+  %2851 = getelementptr inbounds nuw [4 x i8], ptr %2849, i64 %2850
   %2852 = load i32, ptr %2851, align 4
   %.not.i447 = icmp eq i32 %2852, 0
   br i1 %.not.i447, label %confWithBit.exit453, label %2853, !prof !5
@@ -5174,7 +5173,7 @@ do_confWithBit_teddy.exit339:                     ; preds = %2895
   %2908 = lshr i32 %2907, 4
   %2909 = add nuw nsw i32 %2908, 8
   %2910 = and i64 %2905, 15
-  %2911 = getelementptr inbounds nuw i32, ptr %43, i64 %2910
+  %2911 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %2910
   %2912 = load i32, ptr %2911, align 4
   %.not.i340 = icmp eq i32 %2912, 0
   br i1 %.not.i340, label %3005, label %2913
@@ -5260,7 +5259,7 @@ getConfVal.exit362:                               ; preds = %2924, %lv_u64a_ce.e
   %2958 = lshr i64 %2955, %2957
   %2959 = getelementptr inbounds nuw i8, ptr %2915, i64 32
   %2960 = and i64 %2958, 4294967295
-  %2961 = getelementptr inbounds nuw i32, ptr %2959, i64 %2960
+  %2961 = getelementptr inbounds nuw [4 x i8], ptr %2959, i64 %2960
   %2962 = load i32, ptr %2961, align 4
   %.not.i440 = icmp eq i32 %2962, 0
   br i1 %.not.i440, label %confWithBit.exit446, label %2963, !prof !5
@@ -5379,7 +5378,7 @@ do_confWithBit_teddy.exit343:                     ; preds = %3005
   %3018 = lshr i32 %3017, 4
   %3019 = add nuw nsw i32 %3018, 12
   %3020 = and i64 %3015, 15
-  %3021 = getelementptr inbounds nuw i32, ptr %43, i64 %3020
+  %3021 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %3020
   %3022 = load i32, ptr %3021, align 4
   %.not.i344 = icmp eq i32 %3022, 0
   br i1 %.not.i344, label %3115, label %3023
@@ -5465,7 +5464,7 @@ getConfVal.exit:                                  ; preds = %3034, %lv_u64a_ce.e
   %3068 = lshr i64 %3065, %3067
   %3069 = getelementptr inbounds nuw i8, ptr %3025, i64 32
   %3070 = and i64 %3068, 4294967295
-  %3071 = getelementptr inbounds nuw i32, ptr %3069, i64 %3070
+  %3071 = getelementptr inbounds nuw [4 x i8], ptr %3069, i64 %3070
   %3072 = load i32, ptr %3071, align 4
   %.not.i439 = icmp eq i32 %3072, 0
   br i1 %.not.i439, label %confWithBit.exit, label %3073, !prof !5
@@ -5800,7 +5799,7 @@ vectoredLoad128.exit:                             ; preds = %110, %108, %101, %9
   %155 = extractvalue { i64, i64 } %153, 1
   %156 = lshr i64 %154, 4
   %157 = and i64 %154, 15
-  %158 = getelementptr inbounds nuw i32, ptr %43, i64 %157
+  %158 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %157
   %159 = load i32, ptr %158, align 4
   %.not.i344 = icmp eq i32 %159, 0
   br i1 %.not.i344, label %252, label %160
@@ -5886,7 +5885,7 @@ getConfVal.exit:                                  ; preds = %171, %lv_u64a_ce.ex
   %205 = lshr i64 %202, %204
   %206 = getelementptr inbounds nuw i8, ptr %162, i64 32
   %207 = and i64 %205, 4294967295
-  %208 = getelementptr inbounds nuw i32, ptr %206, i64 %207
+  %208 = getelementptr inbounds nuw [4 x i8], ptr %206, i64 %207
   %209 = load i32, ptr %208, align 4
   %.not.i444 = icmp eq i32 %209, 0
   br i1 %.not.i444, label %confWithBit.exit, label %210, !prof !5
@@ -6006,7 +6005,7 @@ do_confWithBit_teddy.exit347:                     ; preds = %252
   %266 = lshr i32 %265, 4
   %267 = add nuw nsw i32 %266, 4
   %268 = and i64 %263, 15
-  %269 = getelementptr inbounds nuw i32, ptr %43, i64 %268
+  %269 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %268
   %270 = load i32, ptr %269, align 4
   %.not.i340 = icmp eq i32 %270, 0
   br i1 %.not.i340, label %363, label %271
@@ -6092,7 +6091,7 @@ getConfVal.exit367:                               ; preds = %282, %lv_u64a_ce.ex
   %316 = lshr i64 %313, %315
   %317 = getelementptr inbounds nuw i8, ptr %273, i64 32
   %318 = and i64 %316, 4294967295
-  %319 = getelementptr inbounds nuw i32, ptr %317, i64 %318
+  %319 = getelementptr inbounds nuw [4 x i8], ptr %317, i64 %318
   %320 = load i32, ptr %319, align 4
   %.not.i445 = icmp eq i32 %320, 0
   br i1 %.not.i445, label %confWithBit.exit451, label %321, !prof !5
@@ -6212,7 +6211,7 @@ do_confWithBit_teddy.exit343:                     ; preds = %363
   %377 = lshr i32 %376, 4
   %378 = add nuw nsw i32 %377, 8
   %379 = and i64 %374, 15
-  %380 = getelementptr inbounds nuw i32, ptr %43, i64 %379
+  %380 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %379
   %381 = load i32, ptr %380, align 4
   %.not.i336 = icmp eq i32 %381, 0
   br i1 %.not.i336, label %474, label %382
@@ -6298,7 +6297,7 @@ getConfVal.exit371:                               ; preds = %393, %lv_u64a_ce.ex
   %427 = lshr i64 %424, %426
   %428 = getelementptr inbounds nuw i8, ptr %384, i64 32
   %429 = and i64 %427, 4294967295
-  %430 = getelementptr inbounds nuw i32, ptr %428, i64 %429
+  %430 = getelementptr inbounds nuw [4 x i8], ptr %428, i64 %429
   %431 = load i32, ptr %430, align 4
   %.not.i452 = icmp eq i32 %431, 0
   br i1 %.not.i452, label %confWithBit.exit458, label %432, !prof !5
@@ -6418,7 +6417,7 @@ do_confWithBit_teddy.exit339:                     ; preds = %474
   %488 = lshr i32 %487, 4
   %489 = add nuw nsw i32 %488, 12
   %490 = and i64 %485, 15
-  %491 = getelementptr inbounds nuw i32, ptr %43, i64 %490
+  %491 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %490
   %492 = load i32, ptr %491, align 4
   %.not.i332 = icmp eq i32 %492, 0
   br i1 %.not.i332, label %585, label %493
@@ -6504,7 +6503,7 @@ getConfVal.exit375:                               ; preds = %504, %lv_u64a_ce.ex
   %538 = lshr i64 %535, %537
   %539 = getelementptr inbounds nuw i8, ptr %495, i64 32
   %540 = and i64 %538, 4294967295
-  %541 = getelementptr inbounds nuw i32, ptr %539, i64 %540
+  %541 = getelementptr inbounds nuw [4 x i8], ptr %539, i64 %540
   %542 = load i32, ptr %541, align 4
   %.not.i459 = icmp eq i32 %542, 0
   br i1 %.not.i459, label %confWithBit.exit465, label %543, !prof !5
@@ -6660,7 +6659,7 @@ do_confWithBit_teddy.exit335:                     ; preds = %585
   %626 = extractvalue { i64, i64 } %624, 1
   %627 = lshr i64 %625, 4
   %628 = and i64 %625, 15
-  %629 = getelementptr inbounds nuw i32, ptr %43, i64 %628
+  %629 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %628
   %630 = load i32, ptr %629, align 4
   %.not.i328 = icmp eq i32 %630, 0
   br i1 %.not.i328, label %723, label %631
@@ -6746,7 +6745,7 @@ getConfVal.exit379:                               ; preds = %642, %lv_u64a_ce.ex
   %676 = lshr i64 %673, %675
   %677 = getelementptr inbounds nuw i8, ptr %633, i64 32
   %678 = and i64 %676, 4294967295
-  %679 = getelementptr inbounds nuw i32, ptr %677, i64 %678
+  %679 = getelementptr inbounds nuw [4 x i8], ptr %677, i64 %678
   %680 = load i32, ptr %679, align 4
   %.not.i466 = icmp eq i32 %680, 0
   br i1 %.not.i466, label %confWithBit.exit472, label %681, !prof !5
@@ -6867,7 +6866,7 @@ do_confWithBit_teddy.exit331:                     ; preds = %723
   %738 = lshr i32 %737, 4
   %739 = add nuw nsw i32 %738, 4
   %740 = and i64 %735, 15
-  %741 = getelementptr inbounds nuw i32, ptr %43, i64 %740
+  %741 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %740
   %742 = load i32, ptr %741, align 4
   %.not.i324 = icmp eq i32 %742, 0
   br i1 %.not.i324, label %835, label %743
@@ -6953,7 +6952,7 @@ getConfVal.exit383:                               ; preds = %754, %lv_u64a_ce.ex
   %788 = lshr i64 %785, %787
   %789 = getelementptr inbounds nuw i8, ptr %745, i64 32
   %790 = and i64 %788, 4294967295
-  %791 = getelementptr inbounds nuw i32, ptr %789, i64 %790
+  %791 = getelementptr inbounds nuw [4 x i8], ptr %789, i64 %790
   %792 = load i32, ptr %791, align 4
   %.not.i473 = icmp eq i32 %792, 0
   br i1 %.not.i473, label %confWithBit.exit479, label %793, !prof !5
@@ -7074,7 +7073,7 @@ do_confWithBit_teddy.exit327:                     ; preds = %835
   %850 = lshr i32 %849, 4
   %851 = add nuw nsw i32 %850, 8
   %852 = and i64 %847, 15
-  %853 = getelementptr inbounds nuw i32, ptr %43, i64 %852
+  %853 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %852
   %854 = load i32, ptr %853, align 4
   %.not.i320 = icmp eq i32 %854, 0
   br i1 %.not.i320, label %947, label %855
@@ -7160,7 +7159,7 @@ getConfVal.exit387:                               ; preds = %866, %lv_u64a_ce.ex
   %900 = lshr i64 %897, %899
   %901 = getelementptr inbounds nuw i8, ptr %857, i64 32
   %902 = and i64 %900, 4294967295
-  %903 = getelementptr inbounds nuw i32, ptr %901, i64 %902
+  %903 = getelementptr inbounds nuw [4 x i8], ptr %901, i64 %902
   %904 = load i32, ptr %903, align 4
   %.not.i480 = icmp eq i32 %904, 0
   br i1 %.not.i480, label %confWithBit.exit486, label %905, !prof !5
@@ -7281,7 +7280,7 @@ do_confWithBit_teddy.exit323:                     ; preds = %947
   %962 = lshr i32 %961, 4
   %963 = add nuw nsw i32 %962, 12
   %964 = and i64 %959, 15
-  %965 = getelementptr inbounds nuw i32, ptr %43, i64 %964
+  %965 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %964
   %966 = load i32, ptr %965, align 4
   %.not.i316 = icmp eq i32 %966, 0
   br i1 %.not.i316, label %1059, label %967
@@ -7367,7 +7366,7 @@ getConfVal.exit391:                               ; preds = %978, %lv_u64a_ce.ex
   %1012 = lshr i64 %1009, %1011
   %1013 = getelementptr inbounds nuw i8, ptr %969, i64 32
   %1014 = and i64 %1012, 4294967295
-  %1015 = getelementptr inbounds nuw i32, ptr %1013, i64 %1014
+  %1015 = getelementptr inbounds nuw [4 x i8], ptr %1013, i64 %1014
   %1016 = load i32, ptr %1015, align 4
   %.not.i487 = icmp eq i32 %1016, 0
   br i1 %.not.i487, label %confWithBit.exit493, label %1017, !prof !5
@@ -7506,11 +7505,11 @@ do_confWithBit_teddy.exit319:                     ; preds = %1059
   %1084 = zext i32 %1083 to i64
   %1085 = getelementptr inbounds nuw i8, ptr %0, i64 %1084
   %1086 = zext i8 %1082 to i64
-  %1087 = getelementptr inbounds nuw i32, ptr %1085, i64 %1086
+  %1087 = getelementptr inbounds nuw [4 x i8], ptr %1085, i64 %1086
   %1088 = load i32, ptr %1087, align 4
   %1089 = getelementptr inbounds nuw i8, ptr %1085, i64 1024
   %1090 = zext i32 %1088 to i64
-  %1091 = getelementptr inbounds nuw %struct.FDRFlood, ptr %1089, i64 %1090
+  %1091 = getelementptr inbounds nuw [208 x i8], ptr %1089, i64 %1090
   %1092 = shl nuw nsw i64 %1086, 8
   %1093 = or disjoint i64 %1092, %1086
   %1094 = shl nuw nsw i64 %1093, 16
@@ -8072,14 +8071,14 @@ split:                                            ; preds = %1141, %.thread1108
   %1397 = phi i16 [ %1390, %.lr.ph1185 ], [ %1406, %1405 ]
   %indvars.iv1243 = phi i64 [ 4, %.lr.ph1185 ], [ %indvars.iv.next1244, %1405 ]
   %.10810621182 = phi i64 [ %.1071061, %.lr.ph1185 ], [ %.1151069, %1405 ]
-  %1398 = getelementptr inbounds nuw i64, ptr %1183, i64 %indvars.iv1243
+  %1398 = getelementptr inbounds nuw [8 x i8], ptr %1183, i64 %indvars.iv1243
   %1399 = load i64, ptr %1398, align 8
   %1400 = and i64 %1399, %.10810621182
   %.not421.i = icmp eq i64 %1400, 0
   br i1 %.not421.i, label %1405, label %1401
 
 1401:                                             ; preds = %1396
-  %1402 = getelementptr inbounds nuw i32, ptr %1184, i64 %indvars.iv1243
+  %1402 = getelementptr inbounds nuw [4 x i8], ptr %1184, i64 %indvars.iv1243
   %1403 = load i32, ptr %1402, align 4
   %1404 = call i64 %1073(i64 noundef %1393, i32 noundef %1403, ptr noundef %1074) #8
   %.pre1258 = load i16, ptr %1104, align 4
@@ -8168,14 +8167,14 @@ split:                                            ; preds = %1141, %.thread1108
   %1450 = phi i16 [ %1443, %.lr.ph1191 ], [ %1459, %1458 ]
   %indvars.iv1246 = phi i64 [ 4, %.lr.ph1191 ], [ %indvars.iv.next1247, %1458 ]
   %.11310671188 = phi i64 [ %.1121066, %.lr.ph1191 ], [ %.1141068, %1458 ]
-  %1451 = getelementptr inbounds nuw i64, ptr %1183, i64 %indvars.iv1246
+  %1451 = getelementptr inbounds nuw [8 x i8], ptr %1183, i64 %indvars.iv1246
   %1452 = load i64, ptr %1451, align 8
   %1453 = and i64 %1452, %.11310671188
   %.not420.i = icmp eq i64 %1453, 0
   br i1 %.not420.i, label %1458, label %1454
 
 1454:                                             ; preds = %1449
-  %1455 = getelementptr inbounds nuw i32, ptr %1184, i64 %indvars.iv1246
+  %1455 = getelementptr inbounds nuw [4 x i8], ptr %1184, i64 %indvars.iv1246
   %1456 = load i32, ptr %1455, align 4
   %1457 = call i64 %1073(i64 noundef %1447, i32 noundef %1456, ptr noundef %1074) #8
   %.pre1259 = load i16, ptr %1104, align 4
@@ -8270,7 +8269,7 @@ floodDetect.exit:                                 ; preds = %1107, %1114, %.crit
   %1510 = extractvalue { i64, i64 } %1508, 1
   %1511 = lshr i64 %1509, 4
   %1512 = and i64 %1509, 15
-  %1513 = getelementptr inbounds nuw i32, ptr %43, i64 %1512
+  %1513 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %1512
   %1514 = load i32, ptr %1513, align 4
   %.not.i312 = icmp eq i32 %1514, 0
   br i1 %.not.i312, label %1586, label %1515
@@ -8307,7 +8306,7 @@ floodDetect.exit:                                 ; preds = %1107, %1114, %.crit
   %1539 = lshr i64 %1536, %1538
   %1540 = getelementptr inbounds nuw i8, ptr %1517, i64 32
   %1541 = and i64 %1539, 4294967295
-  %1542 = getelementptr inbounds nuw i32, ptr %1540, i64 %1541
+  %1542 = getelementptr inbounds nuw [4 x i8], ptr %1540, i64 %1541
   %1543 = load i32, ptr %1542, align 4
   %.not.i494 = icmp eq i32 %1543, 0
   br i1 %.not.i494, label %confWithBit.exit500, label %1544, !prof !5
@@ -8424,7 +8423,7 @@ do_confWithBit_teddy.exit315:                     ; preds = %1586
   %1597 = lshr i32 %1596, 4
   %1598 = add nuw nsw i32 %1597, 4
   %1599 = and i64 %1594, 15
-  %1600 = getelementptr inbounds nuw i32, ptr %43, i64 %1599
+  %1600 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %1599
   %1601 = load i32, ptr %1600, align 4
   %.not.i308 = icmp eq i32 %1601, 0
   br i1 %.not.i308, label %1673, label %1602
@@ -8461,7 +8460,7 @@ do_confWithBit_teddy.exit315:                     ; preds = %1586
   %1626 = lshr i64 %1623, %1625
   %1627 = getelementptr inbounds nuw i8, ptr %1604, i64 32
   %1628 = and i64 %1626, 4294967295
-  %1629 = getelementptr inbounds nuw i32, ptr %1627, i64 %1628
+  %1629 = getelementptr inbounds nuw [4 x i8], ptr %1627, i64 %1628
   %1630 = load i32, ptr %1629, align 4
   %.not.i501 = icmp eq i32 %1630, 0
   br i1 %.not.i501, label %confWithBit.exit507, label %1631, !prof !5
@@ -8578,7 +8577,7 @@ do_confWithBit_teddy.exit311:                     ; preds = %1673
   %1684 = lshr i32 %1683, 4
   %1685 = add nuw nsw i32 %1684, 8
   %1686 = and i64 %1681, 15
-  %1687 = getelementptr inbounds nuw i32, ptr %43, i64 %1686
+  %1687 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %1686
   %1688 = load i32, ptr %1687, align 4
   %.not.i304 = icmp eq i32 %1688, 0
   br i1 %.not.i304, label %1760, label %1689
@@ -8615,7 +8614,7 @@ do_confWithBit_teddy.exit311:                     ; preds = %1673
   %1713 = lshr i64 %1710, %1712
   %1714 = getelementptr inbounds nuw i8, ptr %1691, i64 32
   %1715 = and i64 %1713, 4294967295
-  %1716 = getelementptr inbounds nuw i32, ptr %1714, i64 %1715
+  %1716 = getelementptr inbounds nuw [4 x i8], ptr %1714, i64 %1715
   %1717 = load i32, ptr %1716, align 4
   %.not.i508 = icmp eq i32 %1717, 0
   br i1 %.not.i508, label %confWithBit.exit514, label %1718, !prof !5
@@ -8732,7 +8731,7 @@ do_confWithBit_teddy.exit307:                     ; preds = %1760
   %1771 = lshr i32 %1770, 4
   %1772 = add nuw nsw i32 %1771, 12
   %1773 = and i64 %1768, 15
-  %1774 = getelementptr inbounds nuw i32, ptr %43, i64 %1773
+  %1774 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %1773
   %1775 = load i32, ptr %1774, align 4
   %.not.i300 = icmp eq i32 %1775, 0
   br i1 %.not.i300, label %1847, label %1776
@@ -8769,7 +8768,7 @@ do_confWithBit_teddy.exit307:                     ; preds = %1760
   %1800 = lshr i64 %1797, %1799
   %1801 = getelementptr inbounds nuw i8, ptr %1778, i64 32
   %1802 = and i64 %1800, 4294967295
-  %1803 = getelementptr inbounds nuw i32, ptr %1801, i64 %1802
+  %1803 = getelementptr inbounds nuw [4 x i8], ptr %1801, i64 %1802
   %1804 = load i32, ptr %1803, align 4
   %.not.i515 = icmp eq i32 %1804, 0
   br i1 %.not.i515, label %confWithBit.exit521, label %1805, !prof !5
@@ -8917,7 +8916,7 @@ do_confWithBit_teddy.exit303:                     ; preds = %1847
   %1884 = lshr i32 %1883, 4
   %1885 = add nuw nsw i32 %1884, 16
   %1886 = and i64 %1881, 15
-  %1887 = getelementptr inbounds nuw i32, ptr %43, i64 %1886
+  %1887 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %1886
   %1888 = load i32, ptr %1887, align 4
   %.not.i296 = icmp eq i32 %1888, 0
   br i1 %.not.i296, label %1960, label %1889
@@ -8954,7 +8953,7 @@ do_confWithBit_teddy.exit303:                     ; preds = %1847
   %1913 = lshr i64 %1910, %1912
   %1914 = getelementptr inbounds nuw i8, ptr %1891, i64 32
   %1915 = and i64 %1913, 4294967295
-  %1916 = getelementptr inbounds nuw i32, ptr %1914, i64 %1915
+  %1916 = getelementptr inbounds nuw [4 x i8], ptr %1914, i64 %1915
   %1917 = load i32, ptr %1916, align 4
   %.not.i522 = icmp eq i32 %1917, 0
   br i1 %.not.i522, label %confWithBit.exit528, label %1918, !prof !5
@@ -9071,7 +9070,7 @@ do_confWithBit_teddy.exit299:                     ; preds = %1960
   %1971 = lshr i32 %1970, 4
   %1972 = add nuw nsw i32 %1971, 20
   %1973 = and i64 %1968, 15
-  %1974 = getelementptr inbounds nuw i32, ptr %43, i64 %1973
+  %1974 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %1973
   %1975 = load i32, ptr %1974, align 4
   %.not.i292 = icmp eq i32 %1975, 0
   br i1 %.not.i292, label %2047, label %1976
@@ -9108,7 +9107,7 @@ do_confWithBit_teddy.exit299:                     ; preds = %1960
   %2000 = lshr i64 %1997, %1999
   %2001 = getelementptr inbounds nuw i8, ptr %1978, i64 32
   %2002 = and i64 %2000, 4294967295
-  %2003 = getelementptr inbounds nuw i32, ptr %2001, i64 %2002
+  %2003 = getelementptr inbounds nuw [4 x i8], ptr %2001, i64 %2002
   %2004 = load i32, ptr %2003, align 4
   %.not.i529 = icmp eq i32 %2004, 0
   br i1 %.not.i529, label %confWithBit.exit535, label %2005, !prof !5
@@ -9225,7 +9224,7 @@ do_confWithBit_teddy.exit295:                     ; preds = %2047
   %2058 = lshr i32 %2057, 4
   %2059 = add nuw nsw i32 %2058, 24
   %2060 = and i64 %2055, 15
-  %2061 = getelementptr inbounds nuw i32, ptr %43, i64 %2060
+  %2061 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %2060
   %2062 = load i32, ptr %2061, align 4
   %.not.i288 = icmp eq i32 %2062, 0
   br i1 %.not.i288, label %2134, label %2063
@@ -9262,7 +9261,7 @@ do_confWithBit_teddy.exit295:                     ; preds = %2047
   %2087 = lshr i64 %2084, %2086
   %2088 = getelementptr inbounds nuw i8, ptr %2065, i64 32
   %2089 = and i64 %2087, 4294967295
-  %2090 = getelementptr inbounds nuw i32, ptr %2088, i64 %2089
+  %2090 = getelementptr inbounds nuw [4 x i8], ptr %2088, i64 %2089
   %2091 = load i32, ptr %2090, align 4
   %.not.i536 = icmp eq i32 %2091, 0
   br i1 %.not.i536, label %confWithBit.exit542, label %2092, !prof !5
@@ -9379,7 +9378,7 @@ do_confWithBit_teddy.exit291:                     ; preds = %2134
   %2145 = lshr i32 %2144, 4
   %2146 = add nuw nsw i32 %2145, 28
   %2147 = and i64 %2142, 15
-  %2148 = getelementptr inbounds nuw i32, ptr %43, i64 %2147
+  %2148 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %2147
   %2149 = load i32, ptr %2148, align 4
   %.not.i284 = icmp eq i32 %2149, 0
   br i1 %.not.i284, label %2221, label %2150
@@ -9416,7 +9415,7 @@ do_confWithBit_teddy.exit291:                     ; preds = %2134
   %2174 = lshr i64 %2171, %2173
   %2175 = getelementptr inbounds nuw i8, ptr %2152, i64 32
   %2176 = and i64 %2174, 4294967295
-  %2177 = getelementptr inbounds nuw i32, ptr %2175, i64 %2176
+  %2177 = getelementptr inbounds nuw [4 x i8], ptr %2175, i64 %2176
   %2178 = load i32, ptr %2177, align 4
   %.not.i543 = icmp eq i32 %2178, 0
   br i1 %.not.i543, label %confWithBit.exit549, label %2179, !prof !5
@@ -9579,7 +9578,7 @@ do_confWithBit_teddy.exit287:                     ; preds = %2221
   %2263 = extractvalue { i64, i64 } %2261, 1
   %2264 = lshr i64 %2262, 4
   %2265 = and i64 %2262, 15
-  %2266 = getelementptr inbounds nuw i32, ptr %43, i64 %2265
+  %2266 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %2265
   %2267 = load i32, ptr %2266, align 4
   %.not.i280 = icmp eq i32 %2267, 0
   br i1 %.not.i280, label %2339, label %2268
@@ -9616,7 +9615,7 @@ do_confWithBit_teddy.exit287:                     ; preds = %2221
   %2292 = lshr i64 %2289, %2291
   %2293 = getelementptr inbounds nuw i8, ptr %2270, i64 32
   %2294 = and i64 %2292, 4294967295
-  %2295 = getelementptr inbounds nuw i32, ptr %2293, i64 %2294
+  %2295 = getelementptr inbounds nuw [4 x i8], ptr %2293, i64 %2294
   %2296 = load i32, ptr %2295, align 4
   %.not.i550 = icmp eq i32 %2296, 0
   br i1 %.not.i550, label %confWithBit.exit556, label %2297, !prof !5
@@ -9736,7 +9735,7 @@ do_confWithBit_teddy.exit283:                     ; preds = %2339
   %2353 = lshr i32 %2352, 4
   %2354 = add nuw nsw i32 %2353, 4
   %2355 = and i64 %2350, 15
-  %2356 = getelementptr inbounds nuw i32, ptr %43, i64 %2355
+  %2356 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %2355
   %2357 = load i32, ptr %2356, align 4
   %.not.i276 = icmp eq i32 %2357, 0
   br i1 %.not.i276, label %2429, label %2358
@@ -9773,7 +9772,7 @@ do_confWithBit_teddy.exit283:                     ; preds = %2339
   %2382 = lshr i64 %2379, %2381
   %2383 = getelementptr inbounds nuw i8, ptr %2360, i64 32
   %2384 = and i64 %2382, 4294967295
-  %2385 = getelementptr inbounds nuw i32, ptr %2383, i64 %2384
+  %2385 = getelementptr inbounds nuw [4 x i8], ptr %2383, i64 %2384
   %2386 = load i32, ptr %2385, align 4
   %.not.i557 = icmp eq i32 %2386, 0
   br i1 %.not.i557, label %confWithBit.exit563, label %2387, !prof !5
@@ -9893,7 +9892,7 @@ do_confWithBit_teddy.exit279:                     ; preds = %2429
   %2443 = lshr i32 %2442, 4
   %2444 = add nuw nsw i32 %2443, 8
   %2445 = and i64 %2440, 15
-  %2446 = getelementptr inbounds nuw i32, ptr %43, i64 %2445
+  %2446 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %2445
   %2447 = load i32, ptr %2446, align 4
   %.not.i272 = icmp eq i32 %2447, 0
   br i1 %.not.i272, label %2519, label %2448
@@ -9930,7 +9929,7 @@ do_confWithBit_teddy.exit279:                     ; preds = %2429
   %2472 = lshr i64 %2469, %2471
   %2473 = getelementptr inbounds nuw i8, ptr %2450, i64 32
   %2474 = and i64 %2472, 4294967295
-  %2475 = getelementptr inbounds nuw i32, ptr %2473, i64 %2474
+  %2475 = getelementptr inbounds nuw [4 x i8], ptr %2473, i64 %2474
   %2476 = load i32, ptr %2475, align 4
   %.not.i564 = icmp eq i32 %2476, 0
   br i1 %.not.i564, label %confWithBit.exit570, label %2477, !prof !5
@@ -10050,7 +10049,7 @@ do_confWithBit_teddy.exit275:                     ; preds = %2519
   %2533 = lshr i32 %2532, 4
   %2534 = add nuw nsw i32 %2533, 12
   %2535 = and i64 %2530, 15
-  %2536 = getelementptr inbounds nuw i32, ptr %43, i64 %2535
+  %2536 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %2535
   %2537 = load i32, ptr %2536, align 4
   %.not.i268 = icmp eq i32 %2537, 0
   br i1 %.not.i268, label %2609, label %2538
@@ -10087,7 +10086,7 @@ do_confWithBit_teddy.exit275:                     ; preds = %2519
   %2562 = lshr i64 %2559, %2561
   %2563 = getelementptr inbounds nuw i8, ptr %2540, i64 32
   %2564 = and i64 %2562, 4294967295
-  %2565 = getelementptr inbounds nuw i32, ptr %2563, i64 %2564
+  %2565 = getelementptr inbounds nuw [4 x i8], ptr %2563, i64 %2564
   %2566 = load i32, ptr %2565, align 4
   %.not.i571 = icmp eq i32 %2566, 0
   br i1 %.not.i571, label %confWithBit.exit577, label %2567, !prof !5
@@ -10326,7 +10325,7 @@ vectoredLoad128.exit360:                          ; preds = %2644, %2642, %2635,
   %2688 = extractvalue { i64, i64 } %2686, 1
   %2689 = lshr i64 %2687, 4
   %2690 = and i64 %2687, 15
-  %2691 = getelementptr inbounds nuw i32, ptr %43, i64 %2690
+  %2691 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %2690
   %2692 = load i32, ptr %2691, align 4
   %.not.i264 = icmp eq i32 %2692, 0
   br i1 %.not.i264, label %2785, label %2693
@@ -10412,7 +10411,7 @@ getConfVal.exit431:                               ; preds = %2704, %lv_u64a_ce.e
   %2738 = lshr i64 %2735, %2737
   %2739 = getelementptr inbounds nuw i8, ptr %2695, i64 32
   %2740 = and i64 %2738, 4294967295
-  %2741 = getelementptr inbounds nuw i32, ptr %2739, i64 %2740
+  %2741 = getelementptr inbounds nuw [4 x i8], ptr %2739, i64 %2740
   %2742 = load i32, ptr %2741, align 4
   %.not.i578 = icmp eq i32 %2742, 0
   br i1 %.not.i578, label %confWithBit.exit584, label %2743, !prof !5
@@ -10531,7 +10530,7 @@ do_confWithBit_teddy.exit267:                     ; preds = %2785
   %2798 = lshr i32 %2797, 4
   %2799 = add nuw nsw i32 %2798, 4
   %2800 = and i64 %2795, 15
-  %2801 = getelementptr inbounds nuw i32, ptr %43, i64 %2800
+  %2801 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %2800
   %2802 = load i32, ptr %2801, align 4
   %.not.i260 = icmp eq i32 %2802, 0
   br i1 %.not.i260, label %2895, label %2803
@@ -10617,7 +10616,7 @@ getConfVal.exit435:                               ; preds = %2814, %lv_u64a_ce.e
   %2848 = lshr i64 %2845, %2847
   %2849 = getelementptr inbounds nuw i8, ptr %2805, i64 32
   %2850 = and i64 %2848, 4294967295
-  %2851 = getelementptr inbounds nuw i32, ptr %2849, i64 %2850
+  %2851 = getelementptr inbounds nuw [4 x i8], ptr %2849, i64 %2850
   %2852 = load i32, ptr %2851, align 4
   %.not.i585 = icmp eq i32 %2852, 0
   br i1 %.not.i585, label %confWithBit.exit591, label %2853, !prof !5
@@ -10736,7 +10735,7 @@ do_confWithBit_teddy.exit263:                     ; preds = %2895
   %2908 = lshr i32 %2907, 4
   %2909 = add nuw nsw i32 %2908, 8
   %2910 = and i64 %2905, 15
-  %2911 = getelementptr inbounds nuw i32, ptr %43, i64 %2910
+  %2911 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %2910
   %2912 = load i32, ptr %2911, align 4
   %.not.i256 = icmp eq i32 %2912, 0
   br i1 %.not.i256, label %3005, label %2913
@@ -10822,7 +10821,7 @@ getConfVal.exit439:                               ; preds = %2924, %lv_u64a_ce.e
   %2958 = lshr i64 %2955, %2957
   %2959 = getelementptr inbounds nuw i8, ptr %2915, i64 32
   %2960 = and i64 %2958, 4294967295
-  %2961 = getelementptr inbounds nuw i32, ptr %2959, i64 %2960
+  %2961 = getelementptr inbounds nuw [4 x i8], ptr %2959, i64 %2960
   %2962 = load i32, ptr %2961, align 4
   %.not.i592 = icmp eq i32 %2962, 0
   br i1 %.not.i592, label %confWithBit.exit598, label %2963, !prof !5
@@ -10941,7 +10940,7 @@ do_confWithBit_teddy.exit259:                     ; preds = %3005
   %3018 = lshr i32 %3017, 4
   %3019 = add nuw nsw i32 %3018, 12
   %3020 = and i64 %3015, 15
-  %3021 = getelementptr inbounds nuw i32, ptr %43, i64 %3020
+  %3021 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %3020
   %3022 = load i32, ptr %3021, align 4
   %.not.i = icmp eq i32 %3022, 0
   br i1 %.not.i, label %3115, label %3023
@@ -11027,7 +11026,7 @@ getConfVal.exit443:                               ; preds = %3034, %lv_u64a_ce.e
   %3068 = lshr i64 %3065, %3067
   %3069 = getelementptr inbounds nuw i8, ptr %3025, i64 32
   %3070 = and i64 %3068, 4294967295
-  %3071 = getelementptr inbounds nuw i32, ptr %3069, i64 %3070
+  %3071 = getelementptr inbounds nuw [4 x i8], ptr %3069, i64 %3070
   %3072 = load i32, ptr %3071, align 4
   %.not.i599 = icmp eq i32 %3072, 0
   br i1 %.not.i599, label %confWithBit.exit605, label %3073, !prof !5
@@ -11386,7 +11385,7 @@ vectoredLoad128.exit:                             ; preds = %119, %117, %110, %1
   %173 = extractvalue { i64, i64 } %171, 1
   %174 = lshr i64 %172, 4
   %175 = and i64 %172, 15
-  %176 = getelementptr inbounds nuw i32, ptr %43, i64 %175
+  %176 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %175
   %177 = load i32, ptr %176, align 4
   %.not.i344 = icmp eq i32 %177, 0
   br i1 %.not.i344, label %270, label %178
@@ -11472,7 +11471,7 @@ getConfVal.exit:                                  ; preds = %189, %lv_u64a_ce.ex
   %223 = lshr i64 %220, %222
   %224 = getelementptr inbounds nuw i8, ptr %180, i64 32
   %225 = and i64 %223, 4294967295
-  %226 = getelementptr inbounds nuw i32, ptr %224, i64 %225
+  %226 = getelementptr inbounds nuw [4 x i8], ptr %224, i64 %225
   %227 = load i32, ptr %226, align 4
   %.not.i445 = icmp eq i32 %227, 0
   br i1 %.not.i445, label %confWithBit.exit, label %228, !prof !5
@@ -11592,7 +11591,7 @@ do_confWithBit_teddy.exit347:                     ; preds = %270
   %284 = lshr i32 %283, 4
   %285 = add nuw nsw i32 %284, 4
   %286 = and i64 %281, 15
-  %287 = getelementptr inbounds nuw i32, ptr %43, i64 %286
+  %287 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %286
   %288 = load i32, ptr %287, align 4
   %.not.i340 = icmp eq i32 %288, 0
   br i1 %.not.i340, label %381, label %289
@@ -11678,7 +11677,7 @@ getConfVal.exit368:                               ; preds = %300, %lv_u64a_ce.ex
   %334 = lshr i64 %331, %333
   %335 = getelementptr inbounds nuw i8, ptr %291, i64 32
   %336 = and i64 %334, 4294967295
-  %337 = getelementptr inbounds nuw i32, ptr %335, i64 %336
+  %337 = getelementptr inbounds nuw [4 x i8], ptr %335, i64 %336
   %338 = load i32, ptr %337, align 4
   %.not.i446 = icmp eq i32 %338, 0
   br i1 %.not.i446, label %confWithBit.exit452, label %339, !prof !5
@@ -11798,7 +11797,7 @@ do_confWithBit_teddy.exit343:                     ; preds = %381
   %395 = lshr i32 %394, 4
   %396 = add nuw nsw i32 %395, 8
   %397 = and i64 %392, 15
-  %398 = getelementptr inbounds nuw i32, ptr %43, i64 %397
+  %398 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %397
   %399 = load i32, ptr %398, align 4
   %.not.i336 = icmp eq i32 %399, 0
   br i1 %.not.i336, label %492, label %400
@@ -11884,7 +11883,7 @@ getConfVal.exit372:                               ; preds = %411, %lv_u64a_ce.ex
   %445 = lshr i64 %442, %444
   %446 = getelementptr inbounds nuw i8, ptr %402, i64 32
   %447 = and i64 %445, 4294967295
-  %448 = getelementptr inbounds nuw i32, ptr %446, i64 %447
+  %448 = getelementptr inbounds nuw [4 x i8], ptr %446, i64 %447
   %449 = load i32, ptr %448, align 4
   %.not.i453 = icmp eq i32 %449, 0
   br i1 %.not.i453, label %confWithBit.exit459, label %450, !prof !5
@@ -12004,7 +12003,7 @@ do_confWithBit_teddy.exit339:                     ; preds = %492
   %506 = lshr i32 %505, 4
   %507 = add nuw nsw i32 %506, 12
   %508 = and i64 %503, 15
-  %509 = getelementptr inbounds nuw i32, ptr %43, i64 %508
+  %509 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %508
   %510 = load i32, ptr %509, align 4
   %.not.i332 = icmp eq i32 %510, 0
   br i1 %.not.i332, label %603, label %511
@@ -12090,7 +12089,7 @@ getConfVal.exit376:                               ; preds = %522, %lv_u64a_ce.ex
   %556 = lshr i64 %553, %555
   %557 = getelementptr inbounds nuw i8, ptr %513, i64 32
   %558 = and i64 %556, 4294967295
-  %559 = getelementptr inbounds nuw i32, ptr %557, i64 %558
+  %559 = getelementptr inbounds nuw [4 x i8], ptr %557, i64 %558
   %560 = load i32, ptr %559, align 4
   %.not.i460 = icmp eq i32 %560, 0
   br i1 %.not.i460, label %confWithBit.exit466, label %561, !prof !5
@@ -12256,7 +12255,7 @@ do_confWithBit_teddy.exit335:                     ; preds = %603
   %654 = extractvalue { i64, i64 } %652, 1
   %655 = lshr i64 %653, 4
   %656 = and i64 %653, 15
-  %657 = getelementptr inbounds nuw i32, ptr %43, i64 %656
+  %657 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %656
   %658 = load i32, ptr %657, align 4
   %.not.i328 = icmp eq i32 %658, 0
   br i1 %.not.i328, label %751, label %659
@@ -12342,7 +12341,7 @@ getConfVal.exit380:                               ; preds = %670, %lv_u64a_ce.ex
   %704 = lshr i64 %701, %703
   %705 = getelementptr inbounds nuw i8, ptr %661, i64 32
   %706 = and i64 %704, 4294967295
-  %707 = getelementptr inbounds nuw i32, ptr %705, i64 %706
+  %707 = getelementptr inbounds nuw [4 x i8], ptr %705, i64 %706
   %708 = load i32, ptr %707, align 4
   %.not.i467 = icmp eq i32 %708, 0
   br i1 %.not.i467, label %confWithBit.exit473, label %709, !prof !5
@@ -12463,7 +12462,7 @@ do_confWithBit_teddy.exit331:                     ; preds = %751
   %766 = lshr i32 %765, 4
   %767 = add nuw nsw i32 %766, 4
   %768 = and i64 %763, 15
-  %769 = getelementptr inbounds nuw i32, ptr %43, i64 %768
+  %769 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %768
   %770 = load i32, ptr %769, align 4
   %.not.i324 = icmp eq i32 %770, 0
   br i1 %.not.i324, label %863, label %771
@@ -12549,7 +12548,7 @@ getConfVal.exit384:                               ; preds = %782, %lv_u64a_ce.ex
   %816 = lshr i64 %813, %815
   %817 = getelementptr inbounds nuw i8, ptr %773, i64 32
   %818 = and i64 %816, 4294967295
-  %819 = getelementptr inbounds nuw i32, ptr %817, i64 %818
+  %819 = getelementptr inbounds nuw [4 x i8], ptr %817, i64 %818
   %820 = load i32, ptr %819, align 4
   %.not.i474 = icmp eq i32 %820, 0
   br i1 %.not.i474, label %confWithBit.exit480, label %821, !prof !5
@@ -12670,7 +12669,7 @@ do_confWithBit_teddy.exit327:                     ; preds = %863
   %878 = lshr i32 %877, 4
   %879 = add nuw nsw i32 %878, 8
   %880 = and i64 %875, 15
-  %881 = getelementptr inbounds nuw i32, ptr %43, i64 %880
+  %881 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %880
   %882 = load i32, ptr %881, align 4
   %.not.i320 = icmp eq i32 %882, 0
   br i1 %.not.i320, label %975, label %883
@@ -12756,7 +12755,7 @@ getConfVal.exit388:                               ; preds = %894, %lv_u64a_ce.ex
   %928 = lshr i64 %925, %927
   %929 = getelementptr inbounds nuw i8, ptr %885, i64 32
   %930 = and i64 %928, 4294967295
-  %931 = getelementptr inbounds nuw i32, ptr %929, i64 %930
+  %931 = getelementptr inbounds nuw [4 x i8], ptr %929, i64 %930
   %932 = load i32, ptr %931, align 4
   %.not.i481 = icmp eq i32 %932, 0
   br i1 %.not.i481, label %confWithBit.exit487, label %933, !prof !5
@@ -12877,7 +12876,7 @@ do_confWithBit_teddy.exit323:                     ; preds = %975
   %990 = lshr i32 %989, 4
   %991 = add nuw nsw i32 %990, 12
   %992 = and i64 %987, 15
-  %993 = getelementptr inbounds nuw i32, ptr %43, i64 %992
+  %993 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %992
   %994 = load i32, ptr %993, align 4
   %.not.i316 = icmp eq i32 %994, 0
   br i1 %.not.i316, label %1087, label %995
@@ -12963,7 +12962,7 @@ getConfVal.exit392:                               ; preds = %1006, %lv_u64a_ce.e
   %1040 = lshr i64 %1037, %1039
   %1041 = getelementptr inbounds nuw i8, ptr %997, i64 32
   %1042 = and i64 %1040, 4294967295
-  %1043 = getelementptr inbounds nuw i32, ptr %1041, i64 %1042
+  %1043 = getelementptr inbounds nuw [4 x i8], ptr %1041, i64 %1042
   %1044 = load i32, ptr %1043, align 4
   %.not.i488 = icmp eq i32 %1044, 0
   br i1 %.not.i488, label %confWithBit.exit494, label %1045, !prof !5
@@ -13106,11 +13105,11 @@ do_confWithBit_teddy.exit319:                     ; preds = %1087
   %1116 = zext i32 %1115 to i64
   %1117 = getelementptr inbounds nuw i8, ptr %0, i64 %1116
   %1118 = zext i8 %1114 to i64
-  %1119 = getelementptr inbounds nuw i32, ptr %1117, i64 %1118
+  %1119 = getelementptr inbounds nuw [4 x i8], ptr %1117, i64 %1118
   %1120 = load i32, ptr %1119, align 4
   %1121 = getelementptr inbounds nuw i8, ptr %1117, i64 1024
   %1122 = zext i32 %1120 to i64
-  %1123 = getelementptr inbounds nuw %struct.FDRFlood, ptr %1121, i64 %1122
+  %1123 = getelementptr inbounds nuw [208 x i8], ptr %1121, i64 %1122
   %1124 = shl nuw nsw i64 %1118, 8
   %1125 = or disjoint i64 %1124, %1118
   %1126 = shl nuw nsw i64 %1125, 16
@@ -13672,14 +13671,14 @@ split:                                            ; preds = %1173, %.thread1119
   %1429 = phi i16 [ %1422, %.lr.ph1197 ], [ %1438, %1437 ]
   %indvars.iv1259 = phi i64 [ 4, %.lr.ph1197 ], [ %indvars.iv.next1260, %1437 ]
   %.10810731194 = phi i64 [ %.1071072, %.lr.ph1197 ], [ %.1151080, %1437 ]
-  %1430 = getelementptr inbounds nuw i64, ptr %1215, i64 %indvars.iv1259
+  %1430 = getelementptr inbounds nuw [8 x i8], ptr %1215, i64 %indvars.iv1259
   %1431 = load i64, ptr %1430, align 8
   %1432 = and i64 %1431, %.10810731194
   %.not421.i = icmp eq i64 %1432, 0
   br i1 %.not421.i, label %1437, label %1433
 
 1433:                                             ; preds = %1428
-  %1434 = getelementptr inbounds nuw i32, ptr %1216, i64 %indvars.iv1259
+  %1434 = getelementptr inbounds nuw [4 x i8], ptr %1216, i64 %indvars.iv1259
   %1435 = load i32, ptr %1434, align 4
   %1436 = call i64 %1105(i64 noundef %1425, i32 noundef %1435, ptr noundef %1106) #8
   %.pre1274 = load i16, ptr %1136, align 4
@@ -13768,14 +13767,14 @@ split:                                            ; preds = %1173, %.thread1119
   %1482 = phi i16 [ %1475, %.lr.ph1203 ], [ %1491, %1490 ]
   %indvars.iv1262 = phi i64 [ 4, %.lr.ph1203 ], [ %indvars.iv.next1263, %1490 ]
   %.11310781200 = phi i64 [ %.1121077, %.lr.ph1203 ], [ %.1141079, %1490 ]
-  %1483 = getelementptr inbounds nuw i64, ptr %1215, i64 %indvars.iv1262
+  %1483 = getelementptr inbounds nuw [8 x i8], ptr %1215, i64 %indvars.iv1262
   %1484 = load i64, ptr %1483, align 8
   %1485 = and i64 %1484, %.11310781200
   %.not420.i = icmp eq i64 %1485, 0
   br i1 %.not420.i, label %1490, label %1486
 
 1486:                                             ; preds = %1481
-  %1487 = getelementptr inbounds nuw i32, ptr %1216, i64 %indvars.iv1262
+  %1487 = getelementptr inbounds nuw [4 x i8], ptr %1216, i64 %indvars.iv1262
   %1488 = load i32, ptr %1487, align 4
   %1489 = call i64 %1105(i64 noundef %1479, i32 noundef %1488, ptr noundef %1106) #8
   %.pre1275 = load i16, ptr %1136, align 4
@@ -13877,7 +13876,7 @@ floodDetect.exit:                                 ; preds = %1139, %1146, %.crit
   %1549 = extractvalue { i64, i64 } %1547, 1
   %1550 = lshr i64 %1548, 4
   %1551 = and i64 %1548, 15
-  %1552 = getelementptr inbounds nuw i32, ptr %43, i64 %1551
+  %1552 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %1551
   %1553 = load i32, ptr %1552, align 4
   %.not.i312 = icmp eq i32 %1553, 0
   br i1 %.not.i312, label %1625, label %1554
@@ -13914,7 +13913,7 @@ floodDetect.exit:                                 ; preds = %1139, %1146, %.crit
   %1578 = lshr i64 %1575, %1577
   %1579 = getelementptr inbounds nuw i8, ptr %1556, i64 32
   %1580 = and i64 %1578, 4294967295
-  %1581 = getelementptr inbounds nuw i32, ptr %1579, i64 %1580
+  %1581 = getelementptr inbounds nuw [4 x i8], ptr %1579, i64 %1580
   %1582 = load i32, ptr %1581, align 4
   %.not.i495 = icmp eq i32 %1582, 0
   br i1 %.not.i495, label %confWithBit.exit501, label %1583, !prof !5
@@ -14031,7 +14030,7 @@ do_confWithBit_teddy.exit315:                     ; preds = %1625
   %1636 = lshr i32 %1635, 4
   %1637 = add nuw nsw i32 %1636, 4
   %1638 = and i64 %1633, 15
-  %1639 = getelementptr inbounds nuw i32, ptr %43, i64 %1638
+  %1639 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %1638
   %1640 = load i32, ptr %1639, align 4
   %.not.i308 = icmp eq i32 %1640, 0
   br i1 %.not.i308, label %1712, label %1641
@@ -14068,7 +14067,7 @@ do_confWithBit_teddy.exit315:                     ; preds = %1625
   %1665 = lshr i64 %1662, %1664
   %1666 = getelementptr inbounds nuw i8, ptr %1643, i64 32
   %1667 = and i64 %1665, 4294967295
-  %1668 = getelementptr inbounds nuw i32, ptr %1666, i64 %1667
+  %1668 = getelementptr inbounds nuw [4 x i8], ptr %1666, i64 %1667
   %1669 = load i32, ptr %1668, align 4
   %.not.i502 = icmp eq i32 %1669, 0
   br i1 %.not.i502, label %confWithBit.exit508, label %1670, !prof !5
@@ -14185,7 +14184,7 @@ do_confWithBit_teddy.exit311:                     ; preds = %1712
   %1723 = lshr i32 %1722, 4
   %1724 = add nuw nsw i32 %1723, 8
   %1725 = and i64 %1720, 15
-  %1726 = getelementptr inbounds nuw i32, ptr %43, i64 %1725
+  %1726 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %1725
   %1727 = load i32, ptr %1726, align 4
   %.not.i304 = icmp eq i32 %1727, 0
   br i1 %.not.i304, label %1799, label %1728
@@ -14222,7 +14221,7 @@ do_confWithBit_teddy.exit311:                     ; preds = %1712
   %1752 = lshr i64 %1749, %1751
   %1753 = getelementptr inbounds nuw i8, ptr %1730, i64 32
   %1754 = and i64 %1752, 4294967295
-  %1755 = getelementptr inbounds nuw i32, ptr %1753, i64 %1754
+  %1755 = getelementptr inbounds nuw [4 x i8], ptr %1753, i64 %1754
   %1756 = load i32, ptr %1755, align 4
   %.not.i509 = icmp eq i32 %1756, 0
   br i1 %.not.i509, label %confWithBit.exit515, label %1757, !prof !5
@@ -14339,7 +14338,7 @@ do_confWithBit_teddy.exit307:                     ; preds = %1799
   %1810 = lshr i32 %1809, 4
   %1811 = add nuw nsw i32 %1810, 12
   %1812 = and i64 %1807, 15
-  %1813 = getelementptr inbounds nuw i32, ptr %43, i64 %1812
+  %1813 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %1812
   %1814 = load i32, ptr %1813, align 4
   %.not.i300 = icmp eq i32 %1814, 0
   br i1 %.not.i300, label %1886, label %1815
@@ -14376,7 +14375,7 @@ do_confWithBit_teddy.exit307:                     ; preds = %1799
   %1839 = lshr i64 %1836, %1838
   %1840 = getelementptr inbounds nuw i8, ptr %1817, i64 32
   %1841 = and i64 %1839, 4294967295
-  %1842 = getelementptr inbounds nuw i32, ptr %1840, i64 %1841
+  %1842 = getelementptr inbounds nuw [4 x i8], ptr %1840, i64 %1841
   %1843 = load i32, ptr %1842, align 4
   %.not.i516 = icmp eq i32 %1843, 0
   br i1 %.not.i516, label %confWithBit.exit522, label %1844, !prof !5
@@ -14531,7 +14530,7 @@ do_confWithBit_teddy.exit303:                     ; preds = %1886
   %1930 = lshr i32 %1929, 4
   %1931 = add nuw nsw i32 %1930, 16
   %1932 = and i64 %1927, 15
-  %1933 = getelementptr inbounds nuw i32, ptr %43, i64 %1932
+  %1933 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %1932
   %1934 = load i32, ptr %1933, align 4
   %.not.i296 = icmp eq i32 %1934, 0
   br i1 %.not.i296, label %2006, label %1935
@@ -14568,7 +14567,7 @@ do_confWithBit_teddy.exit303:                     ; preds = %1886
   %1959 = lshr i64 %1956, %1958
   %1960 = getelementptr inbounds nuw i8, ptr %1937, i64 32
   %1961 = and i64 %1959, 4294967295
-  %1962 = getelementptr inbounds nuw i32, ptr %1960, i64 %1961
+  %1962 = getelementptr inbounds nuw [4 x i8], ptr %1960, i64 %1961
   %1963 = load i32, ptr %1962, align 4
   %.not.i523 = icmp eq i32 %1963, 0
   br i1 %.not.i523, label %confWithBit.exit529, label %1964, !prof !5
@@ -14685,7 +14684,7 @@ do_confWithBit_teddy.exit299:                     ; preds = %2006
   %2017 = lshr i32 %2016, 4
   %2018 = add nuw nsw i32 %2017, 20
   %2019 = and i64 %2014, 15
-  %2020 = getelementptr inbounds nuw i32, ptr %43, i64 %2019
+  %2020 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %2019
   %2021 = load i32, ptr %2020, align 4
   %.not.i292 = icmp eq i32 %2021, 0
   br i1 %.not.i292, label %2093, label %2022
@@ -14722,7 +14721,7 @@ do_confWithBit_teddy.exit299:                     ; preds = %2006
   %2046 = lshr i64 %2043, %2045
   %2047 = getelementptr inbounds nuw i8, ptr %2024, i64 32
   %2048 = and i64 %2046, 4294967295
-  %2049 = getelementptr inbounds nuw i32, ptr %2047, i64 %2048
+  %2049 = getelementptr inbounds nuw [4 x i8], ptr %2047, i64 %2048
   %2050 = load i32, ptr %2049, align 4
   %.not.i530 = icmp eq i32 %2050, 0
   br i1 %.not.i530, label %confWithBit.exit536, label %2051, !prof !5
@@ -14839,7 +14838,7 @@ do_confWithBit_teddy.exit295:                     ; preds = %2093
   %2104 = lshr i32 %2103, 4
   %2105 = add nuw nsw i32 %2104, 24
   %2106 = and i64 %2101, 15
-  %2107 = getelementptr inbounds nuw i32, ptr %43, i64 %2106
+  %2107 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %2106
   %2108 = load i32, ptr %2107, align 4
   %.not.i288 = icmp eq i32 %2108, 0
   br i1 %.not.i288, label %2180, label %2109
@@ -14876,7 +14875,7 @@ do_confWithBit_teddy.exit295:                     ; preds = %2093
   %2133 = lshr i64 %2130, %2132
   %2134 = getelementptr inbounds nuw i8, ptr %2111, i64 32
   %2135 = and i64 %2133, 4294967295
-  %2136 = getelementptr inbounds nuw i32, ptr %2134, i64 %2135
+  %2136 = getelementptr inbounds nuw [4 x i8], ptr %2134, i64 %2135
   %2137 = load i32, ptr %2136, align 4
   %.not.i537 = icmp eq i32 %2137, 0
   br i1 %.not.i537, label %confWithBit.exit543, label %2138, !prof !5
@@ -14993,7 +14992,7 @@ do_confWithBit_teddy.exit291:                     ; preds = %2180
   %2191 = lshr i32 %2190, 4
   %2192 = add nuw nsw i32 %2191, 28
   %2193 = and i64 %2188, 15
-  %2194 = getelementptr inbounds nuw i32, ptr %43, i64 %2193
+  %2194 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %2193
   %2195 = load i32, ptr %2194, align 4
   %.not.i284 = icmp eq i32 %2195, 0
   br i1 %.not.i284, label %2267, label %2196
@@ -15030,7 +15029,7 @@ do_confWithBit_teddy.exit291:                     ; preds = %2180
   %2220 = lshr i64 %2217, %2219
   %2221 = getelementptr inbounds nuw i8, ptr %2198, i64 32
   %2222 = and i64 %2220, 4294967295
-  %2223 = getelementptr inbounds nuw i32, ptr %2221, i64 %2222
+  %2223 = getelementptr inbounds nuw [4 x i8], ptr %2221, i64 %2222
   %2224 = load i32, ptr %2223, align 4
   %.not.i544 = icmp eq i32 %2224, 0
   br i1 %.not.i544, label %confWithBit.exit550, label %2225, !prof !5
@@ -15203,7 +15202,7 @@ do_confWithBit_teddy.exit287:                     ; preds = %2267
   %2318 = extractvalue { i64, i64 } %2316, 1
   %2319 = lshr i64 %2317, 4
   %2320 = and i64 %2317, 15
-  %2321 = getelementptr inbounds nuw i32, ptr %43, i64 %2320
+  %2321 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %2320
   %2322 = load i32, ptr %2321, align 4
   %.not.i280 = icmp eq i32 %2322, 0
   br i1 %.not.i280, label %2394, label %2323
@@ -15240,7 +15239,7 @@ do_confWithBit_teddy.exit287:                     ; preds = %2267
   %2347 = lshr i64 %2344, %2346
   %2348 = getelementptr inbounds nuw i8, ptr %2325, i64 32
   %2349 = and i64 %2347, 4294967295
-  %2350 = getelementptr inbounds nuw i32, ptr %2348, i64 %2349
+  %2350 = getelementptr inbounds nuw [4 x i8], ptr %2348, i64 %2349
   %2351 = load i32, ptr %2350, align 4
   %.not.i551 = icmp eq i32 %2351, 0
   br i1 %.not.i551, label %confWithBit.exit557, label %2352, !prof !5
@@ -15360,7 +15359,7 @@ do_confWithBit_teddy.exit283:                     ; preds = %2394
   %2408 = lshr i32 %2407, 4
   %2409 = add nuw nsw i32 %2408, 4
   %2410 = and i64 %2405, 15
-  %2411 = getelementptr inbounds nuw i32, ptr %43, i64 %2410
+  %2411 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %2410
   %2412 = load i32, ptr %2411, align 4
   %.not.i276 = icmp eq i32 %2412, 0
   br i1 %.not.i276, label %2484, label %2413
@@ -15397,7 +15396,7 @@ do_confWithBit_teddy.exit283:                     ; preds = %2394
   %2437 = lshr i64 %2434, %2436
   %2438 = getelementptr inbounds nuw i8, ptr %2415, i64 32
   %2439 = and i64 %2437, 4294967295
-  %2440 = getelementptr inbounds nuw i32, ptr %2438, i64 %2439
+  %2440 = getelementptr inbounds nuw [4 x i8], ptr %2438, i64 %2439
   %2441 = load i32, ptr %2440, align 4
   %.not.i558 = icmp eq i32 %2441, 0
   br i1 %.not.i558, label %confWithBit.exit564, label %2442, !prof !5
@@ -15517,7 +15516,7 @@ do_confWithBit_teddy.exit279:                     ; preds = %2484
   %2498 = lshr i32 %2497, 4
   %2499 = add nuw nsw i32 %2498, 8
   %2500 = and i64 %2495, 15
-  %2501 = getelementptr inbounds nuw i32, ptr %43, i64 %2500
+  %2501 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %2500
   %2502 = load i32, ptr %2501, align 4
   %.not.i272 = icmp eq i32 %2502, 0
   br i1 %.not.i272, label %2574, label %2503
@@ -15554,7 +15553,7 @@ do_confWithBit_teddy.exit279:                     ; preds = %2484
   %2527 = lshr i64 %2524, %2526
   %2528 = getelementptr inbounds nuw i8, ptr %2505, i64 32
   %2529 = and i64 %2527, 4294967295
-  %2530 = getelementptr inbounds nuw i32, ptr %2528, i64 %2529
+  %2530 = getelementptr inbounds nuw [4 x i8], ptr %2528, i64 %2529
   %2531 = load i32, ptr %2530, align 4
   %.not.i565 = icmp eq i32 %2531, 0
   br i1 %.not.i565, label %confWithBit.exit571, label %2532, !prof !5
@@ -15674,7 +15673,7 @@ do_confWithBit_teddy.exit275:                     ; preds = %2574
   %2588 = lshr i32 %2587, 4
   %2589 = add nuw nsw i32 %2588, 12
   %2590 = and i64 %2585, 15
-  %2591 = getelementptr inbounds nuw i32, ptr %43, i64 %2590
+  %2591 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %2590
   %2592 = load i32, ptr %2591, align 4
   %.not.i268 = icmp eq i32 %2592, 0
   br i1 %.not.i268, label %2664, label %2593
@@ -15711,7 +15710,7 @@ do_confWithBit_teddy.exit275:                     ; preds = %2574
   %2617 = lshr i64 %2614, %2616
   %2618 = getelementptr inbounds nuw i8, ptr %2595, i64 32
   %2619 = and i64 %2617, 4294967295
-  %2620 = getelementptr inbounds nuw i32, ptr %2618, i64 %2619
+  %2620 = getelementptr inbounds nuw [4 x i8], ptr %2618, i64 %2619
   %2621 = load i32, ptr %2620, align 4
   %.not.i572 = icmp eq i32 %2621, 0
   br i1 %.not.i572, label %confWithBit.exit578, label %2622, !prof !5
@@ -15960,7 +15959,7 @@ vectoredLoad128.exit361:                          ; preds = %2700, %2698, %2691,
   %2753 = extractvalue { i64, i64 } %2751, 1
   %2754 = lshr i64 %2752, 4
   %2755 = and i64 %2752, 15
-  %2756 = getelementptr inbounds nuw i32, ptr %43, i64 %2755
+  %2756 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %2755
   %2757 = load i32, ptr %2756, align 4
   %.not.i264 = icmp eq i32 %2757, 0
   br i1 %.not.i264, label %2850, label %2758
@@ -16046,7 +16045,7 @@ getConfVal.exit432:                               ; preds = %2769, %lv_u64a_ce.e
   %2803 = lshr i64 %2800, %2802
   %2804 = getelementptr inbounds nuw i8, ptr %2760, i64 32
   %2805 = and i64 %2803, 4294967295
-  %2806 = getelementptr inbounds nuw i32, ptr %2804, i64 %2805
+  %2806 = getelementptr inbounds nuw [4 x i8], ptr %2804, i64 %2805
   %2807 = load i32, ptr %2806, align 4
   %.not.i579 = icmp eq i32 %2807, 0
   br i1 %.not.i579, label %confWithBit.exit585, label %2808, !prof !5
@@ -16165,7 +16164,7 @@ do_confWithBit_teddy.exit267:                     ; preds = %2850
   %2863 = lshr i32 %2862, 4
   %2864 = add nuw nsw i32 %2863, 4
   %2865 = and i64 %2860, 15
-  %2866 = getelementptr inbounds nuw i32, ptr %43, i64 %2865
+  %2866 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %2865
   %2867 = load i32, ptr %2866, align 4
   %.not.i260 = icmp eq i32 %2867, 0
   br i1 %.not.i260, label %2960, label %2868
@@ -16251,7 +16250,7 @@ getConfVal.exit436:                               ; preds = %2879, %lv_u64a_ce.e
   %2913 = lshr i64 %2910, %2912
   %2914 = getelementptr inbounds nuw i8, ptr %2870, i64 32
   %2915 = and i64 %2913, 4294967295
-  %2916 = getelementptr inbounds nuw i32, ptr %2914, i64 %2915
+  %2916 = getelementptr inbounds nuw [4 x i8], ptr %2914, i64 %2915
   %2917 = load i32, ptr %2916, align 4
   %.not.i586 = icmp eq i32 %2917, 0
   br i1 %.not.i586, label %confWithBit.exit592, label %2918, !prof !5
@@ -16370,7 +16369,7 @@ do_confWithBit_teddy.exit263:                     ; preds = %2960
   %2973 = lshr i32 %2972, 4
   %2974 = add nuw nsw i32 %2973, 8
   %2975 = and i64 %2970, 15
-  %2976 = getelementptr inbounds nuw i32, ptr %43, i64 %2975
+  %2976 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %2975
   %2977 = load i32, ptr %2976, align 4
   %.not.i256 = icmp eq i32 %2977, 0
   br i1 %.not.i256, label %3070, label %2978
@@ -16456,7 +16455,7 @@ getConfVal.exit440:                               ; preds = %2989, %lv_u64a_ce.e
   %3023 = lshr i64 %3020, %3022
   %3024 = getelementptr inbounds nuw i8, ptr %2980, i64 32
   %3025 = and i64 %3023, 4294967295
-  %3026 = getelementptr inbounds nuw i32, ptr %3024, i64 %3025
+  %3026 = getelementptr inbounds nuw [4 x i8], ptr %3024, i64 %3025
   %3027 = load i32, ptr %3026, align 4
   %.not.i593 = icmp eq i32 %3027, 0
   br i1 %.not.i593, label %confWithBit.exit599, label %3028, !prof !5
@@ -16575,7 +16574,7 @@ do_confWithBit_teddy.exit259:                     ; preds = %3070
   %3083 = lshr i32 %3082, 4
   %3084 = add nuw nsw i32 %3083, 12
   %3085 = and i64 %3080, 15
-  %3086 = getelementptr inbounds nuw i32, ptr %43, i64 %3085
+  %3086 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %3085
   %3087 = load i32, ptr %3086, align 4
   %.not.i = icmp eq i32 %3087, 0
   br i1 %.not.i, label %3180, label %3088
@@ -16661,7 +16660,7 @@ getConfVal.exit444:                               ; preds = %3099, %lv_u64a_ce.e
   %3133 = lshr i64 %3130, %3132
   %3134 = getelementptr inbounds nuw i8, ptr %3090, i64 32
   %3135 = and i64 %3133, 4294967295
-  %3136 = getelementptr inbounds nuw i32, ptr %3134, i64 %3135
+  %3136 = getelementptr inbounds nuw [4 x i8], ptr %3134, i64 %3135
   %3137 = load i32, ptr %3136, align 4
   %.not.i600 = icmp eq i32 %3137, 0
   br i1 %.not.i600, label %confWithBit.exit606, label %3138, !prof !5
@@ -17020,7 +17019,7 @@ vectoredLoad128.exit:                             ; preds = %119, %117, %110, %1
   %173 = extractvalue { i64, i64 } %171, 1
   %174 = lshr i64 %172, 4
   %175 = and i64 %172, 15
-  %176 = getelementptr inbounds nuw i32, ptr %43, i64 %175
+  %176 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %175
   %177 = load i32, ptr %176, align 4
   %.not.i344 = icmp eq i32 %177, 0
   br i1 %.not.i344, label %270, label %178
@@ -17106,7 +17105,7 @@ getConfVal.exit:                                  ; preds = %189, %lv_u64a_ce.ex
   %223 = lshr i64 %220, %222
   %224 = getelementptr inbounds nuw i8, ptr %180, i64 32
   %225 = and i64 %223, 4294967295
-  %226 = getelementptr inbounds nuw i32, ptr %224, i64 %225
+  %226 = getelementptr inbounds nuw [4 x i8], ptr %224, i64 %225
   %227 = load i32, ptr %226, align 4
   %.not.i445 = icmp eq i32 %227, 0
   br i1 %.not.i445, label %confWithBit.exit, label %228, !prof !5
@@ -17226,7 +17225,7 @@ do_confWithBit_teddy.exit347:                     ; preds = %270
   %284 = lshr i32 %283, 4
   %285 = add nuw nsw i32 %284, 4
   %286 = and i64 %281, 15
-  %287 = getelementptr inbounds nuw i32, ptr %43, i64 %286
+  %287 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %286
   %288 = load i32, ptr %287, align 4
   %.not.i340 = icmp eq i32 %288, 0
   br i1 %.not.i340, label %381, label %289
@@ -17312,7 +17311,7 @@ getConfVal.exit368:                               ; preds = %300, %lv_u64a_ce.ex
   %334 = lshr i64 %331, %333
   %335 = getelementptr inbounds nuw i8, ptr %291, i64 32
   %336 = and i64 %334, 4294967295
-  %337 = getelementptr inbounds nuw i32, ptr %335, i64 %336
+  %337 = getelementptr inbounds nuw [4 x i8], ptr %335, i64 %336
   %338 = load i32, ptr %337, align 4
   %.not.i446 = icmp eq i32 %338, 0
   br i1 %.not.i446, label %confWithBit.exit452, label %339, !prof !5
@@ -17432,7 +17431,7 @@ do_confWithBit_teddy.exit343:                     ; preds = %381
   %395 = lshr i32 %394, 4
   %396 = add nuw nsw i32 %395, 8
   %397 = and i64 %392, 15
-  %398 = getelementptr inbounds nuw i32, ptr %43, i64 %397
+  %398 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %397
   %399 = load i32, ptr %398, align 4
   %.not.i336 = icmp eq i32 %399, 0
   br i1 %.not.i336, label %492, label %400
@@ -17518,7 +17517,7 @@ getConfVal.exit372:                               ; preds = %411, %lv_u64a_ce.ex
   %445 = lshr i64 %442, %444
   %446 = getelementptr inbounds nuw i8, ptr %402, i64 32
   %447 = and i64 %445, 4294967295
-  %448 = getelementptr inbounds nuw i32, ptr %446, i64 %447
+  %448 = getelementptr inbounds nuw [4 x i8], ptr %446, i64 %447
   %449 = load i32, ptr %448, align 4
   %.not.i453 = icmp eq i32 %449, 0
   br i1 %.not.i453, label %confWithBit.exit459, label %450, !prof !5
@@ -17638,7 +17637,7 @@ do_confWithBit_teddy.exit339:                     ; preds = %492
   %506 = lshr i32 %505, 4
   %507 = add nuw nsw i32 %506, 12
   %508 = and i64 %503, 15
-  %509 = getelementptr inbounds nuw i32, ptr %43, i64 %508
+  %509 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %508
   %510 = load i32, ptr %509, align 4
   %.not.i332 = icmp eq i32 %510, 0
   br i1 %.not.i332, label %603, label %511
@@ -17724,7 +17723,7 @@ getConfVal.exit376:                               ; preds = %522, %lv_u64a_ce.ex
   %556 = lshr i64 %553, %555
   %557 = getelementptr inbounds nuw i8, ptr %513, i64 32
   %558 = and i64 %556, 4294967295
-  %559 = getelementptr inbounds nuw i32, ptr %557, i64 %558
+  %559 = getelementptr inbounds nuw [4 x i8], ptr %557, i64 %558
   %560 = load i32, ptr %559, align 4
   %.not.i460 = icmp eq i32 %560, 0
   br i1 %.not.i460, label %confWithBit.exit466, label %561, !prof !5
@@ -17890,7 +17889,7 @@ do_confWithBit_teddy.exit335:                     ; preds = %603
   %654 = extractvalue { i64, i64 } %652, 1
   %655 = lshr i64 %653, 4
   %656 = and i64 %653, 15
-  %657 = getelementptr inbounds nuw i32, ptr %43, i64 %656
+  %657 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %656
   %658 = load i32, ptr %657, align 4
   %.not.i328 = icmp eq i32 %658, 0
   br i1 %.not.i328, label %751, label %659
@@ -17976,7 +17975,7 @@ getConfVal.exit380:                               ; preds = %670, %lv_u64a_ce.ex
   %704 = lshr i64 %701, %703
   %705 = getelementptr inbounds nuw i8, ptr %661, i64 32
   %706 = and i64 %704, 4294967295
-  %707 = getelementptr inbounds nuw i32, ptr %705, i64 %706
+  %707 = getelementptr inbounds nuw [4 x i8], ptr %705, i64 %706
   %708 = load i32, ptr %707, align 4
   %.not.i467 = icmp eq i32 %708, 0
   br i1 %.not.i467, label %confWithBit.exit473, label %709, !prof !5
@@ -18097,7 +18096,7 @@ do_confWithBit_teddy.exit331:                     ; preds = %751
   %766 = lshr i32 %765, 4
   %767 = add nuw nsw i32 %766, 4
   %768 = and i64 %763, 15
-  %769 = getelementptr inbounds nuw i32, ptr %43, i64 %768
+  %769 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %768
   %770 = load i32, ptr %769, align 4
   %.not.i324 = icmp eq i32 %770, 0
   br i1 %.not.i324, label %863, label %771
@@ -18183,7 +18182,7 @@ getConfVal.exit384:                               ; preds = %782, %lv_u64a_ce.ex
   %816 = lshr i64 %813, %815
   %817 = getelementptr inbounds nuw i8, ptr %773, i64 32
   %818 = and i64 %816, 4294967295
-  %819 = getelementptr inbounds nuw i32, ptr %817, i64 %818
+  %819 = getelementptr inbounds nuw [4 x i8], ptr %817, i64 %818
   %820 = load i32, ptr %819, align 4
   %.not.i474 = icmp eq i32 %820, 0
   br i1 %.not.i474, label %confWithBit.exit480, label %821, !prof !5
@@ -18304,7 +18303,7 @@ do_confWithBit_teddy.exit327:                     ; preds = %863
   %878 = lshr i32 %877, 4
   %879 = add nuw nsw i32 %878, 8
   %880 = and i64 %875, 15
-  %881 = getelementptr inbounds nuw i32, ptr %43, i64 %880
+  %881 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %880
   %882 = load i32, ptr %881, align 4
   %.not.i320 = icmp eq i32 %882, 0
   br i1 %.not.i320, label %975, label %883
@@ -18390,7 +18389,7 @@ getConfVal.exit388:                               ; preds = %894, %lv_u64a_ce.ex
   %928 = lshr i64 %925, %927
   %929 = getelementptr inbounds nuw i8, ptr %885, i64 32
   %930 = and i64 %928, 4294967295
-  %931 = getelementptr inbounds nuw i32, ptr %929, i64 %930
+  %931 = getelementptr inbounds nuw [4 x i8], ptr %929, i64 %930
   %932 = load i32, ptr %931, align 4
   %.not.i481 = icmp eq i32 %932, 0
   br i1 %.not.i481, label %confWithBit.exit487, label %933, !prof !5
@@ -18511,7 +18510,7 @@ do_confWithBit_teddy.exit323:                     ; preds = %975
   %990 = lshr i32 %989, 4
   %991 = add nuw nsw i32 %990, 12
   %992 = and i64 %987, 15
-  %993 = getelementptr inbounds nuw i32, ptr %43, i64 %992
+  %993 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %992
   %994 = load i32, ptr %993, align 4
   %.not.i316 = icmp eq i32 %994, 0
   br i1 %.not.i316, label %1087, label %995
@@ -18597,7 +18596,7 @@ getConfVal.exit392:                               ; preds = %1006, %lv_u64a_ce.e
   %1040 = lshr i64 %1037, %1039
   %1041 = getelementptr inbounds nuw i8, ptr %997, i64 32
   %1042 = and i64 %1040, 4294967295
-  %1043 = getelementptr inbounds nuw i32, ptr %1041, i64 %1042
+  %1043 = getelementptr inbounds nuw [4 x i8], ptr %1041, i64 %1042
   %1044 = load i32, ptr %1043, align 4
   %.not.i488 = icmp eq i32 %1044, 0
   br i1 %.not.i488, label %confWithBit.exit494, label %1045, !prof !5
@@ -18740,11 +18739,11 @@ do_confWithBit_teddy.exit319:                     ; preds = %1087
   %1116 = zext i32 %1115 to i64
   %1117 = getelementptr inbounds nuw i8, ptr %0, i64 %1116
   %1118 = zext i8 %1114 to i64
-  %1119 = getelementptr inbounds nuw i32, ptr %1117, i64 %1118
+  %1119 = getelementptr inbounds nuw [4 x i8], ptr %1117, i64 %1118
   %1120 = load i32, ptr %1119, align 4
   %1121 = getelementptr inbounds nuw i8, ptr %1117, i64 1024
   %1122 = zext i32 %1120 to i64
-  %1123 = getelementptr inbounds nuw %struct.FDRFlood, ptr %1121, i64 %1122
+  %1123 = getelementptr inbounds nuw [208 x i8], ptr %1121, i64 %1122
   %1124 = shl nuw nsw i64 %1118, 8
   %1125 = or disjoint i64 %1124, %1118
   %1126 = shl nuw nsw i64 %1125, 16
@@ -19306,14 +19305,14 @@ split:                                            ; preds = %1173, %.thread1119
   %1429 = phi i16 [ %1422, %.lr.ph1197 ], [ %1438, %1437 ]
   %indvars.iv1259 = phi i64 [ 4, %.lr.ph1197 ], [ %indvars.iv.next1260, %1437 ]
   %.10810731194 = phi i64 [ %.1071072, %.lr.ph1197 ], [ %.1151080, %1437 ]
-  %1430 = getelementptr inbounds nuw i64, ptr %1215, i64 %indvars.iv1259
+  %1430 = getelementptr inbounds nuw [8 x i8], ptr %1215, i64 %indvars.iv1259
   %1431 = load i64, ptr %1430, align 8
   %1432 = and i64 %1431, %.10810731194
   %.not421.i = icmp eq i64 %1432, 0
   br i1 %.not421.i, label %1437, label %1433
 
 1433:                                             ; preds = %1428
-  %1434 = getelementptr inbounds nuw i32, ptr %1216, i64 %indvars.iv1259
+  %1434 = getelementptr inbounds nuw [4 x i8], ptr %1216, i64 %indvars.iv1259
   %1435 = load i32, ptr %1434, align 4
   %1436 = call i64 %1105(i64 noundef %1425, i32 noundef %1435, ptr noundef %1106) #8
   %.pre1274 = load i16, ptr %1136, align 4
@@ -19402,14 +19401,14 @@ split:                                            ; preds = %1173, %.thread1119
   %1482 = phi i16 [ %1475, %.lr.ph1203 ], [ %1491, %1490 ]
   %indvars.iv1262 = phi i64 [ 4, %.lr.ph1203 ], [ %indvars.iv.next1263, %1490 ]
   %.11310781200 = phi i64 [ %.1121077, %.lr.ph1203 ], [ %.1141079, %1490 ]
-  %1483 = getelementptr inbounds nuw i64, ptr %1215, i64 %indvars.iv1262
+  %1483 = getelementptr inbounds nuw [8 x i8], ptr %1215, i64 %indvars.iv1262
   %1484 = load i64, ptr %1483, align 8
   %1485 = and i64 %1484, %.11310781200
   %.not420.i = icmp eq i64 %1485, 0
   br i1 %.not420.i, label %1490, label %1486
 
 1486:                                             ; preds = %1481
-  %1487 = getelementptr inbounds nuw i32, ptr %1216, i64 %indvars.iv1262
+  %1487 = getelementptr inbounds nuw [4 x i8], ptr %1216, i64 %indvars.iv1262
   %1488 = load i32, ptr %1487, align 4
   %1489 = call i64 %1105(i64 noundef %1479, i32 noundef %1488, ptr noundef %1106) #8
   %.pre1275 = load i16, ptr %1136, align 4
@@ -19511,7 +19510,7 @@ floodDetect.exit:                                 ; preds = %1139, %1146, %.crit
   %1549 = extractvalue { i64, i64 } %1547, 1
   %1550 = lshr i64 %1548, 4
   %1551 = and i64 %1548, 15
-  %1552 = getelementptr inbounds nuw i32, ptr %43, i64 %1551
+  %1552 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %1551
   %1553 = load i32, ptr %1552, align 4
   %.not.i312 = icmp eq i32 %1553, 0
   br i1 %.not.i312, label %1625, label %1554
@@ -19548,7 +19547,7 @@ floodDetect.exit:                                 ; preds = %1139, %1146, %.crit
   %1578 = lshr i64 %1575, %1577
   %1579 = getelementptr inbounds nuw i8, ptr %1556, i64 32
   %1580 = and i64 %1578, 4294967295
-  %1581 = getelementptr inbounds nuw i32, ptr %1579, i64 %1580
+  %1581 = getelementptr inbounds nuw [4 x i8], ptr %1579, i64 %1580
   %1582 = load i32, ptr %1581, align 4
   %.not.i495 = icmp eq i32 %1582, 0
   br i1 %.not.i495, label %confWithBit.exit501, label %1583, !prof !5
@@ -19665,7 +19664,7 @@ do_confWithBit_teddy.exit315:                     ; preds = %1625
   %1636 = lshr i32 %1635, 4
   %1637 = add nuw nsw i32 %1636, 4
   %1638 = and i64 %1633, 15
-  %1639 = getelementptr inbounds nuw i32, ptr %43, i64 %1638
+  %1639 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %1638
   %1640 = load i32, ptr %1639, align 4
   %.not.i308 = icmp eq i32 %1640, 0
   br i1 %.not.i308, label %1712, label %1641
@@ -19702,7 +19701,7 @@ do_confWithBit_teddy.exit315:                     ; preds = %1625
   %1665 = lshr i64 %1662, %1664
   %1666 = getelementptr inbounds nuw i8, ptr %1643, i64 32
   %1667 = and i64 %1665, 4294967295
-  %1668 = getelementptr inbounds nuw i32, ptr %1666, i64 %1667
+  %1668 = getelementptr inbounds nuw [4 x i8], ptr %1666, i64 %1667
   %1669 = load i32, ptr %1668, align 4
   %.not.i502 = icmp eq i32 %1669, 0
   br i1 %.not.i502, label %confWithBit.exit508, label %1670, !prof !5
@@ -19819,7 +19818,7 @@ do_confWithBit_teddy.exit311:                     ; preds = %1712
   %1723 = lshr i32 %1722, 4
   %1724 = add nuw nsw i32 %1723, 8
   %1725 = and i64 %1720, 15
-  %1726 = getelementptr inbounds nuw i32, ptr %43, i64 %1725
+  %1726 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %1725
   %1727 = load i32, ptr %1726, align 4
   %.not.i304 = icmp eq i32 %1727, 0
   br i1 %.not.i304, label %1799, label %1728
@@ -19856,7 +19855,7 @@ do_confWithBit_teddy.exit311:                     ; preds = %1712
   %1752 = lshr i64 %1749, %1751
   %1753 = getelementptr inbounds nuw i8, ptr %1730, i64 32
   %1754 = and i64 %1752, 4294967295
-  %1755 = getelementptr inbounds nuw i32, ptr %1753, i64 %1754
+  %1755 = getelementptr inbounds nuw [4 x i8], ptr %1753, i64 %1754
   %1756 = load i32, ptr %1755, align 4
   %.not.i509 = icmp eq i32 %1756, 0
   br i1 %.not.i509, label %confWithBit.exit515, label %1757, !prof !5
@@ -19973,7 +19972,7 @@ do_confWithBit_teddy.exit307:                     ; preds = %1799
   %1810 = lshr i32 %1809, 4
   %1811 = add nuw nsw i32 %1810, 12
   %1812 = and i64 %1807, 15
-  %1813 = getelementptr inbounds nuw i32, ptr %43, i64 %1812
+  %1813 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %1812
   %1814 = load i32, ptr %1813, align 4
   %.not.i300 = icmp eq i32 %1814, 0
   br i1 %.not.i300, label %1886, label %1815
@@ -20010,7 +20009,7 @@ do_confWithBit_teddy.exit307:                     ; preds = %1799
   %1839 = lshr i64 %1836, %1838
   %1840 = getelementptr inbounds nuw i8, ptr %1817, i64 32
   %1841 = and i64 %1839, 4294967295
-  %1842 = getelementptr inbounds nuw i32, ptr %1840, i64 %1841
+  %1842 = getelementptr inbounds nuw [4 x i8], ptr %1840, i64 %1841
   %1843 = load i32, ptr %1842, align 4
   %.not.i516 = icmp eq i32 %1843, 0
   br i1 %.not.i516, label %confWithBit.exit522, label %1844, !prof !5
@@ -20165,7 +20164,7 @@ do_confWithBit_teddy.exit303:                     ; preds = %1886
   %1930 = lshr i32 %1929, 4
   %1931 = add nuw nsw i32 %1930, 16
   %1932 = and i64 %1927, 15
-  %1933 = getelementptr inbounds nuw i32, ptr %43, i64 %1932
+  %1933 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %1932
   %1934 = load i32, ptr %1933, align 4
   %.not.i296 = icmp eq i32 %1934, 0
   br i1 %.not.i296, label %2006, label %1935
@@ -20202,7 +20201,7 @@ do_confWithBit_teddy.exit303:                     ; preds = %1886
   %1959 = lshr i64 %1956, %1958
   %1960 = getelementptr inbounds nuw i8, ptr %1937, i64 32
   %1961 = and i64 %1959, 4294967295
-  %1962 = getelementptr inbounds nuw i32, ptr %1960, i64 %1961
+  %1962 = getelementptr inbounds nuw [4 x i8], ptr %1960, i64 %1961
   %1963 = load i32, ptr %1962, align 4
   %.not.i523 = icmp eq i32 %1963, 0
   br i1 %.not.i523, label %confWithBit.exit529, label %1964, !prof !5
@@ -20319,7 +20318,7 @@ do_confWithBit_teddy.exit299:                     ; preds = %2006
   %2017 = lshr i32 %2016, 4
   %2018 = add nuw nsw i32 %2017, 20
   %2019 = and i64 %2014, 15
-  %2020 = getelementptr inbounds nuw i32, ptr %43, i64 %2019
+  %2020 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %2019
   %2021 = load i32, ptr %2020, align 4
   %.not.i292 = icmp eq i32 %2021, 0
   br i1 %.not.i292, label %2093, label %2022
@@ -20356,7 +20355,7 @@ do_confWithBit_teddy.exit299:                     ; preds = %2006
   %2046 = lshr i64 %2043, %2045
   %2047 = getelementptr inbounds nuw i8, ptr %2024, i64 32
   %2048 = and i64 %2046, 4294967295
-  %2049 = getelementptr inbounds nuw i32, ptr %2047, i64 %2048
+  %2049 = getelementptr inbounds nuw [4 x i8], ptr %2047, i64 %2048
   %2050 = load i32, ptr %2049, align 4
   %.not.i530 = icmp eq i32 %2050, 0
   br i1 %.not.i530, label %confWithBit.exit536, label %2051, !prof !5
@@ -20473,7 +20472,7 @@ do_confWithBit_teddy.exit295:                     ; preds = %2093
   %2104 = lshr i32 %2103, 4
   %2105 = add nuw nsw i32 %2104, 24
   %2106 = and i64 %2101, 15
-  %2107 = getelementptr inbounds nuw i32, ptr %43, i64 %2106
+  %2107 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %2106
   %2108 = load i32, ptr %2107, align 4
   %.not.i288 = icmp eq i32 %2108, 0
   br i1 %.not.i288, label %2180, label %2109
@@ -20510,7 +20509,7 @@ do_confWithBit_teddy.exit295:                     ; preds = %2093
   %2133 = lshr i64 %2130, %2132
   %2134 = getelementptr inbounds nuw i8, ptr %2111, i64 32
   %2135 = and i64 %2133, 4294967295
-  %2136 = getelementptr inbounds nuw i32, ptr %2134, i64 %2135
+  %2136 = getelementptr inbounds nuw [4 x i8], ptr %2134, i64 %2135
   %2137 = load i32, ptr %2136, align 4
   %.not.i537 = icmp eq i32 %2137, 0
   br i1 %.not.i537, label %confWithBit.exit543, label %2138, !prof !5
@@ -20627,7 +20626,7 @@ do_confWithBit_teddy.exit291:                     ; preds = %2180
   %2191 = lshr i32 %2190, 4
   %2192 = add nuw nsw i32 %2191, 28
   %2193 = and i64 %2188, 15
-  %2194 = getelementptr inbounds nuw i32, ptr %43, i64 %2193
+  %2194 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %2193
   %2195 = load i32, ptr %2194, align 4
   %.not.i284 = icmp eq i32 %2195, 0
   br i1 %.not.i284, label %2267, label %2196
@@ -20664,7 +20663,7 @@ do_confWithBit_teddy.exit291:                     ; preds = %2180
   %2220 = lshr i64 %2217, %2219
   %2221 = getelementptr inbounds nuw i8, ptr %2198, i64 32
   %2222 = and i64 %2220, 4294967295
-  %2223 = getelementptr inbounds nuw i32, ptr %2221, i64 %2222
+  %2223 = getelementptr inbounds nuw [4 x i8], ptr %2221, i64 %2222
   %2224 = load i32, ptr %2223, align 4
   %.not.i544 = icmp eq i32 %2224, 0
   br i1 %.not.i544, label %confWithBit.exit550, label %2225, !prof !5
@@ -20837,7 +20836,7 @@ do_confWithBit_teddy.exit287:                     ; preds = %2267
   %2318 = extractvalue { i64, i64 } %2316, 1
   %2319 = lshr i64 %2317, 4
   %2320 = and i64 %2317, 15
-  %2321 = getelementptr inbounds nuw i32, ptr %43, i64 %2320
+  %2321 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %2320
   %2322 = load i32, ptr %2321, align 4
   %.not.i280 = icmp eq i32 %2322, 0
   br i1 %.not.i280, label %2394, label %2323
@@ -20874,7 +20873,7 @@ do_confWithBit_teddy.exit287:                     ; preds = %2267
   %2347 = lshr i64 %2344, %2346
   %2348 = getelementptr inbounds nuw i8, ptr %2325, i64 32
   %2349 = and i64 %2347, 4294967295
-  %2350 = getelementptr inbounds nuw i32, ptr %2348, i64 %2349
+  %2350 = getelementptr inbounds nuw [4 x i8], ptr %2348, i64 %2349
   %2351 = load i32, ptr %2350, align 4
   %.not.i551 = icmp eq i32 %2351, 0
   br i1 %.not.i551, label %confWithBit.exit557, label %2352, !prof !5
@@ -20994,7 +20993,7 @@ do_confWithBit_teddy.exit283:                     ; preds = %2394
   %2408 = lshr i32 %2407, 4
   %2409 = add nuw nsw i32 %2408, 4
   %2410 = and i64 %2405, 15
-  %2411 = getelementptr inbounds nuw i32, ptr %43, i64 %2410
+  %2411 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %2410
   %2412 = load i32, ptr %2411, align 4
   %.not.i276 = icmp eq i32 %2412, 0
   br i1 %.not.i276, label %2484, label %2413
@@ -21031,7 +21030,7 @@ do_confWithBit_teddy.exit283:                     ; preds = %2394
   %2437 = lshr i64 %2434, %2436
   %2438 = getelementptr inbounds nuw i8, ptr %2415, i64 32
   %2439 = and i64 %2437, 4294967295
-  %2440 = getelementptr inbounds nuw i32, ptr %2438, i64 %2439
+  %2440 = getelementptr inbounds nuw [4 x i8], ptr %2438, i64 %2439
   %2441 = load i32, ptr %2440, align 4
   %.not.i558 = icmp eq i32 %2441, 0
   br i1 %.not.i558, label %confWithBit.exit564, label %2442, !prof !5
@@ -21151,7 +21150,7 @@ do_confWithBit_teddy.exit279:                     ; preds = %2484
   %2498 = lshr i32 %2497, 4
   %2499 = add nuw nsw i32 %2498, 8
   %2500 = and i64 %2495, 15
-  %2501 = getelementptr inbounds nuw i32, ptr %43, i64 %2500
+  %2501 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %2500
   %2502 = load i32, ptr %2501, align 4
   %.not.i272 = icmp eq i32 %2502, 0
   br i1 %.not.i272, label %2574, label %2503
@@ -21188,7 +21187,7 @@ do_confWithBit_teddy.exit279:                     ; preds = %2484
   %2527 = lshr i64 %2524, %2526
   %2528 = getelementptr inbounds nuw i8, ptr %2505, i64 32
   %2529 = and i64 %2527, 4294967295
-  %2530 = getelementptr inbounds nuw i32, ptr %2528, i64 %2529
+  %2530 = getelementptr inbounds nuw [4 x i8], ptr %2528, i64 %2529
   %2531 = load i32, ptr %2530, align 4
   %.not.i565 = icmp eq i32 %2531, 0
   br i1 %.not.i565, label %confWithBit.exit571, label %2532, !prof !5
@@ -21308,7 +21307,7 @@ do_confWithBit_teddy.exit275:                     ; preds = %2574
   %2588 = lshr i32 %2587, 4
   %2589 = add nuw nsw i32 %2588, 12
   %2590 = and i64 %2585, 15
-  %2591 = getelementptr inbounds nuw i32, ptr %43, i64 %2590
+  %2591 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %2590
   %2592 = load i32, ptr %2591, align 4
   %.not.i268 = icmp eq i32 %2592, 0
   br i1 %.not.i268, label %2664, label %2593
@@ -21345,7 +21344,7 @@ do_confWithBit_teddy.exit275:                     ; preds = %2574
   %2617 = lshr i64 %2614, %2616
   %2618 = getelementptr inbounds nuw i8, ptr %2595, i64 32
   %2619 = and i64 %2617, 4294967295
-  %2620 = getelementptr inbounds nuw i32, ptr %2618, i64 %2619
+  %2620 = getelementptr inbounds nuw [4 x i8], ptr %2618, i64 %2619
   %2621 = load i32, ptr %2620, align 4
   %.not.i572 = icmp eq i32 %2621, 0
   br i1 %.not.i572, label %confWithBit.exit578, label %2622, !prof !5
@@ -21594,7 +21593,7 @@ vectoredLoad128.exit361:                          ; preds = %2700, %2698, %2691,
   %2753 = extractvalue { i64, i64 } %2751, 1
   %2754 = lshr i64 %2752, 4
   %2755 = and i64 %2752, 15
-  %2756 = getelementptr inbounds nuw i32, ptr %43, i64 %2755
+  %2756 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %2755
   %2757 = load i32, ptr %2756, align 4
   %.not.i264 = icmp eq i32 %2757, 0
   br i1 %.not.i264, label %2850, label %2758
@@ -21680,7 +21679,7 @@ getConfVal.exit432:                               ; preds = %2769, %lv_u64a_ce.e
   %2803 = lshr i64 %2800, %2802
   %2804 = getelementptr inbounds nuw i8, ptr %2760, i64 32
   %2805 = and i64 %2803, 4294967295
-  %2806 = getelementptr inbounds nuw i32, ptr %2804, i64 %2805
+  %2806 = getelementptr inbounds nuw [4 x i8], ptr %2804, i64 %2805
   %2807 = load i32, ptr %2806, align 4
   %.not.i579 = icmp eq i32 %2807, 0
   br i1 %.not.i579, label %confWithBit.exit585, label %2808, !prof !5
@@ -21799,7 +21798,7 @@ do_confWithBit_teddy.exit267:                     ; preds = %2850
   %2863 = lshr i32 %2862, 4
   %2864 = add nuw nsw i32 %2863, 4
   %2865 = and i64 %2860, 15
-  %2866 = getelementptr inbounds nuw i32, ptr %43, i64 %2865
+  %2866 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %2865
   %2867 = load i32, ptr %2866, align 4
   %.not.i260 = icmp eq i32 %2867, 0
   br i1 %.not.i260, label %2960, label %2868
@@ -21885,7 +21884,7 @@ getConfVal.exit436:                               ; preds = %2879, %lv_u64a_ce.e
   %2913 = lshr i64 %2910, %2912
   %2914 = getelementptr inbounds nuw i8, ptr %2870, i64 32
   %2915 = and i64 %2913, 4294967295
-  %2916 = getelementptr inbounds nuw i32, ptr %2914, i64 %2915
+  %2916 = getelementptr inbounds nuw [4 x i8], ptr %2914, i64 %2915
   %2917 = load i32, ptr %2916, align 4
   %.not.i586 = icmp eq i32 %2917, 0
   br i1 %.not.i586, label %confWithBit.exit592, label %2918, !prof !5
@@ -22004,7 +22003,7 @@ do_confWithBit_teddy.exit263:                     ; preds = %2960
   %2973 = lshr i32 %2972, 4
   %2974 = add nuw nsw i32 %2973, 8
   %2975 = and i64 %2970, 15
-  %2976 = getelementptr inbounds nuw i32, ptr %43, i64 %2975
+  %2976 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %2975
   %2977 = load i32, ptr %2976, align 4
   %.not.i256 = icmp eq i32 %2977, 0
   br i1 %.not.i256, label %3070, label %2978
@@ -22090,7 +22089,7 @@ getConfVal.exit440:                               ; preds = %2989, %lv_u64a_ce.e
   %3023 = lshr i64 %3020, %3022
   %3024 = getelementptr inbounds nuw i8, ptr %2980, i64 32
   %3025 = and i64 %3023, 4294967295
-  %3026 = getelementptr inbounds nuw i32, ptr %3024, i64 %3025
+  %3026 = getelementptr inbounds nuw [4 x i8], ptr %3024, i64 %3025
   %3027 = load i32, ptr %3026, align 4
   %.not.i593 = icmp eq i32 %3027, 0
   br i1 %.not.i593, label %confWithBit.exit599, label %3028, !prof !5
@@ -22209,7 +22208,7 @@ do_confWithBit_teddy.exit259:                     ; preds = %3070
   %3083 = lshr i32 %3082, 4
   %3084 = add nuw nsw i32 %3083, 12
   %3085 = and i64 %3080, 15
-  %3086 = getelementptr inbounds nuw i32, ptr %43, i64 %3085
+  %3086 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %3085
   %3087 = load i32, ptr %3086, align 4
   %.not.i = icmp eq i32 %3087, 0
   br i1 %.not.i, label %3180, label %3088
@@ -22295,7 +22294,7 @@ getConfVal.exit444:                               ; preds = %3099, %lv_u64a_ce.e
   %3133 = lshr i64 %3130, %3132
   %3134 = getelementptr inbounds nuw i8, ptr %3090, i64 32
   %3135 = and i64 %3133, 4294967295
-  %3136 = getelementptr inbounds nuw i32, ptr %3134, i64 %3135
+  %3136 = getelementptr inbounds nuw [4 x i8], ptr %3134, i64 %3135
   %3137 = load i32, ptr %3136, align 4
   %.not.i600 = icmp eq i32 %3137, 0
   br i1 %.not.i600, label %confWithBit.exit606, label %3138, !prof !5
@@ -22663,7 +22662,7 @@ vectoredLoad128.exit:                             ; preds = %118, %116, %109, %1
   %181 = extractvalue { i64, i64 } %179, 1
   %182 = lshr i64 %180, 4
   %183 = and i64 %180, 15
-  %184 = getelementptr inbounds nuw i32, ptr %43, i64 %183
+  %184 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %183
   %185 = load i32, ptr %184, align 4
   %.not.i344 = icmp eq i32 %185, 0
   br i1 %.not.i344, label %278, label %186
@@ -22749,7 +22748,7 @@ getConfVal.exit:                                  ; preds = %197, %lv_u64a_ce.ex
   %231 = lshr i64 %228, %230
   %232 = getelementptr inbounds nuw i8, ptr %188, i64 32
   %233 = and i64 %231, 4294967295
-  %234 = getelementptr inbounds nuw i32, ptr %232, i64 %233
+  %234 = getelementptr inbounds nuw [4 x i8], ptr %232, i64 %233
   %235 = load i32, ptr %234, align 4
   %.not.i445 = icmp eq i32 %235, 0
   br i1 %.not.i445, label %confWithBit.exit, label %236, !prof !5
@@ -22869,7 +22868,7 @@ do_confWithBit_teddy.exit347:                     ; preds = %278
   %292 = lshr i32 %291, 4
   %293 = add nuw nsw i32 %292, 4
   %294 = and i64 %289, 15
-  %295 = getelementptr inbounds nuw i32, ptr %43, i64 %294
+  %295 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %294
   %296 = load i32, ptr %295, align 4
   %.not.i340 = icmp eq i32 %296, 0
   br i1 %.not.i340, label %389, label %297
@@ -22955,7 +22954,7 @@ getConfVal.exit368:                               ; preds = %308, %lv_u64a_ce.ex
   %342 = lshr i64 %339, %341
   %343 = getelementptr inbounds nuw i8, ptr %299, i64 32
   %344 = and i64 %342, 4294967295
-  %345 = getelementptr inbounds nuw i32, ptr %343, i64 %344
+  %345 = getelementptr inbounds nuw [4 x i8], ptr %343, i64 %344
   %346 = load i32, ptr %345, align 4
   %.not.i446 = icmp eq i32 %346, 0
   br i1 %.not.i446, label %confWithBit.exit452, label %347, !prof !5
@@ -23075,7 +23074,7 @@ do_confWithBit_teddy.exit343:                     ; preds = %389
   %403 = lshr i32 %402, 4
   %404 = add nuw nsw i32 %403, 8
   %405 = and i64 %400, 15
-  %406 = getelementptr inbounds nuw i32, ptr %43, i64 %405
+  %406 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %405
   %407 = load i32, ptr %406, align 4
   %.not.i336 = icmp eq i32 %407, 0
   br i1 %.not.i336, label %500, label %408
@@ -23161,7 +23160,7 @@ getConfVal.exit372:                               ; preds = %419, %lv_u64a_ce.ex
   %453 = lshr i64 %450, %452
   %454 = getelementptr inbounds nuw i8, ptr %410, i64 32
   %455 = and i64 %453, 4294967295
-  %456 = getelementptr inbounds nuw i32, ptr %454, i64 %455
+  %456 = getelementptr inbounds nuw [4 x i8], ptr %454, i64 %455
   %457 = load i32, ptr %456, align 4
   %.not.i453 = icmp eq i32 %457, 0
   br i1 %.not.i453, label %confWithBit.exit459, label %458, !prof !5
@@ -23281,7 +23280,7 @@ do_confWithBit_teddy.exit339:                     ; preds = %500
   %514 = lshr i32 %513, 4
   %515 = add nuw nsw i32 %514, 12
   %516 = and i64 %511, 15
-  %517 = getelementptr inbounds nuw i32, ptr %43, i64 %516
+  %517 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %516
   %518 = load i32, ptr %517, align 4
   %.not.i332 = icmp eq i32 %518, 0
   br i1 %.not.i332, label %611, label %519
@@ -23367,7 +23366,7 @@ getConfVal.exit376:                               ; preds = %530, %lv_u64a_ce.ex
   %564 = lshr i64 %561, %563
   %565 = getelementptr inbounds nuw i8, ptr %521, i64 32
   %566 = and i64 %564, 4294967295
-  %567 = getelementptr inbounds nuw i32, ptr %565, i64 %566
+  %567 = getelementptr inbounds nuw [4 x i8], ptr %565, i64 %566
   %568 = load i32, ptr %567, align 4
   %.not.i460 = icmp eq i32 %568, 0
   br i1 %.not.i460, label %confWithBit.exit466, label %569, !prof !5
@@ -23543,7 +23542,7 @@ do_confWithBit_teddy.exit335:                     ; preds = %611
   %672 = extractvalue { i64, i64 } %670, 1
   %673 = lshr i64 %671, 4
   %674 = and i64 %671, 15
-  %675 = getelementptr inbounds nuw i32, ptr %43, i64 %674
+  %675 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %674
   %676 = load i32, ptr %675, align 4
   %.not.i328 = icmp eq i32 %676, 0
   br i1 %.not.i328, label %769, label %677
@@ -23629,7 +23628,7 @@ getConfVal.exit380:                               ; preds = %688, %lv_u64a_ce.ex
   %722 = lshr i64 %719, %721
   %723 = getelementptr inbounds nuw i8, ptr %679, i64 32
   %724 = and i64 %722, 4294967295
-  %725 = getelementptr inbounds nuw i32, ptr %723, i64 %724
+  %725 = getelementptr inbounds nuw [4 x i8], ptr %723, i64 %724
   %726 = load i32, ptr %725, align 4
   %.not.i467 = icmp eq i32 %726, 0
   br i1 %.not.i467, label %confWithBit.exit473, label %727, !prof !5
@@ -23750,7 +23749,7 @@ do_confWithBit_teddy.exit331:                     ; preds = %769
   %784 = lshr i32 %783, 4
   %785 = add nuw nsw i32 %784, 4
   %786 = and i64 %781, 15
-  %787 = getelementptr inbounds nuw i32, ptr %43, i64 %786
+  %787 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %786
   %788 = load i32, ptr %787, align 4
   %.not.i324 = icmp eq i32 %788, 0
   br i1 %.not.i324, label %881, label %789
@@ -23836,7 +23835,7 @@ getConfVal.exit384:                               ; preds = %800, %lv_u64a_ce.ex
   %834 = lshr i64 %831, %833
   %835 = getelementptr inbounds nuw i8, ptr %791, i64 32
   %836 = and i64 %834, 4294967295
-  %837 = getelementptr inbounds nuw i32, ptr %835, i64 %836
+  %837 = getelementptr inbounds nuw [4 x i8], ptr %835, i64 %836
   %838 = load i32, ptr %837, align 4
   %.not.i474 = icmp eq i32 %838, 0
   br i1 %.not.i474, label %confWithBit.exit480, label %839, !prof !5
@@ -23957,7 +23956,7 @@ do_confWithBit_teddy.exit327:                     ; preds = %881
   %896 = lshr i32 %895, 4
   %897 = add nuw nsw i32 %896, 8
   %898 = and i64 %893, 15
-  %899 = getelementptr inbounds nuw i32, ptr %43, i64 %898
+  %899 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %898
   %900 = load i32, ptr %899, align 4
   %.not.i320 = icmp eq i32 %900, 0
   br i1 %.not.i320, label %993, label %901
@@ -24043,7 +24042,7 @@ getConfVal.exit388:                               ; preds = %912, %lv_u64a_ce.ex
   %946 = lshr i64 %943, %945
   %947 = getelementptr inbounds nuw i8, ptr %903, i64 32
   %948 = and i64 %946, 4294967295
-  %949 = getelementptr inbounds nuw i32, ptr %947, i64 %948
+  %949 = getelementptr inbounds nuw [4 x i8], ptr %947, i64 %948
   %950 = load i32, ptr %949, align 4
   %.not.i481 = icmp eq i32 %950, 0
   br i1 %.not.i481, label %confWithBit.exit487, label %951, !prof !5
@@ -24164,7 +24163,7 @@ do_confWithBit_teddy.exit323:                     ; preds = %993
   %1008 = lshr i32 %1007, 4
   %1009 = add nuw nsw i32 %1008, 12
   %1010 = and i64 %1005, 15
-  %1011 = getelementptr inbounds nuw i32, ptr %43, i64 %1010
+  %1011 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %1010
   %1012 = load i32, ptr %1011, align 4
   %.not.i316 = icmp eq i32 %1012, 0
   br i1 %.not.i316, label %1105, label %1013
@@ -24250,7 +24249,7 @@ getConfVal.exit392:                               ; preds = %1024, %lv_u64a_ce.e
   %1058 = lshr i64 %1055, %1057
   %1059 = getelementptr inbounds nuw i8, ptr %1015, i64 32
   %1060 = and i64 %1058, 4294967295
-  %1061 = getelementptr inbounds nuw i32, ptr %1059, i64 %1060
+  %1061 = getelementptr inbounds nuw [4 x i8], ptr %1059, i64 %1060
   %1062 = load i32, ptr %1061, align 4
   %.not.i488 = icmp eq i32 %1062, 0
   br i1 %.not.i488, label %confWithBit.exit494, label %1063, !prof !5
@@ -24397,11 +24396,11 @@ do_confWithBit_teddy.exit319:                     ; preds = %1105
   %1138 = zext i32 %1137 to i64
   %1139 = getelementptr inbounds nuw i8, ptr %0, i64 %1138
   %1140 = zext i8 %1136 to i64
-  %1141 = getelementptr inbounds nuw i32, ptr %1139, i64 %1140
+  %1141 = getelementptr inbounds nuw [4 x i8], ptr %1139, i64 %1140
   %1142 = load i32, ptr %1141, align 4
   %1143 = getelementptr inbounds nuw i8, ptr %1139, i64 1024
   %1144 = zext i32 %1142 to i64
-  %1145 = getelementptr inbounds nuw %struct.FDRFlood, ptr %1143, i64 %1144
+  %1145 = getelementptr inbounds nuw [208 x i8], ptr %1143, i64 %1144
   %1146 = shl nuw nsw i64 %1140, 8
   %1147 = or disjoint i64 %1146, %1140
   %1148 = shl nuw nsw i64 %1147, 16
@@ -24963,14 +24962,14 @@ split:                                            ; preds = %1195, %.thread1129
   %1451 = phi i16 [ %1444, %.lr.ph1209 ], [ %1460, %1459 ]
   %indvars.iv1273 = phi i64 [ 4, %.lr.ph1209 ], [ %indvars.iv.next1274, %1459 ]
   %.10810831206 = phi i64 [ %.1071082, %.lr.ph1209 ], [ %.1151090, %1459 ]
-  %1452 = getelementptr inbounds nuw i64, ptr %1237, i64 %indvars.iv1273
+  %1452 = getelementptr inbounds nuw [8 x i8], ptr %1237, i64 %indvars.iv1273
   %1453 = load i64, ptr %1452, align 8
   %1454 = and i64 %1453, %.10810831206
   %.not421.i = icmp eq i64 %1454, 0
   br i1 %.not421.i, label %1459, label %1455
 
 1455:                                             ; preds = %1450
-  %1456 = getelementptr inbounds nuw i32, ptr %1238, i64 %indvars.iv1273
+  %1456 = getelementptr inbounds nuw [4 x i8], ptr %1238, i64 %indvars.iv1273
   %1457 = load i32, ptr %1456, align 4
   %1458 = call i64 %1127(i64 noundef %1447, i32 noundef %1457, ptr noundef %1128) #8
   %.pre1288 = load i16, ptr %1158, align 4
@@ -25059,14 +25058,14 @@ split:                                            ; preds = %1195, %.thread1129
   %1504 = phi i16 [ %1497, %.lr.ph1215 ], [ %1513, %1512 ]
   %indvars.iv1276 = phi i64 [ 4, %.lr.ph1215 ], [ %indvars.iv.next1277, %1512 ]
   %.11310881212 = phi i64 [ %.1121087, %.lr.ph1215 ], [ %.1141089, %1512 ]
-  %1505 = getelementptr inbounds nuw i64, ptr %1237, i64 %indvars.iv1276
+  %1505 = getelementptr inbounds nuw [8 x i8], ptr %1237, i64 %indvars.iv1276
   %1506 = load i64, ptr %1505, align 8
   %1507 = and i64 %1506, %.11310881212
   %.not420.i = icmp eq i64 %1507, 0
   br i1 %.not420.i, label %1512, label %1508
 
 1508:                                             ; preds = %1503
-  %1509 = getelementptr inbounds nuw i32, ptr %1238, i64 %indvars.iv1276
+  %1509 = getelementptr inbounds nuw [4 x i8], ptr %1238, i64 %indvars.iv1276
   %1510 = load i32, ptr %1509, align 4
   %1511 = call i64 %1127(i64 noundef %1501, i32 noundef %1510, ptr noundef %1128) #8
   %.pre1289 = load i16, ptr %1158, align 4
@@ -25175,7 +25174,7 @@ floodDetect.exit:                                 ; preds = %1161, %1168, %.crit
   %1578 = extractvalue { i64, i64 } %1576, 1
   %1579 = lshr i64 %1577, 4
   %1580 = and i64 %1577, 15
-  %1581 = getelementptr inbounds nuw i32, ptr %43, i64 %1580
+  %1581 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %1580
   %1582 = load i32, ptr %1581, align 4
   %.not.i312 = icmp eq i32 %1582, 0
   br i1 %.not.i312, label %1654, label %1583
@@ -25212,7 +25211,7 @@ floodDetect.exit:                                 ; preds = %1161, %1168, %.crit
   %1607 = lshr i64 %1604, %1606
   %1608 = getelementptr inbounds nuw i8, ptr %1585, i64 32
   %1609 = and i64 %1607, 4294967295
-  %1610 = getelementptr inbounds nuw i32, ptr %1608, i64 %1609
+  %1610 = getelementptr inbounds nuw [4 x i8], ptr %1608, i64 %1609
   %1611 = load i32, ptr %1610, align 4
   %.not.i495 = icmp eq i32 %1611, 0
   br i1 %.not.i495, label %confWithBit.exit501, label %1612, !prof !5
@@ -25329,7 +25328,7 @@ do_confWithBit_teddy.exit315:                     ; preds = %1654
   %1665 = lshr i32 %1664, 4
   %1666 = add nuw nsw i32 %1665, 4
   %1667 = and i64 %1662, 15
-  %1668 = getelementptr inbounds nuw i32, ptr %43, i64 %1667
+  %1668 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %1667
   %1669 = load i32, ptr %1668, align 4
   %.not.i308 = icmp eq i32 %1669, 0
   br i1 %.not.i308, label %1741, label %1670
@@ -25366,7 +25365,7 @@ do_confWithBit_teddy.exit315:                     ; preds = %1654
   %1694 = lshr i64 %1691, %1693
   %1695 = getelementptr inbounds nuw i8, ptr %1672, i64 32
   %1696 = and i64 %1694, 4294967295
-  %1697 = getelementptr inbounds nuw i32, ptr %1695, i64 %1696
+  %1697 = getelementptr inbounds nuw [4 x i8], ptr %1695, i64 %1696
   %1698 = load i32, ptr %1697, align 4
   %.not.i502 = icmp eq i32 %1698, 0
   br i1 %.not.i502, label %confWithBit.exit508, label %1699, !prof !5
@@ -25483,7 +25482,7 @@ do_confWithBit_teddy.exit311:                     ; preds = %1741
   %1752 = lshr i32 %1751, 4
   %1753 = add nuw nsw i32 %1752, 8
   %1754 = and i64 %1749, 15
-  %1755 = getelementptr inbounds nuw i32, ptr %43, i64 %1754
+  %1755 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %1754
   %1756 = load i32, ptr %1755, align 4
   %.not.i304 = icmp eq i32 %1756, 0
   br i1 %.not.i304, label %1828, label %1757
@@ -25520,7 +25519,7 @@ do_confWithBit_teddy.exit311:                     ; preds = %1741
   %1781 = lshr i64 %1778, %1780
   %1782 = getelementptr inbounds nuw i8, ptr %1759, i64 32
   %1783 = and i64 %1781, 4294967295
-  %1784 = getelementptr inbounds nuw i32, ptr %1782, i64 %1783
+  %1784 = getelementptr inbounds nuw [4 x i8], ptr %1782, i64 %1783
   %1785 = load i32, ptr %1784, align 4
   %.not.i509 = icmp eq i32 %1785, 0
   br i1 %.not.i509, label %confWithBit.exit515, label %1786, !prof !5
@@ -25637,7 +25636,7 @@ do_confWithBit_teddy.exit307:                     ; preds = %1828
   %1839 = lshr i32 %1838, 4
   %1840 = add nuw nsw i32 %1839, 12
   %1841 = and i64 %1836, 15
-  %1842 = getelementptr inbounds nuw i32, ptr %43, i64 %1841
+  %1842 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %1841
   %1843 = load i32, ptr %1842, align 4
   %.not.i300 = icmp eq i32 %1843, 0
   br i1 %.not.i300, label %1915, label %1844
@@ -25674,7 +25673,7 @@ do_confWithBit_teddy.exit307:                     ; preds = %1828
   %1868 = lshr i64 %1865, %1867
   %1869 = getelementptr inbounds nuw i8, ptr %1846, i64 32
   %1870 = and i64 %1868, 4294967295
-  %1871 = getelementptr inbounds nuw i32, ptr %1869, i64 %1870
+  %1871 = getelementptr inbounds nuw [4 x i8], ptr %1869, i64 %1870
   %1872 = load i32, ptr %1871, align 4
   %.not.i516 = icmp eq i32 %1872, 0
   br i1 %.not.i516, label %confWithBit.exit522, label %1873, !prof !5
@@ -25836,7 +25835,7 @@ do_confWithBit_teddy.exit303:                     ; preds = %1915
   %1966 = lshr i32 %1965, 4
   %1967 = add nuw nsw i32 %1966, 16
   %1968 = and i64 %1963, 15
-  %1969 = getelementptr inbounds nuw i32, ptr %43, i64 %1968
+  %1969 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %1968
   %1970 = load i32, ptr %1969, align 4
   %.not.i296 = icmp eq i32 %1970, 0
   br i1 %.not.i296, label %2042, label %1971
@@ -25873,7 +25872,7 @@ do_confWithBit_teddy.exit303:                     ; preds = %1915
   %1995 = lshr i64 %1992, %1994
   %1996 = getelementptr inbounds nuw i8, ptr %1973, i64 32
   %1997 = and i64 %1995, 4294967295
-  %1998 = getelementptr inbounds nuw i32, ptr %1996, i64 %1997
+  %1998 = getelementptr inbounds nuw [4 x i8], ptr %1996, i64 %1997
   %1999 = load i32, ptr %1998, align 4
   %.not.i523 = icmp eq i32 %1999, 0
   br i1 %.not.i523, label %confWithBit.exit529, label %2000, !prof !5
@@ -25990,7 +25989,7 @@ do_confWithBit_teddy.exit299:                     ; preds = %2042
   %2053 = lshr i32 %2052, 4
   %2054 = add nuw nsw i32 %2053, 20
   %2055 = and i64 %2050, 15
-  %2056 = getelementptr inbounds nuw i32, ptr %43, i64 %2055
+  %2056 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %2055
   %2057 = load i32, ptr %2056, align 4
   %.not.i292 = icmp eq i32 %2057, 0
   br i1 %.not.i292, label %2129, label %2058
@@ -26027,7 +26026,7 @@ do_confWithBit_teddy.exit299:                     ; preds = %2042
   %2082 = lshr i64 %2079, %2081
   %2083 = getelementptr inbounds nuw i8, ptr %2060, i64 32
   %2084 = and i64 %2082, 4294967295
-  %2085 = getelementptr inbounds nuw i32, ptr %2083, i64 %2084
+  %2085 = getelementptr inbounds nuw [4 x i8], ptr %2083, i64 %2084
   %2086 = load i32, ptr %2085, align 4
   %.not.i530 = icmp eq i32 %2086, 0
   br i1 %.not.i530, label %confWithBit.exit536, label %2087, !prof !5
@@ -26144,7 +26143,7 @@ do_confWithBit_teddy.exit295:                     ; preds = %2129
   %2140 = lshr i32 %2139, 4
   %2141 = add nuw nsw i32 %2140, 24
   %2142 = and i64 %2137, 15
-  %2143 = getelementptr inbounds nuw i32, ptr %43, i64 %2142
+  %2143 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %2142
   %2144 = load i32, ptr %2143, align 4
   %.not.i288 = icmp eq i32 %2144, 0
   br i1 %.not.i288, label %2216, label %2145
@@ -26181,7 +26180,7 @@ do_confWithBit_teddy.exit295:                     ; preds = %2129
   %2169 = lshr i64 %2166, %2168
   %2170 = getelementptr inbounds nuw i8, ptr %2147, i64 32
   %2171 = and i64 %2169, 4294967295
-  %2172 = getelementptr inbounds nuw i32, ptr %2170, i64 %2171
+  %2172 = getelementptr inbounds nuw [4 x i8], ptr %2170, i64 %2171
   %2173 = load i32, ptr %2172, align 4
   %.not.i537 = icmp eq i32 %2173, 0
   br i1 %.not.i537, label %confWithBit.exit543, label %2174, !prof !5
@@ -26298,7 +26297,7 @@ do_confWithBit_teddy.exit291:                     ; preds = %2216
   %2227 = lshr i32 %2226, 4
   %2228 = add nuw nsw i32 %2227, 28
   %2229 = and i64 %2224, 15
-  %2230 = getelementptr inbounds nuw i32, ptr %43, i64 %2229
+  %2230 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %2229
   %2231 = load i32, ptr %2230, align 4
   %.not.i284 = icmp eq i32 %2231, 0
   br i1 %.not.i284, label %2303, label %2232
@@ -26335,7 +26334,7 @@ do_confWithBit_teddy.exit291:                     ; preds = %2216
   %2256 = lshr i64 %2253, %2255
   %2257 = getelementptr inbounds nuw i8, ptr %2234, i64 32
   %2258 = and i64 %2256, 4294967295
-  %2259 = getelementptr inbounds nuw i32, ptr %2257, i64 %2258
+  %2259 = getelementptr inbounds nuw [4 x i8], ptr %2257, i64 %2258
   %2260 = load i32, ptr %2259, align 4
   %.not.i544 = icmp eq i32 %2260, 0
   br i1 %.not.i544, label %confWithBit.exit550, label %2261, !prof !5
@@ -26518,7 +26517,7 @@ do_confWithBit_teddy.exit287:                     ; preds = %2303
   %2363 = extractvalue { i64, i64 } %2361, 1
   %2364 = lshr i64 %2362, 4
   %2365 = and i64 %2362, 15
-  %2366 = getelementptr inbounds nuw i32, ptr %43, i64 %2365
+  %2366 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %2365
   %2367 = load i32, ptr %2366, align 4
   %.not.i280 = icmp eq i32 %2367, 0
   br i1 %.not.i280, label %2439, label %2368
@@ -26555,7 +26554,7 @@ do_confWithBit_teddy.exit287:                     ; preds = %2303
   %2392 = lshr i64 %2389, %2391
   %2393 = getelementptr inbounds nuw i8, ptr %2370, i64 32
   %2394 = and i64 %2392, 4294967295
-  %2395 = getelementptr inbounds nuw i32, ptr %2393, i64 %2394
+  %2395 = getelementptr inbounds nuw [4 x i8], ptr %2393, i64 %2394
   %2396 = load i32, ptr %2395, align 4
   %.not.i551 = icmp eq i32 %2396, 0
   br i1 %.not.i551, label %confWithBit.exit557, label %2397, !prof !5
@@ -26675,7 +26674,7 @@ do_confWithBit_teddy.exit283:                     ; preds = %2439
   %2453 = lshr i32 %2452, 4
   %2454 = add nuw nsw i32 %2453, 4
   %2455 = and i64 %2450, 15
-  %2456 = getelementptr inbounds nuw i32, ptr %43, i64 %2455
+  %2456 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %2455
   %2457 = load i32, ptr %2456, align 4
   %.not.i276 = icmp eq i32 %2457, 0
   br i1 %.not.i276, label %2529, label %2458
@@ -26712,7 +26711,7 @@ do_confWithBit_teddy.exit283:                     ; preds = %2439
   %2482 = lshr i64 %2479, %2481
   %2483 = getelementptr inbounds nuw i8, ptr %2460, i64 32
   %2484 = and i64 %2482, 4294967295
-  %2485 = getelementptr inbounds nuw i32, ptr %2483, i64 %2484
+  %2485 = getelementptr inbounds nuw [4 x i8], ptr %2483, i64 %2484
   %2486 = load i32, ptr %2485, align 4
   %.not.i558 = icmp eq i32 %2486, 0
   br i1 %.not.i558, label %confWithBit.exit564, label %2487, !prof !5
@@ -26832,7 +26831,7 @@ do_confWithBit_teddy.exit279:                     ; preds = %2529
   %2543 = lshr i32 %2542, 4
   %2544 = add nuw nsw i32 %2543, 8
   %2545 = and i64 %2540, 15
-  %2546 = getelementptr inbounds nuw i32, ptr %43, i64 %2545
+  %2546 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %2545
   %2547 = load i32, ptr %2546, align 4
   %.not.i272 = icmp eq i32 %2547, 0
   br i1 %.not.i272, label %2619, label %2548
@@ -26869,7 +26868,7 @@ do_confWithBit_teddy.exit279:                     ; preds = %2529
   %2572 = lshr i64 %2569, %2571
   %2573 = getelementptr inbounds nuw i8, ptr %2550, i64 32
   %2574 = and i64 %2572, 4294967295
-  %2575 = getelementptr inbounds nuw i32, ptr %2573, i64 %2574
+  %2575 = getelementptr inbounds nuw [4 x i8], ptr %2573, i64 %2574
   %2576 = load i32, ptr %2575, align 4
   %.not.i565 = icmp eq i32 %2576, 0
   br i1 %.not.i565, label %confWithBit.exit571, label %2577, !prof !5
@@ -26989,7 +26988,7 @@ do_confWithBit_teddy.exit275:                     ; preds = %2619
   %2633 = lshr i32 %2632, 4
   %2634 = add nuw nsw i32 %2633, 12
   %2635 = and i64 %2630, 15
-  %2636 = getelementptr inbounds nuw i32, ptr %43, i64 %2635
+  %2636 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %2635
   %2637 = load i32, ptr %2636, align 4
   %.not.i268 = icmp eq i32 %2637, 0
   br i1 %.not.i268, label %2709, label %2638
@@ -27026,7 +27025,7 @@ do_confWithBit_teddy.exit275:                     ; preds = %2619
   %2662 = lshr i64 %2659, %2661
   %2663 = getelementptr inbounds nuw i8, ptr %2640, i64 32
   %2664 = and i64 %2662, 4294967295
-  %2665 = getelementptr inbounds nuw i32, ptr %2663, i64 %2664
+  %2665 = getelementptr inbounds nuw [4 x i8], ptr %2663, i64 %2664
   %2666 = load i32, ptr %2665, align 4
   %.not.i572 = icmp eq i32 %2666, 0
   br i1 %.not.i572, label %confWithBit.exit578, label %2667, !prof !5
@@ -27285,7 +27284,7 @@ vectoredLoad128.exit361:                          ; preds = %2746, %2744, %2737,
   %2808 = extractvalue { i64, i64 } %2806, 1
   %2809 = lshr i64 %2807, 4
   %2810 = and i64 %2807, 15
-  %2811 = getelementptr inbounds nuw i32, ptr %43, i64 %2810
+  %2811 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %2810
   %2812 = load i32, ptr %2811, align 4
   %.not.i264 = icmp eq i32 %2812, 0
   br i1 %.not.i264, label %2905, label %2813
@@ -27371,7 +27370,7 @@ getConfVal.exit432:                               ; preds = %2824, %lv_u64a_ce.e
   %2858 = lshr i64 %2855, %2857
   %2859 = getelementptr inbounds nuw i8, ptr %2815, i64 32
   %2860 = and i64 %2858, 4294967295
-  %2861 = getelementptr inbounds nuw i32, ptr %2859, i64 %2860
+  %2861 = getelementptr inbounds nuw [4 x i8], ptr %2859, i64 %2860
   %2862 = load i32, ptr %2861, align 4
   %.not.i579 = icmp eq i32 %2862, 0
   br i1 %.not.i579, label %confWithBit.exit585, label %2863, !prof !5
@@ -27490,7 +27489,7 @@ do_confWithBit_teddy.exit267:                     ; preds = %2905
   %2918 = lshr i32 %2917, 4
   %2919 = add nuw nsw i32 %2918, 4
   %2920 = and i64 %2915, 15
-  %2921 = getelementptr inbounds nuw i32, ptr %43, i64 %2920
+  %2921 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %2920
   %2922 = load i32, ptr %2921, align 4
   %.not.i260 = icmp eq i32 %2922, 0
   br i1 %.not.i260, label %3015, label %2923
@@ -27576,7 +27575,7 @@ getConfVal.exit436:                               ; preds = %2934, %lv_u64a_ce.e
   %2968 = lshr i64 %2965, %2967
   %2969 = getelementptr inbounds nuw i8, ptr %2925, i64 32
   %2970 = and i64 %2968, 4294967295
-  %2971 = getelementptr inbounds nuw i32, ptr %2969, i64 %2970
+  %2971 = getelementptr inbounds nuw [4 x i8], ptr %2969, i64 %2970
   %2972 = load i32, ptr %2971, align 4
   %.not.i586 = icmp eq i32 %2972, 0
   br i1 %.not.i586, label %confWithBit.exit592, label %2973, !prof !5
@@ -27695,7 +27694,7 @@ do_confWithBit_teddy.exit263:                     ; preds = %3015
   %3028 = lshr i32 %3027, 4
   %3029 = add nuw nsw i32 %3028, 8
   %3030 = and i64 %3025, 15
-  %3031 = getelementptr inbounds nuw i32, ptr %43, i64 %3030
+  %3031 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %3030
   %3032 = load i32, ptr %3031, align 4
   %.not.i256 = icmp eq i32 %3032, 0
   br i1 %.not.i256, label %3125, label %3033
@@ -27781,7 +27780,7 @@ getConfVal.exit440:                               ; preds = %3044, %lv_u64a_ce.e
   %3078 = lshr i64 %3075, %3077
   %3079 = getelementptr inbounds nuw i8, ptr %3035, i64 32
   %3080 = and i64 %3078, 4294967295
-  %3081 = getelementptr inbounds nuw i32, ptr %3079, i64 %3080
+  %3081 = getelementptr inbounds nuw [4 x i8], ptr %3079, i64 %3080
   %3082 = load i32, ptr %3081, align 4
   %.not.i593 = icmp eq i32 %3082, 0
   br i1 %.not.i593, label %confWithBit.exit599, label %3083, !prof !5
@@ -27900,7 +27899,7 @@ do_confWithBit_teddy.exit259:                     ; preds = %3125
   %3138 = lshr i32 %3137, 4
   %3139 = add nuw nsw i32 %3138, 12
   %3140 = and i64 %3135, 15
-  %3141 = getelementptr inbounds nuw i32, ptr %43, i64 %3140
+  %3141 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %3140
   %3142 = load i32, ptr %3141, align 4
   %.not.i = icmp eq i32 %3142, 0
   br i1 %.not.i, label %3235, label %3143
@@ -27986,7 +27985,7 @@ getConfVal.exit444:                               ; preds = %3154, %lv_u64a_ce.e
   %3188 = lshr i64 %3185, %3187
   %3189 = getelementptr inbounds nuw i8, ptr %3145, i64 32
   %3190 = and i64 %3188, 4294967295
-  %3191 = getelementptr inbounds nuw i32, ptr %3189, i64 %3190
+  %3191 = getelementptr inbounds nuw [4 x i8], ptr %3189, i64 %3190
   %3192 = load i32, ptr %3191, align 4
   %.not.i600 = icmp eq i32 %3192, 0
   br i1 %.not.i600, label %confWithBit.exit606, label %3193, !prof !5
@@ -28354,7 +28353,7 @@ vectoredLoad128.exit:                             ; preds = %118, %116, %109, %1
   %181 = extractvalue { i64, i64 } %179, 1
   %182 = lshr i64 %180, 4
   %183 = and i64 %180, 15
-  %184 = getelementptr inbounds nuw i32, ptr %43, i64 %183
+  %184 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %183
   %185 = load i32, ptr %184, align 4
   %.not.i344 = icmp eq i32 %185, 0
   br i1 %.not.i344, label %278, label %186
@@ -28440,7 +28439,7 @@ getConfVal.exit:                                  ; preds = %197, %lv_u64a_ce.ex
   %231 = lshr i64 %228, %230
   %232 = getelementptr inbounds nuw i8, ptr %188, i64 32
   %233 = and i64 %231, 4294967295
-  %234 = getelementptr inbounds nuw i32, ptr %232, i64 %233
+  %234 = getelementptr inbounds nuw [4 x i8], ptr %232, i64 %233
   %235 = load i32, ptr %234, align 4
   %.not.i445 = icmp eq i32 %235, 0
   br i1 %.not.i445, label %confWithBit.exit, label %236, !prof !5
@@ -28560,7 +28559,7 @@ do_confWithBit_teddy.exit347:                     ; preds = %278
   %292 = lshr i32 %291, 4
   %293 = add nuw nsw i32 %292, 4
   %294 = and i64 %289, 15
-  %295 = getelementptr inbounds nuw i32, ptr %43, i64 %294
+  %295 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %294
   %296 = load i32, ptr %295, align 4
   %.not.i340 = icmp eq i32 %296, 0
   br i1 %.not.i340, label %389, label %297
@@ -28646,7 +28645,7 @@ getConfVal.exit368:                               ; preds = %308, %lv_u64a_ce.ex
   %342 = lshr i64 %339, %341
   %343 = getelementptr inbounds nuw i8, ptr %299, i64 32
   %344 = and i64 %342, 4294967295
-  %345 = getelementptr inbounds nuw i32, ptr %343, i64 %344
+  %345 = getelementptr inbounds nuw [4 x i8], ptr %343, i64 %344
   %346 = load i32, ptr %345, align 4
   %.not.i446 = icmp eq i32 %346, 0
   br i1 %.not.i446, label %confWithBit.exit452, label %347, !prof !5
@@ -28766,7 +28765,7 @@ do_confWithBit_teddy.exit343:                     ; preds = %389
   %403 = lshr i32 %402, 4
   %404 = add nuw nsw i32 %403, 8
   %405 = and i64 %400, 15
-  %406 = getelementptr inbounds nuw i32, ptr %43, i64 %405
+  %406 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %405
   %407 = load i32, ptr %406, align 4
   %.not.i336 = icmp eq i32 %407, 0
   br i1 %.not.i336, label %500, label %408
@@ -28852,7 +28851,7 @@ getConfVal.exit372:                               ; preds = %419, %lv_u64a_ce.ex
   %453 = lshr i64 %450, %452
   %454 = getelementptr inbounds nuw i8, ptr %410, i64 32
   %455 = and i64 %453, 4294967295
-  %456 = getelementptr inbounds nuw i32, ptr %454, i64 %455
+  %456 = getelementptr inbounds nuw [4 x i8], ptr %454, i64 %455
   %457 = load i32, ptr %456, align 4
   %.not.i453 = icmp eq i32 %457, 0
   br i1 %.not.i453, label %confWithBit.exit459, label %458, !prof !5
@@ -28972,7 +28971,7 @@ do_confWithBit_teddy.exit339:                     ; preds = %500
   %514 = lshr i32 %513, 4
   %515 = add nuw nsw i32 %514, 12
   %516 = and i64 %511, 15
-  %517 = getelementptr inbounds nuw i32, ptr %43, i64 %516
+  %517 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %516
   %518 = load i32, ptr %517, align 4
   %.not.i332 = icmp eq i32 %518, 0
   br i1 %.not.i332, label %611, label %519
@@ -29058,7 +29057,7 @@ getConfVal.exit376:                               ; preds = %530, %lv_u64a_ce.ex
   %564 = lshr i64 %561, %563
   %565 = getelementptr inbounds nuw i8, ptr %521, i64 32
   %566 = and i64 %564, 4294967295
-  %567 = getelementptr inbounds nuw i32, ptr %565, i64 %566
+  %567 = getelementptr inbounds nuw [4 x i8], ptr %565, i64 %566
   %568 = load i32, ptr %567, align 4
   %.not.i460 = icmp eq i32 %568, 0
   br i1 %.not.i460, label %confWithBit.exit466, label %569, !prof !5
@@ -29234,7 +29233,7 @@ do_confWithBit_teddy.exit335:                     ; preds = %611
   %672 = extractvalue { i64, i64 } %670, 1
   %673 = lshr i64 %671, 4
   %674 = and i64 %671, 15
-  %675 = getelementptr inbounds nuw i32, ptr %43, i64 %674
+  %675 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %674
   %676 = load i32, ptr %675, align 4
   %.not.i328 = icmp eq i32 %676, 0
   br i1 %.not.i328, label %769, label %677
@@ -29320,7 +29319,7 @@ getConfVal.exit380:                               ; preds = %688, %lv_u64a_ce.ex
   %722 = lshr i64 %719, %721
   %723 = getelementptr inbounds nuw i8, ptr %679, i64 32
   %724 = and i64 %722, 4294967295
-  %725 = getelementptr inbounds nuw i32, ptr %723, i64 %724
+  %725 = getelementptr inbounds nuw [4 x i8], ptr %723, i64 %724
   %726 = load i32, ptr %725, align 4
   %.not.i467 = icmp eq i32 %726, 0
   br i1 %.not.i467, label %confWithBit.exit473, label %727, !prof !5
@@ -29441,7 +29440,7 @@ do_confWithBit_teddy.exit331:                     ; preds = %769
   %784 = lshr i32 %783, 4
   %785 = add nuw nsw i32 %784, 4
   %786 = and i64 %781, 15
-  %787 = getelementptr inbounds nuw i32, ptr %43, i64 %786
+  %787 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %786
   %788 = load i32, ptr %787, align 4
   %.not.i324 = icmp eq i32 %788, 0
   br i1 %.not.i324, label %881, label %789
@@ -29527,7 +29526,7 @@ getConfVal.exit384:                               ; preds = %800, %lv_u64a_ce.ex
   %834 = lshr i64 %831, %833
   %835 = getelementptr inbounds nuw i8, ptr %791, i64 32
   %836 = and i64 %834, 4294967295
-  %837 = getelementptr inbounds nuw i32, ptr %835, i64 %836
+  %837 = getelementptr inbounds nuw [4 x i8], ptr %835, i64 %836
   %838 = load i32, ptr %837, align 4
   %.not.i474 = icmp eq i32 %838, 0
   br i1 %.not.i474, label %confWithBit.exit480, label %839, !prof !5
@@ -29648,7 +29647,7 @@ do_confWithBit_teddy.exit327:                     ; preds = %881
   %896 = lshr i32 %895, 4
   %897 = add nuw nsw i32 %896, 8
   %898 = and i64 %893, 15
-  %899 = getelementptr inbounds nuw i32, ptr %43, i64 %898
+  %899 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %898
   %900 = load i32, ptr %899, align 4
   %.not.i320 = icmp eq i32 %900, 0
   br i1 %.not.i320, label %993, label %901
@@ -29734,7 +29733,7 @@ getConfVal.exit388:                               ; preds = %912, %lv_u64a_ce.ex
   %946 = lshr i64 %943, %945
   %947 = getelementptr inbounds nuw i8, ptr %903, i64 32
   %948 = and i64 %946, 4294967295
-  %949 = getelementptr inbounds nuw i32, ptr %947, i64 %948
+  %949 = getelementptr inbounds nuw [4 x i8], ptr %947, i64 %948
   %950 = load i32, ptr %949, align 4
   %.not.i481 = icmp eq i32 %950, 0
   br i1 %.not.i481, label %confWithBit.exit487, label %951, !prof !5
@@ -29855,7 +29854,7 @@ do_confWithBit_teddy.exit323:                     ; preds = %993
   %1008 = lshr i32 %1007, 4
   %1009 = add nuw nsw i32 %1008, 12
   %1010 = and i64 %1005, 15
-  %1011 = getelementptr inbounds nuw i32, ptr %43, i64 %1010
+  %1011 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %1010
   %1012 = load i32, ptr %1011, align 4
   %.not.i316 = icmp eq i32 %1012, 0
   br i1 %.not.i316, label %1105, label %1013
@@ -29941,7 +29940,7 @@ getConfVal.exit392:                               ; preds = %1024, %lv_u64a_ce.e
   %1058 = lshr i64 %1055, %1057
   %1059 = getelementptr inbounds nuw i8, ptr %1015, i64 32
   %1060 = and i64 %1058, 4294967295
-  %1061 = getelementptr inbounds nuw i32, ptr %1059, i64 %1060
+  %1061 = getelementptr inbounds nuw [4 x i8], ptr %1059, i64 %1060
   %1062 = load i32, ptr %1061, align 4
   %.not.i488 = icmp eq i32 %1062, 0
   br i1 %.not.i488, label %confWithBit.exit494, label %1063, !prof !5
@@ -30088,11 +30087,11 @@ do_confWithBit_teddy.exit319:                     ; preds = %1105
   %1138 = zext i32 %1137 to i64
   %1139 = getelementptr inbounds nuw i8, ptr %0, i64 %1138
   %1140 = zext i8 %1136 to i64
-  %1141 = getelementptr inbounds nuw i32, ptr %1139, i64 %1140
+  %1141 = getelementptr inbounds nuw [4 x i8], ptr %1139, i64 %1140
   %1142 = load i32, ptr %1141, align 4
   %1143 = getelementptr inbounds nuw i8, ptr %1139, i64 1024
   %1144 = zext i32 %1142 to i64
-  %1145 = getelementptr inbounds nuw %struct.FDRFlood, ptr %1143, i64 %1144
+  %1145 = getelementptr inbounds nuw [208 x i8], ptr %1143, i64 %1144
   %1146 = shl nuw nsw i64 %1140, 8
   %1147 = or disjoint i64 %1146, %1140
   %1148 = shl nuw nsw i64 %1147, 16
@@ -30654,14 +30653,14 @@ split:                                            ; preds = %1195, %.thread1129
   %1451 = phi i16 [ %1444, %.lr.ph1209 ], [ %1460, %1459 ]
   %indvars.iv1273 = phi i64 [ 4, %.lr.ph1209 ], [ %indvars.iv.next1274, %1459 ]
   %.10810831206 = phi i64 [ %.1071082, %.lr.ph1209 ], [ %.1151090, %1459 ]
-  %1452 = getelementptr inbounds nuw i64, ptr %1237, i64 %indvars.iv1273
+  %1452 = getelementptr inbounds nuw [8 x i8], ptr %1237, i64 %indvars.iv1273
   %1453 = load i64, ptr %1452, align 8
   %1454 = and i64 %1453, %.10810831206
   %.not421.i = icmp eq i64 %1454, 0
   br i1 %.not421.i, label %1459, label %1455
 
 1455:                                             ; preds = %1450
-  %1456 = getelementptr inbounds nuw i32, ptr %1238, i64 %indvars.iv1273
+  %1456 = getelementptr inbounds nuw [4 x i8], ptr %1238, i64 %indvars.iv1273
   %1457 = load i32, ptr %1456, align 4
   %1458 = call i64 %1127(i64 noundef %1447, i32 noundef %1457, ptr noundef %1128) #8
   %.pre1288 = load i16, ptr %1158, align 4
@@ -30750,14 +30749,14 @@ split:                                            ; preds = %1195, %.thread1129
   %1504 = phi i16 [ %1497, %.lr.ph1215 ], [ %1513, %1512 ]
   %indvars.iv1276 = phi i64 [ 4, %.lr.ph1215 ], [ %indvars.iv.next1277, %1512 ]
   %.11310881212 = phi i64 [ %.1121087, %.lr.ph1215 ], [ %.1141089, %1512 ]
-  %1505 = getelementptr inbounds nuw i64, ptr %1237, i64 %indvars.iv1276
+  %1505 = getelementptr inbounds nuw [8 x i8], ptr %1237, i64 %indvars.iv1276
   %1506 = load i64, ptr %1505, align 8
   %1507 = and i64 %1506, %.11310881212
   %.not420.i = icmp eq i64 %1507, 0
   br i1 %.not420.i, label %1512, label %1508
 
 1508:                                             ; preds = %1503
-  %1509 = getelementptr inbounds nuw i32, ptr %1238, i64 %indvars.iv1276
+  %1509 = getelementptr inbounds nuw [4 x i8], ptr %1238, i64 %indvars.iv1276
   %1510 = load i32, ptr %1509, align 4
   %1511 = call i64 %1127(i64 noundef %1501, i32 noundef %1510, ptr noundef %1128) #8
   %.pre1289 = load i16, ptr %1158, align 4
@@ -30866,7 +30865,7 @@ floodDetect.exit:                                 ; preds = %1161, %1168, %.crit
   %1578 = extractvalue { i64, i64 } %1576, 1
   %1579 = lshr i64 %1577, 4
   %1580 = and i64 %1577, 15
-  %1581 = getelementptr inbounds nuw i32, ptr %43, i64 %1580
+  %1581 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %1580
   %1582 = load i32, ptr %1581, align 4
   %.not.i312 = icmp eq i32 %1582, 0
   br i1 %.not.i312, label %1654, label %1583
@@ -30903,7 +30902,7 @@ floodDetect.exit:                                 ; preds = %1161, %1168, %.crit
   %1607 = lshr i64 %1604, %1606
   %1608 = getelementptr inbounds nuw i8, ptr %1585, i64 32
   %1609 = and i64 %1607, 4294967295
-  %1610 = getelementptr inbounds nuw i32, ptr %1608, i64 %1609
+  %1610 = getelementptr inbounds nuw [4 x i8], ptr %1608, i64 %1609
   %1611 = load i32, ptr %1610, align 4
   %.not.i495 = icmp eq i32 %1611, 0
   br i1 %.not.i495, label %confWithBit.exit501, label %1612, !prof !5
@@ -31020,7 +31019,7 @@ do_confWithBit_teddy.exit315:                     ; preds = %1654
   %1665 = lshr i32 %1664, 4
   %1666 = add nuw nsw i32 %1665, 4
   %1667 = and i64 %1662, 15
-  %1668 = getelementptr inbounds nuw i32, ptr %43, i64 %1667
+  %1668 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %1667
   %1669 = load i32, ptr %1668, align 4
   %.not.i308 = icmp eq i32 %1669, 0
   br i1 %.not.i308, label %1741, label %1670
@@ -31057,7 +31056,7 @@ do_confWithBit_teddy.exit315:                     ; preds = %1654
   %1694 = lshr i64 %1691, %1693
   %1695 = getelementptr inbounds nuw i8, ptr %1672, i64 32
   %1696 = and i64 %1694, 4294967295
-  %1697 = getelementptr inbounds nuw i32, ptr %1695, i64 %1696
+  %1697 = getelementptr inbounds nuw [4 x i8], ptr %1695, i64 %1696
   %1698 = load i32, ptr %1697, align 4
   %.not.i502 = icmp eq i32 %1698, 0
   br i1 %.not.i502, label %confWithBit.exit508, label %1699, !prof !5
@@ -31174,7 +31173,7 @@ do_confWithBit_teddy.exit311:                     ; preds = %1741
   %1752 = lshr i32 %1751, 4
   %1753 = add nuw nsw i32 %1752, 8
   %1754 = and i64 %1749, 15
-  %1755 = getelementptr inbounds nuw i32, ptr %43, i64 %1754
+  %1755 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %1754
   %1756 = load i32, ptr %1755, align 4
   %.not.i304 = icmp eq i32 %1756, 0
   br i1 %.not.i304, label %1828, label %1757
@@ -31211,7 +31210,7 @@ do_confWithBit_teddy.exit311:                     ; preds = %1741
   %1781 = lshr i64 %1778, %1780
   %1782 = getelementptr inbounds nuw i8, ptr %1759, i64 32
   %1783 = and i64 %1781, 4294967295
-  %1784 = getelementptr inbounds nuw i32, ptr %1782, i64 %1783
+  %1784 = getelementptr inbounds nuw [4 x i8], ptr %1782, i64 %1783
   %1785 = load i32, ptr %1784, align 4
   %.not.i509 = icmp eq i32 %1785, 0
   br i1 %.not.i509, label %confWithBit.exit515, label %1786, !prof !5
@@ -31328,7 +31327,7 @@ do_confWithBit_teddy.exit307:                     ; preds = %1828
   %1839 = lshr i32 %1838, 4
   %1840 = add nuw nsw i32 %1839, 12
   %1841 = and i64 %1836, 15
-  %1842 = getelementptr inbounds nuw i32, ptr %43, i64 %1841
+  %1842 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %1841
   %1843 = load i32, ptr %1842, align 4
   %.not.i300 = icmp eq i32 %1843, 0
   br i1 %.not.i300, label %1915, label %1844
@@ -31365,7 +31364,7 @@ do_confWithBit_teddy.exit307:                     ; preds = %1828
   %1868 = lshr i64 %1865, %1867
   %1869 = getelementptr inbounds nuw i8, ptr %1846, i64 32
   %1870 = and i64 %1868, 4294967295
-  %1871 = getelementptr inbounds nuw i32, ptr %1869, i64 %1870
+  %1871 = getelementptr inbounds nuw [4 x i8], ptr %1869, i64 %1870
   %1872 = load i32, ptr %1871, align 4
   %.not.i516 = icmp eq i32 %1872, 0
   br i1 %.not.i516, label %confWithBit.exit522, label %1873, !prof !5
@@ -31527,7 +31526,7 @@ do_confWithBit_teddy.exit303:                     ; preds = %1915
   %1966 = lshr i32 %1965, 4
   %1967 = add nuw nsw i32 %1966, 16
   %1968 = and i64 %1963, 15
-  %1969 = getelementptr inbounds nuw i32, ptr %43, i64 %1968
+  %1969 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %1968
   %1970 = load i32, ptr %1969, align 4
   %.not.i296 = icmp eq i32 %1970, 0
   br i1 %.not.i296, label %2042, label %1971
@@ -31564,7 +31563,7 @@ do_confWithBit_teddy.exit303:                     ; preds = %1915
   %1995 = lshr i64 %1992, %1994
   %1996 = getelementptr inbounds nuw i8, ptr %1973, i64 32
   %1997 = and i64 %1995, 4294967295
-  %1998 = getelementptr inbounds nuw i32, ptr %1996, i64 %1997
+  %1998 = getelementptr inbounds nuw [4 x i8], ptr %1996, i64 %1997
   %1999 = load i32, ptr %1998, align 4
   %.not.i523 = icmp eq i32 %1999, 0
   br i1 %.not.i523, label %confWithBit.exit529, label %2000, !prof !5
@@ -31681,7 +31680,7 @@ do_confWithBit_teddy.exit299:                     ; preds = %2042
   %2053 = lshr i32 %2052, 4
   %2054 = add nuw nsw i32 %2053, 20
   %2055 = and i64 %2050, 15
-  %2056 = getelementptr inbounds nuw i32, ptr %43, i64 %2055
+  %2056 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %2055
   %2057 = load i32, ptr %2056, align 4
   %.not.i292 = icmp eq i32 %2057, 0
   br i1 %.not.i292, label %2129, label %2058
@@ -31718,7 +31717,7 @@ do_confWithBit_teddy.exit299:                     ; preds = %2042
   %2082 = lshr i64 %2079, %2081
   %2083 = getelementptr inbounds nuw i8, ptr %2060, i64 32
   %2084 = and i64 %2082, 4294967295
-  %2085 = getelementptr inbounds nuw i32, ptr %2083, i64 %2084
+  %2085 = getelementptr inbounds nuw [4 x i8], ptr %2083, i64 %2084
   %2086 = load i32, ptr %2085, align 4
   %.not.i530 = icmp eq i32 %2086, 0
   br i1 %.not.i530, label %confWithBit.exit536, label %2087, !prof !5
@@ -31835,7 +31834,7 @@ do_confWithBit_teddy.exit295:                     ; preds = %2129
   %2140 = lshr i32 %2139, 4
   %2141 = add nuw nsw i32 %2140, 24
   %2142 = and i64 %2137, 15
-  %2143 = getelementptr inbounds nuw i32, ptr %43, i64 %2142
+  %2143 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %2142
   %2144 = load i32, ptr %2143, align 4
   %.not.i288 = icmp eq i32 %2144, 0
   br i1 %.not.i288, label %2216, label %2145
@@ -31872,7 +31871,7 @@ do_confWithBit_teddy.exit295:                     ; preds = %2129
   %2169 = lshr i64 %2166, %2168
   %2170 = getelementptr inbounds nuw i8, ptr %2147, i64 32
   %2171 = and i64 %2169, 4294967295
-  %2172 = getelementptr inbounds nuw i32, ptr %2170, i64 %2171
+  %2172 = getelementptr inbounds nuw [4 x i8], ptr %2170, i64 %2171
   %2173 = load i32, ptr %2172, align 4
   %.not.i537 = icmp eq i32 %2173, 0
   br i1 %.not.i537, label %confWithBit.exit543, label %2174, !prof !5
@@ -31989,7 +31988,7 @@ do_confWithBit_teddy.exit291:                     ; preds = %2216
   %2227 = lshr i32 %2226, 4
   %2228 = add nuw nsw i32 %2227, 28
   %2229 = and i64 %2224, 15
-  %2230 = getelementptr inbounds nuw i32, ptr %43, i64 %2229
+  %2230 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %2229
   %2231 = load i32, ptr %2230, align 4
   %.not.i284 = icmp eq i32 %2231, 0
   br i1 %.not.i284, label %2303, label %2232
@@ -32026,7 +32025,7 @@ do_confWithBit_teddy.exit291:                     ; preds = %2216
   %2256 = lshr i64 %2253, %2255
   %2257 = getelementptr inbounds nuw i8, ptr %2234, i64 32
   %2258 = and i64 %2256, 4294967295
-  %2259 = getelementptr inbounds nuw i32, ptr %2257, i64 %2258
+  %2259 = getelementptr inbounds nuw [4 x i8], ptr %2257, i64 %2258
   %2260 = load i32, ptr %2259, align 4
   %.not.i544 = icmp eq i32 %2260, 0
   br i1 %.not.i544, label %confWithBit.exit550, label %2261, !prof !5
@@ -32209,7 +32208,7 @@ do_confWithBit_teddy.exit287:                     ; preds = %2303
   %2363 = extractvalue { i64, i64 } %2361, 1
   %2364 = lshr i64 %2362, 4
   %2365 = and i64 %2362, 15
-  %2366 = getelementptr inbounds nuw i32, ptr %43, i64 %2365
+  %2366 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %2365
   %2367 = load i32, ptr %2366, align 4
   %.not.i280 = icmp eq i32 %2367, 0
   br i1 %.not.i280, label %2439, label %2368
@@ -32246,7 +32245,7 @@ do_confWithBit_teddy.exit287:                     ; preds = %2303
   %2392 = lshr i64 %2389, %2391
   %2393 = getelementptr inbounds nuw i8, ptr %2370, i64 32
   %2394 = and i64 %2392, 4294967295
-  %2395 = getelementptr inbounds nuw i32, ptr %2393, i64 %2394
+  %2395 = getelementptr inbounds nuw [4 x i8], ptr %2393, i64 %2394
   %2396 = load i32, ptr %2395, align 4
   %.not.i551 = icmp eq i32 %2396, 0
   br i1 %.not.i551, label %confWithBit.exit557, label %2397, !prof !5
@@ -32366,7 +32365,7 @@ do_confWithBit_teddy.exit283:                     ; preds = %2439
   %2453 = lshr i32 %2452, 4
   %2454 = add nuw nsw i32 %2453, 4
   %2455 = and i64 %2450, 15
-  %2456 = getelementptr inbounds nuw i32, ptr %43, i64 %2455
+  %2456 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %2455
   %2457 = load i32, ptr %2456, align 4
   %.not.i276 = icmp eq i32 %2457, 0
   br i1 %.not.i276, label %2529, label %2458
@@ -32403,7 +32402,7 @@ do_confWithBit_teddy.exit283:                     ; preds = %2439
   %2482 = lshr i64 %2479, %2481
   %2483 = getelementptr inbounds nuw i8, ptr %2460, i64 32
   %2484 = and i64 %2482, 4294967295
-  %2485 = getelementptr inbounds nuw i32, ptr %2483, i64 %2484
+  %2485 = getelementptr inbounds nuw [4 x i8], ptr %2483, i64 %2484
   %2486 = load i32, ptr %2485, align 4
   %.not.i558 = icmp eq i32 %2486, 0
   br i1 %.not.i558, label %confWithBit.exit564, label %2487, !prof !5
@@ -32523,7 +32522,7 @@ do_confWithBit_teddy.exit279:                     ; preds = %2529
   %2543 = lshr i32 %2542, 4
   %2544 = add nuw nsw i32 %2543, 8
   %2545 = and i64 %2540, 15
-  %2546 = getelementptr inbounds nuw i32, ptr %43, i64 %2545
+  %2546 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %2545
   %2547 = load i32, ptr %2546, align 4
   %.not.i272 = icmp eq i32 %2547, 0
   br i1 %.not.i272, label %2619, label %2548
@@ -32560,7 +32559,7 @@ do_confWithBit_teddy.exit279:                     ; preds = %2529
   %2572 = lshr i64 %2569, %2571
   %2573 = getelementptr inbounds nuw i8, ptr %2550, i64 32
   %2574 = and i64 %2572, 4294967295
-  %2575 = getelementptr inbounds nuw i32, ptr %2573, i64 %2574
+  %2575 = getelementptr inbounds nuw [4 x i8], ptr %2573, i64 %2574
   %2576 = load i32, ptr %2575, align 4
   %.not.i565 = icmp eq i32 %2576, 0
   br i1 %.not.i565, label %confWithBit.exit571, label %2577, !prof !5
@@ -32680,7 +32679,7 @@ do_confWithBit_teddy.exit275:                     ; preds = %2619
   %2633 = lshr i32 %2632, 4
   %2634 = add nuw nsw i32 %2633, 12
   %2635 = and i64 %2630, 15
-  %2636 = getelementptr inbounds nuw i32, ptr %43, i64 %2635
+  %2636 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %2635
   %2637 = load i32, ptr %2636, align 4
   %.not.i268 = icmp eq i32 %2637, 0
   br i1 %.not.i268, label %2709, label %2638
@@ -32717,7 +32716,7 @@ do_confWithBit_teddy.exit275:                     ; preds = %2619
   %2662 = lshr i64 %2659, %2661
   %2663 = getelementptr inbounds nuw i8, ptr %2640, i64 32
   %2664 = and i64 %2662, 4294967295
-  %2665 = getelementptr inbounds nuw i32, ptr %2663, i64 %2664
+  %2665 = getelementptr inbounds nuw [4 x i8], ptr %2663, i64 %2664
   %2666 = load i32, ptr %2665, align 4
   %.not.i572 = icmp eq i32 %2666, 0
   br i1 %.not.i572, label %confWithBit.exit578, label %2667, !prof !5
@@ -32976,7 +32975,7 @@ vectoredLoad128.exit361:                          ; preds = %2746, %2744, %2737,
   %2808 = extractvalue { i64, i64 } %2806, 1
   %2809 = lshr i64 %2807, 4
   %2810 = and i64 %2807, 15
-  %2811 = getelementptr inbounds nuw i32, ptr %43, i64 %2810
+  %2811 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %2810
   %2812 = load i32, ptr %2811, align 4
   %.not.i264 = icmp eq i32 %2812, 0
   br i1 %.not.i264, label %2905, label %2813
@@ -33062,7 +33061,7 @@ getConfVal.exit432:                               ; preds = %2824, %lv_u64a_ce.e
   %2858 = lshr i64 %2855, %2857
   %2859 = getelementptr inbounds nuw i8, ptr %2815, i64 32
   %2860 = and i64 %2858, 4294967295
-  %2861 = getelementptr inbounds nuw i32, ptr %2859, i64 %2860
+  %2861 = getelementptr inbounds nuw [4 x i8], ptr %2859, i64 %2860
   %2862 = load i32, ptr %2861, align 4
   %.not.i579 = icmp eq i32 %2862, 0
   br i1 %.not.i579, label %confWithBit.exit585, label %2863, !prof !5
@@ -33181,7 +33180,7 @@ do_confWithBit_teddy.exit267:                     ; preds = %2905
   %2918 = lshr i32 %2917, 4
   %2919 = add nuw nsw i32 %2918, 4
   %2920 = and i64 %2915, 15
-  %2921 = getelementptr inbounds nuw i32, ptr %43, i64 %2920
+  %2921 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %2920
   %2922 = load i32, ptr %2921, align 4
   %.not.i260 = icmp eq i32 %2922, 0
   br i1 %.not.i260, label %3015, label %2923
@@ -33267,7 +33266,7 @@ getConfVal.exit436:                               ; preds = %2934, %lv_u64a_ce.e
   %2968 = lshr i64 %2965, %2967
   %2969 = getelementptr inbounds nuw i8, ptr %2925, i64 32
   %2970 = and i64 %2968, 4294967295
-  %2971 = getelementptr inbounds nuw i32, ptr %2969, i64 %2970
+  %2971 = getelementptr inbounds nuw [4 x i8], ptr %2969, i64 %2970
   %2972 = load i32, ptr %2971, align 4
   %.not.i586 = icmp eq i32 %2972, 0
   br i1 %.not.i586, label %confWithBit.exit592, label %2973, !prof !5
@@ -33386,7 +33385,7 @@ do_confWithBit_teddy.exit263:                     ; preds = %3015
   %3028 = lshr i32 %3027, 4
   %3029 = add nuw nsw i32 %3028, 8
   %3030 = and i64 %3025, 15
-  %3031 = getelementptr inbounds nuw i32, ptr %43, i64 %3030
+  %3031 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %3030
   %3032 = load i32, ptr %3031, align 4
   %.not.i256 = icmp eq i32 %3032, 0
   br i1 %.not.i256, label %3125, label %3033
@@ -33472,7 +33471,7 @@ getConfVal.exit440:                               ; preds = %3044, %lv_u64a_ce.e
   %3078 = lshr i64 %3075, %3077
   %3079 = getelementptr inbounds nuw i8, ptr %3035, i64 32
   %3080 = and i64 %3078, 4294967295
-  %3081 = getelementptr inbounds nuw i32, ptr %3079, i64 %3080
+  %3081 = getelementptr inbounds nuw [4 x i8], ptr %3079, i64 %3080
   %3082 = load i32, ptr %3081, align 4
   %.not.i593 = icmp eq i32 %3082, 0
   br i1 %.not.i593, label %confWithBit.exit599, label %3083, !prof !5
@@ -33591,7 +33590,7 @@ do_confWithBit_teddy.exit259:                     ; preds = %3125
   %3138 = lshr i32 %3137, 4
   %3139 = add nuw nsw i32 %3138, 12
   %3140 = and i64 %3135, 15
-  %3141 = getelementptr inbounds nuw i32, ptr %43, i64 %3140
+  %3141 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %3140
   %3142 = load i32, ptr %3141, align 4
   %.not.i = icmp eq i32 %3142, 0
   br i1 %.not.i, label %3235, label %3143
@@ -33677,7 +33676,7 @@ getConfVal.exit444:                               ; preds = %3154, %lv_u64a_ce.e
   %3188 = lshr i64 %3185, %3187
   %3189 = getelementptr inbounds nuw i8, ptr %3145, i64 32
   %3190 = and i64 %3188, 4294967295
-  %3191 = getelementptr inbounds nuw i32, ptr %3189, i64 %3190
+  %3191 = getelementptr inbounds nuw [4 x i8], ptr %3189, i64 %3190
   %3192 = load i32, ptr %3191, align 4
   %.not.i600 = icmp eq i32 %3192, 0
   br i1 %.not.i600, label %confWithBit.exit606, label %3193, !prof !5
@@ -34054,7 +34053,7 @@ vectoredLoad128.exit:                             ; preds = %118, %116, %109, %1
   %190 = extractvalue { i64, i64 } %188, 1
   %191 = lshr i64 %189, 4
   %192 = and i64 %189, 15
-  %193 = getelementptr inbounds nuw i32, ptr %43, i64 %192
+  %193 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %192
   %194 = load i32, ptr %193, align 4
   %.not.i344 = icmp eq i32 %194, 0
   br i1 %.not.i344, label %287, label %195
@@ -34140,7 +34139,7 @@ getConfVal.exit:                                  ; preds = %206, %lv_u64a_ce.ex
   %240 = lshr i64 %237, %239
   %241 = getelementptr inbounds nuw i8, ptr %197, i64 32
   %242 = and i64 %240, 4294967295
-  %243 = getelementptr inbounds nuw i32, ptr %241, i64 %242
+  %243 = getelementptr inbounds nuw [4 x i8], ptr %241, i64 %242
   %244 = load i32, ptr %243, align 4
   %.not.i445 = icmp eq i32 %244, 0
   br i1 %.not.i445, label %confWithBit.exit, label %245, !prof !5
@@ -34260,7 +34259,7 @@ do_confWithBit_teddy.exit347:                     ; preds = %287
   %301 = lshr i32 %300, 4
   %302 = add nuw nsw i32 %301, 4
   %303 = and i64 %298, 15
-  %304 = getelementptr inbounds nuw i32, ptr %43, i64 %303
+  %304 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %303
   %305 = load i32, ptr %304, align 4
   %.not.i340 = icmp eq i32 %305, 0
   br i1 %.not.i340, label %398, label %306
@@ -34346,7 +34345,7 @@ getConfVal.exit368:                               ; preds = %317, %lv_u64a_ce.ex
   %351 = lshr i64 %348, %350
   %352 = getelementptr inbounds nuw i8, ptr %308, i64 32
   %353 = and i64 %351, 4294967295
-  %354 = getelementptr inbounds nuw i32, ptr %352, i64 %353
+  %354 = getelementptr inbounds nuw [4 x i8], ptr %352, i64 %353
   %355 = load i32, ptr %354, align 4
   %.not.i446 = icmp eq i32 %355, 0
   br i1 %.not.i446, label %confWithBit.exit452, label %356, !prof !5
@@ -34466,7 +34465,7 @@ do_confWithBit_teddy.exit343:                     ; preds = %398
   %412 = lshr i32 %411, 4
   %413 = add nuw nsw i32 %412, 8
   %414 = and i64 %409, 15
-  %415 = getelementptr inbounds nuw i32, ptr %43, i64 %414
+  %415 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %414
   %416 = load i32, ptr %415, align 4
   %.not.i336 = icmp eq i32 %416, 0
   br i1 %.not.i336, label %509, label %417
@@ -34552,7 +34551,7 @@ getConfVal.exit372:                               ; preds = %428, %lv_u64a_ce.ex
   %462 = lshr i64 %459, %461
   %463 = getelementptr inbounds nuw i8, ptr %419, i64 32
   %464 = and i64 %462, 4294967295
-  %465 = getelementptr inbounds nuw i32, ptr %463, i64 %464
+  %465 = getelementptr inbounds nuw [4 x i8], ptr %463, i64 %464
   %466 = load i32, ptr %465, align 4
   %.not.i453 = icmp eq i32 %466, 0
   br i1 %.not.i453, label %confWithBit.exit459, label %467, !prof !5
@@ -34672,7 +34671,7 @@ do_confWithBit_teddy.exit339:                     ; preds = %509
   %523 = lshr i32 %522, 4
   %524 = add nuw nsw i32 %523, 12
   %525 = and i64 %520, 15
-  %526 = getelementptr inbounds nuw i32, ptr %43, i64 %525
+  %526 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %525
   %527 = load i32, ptr %526, align 4
   %.not.i332 = icmp eq i32 %527, 0
   br i1 %.not.i332, label %620, label %528
@@ -34758,7 +34757,7 @@ getConfVal.exit376:                               ; preds = %539, %lv_u64a_ce.ex
   %573 = lshr i64 %570, %572
   %574 = getelementptr inbounds nuw i8, ptr %530, i64 32
   %575 = and i64 %573, 4294967295
-  %576 = getelementptr inbounds nuw i32, ptr %574, i64 %575
+  %576 = getelementptr inbounds nuw [4 x i8], ptr %574, i64 %575
   %577 = load i32, ptr %576, align 4
   %.not.i460 = icmp eq i32 %577, 0
   br i1 %.not.i460, label %confWithBit.exit466, label %578, !prof !5
@@ -34944,7 +34943,7 @@ do_confWithBit_teddy.exit335:                     ; preds = %620
   %691 = extractvalue { i64, i64 } %689, 1
   %692 = lshr i64 %690, 4
   %693 = and i64 %690, 15
-  %694 = getelementptr inbounds nuw i32, ptr %43, i64 %693
+  %694 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %693
   %695 = load i32, ptr %694, align 4
   %.not.i328 = icmp eq i32 %695, 0
   br i1 %.not.i328, label %788, label %696
@@ -35030,7 +35029,7 @@ getConfVal.exit380:                               ; preds = %707, %lv_u64a_ce.ex
   %741 = lshr i64 %738, %740
   %742 = getelementptr inbounds nuw i8, ptr %698, i64 32
   %743 = and i64 %741, 4294967295
-  %744 = getelementptr inbounds nuw i32, ptr %742, i64 %743
+  %744 = getelementptr inbounds nuw [4 x i8], ptr %742, i64 %743
   %745 = load i32, ptr %744, align 4
   %.not.i467 = icmp eq i32 %745, 0
   br i1 %.not.i467, label %confWithBit.exit473, label %746, !prof !5
@@ -35151,7 +35150,7 @@ do_confWithBit_teddy.exit331:                     ; preds = %788
   %803 = lshr i32 %802, 4
   %804 = add nuw nsw i32 %803, 4
   %805 = and i64 %800, 15
-  %806 = getelementptr inbounds nuw i32, ptr %43, i64 %805
+  %806 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %805
   %807 = load i32, ptr %806, align 4
   %.not.i324 = icmp eq i32 %807, 0
   br i1 %.not.i324, label %900, label %808
@@ -35237,7 +35236,7 @@ getConfVal.exit384:                               ; preds = %819, %lv_u64a_ce.ex
   %853 = lshr i64 %850, %852
   %854 = getelementptr inbounds nuw i8, ptr %810, i64 32
   %855 = and i64 %853, 4294967295
-  %856 = getelementptr inbounds nuw i32, ptr %854, i64 %855
+  %856 = getelementptr inbounds nuw [4 x i8], ptr %854, i64 %855
   %857 = load i32, ptr %856, align 4
   %.not.i474 = icmp eq i32 %857, 0
   br i1 %.not.i474, label %confWithBit.exit480, label %858, !prof !5
@@ -35358,7 +35357,7 @@ do_confWithBit_teddy.exit327:                     ; preds = %900
   %915 = lshr i32 %914, 4
   %916 = add nuw nsw i32 %915, 8
   %917 = and i64 %912, 15
-  %918 = getelementptr inbounds nuw i32, ptr %43, i64 %917
+  %918 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %917
   %919 = load i32, ptr %918, align 4
   %.not.i320 = icmp eq i32 %919, 0
   br i1 %.not.i320, label %1012, label %920
@@ -35444,7 +35443,7 @@ getConfVal.exit388:                               ; preds = %931, %lv_u64a_ce.ex
   %965 = lshr i64 %962, %964
   %966 = getelementptr inbounds nuw i8, ptr %922, i64 32
   %967 = and i64 %965, 4294967295
-  %968 = getelementptr inbounds nuw i32, ptr %966, i64 %967
+  %968 = getelementptr inbounds nuw [4 x i8], ptr %966, i64 %967
   %969 = load i32, ptr %968, align 4
   %.not.i481 = icmp eq i32 %969, 0
   br i1 %.not.i481, label %confWithBit.exit487, label %970, !prof !5
@@ -35565,7 +35564,7 @@ do_confWithBit_teddy.exit323:                     ; preds = %1012
   %1027 = lshr i32 %1026, 4
   %1028 = add nuw nsw i32 %1027, 12
   %1029 = and i64 %1024, 15
-  %1030 = getelementptr inbounds nuw i32, ptr %43, i64 %1029
+  %1030 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %1029
   %1031 = load i32, ptr %1030, align 4
   %.not.i316 = icmp eq i32 %1031, 0
   br i1 %.not.i316, label %1124, label %1032
@@ -35651,7 +35650,7 @@ getConfVal.exit392:                               ; preds = %1043, %lv_u64a_ce.e
   %1077 = lshr i64 %1074, %1076
   %1078 = getelementptr inbounds nuw i8, ptr %1034, i64 32
   %1079 = and i64 %1077, 4294967295
-  %1080 = getelementptr inbounds nuw i32, ptr %1078, i64 %1079
+  %1080 = getelementptr inbounds nuw [4 x i8], ptr %1078, i64 %1079
   %1081 = load i32, ptr %1080, align 4
   %.not.i488 = icmp eq i32 %1081, 0
   br i1 %.not.i488, label %confWithBit.exit494, label %1082, !prof !5
@@ -35802,11 +35801,11 @@ do_confWithBit_teddy.exit319:                     ; preds = %1124
   %1161 = zext i32 %1160 to i64
   %1162 = getelementptr inbounds nuw i8, ptr %0, i64 %1161
   %1163 = zext i8 %1159 to i64
-  %1164 = getelementptr inbounds nuw i32, ptr %1162, i64 %1163
+  %1164 = getelementptr inbounds nuw [4 x i8], ptr %1162, i64 %1163
   %1165 = load i32, ptr %1164, align 4
   %1166 = getelementptr inbounds nuw i8, ptr %1162, i64 1024
   %1167 = zext i32 %1165 to i64
-  %1168 = getelementptr inbounds nuw %struct.FDRFlood, ptr %1166, i64 %1167
+  %1168 = getelementptr inbounds nuw [208 x i8], ptr %1166, i64 %1167
   %1169 = shl nuw nsw i64 %1163, 8
   %1170 = or disjoint i64 %1169, %1163
   %1171 = shl nuw nsw i64 %1170, 16
@@ -36368,14 +36367,14 @@ split:                                            ; preds = %1218, %.thread1139
   %1474 = phi i16 [ %1467, %.lr.ph1221 ], [ %1483, %1482 ]
   %indvars.iv1287 = phi i64 [ 4, %.lr.ph1221 ], [ %indvars.iv.next1288, %1482 ]
   %.10810931218 = phi i64 [ %.1071092, %.lr.ph1221 ], [ %.1151100, %1482 ]
-  %1475 = getelementptr inbounds nuw i64, ptr %1260, i64 %indvars.iv1287
+  %1475 = getelementptr inbounds nuw [8 x i8], ptr %1260, i64 %indvars.iv1287
   %1476 = load i64, ptr %1475, align 8
   %1477 = and i64 %1476, %.10810931218
   %.not421.i = icmp eq i64 %1477, 0
   br i1 %.not421.i, label %1482, label %1478
 
 1478:                                             ; preds = %1473
-  %1479 = getelementptr inbounds nuw i32, ptr %1261, i64 %indvars.iv1287
+  %1479 = getelementptr inbounds nuw [4 x i8], ptr %1261, i64 %indvars.iv1287
   %1480 = load i32, ptr %1479, align 4
   %1481 = call i64 %1150(i64 noundef %1470, i32 noundef %1480, ptr noundef %1151) #8
   %.pre1302 = load i16, ptr %1181, align 4
@@ -36464,14 +36463,14 @@ split:                                            ; preds = %1218, %.thread1139
   %1527 = phi i16 [ %1520, %.lr.ph1227 ], [ %1536, %1535 ]
   %indvars.iv1290 = phi i64 [ 4, %.lr.ph1227 ], [ %indvars.iv.next1291, %1535 ]
   %.11310981224 = phi i64 [ %.1121097, %.lr.ph1227 ], [ %.1141099, %1535 ]
-  %1528 = getelementptr inbounds nuw i64, ptr %1260, i64 %indvars.iv1290
+  %1528 = getelementptr inbounds nuw [8 x i8], ptr %1260, i64 %indvars.iv1290
   %1529 = load i64, ptr %1528, align 8
   %1530 = and i64 %1529, %.11310981224
   %.not420.i = icmp eq i64 %1530, 0
   br i1 %.not420.i, label %1535, label %1531
 
 1531:                                             ; preds = %1526
-  %1532 = getelementptr inbounds nuw i32, ptr %1261, i64 %indvars.iv1290
+  %1532 = getelementptr inbounds nuw [4 x i8], ptr %1261, i64 %indvars.iv1290
   %1533 = load i32, ptr %1532, align 4
   %1534 = call i64 %1150(i64 noundef %1524, i32 noundef %1533, ptr noundef %1151) #8
   %.pre1303 = load i16, ptr %1181, align 4
@@ -36587,7 +36586,7 @@ floodDetect.exit:                                 ; preds = %1184, %1191, %.crit
   %1608 = extractvalue { i64, i64 } %1606, 1
   %1609 = lshr i64 %1607, 4
   %1610 = and i64 %1607, 15
-  %1611 = getelementptr inbounds nuw i32, ptr %43, i64 %1610
+  %1611 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %1610
   %1612 = load i32, ptr %1611, align 4
   %.not.i312 = icmp eq i32 %1612, 0
   br i1 %.not.i312, label %1684, label %1613
@@ -36624,7 +36623,7 @@ floodDetect.exit:                                 ; preds = %1184, %1191, %.crit
   %1637 = lshr i64 %1634, %1636
   %1638 = getelementptr inbounds nuw i8, ptr %1615, i64 32
   %1639 = and i64 %1637, 4294967295
-  %1640 = getelementptr inbounds nuw i32, ptr %1638, i64 %1639
+  %1640 = getelementptr inbounds nuw [4 x i8], ptr %1638, i64 %1639
   %1641 = load i32, ptr %1640, align 4
   %.not.i495 = icmp eq i32 %1641, 0
   br i1 %.not.i495, label %confWithBit.exit501, label %1642, !prof !5
@@ -36741,7 +36740,7 @@ do_confWithBit_teddy.exit315:                     ; preds = %1684
   %1695 = lshr i32 %1694, 4
   %1696 = add nuw nsw i32 %1695, 4
   %1697 = and i64 %1692, 15
-  %1698 = getelementptr inbounds nuw i32, ptr %43, i64 %1697
+  %1698 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %1697
   %1699 = load i32, ptr %1698, align 4
   %.not.i308 = icmp eq i32 %1699, 0
   br i1 %.not.i308, label %1771, label %1700
@@ -36778,7 +36777,7 @@ do_confWithBit_teddy.exit315:                     ; preds = %1684
   %1724 = lshr i64 %1721, %1723
   %1725 = getelementptr inbounds nuw i8, ptr %1702, i64 32
   %1726 = and i64 %1724, 4294967295
-  %1727 = getelementptr inbounds nuw i32, ptr %1725, i64 %1726
+  %1727 = getelementptr inbounds nuw [4 x i8], ptr %1725, i64 %1726
   %1728 = load i32, ptr %1727, align 4
   %.not.i502 = icmp eq i32 %1728, 0
   br i1 %.not.i502, label %confWithBit.exit508, label %1729, !prof !5
@@ -36895,7 +36894,7 @@ do_confWithBit_teddy.exit311:                     ; preds = %1771
   %1782 = lshr i32 %1781, 4
   %1783 = add nuw nsw i32 %1782, 8
   %1784 = and i64 %1779, 15
-  %1785 = getelementptr inbounds nuw i32, ptr %43, i64 %1784
+  %1785 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %1784
   %1786 = load i32, ptr %1785, align 4
   %.not.i304 = icmp eq i32 %1786, 0
   br i1 %.not.i304, label %1858, label %1787
@@ -36932,7 +36931,7 @@ do_confWithBit_teddy.exit311:                     ; preds = %1771
   %1811 = lshr i64 %1808, %1810
   %1812 = getelementptr inbounds nuw i8, ptr %1789, i64 32
   %1813 = and i64 %1811, 4294967295
-  %1814 = getelementptr inbounds nuw i32, ptr %1812, i64 %1813
+  %1814 = getelementptr inbounds nuw [4 x i8], ptr %1812, i64 %1813
   %1815 = load i32, ptr %1814, align 4
   %.not.i509 = icmp eq i32 %1815, 0
   br i1 %.not.i509, label %confWithBit.exit515, label %1816, !prof !5
@@ -37049,7 +37048,7 @@ do_confWithBit_teddy.exit307:                     ; preds = %1858
   %1869 = lshr i32 %1868, 4
   %1870 = add nuw nsw i32 %1869, 12
   %1871 = and i64 %1866, 15
-  %1872 = getelementptr inbounds nuw i32, ptr %43, i64 %1871
+  %1872 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %1871
   %1873 = load i32, ptr %1872, align 4
   %.not.i300 = icmp eq i32 %1873, 0
   br i1 %.not.i300, label %1945, label %1874
@@ -37086,7 +37085,7 @@ do_confWithBit_teddy.exit307:                     ; preds = %1858
   %1898 = lshr i64 %1895, %1897
   %1899 = getelementptr inbounds nuw i8, ptr %1876, i64 32
   %1900 = and i64 %1898, 4294967295
-  %1901 = getelementptr inbounds nuw i32, ptr %1899, i64 %1900
+  %1901 = getelementptr inbounds nuw [4 x i8], ptr %1899, i64 %1900
   %1902 = load i32, ptr %1901, align 4
   %.not.i516 = icmp eq i32 %1902, 0
   br i1 %.not.i516, label %confWithBit.exit522, label %1903, !prof !5
@@ -37255,7 +37254,7 @@ do_confWithBit_teddy.exit303:                     ; preds = %1945
   %2003 = lshr i32 %2002, 4
   %2004 = add nuw nsw i32 %2003, 16
   %2005 = and i64 %2000, 15
-  %2006 = getelementptr inbounds nuw i32, ptr %43, i64 %2005
+  %2006 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %2005
   %2007 = load i32, ptr %2006, align 4
   %.not.i296 = icmp eq i32 %2007, 0
   br i1 %.not.i296, label %2079, label %2008
@@ -37292,7 +37291,7 @@ do_confWithBit_teddy.exit303:                     ; preds = %1945
   %2032 = lshr i64 %2029, %2031
   %2033 = getelementptr inbounds nuw i8, ptr %2010, i64 32
   %2034 = and i64 %2032, 4294967295
-  %2035 = getelementptr inbounds nuw i32, ptr %2033, i64 %2034
+  %2035 = getelementptr inbounds nuw [4 x i8], ptr %2033, i64 %2034
   %2036 = load i32, ptr %2035, align 4
   %.not.i523 = icmp eq i32 %2036, 0
   br i1 %.not.i523, label %confWithBit.exit529, label %2037, !prof !5
@@ -37409,7 +37408,7 @@ do_confWithBit_teddy.exit299:                     ; preds = %2079
   %2090 = lshr i32 %2089, 4
   %2091 = add nuw nsw i32 %2090, 20
   %2092 = and i64 %2087, 15
-  %2093 = getelementptr inbounds nuw i32, ptr %43, i64 %2092
+  %2093 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %2092
   %2094 = load i32, ptr %2093, align 4
   %.not.i292 = icmp eq i32 %2094, 0
   br i1 %.not.i292, label %2166, label %2095
@@ -37446,7 +37445,7 @@ do_confWithBit_teddy.exit299:                     ; preds = %2079
   %2119 = lshr i64 %2116, %2118
   %2120 = getelementptr inbounds nuw i8, ptr %2097, i64 32
   %2121 = and i64 %2119, 4294967295
-  %2122 = getelementptr inbounds nuw i32, ptr %2120, i64 %2121
+  %2122 = getelementptr inbounds nuw [4 x i8], ptr %2120, i64 %2121
   %2123 = load i32, ptr %2122, align 4
   %.not.i530 = icmp eq i32 %2123, 0
   br i1 %.not.i530, label %confWithBit.exit536, label %2124, !prof !5
@@ -37563,7 +37562,7 @@ do_confWithBit_teddy.exit295:                     ; preds = %2166
   %2177 = lshr i32 %2176, 4
   %2178 = add nuw nsw i32 %2177, 24
   %2179 = and i64 %2174, 15
-  %2180 = getelementptr inbounds nuw i32, ptr %43, i64 %2179
+  %2180 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %2179
   %2181 = load i32, ptr %2180, align 4
   %.not.i288 = icmp eq i32 %2181, 0
   br i1 %.not.i288, label %2253, label %2182
@@ -37600,7 +37599,7 @@ do_confWithBit_teddy.exit295:                     ; preds = %2166
   %2206 = lshr i64 %2203, %2205
   %2207 = getelementptr inbounds nuw i8, ptr %2184, i64 32
   %2208 = and i64 %2206, 4294967295
-  %2209 = getelementptr inbounds nuw i32, ptr %2207, i64 %2208
+  %2209 = getelementptr inbounds nuw [4 x i8], ptr %2207, i64 %2208
   %2210 = load i32, ptr %2209, align 4
   %.not.i537 = icmp eq i32 %2210, 0
   br i1 %.not.i537, label %confWithBit.exit543, label %2211, !prof !5
@@ -37717,7 +37716,7 @@ do_confWithBit_teddy.exit291:                     ; preds = %2253
   %2264 = lshr i32 %2263, 4
   %2265 = add nuw nsw i32 %2264, 28
   %2266 = and i64 %2261, 15
-  %2267 = getelementptr inbounds nuw i32, ptr %43, i64 %2266
+  %2267 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %2266
   %2268 = load i32, ptr %2267, align 4
   %.not.i284 = icmp eq i32 %2268, 0
   br i1 %.not.i284, label %2340, label %2269
@@ -37754,7 +37753,7 @@ do_confWithBit_teddy.exit291:                     ; preds = %2253
   %2293 = lshr i64 %2290, %2292
   %2294 = getelementptr inbounds nuw i8, ptr %2271, i64 32
   %2295 = and i64 %2293, 4294967295
-  %2296 = getelementptr inbounds nuw i32, ptr %2294, i64 %2295
+  %2296 = getelementptr inbounds nuw [4 x i8], ptr %2294, i64 %2295
   %2297 = load i32, ptr %2296, align 4
   %.not.i544 = icmp eq i32 %2297, 0
   br i1 %.not.i544, label %confWithBit.exit550, label %2298, !prof !5
@@ -37947,7 +37946,7 @@ do_confWithBit_teddy.exit287:                     ; preds = %2340
   %2409 = extractvalue { i64, i64 } %2407, 1
   %2410 = lshr i64 %2408, 4
   %2411 = and i64 %2408, 15
-  %2412 = getelementptr inbounds nuw i32, ptr %43, i64 %2411
+  %2412 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %2411
   %2413 = load i32, ptr %2412, align 4
   %.not.i280 = icmp eq i32 %2413, 0
   br i1 %.not.i280, label %2485, label %2414
@@ -37984,7 +37983,7 @@ do_confWithBit_teddy.exit287:                     ; preds = %2340
   %2438 = lshr i64 %2435, %2437
   %2439 = getelementptr inbounds nuw i8, ptr %2416, i64 32
   %2440 = and i64 %2438, 4294967295
-  %2441 = getelementptr inbounds nuw i32, ptr %2439, i64 %2440
+  %2441 = getelementptr inbounds nuw [4 x i8], ptr %2439, i64 %2440
   %2442 = load i32, ptr %2441, align 4
   %.not.i551 = icmp eq i32 %2442, 0
   br i1 %.not.i551, label %confWithBit.exit557, label %2443, !prof !5
@@ -38104,7 +38103,7 @@ do_confWithBit_teddy.exit283:                     ; preds = %2485
   %2499 = lshr i32 %2498, 4
   %2500 = add nuw nsw i32 %2499, 4
   %2501 = and i64 %2496, 15
-  %2502 = getelementptr inbounds nuw i32, ptr %43, i64 %2501
+  %2502 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %2501
   %2503 = load i32, ptr %2502, align 4
   %.not.i276 = icmp eq i32 %2503, 0
   br i1 %.not.i276, label %2575, label %2504
@@ -38141,7 +38140,7 @@ do_confWithBit_teddy.exit283:                     ; preds = %2485
   %2528 = lshr i64 %2525, %2527
   %2529 = getelementptr inbounds nuw i8, ptr %2506, i64 32
   %2530 = and i64 %2528, 4294967295
-  %2531 = getelementptr inbounds nuw i32, ptr %2529, i64 %2530
+  %2531 = getelementptr inbounds nuw [4 x i8], ptr %2529, i64 %2530
   %2532 = load i32, ptr %2531, align 4
   %.not.i558 = icmp eq i32 %2532, 0
   br i1 %.not.i558, label %confWithBit.exit564, label %2533, !prof !5
@@ -38261,7 +38260,7 @@ do_confWithBit_teddy.exit279:                     ; preds = %2575
   %2589 = lshr i32 %2588, 4
   %2590 = add nuw nsw i32 %2589, 8
   %2591 = and i64 %2586, 15
-  %2592 = getelementptr inbounds nuw i32, ptr %43, i64 %2591
+  %2592 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %2591
   %2593 = load i32, ptr %2592, align 4
   %.not.i272 = icmp eq i32 %2593, 0
   br i1 %.not.i272, label %2665, label %2594
@@ -38298,7 +38297,7 @@ do_confWithBit_teddy.exit279:                     ; preds = %2575
   %2618 = lshr i64 %2615, %2617
   %2619 = getelementptr inbounds nuw i8, ptr %2596, i64 32
   %2620 = and i64 %2618, 4294967295
-  %2621 = getelementptr inbounds nuw i32, ptr %2619, i64 %2620
+  %2621 = getelementptr inbounds nuw [4 x i8], ptr %2619, i64 %2620
   %2622 = load i32, ptr %2621, align 4
   %.not.i565 = icmp eq i32 %2622, 0
   br i1 %.not.i565, label %confWithBit.exit571, label %2623, !prof !5
@@ -38418,7 +38417,7 @@ do_confWithBit_teddy.exit275:                     ; preds = %2665
   %2679 = lshr i32 %2678, 4
   %2680 = add nuw nsw i32 %2679, 12
   %2681 = and i64 %2676, 15
-  %2682 = getelementptr inbounds nuw i32, ptr %43, i64 %2681
+  %2682 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %2681
   %2683 = load i32, ptr %2682, align 4
   %.not.i268 = icmp eq i32 %2683, 0
   br i1 %.not.i268, label %2755, label %2684
@@ -38455,7 +38454,7 @@ do_confWithBit_teddy.exit275:                     ; preds = %2665
   %2708 = lshr i64 %2705, %2707
   %2709 = getelementptr inbounds nuw i8, ptr %2686, i64 32
   %2710 = and i64 %2708, 4294967295
-  %2711 = getelementptr inbounds nuw i32, ptr %2709, i64 %2710
+  %2711 = getelementptr inbounds nuw [4 x i8], ptr %2709, i64 %2710
   %2712 = load i32, ptr %2711, align 4
   %.not.i572 = icmp eq i32 %2712, 0
   br i1 %.not.i572, label %confWithBit.exit578, label %2713, !prof !5
@@ -38724,7 +38723,7 @@ vectoredLoad128.exit361:                          ; preds = %2793, %2791, %2784,
   %2864 = extractvalue { i64, i64 } %2862, 1
   %2865 = lshr i64 %2863, 4
   %2866 = and i64 %2863, 15
-  %2867 = getelementptr inbounds nuw i32, ptr %43, i64 %2866
+  %2867 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %2866
   %2868 = load i32, ptr %2867, align 4
   %.not.i264 = icmp eq i32 %2868, 0
   br i1 %.not.i264, label %2961, label %2869
@@ -38810,7 +38809,7 @@ getConfVal.exit432:                               ; preds = %2880, %lv_u64a_ce.e
   %2914 = lshr i64 %2911, %2913
   %2915 = getelementptr inbounds nuw i8, ptr %2871, i64 32
   %2916 = and i64 %2914, 4294967295
-  %2917 = getelementptr inbounds nuw i32, ptr %2915, i64 %2916
+  %2917 = getelementptr inbounds nuw [4 x i8], ptr %2915, i64 %2916
   %2918 = load i32, ptr %2917, align 4
   %.not.i579 = icmp eq i32 %2918, 0
   br i1 %.not.i579, label %confWithBit.exit585, label %2919, !prof !5
@@ -38929,7 +38928,7 @@ do_confWithBit_teddy.exit267:                     ; preds = %2961
   %2974 = lshr i32 %2973, 4
   %2975 = add nuw nsw i32 %2974, 4
   %2976 = and i64 %2971, 15
-  %2977 = getelementptr inbounds nuw i32, ptr %43, i64 %2976
+  %2977 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %2976
   %2978 = load i32, ptr %2977, align 4
   %.not.i260 = icmp eq i32 %2978, 0
   br i1 %.not.i260, label %3071, label %2979
@@ -39015,7 +39014,7 @@ getConfVal.exit436:                               ; preds = %2990, %lv_u64a_ce.e
   %3024 = lshr i64 %3021, %3023
   %3025 = getelementptr inbounds nuw i8, ptr %2981, i64 32
   %3026 = and i64 %3024, 4294967295
-  %3027 = getelementptr inbounds nuw i32, ptr %3025, i64 %3026
+  %3027 = getelementptr inbounds nuw [4 x i8], ptr %3025, i64 %3026
   %3028 = load i32, ptr %3027, align 4
   %.not.i586 = icmp eq i32 %3028, 0
   br i1 %.not.i586, label %confWithBit.exit592, label %3029, !prof !5
@@ -39134,7 +39133,7 @@ do_confWithBit_teddy.exit263:                     ; preds = %3071
   %3084 = lshr i32 %3083, 4
   %3085 = add nuw nsw i32 %3084, 8
   %3086 = and i64 %3081, 15
-  %3087 = getelementptr inbounds nuw i32, ptr %43, i64 %3086
+  %3087 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %3086
   %3088 = load i32, ptr %3087, align 4
   %.not.i256 = icmp eq i32 %3088, 0
   br i1 %.not.i256, label %3181, label %3089
@@ -39220,7 +39219,7 @@ getConfVal.exit440:                               ; preds = %3100, %lv_u64a_ce.e
   %3134 = lshr i64 %3131, %3133
   %3135 = getelementptr inbounds nuw i8, ptr %3091, i64 32
   %3136 = and i64 %3134, 4294967295
-  %3137 = getelementptr inbounds nuw i32, ptr %3135, i64 %3136
+  %3137 = getelementptr inbounds nuw [4 x i8], ptr %3135, i64 %3136
   %3138 = load i32, ptr %3137, align 4
   %.not.i593 = icmp eq i32 %3138, 0
   br i1 %.not.i593, label %confWithBit.exit599, label %3139, !prof !5
@@ -39339,7 +39338,7 @@ do_confWithBit_teddy.exit259:                     ; preds = %3181
   %3194 = lshr i32 %3193, 4
   %3195 = add nuw nsw i32 %3194, 12
   %3196 = and i64 %3191, 15
-  %3197 = getelementptr inbounds nuw i32, ptr %43, i64 %3196
+  %3197 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %3196
   %3198 = load i32, ptr %3197, align 4
   %.not.i = icmp eq i32 %3198, 0
   br i1 %.not.i, label %3291, label %3199
@@ -39425,7 +39424,7 @@ getConfVal.exit444:                               ; preds = %3210, %lv_u64a_ce.e
   %3244 = lshr i64 %3241, %3243
   %3245 = getelementptr inbounds nuw i8, ptr %3201, i64 32
   %3246 = and i64 %3244, 4294967295
-  %3247 = getelementptr inbounds nuw i32, ptr %3245, i64 %3246
+  %3247 = getelementptr inbounds nuw [4 x i8], ptr %3245, i64 %3246
   %3248 = load i32, ptr %3247, align 4
   %.not.i600 = icmp eq i32 %3248, 0
   br i1 %.not.i600, label %confWithBit.exit606, label %3249, !prof !5
@@ -39802,7 +39801,7 @@ vectoredLoad128.exit:                             ; preds = %118, %116, %109, %1
   %190 = extractvalue { i64, i64 } %188, 1
   %191 = lshr i64 %189, 4
   %192 = and i64 %189, 15
-  %193 = getelementptr inbounds nuw i32, ptr %43, i64 %192
+  %193 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %192
   %194 = load i32, ptr %193, align 4
   %.not.i344 = icmp eq i32 %194, 0
   br i1 %.not.i344, label %287, label %195
@@ -39888,7 +39887,7 @@ getConfVal.exit:                                  ; preds = %206, %lv_u64a_ce.ex
   %240 = lshr i64 %237, %239
   %241 = getelementptr inbounds nuw i8, ptr %197, i64 32
   %242 = and i64 %240, 4294967295
-  %243 = getelementptr inbounds nuw i32, ptr %241, i64 %242
+  %243 = getelementptr inbounds nuw [4 x i8], ptr %241, i64 %242
   %244 = load i32, ptr %243, align 4
   %.not.i445 = icmp eq i32 %244, 0
   br i1 %.not.i445, label %confWithBit.exit, label %245, !prof !5
@@ -40008,7 +40007,7 @@ do_confWithBit_teddy.exit347:                     ; preds = %287
   %301 = lshr i32 %300, 4
   %302 = add nuw nsw i32 %301, 4
   %303 = and i64 %298, 15
-  %304 = getelementptr inbounds nuw i32, ptr %43, i64 %303
+  %304 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %303
   %305 = load i32, ptr %304, align 4
   %.not.i340 = icmp eq i32 %305, 0
   br i1 %.not.i340, label %398, label %306
@@ -40094,7 +40093,7 @@ getConfVal.exit368:                               ; preds = %317, %lv_u64a_ce.ex
   %351 = lshr i64 %348, %350
   %352 = getelementptr inbounds nuw i8, ptr %308, i64 32
   %353 = and i64 %351, 4294967295
-  %354 = getelementptr inbounds nuw i32, ptr %352, i64 %353
+  %354 = getelementptr inbounds nuw [4 x i8], ptr %352, i64 %353
   %355 = load i32, ptr %354, align 4
   %.not.i446 = icmp eq i32 %355, 0
   br i1 %.not.i446, label %confWithBit.exit452, label %356, !prof !5
@@ -40214,7 +40213,7 @@ do_confWithBit_teddy.exit343:                     ; preds = %398
   %412 = lshr i32 %411, 4
   %413 = add nuw nsw i32 %412, 8
   %414 = and i64 %409, 15
-  %415 = getelementptr inbounds nuw i32, ptr %43, i64 %414
+  %415 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %414
   %416 = load i32, ptr %415, align 4
   %.not.i336 = icmp eq i32 %416, 0
   br i1 %.not.i336, label %509, label %417
@@ -40300,7 +40299,7 @@ getConfVal.exit372:                               ; preds = %428, %lv_u64a_ce.ex
   %462 = lshr i64 %459, %461
   %463 = getelementptr inbounds nuw i8, ptr %419, i64 32
   %464 = and i64 %462, 4294967295
-  %465 = getelementptr inbounds nuw i32, ptr %463, i64 %464
+  %465 = getelementptr inbounds nuw [4 x i8], ptr %463, i64 %464
   %466 = load i32, ptr %465, align 4
   %.not.i453 = icmp eq i32 %466, 0
   br i1 %.not.i453, label %confWithBit.exit459, label %467, !prof !5
@@ -40420,7 +40419,7 @@ do_confWithBit_teddy.exit339:                     ; preds = %509
   %523 = lshr i32 %522, 4
   %524 = add nuw nsw i32 %523, 12
   %525 = and i64 %520, 15
-  %526 = getelementptr inbounds nuw i32, ptr %43, i64 %525
+  %526 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %525
   %527 = load i32, ptr %526, align 4
   %.not.i332 = icmp eq i32 %527, 0
   br i1 %.not.i332, label %620, label %528
@@ -40506,7 +40505,7 @@ getConfVal.exit376:                               ; preds = %539, %lv_u64a_ce.ex
   %573 = lshr i64 %570, %572
   %574 = getelementptr inbounds nuw i8, ptr %530, i64 32
   %575 = and i64 %573, 4294967295
-  %576 = getelementptr inbounds nuw i32, ptr %574, i64 %575
+  %576 = getelementptr inbounds nuw [4 x i8], ptr %574, i64 %575
   %577 = load i32, ptr %576, align 4
   %.not.i460 = icmp eq i32 %577, 0
   br i1 %.not.i460, label %confWithBit.exit466, label %578, !prof !5
@@ -40692,7 +40691,7 @@ do_confWithBit_teddy.exit335:                     ; preds = %620
   %691 = extractvalue { i64, i64 } %689, 1
   %692 = lshr i64 %690, 4
   %693 = and i64 %690, 15
-  %694 = getelementptr inbounds nuw i32, ptr %43, i64 %693
+  %694 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %693
   %695 = load i32, ptr %694, align 4
   %.not.i328 = icmp eq i32 %695, 0
   br i1 %.not.i328, label %788, label %696
@@ -40778,7 +40777,7 @@ getConfVal.exit380:                               ; preds = %707, %lv_u64a_ce.ex
   %741 = lshr i64 %738, %740
   %742 = getelementptr inbounds nuw i8, ptr %698, i64 32
   %743 = and i64 %741, 4294967295
-  %744 = getelementptr inbounds nuw i32, ptr %742, i64 %743
+  %744 = getelementptr inbounds nuw [4 x i8], ptr %742, i64 %743
   %745 = load i32, ptr %744, align 4
   %.not.i467 = icmp eq i32 %745, 0
   br i1 %.not.i467, label %confWithBit.exit473, label %746, !prof !5
@@ -40899,7 +40898,7 @@ do_confWithBit_teddy.exit331:                     ; preds = %788
   %803 = lshr i32 %802, 4
   %804 = add nuw nsw i32 %803, 4
   %805 = and i64 %800, 15
-  %806 = getelementptr inbounds nuw i32, ptr %43, i64 %805
+  %806 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %805
   %807 = load i32, ptr %806, align 4
   %.not.i324 = icmp eq i32 %807, 0
   br i1 %.not.i324, label %900, label %808
@@ -40985,7 +40984,7 @@ getConfVal.exit384:                               ; preds = %819, %lv_u64a_ce.ex
   %853 = lshr i64 %850, %852
   %854 = getelementptr inbounds nuw i8, ptr %810, i64 32
   %855 = and i64 %853, 4294967295
-  %856 = getelementptr inbounds nuw i32, ptr %854, i64 %855
+  %856 = getelementptr inbounds nuw [4 x i8], ptr %854, i64 %855
   %857 = load i32, ptr %856, align 4
   %.not.i474 = icmp eq i32 %857, 0
   br i1 %.not.i474, label %confWithBit.exit480, label %858, !prof !5
@@ -41106,7 +41105,7 @@ do_confWithBit_teddy.exit327:                     ; preds = %900
   %915 = lshr i32 %914, 4
   %916 = add nuw nsw i32 %915, 8
   %917 = and i64 %912, 15
-  %918 = getelementptr inbounds nuw i32, ptr %43, i64 %917
+  %918 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %917
   %919 = load i32, ptr %918, align 4
   %.not.i320 = icmp eq i32 %919, 0
   br i1 %.not.i320, label %1012, label %920
@@ -41192,7 +41191,7 @@ getConfVal.exit388:                               ; preds = %931, %lv_u64a_ce.ex
   %965 = lshr i64 %962, %964
   %966 = getelementptr inbounds nuw i8, ptr %922, i64 32
   %967 = and i64 %965, 4294967295
-  %968 = getelementptr inbounds nuw i32, ptr %966, i64 %967
+  %968 = getelementptr inbounds nuw [4 x i8], ptr %966, i64 %967
   %969 = load i32, ptr %968, align 4
   %.not.i481 = icmp eq i32 %969, 0
   br i1 %.not.i481, label %confWithBit.exit487, label %970, !prof !5
@@ -41313,7 +41312,7 @@ do_confWithBit_teddy.exit323:                     ; preds = %1012
   %1027 = lshr i32 %1026, 4
   %1028 = add nuw nsw i32 %1027, 12
   %1029 = and i64 %1024, 15
-  %1030 = getelementptr inbounds nuw i32, ptr %43, i64 %1029
+  %1030 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %1029
   %1031 = load i32, ptr %1030, align 4
   %.not.i316 = icmp eq i32 %1031, 0
   br i1 %.not.i316, label %1124, label %1032
@@ -41399,7 +41398,7 @@ getConfVal.exit392:                               ; preds = %1043, %lv_u64a_ce.e
   %1077 = lshr i64 %1074, %1076
   %1078 = getelementptr inbounds nuw i8, ptr %1034, i64 32
   %1079 = and i64 %1077, 4294967295
-  %1080 = getelementptr inbounds nuw i32, ptr %1078, i64 %1079
+  %1080 = getelementptr inbounds nuw [4 x i8], ptr %1078, i64 %1079
   %1081 = load i32, ptr %1080, align 4
   %.not.i488 = icmp eq i32 %1081, 0
   br i1 %.not.i488, label %confWithBit.exit494, label %1082, !prof !5
@@ -41550,11 +41549,11 @@ do_confWithBit_teddy.exit319:                     ; preds = %1124
   %1161 = zext i32 %1160 to i64
   %1162 = getelementptr inbounds nuw i8, ptr %0, i64 %1161
   %1163 = zext i8 %1159 to i64
-  %1164 = getelementptr inbounds nuw i32, ptr %1162, i64 %1163
+  %1164 = getelementptr inbounds nuw [4 x i8], ptr %1162, i64 %1163
   %1165 = load i32, ptr %1164, align 4
   %1166 = getelementptr inbounds nuw i8, ptr %1162, i64 1024
   %1167 = zext i32 %1165 to i64
-  %1168 = getelementptr inbounds nuw %struct.FDRFlood, ptr %1166, i64 %1167
+  %1168 = getelementptr inbounds nuw [208 x i8], ptr %1166, i64 %1167
   %1169 = shl nuw nsw i64 %1163, 8
   %1170 = or disjoint i64 %1169, %1163
   %1171 = shl nuw nsw i64 %1170, 16
@@ -42116,14 +42115,14 @@ split:                                            ; preds = %1218, %.thread1139
   %1474 = phi i16 [ %1467, %.lr.ph1221 ], [ %1483, %1482 ]
   %indvars.iv1287 = phi i64 [ 4, %.lr.ph1221 ], [ %indvars.iv.next1288, %1482 ]
   %.10810931218 = phi i64 [ %.1071092, %.lr.ph1221 ], [ %.1151100, %1482 ]
-  %1475 = getelementptr inbounds nuw i64, ptr %1260, i64 %indvars.iv1287
+  %1475 = getelementptr inbounds nuw [8 x i8], ptr %1260, i64 %indvars.iv1287
   %1476 = load i64, ptr %1475, align 8
   %1477 = and i64 %1476, %.10810931218
   %.not421.i = icmp eq i64 %1477, 0
   br i1 %.not421.i, label %1482, label %1478
 
 1478:                                             ; preds = %1473
-  %1479 = getelementptr inbounds nuw i32, ptr %1261, i64 %indvars.iv1287
+  %1479 = getelementptr inbounds nuw [4 x i8], ptr %1261, i64 %indvars.iv1287
   %1480 = load i32, ptr %1479, align 4
   %1481 = call i64 %1150(i64 noundef %1470, i32 noundef %1480, ptr noundef %1151) #8
   %.pre1302 = load i16, ptr %1181, align 4
@@ -42212,14 +42211,14 @@ split:                                            ; preds = %1218, %.thread1139
   %1527 = phi i16 [ %1520, %.lr.ph1227 ], [ %1536, %1535 ]
   %indvars.iv1290 = phi i64 [ 4, %.lr.ph1227 ], [ %indvars.iv.next1291, %1535 ]
   %.11310981224 = phi i64 [ %.1121097, %.lr.ph1227 ], [ %.1141099, %1535 ]
-  %1528 = getelementptr inbounds nuw i64, ptr %1260, i64 %indvars.iv1290
+  %1528 = getelementptr inbounds nuw [8 x i8], ptr %1260, i64 %indvars.iv1290
   %1529 = load i64, ptr %1528, align 8
   %1530 = and i64 %1529, %.11310981224
   %.not420.i = icmp eq i64 %1530, 0
   br i1 %.not420.i, label %1535, label %1531
 
 1531:                                             ; preds = %1526
-  %1532 = getelementptr inbounds nuw i32, ptr %1261, i64 %indvars.iv1290
+  %1532 = getelementptr inbounds nuw [4 x i8], ptr %1261, i64 %indvars.iv1290
   %1533 = load i32, ptr %1532, align 4
   %1534 = call i64 %1150(i64 noundef %1524, i32 noundef %1533, ptr noundef %1151) #8
   %.pre1303 = load i16, ptr %1181, align 4
@@ -42335,7 +42334,7 @@ floodDetect.exit:                                 ; preds = %1184, %1191, %.crit
   %1608 = extractvalue { i64, i64 } %1606, 1
   %1609 = lshr i64 %1607, 4
   %1610 = and i64 %1607, 15
-  %1611 = getelementptr inbounds nuw i32, ptr %43, i64 %1610
+  %1611 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %1610
   %1612 = load i32, ptr %1611, align 4
   %.not.i312 = icmp eq i32 %1612, 0
   br i1 %.not.i312, label %1684, label %1613
@@ -42372,7 +42371,7 @@ floodDetect.exit:                                 ; preds = %1184, %1191, %.crit
   %1637 = lshr i64 %1634, %1636
   %1638 = getelementptr inbounds nuw i8, ptr %1615, i64 32
   %1639 = and i64 %1637, 4294967295
-  %1640 = getelementptr inbounds nuw i32, ptr %1638, i64 %1639
+  %1640 = getelementptr inbounds nuw [4 x i8], ptr %1638, i64 %1639
   %1641 = load i32, ptr %1640, align 4
   %.not.i495 = icmp eq i32 %1641, 0
   br i1 %.not.i495, label %confWithBit.exit501, label %1642, !prof !5
@@ -42489,7 +42488,7 @@ do_confWithBit_teddy.exit315:                     ; preds = %1684
   %1695 = lshr i32 %1694, 4
   %1696 = add nuw nsw i32 %1695, 4
   %1697 = and i64 %1692, 15
-  %1698 = getelementptr inbounds nuw i32, ptr %43, i64 %1697
+  %1698 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %1697
   %1699 = load i32, ptr %1698, align 4
   %.not.i308 = icmp eq i32 %1699, 0
   br i1 %.not.i308, label %1771, label %1700
@@ -42526,7 +42525,7 @@ do_confWithBit_teddy.exit315:                     ; preds = %1684
   %1724 = lshr i64 %1721, %1723
   %1725 = getelementptr inbounds nuw i8, ptr %1702, i64 32
   %1726 = and i64 %1724, 4294967295
-  %1727 = getelementptr inbounds nuw i32, ptr %1725, i64 %1726
+  %1727 = getelementptr inbounds nuw [4 x i8], ptr %1725, i64 %1726
   %1728 = load i32, ptr %1727, align 4
   %.not.i502 = icmp eq i32 %1728, 0
   br i1 %.not.i502, label %confWithBit.exit508, label %1729, !prof !5
@@ -42643,7 +42642,7 @@ do_confWithBit_teddy.exit311:                     ; preds = %1771
   %1782 = lshr i32 %1781, 4
   %1783 = add nuw nsw i32 %1782, 8
   %1784 = and i64 %1779, 15
-  %1785 = getelementptr inbounds nuw i32, ptr %43, i64 %1784
+  %1785 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %1784
   %1786 = load i32, ptr %1785, align 4
   %.not.i304 = icmp eq i32 %1786, 0
   br i1 %.not.i304, label %1858, label %1787
@@ -42680,7 +42679,7 @@ do_confWithBit_teddy.exit311:                     ; preds = %1771
   %1811 = lshr i64 %1808, %1810
   %1812 = getelementptr inbounds nuw i8, ptr %1789, i64 32
   %1813 = and i64 %1811, 4294967295
-  %1814 = getelementptr inbounds nuw i32, ptr %1812, i64 %1813
+  %1814 = getelementptr inbounds nuw [4 x i8], ptr %1812, i64 %1813
   %1815 = load i32, ptr %1814, align 4
   %.not.i509 = icmp eq i32 %1815, 0
   br i1 %.not.i509, label %confWithBit.exit515, label %1816, !prof !5
@@ -42797,7 +42796,7 @@ do_confWithBit_teddy.exit307:                     ; preds = %1858
   %1869 = lshr i32 %1868, 4
   %1870 = add nuw nsw i32 %1869, 12
   %1871 = and i64 %1866, 15
-  %1872 = getelementptr inbounds nuw i32, ptr %43, i64 %1871
+  %1872 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %1871
   %1873 = load i32, ptr %1872, align 4
   %.not.i300 = icmp eq i32 %1873, 0
   br i1 %.not.i300, label %1945, label %1874
@@ -42834,7 +42833,7 @@ do_confWithBit_teddy.exit307:                     ; preds = %1858
   %1898 = lshr i64 %1895, %1897
   %1899 = getelementptr inbounds nuw i8, ptr %1876, i64 32
   %1900 = and i64 %1898, 4294967295
-  %1901 = getelementptr inbounds nuw i32, ptr %1899, i64 %1900
+  %1901 = getelementptr inbounds nuw [4 x i8], ptr %1899, i64 %1900
   %1902 = load i32, ptr %1901, align 4
   %.not.i516 = icmp eq i32 %1902, 0
   br i1 %.not.i516, label %confWithBit.exit522, label %1903, !prof !5
@@ -43003,7 +43002,7 @@ do_confWithBit_teddy.exit303:                     ; preds = %1945
   %2003 = lshr i32 %2002, 4
   %2004 = add nuw nsw i32 %2003, 16
   %2005 = and i64 %2000, 15
-  %2006 = getelementptr inbounds nuw i32, ptr %43, i64 %2005
+  %2006 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %2005
   %2007 = load i32, ptr %2006, align 4
   %.not.i296 = icmp eq i32 %2007, 0
   br i1 %.not.i296, label %2079, label %2008
@@ -43040,7 +43039,7 @@ do_confWithBit_teddy.exit303:                     ; preds = %1945
   %2032 = lshr i64 %2029, %2031
   %2033 = getelementptr inbounds nuw i8, ptr %2010, i64 32
   %2034 = and i64 %2032, 4294967295
-  %2035 = getelementptr inbounds nuw i32, ptr %2033, i64 %2034
+  %2035 = getelementptr inbounds nuw [4 x i8], ptr %2033, i64 %2034
   %2036 = load i32, ptr %2035, align 4
   %.not.i523 = icmp eq i32 %2036, 0
   br i1 %.not.i523, label %confWithBit.exit529, label %2037, !prof !5
@@ -43157,7 +43156,7 @@ do_confWithBit_teddy.exit299:                     ; preds = %2079
   %2090 = lshr i32 %2089, 4
   %2091 = add nuw nsw i32 %2090, 20
   %2092 = and i64 %2087, 15
-  %2093 = getelementptr inbounds nuw i32, ptr %43, i64 %2092
+  %2093 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %2092
   %2094 = load i32, ptr %2093, align 4
   %.not.i292 = icmp eq i32 %2094, 0
   br i1 %.not.i292, label %2166, label %2095
@@ -43194,7 +43193,7 @@ do_confWithBit_teddy.exit299:                     ; preds = %2079
   %2119 = lshr i64 %2116, %2118
   %2120 = getelementptr inbounds nuw i8, ptr %2097, i64 32
   %2121 = and i64 %2119, 4294967295
-  %2122 = getelementptr inbounds nuw i32, ptr %2120, i64 %2121
+  %2122 = getelementptr inbounds nuw [4 x i8], ptr %2120, i64 %2121
   %2123 = load i32, ptr %2122, align 4
   %.not.i530 = icmp eq i32 %2123, 0
   br i1 %.not.i530, label %confWithBit.exit536, label %2124, !prof !5
@@ -43311,7 +43310,7 @@ do_confWithBit_teddy.exit295:                     ; preds = %2166
   %2177 = lshr i32 %2176, 4
   %2178 = add nuw nsw i32 %2177, 24
   %2179 = and i64 %2174, 15
-  %2180 = getelementptr inbounds nuw i32, ptr %43, i64 %2179
+  %2180 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %2179
   %2181 = load i32, ptr %2180, align 4
   %.not.i288 = icmp eq i32 %2181, 0
   br i1 %.not.i288, label %2253, label %2182
@@ -43348,7 +43347,7 @@ do_confWithBit_teddy.exit295:                     ; preds = %2166
   %2206 = lshr i64 %2203, %2205
   %2207 = getelementptr inbounds nuw i8, ptr %2184, i64 32
   %2208 = and i64 %2206, 4294967295
-  %2209 = getelementptr inbounds nuw i32, ptr %2207, i64 %2208
+  %2209 = getelementptr inbounds nuw [4 x i8], ptr %2207, i64 %2208
   %2210 = load i32, ptr %2209, align 4
   %.not.i537 = icmp eq i32 %2210, 0
   br i1 %.not.i537, label %confWithBit.exit543, label %2211, !prof !5
@@ -43465,7 +43464,7 @@ do_confWithBit_teddy.exit291:                     ; preds = %2253
   %2264 = lshr i32 %2263, 4
   %2265 = add nuw nsw i32 %2264, 28
   %2266 = and i64 %2261, 15
-  %2267 = getelementptr inbounds nuw i32, ptr %43, i64 %2266
+  %2267 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %2266
   %2268 = load i32, ptr %2267, align 4
   %.not.i284 = icmp eq i32 %2268, 0
   br i1 %.not.i284, label %2340, label %2269
@@ -43502,7 +43501,7 @@ do_confWithBit_teddy.exit291:                     ; preds = %2253
   %2293 = lshr i64 %2290, %2292
   %2294 = getelementptr inbounds nuw i8, ptr %2271, i64 32
   %2295 = and i64 %2293, 4294967295
-  %2296 = getelementptr inbounds nuw i32, ptr %2294, i64 %2295
+  %2296 = getelementptr inbounds nuw [4 x i8], ptr %2294, i64 %2295
   %2297 = load i32, ptr %2296, align 4
   %.not.i544 = icmp eq i32 %2297, 0
   br i1 %.not.i544, label %confWithBit.exit550, label %2298, !prof !5
@@ -43695,7 +43694,7 @@ do_confWithBit_teddy.exit287:                     ; preds = %2340
   %2409 = extractvalue { i64, i64 } %2407, 1
   %2410 = lshr i64 %2408, 4
   %2411 = and i64 %2408, 15
-  %2412 = getelementptr inbounds nuw i32, ptr %43, i64 %2411
+  %2412 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %2411
   %2413 = load i32, ptr %2412, align 4
   %.not.i280 = icmp eq i32 %2413, 0
   br i1 %.not.i280, label %2485, label %2414
@@ -43732,7 +43731,7 @@ do_confWithBit_teddy.exit287:                     ; preds = %2340
   %2438 = lshr i64 %2435, %2437
   %2439 = getelementptr inbounds nuw i8, ptr %2416, i64 32
   %2440 = and i64 %2438, 4294967295
-  %2441 = getelementptr inbounds nuw i32, ptr %2439, i64 %2440
+  %2441 = getelementptr inbounds nuw [4 x i8], ptr %2439, i64 %2440
   %2442 = load i32, ptr %2441, align 4
   %.not.i551 = icmp eq i32 %2442, 0
   br i1 %.not.i551, label %confWithBit.exit557, label %2443, !prof !5
@@ -43852,7 +43851,7 @@ do_confWithBit_teddy.exit283:                     ; preds = %2485
   %2499 = lshr i32 %2498, 4
   %2500 = add nuw nsw i32 %2499, 4
   %2501 = and i64 %2496, 15
-  %2502 = getelementptr inbounds nuw i32, ptr %43, i64 %2501
+  %2502 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %2501
   %2503 = load i32, ptr %2502, align 4
   %.not.i276 = icmp eq i32 %2503, 0
   br i1 %.not.i276, label %2575, label %2504
@@ -43889,7 +43888,7 @@ do_confWithBit_teddy.exit283:                     ; preds = %2485
   %2528 = lshr i64 %2525, %2527
   %2529 = getelementptr inbounds nuw i8, ptr %2506, i64 32
   %2530 = and i64 %2528, 4294967295
-  %2531 = getelementptr inbounds nuw i32, ptr %2529, i64 %2530
+  %2531 = getelementptr inbounds nuw [4 x i8], ptr %2529, i64 %2530
   %2532 = load i32, ptr %2531, align 4
   %.not.i558 = icmp eq i32 %2532, 0
   br i1 %.not.i558, label %confWithBit.exit564, label %2533, !prof !5
@@ -44009,7 +44008,7 @@ do_confWithBit_teddy.exit279:                     ; preds = %2575
   %2589 = lshr i32 %2588, 4
   %2590 = add nuw nsw i32 %2589, 8
   %2591 = and i64 %2586, 15
-  %2592 = getelementptr inbounds nuw i32, ptr %43, i64 %2591
+  %2592 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %2591
   %2593 = load i32, ptr %2592, align 4
   %.not.i272 = icmp eq i32 %2593, 0
   br i1 %.not.i272, label %2665, label %2594
@@ -44046,7 +44045,7 @@ do_confWithBit_teddy.exit279:                     ; preds = %2575
   %2618 = lshr i64 %2615, %2617
   %2619 = getelementptr inbounds nuw i8, ptr %2596, i64 32
   %2620 = and i64 %2618, 4294967295
-  %2621 = getelementptr inbounds nuw i32, ptr %2619, i64 %2620
+  %2621 = getelementptr inbounds nuw [4 x i8], ptr %2619, i64 %2620
   %2622 = load i32, ptr %2621, align 4
   %.not.i565 = icmp eq i32 %2622, 0
   br i1 %.not.i565, label %confWithBit.exit571, label %2623, !prof !5
@@ -44166,7 +44165,7 @@ do_confWithBit_teddy.exit275:                     ; preds = %2665
   %2679 = lshr i32 %2678, 4
   %2680 = add nuw nsw i32 %2679, 12
   %2681 = and i64 %2676, 15
-  %2682 = getelementptr inbounds nuw i32, ptr %43, i64 %2681
+  %2682 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %2681
   %2683 = load i32, ptr %2682, align 4
   %.not.i268 = icmp eq i32 %2683, 0
   br i1 %.not.i268, label %2755, label %2684
@@ -44203,7 +44202,7 @@ do_confWithBit_teddy.exit275:                     ; preds = %2665
   %2708 = lshr i64 %2705, %2707
   %2709 = getelementptr inbounds nuw i8, ptr %2686, i64 32
   %2710 = and i64 %2708, 4294967295
-  %2711 = getelementptr inbounds nuw i32, ptr %2709, i64 %2710
+  %2711 = getelementptr inbounds nuw [4 x i8], ptr %2709, i64 %2710
   %2712 = load i32, ptr %2711, align 4
   %.not.i572 = icmp eq i32 %2712, 0
   br i1 %.not.i572, label %confWithBit.exit578, label %2713, !prof !5
@@ -44472,7 +44471,7 @@ vectoredLoad128.exit361:                          ; preds = %2793, %2791, %2784,
   %2864 = extractvalue { i64, i64 } %2862, 1
   %2865 = lshr i64 %2863, 4
   %2866 = and i64 %2863, 15
-  %2867 = getelementptr inbounds nuw i32, ptr %43, i64 %2866
+  %2867 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %2866
   %2868 = load i32, ptr %2867, align 4
   %.not.i264 = icmp eq i32 %2868, 0
   br i1 %.not.i264, label %2961, label %2869
@@ -44558,7 +44557,7 @@ getConfVal.exit432:                               ; preds = %2880, %lv_u64a_ce.e
   %2914 = lshr i64 %2911, %2913
   %2915 = getelementptr inbounds nuw i8, ptr %2871, i64 32
   %2916 = and i64 %2914, 4294967295
-  %2917 = getelementptr inbounds nuw i32, ptr %2915, i64 %2916
+  %2917 = getelementptr inbounds nuw [4 x i8], ptr %2915, i64 %2916
   %2918 = load i32, ptr %2917, align 4
   %.not.i579 = icmp eq i32 %2918, 0
   br i1 %.not.i579, label %confWithBit.exit585, label %2919, !prof !5
@@ -44677,7 +44676,7 @@ do_confWithBit_teddy.exit267:                     ; preds = %2961
   %2974 = lshr i32 %2973, 4
   %2975 = add nuw nsw i32 %2974, 4
   %2976 = and i64 %2971, 15
-  %2977 = getelementptr inbounds nuw i32, ptr %43, i64 %2976
+  %2977 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %2976
   %2978 = load i32, ptr %2977, align 4
   %.not.i260 = icmp eq i32 %2978, 0
   br i1 %.not.i260, label %3071, label %2979
@@ -44763,7 +44762,7 @@ getConfVal.exit436:                               ; preds = %2990, %lv_u64a_ce.e
   %3024 = lshr i64 %3021, %3023
   %3025 = getelementptr inbounds nuw i8, ptr %2981, i64 32
   %3026 = and i64 %3024, 4294967295
-  %3027 = getelementptr inbounds nuw i32, ptr %3025, i64 %3026
+  %3027 = getelementptr inbounds nuw [4 x i8], ptr %3025, i64 %3026
   %3028 = load i32, ptr %3027, align 4
   %.not.i586 = icmp eq i32 %3028, 0
   br i1 %.not.i586, label %confWithBit.exit592, label %3029, !prof !5
@@ -44882,7 +44881,7 @@ do_confWithBit_teddy.exit263:                     ; preds = %3071
   %3084 = lshr i32 %3083, 4
   %3085 = add nuw nsw i32 %3084, 8
   %3086 = and i64 %3081, 15
-  %3087 = getelementptr inbounds nuw i32, ptr %43, i64 %3086
+  %3087 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %3086
   %3088 = load i32, ptr %3087, align 4
   %.not.i256 = icmp eq i32 %3088, 0
   br i1 %.not.i256, label %3181, label %3089
@@ -44968,7 +44967,7 @@ getConfVal.exit440:                               ; preds = %3100, %lv_u64a_ce.e
   %3134 = lshr i64 %3131, %3133
   %3135 = getelementptr inbounds nuw i8, ptr %3091, i64 32
   %3136 = and i64 %3134, 4294967295
-  %3137 = getelementptr inbounds nuw i32, ptr %3135, i64 %3136
+  %3137 = getelementptr inbounds nuw [4 x i8], ptr %3135, i64 %3136
   %3138 = load i32, ptr %3137, align 4
   %.not.i593 = icmp eq i32 %3138, 0
   br i1 %.not.i593, label %confWithBit.exit599, label %3139, !prof !5
@@ -45087,7 +45086,7 @@ do_confWithBit_teddy.exit259:                     ; preds = %3181
   %3194 = lshr i32 %3193, 4
   %3195 = add nuw nsw i32 %3194, 12
   %3196 = and i64 %3191, 15
-  %3197 = getelementptr inbounds nuw i32, ptr %43, i64 %3196
+  %3197 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %3196
   %3198 = load i32, ptr %3197, align 4
   %.not.i = icmp eq i32 %3198, 0
   br i1 %.not.i, label %3291, label %3199
@@ -45173,7 +45172,7 @@ getConfVal.exit444:                               ; preds = %3210, %lv_u64a_ce.e
   %3244 = lshr i64 %3241, %3243
   %3245 = getelementptr inbounds nuw i8, ptr %3201, i64 32
   %3246 = and i64 %3244, 4294967295
-  %3247 = getelementptr inbounds nuw i32, ptr %3245, i64 %3246
+  %3247 = getelementptr inbounds nuw [4 x i8], ptr %3245, i64 %3246
   %3248 = load i32, ptr %3247, align 4
   %.not.i600 = icmp eq i32 %3248, 0
   br i1 %.not.i600, label %confWithBit.exit606, label %3249, !prof !5

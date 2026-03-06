@@ -5,10 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.static_call_key = type { ptr, %union.anon.31 }
 %union.anon.31 = type { i64 }
-%struct.io_buffer_list = type { %union.anon.3, i16, i16, i16, i16, i16, i8, i8, i8 }
-%union.anon.3 = type { %struct.list_head }
-%struct.list_head = type { ptr, ptr }
-%struct.io_uring_buf = type { i64, i32, i16, i16 }
 %struct.io_uring_buf_reg = type { i64, i32, i16, i16, [3 x i64] }
 %struct.io_uring_buf_status = type { i32, i32, [8 x i32] }
 
@@ -55,7 +51,7 @@ define dso_local noundef zeroext i1 @io_kbuf_recycle_legacy(ptr noundef captures
 
 24:                                               ; preds = %14
   %25 = zext nneg i16 %18 to i64
-  %26 = getelementptr %struct.io_buffer_list, ptr %20, i64 %25
+  %26 = getelementptr [32 x i8], ptr %20, i64 %25
   br label %31
 
 27:                                               ; preds = %14
@@ -234,7 +230,7 @@ define dso_local ptr @io_buffer_select(ptr noundef captures(none) %0, ptr nounde
 
 18:                                               ; preds = %10
   %19 = zext nneg i16 %12 to i64
-  %20 = getelementptr %struct.io_buffer_list, ptr %14, i64 %19
+  %20 = getelementptr [32 x i8], ptr %14, i64 %19
   br label %25
 
 21:                                               ; preds = %10
@@ -278,14 +274,14 @@ define dso_local ptr @io_buffer_select(ptr noundef captures(none) %0, ptr nounde
   br i1 %49, label %50, label %52
 
 50:                                               ; preds = %40
-  %51 = getelementptr %struct.io_uring_buf, ptr %34, i64 %47
+  %51 = getelementptr [16 x i8], ptr %34, i64 %47
   br label %67
 
 52:                                               ; preds = %40
   %53 = and i16 %43, 255
   %54 = lshr i64 %47, 8
   %55 = load ptr, ptr %26, align 8
-  %56 = getelementptr ptr, ptr %55, i64 %54
+  %56 = getelementptr [8 x i8], ptr %55, i64 %54
   %57 = load ptr, ptr %56, align 8
   %58 = load i64, ptr @vmemmap_base, align 8
   %59 = ptrtoint ptr %57 to i64
@@ -295,7 +291,7 @@ define dso_local ptr @io_buffer_select(ptr noundef captures(none) %0, ptr nounde
   %63 = add i64 %61, %62
   %64 = inttoptr i64 %63 to ptr
   %65 = zext nneg i16 %53 to i64
-  %66 = getelementptr %struct.io_uring_buf, ptr %64, i64 %65
+  %66 = getelementptr [16 x i8], ptr %64, i64 %65
   br label %67
 
 67:                                               ; preds = %52, %50
@@ -415,7 +411,7 @@ define dso_local void @io_destroy_buffers(ptr noundef %0) local_unnamed_addr #0 
   br i1 %7, label %13, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr %struct.io_buffer_list, ptr %6, i64 %5
+  %9 = getelementptr [32 x i8], ptr %6, i64 %5
   %10 = tail call fastcc i32 @__io_remove_buffers(ptr noundef %0, ptr noundef %9, i32 noundef -1)
   %11 = add nuw nsw i64 %5, 1
   %12 = icmp eq i64 %11, 64
@@ -560,7 +556,7 @@ define internal fastcc i32 @__io_remove_buffers(ptr noundef %0, ptr noundef %1, 
 .preheader:                                       ; preds = %40, %.preheader
   %44 = phi i64 [ %48, %.preheader ], [ 0, %40 ]
   %45 = load ptr, ptr %1, align 8
-  %46 = getelementptr ptr, ptr %45, i64 %44
+  %46 = getelementptr [8 x i8], ptr %45, i64 %44
   %47 = load ptr, ptr %46, align 8
   tail call void @unpin_user_page(ptr noundef %47) #8
   %48 = add nuw nsw i64 %44, 1
@@ -708,7 +704,7 @@ define dso_local noundef i32 @io_remove_buffers(ptr noundef captures(none) initi
 
 17:                                               ; preds = %9
   %18 = zext nneg i32 %11 to i64
-  %19 = getelementptr %struct.io_buffer_list, ptr %13, i64 %18
+  %19 = getelementptr [32 x i8], ptr %13, i64 %18
   br label %24
 
 20:                                               ; preds = %9
@@ -888,7 +884,7 @@ define dso_local noundef i32 @io_provide_buffers(ptr noundef captures(none) %0, 
 
 28:                                               ; preds = %21
   %29 = zext nneg i32 %22 to i64
-  %30 = getelementptr %struct.io_buffer_list, ptr %24, i64 %29
+  %30 = getelementptr [32 x i8], ptr %24, i64 %29
   br label %35
 
 .thread:                                          ; preds = %10, %21
@@ -1034,7 +1030,7 @@ define dso_local noundef i32 @io_provide_buffers(ptr noundef captures(none) %0, 
   %107 = phi i32 [ %108, %106 ], [ %.ph, %.preheader ]
   %108 = add i32 %107, -1
   %109 = sext i32 %108 to i64
-  %110 = getelementptr ptr, ptr %3, i64 %109
+  %110 = getelementptr [8 x i8], ptr %3, i64 %109
   %111 = load ptr, ptr %110, align 8
   %112 = load ptr, ptr %70, align 8
   store ptr %111, ptr %70, align 8
@@ -1133,7 +1129,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @io_init_bl_list(ptr nounde
 
 .preheader:                                       ; preds = %1, %.preheader
   %5 = phi i64 [ %10, %.preheader ], [ 0, %1 ]
-  %6 = getelementptr %struct.io_buffer_list, ptr %3, i64 %5
+  %6 = getelementptr [32 x i8], ptr %3, i64 %5
   store volatile ptr %6, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store volatile ptr %6, ptr %7, align 8
@@ -1276,7 +1272,7 @@ define dso_local i32 @io_register_pbuf_ring(ptr noundef %0, ptr noundef %1) loca
 
 58:                                               ; preds = %51
   %59 = zext nneg i16 %52 to i64
-  %60 = getelementptr %struct.io_buffer_list, ptr %54, i64 %59
+  %60 = getelementptr [32 x i8], ptr %54, i64 %59
   br label %65
 
 .thread22:                                        ; preds = %40, %51
@@ -1576,7 +1572,7 @@ define dso_local noundef range(i32 -22, 1) i32 @io_unregister_pbuf_ring(ptr noun
 
 30:                                               ; preds = %22
   %31 = zext nneg i16 %24 to i64
-  %32 = getelementptr %struct.io_buffer_list, ptr %26, i64 %31
+  %32 = getelementptr [32 x i8], ptr %26, i64 %31
   br label %37
 
 33:                                               ; preds = %22
@@ -1636,7 +1632,7 @@ define dso_local range(i32 -22, 1) i32 @io_register_pbuf_status(ptr noundef %0, 
 
 11:                                               ; preds = %8, %6
   %12 = phi i64 [ 0, %6 ], [ %9, %8 ]
-  %13 = getelementptr i32, ptr %7, i64 %12
+  %13 = getelementptr [4 x i8], ptr %7, i64 %12
   %14 = load i32, ptr %13, align 4
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %8, label %.loopexit
@@ -1652,7 +1648,7 @@ define dso_local range(i32 -22, 1) i32 @io_register_pbuf_status(ptr noundef %0, 
 
 23:                                               ; preds = %16
   %24 = zext nneg i32 %17 to i64
-  %25 = getelementptr %struct.io_buffer_list, ptr %19, i64 %24
+  %25 = getelementptr [32 x i8], ptr %19, i64 %24
   br label %30
 
 26:                                               ; preds = %16
@@ -1702,7 +1698,7 @@ define dso_local ptr @io_pbuf_get_address(ptr noundef %0, i64 noundef %1) local_
 
 9:                                                ; preds = %2
   %10 = and i64 %1, 63
-  %11 = getelementptr %struct.io_buffer_list, ptr %4, i64 %10
+  %11 = getelementptr [32 x i8], ptr %4, i64 %10
   br label %16
 
 12:                                               ; preds = %2

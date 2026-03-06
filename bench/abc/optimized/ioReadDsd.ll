@@ -60,7 +60,7 @@ define i32 @Io_ReadDsdStrSplit(ptr noundef %0, ptr noundef writeonly captures(no
   %.037 = phi i32 [ %31, %25 ], [ 0, %3 ]
   %.036 = phi i32 [ %34, %25 ], [ 0, %3 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %5 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   store ptr %.040, ptr %5, align 8, !tbaa !8
   %6 = load i8, ptr %.040, align 1, !tbaa !3
   %7 = icmp eq i8 %6, 33
@@ -228,7 +228,7 @@ define ptr @Io_ReadDsd_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2) local
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %26
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %26 ]
-  %22 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8, !tbaa !8
   %24 = tail call ptr @Io_ReadDsd_rec(ptr noundef %0, ptr noundef %23, ptr noundef null)
   %25 = icmp eq ptr %24, null
@@ -242,7 +242,7 @@ define ptr @Io_ReadDsd_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2) local
 
 .lr.ph85:                                         ; preds = %.lr.ph85.preheader, %31
   %indvars.iv95 = phi i64 [ 0, %.lr.ph85.preheader ], [ %indvars.iv.next96, %31 ]
-  %27 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv95
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv95
   %28 = load ptr, ptr %27, align 8, !tbaa !8
   %29 = tail call ptr @Io_ReadDsd_rec(ptr noundef %0, ptr noundef %28, ptr noundef null)
   %30 = icmp eq ptr %29, null
@@ -302,7 +302,7 @@ define ptr @Io_ReadDsd_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2) local
   %50 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load ptr, ptr %50, align 8, !tbaa !33
   %51 = zext nneg i8 %45 to i64
-  %52 = getelementptr inbounds nuw ptr, ptr %.val.val, i64 %51
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %.val.val, i64 %51
   %53 = load ptr, ptr %52, align 8, !tbaa !35
   br label %.loopexit79
 
@@ -405,7 +405,7 @@ define ptr @Io_ReadDsd(ptr noundef readonly captures(none) %0) local_unnamed_add
   %indvars.iv = phi i64 [ 0, %.lr.ph66 ], [ %indvars.iv.next, %15 ]
   %16 = tail call ptr @Abc_NtkCreateObj(ptr noundef nonnull %10, i32 noundef 2) #10
   %.val = load ptr, ptr %14, align 8, !tbaa !33
-  %17 = getelementptr inbounds nuw ptr, ptr %.val, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8, !tbaa !35
   %19 = tail call ptr @Abc_ObjAssignName(ptr noundef %16, ptr noundef %18, ptr noundef null) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

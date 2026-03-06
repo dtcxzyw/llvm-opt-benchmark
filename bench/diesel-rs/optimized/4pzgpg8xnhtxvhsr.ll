@@ -822,8 +822,8 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
 7:                                                ; preds = %.lr.ph, %.backedge
   %8 = phi i64 [ %.promoted, %.lr.ph ], [ %9, %.backedge ]
   %9 = add i64 %8, 1
-  %10 = getelementptr inbounds { { i32, [3 x i32] } }, ptr %.val4.i.i, i64 %8
-  %11 = getelementptr inbounds { { i32, [3 x i32] } }, ptr %.val.i.i, i64 %8
+  %10 = getelementptr inbounds [16 x i8], ptr %.val4.i.i, i64 %8
+  %11 = getelementptr inbounds [16 x i8], ptr %.val.i.i, i64 %8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !152)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !155)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !157)
@@ -2044,8 +2044,8 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
 .lr.ph.i:                                         ; preds = %5, %.backedge.i
   %6 = phi i64 [ %7, %.backedge.i ], [ 0, %5 ]
   %7 = add nuw i64 %6, 1
-  %8 = getelementptr inbounds { { i32, [3 x i32] } }, ptr %0, i64 %6
-  %9 = getelementptr inbounds { { i32, [3 x i32] } }, ptr %2, i64 %6
+  %8 = getelementptr inbounds [16 x i8], ptr %0, i64 %6
+  %9 = getelementptr inbounds [16 x i8], ptr %2, i64 %6
   tail call void @llvm.experimental.noalias.scope.decl(metadata !482)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !485)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !487)
@@ -2144,7 +2144,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hbf5a7b048a43b051E.llvm.1453016
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN77_$LT$$RF$$u5b$T$u5d$$u20$as$u20$diesel..insertable..Insertable$LT$Tab$GT$$GT$6values17h16a288be782e10d3E"(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, {} }) align 8 captures(none) dereferenceable(24) initializes((0, 24)) %0, ptr noalias noundef nonnull readonly align 8 %1, i64 noundef %2) unnamed_addr #3 {
   %4 = alloca { { i64, ptr }, i64 }, align 8
-  %5 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr %1, i64 %2
+  %5 = getelementptr inbounds [32 x i8], ptr %1, i64 %2
   call void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h73ff3236cf928d2dE.llvm.4517153386013165442"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %4, ptr noundef nonnull %1, ptr noundef nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   ret void

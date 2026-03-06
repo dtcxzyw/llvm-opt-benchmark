@@ -112,7 +112,7 @@ define hidden noundef nonnull ptr @_ZNK8z3_error4whatEv(ptr noundef nonnull read
 
 switch.lookup:                                    ; preds = %1
   %5 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK8z3_error4whatEv, i64 %5
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK8z3_error4whatEv, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %6
 

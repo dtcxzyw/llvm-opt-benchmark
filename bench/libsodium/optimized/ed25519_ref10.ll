@@ -5039,7 +5039,7 @@ slide_vartime.exit54:                             ; preds = %.loopexit56.i32
   call fastcc void @fe25519_mul(ptr noundef nonnull %147, ptr noundef nonnull readonly %9, ptr noundef nonnull readonly %141)
   %533 = lshr i8 %530, 1
   %534 = zext nneg i8 %533 to i64
-  %535 = getelementptr %struct.ge25519_cached, ptr %8, i64 %534
+  %535 = getelementptr [160 x i8], ptr %8, i64 %534
   call fastcc void @ge25519_add_cached(ptr noundef %9, ptr noundef nonnull %10, ptr noundef %535)
   br label %658
 
@@ -5055,7 +5055,7 @@ slide_vartime.exit54:                             ; preds = %.loopexit56.i32
   %.nonneg99 = sub i8 0, %530
   %539 = lshr i8 %.nonneg99, 1
   %540 = zext nneg i8 %539 to i64
-  %541 = getelementptr %struct.ge25519_cached, ptr %8, i64 %540
+  %541 = getelementptr [160 x i8], ptr %8, i64 %540
   %542 = load i64, ptr %145, align 8
   %543 = load i64, ptr %10, align 8
   %544 = add i64 %543, %542
@@ -5236,7 +5236,7 @@ slide_vartime.exit54:                             ; preds = %.loopexit56.i32
   call fastcc void @fe25519_mul(ptr noundef nonnull %147, ptr noundef nonnull readonly %9, ptr noundef nonnull readonly %141)
   %663 = lshr i8 %660, 1
   %664 = zext nneg i8 %663 to i64
-  %665 = getelementptr %struct.ge25519_precomp, ptr @_sodium_ge25519_double_scalarmult_vartime.Bi, i64 %664
+  %665 = getelementptr [120 x i8], ptr @_sodium_ge25519_double_scalarmult_vartime.Bi, i64 %664
   call fastcc void @ge25519_add_precomp(ptr noundef %9, ptr noundef nonnull %10, ptr noundef %665)
   br label %787
 
@@ -5252,7 +5252,7 @@ slide_vartime.exit54:                             ; preds = %.loopexit56.i32
   %.nonneg = sub i8 0, %660
   %669 = lshr i8 %.nonneg, 1
   %670 = zext nneg i8 %669 to i64
-  %671 = getelementptr %struct.ge25519_precomp, ptr @_sodium_ge25519_double_scalarmult_vartime.Bi, i64 %670
+  %671 = getelementptr [120 x i8], ptr @_sodium_ge25519_double_scalarmult_vartime.Bi, i64 %670
   %672 = load i64, ptr %145, align 8
   %673 = load i64, ptr %10, align 8
   %674 = add i64 %673, %672
@@ -7466,7 +7466,7 @@ define hidden void @_sodium_ge25519_scalarmult_base(ptr noundef %0, ptr noundef 
 define internal fastcc void @ge25519_cmov8_base(ptr noundef nonnull initializes((0, 8)) %0, i32 noundef range(i32 -1073741824, 32) %1, i8 noundef signext %2) unnamed_addr #3 {
   %4 = alloca %struct.ge25519_precomp, align 8
   %5 = sext i32 %1 to i64
-  %6 = getelementptr [8 x %struct.ge25519_precomp], ptr @ge25519_cmov8_base.base, i64 %5
+  %6 = getelementptr [960 x i8], ptr @ge25519_cmov8_base.base, i64 %5
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = tail call i8 asm "shrb $$7,$0", "=r,0,~{cc},~{dirflag},~{fpsr},~{flags}"(i8 %2) #13, !srcloc !30
   %8 = sub i8 0, %7
@@ -13304,10 +13304,10 @@ define hidden void @_sodium_ge25519_from_hash(ptr noundef %0, ptr noundef readon
 
 55:                                               ; preds = %55, %2
   %.012.i = phi i64 [ 0, %2 ], [ %62, %55 ]
-  %56 = getelementptr i64, ptr %10, i64 %.012.i
+  %56 = getelementptr [8 x i8], ptr %10, i64 %.012.i
   %57 = load i64, ptr %56, align 8
   %58 = mul i64 %57, 38
-  %59 = getelementptr i64, ptr %12, i64 %.012.i
+  %59 = getelementptr [8 x i8], ptr %12, i64 %.012.i
   %60 = load i64, ptr %59, align 8
   %61 = add i64 %60, %58
   store i64 %61, ptr %59, align 8

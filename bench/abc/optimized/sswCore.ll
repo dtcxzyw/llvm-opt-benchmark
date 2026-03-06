@@ -227,7 +227,7 @@ define void @Ssw_ReportOutputs(ptr noundef readonly captures(none) %0) local_unn
   %8 = load ptr, ptr %4, align 8, !tbaa !54
   %9 = getelementptr i8, ptr %8, i64 8
   %.val10 = load ptr, ptr %9, align 8, !tbaa !55
-  %10 = getelementptr inbounds nuw ptr, ptr %.val10, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %.val10, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !57
   %.val11 = load i32, ptr %5, align 8, !tbaa !58
   %12 = sub nsw i32 %.val15, %.val11
@@ -269,7 +269,7 @@ define void @Ssw_ManUpdateEquivs(ptr noundef captures(none) %0, ptr noundef %1, 
   %.val50 = load i32, ptr %8, align 8, !tbaa !58
   %9 = sub nsw i32 %.val47, %.val50
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds ptr, ptr %.val51, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %.val51, i64 %10
   %12 = tail call ptr @Aig_ManDfsNodes(ptr noundef %1, ptr noundef %11, i32 noundef %.val50) #14
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %14 = load ptr, ptr %13, align 8, !tbaa !62
@@ -290,7 +290,7 @@ define void @Ssw_ManUpdateEquivs(ptr noundef captures(none) %0, ptr noundef %1, 
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %49 ]
   %.061 = phi i32 [ 0, %.lr.ph ], [ %.1, %49 ]
   %.03660 = phi i32 [ 0, %.lr.ph ], [ %.137, %49 ]
-  %21 = getelementptr inbounds nuw ptr, ptr %.val48, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %.val48, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8, !tbaa !57
   %23 = icmp eq ptr %22, null
   br i1 %23, label %49, label %24
@@ -311,7 +311,7 @@ define void @Ssw_ManUpdateEquivs(ptr noundef captures(none) %0, ptr noundef %1, 
 
 31:                                               ; preds = %27, %24
   %32 = load ptr, ptr %18, align 8, !tbaa !64
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8, !tbaa !65
   %.not41 = icmp eq ptr %34, null
   %35 = add nsw i32 %.03660, 1
@@ -740,7 +740,7 @@ Abc_Clock.exit192:                                ; preds = %113, %128
   %195 = getelementptr inbounds nuw i8, ptr %194, i64 36
   %196 = load i32, ptr %195, align 4, !tbaa !110
   %197 = sext i32 %196 to i64
-  %198 = getelementptr inbounds ptr, ptr %.val3.i, i64 %197
+  %198 = getelementptr inbounds [8 x i8], ptr %.val3.i, i64 %197
   %199 = load ptr, ptr %198, align 8, !tbaa !65
   br label %Ssw_ObjIsConst1Cand.exit
 
@@ -813,7 +813,7 @@ Abc_Clock.exit194:                                ; preds = %203, %207
   %233 = getelementptr inbounds nuw i8, ptr %232, i64 36
   %234 = load i32, ptr %233, align 4, !tbaa !110
   %235 = sext i32 %234 to i64
-  %236 = getelementptr inbounds ptr, ptr %.val3.i195, i64 %235
+  %236 = getelementptr inbounds [8 x i8], ptr %.val3.i195, i64 %235
   %237 = load ptr, ptr %236, align 8, !tbaa !65
   br label %Ssw_ObjIsConst1Cand.exit198
 

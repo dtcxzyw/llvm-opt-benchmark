@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.H5FL_reg_head_t = type { i8, i32, i32, ptr, i64, ptr }
 %struct.H5B2_create_t = type { ptr, i32, i32, i8, i8 }
-%struct.H5B2_node_info_t = type { i32, i32, i32, i64, i8, ptr, ptr }
 
 @.str = private unnamed_addr constant [17 x i8] c"v2 B-tree header\00", align 1
 @H5AC_BT2_HDR = local_unnamed_addr constant [1 x { i32, [4 x i8], ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }] [{ i32, [4 x i8], ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str, i32 2, i32 0, ptr @H5B2__cache_hdr_get_initial_load_size, ptr null, ptr @H5B2__cache_hdr_verify_chksum, ptr @H5B2__cache_hdr_deserialize, ptr @H5B2__cache_hdr_image_len, ptr null, ptr @H5B2__cache_hdr_serialize, ptr @H5B2__cache_hdr_notify, ptr @H5B2__cache_hdr_free_icr, ptr null }], align 16
@@ -360,7 +359,7 @@ define internal ptr @H5B2__cache_hdr_deserialize(ptr noundef %0, i64 %1, ptr nou
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 4
   store ptr %142, ptr %6, align 8, !tbaa !18
   %143 = zext nneg i8 %36 to i64
-  %144 = getelementptr inbounds nuw ptr, ptr @H5B2_client_class_g, i64 %143
+  %144 = getelementptr inbounds nuw [8 x i8], ptr @H5B2_client_class_g, i64 %143
   %145 = load ptr, ptr %144, align 8, !tbaa !42
   store ptr %145, ptr %5, align 8, !tbaa !43
   %146 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -794,7 +793,7 @@ define internal range(i32 -1, 2) i32 @H5B2__cache_int_verify_chksum(ptr noundef 
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 26
   %35 = load i16, ptr %34, align 2, !tbaa !69
   %36 = zext i16 %35 to i64
-  %37 = getelementptr %struct.H5B2_node_info_t, ptr %33, i64 %36
+  %37 = getelementptr [48 x i8], ptr %33, i64 %36
   %38 = getelementptr i8, ptr %37, i64 -24
   %39 = load i8, ptr %38, align 8, !tbaa !70
   %40 = zext i8 %39 to i64
@@ -918,7 +917,7 @@ define internal ptr @H5B2__cache_int_deserialize(ptr noundef %0, i64 %1, ptr nou
   %63 = getelementptr inbounds nuw i8, ptr %2, i64 26
   %64 = load i16, ptr %63, align 2, !tbaa !69
   %65 = zext i16 %64 to i64
-  %66 = getelementptr inbounds nuw %struct.H5B2_node_info_t, ptr %62, i64 %65
+  %66 = getelementptr inbounds nuw [48 x i8], ptr %62, i64 %65
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 32
   %68 = load ptr, ptr %67, align 8, !tbaa !78
   %69 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %68) #6
@@ -939,7 +938,7 @@ define internal ptr @H5B2__cache_int_deserialize(ptr noundef %0, i64 %1, ptr nou
   %79 = load ptr, ptr %78, align 8, !tbaa !68
   %80 = load i16, ptr %63, align 2, !tbaa !69
   %81 = zext i16 %80 to i64
-  %82 = getelementptr inbounds nuw %struct.H5B2_node_info_t, ptr %79, i64 %81
+  %82 = getelementptr inbounds nuw [48 x i8], ptr %79, i64 %81
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 40
   %84 = load ptr, ptr %83, align 8, !tbaa !80
   %85 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %84) #6
@@ -1059,7 +1058,7 @@ define internal ptr @H5B2__cache_int_deserialize(ptr noundef %0, i64 %1, ptr nou
   %149 = getelementptr inbounds nuw i8, ptr %128, i64 368
   %150 = load ptr, ptr %149, align 8, !tbaa !68
   %151 = zext i16 %145 to i64
-  %152 = getelementptr %struct.H5B2_node_info_t, ptr %150, i64 %151
+  %152 = getelementptr [48 x i8], ptr %150, i64 %151
   %153 = getelementptr i8, ptr %152, i64 -24
   %154 = load i8, ptr %153, align 8, !tbaa !70
   %155 = zext i8 %154 to i64
@@ -1275,7 +1274,7 @@ define internal range(i32 -1, 1) i32 @H5B2__cache_int_serialize(ptr noundef %0, 
   %80 = getelementptr inbounds nuw i8, ptr %74, i64 368
   %81 = load ptr, ptr %80, align 8, !tbaa !68
   %82 = zext i16 %77 to i64
-  %83 = getelementptr %struct.H5B2_node_info_t, ptr %81, i64 %82
+  %83 = getelementptr [48 x i8], ptr %81, i64 %82
   %84 = getelementptr i8, ptr %83, i64 -24
   %85 = load i8, ptr %84, align 8, !tbaa !70
   %.not83 = icmp eq i8 %85, 0
@@ -1300,7 +1299,7 @@ define internal range(i32 -1, 1) i32 @H5B2__cache_int_serialize(ptr noundef %0, 
   %94 = load ptr, ptr %93, align 8, !tbaa !68
   %95 = load i16, ptr %56, align 2, !tbaa !83
   %96 = zext i16 %95 to i64
-  %97 = getelementptr %struct.H5B2_node_info_t, ptr %94, i64 %96
+  %97 = getelementptr [48 x i8], ptr %94, i64 %96
   %98 = getelementptr i8, ptr %97, i64 -24
   %99 = load i8, ptr %98, align 8, !tbaa !70
   %100 = zext i8 %99 to i64

@@ -6630,7 +6630,7 @@ define internal fastcc range(i32 0, 3) i32 @phar_zip_changed_apply_int(ptr nound
   %38 = and i32 %35, 255
   %39 = xor i32 %38, 255
   %40 = zext nneg i32 %39 to i64
-  %41 = getelementptr inbounds nuw i32, ptr @crc32tab, i64 %40
+  %41 = getelementptr inbounds nuw [4 x i8], ptr @crc32tab, i64 %40
   %42 = load i32, ptr %41, align 4, !tbaa !81
   %43 = xor i32 %42, 16777215
   %44 = lshr i32 %43, 8
@@ -6639,7 +6639,7 @@ define internal fastcc range(i32 0, 3) i32 @phar_zip_changed_apply_int(ptr nound
   %.masked = and i32 %43, 255
   %47 = xor i32 %.masked, %46
   %48 = zext nneg i32 %47 to i64
-  %49 = getelementptr inbounds nuw i32, ptr @crc32tab, i64 %48
+  %49 = getelementptr inbounds nuw [4 x i8], ptr @crc32tab, i64 %48
   %50 = load i32, ptr %49, align 4, !tbaa !81
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %52 = xor i32 %50, %44

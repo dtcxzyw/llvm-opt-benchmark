@@ -530,7 +530,7 @@ for.body:                                         ; preds = %for.cond.1, %entry
   %add.i = add i32 %mul.i, 12345
   %div.i = sdiv i32 %add.i, 65536
   %rem.i = and i32 %div.i, 32767
-  %arrayidx = getelementptr inbounds nuw i32, ptr @_ZN10TestRandom29expected_pseudorandom_resultsE, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [4 x i8], ptr @_ZN10TestRandom29expected_pseudorandom_resultsE, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8, !tbaa !18
   %cmp2 = icmp eq i32 %rem.i, %1
   br i1 %cmp2, label %for.cond, label %if.then
@@ -1348,7 +1348,7 @@ for.cond.cleanup:                                 ; preds = %for.cond
 for.body:                                         ; preds = %for.cond, %entry
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.cond ], [ 0, %entry ]
   %call = call noundef i32 @_ZN9PcgRandom4nextEv(ptr noundef nonnull align 8 dereferenceable(16) %pr)
-  %arrayidx = getelementptr inbounds nuw i32, ptr @_ZN10TestRandom26expected_pcgrandom_resultsE, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [4 x i8], ptr @_ZN10TestRandom26expected_pcgrandom_resultsE, i64 %indvars.iv
   %0 = load i32, ptr %arrayidx, align 4, !tbaa !18
   %cmp2 = icmp eq i32 %call, %0
   br i1 %cmp2, label %for.cond, label %if.then
@@ -1991,7 +1991,7 @@ ehcleanup20:                                      ; preds = %lpad16
 
 if.end26:                                         ; preds = %if.end
   %8 = sext i32 %call3 to i64
-  %9 = getelementptr i32, ptr %bins, i64 %8
+  %9 = getelementptr [4 x i8], ptr %bins, i64 %8
   %arrayidx = getelementptr i8, ptr %9, i64 480
   %10 = load i32, ptr %arrayidx, align 4, !tbaa !18
   %inc = add nsw i32 %10, 1
@@ -2334,7 +2334,7 @@ if.then.i39.i.i:                                  ; preds = %_ZNSt6vectorIP8Test
 _ZNSt6vectorIP8TestBaseSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %if.then.i39.i.i, %_ZNSt6vectorIP8TestBaseSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit38.i.i
   store ptr %call5.i.i.i.i.i, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, align 8, !tbaa !40
   store ptr %incdec.ptr.i.i, ptr getelementptr inbounds nuw (i8, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 8), align 8, !tbaa !39
-  %add.ptr19.i.i = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
+  %add.ptr19.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
   store ptr %add.ptr19.i.i, ptr getelementptr inbounds nuw (i8, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 16), align 8, !tbaa !37
   br label %_ZNSt6vectorIP8TestBaseSaIS1_EE9push_backERKS1_.exit
 

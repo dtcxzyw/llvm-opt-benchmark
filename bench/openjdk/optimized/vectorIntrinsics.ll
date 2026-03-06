@@ -290,7 +290,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit27arch_supports_vector_rota
 
 switch.lookup:                                    ; preds = %24
   %30 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN14LibraryCallKit27arch_supports_vector_rotateEii9BasicTypeNS_17VectorMaskUseTypeEb, i64 %30
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN14LibraryCallKit27arch_supports_vector_rotateEii9BasicTypeNS_17VectorMaskUseTypeEb, i64 %30
   %switch.load = load i32, ptr %switch.gep, align 4
   %switch.idx.cast = zext nneg i8 %switch.tableidx to i32
   %switch.offset = add nuw nsw i32 %switch.idx.cast, 349
@@ -377,7 +377,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit20arch_supports_vectorEii9B
 33:                                               ; preds = %27
   %34 = load ptr, ptr @tty, align 8
   %35 = zext nneg i32 %1 to i64
-  %36 = getelementptr inbounds nuw ptr, ptr @NodeClassNames, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr @NodeClassNames, i64 %35
   %37 = load ptr, ptr %36, align 8
   %38 = tail call noundef ptr @_Z9type2name9BasicType(i8 noundef zeroext %3) #9
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %34, ptr noundef nonnull @.str.5, ptr noundef %37, ptr noundef %38, i32 noundef %2) #9
@@ -592,7 +592,7 @@ _ZN4NodenwEm.exit21:                              ; preds = %54, %56
   %80 = getelementptr inbounds nuw i8, ptr %74, i64 32
   %81 = load i32, ptr %80, align 8
   %82 = zext i32 %81 to i64
-  %83 = getelementptr inbounds nuw ptr, ptr %77, i64 %82
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %82
   br label %84
 
 84:                                               ; preds = %84, %79
@@ -606,7 +606,7 @@ _ZN4NodenwEm.exit21:                              ; preds = %54, %56
   %88 = add i32 %81, -1
   store i32 %88, ptr %80, align 8
   %89 = zext i32 %88 to i64
-  %90 = getelementptr inbounds nuw ptr, ptr %77, i64 %89
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %89
   %91 = load ptr, ptr %90, align 8
   store ptr %91, ptr %85, align 8
   br label %_ZN4Node7del_outEPS_.exit.i.i.i
@@ -642,7 +642,7 @@ _ZN4Node7del_outEPS_.exit.i.i.i:                  ; preds = %87, %75, %66
   %106 = add i32 %104, 1
   store i32 %106, ptr %97, align 8
   %107 = zext i32 %104 to i64
-  %108 = getelementptr inbounds nuw ptr, ptr %105, i64 %107
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %105, i64 %107
   store ptr %70, ptr %108, align 8
   br label %_ZN8GraphKit7set_i_oEP4Node.exit
 
@@ -764,7 +764,7 @@ _ZN4NodenwEm.exit28:                              ; preds = %159, %161
   %179 = load ptr, ptr @_ZN5ciEnv24_vector_VectorMask_klassE, align 8
   %180 = call noundef zeroext i1 @_ZN7ciKlass14is_subclass_ofEPS_(ptr noundef nonnull align 8 dereferenceable(44) %178, ptr noundef %179) #9
   %181 = zext i8 %3 to i64
-  %182 = getelementptr inbounds nuw ptr, ptr @_ZN4Type17_const_basic_typeE, i64 %181
+  %182 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4Type17_const_basic_typeE, i64 %181
   %183 = load ptr, ptr %182, align 8
   %184 = call noundef ptr @_ZN8TypeVect4makeEPK4Typejb(ptr noundef %183, i32 noundef %4, i1 noundef zeroext %180) #9
   %185 = load ptr, ptr %13, align 8
@@ -839,7 +839,7 @@ _ZN13VectorBoxNodeC2EP7CompileP4NodeS3_PK11TypeInstPtrPK8TypeVect.exit: ; preds 
   %227 = getelementptr inbounds nuw i8, ptr %206, i64 424
   %228 = load ptr, ptr %227, align 8
   %229 = sext i32 %225 to i64
-  %230 = getelementptr inbounds ptr, ptr %228, i64 %229
+  %230 = getelementptr inbounds [8 x i8], ptr %228, i64 %229
   store ptr %.0.i.i.i30, ptr %230, align 8
   br label %231
 
@@ -952,7 +952,7 @@ _ZN7Compile14add_macro_nodeEP4Node.exit:          ; preds = %3, %29
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 424
   %40 = load ptr, ptr %39, align 8
   %41 = sext i32 %37 to i64
-  %42 = getelementptr inbounds ptr, ptr %40, i64 %41
+  %42 = getelementptr inbounds [8 x i8], ptr %40, i64 %41
   store ptr %0, ptr %42, align 8
   ret void
 }
@@ -977,7 +977,7 @@ define hidden noundef ptr @_ZN8GraphKit12unbox_vectorEP4NodePK11TypeInstPtr9Basi
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = zext i32 %12 to i64
-  %16 = getelementptr inbounds nuw ptr, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load i32, ptr %18, align 8
@@ -1013,7 +1013,7 @@ define hidden noundef ptr @_ZN8GraphKit12unbox_vectorEP4NodePK11TypeInstPtr9Basi
   %42 = load ptr, ptr @_ZN5ciEnv24_vector_VectorMask_klassE, align 8
   %43 = tail call noundef zeroext i1 @_ZN7ciKlass14is_subclass_ofEPS_(ptr noundef nonnull align 8 dereferenceable(44) %41, ptr noundef %42) #9
   %44 = zext i8 %3 to i64
-  %45 = getelementptr inbounds nuw ptr, ptr @_ZN4Type17_const_basic_typeE, i64 %44
+  %45 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4Type17_const_basic_typeE, i64 %44
   %46 = load ptr, ptr %45, align 8
   %47 = tail call noundef ptr @_ZN8TypeVect4makeEPK4Typejb(ptr noundef %46, i32 noundef %4, i1 noundef zeroext %43) #9
   %48 = load ptr, ptr %7, align 8
@@ -1114,7 +1114,7 @@ define linkonce_odr hidden void @_ZN15VectorUnboxNodeC2EP7CompilePK8TypeVectP4No
   %27 = add i32 %25, 1
   store i32 %27, ptr %18, align 8
   %28 = zext i32 %25 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %26, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %28
   store ptr %0, ptr %29, align 8
   br label %_ZN4Node8init_reqEjPS_.exit.i
 
@@ -1151,7 +1151,7 @@ _ZN4Node8init_reqEjPS_.exit.i:                    ; preds = %24, %13, %6
   %46 = add i32 %44, 1
   store i32 %46, ptr %37, align 8
   %47 = zext i32 %44 to i64
-  %48 = getelementptr inbounds nuw ptr, ptr %45, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %47
   store ptr %0, ptr %48, align 8
   br label %_ZN10VectorNodeC2EP4NodeS1_PK8TypeVect.exit
 
@@ -1192,7 +1192,7 @@ _ZN7Compile14add_macro_nodeEP4Node.exit:          ; preds = %_ZN10VectorNodeC2EP
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 424
   %69 = load ptr, ptr %68, align 8
   %70 = sext i32 %66 to i64
-  %71 = getelementptr inbounds ptr, ptr %69, i64 %70
+  %71 = getelementptr inbounds [8 x i8], ptr %69, i64 %70
   store ptr %0, ptr %71, align 8
   ret void
 }
@@ -1200,7 +1200,7 @@ _ZN7Compile14add_macro_nodeEP4Node.exit:          ; preds = %_ZN10VectorNodeC2EP
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN8GraphKit18vector_shift_countEP4Nodei9BasicTypei(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(84) %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext %3, i32 noundef %4) local_unnamed_addr #0 align 2 {
   %6 = zext i8 %3 to i64
-  %7 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %6
+  %7 = getelementptr inbounds nuw [4 x i8], ptr @_type2aelembytes, i64 %6
   %8 = load i32, ptr %7, align 4
   %9 = shl nsw i32 %8, 3
   %10 = add nsw i32 %9, -1
@@ -1295,7 +1295,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit28inline_vector_nary_operat
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = zext i32 %13 to i64
-  %17 = getelementptr inbounds nuw ptr, ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %16
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %20 = load ptr, ptr %19, align 8
@@ -1304,7 +1304,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit28inline_vector_nary_operat
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %24 = load ptr, ptr %23, align 8
   %25 = zext i32 %22 to i64
-  %26 = getelementptr inbounds nuw ptr, ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %25
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = load i32, ptr %28, align 8
@@ -1312,12 +1312,12 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit28inline_vector_nary_operat
   %..i = select i1 %30, ptr %27, ptr null
   %31 = add i32 %13, 1
   %32 = zext i32 %31 to i64
-  %33 = getelementptr inbounds nuw ptr, ptr %15, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %32
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 40
   %36 = load i32, ptr %35, align 8
   %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds nuw ptr, ptr %24, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %37
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %41 = load i32, ptr %40, align 8
@@ -1325,36 +1325,36 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit28inline_vector_nary_operat
   %..i180 = select i1 %42, ptr %39, ptr null
   %43 = add i32 %13, 2
   %44 = zext i32 %43 to i64
-  %45 = getelementptr inbounds nuw ptr, ptr %15, i64 %44
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %44
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 40
   %48 = load i32, ptr %47, align 8
   %49 = zext i32 %48 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr %24, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %49
   %51 = load ptr, ptr %50, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %53 = load i32, ptr %52, align 8
   %.not203 = icmp eq i32 %53, 21
   %54 = add i32 %13, 3
   %55 = zext i32 %54 to i64
-  %56 = getelementptr inbounds nuw ptr, ptr %15, i64 %55
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %55
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 40
   %59 = load i32, ptr %58, align 8
   %60 = zext i32 %59 to i64
-  %61 = getelementptr inbounds nuw ptr, ptr %24, i64 %60
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %60
   %62 = load ptr, ptr %61, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %64 = load i32, ptr %63, align 8
   %65 = icmp ne i32 %64, 21
   %66 = add i32 %13, 4
   %67 = zext i32 %66 to i64
-  %68 = getelementptr inbounds nuw ptr, ptr %15, i64 %67
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %67
   %69 = load ptr, ptr %68, align 8
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
   %71 = load i32, ptr %70, align 8
   %72 = zext i32 %71 to i64
-  %73 = getelementptr inbounds nuw ptr, ptr %24, i64 %72
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %72
   %74 = load ptr, ptr %73, align 8
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 16
   %76 = load i32, ptr %75, align 8
@@ -1412,7 +1412,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit28inline_vector_nary_operat
   %112 = load ptr, ptr %111, align 8
   %113 = tail call noundef i32 %112(ptr noundef nonnull align 8 dereferenceable(52) %18) #9
   %114 = sext i32 %113 to i64
-  %115 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %114
+  %115 = getelementptr inbounds [8 x i8], ptr @NodeClassNames, i64 %114
   %116 = load ptr, ptr %115, align 8
   %117 = load ptr, ptr %5, align 8
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 56
@@ -1426,13 +1426,13 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit28inline_vector_nary_operat
   %126 = getelementptr inbounds nuw i8, ptr %117, i64 8
   %127 = load ptr, ptr %126, align 8
   %128 = zext i32 %125 to i64
-  %129 = getelementptr inbounds nuw ptr, ptr %127, i64 %128
+  %129 = getelementptr inbounds nuw [8 x i8], ptr %127, i64 %128
   %130 = load ptr, ptr %129, align 8
   %131 = load ptr, ptr %130, align 8
   %132 = load ptr, ptr %131, align 8
   %133 = tail call noundef i32 %132(ptr noundef nonnull align 8 dereferenceable(52) %130) #9
   %134 = sext i32 %133 to i64
-  %135 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %134
+  %135 = getelementptr inbounds [8 x i8], ptr @NodeClassNames, i64 %134
   %136 = load ptr, ptr %135, align 8
   %137 = load ptr, ptr %5, align 8
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 56
@@ -1446,13 +1446,13 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit28inline_vector_nary_operat
   %146 = getelementptr inbounds nuw i8, ptr %137, i64 8
   %147 = load ptr, ptr %146, align 8
   %148 = zext i32 %145 to i64
-  %149 = getelementptr inbounds nuw ptr, ptr %147, i64 %148
+  %149 = getelementptr inbounds nuw [8 x i8], ptr %147, i64 %148
   %150 = load ptr, ptr %149, align 8
   %151 = load ptr, ptr %150, align 8
   %152 = load ptr, ptr %151, align 8
   %153 = tail call noundef i32 %152(ptr noundef nonnull align 8 dereferenceable(52) %150) #9
   %154 = sext i32 %153 to i64
-  %155 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %154
+  %155 = getelementptr inbounds [8 x i8], ptr @NodeClassNames, i64 %154
   %156 = load ptr, ptr %155, align 8
   %157 = load ptr, ptr %5, align 8
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 56
@@ -1466,13 +1466,13 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit28inline_vector_nary_operat
   %166 = getelementptr inbounds nuw i8, ptr %157, i64 8
   %167 = load ptr, ptr %166, align 8
   %168 = zext i32 %165 to i64
-  %169 = getelementptr inbounds nuw ptr, ptr %167, i64 %168
+  %169 = getelementptr inbounds nuw [8 x i8], ptr %167, i64 %168
   %170 = load ptr, ptr %169, align 8
   %171 = load ptr, ptr %170, align 8
   %172 = load ptr, ptr %171, align 8
   %173 = tail call noundef i32 %172(ptr noundef nonnull align 8 dereferenceable(52) %170) #9
   %174 = sext i32 %173 to i64
-  %175 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %174
+  %175 = getelementptr inbounds [8 x i8], ptr @NodeClassNames, i64 %174
   %176 = load ptr, ptr %175, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %110, ptr noundef nonnull @.str.6, ptr noundef %116, ptr noundef %136, ptr noundef %156, ptr noundef %176) #9
   br label %661
@@ -1569,7 +1569,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit.thread: ; preds = %191, %_ZL20is_k
   %228 = getelementptr inbounds nuw i8, ptr %219, i64 8
   %229 = load ptr, ptr %228, align 8
   %230 = zext i32 %227 to i64
-  %231 = getelementptr inbounds nuw ptr, ptr %229, i64 %230
+  %231 = getelementptr inbounds nuw [8 x i8], ptr %229, i64 %230
   %232 = load ptr, ptr %231, align 8
   %233 = getelementptr inbounds nuw i8, ptr %217, i64 40
   %234 = load ptr, ptr %233, align 8
@@ -1578,7 +1578,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit.thread: ; preds = %191, %_ZL20is_k
   %237 = getelementptr inbounds nuw i8, ptr %234, i64 16
   %238 = load ptr, ptr %237, align 8
   %239 = zext i32 %236 to i64
-  %240 = getelementptr inbounds nuw ptr, ptr %238, i64 %239
+  %240 = getelementptr inbounds nuw [8 x i8], ptr %238, i64 %239
   %241 = load ptr, ptr %240, align 8
   %242 = load ptr, ptr @_ZN7TypePtr8NULL_PTRE, align 8
   %243 = icmp ne ptr %241, %242
@@ -1605,13 +1605,13 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit.thread: ; preds = %191, %_ZL20is_k
   %256 = load ptr, ptr @tty, align 8
   %257 = add i32 %226, 2
   %258 = zext i32 %257 to i64
-  %259 = getelementptr inbounds nuw ptr, ptr %229, i64 %258
+  %259 = getelementptr inbounds nuw [8 x i8], ptr %229, i64 %258
   %260 = load ptr, ptr %259, align 8
   %261 = load ptr, ptr %260, align 8
   %262 = load ptr, ptr %261, align 8
   %263 = tail call noundef i32 %262(ptr noundef nonnull align 8 dereferenceable(52) %260) #9
   %264 = sext i32 %263 to i64
-  %265 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %264
+  %265 = getelementptr inbounds [8 x i8], ptr @NodeClassNames, i64 %264
   %266 = load ptr, ptr %265, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %256, ptr noundef nonnull @.str.9, ptr noundef %266) #9
   br label %661
@@ -1675,7 +1675,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit.thread: ; preds = %191, %_ZL20is_k
 304:                                              ; preds = %298
   %305 = load ptr, ptr @tty, align 8
   %306 = sext i32 %294 to i64
-  %307 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %306
+  %307 = getelementptr inbounds [8 x i8], ptr @NodeClassNames, i64 %306
   %308 = load ptr, ptr %307, align 8
   %309 = tail call noundef ptr @_Z9type2name9BasicType(i8 noundef zeroext %291) #9
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %305, ptr noundef nonnull @.str.12, ptr noundef %308, ptr noundef %309) #9
@@ -1845,7 +1845,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit.thread: ; preds = %191, %_ZL20is_k
   %407 = getelementptr inbounds nuw i8, ptr %398, i64 8
   %408 = load ptr, ptr %407, align 8
   %409 = zext i32 %406 to i64
-  %410 = getelementptr inbounds nuw ptr, ptr %408, i64 %409
+  %410 = getelementptr inbounds nuw [8 x i8], ptr %408, i64 %409
   %411 = load ptr, ptr %410, align 8
   %412 = tail call noundef ptr @_ZN8GraphKit12unbox_vectorEP4NodePK11TypeInstPtr9BasicTypeib(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %411, ptr noundef %325, i8 noundef zeroext %291, i32 noundef %292, i1 noundef zeroext false)
   %413 = icmp eq ptr %412, null
@@ -1873,13 +1873,13 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit.thread: ; preds = %191, %_ZL20is_k
   %431 = getelementptr inbounds nuw i8, ptr %422, i64 8
   %432 = load ptr, ptr %431, align 8
   %433 = zext i32 %430 to i64
-  %434 = getelementptr inbounds nuw ptr, ptr %432, i64 %433
+  %434 = getelementptr inbounds nuw [8 x i8], ptr %432, i64 %433
   %435 = load ptr, ptr %434, align 8
   %436 = load ptr, ptr %435, align 8
   %437 = load ptr, ptr %436, align 8
   %438 = tail call noundef i32 %437(ptr noundef nonnull align 8 dereferenceable(52) %435) #9
   %439 = sext i32 %438 to i64
-  %440 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %439
+  %440 = getelementptr inbounds [8 x i8], ptr @NodeClassNames, i64 %439
   %441 = load ptr, ptr %440, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %421, ptr noundef nonnull @.str.19, ptr noundef %441) #9
   br label %661
@@ -1898,7 +1898,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit.thread: ; preds = %191, %_ZL20is_k
   %452 = getelementptr inbounds nuw i8, ptr %443, i64 8
   %453 = load ptr, ptr %452, align 8
   %454 = zext i32 %451 to i64
-  %455 = getelementptr inbounds nuw ptr, ptr %453, i64 %454
+  %455 = getelementptr inbounds nuw [8 x i8], ptr %453, i64 %454
   %456 = load ptr, ptr %455, align 8
   %457 = tail call noundef ptr @_ZN8GraphKit12unbox_vectorEP4NodePK11TypeInstPtr9BasicTypeib(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %456, ptr noundef %325, i8 noundef zeroext %291, i32 noundef %292, i1 noundef zeroext false)
   %458 = icmp eq ptr %457, null
@@ -1926,13 +1926,13 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit.thread: ; preds = %191, %_ZL20is_k
   %476 = getelementptr inbounds nuw i8, ptr %467, i64 8
   %477 = load ptr, ptr %476, align 8
   %478 = zext i32 %475 to i64
-  %479 = getelementptr inbounds nuw ptr, ptr %477, i64 %478
+  %479 = getelementptr inbounds nuw [8 x i8], ptr %477, i64 %478
   %480 = load ptr, ptr %479, align 8
   %481 = load ptr, ptr %480, align 8
   %482 = load ptr, ptr %481, align 8
   %483 = tail call noundef i32 %482(ptr noundef nonnull align 8 dereferenceable(52) %480) #9
   %484 = sext i32 %483 to i64
-  %485 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %484
+  %485 = getelementptr inbounds [8 x i8], ptr @NodeClassNames, i64 %484
   %486 = load ptr, ptr %485, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %466, ptr noundef nonnull @.str.20, ptr noundef %486) #9
   br label %661
@@ -1952,7 +1952,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit.thread: ; preds = %191, %_ZL20is_k
   %497 = getelementptr inbounds nuw i8, ptr %488, i64 8
   %498 = load ptr, ptr %497, align 8
   %499 = zext i32 %496 to i64
-  %500 = getelementptr inbounds nuw ptr, ptr %498, i64 %499
+  %500 = getelementptr inbounds nuw [8 x i8], ptr %498, i64 %499
   %501 = load ptr, ptr %500, align 8
   %502 = tail call noundef ptr @_ZN8GraphKit12unbox_vectorEP4NodePK11TypeInstPtr9BasicTypeib(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %501, ptr noundef %325, i8 noundef zeroext %291, i32 noundef %292, i1 noundef zeroext false)
   %503 = icmp eq ptr %502, null
@@ -1980,13 +1980,13 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit.thread: ; preds = %191, %_ZL20is_k
   %521 = getelementptr inbounds nuw i8, ptr %512, i64 8
   %522 = load ptr, ptr %521, align 8
   %523 = zext i32 %520 to i64
-  %524 = getelementptr inbounds nuw ptr, ptr %522, i64 %523
+  %524 = getelementptr inbounds nuw [8 x i8], ptr %522, i64 %523
   %525 = load ptr, ptr %524, align 8
   %526 = load ptr, ptr %525, align 8
   %527 = load ptr, ptr %526, align 8
   %528 = tail call noundef i32 %527(ptr noundef nonnull align 8 dereferenceable(52) %525) #9
   %529 = sext i32 %528 to i64
-  %530 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %529
+  %530 = getelementptr inbounds [8 x i8], ptr @NodeClassNames, i64 %529
   %531 = load ptr, ptr %530, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %511, ptr noundef nonnull @.str.21, ptr noundef %531) #9
   br label %661
@@ -2017,7 +2017,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit.thread: ; preds = %191, %_ZL20is_k
   %549 = getelementptr inbounds nuw i8, ptr %540, i64 8
   %550 = load ptr, ptr %549, align 8
   %551 = zext i32 %548 to i64
-  %552 = getelementptr inbounds nuw ptr, ptr %550, i64 %551
+  %552 = getelementptr inbounds nuw [8 x i8], ptr %550, i64 %551
   %553 = load ptr, ptr %552, align 8
   %554 = tail call noundef ptr @_ZN8GraphKit12unbox_vectorEP4NodePK11TypeInstPtr9BasicTypeib(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %553, ptr noundef %539, i8 noundef zeroext %291, i32 noundef %292, i1 noundef zeroext false)
   %555 = icmp eq ptr %554, null
@@ -2045,13 +2045,13 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit.thread: ; preds = %191, %_ZL20is_k
   %573 = getelementptr inbounds nuw i8, ptr %564, i64 8
   %574 = load ptr, ptr %573, align 8
   %575 = zext i32 %572 to i64
-  %576 = getelementptr inbounds nuw ptr, ptr %574, i64 %575
+  %576 = getelementptr inbounds nuw [8 x i8], ptr %574, i64 %575
   %577 = load ptr, ptr %576, align 8
   %578 = load ptr, ptr %577, align 8
   %579 = load ptr, ptr %578, align 8
   %580 = tail call noundef i32 %579(ptr noundef nonnull align 8 dereferenceable(52) %577) #9
   %581 = sext i32 %580 to i64
-  %582 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %581
+  %582 = getelementptr inbounds [8 x i8], ptr @NodeClassNames, i64 %581
   %583 = load ptr, ptr %582, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %563, ptr noundef nonnull @.str.23, ptr noundef %583) #9
   br label %661
@@ -2080,11 +2080,11 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit.thread: ; preds = %191, %_ZL20is_k
   %598 = select i1 %597, ptr @.str.25, ptr @.str.26
   %599 = load i32, ptr %84, align 8
   %600 = sext i32 %599 to i64
-  %601 = getelementptr ptr, ptr @_ZN13VectorSupport8svmlnameE, i64 %600
+  %601 = getelementptr [8 x i8], ptr @_ZN13VectorSupport8svmlnameE, i64 %600
   %602 = getelementptr i8, ptr %601, i64 -808
   %603 = load ptr, ptr %602, align 8
   %604 = zext i8 %291 to i64
-  %605 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %604
+  %605 = getelementptr inbounds nuw [4 x i8], ptr @_type2aelembytes, i64 %604
   %606 = load i32, ptr %605, align 4
   %607 = mul nsw i32 %606, %292
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %596, ptr noundef nonnull @.str.24, ptr noundef nonnull %598, ptr noundef %603, i32 noundef %607) #9
@@ -2094,7 +2094,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit.thread: ; preds = %191, %_ZL20is_k
   %609 = load ptr, ptr @_ZN5ciEnv24_vector_VectorMask_klassE, align 8
   %610 = tail call noundef zeroext i1 @_ZN7ciKlass14is_subclass_ofEPS_(ptr noundef nonnull align 8 dereferenceable(44) %324, ptr noundef %609) #9
   %611 = zext i8 %291 to i64
-  %612 = getelementptr inbounds nuw ptr, ptr @_ZN4Type17_const_basic_typeE, i64 %611
+  %612 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4Type17_const_basic_typeE, i64 %611
   %613 = load ptr, ptr %612, align 8
   %614 = tail call noundef ptr @_ZN8TypeVect4makeEPK4Typejb(ptr noundef %613, i32 noundef %292, i1 noundef zeroext %610) #9
   %615 = icmp eq i32 %1, 3
@@ -2164,7 +2164,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit.thread: ; preds = %191, %_ZL20is_k
   %654 = getelementptr inbounds nuw i8, ptr %653, i64 132
   %655 = load i32, ptr %654, align 4
   %656 = zext i8 %291 to i64
-  %657 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %656
+  %657 = getelementptr inbounds nuw [4 x i8], ptr @_type2aelembytes, i64 %656
   %658 = load i32, ptr %657, align 4
   %659 = mul nsw i32 %658, %292
   %660 = tail call noundef i32 @llvm.umax.i32(i32 %655, i32 %659)
@@ -2257,7 +2257,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN7Matcher21vector_size_supporte
 define hidden noundef ptr @_ZN14LibraryCallKit16gen_call_to_svmlEi9BasicTypeiP4NodeS2_(ptr noundef nonnull align 8 dereferenceable(108) %0, i32 noundef %1, i8 noundef zeroext %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 align 2 {
   %7 = alloca [100 x i8], align 16
   %8 = zext i8 %2 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr @_ZN4Type17_const_basic_typeE, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4Type17_const_basic_typeE, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noundef ptr @_ZN8TypeVect4makeEPK4Typejb(ptr noundef %10, i32 noundef %3, i1 noundef zeroext false) #9
   %.not = icmp eq ptr %5, null
@@ -2270,7 +2270,7 @@ define hidden noundef ptr @_ZN14LibraryCallKit16gen_call_to_svmlEi9BasicTypeiP4N
   %17 = load ptr, ptr %16, align 8
   %18 = tail call noundef zeroext i8 @_ZNK4Type24array_element_basic_typeEv(ptr noundef nonnull align 8 dereferenceable(20) %17) #9
   %19 = zext i8 %18 to i64
-  %20 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %19
+  %20 = getelementptr inbounds nuw [4 x i8], ptr @_type2aelembytes, i64 %19
   %21 = load i32, ptr %20, align 4
   %22 = shl i32 %15, 3
   %23 = mul i32 %22, %21
@@ -2294,7 +2294,7 @@ _ZL16get_svml_addressii9BasicTypePci.exit:        ; preds = %.split.i
   %29 = add nsw i32 %1, -101
   %30 = icmp eq i8 %2, 6
   %31 = sext i32 %29 to i64
-  %32 = getelementptr inbounds ptr, ptr @_ZN13VectorSupport8svmlnameE, i64 %31
+  %32 = getelementptr inbounds [8 x i8], ptr @_ZN13VectorSupport8svmlnameE, i64 %31
   %33 = load ptr, ptr %32, align 8
   %34 = sdiv i32 %23, 64
   %35 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %34, i1 true)
@@ -2302,8 +2302,8 @@ _ZL16get_svml_addressii9BasicTypePci.exit:        ; preds = %.split.i
   %.str.96..str.97.i = select i1 %30, ptr @.str.96, ptr @.str.97
   %_ZN12StubRoutines14_vector_f_mathE._ZN12StubRoutines14_vector_d_mathE.i = select i1 %30, ptr @_ZN12StubRoutines14_vector_f_mathE, ptr @_ZN12StubRoutines14_vector_d_mathE
   %37 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 100, ptr noundef nonnull %.str.96..str.97.i, ptr noundef %33, i32 noundef %23) #9
-  %38 = getelementptr inbounds nuw [18 x ptr], ptr %_ZN12StubRoutines14_vector_f_mathE._ZN12StubRoutines14_vector_d_mathE.i, i64 %36
-  %39 = getelementptr inbounds ptr, ptr %38, i64 %31
+  %38 = getelementptr inbounds nuw [144 x i8], ptr %_ZN12StubRoutines14_vector_f_mathE._ZN12StubRoutines14_vector_d_mathE.i, i64 %36
+  %39 = getelementptr inbounds [8 x i8], ptr %38, i64 %31
   %.0.i = load ptr, ptr %39, align 8
   %40 = icmp eq ptr %.0.i, null
   br i1 %40, label %81, label %41
@@ -2386,7 +2386,7 @@ declare void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(5
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN14LibraryCallKit22partially_wrap_indexesEP4Nodei9BasicType(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(108) %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext %3) local_unnamed_addr #0 align 2 {
   %5 = zext i8 %3 to i64
-  %6 = getelementptr inbounds nuw ptr, ptr @_ZN4Type17_const_basic_typeE, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4Type17_const_basic_typeE, i64 %5
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef ptr @_ZN8TypeVect4makeEPK4Typejb(ptr noundef %7, i32 noundef %2, i1 noundef zeroext false) #9
   %9 = load ptr, ptr %6, align 8
@@ -2539,7 +2539,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit26inline_vector_shuffle_iot
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = zext i32 %13 to i64
-  %17 = getelementptr inbounds nuw ptr, ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %16
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %20 = load ptr, ptr %19, align 8
@@ -2548,19 +2548,19 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit26inline_vector_shuffle_iot
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %24 = load ptr, ptr %23, align 8
   %25 = zext i32 %22 to i64
-  %26 = getelementptr inbounds nuw ptr, ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %25
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = load i32, ptr %28, align 8
   %30 = icmp ne i32 %29, 21
   %31 = add i32 %12, 3
   %32 = zext i32 %31 to i64
-  %33 = getelementptr inbounds nuw ptr, ptr %15, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %32
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 40
   %36 = load i32, ptr %35, align 8
   %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds nuw ptr, ptr %24, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %37
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %41 = load i32, ptr %40, align 8
@@ -2568,12 +2568,12 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit26inline_vector_shuffle_iot
   %..i115 = select i1 %42, ptr %39, ptr null
   %43 = add i32 %12, 4
   %44 = zext i32 %43 to i64
-  %45 = getelementptr inbounds nuw ptr, ptr %15, i64 %44
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %44
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 40
   %48 = load i32, ptr %47, align 8
   %49 = zext i32 %48 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr %24, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %49
   %51 = load ptr, ptr %50, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %53 = load i32, ptr %52, align 8
@@ -2581,12 +2581,12 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit26inline_vector_shuffle_iot
   %..i116 = select i1 %54, ptr %51, ptr null
   %55 = add i32 %12, 5
   %56 = zext i32 %55 to i64
-  %57 = getelementptr inbounds nuw ptr, ptr %15, i64 %56
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %56
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 40
   %60 = load i32, ptr %59, align 8
   %61 = zext i32 %60 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %24, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %61
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
   %65 = load i32, ptr %64, align 8
@@ -2594,12 +2594,12 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit26inline_vector_shuffle_iot
   %..i117 = select i1 %66, ptr %63, ptr null
   %67 = add i32 %12, 6
   %68 = zext i32 %67 to i64
-  %69 = getelementptr inbounds nuw ptr, ptr %15, i64 %68
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %68
   %70 = load ptr, ptr %69, align 8
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 40
   %72 = load i32, ptr %71, align 8
   %73 = zext i32 %72 to i64
-  %74 = getelementptr inbounds nuw ptr, ptr %24, i64 %73
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %73
   %75 = load ptr, ptr %74, align 8
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 16
   %77 = load i32, ptr %76, align 8
@@ -2807,14 +2807,14 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   %197 = getelementptr inbounds nuw i8, ptr %188, i64 8
   %198 = load ptr, ptr %197, align 8
   %199 = zext i32 %196 to i64
-  %200 = getelementptr inbounds nuw ptr, ptr %198, i64 %199
+  %200 = getelementptr inbounds nuw [8 x i8], ptr %198, i64 %199
   %201 = load ptr, ptr %200, align 8
   br i1 %or.cond123, label %202, label %217
 
 202:                                              ; preds = %184
   %203 = add i32 %195, 5
   %204 = zext i32 %203 to i64
-  %205 = getelementptr inbounds nuw ptr, ptr %198, i64 %204
+  %205 = getelementptr inbounds nuw [8 x i8], ptr %198, i64 %204
   %206 = load ptr, ptr %205, align 8
   %207 = load ptr, ptr %2, align 8
   %208 = tail call noundef ptr @_ZN10VectorNode13scalar2vectorEP4NodejPK4Typeb(ptr noundef %206, i32 noundef %127, ptr noundef %175, i1 noundef zeroext false) #9
@@ -2958,7 +2958,7 @@ define linkonce_odr hidden void @_ZN19VectorLoadConstNodeC2EP4NodePK8TypeVect(pt
   %23 = add i32 %21, 1
   store i32 %23, ptr %14, align 8
   %24 = zext i32 %21 to i64
-  %25 = getelementptr inbounds nuw ptr, ptr %22, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %24
   store ptr %0, ptr %25, align 8
   br label %_ZN10VectorNodeC2EP4NodePK8TypeVect.exit
 
@@ -2984,7 +2984,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit28inline_vector_mask_operat
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = zext i32 %13 to i64
-  %17 = getelementptr inbounds nuw ptr, ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %16
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %20 = load ptr, ptr %19, align 8
@@ -2993,16 +2993,16 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit28inline_vector_mask_operat
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %24 = load ptr, ptr %23, align 8
   %25 = zext i32 %22 to i64
-  %26 = getelementptr inbounds nuw ptr, ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %25
   %27 = load ptr, ptr %26, align 8
   %28 = add i32 %13, 1
   %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds nuw ptr, ptr %15, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %29
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 40
   %33 = load i32, ptr %32, align 8
   %34 = zext i32 %33 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr %24, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %34
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load i32, ptr %37, align 8
@@ -3010,28 +3010,28 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit28inline_vector_mask_operat
   %..i47 = select i1 %39, ptr %36, ptr null
   %40 = add i32 %13, 2
   %41 = zext i32 %40 to i64
-  %42 = getelementptr inbounds nuw ptr, ptr %15, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %41
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 40
   %45 = load i32, ptr %44, align 8
   %46 = zext i32 %45 to i64
-  %47 = getelementptr inbounds nuw ptr, ptr %24, i64 %46
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %46
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %50 = load i32, ptr %49, align 8
   %51 = icmp ne i32 %50, 21
   %52 = add i32 %13, 3
   %53 = zext i32 %52 to i64
-  %54 = getelementptr inbounds nuw ptr, ptr %15, i64 %53
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %53
   %55 = load ptr, ptr %54, align 8
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 40
   %57 = load i32, ptr %56, align 8
   %58 = zext i32 %57 to i64
-  %59 = getelementptr inbounds nuw ptr, ptr %24, i64 %58
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %58
   %60 = load ptr, ptr %59, align 8
   %61 = add i32 %13, 4
   %62 = zext i32 %61 to i64
-  %63 = getelementptr inbounds nuw ptr, ptr %15, i64 %62
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %62
   %64 = load ptr, ptr %63, align 8
   %65 = icmp eq ptr %..i47, null
   %66 = icmp eq ptr %48, null
@@ -3171,13 +3171,13 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit.thread: ; preds = %77, %_ZL20is_kl
   %150 = getelementptr inbounds nuw i8, ptr %141, i64 8
   %151 = load ptr, ptr %150, align 8
   %152 = zext i32 %149 to i64
-  %153 = getelementptr inbounds nuw ptr, ptr %151, i64 %152
+  %153 = getelementptr inbounds nuw [8 x i8], ptr %151, i64 %152
   %154 = load ptr, ptr %153, align 8
   %155 = load ptr, ptr %154, align 8
   %156 = load ptr, ptr %155, align 8
   %157 = call noundef i32 %156(ptr noundef nonnull align 8 dereferenceable(52) %154) #9
   %158 = sext i32 %157 to i64
-  %159 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %158
+  %159 = getelementptr inbounds [8 x i8], ptr @NodeClassNames, i64 %158
   %160 = load ptr, ptr %159, align 8
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %140, ptr noundef nonnull @.str.23, ptr noundef %160) #9
   br label %199
@@ -3227,7 +3227,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit.thread: ; preds = %77, %_ZL20is_kl
   %192 = load ptr, ptr %191, align 8
   %193 = getelementptr inbounds nuw i8, ptr %192, i64 132
   %194 = load i32, ptr %193, align 4
-  %195 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %125
+  %195 = getelementptr inbounds nuw [4 x i8], ptr @_type2aelembytes, i64 %125
   %196 = load i32, ptr %195, align 4
   %197 = mul nsw i32 %196, %105
   %198 = call noundef i32 @llvm.umax.i32(i32 %194, i32 %197)
@@ -3261,7 +3261,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit31inline_vector_shuffle_to_
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = zext i32 %12 to i64
-  %16 = getelementptr inbounds nuw ptr, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %19 = load ptr, ptr %18, align 8
@@ -3270,7 +3270,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit31inline_vector_shuffle_to_
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %23 = load ptr, ptr %22, align 8
   %24 = zext i32 %21 to i64
-  %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %24
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load i32, ptr %27, align 8
@@ -3278,24 +3278,24 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit31inline_vector_shuffle_to_
   %..i = select i1 %29, ptr %26, ptr null
   %30 = add i32 %12, 1
   %31 = zext i32 %30 to i64
-  %32 = getelementptr inbounds nuw ptr, ptr %14, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %31
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 40
   %35 = load i32, ptr %34, align 8
   %36 = zext i32 %35 to i64
-  %37 = getelementptr inbounds nuw ptr, ptr %23, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %36
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %40 = load i32, ptr %39, align 8
   %41 = icmp ne i32 %40, 21
   %42 = add i32 %12, 2
   %43 = zext i32 %42 to i64
-  %44 = getelementptr inbounds nuw ptr, ptr %14, i64 %43
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %43
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %47 = load i32, ptr %46, align 8
   %48 = zext i32 %47 to i64
-  %49 = getelementptr inbounds nuw ptr, ptr %23, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %48
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %52 = load i32, ptr %51, align 8
@@ -3303,16 +3303,16 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit31inline_vector_shuffle_to_
   %..i51 = select i1 %53, ptr %50, ptr null
   %54 = add i32 %12, 3
   %55 = zext i32 %54 to i64
-  %56 = getelementptr inbounds nuw ptr, ptr %14, i64 %55
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %55
   %57 = load ptr, ptr %56, align 8
   %58 = add i32 %12, 4
   %59 = zext i32 %58 to i64
-  %60 = getelementptr inbounds nuw ptr, ptr %14, i64 %59
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %59
   %61 = load ptr, ptr %60, align 8
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 40
   %63 = load i32, ptr %62, align 8
   %64 = zext i32 %63 to i64
-  %65 = getelementptr inbounds nuw ptr, ptr %23, i64 %64
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %64
   %66 = load ptr, ptr %65, align 8
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 16
   %68 = load i32, ptr %67, align 8
@@ -3496,7 +3496,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit60.thread: ; preds = %109, %_ZL20is
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 132
   %172 = load i32, ptr %171, align 4
   %173 = zext i8 %140 to i64
-  %174 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %173
+  %174 = getelementptr inbounds nuw [4 x i8], ptr @_type2aelembytes, i64 %173
   %175 = load i32, ptr %174, align 4
   %176 = mul nsw i32 %175, %135
   %177 = tail call noundef i32 @llvm.umax.i32(i32 %172, i32 %176)
@@ -3528,7 +3528,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit30inline_vector_frombits_co
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = zext i32 %12 to i64
-  %16 = getelementptr inbounds nuw ptr, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %19 = load ptr, ptr %18, align 8
@@ -3537,7 +3537,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit30inline_vector_frombits_co
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %23 = load ptr, ptr %22, align 8
   %24 = zext i32 %21 to i64
-  %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %24
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load i32, ptr %27, align 8
@@ -3545,12 +3545,12 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit30inline_vector_frombits_co
   %..i = select i1 %29, ptr %26, ptr null
   %30 = add i32 %12, 1
   %31 = zext i32 %30 to i64
-  %32 = getelementptr inbounds nuw ptr, ptr %14, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %31
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 40
   %35 = load i32, ptr %34, align 8
   %36 = zext i32 %35 to i64
-  %37 = getelementptr inbounds nuw ptr, ptr %23, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %36
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %40 = load i32, ptr %39, align 8
@@ -3558,12 +3558,12 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit30inline_vector_frombits_co
   %..i80 = select i1 %41, ptr %38, ptr null
   %42 = add i32 %12, 2
   %43 = zext i32 %42 to i64
-  %44 = getelementptr inbounds nuw ptr, ptr %14, i64 %43
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %43
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %47 = load i32, ptr %46, align 8
   %48 = zext i32 %47 to i64
-  %49 = getelementptr inbounds nuw ptr, ptr %23, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %48
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %52 = load i32, ptr %51, align 8
@@ -3571,24 +3571,24 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit30inline_vector_frombits_co
   %..i81 = select i1 %53, ptr %50, ptr null
   %54 = add i32 %12, 3
   %55 = zext i32 %54 to i64
-  %56 = getelementptr inbounds nuw ptr, ptr %14, i64 %55
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %55
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 40
   %59 = load i32, ptr %58, align 8
   %60 = zext i32 %59 to i64
-  %61 = getelementptr inbounds nuw ptr, ptr %23, i64 %60
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %60
   %62 = load ptr, ptr %61, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %64 = load i32, ptr %63, align 8
   %65 = icmp ne i32 %64, 4
   %66 = add i32 %12, 5
   %67 = zext i32 %66 to i64
-  %68 = getelementptr inbounds nuw ptr, ptr %14, i64 %67
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %67
   %69 = load ptr, ptr %68, align 8
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
   %71 = load i32, ptr %70, align 8
   %72 = zext i32 %71 to i64
-  %73 = getelementptr inbounds nuw ptr, ptr %23, i64 %72
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %72
   %74 = load ptr, ptr %73, align 8
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 16
   %76 = load i32, ptr %75, align 8
@@ -3648,7 +3648,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit30inline_vector_frombits_co
   %113 = load ptr, ptr %112, align 8
   %114 = tail call noundef i32 %113(ptr noundef nonnull align 8 dereferenceable(52) %17) #9
   %115 = sext i32 %114 to i64
-  %116 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %115
+  %116 = getelementptr inbounds [8 x i8], ptr @NodeClassNames, i64 %115
   %117 = load ptr, ptr %116, align 8
   %118 = load ptr, ptr %4, align 8
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 56
@@ -3662,13 +3662,13 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit30inline_vector_frombits_co
   %127 = getelementptr inbounds nuw i8, ptr %118, i64 8
   %128 = load ptr, ptr %127, align 8
   %129 = zext i32 %126 to i64
-  %130 = getelementptr inbounds nuw ptr, ptr %128, i64 %129
+  %130 = getelementptr inbounds nuw [8 x i8], ptr %128, i64 %129
   %131 = load ptr, ptr %130, align 8
   %132 = load ptr, ptr %131, align 8
   %133 = load ptr, ptr %132, align 8
   %134 = tail call noundef i32 %133(ptr noundef nonnull align 8 dereferenceable(52) %131) #9
   %135 = sext i32 %134 to i64
-  %136 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %135
+  %136 = getelementptr inbounds [8 x i8], ptr @NodeClassNames, i64 %135
   %137 = load ptr, ptr %136, align 8
   %138 = load ptr, ptr %4, align 8
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 56
@@ -3682,13 +3682,13 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit30inline_vector_frombits_co
   %147 = getelementptr inbounds nuw i8, ptr %138, i64 8
   %148 = load ptr, ptr %147, align 8
   %149 = zext i32 %146 to i64
-  %150 = getelementptr inbounds nuw ptr, ptr %148, i64 %149
+  %150 = getelementptr inbounds nuw [8 x i8], ptr %148, i64 %149
   %151 = load ptr, ptr %150, align 8
   %152 = load ptr, ptr %151, align 8
   %153 = load ptr, ptr %152, align 8
   %154 = tail call noundef i32 %153(ptr noundef nonnull align 8 dereferenceable(52) %151) #9
   %155 = sext i32 %154 to i64
-  %156 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %155
+  %156 = getelementptr inbounds [8 x i8], ptr @NodeClassNames, i64 %155
   %157 = load ptr, ptr %156, align 8
   %158 = load ptr, ptr %4, align 8
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 56
@@ -3702,13 +3702,13 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit30inline_vector_frombits_co
   %167 = getelementptr inbounds nuw i8, ptr %158, i64 8
   %168 = load ptr, ptr %167, align 8
   %169 = zext i32 %166 to i64
-  %170 = getelementptr inbounds nuw ptr, ptr %168, i64 %169
+  %170 = getelementptr inbounds nuw [8 x i8], ptr %168, i64 %169
   %171 = load ptr, ptr %170, align 8
   %172 = load ptr, ptr %171, align 8
   %173 = load ptr, ptr %172, align 8
   %174 = tail call noundef i32 %173(ptr noundef nonnull align 8 dereferenceable(52) %171) #9
   %175 = sext i32 %174 to i64
-  %176 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %175
+  %176 = getelementptr inbounds [8 x i8], ptr @NodeClassNames, i64 %175
   %177 = load ptr, ptr %176, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %111, ptr noundef nonnull @.str.28, ptr noundef %117, ptr noundef %137, ptr noundef %157, ptr noundef %177) #9
   br label %353
@@ -3828,13 +3828,13 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   %249 = getelementptr inbounds nuw i8, ptr %240, i64 8
   %250 = load ptr, ptr %249, align 8
   %251 = zext i32 %248 to i64
-  %252 = getelementptr inbounds nuw ptr, ptr %250, i64 %251
+  %252 = getelementptr inbounds nuw [8 x i8], ptr %250, i64 %251
   %253 = load ptr, ptr %252, align 8
   br i1 %226, label %254, label %290
 
 254:                                              ; preds = %239
   %255 = zext i8 %206 to i64
-  %256 = getelementptr inbounds nuw ptr, ptr @_ZN4Type17_const_basic_typeE, i64 %255
+  %256 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4Type17_const_basic_typeE, i64 %255
   %257 = load ptr, ptr %256, align 8
   %258 = tail call noundef ptr @_ZN8TypeVect8makemaskEPK4Typej(ptr noundef %257, i32 noundef %218) #9
   %259 = getelementptr inbounds nuw i8, ptr %258, i64 16
@@ -3982,7 +3982,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
 333:                                              ; preds = %290, %326, %307, %297
   %.068 = phi ptr [ %300, %297 ], [ %310, %307 ], [ %329, %326 ], [ %253, %290 ]
   %334 = zext nneg i8 %206 to i64
-  %335 = getelementptr inbounds nuw ptr, ptr @_ZN4Type17_const_basic_typeE, i64 %334
+  %335 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4Type17_const_basic_typeE, i64 %334
   %336 = load ptr, ptr %335, align 8
   %337 = tail call noundef ptr @_ZN10VectorNode13scalar2vectorEP4NodejPK4Typeb(ptr noundef %.068, i32 noundef %218, ptr noundef %336, i1 noundef zeroext %223) #9
   %338 = load ptr, ptr %2, align 8
@@ -4001,7 +4001,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   %346 = load ptr, ptr %345, align 8
   %347 = getelementptr inbounds nuw i8, ptr %346, i64 132
   %348 = load i32, ptr %347, align 4
-  %349 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %.pre-phi
+  %349 = getelementptr inbounds nuw [4 x i8], ptr @_type2aelembytes, i64 %.pre-phi
   %350 = load i32, ptr %349, align 4
   %351 = mul nsw i32 %350, %218
   %352 = tail call noundef i32 @llvm.umax.i32(i32 %348, i32 %351)
@@ -4054,7 +4054,7 @@ define linkonce_odr hidden void @_ZN20VectorLongToMaskNodeC2EP4NodePK8TypeVect(p
   %23 = add i32 %21, 1
   store i32 %23, ptr %14, align 8
   %24 = zext i32 %21 to i64
-  %25 = getelementptr inbounds nuw ptr, ptr %22, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %24
   store ptr %0, ptr %25, align 8
   br label %_ZN10VectorNodeC2EP4NodePK8TypeVect.exit
 
@@ -4104,7 +4104,7 @@ define linkonce_odr hidden void @_ZN18VectorLoadMaskNodeC2EP4NodePK8TypeVect(ptr
   %23 = add i32 %21, 1
   store i32 %23, ptr %14, align 8
   %24 = zext i32 %21 to i64
-  %25 = getelementptr inbounds nuw ptr, ptr %22, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %24
   store ptr %0, ptr %25, align 8
   br label %_ZN10VectorNodeC2EP4NodePK8TypeVect.exit
 
@@ -4154,7 +4154,7 @@ define linkonce_odr hidden void @_ZN11ConvL2INodeC2EP4NodePK7TypeInt(ptr noundef
   %23 = add i32 %21, 1
   store i32 %23, ptr %14, align 8
   %24 = zext i32 %21 to i64
-  %25 = getelementptr inbounds nuw ptr, ptr %22, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %24
   store ptr %0, ptr %25, align 8
   br label %_ZN11ConvertNodeC2EPK4TypeP4Node.exit
 
@@ -4180,7 +4180,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit27inline_vector_mem_operati
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = zext i32 %14 to i64
-  %18 = getelementptr inbounds nuw ptr, ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %17
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %21 = load ptr, ptr %20, align 8
@@ -4189,7 +4189,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit27inline_vector_mem_operati
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %25 = load ptr, ptr %24, align 8
   %26 = zext i32 %23 to i64
-  %27 = getelementptr inbounds nuw ptr, ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %26
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load i32, ptr %29, align 8
@@ -4197,12 +4197,12 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit27inline_vector_mem_operati
   %..i = select i1 %31, ptr %28, ptr null
   %32 = add i32 %14, 1
   %33 = zext i32 %32 to i64
-  %34 = getelementptr inbounds nuw ptr, ptr %16, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %33
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 40
   %37 = load i32, ptr %36, align 8
   %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds nuw ptr, ptr %25, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %38
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = load i32, ptr %41, align 8
@@ -4210,12 +4210,12 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit27inline_vector_mem_operati
   %..i167 = select i1 %43, ptr %40, ptr null
   %44 = add i32 %14, 2
   %45 = zext i32 %44 to i64
-  %46 = getelementptr inbounds nuw ptr, ptr %16, i64 %45
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %45
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 40
   %49 = load i32, ptr %48, align 8
   %50 = zext i32 %49 to i64
-  %51 = getelementptr inbounds nuw ptr, ptr %25, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %50
   %52 = load ptr, ptr %51, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %54 = load i32, ptr %53, align 8
@@ -4231,12 +4231,12 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit27inline_vector_mem_operati
 59:                                               ; preds = %2
   %60 = add i32 %14, 6
   %61 = zext i32 %60 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %16, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %61
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 40
   %65 = load i32, ptr %64, align 8
   %66 = zext i32 %65 to i64
-  %67 = getelementptr inbounds nuw ptr, ptr %25, i64 %66
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %66
   %68 = load ptr, ptr %67, align 8
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 24
   %70 = load i32, ptr %69, align 8
@@ -4279,7 +4279,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit27inline_vector_mem_operati
   %97 = load ptr, ptr %96, align 8
   %98 = tail call noundef i32 %97(ptr noundef nonnull align 8 dereferenceable(52) %19) #9
   %99 = sext i32 %98 to i64
-  %100 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %99
+  %100 = getelementptr inbounds [8 x i8], ptr @NodeClassNames, i64 %99
   %101 = load ptr, ptr %100, align 8
   %102 = load ptr, ptr %6, align 8
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 56
@@ -4293,13 +4293,13 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit27inline_vector_mem_operati
   %111 = getelementptr inbounds nuw i8, ptr %102, i64 8
   %112 = load ptr, ptr %111, align 8
   %113 = zext i32 %110 to i64
-  %114 = getelementptr inbounds nuw ptr, ptr %112, i64 %113
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %112, i64 %113
   %115 = load ptr, ptr %114, align 8
   %116 = load ptr, ptr %115, align 8
   %117 = load ptr, ptr %116, align 8
   %118 = tail call noundef i32 %117(ptr noundef nonnull align 8 dereferenceable(52) %115) #9
   %119 = sext i32 %118 to i64
-  %120 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %119
+  %120 = getelementptr inbounds [8 x i8], ptr @NodeClassNames, i64 %119
   %121 = load ptr, ptr %120, align 8
   %122 = load ptr, ptr %6, align 8
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 56
@@ -4313,13 +4313,13 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit27inline_vector_mem_operati
   %131 = getelementptr inbounds nuw i8, ptr %122, i64 8
   %132 = load ptr, ptr %131, align 8
   %133 = zext i32 %130 to i64
-  %134 = getelementptr inbounds nuw ptr, ptr %132, i64 %133
+  %134 = getelementptr inbounds nuw [8 x i8], ptr %132, i64 %133
   %135 = load ptr, ptr %134, align 8
   %136 = load ptr, ptr %135, align 8
   %137 = load ptr, ptr %136, align 8
   %138 = tail call noundef i32 %137(ptr noundef nonnull align 8 dereferenceable(52) %135) #9
   %139 = sext i32 %138 to i64
-  %140 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %139
+  %140 = getelementptr inbounds [8 x i8], ptr @NodeClassNames, i64 %139
   %141 = load ptr, ptr %140, align 8
   %142 = load ptr, ptr %6, align 8
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 56
@@ -4333,13 +4333,13 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit27inline_vector_mem_operati
   %151 = getelementptr inbounds nuw i8, ptr %142, i64 8
   %152 = load ptr, ptr %151, align 8
   %153 = zext i32 %150 to i64
-  %154 = getelementptr inbounds nuw ptr, ptr %152, i64 %153
+  %154 = getelementptr inbounds nuw [8 x i8], ptr %152, i64 %153
   %155 = load ptr, ptr %154, align 8
   %156 = load ptr, ptr %155, align 8
   %157 = load ptr, ptr %156, align 8
   %158 = tail call noundef i32 %157(ptr noundef nonnull align 8 dereferenceable(52) %155) #9
   %159 = sext i32 %158 to i64
-  %160 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %159
+  %160 = getelementptr inbounds [8 x i8], ptr @NodeClassNames, i64 %159
   %161 = load ptr, ptr %160, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %95, ptr noundef nonnull @.str.31, ptr noundef %101, ptr noundef %121, ptr noundef %141, ptr noundef %161) #9
   br label %410
@@ -4456,12 +4456,12 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   %230 = getelementptr inbounds nuw i8, ptr %221, i64 8
   %231 = load ptr, ptr %230, align 8
   %232 = zext i32 %229 to i64
-  %233 = getelementptr inbounds nuw ptr, ptr %231, i64 %232
+  %233 = getelementptr inbounds nuw [8 x i8], ptr %231, i64 %232
   %234 = load ptr, ptr %233, align 8
   store ptr %234, ptr %3, align 8
   %235 = add i32 %228, 4
   %236 = zext i32 %235 to i64
-  %237 = getelementptr inbounds nuw ptr, ptr %231, i64 %236
+  %237 = getelementptr inbounds nuw [8 x i8], ptr %231, i64 %236
   %238 = load ptr, ptr %237, align 8
   %239 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %240 = load i32, ptr %239, align 8
@@ -4477,12 +4477,12 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   %250 = getelementptr inbounds nuw i8, ptr %247, i64 16
   %251 = load ptr, ptr %250, align 8
   %252 = zext i32 %249 to i64
-  %253 = getelementptr inbounds nuw ptr, ptr %251, i64 %252
+  %253 = getelementptr inbounds nuw [8 x i8], ptr %251, i64 %252
   %254 = load ptr, ptr %253, align 8
   %255 = getelementptr inbounds nuw i8, ptr %243, i64 40
   %256 = load i32, ptr %255, align 8
   %257 = zext i32 %256 to i64
-  %258 = getelementptr inbounds nuw ptr, ptr %251, i64 %257
+  %258 = getelementptr inbounds nuw [8 x i8], ptr %251, i64 %257
   %259 = load ptr, ptr %258, align 8
   %260 = getelementptr inbounds nuw i8, ptr %259, i64 16
   %261 = load i32, ptr %260, align 8
@@ -4624,7 +4624,7 @@ _ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit.thread: ; preds = %2
   %338 = getelementptr inbounds nuw i8, ptr %329, i64 8
   %339 = load ptr, ptr %338, align 8
   %340 = zext i32 %337 to i64
-  %341 = getelementptr inbounds nuw ptr, ptr %339, i64 %340
+  %341 = getelementptr inbounds nuw [8 x i8], ptr %339, i64 %340
   %342 = load ptr, ptr %341, align 8
   %343 = call noundef ptr @_ZN8GraphKit12unbox_vectorEP4NodePK11TypeInstPtr9BasicTypeib(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %342, ptr noundef %324, i8 noundef zeroext %190, i32 noundef %202, i1 noundef zeroext false)
   %344 = icmp eq ptr %343, null
@@ -4684,7 +4684,7 @@ _ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit.thread: ; preds = %2
 
 380:                                              ; preds = %372
   %381 = zext nneg i8 %190 to i64
-  %382 = getelementptr inbounds nuw ptr, ptr @_ZN4Type17_const_basic_typeE, i64 %381
+  %382 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4Type17_const_basic_typeE, i64 %381
   %383 = load ptr, ptr %382, align 8
   %384 = call noundef ptr @_ZN8TypeVect8makemaskEPK4Typej(ptr noundef %383, i32 noundef %202) #9
   call void @_ZN18VectorLoadMaskNodeC2EP4NodePK8TypeVect(ptr noundef nonnull align 8 dereferenceable(64) %378, ptr noundef %376, ptr noundef %384)
@@ -4724,7 +4724,7 @@ _ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit.thread: ; preds = %2
   %403 = getelementptr inbounds nuw i8, ptr %402, i64 132
   %404 = load i32, ptr %403, align 4
   %405 = zext nneg i8 %190 to i64
-  %406 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %405
+  %406 = getelementptr inbounds nuw [4 x i8], ptr @_type2aelembytes, i64 %405
   %407 = load i32, ptr %406, align 4
   %408 = mul nsw i32 %407, %202
   %409 = call noundef i32 @llvm.umax.i32(i32 %404, i32 %408)
@@ -4798,7 +4798,7 @@ define linkonce_odr hidden void @_ZN21VectorReinterpretNodeC2EP4NodePK8TypeVectS
   %24 = add i32 %22, 1
   store i32 %24, ptr %15, align 8
   %25 = zext i32 %22 to i64
-  %26 = getelementptr inbounds nuw ptr, ptr %23, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %25
   store ptr %0, ptr %26, align 8
   br label %_ZN10VectorNodeC2EP4NodePK8TypeVect.exit
 
@@ -4823,7 +4823,7 @@ define linkonce_odr hidden noundef ptr @_ZN8GraphKit6memoryEP4Node(ptr noundef n
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = zext i32 %8 to i64
-  %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %11
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8
@@ -4870,7 +4870,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit34inline_vector_mem_masked_
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = zext i32 %14 to i64
-  %18 = getelementptr inbounds nuw ptr, ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %17
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %21 = load ptr, ptr %20, align 8
@@ -4879,7 +4879,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit34inline_vector_mem_masked_
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %25 = load ptr, ptr %24, align 8
   %26 = zext i32 %23 to i64
-  %27 = getelementptr inbounds nuw ptr, ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %26
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load i32, ptr %29, align 8
@@ -4887,12 +4887,12 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit34inline_vector_mem_masked_
   %..i = select i1 %31, ptr %28, ptr null
   %32 = add i32 %14, 1
   %33 = zext i32 %32 to i64
-  %34 = getelementptr inbounds nuw ptr, ptr %16, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %33
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 40
   %37 = load i32, ptr %36, align 8
   %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds nuw ptr, ptr %25, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %38
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = load i32, ptr %41, align 8
@@ -4900,12 +4900,12 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit34inline_vector_mem_masked_
   %..i202 = select i1 %43, ptr %40, ptr null
   %44 = add i32 %14, 2
   %45 = zext i32 %44 to i64
-  %46 = getelementptr inbounds nuw ptr, ptr %16, i64 %45
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %45
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 40
   %49 = load i32, ptr %48, align 8
   %50 = zext i32 %49 to i64
-  %51 = getelementptr inbounds nuw ptr, ptr %25, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %50
   %52 = load ptr, ptr %51, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %54 = load i32, ptr %53, align 8
@@ -4913,12 +4913,12 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit34inline_vector_mem_masked_
   %..i203 = select i1 %55, ptr %52, ptr null
   %56 = add i32 %14, 3
   %57 = zext i32 %56 to i64
-  %58 = getelementptr inbounds nuw ptr, ptr %16, i64 %57
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %57
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 40
   %61 = load i32, ptr %60, align 8
   %62 = zext i32 %61 to i64
-  %63 = getelementptr inbounds nuw ptr, ptr %25, i64 %62
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %62
   %64 = load ptr, ptr %63, align 8
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %66 = load i32, ptr %65, align 8
@@ -4926,12 +4926,12 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit34inline_vector_mem_masked_
   %..i204 = select i1 %67, ptr %64, ptr null
   %68 = add i32 %14, 7
   %69 = zext i32 %68 to i64
-  %70 = getelementptr inbounds nuw ptr, ptr %16, i64 %69
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %69
   %71 = load ptr, ptr %70, align 8
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 40
   %73 = load i32, ptr %72, align 8
   %74 = zext i32 %73 to i64
-  %75 = getelementptr inbounds nuw ptr, ptr %25, i64 %74
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %74
   %76 = load ptr, ptr %75, align 8
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 16
   %78 = load i32, ptr %77, align 8
@@ -4996,7 +4996,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit34inline_vector_mem_masked_
   %118 = load ptr, ptr %117, align 8
   %119 = tail call noundef i32 %118(ptr noundef nonnull align 8 dereferenceable(52) %19) #9
   %120 = sext i32 %119 to i64
-  %121 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %120
+  %121 = getelementptr inbounds [8 x i8], ptr @NodeClassNames, i64 %120
   %122 = load ptr, ptr %121, align 8
   %123 = load ptr, ptr %6, align 8
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 56
@@ -5010,13 +5010,13 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit34inline_vector_mem_masked_
   %132 = getelementptr inbounds nuw i8, ptr %123, i64 8
   %133 = load ptr, ptr %132, align 8
   %134 = zext i32 %131 to i64
-  %135 = getelementptr inbounds nuw ptr, ptr %133, i64 %134
+  %135 = getelementptr inbounds nuw [8 x i8], ptr %133, i64 %134
   %136 = load ptr, ptr %135, align 8
   %137 = load ptr, ptr %136, align 8
   %138 = load ptr, ptr %137, align 8
   %139 = tail call noundef i32 %138(ptr noundef nonnull align 8 dereferenceable(52) %136) #9
   %140 = sext i32 %139 to i64
-  %141 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %140
+  %141 = getelementptr inbounds [8 x i8], ptr @NodeClassNames, i64 %140
   %142 = load ptr, ptr %141, align 8
   %143 = load ptr, ptr %6, align 8
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 56
@@ -5030,13 +5030,13 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit34inline_vector_mem_masked_
   %152 = getelementptr inbounds nuw i8, ptr %143, i64 8
   %153 = load ptr, ptr %152, align 8
   %154 = zext i32 %151 to i64
-  %155 = getelementptr inbounds nuw ptr, ptr %153, i64 %154
+  %155 = getelementptr inbounds nuw [8 x i8], ptr %153, i64 %154
   %156 = load ptr, ptr %155, align 8
   %157 = load ptr, ptr %156, align 8
   %158 = load ptr, ptr %157, align 8
   %159 = tail call noundef i32 %158(ptr noundef nonnull align 8 dereferenceable(52) %156) #9
   %160 = sext i32 %159 to i64
-  %161 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %160
+  %161 = getelementptr inbounds [8 x i8], ptr @NodeClassNames, i64 %160
   %162 = load ptr, ptr %161, align 8
   %163 = load ptr, ptr %6, align 8
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 56
@@ -5050,13 +5050,13 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit34inline_vector_mem_masked_
   %172 = getelementptr inbounds nuw i8, ptr %163, i64 8
   %173 = load ptr, ptr %172, align 8
   %174 = zext i32 %171 to i64
-  %175 = getelementptr inbounds nuw ptr, ptr %173, i64 %174
+  %175 = getelementptr inbounds nuw [8 x i8], ptr %173, i64 %174
   %176 = load ptr, ptr %175, align 8
   %177 = load ptr, ptr %176, align 8
   %178 = load ptr, ptr %177, align 8
   %179 = tail call noundef i32 %178(ptr noundef nonnull align 8 dereferenceable(52) %176) #9
   %180 = sext i32 %179 to i64
-  %181 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %180
+  %181 = getelementptr inbounds [8 x i8], ptr @NodeClassNames, i64 %180
   %182 = load ptr, ptr %181, align 8
   %183 = load ptr, ptr %6, align 8
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 56
@@ -5070,13 +5070,13 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit34inline_vector_mem_masked_
   %192 = getelementptr inbounds nuw i8, ptr %183, i64 8
   %193 = load ptr, ptr %192, align 8
   %194 = zext i32 %191 to i64
-  %195 = getelementptr inbounds nuw ptr, ptr %193, i64 %194
+  %195 = getelementptr inbounds nuw [8 x i8], ptr %193, i64 %194
   %196 = load ptr, ptr %195, align 8
   %197 = load ptr, ptr %196, align 8
   %198 = load ptr, ptr %197, align 8
   %199 = tail call noundef i32 %198(ptr noundef nonnull align 8 dereferenceable(52) %196) #9
   %200 = sext i32 %199 to i64
-  %201 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %200
+  %201 = getelementptr inbounds [8 x i8], ptr @NodeClassNames, i64 %200
   %202 = load ptr, ptr %201, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %116, ptr noundef nonnull @.str.38, ptr noundef %122, ptr noundef %142, ptr noundef %162, ptr noundef %182, ptr noundef %202) #9
   br label %721
@@ -5186,12 +5186,12 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   %263 = getelementptr inbounds nuw i8, ptr %254, i64 8
   %264 = load ptr, ptr %263, align 8
   %265 = zext i32 %262 to i64
-  %266 = getelementptr inbounds nuw ptr, ptr %264, i64 %265
+  %266 = getelementptr inbounds nuw [8 x i8], ptr %264, i64 %265
   %267 = load ptr, ptr %266, align 8
   store ptr %267, ptr %3, align 8
   %268 = add i32 %261, 5
   %269 = zext i32 %268 to i64
-  %270 = getelementptr inbounds nuw ptr, ptr %264, i64 %269
+  %270 = getelementptr inbounds nuw [8 x i8], ptr %264, i64 %269
   %271 = load ptr, ptr %270, align 8
   %272 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %273 = load i32, ptr %272, align 8
@@ -5205,7 +5205,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   %281 = getelementptr inbounds nuw i8, ptr %278, i64 16
   %282 = load ptr, ptr %281, align 8
   %283 = zext i32 %280 to i64
-  %284 = getelementptr inbounds nuw ptr, ptr %282, i64 %283
+  %284 = getelementptr inbounds nuw [8 x i8], ptr %282, i64 %283
   %285 = load ptr, ptr %284, align 8
   %286 = getelementptr inbounds nuw i8, ptr %285, i64 16
   %287 = load i32, ptr %286, align 8
@@ -5286,7 +5286,7 @@ _ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit: ; preds = %305
 
 328:                                              ; preds = %_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit.thread, %327
   %329 = zext i8 %241 to i64
-  %330 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %329
+  %330 = getelementptr inbounds nuw [4 x i8], ptr @_type2aelembytes, i64 %329
   %331 = load i32, ptr %330, align 4
   %332 = mul nsw i32 %331, %253
   br label %.thread212
@@ -5316,7 +5316,7 @@ _ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit: ; preds = %305
   %350 = getelementptr inbounds nuw i8, ptr %341, i64 8
   %351 = load ptr, ptr %350, align 8
   %352 = zext i32 %349 to i64
-  %353 = getelementptr inbounds nuw ptr, ptr %351, i64 %352
+  %353 = getelementptr inbounds nuw [8 x i8], ptr %351, i64 %352
   %354 = load ptr, ptr %353, align 8
   %355 = getelementptr inbounds nuw i8, ptr %340, i64 40
   %356 = load ptr, ptr %355, align 8
@@ -5325,7 +5325,7 @@ _ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit: ; preds = %305
   %359 = getelementptr inbounds nuw i8, ptr %356, i64 16
   %360 = load ptr, ptr %359, align 8
   %361 = zext i32 %358 to i64
-  %362 = getelementptr inbounds nuw ptr, ptr %360, i64 %361
+  %362 = getelementptr inbounds nuw [8 x i8], ptr %360, i64 %361
   %363 = load ptr, ptr %362, align 8
   %364 = getelementptr inbounds nuw i8, ptr %363, i64 24
   %365 = load i32, ptr %364, align 8
@@ -5346,13 +5346,13 @@ _ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit: ; preds = %305
   %376 = load ptr, ptr @tty, align 8
   %377 = add i32 %348, 8
   %378 = zext i32 %377 to i64
-  %379 = getelementptr inbounds nuw ptr, ptr %351, i64 %378
+  %379 = getelementptr inbounds nuw [8 x i8], ptr %351, i64 %378
   %380 = load ptr, ptr %379, align 8
   %381 = load ptr, ptr %380, align 8
   %382 = load ptr, ptr %381, align 8
   %383 = call noundef i32 %382(ptr noundef nonnull align 8 dereferenceable(52) %380) #9
   %384 = sext i32 %383 to i64
-  %385 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %384
+  %385 = getelementptr inbounds [8 x i8], ptr @NodeClassNames, i64 %384
   %386 = load ptr, ptr %385, align 8
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %376, ptr noundef nonnull @.str.42, ptr noundef %386) #9
   br label %387
@@ -5479,7 +5479,7 @@ _ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit: ; preds = %305
   %452 = getelementptr inbounds nuw i8, ptr %449, i64 16
   %453 = load ptr, ptr %452, align 8
   %454 = zext i32 %451 to i64
-  %455 = getelementptr inbounds nuw ptr, ptr %453, i64 %454
+  %455 = getelementptr inbounds nuw [8 x i8], ptr %453, i64 %454
   %456 = load ptr, ptr %455, align 8
   %457 = call noundef zeroext i1 @_ZNK4Type12higher_equalEPKS_(ptr noundef nonnull align 8 dereferenceable(20) %445, ptr noundef %456)
   br i1 %457, label %458, label %460
@@ -5510,7 +5510,7 @@ _ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit: ; preds = %305
   %477 = add i32 %471, 9
   %478 = add i32 %477, %473
   %479 = zext i32 %478 to i64
-  %480 = getelementptr inbounds nuw ptr, ptr %475, i64 %479
+  %480 = getelementptr inbounds nuw [8 x i8], ptr %475, i64 %479
   %481 = load ptr, ptr %480, align 8
   %482 = call noundef ptr @_ZN8GraphKit12unbox_vectorEP4NodePK11TypeInstPtr9BasicTypeib(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %481, ptr noundef %466, i8 noundef zeroext %241, i32 noundef %253, i1 noundef zeroext false)
   %483 = icmp eq ptr %482, null
@@ -5520,7 +5520,7 @@ _ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit: ; preds = %305
   %484 = add i32 %471, 8
   %485 = add i32 %484, %473
   %486 = zext i32 %485 to i64
-  %487 = getelementptr inbounds nuw ptr, ptr %475, i64 %486
+  %487 = getelementptr inbounds nuw [8 x i8], ptr %475, i64 %486
   %488 = load ptr, ptr %487, align 8
   %489 = call noundef ptr @_ZN8GraphKit12unbox_vectorEP4NodePK11TypeInstPtr9BasicTypeib(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %488, ptr noundef %466, i8 noundef zeroext %241, i32 noundef %253, i1 noundef zeroext false)
   %490 = icmp eq ptr %489, null
@@ -5557,13 +5557,13 @@ _ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit: ; preds = %305
   %512 = getelementptr inbounds nuw i8, ptr %503, i64 8
   %513 = load ptr, ptr %512, align 8
   %514 = zext i32 %511 to i64
-  %515 = getelementptr inbounds nuw ptr, ptr %513, i64 %514
+  %515 = getelementptr inbounds nuw [8 x i8], ptr %513, i64 %514
   %516 = load ptr, ptr %515, align 8
   %517 = load ptr, ptr %516, align 8
   %518 = load ptr, ptr %517, align 8
   %519 = call noundef i32 %518(ptr noundef nonnull align 8 dereferenceable(52) %516) #9
   %.pn = sext i32 %519 to i64
-  %.in = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %.pn
+  %.in = getelementptr inbounds [8 x i8], ptr @NodeClassNames, i64 %.pn
   %520 = load ptr, ptr %.in, align 8
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %502, ptr noundef nonnull @.str.23, ptr noundef %520) #9
   br label %521
@@ -5586,7 +5586,7 @@ _ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit: ; preds = %305
   %532 = getelementptr inbounds nuw i8, ptr %523, i64 8
   %533 = load ptr, ptr %532, align 8
   %534 = zext i32 %531 to i64
-  %535 = getelementptr inbounds nuw ptr, ptr %533, i64 %534
+  %535 = getelementptr inbounds nuw [8 x i8], ptr %533, i64 %534
   %536 = load ptr, ptr %535, align 8
   %537 = call noundef ptr @_ZN8GraphKit12unbox_vectorEP4NodePK11TypeInstPtr9BasicTypeib(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %536, ptr noundef %465, i8 noundef zeroext %241, i32 noundef %253, i1 noundef zeroext false)
   %538 = icmp eq ptr %537, null
@@ -5614,13 +5614,13 @@ _ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit: ; preds = %305
   %556 = getelementptr inbounds nuw i8, ptr %547, i64 8
   %557 = load ptr, ptr %556, align 8
   %558 = zext i32 %555 to i64
-  %559 = getelementptr inbounds nuw ptr, ptr %557, i64 %558
+  %559 = getelementptr inbounds nuw [8 x i8], ptr %557, i64 %558
   %560 = load ptr, ptr %559, align 8
   %561 = load ptr, ptr %560, align 8
   %562 = load ptr, ptr %561, align 8
   %563 = call noundef i32 %562(ptr noundef nonnull align 8 dereferenceable(52) %560) #9
   %564 = sext i32 %563 to i64
-  %565 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %564
+  %565 = getelementptr inbounds [8 x i8], ptr @NodeClassNames, i64 %564
   %566 = load ptr, ptr %565, align 8
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %546, ptr noundef nonnull @.str.47, ptr noundef %566) #9
   br label %567
@@ -5637,7 +5637,7 @@ _ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit: ; preds = %305
 
 570:                                              ; preds = %568
   %571 = zext i8 %334 to i64
-  %572 = getelementptr inbounds nuw ptr, ptr @_ZN4Type17_const_basic_typeE, i64 %571
+  %572 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4Type17_const_basic_typeE, i64 %571
   %573 = load ptr, ptr %572, align 8
   %574 = call noundef ptr @_ZN8TypeVect4makeEPK4Typejb(ptr noundef %573, i32 noundef %335, i1 noundef zeroext false) #9
   %575 = load ptr, ptr %4, align 8
@@ -5658,7 +5658,7 @@ _ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit: ; preds = %305
   %585 = load ptr, ptr %584, align 8
   %586 = call noundef ptr %585(ptr noundef nonnull align 8 dereferenceable(2400) %575, ptr noundef %576) #9
   %587 = zext i8 %241 to i64
-  %588 = getelementptr inbounds nuw ptr, ptr @_ZN4Type17_const_basic_typeE, i64 %587
+  %588 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4Type17_const_basic_typeE, i64 %587
   %589 = load ptr, ptr %588, align 8
   %590 = call noundef ptr @_ZN8TypeVect8makemaskEPK4Typej(ptr noundef %589, i32 noundef %253) #9
   %591 = load ptr, ptr %572, align 8
@@ -5707,11 +5707,11 @@ _ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit: ; preds = %305
 
 615:                                              ; preds = %.thread214
   %616 = zext i8 %241 to i64
-  %617 = getelementptr inbounds nuw ptr, ptr @_ZN4Type17_const_basic_typeE, i64 %616
+  %617 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4Type17_const_basic_typeE, i64 %616
   %618 = load ptr, ptr %617, align 8
   %619 = call noundef ptr @_ZN8TypeVect8makemaskEPK4Typej(ptr noundef %618, i32 noundef %253) #9
   %620 = zext i8 %334 to i64
-  %621 = getelementptr inbounds nuw ptr, ptr @_ZN4Type17_const_basic_typeE, i64 %620
+  %621 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4Type17_const_basic_typeE, i64 %620
   %622 = load ptr, ptr %621, align 8
   %623 = call noundef ptr @_ZN8TypeVect8makemaskEPK4Typej(ptr noundef %622, i32 noundef %335) #9
   %624 = load ptr, ptr %4, align 8
@@ -5735,7 +5735,7 @@ _ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit: ; preds = %305
 
 633:                                              ; preds = %632
   %634 = zext i8 %334 to i64
-  %635 = getelementptr inbounds nuw ptr, ptr @_ZN4Type17_const_basic_typeE, i64 %634
+  %635 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4Type17_const_basic_typeE, i64 %634
   %636 = load ptr, ptr %635, align 8
   %637 = call noundef ptr @_ZN8TypeVect4makeEPK4Typejb(ptr noundef %636, i32 noundef %335, i1 noundef zeroext false) #9
   %638 = load ptr, ptr %4, align 8
@@ -5766,7 +5766,7 @@ _ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit: ; preds = %305
   %656 = call noundef ptr %655(ptr noundef nonnull align 8 dereferenceable(2400) %652, ptr noundef %653) #9
   %657 = load ptr, ptr %4, align 8
   %658 = zext i8 %334 to i64
-  %659 = getelementptr inbounds nuw ptr, ptr @_ZN4Type17_const_basic_typeE, i64 %658
+  %659 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4Type17_const_basic_typeE, i64 %658
   %660 = load ptr, ptr %659, align 8
   %661 = call noundef ptr @_ZN10VectorNode13scalar2vectorEP4NodejPK4Typeb(ptr noundef %656, i32 noundef %335, ptr noundef %660, i1 noundef zeroext false) #9
   %662 = load ptr, ptr %657, align 8
@@ -5808,7 +5808,7 @@ _ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit: ; preds = %305
 
 688:                                              ; preds = %687
   %689 = zext i8 %241 to i64
-  %690 = getelementptr inbounds nuw ptr, ptr @_ZN4Type17_const_basic_typeE, i64 %689
+  %690 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4Type17_const_basic_typeE, i64 %689
   %691 = load ptr, ptr %690, align 8
   %692 = call noundef ptr @_ZN8TypeVect4makeEPK4Typejb(ptr noundef %691, i32 noundef %253, i1 noundef zeroext false) #9
   %693 = load ptr, ptr %4, align 8
@@ -5851,7 +5851,7 @@ _ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit: ; preds = %305
   %714 = getelementptr inbounds nuw i8, ptr %713, i64 132
   %715 = load i32, ptr %714, align 4
   %716 = zext i8 %241 to i64
-  %717 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %716
+  %717 = getelementptr inbounds nuw [4 x i8], ptr @_type2aelembytes, i64 %716
   %718 = load i32, ptr %717, align 4
   %719 = mul nsw i32 %718, %253
   %720 = call noundef i32 @llvm.umax.i32(i32 %715, i32 %719)
@@ -5924,7 +5924,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit28inline_vector_gather_scat
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = zext i32 %14 to i64
-  %18 = getelementptr inbounds nuw ptr, ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %17
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %21 = load ptr, ptr %20, align 8
@@ -5933,7 +5933,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit28inline_vector_gather_scat
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %25 = load ptr, ptr %24, align 8
   %26 = zext i32 %23 to i64
-  %27 = getelementptr inbounds nuw ptr, ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %26
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load i32, ptr %29, align 8
@@ -5941,24 +5941,24 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit28inline_vector_gather_scat
   %..i = select i1 %31, ptr %28, ptr null
   %32 = add i32 %14, 1
   %33 = zext i32 %32 to i64
-  %34 = getelementptr inbounds nuw ptr, ptr %16, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %33
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 40
   %37 = load i32, ptr %36, align 8
   %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds nuw ptr, ptr %25, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %38
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = load i32, ptr %41, align 8
   %.not233 = icmp eq i32 %42, 21
   %43 = add i32 %14, 2
   %44 = zext i32 %43 to i64
-  %45 = getelementptr inbounds nuw ptr, ptr %16, i64 %44
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %44
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 40
   %48 = load i32, ptr %47, align 8
   %49 = zext i32 %48 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr %25, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %49
   %51 = load ptr, ptr %50, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %53 = load i32, ptr %52, align 8
@@ -5966,12 +5966,12 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit28inline_vector_gather_scat
   %..i177 = select i1 %54, ptr %51, ptr null
   %55 = add i32 %14, 3
   %56 = zext i32 %55 to i64
-  %57 = getelementptr inbounds nuw ptr, ptr %16, i64 %56
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %56
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 40
   %60 = load i32, ptr %59, align 8
   %61 = zext i32 %60 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %25, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %61
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
   %65 = load i32, ptr %64, align 8
@@ -5979,12 +5979,12 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit28inline_vector_gather_scat
   %..i178 = select i1 %66, ptr %63, ptr null
   %67 = add i32 %14, 4
   %68 = zext i32 %67 to i64
-  %69 = getelementptr inbounds nuw ptr, ptr %16, i64 %68
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %68
   %70 = load ptr, ptr %69, align 8
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 40
   %72 = load i32, ptr %71, align 8
   %73 = zext i32 %72 to i64
-  %74 = getelementptr inbounds nuw ptr, ptr %25, i64 %73
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %73
   %75 = load ptr, ptr %74, align 8
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 16
   %77 = load i32, ptr %76, align 8
@@ -6039,7 +6039,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit28inline_vector_gather_scat
   %110 = load ptr, ptr %109, align 8
   %111 = tail call noundef i32 %110(ptr noundef nonnull align 8 dereferenceable(52) %19) #9
   %112 = sext i32 %111 to i64
-  %113 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %112
+  %113 = getelementptr inbounds [8 x i8], ptr @NodeClassNames, i64 %112
   %114 = load ptr, ptr %113, align 8
   %115 = load ptr, ptr %6, align 8
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 56
@@ -6053,13 +6053,13 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit28inline_vector_gather_scat
   %124 = getelementptr inbounds nuw i8, ptr %115, i64 8
   %125 = load ptr, ptr %124, align 8
   %126 = zext i32 %123 to i64
-  %127 = getelementptr inbounds nuw ptr, ptr %125, i64 %126
+  %127 = getelementptr inbounds nuw [8 x i8], ptr %125, i64 %126
   %128 = load ptr, ptr %127, align 8
   %129 = load ptr, ptr %128, align 8
   %130 = load ptr, ptr %129, align 8
   %131 = tail call noundef i32 %130(ptr noundef nonnull align 8 dereferenceable(52) %128) #9
   %132 = sext i32 %131 to i64
-  %133 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %132
+  %133 = getelementptr inbounds [8 x i8], ptr @NodeClassNames, i64 %132
   %134 = load ptr, ptr %133, align 8
   %135 = load ptr, ptr %6, align 8
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 56
@@ -6073,13 +6073,13 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit28inline_vector_gather_scat
   %144 = getelementptr inbounds nuw i8, ptr %135, i64 8
   %145 = load ptr, ptr %144, align 8
   %146 = zext i32 %143 to i64
-  %147 = getelementptr inbounds nuw ptr, ptr %145, i64 %146
+  %147 = getelementptr inbounds nuw [8 x i8], ptr %145, i64 %146
   %148 = load ptr, ptr %147, align 8
   %149 = load ptr, ptr %148, align 8
   %150 = load ptr, ptr %149, align 8
   %151 = tail call noundef i32 %150(ptr noundef nonnull align 8 dereferenceable(52) %148) #9
   %152 = sext i32 %151 to i64
-  %153 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %152
+  %153 = getelementptr inbounds [8 x i8], ptr @NodeClassNames, i64 %152
   %154 = load ptr, ptr %153, align 8
   %155 = load ptr, ptr %6, align 8
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 56
@@ -6093,13 +6093,13 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit28inline_vector_gather_scat
   %164 = getelementptr inbounds nuw i8, ptr %155, i64 8
   %165 = load ptr, ptr %164, align 8
   %166 = zext i32 %163 to i64
-  %167 = getelementptr inbounds nuw ptr, ptr %165, i64 %166
+  %167 = getelementptr inbounds nuw [8 x i8], ptr %165, i64 %166
   %168 = load ptr, ptr %167, align 8
   %169 = load ptr, ptr %168, align 8
   %170 = load ptr, ptr %169, align 8
   %171 = tail call noundef i32 %170(ptr noundef nonnull align 8 dereferenceable(52) %168) #9
   %172 = sext i32 %171 to i64
-  %173 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %172
+  %173 = getelementptr inbounds [8 x i8], ptr @NodeClassNames, i64 %172
   %174 = load ptr, ptr %173, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %108, ptr noundef nonnull @.str.48, ptr noundef %114, ptr noundef %134, ptr noundef %154, ptr noundef %174) #9
   br label %622
@@ -6235,7 +6235,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit187.thread: ; preds = %191, %_ZL20i
   %243 = add i32 %238, %.
   %244 = add i32 %243, %240
   %245 = zext i32 %244 to i64
-  %246 = getelementptr inbounds nuw ptr, ptr %242, i64 %245
+  %246 = getelementptr inbounds nuw [8 x i8], ptr %242, i64 %245
   %247 = load ptr, ptr %246, align 8
   %248 = getelementptr inbounds nuw i8, ptr %233, i64 40
   %249 = load ptr, ptr %248, align 8
@@ -6244,7 +6244,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit187.thread: ; preds = %191, %_ZL20i
   %252 = getelementptr inbounds nuw i8, ptr %249, i64 16
   %253 = load ptr, ptr %252, align 8
   %254 = zext i32 %251 to i64
-  %255 = getelementptr inbounds nuw ptr, ptr %253, i64 %254
+  %255 = getelementptr inbounds nuw [8 x i8], ptr %253, i64 %254
   %256 = load ptr, ptr %255, align 8
   %257 = load ptr, ptr @_ZN7TypePtr8NULL_PTRE, align 8
   %.not = icmp ne ptr %256, %257
@@ -6272,13 +6272,13 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit187.thread: ; preds = %191, %_ZL20i
   %271 = add i32 %238, 1
   %272 = add i32 %271, %240
   %273 = zext i32 %272 to i64
-  %274 = getelementptr inbounds nuw ptr, ptr %242, i64 %273
+  %274 = getelementptr inbounds nuw [8 x i8], ptr %242, i64 %273
   %275 = load ptr, ptr %274, align 8
   %276 = load ptr, ptr %275, align 8
   %277 = load ptr, ptr %276, align 8
   %278 = tail call noundef i32 %277(ptr noundef nonnull align 8 dereferenceable(52) %275) #9
   %279 = sext i32 %278 to i64
-  %280 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %279
+  %280 = getelementptr inbounds [8 x i8], ptr @NodeClassNames, i64 %279
   %281 = load ptr, ptr %280, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %270, ptr noundef nonnull @.str.9, ptr noundef %281) #9
   br label %622
@@ -6401,12 +6401,12 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit187.thread: ; preds = %191, %_ZL20i
   %358 = getelementptr inbounds nuw i8, ptr %349, i64 8
   %359 = load ptr, ptr %358, align 8
   %360 = zext i32 %357 to i64
-  %361 = getelementptr inbounds nuw ptr, ptr %359, i64 %360
+  %361 = getelementptr inbounds nuw [8 x i8], ptr %359, i64 %360
   %362 = load ptr, ptr %361, align 8
   store ptr %362, ptr %3, align 8
   %363 = add i32 %356, 6
   %364 = zext i32 %363 to i64
-  %365 = getelementptr inbounds nuw ptr, ptr %359, i64 %364
+  %365 = getelementptr inbounds nuw [8 x i8], ptr %359, i64 %364
   %366 = load ptr, ptr %365, align 8
   %367 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %368 = load i32, ptr %367, align 8
@@ -6420,7 +6420,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit187.thread: ; preds = %191, %_ZL20i
   %376 = getelementptr inbounds nuw i8, ptr %373, i64 16
   %377 = load ptr, ptr %376, align 8
   %378 = zext i32 %375 to i64
-  %379 = getelementptr inbounds nuw ptr, ptr %377, i64 %378
+  %379 = getelementptr inbounds nuw [8 x i8], ptr %377, i64 %378
   %380 = load ptr, ptr %379, align 8
   %381 = getelementptr inbounds nuw i8, ptr %380, i64 16
   %382 = load i32, ptr %381, align 8
@@ -6508,7 +6508,7 @@ _ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit.thread: ; preds = %3
   %433 = getelementptr inbounds nuw i8, ptr %424, i64 8
   %434 = load ptr, ptr %433, align 8
   %435 = zext i32 %432 to i64
-  %436 = getelementptr inbounds nuw ptr, ptr %434, i64 %435
+  %436 = getelementptr inbounds nuw [8 x i8], ptr %434, i64 %435
   %437 = load ptr, ptr %436, align 8
   %438 = call noundef ptr @_ZN8GraphKit12unbox_vectorEP4NodePK11TypeInstPtr9BasicTypeib(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %437, ptr noundef %422, i8 noundef zeroext 10, i32 noundef %232, i1 noundef zeroext false)
   %439 = icmp eq ptr %438, null
@@ -6541,7 +6541,7 @@ _ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit.thread: ; preds = %3
   %456 = add i32 %451, %.231
   %457 = add i32 %456, %453
   %458 = zext i32 %457 to i64
-  %459 = getelementptr inbounds nuw ptr, ptr %455, i64 %458
+  %459 = getelementptr inbounds nuw [8 x i8], ptr %455, i64 %458
   %460 = load ptr, ptr %459, align 8
   %461 = call noundef ptr @_ZN8GraphKit12unbox_vectorEP4NodePK11TypeInstPtr9BasicTypeib(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %460, ptr noundef %446, i8 noundef zeroext %220, i32 noundef %232, i1 noundef zeroext false)
   %462 = icmp eq ptr %461, null
@@ -6570,13 +6570,13 @@ _ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit.thread: ; preds = %3
   %480 = add i32 %475, %.232
   %481 = add i32 %480, %477
   %482 = zext i32 %481 to i64
-  %483 = getelementptr inbounds nuw ptr, ptr %479, i64 %482
+  %483 = getelementptr inbounds nuw [8 x i8], ptr %479, i64 %482
   %484 = load ptr, ptr %483, align 8
   %485 = load ptr, ptr %484, align 8
   %486 = load ptr, ptr %485, align 8
   %487 = call noundef i32 %486(ptr noundef nonnull align 8 dereferenceable(52) %484) #9
   %.pn = sext i32 %487 to i64
-  %.in = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %.pn
+  %.in = getelementptr inbounds [8 x i8], ptr @NodeClassNames, i64 %.pn
   %488 = load ptr, ptr %.in, align 8
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %470, ptr noundef nonnull @.str.23, ptr noundef %488) #9
   br label %489
@@ -6589,7 +6589,7 @@ _ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit.thread: ; preds = %3
 490:                                              ; preds = %442, %441
   %.0151 = phi ptr [ %461, %442 ], [ null, %441 ]
   %491 = zext i8 %220 to i64
-  %492 = getelementptr inbounds nuw ptr, ptr @_ZN4Type17_const_basic_typeE, i64 %491
+  %492 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4Type17_const_basic_typeE, i64 %491
   %493 = load ptr, ptr %492, align 8
   %494 = call noundef ptr @_ZN8TypeVect4makeEPK4Typejb(ptr noundef %493, i32 noundef %232, i1 noundef zeroext false) #9
   %495 = load ptr, ptr %6, align 8
@@ -6607,7 +6607,7 @@ _ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit.thread: ; preds = %3
   %505 = add i32 %499, 9
   %506 = add i32 %505, %501
   %507 = zext i32 %506 to i64
-  %508 = getelementptr inbounds nuw ptr, ptr %503, i64 %507
+  %508 = getelementptr inbounds nuw [8 x i8], ptr %503, i64 %507
   %509 = load ptr, ptr %508, align 8
   %510 = call noundef ptr @_ZN8GraphKit12unbox_vectorEP4NodePK11TypeInstPtr9BasicTypeib(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %509, ptr noundef %416, i8 noundef zeroext %220, i32 noundef %232, i1 noundef zeroext false)
   %511 = icmp eq ptr %510, null
@@ -6662,15 +6662,15 @@ _ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit.thread: ; preds = %3
   %537 = add i32 %501, %499
   %538 = add i32 %537, 11
   %539 = zext i32 %538 to i64
-  %540 = getelementptr inbounds nuw ptr, ptr %503, i64 %539
+  %540 = getelementptr inbounds nuw [8 x i8], ptr %503, i64 %539
   %541 = load ptr, ptr %540, align 8
   %542 = add i32 %537, 12
   %543 = zext i32 %542 to i64
-  %544 = getelementptr inbounds nuw ptr, ptr %503, i64 %543
+  %544 = getelementptr inbounds nuw [8 x i8], ptr %503, i64 %543
   %545 = load ptr, ptr %544, align 8
   %546 = add i32 %537, 13
   %547 = zext i32 %546 to i64
-  %548 = getelementptr inbounds nuw ptr, ptr %503, i64 %547
+  %548 = getelementptr inbounds nuw [8 x i8], ptr %503, i64 %547
   %549 = load ptr, ptr %548, align 8
   %.not171 = icmp eq ptr %.0151, null
   br i1 %.not171, label %580, label %550
@@ -6780,7 +6780,7 @@ _ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit.thread: ; preds = %3
   %615 = load ptr, ptr %614, align 8
   %616 = getelementptr inbounds nuw i8, ptr %615, i64 132
   %617 = load i32, ptr %616, align 4
-  %618 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %491
+  %618 = getelementptr inbounds nuw [4 x i8], ptr @_type2aelembytes, i64 %491
   %619 = load i32, ptr %618, align 4
   %620 = mul nsw i32 %619, %232
   %621 = call noundef i32 @llvm.umax.i32(i32 %617, i32 %620)
@@ -6917,7 +6917,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit23inline_vector_reductionEv
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = zext i32 %12 to i64
-  %16 = getelementptr inbounds nuw ptr, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %19 = load ptr, ptr %18, align 8
@@ -6926,7 +6926,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit23inline_vector_reductionEv
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %23 = load ptr, ptr %22, align 8
   %24 = zext i32 %21 to i64
-  %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %24
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load i32, ptr %27, align 8
@@ -6934,12 +6934,12 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit23inline_vector_reductionEv
   %..i = select i1 %29, ptr %26, ptr null
   %30 = add i32 %12, 1
   %31 = zext i32 %30 to i64
-  %32 = getelementptr inbounds nuw ptr, ptr %14, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %31
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 40
   %35 = load i32, ptr %34, align 8
   %36 = zext i32 %35 to i64
-  %37 = getelementptr inbounds nuw ptr, ptr %23, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %36
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %40 = load i32, ptr %39, align 8
@@ -6947,24 +6947,24 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit23inline_vector_reductionEv
   %..i117 = select i1 %41, ptr %38, ptr null
   %42 = add i32 %12, 2
   %43 = zext i32 %42 to i64
-  %44 = getelementptr inbounds nuw ptr, ptr %14, i64 %43
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %43
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %47 = load i32, ptr %46, align 8
   %48 = zext i32 %47 to i64
-  %49 = getelementptr inbounds nuw ptr, ptr %23, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %48
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %52 = load i32, ptr %51, align 8
   %.not = icmp eq i32 %52, 21
   %53 = add i32 %12, 3
   %54 = zext i32 %53 to i64
-  %55 = getelementptr inbounds nuw ptr, ptr %14, i64 %54
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %54
   %56 = load ptr, ptr %55, align 8
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 40
   %58 = load i32, ptr %57, align 8
   %59 = zext i32 %58 to i64
-  %60 = getelementptr inbounds nuw ptr, ptr %23, i64 %59
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %59
   %61 = load ptr, ptr %60, align 8
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %63 = load i32, ptr %62, align 8
@@ -6972,12 +6972,12 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit23inline_vector_reductionEv
   %..i119 = select i1 %64, ptr %61, ptr null
   %65 = add i32 %12, 4
   %66 = zext i32 %65 to i64
-  %67 = getelementptr inbounds nuw ptr, ptr %14, i64 %66
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %66
   %68 = load ptr, ptr %67, align 8
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 40
   %70 = load i32, ptr %69, align 8
   %71 = zext i32 %70 to i64
-  %72 = getelementptr inbounds nuw ptr, ptr %23, i64 %71
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %71
   %73 = load ptr, ptr %72, align 8
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
   %75 = load i32, ptr %74, align 8
@@ -7034,7 +7034,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit23inline_vector_reductionEv
   %110 = load ptr, ptr %109, align 8
   %111 = tail call noundef i32 %110(ptr noundef nonnull align 8 dereferenceable(52) %17) #9
   %112 = sext i32 %111 to i64
-  %113 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %112
+  %113 = getelementptr inbounds [8 x i8], ptr @NodeClassNames, i64 %112
   %114 = load ptr, ptr %113, align 8
   %115 = load ptr, ptr %4, align 8
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 56
@@ -7048,13 +7048,13 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit23inline_vector_reductionEv
   %124 = getelementptr inbounds nuw i8, ptr %115, i64 8
   %125 = load ptr, ptr %124, align 8
   %126 = zext i32 %123 to i64
-  %127 = getelementptr inbounds nuw ptr, ptr %125, i64 %126
+  %127 = getelementptr inbounds nuw [8 x i8], ptr %125, i64 %126
   %128 = load ptr, ptr %127, align 8
   %129 = load ptr, ptr %128, align 8
   %130 = load ptr, ptr %129, align 8
   %131 = tail call noundef i32 %130(ptr noundef nonnull align 8 dereferenceable(52) %128) #9
   %132 = sext i32 %131 to i64
-  %133 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %132
+  %133 = getelementptr inbounds [8 x i8], ptr @NodeClassNames, i64 %132
   %134 = load ptr, ptr %133, align 8
   %135 = load ptr, ptr %4, align 8
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 56
@@ -7068,13 +7068,13 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit23inline_vector_reductionEv
   %144 = getelementptr inbounds nuw i8, ptr %135, i64 8
   %145 = load ptr, ptr %144, align 8
   %146 = zext i32 %143 to i64
-  %147 = getelementptr inbounds nuw ptr, ptr %145, i64 %146
+  %147 = getelementptr inbounds nuw [8 x i8], ptr %145, i64 %146
   %148 = load ptr, ptr %147, align 8
   %149 = load ptr, ptr %148, align 8
   %150 = load ptr, ptr %149, align 8
   %151 = tail call noundef i32 %150(ptr noundef nonnull align 8 dereferenceable(52) %148) #9
   %152 = sext i32 %151 to i64
-  %153 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %152
+  %153 = getelementptr inbounds [8 x i8], ptr @NodeClassNames, i64 %152
   %154 = load ptr, ptr %153, align 8
   %155 = load ptr, ptr %4, align 8
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 56
@@ -7088,13 +7088,13 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit23inline_vector_reductionEv
   %164 = getelementptr inbounds nuw i8, ptr %155, i64 8
   %165 = load ptr, ptr %164, align 8
   %166 = zext i32 %163 to i64
-  %167 = getelementptr inbounds nuw ptr, ptr %165, i64 %166
+  %167 = getelementptr inbounds nuw [8 x i8], ptr %165, i64 %166
   %168 = load ptr, ptr %167, align 8
   %169 = load ptr, ptr %168, align 8
   %170 = load ptr, ptr %169, align 8
   %171 = tail call noundef i32 %170(ptr noundef nonnull align 8 dereferenceable(52) %168) #9
   %172 = sext i32 %171 to i64
-  %173 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %172
+  %173 = getelementptr inbounds [8 x i8], ptr @NodeClassNames, i64 %172
   %174 = load ptr, ptr %173, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %108, ptr noundef nonnull @.str.6, ptr noundef %114, ptr noundef %134, ptr noundef %154, ptr noundef %174) #9
   br label %478
@@ -7186,7 +7186,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   %225 = getelementptr inbounds nuw i8, ptr %216, i64 8
   %226 = load ptr, ptr %225, align 8
   %227 = zext i32 %224 to i64
-  %228 = getelementptr inbounds nuw ptr, ptr %226, i64 %227
+  %228 = getelementptr inbounds nuw [8 x i8], ptr %226, i64 %227
   %229 = load ptr, ptr %228, align 8
   %230 = getelementptr inbounds nuw i8, ptr %215, i64 40
   %231 = load ptr, ptr %230, align 8
@@ -7195,7 +7195,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   %234 = getelementptr inbounds nuw i8, ptr %231, i64 16
   %235 = load ptr, ptr %234, align 8
   %236 = zext i32 %233 to i64
-  %237 = getelementptr inbounds nuw ptr, ptr %235, i64 %236
+  %237 = getelementptr inbounds nuw [8 x i8], ptr %235, i64 %236
   %238 = load ptr, ptr %237, align 8
   %239 = load ptr, ptr @_ZN7TypePtr8NULL_PTRE, align 8
   %.not115 = icmp ne ptr %238, %239
@@ -7222,13 +7222,13 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   %252 = load ptr, ptr @tty, align 8
   %253 = add i32 %223, 2
   %254 = zext i32 %253 to i64
-  %255 = getelementptr inbounds nuw ptr, ptr %226, i64 %254
+  %255 = getelementptr inbounds nuw [8 x i8], ptr %226, i64 %254
   %256 = load ptr, ptr %255, align 8
   %257 = load ptr, ptr %256, align 8
   %258 = load ptr, ptr %257, align 8
   %259 = tail call noundef i32 %258(ptr noundef nonnull align 8 dereferenceable(52) %256) #9
   %260 = sext i32 %259 to i64
-  %261 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %260
+  %261 = getelementptr inbounds [8 x i8], ptr @NodeClassNames, i64 %260
   %262 = load ptr, ptr %261, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %252, ptr noundef nonnull @.str.9, ptr noundef %262) #9
   br label %478
@@ -7341,7 +7341,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   %331 = getelementptr inbounds nuw i8, ptr %322, i64 8
   %332 = load ptr, ptr %331, align 8
   %333 = zext i32 %330 to i64
-  %334 = getelementptr inbounds nuw ptr, ptr %332, i64 %333
+  %334 = getelementptr inbounds nuw [8 x i8], ptr %332, i64 %333
   %335 = load ptr, ptr %334, align 8
   %336 = tail call noundef ptr @_ZN8GraphKit12unbox_vectorEP4NodePK11TypeInstPtr9BasicTypeib(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %335, ptr noundef %321, i8 noundef zeroext %287, i32 noundef %289, i1 noundef zeroext false)
   %337 = icmp eq ptr %336, null
@@ -7367,7 +7367,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   %353 = getelementptr inbounds nuw i8, ptr %344, i64 8
   %354 = load ptr, ptr %353, align 8
   %355 = zext i32 %352 to i64
-  %356 = getelementptr inbounds nuw ptr, ptr %354, i64 %355
+  %356 = getelementptr inbounds nuw [8 x i8], ptr %354, i64 %355
   %357 = load ptr, ptr %356, align 8
   %358 = tail call noundef ptr @_ZN8GraphKit12unbox_vectorEP4NodePK11TypeInstPtr9BasicTypeib(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %357, ptr noundef %343, i8 noundef zeroext %287, i32 noundef %289, i1 noundef zeroext false)
   %359 = icmp eq ptr %358, null
@@ -7395,13 +7395,13 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   %377 = getelementptr inbounds nuw i8, ptr %368, i64 8
   %378 = load ptr, ptr %377, align 8
   %379 = zext i32 %376 to i64
-  %380 = getelementptr inbounds nuw ptr, ptr %378, i64 %379
+  %380 = getelementptr inbounds nuw [8 x i8], ptr %378, i64 %379
   %381 = load ptr, ptr %380, align 8
   %382 = load ptr, ptr %381, align 8
   %383 = load ptr, ptr %382, align 8
   %384 = tail call noundef i32 %383(ptr noundef nonnull align 8 dereferenceable(52) %381) #9
   %385 = sext i32 %384 to i64
-  %386 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %385
+  %386 = getelementptr inbounds [8 x i8], ptr @NodeClassNames, i64 %385
   %387 = load ptr, ptr %386, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %367, ptr noundef nonnull @.str.23, ptr noundef %387) #9
   br label %478
@@ -7417,7 +7417,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
 392:                                              ; preds = %388
   %393 = load ptr, ptr %2, align 8
   %394 = zext i8 %287 to i64
-  %395 = getelementptr inbounds nuw ptr, ptr @_ZN4Type17_const_basic_typeE, i64 %394
+  %395 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4Type17_const_basic_typeE, i64 %394
   %396 = load ptr, ptr %395, align 8
   %397 = tail call noundef ptr @_ZN10VectorNode13scalar2vectorEP4NodejPK4Typeb(ptr noundef %390, i32 noundef %289, ptr noundef %396, i1 noundef zeroext false) #9
   %398 = load ptr, ptr %393, align 8
@@ -7557,7 +7557,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   %471 = getelementptr inbounds nuw i8, ptr %470, i64 132
   %472 = load i32, ptr %471, align 4
   %473 = zext nneg i8 %287 to i64
-  %474 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %473
+  %474 = getelementptr inbounds nuw [4 x i8], ptr @_type2aelembytes, i64 %473
   %475 = load i32, ptr %474, align 4
   %476 = mul nsw i32 %475, %289
   %477 = tail call noundef i32 @llvm.umax.i32(i32 %472, i32 %476)
@@ -7616,7 +7616,7 @@ define linkonce_odr hidden void @_ZN11ConvI2LNodeC2EP4NodePK8TypeLong(ptr nounde
   %23 = add i32 %21, 1
   store i32 %23, ptr %14, align 8
   %24 = zext i32 %21 to i64
-  %25 = getelementptr inbounds nuw ptr, ptr %22, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %24
   store ptr %0, ptr %25, align 8
   br label %_ZN11ConvertNodeC2EPK4TypeP4Node.exit
 
@@ -7641,7 +7641,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit18inline_vector_testEv(ptr 
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = zext i32 %12 to i64
-  %16 = getelementptr inbounds nuw ptr, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %19 = load ptr, ptr %18, align 8
@@ -7650,7 +7650,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit18inline_vector_testEv(ptr 
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %23 = load ptr, ptr %22, align 8
   %24 = zext i32 %21 to i64
-  %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %24
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load i32, ptr %27, align 8
@@ -7658,12 +7658,12 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit18inline_vector_testEv(ptr 
   %..i = select i1 %29, ptr %26, ptr null
   %30 = add i32 %12, 1
   %31 = zext i32 %30 to i64
-  %32 = getelementptr inbounds nuw ptr, ptr %14, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %31
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 40
   %35 = load i32, ptr %34, align 8
   %36 = zext i32 %35 to i64
-  %37 = getelementptr inbounds nuw ptr, ptr %23, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %36
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %40 = load i32, ptr %39, align 8
@@ -7671,12 +7671,12 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit18inline_vector_testEv(ptr 
   %..i63 = select i1 %41, ptr %38, ptr null
   %42 = add i32 %12, 2
   %43 = zext i32 %42 to i64
-  %44 = getelementptr inbounds nuw ptr, ptr %14, i64 %43
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %43
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %47 = load i32, ptr %46, align 8
   %48 = zext i32 %47 to i64
-  %49 = getelementptr inbounds nuw ptr, ptr %23, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %48
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %52 = load i32, ptr %51, align 8
@@ -7684,12 +7684,12 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit18inline_vector_testEv(ptr 
   %..i64 = select i1 %53, ptr %50, ptr null
   %54 = add i32 %12, 3
   %55 = zext i32 %54 to i64
-  %56 = getelementptr inbounds nuw ptr, ptr %14, i64 %55
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %55
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 40
   %59 = load i32, ptr %58, align 8
   %60 = zext i32 %59 to i64
-  %61 = getelementptr inbounds nuw ptr, ptr %23, i64 %60
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %60
   %62 = load ptr, ptr %61, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %64 = load i32, ptr %63, align 8
@@ -7746,7 +7746,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit18inline_vector_testEv(ptr 
   %99 = load ptr, ptr %98, align 8
   %100 = tail call noundef i32 %99(ptr noundef nonnull align 8 dereferenceable(52) %17) #9
   %101 = sext i32 %100 to i64
-  %102 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %101
+  %102 = getelementptr inbounds [8 x i8], ptr @NodeClassNames, i64 %101
   %103 = load ptr, ptr %102, align 8
   %104 = load ptr, ptr %4, align 8
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 56
@@ -7760,13 +7760,13 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit18inline_vector_testEv(ptr 
   %113 = getelementptr inbounds nuw i8, ptr %104, i64 8
   %114 = load ptr, ptr %113, align 8
   %115 = zext i32 %112 to i64
-  %116 = getelementptr inbounds nuw ptr, ptr %114, i64 %115
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %114, i64 %115
   %117 = load ptr, ptr %116, align 8
   %118 = load ptr, ptr %117, align 8
   %119 = load ptr, ptr %118, align 8
   %120 = tail call noundef i32 %119(ptr noundef nonnull align 8 dereferenceable(52) %117) #9
   %121 = sext i32 %120 to i64
-  %122 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %121
+  %122 = getelementptr inbounds [8 x i8], ptr @NodeClassNames, i64 %121
   %123 = load ptr, ptr %122, align 8
   %124 = load ptr, ptr %4, align 8
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 56
@@ -7780,13 +7780,13 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit18inline_vector_testEv(ptr 
   %133 = getelementptr inbounds nuw i8, ptr %124, i64 8
   %134 = load ptr, ptr %133, align 8
   %135 = zext i32 %132 to i64
-  %136 = getelementptr inbounds nuw ptr, ptr %134, i64 %135
+  %136 = getelementptr inbounds nuw [8 x i8], ptr %134, i64 %135
   %137 = load ptr, ptr %136, align 8
   %138 = load ptr, ptr %137, align 8
   %139 = load ptr, ptr %138, align 8
   %140 = tail call noundef i32 %139(ptr noundef nonnull align 8 dereferenceable(52) %137) #9
   %141 = sext i32 %140 to i64
-  %142 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %141
+  %142 = getelementptr inbounds [8 x i8], ptr @NodeClassNames, i64 %141
   %143 = load ptr, ptr %142, align 8
   %144 = load ptr, ptr %4, align 8
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 56
@@ -7800,13 +7800,13 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit18inline_vector_testEv(ptr 
   %153 = getelementptr inbounds nuw i8, ptr %144, i64 8
   %154 = load ptr, ptr %153, align 8
   %155 = zext i32 %152 to i64
-  %156 = getelementptr inbounds nuw ptr, ptr %154, i64 %155
+  %156 = getelementptr inbounds nuw [8 x i8], ptr %154, i64 %155
   %157 = load ptr, ptr %156, align 8
   %158 = load ptr, ptr %157, align 8
   %159 = load ptr, ptr %158, align 8
   %160 = tail call noundef i32 %159(ptr noundef nonnull align 8 dereferenceable(52) %157) #9
   %161 = sext i32 %160 to i64
-  %162 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %161
+  %162 = getelementptr inbounds [8 x i8], ptr @NodeClassNames, i64 %161
   %163 = load ptr, ptr %162, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %97, ptr noundef nonnull @.str.58, ptr noundef %103, ptr noundef %123, ptr noundef %143, ptr noundef %163) #9
   br label %327
@@ -7927,7 +7927,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   %236 = getelementptr inbounds nuw i8, ptr %227, i64 8
   %237 = load ptr, ptr %236, align 8
   %238 = zext i32 %235 to i64
-  %239 = getelementptr inbounds nuw ptr, ptr %237, i64 %238
+  %239 = getelementptr inbounds nuw [8 x i8], ptr %237, i64 %238
   %240 = load ptr, ptr %239, align 8
   %241 = tail call noundef ptr @_ZN8GraphKit12unbox_vectorEP4NodePK11TypeInstPtr9BasicTypeib(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %240, ptr noundef %208, i8 noundef zeroext %192, i32 noundef %204, i1 noundef zeroext false)
   %242 = icmp eq i32 %205, 2
@@ -7956,7 +7956,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   %261 = getelementptr inbounds nuw i8, ptr %252, i64 8
   %262 = load ptr, ptr %261, align 8
   %263 = zext i32 %260 to i64
-  %264 = getelementptr inbounds nuw ptr, ptr %262, i64 %263
+  %264 = getelementptr inbounds nuw [8 x i8], ptr %262, i64 %263
   %265 = load ptr, ptr %264, align 8
   %266 = tail call noundef ptr @_ZN8GraphKit12unbox_vectorEP4NodePK11TypeInstPtr9BasicTypeib(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %265, ptr noundef %208, i8 noundef zeroext %192, i32 noundef %204, i1 noundef zeroext false)
   %267 = icmp eq ptr %266, null
@@ -8058,7 +8058,7 @@ _ZN7Matcher15vectortest_maskEbbi.exit:            ; preds = %274, %289, %292, %2
   %320 = getelementptr inbounds nuw i8, ptr %319, i64 132
   %321 = load i32, ptr %320, align 4
   %322 = zext i8 %192 to i64
-  %323 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %322
+  %323 = getelementptr inbounds nuw [4 x i8], ptr @_type2aelembytes, i64 %322
   %324 = load i32, ptr %323, align 4
   %325 = mul nsw i32 %324, %204
   %326 = tail call noundef i32 @llvm.umax.i32(i32 %321, i32 %325)
@@ -8088,7 +8088,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit19inline_vector_blendEv(ptr
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = zext i32 %12 to i64
-  %16 = getelementptr inbounds nuw ptr, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %19 = load ptr, ptr %18, align 8
@@ -8097,7 +8097,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit19inline_vector_blendEv(ptr
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %23 = load ptr, ptr %22, align 8
   %24 = zext i32 %21 to i64
-  %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %24
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load i32, ptr %27, align 8
@@ -8105,12 +8105,12 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit19inline_vector_blendEv(ptr
   %..i = select i1 %29, ptr %26, ptr null
   %30 = add i32 %12, 1
   %31 = zext i32 %30 to i64
-  %32 = getelementptr inbounds nuw ptr, ptr %14, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %31
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 40
   %35 = load i32, ptr %34, align 8
   %36 = zext i32 %35 to i64
-  %37 = getelementptr inbounds nuw ptr, ptr %23, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %36
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %40 = load i32, ptr %39, align 8
@@ -8118,12 +8118,12 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit19inline_vector_blendEv(ptr
   %..i65 = select i1 %41, ptr %38, ptr null
   %42 = add i32 %12, 2
   %43 = zext i32 %42 to i64
-  %44 = getelementptr inbounds nuw ptr, ptr %14, i64 %43
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %43
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %47 = load i32, ptr %46, align 8
   %48 = zext i32 %47 to i64
-  %49 = getelementptr inbounds nuw ptr, ptr %23, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %48
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %52 = load i32, ptr %51, align 8
@@ -8131,12 +8131,12 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit19inline_vector_blendEv(ptr
   %..i66 = select i1 %53, ptr %50, ptr null
   %54 = add i32 %12, 3
   %55 = zext i32 %54 to i64
-  %56 = getelementptr inbounds nuw ptr, ptr %14, i64 %55
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %55
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 40
   %59 = load i32, ptr %58, align 8
   %60 = zext i32 %59 to i64
-  %61 = getelementptr inbounds nuw ptr, ptr %23, i64 %60
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %60
   %62 = load ptr, ptr %61, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %64 = load i32, ptr %63, align 8
@@ -8191,7 +8191,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit19inline_vector_blendEv(ptr
   %97 = load ptr, ptr %96, align 8
   %98 = tail call noundef i32 %97(ptr noundef nonnull align 8 dereferenceable(52) %17) #9
   %99 = sext i32 %98 to i64
-  %100 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %99
+  %100 = getelementptr inbounds [8 x i8], ptr @NodeClassNames, i64 %99
   %101 = load ptr, ptr %100, align 8
   %102 = load ptr, ptr %4, align 8
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 56
@@ -8205,13 +8205,13 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit19inline_vector_blendEv(ptr
   %111 = getelementptr inbounds nuw i8, ptr %102, i64 8
   %112 = load ptr, ptr %111, align 8
   %113 = zext i32 %110 to i64
-  %114 = getelementptr inbounds nuw ptr, ptr %112, i64 %113
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %112, i64 %113
   %115 = load ptr, ptr %114, align 8
   %116 = load ptr, ptr %115, align 8
   %117 = load ptr, ptr %116, align 8
   %118 = tail call noundef i32 %117(ptr noundef nonnull align 8 dereferenceable(52) %115) #9
   %119 = sext i32 %118 to i64
-  %120 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %119
+  %120 = getelementptr inbounds [8 x i8], ptr @NodeClassNames, i64 %119
   %121 = load ptr, ptr %120, align 8
   %122 = load ptr, ptr %4, align 8
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 56
@@ -8225,13 +8225,13 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit19inline_vector_blendEv(ptr
   %131 = getelementptr inbounds nuw i8, ptr %122, i64 8
   %132 = load ptr, ptr %131, align 8
   %133 = zext i32 %130 to i64
-  %134 = getelementptr inbounds nuw ptr, ptr %132, i64 %133
+  %134 = getelementptr inbounds nuw [8 x i8], ptr %132, i64 %133
   %135 = load ptr, ptr %134, align 8
   %136 = load ptr, ptr %135, align 8
   %137 = load ptr, ptr %136, align 8
   %138 = tail call noundef i32 %137(ptr noundef nonnull align 8 dereferenceable(52) %135) #9
   %139 = sext i32 %138 to i64
-  %140 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %139
+  %140 = getelementptr inbounds [8 x i8], ptr @NodeClassNames, i64 %139
   %141 = load ptr, ptr %140, align 8
   %142 = load ptr, ptr %4, align 8
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 56
@@ -8245,13 +8245,13 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit19inline_vector_blendEv(ptr
   %151 = getelementptr inbounds nuw i8, ptr %142, i64 8
   %152 = load ptr, ptr %151, align 8
   %153 = zext i32 %150 to i64
-  %154 = getelementptr inbounds nuw ptr, ptr %152, i64 %153
+  %154 = getelementptr inbounds nuw [8 x i8], ptr %152, i64 %153
   %155 = load ptr, ptr %154, align 8
   %156 = load ptr, ptr %155, align 8
   %157 = load ptr, ptr %156, align 8
   %158 = tail call noundef i32 %157(ptr noundef nonnull align 8 dereferenceable(52) %155) #9
   %159 = sext i32 %158 to i64
-  %160 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %159
+  %160 = getelementptr inbounds [8 x i8], ptr @NodeClassNames, i64 %159
   %161 = load ptr, ptr %160, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %95, ptr noundef nonnull @.str.60, ptr noundef %101, ptr noundef %121, ptr noundef %141, ptr noundef %161) #9
   br label %309
@@ -8409,7 +8409,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit75.thread: ; preds = %178, %_ZL20is
   %246 = getelementptr inbounds nuw i8, ptr %237, i64 8
   %247 = load ptr, ptr %246, align 8
   %248 = zext i32 %245 to i64
-  %249 = getelementptr inbounds nuw ptr, ptr %247, i64 %248
+  %249 = getelementptr inbounds nuw [8 x i8], ptr %247, i64 %248
   %250 = load ptr, ptr %249, align 8
   %251 = tail call noundef ptr @_ZN8GraphKit12unbox_vectorEP4NodePK11TypeInstPtr9BasicTypeib(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %250, ptr noundef %233, i8 noundef zeroext %207, i32 noundef %219, i1 noundef zeroext false)
   %252 = load ptr, ptr %4, align 8
@@ -8424,7 +8424,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit75.thread: ; preds = %178, %_ZL20is
   %261 = getelementptr inbounds nuw i8, ptr %252, i64 8
   %262 = load ptr, ptr %261, align 8
   %263 = zext i32 %260 to i64
-  %264 = getelementptr inbounds nuw ptr, ptr %262, i64 %263
+  %264 = getelementptr inbounds nuw [8 x i8], ptr %262, i64 %263
   %265 = load ptr, ptr %264, align 8
   %266 = tail call noundef ptr @_ZN8GraphKit12unbox_vectorEP4NodePK11TypeInstPtr9BasicTypeib(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %265, ptr noundef %233, i8 noundef zeroext %207, i32 noundef %219, i1 noundef zeroext false)
   %267 = load ptr, ptr %4, align 8
@@ -8439,7 +8439,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit75.thread: ; preds = %178, %_ZL20is
   %276 = getelementptr inbounds nuw i8, ptr %267, i64 8
   %277 = load ptr, ptr %276, align 8
   %278 = zext i32 %275 to i64
-  %279 = getelementptr inbounds nuw ptr, ptr %277, i64 %278
+  %279 = getelementptr inbounds nuw [8 x i8], ptr %277, i64 %278
   %280 = load ptr, ptr %279, align 8
   %281 = tail call noundef ptr @_ZN8GraphKit12unbox_vectorEP4NodePK11TypeInstPtr9BasicTypeib(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %280, ptr noundef %236, i8 noundef zeroext %207, i32 noundef %219, i1 noundef zeroext false)
   %282 = icmp eq ptr %251, null
@@ -8476,7 +8476,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit75.thread: ; preds = %178, %_ZL20is
   %302 = getelementptr inbounds nuw i8, ptr %301, i64 132
   %303 = load i32, ptr %302, align 4
   %304 = zext i8 %207 to i64
-  %305 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %304
+  %305 = getelementptr inbounds nuw [4 x i8], ptr @_type2aelembytes, i64 %304
   %306 = load i32, ptr %305, align 4
   %307 = mul nsw i32 %306, %219
   %308 = tail call noundef i32 @llvm.umax.i32(i32 %303, i32 %307)
@@ -8504,7 +8504,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit21inline_vector_compareEv(p
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = zext i32 %12 to i64
-  %16 = getelementptr inbounds nuw ptr, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %19 = load ptr, ptr %18, align 8
@@ -8513,7 +8513,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit21inline_vector_compareEv(p
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %23 = load ptr, ptr %22, align 8
   %24 = zext i32 %21 to i64
-  %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %24
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load i32, ptr %27, align 8
@@ -8521,12 +8521,12 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit21inline_vector_compareEv(p
   %..i = select i1 %29, ptr %26, ptr null
   %30 = add i32 %12, 1
   %31 = zext i32 %30 to i64
-  %32 = getelementptr inbounds nuw ptr, ptr %14, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %31
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 40
   %35 = load i32, ptr %34, align 8
   %36 = zext i32 %35 to i64
-  %37 = getelementptr inbounds nuw ptr, ptr %23, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %36
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %40 = load i32, ptr %39, align 8
@@ -8534,12 +8534,12 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit21inline_vector_compareEv(p
   %..i110 = select i1 %41, ptr %38, ptr null
   %42 = add i32 %12, 2
   %43 = zext i32 %42 to i64
-  %44 = getelementptr inbounds nuw ptr, ptr %14, i64 %43
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %43
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %47 = load i32, ptr %46, align 8
   %48 = zext i32 %47 to i64
-  %49 = getelementptr inbounds nuw ptr, ptr %23, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %48
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %52 = load i32, ptr %51, align 8
@@ -8547,12 +8547,12 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit21inline_vector_compareEv(p
   %..i111 = select i1 %53, ptr %50, ptr null
   %54 = add i32 %12, 3
   %55 = zext i32 %54 to i64
-  %56 = getelementptr inbounds nuw ptr, ptr %14, i64 %55
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %55
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 40
   %59 = load i32, ptr %58, align 8
   %60 = zext i32 %59 to i64
-  %61 = getelementptr inbounds nuw ptr, ptr %23, i64 %60
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %60
   %62 = load ptr, ptr %61, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %64 = load i32, ptr %63, align 8
@@ -8560,12 +8560,12 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit21inline_vector_compareEv(p
   %..i112 = select i1 %65, ptr %62, ptr null
   %66 = add i32 %12, 4
   %67 = zext i32 %66 to i64
-  %68 = getelementptr inbounds nuw ptr, ptr %14, i64 %67
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %67
   %69 = load ptr, ptr %68, align 8
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
   %71 = load i32, ptr %70, align 8
   %72 = zext i32 %71 to i64
-  %73 = getelementptr inbounds nuw ptr, ptr %23, i64 %72
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %72
   %74 = load ptr, ptr %73, align 8
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 16
   %76 = load i32, ptr %75, align 8
@@ -8630,7 +8630,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit21inline_vector_compareEv(p
   %116 = load ptr, ptr %115, align 8
   %117 = tail call noundef i32 %116(ptr noundef nonnull align 8 dereferenceable(52) %17) #9
   %118 = sext i32 %117 to i64
-  %119 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %118
+  %119 = getelementptr inbounds [8 x i8], ptr @NodeClassNames, i64 %118
   %120 = load ptr, ptr %119, align 8
   %121 = load ptr, ptr %4, align 8
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 56
@@ -8644,13 +8644,13 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit21inline_vector_compareEv(p
   %130 = getelementptr inbounds nuw i8, ptr %121, i64 8
   %131 = load ptr, ptr %130, align 8
   %132 = zext i32 %129 to i64
-  %133 = getelementptr inbounds nuw ptr, ptr %131, i64 %132
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %131, i64 %132
   %134 = load ptr, ptr %133, align 8
   %135 = load ptr, ptr %134, align 8
   %136 = load ptr, ptr %135, align 8
   %137 = tail call noundef i32 %136(ptr noundef nonnull align 8 dereferenceable(52) %134) #9
   %138 = sext i32 %137 to i64
-  %139 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %138
+  %139 = getelementptr inbounds [8 x i8], ptr @NodeClassNames, i64 %138
   %140 = load ptr, ptr %139, align 8
   %141 = load ptr, ptr %4, align 8
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 56
@@ -8664,13 +8664,13 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit21inline_vector_compareEv(p
   %150 = getelementptr inbounds nuw i8, ptr %141, i64 8
   %151 = load ptr, ptr %150, align 8
   %152 = zext i32 %149 to i64
-  %153 = getelementptr inbounds nuw ptr, ptr %151, i64 %152
+  %153 = getelementptr inbounds nuw [8 x i8], ptr %151, i64 %152
   %154 = load ptr, ptr %153, align 8
   %155 = load ptr, ptr %154, align 8
   %156 = load ptr, ptr %155, align 8
   %157 = tail call noundef i32 %156(ptr noundef nonnull align 8 dereferenceable(52) %154) #9
   %158 = sext i32 %157 to i64
-  %159 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %158
+  %159 = getelementptr inbounds [8 x i8], ptr @NodeClassNames, i64 %158
   %160 = load ptr, ptr %159, align 8
   %161 = load ptr, ptr %4, align 8
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 56
@@ -8684,13 +8684,13 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit21inline_vector_compareEv(p
   %170 = getelementptr inbounds nuw i8, ptr %161, i64 8
   %171 = load ptr, ptr %170, align 8
   %172 = zext i32 %169 to i64
-  %173 = getelementptr inbounds nuw ptr, ptr %171, i64 %172
+  %173 = getelementptr inbounds nuw [8 x i8], ptr %171, i64 %172
   %174 = load ptr, ptr %173, align 8
   %175 = load ptr, ptr %174, align 8
   %176 = load ptr, ptr %175, align 8
   %177 = tail call noundef i32 %176(ptr noundef nonnull align 8 dereferenceable(52) %174) #9
   %178 = sext i32 %177 to i64
-  %179 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %178
+  %179 = getelementptr inbounds [8 x i8], ptr @NodeClassNames, i64 %178
   %180 = load ptr, ptr %179, align 8
   %181 = load ptr, ptr %4, align 8
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 56
@@ -8704,13 +8704,13 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit21inline_vector_compareEv(p
   %190 = getelementptr inbounds nuw i8, ptr %181, i64 8
   %191 = load ptr, ptr %190, align 8
   %192 = zext i32 %189 to i64
-  %193 = getelementptr inbounds nuw ptr, ptr %191, i64 %192
+  %193 = getelementptr inbounds nuw [8 x i8], ptr %191, i64 %192
   %194 = load ptr, ptr %193, align 8
   %195 = load ptr, ptr %194, align 8
   %196 = load ptr, ptr %195, align 8
   %197 = tail call noundef i32 %196(ptr noundef nonnull align 8 dereferenceable(52) %194) #9
   %198 = sext i32 %197 to i64
-  %199 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %198
+  %199 = getelementptr inbounds [8 x i8], ptr @NodeClassNames, i64 %198
   %200 = load ptr, ptr %199, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %114, ptr noundef nonnull @.str.62, ptr noundef %120, ptr noundef %140, ptr noundef %160, ptr noundef %180, ptr noundef %200) #9
   br label %396
@@ -8832,7 +8832,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   %271 = getelementptr inbounds nuw i8, ptr %262, i64 8
   %272 = load ptr, ptr %271, align 8
   %273 = zext i32 %270 to i64
-  %274 = getelementptr inbounds nuw ptr, ptr %272, i64 %273
+  %274 = getelementptr inbounds nuw [8 x i8], ptr %272, i64 %273
   %275 = load ptr, ptr %274, align 8
   %276 = tail call noundef ptr @_ZN8GraphKit12unbox_vectorEP4NodePK11TypeInstPtr9BasicTypeib(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %275, ptr noundef %258, i8 noundef zeroext %231, i32 noundef %243, i1 noundef zeroext false)
   %277 = load ptr, ptr %4, align 8
@@ -8847,7 +8847,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   %286 = getelementptr inbounds nuw i8, ptr %277, i64 8
   %287 = load ptr, ptr %286, align 8
   %288 = zext i32 %285 to i64
-  %289 = getelementptr inbounds nuw ptr, ptr %287, i64 %288
+  %289 = getelementptr inbounds nuw [8 x i8], ptr %287, i64 %288
   %290 = load ptr, ptr %289, align 8
   %291 = tail call noundef ptr @_ZN8GraphKit12unbox_vectorEP4NodePK11TypeInstPtr9BasicTypeib(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %290, ptr noundef %258, i8 noundef zeroext %231, i32 noundef %243, i1 noundef zeroext false)
   %292 = load ptr, ptr %4, align 8
@@ -8862,7 +8862,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   %301 = getelementptr inbounds nuw i8, ptr %292, i64 8
   %302 = load ptr, ptr %301, align 8
   %303 = zext i32 %300 to i64
-  %304 = getelementptr inbounds nuw ptr, ptr %302, i64 %303
+  %304 = getelementptr inbounds nuw [8 x i8], ptr %302, i64 %303
   %305 = load ptr, ptr %304, align 8
   %306 = load ptr, ptr %305, align 8
   %307 = getelementptr inbounds nuw i8, ptr %306, i64 40
@@ -8885,7 +8885,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   %321 = getelementptr inbounds nuw i8, ptr %312, i64 8
   %322 = load ptr, ptr %321, align 8
   %323 = zext i32 %320 to i64
-  %324 = getelementptr inbounds nuw ptr, ptr %322, i64 %323
+  %324 = getelementptr inbounds nuw [8 x i8], ptr %322, i64 %323
   %325 = load ptr, ptr %324, align 8
   %326 = tail call noundef ptr @_ZN8GraphKit12unbox_vectorEP4NodePK11TypeInstPtr9BasicTypeib(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %325, ptr noundef %261, i8 noundef zeroext %231, i32 noundef %243, i1 noundef zeroext false)
   %327 = icmp eq ptr %326, null
@@ -8942,7 +8942,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   %358 = load ptr, ptr %2, align 8
   %359 = tail call noundef ptr @_ZN11PhaseValues7makeconEPK4Type(ptr noundef nonnull align 8 dereferenceable(2400) %358, ptr noundef nonnull %26) #9
   %360 = zext i8 %231 to i64
-  %361 = getelementptr inbounds nuw ptr, ptr @_ZN4Type17_const_basic_typeE, i64 %360
+  %361 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4Type17_const_basic_typeE, i64 %360
   %362 = load ptr, ptr %361, align 8
   %363 = tail call noundef ptr @_ZN8TypeVect8makemaskEPK4Typej(ptr noundef %362, i32 noundef %243) #9
   %364 = tail call noundef ptr @_ZN4NodenwEm(i64 noundef 72) #9
@@ -8993,7 +8993,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   %389 = load ptr, ptr %388, align 8
   %390 = getelementptr inbounds nuw i8, ptr %389, i64 132
   %391 = load i32, ptr %390, align 4
-  %392 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %360
+  %392 = getelementptr inbounds nuw [4 x i8], ptr @_type2aelembytes, i64 %360
   %393 = load i32, ptr %392, align 4
   %394 = mul nsw i32 %393, %243
   %395 = tail call noundef i32 @llvm.umax.i32(i32 %391, i32 %394)
@@ -9021,7 +9021,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit23inline_vector_rearrangeEv
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = zext i32 %12 to i64
-  %16 = getelementptr inbounds nuw ptr, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %19 = load ptr, ptr %18, align 8
@@ -9030,7 +9030,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit23inline_vector_rearrangeEv
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %23 = load ptr, ptr %22, align 8
   %24 = zext i32 %21 to i64
-  %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %24
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load i32, ptr %27, align 8
@@ -9038,12 +9038,12 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit23inline_vector_rearrangeEv
   %..i = select i1 %29, ptr %26, ptr null
   %30 = add i32 %12, 1
   %31 = zext i32 %30 to i64
-  %32 = getelementptr inbounds nuw ptr, ptr %14, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %31
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 40
   %35 = load i32, ptr %34, align 8
   %36 = zext i32 %35 to i64
-  %37 = getelementptr inbounds nuw ptr, ptr %23, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %36
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %40 = load i32, ptr %39, align 8
@@ -9051,24 +9051,24 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit23inline_vector_rearrangeEv
   %..i106 = select i1 %41, ptr %38, ptr null
   %42 = add i32 %12, 2
   %43 = zext i32 %42 to i64
-  %44 = getelementptr inbounds nuw ptr, ptr %14, i64 %43
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %43
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %47 = load i32, ptr %46, align 8
   %48 = zext i32 %47 to i64
-  %49 = getelementptr inbounds nuw ptr, ptr %23, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %48
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %52 = load i32, ptr %51, align 8
   %.not129 = icmp eq i32 %52, 21
   %53 = add i32 %12, 3
   %54 = zext i32 %53 to i64
-  %55 = getelementptr inbounds nuw ptr, ptr %14, i64 %54
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %54
   %56 = load ptr, ptr %55, align 8
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 40
   %58 = load i32, ptr %57, align 8
   %59 = zext i32 %58 to i64
-  %60 = getelementptr inbounds nuw ptr, ptr %23, i64 %59
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %59
   %61 = load ptr, ptr %60, align 8
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %63 = load i32, ptr %62, align 8
@@ -9076,12 +9076,12 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit23inline_vector_rearrangeEv
   %..i108 = select i1 %64, ptr %61, ptr null
   %65 = add i32 %12, 4
   %66 = zext i32 %65 to i64
-  %67 = getelementptr inbounds nuw ptr, ptr %14, i64 %66
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %66
   %68 = load ptr, ptr %67, align 8
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 40
   %70 = load i32, ptr %69, align 8
   %71 = zext i32 %70 to i64
-  %72 = getelementptr inbounds nuw ptr, ptr %23, i64 %71
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %71
   %73 = load ptr, ptr %72, align 8
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
   %75 = load i32, ptr %74, align 8
@@ -9136,7 +9136,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit23inline_vector_rearrangeEv
   %108 = load ptr, ptr %107, align 8
   %109 = tail call noundef i32 %108(ptr noundef nonnull align 8 dereferenceable(52) %17) #9
   %110 = sext i32 %109 to i64
-  %111 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %110
+  %111 = getelementptr inbounds [8 x i8], ptr @NodeClassNames, i64 %110
   %112 = load ptr, ptr %111, align 8
   %113 = load ptr, ptr %4, align 8
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 56
@@ -9150,13 +9150,13 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit23inline_vector_rearrangeEv
   %122 = getelementptr inbounds nuw i8, ptr %113, i64 8
   %123 = load ptr, ptr %122, align 8
   %124 = zext i32 %121 to i64
-  %125 = getelementptr inbounds nuw ptr, ptr %123, i64 %124
+  %125 = getelementptr inbounds nuw [8 x i8], ptr %123, i64 %124
   %126 = load ptr, ptr %125, align 8
   %127 = load ptr, ptr %126, align 8
   %128 = load ptr, ptr %127, align 8
   %129 = tail call noundef i32 %128(ptr noundef nonnull align 8 dereferenceable(52) %126) #9
   %130 = sext i32 %129 to i64
-  %131 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %130
+  %131 = getelementptr inbounds [8 x i8], ptr @NodeClassNames, i64 %130
   %132 = load ptr, ptr %131, align 8
   %133 = load ptr, ptr %4, align 8
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 56
@@ -9170,13 +9170,13 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit23inline_vector_rearrangeEv
   %142 = getelementptr inbounds nuw i8, ptr %133, i64 8
   %143 = load ptr, ptr %142, align 8
   %144 = zext i32 %141 to i64
-  %145 = getelementptr inbounds nuw ptr, ptr %143, i64 %144
+  %145 = getelementptr inbounds nuw [8 x i8], ptr %143, i64 %144
   %146 = load ptr, ptr %145, align 8
   %147 = load ptr, ptr %146, align 8
   %148 = load ptr, ptr %147, align 8
   %149 = tail call noundef i32 %148(ptr noundef nonnull align 8 dereferenceable(52) %146) #9
   %150 = sext i32 %149 to i64
-  %151 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %150
+  %151 = getelementptr inbounds [8 x i8], ptr @NodeClassNames, i64 %150
   %152 = load ptr, ptr %151, align 8
   %153 = load ptr, ptr %4, align 8
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 56
@@ -9190,13 +9190,13 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit23inline_vector_rearrangeEv
   %162 = getelementptr inbounds nuw i8, ptr %153, i64 8
   %163 = load ptr, ptr %162, align 8
   %164 = zext i32 %161 to i64
-  %165 = getelementptr inbounds nuw ptr, ptr %163, i64 %164
+  %165 = getelementptr inbounds nuw [8 x i8], ptr %163, i64 %164
   %166 = load ptr, ptr %165, align 8
   %167 = load ptr, ptr %166, align 8
   %168 = load ptr, ptr %167, align 8
   %169 = tail call noundef i32 %168(ptr noundef nonnull align 8 dereferenceable(52) %166) #9
   %170 = sext i32 %169 to i64
-  %171 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %170
+  %171 = getelementptr inbounds [8 x i8], ptr @NodeClassNames, i64 %170
   %172 = load ptr, ptr %171, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %106, ptr noundef nonnull @.str.67, ptr noundef %112, ptr noundef %132, ptr noundef %152, ptr noundef %172) #9
   br label %417
@@ -9348,7 +9348,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit117.thread: ; preds = %189, %_ZL20i
   %251 = getelementptr inbounds nuw i8, ptr %242, i64 8
   %252 = load ptr, ptr %251, align 8
   %253 = zext i32 %250 to i64
-  %254 = getelementptr inbounds nuw ptr, ptr %252, i64 %253
+  %254 = getelementptr inbounds nuw [8 x i8], ptr %252, i64 %253
   %255 = load ptr, ptr %254, align 8
   %256 = load ptr, ptr %255, align 8
   %257 = getelementptr inbounds nuw i8, ptr %256, i64 40
@@ -9438,7 +9438,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit117.thread: ; preds = %189, %_ZL20i
   %309 = getelementptr inbounds nuw i8, ptr %300, i64 8
   %310 = load ptr, ptr %309, align 8
   %311 = zext i32 %308 to i64
-  %312 = getelementptr inbounds nuw ptr, ptr %310, i64 %311
+  %312 = getelementptr inbounds nuw [8 x i8], ptr %310, i64 %311
   %313 = load ptr, ptr %312, align 8
   %314 = tail call noundef ptr @_ZN8GraphKit12unbox_vectorEP4NodePK11TypeInstPtr9BasicTypeib(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %313, ptr noundef %296, i8 noundef zeroext %218, i32 noundef %230, i1 noundef zeroext false)
   %315 = load ptr, ptr %4, align 8
@@ -9453,7 +9453,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit117.thread: ; preds = %189, %_ZL20i
   %324 = getelementptr inbounds nuw i8, ptr %315, i64 8
   %325 = load ptr, ptr %324, align 8
   %326 = zext i32 %323 to i64
-  %327 = getelementptr inbounds nuw ptr, ptr %325, i64 %326
+  %327 = getelementptr inbounds nuw [8 x i8], ptr %325, i64 %326
   %328 = load ptr, ptr %327, align 8
   %329 = tail call noundef ptr @_ZN8GraphKit12unbox_vectorEP4NodePK11TypeInstPtr9BasicTypeib(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %328, ptr noundef %299, i8 noundef zeroext %218, i32 noundef %230, i1 noundef zeroext false)
   %330 = icmp eq ptr %314, null
@@ -9481,7 +9481,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit117.thread: ; preds = %189, %_ZL20i
   %347 = getelementptr inbounds nuw i8, ptr %338, i64 8
   %348 = load ptr, ptr %347, align 8
   %349 = zext i32 %346 to i64
-  %350 = getelementptr inbounds nuw ptr, ptr %348, i64 %349
+  %350 = getelementptr inbounds nuw [8 x i8], ptr %348, i64 %349
   %351 = load ptr, ptr %350, align 8
   %352 = tail call noundef ptr @_ZN8GraphKit12unbox_vectorEP4NodePK11TypeInstPtr9BasicTypeib(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %351, ptr noundef %337, i8 noundef zeroext %218, i32 noundef %230, i1 noundef zeroext false)
   %353 = icmp eq ptr %352, null
@@ -9536,11 +9536,11 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit117.thread: ; preds = %189, %_ZL20i
   %381 = tail call noundef ptr %380(ptr noundef nonnull align 8 dereferenceable(2400) %378, ptr noundef %364) #9
   %382 = load ptr, ptr %2, align 8
   %383 = zext i8 %218 to i64
-  %384 = getelementptr inbounds nuw ptr, ptr @_ZN4Type10_zero_typeE, i64 %383
+  %384 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4Type10_zero_typeE, i64 %383
   %385 = load ptr, ptr %384, align 8
   %386 = tail call noundef ptr @_ZN11PhaseValues7makeconEPK4Type(ptr noundef nonnull align 8 dereferenceable(2400) %382, ptr noundef %385) #9
   %387 = load ptr, ptr %2, align 8
-  %388 = getelementptr inbounds nuw ptr, ptr @_ZN4Type17_const_basic_typeE, i64 %383
+  %388 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4Type17_const_basic_typeE, i64 %383
   %389 = load ptr, ptr %388, align 8
   %390 = tail call noundef ptr @_ZN10VectorNode13scalar2vectorEP4NodejPK4Typeb(ptr noundef %386, i32 noundef %230, ptr noundef %389, i1 noundef zeroext false) #9
   %391 = load ptr, ptr %387, align 8
@@ -9573,7 +9573,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit117.thread: ; preds = %189, %_ZL20i
   %410 = getelementptr inbounds nuw i8, ptr %409, i64 132
   %411 = load i32, ptr %410, align 4
   %412 = zext i8 %218 to i64
-  %413 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %412
+  %413 = getelementptr inbounds nuw [4 x i8], ptr @_type2aelembytes, i64 %412
   %414 = load i32, ptr %413, align 4
   %415 = mul nsw i32 %414, %230
   %416 = tail call noundef i32 @llvm.umax.i32(i32 %411, i32 %415)
@@ -9626,7 +9626,7 @@ define linkonce_odr hidden void @_ZN19VectorRearrangeNodeC2EP4NodeS1_(ptr nounde
   %26 = add i32 %24, 1
   store i32 %26, ptr %17, align 8
   %27 = zext i32 %24 to i64
-  %28 = getelementptr inbounds nuw ptr, ptr %25, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %27
   store ptr %0, ptr %28, align 8
   br label %_ZN4Node8init_reqEjPS_.exit.i
 
@@ -9663,7 +9663,7 @@ _ZN4Node8init_reqEjPS_.exit.i:                    ; preds = %23, %3
   %45 = add i32 %43, 1
   store i32 %45, ptr %36, align 8
   %46 = zext i32 %43 to i64
-  %47 = getelementptr inbounds nuw ptr, ptr %44, i64 %46
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %46
   store ptr %0, ptr %47, align 8
   br label %_ZN10VectorNodeC2EP4NodeS1_PK8TypeVect.exit
 
@@ -9695,7 +9695,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit27inline_vector_broadcast_i
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = zext i32 %12 to i64
-  %16 = getelementptr inbounds nuw ptr, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %19 = load ptr, ptr %18, align 8
@@ -9704,7 +9704,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit27inline_vector_broadcast_i
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %23 = load ptr, ptr %22, align 8
   %24 = zext i32 %21 to i64
-  %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %24
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load i32, ptr %27, align 8
@@ -9712,12 +9712,12 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit27inline_vector_broadcast_i
   %..i = select i1 %29, ptr %26, ptr null
   %30 = add i32 %12, 1
   %31 = zext i32 %30 to i64
-  %32 = getelementptr inbounds nuw ptr, ptr %14, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %31
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 40
   %35 = load i32, ptr %34, align 8
   %36 = zext i32 %35 to i64
-  %37 = getelementptr inbounds nuw ptr, ptr %23, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %36
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %40 = load i32, ptr %39, align 8
@@ -9725,24 +9725,24 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit27inline_vector_broadcast_i
   %..i143 = select i1 %41, ptr %38, ptr null
   %42 = add i32 %12, 2
   %43 = zext i32 %42 to i64
-  %44 = getelementptr inbounds nuw ptr, ptr %14, i64 %43
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %43
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %47 = load i32, ptr %46, align 8
   %48 = zext i32 %47 to i64
-  %49 = getelementptr inbounds nuw ptr, ptr %23, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %48
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %52 = load i32, ptr %51, align 8
   %.not = icmp eq i32 %52, 21
   %53 = add i32 %12, 3
   %54 = zext i32 %53 to i64
-  %55 = getelementptr inbounds nuw ptr, ptr %14, i64 %54
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %54
   %56 = load ptr, ptr %55, align 8
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 40
   %58 = load i32, ptr %57, align 8
   %59 = zext i32 %58 to i64
-  %60 = getelementptr inbounds nuw ptr, ptr %23, i64 %59
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %59
   %61 = load ptr, ptr %60, align 8
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %63 = load i32, ptr %62, align 8
@@ -9750,12 +9750,12 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit27inline_vector_broadcast_i
   %..i145 = select i1 %64, ptr %61, ptr null
   %65 = add i32 %12, 4
   %66 = zext i32 %65 to i64
-  %67 = getelementptr inbounds nuw ptr, ptr %14, i64 %66
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %66
   %68 = load ptr, ptr %67, align 8
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 40
   %70 = load i32, ptr %69, align 8
   %71 = zext i32 %70 to i64
-  %72 = getelementptr inbounds nuw ptr, ptr %23, i64 %71
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %71
   %73 = load ptr, ptr %72, align 8
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
   %75 = load i32, ptr %74, align 8
@@ -9812,7 +9812,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit27inline_vector_broadcast_i
   %110 = load ptr, ptr %109, align 8
   %111 = tail call noundef i32 %110(ptr noundef nonnull align 8 dereferenceable(52) %17) #9
   %112 = sext i32 %111 to i64
-  %113 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %112
+  %113 = getelementptr inbounds [8 x i8], ptr @NodeClassNames, i64 %112
   %114 = load ptr, ptr %113, align 8
   %115 = load ptr, ptr %4, align 8
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 56
@@ -9826,13 +9826,13 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit27inline_vector_broadcast_i
   %124 = getelementptr inbounds nuw i8, ptr %115, i64 8
   %125 = load ptr, ptr %124, align 8
   %126 = zext i32 %123 to i64
-  %127 = getelementptr inbounds nuw ptr, ptr %125, i64 %126
+  %127 = getelementptr inbounds nuw [8 x i8], ptr %125, i64 %126
   %128 = load ptr, ptr %127, align 8
   %129 = load ptr, ptr %128, align 8
   %130 = load ptr, ptr %129, align 8
   %131 = tail call noundef i32 %130(ptr noundef nonnull align 8 dereferenceable(52) %128) #9
   %132 = sext i32 %131 to i64
-  %133 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %132
+  %133 = getelementptr inbounds [8 x i8], ptr @NodeClassNames, i64 %132
   %134 = load ptr, ptr %133, align 8
   %135 = load ptr, ptr %4, align 8
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 56
@@ -9846,13 +9846,13 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit27inline_vector_broadcast_i
   %144 = getelementptr inbounds nuw i8, ptr %135, i64 8
   %145 = load ptr, ptr %144, align 8
   %146 = zext i32 %143 to i64
-  %147 = getelementptr inbounds nuw ptr, ptr %145, i64 %146
+  %147 = getelementptr inbounds nuw [8 x i8], ptr %145, i64 %146
   %148 = load ptr, ptr %147, align 8
   %149 = load ptr, ptr %148, align 8
   %150 = load ptr, ptr %149, align 8
   %151 = tail call noundef i32 %150(ptr noundef nonnull align 8 dereferenceable(52) %148) #9
   %152 = sext i32 %151 to i64
-  %153 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %152
+  %153 = getelementptr inbounds [8 x i8], ptr @NodeClassNames, i64 %152
   %154 = load ptr, ptr %153, align 8
   %155 = load ptr, ptr %4, align 8
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 56
@@ -9866,13 +9866,13 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit27inline_vector_broadcast_i
   %164 = getelementptr inbounds nuw i8, ptr %155, i64 8
   %165 = load ptr, ptr %164, align 8
   %166 = zext i32 %163 to i64
-  %167 = getelementptr inbounds nuw ptr, ptr %165, i64 %166
+  %167 = getelementptr inbounds nuw [8 x i8], ptr %165, i64 %166
   %168 = load ptr, ptr %167, align 8
   %169 = load ptr, ptr %168, align 8
   %170 = load ptr, ptr %169, align 8
   %171 = tail call noundef i32 %170(ptr noundef nonnull align 8 dereferenceable(52) %168) #9
   %172 = sext i32 %171 to i64
-  %173 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %172
+  %173 = getelementptr inbounds [8 x i8], ptr @NodeClassNames, i64 %172
   %174 = load ptr, ptr %173, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %108, ptr noundef nonnull @.str.6, ptr noundef %114, ptr noundef %134, ptr noundef %154, ptr noundef %174) #9
   br label %504
@@ -9941,7 +9941,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   %210 = getelementptr inbounds nuw i8, ptr %201, i64 8
   %211 = load ptr, ptr %210, align 8
   %212 = zext i32 %209 to i64
-  %213 = getelementptr inbounds nuw ptr, ptr %211, i64 %212
+  %213 = getelementptr inbounds nuw [8 x i8], ptr %211, i64 %212
   %214 = load ptr, ptr %213, align 8
   %215 = getelementptr inbounds nuw i8, ptr %200, i64 40
   %216 = load ptr, ptr %215, align 8
@@ -9950,7 +9950,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   %219 = getelementptr inbounds nuw i8, ptr %216, i64 16
   %220 = load ptr, ptr %219, align 8
   %221 = zext i32 %218 to i64
-  %222 = getelementptr inbounds nuw ptr, ptr %220, i64 %221
+  %222 = getelementptr inbounds nuw [8 x i8], ptr %220, i64 %221
   %223 = load ptr, ptr %222, align 8
   %224 = load ptr, ptr @_ZN7TypePtr8NULL_PTRE, align 8
   %225 = icmp ne ptr %223, %224
@@ -9977,13 +9977,13 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   %238 = load ptr, ptr @tty, align 8
   %239 = add i32 %208, 2
   %240 = zext i32 %239 to i64
-  %241 = getelementptr inbounds nuw ptr, ptr %211, i64 %240
+  %241 = getelementptr inbounds nuw [8 x i8], ptr %211, i64 %240
   %242 = load ptr, ptr %241, align 8
   %243 = load ptr, ptr %242, align 8
   %244 = load ptr, ptr %243, align 8
   %245 = tail call noundef i32 %244(ptr noundef nonnull align 8 dereferenceable(52) %242) #9
   %246 = sext i32 %245 to i64
-  %247 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %246
+  %247 = getelementptr inbounds [8 x i8], ptr @NodeClassNames, i64 %246
   %248 = load ptr, ptr %247, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %238, ptr noundef nonnull @.str.9, ptr noundef %248) #9
   br label %504
@@ -10090,7 +10090,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
 313:                                              ; preds = %307
   %314 = load ptr, ptr @tty, align 8
   %315 = sext i32 %290 to i64
-  %316 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %315
+  %316 = getelementptr inbounds [8 x i8], ptr @NodeClassNames, i64 %315
   %317 = load ptr, ptr %316, align 8
   %318 = tail call noundef ptr @_Z9type2name9BasicType(i8 noundef zeroext %276) #9
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %314, ptr noundef nonnull @.str.12, ptr noundef %317, ptr noundef %318) #9
@@ -10109,7 +10109,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   %329 = getelementptr inbounds nuw i8, ptr %320, i64 8
   %330 = load ptr, ptr %329, align 8
   %331 = zext i32 %328 to i64
-  %332 = getelementptr inbounds nuw ptr, ptr %330, i64 %331
+  %332 = getelementptr inbounds nuw [8 x i8], ptr %330, i64 %331
   %333 = load ptr, ptr %332, align 8
   %334 = load ptr, ptr %88, align 8
   %335 = tail call noundef ptr @_ZN10ciInstance21java_lang_Class_klassEv(ptr noundef nonnull align 8 dereferenceable(40) %334) #9
@@ -10187,7 +10187,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   %385 = getelementptr inbounds nuw i8, ptr %376, i64 8
   %386 = load ptr, ptr %385, align 8
   %387 = zext i32 %384 to i64
-  %388 = getelementptr inbounds nuw ptr, ptr %386, i64 %387
+  %388 = getelementptr inbounds nuw [8 x i8], ptr %386, i64 %387
   %389 = load ptr, ptr %388, align 8
   %390 = tail call noundef ptr @_ZN8GraphKit12unbox_vectorEP4NodePK11TypeInstPtr9BasicTypeib(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %389, ptr noundef %336, i8 noundef zeroext %276, i32 noundef %288, i1 noundef zeroext false)
   br i1 %291, label %391, label %393
@@ -10201,7 +10201,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
 
 394:                                              ; preds = %393
   %395 = zext i8 %276 to i64
-  %396 = getelementptr inbounds nuw ptr, ptr @_ZN4Type17_const_basic_typeE, i64 %395
+  %396 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4Type17_const_basic_typeE, i64 %395
   %397 = load ptr, ptr %396, align 8
   %398 = icmp eq i8 %276, 11
   br i1 %398, label %399, label %409
@@ -10263,7 +10263,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   %435 = getelementptr inbounds nuw i8, ptr %426, i64 8
   %436 = load ptr, ptr %435, align 8
   %437 = zext i32 %434 to i64
-  %438 = getelementptr inbounds nuw ptr, ptr %436, i64 %437
+  %438 = getelementptr inbounds nuw [8 x i8], ptr %436, i64 %437
   %439 = load ptr, ptr %438, align 8
   %440 = tail call noundef ptr @_ZN8GraphKit12unbox_vectorEP4NodePK11TypeInstPtr9BasicTypeib(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %439, ptr noundef %425, i8 noundef zeroext %276, i32 noundef %288, i1 noundef zeroext false)
   %441 = icmp eq ptr %440, null
@@ -10291,13 +10291,13 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   %459 = getelementptr inbounds nuw i8, ptr %450, i64 8
   %460 = load ptr, ptr %459, align 8
   %461 = zext i32 %458 to i64
-  %462 = getelementptr inbounds nuw ptr, ptr %460, i64 %461
+  %462 = getelementptr inbounds nuw [8 x i8], ptr %460, i64 %461
   %463 = load ptr, ptr %462, align 8
   %464 = load ptr, ptr %463, align 8
   %465 = load ptr, ptr %464, align 8
   %466 = tail call noundef i32 %465(ptr noundef nonnull align 8 dereferenceable(52) %463) #9
   %467 = sext i32 %466 to i64
-  %468 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %467
+  %468 = getelementptr inbounds [8 x i8], ptr @NodeClassNames, i64 %467
   %469 = load ptr, ptr %468, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %449, ptr noundef nonnull @.str.23, ptr noundef %469) #9
   br label %504
@@ -10346,7 +10346,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   %497 = getelementptr inbounds nuw i8, ptr %496, i64 132
   %498 = load i32, ptr %497, align 4
   %499 = zext i8 %276 to i64
-  %500 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %499
+  %500 = getelementptr inbounds nuw [4 x i8], ptr @_type2aelembytes, i64 %499
   %501 = load i32, ptr %500, align 4
   %502 = mul nsw i32 %501, %288
   %503 = tail call noundef i32 @llvm.umax.i32(i32 %498, i32 %502)
@@ -10378,7 +10378,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit21inline_vector_convertEv(p
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = zext i32 %12 to i64
-  %16 = getelementptr inbounds nuw ptr, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %19 = load ptr, ptr %18, align 8
@@ -10387,7 +10387,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit21inline_vector_convertEv(p
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %23 = load ptr, ptr %22, align 8
   %24 = zext i32 %21 to i64
-  %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %24
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load i32, ptr %27, align 8
@@ -10395,12 +10395,12 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit21inline_vector_convertEv(p
   %..i = select i1 %29, ptr %26, ptr null
   %30 = add i32 %12, 1
   %31 = zext i32 %30 to i64
-  %32 = getelementptr inbounds nuw ptr, ptr %14, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %31
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 40
   %35 = load i32, ptr %34, align 8
   %36 = zext i32 %35 to i64
-  %37 = getelementptr inbounds nuw ptr, ptr %23, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %36
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %40 = load i32, ptr %39, align 8
@@ -10408,12 +10408,12 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit21inline_vector_convertEv(p
   %..i181 = select i1 %41, ptr %38, ptr null
   %42 = add i32 %12, 2
   %43 = zext i32 %42 to i64
-  %44 = getelementptr inbounds nuw ptr, ptr %14, i64 %43
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %43
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %47 = load i32, ptr %46, align 8
   %48 = zext i32 %47 to i64
-  %49 = getelementptr inbounds nuw ptr, ptr %23, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %48
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %52 = load i32, ptr %51, align 8
@@ -10421,12 +10421,12 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit21inline_vector_convertEv(p
   %..i182 = select i1 %53, ptr %50, ptr null
   %54 = add i32 %12, 3
   %55 = zext i32 %54 to i64
-  %56 = getelementptr inbounds nuw ptr, ptr %14, i64 %55
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %55
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 40
   %59 = load i32, ptr %58, align 8
   %60 = zext i32 %59 to i64
-  %61 = getelementptr inbounds nuw ptr, ptr %23, i64 %60
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %60
   %62 = load ptr, ptr %61, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %64 = load i32, ptr %63, align 8
@@ -10434,12 +10434,12 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit21inline_vector_convertEv(p
   %..i183 = select i1 %65, ptr %62, ptr null
   %66 = add i32 %12, 4
   %67 = zext i32 %66 to i64
-  %68 = getelementptr inbounds nuw ptr, ptr %14, i64 %67
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %67
   %69 = load ptr, ptr %68, align 8
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
   %71 = load i32, ptr %70, align 8
   %72 = zext i32 %71 to i64
-  %73 = getelementptr inbounds nuw ptr, ptr %23, i64 %72
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %72
   %74 = load ptr, ptr %73, align 8
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 16
   %76 = load i32, ptr %75, align 8
@@ -10447,12 +10447,12 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit21inline_vector_convertEv(p
   %..i184 = select i1 %77, ptr %74, ptr null
   %78 = add i32 %12, 5
   %79 = zext i32 %78 to i64
-  %80 = getelementptr inbounds nuw ptr, ptr %14, i64 %79
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %79
   %81 = load ptr, ptr %80, align 8
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 40
   %83 = load i32, ptr %82, align 8
   %84 = zext i32 %83 to i64
-  %85 = getelementptr inbounds nuw ptr, ptr %23, i64 %84
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %84
   %86 = load ptr, ptr %85, align 8
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 16
   %88 = load i32, ptr %87, align 8
@@ -10460,12 +10460,12 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit21inline_vector_convertEv(p
   %..i185 = select i1 %89, ptr %86, ptr null
   %90 = add i32 %12, 6
   %91 = zext i32 %90 to i64
-  %92 = getelementptr inbounds nuw ptr, ptr %14, i64 %91
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %91
   %93 = load ptr, ptr %92, align 8
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 40
   %95 = load i32, ptr %94, align 8
   %96 = zext i32 %95 to i64
-  %97 = getelementptr inbounds nuw ptr, ptr %23, i64 %96
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %96
   %98 = load ptr, ptr %97, align 8
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 16
   %100 = load i32, ptr %99, align 8
@@ -10548,7 +10548,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit21inline_vector_convertEv(p
   %152 = load ptr, ptr %151, align 8
   %153 = tail call noundef i32 %152(ptr noundef nonnull align 8 dereferenceable(52) %17) #9
   %154 = sext i32 %153 to i64
-  %155 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %154
+  %155 = getelementptr inbounds [8 x i8], ptr @NodeClassNames, i64 %154
   %156 = load ptr, ptr %155, align 8
   %157 = load ptr, ptr %4, align 8
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 56
@@ -10562,13 +10562,13 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit21inline_vector_convertEv(p
   %166 = getelementptr inbounds nuw i8, ptr %157, i64 8
   %167 = load ptr, ptr %166, align 8
   %168 = zext i32 %165 to i64
-  %169 = getelementptr inbounds nuw ptr, ptr %167, i64 %168
+  %169 = getelementptr inbounds nuw [8 x i8], ptr %167, i64 %168
   %170 = load ptr, ptr %169, align 8
   %171 = load ptr, ptr %170, align 8
   %172 = load ptr, ptr %171, align 8
   %173 = tail call noundef i32 %172(ptr noundef nonnull align 8 dereferenceable(52) %170) #9
   %174 = sext i32 %173 to i64
-  %175 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %174
+  %175 = getelementptr inbounds [8 x i8], ptr @NodeClassNames, i64 %174
   %176 = load ptr, ptr %175, align 8
   %177 = load ptr, ptr %4, align 8
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 56
@@ -10582,13 +10582,13 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit21inline_vector_convertEv(p
   %186 = getelementptr inbounds nuw i8, ptr %177, i64 8
   %187 = load ptr, ptr %186, align 8
   %188 = zext i32 %185 to i64
-  %189 = getelementptr inbounds nuw ptr, ptr %187, i64 %188
+  %189 = getelementptr inbounds nuw [8 x i8], ptr %187, i64 %188
   %190 = load ptr, ptr %189, align 8
   %191 = load ptr, ptr %190, align 8
   %192 = load ptr, ptr %191, align 8
   %193 = tail call noundef i32 %192(ptr noundef nonnull align 8 dereferenceable(52) %190) #9
   %194 = sext i32 %193 to i64
-  %195 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %194
+  %195 = getelementptr inbounds [8 x i8], ptr @NodeClassNames, i64 %194
   %196 = load ptr, ptr %195, align 8
   %197 = load ptr, ptr %4, align 8
   %198 = getelementptr inbounds nuw i8, ptr %197, i64 56
@@ -10602,13 +10602,13 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit21inline_vector_convertEv(p
   %206 = getelementptr inbounds nuw i8, ptr %197, i64 8
   %207 = load ptr, ptr %206, align 8
   %208 = zext i32 %205 to i64
-  %209 = getelementptr inbounds nuw ptr, ptr %207, i64 %208
+  %209 = getelementptr inbounds nuw [8 x i8], ptr %207, i64 %208
   %210 = load ptr, ptr %209, align 8
   %211 = load ptr, ptr %210, align 8
   %212 = load ptr, ptr %211, align 8
   %213 = tail call noundef i32 %212(ptr noundef nonnull align 8 dereferenceable(52) %210) #9
   %214 = sext i32 %213 to i64
-  %215 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %214
+  %215 = getelementptr inbounds [8 x i8], ptr @NodeClassNames, i64 %214
   %216 = load ptr, ptr %215, align 8
   %217 = load ptr, ptr %4, align 8
   %218 = getelementptr inbounds nuw i8, ptr %217, i64 56
@@ -10622,13 +10622,13 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit21inline_vector_convertEv(p
   %226 = getelementptr inbounds nuw i8, ptr %217, i64 8
   %227 = load ptr, ptr %226, align 8
   %228 = zext i32 %225 to i64
-  %229 = getelementptr inbounds nuw ptr, ptr %227, i64 %228
+  %229 = getelementptr inbounds nuw [8 x i8], ptr %227, i64 %228
   %230 = load ptr, ptr %229, align 8
   %231 = load ptr, ptr %230, align 8
   %232 = load ptr, ptr %231, align 8
   %233 = tail call noundef i32 %232(ptr noundef nonnull align 8 dereferenceable(52) %230) #9
   %234 = sext i32 %233 to i64
-  %235 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %234
+  %235 = getelementptr inbounds [8 x i8], ptr @NodeClassNames, i64 %234
   %236 = load ptr, ptr %235, align 8
   %237 = load ptr, ptr %4, align 8
   %238 = getelementptr inbounds nuw i8, ptr %237, i64 56
@@ -10642,13 +10642,13 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit21inline_vector_convertEv(p
   %246 = getelementptr inbounds nuw i8, ptr %237, i64 8
   %247 = load ptr, ptr %246, align 8
   %248 = zext i32 %245 to i64
-  %249 = getelementptr inbounds nuw ptr, ptr %247, i64 %248
+  %249 = getelementptr inbounds nuw [8 x i8], ptr %247, i64 %248
   %250 = load ptr, ptr %249, align 8
   %251 = load ptr, ptr %250, align 8
   %252 = load ptr, ptr %251, align 8
   %253 = tail call noundef i32 %252(ptr noundef nonnull align 8 dereferenceable(52) %250) #9
   %254 = sext i32 %253 to i64
-  %255 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %254
+  %255 = getelementptr inbounds [8 x i8], ptr @NodeClassNames, i64 %254
   %256 = load ptr, ptr %255, align 8
   %257 = load ptr, ptr %4, align 8
   %258 = getelementptr inbounds nuw i8, ptr %257, i64 56
@@ -10662,13 +10662,13 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit21inline_vector_convertEv(p
   %266 = getelementptr inbounds nuw i8, ptr %257, i64 8
   %267 = load ptr, ptr %266, align 8
   %268 = zext i32 %265 to i64
-  %269 = getelementptr inbounds nuw ptr, ptr %267, i64 %268
+  %269 = getelementptr inbounds nuw [8 x i8], ptr %267, i64 %268
   %270 = load ptr, ptr %269, align 8
   %271 = load ptr, ptr %270, align 8
   %272 = load ptr, ptr %271, align 8
   %273 = tail call noundef i32 %272(ptr noundef nonnull align 8 dereferenceable(52) %270) #9
   %274 = sext i32 %273 to i64
-  %275 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %274
+  %275 = getelementptr inbounds [8 x i8], ptr @NodeClassNames, i64 %274
   %276 = load ptr, ptr %275, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %150, ptr noundef nonnull @.str.74, ptr noundef %156, ptr noundef %176, ptr noundef %196, ptr noundef %216, ptr noundef %236, ptr noundef %256, ptr noundef %276) #9
   br label %.thread193
@@ -10826,7 +10826,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit21inline_vector_convertEv(p
   %376 = getelementptr inbounds nuw i8, ptr %367, i64 8
   %377 = load ptr, ptr %376, align 8
   %378 = zext i32 %375 to i64
-  %379 = getelementptr inbounds nuw ptr, ptr %377, i64 %378
+  %379 = getelementptr inbounds nuw [8 x i8], ptr %377, i64 %378
   %380 = load ptr, ptr %379, align 8
   %381 = tail call noundef ptr @_ZN8GraphKit12unbox_vectorEP4NodePK11TypeInstPtr9BasicTypeib(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %380, ptr noundef %366, i8 noundef zeroext %305, i32 noundef %314, i1 noundef zeroext false)
   %382 = icmp eq ptr %381, null
@@ -10834,11 +10834,11 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit21inline_vector_convertEv(p
 
 383:                                              ; preds = %364
   %384 = zext i8 %305 to i64
-  %385 = getelementptr inbounds nuw ptr, ptr @_ZN4Type17_const_basic_typeE, i64 %384
+  %385 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4Type17_const_basic_typeE, i64 %384
   %386 = load ptr, ptr %385, align 8
   %387 = tail call noundef ptr @_ZN8TypeVect4makeEPK4Typejb(ptr noundef %386, i32 noundef %314, i1 noundef zeroext %301) #9
   %388 = zext i8 %311 to i64
-  %389 = getelementptr inbounds nuw ptr, ptr @_ZN4Type17_const_basic_typeE, i64 %388
+  %389 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4Type17_const_basic_typeE, i64 %388
   %390 = load ptr, ptr %389, align 8
   %391 = tail call noundef ptr @_ZN8TypeVect4makeEPK4Typejb(ptr noundef %390, i32 noundef %315, i1 noundef zeroext %301) #9
   br i1 %301, label %392, label %.thread194
@@ -11071,7 +11071,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit21inline_vector_convertEv(p
   %527 = load ptr, ptr %526, align 8
   %528 = getelementptr inbounds nuw i8, ptr %527, i64 132
   %529 = load i32, ptr %528, align 4
-  %530 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %388
+  %530 = getelementptr inbounds nuw [4 x i8], ptr @_type2aelembytes, i64 %388
   %531 = load i32, ptr %530, align 4
   %532 = mul nsw i32 %531, %315
   %533 = tail call noundef i32 @llvm.umax.i32(i32 %529, i32 %532)
@@ -11124,7 +11124,7 @@ define linkonce_odr hidden void @_ZN18VectorMaskCastNodeC2EP4NodePK8TypeVect(ptr
   %23 = add i32 %21, 1
   store i32 %23, ptr %14, align 8
   %24 = zext i32 %21 to i64
-  %25 = getelementptr inbounds nuw ptr, ptr %22, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %24
   store ptr %0, ptr %25, align 8
   br label %_ZN10VectorNodeC2EP4NodePK8TypeVect.exit
 
@@ -11155,7 +11155,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit20inline_vector_insertEv(pt
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = zext i32 %12 to i64
-  %16 = getelementptr inbounds nuw ptr, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %19 = load ptr, ptr %18, align 8
@@ -11164,7 +11164,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit20inline_vector_insertEv(pt
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %23 = load ptr, ptr %22, align 8
   %24 = zext i32 %21 to i64
-  %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %24
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load i32, ptr %27, align 8
@@ -11172,12 +11172,12 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit20inline_vector_insertEv(pt
   %..i = select i1 %29, ptr %26, ptr null
   %30 = add i32 %12, 1
   %31 = zext i32 %30 to i64
-  %32 = getelementptr inbounds nuw ptr, ptr %14, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %31
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 40
   %35 = load i32, ptr %34, align 8
   %36 = zext i32 %35 to i64
-  %37 = getelementptr inbounds nuw ptr, ptr %23, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %36
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %40 = load i32, ptr %39, align 8
@@ -11185,12 +11185,12 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit20inline_vector_insertEv(pt
   %..i64 = select i1 %41, ptr %38, ptr null
   %42 = add i32 %12, 2
   %43 = zext i32 %42 to i64
-  %44 = getelementptr inbounds nuw ptr, ptr %14, i64 %43
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %43
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %47 = load i32, ptr %46, align 8
   %48 = zext i32 %47 to i64
-  %49 = getelementptr inbounds nuw ptr, ptr %23, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %48
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %52 = load i32, ptr %51, align 8
@@ -11198,12 +11198,12 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit20inline_vector_insertEv(pt
   %..i65 = select i1 %53, ptr %50, ptr null
   %54 = add i32 %12, 4
   %55 = zext i32 %54 to i64
-  %56 = getelementptr inbounds nuw ptr, ptr %14, i64 %55
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %55
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 40
   %59 = load i32, ptr %58, align 8
   %60 = zext i32 %59 to i64
-  %61 = getelementptr inbounds nuw ptr, ptr %23, i64 %60
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %60
   %62 = load ptr, ptr %61, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %64 = load i32, ptr %63, align 8
@@ -11260,7 +11260,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit20inline_vector_insertEv(pt
   %99 = load ptr, ptr %98, align 8
   %100 = tail call noundef i32 %99(ptr noundef nonnull align 8 dereferenceable(52) %17) #9
   %101 = sext i32 %100 to i64
-  %102 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %101
+  %102 = getelementptr inbounds [8 x i8], ptr @NodeClassNames, i64 %101
   %103 = load ptr, ptr %102, align 8
   %104 = load ptr, ptr %4, align 8
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 56
@@ -11274,13 +11274,13 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit20inline_vector_insertEv(pt
   %113 = getelementptr inbounds nuw i8, ptr %104, i64 8
   %114 = load ptr, ptr %113, align 8
   %115 = zext i32 %112 to i64
-  %116 = getelementptr inbounds nuw ptr, ptr %114, i64 %115
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %114, i64 %115
   %117 = load ptr, ptr %116, align 8
   %118 = load ptr, ptr %117, align 8
   %119 = load ptr, ptr %118, align 8
   %120 = tail call noundef i32 %119(ptr noundef nonnull align 8 dereferenceable(52) %117) #9
   %121 = sext i32 %120 to i64
-  %122 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %121
+  %122 = getelementptr inbounds [8 x i8], ptr @NodeClassNames, i64 %121
   %123 = load ptr, ptr %122, align 8
   %124 = load ptr, ptr %4, align 8
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 56
@@ -11294,13 +11294,13 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit20inline_vector_insertEv(pt
   %133 = getelementptr inbounds nuw i8, ptr %124, i64 8
   %134 = load ptr, ptr %133, align 8
   %135 = zext i32 %132 to i64
-  %136 = getelementptr inbounds nuw ptr, ptr %134, i64 %135
+  %136 = getelementptr inbounds nuw [8 x i8], ptr %134, i64 %135
   %137 = load ptr, ptr %136, align 8
   %138 = load ptr, ptr %137, align 8
   %139 = load ptr, ptr %138, align 8
   %140 = tail call noundef i32 %139(ptr noundef nonnull align 8 dereferenceable(52) %137) #9
   %141 = sext i32 %140 to i64
-  %142 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %141
+  %142 = getelementptr inbounds [8 x i8], ptr @NodeClassNames, i64 %141
   %143 = load ptr, ptr %142, align 8
   %144 = load ptr, ptr %4, align 8
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 56
@@ -11314,13 +11314,13 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit20inline_vector_insertEv(pt
   %153 = getelementptr inbounds nuw i8, ptr %144, i64 8
   %154 = load ptr, ptr %153, align 8
   %155 = zext i32 %152 to i64
-  %156 = getelementptr inbounds nuw ptr, ptr %154, i64 %155
+  %156 = getelementptr inbounds nuw [8 x i8], ptr %154, i64 %155
   %157 = load ptr, ptr %156, align 8
   %158 = load ptr, ptr %157, align 8
   %159 = load ptr, ptr %158, align 8
   %160 = tail call noundef i32 %159(ptr noundef nonnull align 8 dereferenceable(52) %157) #9
   %161 = sext i32 %160 to i64
-  %162 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %161
+  %162 = getelementptr inbounds [8 x i8], ptr @NodeClassNames, i64 %161
   %163 = load ptr, ptr %162, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %97, ptr noundef nonnull @.str.84, ptr noundef %103, ptr noundef %123, ptr noundef %143, ptr noundef %163) #9
   br label %348
@@ -11433,7 +11433,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   %228 = getelementptr inbounds nuw i8, ptr %219, i64 8
   %229 = load ptr, ptr %228, align 8
   %230 = zext i32 %227 to i64
-  %231 = getelementptr inbounds nuw ptr, ptr %229, i64 %230
+  %231 = getelementptr inbounds nuw [8 x i8], ptr %229, i64 %230
   %232 = load ptr, ptr %231, align 8
   %233 = tail call noundef ptr @_ZN8GraphKit12unbox_vectorEP4NodePK11TypeInstPtr9BasicTypeib(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %232, ptr noundef %218, i8 noundef zeroext %192, i32 noundef %204, i1 noundef zeroext false)
   %234 = icmp eq ptr %233, null
@@ -11452,7 +11452,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   %245 = getelementptr inbounds nuw i8, ptr %236, i64 8
   %246 = load ptr, ptr %245, align 8
   %247 = zext i32 %244 to i64
-  %248 = getelementptr inbounds nuw ptr, ptr %246, i64 %247
+  %248 = getelementptr inbounds nuw [8 x i8], ptr %246, i64 %247
   %249 = load ptr, ptr %248, align 8
   switch i8 %192, label %327 [
     i8 8, label %250
@@ -11617,7 +11617,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   %341 = getelementptr inbounds nuw i8, ptr %340, i64 132
   %342 = load i32, ptr %341, align 4
   %343 = zext nneg i8 %192 to i64
-  %344 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %343
+  %344 = getelementptr inbounds nuw [4 x i8], ptr @_type2aelembytes, i64 %343
   %345 = load i32, ptr %344, align 4
   %346 = mul nsw i32 %345, %204
   %347 = tail call noundef i32 @llvm.umax.i32(i32 %342, i32 %346)
@@ -11676,7 +11676,7 @@ define linkonce_odr hidden void @_ZN10CastIINodeC2EP4NodePK4TypeN18ConstraintCas
   %29 = add i32 %27, 1
   store i32 %29, ptr %20, align 8
   %30 = zext i32 %27 to i64
-  %31 = getelementptr inbounds nuw ptr, ptr %28, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %30
   store ptr %0, ptr %31, align 8
   br label %_ZN18ConstraintCastNodeC2EP4NodeS1_PK4TypeNS_14DependencyTypeEPK9TypeTuple.exit
 
@@ -11708,7 +11708,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit21inline_vector_extractEv(p
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = zext i32 %13 to i64
-  %17 = getelementptr inbounds nuw ptr, ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %16
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %20 = load ptr, ptr %19, align 8
@@ -11717,7 +11717,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit21inline_vector_extractEv(p
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %24 = load ptr, ptr %23, align 8
   %25 = zext i32 %22 to i64
-  %26 = getelementptr inbounds nuw ptr, ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %25
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = load i32, ptr %28, align 8
@@ -11725,12 +11725,12 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit21inline_vector_extractEv(p
   %..i = select i1 %30, ptr %27, ptr null
   %31 = add i32 %13, 1
   %32 = zext i32 %31 to i64
-  %33 = getelementptr inbounds nuw ptr, ptr %15, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %32
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 40
   %36 = load i32, ptr %35, align 8
   %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds nuw ptr, ptr %24, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %37
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %41 = load i32, ptr %40, align 8
@@ -11738,12 +11738,12 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit21inline_vector_extractEv(p
   %..i87 = select i1 %42, ptr %39, ptr null
   %43 = add i32 %13, 2
   %44 = zext i32 %43 to i64
-  %45 = getelementptr inbounds nuw ptr, ptr %15, i64 %44
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %44
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 40
   %48 = load i32, ptr %47, align 8
   %49 = zext i32 %48 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr %24, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %49
   %51 = load ptr, ptr %50, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %53 = load i32, ptr %52, align 8
@@ -11751,12 +11751,12 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit21inline_vector_extractEv(p
   %..i88 = select i1 %54, ptr %51, ptr null
   %55 = add i32 %13, 4
   %56 = zext i32 %55 to i64
-  %57 = getelementptr inbounds nuw ptr, ptr %15, i64 %56
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %56
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 40
   %60 = load i32, ptr %59, align 8
   %61 = zext i32 %60 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %24, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %61
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
   %65 = load i32, ptr %64, align 8
@@ -11805,7 +11805,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit21inline_vector_extractEv(p
   %94 = load ptr, ptr %93, align 8
   %95 = tail call noundef i32 %94(ptr noundef nonnull align 8 dereferenceable(52) %18) #9
   %96 = sext i32 %95 to i64
-  %97 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %96
+  %97 = getelementptr inbounds [8 x i8], ptr @NodeClassNames, i64 %96
   %98 = load ptr, ptr %97, align 8
   %99 = load ptr, ptr %5, align 8
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 56
@@ -11819,13 +11819,13 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit21inline_vector_extractEv(p
   %108 = getelementptr inbounds nuw i8, ptr %99, i64 8
   %109 = load ptr, ptr %108, align 8
   %110 = zext i32 %107 to i64
-  %111 = getelementptr inbounds nuw ptr, ptr %109, i64 %110
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %109, i64 %110
   %112 = load ptr, ptr %111, align 8
   %113 = load ptr, ptr %112, align 8
   %114 = load ptr, ptr %113, align 8
   %115 = tail call noundef i32 %114(ptr noundef nonnull align 8 dereferenceable(52) %112) #9
   %116 = sext i32 %115 to i64
-  %117 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %116
+  %117 = getelementptr inbounds [8 x i8], ptr @NodeClassNames, i64 %116
   %118 = load ptr, ptr %117, align 8
   %119 = load ptr, ptr %5, align 8
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 56
@@ -11839,13 +11839,13 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit21inline_vector_extractEv(p
   %128 = getelementptr inbounds nuw i8, ptr %119, i64 8
   %129 = load ptr, ptr %128, align 8
   %130 = zext i32 %127 to i64
-  %131 = getelementptr inbounds nuw ptr, ptr %129, i64 %130
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %129, i64 %130
   %132 = load ptr, ptr %131, align 8
   %133 = load ptr, ptr %132, align 8
   %134 = load ptr, ptr %133, align 8
   %135 = tail call noundef i32 %134(ptr noundef nonnull align 8 dereferenceable(52) %132) #9
   %136 = sext i32 %135 to i64
-  %137 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %136
+  %137 = getelementptr inbounds [8 x i8], ptr @NodeClassNames, i64 %136
   %138 = load ptr, ptr %137, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %92, ptr noundef nonnull @.str.86, ptr noundef %98, ptr noundef %118, ptr noundef %138) #9
   br label %432
@@ -11950,7 +11950,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   %197 = getelementptr inbounds nuw i8, ptr %188, i64 8
   %198 = load ptr, ptr %197, align 8
   %199 = zext i32 %196 to i64
-  %200 = getelementptr inbounds nuw ptr, ptr %198, i64 %199
+  %200 = getelementptr inbounds nuw [8 x i8], ptr %198, i64 %199
   %201 = load ptr, ptr %200, align 8
   %202 = call noundef zeroext i1 @_ZN14LibraryCallKit20arch_supports_vectorEii9BasicTypeNS_17VectorMaskUseTypeEb(ptr noundef nonnull align 8 dereferenceable(108) %0, i32 noundef 457, i32 noundef %179, i8 noundef zeroext %167, i32 noundef 3, i1 noundef zeroext false)
   br i1 %202, label %203, label %243
@@ -11968,7 +11968,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   %213 = getelementptr inbounds nuw i8, ptr %204, i64 8
   %214 = load ptr, ptr %213, align 8
   %215 = zext i32 %212 to i64
-  %216 = getelementptr inbounds nuw ptr, ptr %214, i64 %215
+  %216 = getelementptr inbounds nuw [8 x i8], ptr %214, i64 %215
   %217 = load ptr, ptr %216, align 8
   %218 = call noundef ptr @_ZN8GraphKit12unbox_vectorEP4NodePK11TypeInstPtr9BasicTypeib(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %217, ptr noundef %184, i8 noundef zeroext %167, i32 noundef %179, i1 noundef zeroext false)
   %219 = icmp eq ptr %218, null
@@ -12027,7 +12027,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   %255 = getelementptr inbounds nuw i8, ptr %246, i64 8
   %256 = load ptr, ptr %255, align 8
   %257 = zext i32 %254 to i64
-  %258 = getelementptr inbounds nuw ptr, ptr %256, i64 %257
+  %258 = getelementptr inbounds nuw [8 x i8], ptr %256, i64 %257
   %259 = load ptr, ptr %258, align 8
   %260 = call noundef ptr @_ZN8GraphKit12unbox_vectorEP4NodePK11TypeInstPtr9BasicTypeib(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %259, ptr noundef %184, i8 noundef zeroext %167, i32 noundef %179, i1 noundef zeroext false)
   %261 = icmp eq ptr %260, null
@@ -12147,13 +12147,13 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   %339 = getelementptr inbounds nuw i8, ptr %330, i64 8
   %340 = load ptr, ptr %339, align 8
   %341 = zext i32 %338 to i64
-  %342 = getelementptr inbounds nuw ptr, ptr %340, i64 %341
+  %342 = getelementptr inbounds nuw [8 x i8], ptr %340, i64 %341
   %343 = load ptr, ptr %342, align 8
   %344 = load ptr, ptr %343, align 8
   %345 = load ptr, ptr %344, align 8
   %346 = call noundef i32 %345(ptr noundef nonnull align 8 dereferenceable(52) %343) #9
   %347 = sext i32 %346 to i64
-  %348 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %347
+  %348 = getelementptr inbounds [8 x i8], ptr @NodeClassNames, i64 %347
   %349 = load ptr, ptr %348, align 8
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %329, ptr noundef nonnull @.str.88, ptr noundef %349) #9
   br label %432
@@ -12190,7 +12190,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   %372 = getelementptr inbounds nuw i8, ptr %363, i64 8
   %373 = load ptr, ptr %372, align 8
   %374 = zext i32 %371 to i64
-  %375 = getelementptr inbounds nuw ptr, ptr %373, i64 %374
+  %375 = getelementptr inbounds nuw [8 x i8], ptr %373, i64 %374
   %376 = load ptr, ptr %375, align 8
   %377 = call noundef ptr @_ZN8GraphKit12unbox_vectorEP4NodePK11TypeInstPtr9BasicTypeib(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %376, ptr noundef %184, i8 noundef zeroext %167, i32 noundef %179, i1 noundef zeroext false)
   %378 = icmp eq ptr %377, null
@@ -12346,7 +12346,7 @@ define linkonce_odr hidden void @_ZN20VectorMaskToLongNodeC2EP4NodePK4Type(ptr n
   %28 = add i32 %26, 1
   store i32 %28, ptr %19, align 8
   %29 = zext i32 %26 to i64
-  %30 = getelementptr inbounds nuw ptr, ptr %27, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %29
   store ptr %0, ptr %30, align 8
   br label %_ZN16VectorMaskOpNodeC2EP4NodePK4Typei.exit
 
@@ -12375,7 +12375,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit29inline_vector_compress_ex
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = zext i32 %12 to i64
-  %16 = getelementptr inbounds nuw ptr, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %19 = load ptr, ptr %18, align 8
@@ -12384,7 +12384,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit29inline_vector_compress_ex
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %23 = load ptr, ptr %22, align 8
   %24 = zext i32 %21 to i64
-  %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %24
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load i32, ptr %27, align 8
@@ -12392,12 +12392,12 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit29inline_vector_compress_ex
   %..i = select i1 %29, ptr %26, ptr null
   %30 = add i32 %12, 1
   %31 = zext i32 %30 to i64
-  %32 = getelementptr inbounds nuw ptr, ptr %14, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %31
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 40
   %35 = load i32, ptr %34, align 8
   %36 = zext i32 %35 to i64
-  %37 = getelementptr inbounds nuw ptr, ptr %23, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %36
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %40 = load i32, ptr %39, align 8
@@ -12405,12 +12405,12 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit29inline_vector_compress_ex
   %..i69 = select i1 %41, ptr %38, ptr null
   %42 = add i32 %12, 2
   %43 = zext i32 %42 to i64
-  %44 = getelementptr inbounds nuw ptr, ptr %14, i64 %43
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %43
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %47 = load i32, ptr %46, align 8
   %48 = zext i32 %47 to i64
-  %49 = getelementptr inbounds nuw ptr, ptr %23, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %48
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %52 = load i32, ptr %51, align 8
@@ -12418,12 +12418,12 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit29inline_vector_compress_ex
   %..i70 = select i1 %53, ptr %50, ptr null
   %54 = add i32 %12, 3
   %55 = zext i32 %54 to i64
-  %56 = getelementptr inbounds nuw ptr, ptr %14, i64 %55
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %55
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 40
   %59 = load i32, ptr %58, align 8
   %60 = zext i32 %59 to i64
-  %61 = getelementptr inbounds nuw ptr, ptr %23, i64 %60
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %60
   %62 = load ptr, ptr %61, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %64 = load i32, ptr %63, align 8
@@ -12431,12 +12431,12 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit29inline_vector_compress_ex
   %..i71 = select i1 %65, ptr %62, ptr null
   %66 = add i32 %12, 4
   %67 = zext i32 %66 to i64
-  %68 = getelementptr inbounds nuw ptr, ptr %14, i64 %67
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %67
   %69 = load ptr, ptr %68, align 8
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
   %71 = load i32, ptr %70, align 8
   %72 = zext i32 %71 to i64
-  %73 = getelementptr inbounds nuw ptr, ptr %23, i64 %72
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %72
   %74 = load ptr, ptr %73, align 8
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 16
   %76 = load i32, ptr %75, align 8
@@ -12499,7 +12499,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit29inline_vector_compress_ex
   %115 = load ptr, ptr %114, align 8
   %116 = tail call noundef i32 %115(ptr noundef nonnull align 8 dereferenceable(52) %17) #9
   %117 = sext i32 %116 to i64
-  %118 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %117
+  %118 = getelementptr inbounds [8 x i8], ptr @NodeClassNames, i64 %117
   %119 = load ptr, ptr %118, align 8
   %120 = load ptr, ptr %4, align 8
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 56
@@ -12513,13 +12513,13 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit29inline_vector_compress_ex
   %129 = getelementptr inbounds nuw i8, ptr %120, i64 8
   %130 = load ptr, ptr %129, align 8
   %131 = zext i32 %128 to i64
-  %132 = getelementptr inbounds nuw ptr, ptr %130, i64 %131
+  %132 = getelementptr inbounds nuw [8 x i8], ptr %130, i64 %131
   %133 = load ptr, ptr %132, align 8
   %134 = load ptr, ptr %133, align 8
   %135 = load ptr, ptr %134, align 8
   %136 = tail call noundef i32 %135(ptr noundef nonnull align 8 dereferenceable(52) %133) #9
   %137 = sext i32 %136 to i64
-  %138 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %137
+  %138 = getelementptr inbounds [8 x i8], ptr @NodeClassNames, i64 %137
   %139 = load ptr, ptr %138, align 8
   %140 = load ptr, ptr %4, align 8
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 56
@@ -12533,13 +12533,13 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit29inline_vector_compress_ex
   %149 = getelementptr inbounds nuw i8, ptr %140, i64 8
   %150 = load ptr, ptr %149, align 8
   %151 = zext i32 %148 to i64
-  %152 = getelementptr inbounds nuw ptr, ptr %150, i64 %151
+  %152 = getelementptr inbounds nuw [8 x i8], ptr %150, i64 %151
   %153 = load ptr, ptr %152, align 8
   %154 = load ptr, ptr %153, align 8
   %155 = load ptr, ptr %154, align 8
   %156 = tail call noundef i32 %155(ptr noundef nonnull align 8 dereferenceable(52) %153) #9
   %157 = sext i32 %156 to i64
-  %158 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %157
+  %158 = getelementptr inbounds [8 x i8], ptr @NodeClassNames, i64 %157
   %159 = load ptr, ptr %158, align 8
   %160 = load ptr, ptr %4, align 8
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 56
@@ -12553,13 +12553,13 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit29inline_vector_compress_ex
   %169 = getelementptr inbounds nuw i8, ptr %160, i64 8
   %170 = load ptr, ptr %169, align 8
   %171 = zext i32 %168 to i64
-  %172 = getelementptr inbounds nuw ptr, ptr %170, i64 %171
+  %172 = getelementptr inbounds nuw [8 x i8], ptr %170, i64 %171
   %173 = load ptr, ptr %172, align 8
   %174 = load ptr, ptr %173, align 8
   %175 = load ptr, ptr %174, align 8
   %176 = tail call noundef i32 %175(ptr noundef nonnull align 8 dereferenceable(52) %173) #9
   %177 = sext i32 %176 to i64
-  %178 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %177
+  %178 = getelementptr inbounds [8 x i8], ptr @NodeClassNames, i64 %177
   %179 = load ptr, ptr %178, align 8
   %180 = load ptr, ptr %4, align 8
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 56
@@ -12573,13 +12573,13 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit29inline_vector_compress_ex
   %189 = getelementptr inbounds nuw i8, ptr %180, i64 8
   %190 = load ptr, ptr %189, align 8
   %191 = zext i32 %188 to i64
-  %192 = getelementptr inbounds nuw ptr, ptr %190, i64 %191
+  %192 = getelementptr inbounds nuw [8 x i8], ptr %190, i64 %191
   %193 = load ptr, ptr %192, align 8
   %194 = load ptr, ptr %193, align 8
   %195 = load ptr, ptr %194, align 8
   %196 = tail call noundef i32 %195(ptr noundef nonnull align 8 dereferenceable(52) %193) #9
   %197 = sext i32 %196 to i64
-  %198 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %197
+  %198 = getelementptr inbounds [8 x i8], ptr @NodeClassNames, i64 %197
   %199 = load ptr, ptr %198, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %113, ptr noundef nonnull @.str.90, ptr noundef %119, ptr noundef %139, ptr noundef %159, ptr noundef %179, ptr noundef %199) #9
   br label %373
@@ -12703,7 +12703,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   %269 = getelementptr inbounds nuw i8, ptr %260, i64 8
   %270 = load ptr, ptr %269, align 8
   %271 = zext i32 %268 to i64
-  %272 = getelementptr inbounds nuw ptr, ptr %270, i64 %271
+  %272 = getelementptr inbounds nuw [8 x i8], ptr %270, i64 %271
   %273 = load ptr, ptr %272, align 8
   %274 = tail call noundef ptr @_ZN8GraphKit12unbox_vectorEP4NodePK11TypeInstPtr9BasicTypeib(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %273, ptr noundef %259, i8 noundef zeroext %230, i32 noundef %242, i1 noundef zeroext false)
   %275 = icmp eq ptr %274, null
@@ -12731,13 +12731,13 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   %293 = getelementptr inbounds nuw i8, ptr %284, i64 8
   %294 = load ptr, ptr %293, align 8
   %295 = zext i32 %292 to i64
-  %296 = getelementptr inbounds nuw ptr, ptr %294, i64 %295
+  %296 = getelementptr inbounds nuw [8 x i8], ptr %294, i64 %295
   %297 = load ptr, ptr %296, align 8
   %298 = load ptr, ptr %297, align 8
   %299 = load ptr, ptr %298, align 8
   %300 = tail call noundef i32 %299(ptr noundef nonnull align 8 dereferenceable(52) %297) #9
   %301 = sext i32 %300 to i64
-  %302 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %301
+  %302 = getelementptr inbounds [8 x i8], ptr @NodeClassNames, i64 %301
   %303 = load ptr, ptr %302, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %283, ptr noundef nonnull @.str.47, ptr noundef %303) #9
   br label %373
@@ -12760,7 +12760,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   %317 = getelementptr inbounds nuw i8, ptr %308, i64 8
   %318 = load ptr, ptr %317, align 8
   %319 = zext i32 %316 to i64
-  %320 = getelementptr inbounds nuw ptr, ptr %318, i64 %319
+  %320 = getelementptr inbounds nuw [8 x i8], ptr %318, i64 %319
   %321 = load ptr, ptr %320, align 8
   %322 = tail call noundef ptr @_ZN8GraphKit12unbox_vectorEP4NodePK11TypeInstPtr9BasicTypeib(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %321, ptr noundef %307, i8 noundef zeroext %230, i32 noundef %242, i1 noundef zeroext false)
   %323 = icmp eq ptr %322, null
@@ -12788,20 +12788,20 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   %341 = getelementptr inbounds nuw i8, ptr %332, i64 8
   %342 = load ptr, ptr %341, align 8
   %343 = zext i32 %340 to i64
-  %344 = getelementptr inbounds nuw ptr, ptr %342, i64 %343
+  %344 = getelementptr inbounds nuw [8 x i8], ptr %342, i64 %343
   %345 = load ptr, ptr %344, align 8
   %346 = load ptr, ptr %345, align 8
   %347 = load ptr, ptr %346, align 8
   %348 = tail call noundef i32 %347(ptr noundef nonnull align 8 dereferenceable(52) %345) #9
   %349 = sext i32 %348 to i64
-  %350 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %349
+  %350 = getelementptr inbounds [8 x i8], ptr @NodeClassNames, i64 %349
   %351 = load ptr, ptr %350, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %331, ptr noundef nonnull @.str.23, ptr noundef %351) #9
   br label %373
 
 352:                                              ; preds = %304
   %353 = zext i8 %230 to i64
-  %354 = getelementptr inbounds nuw ptr, ptr @_ZN4Type17_const_basic_typeE, i64 %353
+  %354 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4Type17_const_basic_typeE, i64 %353
   %355 = load ptr, ptr %354, align 8
   %356 = tail call noundef ptr @_ZN8TypeVect4makeEPK4Typejb(ptr noundef %355, i32 noundef %242, i1 noundef zeroext %.not) #9
   %357 = load ptr, ptr %2, align 8
@@ -12817,7 +12817,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   %366 = load ptr, ptr %365, align 8
   %367 = getelementptr inbounds nuw i8, ptr %366, i64 132
   %368 = load i32, ptr %367, align 4
-  %369 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %353
+  %369 = getelementptr inbounds nuw [4 x i8], ptr @_type2aelembytes, i64 %353
   %370 = load i32, ptr %369, align 4
   %371 = mul nsw i32 %370, %242
   %372 = tail call noundef i32 @llvm.umax.i32(i32 %368, i32 %371)
@@ -12845,7 +12845,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit19inline_index_vectorEv(ptr
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = zext i32 %12 to i64
-  %16 = getelementptr inbounds nuw ptr, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %19 = load ptr, ptr %18, align 8
@@ -12854,7 +12854,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit19inline_index_vectorEv(ptr
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %23 = load ptr, ptr %22, align 8
   %24 = zext i32 %21 to i64
-  %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %24
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load i32, ptr %27, align 8
@@ -12862,12 +12862,12 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit19inline_index_vectorEv(ptr
   %..i = select i1 %29, ptr %26, ptr null
   %30 = add i32 %12, 1
   %31 = zext i32 %30 to i64
-  %32 = getelementptr inbounds nuw ptr, ptr %14, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %31
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 40
   %35 = load i32, ptr %34, align 8
   %36 = zext i32 %35 to i64
-  %37 = getelementptr inbounds nuw ptr, ptr %23, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %36
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %40 = load i32, ptr %39, align 8
@@ -12875,12 +12875,12 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit19inline_index_vectorEv(ptr
   %..i97 = select i1 %41, ptr %38, ptr null
   %42 = add i32 %12, 2
   %43 = zext i32 %42 to i64
-  %44 = getelementptr inbounds nuw ptr, ptr %14, i64 %43
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %43
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %47 = load i32, ptr %46, align 8
   %48 = zext i32 %47 to i64
-  %49 = getelementptr inbounds nuw ptr, ptr %23, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %48
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %52 = load i32, ptr %51, align 8
@@ -12927,7 +12927,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit19inline_index_vectorEv(ptr
   %80 = load ptr, ptr %79, align 8
   %81 = tail call noundef i32 %80(ptr noundef nonnull align 8 dereferenceable(52) %17) #9
   %82 = sext i32 %81 to i64
-  %83 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %82
+  %83 = getelementptr inbounds [8 x i8], ptr @NodeClassNames, i64 %82
   %84 = load ptr, ptr %83, align 8
   %85 = load ptr, ptr %4, align 8
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 56
@@ -12941,13 +12941,13 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit19inline_index_vectorEv(ptr
   %94 = getelementptr inbounds nuw i8, ptr %85, i64 8
   %95 = load ptr, ptr %94, align 8
   %96 = zext i32 %93 to i64
-  %97 = getelementptr inbounds nuw ptr, ptr %95, i64 %96
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %96
   %98 = load ptr, ptr %97, align 8
   %99 = load ptr, ptr %98, align 8
   %100 = load ptr, ptr %99, align 8
   %101 = tail call noundef i32 %100(ptr noundef nonnull align 8 dereferenceable(52) %98) #9
   %102 = sext i32 %101 to i64
-  %103 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %102
+  %103 = getelementptr inbounds [8 x i8], ptr @NodeClassNames, i64 %102
   %104 = load ptr, ptr %103, align 8
   %105 = load ptr, ptr %4, align 8
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 56
@@ -12961,13 +12961,13 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit19inline_index_vectorEv(ptr
   %114 = getelementptr inbounds nuw i8, ptr %105, i64 8
   %115 = load ptr, ptr %114, align 8
   %116 = zext i32 %113 to i64
-  %117 = getelementptr inbounds nuw ptr, ptr %115, i64 %116
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %115, i64 %116
   %118 = load ptr, ptr %117, align 8
   %119 = load ptr, ptr %118, align 8
   %120 = load ptr, ptr %119, align 8
   %121 = tail call noundef i32 %120(ptr noundef nonnull align 8 dereferenceable(52) %118) #9
   %122 = sext i32 %121 to i64
-  %123 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %122
+  %123 = getelementptr inbounds [8 x i8], ptr @NodeClassNames, i64 %122
   %124 = load ptr, ptr %123, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %78, ptr noundef nonnull @.str.86, ptr noundef %84, ptr noundef %104, ptr noundef %124) #9
   br label %383
@@ -13079,7 +13079,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   %188 = getelementptr inbounds nuw i8, ptr %179, i64 8
   %189 = load ptr, ptr %188, align 8
   %190 = zext i32 %187 to i64
-  %191 = getelementptr inbounds nuw ptr, ptr %189, i64 %190
+  %191 = getelementptr inbounds nuw [8 x i8], ptr %189, i64 %190
   %192 = load ptr, ptr %191, align 8
   %193 = load ptr, ptr %2, align 8
   %194 = getelementptr inbounds nuw i8, ptr %193, i64 40
@@ -13089,7 +13089,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   %198 = getelementptr inbounds nuw i8, ptr %195, i64 16
   %199 = load ptr, ptr %198, align 8
   %200 = zext i32 %197 to i64
-  %201 = getelementptr inbounds nuw ptr, ptr %199, i64 %200
+  %201 = getelementptr inbounds nuw [8 x i8], ptr %199, i64 %200
   %202 = load ptr, ptr %201, align 8
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 16
   %204 = load i32, ptr %203, align 8
@@ -13152,7 +13152,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
 237:                                              ; preds = %231
   %238 = load ptr, ptr @tty, align 8
   %239 = zext nneg i32 %229 to i64
-  %240 = getelementptr inbounds nuw ptr, ptr @NodeClassNames, i64 %239
+  %240 = getelementptr inbounds nuw [8 x i8], ptr @NodeClassNames, i64 %239
   %241 = load ptr, ptr %240, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %238, ptr noundef nonnull @.str.93, ptr noundef %241) #9
   br label %383
@@ -13174,7 +13174,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   %255 = getelementptr inbounds nuw i8, ptr %246, i64 8
   %256 = load ptr, ptr %255, align 8
   %257 = zext i32 %254 to i64
-  %258 = getelementptr inbounds nuw ptr, ptr %256, i64 %257
+  %258 = getelementptr inbounds nuw [8 x i8], ptr %256, i64 %257
   %259 = load ptr, ptr %258, align 8
   %260 = tail call noundef ptr @_ZN8GraphKit12unbox_vectorEP4NodePK11TypeInstPtr9BasicTypeib(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %259, ptr noundef %245, i8 noundef zeroext %153, i32 noundef %165, i1 noundef zeroext false)
   %261 = icmp eq ptr %260, null
@@ -13202,13 +13202,13 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   %279 = getelementptr inbounds nuw i8, ptr %270, i64 8
   %280 = load ptr, ptr %279, align 8
   %281 = zext i32 %278 to i64
-  %282 = getelementptr inbounds nuw ptr, ptr %280, i64 %281
+  %282 = getelementptr inbounds nuw [8 x i8], ptr %280, i64 %281
   %283 = load ptr, ptr %282, align 8
   %284 = load ptr, ptr %283, align 8
   %285 = load ptr, ptr %284, align 8
   %286 = tail call noundef i32 %285(ptr noundef nonnull align 8 dereferenceable(52) %283) #9
   %287 = sext i32 %286 to i64
-  %288 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %287
+  %288 = getelementptr inbounds [8 x i8], ptr @NodeClassNames, i64 %287
   %289 = load ptr, ptr %288, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %269, ptr noundef nonnull @.str.47, ptr noundef %289) #9
   br label %383
@@ -13239,7 +13239,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
 
 305:                                              ; preds = %290, %294
   %306 = zext i8 %153 to i64
-  %307 = getelementptr inbounds nuw ptr, ptr @_ZN4Type17_const_basic_typeE, i64 %306
+  %307 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4Type17_const_basic_typeE, i64 %306
   %308 = load ptr, ptr %307, align 8
   %309 = tail call noundef ptr @_ZN8TypeVect4makeEPK4Typejb(ptr noundef %308, i32 noundef %165, i1 noundef zeroext false) #9
   %310 = load ptr, ptr %2, align 8
@@ -13364,7 +13364,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   %376 = load ptr, ptr %375, align 8
   %377 = getelementptr inbounds nuw i8, ptr %376, i64 132
   %378 = load i32, ptr %377, align 4
-  %379 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %306
+  %379 = getelementptr inbounds nuw [4 x i8], ptr @_type2aelembytes, i64 %306
   %380 = load i32, ptr %379, align 4
   %381 = mul nsw i32 %380, %165
   %382 = tail call noundef i32 @llvm.umax.i32(i32 %378, i32 %381)
@@ -13422,7 +13422,7 @@ define linkonce_odr hidden void @_ZN11ConvI2FNodeC2EP4Node(ptr noundef nonnull a
   %23 = add i32 %21, 1
   store i32 %23, ptr %14, align 8
   %24 = zext i32 %21 to i64
-  %25 = getelementptr inbounds nuw ptr, ptr %22, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %24
   store ptr %0, ptr %25, align 8
   br label %_ZN11ConvertNodeC2EPK4TypeP4Node.exit
 
@@ -13473,7 +13473,7 @@ define linkonce_odr hidden void @_ZN11ConvI2DNodeC2EP4Node(ptr noundef nonnull a
   %23 = add i32 %21, 1
   store i32 %23, ptr %14, align 8
   %24 = zext i32 %21 to i64
-  %25 = getelementptr inbounds nuw ptr, ptr %22, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %24
   store ptr %0, ptr %25, align 8
   br label %_ZN11ConvertNodeC2EPK4TypeP4Node.exit
 
@@ -13498,7 +13498,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit37inline_index_partially_in
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = zext i32 %12 to i64
-  %16 = getelementptr inbounds nuw ptr, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %19 = load ptr, ptr %18, align 8
@@ -13507,7 +13507,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit37inline_index_partially_in
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %23 = load ptr, ptr %22, align 8
   %24 = zext i32 %21 to i64
-  %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %24
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load i32, ptr %27, align 8
@@ -13515,12 +13515,12 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit37inline_index_partially_in
   %..i = select i1 %29, ptr %26, ptr null
   %30 = add i32 %12, 1
   %31 = zext i32 %30 to i64
-  %32 = getelementptr inbounds nuw ptr, ptr %14, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %31
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 40
   %35 = load i32, ptr %34, align 8
   %36 = zext i32 %35 to i64
-  %37 = getelementptr inbounds nuw ptr, ptr %23, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %36
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %40 = load i32, ptr %39, align 8
@@ -13528,12 +13528,12 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit37inline_index_partially_in
   %..i82 = select i1 %41, ptr %38, ptr null
   %42 = add i32 %12, 2
   %43 = zext i32 %42 to i64
-  %44 = getelementptr inbounds nuw ptr, ptr %14, i64 %43
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %43
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %47 = load i32, ptr %46, align 8
   %48 = zext i32 %47 to i64
-  %49 = getelementptr inbounds nuw ptr, ptr %23, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %48
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %52 = load i32, ptr %51, align 8
@@ -13580,7 +13580,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit37inline_index_partially_in
   %80 = load ptr, ptr %79, align 8
   %81 = tail call noundef i32 %80(ptr noundef nonnull align 8 dereferenceable(52) %17) #9
   %82 = sext i32 %81 to i64
-  %83 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %82
+  %83 = getelementptr inbounds [8 x i8], ptr @NodeClassNames, i64 %82
   %84 = load ptr, ptr %83, align 8
   %85 = load ptr, ptr %4, align 8
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 56
@@ -13594,13 +13594,13 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit37inline_index_partially_in
   %94 = getelementptr inbounds nuw i8, ptr %85, i64 8
   %95 = load ptr, ptr %94, align 8
   %96 = zext i32 %93 to i64
-  %97 = getelementptr inbounds nuw ptr, ptr %95, i64 %96
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %96
   %98 = load ptr, ptr %97, align 8
   %99 = load ptr, ptr %98, align 8
   %100 = load ptr, ptr %99, align 8
   %101 = tail call noundef i32 %100(ptr noundef nonnull align 8 dereferenceable(52) %98) #9
   %102 = sext i32 %101 to i64
-  %103 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %102
+  %103 = getelementptr inbounds [8 x i8], ptr @NodeClassNames, i64 %102
   %104 = load ptr, ptr %103, align 8
   %105 = load ptr, ptr %4, align 8
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 56
@@ -13614,13 +13614,13 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit37inline_index_partially_in
   %114 = getelementptr inbounds nuw i8, ptr %105, i64 8
   %115 = load ptr, ptr %114, align 8
   %116 = zext i32 %113 to i64
-  %117 = getelementptr inbounds nuw ptr, ptr %115, i64 %116
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %115, i64 %116
   %118 = load ptr, ptr %117, align 8
   %119 = load ptr, ptr %118, align 8
   %120 = load ptr, ptr %119, align 8
   %121 = tail call noundef i32 %120(ptr noundef nonnull align 8 dereferenceable(52) %118) #9
   %122 = sext i32 %121 to i64
-  %123 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %122
+  %123 = getelementptr inbounds [8 x i8], ptr @NodeClassNames, i64 %122
   %124 = load ptr, ptr %123, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %78, ptr noundef nonnull @.str.94, ptr noundef %84, ptr noundef %104, ptr noundef %124) #9
   br label %329
@@ -13756,7 +13756,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
 196:                                              ; preds = %190
   %197 = load ptr, ptr @tty, align 8
   %198 = zext nneg i32 %188 to i64
-  %199 = getelementptr inbounds nuw ptr, ptr @NodeClassNames, i64 %198
+  %199 = getelementptr inbounds nuw [8 x i8], ptr @NodeClassNames, i64 %198
   %200 = load ptr, ptr %199, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %197, ptr noundef nonnull @.str.93, ptr noundef %200) #9
   br label %329
@@ -13774,11 +13774,11 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   %211 = getelementptr inbounds nuw i8, ptr %202, i64 8
   %212 = load ptr, ptr %211, align 8
   %213 = zext i32 %210 to i64
-  %214 = getelementptr inbounds nuw ptr, ptr %212, i64 %213
+  %214 = getelementptr inbounds nuw [8 x i8], ptr %212, i64 %213
   %215 = load ptr, ptr %214, align 8
   %216 = add i32 %209, 5
   %217 = zext i32 %216 to i64
-  %218 = getelementptr inbounds nuw ptr, ptr %212, i64 %217
+  %218 = getelementptr inbounds nuw [8 x i8], ptr %212, i64 %217
   %219 = load ptr, ptr %218, align 8
   %220 = icmp eq ptr %215, null
   %221 = icmp eq ptr %219, null
@@ -13901,7 +13901,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   %.068 = phi ptr [ %259, %256 ], [ %268, %265 ], [ %277, %274 ], [ %242, %249 ]
   %282 = load ptr, ptr %2, align 8
   %283 = zext nneg i8 %153 to i64
-  %284 = getelementptr inbounds nuw ptr, ptr @_ZN4Type17_const_basic_typeE, i64 %283
+  %284 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4Type17_const_basic_typeE, i64 %283
   %285 = load ptr, ptr %284, align 8
   %286 = tail call noundef ptr @_ZN10VectorNode13scalar2vectorEP4NodejPK4Typeb(ptr noundef %.068, i32 noundef %165, ptr noundef %285, i1 noundef zeroext false) #9
   %287 = load ptr, ptr %282, align 8
@@ -13960,7 +13960,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   %322 = load ptr, ptr %321, align 8
   %323 = getelementptr inbounds nuw i8, ptr %322, i64 132
   %324 = load i32, ptr %323, align 4
-  %325 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %.pre-phi
+  %325 = getelementptr inbounds nuw [4 x i8], ptr @_type2aelembytes, i64 %.pre-phi
   %326 = load i32, ptr %325, align 4
   %327 = mul nsw i32 %326, %165
   %328 = tail call noundef i32 @llvm.umax.i32(i32 %324, i32 %327)
@@ -14016,7 +14016,7 @@ define linkonce_odr hidden void @_ZN11ConvL2DNodeC2EP4Node(ptr noundef nonnull a
   %23 = add i32 %21, 1
   store i32 %23, ptr %14, align 8
   %24 = zext i32 %21 to i64
-  %25 = getelementptr inbounds nuw ptr, ptr %22, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %24
   store ptr %0, ptr %25, align 8
   br label %_ZN11ConvertNodeC2EPK4TypeP4Node.exit
 
@@ -14067,7 +14067,7 @@ define linkonce_odr hidden void @_ZN11ConvL2FNodeC2EP4Node(ptr noundef nonnull a
   %23 = add i32 %21, 1
   store i32 %23, ptr %14, align 8
   %24 = zext i32 %21 to i64
-  %25 = getelementptr inbounds nuw ptr, ptr %22, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %24
   store ptr %0, ptr %25, align 8
   br label %_ZN11ConvertNodeC2EPK4TypeP4Node.exit
 
@@ -14139,9 +14139,9 @@ _ZN13GrowableArrayIP4NodeE8allocateEv.exit:       ; preds = %7, %11, %15
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %26 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv
   %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
   store ptr %29, ptr %26, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -14158,7 +14158,7 @@ _ZN13GrowableArrayIP4NodeE8allocateEv.exit:       ; preds = %7, %11, %15
 
 .lr.ph18:                                         ; preds = %.lr.ph18.preheader, %.lr.ph18
   %indvars.iv20 = phi i64 [ %24, %.lr.ph18.preheader ], [ %indvars.iv.next21, %.lr.ph18 ]
-  %35 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv20
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv20
   store ptr null, ptr %35, align 8
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %36 = load i32, ptr %3, align 4
@@ -14250,7 +14250,7 @@ define linkonce_odr hidden void @_ZN10VectorNodeC2EP4NodeS1_S1_PK8TypeVect(ptr n
   %25 = add i32 %23, 1
   store i32 %25, ptr %16, align 8
   %26 = zext i32 %23 to i64
-  %27 = getelementptr inbounds nuw ptr, ptr %24, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %26
   store ptr %0, ptr %27, align 8
   br label %_ZN4Node8init_reqEjPS_.exit
 
@@ -14287,7 +14287,7 @@ _ZN4Node8init_reqEjPS_.exit:                      ; preds = %5, %11, %22
   %44 = add i32 %42, 1
   store i32 %44, ptr %35, align 8
   %45 = zext i32 %42 to i64
-  %46 = getelementptr inbounds nuw ptr, ptr %43, i64 %45
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %45
   store ptr %0, ptr %46, align 8
   br label %_ZN4Node8init_reqEjPS_.exit8
 
@@ -14324,7 +14324,7 @@ _ZN4Node8init_reqEjPS_.exit8:                     ; preds = %_ZN4Node8init_reqEj
   %63 = add i32 %61, 1
   store i32 %63, ptr %54, align 8
   %64 = zext i32 %61 to i64
-  %65 = getelementptr inbounds nuw ptr, ptr %62, i64 %64
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %64
   store ptr %0, ptr %65, align 8
   br label %_ZN4Node8init_reqEjPS_.exit12
 
@@ -14385,7 +14385,7 @@ define linkonce_odr hidden void @_ZN9CMoveNodeC2EP4NodeS1_S1_PK4Type(ptr noundef
   %25 = add i32 %23, 1
   store i32 %25, ptr %16, align 8
   %26 = zext i32 %23 to i64
-  %27 = getelementptr inbounds nuw ptr, ptr %24, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %26
   store ptr %0, ptr %27, align 8
   br label %_ZN4Node8init_reqEjPS_.exit
 
@@ -14422,7 +14422,7 @@ _ZN4Node8init_reqEjPS_.exit:                      ; preds = %5, %11, %22
   %44 = add i32 %42, 1
   store i32 %44, ptr %35, align 8
   %45 = zext i32 %42 to i64
-  %46 = getelementptr inbounds nuw ptr, ptr %43, i64 %45
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %45
   store ptr %0, ptr %46, align 8
   br label %_ZN4Node8init_reqEjPS_.exit8
 
@@ -14459,7 +14459,7 @@ _ZN4Node8init_reqEjPS_.exit8:                     ; preds = %_ZN4Node8init_reqEj
   %63 = add i32 %61, 1
   store i32 %63, ptr %54, align 8
   %64 = zext i32 %61 to i64
-  %65 = getelementptr inbounds nuw ptr, ptr %62, i64 %64
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %64
   store ptr %0, ptr %65, align 8
   br label %_ZN4Node8init_reqEjPS_.exit12
 

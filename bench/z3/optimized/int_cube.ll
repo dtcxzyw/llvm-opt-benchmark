@@ -9,10 +9,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.mpq = type { %class.mpz, %class.mpz }
 %class.mpz = type { i32, i8, ptr }
 %"struct.lp::numeric_pair" = type { %class.rational, %class.rational }
-%"class.lp::column" = type { ptr, ptr, ptr }
-%class.default_map_entry = type { %class.default_hash_entry }
-%class.default_hash_entry = type { i32, i32, %struct._key_data }
-%struct._key_data = type { i32, %class.rational }
 
 $_ZN2lp12numeric_pairI8rationalED2Ev = comdat any
 
@@ -149,7 +145,7 @@ _ZNK6vectorIjLb1EjE3endEv.exit.i:                 ; preds = %31
 45:                                               ; preds = %42
   %46 = load ptr, ptr %41, align 8, !tbaa !46
   %47 = zext i32 %43 to i64
-  %48 = getelementptr inbounds nuw %"struct.lp::numeric_pair", ptr %46, i64 %47
+  %48 = getelementptr inbounds nuw [64 x i8], ptr %46, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 20
   %51 = load i8, ptr %50, align 4
@@ -244,7 +240,7 @@ define hidden noundef zeroext i1 @_ZN2lp8int_cube21tighten_term_for_cubeEj(ptr n
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1320
   %7 = load ptr, ptr %6, align 8, !tbaa !53
   %8 = zext i32 %1 to i64
-  %9 = getelementptr inbounds nuw %"class.lp::column", ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8, !tbaa !56
   %.not = icmp eq ptr %11, null
@@ -355,7 +351,7 @@ define hidden void @_ZNK2lp8int_cube23get_cube_delta_for_termERKNS_8lar_termE(pt
 
 _ZNK2lp8lar_term5beginEv.exit:                    ; preds = %.lr.ph.i.i.i.i.i, %23, %14
   %.sroa.0.1.i.i.i = phi ptr [ %15, %14 ], [ %.sroa.0.0.i.i.i, %.lr.ph.i.i.i.i.i ], [ %19, %23 ]
-  %25 = getelementptr inbounds nuw %class.default_map_entry, ptr %15, i64 %18
+  %25 = getelementptr inbounds nuw [48 x i8], ptr %15, i64 %18
   %.not166 = icmp eq ptr %.sroa.0.1.i.i.i, %25
   br i1 %.not166, label %._crit_edge.thread, label %.lr.ph
 
@@ -911,7 +907,7 @@ _ZN2lp12zero_of_typeI8rationalEET_v.exit:         ; preds = %246, %250
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i79, %259, %_ZN2lp12zero_of_typeI8rationalEET_v.exit
   %.sroa.0.1.i.i.i82 = phi ptr [ %251, %_ZN2lp12zero_of_typeI8rationalEET_v.exit ], [ %.sroa.0.0.i.i.i80, %.lr.ph.i.i.i.i.i79 ], [ %255, %259 ]
-  %261 = getelementptr inbounds nuw %class.default_map_entry, ptr %251, i64 %254
+  %261 = getelementptr inbounds nuw [48 x i8], ptr %251, i64 %254
   %.not148172 = icmp eq ptr %.sroa.0.1.i.i.i82, %261
   br i1 %.not148172, label %._crit_edge176, label %.lr.ph175
 

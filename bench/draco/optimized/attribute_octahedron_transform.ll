@@ -5,8 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
 %"class.draco::OctahedronToolBox" = type { i32, i32, i32, float, i32 }
-%"class.draco::IndexType.33" = type { i32 }
-%"class.draco::IndexType" = type { i32 }
 
 $_ZNK5draco17OctahedronToolBox38FloatVectorToQuantizedOctahedralCoordsIfEEvPKT_PiS5_ = comdat any
 
@@ -170,7 +168,7 @@ define noundef zeroext i1 @_ZNK5draco28AttributeOctahedronTransform25GeneratePor
   %43 = phi ptr [ %30, %.lr.ph ], [ %68, %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit ]
   %44 = phi i64 [ 0, %.lr.ph ], [ %66, %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit ]
   %.02736 = phi i32 [ 0, %.lr.ph ], [ %65, %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit ]
-  %45 = getelementptr inbounds nuw %"class.draco::IndexType.33", ptr %43, i64 %44
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %44
   %.sroa.04.0.copyload = load i32, ptr %45, align 4, !tbaa !61
   %46 = load i8, ptr %34, align 4, !tbaa !62, !range !63, !noundef !64
   %47 = trunc nuw i8 %46 to i1
@@ -179,7 +177,7 @@ define noundef zeroext i1 @_ZNK5draco28AttributeOctahedronTransform25GeneratePor
 48:                                               ; preds = %42
   %49 = zext i32 %.sroa.04.0.copyload to i64
   %50 = load ptr, ptr %35, align 8, !tbaa !65
-  %51 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %50, i64 %49
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %49
   %52 = load i32, ptr %51, align 4, !tbaa !61
   br label %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit
 
@@ -198,7 +196,7 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZNK5draco17OctahedronToolBox38FloatVectorToQuantizedOctahedralCoordsIfEEvPKT_PiS5_(ptr noundef nonnull align 4 dereferenceable(20) %7, ptr noundef nonnull %6, ptr noundef nonnull %8, ptr noundef nonnull %9)
   %61 = load i32, ptr %8, align 4, !tbaa !61
-  %62 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv
   store i32 %61, ptr %62, align 4, !tbaa !61
   %63 = load i32, ptr %9, align 4, !tbaa !61
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
@@ -227,7 +225,7 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
 
 78:                                               ; preds = %74
   %79 = load ptr, ptr %39, align 8, !tbaa !65
-  %80 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %79, i64 %indvars.iv46
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %79, i64 %indvars.iv46
   %81 = load i32, ptr %80, align 4, !tbaa !61
   br label %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit30
 
@@ -246,7 +244,7 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZNK5draco17OctahedronToolBox38FloatVectorToQuantizedOctahedralCoordsIfEEvPKT_PiS5_(ptr noundef nonnull align 4 dereferenceable(20) %7, ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %11)
   %90 = load i32, ptr %10, align 4, !tbaa !61
-  %91 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv44
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv44
   store i32 %90, ptr %91, align 4, !tbaa !61
   %92 = load i32, ptr %11, align 4, !tbaa !61
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 2

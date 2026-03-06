@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.s_xpparam = type { i64, ptr, i64, ptr, i64 }
-%struct.entry = type { i64, i64, i64, ptr, ptr, i8 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @xdl_do_patience_diff(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -100,7 +99,7 @@ define internal fastcc i32 @patience_diff(ptr noundef readonly captures(none) %0
   %34 = add nsw i32 %.01725.i, -1
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %35 = load ptr, ptr %27, align 8, !tbaa !24
-  %36 = getelementptr ptr, ptr %35, i64 %indvars.iv
+  %36 = getelementptr [8 x i8], ptr %35, i64 %indvars.iv
   %37 = getelementptr i8, ptr %36, i64 -8
   %38 = load ptr, ptr %37, align 8, !tbaa !25
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 24
@@ -109,7 +108,7 @@ define internal fastcc i32 @patience_diff(ptr noundef readonly captures(none) %0
   %42 = urem i64 %41, %25
   %sext.i = shl i64 %42, 32
   %43 = ashr exact i64 %sext.i, 32
-  %44 = getelementptr inbounds %struct.entry, ptr %26, i64 %43
+  %44 = getelementptr inbounds [48 x i8], ptr %26, i64 %43
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %46 = load i64, ptr %45, align 8, !tbaa !29
   %.not64.i56 = icmp eq i64 %46, 0
@@ -131,7 +130,7 @@ define internal fastcc i32 @patience_diff(ptr noundef readonly captures(none) %0
   %.not55.i58 = icmp slt i32 %51, %24
   %spec.store.select.i = select i1 %.not55.i58, i32 %51, i32 0
   %52 = sext i32 %spec.store.select.i to i64
-  %53 = getelementptr inbounds %struct.entry, ptr %26, i64 %52
+  %53 = getelementptr inbounds [48 x i8], ptr %26, i64 %52
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %55 = load i64, ptr %54, align 8, !tbaa !29
   %.not.i59 = icmp eq i64 %55, 0
@@ -165,7 +164,7 @@ define internal fastcc i32 @patience_diff(ptr noundef readonly captures(none) %0
 
 64:                                               ; preds = %63, %.lr.ph.i.i61
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i61 ], [ %indvars.iv.next.i.i, %63 ]
-  %65 = getelementptr inbounds nuw ptr, ptr %62, i64 %indvars.iv.i.i
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %indvars.iv.i.i
   %66 = load ptr, ptr %65, align 8, !tbaa !42
   %67 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %66) #7
   %68 = tail call i32 @strncmp(ptr noundef readonly %60, ptr noundef nonnull %66, i64 noundef %67) #7
@@ -180,7 +179,7 @@ is_anchor.exit.i:                                 ; preds = %64, %63, %._crit_ed
   %72 = or disjoint i8 %71, %.08.i.i
   store i8 %72, ptr %69, align 8
   %.not51.i63 = icmp eq ptr %.sroa.15.0, null
-  %73 = getelementptr inbounds %struct.entry, ptr %26, i64 %.lcssa59.i
+  %73 = getelementptr inbounds [48 x i8], ptr %26, i64 %.lcssa59.i
   %spec.select = select i1 %.not51.i63, ptr %73, ptr %.sroa.15.0
   %.not52.i64 = icmp eq ptr %.sroa.18.0, null
   br i1 %.not52.i64, label %77, label %74
@@ -208,7 +207,7 @@ insert_record.exit:                               ; preds = %56, %77
   %.027.i = phi i32 [ %80, %insert_record.exit.i ], [ %.027.i.ph, %.outer ]
   %80 = add nsw i32 %.027.i, -1
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
-  %81 = getelementptr ptr, ptr %32, i64 %indvars.iv.i
+  %81 = getelementptr [8 x i8], ptr %32, i64 %indvars.iv.i
   %82 = getelementptr i8, ptr %81, i64 -8
   %83 = load ptr, ptr %82, align 8, !tbaa !25
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 24
@@ -217,7 +216,7 @@ insert_record.exit:                               ; preds = %56, %77
   %87 = urem i64 %86, %25
   %sext.i.i = shl i64 %87, 32
   %88 = ashr exact i64 %sext.i.i, 32
-  %89 = getelementptr inbounds %struct.entry, ptr %26, i64 %88
+  %89 = getelementptr inbounds [48 x i8], ptr %26, i64 %88
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %91 = load i64, ptr %90, align 8, !tbaa !29
   %.not64.i.i = icmp eq i64 %91, 0
@@ -239,7 +238,7 @@ insert_record.exit:                               ; preds = %56, %77
   %.not55.i.i = icmp slt i32 %96, %24
   %spec.store.select.i.i = select i1 %.not55.i.i, i32 %96, i32 0
   %97 = sext i32 %spec.store.select.i.i to i64
-  %98 = getelementptr inbounds %struct.entry, ptr %26, i64 %97
+  %98 = getelementptr inbounds [48 x i8], ptr %26, i64 %97
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
   %100 = load i64, ptr %99, align 8, !tbaa !29
   %.not.i.i = icmp eq i64 %100, 0
@@ -333,7 +332,7 @@ insert_record.exit.i.thread:                      ; preds = %.lr.ph.i.i
   %128 = sdiv i32 %127, 2
   %129 = add nsw i32 %128, %.014.i.i
   %130 = sext i32 %129 to i64
-  %131 = getelementptr inbounds ptr, ptr %121, i64 %130
+  %131 = getelementptr inbounds [8 x i8], ptr %121, i64 %130
   %132 = load ptr, ptr %131, align 8, !tbaa !49
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 16
   %134 = load i64, ptr %133, align 8, !tbaa !34
@@ -350,7 +349,7 @@ binary_search.exit.i:                             ; preds = %.lr.ph.i.i53
 
 139:                                              ; preds = %binary_search.exit.i
   %140 = zext nneg i32 %.0..i.i to i64
-  %141 = getelementptr inbounds nuw ptr, ptr %121, i64 %140
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %121, i64 %140
   %142 = load ptr, ptr %141, align 8, !tbaa !49
   br label %binary_search.exit.thread.i
 
@@ -365,7 +364,7 @@ binary_search.exit.thread.i:                      ; preds = %125, %139, %binary_
 
 146:                                              ; preds = %binary_search.exit.thread.i
   %147 = sext i32 %145 to i64
-  %148 = getelementptr inbounds ptr, ptr %121, i64 %147
+  %148 = getelementptr inbounds [8 x i8], ptr %121, i64 %147
   store ptr %.03963.i, ptr %148, align 8, !tbaa !49
   %149 = getelementptr inbounds nuw i8, ptr %.03963.i, i64 40
   %150 = load i8, ptr %149, align 8
@@ -397,7 +396,7 @@ binary_search.exit.thread.i:                      ; preds = %125, %139, %binary_
 
 159:                                              ; preds = %._crit_edge.i
   %160 = sext i32 %.142.i to i64
-  %161 = getelementptr ptr, ptr %121, i64 %160
+  %161 = getelementptr [8 x i8], ptr %121, i64 %160
   %162 = getelementptr i8, ptr %161, i64 -8
   %163 = load ptr, ptr %162, align 8, !tbaa !49
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 24
@@ -457,10 +456,10 @@ binary_search.exit.thread.i:                      ; preds = %125, %139, %binary_
   %indvars.iv.next156 = add nsw i64 %indvars.iv155, -1
   %.val.val.i = load ptr, ptr %27, align 8, !tbaa !53
   %.val.val71.i = load ptr, ptr %31, align 8, !tbaa !54
-  %187 = getelementptr ptr, ptr %.val.val.i, i64 %indvars.iv.next154
+  %187 = getelementptr [8 x i8], ptr %.val.val.i, i64 %indvars.iv.next154
   %188 = getelementptr i8, ptr %187, i64 -8
   %189 = load ptr, ptr %188, align 8, !tbaa !25
-  %190 = getelementptr ptr, ptr %.val.val71.i, i64 %indvars.iv.next156
+  %190 = getelementptr [8 x i8], ptr %.val.val71.i, i64 %indvars.iv.next156
   %191 = getelementptr i8, ptr %190, i64 -8
   %192 = load ptr, ptr %191, align 8, !tbaa !25
   %193 = getelementptr inbounds nuw i8, ptr %189, i64 24
@@ -497,10 +496,10 @@ binary_search.exit.thread.i:                      ; preds = %125, %139, %binary_
   %indvars.iv160 = phi i64 [ %201, %.lr.ph ], [ %indvars.iv.next161, %216 ]
   %.159.i117 = phi i32 [ %.058.i, %.lr.ph ], [ %217, %216 ]
   %.161.i116 = phi i32 [ %.060.i, %.lr.ph ], [ %218, %216 ]
-  %206 = getelementptr ptr, ptr %.val69.val.i, i64 %indvars.iv160
+  %206 = getelementptr [8 x i8], ptr %.val69.val.i, i64 %indvars.iv160
   %207 = getelementptr i8, ptr %206, i64 -8
   %208 = load ptr, ptr %207, align 8, !tbaa !25
-  %209 = getelementptr ptr, ptr %.val69.val70.i, i64 %indvars.iv162
+  %209 = getelementptr [8 x i8], ptr %.val69.val70.i, i64 %indvars.iv162
   %210 = getelementptr i8, ptr %209, i64 -8
   %211 = load ptr, ptr %210, align 8, !tbaa !25
   %212 = getelementptr inbounds nuw i8, ptr %208, i64 24

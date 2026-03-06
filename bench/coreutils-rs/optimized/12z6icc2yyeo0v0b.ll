@@ -453,7 +453,7 @@ define hidden void @_ZN5alloc11collections5btree3mem7replace17h7a698a26eea27e06E
   %11 = icmp samesign ult i64 %.sroa.6.0.lcssa.i.i, 11
   tail call void @llvm.assume(i1 %11)
   %12 = getelementptr i8, ptr %.sroa.0.0.lcssa.i.i, i64 32
-  %13 = getelementptr ptr, ptr %12, i64 %.sroa.6.0.lcssa.i.i
+  %13 = getelementptr [8 x i8], ptr %12, i64 %.sroa.6.0.lcssa.i.i
   %14 = load ptr, ptr %13, align 8, !noalias !90, !nonnull !15, !noundef !15
   %15 = add i64 %.sroa.5.0.lcssa.i.i, -1
   %.not11.i.i.i.i = icmp eq i64 %15, 0
@@ -588,7 +588,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %15 = icmp samesign ult i64 %.sroa.6.0.lcssa, 11
   tail call void @llvm.assume(i1 %15)
   %16 = getelementptr i8, ptr %.sroa.0.0.lcssa, i64 32
-  %17 = getelementptr ptr, ptr %16, i64 %.sroa.6.0.lcssa
+  %17 = getelementptr [8 x i8], ptr %16, i64 %.sroa.6.0.lcssa
   %18 = load ptr, ptr %17, align 8, !noalias !109, !nonnull !15, !noundef !15
   %19 = add i64 %.sroa.5.0.lcssa, -1
   %.not11.i.i = icmp eq i64 %19, 0
@@ -682,7 +682,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %15 = icmp samesign ult i64 %.sroa.6.0.lcssa.i, 11
   tail call void @llvm.assume(i1 %15)
   %16 = getelementptr i8, ptr %.sroa.0.0.lcssa.i, i64 32
-  %17 = getelementptr ptr, ptr %16, i64 %.sroa.6.0.lcssa.i
+  %17 = getelementptr [8 x i8], ptr %16, i64 %.sroa.6.0.lcssa.i
   %18 = load ptr, ptr %17, align 8, !noalias !128, !nonnull !15, !noundef !15
   %19 = add i64 %.sroa.5.0.lcssa.i, -1
   %.not11.i.i.i = icmp eq i64 %19, 0

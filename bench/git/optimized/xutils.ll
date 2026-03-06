@@ -1421,7 +1421,7 @@ define dso_local range(i32 -1, 1) i32 @xdl_fall_back_diff(ptr noundef readonly c
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %11 = load ptr, ptr %10, align 8, !tbaa !53
   %12 = sext i32 %2 to i64
-  %13 = getelementptr ptr, ptr %11, i64 %12
+  %13 = getelementptr [8 x i8], ptr %11, i64 %12
   %14 = getelementptr i8, ptr %13, i64 -8
   %15 = load ptr, ptr %14, align 8, !tbaa !59
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -1429,7 +1429,7 @@ define dso_local range(i32 -1, 1) i32 @xdl_fall_back_diff(ptr noundef readonly c
   store ptr %17, ptr %7, align 8, !tbaa !21
   %18 = add nsw i32 %3, %2
   %19 = sext i32 %18 to i64
-  %20 = getelementptr ptr, ptr %11, i64 %19
+  %20 = getelementptr [8 x i8], ptr %11, i64 %19
   %21 = getelementptr i8, ptr %20, i64 -16
   %22 = load ptr, ptr %21, align 8, !tbaa !59
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
@@ -1445,7 +1445,7 @@ define dso_local range(i32 -1, 1) i32 @xdl_fall_back_diff(ptr noundef readonly c
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %33 = load ptr, ptr %32, align 8, !tbaa !64
   %34 = sext i32 %4 to i64
-  %35 = getelementptr ptr, ptr %33, i64 %34
+  %35 = getelementptr [8 x i8], ptr %33, i64 %34
   %36 = getelementptr i8, ptr %35, i64 -8
   %37 = load ptr, ptr %36, align 8, !tbaa !59
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
@@ -1453,7 +1453,7 @@ define dso_local range(i32 -1, 1) i32 @xdl_fall_back_diff(ptr noundef readonly c
   store ptr %39, ptr %8, align 8, !tbaa !21
   %40 = add nsw i32 %5, %4
   %41 = sext i32 %40 to i64
-  %42 = getelementptr ptr, ptr %33, i64 %41
+  %42 = getelementptr [8 x i8], ptr %33, i64 %41
   %43 = getelementptr i8, ptr %42, i64 -16
   %44 = load ptr, ptr %43, align 8, !tbaa !59
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8

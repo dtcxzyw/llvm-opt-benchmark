@@ -1014,7 +1014,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit23: ; preds = %.bo
   %62 = call noundef i32 @_ZNK8rawspeed9TiffEntry6getU32Ej(ptr noundef nonnull align 8 dereferenceable(48) %37, i32 noundef %61)
   %63 = icmp samesign ult i64 %indvars.iv, 4
   call void @llvm.assume(i1 %63)
-  %64 = getelementptr inbounds nuw i32, ptr %44, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %indvars.iv
   store i32 %62, ptr %64, align 4, !tbaa !24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4

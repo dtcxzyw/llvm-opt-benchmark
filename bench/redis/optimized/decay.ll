@@ -164,7 +164,7 @@ define hidden i64 @je_decay_npages_purge_in(ptr noundef %0, ptr noundef %1, i64 
 
 9:                                                ; preds = %3
   %10 = sub nuw nsw i64 199, %7
-  %11 = getelementptr inbounds nuw i64, ptr @h_steps, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr @h_steps, i64 %10
   %12 = load i64, ptr %11, align 8, !tbaa !5
   %13 = sub i64 16777216, %12
   %14 = mul i64 %13, %2
@@ -220,7 +220,7 @@ decay_maybe_update_time.exit:                     ; preds = %3, %7, %11
   br label %decay_backlog_update.exit
 
 22:                                               ; preds = %15
-  %23 = getelementptr inbounds nuw i64, ptr %20, i64 %18
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %18
   %24 = sub nuw nsw i64 200, %18
   %25 = shl nuw nsw i64 %24, 3
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %20, ptr nonnull align 8 %23, i64 %25, i1 false)
@@ -228,7 +228,7 @@ decay_maybe_update_time.exit:                     ; preds = %3, %7, %11
   br i1 %26, label %27, label %decay_backlog_update.exit
 
 27:                                               ; preds = %22
-  %28 = getelementptr inbounds nuw i64, ptr %20, i64 %24
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %24
   %29 = shl nuw nsw i64 %18, 3
   %30 = add nsw i64 %29, -8
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %28, i8 0, i64 %30, i1 false)
@@ -245,9 +245,9 @@ decay_backlog_update.exit:                        ; preds = %21, %22, %27
 34:                                               ; preds = %34, %decay_backlog_update.exit
   %indvars.iv.i = phi i64 [ 0, %decay_backlog_update.exit ], [ %indvars.iv.next.i, %34 ]
   %.09.i = phi i64 [ 0, %decay_backlog_update.exit ], [ %40, %34 ]
-  %35 = getelementptr inbounds nuw i64, ptr %20, i64 %indvars.iv.i
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv.i
   %36 = load i64, ptr %35, align 8, !tbaa !5
-  %37 = getelementptr inbounds nuw i64, ptr @h_steps, i64 %indvars.iv.i
+  %37 = getelementptr inbounds nuw [8 x i8], ptr @h_steps, i64 %indvars.iv.i
   %38 = load i64, ptr %37, align 8, !tbaa !5
   %39 = mul i64 %38, %36
   %40 = add i64 %39, %.09.i
@@ -293,7 +293,7 @@ define hidden i64 @je_decay_ns_until_purge(ptr noundef %0, i64 noundef %1, i64 n
 
 12:                                               ; preds = %.preheader75, %15
   %indvars.iv = phi i64 [ 0, %.preheader75 ], [ %indvars.iv.next, %15 ]
-  %13 = getelementptr inbounds nuw i64, ptr %11, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %14 = load i64, ptr %13, align 8, !tbaa !5
   %.not = icmp eq i64 %14, 0
   br i1 %.not, label %15, label %.thread
@@ -318,9 +318,9 @@ define hidden i64 @je_decay_ns_until_purge(ptr noundef %0, i64 noundef %1, i64 n
 20:                                               ; preds = %20, %18
   %.018.i = phi i64 [ 0, %18 ], [ %26, %20 ]
   %.01517.i = phi i64 [ 0, %18 ], [ %27, %20 ]
-  %21 = getelementptr inbounds nuw i64, ptr %19, i64 %.01517.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.01517.i
   %22 = load i64, ptr %21, align 8, !tbaa !5
-  %23 = getelementptr inbounds nuw i64, ptr @h_steps, i64 %.01517.i
+  %23 = getelementptr inbounds nuw [8 x i8], ptr @h_steps, i64 %.01517.i
   %24 = load i64, ptr %23, align 8, !tbaa !5
   %25 = mul i64 %24, %22
   %26 = add i64 %25, %.018.i
@@ -331,9 +331,9 @@ define hidden i64 @je_decay_ns_until_purge(ptr noundef %0, i64 noundef %1, i64 n
 .preheader.i:                                     ; preds = %20, %.preheader.i
   %.121.i = phi i64 [ %36, %.preheader.i ], [ %26, %20 ]
   %.11620.i = phi i64 [ %37, %.preheader.i ], [ 2, %20 ]
-  %28 = getelementptr inbounds nuw i64, ptr %19, i64 %.11620.i
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.11620.i
   %29 = load i64, ptr %28, align 8, !tbaa !5
-  %30 = getelementptr i64, ptr @h_steps, i64 %.11620.i
+  %30 = getelementptr [8 x i8], ptr @h_steps, i64 %.11620.i
   %31 = load i64, ptr %30, align 8, !tbaa !5
   %32 = getelementptr i8, ptr %30, i64 -16
   %33 = load i64, ptr %32, align 8, !tbaa !5
@@ -356,9 +356,9 @@ decay_npurge_after_interval.exit:                 ; preds = %.preheader.i
 .preheader74:                                     ; preds = %decay_npurge_after_interval.exit, %.preheader74
   %.018.i60 = phi i64 [ %47, %.preheader74 ], [ 0, %decay_npurge_after_interval.exit ]
   %.01517.i61 = phi i64 [ %48, %.preheader74 ], [ 0, %decay_npurge_after_interval.exit ]
-  %42 = getelementptr inbounds nuw i64, ptr %19, i64 %.01517.i61
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.01517.i61
   %43 = load i64, ptr %42, align 8, !tbaa !5
-  %44 = getelementptr inbounds nuw i64, ptr @h_steps, i64 %.01517.i61
+  %44 = getelementptr inbounds nuw [8 x i8], ptr @h_steps, i64 %.01517.i61
   %45 = load i64, ptr %44, align 8, !tbaa !5
   %46 = mul i64 %45, %43
   %47 = add i64 %46, %.018.i60
@@ -396,9 +396,9 @@ decay_npurge_after_interval.exit64:               ; preds = %.preheader74
 58:                                               ; preds = %58, %.lr.ph.i
   %.018.i65 = phi i64 [ 0, %.lr.ph.i ], [ %64, %58 ]
   %.01517.i66 = phi i64 [ 0, %.lr.ph.i ], [ %65, %58 ]
-  %59 = getelementptr inbounds nuw i64, ptr %19, i64 %.01517.i66
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.01517.i66
   %60 = load i64, ptr %59, align 8, !tbaa !5
-  %61 = getelementptr inbounds nuw i64, ptr @h_steps, i64 %.01517.i66
+  %61 = getelementptr inbounds nuw [8 x i8], ptr @h_steps, i64 %.01517.i66
   %62 = load i64, ptr %61, align 8, !tbaa !5
   %63 = mul i64 %62, %60
   %64 = add i64 %63, %.018.i65
@@ -409,12 +409,12 @@ decay_npurge_after_interval.exit64:               ; preds = %.preheader74
 .lr.ph22.i:                                       ; preds = %.preheader.i68, %.lr.ph22.i
   %.121.i69 = phi i64 [ %75, %.lr.ph22.i ], [ %64, %.preheader.i68 ]
   %.11620.i70 = phi i64 [ %76, %.lr.ph22.i ], [ %56, %.preheader.i68 ]
-  %66 = getelementptr inbounds nuw i64, ptr %19, i64 %.11620.i70
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.11620.i70
   %67 = load i64, ptr %66, align 8, !tbaa !5
-  %68 = getelementptr inbounds nuw i64, ptr @h_steps, i64 %.11620.i70
+  %68 = getelementptr inbounds nuw [8 x i8], ptr @h_steps, i64 %.11620.i70
   %69 = load i64, ptr %68, align 8, !tbaa !5
   %70 = sub nuw nsw i64 %.11620.i70, %56
-  %71 = getelementptr inbounds nuw i64, ptr @h_steps, i64 %70
+  %71 = getelementptr inbounds nuw [8 x i8], ptr @h_steps, i64 %70
   %72 = load i64, ptr %71, align 8, !tbaa !5
   %73 = sub i64 %69, %72
   %74 = mul i64 %73, %67

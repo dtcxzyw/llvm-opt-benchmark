@@ -10,8 +10,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.cv::_OutputArray" = type { %"class.cv::_InputArray" }
 %"class.cv::_InputArray" = type { i32, ptr, %"class.cv::Size_" }
 %"class.cv::Size_" = type { i32, i32 }
-%"class.cv::ximgproc::segmentation::Edge" = type { i32, i32, float }
-%"class.cv::ximgproc::segmentation::PointSetElement" = type { i32, i32 }
 %"struct.cv::Ptr" = type { %"class.std::shared_ptr" }
 %"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
 %"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
@@ -24,6 +22,7 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon = type { i64, [8 x i8] }
 %"class.std::allocator" = type { i8 }
 %"class.cv::FileNode" = type { ptr, i64, i64 }
+%"class.cv::ximgproc::segmentation::Edge" = type { i32, i32, float }
 
 $_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation17GraphSegmentationELN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
 
@@ -270,7 +269,7 @@ define hidden void @_ZN2cv8ximgproc12segmentation21GraphSegmentationImpl10buildG
   %indvars.iv88 = phi i64 [ 0, %.preheader73.preheader ], [ %indvars.iv.next89, %43 ]
   %37 = mul nuw nsw i64 %indvars.iv88, %30
   %38 = trunc nuw nsw i64 %indvars.iv88 to i32
-  %invariant.gep = getelementptr inbounds nuw float, ptr %34, i64 %37
+  %invariant.gep = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %37
   br label %.preheader
 
 ._crit_edge.loopexit:                             ; preds = %43
@@ -328,14 +327,14 @@ define hidden void @_ZN2cv8ximgproc12segmentation21GraphSegmentationImpl10buildG
   %66 = getelementptr inbounds nuw i8, ptr %24, i64 %65
   %67 = mul nuw nsw i32 %55, %20
   %68 = zext nneg i32 %67 to i64
-  %invariant.gep99 = getelementptr inbounds nuw float, ptr %66, i64 %68
+  %invariant.gep99 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %68
   br label %82
 
 69:                                               ; preds = %82
   %70 = tail call noundef float @sqrtf(float noundef %86) #22, !tbaa !34
   %71 = load i32, ptr %2, align 4, !tbaa !34
   %72 = sext i32 %71 to i64
-  %73 = getelementptr inbounds %"class.cv::ximgproc::segmentation::Edge", ptr %16, i64 %72
+  %73 = getelementptr inbounds [12 x i8], ptr %16, i64 %72
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
   store float %70, ptr %74, align 4, !tbaa !44
   %75 = load i32, ptr %7, align 4, !tbaa !31
@@ -353,9 +352,9 @@ define hidden void @_ZN2cv8ximgproc12segmentation21GraphSegmentationImpl10buildG
 82:                                               ; preds = %63, %82
   %indvars.iv = phi i64 [ 0, %63 ], [ %indvars.iv.next, %82 ]
   %.06274 = phi float [ 0.000000e+00, %63 ], [ %86, %82 ]
-  %gep = getelementptr inbounds nuw float, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep, i64 %indvars.iv
   %83 = load float, ptr %gep, align 4, !tbaa !48
-  %gep100 = getelementptr inbounds nuw float, ptr %invariant.gep99, i64 %indvars.iv
+  %gep100 = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep99, i64 %indvars.iv
   %84 = load float, ptr %gep100, align 4, !tbaa !48
   %85 = fsub float %83, %84
   %86 = tail call float @llvm.fmuladd.f32(float %85, float %85, float %.06274)
@@ -423,7 +422,7 @@ _ZSt4sortIPN2cv8ximgproc12segmentation4EdgeEEvT_S5_.exit: ; preds = %5, %12
 .lr.ph.i:                                         ; preds = %.noexc, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.noexc ]
   %26 = load ptr, ptr %24, align 8, !tbaa !54
-  %27 = getelementptr inbounds nuw %"class.cv::ximgproc::segmentation::PointSetElement", ptr %26, i64 %indvars.iv.i
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv.i
   %.sroa.0.0.insert.insert.i = or disjoint i64 %indvars.iv.i, 4294967296
   store i64 %.sroa.0.0.insert.insert.i, ptr %27, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -468,7 +467,7 @@ _ZN2cv8ximgproc12segmentation8PointSetC2Ei.exit:  ; preds = %.lr.ph.i, %.noexc
 
 47:                                               ; preds = %.lr.ph, %47
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %47 ]
-  %48 = getelementptr inbounds nuw float, ptr %36, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %indvars.iv
   store float %39, ptr %48, align 4, !tbaa !48
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -477,22 +476,22 @@ _ZN2cv8ximgproc12segmentation8PointSetC2Ei.exit:  ; preds = %.lr.ph.i, %.noexc
 49:                                               ; preds = %.lr.ph66, %107
   %50 = phi i32 [ %31, %.lr.ph66 ], [ %108, %107 ]
   %indvars.iv70 = phi i64 [ 0, %.lr.ph66 ], [ %indvars.iv.next71, %107 ]
-  %51 = getelementptr inbounds nuw %"class.cv::ximgproc::segmentation::Edge", ptr %1, i64 %indvars.iv70
+  %51 = getelementptr inbounds nuw [12 x i8], ptr %1, i64 %indvars.iv70
   %52 = load i32, ptr %51, align 4, !tbaa !46
   br label %53
 
 53:                                               ; preds = %53, %49
   %.0.i = phi i32 [ %52, %49 ], [ %56, %53 ]
   %54 = sext i32 %.0.i to i64
-  %55 = getelementptr inbounds %"class.cv::ximgproc::segmentation::PointSetElement", ptr %42, i64 %54
+  %55 = getelementptr inbounds [8 x i8], ptr %42, i64 %54
   %56 = load i32, ptr %55, align 4, !tbaa !60
   %.not.i = icmp eq i32 %.0.i, %56
   br i1 %.not.i, label %_ZN2cv8ximgproc12segmentation8PointSet12getBasePointEi.exit, label %53, !llvm.loop !62
 
 _ZN2cv8ximgproc12segmentation8PointSet12getBasePointEi.exit: ; preds = %53
-  %57 = getelementptr inbounds %"class.cv::ximgproc::segmentation::PointSetElement", ptr %42, i64 %54
+  %57 = getelementptr inbounds [8 x i8], ptr %42, i64 %54
   %58 = sext i32 %52 to i64
-  %59 = getelementptr inbounds %"class.cv::ximgproc::segmentation::PointSetElement", ptr %42, i64 %58
+  %59 = getelementptr inbounds [8 x i8], ptr %42, i64 %58
   store i32 %.0.i, ptr %59, align 4, !tbaa !60
   %60 = getelementptr inbounds nuw i8, ptr %51, i64 4
   %61 = load i32, ptr %60, align 4, !tbaa !47
@@ -501,15 +500,15 @@ _ZN2cv8ximgproc12segmentation8PointSet12getBasePointEi.exit: ; preds = %53
 62:                                               ; preds = %62, %_ZN2cv8ximgproc12segmentation8PointSet12getBasePointEi.exit
   %.0.i53 = phi i32 [ %61, %_ZN2cv8ximgproc12segmentation8PointSet12getBasePointEi.exit ], [ %65, %62 ]
   %63 = sext i32 %.0.i53 to i64
-  %64 = getelementptr inbounds %"class.cv::ximgproc::segmentation::PointSetElement", ptr %42, i64 %63
+  %64 = getelementptr inbounds [8 x i8], ptr %42, i64 %63
   %65 = load i32, ptr %64, align 4, !tbaa !60
   %.not.i54 = icmp eq i32 %.0.i53, %65
   br i1 %.not.i54, label %_ZN2cv8ximgproc12segmentation8PointSet12getBasePointEi.exit55, label %62, !llvm.loop !62
 
 _ZN2cv8ximgproc12segmentation8PointSet12getBasePointEi.exit55: ; preds = %62
-  %66 = getelementptr inbounds %"class.cv::ximgproc::segmentation::PointSetElement", ptr %42, i64 %63
+  %66 = getelementptr inbounds [8 x i8], ptr %42, i64 %63
   %67 = sext i32 %61 to i64
-  %68 = getelementptr inbounds %"class.cv::ximgproc::segmentation::PointSetElement", ptr %42, i64 %67
+  %68 = getelementptr inbounds [8 x i8], ptr %42, i64 %67
   store i32 %.0.i53, ptr %68, align 4, !tbaa !60
   %.not = icmp eq i32 %.0.i, %.0.i53
   br i1 %.not, label %107, label %69
@@ -517,13 +516,13 @@ _ZN2cv8ximgproc12segmentation8PointSet12getBasePointEi.exit55: ; preds = %62
 69:                                               ; preds = %_ZN2cv8ximgproc12segmentation8PointSet12getBasePointEi.exit55
   %70 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %71 = load float, ptr %70, align 4, !tbaa !44
-  %72 = getelementptr inbounds float, ptr %36, i64 %54
+  %72 = getelementptr inbounds [4 x i8], ptr %36, i64 %54
   %73 = load float, ptr %72, align 4, !tbaa !48
   %74 = fcmp ugt float %71, %73
   br i1 %74, label %107, label %75
 
 75:                                               ; preds = %69
-  %76 = getelementptr inbounds float, ptr %36, i64 %63
+  %76 = getelementptr inbounds [4 x i8], ptr %36, i64 %63
   %77 = load float, ptr %76, align 4, !tbaa !48
   %78 = fcmp ugt float %71, %77
   br i1 %78, label %107, label %79
@@ -537,12 +536,12 @@ _ZN2cv8ximgproc12segmentation8PointSet12getBasePointEi.exit55: ; preds = %62
   %spec.select.i = select i1 %84, i32 %.0.i53, i32 %.0.i
   %spec.select7.i = select i1 %84, i32 %.0.i, i32 %.0.i53
   %85 = sext i32 %spec.select7.i to i64
-  %86 = getelementptr inbounds %"class.cv::ximgproc::segmentation::PointSetElement", ptr %42, i64 %85
+  %86 = getelementptr inbounds [8 x i8], ptr %42, i64 %85
   store i32 %spec.select.i, ptr %86, align 4, !tbaa !60
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 4
   %88 = load i32, ptr %87, align 4, !tbaa !63
   %89 = sext i32 %spec.select.i to i64
-  %90 = getelementptr inbounds %"class.cv::ximgproc::segmentation::PointSetElement", ptr %42, i64 %89
+  %90 = getelementptr inbounds [8 x i8], ptr %42, i64 %89
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 4
   %92 = load i32, ptr %91, align 4, !tbaa !63
   %93 = add nsw i32 %92, %88
@@ -554,7 +553,7 @@ _ZN2cv8ximgproc12segmentation8PointSet12getBasePointEi.exit55: ; preds = %62
 95:                                               ; preds = %95, %79
   %.0.i56 = phi i32 [ %.0.i, %79 ], [ %98, %95 ]
   %96 = sext i32 %.0.i56 to i64
-  %97 = getelementptr inbounds %"class.cv::ximgproc::segmentation::PointSetElement", ptr %42, i64 %96
+  %97 = getelementptr inbounds [8 x i8], ptr %42, i64 %96
   %98 = load i32, ptr %97, align 4, !tbaa !60
   %.not.i57 = icmp eq i32 %.0.i56, %98
   br i1 %.not.i57, label %_ZN2cv8ximgproc12segmentation8PointSet12getBasePointEi.exit58, label %95, !llvm.loop !62
@@ -562,13 +561,13 @@ _ZN2cv8ximgproc12segmentation8PointSet12getBasePointEi.exit55: ; preds = %62
 _ZN2cv8ximgproc12segmentation8PointSet12getBasePointEi.exit58: ; preds = %95
   store i32 %.0.i56, ptr %57, align 4, !tbaa !60
   %99 = zext i32 %.0.i56 to i64
-  %100 = getelementptr inbounds nuw %"class.cv::ximgproc::segmentation::PointSetElement", ptr %42, i64 %99
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %99
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 4
   %102 = load i32, ptr %101, align 4, !tbaa !63
   %103 = sitofp i32 %102 to float
   %104 = fdiv float %44, %103
   %105 = fadd float %71, %104
-  %106 = getelementptr inbounds float, ptr %36, i64 %96
+  %106 = getelementptr inbounds [4 x i8], ptr %36, i64 %96
   store float %105, ptr %106, align 4, !tbaa !48
   store float 0.000000e+00, ptr %70, align 4, !tbaa !44
   br label %107
@@ -601,14 +600,14 @@ define hidden noundef i32 @_ZN2cv8ximgproc12segmentation8PointSet12getBasePointE
 5:                                                ; preds = %5, %2
   %.0 = phi i32 [ %1, %2 ], [ %8, %5 ]
   %6 = sext i32 %.0 to i64
-  %7 = getelementptr inbounds %"class.cv::ximgproc::segmentation::PointSetElement", ptr %4, i64 %6
+  %7 = getelementptr inbounds [8 x i8], ptr %4, i64 %6
   %8 = load i32, ptr %7, align 4, !tbaa !60
   %.not = icmp eq i32 %.0, %8
   br i1 %.not, label %9, label %5, !llvm.loop !62
 
 9:                                                ; preds = %5
   %10 = sext i32 %1 to i64
-  %11 = getelementptr inbounds %"class.cv::ximgproc::segmentation::PointSetElement", ptr %4, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %4, i64 %10
   store i32 %.0, ptr %11, align 4, !tbaa !60
   ret i32 %.0
 }
@@ -618,23 +617,23 @@ define hidden void @_ZN2cv8ximgproc12segmentation8PointSet10joinPointsEii(ptr no
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !54
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds %"class.cv::ximgproc::segmentation::PointSetElement", ptr %5, i64 %6
+  %7 = getelementptr inbounds [8 x i8], ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %9 = load i32, ptr %8, align 4, !tbaa !63
   %10 = sext i32 %2 to i64
-  %11 = getelementptr inbounds %"class.cv::ximgproc::segmentation::PointSetElement", ptr %5, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %5, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %13 = load i32, ptr %12, align 4, !tbaa !63
   %14 = icmp slt i32 %9, %13
   %spec.select = select i1 %14, i32 %2, i32 %1
   %spec.select7 = select i1 %14, i32 %1, i32 %2
   %15 = sext i32 %spec.select7 to i64
-  %16 = getelementptr inbounds %"class.cv::ximgproc::segmentation::PointSetElement", ptr %5, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %5, i64 %15
   store i32 %spec.select, ptr %16, align 4, !tbaa !60
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %18 = load i32, ptr %17, align 4, !tbaa !63
   %19 = sext i32 %spec.select to i64
-  %20 = getelementptr inbounds %"class.cv::ximgproc::segmentation::PointSetElement", ptr %5, i64 %19
+  %20 = getelementptr inbounds [8 x i8], ptr %5, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %22 = load i32, ptr %21, align 4, !tbaa !63
   %23 = add nsw i32 %22, %18
@@ -665,7 +664,7 @@ define hidden void @_ZN2cv8ximgproc12segmentation21GraphSegmentationImpl16filter
 
 10:                                               ; preds = %.lr.ph, %63
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %63 ]
-  %11 = getelementptr inbounds nuw %"class.cv::ximgproc::segmentation::Edge", ptr %1, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [12 x i8], ptr %1, i64 %indvars.iv
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load float, ptr %12, align 4, !tbaa !44
   %14 = fcmp ogt float %13, 0.000000e+00
@@ -679,15 +678,15 @@ define hidden void @_ZN2cv8ximgproc12segmentation21GraphSegmentationImpl16filter
 18:                                               ; preds = %18, %15
   %.0.i = phi i32 [ %16, %15 ], [ %21, %18 ]
   %19 = sext i32 %.0.i to i64
-  %20 = getelementptr inbounds %"class.cv::ximgproc::segmentation::PointSetElement", ptr %17, i64 %19
+  %20 = getelementptr inbounds [8 x i8], ptr %17, i64 %19
   %21 = load i32, ptr %20, align 4, !tbaa !60
   %.not.i = icmp eq i32 %.0.i, %21
   br i1 %.not.i, label %_ZN2cv8ximgproc12segmentation8PointSet12getBasePointEi.exit, label %18, !llvm.loop !62
 
 _ZN2cv8ximgproc12segmentation8PointSet12getBasePointEi.exit: ; preds = %18
-  %22 = getelementptr inbounds %"class.cv::ximgproc::segmentation::PointSetElement", ptr %17, i64 %19
+  %22 = getelementptr inbounds [8 x i8], ptr %17, i64 %19
   %23 = sext i32 %16 to i64
-  %24 = getelementptr inbounds %"class.cv::ximgproc::segmentation::PointSetElement", ptr %17, i64 %23
+  %24 = getelementptr inbounds [8 x i8], ptr %17, i64 %23
   store i32 %.0.i, ptr %24, align 4, !tbaa !60
   %25 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %26 = load i32, ptr %25, align 4, !tbaa !47
@@ -696,22 +695,22 @@ _ZN2cv8ximgproc12segmentation8PointSet12getBasePointEi.exit: ; preds = %18
 27:                                               ; preds = %27, %_ZN2cv8ximgproc12segmentation8PointSet12getBasePointEi.exit
   %.0.i22 = phi i32 [ %26, %_ZN2cv8ximgproc12segmentation8PointSet12getBasePointEi.exit ], [ %30, %27 ]
   %28 = sext i32 %.0.i22 to i64
-  %29 = getelementptr inbounds %"class.cv::ximgproc::segmentation::PointSetElement", ptr %17, i64 %28
+  %29 = getelementptr inbounds [8 x i8], ptr %17, i64 %28
   %30 = load i32, ptr %29, align 4, !tbaa !60
   %.not.i23 = icmp eq i32 %.0.i22, %30
   br i1 %.not.i23, label %_ZN2cv8ximgproc12segmentation8PointSet12getBasePointEi.exit24, label %27, !llvm.loop !62
 
 _ZN2cv8ximgproc12segmentation8PointSet12getBasePointEi.exit24: ; preds = %27
-  %31 = getelementptr inbounds %"class.cv::ximgproc::segmentation::PointSetElement", ptr %17, i64 %28
+  %31 = getelementptr inbounds [8 x i8], ptr %17, i64 %28
   %32 = sext i32 %26 to i64
-  %33 = getelementptr inbounds %"class.cv::ximgproc::segmentation::PointSetElement", ptr %17, i64 %32
+  %33 = getelementptr inbounds [8 x i8], ptr %17, i64 %32
   store i32 %.0.i22, ptr %33, align 4, !tbaa !60
   %.not = icmp eq i32 %.0.i, %.0.i22
   br i1 %.not, label %63, label %34
 
 34:                                               ; preds = %_ZN2cv8ximgproc12segmentation8PointSet12getBasePointEi.exit24
   %35 = zext i32 %.0.i to i64
-  %36 = getelementptr inbounds nuw %"class.cv::ximgproc::segmentation::PointSetElement", ptr %17, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 4
   %38 = load i32, ptr %37, align 4, !tbaa !63
   %39 = icmp slt i32 %38, %9
@@ -719,7 +718,7 @@ _ZN2cv8ximgproc12segmentation8PointSet12getBasePointEi.exit24: ; preds = %27
 
 40:                                               ; preds = %34
   %41 = zext i32 %.0.i22 to i64
-  %42 = getelementptr inbounds nuw %"class.cv::ximgproc::segmentation::PointSetElement", ptr %17, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %41
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 4
   %44 = load i32, ptr %43, align 4, !tbaa !63
   %45 = icmp slt i32 %44, %9
@@ -734,12 +733,12 @@ _ZN2cv8ximgproc12segmentation8PointSet12getBasePointEi.exit24: ; preds = %27
   %spec.select.i = select i1 %51, i32 %.0.i22, i32 %.0.i
   %spec.select7.i = select i1 %51, i32 %.0.i, i32 %.0.i22
   %52 = sext i32 %spec.select7.i to i64
-  %53 = getelementptr inbounds %"class.cv::ximgproc::segmentation::PointSetElement", ptr %17, i64 %52
+  %53 = getelementptr inbounds [8 x i8], ptr %17, i64 %52
   store i32 %spec.select.i, ptr %53, align 4, !tbaa !60
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 4
   %55 = load i32, ptr %54, align 4, !tbaa !63
   %56 = sext i32 %spec.select.i to i64
-  %57 = getelementptr inbounds %"class.cv::ximgproc::segmentation::PointSetElement", ptr %17, i64 %56
+  %57 = getelementptr inbounds [8 x i8], ptr %17, i64 %56
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 4
   %59 = load i32, ptr %58, align 4, !tbaa !63
   %60 = add nsw i32 %59, %55
@@ -821,15 +820,15 @@ define hidden void @_ZN2cv8ximgproc12segmentation21GraphSegmentationImpl12finalM
 35:                                               ; preds = %35, %32
   %.0.i.us = phi i32 [ %34, %32 ], [ %38, %35 ]
   %36 = sext i32 %.0.i.us to i64
-  %37 = getelementptr inbounds %"class.cv::ximgproc::segmentation::PointSetElement", ptr %27, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr %27, i64 %36
   %38 = load i32, ptr %37, align 4, !tbaa !60
   %.not.i.us = icmp eq i32 %.0.i.us, %38
   br i1 %.not.i.us, label %_ZN2cv8ximgproc12segmentation8PointSet12getBasePointEi.exit.us, label %35, !llvm.loop !62
 
 _ZN2cv8ximgproc12segmentation8PointSet12getBasePointEi.exit.us: ; preds = %35
-  %39 = getelementptr inbounds nuw %"class.cv::ximgproc::segmentation::PointSetElement", ptr %27, i64 %33
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %33
   store i32 %.0.i.us, ptr %39, align 4, !tbaa !60
-  %40 = getelementptr inbounds i32, ptr %13, i64 %36
+  %40 = getelementptr inbounds [4 x i8], ptr %13, i64 %36
   %41 = load i32, ptr %40, align 4, !tbaa !34
   %42 = icmp eq i32 %41, -1
   br i1 %42, label %43, label %45
@@ -842,7 +841,7 @@ _ZN2cv8ximgproc12segmentation8PointSet12getBasePointEi.exit.us: ; preds = %35
 45:                                               ; preds = %43, %_ZN2cv8ximgproc12segmentation8PointSet12getBasePointEi.exit.us
   %46 = phi i32 [ %.143.us, %43 ], [ %41, %_ZN2cv8ximgproc12segmentation8PointSet12getBasePointEi.exit.us ]
   %.2.us = phi i32 [ %44, %43 ], [ %.143.us, %_ZN2cv8ximgproc12segmentation8PointSet12getBasePointEi.exit.us ]
-  %47 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %indvars.iv
   store i32 %46, ptr %47, align 4, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %28
@@ -961,7 +960,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %14, %17
 
 47:                                               ; preds = %100, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %100 ]
-  %48 = getelementptr inbounds nuw %"class.cv::ximgproc::segmentation::Edge", ptr %38, i64 %indvars.iv.i
+  %48 = getelementptr inbounds nuw [12 x i8], ptr %38, i64 %indvars.iv.i
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load float, ptr %49, align 4, !tbaa !44
   %51 = fcmp ogt float %50, 0.000000e+00
@@ -975,15 +974,15 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %14, %17
 55:                                               ; preds = %55, %52
   %.0.i.i = phi i32 [ %53, %52 ], [ %58, %55 ]
   %56 = sext i32 %.0.i.i to i64
-  %57 = getelementptr inbounds %"class.cv::ximgproc::segmentation::PointSetElement", ptr %54, i64 %56
+  %57 = getelementptr inbounds [8 x i8], ptr %54, i64 %56
   %58 = load i32, ptr %57, align 4, !tbaa !60
   %.not.i.i = icmp eq i32 %.0.i.i, %58
   br i1 %.not.i.i, label %_ZN2cv8ximgproc12segmentation8PointSet12getBasePointEi.exit.i, label %55, !llvm.loop !62
 
 _ZN2cv8ximgproc12segmentation8PointSet12getBasePointEi.exit.i: ; preds = %55
-  %59 = getelementptr inbounds %"class.cv::ximgproc::segmentation::PointSetElement", ptr %54, i64 %56
+  %59 = getelementptr inbounds [8 x i8], ptr %54, i64 %56
   %60 = sext i32 %53 to i64
-  %61 = getelementptr inbounds %"class.cv::ximgproc::segmentation::PointSetElement", ptr %54, i64 %60
+  %61 = getelementptr inbounds [8 x i8], ptr %54, i64 %60
   store i32 %.0.i.i, ptr %61, align 4, !tbaa !60
   %62 = getelementptr inbounds nuw i8, ptr %48, i64 4
   %63 = load i32, ptr %62, align 4, !tbaa !47
@@ -992,22 +991,22 @@ _ZN2cv8ximgproc12segmentation8PointSet12getBasePointEi.exit.i: ; preds = %55
 64:                                               ; preds = %64, %_ZN2cv8ximgproc12segmentation8PointSet12getBasePointEi.exit.i
   %.0.i22.i = phi i32 [ %63, %_ZN2cv8ximgproc12segmentation8PointSet12getBasePointEi.exit.i ], [ %67, %64 ]
   %65 = sext i32 %.0.i22.i to i64
-  %66 = getelementptr inbounds %"class.cv::ximgproc::segmentation::PointSetElement", ptr %54, i64 %65
+  %66 = getelementptr inbounds [8 x i8], ptr %54, i64 %65
   %67 = load i32, ptr %66, align 4, !tbaa !60
   %.not.i23.i = icmp eq i32 %.0.i22.i, %67
   br i1 %.not.i23.i, label %_ZN2cv8ximgproc12segmentation8PointSet12getBasePointEi.exit24.i, label %64, !llvm.loop !62
 
 _ZN2cv8ximgproc12segmentation8PointSet12getBasePointEi.exit24.i: ; preds = %64
-  %68 = getelementptr inbounds %"class.cv::ximgproc::segmentation::PointSetElement", ptr %54, i64 %65
+  %68 = getelementptr inbounds [8 x i8], ptr %54, i64 %65
   %69 = sext i32 %63 to i64
-  %70 = getelementptr inbounds %"class.cv::ximgproc::segmentation::PointSetElement", ptr %54, i64 %69
+  %70 = getelementptr inbounds [8 x i8], ptr %54, i64 %69
   store i32 %.0.i22.i, ptr %70, align 4, !tbaa !60
   %.not.i = icmp eq i32 %.0.i.i, %.0.i22.i
   br i1 %.not.i, label %100, label %71
 
 71:                                               ; preds = %_ZN2cv8ximgproc12segmentation8PointSet12getBasePointEi.exit24.i
   %72 = zext i32 %.0.i.i to i64
-  %73 = getelementptr inbounds nuw %"class.cv::ximgproc::segmentation::PointSetElement", ptr %54, i64 %72
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %72
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 4
   %75 = load i32, ptr %74, align 4, !tbaa !63
   %76 = icmp slt i32 %75, %45
@@ -1015,7 +1014,7 @@ _ZN2cv8ximgproc12segmentation8PointSet12getBasePointEi.exit24.i: ; preds = %64
 
 77:                                               ; preds = %71
   %78 = zext i32 %.0.i22.i to i64
-  %79 = getelementptr inbounds nuw %"class.cv::ximgproc::segmentation::PointSetElement", ptr %54, i64 %78
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %78
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 4
   %81 = load i32, ptr %80, align 4, !tbaa !63
   %82 = icmp slt i32 %81, %45
@@ -1030,12 +1029,12 @@ _ZN2cv8ximgproc12segmentation8PointSet12getBasePointEi.exit24.i: ; preds = %64
   %spec.select.i.i = select i1 %88, i32 %.0.i22.i, i32 %.0.i.i
   %spec.select7.i.i = select i1 %88, i32 %.0.i.i, i32 %.0.i22.i
   %89 = sext i32 %spec.select7.i.i to i64
-  %90 = getelementptr inbounds %"class.cv::ximgproc::segmentation::PointSetElement", ptr %54, i64 %89
+  %90 = getelementptr inbounds [8 x i8], ptr %54, i64 %89
   store i32 %spec.select.i.i, ptr %90, align 4, !tbaa !60
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 4
   %92 = load i32, ptr %91, align 4, !tbaa !63
   %93 = sext i32 %spec.select.i.i to i64
-  %94 = getelementptr inbounds %"class.cv::ximgproc::segmentation::PointSetElement", ptr %54, i64 %93
+  %94 = getelementptr inbounds [8 x i8], ptr %54, i64 %93
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 4
   %96 = load i32, ptr %95, align 4, !tbaa !63
   %97 = add nsw i32 %96, %92
@@ -1116,15 +1115,15 @@ _ZN2cv8ximgproc12segmentation21GraphSegmentationImpl16filterSmallAreasEPNS1_4Edg
 132:                                              ; preds = %132, %129
   %.0.i.us.i = phi i32 [ %131, %129 ], [ %135, %132 ]
   %133 = sext i32 %.0.i.us.i to i64
-  %134 = getelementptr inbounds %"class.cv::ximgproc::segmentation::PointSetElement", ptr %124, i64 %133
+  %134 = getelementptr inbounds [8 x i8], ptr %124, i64 %133
   %135 = load i32, ptr %134, align 4, !tbaa !60
   %.not.i.us.i = icmp eq i32 %.0.i.us.i, %135
   br i1 %.not.i.us.i, label %_ZN2cv8ximgproc12segmentation8PointSet12getBasePointEi.exit.us.i, label %132, !llvm.loop !62
 
 _ZN2cv8ximgproc12segmentation8PointSet12getBasePointEi.exit.us.i: ; preds = %132
-  %136 = getelementptr inbounds nuw %"class.cv::ximgproc::segmentation::PointSetElement", ptr %124, i64 %130
+  %136 = getelementptr inbounds nuw [8 x i8], ptr %124, i64 %130
   store i32 %.0.i.us.i, ptr %136, align 4, !tbaa !60
-  %137 = getelementptr inbounds i32, ptr %110, i64 %133
+  %137 = getelementptr inbounds [4 x i8], ptr %110, i64 %133
   %138 = load i32, ptr %137, align 4, !tbaa !34
   %139 = icmp eq i32 %138, -1
   br i1 %139, label %140, label %142
@@ -1137,7 +1136,7 @@ _ZN2cv8ximgproc12segmentation8PointSet12getBasePointEi.exit.us.i: ; preds = %132
 142:                                              ; preds = %140, %_ZN2cv8ximgproc12segmentation8PointSet12getBasePointEi.exit.us.i
   %143 = phi i32 [ %.143.us.i, %140 ], [ %138, %_ZN2cv8ximgproc12segmentation8PointSet12getBasePointEi.exit.us.i ]
   %.2.us.i = phi i32 [ %141, %140 ], [ %.143.us.i, %_ZN2cv8ximgproc12segmentation8PointSet12getBasePointEi.exit.us.i ]
-  %144 = getelementptr inbounds nuw i32, ptr %127, i64 %indvars.iv.i24
+  %144 = getelementptr inbounds nuw [4 x i8], ptr %127, i64 %indvars.iv.i24
   store i32 %143, ptr %144, align 4, !tbaa !34
   %indvars.iv.next.i25 = add nuw nsw i64 %indvars.iv.i24, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i25, %125
@@ -1378,7 +1377,7 @@ define hidden void @_ZN2cv8ximgproc12segmentation8PointSetC2Ei(ptr noundef nonnu
 .lr.ph:                                           ; preds = %.loopexit, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.loopexit ]
   %9 = load ptr, ptr %7, align 8, !tbaa !54
-  %10 = getelementptr inbounds nuw %"class.cv::ximgproc::segmentation::PointSetElement", ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %.sroa.0.0.insert.insert = or disjoint i64 %indvars.iv, 4294967296
   store i64 %.sroa.0.0.insert.insert, ptr %10, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2046,13 +2045,13 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIPN2cv8ximgproc12segmenta
   %27 = and i64 %22, 1
   %28 = icmp eq i64 %27, 0
   %29 = or disjoint i64 %23, 1
-  %30 = getelementptr inbounds nuw %"class.cv::ximgproc::segmentation::Edge", ptr %0, i64 %29
-  %31 = getelementptr inbounds nuw %"class.cv::ximgproc::segmentation::Edge", ptr %0, i64 %24
+  %30 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %29
+  %31 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %24
   br label %32
 
 32:                                               ; preds = %_ZSt13__adjust_heapIPN2cv8ximgproc12segmentation4EdgeElS3_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S9_T1_T2_.exit.i.i, %21
   %.015.i.i = phi i64 [ %24, %21 ], [ %60, %_ZSt13__adjust_heapIPN2cv8ximgproc12segmentation4EdgeElS3_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S9_T1_T2_.exit.i.i ]
-  %33 = getelementptr inbounds nuw %"class.cv::ximgproc::segmentation::Edge", ptr %0, i64 %.015.i.i
+  %33 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %.015.i.i
   %.sroa.03.0.copyload.i.i = load i64, ptr %33, align 4
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %33, i64 8
   %.sroa.4.0.copyload.i.i = load float, ptr %.sroa.4.0..sroa_idx.i.i, align 4, !tbaa !48
@@ -2063,8 +2062,8 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIPN2cv8ximgproc12segmenta
   %.034.i.i.i = phi i64 [ %spec.select.i.i.i, %.lr.ph.i.i.i ], [ %.015.i.i, %32 ]
   %35 = shl i64 %.034.i.i.i, 1
   %36 = add i64 %35, 2
-  %37 = getelementptr inbounds %"class.cv::ximgproc::segmentation::Edge", ptr %0, i64 %36
-  %38 = getelementptr %"class.cv::ximgproc::segmentation::Edge", ptr %0, i64 %35
+  %37 = getelementptr inbounds [12 x i8], ptr %0, i64 %36
+  %38 = getelementptr [12 x i8], ptr %0, i64 %35
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %40 = load float, ptr %39, align 4, !tbaa !44
   %41 = getelementptr i8, ptr %38, i64 20
@@ -2072,8 +2071,8 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIPN2cv8ximgproc12segmenta
   %43 = fcmp olt float %40, %42
   %44 = or disjoint i64 %35, 1
   %spec.select.i.i.i = select i1 %43, i64 %44, i64 %36
-  %45 = getelementptr inbounds %"class.cv::ximgproc::segmentation::Edge", ptr %0, i64 %spec.select.i.i.i
-  %46 = getelementptr inbounds %"class.cv::ximgproc::segmentation::Edge", ptr %0, i64 %.034.i.i.i
+  %45 = getelementptr inbounds [12 x i8], ptr %0, i64 %spec.select.i.i.i
+  %46 = getelementptr inbounds [12 x i8], ptr %0, i64 %.034.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %46, ptr noundef nonnull align 4 dereferenceable(12) %45, i64 12, i1 false), !tbaa.struct !108
   %47 = icmp slt i64 %spec.select.i.i.i, %26
   br i1 %47, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !109
@@ -2097,21 +2096,21 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIPN2cv8ximgproc12segmenta
   %.01317.i.i.i.i = phi i64 [ %.018.i.i.i.i, %56 ], [ %.1.i.i.i, %50 ]
   %.018.in.i.i.i.i = add nsw i64 %.01317.i.i.i.i, -1
   %.018.i.i.i.i = sdiv i64 %.018.in.i.i.i.i, 2
-  %52 = getelementptr inbounds nuw %"class.cv::ximgproc::segmentation::Edge", ptr %0, i64 %.018.i.i.i.i
+  %52 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %.018.i.i.i.i
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %54 = load float, ptr %53, align 4, !tbaa !44
   %55 = fcmp olt float %54, %.sroa.4.0.copyload.i.i
   br i1 %55, label %56, label %_ZSt13__adjust_heapIPN2cv8ximgproc12segmentation4EdgeElS3_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S9_T1_T2_.exit.i.i
 
 56:                                               ; preds = %.lr.ph.i.i.i.i13
-  %57 = getelementptr inbounds nuw %"class.cv::ximgproc::segmentation::Edge", ptr %0, i64 %.01317.i.i.i.i
+  %57 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %.01317.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %57, ptr noundef nonnull align 4 dereferenceable(12) %52, i64 12, i1 false), !tbaa.struct !108
   %58 = icmp sgt i64 %.018.i.i.i.i, %.015.i.i
   br i1 %58, label %.lr.ph.i.i.i.i13, label %_ZSt13__adjust_heapIPN2cv8ximgproc12segmentation4EdgeElS3_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S9_T1_T2_.exit.i.i, !llvm.loop !110
 
 _ZSt13__adjust_heapIPN2cv8ximgproc12segmentation4EdgeElS3_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S9_T1_T2_.exit.i.i: ; preds = %56, %.lr.ph.i.i.i.i13, %50
   %.013.lcssa.i.i.i.i = phi i64 [ %.1.i.i.i, %50 ], [ %.018.i.i.i.i, %56 ], [ %.01317.i.i.i.i, %.lr.ph.i.i.i.i13 ]
-  %59 = getelementptr inbounds nuw %"class.cv::ximgproc::segmentation::Edge", ptr %0, i64 %.013.lcssa.i.i.i.i
+  %59 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %.013.lcssa.i.i.i.i
   store i64 %.sroa.03.0.copyload.i.i, ptr %59, align 4
   %.sroa.2.0..sroa_idx14.i.i.i.i = getelementptr inbounds nuw i8, ptr %59, i64 8
   store float %.sroa.4.0.copyload.i.i, ptr %.sroa.2.0..sroa_idx14.i.i.i.i, align 4, !tbaa !48
@@ -2138,8 +2137,8 @@ _ZSt13__adjust_heapIPN2cv8ximgproc12segmentation4EdgeElS3_N9__gnu_cxx5__ops15_It
   %.034.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ 0, %.lr.ph.i.i ]
   %68 = shl i64 %.034.i.i.i.i, 1
   %69 = add i64 %68, 2
-  %70 = getelementptr inbounds %"class.cv::ximgproc::segmentation::Edge", ptr %0, i64 %69
-  %71 = getelementptr %"class.cv::ximgproc::segmentation::Edge", ptr %0, i64 %68
+  %70 = getelementptr inbounds [12 x i8], ptr %0, i64 %69
+  %71 = getelementptr [12 x i8], ptr %0, i64 %68
   %72 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %73 = load float, ptr %72, align 4, !tbaa !44
   %74 = getelementptr i8, ptr %71, i64 20
@@ -2147,8 +2146,8 @@ _ZSt13__adjust_heapIPN2cv8ximgproc12segmentation4EdgeElS3_N9__gnu_cxx5__ops15_It
   %76 = fcmp olt float %73, %75
   %77 = or disjoint i64 %68, 1
   %spec.select.i.i.i.i = select i1 %76, i64 %77, i64 %69
-  %78 = getelementptr inbounds %"class.cv::ximgproc::segmentation::Edge", ptr %0, i64 %spec.select.i.i.i.i
-  %79 = getelementptr inbounds %"class.cv::ximgproc::segmentation::Edge", ptr %0, i64 %.034.i.i.i.i
+  %78 = getelementptr inbounds [12 x i8], ptr %0, i64 %spec.select.i.i.i.i
+  %79 = getelementptr inbounds [12 x i8], ptr %0, i64 %.034.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %79, ptr noundef nonnull align 4 dereferenceable(12) %78, i64 12, i1 false), !tbaa.struct !108
   %80 = icmp slt i64 %spec.select.i.i.i.i, %66
   br i1 %80, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !109
@@ -2168,8 +2167,8 @@ _ZSt13__adjust_heapIPN2cv8ximgproc12segmentation4EdgeElS3_N9__gnu_cxx5__ops15_It
 .thread.i.i.i:                                    ; preds = %83
   %87 = shl nuw nsw i64 %.0.lcssa.i.i.i.i, 1
   %88 = or disjoint i64 %87, 1
-  %89 = getelementptr inbounds nuw %"class.cv::ximgproc::segmentation::Edge", ptr %0, i64 %88
-  %90 = getelementptr inbounds %"class.cv::ximgproc::segmentation::Edge", ptr %0, i64 %.0.lcssa.i.i.i.i
+  %89 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %88
+  %90 = getelementptr inbounds [12 x i8], ptr %0, i64 %.0.lcssa.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %90, ptr noundef nonnull align 4 dereferenceable(12) %89, i64 12, i1 false), !tbaa.struct !108
   br label %.lr.ph.i.i.i.i.i.preheader
 
@@ -2185,21 +2184,21 @@ _ZSt13__adjust_heapIPN2cv8ximgproc12segmentation4EdgeElS3_N9__gnu_cxx5__ops15_It
   %.01317.i.i.i.i.i = phi i64 [ %.018.i.i910.i.i.i, %96 ], [ %.01317.i.i.i.i.i.ph, %.lr.ph.i.i.i.i.i.preheader ]
   %.018.in.i.i.i.i.i = add nsw i64 %.01317.i.i.i.i.i, -1
   %.018.i.i910.i.i.i = lshr i64 %.018.in.i.i.i.i.i, 1
-  %92 = getelementptr inbounds nuw %"class.cv::ximgproc::segmentation::Edge", ptr %0, i64 %.018.i.i910.i.i.i
+  %92 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %.018.i.i910.i.i.i
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %94 = load float, ptr %93, align 4, !tbaa !44
   %95 = fcmp olt float %94, %.sroa.4.0.copyload.i.i.i
   br i1 %95, label %96, label %_ZSt10__pop_heapIPN2cv8ximgproc12segmentation4EdgeEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S8_S8_RT0_.exit.i.i
 
 96:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %97 = getelementptr inbounds %"class.cv::ximgproc::segmentation::Edge", ptr %0, i64 %.01317.i.i.i.i.i
+  %97 = getelementptr inbounds [12 x i8], ptr %0, i64 %.01317.i.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %97, ptr noundef nonnull align 4 dereferenceable(12) %92, i64 12, i1 false), !tbaa.struct !108
   %.not11.i.i.i = icmp eq i64 %.018.i.i910.i.i.i, 0
   br i1 %.not11.i.i.i, label %_ZSt10__pop_heapIPN2cv8ximgproc12segmentation4EdgeEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S8_S8_RT0_.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !110
 
 _ZSt10__pop_heapIPN2cv8ximgproc12segmentation4EdgeEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S8_S8_RT0_.exit.i.i: ; preds = %96, %.lr.ph.i.i.i.i.i, %91
   %.013.lcssa.i.i.i.i.i = phi i64 [ 0, %91 ], [ %.01317.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ 0, %96 ]
-  %98 = getelementptr inbounds %"class.cv::ximgproc::segmentation::Edge", ptr %0, i64 %.013.lcssa.i.i.i.i.i
+  %98 = getelementptr inbounds [12 x i8], ptr %0, i64 %.013.lcssa.i.i.i.i.i
   store i64 %.sroa.03.0.copyload.i.i.i, ptr %98, align 4
   %.sroa.2.0..sroa_idx14.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %98, i64 8
   store float %.sroa.4.0.copyload.i.i.i, ptr %.sroa.2.0..sroa_idx14.i.i.i.i.i, align 4, !tbaa !48
@@ -2209,7 +2208,7 @@ _ZSt10__pop_heapIPN2cv8ximgproc12segmentation4EdgeEN9__gnu_cxx5__ops15_Iter_less
 100:                                              ; preds = %18
   %101 = add nsw i64 %.01220, -1
   %102 = udiv i64 %19, 24
-  %103 = getelementptr inbounds nuw %"class.cv::ximgproc::segmentation::Edge", ptr %0, i64 %102
+  %103 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %102
   %104 = getelementptr inbounds i8, ptr %.021, i64 -12
   %105 = load float, ptr %16, align 4, !tbaa !44
   %106 = getelementptr inbounds nuw i8, ptr %103, i64 8
@@ -2360,7 +2359,7 @@ define linkonce_odr hidden void @_ZSt22__final_insertion_sortIPN2cv8ximgproc12se
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, ptr noundef nonnull align 4 dereferenceable(12) %.019.i.ptr, i64 12, i1 false), !tbaa.struct !108
   %17 = getelementptr inbounds nuw i8, ptr %.pn18.i, i64 24
   %.neg.i.i.i.i.i.i = sdiv exact i64 %.019.i.idx, -12
-  %18 = getelementptr inbounds %"class.cv::ximgproc::segmentation::Edge", ptr %17, i64 %.neg.i.i.i.i.i.i
+  %18 = getelementptr inbounds [12 x i8], ptr %17, i64 %.neg.i.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %18, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %.019.i.idx, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %4, i64 12, i1 false), !tbaa.struct !108
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -2456,7 +2455,7 @@ _ZSt25__unguarded_linear_insertIPN2cv8ximgproc12segmentation4EdgeEN9__gnu_cxx5__
   %47 = ptrtoint ptr %.019.i17 to i64
   %48 = sub i64 %47, %6
   %.neg.i.i.i.i.i.i27 = sdiv exact i64 %48, -12
-  %49 = getelementptr inbounds %"class.cv::ximgproc::segmentation::Edge", ptr %46, i64 %.neg.i.i.i.i.i.i27
+  %49 = getelementptr inbounds [12 x i8], ptr %46, i64 %.neg.i.i.i.i.i.i27
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %49, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %48, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %3, i64 12, i1 false), !tbaa.struct !108
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

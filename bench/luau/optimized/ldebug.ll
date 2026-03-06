@@ -3,9 +3,6 @@ source_filename = "bench/luau/original/ldebug.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.CallInfo = type { ptr, ptr, ptr, ptr, i32, i32 }
-%struct.lua_TValue = type { %union.Value, [1 x i32], i32 }
-%union.Value = type { ptr }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 %struct.lua_Debug = type { ptr, ptr, ptr, ptr, i32, i32, i8, i8, i8, ptr, [256 x i8] }
 
@@ -52,7 +49,7 @@ define dso_local noundef range(i32 0, 2) i32 @_Z15lua_getargumentP9lua_Stateii(p
 13:                                               ; preds = %3
   %14 = sext i32 %1 to i64
   %15 = sub nsw i64 0, %14
-  %16 = getelementptr inbounds %struct.CallInfo, ptr %5, i64 %15
+  %16 = getelementptr inbounds [40 x i8], ptr %5, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 36
   %18 = load i32, ptr %17, align 4, !tbaa !20
   %19 = and i32 %18, 4
@@ -104,7 +101,7 @@ _ZL11getluaprotoP8CallInfo.exit:                  ; preds = %25
 43:                                               ; preds = %41, %37
   %44 = load ptr, ptr %16, align 8, !tbaa !37
   %45 = zext nneg i32 %2 to i64
-  %46 = getelementptr %struct.lua_TValue, ptr %44, i64 %45
+  %46 = getelementptr [16 x i8], ptr %44, i64 %45
   %47 = getelementptr i8, ptr %46, i64 -16
   br label %_ZL11getluaprotoP8CallInfo.exit.thread.sink.split
 
@@ -139,7 +136,7 @@ _ZL11getluaprotoP8CallInfo.exit:                  ; preds = %25
 
 65:                                               ; preds = %63, %59
   %66 = phi ptr [ %.pre, %63 ], [ %.val, %59 ]
-  %67 = getelementptr inbounds nuw %struct.lua_TValue, ptr %66, i64 %52
+  %67 = getelementptr inbounds nuw [16 x i8], ptr %66, i64 %52
   br label %_ZL11getluaprotoP8CallInfo.exit.thread.sink.split
 
 _ZL11getluaprotoP8CallInfo.exit.thread.sink.split: ; preds = %65, %43
@@ -173,7 +170,7 @@ define dso_local noundef ptr @_Z12lua_getlocalP9lua_Stateii(ptr noundef %0, i32 
 13:                                               ; preds = %3
   %14 = sext i32 %1 to i64
   %15 = sub nsw i64 0, %14
-  %16 = getelementptr inbounds %struct.CallInfo, ptr %5, i64 %15
+  %16 = getelementptr inbounds [40 x i8], ptr %5, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 36
   %18 = load i32, ptr %17, align 4, !tbaa !20
   %19 = and i32 %18, 4
@@ -241,7 +238,7 @@ _ZL11getluaprotoP8CallInfo.exit:                  ; preds = %25
   %54 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %55 = load i8, ptr %54, align 8, !tbaa !41
   %56 = zext i8 %55 to i64
-  %57 = getelementptr inbounds nuw %struct.lua_TValue, ptr %53, i64 %56
+  %57 = getelementptr inbounds nuw [16 x i8], ptr %53, i64 %56
   tail call void @_Z15luaA_pushobjectP9lua_StatePK10lua_TValue(ptr noundef nonnull %0, ptr noundef %57)
   %58 = load ptr, ptr %45, align 8, !tbaa !43
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 24
@@ -271,7 +268,7 @@ define dso_local noundef ptr @_Z12lua_setlocalP9lua_Stateii(ptr noundef captures
 13:                                               ; preds = %3
   %14 = sext i32 %1 to i64
   %15 = sub nsw i64 0, %14
-  %16 = getelementptr inbounds %struct.CallInfo, ptr %5, i64 %15
+  %16 = getelementptr inbounds [40 x i8], ptr %5, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 36
   %18 = load i32, ptr %17, align 4, !tbaa !20
   %19 = and i32 %18, 4
@@ -330,7 +327,7 @@ _ZL11getluaprotoP8CallInfo.exit:                  ; preds = %25
   %51 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %52 = load i8, ptr %51, align 8, !tbaa !41
   %53 = zext i8 %52 to i64
-  %54 = getelementptr inbounds nuw %struct.lua_TValue, ptr %50, i64 %53
+  %54 = getelementptr inbounds nuw [16 x i8], ptr %50, i64 %53
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(16) %49, i64 16, i1 false), !tbaa.struct !45
   %55 = load ptr, ptr %47, align 8, !tbaa !44
   %56 = getelementptr inbounds i8, ptr %55, i64 -16
@@ -389,7 +386,7 @@ define dso_local noundef range(i32 0, 2) i32 @_Z11lua_getinfoP9lua_StateiPKcP9lu
 
 18:                                               ; preds = %6
   %19 = sext i32 %1 to i64
-  %20 = getelementptr inbounds %struct.lua_TValue, ptr %10, i64 %19
+  %20 = getelementptr inbounds [16 x i8], ptr %10, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 12
   %22 = load i32, ptr %21, align 4, !tbaa !24
   %23 = icmp eq i32 %22, 7
@@ -411,7 +408,7 @@ define dso_local noundef range(i32 0, 2) i32 @_Z11lua_getinfoP9lua_StateiPKcP9lu
 35:                                               ; preds = %24
   %36 = zext nneg i32 %1 to i64
   %37 = sub nsw i64 0, %36
-  %38 = getelementptr inbounds %struct.CallInfo, ptr %26, i64 %37
+  %38 = getelementptr inbounds [40 x i8], ptr %26, i64 %37
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = load ptr, ptr %39, align 8, !tbaa !23
   br label %41
@@ -535,7 +532,7 @@ _ZL9currentpcP9lua_StateP8CallInfo.exit.i.i:      ; preds = %87, %85
   %103 = load i32, ptr %102, align 8, !tbaa !59
   %104 = ashr i32 %96, %103
   %105 = sext i32 %104 to i64
-  %106 = getelementptr inbounds i32, ptr %101, i64 %105
+  %106 = getelementptr inbounds [4 x i8], ptr %101, i64 %105
   %107 = load i32, ptr %106, align 4, !tbaa !46
   %108 = sext i32 %96 to i64
   %109 = getelementptr inbounds i8, ptr %98, i64 %108
@@ -747,7 +744,7 @@ define hidden void @_Z15luaG_aritherrorP9lua_StatePK10lua_TValueS3_3TMS(ptr noun
   %5 = tail call noundef ptr @_Z16luaT_objtypenameP9lua_StatePK10lua_TValue(ptr noundef %0, ptr noundef %1)
   %6 = tail call noundef ptr @_Z16luaT_objtypenameP9lua_StatePK10lua_TValue(ptr noundef %0, ptr noundef %2)
   %7 = zext i32 %3 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr @luaT_eventname, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr @luaT_eventname, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !70
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 2
   %11 = icmp eq ptr %5, %6
@@ -893,7 +890,7 @@ _ZL9currentpcP9lua_StateP8CallInfo.exit.i:        ; preds = %26, %_ZL11getluapro
   %42 = load i32, ptr %41, align 8, !tbaa !59
   %43 = ashr i32 %35, %42
   %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds i32, ptr %40, i64 %44
+  %45 = getelementptr inbounds [4 x i8], ptr %40, i64 %44
   %46 = load i32, ptr %45, align 4, !tbaa !46
   %47 = sext i32 %35 to i64
   %48 = getelementptr inbounds i8, ptr %37, i64 %47
@@ -963,7 +960,7 @@ define hidden void @_Z15luaG_breakpointP9lua_StateP5Protoib(ptr noundef %0, ptr 
 
 24:                                               ; preds = %.lr.ph, %77
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %77 ]
-  %25 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %indvars.iv
   %26 = load i32, ptr %25, align 4, !tbaa !46
   %27 = and i32 %26, 255
   %28 = icmp eq i32 %27, 65
@@ -975,7 +972,7 @@ _Z12luaG_getlineP5Protoi.exit:                    ; preds = %24
   %31 = trunc nuw nsw i64 %indvars.iv to i32
   %32 = lshr i32 %31, %30
   %33 = zext nneg i32 %32 to i64
-  %34 = getelementptr inbounds nuw i32, ptr %29, i64 %33
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %33
   %35 = load i32, ptr %34, align 4, !tbaa !46
   %36 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv
   %37 = load i8, ptr %36, align 1, !tbaa !26
@@ -1002,7 +999,7 @@ _Z12luaG_getlineP5Protoi.exit:                    ; preds = %24
 .lr.ph62:                                         ; preds = %43, %.lr.ph62
   %indvars.iv67 = phi i64 [ %indvars.iv.next68, %.lr.ph62 ], [ 0, %43 ]
   %49 = load ptr, ptr %20, align 8, !tbaa !40
-  %50 = getelementptr inbounds nuw i32, ptr %49, i64 %indvars.iv67
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %indvars.iv67
   %51 = load i32, ptr %50, align 4, !tbaa !46
   %52 = trunc i32 %51 to i8
   %53 = load ptr, ptr %41, align 8, !tbaa !85
@@ -1023,7 +1020,7 @@ _Z12luaG_getlineP5Protoi.exit:                    ; preds = %24
   %61 = load i8, ptr %60, align 1, !tbaa !26
   %62 = zext i8 %61 to i32
   %63 = load ptr, ptr %20, align 8, !tbaa !40
-  %64 = getelementptr inbounds nuw i32, ptr %63, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %indvars.iv
   %65 = load i32, ptr %64, align 4, !tbaa !46
   %66 = and i32 %65, -256
   %67 = or disjoint i32 %66, %62
@@ -1032,7 +1029,7 @@ _Z12luaG_getlineP5Protoi.exit:                    ; preds = %24
 
 .critedge:                                        ; preds = %.loopexit
   %68 = load ptr, ptr %20, align 8, !tbaa !40
-  %69 = getelementptr inbounds nuw i32, ptr %68, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %indvars.iv
   %70 = load i32, ptr %69, align 4, !tbaa !46
   %71 = and i32 %70, -256
   %72 = or disjoint i32 %71, 1
@@ -1068,7 +1065,7 @@ _Z12luaG_getlineP5Protoi.exit:                    ; preds = %24
 82:                                               ; preds = %.lr.ph64, %82
   %indvars.iv70 = phi i64 [ 0, %.lr.ph64 ], [ %indvars.iv.next71, %82 ]
   %83 = load ptr, ptr %81, align 8, !tbaa !90
-  %84 = getelementptr inbounds nuw ptr, ptr %83, i64 %indvars.iv70
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %indvars.iv70
   %85 = load ptr, ptr %84, align 8, !tbaa !91
   tail call void @_Z15luaG_breakpointP9lua_StateP5Protoib(ptr noundef %0, ptr noundef %85, i32 noundef %2, i1 noundef zeroext %3)
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
@@ -1092,7 +1089,7 @@ define hidden noundef i32 @_Z12luaG_getlineP5Protoi(ptr noundef readonly capture
   %9 = load i32, ptr %8, align 8, !tbaa !59
   %10 = ashr i32 %1, %9
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds i32, ptr %7, i64 %11
+  %12 = getelementptr inbounds [4 x i8], ptr %7, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !46
   %14 = sext i32 %1 to i64
   %15 = getelementptr inbounds i8, ptr %4, i64 %14
@@ -1162,7 +1159,7 @@ define hidden noundef range(i32 0, 2) i32 @_Z13luaG_isnativeP9lua_Statei(ptr nou
 12:                                               ; preds = %2
   %13 = sext i32 %1 to i64
   %14 = sub nsw i64 0, %13
-  %15 = getelementptr inbounds %struct.CallInfo, ptr %4, i64 %14
+  %15 = getelementptr inbounds [40 x i8], ptr %4, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 36
   %17 = load i32, ptr %16, align 4, !tbaa !20
   %18 = lshr i32 %17, 2
@@ -1191,7 +1188,7 @@ define hidden noundef range(i32 0, 2) i32 @_Z14luaG_hasnativeP9lua_Statei(ptr no
 12:                                               ; preds = %2
   %13 = sext i32 %1 to i64
   %14 = sub nsw i64 0, %13
-  %15 = getelementptr inbounds %struct.CallInfo, ptr %4, i64 %14
+  %15 = getelementptr inbounds [40 x i8], ptr %4, i64 %14
   %16 = getelementptr i8, ptr %15, i64 8
   %.val = load ptr, ptr %16, align 8, !tbaa !23
   %17 = getelementptr inbounds nuw i8, ptr %.val, i64 12
@@ -1278,7 +1275,7 @@ define internal fastcc noundef i32 @_ZL11getnextlineP5Protoi(ptr noundef readonl
 11:                                               ; preds = %.lr.ph, %.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.thread ]
   %.14283 = phi i32 [ -1, %.lr.ph ], [ %.344, %.thread ]
-  %12 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4, !tbaa !46
   %14 = and i32 %13, 255
   %15 = icmp eq i32 %14, 65
@@ -1290,7 +1287,7 @@ _Z12luaG_getlineP5Protoi.exit:                    ; preds = %11
   %18 = trunc nuw nsw i64 %indvars.iv to i32
   %19 = lshr i32 %18, %17
   %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr inbounds nuw i32, ptr %16, i64 %20
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %20
   %22 = load i32, ptr %21, align 4, !tbaa !46
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv
   %24 = load i8, ptr %23, align 1, !tbaa !26
@@ -1331,7 +1328,7 @@ _Z12luaG_getlineP5Protoi.exit:                    ; preds = %11
 36:                                               ; preds = %.lr.ph87, %40
   %indvars.iv93 = phi i64 [ 0, %.lr.ph87 ], [ %indvars.iv.next94, %40 ]
   %.64785 = phi i32 [ %.041, %.lr.ph87 ], [ %.849.ph, %40 ]
-  %37 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv93
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv93
   %38 = load ptr, ptr %37, align 8, !tbaa !91
   %39 = tail call fastcc noundef i32 @_ZL11getnextlineP5Protoi(ptr noundef %38, i32 noundef %1)
   %.not63 = icmp eq i32 %39, %1
@@ -1415,7 +1412,7 @@ _Z12luaG_getlineP5Protoi.exit:                    ; preds = %.lr.ph.split, %_Z12
   %16 = trunc nuw nsw i64 %indvars.iv to i32
   %17 = lshr i32 %16, %10
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds nuw i32, ptr %9, i64 %18
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %18
   %20 = load i32, ptr %19, align 4, !tbaa !46
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv
   %22 = load i8, ptr %21, align 1, !tbaa !26
@@ -1433,7 +1430,7 @@ _Z12luaG_getlineP5Protoi.exit:                    ; preds = %.lr.ph.split, %_Z12
 26:                                               ; preds = %.lr.ph24, %26
   %indvars.iv29 = phi i64 [ 0, %.lr.ph24 ], [ %indvars.iv.next30, %26 ]
   %.123 = phi i32 [ %.0.lcssa, %.lr.ph24 ], [ %30, %26 ]
-  %27 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv29
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv29
   %28 = load ptr, ptr %27, align 8, !tbaa !91
   %29 = tail call fastcc noundef i32 @_ZL10getmaxlineP5Proto(ptr noundef %28)
   %30 = tail call i32 @llvm.smax.i32(i32 %.123, i32 %29)
@@ -1481,7 +1478,7 @@ define internal fastcc void @_ZL11getcoverageP5ProtoiPimPvPFvS2_PKciiPKimE(ptr n
 26:                                               ; preds = %.lr.ph, %49
   %27 = phi i32 [ %9, %.lr.ph ], [ %50, %49 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %49 ]
-  %28 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv
   %29 = load i32, ptr %28, align 4, !tbaa !46
   %30 = and i32 %29, 255
   %.not42 = icmp eq i32 %30, 69
@@ -1498,7 +1495,7 @@ define internal fastcc void @_ZL11getcoverageP5ProtoiPimPvPFvS2_PKciiPKimE(ptr n
   %36 = trunc nuw nsw i64 %indvars.iv to i32
   %37 = lshr i32 %36, %35
   %38 = zext nneg i32 %37 to i64
-  %39 = getelementptr inbounds nuw i32, ptr %34, i64 %38
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %38
   %40 = load i32, ptr %39, align 4, !tbaa !46
   %41 = getelementptr inbounds nuw i8, ptr %32, i64 %indvars.iv
   %42 = load i8, ptr %41, align 1, !tbaa !26
@@ -1510,7 +1507,7 @@ define internal fastcc void @_ZL11getcoverageP5ProtoiPimPvPFvS2_PKciiPKimE(ptr n
 _Z12luaG_getlineP5Protoi.exit:                    ; preds = %31, %33
   %.0.i = phi i64 [ %45, %33 ], [ 0, %31 ]
   %46 = ashr i32 %29, 8
-  %47 = getelementptr inbounds i32, ptr %2, i64 %.0.i
+  %47 = getelementptr inbounds [4 x i8], ptr %2, i64 %.0.i
   %48 = load i32, ptr %47, align 4, !tbaa !46
   %. = tail call i32 @llvm.smax.i32(i32 %48, i32 %46)
   store i32 %., ptr %47, align 4, !tbaa !46
@@ -1530,7 +1527,7 @@ _Z12luaG_getlineP5Protoi.exit:                    ; preds = %31, %33
 53:                                               ; preds = %.lr.ph47, %53
   %indvars.iv50 = phi i64 [ 0, %.lr.ph47 ], [ %indvars.iv.next51, %53 ]
   %54 = load ptr, ptr %24, align 8, !tbaa !90
-  %55 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv50
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %indvars.iv50
   %56 = load ptr, ptr %55, align 8, !tbaa !91
   tail call fastcc void @_ZL11getcoverageP5ProtoiPimPvPFvS2_PKciiPKimE(ptr noundef %56, i32 noundef %25, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5)
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1

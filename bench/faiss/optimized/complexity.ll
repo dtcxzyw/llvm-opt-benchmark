@@ -99,7 +99,7 @@ define hidden noundef nonnull ptr @_ZN9benchmark12FittingCurveENS_4BigOE(i32 nou
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN9benchmark14MinimalLeastSqERKSt6vectorIlSaIlEERKS0_IdSaIdEENS_4BigOE, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN9benchmark14MinimalLeastSqERKSt6vectorIlSaIlEERKS0_IdSaIdEENS_4BigOE, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -193,12 +193,12 @@ define hidden void @_ZN9benchmark14MinimalLeastSqERKSt6vectorIlSaIlEERKS0_IdSaId
   %.03240 = phi double [ %20, %.lr.ph ], [ 0.000000e+00, %4 ]
   %.03539 = phi double [ %21, %.lr.ph ], [ 0.000000e+00, %4 ]
   %.03638 = phi i64 [ %22, %.lr.ph ], [ 0, %4 ]
-  %13 = getelementptr inbounds nuw i64, ptr %12, i64 %.03638
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.03638
   %14 = load i64, ptr %13, align 8, !tbaa !22
   %15 = tail call noundef double %3(i64 noundef %14)
   %16 = tail call double @llvm.fmuladd.f64(double %15, double %15, double %.041)
   %17 = load ptr, ptr %2, align 8, !tbaa !23
-  %18 = getelementptr inbounds nuw double, ptr %17, i64 %.03638
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %.03638
   %19 = load double, ptr %18, align 8, !tbaa !26
   %20 = fadd double %.03240, %19
   %21 = tail call double @llvm.fmuladd.f64(double %19, double %15, double %.03539)
@@ -229,12 +229,12 @@ define hidden void @_ZN9benchmark14MinimalLeastSqERKSt6vectorIlSaIlEERKS0_IdSaId
   %36 = phi ptr [ %49, %.lr.ph47 ], [ %24, %._crit_edge ]
   %.03345 = phi i64 [ %47, %.lr.ph47 ], [ 0, %._crit_edge ]
   %.03444 = phi double [ %46, %.lr.ph47 ], [ 0.000000e+00, %._crit_edge ]
-  %37 = getelementptr inbounds nuw i64, ptr %36, i64 %.03345
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %.03345
   %38 = load i64, ptr %37, align 8, !tbaa !22
   %39 = tail call noundef double %3(i64 noundef %38)
   %40 = fmul double %9, %39
   %41 = load ptr, ptr %2, align 8, !tbaa !23
-  %42 = getelementptr inbounds nuw double, ptr %41, i64 %.03345
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %.03345
   %43 = load double, ptr %42, align 8, !tbaa !26
   %44 = fsub double %43, %40
   %45 = tail call noundef double @pow(double noundef %44, double noundef 2.000000e+00) #24, !tbaa !29
@@ -340,7 +340,7 @@ _ZN9benchmark8internal18GetNullLogInstanceEv.exit22: ; preds = %_ZN9benchmark8in
   %.03539.i = phi double [ %35, %.lr.ph.i ], [ 0.000000e+00, %.lr.ph.i.preheader ]
   %.03638.i = phi i64 [ %36, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
   %31 = fadd double %.041.i, 1.000000e+00
-  %32 = getelementptr inbounds nuw double, ptr %25, i64 %.03638.i
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %.03638.i
   %33 = load double, ptr %32, align 8, !tbaa !26, !noalias !37
   %34 = fadd double %.03240.i, %33
   %35 = fadd double %.03539.i, %33
@@ -351,7 +351,7 @@ _ZN9benchmark8internal18GetNullLogInstanceEv.exit22: ; preds = %_ZN9benchmark8in
 .lr.ph47.i:                                       ; preds = %._crit_edge.i, %.lr.ph47.i
   %.03345.i = phi i64 [ %42, %.lr.ph47.i ], [ 0, %._crit_edge.i ]
   %.03444.i = phi double [ %41, %.lr.ph47.i ], [ 0.000000e+00, %._crit_edge.i ]
-  %37 = getelementptr inbounds nuw double, ptr %25, i64 %.03345.i
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %.03345.i
   %38 = load double, ptr %37, align 8, !tbaa !26, !noalias !37
   %39 = fsub double %38, %30
   %40 = tail call noundef double @pow(double noundef %39, double noundef 2.000000e+00) #24, !tbaa !29, !noalias !37
@@ -399,7 +399,7 @@ _ZNSt6vectorIN9benchmark4BigOESaIS1_EED2Ev.exit:  ; preds = %105
 
 switch.lookup:                                    ; preds = %48
   %55 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN9benchmark14MinimalLeastSqERKSt6vectorIlSaIlEERKS0_IdSaIdEENS_4BigOE, i64 %55
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN9benchmark14MinimalLeastSqERKSt6vectorIlSaIlEERKS0_IdSaIdEENS_4BigOE, i64 %55
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN9benchmark12FittingCurveENS_4BigOE.exit
 
@@ -419,7 +419,7 @@ _ZN9benchmark12FittingCurveENS_4BigOE.exit:       ; preds = %48, %switch.lookup
   %.03240.i27 = phi double [ %66, %.noexc ], [ 0.000000e+00, %_ZN9benchmark12FittingCurveENS_4BigOE.exit ]
   %.03539.i28 = phi double [ %67, %.noexc ], [ 0.000000e+00, %_ZN9benchmark12FittingCurveENS_4BigOE.exit ]
   %.03638.i29 = phi i64 [ %68, %.noexc ], [ 0, %_ZN9benchmark12FittingCurveENS_4BigOE.exit ]
-  %59 = getelementptr inbounds nuw i64, ptr %58, i64 %.03638.i29
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %.03638.i29
   %60 = load i64, ptr %59, align 8, !tbaa !22, !noalias !41
   %61 = invoke noundef double %.0.i(i64 noundef %60)
           to label %.noexc unwind label %_ZNSt6vectorIN9benchmark4BigOESaIS1_EED2Ev.exit45.loopexit.split-lp
@@ -427,7 +427,7 @@ _ZN9benchmark12FittingCurveENS_4BigOE.exit:       ; preds = %48, %switch.lookup
 .noexc:                                           ; preds = %.lr.ph.i25
   %62 = tail call double @llvm.fmuladd.f64(double %61, double %61, double %.041.i26)
   %63 = load ptr, ptr %2, align 8, !tbaa !23, !noalias !41
-  %64 = getelementptr inbounds nuw double, ptr %63, i64 %.03638.i29
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %.03638.i29
   %65 = load double, ptr %64, align 8, !tbaa !26, !noalias !41
   %66 = fadd double %.03240.i27, %65
   %67 = tail call double @llvm.fmuladd.f64(double %65, double %61, double %.03539.i28)
@@ -445,7 +445,7 @@ _ZN9benchmark12FittingCurveENS_4BigOE.exit:       ; preds = %48, %switch.lookup
   %76 = phi ptr [ %89, %.noexc42 ], [ %70, %._crit_edge.i30 ]
   %.03345.i32 = phi i64 [ %87, %.noexc42 ], [ 0, %._crit_edge.i30 ]
   %.03444.i33 = phi double [ %86, %.noexc42 ], [ 0.000000e+00, %._crit_edge.i30 ]
-  %77 = getelementptr inbounds nuw i64, ptr %76, i64 %.03345.i32
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %.03345.i32
   %78 = load i64, ptr %77, align 8, !tbaa !22, !noalias !41
   %79 = invoke noundef double %.0.i(i64 noundef %78)
           to label %.noexc42 unwind label %_ZNSt6vectorIN9benchmark4BigOESaIS1_EED2Ev.exit45.loopexit
@@ -453,7 +453,7 @@ _ZN9benchmark12FittingCurveENS_4BigOE.exit:       ; preds = %48, %switch.lookup
 .noexc42:                                         ; preds = %.lr.ph47.i31
   %80 = fmul double %56, %79
   %81 = load ptr, ptr %2, align 8, !tbaa !23, !noalias !41
-  %82 = getelementptr inbounds nuw double, ptr %81, i64 %.03345.i32
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %.03345.i32
   %83 = load double, ptr %82, align 8, !tbaa !26, !noalias !41
   %84 = fsub double %83, %80
   %85 = tail call noundef double @pow(double noundef %84, double noundef 2.000000e+00) #24, !tbaa !29, !noalias !41
@@ -550,12 +550,12 @@ _ZN9benchmark12FittingCurveENS_4BigOE.exit47:     ; preds = %_ZN9benchmark8inter
   %.03240.i51 = phi double [ %126, %.lr.ph.i49 ], [ 0.000000e+00, %_ZN9benchmark12FittingCurveENS_4BigOE.exit47 ]
   %.03539.i52 = phi double [ %127, %.lr.ph.i49 ], [ 0.000000e+00, %_ZN9benchmark12FittingCurveENS_4BigOE.exit47 ]
   %.03638.i53 = phi i64 [ %128, %.lr.ph.i49 ], [ 0, %_ZN9benchmark12FittingCurveENS_4BigOE.exit47 ]
-  %119 = getelementptr inbounds nuw i64, ptr %118, i64 %.03638.i53
+  %119 = getelementptr inbounds nuw [8 x i8], ptr %118, i64 %.03638.i53
   %120 = load i64, ptr %119, align 8, !tbaa !22, !noalias !44
   %121 = tail call noundef double %.0.i46(i64 noundef %120), !noalias !44
   %122 = tail call double @llvm.fmuladd.f64(double %121, double %121, double %.041.i50)
   %123 = load ptr, ptr %2, align 8, !tbaa !23, !noalias !44
-  %124 = getelementptr inbounds nuw double, ptr %123, i64 %.03638.i53
+  %124 = getelementptr inbounds nuw [8 x i8], ptr %123, i64 %.03638.i53
   %125 = load double, ptr %124, align 8, !tbaa !26, !noalias !44
   %126 = fadd double %.03240.i51, %125
   %127 = tail call double @llvm.fmuladd.f64(double %125, double %121, double %.03539.i52)
@@ -573,12 +573,12 @@ _ZN9benchmark12FittingCurveENS_4BigOE.exit47:     ; preds = %_ZN9benchmark8inter
   %136 = phi ptr [ %149, %.lr.ph47.i55 ], [ %130, %._crit_edge.i54 ]
   %.03345.i56 = phi i64 [ %147, %.lr.ph47.i55 ], [ 0, %._crit_edge.i54 ]
   %.03444.i57 = phi double [ %146, %.lr.ph47.i55 ], [ 0.000000e+00, %._crit_edge.i54 ]
-  %137 = getelementptr inbounds nuw i64, ptr %136, i64 %.03345.i56
+  %137 = getelementptr inbounds nuw [8 x i8], ptr %136, i64 %.03345.i56
   %138 = load i64, ptr %137, align 8, !tbaa !22, !noalias !44
   %139 = tail call noundef double %.0.i46(i64 noundef %138), !noalias !44
   %140 = fmul double %116, %139
   %141 = load ptr, ptr %2, align 8, !tbaa !23, !noalias !44
-  %142 = getelementptr inbounds nuw double, ptr %141, i64 %.03345.i56
+  %142 = getelementptr inbounds nuw [8 x i8], ptr %141, i64 %.03345.i56
   %143 = load double, ptr %142, align 8, !tbaa !26, !noalias !44
   %144 = fsub double %143, %140
   %145 = tail call noundef double @pow(double noundef %144, double noundef 2.000000e+00) #24, !tbaa !29, !noalias !44
@@ -769,7 +769,7 @@ _ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i: ; preds = %70, %.noex
 _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJRKlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i: ; preds = %72, %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i
   store ptr %66, ptr %3, align 8, !tbaa !16
   store ptr %71, ptr %21, align 8, !tbaa !13
-  %73 = getelementptr inbounds nuw i64, ptr %66, i64 %64
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %64
   store ptr %73, ptr %22, align 8, !tbaa !70
   br label %_ZNSt6vectorIlSaIlEE9push_backERKl.exit
 
@@ -843,7 +843,7 @@ _ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit16.i.i.i: ; preds = %102, %.n
 _ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i: ; preds = %104, %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit16.i.i.i
   store ptr %99, ptr %4, align 8, !tbaa !23
   store ptr %103, ptr %23, align 8, !tbaa !73
-  %105 = getelementptr inbounds nuw double, ptr %99, i64 %97
+  %105 = getelementptr inbounds nuw [8 x i8], ptr %99, i64 %97
   store ptr %105, ptr %24, align 8, !tbaa !74
   %.pre = load i64, ptr %78, align 8, !tbaa !72
   %.pre217 = sitofp i64 %.pre to double
@@ -916,7 +916,7 @@ _ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit16.i.i.i65: ; preds = %130, %
 _ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i67: ; preds = %132, %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit16.i.i.i65
   store ptr %127, ptr %5, align 8, !tbaa !23
   store ptr %131, ptr %25, align 8, !tbaa !73
-  %133 = getelementptr inbounds nuw double, ptr %127, i64 %125
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %127, i64 %125
   store ptr %133, ptr %26, align 8, !tbaa !74
   br label %_ZNSt6vectorIdSaIdEE9push_backEOd.exit70
 
@@ -980,14 +980,14 @@ _ZNSt6vectorIdSaIdEE9push_backEOd.exit70:         ; preds = %_ZNSt6vectorIdSaIdE
   %.03240.i = phi double [ %152, %.noexc72 ], [ 0.000000e+00, %.lr.ph.i.preheader ]
   %.03539.i = phi double [ %153, %.noexc72 ], [ 0.000000e+00, %.lr.ph.i.preheader ]
   %.03638.i = phi i64 [ %154, %.noexc72 ], [ 0, %.lr.ph.i.preheader ]
-  %146 = getelementptr inbounds nuw i64, ptr %139, i64 %.03638.i
+  %146 = getelementptr inbounds nuw [8 x i8], ptr %139, i64 %.03638.i
   %147 = load i64, ptr %146, align 8, !tbaa !22, !noalias !77
   %148 = invoke noundef double %138(i64 noundef %147)
           to label %.noexc72 unwind label %.loopexit.split-lp169
 
 .noexc72:                                         ; preds = %.lr.ph.i
   %149 = tail call double @llvm.fmuladd.f64(double %148, double %148, double %.041.i)
-  %150 = getelementptr inbounds nuw double, ptr %140, i64 %.03638.i
+  %150 = getelementptr inbounds nuw [8 x i8], ptr %140, i64 %.03638.i
   %151 = load double, ptr %150, align 8, !tbaa !26, !noalias !77
   %152 = fadd double %.03240.i, %151
   %153 = tail call double @llvm.fmuladd.f64(double %151, double %148, double %.03539.i)
@@ -998,14 +998,14 @@ _ZNSt6vectorIdSaIdEE9push_backEOd.exit70:         ; preds = %_ZNSt6vectorIdSaIdE
 .lr.ph47.i:                                       ; preds = %._crit_edge.i, %.noexc73
   %.03345.i = phi i64 [ %164, %.noexc73 ], [ 0, %._crit_edge.i ]
   %.03444.i = phi double [ %163, %.noexc73 ], [ 0.000000e+00, %._crit_edge.i ]
-  %155 = getelementptr inbounds nuw i64, ptr %139, i64 %.03345.i
+  %155 = getelementptr inbounds nuw [8 x i8], ptr %139, i64 %.03345.i
   %156 = load i64, ptr %155, align 8, !tbaa !22, !noalias !77
   %157 = invoke noundef double %138(i64 noundef %156)
           to label %.noexc73 unwind label %.loopexit168
 
 .noexc73:                                         ; preds = %.lr.ph47.i
   %158 = fmul double %145, %157
-  %159 = getelementptr inbounds nuw double, ptr %140, i64 %.03345.i
+  %159 = getelementptr inbounds nuw [8 x i8], ptr %140, i64 %.03345.i
   %160 = load double, ptr %159, align 8, !tbaa !26, !noalias !77
   %161 = fsub double %160, %158
   %162 = tail call noundef double @pow(double noundef %161, double noundef 2.000000e+00) #24, !tbaa !29, !noalias !77
@@ -1050,14 +1050,14 @@ _ZNSt6vectorIdSaIdEE9push_backEOd.exit70:         ; preds = %_ZNSt6vectorIdSaIdE
   %.03240.i77 = phi double [ %183, %.noexc92 ], [ 0.000000e+00, %.lr.ph.i75.preheader ]
   %.03539.i78 = phi double [ %184, %.noexc92 ], [ 0.000000e+00, %.lr.ph.i75.preheader ]
   %.03638.i79 = phi i64 [ %185, %.noexc92 ], [ 0, %.lr.ph.i75.preheader ]
-  %177 = getelementptr inbounds nuw i64, ptr %139, i64 %.03638.i79
+  %177 = getelementptr inbounds nuw [8 x i8], ptr %139, i64 %.03638.i79
   %178 = load i64, ptr %177, align 8, !tbaa !22, !noalias !80
   %179 = invoke noundef double %166(i64 noundef %178)
           to label %.noexc92 unwind label %.loopexit.split-lp
 
 .noexc92:                                         ; preds = %.lr.ph.i75
   %180 = tail call double @llvm.fmuladd.f64(double %179, double %179, double %.041.i76)
-  %181 = getelementptr inbounds nuw double, ptr %171, i64 %.03638.i79
+  %181 = getelementptr inbounds nuw [8 x i8], ptr %171, i64 %.03638.i79
   %182 = load double, ptr %181, align 8, !tbaa !26, !noalias !80
   %183 = fadd double %.03240.i77, %182
   %184 = tail call double @llvm.fmuladd.f64(double %182, double %179, double %.03539.i78)
@@ -1068,14 +1068,14 @@ _ZNSt6vectorIdSaIdEE9push_backEOd.exit70:         ; preds = %_ZNSt6vectorIdSaIdE
 .lr.ph47.i81:                                     ; preds = %._crit_edge.i80, %.noexc93
   %.03345.i82 = phi i64 [ %195, %.noexc93 ], [ 0, %._crit_edge.i80 ]
   %.03444.i83 = phi double [ %194, %.noexc93 ], [ 0.000000e+00, %._crit_edge.i80 ]
-  %186 = getelementptr inbounds nuw i64, ptr %139, i64 %.03345.i82
+  %186 = getelementptr inbounds nuw [8 x i8], ptr %139, i64 %.03345.i82
   %187 = load i64, ptr %186, align 8, !tbaa !22, !noalias !80
   %188 = invoke noundef double %166(i64 noundef %187)
           to label %.noexc93 unwind label %.loopexit
 
 .noexc93:                                         ; preds = %.lr.ph47.i81
   %189 = fmul double %176, %188
-  %190 = getelementptr inbounds nuw double, ptr %171, i64 %.03345.i82
+  %190 = getelementptr inbounds nuw [8 x i8], ptr %171, i64 %.03345.i82
   %191 = load double, ptr %190, align 8, !tbaa !26, !noalias !80
   %192 = fsub double %191, %189
   %193 = tail call noundef double @pow(double noundef %192, double noundef 2.000000e+00) #24, !tbaa !29, !noalias !80
@@ -1304,7 +1304,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit: ; preds = %_
   %267 = getelementptr inbounds nuw i8, ptr %266, i64 424
   %268 = load i32, ptr %267, align 8, !tbaa !95
   %269 = zext nneg i32 %268 to i64
-  %switch.gep = getelementptr inbounds nuw double, ptr @switch.table._ZN9benchmark11ComputeBigOERKSt6vectorINS_17BenchmarkReporter3RunESaIS2_EE, i64 %269
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN9benchmark11ComputeBigOERKSt6vectorINS_17BenchmarkReporter3RunESaIS2_EE, i64 %269
   %switch.load = load double, ptr %switch.gep, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   invoke void @_ZN9benchmark17BenchmarkReporter3RunC2Ev(ptr noundef nonnull align 8 dereferenceable(560) %11)
@@ -2798,7 +2798,7 @@ _ZNSt6vectorIN9benchmark17BenchmarkReporter3RunESaIS2_EE11_S_relocateEPS2_S5_S5_
 _ZNSt12_Vector_baseIN9benchmark17BenchmarkReporter3RunESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN9benchmark17BenchmarkReporter3RunESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit32, %28
   store ptr %20, ptr %0, align 8, !tbaa !50
   store ptr %.0.lcssa.i.i.i31, ptr %4, align 8, !tbaa !47
-  %32 = getelementptr inbounds nuw %"struct.benchmark::BenchmarkReporter::Run", ptr %20, i64 %16
+  %32 = getelementptr inbounds nuw [560 x i8], ptr %20, i64 %16
   store ptr %32, ptr %27, align 8, !tbaa !97
   ret void
 

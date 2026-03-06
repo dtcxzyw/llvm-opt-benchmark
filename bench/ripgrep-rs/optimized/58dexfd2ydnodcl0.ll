@@ -591,7 +591,7 @@ define void @_ZN6ignore9gitignore16GitignoreBuilder5build17h2d30e1539f022476E(pt
 .preheader:                                       ; preds = %2, %.preheader
   %.017.i = phi i64 [ %24, %.preheader ], [ 0, %2 ]
   %.016.i = phi i64 [ %25, %.preheader ], [ 0, %2 ]
-  %20 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, i8, i8, [6 x i8] }, ptr %16, i64 %.016.i
+  %20 = getelementptr inbounds [80 x i8], ptr %16, i64 %.016.i
   %21 = getelementptr i8, ptr %20, i64 72
   %.val.i = load i8, ptr %21, align 8, !range !60, !alias.scope !67, !noundef !8
   %22 = xor i8 %.val.i, 1
@@ -604,7 +604,7 @@ define void @_ZN6ignore9gitignore16GitignoreBuilder5build17h2d30e1539f022476E(pt
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h3a9c4bb45dba519eE.exit": ; preds = %.preheader, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h3a9c4bb45dba519eE.exit"
   %.017.i42 = phi i64 [ %30, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h3a9c4bb45dba519eE.exit" ], [ 0, %.preheader ]
   %.016.i43 = phi i64 [ %31, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h3a9c4bb45dba519eE.exit" ], [ 0, %.preheader ]
-  %27 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, i8, i8, [6 x i8] }, ptr %16, i64 %.016.i43
+  %27 = getelementptr inbounds [80 x i8], ptr %16, i64 %.016.i43
   %28 = getelementptr i8, ptr %27, i64 72
   %.val.i44 = load i8, ptr %28, align 8, !range !60, !alias.scope !72, !noundef !8
   %29 = zext nneg i8 %.val.i44 to i64
@@ -1110,7 +1110,7 @@ define void @_ZN6ignore9gitignore16GitignoreBuilder12build_global17hf2d94ed85b1d
 79:                                               ; preds = %._crit_edge.i.i, %63
   %80 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %65, %63 ]
   %81 = load ptr, ptr %.sroa.410.0..sroa_idx, align 8, !alias.scope !120, !noalias !125, !nonnull !8, !noundef !8
-  %82 = getelementptr inbounds { i64, [6 x i64] }, ptr %81, i64 %80
+  %82 = getelementptr inbounds [56 x i8], ptr %81, i64 %80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %82, ptr noundef nonnull align 8 dereferenceable(56) %64, i64 56, i1 false)
   %83 = add i64 %80, 1
   store i64 %83, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !120, !noalias !125
@@ -2065,7 +2065,7 @@ _ZN5alloc3fmt6format17hf6ddbaba453730d3E.exit218: ; preds = %247
   %313 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %304, %301 ]
   %314 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %315 = load ptr, ptr %314, align 8, !alias.scope !313, !noalias !316, !nonnull !8, !noundef !8
-  %316 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, i8, i8, [6 x i8] }, ptr %315, i64 %313
+  %316 = getelementptr inbounds [80 x i8], ptr %315, i64 %313
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %316, ptr noundef nonnull align 8 dereferenceable(80) %19, i64 80, i1 false)
   %317 = load i64, ptr %303, align 8, !alias.scope !313, !noalias !316, !noundef !8
   %318 = add i64 %317, 1
@@ -3519,7 +3519,7 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17h0e3c264006ba64b3E.exit.i
 
 115:                                              ; preds = %111
   %116 = load ptr, ptr %103, align 8, !noalias !731, !nonnull !8, !noundef !8
-  %117 = getelementptr inbounds { { { { i32 } }, { { i8 } }, [3 x i8], { { { i64, ptr, {} }, i64 } } }, [4 x i64] }, ptr %116, i64 %102
+  %117 = getelementptr inbounds [64 x i8], ptr %116, i64 %102
   invoke void @"_ZN3std4sync5mutex14Mutex$LT$T$GT$8try_lock17hd214e5b72f06054bE"(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %14, ptr noundef nonnull align 8 %117)
           to label %119 unwind label %.thread.loopexit.i.i.i, !noalias !731
 
@@ -3571,7 +3571,7 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17h0e3c264006ba64b3E.exit.i
   %135 = phi i64 [ %.pre.i.i.i.i, %._crit_edge.i.i.i.i ], [ %126, %121 ]
   %136 = getelementptr inbounds nuw i8, ptr %122, i64 16
   %137 = load ptr, ptr %136, align 8, !alias.scope !735, !noalias !738, !nonnull !8, !noundef !8
-  %138 = getelementptr inbounds ptr, ptr %137, i64 %135
+  %138 = getelementptr inbounds [8 x i8], ptr %137, i64 %135
   store ptr %88, ptr %138, align 8, !noalias !738
   %139 = load i64, ptr %125, align 8, !alias.scope !735, !noalias !740, !noundef !8
   %140 = add i64 %139, 1
@@ -3750,7 +3750,7 @@ _ZN3std4sync6poison4Flag4done17h81e7640de42edbeeE.llvm.12875954175451687458.exit
   br i1 %190, label %221, label %_ZN14regex_automata4util8captures9GroupInfo4slot17h059b059c41608861E.exit.i
 
 _ZN14regex_automata4util8captures9GroupInfo4slot17h059b059c41608861E.exit.i: ; preds = %185
-  %191 = getelementptr inbounds nuw { i32, i32 }, ptr %.val.i.i, i64 %187
+  %191 = getelementptr inbounds nuw [8 x i8], ptr %.val.i.i, i64 %187
   %192 = getelementptr inbounds nuw i8, ptr %191, i64 4
   %193 = load i32, ptr %192, align 4, !noalias !758, !noundef !8
   %194 = zext i32 %193 to i64
@@ -3770,7 +3770,7 @@ _ZN14regex_automata4util8captures9GroupInfo4slot17h059b059c41608861E.exit.i: ; p
   br i1 %203, label %204, label %221
 
 204:                                              ; preds = %200
-  %205 = getelementptr inbounds nuw i64, ptr %201, i64 %.061.i
+  %205 = getelementptr inbounds nuw [8 x i8], ptr %201, i64 %.061.i
   %206 = load i64, ptr %205, align 8, !noalias !758, !noundef !8
   %207 = icmp ne i64 %206, 0
   %208 = icmp ult i64 %.0.i, %202
@@ -3778,7 +3778,7 @@ _ZN14regex_automata4util8captures9GroupInfo4slot17h059b059c41608861E.exit.i: ; p
   br i1 %or.cond.i, label %209, label %221
 
 209:                                              ; preds = %204
-  %210 = getelementptr inbounds nuw i64, ptr %201, i64 %.0.i
+  %210 = getelementptr inbounds nuw [8 x i8], ptr %201, i64 %.0.i
   %211 = load i64, ptr %210, align 8, !noalias !758, !noundef !8
   %212 = icmp eq i64 %211, 0
   br i1 %212, label %221, label %213

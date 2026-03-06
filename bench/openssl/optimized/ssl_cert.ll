@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.SSL_CERT_LOOKUP = type { i32, i32 }
-%struct.cert_pkey_st = type { ptr, ptr, ptr, ptr, i64 }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
 
@@ -125,7 +124,7 @@ ssl_get_security_level_bits.exit:                 ; preds = %8, %10
   %spec.store.select.i = tail call i32 @llvm.smax.i32(i32 %.0.i, i32 0)
   %12 = tail call i32 @llvm.umin.i32(i32 %spec.store.select.i, i32 5)
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds nuw i32, ptr @ssl_get_security_level_bits.minbits_table, i64 %13
+  %14 = getelementptr inbounds nuw [4 x i8], ptr @ssl_get_security_level_bits.minbits_table, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !3
   %16 = icmp slt i32 %.0.i, 1
   br i1 %16, label %17, label %20
@@ -310,9 +309,9 @@ define ptr @ssl_cert_dup(ptr noundef %0) local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %27, %68
   %.0104133 = phi i64 [ %69, %68 ], [ 0, %27 ]
   %35 = load ptr, ptr %15, align 8, !tbaa !19
-  %36 = getelementptr inbounds nuw %struct.cert_pkey_st, ptr %35, i64 %.0104133
+  %36 = getelementptr inbounds nuw [40 x i8], ptr %35, i64 %.0104133
   %37 = load ptr, ptr %10, align 8, !tbaa !19
-  %38 = getelementptr inbounds nuw %struct.cert_pkey_st, ptr %37, i64 %.0104133
+  %38 = getelementptr inbounds nuw [40 x i8], ptr %37, i64 %.0104133
   %39 = load ptr, ptr %36, align 8, !tbaa !95
   %.not126 = icmp eq ptr %39, null
   br i1 %.not126, label %42, label %40
@@ -601,7 +600,7 @@ CRYPTO_DOWN_REF.exit:                             ; preds = %3
 13:                                               ; preds = %13, %.lr.ph.i
   %.015.i = phi i64 [ 0, %.lr.ph.i ], [ %23, %13 ]
   %14 = load ptr, ptr %12, align 8, !tbaa !19
-  %15 = getelementptr inbounds nuw %struct.cert_pkey_st, ptr %14, i64 %.015.i
+  %15 = getelementptr inbounds nuw [40 x i8], ptr %14, i64 %.015.i
   %16 = load ptr, ptr %15, align 8, !tbaa !95
   tail call void @X509_free(ptr noundef %16) #14
   store ptr null, ptr %15, align 8, !tbaa !95
@@ -671,7 +670,7 @@ define void @ssl_cert_clear_certs(ptr noundef readonly captures(address_is_null)
 6:                                                ; preds = %.lr.ph, %6
   %.015 = phi i64 [ 0, %.lr.ph ], [ %16, %6 ]
   %7 = load ptr, ptr %5, align 8, !tbaa !19
-  %8 = getelementptr inbounds nuw %struct.cert_pkey_st, ptr %7, i64 %.015
+  %8 = getelementptr inbounds nuw [40 x i8], ptr %7, i64 %.015
   %9 = load ptr, ptr %8, align 8, !tbaa !95
   tail call void @X509_free(ptr noundef %9) #14
   store ptr null, ptr %8, align 8, !tbaa !95
@@ -874,7 +873,7 @@ define range(i32 0, 2) i32 @ssl_cert_select_current(ptr noundef captures(none) %
 
 9:                                                ; preds = %.lr.ph, %16
   %.02540 = phi i64 [ 0, %.lr.ph ], [ %17, %16 ]
-  %10 = getelementptr inbounds nuw %struct.cert_pkey_st, ptr %7, i64 %.02540
+  %10 = getelementptr inbounds nuw [40 x i8], ptr %7, i64 %.02540
   %11 = load ptr, ptr %10, align 8, !tbaa !95
   %12 = icmp eq ptr %11, %1
   br i1 %12, label %13, label %16
@@ -894,7 +893,7 @@ define range(i32 0, 2) i32 @ssl_cert_select_current(ptr noundef captures(none) %
   %19 = phi i64 [ %5, %.lr.ph42 ], [ %29, %28 ]
   %.12641 = phi i64 [ 0, %.lr.ph42 ], [ %30, %28 ]
   %20 = load ptr, ptr %8, align 8, !tbaa !19
-  %21 = getelementptr inbounds nuw %struct.cert_pkey_st, ptr %20, i64 %.12641
+  %21 = getelementptr inbounds nuw [40 x i8], ptr %20, i64 %.12641
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8, !tbaa !97
   %.not = icmp eq ptr %23, null
@@ -975,7 +974,7 @@ define range(i32 0, 2) i32 @ssl_cert_set_current(ptr noundef captures(address_is
 
 20:                                               ; preds = %.lr.ph, %26
   %.02027 = phi i64 [ %.019, %.lr.ph ], [ %27, %26 ]
-  %21 = getelementptr inbounds nuw %struct.cert_pkey_st, ptr %19, i64 %.02027
+  %21 = getelementptr inbounds nuw [40 x i8], ptr %19, i64 %.02027
   %22 = load ptr, ptr %21, align 8, !tbaa !95
   %.not25 = icmp eq ptr %22, null
   br i1 %.not25, label %26, label %23
@@ -2626,7 +2625,7 @@ define i32 @ssl_get_security_level_bits(ptr noundef %0, ptr noundef %1, ptr noun
 
 11:                                               ; preds = %10, %8
   %12 = zext nneg i32 %9 to i64
-  %13 = getelementptr inbounds nuw i32, ptr @ssl_get_security_level_bits.minbits_table, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr @ssl_get_security_level_bits.minbits_table, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !3
   ret i32 %14
 }
@@ -2678,7 +2677,7 @@ define range(i32 0, 2) i32 @ssl_cert_lookup_by_nid(i32 noundef %0, ptr noundef w
 
 8:                                                ; preds = %3, %12
   %.017 = phi i64 [ 0, %3 ], [ %13, %12 ]
-  %9 = getelementptr inbounds nuw %struct.SSL_CERT_LOOKUP, ptr @ssl_cert_info, i64 %.017
+  %9 = getelementptr inbounds nuw [8 x i8], ptr @ssl_cert_info, i64 %.017
   %10 = load i32, ptr %9, align 8, !tbaa !175
   %11 = icmp eq i32 %10, %0
   br i1 %11, label %.loopexit.sink.split, label %12
@@ -2690,7 +2689,7 @@ define range(i32 0, 2) i32 @ssl_cert_lookup_by_nid(i32 noundef %0, ptr noundef w
 
 14:                                               ; preds = %.lr.ph, %20
   %.118 = phi i64 [ 0, %.lr.ph ], [ %21, %20 ]
-  %15 = getelementptr inbounds nuw %struct.SSL_CERT_LOOKUP, ptr %7, i64 %.118
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.118
   %16 = load i32, ptr %15, align 4, !tbaa !175
   %17 = icmp eq i32 %16, %0
   br i1 %17, label %18, label %20
@@ -2730,7 +2729,7 @@ define ptr @ssl_cert_lookup_by_pkey(ptr noundef %0, ptr noundef writeonly captur
 
 7:                                                ; preds = %3, %18
   %.03048 = phi i64 [ 0, %3 ], [ %19, %18 ]
-  %8 = getelementptr inbounds nuw %struct.SSL_CERT_LOOKUP, ptr @ssl_cert_info, i64 %.03048
+  %8 = getelementptr inbounds nuw [8 x i8], ptr @ssl_cert_info, i64 %.03048
   %9 = load i32, ptr %8, align 8, !tbaa !175
   %10 = tail call ptr @OBJ_nid2sn(i32 noundef %9) #14
   %11 = tail call i32 @EVP_PKEY_is_a(ptr noundef %0, ptr noundef %10) #14
@@ -2744,7 +2743,7 @@ define ptr @ssl_cert_lookup_by_pkey(ptr noundef %0, ptr noundef writeonly captur
   br i1 %.not37, label %18, label %15
 
 15:                                               ; preds = %12, %7
-  %16 = getelementptr inbounds nuw %struct.SSL_CERT_LOOKUP, ptr @ssl_cert_info, i64 %.03048
+  %16 = getelementptr inbounds nuw [8 x i8], ptr @ssl_cert_info, i64 %.03048
   %.not38 = icmp eq ptr %1, null
   br i1 %.not38, label %.thread, label %17
 
@@ -2760,7 +2759,7 @@ define ptr @ssl_cert_lookup_by_pkey(ptr noundef %0, ptr noundef writeonly captur
 20:                                               ; preds = %.lr.ph, %36
   %.13149 = phi i64 [ 0, %.lr.ph ], [ %37, %36 ]
   %21 = load ptr, ptr %6, align 8, !tbaa !174
-  %22 = getelementptr inbounds nuw %struct.SSL_CERT_LOOKUP, ptr %21, i64 %.13149
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %.13149
   %23 = load i32, ptr %22, align 4, !tbaa !175
   %24 = tail call ptr @OBJ_nid2sn(i32 noundef %23) #14
   %25 = tail call i32 @EVP_PKEY_is_a(ptr noundef %0, ptr noundef %24) #14
@@ -2785,7 +2784,7 @@ define ptr @ssl_cert_lookup_by_pkey(ptr noundef %0, ptr noundef writeonly captur
 
 33:                                               ; preds = %30, %31
   %34 = load ptr, ptr %6, align 8, !tbaa !174
-  %35 = getelementptr inbounds nuw %struct.SSL_CERT_LOOKUP, ptr %34, i64 %.13149
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %.13149
   br label %.thread
 
 36:                                               ; preds = %26
@@ -2820,12 +2819,12 @@ define ptr @ssl_cert_lookup_by_idx(i64 noundef %0, ptr noundef readonly captures
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 352
   %10 = load ptr, ptr %9, align 8, !tbaa !174
-  %11 = getelementptr %struct.SSL_CERT_LOOKUP, ptr %10, i64 %0
+  %11 = getelementptr [8 x i8], ptr %10, i64 %0
   %12 = getelementptr i8, ptr %11, i64 -72
   br label %15
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds nuw %struct.SSL_CERT_LOOKUP, ptr @ssl_cert_info, i64 %0
+  %14 = getelementptr inbounds nuw [8 x i8], ptr @ssl_cert_info, i64 %0
   br label %15
 
 15:                                               ; preds = %2, %13, %8

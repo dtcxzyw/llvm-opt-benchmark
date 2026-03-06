@@ -107,7 +107,7 @@ define dso_local ptr @xfrm_aalg_get_byid(i32 noundef %0) #0 align 16 {
 
 6:                                                ; preds = %3, %1
   %7 = phi i64 [ %4, %3 ], [ 0, %1 ]
-  %8 = getelementptr %struct.xfrm_algo_desc, ptr @aalg_list, i64 %7
+  %8 = getelementptr [48 x i8], ptr @aalg_list, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %10 = load i8, ptr %9, align 8
   %11 = zext i8 %10 to i64
@@ -153,7 +153,7 @@ define dso_local ptr @xfrm_ealg_get_byid(i32 noundef %0) #0 align 16 {
 
 6:                                                ; preds = %3, %1
   %7 = phi i64 [ %4, %3 ], [ 0, %1 ]
-  %8 = getelementptr %struct.xfrm_algo_desc, ptr @ealg_list, i64 %7
+  %8 = getelementptr [48 x i8], ptr @ealg_list, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %10 = load i8, ptr %9, align 8
   %11 = zext i8 %10 to i64
@@ -199,7 +199,7 @@ define dso_local ptr @xfrm_calg_get_byid(i32 noundef %0) #0 align 16 {
 
 6:                                                ; preds = %3, %1
   %7 = phi i64 [ %4, %3 ], [ 0, %1 ]
-  %8 = getelementptr %struct.xfrm_algo_desc, ptr @calg_list, i64 %7
+  %8 = getelementptr [48 x i8], ptr @calg_list, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %10 = load i8, ptr %9, align 8
   %11 = zext i8 %10 to i64
@@ -245,7 +245,7 @@ define dso_local noundef ptr @xfrm_aalg_get_byname(ptr noundef readonly captures
 
 .split:                                           ; preds = %2, %.critedge
   %6 = phi i64 [ %4, %.critedge ], [ 0, %2 ]
-  %7 = getelementptr %struct.xfrm_algo_desc, ptr @aalg_list, i64 %6
+  %7 = getelementptr [48 x i8], ptr @aalg_list, i64 %6
   %8 = load ptr, ptr %7, align 16
   %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef %8) #5
   %10 = icmp eq i32 %9, 0
@@ -304,7 +304,7 @@ define dso_local noundef ptr @xfrm_ealg_get_byname(ptr noundef readonly captures
 
 .split:                                           ; preds = %2, %.critedge
   %6 = phi i64 [ %4, %.critedge ], [ 0, %2 ]
-  %7 = getelementptr %struct.xfrm_algo_desc, ptr @ealg_list, i64 %6
+  %7 = getelementptr [48 x i8], ptr @ealg_list, i64 %6
   %8 = load ptr, ptr %7, align 16
   %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef %8) #5
   %10 = icmp eq i32 %9, 0
@@ -363,7 +363,7 @@ define dso_local noundef ptr @xfrm_calg_get_byname(ptr noundef readonly captures
 
 .split:                                           ; preds = %2, %.critedge
   %6 = phi i64 [ %4, %.critedge ], [ 0, %2 ]
-  %7 = getelementptr %struct.xfrm_algo_desc, ptr @calg_list, i64 %6
+  %7 = getelementptr [48 x i8], ptr @calg_list, i64 %6
   %8 = load ptr, ptr %7, align 16
   %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef %8) #5
   %10 = icmp eq i32 %9, 0
@@ -422,7 +422,7 @@ define dso_local ptr @xfrm_aead_get_byname(ptr noundef readonly captures(address
 
 .split:                                           ; preds = %3, %.critedge
   %6 = phi i64 [ %4, %.critedge ], [ 0, %3 ]
-  %7 = getelementptr %struct.xfrm_algo_desc, ptr @aead_list, i64 %6
+  %7 = getelementptr [48 x i8], ptr @aead_list, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %9 = load i16, ptr %8, align 16
   %10 = zext i16 %9 to i32
@@ -469,7 +469,7 @@ define dso_local ptr @xfrm_aead_get_byname(ptr noundef readonly captures(address
 define dso_local ptr @xfrm_aalg_get_byidx(i32 noundef %0) #1 align 16 {
   %2 = icmp ugt i32 %0, 9
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr %struct.xfrm_algo_desc, ptr @aalg_list, i64 %3
+  %4 = getelementptr [48 x i8], ptr @aalg_list, i64 %3
   %5 = select i1 %2, ptr null, ptr %4
   ret ptr %5
 }
@@ -478,7 +478,7 @@ define dso_local ptr @xfrm_aalg_get_byidx(i32 noundef %0) #1 align 16 {
 define dso_local ptr @xfrm_ealg_get_byidx(i32 noundef %0) #1 align 16 {
   %2 = icmp ugt i32 %0, 10
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr %struct.xfrm_algo_desc, ptr @ealg_list, i64 %3
+  %4 = getelementptr [48 x i8], ptr @ealg_list, i64 %3
   %5 = select i1 %2, ptr null, ptr %4
   ret ptr %5
 }
@@ -497,7 +497,7 @@ define dso_local void @xfrm_probe_algs() #0 align 16 {
 
 .preheader7:                                      ; preds = %0, %19
   %5 = phi i64 [ %20, %19 ], [ 0, %0 ]
-  %6 = getelementptr %struct.xfrm_algo_desc, ptr @aalg_list, i64 %5
+  %6 = getelementptr [48 x i8], ptr @aalg_list, i64 %5
   %7 = load ptr, ptr %6, align 16
   %8 = tail call i32 @crypto_has_ahash(ptr noundef %7, i32 noundef 0, i32 noundef 0) #5
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -522,7 +522,7 @@ define dso_local void @xfrm_probe_algs() #0 align 16 {
 
 .preheader6:                                      ; preds = %19, %36
   %22 = phi i64 [ %37, %36 ], [ 0, %19 ]
-  %23 = getelementptr %struct.xfrm_algo_desc, ptr @ealg_list, i64 %22
+  %23 = getelementptr [48 x i8], ptr @ealg_list, i64 %22
   %24 = load ptr, ptr %23, align 16
   %25 = tail call i32 @crypto_has_skcipher(ptr noundef %24, i32 noundef 0, i32 noundef 0) #5
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 16
@@ -547,7 +547,7 @@ define dso_local void @xfrm_probe_algs() #0 align 16 {
 
 .preheader:                                       ; preds = %36, %53
   %39 = phi i64 [ %54, %53 ], [ 0, %36 ]
-  %40 = getelementptr %struct.xfrm_algo_desc, ptr @calg_list, i64 %39
+  %40 = getelementptr [48 x i8], ptr @calg_list, i64 %39
   %41 = load ptr, ptr %40, align 16
   %42 = tail call i32 @crypto_has_alg(ptr noundef %41, i32 noundef 2, i32 noundef 143) #5
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 16
@@ -587,7 +587,7 @@ define dso_local i32 @xfrm_count_pfkey_auth_supported() #3 align 16 {
 1:                                                ; preds = %1, %0
   %2 = phi i64 [ 0, %0 ], [ %10, %1 ]
   %3 = phi i32 [ 0, %0 ], [ %9, %1 ]
-  %.split = getelementptr %struct.xfrm_algo_desc, ptr @aalg_list, i64 %2
+  %.split = getelementptr [48 x i8], ptr @aalg_list, i64 %2
   %4 = getelementptr i8, ptr %.split, i64 16
   %5 = load i8, ptr %4, align 16
   %6 = and i8 %5, 3
@@ -609,7 +609,7 @@ define dso_local i32 @xfrm_count_pfkey_enc_supported() #3 align 16 {
 1:                                                ; preds = %1, %0
   %2 = phi i64 [ 0, %0 ], [ %10, %1 ]
   %3 = phi i32 [ 0, %0 ], [ %9, %1 ]
-  %.split = getelementptr %struct.xfrm_algo_desc, ptr @ealg_list, i64 %2
+  %.split = getelementptr [48 x i8], ptr @ealg_list, i64 %2
   %4 = getelementptr i8, ptr %.split, i64 16
   %5 = load i8, ptr %4, align 16
   %6 = and i8 %5, 3

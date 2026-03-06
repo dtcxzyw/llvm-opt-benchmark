@@ -100,7 +100,7 @@ define range(i32 -1, 1) i32 @H5F_cwfs_add(ptr noundef readonly captures(none) %0
   %38 = load ptr, ptr %19, align 8, !tbaa !12
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 1448
   %40 = load ptr, ptr %39, align 8, !tbaa !21
-  %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv
   %42 = load ptr, ptr %41, align 8, !tbaa !41
   %43 = tail call i64 @H5HG_get_free_size(ptr noundef %42) #5
   %44 = tail call i64 @H5HG_get_free_size(ptr noundef %1) #5
@@ -205,7 +205,7 @@ define range(i32 -1, 1) i32 @H5F_cwfs_find_free_heap(ptr noundef %0, i64 noundef
   %24 = phi ptr [ %31, %30 ], [ %20, %.preheader89 ]
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 1448
   %26 = load ptr, ptr %25, align 8, !tbaa !21
-  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv
   %28 = load ptr, ptr %27, align 8, !tbaa !41
   %29 = tail call i64 @H5HG_get_free_size(ptr noundef %28) #5
   %.not = icmp ult i64 %29, %1
@@ -225,14 +225,14 @@ define range(i32 -1, 1) i32 @H5F_cwfs_find_free_heap(ptr noundef %0, i64 noundef
   %36 = phi ptr [ %101, %.thread79 ], [ %31, %.preheader ]
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 1448
   %38 = load ptr, ptr %37, align 8, !tbaa !21
-  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv114
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv114
   %40 = load ptr, ptr %39, align 8, !tbaa !41
   %41 = tail call i64 @H5HG_get_free_size(ptr noundef %40) #5
   %42 = sub i64 %1, %41
   %43 = load ptr, ptr %19, align 8, !tbaa !12
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 1448
   %45 = load ptr, ptr %44, align 8, !tbaa !21
-  %46 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv114
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv114
   %47 = load ptr, ptr %46, align 8, !tbaa !41
   %48 = tail call i64 @H5HG_get_size(ptr noundef %47) #5
   %49 = icmp ugt i64 %48, %42
@@ -242,7 +242,7 @@ define range(i32 -1, 1) i32 @H5F_cwfs_find_free_heap(ptr noundef %0, i64 noundef
   %51 = load ptr, ptr %19, align 8, !tbaa !12
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 1448
   %53 = load ptr, ptr %52, align 8, !tbaa !21
-  %54 = getelementptr inbounds nuw ptr, ptr %53, i64 %indvars.iv114
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %indvars.iv114
   %55 = load ptr, ptr %54, align 8, !tbaa !41
   %56 = tail call i64 @H5HG_get_size(ptr noundef %55) #5
   br label %57
@@ -252,7 +252,7 @@ define range(i32 -1, 1) i32 @H5F_cwfs_find_free_heap(ptr noundef %0, i64 noundef
   %59 = load ptr, ptr %19, align 8, !tbaa !12
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 1448
   %61 = load ptr, ptr %60, align 8, !tbaa !21
-  %62 = getelementptr inbounds nuw ptr, ptr %61, i64 %indvars.iv114
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %indvars.iv114
   %63 = load ptr, ptr %62, align 8, !tbaa !41
   %64 = tail call i64 @H5HG_get_size(ptr noundef %63) #5
   %65 = add i64 %64, %58
@@ -263,13 +263,13 @@ define range(i32 -1, 1) i32 @H5F_cwfs_find_free_heap(ptr noundef %0, i64 noundef
   %68 = load ptr, ptr %19, align 8, !tbaa !12
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 1448
   %70 = load ptr, ptr %69, align 8, !tbaa !21
-  %71 = getelementptr inbounds nuw ptr, ptr %70, i64 %indvars.iv114
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %indvars.iv114
   %72 = load ptr, ptr %71, align 8, !tbaa !41
   %73 = tail call i64 @H5HG_get_addr(ptr noundef %72) #5
   %74 = load ptr, ptr %19, align 8, !tbaa !12
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 1448
   %76 = load ptr, ptr %75, align 8, !tbaa !21
-  %77 = getelementptr inbounds nuw ptr, ptr %76, i64 %indvars.iv114
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %indvars.iv114
   %78 = load ptr, ptr %77, align 8, !tbaa !41
   %79 = tail call i64 @H5HG_get_size(ptr noundef %78) #5
   %80 = tail call i32 @H5MF_try_extend(ptr noundef nonnull %0, i32 noundef 4, i64 noundef %73, i64 noundef %79, i64 noundef %58) #5
@@ -290,7 +290,7 @@ define range(i32 -1, 1) i32 @H5F_cwfs_find_free_heap(ptr noundef %0, i64 noundef
   %89 = load ptr, ptr %19, align 8, !tbaa !12
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 1448
   %91 = load ptr, ptr %90, align 8, !tbaa !21
-  %92 = getelementptr inbounds nuw ptr, ptr %91, i64 %indvars.iv114
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %indvars.iv114
   %93 = load ptr, ptr %92, align 8, !tbaa !41
   %94 = tail call i64 @H5HG_get_addr(ptr noundef %93) #5
   %95 = tail call i32 @H5HG_extend(ptr noundef nonnull %0, i64 noundef %94, i64 noundef %58) #5
@@ -317,7 +317,7 @@ define range(i32 -1, 1) i32 @H5F_cwfs_find_free_heap(ptr noundef %0, i64 noundef
   %106 = load ptr, ptr %19, align 8, !tbaa !12
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 1448
   %108 = load ptr, ptr %107, align 8, !tbaa !21
-  %109 = getelementptr inbounds nuw ptr, ptr %108, i64 %indvars.iv114.lcssa127.sink136
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %108, i64 %indvars.iv114.lcssa127.sink136
   %110 = load ptr, ptr %109, align 8, !tbaa !41
   %111 = tail call i64 @H5HG_get_addr(ptr noundef %110) #5
   store i64 %111, ptr %2, align 8, !tbaa !10
@@ -329,11 +329,11 @@ define range(i32 -1, 1) i32 @H5F_cwfs_find_free_heap(ptr noundef %0, i64 noundef
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 1448
   %115 = load ptr, ptr %114, align 8, !tbaa !21
   %116 = and i64 %indvars.iv114.lcssa127.sink136, 4294967295
-  %117 = getelementptr inbounds nuw ptr, ptr %115, i64 %116
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %115, i64 %116
   %118 = load ptr, ptr %117, align 8, !tbaa !41
   %119 = add nuw i64 %indvars.iv114.lcssa127.sink136, 4294967295
   %120 = and i64 %119, 4294967295
-  %121 = getelementptr inbounds nuw ptr, ptr %115, i64 %120
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %115, i64 %120
   %122 = load ptr, ptr %121, align 8, !tbaa !41
   store ptr %122, ptr %117, align 8, !tbaa !41
   store ptr %118, ptr %121, align 8, !tbaa !41
@@ -404,7 +404,7 @@ define range(i32 -1, 1) i32 @H5F_cwfs_advance_heap(ptr noundef readonly captures
 25:                                               ; preds = %.lr.ph, %37
   %.02442 = phi i32 [ 0, %.lr.ph ], [ %38, %37 ]
   %26 = zext i32 %.02442 to i64
-  %27 = getelementptr inbounds nuw ptr, ptr %24, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !41
   %29 = icmp eq ptr %28, %1
   br i1 %29, label %30, label %37
@@ -414,10 +414,10 @@ define range(i32 -1, 1) i32 @H5F_cwfs_advance_heap(ptr noundef readonly captures
   br i1 %.not, label %45, label %31
 
 31:                                               ; preds = %30
-  %32 = getelementptr inbounds nuw ptr, ptr %24, i64 %26
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %26
   %33 = add i32 %.02442, -1
   %34 = zext i32 %33 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr %24, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %34
   %36 = load ptr, ptr %35, align 8, !tbaa !41
   store ptr %36, ptr %32, align 8, !tbaa !41
   store ptr %1, ptr %35, align 8, !tbaa !41
@@ -439,7 +439,7 @@ define range(i32 -1, 1) i32 @H5F_cwfs_advance_heap(ptr noundef readonly captures
   %41 = load ptr, ptr %40, align 8, !tbaa !21
   %42 = add nsw i32 %spec.select, -1
   %43 = zext i32 %42 to i64
-  %44 = getelementptr inbounds nuw ptr, ptr %41, i64 %43
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %43
   store ptr %1, ptr %44, align 8, !tbaa !41
   br label %45
 
@@ -498,13 +498,13 @@ define range(i32 -1, 1) i32 @H5F_cwfs_remove_heap(ptr noundef captures(none) %0,
 
 22:                                               ; preds = %.lr.ph, %34
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %34 ]
-  %23 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8, !tbaa !41
   %25 = icmp eq ptr %24, %1
   br i1 %25, label %26, label %34
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv
   %28 = trunc nuw i64 %indvars.iv to i32
   %29 = add i32 %19, -1
   store i32 %29, ptr %18, align 8, !tbaa !43

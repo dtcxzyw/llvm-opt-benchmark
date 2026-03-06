@@ -67,7 +67,7 @@ _ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %3
   %10 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #15
   store ptr %10, ptr %0, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = getelementptr inbounds nuw i64, ptr %10, i64 %7
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %7
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %12, ptr %13, align 8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %10, i8 -1, i64 %9, i1 false)
@@ -101,9 +101,9 @@ _ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %3
 .thread:                                          ; preds = %22
   %31 = and i64 %28, 2147483647
   %32 = srem i64 %.021, %31
-  %33 = getelementptr inbounds i64, ptr %24, i64 %32
+  %33 = getelementptr inbounds [8 x i8], ptr %24, i64 %32
   %34 = load i64, ptr %33, align 8
-  %35 = getelementptr inbounds nuw i64, ptr %10, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   store i64 %34, ptr %35, align 8
   %36 = sdiv i64 %.021, %31
   br label %38
@@ -224,7 +224,7 @@ _ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit.i: ; preds = %_ZNSt12_Vector
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %14, ptr %0, align 8
   store ptr %14, ptr %15, align 8
-  %16 = getelementptr inbounds nuw i64, ptr %14, i64 %8
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %8
   store ptr %16, ptr %12, align 8
   br label %_ZNSt6vectorIlSaIlEE7reserveEm.exit
 
@@ -317,7 +317,7 @@ _ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i: ; preds = %47, %.noex
 
 _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJRKlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i: ; preds = %49, %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i
   store ptr %48, ptr %20, align 8
-  %50 = getelementptr inbounds nuw i64, ptr %44, i64 %42
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %42
   br label %_ZNSt6vectorIlSaIlEE9push_backERKl.exit
 
 _ZNSt6vectorIlSaIlEE9push_backERKl.exit:          ; preds = %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJRKlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i, %30
@@ -540,7 +540,7 @@ define void @_ZNK10open_spiel12SimMoveState23FlatJointActionToStringB5cxx11El(pt
   %29 = ashr exact i64 %sext, 32
   %30 = srem i64 %.020, %29
   %31 = sdiv i64 %.020, %29
-  %32 = getelementptr inbounds i64, ptr %25, i64 %30
+  %32 = getelementptr inbounds [8 x i8], ptr %25, i64 %30
   %33 = load i64, ptr %32, align 8
   %34 = load ptr, ptr %1, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 56

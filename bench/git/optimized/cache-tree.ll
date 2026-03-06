@@ -82,7 +82,7 @@ define dso_local void @cache_tree_free(ptr noundef captures(none) %0) local_unna
   %8 = phi i32 [ %4, %.lr.ph ], [ %17, %16 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %16 ]
   %9 = load ptr, ptr %6, align 8, !tbaa !15
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !16
   %.not15 = icmp eq ptr %11, null
   br i1 %.not15, label %16, label %12
@@ -90,7 +90,7 @@ define dso_local void @cache_tree_free(ptr noundef captures(none) %0) local_unna
 12:                                               ; preds = %7
   tail call void @cache_tree_free(ptr noundef nonnull %11)
   %13 = load ptr, ptr %6, align 8, !tbaa !15
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !16
   tail call void @free(ptr noundef %15) #19
   %.pre = load i32, ptr %3, align 8, !tbaa !14
@@ -138,7 +138,7 @@ define dso_local i32 @cache_tree_subtree_pos(ptr noundef readonly captures(none)
   %13 = lshr i32 %12, 1
   %14 = add nuw nsw i32 %13, %.021
   %15 = zext nneg i32 %14 to i64
-  %16 = getelementptr inbounds nuw ptr, ptr %5, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 20
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 12
@@ -203,7 +203,7 @@ define internal fastcc ptr @find_subtree(ptr noundef captures(none) %0, ptr noun
   %14 = lshr i32 %13, 1
   %15 = add nuw nsw i32 %14, %.021.i
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds nuw ptr, ptr %6, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !16
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 20
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 12
@@ -239,7 +239,7 @@ cache_tree_subtree_pos.exit:                      ; preds = %subtree_name_cmp.ex
 
 32:                                               ; preds = %cache_tree_subtree_pos.exit
   %33 = zext nneg i32 %.2.i to i64
-  %34 = getelementptr inbounds nuw ptr, ptr %6, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %33
   %35 = load ptr, ptr %34, align 8, !tbaa !16
   br label %76
 
@@ -310,7 +310,7 @@ st_add.exit48:                                    ; preds = %st_add.exit
   br i1 %63, label %65, label %move_array.exit
 
 65:                                               ; preds = %st_add.exit48
-  %66 = getelementptr inbounds nuw ptr, ptr %.pre52, i64 %64
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %.pre52, i64 %64
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %68 = add nsw i32 %62, %.2.i
   %69 = sext i32 %68 to i64
@@ -333,7 +333,7 @@ st_mult.exit.i:                                   ; preds = %70
 
 move_array.exit:                                  ; preds = %st_add.exit48, %st_mult.exit.i, %65
   %74 = phi ptr [ %.pre52, %65 ], [ %.pre51, %st_mult.exit.i ], [ %.pre52, %st_add.exit48 ]
-  %75 = getelementptr inbounds nuw ptr, ptr %74, i64 %64
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %64
   store ptr %59, ptr %75, align 8, !tbaa !16
   br label %76
 
@@ -384,7 +384,7 @@ define dso_local void @cache_tree_invalidate_path(ptr noundef captures(none) %0,
   %22 = lshr i32 %21, 1
   %23 = add nuw nsw i32 %22, %.021.i.i
   %24 = zext nneg i32 %23 to i64
-  %25 = getelementptr inbounds nuw ptr, ptr %12, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !16
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 12
@@ -420,15 +420,15 @@ cache_tree_subtree_pos.exit.i:                    ; preds = %subtree_name_cmp.ex
 
 40:                                               ; preds = %cache_tree_subtree_pos.exit.i
   %41 = zext nneg i32 %.2.i.i to i64
-  %42 = getelementptr inbounds nuw ptr, ptr %12, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %41
   %43 = load ptr, ptr %42, align 8, !tbaa !16
   tail call void @cache_tree_free(ptr noundef %43)
   %44 = load ptr, ptr %16, align 8, !tbaa !15
-  %45 = getelementptr inbounds nuw ptr, ptr %44, i64 %41
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %41
   %46 = load ptr, ptr %45, align 8, !tbaa !16
   tail call void @free(ptr noundef %46) #19
   %47 = load ptr, ptr %16, align 8, !tbaa !15
-  %48 = getelementptr inbounds nuw ptr, ptr %47, i64 %41
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %41
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load i32, ptr %17, align 8, !tbaa !14
   %51 = xor i32 %.2.i.i, -1
@@ -468,7 +468,7 @@ move_array.exit.i:                                ; preds = %st_mult.exit.i.i, %
   %63 = lshr i32 %62, 1
   %64 = add nuw nsw i32 %63, %.021.i.i.i
   %65 = zext nneg i32 %64 to i64
-  %66 = getelementptr inbounds nuw ptr, ptr %12, i64 %65
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %65
   %67 = load ptr, ptr %66, align 8, !tbaa !16
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 20
   %69 = getelementptr inbounds nuw i8, ptr %67, i64 12
@@ -504,7 +504,7 @@ cache_tree_subtree_pos.exit.i.i:                  ; preds = %subtree_name_cmp.ex
 
 find_subtree.exit.i:                              ; preds = %cache_tree_subtree_pos.exit.i.i
   %81 = zext nneg i32 %.2.i.i.i to i64
-  %82 = getelementptr inbounds nuw ptr, ptr %12, i64 %81
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %81
   %83 = load ptr, ptr %82, align 8, !tbaa !16
   %.not31.i = icmp eq ptr %83, null
   br i1 %.not31.i, label %.loopexit, label %tailrecurse.i
@@ -560,7 +560,7 @@ define dso_local range(i32 0, 2) i32 @cache_tree_fully_valid(ptr noundef %0) loc
 .lr.ph:                                           ; preds = %.preheader, %13
   %indvars.iv = phi i64 [ %indvars.iv.next, %13 ], [ 0, %.preheader ]
   %17 = load ptr, ptr %9, align 8, !tbaa !15
-  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !16
   %20 = load ptr, ptr %19, align 8, !tbaa !12
   %21 = tail call i32 @cache_tree_fully_valid(ptr noundef %20)
@@ -593,7 +593,7 @@ define dso_local range(i32 -2147483648, 1) i32 @cache_tree_update(ptr noundef %0
   %indvars.iv77.i = phi i64 [ %indvars.iv.next78.i, %23 ], [ 0, %.lr.ph.i ]
   %.03768.us.i = phi i32 [ %.3.ph.us.i, %23 ], [ 0, %.lr.ph.i ]
   %8 = load ptr, ptr %0, align 8, !tbaa !43
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv77.i
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv77.i
   %10 = load ptr, ptr %9, align 8, !tbaa !44
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %12 = load i32, ptr %11, align 8, !tbaa !20
@@ -630,7 +630,7 @@ define dso_local range(i32 -2147483648, 1) i32 @cache_tree_update(ptr noundef %0
 
 29:                                               ; preds = %36, %.lr.ph.split.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.split.i ], [ %indvars.iv.next.i, %36 ]
-  %30 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv.i
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv.i
   %31 = load ptr, ptr %30, align 8, !tbaa !44
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 56
   %33 = load i32, ptr %32, align 8, !tbaa !20
@@ -662,9 +662,9 @@ define dso_local range(i32 -2147483648, 1) i32 @cache_tree_update(ptr noundef %0
   %indvars.iv80.i = phi i64 [ %indvars.iv.next81.i, %68 ], [ 1, %.preheader.i ]
   %.470.i = phi i32 [ %.7.i, %68 ], [ 0, %.preheader.i ]
   %41 = load ptr, ptr %0, align 8, !tbaa !43
-  %42 = getelementptr inbounds nuw ptr, ptr %41, i64 %indvars.iv82.i
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv82.i
   %43 = load ptr, ptr %42, align 8, !tbaa !44
-  %44 = getelementptr inbounds nuw ptr, ptr %41, i64 %indvars.iv80.i
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv80.i
   %45 = load ptr, ptr %44, align 8, !tbaa !44
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 108
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 108
@@ -893,7 +893,7 @@ define internal fastcc i32 @update_one(ptr noundef %0, ptr noundef readonly capt
 
 49:                                               ; preds = %.lr.ph, %49
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %49 ]
-  %50 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv
   %51 = load ptr, ptr %50, align 8, !tbaa !16
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
   store i32 0, ptr %52, align 8, !tbaa !20
@@ -906,7 +906,7 @@ define internal fastcc i32 @update_one(ptr noundef %0, ptr noundef readonly capt
 56:                                               ; preds = %.lr.ph237, %93
   %.1154236 = phi i32 [ 0, %.lr.ph237 ], [ %.2155, %93 ]
   %57 = sext i32 %.1154236 to i64
-  %58 = getelementptr inbounds ptr, ptr %1, i64 %57
+  %58 = getelementptr inbounds [8 x i8], ptr %1, i64 %57
   %59 = load ptr, ptr %58, align 8, !tbaa !44
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 108
@@ -1002,7 +1002,7 @@ define internal fastcc i32 @update_one(ptr noundef %0, ptr noundef readonly capt
 .lr.ph.i:                                         ; preds = %110, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %110 ]
   %.015.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.1.i, %110 ]
-  %99 = getelementptr inbounds nuw ptr, ptr %96, i64 %indvars.iv.i
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %96, i64 %indvars.iv.i
   %100 = load ptr, ptr %99, align 8, !tbaa !16
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 16
   %102 = load i32, ptr %101, align 8, !tbaa !20
@@ -1012,7 +1012,7 @@ define internal fastcc i32 @update_one(ptr noundef %0, ptr noundef readonly capt
 103:                                              ; preds = %.lr.ph.i
   %104 = add nsw i32 %.015.i, 1
   %105 = sext i32 %.015.i to i64
-  %106 = getelementptr inbounds ptr, ptr %96, i64 %105
+  %106 = getelementptr inbounds [8 x i8], ptr %96, i64 %105
   store ptr %100, ptr %106, align 8, !tbaa !16
   br label %110
 
@@ -1043,7 +1043,7 @@ discard_unused_subtrees.exit:                     ; preds = %110, %.loopexit
   %.0147239 = phi i32 [ 0, %.lr.ph240 ], [ %.2149, %212 ]
   %.3156238 = phi i32 [ 0, %.lr.ph240 ], [ %.6159, %212 ]
   %114 = sext i32 %.3156238 to i64
-  %115 = getelementptr inbounds ptr, ptr %1, i64 %114
+  %115 = getelementptr inbounds [8 x i8], ptr %1, i64 %114
   %116 = load ptr, ptr %115, align 8, !tbaa !44
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 108
   %118 = getelementptr inbounds nuw i8, ptr %116, i64 64
@@ -1084,7 +1084,7 @@ discard_unused_subtrees.exit:                     ; preds = %110, %.loopexit
   %136 = lshr i32 %135, 1
   %137 = add nuw nsw i32 %136, %.021.i.i
   %138 = zext nneg i32 %137 to i64
-  %139 = getelementptr inbounds nuw ptr, ptr %129, i64 %138
+  %139 = getelementptr inbounds nuw [8 x i8], ptr %129, i64 %138
   %140 = load ptr, ptr %139, align 8, !tbaa !16
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 20
   %142 = getelementptr inbounds nuw i8, ptr %140, i64 12
@@ -1120,7 +1120,7 @@ cache_tree_subtree_pos.exit.i:                    ; preds = %subtree_name_cmp.ex
 
 find_subtree.exit:                                ; preds = %cache_tree_subtree_pos.exit.i
   %154 = zext nneg i32 %.2.i.i to i64
-  %155 = getelementptr inbounds nuw ptr, ptr %129, i64 %154
+  %155 = getelementptr inbounds nuw [8 x i8], ptr %129, i64 %154
   %156 = load ptr, ptr %155, align 8, !tbaa !16
   %.not182 = icmp eq ptr %156, null
   br i1 %.not182, label %find_subtree.exit.thread, label %157
@@ -1399,7 +1399,7 @@ define internal fastcc void @write_one(ptr noundef %0, ptr noundef %1, ptr nound
 24:                                               ; preds = %.lr.ph, %subtree_name_cmp.exit.thread27
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %subtree_name_cmp.exit.thread27 ]
   %25 = load ptr, ptr %23, align 8, !tbaa !15
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8, !tbaa !16
   %.not = icmp eq i64 %indvars.iv, 0
   br i1 %.not, label %.subtree_name_cmp.exit.thread27_crit_edge, label %28
@@ -1583,7 +1583,7 @@ define internal fastcc noundef ptr @read_one(ptr noundef nonnull captures(none) 
 
 57:                                               ; preds = %.preheader, %59
   %.0811.i.i = phi i64 [ %60, %59 ], [ 0, %.preheader ]
-  %58 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i
+  %58 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %.0811.i.i
   %.not.i.i = icmp eq ptr %49, %58
   br i1 %.not.i.i, label %.split.loop.exit9.i.i, label %59
 
@@ -1693,7 +1693,7 @@ define dso_local ptr @write_in_core_index_as_tree(ptr noundef %0) local_unnamed_
   %13 = phi i32 [ %26, %25 ], [ %12, %10 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %25 ], [ 0, %10 ]
   %14 = load ptr, ptr %3, align 8, !tbaa !43
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8, !tbaa !44
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 56
   %18 = load i32, ptr %17, align 8, !tbaa !20
@@ -1815,7 +1815,7 @@ define dso_local range(i32 -3, 1) i32 @write_index_as_tree(ptr noundef writeonly
   %41 = lshr i32 %40, 1
   %42 = add nuw nsw i32 %41, %.021.i.i.i.i
   %43 = zext nneg i32 %42 to i64
-  %44 = getelementptr inbounds nuw ptr, ptr %33, i64 %43
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %43
   %45 = load ptr, ptr %44, align 8, !tbaa !16
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 20
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 12
@@ -1851,7 +1851,7 @@ cache_tree_subtree_pos.exit.i.i.i:                ; preds = %subtree_name_cmp.ex
 
 find_subtree.exit.i.i:                            ; preds = %cache_tree_subtree_pos.exit.i.i.i
   %59 = zext nneg i32 %.2.i.i.i.i to i64
-  %60 = getelementptr inbounds nuw ptr, ptr %33, i64 %59
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %59
   %61 = load ptr, ptr %60, align 8, !tbaa !16
   %.not23.i.i = icmp eq ptr %61, null
   br i1 %.not23.i.i, label %write_index_as_tree_internal.exit.thread, label %62
@@ -2142,7 +2142,7 @@ define dso_local range(i32 0, -2147483648) i32 @cache_tree_matches_traversal(ptr
   %22 = lshr i32 %21, 1
   %23 = add nuw nsw i32 %22, %.021.i.i.i
   %24 = zext nneg i32 %23 to i64
-  %25 = getelementptr inbounds nuw ptr, ptr %14, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !16
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 12
@@ -2178,7 +2178,7 @@ cache_tree_subtree_pos.exit.i.i:                  ; preds = %subtree_name_cmp.ex
 
 find_subtree.exit.i:                              ; preds = %cache_tree_subtree_pos.exit.i.i
   %40 = zext nneg i32 %.2.i.i.i to i64
-  %41 = getelementptr inbounds nuw ptr, ptr %14, i64 %40
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %40
   %42 = load ptr, ptr %41, align 8, !tbaa !16
   %.not23.i = icmp eq ptr %42, null
   br i1 %.not23.i, label %cache_tree_find.exit.thread, label %43
@@ -2264,7 +2264,7 @@ define internal fastcc ptr @find_cache_tree_from_traversal(ptr noundef readonly 
   %24 = lshr i32 %23, 1
   %25 = add nuw nsw i32 %24, %.021.i.i.i
   %26 = zext nneg i32 %25 to i64
-  %27 = getelementptr inbounds nuw ptr, ptr %16, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !16
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 20
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 12
@@ -2300,7 +2300,7 @@ cache_tree_subtree_pos.exit.i.i:                  ; preds = %subtree_name_cmp.ex
 
 find_subtree.exit.i:                              ; preds = %cache_tree_subtree_pos.exit.i.i
   %42 = zext nneg i32 %.2.i.i.i to i64
-  %43 = getelementptr inbounds nuw ptr, ptr %16, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %42
   %44 = load ptr, ptr %43, align 8, !tbaa !16
   %.not23.i = icmp eq ptr %44, null
   br i1 %.not23.i, label %cache_tree_find.exit, label %45
@@ -2400,12 +2400,12 @@ define internal fastcc range(i32 -1, 2) i32 @verify_one(ptr noundef %0, ptr noun
 16:                                               ; preds = %.lr.ph, %strbuf_setlen.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %strbuf_setlen.exit ]
   %17 = load ptr, ptr %13, align 8, !tbaa !15
-  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !16
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 20
   tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %3, ptr noundef nonnull @.str.25, ptr noundef nonnull %20) #19
   %21 = load ptr, ptr %13, align 8, !tbaa !15
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8, !tbaa !16
   %24 = load ptr, ptr %23, align 8, !tbaa !12
   %25 = tail call fastcc i32 @verify_one(ptr noundef %0, ptr noundef %1, ptr noundef %24, ptr noundef %3)
@@ -2500,7 +2500,7 @@ lookup_replace_object.exit.thread:                ; preds = %39, %48, %lookup_re
 67:                                               ; preds = %65
   %.val = load ptr, ptr %1, align 8, !tbaa !43
   %68 = zext nneg i32 %62 to i64
-  %69 = getelementptr inbounds nuw ptr, ptr %.val, i64 %68
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %68
   %70 = load ptr, ptr %69, align 8, !tbaa !44
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 52
   %72 = load i32, ptr %71, align 4, !tbaa !20
@@ -2563,7 +2563,7 @@ _.exit:                                           ; preds = %90, %92
   %96 = load ptr, ptr %1, align 8, !tbaa !43
   %97 = add nsw i32 %.1153, %.184
   %98 = sext i32 %97 to i64
-  %99 = getelementptr inbounds ptr, ptr %96, i64 %98
+  %99 = getelementptr inbounds [8 x i8], ptr %96, i64 %98
   %100 = load ptr, ptr %99, align 8, !tbaa !44
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 56
   %102 = load i32, ptr %101, align 8, !tbaa !20
@@ -2619,7 +2619,7 @@ _.exit116:                                        ; preds = %104, %106
   %129 = lshr i32 %128, 1
   %130 = add nuw nsw i32 %129, %.021.i.i
   %131 = zext nneg i32 %130 to i64
-  %132 = getelementptr inbounds nuw ptr, ptr %122, i64 %131
+  %132 = getelementptr inbounds nuw [8 x i8], ptr %122, i64 %131
   %133 = load ptr, ptr %132, align 8, !tbaa !16
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 20
   %135 = getelementptr inbounds nuw i8, ptr %133, i64 12
@@ -2655,7 +2655,7 @@ cache_tree_subtree_pos.exit.i:                    ; preds = %subtree_name_cmp.ex
 
 find_subtree.exit:                                ; preds = %cache_tree_subtree_pos.exit.i
   %147 = zext nneg i32 %.2.i.i to i64
-  %148 = getelementptr inbounds nuw ptr, ptr %122, i64 %147
+  %148 = getelementptr inbounds nuw [8 x i8], ptr %122, i64 %147
   %149 = load ptr, ptr %148, align 8, !tbaa !16
   %.not106 = icmp eq ptr %149, null
   br i1 %.not106, label %find_subtree.exit.thread, label %150

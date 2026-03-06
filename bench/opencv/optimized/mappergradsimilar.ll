@@ -1173,7 +1173,7 @@ _ZN2cvmIERNS_3MatERKNS_7MatExprE.exit:            ; preds = %198
   br label %388
 
 386:                                              ; preds = %388
-  %387 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv24.i.i
+  %387 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv24.i.i
   store double %392, ptr %387, align 8, !tbaa !24, !noalias !58
   %indvars.iv.next25.i.i = add nuw nsw i64 %indvars.iv24.i.i, 1
   %exitcond27.not.i.i = icmp eq i64 %indvars.iv.next25.i.i, 4
@@ -1182,9 +1182,9 @@ _ZN2cvmIERNS_3MatERKNS_7MatExprE.exit:            ; preds = %198
 388:                                              ; preds = %388, %.preheader19.i.i
   %indvars.iv.i.i211 = phi i64 [ 0, %.preheader19.i.i ], [ %indvars.iv.next.i.i212, %388 ]
   %.01620.i.i = phi double [ 0.000000e+00, %.preheader19.i.i ], [ %392, %388 ]
-  %gep.i.i = getelementptr inbounds nuw double, ptr %invariant.gep.i.i, i64 %indvars.iv.i.i211
+  %gep.i.i = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep.i.i, i64 %indvars.iv.i.i211
   %389 = load double, ptr %gep.i.i, align 8, !tbaa !24, !noalias !58
-  %390 = getelementptr inbounds nuw double, ptr %18, i64 %indvars.iv.i.i211
+  %390 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv.i.i211
   %391 = load double, ptr %390, align 8, !tbaa !24, !noalias !58
   %392 = call double @llvm.fmuladd.f64(double %389, double %391, double %.01620.i.i)
   %indvars.iv.next.i.i212 = add nuw nsw i64 %indvars.iv.i.i211, 1

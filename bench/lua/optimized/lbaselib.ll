@@ -715,7 +715,7 @@ define internal noundef i32 @luaB_tonumber(ptr noundef %0) #0 {
   %33 = load ptr, ptr %32, align 8, !tbaa !15
   %34 = load i8, ptr %.027.i, align 1, !tbaa !5
   %35 = zext i8 %34 to i64
-  %36 = getelementptr inbounds nuw i16, ptr %33, i64 %35
+  %36 = getelementptr inbounds nuw [2 x i8], ptr %33, i64 %35
   %37 = load i16, ptr %36, align 2, !tbaa !17
   %38 = and i16 %37, 8
   %.not.i = icmp eq i16 %38, 0
@@ -743,7 +743,7 @@ define internal noundef i32 @luaB_tonumber(ptr noundef %0) #0 {
   %48 = zext i8 %42 to i64
   %49 = tail call ptr @__ctype_toupper_loc() #11
   %50 = load ptr, ptr %49, align 8, !tbaa !19
-  %51 = getelementptr inbounds nuw i32, ptr %50, i64 %48
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %48
   %52 = load i32, ptr %51, align 4, !tbaa !21
   %53 = add nsw i32 %52, -55
   br label %54
@@ -760,7 +760,7 @@ define internal noundef i32 @luaB_tonumber(ptr noundef %0) #0 {
   %60 = add i64 %59, %58
   %61 = load i8, ptr %57, align 1, !tbaa !5
   %62 = zext i8 %61 to i64
-  %63 = getelementptr inbounds nuw i16, ptr %33, i64 %62
+  %63 = getelementptr inbounds nuw [2 x i8], ptr %33, i64 %62
   %64 = load i16, ptr %63, align 2, !tbaa !17
   %65 = and i16 %64, 8
   %.not39.i = icmp eq i16 %65, 0

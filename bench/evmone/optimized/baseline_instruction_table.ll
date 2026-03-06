@@ -14,7 +14,7 @@ define hidden noundef nonnull align 2 dereferenceable(512) ptr @_ZN6evmone8basel
   %3 = icmp eq i8 %1, 0
   %_ZN6evmone8baseline12_GLOBAL__N_118LEGACY_COST_TABLESE._ZN6evmone8baseline12_GLOBAL__N_115EOF_COST_TABLESE = select i1 %3, ptr @_ZN6evmone8baseline12_GLOBAL__N_118LEGACY_COST_TABLESE, ptr @_ZN6evmone8baseline12_GLOBAL__N_115EOF_COST_TABLESE
   %4 = zext i32 %0 to i64
-  %5 = getelementptr inbounds nuw %"struct.std::array.0", ptr %_ZN6evmone8baseline12_GLOBAL__N_118LEGACY_COST_TABLESE._ZN6evmone8baseline12_GLOBAL__N_115EOF_COST_TABLESE, i64 %4
+  %5 = getelementptr inbounds nuw [512 x i8], ptr %_ZN6evmone8baseline12_GLOBAL__N_118LEGACY_COST_TABLESE._ZN6evmone8baseline12_GLOBAL__N_115EOF_COST_TABLESE, i64 %4
   ret ptr %5
 }
 

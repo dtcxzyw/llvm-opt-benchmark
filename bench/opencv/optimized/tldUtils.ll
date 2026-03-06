@@ -174,10 +174,10 @@ switch.lookup:
   store i8 0, ptr %3, align 8, !tbaa !19
   %5 = and i32 %2, 7
   %6 = zext nneg i32 %5 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN2cv8tracking4impl3tld8type2strB5cxx11ERKNS_3MatE, i64 %6
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN2cv8tracking4impl3tld8type2strB5cxx11ERKNS_3MatE, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   %7 = zext nneg i32 %5 to i64
-  %switch.gep16 = getelementptr inbounds nuw i64, ptr @switch.table._ZN2cv8tracking4impl3tld8type2strB5cxx11ERKNS_3MatE.1, i64 %7
+  %switch.gep16 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN2cv8tracking4impl3tld8type2strB5cxx11ERKNS_3MatE.1, i64 %7
   %switch.load17 = load i64, ptr %switch.gep16, align 8
   %8 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %switch.load, i64 noundef %switch.load17)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %9
@@ -373,7 +373,7 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %17
 
 _ZNSt6vectorIdSaIdEE6assignEmRKd.exit:            ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.i, %15
   %.sroa.0104.1 = phi ptr [ null, %15 ], [ %20, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.i ]
-  %21 = getelementptr inbounds %"class.cv::Rect_", ptr %8, i64 %16
+  %21 = getelementptr inbounds [32 x i8], ptr %8, i64 %16
   invoke void @_ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE13_M_assign_auxIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEEEvT_SA_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr %8, ptr %21)
           to label %_ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE6assignIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEvEEvT_SA_.exit.preheader unwind label %188
 
@@ -405,7 +405,7 @@ _ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE6assignIN9__gnu_cxx17__normal_iteratorIPS2_S4
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %indvars.iv146 = phi i64 [ %indvars.iv.next147, %.lr.ph.split.us ], [ 0, %.lr.ph ]
-  %34 = getelementptr inbounds nuw %"class.cv::Rect_", ptr %22, i64 %indvars.iv146
+  %34 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %indvars.iv146
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load double, ptr %35, align 8, !tbaa !48
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 24
@@ -413,7 +413,7 @@ _ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE6assignIN9__gnu_cxx17__normal_iteratorIPS2_S4
   %39 = fmul double %36, %38
   %40 = fadd double %39, %33
   %41 = fdiv double 0.000000e+00, %40
-  %42 = getelementptr inbounds nuw double, ptr %.sroa.0104.1, i64 %indvars.iv146
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0104.1, i64 %indvars.iv146
   store double %41, ptr %42, align 8, !tbaa !46
   %indvars.iv.next147 = add nuw nsw i64 %indvars.iv146, 1
   %exitcond150.not = icmp eq i64 %indvars.iv.next147, %wide.trip.count149
@@ -431,7 +431,7 @@ _ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE6assignIN9__gnu_cxx17__normal_iteratorIPS2_S4
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE6assignIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEvEEvT_SA_.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE6assignIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEvEEvT_SA_.exit ], [ 0, %.lr.ph ]
-  %44 = getelementptr inbounds nuw %"class.cv::Rect_", ptr %22, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %indvars.iv
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load double, ptr %45, align 8, !tbaa !48
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 24
@@ -503,7 +503,7 @@ _ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE6assignIN9__gnu_cxx17__normal_iteratorIPS2_S4
   %79 = fadd double %77, %33
   %80 = fsub double %79, %78
   %81 = fdiv double %78, %80
-  %82 = getelementptr inbounds nuw double, ptr %.sroa.0104.1, i64 %indvars.iv
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0104.1, i64 %indvars.iv
   store double %81, ptr %82, align 8, !tbaa !46
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count149
@@ -541,9 +541,9 @@ _ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE6assignIN9__gnu_cxx17__normal_iteratorIPS2_S4
 101:                                              ; preds = %.preheader131, %107
   %indvars.iv153 = phi i64 [ %indvars.iv151, %.preheader131 ], [ %indvars.iv.next154, %107 ]
   %indvars.iv.next154 = add nsw i64 %indvars.iv153, -1
-  %102 = getelementptr inbounds nuw double, ptr %.sroa.0104.1, i64 %indvars.iv.next154
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0104.1, i64 %indvars.iv.next154
   %103 = load double, ptr %102, align 8, !tbaa !46
-  %104 = getelementptr inbounds nuw double, ptr %.sroa.0104.1, i64 %indvars.iv153
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0104.1, i64 %indvars.iv153
   %105 = load double, ptr %104, align 8, !tbaa !46
   %106 = fcmp ogt double %103, %105
   br i1 %106, label %107, label %.critedge
@@ -552,12 +552,12 @@ _ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE6assignIN9__gnu_cxx17__normal_iteratorIPS2_S4
   store double %103, ptr %104, align 8, !tbaa !46
   store double %105, ptr %102, align 8, !tbaa !46
   %108 = load ptr, ptr %3, align 8, !tbaa !45
-  %109 = getelementptr inbounds nuw %"class.cv::Rect_", ptr %108, i64 %indvars.iv153
+  %109 = getelementptr inbounds nuw [32 x i8], ptr %108, i64 %indvars.iv153
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %109, i64 32, i1 false), !tbaa.struct !55
-  %110 = getelementptr inbounds nuw %"class.cv::Rect_", ptr %108, i64 %indvars.iv.next154
+  %110 = getelementptr inbounds nuw [32 x i8], ptr %108, i64 %indvars.iv.next154
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %109, ptr noundef nonnull align 8 dereferenceable(32) %110, i64 32, i1 false), !tbaa.struct !55
   %111 = load ptr, ptr %3, align 8, !tbaa !45
-  %112 = getelementptr inbounds nuw %"class.cv::Rect_", ptr %111, i64 %indvars.iv.next154
+  %112 = getelementptr inbounds nuw [32 x i8], ptr %111, i64 %indvars.iv.next154
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %112, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !tbaa.struct !55
   %113 = icmp sgt i64 %indvars.iv153, 1
   br i1 %113, label %101, label %.critedge, !llvm.loop !56
@@ -580,7 +580,7 @@ _ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE6assignIN9__gnu_cxx17__normal_iteratorIPS2_S4
   %116 = phi ptr [ %84, %.lr.ph142 ], [ %181, %180 ]
   %117 = phi ptr [ %83, %.lr.ph142 ], [ %182, %180 ]
   %indvars.iv169 = phi i64 [ %16, %.lr.ph142 ], [ %indvars.iv.next170, %180 ]
-  %118 = getelementptr inbounds nuw %"class.cv::Rect_", ptr %116, i64 %indvars.iv169
+  %118 = getelementptr inbounds nuw [32 x i8], ptr %116, i64 %indvars.iv169
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 16
   %120 = load double, ptr %119, align 8, !tbaa !48
   %121 = getelementptr inbounds nuw i8, ptr %118, i64 24
@@ -663,7 +663,7 @@ _ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE6assignIN9__gnu_cxx17__normal_iteratorIPS2_S4
 
 .lr.ph136:                                        ; preds = %.preheader, %163
   %indvars.iv159 = phi i64 [ %indvars.iv.next160, %163 ], [ 0, %.preheader ]
-  %160 = getelementptr inbounds nuw double, ptr %.sroa.0104.1, i64 %indvars.iv159
+  %160 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0104.1, i64 %indvars.iv159
   %161 = load double, ptr %160, align 8, !tbaa !46
   %162 = fcmp olt double %161, %157
   br i1 %162, label %163, label %.critedge2.split.loop.exit
@@ -695,11 +695,11 @@ _ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE6assignIN9__gnu_cxx17__normal_iteratorIPS2_S4
   %167 = phi i32 [ %165, %._crit_edge.loopexit ], [ %165, %.critedge2 ], [ -1, %.preheader ]
   %168 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %116, %.critedge2 ], [ %116, %.preheader ]
   %169 = sext i32 %167 to i64
-  %170 = getelementptr inbounds nuw double, ptr %.sroa.0104.1, i64 %169
+  %170 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0104.1, i64 %169
   store double %157, ptr %170, align 8, !tbaa !46
-  %171 = getelementptr inbounds nuw %"class.cv::Rect_", ptr %168, i64 %indvars.iv169
+  %171 = getelementptr inbounds nuw [32 x i8], ptr %168, i64 %indvars.iv169
   %172 = load ptr, ptr %3, align 8, !tbaa !45
-  %173 = getelementptr inbounds nuw %"class.cv::Rect_", ptr %172, i64 %169
+  %173 = getelementptr inbounds nuw [32 x i8], ptr %172, i64 %169
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %173, ptr noundef nonnull align 8 dereferenceable(32) %171, i64 32, i1 false), !tbaa.struct !55
   %.pre172 = load ptr, ptr %6, align 8, !tbaa !42
   %.pre173 = load ptr, ptr %0, align 8, !tbaa !45
@@ -708,13 +708,13 @@ _ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE6assignIN9__gnu_cxx17__normal_iteratorIPS2_S4
 .lr.ph140:                                        ; preds = %.lr.ph140.preheader, %.lr.ph140
   %indvars.iv164 = phi i64 [ 0, %.lr.ph140.preheader ], [ %indvars.iv.next165, %.lr.ph140 ]
   %indvars.iv.next165 = add nuw nsw i64 %indvars.iv164, 1
-  %174 = getelementptr inbounds nuw double, ptr %.sroa.0104.1, i64 %indvars.iv.next165
+  %174 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0104.1, i64 %indvars.iv.next165
   %175 = load double, ptr %174, align 8, !tbaa !46
-  %176 = getelementptr inbounds nuw double, ptr %.sroa.0104.1, i64 %indvars.iv164
+  %176 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0104.1, i64 %indvars.iv164
   store double %175, ptr %176, align 8, !tbaa !46
   %177 = load ptr, ptr %3, align 8, !tbaa !45
-  %178 = getelementptr inbounds nuw %"class.cv::Rect_", ptr %177, i64 %indvars.iv.next165
-  %179 = getelementptr inbounds nuw %"class.cv::Rect_", ptr %177, i64 %indvars.iv164
+  %178 = getelementptr inbounds nuw [32 x i8], ptr %177, i64 %indvars.iv.next165
+  %179 = getelementptr inbounds nuw [32 x i8], ptr %177, i64 %indvars.iv164
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %179, ptr noundef nonnull align 8 dereferenceable(32) %178, i64 32, i1 false), !tbaa.struct !55
   %exitcond168.not = icmp eq i64 %indvars.iv.next165, %wide.trip.count167
   br i1 %exitcond168.not, label %._crit_edge.loopexit, label %.lr.ph140, !llvm.loop !62

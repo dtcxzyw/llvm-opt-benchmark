@@ -2531,14 +2531,14 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %762
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %119) #24
   call void @llvm.lifetime.start.p0(ptr nonnull %120)
   %801 = load ptr, ptr %87, align 8, !tbaa !145
-  %802 = getelementptr inbounds nuw %"class.std::vector.25", ptr %801, i64 %.0102579
+  %802 = getelementptr inbounds nuw [24 x i8], ptr %801, i64 %.0102579
   store i32 0, ptr %786, align 8, !tbaa !101
   store i32 0, ptr %787, align 4, !tbaa !103
   store i32 -2130444275, ptr %120, align 8, !tbaa !104
   store ptr %802, ptr %788, align 8, !tbaa !106
   call void @llvm.lifetime.start.p0(ptr nonnull %121)
   %803 = load ptr, ptr %88, align 8, !tbaa !146
-  %804 = getelementptr inbounds nuw %"class.std::vector.20", ptr %803, i64 %.0102579
+  %804 = getelementptr inbounds nuw [24 x i8], ptr %803, i64 %.0102579
   store i32 0, ptr %789, align 8, !tbaa !101
   store i32 0, ptr %790, align 4, !tbaa !103
   store i32 -2130509820, ptr %121, align 8, !tbaa !104
@@ -4893,7 +4893,7 @@ _ZNSt12_Vector_baseISt6vectorIS0_IN2cv6Point_IfEESaIS3_EESaIS5_EESaIS7_EE13_M_de
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !145
   store ptr %.0.lcssa.i.i.i.i32, ptr %4, align 8, !tbaa !142
-  %63 = getelementptr inbounds nuw %"class.std::vector.25", ptr %20, i64 %16
+  %63 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %63, ptr %62, align 8, !tbaa !172
   ret void
 
@@ -5207,7 +5207,7 @@ _ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !146
   store ptr %.0.lcssa.i.i.i.i32, ptr %4, align 8, !tbaa !109
-  %62 = getelementptr inbounds nuw %"class.std::vector.20", ptr %20, i64 %16
+  %62 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %62, ptr %61, align 8, !tbaa !112
   ret void
 
@@ -5318,7 +5318,7 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNS
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !164
   store ptr %.0.lcssa.i.i.i.i31, ptr %4, align 8, !tbaa !147
-  %29 = getelementptr inbounds nuw %"class.cv::Mat", ptr %20, i64 %16
+  %29 = getelementptr inbounds nuw [96 x i8], ptr %20, i64 %16
   store ptr %29, ptr %28, align 8, !tbaa !150
   ret void
 

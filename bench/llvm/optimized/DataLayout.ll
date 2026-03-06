@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"struct.llvm::Align" = type { i8 }
-%"class.llvm::TypeSize" = type { %"class.llvm::details::FixedOrScalableQuantity.base", [7 x i8] }
-%"class.llvm::details::FixedOrScalableQuantity.base" = type <{ i64, i8 }>
 %"class.llvm::Error" = type { ptr }
 %"struct.llvm::DataLayout::PointerSpec" = type <{ i32, i32, %"struct.llvm::Align", %"struct.llvm::Align", [2 x i8], i32, i8, [3 x i8] }>
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
@@ -20,9 +18,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorBase.5" = type { ptr, i32, i32 }
 %"struct.llvm::SmallVectorStorage.31" = type { [32 x i8] }
 %"class.llvm::iterator_range" = type { %"class.llvm::SplittingIterator", %"class.llvm::SplittingIterator" }
-%"struct.llvm::detail::DenseMapPair" = type { %"struct.std::pair" }
-%"struct.std::pair" = type { ptr, ptr }
-%"struct.llvm::DataLayout::PrimitiveSpec" = type <{ i32, %"struct.llvm::Align", %"struct.llvm::Align", [2 x i8] }>
 %"class.llvm::Expected" = type { %union.anon.18, i8, [7 x i8] }
 %union.anon.18 = type { %"struct.llvm::AlignedCharArrayUnion" }
 %"struct.llvm::AlignedCharArrayUnion" = type { [496 x i8] }
@@ -64,6 +59,8 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.anon = type { ptr, i64 }
 %"class.llvm::SmallVector.25" = type { %"class.llvm::SmallVectorImpl.21", %"struct.llvm::SmallVectorStorage.26" }
 %"struct.llvm::SmallVectorStorage.26" = type { [80 x i8] }
+%"class.llvm::TypeSize" = type { %"class.llvm::details::FixedOrScalableQuantity.base", [7 x i8] }
+%"class.llvm::details::FixedOrScalableQuantity.base" = type <{ i64, i8 }>
 %"class.std::optional.37" = type { %"struct.std::_Optional_base.38" }
 %"struct.std::_Optional_base.38" = type { %"struct.std::_Optional_payload.40" }
 %"struct.std::_Optional_payload.40" = type { %"struct.std::_Optional_payload.base", [7 x i8] }
@@ -199,7 +196,7 @@ define dso_local void @_ZN4llvm12StructLayoutC2EPNS_10StructTypeERKNS_10DataLayo
 20:                                               ; preds = %.lr.ph, %_ZN4llvm7detailspLERNS_8TypeSizeERKS1_.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN4llvm7detailspLERNS_8TypeSizeERKS1_.exit ]
   %21 = load ptr, ptr %15, align 8, !tbaa !19
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8, !tbaa !20
   %24 = icmp eq i64 %indvars.iv, 0
   br i1 %24, label %25, label %28
@@ -256,7 +253,7 @@ define dso_local void @_ZN4llvm12StructLayoutC2EPNS_10StructTypeERKNS_10DataLayo
   %.sroa.0.0.copyload.i = load i8, ptr %4, align 8, !tbaa !23
   %.sroa.speculated = tail call i8 @llvm.umax.i8(i8 %.sroa.048.0, i8 %.sroa.0.0.copyload.i)
   store i8 %.sroa.speculated, ptr %4, align 8, !tbaa !23
-  %52 = getelementptr inbounds nuw %"class.llvm::TypeSize", ptr %17, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 %indvars.iv
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %52, ptr noundef nonnull align 8 dereferenceable(9) %0, i64 9, i1 false)
   %53 = tail call { i64, i8 } @_ZNK4llvm10DataLayout17getTypeSizeInBitsEPNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(496) %2, ptr noundef %23)
   %.fca.0.extract.i13.i = extractvalue { i64, i8 } %53, 0
@@ -346,7 +343,7 @@ _ZSt7advanceIPKN4llvm8TypeSizeElEvRT_T0_.exit.i.i: ; preds = %_ZSt7advanceIPKN4l
   %.05.i.i = phi ptr [ %.1.i.i, %_ZSt7advanceIPKN4llvm8TypeSizeElEvRT_T0_.exit.i.i ], [ %3, %_ZSt7advanceIPKN4llvm8TypeSizeElEvRT_T0_.exit.i.i.preheader ]
   %.0114.i.i = phi i64 [ %.112.i.i, %_ZSt7advanceIPKN4llvm8TypeSizeElEvRT_T0_.exit.i.i ], [ %7, %_ZSt7advanceIPKN4llvm8TypeSizeElEvRT_T0_.exit.i.i.preheader ]
   %8 = lshr i64 %.0114.i.i, 1
-  %9 = getelementptr inbounds nuw %"class.llvm::TypeSize", ptr %.05.i.i, i64 %8
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %.05.i.i, i64 %8
   %.val14.i.i = load i64, ptr %9, align 8
   %10 = icmp ult i64 %1, %.val14.i.i
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -1113,7 +1110,7 @@ _ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i: ; preds =
   %.05.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i ], [ %.pre.i33, %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.preheader.i.i.i.i ]
   %.0114.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i ], [ %165, %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.preheader.i.i.i.i ]
   %166 = lshr i64 %.0114.i.i.i.i, 1
-  %167 = getelementptr inbounds nuw %"struct.llvm::DataLayout::PointerSpec", ptr %.05.i.i.i.i, i64 %166
+  %167 = getelementptr inbounds nuw [20 x i8], ptr %.05.i.i.i.i, i64 %166
   %.val.i.i.i.i = load i32, ptr %167, align 4, !tbaa !30
   %168 = icmp ult i32 %.val.i.i.i.i, %163
   %169 = getelementptr inbounds nuw i8, ptr %167, i64 20
@@ -1127,7 +1124,7 @@ _ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i: ; preds =
 _ZN4llvm11lower_boundIRKNS_11SmallVectorINS_10DataLayout11PointerSpecELj8EEERjN12_GLOBAL__N_120LessPointerAddrSpaceEEEDaOT_OT0_T1_.exit.i: ; preds = %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i, %164
   %.pre-phi.i = phi i64 [ 0, %164 ], [ %165, %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i ]
   %.0.lcssa.i.i.i.i = phi ptr [ %.pre.i33, %164 ], [ %.1.i.i.i.i, %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i ]
-  %173 = getelementptr inbounds nuw %"struct.llvm::DataLayout::PointerSpec", ptr %.pre.i33, i64 %.pre-phi.i
+  %173 = getelementptr inbounds nuw [20 x i8], ptr %.pre.i33, i64 %.pre-phi.i
   %.not7.i = icmp eq ptr %.0.lcssa.i.i.i.i, %173
   br i1 %.not7.i, label %_ZNK4llvm10DataLayout14getPointerSpecEj.exit, label %174
 
@@ -1158,7 +1155,7 @@ _ZSt7advanceIPN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i: ; preds = 
   %.05.i.i.i.i35 = phi ptr [ %.1.i.i.i.i41, %_ZSt7advanceIPN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i ], [ %.pre.i33, %_ZSt7advanceIPN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.preheader.i.i.i.i ]
   %.0114.i.i.i.i36 = phi i64 [ %.112.i.i.i.i40, %_ZSt7advanceIPN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i ], [ %183, %_ZSt7advanceIPN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.preheader.i.i.i.i ]
   %184 = lshr i64 %.0114.i.i.i.i36, 1
-  %185 = getelementptr inbounds nuw %"struct.llvm::DataLayout::PointerSpec", ptr %.05.i.i.i.i35, i64 %184
+  %185 = getelementptr inbounds nuw [20 x i8], ptr %.05.i.i.i.i35, i64 %184
   %.val.i.i.i.i39 = load i32, ptr %185, align 4, !tbaa !30
   %186 = icmp ult i32 %.val.i.i.i.i39, %163
   %187 = getelementptr inbounds nuw i8, ptr %185, i64 20
@@ -1172,7 +1169,7 @@ _ZSt7advanceIPN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i: ; preds = 
 _ZN4llvm11lower_boundIRNS_11SmallVectorINS_10DataLayout11PointerSpecELj8EEERjN12_GLOBAL__N_120LessPointerAddrSpaceEEEDaOT_OT0_T1_.exit.i: ; preds = %_ZSt7advanceIPN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i, %_ZNK4llvm10DataLayout14getPointerSpecEj.exit
   %.pre-phi.i42 = phi i64 [ 0, %_ZNK4llvm10DataLayout14getPointerSpecEj.exit ], [ %183, %_ZSt7advanceIPN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i ]
   %.0.lcssa.i.i.i.i43 = phi ptr [ %.pre.i33, %_ZNK4llvm10DataLayout14getPointerSpecEj.exit ], [ %.1.i.i.i.i41, %_ZSt7advanceIPN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i ]
-  %191 = getelementptr inbounds nuw %"struct.llvm::DataLayout::PointerSpec", ptr %.pre.i33, i64 %.pre-phi.i42
+  %191 = getelementptr inbounds nuw [20 x i8], ptr %.pre.i33, i64 %.pre-phi.i42
   %192 = icmp eq ptr %.0.lcssa.i.i.i.i43, %191
   br i1 %192, label %195, label %193
 
@@ -1249,7 +1246,7 @@ define dso_local noundef nonnull align 8 dereferenceable(496) ptr @_ZN4llvm10Dat
   br i1 %9, label %14, label %16
 
 14:                                               ; preds = %6
-  %15 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %10, i64 %13
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %13
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10StructTypeEPNS_12StructLayoutENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E5beginEv.exit.i
 
 16:                                               ; preds = %6
@@ -1275,7 +1272,7 @@ define dso_local noundef nonnull align 8 dereferenceable(496) ptr @_ZN4llvm10Dat
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10StructTypeEPNS_12StructLayoutENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E5beginEv.exit.i: ; preds = %.critedge2.i8.i14.i6.i.i, %.lr.ph.i6.i12.i3.i.i, %16, %14
   %.pn14.i.i = phi ptr [ %15, %14 ], [ %10, %16 ], [ %17, %.critedge2.i8.i14.i6.i.i ], [ %.sroa.0.3.i4.i.i, %.lr.ph.i6.i12.i3.i.i ]
   %.pn12.i.i = phi ptr [ %15, %14 ], [ %17, %16 ], [ %17, %.lr.ph.i6.i12.i3.i.i ], [ %17, %.critedge2.i8.i14.i6.i.i ]
-  %20 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %10, i64 %13
+  %20 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %13
   %.not8.i = icmp eq ptr %.pn14.i.i, %20
   br i1 %.not8.i, label %_ZN12_GLOBAL__N_115StructLayoutMapD2Ev.exit, label %.lr.ph.i
 
@@ -1475,7 +1472,7 @@ _ZSt4copyIPKN4llvm10DataLayout13PrimitiveSpecEPS2_ET0_T_S7_S6_.exit31.i.i: ; pre
   %.idx36.i.i = shl nuw nsw i64 %.022.i.i22, 3
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 %.idx36.i.i
   %109 = load ptr, ptr %83, align 8, !tbaa !85
-  %110 = getelementptr inbounds nuw %"struct.llvm::DataLayout::PrimitiveSpec", ptr %109, i64 %.022.i.i22
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %109, i64 %.022.i.i22
   %111 = sub nsw i64 %105, %.022.i.i22
   %gepdiff.i.i24 = shl nsw i64 %111, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %110, ptr align 4 %108, i64 %gepdiff.i.i24, i1 false)
@@ -1540,7 +1537,7 @@ _ZSt4copyIPKN4llvm10DataLayout13PrimitiveSpecEPS2_ET0_T_S7_S6_.exit31.i.i31: ; p
   %.idx36.i.i34 = shl nuw nsw i64 %.022.i.i32, 3
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 %.idx36.i.i34
   %140 = load ptr, ptr %114, align 8, !tbaa !85
-  %141 = getelementptr inbounds nuw %"struct.llvm::DataLayout::PrimitiveSpec", ptr %140, i64 %.022.i.i32
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %140, i64 %.022.i.i32
   %142 = sub nsw i64 %136, %.022.i.i32
   %gepdiff.i.i35 = shl nsw i64 %142, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %141, ptr align 4 %139, i64 %gepdiff.i.i35, i1 false)
@@ -1605,7 +1602,7 @@ _ZSt4copyIPKN4llvm10DataLayout13PrimitiveSpecEPS2_ET0_T_S7_S6_.exit31.i.i42: ; p
   %.idx36.i.i45 = shl nuw nsw i64 %.022.i.i43, 3
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 %.idx36.i.i45
   %171 = load ptr, ptr %145, align 8, !tbaa !85
-  %172 = getelementptr inbounds nuw %"struct.llvm::DataLayout::PrimitiveSpec", ptr %171, i64 %.022.i.i43
+  %172 = getelementptr inbounds nuw [8 x i8], ptr %171, i64 %.022.i.i43
   %173 = sub nsw i64 %167, %.022.i.i43
   %gepdiff.i.i46 = shl nsw i64 %173, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %172, ptr align 4 %170, i64 %gepdiff.i.i46, i1 false)
@@ -1670,7 +1667,7 @@ _ZSt4copyIPKN4llvm10DataLayout11PointerSpecEPS2_ET0_T_S7_S6_.exit31.i.i: ; preds
   %.idx36.i.i55 = mul nuw nsw i64 %.022.i.i53, 20
   %201 = getelementptr inbounds nuw i8, ptr %200, i64 %.idx36.i.i55
   %202 = load ptr, ptr %176, align 8, !tbaa !85
-  %203 = getelementptr inbounds nuw %"struct.llvm::DataLayout::PointerSpec", ptr %202, i64 %.022.i.i53
+  %203 = getelementptr inbounds nuw [20 x i8], ptr %202, i64 %.022.i.i53
   %.idx3537.i.i = sub nsw i64 %198, %.022.i.i53
   %gepdiff.i.i56 = mul nsw i64 %.idx3537.i.i, 20
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %203, ptr align 4 %201, i64 %gepdiff.i.i56, i1 false)
@@ -2809,7 +2806,7 @@ _ZSt7advanceIPN4llvm10DataLayout13PrimitiveSpecElEvRT_T0_.exit.i.i.i: ; preds = 
   %.05.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPN4llvm10DataLayout13PrimitiveSpecElEvRT_T0_.exit.i.i.i ], [ %.0.val, %_ZSt7advanceIPN4llvm10DataLayout13PrimitiveSpecElEvRT_T0_.exit.i.i.preheader.i ]
   %.0114.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPN4llvm10DataLayout13PrimitiveSpecElEvRT_T0_.exit.i.i.i ], [ %12, %_ZSt7advanceIPN4llvm10DataLayout13PrimitiveSpecElEvRT_T0_.exit.i.i.preheader.i ]
   %13 = lshr i64 %.0114.i.i.i, 1
-  %14 = getelementptr inbounds nuw %"struct.llvm::DataLayout::PrimitiveSpec", ptr %.05.i.i.i, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %.05.i.i.i, i64 %13
   %.val.i.i.i = load i32, ptr %14, align 4, !tbaa !28
   %15 = icmp ult i32 %.val.i.i.i, %2
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -2823,7 +2820,7 @@ _ZSt7advanceIPN4llvm10DataLayout13PrimitiveSpecElEvRT_T0_.exit.i.i.i: ; preds = 
 _ZN4llvm11lower_boundIRNS_15SmallVectorImplINS_10DataLayout13PrimitiveSpecEEERjN12_GLOBAL__N_121LessPrimitiveBitWidthEEEDaOT_OT0_T1_.exit: ; preds = %_ZSt7advanceIPN4llvm10DataLayout13PrimitiveSpecElEvRT_T0_.exit.i.i.i, %9
   %.pre-phi = phi i64 [ 0, %9 ], [ %12, %_ZSt7advanceIPN4llvm10DataLayout13PrimitiveSpecElEvRT_T0_.exit.i.i.i ]
   %.0.lcssa.i.i.i = phi ptr [ %.0.val, %9 ], [ %.1.i.i.i, %_ZSt7advanceIPN4llvm10DataLayout13PrimitiveSpecElEvRT_T0_.exit.i.i.i ]
-  %20 = getelementptr inbounds nuw %"struct.llvm::DataLayout::PrimitiveSpec", ptr %.0.val, i64 %.pre-phi
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %.0.val, i64 %.pre-phi
   %.not = icmp eq ptr %.0.lcssa.i.i.i, %20
   br i1 %.not, label %27, label %21
 
@@ -2864,7 +2861,7 @@ _ZN4llvm11lower_boundIRNS_15SmallVectorImplINS_10DataLayout13PrimitiveSpecEEERjN
 _ZN4llvm23SmallVectorTemplateBaseINS_10DataLayout13PrimitiveSpecELb1EE9push_backES2_.exit.i.i: ; preds = %30, %27
   %.pre-phi.i.i = phi i64 [ %.pre-phi, %27 ], [ %.pre14.i.i, %30 ]
   %33 = phi ptr [ %.0.val, %27 ], [ %.pre13.i.i, %30 ]
-  %34 = getelementptr inbounds nuw %"struct.llvm::DataLayout::PrimitiveSpec", ptr %33, i64 %.pre-phi.i.i
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.pre-phi.i.i
   store i64 %.sroa.0.0.insert.insert22, ptr %34, align 1
   %35 = load i32, ptr %11, align 8, !tbaa !87
   %36 = add i32 %35, 1
@@ -2901,14 +2898,14 @@ _ZN4llvm23SmallVectorTemplateBaseINS_10DataLayout13PrimitiveSpecELb1EE28reserveF
   %.pre-phi16.i.i = phi i64 [ %.pre-phi, %37 ], [ %.pre15.i.i, %44 ]
   %47 = phi ptr [ %.0.val, %37 ], [ %.pre.i.i, %44 ]
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 %41
-  %49 = getelementptr inbounds nuw %"struct.llvm::DataLayout::PrimitiveSpec", ptr %47, i64 %.pre-phi16.i.i
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %.pre-phi16.i.i
   %50 = getelementptr inbounds i8, ptr %49, i64 -8
   %51 = load i64, ptr %50, align 4
   store i64 %51, ptr %49, align 4
   %52 = load ptr, ptr %10, align 8, !tbaa !85
   %53 = load i32, ptr %11, align 8, !tbaa !87
   %54 = zext i32 %53 to i64
-  %55 = getelementptr inbounds nuw %"struct.llvm::DataLayout::PrimitiveSpec", ptr %52, i64 %54
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %54
   %56 = getelementptr inbounds i8, ptr %55, i64 -8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %56, %48
   br i1 %.not.i.i.i.i.i.i.i, label %_ZSt13move_backwardIPN4llvm10DataLayout13PrimitiveSpecES3_ET0_T_S5_S4_.exit.i.i, label %57
@@ -2919,7 +2916,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_10DataLayout13PrimitiveSpecELb1EE28reserveF
   %60 = sub i64 %58, %59
   %61 = ashr exact i64 %60, 3
   %62 = sub nsw i64 0, %61
-  %63 = getelementptr inbounds %"struct.llvm::DataLayout::PrimitiveSpec", ptr %55, i64 %62
+  %63 = getelementptr inbounds [8 x i8], ptr %55, i64 %62
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %63, ptr nonnull align 4 %48, i64 %60, i1 false)
   %.pre12.i.i = load i32, ptr %11, align 8, !tbaa !87
   br label %_ZSt13move_backwardIPN4llvm10DataLayout13PrimitiveSpecES3_ET0_T_S5_S4_.exit.i.i
@@ -3462,7 +3459,7 @@ _ZSt7advanceIPN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i: ; preds = %_
   %.05.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i ], [ %.val, %_ZSt7advanceIPN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.preheader.i.i.i ]
   %.0114.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i ], [ %12, %_ZSt7advanceIPN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.preheader.i.i.i ]
   %13 = lshr i64 %.0114.i.i.i, 1
-  %14 = getelementptr inbounds nuw %"struct.llvm::DataLayout::PointerSpec", ptr %.05.i.i.i, i64 %13
+  %14 = getelementptr inbounds nuw [20 x i8], ptr %.05.i.i.i, i64 %13
   %.val.i.i.i = load i32, ptr %14, align 4, !tbaa !30
   %15 = icmp ult i32 %.val.i.i.i, %1
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 20
@@ -3476,7 +3473,7 @@ _ZSt7advanceIPN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i: ; preds = %_
 _ZN4llvm11lower_boundIRNS_11SmallVectorINS_10DataLayout11PointerSpecELj8EEERjN12_GLOBAL__N_120LessPointerAddrSpaceEEEDaOT_OT0_T1_.exit: ; preds = %_ZSt7advanceIPN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i, %7
   %.pre-phi = phi i64 [ 0, %7 ], [ %12, %_ZSt7advanceIPN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i ]
   %.0.lcssa.i.i.i = phi ptr [ %.val, %7 ], [ %.1.i.i.i, %_ZSt7advanceIPN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i ]
-  %20 = getelementptr inbounds nuw %"struct.llvm::DataLayout::PointerSpec", ptr %.val, i64 %.pre-phi
+  %20 = getelementptr inbounds nuw [20 x i8], ptr %.val, i64 %.pre-phi
   %21 = icmp eq ptr %.0.lcssa.i.i.i, %20
   br i1 %21, label %24, label %22
 
@@ -3825,7 +3822,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %.critedge,
   %127 = phi i32 [ %122, %.critedge ], [ %.pre.i117, %124 ]
   %128 = load ptr, ptr %4, align 8, !tbaa !85
   %129 = zext i32 %127 to i64
-  %130 = getelementptr inbounds nuw i32, ptr %128, i64 %129
+  %130 = getelementptr inbounds nuw [4 x i8], ptr %128, i64 %129
   store i32 %108, ptr %130, align 1
   %131 = load i32, ptr %101, align 8, !tbaa !87
   %132 = add i32 %131, 1
@@ -4536,7 +4533,7 @@ _ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i: ; preds = %
   %.05.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i ], [ %.pre, %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.preheader.i.i.i ]
   %.0114.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i ], [ %5, %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.preheader.i.i.i ]
   %6 = lshr i64 %.0114.i.i.i, 1
-  %7 = getelementptr inbounds nuw %"struct.llvm::DataLayout::PointerSpec", ptr %.05.i.i.i, i64 %6
+  %7 = getelementptr inbounds nuw [20 x i8], ptr %.05.i.i.i, i64 %6
   %.val.i.i.i = load i32, ptr %7, align 4, !tbaa !30
   %8 = icmp ult i32 %.val.i.i.i, %1
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 20
@@ -4550,7 +4547,7 @@ _ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i: ; preds = %
 _ZN4llvm11lower_boundIRKNS_11SmallVectorINS_10DataLayout11PointerSpecELj8EEERjN12_GLOBAL__N_120LessPointerAddrSpaceEEEDaOT_OT0_T1_.exit: ; preds = %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i, %3
   %.pre-phi = phi i64 [ 0, %3 ], [ %5, %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i ]
   %.0.lcssa.i.i.i = phi ptr [ %.pre, %3 ], [ %.1.i.i.i, %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i ]
-  %13 = getelementptr inbounds nuw %"struct.llvm::DataLayout::PointerSpec", ptr %.pre, i64 %.pre-phi
+  %13 = getelementptr inbounds nuw [20 x i8], ptr %.pre, i64 %.pre-phi
   %.not7 = icmp eq ptr %.0.lcssa.i.i.i, %13
   br i1 %.not7, label %..thread_crit_edge, label %14
 
@@ -4582,7 +4579,7 @@ _ZSt7advanceIPKN4llvm10DataLayout13PrimitiveSpecElEvRT_T0_.exit.i.i.i: ; preds =
   %.05.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN4llvm10DataLayout13PrimitiveSpecElEvRT_T0_.exit.i.i.i ], [ %.val, %_ZSt7advanceIPKN4llvm10DataLayout13PrimitiveSpecElEvRT_T0_.exit.i.i.preheader.i ]
   %.0114.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN4llvm10DataLayout13PrimitiveSpecElEvRT_T0_.exit.i.i.i ], [ %6, %_ZSt7advanceIPKN4llvm10DataLayout13PrimitiveSpecElEvRT_T0_.exit.i.i.preheader.i ]
   %7 = lshr i64 %.0114.i.i.i, 1
-  %8 = getelementptr inbounds nuw %"struct.llvm::DataLayout::PrimitiveSpec", ptr %.05.i.i.i, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %.05.i.i.i, i64 %7
   %.val.i.i.i = load i32, ptr %8, align 4, !tbaa !28
   %9 = icmp ult i32 %.val.i.i.i, %1
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -4596,7 +4593,7 @@ _ZSt7advanceIPKN4llvm10DataLayout13PrimitiveSpecElEvRT_T0_.exit.i.i.i: ; preds =
 _ZN4llvm11lower_boundIRKNS_11SmallVectorINS_10DataLayout13PrimitiveSpecELj6EEERjN12_GLOBAL__N_121LessPrimitiveBitWidthEEEDaOT_OT0_T1_.exit: ; preds = %_ZSt7advanceIPKN4llvm10DataLayout13PrimitiveSpecElEvRT_T0_.exit.i.i.i, %3
   %.pre-phi = phi i64 [ 0, %3 ], [ %6, %_ZSt7advanceIPKN4llvm10DataLayout13PrimitiveSpecElEvRT_T0_.exit.i.i.i ]
   %.0.lcssa.i.i.i = phi ptr [ %.val, %3 ], [ %.1.i.i.i, %_ZSt7advanceIPKN4llvm10DataLayout13PrimitiveSpecElEvRT_T0_.exit.i.i.i ]
-  %14 = getelementptr inbounds nuw %"struct.llvm::DataLayout::PrimitiveSpec", ptr %.val, i64 %.pre-phi
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %.pre-phi
   %15 = icmp eq ptr %.0.lcssa.i.i.i, %14
   %spec.select.idx = select i1 %15, i64 -8, i64 0
   %spec.select = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 %spec.select.idx
@@ -4624,7 +4621,7 @@ define dso_local void @_ZN4llvm10DataLayoutD2Ev(ptr noundef nonnull readonly ali
   br i1 %8, label %13, label %15
 
 13:                                               ; preds = %5
-  %14 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %9, i64 %12
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %12
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10StructTypeEPNS_12StructLayoutENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E5beginEv.exit.i
 
 15:                                               ; preds = %5
@@ -4650,7 +4647,7 @@ define dso_local void @_ZN4llvm10DataLayoutD2Ev(ptr noundef nonnull readonly ali
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10StructTypeEPNS_12StructLayoutENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E5beginEv.exit.i: ; preds = %.critedge2.i8.i14.i6.i.i, %.lr.ph.i6.i12.i3.i.i, %15, %13
   %.pn14.i.i = phi ptr [ %14, %13 ], [ %9, %15 ], [ %16, %.critedge2.i8.i14.i6.i.i ], [ %.sroa.0.3.i4.i.i, %.lr.ph.i6.i12.i3.i.i ]
   %.pn12.i.i = phi ptr [ %14, %13 ], [ %16, %15 ], [ %16, %.lr.ph.i6.i12.i3.i.i ], [ %16, %.critedge2.i8.i14.i6.i.i ]
-  %19 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %9, i64 %12
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %12
   %.not8.i = icmp eq ptr %.pn14.i.i, %19
   br i1 %.not8.i, label %_ZN12_GLOBAL__N_115StructLayoutMapD2Ev.exit, label %.lr.ph.i
 
@@ -4843,7 +4840,7 @@ _ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i: ; preds =
   %.05.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i ], [ %.pre.i, %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.preheader.i.i.i.i ]
   %.0114.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i ], [ %5, %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.preheader.i.i.i.i ]
   %6 = lshr i64 %.0114.i.i.i.i, 1
-  %7 = getelementptr inbounds nuw %"struct.llvm::DataLayout::PointerSpec", ptr %.05.i.i.i.i, i64 %6
+  %7 = getelementptr inbounds nuw [20 x i8], ptr %.05.i.i.i.i, i64 %6
   %.val.i.i.i.i = load i32, ptr %7, align 4, !tbaa !30
   %8 = icmp ult i32 %.val.i.i.i.i, %1
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 20
@@ -4857,7 +4854,7 @@ _ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i: ; preds =
 _ZN4llvm11lower_boundIRKNS_11SmallVectorINS_10DataLayout11PointerSpecELj8EEERjN12_GLOBAL__N_120LessPointerAddrSpaceEEEDaOT_OT0_T1_.exit.i: ; preds = %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i, %3
   %.pre-phi.i = phi i64 [ 0, %3 ], [ %5, %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i ]
   %.0.lcssa.i.i.i.i = phi ptr [ %.pre.i, %3 ], [ %.1.i.i.i.i, %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i ]
-  %13 = getelementptr inbounds nuw %"struct.llvm::DataLayout::PointerSpec", ptr %.pre.i, i64 %.pre-phi.i
+  %13 = getelementptr inbounds nuw [20 x i8], ptr %.pre.i, i64 %.pre-phi.i
   %.not7.i = icmp eq ptr %.0.lcssa.i.i.i.i, %13
   br i1 %.not7.i, label %_ZNK4llvm10DataLayout14getPointerSpecEj.exit, label %14
 
@@ -4895,7 +4892,7 @@ _ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i: ; preds =
   %.05.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i ], [ %.pre.i, %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.preheader.i.i.i.i ]
   %.0114.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i ], [ %5, %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.preheader.i.i.i.i ]
   %6 = lshr i64 %.0114.i.i.i.i, 1
-  %7 = getelementptr inbounds nuw %"struct.llvm::DataLayout::PointerSpec", ptr %.05.i.i.i.i, i64 %6
+  %7 = getelementptr inbounds nuw [20 x i8], ptr %.05.i.i.i.i, i64 %6
   %.val.i.i.i.i = load i32, ptr %7, align 4, !tbaa !30
   %8 = icmp ult i32 %.val.i.i.i.i, %1
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 20
@@ -4909,7 +4906,7 @@ _ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i: ; preds =
 _ZN4llvm11lower_boundIRKNS_11SmallVectorINS_10DataLayout11PointerSpecELj8EEERjN12_GLOBAL__N_120LessPointerAddrSpaceEEEDaOT_OT0_T1_.exit.i: ; preds = %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i, %3
   %.pre-phi.i = phi i64 [ 0, %3 ], [ %5, %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i ]
   %.0.lcssa.i.i.i.i = phi ptr [ %.pre.i, %3 ], [ %.1.i.i.i.i, %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i ]
-  %13 = getelementptr inbounds nuw %"struct.llvm::DataLayout::PointerSpec", ptr %.pre.i, i64 %.pre-phi.i
+  %13 = getelementptr inbounds nuw [20 x i8], ptr %.pre.i, i64 %.pre-phi.i
   %.not7.i = icmp eq ptr %.0.lcssa.i.i.i.i, %13
   br i1 %.not7.i, label %_ZNK4llvm10DataLayout14getPointerSpecEj.exit, label %14
 
@@ -4947,7 +4944,7 @@ _ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i: ; preds =
   %.05.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i ], [ %.pre.i, %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.preheader.i.i.i.i ]
   %.0114.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i ], [ %5, %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.preheader.i.i.i.i ]
   %6 = lshr i64 %.0114.i.i.i.i, 1
-  %7 = getelementptr inbounds nuw %"struct.llvm::DataLayout::PointerSpec", ptr %.05.i.i.i.i, i64 %6
+  %7 = getelementptr inbounds nuw [20 x i8], ptr %.05.i.i.i.i, i64 %6
   %.val.i.i.i.i = load i32, ptr %7, align 4, !tbaa !30
   %8 = icmp ult i32 %.val.i.i.i.i, %1
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 20
@@ -4961,7 +4958,7 @@ _ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i: ; preds =
 _ZN4llvm11lower_boundIRKNS_11SmallVectorINS_10DataLayout11PointerSpecELj8EEERjN12_GLOBAL__N_120LessPointerAddrSpaceEEEDaOT_OT0_T1_.exit.i: ; preds = %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i, %3
   %.pre-phi.i = phi i64 [ 0, %3 ], [ %5, %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i ]
   %.0.lcssa.i.i.i.i = phi ptr [ %.pre.i, %3 ], [ %.1.i.i.i.i, %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i ]
-  %13 = getelementptr inbounds nuw %"struct.llvm::DataLayout::PointerSpec", ptr %.pre.i, i64 %.pre-phi.i
+  %13 = getelementptr inbounds nuw [20 x i8], ptr %.pre.i, i64 %.pre-phi.i
   %.not7.i = icmp eq ptr %.0.lcssa.i.i.i.i, %13
   br i1 %.not7.i, label %_ZNK4llvm10DataLayout14getPointerSpecEj.exit, label %14
 
@@ -5022,7 +5019,7 @@ _ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i.i: ; preds
   %.05.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i, %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i.i ], [ %.pre.i.i, %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.preheader.i.i.i.i.i ]
   %.0114.i.i.i.i.i = phi i64 [ %.112.i.i.i.i.i, %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i.i ], [ %15, %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.preheader.i.i.i.i.i ]
   %16 = lshr i64 %.0114.i.i.i.i.i, 1
-  %17 = getelementptr inbounds nuw %"struct.llvm::DataLayout::PointerSpec", ptr %.05.i.i.i.i.i, i64 %16
+  %17 = getelementptr inbounds nuw [20 x i8], ptr %.05.i.i.i.i.i, i64 %16
   %.val.i.i.i.i.i = load i32, ptr %17, align 4, !tbaa !30
   %18 = icmp ult i32 %.val.i.i.i.i.i, %12
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 20
@@ -5036,7 +5033,7 @@ _ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i.i: ; preds
 _ZN4llvm11lower_boundIRKNS_11SmallVectorINS_10DataLayout11PointerSpecELj8EEERjN12_GLOBAL__N_120LessPointerAddrSpaceEEEDaOT_OT0_T1_.exit.i.i: ; preds = %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i.i, %13
   %.pre-phi.i.i = phi i64 [ 0, %13 ], [ %15, %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i.i ]
   %.0.lcssa.i.i.i.i.i = phi ptr [ %.pre.i.i, %13 ], [ %.1.i.i.i.i.i, %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i.i ]
-  %23 = getelementptr inbounds nuw %"struct.llvm::DataLayout::PointerSpec", ptr %.pre.i.i, i64 %.pre-phi.i.i
+  %23 = getelementptr inbounds nuw [20 x i8], ptr %.pre.i.i, i64 %.pre-phi.i.i
   %.not7.i.i = icmp eq ptr %.0.lcssa.i.i.i.i.i, %23
   br i1 %.not7.i.i, label %_ZNK4llvm10DataLayout20getPointerSizeInBitsEj.exit, label %24
 
@@ -5074,7 +5071,7 @@ _ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i: ; preds =
   %.05.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i ], [ %.pre.i, %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.preheader.i.i.i.i ]
   %.0114.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i ], [ %5, %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.preheader.i.i.i.i ]
   %6 = lshr i64 %.0114.i.i.i.i, 1
-  %7 = getelementptr inbounds nuw %"struct.llvm::DataLayout::PointerSpec", ptr %.05.i.i.i.i, i64 %6
+  %7 = getelementptr inbounds nuw [20 x i8], ptr %.05.i.i.i.i, i64 %6
   %.val.i.i.i.i = load i32, ptr %7, align 4, !tbaa !30
   %8 = icmp ult i32 %.val.i.i.i.i, %1
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 20
@@ -5088,7 +5085,7 @@ _ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i: ; preds =
 _ZN4llvm11lower_boundIRKNS_11SmallVectorINS_10DataLayout11PointerSpecELj8EEERjN12_GLOBAL__N_120LessPointerAddrSpaceEEEDaOT_OT0_T1_.exit.i: ; preds = %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i, %3
   %.pre-phi.i = phi i64 [ 0, %3 ], [ %5, %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i ]
   %.0.lcssa.i.i.i.i = phi ptr [ %.pre.i, %3 ], [ %.1.i.i.i.i, %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i ]
-  %13 = getelementptr inbounds nuw %"struct.llvm::DataLayout::PointerSpec", ptr %.pre.i, i64 %.pre-phi.i
+  %13 = getelementptr inbounds nuw [20 x i8], ptr %.pre.i, i64 %.pre-phi.i
   %.not7.i = icmp eq ptr %.0.lcssa.i.i.i.i, %13
   br i1 %.not7.i, label %_ZNK4llvm10DataLayout14getPointerSpecEj.exit, label %14
 
@@ -5149,7 +5146,7 @@ _ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i.i: ; preds
   %.05.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i, %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i.i ], [ %.pre.i.i, %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.preheader.i.i.i.i.i ]
   %.0114.i.i.i.i.i = phi i64 [ %.112.i.i.i.i.i, %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i.i ], [ %15, %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.preheader.i.i.i.i.i ]
   %16 = lshr i64 %.0114.i.i.i.i.i, 1
-  %17 = getelementptr inbounds nuw %"struct.llvm::DataLayout::PointerSpec", ptr %.05.i.i.i.i.i, i64 %16
+  %17 = getelementptr inbounds nuw [20 x i8], ptr %.05.i.i.i.i.i, i64 %16
   %.val.i.i.i.i.i = load i32, ptr %17, align 4, !tbaa !30
   %18 = icmp ult i32 %.val.i.i.i.i.i, %12
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 20
@@ -5163,7 +5160,7 @@ _ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i.i: ; preds
 _ZN4llvm11lower_boundIRKNS_11SmallVectorINS_10DataLayout11PointerSpecELj8EEERjN12_GLOBAL__N_120LessPointerAddrSpaceEEEDaOT_OT0_T1_.exit.i.i: ; preds = %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i.i, %13
   %.pre-phi.i.i = phi i64 [ 0, %13 ], [ %15, %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i.i ]
   %.0.lcssa.i.i.i.i.i = phi ptr [ %.pre.i.i, %13 ], [ %.1.i.i.i.i.i, %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i.i ]
-  %23 = getelementptr inbounds nuw %"struct.llvm::DataLayout::PointerSpec", ptr %.pre.i.i, i64 %.pre-phi.i.i
+  %23 = getelementptr inbounds nuw [20 x i8], ptr %.pre.i.i, i64 %.pre-phi.i.i
   %.not7.i.i = icmp eq ptr %.0.lcssa.i.i.i.i.i, %23
   br i1 %.not7.i.i, label %_ZNK4llvm10DataLayout18getIndexSizeInBitsEj.exit, label %24
 
@@ -5248,7 +5245,7 @@ _ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i.i: ; preds
   %.05.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i, %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i.i ], [ %.pre.i.i53, %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.preheader.i.i.i.i.i ]
   %.0114.i.i.i.i.i = phi i64 [ %.112.i.i.i.i.i, %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i.i ], [ %17, %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.preheader.i.i.i.i.i ]
   %18 = lshr i64 %.0114.i.i.i.i.i, 1
-  %19 = getelementptr inbounds nuw %"struct.llvm::DataLayout::PointerSpec", ptr %.05.i.i.i.i.i, i64 %18
+  %19 = getelementptr inbounds nuw [20 x i8], ptr %.05.i.i.i.i.i, i64 %18
   %.val.i.i.i.i.i = load i32, ptr %19, align 4, !tbaa !30
   %20 = icmp ult i32 %.val.i.i.i.i.i, %13
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 20
@@ -5262,7 +5259,7 @@ _ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i.i: ; preds
 _ZN4llvm11lower_boundIRKNS_11SmallVectorINS_10DataLayout11PointerSpecELj8EEERjN12_GLOBAL__N_120LessPointerAddrSpaceEEEDaOT_OT0_T1_.exit.i.i: ; preds = %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i.i, %15
   %.pre-phi.i.i = phi i64 [ 0, %15 ], [ %17, %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i.i ]
   %.0.lcssa.i.i.i.i.i = phi ptr [ %.pre.i.i53, %15 ], [ %.1.i.i.i.i.i, %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i.i ]
-  %25 = getelementptr inbounds nuw %"struct.llvm::DataLayout::PointerSpec", ptr %.pre.i.i53, i64 %.pre-phi.i.i
+  %25 = getelementptr inbounds nuw [20 x i8], ptr %.pre.i.i53, i64 %.pre-phi.i.i
   %.not7.i.i = icmp eq ptr %.0.lcssa.i.i.i.i.i, %25
   br i1 %.not7.i.i, label %_ZNK4llvm10DataLayout22getPointerABIAlignmentEj.exit, label %26
 
@@ -5295,7 +5292,7 @@ _ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i.i61: ; pre
   %.05.i.i.i.i.i62 = phi ptr [ %.1.i.i.i.i.i68, %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i.i61 ], [ %.pre.i.i53, %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.preheader.i.i.i.i.i60 ]
   %.0114.i.i.i.i.i63 = phi i64 [ %.112.i.i.i.i.i67, %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i.i61 ], [ %33, %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.preheader.i.i.i.i.i60 ]
   %34 = lshr i64 %.0114.i.i.i.i.i63, 1
-  %35 = getelementptr inbounds nuw %"struct.llvm::DataLayout::PointerSpec", ptr %.05.i.i.i.i.i62, i64 %34
+  %35 = getelementptr inbounds nuw [20 x i8], ptr %.05.i.i.i.i.i62, i64 %34
   %.val.i.i.i.i.i66 = load i32, ptr %35, align 4, !tbaa !30
   %36 = icmp ult i32 %.val.i.i.i.i.i66, %13
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 20
@@ -5309,7 +5306,7 @@ _ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i.i61: ; pre
 _ZN4llvm11lower_boundIRKNS_11SmallVectorINS_10DataLayout11PointerSpecELj8EEERjN12_GLOBAL__N_120LessPointerAddrSpaceEEEDaOT_OT0_T1_.exit.i.i69: ; preds = %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i.i61, %31
   %.pre-phi.i.i70 = phi i64 [ 0, %31 ], [ %33, %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i.i61 ]
   %.0.lcssa.i.i.i.i.i71 = phi ptr [ %.pre.i.i53, %31 ], [ %.1.i.i.i.i.i68, %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i.i61 ]
-  %41 = getelementptr inbounds nuw %"struct.llvm::DataLayout::PointerSpec", ptr %.pre.i.i53, i64 %.pre-phi.i.i70
+  %41 = getelementptr inbounds nuw [20 x i8], ptr %.pre.i.i53, i64 %.pre-phi.i.i70
   %.not7.i.i72 = icmp eq ptr %.0.lcssa.i.i.i.i.i71, %41
   br i1 %.not7.i.i72, label %_ZNK4llvm10DataLayout23getPointerPrefAlignmentEj.exit, label %42
 
@@ -5408,7 +5405,7 @@ _ZSt7advanceIPKN4llvm10DataLayout13PrimitiveSpecElEvRT_T0_.exit.i.i.i.i: ; preds
   %.05.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN4llvm10DataLayout13PrimitiveSpecElEvRT_T0_.exit.i.i.i.i ], [ %.val.i, %_ZSt7advanceIPKN4llvm10DataLayout13PrimitiveSpecElEvRT_T0_.exit.i.i.preheader.i.i ]
   %.0114.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN4llvm10DataLayout13PrimitiveSpecElEvRT_T0_.exit.i.i.i.i ], [ %77, %_ZSt7advanceIPKN4llvm10DataLayout13PrimitiveSpecElEvRT_T0_.exit.i.i.preheader.i.i ]
   %78 = lshr i64 %.0114.i.i.i.i, 1
-  %79 = getelementptr inbounds nuw %"struct.llvm::DataLayout::PrimitiveSpec", ptr %.05.i.i.i.i, i64 %78
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %.05.i.i.i.i, i64 %78
   %.val.i.i.i.i = load i32, ptr %79, align 4, !tbaa !28
   %80 = icmp ult i32 %.val.i.i.i.i, %74
   %81 = getelementptr inbounds nuw i8, ptr %79, i64 8
@@ -5422,7 +5419,7 @@ _ZSt7advanceIPKN4llvm10DataLayout13PrimitiveSpecElEvRT_T0_.exit.i.i.i.i: ; preds
 _ZNK4llvm10DataLayout19getIntegerAlignmentEjb.exit: ; preds = %_ZSt7advanceIPKN4llvm10DataLayout13PrimitiveSpecElEvRT_T0_.exit.i.i.i.i, %73
   %.pre-phi.i = phi i64 [ 0, %73 ], [ %77, %_ZSt7advanceIPKN4llvm10DataLayout13PrimitiveSpecElEvRT_T0_.exit.i.i.i.i ]
   %.0.lcssa.i.i.i.i = phi ptr [ %.val.i, %73 ], [ %.1.i.i.i.i, %_ZSt7advanceIPKN4llvm10DataLayout13PrimitiveSpecElEvRT_T0_.exit.i.i.i.i ]
-  %85 = getelementptr inbounds nuw %"struct.llvm::DataLayout::PrimitiveSpec", ptr %.val.i, i64 %.pre-phi.i
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %.val.i, i64 %.pre-phi.i
   %86 = icmp eq ptr %.0.lcssa.i.i.i.i, %85
   %spec.select.idx.i = select i1 %86, i64 -8, i64 0
   %spec.select.i = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 %spec.select.idx.i
@@ -5450,7 +5447,7 @@ _ZSt7advanceIPKN4llvm10DataLayout13PrimitiveSpecElEvRT_T0_.exit.i.i.i: ; preds =
   %.05.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN4llvm10DataLayout13PrimitiveSpecElEvRT_T0_.exit.i.i.i ], [ %.val, %_ZSt7advanceIPKN4llvm10DataLayout13PrimitiveSpecElEvRT_T0_.exit.i.i.preheader.i ]
   %.0114.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN4llvm10DataLayout13PrimitiveSpecElEvRT_T0_.exit.i.i.i ], [ %93, %_ZSt7advanceIPKN4llvm10DataLayout13PrimitiveSpecElEvRT_T0_.exit.i.i.preheader.i ]
   %94 = lshr i64 %.0114.i.i.i, 1
-  %95 = getelementptr inbounds nuw %"struct.llvm::DataLayout::PrimitiveSpec", ptr %.05.i.i.i, i64 %94
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %.05.i.i.i, i64 %94
   %.val.i.i.i = load i32, ptr %95, align 4, !tbaa !28
   %96 = icmp ult i32 %.val.i.i.i, %90
   %97 = getelementptr inbounds nuw i8, ptr %95, i64 8
@@ -5464,7 +5461,7 @@ _ZSt7advanceIPKN4llvm10DataLayout13PrimitiveSpecElEvRT_T0_.exit.i.i.i: ; preds =
 _ZN4llvm11lower_boundIRKNS_11SmallVectorINS_10DataLayout13PrimitiveSpecELj4EEERjN12_GLOBAL__N_121LessPrimitiveBitWidthEEEDaOT_OT0_T1_.exit: ; preds = %_ZSt7advanceIPKN4llvm10DataLayout13PrimitiveSpecElEvRT_T0_.exit.i.i.i, %88
   %.pre-phi = phi i64 [ 0, %88 ], [ %93, %_ZSt7advanceIPKN4llvm10DataLayout13PrimitiveSpecElEvRT_T0_.exit.i.i.i ]
   %.0.lcssa.i.i.i = phi ptr [ %.val, %88 ], [ %.1.i.i.i, %_ZSt7advanceIPKN4llvm10DataLayout13PrimitiveSpecElEvRT_T0_.exit.i.i.i ]
-  %101 = getelementptr inbounds nuw %"struct.llvm::DataLayout::PrimitiveSpec", ptr %.val, i64 %.pre-phi
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %.pre-phi
   %.not41 = icmp eq ptr %.0.lcssa.i.i.i, %101
   br i1 %.not41, label %108, label %102
 
@@ -5511,7 +5508,7 @@ _ZSt7advanceIPKN4llvm10DataLayout13PrimitiveSpecElEvRT_T0_.exit.i.i.i84: ; preds
   %.05.i.i.i85 = phi ptr [ %.1.i.i.i91, %_ZSt7advanceIPKN4llvm10DataLayout13PrimitiveSpecElEvRT_T0_.exit.i.i.i84 ], [ %.val46, %_ZSt7advanceIPKN4llvm10DataLayout13PrimitiveSpecElEvRT_T0_.exit.i.i.preheader.i83 ]
   %.0114.i.i.i86 = phi i64 [ %.112.i.i.i90, %_ZSt7advanceIPKN4llvm10DataLayout13PrimitiveSpecElEvRT_T0_.exit.i.i.i84 ], [ %121, %_ZSt7advanceIPKN4llvm10DataLayout13PrimitiveSpecElEvRT_T0_.exit.i.i.preheader.i83 ]
   %122 = lshr i64 %.0114.i.i.i86, 1
-  %123 = getelementptr inbounds nuw %"struct.llvm::DataLayout::PrimitiveSpec", ptr %.05.i.i.i85, i64 %122
+  %123 = getelementptr inbounds nuw [8 x i8], ptr %.05.i.i.i85, i64 %122
   %.val.i.i.i89 = load i32, ptr %123, align 4, !tbaa !28
   %124 = icmp ult i32 %.val.i.i.i89, %118
   %125 = getelementptr inbounds nuw i8, ptr %123, i64 8
@@ -5525,7 +5522,7 @@ _ZSt7advanceIPKN4llvm10DataLayout13PrimitiveSpecElEvRT_T0_.exit.i.i.i84: ; preds
 _ZN4llvm11lower_boundIRKNS_11SmallVectorINS_10DataLayout13PrimitiveSpecELj10EEERjN12_GLOBAL__N_121LessPrimitiveBitWidthEEEDaOT_OT0_T1_.exit: ; preds = %_ZSt7advanceIPKN4llvm10DataLayout13PrimitiveSpecElEvRT_T0_.exit.i.i.i84, %116
   %.pre-phi161 = phi i64 [ 0, %116 ], [ %121, %_ZSt7advanceIPKN4llvm10DataLayout13PrimitiveSpecElEvRT_T0_.exit.i.i.i84 ]
   %.0.lcssa.i.i.i92 = phi ptr [ %.val46, %116 ], [ %.1.i.i.i91, %_ZSt7advanceIPKN4llvm10DataLayout13PrimitiveSpecElEvRT_T0_.exit.i.i.i84 ]
-  %129 = getelementptr inbounds nuw %"struct.llvm::DataLayout::PrimitiveSpec", ptr %.val46, i64 %.pre-phi161
+  %129 = getelementptr inbounds nuw [8 x i8], ptr %.val46, i64 %.pre-phi161
   %.not = icmp eq ptr %.0.lcssa.i.i.i92, %129
   br i1 %.not, label %136, label %130
 
@@ -5621,7 +5618,7 @@ _ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i.i: ; preds
   %.05.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i, %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i.i ], [ %.pre.i.i66, %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.preheader.i.i.i.i.i ]
   %.0114.i.i.i.i.i = phi i64 [ %.112.i.i.i.i.i, %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i.i ], [ %13, %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.preheader.i.i.i.i.i ]
   %14 = lshr i64 %.0114.i.i.i.i.i, 1
-  %15 = getelementptr inbounds nuw %"struct.llvm::DataLayout::PointerSpec", ptr %.05.i.i.i.i.i, i64 %14
+  %15 = getelementptr inbounds nuw [20 x i8], ptr %.05.i.i.i.i.i, i64 %14
   %.val.i.i.i.i.i = load i32, ptr %15, align 4, !tbaa !30
   %16 = icmp ult i32 %.val.i.i.i.i.i, %10
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 20
@@ -5635,7 +5632,7 @@ _ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i.i: ; preds
 _ZN4llvm11lower_boundIRKNS_11SmallVectorINS_10DataLayout11PointerSpecELj8EEERjN12_GLOBAL__N_120LessPointerAddrSpaceEEEDaOT_OT0_T1_.exit.i.i: ; preds = %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i.i, %11
   %.pre-phi.i.i = phi i64 [ 0, %11 ], [ %13, %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i.i ]
   %.0.lcssa.i.i.i.i.i = phi ptr [ %.pre.i.i66, %11 ], [ %.1.i.i.i.i.i, %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i.i ]
-  %21 = getelementptr inbounds nuw %"struct.llvm::DataLayout::PointerSpec", ptr %.pre.i.i66, i64 %.pre-phi.i.i
+  %21 = getelementptr inbounds nuw [20 x i8], ptr %.pre.i.i66, i64 %.pre-phi.i.i
   %.not7.i.i = icmp eq ptr %.0.lcssa.i.i.i.i.i, %21
   br i1 %.not7.i.i, label %_ZNK4llvm10DataLayout20getPointerSizeInBitsEj.exit, label %22
 
@@ -5804,7 +5801,7 @@ _ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i.i: ; preds
   %.05.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i, %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i.i ], [ %.pre.i.i, %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.preheader.i.i.i.i.i ]
   %.0114.i.i.i.i.i = phi i64 [ %.112.i.i.i.i.i, %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i.i ], [ %6, %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.preheader.i.i.i.i.i ]
   %7 = lshr i64 %.0114.i.i.i.i.i, 1
-  %8 = getelementptr inbounds nuw %"struct.llvm::DataLayout::PointerSpec", ptr %.05.i.i.i.i.i, i64 %7
+  %8 = getelementptr inbounds nuw [20 x i8], ptr %.05.i.i.i.i.i, i64 %7
   %.val.i.i.i.i.i = load i32, ptr %8, align 4, !tbaa !30
   %9 = icmp ult i32 %.val.i.i.i.i.i, %2
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 20
@@ -5818,7 +5815,7 @@ _ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i.i: ; preds
 _ZN4llvm11lower_boundIRKNS_11SmallVectorINS_10DataLayout11PointerSpecELj8EEERjN12_GLOBAL__N_120LessPointerAddrSpaceEEEDaOT_OT0_T1_.exit.i.i: ; preds = %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i.i, %4
   %.pre-phi.i.i = phi i64 [ 0, %4 ], [ %6, %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i.i ]
   %.0.lcssa.i.i.i.i.i = phi ptr [ %.pre.i.i, %4 ], [ %.1.i.i.i.i.i, %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i.i ]
-  %14 = getelementptr inbounds nuw %"struct.llvm::DataLayout::PointerSpec", ptr %.pre.i.i, i64 %.pre-phi.i.i
+  %14 = getelementptr inbounds nuw [20 x i8], ptr %.pre.i.i, i64 %.pre-phi.i.i
   %.not7.i.i = icmp eq ptr %.0.lcssa.i.i.i.i.i, %14
   br i1 %.not7.i.i, label %_ZNK4llvm10DataLayout20getPointerSizeInBitsEj.exit, label %15
 
@@ -5877,7 +5874,7 @@ _ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i.i.i: ; pre
   %.05.i.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i.i, %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i.i.i ], [ %.pre.i.i.i, %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.preheader.i.i.i.i.i.i ]
   %.0114.i.i.i.i.i.i = phi i64 [ %.112.i.i.i.i.i.i, %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i.i.i ], [ %15, %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.preheader.i.i.i.i.i.i ]
   %16 = lshr i64 %.0114.i.i.i.i.i.i, 1
-  %17 = getelementptr inbounds nuw %"struct.llvm::DataLayout::PointerSpec", ptr %.05.i.i.i.i.i.i, i64 %16
+  %17 = getelementptr inbounds nuw [20 x i8], ptr %.05.i.i.i.i.i.i, i64 %16
   %.val.i.i.i.i.i.i = load i32, ptr %17, align 4, !tbaa !30
   %18 = icmp ult i32 %.val.i.i.i.i.i.i, %12
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 20
@@ -5891,7 +5888,7 @@ _ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i.i.i: ; pre
 _ZN4llvm11lower_boundIRKNS_11SmallVectorINS_10DataLayout11PointerSpecELj8EEERjN12_GLOBAL__N_120LessPointerAddrSpaceEEEDaOT_OT0_T1_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i.i.i, %13
   %.pre-phi.i.i.i = phi i64 [ 0, %13 ], [ %15, %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i.i.i ]
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %.pre.i.i.i, %13 ], [ %.1.i.i.i.i.i.i, %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i.i.i ]
-  %23 = getelementptr inbounds nuw %"struct.llvm::DataLayout::PointerSpec", ptr %.pre.i.i.i, i64 %.pre-phi.i.i.i
+  %23 = getelementptr inbounds nuw [20 x i8], ptr %.pre.i.i.i, i64 %.pre-phi.i.i.i
   %.not7.i.i.i = icmp eq ptr %.0.lcssa.i.i.i.i.i.i, %23
   br i1 %.not7.i.i.i, label %_ZNK4llvm10DataLayout24getPointerTypeSizeInBitsEPNS_4TypeE.exit, label %24
 
@@ -6024,7 +6021,7 @@ _ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i.i: ; preds
   %.05.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i, %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i.i ], [ %.pre.i.i, %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.preheader.i.i.i.i.i ]
   %.0114.i.i.i.i.i = phi i64 [ %.112.i.i.i.i.i, %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i.i ], [ %6, %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.preheader.i.i.i.i.i ]
   %7 = lshr i64 %.0114.i.i.i.i.i, 1
-  %8 = getelementptr inbounds nuw %"struct.llvm::DataLayout::PointerSpec", ptr %.05.i.i.i.i.i, i64 %7
+  %8 = getelementptr inbounds nuw [20 x i8], ptr %.05.i.i.i.i.i, i64 %7
   %.val.i.i.i.i.i = load i32, ptr %8, align 4, !tbaa !30
   %9 = icmp ult i32 %.val.i.i.i.i.i, %2
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 20
@@ -6038,7 +6035,7 @@ _ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i.i: ; preds
 _ZN4llvm11lower_boundIRKNS_11SmallVectorINS_10DataLayout11PointerSpecELj8EEERjN12_GLOBAL__N_120LessPointerAddrSpaceEEEDaOT_OT0_T1_.exit.i.i: ; preds = %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i.i, %4
   %.pre-phi.i.i = phi i64 [ 0, %4 ], [ %6, %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i.i ]
   %.0.lcssa.i.i.i.i.i = phi ptr [ %.pre.i.i, %4 ], [ %.1.i.i.i.i.i, %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i.i ]
-  %14 = getelementptr inbounds nuw %"struct.llvm::DataLayout::PointerSpec", ptr %.pre.i.i, i64 %.pre-phi.i.i
+  %14 = getelementptr inbounds nuw [20 x i8], ptr %.pre.i.i, i64 %.pre-phi.i.i
   %.not7.i.i = icmp eq ptr %.0.lcssa.i.i.i.i.i, %14
   br i1 %.not7.i.i, label %_ZNK4llvm10DataLayout18getIndexSizeInBitsEj.exit, label %15
 
@@ -6095,7 +6092,7 @@ _ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i.i.i: ; pre
   %.05.i.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i.i, %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i.i.i ], [ %.pre.i.i.i, %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.preheader.i.i.i.i.i.i ]
   %.0114.i.i.i.i.i.i = phi i64 [ %.112.i.i.i.i.i.i, %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i.i.i ], [ %15, %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.preheader.i.i.i.i.i.i ]
   %16 = lshr i64 %.0114.i.i.i.i.i.i, 1
-  %17 = getelementptr inbounds nuw %"struct.llvm::DataLayout::PointerSpec", ptr %.05.i.i.i.i.i.i, i64 %16
+  %17 = getelementptr inbounds nuw [20 x i8], ptr %.05.i.i.i.i.i.i, i64 %16
   %.val.i.i.i.i.i.i = load i32, ptr %17, align 4, !tbaa !30
   %18 = icmp ult i32 %.val.i.i.i.i.i.i, %12
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 20
@@ -6109,7 +6106,7 @@ _ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i.i.i: ; pre
 _ZN4llvm11lower_boundIRKNS_11SmallVectorINS_10DataLayout11PointerSpecELj8EEERjN12_GLOBAL__N_120LessPointerAddrSpaceEEEDaOT_OT0_T1_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i.i.i, %13
   %.pre-phi.i.i.i = phi i64 [ 0, %13 ], [ %15, %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i.i.i ]
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %.pre.i.i.i, %13 ], [ %.1.i.i.i.i.i.i, %_ZSt7advanceIPKN4llvm10DataLayout11PointerSpecElEvRT_T0_.exit.i.i.i.i.i.i ]
-  %23 = getelementptr inbounds nuw %"struct.llvm::DataLayout::PointerSpec", ptr %.pre.i.i.i, i64 %.pre-phi.i.i.i
+  %23 = getelementptr inbounds nuw [20 x i8], ptr %.pre.i.i.i, i64 %.pre-phi.i.i.i
   %.not7.i.i.i = icmp eq ptr %.0.lcssa.i.i.i.i.i.i, %23
   br i1 %.not7.i.i.i, label %_ZNK4llvm10DataLayout22getIndexTypeSizeInBitsEPNS_4TypeE.exit, label %24
 
@@ -6230,7 +6227,7 @@ _ZN4llvm11safe_mallocEm.exit.i:                   ; preds = %32
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %41 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   %42 = and i64 %.0.i.i, 4294967295
-  %43 = getelementptr inbounds nuw %"class.llvm::TypeSize", ptr %41, i64 %42
+  %43 = getelementptr inbounds nuw [16 x i8], ptr %41, i64 %42
   %.sroa.0.0.copyload.i = load i64, ptr %43, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %43, i64 8
   %.sroa.2.0.copyload.i = load i8, ptr %.sroa.2.0..sroa_idx.i, align 8
@@ -6527,7 +6524,7 @@ _ZSt7advanceIPKN4llvm8TypeSizeElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN
   %.05.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN4llvm8TypeSizeElEvRT_T0_.exit.i.i.i ], [ %64, %_ZSt7advanceIPKN4llvm8TypeSizeElEvRT_T0_.exit.i.i.preheader.i ]
   %.0114.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN4llvm8TypeSizeElEvRT_T0_.exit.i.i.i ], [ %68, %_ZSt7advanceIPKN4llvm8TypeSizeElEvRT_T0_.exit.i.i.preheader.i ]
   %69 = lshr i64 %.0114.i.i.i, 1
-  %70 = getelementptr inbounds nuw %"class.llvm::TypeSize", ptr %.05.i.i.i, i64 %69
+  %70 = getelementptr inbounds nuw [16 x i8], ptr %.05.i.i.i, i64 %69
   %.val14.i.i.i = load i64, ptr %70, align 8
   %71 = icmp ult i64 %.0.i42, %.val14.i.i.i
   %72 = getelementptr inbounds nuw i8, ptr %70, i64 16
@@ -6547,7 +6544,7 @@ _ZN4llvm5APIntD2Ev.exit49:                        ; preds = %_ZSt7advanceIPKN4ll
   %80 = lshr exact i64 %79, 4
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %81 = and i64 %80, 4294967295
-  %82 = getelementptr inbounds nuw %"class.llvm::TypeSize", ptr %64, i64 %81
+  %82 = getelementptr inbounds nuw [16 x i8], ptr %64, i64 %81
   %.sroa.0.0.copyload.i44 = load i64, ptr %82, align 8
   %.sroa.2.0..sroa_idx.i45 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %.sroa.2.0.copyload.i46 = load i8, ptr %.sroa.2.0..sroa_idx.i45, align 8
@@ -6559,7 +6556,7 @@ _ZN4llvm5APIntD2Ev.exit49:                        ; preds = %_ZSt7advanceIPKN4ll
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %85 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %86 = load ptr, ptr %85, align 8, !tbaa !19
-  %87 = getelementptr inbounds nuw ptr, ptr %86, i64 %81
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %86, i64 %81
   %88 = load ptr, ptr %87, align 8, !tbaa !20
   store ptr %88, ptr %2, align 8, !tbaa !20
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6699,7 +6696,7 @@ _ZN4llvm5APIntD2Ev.exit7:                         ; preds = %_ZN4llvm5APIntD2Ev.
   %60 = load ptr, ptr %3, align 8
   %61 = lshr i32 %55, 6
   %62 = zext nneg i32 %61 to i64
-  %63 = getelementptr inbounds nuw i64, ptr %60, i64 %62
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %62
   %.in.i.i.i = select i1 %59, ptr %3, ptr %63
   %64 = load i64, ptr %.in.i.i.i, align 8, !tbaa !23
   %65 = and i64 %58, %64
@@ -6753,7 +6750,7 @@ define dso_local void @_ZNK4llvm10DataLayout22getGEPIndicesForOffsetERPNS_4TypeE
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_5APIntELb0EE9push_backEOS1_.exit, label %25, !prof !242
 
 25:                                               ; preds = %4
-  %26 = getelementptr inbounds nuw %"class.llvm::APInt", ptr %.pre3.i, i64 %22
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %.pre3.i, i64 %22
   %27 = icmp uge ptr %5, %.pre3.i
   %28 = icmp ult ptr %5, %26
   %spec.select.i.i.i.i.i = and i1 %27, %28
@@ -6778,7 +6775,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_5APIntELb0EE9push_backEOS1_.exit: ; preds =
   %.016.i.i.i = phi ptr [ %5, %4 ], [ %34, %29 ], [ %5, %.critedge.i.i.i ]
   %36 = load i32, ptr %8, align 8, !tbaa !87
   %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds nuw %"class.llvm::APInt", ptr %35, i64 %37
+  %38 = getelementptr inbounds nuw [16 x i8], ptr %35, i64 %37
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 8
   %41 = load i32, ptr %40, align 8, !tbaa !321
@@ -6850,7 +6847,7 @@ _ZNSt14_Optional_baseIN4llvm5APIntELb0ELb0EED2Ev.exit.thread: ; preds = %_ZNK4ll
   br i1 %.not.i.i.not.i9, label %_ZN4llvm23SmallVectorTemplateBaseINS_5APIntELb0EE28reserveForParamAndGetAddressERKS1_m.exit.i, label %70, !prof !242
 
 70:                                               ; preds = %65
-  %71 = getelementptr inbounds nuw %"class.llvm::APInt", ptr %.pre3.i10, i64 %67
+  %71 = getelementptr inbounds nuw [16 x i8], ptr %.pre3.i10, i64 %67
   %72 = icmp uge ptr %6, %.pre3.i10
   %73 = icmp ult ptr %6, %71
   %spec.select.i.i.i.i.i11 = and i1 %72, %73
@@ -6874,7 +6871,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_5APIntELb0EE28reserveForParamAndGetAddressE
   %.016.i.i.i14 = phi ptr [ %6, %65 ], [ %78, %74 ], [ %6, %.critedge.i.i.i12 ]
   %80 = load i32, ptr %8, align 8, !tbaa !87
   %81 = zext i32 %80 to i64
-  %82 = getelementptr inbounds nuw %"class.llvm::APInt", ptr %79, i64 %81
+  %82 = getelementptr inbounds nuw [16 x i8], ptr %79, i64 %81
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %84 = getelementptr inbounds nuw i8, ptr %.016.i.i.i14, i64 8
   %85 = load i32, ptr %84, align 8, !tbaa !321
@@ -7024,7 +7021,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4l
   %15 = add i32 %6, -1
   %.02944.i = and i32 %14, %15
   %16 = zext nneg i32 %.02944.i to i64
-  %17 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %16
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !136
   %19 = icmp eq ptr %9, %18
   br i1 %19, label %.loopexit, label %.lr.ph.i, !prof !342
@@ -7052,7 +7049,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4l
   %29 = add i32 %.02746.i, %.02947.i
   %.029.i = and i32 %29, %15
   %30 = zext i32 %.029.i to i64
-  %31 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %30
+  %31 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !136
   %33 = icmp eq ptr %9, %32
   br i1 %33, label %.loopexit, label %.lr.ph.i, !prof !343, !llvm.loop !344
@@ -7139,7 +7136,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   %15 = add i32 %6, -1
   %.02944 = and i32 %14, %15
   %16 = zext nneg i32 %.02944 to i64
-  %17 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %16
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !136
   %19 = icmp eq ptr %9, %18
   br i1 %19, label %.thread, label %.lr.ph, !prof !342
@@ -7167,7 +7164,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   %29 = add i32 %.02947, %.02746
   %.029 = and i32 %29, %15
   %30 = zext i32 %.029 to i64
-  %31 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %30
+  %31 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !136
   %33 = icmp eq ptr %9, %32
   br i1 %33, label %.thread, label %.lr.ph, !prof !343, !llvm.loop !344
@@ -7275,7 +7272,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10StructTypeEPNS_12StructLayoutENS_12Den
   %46 = xor i32 %44, %45
   %.02944.i.i = and i32 %46, %38
   %47 = zext nneg i32 %.02944.i.i to i64
-  %48 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %21, i64 %47
+  %48 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %47
   %49 = load ptr, ptr %48, align 8, !tbaa !136
   %50 = icmp eq ptr %41, %49
   br i1 %50, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10StructTypeEPNS_12StructLayoutENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E15LookupBucketForIS3_EEbRKT_RPSA_.exit.i, label %.lr.ph.i15.i, !prof !342
@@ -7303,7 +7300,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10StructTypeEPNS_12StructLayoutENS_12Den
   %60 = add i32 %.02746.i.i, %.02947.i.i
   %.029.i.i = and i32 %60, %38
   %61 = zext i32 %.029.i.i to i64
-  %62 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %21, i64 %61
+  %62 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %61
   %63 = load ptr, ptr %62, align 8, !tbaa !136
   %64 = icmp eq ptr %41, %63
   br i1 %64, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10StructTypeEPNS_12StructLayoutENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E15LookupBucketForIS3_EEbRKT_RPSA_.exit.i, label %.lr.ph.i15.i, !prof !343, !llvm.loop !344
@@ -7385,7 +7382,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm15SmallVectorImplINS_10DataLayou
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8, !tbaa !87
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw %"struct.llvm::DataLayout::PointerSpec", ptr %4, i64 %7
+  %8 = getelementptr inbounds nuw [20 x i8], ptr %4, i64 %7
   %9 = icmp eq ptr %1, %8
   br i1 %9, label %10, label %35
 
@@ -7423,14 +7420,14 @@ _ZN4llvm23SmallVectorTemplateBaseINS_10DataLayout11PointerSpecELb1EE9push_backER
   %.016.i.i.i = phi ptr [ %2, %10 ], [ %23, %17 ], [ %2, %.critedge.i.i.i ]
   %26 = load i32, ptr %5, align 8, !tbaa !87
   %27 = zext i32 %26 to i64
-  %28 = getelementptr inbounds nuw %"struct.llvm::DataLayout::PointerSpec", ptr %25, i64 %27
+  %28 = getelementptr inbounds nuw [20 x i8], ptr %25, i64 %27
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %28, ptr noundef nonnull align 4 dereferenceable(20) %.016.i.i.i, i64 20, i1 false)
   %29 = load i32, ptr %5, align 8, !tbaa !87
   %30 = add i32 %29, 1
   store i32 %30, ptr %5, align 8, !tbaa !87
   %31 = load ptr, ptr %0, align 8, !tbaa !85
   %32 = zext i32 %30 to i64
-  %33 = getelementptr inbounds nuw %"struct.llvm::DataLayout::PointerSpec", ptr %31, i64 %32
+  %33 = getelementptr inbounds nuw [20 x i8], ptr %31, i64 %32
   %34 = getelementptr inbounds i8, ptr %33, i64 -20
   br label %75
 
@@ -7471,13 +7468,13 @@ _ZN4llvm23SmallVectorTemplateBaseINS_10DataLayout11PointerSpecELb1EE28reserveFor
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 %38
   %54 = load i32, ptr %5, align 8, !tbaa !87
   %55 = zext i32 %54 to i64
-  %56 = getelementptr inbounds nuw %"struct.llvm::DataLayout::PointerSpec", ptr %52, i64 %55
+  %56 = getelementptr inbounds nuw [20 x i8], ptr %52, i64 %55
   %57 = getelementptr inbounds i8, ptr %56, i64 -20
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %56, ptr noundef nonnull align 4 dereferenceable(20) %57, i64 20, i1 false), !tbaa.struct !349
   %58 = load ptr, ptr %0, align 8, !tbaa !85
   %59 = load i32, ptr %5, align 8, !tbaa !87
   %60 = zext i32 %59 to i64
-  %61 = getelementptr inbounds nuw %"struct.llvm::DataLayout::PointerSpec", ptr %58, i64 %60
+  %61 = getelementptr inbounds nuw [20 x i8], ptr %58, i64 %60
   %62 = getelementptr inbounds i8, ptr %61, i64 -20
   %.not.i.i.i.i.i = icmp eq ptr %62, %53
   br i1 %.not.i.i.i.i.i, label %_ZSt13move_backwardIPN4llvm10DataLayout11PointerSpecES3_ET0_T_S5_S4_.exit, label %63
@@ -7487,7 +7484,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_10DataLayout11PointerSpecELb1EE28reserveFor
   %65 = ptrtoint ptr %53 to i64
   %66 = sub i64 %64, %65
   %.neg.i.i.i.i.i = sdiv exact i64 %66, -20
-  %67 = getelementptr inbounds %"struct.llvm::DataLayout::PointerSpec", ptr %61, i64 %.neg.i.i.i.i.i
+  %67 = getelementptr inbounds [20 x i8], ptr %61, i64 %.neg.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %67, ptr nonnull align 4 %53, i64 %66, i1 false)
   %.pre15 = load i32, ptr %5, align 8, !tbaa !87
   %.pre16 = load ptr, ptr %0, align 8, !tbaa !85
@@ -7499,7 +7496,7 @@ _ZSt13move_backwardIPN4llvm10DataLayout11PointerSpecES3_ET0_T_S5_S4_.exit: ; pre
   %70 = add i32 %69, 1
   store i32 %70, ptr %5, align 8, !tbaa !87
   %71 = zext i32 %70 to i64
-  %72 = getelementptr inbounds nuw %"struct.llvm::DataLayout::PointerSpec", ptr %68, i64 %71
+  %72 = getelementptr inbounds nuw [20 x i8], ptr %68, i64 %71
   %73 = icmp uge ptr %.016.i.i, %53
   %74 = icmp ult ptr %.016.i.i, %72
   %spec.select.i = and i1 %73, %74

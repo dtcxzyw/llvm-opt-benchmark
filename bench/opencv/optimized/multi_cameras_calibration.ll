@@ -131,7 +131,7 @@ define hidden noundef range(i32 -1, 2) i32 @main(i32 noundef %0, ptr noundef rea
   %.064161 = phi i32 [ %133, %132 ], [ 1, %2 ]
   %.069160 = phi ptr [ %.271.ph, %132 ], [ null, %2 ]
   %26 = sext i32 %.064161 to i64
-  %27 = getelementptr inbounds ptr, ptr %1, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %1, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !10
   %29 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %28, ptr noundef nonnull dereferenceable(4) @.str.2) #14
   %30 = icmp eq i32 %29, 0
@@ -140,7 +140,7 @@ define hidden noundef range(i32 -1, 2) i32 @main(i32 noundef %0, ptr noundef rea
 31:                                               ; preds = %.preheader
   %32 = add nsw i32 %.064161, 1
   %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds ptr, ptr %1, i64 %33
+  %34 = getelementptr inbounds [8 x i8], ptr %1, i64 %33
   %35 = load ptr, ptr %34, align 8, !tbaa !10
   %36 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %35, ptr noundef nonnull @.str.3, ptr noundef nonnull %7) #15
   %37 = icmp ne i32 %36, 1
@@ -162,7 +162,7 @@ define hidden noundef range(i32 -1, 2) i32 @main(i32 noundef %0, ptr noundef rea
 46:                                               ; preds = %43
   %47 = add nsw i32 %.064161, 1
   %48 = sext i32 %47 to i64
-  %49 = getelementptr inbounds ptr, ptr %1, i64 %48
+  %49 = getelementptr inbounds [8 x i8], ptr %1, i64 %48
   %50 = load ptr, ptr %49, align 8, !tbaa !10
   %51 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %50, ptr noundef nonnull @.str.6, ptr noundef nonnull %5) #15
   %52 = icmp ne i32 %51, 1
@@ -184,7 +184,7 @@ define hidden noundef range(i32 -1, 2) i32 @main(i32 noundef %0, ptr noundef rea
 61:                                               ; preds = %58
   %62 = add nsw i32 %.064161, 1
   %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds ptr, ptr %1, i64 %63
+  %64 = getelementptr inbounds [8 x i8], ptr %1, i64 %63
   %65 = load ptr, ptr %64, align 8, !tbaa !10
   %66 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %65, ptr noundef nonnull @.str.6, ptr noundef nonnull %6) #15
   %67 = icmp ne i32 %66, 1
@@ -206,7 +206,7 @@ define hidden noundef range(i32 -1, 2) i32 @main(i32 noundef %0, ptr noundef rea
 76:                                               ; preds = %73
   %77 = add nsw i32 %.064161, 1
   %78 = sext i32 %77 to i64
-  %79 = getelementptr inbounds ptr, ptr %1, i64 %78
+  %79 = getelementptr inbounds [8 x i8], ptr %1, i64 %78
   %80 = load ptr, ptr %79, align 8, !tbaa !10
   %81 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %80, ptr noundef nonnull @.str.3, ptr noundef nonnull %9) #15
   %.not76 = icmp ne i32 %81, 1
@@ -228,7 +228,7 @@ define hidden noundef range(i32 -1, 2) i32 @main(i32 noundef %0, ptr noundef rea
 89:                                               ; preds = %86
   %90 = add nsw i32 %.064161, 1
   %91 = sext i32 %90 to i64
-  %92 = getelementptr inbounds ptr, ptr %1, i64 %91
+  %92 = getelementptr inbounds [8 x i8], ptr %1, i64 %91
   %93 = load ptr, ptr %92, align 8, !tbaa !10
   %94 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %93, ptr noundef nonnull @.str.3, ptr noundef nonnull %10) #15
   %.not75 = icmp ne i32 %94, 1
@@ -250,7 +250,7 @@ define hidden noundef range(i32 -1, 2) i32 @main(i32 noundef %0, ptr noundef rea
 102:                                              ; preds = %99
   %103 = add nsw i32 %.064161, 1
   %104 = sext i32 %103 to i64
-  %105 = getelementptr inbounds ptr, ptr %1, i64 %104
+  %105 = getelementptr inbounds [8 x i8], ptr %1, i64 %104
   %106 = load ptr, ptr %105, align 8, !tbaa !10
   %107 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %106, ptr noundef nonnull @.str.3, ptr noundef nonnull %8) #15
   %108 = icmp ne i32 %107, 1
@@ -284,7 +284,7 @@ sub_1:                                            ; preds = %sub_0
 120:                                              ; preds = %.tail
   %121 = add nsw i32 %.064161, 1
   %122 = sext i32 %121 to i64
-  %123 = getelementptr inbounds ptr, ptr %1, i64 %122
+  %123 = getelementptr inbounds [8 x i8], ptr %1, i64 %122
   %124 = load ptr, ptr %123, align 8, !tbaa !10
   %125 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %124, ptr noundef nonnull @.str.3, ptr noundef nonnull %11) #15
   %.not74 = icmp ne i32 %125, 1

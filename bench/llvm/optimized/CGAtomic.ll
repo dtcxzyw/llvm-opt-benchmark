@@ -72,10 +72,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::DenseMap.1035" = type <{ ptr, i32, i32, i32, [4 x i8] }>
 %"class.llvm::InsertPosition" = type { %"class.llvm::ilist_iterator_w_bits" }
 %"class.llvm::ilist_iterator_w_bits" = type <{ ptr, i8, i8, [6 x i8] }>
-%"class.llvm::Use" = type { ptr, ptr, ptr, ptr }
 %"struct.std::pair.941" = type { %"class.clang::CodeGen::RValue", ptr }
-%"struct.llvm::detail::DenseMapPair" = type { %"struct.std::pair.1081" }
-%"struct.std::pair.1081" = type { i32, ptr }
 
 $_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE = comdat any
 
@@ -548,7 +545,7 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i:      ; preds = %175
   %189 = add i32 %171, -1
   store i32 %189, ptr %170, align 8, !tbaa !680
   %190 = zext i32 %189 to i64
-  %191 = getelementptr inbounds nuw ptr, ptr %188, i64 %190
+  %191 = getelementptr inbounds nuw [8 x i8], ptr %188, i64 %190
   %192 = load ptr, ptr %191, align 8, !tbaa !699
   store i8 0, ptr %192, align 8, !tbaa !682
   %193 = getelementptr inbounds nuw i8, ptr %192, i64 424
@@ -607,7 +604,7 @@ _ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentK
   %215 = add i8 %214, 1
   store i8 %215, ptr %212, align 8, !tbaa !682
   %216 = zext i8 %214 to i64
-  %217 = getelementptr inbounds nuw i64, ptr %213, i64 %216
+  %217 = getelementptr inbounds nuw [8 x i8], ptr %213, i64 %216
   store i64 %165, ptr %217, align 8, !tbaa !623
   %.sroa.0.0.copyload.i175 = load i64, ptr %155, align 8, !tbaa !623
   %sext982 = shl i64 %.sroa.0.0.copyload.i175, 32
@@ -622,7 +619,7 @@ _ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentK
   %225 = add i8 %224, 1
   store i8 %225, ptr %222, align 8, !tbaa !682
   %226 = zext i8 %224 to i64
-  %227 = getelementptr inbounds nuw i64, ptr %223, i64 %226
+  %227 = getelementptr inbounds nuw [8 x i8], ptr %223, i64 %226
   store i64 %218, ptr %227, align 8, !tbaa !623
   %228 = getelementptr inbounds nuw i8, ptr %35, i64 64
   %229 = load i8, ptr %228, align 8, !tbaa !703, !range !705, !noundef !706
@@ -735,7 +732,7 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i611:   ; preds = %263
   %277 = add i32 %259, -1
   store i32 %277, ptr %258, align 8, !tbaa !680
   %278 = zext i32 %277 to i64
-  %279 = getelementptr inbounds nuw ptr, ptr %276, i64 %278
+  %279 = getelementptr inbounds nuw [8 x i8], ptr %276, i64 %278
   %280 = load ptr, ptr %279, align 8, !tbaa !699
   store i8 0, ptr %280, align 8, !tbaa !682
   %281 = getelementptr inbounds nuw i8, ptr %280, i64 424
@@ -794,7 +791,7 @@ _ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentK
   %303 = add i8 %302, 1
   store i8 %303, ptr %300, align 8, !tbaa !682
   %304 = zext i8 %302 to i64
-  %305 = getelementptr inbounds nuw i64, ptr %301, i64 %304
+  %305 = getelementptr inbounds nuw [8 x i8], ptr %301, i64 %304
   store i64 %253, ptr %305, align 8, !tbaa !623
   %sext984 = shl i64 %151, 32
   %306 = ashr exact i64 %sext984, 32
@@ -808,7 +805,7 @@ _ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentK
   %313 = add i8 %312, 1
   store i8 %313, ptr %310, align 8, !tbaa !682
   %314 = zext i8 %312 to i64
-  %315 = getelementptr inbounds nuw i64, ptr %311, i64 %314
+  %315 = getelementptr inbounds nuw [8 x i8], ptr %311, i64 %314
   store i64 %306, ptr %315, align 8, !tbaa !623
   %316 = getelementptr inbounds nuw i8, ptr %36, i64 64
   %317 = load i8, ptr %316, align 8, !tbaa !703, !range !705, !noundef !706
@@ -888,7 +885,7 @@ _ZNKSt14default_deleteIN5clang16AtomicScopeModelEEclEPS1_.exit.i: ; preds = %337
   %350 = load i32, ptr %349, align 8, !tbaa !717
   %351 = add i32 %350, -1
   %352 = zext i32 %351 to i64
-  %353 = getelementptr inbounds nuw ptr, ptr %73, i64 %352
+  %353 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %352
   %354 = load ptr, ptr %353, align 8, !tbaa !3
   %355 = call noundef ptr @_ZN5clang7CodeGen15CodeGenFunction14EmitScalarExprEPKNS_4ExprEb(ptr noundef nonnull align 8 dereferenceable(6496) %1, ptr noundef %354, i1 noundef zeroext false) #15
   %356 = load ptr, ptr %348, align 8, !tbaa !715
@@ -1571,7 +1568,7 @@ _ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.
   br i1 %.not.i.i.not.i.i, label %_ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit, label %574, !prof !765
 
 574:                                              ; preds = %547
-  %575 = getelementptr inbounds nuw %"struct.clang::CodeGen::CallArg", ptr %.pre3.i.i, i64 %571
+  %575 = getelementptr inbounds nuw [152 x i8], ptr %.pre3.i.i, i64 %571
   %576 = icmp uge ptr %20, %.pre3.i.i
   %577 = icmp ult ptr %20, %575
   %spec.select.i.i.i.i.i.i = and i1 %576, %577
@@ -1596,7 +1593,7 @@ _ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit: ; preds = %54
   %.016.i.i.i.i = phi ptr [ %20, %547 ], [ %583, %578 ], [ %20, %.critedge.i.i.i.i ]
   %585 = load i32, ptr %549, align 8, !tbaa !697
   %586 = zext i32 %585 to i64
-  %587 = getelementptr inbounds nuw %"struct.clang::CodeGen::CallArg", ptr %584, i64 %586
+  %587 = getelementptr inbounds nuw [152 x i8], ptr %584, i64 %586
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(152) %587, ptr noundef nonnull align 8 dereferenceable(152) %.016.i.i.i.i, i64 152, i1 false)
   %588 = load i32, ptr %549, align 8, !tbaa !697
   %589 = add i32 %588, 1
@@ -1709,7 +1706,7 @@ _ZNK5clang8QualType15getAddressSpaceEv.exit.thread.i: ; preds = %_ZNK5clang8Qual
   br i1 %.not.i.i.not.i.i284, label %_ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit290, label %645, !prof !765
 
 645:                                              ; preds = %"_ZZN5clang7CodeGen15CodeGenFunction14EmitAtomicExprEPNS_10AtomicExprEENK3$_0clEPN4llvm5ValueENS_8QualTypeE.exit"
-  %646 = getelementptr inbounds nuw %"struct.clang::CodeGen::CallArg", ptr %.pre3.i.i285, i64 %642
+  %646 = getelementptr inbounds nuw [152 x i8], ptr %.pre3.i.i285, i64 %642
   %647 = icmp uge ptr %19, %.pre3.i.i285
   %648 = icmp ult ptr %19, %646
   %spec.select.i.i.i.i.i.i286 = and i1 %647, %648
@@ -1734,7 +1731,7 @@ _ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit290: ; preds = 
   %.016.i.i.i.i289 = phi ptr [ %19, %"_ZZN5clang7CodeGen15CodeGenFunction14EmitAtomicExprEPNS_10AtomicExprEENK3$_0clEPN4llvm5ValueENS_8QualTypeE.exit" ], [ %654, %649 ], [ %19, %.critedge.i.i.i.i287 ]
   %656 = load i32, ptr %549, align 8, !tbaa !697
   %657 = zext i32 %656 to i64
-  %658 = getelementptr inbounds nuw %"struct.clang::CodeGen::CallArg", ptr %655, i64 %657
+  %658 = getelementptr inbounds nuw [152 x i8], ptr %655, i64 %657
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(152) %658, ptr noundef nonnull align 8 dereferenceable(152) %.016.i.i.i.i289, i64 152, i1 false)
   %659 = load i32, ptr %549, align 8, !tbaa !697
   %660 = add i32 %659, 1
@@ -1897,7 +1894,7 @@ _ZNK5clang8QualType15getAddressSpaceEv.exit.thread.i311: ; preds = %_ZNK5clang8Q
   br i1 %.not.i.i.not.i.i315, label %_ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit321, label %726, !prof !765
 
 726:                                              ; preds = %"_ZZN5clang7CodeGen15CodeGenFunction14EmitAtomicExprEPNS_10AtomicExprEENK3$_0clEPN4llvm5ValueENS_8QualTypeE.exit313"
-  %727 = getelementptr inbounds nuw %"struct.clang::CodeGen::CallArg", ptr %.pre3.i.i316, i64 %723
+  %727 = getelementptr inbounds nuw [152 x i8], ptr %.pre3.i.i316, i64 %723
   %728 = icmp uge ptr %18, %.pre3.i.i316
   %729 = icmp ult ptr %18, %727
   %spec.select.i.i.i.i.i.i317 = and i1 %728, %729
@@ -1922,7 +1919,7 @@ _ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit321: ; preds = 
   %.016.i.i.i.i320 = phi ptr [ %18, %"_ZZN5clang7CodeGen15CodeGenFunction14EmitAtomicExprEPNS_10AtomicExprEENK3$_0clEPN4llvm5ValueENS_8QualTypeE.exit313" ], [ %735, %730 ], [ %18, %.critedge.i.i.i.i318 ]
   %737 = load i32, ptr %549, align 8, !tbaa !697
   %738 = zext i32 %737 to i64
-  %739 = getelementptr inbounds nuw %"struct.clang::CodeGen::CallArg", ptr %736, i64 %738
+  %739 = getelementptr inbounds nuw [152 x i8], ptr %736, i64 %738
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(152) %739, ptr noundef nonnull align 8 dereferenceable(152) %.016.i.i.i.i320, i64 152, i1 false)
   %740 = load i32, ptr %549, align 8, !tbaa !697
   %741 = add i32 %740, 1
@@ -2035,7 +2032,7 @@ _ZNK5clang8QualType15getAddressSpaceEv.exit.thread.i340: ; preds = %_ZNK5clang8Q
   br i1 %.not.i.i.not.i.i344, label %_ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit350, label %797, !prof !765
 
 797:                                              ; preds = %"_ZZN5clang7CodeGen15CodeGenFunction14EmitAtomicExprEPNS_10AtomicExprEENK3$_0clEPN4llvm5ValueENS_8QualTypeE.exit342"
-  %798 = getelementptr inbounds nuw %"struct.clang::CodeGen::CallArg", ptr %.pre3.i.i345, i64 %794
+  %798 = getelementptr inbounds nuw [152 x i8], ptr %.pre3.i.i345, i64 %794
   %799 = icmp uge ptr %17, %.pre3.i.i345
   %800 = icmp ult ptr %17, %798
   %spec.select.i.i.i.i.i.i346 = and i1 %799, %800
@@ -2060,7 +2057,7 @@ _ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit350: ; preds = 
   %.016.i.i.i.i349 = phi ptr [ %17, %"_ZZN5clang7CodeGen15CodeGenFunction14EmitAtomicExprEPNS_10AtomicExprEENK3$_0clEPN4llvm5ValueENS_8QualTypeE.exit342" ], [ %806, %801 ], [ %17, %.critedge.i.i.i.i347 ]
   %808 = load i32, ptr %549, align 8, !tbaa !697
   %809 = zext i32 %808 to i64
-  %810 = getelementptr inbounds nuw %"struct.clang::CodeGen::CallArg", ptr %807, i64 %809
+  %810 = getelementptr inbounds nuw [152 x i8], ptr %807, i64 %809
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(152) %810, ptr noundef nonnull align 8 dereferenceable(152) %.016.i.i.i.i349, i64 152, i1 false)
   %811 = load i32, ptr %549, align 8, !tbaa !697
   %812 = add i32 %811, 1
@@ -2091,7 +2088,7 @@ _ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit350: ; preds = 
   br i1 %.not.i.i.not.i.i352, label %_ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit358, label %823, !prof !765
 
 823:                                              ; preds = %_ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit350
-  %824 = getelementptr inbounds nuw %"struct.clang::CodeGen::CallArg", ptr %.pre3.i.i353, i64 %820
+  %824 = getelementptr inbounds nuw [152 x i8], ptr %.pre3.i.i353, i64 %820
   %825 = icmp uge ptr %16, %.pre3.i.i353
   %826 = icmp ult ptr %16, %824
   %spec.select.i.i.i.i.i.i354 = and i1 %825, %826
@@ -2116,7 +2113,7 @@ _ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit358: ; preds = 
   %.016.i.i.i.i357 = phi ptr [ %16, %_ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit350 ], [ %832, %827 ], [ %16, %.critedge.i.i.i.i355 ]
   %834 = load i32, ptr %549, align 8, !tbaa !697
   %835 = zext i32 %834 to i64
-  %836 = getelementptr inbounds nuw %"struct.clang::CodeGen::CallArg", ptr %833, i64 %835
+  %836 = getelementptr inbounds nuw [152 x i8], ptr %833, i64 %835
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(152) %836, ptr noundef nonnull align 8 dereferenceable(152) %.016.i.i.i.i357, i64 152, i1 false)
   %837 = load i32, ptr %549, align 8, !tbaa !697
   %838 = add i32 %837, 1
@@ -2235,7 +2232,7 @@ _ZNK5clang8QualType15getAddressSpaceEv.exit.thread.i378: ; preds = %_ZNK5clang8Q
   br i1 %.not.i.i.not.i.i382, label %_ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit388, label %897, !prof !765
 
 897:                                              ; preds = %"_ZZN5clang7CodeGen15CodeGenFunction14EmitAtomicExprEPNS_10AtomicExprEENK3$_0clEPN4llvm5ValueENS_8QualTypeE.exit380"
-  %898 = getelementptr inbounds nuw %"struct.clang::CodeGen::CallArg", ptr %.pre3.i.i383, i64 %894
+  %898 = getelementptr inbounds nuw [152 x i8], ptr %.pre3.i.i383, i64 %894
   %899 = icmp uge ptr %15, %.pre3.i.i383
   %900 = icmp ult ptr %15, %898
   %spec.select.i.i.i.i.i.i384 = and i1 %899, %900
@@ -2260,7 +2257,7 @@ _ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit388: ; preds = 
   %.016.i.i.i.i387 = phi ptr [ %15, %"_ZZN5clang7CodeGen15CodeGenFunction14EmitAtomicExprEPNS_10AtomicExprEENK3$_0clEPN4llvm5ValueENS_8QualTypeE.exit380" ], [ %906, %901 ], [ %15, %.critedge.i.i.i.i385 ]
   %908 = load i32, ptr %549, align 8, !tbaa !697
   %909 = zext i32 %908 to i64
-  %910 = getelementptr inbounds nuw %"struct.clang::CodeGen::CallArg", ptr %907, i64 %909
+  %910 = getelementptr inbounds nuw [152 x i8], ptr %907, i64 %909
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(152) %910, ptr noundef nonnull align 8 dereferenceable(152) %.016.i.i.i.i387, i64 152, i1 false)
   %911 = load i32, ptr %549, align 8, !tbaa !697
   %912 = add i32 %911, 1
@@ -2384,7 +2381,7 @@ _ZNK5clang8QualType15getAddressSpaceEv.exit.thread.i409: ; preds = %_ZNK5clang8Q
   br i1 %.not.i.i.not.i.i413, label %_ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit419, label %975, !prof !765
 
 975:                                              ; preds = %"_ZZN5clang7CodeGen15CodeGenFunction14EmitAtomicExprEPNS_10AtomicExprEENK3$_0clEPN4llvm5ValueENS_8QualTypeE.exit411"
-  %976 = getelementptr inbounds nuw %"struct.clang::CodeGen::CallArg", ptr %.pre3.i.i414, i64 %972
+  %976 = getelementptr inbounds nuw [152 x i8], ptr %.pre3.i.i414, i64 %972
   %977 = icmp uge ptr %14, %.pre3.i.i414
   %978 = icmp ult ptr %14, %976
   %spec.select.i.i.i.i.i.i415 = and i1 %977, %978
@@ -2409,7 +2406,7 @@ _ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit419: ; preds = 
   %.016.i.i.i.i418 = phi ptr [ %14, %"_ZZN5clang7CodeGen15CodeGenFunction14EmitAtomicExprEPNS_10AtomicExprEENK3$_0clEPN4llvm5ValueENS_8QualTypeE.exit411" ], [ %984, %979 ], [ %14, %.critedge.i.i.i.i416 ]
   %986 = load i32, ptr %549, align 8, !tbaa !697
   %987 = zext i32 %986 to i64
-  %988 = getelementptr inbounds nuw %"struct.clang::CodeGen::CallArg", ptr %985, i64 %987
+  %988 = getelementptr inbounds nuw [152 x i8], ptr %985, i64 %987
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(152) %988, ptr noundef nonnull align 8 dereferenceable(152) %.016.i.i.i.i418, i64 152, i1 false)
   %989 = load i32, ptr %549, align 8, !tbaa !697
   %990 = add i32 %989, 1
@@ -2851,7 +2848,7 @@ _ZNK5clang8QualType15getAddressSpaceEv.exit.thread.i445: ; preds = %_ZNK5clang8Q
   br i1 %.not.i.i.not.i.i449, label %_ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit455, label %1174, !prof !765
 
 1174:                                             ; preds = %"_ZZN5clang7CodeGen15CodeGenFunction14EmitAtomicExprEPNS_10AtomicExprEENK3$_0clEPN4llvm5ValueENS_8QualTypeE.exit447"
-  %1175 = getelementptr inbounds nuw %"struct.clang::CodeGen::CallArg", ptr %.pre3.i.i450, i64 %1171
+  %1175 = getelementptr inbounds nuw [152 x i8], ptr %.pre3.i.i450, i64 %1171
   %1176 = icmp uge ptr %12, %.pre3.i.i450
   %1177 = icmp ult ptr %12, %1175
   %spec.select.i.i.i.i.i.i451 = and i1 %1176, %1177
@@ -2876,7 +2873,7 @@ _ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit455: ; preds = 
   %.016.i.i.i.i454 = phi ptr [ %12, %"_ZZN5clang7CodeGen15CodeGenFunction14EmitAtomicExprEPNS_10AtomicExprEENK3$_0clEPN4llvm5ValueENS_8QualTypeE.exit447" ], [ %1183, %1178 ], [ %12, %.critedge.i.i.i.i452 ]
   %1185 = load i32, ptr %549, align 8, !tbaa !697
   %1186 = zext i32 %1185 to i64
-  %1187 = getelementptr inbounds nuw %"struct.clang::CodeGen::CallArg", ptr %1184, i64 %1186
+  %1187 = getelementptr inbounds nuw [152 x i8], ptr %1184, i64 %1186
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(152) %1187, ptr noundef nonnull align 8 dereferenceable(152) %.016.i.i.i.i454, i64 152, i1 false)
   %1188 = load i32, ptr %549, align 8, !tbaa !697
   %1189 = add i32 %1188, 1
@@ -2912,7 +2909,7 @@ _ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit455: ; preds = 
   br i1 %.not.i.i.not.i.i457, label %_ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit463, label %1202, !prof !765
 
 1202:                                             ; preds = %1190
-  %1203 = getelementptr inbounds nuw %"struct.clang::CodeGen::CallArg", ptr %.pre3.i.i458, i64 %1199
+  %1203 = getelementptr inbounds nuw [152 x i8], ptr %.pre3.i.i458, i64 %1199
   %1204 = icmp uge ptr %11, %.pre3.i.i458
   %1205 = icmp ult ptr %11, %1203
   %spec.select.i.i.i.i.i.i459 = and i1 %1204, %1205
@@ -2937,7 +2934,7 @@ _ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit463: ; preds = 
   %.016.i.i.i.i462 = phi ptr [ %11, %1190 ], [ %1211, %1206 ], [ %11, %.critedge.i.i.i.i460 ]
   %1213 = load i32, ptr %549, align 8, !tbaa !697
   %1214 = zext i32 %1213 to i64
-  %1215 = getelementptr inbounds nuw %"struct.clang::CodeGen::CallArg", ptr %1212, i64 %1214
+  %1215 = getelementptr inbounds nuw [152 x i8], ptr %1212, i64 %1214
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(152) %1215, ptr noundef nonnull align 8 dereferenceable(152) %.016.i.i.i.i462, i64 152, i1 false)
   %1216 = load i32, ptr %549, align 8, !tbaa !697
   %1217 = add i32 %1216, 1
@@ -2974,7 +2971,7 @@ _ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit463: ; preds = 
   br i1 %.not.i.i.not.i.i466, label %_ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit472, label %1231, !prof !765
 
 1231:                                             ; preds = %1220
-  %1232 = getelementptr inbounds nuw %"struct.clang::CodeGen::CallArg", ptr %.pre3.i.i467, i64 %1228
+  %1232 = getelementptr inbounds nuw [152 x i8], ptr %.pre3.i.i467, i64 %1228
   %1233 = icmp uge ptr %10, %.pre3.i.i467
   %1234 = icmp ult ptr %10, %1232
   %spec.select.i.i.i.i.i.i468 = and i1 %1233, %1234
@@ -2999,7 +2996,7 @@ _ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit472: ; preds = 
   %.016.i.i.i.i471 = phi ptr [ %10, %1220 ], [ %1240, %1235 ], [ %10, %.critedge.i.i.i.i469 ]
   %1242 = load i32, ptr %549, align 8, !tbaa !697
   %1243 = zext i32 %1242 to i64
-  %1244 = getelementptr inbounds nuw %"struct.clang::CodeGen::CallArg", ptr %1241, i64 %1243
+  %1244 = getelementptr inbounds nuw [152 x i8], ptr %1241, i64 %1243
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(152) %1244, ptr noundef nonnull align 8 dereferenceable(152) %.016.i.i.i.i471, i64 152, i1 false)
   %1245 = load i32, ptr %549, align 8, !tbaa !697
   %1246 = add i32 %1245, 1
@@ -5028,10 +5025,10 @@ switch.lookup:                                    ; preds = %.lr.ph, %switch.loo
   %134 = load ptr, ptr %133, align 8
   %135 = call noundef i32 %134(ptr noundef nonnull align 8 dereferenceable(8) %48, i32 noundef %131) #15
   %136 = zext nneg i32 %135 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZL12EmitAtomicOpRN5clang7CodeGen15CodeGenFunctionEPNS_10AtomicExprENS0_7AddressES5_S5_S5_PN4llvm5ValueES8_mNS6_14AtomicOrderingES8_, i64 %136
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZL12EmitAtomicOpRN5clang7CodeGen15CodeGenFunctionEPNS_10AtomicExprENS0_7AddressES5_S5_S5_PN4llvm5ValueES8_mNS6_14AtomicOrderingES8_, i64 %136
   %switch.load = load i64, ptr %switch.gep, align 8
   %137 = zext nneg i32 %135 to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @switch.table._ZL12EmitAtomicOpRN5clang7CodeGen15CodeGenFunctionEPNS_10AtomicExprENS0_7AddressES5_S5_S5_PN4llvm5ValueES8_mNS6_14AtomicOrderingES8_.18, i64 %137
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZL12EmitAtomicOpRN5clang7CodeGen15CodeGenFunctionEPNS_10AtomicExprENS0_7AddressES5_S5_S5_PN4llvm5ValueES8_mNS6_14AtomicOrderingES8_.18, i64 %137
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   store i8 5, ptr %81, align 8, !tbaa !724
   store i8 1, ptr %82, align 1, !tbaa !721
@@ -5617,7 +5614,7 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction15EmitAtomicStoreENS0_6
   br i1 %.not.i.i.not.i.i, label %_ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit, label %76, !prof !765
 
 76:                                               ; preds = %39
-  %77 = getelementptr inbounds nuw %"struct.clang::CodeGen::CallArg", ptr %.pre3.i.i, i64 %73
+  %77 = getelementptr inbounds nuw [152 x i8], ptr %.pre3.i.i, i64 %73
   %78 = icmp uge ptr %26, %.pre3.i.i
   %79 = icmp ult ptr %26, %77
   %spec.select.i.i.i.i.i.i = and i1 %78, %79
@@ -5642,7 +5639,7 @@ _ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit: ; preds = %39
   %.016.i.i.i.i = phi ptr [ %26, %39 ], [ %85, %80 ], [ %26, %.critedge.i.i.i.i ]
   %87 = load i32, ptr %41, align 8, !tbaa !697
   %88 = zext i32 %87 to i64
-  %89 = getelementptr inbounds nuw %"struct.clang::CodeGen::CallArg", ptr %86, i64 %88
+  %89 = getelementptr inbounds nuw [152 x i8], ptr %86, i64 %88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(152) %89, ptr noundef nonnull align 8 dereferenceable(152) %.016.i.i.i.i, i64 152, i1 false)
   %90 = load i32, ptr %41, align 8, !tbaa !697
   %91 = add i32 %90, 1
@@ -5675,7 +5672,7 @@ _ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit: ; preds = %39
   br i1 %.not.i.i.not.i.i30, label %_ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit36, label %104, !prof !765
 
 104:                                              ; preds = %_ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit
-  %105 = getelementptr inbounds nuw %"struct.clang::CodeGen::CallArg", ptr %.pre3.i.i31, i64 %101
+  %105 = getelementptr inbounds nuw [152 x i8], ptr %.pre3.i.i31, i64 %101
   %106 = icmp uge ptr %25, %.pre3.i.i31
   %107 = icmp ult ptr %25, %105
   %spec.select.i.i.i.i.i.i32 = and i1 %106, %107
@@ -5700,7 +5697,7 @@ _ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit36: ; preds = %
   %.016.i.i.i.i35 = phi ptr [ %25, %_ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit ], [ %113, %108 ], [ %25, %.critedge.i.i.i.i33 ]
   %115 = load i32, ptr %41, align 8, !tbaa !697
   %116 = zext i32 %115 to i64
-  %117 = getelementptr inbounds nuw %"struct.clang::CodeGen::CallArg", ptr %114, i64 %116
+  %117 = getelementptr inbounds nuw [152 x i8], ptr %114, i64 %116
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(152) %117, ptr noundef nonnull align 8 dereferenceable(152) %.016.i.i.i.i35, i64 152, i1 false)
   %118 = load i32, ptr %41, align 8, !tbaa !697
   %119 = add i32 %118, 1
@@ -5751,7 +5748,7 @@ _ZNK5clang7CodeGen7Address14emitRawPointerERNS0_15CodeGenFunctionE.exit: ; preds
   br i1 %.not.i.i.not.i.i38, label %_ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit44, label %139, !prof !765
 
 139:                                              ; preds = %_ZNK5clang7CodeGen7Address14emitRawPointerERNS0_15CodeGenFunctionE.exit
-  %140 = getelementptr inbounds nuw %"struct.clang::CodeGen::CallArg", ptr %.pre3.i.i39, i64 %136
+  %140 = getelementptr inbounds nuw [152 x i8], ptr %.pre3.i.i39, i64 %136
   %141 = icmp uge ptr %24, %.pre3.i.i39
   %142 = icmp ult ptr %24, %140
   %spec.select.i.i.i.i.i.i40 = and i1 %141, %142
@@ -5776,7 +5773,7 @@ _ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit44: ; preds = %
   %.016.i.i.i.i43 = phi ptr [ %24, %_ZNK5clang7CodeGen7Address14emitRawPointerERNS0_15CodeGenFunctionE.exit ], [ %148, %143 ], [ %24, %.critedge.i.i.i.i41 ]
   %150 = load i32, ptr %41, align 8, !tbaa !697
   %151 = zext i32 %150 to i64
-  %152 = getelementptr inbounds nuw %"struct.clang::CodeGen::CallArg", ptr %149, i64 %151
+  %152 = getelementptr inbounds nuw [152 x i8], ptr %149, i64 %151
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(152) %152, ptr noundef nonnull align 8 dereferenceable(152) %.016.i.i.i.i43, i64 152, i1 false)
   %153 = load i32, ptr %41, align 8, !tbaa !697
   %154 = add i32 %153, 1
@@ -5785,7 +5782,7 @@ _ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit44: ; preds = %
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %156 = load ptr, ptr %155, align 8, !tbaa !1227
   %157 = zext i32 %3 to i64
-  %158 = getelementptr inbounds nuw i32, ptr @_ZZN4llvm6toCABIENS_14AtomicOrderingEE6lookup, i64 %157
+  %158 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN4llvm6toCABIENS_14AtomicOrderingEE6lookup, i64 %157
   %159 = load i32, ptr %158, align 4, !tbaa !1228
   %160 = sext i32 %159 to i64
   %161 = call noundef ptr @_ZN4llvm11ConstantInt3getEPNS_11IntegerTypeEmb(ptr noundef %156, i64 noundef %160, i1 noundef zeroext false) #15
@@ -5815,7 +5812,7 @@ _ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit44: ; preds = %
   br i1 %.not.i.i.not.i.i46, label %_ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit52, label %173, !prof !765
 
 173:                                              ; preds = %_ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit44
-  %174 = getelementptr inbounds nuw %"struct.clang::CodeGen::CallArg", ptr %.pre3.i.i47, i64 %170
+  %174 = getelementptr inbounds nuw [152 x i8], ptr %.pre3.i.i47, i64 %170
   %175 = icmp uge ptr %23, %.pre3.i.i47
   %176 = icmp ult ptr %23, %174
   %spec.select.i.i.i.i.i.i48 = and i1 %175, %176
@@ -5840,7 +5837,7 @@ _ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit52: ; preds = %
   %.016.i.i.i.i51 = phi ptr [ %23, %_ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit44 ], [ %182, %177 ], [ %23, %.critedge.i.i.i.i49 ]
   %184 = load i32, ptr %41, align 8, !tbaa !697
   %185 = zext i32 %184 to i64
-  %186 = getelementptr inbounds nuw %"struct.clang::CodeGen::CallArg", ptr %183, i64 %185
+  %186 = getelementptr inbounds nuw [152 x i8], ptr %183, i64 %185
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(152) %186, ptr noundef nonnull align 8 dereferenceable(152) %.016.i.i.i.i51, i64 152, i1 false)
   %187 = load i32, ptr %41, align 8, !tbaa !697
   %188 = add i32 %187, 1
@@ -6007,7 +6004,7 @@ _ZNK12_GLOBAL__N_110AtomicInfo24getScalarRValValueOrNullEN5clang7CodeGen6RValueE
 
 switch.lookup:                                    ; preds = %258
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4.sroa.0.i.i.i)
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang7CodeGen15CodeGenFunction16EmitAtomicUpdateENS0_6LValueEN4llvm14AtomicOrderingERKNS3_12function_refIFNS0_6RValueES6_EEEb.20, i64 %261
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang7CodeGen15CodeGenFunction16EmitAtomicUpdateENS0_6LValueEN4llvm14AtomicOrderingERKNS3_12function_refIFNS0_6RValueES6_EEEb.20, i64 %261
   %switch.load = load i32, ptr %switch.gep, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call fastcc void @_ZNK12_GLOBAL__N_110AtomicInfo16CreateTempAllocaEv(ptr dead_on_unwind noalias writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(232) %27)
@@ -6284,7 +6281,7 @@ _ZN12_GLOBAL__N_110AtomicInfo23EmitAtomicUpdateLibcallEN4llvm14AtomicOrderingEN5
 
 switch.lookup182:                                 ; preds = %258
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4.sroa.0.i.i4.i)
-  %switch.gep183 = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang7CodeGen15CodeGenFunction16EmitAtomicUpdateENS0_6LValueEN4llvm14AtomicOrderingERKNS3_12function_refIFNS0_6RValueES6_EEEb.20, i64 %261
+  %switch.gep183 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang7CodeGen15CodeGenFunction16EmitAtomicUpdateENS0_6LValueEN4llvm14AtomicOrderingERKNS3_12function_refIFNS0_6RValueES6_EEEb.20, i64 %261
   %switch.load184 = load i32, ptr %switch.gep183, align 4
   %370 = call fastcc noundef ptr @_ZN12_GLOBAL__N_110AtomicInfo16EmitAtomicLoadOpEN4llvm14AtomicOrderingEbb(ptr noundef nonnull align 8 dereferenceable(232) %27, i32 noundef %switch.load184, i1 noundef zeroext %4, i1 noundef zeroext true)
   %371 = load ptr, ptr %27, align 8, !tbaa !746
@@ -6352,7 +6349,7 @@ switch.lookup182:                                 ; preds = %258
   %410 = getelementptr inbounds i8, ptr %395, i64 -8
   %411 = load ptr, ptr %410, align 8, !tbaa !1258
   %412 = zext i32 %409 to i64
-  %413 = getelementptr inbounds nuw %"class.llvm::Use", ptr %411, i64 %412
+  %413 = getelementptr inbounds nuw [32 x i8], ptr %411, i64 %412
   %414 = load ptr, ptr %413, align 8, !tbaa !1259
   %.not.i.i.i.i.i.i.i = icmp eq ptr %414, null
   br i1 %.not.i.i.i.i.i.i.i, label %422, label %415
@@ -6395,9 +6392,9 @@ _ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit.i.i: ; preds = %
   %432 = load ptr, ptr %410, align 8, !tbaa !1258
   %433 = load i32, ptr %399, align 8, !tbaa !1256
   %434 = zext i32 %433 to i64
-  %435 = getelementptr inbounds nuw %"class.llvm::Use", ptr %432, i64 %434
+  %435 = getelementptr inbounds nuw [32 x i8], ptr %432, i64 %434
   %436 = zext i32 %431 to i64
-  %437 = getelementptr inbounds nuw ptr, ptr %435, i64 %436
+  %437 = getelementptr inbounds nuw [8 x i8], ptr %435, i64 %436
   store ptr %389, ptr %437, align 8, !tbaa !1212
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call fastcc void @_ZNK12_GLOBAL__N_110AtomicInfo16CreateTempAllocaEv(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(232) %27)
@@ -6566,7 +6563,7 @@ _ZL21EmitAtomicUpdateValueRN5clang7CodeGen15CodeGenFunctionERN12_GLOBAL__N_110At
   %505 = add nsw i32 %502, -1
   %506 = load ptr, ptr %410, align 8, !tbaa !1258
   %507 = zext i32 %505 to i64
-  %508 = getelementptr inbounds nuw %"class.llvm::Use", ptr %506, i64 %507
+  %508 = getelementptr inbounds nuw [32 x i8], ptr %506, i64 %507
   %509 = load ptr, ptr %508, align 8, !tbaa !1259
   %.not.i.i.i.i.i24.i.i = icmp eq ptr %509, null
   br i1 %.not.i.i.i.i.i24.i.i, label %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i26.i.i, label %510
@@ -6616,9 +6613,9 @@ _ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit31.i.i: ; preds =
   %527 = load ptr, ptr %410, align 8, !tbaa !1258
   %528 = load i32, ptr %399, align 8, !tbaa !1256
   %529 = zext i32 %528 to i64
-  %530 = getelementptr inbounds nuw %"class.llvm::Use", ptr %527, i64 %529
+  %530 = getelementptr inbounds nuw [32 x i8], ptr %527, i64 %529
   %531 = zext i32 %526 to i64
-  %532 = getelementptr inbounds nuw ptr, ptr %530, i64 %531
+  %532 = getelementptr inbounds nuw [8 x i8], ptr %530, i64 %531
   store ptr %493, ptr %532, align 8, !tbaa !1212
   %533 = load ptr, ptr %27, align 8, !tbaa !746
   %534 = getelementptr inbounds nuw i8, ptr %533, i64 280
@@ -7307,7 +7304,7 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction16EmitAtomicUpdateENS0_
 
 switch.lookup:                                    ; preds = %5
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang7CodeGen15CodeGenFunction16EmitAtomicUpdateENS0_6LValueEN4llvm14AtomicOrderingERKNS3_12function_refIFNS0_6RValueES6_EEEb.20, i64 %27
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang7CodeGen15CodeGenFunction16EmitAtomicUpdateENS0_6LValueEN4llvm14AtomicOrderingERKNS3_12function_refIFNS0_6RValueES6_EEEb.20, i64 %27
   %switch.load = load i32, ptr %switch.gep, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call fastcc void @_ZNK12_GLOBAL__N_110AtomicInfo16CreateTempAllocaEv(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(232) %24)
@@ -7518,7 +7515,7 @@ _ZN12_GLOBAL__N_110AtomicInfo23EmitAtomicUpdateLibcallEN4llvm14AtomicOrderingERK
 
 switch.lookup8:                                   ; preds = %5
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %switch.gep9 = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang7CodeGen15CodeGenFunction16EmitAtomicUpdateENS0_6LValueEN4llvm14AtomicOrderingERKNS3_12function_refIFNS0_6RValueES6_EEEb.20, i64 %27
+  %switch.gep9 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang7CodeGen15CodeGenFunction16EmitAtomicUpdateENS0_6LValueEN4llvm14AtomicOrderingERKNS3_12function_refIFNS0_6RValueES6_EEEb.20, i64 %27
   %switch.load10 = load i32, ptr %switch.gep9, align 4
   %126 = call fastcc noundef ptr @_ZN12_GLOBAL__N_110AtomicInfo16EmitAtomicLoadOpEN4llvm14AtomicOrderingEbb(ptr noundef nonnull align 8 dereferenceable(232) %24, i32 noundef %switch.load10, i1 noundef zeroext %4, i1 noundef zeroext true)
   %127 = load ptr, ptr %24, align 8, !tbaa !746
@@ -7586,7 +7583,7 @@ switch.lookup8:                                   ; preds = %5
   %166 = getelementptr inbounds i8, ptr %151, i64 -8
   %167 = load ptr, ptr %166, align 8, !tbaa !1258
   %168 = zext i32 %165 to i64
-  %169 = getelementptr inbounds nuw %"class.llvm::Use", ptr %167, i64 %168
+  %169 = getelementptr inbounds nuw [32 x i8], ptr %167, i64 %168
   %170 = load ptr, ptr %169, align 8, !tbaa !1259
   %.not.i.i.i.i.i.i.i = icmp eq ptr %170, null
   br i1 %.not.i.i.i.i.i.i.i, label %178, label %171
@@ -7629,9 +7626,9 @@ _ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit.i.i: ; preds = %
   %188 = load ptr, ptr %166, align 8, !tbaa !1258
   %189 = load i32, ptr %155, align 8, !tbaa !1256
   %190 = zext i32 %189 to i64
-  %191 = getelementptr inbounds nuw %"class.llvm::Use", ptr %188, i64 %190
+  %191 = getelementptr inbounds nuw [32 x i8], ptr %188, i64 %190
   %192 = zext i32 %187 to i64
-  %193 = getelementptr inbounds nuw ptr, ptr %191, i64 %192
+  %193 = getelementptr inbounds nuw [8 x i8], ptr %191, i64 %192
   store ptr %145, ptr %193, align 8, !tbaa !1212
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call fastcc void @_ZNK12_GLOBAL__N_110AtomicInfo16CreateTempAllocaEv(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(232) %24)
@@ -7768,7 +7765,7 @@ _ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.
   %249 = add nsw i32 %246, -1
   %250 = load ptr, ptr %166, align 8, !tbaa !1258
   %251 = zext i32 %249 to i64
-  %252 = getelementptr inbounds nuw %"class.llvm::Use", ptr %250, i64 %251
+  %252 = getelementptr inbounds nuw [32 x i8], ptr %250, i64 %251
   %253 = load ptr, ptr %252, align 8, !tbaa !1259
   %.not.i.i.i.i.i28.i.i = icmp eq ptr %253, null
   br i1 %.not.i.i.i.i.i28.i.i, label %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i30.i.i, label %254
@@ -7818,9 +7815,9 @@ _ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit35.i.i: ; preds =
   %271 = load ptr, ptr %166, align 8, !tbaa !1258
   %272 = load i32, ptr %155, align 8, !tbaa !1256
   %273 = zext i32 %272 to i64
-  %274 = getelementptr inbounds nuw %"class.llvm::Use", ptr %271, i64 %273
+  %274 = getelementptr inbounds nuw [32 x i8], ptr %271, i64 %273
   %275 = zext i32 %270 to i64
-  %276 = getelementptr inbounds nuw ptr, ptr %274, i64 %275
+  %276 = getelementptr inbounds nuw [8 x i8], ptr %274, i64 %275
   store ptr %237, ptr %276, align 8, !tbaa !1212
   %277 = load ptr, ptr %24, align 8, !tbaa !746
   %278 = getelementptr inbounds nuw i8, ptr %277, i64 280
@@ -8093,7 +8090,7 @@ define linkonce_odr hidden void @_ZN5clang20DiagStorageAllocator10DeallocateEPNS
   %9 = add i32 %8, 1
   store i32 %9, ptr %7, align 8, !tbaa !680
   %10 = zext i32 %8 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr %4, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %10
   store ptr %1, ptr %11, align 8, !tbaa !699
   br label %43
 
@@ -9484,7 +9481,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4l
   %11 = add i32 %6, -1
   %.02744.i = and i32 %10, %11
   %12 = zext i32 %.02744.i to i64
-  %13 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %12
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !674
   %15 = icmp eq i32 %9, %14
   br i1 %15, label %.loopexit, label %.lr.ph.i, !prof !1346
@@ -9512,7 +9509,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4l
   %25 = add i32 %.02546.i, %.02747.i
   %.027.i = and i32 %25, %11
   %26 = zext i32 %.027.i to i64
-  %27 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %26
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %26
   %28 = load i32, ptr %27, align 4, !tbaa !674
   %29 = icmp eq i32 %9, %28
   br i1 %29, label %.loopexit, label %.lr.ph.i, !prof !1347, !llvm.loop !1348
@@ -9629,7 +9626,7 @@ _ZNK4llvm11ConstantInt12getSExtValueEv.exit:      ; preds = %25, %32
 
 switch.lookup:                                    ; preds = %36
   %39 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZL27emitAtomicCmpXchgFailureSetRN5clang7CodeGen15CodeGenFunctionEPNS_10AtomicExprEbNS0_7AddressES5_S5_S5_PN4llvm5ValueEmNS6_14AtomicOrderingEh, i64 %39
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZL27emitAtomicCmpXchgFailureSetRN5clang7CodeGen15CodeGenFunctionEPNS_10AtomicExprEbNS0_7AddressES5_S5_S5_PN4llvm5ValueEmNS6_14AtomicOrderingEh, i64 %39
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.thread
 
@@ -10868,7 +10865,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   %11 = add i32 %6, -1
   %.02744 = and i32 %10, %11
   %12 = zext i32 %.02744 to i64
-  %13 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %12
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !674
   %15 = icmp eq i32 %9, %14
   br i1 %15, label %._crit_edge, label %.lr.ph, !prof !1346
@@ -10896,7 +10893,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   %25 = add i32 %.02747, %.02546
   %.027 = and i32 %25, %11
   %26 = zext i32 %.027 to i64
-  %27 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %26
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %26
   %28 = load i32, ptr %27, align 4, !tbaa !674
   %29 = icmp eq i32 %9, %28
   br i1 %29, label %._crit_edge, label %.lr.ph, !prof !1347, !llvm.loop !1348
@@ -10999,7 +10996,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_10BasicBlockENS_12DenseMapInfoIjvEENS_6
   %43 = mul i32 %41, 37
   %.02744.i.i = and i32 %43, %39
   %44 = zext i32 %.02744.i.i to i64
-  %45 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %21, i64 %44
+  %45 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %44
   %46 = load i32, ptr %45, align 4, !tbaa !674
   %47 = icmp eq i32 %41, %46
   br i1 %47, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_10BasicBlockENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS3_EEEEjS3_S5_S8_E15LookupBucketForIjEEbRKT_RPS8_.exit.i, label %.lr.ph.i13.i, !prof !1346
@@ -11027,7 +11024,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_10BasicBlockENS_12DenseMapInfoIjvEENS_6
   %57 = add i32 %.02546.i.i, %.02747.i.i
   %.027.i.i = and i32 %57, %39
   %58 = zext i32 %.027.i.i to i64
-  %59 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %21, i64 %58
+  %59 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %58
   %60 = load i32, ptr %59, align 4, !tbaa !674
   %61 = icmp eq i32 %41, %60
   br i1 %61, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_10BasicBlockENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS3_EEEEjS3_S5_S8_E15LookupBucketForIjEEbRKT_RPS8_.exit.i, label %.lr.ph.i13.i, !prof !1347, !llvm.loop !1348
@@ -11148,7 +11145,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_110AtomicInfo21EmitAtomicLoadLibcal
   br i1 %.not.i.i.not.i.i, label %_ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit, label %47, !prof !765
 
 47:                                               ; preds = %3
-  %48 = getelementptr inbounds nuw %"struct.clang::CodeGen::CallArg", ptr %.pre3.i.i, i64 %44
+  %48 = getelementptr inbounds nuw [152 x i8], ptr %.pre3.i.i, i64 %44
   %49 = icmp uge ptr %7, %.pre3.i.i
   %50 = icmp ult ptr %7, %48
   %spec.select.i.i.i.i.i.i = and i1 %49, %50
@@ -11173,7 +11170,7 @@ _ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit: ; preds = %3,
   %.016.i.i.i.i = phi ptr [ %7, %3 ], [ %56, %51 ], [ %7, %.critedge.i.i.i.i ]
   %58 = load i32, ptr %11, align 8, !tbaa !697
   %59 = zext i32 %58 to i64
-  %60 = getelementptr inbounds nuw %"struct.clang::CodeGen::CallArg", ptr %57, i64 %59
+  %60 = getelementptr inbounds nuw [152 x i8], ptr %57, i64 %59
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(152) %60, ptr noundef nonnull align 8 dereferenceable(152) %.016.i.i.i.i, i64 152, i1 false)
   %61 = load i32, ptr %11, align 8, !tbaa !697
   %62 = add i32 %61, 1
@@ -11208,7 +11205,7 @@ _ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit: ; preds = %3,
   br i1 %.not.i.i.not.i.i7, label %_ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit13, label %77, !prof !765
 
 77:                                               ; preds = %_ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit
-  %78 = getelementptr inbounds nuw %"struct.clang::CodeGen::CallArg", ptr %.pre3.i.i8, i64 %74
+  %78 = getelementptr inbounds nuw [152 x i8], ptr %.pre3.i.i8, i64 %74
   %79 = icmp uge ptr %6, %.pre3.i.i8
   %80 = icmp ult ptr %6, %78
   %spec.select.i.i.i.i.i.i9 = and i1 %79, %80
@@ -11233,7 +11230,7 @@ _ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit13: ; preds = %
   %.016.i.i.i.i12 = phi ptr [ %6, %_ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit ], [ %86, %81 ], [ %6, %.critedge.i.i.i.i10 ]
   %88 = load i32, ptr %11, align 8, !tbaa !697
   %89 = zext i32 %88 to i64
-  %90 = getelementptr inbounds nuw %"struct.clang::CodeGen::CallArg", ptr %87, i64 %89
+  %90 = getelementptr inbounds nuw [152 x i8], ptr %87, i64 %89
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(152) %90, ptr noundef nonnull align 8 dereferenceable(152) %.016.i.i.i.i12, i64 152, i1 false)
   %91 = load i32, ptr %11, align 8, !tbaa !697
   %92 = add i32 %91, 1
@@ -11266,7 +11263,7 @@ _ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit13: ; preds = %
   br i1 %.not.i.i.not.i.i15, label %_ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit21, label %105, !prof !765
 
 105:                                              ; preds = %_ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit13
-  %106 = getelementptr inbounds nuw %"struct.clang::CodeGen::CallArg", ptr %.pre3.i.i16, i64 %102
+  %106 = getelementptr inbounds nuw [152 x i8], ptr %.pre3.i.i16, i64 %102
   %107 = icmp uge ptr %5, %.pre3.i.i16
   %108 = icmp ult ptr %5, %106
   %spec.select.i.i.i.i.i.i17 = and i1 %107, %108
@@ -11291,7 +11288,7 @@ _ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit21: ; preds = %
   %.016.i.i.i.i20 = phi ptr [ %5, %_ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit13 ], [ %114, %109 ], [ %5, %.critedge.i.i.i.i18 ]
   %116 = load i32, ptr %11, align 8, !tbaa !697
   %117 = zext i32 %116 to i64
-  %118 = getelementptr inbounds nuw %"struct.clang::CodeGen::CallArg", ptr %115, i64 %117
+  %118 = getelementptr inbounds nuw [152 x i8], ptr %115, i64 %117
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(152) %118, ptr noundef nonnull align 8 dereferenceable(152) %.016.i.i.i.i20, i64 152, i1 false)
   %119 = load i32, ptr %11, align 8, !tbaa !697
   %120 = add i32 %119, 1
@@ -11301,7 +11298,7 @@ _ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit21: ; preds = %
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 72
   %123 = load ptr, ptr %122, align 8, !tbaa !1227
   %124 = zext i32 %2 to i64
-  %125 = getelementptr inbounds nuw i32, ptr @_ZZN4llvm6toCABIENS_14AtomicOrderingEE6lookup, i64 %124
+  %125 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN4llvm6toCABIENS_14AtomicOrderingEE6lookup, i64 %124
   %126 = load i32, ptr %125, align 4, !tbaa !1228
   %127 = sext i32 %126 to i64
   %128 = call noundef ptr @_ZN4llvm11ConstantInt3getEPNS_11IntegerTypeEmb(ptr noundef %123, i64 noundef %127, i1 noundef zeroext false) #15
@@ -11333,7 +11330,7 @@ _ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit21: ; preds = %
   br i1 %.not.i.i.not.i.i23, label %_ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit29, label %142, !prof !765
 
 142:                                              ; preds = %_ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit21
-  %143 = getelementptr inbounds nuw %"struct.clang::CodeGen::CallArg", ptr %.pre3.i.i24, i64 %139
+  %143 = getelementptr inbounds nuw [152 x i8], ptr %.pre3.i.i24, i64 %139
   %144 = icmp uge ptr %4, %.pre3.i.i24
   %145 = icmp ult ptr %4, %143
   %spec.select.i.i.i.i.i.i25 = and i1 %144, %145
@@ -11358,7 +11355,7 @@ _ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit29: ; preds = %
   %.016.i.i.i.i28 = phi ptr [ %4, %_ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit21 ], [ %151, %146 ], [ %4, %.critedge.i.i.i.i26 ]
   %153 = load i32, ptr %11, align 8, !tbaa !697
   %154 = zext i32 %153 to i64
-  %155 = getelementptr inbounds nuw %"struct.clang::CodeGen::CallArg", ptr %152, i64 %154
+  %155 = getelementptr inbounds nuw [152 x i8], ptr %152, i64 %154
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(152) %155, ptr noundef nonnull align 8 dereferenceable(152) %.016.i.i.i.i28, i64 152, i1 false)
   %156 = load i32, ptr %11, align 8, !tbaa !697
   %157 = add i32 %156, 1
@@ -12314,7 +12311,7 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_110AtomicInfo32EmitAtomicCom
   br i1 %.not.i.i.not.i.i, label %_ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit, label %51, !prof !765
 
 51:                                               ; preds = %5
-  %52 = getelementptr inbounds nuw %"struct.clang::CodeGen::CallArg", ptr %.pre3.i.i, i64 %48
+  %52 = getelementptr inbounds nuw [152 x i8], ptr %.pre3.i.i, i64 %48
   %53 = icmp uge ptr %11, %.pre3.i.i
   %54 = icmp ult ptr %11, %52
   %spec.select.i.i.i.i.i.i = and i1 %53, %54
@@ -12339,7 +12336,7 @@ _ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit: ; preds = %5,
   %.016.i.i.i.i = phi ptr [ %11, %5 ], [ %60, %55 ], [ %11, %.critedge.i.i.i.i ]
   %62 = load i32, ptr %15, align 8, !tbaa !697
   %63 = zext i32 %62 to i64
-  %64 = getelementptr inbounds nuw %"struct.clang::CodeGen::CallArg", ptr %61, i64 %63
+  %64 = getelementptr inbounds nuw [152 x i8], ptr %61, i64 %63
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(152) %64, ptr noundef nonnull align 8 dereferenceable(152) %.016.i.i.i.i, i64 152, i1 false)
   %65 = load i32, ptr %15, align 8, !tbaa !697
   %66 = add i32 %65, 1
@@ -12374,7 +12371,7 @@ _ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit: ; preds = %5,
   br i1 %.not.i.i.not.i.i11, label %_ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit17, label %81, !prof !765
 
 81:                                               ; preds = %_ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit
-  %82 = getelementptr inbounds nuw %"struct.clang::CodeGen::CallArg", ptr %.pre3.i.i12, i64 %78
+  %82 = getelementptr inbounds nuw [152 x i8], ptr %.pre3.i.i12, i64 %78
   %83 = icmp uge ptr %10, %.pre3.i.i12
   %84 = icmp ult ptr %10, %82
   %spec.select.i.i.i.i.i.i13 = and i1 %83, %84
@@ -12399,7 +12396,7 @@ _ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit17: ; preds = %
   %.016.i.i.i.i16 = phi ptr [ %10, %_ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit ], [ %90, %85 ], [ %10, %.critedge.i.i.i.i14 ]
   %92 = load i32, ptr %15, align 8, !tbaa !697
   %93 = zext i32 %92 to i64
-  %94 = getelementptr inbounds nuw %"struct.clang::CodeGen::CallArg", ptr %91, i64 %93
+  %94 = getelementptr inbounds nuw [152 x i8], ptr %91, i64 %93
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(152) %94, ptr noundef nonnull align 8 dereferenceable(152) %.016.i.i.i.i16, i64 152, i1 false)
   %95 = load i32, ptr %15, align 8, !tbaa !697
   %96 = add i32 %95, 1
@@ -12432,7 +12429,7 @@ _ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit17: ; preds = %
   br i1 %.not.i.i.not.i.i19, label %_ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit25, label %109, !prof !765
 
 109:                                              ; preds = %_ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit17
-  %110 = getelementptr inbounds nuw %"struct.clang::CodeGen::CallArg", ptr %.pre3.i.i20, i64 %106
+  %110 = getelementptr inbounds nuw [152 x i8], ptr %.pre3.i.i20, i64 %106
   %111 = icmp uge ptr %9, %.pre3.i.i20
   %112 = icmp ult ptr %9, %110
   %spec.select.i.i.i.i.i.i21 = and i1 %111, %112
@@ -12457,7 +12454,7 @@ _ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit25: ; preds = %
   %.016.i.i.i.i24 = phi ptr [ %9, %_ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit17 ], [ %118, %113 ], [ %9, %.critedge.i.i.i.i22 ]
   %120 = load i32, ptr %15, align 8, !tbaa !697
   %121 = zext i32 %120 to i64
-  %122 = getelementptr inbounds nuw %"struct.clang::CodeGen::CallArg", ptr %119, i64 %121
+  %122 = getelementptr inbounds nuw [152 x i8], ptr %119, i64 %121
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(152) %122, ptr noundef nonnull align 8 dereferenceable(152) %.016.i.i.i.i24, i64 152, i1 false)
   %123 = load i32, ptr %15, align 8, !tbaa !697
   %124 = add i32 %123, 1
@@ -12490,7 +12487,7 @@ _ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit25: ; preds = %
   br i1 %.not.i.i.not.i.i27, label %_ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit33, label %137, !prof !765
 
 137:                                              ; preds = %_ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit25
-  %138 = getelementptr inbounds nuw %"struct.clang::CodeGen::CallArg", ptr %.pre3.i.i28, i64 %134
+  %138 = getelementptr inbounds nuw [152 x i8], ptr %.pre3.i.i28, i64 %134
   %139 = icmp uge ptr %8, %.pre3.i.i28
   %140 = icmp ult ptr %8, %138
   %spec.select.i.i.i.i.i.i29 = and i1 %139, %140
@@ -12515,7 +12512,7 @@ _ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit33: ; preds = %
   %.016.i.i.i.i32 = phi ptr [ %8, %_ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit25 ], [ %146, %141 ], [ %8, %.critedge.i.i.i.i30 ]
   %148 = load i32, ptr %15, align 8, !tbaa !697
   %149 = zext i32 %148 to i64
-  %150 = getelementptr inbounds nuw %"struct.clang::CodeGen::CallArg", ptr %147, i64 %149
+  %150 = getelementptr inbounds nuw [152 x i8], ptr %147, i64 %149
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(152) %150, ptr noundef nonnull align 8 dereferenceable(152) %.016.i.i.i.i32, i64 152, i1 false)
   %151 = load i32, ptr %15, align 8, !tbaa !697
   %152 = add i32 %151, 1
@@ -12525,7 +12522,7 @@ _ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit33: ; preds = %
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 72
   %155 = load ptr, ptr %154, align 8, !tbaa !1227
   %156 = zext i32 %3 to i64
-  %157 = getelementptr inbounds nuw i32, ptr @_ZZN4llvm6toCABIENS_14AtomicOrderingEE6lookup, i64 %156
+  %157 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN4llvm6toCABIENS_14AtomicOrderingEE6lookup, i64 %156
   %158 = load i32, ptr %157, align 4, !tbaa !1228
   %159 = sext i32 %158 to i64
   %160 = call noundef ptr @_ZN4llvm11ConstantInt3getEPNS_11IntegerTypeEmb(ptr noundef %155, i64 noundef %159, i1 noundef zeroext false) #15
@@ -12557,7 +12554,7 @@ _ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit33: ; preds = %
   br i1 %.not.i.i.not.i.i35, label %_ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit41, label %174, !prof !765
 
 174:                                              ; preds = %_ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit33
-  %175 = getelementptr inbounds nuw %"struct.clang::CodeGen::CallArg", ptr %.pre3.i.i36, i64 %171
+  %175 = getelementptr inbounds nuw [152 x i8], ptr %.pre3.i.i36, i64 %171
   %176 = icmp uge ptr %7, %.pre3.i.i36
   %177 = icmp ult ptr %7, %175
   %spec.select.i.i.i.i.i.i37 = and i1 %176, %177
@@ -12582,7 +12579,7 @@ _ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit41: ; preds = %
   %.016.i.i.i.i40 = phi ptr [ %7, %_ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit33 ], [ %183, %178 ], [ %7, %.critedge.i.i.i.i38 ]
   %185 = load i32, ptr %15, align 8, !tbaa !697
   %186 = zext i32 %185 to i64
-  %187 = getelementptr inbounds nuw %"struct.clang::CodeGen::CallArg", ptr %184, i64 %186
+  %187 = getelementptr inbounds nuw [152 x i8], ptr %184, i64 %186
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(152) %187, ptr noundef nonnull align 8 dereferenceable(152) %.016.i.i.i.i40, i64 152, i1 false)
   %188 = load i32, ptr %15, align 8, !tbaa !697
   %189 = add i32 %188, 1
@@ -12592,7 +12589,7 @@ _ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit41: ; preds = %
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 72
   %192 = load ptr, ptr %191, align 8, !tbaa !1227
   %193 = zext i32 %4 to i64
-  %194 = getelementptr inbounds nuw i32, ptr @_ZZN4llvm6toCABIENS_14AtomicOrderingEE6lookup, i64 %193
+  %194 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN4llvm6toCABIENS_14AtomicOrderingEE6lookup, i64 %193
   %195 = load i32, ptr %194, align 4, !tbaa !1228
   %196 = sext i32 %195 to i64
   %197 = call noundef ptr @_ZN4llvm11ConstantInt3getEPNS_11IntegerTypeEmb(ptr noundef %192, i64 noundef %196, i1 noundef zeroext false) #15
@@ -12624,7 +12621,7 @@ _ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit41: ; preds = %
   br i1 %.not.i.i.not.i.i43, label %_ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit49, label %211, !prof !765
 
 211:                                              ; preds = %_ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit41
-  %212 = getelementptr inbounds nuw %"struct.clang::CodeGen::CallArg", ptr %.pre3.i.i44, i64 %208
+  %212 = getelementptr inbounds nuw [152 x i8], ptr %.pre3.i.i44, i64 %208
   %213 = icmp uge ptr %6, %.pre3.i.i44
   %214 = icmp ult ptr %6, %212
   %spec.select.i.i.i.i.i.i45 = and i1 %213, %214
@@ -12649,7 +12646,7 @@ _ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit49: ; preds = %
   %.016.i.i.i.i48 = phi ptr [ %6, %_ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit41 ], [ %220, %215 ], [ %6, %.critedge.i.i.i.i46 ]
   %222 = load i32, ptr %15, align 8, !tbaa !697
   %223 = zext i32 %222 to i64
-  %224 = getelementptr inbounds nuw %"struct.clang::CodeGen::CallArg", ptr %221, i64 %223
+  %224 = getelementptr inbounds nuw [152 x i8], ptr %221, i64 %223
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(152) %224, ptr noundef nonnull align 8 dereferenceable(152) %.016.i.i.i.i48, i64 152, i1 false)
   %225 = load i32, ptr %15, align 8, !tbaa !697
   %226 = add i32 %225, 1

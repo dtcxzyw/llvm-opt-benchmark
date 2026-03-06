@@ -1080,10 +1080,10 @@ define internal noundef zeroext i1 @"_ZN60_$LT$url..parser..ParseError$u20$as$u2
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !35, !noundef !3
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN60_$LT$url..parser..ParseError$u20$as$u20$core..fmt..Debug$GT$3fmt17h6040c7c2a5b5d6dfE", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN60_$LT$url..parser..ParseError$u20$as$u20$core..fmt..Debug$GT$3fmt17h6040c7c2a5b5d6dfE", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN60_$LT$url..parser..ParseError$u20$as$u20$core..fmt..Debug$GT$3fmt17h6040c7c2a5b5d6dfE.37", i64 %4
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN60_$LT$url..parser..ParseError$u20$as$u20$core..fmt..Debug$GT$3fmt17h6040c7c2a5b5d6dfE.37", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -2014,7 +2014,7 @@ define internal fastcc void @_ZN11quiche_apps6common9dump_json17he2e554d723f5f44
           to label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1773dbea17c88656E.exit91" unwind label %.thread186.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1773dbea17c88656E.exit91": ; preds = %"_ZN75_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write..write_fmt..SpecWriteFmt$GT$14spec_write_fmt17hed7600c44cf3845bE.exit.thread"
-  %35 = getelementptr inbounds nuw { { i64, [1 x i64] }, { { { { { i64, ptr, {} }, {} }, i64 } }, { i32, [1 x i32] }, { i32, [1 x i32] }, { i16, [1 x i16] }, i32, i32, i32, i32, i32, { i8, [16 x i8] }, [7 x i8] }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { i64, [3 x i64] }, i64, i64, { [1 x i8], i8 }, [6 x i8] }, ptr %0, i64 %1
+  %35 = getelementptr inbounds nuw [232 x i8], ptr %0, i64 %1
   %36 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %37 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %38 = getelementptr inbounds nuw i8, ptr %32, i64 8
@@ -2116,7 +2116,7 @@ define internal fastcc void @_ZN11quiche_apps6common9dump_json17he2e554d723f5f44
   %57 = load ptr, ptr %56, align 8, !nonnull !3, !noundef !3
   %58 = getelementptr inbounds nuw i8, ptr %.sroa.07.0200, i64 120
   %59 = load i64, ptr %58, align 8, !noundef !3
-  %60 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 } }, ptr %57, i64 %59
+  %60 = getelementptr inbounds nuw [48 x i8], ptr %57, i64 %59
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1773dbea17c88656E.exit77"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1773dbea17c88656E.exit77": ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1773dbea17c88656E.exit77.backedge", %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1773dbea17c88656E.exit85"
@@ -2500,7 +2500,7 @@ _ZN4core5slice6memchr6memchr17h2d5411a4e6c78ad8E.exit.thread16.i: ; preds = %.lr
   %160 = load ptr, ptr %159, align 8, !nonnull !3, !noundef !3
   %161 = getelementptr inbounds nuw i8, ptr %.sroa.07.0200, i64 144
   %162 = load i64, ptr %161, align 8, !noundef !3
-  %163 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 } }, ptr %160, i64 %162
+  %163 = getelementptr inbounds nuw [48 x i8], ptr %160, i64 %162
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1773dbea17c88656E.exit61"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1773dbea17c88656E.exit61": ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1773dbea17c88656E.exit61.backedge", %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1773dbea17c88656E.exit69"
@@ -2949,7 +2949,7 @@ _ZN4core5slice6memchr6memchr17h2d5411a4e6c78ad8E.exit.thread16.i310: ; preds = %
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN11quiche_apps6common15hdrs_to_strings17h6e1a00223858160aE(ptr dead_on_unwind noalias noundef writable sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
-  %4 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 } }, ptr %1, i64 %2
+  %4 = getelementptr inbounds nuw [48 x i8], ptr %1, i64 %2
   tail call void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h7e711e4b169702ecE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull %1, ptr noundef nonnull %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.496ad3ee9a508f328fb6f26431887050.21)
   ret void
 }
@@ -3971,7 +3971,7 @@ define { ptr, ptr } @_ZN11quiche_apps6common10Http09Conn9with_urls17h5f4e6d98b24
 
 88:                                               ; preds = %83, %79
   %89 = load ptr, ptr %17, align 8, !alias.scope !251, !noalias !254, !nonnull !3, !noundef !3
-  %90 = getelementptr inbounds nuw { { i64, [1 x i64] }, { { { { { i64, ptr, {} }, {} }, i64 } }, { i32, [1 x i32] }, { i32, [1 x i32] }, { i16, [1 x i16] }, i32, i32, i32, i32, i32, { i8, [16 x i8] }, [7 x i8] }, { { { { i64, ptr, {} }, {} }, i64 } }, { i64, [3 x i64] }, i64 }, ptr %89, i64 %80
+  %90 = getelementptr inbounds nuw [168 x i8], ptr %89, i64 %80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %90, ptr noundef nonnull align 8 dereferenceable(168) %9, i64 168, i1 false)
   %91 = add i64 %80, 1
   store i64 %91, ptr %18, align 8, !alias.scope !251, !noalias !254
@@ -4038,7 +4038,7 @@ define void @"_ZN81_$LT$quiche_apps..common..Http09Conn$u20$as$u20$quiche_apps..
   %16 = load ptr, ptr %15, align 8, !nonnull !3, !noundef !3
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load i64, ptr %17, align 8, !noundef !3
-  %19 = getelementptr inbounds nuw { { i64, [1 x i64] }, { { { { { i64, ptr, {} }, {} }, i64 } }, { i32, [1 x i32] }, { i32, [1 x i32] }, { i16, [1 x i16] }, i32, i32, i32, i32, i32, { i8, [16 x i8] }, [7 x i8] }, { { { { i64, ptr, {} }, {} }, i64 } }, { i64, [3 x i64] }, i64 }, ptr %16, i64 %18
+  %19 = getelementptr inbounds nuw [168 x i8], ptr %16, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %21 = load i64, ptr %20, align 8, !noundef !3
   %22 = ptrtoint ptr %19 to i64
@@ -4070,7 +4070,7 @@ define void @"_ZN81_$LT$quiche_apps..common..Http09Conn$u20$as$u20$quiche_apps..
   %37 = sub nuw i64 %22, %36
   %38 = udiv exact i64 %37, 168
   %.not.i.not = icmp ult i64 %.sroa.10.0, %38
-  %39 = getelementptr inbounds nuw { { i64, [1 x i64] }, { { { { { i64, ptr, {} }, {} }, i64 } }, { i32, [1 x i32] }, { i32, [1 x i32] }, { i16, [1 x i16] }, i32, i32, i32, i32, i32, { i8, [16 x i8] }, [7 x i8] }, { { { { i64, ptr, {} }, {} }, i64 } }, { i64, [3 x i64] }, i64 }, ptr %.sroa.0.0, i64 %.sroa.10.0
+  %39 = getelementptr inbounds nuw [168 x i8], ptr %.sroa.0.0, i64 %.sroa.10.0
   br i1 %.not.i.not, label %.thread26, label %.thread
 
 .thread26:                                        ; preds = %33, %35
@@ -4379,7 +4379,7 @@ define void @"_ZN81_$LT$quiche_apps..common..Http09Conn$u20$as$u20$quiche_apps..
   %91 = phi i1 [ %38, %.lr.ph ], [ %102, %.loopexit86 ]
   %92 = load ptr, ptr %32, align 8, !alias.scope !266, !noalias !269, !nonnull !3
   %.sink11.i = select i1 %91, ptr %92, ptr %32
-  %93 = getelementptr inbounds nuw i64, ptr %.sink11.i, i64 %90
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %.sink11.i, i64 %90
   %94 = add nuw i64 %90, 1
   store i64 %94, ptr %36, align 8
   %95 = load i64, ptr %93, align 8, !noundef !3
@@ -5143,7 +5143,7 @@ define { i64, i64 } @"_ZN81_$LT$quiche_apps..common..Http09Conn$u20$as$u20$quich
   %147 = phi i1 [ %73, %.lr.ph ], [ %161, %159 ]
   %148 = load ptr, ptr %67, align 8, !alias.scope !288, !noalias !291, !nonnull !3
   %.sink11.i = select i1 %147, ptr %148, ptr %67
-  %149 = getelementptr inbounds nuw i64, ptr %.sink11.i, i64 %146
+  %149 = getelementptr inbounds nuw [8 x i8], ptr %.sink11.i, i64 %146
   %150 = add nuw i64 %146, 1
   store i64 %150, ptr %71, align 8
   %151 = load i64, ptr %149, align 8, !noundef !3
@@ -5293,7 +5293,7 @@ define { i64, i64 } @"_ZN81_$LT$quiche_apps..common..Http09Conn$u20$as$u20$quich
   %202 = add i64 %.sroa.01.0.i.i.i, %201
   %203 = and i64 %202, %194
   %204 = sub nsw i64 0, %203
-  %205 = getelementptr inbounds { i64, { { { { i64, ptr, {} }, {} }, i64 } } }, ptr %195, i64 %204
+  %205 = getelementptr inbounds [32 x i8], ptr %195, i64 %204
   %206 = getelementptr inbounds i8, ptr %205, i64 -32
   %207 = invoke noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h8b8df4d57d44b01bE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %66, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %206)
           to label %.noexc123 unwind label %.loopexit
@@ -6300,7 +6300,7 @@ define void @"_ZN81_$LT$quiche_apps..common..Http09Conn$u20$as$u20$quiche_apps..
   %41 = add i64 %.sroa.01.0.i.i.i, %40
   %42 = and i64 %41, %33
   %43 = sub nsw i64 0, %42
-  %44 = getelementptr inbounds { i64, { { { { i64, ptr, {} }, {} }, i64 }, { i64, [2 x i64] }, i64, { [1 x i8], i8 }, [6 x i8] } }, ptr %34, i64 %43
+  %44 = getelementptr inbounds [72 x i8], ptr %34, i64 %43
   %45 = getelementptr inbounds i8, ptr %44, i64 -72
   %46 = call noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h8b8df4d57d44b01bE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %45), !noalias !398
   br i1 %46, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h6d294e25a3e22f8cE.exit", label %50, !prof !262
@@ -6376,7 +6376,7 @@ define void @"_ZN81_$LT$quiche_apps..common..Http09Conn$u20$as$u20$quiche_apps..
   %80 = add i64 %.sroa.01.0.i.i.i.i, %79
   %81 = and i64 %80, %72
   %82 = sub nsw i64 0, %81
-  %83 = getelementptr inbounds { i64, { { { i64, [1 x i64] }, { i64, [1 x i64] }, { i64, i64, i64, i64, { [2 x i32], i32, [1 x i32] } }, { { ptr, [1 x i64] }, i64, { {} }, {} }, i64, i64, i8, [7 x i8] }, { { i64, [1 x i64] }, { i64, [1 x i64] }, { i64, [10 x i64] }, { i64, [1 x i64] }, { { { i64, ptr, {} }, {} }, i64, i64 }, i64, i64, i64, i64, i64, i8, [7 x i8] }, ptr, i64, i8, i8, i8, i8, [4 x i8] } }, ptr %73, i64 %82
+  %83 = getelementptr inbounds [376 x i8], ptr %73, i64 %82
   %84 = getelementptr inbounds i8, ptr %83, i64 -376
   %85 = call noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h8b8df4d57d44b01bE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(376) %84), !noalias !423
   br i1 %85, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h236b64a0f16c0728E.exit.i", label %89, !prof !262
@@ -6509,7 +6509,7 @@ select.unfold.i:                                  ; preds = %._crit_edge.i.i.i, 
   %137 = add i64 %.sroa.01.0.i.i.i34, %136
   %138 = and i64 %137, %129
   %139 = sub nsw i64 0, %138
-  %140 = getelementptr inbounds { i64, { { { { i64, ptr, {} }, {} }, i64 }, { i64, [2 x i64] }, i64, { [1 x i8], i8 }, [6 x i8] } }, ptr %130, i64 %139
+  %140 = getelementptr inbounds [72 x i8], ptr %130, i64 %139
   %141 = getelementptr inbounds i8, ptr %140, i64 -72
   %142 = call noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h8b8df4d57d44b01bE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %141), !noalias !442
   br i1 %142, label %152, label %146, !prof !262
@@ -7509,7 +7509,7 @@ define { ptr, ptr } @_ZN11quiche_apps6common9Http3Conn9with_urls17h632dd555cc956
 
 286:                                              ; preds = %281, %277
   %287 = load ptr, ptr %68, align 8, !alias.scope !503, !noalias !506, !nonnull !3, !noundef !3
-  %288 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 } }, ptr %287, i64 %278
+  %288 = getelementptr inbounds nuw [48 x i8], ptr %287, i64 %278
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %288, ptr noundef nonnull align 8 dereferenceable(48) %40, i64 48, i1 false)
   %289 = add i64 %278, 1
   store i64 %289, ptr %69, align 8, !alias.scope !503, !noalias !506
@@ -7609,7 +7609,7 @@ define { ptr, ptr } @_ZN11quiche_apps6common9Http3Conn9with_urls17h632dd555cc956
 
 320:                                              ; preds = %315, %311
   %321 = load ptr, ptr %60, align 8, !alias.scope !510, !noalias !513, !nonnull !3, !noundef !3
-  %322 = getelementptr inbounds nuw { { i64, [1 x i64] }, { { { { { i64, ptr, {} }, {} }, i64 } }, { i32, [1 x i32] }, { i32, [1 x i32] }, { i16, [1 x i16] }, i32, i32, i32, i32, i32, { i8, [16 x i8] }, [7 x i8] }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { i64, [3 x i64] }, i64, i64, { [1 x i8], i8 }, [6 x i8] }, ptr %321, i64 %312
+  %322 = getelementptr inbounds nuw [232 x i8], ptr %321, i64 %312
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %322, ptr noundef nonnull align 8 dereferenceable(232) %38, i64 232, i1 false)
   %323 = add i64 %312, 1
   store i64 %323, ptr %61, align 8, !alias.scope !510, !noalias !513
@@ -7714,7 +7714,7 @@ define { ptr, ptr } @_ZN11quiche_apps6common9Http3Conn9with_urls17h632dd555cc956
 
 353:                                              ; preds = %348, %344
   %354 = load ptr, ptr %68, align 8, !alias.scope !527, !noalias !530, !nonnull !3, !noundef !3
-  %355 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 } }, ptr %354, i64 %345
+  %355 = getelementptr inbounds nuw [48 x i8], ptr %354, i64 %345
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %355, ptr noundef nonnull align 8 dereferenceable(48) %41, i64 48, i1 false)
   %356 = add i64 %345, 1
   store i64 %356, ptr %69, align 8, !alias.scope !527, !noalias !530
@@ -8047,7 +8047,7 @@ define void @"_ZN80_$LT$quiche_apps..common..Http3Conn$u20$as$u20$quiche_apps..c
   %29 = load ptr, ptr %28, align 8, !nonnull !3, !noundef !3
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %31 = load i64, ptr %30, align 8, !noundef !3
-  %32 = getelementptr inbounds nuw { { i64, [1 x i64] }, { { { { { i64, ptr, {} }, {} }, i64 } }, { i32, [1 x i32] }, { i32, [1 x i32] }, { i16, [1 x i16] }, i32, i32, i32, i32, i32, { i8, [16 x i8] }, [7 x i8] }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { i64, [3 x i64] }, i64, i64, { [1 x i8], i8 }, [6 x i8] }, ptr %29, i64 %31
+  %32 = getelementptr inbounds nuw [232 x i8], ptr %29, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 672
   %34 = load i64, ptr %33, align 8, !noundef !3
   %35 = ptrtoint ptr %32 to i64
@@ -8081,7 +8081,7 @@ define void @"_ZN80_$LT$quiche_apps..common..Http3Conn$u20$as$u20$quiche_apps..c
   %52 = sub nuw i64 %35, %51
   %53 = udiv exact i64 %52, 232
   %.not.i.not = icmp ult i64 %.sroa.10.0, %53
-  %54 = getelementptr inbounds nuw { { i64, [1 x i64] }, { { { { { i64, ptr, {} }, {} }, i64 } }, { i32, [1 x i32] }, { i32, [1 x i32] }, { i16, [1 x i16] }, i32, i32, i32, i32, i32, { i8, [16 x i8] }, [7 x i8] }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { i64, [3 x i64] }, i64, i64, { [1 x i8], i8 }, [6 x i8] }, ptr %.sroa.0.0, i64 %.sroa.10.0
+  %54 = getelementptr inbounds nuw [232 x i8], ptr %.sroa.0.0, i64 %.sroa.10.0
   br i1 %.not.i.not, label %.thread61, label %.thread
 
 .thread61:                                        ; preds = %48, %50
@@ -8831,7 +8831,7 @@ define void @"_ZN80_$LT$quiche_apps..common..Http3Conn$u20$as$u20$quiche_apps..c
   call void @llvm.lifetime.start.p0(ptr nonnull %61)
   %191 = load ptr, ptr %119, align 8, !nonnull !3, !noundef !3
   %192 = load i64, ptr %120, align 8, !noundef !3
-  %193 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 } }, ptr %191, i64 %192
+  %193 = getelementptr inbounds nuw [48 x i8], ptr %191, i64 %192
   invoke void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h7e711e4b169702ecE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %61, ptr noundef nonnull readonly align 8 %191, ptr noundef nonnull readonly %193, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.496ad3ee9a508f328fb6f26431887050.21)
           to label %_ZN11quiche_apps6common15hdrs_to_strings17h6e1a00223858160aE.exit unwind label %.loopexit172
 
@@ -10316,7 +10316,7 @@ define { i64, i64 } @"_ZN80_$LT$quiche_apps..common..Http3Conn$u20$as$u20$quiche
   call void @llvm.lifetime.start.p0(ptr nonnull %155)
   %356 = load ptr, ptr %199, align 8, !nonnull !3, !noundef !3
   %357 = load i64, ptr %200, align 8, !noundef !3
-  %358 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 } }, ptr %356, i64 %357
+  %358 = getelementptr inbounds nuw [48 x i8], ptr %356, i64 %357
   invoke void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h7e711e4b169702ecE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %155, ptr noundef nonnull readonly align 8 %356, ptr noundef nonnull readonly %358, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.496ad3ee9a508f328fb6f26431887050.21)
           to label %_ZN11quiche_apps6common15hdrs_to_strings17h6e1a00223858160aE.exit unwind label %.loopexit272
 
@@ -12515,7 +12515,7 @@ _ZN11quiche_apps6common15hdrs_to_strings17h6e1a00223858160aE.exit: ; preds = %35
 
 1054:                                             ; preds = %1049, %1045
   %1055 = load ptr, ptr %300, align 8, !alias.scope !801, !noalias !804, !nonnull !3, !noundef !3
-  %1056 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 } }, ptr %1055, i64 %1046
+  %1056 = getelementptr inbounds nuw [48 x i8], ptr %1055, i64 %1046
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1056, ptr noundef nonnull align 8 dereferenceable(48) %143, i64 48, i1 false)
   %1057 = add i64 %1046, 1
   store i64 %1057, ptr %299, align 8, !alias.scope !801, !noalias !804
@@ -13059,7 +13059,7 @@ _ZN11quiche_apps6common25writable_response_streams17h262f524a22b0f1adE.exit: ; p
   br i1 %1202, label %1203, label %1210
 
 1203:                                             ; preds = %1200
-  %1204 = getelementptr inbounds nuw i64, ptr %.sink11.i.i.i, i64 %1201
+  %1204 = getelementptr inbounds nuw [8 x i8], ptr %.sink11.i.i.i, i64 %1201
   %1205 = add nuw i64 %1201, 1
   store i64 %1205, ptr %1194, align 8, !alias.scope !838, !noalias !839
   %1206 = load i64, ptr %1204, align 8, !noundef !3
@@ -13487,7 +13487,7 @@ define void @"_ZN80_$LT$quiche_apps..common..Http3Conn$u20$as$u20$quiche_apps..c
   %46 = add i64 %.sroa.01.0.i.i.i, %45
   %47 = and i64 %46, %38
   %48 = sub nsw i64 0, %47
-  %49 = getelementptr inbounds { i64, { { { { i64, ptr, {} }, {} }, i64 }, { i64, [2 x i64] }, i64, { [1 x i8], i8 }, [6 x i8] } }, ptr %39, i64 %48
+  %49 = getelementptr inbounds [72 x i8], ptr %39, i64 %48
   %50 = getelementptr inbounds i8, ptr %49, i64 -72
   %51 = call noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h8b8df4d57d44b01bE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %24, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %50), !noalias !882
   br i1 %51, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h6d294e25a3e22f8cE.exit", label %55, !prof !262
@@ -13563,7 +13563,7 @@ define void @"_ZN80_$LT$quiche_apps..common..Http3Conn$u20$as$u20$quiche_apps..c
   %85 = add i64 %.sroa.01.0.i.i.i.i, %84
   %86 = and i64 %85, %77
   %87 = sub nsw i64 0, %86
-  %88 = getelementptr inbounds { i64, { { { i64, [1 x i64] }, { i64, [1 x i64] }, { i64, i64, i64, i64, { [2 x i32], i32, [1 x i32] } }, { { ptr, [1 x i64] }, i64, { {} }, {} }, i64, i64, i8, [7 x i8] }, { { i64, [1 x i64] }, { i64, [1 x i64] }, { i64, [10 x i64] }, { i64, [1 x i64] }, { { { i64, ptr, {} }, {} }, i64, i64 }, i64, i64, i64, i64, i64, i8, [7 x i8] }, ptr, i64, i8, i8, i8, i8, [4 x i8] } }, ptr %78, i64 %87
+  %88 = getelementptr inbounds [376 x i8], ptr %78, i64 %87
   %89 = getelementptr inbounds i8, ptr %88, i64 -376
   %90 = call noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h8b8df4d57d44b01bE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(376) %89), !noalias !907
   br i1 %90, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h236b64a0f16c0728E.exit.i", label %94, !prof !262
@@ -13696,7 +13696,7 @@ select.unfold.i:                                  ; preds = %._crit_edge.i.i.i, 
   %142 = add i64 %.sroa.01.0.i.i.i54, %141
   %143 = and i64 %142, %134
   %144 = sub nsw i64 0, %143
-  %145 = getelementptr inbounds { i64, { { { { i64, ptr, {} }, {} }, i64 }, { i64, [2 x i64] }, i64, { [1 x i8], i8 }, [6 x i8] } }, ptr %135, i64 %144
+  %145 = getelementptr inbounds [72 x i8], ptr %135, i64 %144
   %146 = getelementptr inbounds i8, ptr %145, i64 -72
   %147 = call noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h8b8df4d57d44b01bE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %24, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %146), !noalias !926
   br i1 %147, label %157, label %151, !prof !262
